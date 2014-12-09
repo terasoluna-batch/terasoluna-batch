@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMapConfig 
+            PUBLIC "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN"
+            "http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+<!-- SqlMapConfig定義 -->
+<sqlMapConfig>
+    <!-- sqlMapを分割する場合、sqlIDの重複を考慮する必要があるため、-->
+    <!-- デフォルト設定ではuseStatementNamespaces=true にしています。 -->
+    <!-- namespaceによるsqlMapの分割が必要ない場合コメントアウトして下さい。 -->
+    <settings useStatementNamespaces="true"/>
+    <sqlMap resource="sqlMap.xml"/>
+</sqlMapConfig>

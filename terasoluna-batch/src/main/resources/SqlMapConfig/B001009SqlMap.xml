@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="B001009">
+
+	<!-- BLOB/CLOB用のdelete文 -->
+	<delete id="deleteLobTable">DELETE FROM LOB_TABLE</delete>
+
+
+	<resultMap id="lobResult" class="jp.terasoluna.batch.lite.functionsample.b001.B001009Param">
+		<result property="id" column="lob_id"/>
+		<result property="clobData" column="clob_data"
+			typeHandler="jp.terasoluna.fw.orm.ibatis.support.ClobReaderTypeHandler" />
+		<result property="blobData" column="blob_data"
+			typeHandler="jp.terasoluna.fw.orm.ibatis.support.BlobInputStreamTypeHandler" />
+	</resultMap>
+
+
+	<select id="selectLobTable" parameterClass="java.lang.String" resultMap="lobResult">
+		SELECT
+		        lob_id
+		        ,clob_data
+		        ,blob_data
+		    FROM
+		        LOB_TABLE
+		    WHERE
+		        lob_id = #value#
+	</select>
+
+
+	<parameterMap id="lobParam" class="jp.terasoluna.batch.lite.functionsample.b001.B001009Param">
+		<parameter property="id"/>
+		<parameter property="clobData"
+				   typeHandler="jp.terasoluna.fw.orm.ibatis.support.ClobReaderTypeHandler"/>
+		<parameter property="blobData"
+				   typeHandler="jp.terasoluna.fw.orm.ibatis.support.BlobInputStreamTypeHandler"/>
+	</parameterMap>
+	
+	<insert id="insertLobTable" parameterMap="lobParam">
+		INSERT
+		    INTO
+		        LOB_TABLE (
+		        	lob_id
+		            ,clob_data
+		            ,blob_data
+		        )
+		    VALUES (?,?,?)
+	</insert>
+
+</sqlMap>

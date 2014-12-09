@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+    <!-- DBCPのデータソースを設定する。  -->
+	<context:property-placeholder location="SqlMapConfig/jdbcMain.properties" />
+ 	<bean id="adminDataSource" destroy-method="close"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${driver}" />
+		<property name="url"             value="${url}" />
+		<property name="username"        value="${username}" />
+		<property name="password"        value="${password}" />
+		<property name="maxActive"       value="5" />
+		<property name="maxIdle"         value="1" />
+		<property name="maxWait"         value="5000" />
+	</bean>
+
+    <!-- システム共通SqlMapConfig定義 -->
+	<bean id="adminSqlMapConfig"
+		class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+		<property name="configLocation" value="SqlMapConfig/SqlMapConfigMain.xml" />
+		<property name="dataSource" ref="adminDataSource"/>
+	</bean>
+
+    <!-- トランザクションマネージャの定義 -->
+    <bean id="adminTransactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="adminDataSource"/>
+    </bean>
+
+    <!-- 照会系のDAO定義 -->
+    <bean id="adminQueryDAO" 
+        class="jp.terasoluna.fw.dao.ibatis.QueryDAOiBatisImpl">
+        <property name="sqlMapClient" ref="adminSqlMapConfig"/>
+    </bean>
+
+    <!-- 照会系のDAO定義（RowHandle版） -->
+    <bean id="adminQueryRowHandleDAO" 
+        class="jp.terasoluna.fw.dao.ibatis.QueryRowHandleDAOiBatisImpl">
+        <property name="sqlMapClient" ref="adminSqlMapConfig"/>
+    </bean>
+  
+    <!-- 更新系のDAO定義 -->
+    <bean id="adminUpdateDAO"
+        class="jp.terasoluna.fw.dao.ibatis.UpdateDAOiBatisImpl">
+        <property name="sqlMapClient" ref="adminSqlMapConfig"/>
+    </bean>
+  
+    <!-- ストアドプロシジャ用のDAO定義 -->
+    <bean id="adminSpDAO"
+        class="jp.terasoluna.fw.dao.ibatis.StoredProcedureDAOiBatisImpl">
+        <property name="sqlMapClient" ref="adminSqlMapConfig"/>
+    </bean>
+
+    <!-- 照会系のDAO定義（ログ出力除外） -->
+	<bean id="adminQueryDAOwhithoutLogging"
+		class="jp.terasoluna.fw.dao.ibatis.QueryDAOiBatisImpl">
+		<property name="sqlMapClient" ref="adminSqlMapConfig" />
+	</bean>
+
+    <!-- 照会系のDAO定義（ログ出力除外） -->
+    <bean id="adminQueryDAOwhithoutLoggingForLog" 
+        class="jp.terasoluna.fw.dao.ibatis.QueryDAOiBatisImpl">
+        <property name="sqlMapClient" ref="adminSqlMapConfig"/>
+    </bean>
+
+    <!-- 更新系のDAO定義（ログ出力除外） -->
+    <bean id="adminUpdateDAOwhithoutLoggingForLog" 
+        class="jp.terasoluna.fw.dao.ibatis.UpdateDAOiBatisImpl">
+        <property name="sqlMapClient" ref="adminSqlMapConfig" />
+    </bean>
+
+</beans>

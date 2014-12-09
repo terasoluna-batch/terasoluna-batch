@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="batchExecutor">
+
+	<!-- ジョブリスト取得 -->
+	<select id="selectJobList"
+		parameterClass="jp.terasoluna.fw.batch.executor.vo.BatchJobListParam"
+		resultClass="jp.terasoluna.fw.batch.executor.vo.BatchJobListResult">
+		SELECT
+		        A.JOB_SEQ_ID AS jobSequenceId
+		    FROM
+		        JOB_CONTROL A
+		<dynamic prepend="WHERE">
+			<isNotNull prepend="AND" property="jobAppCd">
+		        A.JOB_APP_CD = #jobAppCd#
+			</isNotNull>
+			<isNotNull prepend="AND" property="curAppStatusList">
+				<iterate property="curAppStatusList" open="(" close=")"
+					conjunction="OR">
+					A.CUR_APP_STATUS = #curAppStatusList[]#
+				</iterate>
+			</isNotNull>
+		</dynamic>
+		ORDER BY
+		A.CUR_APP_STATUS DESC
+		,A.JOB_SEQ_ID
+	</select>
+
+	<!-- ジョブ取得 -->
+	<select id="selectJob"
+		parameterClass="jp.terasoluna.fw.batch.executor.vo.BatchJobManagementParam"
+		resultClass="jp.terasoluna.fw.batch.executor.vo.BatchJobData">
+		SELECT
+		        A.JOB_SEQ_ID AS jobSequenceId
+		        ,A.JOB_APP_CD AS jobAppCd
+		        ,A.JOB_ARG_NM1 AS jobArgNm1
+		        ,A.JOB_ARG_NM2 AS jobArgNm2
+		        ,A.JOB_ARG_NM3 AS jobArgNm3
+		        ,A.JOB_ARG_NM4 AS jobArgNm4
+		        ,A.JOB_ARG_NM5 AS jobArgNm5
+		        ,A.JOB_ARG_NM6 AS jobArgNm6
+		        ,A.JOB_ARG_NM7 AS jobArgNm7
+		        ,A.JOB_ARG_NM8 AS jobArgNm8
+		        ,A.JOB_ARG_NM9 AS jobArgNm9
+		        ,A.JOB_ARG_NM10 AS jobArgNm10
+		        ,A.JOB_ARG_NM11 AS jobArgNm11
+		        ,A.JOB_ARG_NM12 AS jobArgNm12
+		        ,A.JOB_ARG_NM13 AS jobArgNm13
+		        ,A.JOB_ARG_NM14 AS jobArgNm14
+		        ,A.JOB_ARG_NM15 AS jobArgNm15
+		        ,A.JOB_ARG_NM16 AS jobArgNm16
+		        ,A.JOB_ARG_NM17 AS jobArgNm17
+		        ,A.JOB_ARG_NM18 AS jobArgNm18
+		        ,A.JOB_ARG_NM19 AS jobArgNm19
+		        ,A.JOB_ARG_NM20 AS jobArgNm20
+		        ,A.BLOGIC_APP_STATUS AS blogicAppStatus
+		        ,A.CUR_APP_STATUS AS curAppStatus
+		        ,A.ADD_DATE_TIME AS addDateTime
+		        ,A.UPD_DATE_TIME AS updDateTime
+		    FROM
+		        JOB_CONTROL A
+		    WHERE
+		        A.JOB_SEQ_ID = #jobSequenceId#
+		<dynamic>
+        	<isEqual property="forUpdate" compareValue="true">
+				FOR UPDATE
+        	</isEqual>
+        </dynamic>
+	</select>
+
+	<!-- ジョブ更新 -->
+	<update id="updateJobTable">
+		UPDATE
+		        JOB_CONTROL
+		    SET
+		        UPD_DATE_TIME = #updDateTime#
+		<dynamic>
+    		<isNotEmpty prepend="," property="blogicAppStatus">
+				BLOGIC_APP_STATUS = #blogicAppStatus#
+    		</isNotEmpty>
+    		<isNotEmpty prepend="," property="curAppStatus">
+				CUR_APP_STATUS = #curAppStatus#
+    		</isNotEmpty>
+    	</dynamic>
+		WHERE
+		JOB_SEQ_ID = #jobSequenceId#
+	</update>
+
+	<!-- カレント時刻を取得する（精度はミリ秒まで） -->
+	<select id="currentTimeReader" resultClass="java.sql.Timestamp">
+		SELECT
+		        CURRENT_TIMESTAMP FROM DUAL
+	</select>
+
+	<!-- カレント日付を取得する -->
+	<select id="currentDateReader" resultClass="java.sql.Date">
+		SELECT
+		        current_date FROM DUAL
+	</select>
+
+</sqlMap>

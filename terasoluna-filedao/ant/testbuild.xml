@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="terasoluna-filedao" basedir=".." default="djunit">
+
+  <!-- ●●●●● 環境設定 ■■■■■■■■■■■■■■■■■■■■■■■■■ -->
+
+  <!-- buildディレクトリ -->
+  <property name="build.dir" value="${basedir}/ant" />
+
+  <!-- ●●●●● プロパティファイル設定 ■■■■■■■■■■■■■■■■■■■■ -->
+  <property file="${build.dir}/testbuild.properties" />
+
+  <!-- ●●●●● プロパティ ■■■■■■■■■■■■■■■■■■■■■■■■■ -->
+
+  <!--開発環境プロパティ-->
+  <property name="project.root" value="${basedir}" />
+  <property name="project.src.dir" value="${project.root}/sources" />
+  <property name="project.classpath" value="${project.root}/classes" />
+  <property name="project.lib.dir" value="${project.root}/lib" />
+  <property name="lib.dir" value="${terasoluna.lib.home}/lib"/>
+  <property name="terasoluna.lib.dir" value="${terasoluna.lib.home}/dist" />
+  <property name="terasoluna.class" value="jp/terasoluna" />
+
+  <!-- テスト環境のプロパティ -->
+  <property name="test.root" value="${project.root}/testcases" />
+  <property name="test.src.dir" value="${test.root}/testsources" />
+  <property name="test.classpath" value="${test.root}/testclasses" />
+  <property name="test.lib.dir" value="${test.root}/testlib" />
+  <property name="testreports.dir" value="${test.root}/reports" />
+  <property name="coveragereports.dir" value="${test.root}/coverageReports" />
+
+  <!-- ●●●●● クラスパスの設定 ■■■■■■■■■■■■■■■■■■■■ -->
+
+  <property name="project.lib.classpath"
+            value="	${lib.dir}/commons-lang-2.3.jar;
+					${lib.dir}/commons-logging-1.1.1.jar;
+					${lib.dir}/terasoluna-utlib.jar;
+					${lib.dir}/junit-addons-1.4.jar;
+  	                ${lib.dir}/cglib-nodep-2.1_3.jar" />
+  <property name="project.lib.dir" value="${terasoluna.lib.home}/lib" />
+
+  <property name="test.lib.classpath"
+            value="${lib.dir}/junit-3.8.2.jar;
+				  	${lib.dir}/junit-addons-1.4.jar;
+  					${lib.dir}/terasoluna-utlib.jar;
+				  	${test.lib.dir}/terasoluna-batch-ut.jar" />
+
+  <property name="djunit.lib.path"
+            value="${djunit.home}/djunit.jar;
+                   ${djunit.home}/lib/asm-3.1.jar;
+                   ${djunit.home}/lib/bcel-5.2.jar;
+                   ${djunit.home}/lib/jakarta-oro-2.0.7.jar;
+                   ${djunit.home}/lib/jcoverage-djunit-1.0.5.jar;
+		  	       ${test.lib.dir}/easymockclassextension-2.5.2.jar;
+		  	       ${test.lib.dir}/junit-4.7.jar;
+		  	       ${test.lib.dir}/objenesis-1.2.jar;
+		  	       ${test.lib.dir}/easymock-2.5.2.jar" />   
+	
+  <property name="ant.lib.path"
+            value="${ant.home}/lib/ant.jar;
+			  		${ant.home}/lib/ant-junit.jar" />    
+    
+  <!-- jcoverage用タスク定義 -->
+  <taskdef classpath="${djunit.home}/lib/jcoverage-djunit-1.0.5.jar"
+           resource="tasks.properties"/>
+
+  <!-- djunit用タスク定義 -->
+  <taskdef classpath="${djunit.home}/djunit.jar"
+           resource="djunittasks.properties"/>
+
+  <!-- ●●●●● djUnit実行   ■■■■■■■■■■■■■■■■■■■■■■■■■■ -->
+  <target name="djunit" depends="src_compile,test_compile">
+
+    <!-- 前回作成したディレクトリを削除し、新しく生成 -->
+    <delete dir="${testreports.dir}" />
+    <mkdir  dir="${testreports.dir}" />
+    <mkdir  dir="${testreports.dir}/xmlfile" />
+
+    <!-- djUnit実行 -->
+    <djunit printsummary="yes" targetsrcdir="${project.src.dir};${test.src.dir}" virtualmock="yes" coverage="no" filtertrace="yes" showoutput="no"
+    	usenoverify="yes" usebcel="yes">
+    	<classpath>
+            <pathelement path="${djunit.lib.path}" />
+            <pathelement path="${ant.lib.path}" />
+            <pathelement path="${project.lib.classpath}" />
+            <pathelement path="${test.lib.classpath}" />
+            <pathelement path="${project.classpath}" />
+            <pathelement path="${test.classpath}" />
+        </classpath>
+        <formatter type="xml" usefile="true" />
+        <batchtest fork="yes" todir="${project.root}">
+            <fileset dir="${test.src.dir}">
+                <include name="${terasoluna.class}/fw/file/**/*Test*.java" />
+            </fileset>
+        </batchtest>
+    </djunit>
+
+    <!-- Junitレポート作成 -->
+    <junitreport>
+      <fileset dir="${project.root}">
+        <include name="TEST*.xml" />
+      </fileset>
+      <report format="frames" todir="${testreports.dir}" />
+    </junitreport>
+
+    <!--「TEST-*.xml」ファイルを作業用ディレクトリへコピー  -->
+    <copy todir="${testreports.dir}/xmlfile">
+      <fileset dir="./">
+        <include name="TEST*.xml" />
+      </fileset>
+    </copy>
+
+    <delete>
+      <fileset dir="./">
+        <include name="TEST*.xml" />
+      </fileset>
+    </delete>
+  	<antcall target="delete" />
+  </target>
+
+  <!-- ●●●●● djCoverage カバレッジ計測実行 ■■■■■■■■■■■■■■■■■■■■■ -->
+  <target name="djcoverage">
+    <!--
+    /********************************************************************
+    前回作成したカバレッジ計測結果およびclassファイルを削除
+    *******************************************************************/
+   -->
+    <delete dir="${coveragereports.dir}" />
+  	<mkdir dir="${coveragereports.dir}"/>
+    <delete dir="${build.dir}">
+        <include name="jcoverage.ser"/>
+    </delete>
+
+    <!--
+    /********************************************************************
+     djUnitテストを実行し、XMLを作成する。
+      ・printsummary属性にてテスト毎に1行の要約を出力するように指定。
+      ・fork属性にてAntを実行しているVMとは、別のVMで行うように指定。
+      ・dir属性にて作成されたserファイルの場所を指定。
+      ・filtertrace属性にてエラーやテスト失敗時のスタックトレースの情報を
+        限定せず出力するように指定。
+      ・showoutput属性にてJUnitからの出力をFormatterだけではなく、
+        Antのログにも出力するように指定。
+     *******************************************************************/
+    -->
+    <djunit printsummary="yes" targetsrcdir="${project.src.dir};${test.src.dir}" virtualmock="yes" coverage="yes" filtertrace="yes" showoutput="no"
+    	usenoverify="yes" usebcel="yes">
+        <classpath>
+        	<pathelement path="${djunit.lib.path}" />
+            <pathelement path="${ant.lib.path}" />
+            <pathelement path="${project.lib.classpath}" />
+            <pathelement path="${test.lib.classpath}" />
+            <pathelement path="${project.classpath}" />
+            <pathelement path="${test.classpath}" />
+        </classpath>
+        <!--
+         djunitタスクにて実行されたJUnitテストの結果を出力する方法を定義する。
+         ・type属性にて出力フォーマットをxmlに指定。
+         ・usefile属性にて出力の対象をファイルにするかどうかを指定。
+        -->
+        <formatter type="xml" usefile="true"/>
+        <!--
+         複数のテストを一括して定義する。実行するテストの指定は、ネストしたFilesetで行う。
+         ・fork属性にてAntを実行しているVMとは、別のVMで行うように指定。
+         ・todir属性にてテスト結果の出力先を指定。
+        -->
+        <batchtest fork="yes" todir="${coveragereports.dir}">
+            <fileset dir="${test.src.dir}">
+                <!--テスト対象-->
+                <include name="${terasoluna.class}/fw/**/*Test*.java" />
+                <exclude name="${terasoluna.class}/fw/file/ut/**/*.java" />
+            </fileset>
+        </batchtest>
+    </djunit>
+
+    <!--
+     テスト結果のxmlをもとにHTMLを作成する。
+      ・srcdir属性にてソースのディレクトリを指定。
+      ・destdirにて、作成するHTMLの出力先を指定。
+    -->
+    <djunit-coverage-report serFile="${build.dir}/jcoverage.ser" srcdir="${project.src.dir}" destdir="${coveragereports.dir}" >
+        <classpath>
+        	<pathelement path="${djunit.lib.path}" />
+            <pathelement path="${ant.lib.path}" />
+            <pathelement path="${project.lib.classpath}" />
+            <pathelement path="${test.lib.classpath}" />
+            <pathelement path="${project.classpath}" />
+            <pathelement path="${test.classpath}" /> 
+        </classpath>
+    </djunit-coverage-report>
+
+    <delete>
+        <fileset file="${build.dir}/jcoverage.ser"/>
+        <fileset dir="${coveragereports.dir}">
+            <include name="**/*.class"/>
+            <include name="**/TEST*.xml"/>
+        </fileset>
+    </delete> 
+  </target>
+
+  <!-- ●●●●● ソースファイルコンパイル実行 ■■■■■■■■■■■■■■■■■■ -->
+  <target name="src_compile">
+  	<echo level="info" message="ソースファイルをコンパイルします。"/>
+  	<ant antfile="${build.dir}/build.xml" target="compile" inheritall="false"/>
+  	<echo level="info" message="ソースファイルのコンパイルが完了しました。"/>
+  </target>
+
+  <!-- ●●●●● テストケース コンパイル実行 ■■■■■■■■■■■■■■■■■■■■■ -->
+  <target name="test_compile">
+    <delete dir="${test.classpath}" >
+      <exclude name=".svn" />
+    </delete>    
+    <mkdir  dir="${test.classpath}" />
+
+    <copy todir="${test.classpath}">
+      <fileset dir="${test.src.dir}">
+        <include name="*.xml" />
+        <include name="*.properties" />
+        <include name="**/*.txt" />
+      </fileset>
+    </copy>
+
+    <javac srcdir="${test.src.dir}" destdir="${test.classpath}" debug="on" deprecation="on">
+      <compilerarg line="-Xlint" />
+      <include name="**/**.java" />
+      <classpath>
+        <pathelement path="${djunit.lib.path}" />
+        <pathelement path="${project.lib.classpath}" />
+        <pathelement path="${test.lib.classpath}" />
+        <pathelement path="${project.classpath}" />        
+      </classpath>
+    </javac>
+  </target>
+
+  <!-- ●●●●● 試験密度測定 実行 ■■■■■■■■■■■■■■■■■■■■■ -->
+  <target name="jensity" description="試験密度を測定します.">
+    <ant target="count" antfile="${build.dir}/jensitybuild.xml"></ant>
+  </target> 
+  <!-- ●●●●● UTテスト後生成されたファイル削除　■■■■■■■■■■■■■■■■■■■■■ -->
+       
+  <target name="delete" description="テスト後ファイルの削除">
+    <delete includeEmptyDirs="true" failonerror="false">
+	  <fileset dir="c:/test/">
+	    <include name="new07.csv" />
+	    <include name="src07.csv" />
+	    <include name="new09.csv" />
+	  </fileset>
+	</delete>
+  </target>
+</project>
+

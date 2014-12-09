@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap 
+            PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" 
+            "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="cmnsvc">
+
+  <!-- 入力したシーケンスの次値を取得する -->
+  <select id="sysCodeReader"
+      parameterClass="java.lang.String"
+      resultClass="java.lang.String"
+      >
+    SELECT TO_CHAR(nextval(#seqName#),'FM00000000') AS SEQ 
+  </select>
+
+  <!-- カレント時刻を取得する（精度はミリ秒まで） -->
+  <select id="currentTimeReader" resultClass="java.lang.Object">
+      SELECT TO_TIMESTAMP(TO_CHAR(A.SYS_DATE, 'YYYY-MM-DD ') || TO_CHAR(CURRENT_TIMESTAMP, 'HH24:MI:SS.MS'),
+       'YYYY-MM-DD HH24:MI:SS.MS') AS SYS_DATE
+      	FROM (SELECT current_date AS SYS_DATE) AS A
+  </select>
+
+<!-- TODO 日付管理テーブルを改修したらコメントアウト
+  <select id="currentTimeReader" resultClass="java.lang.Object">
+      SELECT TO_TIMESTAMP(TO_CHAR(A.SYS_DATE, 'YYYY-MM-DD ') || TO_CHAR(CURRENT_TIMESTAMP, 'HH24:MI:SS.MS'),
+       'YYYY-MM-DD HH24:MI:SS.MS') AS SYS_DATE
+      	FROM (SELECT SYS_DATE FROM TB_CMN_SYSDATE_M) AS A
+  </select>
+ -->
+
+  <!-- カレント日付を取得する -->
+  <select id="currentDateReader" resultClass="java.sql.Date">
+    SELECT current_date AS SYS_DATE 
+  </select>  
+
+<!-- TODO 日付管理テーブルを改修したらコメントアウト
+  <select id="currentDateReader" resultClass="java.sql.Date">
+      SELECT SYS_DATE FROM TB_CMN_SYSDATE_M
+  </select>  
+ -->
+
+</sqlMap>

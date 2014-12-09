@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+	<!-- DBCPのデータソースを設定する。  -->
+	<context:property-placeholder location="SqlMapConfig/jdbcMain.properties" />
+	<bean id="dataSource" destroy-method="close"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${driver}" />
+		<property name="url" value="${url}" />
+		<property name="username" value="${username}" />
+		<property name="password" value="${password}" />
+		<property name="maxActive" value="30" />
+		<property name="maxIdle" value="1" />
+		<property name="maxWait" value="5000" />
+	</bean>
+
+	<!-- LOBフィールドを扱うためのOracleLobHandlerの定義 -->
+	<bean id="oracleLobHandler" class="org.springframework.jdbc.support.lob.OracleLobHandler">
+		<property name="nativeJdbcExtractor" ref="simpleExtractor" />
+	</bean>
+
+	<bean id="simpleExtractor"
+		class="org.springframework.jdbc.support.nativejdbc.SimpleNativeJdbcExtractor">
+		<property name="nativeConnectionNecessaryForNativeStatements"
+			value="true" />
+		<property name="nativeConnectionNecessaryForNativePreparedStatements"
+			value="true" />
+		<property name="nativeConnectionNecessaryForNativeCallableStatements"
+			value="true" />
+	</bean>
+
+	<!-- システム共通SqlMapConfig定義 -->
+	<bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+		<property name="configLocation" value="SqlMapConfig/SqlMapConfig.xml" />
+		<property name="dataSource" ref="dataSource" />
+		<property name="lobHandler" ref="oracleLobHandler" />
+	</bean>
+
+	<!-- トランザクションマネージャの定義 -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+        <!-- 複数DB接続を行うためにトランザクション同期を行わない設定 -->
+        <property name="transactionSynchronization" value="2"/>
+	</bean>
+
+	<!-- 照会系のDAO定義 -->
+	<bean id="queryDAO" class="jp.terasoluna.fw.dao.ibatis.QueryDAOiBatisImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<!-- 照会系のDAO定義（RowHandle版） -->
+	<bean id="queryRowHandleDAO" class="jp.terasoluna.fw.dao.ibatis.QueryRowHandleDAOiBatisImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<!-- 更新系のDAO定義 -->
+	<bean id="updateDAO" class="jp.terasoluna.fw.dao.ibatis.UpdateDAOiBatisImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<!-- ストアドプロシジャ用のDAO定義 -->
+	<bean id="spDAO"
+		class="jp.terasoluna.fw.dao.ibatis.StoredProcedureDAOiBatisImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+
+
+    <!-- ファイル操作ユーティリティ -->
+    <bean id="fileControl"
+        class="jp.terasoluna.fw.file.util.FileControlImpl">
+        <!-- 生成されたファイルは常に上書きする。 -->
+        <property name="checkFileExist" value="true"/>
+    </bean>
+
+    <!-- CSVファイルアクセス用（入力）DAO -->
+    <bean id="csvFileQueryDAO"
+        class="jp.terasoluna.fw.file.dao.standard.CSVFileQueryDAO"
+        parent="fileQueryDAO" />
+
+    <!-- 固定長ファイルアクセス用（入力）DAO -->
+<!-- 
+    <bean id="fixedFileQueryDAO"
+        class="jp.terasoluna.fw.file.dao.standard.FixedFileQueryDAO"
+        parent="fileQueryDAO" />
+ -->
+
+    <!-- 可変長ファイルアクセス用（入力）DAO -->
+<!-- 
+    <bean id="variableFileQueryDAO"
+        class="jp.terasoluna.fw.file.dao.standard.VariableFileQueryDAO"
+        parent="fileQueryDAO" />
+ -->
+
+    <!-- その他ファイルアクセス用（入力）DAO -->
+<!-- 
+    <bean id="plainFileQueryDAO"
+        class="jp.terasoluna.fw.file.dao.standard.PlainFileQueryDAO"
+        parent="fileQueryDAO" />
+ -->
+
+    <!-- ファイルアクセス用（入力）DAO 共通定義 -->
+    <bean id="fileQueryDAO"
+        class="jp.terasoluna.fw.file.dao.standard.AbstractFileQueryDAO"
+        abstract="true">
+        <property name="columnParserMap" ref="columnParserMap" />
+    </bean>
+
+    <!-- CSVファイルアクセス用（出力）DAO -->
+    <bean id="csvFileUpdateDAO"
+        class="jp.terasoluna.fw.file.dao.standard.CSVFileUpdateDAO"
+        parent="fileUpdateDAO" />
+
+    <!-- 固定長ファイルアクセス用（出力）DAO -->
+    <bean id="fixedFileUpdateDAO"
+        class="jp.terasoluna.fw.file.dao.standard.FixedFileUpdateDAO"
+        parent="fileUpdateDAO" />
+
+    <!-- 可変長ファイルアクセス用（出力）DAO -->
+    <bean id="variableFileUpdateDAO"
+        class="jp.terasoluna.fw.file.dao.standard.VariableFileUpdateDAO"
+        parent="fileUpdateDAO" />
+
+    <!-- その他ファイルアクセス用（出力）DAO -->
+    <bean id="plainFileUpdateDAO"
+        class="jp.terasoluna.fw.file.dao.standard.PlainFileUpdateDAO"
+        parent="fileUpdateDAO" />
+
+    <!-- ファイルアクセス用（出力）DAO 共通定義 -->
+    <bean id="fileUpdateDAO"
+        class="jp.terasoluna.fw.file.dao.standard.AbstractFileUpdateDAO"
+        abstract="true" scope="prototype">
+        <property name="columnFormatterMap" ref="columnFormatterMap" />
+    </bean>
+
+    <!-- ファイルアクセス用（入力）パーサーMap -->
+    <util:map id="columnParserMap">
+        <entry key="java.lang.String">
+            <bean
+                class="jp.terasoluna.fw.file.dao.standard.NullColumnParser" />
+        </entry>
+        <entry key="java.util.Date">
+            <bean
+                class="jp.terasoluna.fw.file.dao.standard.DateColumnParser" />
+        </entry>
+        <entry key="java.math.BigDecimal">
+            <bean
+                class="jp.terasoluna.fw.file.dao.standard.DecimalColumnParser" />
+        </entry>
+        <entry key="int">
+            <bean
+                class="jp.terasoluna.fw.file.dao.standard.IntColumnParser" />
+        </entry>
+    </util:map>
+
+    <!-- ファイルアクセス用（出力）フォーマッターMap -->
+    <util:map id="columnFormatterMap">
+        <entry key="java.lang.String">
+            <bean class="jp.terasoluna.fw.file.dao.standard.NullColumnFormatter" />
+        </entry>
+        <entry key="java.util.Date">
+            <bean class="jp.terasoluna.fw.file.dao.standard.DateColumnFormatter" />
+        </entry>
+        <entry key="java.math.BigDecimal">
+            <bean class="jp.terasoluna.fw.file.dao.standard.DecimalColumnFormatter" />
+        </entry>
+        <entry key="int">
+            <bean class="jp.terasoluna.fw.file.dao.standard.IntColumnFormatter" />
+        </entry>
+    </util:map>
+
+</beans>

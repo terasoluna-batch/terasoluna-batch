@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<!-- ====================================================================== 
+     2005/08/11 16:40:11                                                        
+
+     terasoluna-dao.jarを生成するビルドファイル。
+     ====================================================================== -->
+<project name="terasoluna-dao" default="jar" basedir="..">
+  <property file="./ant/build.properties" />
+  <property file="../ant/libraries.properties" />
+  <property name="lib.dir" value="${terasoluna.lib.home}/lib"/>
+  <property name="terasoluna.lib.dir" value="${terasoluna.lib.home}/dist"/>
+  <tstamp/>
+	
+  <!-- クラスパスの設定 -->
+  <property name="classpath.lib"
+    value="${lib.dir}/spring-${spring.version}.jar;"/>
+
+  <!-- =================================
+	     ライブラリがあるかチェック
+	   ================================= -->
+  <target name="checkDependencyProject">
+  	<available type="dir" file="${terasoluna.lib.home}/lib" 
+  			property="terasoluna-lib.exist" />
+    <fail unless="terasoluna-lib.exist" 
+    	message="ビルドを実行するにはterasoluna-libプロジェクトが必要です。"/>
+  </target>
+	
+  <!-- =================================
+	       クラスファイルの削除を行う。
+	   ================================= -->
+  <target name="clean" description="クラスファイルの削除">
+    <delete includeEmptyDirs="true" failonerror="false">
+	  <fileset dir="${class.dir}" includes="**/*"/>
+	</delete>
+  </target>
+
+  <!-- =================================
+	       コンパイルを行う。
+	   ================================= -->
+  <target name="compile" depends="clean" description="コンパイル実行">
+  	<mkdir dir="${class.dir}"/>
+  	<javac srcdir="${source.dir}"
+	    destdir="${class.dir}"
+	    classpath="${classpath.lib}"
+  		nowarn="true"
+	    debug="on" />
+  </target>
+
+  <!-- ================================= 
+        　　Jarファイルを作成する         
+       ================================= -->
+  <target name="jar" depends="checkDependencyProject,compile">
+  	<delete file="${dist.dir}/${ant.project.name}.jar"/>
+  	<mkdir dir="${dist.dir}"/>
+  	<jar destfile="${dist.dir}/${ant.project.name}.jar">
+      <manifest>
+        <!-- attribute name="Built-By" value="${user.name}"/ -->
+        <attribute name="Extension-Name" value="${ant.project.name}" />
+        <attribute name="Implementation-Title" value="TERASOLUNA Framework for Java"/>
+        <attribute name="Implementation-Version" value="${terasoluna.version} ${TODAY}"/> 
+        <attribute name="Implementation-Vendor" value="NTT DATA Corporation."/>
+      </manifest>
+      <fileset dir="${class.dir}"/>
+    </jar>
+  	<copy todir="${terasoluna.lib.home}/dist" 
+  	  		file="${dist.dir}/${ant.project.name}.jar"/>
+  </target>
+
+  <!-- ================================= 
+        　　Jarファイルをコピーする         
+       ================================= -->
+  <target name="jarCopy" >
+  	<copy todir="${terasoluna.lib.home}/dist" 
+  	  		file="${dist.dir}/${ant.project.name}-${terasoluna.version}.jar"/>
+  	<copy todir="${terasoluna.lib.home}/src" 
+  	  		file="${dist.dir}/${ant.project.name}-${terasoluna.version}-sources.jar"/>
+  	<copy todir="${terasoluna.lib.home}/doc" 
+  	  		file="${dist.dir}/${ant.project.name}-${terasoluna.version}-javadoc.jar"/>
+  </target>
+
+  <!-- ================================= 
+	      　ソースコードを圧縮したZipファイルを作成する         
+       ================================= -->
+  <target name="createSourceZip">
+  	<delete file="${dist.dir}/${ant.project.name}-src_${terasoluna.version}.zip"/>
+  	<mkdir dir="${dist.dir}"/>
+	<zip destfile="${dist.dir}/${ant.project.name}-src_${terasoluna.version}.zip"
+        basedir="${source.dir}" />
+  	<copy todir="${terasoluna.lib.home}/src" 
+  	  		file="${dist.dir}/${ant.project.name}-src_${terasoluna.version}.zip"/>
+  </target>
+	
+  <!-- =================================
+          JavaDocの生成を行う。
+       ================================= -->
+  <target name="createJavaDoc" description="JavaDoc生成">
+    <delete dir="./doc/javadoc" />
+    <mkdir dir="./doc/javadoc" />
+    <javadoc classpath="${classpath.lib}" 
+    	sourcepath="${source.dir}" destdir="./doc/javadoc"
+        doctitle="${ant.project.name}" windowtitle="${ant.project.name}"
+        use="true" splitindex="true"
+        encoding="Windows-31J"
+        private="true"
+        packagenames="**/*">
+    </javadoc>
+  </target>
+
+  <!-- =================================
+	      　JavaDoc圧縮したZipファイルを作成する
+       ================================= -->
+  <target name="createJavaDocZip" depends="createJavaDoc">
+  	<delete file="${terasoluna.lib.home}/doc/${ant.project.name}-javadoc_${terasoluna.version}.zip"/>
+  	<mkdir dir="${terasoluna.lib.home}/doc/"/>
+  	<zip destfile="${terasoluna.lib.home}/doc/${ant.project.name}-javadoc_${terasoluna.version}.zip"
+        basedir="${basedir}/doc/javadoc/" />
+  	<delete failonerror="false">
+  	  <fileset dir="${basedir}/doc/javadoc">
+	    <include name="**/*" />
+      </fileset>
+    </delete>
+  	<delete dir="${basedir}/doc/javadoc"/>
+  	<delete dir="${basedir}/doc"/>
+  </target>		
+
+  <!-- ================================= 
+        このプロジェクトをZipファイルにしてdistフォルダに格納する。          
+       ================================= -->
+  <target name="zip">
+  	<delete file="${dist.dir}/${ant.project.name}_${terasoluna.version}.zip"/>
+  	<mkdir dir="${dist.dir}"/>
+   	<zip destfile="${dist.dir}/${ant.project.name}.zip">
+	  <fileset dir="${basedir}/..">
+	  	<include name="${ant.project.name}/sources/**/*"/>
+	  	<include name="${ant.project.name}/src/**/*"/>
+	  	<include name="${ant.project.name}/testcases/testsources/**/*"/>
+	  	<include name="${ant.project.name}/LICENSE.txt"/>
+	  	<include name="${ant.project.name}/pom.xml"/>
+	  </fileset>
+    </zip>
+  	<rename dest="${dist.dir}/${ant.project.name}_${terasoluna.version}.zip" 
+  		src="${dist.dir}/${ant.project.name}.zip"/>
+  </target>
+</project>
+

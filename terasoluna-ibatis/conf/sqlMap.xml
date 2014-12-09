@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap 
+            PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+            "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<!-- SqlMap定義 -->
+<sqlMap namespace="user">
+
+<!-- 設定例
+  <select id="selectUsers" 
+          resultClass="jp.terasoluna.sample.user.dao.SelectUsersOutput">
+    SELECT
+        ID AS "userId",
+        NAME AS "userName"
+    FROM
+        USERLIST
+  </select>
+  
+  <select id="getUserCount"
+          parameterClass="jp.terasoluna.sample.user.dao.GetUserCountInput"
+          resultClass="jp.terasoluna.sample.user.dao.GetUserCountOutput">
+    SELECT
+        COUNT (*) AS userCount
+    FROM
+        USERLIST
+    WHERE
+        ID = #userId#
+  </select>
+
+  <insert id="insertUser"
+          parameterClass="jp.terasoluna.sample.user.dao.InsertUserInput">
+    INSERT INTO USERLIST (
+        ID,
+        NAME
+    )
+    VALUES (
+        #userId#,
+        #userName#
+    )
+  </insert>
+  
+  <update id="updateUser"
+          parameterClass="jp.terasoluna.sample.user.dao.UpdateUserInput">
+    UPDATE USERLIST
+    SET
+        NAME = #userName#
+    WHERE
+        ID = #userId#
+  </update>
+  
+  <delete id="deleteUser"
+          parameterClass="jp.terasoluna.sample.user.dao.DeleteUserInput">
+    DELETE FROM
+        USERLIST
+    WHERE
+        ID = #userId#
+  </delete>
+-->
+</sqlMap>

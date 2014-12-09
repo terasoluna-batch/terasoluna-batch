@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMapConfig      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+
+<sqlMapConfig>
+
+	<properties
+		resource="SqlMapAdminConfig/jdbcMain.properties" />
+
+	<settings
+		cacheModelsEnabled="true"
+		enhancementEnabled="true"
+		lazyLoadingEnabled="true"
+		useStatementNamespaces="true"
+		statementCachingEnabled="true"
+		classInfoCacheEnabled="true"
+	/>
+
+	<!-- List the SQL Map XML files. They can be loaded from the 
+		classpath, as they are here (com.domain.data...) -->
+	<sqlMap resource="SqlMapConfig/B001001SqlMap.xml" />
+	<sqlMap resource="SqlMapConfig/B001002SqlMap.xml" />
+	<sqlMap resource="SqlMapConfig/B001003SqlMap.xml" />
+	<sqlMap resource="SqlMapConfig/B001004SqlMap.xml" />
+	<sqlMap resource="SqlMapConfig/B001005SqlMap.xml" />
+	<sqlMap resource="SqlMapConfig/B001008SqlMap.xml" />
+	<sqlMap resource="SqlMapConfig/B001009SqlMap.xml" />
+	<sqlMap resource="SqlMapConfig/B002001SqlMap.xml" />
+	<sqlMap resource="SqlMapConfig/B002002SqlMap.xml" />
+
+</sqlMapConfig>

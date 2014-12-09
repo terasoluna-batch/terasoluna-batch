@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- ======================================================================
+     2011/12/27 20:00:00
+
+     terasoluna-filedao.jarを生成するビルドファイル。
+     ant-batch/build_mvn.xmlから使用される、maven移行過渡期用ビルドファイル。
+     詳細はant-batch/build_mvn.xmlを参照。
+     ====================================================================== -->
+<project name="terasoluna-filedao" default="mvnjarcopy" basedir="..">
+  <property file="./ant/build.properties" />
+  <property name="lib.dir" value="${terasoluna.lib.home}/lib"/>
+  <property name="terasoluna.lib.dir" value="${terasoluna.lib.home}/dist"/>
+  <tstamp/>
+
+  <!-- クラスパスの設定 -->
+  <property name="classpath.lib"
+    value="	${lib.dir}/commons-lang-2.3.jar;
+			${lib.dir}/commons-logging-1.1.1.jar;"/>
+
+  <!-- =================================
+	     ライブラリがあるかチェック
+	   ================================= -->
+  <target name="checkDependencyProject">
+  	<available type="dir" file="${terasoluna.lib.home}/lib"
+  			property="terasoluna-lib.exist" />
+    <fail unless="terasoluna-lib.exist"
+    	message="ビルドを実行するにはterasoluna-libプロジェクトが必要です。"/>
+  </target>
+
+	<!-- =================================
+	       クラスファイルの削除を行う。
+	   ================================= -->
+  <target name="clean" description="クラスファイルの削除">
+    <delete includeEmptyDirs="true" failonerror="false">
+	  <fileset dir="${class.dir}" includes="**/*"/>
+	</delete>
+  </target>
+
+  <!-- =================================
+	       コンパイルを行う。
+	   ================================= -->
+  <target name="compile" depends="clean,checkDependencyProject" description="コンパイル実行">
+  	<mkdir dir="${class.dir}"/>
+  	<javac srcdir="${source.dir}"
+	    destdir="${class.dir}"
+	    classpath="${classpath.lib}"
+  		nowarn="true"
+	    debug="on" />
+  </target>
+
+  <!-- =================================
+        　　Jarファイルを作成する
+            設定ファイル類と作成したJarファイルをterasoluna-libにコピーする
+       ================================= -->
+  <target name="jar" depends="compile">
+  	<delete file="${dist.dir}/${ant.project.name}.jar"/>
+  	<mkdir dir="${dist.dir}"/>
+  	<jar destfile="${dist.dir}/${ant.project.name}.jar">
+      <manifest>
+        <!-- attribute name="Built-By" value="${user.name}"/ -->
+        <attribute name="Extension-Name" value="${ant.project.name}" />
+        <attribute name="Implementation-Title" value="TERASOLUNA Framework for Java"/>
+        <attribute name="Implementation-Version" value="${terasoluna.version} ${TODAY}"/>
+        <attribute name="Implementation-Vendor" value="NTT DATA Corporation."/>
+      </manifest>
+      <fileset dir="${class.dir}"/>
+    </jar>
+  	<copy todir="${terasoluna.lib.home}/dist"
+  	  		file="${dist.dir}/${ant.project.name}.jar"/>
+  </target>
+
+  <!-- =================================
+        　　mvnコマンドで生成したJarファイルをコピーする (jarターゲットの代わり)
+            設定ファイル類と作成したJarファイルをterasoluna-libにコピーする
+       ================================= -->
+  <target name="mvnJarCopy" depends="checkDependencyProject">
+  	<available type="file" file="./target/${ant.project.name}-${terasoluna.version}.jar"
+  			property="jar.exist" />
+  	<fail unless="jar.exist"
+    	message="あらかじめmvn clean compile packageでビルドしておく必要があります。"/>
+
+  	<delete file="${dist.dir}/${ant.project.name}.jar"/>
+  	<mkdir dir="${dist.dir}"/>
+  	<copy tofile="${dist.dir}/${ant.project.name}.jar"
+  	  		file="./target/${ant.project.name}-${terasoluna.version}.jar"/>
+  	<copy todir="${dist.dir}"
+  	  		file="./target/${ant.project.name}-${terasoluna.version}-javadoc.jar"/>
+  	<copy todir="${terasoluna.lib.home}/dist"
+  	  		file="${dist.dir}/${ant.project.name}.jar"/>
+  </target>
+
+  <!-- =================================
+	      　ソースコードを圧縮したZipファイルを作成する
+       ================================= -->
+  <target name="createSourceZip">
+  	<delete file="${dist.dir}/${src.zip.filedao}_${terasoluna.version}.zip"/>
+  	<mkdir dir="${dist.dir}"/>
+  	<zip destfile="${dist.dir}/${src.zip.filedao}_${terasoluna.version}.zip"
+        basedir="${source.dir}" />
+  	<copy todir="${terasoluna.lib.home}/src"
+  	  		file="${dist.dir}/${src.zip.filedao}_${terasoluna.version}.zip"/>
+  </target>
+
+  <!-- =================================
+        　　mvnコマンドで生成したソースJarファイルをコピーする (createSourceZipターゲットの代わり)
+            設定ファイル類と作成したJarファイルをterasoluna-libにコピーする
+       ================================= -->
+  <target name="mvnSourceZipCopy" depends="checkDependencyProject">
+  	<available type="file" file="./target/${ant.project.name}-${terasoluna.version}-sources.jar"
+  			property="srcjar.exist" />
+  	<fail unless="srcjar.exist"
+    	message="あらかじめmvn clean compile packageでビルドしておく必要があります。"/>
+
+  	<delete file="${dist.dir}/${src.zip.filedao}_${terasoluna.version}.zip"/>
+  	<mkdir dir="${dist.dir}"/>
+  	<copy tofile="${dist.dir}/${src.zip.filedao}_${terasoluna.version}.zip"
+  	  		file="./target/${ant.project.name}-${terasoluna.version}-sources.jar"/>
+  	<copy todir="${terasoluna.lib.home}/src"
+  	  		file="${dist.dir}/${src.zip.filedao}_${terasoluna.version}.zip"/>
+  </target>
+
+  <!-- =================================
+	       JavaDocの生成を行う。
+       ================================= -->
+  <target name="createJavaDoc" description="JavaDoc生成">
+    <delete dir="${basedir}/doc/javadoc" />
+    <mkdir dir="${basedir}/doc/javadoc" />
+    <javadoc classpath="${classpath.lib}" 
+    	sourcepath="${source.dir}" destdir="./doc/javadoc"
+        doctitle="${javadoc.filedao.name} ${terasoluna.version}" windowtitle="${javadoc.filedao.name} ${terasoluna.version}"
+        use="true" splitindex="true"
+        encoding="Windows-31J"
+        private="true"
+        packagenames="**/*">
+    </javadoc>
+  </target>
+
+  <!-- =================================
+	      　JavaDoc圧縮したZipファイルを作成する
+       ================================= -->
+  <target name="createJavaDocZip" depends="createJavaDoc">
+  	<delete file="${terasoluna.lib.home}/doc/${javadoc.zip.filedao}_${terasoluna.version}.zip"/>
+  	<mkdir dir="${terasoluna.lib.home}/doc/"/>
+  	<zip destfile="${terasoluna.lib.home}/doc/${javadoc.zip.filedao}_${terasoluna.version}.zip"
+        basedir="${basedir}/doc/javadoc/" />
+  	<delete failonerror="false">
+  	  <fileset dir="${basedir}/doc/javadoc">
+	    <include name="**/*" />
+      </fileset>
+    </delete>
+  	<delete dir="${basedir}/doc/javadoc"/>
+  	<delete dir="${basedir}/doc"/>
+  </target>
+	
+  <!-- =================================
+        このプロジェクトをZipファイルにしてdistフォルダに格納する。
+       ================================= -->
+  <target name="zip">
+  	<delete file="${dist.dir}/${ant.project.name}_${terasoluna.version}.zip"/>
+  	<mkdir dir="${dist.dir}"/>
+   	<zip destfile="${dist.dir}/${ant.project.name}.zip">
+	  <fileset dir="${basedir}/..">
+	    <include name="${ant.project.name}/.classpath"/>
+	  	<include name="${ant.project.name}/.project"/>
+	  	<include name="${ant.project.name}/LICENSE.txt"/>
+	  	<include name="${ant.project.name}/sources/**/*"/>
+	  	<include name="${ant.project.name}/ant/build.properties"/>
+	  	<include name="${ant.project.name}/ant/build.xml"/>
+	  </fileset>
+    </zip>
+  	<rename dest="${dist.dir}/${ant.project.name}_${terasoluna.version}.zip" 
+  		src="${dist.dir}/${ant.project.name}.zip"/>
+  </target>
+</project>

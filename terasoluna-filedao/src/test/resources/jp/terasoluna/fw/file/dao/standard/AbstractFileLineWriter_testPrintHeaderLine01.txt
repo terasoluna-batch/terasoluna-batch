@@ -1,0 +1,1 @@
+AbstractFileLineWriterTest_testInit01()
