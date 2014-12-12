@@ -1,0 +1,1 @@
+javac -d %TARGETDIR% -cp %CLASSPATH% %SOURCES%
