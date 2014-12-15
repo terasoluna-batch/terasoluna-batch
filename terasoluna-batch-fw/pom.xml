@@ -126,12 +126,9 @@
     <modules>
         <!-- Subproject -->
         <module>../terasoluna-batch</module>
-        <module>../terasoluna-batch-update</module>
         <module>../terasoluna-collector</module>
         <module>../terasoluna-commons</module>
-        <module>../terasoluna-dao</module>
         <module>../terasoluna-filedao</module>
-        <module>../terasoluna-ibatis</module>
         <module>../terasoluna-logger</module>
         <module>../terasoluna-validator</module>
     </modules>
