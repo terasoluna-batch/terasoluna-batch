@@ -21,7 +21,7 @@
         <jdk.version>1.5</jdk.version>
 
         <!-- TERASOLUNA -->
-        <terasoluna.fw.version>3.3.0</terasoluna.fw.version>
+        <terasoluna.fw.version>${project.version}</terasoluna.fw.version>
         <terasoluna.unit.version>2.1.0</terasoluna.unit.version>
         <terasoluna.commons.version>${terasoluna.fw.version}</terasoluna.commons.version>
         <terasoluna.dao.version>${terasoluna.fw.version}</terasoluna.dao.version>
