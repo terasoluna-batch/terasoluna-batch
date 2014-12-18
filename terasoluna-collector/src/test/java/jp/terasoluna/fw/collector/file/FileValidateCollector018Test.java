@@ -96,28 +96,6 @@ public class FileValidateCollector018Test extends DaoTestCase {
                     e.printStackTrace();
                     exception_count++;
                 }
-
-                if (logger.isInfoEnabled()) {
-
-                    StringBuilder sb = new StringBuilder();
-                    if (data != null) {
-                        sb.append("UserId:[");
-                        sb.append(String.format("%2s", data.getId()));
-                        sb.append("],");
-                        sb.append("FirstName:[");
-                        sb.append(String.format("%4s", data.getFirstname()));
-                        sb.append("],");
-                        sb.append("FamilyName:[");
-                        sb.append(String.format("%4s", data.getFamilyname()));
-                        sb.append("],");
-                        sb.append("UserAge:[");
-                        sb.append(String.format("%2s", data.getAge()));
-                        sb.append("])");
-                        if (false) {
-                            logger.info(sb.toString());
-                        }
-                    }
-                }
                 count_first++;
 
             }

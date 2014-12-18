@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper
+    namespace="jp.terasoluna.fw.collector.dao.UserListQueryRowHandleDao">
+    <resultMap id="orderResultMap" type="OrderBean">
+        <id property="ordrId" column="ordrId" />
+        <result property="custId" column="custId" />
+        <result property="custName" column="custName" />
+        <result property="orderDate" column="orderDate" />
+        <collection property="orderDetailList" resultMap="orderDetailMap" />
+    </resultMap>
+
+    <resultMap id="orderDetailMap" type="OrderDetailBean">
+        <result property="detlId" column="detlId" />
+        <result property="prodId" column="prodId" />
+        <result property="prodName" column="prodName" />
+        <result property="quantity" column="quantity" />
+        <result property="amount" column="amount" />
+    </resultMap>
+
+    <resultMap id="orderResultMap2" type="Order2Bean">
+        <result property="ordrId" column="ordrId" />
+        <result property="custId" column="custId" />
+        <result property="custName" column="custName" />
+        <result property="orderDate" column="orderDate" />
+        <result property="orderDetail.detlId" column="detlId" />
+        <result property="orderDetail.prodId" column="prodId" />
+        <result property="orderDetail.prodName" column="prodName" />
+        <result property="orderDetail.quantity" column="quantity" />
+        <result property="orderDetail.amount" column="amount" />
+    </resultMap>
+
+    <resultMap id="orderDetailMap2" type="OrderDetailBean">
+        <result property="detlId" column="detlId" />
+        <result property="prodId" column="prodId" />
+        <result property="prodName" column="prodName" />
+        <result property="quantity" column="quantity" />
+        <result property="amount" column="amount" />
+    </resultMap>
+
+    <select id="collect" resultType="UserBean" resultSetType="SCROLL_INSENSITIVE">
+        SELECT
+        USER_ID AS "userId",
+        USER_FAMILY_NAME AS "familyName",
+        USER_FIRST_NAME AS "firstName",
+        USER_AGE AS "userAge"
+        FROM
+        USER_TEST
+        WHERE
+        TO_NUMBER(USER_ID) <![CDATA[ < ]]> 10000
+        ORDER BY
+        TO_NUMBER(USER_ID)
+    </select>
+
+    <select id="collectOrder" resultMap="orderResultMap">
+        SELECT
+        O.ORDR_ID AS "ordrId",
+        O.CUST_ID AS "custId",
+        C.CUST_NAME AS "custName",
+        D.DETL_ID AS "detlId",
+        D.PROD_ID AS "prodId",
+        P.PROD_NAME AS "prodName",
+        D.QUANTITY AS "quantity",
+        TO_NUMBER(D.QUANTITY) * TO_NUMBER(P.UNIT_PRICE) AS "amount",
+        TO_CHAR(O.ORDR_DATE, 'YYYY/MM/DD HH24:MI:SS') AS "orderDate"
+        FROM
+        PRODUCT_ORDER O
+        LEFT OUTER JOIN
+        PRODUCT_ORDER_DETAILS D
+        ON
+        O.ORDR_ID = D.ORDR_ID,
+        CUSTOMERS C,
+        PRODUCTS P
+        WHERE
+        O.CUST_ID = C.CUST_ID
+        AND D.PROD_ID = P.PROD_ID
+    </select>
+
+    <select id="collectOrder2" resultMap="orderResultMap2">
+        SELECT
+        O.ORDR_ID AS "ordrId",
+        O.CUST_ID AS "custId",
+        C.CUST_NAME AS "custName",
+        D.DETL_ID AS "detlId",
+        D.PROD_ID AS "prodId",
+        P.PROD_NAME AS "prodName",
+        D.QUANTITY AS "quantity",
+        TO_NUMBER(D.QUANTITY) * TO_NUMBER(P.UNIT_PRICE) AS "amount",
+        TO_CHAR(O.ORDR_DATE, 'YYYY/MM/DD HH24:MI:SS') AS "orderDate"
+        FROM
+        PRODUCT_ORDER O
+        LEFT OUTER JOIN
+        PRODUCT_ORDER_DETAILS D
+        ON
+        O.ORDR_ID = D.ORDR_ID,
+        CUSTOMERS C,
+        PRODUCTS P
+        WHERE
+        O.CUST_ID = C.CUST_ID
+        AND D.PROD_ID = P.PROD_ID
+    </select>
+
+    <select id="collectDummy" resultType="UserBean" resultSetType="SCROLL_INSENSITIVE">
+        SELECT
+        USER_ID AS "userId",
+        USER_FAMILY_NAME AS "familyName",
+        USER_FIRST_NAME AS "firstName",
+        USER_AGE AS "userAge"
+        FROM
+        USER_TEST_DUMMY
+        WHERE
+        TO_NUMBER(USER_ID) <![CDATA[ < ]]> 10000
+        ORDER BY
+        TO_NUMBER(USER_ID)
+    </select>
+</mapper>

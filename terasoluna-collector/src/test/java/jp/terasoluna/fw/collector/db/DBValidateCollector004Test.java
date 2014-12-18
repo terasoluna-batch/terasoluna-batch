@@ -7,8 +7,8 @@ import java.util.List;
 
 import jp.terasoluna.fw.collector.Collector;
 import jp.terasoluna.fw.collector.CollectorTestUtil;
+import jp.terasoluna.fw.collector.dao.UserListQueryRowHandleDao;
 import jp.terasoluna.fw.collector.util.MemoryInfo;
-import jp.terasoluna.fw.dao.QueryRowHandleDAO;
 import jp.terasoluna.fw.ex.unit.testcase.DaoTestCase;
 
 import org.apache.commons.logging.Log;
@@ -26,7 +26,7 @@ public class DBValidateCollector004Test extends DaoTestCase {
     private static Log logger = LogFactory
             .getLog(DBValidateCollector004Test.class);
 
-    private QueryRowHandleDAO queryRowHandleDAO = null;
+    private UserListQueryRowHandleDao userListQueryRowHandleDao = null;
 
     private int previousThreadCount = 0;
 
@@ -35,8 +35,8 @@ public class DBValidateCollector004Test extends DaoTestCase {
         configLocations.add("jp/terasoluna/fw/collector/db/dataSource.xml");
     }
 
-    public void setQueryRowHandleDAO(QueryRowHandleDAO queryRowHandleDAO) {
-        this.queryRowHandleDAO = queryRowHandleDAO;
+    public void setUserListQueryRowHandleDao(UserListQueryRowHandleDao userListQueryRowHandleDao) {
+        this.userListQueryRowHandleDao = userListQueryRowHandleDao;
     }
 
     @Override
@@ -66,41 +66,22 @@ public class DBValidateCollector004Test extends DaoTestCase {
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.db.DBValidateCollector#DBValidateCollectorTest(jp.terasoluna.fw.dao.QueryRowHandleDAO, java.lang.String, java.lang.Object, int)}
+     * {@link jp.terasoluna.fw.collector.db.DBValidateCollector#DBValidateCollector(Object, String, Object, int, org.springframework.validation.Validator)}
      * のためのテスト・メソッド。
      */
-    public void testDBValidateCollectorTestQueryRowHandleDAOStringObjectInt002()
+    public void testDBValidateCollectorTestObjectStringObjectInt002()
                                                                                 throws Exception {
-        if (this.queryRowHandleDAO == null) {
-            fail("queryRowHandleDAOがnullです。");
+        if (this.userListQueryRowHandleDao == null) {
+            fail("userListQueryRowHandleDaoがnullです。");
         }
 
         int count_first = 0;
         Validator validator = null;
 
         Collector<UserBean> it = new DBValidateCollector<UserBean>(
-                this.queryRowHandleDAO, "selectUserList", null, 100, validator);
+                this.userListQueryRowHandleDao, "collect", null, 100, validator);
         try {
             for (UserBean user : it) {
-                if (logger.isInfoEnabled()) {
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("UserId:[");
-                    sb.append(String.format("%2s", user.getUserId()));
-                    sb.append("],");
-                    sb.append("FirstName:[");
-                    sb.append(String.format("%4s", user.getFirstName()));
-                    sb.append("],");
-                    sb.append("FamilyName:[");
-                    sb.append(String.format("%4s", user.getFamilyName()));
-                    sb.append("],");
-                    sb.append("UserAge:[");
-                    sb.append(String.format("%2s", user.getUserAge()));
-                    sb.append("])");
-                    if (false) {
-                        logger.info(sb.toString());
-                    }
-                }
-
                 count_first++;
 
             }
@@ -118,35 +99,12 @@ public class DBValidateCollector004Test extends DaoTestCase {
             long startTime = System.currentTimeMillis();
 
             Collector<UserBean> it2 = new DBValidateCollector<UserBean>(
-                    this.queryRowHandleDAO, "selectUserList", null, 100,
+                    this.userListQueryRowHandleDao, "collect", null, 100,
                     validator);
             try {
                 for (UserBean user : it2) {
-                    if (logger.isInfoEnabled()) {
-                        StringBuilder sb = new StringBuilder();
-                        if (user != null) {
-                            sb.append("UserId:[");
-                            sb.append(String.format("%2s", user.getUserId()));
-                            sb.append("],");
-                            sb.append("FirstName:[");
-                            sb
-                                    .append(String.format("%4s", user
-                                            .getFirstName()));
-                            sb.append("],");
-                            sb.append("FamilyName:[");
-                            sb.append(String
-                                    .format("%4s", user.getFamilyName()));
-                            sb.append("],");
-                            sb.append("UserAge:[");
-                            sb.append(String.format("%2s", user.getUserAge()));
-                            sb.append("])");
-                            if (false) {
-                                logger.info(sb.toString());
-                            }
-                        } else {
-                            sb.append("UserBean is null.##############");
-                            logger.info(sb.toString());
-                        }
+                    if (logger.isInfoEnabled() && user == null) {
+                        logger.info("UserBean is null.##############");
                     }
 
                     count++;

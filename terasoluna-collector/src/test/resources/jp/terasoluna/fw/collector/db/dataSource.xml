@@ -9,7 +9,7 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
 
 	<!-- DBCPのデータソースを設定する。  -->
-	<context:property-placeholder location="SqlMapConfig/jdbcMain.properties" />
+	<context:property-placeholder location="mybatis/jdbcMain.properties" />
 	<bean id="dataSource" destroy-method="close"
 		class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="${driver}" />
@@ -21,28 +21,6 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 		<property name="maxWait" value="5000" />
 	</bean>
 
-	<!-- LOBフィールドを扱うためのOracleLobHandlerの定義 -->
-	<bean id="oracleLobHandler" class="org.springframework.jdbc.support.lob.OracleLobHandler">
-		<property name="nativeJdbcExtractor" ref="simpleExtractor" />
-	</bean>
-
-	<bean id="simpleExtractor"
-		class="org.springframework.jdbc.support.nativejdbc.SimpleNativeJdbcExtractor">
-		<property name="nativeConnectionNecessaryForNativeStatements"
-			value="true" />
-		<property name="nativeConnectionNecessaryForNativePreparedStatements"
-			value="true" />
-		<property name="nativeConnectionNecessaryForNativeCallableStatements"
-			value="true" />
-	</bean>
-
-	<!-- システム共通SqlMapConfig定義 -->
-	<bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
-		<property name="configLocation" value="SqlMapConfig/SqlMapConfig.xml" />
-		<property name="dataSource" ref="dataSource" />
-		<property name="lobHandler" ref="oracleLobHandler" />
-	</bean>
-
 	<!-- トランザクションマネージャの定義 -->
 	<bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
@@ -51,28 +29,11 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
         <property name="transactionSynchronization" value="2"/>
 	</bean>
 
-	<!-- 照会系のDAO定義 -->
-	<bean id="queryDAO" class="jp.terasoluna.fw.dao.ibatis.QueryDAOiBatisImpl">
-		<property name="sqlMapClient" ref="sqlMapClient" />
-	</bean>
-
-	<!-- 照会系のDAO定義（RowHandle版） -->
-	<bean id="queryRowHandleDAO" class="jp.terasoluna.fw.dao.ibatis.QueryRowHandleDAOiBatisImpl">
-		<property name="sqlMapClient" ref="sqlMapClient" />
-	</bean>
-
-	<!-- 更新系のDAO定義 -->
-	<bean id="updateDAO" class="jp.terasoluna.fw.dao.ibatis.UpdateDAOiBatisImpl">
-		<property name="sqlMapClient" ref="sqlMapClient" />
-	</bean>
-
-	<!-- ストアドプロシジャ用のDAO定義 -->
-	<bean id="spDAO"
-		class="jp.terasoluna.fw.dao.ibatis.StoredProcedureDAOiBatisImpl">
-		<property name="sqlMapClient" ref="sqlMapClient" />
-	</bean>
-
-
+    <!-- システム共通SqlSessionFactory定義 -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="configLocation" value="mybatis/mybatis-config.xml" />
+        <property name="dataSource" ref="dataSource" />
+    </bean>
 
     <!-- ファイル操作ユーティリティ -->
     <bean id="fileControl"
@@ -85,27 +46,6 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
     <bean id="csvFileQueryDAO"
         class="jp.terasoluna.fw.file.dao.standard.CSVFileQueryDAO"
         parent="fileQueryDAO" />
-
-    <!-- 固定長ファイルアクセス用（入力）DAO -->
-<!-- 
-    <bean id="fixedFileQueryDAO"
-        class="jp.terasoluna.fw.file.dao.standard.FixedFileQueryDAO"
-        parent="fileQueryDAO" />
- -->
-
-    <!-- 可変長ファイルアクセス用（入力）DAO -->
-<!-- 
-    <bean id="variableFileQueryDAO"
-        class="jp.terasoluna.fw.file.dao.standard.VariableFileQueryDAO"
-        parent="fileQueryDAO" />
- -->
-
-    <!-- その他ファイルアクセス用（入力）DAO -->
-<!-- 
-    <bean id="plainFileQueryDAO"
-        class="jp.terasoluna.fw.file.dao.standard.PlainFileQueryDAO"
-        parent="fileQueryDAO" />
- -->
 
     <!-- ファイルアクセス用（入力）DAO 共通定義 -->
     <bean id="fileQueryDAO"
@@ -176,5 +116,12 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
             <bean class="jp.terasoluna.fw.file.dao.standard.IntColumnFormatter" />
         </entry>
     </util:map>
+
+    <!-- 照会系のRepository定義（RowHandle版） -->
+    <bean id="userListQueryRowHandleRepository" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface"
+                  value="jp.terasoluna.fw.collector.dao.UserListQueryRowHandleDao" />
+        <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean>
 
 </beans>

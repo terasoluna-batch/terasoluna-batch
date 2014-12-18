@@ -16,13 +16,13 @@
 
 package jp.terasoluna.fw.collector.db;
 
-import jp.terasoluna.fw.dao.event.DataRowHandler;
+import org.apache.ibatis.session.ResultHandler;
 
 /**
  * QueueingDataRowHandlerインタフェース<br>
  * DataRowHandlerの拡張インタフェース。
  */
-public interface QueueingDataRowHandler extends DataRowHandler {
+public interface QueueingDataRowHandler extends ResultHandler {
 
     /**
      * 前回handleRowメソッドに渡された<code>Row</code>データをキューに格納する。

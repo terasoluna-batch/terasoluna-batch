@@ -19,7 +19,6 @@ package jp.terasoluna.fw.collector.db;
 import jp.terasoluna.fw.collector.AbstractCollectorConfig;
 import jp.terasoluna.fw.collector.exception.CollectorExceptionHandler;
 import jp.terasoluna.fw.collector.validate.ValidationErrorHandler;
-import jp.terasoluna.fw.dao.QueryRowHandleDAO;
 
 import org.springframework.validation.Validator;
 
@@ -28,11 +27,11 @@ import org.springframework.validation.Validator;
  */
 public class DBCollectorConfig extends AbstractCollectorConfig {
 
-    /** QueryRowHandleDAO */
-    protected QueryRowHandleDAO queryRowHandleDAO = null;
+    /** QueryRowHandleDao */
+    protected Object queryRowHandleDao = null;
 
-    /** 実行するSQLのID */
-    protected String sqlID = null;
+    /** 実行するメソッド名 */
+    protected String methodName = null;
 
     /** SQLにバインドする値を格納したオブジェクト */
     protected Object bindParams = null;
@@ -45,14 +44,14 @@ public class DBCollectorConfig extends AbstractCollectorConfig {
 
     /**
      * コンストラクタ
-     * @param queryRowHandleDAO QueryRowHandleDAOインスタンス
-     * @param sqlID 実行するSQLのID
+     * @param queryRowHandleDao QueryRowHandleDaoインスタンス
+     * @param methodName 実行するメソッド名
      * @param bindParams SQLにバインドする値を格納したオブジェクト
      */
-    public DBCollectorConfig(QueryRowHandleDAO queryRowHandleDAO, String sqlID,
+    public DBCollectorConfig(Object queryRowHandleDao, String methodName,
             Object bindParams) {
-        this.queryRowHandleDAO = queryRowHandleDAO;
-        this.sqlID = sqlID;
+        this.queryRowHandleDao = queryRowHandleDao;
+        this.methodName = methodName;
         this.bindParams = bindParams;
     }
 
@@ -131,35 +130,35 @@ public class DBCollectorConfig extends AbstractCollectorConfig {
     }
 
     /**
-     * QueryRowHandleDAOを取得する。
-     * @return QueryRowHandleDAO
+     * QueryRowHandleDaoを取得する。
+     * @return QueryRowHandleDao
      */
-    public QueryRowHandleDAO getQueryRowHandleDAO() {
-        return queryRowHandleDAO;
+    public Object getQueryRowHandleDao() {
+        return queryRowHandleDao;
     }
 
     /**
      * QueryRowHandleDAOを設定する。
-     * @param queryRowHandleDAO QueryRowHandleDAO
+     * @param queryRowHandleDao QueryRowHandleDao
      */
-    public void setQueryRowHandleDAO(QueryRowHandleDAO queryRowHandleDAO) {
-        this.queryRowHandleDAO = queryRowHandleDAO;
+    public void setQueryRowHandleDao(Object queryRowHandleDao) {
+        this.queryRowHandleDao = queryRowHandleDao;
     }
 
     /**
-     * 実行するSQLのIDを取得する。
-     * @return 実行するSQLのID
+     * 実行するメソッド名を取得する。
+     * @return 実行するメソッド名
      */
-    public String getSqlID() {
-        return sqlID;
+    public String getMethodName() {
+        return methodName;
     }
 
     /**
-     * 実行するSQLのIDを設定する。
-     * @param sqlID 実行するSQLのID
+     * 実行するメソッド名を設定する。
+     * @param methodName 実行するメソッド名
      */
-    public void setSqlID(String sqlID) {
-        this.sqlID = sqlID;
+    public void setMethodName(String methodName) {
+        this.methodName = methodName;
     }
 
     /**

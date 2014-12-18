@@ -6,8 +6,8 @@ package jp.terasoluna.fw.collector.db;
 import java.util.List;
 
 import jp.terasoluna.fw.collector.CollectorTestUtil;
+import jp.terasoluna.fw.collector.dao.UserListQueryRowHandleDao;
 import jp.terasoluna.fw.collector.util.MemoryInfo;
-import jp.terasoluna.fw.dao.QueryRowHandleDAO;
 import jp.terasoluna.fw.ex.unit.testcase.DaoTestCase;
 
 import org.apache.commons.logging.Log;
@@ -25,7 +25,7 @@ public class DBCollector007Test extends DaoTestCase {
      */
     private static Log logger = LogFactory.getLog(DBCollector007Test.class);
 
-    private QueryRowHandleDAO queryRowHandleDAO = null;
+    private UserListQueryRowHandleDao userListQueryRowHandleDao = null;
 
     private int previousThreadCount = 0;
 
@@ -34,8 +34,8 @@ public class DBCollector007Test extends DaoTestCase {
         configLocations.add("jp/terasoluna/fw/collector/db/dataSource.xml");
     }
 
-    public void setQueryRowHandleDAO(QueryRowHandleDAO queryRowHandleDAO) {
-        this.queryRowHandleDAO = queryRowHandleDAO;
+    public void setUserListQueryRowHandleDao(UserListQueryRowHandleDao userListQueryRowHandleDao) {
+        this.userListQueryRowHandleDao = userListQueryRowHandleDao;
     }
 
     @Override
@@ -72,7 +72,7 @@ public class DBCollector007Test extends DaoTestCase {
     	DBCollectorPrePostProcessStub002 dbcppp = new DBCollectorPrePostProcessStub002();
     	// configの引数に指定したSQLIDは存在しないテーブルを参照（CallでExceptionを起こさせる）
     	DBCollectorConfig config = new DBCollectorConfig(
-    			this.queryRowHandleDAO, "selectUserListDummy", null);
+    			this.userListQueryRowHandleDao, "collectDummy", null);
     	config.setExecuteByConstructor(true);
     	config.setDbCollectorPrePostProcess(dbcppp);
     	DBCollector<UserBean> dbc = new DBCollector<UserBean>(config);
@@ -95,7 +95,7 @@ public class DBCollector007Test extends DaoTestCase {
     public void testCall002() throws Exception {
     	DBCollectorPrePostProcessStub004 dbcppp = new DBCollectorPrePostProcessStub004();
     	DBCollectorConfig config = new DBCollectorConfig(
-    			this.queryRowHandleDAO, "selectUserList", null);
+    			this.userListQueryRowHandleDao, "collect", null);
     	config.setExecuteByConstructor(true);
     	config.setDbCollectorPrePostProcess(dbcppp);
     	DBCollector<UserBean> dbc = new DBCollector<UserBean>(config);
@@ -127,7 +127,7 @@ public class DBCollector007Test extends DaoTestCase {
     	DBCollectorPrePostProcessStub004 dbcppp = new DBCollectorPrePostProcessStub004();
     	// configの引数に指定したSQLIDは存在しないテーブルを参照（CallでExceptionを起こさせる）
     	DBCollectorConfig config = new DBCollectorConfig(
-    			this.queryRowHandleDAO, "selectUserListDummy", null);
+    			this.userListQueryRowHandleDao, "collectDummy", null);
     	config.setExecuteByConstructor(true);
     	config.setDbCollectorPrePostProcess(dbcppp);
     	DBCollector<UserBean> dbc = new DBCollector<UserBean>(config);
@@ -159,7 +159,7 @@ public class DBCollector007Test extends DaoTestCase {
     	DBCollectorPrePostProcessStub005 dbcppp = new DBCollectorPrePostProcessStub005();
     	// configの引数に指定したSQLIDは存在しないテーブルを参照（CallでExceptionを起こさせる）
     	DBCollectorConfig config = new DBCollectorConfig(
-    			this.queryRowHandleDAO, "selectUserListDummy", null);
+    			this.userListQueryRowHandleDao, "collectDummy", null);
     	config.setExecuteByConstructor(true);
     	config.setDbCollectorPrePostProcess(dbcppp);
     	DBCollector<UserBean> dbc = new DBCollector<UserBean>(config);
@@ -191,7 +191,7 @@ public class DBCollector007Test extends DaoTestCase {
     	DBCollectorPrePostProcessStub006 dbcppp = new DBCollectorPrePostProcessStub006();
     	// configの引数に指定したSQLIDは存在しないテーブルを参照（CallでExceptionを起こさせる）
     	DBCollectorConfig config = new DBCollectorConfig(
-    			this.queryRowHandleDAO, "selectUserListDummy", null);
+    			this.userListQueryRowHandleDao, "collectDummy", null);
     	config.setExecuteByConstructor(true);
     	config.setDbCollectorPrePostProcess(dbcppp);
     	DBCollector<UserBean> dbc = new DBCollector<UserBean>(config);
@@ -234,7 +234,7 @@ public class DBCollector007Test extends DaoTestCase {
     public void testPreprocess001() throws Exception{
     	DBCollectorPrePostProcessStub003 dbcppp = new DBCollectorPrePostProcessStub003();
     	DBCollectorConfig config = new DBCollectorConfig(
-    			this.queryRowHandleDAO, "selectUserListDummy", null);
+    			this.userListQueryRowHandleDao, "collectDummy", null);
     	config.setDbCollectorPrePostProcess(dbcppp);
     	DBCollector<UserBean> dbc = new DBCollector<UserBean>(config);
     	// preprocess実行前の確認（rowHandlerはnull）
@@ -256,7 +256,7 @@ public class DBCollector007Test extends DaoTestCase {
     public void testPostprocessException001() throws Exception {
     	DBCollectorPrePostProcessStub003 dbcppp = new DBCollectorPrePostProcessStub003();
     	DBCollectorConfig config = new DBCollectorConfig(
-    			this.queryRowHandleDAO, "selectUserListDummy", null);
+    			this.userListQueryRowHandleDao, "collectDummy", null);
     	config.setDbCollectorPrePostProcess(dbcppp);
     	DBCollector<UserBean> dbc = new DBCollector<UserBean>(config);
     	
@@ -278,7 +278,7 @@ public class DBCollector007Test extends DaoTestCase {
     public void testPostprocessComplete001() throws Exception {
     	DBCollectorPrePostProcessStub003 dbcppp = new DBCollectorPrePostProcessStub003();
     	DBCollectorConfig config = new DBCollectorConfig(
-    			this.queryRowHandleDAO, "selectUserListDummy", null);
+    			this.userListQueryRowHandleDao, "collectDummy", null);
     	config.setDbCollectorPrePostProcess(dbcppp);
     	DBCollector<UserBean> dbc = new DBCollector<UserBean>(config);
     	// preprocess実行前の確認（rowHandlerはnull）

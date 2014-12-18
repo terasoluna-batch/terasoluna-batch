@@ -53,11 +53,11 @@ public class Queueing1NRelationDataRowHandlerImplTest {
         assertNotNull(drh);
 
         try {
-            drh.handleRow(null);
-            drh.handleRow(null);
-            drh.handleRow(null);
-            drh.handleRow(null);
-            drh.handleRow(null);
+            drh.handleResult(null);
+            drh.handleResult(null);
+            drh.handleResult(null);
+            drh.handleResult(null);
+            drh.handleResult(null);
         } catch (Exception e) {
             e.printStackTrace();
             fail();
@@ -74,11 +74,16 @@ public class Queueing1NRelationDataRowHandlerImplTest {
         assertNotNull(drh);
 
         try {
-            drh.handleRow("hoge1");
-            drh.handleRow("hoge2");
-            drh.handleRow(null);
-            drh.handleRow("hoge3");
-            drh.handleRow("hoge4");
+            DummyResultContext context = new DummyResultContext();
+            context.setResultObject("hoge1");
+            drh.handleResult(context);
+            context.setResultObject("hoge2");
+            drh.handleResult(context);
+            drh.handleResult(null);
+            context.setResultObject("hoge3");
+            drh.handleResult(context);
+            context.setResultObject("hoge4");
+            drh.handleResult(context);
         } catch (Exception e) {
             e.printStackTrace();
             fail();
@@ -97,11 +102,16 @@ public class Queueing1NRelationDataRowHandlerImplTest {
         assertNotNull(drh);
 
         try {
-            drh.handleRow("hoge1");
-            drh.handleRow("hoge2");
-            drh.handleRow(null);
-            drh.handleRow("hoge3");
-            drh.handleRow("hoge4");
+            DummyResultContext context = new DummyResultContext();
+            context.setResultObject("hoge1");
+            drh.handleResult(context);
+            context.setResultObject("hoge2");
+            drh.handleResult(context);
+            drh.handleResult(null);
+            context.setResultObject("hoge3");
+            drh.handleResult(context);
+            context.setResultObject("hoge4");
+            drh.handleResult(context);
         } catch (Exception e) {
             e.printStackTrace();
             fail();
@@ -124,7 +134,9 @@ public class Queueing1NRelationDataRowHandlerImplTest {
                 Thread.currentThread().interrupt();
                 try {
                     // 割り込み発生時はhandleRowは処理されず、InterruptedRuntimeExceptionが発生すること。
-                    drh.handleRow("rowObject");
+                    DummyResultContext context = new DummyResultContext();
+                    context.setResultObject("rowObject");
+                    drh.handleResult(context);
                     fail();
                 } catch (InterruptedRuntimeException e) {
                     assertNull(e.getCause());
@@ -149,10 +161,14 @@ public class Queueing1NRelationDataRowHandlerImplTest {
         assertNotNull(drh);
 
         try {
-            drh.handleRow("hoge1");
-            drh.handleRow("hoge2");
+            DummyResultContext context = new DummyResultContext();
+            context.setResultObject("hoge1");
+            drh.handleResult(context);
+            context.setResultObject("hoge2");
+            drh.handleResult(context);
             dbCollector.exceptionFlag = true;
-            drh.handleRow("hoge3");
+            context.setResultObject("hoge3");
+            drh.handleResult(context);
             fail("失敗");
         } catch (InterruptedRuntimeException e) {
             assertNotNull(e.getCause());
@@ -220,17 +236,22 @@ public class Queueing1NRelationDataRowHandlerImplTest {
 
         // 以下、スレッドに割り込みが発生しない限り継続されること。
         // queueは空(prevRow=hoge1)
-        drh.handleRow(hoge1);
+        DummyResultContext context = new DummyResultContext();
+        context.setResultObject(hoge1);
+        drh.handleResult(context);
         // queue=[hoge1](prevRow=hoge2)
-        drh.handleRow(hoge2);
+        context.setResultObject(hoge2);
+        drh.handleResult(context);
         // queue=[hoge1,hoge2](prevRow=hoge2)
         drh.delayCollect();
         // queue=[hoge1,hoge2,hoge2(プロパティ初期化)](prevRow=hoge3)
-        drh.handleRow(hoge3);
+        context.setResultObject(hoge3);
+        drh.handleResult(context);
         // queue=[hoge1,hoge2,hoge2(プロパティ初期化),hoge3](prevRow=hoge3)
         drh.delayCollect();
         // queue=[hoge1,hoge2,hoge2(プロパティ初期化),hoge3,hoge3(プロパティ初期化)](prevRow=hoge4)
-        drh.handleRow(hoge4);
+        context.setResultObject(hoge4);
+        drh.handleResult(context);
 
         assertEquals(5L, drh.dataCount.get());
         DataValueObject obj1 = dbCollector.getQueue().poll();
@@ -280,8 +301,11 @@ public class Queueing1NRelationDataRowHandlerImplTest {
         assertNotNull(drh);
 
         try {
-            drh.handleRow("hoge1");
-            drh.handleRow("hoge2");
+            DummyResultContext context = new DummyResultContext();
+            context.setResultObject("hoge1");
+            drh.handleResult(context);
+            context.setResultObject("hoge2");
+            drh.handleResult(context);
             drh.delayCollect();
             fail("失敗");
         } catch (SystemException e) {

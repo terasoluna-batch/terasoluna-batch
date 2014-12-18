@@ -8,9 +8,9 @@ import java.util.List;
 
 import jp.terasoluna.fw.collector.Collector;
 import jp.terasoluna.fw.collector.CollectorTestUtil;
+import jp.terasoluna.fw.collector.dao.UserListQueryRowHandleDao;
 import jp.terasoluna.fw.collector.util.ControlBreakChecker;
 import jp.terasoluna.fw.collector.util.MemoryInfo;
-import jp.terasoluna.fw.dao.QueryRowHandleDAO;
 import jp.terasoluna.fw.ex.unit.testcase.DaoTestCase;
 import jp.terasoluna.fw.exception.SystemException;
 import junit.framework.AssertionFailedError;
@@ -29,7 +29,7 @@ public class DBCollector002Test extends DaoTestCase {
      */
     private static Log logger = LogFactory.getLog(DBCollector002Test.class);
 
-    private QueryRowHandleDAO queryRowHandleDAO = null;
+    private UserListQueryRowHandleDao userListQueryRowHandleDao = null;
 
     private int previousThreadCount = 0;
 
@@ -38,8 +38,8 @@ public class DBCollector002Test extends DaoTestCase {
         configLocations.add("jp/terasoluna/fw/collector/db/dataSource.xml");
     }
 
-    public void setQueryRowHandleDAO(QueryRowHandleDAO queryRowHandleDAO) {
-        this.queryRowHandleDAO = queryRowHandleDAO;
+    public void setUserListQueryRowHandleDao(UserListQueryRowHandleDao userListQueryRowHandleDao) {
+        this.userListQueryRowHandleDao = userListQueryRowHandleDao;
     }
 
     @Override
@@ -81,13 +81,13 @@ public class DBCollector002Test extends DaoTestCase {
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.db.DBCollector#DBIteratorTest(jp.terasoluna.fw.dao.QueryRowHandleDAO, java.lang.String, java.lang.Object)}
+     * {@link jp.terasoluna.fw.collector.db.DBCollector#(java.lang.Object, java.lang.String, java.lang.Object)}
      * のためのテスト・メソッド。
      */
-    public void testDBCollectorTestQueryRowHandleDAOStringObject001()
+    public void testDBCollectorTestQueryRowHandleDaoStringObject001()
                                                                      throws Exception {
-        if (this.queryRowHandleDAO == null) {
-            fail("queryRowHandleDAOがnullです。");
+        if (this.userListQueryRowHandleDao == null) {
+            fail("userListQueryRowHandleDaoがnullです。");
         }
 
         int count_first = 0;
@@ -97,7 +97,7 @@ public class DBCollector002Test extends DaoTestCase {
         do {
             retryFlg = false;
             Collector<UserBean> col = new DBCollector<UserBean>(
-                    this.queryRowHandleDAO, "selectUserList", null);
+                    this.userListQueryRowHandleDao, "collect", null);
             try {
                 for (UserBean user : col) {
                     if (logger.isInfoEnabled()) {
@@ -114,9 +114,7 @@ public class DBCollector002Test extends DaoTestCase {
                         sb.append("UserAge:[");
                         sb.append(String.format("%2s", user.getUserAge()));
                         sb.append("])");
-                        if (false) {
-                            logger.info(sb.toString());
-                        }
+                        logger.info(sb.toString());
                     }
 
                     count_first++;
@@ -164,34 +162,11 @@ public class DBCollector002Test extends DaoTestCase {
             long startTime = System.currentTimeMillis();
 
             Collector<UserBean> col2 = new DBCollector<UserBean>(
-                    this.queryRowHandleDAO, "selectUserList", null);
+                    this.userListQueryRowHandleDao, "collect", null);
             try {
                 for (UserBean user : col2) {
-                    if (logger.isInfoEnabled()) {
-                        StringBuilder sb = new StringBuilder();
-                        if (user != null) {
-                            sb.append("UserId:[");
-                            sb.append(String.format("%2s", user.getUserId()));
-                            sb.append("],");
-                            sb.append("FirstName:[");
-                            sb
-                                    .append(String.format("%4s", user
-                                            .getFirstName()));
-                            sb.append("],");
-                            sb.append("FamilyName:[");
-                            sb.append(String
-                                    .format("%4s", user.getFamilyName()));
-                            sb.append("],");
-                            sb.append("UserAge:[");
-                            sb.append(String.format("%2s", user.getUserAge()));
-                            sb.append("])");
-                            if (false) {
-                                logger.info(sb.toString());
-                            }
-                        } else {
-                            sb.append("UserBean is null.##############");
-                            logger.info(sb.toString());
-                        }
+                    if (logger.isInfoEnabled() && user == null) {
+                        logger.info("UserBean is null.##############");
                     }
 
                     count++;
@@ -222,19 +197,19 @@ public class DBCollector002Test extends DaoTestCase {
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.db.DBCollector#DBCollectorTest(jp.terasoluna.fw.dao.QueryRowHandleDAO, java.lang.String, java.lang.Object)}
+     * {@link jp.terasoluna.fw.collector.db.DBCollector#(java.lang.Object, java.lang.String, java.lang.Object)}
      * のためのテスト・メソッド。
      */
     public void testDBCollectorTestQueryRowHandleDAOStringObject002()
                                                                      throws Exception {
-        if (this.queryRowHandleDAO == null) {
-            fail("queryRowHandleDAOがnullです。");
+        if (this.userListQueryRowHandleDao == null) {
+            fail("userListQueryRowHandleDaoがnullです。");
         }
 
         int count_first = 0;
 
         DBCollectorConfig config = new DBCollectorConfig(
-                this.queryRowHandleDAO, "selectUserList", null);
+                this.userListQueryRowHandleDao, "collect", null);
         config.addExecuteByConstructor(true);
 
         Collector<UserBean> col = new DBCollector<UserBean>(config);
@@ -257,14 +232,6 @@ public class DBCollector002Test extends DaoTestCase {
                         logger.info("コントロールブレイク前処理");
                     }
                 }
-                // if (prevUser == null
-                // || (user != null && !user.getUserId().equals(
-                // prevUser.getUserId()))) {
-                // // コントロールブレイク前処理
-                // if (logger.isInfoEnabled()) {
-                // logger.info("コントロールブレイク前処理");
-                // }
-                // }
 
                 if (logger.isInfoEnabled()) {
                     StringBuilder sb = new StringBuilder();
@@ -307,11 +274,9 @@ public class DBCollector002Test extends DaoTestCase {
                     }
                     sb.append("]");
 
-                    if (true) {
-                        logger.info(sb.toString());
-                    }
+                    logger.info(sb.toString());
 
-                    if (user != null && nextUser != null) {
+                    if (nextUser != null) {
                         String userIdStr = user.getUserId();
                         String nextUserIdStr = nextUser.getUserId();
                         int userId = Integer.parseInt(userIdStr);
@@ -328,15 +293,6 @@ public class DBCollector002Test extends DaoTestCase {
                         logger.info("コントロールブレイク後処理");
                     }
                 }
-                // if (nextUser == null
-                // || (user != null && !user.getUserId().equals(
-                // nextUser.getUserId()))) {
-                // // コントロールブレイク後処理
-                // if (logger.isInfoEnabled()) {
-                // logger.info("コントロールブレイク後処理");
-                // }
-                // }
-
                 count_first++;
             }
         } finally {
@@ -353,36 +309,12 @@ public class DBCollector002Test extends DaoTestCase {
             long startTime = System.currentTimeMillis();
 
             Collector<UserBean> col2 = new DBCollector<UserBean>(
-                    this.queryRowHandleDAO, "selectUserList", null);
+                    this.userListQueryRowHandleDao, "collect", null);
             try {
                 for (UserBean user : col2) {
-                    if (logger.isInfoEnabled()) {
-                        StringBuilder sb = new StringBuilder();
-                        if (user != null) {
-                            sb.append("UserId:[");
-                            sb.append(String.format("%2s", user.getUserId()));
-                            sb.append("],");
-                            sb.append("FirstName:[");
-                            sb
-                                    .append(String.format("%4s", user
-                                            .getFirstName()));
-                            sb.append("],");
-                            sb.append("FamilyName:[");
-                            sb.append(String
-                                    .format("%4s", user.getFamilyName()));
-                            sb.append("],");
-                            sb.append("UserAge:[");
-                            sb.append(String.format("%2s", user.getUserAge()));
-                            sb.append("])");
-                            if (false) {
-                                logger.info(sb.toString());
-                            }
-                        } else {
-                            sb.append("UserBean is null.##############");
-                            logger.info(sb.toString());
-                        }
+                    if (logger.isInfoEnabled() && user == null) {
+                        logger.info("UserBean is null.##############");
                     }
-
                     count++;
                 }
             } finally {
@@ -411,20 +343,20 @@ public class DBCollector002Test extends DaoTestCase {
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.db.DBCollector#DBCollectorTest(jp.terasoluna.fw.dao.QueryRowHandleDAO, java.lang.String, java.lang.Object)}
+     * {@link jp.terasoluna.fw.collector.db.DBCollector#(java.lang.Object, java.lang.String, java.lang.Object)}
      * のためのテスト・メソッド。
      */
     public void testDBCollectorTestQueryRowHandleDAOStringObject003()
                                                                      throws Exception {
-        if (this.queryRowHandleDAO == null) {
-            fail("queryRowHandleDAOがnullです。");
+        if (this.userListQueryRowHandleDao == null) {
+            fail("userListQueryRowHandleDaoがnullです。");
         }
 
         int count_first = 0;
         int count_detail = 0;
 
         Collector<OrderBean> col = new DBCollector<OrderBean>(
-                this.queryRowHandleDAO, "selectOrder", null);
+                this.userListQueryRowHandleDao, "collectOrder", null);
         try {
             for (OrderBean order : col) {
                 // OrderBean nextOrder = it.following();
@@ -471,9 +403,7 @@ public class DBCollector002Test extends DaoTestCase {
                         sb.append(String.format("%10s", orderDetail
                                 .getProdName()));
                         sb.append("]");
-                        if (true) {
-                            logger.info(sb.toString());
-                        }
+                        logger.info(sb.toString());
                         count_detail++;
                     }
                     logger.info("-----");
@@ -494,23 +424,22 @@ public class DBCollector002Test extends DaoTestCase {
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.db.DBCollector#DBCollectorTest(jp.terasoluna.fw.dao.QueryRowHandleDAO, java.lang.String, java.lang.Object)}
+     * {@link jp.terasoluna.fw.collector.db.DBCollector#(java.lang.Object, java.lang.String, java.lang.Object)}
      * のためのテスト・メソッド。
      */
     public void testDBCollectorTestQueryRowHandleDAOStringObject004()
                                                                      throws Exception {
-        if (this.queryRowHandleDAO == null) {
-            fail("queryRowHandleDAOがnullです。");
+        if (this.userListQueryRowHandleDao == null) {
+            fail("userListQueryRowHandleDaoがnullです。");
         }
 
         int count_first = 0;
         int count_detail = 0;
 
         Collector<OrderBean> col = new DBCollector<OrderBean>(
-                this.queryRowHandleDAO, "selectOrder", null, true);
+                this.userListQueryRowHandleDao, "collectOrder", null, true);
         try {
             for (OrderBean order : col) {
-                // OrderBean nextOrder = it.following();
                 if (logger.isInfoEnabled()) {
                     StringBuilder sb = new StringBuilder();
 
@@ -554,9 +483,7 @@ public class DBCollector002Test extends DaoTestCase {
                         sb.append(String.format("%10s", orderDetail
                                 .getProdName()));
                         sb.append("]");
-                        if (true) {
-                            logger.info(sb.toString());
-                        }
+                        logger.info(sb.toString());
                         count_detail++;
                     }
                     logger.info("-----");
@@ -577,13 +504,13 @@ public class DBCollector002Test extends DaoTestCase {
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.db.DBCollector#DBCollectorTest(jp.terasoluna.fw.dao.QueryRowHandleDAO, java.lang.String, java.lang.Object)}
+     * {@link jp.terasoluna.fw.collector.db.DBCollector#(java.lang.Object, java.lang.String, java.lang.Object)}
      * のためのテスト・メソッド。
      */
     public void testDBCollectorTestQueryRowHandleDAOStringObject005()
                                                                      throws Exception {
-        if (this.queryRowHandleDAO == null) {
-            fail("queryRowHandleDAOがnullです。");
+        if (this.userListQueryRowHandleDao == null) {
+            fail("userListQueryRowHandleDaoがnullです。");
         }
 
         int count_first = 0;
@@ -592,7 +519,7 @@ public class DBCollector002Test extends DaoTestCase {
         DBCollectorPrePostProcess prepost = null;
 
         Collector<OrderBean> col = new DBCollector<OrderBean>(
-                this.queryRowHandleDAO, "selectOrder", null, 1, true, null,
+                this.userListQueryRowHandleDao, "collectOrder", null, 1, true, null,
                 prepost);
         try {
             for (OrderBean order : col) {
@@ -640,9 +567,7 @@ public class DBCollector002Test extends DaoTestCase {
                         sb.append(String.format("%10s", orderDetail
                                 .getProdName()));
                         sb.append("]");
-                        if (true) {
-                            logger.info(sb.toString());
-                        }
+                        logger.info(sb.toString());
                         count_detail++;
                     }
                     logger.info("-----");
@@ -663,22 +588,22 @@ public class DBCollector002Test extends DaoTestCase {
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.db.DBCollector#DBCollectorTest(jp.terasoluna.fw.dao.QueryRowHandleDAO, java.lang.String, java.lang.Object)}
+     * {@link jp.terasoluna.fw.collector.db.DBCollector#(java.lang.Object, java.lang.String, java.lang.Object)}
      * のためのテスト・メソッド。
      */
     public void testDBCollectorTestQueryRowHandleDAOStringObject006()
                                                                      throws Exception {
-        if (this.queryRowHandleDAO == null) {
-            fail("queryRowHandleDAOがnullです。");
+        if (this.userListQueryRowHandleDao == null) {
+            fail("userListQueryRowHandleDaoがnullです。");
         }
 
         int count_first = 0;
         int count_detail = 0;
 
-        Collector<OrderBean> col = new DBCollector<OrderBean>(
-                this.queryRowHandleDAO, "selectOrder2", null);
+        Collector<Order2Bean> col = new DBCollector<Order2Bean>(
+                this.userListQueryRowHandleDao, "collectOrder2", null);
         try {
-            for (OrderBean order : col) {
+            for (Order2Bean order : col) {
 
                 // 注文IDが切り替わったら
                 if (ControlBreakChecker.isPreBreak(col, "ordrId")) {
@@ -691,9 +616,8 @@ public class DBCollector002Test extends DaoTestCase {
                 if (logger.isInfoEnabled()) {
                     StringBuilder sb = new StringBuilder();
 
-                    List<OrderDetailBean> orderDetailList = order
-                            .getOrderDetailList();
-                    for (OrderDetailBean orderDetail : orderDetailList) {
+                    OrderDetailBean orderDetail = order.getOrderDetail();
+                    if (orderDetail != null) {
                         sb.setLength(0);
                         sb.append("OrdrId:[");
                         sb.append(String.format("%2s", order.getOrdrId()));
@@ -706,38 +630,28 @@ public class DBCollector002Test extends DaoTestCase {
                         sb.append("],");
 
                         sb.append("DetlId:[");
-                        sb
-                                .append(String.format("%2s", orderDetail
-                                        .getDetlId()));
+                        sb.append(String.format("%2s", orderDetail.getDetlId()));
                         sb.append("],");
                         sb.append("ProdId:[");
-                        sb
-                                .append(String.format("%3s", orderDetail
-                                        .getProdId()));
+                        sb.append(String.format("%3s", orderDetail.getProdId()));
                         sb.append("],");
                         sb.append("Quantity:[");
-                        sb.append(String.format("%2s", orderDetail
-                                .getQuantity()));
+                        sb.append(String.format("%2s", orderDetail.getQuantity()));
                         sb.append("],");
                         sb.append("Amount:[");
-                        sb
-                                .append(String.format("%5s", orderDetail
-                                        .getAmount()));
+                        sb.append(String.format("%5s", orderDetail.getAmount()));
                         sb.append("],");
                         sb.append("CustName:[");
                         sb.append(String.format("%12s", order.getCustName()));
                         sb.append("]");
                         sb.append("ProdName:[");
-                        sb.append(String.format("%10s", orderDetail
-                                .getProdName()));
+                        sb.append(String.format("%10s", orderDetail.getProdName()));
                         sb.append("]");
-                        if (true) {
-                            logger.info(sb.toString());
-                        }
-                        count_detail++;
+                        logger.info(sb.toString());
                     }
-                    logger.info("-----");
+                    count_detail++;
                 }
+                logger.info("-----");
 
                 // 注文IDが切り替わったら
                 if (ControlBreakChecker.isBreak(col, "ordrId")) {
@@ -762,32 +676,31 @@ public class DBCollector002Test extends DaoTestCase {
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.db.DBCollector#DBCollectorTest(jp.terasoluna.fw.dao.QueryRowHandleDAO, java.lang.String, java.lang.Object)}
+     * {@link jp.terasoluna.fw.collector.db.DBCollector#DBCollector(java.lang.Object, java.lang.String, java.lang.Object)}
      * のためのテスト・メソッド。
      */
     public void testDBCollectorTestQueryRowHandleDAOStringObject007()
                                                                      throws Exception {
-        if (this.queryRowHandleDAO == null) {
-            fail("queryRowHandleDAOがnullです。");
+        if (this.userListQueryRowHandleDao == null) {
+            fail("userListQueryRowHandleDaoがnullです。");
         }
 
         int count_first = 0;
         int count_detail = 0;
 
-        Collector<OrderBean> col = new DBCollector<OrderBean>(
-                this.queryRowHandleDAO, "selectOrder2", null, true);
+        Collector<Order2Bean> col = new DBCollector<Order2Bean>(
+                this.userListQueryRowHandleDao, "collectOrder2", null, true);
         try {
-            for (OrderBean order : col) {
+            for (Order2Bean order : col) {
                 @SuppressWarnings("unused")
-                OrderBean prevOrder = col.getPrevious();
+                Order2Bean prevOrder = col.getPrevious();
                 @SuppressWarnings("unused")
-                OrderBean nextOrder = col.getNext();
+                Order2Bean nextOrder = col.getNext();
                 if (logger.isInfoEnabled()) {
                     StringBuilder sb = new StringBuilder();
 
-                    List<OrderDetailBean> orderDetailList = order
-                            .getOrderDetailList();
-                    for (OrderDetailBean orderDetail : orderDetailList) {
+                    OrderDetailBean orderDetail = order.getOrderDetail();
+                    if (orderDetail != null) {
                         sb.setLength(0);
                         sb.append("OrdrId:[");
                         sb.append(String.format("%2s", order.getOrdrId()));
@@ -825,9 +738,7 @@ public class DBCollector002Test extends DaoTestCase {
                         sb.append(String.format("%10s", orderDetail
                                 .getProdName()));
                         sb.append("]");
-                        if (true) {
-                            logger.info(sb.toString());
-                        }
+                        logger.info(sb.toString());
                         count_detail++;
                     }
                     logger.info("-----");
@@ -848,13 +759,13 @@ public class DBCollector002Test extends DaoTestCase {
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.db.DBCollector#DBCollectorTest(jp.terasoluna.fw.dao.QueryRowHandleDAO, java.lang.String, java.lang.Object)}
+     * {@link jp.terasoluna.fw.collector.db.DBCollector#DBCollector(java.lang.Object, java.lang.String, java.lang.Object)}
      * のためのテスト・メソッド。
      */
     public void testDBCollectorTestQueryRowHandleDAOStringObject008()
                                                                      throws Exception {
-        if (this.queryRowHandleDAO == null) {
-            fail("queryRowHandleDAOがnullです。");
+        if (this.userListQueryRowHandleDao == null) {
+            fail("userListQueryRowHandleDaoがnullです。");
         }
 
         int count_first = 0;
@@ -862,21 +773,20 @@ public class DBCollector002Test extends DaoTestCase {
 
         DBCollectorPrePostProcessStub prepost = new DBCollectorPrePostProcessStub();
 
-        Collector<OrderBean> col = new DBCollector<OrderBean>(
-                this.queryRowHandleDAO, "selectOrder2", null, 1, true, null,
+        Collector<Order2Bean> col = new DBCollector<Order2Bean>(
+                this.userListQueryRowHandleDao, "collectOrder2", null, 1, true, null,
                 prepost);
         try {
-            for (OrderBean order : col) {
+            for (Order2Bean order : col) {
                 @SuppressWarnings("unused")
-                OrderBean prevOrder = col.getPrevious();
+                Order2Bean prevOrder = col.getPrevious();
                 @SuppressWarnings("unused")
-                OrderBean nextOrder = col.getNext();
+                Order2Bean nextOrder = col.getNext();
                 if (logger.isInfoEnabled()) {
                     StringBuilder sb = new StringBuilder();
 
-                    List<OrderDetailBean> orderDetailList = order
-                            .getOrderDetailList();
-                    for (OrderDetailBean orderDetail : orderDetailList) {
+                    OrderDetailBean orderDetail = order.getOrderDetail();
+                    if (orderDetail != null) {
                         sb.setLength(0);
                         sb.append("OrdrId:[");
                         sb.append(String.format("%2s", order.getOrdrId()));
@@ -914,9 +824,7 @@ public class DBCollector002Test extends DaoTestCase {
                         sb.append(String.format("%10s", orderDetail
                                 .getProdName()));
                         sb.append("]");
-                        if (true) {
-                            logger.info(sb.toString());
-                        }
+                        logger.info(sb.toString());
                         count_detail++;
                     }
                     logger.info("-----");

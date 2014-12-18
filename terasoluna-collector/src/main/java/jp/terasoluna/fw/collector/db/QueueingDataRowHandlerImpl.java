@@ -22,6 +22,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import jp.terasoluna.fw.collector.LogId;
 import jp.terasoluna.fw.collector.vo.DataValueObject;
 import jp.terasoluna.fw.logger.TLogger;
+import org.apache.ibatis.session.ResultContext;
 
 /**
  * QueueingDataRowHandlerの実装クラス<br>
@@ -50,12 +51,16 @@ public class QueueingDataRowHandlerImpl implements QueueingDataRowHandler {
 
     /*
      * (non-Javadoc)
-     * @see jp.terasoluna.fw.dao.event.DataRowHandler#handleRow(java.lang.Object)
+     * @see org.apache.ibatis.session.ResultHandler#handleResult(org.apache.ibatis.session.ResultContext)
      */
-    public void handleRow(Object valueObject) {
+    public void handleResult(ResultContext context) {
         if (!Thread.currentThread().isInterrupted()) {
             delayCollect();
-            this.prevRow = valueObject;
+            if (context != null) {
+                this.prevRow = context.getResultObject();
+            } else {
+                this.prevRow = null;
+            }
         } else {
             // 割り込みが発生したらキューをスキップする
             if (verboseLog.get()) {

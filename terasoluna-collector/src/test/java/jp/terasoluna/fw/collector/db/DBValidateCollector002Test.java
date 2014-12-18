@@ -8,9 +8,9 @@ import java.util.List;
 
 import jp.terasoluna.fw.collector.Collector;
 import jp.terasoluna.fw.collector.CollectorTestUtil;
+import jp.terasoluna.fw.collector.dao.UserListQueryRowHandleDao;
 import jp.terasoluna.fw.collector.util.ControlBreakChecker;
 import jp.terasoluna.fw.collector.util.MemoryInfo;
-import jp.terasoluna.fw.dao.QueryRowHandleDAO;
 import jp.terasoluna.fw.ex.unit.testcase.DaoTestCase;
 import jp.terasoluna.fw.exception.SystemException;
 
@@ -30,7 +30,7 @@ public class DBValidateCollector002Test extends DaoTestCase {
     private static Log logger = LogFactory
             .getLog(DBValidateCollector002Test.class);
 
-    private QueryRowHandleDAO queryRowHandleDAO = null;
+    private UserListQueryRowHandleDao userListQueryRowHandleDao = null;
 
     private int previousThreadCount = 0;
 
@@ -39,8 +39,8 @@ public class DBValidateCollector002Test extends DaoTestCase {
         configLocations.add("jp/terasoluna/fw/collector/db/dataSource.xml");
     }
 
-    public void setQueryRowHandleDAO(QueryRowHandleDAO queryRowHandleDAO) {
-        this.queryRowHandleDAO = queryRowHandleDAO;
+    public void setUserListQueryRowHandleDao(UserListQueryRowHandleDao userListQueryRowHandleDao) {
+        this.userListQueryRowHandleDao = userListQueryRowHandleDao;
     }
 
     @Override
@@ -82,38 +82,20 @@ public class DBValidateCollector002Test extends DaoTestCase {
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.db.DBCollector#DBIteratorTest(jp.terasoluna.fw.dao.QueryRowHandleDAO, java.lang.String, java.lang.Object)}
+     * {@link jp.terasoluna.fw.collector.db.DBValidateCollector#DBValidateCollector(Object, String, Object, boolean, org.springframework.validation.Validator)}
      * のためのテスト・メソッド。
      */
     public void testDBValidateCollectorFinalize001() throws Exception {
-        if (this.queryRowHandleDAO == null) {
-            fail("queryRowHandleDAOがnullです。");
+        if (this.userListQueryRowHandleDao == null) {
+            fail("userListQueryRowHandleDaoがnullです。");
         }
 
         Validator validator = null;
 
         Collector<UserBean> it = new DBValidateCollector<UserBean>(
-                this.queryRowHandleDAO, "selectUserList", null, validator);
+                this.userListQueryRowHandleDao, "collect", null, validator);
         try {
             for (UserBean user : it) {
-                if (logger.isInfoEnabled()) {
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("UserId:[");
-                    sb.append(String.format("%2s", user.getUserId()));
-                    sb.append("],");
-                    sb.append("FirstName:[");
-                    sb.append(String.format("%4s", user.getFirstName()));
-                    sb.append("],");
-                    sb.append("FamilyName:[");
-                    sb.append(String.format("%4s", user.getFamilyName()));
-                    sb.append("],");
-                    sb.append("UserAge:[");
-                    sb.append(String.format("%2s", user.getUserAge()));
-                    sb.append("])");
-                    if (false) {
-                        logger.info(sb.toString());
-                    }
-                }
 
                 // あえて途中で抜ける
                 break;
@@ -131,13 +113,13 @@ public class DBValidateCollector002Test extends DaoTestCase {
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.db.DBCollector#DBIteratorTest(jp.terasoluna.fw.dao.QueryRowHandleDAO, java.lang.String, java.lang.Object)}
+     * {@link jp.terasoluna.fw.collector.db.DBValidateCollector#DBValidateCollector(Object, String, Object, org.springframework.validation.Validator)}
      * のためのテスト・メソッド。
      */
-    public void testDBValidateCollectorTestQueryRowHandleDAOStringObject001()
+    public void testDBValidateCollectorTestObjectStringObject001()
                                                                              throws Exception {
-        if (this.queryRowHandleDAO == null) {
-            fail("queryRowHandleDAOがnullです。");
+        if (this.userListQueryRowHandleDao == null) {
+            fail("userListQueryRowHandleDaoがnullです。");
         }
 
         int count_first = 0;
@@ -148,28 +130,9 @@ public class DBValidateCollector002Test extends DaoTestCase {
         do {
             retryFlg = false;
             Collector<UserBean> it = new DBValidateCollector<UserBean>(
-                    this.queryRowHandleDAO, "selectUserList", null, validator);
+                    this.userListQueryRowHandleDao, "collect", null, validator);
             try {
                 for (UserBean user : it) {
-                    if (logger.isInfoEnabled()) {
-                        StringBuilder sb = new StringBuilder();
-                        sb.append("UserId:[");
-                        sb.append(String.format("%2s", user.getUserId()));
-                        sb.append("],");
-                        sb.append("FirstName:[");
-                        sb.append(String.format("%4s", user.getFirstName()));
-                        sb.append("],");
-                        sb.append("FamilyName:[");
-                        sb.append(String.format("%4s", user.getFamilyName()));
-                        sb.append("],");
-                        sb.append("UserAge:[");
-                        sb.append(String.format("%2s", user.getUserAge()));
-                        sb.append("])");
-                        if (false) {
-                            logger.info(sb.toString());
-                        }
-                    }
-
                     count_first++;
                 }
             } catch (Throwable e) {
@@ -212,34 +175,11 @@ public class DBValidateCollector002Test extends DaoTestCase {
             long startTime = System.currentTimeMillis();
 
             Collector<UserBean> it2 = new DBValidateCollector<UserBean>(
-                    this.queryRowHandleDAO, "selectUserList", null, validator);
+                    this.userListQueryRowHandleDao, "collect", null, validator);
             try {
                 for (UserBean user : it2) {
-                    if (logger.isInfoEnabled()) {
-                        StringBuilder sb = new StringBuilder();
-                        if (user != null) {
-                            sb.append("UserId:[");
-                            sb.append(String.format("%2s", user.getUserId()));
-                            sb.append("],");
-                            sb.append("FirstName:[");
-                            sb
-                                    .append(String.format("%4s", user
-                                            .getFirstName()));
-                            sb.append("],");
-                            sb.append("FamilyName:[");
-                            sb.append(String
-                                    .format("%4s", user.getFamilyName()));
-                            sb.append("],");
-                            sb.append("UserAge:[");
-                            sb.append(String.format("%2s", user.getUserAge()));
-                            sb.append("])");
-                            if (false) {
-                                logger.info(sb.toString());
-                            }
-                        } else {
-                            sb.append("UserBean is null.##############");
-                            logger.info(sb.toString());
-                        }
+                    if (logger.isInfoEnabled() && user == null) {
+                        logger.info("UserBean is null.##############");
                     }
 
                     count++;
@@ -270,20 +210,20 @@ public class DBValidateCollector002Test extends DaoTestCase {
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.db.DBValidateCollector#DBValidateCollectorTest(jp.terasoluna.fw.dao.QueryRowHandleDAO, java.lang.String, java.lang.Object)}
+     * {@link jp.terasoluna.fw.collector.db.DBValidateCollector#DBValidateCollector(Object, String, Object, org.springframework.validation.Validator)}
      * のためのテスト・メソッド。
      */
-    public void testDBValidateCollectorTestQueryRowHandleDAOStringObject002()
+    public void testDBValidateCollectorTestObjectStringObject002()
                                                                              throws Exception {
-        if (this.queryRowHandleDAO == null) {
-            fail("queryRowHandleDAOがnullです。");
+        if (this.userListQueryRowHandleDao == null) {
+            fail("userListQueryRowHandleDaoがnullです。");
         }
 
         int count_first = 0;
         Validator validator = null;
 
         Collector<UserBean> it = new DBValidateCollector<UserBean>(
-                this.queryRowHandleDAO, "selectUserList", null, validator);
+                this.userListQueryRowHandleDao, "collect", null, validator);
         try {
             for (UserBean user : it) {
                 UserBean prevUser = null;
@@ -399,34 +339,11 @@ public class DBValidateCollector002Test extends DaoTestCase {
             long startTime = System.currentTimeMillis();
 
             Collector<UserBean> it2 = new DBValidateCollector<UserBean>(
-                    this.queryRowHandleDAO, "selectUserList", null, validator);
+                    this.userListQueryRowHandleDao, "collect", null, validator);
             try {
                 for (UserBean user : it2) {
-                    if (logger.isInfoEnabled()) {
-                        StringBuilder sb = new StringBuilder();
-                        if (user != null) {
-                            sb.append("UserId:[");
-                            sb.append(String.format("%2s", user.getUserId()));
-                            sb.append("],");
-                            sb.append("FirstName:[");
-                            sb
-                                    .append(String.format("%4s", user
-                                            .getFirstName()));
-                            sb.append("],");
-                            sb.append("FamilyName:[");
-                            sb.append(String
-                                    .format("%4s", user.getFamilyName()));
-                            sb.append("],");
-                            sb.append("UserAge:[");
-                            sb.append(String.format("%2s", user.getUserAge()));
-                            sb.append("])");
-                            if (false) {
-                                logger.info(sb.toString());
-                            }
-                        } else {
-                            sb.append("UserBean is null.##############");
-                            logger.info(sb.toString());
-                        }
+                    if (logger.isInfoEnabled() && user == null) {
+                            logger.info("UserBean is null.##############");
                     }
 
                     count++;
@@ -457,13 +374,13 @@ public class DBValidateCollector002Test extends DaoTestCase {
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.db.DBValidateCollector#DBValidateCollectorTest(jp.terasoluna.fw.dao.QueryRowHandleDAO, java.lang.String, java.lang.Object)}
+     * {@link jp.terasoluna.fw.collector.db.DBValidateCollector#DBValidateCollector(Object, String, Object, boolean, org.springframework.validation.Validator)}
      * のためのテスト・メソッド。
      */
-    public void testDBValidateCollectorTestQueryRowHandleDAOStringObject003()
+    public void testDBValidateCollectorTestObjectStringObject003()
                                                                              throws Exception {
-        if (this.queryRowHandleDAO == null) {
-            fail("queryRowHandleDAOがnullです。");
+        if (this.userListQueryRowHandleDao == null) {
+            fail("userListQueryRowHandleDaoがnullです。");
         }
 
         int count_first = 0;
@@ -471,7 +388,7 @@ public class DBValidateCollector002Test extends DaoTestCase {
         Validator validator = null;
 
         Collector<OrderBean> it = new DBValidateCollector<OrderBean>(
-                this.queryRowHandleDAO, "selectOrder", null, validator);
+                this.userListQueryRowHandleDao, "collectOrder", null, validator);
         try {
             for (OrderBean order : it) {
                 // OrderBean nextOrder = it.following();
@@ -541,13 +458,13 @@ public class DBValidateCollector002Test extends DaoTestCase {
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.db.DBValidateCollector#DBValidateCollectorTest(jp.terasoluna.fw.dao.QueryRowHandleDAO, java.lang.String, java.lang.Object)}
+     * {@link jp.terasoluna.fw.collector.db.DBValidateCollector#DBValidateCollector(Object, String, Object, boolean, org.springframework.validation.Validator)}
      * のためのテスト・メソッド。
      */
-    public void testDBValidateCollectorTestQueryRowHandleDAOStringObject004()
+    public void testDBValidateCollectorTestObjectStringObject004()
                                                                              throws Exception {
-        if (this.queryRowHandleDAO == null) {
-            fail("queryRowHandleDAOがnullです。");
+        if (this.userListQueryRowHandleDao == null) {
+            fail("userListQueryRowHandleDaoがnullです。");
         }
 
         int count_first = 0;
@@ -555,7 +472,7 @@ public class DBValidateCollector002Test extends DaoTestCase {
         Validator validator = null;
 
         Collector<OrderBean> it = new DBValidateCollector<OrderBean>(
-                this.queryRowHandleDAO, "selectOrder", null, true, validator);
+                this.userListQueryRowHandleDao, "collectOrder", null, true, validator);
         try {
             for (OrderBean order : it) {
                 // OrderBean nextOrder = it.following();
@@ -625,13 +542,13 @@ public class DBValidateCollector002Test extends DaoTestCase {
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.db.DBValidateCollector#DBValidateCollectorTest(jp.terasoluna.fw.dao.QueryRowHandleDAO, java.lang.String, java.lang.Object)}
+     * {@link jp.terasoluna.fw.collector.db.DBValidateCollector#DBValidateCollector(Object, String, Object, int, boolean, jp.terasoluna.fw.collector.exception.CollectorExceptionHandler, DBCollectorPrePostProcess, org.springframework.validation.Validator, jp.terasoluna.fw.collector.validate.ValidationErrorHandler)}
      * のためのテスト・メソッド。
      */
-    public void testDBValidateCollectorTestQueryRowHandleDAOStringObject005()
+    public void testDBValidateCollectorTestObjectStringObject005()
                                                                              throws Exception {
-        if (this.queryRowHandleDAO == null) {
-            fail("queryRowHandleDAOがnullです。");
+        if (this.userListQueryRowHandleDao == null) {
+            fail("userListQueryRowHandleDaoがnullです。");
         }
 
         int count_first = 0;
@@ -639,7 +556,7 @@ public class DBValidateCollector002Test extends DaoTestCase {
         Validator validator = null;
 
         Collector<OrderBean> it = new DBValidateCollector<OrderBean>(
-                this.queryRowHandleDAO, "selectOrder", null, 1, true, null,
+                this.userListQueryRowHandleDao, "collectOrder", null, 1, true, null,
                 null, validator, null);
         try {
             for (OrderBean order : it) {
@@ -710,23 +627,23 @@ public class DBValidateCollector002Test extends DaoTestCase {
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.db.DBValidateCollector#DBValidateCollectorTest(jp.terasoluna.fw.dao.QueryRowHandleDAO, java.lang.String, java.lang.Object)}
+     * {@link jp.terasoluna.fw.collector.db.DBValidateCollector#DBValidateCollector(Object, String, Object, boolean, org.springframework.validation.Validator)}
      * のためのテスト・メソッド。
      */
-    public void testDBValidateCollectorTestQueryRowHandleDAOStringObject006()
+    public void testDBValidateCollectorTestObjectStringObject006()
                                                                              throws Exception {
-        if (this.queryRowHandleDAO == null) {
-            fail("queryRowHandleDAOがnullです。");
+        if (this.userListQueryRowHandleDao == null) {
+            fail("userListQueryRowHandleDaoがnullです。");
         }
 
         int count_first = 0;
         int count_detail = 0;
         Validator validator = null;
 
-        Collector<OrderBean> it = new DBValidateCollector<OrderBean>(
-                this.queryRowHandleDAO, "selectOrder2", null, validator);
+        Collector<Order2Bean> it = new DBValidateCollector<Order2Bean>(
+                this.userListQueryRowHandleDao, "collectOrder2", null, validator);
         try {
-            for (OrderBean order : it) {
+            for (Order2Bean order : it) {
 
                 // 注文IDが切り替わったら
                 if (ControlBreakChecker.isPreBreak(it, "ordrId")) {
@@ -739,9 +656,8 @@ public class DBValidateCollector002Test extends DaoTestCase {
                 if (logger.isInfoEnabled()) {
                     StringBuilder sb = new StringBuilder();
 
-                    List<OrderDetailBean> orderDetailList = order
-                            .getOrderDetailList();
-                    for (OrderDetailBean orderDetail : orderDetailList) {
+                    OrderDetailBean orderDetail = order.getOrderDetail();
+                    if (orderDetail != null) {
                         sb.setLength(0);
                         sb.append("OrdrId:[");
                         sb.append(String.format("%2s", order.getOrdrId()));
@@ -779,9 +695,7 @@ public class DBValidateCollector002Test extends DaoTestCase {
                         sb.append(String.format("%10s", orderDetail
                                 .getProdName()));
                         sb.append("]");
-                        if (true) {
-                            logger.info(sb.toString());
-                        }
+                        logger.info(sb.toString());
                         count_detail++;
                     }
                     logger.info("-----");
@@ -810,33 +724,32 @@ public class DBValidateCollector002Test extends DaoTestCase {
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.db.DBValidateCollector#DBValidateCollectorTest(jp.terasoluna.fw.dao.QueryRowHandleDAO, java.lang.String, java.lang.Object)}
+     * {@link jp.terasoluna.fw.collector.db.DBValidateCollector#DBValidateCollector(Object, String, Object, boolean, org.springframework.validation.Validator)}
      * のためのテスト・メソッド。
      */
-    public void testDBValidateCollectorTestQueryRowHandleDAOStringObject007()
+    public void testDBValidateCollectorTestObjectStringObject007()
                                                                              throws Exception {
-        if (this.queryRowHandleDAO == null) {
-            fail("queryRowHandleDAOがnullです。");
+        if (this.userListQueryRowHandleDao == null) {
+            fail("userListQueryRowHandleDaoがnullです。");
         }
 
         int count_first = 0;
         int count_detail = 0;
         Validator validator = null;
 
-        Collector<OrderBean> it = new DBValidateCollector<OrderBean>(
-                this.queryRowHandleDAO, "selectOrder2", null, true, validator);
+        Collector<Order2Bean> it = new DBValidateCollector<Order2Bean>(
+                this.userListQueryRowHandleDao, "collectOrder2", null, true, validator);
         try {
-            for (OrderBean order : it) {
+            for (Order2Bean order : it) {
                 @SuppressWarnings("unused")
-                OrderBean prevOrder = it.getPrevious();
+                Order2Bean prevOrder = it.getPrevious();
                 @SuppressWarnings("unused")
-                OrderBean nextOrder = it.getNext();
+                Order2Bean nextOrder = it.getNext();
                 if (logger.isInfoEnabled()) {
                     StringBuilder sb = new StringBuilder();
 
-                    List<OrderDetailBean> orderDetailList = order
-                            .getOrderDetailList();
-                    for (OrderDetailBean orderDetail : orderDetailList) {
+                    OrderDetailBean orderDetail = order.getOrderDetail();
+                    if (orderDetail != null) {
                         sb.setLength(0);
                         sb.append("OrdrId:[");
                         sb.append(String.format("%2s", order.getOrdrId()));
@@ -874,9 +787,7 @@ public class DBValidateCollector002Test extends DaoTestCase {
                         sb.append(String.format("%10s", orderDetail
                                 .getProdName()));
                         sb.append("]");
-                        if (true) {
-                            logger.info(sb.toString());
-                        }
+                        logger.info(sb.toString());
                         count_detail++;
                     }
                     logger.info("-----");
@@ -897,34 +808,33 @@ public class DBValidateCollector002Test extends DaoTestCase {
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.db.DBValidateCollector#DBValidateCollectorTest(jp.terasoluna.fw.dao.QueryRowHandleDAO, java.lang.String, java.lang.Object)}
+     * {@link jp.terasoluna.fw.collector.db.DBValidateCollector#DBValidateCollector(Object, String, Object, org.springframework.validation.Validator, jp.terasoluna.fw.collector.validate.ValidationErrorHandler)}
      * のためのテスト・メソッド。
      */
-    public void testDBValidateCollectorTestQueryRowHandleDAOStringObject008()
+    public void testDBValidateCollectorTestObjectStringObject008()
                                                                              throws Exception {
-        if (this.queryRowHandleDAO == null) {
-            fail("queryRowHandleDAOがnullです。");
+        if (this.userListQueryRowHandleDao == null) {
+            fail("userListQueryRowHandleDaoがnullです。");
         }
 
         int count_first = 0;
         int count_detail = 0;
         Validator validator = null;
 
-        Collector<OrderBean> it = new DBValidateCollector<OrderBean>(
-                this.queryRowHandleDAO, "selectOrder2", null, 1, true, null,
+        Collector<Order2Bean> it = new DBValidateCollector<Order2Bean>(
+                this.userListQueryRowHandleDao, "collectOrder2", null, 1, true, null,
                 null, validator, null);
         try {
-            for (OrderBean order : it) {
+            for (Order2Bean order : it) {
                 @SuppressWarnings("unused")
-                OrderBean prevOrder = it.getPrevious();
+                Order2Bean prevOrder = it.getPrevious();
                 @SuppressWarnings("unused")
-                OrderBean nextOrder = it.getNext();
+                Order2Bean nextOrder = it.getNext();
                 if (logger.isInfoEnabled()) {
                     StringBuilder sb = new StringBuilder();
 
-                    List<OrderDetailBean> orderDetailList = order
-                            .getOrderDetailList();
-                    for (OrderDetailBean orderDetail : orderDetailList) {
+                    OrderDetailBean orderDetail = order.getOrderDetail();
+                    if (orderDetail != null) {
                         sb.setLength(0);
                         sb.append("OrdrId:[");
                         sb.append(String.format("%2s", order.getOrdrId()));
@@ -962,9 +872,7 @@ public class DBValidateCollector002Test extends DaoTestCase {
                         sb.append(String.format("%10s", orderDetail
                                 .getProdName()));
                         sb.append("]");
-                        if (true) {
-                            logger.info(sb.toString());
-                        }
+                        logger.info(sb.toString());
                         count_detail++;
                     }
                     logger.info("-----");

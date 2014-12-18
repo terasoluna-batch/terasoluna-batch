@@ -19,7 +19,6 @@ package jp.terasoluna.fw.collector.db;
 import jp.terasoluna.fw.collector.exception.CollectorExceptionHandler;
 import jp.terasoluna.fw.collector.validate.ExceptionValidationErrorHandler;
 import jp.terasoluna.fw.collector.validate.ValidationErrorHandler;
-import jp.terasoluna.fw.dao.QueryRowHandleDAO;
 
 import org.springframework.validation.Validator;
 
@@ -32,128 +31,128 @@ public class DBValidateCollector<P> extends DBCollector<P> {
 
     /**
      * DBValidateCollectorコンストラクタ<br>
-     * @param queryRowHandleDAO QueryRowHandleDAOインスタンス
-     * @param sqlID 実行するSQLのID
+     * @param queryRowHandleDao QueryRowHandleDaoインスタンス
+     * @param methodName 実行するメソッド名
      * @param bindParams SQLにバインドする値を格納したオブジェクト
      * @param validator Validator 入力チェックを行うバリデータ
      */
-    public DBValidateCollector(QueryRowHandleDAO queryRowHandleDAO,
-            String sqlID, Object bindParams, Validator validator) {
-        this(new DBCollectorConfig(queryRowHandleDAO, sqlID, bindParams)
+    public DBValidateCollector(Object queryRowHandleDao,
+            String methodName, Object bindParams, Validator validator) {
+        this(new DBCollectorConfig(queryRowHandleDao, methodName, bindParams)
                 .addValidator(validator));
     }
 
     /**
      * DBValidateCollectorコンストラクタ<br>
-     * @param queryRowHandleDAO QueryRowHandleDAOインスタンス
-     * @param sqlID 実行するSQLのID
+     * @param queryRowHandleDao QueryRowHandleDaoインスタンス
+     * @param methodName 実行するメソッド名
      * @param bindParams SQLにバインドする値を格納したオブジェクト
      * @param validator Validator 入力チェックを行うバリデータ
      * @param validationErrorHandler ValidationErrorHandler 入力チェックエラー時に行う処理
      */
-    public DBValidateCollector(QueryRowHandleDAO queryRowHandleDAO,
-            String sqlID, Object bindParams, Validator validator,
+    public DBValidateCollector(Object queryRowHandleDao,
+            String methodName, Object bindParams, Validator validator,
             ValidationErrorHandler validationErrorHandler) {
-        this(new DBCollectorConfig(queryRowHandleDAO, sqlID, bindParams)
+        this(new DBCollectorConfig(queryRowHandleDao, methodName, bindParams)
                 .addValidator(validator).addValidationErrorHandler(
                         validationErrorHandler));
     }
 
     /**
      * DBValidateCollectorコンストラクタ<br>
-     * @param queryRowHandleDAO QueryRowHandleDAOインスタンス
-     * @param sqlID 実行するSQLのID
+     * @param queryRowHandleDao QueryRowHandleDaoインスタンス
+     * @param methodName 実行するメソッド名
      * @param bindParams SQLにバインドする値を格納したオブジェクト
      * @param relation1n 1:Nマッピング使用時はtrue
      * @param validator Validator 入力チェックを行うバリデータ
      */
-    public DBValidateCollector(QueryRowHandleDAO queryRowHandleDAO,
-            String sqlID, Object bindParams, boolean relation1n,
+    public DBValidateCollector(Object queryRowHandleDao,
+            String methodName, Object bindParams, boolean relation1n,
             Validator validator) {
-        this(new DBCollectorConfig(queryRowHandleDAO, sqlID, bindParams)
+        this(new DBCollectorConfig(queryRowHandleDao, methodName, bindParams)
                 .addRelation1n(relation1n).addValidator(validator));
     }
 
     /**
      * DBValidateCollectorコンストラクタ<br>
-     * @param queryRowHandleDAO QueryRowHandleDAOインスタンス
-     * @param sqlID 実行するSQLのID
+     * @param queryRowHandleDao QueryRowHandleDaoインスタンス
+     * @param methodName 実行するメソッド名
      * @param bindParams SQLにバインドする値を格納したオブジェクト
      * @param relation1n 1:Nマッピング使用時はtrue
      * @param validator Validator 入力チェックを行うバリデータ
      * @param validationErrorHandler ValidationErrorHandler 入力チェックエラー時に行う処理
      */
-    public DBValidateCollector(QueryRowHandleDAO queryRowHandleDAO,
-            String sqlID, Object bindParams, boolean relation1n,
+    public DBValidateCollector(Object queryRowHandleDao,
+            String methodName, Object bindParams, boolean relation1n,
             Validator validator, ValidationErrorHandler validationErrorHandler) {
-        this(new DBCollectorConfig(queryRowHandleDAO, sqlID, bindParams)
+        this(new DBCollectorConfig(queryRowHandleDao, methodName, bindParams)
                 .addRelation1n(relation1n).addValidator(validator)
                 .addValidationErrorHandler(validationErrorHandler));
     }
 
     /**
      * DBValidateCollectorコンストラクタ<br>
-     * @param queryRowHandleDAO QueryRowHandleDAOインスタンス
-     * @param sqlID 実行するSQLのID
+     * @param queryRowHandleDao QueryRowHandleDaoインスタンス
+     * @param methodName 実行するメソッド名
      * @param bindParams SQLにバインドする値を格納したオブジェクト
      * @param queueSize キューのサイズ（1以上を設定すること）
      * @param validator Validator 入力チェックを行うバリデータ
      */
-    public DBValidateCollector(QueryRowHandleDAO queryRowHandleDAO,
-            String sqlID, Object bindParams, int queueSize, Validator validator) {
-        this(new DBCollectorConfig(queryRowHandleDAO, sqlID, bindParams)
+    public DBValidateCollector(Object queryRowHandleDao,
+            String methodName, Object bindParams, int queueSize, Validator validator) {
+        this(new DBCollectorConfig(queryRowHandleDao, methodName, bindParams)
                 .addQueueSize(queueSize).addValidator(validator));
     }
 
     /**
      * DBValidateCollectorコンストラクタ<br>
-     * @param queryRowHandleDAO QueryRowHandleDAOインスタンス
-     * @param sqlID 実行するSQLのID
+     * @param queryRowHandleDao QueryRowHandleDaoインスタンス
+     * @param methodName 実行するメソッド名
      * @param bindParams SQLにバインドする値を格納したオブジェクト
      * @param queueSize キューのサイズ（1以上を設定すること）
      * @param validator Validator 入力チェックを行うバリデータ
      * @param validationErrorHandler ValidationErrorHandler 入力チェックエラー時に行う処理
      */
-    public DBValidateCollector(QueryRowHandleDAO queryRowHandleDAO,
-            String sqlID, Object bindParams, int queueSize,
+    public DBValidateCollector(Object queryRowHandleDao,
+            String methodName, Object bindParams, int queueSize,
             Validator validator, ValidationErrorHandler validationErrorHandler) {
-        this(new DBCollectorConfig(queryRowHandleDAO, sqlID, bindParams)
+        this(new DBCollectorConfig(queryRowHandleDao, methodName, bindParams)
                 .addQueueSize(queueSize).addValidator(validator)
                 .addValidationErrorHandler(validationErrorHandler));
     }
 
     /**
      * DBValidateCollectorコンストラクタ<br>
-     * @param queryRowHandleDAO QueryRowHandleDAOインスタンス
-     * @param sqlID 実行するSQLのID
+     * @param queryRowHandleDao QueryRowHandleDaoインスタンス
+     * @param methodName 実行するメソッド名
      * @param bindParams SQLにバインドする値を格納したオブジェクト
      * @param queueSize キューのサイズ（1以上を設定すること）
      * @param exceptionHandler 例外ハンドラ
      * @param validator Validator 入力チェックを行うバリデータ
      */
-    public DBValidateCollector(QueryRowHandleDAO queryRowHandleDAO,
-            String sqlID, Object bindParams, int queueSize,
+    public DBValidateCollector(Object queryRowHandleDao,
+            String methodName, Object bindParams, int queueSize,
             CollectorExceptionHandler exceptionHandler, Validator validator) {
-        this(new DBCollectorConfig(queryRowHandleDAO, sqlID, bindParams)
+        this(new DBCollectorConfig(queryRowHandleDao, methodName, bindParams)
                 .addQueueSize(queueSize).addExceptionHandler(exceptionHandler)
                 .addValidator(validator));
     }
 
     /**
      * DBValidateCollectorコンストラクタ<br>
-     * @param queryRowHandleDAO QueryRowHandleDAOインスタンス
-     * @param sqlID 実行するSQLのID
+     * @param queryRowHandleDao QueryRowHandleDaoインスタンス
+     * @param methodName 実行するメソッド名
      * @param bindParams SQLにバインドする値を格納したオブジェクト
      * @param queueSize キューのサイズ（1以上を設定すること）
      * @param exceptionHandler 例外ハンドラ
      * @param validator Validator 入力チェックを行うバリデータ
      * @param validationErrorHandler ValidationErrorHandler 入力チェックエラー時に行う処理
      */
-    public DBValidateCollector(QueryRowHandleDAO queryRowHandleDAO,
-            String sqlID, Object bindParams, int queueSize,
+    public DBValidateCollector(Object queryRowHandleDao,
+            String methodName, Object bindParams, int queueSize,
             CollectorExceptionHandler exceptionHandler, Validator validator,
             ValidationErrorHandler validationErrorHandler) {
-        this(new DBCollectorConfig(queryRowHandleDAO, sqlID, bindParams)
+        this(new DBCollectorConfig(queryRowHandleDao, methodName, bindParams)
                 .addQueueSize(queueSize).addExceptionHandler(exceptionHandler)
                 .addValidator(validator).addValidationErrorHandler(
                         validationErrorHandler));
@@ -161,8 +160,8 @@ public class DBValidateCollector<P> extends DBCollector<P> {
 
     /**
      * DBValidateCollectorコンストラクタ<br>
-     * @param queryRowHandleDAO QueryRowHandleDAOインスタンス
-     * @param sqlID 実行するSQLのID
+     * @param queryRowHandleDao QueryRowHandleDaoインスタンス
+     * @param methodName 実行するメソッド名
      * @param bindParams SQLにバインドする値を格納したオブジェクト
      * @param queueSize キューのサイズ（1以上を設定すること）
      * @param relation1n 1:Nマッピング使用時はtrue
@@ -170,12 +169,12 @@ public class DBValidateCollector<P> extends DBCollector<P> {
      * @param dbCollectorPrePostProcess DBCollector前後処理
      * @param validator Validator 入力チェックを行うバリデータ
      */
-    public DBValidateCollector(QueryRowHandleDAO queryRowHandleDAO,
-            String sqlID, Object bindParams, int queueSize, boolean relation1n,
+    public DBValidateCollector(Object queryRowHandleDao,
+            String methodName, Object bindParams, int queueSize, boolean relation1n,
             CollectorExceptionHandler exceptionHandler,
             DBCollectorPrePostProcess dbCollectorPrePostProcess,
             Validator validator) {
-        this(new DBCollectorConfig(queryRowHandleDAO, sqlID, bindParams)
+        this(new DBCollectorConfig(queryRowHandleDao, methodName, bindParams)
                 .addQueueSize(queueSize).addRelation1n(relation1n)
                 .addExceptionHandler(exceptionHandler)
                 .addDbCollectorPrePostProcess(dbCollectorPrePostProcess)
@@ -184,8 +183,8 @@ public class DBValidateCollector<P> extends DBCollector<P> {
 
     /**
      * DBValidateCollectorコンストラクタ<br>
-     * @param queryRowHandleDAO QueryRowHandleDAOインスタンス
-     * @param sqlID 実行するSQLのID
+     * @param queryRowHandleDao QueryRowHandleDaoインスタンス
+     * @param methodName 実行するメソッド名
      * @param bindParams SQLにバインドする値を格納したオブジェクト
      * @param queueSize キューのサイズ（1以上を設定すること）
      * @param relation1n 1:Nマッピング使用時はtrue
@@ -194,12 +193,12 @@ public class DBValidateCollector<P> extends DBCollector<P> {
      * @param validator Validator 入力チェックを行うバリデータ
      * @param validationErrorHandler ValidationErrorHandler 入力チェックエラー時に行う処理
      */
-    public DBValidateCollector(QueryRowHandleDAO queryRowHandleDAO,
-            String sqlID, Object bindParams, int queueSize, boolean relation1n,
+    public DBValidateCollector(Object queryRowHandleDao,
+            String methodName, Object bindParams, int queueSize, boolean relation1n,
             CollectorExceptionHandler exceptionHandler,
             DBCollectorPrePostProcess dbCollectorPrePostProcess,
             Validator validator, ValidationErrorHandler validationErrorHandler) {
-        this(new DBCollectorConfig(queryRowHandleDAO, sqlID, bindParams)
+        this(new DBCollectorConfig(queryRowHandleDao, methodName, bindParams)
                 .addQueueSize(queueSize).addRelation1n(relation1n)
                 .addExceptionHandler(exceptionHandler)
                 .addDbCollectorPrePostProcess(dbCollectorPrePostProcess)
@@ -216,8 +215,8 @@ public class DBValidateCollector<P> extends DBCollector<P> {
             throw new IllegalArgumentException("The parameter is null.");
         }
 
-        this.queryRowHandleDAO = config.getQueryRowHandleDAO();
-        this.sqlID = config.getSqlID();
+        this.queryRowHandleDao = config.getQueryRowHandleDao();
+        this.methodName = config.getMethodName();
         this.bindParams = config.getBindParams();
         if (config.getQueueSize() > 0) {
             setQueueSize(config.getQueueSize());
