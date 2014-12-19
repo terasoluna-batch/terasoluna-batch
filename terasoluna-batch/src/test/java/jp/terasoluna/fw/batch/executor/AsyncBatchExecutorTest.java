@@ -9,9 +9,9 @@ import jp.terasoluna.fw.batch.executor.AsyncBatchExecutor.BatchServantTaskEndTra
 import jp.terasoluna.fw.batch.executor.SecurityManagerEx.ExitException;
 import jp.terasoluna.fw.batch.executor.concurrent.BatchServant;
 import jp.terasoluna.fw.batch.executor.concurrent.BatchThreadPoolTaskExecutor;
+import jp.terasoluna.fw.batch.executor.dao.SystemQueryDao;
+import jp.terasoluna.fw.batch.executor.dao.SystemUpdateDao;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobListResult;
-import jp.terasoluna.fw.dao.QueryDAO;
-import jp.terasoluna.fw.dao.UpdateDAO;
 import jp.terasoluna.fw.ex.unit.util.SystemEnvUtils;
 import jp.terasoluna.fw.ex.unit.util.TerasolunaPropertyUtils;
 import junit.framework.TestCase;
@@ -754,7 +754,7 @@ public class AsyncBatchExecutorTest extends TestCase {
         // パラメータ
         AsyncBatchExecutor executor = new AsyncBatchExecutor() {
             @Override
-            public QueryDAO getSysQueryDAO() {
+            public SystemQueryDao getSystemQueryDao() {
                 return null;
             }
         };
@@ -779,7 +779,7 @@ public class AsyncBatchExecutorTest extends TestCase {
         // パラメータ
         AsyncBatchExecutor executor = new AsyncBatchExecutor() {
             @Override
-            public UpdateDAO getSysUpdateDAO() {
+            public SystemUpdateDao getSystemUpdateDao() {
                 return null;
             }
         };
@@ -875,7 +875,7 @@ public class AsyncBatchExecutorTest extends TestCase {
         AsyncBatchExecutor executor = new AsyncBatchExecutor() {
             @Override
             protected boolean startBatchStatus(String jobSequenceId,
-                    QueryDAO queryDAO, UpdateDAO updateDAO,
+                    SystemQueryDao sysQueryDao, SystemUpdateDao updateDao,
                     PlatformTransactionManager transactionManager) {
                 return false;
             }
@@ -927,7 +927,7 @@ public class AsyncBatchExecutorTest extends TestCase {
         AsyncBatchExecutor executor = new AsyncBatchExecutor() {
             @Override
             protected boolean startBatchStatus(String jobSequenceId,
-                    QueryDAO queryDAO, UpdateDAO updateDAO,
+                    SystemQueryDao sysQueryDao, SystemUpdateDao sysUpdateDao,
                     PlatformTransactionManager transactionManager) {
                 return true;
             }
@@ -970,7 +970,7 @@ public class AsyncBatchExecutorTest extends TestCase {
         AsyncBatchExecutor executor = new AsyncBatchExecutor() {
             @Override
             protected boolean startBatchStatus(String jobSequenceId,
-                    QueryDAO queryDAO, UpdateDAO updateDAO,
+                    SystemQueryDao sysQueryDao, SystemUpdateDao sysUpdateDao,
                     PlatformTransactionManager transactionManager) {
                 return true;
             }

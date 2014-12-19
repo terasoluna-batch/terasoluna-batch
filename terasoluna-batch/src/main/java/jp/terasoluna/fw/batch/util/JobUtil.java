@@ -24,15 +24,16 @@ import java.util.List;
 import jp.terasoluna.fw.batch.constants.JobStatusConstants;
 import jp.terasoluna.fw.batch.constants.LogId;
 import jp.terasoluna.fw.batch.exception.BatchException;
+import jp.terasoluna.fw.batch.executor.dao.SystemQueryDao;
+import jp.terasoluna.fw.batch.executor.dao.SystemUpdateDao;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobListParam;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobListResult;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobManagementParam;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobManagementUpdateParam;
-import jp.terasoluna.fw.dao.QueryDAO;
-import jp.terasoluna.fw.dao.UpdateDAO;
 import jp.terasoluna.fw.logger.TLogger;
 
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.dao.DataAccessException;
 
 /**
@@ -56,53 +57,53 @@ public class JobUtil {
 
     /**
      * <h6>ジョブリスト取得.</h6>
-     * @param queryDAO QueryDAO
+     * @param sysQueryDao SystemQueryDao
      * @return ジョブリスト
      */
-    public static List<BatchJobListResult> selectJobList(QueryDAO queryDAO) {
-        return selectJobList(null, queryDAO);
+    public static List<BatchJobListResult> selectJobList(SystemQueryDao sysQueryDao) {
+        return selectJobList(null, sysQueryDao);
     }
 
     /**
      * <h6>ジョブリスト取得.</h6>
-     * @param queryDAO QueryDAO
+     * @param sysQueryDao SystemQueryDao
      * @param beginIndex 取得する開始インデックス
      * @param maxCount 取得する件数
      * @return ジョブリスト
      */
-    public static List<BatchJobListResult> selectJobList(QueryDAO queryDAO,
+    public static List<BatchJobListResult> selectJobList(SystemQueryDao sysQueryDao,
             int beginIndex, int maxCount) {
-        return selectJobList(null, queryDAO, beginIndex, maxCount);
+        return selectJobList(null, sysQueryDao, beginIndex, maxCount);
     }
 
     /**
      * <h6>ジョブリスト取得.</h6>
      * @param jobAppCd ジョブ業務コード
-     * @param queryDAO QueryDAO
+     * @param sysQueryDao SystemQueryDao
      * @return ジョブリスト
      */
     public static List<BatchJobListResult> selectJobList(String jobAppCd,
-            QueryDAO queryDAO) {
-        return selectJobList(jobAppCd, queryDAO, -1, -1);
+            SystemQueryDao sysQueryDao) {
+        return selectJobList(jobAppCd, sysQueryDao, -1, -1);
     }
 
     /**
      * <h6>ジョブリスト取得.</h6> ※未実施ステータスのジョブのみ取得
      * @param jobAppCd ジョブ業務コード
-     * @param queryDAO QueryDAO
+     * @param sysQueryDao SystemQueryDao
      * @param beginIndex 取得する開始インデックス
      * @param maxCount 取得する件数
      * @return ジョブリスト
      */
     public static List<BatchJobListResult> selectJobList(String jobAppCd,
-            QueryDAO queryDAO, int beginIndex, int maxCount) {
+            SystemQueryDao sysQueryDao, int beginIndex, int maxCount) {
         // ステータス
         List<String> curAppStatusList = new ArrayList<String>();
 
         // ステータス（未実施）
         curAppStatusList.add(JobStatusConstants.JOB_STATUS_UNEXECUTION);
 
-        return selectJobList(jobAppCd, curAppStatusList, queryDAO, beginIndex,
+        return selectJobList(jobAppCd, curAppStatusList, sysQueryDao, beginIndex,
                 maxCount);
     }
 
@@ -110,13 +111,13 @@ public class JobUtil {
      * <h6>ジョブリスト取得.</h6>
      * @param jobAppCd ジョブ業務コード
      * @param curAppStatusList 取得するステータスの一覧
-     * @param queryDAO QueryDAO
+     * @param sysQueryDao SystemQueryDao
      * @param beginIndex 取得する開始インデックス
      * @param maxCount 取得する件数
      * @return ジョブリスト
      */
     public static List<BatchJobListResult> selectJobList(String jobAppCd,
-            List<String> curAppStatusList, QueryDAO queryDAO, int beginIndex,
+            List<String> curAppStatusList, SystemQueryDao sysQueryDao, int beginIndex,
             int maxCount) {
 
         BatchJobListParam param = new BatchJobListParam();
@@ -132,12 +133,10 @@ public class JobUtil {
         List<BatchJobListResult> result = null;
         try {
             if (beginIndex == -1 || maxCount == -1) {
-                result = queryDAO.executeForObjectList(
-                        "batchExecutor.selectJobList", param);
+                result = sysQueryDao.selectJobList(param);
             } else {
-                result = queryDAO.executeForObjectList(
-                        "batchExecutor.selectJobList", param, beginIndex,
-                        maxCount);
+                RowBounds rowBounds = new RowBounds(beginIndex, maxCount);
+                result = sysQueryDao.selectJobList(rowBounds, param);
             }
         } catch (Exception e) {
             throw new BatchException(LOGGER.getLogMessage(LogId.EAL025039), e);
@@ -148,13 +147,13 @@ public class JobUtil {
 
     /**
      * <h6>ジョブ1件取得.</h6>
-     * @param jobSequenceId
-     * @param forUpdate
-     * @param queryDAO
+     * @param jobSequenceId ジョブシーケンスID
+     * @param forUpdate 対象行ロックを行う場合はtrue
+     * @param sysQueryDao フレームワーク参照用DAO
      * @return
      */
     public static BatchJobData selectJob(String jobSequenceId,
-            boolean forUpdate, QueryDAO queryDAO) {
+            boolean forUpdate, SystemQueryDao sysQueryDao) {
         BatchJobManagementParam param = new BatchJobManagementParam();
 
         // ジョブシーケンスコード
@@ -165,8 +164,7 @@ public class JobUtil {
 
         BatchJobData result = null;
         try {
-            result = (BatchJobData) queryDAO.executeForObject(
-                    "batchExecutor.selectJob", param, BatchJobData.class);
+            result = (BatchJobData) sysQueryDao.selectJob(param);
         } catch (Exception e) {
             if (LOGGER.isErrorEnabled()) {
                 LOGGER.error(LogId.EAL025040, e);
@@ -181,16 +179,16 @@ public class JobUtil {
 
     /**
      * <h6>ジョブレコード更新.</h6>
-     * @param jobSequenceId
-     * @param curAppStatus
-     * @param jobRetCount
-     * @param errAppStatus
-     * @param updateDAO
-     * @return
+     * @param jobSequenceId ジョブシーケンスID
+     * @param curAppStatus アプリケーションの現在の実行状態
+     * @param jobRetCount ジョブからの返却値
+     * @param blogicAppStatus ビジネスロジック実行状態
+     * @param sysUpdateDao 更新系データアクセス
+     * @return ジョブ管理テーブルレコードの更新が成功した場合true
      */
     public static boolean updateJobStatus(String jobSequenceId,
             String curAppStatus, String jobRetCount, String blogicAppStatus,
-            QueryDAO queryDAO, UpdateDAO updateDAO) {
+            SystemQueryDao sysQueryDao, SystemUpdateDao sysUpdateDao) {
         BatchJobManagementUpdateParam param = new BatchJobManagementUpdateParam();
 
         // ジョブシーケンスコード
@@ -203,12 +201,12 @@ public class JobUtil {
         param.setCurAppStatus(curAppStatus);
 
         // 更新日時（ミリ秒）
-        Timestamp updDateTime = getCurrentTime(queryDAO);
+        Timestamp updDateTime = getCurrentTime(sysQueryDao);
         param.setUpdDateTime(updDateTime);
 
         int count = -1;
         try {
-            count = updateDAO.execute("batchExecutor.updateJobTable", param);
+            count = sysUpdateDao.updateJobTable(param);
         } catch (Exception e) {
             LOGGER.error(LogId.EAL025041, e);
             if (e instanceof DataAccessException) {
@@ -228,15 +226,14 @@ public class JobUtil {
 
     /**
      * <h6>カレント時刻を取得する.</h6>
-     * @param queryDAO
+     * @param sysQueryDao フレームワークの参照用DAO
      * @return Timestamp カレント時刻
      */
     @Deprecated
-    public static Timestamp getCurrentTime(QueryDAO queryDAO) {
+    public static Timestamp getCurrentTime(SystemQueryDao sysQueryDao) {
         Timestamp result = null;
         try {
-            result = (Timestamp) queryDAO.executeForObject(
-                    "batchExecutor.currentTimeReader", null, Timestamp.class);
+            result = sysQueryDao.currentTimeReader();
         } catch (Exception e) {
             LOGGER.error(LogId.EAL025043, e);
             if (e instanceof DataAccessException) {
@@ -248,15 +245,14 @@ public class JobUtil {
 
     /**
      * <h6>カレント日付を取得する.</h6>
-     * @param queryDAO
+     * @param sysQueryDao
      * @return Date カレント日付
      */
     @Deprecated
-    public static Date getCurrentDate(QueryDAO queryDAO) {
+    public static Date getCurrentDate(SystemQueryDao sysQueryDao) {
         Date result = null;
         try {
-            result = (Date) queryDAO.executeForObject(
-                    "batchExecutor.currentDateReader", null, Date.class);
+            result = sysQueryDao.currentDateReader();
         } catch (Exception e) {
             LOGGER.error(LogId.EAL025043, e);
 

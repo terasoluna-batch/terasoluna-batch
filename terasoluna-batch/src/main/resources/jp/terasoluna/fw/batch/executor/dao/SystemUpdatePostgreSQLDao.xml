@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper
+    namespace="jp.terasoluna.fw.batch.executor.dao.SystemUpdatePostgreSQLDao">
+
+    <!-- ジョブ更新 -->
+    <update id="updateJobTable" parameterType="BatchJobManagementUpdateParam">
+        UPDATE
+            JOB_CONTROL
+        <set>
+            UPD_DATE_TIME = #{updDateTime},
+            <if test="blogicAppStatus != null and blogicAppStatus != ''">
+                BLOGIC_APP_STATUS = #{blogicAppStatus},
+            </if>
+            <if test="curAppStatus != null and curAppStatus != ''">
+                CUR_APP_STATUS = #{curAppStatus},
+            </if>
+        </set>
+        WHERE
+            JOB_SEQ_ID = #{jobSequenceId}
+    </update>
+
+</mapper>

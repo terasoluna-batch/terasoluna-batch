@@ -113,14 +113,14 @@
             <version>${terasoluna.fw.version}</version>
         </dependency>
         <dependency>
-            <groupId>jp.terasoluna.fw</groupId>
-            <artifactId>terasoluna-dao</artifactId>
-            <version>${terasoluna.fw.version}</version>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>${mybatis.version}</version>
         </dependency>
         <dependency>
-            <groupId>jp.terasoluna.fw</groupId>
-            <artifactId>terasoluna-ibatis</artifactId>
-            <version>${terasoluna.fw.version}</version>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+            <version>${mybatis-spring.version}</version>
         </dependency>
         <dependency>
             <groupId>jp.terasoluna.fw</groupId>

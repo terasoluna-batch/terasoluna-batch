@@ -18,10 +18,10 @@ package jp.terasoluna.fw.batch.executor;
 
 import static org.mockito.Mockito.*;
 import jp.terasoluna.fw.batch.blogic.vo.BLogicParam;
+import jp.terasoluna.fw.batch.executor.dao.SystemQueryDao;
+import jp.terasoluna.fw.batch.executor.dao.SystemUpdateDao;
 import jp.terasoluna.fw.batch.executor.vo.BLogicResult;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
-import jp.terasoluna.fw.dao.QueryDAO;
-import jp.terasoluna.fw.dao.UpdateDAO;
 import jp.terasoluna.fw.ex.unit.util.TerasolunaPropertyUtils;
 import junit.framework.TestCase;
 
@@ -613,38 +613,38 @@ public class AbstractBatchExecutorTest extends TestCase {
 
     }
 
-    public void testGetSysQueryDAO01() throws Exception {
+    public void testGetSystemQueryDao01() throws Exception {
 
         AbstractBatchExecutor exe = new AsyncBatchExecutor();
 
-        QueryDAO result = exe.getSysQueryDAO();
+        SystemQueryDao result = exe.getSystemQueryDao();
 
         assertNotNull(result);
     }
 
-    public void testGetSysQueryDAO02() throws Exception {
+    public void testGetSystemQueryDao02() throws Exception {
 
         AbstractBatchExecutor exe = new SyncBatchExecutor();
 
-        QueryDAO result = exe.getSysQueryDAO();
+        SystemQueryDao result = exe.getSystemQueryDao();
 
         assertNull(result);
     }
 
-    public void testGetSysUpdateDAO01() throws Exception {
+    public void testGetSystemUpdateDao01() throws Exception {
 
         AbstractBatchExecutor exe = new AsyncBatchExecutor();
 
-        UpdateDAO result = exe.getSysUpdateDAO();
+        SystemUpdateDao result = exe.getSystemUpdateDao();
 
         assertNotNull(result);
     }
 
-    public void testGetSysUpdateDAO02() throws Exception {
+    public void testGetSystemUpdateDao02() throws Exception {
 
         AbstractBatchExecutor exe = new SyncBatchExecutor();
 
-        UpdateDAO result = exe.getSysUpdateDAO();
+        SystemUpdateDao result = exe.getSystemUpdateDao();
 
         assertNull(result);
     }

@@ -31,12 +31,14 @@ import jp.terasoluna.fw.batch.blogic.BLogic;
 import jp.terasoluna.fw.batch.blogic.vo.BLogicParam;
 import jp.terasoluna.fw.batch.constants.LogId;
 import jp.terasoluna.fw.batch.exception.handler.ExceptionHandler;
+import jp.terasoluna.fw.batch.executor.dao.SystemQueryDao;
+import jp.terasoluna.fw.batch.executor.dao.SystemUpdateDao;
+import jp.terasoluna.fw.batch.executor.dao.SystemQueryDao;
+import jp.terasoluna.fw.batch.executor.dao.SystemUpdateDao;
 import jp.terasoluna.fw.batch.executor.vo.BLogicResult;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
 import jp.terasoluna.fw.batch.message.MessageAccessor;
 import jp.terasoluna.fw.batch.util.MessageUtil;
-import jp.terasoluna.fw.dao.QueryDAO;
-import jp.terasoluna.fw.dao.UpdateDAO;
 import jp.terasoluna.fw.logger.TLogger;
 import jp.terasoluna.fw.util.PropertyUtil;
 
@@ -315,14 +317,14 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
     protected static ClassLoader cl = null;
 
     /**
-     * システム用queryDAO定義（ステータス参照・更新用）.
+     * システム用queryDao定義（ステータス参照・更新用）.
      */
-    protected QueryDAO sysQueryDAO = null;
+    protected SystemQueryDao sysQueryDao = null;
 
     /**
-     * システム用updateDAO定義（ステータス参照・更新用）.
+     * システム用updateDao定義（ステータス参照・更新用）.
      */
-    protected UpdateDAO sysUpdateDAO = null;
+    protected SystemUpdateDao sysUpdateDao = null;
 
     /**
      * システム用transactionManager定義（ステータス参照・更新用）.
@@ -366,7 +368,7 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
         // システム共通AppContextName初期化
         initDefaultAppContext();
 
-        // システム共通SqlMapClient初期化
+        // システム共通DAO初期化
         initSystemDatasourceDao();
 
         // エラーメッセージの初期化
@@ -1040,20 +1042,21 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
     }
 
     /**
-     * システム用queryDAO定義（ステータス参照・更新用）
-     * @return the queryDAO
+     * システム用queryDao定義（ステータス参照・更新用）
+     * @return the queryDao
      */
-    public QueryDAO getSysQueryDAO() {
-        return sysQueryDAO;
+    public SystemQueryDao getSystemQueryDao() {
+        return sysQueryDao;
     }
 
     /**
-     * システム用updateDAO定義（ステータス参照・更新用）
-     * @return the updateDAO
+     * システム用updateDao定義（ステータス参照・更新用）
+     * @return the updateDao
      */
-    public UpdateDAO getSysUpdateDAO() {
-        return sysUpdateDAO;
+    public SystemUpdateDao getSystemUpdateDao() {
+        return sysUpdateDao;
     }
+
 
     /**
      * システム用transactionManager定義（ステータス参照・更新用）

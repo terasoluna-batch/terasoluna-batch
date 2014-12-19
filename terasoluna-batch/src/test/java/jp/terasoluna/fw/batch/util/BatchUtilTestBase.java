@@ -22,7 +22,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import jp.terasoluna.fw.dao.IllegalClassTypeException;
+import jp.terasoluna.fw.batch.exception.IllegalClassTypeException;
 import junit.framework.TestCase;
 
 import org.apache.commons.logging.Log;

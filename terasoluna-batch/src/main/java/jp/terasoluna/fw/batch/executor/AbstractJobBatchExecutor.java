@@ -20,11 +20,11 @@ import jp.terasoluna.fw.batch.constants.EventConstants;
 import jp.terasoluna.fw.batch.constants.JobStatusConstants;
 import jp.terasoluna.fw.batch.constants.LogId;
 import jp.terasoluna.fw.batch.exception.BatchException;
+import jp.terasoluna.fw.batch.executor.dao.SystemQueryDao;
+import jp.terasoluna.fw.batch.executor.dao.SystemUpdateDao;
 import jp.terasoluna.fw.batch.executor.vo.BLogicResult;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
 import jp.terasoluna.fw.batch.util.JobUtil;
-import jp.terasoluna.fw.dao.QueryDAO;
-import jp.terasoluna.fw.dao.UpdateDAO;
 import jp.terasoluna.fw.logger.TLogger;
 import jp.terasoluna.fw.util.PropertyUtil;
 
@@ -173,8 +173,8 @@ public abstract class AbstractJobBatchExecutor extends AbstractBatchExecutor {
         if (queryDaoKey != null && queryDaoKey.length() != 0) {
             if (defaultApplicationContext.containsBean(queryDaoKey)) {
                 try {
-                    sysQueryDAO = (QueryDAO) defaultApplicationContext.getBean(
-                            queryDaoKey, QueryDAO.class);
+                    sysQueryDao = (SystemQueryDao) defaultApplicationContext.getBean(
+                            queryDaoKey, SystemQueryDao.class);
                 } catch (Throwable e) {
                     LOGGER.error(LogId.EAL025017, e, queryDaoKey);
                 }
@@ -185,8 +185,8 @@ public abstract class AbstractJobBatchExecutor extends AbstractBatchExecutor {
         if (updateDaoKey != null && updateDaoKey.length() != 0) {
             if (defaultApplicationContext.containsBean(updateDaoKey)) {
                 try {
-                    sysUpdateDAO = (UpdateDAO) defaultApplicationContext
-                            .getBean(updateDaoKey, UpdateDAO.class);
+                    sysUpdateDao = (SystemUpdateDao) defaultApplicationContext
+                            .getBean(updateDaoKey, SystemUpdateDao.class);
                 } catch (Throwable e) {
                     LOGGER.error(LogId.EAL025018, e, updateDaoKey);
                 }
@@ -207,10 +207,10 @@ public abstract class AbstractJobBatchExecutor extends AbstractBatchExecutor {
             }
         }
 
-        if (sysQueryDAO == null) {
+        if (sysQueryDao == null) {
             LOGGER.error(LogId.EAL025020);
         }
-        if (sysUpdateDAO == null) {
+        if (sysUpdateDao == null) {
             LOGGER.error(LogId.EAL025021);
         }
         if (sysTransactionManager == null) {
@@ -272,8 +272,8 @@ public abstract class AbstractJobBatchExecutor extends AbstractBatchExecutor {
 
         LOGGER.info(LogId.IAL025001, jobSequenceId);
 
-        // SqlMapClientが使用可能かチェック
-        if (sysQueryDAO == null || sysUpdateDAO == null
+        // DAOが使用可能かチェック
+        if (sysQueryDao == null || sysUpdateDao == null
                 || sysTransactionManager == null) {
             LOGGER.error(LogId.EAL025023, jobSequenceId);
             return result;
@@ -284,7 +284,7 @@ public abstract class AbstractJobBatchExecutor extends AbstractBatchExecutor {
             BatchJobData jobRecord = null;
             try {
                 jobRecord = JobUtil.selectJob(jobSequenceId, false,
-                        sysQueryDAO);
+                        sysQueryDao);
             } catch (DataAccessException e) {
                 LOGGER.error(LogId.EAL025049, jobSequenceId);
                 return result;
@@ -299,7 +299,7 @@ public abstract class AbstractJobBatchExecutor extends AbstractBatchExecutor {
                 boolean status;
                 try {
                     // ジョブステータス設定（開始）
-                    status = startBatchStatus(jobSequenceId, sysQueryDAO, sysUpdateDAO,
+                    status = startBatchStatus(jobSequenceId, sysQueryDao, sysUpdateDao,
                         sysTransactionManager);
                 } catch (DataAccessException e) {
                     LOGGER.error(LogId.EAL025050, e, jobSequenceId);
@@ -329,8 +329,8 @@ public abstract class AbstractJobBatchExecutor extends AbstractBatchExecutor {
         } finally {
             try {
                 // 処理済み →ジョブステータス設定（終了）
-                st = endBatchStatus(jobSequenceId, result, sysQueryDAO,
-                        sysUpdateDAO, sysTransactionManager);
+                st = endBatchStatus(jobSequenceId, result, sysQueryDao,
+                        sysUpdateDao, sysTransactionManager);
             } catch (DataAccessException e) {
                 LOGGER.error(LogId.EAL025025, e, jobSequenceId, result
                         .getBlogicStatus());
@@ -359,15 +359,15 @@ public abstract class AbstractJobBatchExecutor extends AbstractBatchExecutor {
     /**
      * <h6>ジョブステータス更新（ジョブ開始）.</h6>
      * @param jobSequenceId 更新対象のジョブシーケンスコード
-     * @param queryDAO QueryDAO
-     * @param updateDAO UpdateDAO
+     * @param sysQueryDao SystemQueryDAO
+     * @param sysUpdateDao UpdateDAO
      * @param transactionManager TransactionManager
      * @return ステータス更新が成功したらtrue
      */
-    protected boolean startBatchStatus(String jobSequenceId, QueryDAO queryDAO,
-            UpdateDAO updateDAO, PlatformTransactionManager transactionManager) {
+    protected boolean startBatchStatus(String jobSequenceId, SystemQueryDao sysQueryDao,
+            SystemUpdateDao sysUpdateDao, PlatformTransactionManager transactionManager) {
         return updateBatchStatus(jobSequenceId,
-                EventConstants.EVENT_STATUS_START, null, queryDAO, updateDAO,
+                EventConstants.EVENT_STATUS_START, null, sysQueryDao, sysUpdateDao,
                 transactionManager);
     }
 
@@ -375,13 +375,13 @@ public abstract class AbstractJobBatchExecutor extends AbstractBatchExecutor {
      * <h6>ジョブステータス更新（ジョブ終了）.</h6>
      * @param jobSequenceId 更新対象のジョブシーケンスコード
      * @param result ステータス
-     * @param queryDAO QueryDAO
-     * @param updateDAO UpdateDAO
+     * @param sysQueryDao SystemQueryDao
+     * @param sysUpdateDao SystemUpdateDao
      * @param transactionManager TransactionManager
      * @return ステータス更新が成功したらtrue
      */
     protected boolean endBatchStatus(String jobSequenceId, BLogicResult result,
-            QueryDAO queryDAO, UpdateDAO updateDAO,
+            SystemQueryDao sysQueryDao, SystemUpdateDao sysUpdateDao,
             PlatformTransactionManager transactionManager) {
         String blogicStatus = null;
         if (result != null) {
@@ -389,7 +389,7 @@ public abstract class AbstractJobBatchExecutor extends AbstractBatchExecutor {
         }
         return updateBatchStatus(jobSequenceId,
                 EventConstants.EVENT_STATUS_NORMAL_TERMINATION, blogicStatus,
-                queryDAO, updateDAO, transactionManager);
+                sysQueryDao, sysUpdateDao, transactionManager);
     }
 
     /**
@@ -400,13 +400,13 @@ public abstract class AbstractJobBatchExecutor extends AbstractBatchExecutor {
      * @param jobSequenceId 更新対象のジョブシーケンスコード
      * @param eventCode イベントコード
      * @param blogicStatus blogicの戻り値
-     * @param queryDAO QueryDAO
-     * @param updateDAO UpdateDAO
+     * @param sysQueryDao SystemQueryDAO
+     * @param sysUpdateDao SystemUpdateDAO
      * @param transactionManager TransactionManager
      * @return ステータス更新が成功したらtrue
      */
     protected boolean updateBatchStatus(String jobSequenceId, String eventCode,
-            String blogicStatus, QueryDAO queryDAO, UpdateDAO updateDAO,
+            String blogicStatus, SystemQueryDao sysQueryDao, SystemUpdateDao sysUpdateDao,
             PlatformTransactionManager transactionManager) {
         TransactionStatus tranStatus = null;
 
@@ -418,7 +418,7 @@ public abstract class AbstractJobBatchExecutor extends AbstractBatchExecutor {
             LOGGER.debug(LogId.DAL025022);
 
             // ジョブレコード取得
-            BatchJobData job = JobUtil.selectJob(jobSequenceId, true, queryDAO);
+            BatchJobData job = JobUtil.selectJob(jobSequenceId, true, sysQueryDao);
             if (job == null) {
                 LOGGER.error(LogId.EAL025026, jobSequenceId);
                 return false;
@@ -436,7 +436,7 @@ public abstract class AbstractJobBatchExecutor extends AbstractBatchExecutor {
 
             // ステータス更新
             JobUtil.updateJobStatus(job.getJobSequenceId(), changeStatus, null,
-                    blogicStatus, queryDAO, updateDAO);
+                    blogicStatus, sysQueryDao, sysUpdateDao);
 
             // トランザクションコミット
             transactionManager.commit(tranStatus);
