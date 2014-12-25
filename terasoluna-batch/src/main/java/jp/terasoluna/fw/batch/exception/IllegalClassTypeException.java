@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007 NTT DATA Corporation
+ * Copyright (c) 2014 NTT DATA Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,15 +16,13 @@
 
 package jp.terasoluna.fw.batch.exception;
 
-import org.springframework.dao.DataAccessException;
-
 /**
- * QueryRepositoryインターフェースの配列変換時に例外が発生した場合のRuntime例外クラス。
+ * DAO参照時の配列変換時に例外が発生した場合のRuntime例外クラス。
  * 
- * 引数のクラスと、戻り値の型が一致しない場合、 およびMapの配列変換時にRepository実装クラスから投げられる例外である。
+ * 引数のクラスと、戻り値の型が一致しない場合、 およびMapの配列変換時にDAO操作クラスから投げられる例外である。
  * 
  */
-public class IllegalClassTypeException extends DataAccessException {
+public class IllegalClassTypeException extends RuntimeException {
 
     /**
      * シリアルバージョンID。

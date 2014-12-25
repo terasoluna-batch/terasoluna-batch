@@ -16,31 +16,8 @@
 
 package jp.terasoluna.fw.batch.executor.dao;
 
-import java.sql.Date;
-
 /**
  * Oracle用の共通DAOインタフェース。
  */
-public interface CommonOracleDao {
-
-    /**
-     * シーケンス名からシステムコードを取得する。
-     *
-     * @param seqName シーケンス名
-     * @return システムコード
-     */
-    String sysCodeReader(String seqName);
-
-    /**
-     * 現在時刻を表すオブジェクトを取得する。
-     * @return 現在時刻を表すオブジェクト
-     */
-    Object currentTimeReader();
-
-    /**
-     * 現在日付を表すオブジェクトを取得する。
-     * @return 現在日付を表すオブジェクト
-     */
-    Date currentDateReader();
-
+public interface CommonOracleDao extends CommonDao {
 }

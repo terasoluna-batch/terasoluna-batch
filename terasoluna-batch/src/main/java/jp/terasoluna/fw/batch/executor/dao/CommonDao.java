@@ -16,10 +16,32 @@
 
 package jp.terasoluna.fw.batch.executor.dao;
 
+import java.sql.Date;
+import java.sql.Timestamp;
+
 /**
- * ãƒ•ãƒ¬ãƒ¼ãƒ ãƒ¯ãƒ¼ã‚¯ã«ã‚ˆã‚Šè¡Œã‚ã‚Œã‚‹DBæ›´æ–°ç”¨DAOã€‚ï¼ˆPostgreSQLç”¨ï¼‰
+ * ‹¤’ÊDAOƒCƒ“ƒ^ƒtƒF[ƒXB
  */
-public interface SystemUpdatePostgreSQLDao extends
-        SystemUpdateDao {
+public interface CommonDao {
+
+    /**
+     * ƒV[ƒPƒ“ƒX–¼‚©‚çƒVƒXƒeƒ€ƒR[ƒh‚ğæ“¾‚·‚éB
+     *
+     * @param seqName ƒV[ƒPƒ“ƒX–¼
+     * @return ƒVƒXƒeƒ€ƒR[ƒh
+     */
+    String sysCodeReader(String seqName);
+
+    /**
+     * Œ»İ‚ğ•\‚·ƒIƒuƒWƒFƒNƒg‚ğæ“¾‚·‚éB
+     * @return Œ»İ‚ğ•\‚·ƒIƒuƒWƒFƒNƒg
+     */
+    Timestamp currentTimeReader();
+
+    /**
+     * Œ»İ“ú•t‚ğ•\‚·ƒIƒuƒWƒFƒNƒg‚ğæ“¾‚·‚éB
+     * @return Œ»İ“ú•t‚ğ•\‚·ƒIƒuƒWƒFƒNƒg
+     */
+    Date currentDateReader();
 
 }

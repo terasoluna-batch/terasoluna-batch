@@ -12,7 +12,7 @@
     </select>
 
     <!-- カレント時刻を取得する（精度はミリ秒まで） -->
-    <select id="currentTimeReader" resultType="java.lang.Object">
+    <select id="currentTimeReader" resultType="java.sql.Timestamp">
         SELECT
             TO_TIMESTAMP(TO_CHAR(A.SYS_DATE, 'YYYY-MM-DD ') || TO_CHAR(CURRENT_TIMESTAMP, 'HH24:MI:SS.MS'), 'YYYY-MM-DD HH24:MI:SS.MS') AS SYS_DATE
         FROM

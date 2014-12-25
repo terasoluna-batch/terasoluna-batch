@@ -4,15 +4,12 @@ import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.List;
 
-import jp.terasoluna.fw.batch.executor.dao.SystemQueryDao;
-import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
-import jp.terasoluna.fw.batch.executor.vo.BatchJobListParam;
-import jp.terasoluna.fw.batch.executor.vo.BatchJobListResult;
-import jp.terasoluna.fw.batch.executor.vo.BatchJobManagementParam;
+import jp.terasoluna.fw.batch.executor.dao.SystemDao;
+import jp.terasoluna.fw.batch.executor.vo.*;
 import org.apache.ibatis.session.RowBounds;
 
-public class MockSystemQueryDao extends AbstractMockDao implements
-        SystemQueryDao {
+public class MockSystemDao extends AbstractMockDao implements
+        SystemDao {
 
     @SuppressWarnings("unchecked")
     public List<BatchJobListResult> selectJobList(BatchJobListParam param) {
@@ -39,5 +36,9 @@ public class MockSystemQueryDao extends AbstractMockDao implements
 
     public Date currentDateReader() {
         return null;
+    }
+
+    public int updateJobTable(BatchJobManagementUpdateParam batchJobManagementUpdateParam) {
+        return 0;
     }
 }

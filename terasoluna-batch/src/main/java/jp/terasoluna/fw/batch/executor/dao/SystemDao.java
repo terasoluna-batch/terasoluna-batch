@@ -16,10 +16,7 @@
 
 package jp.terasoluna.fw.batch.executor.dao;
 
-import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
-import jp.terasoluna.fw.batch.executor.vo.BatchJobListParam;
-import jp.terasoluna.fw.batch.executor.vo.BatchJobListResult;
-import jp.terasoluna.fw.batch.executor.vo.BatchJobManagementParam;
+import jp.terasoluna.fw.batch.executor.vo.*;
 import org.apache.ibatis.session.RowBounds;
 
 import java.sql.Date;
@@ -27,9 +24,9 @@ import java.sql.Timestamp;
 import java.util.List;
 
 /**
- * フレームワークにより行われるDB参照用DAO。
+ * フレームワークによるDBアクセス実行時に使用されるDAO。
  */
-public interface SystemQueryDao {
+public interface SystemDao {
 
     /**
      * 特定条件下でジョブ管理テーブルのレコードを取得する。
@@ -70,4 +67,13 @@ public interface SystemQueryDao {
      * @return 現在日付
      */
     Date currentDateReader();
+
+    /**
+     * ジョブ管理テーブルを更新する。
+     *
+     * @param batchJobManagementUpdateParam ジョブ管理テーブルの更新条件・内容
+     * @return 更新件数
+     */
+    int updateJobTable(
+            BatchJobManagementUpdateParam batchJobManagementUpdateParam);
 }

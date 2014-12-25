@@ -3,7 +3,7 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper
-    namespace="jp.terasoluna.fw.batch.executor.dao.SystemQueryPostgreSQLDao">
+    namespace="jp.terasoluna.fw.batch.executor.dao.SystemPostgreSQLDao">
 
     <!-- ジョブリスト取得 -->
     <select id="selectJobList" parameterType="BatchJobListParam"
@@ -79,5 +79,22 @@
         SELECT
             current_date
     </select>
+
+    <!-- ジョブ更新 -->
+    <update id="updateJobTable" parameterType="BatchJobManagementUpdateParam">
+        UPDATE
+        JOB_CONTROL
+        <set>
+            UPD_DATE_TIME = #{updDateTime},
+            <if test="blogicAppStatus != null and blogicAppStatus != ''">
+                BLOGIC_APP_STATUS = #{blogicAppStatus},
+            </if>
+            <if test="curAppStatus != null and curAppStatus != ''">
+                CUR_APP_STATUS = #{curAppStatus},
+            </if>
+        </set>
+        WHERE
+        JOB_SEQ_ID = #{jobSequenceId}
+    </update>
 
 </mapper>

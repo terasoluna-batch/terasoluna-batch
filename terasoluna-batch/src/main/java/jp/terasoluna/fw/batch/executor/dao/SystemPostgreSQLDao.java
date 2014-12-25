@@ -17,8 +17,7 @@
 package jp.terasoluna.fw.batch.executor.dao;
 
 /**
- * フレームワークにより行われるDB更新用DAO。（ORACLE用）
+ * フレームワークから使用されるDAO。（PostgreSQL用）
  */
-public interface SystemUpdateOracleDao extends SystemUpdateDao {
-
+public interface SystemPostgreSQLDao extends SystemDao {
 }

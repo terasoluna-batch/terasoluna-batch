@@ -34,14 +34,8 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
     </bean>
 
     <!-- 照会系のDAO定義 -->
-    <bean id="sysQueryDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
-        <property name="mapperInterface" value="jp.terasoluna.fw.batch.executor.dao.AdminQueryOracleDao"/>
-        <property name="sqlSessionFactory" ref="sysSqlSessionFactory"/>
-    </bean>
-
-    <!-- 更新系のDAO定義 -->
-    <bean id="sysUpdateDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
-        <property name="mapperInterface" value="jp.terasoluna.fw.batch.executor.dao.AdminUpdateOracleDao"/>
+    <bean id="sysDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="jp.terasoluna.fw.batch.executor.dao.SystemOracleDao"/>
         <property name="sqlSessionFactory" ref="sysSqlSessionFactory"/>
     </bean>
 
