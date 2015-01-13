@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper
+    namespace="jp.terasoluna.fw.batch.executor.dao.CommonPostgreSQLDao">
+
+    <!-- 入力したシーケンスの次値を取得する -->
+    <select id="readSysCode" parameterType="String" resultType="String">
+        SELECT
+            TO_CHAR(nextval(#{seqName}),'FM00000000') AS SEQ
+    </select>
+
+    <!-- カレント時刻を取得する（精度はPostgreSQL依存） -->
+    <select id="readCurrentTime" resultType="java.sql.Timestamp">
+        SELECT CURRENT_TIMESTAMP AS SYS_DATE
+    </select>
+
+    <!-- カレント日付を取得する -->
+    <select id="readCurrentDate" resultType="java.sql.Date">
+        SELECT
+            current_date AS SYS_DATE
+    </select>
+
+</mapper>

@@ -32,15 +32,7 @@
         <result property="orderDetail.amount" column="amount" />
     </resultMap>
 
-    <resultMap id="orderDetailMap2" type="OrderDetailBean">
-        <result property="detlId" column="detlId" />
-        <result property="prodId" column="prodId" />
-        <result property="prodName" column="prodName" />
-        <result property="quantity" column="quantity" />
-        <result property="amount" column="amount" />
-    </resultMap>
-
-    <select id="collect" resultType="UserBean" resultSetType="SCROLL_INSENSITIVE">
+    <select id="collect" resultType="UserBean">
         SELECT
         USER_ID AS "userId",
         USER_FAMILY_NAME AS "familyName",

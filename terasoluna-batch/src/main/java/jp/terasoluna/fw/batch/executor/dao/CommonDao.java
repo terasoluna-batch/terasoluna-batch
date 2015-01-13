@@ -30,18 +30,18 @@ public interface CommonDao {
      * @param seqName シーケンス名
      * @return システムコード
      */
-    String sysCodeReader(String seqName);
+    String readSysCode(String seqName);
 
     /**
      * 現在時刻を表すオブジェクトを取得する。
      * @return 現在時刻を表すオブジェクト
      */
-    Timestamp currentTimeReader();
+    Timestamp readCurrentTime();
 
     /**
      * 現在日付を表すオブジェクトを取得する。
      * @return 現在日付を表すオブジェクト
      */
-    Date currentDateReader();
+    Date readCurrentDate();
 
 }

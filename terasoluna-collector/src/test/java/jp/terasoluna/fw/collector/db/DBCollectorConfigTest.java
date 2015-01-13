@@ -267,7 +267,7 @@ public class DBCollectorConfigTest {
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.db.DBCollectorConfig#DBCollectorConfig(Object, String, Object)}
+     * {@link jp.terasoluna.fw.collector.db.DBCollectorConfig#addExecuteByConstructor(boolean)}
      * のためのテスト・メソッド。
      */
     @Test

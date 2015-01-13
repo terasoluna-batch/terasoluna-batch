@@ -3,19 +3,19 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
 	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="
-http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
-http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
-http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
-http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<!-- DBCPのデータソースを設定する。  -->
 	<context:property-placeholder location="mybatis/jdbcMain.properties" />
 	<bean id="dataSource" destroy-method="close"
 		class="org.apache.commons.dbcp.BasicDataSource">
-		<property name="driverClassName" value="${driver}" />
-		<property name="url" value="${url}" />
-		<property name="username" value="${username}" />
-		<property name="password" value="${password}" />
+		<property name="driverClassName" value="${jdbc.driver}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
 		<property name="maxActive" value="30" />
 		<property name="maxIdle" value="1" />
 		<property name="maxWait" value="5000" />
@@ -25,8 +25,6 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 	<bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />
-        <!-- 複数DB接続を行うためにトランザクション同期を行わない設定 -->
-        <property name="transactionSynchronization" value="2"/>
 	</bean>
 
     <!-- システム共通SqlSessionFactory定義 -->
@@ -117,8 +115,8 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
         </entry>
     </util:map>
 
-    <!-- 照会系のRepository定義（RowHandle版） -->
-    <bean id="userListQueryRowHandleRepository" class="org.mybatis.spring.mapper.MapperFactoryBean">
+    <!-- 照会系のDao定義（RowHandle版） -->
+    <bean id="userListQueryRowHandleDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
         <property name="mapperInterface"
                   value="jp.terasoluna.fw.collector.dao.UserListQueryRowHandleDao" />
         <property name="sqlSessionFactory" ref="sqlSessionFactory" />

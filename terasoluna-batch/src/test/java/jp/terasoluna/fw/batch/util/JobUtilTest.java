@@ -240,7 +240,7 @@ public class JobUtilTest extends DaoTestCase {
 
     public void testGetCurrentTime03() throws Exception {
         SystemDao sysDao = mock(SystemDao.class);
-        when(sysDao.currentTimeReader()).thenThrow(
+        when(sysDao.readCurrentTime()).thenThrow(
                 new DataAccessException("DBステータス取得時例外確認用") {});
         try {
             JobUtil.getCurrentTime(sysDao);
@@ -313,8 +313,7 @@ public class JobUtilTest extends DaoTestCase {
      */
     public void testUpdateJobStatus01() throws Exception {
 
-        boolean result = JobUtil.updateJobStatus("0000000002", "0", null, null,
-                this.sysDao);
+        boolean result = JobUtil.updateJobStatus("0000000002", "0", null, this.sysDao);
 
         assertEquals(true, result);
 
@@ -324,8 +323,9 @@ public class JobUtilTest extends DaoTestCase {
      * testUpdateJobStatus02<br>
      * 事前準備：<br>
      * 1. updateJobStatusメソッドに対して、以下の値を引数として実行<br>
-     * ・updateJobTable()実行時にDataAccessException以外の例外をスローする<br>
-     * 2.falseが返ること(実行メソッド内のupdateDao.executeメソッドで更新失敗値の例外がスローされる)<br>
+     * 2. updateJobTable()実行時にDataAccessException以外の例外をスローする<br>
+     * 期待結果：<br>
+     * 1. falseが返ること(実行メソッド内のSystemDao.updateJobTable()メソッドで更新失敗値の例外がスローされる)<br>
      * @throws Exception
      */
     public void testUpdateJobStatus02() throws Exception {
@@ -342,11 +342,11 @@ public class JobUtilTest extends DaoTestCase {
                 return null;
             }
 
-            public Timestamp currentTimeReader() {
+            public Timestamp readCurrentTime() {
                 return new Timestamp(System.currentTimeMillis());
             }
 
-            public java.sql.Date currentDateReader() {
+            public java.sql.Date readCurrentDate() {
                 return null;
             }
 
@@ -354,15 +354,15 @@ public class JobUtilTest extends DaoTestCase {
                 throw new RuntimeException("例外発生時のメッセージ");
             }
         };
-        assertFalse(JobUtil.updateJobStatus("hoge", "piyo", "foo", "bar",
-                mockDao));
+        assertFalse(JobUtil.updateJobStatus("hoge", "piyo", "foo", mockDao));
     }
 
     /**
      * testUpdateJobStatus03<br>
      * 事前準備：<br>
      * 1.updateJobStatusメソッドに対して、以下の値を引数として実行<br>
-     * ・UpdateDaoの結果に-1の値を与える 期待結果：<br>
+     * 2.UpdateDaoの結果に-1の値を与える<br>
+     * 期待結果：<br>
      * 1.falseが返ること(実行メソッド内で例外が発生する)<br>
      * <br>
      * @throws Exception
@@ -381,11 +381,11 @@ public class JobUtilTest extends DaoTestCase {
                 return null;
             }
 
-            public Timestamp currentTimeReader() {
+            public Timestamp readCurrentTime() {
                 return new Timestamp(System.currentTimeMillis());
             }
 
-            public java.sql.Date currentDateReader() {
+            public java.sql.Date readCurrentDate() {
                 return null;
             }
 
@@ -393,8 +393,7 @@ public class JobUtilTest extends DaoTestCase {
                 return -1;
             }
         };
-        assertFalse(JobUtil.updateJobStatus("hoge", "piyo", "foo", "bar",
-                mockDao));
+        assertFalse(JobUtil.updateJobStatus("hoge", "piyo", "foo", mockDao));
     }
 
     public void testUpdateJobStatus04() throws Exception {
@@ -402,7 +401,7 @@ public class JobUtilTest extends DaoTestCase {
         when(mockSysDao.updateJobTable(any(BatchJobManagementUpdateParam.class)))
                 .thenThrow(new DataAccessException("DBステータス更新時例外確認用") {});
         try {
-            JobUtil.updateJobStatus("0000000002", "0", null, null, mockSysDao);
+            JobUtil.updateJobStatus("0000000002", "0", null, mockSysDao);
             fail();
         } catch (DataAccessException e) {
             assertEquals("DBステータス更新時例外確認用", e.getMessage());

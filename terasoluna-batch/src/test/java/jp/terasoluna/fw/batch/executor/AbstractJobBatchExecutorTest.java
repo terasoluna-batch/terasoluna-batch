@@ -20,8 +20,6 @@ import jp.terasoluna.fw.batch.exception.BatchException;
 import jp.terasoluna.fw.batch.executor.dao.SystemDao;
 import jp.terasoluna.fw.batch.executor.vo.BLogicResult;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
-import static org.mockito.Mockito.*;
-
 import jp.terasoluna.fw.batch.executor.vo.BatchJobManagementParam;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobManagementUpdateParam;
 import jp.terasoluna.fw.ex.unit.testcase.DaoTestCase;
@@ -30,6 +28,8 @@ import jp.terasoluna.fw.ex.unit.util.TerasolunaPropertyUtils;
 import org.springframework.dao.DataAccessException;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionException;
+
+import static org.mockito.Mockito.*;
 
 public class AbstractJobBatchExecutorTest extends DaoTestCase {
 
@@ -421,7 +421,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * ジョブステータス更新メソッドのテスト<br>
      * <br>
      * テスト概要：<br>
-     * DBフェールオーバの発生を想定し、JobUtil.selectJob(jobSequenceId, true, sysQueryDao)による
+     * DBフェールオーバの発生を想定し、JobUtil.selectJob(jobSequenceId, true, sysDao)による
      * DB参照時にDataAccessExceptionが発生した場合、呼出し元にスローされること。<br>
      * <br>
      * 確認項目：<br>
@@ -432,20 +432,15 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
     public void testUpdateBatchStatus09() throws Exception {
         SystemDao sysDao = mock(SystemDao.class);
         when(sysDao.selectJob(any(BatchJobManagementParam.class)))
-                .thenReturn(new BatchJobData(){{
-                    setJobSequenceId("0000000005");
-                    setErrAppStatus("1");
-                    setCurAppStatus("1");
-                }});
-        when(sysDao.updateJobTable(any(BatchJobManagementUpdateParam.class)))
-                .thenThrow(new DataAccessException("DBステータス更新時例外確認用") {});
+                .thenThrow(new DataAccessException("DBステータス参照時例外確認用") {
+                });
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
         try {
             exe.updateBatchStatus("0000000005", "1", "0",
-                sysDao, transactionManager);
+                    sysDao, transactionManager);
             fail();
         } catch (DataAccessException e) {
-            assertEquals("DBステータス更新時例外確認用", e.getMessage());
+            assertEquals("DBステータス参照時例外確認用", e.getMessage());
         }
     }
 
@@ -916,7 +911,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
         TerasolunaPropertyUtils.removeProperty("systemDataSource.sysDAO");
         TerasolunaPropertyUtils.addProperty("systemDataSource.sysDAO",
-                "sysUpdateDao");
+                "adminTransactionManager");
         exe.sysDao = null;
         exe.initSystemDatasourceDao();
 
@@ -928,6 +923,8 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
         TerasolunaPropertyUtils
                 .removeProperty("systemDataSource.transactionManager");
+        TerasolunaPropertyUtils.addProperty("systemDataSource.transactionManager",
+                "sysDAO");
         exe.sysTransactionManager = null;
         exe.initSystemDatasourceDao();
 

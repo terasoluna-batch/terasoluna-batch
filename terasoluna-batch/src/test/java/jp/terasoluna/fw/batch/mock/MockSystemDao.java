@@ -30,11 +30,11 @@ public class MockSystemDao extends AbstractMockDao implements
         return (BatchJobData) poll();
     }
 
-    public Timestamp currentTimeReader() {
+    public Timestamp readCurrentTime() {
         return null;
     }
 
-    public Date currentDateReader() {
+    public Date readCurrentDate() {
         return null;
     }
 

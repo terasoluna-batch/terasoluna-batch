@@ -41,15 +41,15 @@ public class QueueingDataRowHandlerImplTest {
     @Test
     public void testHandleRow001() {
         QueueingDataRowHandlerImpl drh = new QueueingDataRowHandlerImpl();
-
+        DummyResultContext ctxInNull = new DummyResultContext();
+        ctxInNull.setResultObject(null);
         assertNotNull(drh);
-
         try {
-            drh.handleResult(null);
-            drh.handleResult(null);
-            drh.handleResult(null);
-            drh.handleResult(null);
-            drh.handleResult(null);
+            drh.handleResult(ctxInNull);
+            drh.handleResult(ctxInNull);
+            drh.handleResult(ctxInNull);
+            drh.handleResult(ctxInNull);
+            drh.handleResult(ctxInNull);
         } catch (Exception e) {
             e.printStackTrace();
             fail();
@@ -71,7 +71,9 @@ public class QueueingDataRowHandlerImplTest {
             context = new DummyResultContext();
             context.setResultObject("hoge2");
             drh.handleResult(context);
-            drh.handleResult(null);
+            DummyResultContext contextInNull = new DummyResultContext();
+            contextInNull.setResultObject(null);
+            drh.handleResult(contextInNull);
             context = new DummyResultContext();
             context.setResultObject("hoge3");
             drh.handleResult(context);
@@ -101,7 +103,9 @@ public class QueueingDataRowHandlerImplTest {
             drh.handleResult(context);
             context.setResultObject("hoge2");
             drh.handleResult(context);
-            drh.handleResult(null);
+            DummyResultContext contextInNull = new DummyResultContext();
+            contextInNull.setResultObject(null);
+            drh.handleResult(contextInNull);
             context.setResultObject("hoge3");
             drh.handleResult(context);
             context.setResultObject("hoge4");

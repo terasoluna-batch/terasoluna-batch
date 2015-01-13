@@ -6,23 +6,23 @@
     namespace="jp.terasoluna.fw.batch.executor.dao.CommonOracleDao">
 
     <!-- 入力したシーケンスの次値を取得する -->
-    <select id="sysCodeReader" parameterType="String" resultType="String">
+    <select id="readSysCode" parameterType="String" resultType="String">
         SELECT
-            TO_CHAR($seqName$.nextval,'FM00000000') AS SEQ
+            TO_CHAR(${seqName}.nextval,'FM00000000') AS SEQ
         FROM
             DUAL
     </select>
 
-    <!-- カレント時刻を取得する（精度はミリ秒まで） -->
-    <select id="currentTimeReader" resultType="java.sql.Timestamp">
+    <!-- カレント時刻を取得する（精度はOracle依存） -->
+    <select id="readCurrentTime" resultType="java.sql.Timestamp">
         SELECT
-            TO_TIMESTAMP(TO_CHAR(current_date, 'YYYY-MM-DD ') || TO_CHAR(CURRENT_TIMESTAMP, 'HH24:MI:SS.FF3'), 'YYYY-MM-DD HH24:MI:SS.FF3') AS SYS_DATE
+            CURRENT_TIMESTAMP AS SYS_DATE
         FROM
             DUAL
     </select>
 
     <!-- カレント日付を取得する -->
-    <select id="currentDateReader" resultType="java.sql.Date">
+    <select id="readCurrentDate" resultType="java.sql.Date">
         SELECT
             current_date AS SYS_DATE
     </select>

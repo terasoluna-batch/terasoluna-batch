@@ -25,7 +25,7 @@ import org.apache.ibatis.session.ResultHandler;
 public interface QueueingDataRowHandler extends ResultHandler {
 
     /**
-     * 前回handleRowメソッドに渡された<code>Row</code>データをキューに格納する。
+     * 前回handleResultメソッドに渡された<code>Row</code>データをキューに格納する。
      */
     void delayCollect();
 

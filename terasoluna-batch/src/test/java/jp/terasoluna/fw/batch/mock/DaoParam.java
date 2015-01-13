@@ -64,7 +64,7 @@ public class DaoParam {
 
     @Override
     public String toString() {
-        return "RepositoryParam [rowBounds=" + rowBounds + ", bindParams="
+        return "DaoParam [rowBounds=" + rowBounds + ", bindParams="
                 + bindParams + ", methodName=" + methodName + "]";
     }
 }

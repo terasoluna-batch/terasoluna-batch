@@ -14,7 +14,7 @@
             JOB_CONTROL A
         <where>
             <if test="jobAppCd != null">
-                AND A.JOB_APP_CD = #{jobAppCd}
+                A.JOB_APP_CD = #{jobAppCd}
             </if>
             <if
                 test="curAppStatusList != null and curAppStatusList.size() != 0">
@@ -69,7 +69,7 @@
     </select>
 
     <!-- カレント時刻を取得する（精度はミリ秒まで） -->
-    <select id="currentTimeReader" resultType="java.sql.Timestamp">
+    <select id="readCurrentTime" resultType="java.sql.Timestamp">
         SELECT
             CURRENT_TIMESTAMP
         FROM
@@ -77,7 +77,7 @@
     </select>
 
     <!-- カレント日付を取得する -->
-    <select id="currentDateReader" resultType="java.sql.Date">
+    <select id="readCurrentDate" resultType="java.sql.Date">
         SELECT
             current_date
         FROM
@@ -94,7 +94,7 @@
                 BLOGIC_APP_STATUS = #{blogicAppStatus},
             </if>
             <if test="curAppStatus != null and curAppStatus != ''">
-                CUR_APP_STATUS = #{curAppStatus},
+                CUR_APP_STATUS = #{curAppStatus}
             </if>
         </set>
         WHERE

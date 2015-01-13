@@ -409,8 +409,7 @@ public abstract class AbstractJobBatchExecutor extends AbstractBatchExecutor {
             LOGGER.debug(LogId.DAL025023, jobSequenceId, changeStatus);
 
             // ステータス更新
-            JobUtil.updateJobStatus(job.getJobSequenceId(), changeStatus, null,
-                    blogicStatus, sysDao);
+            JobUtil.updateJobStatus(job.getJobSequenceId(), changeStatus, null, sysDao);
 
             // トランザクションコミット
             transactionManager.commit(tranStatus);

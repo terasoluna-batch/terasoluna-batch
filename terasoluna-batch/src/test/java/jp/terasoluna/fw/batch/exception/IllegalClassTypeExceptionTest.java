@@ -37,8 +37,9 @@ public class IllegalClassTypeExceptionTest extends TestCase {
      * のテストケース。
      */
     public void testIllegalClassTypeExceptionThrowable() {
-        IllegalClassTypeException e = new IllegalClassTypeException(new RuntimeException("cause message"));
-        assertEquals("cause message", e.getCause().getMessage());
+        Exception cause = new RuntimeException("cause message");
+        IllegalClassTypeException e = new IllegalClassTypeException(cause);
+        assertSame(cause, e.getCause());
     }
 
     /**
@@ -46,8 +47,10 @@ public class IllegalClassTypeExceptionTest extends TestCase {
      * のテストケース。
      */
     public void testIllegalClassTypeExcetpionStringThrowable() {
-        IllegalClassTypeException e = new IllegalClassTypeException("message", new RuntimeException("cause message"));
-        assertTrue(e.getMessage().startsWith("message"));
+        Exception cause = new RuntimeException("cause message");
+        IllegalClassTypeException e = new IllegalClassTypeException("message", cause);
+        assertEquals("message", e.getMessage());
+        assertSame(cause, e.getCause());
         assertEquals("cause message", e.getCause().getMessage());
     }
 }

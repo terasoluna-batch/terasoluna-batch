@@ -82,7 +82,7 @@ public class AbstractMockDao {
             return (Integer) result;
         } else {
             throw new ClassCastException(
-                    "Integer was expected but the actual was " + result);
+                    "Integer was expected but the actual was " + (result == null ? null : result.getClass().getName()));
         }
     }
 
@@ -102,7 +102,7 @@ public class AbstractMockDao {
 
         if (result == null || !result.getClass().isArray()) {
             throw new ClassCastException(
-                    "Array was expected but the actual was " + result);
+                    "Array was expected but the actual was " + (result == null ? null : result.getClass().getName()));
         }
 
         return (Object[]) result;
@@ -124,7 +124,7 @@ public class AbstractMockDao {
 
         if (!(result instanceof List)) {
             throw new ClassCastException(
-                    "java.util.List was expected but the actual was " + result);
+                    "java.util.List was expected but the actual was " + (result == null ? null : result.getClass().getName()));
         }
 
         return (List<?>) result;
@@ -147,7 +147,7 @@ public class AbstractMockDao {
 
         if (!(result instanceof Map)) {
             throw new ClassCastException(
-                    "java.util.Map was expected but the actual was " + result);
+                    "java.util.Map was expected but the actual was " + (result == null ? null : result.getClass().getName()));
         }
 
         return (Map<String, Object>) result;

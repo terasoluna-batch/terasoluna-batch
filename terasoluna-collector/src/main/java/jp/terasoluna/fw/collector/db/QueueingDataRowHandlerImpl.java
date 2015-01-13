@@ -39,7 +39,7 @@ public class QueueingDataRowHandlerImpl implements QueueingDataRowHandler {
     protected static AtomicBoolean verboseLog = new AtomicBoolean(false);
 
     /**
-     * 前回handleRowメソッドに渡されたオブジェクト
+     * 前回handleResultメソッドに渡されたオブジェクト
      */
     protected Object prevRow = null;
 
@@ -56,11 +56,7 @@ public class QueueingDataRowHandlerImpl implements QueueingDataRowHandler {
     public void handleResult(ResultContext context) {
         if (!Thread.currentThread().isInterrupted()) {
             delayCollect();
-            if (context != null) {
-                this.prevRow = context.getResultObject();
-            } else {
-                this.prevRow = null;
-            }
+            this.prevRow = context.getResultObject();
         } else {
             // 割り込みが発生したらキューをスキップする
             if (verboseLog.get()) {
@@ -72,7 +68,7 @@ public class QueueingDataRowHandlerImpl implements QueueingDataRowHandler {
     }
 
     /**
-     * 前回handleRowメソッドに渡された<code>Row</code>データをキューに格納する。
+     * 前回handleResultメソッドに渡された<code>Row</code>データをキューに格納する。
      */
     public void delayCollect() {
         if (this.prevRow != null) {

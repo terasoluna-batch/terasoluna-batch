@@ -110,13 +110,13 @@ public class JobUtil {
      * <h6>ジョブリスト取得.</h6>
      * @param jobAppCd ジョブ業務コード
      * @param curAppStatusList 取得するステータスの一覧
-     * @param sysQueryDao SystemQueryDao
+     * @param sysDao フレームワーク用システムDAO
      * @param beginIndex 取得する開始インデックス
      * @param maxCount 取得する件数
      * @return ジョブリスト
      */
     public static List<BatchJobListResult> selectJobList(String jobAppCd,
-            List<String> curAppStatusList, SystemDao sysQueryDao, int beginIndex,
+            List<String> curAppStatusList, SystemDao sysDao, int beginIndex,
             int maxCount) {
 
         BatchJobListParam param = new BatchJobListParam();
@@ -132,10 +132,10 @@ public class JobUtil {
         List<BatchJobListResult> result = null;
         try {
             if (beginIndex == -1 || maxCount == -1) {
-                result = sysQueryDao.selectJobList(param);
+                result = sysDao.selectJobList(param);
             } else {
                 RowBounds rowBounds = new RowBounds(beginIndex, maxCount);
-                result = sysQueryDao.selectJobList(rowBounds, param);
+                result = sysDao.selectJobList(rowBounds, param);
             }
         } catch (Exception e) {
             throw new BatchException(LOGGER.getLogMessage(LogId.EAL025039), e);
@@ -180,12 +180,11 @@ public class JobUtil {
      * <h6>ジョブレコード更新.</h6>
      * @param jobSequenceId ジョブシーケンスID
      * @param curAppStatus アプリケーションの現在の実行状態
-     * @param jobRetCount ジョブからの返却値
-     * @param blogicAppStatus ビジネスロジック実行状態
+     * @param blogicAppStatus ビジネスロジックからの返却値
      * @return ジョブ管理テーブルレコードの更新が成功した場合true
      */
     public static boolean updateJobStatus(String jobSequenceId,
-            String curAppStatus, String jobRetCount, String blogicAppStatus,
+            String curAppStatus, String blogicAppStatus,
             SystemDao sysDao) {
         BatchJobManagementUpdateParam param = new BatchJobManagementUpdateParam();
 
@@ -231,7 +230,7 @@ public class JobUtil {
     public static Timestamp getCurrentTime(SystemDao sysDao) {
         Timestamp result = null;
         try {
-            result = sysDao.currentTimeReader();
+            result = sysDao.readCurrentTime();
         } catch (Exception e) {
             LOGGER.error(LogId.EAL025043, e);
             if (e instanceof DataAccessException) {
@@ -250,7 +249,7 @@ public class JobUtil {
     public static Date getCurrentDate(SystemDao sysDao) {
         Date result = null;
         try {
-            result = sysDao.currentDateReader();
+            result = sysDao.readCurrentDate();
         } catch (Exception e) {
             LOGGER.error(LogId.EAL025043, e);
 

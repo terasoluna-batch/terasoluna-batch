@@ -173,7 +173,7 @@ public class DBCollector<P> extends AbstractCollector<P> {
                     preprocess();
 
                     Class<?> queryRowHandleDaoClazz = this.queryRowHandleDao.getClass();
-                    Method collectMethod = queryRowHandleDaoClazz.getDeclaredMethod(this.methodName,
+                    Method collectMethod = queryRowHandleDaoClazz.getMethod(this.methodName,
                             Object.class, ResultHandler.class);
 
                     // QueryRowHandleDAO é¿çs

@@ -67,7 +67,7 @@ public class DBCollector003Test extends DaoTestCase {
      * {@link jp.terasoluna.fw.collector.db.DBCollector#(java.lang.Object, java.lang.String, java.lang.Object, int)}
      * のためのテスト・メソッド。
      */
-    public void testDBCollectorTestQueryRowHandleDAOStringObjectInt001()
+    public void testDBCollectorObjectStringObjectInt001()
                                                                         throws Exception {
         if (this.userListQueryRowHandleDao == null) {
             fail("userListQueryRowHandleDaoがnullです。");

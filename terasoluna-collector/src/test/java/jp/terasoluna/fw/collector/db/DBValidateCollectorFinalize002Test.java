@@ -79,10 +79,10 @@ public class DBValidateCollectorFinalize002Test extends DaoTestCase {
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.db.DBValidateCollector#DBValidateCollector(Object, String, Object, boolean, org.springframework.validation.Validator)}
+     * {@link DBValidateCollector#finalize()}
      * のためのテスト・メソッド。
      */
-    public void testDBValidateCollectorFinalize002() throws Exception {
+    public void testFinalize001() throws Exception {
         if (this.userListQueryRowHandleDao == null) {
             fail("userListQueryRowHandleDaoがnullです。");
         }

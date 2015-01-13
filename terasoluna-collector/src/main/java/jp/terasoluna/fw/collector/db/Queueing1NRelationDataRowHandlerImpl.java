@@ -136,7 +136,7 @@ public class Queueing1NRelationDataRowHandlerImpl extends
             .getLogger(Queueing1NRelationDataRowHandlerImpl.class);
 
     /**
-     * 前回handleRowメソッドに渡された<code>Row</code>データをキューに格納する。
+     * 前回handleResultメソッドに渡された<code>Row</code>データをキューに格納する。
      */
     public void delayCollect() {
         if (this.prevRow != null) {

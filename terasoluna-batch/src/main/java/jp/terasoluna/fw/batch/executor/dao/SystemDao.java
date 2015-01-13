@@ -39,11 +39,11 @@ public interface SystemDao {
     /**
      * 特定条件下でジョブ管理テーブルのレコードを取得する。
      *
-     * @param rowBaounds 取得行制限
+     * @param rowBounds 取得行制限
      * @param batchJobListParam 取得条件
      * @return ジョブ管理テーブルレコード
      */
-    List<BatchJobListResult> selectJobList(RowBounds rowBaounds,
+    List<BatchJobListResult> selectJobList(RowBounds rowBounds,
                                            BatchJobListParam batchJobListParam);
 
     /**
@@ -59,14 +59,14 @@ public interface SystemDao {
      *
      * @return 現在時刻
      */
-    Timestamp currentTimeReader();
+    Timestamp readCurrentTime();
 
     /**
      * 現在日付を取得する。
      *
      * @return 現在日付
      */
-    Date currentDateReader();
+    Date readCurrentDate();
 
     /**
      * ジョブ管理テーブルを更新する。
