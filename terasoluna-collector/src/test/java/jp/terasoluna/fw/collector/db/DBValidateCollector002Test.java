@@ -315,7 +315,7 @@ public class DBValidateCollector002Test extends DaoTestCase {
      * {@link jp.terasoluna.fw.collector.db.DBValidateCollector#DBValidateCollector(Object, String, Object, int, boolean, jp.terasoluna.fw.collector.exception.CollectorExceptionHandler, DBCollectorPrePostProcess, org.springframework.validation.Validator, jp.terasoluna.fw.collector.validate.ValidationErrorHandler)}
      * のためのテスト・メソッド。
      */
-    public void testDBValidateCollectorObjectStringObjectIntegerBooleanCollectorExceptionHandlerDBCollectorPrePostProcessValidatorValidationErrorHandler001()
+    public void testDBValidateCollectorObjectStringObjectIntBooleanCollectorExceptionHandlerDBCollectorPrePostProcessValidatorValidationErrorHandler001()
                                                                              throws Exception {
         if (this.userListQueryRowHandleDao == null) {
             fail("userListQueryRowHandleDaoがnullです。");
@@ -429,7 +429,7 @@ public class DBValidateCollector002Test extends DaoTestCase {
      * {@link jp.terasoluna.fw.collector.db.DBValidateCollector#DBValidateCollector(Object, String, Object, int, boolean, jp.terasoluna.fw.collector.exception.CollectorExceptionHandler, jp.terasoluna.fw.collector.db.DBCollectorPrePostProcess, org.springframework.validation.Validator,jp.terasoluna.fw.collector.validate.ValidationErrorHandler)}
      * のためのテスト・メソッド。
      */
-    public void testDBValidateCollectorObjectStringObjectIntegerBooleanCollectorExceptionHandlerDBCollectorPrePostProcessValidatorValidationErrorHandler002()
+    public void testDBValidateCollectorObjectStringObjectIntBooleanCollectorExceptionHandlerDBCollectorPrePostProcessValidatorValidationErrorHandler002()
                                                                              throws Exception {
         if (this.userListQueryRowHandleDao == null) {
             fail("userListQueryRowHandleDaoがnullです。");

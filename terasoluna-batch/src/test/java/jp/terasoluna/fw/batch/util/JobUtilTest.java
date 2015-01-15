@@ -323,7 +323,7 @@ public class JobUtilTest extends DaoTestCase {
      * testUpdateJobStatus02<br>
      * 事前準備：<br>
      * 1. updateJobStatusメソッドに対して、以下の値を引数として実行<br>
-     * 2. updateJobTable()実行時にDataAccessException以外の例外をスローする<br>
+     * ・updateJobTable()実行時にDataAccessException以外の例外をスローするSystemDao<br>
      * 期待結果：<br>
      * 1. falseが返ること(実行メソッド内のSystemDao.updateJobTable()メソッドで更新失敗値の例外がスローされる)<br>
      * @throws Exception
@@ -361,7 +361,7 @@ public class JobUtilTest extends DaoTestCase {
      * testUpdateJobStatus03<br>
      * 事前準備：<br>
      * 1.updateJobStatusメソッドに対して、以下の値を引数として実行<br>
-     * 2.UpdateDaoの結果に-1の値を与える<br>
+     * ・UpdateDaoの結果に-1を返却するSystemDao<br>
      * 期待結果：<br>
      * 1.falseが返ること(実行メソッド内で例外が発生する)<br>
      * <br>

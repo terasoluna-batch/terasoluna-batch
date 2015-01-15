@@ -170,15 +170,6 @@ public class DBCollector002Test extends DaoTestCase {
         Collector<UserBean> col = new DBCollector<UserBean>(config);
         try {
             for (UserBean user : col) {
-                UserBean prevUser = null;
-                UserBean nextUser = null;
-                UserBean currentUser = null;
-
-                if (count_first > 4) {
-                    prevUser = col.getPrevious();
-                    nextUser = col.getNext();
-                    currentUser = col.getCurrent();
-                }
                 count_first++;
             }
         } finally {

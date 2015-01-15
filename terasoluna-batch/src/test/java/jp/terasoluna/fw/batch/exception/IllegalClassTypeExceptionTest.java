@@ -51,6 +51,5 @@ public class IllegalClassTypeExceptionTest extends TestCase {
         IllegalClassTypeException e = new IllegalClassTypeException("message", cause);
         assertEquals("message", e.getMessage());
         assertSame(cause, e.getCause());
-        assertEquals("cause message", e.getCause().getMessage());
     }
 }

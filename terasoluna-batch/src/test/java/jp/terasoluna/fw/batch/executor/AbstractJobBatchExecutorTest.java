@@ -923,8 +923,6 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
         TerasolunaPropertyUtils
                 .removeProperty("systemDataSource.transactionManager");
-        TerasolunaPropertyUtils.addProperty("systemDataSource.transactionManager",
-                "sysDAO");
         exe.sysTransactionManager = null;
         exe.initSystemDatasourceDao();
 
@@ -949,8 +947,8 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
         TerasolunaPropertyUtils
                 .removeProperty("systemDataSource.transactionManager");
-        TerasolunaPropertyUtils.addProperty(
-                "systemDataSource.transactionManager", "adminQueryDao");
+        TerasolunaPropertyUtils.addProperty("systemDataSource.transactionManager",
+                "sysDAO");
         exe.sysTransactionManager = null;
         exe.initSystemDatasourceDao();
 
