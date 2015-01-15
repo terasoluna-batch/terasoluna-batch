@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org/DTD Config 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <settings>
+        <setting name="cacheEnabled" value="true" />
+        <setting name="lazyLoadingEnabled" value="true" />
+        <setting name="localCacheScope" value="STATEMENT" />
+        <setting name="safeResultHandlerEnabled" value="false" />
+    </settings>
+
+    <typeAliases>
+        <typeAlias alias="HogeBean"
+            type="jp.terasoluna.fw.collector.db.HogeBean" />
+        <typeAlias alias="OrderBean"
+            type="jp.terasoluna.fw.collector.db.OrderBean" />
+        <typeAlias alias="Order2Bean"
+            type="jp.terasoluna.fw.collector.db.Order2Bean" />
+        <typeAlias alias="OrderDetailBean"
+            type="jp.terasoluna.fw.collector.db.OrderDetailBean" />
+        <typeAlias alias="TestBean001"
+            type="jp.terasoluna.fw.collector.db.TestBean001" />
+        <typeAlias alias="UserBean"
+            type="jp.terasoluna.fw.collector.db.UserBean" />
+        <package name="jp.terasoluna.fw.collector.db" />
+    </typeAliases>
+
+</configuration>

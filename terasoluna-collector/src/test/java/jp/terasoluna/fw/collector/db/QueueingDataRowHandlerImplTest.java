@@ -5,6 +5,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
+import org.apache.ibatis.session.ResultContext;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -40,15 +41,15 @@ public class QueueingDataRowHandlerImplTest {
     @Test
     public void testHandleRow001() {
         QueueingDataRowHandlerImpl drh = new QueueingDataRowHandlerImpl();
-
+        DummyResultContext ctxInNull = new DummyResultContext();
+        ctxInNull.setResultObject(null);
         assertNotNull(drh);
-
         try {
-            drh.handleRow(null);
-            drh.handleRow(null);
-            drh.handleRow(null);
-            drh.handleRow(null);
-            drh.handleRow(null);
+            drh.handleResult(ctxInNull);
+            drh.handleResult(ctxInNull);
+            drh.handleResult(ctxInNull);
+            drh.handleResult(ctxInNull);
+            drh.handleResult(ctxInNull);
         } catch (Exception e) {
             e.printStackTrace();
             fail();
@@ -63,13 +64,22 @@ public class QueueingDataRowHandlerImplTest {
         QueueingDataRowHandlerImpl drh = new QueueingDataRowHandlerImpl();
 
         assertNotNull(drh);
-
         try {
-            drh.handleRow("hoge1");
-            drh.handleRow("hoge2");
-            drh.handleRow(null);
-            drh.handleRow("hoge3");
-            drh.handleRow("hoge4");
+            DummyResultContext context = new DummyResultContext();
+            context.setResultObject("hoge1");
+            drh.handleResult(context);
+            context = new DummyResultContext();
+            context.setResultObject("hoge2");
+            drh.handleResult(context);
+            DummyResultContext contextInNull = new DummyResultContext();
+            contextInNull.setResultObject(null);
+            drh.handleResult(contextInNull);
+            context = new DummyResultContext();
+            context.setResultObject("hoge3");
+            drh.handleResult(context);
+            context = new DummyResultContext();
+            context.setResultObject("hoge4");
+            drh.handleResult(context);
         } catch (Exception e) {
             e.printStackTrace();
             fail();
@@ -88,11 +98,18 @@ public class QueueingDataRowHandlerImplTest {
         assertNotNull(drh);
 
         try {
-            drh.handleRow("hoge1");
-            drh.handleRow("hoge2");
-            drh.handleRow(null);
-            drh.handleRow("hoge3");
-            drh.handleRow("hoge4");
+            DummyResultContext context = new DummyResultContext();
+            context.setResultObject("hoge1");
+            drh.handleResult(context);
+            context.setResultObject("hoge2");
+            drh.handleResult(context);
+            DummyResultContext contextInNull = new DummyResultContext();
+            contextInNull.setResultObject(null);
+            drh.handleResult(contextInNull);
+            context.setResultObject("hoge3");
+            drh.handleResult(context);
+            context.setResultObject("hoge4");
+            drh.handleResult(context);
         } catch (Exception e) {
             e.printStackTrace();
             fail();
@@ -112,7 +129,9 @@ public class QueueingDataRowHandlerImplTest {
                 Thread.currentThread().interrupt();
                 try {
                     // äÑÇËçûÇ›î≠ê∂éûÇÕhandleRowÇÕèàóùÇ≥ÇÍÇ∏ÅAInterruptedRuntimeExceptionÇ™î≠ê∂Ç∑ÇÈÇ±Ç∆ÅB
-                    drh.handleRow("hoge1");
+                    DummyResultContext context = new DummyResultContext();
+                    context.setResultObject("hoge1");
+                    drh.handleResult(context);
                     fail();
                 } catch (InterruptedRuntimeException e) {
                     assertNull(e.getCause());
@@ -136,10 +155,14 @@ public class QueueingDataRowHandlerImplTest {
         assertNotNull(drh);
 
         try {
-            drh.handleRow("hoge1");
-            drh.handleRow("hoge2");
+            DummyResultContext context = new DummyResultContext();
+            context.setResultObject("hoge1");
+            drh.handleResult(context);
+            context.setResultObject("hoge2");
+            drh.handleResult(context);
             dbCollector.exceptionFlag = true;
-            drh.handleRow("hoge3");
+            context.setResultObject("hoge3");
+            drh.handleResult(context);
             fail();
         } catch (InterruptedRuntimeException e) {
         }

@@ -5,9 +5,9 @@ package jp.terasoluna.fw.collector.db;
 
 import java.util.List;
 
+import jp.terasoluna.fw.collector.dao.UserListQueryRowHandleDao;
 import jp.terasoluna.fw.collector.exception.CollectorExceptionHandler;
 import jp.terasoluna.fw.collector.util.MemoryInfo;
-import jp.terasoluna.fw.dao.QueryRowHandleDAO;
 import jp.terasoluna.fw.ex.unit.testcase.DaoTestCase;
 import jp.terasoluna.fw.exception.SystemException;
 
@@ -24,15 +24,15 @@ public class DBCollector001Test extends DaoTestCase {
      */
     private static Log logger = LogFactory.getLog(DBCollector001Test.class);
 
-    private QueryRowHandleDAO queryRowHandleDAO = null;
+    private UserListQueryRowHandleDao userListQueryRowHandleDao = null;
 
     @Override
     protected void addConfigLocations(List<String> configLocations) {
         configLocations.add("jp/terasoluna/fw/collector/db/dataSource.xml");
     }
 
-    public void setQueryRowHandleDAO(QueryRowHandleDAO queryRowHandleDAO) {
-        this.queryRowHandleDAO = queryRowHandleDAO;
+    public void setUserListQueryRowHandleDao(UserListQueryRowHandleDao userListQueryRowHandleDao) {
+        this.userListQueryRowHandleDao = userListQueryRowHandleDao;
     }
 
     @Override
@@ -74,12 +74,12 @@ public class DBCollector001Test extends DaoTestCase {
      * @throws Exception
      */
     public void testDBCollector002() throws Exception {
-        String sqlID = null;
+        String methodName = null;
         Object bindParams = null;
         CollectorExceptionHandler exceptionHandler = null;
 
         DBCollector<UserBean> dbc = new DBCollector<UserBean>(
-                queryRowHandleDAO, sqlID, bindParams, exceptionHandler);
+                userListQueryRowHandleDao, methodName, bindParams, exceptionHandler);
 
         assertNotNull(dbc);
         dbc.close();
@@ -108,12 +108,12 @@ public class DBCollector001Test extends DaoTestCase {
      * @throws Exception
      */
     public void testGetDataRowHandler001() throws Exception {
-        String sqlID = null;
+        String methodName = null;
         Object bindParams = null;
         CollectorExceptionHandler exceptionHandler = null;
 
         DBCollector<UserBean> dbc = new DBCollector<UserBean>(
-                queryRowHandleDAO, sqlID, bindParams, exceptionHandler);
+                userListQueryRowHandleDao, methodName, bindParams, exceptionHandler);
 
         dbc.queueingDataRowHandlerClass = QueueingDataRowHandlerStub001.class;
 
@@ -127,12 +127,12 @@ public class DBCollector001Test extends DaoTestCase {
      * @throws Exception
      */
     public void testGetDataRowHandler002() throws Exception {
-        String sqlID = null;
+        String methodName = null;
         Object bindParams = null;
         CollectorExceptionHandler exceptionHandler = null;
 
         DBCollector<UserBean> dbc = new DBCollector<UserBean>(
-                queryRowHandleDAO, sqlID, bindParams, exceptionHandler);
+                userListQueryRowHandleDao, methodName, bindParams, exceptionHandler);
 
         dbc.queueingDataRowHandlerClass = QueueingDataRowHandlerStub002.class;
 
@@ -154,12 +154,12 @@ public class DBCollector001Test extends DaoTestCase {
      * @throws Exception
      */
     public void testGetDataRowHandler003() throws Exception {
-        String sqlID = null;
+        String methodName = null;
         Object bindParams = null;
         CollectorExceptionHandler exceptionHandler = null;
 
         DBCollector<UserBean> dbc = new DBCollector<UserBean>(
-                queryRowHandleDAO, sqlID, bindParams, exceptionHandler);
+                userListQueryRowHandleDao, methodName, bindParams, exceptionHandler);
 
         dbc.queueingDataRowHandlerClass = QueueingDataRowHandlerStub003.class;
 

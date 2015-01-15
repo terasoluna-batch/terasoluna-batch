@@ -9,9 +9,8 @@ import jp.terasoluna.fw.batch.executor.AsyncBatchExecutor.BatchServantTaskEndTra
 import jp.terasoluna.fw.batch.executor.SecurityManagerEx.ExitException;
 import jp.terasoluna.fw.batch.executor.concurrent.BatchServant;
 import jp.terasoluna.fw.batch.executor.concurrent.BatchThreadPoolTaskExecutor;
+import jp.terasoluna.fw.batch.executor.dao.SystemDao;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobListResult;
-import jp.terasoluna.fw.dao.QueryDAO;
-import jp.terasoluna.fw.dao.UpdateDAO;
 import jp.terasoluna.fw.ex.unit.util.SystemEnvUtils;
 import jp.terasoluna.fw.ex.unit.util.TerasolunaPropertyUtils;
 import junit.framework.TestCase;
@@ -754,32 +753,7 @@ public class AsyncBatchExecutorTest extends TestCase {
         // パラメータ
         AsyncBatchExecutor executor = new AsyncBatchExecutor() {
             @Override
-            public QueryDAO getSysQueryDAO() {
-                return null;
-            }
-        };
-        ApplicationContext ctx = new MockApplicationContext();
-        ThreadPoolTaskExecutor taskExecutor = new ThreadPoolTaskExecutor();
-        String batchTaskServantName = "batchTaskServant";
-        BatchJobListResult batchJobListResult = new BatchJobListResult();
-
-        // テスト
-        boolean result = AsyncBatchExecutor.executeJob(executor, ctx,
-                taskExecutor, batchTaskServantName, batchJobListResult);
-
-        // 検証
-        assertFalse(result);
-    }
-
-    /**
-     * testExecuteJob003
-     * @throws Exception
-     */
-    public void testExecuteJob003() throws Exception {
-        // パラメータ
-        AsyncBatchExecutor executor = new AsyncBatchExecutor() {
-            @Override
-            public UpdateDAO getSysUpdateDAO() {
+            public SystemDao getSystemDao() {
                 return null;
             }
         };
@@ -875,8 +849,7 @@ public class AsyncBatchExecutorTest extends TestCase {
         AsyncBatchExecutor executor = new AsyncBatchExecutor() {
             @Override
             protected boolean startBatchStatus(String jobSequenceId,
-                    QueryDAO queryDAO, UpdateDAO updateDAO,
-                    PlatformTransactionManager transactionManager) {
+                    SystemDao sysDao, PlatformTransactionManager transactionManager) {
                 return false;
             }
         };
@@ -927,8 +900,7 @@ public class AsyncBatchExecutorTest extends TestCase {
         AsyncBatchExecutor executor = new AsyncBatchExecutor() {
             @Override
             protected boolean startBatchStatus(String jobSequenceId,
-                    QueryDAO queryDAO, UpdateDAO updateDAO,
-                    PlatformTransactionManager transactionManager) {
+                    SystemDao sysDao, PlatformTransactionManager transactionManager) {
                 return true;
             }
         };
@@ -970,8 +942,7 @@ public class AsyncBatchExecutorTest extends TestCase {
         AsyncBatchExecutor executor = new AsyncBatchExecutor() {
             @Override
             protected boolean startBatchStatus(String jobSequenceId,
-                    QueryDAO queryDAO, UpdateDAO updateDAO,
-                    PlatformTransactionManager transactionManager) {
+                    SystemDao sysDao, PlatformTransactionManager transactionManager) {
                 return true;
             }
         };

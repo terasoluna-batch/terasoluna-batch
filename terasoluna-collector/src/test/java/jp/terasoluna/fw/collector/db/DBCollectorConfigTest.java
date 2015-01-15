@@ -9,8 +9,6 @@ import jp.terasoluna.fw.collector.exception.CollectorExceptionHandlerStatus;
 import jp.terasoluna.fw.collector.validate.ValidateErrorStatus;
 import jp.terasoluna.fw.collector.validate.ValidationErrorHandler;
 import jp.terasoluna.fw.collector.vo.DataValueObject;
-import jp.terasoluna.fw.dao.QueryRowHandleDAO;
-import jp.terasoluna.fw.dao.event.DataRowHandler;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -54,43 +52,39 @@ public class DBCollectorConfigTest {
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.db.DBCollectorConfig#DBCollectorConfig(jp.terasoluna.fw.dao.QueryRowHandleDAO, java.lang.String, java.lang.Object)}
+     * {@link jp.terasoluna.fw.collector.db.DBCollectorConfig#DBCollectorConfig(Object, String, Object)}
      * のためのテスト・メソッド。
      */
     @Test
     public void testDBCollectorConfig001() {
-        QueryRowHandleDAO queryRowHandleDAO = null;
-        String sqlID = null;
+        Object queryRowHandleDao = null;
+        String methodName = null;
         Object bindParams = null;
 
         // テスト
-        DBCollectorConfig config = new DBCollectorConfig(queryRowHandleDAO,
-                sqlID, bindParams);
+        DBCollectorConfig config = new DBCollectorConfig(queryRowHandleDao,
+                methodName, bindParams);
 
         assertNotNull(config);
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.db.DBCollectorConfig#DBCollectorConfig(jp.terasoluna.fw.dao.QueryRowHandleDAO, java.lang.String, java.lang.Object)}
+     * {@link jp.terasoluna.fw.collector.db.DBCollectorConfig#DBCollectorConfig(Object, String, Object)} 
      * のためのテスト・メソッド。
      */
     @Test
     public void testDBCollectorConfig002() {
-        QueryRowHandleDAO queryRowHandleDAO = new QueryRowHandleDAO() {
-            public void executeWithRowHandler(String sqlID, Object bindParams,
-                    DataRowHandler rowHandler) {
-            }
-        };
-        String sqlID = "hoge";
+        Object queryRowHandleDao = new Object();
+        String methodName = "hoge";
         Object bindParams = new Object();
 
         // テスト
-        DBCollectorConfig config = new DBCollectorConfig(queryRowHandleDAO,
-                sqlID, bindParams);
+        DBCollectorConfig config = new DBCollectorConfig(queryRowHandleDao,
+                methodName, bindParams);
 
         assertNotNull(config);
-        assertEquals(queryRowHandleDAO, config.getQueryRowHandleDAO());
-        assertEquals(sqlID, config.getSqlID());
+        assertEquals(queryRowHandleDao, config.getQueryRowHandleDao());
+        assertEquals(methodName, config.getMethodName());
         assertEquals(bindParams, config.getBindParams());
     }
 
@@ -99,16 +93,12 @@ public class DBCollectorConfigTest {
      */
     @Test
     public void testAddQueueSize001() {
-        QueryRowHandleDAO queryRowHandleDAO = new QueryRowHandleDAO() {
-            public void executeWithRowHandler(String sqlID, Object bindParams,
-                    DataRowHandler rowHandler) {
-            }
-        };
-        String sqlID = "hoge";
+        Object queryRowHandleDao = new Object();
+        String methodName = "hoge";
         Object bindParams = new Object();
 
-        DBCollectorConfig config = new DBCollectorConfig(queryRowHandleDAO,
-                sqlID, bindParams);
+        DBCollectorConfig config = new DBCollectorConfig(queryRowHandleDao,
+                methodName, bindParams);
 
         int queueSize = 123;
 
@@ -116,28 +106,24 @@ public class DBCollectorConfigTest {
         config.addQueueSize(queueSize);
 
         assertNotNull(config);
-        assertEquals(queryRowHandleDAO, config.getQueryRowHandleDAO());
-        assertEquals(sqlID, config.getSqlID());
+        assertEquals(queryRowHandleDao, config.getQueryRowHandleDao());
+        assertEquals(methodName, config.getMethodName());
         assertEquals(bindParams, config.getBindParams());
         assertEquals(queueSize, config.getQueueSize());
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.db.DBCollectorConfig#addExceptionHandler(jp.terasoluna.fw.collector.exception.CollectorExceptionHandler)}
+     * {@link jp.terasoluna.fw.collector.db.DBCollectorConfig#addExceptionHandler(jp.terasoluna.fw.collector.exception.CollectorExceptionHandler)} 
      * のためのテスト・メソッド。
      */
     @Test
     public void testAddExceptionHandler001() {
-        QueryRowHandleDAO queryRowHandleDAO = new QueryRowHandleDAO() {
-            public void executeWithRowHandler(String sqlID, Object bindParams,
-                    DataRowHandler rowHandler) {
-            }
-        };
-        String sqlID = "hoge";
+        Object queryRowHandleDao = new Object();
+        String methodName = "hoge";
         Object bindParams = new Object();
 
-        DBCollectorConfig config = new DBCollectorConfig(queryRowHandleDAO,
-                sqlID, bindParams);
+        DBCollectorConfig config = new DBCollectorConfig(queryRowHandleDao,
+                methodName, bindParams);
 
         CollectorExceptionHandler exceptionHandler = new CollectorExceptionHandler() {
             public CollectorExceptionHandlerStatus handleException(
@@ -150,8 +136,8 @@ public class DBCollectorConfigTest {
         config.addExceptionHandler(exceptionHandler);
 
         assertNotNull(config);
-        assertEquals(queryRowHandleDAO, config.getQueryRowHandleDAO());
-        assertEquals(sqlID, config.getSqlID());
+        assertEquals(queryRowHandleDao, config.getQueryRowHandleDao());
+        assertEquals(methodName, config.getMethodName());
         assertEquals(bindParams, config.getBindParams());
         assertEquals(exceptionHandler, config.getExceptionHandler());
     }
@@ -162,16 +148,12 @@ public class DBCollectorConfigTest {
      */
     @Test
     public void testAddValidator001() {
-        QueryRowHandleDAO queryRowHandleDAO = new QueryRowHandleDAO() {
-            public void executeWithRowHandler(String sqlID, Object bindParams,
-                    DataRowHandler rowHandler) {
-            }
-        };
-        String sqlID = "hoge";
+        Object queryRowHandleDao = new Object();
+        String methodName = "hoge";
         Object bindParams = new Object();
 
-        DBCollectorConfig config = new DBCollectorConfig(queryRowHandleDAO,
-                sqlID, bindParams);
+        DBCollectorConfig config = new DBCollectorConfig(queryRowHandleDao,
+                methodName, bindParams);
 
         Validator validator = new Validator() {
             @SuppressWarnings("unchecked")
@@ -187,8 +169,8 @@ public class DBCollectorConfigTest {
         config.addValidator(validator);
 
         assertNotNull(config);
-        assertEquals(queryRowHandleDAO, config.getQueryRowHandleDAO());
-        assertEquals(sqlID, config.getSqlID());
+        assertEquals(queryRowHandleDao, config.getQueryRowHandleDao());
+        assertEquals(methodName, config.getMethodName());
         assertEquals(bindParams, config.getBindParams());
         assertEquals(validator, config.getValidator());
     }
@@ -199,16 +181,12 @@ public class DBCollectorConfigTest {
      */
     @Test
     public void testAddValidationErrorHandler001() {
-        QueryRowHandleDAO queryRowHandleDAO = new QueryRowHandleDAO() {
-            public void executeWithRowHandler(String sqlID, Object bindParams,
-                    DataRowHandler rowHandler) {
-            }
-        };
-        String sqlID = "hoge";
+        Object queryRowHandleDao = new Object();
+        String methodName = "hoge";
         Object bindParams = new Object();
 
-        DBCollectorConfig config = new DBCollectorConfig(queryRowHandleDAO,
-                sqlID, bindParams);
+        DBCollectorConfig config = new DBCollectorConfig(queryRowHandleDao,
+                methodName, bindParams);
 
         ValidationErrorHandler validationErrorHandler = new ValidationErrorHandler() {
             public ValidateErrorStatus handleValidationError(
@@ -221,8 +199,8 @@ public class DBCollectorConfigTest {
         config.addValidationErrorHandler(validationErrorHandler);
 
         assertNotNull(config);
-        assertEquals(queryRowHandleDAO, config.getQueryRowHandleDAO());
-        assertEquals(sqlID, config.getSqlID());
+        assertEquals(queryRowHandleDao, config.getQueryRowHandleDao());
+        assertEquals(methodName, config.getMethodName());
         assertEquals(bindParams, config.getBindParams());
         assertEquals(validationErrorHandler, config.getValidationErrorHandler());
     }
@@ -232,16 +210,12 @@ public class DBCollectorConfigTest {
      */
     @Test
     public void testAddRelation1n001() {
-        QueryRowHandleDAO queryRowHandleDAO = new QueryRowHandleDAO() {
-            public void executeWithRowHandler(String sqlID, Object bindParams,
-                    DataRowHandler rowHandler) {
-            }
-        };
-        String sqlID = "hoge";
+        Object queryRowHandleDao = new Object();
+        String methodName = "hoge";
         Object bindParams = new Object();
 
-        DBCollectorConfig config = new DBCollectorConfig(queryRowHandleDAO,
-                sqlID, bindParams);
+        DBCollectorConfig config = new DBCollectorConfig(queryRowHandleDao,
+                methodName, bindParams);
 
         boolean relation1n = true;
 
@@ -249,8 +223,8 @@ public class DBCollectorConfigTest {
         config.addRelation1n(relation1n);
 
         assertNotNull(config);
-        assertEquals(queryRowHandleDAO, config.getQueryRowHandleDAO());
-        assertEquals(sqlID, config.getSqlID());
+        assertEquals(queryRowHandleDao, config.getQueryRowHandleDao());
+        assertEquals(methodName, config.getMethodName());
         assertEquals(bindParams, config.getBindParams());
         assertEquals(relation1n, config.isRelation1n());
     }
@@ -261,16 +235,12 @@ public class DBCollectorConfigTest {
      */
     @Test
     public void testAddDBCollectorPrePostProcess001() {
-        QueryRowHandleDAO queryRowHandleDAO = new QueryRowHandleDAO() {
-            public void executeWithRowHandler(String sqlID, Object bindParams,
-                    DataRowHandler rowHandler) {
-            }
-        };
-        String sqlID = "hoge";
+        Object queryRowHandleDao = new Object();
+        String methodName = "hoge";
         Object bindParams = new Object();
 
-        DBCollectorConfig config = new DBCollectorConfig(queryRowHandleDAO,
-                sqlID, bindParams);
+        DBCollectorConfig config = new DBCollectorConfig(queryRowHandleDao,
+                methodName, bindParams);
 
         DBCollectorPrePostProcess dbCollectorPrePostProcess = new DBCollectorPrePostProcess() {
             public <P> void postprocessComplete(DBCollector<P> collector) {
@@ -289,28 +259,25 @@ public class DBCollectorConfigTest {
         config.addDbCollectorPrePostProcess(dbCollectorPrePostProcess);
 
         assertNotNull(config);
-        assertEquals(queryRowHandleDAO, config.getQueryRowHandleDAO());
-        assertEquals(sqlID, config.getSqlID());
+        assertEquals(queryRowHandleDao, config.getQueryRowHandleDao());
+        assertEquals(methodName, config.getMethodName());
         assertEquals(bindParams, config.getBindParams());
         assertEquals(dbCollectorPrePostProcess, config
                 .getDbCollectorPrePostProcess());
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.file.DBCollectorConfig#addExecuteByConstructor(boolean)} のためのテスト・メソッド。
+     * {@link jp.terasoluna.fw.collector.db.DBCollectorConfig#addExecuteByConstructor(boolean)}
+     * のためのテスト・メソッド。
      */
     @Test
     public void testAddExecuteByConstructor001() {
-        QueryRowHandleDAO queryRowHandleDAO = new QueryRowHandleDAO() {
-            public void executeWithRowHandler(String sqlID, Object bindParams,
-                    DataRowHandler rowHandler) {
-            }
-        };
-        String sqlID = "hoge";
+        Object queryRowHandleDao = new Object();
+        String methodName = "hoge";
         Object bindParams = new Object();
 
-        DBCollectorConfig config = new DBCollectorConfig(queryRowHandleDAO,
-                sqlID, bindParams);
+        DBCollectorConfig config = new DBCollectorConfig(queryRowHandleDao,
+                methodName, bindParams);
 
         boolean executeByConstructor = true;
 
@@ -318,110 +285,90 @@ public class DBCollectorConfigTest {
         config.addExecuteByConstructor(executeByConstructor);
 
         assertNotNull(config);
-        assertEquals(queryRowHandleDAO, config.getQueryRowHandleDAO());
-        assertEquals(sqlID, config.getSqlID());
+        assertEquals(queryRowHandleDao, config.getQueryRowHandleDao());
+        assertEquals(methodName, config.getMethodName());
         assertEquals(bindParams, config.getBindParams());
         assertEquals(executeByConstructor, config.isExecuteByConstructor());
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.db.DBCollectorConfig#getQueryRowHandleDAO()} のためのテスト・メソッド。
+     * {@link jp.terasoluna.fw.collector.db.DBCollectorConfig#getQueryRowHandleDao()} のためのテスト・メソッド。
      */
     @Test
     public void testGetQueryRowHandleDAO001() {
-        QueryRowHandleDAO queryRowHandleDAO = new QueryRowHandleDAO() {
-            public void executeWithRowHandler(String sqlID, Object bindParams,
-                    DataRowHandler rowHandler) {
-            }
-        };
-        String sqlID = "hoge";
+        Object queryRowHandleDao = new Object();
+        String methodName = "hoge";
         Object bindParams = new Object();
 
-        DBCollectorConfig config = new DBCollectorConfig(queryRowHandleDAO,
-                sqlID, bindParams);
+        DBCollectorConfig config = new DBCollectorConfig(queryRowHandleDao,
+                methodName, bindParams);
 
         // テスト
-        QueryRowHandleDAO result = config.getQueryRowHandleDAO();
+        Object result = config.getQueryRowHandleDao();
 
         assertNotNull(result);
-        assertEquals(queryRowHandleDAO, result);
+        assertEquals(queryRowHandleDao, result);
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.db.DBCollectorConfig#setQueryRowHandleDAO(jp.terasoluna.fw.dao.QueryRowHandleDAO)}
+     * {@link jp.terasoluna.fw.collector.db.DBCollectorConfig#setQueryRowHandleDao(Object)} 
      * のためのテスト・メソッド。
      */
     @Test
     public void testSetQueryRowHandleDAO001() {
-        QueryRowHandleDAO queryRowHandleDAO = new QueryRowHandleDAO() {
-            public void executeWithRowHandler(String sqlID, Object bindParams,
-                    DataRowHandler rowHandler) {
-            }
-        };
-        QueryRowHandleDAO queryRowHandleDAO2 = new QueryRowHandleDAO() {
-            public void executeWithRowHandler(String sqlID, Object bindParams,
-                    DataRowHandler rowHandler) {
-            }
-        };
-        String sqlID = "hoge";
+        Object queryRowHandleDao = new Object();
+        Object queryRowHandleDao2 = new Object();
+        String methodName = "hoge";
         Object bindParams = new Object();
 
-        DBCollectorConfig config = new DBCollectorConfig(queryRowHandleDAO,
-                sqlID, bindParams);
+        DBCollectorConfig config = new DBCollectorConfig(queryRowHandleDao,
+                methodName, bindParams);
 
         // テスト
-        config.setQueryRowHandleDAO(queryRowHandleDAO2);
+        config.setQueryRowHandleDao(queryRowHandleDao2);
 
-        assertNotNull(config.getQueryRowHandleDAO());
-        assertEquals(queryRowHandleDAO2, config.getQueryRowHandleDAO());
+        assertNotNull(config.getQueryRowHandleDao());
+        assertEquals(queryRowHandleDao2, config.getQueryRowHandleDao());
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.db.DBCollectorConfig#getSqlID()} のためのテスト・メソッド。
+     * {@link DBCollectorConfig#getMethodName()} のためのテスト・メソッド。
      */
     @Test
-    public void testGetSqlID001() {
-        QueryRowHandleDAO queryRowHandleDAO = new QueryRowHandleDAO() {
-            public void executeWithRowHandler(String sqlID, Object bindParams,
-                    DataRowHandler rowHandler) {
-            }
-        };
-        String sqlID = "hoge";
+    public void testGetMethodName001() {
+        Object queryRowHandleDao = new Object();
+        String methodName = "hoge";
         Object bindParams = new Object();
 
-        DBCollectorConfig config = new DBCollectorConfig(queryRowHandleDAO,
-                sqlID, bindParams);
+        DBCollectorConfig config = new DBCollectorConfig(queryRowHandleDao,
+                methodName, bindParams);
 
         // テスト
-        String result = config.getSqlID();
+        String result = config.getMethodName();
 
         assertNotNull(result);
-        assertEquals(sqlID, result);
+        assertEquals(methodName, result);
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.db.DBCollectorConfig#setSqlID(java.lang.String)} のためのテスト・メソッド。
+     * {@link jp.terasoluna.fw.collector.db.DBCollectorConfig#setMethodName(String)} のためのテスト・メソッド。
      */
     @Test
-    public void testSetSqlID001() {
-        QueryRowHandleDAO queryRowHandleDAO = new QueryRowHandleDAO() {
-            public void executeWithRowHandler(String sqlID, Object bindParams,
-                    DataRowHandler rowHandler) {
-            }
-        };
+    public void testSetMethodName001() {
+        Object queryRowHandleDao = new Object();
 
-        String sqlID = "hoge";
-        String sqlID2 = "hogehoge";
+        String methodName = "hoge";
+        String methodName2 = "hoge";
         Object bindParams = new Object();
 
-        DBCollectorConfig config = new DBCollectorConfig(queryRowHandleDAO,
-                sqlID, bindParams);
+        DBCollectorConfig config = new DBCollectorConfig(queryRowHandleDao,
+                methodName, bindParams);
 
         // テスト
-        config.setSqlID(sqlID2);
+        config.setMethodName(methodName2);
 
-        assertNotNull(config.getSqlID());
-        assertEquals(sqlID2, config.getSqlID());
+        assertNotNull(config.getMethodName());
+        assertEquals(methodName, config.getMethodName());
     }
 
     /**
@@ -429,16 +376,12 @@ public class DBCollectorConfigTest {
      */
     @Test
     public void testGetBindParams001() {
-        QueryRowHandleDAO queryRowHandleDAO = new QueryRowHandleDAO() {
-            public void executeWithRowHandler(String sqlID, Object bindParams,
-                    DataRowHandler rowHandler) {
-            }
-        };
-        String sqlID = "hoge";
+        Object queryRowHandleDao = new Object();
+        String methodName = "hoge";
         Object bindParams = new Object();
 
-        DBCollectorConfig config = new DBCollectorConfig(queryRowHandleDAO,
-                sqlID, bindParams);
+        DBCollectorConfig config = new DBCollectorConfig(queryRowHandleDao,
+                methodName, bindParams);
 
         // テスト
         Object result = config.getBindParams();
@@ -452,18 +395,14 @@ public class DBCollectorConfigTest {
      */
     @Test
     public void testSetBindParams001() {
-        QueryRowHandleDAO queryRowHandleDAO = new QueryRowHandleDAO() {
-            public void executeWithRowHandler(String sqlID, Object bindParams,
-                    DataRowHandler rowHandler) {
-            }
-        };
+        Object queryRowHandleDao = new Object();
 
-        String sqlID = "hoge";
+        String methodName = "hoge";
         Object bindParams = new Object();
         Object bindParams2 = new Object();
 
-        DBCollectorConfig config = new DBCollectorConfig(queryRowHandleDAO,
-                sqlID, bindParams);
+        DBCollectorConfig config = new DBCollectorConfig(queryRowHandleDao,
+                methodName, bindParams);
 
         // テスト
         config.setBindParams(bindParams2);
@@ -477,17 +416,13 @@ public class DBCollectorConfigTest {
      */
     @Test
     public void testIsRelation1n001() {
-        QueryRowHandleDAO queryRowHandleDAO = new QueryRowHandleDAO() {
-            public void executeWithRowHandler(String sqlID, Object bindParams,
-                    DataRowHandler rowHandler) {
-            }
-        };
-        String sqlID = "hoge";
+        Object queryRowHandleDao = new Object();
+        String methodName = "hoge";
         Object bindParams = new Object();
         boolean relation1n = true;
 
-        DBCollectorConfig config = new DBCollectorConfig(queryRowHandleDAO,
-                sqlID, bindParams);
+        DBCollectorConfig config = new DBCollectorConfig(queryRowHandleDao,
+                methodName, bindParams);
         config.setRelation1n(relation1n);
 
         // テスト
@@ -502,18 +437,14 @@ public class DBCollectorConfigTest {
      */
     @Test
     public void testSetRelation1n001() {
-        QueryRowHandleDAO queryRowHandleDAO = new QueryRowHandleDAO() {
-            public void executeWithRowHandler(String sqlID, Object bindParams,
-                    DataRowHandler rowHandler) {
-            }
-        };
+        Object queryRowHandleDao = new Object();
 
-        String sqlID = "hoge";
+        String methodName = "hoge";
         Object bindParams = new Object();
         boolean relation1n = true;
 
-        DBCollectorConfig config = new DBCollectorConfig(queryRowHandleDAO,
-                sqlID, bindParams);
+        DBCollectorConfig config = new DBCollectorConfig(queryRowHandleDao,
+                methodName, bindParams);
 
         // テスト
         config.setRelation1n(relation1n);
@@ -527,16 +458,12 @@ public class DBCollectorConfigTest {
      */
     @Test
     public void testGetDbCollectorPrePostProcess001() {
-        QueryRowHandleDAO queryRowHandleDAO = new QueryRowHandleDAO() {
-            public void executeWithRowHandler(String sqlID, Object bindParams,
-                    DataRowHandler rowHandler) {
-            }
-        };
-        String sqlID = "hoge";
+        Object queryRowHandleDao = new Object();
+        String methodName = "hoge";
         Object bindParams = new Object();
 
-        DBCollectorConfig config = new DBCollectorConfig(queryRowHandleDAO,
-                sqlID, bindParams);
+        DBCollectorConfig config = new DBCollectorConfig(queryRowHandleDao,
+                methodName, bindParams);
         DBCollectorPrePostProcess dbCollectorPrePostProcess = new DBCollectorPrePostProcess() {
             public <P> void postprocessComplete(DBCollector<P> collector) {
             }
@@ -565,17 +492,13 @@ public class DBCollectorConfigTest {
      */
     @Test
     public void setDbCollectorPrePostProcess() {
-        QueryRowHandleDAO queryRowHandleDAO = new QueryRowHandleDAO() {
-            public void executeWithRowHandler(String sqlID, Object bindParams,
-                    DataRowHandler rowHandler) {
-            }
-        };
+        Object queryRowHandleDao = new Object();
 
-        String sqlID = "hoge";
+        String methodName = "hoge";
         Object bindParams = new Object();
 
-        DBCollectorConfig config = new DBCollectorConfig(queryRowHandleDAO,
-                sqlID, bindParams);
+        DBCollectorConfig config = new DBCollectorConfig(queryRowHandleDao,
+                methodName, bindParams);
 
         DBCollectorPrePostProcess dbCollectorPrePostProcess = new DBCollectorPrePostProcess() {
             public <P> void postprocessComplete(DBCollector<P> collector) {

@@ -97,28 +97,6 @@ public class FileCollector011Test extends DaoTestCase {
             // it = ac.execute();
 
             for (B000001Data data : it) {
-                if (logger.isInfoEnabled()) {
-
-                    StringBuilder sb = new StringBuilder();
-                    if (data != null) {
-                        sb.append("UserId:[");
-                        sb.append(String.format("%2s", data.getId()));
-                        sb.append("],");
-                        sb.append("FirstName:[");
-                        sb.append(String.format("%4s", data.getFirstname()));
-                        sb.append("],");
-                        sb.append("FamilyName:[");
-                        sb.append(String.format("%4s", data.getFamilyname()));
-                        sb.append("],");
-                        sb.append("UserAge:[");
-                        sb.append(String.format("%2s", data.getAge()));
-                        sb.append("])");
-                        if (false) {
-                            logger.info(sb.toString());
-                        }
-                    }
-                }
-
                 // ‚ ‚¦‚Ä“r’†‚Å”²‚¯‚é
                 break;
             }
@@ -159,28 +137,6 @@ public class FileCollector011Test extends DaoTestCase {
             // it = ac.execute();
 
             for (B000001Data data : it) {
-                if (logger.isInfoEnabled()) {
-
-                    StringBuilder sb = new StringBuilder();
-                    if (data != null) {
-                        sb.append("UserId:[");
-                        sb.append(String.format("%2s", data.getId()));
-                        sb.append("],");
-                        sb.append("FirstName:[");
-                        sb.append(String.format("%4s", data.getFirstname()));
-                        sb.append("],");
-                        sb.append("FamilyName:[");
-                        sb.append(String.format("%4s", data.getFamilyname()));
-                        sb.append("],");
-                        sb.append("UserAge:[");
-                        sb.append(String.format("%2s", data.getAge()));
-                        sb.append("])");
-                        if (false) {
-                            logger.info(sb.toString());
-                        }
-                    }
-                }
-
                 count_first++;
 
             }
@@ -203,31 +159,8 @@ public class FileCollector011Test extends DaoTestCase {
 
             try {
                 for (B000001Data data : it2) {
-                    if (logger.isInfoEnabled()) {
-                        StringBuilder sb = new StringBuilder();
-                        if (data != null) {
-                            sb.append("UserId:[");
-                            sb.append(String.format("%2s", data.getId()));
-                            sb.append("],");
-                            sb.append("FirstName:[");
-                            sb
-                                    .append(String.format("%4s", data
-                                            .getFirstname()));
-                            sb.append("],");
-                            sb.append("FamilyName:[");
-                            sb.append(String
-                                    .format("%4s", data.getFamilyname()));
-                            sb.append("],");
-                            sb.append("UserAge:[");
-                            sb.append(String.format("%2s", data.getAge()));
-                            sb.append("])");
-                            if (false) {
-                                logger.info(sb.toString());
-                            }
-                        } else {
-                            sb.append("UserBean is null.##############");
-                            logger.info(sb.toString());
-                        }
+                    if (logger.isInfoEnabled() && data == null) {
+                            logger.info("UserBean is null.##############");
                     }
 
                     count++;

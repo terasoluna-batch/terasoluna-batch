@@ -20,9 +20,11 @@ import jp.terasoluna.fw.collector.AbstractCollector;
 import jp.terasoluna.fw.collector.LogId;
 import jp.terasoluna.fw.collector.exception.CollectorExceptionHandler;
 import jp.terasoluna.fw.collector.vo.DataValueObject;
-import jp.terasoluna.fw.dao.QueryRowHandleDAO;
 import jp.terasoluna.fw.exception.SystemException;
 import jp.terasoluna.fw.logger.TLogger;
+import org.apache.ibatis.session.ResultHandler;
+
+import java.lang.reflect.Method;
 
 /**
  * DBCollector<br>
@@ -37,13 +39,13 @@ public class DBCollector<P> extends AbstractCollector<P> {
     private static final TLogger LOGGER = TLogger.getLogger(DBCollector.class);
 
     /** QueryRowHandleDAO */
-    protected QueryRowHandleDAO queryRowHandleDAO = null;
-
-    /** 実行するSQLのID */
-    protected String sqlID = null;
+    protected Object queryRowHandleDao = null;
 
     /** SQLにバインドする値を格納したオブジェクト */
     protected Object bindParams = null;
+
+    /** 行単位データアクセスの呼び出しで使用されるDaoのメソッド名 */
+    protected String methodName = null;
 
     /** QueueingDataRowHandlerインスタンス */
     protected QueueingDataRowHandler rowHandler = null;
@@ -62,70 +64,70 @@ public class DBCollector<P> extends AbstractCollector<P> {
 
     /**
      * DBCollectorコンストラクタ<br>
-     * @param queryRowHandleDAO QueryRowHandleDAOインスタンス
-     * @param sqlID 実行するSQLのID
+     * @param queryRowHandleDao QueryRowHandleDaoインスタンス
+     * @param methodName 実行するDaoのメソッド名
      * @param bindParams SQLにバインドする値を格納したオブジェクト
      */
-    public DBCollector(QueryRowHandleDAO queryRowHandleDAO, String sqlID,
+    public DBCollector(Object queryRowHandleDao, String methodName,
             Object bindParams) {
-        this(new DBCollectorConfig(queryRowHandleDAO, sqlID, bindParams));
+        this(new DBCollectorConfig(queryRowHandleDao, methodName, bindParams));
     }
 
     /**
      * DBCollectorコンストラクタ<br>
-     * @param queryRowHandleDAO QueryRowHandleDAOインスタンス
-     * @param sqlID 実行するSQLのID
+     * @param queryRowHandleDao QueryRowHandleDaoインスタンス
+     * @param methodName 実行するDaoのメソッド名
      * @param bindParams SQLにバインドする値を格納したオブジェクト
      * @param relation1n 1:Nマッピング使用時はtrue
      */
-    public DBCollector(QueryRowHandleDAO queryRowHandleDAO, String sqlID,
+    public DBCollector(Object queryRowHandleDao, String methodName,
             Object bindParams, boolean relation1n) {
 
-        this(new DBCollectorConfig(queryRowHandleDAO, sqlID, bindParams)
+        this(new DBCollectorConfig(queryRowHandleDao, methodName, bindParams)
                 .addRelation1n(relation1n));
     }
 
     /**
      * DBCollectorコンストラクタ<br>
-     * @param queryRowHandleDAO QueryRowHandleDAOインスタンス
-     * @param sqlID 実行するSQLのID
+     * @param queryRowHandleDao QueryRowHandleDaoインスタンス
+     * @param methodName 実行するDaoのメソッド名
      * @param bindParams SQLにバインドする値を格納したオブジェクト
      * @param queueSize キューのサイズ（1以上を設定すること。0以下は無視）
      */
-    public DBCollector(QueryRowHandleDAO queryRowHandleDAO, String sqlID,
+    public DBCollector(Object queryRowHandleDao, String methodName,
             Object bindParams, int queueSize) {
-        this(new DBCollectorConfig(queryRowHandleDAO, sqlID, bindParams)
+        this(new DBCollectorConfig(queryRowHandleDao, methodName, bindParams)
                 .addQueueSize(queueSize));
     }
 
     /**
      * DBCollectorコンストラクタ<br>
-     * @param queryRowHandleDAO QueryRowHandleDAOインスタンス
-     * @param sqlID 実行するSQLのID
+     * @param queryRowHandleDao QueryRowHandleDaoインスタンス
+     * @param methodName 実行するDaoのメソッド名
      * @param bindParams SQLにバインドする値を格納したオブジェクト
      * @param exceptionHandler 例外ハンドラ
      */
-    public DBCollector(QueryRowHandleDAO queryRowHandleDAO, String sqlID,
+    public DBCollector(Object queryRowHandleDao, String methodName,
             Object bindParams, CollectorExceptionHandler exceptionHandler) {
-        this(new DBCollectorConfig(queryRowHandleDAO, sqlID, bindParams)
+        this(new DBCollectorConfig(queryRowHandleDao, methodName, bindParams)
                 .addExceptionHandler(exceptionHandler));
     }
 
     /**
      * DBCollectorコンストラクタ<br>
-     * @param queryRowHandleDAO QueryRowHandleDAOインスタンス
-     * @param sqlID 実行するSQLのID
+     * @param queryRowHandleDao QueryRowHandleDaoインスタンス
+     * @param methodName 実行するDaoのメソッド名
      * @param bindParams SQLにバインドする値を格納したオブジェクト
      * @param queueSize キューのサイズ（1以上を設定すること。0以下は無視）
      * @param relation1n 1:Nマッピング使用時はtrue
      * @param exceptionHandler 例外ハンドラ
      * @param dbCollectorPrePostProcess DBCollector前後処理
      */
-    public DBCollector(QueryRowHandleDAO queryRowHandleDAO, String sqlID,
+    public DBCollector(Object queryRowHandleDao, String methodName,
             Object bindParams, int queueSize, boolean relation1n,
             CollectorExceptionHandler exceptionHandler,
             DBCollectorPrePostProcess dbCollectorPrePostProcess) {
-        this(new DBCollectorConfig(queryRowHandleDAO, sqlID, bindParams)
+        this(new DBCollectorConfig(queryRowHandleDao, methodName, bindParams)
                 .addQueueSize(queueSize).addRelation1n(relation1n)
                 .addExceptionHandler(exceptionHandler)
                 .addDbCollectorPrePostProcess(dbCollectorPrePostProcess));
@@ -140,8 +142,8 @@ public class DBCollector<P> extends AbstractCollector<P> {
             throw new IllegalArgumentException("The parameter is null.");
         }
 
-        this.queryRowHandleDAO = config.getQueryRowHandleDAO();
-        this.sqlID = config.getSqlID();
+        this.queryRowHandleDao = config.getQueryRowHandleDao();
+        this.methodName = config.getMethodName();
         this.bindParams = config.getBindParams();
         if (config.getQueueSize() > 0) {
             setQueueSize(config.getQueueSize());
@@ -170,9 +172,13 @@ public class DBCollector<P> extends AbstractCollector<P> {
                     // SQL実行前処理
                     preprocess();
 
+                    Class<?> queryRowHandleDaoClazz = this.queryRowHandleDao.getClass();
+                    Method collectMethod = queryRowHandleDaoClazz.getMethod(this.methodName,
+                            Object.class, ResultHandler.class);
+
                     // QueryRowHandleDAO 実行
-                    this.queryRowHandleDAO.executeWithRowHandler(this.sqlID,
-                            bindParams, this.rowHandler);
+                    collectMethod.invoke(this.queryRowHandleDao, this.bindParams, this.rowHandler);
+
                     this.rowHandler.delayCollect();
 
                 } catch (Throwable th) {
@@ -185,8 +191,7 @@ public class DBCollector<P> extends AbstractCollector<P> {
                                     .equals(expStatus)) {
                         // 例外をスロー
                         throw th;
-                    } else if (expStatus == null
-                            || DBCollectorPrePostProcessStatus.END
+                    } else if (DBCollectorPrePostProcessStatus.END
                                     .equals(expStatus)) {
                         // 例外をスローせずに終了
                         break;
@@ -216,12 +221,12 @@ public class DBCollector<P> extends AbstractCollector<P> {
                 }
             }
 
-            return Integer.valueOf(-1);
+            return -1;
         } finally {
             setFinish();
         }
 
-        return Integer.valueOf(0);
+        return 0;
     }
 
     /**

@@ -5,10 +5,10 @@ package jp.terasoluna.fw.collector.db;
 
 import java.util.List;
 
+import jp.terasoluna.fw.collector.dao.UserListQueryRowHandleDao;
 import jp.terasoluna.fw.collector.exception.CollectorExceptionHandler;
 import jp.terasoluna.fw.collector.util.MemoryInfo;
 import jp.terasoluna.fw.collector.validate.ValidationErrorHandler;
-import jp.terasoluna.fw.dao.QueryRowHandleDAO;
 import jp.terasoluna.fw.ex.unit.testcase.DaoTestCase;
 
 import jp.terasoluna.utlib.UTUtil;
@@ -27,15 +27,15 @@ public class DBValidateCollector001Test extends DaoTestCase {
     private static Log logger = LogFactory
             .getLog(DBValidateCollector001Test.class);
 
-    private QueryRowHandleDAO queryRowHandleDAO = null;
+    private UserListQueryRowHandleDao userListQueryRowHandleDao = null;
 
     @Override
     protected void addConfigLocations(List<String> configLocations) {
         configLocations.add("jp/terasoluna/fw/collector/db/dataSource.xml");
     }
 
-    public void setQueryRowHandleDAO(QueryRowHandleDAO queryRowHandleDAO) {
-        this.queryRowHandleDAO = queryRowHandleDAO;
+    public void setUserListQueryRowHandleDao(UserListQueryRowHandleDao userListQueryRowHandleDao) {
+        this.userListQueryRowHandleDao = userListQueryRowHandleDao;
     }
 
     @Override
@@ -66,12 +66,12 @@ public class DBValidateCollector001Test extends DaoTestCase {
      * @throws Exception
      */
     public void testDBValidateCollector001() throws Exception {
-        String sqlID = null;
+        String methodName = null;
         Object bindParams = null;
         Validator validator = null;
 
         DBValidateCollector<UserBean> dbc = new DBValidateCollector<UserBean>(
-                queryRowHandleDAO, sqlID, bindParams, validator);
+                userListQueryRowHandleDao, methodName, bindParams, validator);
 
         assertNotNull(dbc);
         dbc.close();
@@ -81,13 +81,13 @@ public class DBValidateCollector001Test extends DaoTestCase {
      * @throws Exception
      */
     public void testDBValidateCollector002() throws Exception {
-        String sqlID = null;
+        String methodName = null;
         Object bindParams = null;
         Validator validator = null;
         ValidationErrorHandler validationErrorHandler = null;
 
         DBValidateCollector<UserBean> dbc = new DBValidateCollector<UserBean>(
-                queryRowHandleDAO, sqlID, bindParams, validator,
+                userListQueryRowHandleDao, methodName, bindParams, validator,
                 validationErrorHandler);
 
         assertNotNull(dbc);
@@ -98,14 +98,14 @@ public class DBValidateCollector001Test extends DaoTestCase {
      * @throws Exception
      */
     public void testDBValidateCollector003() throws Exception {
-        String sqlID = null;
+        String methodName = null;
         Object bindParams = null;
         boolean relation1n = false;
         Validator validator = null;
         ValidationErrorHandler validationErrorHandler = null;
 
         DBValidateCollector<UserBean> dbc = new DBValidateCollector<UserBean>(
-                queryRowHandleDAO, sqlID, bindParams, relation1n, validator,
+                userListQueryRowHandleDao, methodName, bindParams, relation1n, validator,
                 validationErrorHandler);
 
         assertNotNull(dbc);
@@ -116,14 +116,14 @@ public class DBValidateCollector001Test extends DaoTestCase {
      * @throws Exception
      */
     public void testDBValidateCollector004() throws Exception {
-        String sqlID = null;
+        String methodName = null;
         Object bindParams = null;
         int queueSize = 10;
         Validator validator = null;
         ValidationErrorHandler validationErrorHandler = null;
 
         DBValidateCollector<UserBean> dbc = new DBValidateCollector<UserBean>(
-                queryRowHandleDAO, sqlID, bindParams, queueSize, validator,
+                userListQueryRowHandleDao, methodName, bindParams, queueSize, validator,
                 validationErrorHandler);
 
         assertNotNull(dbc);
@@ -134,14 +134,14 @@ public class DBValidateCollector001Test extends DaoTestCase {
      * @throws Exception
      */
     public void testDBValidateCollector005() throws Exception {
-        String sqlID = null;
+        String methodName = null;
         Object bindParams = null;
         int queueSize = 10;
         Validator validator = null;
         CollectorExceptionHandler exceptionHandler = null;
 
         DBValidateCollector<UserBean> dbc = new DBValidateCollector<UserBean>(
-                queryRowHandleDAO, sqlID, bindParams, queueSize,
+                userListQueryRowHandleDao, methodName, bindParams, queueSize,
                 exceptionHandler, validator);
 
         assertNotNull(dbc);
@@ -152,7 +152,7 @@ public class DBValidateCollector001Test extends DaoTestCase {
      * @throws Exception
      */
     public void testDBValidateCollector006() throws Exception {
-        String sqlID = null;
+        String methodName = null;
         Object bindParams = null;
         int queueSize = 10;
         Validator validator = null;
@@ -160,7 +160,7 @@ public class DBValidateCollector001Test extends DaoTestCase {
         CollectorExceptionHandler exceptionHandler = null;
 
         DBValidateCollector<UserBean> dbc = new DBValidateCollector<UserBean>(
-                queryRowHandleDAO, sqlID, bindParams, queueSize,
+                userListQueryRowHandleDao, methodName, bindParams, queueSize,
                 exceptionHandler, validator, validationErrorHandler);
 
         assertNotNull(dbc);
@@ -171,7 +171,7 @@ public class DBValidateCollector001Test extends DaoTestCase {
      * @throws Exception
      */
     public void testDBValidateCollector007() throws Exception {
-        String sqlID = null;
+        String methodName = null;
         Object bindParams = null;
         int queueSize = 10;
         boolean relation1n = false;
@@ -179,7 +179,7 @@ public class DBValidateCollector001Test extends DaoTestCase {
         CollectorExceptionHandler exceptionHandler = null;
 
         DBValidateCollector<UserBean> dbc = new DBValidateCollector<UserBean>(
-                queryRowHandleDAO, sqlID, bindParams, queueSize, relation1n,
+                userListQueryRowHandleDao, methodName, bindParams, queueSize, relation1n,
                 exceptionHandler, null, validator);
 
         assertNotNull(dbc);
@@ -190,13 +190,13 @@ public class DBValidateCollector001Test extends DaoTestCase {
      * @throws Exception
      */
     public void testDBValidateCollector010() throws Exception {
-        String sqlID = null;
+        String methodName = null;
         Object bindParams = null;
         Validator validator = new ValidatorStub();
         ValidationErrorHandler validationErrorHandler = new ValidationErrorHandlerStub();
 
         DBValidateCollector<UserBean> dbc = new DBValidateCollector<UserBean>(
-                queryRowHandleDAO, sqlID, bindParams, validator,
+                userListQueryRowHandleDao, methodName, bindParams, validator,
                 validationErrorHandler);
 
         assertNotNull(dbc);
@@ -207,13 +207,13 @@ public class DBValidateCollector001Test extends DaoTestCase {
      * @throws Exception
      */
     public void testDBValidateCollector011() throws Exception {
-        String sqlID = null;
+        String methodName = null;
         Object bindParams = null;
         Validator validator = new ValidatorStub();
         ValidationErrorHandler validationErrorHandler = null;
 
         DBValidateCollector<UserBean> dbc = new DBValidateCollector<UserBean>(
-                queryRowHandleDAO, sqlID, bindParams, validator,
+                userListQueryRowHandleDao, methodName, bindParams, validator,
                 validationErrorHandler);
 
         assertNotNull(dbc);
@@ -244,7 +244,7 @@ public class DBValidateCollector001Test extends DaoTestCase {
      */
     public void testDBValidateCollector013() throws Exception {
         DBCollectorConfig config = new DBCollectorConfig(
-                queryRowHandleDAO,
+                userListQueryRowHandleDao,
                 null,
                 null);
         config.setExecuteByConstructor(true);

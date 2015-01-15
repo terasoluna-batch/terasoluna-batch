@@ -8,9 +8,9 @@ import java.util.List;
 
 import jp.terasoluna.fw.collector.Collector;
 import jp.terasoluna.fw.collector.CollectorTestUtil;
+import jp.terasoluna.fw.collector.dao.UserListQueryRowHandleDao;
 import jp.terasoluna.fw.collector.util.ControlBreakChecker;
 import jp.terasoluna.fw.collector.util.MemoryInfo;
-import jp.terasoluna.fw.dao.QueryRowHandleDAO;
 import jp.terasoluna.fw.ex.unit.testcase.DaoTestCase;
 import jp.terasoluna.fw.exception.SystemException;
 import junit.framework.AssertionFailedError;
@@ -29,7 +29,7 @@ public class DBCollector002Test extends DaoTestCase {
      */
     private static Log logger = LogFactory.getLog(DBCollector002Test.class);
 
-    private QueryRowHandleDAO queryRowHandleDAO = null;
+    private UserListQueryRowHandleDao userListQueryRowHandleDao = null;
 
     private int previousThreadCount = 0;
 
@@ -38,8 +38,8 @@ public class DBCollector002Test extends DaoTestCase {
         configLocations.add("jp/terasoluna/fw/collector/db/dataSource.xml");
     }
 
-    public void setQueryRowHandleDAO(QueryRowHandleDAO queryRowHandleDAO) {
-        this.queryRowHandleDAO = queryRowHandleDAO;
+    public void setUserListQueryRowHandleDao(UserListQueryRowHandleDao userListQueryRowHandleDao) {
+        this.userListQueryRowHandleDao = userListQueryRowHandleDao;
     }
 
     @Override
@@ -56,38 +56,26 @@ public class DBCollector002Test extends DaoTestCase {
 
     @Override
     protected void onSetUp() throws Exception {
-        if (logger.isInfoEnabled()) {
-            logger.info(MemoryInfo.getMemoryInfo());
-        }
         System.gc();
-        if (logger.isInfoEnabled()) {
-            logger.info(MemoryInfo.getMemoryInfo());
-        }
         super.onSetUp();
         this.previousThreadCount = CollectorTestUtil.getCollectorThreadCount();
     }
 
     @Override
     protected void onTearDown() throws Exception {
-        if (logger.isInfoEnabled()) {
-            logger.info(MemoryInfo.getMemoryInfo());
-        }
         System.gc();
-        if (logger.isInfoEnabled()) {
-            logger.info(MemoryInfo.getMemoryInfo());
-        }
         CollectorTestUtil.allInterrupt();
         super.onTearDown();
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.db.DBCollector#DBIteratorTest(jp.terasoluna.fw.dao.QueryRowHandleDAO, java.lang.String, java.lang.Object)}
+     * {@link jp.terasoluna.fw.collector.db.DBCollector#DBCollector(java.lang.Object, java.lang.String, java.lang.Object)}
      * のためのテスト・メソッド。
      */
-    public void testDBCollectorTestQueryRowHandleDAOStringObject001()
+    public void testDBCollectorObjectStringObject001()
                                                                      throws Exception {
-        if (this.queryRowHandleDAO == null) {
-            fail("queryRowHandleDAOがnullです。");
+        if (this.userListQueryRowHandleDao == null) {
+            fail("userListQueryRowHandleDaoがnullです。");
         }
 
         int count_first = 0;
@@ -97,28 +85,9 @@ public class DBCollector002Test extends DaoTestCase {
         do {
             retryFlg = false;
             Collector<UserBean> col = new DBCollector<UserBean>(
-                    this.queryRowHandleDAO, "selectUserList", null);
+                    this.userListQueryRowHandleDao, "collect", null);
             try {
                 for (UserBean user : col) {
-                    if (logger.isInfoEnabled()) {
-                        StringBuilder sb = new StringBuilder();
-                        sb.append("UserId:[");
-                        sb.append(String.format("%2s", user.getUserId()));
-                        sb.append("],");
-                        sb.append("FirstName:[");
-                        sb.append(String.format("%4s", user.getFirstName()));
-                        sb.append("],");
-                        sb.append("FamilyName:[");
-                        sb.append(String.format("%4s", user.getFamilyName()));
-                        sb.append("],");
-                        sb.append("UserAge:[");
-                        sb.append(String.format("%2s", user.getUserAge()));
-                        sb.append("])");
-                        if (false) {
-                            logger.info(sb.toString());
-                        }
-                    }
-
                     count_first++;
                 }
             } catch (Throwable e) {
@@ -164,36 +133,9 @@ public class DBCollector002Test extends DaoTestCase {
             long startTime = System.currentTimeMillis();
 
             Collector<UserBean> col2 = new DBCollector<UserBean>(
-                    this.queryRowHandleDAO, "selectUserList", null);
+                    this.userListQueryRowHandleDao, "collect", null);
             try {
                 for (UserBean user : col2) {
-                    if (logger.isInfoEnabled()) {
-                        StringBuilder sb = new StringBuilder();
-                        if (user != null) {
-                            sb.append("UserId:[");
-                            sb.append(String.format("%2s", user.getUserId()));
-                            sb.append("],");
-                            sb.append("FirstName:[");
-                            sb
-                                    .append(String.format("%4s", user
-                                            .getFirstName()));
-                            sb.append("],");
-                            sb.append("FamilyName:[");
-                            sb.append(String
-                                    .format("%4s", user.getFamilyName()));
-                            sb.append("],");
-                            sb.append("UserAge:[");
-                            sb.append(String.format("%2s", user.getUserAge()));
-                            sb.append("])");
-                            if (false) {
-                                logger.info(sb.toString());
-                            }
-                        } else {
-                            sb.append("UserBean is null.##############");
-                            logger.info(sb.toString());
-                        }
-                    }
-
                     count++;
                 }
             } finally {
@@ -205,138 +147,29 @@ public class DBCollector002Test extends DaoTestCase {
                     .lessThanCollectorThreadCount(0 + this.previousThreadCount));
 
             long endTime = System.currentTimeMillis();
-
-            if (logger.isInfoEnabled()) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("i:[");
-                sb.append(String.format("%04d", i));
-                sb.append("]");
-                sb.append(" milliSec:[");
-                sb.append(String.format("%04d", (endTime - startTime)));
-                sb.append("]");
-                logger.info(sb.toString());
-            }
-
             assertEquals(count_first, count);
         }
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.db.DBCollector#DBCollectorTest(jp.terasoluna.fw.dao.QueryRowHandleDAO, java.lang.String, java.lang.Object)}
+     * {@link jp.terasoluna.fw.collector.db.DBCollector#DBCollector(java.lang.Object, java.lang.String, java.lang.Object)}
      * のためのテスト・メソッド。
      */
-    public void testDBCollectorTestQueryRowHandleDAOStringObject002()
+    public void testDBCollectorObjectStringObject002()
                                                                      throws Exception {
-        if (this.queryRowHandleDAO == null) {
-            fail("queryRowHandleDAOがnullです。");
+        if (this.userListQueryRowHandleDao == null) {
+            fail("userListQueryRowHandleDaoがnullです。");
         }
 
         int count_first = 0;
 
         DBCollectorConfig config = new DBCollectorConfig(
-                this.queryRowHandleDAO, "selectUserList", null);
+                this.userListQueryRowHandleDao, "collect", null);
         config.addExecuteByConstructor(true);
 
         Collector<UserBean> col = new DBCollector<UserBean>(config);
         try {
             for (UserBean user : col) {
-                UserBean prevUser = null;
-                UserBean nextUser = null;
-                UserBean currentUser = null;
-
-                if (count_first > 4) {
-                    prevUser = col.getPrevious();
-                    nextUser = col.getNext();
-                    currentUser = col.getCurrent();
-                }
-
-                // ユーザIDが切り替わったら
-                if (ControlBreakChecker.isPreBreak(col, "userId")) {
-                    // コントロールブレイク前処理
-                    if (logger.isInfoEnabled()) {
-                        logger.info("コントロールブレイク前処理");
-                    }
-                }
-                // if (prevUser == null
-                // || (user != null && !user.getUserId().equals(
-                // prevUser.getUserId()))) {
-                // // コントロールブレイク前処理
-                // if (logger.isInfoEnabled()) {
-                // logger.info("コントロールブレイク前処理");
-                // }
-                // }
-
-                if (logger.isInfoEnabled()) {
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("UserId:[");
-                    sb.append(String.format("%2s", user.getUserId()));
-                    sb.append("],");
-                    sb.append("FirstName:[");
-                    sb.append(String.format("%4s", user.getFirstName()));
-                    sb.append("],");
-                    sb.append("FamilyName:[");
-                    sb.append(String.format("%4s", user.getFamilyName()));
-                    sb.append("],");
-                    sb.append("UserAge:[");
-                    sb.append(String.format("%2s", user.getUserAge()));
-                    sb.append("],");
-
-                    sb.append(" Previous UserId:[");
-                    if (prevUser != null) {
-                        sb.append(String.format("%2s", prevUser.getUserId()));
-                    } else {
-                        sb.append("null");
-                    }
-                    sb.append("]");
-
-                    sb.append(" Current UserId:[");
-                    if (currentUser != null) {
-                        sb
-                                .append(String.format("%2s", currentUser
-                                        .getUserId()));
-                    } else {
-                        sb.append("null");
-                    }
-                    sb.append("]");
-
-                    sb.append(" Next UserId:[");
-                    if (nextUser != null) {
-                        sb.append(String.format("%2s", nextUser.getUserId()));
-                    } else {
-                        sb.append("null");
-                    }
-                    sb.append("]");
-
-                    if (true) {
-                        logger.info(sb.toString());
-                    }
-
-                    if (user != null && nextUser != null) {
-                        String userIdStr = user.getUserId();
-                        String nextUserIdStr = nextUser.getUserId();
-                        int userId = Integer.parseInt(userIdStr);
-                        int nextUserId = Integer.parseInt(nextUserIdStr);
-
-                        assertEquals(userId, nextUserId - 1);
-                    }
-                }
-
-                // ユーザIDが切り替わったら
-                if (ControlBreakChecker.isBreak(col, "userId")) {
-                    // コントロールブレイク後処理
-                    if (logger.isInfoEnabled()) {
-                        logger.info("コントロールブレイク後処理");
-                    }
-                }
-                // if (nextUser == null
-                // || (user != null && !user.getUserId().equals(
-                // nextUser.getUserId()))) {
-                // // コントロールブレイク後処理
-                // if (logger.isInfoEnabled()) {
-                // logger.info("コントロールブレイク後処理");
-                // }
-                // }
-
                 count_first++;
             }
         } finally {
@@ -353,36 +186,9 @@ public class DBCollector002Test extends DaoTestCase {
             long startTime = System.currentTimeMillis();
 
             Collector<UserBean> col2 = new DBCollector<UserBean>(
-                    this.queryRowHandleDAO, "selectUserList", null);
+                    this.userListQueryRowHandleDao, "collect", null);
             try {
                 for (UserBean user : col2) {
-                    if (logger.isInfoEnabled()) {
-                        StringBuilder sb = new StringBuilder();
-                        if (user != null) {
-                            sb.append("UserId:[");
-                            sb.append(String.format("%2s", user.getUserId()));
-                            sb.append("],");
-                            sb.append("FirstName:[");
-                            sb
-                                    .append(String.format("%4s", user
-                                            .getFirstName()));
-                            sb.append("],");
-                            sb.append("FamilyName:[");
-                            sb.append(String
-                                    .format("%4s", user.getFamilyName()));
-                            sb.append("],");
-                            sb.append("UserAge:[");
-                            sb.append(String.format("%2s", user.getUserAge()));
-                            sb.append("])");
-                            if (false) {
-                                logger.info(sb.toString());
-                            }
-                        } else {
-                            sb.append("UserBean is null.##############");
-                            logger.info(sb.toString());
-                        }
-                    }
-
                     count++;
                 }
             } finally {
@@ -393,92 +199,32 @@ public class DBCollector002Test extends DaoTestCase {
             assertTrue(CollectorTestUtil
                     .lessThanCollectorThreadCount(0 + this.previousThreadCount));
 
-            long endTime = System.currentTimeMillis();
-
-            if (logger.isInfoEnabled()) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("i:[");
-                sb.append(String.format("%04d", i));
-                sb.append("]");
-                sb.append(" milliSec:[");
-                sb.append(String.format("%04d", (endTime - startTime)));
-                sb.append("]");
-                logger.info(sb.toString());
-            }
-
             assertEquals(count_first, count);
         }
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.db.DBCollector#DBCollectorTest(jp.terasoluna.fw.dao.QueryRowHandleDAO, java.lang.String, java.lang.Object)}
+     * {@link jp.terasoluna.fw.collector.db.DBCollector#DBCollector(java.lang.Object, java.lang.String, java.lang.Object)}
      * のためのテスト・メソッド。
      */
-    public void testDBCollectorTestQueryRowHandleDAOStringObject003()
+    public void testDBCollectorObjectStringObject003()
                                                                      throws Exception {
-        if (this.queryRowHandleDAO == null) {
-            fail("queryRowHandleDAOがnullです。");
+        if (this.userListQueryRowHandleDao == null) {
+            fail("userListQueryRowHandleDaoがnullです。");
         }
 
         int count_first = 0;
         int count_detail = 0;
 
         Collector<OrderBean> col = new DBCollector<OrderBean>(
-                this.queryRowHandleDAO, "selectOrder", null);
+                this.userListQueryRowHandleDao, "collectOrder", null);
         try {
             for (OrderBean order : col) {
-                // OrderBean nextOrder = it.following();
-                if (logger.isInfoEnabled()) {
-                    StringBuilder sb = new StringBuilder();
-
-                    List<OrderDetailBean> orderDetailList = order
-                            .getOrderDetailList();
-                    for (OrderDetailBean orderDetail : orderDetailList) {
-                        sb.setLength(0);
-                        sb.append("OrdrId:[");
-                        sb.append(String.format("%2s", order.getOrdrId()));
-                        sb.append("],");
-                        sb.append("CustId:[");
-                        sb.append(String.format("%4s", order.getCustId()));
-                        sb.append("],");
-                        sb.append("OrderDate:[");
-                        sb.append(String.format("%19s", order.getOrderDate()));
-                        sb.append("],");
-
-                        sb.append("DetlId:[");
-                        sb
-                                .append(String.format("%2s", orderDetail
-                                        .getDetlId()));
-                        sb.append("],");
-                        sb.append("ProdId:[");
-                        sb
-                                .append(String.format("%3s", orderDetail
-                                        .getProdId()));
-                        sb.append("],");
-                        sb.append("Quantity:[");
-                        sb.append(String.format("%2s", orderDetail
-                                .getQuantity()));
-                        sb.append("],");
-                        sb.append("Amount:[");
-                        sb
-                                .append(String.format("%5s", orderDetail
-                                        .getAmount()));
-                        sb.append("],");
-                        sb.append("CustName:[");
-                        sb.append(String.format("%12s", order.getCustName()));
-                        sb.append("]");
-                        sb.append("ProdName:[");
-                        sb.append(String.format("%10s", orderDetail
-                                .getProdName()));
-                        sb.append("]");
-                        if (true) {
-                            logger.info(sb.toString());
-                        }
-                        count_detail++;
-                    }
-                    logger.info("-----");
+                List<OrderDetailBean> orderDetailList = order
+                        .getOrderDetailList();
+                for (OrderDetailBean orderDetail : orderDetailList) {
+                    count_detail++;
                 }
-
                 count_first++;
             }
         } finally {
@@ -494,74 +240,27 @@ public class DBCollector002Test extends DaoTestCase {
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.db.DBCollector#DBCollectorTest(jp.terasoluna.fw.dao.QueryRowHandleDAO, java.lang.String, java.lang.Object)}
+     * {@link jp.terasoluna.fw.collector.db.DBCollector#DBCollector(java.lang.Object, java.lang.String, java.lang.Object)}
      * のためのテスト・メソッド。
      */
-    public void testDBCollectorTestQueryRowHandleDAOStringObject004()
+    public void testDBCollectorObjectStringObject004()
                                                                      throws Exception {
-        if (this.queryRowHandleDAO == null) {
-            fail("queryRowHandleDAOがnullです。");
+        if (this.userListQueryRowHandleDao == null) {
+            fail("userListQueryRowHandleDaoがnullです。");
         }
 
         int count_first = 0;
         int count_detail = 0;
 
         Collector<OrderBean> col = new DBCollector<OrderBean>(
-                this.queryRowHandleDAO, "selectOrder", null, true);
+                this.userListQueryRowHandleDao, "collectOrder", null, true);
         try {
             for (OrderBean order : col) {
-                // OrderBean nextOrder = it.following();
-                if (logger.isInfoEnabled()) {
-                    StringBuilder sb = new StringBuilder();
-
-                    List<OrderDetailBean> orderDetailList = order
-                            .getOrderDetailList();
-                    for (OrderDetailBean orderDetail : orderDetailList) {
-                        sb.setLength(0);
-                        sb.append("OrdrId:[");
-                        sb.append(String.format("%2s", order.getOrdrId()));
-                        sb.append("],");
-                        sb.append("CustId:[");
-                        sb.append(String.format("%4s", order.getCustId()));
-                        sb.append("],");
-                        sb.append("OrderDate:[");
-                        sb.append(String.format("%19s", order.getOrderDate()));
-                        sb.append("],");
-
-                        sb.append("DetlId:[");
-                        sb
-                                .append(String.format("%2s", orderDetail
-                                        .getDetlId()));
-                        sb.append("],");
-                        sb.append("ProdId:[");
-                        sb
-                                .append(String.format("%3s", orderDetail
-                                        .getProdId()));
-                        sb.append("],");
-                        sb.append("Quantity:[");
-                        sb.append(String.format("%2s", orderDetail
-                                .getQuantity()));
-                        sb.append("],");
-                        sb.append("Amount:[");
-                        sb
-                                .append(String.format("%5s", orderDetail
-                                        .getAmount()));
-                        sb.append("],");
-                        sb.append("CustName:[");
-                        sb.append(String.format("%12s", order.getCustName()));
-                        sb.append("]");
-                        sb.append("ProdName:[");
-                        sb.append(String.format("%10s", orderDetail
-                                .getProdName()));
-                        sb.append("]");
-                        if (true) {
-                            logger.info(sb.toString());
-                        }
-                        count_detail++;
-                    }
-                    logger.info("-----");
+                List<OrderDetailBean> orderDetailList = order
+                        .getOrderDetailList();
+                for (OrderDetailBean orderDetail : orderDetailList) {
+                    count_detail++;
                 }
-
                 count_first++;
             }
         } finally {
@@ -577,13 +276,13 @@ public class DBCollector002Test extends DaoTestCase {
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.db.DBCollector#DBCollectorTest(jp.terasoluna.fw.dao.QueryRowHandleDAO, java.lang.String, java.lang.Object)}
+     * {@link jp.terasoluna.fw.collector.db.DBCollector#DBCollector(java.lang.Object, java.lang.String, java.lang.Object)}
      * のためのテスト・メソッド。
      */
-    public void testDBCollectorTestQueryRowHandleDAOStringObject005()
+    public void testDBCollectorObjectStringObject005()
                                                                      throws Exception {
-        if (this.queryRowHandleDAO == null) {
-            fail("queryRowHandleDAOがnullです。");
+        if (this.userListQueryRowHandleDao == null) {
+            fail("userListQueryRowHandleDaoがnullです。");
         }
 
         int count_first = 0;
@@ -592,62 +291,15 @@ public class DBCollector002Test extends DaoTestCase {
         DBCollectorPrePostProcess prepost = null;
 
         Collector<OrderBean> col = new DBCollector<OrderBean>(
-                this.queryRowHandleDAO, "selectOrder", null, 1, true, null,
+                this.userListQueryRowHandleDao, "collectOrder", null, 1, true, null,
                 prepost);
         try {
             for (OrderBean order : col) {
-                // OrderBean nextOrder = it.following();
-                if (logger.isInfoEnabled()) {
-                    StringBuilder sb = new StringBuilder();
-
-                    List<OrderDetailBean> orderDetailList = order
-                            .getOrderDetailList();
-                    for (OrderDetailBean orderDetail : orderDetailList) {
-                        sb.setLength(0);
-                        sb.append("OrdrId:[");
-                        sb.append(String.format("%2s", order.getOrdrId()));
-                        sb.append("],");
-                        sb.append("CustId:[");
-                        sb.append(String.format("%4s", order.getCustId()));
-                        sb.append("],");
-                        sb.append("OrderDate:[");
-                        sb.append(String.format("%19s", order.getOrderDate()));
-                        sb.append("],");
-
-                        sb.append("DetlId:[");
-                        sb
-                                .append(String.format("%2s", orderDetail
-                                        .getDetlId()));
-                        sb.append("],");
-                        sb.append("ProdId:[");
-                        sb
-                                .append(String.format("%3s", orderDetail
-                                        .getProdId()));
-                        sb.append("],");
-                        sb.append("Quantity:[");
-                        sb.append(String.format("%2s", orderDetail
-                                .getQuantity()));
-                        sb.append("],");
-                        sb.append("Amount:[");
-                        sb
-                                .append(String.format("%5s", orderDetail
-                                        .getAmount()));
-                        sb.append("],");
-                        sb.append("CustName:[");
-                        sb.append(String.format("%12s", order.getCustName()));
-                        sb.append("]");
-                        sb.append("ProdName:[");
-                        sb.append(String.format("%10s", orderDetail
-                                .getProdName()));
-                        sb.append("]");
-                        if (true) {
-                            logger.info(sb.toString());
-                        }
-                        count_detail++;
-                    }
-                    logger.info("-----");
+                List<OrderDetailBean> orderDetailList = order
+                    .getOrderDetailList();
+                for (OrderDetailBean orderDetail : orderDetailList) {
+                    count_detail++;
                 }
-
                 count_first++;
             }
         } finally {
@@ -663,90 +315,27 @@ public class DBCollector002Test extends DaoTestCase {
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.db.DBCollector#DBCollectorTest(jp.terasoluna.fw.dao.QueryRowHandleDAO, java.lang.String, java.lang.Object)}
+     * {@link jp.terasoluna.fw.collector.db.DBCollector#DBCollector(java.lang.Object, java.lang.String, java.lang.Object)}
      * のためのテスト・メソッド。
      */
-    public void testDBCollectorTestQueryRowHandleDAOStringObject006()
+    public void testDBCollectorObjectStringObject006()
                                                                      throws Exception {
-        if (this.queryRowHandleDAO == null) {
-            fail("queryRowHandleDAOがnullです。");
+        if (this.userListQueryRowHandleDao == null) {
+            fail("userListQueryRowHandleDaoがnullです。");
         }
 
         int count_first = 0;
         int count_detail = 0;
 
-        Collector<OrderBean> col = new DBCollector<OrderBean>(
-                this.queryRowHandleDAO, "selectOrder2", null);
+        Collector<Order2Bean> col = new DBCollector<Order2Bean>(
+                this.userListQueryRowHandleDao, "collectOrder2", null);
         try {
-            for (OrderBean order : col) {
+            for (Order2Bean order : col) {
 
-                // 注文IDが切り替わったら
-                if (ControlBreakChecker.isPreBreak(col, "ordrId")) {
-                    // コントロールブレイク前処理
-                    if (logger.isInfoEnabled()) {
-                        logger.info("コントロールブレイク前処理");
-                    }
+                OrderDetailBean orderDetail = order.getOrderDetail();
+                if (orderDetail != null) {
+                    count_detail++;
                 }
-
-                if (logger.isInfoEnabled()) {
-                    StringBuilder sb = new StringBuilder();
-
-                    List<OrderDetailBean> orderDetailList = order
-                            .getOrderDetailList();
-                    for (OrderDetailBean orderDetail : orderDetailList) {
-                        sb.setLength(0);
-                        sb.append("OrdrId:[");
-                        sb.append(String.format("%2s", order.getOrdrId()));
-                        sb.append("],");
-                        sb.append("CustId:[");
-                        sb.append(String.format("%4s", order.getCustId()));
-                        sb.append("],");
-                        sb.append("OrderDate:[");
-                        sb.append(String.format("%19s", order.getOrderDate()));
-                        sb.append("],");
-
-                        sb.append("DetlId:[");
-                        sb
-                                .append(String.format("%2s", orderDetail
-                                        .getDetlId()));
-                        sb.append("],");
-                        sb.append("ProdId:[");
-                        sb
-                                .append(String.format("%3s", orderDetail
-                                        .getProdId()));
-                        sb.append("],");
-                        sb.append("Quantity:[");
-                        sb.append(String.format("%2s", orderDetail
-                                .getQuantity()));
-                        sb.append("],");
-                        sb.append("Amount:[");
-                        sb
-                                .append(String.format("%5s", orderDetail
-                                        .getAmount()));
-                        sb.append("],");
-                        sb.append("CustName:[");
-                        sb.append(String.format("%12s", order.getCustName()));
-                        sb.append("]");
-                        sb.append("ProdName:[");
-                        sb.append(String.format("%10s", orderDetail
-                                .getProdName()));
-                        sb.append("]");
-                        if (true) {
-                            logger.info(sb.toString());
-                        }
-                        count_detail++;
-                    }
-                    logger.info("-----");
-                }
-
-                // 注文IDが切り替わったら
-                if (ControlBreakChecker.isBreak(col, "ordrId")) {
-                    // コントロールブレイク後処理
-                    if (logger.isInfoEnabled()) {
-                        logger.info("コントロールブレイク後処理");
-                    }
-                }
-
                 count_first++;
             }
         } finally {
@@ -762,77 +351,30 @@ public class DBCollector002Test extends DaoTestCase {
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.db.DBCollector#DBCollectorTest(jp.terasoluna.fw.dao.QueryRowHandleDAO, java.lang.String, java.lang.Object)}
+     * {@link jp.terasoluna.fw.collector.db.DBCollector#DBCollector(java.lang.Object, java.lang.String, java.lang.Object)}
      * のためのテスト・メソッド。
      */
-    public void testDBCollectorTestQueryRowHandleDAOStringObject007()
+    public void testDBCollectorObjectStringObject007()
                                                                      throws Exception {
-        if (this.queryRowHandleDAO == null) {
-            fail("queryRowHandleDAOがnullです。");
+        if (this.userListQueryRowHandleDao == null) {
+            fail("userListQueryRowHandleDaoがnullです。");
         }
 
         int count_first = 0;
         int count_detail = 0;
 
-        Collector<OrderBean> col = new DBCollector<OrderBean>(
-                this.queryRowHandleDAO, "selectOrder2", null, true);
+        Collector<Order2Bean> col = new DBCollector<Order2Bean>(
+                this.userListQueryRowHandleDao, "collectOrder2", null, true);
         try {
-            for (OrderBean order : col) {
+            for (Order2Bean order : col) {
                 @SuppressWarnings("unused")
-                OrderBean prevOrder = col.getPrevious();
+                Order2Bean prevOrder = col.getPrevious();
                 @SuppressWarnings("unused")
-                OrderBean nextOrder = col.getNext();
-                if (logger.isInfoEnabled()) {
-                    StringBuilder sb = new StringBuilder();
-
-                    List<OrderDetailBean> orderDetailList = order
-                            .getOrderDetailList();
-                    for (OrderDetailBean orderDetail : orderDetailList) {
-                        sb.setLength(0);
-                        sb.append("OrdrId:[");
-                        sb.append(String.format("%2s", order.getOrdrId()));
-                        sb.append("],");
-                        sb.append("CustId:[");
-                        sb.append(String.format("%4s", order.getCustId()));
-                        sb.append("],");
-                        sb.append("OrderDate:[");
-                        sb.append(String.format("%19s", order.getOrderDate()));
-                        sb.append("],");
-
-                        sb.append("DetlId:[");
-                        sb
-                                .append(String.format("%2s", orderDetail
-                                        .getDetlId()));
-                        sb.append("],");
-                        sb.append("ProdId:[");
-                        sb
-                                .append(String.format("%3s", orderDetail
-                                        .getProdId()));
-                        sb.append("],");
-                        sb.append("Quantity:[");
-                        sb.append(String.format("%2s", orderDetail
-                                .getQuantity()));
-                        sb.append("],");
-                        sb.append("Amount:[");
-                        sb
-                                .append(String.format("%5s", orderDetail
-                                        .getAmount()));
-                        sb.append("],");
-                        sb.append("CustName:[");
-                        sb.append(String.format("%12s", order.getCustName()));
-                        sb.append("]");
-                        sb.append("ProdName:[");
-                        sb.append(String.format("%10s", orderDetail
-                                .getProdName()));
-                        sb.append("]");
-                        if (true) {
-                            logger.info(sb.toString());
-                        }
-                        count_detail++;
-                    }
-                    logger.info("-----");
+                Order2Bean nextOrder = col.getNext();
+                OrderDetailBean orderDetail = order.getOrderDetail();
+                if (orderDetail != null) {
+                    count_detail++;
                 }
-
                 count_first++;
             }
         } finally {
@@ -848,13 +390,13 @@ public class DBCollector002Test extends DaoTestCase {
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.db.DBCollector#DBCollectorTest(jp.terasoluna.fw.dao.QueryRowHandleDAO, java.lang.String, java.lang.Object)}
+     * {@link jp.terasoluna.fw.collector.db.DBCollector#DBCollector(java.lang.Object, java.lang.String, java.lang.Object)}
      * のためのテスト・メソッド。
      */
-    public void testDBCollectorTestQueryRowHandleDAOStringObject008()
+    public void testDBCollectorObjectStringObject008()
                                                                      throws Exception {
-        if (this.queryRowHandleDAO == null) {
-            fail("queryRowHandleDAOがnullです。");
+        if (this.userListQueryRowHandleDao == null) {
+            fail("userListQueryRowHandleDaoがnullです。");
         }
 
         int count_first = 0;
@@ -862,66 +404,19 @@ public class DBCollector002Test extends DaoTestCase {
 
         DBCollectorPrePostProcessStub prepost = new DBCollectorPrePostProcessStub();
 
-        Collector<OrderBean> col = new DBCollector<OrderBean>(
-                this.queryRowHandleDAO, "selectOrder2", null, 1, true, null,
+        Collector<Order2Bean> col = new DBCollector<Order2Bean>(
+                this.userListQueryRowHandleDao, "collectOrder2", null, 1, true, null,
                 prepost);
         try {
-            for (OrderBean order : col) {
+            for (Order2Bean order : col) {
                 @SuppressWarnings("unused")
-                OrderBean prevOrder = col.getPrevious();
+                Order2Bean prevOrder = col.getPrevious();
                 @SuppressWarnings("unused")
-                OrderBean nextOrder = col.getNext();
-                if (logger.isInfoEnabled()) {
-                    StringBuilder sb = new StringBuilder();
-
-                    List<OrderDetailBean> orderDetailList = order
-                            .getOrderDetailList();
-                    for (OrderDetailBean orderDetail : orderDetailList) {
-                        sb.setLength(0);
-                        sb.append("OrdrId:[");
-                        sb.append(String.format("%2s", order.getOrdrId()));
-                        sb.append("],");
-                        sb.append("CustId:[");
-                        sb.append(String.format("%4s", order.getCustId()));
-                        sb.append("],");
-                        sb.append("OrderDate:[");
-                        sb.append(String.format("%19s", order.getOrderDate()));
-                        sb.append("],");
-
-                        sb.append("DetlId:[");
-                        sb
-                                .append(String.format("%2s", orderDetail
-                                        .getDetlId()));
-                        sb.append("],");
-                        sb.append("ProdId:[");
-                        sb
-                                .append(String.format("%3s", orderDetail
-                                        .getProdId()));
-                        sb.append("],");
-                        sb.append("Quantity:[");
-                        sb.append(String.format("%2s", orderDetail
-                                .getQuantity()));
-                        sb.append("],");
-                        sb.append("Amount:[");
-                        sb
-                                .append(String.format("%5s", orderDetail
-                                        .getAmount()));
-                        sb.append("],");
-                        sb.append("CustName:[");
-                        sb.append(String.format("%12s", order.getCustName()));
-                        sb.append("]");
-                        sb.append("ProdName:[");
-                        sb.append(String.format("%10s", orderDetail
-                                .getProdName()));
-                        sb.append("]");
-                        if (true) {
-                            logger.info(sb.toString());
-                        }
+                Order2Bean nextOrder = col.getNext();
+                OrderDetailBean orderDetail = order.getOrderDetail();
+                if (orderDetail != null) {
                         count_detail++;
-                    }
-                    logger.info("-----");
                 }
-
                 count_first++;
             }
         } finally {

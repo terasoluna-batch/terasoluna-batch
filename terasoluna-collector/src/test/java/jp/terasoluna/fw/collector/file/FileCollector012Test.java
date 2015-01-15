@@ -85,33 +85,6 @@ public class FileCollector012Test extends DaoTestCase {
 
             for (B000001Data data : it) {
                 B000001Data nextData = it.getNext();
-                if (logger.isInfoEnabled()) {
-                    StringBuilder sb = new StringBuilder();
-                    if (data != null) {
-                        sb.append("UserId:[");
-                        sb.append(String.format("%2s", data.getId()));
-                        sb.append("],");
-                        sb.append("FirstName:[");
-                        sb.append(String.format("%4s", data.getFirstname()));
-                        sb.append("],");
-                        sb.append("FamilyName:[");
-                        sb.append(String.format("%4s", data.getFamilyname()));
-                        sb.append("],");
-                        sb.append("UserAge:[");
-                        sb.append(String.format("%2s", data.getAge()));
-                        sb.append("],");
-                        sb.append("Next UserId:[");
-                        if (nextData != null) {
-                            sb.append(String.format("%2s", nextData.getId()));
-                        } else {
-                            sb.append("null");
-                        }
-                        sb.append("],");
-                        if (false) {
-                            logger.info(sb.toString());
-                        }
-                    }
-                }
                 count_first++;
 
             }
@@ -134,31 +107,8 @@ public class FileCollector012Test extends DaoTestCase {
 
             try {
                 for (B000001Data data : it2) {
-                    if (logger.isInfoEnabled()) {
-                        StringBuilder sb = new StringBuilder();
-                        if (data != null) {
-                            sb.append("UserId:[");
-                            sb.append(String.format("%2s", data.getId()));
-                            sb.append("],");
-                            sb.append("FirstName:[");
-                            sb
-                                    .append(String.format("%4s", data
-                                            .getFirstname()));
-                            sb.append("],");
-                            sb.append("FamilyName:[");
-                            sb.append(String
-                                    .format("%4s", data.getFamilyname()));
-                            sb.append("],");
-                            sb.append("UserAge:[");
-                            sb.append(String.format("%2s", data.getAge()));
-                            sb.append("])");
-                            if (false) {
-                                logger.info(sb.toString());
-                            }
-                        } else {
-                            sb.append("UserBean is null.##############");
-                            logger.info(sb.toString());
-                        }
+                    if (logger.isInfoEnabled() && data == null) {
+                        logger.info("UserBean is null.##############");
                     }
                     count++;
 

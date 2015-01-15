@@ -347,6 +347,10 @@ public final class LogId {
      */
     public static final String IAL025017 = "IAL025017";
     /**
+     * <strong>IAL025018 = System DAO is null.</strong>
+     */
+    public static final String IAL025018 = "IAL025018";
+    /**
      * <strong>WAL025001 = MessageAccessor bean not found. beanName:[{0}]{1}</strong>
      */
     public static final String WAL025001 = "WAL025001";
@@ -578,4 +582,12 @@ public final class LogId {
      * <strong>EAL025050 = Job status update error when update job status to EXECUTING(1).(JOB_SEQ_ID:{0})</strong>
      */
     public static final String EAL025050 = "EAL025050";
+    /**
+     * <strong>EAL025051 = System DAO bean not found. beanName:[{0}]</strong>
+     */
+    public static final String EAL025051 = "EAL025051";
+    /**
+     * <strong>EAL025052 = System DAO is null.</strong>
+     */
+    public static final String EAL025052 = "EAL025052";
 }

@@ -1,5 +1,7 @@
 package jp.terasoluna.fw.collector.db;
 
+import org.apache.ibatis.session.ResultContext;
+
 public class QueueingDataRowHandlerStub003 implements QueueingDataRowHandler {
 
     public QueueingDataRowHandlerStub003() throws IllegalAccessException {
@@ -14,8 +16,7 @@ public class QueueingDataRowHandlerStub003 implements QueueingDataRowHandler {
 
     }
 
-    public void handleRow(Object valueObject) {
+    public void handleResult(ResultContext resultContext) {
 
     }
-
 }

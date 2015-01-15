@@ -5,10 +5,8 @@
     xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="
-http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
-http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
-http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
-http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
     <!-- メッセージアクセサ -->
 	<bean id="msgAcc"
@@ -117,8 +115,6 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 		</entry>
 	</util:map>
 
-
-
     <!-- バッチ実行用スレッドプールタスクエグゼキュータ -->
     <bean id="batchTaskExecutor" 
         class="jp.terasoluna.fw.batch.executor.concurrent.BatchThreadPoolTaskExecutor">
@@ -130,6 +126,5 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
     <bean id="batchServant" scope="prototype"
           class="jp.terasoluna.fw.batch.executor.concurrent.BatchServantImpl">
     </bean>
-
 
 </beans>

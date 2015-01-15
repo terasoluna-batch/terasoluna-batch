@@ -22,6 +22,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import jp.terasoluna.fw.collector.LogId;
 import jp.terasoluna.fw.collector.vo.DataValueObject;
 import jp.terasoluna.fw.logger.TLogger;
+import org.apache.ibatis.session.ResultContext;
 
 /**
  * QueueingDataRowHandlerの実装クラス<br>
@@ -38,7 +39,7 @@ public class QueueingDataRowHandlerImpl implements QueueingDataRowHandler {
     protected static AtomicBoolean verboseLog = new AtomicBoolean(false);
 
     /**
-     * 前回handleRowメソッドに渡されたオブジェクト
+     * 前回handleResultメソッドに渡されたオブジェクト
      */
     protected Object prevRow = null;
 
@@ -50,12 +51,12 @@ public class QueueingDataRowHandlerImpl implements QueueingDataRowHandler {
 
     /*
      * (non-Javadoc)
-     * @see jp.terasoluna.fw.dao.event.DataRowHandler#handleRow(java.lang.Object)
+     * @see org.apache.ibatis.session.ResultHandler#handleResult(org.apache.ibatis.session.ResultContext)
      */
-    public void handleRow(Object valueObject) {
+    public void handleResult(ResultContext context) {
         if (!Thread.currentThread().isInterrupted()) {
             delayCollect();
-            this.prevRow = valueObject;
+            this.prevRow = context.getResultObject();
         } else {
             // 割り込みが発生したらキューをスキップする
             if (verboseLog.get()) {
@@ -67,7 +68,7 @@ public class QueueingDataRowHandlerImpl implements QueueingDataRowHandler {
     }
 
     /**
-     * 前回handleRowメソッドに渡された<code>Row</code>データをキューに格納する。
+     * 前回handleResultメソッドに渡された<code>Row</code>データをキューに格納する。
      */
     public void delayCollect() {
         if (this.prevRow != null) {

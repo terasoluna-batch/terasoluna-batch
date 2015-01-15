@@ -1,10 +1,12 @@
 package jp.terasoluna.fw.collector.db;
 
+import org.apache.ibatis.session.ResultContext;
+
 public class QueueingDataRowHandlerStub001 implements QueueingDataRowHandler {
 
     public QueueingDataRowHandlerStub001() {
     }
-    
+
     public void delayCollect() {
 
     }
@@ -13,8 +15,7 @@ public class QueueingDataRowHandlerStub001 implements QueueingDataRowHandler {
 
     }
 
-    public void handleRow(Object valueObject) {
+    public void handleResult(ResultContext resultContext) {
 
     }
-
 }

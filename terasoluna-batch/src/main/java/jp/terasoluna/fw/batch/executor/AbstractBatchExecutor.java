@@ -31,12 +31,11 @@ import jp.terasoluna.fw.batch.blogic.BLogic;
 import jp.terasoluna.fw.batch.blogic.vo.BLogicParam;
 import jp.terasoluna.fw.batch.constants.LogId;
 import jp.terasoluna.fw.batch.exception.handler.ExceptionHandler;
+import jp.terasoluna.fw.batch.executor.dao.SystemDao;
 import jp.terasoluna.fw.batch.executor.vo.BLogicResult;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
 import jp.terasoluna.fw.batch.message.MessageAccessor;
 import jp.terasoluna.fw.batch.util.MessageUtil;
-import jp.terasoluna.fw.dao.QueryDAO;
-import jp.terasoluna.fw.dao.UpdateDAO;
 import jp.terasoluna.fw.logger.TLogger;
 import jp.terasoluna.fw.util.PropertyUtil;
 
@@ -195,14 +194,9 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
     protected static final String ENV_CUR_APP_STATUS = "CUR_APP_STATUS";
 
     /**
-     * システム用queryDAO定義（ステータス参照・更新用）取得用キー.
+     * システム用DAO定義（ステータス参照・更新用）取得用キー.
      */
-    protected static final String SYSTEM_DATASOURCE_QUERY_DAO = "systemDataSource.queryDAO";
-
-    /**
-     * システム用updateDAO定義（ステータス参照・更新用）取得用キー.
-     */
-    protected static final String SYSTEM_DATASOURCE_UPDATE_DAO = "systemDataSource.updateDAO";
+    protected static final String SYSTEM_DATASOURCE_DAO = "systemDataSource.sysDAO";
 
     /**
      * システム用transactionManager定義（ステータス参照・更新用）取得用キー.
@@ -315,14 +309,9 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
     protected static ClassLoader cl = null;
 
     /**
-     * システム用queryDAO定義（ステータス参照・更新用）.
+     * システム用DAO定義（ステータス参照・更新用）.
      */
-    protected QueryDAO sysQueryDAO = null;
-
-    /**
-     * システム用updateDAO定義（ステータス参照・更新用）.
-     */
-    protected UpdateDAO sysUpdateDAO = null;
+    protected SystemDao sysDao = null;
 
     /**
      * システム用transactionManager定義（ステータス参照・更新用）.
@@ -366,7 +355,7 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
         // システム共通AppContextName初期化
         initDefaultAppContext();
 
-        // システム共通SqlMapClient初期化
+        // システム共通DAO初期化
         initSystemDatasourceDao();
 
         // エラーメッセージの初期化
@@ -428,7 +417,7 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
         if (defaultApplicationContext.containsBean(value)) {
             MessageAccessor messageAccessor = null;
             try {
-                messageAccessor = (MessageAccessor) defaultApplicationContext
+                messageAccessor = defaultApplicationContext
                         .getBean(value, MessageAccessor.class);
             } catch (Throwable e) {
                 if (LOGGER.isWarnEnabled()) {
@@ -1040,19 +1029,11 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
     }
 
     /**
-     * システム用queryDAO定義（ステータス参照・更新用）
-     * @return the queryDAO
+     * システム用DAO定義（ステータス参照・更新用）
+     * @return the queryDao
      */
-    public QueryDAO getSysQueryDAO() {
-        return sysQueryDAO;
-    }
-
-    /**
-     * システム用updateDAO定義（ステータス参照・更新用）
-     * @return the updateDAO
-     */
-    public UpdateDAO getSysUpdateDAO() {
-        return sysUpdateDAO;
+    public SystemDao getSystemDao() {
+        return sysDao;
     }
 
     /**

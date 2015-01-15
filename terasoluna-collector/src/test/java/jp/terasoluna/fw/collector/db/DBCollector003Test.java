@@ -7,8 +7,8 @@ import java.util.List;
 
 import jp.terasoluna.fw.collector.Collector;
 import jp.terasoluna.fw.collector.CollectorTestUtil;
+import jp.terasoluna.fw.collector.dao.UserListQueryRowHandleDao;
 import jp.terasoluna.fw.collector.util.MemoryInfo;
-import jp.terasoluna.fw.dao.QueryRowHandleDAO;
 import jp.terasoluna.fw.ex.unit.testcase.DaoTestCase;
 
 import org.apache.commons.logging.Log;
@@ -24,7 +24,7 @@ public class DBCollector003Test extends DaoTestCase {
      */
     private static Log logger = LogFactory.getLog(DBCollector003Test.class);
 
-    private QueryRowHandleDAO queryRowHandleDAO = null;
+    private UserListQueryRowHandleDao userListQueryRowHandleDao = null;
 
     private int previousThreadCount = 0;
 
@@ -33,8 +33,8 @@ public class DBCollector003Test extends DaoTestCase {
         configLocations.add("jp/terasoluna/fw/collector/db/dataSource.xml");
     }
 
-    public void setQueryRowHandleDAO(QueryRowHandleDAO queryRowHandleDAO) {
-        this.queryRowHandleDAO = queryRowHandleDAO;
+    public void setUserListQueryRowHandleDao(UserListQueryRowHandleDao userListQueryRowHandleDao) {
+        this.userListQueryRowHandleDao = userListQueryRowHandleDao;
     }
 
     @Override
@@ -64,42 +64,22 @@ public class DBCollector003Test extends DaoTestCase {
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.db.DBCollector#DBCollectorTest(jp.terasoluna.fw.dao.QueryRowHandleDAO, java.lang.String, java.lang.Object, int)}
+     * {@link jp.terasoluna.fw.collector.db.DBCollector#(java.lang.Object, java.lang.String, java.lang.Object, int)}
      * のためのテスト・メソッド。
      */
-    public void testDBCollectorTestQueryRowHandleDAOStringObjectInt001()
+    public void testDBCollectorObjectStringObjectInt001()
                                                                         throws Exception {
-        if (this.queryRowHandleDAO == null) {
-            fail("queryRowHandleDAOがnullです。");
+        if (this.userListQueryRowHandleDao == null) {
+            fail("userListQueryRowHandleDaoがnullです。");
         }
 
         int count_first = 0;
 
         Collector<UserBean> it = new DBCollector<UserBean>(
-                this.queryRowHandleDAO, "selectUserList", null, 1);
+                this.userListQueryRowHandleDao, "collect", null, 1);
         try {
             for (UserBean user : it) {
-                if (logger.isInfoEnabled()) {
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("UserId:[");
-                    sb.append(String.format("%2s", user.getUserId()));
-                    sb.append("],");
-                    sb.append("FirstName:[");
-                    sb.append(String.format("%4s", user.getFirstName()));
-                    sb.append("],");
-                    sb.append("FamilyName:[");
-                    sb.append(String.format("%4s", user.getFamilyName()));
-                    sb.append("],");
-                    sb.append("UserAge:[");
-                    sb.append(String.format("%2s", user.getUserAge()));
-                    sb.append("])");
-                    if (false) {
-                        logger.info(sb.toString());
-                    }
-                }
-
                 count_first++;
-
             }
         } finally {
             DBCollector.closeQuietly(it);
@@ -115,34 +95,11 @@ public class DBCollector003Test extends DaoTestCase {
             long startTime = System.currentTimeMillis();
 
             Collector<UserBean> it2 = new DBCollector<UserBean>(
-                    this.queryRowHandleDAO, "selectUserList", null, 1);
+                    this.userListQueryRowHandleDao, "collect", null, 1);
             try {
                 for (UserBean user : it2) {
-                    if (logger.isInfoEnabled()) {
-                        StringBuilder sb = new StringBuilder();
-                        if (user != null) {
-                            sb.append("UserId:[");
-                            sb.append(String.format("%2s", user.getUserId()));
-                            sb.append("],");
-                            sb.append("FirstName:[");
-                            sb
-                                    .append(String.format("%4s", user
-                                            .getFirstName()));
-                            sb.append("],");
-                            sb.append("FamilyName:[");
-                            sb.append(String
-                                    .format("%4s", user.getFamilyName()));
-                            sb.append("],");
-                            sb.append("UserAge:[");
-                            sb.append(String.format("%2s", user.getUserAge()));
-                            sb.append("])");
-                            if (false) {
-                                logger.info(sb.toString());
-                            }
-                        } else {
-                            sb.append("UserBean is null.##############");
-                            logger.info(sb.toString());
-                        }
+                    if (logger.isInfoEnabled() && user == null) {
+                        logger.info("UserBean is null.##############");
                     }
 
                     count++;

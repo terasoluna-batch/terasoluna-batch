@@ -24,11 +24,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import jp.terasoluna.fw.batch.constants.LogId;
 import jp.terasoluna.fw.batch.executor.concurrent.BatchServant;
+import jp.terasoluna.fw.batch.executor.dao.SystemDao;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobListResult;
 import jp.terasoluna.fw.batch.util.BatchUtil;
 import jp.terasoluna.fw.batch.util.JobUtil;
-import jp.terasoluna.fw.dao.QueryDAO;
-import jp.terasoluna.fw.dao.UpdateDAO;
 import jp.terasoluna.fw.logger.TLogger;
 import jp.terasoluna.fw.util.PropertyUtil;
 
@@ -393,10 +392,10 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
         // エグゼキュータ生成
         AsyncBatchExecutor executor = new AsyncBatchExecutor();
 
-        // QueryDAOを取得
-        QueryDAO queryDAO = executor.getSysQueryDAO();
-        if (queryDAO == null) {
-            LOGGER.info(LogId.IAL025007);
+        // システムDAOを取得
+        SystemDao sysDao = executor.getSystemDao();
+        if (sysDao == null) {
+            LOGGER.info(LogId.IAL025018);
             return status;
         }
 
@@ -431,9 +430,9 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
                 List<BatchJobListResult> jobList = null;
                 if (checkTaskQueue(taskExecutor)) {
                     if (jobAppCd == null) {
-                        jobList = JobUtil.selectJobList(queryDAO, 0, 1);
+                        jobList = JobUtil.selectJobList(sysDao, 0, 1);
                     } else {
-                        jobList = JobUtil.selectJobList(jobAppCd, queryDAO, 0,
+                        jobList = JobUtil.selectJobList(jobAppCd, sysDao, 0,
                                 1);
                     }
                 }
@@ -569,17 +568,10 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
             return status;
         }
 
-        // QueryDAOを取得
-        QueryDAO queryDAO = executor.getSysQueryDAO();
-        if (queryDAO == null) {
-            LOGGER.info(LogId.IAL025007);
-            return status;
-        }
-
-        // UpdateDAOを取得
-        UpdateDAO updateDAO = executor.getSysUpdateDAO();
-        if (updateDAO == null) {
-            LOGGER.info(LogId.IAL025008);
+        // システムDAOを取得
+        SystemDao sysDao = executor.getSystemDao();
+        if (sysDao == null) {
+            LOGGER.info(LogId.IAL025018);
             return status;
         }
 
@@ -608,8 +600,7 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
         } else {
             // ジョブステータス設定（開始）
             boolean st = executor.startBatchStatus(batchJobListResult
-                    .getJobSequenceId(), queryDAO, updateDAO,
-                    transactionManager);
+                    .getJobSequenceId(), sysDao, transactionManager);
             if (st) {
                 // BatchServantにジョブシーケンスコードを設定
                 job.setJobSequenceId(batchJobListResult.getJobSequenceId());

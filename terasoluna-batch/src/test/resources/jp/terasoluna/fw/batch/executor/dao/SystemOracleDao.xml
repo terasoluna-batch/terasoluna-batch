@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper
+    namespace="jp.terasoluna.fw.batch.executor.dao.SystemOracleDao">
+
+    <!-- ジョブリスト取得 -->
+    <select id="selectJobList" parameterType="BatchJobListParam"
+        resultType="BatchJobListResult">
+        SELECT
+            A.JOB_SEQ_ID AS jobSequenceId
+        FROM
+            JOB_CONTROL A
+        <where>
+            <if test="jobAppCd != null">
+                A.JOB_APP_CD = #{jobAppCd}
+            </if>
+            <if
+                test="curAppStatusList != null and curAppStatusList.size() != 0">
+                <foreach item="curAppStatus" collection="curAppStatusList"
+                    open="AND (" close=")" separator=" OR ">
+                    A.CUR_APP_STATUS = #{curAppStatus}
+                </foreach>
+            </if>
+        </where>
+        ORDER BY
+            A.CUR_APP_STATUS DESC,
+            A.JOB_SEQ_ID
+    </select>
+
+    <!-- ジョブ取得 -->
+    <select id="selectJob" parameterType="BatchJobManagementParam"
+        resultType="BatchJobData">
+        SELECT
+            A.JOB_SEQ_ID AS jobSequenceId,
+            A.JOB_APP_CD AS jobAppCd,
+            A.JOB_ARG_NM1 AS jobArgNm1,
+            A.JOB_ARG_NM2 AS jobArgNm2,
+            A.JOB_ARG_NM3 AS jobArgNm3,
+            A.JOB_ARG_NM4 AS jobArgNm4,
+            A.JOB_ARG_NM5 AS jobArgNm5,
+            A.JOB_ARG_NM6 AS jobArgNm6,
+            A.JOB_ARG_NM7 AS jobArgNm7,
+            A.JOB_ARG_NM8 AS jobArgNm8,
+            A.JOB_ARG_NM9 AS jobArgNm9,
+            A.JOB_ARG_NM10 AS jobArgNm10,
+            A.JOB_ARG_NM11 AS jobArgNm11,
+            A.JOB_ARG_NM12 AS jobArgNm12,
+            A.JOB_ARG_NM13 AS jobArgNm13,
+            A.JOB_ARG_NM14 AS jobArgNm14,
+            A.JOB_ARG_NM15 AS jobArgNm15,
+            A.JOB_ARG_NM16 AS jobArgNm16,
+            A.JOB_ARG_NM17 AS jobArgNm17,
+            A.JOB_ARG_NM18 AS jobArgNm18,
+            A.JOB_ARG_NM19 AS jobArgNm19,
+            A.JOB_ARG_NM20 AS jobArgNm20,
+            A.BLOGIC_APP_STATUS AS blogicAppStatus,
+            A.CUR_APP_STATUS AS curAppStatus,
+            A.ADD_DATE_TIME AS addDateTime,
+            A.UPD_DATE_TIME AS updDateTime
+        FROM
+            JOB_CONTROL A
+        WHERE
+            A.JOB_SEQ_ID = #{jobSequenceId}
+        <if test="forUpdate == true">
+            FOR UPDATE
+        </if>
+    </select>
+
+    <!-- カレント時刻を取得する（精度はミリ秒まで） -->
+    <select id="readCurrentTime" resultType="java.sql.Timestamp">
+        SELECT
+            CURRENT_TIMESTAMP
+        FROM
+            DUAL
+    </select>
+
+    <!-- カレント日付を取得する -->
+    <select id="readCurrentDate" resultType="java.sql.Date">
+        SELECT
+            current_date
+        FROM
+            DUAL
+    </select>
+
+    <!-- ジョブ更新 -->
+    <update id="updateJobTable" parameterType="BatchJobManagementUpdateParam">
+        UPDATE
+        JOB_CONTROL
+        <set>
+            UPD_DATE_TIME = #{updDateTime},
+            <if test="blogicAppStatus != null and blogicAppStatus != ''">
+                BLOGIC_APP_STATUS = #{blogicAppStatus},
+            </if>
+            <if test="curAppStatus != null and curAppStatus != ''">
+                CUR_APP_STATUS = #{curAppStatus}
+            </if>
+        </set>
+        WHERE
+        JOB_SEQ_ID = #{jobSequenceId}
+    </update>
+
+</mapper>

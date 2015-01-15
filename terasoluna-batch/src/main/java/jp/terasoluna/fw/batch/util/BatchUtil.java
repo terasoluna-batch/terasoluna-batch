@@ -17,7 +17,6 @@
 package jp.terasoluna.fw.batch.util;
 
 import java.lang.reflect.Array;
-import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -31,7 +30,7 @@ import java.util.Set;
 import java.util.Stack;
 
 import jp.terasoluna.fw.batch.constants.LogId;
-import jp.terasoluna.fw.dao.IllegalClassTypeException;
+import jp.terasoluna.fw.batch.exception.IllegalClassTypeException;
 import jp.terasoluna.fw.logger.TLogger;
 import jp.terasoluna.fw.util.PropertyUtil;
 
@@ -397,8 +396,8 @@ public class BatchUtil {
 
     /**
      * トランザクションをコミットさせる
-     * @param sqlMapperList
-     * @throws SQLException
+     * @param tranMap トランザクションマップ
+     * @param statMap トランザクション状態マップ
      */
     public static void commitTransactions(Map<?, ?> tranMap,
             Map<String, TransactionStatus> statMap) {
@@ -407,15 +406,16 @@ public class BatchUtil {
 
     /**
      * トランザクションをコミットさせる
-     * @param sqlMapperList
-     * @throws SQLException
+     * @param tranMap トランザクションマップ
+     * @param statMap トランザクション状態マップ
+     * @param log ロガー
      */
     public static void commitTransactions(Map<?, ?> tranMap,
             Map<String, TransactionStatus> statMap, Log log) {
 
         Set<Entry<String, TransactionStatus>> statSet = statMap.entrySet();
 
-        if (statSet == null || statSet.isEmpty()) {
+        if (statSet.isEmpty()) {
             return;
         }
 
