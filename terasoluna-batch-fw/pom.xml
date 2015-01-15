@@ -71,6 +71,9 @@
         <oro.version>2.0.8</oro.version>
         <!-- log4j -->
         <log4j.version>1.2.16</log4j.version>
+        <!-- TODO from Spring-IO platform 1.1 #65の暫定対応（#12のdependencyManagement整理で削除される変更） -->
+        <slf4j.version>1.7.7</slf4j.version>
+        <logback.version>1.1.2</logback.version>
         <!-- postgresql -->
         <postgresql.version>9.3-1102-jdbc41</postgresql.version>
         <postgresql.jdbc.version>8.4-702.jdbc3</postgresql.jdbc.version>
