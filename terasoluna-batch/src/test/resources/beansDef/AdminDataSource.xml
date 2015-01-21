@@ -33,17 +33,16 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
         <property name="dataSource" ref="adminDataSource" />
     </bean>
 
-    <!-- OracleのDAO定義
+    <!-- OracleのDAO定義 -->
     <bean id="sysDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
         <property name="mapperInterface" value="jp.terasoluna.fw.batch.executor.dao.SystemOracleDao"/>
         <property name="sqlSessionFactory" ref="sysSqlSessionFactory"/>
     </bean>
-    -->
 
-    <!-- PostgreSQLのDAO定義 -->
+    <!-- PostgreSQLのDAO定義
     <bean id="sysDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
         <property name="mapperInterface" value="jp.terasoluna.fw.batch.executor.dao.SystemPostgreSQLDao"/>
         <property name="sqlSessionFactory" ref="sysSqlSessionFactory"/>
     </bean>
-
+    -->
 </beans>
