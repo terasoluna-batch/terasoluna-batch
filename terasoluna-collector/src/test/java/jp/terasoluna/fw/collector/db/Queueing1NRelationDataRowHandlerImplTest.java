@@ -99,8 +99,8 @@ public class Queueing1NRelationDataRowHandlerImplTest {
     @Test
     public void testHandleRow003() {
         Queueing1NRelationDataRowHandlerImpl drh = new Queueing1NRelationDataRowHandlerImpl();
-        DBCollector<HogeBean> dbCollector = new DBCollectorStub004(5);
-        drh.setDbCollector(dbCollector);
+        DaoCollector<HogeBean> daoCollector = new DaoCollectorStub004(5);
+        drh.setDaoCollector(daoCollector);
 
         assertNotNull(drh);
 
@@ -129,8 +129,8 @@ public class Queueing1NRelationDataRowHandlerImplTest {
     @Test
     public void testHandleRow004() throws Exception {
         final Queueing1NRelationDataRowHandlerImpl drh = new Queueing1NRelationDataRowHandlerImpl();
-        DBCollector<HogeBean> dbCollector = new DBCollectorStub001();
-        drh.setDbCollector(dbCollector);
+        DaoCollector<HogeBean> daoCollector = new DaoCollectorStub001();
+        drh.setDaoCollector(daoCollector);
 
         ExecutorService service = Executors.newSingleThreadExecutor();
         ErrorFeedBackRunnable runnable = new ErrorFeedBackRunnable() {
@@ -160,8 +160,8 @@ public class Queueing1NRelationDataRowHandlerImplTest {
     @Test
     public void testHandleRow005() throws Exception {
         Queueing1NRelationDataRowHandlerImpl drh = new Queueing1NRelationDataRowHandlerImpl();
-        DBCollectorStub001 dbCollector = new DBCollectorStub001();
-        drh.setDbCollector(dbCollector);
+        DaoCollectorStub001 daoCollector = new DaoCollectorStub001();
+        drh.setDaoCollector(daoCollector);
 
         assertNotNull(drh);
 
@@ -171,7 +171,7 @@ public class Queueing1NRelationDataRowHandlerImplTest {
             drh.handleResult(context);
             context.setResultObject("hoge2");
             drh.handleResult(context);
-            dbCollector.exceptionFlag = true;
+            daoCollector.exceptionFlag = true;
             context.setResultObject("hoge3");
             drh.handleResult(context);
             fail("失敗");
@@ -189,8 +189,8 @@ public class Queueing1NRelationDataRowHandlerImplTest {
         Queueing1NRelationDataRowHandlerImpl drh = new Queueing1NRelationDataRowHandlerImpl();
         drh.prevRow = null;
         drh.dataCount = new AtomicLong(0);
-        DBCollectorStub001 dbCollector = new DBCollectorStub001();
-        drh.setDbCollector(dbCollector);
+        DaoCollectorStub001 daoCollector = new DaoCollectorStub001();
+        drh.setDaoCollector(daoCollector);
 
         // prevRowがnullの時はキュー追加が行われないこと。
         drh.delayCollect();
@@ -208,15 +208,15 @@ public class Queueing1NRelationDataRowHandlerImplTest {
         bean.setHoge("hoge1");
         drh.prevRow = bean;
         drh.dataCount = new AtomicLong(0);
-        DBCollectorStub004 dbCollector = new DBCollectorStub004(1);
-        dbCollector.setFinish(false);
-        drh.setDbCollector(dbCollector);
+        DaoCollectorStub004 daoCollector = new DaoCollectorStub004(1);
+        daoCollector.setFinish(false);
+        drh.setDaoCollector(daoCollector);
 
         // 1件のキュー追加が行われること。
         drh.delayCollect();
 
         assertEquals(1L, drh.dataCount.get());
-        DataValueObject obj1 = dbCollector.getQueue().poll();
+        DataValueObject obj1 = daoCollector.getQueue().poll();
         assertTrue(obj1.getValue() instanceof HogeBean);
         assertEquals("hoge1", ((HogeBean) obj1.getValue()).getHoge());
         assertEquals(1L, obj1.getDataCount());
@@ -228,8 +228,8 @@ public class Queueing1NRelationDataRowHandlerImplTest {
     @Test
     public void testDelayCollect003() {
         Queueing1NRelationDataRowHandlerImpl drh = new Queueing1NRelationDataRowHandlerImpl();
-        DBCollectorStub004 dbCollector = new DBCollectorStub004(5);
-        drh.setDbCollector(dbCollector);
+        DaoCollectorStub004 daoCollector = new DaoCollectorStub004(5);
+        drh.setDaoCollector(daoCollector);
         HogeBean hoge1 = new HogeBean();
         hoge1.setHoge("hoge1");
         HogeBean hoge2 = new HogeBean();
@@ -259,34 +259,34 @@ public class Queueing1NRelationDataRowHandlerImplTest {
         drh.handleResult(context);
 
         assertEquals(5L, drh.dataCount.get());
-        DataValueObject obj1 = dbCollector.getQueue().poll();
+        DataValueObject obj1 = daoCollector.getQueue().poll();
         assertTrue(obj1.getValue() instanceof HogeBean);
         assertEquals("hoge1", ((HogeBean) obj1.getValue()).getHoge());
         assertEquals(1L, obj1.getDataCount());
 
-        DataValueObject obj2 = dbCollector.getQueue().poll();
+        DataValueObject obj2 = daoCollector.getQueue().poll();
         assertTrue(obj2.getValue() instanceof HogeBean);
         assertEquals("hoge2", ((HogeBean) obj2.getValue()).getHoge());
         assertEquals(2L, obj2.getDataCount());
 
-        DataValueObject obj3 = dbCollector.getQueue().poll();
+        DataValueObject obj3 = daoCollector.getQueue().poll();
         assertTrue(obj3.getValue() instanceof HogeBean);
         // prevRowと同一のインスタンスであるhoge2のパラメータは初期化されていること。
         assertNull(((HogeBean) obj3.getValue()).getHoge());
         assertEquals(3L, obj3.getDataCount());
 
-        DataValueObject obj4 = dbCollector.getQueue().poll();
+        DataValueObject obj4 = daoCollector.getQueue().poll();
         assertTrue(obj4.getValue() instanceof HogeBean);
         assertEquals("hoge3", ((HogeBean) obj4.getValue()).getHoge());
         assertEquals(4L, obj4.getDataCount());
 
-        DataValueObject obj5 = dbCollector.getQueue().poll();
+        DataValueObject obj5 = daoCollector.getQueue().poll();
         assertTrue(obj5.getValue() instanceof HogeBean);
         // prevRowと同一のインスタンスであるhoge3のパラメータは初期化されていること。
         assertNull(((HogeBean) obj5.getValue()).getHoge());
         assertEquals(5L, obj5.getDataCount());
 
-        assertEquals(0, dbCollector.getQueue().size());
+        assertEquals(0, daoCollector.getQueue().size());
 
         assertEquals("hoge4", ((HogeBean)drh.prevRow).getHoge());
     }
@@ -298,10 +298,10 @@ public class Queueing1NRelationDataRowHandlerImplTest {
     public void testDelayCollect004() {
         Queueing1NRelationDataRowHandlerImpl drh = new Queueing1NRelationDataRowHandlerImpl();
         drh.prevRow = new TestBean001();
-        DBCollector<HogeBean> dbCollector = new DBCollectorStub002();
-        ((DBCollectorStub002) dbCollector).exceptionFlag = false;
+        DaoCollector<HogeBean> daoCollector = new DaoCollectorStub002();
+        ((DaoCollectorStub002) daoCollector).exceptionFlag = false;
 
-        drh.setDbCollector(dbCollector);
+        drh.setDaoCollector(daoCollector);
 
         assertNotNull(drh);
 
@@ -328,8 +328,8 @@ public class Queueing1NRelationDataRowHandlerImplTest {
     @Test
     public void testDelayCollect005() throws Exception {
         final Queueing1NRelationDataRowHandlerImpl drh = new Queueing1NRelationDataRowHandlerImpl();
-        final DBCollectorStub004 dbCollector = new DBCollectorStub004(2);
-        drh.setDbCollector(dbCollector);
+        final DaoCollectorStub004 daoCollector = new DaoCollectorStub004(2);
+        drh.setDaoCollector(daoCollector);
 
         ExecutorService service = Executors.newSingleThreadExecutor();
         ErrorFeedBackRunnable runnable = new ErrorFeedBackRunnable() {
@@ -352,7 +352,7 @@ public class Queueing1NRelationDataRowHandlerImplTest {
         runnable.throwErrorOrExceptionIfThrown();
 
         // "hoge1"のみキューイングされていること。
-        assertEquals(1, dbCollector.getQueue().size());
+        assertEquals(1, daoCollector.getQueue().size());
     }
 
     /**

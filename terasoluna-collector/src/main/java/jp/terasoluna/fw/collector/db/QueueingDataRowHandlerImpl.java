@@ -43,8 +43,8 @@ public class QueueingDataRowHandlerImpl implements QueueingDataRowHandler {
      */
     protected Object prevRow = null;
 
-    /** DBCollector */
-    protected DBCollector<?> dbCollector = null;
+    /** DaoCollector */
+    protected DaoCollector<?> daoCollector = null;
 
     /** データカウント */
     protected AtomicLong dataCount = new AtomicLong(0);
@@ -75,9 +75,9 @@ public class QueueingDataRowHandlerImpl implements QueueingDataRowHandler {
             if (!Thread.currentThread().isInterrupted()) {
                 long dtcnt = this.dataCount.incrementAndGet();
                 try {
-                    if (this.dbCollector != null) {
+                    if (this.daoCollector != null) {
                         // 取得したオブジェクトを1件キューにつめる
-                        this.dbCollector.addQueue(new DataValueObject(
+                        this.daoCollector.addQueue(new DataValueObject(
                                 this.prevRow, dtcnt));
                     }
                 } catch (InterruptedException e) {
@@ -101,11 +101,11 @@ public class QueueingDataRowHandlerImpl implements QueueingDataRowHandler {
     }
 
     /**
-     * DBCollectorを設定する。<br>
-     * @param dbCollector DBCollector&lt;?&gt;
+     * DaoCollectorを設定する。<br>
+     * @param daoCollector DaoCollector&lt;?&gt;
      */
-    public void setDbCollector(DBCollector<?> dbCollector) {
-        this.dbCollector = dbCollector;
+    public void setDaoCollector(DaoCollector<?> daoCollector) {
+        this.daoCollector = daoCollector;
     }
 
     /**
