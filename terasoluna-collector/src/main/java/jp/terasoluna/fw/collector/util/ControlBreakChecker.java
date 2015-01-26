@@ -27,7 +27,7 @@ import jp.terasoluna.fw.collector.util.strategy.CompareStrategy;
 import jp.terasoluna.fw.logger.TLogger;
 
 import org.apache.commons.beanutils.PropertyUtils;
-import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.EqualsBuilder;
 
 /**
  * コントロールブレイクチェッカー.<br>

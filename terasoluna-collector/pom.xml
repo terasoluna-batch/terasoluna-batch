@@ -254,6 +254,10 @@
                     <groupId>jp.terasoluna.fw.web</groupId>
                     <artifactId>terasoluna-thin</artifactId>
                 </exclusion>
+                <exclusion>
+                    <groupId>commons-lang</groupId>
+                    <artifactId>commons-lang</artifactId>
+                </exclusion>
             </exclusions>
         </dependency>
 

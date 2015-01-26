@@ -42,8 +42,8 @@ import jp.terasoluna.fw.file.annotation.TrimType;
 import jp.terasoluna.fw.file.dao.FileException;
 import jp.terasoluna.fw.file.dao.FileLineException;
 import jp.terasoluna.fw.file.dao.FileLineIterator;
+import org.apache.commons.lang3.StringUtils;
 
-import org.apache.commons.lang.StringUtils;
 
 /**
  * ファイルアクセス(データ取得)用の共通クラス。

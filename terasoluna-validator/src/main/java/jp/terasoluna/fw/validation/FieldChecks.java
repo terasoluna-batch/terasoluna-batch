@@ -34,8 +34,8 @@ import jp.terasoluna.fw.util.ClassUtil;
 import jp.terasoluna.fw.util.PropertyAccessException;
 
 import org.apache.commons.beanutils.PropertyUtils;
-import org.apache.commons.lang.ClassUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.ClassUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.commons.validator.Field;

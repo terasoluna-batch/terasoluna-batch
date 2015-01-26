@@ -21,11 +21,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
-import java.util.Map;
 
-import jp.terasoluna.utlib.LogUTUtil;
 import jp.terasoluna.utlib.PropertyTestCase;
-import jp.terasoluna.utlib.UTUtil;
 
 /**
  * DateUtil ブラックボックステスト。<br>
@@ -52,7 +49,7 @@ import jp.terasoluna.utlib.UTUtil;
  *
  */
 @SuppressWarnings("unused")
-public class DateUtilTest extends PropertyTestCase {
+public class DateUtilTest01 extends PropertyTestCase {
 
     /**
      * 日時を設定するためのフィールド
@@ -65,10 +62,10 @@ public class DateUtilTest extends PropertyTestCase {
     private Date date = null;
 
     /**
-     * Constructor for DateUtilTest.
+     * Constructor for DateUtilTest01.
      * @param arg0
      */
-    public DateUtilTest(String arg0) {
+    public DateUtilTest01(String arg0) {
         super(arg0);
     }
 
@@ -96,65 +93,6 @@ public class DateUtilTest extends PropertyTestCase {
     @Override
     protected void cleanUpData() throws Exception {
         clearProperty();
-    }
-
-    /**
-     * testStatic01()
-     * <br><br>
-     *
-     * (正常系)
-     * <br>
-     * 観点：A
-     * <br><br>
-     * 入力値：(状態) プロパティ:wareki.gengo.0.name = 平成<br>
-     *                 　　wareki.gengo.0.roman = H<br>
-     *                 　　wareki.gengo.0.startDate = 1989/01/08<br>
-     *                 　　wareki.gengo.1.name = 昭和<br>
-     *                 　　wareki.gengo.1.roman = S<br>
-     *                 　　wareki.gengo.1.startDate = 1926/12/25<br>
-     *                 　　wareki.gengo.2.name = 大正<br>
-     *                 　　wareki.gengo.2.roman = T<br>
-     *                 　　wareki.gengo.2.startDate = 1912/07/30<br>
-     *                 　　wareki.gengo.3.name = 明治<br>
-     *                 　　wareki.gengo.3.roman = M<br>
-     *                 　　wareki.gengo.3.startDate = 1868/09/04<br>
-     *                 　　wareki.gengo.4.name = 平成<br>
-     *                 　　wareki.gengo.4.roman = H<br>
-     *                 　　wareki.gengo.5.name = 平成<br>
-     *                 　　wareki.gengo.5.roman = H<br>
-     *                 　　wareki.gengo.5.startDate = asdf<br>
-     *
-     * <br>
-     * 期待値：(状態変化) プライベートフィールド:プライベートフィールドである「GENGO_NAME」「GENGO_ROMAN」「GENGO_BEGIN_DATES」「GENGO_BEGIN_YEARS」のサイズが４であること。<br>
-     *         (状態変化) ログ:<errorレベル><br>
-     *                    メッセージ：wareki.gengo.4.startDate not found<br>
-     *                    <errorレベル><br>
-     *                    メッセージ：Unparseable date: "asdf"<br>
-     *
-     * <br>
-     * すべてのパターンを網羅するテスト
-     * <br>
-     *
-     * @throws Exception このメソッドで発生した例外
-     */
-    public void testStatic01() throws Exception {
-
-        // 結果確認
-        //プライベートフィールドの件数が4件であることを確認する。
-        Map GENGO_NAME
-            = (Map) UTUtil.getPrivateField(DateUtil.class, "GENGO_NAME");
-        Map GENGO_ROMAN
-            = (Map) UTUtil.getPrivateField(DateUtil.class, "GENGO_ROMAN");
-        Date[] GENGO_BEGIN_DATES
-            = (Date[]) UTUtil.getPrivateField(DateUtil.class, "GENGO_BEGIN_DATES");
-        int[] GENGO_BEGIN_YEARS
-            = (int[]) UTUtil.getPrivateField(DateUtil.class, "GENGO_BEGIN_YEARS");
-        assertEquals(4, GENGO_NAME.size());
-        assertEquals(4, GENGO_ROMAN.size());
-        assertEquals(4, GENGO_BEGIN_DATES.length);
-        assertEquals(4, GENGO_BEGIN_YEARS.length);
-        assertTrue(LogUTUtil.checkError("wareki.gengo.4.startDate not found"));
-        assertTrue(LogUTUtil.checkError("Unparseable date: \"asdf\""));
     }
 
     /**
