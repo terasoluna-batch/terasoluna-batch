@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011 NTT DATA Corporation
+ * Copyright (c) 2012 NTT DATA Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,22 +16,24 @@
 
 package jp.terasoluna.fw.collector.db;
 
-import org.apache.ibatis.session.ResultHandler;
-
 /**
- * QueueingDataRowHandlerインタフェース<br>
- * DataRowHandlerの拡張インタフェース。
+ * DaoCollectorのSQL実行時の前後処理インタフェース
  */
-public interface QueueingDataRowHandler extends ResultHandler {
+public interface DaoCollectorPrePostProcess {
+    /**
+     * SQL実行開始前に実行されるメソッド.
+     */
+    <P> void preprocess(DaoCollector<P> collector);
 
     /**
-     * 前回handleResultメソッドに渡された<code>Row</code>データをキューに格納する。
+     * SQL実行終了時に実行されるメソッド.<br>
+     * SQL実行時に例外が発生した場合は、postprocessExceptionメソッドの次に、このメソッドが実行される。
      */
-    void delayCollect();
+    <P> void postprocessComplete(DaoCollector<P> collector);
 
     /**
-     * DaoCollectorを設定する。<br>
-     * @param daoCollector daoCollector&lt;?&gt;
+     * SQL実行終了時（例外）に実行されるメソッド.
      */
-    void setDaoCollector(DaoCollector<?> daoCollector);
+    <P> DaoCollectorPrePostProcessStatus postprocessException(
+            DaoCollector<P> collector, Throwable throwable);
 }

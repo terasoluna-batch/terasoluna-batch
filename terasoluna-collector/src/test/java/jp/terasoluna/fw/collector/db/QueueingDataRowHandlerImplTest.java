@@ -5,7 +5,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-import org.apache.ibatis.session.ResultContext;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -92,8 +91,8 @@ public class QueueingDataRowHandlerImplTest {
     @Test
     public void testHandleRow003() {
         QueueingDataRowHandlerImpl drh = new QueueingDataRowHandlerImpl();
-        DBCollector<HogeBean> dbCollector = new DBCollectorStub004(5);
-        drh.setDbCollector(dbCollector);
+        DaoCollector<HogeBean> daoCollector = new DaoCollectorStub004(5);
+        drh.setDaoCollector(daoCollector);
 
         assertNotNull(drh);
 
@@ -119,8 +118,8 @@ public class QueueingDataRowHandlerImplTest {
     @Test
     public void testHandleRow004() throws Exception {
         final QueueingDataRowHandlerImpl drh = new QueueingDataRowHandlerImpl();
-        DBCollector<HogeBean> dbCollector = new DBCollectorStub001();
-        drh.setDbCollector(dbCollector);
+        DaoCollector<HogeBean> daoCollector = new DaoCollectorStub001();
+        drh.setDaoCollector(daoCollector);
 
         ExecutorService service = Executors.newSingleThreadExecutor();
         ErrorFeedBackRunnable runnable = new ErrorFeedBackRunnable() {
@@ -149,8 +148,8 @@ public class QueueingDataRowHandlerImplTest {
     @Test
     public void testHandleRow005() {
         QueueingDataRowHandlerImpl drh = new QueueingDataRowHandlerImpl();
-        DBCollectorStub001 dbCollector = new DBCollectorStub001();
-        drh.setDbCollector(dbCollector);
+        DaoCollectorStub001 daoCollector = new DaoCollectorStub001();
+        drh.setDaoCollector(daoCollector);
 
         assertNotNull(drh);
 
@@ -160,7 +159,7 @@ public class QueueingDataRowHandlerImplTest {
             drh.handleResult(context);
             context.setResultObject("hoge2");
             drh.handleResult(context);
-            dbCollector.exceptionFlag = true;
+            daoCollector.exceptionFlag = true;
             context.setResultObject("hoge3");
             drh.handleResult(context);
             fail();
@@ -171,8 +170,8 @@ public class QueueingDataRowHandlerImplTest {
     @Test
     public void testDelayCollect001() throws Exception {
         final QueueingDataRowHandlerImpl drh = new QueueingDataRowHandlerImpl();
-        DBCollectorStub004 dbCollector = new DBCollectorStub004(1);
-        drh.setDbCollector(dbCollector);
+        DaoCollectorStub004 daoCollector = new DaoCollectorStub004(1);
+        drh.setDaoCollector(daoCollector);
         drh.prevRow = "rowObject";
 
         ExecutorService service = Executors.newSingleThreadExecutor();
@@ -193,14 +192,14 @@ public class QueueingDataRowHandlerImplTest {
         runnable.throwErrorOrExceptionIfThrown();
 
         // 割り込み例外によりキューイングされていないこと。
-        assertEquals(0, dbCollector.getQueue().size());
+        assertEquals(0, daoCollector.getQueue().size());
     }
 
     @Test
     public void testDelayCollect002() throws Exception {
         final QueueingDataRowHandlerImpl drh = new QueueingDataRowHandlerImpl();
-        DBCollectorStub003 dbCollector = new DBCollectorStub003();
-        drh.setDbCollector(dbCollector);
+        DaoCollectorStub003 daoCollector = new DaoCollectorStub003();
+        drh.setDaoCollector(daoCollector);
         drh.prevRow = "rowObject";
         ExecutorService service = Executors.newSingleThreadExecutor();
         ErrorFeedBackRunnable runnable = new ErrorFeedBackRunnable() {
@@ -221,7 +220,7 @@ public class QueueingDataRowHandlerImplTest {
                 Thread.sleep(100);
             } catch (InterruptedException e) {
             }
-            if (dbCollector.isBlocked()) {
+            if (daoCollector.isBlocked()) {
                 break;
             }
         }

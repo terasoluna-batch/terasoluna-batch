@@ -29,7 +29,7 @@ import org.apache.commons.beanutils.PropertyUtils;
 /**
  * Queueing1NRelationDataRowHandlerImplの実装クラス<br>
  * <p>
- * IBatisDbCollectorImplの1:Nマッピング対応版。<br>
+ * QueueingDataRowHandlerImplの1:Nマッピング対応版。<br>
  * 1:Nマッピング使用時、iBATISは1:N構造のオブジェクトが完成する前に RowHandler#handleRow(DataRowHandler#handleRow)に渡すため、 このコレクタでは、
  * RowHandler#handleRow(DataRowHandler#handleRow)に渡された結果を、次回同メソッドが実行されたときに キューに格納する。 最後に渡された結果は、iBATISが処理を終えた時点でキューに格納する。<br>
  * また、1:Nマッピング使用時、iBATISは全てのデータを取得し終わるまで、 RowHandler#handleRow(DataRowHandler#handleRow)に渡したオブジェクトを、全てiBATIS内部に保持し続けるため、
@@ -47,7 +47,7 @@ import org.apache.commons.beanutils.PropertyUtils;
  * 使いどころ
  * <ul>
  * <li>コレクタ用のsqlMapでiBATISの1:Nマッピングを利用し、かつ、 データ量が多く、メモリを節約する必要があるとき<br>
- * (1:Nマッピングを利用しない場合は、 オブジェクトのシャローコピーや初期化は不要であるため、 IBatisDbCollectorImplを使用すること)</li>
+ * (1:Nマッピングを利用しない場合は、 オブジェクトのシャローコピーや初期化は不要であるため、 QueueingDataRowHandlerImplを使用すること)</li>
  * </ul>
  * </p>
  * <p>
@@ -148,9 +148,9 @@ public class Queueing1NRelationDataRowHandlerImpl extends
                     PropertyUtils.copyProperties(this.prevRow, this.prevRow
                             .getClass().newInstance());
 
-                    if (this.dbCollector != null) {
+                    if (this.daoCollector != null) {
                         // 取得したオブジェクトのシャローコピーを1件キューにつめる
-                        this.dbCollector.addQueue(new DataValueObject(copy,
+                        this.daoCollector.addQueue(new DataValueObject(copy,
                                 dtcnt));
                     }
                 } catch (IllegalAccessException e) {
