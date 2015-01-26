@@ -849,7 +849,7 @@ public class AsyncBatchExecutorTest extends TestCase {
         AsyncBatchExecutor executor = new AsyncBatchExecutor() {
             @Override
             protected boolean startBatchStatus(String jobSequenceId,
-                    SystemDao sysDao, PlatformTransactionManager transactionManager) {
+                    SystemDao systemDao, PlatformTransactionManager transactionManager) {
                 return false;
             }
         };
@@ -900,7 +900,7 @@ public class AsyncBatchExecutorTest extends TestCase {
         AsyncBatchExecutor executor = new AsyncBatchExecutor() {
             @Override
             protected boolean startBatchStatus(String jobSequenceId,
-                    SystemDao sysDao, PlatformTransactionManager transactionManager) {
+                    SystemDao systemDao, PlatformTransactionManager transactionManager) {
                 return true;
             }
         };
@@ -942,7 +942,7 @@ public class AsyncBatchExecutorTest extends TestCase {
         AsyncBatchExecutor executor = new AsyncBatchExecutor() {
             @Override
             protected boolean startBatchStatus(String jobSequenceId,
-                    SystemDao sysDao, PlatformTransactionManager transactionManager) {
+                    SystemDao systemDao, PlatformTransactionManager transactionManager) {
                 return true;
             }
         };
