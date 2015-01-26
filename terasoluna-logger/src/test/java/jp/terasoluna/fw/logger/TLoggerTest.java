@@ -63,8 +63,8 @@ public class TLoggerTest {
                 logReader.readLine());
         LOGGER.log(LogId.FAT001);
         assertEquals(
-                "[FATAL][TLoggerTest] " + LOGGER.getLogMessage(LogId.FAT001),
-                logReader.readLine());
+                "[ERROR][TLoggerTest] " + LOGGER.getLogMessage(LogId.FAT001),
+                logReader.readLine()); // FATALログはERRORレベルで出力される。
         LOGGER.log("HOGE");
         assertEquals("[DEBUG][TLoggerTest] [HOGE] ", logReader.readLine());
     }
@@ -114,8 +114,8 @@ public class TLoggerTest {
 
         LOGGER.log(LogId.FAT001, e);
         assertEquals(
-                "[FATAL][TLoggerTest] " + LOGGER.getLogMessage(LogId.FAT001),
-                logReader.readLine());
+                "[ERROR][TLoggerTest] " + LOGGER.getLogMessage(LogId.FAT001),
+                logReader.readLine()); // FATALログはERRORレベルとして出力される。
         assertEquals("java.lang.Exception: hoge", logReader.readLine());
         while (logReader.readLine() != null)
             ;
@@ -182,17 +182,10 @@ public class TLoggerTest {
 
     @Test
     public void testError07() throws Exception {
-        {
-            TLogger logger = TLogger.getLogger("FATAL_TEST");
-            logger.error(false, "{0} is {1}", new Exception("hoge"), "a", "b");
-            assertNull(logReader.readLine()); // 出力されない
-        }
-        {
-            TLogger logger = TLogger.getLogger("ERROR_TEST");
-            logger.error(false, "{0} is {1}", new Exception("hoge"), "a", "b");
-            assertEquals("[ERROR][ERROR_TEST] a is b", logReader.readLine());
-            assertEquals("java.lang.Exception: hoge", logReader.readLine());
-        }
+        TLogger logger = TLogger.getLogger("FATAL_TEST");
+        logger.error(false, "{0} is {1}", new Exception("hoge"), "a", "b");
+        assertEquals("[ERROR][FATAL_TEST] a is b", logReader.readLine()); // FATAL指定のloggerはDEBUGレベルとして出力される。
+        assertEquals("java.lang.Exception: hoge", logReader.readLine());
     }
 
     @Test
@@ -213,7 +206,7 @@ public class TLoggerTest {
         TLogger logger = TLogger.getLogger("FATAL_TEST");
         logger.fatal(LogId.FAT010);
         assertEquals(
-                "[FATAL][FATAL_TEST] " + logger.getLogMessage(LogId.FAT010),
+                "[ERROR][FATAL_TEST] " + logger.getLogMessage(LogId.FAT010),
                 logReader.readLine());
 
     }
@@ -222,14 +215,14 @@ public class TLoggerTest {
     public void testFatal02() throws Exception {
         TLogger logger = TLogger.getLogger("FATAL_TEST");
         logger.fatal(false, "{0} is {1}", "a", "b");
-        assertEquals("[FATAL][FATAL_TEST] a is b", logReader.readLine());
+        assertEquals("[ERROR][FATAL_TEST] a is b", logReader.readLine());
     }
 
     @Test
     public void testFatal03() throws Exception {
         TLogger logger = TLogger.getLogger("FATAL_TEST");
         logger.fatal(false, "{0} is {1}", new Exception("hoge"), "a", "b");
-        assertEquals("[FATAL][FATAL_TEST] a is b", logReader.readLine());
+        assertEquals("[ERROR][FATAL_TEST] a is b", logReader.readLine());
         assertEquals("java.lang.Exception: hoge", logReader.readLine());
     }
 
@@ -237,21 +230,21 @@ public class TLoggerTest {
     public void testFatal04() throws Exception {
         TLogger logger = TLogger.getLogger("FATAL_TEST");
         logger.fatal(new StringBuilder("hoge"));
-        assertEquals("[FATAL][FATAL_TEST] hoge", logReader.readLine());
+        assertEquals("[ERROR][FATAL_TEST] hoge", logReader.readLine());
     }
 
     @Test
     public void testFatal05() throws Exception {
         TLogger logger = TLogger.getLogger("FATAL_TEST");
         logger.fatal(new StringBuilder("hoge"), new Exception("hoge"));
-        assertEquals("[FATAL][FATAL_TEST] hoge", logReader.readLine());
+        assertEquals("[ERROR][FATAL_TEST] hoge", logReader.readLine());
         assertEquals("java.lang.Exception: hoge", logReader.readLine());
     }
     
     @Test
     public void testFatal06() throws Exception {
         LOGGER.fatal(LogId.FAT001, new Exception("hoge"));
-        assertEquals("[FATAL][TLoggerTest] " + LOGGER.getLogMessage(LogId.FAT001),
+        assertEquals("[ERROR][TLoggerTest] " + LOGGER.getLogMessage(LogId.FAT001),
                 logReader.readLine());
         assertEquals("java.lang.Exception: hoge", logReader.readLine());
     }
@@ -268,7 +261,7 @@ public class TLoggerTest {
         {
             TLogger logger = TLogger.getLogger("FATAL_TEST");
             logger.warn(LogId.WAR010);
-            assertNull(logReader.readLine()); // 出力されない
+            assertEquals("[WARN][FATAL_TEST] [WAR010] ワーンメッセージ10", logReader.readLine()); // FATAL 指定のloggerはDEBUGレベルとして解釈されるため、FATAL_TESTカテゴリでも出力される。
         }
     }
 
@@ -319,9 +312,9 @@ public class TLoggerTest {
                     logReader.readLine());
         }
         {
-            TLogger logger = TLogger.getLogger("WARN_TEST");
-            logger.info(LogId.INF010);
-            assertNull(logReader.readLine()); // 出力されない
+                TLogger logger = TLogger.getLogger("WARN_TEST");
+                logger.info(LogId.INF010);
+                assertNull(logReader.readLine()); // 出力されない
         }
     }
 
