@@ -196,7 +196,7 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
     /**
      * システム用DAO定義（ステータス参照・更新用）取得用キー.
      */
-    protected static final String SYSTEM_DATASOURCE_DAO = "systemDataSource.sysDAO";
+    protected static final String SYSTEM_DATASOURCE_DAO = "systemDataSource.systemDao";
 
     /**
      * システム用transactionManager定義（ステータス参照・更新用）取得用キー.
@@ -311,7 +311,7 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
     /**
      * システム用DAO定義（ステータス参照・更新用）.
      */
-    protected SystemDao sysDao = null;
+    protected SystemDao systemDao = null;
 
     /**
      * システム用transactionManager定義（ステータス参照・更新用）.
@@ -1033,7 +1033,7 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
      * @return the queryDao
      */
     public SystemDao getSystemDao() {
-        return sysDao;
+        return systemDao;
     }
 
     /**

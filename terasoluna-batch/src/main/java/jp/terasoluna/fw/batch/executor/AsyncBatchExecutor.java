@@ -393,8 +393,8 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
         AsyncBatchExecutor executor = new AsyncBatchExecutor();
 
         // システムDAOを取得
-        SystemDao sysDao = executor.getSystemDao();
-        if (sysDao == null) {
+        SystemDao systemDao = executor.getSystemDao();
+        if (systemDao == null) {
             LOGGER.info(LogId.IAL025018);
             return status;
         }
@@ -430,9 +430,9 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
                 List<BatchJobListResult> jobList = null;
                 if (checkTaskQueue(taskExecutor)) {
                     if (jobAppCd == null) {
-                        jobList = JobUtil.selectJobList(sysDao, 0, 1);
+                        jobList = JobUtil.selectJobList(systemDao, 0, 1);
                     } else {
-                        jobList = JobUtil.selectJobList(jobAppCd, sysDao, 0,
+                        jobList = JobUtil.selectJobList(jobAppCd, systemDao, 0,
                                 1);
                     }
                 }
@@ -569,8 +569,8 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
         }
 
         // システムDAOを取得
-        SystemDao sysDao = executor.getSystemDao();
-        if (sysDao == null) {
+        SystemDao systemDao = executor.getSystemDao();
+        if (systemDao == null) {
             LOGGER.info(LogId.IAL025018);
             return status;
         }
@@ -600,7 +600,7 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
         } else {
             // ジョブステータス設定（開始）
             boolean st = executor.startBatchStatus(batchJobListResult
-                    .getJobSequenceId(), sysDao, transactionManager);
+                    .getJobSequenceId(), systemDao, transactionManager);
             if (st) {
                 // BatchServantにジョブシーケンスコードを設定
                 job.setJobSequenceId(batchJobListResult.getJobSequenceId());

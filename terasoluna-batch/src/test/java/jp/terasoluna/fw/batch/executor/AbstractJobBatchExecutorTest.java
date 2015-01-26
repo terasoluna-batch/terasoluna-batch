@@ -36,7 +36,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
     /**
      * 利用するDAOクラス
      */
-    private SystemDao sysDao = null;
+    private SystemDao systemDao = null;
 
     private PlatformTransactionManager transactionManager = null;
 
@@ -50,7 +50,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
         update("INSERT INTO job_control (job_seq_id, job_app_cd, job_arg_nm1, job_arg_nm2, job_arg_nm3, job_arg_nm4, job_arg_nm5, job_arg_nm6, job_arg_nm7, job_arg_nm8, job_arg_nm9, job_arg_nm10, job_arg_nm11, job_arg_nm12, job_arg_nm13, job_arg_nm14, job_arg_nm15, job_arg_nm16, job_arg_nm17, job_arg_nm18, job_arg_nm19, job_arg_nm20, blogic_app_status, cur_app_status, add_date_time, upd_date_time) VALUES ('0000000004', 'B000001', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', NULL, NULL)");
 		update("INSERT INTO job_control (job_seq_id, job_app_cd, job_arg_nm1, job_arg_nm2, job_arg_nm3, job_arg_nm4, job_arg_nm5, job_arg_nm6, job_arg_nm7, job_arg_nm8, job_arg_nm9, job_arg_nm10, job_arg_nm11, job_arg_nm12, job_arg_nm13, job_arg_nm14, job_arg_nm15, job_arg_nm16, job_arg_nm17, job_arg_nm18, job_arg_nm19, job_arg_nm20, blogic_app_status, cur_app_status, add_date_time, upd_date_time) VALUES ('0000000005', 'B000001', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL)");
 
-        sysDao = getBean("sysDao");
+        systemDao = getBean("systemDao");
         transactionManager = getBean("adminTransactionManager");
 
         TerasolunaPropertyUtils.saveProperties();
@@ -216,7 +216,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
 
         boolean result = exe.updateBatchStatus("0000000001", "0", null,
-                sysDao, transactionManager);
+                systemDao, transactionManager);
 
         BatchJobData row = queryForRowObject(
                 "select * from job_control where job_seq_id = '0000000001'",
@@ -243,7 +243,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
 
         boolean result = exe.updateBatchStatus("0000000002", "0", null,
-                sysDao, transactionManager);
+                systemDao, transactionManager);
 
         BatchJobData row = queryForRowObject(
                 "select * from job_control where job_seq_id = '0000000002'",
@@ -270,7 +270,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
 
         boolean result = exe.updateBatchStatus("0000000003", "0", null,
-                sysDao, transactionManager);
+                systemDao, transactionManager);
 
         BatchJobData row = queryForRowObject(
                 "select * from job_control where job_seq_id = '0000000003'",
@@ -297,7 +297,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
 
         boolean result = exe.updateBatchStatus("0000000001", "1", "0",
-                sysDao, transactionManager);
+                systemDao, transactionManager);
 
         BatchJobData row = queryForRowObject(
                 "select * from job_control where job_seq_id = '0000000001'",
@@ -324,7 +324,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
 
         boolean result = exe.updateBatchStatus("0000000002", "1", "0",
-                sysDao, transactionManager);
+                systemDao, transactionManager);
 
         BatchJobData row = queryForRowObject(
                 "select * from job_control where job_seq_id = '0000000002'",
@@ -351,7 +351,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
 
         boolean result = exe.updateBatchStatus("0000000003", "1", "0",
-                sysDao, transactionManager);
+                systemDao, transactionManager);
 
         BatchJobData row = queryForRowObject(
                 "select * from job_control where job_seq_id = '0000000003'",
@@ -378,7 +378,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
         PlatformTransactionManager transactionManager = new PlatformTransactionManagerStub01();
         try {
             exe.updateBatchStatus("0000000003", "1", "0",
-                sysDao, transactionManager);
+                systemDao, transactionManager);
             fail();
         } catch (TransactionException e) {
             assertEquals("トランザクション開始確認", e.getMessage());
@@ -399,10 +399,10 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      */
     public void testUpdateBatchStatus08() throws Exception {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
-        SystemDao sysDao = mock(SystemDao.class);
-        when(sysDao.updateJobTable(any(BatchJobManagementUpdateParam.class)))
+        SystemDao systemDao = mock(SystemDao.class);
+        when(systemDao.updateJobTable(any(BatchJobManagementUpdateParam.class)))
                 .thenThrow(new DataAccessException("DBステータス更新時例外確認用") {});
-        when(sysDao.selectJob(any(BatchJobManagementParam.class)))
+        when(systemDao.selectJob(any(BatchJobManagementParam.class)))
                 .thenReturn(new BatchJobData(){{
                     setJobSequenceId("0000000003");
                     setCurAppStatus("1");
@@ -410,7 +410,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
                 }});
         try {
             exe.updateBatchStatus("0000000003", "1", "0",
-                sysDao, transactionManager);
+                systemDao, transactionManager);
             fail();
         } catch (DataAccessException e) {
             assertEquals("DBステータス更新時例外確認用", e.getMessage());
@@ -421,7 +421,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * ジョブステータス更新メソッドのテスト<br>
      * <br>
      * テスト概要：<br>
-     * DBフェールオーバの発生を想定し、JobUtil.selectJob(jobSequenceId, true, sysDao)による
+     * DBフェールオーバの発生を想定し、JobUtil.selectJob(jobSequenceId, true, systemDao)による
      * DB参照時にDataAccessExceptionが発生した場合、呼出し元にスローされること。<br>
      * <br>
      * 確認項目：<br>
@@ -430,14 +430,14 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * @throws Exception
      */
     public void testUpdateBatchStatus09() throws Exception {
-        SystemDao sysDao = mock(SystemDao.class);
-        when(sysDao.selectJob(any(BatchJobManagementParam.class)))
+        SystemDao systemDao = mock(SystemDao.class);
+        when(systemDao.selectJob(any(BatchJobManagementParam.class)))
                 .thenThrow(new DataAccessException("DBステータス参照時例外確認用") {
                 });
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
         try {
             exe.updateBatchStatus("0000000005", "1", "0",
-                    sysDao, transactionManager);
+                    systemDao, transactionManager);
             fail();
         } catch (DataAccessException e) {
             assertEquals("DBステータス参照時例外確認用", e.getMessage());
@@ -460,7 +460,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
         PlatformTransactionManager transactionManager = new PlatformTransactionManagerStub02();
         try {
-            exe.updateBatchStatus("0000000005", "1", "0", sysDao, transactionManager);
+            exe.updateBatchStatus("0000000005", "1", "0", systemDao, transactionManager);
             fail();
         } catch (TransactionException e) {
             assertEquals("コミット確認用", e.getMessage());
@@ -483,7 +483,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
     public void testUpdateBatchStatus11() throws Exception {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
         try {
-            exe.updateBatchStatus("0000000005", "1", "0", sysDao, null);
+            exe.updateBatchStatus("0000000005", "1", "0", systemDao, null);
             fail();
         } catch (BatchException e) {
             assertTrue(e.getCause() instanceof NullPointerException);
@@ -505,7 +505,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
     public void testEndBatchStatus01() throws Exception {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
         BLogicResult blogicResult = new BLogicResult();
-        boolean result = exe.endBatchStatus("0000000001", blogicResult, sysDao, transactionManager);
+        boolean result = exe.endBatchStatus("0000000001", blogicResult, systemDao, transactionManager);
 
         BatchJobData row = queryForRowObject(
                 "select * from job_control where job_seq_id = '0000000001'",
@@ -532,7 +532,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
         BLogicResult blogicResult = new BLogicResult();
         boolean result = exe.endBatchStatus("0000000002", blogicResult,
-                sysDao, transactionManager);
+                systemDao, transactionManager);
 
         BatchJobData row = queryForRowObject(
                 "select * from job_control where job_seq_id = '0000000002'",
@@ -558,7 +558,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
     public void testEndBatchStatus03() throws Exception {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
         BLogicResult blogicResult = new BLogicResult();
-        boolean result = exe.endBatchStatus("0000000003", blogicResult, sysDao, transactionManager);
+        boolean result = exe.endBatchStatus("0000000003", blogicResult, systemDao, transactionManager);
 
         BatchJobData row = queryForRowObject(
                 "select * from job_control where job_seq_id = '0000000003'",
@@ -584,7 +584,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
     public void testStartBatchStatus01() throws Exception {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
 
-        boolean result = exe.startBatchStatus("0000000001", sysDao, transactionManager);
+        boolean result = exe.startBatchStatus("0000000001", systemDao, transactionManager);
 
         BatchJobData row = queryForRowObject(
                 "select * from job_control where job_seq_id = '0000000001'",
@@ -610,7 +610,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
     public void testStartBatchStatus02() throws Exception {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
 
-        boolean result = exe.startBatchStatus("0000000002", sysDao, transactionManager);
+        boolean result = exe.startBatchStatus("0000000002", systemDao, transactionManager);
 
         BatchJobData row = queryForRowObject(
                 "select * from job_control where job_seq_id = '0000000002'",
@@ -636,7 +636,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
     public void testStartBatchStatus03() throws Exception {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
 
-        boolean result = exe.startBatchStatus("0000000003", sysDao, transactionManager);
+        boolean result = exe.startBatchStatus("0000000003", systemDao, transactionManager);
 
         BatchJobData row = queryForRowObject(
                 "select * from job_control where job_seq_id = '0000000003'",
@@ -662,7 +662,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
     public void testExecuteBatch01() throws Exception {
 
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
-        exe.sysDao = sysDao;
+        exe.systemDao = systemDao;
         exe.sysTransactionManager = transactionManager;
         BLogicResult result = exe.executeBatch("0000000001");
 
@@ -673,7 +673,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
     public void testExecuteBatch02() throws Exception {
 
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
-        exe.sysDao = null;
+        exe.systemDao = null;
         exe.sysTransactionManager = null;
         BLogicResult result = exe.executeBatch("0000000001");
 
@@ -684,7 +684,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
     public void testExecuteBatch03() throws Exception {
 
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
-        exe.sysDao = sysDao;
+        exe.systemDao = systemDao;
         exe.sysTransactionManager = transactionManager;
         BLogicResult result = exe.executeBatch("0000000000");
 
@@ -695,7 +695,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
     public void testExecuteBatch04() throws Exception {
 
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
-        exe.sysDao = sysDao;
+        exe.systemDao = systemDao;
         exe.sysTransactionManager = transactionManager;
         exe.changeStartStatus = true;
         BLogicResult result = exe.executeBatch("0000000001");
@@ -707,7 +707,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
     public void testExecuteBatch05() throws Exception {
 
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
-        exe.sysDao = sysDao;
+        exe.systemDao = systemDao;
         exe.sysTransactionManager = transactionManager;
         exe.changeStartStatus = true;
         BLogicResult result = exe.executeBatch("0000000003");
@@ -887,35 +887,35 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
     public void testInitSystemDatasourceDao01() throws Exception {
 
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
-        TerasolunaPropertyUtils.removeProperty("systemDataSource.sysDAO");
-        exe.sysDao = null;
+        TerasolunaPropertyUtils.removeProperty("systemDataSource.systemDao");
+        exe.systemDao = null;
         exe.initSystemDatasourceDao();
 
-        assertNull(exe.sysDao);
+        assertNull(exe.systemDao);
     }
 
     public void testInitSystemDatasourceDao02() throws Exception {
 
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
-        TerasolunaPropertyUtils.removeProperty("systemDataSource.sysDao");
+        TerasolunaPropertyUtils.removeProperty("systemDataSource.systemDao");
         TerasolunaPropertyUtils
-                .addProperty("systemDataSource.sysDAO", "test");
-        exe.sysDao = null;
+                .addProperty("systemDataSource.systemDao", "test");
+        exe.systemDao = null;
         exe.initSystemDatasourceDao();
 
-        assertNull(exe.sysDao);
+        assertNull(exe.systemDao);
     }
 
     public void testInitSystemDatasourceDao03() throws Exception {
 
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
-        TerasolunaPropertyUtils.removeProperty("systemDataSource.sysDAO");
-        TerasolunaPropertyUtils.addProperty("systemDataSource.sysDAO",
+        TerasolunaPropertyUtils.removeProperty("systemDataSource.systemDao");
+        TerasolunaPropertyUtils.addProperty("systemDataSource.systemDao",
                 "adminTransactionManager");
-        exe.sysDao = null;
+        exe.systemDao = null;
         exe.initSystemDatasourceDao();
 
-        assertNull(exe.sysDao);
+        assertNull(exe.systemDao);
     }
 
     public void testInitSystemDatasourceDao07() throws Exception {
@@ -948,7 +948,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
         TerasolunaPropertyUtils
                 .removeProperty("systemDataSource.transactionManager");
         TerasolunaPropertyUtils.addProperty("systemDataSource.transactionManager",
-                "sysDAO");
+                "systemDao");
         exe.sysTransactionManager = null;
         exe.initSystemDatasourceDao();
 
