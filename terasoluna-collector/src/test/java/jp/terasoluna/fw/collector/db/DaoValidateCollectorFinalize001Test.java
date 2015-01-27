@@ -7,7 +7,7 @@ import java.util.List;
 
 import jp.terasoluna.fw.collector.Collector;
 import jp.terasoluna.fw.collector.CollectorTestUtil;
-import jp.terasoluna.fw.collector.dao.UserListQueryRowHandleDao;
+import jp.terasoluna.fw.collector.dao.UserListQueryResultHandleDao;
 import jp.terasoluna.fw.collector.util.MemoryInfo;
 import jp.terasoluna.fw.ex.unit.testcase.DaoTestCase;
 import jp.terasoluna.fw.exception.SystemException;
@@ -27,7 +27,7 @@ public class DaoValidateCollectorFinalize001Test extends DaoTestCase {
     private static Log logger = LogFactory
             .getLog(DaoValidateCollectorFinalize001Test.class);
 
-    private UserListQueryRowHandleDao userListQueryRowHandleDao = null;
+    private UserListQueryResultHandleDao userListQueryResultHandleDao = null;
 
     private int previousThreadCount = 0;
 
@@ -36,8 +36,8 @@ public class DaoValidateCollectorFinalize001Test extends DaoTestCase {
         configLocations.add("jp/terasoluna/fw/collector/db/dataSource.xml");
     }
 
-    public void setUserListQueryRowHandleDao(UserListQueryRowHandleDao userListQueryRowHandleDao) {
-        this.userListQueryRowHandleDao = userListQueryRowHandleDao;
+    public void setUserListQueryResultHandleDao(UserListQueryResultHandleDao userListQueryResultHandleDao) {
+        this.userListQueryResultHandleDao = userListQueryResultHandleDao;
     }
 
     @Override
@@ -83,14 +83,14 @@ public class DaoValidateCollectorFinalize001Test extends DaoTestCase {
      * のためのテスト・メソッド。
      */
     public void testFinalize001() throws Exception {
-        if (this.userListQueryRowHandleDao == null) {
-            fail("userListQueryRowHandleDaoがnullです。");
+        if (this.userListQueryResultHandleDao == null) {
+            fail("userListQueryResultHandleDaoがnullです。");
         }
 
         Validator validator = null;
 
         Collector<UserBean> it = new DaoValidateCollector<UserBean>(
-                this.userListQueryRowHandleDao, "collect", null, validator);
+                this.userListQueryResultHandleDao, "collect", null, validator);
         try {
             for (UserBean user : it) {
                 // あえて途中で抜ける

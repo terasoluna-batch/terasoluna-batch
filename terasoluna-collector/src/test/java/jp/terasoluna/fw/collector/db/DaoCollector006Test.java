@@ -7,7 +7,7 @@ import java.util.List;
 
 import jp.terasoluna.fw.collector.Collector;
 import jp.terasoluna.fw.collector.CollectorTestUtil;
-import jp.terasoluna.fw.collector.dao.UserListQueryRowHandleDao;
+import jp.terasoluna.fw.collector.dao.UserListQueryResultHandleDao;
 import jp.terasoluna.fw.collector.util.MemoryInfo;
 import jp.terasoluna.fw.ex.unit.testcase.DaoTestCase;
 
@@ -24,7 +24,7 @@ public class DaoCollector006Test extends DaoTestCase {
      */
     private static Log logger = LogFactory.getLog(DaoCollector006Test.class);
 
-    private UserListQueryRowHandleDao userListQueryRowHandleDao = null;
+    private UserListQueryResultHandleDao userListQueryResultHandleDao = null;
 
     private int previousThreadCount = 0;
 
@@ -33,8 +33,8 @@ public class DaoCollector006Test extends DaoTestCase {
         configLocations.add("jp/terasoluna/fw/collector/db/dataSource.xml");
     }
 
-    public void setUserListQueryRowHandleDao(UserListQueryRowHandleDao userListQueryRowHandleDao) {
-        this.userListQueryRowHandleDao = userListQueryRowHandleDao;
+    public void setUserListQueryResultHandleDao(UserListQueryResultHandleDao userListQueryResultHandleDao) {
+        this.userListQueryResultHandleDao = userListQueryResultHandleDao;
     }
 
     @Override
@@ -69,14 +69,14 @@ public class DaoCollector006Test extends DaoTestCase {
      */
     public void testDaoCollectorObjectStringObjectInt004()
                                                                         throws Exception {
-        if (this.userListQueryRowHandleDao == null) {
-            fail("queryRowHandleDAOÇ™nullÇ≈Ç∑ÅB");
+        if (this.userListQueryResultHandleDao == null) {
+            fail("queryResultHandleDAOÇ™nullÇ≈Ç∑ÅB");
         }
 
         int count_first = 0;
 
         Collector<UserBean> it = new DaoCollector<UserBean>(
-                this.userListQueryRowHandleDao, "collect", null, 1);
+                this.userListQueryResultHandleDao, "collect", null, 1);
         try {
             for (UserBean user : it) {
                 count_first++;
@@ -99,7 +99,7 @@ public class DaoCollector006Test extends DaoTestCase {
             long startTime = System.currentTimeMillis();
 
             Collector<UserBean> it2 = new DaoCollector<UserBean>(
-                    this.userListQueryRowHandleDao, "collect", null, 1);
+                    this.userListQueryResultHandleDao, "collect", null, 1);
             for (UserBean user : it2) {
                 if (logger.isInfoEnabled() && user == null) {
                     logger.info("UserBean is null.##############");

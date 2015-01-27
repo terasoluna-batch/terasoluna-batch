@@ -116,9 +116,9 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
     </util:map>
 
     <!-- 照会系のDao定義（RowHandle版） -->
-    <bean id="userListQueryRowHandleDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+    <bean id="userListQueryResultHandleDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
         <property name="mapperInterface"
-                  value="jp.terasoluna.fw.collector.dao.UserListQueryRowHandleDao" />
+                  value="jp.terasoluna.fw.collector.dao.UserListQueryResultHandleDao" />
         <property name="sqlSessionFactory" ref="sqlSessionFactory" />
     </bean>
 
