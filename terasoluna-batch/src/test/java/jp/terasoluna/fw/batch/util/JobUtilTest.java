@@ -41,7 +41,7 @@ public class JobUtilTest extends DaoTestCase {
     /**
      * 利用するDAOクラス
      */
-    private SystemDao sysDao = null;
+    private SystemDao systemDao = null;
 
     @Override
     protected void onSetUpInTransaction() throws Exception {
@@ -52,7 +52,7 @@ public class JobUtilTest extends DaoTestCase {
         update("INSERT INTO job_control (job_seq_id, job_app_cd, job_arg_nm1, job_arg_nm2, job_arg_nm3, job_arg_nm4, job_arg_nm5, job_arg_nm6, job_arg_nm7, job_arg_nm8, job_arg_nm9, job_arg_nm10, job_arg_nm11, job_arg_nm12, job_arg_nm13, job_arg_nm14, job_arg_nm15, job_arg_nm16, job_arg_nm17, job_arg_nm18, job_arg_nm19, job_arg_nm20, blogic_app_status, cur_app_status, add_date_time, upd_date_time) VALUES ('0000000003', 'B000002', '0000001', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', NULL, NULL)");
         update("INSERT INTO job_control (job_seq_id, job_app_cd, job_arg_nm1, job_arg_nm2, job_arg_nm3, job_arg_nm4, job_arg_nm5, job_arg_nm6, job_arg_nm7, job_arg_nm8, job_arg_nm9, job_arg_nm10, job_arg_nm11, job_arg_nm12, job_arg_nm13, job_arg_nm14, job_arg_nm15, job_arg_nm16, job_arg_nm17, job_arg_nm18, job_arg_nm19, job_arg_nm20, blogic_app_status, cur_app_status, add_date_time, upd_date_time) VALUES ('0000000004', 'B000002', '0000001', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', NULL, NULL)");
 
-        sysDao = getBean("sysDao");
+        systemDao = getBean("systemDao");
     }
 
     /**
@@ -61,7 +61,7 @@ public class JobUtilTest extends DaoTestCase {
      */
     public void testSelectJobList01() throws Exception {
 
-        List<BatchJobListResult> result = JobUtil.selectJobList(this.sysDao);
+        List<BatchJobListResult> result = JobUtil.selectJobList(this.systemDao);
 
         List<BatchJobListResult> except = new ArrayList<BatchJobListResult>();
 
@@ -90,7 +90,7 @@ public class JobUtilTest extends DaoTestCase {
      */
     public void testSelectJobList02() throws Exception {
 
-        List<BatchJobListResult> list = JobUtil.selectJobList(this.sysDao, 0,
+        List<BatchJobListResult> list = JobUtil.selectJobList(this.systemDao, 0,
                 2);
 
         assertNotNull(list);
@@ -107,7 +107,7 @@ public class JobUtilTest extends DaoTestCase {
     public void testSelectJobList03() throws Exception {
 
         List<BatchJobListResult> list = JobUtil.selectJobList("B000002",
-                this.sysDao);
+                this.systemDao);
 
         assertNotNull(list);
         assertEquals(4, list.size());
@@ -125,7 +125,7 @@ public class JobUtilTest extends DaoTestCase {
     public void testSelectJobList04() throws Exception {
 
         List<BatchJobListResult> list = JobUtil.selectJobList("B000002",
-                this.sysDao, 0, 2);
+                this.systemDao, 0, 2);
 
         assertNotNull(list);
         assertEquals(2, list.size());
@@ -143,7 +143,7 @@ public class JobUtilTest extends DaoTestCase {
         List<String> curAppStatusList = new ArrayList<String>();
 
         List<BatchJobListResult> list = JobUtil.selectJobList("B000002",
-                curAppStatusList, this.sysDao, 0, 2);
+                curAppStatusList, this.systemDao, 0, 2);
 
         assertNotNull(list);
         assertEquals(2, list.size());
@@ -181,7 +181,7 @@ public class JobUtilTest extends DaoTestCase {
     public void testSelectJob01() throws Exception {
 
         BatchJobData result = JobUtil.selectJob("0000000001", true,
-                this.sysDao);
+                this.systemDao);
 
         assertEquals("0000000001", result.getJobSequenceId());
         assertEquals("B000002", result.getJobAppCd());
@@ -199,13 +199,13 @@ public class JobUtilTest extends DaoTestCase {
     }
 
     public void testSelectJob03() throws Exception {
-        SystemDao sysDao = mock(SystemDao.class);
-        when(sysDao.selectJob(any(BatchJobManagementParam.class)))
+        SystemDao systemDao = mock(SystemDao.class);
+        when(systemDao.selectJob(any(BatchJobManagementParam.class)))
                 .thenThrow(new DataAccessException("DBステータス取得時例外確認用") {});
 
         try {
             JobUtil.selectJob("0000000001", true,
-                sysDao);
+                systemDao);
             fail();
         } catch (DataAccessException e) {
             assertEquals("DBステータス取得時例外確認用", e.getMessage());
@@ -219,7 +219,7 @@ public class JobUtilTest extends DaoTestCase {
     @SuppressWarnings("deprecation")
     public void testGetCurrentTime01() throws Exception {
 
-        Timestamp result = JobUtil.getCurrentTime(this.sysDao);
+        Timestamp result = JobUtil.getCurrentTime(this.systemDao);
 
         assertNotNull(result);
         System.out.println(result);
@@ -239,11 +239,11 @@ public class JobUtilTest extends DaoTestCase {
     }
 
     public void testGetCurrentTime03() throws Exception {
-        SystemDao sysDao = mock(SystemDao.class);
-        when(sysDao.readCurrentTime()).thenThrow(
+        SystemDao systemDao = mock(SystemDao.class);
+        when(systemDao.readCurrentTime()).thenThrow(
                 new DataAccessException("DBステータス取得時例外確認用") {});
         try {
-            JobUtil.getCurrentTime(sysDao);
+            JobUtil.getCurrentTime(systemDao);
             fail();
         } catch (DataAccessException e) {
             assertEquals("DBステータス取得時例外確認用", e.getMessage());
@@ -257,7 +257,7 @@ public class JobUtilTest extends DaoTestCase {
     @SuppressWarnings("deprecation")
     public void testGetCurrentDate01() throws Exception {
 
-        Date result = JobUtil.getCurrentDate(this.sysDao);
+        Date result = JobUtil.getCurrentDate(this.systemDao);
 
         assertNotNull(result);
 
@@ -313,7 +313,7 @@ public class JobUtilTest extends DaoTestCase {
      */
     public void testUpdateJobStatus01() throws Exception {
 
-        boolean result = JobUtil.updateJobStatus("0000000002", "0", null, this.sysDao);
+        boolean result = JobUtil.updateJobStatus("0000000002", "0", null, this.systemDao);
 
         assertEquals(true, result);
 
@@ -397,11 +397,11 @@ public class JobUtilTest extends DaoTestCase {
     }
 
     public void testUpdateJobStatus04() throws Exception {
-        SystemDao mockSysDao = mock(SystemDao.class);
-        when(mockSysDao.updateJobTable(any(BatchJobManagementUpdateParam.class)))
+        SystemDao mockSystemDao = mock(SystemDao.class);
+        when(mockSystemDao.updateJobTable(any(BatchJobManagementUpdateParam.class)))
                 .thenThrow(new DataAccessException("DBステータス更新時例外確認用") {});
         try {
-            JobUtil.updateJobStatus("0000000002", "0", null, mockSysDao);
+            JobUtil.updateJobStatus("0000000002", "0", null, mockSystemDao);
             fail();
         } catch (DataAccessException e) {
             assertEquals("DBステータス更新時例外確認用", e.getMessage());

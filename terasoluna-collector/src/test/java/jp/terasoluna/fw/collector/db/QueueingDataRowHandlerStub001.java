@@ -11,7 +11,7 @@ public class QueueingDataRowHandlerStub001 implements QueueingDataRowHandler {
 
     }
 
-    public void setDbCollector(DBCollector<?> dbCollector) {
+    public void setDaoCollector(DaoCollector<?> daoCollector) {
 
     }
 

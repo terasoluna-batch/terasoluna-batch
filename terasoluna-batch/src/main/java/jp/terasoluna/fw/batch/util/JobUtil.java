@@ -56,53 +56,53 @@ public class JobUtil {
 
     /**
      * <h6>ジョブリスト取得.</h6>
-     * @param sysDao フレームワーク用システムDAO
+     * @param systemDao フレームワーク用システムDAO
      * @return ジョブリスト
      */
-    public static List<BatchJobListResult> selectJobList(SystemDao sysDao) {
-        return selectJobList(null, sysDao);
+    public static List<BatchJobListResult> selectJobList(SystemDao systemDao) {
+        return selectJobList(null, systemDao);
     }
 
     /**
      * <h6>ジョブリスト取得.</h6>
-     * @param sysDao SystemQueryDao
+     * @param systemDao SystemQueryDao
      * @param beginIndex 取得する開始インデックス
      * @param maxCount 取得する件数
      * @return ジョブリスト
      */
-    public static List<BatchJobListResult> selectJobList(SystemDao sysDao,
+    public static List<BatchJobListResult> selectJobList(SystemDao systemDao,
             int beginIndex, int maxCount) {
-        return selectJobList(null, sysDao, beginIndex, maxCount);
+        return selectJobList(null, systemDao, beginIndex, maxCount);
     }
 
     /**
      * <h6>ジョブリスト取得.</h6>
      * @param jobAppCd ジョブ業務コード
-     * @param sysDao フレームワーク用システムDAO
+     * @param systemDao フレームワーク用システムDAO
      * @return ジョブリスト
      */
     public static List<BatchJobListResult> selectJobList(String jobAppCd,
-            SystemDao sysDao) {
-        return selectJobList(jobAppCd, sysDao, -1, -1);
+            SystemDao systemDao) {
+        return selectJobList(jobAppCd, systemDao, -1, -1);
     }
 
     /**
      * <h6>ジョブリスト取得.</h6> ※未実施ステータスのジョブのみ取得
      * @param jobAppCd ジョブ業務コード
-     * @param sysDao フレームワーク用システムDAO
+     * @param systemDao フレームワーク用システムDAO
      * @param beginIndex 取得する開始インデックス
      * @param maxCount 取得する件数
      * @return ジョブリスト
      */
     public static List<BatchJobListResult> selectJobList(String jobAppCd,
-            SystemDao sysDao, int beginIndex, int maxCount) {
+            SystemDao systemDao, int beginIndex, int maxCount) {
         // ステータス
         List<String> curAppStatusList = new ArrayList<String>();
 
         // ステータス（未実施）
         curAppStatusList.add(JobStatusConstants.JOB_STATUS_UNEXECUTION);
 
-        return selectJobList(jobAppCd, curAppStatusList, sysDao, beginIndex,
+        return selectJobList(jobAppCd, curAppStatusList, systemDao, beginIndex,
                 maxCount);
     }
 
@@ -110,13 +110,13 @@ public class JobUtil {
      * <h6>ジョブリスト取得.</h6>
      * @param jobAppCd ジョブ業務コード
      * @param curAppStatusList 取得するステータスの一覧
-     * @param sysDao フレームワーク用システムDAO
+     * @param systemDao フレームワーク用システムDAO
      * @param beginIndex 取得する開始インデックス
      * @param maxCount 取得する件数
      * @return ジョブリスト
      */
     public static List<BatchJobListResult> selectJobList(String jobAppCd,
-            List<String> curAppStatusList, SystemDao sysDao, int beginIndex,
+            List<String> curAppStatusList, SystemDao systemDao, int beginIndex,
             int maxCount) {
 
         BatchJobListParam param = new BatchJobListParam();
@@ -132,10 +132,10 @@ public class JobUtil {
         List<BatchJobListResult> result = null;
         try {
             if (beginIndex == -1 || maxCount == -1) {
-                result = sysDao.selectJobList(param);
+                result = systemDao.selectJobList(param);
             } else {
                 RowBounds rowBounds = new RowBounds(beginIndex, maxCount);
-                result = sysDao.selectJobList(rowBounds, param);
+                result = systemDao.selectJobList(rowBounds, param);
             }
         } catch (Exception e) {
             throw new BatchException(LOGGER.getLogMessage(LogId.EAL025039), e);
@@ -148,11 +148,11 @@ public class JobUtil {
      * <h6>ジョブ1件取得.</h6>
      * @param jobSequenceId ジョブシーケンスID
      * @param forUpdate 対象行ロックを行う場合はtrue
-     * @param sysDao フレームワーク用システムDAO
+     * @param systemDao フレームワーク用システムDAO
      * @return
      */
     public static BatchJobData selectJob(String jobSequenceId,
-            boolean forUpdate, SystemDao sysDao) {
+            boolean forUpdate, SystemDao systemDao) {
         BatchJobManagementParam param = new BatchJobManagementParam();
 
         // ジョブシーケンスコード
@@ -163,7 +163,7 @@ public class JobUtil {
 
         BatchJobData result = null;
         try {
-            result = sysDao.selectJob(param);
+            result = systemDao.selectJob(param);
         } catch (Exception e) {
             if (LOGGER.isErrorEnabled()) {
                 LOGGER.error(LogId.EAL025040, e);
@@ -185,7 +185,7 @@ public class JobUtil {
      */
     public static boolean updateJobStatus(String jobSequenceId,
             String curAppStatus, String blogicAppStatus,
-            SystemDao sysDao) {
+            SystemDao systemDao) {
         BatchJobManagementUpdateParam param = new BatchJobManagementUpdateParam();
 
         // ジョブシーケンスコード
@@ -198,12 +198,12 @@ public class JobUtil {
         param.setCurAppStatus(curAppStatus);
 
         // 更新日時（ミリ秒）
-        Timestamp updDateTime = getCurrentTime(sysDao);
+        Timestamp updDateTime = getCurrentTime(systemDao);
         param.setUpdDateTime(updDateTime);
 
         int count = -1;
         try {
-            count = sysDao.updateJobTable(param);
+            count = systemDao.updateJobTable(param);
         } catch (Exception e) {
             LOGGER.error(LogId.EAL025041, e);
             if (e instanceof DataAccessException) {
@@ -223,14 +223,14 @@ public class JobUtil {
 
     /**
      * <h6>カレント時刻を取得する.</h6>
-     * @param sysDao フレームワーク用のシステムDAO
+     * @param systemDao フレームワーク用のシステムDAO
      * @return Timestamp カレント時刻
      */
     @Deprecated
-    public static Timestamp getCurrentTime(SystemDao sysDao) {
+    public static Timestamp getCurrentTime(SystemDao systemDao) {
         Timestamp result = null;
         try {
-            result = sysDao.readCurrentTime();
+            result = systemDao.readCurrentTime();
         } catch (Exception e) {
             LOGGER.error(LogId.EAL025043, e);
             if (e instanceof DataAccessException) {
@@ -242,14 +242,14 @@ public class JobUtil {
 
     /**
      * <h6>カレント日付を取得する.</h6>
-     * @param sysDao フレームワーク用システムDAO
+     * @param systemDao フレームワーク用システムDAO
      * @return Date カレント日付
      */
     @Deprecated
-    public static Date getCurrentDate(SystemDao sysDao) {
+    public static Date getCurrentDate(SystemDao systemDao) {
         Date result = null;
         try {
-            result = sysDao.readCurrentDate();
+            result = systemDao.readCurrentDate();
         } catch (Exception e) {
             LOGGER.error(LogId.EAL025043, e);
 
