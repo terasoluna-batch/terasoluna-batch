@@ -2,10 +2,9 @@ package jp.terasoluna.fw.collector.db;
 
 import org.apache.ibatis.session.ResultContext;
 
-public class QueueingDataRowHandlerStub003 implements QueueingDataRowHandler {
+public class QueueingResultHandlerStub001 implements QueueingResultHandler {
 
-    public QueueingDataRowHandlerStub003() throws IllegalAccessException {
-        throw new IllegalAccessException();
+    public QueueingResultHandlerStub001() {
     }
 
     public void delayCollect() {

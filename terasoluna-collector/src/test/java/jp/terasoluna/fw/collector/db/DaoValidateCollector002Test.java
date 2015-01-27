@@ -8,7 +8,7 @@ import java.util.List;
 
 import jp.terasoluna.fw.collector.Collector;
 import jp.terasoluna.fw.collector.CollectorTestUtil;
-import jp.terasoluna.fw.collector.dao.UserListQueryRowHandleDao;
+import jp.terasoluna.fw.collector.dao.UserListQueryResultHandleDao;
 import jp.terasoluna.fw.ex.unit.testcase.DaoTestCase;
 import jp.terasoluna.fw.exception.SystemException;
 
@@ -28,7 +28,7 @@ public class DaoValidateCollector002Test extends DaoTestCase {
     private static Log logger = LogFactory
             .getLog(DaoValidateCollector002Test.class);
 
-    private UserListQueryRowHandleDao userListQueryRowHandleDao = null;
+    private UserListQueryResultHandleDao userListQueryResultHandleDao = null;
 
     private int previousThreadCount = 0;
 
@@ -37,8 +37,8 @@ public class DaoValidateCollector002Test extends DaoTestCase {
         configLocations.add("jp/terasoluna/fw/collector/db/dataSource.xml");
     }
 
-    public void setUserListQueryRowHandleDao(UserListQueryRowHandleDao userListQueryRowHandleDao) {
-        this.userListQueryRowHandleDao = userListQueryRowHandleDao;
+    public void setUserListQueryResultHandleDao(UserListQueryResultHandleDao userListQueryResultHandleDao) {
+        this.userListQueryResultHandleDao = userListQueryResultHandleDao;
     }
 
     @Override
@@ -72,14 +72,14 @@ public class DaoValidateCollector002Test extends DaoTestCase {
      * のためのテスト・メソッド。
      */
     public void testFinalize001() throws Exception {
-        if (this.userListQueryRowHandleDao == null) {
-            fail("userListQueryRowHandleDaoがnullです。");
+        if (this.userListQueryResultHandleDao == null) {
+            fail("userListQueryResultHandleDaoがnullです。");
         }
 
         Validator validator = null;
 
         Collector<UserBean> it = new DaoValidateCollector<UserBean>(
-                this.userListQueryRowHandleDao, "collect", null, validator);
+                this.userListQueryResultHandleDao, "collect", null, validator);
         try {
             for (UserBean user : it) {
 
@@ -104,8 +104,8 @@ public class DaoValidateCollector002Test extends DaoTestCase {
      */
     public void testDaoValidateCollectorObjectStringObjectValidator001()
                                                                              throws Exception {
-        if (this.userListQueryRowHandleDao == null) {
-            fail("userListQueryRowHandleDaoがnullです。");
+        if (this.userListQueryResultHandleDao == null) {
+            fail("userListQueryResultHandleDaoがnullです。");
         }
 
         int count_first = 0;
@@ -116,7 +116,7 @@ public class DaoValidateCollector002Test extends DaoTestCase {
         do {
             retryFlg = false;
             Collector<UserBean> it = new DaoValidateCollector<UserBean>(
-                    this.userListQueryRowHandleDao, "collect", null, validator);
+                    this.userListQueryResultHandleDao, "collect", null, validator);
             try {
                 for (UserBean user : it) {
                     count_first++;
@@ -159,7 +159,7 @@ public class DaoValidateCollector002Test extends DaoTestCase {
             int count = 0;
 
             Collector<UserBean> it2 = new DaoValidateCollector<UserBean>(
-                    this.userListQueryRowHandleDao, "collect", null, validator);
+                    this.userListQueryResultHandleDao, "collect", null, validator);
             try {
                 for (UserBean user : it2) {
                     count++;
@@ -181,15 +181,15 @@ public class DaoValidateCollector002Test extends DaoTestCase {
      */
     public void testDaoValidateCollectorObjectStringObjectValidator002()
                                                                              throws Exception {
-        if (this.userListQueryRowHandleDao == null) {
-            fail("userListQueryRowHandleDaoがnullです。");
+        if (this.userListQueryResultHandleDao == null) {
+            fail("userListQueryResultHandleDaoがnullです。");
         }
 
         int count_first = 0;
         Validator validator = null;
 
         Collector<UserBean> it = new DaoValidateCollector<UserBean>(
-                this.userListQueryRowHandleDao, "collect", null, validator);
+                this.userListQueryResultHandleDao, "collect", null, validator);
         try {
             for (UserBean user : it) {
                 UserBean nextUser = null;
@@ -220,7 +220,7 @@ public class DaoValidateCollector002Test extends DaoTestCase {
             int count = 0;
 
             Collector<UserBean> it2 = new DaoValidateCollector<UserBean>(
-                    this.userListQueryRowHandleDao, "collect", null, validator);
+                    this.userListQueryResultHandleDao, "collect", null, validator);
             try {
                 for (UserBean user : it2) {
                     count++;
@@ -241,8 +241,8 @@ public class DaoValidateCollector002Test extends DaoTestCase {
      */
     public void testDaoValidateCollectorObjectStringObjectValidator003()
                                                                              throws Exception {
-        if (this.userListQueryRowHandleDao == null) {
-            fail("userListQueryRowHandleDaoがnullです。");
+        if (this.userListQueryResultHandleDao == null) {
+            fail("userListQueryResultHandleDaoがnullです。");
         }
 
         int count_first = 0;
@@ -250,7 +250,7 @@ public class DaoValidateCollector002Test extends DaoTestCase {
         Validator validator = null;
 
         Collector<OrderBean> it = new DaoValidateCollector<OrderBean>(
-                this.userListQueryRowHandleDao, "collectOrder", null, validator);
+                this.userListQueryResultHandleDao, "collectOrder", null, validator);
         try {
             for (OrderBean order : it) {
                 List<OrderDetailBean> orderDetailList = order
@@ -278,8 +278,8 @@ public class DaoValidateCollector002Test extends DaoTestCase {
      */
     public void testDaoValidateCollectorObjectStringObjectBooleanValidator001()
                                                                              throws Exception {
-        if (this.userListQueryRowHandleDao == null) {
-            fail("userListQueryRowHandleDaoがnullです。");
+        if (this.userListQueryResultHandleDao == null) {
+            fail("userListQueryResultHandleDaoがnullです。");
         }
 
         int count_first = 0;
@@ -287,7 +287,7 @@ public class DaoValidateCollector002Test extends DaoTestCase {
         Validator validator = null;
 
         Collector<OrderBean> it = new DaoValidateCollector<OrderBean>(
-                this.userListQueryRowHandleDao, "collectOrder", null, true, validator);
+                this.userListQueryResultHandleDao, "collectOrder", null, true, validator);
         try {
             for (OrderBean order : it) {
                 List<OrderDetailBean> orderDetailList = order
@@ -315,8 +315,8 @@ public class DaoValidateCollector002Test extends DaoTestCase {
      */
     public void testDaoValidateCollectorObjectStringObjectIntBooleanCollectorExceptionHandlerDaoCollectorPrePostProcessValidatorValidationErrorHandler001()
                                                                              throws Exception {
-        if (this.userListQueryRowHandleDao == null) {
-            fail("userListQueryRowHandleDaoがnullです。");
+        if (this.userListQueryResultHandleDao == null) {
+            fail("userListQueryResultHandleDaoがnullです。");
         }
 
         int count_first = 0;
@@ -324,7 +324,7 @@ public class DaoValidateCollector002Test extends DaoTestCase {
         Validator validator = null;
 
         Collector<OrderBean> it = new DaoValidateCollector<OrderBean>(
-                this.userListQueryRowHandleDao, "collectOrder", null, 1, true, null,
+                this.userListQueryResultHandleDao, "collectOrder", null, 1, true, null,
                 null, validator, null);
         try {
             for (OrderBean order : it) {
@@ -353,8 +353,8 @@ public class DaoValidateCollector002Test extends DaoTestCase {
      */
     public void testDaoValidateCollectorObjectStringObjectValidator004()
                                                                              throws Exception {
-        if (this.userListQueryRowHandleDao == null) {
-            fail("userListQueryRowHandleDaoがnullです。");
+        if (this.userListQueryResultHandleDao == null) {
+            fail("userListQueryResultHandleDaoがnullです。");
         }
 
         int count_first = 0;
@@ -362,7 +362,7 @@ public class DaoValidateCollector002Test extends DaoTestCase {
         Validator validator = null;
 
         Collector<Order2Bean> it = new DaoValidateCollector<Order2Bean>(
-                this.userListQueryRowHandleDao, "collectOrder2", null, validator);
+                this.userListQueryResultHandleDao, "collectOrder2", null, validator);
         try {
             for (Order2Bean order : it) {
                 OrderDetailBean orderDetail = order.getOrderDetail();
@@ -389,8 +389,8 @@ public class DaoValidateCollector002Test extends DaoTestCase {
      */
     public void testDaoValidateCollectorObjectStringObjectBooleanValidator002()
                                                                              throws Exception {
-        if (this.userListQueryRowHandleDao == null) {
-            fail("userListQueryRowHandleDaoがnullです。");
+        if (this.userListQueryResultHandleDao == null) {
+            fail("userListQueryResultHandleDaoがnullです。");
         }
 
         int count_first = 0;
@@ -398,7 +398,7 @@ public class DaoValidateCollector002Test extends DaoTestCase {
         Validator validator = null;
 
         Collector<Order2Bean> it = new DaoValidateCollector<Order2Bean>(
-                this.userListQueryRowHandleDao, "collectOrder2", null, true, validator);
+                this.userListQueryResultHandleDao, "collectOrder2", null, true, validator);
         try {
             for (Order2Bean order : it) {
                 @SuppressWarnings("unused")
@@ -429,8 +429,8 @@ public class DaoValidateCollector002Test extends DaoTestCase {
      */
     public void testDaoValidateCollectorObjectStringObjectIntBooleanCollectorExceptionHandlerDaoCollectorPrePostProcessValidatorValidationErrorHandler002()
                                                                              throws Exception {
-        if (this.userListQueryRowHandleDao == null) {
-            fail("userListQueryRowHandleDaoがnullです。");
+        if (this.userListQueryResultHandleDao == null) {
+            fail("userListQueryResultHandleDaoがnullです。");
         }
 
         int count_first = 0;
@@ -438,7 +438,7 @@ public class DaoValidateCollector002Test extends DaoTestCase {
         Validator validator = null;
 
         Collector<Order2Bean> it = new DaoValidateCollector<Order2Bean>(
-                this.userListQueryRowHandleDao, "collectOrder2", null, 1, true, null,
+                this.userListQueryResultHandleDao, "collectOrder2", null, 1, true, null,
                 null, validator, null);
         try {
             for (Order2Bean order : it) {

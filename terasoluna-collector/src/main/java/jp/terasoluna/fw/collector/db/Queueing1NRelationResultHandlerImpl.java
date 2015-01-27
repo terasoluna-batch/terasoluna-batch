@@ -27,14 +27,14 @@ import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.beanutils.PropertyUtils;
 
 /**
- * Queueing1NRelationDataRowHandlerImplの実装クラス<br>
+ * Queueing1NRelationResultHandlerImplの実装クラス<br>
  * <p>
- * QueueingDataRowHandlerImplの1:Nマッピング対応版。<br>
- * 1:Nマッピング使用時、iBATISは1:N構造のオブジェクトが完成する前に RowHandler#handleRow(DataRowHandler#handleRow)に渡すため、 このコレクタでは、
- * RowHandler#handleRow(DataRowHandler#handleRow)に渡された結果を、次回同メソッドが実行されたときに キューに格納する。 最後に渡された結果は、iBATISが処理を終えた時点でキューに格納する。<br>
- * また、1:Nマッピング使用時、iBATISは全てのデータを取得し終わるまで、 RowHandler#handleRow(DataRowHandler#handleRow)に渡したオブジェクトを、全てiBATIS内部に保持し続けるため、
- * このコレクタでは、RowHandler#handleRow(DataRowHandler#handleRow)に渡されたオブジェクトのシャローコピーをキューに格納し、
- * RowHandler#handleRow(DataRowHandler#handleRow)に渡されたオブジェクトの全プロパティを初期化する。
+ * QueueingResultHandlerImplの1:Nマッピング対応版。<br>
+ * 1:Nマッピング使用時、iBATISは1:N構造のオブジェクトが完成する前に ResultHandler#handleResult()に渡すため、 このコレクタでは、
+ * ResultHandler#handleResult()に渡された結果を、次回同メソッドが実行されたときに キューに格納する。 最後に渡された結果は、iBATISが処理を終えた時点でキューに格納する。<br>
+ * また、1:Nマッピング使用時、iBATISは全てのデータを取得し終わるまで、 ResultHandler#handleResult()に渡したオブジェクトを、全てiBATIS内部に保持し続けるため、
+ * このコレクタでは、ResultHandler#handleResult()に渡されたオブジェクトのシャローコピーをキューに格納し、
+ * ResultHandler#handleResult()に渡されたオブジェクトの全プロパティを初期化する。
  * </p>
  * <p>
  * 使用上の注意：
@@ -47,7 +47,7 @@ import org.apache.commons.beanutils.PropertyUtils;
  * 使いどころ
  * <ul>
  * <li>コレクタ用のsqlMapでiBATISの1:Nマッピングを利用し、かつ、 データ量が多く、メモリを節約する必要があるとき<br>
- * (1:Nマッピングを利用しない場合は、 オブジェクトのシャローコピーや初期化は不要であるため、 QueueingDataRowHandlerImplを使用すること)</li>
+ * (1:Nマッピングを利用しない場合は、 オブジェクトのシャローコピーや初期化は不要であるため、 QueueingResultHandlerImplを使用すること)</li>
  * </ul>
  * </p>
  * <p>
@@ -124,16 +124,16 @@ import org.apache.commons.beanutils.PropertyUtils;
  * 
  * </p>
  */
-public class Queueing1NRelationDataRowHandlerImpl extends
-                                                 QueueingDataRowHandlerImpl
+public class Queueing1NRelationResultHandlerImpl extends
+        QueueingResultHandlerImpl
                                                                            implements
-                                                                           QueueingDataRowHandler {
+        QueueingResultHandler {
 
     /**
      * Log.
      */
     private static final TLogger LOGGER = TLogger
-            .getLogger(Queueing1NRelationDataRowHandlerImpl.class);
+            .getLogger(Queueing1NRelationResultHandlerImpl.class);
 
     /**
      * 前回handleResultメソッドに渡された<code>Row</code>データをキューに格納する。

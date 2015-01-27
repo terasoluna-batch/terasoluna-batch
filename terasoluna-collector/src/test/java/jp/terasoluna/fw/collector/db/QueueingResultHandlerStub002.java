@@ -2,9 +2,9 @@ package jp.terasoluna.fw.collector.db;
 
 import org.apache.ibatis.session.ResultContext;
 
-public class QueueingDataRowHandlerStub002 implements QueueingDataRowHandler {
+public class QueueingResultHandlerStub002 implements QueueingResultHandler {
 
-    public QueueingDataRowHandlerStub002() throws InstantiationException {
+    public QueueingResultHandlerStub002() throws InstantiationException {
         throw new InstantiationException();
     }
 

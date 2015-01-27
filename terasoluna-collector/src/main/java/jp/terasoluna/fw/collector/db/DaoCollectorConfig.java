@@ -27,8 +27,8 @@ import org.springframework.validation.Validator;
  */
 public class DaoCollectorConfig extends AbstractCollectorConfig {
 
-    /** QueryRowHandleDao */
-    protected Object queryRowHandleDao = null;
+    /** QueryResultHandleDao */
+    protected Object queryResultHandleDao = null;
 
     /** 実行するメソッド名 */
     protected String methodName = null;
@@ -44,13 +44,13 @@ public class DaoCollectorConfig extends AbstractCollectorConfig {
 
     /**
      * コンストラクタ
-     * @param queryRowHandleDao QueryRowHandleDaoインスタンス
+     * @param queryResultHandleDao QueryResultHandleDaoインスタンス
      * @param methodName 実行するメソッド名
      * @param bindParams SQLにバインドする値を格納したオブジェクト
      */
-    public DaoCollectorConfig(Object queryRowHandleDao, String methodName,
+    public DaoCollectorConfig(Object queryResultHandleDao, String methodName,
             Object bindParams) {
-        this.queryRowHandleDao = queryRowHandleDao;
+        this.queryResultHandleDao = queryResultHandleDao;
         this.methodName = methodName;
         this.bindParams = bindParams;
     }
@@ -130,19 +130,19 @@ public class DaoCollectorConfig extends AbstractCollectorConfig {
     }
 
     /**
-     * QueryRowHandleDaoを取得する。
-     * @return QueryRowHandleDao
+     * QueryResultHandleDaoを取得する。
+     * @return QueryResultHandleDao
      */
-    public Object getQueryRowHandleDao() {
-        return queryRowHandleDao;
+    public Object getQueryResultHandleDao() {
+        return queryResultHandleDao;
     }
 
     /**
-     * QueryRowHandleDAOを設定する。
-     * @param queryRowHandleDao QueryRowHandleDao
+     * QueryResultHandleDaoを設定する。
+     * @param queryResultHandleDao QueryResultHandleDao
      */
-    public void setQueryRowHandleDao(Object queryRowHandleDao) {
-        this.queryRowHandleDao = queryRowHandleDao;
+    public void setQueryResultHandleDao(Object queryResultHandleDao) {
+        this.queryResultHandleDao = queryResultHandleDao;
     }
 
     /**

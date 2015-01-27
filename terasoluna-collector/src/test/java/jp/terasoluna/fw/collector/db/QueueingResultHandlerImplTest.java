@@ -13,7 +13,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class QueueingDataRowHandlerImplTest {
+public class QueueingResultHandlerImplTest {
 
     @BeforeClass
     public static void setUpBeforeClass() throws Exception {
@@ -25,21 +25,21 @@ public class QueueingDataRowHandlerImplTest {
 
     @Before
     public void setUp() throws Exception {
-        QueueingDataRowHandlerImpl.setVerbose(true);
+        QueueingResultHandlerImpl.setVerbose(true);
     }
 
     @After
     public void tearDown() throws Exception {
-        QueueingDataRowHandlerImpl.setVerbose(false);
+        QueueingResultHandlerImpl.setVerbose(false);
         Thread.interrupted();
     }
 
     /**
-     * testHandleRow
+     * testHandleResult
      */
     @Test
-    public void testHandleRow001() {
-        QueueingDataRowHandlerImpl drh = new QueueingDataRowHandlerImpl();
+    public void testHandleResult001() {
+        QueueingResultHandlerImpl drh = new QueueingResultHandlerImpl();
         DummyResultContext ctxInNull = new DummyResultContext();
         ctxInNull.setResultObject(null);
         assertNotNull(drh);
@@ -56,11 +56,11 @@ public class QueueingDataRowHandlerImplTest {
     }
 
     /**
-     * testHandleRow
+     * testHandleResult
      */
     @Test
-    public void testHandleRow002() {
-        QueueingDataRowHandlerImpl drh = new QueueingDataRowHandlerImpl();
+    public void testHandleResult002() {
+        QueueingResultHandlerImpl drh = new QueueingResultHandlerImpl();
 
         assertNotNull(drh);
         try {
@@ -86,11 +86,11 @@ public class QueueingDataRowHandlerImplTest {
     }
 
     /**
-     * testHandleRow
+     * testHandleResult
      */
     @Test
-    public void testHandleRow003() {
-        QueueingDataRowHandlerImpl drh = new QueueingDataRowHandlerImpl();
+    public void testHandleResult003() {
+        QueueingResultHandlerImpl drh = new QueueingResultHandlerImpl();
         DaoCollector<HogeBean> daoCollector = new DaoCollectorStub004(5);
         drh.setDaoCollector(daoCollector);
 
@@ -116,8 +116,8 @@ public class QueueingDataRowHandlerImplTest {
     }
 
     @Test
-    public void testHandleRow004() throws Exception {
-        final QueueingDataRowHandlerImpl drh = new QueueingDataRowHandlerImpl();
+    public void testHandleResult004() throws Exception {
+        final QueueingResultHandlerImpl drh = new QueueingResultHandlerImpl();
         DaoCollector<HogeBean> daoCollector = new DaoCollectorStub001();
         drh.setDaoCollector(daoCollector);
 
@@ -127,7 +127,7 @@ public class QueueingDataRowHandlerImplTest {
             public void doRun() {
                 Thread.currentThread().interrupt();
                 try {
-                    // 割り込み発生時はhandleRowは処理されず、InterruptedRuntimeExceptionが発生すること。
+                    // 割り込み発生時はhandleResultは処理されず、InterruptedRuntimeExceptionが発生すること。
                     DummyResultContext context = new DummyResultContext();
                     context.setResultObject("hoge1");
                     drh.handleResult(context);
@@ -143,11 +143,11 @@ public class QueueingDataRowHandlerImplTest {
     }
 
     /**
-     * testHandleRow
+     * testHandleResult
      */
     @Test
-    public void testHandleRow005() {
-        QueueingDataRowHandlerImpl drh = new QueueingDataRowHandlerImpl();
+    public void testHandleResult005() {
+        QueueingResultHandlerImpl drh = new QueueingResultHandlerImpl();
         DaoCollectorStub001 daoCollector = new DaoCollectorStub001();
         drh.setDaoCollector(daoCollector);
 
@@ -169,7 +169,7 @@ public class QueueingDataRowHandlerImplTest {
 
     @Test
     public void testDelayCollect001() throws Exception {
-        final QueueingDataRowHandlerImpl drh = new QueueingDataRowHandlerImpl();
+        final QueueingResultHandlerImpl drh = new QueueingResultHandlerImpl();
         DaoCollectorStub004 daoCollector = new DaoCollectorStub004(1);
         drh.setDaoCollector(daoCollector);
         drh.prevRow = "rowObject";
@@ -197,7 +197,7 @@ public class QueueingDataRowHandlerImplTest {
 
     @Test
     public void testDelayCollect002() throws Exception {
-        final QueueingDataRowHandlerImpl drh = new QueueingDataRowHandlerImpl();
+        final QueueingResultHandlerImpl drh = new QueueingResultHandlerImpl();
         DaoCollectorStub003 daoCollector = new DaoCollectorStub003();
         drh.setDaoCollector(daoCollector);
         drh.prevRow = "rowObject";

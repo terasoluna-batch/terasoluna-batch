@@ -22,7 +22,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class Queueing1NRelationDataRowHandlerImplTest {
+public class Queueing1NRelationResultHandlerImplTest {
 
     @BeforeClass
     public static void setUpBeforeClass() throws Exception {
@@ -34,21 +34,21 @@ public class Queueing1NRelationDataRowHandlerImplTest {
 
     @Before
     public void setUp() throws Exception {
-        Queueing1NRelationDataRowHandlerImpl.setVerbose(true);
+        Queueing1NRelationResultHandlerImpl.setVerbose(true);
     }
 
     @After
     public void tearDown() throws Exception {
-        Queueing1NRelationDataRowHandlerImpl.setVerbose(false);
+        Queueing1NRelationResultHandlerImpl.setVerbose(false);
         Thread.interrupted();
     }
 
     /**
-     * testHandleRow001
+     * testHandleResult001
      */
     @Test
-    public void testHandleRow001() {
-        Queueing1NRelationDataRowHandlerImpl drh = new Queueing1NRelationDataRowHandlerImpl();
+    public void testHandleResult001() {
+        Queueing1NRelationResultHandlerImpl drh = new Queueing1NRelationResultHandlerImpl();
 
         assertNotNull(drh);
         DummyResultContext contextInNull = new DummyResultContext();
@@ -66,11 +66,11 @@ public class Queueing1NRelationDataRowHandlerImplTest {
     }
 
     /**
-     * testHandleRow002
+     * testHandleResult002
      */
     @Test
-    public void testHandleRow002() {
-        Queueing1NRelationDataRowHandlerImpl drh = new Queueing1NRelationDataRowHandlerImpl();
+    public void testHandleResult002() {
+        Queueing1NRelationResultHandlerImpl drh = new Queueing1NRelationResultHandlerImpl();
 
         assertNotNull(drh);
 
@@ -94,11 +94,11 @@ public class Queueing1NRelationDataRowHandlerImplTest {
     }
 
     /**
-     * testHandleRow003
+     * testHandleResult003
      */
     @Test
-    public void testHandleRow003() {
-        Queueing1NRelationDataRowHandlerImpl drh = new Queueing1NRelationDataRowHandlerImpl();
+    public void testHandleResult003() {
+        Queueing1NRelationResultHandlerImpl drh = new Queueing1NRelationResultHandlerImpl();
         DaoCollector<HogeBean> daoCollector = new DaoCollectorStub004(5);
         drh.setDaoCollector(daoCollector);
 
@@ -124,11 +124,11 @@ public class Queueing1NRelationDataRowHandlerImplTest {
     }
 
     /**
-     * testHandleRow004
+     * testHandleResult004
      */
     @Test
-    public void testHandleRow004() throws Exception {
-        final Queueing1NRelationDataRowHandlerImpl drh = new Queueing1NRelationDataRowHandlerImpl();
+    public void testHandleResult004() throws Exception {
+        final Queueing1NRelationResultHandlerImpl drh = new Queueing1NRelationResultHandlerImpl();
         DaoCollector<HogeBean> daoCollector = new DaoCollectorStub001();
         drh.setDaoCollector(daoCollector);
 
@@ -138,7 +138,7 @@ public class Queueing1NRelationDataRowHandlerImplTest {
             public void doRun() throws Exception {
                 Thread.currentThread().interrupt();
                 try {
-                    // 割り込み発生時はhandleRowは処理されず、InterruptedRuntimeExceptionが発生すること。
+                    // 割り込み発生時はhandleResultは処理されず、InterruptedRuntimeExceptionが発生すること。
                     DummyResultContext context = new DummyResultContext();
                     context.setResultObject("rowObject");
                     drh.handleResult(context);
@@ -155,11 +155,11 @@ public class Queueing1NRelationDataRowHandlerImplTest {
     }
 
     /**
-     * testHandleRow005
+     * testHandleResult005
      */
     @Test
-    public void testHandleRow005() throws Exception {
-        Queueing1NRelationDataRowHandlerImpl drh = new Queueing1NRelationDataRowHandlerImpl();
+    public void testHandleResult005() throws Exception {
+        Queueing1NRelationResultHandlerImpl drh = new Queueing1NRelationResultHandlerImpl();
         DaoCollectorStub001 daoCollector = new DaoCollectorStub001();
         drh.setDaoCollector(daoCollector);
 
@@ -186,7 +186,7 @@ public class Queueing1NRelationDataRowHandlerImplTest {
      */
     @Test
     public void testDelayCollect001() {
-        Queueing1NRelationDataRowHandlerImpl drh = new Queueing1NRelationDataRowHandlerImpl();
+        Queueing1NRelationResultHandlerImpl drh = new Queueing1NRelationResultHandlerImpl();
         drh.prevRow = null;
         drh.dataCount = new AtomicLong(0);
         DaoCollectorStub001 daoCollector = new DaoCollectorStub001();
@@ -203,7 +203,7 @@ public class Queueing1NRelationDataRowHandlerImplTest {
      */
     @Test
     public void testDelayCollect002() {
-        Queueing1NRelationDataRowHandlerImpl drh = new Queueing1NRelationDataRowHandlerImpl();
+        Queueing1NRelationResultHandlerImpl drh = new Queueing1NRelationResultHandlerImpl();
         HogeBean bean = new HogeBean();
         bean.setHoge("hoge1");
         drh.prevRow = bean;
@@ -227,7 +227,7 @@ public class Queueing1NRelationDataRowHandlerImplTest {
      */
     @Test
     public void testDelayCollect003() {
-        Queueing1NRelationDataRowHandlerImpl drh = new Queueing1NRelationDataRowHandlerImpl();
+        Queueing1NRelationResultHandlerImpl drh = new Queueing1NRelationResultHandlerImpl();
         DaoCollectorStub004 daoCollector = new DaoCollectorStub004(5);
         drh.setDaoCollector(daoCollector);
         HogeBean hoge1 = new HogeBean();
@@ -296,7 +296,7 @@ public class Queueing1NRelationDataRowHandlerImplTest {
      */
     @Test
     public void testDelayCollect004() {
-        Queueing1NRelationDataRowHandlerImpl drh = new Queueing1NRelationDataRowHandlerImpl();
+        Queueing1NRelationResultHandlerImpl drh = new Queueing1NRelationResultHandlerImpl();
         drh.prevRow = new TestBean001();
         DaoCollector<HogeBean> daoCollector = new DaoCollectorStub002();
         ((DaoCollectorStub002) daoCollector).exceptionFlag = false;
@@ -327,7 +327,7 @@ public class Queueing1NRelationDataRowHandlerImplTest {
      */
     @Test
     public void testDelayCollect005() throws Exception {
-        final Queueing1NRelationDataRowHandlerImpl drh = new Queueing1NRelationDataRowHandlerImpl();
+        final Queueing1NRelationResultHandlerImpl drh = new Queueing1NRelationResultHandlerImpl();
         final DaoCollectorStub004 daoCollector = new DaoCollectorStub004(2);
         drh.setDaoCollector(daoCollector);
 
