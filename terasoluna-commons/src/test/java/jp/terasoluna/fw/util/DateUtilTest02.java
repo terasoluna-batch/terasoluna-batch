@@ -29,6 +29,15 @@ import java.util.Map;
  * 他のメソッドが実行されるDateUtilTest01とはテストケースを分割している。
  */
 public class DateUtilTest02 extends PropertyTestCase {
+
+    /**
+     * Constructor for DateUtilTest02.
+     * @param arg0 constructor argument
+     */
+    public DateUtilTest02(String arg0) {
+        super(arg0);
+    }
+
     @Override
     protected void setUpData() throws Exception {
         addProperty("wareki.gengo.0.name", "平成");
@@ -48,14 +57,6 @@ public class DateUtilTest02 extends PropertyTestCase {
         addProperty("wareki.gengo.5.name", "平成");
         addProperty("wareki.gengo.5.roman", "H");
         addProperty("wareki.gengo.5.startDate", "asdf");
-    }
-
-    /**
-     * Constructor for DateUtilTest02.
-     * @param arg0 constructor argument
-     */
-    public DateUtilTest02(String arg0) {
-        super(arg0);
     }
 
     @Override
