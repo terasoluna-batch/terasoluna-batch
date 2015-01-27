@@ -399,6 +399,11 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
             return status;
         }
 
+        if (executor.getSysTransactionManager() == null) {
+            LOGGER.info(LogId.IAL025016);
+            return status;
+        }
+
         // タスクエグゼキュータとBatchServantクラスのBean名取得
         batchTaskExecutorName = PropertyUtil.getProperty(BATCH_TASK_EXECUTOR);
         batchTaskServantName = PropertyUtil.getProperty(BATCH_TASK_SERVANT);

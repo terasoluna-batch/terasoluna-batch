@@ -5,19 +5,11 @@
         </encoder>
     </appender>
 
-    <appender name="fileLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <append>true</append>
-        <file>C:/tmp/batch-lite.log</file>
-        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
-            <fileNamePattern>C:/tmp/batch-lite-%i.log.zip</fileNamePattern>
-            <minIndex>1</minIndex>
-            <maxIndex>3</maxIndex>
-        </rollingPolicy>
-        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
-            <maxFileSize>512KB</maxFileSize>
-        </triggeringPolicy>
+    <appender name="fileLog" class="ch.qos.logback.core.FileAppender">
+        <append>false</append>
+        <file>log/ut.log</file>
         <encoder>
-            <pattern>[%p][%logger{0}] %msg%n</pattern>
+            <pattern>[%-5p][%logger{0}] %msg%n</pattern>
         </encoder>
     </appender>
 
@@ -34,5 +26,6 @@
 
     <root level="INFO">
         <appender-ref ref="consoleLog"/>
+        <appender-ref ref="fileLog"/>
     </root>
 </configuration>
