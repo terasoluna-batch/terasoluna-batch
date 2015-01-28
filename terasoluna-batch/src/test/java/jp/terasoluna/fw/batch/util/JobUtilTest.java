@@ -157,7 +157,7 @@ public class JobUtilTest extends DaoTestCase {
      * 事前準備：<br>
      * selectJobListメソッドに対して、以下の値を引数として実行<br>
      * ・開始インデックス、取得件数に-1の値を与える<br>
-     * ・QueryDaoにMockQueryDaoを与える<br>
+     * ・SystemDaoにMockSystemDaoを与える<br>
      * <br>
      * 期待結果：<br>
      * ・BatchExceptionが返ること<br>
@@ -193,9 +193,9 @@ public class JobUtilTest extends DaoTestCase {
      * @throws Exception
      */
     public void testSelectJob02() throws Exception {
-        MockSystemDao mockSysQueryDao = new MockSystemDao();
-        mockSysQueryDao.addResult(new RuntimeException("例外発生時のメッセージ"));
-        assertEquals(null, JobUtil.selectJob("hoge", true, mockSysQueryDao));
+        MockSystemDao mockSystemDao = new MockSystemDao();
+        mockSystemDao.addResult(new RuntimeException("例外発生時のメッセージ"));
+        assertNull(JobUtil.selectJob("hoge", true, mockSystemDao));
     }
 
     public void testSelectJob03() throws Exception {
@@ -361,7 +361,7 @@ public class JobUtilTest extends DaoTestCase {
      * testUpdateJobStatus03<br>
      * 事前準備：<br>
      * 1.updateJobStatusメソッドに対して、以下の値を引数として実行<br>
-     * ・UpdateDaoの結果に-1を返却するSystemDao<br>
+     * ・更新件数の結果に-1を返却するSystemDao<br>
      * 期待結果：<br>
      * 1.falseが返ること(実行メソッド内で例外が発生する)<br>
      * <br>

@@ -1030,7 +1030,7 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
 
     /**
      * システム用DAO定義（ステータス参照・更新用）
-     * @return the queryDao
+     * @return the systemDao
      */
     public SystemDao getSystemDao() {
         return systemDao;
