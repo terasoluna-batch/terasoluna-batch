@@ -77,6 +77,7 @@ public class AsyncBatchExecutorTest extends TestCase {
      * ・起動引数がfoo
      * 確認項目
      * ・EAL025052のログが出力されること
+     * ・IAL025018のログが出力されること
      * ・IAL025006のログにfooが出力されること
      * ・リターンコードが255
      * </pre>
@@ -97,6 +98,7 @@ public class AsyncBatchExecutorTest extends TestCase {
                 logList.add(line);
             }
             assertTrue(logList.contains("[ERROR][AbstractJobBatchExecutor] [EAL025052] System DAO is null."));
+            assertTrue(logList.contains("[INFO ][AsyncBatchExecutor] [IAL025018] System DAO is null."));
             assertTrue(logList.contains("[INFO ][AsyncBatchExecutor] [IAL025006] jobAppCd:[foo]"));
             assertEquals(255, e.state);
         }
@@ -110,6 +112,7 @@ public class AsyncBatchExecutorTest extends TestCase {
      * ・admin.dataSourceのbean定義ファイルから取得するtransactionManagerがnull
      * ・起動引数がfoo
      * 確認項目
+     * ・EAL025022のログが出力されること
      * ・IAL025016のログが出力されること
      * ・IAL025006のログにfooが出力されること
      * ・リターンコードが255
@@ -130,6 +133,7 @@ public class AsyncBatchExecutorTest extends TestCase {
             while ((line = logReader.readLine()) != null) {
                 logList.add(line);
             }
+            assertTrue(logList.contains("[ERROR][AbstractJobBatchExecutor] [EAL025022] transactionManager is null."));
             assertTrue(logList.contains("[INFO ][AsyncBatchExecutor] [IAL025016] PlatformTransactionManager is null."));
             assertTrue(logList.contains("[INFO ][AsyncBatchExecutor] [IAL025006] jobAppCd:[foo]"));
             assertEquals(255, e.state);
