@@ -126,16 +126,12 @@ public class QueueingResultHandlerImplTest {
             @Override
             public void doRun() {
                 Thread.currentThread().interrupt();
-                try {
-                    // 割り込み発生時はhandleResultは処理されず、InterruptedRuntimeExceptionが発生すること。
-                    DummyResultContext context = new DummyResultContext();
-                    context.setResultObject("hoge1");
-                    drh.handleResult(context);
-                    fail();
-                } catch (InterruptedRuntimeException e) {
-                    assertNull(e.getCause());
-                    assertNull(drh.prevRow);
-                }
+                // 割り込み発生時はhandleResultは処理されず、スレッドが割り込み状態のままであること。
+                DummyResultContext context = new DummyResultContext();
+                context.setResultObject("hoge1");
+                drh.handleResult(context);
+                assertTrue(Thread.currentThread().isInterrupted());
+                assertNull(drh.prevRow);
             }
         };
         service.submit(runnable);
@@ -153,18 +149,15 @@ public class QueueingResultHandlerImplTest {
 
         assertNotNull(drh);
 
-        try {
-            DummyResultContext context = new DummyResultContext();
-            context.setResultObject("hoge1");
-            drh.handleResult(context);
-            context.setResultObject("hoge2");
-            drh.handleResult(context);
-            daoCollector.exceptionFlag = true;
-            context.setResultObject("hoge3");
-            drh.handleResult(context);
-            fail();
-        } catch (InterruptedRuntimeException e) {
-        }
+        DummyResultContext context = new DummyResultContext();
+        context.setResultObject("hoge1");
+        drh.handleResult(context);
+        context.setResultObject("hoge2");
+        drh.handleResult(context);
+        daoCollector.exceptionFlag = true;
+        context.setResultObject("hoge3");
+        drh.handleResult(context);
+        assertTrue(Thread.currentThread().isInterrupted());
     }
 
     @Test
@@ -179,13 +172,9 @@ public class QueueingResultHandlerImplTest {
             @Override
             public void doRun() throws Exception {
                 Thread.currentThread().interrupt();
-                try {
-                    // 割り込み発生時はdelayCollectは処理されず、InterruptedRuntimeExceptionが発生すること。
-                    drh.delayCollect();
-                    fail();
-                } catch (InterruptedRuntimeException e) {
-                    assertNull(e.getCause());
-                }
+                // 割り込み発生時はdelayCollectは処理されず、スレッドが割り込み状態のままであること。
+                drh.delayCollect();
+                assertTrue(Thread.currentThread().isInterrupted());
             }
         };
         service.submit(runnable);
@@ -205,12 +194,8 @@ public class QueueingResultHandlerImplTest {
         ErrorFeedBackRunnable runnable = new ErrorFeedBackRunnable() {
             @Override
             public void doRun() throws Exception {
-                try {
-                    drh.delayCollect();
-                    fail();
-                } catch (InterruptedRuntimeException e) {
-                    assertTrue(e.getCause() instanceof InterruptedException);
-                }
+                drh.delayCollect();
+                assertTrue(Thread.currentThread().isInterrupted());
             }
         };
         Future<?> future = service.submit(runnable);
