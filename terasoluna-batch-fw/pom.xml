@@ -162,7 +162,6 @@
                     <encoding>${encoding}</encoding>
                     <compilerArguments>
                         <verbose />
-                        <bootclasspath>${env.JAVA_HOME5}/jre/lib/rt.jar</bootclasspath>
                     </compilerArguments>
                 </configuration>
             </plugin>
@@ -220,7 +219,6 @@
                     </bottom>
                     <showPackage>false</showPackage>
                     <showPrivate>true</showPrivate>
-                    <bootclasspath>${env.JAVA_HOME7}/jre/lib/rt.jar</bootclasspath>
                     <archive>
                         <addMavenDescriptor>false</addMavenDescriptor>
                         <manifest>
@@ -311,7 +309,6 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.10</version>
                 <configuration>
-                    <jvm>${env.JAVA_HOME7}/bin/java</jvm>
                     <forkMode>always</forkMode>
                     <argLine><![CDATA[-Dfile.encoding=Windows-31J -Djava.system.class.loader=jp.co.dgic.testing.common.DJUnitClassLoader -Djp.co.dgic.eclipse.virtualmock.usevirtualmock=true -Djp.co.dgic.eclipse.coverage.usecoverage=true -Djp.co.dgic.eclipse.project.source.dir="${project.build.sourceDirectory}" -Djp.co.dgic.eclipse.virtualmock.ignore.library=false -Dcom.jcoverage.rawcoverage.dir="${basedir}/target"]]></argLine>
                     <forkMode>always</forkMode>

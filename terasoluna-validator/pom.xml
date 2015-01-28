@@ -25,7 +25,6 @@
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
-                    <jvm>${env.JAVA_HOME7}/bin/java</jvm>
                     <argLine><![CDATA[-Dfile.encoding=Windows-31J -Djava.system.class.loader=jp.co.dgic.testing.common.DJUnitClassLoader -Djp.co.dgic.eclipse.virtualmock.usevirtualmock=true -Djp.co.dgic.eclipse.coverage.usecoverage=true -Djp.co.dgic.eclipse.project.source.dir="${project.build.sourceDirectory}" -Djp.co.dgic.eclipse.virtualmock.ignore.library=false -Dcom.jcoverage.rawcoverage.dir="${basedir}/target"]]></argLine>
                     <useSystemClassLoader>true</useSystemClassLoader>
                     <includes>
