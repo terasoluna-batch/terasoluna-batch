@@ -43,7 +43,6 @@ import jp.terasoluna.fw.file.dao.FileLineWriter;
 
 import org.apache.commons.lang3.StringUtils;
 
-
 /**
  * ファイルアクセス(データ書込)用の共通クラス。
  * <p>

@@ -45,7 +45,6 @@ import jp.terasoluna.fw.file.dao.FileLineIterator;
 
 import org.apache.commons.lang3.StringUtils;
 
-
 /**
  * ファイルアクセス(データ取得)用の共通クラス。
  * <p>
