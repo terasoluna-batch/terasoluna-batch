@@ -16,7 +16,7 @@
 
 package jp.terasoluna.fw.file.annotation;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * ¬•¶š•ÏŠ·ˆ—ƒNƒ‰ƒXB
