@@ -71,7 +71,7 @@
     <!-- カレント時刻を取得する（精度はミリ秒まで） -->
     <select id="readCurrentTime" resultType="java.sql.Timestamp">
         SELECT
-            CURRENT_TIMESTAMP
+            STATEMENT_TIMESTAMP()
     </select>
 
     <!-- カレント日付を取得する -->
