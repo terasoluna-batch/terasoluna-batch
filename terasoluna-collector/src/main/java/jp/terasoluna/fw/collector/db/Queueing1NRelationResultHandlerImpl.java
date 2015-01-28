@@ -169,7 +169,8 @@ public class Queueing1NRelationResultHandlerImpl extends
                 LOGGER.trace(LogId.TAL041002, Thread.currentThread()
                         .getName());
             }
-            // 呼出し元の例外キャッチ時にキュー溢れでブロックされないよう、本スレッドを「割り込み」状態とする。
+            // InterruptedException発生によりスレッドの「割り込み状態」はクリアされる。
+            // 呼び出し元に割り込みが発生したことを通知する必要があるため、「割り込み状態」を再度保存する。
             Thread.currentThread().interrupt();
         }
     }
