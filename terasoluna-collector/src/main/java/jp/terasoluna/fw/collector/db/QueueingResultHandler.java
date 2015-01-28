@@ -19,10 +19,10 @@ package jp.terasoluna.fw.collector.db;
 import org.apache.ibatis.session.ResultHandler;
 
 /**
- * QueueingDataRowHandlerインタフェース<br>
- * DataRowHandlerの拡張インタフェース。
+ * QueueingResultHandlerインタフェース<br>
+ * ResultHandlerの拡張インタフェース。
  */
-public interface QueueingDataRowHandler extends ResultHandler {
+public interface QueueingResultHandler extends ResultHandler {
 
     /**
      * 前回handleResultメソッドに渡された<code>Row</code>データをキューに格納する。

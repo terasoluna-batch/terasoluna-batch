@@ -6,7 +6,7 @@ package jp.terasoluna.fw.collector.db;
 import java.util.List;
 
 import jp.terasoluna.fw.collector.CollectorTestUtil;
-import jp.terasoluna.fw.collector.dao.UserListQueryRowHandleDao;
+import jp.terasoluna.fw.collector.dao.UserListQueryResultHandleDao;
 import jp.terasoluna.fw.collector.util.MemoryInfo;
 import jp.terasoluna.fw.ex.unit.testcase.DaoTestCase;
 
@@ -25,7 +25,7 @@ public class DaoCollector007Test extends DaoTestCase {
      */
     private static Log logger = LogFactory.getLog(DaoCollector007Test.class);
 
-    private UserListQueryRowHandleDao userListQueryRowHandleDao = null;
+    private UserListQueryResultHandleDao userListQueryResultHandleDao = null;
 
     private int previousThreadCount = 0;
 
@@ -34,8 +34,8 @@ public class DaoCollector007Test extends DaoTestCase {
         configLocations.add("jp/terasoluna/fw/collector/db/dataSource.xml");
     }
 
-    public void setUserListQueryRowHandleDao(UserListQueryRowHandleDao userListQueryRowHandleDao) {
-        this.userListQueryRowHandleDao = userListQueryRowHandleDao;
+    public void setUserListQueryResultHandleDao(UserListQueryResultHandleDao userListQueryResultHandleDao) {
+        this.userListQueryResultHandleDao = userListQueryResultHandleDao;
     }
 
     @Override
@@ -72,7 +72,7 @@ public class DaoCollector007Test extends DaoTestCase {
     	DaoCollectorPrePostProcessStub002 dbcppp = new DaoCollectorPrePostProcessStub002();
     	// configの引数に指定したSQLIDは存在しないテーブルを参照（CallでExceptionを起こさせる）
     	DaoCollectorConfig config = new DaoCollectorConfig(
-    			this.userListQueryRowHandleDao, "collectDummy", null);
+    			this.userListQueryResultHandleDao, "collectDummy", null);
     	config.setExecuteByConstructor(true);
     	config.setDaoCollectorPrePostProcess(dbcppp);
     	DaoCollector<UserBean> dbc = new DaoCollector<UserBean>(config);
@@ -95,11 +95,11 @@ public class DaoCollector007Test extends DaoTestCase {
     public void testCall002() throws Exception {
     	DaoCollectorPrePostProcessStub004 dbcppp = new DaoCollectorPrePostProcessStub004();
     	DaoCollectorConfig config = new DaoCollectorConfig(
-    			this.userListQueryRowHandleDao, "collect", null);
+    			this.userListQueryResultHandleDao, "collect", null);
     	config.setExecuteByConstructor(true);
     	config.setDaoCollectorPrePostProcess(dbcppp);
     	DaoCollector<UserBean> dbc = new DaoCollector<UserBean>(config);
-    	dbc.rowHandler = new QueueingDataRowHandlerImpl();
+    	dbc.resultHandler = new QueueingResultHandlerImpl();
     	Integer returncode = new Integer(99);
     	
     	// Call実行
@@ -127,11 +127,11 @@ public class DaoCollector007Test extends DaoTestCase {
     	DaoCollectorPrePostProcessStub004 dbcppp = new DaoCollectorPrePostProcessStub004();
     	// configの引数に指定したSQLIDは存在しないテーブルを参照（CallでExceptionを起こさせる）
     	DaoCollectorConfig config = new DaoCollectorConfig(
-    			this.userListQueryRowHandleDao, "collectDummy", null);
+    			this.userListQueryResultHandleDao, "collectDummy", null);
     	config.setExecuteByConstructor(true);
     	config.setDaoCollectorPrePostProcess(dbcppp);
     	DaoCollector<UserBean> dbc = new DaoCollector<UserBean>(config);
-    	dbc.rowHandler = new QueueingDataRowHandlerImpl();
+    	dbc.resultHandler = new QueueingResultHandlerImpl();
     	Integer returncode = new Integer(99);
     	
     	// Call実行
@@ -159,11 +159,11 @@ public class DaoCollector007Test extends DaoTestCase {
     	DaoCollectorPrePostProcessStub005 dbcppp = new DaoCollectorPrePostProcessStub005();
     	// configの引数に指定したSQLIDは存在しないテーブルを参照（CallでExceptionを起こさせる）
     	DaoCollectorConfig config = new DaoCollectorConfig(
-    			this.userListQueryRowHandleDao, "collectDummy", null);
+    			this.userListQueryResultHandleDao, "collectDummy", null);
     	config.setExecuteByConstructor(true);
     	config.setDaoCollectorPrePostProcess(dbcppp);
     	DaoCollector<UserBean> dbc = new DaoCollector<UserBean>(config);
-    	dbc.rowHandler = new QueueingDataRowHandlerImpl();
+    	dbc.resultHandler = new QueueingResultHandlerImpl();
     	Integer returncode = new Integer(99);
     	
     	// Call実行
@@ -191,11 +191,11 @@ public class DaoCollector007Test extends DaoTestCase {
     	DaoCollectorPrePostProcessStub006 dbcppp = new DaoCollectorPrePostProcessStub006();
     	// configの引数に指定したSQLIDは存在しないテーブルを参照（CallでExceptionを起こさせる）
     	DaoCollectorConfig config = new DaoCollectorConfig(
-    			this.userListQueryRowHandleDao, "collectDummy", null);
+    			this.userListQueryResultHandleDao, "collectDummy", null);
     	config.setExecuteByConstructor(true);
     	config.setDaoCollectorPrePostProcess(dbcppp);
     	DaoCollector<UserBean> dbc = new DaoCollector<UserBean>(config);
-    	dbc.rowHandler = new QueueingDataRowHandlerImpl();
+    	dbc.resultHandler = new QueueingResultHandlerImpl();
     	Integer returncode = new Integer(99);
     	
     	// Call実行
@@ -234,17 +234,17 @@ public class DaoCollector007Test extends DaoTestCase {
     public void testPreprocess001() throws Exception{
     	DaoCollectorPrePostProcessStub003 dbcppp = new DaoCollectorPrePostProcessStub003();
     	DaoCollectorConfig config = new DaoCollectorConfig(
-    			this.userListQueryRowHandleDao, "collectDummy", null);
+    			this.userListQueryResultHandleDao, "collectDummy", null);
     	config.setDaoCollectorPrePostProcess(dbcppp);
     	DaoCollector<UserBean> dbc = new DaoCollector<UserBean>(config);
-    	// preprocess実行前の確認（rowHandlerはnull）
-    	assertNull(dbc.rowHandler);
+    	// preprocess実行前の確認（resultHandlerはnull）
+    	assertNull(dbc.resultHandler);
     	
-    	// preprocess実行（パラメータが正常に渡ればrowHandlerが設定される）
+    	// preprocess実行（パラメータが正常に渡ればresultHandlerが設定される）
     	dbc.preprocess();
     	
-    	// preprocess実行後確認（rowHandlerが設定されていること）
-    	assertTrue(dbc.rowHandler instanceof QueueingDataRowHandlerImpl);
+    	// preprocess実行後確認（resultHandlerが設定されていること）
+    	assertTrue(dbc.resultHandler instanceof QueueingResultHandlerImpl);
     }
 
     /**
@@ -256,7 +256,7 @@ public class DaoCollector007Test extends DaoTestCase {
     public void testPostprocessException001() throws Exception {
     	DaoCollectorPrePostProcessStub003 dbcppp = new DaoCollectorPrePostProcessStub003();
     	DaoCollectorConfig config = new DaoCollectorConfig(
-    			this.userListQueryRowHandleDao, "collectDummy", null);
+    			this.userListQueryResultHandleDao, "collectDummy", null);
     	config.setDaoCollectorPrePostProcess(dbcppp);
     	DaoCollector<UserBean> dbc = new DaoCollector<UserBean>(config);
     	
@@ -278,17 +278,17 @@ public class DaoCollector007Test extends DaoTestCase {
     public void testPostprocessComplete001() throws Exception {
     	DaoCollectorPrePostProcessStub003 dbcppp = new DaoCollectorPrePostProcessStub003();
     	DaoCollectorConfig config = new DaoCollectorConfig(
-    			this.userListQueryRowHandleDao, "collectDummy", null);
+    			this.userListQueryResultHandleDao, "collectDummy", null);
     	config.setDaoCollectorPrePostProcess(dbcppp);
     	DaoCollector<UserBean> dbc = new DaoCollector<UserBean>(config);
-    	// preprocess実行前の確認（rowHandlerはnull）
-    	assertNull(dbc.rowHandler);
+    	// preprocess実行前の確認（resultHandlerはnull）
+    	assertNull(dbc.resultHandler);
     	
-    	// preprocess実行（パラメータが正常に渡ればrowHandlerが設定される）
+    	// preprocess実行（パラメータが正常に渡ればresultHandlerが設定される）
     	dbc.postprocessComplete();
     	
-    	// preprocess実行後確認（rowHandlerが設定されていること）
-    	assertTrue(dbc.rowHandler instanceof QueueingDataRowHandlerImpl);
+    	// preprocess実行後確認（resultHandlerが設定されていること）
+    	assertTrue(dbc.resultHandler instanceof QueueingResultHandlerImpl);
 
     }
 }

@@ -25,15 +25,15 @@ import jp.terasoluna.fw.logger.TLogger;
 import org.apache.ibatis.session.ResultContext;
 
 /**
- * QueueingDataRowHandlerの実装クラス<br>
+ * QueueingResultHandlerの実装クラス<br>
  */
-public class QueueingDataRowHandlerImpl implements QueueingDataRowHandler {
+public class QueueingResultHandlerImpl implements QueueingResultHandler {
 
     /**
      * Log.
      */
     private static final TLogger LOGGER = TLogger
-            .getLogger(QueueingDataRowHandlerImpl.class);
+            .getLogger(QueueingResultHandlerImpl.class);
 
     /** 冗長ログ出力フラグ. */
     protected static AtomicBoolean verboseLog = new AtomicBoolean(false);

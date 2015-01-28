@@ -2,7 +2,7 @@ package jp.terasoluna.fw.collector.dao;
 
 import org.apache.ibatis.session.ResultHandler;
 
-public interface UserListQueryRowHandleDao {
+public interface UserListQueryResultHandleDao {
 
     void collect(Object object, ResultHandler handler);
     void collectOrder(Object object, ResultHandler handler);

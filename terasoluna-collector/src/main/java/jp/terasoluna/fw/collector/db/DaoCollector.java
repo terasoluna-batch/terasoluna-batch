@@ -28,7 +28,7 @@ import java.lang.reflect.Method;
 
 /**
  * DaoCollector<br>
- * 独立した別スレッドを起動し、QueryRowHandleDaoを非同期で実行する。
+ * 独立した別スレッドを起動し、QueryResultHandleDaoを非同期で実行する。
  * @param &ltP&gt
  */
 public class DaoCollector<P> extends AbstractCollector<P> {
@@ -38,8 +38,8 @@ public class DaoCollector<P> extends AbstractCollector<P> {
      */
     private static final TLogger LOGGER = TLogger.getLogger(DaoCollector.class);
 
-    /** QueryRowHandleDao */
-    protected Object queryRowHandleDao = null;
+    /** queryResultHandleDao */
+    protected Object queryResultHandleDao = null;
 
     /** SQLにバインドする値を格納したオブジェクト */
     protected Object bindParams = null;
@@ -47,11 +47,11 @@ public class DaoCollector<P> extends AbstractCollector<P> {
     /** 行単位データアクセスの呼び出しで使用されるDaoのメソッド名 */
     protected String methodName = null;
 
-    /** QueueingDataRowHandlerインスタンス */
-    protected QueueingDataRowHandler rowHandler = null;
+    /** QueueingResultHandlerインスタンス */
+    protected QueueingResultHandler resultHandler = null;
 
-    /** QueueingDataRowHandlerのクラス型 */
-    protected Class<? extends QueueingDataRowHandler> queueingDataRowHandlerClass = QueueingDataRowHandlerImpl.class;
+    /** QueueingResultHandlerのクラス型 */
+    protected Class<? extends QueueingResultHandler> queueingResultHandlerClass = QueueingResultHandlerImpl.class;
 
     /** DaoCollector前後処理 */
     protected DaoCollectorPrePostProcess daoCollectorPrePostProcess = null;
@@ -64,58 +64,58 @@ public class DaoCollector<P> extends AbstractCollector<P> {
 
     /**
      * DaoCollectorコンストラクタ<br>
-     * @param queryRowHandleDao QueryRowHandleDaoインスタンス
+     * @param queryResultHandleDao QueryResultHandleDaoインスタンス
      * @param methodName 実行するDaoのメソッド名
      * @param bindParams SQLにバインドする値を格納したオブジェクト
      */
-    public DaoCollector(Object queryRowHandleDao, String methodName,
+    public DaoCollector(Object queryResultHandleDao, String methodName,
             Object bindParams) {
-        this(new DaoCollectorConfig(queryRowHandleDao, methodName, bindParams));
+        this(new DaoCollectorConfig(queryResultHandleDao, methodName, bindParams));
     }
 
     /**
      * DaoCollectorコンストラクタ<br>
-     * @param queryRowHandleDao QueryRowHandleDaoインスタンス
+     * @param queryResultHandleDao QueryResultHandleDaoインスタンス
      * @param methodName 実行するDaoのメソッド名
      * @param bindParams SQLにバインドする値を格納したオブジェクト
      * @param relation1n 1:Nマッピング使用時はtrue
      */
-    public DaoCollector(Object queryRowHandleDao, String methodName,
+    public DaoCollector(Object queryResultHandleDao, String methodName,
             Object bindParams, boolean relation1n) {
 
-        this(new DaoCollectorConfig(queryRowHandleDao, methodName, bindParams)
+        this(new DaoCollectorConfig(queryResultHandleDao, methodName, bindParams)
                 .addRelation1n(relation1n));
     }
 
     /**
      * DaoCollectorコンストラクタ<br>
-     * @param queryRowHandleDao QueryRowHandleDaoインスタンス
+     * @param queryResultHandleDao QueryResultHandleDaoインスタンス
      * @param methodName 実行するDaoのメソッド名
      * @param bindParams SQLにバインドする値を格納したオブジェクト
      * @param queueSize キューのサイズ（1以上を設定すること。0以下は無視）
      */
-    public DaoCollector(Object queryRowHandleDao, String methodName,
+    public DaoCollector(Object queryResultHandleDao, String methodName,
             Object bindParams, int queueSize) {
-        this(new DaoCollectorConfig(queryRowHandleDao, methodName, bindParams)
+        this(new DaoCollectorConfig(queryResultHandleDao, methodName, bindParams)
                 .addQueueSize(queueSize));
     }
 
     /**
      * DaoCollectorコンストラクタ<br>
-     * @param queryRowHandleDao QueryRowHandleDaoインスタンス
+     * @param queryResultHandleDao QueryResultHandleDaoインスタンス
      * @param methodName 実行するDaoのメソッド名
      * @param bindParams SQLにバインドする値を格納したオブジェクト
      * @param exceptionHandler 例外ハンドラ
      */
-    public DaoCollector(Object queryRowHandleDao, String methodName,
+    public DaoCollector(Object queryResultHandleDao, String methodName,
             Object bindParams, CollectorExceptionHandler exceptionHandler) {
-        this(new DaoCollectorConfig(queryRowHandleDao, methodName, bindParams)
+        this(new DaoCollectorConfig(queryResultHandleDao, methodName, bindParams)
                 .addExceptionHandler(exceptionHandler));
     }
 
     /**
      * DaoCollectorコンストラクタ<br>
-     * @param queryRowHandleDao QueryRowHandleDaoインスタンス
+     * @param queryResultHandleDao QueryResultHandleDaoインスタンス
      * @param methodName 実行するDaoのメソッド名
      * @param bindParams SQLにバインドする値を格納したオブジェクト
      * @param queueSize キューのサイズ（1以上を設定すること。0以下は無視）
@@ -123,11 +123,11 @@ public class DaoCollector<P> extends AbstractCollector<P> {
      * @param exceptionHandler 例外ハンドラ
      * @param daoCollectorPrePostProcess DaoCollector前後処理
      */
-    public DaoCollector(Object queryRowHandleDao, String methodName,
+    public DaoCollector(Object queryResultHandleDao, String methodName,
             Object bindParams, int queueSize, boolean relation1n,
             CollectorExceptionHandler exceptionHandler,
             DaoCollectorPrePostProcess daoCollectorPrePostProcess) {
-        this(new DaoCollectorConfig(queryRowHandleDao, methodName, bindParams)
+        this(new DaoCollectorConfig(queryResultHandleDao, methodName, bindParams)
                 .addQueueSize(queueSize).addRelation1n(relation1n)
                 .addExceptionHandler(exceptionHandler)
                 .addDaoCollectorPrePostProcess(daoCollectorPrePostProcess));
@@ -142,14 +142,14 @@ public class DaoCollector<P> extends AbstractCollector<P> {
             throw new IllegalArgumentException("The parameter is null.");
         }
 
-        this.queryRowHandleDao = config.getQueryRowHandleDao();
+        this.queryResultHandleDao = config.getQueryResultHandleDao();
         this.methodName = config.getMethodName();
         this.bindParams = config.getBindParams();
         if (config.getQueueSize() > 0) {
             setQueueSize(config.getQueueSize());
         }
         if (config.isRelation1n()) {
-            this.queueingDataRowHandlerClass = Queueing1NRelationDataRowHandlerImpl.class;
+            this.queueingResultHandlerClass = Queueing1NRelationResultHandlerImpl.class;
         }
         this.exceptionHandler = config.getExceptionHandler();
         this.daoCollectorPrePostProcess = config.getDaoCollectorPrePostProcess();
@@ -172,14 +172,14 @@ public class DaoCollector<P> extends AbstractCollector<P> {
                     // SQL実行前処理
                     preprocess();
 
-                    Class<?> queryRowHandleDaoClazz = this.queryRowHandleDao.getClass();
-                    Method collectMethod = queryRowHandleDaoClazz.getMethod(this.methodName,
+                    Class<?> queryResultHandleDaoClazz = this.queryResultHandleDao.getClass();
+                    Method collectMethod = queryResultHandleDaoClazz.getMethod(this.methodName,
                             Object.class, ResultHandler.class);
 
-                    // QueryRowHandleDAO 実行
-                    collectMethod.invoke(this.queryRowHandleDao, this.bindParams, this.rowHandler);
+                    // QueryResultHandleDAO 実行
+                    collectMethod.invoke(this.queryResultHandleDao, this.bindParams, this.resultHandler);
 
-                    this.rowHandler.delayCollect();
+                    this.resultHandler.delayCollect();
 
                 } catch (Throwable th) {
                     // SQL実行後処理（例外）
@@ -262,14 +262,14 @@ public class DaoCollector<P> extends AbstractCollector<P> {
     }
 
     /**
-     * getDataRowHandlerメソッド.
-     * @return QueueingDataRowHandler
+     * getResultHandlerメソッド.
+     * @return QueueingResultHandler
      */
-    protected QueueingDataRowHandler getDataRowHandler() {
-        QueueingDataRowHandler dataRowHandler = null;
+    protected QueueingResultHandler getResultHandler() {
+        QueueingResultHandler resultHandler = null;
 
         try {
-            dataRowHandler = this.queueingDataRowHandlerClass.newInstance();
+            resultHandler = this.queueingResultHandlerClass.newInstance();
         } catch (InstantiationException e) {
             SystemException exception = new SystemException(e);
             exception.setMessage("Generation of an instance goes wrong.");
@@ -280,7 +280,7 @@ public class DaoCollector<P> extends AbstractCollector<P> {
             throw exception;
         }
 
-        return dataRowHandler;
+        return resultHandler;
     }
 
     /*
@@ -293,8 +293,8 @@ public class DaoCollector<P> extends AbstractCollector<P> {
         Object obj = super.clone();
         if (obj instanceof DaoCollector) {
             DaoCollector<P> qac = (DaoCollector<P>) obj;
-            qac.rowHandler = getDataRowHandler();
-            qac.rowHandler.setDaoCollector(this);
+            qac.resultHandler = getResultHandler();
+            qac.resultHandler.setDaoCollector(this);
         }
         return obj;
     }
