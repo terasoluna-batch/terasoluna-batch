@@ -54,49 +54,42 @@ public class QueueingResultHandlerImpl implements QueueingResultHandler {
      * @see org.apache.ibatis.session.ResultHandler#handleResult(org.apache.ibatis.session.ResultContext)
      */
     public void handleResult(ResultContext context) {
-        if (!Thread.currentThread().isInterrupted()) {
-            delayCollect();
-            this.prevRow = context.getResultObject();
-        } else {
+        delayCollect();
+        if (Thread.currentThread().isInterrupted()) {
             // 割り込みが発生したらキューをスキップする
             if (verboseLog.get()) {
                 LOGGER.trace(LogId.TAL041003);
             }
-            // 割り込みが発生したら行フェッチを中断する。
-            throw new InterruptedRuntimeException();
+            context.stop();
+            return;
         }
+        this.prevRow = context.getResultObject();
     }
 
     /**
      * 前回handleResultメソッドに渡された<code>Row</code>データをキューに格納する。
      */
     public void delayCollect() {
-        if (this.prevRow != null) {
-            if (!Thread.currentThread().isInterrupted()) {
-                long dtcnt = this.dataCount.incrementAndGet();
-                try {
-                    if (this.daoCollector != null) {
-                        // 取得したオブジェクトを1件キューにつめる
-                        this.daoCollector.addQueue(new DataValueObject(
-                                this.prevRow, dtcnt));
-                    }
-                } catch (InterruptedException e) {
-                    if (LOGGER.isTraceEnabled()) {
-                        LOGGER.trace(LogId.TAL041002, Thread.currentThread()
-                                .getName());
-                    }
-                    // 呼出し元の例外キャッチ時にキュー溢れでブロックされないよう、本スレッドを「割り込み」状態とする。
-                    Thread.currentThread().interrupt();
-                    throw new InterruptedRuntimeException(e);
-                }
-            } else {
-                // 割り込みが発生したらキューをスキップする
-                if (verboseLog.get()) {
-                    LOGGER.trace(LogId.TAL041003);
-                }
-                // 割り込みが発生したら行フェッチを中断する。
-                throw new InterruptedRuntimeException();
+        if (this.prevRow == null) {
+            return;
+        }
+        if (Thread.currentThread().isInterrupted()) {
+            return;
+        }
+        try {
+            if (this.daoCollector != null) {
+                // 取得したオブジェクトを1件キューにつめる
+                this.daoCollector.addQueue(new DataValueObject(
+                        this.prevRow, this.dataCount.incrementAndGet()));
             }
+        } catch (InterruptedException e) {
+            if (LOGGER.isTraceEnabled()) {
+                LOGGER.trace(LogId.TAL041002, Thread.currentThread()
+                        .getName());
+            }
+            // InterruptedException発生によりスレッドの「割り込み状態」はクリアされる。
+            // 呼び出し元に割り込みが発生したことを通知する必要があるため、「割り込み状態」を再度保存する。
+            Thread.currentThread().interrupt();
         }
     }
 

@@ -1,6 +1,12 @@
 package jp.terasoluna.fw.batch.executor;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -28,8 +34,22 @@ public class AsyncBatchExecutorTest extends TestCase {
 
     final SecurityManager sm = System.getSecurityManager();
 
+    private static BufferedReader logReader;
+
     public AsyncBatchExecutorTest() {
         super();
+    }
+
+    static {
+        try {
+            File f = new File("log/ut.log");
+            if (!f.exists()) {
+                f.createNewFile();
+            }
+            logReader = new BufferedReader(new FileReader(f));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -44,6 +64,7 @@ public class AsyncBatchExecutorTest extends TestCase {
         TerasolunaPropertyUtils.restoreProperties();
         SystemEnvUtils.restoreEnv();
         System.setSecurityManager(sm);
+        while (logReader.readLine() != null) {}
         super.tearDown();
     }
 
@@ -52,10 +73,11 @@ public class AsyncBatchExecutorTest extends TestCase {
      * 
      * <pre>
      * 事前条件
-     * ・admin.dataSourceのbean定義ファイルから取得するqueryDaoがnull
+     * ・admin.dataSourceのbean定義ファイルから取得するsystemDaoがnull
      * ・起動引数がfoo
      * 確認項目
-     * ・IAL025007のログが出力されること
+     * ・EAL025052のログが出力されること
+     * ・IAL025018のログが出力されること
      * ・IAL025006のログにfooが出力されること
      * ・リターンコードが255
      * </pre>
@@ -70,33 +92,14 @@ public class AsyncBatchExecutorTest extends TestCase {
             AsyncBatchExecutor.main(new String[] { "foo" });
             fail("例外は発生しません");
         } catch (ExitException e) {
-            assertEquals(255, e.state);
-        }
-    }
-
-    /**
-     * mainテスト02 【異常系】
-     * 
-     * <pre>
-     * 事前条件
-     * ・admin.dataSourceのbean定義ファイルから取得するupdateDaoがnull
-     * ・起動引数がfoo
-     * 確認項目
-     * ・IAL025008のログが出力されること
-     * ・IAL025006のログにfooが出力されること
-     * ・リターンコードが255
-     * </pre>
-     */
-    public void testMain02() throws Exception {
-        TerasolunaPropertyUtils.addProperty("beanDefinition.admin.dataSource",
-                "AsyncBatchExecutorTest02.xml");
-        // TerasolunaPropertyUtils.addProperty("executor.endMonitoringFile",
-        // "src/test/resources/test_terminate");
-
-        try {
-            AsyncBatchExecutor.main(new String[] { "foo" });
-            fail("例外は発生しません");
-        } catch (ExitException e) {
+            List<String> logList = new ArrayList<String>();
+            String line;
+            while ((line = logReader.readLine()) != null) {
+                logList.add(line);
+            }
+            assertTrue(logList.contains("[ERROR][AbstractJobBatchExecutor] [EAL025052] System DAO is null."));
+            assertTrue(logList.contains("[INFO ][AsyncBatchExecutor] [IAL025018] System DAO is null."));
+            assertTrue(logList.contains("[INFO ][AsyncBatchExecutor] [IAL025006] jobAppCd:[foo]"));
             assertEquals(255, e.state);
         }
     }
@@ -109,6 +112,7 @@ public class AsyncBatchExecutorTest extends TestCase {
      * ・admin.dataSourceのbean定義ファイルから取得するtransactionManagerがnull
      * ・起動引数がfoo
      * 確認項目
+     * ・EAL025022のログが出力されること
      * ・IAL025016のログが出力されること
      * ・IAL025006のログにfooが出力されること
      * ・リターンコードが255
@@ -124,6 +128,14 @@ public class AsyncBatchExecutorTest extends TestCase {
             AsyncBatchExecutor.main(new String[] { "foo" });
             fail("例外は発生しません");
         } catch (ExitException e) {
+            List<String> logList = new ArrayList<String>();
+            String line;
+            while ((line = logReader.readLine()) != null) {
+                logList.add(line);
+            }
+            assertTrue(logList.contains("[ERROR][AbstractJobBatchExecutor] [EAL025022] transactionManager is null."));
+            assertTrue(logList.contains("[INFO ][AsyncBatchExecutor] [IAL025016] PlatformTransactionManager is null."));
+            assertTrue(logList.contains("[INFO ][AsyncBatchExecutor] [IAL025006] jobAppCd:[foo]"));
             assertEquals(255, e.state);
         }
     }
@@ -136,7 +148,7 @@ public class AsyncBatchExecutorTest extends TestCase {
      * ・起動引数が空
      * ・環境変数JOB_APP_CDが未設定
      * 確認項目
-     * ・IAL025006のログにjoAppCdが出力されないこと
+     * ・IAL025006のログにjobAppCdが空文字として出力されること。
      * </pre>
      */
     public void testMain04() throws Exception {
@@ -149,6 +161,12 @@ public class AsyncBatchExecutorTest extends TestCase {
             AsyncBatchExecutor.main(new String[] {});
             fail("例外は発生しません");
         } catch (ExitException e) {
+            List<String> logList = new ArrayList<String>();
+            String line;
+            while ((line = logReader.readLine()) != null) {
+                logList.add(line);
+            }
+            assertTrue(logList.contains("[INFO ][AsyncBatchExecutor] [IAL025006] jobAppCd:[]"));
             assertEquals(255, e.state);
         }
     }
@@ -174,6 +192,12 @@ public class AsyncBatchExecutorTest extends TestCase {
             AsyncBatchExecutor.main(new String[] {});
             fail("例外は発生しません");
         } catch (ExitException e) {
+            List<String> logList = new ArrayList<String>();
+            String line;
+            while ((line = logReader.readLine()) != null) {
+                logList.add(line);
+            }
+            assertTrue(logList.contains("[INFO ][AsyncBatchExecutor] [IAL025006] jobAppCd:[hoge]"));
             assertEquals(255, e.state);
         }
     }

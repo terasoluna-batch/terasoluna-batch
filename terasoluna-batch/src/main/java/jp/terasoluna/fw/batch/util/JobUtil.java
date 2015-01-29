@@ -65,7 +65,7 @@ public class JobUtil {
 
     /**
      * <h6>ジョブリスト取得.</h6>
-     * @param systemDao SystemQueryDao
+     * @param systemDao SystemDao
      * @param beginIndex 取得する開始インデックス
      * @param maxCount 取得する件数
      * @return ジョブリスト

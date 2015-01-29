@@ -139,40 +139,39 @@ public class Queueing1NRelationResultHandlerImpl extends
      * 前回handleResultメソッドに渡された<code>Row</code>データをキューに格納する。
      */
     public void delayCollect() {
-        if (this.prevRow != null) {
-            if (!Thread.currentThread().isInterrupted()) {
-                long dtcnt = this.dataCount.incrementAndGet();
-                try {
-                    // オブジェクトのシャローコピーを作成
-                    Object copy = BeanUtils.cloneBean(this.prevRow);
-                    PropertyUtils.copyProperties(this.prevRow, this.prevRow
-                            .getClass().newInstance());
+        if (this.prevRow == null) {
+            return;
+        }
+        if (Thread.currentThread().isInterrupted()) {
+            return;
+        }
+        try {
+            // オブジェクトのシャローコピーを作成
+            Object copy = BeanUtils.cloneBean(this.prevRow);
+            PropertyUtils.copyProperties(this.prevRow, this.prevRow
+                    .getClass().newInstance());
 
-                    if (this.daoCollector != null) {
-                        // 取得したオブジェクトのシャローコピーを1件キューにつめる
-                        this.daoCollector.addQueue(new DataValueObject(copy,
-                                dtcnt));
-                    }
-                } catch (IllegalAccessException e) {
-                    throw new SystemException(e);
-                } catch (InstantiationException e) {
-                    throw new SystemException(e);
-                } catch (InvocationTargetException e) {
-                    throw new SystemException(e);
-                } catch (NoSuchMethodException e) {
-                    throw new SystemException(e);
-                } catch (InterruptedException e) {
-                    if (LOGGER.isTraceEnabled()) {
-                        LOGGER.trace(LogId.TAL041002, Thread.currentThread()
-                                .getName());
-                    }
-                    // 呼出し元の例外キャッチ時にキュー溢れでブロックされないよう、本スレッドを「割り込み」状態とする。
-                    Thread.currentThread().interrupt();
-                    throw new InterruptedRuntimeException(e);
-                }
-            } else {
-                throw new InterruptedRuntimeException();
+            if (this.daoCollector != null) {
+                // 取得したオブジェクトのシャローコピーを1件キューにつめる
+                this.daoCollector.addQueue(new DataValueObject(copy,
+                        this.dataCount.incrementAndGet()));
             }
+        } catch (IllegalAccessException e) {
+            throw new SystemException(e);
+        } catch (InstantiationException e) {
+            throw new SystemException(e);
+        } catch (InvocationTargetException e) {
+            throw new SystemException(e);
+        } catch (NoSuchMethodException e) {
+            throw new SystemException(e);
+        } catch (InterruptedException e) {
+            if (LOGGER.isTraceEnabled()) {
+                LOGGER.trace(LogId.TAL041002, Thread.currentThread()
+                        .getName());
+            }
+            // InterruptedException発生によりスレッドの「割り込み状態」はクリアされる。
+            // 呼び出し元に割り込みが発生したことを通知する必要があるため、「割り込み状態」を再度保存する。
+            Thread.currentThread().interrupt();
         }
     }
 }

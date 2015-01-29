@@ -41,7 +41,7 @@ import jp.terasoluna.fw.file.dao.FileException;
 import jp.terasoluna.fw.file.dao.FileLineException;
 import jp.terasoluna.fw.file.dao.FileLineWriter;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * ファイルアクセス(データ書込)用の共通クラス。
@@ -735,7 +735,7 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
 
     /**
      * 行区切り文字を設定する。
-     * @param 行区切り文字
+     * @param lineFeedChar 行区切り文字
      */
     protected void setLineFeedChar(String lineFeedChar) {
         this.lineFeedChar = lineFeedChar;

@@ -27,7 +27,7 @@ import java.util.StringTokenizer;
 import jp.terasoluna.fw.util.PropertyUtil;
 import jp.terasoluna.fw.util.StringUtil;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.validator.GenericTypeValidator;
 import org.apache.commons.validator.GenericValidator;
 import org.apache.commons.validator.UrlValidator;

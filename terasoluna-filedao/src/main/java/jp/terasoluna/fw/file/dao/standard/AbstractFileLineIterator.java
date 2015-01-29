@@ -43,7 +43,7 @@ import jp.terasoluna.fw.file.dao.FileException;
 import jp.terasoluna.fw.file.dao.FileLineException;
 import jp.terasoluna.fw.file.dao.FileLineIterator;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * ファイルアクセス(データ取得)用の共通クラス。

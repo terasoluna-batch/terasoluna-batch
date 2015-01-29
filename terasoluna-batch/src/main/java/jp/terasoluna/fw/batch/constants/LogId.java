@@ -303,14 +303,6 @@ public final class LogId {
      */
     public static final String IAL025006 = "IAL025006";
     /**
-     * <strong>IAL025007 = QueryDAO is null.</strong>
-     */
-    public static final String IAL025007 = "IAL025007";
-    /**
-     * <strong>IAL025008 = UpdateDAO is null.</strong>
-     */
-    public static final String IAL025008 = "IAL025008";
-    /**
      * <strong>IAL025009 = BatchTaskExecutor not found.</strong>
      */
     public static final String IAL025009 = "IAL025009";
@@ -447,25 +439,9 @@ public final class LogId {
      */
     public static final String EAL025016 = "EAL025016";
     /**
-     * <strong>EAL025017 = QueryDAO bean not found. beanName:[{0}]</strong>
-     */
-    public static final String EAL025017 = "EAL025017";
-    /**
-     * <strong>EAL025018 = UpdateDAO bean not found. beanName:[{0}]</strong>
-     */
-    public static final String EAL025018 = "EAL025018";
-    /**
      * <strong>EAL025019 = TransactionManager bean not found. beanName:[{0}]</strong>
      */
     public static final String EAL025019 = "EAL025019";
-    /**
-     * <strong>EAL025020 = queryDAO is null.</strong>
-     */
-    public static final String EAL025020 = "EAL025020";
-    /**
-     * <strong>EAL025021 = updateDAO is null.</strong>
-     */
-    public static final String EAL025021 = "EAL025021";
     /**
      * <strong>EAL025022 = transactionManager is null.</strong>
      */
