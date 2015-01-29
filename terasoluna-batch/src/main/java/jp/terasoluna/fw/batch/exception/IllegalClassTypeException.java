@@ -17,53 +17,53 @@
 package jp.terasoluna.fw.batch.exception;
 
 /**
- * DAOå‚ç…§æ™‚ã®é…åˆ—å¤‰æ›æ™‚ã«ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã®Runtimeä¾‹å¤–ã‚¯ãƒ©ã‚¹ã€‚
+ * DAOQÆ‚Ì”z—ñ•ÏŠ·‚É—áŠO‚ª”­¶‚µ‚½ê‡‚ÌRuntime—áŠOƒNƒ‰ƒXB
  * 
- * å¼•æ•°ã®ã‚¯ãƒ©ã‚¹ã¨ã€æˆ»ã‚Šå€¤ã®å‹ãŒä¸€è‡´ã—ãªã„å ´åˆã€ ãŠã‚ˆã³Mapã®é…åˆ—å¤‰æ›æ™‚ã«DAOæ“ä½œã‚¯ãƒ©ã‚¹ã‹ã‚‰æŠ•ã’ã‚‰ã‚Œã‚‹ä¾‹å¤–ã§ã‚ã‚‹ã€‚
+ * ˆø”‚ÌƒNƒ‰ƒX‚ÆA–ß‚è’l‚ÌŒ^‚ªˆê’v‚µ‚È‚¢ê‡A ‚¨‚æ‚ÑMap‚Ì”z—ñ•ÏŠ·‚ÉDAO‘€ìƒNƒ‰ƒX‚©‚ç“Š‚°‚ç‚ê‚é—áŠO‚Å‚ ‚éB
  * 
  */
 public class IllegalClassTypeException extends RuntimeException {
 
     /**
-     * ã‚·ãƒªã‚¢ãƒ«ãƒãƒ¼ã‚¸ãƒ§ãƒ³IDã€‚
+     * ƒVƒŠƒAƒ‹ƒo[ƒWƒ‡ƒ“IDB
      */
     private static final long serialVersionUID = -3147888263699426883L;
 
     /**
-     * ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
+     * ƒGƒ‰[ƒƒbƒZ[ƒW
      */
     public static final String ERROR_ILLEGAL_CLASS_TYPE = "The illegal Class Type of the argument.";
 
     /**
-     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
      */
     public IllegalClassTypeException() {
         super(ERROR_ILLEGAL_CLASS_TYPE);
     }
 
     /**
-     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
      *
-     * @param message ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
+     * @param message ƒƒbƒZ[ƒW
      */
     public IllegalClassTypeException(String message) {
         super(message);
     }
 
     /**
-     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
      *
-     * @param cause åŸå› ã¨ãªã£ãŸä¾‹å¤–
+     * @param cause Œ´ˆö‚Æ‚È‚Á‚½—áŠO
      */
     public IllegalClassTypeException(Throwable cause) {
         super(ERROR_ILLEGAL_CLASS_TYPE, cause);
     }
 
     /**
-     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
      *
-     * @param message ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
-     * @param cause åŸå› ã¨ãªã£ãŸä¾‹å¤–
+     * @param message ƒƒbƒZ[ƒW
+     * @param cause Œ´ˆö‚Æ‚È‚Á‚½—áŠO
      */
     public IllegalClassTypeException(String message, Throwable cause) {
         super(message, cause);

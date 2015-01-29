@@ -17,7 +17,7 @@
 package jp.terasoluna.fw.batch.executor.dao;
 
 /**
- * ãƒ•ãƒ¬ãƒ¼ãƒ ãƒ¯ãƒ¼ã‚¯ã‹ã‚‰ä½¿ç”¨ã•ã‚Œã‚‹DAOã€‚ï¼ˆORACLEç”¨ï¼‰
+ * ƒtƒŒ[ƒ€ƒ[ƒN‚©‚çg—p‚³‚ê‚éDAOBiORACLE—pj
  */
 public interface SystemOracleDao extends SystemDao {
 }

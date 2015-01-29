@@ -24,55 +24,55 @@ import java.sql.Timestamp;
 import java.util.List;
 
 /**
- * ãƒ•ãƒ¬ãƒ¼ãƒ ãƒ¯ãƒ¼ã‚¯ã«ã‚ˆã‚‹DBã‚¢ã‚¯ã‚»ã‚¹å®Ÿè¡Œæ™‚ã«ä½¿ç”¨ã•ã‚Œã‚‹DAOã€‚
+ * ƒtƒŒ[ƒ€ƒ[ƒN‚É‚æ‚éDBƒAƒNƒZƒXÀs‚Ég—p‚³‚ê‚éDAOB
  */
 public interface SystemDao {
 
     /**
-     * ç‰¹å®šæ¡ä»¶ä¸‹ã§ã‚¸ãƒ§ãƒ–ç®¡ç†ãƒ†ãƒ¼ãƒ–ãƒ«ã®ãƒ¬ã‚³ãƒ¼ãƒ‰ã‚’å–å¾—ã™ã‚‹ã€‚
+     * “Á’èğŒ‰º‚ÅƒWƒ‡ƒuŠÇ—ƒe[ƒuƒ‹‚ÌƒŒƒR[ƒh‚ğæ“¾‚·‚éB
      *
-     * @param batchJobListParam å–å¾—æ¡ä»¶
-     * @return ã‚¸ãƒ§ãƒ–ç®¡ç†ãƒ†ãƒ¼ãƒ–ãƒ«ãƒ¬ã‚³ãƒ¼ãƒ‰
+     * @param batchJobListParam æ“¾ğŒ
+     * @return ƒWƒ‡ƒuŠÇ—ƒe[ƒuƒ‹ƒŒƒR[ƒh
      */
     List<BatchJobListResult> selectJobList(BatchJobListParam batchJobListParam);
 
     /**
-     * ç‰¹å®šæ¡ä»¶ä¸‹ã§ã‚¸ãƒ§ãƒ–ç®¡ç†ãƒ†ãƒ¼ãƒ–ãƒ«ã®ãƒ¬ã‚³ãƒ¼ãƒ‰ã‚’å–å¾—ã™ã‚‹ã€‚
+     * “Á’èğŒ‰º‚ÅƒWƒ‡ƒuŠÇ—ƒe[ƒuƒ‹‚ÌƒŒƒR[ƒh‚ğæ“¾‚·‚éB
      *
-     * @param rowBounds å–å¾—è¡Œåˆ¶é™
-     * @param batchJobListParam å–å¾—æ¡ä»¶
-     * @return ã‚¸ãƒ§ãƒ–ç®¡ç†ãƒ†ãƒ¼ãƒ–ãƒ«ãƒ¬ã‚³ãƒ¼ãƒ‰
+     * @param rowBounds æ“¾s§ŒÀ
+     * @param batchJobListParam æ“¾ğŒ
+     * @return ƒWƒ‡ƒuŠÇ—ƒe[ƒuƒ‹ƒŒƒR[ƒh
      */
     List<BatchJobListResult> selectJobList(RowBounds rowBounds,
                                            BatchJobListParam batchJobListParam);
 
     /**
-     * ã‚¸ãƒ§ãƒ–ç®¡ç†ãƒ†ãƒ¼ãƒ–ãƒ«ã®ç‰¹å®šãƒ¬ã‚³ãƒ¼ãƒ‰ã‚’å–å¾—ã™ã‚‹ã€‚
+     * ƒWƒ‡ƒuŠÇ—ƒe[ƒuƒ‹‚Ì“Á’èƒŒƒR[ƒh‚ğæ“¾‚·‚éB
      *
-     * @param batchJobManagementParam ãƒ¬ã‚³ãƒ¼ãƒ‰ã®ç‰¹å®šæ¡ä»¶
-     * @return ã‚¸ãƒ§ãƒ–ç®¡ç†ãƒ†ãƒ¼ãƒ–ãƒ«ãƒ¬ã‚³ãƒ¼ãƒ‰
+     * @param batchJobManagementParam ƒŒƒR[ƒh‚Ì“Á’èğŒ
+     * @return ƒWƒ‡ƒuŠÇ—ƒe[ƒuƒ‹ƒŒƒR[ƒh
      */
     BatchJobData selectJob(BatchJobManagementParam batchJobManagementParam);
 
     /**
-     * ç¾åœ¨æ™‚åˆ»ã‚’å–å¾—ã™ã‚‹ã€‚
+     * Œ»İ‚ğæ“¾‚·‚éB
      *
-     * @return ç¾åœ¨æ™‚åˆ»
+     * @return Œ»İ
      */
     Timestamp readCurrentTime();
 
     /**
-     * ç¾åœ¨æ—¥ä»˜ã‚’å–å¾—ã™ã‚‹ã€‚
+     * Œ»İ“ú•t‚ğæ“¾‚·‚éB
      *
-     * @return ç¾åœ¨æ—¥ä»˜
+     * @return Œ»İ“ú•t
      */
     Date readCurrentDate();
 
     /**
-     * ã‚¸ãƒ§ãƒ–ç®¡ç†ãƒ†ãƒ¼ãƒ–ãƒ«ã‚’æ›´æ–°ã™ã‚‹ã€‚
+     * ƒWƒ‡ƒuŠÇ—ƒe[ƒuƒ‹‚ğXV‚·‚éB
      *
-     * @param batchJobManagementUpdateParam ã‚¸ãƒ§ãƒ–ç®¡ç†ãƒ†ãƒ¼ãƒ–ãƒ«ã®æ›´æ–°æ¡ä»¶ãƒ»å†…å®¹
-     * @return æ›´æ–°ä»¶æ•°
+     * @param batchJobManagementUpdateParam ƒWƒ‡ƒuŠÇ—ƒe[ƒuƒ‹‚ÌXVğŒE“à—e
+     * @return XVŒ”
      */
     int updateJobTable(
             BatchJobManagementUpdateParam batchJobManagementUpdateParam);

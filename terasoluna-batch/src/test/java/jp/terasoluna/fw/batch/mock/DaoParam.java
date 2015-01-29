@@ -19,7 +19,7 @@ package jp.terasoluna.fw.batch.mock;
 import org.apache.ibatis.session.RowBounds;
 
 /**
- * Daoãƒ¡ã‚½ãƒƒãƒ‰å®Ÿè¡Œæ™‚ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚¯ãƒ©ã‚¹ã€‚
+ * Daoƒƒ\ƒbƒhÀs‚Ìƒpƒ‰ƒ[ƒ^ƒNƒ‰ƒXB
  * 
  */
 public class DaoParam {
