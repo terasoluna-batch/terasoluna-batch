@@ -18,7 +18,7 @@
         <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
         <encoding>Windows-31J</encoding>
         <project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
-        <jdk.version>1.5</jdk.version>
+        <jdk.version>1.7</jdk.version>
 
         <!-- TERASOLUNA -->
         <terasoluna.fw.version>${project.version}</terasoluna.fw.version>
@@ -163,7 +163,6 @@
                     <encoding>${encoding}</encoding>
                     <compilerArguments>
                         <verbose />
-                        <bootclasspath>${env.JAVA_HOME5}/jre/lib/rt.jar</bootclasspath>
                     </compilerArguments>
                 </configuration>
             </plugin>
@@ -190,8 +189,6 @@
                             <Build-Timestamp>${maven.build.timestamp}</Build-Timestamp>
                             <Extension-Name>${project.name}</Extension-Name>
                             <Built-By>TERASOLUNA</Built-By>
-                            <X-Compile-Source-JDK>${jdk.version}</X-Compile-Source-JDK>
-                            <X-Compile-Target-JDK>${jdk.version}</X-Compile-Target-JDK>
                             <Specification-Title>${project.name}</Specification-Title>
                             <Specification-Version>${project.version}</Specification-Version>
                             <Specification-Vendor>NTT DATA Corporation.</Specification-Vendor>
@@ -221,7 +218,6 @@
                     </bottom>
                     <showPackage>false</showPackage>
                     <showPrivate>true</showPrivate>
-                    <bootclasspath>${env.JAVA_HOME7}/jre/lib/rt.jar</bootclasspath>
                     <archive>
                         <addMavenDescriptor>false</addMavenDescriptor>
                         <manifest>
@@ -312,9 +308,8 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.10</version>
                 <configuration>
-                    <jvm>${env.JAVA_HOME7}/bin/java</jvm>
                     <forkMode>always</forkMode>
-                    <argLine><![CDATA[-Dfile.encoding=Windows-31J -Djava.system.class.loader=jp.co.dgic.testing.common.DJUnitClassLoader -Djp.co.dgic.eclipse.virtualmock.usevirtualmock=true -Djp.co.dgic.eclipse.coverage.usecoverage=true -Djp.co.dgic.eclipse.project.source.dir="${project.build.sourceDirectory}" -Djp.co.dgic.eclipse.virtualmock.ignore.library=false -Dcom.jcoverage.rawcoverage.dir="${basedir}/target"]]></argLine>
+                    <argLine><![CDATA[-Dfile.encoding=Windows-31J -Djava.system.class.loader=jp.co.dgic.testing.common.DJUnitClassLoader -Djp.co.dgic.eclipse.virtualmock.usevirtualmock=true -Djp.co.dgic.eclipse.coverage.usecoverage=true -Djp.co.dgic.eclipse.project.source.dir="${project.build.sourceDirectory}" -Djp.co.dgic.eclipse.virtualmock.ignore.library=false -Dcom.jcoverage.rawcoverage.dir="${basedir}/target" -XX:-UseSplitVerifier]]></argLine>
                     <forkMode>always</forkMode>
                     <useSystemClassLoader>true</useSystemClassLoader>
                 </configuration>

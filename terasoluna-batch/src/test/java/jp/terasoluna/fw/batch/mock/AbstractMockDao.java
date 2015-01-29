@@ -19,40 +19,40 @@ package jp.terasoluna.fw.batch.mock;
 import java.util.*;
 
 /**
- * モックRepository抽象クラスです。
+ * ���b�NRepository���ۃN���X�ł��B
  * 
  * <pre>
- * 本クラスを継承したモックRepositoryクラスでは
+ * �{�N���X���p���������b�NRepository�N���X�ł�
  * 
- * ・期待値の設定（試験前）
- * ・メソッド実行時の引数取得（試験後）
+ * �E���Ғl�̐ݒ�i�����O�j
+ * �E���\�b�h���s���̈����擾�i������j
  * 
- * が行えます。
+ * ���s���܂��B
  * 
- * 設定した期待値は内部でキューに追加され、追加した順番でメソッド実行時に返り値として取り出されます。
+ * �ݒ肵�����Ғl�͓����ŃL���[�ɒǉ�����A�ǉ��������ԂŃ��\�b�h���s���ɕԂ�l�Ƃ��Ď��o����܂��B
  * </pre>
  * 
  */
 public class AbstractMockDao {
     /**
-     * メソッド実行結果の期待値を保持するキュー
+     * ���\�b�h���s���ʂ̊��Ғl��ێ�����L���[
      */
     protected final LinkedList<Object> results = new LinkedList<Object>();
 
     /**
-     * メソッド実行時のパラメータを保持するリスト
+     * ���\�b�h���s���̃p�����[�^��ێ����郊�X�g
      */
     protected final List<DaoParam> params = new ArrayList<DaoParam>();
 
     /**
-     * 期待値をキューから取り出して返却します。
+     * ���Ғl���L���[������o���ĕԋp���܂��B
      * 
      * <pre>
-     * キューが空の場合はnullを返却します。
-     * 期待値が{@link RuntimeException}継承例外の場合、その例外をスローします。
+     * �L���[����̏ꍇ��null��ԋp���܂��B
+     * ���Ғl��{@link RuntimeException}�p����O�̏ꍇ�A���̗�O���X���[���܂��B
      * </pre>
      * 
-     * @return 期待値
+     * @return ���Ғl
      */
     protected Object poll() {
         Object result = results.poll();
@@ -65,13 +65,13 @@ public class AbstractMockDao {
     }
 
     /**
-     * 期待値を取り出してintとして返却します。
+     * ���Ғl�����o����int�Ƃ��ĕԋp���܂��B
      * 
      * <pre>
-     * 取りだしたオブジェクトがInteger出ない場合、{@link ClassCastException}をスローします。
+     * ��肾�����I�u�W�F�N�g��Integer�o�Ȃ��ꍇ�A{@link ClassCastException}���X���[���܂��B
      * </pre>
      * 
-     * @return 期待値(int)
+     * @return ���Ғl(int)
      * @throws ClassCastException
      * @see {@link #poll()}
      */
@@ -87,13 +87,13 @@ public class AbstractMockDao {
     }
 
     /**
-     * 期待値を取り出して配列として返却します。
+     * ���Ғl�����o���Ĕz��Ƃ��ĕԋp���܂��B
      * 
      * <pre>
-     * 取り出したオブジェクトが配列でない場合、{@link ClassCastException}をスローします。
+     * ���o�����I�u�W�F�N�g���z��łȂ��ꍇ�A{@link ClassCastException}���X���[���܂��B
      * </pre>
      * 
-     * @return 期待値(配列)
+     * @return ���Ғl(�z��)
      * @throws ClassCastException
      * @see {@link #poll()}
      */
@@ -109,13 +109,13 @@ public class AbstractMockDao {
     }
 
     /**
-     * 期待値を取り出してリストとして返却します。
+     * ���Ғl�����o���ă��X�g�Ƃ��ĕԋp���܂��B
      * 
      * <pre>
-     * 取り出したオブジェクトがリストでない場合、{@link ClassCastException}をスローします。
+     * ���o�����I�u�W�F�N�g�����X�g�łȂ��ꍇ�A{@link ClassCastException}���X���[���܂��B
      * </pre>
      * 
-     * @return 期待値(リスト)
+     * @return ���Ғl(���X�g)
      * @throws ClassCastException
      * @see {@link #poll()}
      */
@@ -131,13 +131,13 @@ public class AbstractMockDao {
     }
 
     /**
-     * 期待値を取り出してマップとして返却します。
+     * ���Ғl�����o���ă}�b�v�Ƃ��ĕԋp���܂��B
      * 
      * <pre>
-     * 取り出したオブジェクトがマップでない場合、{@link ClassCastException}をスローします。
+     * ���o�����I�u�W�F�N�g���}�b�v�łȂ��ꍇ�A{@link ClassCastException}���X���[���܂��B
      * </pre>
      * 
-     * @return 期待値(マップ)
+     * @return ���Ғl(�}�b�v)
      * @throws ClassCastException
      * @see {@link #poll()}
      */
@@ -154,13 +154,13 @@ public class AbstractMockDao {
     }
 
     /**
-     * 期待値を取り出してマップ配列として返却します。
+     * ���Ғl�����o���ă}�b�v�z��Ƃ��ĕԋp���܂��B
      * 
      * <pre>
-     * 取り出したオブジェクトが配列でない場合、{@link ClassCastException}をスローします。
+     * ���o�����I�u�W�F�N�g���z��łȂ��ꍇ�A{@link ClassCastException}���X���[���܂��B
      * </pre>
      * 
-     * @return 期待値(マップ配列)
+     * @return ���Ғl(�}�b�v�z��)
      * @throws ClassCastException
      * @see {@link #pollArray()}
      */
@@ -170,13 +170,13 @@ public class AbstractMockDao {
     }
 
     /**
-     * 期待値を取り出してマップリストとして返却します。
+     * ���Ғl�����o���ă}�b�v���X�g�Ƃ��ĕԋp���܂��B
      * 
      * <pre>
-     * 取り出したオブジェクトがリストでない場合、{@link ClassCastException}をスローします。
+     * ���o�����I�u�W�F�N�g�����X�g�łȂ��ꍇ�A{@link ClassCastException}���X���[���܂��B
      * </pre>
      * 
-     * @return 期待値(マップリスト)
+     * @return ���Ғl(�}�b�v���X�g)
      * @throws ClassCastException
      * @see {@link #pollList()}
      */
@@ -186,11 +186,11 @@ public class AbstractMockDao {
     }
 
     /**
-     * コールバックを取り出して実行します。
+     * �R�[���o�b�N�����o���Ď��s���܂��B
      * 
      * <pre>
-     * 取り出したオブジェクトがコールバックの場合、実行します。
-     * 期待位置が{@link RuntimeException}継承例外の場合、その例外をスローします。
+     * ���o�����I�u�W�F�N�g���R�[���o�b�N�̏ꍇ�A���s���܂��B
+     * ���҈ʒu��{@link RuntimeException}�p����O�̏ꍇ�A���̗�O���X���[���܂��B
      * </pre>
      * 
      * @param args
@@ -208,16 +208,16 @@ public class AbstractMockDao {
     }
 
     /**
-     * メソッド実行時のパラメータをリストに追加します。
+     * ���\�b�h���s���̃p�����[�^�����X�g�ɒǉ����܂��B
      * 
-     * @param param パラメータ
+     * @param param �p�����[�^
      */
     protected void addParam(DaoParam param) {
         String methodName = null;
 
         StackTraceElement[] stacTraceElements = new Throwable().getStackTrace();
         if (stacTraceElements != null && stacTraceElements.length > 0) {
-            // 呼び出し元メソッド名を取得
+            // �Ăяo�������\�b�h�����擾
             methodName = stacTraceElements[1].getMethodName();
         }
         param.setMethodName(methodName);
@@ -225,16 +225,16 @@ public class AbstractMockDao {
     }
 
     /**
-     * 期待値をキューに追加します。
+     * ���Ғl���L���[�ɒǉ����܂��B
      * 
-     * @param result 期待値
+     * @param result ���Ғl
      */
     public void addResult(Object result) {
         results.add(result);
     }
 
     /**
-     * {@link java.util.Collection}で渡された期待値を全てキューに追加します。
+     * {@link java.util.Collection}�œn���ꂽ���Ғl��S�ăL���[�ɒǉ����܂��B
      * @param results
      * @since 2.1.0
      */
@@ -243,19 +243,19 @@ public class AbstractMockDao {
     }
 
     /**
-     * メソッド実行時のパラメータを保持するリストを返却します。
+     * ���\�b�h���s���̃p�����[�^��ێ����郊�X�g��ԋp���܂��B
      * 
-     * @return メソッド実行時のパラメータを保持するリスト
+     * @return ���\�b�h���s���̃p�����[�^��ێ����郊�X�g
      */
     public List<DaoParam> getParams() {
         return params;
     }
 
     /**
-     * 初期化処理を行います。
+     * �������������s���܂��B
      * 
      * <pre>
-     * 実行結果期待値キューおよび、実行時パラメータリストを空にします。
+     * ���s���ʊ��Ғl�L���[����сA���s���p�����[�^���X�g����ɂ��܂��B
      * </pre>
      */
     public void clear() {
