@@ -104,15 +104,15 @@
     <distributionManagement>
         <repository>
             <uniqueVersion>false</uniqueVersion>
-            <id>terasoluna-releases</id>
-            <name>Terasoluna Maven Repository</name>
-            <url>dav:http://terasoluna2-lib.rd.nttdata.co.jp:10080/maven/releases</url>
+            <id>terasoluna-batch-releases</id>
+            <name>TERASOLUNA Batch framework for Java releases repository</name>
+            <url>http://repo.terasoluna.org/nexus/content/repositories/terasoluna-batch-releases</url>
         </repository>
         <snapshotRepository>
             <uniqueVersion>true</uniqueVersion>
-            <id>terasoluna-snapshots</id>
-            <name>Terasoluna Maven Snapshot Repository</name>
-            <url>dav:http://terasoluna2-lib.rd.nttdata.co.jp:10080/maven/snapshots</url>
+            <id>terasoluna-batch-snapshots</id>
+            <name>TERASOLUNA Batch framework for Java snapshots repository</name>
+            <url>http://repo.terasoluna.org/nexus/content/repositories/terasoluna-batch-snapshots</url>
         </snapshotRepository>
     </distributionManagement>
 
