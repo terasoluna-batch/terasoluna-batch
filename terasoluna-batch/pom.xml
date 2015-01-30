@@ -132,12 +132,9 @@
             <artifactId>commons-lang3</artifactId>
         </dependency>
         <dependency>
-            <groupId>commons-dbcp</groupId>
-            <artifactId>commons-dbcp</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>commons-pool</groupId>
-            <artifactId>commons-pool</artifactId>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-dbcp2</artifactId>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>commons-collections</groupId>
@@ -202,7 +199,7 @@
 
         <dependency>
             <groupId>com.oracle</groupId>
-            <artifactId>ojdbc5</artifactId>
+            <artifactId>ojdbc6</artifactId>
             <scope>provided</scope>
         </dependency>
 
@@ -216,6 +213,7 @@
         <dependency>
              <groupId>junit</groupId>
              <artifactId>junit</artifactId>
+             <version>${junit3.version}</version>
              <scope>test</scope>
          </dependency>
 
