@@ -84,7 +84,7 @@
                     <charset>UTF-8</charset>
                     <encoding>${encoding}</encoding>
                     <bottom>
-                        <![CDATA[Copyright &copy; 2014 NTT DATA Corporation.]]>
+                        <![CDATA[Copyright &copy; 2015 NTT DATA Corporation.]]>
                     </bottom>
                 </configuration>
             </plugin>

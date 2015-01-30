@@ -198,7 +198,7 @@
                     <encoding>${encoding}</encoding>
                     <bottom>
                         <![CDATA[
-            Copyright &copy; 2014 NTT DATA Corporation.
+            Copyright &copy; 2015 NTT DATA Corporation.
             ]]>
                     </bottom>
                     <showPackage>false</showPackage>
