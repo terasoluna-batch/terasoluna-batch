@@ -19,27 +19,27 @@ package jp.terasoluna.fw.batch.executor;
 import junit.framework.TestCase;
 
 /**
- * RetryabbleExecuteException‚ÌƒeƒXƒgƒP[ƒXB
+ * RetryabbleExecuteExceptionã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã€‚
  */
 public class RetryableExecuteExceptionTest extends TestCase {
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌƒeƒXƒgƒP[ƒXB
-     * ˆø”‚É“n‚³‚ê‚éŒ´ˆö—áŠO‚ªnot null‚Ì‚Æ‚«AgetCause()‚É‚æ‚èŒ´ˆö—áŠO‚Æ‚»‚ÌƒƒbƒZ[ƒW‚ªæ“¾‚Å‚«‚é‚±‚ÆB
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã€‚
+     * å¼•æ•°ã«æ¸¡ã•ã‚Œã‚‹åŸå› ä¾‹å¤–ãŒnot nullã®ã¨ãã€getCause()ã«ã‚ˆã‚ŠåŸå› ä¾‹å¤–ã¨ãã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒå–å¾—ã§ãã‚‹ã“ã¨ã€‚
      */
     public void testRetryableExecuteException01() {
-        RetryableExecuteException exception = new RetryableExecuteException(new Exception("Œ´ˆö—áŠO"));
-        assertEquals("Œ´ˆö—áŠO", exception.getCause().getMessage());
+        RetryableExecuteException exception = new RetryableExecuteException(new Exception("åŸå› ä¾‹å¤–"));
+        assertEquals("åŸå› ä¾‹å¤–", exception.getCause().getMessage());
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌƒeƒXƒgƒP[ƒXB
-     * ˆø”‚É“n‚³‚ê‚éŒ´ˆö—áŠO‚ªnull‚Ì‚Æ‚«AƒAƒT[ƒVƒ‡ƒ“ƒGƒ‰[‚ª”­¶‚·‚é‚±‚ÆB
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã€‚
+     * å¼•æ•°ã«æ¸¡ã•ã‚Œã‚‹åŸå› ä¾‹å¤–ãŒnullã®ã¨ãã€ã‚¢ã‚µãƒ¼ã‚·ãƒ§ãƒ³ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã€‚
      */
     public void testRetryableExecuteException02() {
         try {
             RetryableExecuteException executeException = new RetryableExecuteException(null);
-            fail("ƒAƒT[ƒVƒ‡ƒ“ƒGƒ‰[‚ª”­¶‚µ‚Ü‚¹‚ñB");
+            fail("ã‚¢ã‚µãƒ¼ã‚·ãƒ§ãƒ³ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã¾ã›ã‚“ã€‚");
         } catch (IllegalArgumentException e) {
         }
     }

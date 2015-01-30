@@ -5,7 +5,7 @@ import jp.terasoluna.fw.file.annotation.InputFileColumn;
 import jp.terasoluna.fw.file.annotation.OutputFileColumn;
 
 /**
- * ˆø”‚ð•¡”‚Ìgetƒƒ\ƒbƒh‚ðŽ‚Âƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgB
+ * å¼•æ•°ã‚’è¤‡æ•°ã®getãƒ¡ã‚½ãƒƒãƒ‰ã‚’æŒã¤ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
  */
 @FileFormat()
 public class IntColumnFormatter_Stub04 {

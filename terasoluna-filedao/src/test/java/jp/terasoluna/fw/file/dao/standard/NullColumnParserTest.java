@@ -14,26 +14,26 @@ import jp.terasoluna.utlib.UTUtil;
 import junit.framework.TestCase;
 
 /**
- * {@link jp.terasoluna.fw.file.dao.standard.NullColumnParser} ƒNƒ‰ƒX‚ÌƒeƒXƒgB
+ * {@link jp.terasoluna.fw.file.dao.standard.NullColumnParser} ã‚¯ãƒ©ã‚¹ã®ãƒ†ã‚¹ãƒˆã€‚
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4> StringŒ^‚Ìƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚Ì‘®«‚Éƒtƒ@ƒCƒ‹‚©‚ç“Ç‚İ‚ñ‚¾ƒJƒ‰ƒ€‚Ì•¶š—ñ‚ğŠi”[‚·‚éB
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4> Stringå‹ã®ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å±æ€§ã«ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰èª­ã¿è¾¼ã‚“ã ã‚«ãƒ©ãƒ ã®æ–‡å­—åˆ—ã‚’æ ¼ç´ã™ã‚‹ã€‚
  * <p>
- * @author ‰œ“c “Ni
+ * @author å¥¥ç”° å“²å¸
  * @see jp.terasoluna.fw.file.dao.standard.NullColumnParser
  */
 public class NullColumnParserTest extends TestCase {
 
     /**
-     * ‚±‚ÌƒeƒXƒgƒP[ƒX‚ğÀs‚·‚éˆ×‚Ì GUI ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‹N“®‚·‚éB
-     * @param args java ƒRƒ}ƒ“ƒh‚Éİ’è‚³‚ê‚½ƒpƒ‰ƒ[ƒ^
+     * ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã‚’å®Ÿè¡Œã™ã‚‹ç‚ºã® GUI ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’èµ·å‹•ã™ã‚‹ã€‚
+     * @param args java ã‚³ãƒãƒ³ãƒ‰ã«è¨­å®šã•ã‚ŒãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public static void main(String[] args) {
         // junit.swingui.TestRunner.run(NullColumnParserTest.class);
     }
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -42,8 +42,8 @@ public class NullColumnParserTest extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -52,8 +52,8 @@ public class NullColumnParserTest extends TestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public NullColumnParserTest(String name) {
         super(name);
@@ -62,43 +62,43 @@ public class NullColumnParserTest extends TestCase {
     /**
      * testParse01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE.F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE.F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) column:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ˆø”) ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg<br>
-     * t:ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgƒXƒ^ƒu<br>
-     * (ˆø”) ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg(t)‚É‚ ‚éStringŒ^‘®«‚Ì setterƒƒ\ƒbƒh<br>
-     * method:‘ÎÛ‚Æ‚È‚ésetterƒƒ\ƒbƒh‚Ì‰Â‹«‚ªpublic<br>
-     * (ˆø”) ƒtƒH[ƒ}ƒbƒg—p‚Ì•¶š—ñ<br>
-     * columnFormat:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) column:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (å¼•æ•°) ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
+     * t:ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¹ã‚¿ãƒ–<br>
+     * (å¼•æ•°) ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ(t)ã«ã‚ã‚‹Stringå‹å±æ€§ã® setterãƒ¡ã‚½ãƒƒãƒ‰<br>
+     * method:å¯¾è±¡ã¨ãªã‚‹setterãƒ¡ã‚½ãƒƒãƒ‰ã®å¯è¦–æ€§ãŒpublic<br>
+     * (å¼•æ•°) ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆç”¨ã®æ–‡å­—åˆ—<br>
+     * columnFormat:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg(t)‚Ì‘®«:column‚Åİ’è‚µ‚½ •¶š—ñ‚ªŠi”[‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ(t)ã®å±æ€§:columnã§è¨­å®šã—ãŸ æ–‡å­—åˆ—ãŒæ ¼ç´ã•ã‚Œã‚‹ã€‚<br>
      * <br>
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌStringŒ^‘®«‚ÉAˆø”column‚Ì’l‚ªİ’è‚³‚ê‚é ‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®Stringå‹å±æ€§ã«ã€å¼•æ•°columnã®å€¤ãŒè¨­å®šã•ã‚Œã‚‹ ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testParse01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         NullColumnParser nullColumnParser = new NullColumnParser();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String column = "AA";
         NullColumnParser_Stub01 t = new NullColumnParser_Stub01();
         Method method = NullColumnParser_Stub01.class.getDeclaredMethod("setA",
                 new Class[] { String.class });
         String columnFormat = "BB";
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ‚È‚µ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         nullColumnParser.parse(column, t, method, columnFormat);
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         Object result = UTUtil.getPrivateField(t, "a");
         assertSame(column, result);
     }
@@ -106,45 +106,45 @@ public class NullColumnParserTest extends TestCase {
     /**
      * testParse02() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) column:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ˆø”) ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg<br>
-     * t:ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgƒXƒ^ƒu<br>
-     * (ˆø”) ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg(t)‚É‚ ‚éStringŒ^‘®«‚Ì setterƒƒ\ƒbƒh<br>
-     * method:‘ÎÛ‚Æ‚È‚ésetterƒƒ\ƒbƒh‚Ì‰Â‹«‚ªprivate<br>
-     * (ˆø”) ƒtƒH[ƒ}ƒbƒg—p‚Ì•¶š—ñ<br>
-     * columnFormat:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) column:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (å¼•æ•°) ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
+     * t:ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¹ã‚¿ãƒ–<br>
+     * (å¼•æ•°) ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ(t)ã«ã‚ã‚‹Stringå‹å±æ€§ã® setterãƒ¡ã‚½ãƒƒãƒ‰<br>
+     * method:å¯¾è±¡ã¨ãªã‚‹setterãƒ¡ã‚½ãƒƒãƒ‰ã®å¯è¦–æ€§ãŒprivate<br>
+     * (å¼•æ•°) ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆç”¨ã®æ–‡å­—åˆ—<br>
+     * columnFormat:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalAccessException‚ª”­¶‚·‚é ‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalAccessExceptionãŒç™ºç”Ÿã™ã‚‹ ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌStringŒ^‘®«‚Ìsetterƒƒ\ƒbƒh‚É ƒAƒNƒZƒX‚Å‚«‚È‚¢ê‡AIllegalAccessException‚ğƒXƒ[‚·‚é‚±‚Æ‚ğŠm”F‚·‚é <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®Stringå‹å±æ€§ã®setterãƒ¡ã‚½ãƒƒãƒ‰ã« ã‚¢ã‚¯ã‚»ã‚¹ã§ããªã„å ´åˆã€IllegalAccessExceptionã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testParse02() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         NullColumnParser nullColumnParser = new NullColumnParser();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String column = "AA";
         NullColumnParser_Stub01 t = new NullColumnParser_Stub01();
         Method method = NullColumnParser_Stub01.class.getDeclaredMethod(
                 "setAPrivate", new Class[] { String.class });
         String columnFormat = "BB";
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ‚È‚µ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             nullColumnParser.parse(column, t, method, columnFormat);
-            fail("IllegalAccessException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("IllegalAccessExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalAccessException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(IllegalAccessException.class, e.getClass());
         }
     }
@@ -152,47 +152,47 @@ public class NullColumnParserTest extends TestCase {
     /**
      * testParse03() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) column:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ˆø”) ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg<br>
-     * t:ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgƒXƒ^ƒu<br>
-     * (ˆø”) ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg(t)‚É‚ ‚éStringŒ^‘®«‚Ì setterƒƒ\ƒbƒh<br>
-     * method:setterƒƒ\ƒbƒh‚ª—áŠO‚ğƒXƒ[‚·‚é<br>
-     * (ˆø”) ƒtƒH[ƒ}ƒbƒg—p‚Ì•¶š—ñ<br>
-     * columnFormat:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) column:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (å¼•æ•°) ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
+     * t:ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¹ã‚¿ãƒ–<br>
+     * (å¼•æ•°) ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ(t)ã«ã‚ã‚‹Stringå‹å±æ€§ã® setterãƒ¡ã‚½ãƒƒãƒ‰<br>
+     * method:setterãƒ¡ã‚½ãƒƒãƒ‰ãŒä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹<br>
+     * (å¼•æ•°) ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆç”¨ã®æ–‡å­—åˆ—<br>
+     * columnFormat:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:InvocationTargetException‚ª”­¶‚·‚é ‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:InvocationTargetExceptionãŒç™ºç”Ÿã™ã‚‹ ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌStringŒ^‘®«‚Ìsetterƒƒ\ƒbƒh‚ª—áŠO‚ğ ƒXƒ[‚·‚éê‡Asetterƒƒ\ƒbƒh‚ªƒXƒ[‚µ‚½—áŠO‚ğƒ‰ƒbƒv‚·‚é InvocationTargetException‚ğƒXƒ[‚·‚é‚±‚Æ‚ğŠm”F‚·‚é <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®Stringå‹å±æ€§ã®setterãƒ¡ã‚½ãƒƒãƒ‰ãŒä¾‹å¤–ã‚’ ã‚¹ãƒ­ãƒ¼ã™ã‚‹å ´åˆã€setterãƒ¡ã‚½ãƒƒãƒ‰ãŒã‚¹ãƒ­ãƒ¼ã—ãŸä¾‹å¤–ã‚’ãƒ©ãƒƒãƒ—ã™ã‚‹ InvocationTargetExceptionã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testParse03() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         NullColumnParser nullColumnParser = new NullColumnParser();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String column = "AA";
         NullColumnParser_Stub01 t = new NullColumnParser_Stub01();
         Method method = NullColumnParser_Stub01.class.getDeclaredMethod(
                 "setAException", new Class[] { String.class });
         String columnFormat = "BB";
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ‚È‚µ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             nullColumnParser.parse(column, t, method, columnFormat);
 
-            // ”»’è
+            // åˆ¤å®š
             fail();
         } catch (InvocationTargetException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(InvocationTargetException.class, e.getClass());
         }
     }
@@ -200,47 +200,47 @@ public class NullColumnParserTest extends TestCase {
     /**
      * testParse04() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) column:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ˆø”) ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg<br>
-     * t:ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgƒXƒ^ƒu<br>
-     * (ˆø”) ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg(t)‚É‚ ‚éStringŒ^‘®«‚Ì setterƒƒ\ƒbƒh<br>
-     * method:setterƒƒ\ƒbƒh‚Ìˆø”‚ª‘½”‚ ‚é<br>
-     * (ˆø”) ƒtƒH[ƒ}ƒbƒg—p‚Ì•¶š—ñ<br>
-     * columnFormat:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) column:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (å¼•æ•°) ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
+     * t:ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¹ã‚¿ãƒ–<br>
+     * (å¼•æ•°) ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ(t)ã«ã‚ã‚‹Stringå‹å±æ€§ã® setterãƒ¡ã‚½ãƒƒãƒ‰<br>
+     * method:setterãƒ¡ã‚½ãƒƒãƒ‰ã®å¼•æ•°ãŒå¤šæ•°ã‚ã‚‹<br>
+     * (å¼•æ•°) ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆç”¨ã®æ–‡å­—åˆ—<br>
+     * columnFormat:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException‚ª”­¶‚·‚é‚±‚Æ ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌStringŒ^‘®«‚Ìsetterƒƒ\ƒbƒh‚Ìˆø”‚ª ‘½”‚ ‚éê‡AIllegalArgumentException‚ğƒXƒ[‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®Stringå‹å±æ€§ã®setterãƒ¡ã‚½ãƒƒãƒ‰ã®å¼•æ•°ãŒ å¤šæ•°ã‚ã‚‹å ´åˆã€IllegalArgumentExceptionã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testParse04() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         NullColumnParser nullColumnParser = new NullColumnParser();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String column = "AA";
         NullColumnParser_Stub01 t = new NullColumnParser_Stub01();
         Method method = NullColumnParser_Stub01.class.getDeclaredMethod(
                 "setAAndB", new Class[] { String.class, String.class });
         String columnFormat = "BB";
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ‚È‚µ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             nullColumnParser.parse(column, t, method, columnFormat);
 
-            // ”»’è
+            // åˆ¤å®š
             fail();
         } catch (IllegalArgumentException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(IllegalArgumentException.class, e.getClass());
         }
     }
@@ -248,43 +248,43 @@ public class NullColumnParserTest extends TestCase {
     /**
      * testParse05() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE.F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE.F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) column:null<br>
-     * (ˆø”) ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg<br>
-     * t:ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgƒXƒ^ƒu<br>
-     * (ˆø”) ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg(t)‚É‚ ‚éStringŒ^‘®«‚Ì setterƒƒ\ƒbƒh<br>
-     * method:‘ÎÛ‚Æ‚È‚ésetterƒƒ\ƒbƒh‚Ì‰Â‹«‚ªpublic<br>
-     * (ˆø”) ƒtƒH[ƒ}ƒbƒg—p‚Ì•¶š—ñ<br>
-     * columnFormat:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) column:null<br>
+     * (å¼•æ•°) ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
+     * t:ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¹ã‚¿ãƒ–<br>
+     * (å¼•æ•°) ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ(t)ã«ã‚ã‚‹Stringå‹å±æ€§ã® setterãƒ¡ã‚½ãƒƒãƒ‰<br>
+     * method:å¯¾è±¡ã¨ãªã‚‹setterãƒ¡ã‚½ãƒƒãƒ‰ã®å¯è¦–æ€§ãŒpublic<br>
+     * (å¼•æ•°) ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆç”¨ã®æ–‡å­—åˆ—<br>
+     * columnFormat:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg(t)‚Ì‘®«:null‚ª İ’è‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ(t)ã®å±æ€§:nullãŒ è¨­å®šã•ã‚Œã‚‹ã€‚<br>
      * <br>
-     * column‚ªNull‚Ìê‡‚ÉAƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚Ì‘®«‚Énull‚ª İ’è‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * columnãŒNullã®å ´åˆã«ã€ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å±æ€§ã«nullãŒ è¨­å®šã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testParse05() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         NullColumnParser nullColumnParser = new NullColumnParser();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String column = null;
         NullColumnParser_Stub01 t = new NullColumnParser_Stub01();
         Method method = NullColumnParser_Stub01.class.getDeclaredMethod("setA",
                 new Class[] { String.class });
         String columnFormat = null;
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ‚È‚µ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         nullColumnParser.parse(column, t, method, columnFormat);
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         Object result = UTUtil.getPrivateField(t, "a");
         assertNull(result);
     }
@@ -292,43 +292,43 @@ public class NullColumnParserTest extends TestCase {
     /**
      * testParse06() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE.F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE.F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) column:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ˆø”) ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg<br>
-     * t:ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgƒXƒ^ƒu<br>
-     * (ˆø”) ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg(t)‚É‚ ‚éStringŒ^‘®«‚Ìsetterƒƒ\ƒbƒh<br>
-     * method:‘ÎÛ‚Æ‚È‚ésetterƒƒ\ƒbƒh‚Ì‰Â‹«‚ªpublic<br>
-     * (ˆø”) ƒtƒH[ƒ}ƒbƒg—p‚Ì•¶š—ñ<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) column:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (å¼•æ•°) ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
+     * t:ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¹ã‚¿ãƒ–<br>
+     * (å¼•æ•°) ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ(t)ã«ã‚ã‚‹Stringå‹å±æ€§ã®setterãƒ¡ã‚½ãƒƒãƒ‰<br>
+     * method:å¯¾è±¡ã¨ãªã‚‹setterãƒ¡ã‚½ãƒƒãƒ‰ã®å¯è¦–æ€§ãŒpublic<br>
+     * (å¼•æ•°) ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆç”¨ã®æ–‡å­—åˆ—<br>
      * columnFormat:null<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg(t)‚Ì‘®«:column‚Åİ’è‚µ‚½•¶š—ñ‚ªŠi”[‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ(t)ã®å±æ€§:columnã§è¨­å®šã—ãŸæ–‡å­—åˆ—ãŒæ ¼ç´ã•ã‚Œã‚‹ã€‚<br>
      * <br>
-     * columnFormat‚ªNull‚Ìê‡‚ÉAƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌStringŒ^‘®«‚ÉAˆø”column‚Ì’l‚ªİ’è‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * columnFormatãŒNullã®å ´åˆã«ã€ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®Stringå‹å±æ€§ã«ã€å¼•æ•°columnã®å€¤ãŒè¨­å®šã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testParse06() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         NullColumnParser nullColumnParser = new NullColumnParser();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String column = "AA";
         NullColumnParser_Stub01 t = new NullColumnParser_Stub01();
         Method method = NullColumnParser_Stub01.class.getDeclaredMethod("setA",
                 new Class[] { String.class });
         String columnFormat = "BB";
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ‚È‚µ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         nullColumnParser.parse(column, t, method, columnFormat);
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         Object result = UTUtil.getPrivateField(t, "a");
         assertSame(column, result);
     }

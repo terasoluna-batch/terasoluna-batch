@@ -46,216 +46,216 @@ import org.apache.commons.validator.ValidatorException;
 import org.apache.commons.validator.util.ValidatorUtils;
 
 /**
- * TERASOLUNA‚Ì“ü—Íƒ`ƒFƒbƒN‹@”\‚Å‹¤’Ê‚Ég—p‚³‚ê‚éŒŸØƒ‹[ƒ‹ƒNƒ‰ƒXB
+ * TERASOLUNAã®å…¥åŠ›ãƒã‚§ãƒƒã‚¯æ©Ÿèƒ½ã§å…±é€šã«ä½¿ç”¨ã•ã‚Œã‚‹æ¤œè¨¼ãƒ«ãƒ¼ãƒ«ã‚¯ãƒ©ã‚¹ã€‚
  *
- * ‚±‚ÌƒNƒ‰ƒX‚ª’ñ‹Ÿ‚·‚éŒŸØƒ‹[ƒ‹‚Æ‚µ‚Ä‚ÍAˆÈ‰º‚Ì‚à‚Ì‚ª‚ ‚éB</p>
+ * ã“ã®ã‚¯ãƒ©ã‚¹ãŒæä¾›ã™ã‚‹æ¤œè¨¼ãƒ«ãƒ¼ãƒ«ã¨ã—ã¦ã¯ã€ä»¥ä¸‹ã®ã‚‚ã®ãŒã‚ã‚‹ã€‚</p>
  *
  * <table border="1">
  * <tr>
- *  <td><center><b>ŒŸØ–¼</b></center></td>
- *  <td><center><b>ƒƒ\ƒbƒh–¼</b></center></td>
- *  <td><center><b>ƒoƒŠƒf[ƒVƒ‡ƒ“’è‹`ƒtƒ@ƒCƒ‹ivalidation.xmlj‚É
- *  ‹Lq‚·‚éƒ‹[ƒ‹–¼</b></center></td>
+ *  <td><center><b>æ¤œè¨¼å</b></center></td>
+ *  <td><center><b>ãƒ¡ã‚½ãƒƒãƒ‰å</b></center></td>
+ *  <td><center><b>ãƒãƒªãƒ‡ãƒ¼ã‚·ãƒ§ãƒ³å®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ï¼ˆvalidation.xmlï¼‰ã«
+ *  è¨˜è¿°ã™ã‚‹ãƒ«ãƒ¼ãƒ«å</b></center></td>
  * </tr>
  * <tr>
- *  <td>•K{ƒ`ƒFƒbƒN</td>
+ *  <td>å¿…é ˆãƒã‚§ãƒƒã‚¯</td>
  *  <td><code>{@link #validateRequired(
  *  Object, ValidatorAction, Field, ValidationErrors)}</code></td>
  *  <td><code>requierd</code></td>
  * </tr>
  * <tr>
- *  <td>³‹K•\Œ»ƒ`ƒFƒbƒN</td>
+ *  <td>æ­£è¦è¡¨ç¾ãƒã‚§ãƒƒã‚¯</td>
  *  <td><code>{@link #validateMask(
  *  Object, ValidatorAction, Field, ValidationErrors)}</code></td>
  *  <td><code>mask</code></td>
  * </tr>
  * <tr>
- *  <td><code>byte</code>Œ^ƒ`ƒFƒbƒN</td>
+ *  <td><code>byte</code>å‹ãƒã‚§ãƒƒã‚¯</td>
  *  <td><code>{@link #validateByte(
  *  Object, ValidatorAction, Field, ValidationErrors)}</code></td>
  *  <td><code>byte</code></td>
  * </tr>
  * <tr>
- *  <td><code>short</code>Œ^ƒ`ƒFƒbƒN</td>
+ *  <td><code>short</code>å‹ãƒã‚§ãƒƒã‚¯</td>
  *  <td><code>{@link #validateShort(
  *  Object, ValidatorAction, Field, ValidationErrors)}</code></td>
  *  <td><code>short</code></td>
  * </tr>
  * <tr>
- *  <td><code>integer</code>Œ^ƒ`ƒFƒbƒN</td>
+ *  <td><code>integer</code>å‹ãƒã‚§ãƒƒã‚¯</td>
  *  <td><code>{@link #validateInteger(
  *  Object, ValidatorAction, Field, ValidationErrors)}</code></td>
  *  <td><code>integer</code></td>
  * </tr>
  * <tr>
- *  <td><code>long</code>Œ^ƒ`ƒFƒbƒN</td>
+ *  <td><code>long</code>å‹ãƒã‚§ãƒƒã‚¯</td>
  *  <td><code>{@link #validateLong(
  *  Object, ValidatorAction, Field, ValidationErrors)}</code></td>
  *  <td><code>long</code></td>
  * </tr>
  * <tr>
- *  <td><code>float</code>Œ^ƒ`ƒFƒbƒN</td>
+ *  <td><code>float</code>å‹ãƒã‚§ãƒƒã‚¯</td>
  *  <td><code>{@link #validateFloat(
  *  Object, ValidatorAction, Field, ValidationErrors)}</code></td>
  *  <td><code>float</code></td>
  * </tr>
  * <tr>
- *  <td><code>double</code>Œ^ƒ`ƒFƒbƒN</td>
+ *  <td><code>double</code>å‹ãƒã‚§ãƒƒã‚¯</td>
  *  <td><code>{@link #validateDouble(
  *  Object, ValidatorAction, Field, ValidationErrors)}</code></td>
  *  <td><code>double</code></td>
  * </tr>
  * <tr>
- *  <td>“ú•tŒ^ƒ`ƒFƒbƒN</td>
+ *  <td>æ—¥ä»˜å‹ãƒã‚§ãƒƒã‚¯</td>
  *  <td><code>{@link #validateDate(
  *  Object, ValidatorAction, Field, ValidationErrors)}</code></td>
  *  <td><code>date</code></td>
  * </tr>
  * <tr>
- *  <td>®”w’è”ÍˆÍƒ`ƒFƒbƒN</td>
+ *  <td>æ•´æ•°æŒ‡å®šç¯„å›²ãƒã‚§ãƒƒã‚¯</td>
  *  <td><code>{@link #validateIntRange(
  *  Object, ValidatorAction, Field, ValidationErrors)}</code></td>
  *  <td><code>intRange</code></td>
  * </tr>
  * <tr>
- *  <td>À”w’è”ÍˆÍƒ`ƒFƒbƒN</td>
+ *  <td>å®Ÿæ•°æŒ‡å®šç¯„å›²ãƒã‚§ãƒƒã‚¯</td>
  *  <td><code>{@link #validateDoubleRange(
  *  Object, ValidatorAction, Field, ValidationErrors)}</code></td>
  *  <td><code>doubleRange</code></td>
  * </tr>
  * <tr>
- *  <td>•‚“®¬”“_”w’è”ÍˆÍƒ`ƒFƒbƒN</td>
+ *  <td>æµ®å‹•å°æ•°ç‚¹æ•°æŒ‡å®šç¯„å›²ãƒã‚§ãƒƒã‚¯</td>
  *  <td><code>{@link #validateFloatRange(
  *  Object, ValidatorAction, Field, ValidationErrors)}</code></td>
  *  <td><code>floatRange</code></td>
  * </tr>
  * <tr>
- *  <td>Å‘å•¶š”ƒ`ƒFƒbƒN</td>
+ *  <td>æœ€å¤§æ–‡å­—æ•°ãƒã‚§ãƒƒã‚¯</td>
  *  <td><code>{@link #validateMaxLength(
  *  Object, ValidatorAction, Field, ValidationErrors)}</code></td>
  *  <td><code>maxLength</code></td>
  * </tr>
  * <tr>
- *  <td>Å¬•¶š”ƒ`ƒFƒbƒN</td>
+ *  <td>æœ€å°æ–‡å­—æ•°ãƒã‚§ãƒƒã‚¯</td>
  *  <td><code>{@link #validateMinLength(
  *  Object, ValidatorAction, Field, ValidationErrors)}</code></td>
  *  <td><code>minLength</code></td>
  * </tr>
  * <tr>
- *  <td>‰p”šƒ`ƒFƒbƒN</td>
+ *  <td>è‹±æ•°å­—ãƒã‚§ãƒƒã‚¯</td>
  *  <td><code>{@link #validateAlphaNumericString(Object, ValidatorAction,
  *  Field, ValidationErrors)}</code></td>
  *  <td><code>alphaNumericString</code></td>
  * </tr>
  * <tr>
- *  <td>‘å•¶š‰p”šƒ`ƒFƒbƒN</td>
+ *  <td>å¤§æ–‡å­—è‹±æ•°å­—ãƒã‚§ãƒƒã‚¯</td>
  *  <td><code>{@link #validateCapAlphaNumericString(Object, ValidatorAction,
  *  Field, ValidationErrors)}</code></td>
  *  <td><code>capAlphaNumericString</code></td>
  * </tr>
  * <tr>
- *  <td>”’lƒ`ƒFƒbƒN</td>
+ *  <td>æ•°å€¤ãƒã‚§ãƒƒã‚¯</td>
  *  <td><code>{@link #validateNumber(Object, ValidatorAction, Field,
  *  ValidationErrors)}</code></td>
  *  <td><code>number</code></td>
  * </tr>
  * <tr>
- *  <td>”¼ŠpƒJƒi•¶šƒ`ƒFƒbƒN</td>
+ *  <td>åŠè§’ã‚«ãƒŠæ–‡å­—ãƒã‚§ãƒƒã‚¯</td>
  *  <td><code>{@link #validateHankakuKanaString(Object, ValidatorAction,
  *  Field, ValidationErrors)}</code></td>
  *  <td><code>hankakuKanaString</code></td>
  * </tr>
  * <tr>
- *  <td>”¼Šp•¶šƒ`ƒFƒbƒN</td>
+ *  <td>åŠè§’æ–‡å­—ãƒã‚§ãƒƒã‚¯</td>
  *  <td><code>{@link #validateHankakuString(Object, ValidatorAction, Field,
  *  ValidationErrors)}</code></td>
  *  <td><code>hankakuString</code></td>
  * </tr>
  * <tr>
- *  <td>‘SŠpƒJƒi•¶šƒ`ƒFƒbƒN</td>
+ *  <td>å…¨è§’ã‚«ãƒŠæ–‡å­—ãƒã‚§ãƒƒã‚¯</td>
  *  <td><code>{@link #validateZenkakuKanaString(Object, ValidatorAction,
  *  Field, ValidationErrors)}</code></td>
  *  <td><code>zenkakuKanaString</code></td>
  * </tr>
  * <tr>
- *  <td>‘SŠp•¶šƒ`ƒFƒbƒN</td>
+ *  <td>å…¨è§’æ–‡å­—ãƒã‚§ãƒƒã‚¯</td>
  *  <td><code>{@link #validateZenkakuString(Object, ValidatorAction, Field,
  *  ValidationErrors)}</code></td>
  *  <td><code>zenkakuString</code></td>
  * </tr>
  * <tr>
- *  <td>“ü—Í‹Ö~•¶šƒ`ƒFƒbƒN</td>
+ *  <td>å…¥åŠ›ç¦æ­¢æ–‡å­—ãƒã‚§ãƒƒã‚¯</td>
  *  <td><code>{@link #validateProhibited(Object, ValidatorAction, Field,
  *  ValidationErrors)}</code></td>
  *  <td><code>prohibited</code></td>
  * </tr>
  * <tr>
- *  <td>•¶š—ñ’·ˆê’vƒ`ƒFƒbƒN</td>
+ *  <td>æ–‡å­—åˆ—é•·ä¸€è‡´ãƒã‚§ãƒƒã‚¯</td>
  *  <td><code>{@link #validateStringLength(Object, ValidatorAction, Field,
  *  ValidationErrors)}</code></td>
  *  <td><code>stringLength</code></td>
  * </tr>
  * <tr>
- *  <td>”š•¶š—ñƒ`ƒFƒbƒN</td>
+ *  <td>æ•°å­—æ–‡å­—åˆ—ãƒã‚§ãƒƒã‚¯</td>
  *  <td><code>{@link #validateNumericString(Object, ValidatorAction, Field,
  *  ValidationErrors)}</code></td>
  *  <td><code>numericString</code></td>
  * </tr>
  * <tr>
- *  <td>URLƒ`ƒFƒbƒN</td>
+ *  <td>URLãƒã‚§ãƒƒã‚¯</td>
  *  <td><code>{@link #validateUrl(Object, ValidatorAction, Field,
  *  ValidationErrors)}</code></td>
  *  <td><code>url</code></td>
  * </tr>
  * <tr>
- *  <td>”z—ñ’·ˆê’vƒ`ƒFƒbƒN</td>
+ *  <td>é…åˆ—é•·ä¸€è‡´ãƒã‚§ãƒƒã‚¯</td>
  *  <td><code>{@link #validateArrayRange(Object, ValidatorAction, Field,
  *  ValidationErrors)}</code></td>
  *  <td><code>arrayRange</code></td>
  * </tr>
  * <tr>
- *  <td>ƒoƒCƒg”w’è”ÍˆÍ“àƒ`ƒFƒbƒN</td>
+ *  <td>ãƒã‚¤ãƒˆæ•°æŒ‡å®šç¯„å›²å†…ãƒã‚§ãƒƒã‚¯</td>
  *  <td><code>{@link #validateByteRange(Object, ValidatorAction, Field,
  *  ValidationErrors)}</code></td>
  *  <td><code>byteRange</code></td>
  * </tr>
  * <tr>
- *  <td>“ú•t•¶š—ñw’è”ÍˆÍ“àƒ`ƒFƒbƒN</td>
+ *  <td>æ—¥ä»˜æ–‡å­—åˆ—æŒ‡å®šç¯„å›²å†…ãƒã‚§ãƒƒã‚¯</td>
  *  <td><code>{@link #validateDateRange(Object, ValidatorAction, Field,
  *  ValidationErrors)}</code></td>
  *  <td><code>dateRange</code></td>
  * </tr>
  * <tr>
- *  <td>”z—ñEƒRƒŒƒNƒVƒ‡ƒ“Œ^ƒtƒB[ƒ‹ƒh‘S—v‘fƒ`ƒFƒbƒN</td>
+ *  <td>é…åˆ—ãƒ»ã‚³ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³å‹ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å…¨è¦ç´ ãƒã‚§ãƒƒã‚¯</td>
  *  <td><code>{@link #validateArraysIndex(Object, ValidatorAction, Field,
  *  ValidationErrors)}</code></td>
- *  <td>‘¼‚Ì’P‘ÌƒtƒB[ƒ‹ƒhŒŸØƒ‹[ƒ‹–¼{"Array"(”z—ñ’·ˆê’vƒ`ƒFƒbƒN‚Íœ‚­)</td>
+ *  <td>ä»–ã®å˜ä½“ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰æ¤œè¨¼ãƒ«ãƒ¼ãƒ«åï¼‹"Array"(é…åˆ—é•·ä¸€è‡´ãƒã‚§ãƒƒã‚¯ã¯é™¤ã)</td>
  * </tr>
  * <tr>
- *  <td>‘ŠŠÖƒ`ƒFƒbƒN</td>
+ *  <td>ç›¸é–¢ãƒã‚§ãƒƒã‚¯</td>
  *  <td><code>{@link #validateMultiField(Object, ValidatorAction, Field,
  *  ValidationErrors)}</code></td>
  *  <td>multiField</td>
  * </tr>
  * </table>
  *
- * <p>‚±‚ÌƒNƒ‰ƒX‚Å‚ÍStruts‚ÌValidWhen‚ğ—˜—p‚µ‚½“ü—Íƒ`ƒFƒbƒNƒƒ\ƒbƒh‚ğ
- * ƒTƒ|[ƒg‚µ‚Ä‚¢‚È‚¢B‘ŠŠÖƒ`ƒFƒbƒN‚ğs‚È‚¤ê‡AŠeƒtƒŒ[ƒ€ƒ[ƒN‚Å
- * •Ê“rA‘ŠŠÖƒ`ƒFƒbƒN‚ğs‚¤d‘g‚İ‚ğ—pˆÓ‚·‚é‚±‚ÆB</p>
+ * <p>ã“ã®ã‚¯ãƒ©ã‚¹ã§ã¯Strutsã®ValidWhenã‚’åˆ©ç”¨ã—ãŸå…¥åŠ›ãƒã‚§ãƒƒã‚¯ãƒ¡ã‚½ãƒƒãƒ‰ã‚’
+ * ã‚µãƒãƒ¼ãƒˆã—ã¦ã„ãªã„ã€‚ç›¸é–¢ãƒã‚§ãƒƒã‚¯ã‚’è¡Œãªã†å ´åˆã€å„ãƒ•ãƒ¬ãƒ¼ãƒ ãƒ¯ãƒ¼ã‚¯ã§
+ * åˆ¥é€”ã€ç›¸é–¢ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†ä»•çµ„ã¿ã‚’ç”¨æ„ã™ã‚‹ã“ã¨ã€‚</p>
  *
- * <p>•K{ƒ`ƒFƒbƒNˆÈŠO‚Ìƒ`ƒFƒbƒNƒ‹[ƒ‹‚Å‚ÍA
- * ”¼ŠpƒXƒy[ƒX‚Ì‚İ‚Ì•¶š—ñ‚ª“ü—Í’l‚Æ‚µ‚Ä“n‚³‚ê‚Ä‚«‚½ê‡AƒGƒ‰[‚Æ”»’è‚³‚ê‚È‚¢B
- * ƒGƒ‰[‚Æ‚·‚éê‡‚Í•K{ƒ`ƒFƒbƒN‚Æ‘g‚İ‡‚í‚¹‚é‚©A
- * ”¼ŠpƒXƒy[ƒX‚Ìƒ`ƒFƒbƒN‚ğ’Ç‰Á‚·‚é‚±‚ÆB</p>
+ * <p>å¿…é ˆãƒã‚§ãƒƒã‚¯ä»¥å¤–ã®ãƒã‚§ãƒƒã‚¯ãƒ«ãƒ¼ãƒ«ã§ã¯ã€
+ * åŠè§’ã‚¹ãƒšãƒ¼ã‚¹ã®ã¿ã®æ–‡å­—åˆ—ãŒå…¥åŠ›å€¤ã¨ã—ã¦æ¸¡ã•ã‚Œã¦ããŸå ´åˆã€ã‚¨ãƒ©ãƒ¼ã¨åˆ¤å®šã•ã‚Œãªã„ã€‚
+ * ã‚¨ãƒ©ãƒ¼ã¨ã™ã‚‹å ´åˆã¯å¿…é ˆãƒã‚§ãƒƒã‚¯ã¨çµ„ã¿åˆã‚ã›ã‚‹ã‹ã€
+ * åŠè§’ã‚¹ãƒšãƒ¼ã‚¹ã®ãƒã‚§ãƒƒã‚¯ã‚’è¿½åŠ ã™ã‚‹ã“ã¨ã€‚</p>
  * 
- * <p>‚±‚ÌŒŸØƒ‹[ƒ‹ƒNƒ‰ƒX‚ğ—˜—p‚·‚é‚½‚ß‚É‚ÍAƒAƒNƒVƒ‡ƒ“‚²‚Æ‚ÉŒŸØ“à—e‚ğ‹Lq‚µ‚½
- * ƒoƒŠƒf[ƒVƒ‡ƒ“’è‹`ƒtƒ@ƒCƒ‹(validation.xml) ‚ğì¬‚·‚é•K—v‚ª‚ ‚éB</p>
+ * <p>ã“ã®æ¤œè¨¼ãƒ«ãƒ¼ãƒ«ã‚¯ãƒ©ã‚¹ã‚’åˆ©ç”¨ã™ã‚‹ãŸã‚ã«ã¯ã€ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ã”ã¨ã«æ¤œè¨¼å†…å®¹ã‚’è¨˜è¿°ã—ãŸ
+ * ãƒãƒªãƒ‡ãƒ¼ã‚·ãƒ§ãƒ³å®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«(validation.xml) ã‚’ä½œæˆã™ã‚‹å¿…è¦ãŒã‚ã‚‹ã€‚</p>
  *
- * <h5>validation.xml‚Ì‹Lq—ái’P‘ÌƒtƒB[ƒ‹ƒhŒŸØj</h5>
+ * <h5>validation.xmlã®è¨˜è¿°ä¾‹ï¼ˆå˜ä½“ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰æ¤œè¨¼ï¼‰</h5>
  * <code><pre>
  *  &lt;formset&gt;
- *    EEE
- *    &lt;!-- ’P‘Ì‚ÌƒtƒB[ƒ‹ƒhŒŸØ --&gt;
+ *    ãƒ»ãƒ»ãƒ»
+ *    &lt;!-- å˜ä½“ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰æ¤œè¨¼ --&gt;
  *    &lt;form name="testBean"&gt;
  *      &lt;field property="field"
  *          depends="required,alphaNumericString,maxlength"&gt;
@@ -267,27 +267,27 @@ import org.apache.commons.validator.util.ValidatorUtils;
  *        &lt;/var&gt;
  *      &lt;/field&gt;
  *    &lt;/form&gt;
- *    EEE
+ *    ãƒ»ãƒ»ãƒ»
  *  &lt;/formset&gt;
  * </pre></code>
  *
- * <h5>”z—ñEƒRƒŒƒNƒVƒ‡ƒ“Œ^ƒtƒB[ƒ‹ƒh‚Ì“ü—Íƒ`ƒFƒbƒN</h5>
+ * <h5>é…åˆ—ãƒ»ã‚³ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³å‹ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®å…¥åŠ›ãƒã‚§ãƒƒã‚¯</h5>
  *
- * <p>‚±‚ÌƒNƒ‰ƒX‚Ì
+ * <p>ã“ã®ã‚¯ãƒ©ã‚¹ã®
  * {@link #validateArraysIndex(
  * Object, ValidatorAction, Field, ValidationErrors)}
- * ƒƒ\ƒbƒh‚ğg—p‚·‚é‚±‚Æ‚É‚æ‚èA”z—ñEƒRƒŒƒNƒVƒ‡ƒ“Œ^‚Ì“ü—Íƒ`ƒFƒbƒN‚ª
- * ‰Â”\‚É‚È‚éB</p>
+ * ãƒ¡ã‚½ãƒƒãƒ‰ã‚’ä½¿ç”¨ã™ã‚‹ã“ã¨ã«ã‚ˆã‚Šã€é…åˆ—ãƒ»ã‚³ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³å‹ã®å…¥åŠ›ãƒã‚§ãƒƒã‚¯ãŒ
+ * å¯èƒ½ã«ãªã‚‹ã€‚</p>
  *
- * <p>—á‚¦‚ÎAfields‚Æ‚¢‚¤”z—ñ‚ÌƒvƒƒpƒeƒB‚ğ‚ÂbeanƒCƒ“ƒXƒ^ƒ“ƒX‚É‘Î‚µ‚ÄA
- * fields—v‘f‚É‘Î‚·‚é•K{ƒ`ƒFƒbƒN‚ğs‚È‚¤ê‡Avalidation.xml‚ÌƒvƒƒpƒeƒB–¼‚É
- * fields‚Æ‹Lq‚·‚éB
- * Às‚É‚ÍAƒVƒXƒeƒ€‘¤‚ÅfieldsƒvƒƒpƒeƒB‚Ì”z—ñ‚ğ‚O”Ô–Ú‚©‚ç‡‚É‘–¸‚µ‚ÄA
- * ‘S—v‘f‚É‘Î‚µ‚Äƒ`ƒFƒbƒNƒƒ\ƒbƒh‚ğÀs‚·‚éB
- * Às‚·‚éƒ‹[ƒ‹ivalidation.xml‚Ìdependsw’èj‚ÍAƒ‹[ƒ‹–¼‚ÉhArrayh‚ğ
- * ‰Á‚¦‚½–¼‘O‚ğw’è‚·‚éB</p>
+ * <p>ä¾‹ãˆã°ã€fieldsã¨ã„ã†é…åˆ—ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚’æŒã¤beanã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã«å¯¾ã—ã¦ã€
+ * fieldsè¦ç´ ã«å¯¾ã™ã‚‹å¿…é ˆãƒã‚§ãƒƒã‚¯ã‚’è¡Œãªã†å ´åˆã€validation.xmlã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£åã«
+ * fieldsã¨è¨˜è¿°ã™ã‚‹ã€‚
+ * å®Ÿè¡Œæ™‚ã«ã¯ã€ã‚·ã‚¹ãƒ†ãƒ å´ã§fieldsãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã®é…åˆ—ã‚’ï¼ç•ªç›®ã‹ã‚‰é †ã«èµ°æŸ»ã—ã¦ã€
+ * å…¨è¦ç´ ã«å¯¾ã—ã¦ãƒã‚§ãƒƒã‚¯ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å®Ÿè¡Œã™ã‚‹ã€‚
+ * å®Ÿè¡Œã™ã‚‹ãƒ«ãƒ¼ãƒ«ï¼ˆvalidation.xmlã®dependsæŒ‡å®šï¼‰ã¯ã€ãƒ«ãƒ¼ãƒ«åã«â€Arrayâ€ã‚’
+ * åŠ ãˆãŸåå‰ã‚’æŒ‡å®šã™ã‚‹ã€‚</p>
  *
- * ”z—ñEƒRƒŒƒNƒVƒ‡ƒ“Œ^‚Ìˆê——ŒŸØ‚É‘Î‰‚·‚éƒ‹[ƒ‹‚ÍˆÈ‰º‚Ì’Ê‚è‚Å‚ ‚éB
+ * é…åˆ—ãƒ»ã‚³ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³å‹ã®ä¸€è¦§æ¤œè¨¼ã«å¯¾å¿œã™ã‚‹ãƒ«ãƒ¼ãƒ«ã¯ä»¥ä¸‹ã®é€šã‚Šã§ã‚ã‚‹ã€‚
  * <ul>
  *   <li><code>requiredArray</code></li>
  *   <li><code>minLengthArray</code></li>
@@ -320,14 +320,14 @@ import org.apache.commons.validator.util.ValidatorUtils;
  *   <li><code>byteRangeArray</code></li>
  * </ul>
  *
- * <p>ƒ‹[ƒ‹‚ğ’Ç‰Á‚µ‚½ê‡A”z—ñEƒRƒŒƒNƒVƒ‡ƒ“—p‚Ìƒƒ\ƒbƒh‚ğ•Ê“rì¬‚·‚é
- * •K—v‚ª‚ ‚éB</p>
+ * <p>ãƒ«ãƒ¼ãƒ«ã‚’è¿½åŠ ã—ãŸå ´åˆã€é…åˆ—ãƒ»ã‚³ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³ç”¨ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚’åˆ¥é€”ä½œæˆã™ã‚‹
+ * å¿…è¦ãŒã‚ã‚‹ã€‚</p>
  *
- * <p>“ü—Íƒ`ƒFƒbƒN‚ÅƒGƒ‰[‚ªŒŸo‚³‚ê‚½ê‡AˆÈ‰º‚Ìî•ñ‚ğ•Ô‚·B
+ * <p>å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã§ã‚¨ãƒ©ãƒ¼ãŒæ¤œå‡ºã•ã‚ŒãŸå ´åˆã€ä»¥ä¸‹ã®æƒ…å ±ã‚’è¿”ã™ã€‚
  * <ul>
- *   <li>ƒGƒ‰[ƒR[ƒh</li>
- *   <li>ƒGƒ‰[‚ª”­¶‚µ‚½ƒvƒƒpƒeƒB–¼</li>
- *   <li>’uŠ·•¶š—ñ</li>
+ *   <li>ã‚¨ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰</li>
+ *   <li>ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸãƒ—ãƒ­ãƒ‘ãƒ†ã‚£å</li>
+ *   <li>ç½®æ›æ–‡å­—åˆ—</li>
  * </ul>
  * </p>
  *
@@ -337,29 +337,29 @@ import org.apache.commons.validator.util.ValidatorUtils;
 public class FieldChecks {
 
     /**
-     * –{ƒNƒ‰ƒX‚Å—˜—p‚·‚éƒƒOB
+     * æœ¬ã‚¯ãƒ©ã‚¹ã§åˆ©ç”¨ã™ã‚‹ãƒ­ã‚°ã€‚
      */
     private static Log log = LogFactory.getLog(FieldChecks.class);
 
     /**
-     * “ü—Í’l‚ÌNullŒŸØ‚ÆAƒXƒy[ƒX‚ğœ‚¢‚½“ü—Í’l‚Ì•¶š—ñ’·‚ª0‚æ‚è‘å‚«‚¢‚©
-     * ŒŸØ‚·‚éB
+     * å…¥åŠ›å€¤ã®Nullæ¤œè¨¼ã¨ã€ã‚¹ãƒšãƒ¼ã‚¹ã‚’é™¤ã„ãŸå…¥åŠ›å€¤ã®æ–‡å­—åˆ—é•·ãŒ0ã‚ˆã‚Šå¤§ãã„ã‹
+     * æ¤œè¨¼ã™ã‚‹ã€‚
      *
-     * @param bean ŒŸ¸‘ÎÛ‚ÌJavaBeanƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param va ŒŸØ’†‚Ì<code>ValidatorAction</code>ƒCƒ“ƒXƒ^ƒ“ƒXB
-     * @param field ŒŸØ’†‚Ì<code>Field</code>ƒCƒ“ƒXƒ^ƒ“ƒXB
-     * @param errors ŒŸØƒGƒ‰[‚ª”­¶‚µ‚½ê‡A
-     * ƒGƒ‰[î•ñ‚ğŠi”[‚·‚éƒIƒuƒWƒFƒNƒgB
-     * @return ŒŸØ‚É¬Œ÷‚µ‚½ê‡‚Í<code>true</code>‚ğ•Ô‚·B
-     * ŒŸØƒGƒ‰[‚ª‚ ‚éê‡A<code>false</code>‚ğ•Ô‚·B
+     * @param bean æ¤œæŸ»å¯¾è±¡ã®JavaBeanã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param va æ¤œè¨¼ä¸­ã®<code>ValidatorAction</code>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
+     * @param field æ¤œè¨¼ä¸­ã®<code>Field</code>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
+     * @param errors æ¤œè¨¼ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´åˆã€
+     * ã‚¨ãƒ©ãƒ¼æƒ…å ±ã‚’æ ¼ç´ã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
+     * @return æ¤œè¨¼ã«æˆåŠŸã—ãŸå ´åˆã¯<code>true</code>ã‚’è¿”ã™ã€‚
+     * æ¤œè¨¼ã‚¨ãƒ©ãƒ¼ãŒã‚ã‚‹å ´åˆã€<code>false</code>ã‚’è¿”ã™ã€‚
      */
     public boolean validateRequired(
             Object bean, ValidatorAction va,
             Field field, ValidationErrors errors) {
-        // ŒŸØ’l
+        // æ¤œè¨¼å€¤
         String value = extractValue(bean, field);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         if (GenericValidator.isBlankOrNull(value)) {
             rejectValue(errors, field, va, bean);
             return false;
@@ -368,15 +368,15 @@ public class FieldChecks {
     }
 
     /**
-     * “ü—Í’l‚ªw’è‚³‚ê‚½³‹K•\Œ»‚É“K‡‚·‚é‚©ŒŸØ‚·‚éB
+     * å…¥åŠ›å€¤ãŒæŒ‡å®šã•ã‚ŒãŸæ­£è¦è¡¨ç¾ã«é©åˆã™ã‚‹ã‹æ¤œè¨¼ã™ã‚‹ã€‚
      *
-     * <p>ˆÈ‰º‚ÍA•¶š—ñ‚ª”¼Šp‰p”š‚Å‚ ‚é‚Æ‚«‚Ì‚İtrue‚ğ•Ô‹p‚·‚é
-     * ŒŸØ‚Ìİ’è—á‚Å‚ ‚éB
+     * <p>ä»¥ä¸‹ã¯ã€æ–‡å­—åˆ—ãŒåŠè§’è‹±æ•°å­—ã§ã‚ã‚‹ã¨ãã®ã¿trueã‚’è¿”å´ã™ã‚‹
+     * æ¤œè¨¼ã®è¨­å®šä¾‹ã§ã‚ã‚‹ã€‚
      *
-     * <h5>validation.xml‚Ì‹Lq—á</h5>
+     * <h5>validation.xmlã®è¨˜è¿°ä¾‹</h5>
      * <code><pre>
      * &lt;form name=&quot;sample&quot;&gt;
-     *  EEE
+     *  ãƒ»ãƒ»ãƒ»
      *  &lt;field property=&quot;maskField&quot;
      *      depends=&quot;mask&quot;&gt;
      *    &lt;arg key=&quot;sample.escape&quot; position="0"/&gt;
@@ -385,58 +385,58 @@ public class FieldChecks {
      *      &lt;var-value&gt;^([0-9]|[a-z]|[A-Z])*$&lt;/var-value&gt;
      *    &lt;/var&gt;
      *  &lt;/field&gt;
-     *  EEE
+     *  ãƒ»ãƒ»ãƒ»
      * &lt;/form&gt;
      * </pre></code>
      *
-     * <h5>validation.xml‚Éİ’è‚ğ—v‚·‚é&lt;var&gt;—v‘f</h5>
+     * <h5>validation.xmlã«è¨­å®šã‚’è¦ã™ã‚‹&lt;var&gt;è¦ç´ </h5>
      * <table border="1">
      *  <tr>
      *   <td><center><b><code>var-name</code></b></center></td>
      *   <td><center><b><code>var-value</code></b></center></td>
-     *   <td><center><b>•K{«</b></center></td>
-     *   <td><center><b>ŠT—v</b></center></td>
+     *   <td><center><b>å¿…é ˆæ€§</b></center></td>
+     *   <td><center><b>æ¦‚è¦</b></center></td>
      *  </tr>
      *  <tr>
      *   <td> mask </td>
-     *   <td>³‹K•\Œ»</td>
+     *   <td>æ­£è¦è¡¨ç¾</td>
      *   <td>true</td>
-     *   <td>“ü—Í•¶š—ñ‚ªw’è‚³‚ê‚½³‹K•\Œ»‚É‡’v‚·‚é‚Æ‚«‚Í <code>true</code>
-     *       ‚ª•Ô‹p‚³‚ê‚éBw’è‚³‚ê‚È‚¢ê‡‚ÍValidatorException
-     *       ‚ªƒXƒ[‚³‚ê‚éB</td>
+     *   <td>å…¥åŠ›æ–‡å­—åˆ—ãŒæŒ‡å®šã•ã‚ŒãŸæ­£è¦è¡¨ç¾ã«åˆè‡´ã™ã‚‹ã¨ãã¯ <code>true</code>
+     *       ãŒè¿”å´ã•ã‚Œã‚‹ã€‚æŒ‡å®šã•ã‚Œãªã„å ´åˆã¯ValidatorException
+     *       ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã€‚</td>
      *  </tr>
      * </table>
      *
-     * @param bean ŒŸ¸‘ÎÛ‚ÌJavaBeanƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param va ŒŸØ’†‚Ì<code>ValidatorAction</code>ƒCƒ“ƒXƒ^ƒ“ƒXB
-     * @param field ŒŸØ’†‚Ì<code>Field</code>ƒCƒ“ƒXƒ^ƒ“ƒXB
-     * @param errors ŒŸØƒGƒ‰[‚ª”­¶‚µ‚½ê‡A
-     * ƒGƒ‰[î•ñ‚ğŠi”[‚·‚éƒIƒuƒWƒFƒNƒgB
-     * @return ŒŸØ‚É¬Œ÷‚µ‚½ê‡‚Í<code>true</code>‚ğ•Ô‚·B
-     * ŒŸØƒGƒ‰[‚ª‚ ‚éê‡A<code>false</code>‚ğ•Ô‚·B
-     * @exception ValidatorException İ’èƒtƒ@ƒCƒ‹‚©‚çmask(³‹K•\Œ»)‚Ì’l‚ª
-     * æ“¾‚Å‚«‚È‚¢ê‡‚ÉƒXƒ[‚³‚ê‚éB
+     * @param bean æ¤œæŸ»å¯¾è±¡ã®JavaBeanã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param va æ¤œè¨¼ä¸­ã®<code>ValidatorAction</code>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
+     * @param field æ¤œè¨¼ä¸­ã®<code>Field</code>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
+     * @param errors æ¤œè¨¼ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´åˆã€
+     * ã‚¨ãƒ©ãƒ¼æƒ…å ±ã‚’æ ¼ç´ã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
+     * @return æ¤œè¨¼ã«æˆåŠŸã—ãŸå ´åˆã¯<code>true</code>ã‚’è¿”ã™ã€‚
+     * æ¤œè¨¼ã‚¨ãƒ©ãƒ¼ãŒã‚ã‚‹å ´åˆã€<code>false</code>ã‚’è¿”ã™ã€‚
+     * @exception ValidatorException è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰mask(æ­£è¦è¡¨ç¾)ã®å€¤ãŒ
+     * å–å¾—ã§ããªã„å ´åˆã«ã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã€‚
      */
     public boolean validateMask(
             Object bean, ValidatorAction va,
             Field field, ValidationErrors errors)
             throws ValidatorException {
-        // ŒŸØ’l
+        // æ¤œè¨¼å€¤
         String value = extractValue(bean, field);
         if (StringUtils.isEmpty(value)) {
             return true;
         }
 
-        // ³‹K•\Œ»
+        // æ­£è¦è¡¨ç¾
         String mask = field.getVarValue("mask");
 
-        // var‚©‚çmask‚ªæ“¾‚Å‚«‚È‚¢ê‡‚ÍValidatorException
+        // varã‹ã‚‰maskãŒå–å¾—ã§ããªã„å ´åˆã¯ValidatorException
         if (StringUtils.isEmpty(mask)) {
             log.error("var[mask] must be specified.");
             throw new ValidatorException("var[mask] must be specified.");
         }
 
-        // ŒŸØ
+        // æ¤œè¨¼
         if (!GenericValidator.matchRegexp(value, mask)) {
             rejectValue(errors, field, va, bean);
             return false;
@@ -445,26 +445,26 @@ public class FieldChecks {
     }
 
     /**
-     * “ü—Í’l‚ªbyteŒ^‚É•ÏŠ·‰Â”\‚©ŒŸØ‚·‚éB
+     * å…¥åŠ›å€¤ãŒbyteå‹ã«å¤‰æ›å¯èƒ½ã‹æ¤œè¨¼ã™ã‚‹ã€‚
      *
-     * @param bean ŒŸ¸‘ÎÛ‚ÌJavaBeanƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param va ŒŸØ’†‚Ì<code>ValidatorAction</code>ƒCƒ“ƒXƒ^ƒ“ƒXB
-     * @param field ŒŸØ’†‚Ì<code>Field</code>ƒCƒ“ƒXƒ^ƒ“ƒXB
-     * @param errors ŒŸØƒGƒ‰[‚ª”­¶‚µ‚½ê‡A
-     * ƒGƒ‰[î•ñ‚ğŠi”[‚·‚éƒIƒuƒWƒFƒNƒgB
-     * @return ŒŸØ‚É¬Œ÷‚µ‚½ê‡‚Í<code>true</code>‚ğ•Ô‚·B
-     * ŒŸØƒGƒ‰[‚ª‚ ‚éê‡A<code>false</code>‚ğ•Ô‚·B
+     * @param bean æ¤œæŸ»å¯¾è±¡ã®JavaBeanã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param va æ¤œè¨¼ä¸­ã®<code>ValidatorAction</code>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
+     * @param field æ¤œè¨¼ä¸­ã®<code>Field</code>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
+     * @param errors æ¤œè¨¼ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´åˆã€
+     * ã‚¨ãƒ©ãƒ¼æƒ…å ±ã‚’æ ¼ç´ã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
+     * @return æ¤œè¨¼ã«æˆåŠŸã—ãŸå ´åˆã¯<code>true</code>ã‚’è¿”ã™ã€‚
+     * æ¤œè¨¼ã‚¨ãƒ©ãƒ¼ãŒã‚ã‚‹å ´åˆã€<code>false</code>ã‚’è¿”ã™ã€‚
      */
     public boolean validateByte(
             Object bean, ValidatorAction va,
             Field field, ValidationErrors errors) {
-        // ŒŸØ’l
+        // æ¤œè¨¼å€¤
         String value = extractValue(bean, field);
         if (StringUtils.isEmpty(value)) {
             return true;
         }
 
-        // ŒŸØ
+        // æ¤œè¨¼
         if (GenericTypeValidator.formatByte(value) == null) {
             rejectValue(errors, field, va, bean);
             return false;
@@ -473,26 +473,26 @@ public class FieldChecks {
     }
 
     /**
-     * “ü—Í’l‚ªshortŒ^‚É•ÏŠ·‰Â”\‚©ŒŸØ‚·‚éB
+     * å…¥åŠ›å€¤ãŒshortå‹ã«å¤‰æ›å¯èƒ½ã‹æ¤œè¨¼ã™ã‚‹ã€‚
      *
-     * @param bean ŒŸ¸‘ÎÛ‚ÌJavaBeanƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param va ŒŸØ’†‚Ì<code>ValidatorAction</code>ƒCƒ“ƒXƒ^ƒ“ƒXB
-     * @param field ŒŸØ’†‚Ì<code>Field</code>ƒCƒ“ƒXƒ^ƒ“ƒXB
-     * @param errors ŒŸØƒGƒ‰[‚ª”­¶‚µ‚½ê‡A
-     * ƒGƒ‰[î•ñ‚ğŠi”[‚·‚éƒIƒuƒWƒFƒNƒgB
-     * @return ŒŸØ‚É¬Œ÷‚µ‚½ê‡‚Í<code>true</code>‚ğ•Ô‚·B
-     * ŒŸØƒGƒ‰[‚ª‚ ‚éê‡A<code>false</code>‚ğ•Ô‚·B
+     * @param bean æ¤œæŸ»å¯¾è±¡ã®JavaBeanã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param va æ¤œè¨¼ä¸­ã®<code>ValidatorAction</code>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
+     * @param field æ¤œè¨¼ä¸­ã®<code>Field</code>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
+     * @param errors æ¤œè¨¼ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´åˆã€
+     * ã‚¨ãƒ©ãƒ¼æƒ…å ±ã‚’æ ¼ç´ã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
+     * @return æ¤œè¨¼ã«æˆåŠŸã—ãŸå ´åˆã¯<code>true</code>ã‚’è¿”ã™ã€‚
+     * æ¤œè¨¼ã‚¨ãƒ©ãƒ¼ãŒã‚ã‚‹å ´åˆã€<code>false</code>ã‚’è¿”ã™ã€‚
      */
     public boolean validateShort(
             Object bean, ValidatorAction va,
             Field field, ValidationErrors errors) {
-        // ŒŸØ’l
+        // æ¤œè¨¼å€¤
         String value = extractValue(bean, field);
         if (StringUtils.isEmpty(value)) {
             return true;
         }
 
-        // ŒŸØ
+        // æ¤œè¨¼
         if (GenericTypeValidator.formatShort(value) == null) {
             rejectValue(errors, field, va, bean);
             return false;
@@ -501,26 +501,26 @@ public class FieldChecks {
     }
 
     /**
-     * “ü—Í’l‚ªintŒ^‚É•ÏŠ·‰Â”\‚©ŒŸØ‚·‚éB
+     * å…¥åŠ›å€¤ãŒintå‹ã«å¤‰æ›å¯èƒ½ã‹æ¤œè¨¼ã™ã‚‹ã€‚
      *
-     * @param bean ŒŸ¸‘ÎÛ‚ÌJavaBeanƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param va ŒŸØ’†‚Ì<code>ValidatorAction</code>ƒCƒ“ƒXƒ^ƒ“ƒXB
-     * @param field ŒŸØ’†‚Ì<code>Field</code>ƒCƒ“ƒXƒ^ƒ“ƒXB
-     * @param errors ŒŸØƒGƒ‰[‚ª”­¶‚µ‚½ê‡A
-     * ƒGƒ‰[î•ñ‚ğŠi”[‚·‚éƒIƒuƒWƒFƒNƒgB
-     * @return ŒŸØ‚É¬Œ÷‚µ‚½ê‡‚Í<code>true</code>‚ğ•Ô‚·B
-     * ŒŸØƒGƒ‰[‚ª‚ ‚éê‡A<code>false</code>‚ğ•Ô‚·B
+     * @param bean æ¤œæŸ»å¯¾è±¡ã®JavaBeanã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param va æ¤œè¨¼ä¸­ã®<code>ValidatorAction</code>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
+     * @param field æ¤œè¨¼ä¸­ã®<code>Field</code>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
+     * @param errors æ¤œè¨¼ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´åˆã€
+     * ã‚¨ãƒ©ãƒ¼æƒ…å ±ã‚’æ ¼ç´ã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
+     * @return æ¤œè¨¼ã«æˆåŠŸã—ãŸå ´åˆã¯<code>true</code>ã‚’è¿”ã™ã€‚
+     * æ¤œè¨¼ã‚¨ãƒ©ãƒ¼ãŒã‚ã‚‹å ´åˆã€<code>false</code>ã‚’è¿”ã™ã€‚
      */
     public boolean validateInteger(
             Object bean, ValidatorAction va,
             Field field, ValidationErrors errors) {
-        // ŒŸØ
+        // æ¤œè¨¼
         String value = extractValue(bean, field);
         if (StringUtils.isEmpty(value)) {
             return true;
         }
 
-        // ŒŸØ
+        // æ¤œè¨¼
         if (GenericTypeValidator.formatInt(value) == null) {
             rejectValue(errors, field, va, bean);
             return false;
@@ -529,26 +529,26 @@ public class FieldChecks {
     }
 
     /**
-     * “ü—Í’l‚ªlongŒ^‚É•ÏŠ·‰Â”\‚©ŒŸØ‚·‚éB
+     * å…¥åŠ›å€¤ãŒlongå‹ã«å¤‰æ›å¯èƒ½ã‹æ¤œè¨¼ã™ã‚‹ã€‚
      *
-     * @param bean ŒŸ¸‘ÎÛ‚ÌJavaBeanƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param va ŒŸØ’†‚Ì<code>ValidatorAction</code>ƒCƒ“ƒXƒ^ƒ“ƒXB
-     * @param field ŒŸØ’†‚Ì<code>Field</code>ƒCƒ“ƒXƒ^ƒ“ƒXB
-     * @param errors ŒŸØƒGƒ‰[‚ª”­¶‚µ‚½ê‡A
-     * ƒGƒ‰[î•ñ‚ğŠi”[‚·‚éƒIƒuƒWƒFƒNƒgB
-     * @return ŒŸØ‚É¬Œ÷‚µ‚½ê‡‚Í<code>true</code>‚ğ•Ô‚·B
-     * ŒŸØƒGƒ‰[‚ª‚ ‚éê‡A<code>false</code>‚ğ•Ô‚·B
+     * @param bean æ¤œæŸ»å¯¾è±¡ã®JavaBeanã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param va æ¤œè¨¼ä¸­ã®<code>ValidatorAction</code>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
+     * @param field æ¤œè¨¼ä¸­ã®<code>Field</code>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
+     * @param errors æ¤œè¨¼ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´åˆã€
+     * ã‚¨ãƒ©ãƒ¼æƒ…å ±ã‚’æ ¼ç´ã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
+     * @return æ¤œè¨¼ã«æˆåŠŸã—ãŸå ´åˆã¯<code>true</code>ã‚’è¿”ã™ã€‚
+     * æ¤œè¨¼ã‚¨ãƒ©ãƒ¼ãŒã‚ã‚‹å ´åˆã€<code>false</code>ã‚’è¿”ã™ã€‚
      */
     public boolean validateLong(
             Object bean, ValidatorAction va,
             Field field, ValidationErrors errors) {
-        // ŒŸØ’l
+        // æ¤œè¨¼å€¤
         String value = extractValue(bean, field);
         if (StringUtils.isEmpty(value)) {
             return true;
         }
 
-        // ŒŸØ
+        // æ¤œè¨¼
         if (GenericTypeValidator.formatLong(value) == null) {
             rejectValue(errors, field, va, bean);
             return false;
@@ -557,26 +557,26 @@ public class FieldChecks {
     }
 
     /**
-     * “ü—Í’l‚ªfloatŒ^‚É•ÏŠ·‰Â”\‚©ŒŸØ‚·‚éB
+     * å…¥åŠ›å€¤ãŒfloatå‹ã«å¤‰æ›å¯èƒ½ã‹æ¤œè¨¼ã™ã‚‹ã€‚
      *
-     * @param bean ŒŸ¸‘ÎÛ‚ÌJavaBeanƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param va ŒŸØ’†‚Ì<code>ValidatorAction</code>ƒCƒ“ƒXƒ^ƒ“ƒXB
-     * @param field ŒŸØ’†‚Ì<code>Field</code>ƒCƒ“ƒXƒ^ƒ“ƒXB
-     * @param errors ŒŸØƒGƒ‰[‚ª”­¶‚µ‚½ê‡A
-     * ƒGƒ‰[î•ñ‚ğŠi”[‚·‚éƒIƒuƒWƒFƒNƒgB
-     * @return ŒŸØ‚É¬Œ÷‚µ‚½ê‡‚Í<code>true</code>‚ğ•Ô‚·B
-     * ŒŸØƒGƒ‰[‚ª‚ ‚éê‡A<code>false</code>‚ğ•Ô‚·B
+     * @param bean æ¤œæŸ»å¯¾è±¡ã®JavaBeanã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param va æ¤œè¨¼ä¸­ã®<code>ValidatorAction</code>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
+     * @param field æ¤œè¨¼ä¸­ã®<code>Field</code>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
+     * @param errors æ¤œè¨¼ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´åˆã€
+     * ã‚¨ãƒ©ãƒ¼æƒ…å ±ã‚’æ ¼ç´ã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
+     * @return æ¤œè¨¼ã«æˆåŠŸã—ãŸå ´åˆã¯<code>true</code>ã‚’è¿”ã™ã€‚
+     * æ¤œè¨¼ã‚¨ãƒ©ãƒ¼ãŒã‚ã‚‹å ´åˆã€<code>false</code>ã‚’è¿”ã™ã€‚
      */
     public boolean validateFloat(
             Object bean, ValidatorAction va,
             Field field, ValidationErrors errors) {
-        // ŒŸØ’l
+        // æ¤œè¨¼å€¤
         String value = extractValue(bean, field);
         if (StringUtils.isEmpty(value)) {
             return true;
         }
 
-        // ŒŸØ
+        // æ¤œè¨¼
         if (GenericTypeValidator.formatFloat(value) == null) {
             rejectValue(errors, field, va, bean);
             return false;
@@ -585,26 +585,26 @@ public class FieldChecks {
     }
 
     /**
-     * “ü—Í’l‚ªdoubleŒ^‚É•ÏŠ·‰Â”\‚©ŒŸØ‚·‚éB
+     * å…¥åŠ›å€¤ãŒdoubleå‹ã«å¤‰æ›å¯èƒ½ã‹æ¤œè¨¼ã™ã‚‹ã€‚
      *
-     * @param bean ŒŸ¸‘ÎÛ‚ÌJavaBeanƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param va ŒŸØ’†‚Ì<code>ValidatorAction</code>ƒCƒ“ƒXƒ^ƒ“ƒXB
-     * @param field ŒŸØ’†‚Ì<code>Field</code>ƒCƒ“ƒXƒ^ƒ“ƒXB
-     * @param errors ŒŸØƒGƒ‰[‚ª”­¶‚µ‚½ê‡A
-     * ƒGƒ‰[î•ñ‚ğŠi”[‚·‚éƒIƒuƒWƒFƒNƒgB
-     * @return ŒŸØ‚É¬Œ÷‚µ‚½ê‡‚Í<code>true</code>‚ğ•Ô‚·B
-     * ŒŸØƒGƒ‰[‚ª‚ ‚éê‡A<code>false</code>‚ğ•Ô‚·B
+     * @param bean æ¤œæŸ»å¯¾è±¡ã®JavaBeanã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param va æ¤œè¨¼ä¸­ã®<code>ValidatorAction</code>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
+     * @param field æ¤œè¨¼ä¸­ã®<code>Field</code>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
+     * @param errors æ¤œè¨¼ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´åˆã€
+     * ã‚¨ãƒ©ãƒ¼æƒ…å ±ã‚’æ ¼ç´ã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
+     * @return æ¤œè¨¼ã«æˆåŠŸã—ãŸå ´åˆã¯<code>true</code>ã‚’è¿”ã™ã€‚
+     * æ¤œè¨¼ã‚¨ãƒ©ãƒ¼ãŒã‚ã‚‹å ´åˆã€<code>false</code>ã‚’è¿”ã™ã€‚
      */
     public boolean validateDouble(
             Object bean, ValidatorAction va,
             Field field, ValidationErrors errors) {
-        // ŒŸØ’l
+        // æ¤œè¨¼å€¤
         String value = extractValue(bean, field);
         if (StringUtils.isEmpty(value)) {
             return true;
         }
 
-        // ŒŸØ
+        // æ¤œè¨¼
         if (GenericTypeValidator.formatDouble(value) == null) {
             rejectValue(errors, field, va, bean);
             return false;
@@ -613,34 +613,34 @@ public class FieldChecks {
     }
 
     /**
-     * “ü—Í’l‚ª—LŒø‚È“ú•t‚©ŒŸØ‚·‚éB
+     * å…¥åŠ›å€¤ãŒæœ‰åŠ¹ãªæ—¥ä»˜ã‹æ¤œè¨¼ã™ã‚‹ã€‚
      *
-     * <p>field‚ÉudatePatternv•Ï”‚ª’è‹`‚³‚ê‚Ä‚¢‚éê‡A
-     * <code>java.text.SimpleDateFormat</code>ƒNƒ‰ƒX‚ğ
-     * —˜—p‚µ‚½ƒtƒH[ƒ}ƒbƒg‚ÌŒŸØ‚ªs‚í‚ê‚éB</p>
+     * <p>fieldã«ã€ŒdatePatternã€å¤‰æ•°ãŒå®šç¾©ã•ã‚Œã¦ã„ã‚‹å ´åˆã€
+     * <code>java.text.SimpleDateFormat</code>ã‚¯ãƒ©ã‚¹ã‚’
+     * åˆ©ç”¨ã—ãŸãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã®æ¤œè¨¼ãŒè¡Œã‚ã‚Œã‚‹ã€‚</p>
      *
-     * <p>field‚ÉudatePatternStrictv•Ï”‚ª’è‹`‚³‚ê‚Ä‚¢‚éê‡A
-     * <code>java.text.SimpleDateFormat</code>ƒNƒ‰ƒX‚ğ—˜—p‚µ‚½ƒtƒH[ƒ}ƒbƒg‚Æ
-     * Œ…”‚ÌŒŸØ‚ªs‚í‚ê‚éB
-     * —á‚¦‚ÎA'2/12/1999'‚Í'MM/dd/yyyy'Œ`®‚ÌƒtƒH[ƒ}ƒbƒg‚É‚·‚é‚Æ
-     * ŒiMonth)‚ª‚QŒ…‚Å‚È‚¢‚½‚ßAŒŸØƒGƒ‰[‚Æ‚È‚éB</p>
+     * <p>fieldã«ã€ŒdatePatternStrictã€å¤‰æ•°ãŒå®šç¾©ã•ã‚Œã¦ã„ã‚‹å ´åˆã€
+     * <code>java.text.SimpleDateFormat</code>ã‚¯ãƒ©ã‚¹ã‚’åˆ©ç”¨ã—ãŸãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã¨
+     * æ¡æ•°ã®æ¤œè¨¼ãŒè¡Œã‚ã‚Œã‚‹ã€‚
+     * ä¾‹ãˆã°ã€'2/12/1999'ã¯'MM/dd/yyyy'å½¢å¼ã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã«ã™ã‚‹ã¨
+     * æœˆï¼ˆMonth)ãŒï¼’æ¡ã§ãªã„ãŸã‚ã€æ¤œè¨¼ã‚¨ãƒ©ãƒ¼ã¨ãªã‚‹ã€‚</p>
      *
-     * <p>udatePatternv•Ï”‚ÆAudatePatternStrictv•Ï”‚Ì—¼•û‚ªw’è‚³‚ê‚½
-     * ê‡AudatePatternv•Ï”‚ª—Dæ‚µ‚Äg—p‚³‚ê‚éB
-     *  udatePatternv•Ï”‚ÆAudatePatternStrictv•Ï”‚Ì—¼•û‚ªw’è‚³‚ê‚Ä‚¢‚È‚¢
-     *  ê‡A—áŠO‚ª”­¶‚·‚éB‚Ü‚½A“ú•tƒpƒ^[ƒ“‚É–³Œø‚È•¶š—ñ‚ªŠÜ‚Ü‚ê‚Ä‚¢‚é
-     *  ê‡‚à—áŠO‚ª”­¶‚·‚é</p>
+     * <p>ã€ŒdatePatternã€å¤‰æ•°ã¨ã€ã€ŒdatePatternStrictã€å¤‰æ•°ã®ä¸¡æ–¹ãŒæŒ‡å®šã•ã‚ŒãŸ
+     * å ´åˆã€ã€ŒdatePatternã€å¤‰æ•°ãŒå„ªå…ˆã—ã¦ä½¿ç”¨ã•ã‚Œã‚‹ã€‚
+     *  ã€ŒdatePatternã€å¤‰æ•°ã¨ã€ã€ŒdatePatternStrictã€å¤‰æ•°ã®ä¸¡æ–¹ãŒæŒ‡å®šã•ã‚Œã¦ã„ãªã„
+     *  å ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã€‚ã¾ãŸã€æ—¥ä»˜ãƒ‘ã‚¿ãƒ¼ãƒ³ã«ç„¡åŠ¹ãªæ–‡å­—åˆ—ãŒå«ã¾ã‚Œã¦ã„ã‚‹
+     *  å ´åˆã‚‚ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹</p>
      *
-     * <p>ƒtƒH[ƒ}ƒbƒg‚É‚Í•K‚¸usetLenient=falsev‚ªİ’è‚³‚ê‚é‚½‚ßA
-     * 2000/02/31‚Ì‚æ‚¤‚È‘¶İ‚µ‚È‚¢“ú•t‚ÍA‚¢‚¸‚ê‚Ìê‡‚à‹–—e‚³‚ê‚È‚¢B</p>
+     * <p>ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆæ™‚ã«ã¯å¿…ãšã€ŒsetLenient=falseã€ãŒè¨­å®šã•ã‚Œã‚‹ãŸã‚ã€
+     * 2000/02/31ã®ã‚ˆã†ãªå­˜åœ¨ã—ãªã„æ—¥ä»˜ã¯ã€ã„ãšã‚Œã®å ´åˆã‚‚è¨±å®¹ã•ã‚Œãªã„ã€‚</p>
      *
-     * ˆÈ‰º‚ÍA•¶š—ñ‚ªyyyy/MM/ddŒ^‚Ì“ú•tƒpƒ^[ƒ“‚É‡’v‚·‚é‚±‚Æ‚ğŒŸØ
-     * ‚·‚éê‡‚Ìİ’è—á‚Å‚ ‚éB
+     * ä»¥ä¸‹ã¯ã€æ–‡å­—åˆ—ãŒyyyy/MM/ddå‹ã®æ—¥ä»˜ãƒ‘ã‚¿ãƒ¼ãƒ³ã«åˆè‡´ã™ã‚‹ã“ã¨ã‚’æ¤œè¨¼
+     * ã™ã‚‹å ´åˆã®è¨­å®šä¾‹ã§ã‚ã‚‹ã€‚
      *
-     * <h5>validation.xml‚Ì‹Lq—á</h5>
+     * <h5>validation.xmlã®è¨˜è¿°ä¾‹</h5>
      * <code><pre>
      * &lt;form name=&quot;sample&quot;&gt;
-     *  EEE
+     *  ãƒ»ãƒ»ãƒ»
      *  &lt;field property=&quot;dateField&quot;
      *      depends=&quot;date&quot;&gt;
      *    &lt;arg key=&quot;sample.dateField&quot; position="0"/&gt;
@@ -649,71 +649,71 @@ public class FieldChecks {
      *      &lt;var-value&gt;yyyy/MM/dd&lt;/var-value&gt;
      *    &lt;/var&gt;
      *  &lt;/field&gt;
-     *  EEE
+     *  ãƒ»ãƒ»ãƒ»
      * &lt;/form&gt;
      * </pre></code>
      *
-     * <h5>validation.xml‚Éİ’è‚ğ—v‚·‚é&lt;var&gt;—v‘f</h5>
+     * <h5>validation.xmlã«è¨­å®šã‚’è¦ã™ã‚‹&lt;var&gt;è¦ç´ </h5>
      * <table border="1">
      *  <tr>
      *   <td><center><b><code>var-name</code></b></center></td>
      *   <td><center><b><code>var-value</code></b></center></td>
-     *   <td><center><b>•K{«</b></center></td>
-     *   <td><center><b>ŠT—v</b></center></td>
+     *   <td><center><b>å¿…é ˆæ€§</b></center></td>
+     *   <td><center><b>æ¦‚è¦</b></center></td>
      *  </tr>
      *  <tr>
      *   <td> datePattern </td>
-     *   <td>“ú•tƒpƒ^[ƒ“</td>
+     *   <td>æ—¥ä»˜ãƒ‘ã‚¿ãƒ¼ãƒ³</td>
      *   <td>false</td>
-     *   <td>“ú•tƒpƒ^[ƒ“‚ğw’è‚·‚éB“ü—Í’l‚ÌŒ…”ƒ`ƒFƒbƒN‚Ís‚í‚È‚¢B
-     *   ‚½‚Æ‚¦‚ÎA“ú•tƒpƒ^[ƒ“‚ªyyyy/MM/dd‚Ìê‡A2001/1/1‚ÍƒGƒ‰[‚É‚È‚ç‚È‚¢B
-     *   datePattern‚ÆdatePatternStrict‚ª—¼•ûw’è‚³‚ê‚Ä‚¢‚éê‡‚ÍA
-     *   datePattern‚ª—Dæ‚µ‚Äg—p‚³‚ê‚éB
+     *   <td>æ—¥ä»˜ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’æŒ‡å®šã™ã‚‹ã€‚å…¥åŠ›å€¤ã®æ¡æ•°ãƒã‚§ãƒƒã‚¯ã¯è¡Œã‚ãªã„ã€‚
+     *   ãŸã¨ãˆã°ã€æ—¥ä»˜ãƒ‘ã‚¿ãƒ¼ãƒ³ãŒyyyy/MM/ddã®å ´åˆã€2001/1/1ã¯ã‚¨ãƒ©ãƒ¼ã«ãªã‚‰ãªã„ã€‚
+     *   datePatternã¨datePatternStrictãŒä¸¡æ–¹æŒ‡å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã¯ã€
+     *   datePatternãŒå„ªå…ˆã—ã¦ä½¿ç”¨ã•ã‚Œã‚‹ã€‚
      *   </td>
      *  </tr>
      *  <tr>
      *   <td> datePatternStrict </td>
-     *   <td>“ú•tƒpƒ^[ƒ“</td>
+     *   <td>æ—¥ä»˜ãƒ‘ã‚¿ãƒ¼ãƒ³</td>
      *   <td>false</td>
-     *   <td>“ú•tƒpƒ^[ƒ“‚ğw’è‚·‚éB“ü—Í’l‚ÌŒ…”‚ªA
-     *   w’è‚³‚ê‚½“ú•tƒpƒ^[ƒ“‚ÌŒ…”‚É‡’v‚·‚é‚©‚Ìƒ`ƒFƒbƒN‚ğs‚¤B
-     *   ‚½‚Æ‚¦‚ÎA“ú•tƒpƒ^[ƒ“‚ªyyyy/MM/dd‚Ìê‡A2001/1/1‚ÍƒGƒ‰[‚É‚È‚éB
-     *   datePattern‚ÆdatePatternStrict‚ª—¼•ûw’è‚³‚ê‚Ä‚¢‚éê‡‚ÍA
-     *   datePattern‚ª—Dæ‚µ‚Äg—p‚³‚ê‚éB
+     *   <td>æ—¥ä»˜ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’æŒ‡å®šã™ã‚‹ã€‚å…¥åŠ›å€¤ã®æ¡æ•°ãŒã€
+     *   æŒ‡å®šã•ã‚ŒãŸæ—¥ä»˜ãƒ‘ã‚¿ãƒ¼ãƒ³ã®æ¡æ•°ã«åˆè‡´ã™ã‚‹ã‹ã®ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†ã€‚
+     *   ãŸã¨ãˆã°ã€æ—¥ä»˜ãƒ‘ã‚¿ãƒ¼ãƒ³ãŒyyyy/MM/ddã®å ´åˆã€2001/1/1ã¯ã‚¨ãƒ©ãƒ¼ã«ãªã‚‹ã€‚
+     *   datePatternã¨datePatternStrictãŒä¸¡æ–¹æŒ‡å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã¯ã€
+     *   datePatternãŒå„ªå…ˆã—ã¦ä½¿ç”¨ã•ã‚Œã‚‹ã€‚
      *   </td>
      *  </tr>
      * </table>
      *
-     * @param bean ŒŸ¸‘ÎÛ‚ÌJavaBeanƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param va ŒŸØ’†‚Ì<code>ValidatorAction</code>ƒCƒ“ƒXƒ^ƒ“ƒXB
-     * @param field ŒŸØ’†‚Ì<code>Field</code>ƒCƒ“ƒXƒ^ƒ“ƒXB
-     * @param errors ŒŸØƒGƒ‰[‚ª”­¶‚µ‚½ê‡A
-     * ƒGƒ‰[î•ñ‚ğŠi”[‚·‚éƒIƒuƒWƒFƒNƒgB
-     * @return ŒŸØ‚É¬Œ÷‚µ‚½ê‡‚Í<code>true</code>‚ğ•Ô‚·B
-     * ŒŸØƒGƒ‰[‚ª‚ ‚éê‡A<code>false</code>‚ğ•Ô‚·B
-     * @throws ValidatorException validation’è‹`ƒtƒ@ƒCƒ‹‚Ìİ’èƒ~ƒX‚ª‚ ‚Á‚½ê‡
-     * ƒXƒ[‚³‚ê‚é—áŠOB
+     * @param bean æ¤œæŸ»å¯¾è±¡ã®JavaBeanã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param va æ¤œè¨¼ä¸­ã®<code>ValidatorAction</code>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
+     * @param field æ¤œè¨¼ä¸­ã®<code>Field</code>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
+     * @param errors æ¤œè¨¼ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´åˆã€
+     * ã‚¨ãƒ©ãƒ¼æƒ…å ±ã‚’æ ¼ç´ã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
+     * @return æ¤œè¨¼ã«æˆåŠŸã—ãŸå ´åˆã¯<code>true</code>ã‚’è¿”ã™ã€‚
+     * æ¤œè¨¼ã‚¨ãƒ©ãƒ¼ãŒã‚ã‚‹å ´åˆã€<code>false</code>ã‚’è¿”ã™ã€‚
+     * @throws ValidatorException validationå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ã®è¨­å®šãƒŸã‚¹ãŒã‚ã£ãŸå ´åˆ
+     * ã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ä¾‹å¤–ã€‚
      */
     public boolean validateDate(
             Object bean, ValidatorAction va,
             Field field, ValidationErrors errors) throws ValidatorException {
-        // ŒŸØ’l
+        // æ¤œè¨¼å€¤
         String value = extractValue(bean, field);
         if (StringUtils.isEmpty(value)) {
             return true;
         }
 
-        // ƒtƒH[ƒ}ƒbƒg—p‚Ì“ú•tƒpƒ^[ƒ“
+        // ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆç”¨ã®æ—¥ä»˜ãƒ‘ã‚¿ãƒ¼ãƒ³
         String datePattern = field.getVarValue("datePattern");
         String datePatternStrict = field.getVarValue("datePatternStrict");
 
-        // ŒŸØ
+        // æ¤œè¨¼
         Date result = null;
         try {
             result =
                 ValidationUtil.toDate(value, datePattern, datePatternStrict);
         } catch (IllegalArgumentException e) {
-            // “ú•tƒpƒ^[ƒ“‚ª•s³‚Èê‡
+            // æ—¥ä»˜ãƒ‘ã‚¿ãƒ¼ãƒ³ãŒä¸æ­£ãªå ´åˆ
             String message = "Mistake on validation definition file. "
                 + "- datePattern or datePatternStrict is invalid. "
                 + "You'll have to check it over. ";
@@ -728,16 +728,16 @@ public class FieldChecks {
     }
 
     /**
-     * “ü—Í’l‚ªw’è‚³‚ê‚½intŒ^‚É•ÏŠ·‰Â”\‚Å‚ ‚èA
-     * ‚©‚Âw’è‚³‚ê‚½”ÍˆÍ“à‚©ŒŸØ‚·‚éB
+     * å…¥åŠ›å€¤ãŒæŒ‡å®šã•ã‚ŒãŸintå‹ã«å¤‰æ›å¯èƒ½ã§ã‚ã‚Šã€
+     * ã‹ã¤æŒ‡å®šã•ã‚ŒãŸç¯„å›²å†…ã‹æ¤œè¨¼ã™ã‚‹ã€‚
      *
-     * <p>ˆÈ‰º‚ÍA•¶š—ñ‚ª10‚©‚ç100‚Ü‚Å‚Ì”ÍˆÍ“à‚Ì”’l‚Å‚ ‚é‚Æ‚«‚Ì‚İ
-     * true‚ğ•Ô‹p‚·‚éŒŸØ‚Ìİ’è—á‚Å‚ ‚éB
+     * <p>ä»¥ä¸‹ã¯ã€æ–‡å­—åˆ—ãŒ10ã‹ã‚‰100ã¾ã§ã®ç¯„å›²å†…ã®æ•°å€¤ã§ã‚ã‚‹ã¨ãã®ã¿
+     * trueã‚’è¿”å´ã™ã‚‹æ¤œè¨¼ã®è¨­å®šä¾‹ã§ã‚ã‚‹ã€‚
      *
-     * <h5>validation.xml‚Ì‹Lq—á</h5>
+     * <h5>validation.xmlã®è¨˜è¿°ä¾‹</h5>
      * <code><pre>
      * &lt;form name=&quot;sample&quot;&gt;
-     *  EEE
+     *  ãƒ»ãƒ»ãƒ»
      *  &lt;field property=&quot;intField&quot;
      *      depends=&quot;intRange&quot;&gt;
      *    &lt;arg key=&quot;sample.intField&quot; position="0"/&gt;
@@ -750,56 +750,56 @@ public class FieldChecks {
      *      &lt;var-value&gt;100&lt;/var-value&gt;
      *    &lt;/var&gt;
      *  &lt;/field&gt;
-     *  EEE
+     *  ãƒ»ãƒ»ãƒ»
      * &lt;/form&gt;
      * </pre></code>
      *
-     * <h5>validation.xml‚Éİ’è‚ğ—v‚·‚é&lt;var&gt;—v‘f</h5>
+     * <h5>validation.xmlã«è¨­å®šã‚’è¦ã™ã‚‹&lt;var&gt;è¦ç´ </h5>
      * <table border="1">
      *  <tr>
      *   <td><center><b><code>var-name</code></b></center></td>
      *   <td><center><b><code>var-value</code></b></center></td>
-     *   <td><center><b>•K{«</b></center></td>
-     *   <td><center><b>ŠT—v</b></center></td>
+     *   <td><center><b>å¿…é ˆæ€§</b></center></td>
+     *   <td><center><b>æ¦‚è¦</b></center></td>
      *  </tr>
      *  <tr>
      *   <td> intRangeMin </td>
-     *   <td>Å¬’l</td>
+     *   <td>æœ€å°å€¤</td>
      *   <td>false</td>
-     *   <td>”ÍˆÍw’è‚ÌÅ¬’l‚ğİ’è‚·‚éBİ’è‚µ‚È‚¢ê‡AInteger‚ÌÅ¬’l‚ª
-     *   w’è‚³‚ê‚éB
-     *   ”’lˆÈŠO‚Ì•¶š—ñ‚ª“ü—Í‚³‚ê‚½ê‡A—áŠO‚ªƒXƒ[‚³‚ê‚éB</td>
+     *   <td>ç¯„å›²æŒ‡å®šã®æœ€å°å€¤ã‚’è¨­å®šã™ã‚‹ã€‚è¨­å®šã—ãªã„å ´åˆã€Integerã®æœ€å°å€¤ãŒ
+     *   æŒ‡å®šã•ã‚Œã‚‹ã€‚
+     *   æ•°å€¤ä»¥å¤–ã®æ–‡å­—åˆ—ãŒå…¥åŠ›ã•ã‚ŒãŸå ´åˆã€ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã€‚</td>
      *  </tr>
      *  <tr>
      *   <td> intRangeMax </td>
-     *   <td>Å‘å’l</td>
+     *   <td>æœ€å¤§å€¤</td>
      *   <td>false</td>
-     *   <td>”ÍˆÍw’è‚ÌÅ‘å’l‚ğİ’è‚·‚éBİ’è‚µ‚È‚¢ê‡AInteger‚ÌÅ‘å’l‚ª
-     *   w’è‚³‚ê‚éB
-     *   ”’lˆÈŠO‚Ì•¶š—ñ‚ª“ü—Í‚³‚ê‚½ê‡A—áŠO‚ªƒXƒ[‚³‚ê‚éB</td>
+     *   <td>ç¯„å›²æŒ‡å®šã®æœ€å¤§å€¤ã‚’è¨­å®šã™ã‚‹ã€‚è¨­å®šã—ãªã„å ´åˆã€Integerã®æœ€å¤§å€¤ãŒ
+     *   æŒ‡å®šã•ã‚Œã‚‹ã€‚
+     *   æ•°å€¤ä»¥å¤–ã®æ–‡å­—åˆ—ãŒå…¥åŠ›ã•ã‚ŒãŸå ´åˆã€ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã€‚</td>
      *  </tr>
      * </table>
      *
-     * @param bean ŒŸ¸‘ÎÛ‚ÌJavaBeanƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param va ŒŸØ’†‚Ì<code>ValidatorAction</code>ƒCƒ“ƒXƒ^ƒ“ƒXB
-     * @param field ŒŸØ’†‚Ì<code>Field</code>ƒCƒ“ƒXƒ^ƒ“ƒXB
-     * @param errors ŒŸØƒGƒ‰[‚ª”­¶‚µ‚½ê‡A
-     * ƒGƒ‰[î•ñ‚ğŠi”[‚·‚éƒIƒuƒWƒFƒNƒgB
-     * @return ŒŸØ‚É¬Œ÷‚µ‚½ê‡‚Í<code>true</code>‚ğ•Ô‚·B
-     * ŒŸØƒGƒ‰[‚ª‚ ‚éê‡A<code>false</code>‚ğ•Ô‚·B
-     * @throws ValidatorException validation’è‹`ƒtƒ@ƒCƒ‹‚Ìİ’èƒ~ƒX‚ª‚ ‚Á‚½ê‡
-     * ƒXƒ[‚³‚ê‚é—áŠOB
+     * @param bean æ¤œæŸ»å¯¾è±¡ã®JavaBeanã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param va æ¤œè¨¼ä¸­ã®<code>ValidatorAction</code>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
+     * @param field æ¤œè¨¼ä¸­ã®<code>Field</code>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
+     * @param errors æ¤œè¨¼ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´åˆã€
+     * ã‚¨ãƒ©ãƒ¼æƒ…å ±ã‚’æ ¼ç´ã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
+     * @return æ¤œè¨¼ã«æˆåŠŸã—ãŸå ´åˆã¯<code>true</code>ã‚’è¿”ã™ã€‚
+     * æ¤œè¨¼ã‚¨ãƒ©ãƒ¼ãŒã‚ã‚‹å ´åˆã€<code>false</code>ã‚’è¿”ã™ã€‚
+     * @throws ValidatorException validationå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ã®è¨­å®šãƒŸã‚¹ãŒã‚ã£ãŸå ´åˆ
+     * ã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ä¾‹å¤–ã€‚
      */
     public boolean validateIntRange(
             Object bean, ValidatorAction va,
             Field field, ValidationErrors errors) throws ValidatorException {
-        // ŒŸØ’l
+        // æ¤œè¨¼å€¤
         String value = extractValue(bean, field);
         if (StringUtils.isEmpty(value)) {
             return true;
         }
 
-        // ŒŸØ’l‚ğint‚É•ÏŠ· --- IntegerŒ^‚Å‚Í‚È‚¢ê‡AŒŸØƒGƒ‰[B
+        // æ¤œè¨¼å€¤ã‚’intã«å¤‰æ› --- Integerå‹ã§ã¯ãªã„å ´åˆã€æ¤œè¨¼ã‚¨ãƒ©ãƒ¼ã€‚
         int intValue = 0;
         try {
             intValue = Integer.parseInt(value);
@@ -808,8 +808,8 @@ public class FieldChecks {
             return false;
         }
 
-        // ”ÍˆÍw’è’l --- İ’è’l‚ªIntegerŒ^‚Å‚Í‚È‚¢ê‡A—áŠOB
-        //                İ’è‚È‚µ‚ÍƒfƒtƒHƒ‹ƒg’l‚ğg—p‚·‚éB
+        // ç¯„å›²æŒ‡å®šå€¤ --- è¨­å®šå€¤ãŒIntegerå‹ã§ã¯ãªã„å ´åˆã€ä¾‹å¤–ã€‚
+        //                è¨­å®šãªã—ã¯ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ã‚’ä½¿ç”¨ã™ã‚‹ã€‚
         String strMin = field.getVarValue("intRangeMin");
         int min = Integer.MIN_VALUE;
         if (!GenericValidator.isBlankOrNull(strMin)) {
@@ -837,7 +837,7 @@ public class FieldChecks {
             }
         }
 
-        // ŒŸØ
+        // æ¤œè¨¼
         if (!GenericValidator.isInRange(intValue, min, max)) {
             rejectValue(errors, field, va, bean);
             return false;
@@ -846,16 +846,16 @@ public class FieldChecks {
     }
 
     /**
-     * “ü—Í’l‚ªw’è‚³‚ê‚½doubleŒ^‚É•ÏŠ·‰Â”\‚Å‚ ‚èA
-     * ‚©‚Âw’è‚³‚ê‚½”ÍˆÍ“à‚©ŒŸØ‚·‚éB
+     * å…¥åŠ›å€¤ãŒæŒ‡å®šã•ã‚ŒãŸdoubleå‹ã«å¤‰æ›å¯èƒ½ã§ã‚ã‚Šã€
+     * ã‹ã¤æŒ‡å®šã•ã‚ŒãŸç¯„å›²å†…ã‹æ¤œè¨¼ã™ã‚‹ã€‚
      *
-     * <p>ˆÈ‰º‚ÍA•¶š—ñ‚ª10‚©‚ç100‚Ü‚Å‚Ì”ÍˆÍ“à‚Ì”’l‚Å‚ ‚é‚Æ‚«‚Ì‚İ
-     * true‚ğ•Ô‹p‚·‚éŒŸØ‚Ìİ’è—á‚Å‚ ‚éB
+     * <p>ä»¥ä¸‹ã¯ã€æ–‡å­—åˆ—ãŒ10ã‹ã‚‰100ã¾ã§ã®ç¯„å›²å†…ã®æ•°å€¤ã§ã‚ã‚‹ã¨ãã®ã¿
+     * trueã‚’è¿”å´ã™ã‚‹æ¤œè¨¼ã®è¨­å®šä¾‹ã§ã‚ã‚‹ã€‚
      *
-     * <h5>validation.xml‚Ì‹Lq—á</h5>
+     * <h5>validation.xmlã®è¨˜è¿°ä¾‹</h5>
      * <code><pre>
      * &lt;form name=&quot;sample&quot;&gt;
-     *  EEE
+     *  ãƒ»ãƒ»ãƒ»
      *  &lt;field property=&quot;doubleField&quot;
      *      depends=&quot;doubleRange&quot;&gt;
      *    &lt;arg key=&quot;sample.doubleField&quot; position="0"/&gt;
@@ -868,56 +868,56 @@ public class FieldChecks {
      *      &lt;var-value&gt;100.0&lt;/var-value&gt;
      *    &lt;/var&gt;
      *  &lt;/field&gt;
-     *  EEE
+     *  ãƒ»ãƒ»ãƒ»
      * &lt;/form&gt;
      * </pre></code>
      *
-     * <h5>validation.xml‚Éİ’è‚ğ—v‚·‚é&lt;var&gt;—v‘f</h5>
+     * <h5>validation.xmlã«è¨­å®šã‚’è¦ã™ã‚‹&lt;var&gt;è¦ç´ </h5>
      * <table border="1">
      *  <tr>
      *   <td><center><b><code>var-name</code></b></center></td>
      *   <td><center><b><code>var-value</code></b></center></td>
-     *   <td><center><b>•K{«</b></center></td>
-     *   <td><center><b>ŠT—v</b></center></td>
+     *   <td><center><b>å¿…é ˆæ€§</b></center></td>
+     *   <td><center><b>æ¦‚è¦</b></center></td>
      *  </tr>
      *  <tr>
      *   <td> doubleRangeMin </td>
-     *   <td>Å¬’l</td>
+     *   <td>æœ€å°å€¤</td>
      *   <td>false</td>
-     *   <td>”ÍˆÍw’è‚ÌÅ¬’l‚ğİ’è‚·‚éBİ’è‚µ‚È‚¢ê‡ADouble‚ÌÅ¬’l‚ª
-     *   w’è‚³‚ê‚éB
-     *   ”’lˆÈŠO‚Ì•¶š—ñ‚ª“ü—Í‚³‚ê‚½ê‡A—áŠO‚ªƒXƒ[‚³‚ê‚éB</td>
+     *   <td>ç¯„å›²æŒ‡å®šã®æœ€å°å€¤ã‚’è¨­å®šã™ã‚‹ã€‚è¨­å®šã—ãªã„å ´åˆã€Doubleã®æœ€å°å€¤ãŒ
+     *   æŒ‡å®šã•ã‚Œã‚‹ã€‚
+     *   æ•°å€¤ä»¥å¤–ã®æ–‡å­—åˆ—ãŒå…¥åŠ›ã•ã‚ŒãŸå ´åˆã€ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã€‚</td>
      *  </tr>
      *  <tr>
      *   <td> doubleRangeMax </td>
-     *   <td>Å‘å’l</td>
+     *   <td>æœ€å¤§å€¤</td>
      *   <td>false</td>
-     *   <td>”ÍˆÍw’è‚ÌÅ‘å’l‚ğİ’è‚·‚éBİ’è‚µ‚È‚¢ê‡ADouble‚ÌÅ‘å’l‚ª
-     *   w’è‚³‚ê‚éB
-     *   ”’lˆÈŠO‚Ì•¶š—ñ‚ª“ü—Í‚³‚ê‚½ê‡A—áŠO‚ªƒXƒ[‚³‚ê‚éB</td>
+     *   <td>ç¯„å›²æŒ‡å®šã®æœ€å¤§å€¤ã‚’è¨­å®šã™ã‚‹ã€‚è¨­å®šã—ãªã„å ´åˆã€Doubleã®æœ€å¤§å€¤ãŒ
+     *   æŒ‡å®šã•ã‚Œã‚‹ã€‚
+     *   æ•°å€¤ä»¥å¤–ã®æ–‡å­—åˆ—ãŒå…¥åŠ›ã•ã‚ŒãŸå ´åˆã€ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã€‚</td>
      *  </tr>
      * </table>
      *
-     * @param bean ŒŸ¸‘ÎÛ‚ÌJavaBeanƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param va ŒŸØ’†‚Ì<code>ValidatorAction</code>ƒCƒ“ƒXƒ^ƒ“ƒXB
-     * @param field ŒŸØ’†‚Ì<code>Field</code>ƒCƒ“ƒXƒ^ƒ“ƒXB
-     * @param errors ŒŸØƒGƒ‰[‚ª”­¶‚µ‚½ê‡A
-     * ƒGƒ‰[î•ñ‚ğŠi”[‚·‚éƒIƒuƒWƒFƒNƒgB
-     * @return ŒŸØ‚É¬Œ÷‚µ‚½ê‡‚Í<code>true</code>‚ğ•Ô‚·B
-     * ŒŸØƒGƒ‰[‚ª‚ ‚éê‡A<code>false</code>‚ğ•Ô‚·B
-     * @throws ValidatorException validation’è‹`ƒtƒ@ƒCƒ‹‚Ìİ’èƒ~ƒX‚ª‚ ‚Á‚½ê‡
-     * ƒXƒ[‚³‚ê‚é—áŠOB
+     * @param bean æ¤œæŸ»å¯¾è±¡ã®JavaBeanã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param va æ¤œè¨¼ä¸­ã®<code>ValidatorAction</code>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
+     * @param field æ¤œè¨¼ä¸­ã®<code>Field</code>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
+     * @param errors æ¤œè¨¼ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´åˆã€
+     * ã‚¨ãƒ©ãƒ¼æƒ…å ±ã‚’æ ¼ç´ã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
+     * @return æ¤œè¨¼ã«æˆåŠŸã—ãŸå ´åˆã¯<code>true</code>ã‚’è¿”ã™ã€‚
+     * æ¤œè¨¼ã‚¨ãƒ©ãƒ¼ãŒã‚ã‚‹å ´åˆã€<code>false</code>ã‚’è¿”ã™ã€‚
+     * @throws ValidatorException validationå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ã®è¨­å®šãƒŸã‚¹ãŒã‚ã£ãŸå ´åˆ
+     * ã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ä¾‹å¤–ã€‚
      */
     public boolean validateDoubleRange(
             Object bean, ValidatorAction va,
             Field field, ValidationErrors errors) throws ValidatorException {
-        // ŒŸØ’l
+        // æ¤œè¨¼å€¤
         String value = extractValue(bean, field);
         if (StringUtils.isEmpty(value)) {
             return true;
         }
 
-        // ŒŸØ’l‚ğdouble‚É•ÏŠ· --- DoubleŒ^‚Å‚Í‚È‚¢ê‡AŒŸØƒGƒ‰[B
+        // æ¤œè¨¼å€¤ã‚’doubleã«å¤‰æ› --- Doubleå‹ã§ã¯ãªã„å ´åˆã€æ¤œè¨¼ã‚¨ãƒ©ãƒ¼ã€‚
         double dblValue = 0;
         try {
             dblValue = Double.parseDouble(value);
@@ -926,8 +926,8 @@ public class FieldChecks {
             return false;
         }
 
-        // ”ÍˆÍw’è’l --- İ’è’l‚ªDoubleŒ^‚Å‚Í‚È‚¢ê‡A—áŠOB
-        //                İ’è‚È‚µ‚ÍƒfƒtƒHƒ‹ƒg’l‚ğg—p‚·‚éB
+        // ç¯„å›²æŒ‡å®šå€¤ --- è¨­å®šå€¤ãŒDoubleå‹ã§ã¯ãªã„å ´åˆã€ä¾‹å¤–ã€‚
+        //                è¨­å®šãªã—ã¯ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ã‚’ä½¿ç”¨ã™ã‚‹ã€‚
         String strMin = field.getVarValue("doubleRangeMin");
         double min = Double.MIN_VALUE;
         if (!GenericValidator.isBlankOrNull(strMin)) {
@@ -955,7 +955,7 @@ public class FieldChecks {
             }
         }
 
-        // ŒŸØ
+        // æ¤œè¨¼
         if (!GenericValidator.isInRange(dblValue, min, max)) {
             rejectValue(errors, field, va, bean);
             return false;
@@ -964,16 +964,16 @@ public class FieldChecks {
     }
 
     /**
-     * “ü—Í’l‚ªw’è‚³‚ê‚½floatŒ^‚É•ÏŠ·‰Â”\‚Å‚ ‚èA
-     * ‚©‚Âw’è‚³‚ê‚½”ÍˆÍ“à‚©ŒŸØ‚·‚éB
+     * å…¥åŠ›å€¤ãŒæŒ‡å®šã•ã‚ŒãŸfloatå‹ã«å¤‰æ›å¯èƒ½ã§ã‚ã‚Šã€
+     * ã‹ã¤æŒ‡å®šã•ã‚ŒãŸç¯„å›²å†…ã‹æ¤œè¨¼ã™ã‚‹ã€‚
      *
-     * <p>ˆÈ‰º‚ÍA•¶š—ñ‚ª10‚©‚ç100‚Ü‚Å‚Ì”ÍˆÍ“à‚Ì”’l‚Å‚ ‚é‚Æ‚«‚Ì‚İ
-     * true‚ğ•Ô‹p‚·‚éŒŸØ‚Ìİ’è—á‚Å‚ ‚éB
+     * <p>ä»¥ä¸‹ã¯ã€æ–‡å­—åˆ—ãŒ10ã‹ã‚‰100ã¾ã§ã®ç¯„å›²å†…ã®æ•°å€¤ã§ã‚ã‚‹ã¨ãã®ã¿
+     * trueã‚’è¿”å´ã™ã‚‹æ¤œè¨¼ã®è¨­å®šä¾‹ã§ã‚ã‚‹ã€‚
      *
-     * <h5>validation.xml‚Ì‹Lq—á</h5>
+     * <h5>validation.xmlã®è¨˜è¿°ä¾‹</h5>
      * <code><pre>
      * &lt;form name=&quot;sample&quot;&gt;
-     *  EEE
+     *  ãƒ»ãƒ»ãƒ»
      *  &lt;field property=&quot;floatField&quot;
      *      depends=&quot;floatRange&quot;&gt;
      *    &lt;arg key=&quot;sample.floatField&quot; position="0"/&gt;
@@ -986,56 +986,56 @@ public class FieldChecks {
      *      &lt;var-value&gt;100&lt;/var-value&gt;
      *    &lt;/var&gt;
      *  &lt;/field&gt;
-     *  EEE
+     *  ãƒ»ãƒ»ãƒ»
      * &lt;/form&gt;
      * </pre></code>
      *
-     * <h5>validation.xml‚Éİ’è‚ğ—v‚·‚é&lt;var&gt;—v‘f</h5>
+     * <h5>validation.xmlã«è¨­å®šã‚’è¦ã™ã‚‹&lt;var&gt;è¦ç´ </h5>
      * <table border="1">
      *  <tr>
      *   <td><center><b><code>var-name</code></b></center></td>
      *   <td><center><b><code>var-value</code></b></center></td>
-     *   <td><center><b>•K{«</b></center></td>
-     *   <td><center><b>ŠT—v</b></center></td>
+     *   <td><center><b>å¿…é ˆæ€§</b></center></td>
+     *   <td><center><b>æ¦‚è¦</b></center></td>
      *  </tr>
      *  <tr>
      *   <td> floatRangeMin </td>
-     *   <td>Å¬’l</td>
+     *   <td>æœ€å°å€¤</td>
      *   <td>false</td>
-     *   <td>”ÍˆÍw’è‚ÌÅ¬’l‚ğİ’è‚·‚éBİ’è‚µ‚È‚¢ê‡AFloat‚ÌÅ¬’l‚ª
-     *   w’è‚³‚ê‚éB
-     *   ”’lˆÈŠO‚Ì•¶š—ñ‚ª“ü—Í‚³‚ê‚½ê‡A—áŠO‚ªƒXƒ[‚³‚ê‚éB</td>
+     *   <td>ç¯„å›²æŒ‡å®šã®æœ€å°å€¤ã‚’è¨­å®šã™ã‚‹ã€‚è¨­å®šã—ãªã„å ´åˆã€Floatã®æœ€å°å€¤ãŒ
+     *   æŒ‡å®šã•ã‚Œã‚‹ã€‚
+     *   æ•°å€¤ä»¥å¤–ã®æ–‡å­—åˆ—ãŒå…¥åŠ›ã•ã‚ŒãŸå ´åˆã€ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã€‚</td>
      *  </tr>
      *  <tr>
      *   <td> floatRangeMax </td>
-     *   <td>Å‘å’l</td>
+     *   <td>æœ€å¤§å€¤</td>
      *   <td>false</td>
-     *   <td>”ÍˆÍw’è‚ÌÅ‘å’l‚ğİ’è‚·‚éBİ’è‚µ‚È‚¢ê‡AFloat‚ÌÅ‘å’l‚ª
-     *   w’è‚³‚ê‚éB
-     *   ”’lˆÈŠO‚Ì•¶š—ñ‚ª“ü—Í‚³‚ê‚½ê‡A—áŠO‚ªƒXƒ[‚³‚ê‚éB</td>
+     *   <td>ç¯„å›²æŒ‡å®šã®æœ€å¤§å€¤ã‚’è¨­å®šã™ã‚‹ã€‚è¨­å®šã—ãªã„å ´åˆã€Floatã®æœ€å¤§å€¤ãŒ
+     *   æŒ‡å®šã•ã‚Œã‚‹ã€‚
+     *   æ•°å€¤ä»¥å¤–ã®æ–‡å­—åˆ—ãŒå…¥åŠ›ã•ã‚ŒãŸå ´åˆã€ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã€‚</td>
      *  </tr>
      * </table>
      *
-     * @param bean ŒŸ¸‘ÎÛ‚ÌJavaBeanƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param va ŒŸØ’†‚Ì<code>ValidatorAction</code>ƒCƒ“ƒXƒ^ƒ“ƒXB
-     * @param field ŒŸØ’†‚Ì<code>Field</code>ƒCƒ“ƒXƒ^ƒ“ƒXB
-     * @param errors ŒŸØƒGƒ‰[‚ª”­¶‚µ‚½ê‡A
-     * ƒGƒ‰[î•ñ‚ğŠi”[‚·‚éƒIƒuƒWƒFƒNƒgB
-     * @return ŒŸØ‚É¬Œ÷‚µ‚½ê‡‚Í<code>true</code>‚ğ•Ô‚·B
-     * ŒŸØƒGƒ‰[‚ª‚ ‚éê‡A<code>false</code>‚ğ•Ô‚·B
-     * @throws ValidatorException validation’è‹`ƒtƒ@ƒCƒ‹‚Ìİ’èƒ~ƒX‚ª‚ ‚Á‚½ê‡
-     * ƒXƒ[‚³‚ê‚é—áŠOB
+     * @param bean æ¤œæŸ»å¯¾è±¡ã®JavaBeanã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param va æ¤œè¨¼ä¸­ã®<code>ValidatorAction</code>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
+     * @param field æ¤œè¨¼ä¸­ã®<code>Field</code>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
+     * @param errors æ¤œè¨¼ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´åˆã€
+     * ã‚¨ãƒ©ãƒ¼æƒ…å ±ã‚’æ ¼ç´ã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
+     * @return æ¤œè¨¼ã«æˆåŠŸã—ãŸå ´åˆã¯<code>true</code>ã‚’è¿”ã™ã€‚
+     * æ¤œè¨¼ã‚¨ãƒ©ãƒ¼ãŒã‚ã‚‹å ´åˆã€<code>false</code>ã‚’è¿”ã™ã€‚
+     * @throws ValidatorException validationå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ã®è¨­å®šãƒŸã‚¹ãŒã‚ã£ãŸå ´åˆ
+     * ã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ä¾‹å¤–ã€‚
      */
     public boolean validateFloatRange(
             Object bean, ValidatorAction va,
             Field field, ValidationErrors errors) throws ValidatorException {
-        // ŒŸØ’l
+        // æ¤œè¨¼å€¤
         String value = extractValue(bean, field);
         if (StringUtils.isEmpty(value)) {
             return true;
         }
 
-        // ŒŸØ’l‚ğfloat‚É•ÏŠ· --- FloatŒ^‚Å‚Í‚È‚¢ê‡AŒŸØƒGƒ‰[B
+        // æ¤œè¨¼å€¤ã‚’floatã«å¤‰æ› --- Floatå‹ã§ã¯ãªã„å ´åˆã€æ¤œè¨¼ã‚¨ãƒ©ãƒ¼ã€‚
         float floatValue = 0;
         try {
             floatValue = Float.parseFloat(value);
@@ -1044,8 +1044,8 @@ public class FieldChecks {
             return false;
         }
 
-        // ”ÍˆÍw’è’l --- İ’è’l‚ªFloatŒ^‚Å‚Í‚È‚¢ê‡A—áŠOB
-        //                İ’è‚È‚µ‚ÍƒfƒtƒHƒ‹ƒg’l‚ğg—p‚·‚éB
+        // ç¯„å›²æŒ‡å®šå€¤ --- è¨­å®šå€¤ãŒFloatå‹ã§ã¯ãªã„å ´åˆã€ä¾‹å¤–ã€‚
+        //                è¨­å®šãªã—ã¯ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ã‚’ä½¿ç”¨ã™ã‚‹ã€‚
         String strMin = field.getVarValue("floatRangeMin");
         float min = Float.MIN_VALUE;
         if (!GenericValidator.isBlankOrNull(strMin)) {
@@ -1073,7 +1073,7 @@ public class FieldChecks {
             }
         }
 
-        // ŒŸØ
+        // æ¤œè¨¼
         if (!GenericValidator.isInRange(floatValue, min, max)) {
             rejectValue(errors, field, va, bean);
             return false;
@@ -1082,15 +1082,15 @@ public class FieldChecks {
     }
 
     /**
-     * “ü—Í’l‚Ì•¶š”‚ªw’è‚³‚ê‚½Å‘å•¶š”ˆÈ‰º‚©ŒŸØ‚·‚éB
+     * å…¥åŠ›å€¤ã®æ–‡å­—æ•°ãŒæŒ‡å®šã•ã‚ŒãŸæœ€å¤§æ–‡å­—æ•°ä»¥ä¸‹ã‹æ¤œè¨¼ã™ã‚‹ã€‚
      *
-     * <p>ˆÈ‰º‚ÍA•¶š—ñ‚ª10•¶šˆÈ‰º‚Å‚ ‚é‚Æ‚«‚Ì‚İ
-     * true‚ğ•Ô‹p‚·‚éŒŸØ‚Ìİ’è—á‚Å‚ ‚éB
+     * <p>ä»¥ä¸‹ã¯ã€æ–‡å­—åˆ—ãŒ10æ–‡å­—ä»¥ä¸‹ã§ã‚ã‚‹ã¨ãã®ã¿
+     * trueã‚’è¿”å´ã™ã‚‹æ¤œè¨¼ã®è¨­å®šä¾‹ã§ã‚ã‚‹ã€‚
      *
-     * <h5>validation.xml‚Ì‹Lq—á</h5>
+     * <h5>validation.xmlã®è¨˜è¿°ä¾‹</h5>
      * <code><pre>
      * &lt;form name=&quot;sample&quot;&gt;
-     *  EEE
+     *  ãƒ»ãƒ»ãƒ»
      *  &lt;field property=&quot;stringField&quot;
      *      depends=&quot;maxLength&quot;&gt;
      *    &lt;arg key=&quot;sample.stringField&quot; position="0"/&gt;
@@ -1099,47 +1099,47 @@ public class FieldChecks {
      *      &lt;var-value&gt;10&lt;/var-value&gt;
      *    &lt;/var&gt;
      *  &lt;/field&gt;
-     *  EEE
+     *  ãƒ»ãƒ»ãƒ»
      * &lt;/form&gt;
      * </pre></code>
      *
-     * <h5>validation.xml‚Éİ’è‚ğ—v‚·‚é&lt;var&gt;—v‘f</h5>
+     * <h5>validation.xmlã«è¨­å®šã‚’è¦ã™ã‚‹&lt;var&gt;è¦ç´ </h5>
      * <table border="1">
      *  <tr>
      *   <td><center><b><code>var-name</code></b></center></td>
      *   <td><center><b><code>var-value</code></b></center></td>
-     *   <td><center><b>•K{«</b></center></td>
-     *   <td><center><b>ŠT—v</b></center></td>
+     *   <td><center><b>å¿…é ˆæ€§</b></center></td>
+     *   <td><center><b>æ¦‚è¦</b></center></td>
      *  </tr>
      *  <tr>
      *   <td> maxlength </td>
-     *   <td>Å‘å•¶š”</td>
+     *   <td>æœ€å¤§æ–‡å­—æ•°</td>
      *   <td>true</td>
-     *   <td>•¶š—ñ‚ÌÅ‘å•¶š”‚ğİ’è‚·‚éB
-     *   ”’lˆÈŠO‚Ì•¶š—ñ‚ª“ü—Í‚³‚ê‚½ê‡A—áŠO‚ªƒXƒ[‚³‚ê‚éB</td>
+     *   <td>æ–‡å­—åˆ—ã®æœ€å¤§æ–‡å­—æ•°ã‚’è¨­å®šã™ã‚‹ã€‚
+     *   æ•°å€¤ä»¥å¤–ã®æ–‡å­—åˆ—ãŒå…¥åŠ›ã•ã‚ŒãŸå ´åˆã€ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã€‚</td>
      *  </tr>
      * </table>
      *
-     * @param bean ŒŸ¸‘ÎÛ‚ÌJavaBeanƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param va ŒŸØ’†‚Ì<code>ValidatorAction</code>ƒCƒ“ƒXƒ^ƒ“ƒXB
-     * @param field ŒŸØ’†‚Ì<code>Field</code>ƒCƒ“ƒXƒ^ƒ“ƒXB
-     * @param errors ŒŸØƒGƒ‰[‚ª”­¶‚µ‚½ê‡A
-     * ƒGƒ‰[î•ñ‚ğŠi”[‚·‚éƒIƒuƒWƒFƒNƒgB
-     * @return ŒŸØ‚É¬Œ÷‚µ‚½ê‡‚Í<code>true</code>‚ğ•Ô‚·B
-     * ŒŸØƒGƒ‰[‚ª‚ ‚éê‡A<code>false</code>‚ğ•Ô‚·B
-     * @throws ValidatorException validation’è‹`ƒtƒ@ƒCƒ‹‚Ìİ’èƒ~ƒX‚ª‚ ‚Á‚½ê‡
-     * ƒXƒ[‚³‚ê‚é—áŠOB
+     * @param bean æ¤œæŸ»å¯¾è±¡ã®JavaBeanã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param va æ¤œè¨¼ä¸­ã®<code>ValidatorAction</code>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
+     * @param field æ¤œè¨¼ä¸­ã®<code>Field</code>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
+     * @param errors æ¤œè¨¼ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´åˆã€
+     * ã‚¨ãƒ©ãƒ¼æƒ…å ±ã‚’æ ¼ç´ã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
+     * @return æ¤œè¨¼ã«æˆåŠŸã—ãŸå ´åˆã¯<code>true</code>ã‚’è¿”ã™ã€‚
+     * æ¤œè¨¼ã‚¨ãƒ©ãƒ¼ãŒã‚ã‚‹å ´åˆã€<code>false</code>ã‚’è¿”ã™ã€‚
+     * @throws ValidatorException validationå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ã®è¨­å®šãƒŸã‚¹ãŒã‚ã£ãŸå ´åˆ
+     * ã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ä¾‹å¤–ã€‚
      */
     public boolean validateMaxLength(
             Object bean, ValidatorAction va,
             Field field, ValidationErrors errors) throws ValidatorException {
-        // ŒŸØ’l
+        // æ¤œè¨¼å€¤
         String value = extractValue(bean, field);
         if (StringUtils.isEmpty(value)) {
             return true;
         }
 
-        // Å‘åŒ…”
+        // æœ€å¤§æ¡æ•°
         int max = 0;
         try {
             max = Integer.parseInt(field.getVarValue("maxlength"));
@@ -1151,7 +1151,7 @@ public class FieldChecks {
             throw new ValidatorException(message);
         }
 
-        // ŒŸØ
+        // æ¤œè¨¼
         if (!GenericValidator.maxLength(value, max)) {
             rejectValue(errors, field, va, bean);
             return false;
@@ -1160,15 +1160,15 @@ public class FieldChecks {
     }
 
     /**
-     * “ü—Í’l‚Ì•¶š”‚ªw’è‚³‚ê‚½Å¬•¶š”ˆÈã‚©ŒŸØ‚·‚éB
+     * å…¥åŠ›å€¤ã®æ–‡å­—æ•°ãŒæŒ‡å®šã•ã‚ŒãŸæœ€å°æ–‡å­—æ•°ä»¥ä¸Šã‹æ¤œè¨¼ã™ã‚‹ã€‚
      *
-     * <p>ˆÈ‰º‚ÍA•¶š—ñ‚ª10•¶šˆÈã‚Å‚ ‚é‚Æ‚«‚Ì‚İ
-     * true‚ğ•Ô‹p‚·‚éŒŸØ‚Ìİ’è—á‚Å‚ ‚éB
+     * <p>ä»¥ä¸‹ã¯ã€æ–‡å­—åˆ—ãŒ10æ–‡å­—ä»¥ä¸Šã§ã‚ã‚‹ã¨ãã®ã¿
+     * trueã‚’è¿”å´ã™ã‚‹æ¤œè¨¼ã®è¨­å®šä¾‹ã§ã‚ã‚‹ã€‚
      *
-     * <h5>validation.xml‚Ì‹Lq—á</h5>
+     * <h5>validation.xmlã®è¨˜è¿°ä¾‹</h5>
      * <code><pre>
      * &lt;form name=&quot;sample&quot;&gt;
-     *  EEE
+     *  ãƒ»ãƒ»ãƒ»
      *  &lt;field property=&quot;stringField&quot;
      *      depends=&quot;minLength&quot;&gt;
      *    &lt;arg key=&quot;sample.stringField&quot; position="0"/&gt;
@@ -1177,47 +1177,47 @@ public class FieldChecks {
      *      &lt;var-value&gt;10&lt;/var-value&gt;
      *    &lt;/var&gt;
      *  &lt;/field&gt;
-     *  EEE
+     *  ãƒ»ãƒ»ãƒ»
      * &lt;/form&gt;
      * </pre></code>
      *
-     * <h5>validation.xml‚Éİ’è‚ğ—v‚·‚é&lt;var&gt;—v‘f</h5>
+     * <h5>validation.xmlã«è¨­å®šã‚’è¦ã™ã‚‹&lt;var&gt;è¦ç´ </h5>
      * <table border="1">
      *  <tr>
      *   <td><center><b><code>var-name</code></b></center></td>
      *   <td><center><b><code>var-value</code></b></center></td>
-     *   <td><center><b>•K{«</b></center></td>
-     *   <td><center><b>ŠT—v</b></center></td>
+     *   <td><center><b>å¿…é ˆæ€§</b></center></td>
+     *   <td><center><b>æ¦‚è¦</b></center></td>
      *  </tr>
      *  <tr>
      *   <td> minlength </td>
-     *   <td>Å¬•¶š”</td>
+     *   <td>æœ€å°æ–‡å­—æ•°</td>
      *   <td>true</td>
-     *   <td>•¶š—ñ‚ÌÅ¬•¶š”‚ğİ’è‚·‚éB
-     *   ”’lˆÈŠO‚Ì•¶š—ñ‚ª“ü—Í‚³‚ê‚½ê‡A—áŠO‚ªƒXƒ[‚³‚ê‚éB</td>
+     *   <td>æ–‡å­—åˆ—ã®æœ€å°æ–‡å­—æ•°ã‚’è¨­å®šã™ã‚‹ã€‚
+     *   æ•°å€¤ä»¥å¤–ã®æ–‡å­—åˆ—ãŒå…¥åŠ›ã•ã‚ŒãŸå ´åˆã€ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã€‚</td>
      *  </tr>
      * </table>
      *
-     * @param bean ŒŸ¸‘ÎÛ‚ÌJavaBeanƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param va ŒŸØ’†‚Ì<code>ValidatorAction</code>ƒCƒ“ƒXƒ^ƒ“ƒXB
-     * @param field ŒŸØ’†‚Ì<code>Field</code>ƒCƒ“ƒXƒ^ƒ“ƒXB
-     * @param errors ŒŸØƒGƒ‰[‚ª”­¶‚µ‚½ê‡A
-     * ƒGƒ‰[î•ñ‚ğŠi”[‚·‚éƒIƒuƒWƒFƒNƒgB
-     * @return ŒŸØ‚É¬Œ÷‚µ‚½ê‡‚Í<code>true</code>‚ğ•Ô‚·B
-     * ŒŸØƒGƒ‰[‚ª‚ ‚éê‡A<code>false</code>‚ğ•Ô‚·B
-     * @throws ValidatorException validation’è‹`ƒtƒ@ƒCƒ‹‚Ìİ’èƒ~ƒX‚ª‚ ‚Á‚½ê‡
-     * ƒXƒ[‚³‚ê‚é—áŠOB
+     * @param bean æ¤œæŸ»å¯¾è±¡ã®JavaBeanã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param va æ¤œè¨¼ä¸­ã®<code>ValidatorAction</code>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
+     * @param field æ¤œè¨¼ä¸­ã®<code>Field</code>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
+     * @param errors æ¤œè¨¼ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´åˆã€
+     * ã‚¨ãƒ©ãƒ¼æƒ…å ±ã‚’æ ¼ç´ã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
+     * @return æ¤œè¨¼ã«æˆåŠŸã—ãŸå ´åˆã¯<code>true</code>ã‚’è¿”ã™ã€‚
+     * æ¤œè¨¼ã‚¨ãƒ©ãƒ¼ãŒã‚ã‚‹å ´åˆã€<code>false</code>ã‚’è¿”ã™ã€‚
+     * @throws ValidatorException validationå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ã®è¨­å®šãƒŸã‚¹ãŒã‚ã£ãŸå ´åˆ
+     * ã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ä¾‹å¤–ã€‚
      */
     public boolean validateMinLength(
         Object bean, ValidatorAction va, Field field, ValidationErrors errors)
         throws ValidatorException {
-        // ŒŸØ’l
+        // æ¤œè¨¼å€¤
         String value = extractValue(bean, field);
         if (StringUtils.isEmpty(value)) {
             return true;
         }
 
-        // Å¬Œ…”
+        // æœ€å°æ¡æ•°
         int min = 0;
         try {
             min = Integer.parseInt(field.getVarValue("minlength"));
@@ -1229,7 +1229,7 @@ public class FieldChecks {
             throw new ValidatorException(message);
         }
 
-        // ŒŸØ
+        // æ¤œè¨¼
         if (!GenericValidator.minLength(value, min)) {
             rejectValue(errors, field, va, bean);
             return false;
@@ -1238,26 +1238,26 @@ public class FieldChecks {
     }
 
     /**
-     * w’è‚³‚ê‚½ƒtƒB[ƒ‹ƒh‚ª‰p”š‚Å‚ ‚é‚±‚Æ‚ğƒ`ƒFƒbƒN‚·‚éB
-     * ³‹K•\Œ»<code>^([0-9]|[a-z]|[A-Z])*$</code>‚ğg—p‚·‚éB
-     * ƒ`ƒFƒbƒN‚Éˆø‚Á‚©‚©‚Á‚½ê‡‚ÍAƒGƒ‰[î•ñ‚ğerrors‚É’Ç‰Á‚µA
-     * false‚ğ•Ô‹p‚·‚éB
+     * æŒ‡å®šã•ã‚ŒãŸãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ãŒè‹±æ•°å­—ã§ã‚ã‚‹ã“ã¨ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã€‚
+     * æ­£è¦è¡¨ç¾<code>^([0-9]|[a-z]|[A-Z])*$</code>ã‚’ä½¿ç”¨ã™ã‚‹ã€‚
+     * ãƒã‚§ãƒƒã‚¯ã«å¼•ã£ã‹ã‹ã£ãŸå ´åˆã¯ã€ã‚¨ãƒ©ãƒ¼æƒ…å ±ã‚’errorsã«è¿½åŠ ã—ã€
+     * falseã‚’è¿”å´ã™ã‚‹ã€‚
      *
-     * @param bean ŒŸ¸‘ÎÛ‚ÌJavaBeanƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param va Validator‚É‚æ‚è—pˆÓ‚³‚ê‚½ValidatorAction
-     * @param field ƒtƒB[ƒ‹ƒhƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param errors ƒGƒ‰[
-     * @return “ü—Í’l‚ª³‚µ‚¯‚ê‚Î true
+     * @param bean æ¤œæŸ»å¯¾è±¡ã®JavaBeanã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param va Validatorã«ã‚ˆã‚Šç”¨æ„ã•ã‚ŒãŸValidatorAction
+     * @param field ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param errors ã‚¨ãƒ©ãƒ¼
+     * @return å…¥åŠ›å€¤ãŒæ­£ã—ã‘ã‚Œã° true
      */
     public boolean validateAlphaNumericString(Object bean,
             ValidatorAction va, Field field, ValidationErrors errors) {
-        // ŒŸØ’l
+        // æ¤œè¨¼å€¤
         String value = extractValue(bean, field);
         if (StringUtils.isEmpty(value)) {
             return true;
         }
 
-        // ŒŸØ
+        // æ¤œè¨¼
         if (!ValidationUtil.isAlphaNumericString(value)) {
             rejectValue(errors, field, va, bean);
             return false;
@@ -1266,25 +1266,25 @@ public class FieldChecks {
     }
 
     /**
-     * w’è‚³‚ê‚½ƒtƒB[ƒ‹ƒh‚ª‘å•¶š‰p”š‚Å‚ ‚é‚±‚Æ‚ğƒ`ƒFƒbƒN‚·‚éB
-     * ƒ`ƒFƒbƒN‚Éˆø‚Á‚©‚©‚Á‚½ê‡‚ÍAƒGƒ‰[î•ñ‚ğerrors‚É’Ç‰Á‚µA
-     * false‚ğ•Ô‹p‚·‚éB
+     * æŒ‡å®šã•ã‚ŒãŸãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ãŒå¤§æ–‡å­—è‹±æ•°å­—ã§ã‚ã‚‹ã“ã¨ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã€‚
+     * ãƒã‚§ãƒƒã‚¯ã«å¼•ã£ã‹ã‹ã£ãŸå ´åˆã¯ã€ã‚¨ãƒ©ãƒ¼æƒ…å ±ã‚’errorsã«è¿½åŠ ã—ã€
+     * falseã‚’è¿”å´ã™ã‚‹ã€‚
      *
-     * @param bean ŒŸ¸‘ÎÛ‚ÌJavaBeanƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param va Validator‚É‚æ‚è—pˆÓ‚³‚ê‚½ValidatorAction
-     * @param field ƒtƒB[ƒ‹ƒhƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param errors ƒGƒ‰[
-     * @return “ü—Í’l‚ª³‚µ‚¯‚ê‚Î true
+     * @param bean æ¤œæŸ»å¯¾è±¡ã®JavaBeanã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param va Validatorã«ã‚ˆã‚Šç”¨æ„ã•ã‚ŒãŸValidatorAction
+     * @param field ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param errors ã‚¨ãƒ©ãƒ¼
+     * @return å…¥åŠ›å€¤ãŒæ­£ã—ã‘ã‚Œã° true
      */
     public boolean validateCapAlphaNumericString(Object bean,
             ValidatorAction va, Field field, ValidationErrors errors) {
-        // ŒŸØ’l
+        // æ¤œè¨¼å€¤
         String value = extractValue(bean, field);
         if (StringUtils.isEmpty(value)) {
             return true;
         }
 
-        // ŒŸØ
+        // æ¤œè¨¼
         if (!ValidationUtil.isUpperAlphaNumericString(value)) {
             rejectValue(errors, field, va, bean);
             return false;
@@ -1293,31 +1293,31 @@ public class FieldChecks {
     }
 
     /**
-     * w’è‚³‚ê‚½ƒtƒB[ƒ‹ƒh‚ª”’l‚Å‚ ‚é‚±‚Æ‚ğƒ`ƒFƒbƒN‚·‚éB
-     * ‘SŠp”š‚ğg—p‚·‚é‚ÆŒŸØ‚É¸”s‚·‚éB
-     * ƒ`ƒFƒbƒN‚Éˆø‚Á‚©‚©‚Á‚½ê‡‚ÍA
-     * ƒGƒ‰[î•ñ‚ğerrors‚É’Ç‰Á‚µAfalse‚ğ•Ô‹p‚·‚éB
+     * æŒ‡å®šã•ã‚ŒãŸãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ãŒæ•°å€¤ã§ã‚ã‚‹ã“ã¨ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã€‚
+     * å…¨è§’æ•°å­—ã‚’ä½¿ç”¨ã™ã‚‹ã¨æ¤œè¨¼ã«å¤±æ•—ã™ã‚‹ã€‚
+     * ãƒã‚§ãƒƒã‚¯ã«å¼•ã£ã‹ã‹ã£ãŸå ´åˆã¯ã€
+     * ã‚¨ãƒ©ãƒ¼æƒ…å ±ã‚’errorsã«è¿½åŠ ã—ã€falseã‚’è¿”å´ã™ã‚‹ã€‚
      *
-     * <p>‚Ü‚¸A“ü—Í‚³‚ê‚½•¶š—ñ‚ğ—p‚¢ABigDecimal Œ^‚ğ¶¬‚·‚é
-     * ‚±‚±‚Å¶¬•s‰Â”\‚È‚ç‚ÎƒGƒ‰[ˆ—‚ğs‚È‚¤B
+     * <p>ã¾ãšã€å…¥åŠ›ã•ã‚ŒãŸæ–‡å­—åˆ—ã‚’ç”¨ã„ã€BigDecimal å‹ã‚’ç”Ÿæˆã™ã‚‹
+     * ã“ã“ã§ç”Ÿæˆä¸å¯èƒ½ãªã‚‰ã°ã‚¨ãƒ©ãƒ¼å‡¦ç†ã‚’è¡Œãªã†ã€‚
      *
-     * Ÿ‚É®”•”‚ÌŒ…”‚ªw’è‚³‚ê‚Ä‚¢‚éê‡‚ÉAŒ…”‚ÌŠm”F‚ğs‚¤B
-     * validation.xml ‚Å isAccordedInteger()
-     * ‚ª "true" w’è‚³‚ê‚Ä‚¢‚éê‡‚Ì‚İ
-     * ®”Œ…”‚Ì“¯ˆêƒ`ƒFƒbƒN‚ªs‚í‚ê‚éB
-     * ƒ`ƒFƒbƒN‚Éˆø‚Á‚©‚©‚Á‚½ê‡‚ÍAƒGƒ‰[ˆ—‚ğs‚È‚¤B
+     * æ¬¡ã«æ•´æ•°éƒ¨ã®æ¡æ•°ãŒæŒ‡å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã«ã€æ¡æ•°ã®ç¢ºèªã‚’è¡Œã†ã€‚
+     * validation.xml ã§ isAccordedInteger()
+     * ãŒ "true" æŒ‡å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã®ã¿
+     * æ•´æ•°æ¡æ•°ã®åŒä¸€ãƒã‚§ãƒƒã‚¯ãŒè¡Œã‚ã‚Œã‚‹ã€‚
+     * ãƒã‚§ãƒƒã‚¯ã«å¼•ã£ã‹ã‹ã£ãŸå ´åˆã¯ã€ã‚¨ãƒ©ãƒ¼å‡¦ç†ã‚’è¡Œãªã†ã€‚
      *
-     * ÅŒã‚É¬”•”‚ÌŒ…”‚ªw’è‚³‚ê‚Ä‚¢‚éê‡‚ÉAŒ…”‚ÌŠm”F‚ğs‚¤B
-     * validation.xml‚ÅisAccordedScale‚ª"true"‚Å‚ ‚éê‡‚Ì‚İ
-     * ¬”Œ…”‚Ì“¯ˆêƒ`ƒFƒbƒN‚ªs‚í‚ê‚éB
+     * æœ€å¾Œã«å°æ•°éƒ¨ã®æ¡æ•°ãŒæŒ‡å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã«ã€æ¡æ•°ã®ç¢ºèªã‚’è¡Œã†ã€‚
+     * validation.xmlã§isAccordedScaleãŒ"true"ã§ã‚ã‚‹å ´åˆã®ã¿
+     * å°æ•°æ¡æ•°ã®åŒä¸€ãƒã‚§ãƒƒã‚¯ãŒè¡Œã‚ã‚Œã‚‹ã€‚
      *
      * <p>
-     * ‰º‹L‚ÍA®”•”3A¬”•”2‚Å‚ ‚é”’l‚ğŒŸØ‚·‚é—á‚Å‚ ‚éB
+     * ä¸‹è¨˜ã¯ã€æ•´æ•°éƒ¨3ã€å°æ•°éƒ¨2ã§ã‚ã‚‹æ•°å€¤ã‚’æ¤œè¨¼ã™ã‚‹ä¾‹ã§ã‚ã‚‹ã€‚
      *
-     * <h5>validation.xml‚Ì‹Lq—á</h5>
+     * <h5>validation.xmlã®è¨˜è¿°ä¾‹</h5>
      * <code><pre>
      * &lt;form name=&quot;sample&quot;&gt;
-     *  EEE
+     *  ãƒ»ãƒ»ãƒ»
      *  &lt;field property=&quot;numberField&quot;
      *      depends=&quot;number&quot;&gt;
      *    &lt;arg key=&quot;sample.numberField&quot; position="0"/&gt;
@@ -1338,76 +1338,76 @@ public class FieldChecks {
      *      &lt;var-value&gt;true&lt;/var-value&gt;
      *    &lt;/var&gt;
      *  &lt;/field&gt;
-     *  EEE
+     *  ãƒ»ãƒ»ãƒ»
      * &lt;/form&gt;
      * </pre></code>
-     * <h5>validation.xml‚Éİ’è‚ğ—v‚·‚é&lt;var&gt;—v‘f</h5>
+     * <h5>validation.xmlã«è¨­å®šã‚’è¦ã™ã‚‹&lt;var&gt;è¦ç´ </h5>
      * <table border="1">
      *  <tr>
      *   <td><center><b><code>var-name</code></b></center></td>
      *   <td><center><b><code>var-value</code></b></center></td>
-     *   <td><center><b>•K{«</b></center></td>
-     *   <td><center><b>ŠT—v</b></center></td>
+     *   <td><center><b>å¿…é ˆæ€§</b></center></td>
+     *   <td><center><b>æ¦‚è¦</b></center></td>
      *  </tr>
      *  <tr>
      *   <td> <code>integerLength</code> </td>
-     *   <td> ®”•”Œ…” </td>
+     *   <td> æ•´æ•°éƒ¨æ¡æ•° </td>
      *   <td> <code>false</code> </td>
-     *   <td>®”‚ÌŒ…”‚ğİ’è‚·‚éB<code>isAccordedInteger</code>w’è‚ª
-     *       –³‚¢‚Æ‚«‚ÍAw’èŒ…”ˆÈ“à‚ÌŒŸØ‚ğs‚¤B
-     *       È—ª‚ÍA<code>int</code>Œ^‚ÌÅ‘å’l‚ªw’è‚³‚ê‚éB
-     *       ”ñ”’l‚ğİ’è‚µ‚½ê‡A—áŠO‚ªƒXƒ[‚³‚ê‚éB</td>
+     *   <td>æ•´æ•°ã®æ¡æ•°ã‚’è¨­å®šã™ã‚‹ã€‚<code>isAccordedInteger</code>æŒ‡å®šãŒ
+     *       ç„¡ã„ã¨ãã¯ã€æŒ‡å®šæ¡æ•°ä»¥å†…ã®æ¤œè¨¼ã‚’è¡Œã†ã€‚
+     *       çœç•¥æ™‚ã¯ã€<code>int</code>å‹ã®æœ€å¤§å€¤ãŒæŒ‡å®šã•ã‚Œã‚‹ã€‚
+     *       éæ•°å€¤ã‚’è¨­å®šã—ãŸå ´åˆã€ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã€‚</td>
      *  </tr>
      *  <tr>
      *   <td> <code>scale</code> </td>
-     *   <td> ¬”•”Œ…” </td>
+     *   <td> å°æ•°éƒ¨æ¡æ•° </td>
      *   <td> <code>false</code> </td>
-     *   <td>¬”’l‚ÌŒ…”‚ğİ’è‚·‚éA<code>isAccordedScale</code>w’è‚ª
-     *       –³‚¢‚Æ‚«‚ÍAw’èŒ…”ˆÈ“à‚ÌŒŸØ‚ğs‚¤B
-     *       È—ª‚ÍA<code>int</code>Œ^‚ÌÅ‘å’l‚ªw’è‚³‚ê‚éB
-     *       ”ñ”’l‚ğİ’è‚µ‚½ê‡A—áŠO‚ªƒXƒ[‚³‚ê‚éB</td>
+     *   <td>å°æ•°å€¤ã®æ¡æ•°ã‚’è¨­å®šã™ã‚‹ã€<code>isAccordedScale</code>æŒ‡å®šãŒ
+     *       ç„¡ã„ã¨ãã¯ã€æŒ‡å®šæ¡æ•°ä»¥å†…ã®æ¤œè¨¼ã‚’è¡Œã†ã€‚
+     *       çœç•¥æ™‚ã¯ã€<code>int</code>å‹ã®æœ€å¤§å€¤ãŒæŒ‡å®šã•ã‚Œã‚‹ã€‚
+     *       éæ•°å€¤ã‚’è¨­å®šã—ãŸå ´åˆã€ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã€‚</td>
      *  </tr>
      *  <tr>
      *   <td> <code>isAccordedInteger</code> </td>
-     *   <td> ®”Œ…”ˆê’vƒ`ƒFƒbƒN </td>
+     *   <td> æ•´æ•°æ¡æ•°ä¸€è‡´ãƒã‚§ãƒƒã‚¯ </td>
      *   <td> <code>false</code> </td>
-     *   <td> <code>true</code>‚ªw’è‚³‚ê‚½‚Æ‚«A®”Œ…”‚Ìˆê’vƒ`ƒFƒbƒN‚ª
-     *        s‚È‚í‚ê‚éBÈ—ªA<code>true</code>ˆÈŠO‚Ì•¶š—ñ‚ªİ’è‚³‚ê‚½‚Í
-     *        Œ…”ˆÈ“àƒ`ƒFƒbƒN‚Æ‚È‚éB</td>
+     *   <td> <code>true</code>ãŒæŒ‡å®šã•ã‚ŒãŸã¨ãã€æ•´æ•°æ¡æ•°ã®ä¸€è‡´ãƒã‚§ãƒƒã‚¯ãŒ
+     *        è¡Œãªã‚ã‚Œã‚‹ã€‚çœç•¥æ™‚ã€<code>true</code>ä»¥å¤–ã®æ–‡å­—åˆ—ãŒè¨­å®šã•ã‚ŒãŸæ™‚ã¯
+     *        æ¡æ•°ä»¥å†…ãƒã‚§ãƒƒã‚¯ã¨ãªã‚‹ã€‚</td>
      *  </tr>
      *  <tr>
      *   <td> <code>isAccordedScale</code> </td>
-     *   <td> ¬”Œ…”ˆê’vƒ`ƒFƒbƒN </td>
+     *   <td> å°æ•°æ¡æ•°ä¸€è‡´ãƒã‚§ãƒƒã‚¯ </td>
      *   <td> <code>false</code> </td>
-     *   <td> <code>true</code>‚ªw’è‚³‚ê‚½‚Æ‚«A¬”Œ…”‚Ìˆê’vƒ`ƒFƒbƒN‚ª
-     *        s‚È‚í‚ê‚éBÈ—ªA<code>true</code>ˆÈŠO‚Ì•¶š—ñ‚ªİ’è‚³‚ê‚½‚Í
-     *        Œ…”ˆÈ“àƒ`ƒFƒbƒN‚Æ‚È‚éB</td>
+     *   <td> <code>true</code>ãŒæŒ‡å®šã•ã‚ŒãŸã¨ãã€å°æ•°æ¡æ•°ã®ä¸€è‡´ãƒã‚§ãƒƒã‚¯ãŒ
+     *        è¡Œãªã‚ã‚Œã‚‹ã€‚çœç•¥æ™‚ã€<code>true</code>ä»¥å¤–ã®æ–‡å­—åˆ—ãŒè¨­å®šã•ã‚ŒãŸæ™‚ã¯
+     *        æ¡æ•°ä»¥å†…ãƒã‚§ãƒƒã‚¯ã¨ãªã‚‹ã€‚</td>
      *  </tr>
      * </table>
      *
-     * @param bean ŒŸ¸‘ÎÛ‚ÌJavaBeanƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param va Validator‚É‚æ‚è—pˆÓ‚³‚ê‚½ValidatorAction
-     * @param field ƒtƒB[ƒ‹ƒhƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param errors ƒGƒ‰[
-     * @return “ü—Í’l‚ª³‚µ‚¯‚ê‚Î true
-     * @throws ValidatorException validation’è‹`ƒtƒ@ƒCƒ‹‚Ìİ’èƒ~ƒX‚ª‚ ‚Á‚½ê‡
-     * ƒXƒ[‚³‚ê‚é—áŠOB
+     * @param bean æ¤œæŸ»å¯¾è±¡ã®JavaBeanã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param va Validatorã«ã‚ˆã‚Šç”¨æ„ã•ã‚ŒãŸValidatorAction
+     * @param field ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param errors ã‚¨ãƒ©ãƒ¼
+     * @return å…¥åŠ›å€¤ãŒæ­£ã—ã‘ã‚Œã° true
+     * @throws ValidatorException validationå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ã®è¨­å®šãƒŸã‚¹ãŒã‚ã£ãŸå ´åˆ
+     * ã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ä¾‹å¤–ã€‚
      */
     public boolean validateNumber(Object bean, ValidatorAction va,
             Field field, ValidationErrors errors) throws ValidatorException {
-        // ŒŸØ’l
+        // æ¤œè¨¼å€¤
         String value = extractValue(bean, field);
         if (StringUtils.isEmpty(value)) {
             return true;
         }
 
-        // ŒŸØ’l‚ª”¼Šp‚Å‚Í‚È‚¢ê‡ƒGƒ‰[B
+        // æ¤œè¨¼å€¤ãŒåŠè§’ã§ã¯ãªã„å ´åˆã‚¨ãƒ©ãƒ¼ã€‚
         if (!ValidationUtil.isHankakuString(value)) {
             rejectValue(errors, field, va, bean);
             return false;
         }
 
-        // ŒŸØ’l‚ğBigDecimal‚É•ÏŠ·
+        // æ¤œè¨¼å€¤ã‚’BigDecimalã«å¤‰æ›
         BigDecimal number = null;
         try {
             number = new BigDecimal(value);
@@ -1416,7 +1416,7 @@ public class FieldChecks {
             return false;
         }
 
-        // ®”•”Œ…”æ“¾
+        // æ•´æ•°éƒ¨æ¡æ•°å–å¾—
         int integerLength = Integer.MAX_VALUE;
         String integerLengthStr = field.getVarValue("integerLength");
         if (!GenericValidator.isBlankOrNull(integerLengthStr)) {
@@ -1431,7 +1431,7 @@ public class FieldChecks {
             }
         }
 
-        // ¬”•”Œ…”æ“¾
+        // å°æ•°éƒ¨æ¡æ•°å–å¾—
         int scaleLength = Integer.MAX_VALUE;
         String scaleStr = field.getVarValue("scale");
         if (!GenericValidator.isBlankOrNull(scaleStr)) {
@@ -1446,14 +1446,14 @@ public class FieldChecks {
             }
         }
 
-        // ®”Œ…”ˆê’vƒ`ƒFƒbƒN‚©
+        // æ•´æ•°æ¡æ•°ä¸€è‡´ãƒã‚§ãƒƒã‚¯ã‹
         boolean isAccordedInteger =
             "true".equals(field.getVarValue("isAccordedInteger"));
-        // ¬”Œ…”ˆê’vƒ`ƒFƒbƒN‚©
+        // å°æ•°æ¡æ•°ä¸€è‡´ãƒã‚§ãƒƒã‚¯ã‹
         boolean isAccordedScale =
             "true".equals(field.getVarValue("isAccordedScale"));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         if (!ValidationUtil.isNumber(
                 number, integerLength, isAccordedInteger,
                 scaleLength, isAccordedScale)) {
@@ -1465,25 +1465,25 @@ public class FieldChecks {
     }
 
     /**
-     * w’è‚³‚ê‚½ƒtƒB[ƒ‹ƒh‚ª”¼ŠpƒJƒi•¶š—ñ‚Å‚ ‚é‚±‚Æ‚ğƒ`ƒFƒbƒN‚·‚éB
-     * ƒ`ƒFƒbƒN‚Éˆø‚Á‚©‚©‚Á‚½ê‡‚ÍAƒGƒ‰[î•ñ‚ğerrors‚É’Ç‰Á‚µA
-     * false‚ğ•Ô‹p‚·‚éB
+     * æŒ‡å®šã•ã‚ŒãŸãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ãŒåŠè§’ã‚«ãƒŠæ–‡å­—åˆ—ã§ã‚ã‚‹ã“ã¨ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã€‚
+     * ãƒã‚§ãƒƒã‚¯ã«å¼•ã£ã‹ã‹ã£ãŸå ´åˆã¯ã€ã‚¨ãƒ©ãƒ¼æƒ…å ±ã‚’errorsã«è¿½åŠ ã—ã€
+     * falseã‚’è¿”å´ã™ã‚‹ã€‚
      *
-     * @param bean ŒŸ¸‘ÎÛ‚ÌJavaBeanƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param va Validator‚É‚æ‚è—pˆÓ‚³‚ê‚½ValidatorAction
-     * @param field ƒtƒB[ƒ‹ƒhƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param errors ƒGƒ‰[
-     * @return “ü—Í’l‚ª³‚µ‚¯‚ê‚Î true
+     * @param bean æ¤œæŸ»å¯¾è±¡ã®JavaBeanã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param va Validatorã«ã‚ˆã‚Šç”¨æ„ã•ã‚ŒãŸValidatorAction
+     * @param field ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param errors ã‚¨ãƒ©ãƒ¼
+     * @return å…¥åŠ›å€¤ãŒæ­£ã—ã‘ã‚Œã° true
      */
     public boolean validateHankakuKanaString(Object bean,
             ValidatorAction va, Field field, ValidationErrors errors) {
-        // ŒŸØ’l
+        // æ¤œè¨¼å€¤
         String value = extractValue(bean, field);
         if (StringUtils.isEmpty(value)) {
             return true;
         }
 
-        // ŒŸØ
+        // æ¤œè¨¼
         if (!ValidationUtil.isHankakuKanaString(value)) {
             rejectValue(errors, field, va, bean);
             return false;
@@ -1492,25 +1492,25 @@ public class FieldChecks {
     }
 
     /**
-     * w’è‚³‚ê‚½ƒtƒB[ƒ‹ƒh‚ª”¼Šp•¶š—ñ‚Å‚ ‚é‚±‚Æ‚ğƒ`ƒFƒbƒN‚·‚éB
-     * ƒ`ƒFƒbƒN‚Éˆø‚Á‚©‚©‚Á‚½ê‡‚ÍAƒGƒ‰[î•ñ‚ğerrors‚É’Ç‰Á‚µA
-     * false‚ğ•Ô‹p‚·‚éB
+     * æŒ‡å®šã•ã‚ŒãŸãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ãŒåŠè§’æ–‡å­—åˆ—ã§ã‚ã‚‹ã“ã¨ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã€‚
+     * ãƒã‚§ãƒƒã‚¯ã«å¼•ã£ã‹ã‹ã£ãŸå ´åˆã¯ã€ã‚¨ãƒ©ãƒ¼æƒ…å ±ã‚’errorsã«è¿½åŠ ã—ã€
+     * falseã‚’è¿”å´ã™ã‚‹ã€‚
      *
-     * @param bean ŒŸ¸‘ÎÛ‚ÌJavaBeanƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param va Validator‚É‚æ‚è—pˆÓ‚³‚ê‚½ValidatorAction
-     * @param field ƒtƒB[ƒ‹ƒhƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param errors ƒGƒ‰[
-     * @return “ü—Í’l‚ª³‚µ‚¯‚ê‚Î true
+     * @param bean æ¤œæŸ»å¯¾è±¡ã®JavaBeanã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param va Validatorã«ã‚ˆã‚Šç”¨æ„ã•ã‚ŒãŸValidatorAction
+     * @param field ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param errors ã‚¨ãƒ©ãƒ¼
+     * @return å…¥åŠ›å€¤ãŒæ­£ã—ã‘ã‚Œã° true
      */
     public boolean validateHankakuString(Object bean,
             ValidatorAction va, Field field, ValidationErrors errors) {
-        // ŒŸØ’l
+        // æ¤œè¨¼å€¤
         String value = extractValue(bean, field);
         if (StringUtils.isEmpty(value)) {
             return true;
         }
 
-        // ŒŸØ
+        // æ¤œè¨¼
         if (!ValidationUtil.isHankakuString(value)) {
             rejectValue(errors, field, va, bean);
             return false;
@@ -1519,25 +1519,25 @@ public class FieldChecks {
     }
 
     /**
-     * w’è‚³‚ê‚½ƒtƒB[ƒ‹ƒh‚ª‘SŠp•¶š—ñ‚Å‚ ‚é‚±‚Æ‚ğƒ`ƒFƒbƒN‚·‚éB
-     * ƒ`ƒFƒbƒN‚Éˆø‚Á‚©‚©‚Á‚½ê‡‚ÍAƒGƒ‰[î•ñ‚ğerrors‚É’Ç‰Á‚µA
-     * false‚ğ•Ô‹p‚·‚éB
+     * æŒ‡å®šã•ã‚ŒãŸãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ãŒå…¨è§’æ–‡å­—åˆ—ã§ã‚ã‚‹ã“ã¨ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã€‚
+     * ãƒã‚§ãƒƒã‚¯ã«å¼•ã£ã‹ã‹ã£ãŸå ´åˆã¯ã€ã‚¨ãƒ©ãƒ¼æƒ…å ±ã‚’errorsã«è¿½åŠ ã—ã€
+     * falseã‚’è¿”å´ã™ã‚‹ã€‚
      *
-     * @param bean ŒŸ¸‘ÎÛ‚ÌJavaBeanƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param va Validator‚É‚æ‚è—pˆÓ‚³‚ê‚½ValidatorAction
-     * @param field ƒtƒB[ƒ‹ƒhƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param errors ƒGƒ‰[
-     * @return “ü—Í’l‚ª³‚µ‚¯‚ê‚Î true
+     * @param bean æ¤œæŸ»å¯¾è±¡ã®JavaBeanã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param va Validatorã«ã‚ˆã‚Šç”¨æ„ã•ã‚ŒãŸValidatorAction
+     * @param field ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param errors ã‚¨ãƒ©ãƒ¼
+     * @return å…¥åŠ›å€¤ãŒæ­£ã—ã‘ã‚Œã° true
      */
     public boolean validateZenkakuString(Object bean,
             ValidatorAction va, Field field, ValidationErrors errors) {
-        // ŒŸØ’l
+        // æ¤œè¨¼å€¤
         String value = extractValue(bean, field);
         if (StringUtils.isEmpty(value)) {
             return true;
         }
 
-        // ŒŸØ
+        // æ¤œè¨¼
         if (!ValidationUtil.isZenkakuString(value)) {
             rejectValue(errors, field, va, bean);
             return false;
@@ -1546,25 +1546,25 @@ public class FieldChecks {
     }
 
     /**
-     * w’è‚³‚ê‚½ƒtƒB[ƒ‹ƒh‚ª‘SŠpƒJƒ^ƒJƒi•¶š—ñ‚Å ‚ ‚é‚±‚Æ‚ğƒ`ƒFƒbƒN‚·‚éB<br>
-     * ƒ`ƒFƒbƒN‚Éˆø‚Á‚©‚©‚Á‚½ê‡‚ÍAƒGƒ‰[î•ñ‚ğerrors‚É’Ç‰Á‚µA
-     * false‚ğ•Ô‹p‚·‚éB
+     * æŒ‡å®šã•ã‚ŒãŸãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ãŒå…¨è§’ã‚«ã‚¿ã‚«ãƒŠæ–‡å­—åˆ—ã§ ã‚ã‚‹ã“ã¨ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã€‚<br>
+     * ãƒã‚§ãƒƒã‚¯ã«å¼•ã£ã‹ã‹ã£ãŸå ´åˆã¯ã€ã‚¨ãƒ©ãƒ¼æƒ…å ±ã‚’errorsã«è¿½åŠ ã—ã€
+     * falseã‚’è¿”å´ã™ã‚‹ã€‚
      *
-     * @param bean ŒŸ¸‘ÎÛ‚ÌJavaBeanƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param va Validator‚É‚æ‚è—pˆÓ‚³‚ê‚½ValidatorAction
-     * @param field ƒtƒB[ƒ‹ƒhƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param errors ƒGƒ‰[
-     * @return “ü—Í’l‚ª³‚µ‚¯‚ê‚Î true
+     * @param bean æ¤œæŸ»å¯¾è±¡ã®JavaBeanã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param va Validatorã«ã‚ˆã‚Šç”¨æ„ã•ã‚ŒãŸValidatorAction
+     * @param field ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param errors ã‚¨ãƒ©ãƒ¼
+     * @return å…¥åŠ›å€¤ãŒæ­£ã—ã‘ã‚Œã° true
      */
     public boolean validateZenkakuKanaString(Object bean,
             ValidatorAction va, Field field, ValidationErrors errors) {
-        // ŒŸØ’l
+        // æ¤œè¨¼å€¤
         String value = extractValue(bean, field);
         if (StringUtils.isEmpty(value)) {
             return true;
         }
 
-        // ŒŸØ
+        // æ¤œè¨¼
         if (!ValidationUtil.isZenkakuKanaString(value)) {
             rejectValue(errors, field, va, bean);
             return false;
@@ -1573,17 +1573,17 @@ public class FieldChecks {
     }
 
     /**
-     * w’è‚³‚ê‚½ƒtƒB[ƒ‹ƒh‚É“ü—Í‹Ö~•¶š—ñ‚ª¬“ü‚µ‚Ä‚¢‚é‚©
-     * ‚Ç‚¤‚©‚ğƒ`ƒFƒbƒN‚·‚éB
-     * ƒ`ƒFƒbƒN‚Éˆø‚Á‚©‚©‚Á‚½ê‡‚ÍAƒGƒ‰[î•ñ‚ğerrors‚É’Ç‰Á‚µA
-     * false‚ğ•Ô‹p‚·‚éB
+     * æŒ‡å®šã•ã‚ŒãŸãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«å…¥åŠ›ç¦æ­¢æ–‡å­—åˆ—ãŒæ··å…¥ã—ã¦ã„ã‚‹ã‹
+     * ã©ã†ã‹ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã€‚
+     * ãƒã‚§ãƒƒã‚¯ã«å¼•ã£ã‹ã‹ã£ãŸå ´åˆã¯ã€ã‚¨ãƒ©ãƒ¼æƒ…å ±ã‚’errorsã«è¿½åŠ ã—ã€
+     * falseã‚’è¿”å´ã™ã‚‹ã€‚
      *
-     * <p>ˆÈ‰º‚ÍA‹Ö~•¶š—ñƒ`ƒFƒbƒN‚Ìİ’è—á‚Å‚ ‚éB
+     * <p>ä»¥ä¸‹ã¯ã€ç¦æ­¢æ–‡å­—åˆ—ãƒã‚§ãƒƒã‚¯ã®è¨­å®šä¾‹ã§ã‚ã‚‹ã€‚
      *
-     * <h5>validation.xml‚Ì‹Lq—á</h5>
+     * <h5>validation.xmlã®è¨˜è¿°ä¾‹</h5>
      * <code><pre>
      * &lt;form name=&quot;sample&quot;&gt;
-     *  EEE
+     *  ãƒ»ãƒ»ãƒ»
      *  &lt;field property=&quot;stringField&quot;
      *      depends=&quot;prohibited&quot;&gt;
      *    &lt;arg key=&quot;sample.stringField&quot; position="0"/&gt;
@@ -1592,53 +1592,53 @@ public class FieldChecks {
      *      &lt;var-value&gt;!&quot;#$%&amp;'()&lt;&gt;&lt;/var-value&gt;
      *    &lt;/var&gt;
      *  &lt;/field&gt;
-     *  EEE
+     *  ãƒ»ãƒ»ãƒ»
      * &lt;/form&gt;
      * </pre></code>
-     * <h5>validation.xml‚Éİ’è‚ğ—v‚·‚é&lt;var&gt;—v‘f</h5>
+     * <h5>validation.xmlã«è¨­å®šã‚’è¦ã™ã‚‹&lt;var&gt;è¦ç´ </h5>
      * <table border="1">
      *  <tr>
      *   <td><center><b><code>var-name</code></b></center></td>
      *   <td><center><b><code>var-value</code></b></center></td>
-     *   <td><center><b>•K{«</b></center></td>
-     *   <td><center><b>ŠT—v</b></center></td>
+     *   <td><center><b>å¿…é ˆæ€§</b></center></td>
+     *   <td><center><b>æ¦‚è¦</b></center></td>
      *  </tr>
      *  <tr>
      *   <td> chars </td>
-     *   <td>“ü—Í‹Ö~ƒLƒƒƒ‰ƒNƒ^</td>
+     *   <td>å…¥åŠ›ç¦æ­¢ã‚­ãƒ£ãƒ©ã‚¯ã‚¿</td>
      *   <td> true </td>
-     *   <td>“ü—Í‚ğ‹Ö~‚·‚é•¶šBİ’è‚³‚ê‚È‚¢ê‡‚ÍAValidatorException
-     *   ‚ªƒXƒ[‚³‚ê‚éB</td>
+     *   <td>å…¥åŠ›ã‚’ç¦æ­¢ã™ã‚‹æ–‡å­—ã€‚è¨­å®šã•ã‚Œãªã„å ´åˆã¯ã€ValidatorException
+     *   ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã€‚</td>
      *  </tr>
      * </table>
      *
-     * @param bean ŒŸ¸‘ÎÛ‚ÌJavaBeanƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param va Validator‚É‚æ‚è—pˆÓ‚³‚ê‚½ValidatorAction
-     * @param field ƒtƒB[ƒ‹ƒhƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param errors ƒGƒ‰[
-     * @return “ü—Í’l‚ª³‚µ‚¯‚ê‚Î true
-     * @exception ValidatorException İ’èƒtƒ@ƒCƒ‹‚©‚çchars‚Ì’l‚ªæ“¾‚Å‚«‚È‚¢
-     * ê‡‚ÉƒXƒ[‚³‚ê‚éB
+     * @param bean æ¤œæŸ»å¯¾è±¡ã®JavaBeanã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param va Validatorã«ã‚ˆã‚Šç”¨æ„ã•ã‚ŒãŸValidatorAction
+     * @param field ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param errors ã‚¨ãƒ©ãƒ¼
+     * @return å…¥åŠ›å€¤ãŒæ­£ã—ã‘ã‚Œã° true
+     * @exception ValidatorException è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰charsã®å€¤ãŒå–å¾—ã§ããªã„
+     * å ´åˆã«ã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã€‚
      */
     public boolean validateProhibited(Object bean, ValidatorAction va,
             Field field, ValidationErrors errors)
             throws ValidatorException {
-        // ŒŸØ’l
+        // æ¤œè¨¼å€¤
         String value = extractValue(bean, field);
         if (StringUtils.isEmpty(value)) {
             return true;
         }
 
-        // “ü—Í‹Ö~•¶š—ñ
+        // å…¥åŠ›ç¦æ­¢æ–‡å­—åˆ—
         String prohibitedStr = field.getVarValue("chars");
 
-        // chars‚ªæ“¾‚Å‚«‚È‚¢ê‡‚ÍValidatorException‚ğƒXƒ[
+        // charsãŒå–å¾—ã§ããªã„å ´åˆã¯ValidatorExceptionã‚’ã‚¹ãƒ­ãƒ¼
         if (StringUtils.isEmpty(prohibitedStr)) {
             log.error("var[chars] must be specified.");
             throw new ValidatorException("var[chars] must be specified.");
         }
 
-        // ŒŸØ
+        // æ¤œè¨¼
         if (!ValidationUtil.hasNotProhibitedChar(value, prohibitedStr)) {
             rejectValue(errors, field, va, bean);
             return false;
@@ -1647,25 +1647,25 @@ public class FieldChecks {
     }
 
     /**
-     * w’è‚³‚ê‚½ƒtƒB[ƒ‹ƒh‚ª”¼Šp”š‚Å‚ ‚é‚±‚Æ‚ğƒ`ƒFƒbƒN‚·‚éB
-     * ƒ`ƒFƒbƒN‚Éˆø‚Á‚©‚©‚Á‚½ê‡‚ÍAƒGƒ‰[î•ñ‚ğerrors‚É’Ç‰Á‚µA
-     * false‚ğ•Ô‹p‚·‚éB
+     * æŒ‡å®šã•ã‚ŒãŸãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ãŒåŠè§’æ•°å­—ã§ã‚ã‚‹ã“ã¨ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã€‚
+     * ãƒã‚§ãƒƒã‚¯ã«å¼•ã£ã‹ã‹ã£ãŸå ´åˆã¯ã€ã‚¨ãƒ©ãƒ¼æƒ…å ±ã‚’errorsã«è¿½åŠ ã—ã€
+     * falseã‚’è¿”å´ã™ã‚‹ã€‚
      *
-     * @param bean ŒŸ¸‘ÎÛ‚ÌJavaBeanƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param va Validator‚É‚æ‚è—pˆÓ‚³‚ê‚½ValidatorAction
-     * @param field ƒtƒB[ƒ‹ƒhƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param errors ƒGƒ‰[
-     * @return “ü—Í’l‚ª³‚µ‚¯‚ê‚Î true
+     * @param bean æ¤œæŸ»å¯¾è±¡ã®JavaBeanã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param va Validatorã«ã‚ˆã‚Šç”¨æ„ã•ã‚ŒãŸValidatorAction
+     * @param field ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param errors ã‚¨ãƒ©ãƒ¼
+     * @return å…¥åŠ›å€¤ãŒæ­£ã—ã‘ã‚Œã° true
      */
     public boolean validateNumericString(Object bean,
             ValidatorAction va, Field field, ValidationErrors errors) {
-        // ŒŸØ’l
+        // æ¤œè¨¼å€¤
         String value = extractValue(bean, field);
         if (StringUtils.isEmpty(value)) {
             return true;
         }
 
-        // ŒŸØ
+        // æ¤œè¨¼
         if (!ValidationUtil.isNumericString(value)) {
             rejectValue(errors, field, va, bean);
             return false;
@@ -1674,17 +1674,17 @@ public class FieldChecks {
     }
 
     /**
-     * w’è‚³‚ê‚½ƒtƒB[ƒ‹ƒh‚Ì•¶š—ñ’·‚ªˆê’v‚µ‚Ä‚¢‚é‚±‚Æ‚ğƒ`ƒFƒbƒN‚·‚éB
-     * ƒ`ƒFƒbƒN‚Éˆø‚Á‚©‚©‚Á‚½ê‡‚ÍAƒGƒ‰[î•ñ‚ğerrors‚É’Ç‰Á‚µA
-     * false‚ğ•Ô‹p‚·‚éB
+     * æŒ‡å®šã•ã‚ŒãŸãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®æ–‡å­—åˆ—é•·ãŒä¸€è‡´ã—ã¦ã„ã‚‹ã“ã¨ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã€‚
+     * ãƒã‚§ãƒƒã‚¯ã«å¼•ã£ã‹ã‹ã£ãŸå ´åˆã¯ã€ã‚¨ãƒ©ãƒ¼æƒ…å ±ã‚’errorsã«è¿½åŠ ã—ã€
+     * falseã‚’è¿”å´ã™ã‚‹ã€‚
      *
-     * <p>ˆÈ‰º‚ÍA•¶š—ñ’·‚ª5‚Å‚ ‚é‚Æ‚«‚Ì‚İtrue‚ğ•Ô‹p‚·‚é
-     * ŒŸØ‚Ìİ’è—á‚Å‚ ‚éB
+     * <p>ä»¥ä¸‹ã¯ã€æ–‡å­—åˆ—é•·ãŒ5ã§ã‚ã‚‹ã¨ãã®ã¿trueã‚’è¿”å´ã™ã‚‹
+     * æ¤œè¨¼ã®è¨­å®šä¾‹ã§ã‚ã‚‹ã€‚
      *
-     * <h5>validation.xml‚Ì‹Lq—á</h5>
+     * <h5>validation.xmlã®è¨˜è¿°ä¾‹</h5>
      * <code><pre>
      * &lt;form name=&quot;sample&quot;&gt;
-     *  EEE
+     *  ãƒ»ãƒ»ãƒ»
      *  &lt;field property=&quot;stringField&quot;
      *      depends=&quot;stringLength&quot;&gt;
      *    &lt;arg key=&quot;sample.stringField&quot; position="0"/&gt;
@@ -1693,44 +1693,44 @@ public class FieldChecks {
      *      &lt;var-value&gt;5&lt;/var-value&gt;
      *    &lt;/var&gt;
      *  &lt;/field&gt;
-     *  EEE
+     *  ãƒ»ãƒ»ãƒ»
      * &lt;/form&gt;
      * </pre></code>
-     * <h5>validation.xml‚Éİ’è‚ğ—v‚·‚é&lt;var&gt;—v‘f</h5>
+     * <h5>validation.xmlã«è¨­å®šã‚’è¦ã™ã‚‹&lt;var&gt;è¦ç´ </h5>
      * <table border="1">
      *  <tr>
      *   <td><center><b><code>var-name</code></b></center></td>
      *   <td><center><b><code>var-value</code></b></center></td>
-     *   <td><center><b>•K{«</b></center></td>
-     *   <td><center><b>ŠT—v</b></center></td>
+     *   <td><center><b>å¿…é ˆæ€§</b></center></td>
+     *   <td><center><b>æ¦‚è¦</b></center></td>
      *  </tr>
      *  <tr>
      *   <td> stringLength </td>
-     *   <td>“ü—Í•¶š—ñ’·</td>
+     *   <td>å…¥åŠ›æ–‡å­—åˆ—é•·</td>
      *   <td> false </td>
-     *   <td>“ü—Í•¶š—ñ’·‚ğw’è‚·‚éB
-     *        È—ª‚ÍA<code>int</code>Œ^‚ÌÅ‘å’l‚ªw’è‚³‚ê‚éB</td>
+     *   <td>å…¥åŠ›æ–‡å­—åˆ—é•·ã‚’æŒ‡å®šã™ã‚‹ã€‚
+     *        çœç•¥æ™‚ã¯ã€<code>int</code>å‹ã®æœ€å¤§å€¤ãŒæŒ‡å®šã•ã‚Œã‚‹ã€‚</td>
      *  </tr>
      * </table>
      *
-     * @param bean ŒŸ¸‘ÎÛ‚ÌJavaBeanƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param va Validator‚É‚æ‚è—pˆÓ‚³‚ê‚½ValidatorAction
-     * @param field ƒtƒB[ƒ‹ƒhƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param errors ƒGƒ‰[
-     * @return “ü—Í’l‚ª³‚µ‚¯‚ê‚Î true
-     * @throws ValidatorException validation’è‹`ƒtƒ@ƒCƒ‹‚Ìİ’èƒ~ƒX‚ª‚ ‚Á‚½ê‡
-     * ƒXƒ[‚³‚ê‚é—áŠOB
+     * @param bean æ¤œæŸ»å¯¾è±¡ã®JavaBeanã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param va Validatorã«ã‚ˆã‚Šç”¨æ„ã•ã‚ŒãŸValidatorAction
+     * @param field ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param errors ã‚¨ãƒ©ãƒ¼
+     * @return å…¥åŠ›å€¤ãŒæ­£ã—ã‘ã‚Œã° true
+     * @throws ValidatorException validationå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ã®è¨­å®šãƒŸã‚¹ãŒã‚ã£ãŸå ´åˆ
+     * ã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ä¾‹å¤–ã€‚
      */
     public boolean validateStringLength(Object bean,
             ValidatorAction va, Field field, ValidationErrors errors)
             throws ValidatorException {
-        // ŒŸØ’l
+        // æ¤œè¨¼å€¤
         String value = extractValue(bean, field);
         if (StringUtils.isEmpty(value)) {
             return true;
         }
 
-        // •¶š—ñ’·
+        // æ–‡å­—åˆ—é•·
         int length = Integer.MAX_VALUE;
         String lengthStr = field.getVarValue("stringLength");
 
@@ -1744,7 +1744,7 @@ public class FieldChecks {
             throw new ValidatorException(message);
         }
 
-        // ŒŸØ
+        // æ¤œè¨¼
         if (value.length() != length) {
             rejectValue(errors, field, va, bean);
             return false;
@@ -1753,18 +1753,18 @@ public class FieldChecks {
     }
 
     /**
-     * w’è‚³‚ê‚½ƒtƒB[ƒ‹ƒh‚Ì”z—ñEƒRƒŒƒNƒVƒ‡ƒ“‚Ì’·‚³‚ªA
-     * w’è”‚Ì”ÍˆÍ“à‚Å‚ ‚é‚±‚Æ‚ğƒ`ƒFƒbƒN‚·‚éB
-     * ƒ`ƒFƒbƒN‚Éˆø‚Á‚©‚©‚Á‚½ê‡‚ÍAƒGƒ‰[î•ñ‚ğerrors‚É’Ç‰Á‚µA
-     * false‚ğ•Ô‹p‚·‚éB
+     * æŒ‡å®šã•ã‚ŒãŸãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®é…åˆ—ãƒ»ã‚³ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³ã®é•·ã•ãŒã€
+     * æŒ‡å®šæ•°ã®ç¯„å›²å†…ã§ã‚ã‚‹ã“ã¨ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã€‚
+     * ãƒã‚§ãƒƒã‚¯ã«å¼•ã£ã‹ã‹ã£ãŸå ´åˆã¯ã€ã‚¨ãƒ©ãƒ¼æƒ…å ±ã‚’errorsã«è¿½åŠ ã—ã€
+     * falseã‚’è¿”å´ã™ã‚‹ã€‚
      *
-     * <p>ˆÈ‰º‚ÍA”z—ñEƒRƒŒƒNƒVƒ‡ƒ“‚Ì’·‚³‚ª‚S`‚V‚Å‚ ‚é‚Æ‚«‚Ì‚İtrue‚ğ•Ô‹p‚·‚é
-     * ŒŸØ‚Ìİ’è—á‚Å‚ ‚éB
+     * <p>ä»¥ä¸‹ã¯ã€é…åˆ—ãƒ»ã‚³ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³ã®é•·ã•ãŒï¼”ï½ï¼—ã§ã‚ã‚‹ã¨ãã®ã¿trueã‚’è¿”å´ã™ã‚‹
+     * æ¤œè¨¼ã®è¨­å®šä¾‹ã§ã‚ã‚‹ã€‚
      *
-     * <h5>validation.xml‚Ì‹Lq—á</h5>
+     * <h5>validation.xmlã®è¨˜è¿°ä¾‹</h5>
      * <code><pre>
      * &lt;form name=&quot;sample&quot;&gt;
-     *  EEE
+     *  ãƒ»ãƒ»ãƒ»
      *  &lt;field property=&quot;arrayField&quot;
      *      depends=&quot;arrayRange&quot;&gt;
      *    &lt;arg key=&quot;sample.arrayField&quot; position="0"/&gt;
@@ -1777,46 +1777,46 @@ public class FieldChecks {
      *      &lt;var-value&gt;7&lt;/var-value&gt;
      *    &lt;/var&gt;
      *  &lt;/field&gt;
-     *  EEE
+     *  ãƒ»ãƒ»ãƒ»
      * &lt;/form&gt;
      * </pre></code>
-     * <h5>validation.xml‚Éİ’è‚ğ—v‚·‚é&lt;var&gt;—v‘f</h5>
+     * <h5>validation.xmlã«è¨­å®šã‚’è¦ã™ã‚‹&lt;var&gt;è¦ç´ </h5>
      * <table border="1">
      *  <tr>
      *   <td><center><b><code>var-name</code></b></center></td>
      *   <td><center><b><code>var-value</code></b></center></td>
-     *   <td><center><b>•K{«</b></center></td>
-     *   <td><center><b>ŠT—v</b></center></td>
+     *   <td><center><b>å¿…é ˆæ€§</b></center></td>
+     *   <td><center><b>æ¦‚è¦</b></center></td>
      *  </tr>
      *  <tr>
      *   <td> minArrayLength </td>
-     *   <td>Å¬”z—ñ”</td>
+     *   <td>æœ€å°é…åˆ—æ•°</td>
      *   <td>false</td>
-     *   <td>”z—ñ‚ÌÅ¬”z—ñ”‚ğw’è‚·‚éB
-     *        Å¬”z—ñ”‚Ìw’è‚ª‚È‚¢ê‡A‚O‚ªw’è‚³‚ê‚éB</td>
+     *   <td>é…åˆ—ã®æœ€å°é…åˆ—æ•°ã‚’æŒ‡å®šã™ã‚‹ã€‚
+     *        æœ€å°é…åˆ—æ•°ã®æŒ‡å®šãŒãªã„å ´åˆã€ï¼ãŒæŒ‡å®šã•ã‚Œã‚‹ã€‚</td>
      *  </tr>
      *  <tr>
      *   <td> maxArrayLength </td>
-     *   <td>Å‘å”z—ñ”</td>
+     *   <td>æœ€å¤§é…åˆ—æ•°</td>
      *   <td>false</td>
-     *   <td>”z—ñ‚ÌÅ‘å”z—ñ”‚ğw’è‚·‚éB
-     *        Å‘å”z—ñ”‚Ìw’è‚ª‚È‚¢ê‡A
-     *        <code>int</code>Œ^‚ÌÅ‘å’l‚ªw’è‚³‚ê‚éB</td>
+     *   <td>é…åˆ—ã®æœ€å¤§é…åˆ—æ•°ã‚’æŒ‡å®šã™ã‚‹ã€‚
+     *        æœ€å¤§é…åˆ—æ•°ã®æŒ‡å®šãŒãªã„å ´åˆã€
+     *        <code>int</code>å‹ã®æœ€å¤§å€¤ãŒæŒ‡å®šã•ã‚Œã‚‹ã€‚</td>
      *  </tr>
      * </table>
      *
-     * @param bean ŒŸ¸‘ÎÛ‚ÌJavaBeanƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param va Validator‚É‚æ‚è—pˆÓ‚³‚ê‚½ValidatorAction
-     * @param field ƒtƒB[ƒ‹ƒhƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param errors ƒGƒ‰[
-     * @return “ü—Í’l‚ª³‚µ‚¯‚ê‚Î true
-     * @throws ValidatorException validation’è‹`ƒtƒ@ƒCƒ‹‚Ìİ’èƒ~ƒX‚ª‚ ‚Á‚½ê‡
-     * ƒXƒ[‚³‚ê‚é—áŠOB
+     * @param bean æ¤œæŸ»å¯¾è±¡ã®JavaBeanã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param va Validatorã«ã‚ˆã‚Šç”¨æ„ã•ã‚ŒãŸValidatorAction
+     * @param field ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param errors ã‚¨ãƒ©ãƒ¼
+     * @return å…¥åŠ›å€¤ãŒæ­£ã—ã‘ã‚Œã° true
+     * @throws ValidatorException validationå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ã®è¨­å®šãƒŸã‚¹ãŒã‚ã£ãŸå ´åˆ
+     * ã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ä¾‹å¤–ã€‚
      */
     public boolean validateArrayRange(Object bean, ValidatorAction va,
             Field field, ValidationErrors errors) throws ValidatorException {
 
-        // ƒ`ƒFƒbƒN‘ÎÛ‚Ìbean‚ªnull‚Ìê‡‚ÍValidatorException‚ğƒXƒ[
+        // ãƒã‚§ãƒƒã‚¯å¯¾è±¡ã®beanãŒnullã®å ´åˆã¯ValidatorExceptionã‚’ã‚¹ãƒ­ãƒ¼
         if (bean == null) {
             String message = "target of validateArrayRange must be not null.";
             log.error(message);
@@ -1848,7 +1848,7 @@ public class FieldChecks {
             throw new ValidatorException(message);
         }
 
-        // ŒŸØ’l
+        // æ¤œè¨¼å€¤
         Object obj = null;
         try {
             obj = BeanUtil.getBeanProperty(bean, field.getProperty());
@@ -1860,7 +1860,7 @@ public class FieldChecks {
             throw new ValidatorException(message);
         }
 
-        // w’è‚·‚é”z—ñ‚ÌÅ¬ƒTƒCƒY
+        // æŒ‡å®šã™ã‚‹é…åˆ—ã®æœ€å°ã‚µã‚¤ã‚º
         int min = 0;
         String minStr = field.getVarValue("minArrayLength");
         if (!GenericValidator.isBlankOrNull(minStr)) {
@@ -1875,7 +1875,7 @@ public class FieldChecks {
             }
         }
 
-        // w’è‚·‚é”z—ñ‚ÌÅ‘åƒTƒCƒY
+        // æŒ‡å®šã™ã‚‹é…åˆ—ã®æœ€å¤§ã‚µã‚¤ã‚º
         int max = Integer.MAX_VALUE;
         String maxStr = field.getVarValue("maxArrayLength");
         if (!GenericValidator.isBlankOrNull(maxStr)) {
@@ -1890,7 +1890,7 @@ public class FieldChecks {
             }
         }
 
-        // ŒŸØ
+        // æ¤œè¨¼
         try {
             if (!ValidationUtil.isArrayInRange(obj, min, max)) {
                 rejectValue(errors, field, va, bean);
@@ -1904,17 +1904,17 @@ public class FieldChecks {
     }
 
     /**
-     * w’è‚³‚ê‚½ƒtƒB[ƒ‹ƒh‚ªURLŒ`®‚©‚Ç‚¤‚©ƒ`ƒFƒbƒN‚·‚éB<br>
-     * ƒ`ƒFƒbƒN‚Éˆø‚Á‚©‚©‚Á‚½ê‡‚ÍAƒGƒ‰[î•ñ‚ğerrors‚É’Ç‰Á‚µA
-     * false‚ğ•Ô‹p‚·‚éB
+     * æŒ‡å®šã•ã‚ŒãŸãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ãŒURLå½¢å¼ã‹ã©ã†ã‹ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã€‚<br>
+     * ãƒã‚§ãƒƒã‚¯ã«å¼•ã£ã‹ã‹ã£ãŸå ´åˆã¯ã€ã‚¨ãƒ©ãƒ¼æƒ…å ±ã‚’errorsã«è¿½åŠ ã—ã€
+     * falseã‚’è¿”å´ã™ã‚‹ã€‚
      *
-     * <p>ˆÈ‰º‚ÍAHTTPAFTPƒvƒƒgƒRƒ‹w’è‰Â”\Aƒ_ƒuƒ‹ƒXƒ‰ƒbƒVƒ…w’è‰Â”\A
-     * URL‚Ì•ªŠ„‰Â”\‚Å‚ ‚éŒŸØ‚Ìİ’è—á‚Å‚ ‚éB
+     * <p>ä»¥ä¸‹ã¯ã€HTTPã€FTPãƒ—ãƒ­ãƒˆã‚³ãƒ«æŒ‡å®šå¯èƒ½ã€ãƒ€ãƒ–ãƒ«ã‚¹ãƒ©ãƒƒã‚·ãƒ¥æŒ‡å®šå¯èƒ½ã€
+     * URLã®åˆ†å‰²å¯èƒ½ã§ã‚ã‚‹æ¤œè¨¼ã®è¨­å®šä¾‹ã§ã‚ã‚‹ã€‚
      * </p>
-     * <h5>validation.xml‚Ì‹Lq—á</h5>
+     * <h5>validation.xmlã®è¨˜è¿°ä¾‹</h5>
      * <code><pre>
      * &lt;form name=&quot;sample&quot;&gt;
-     *  EEE
+     *  ãƒ»ãƒ»ãƒ»
      *  &lt;field property=&quot;date&quot;
      *      depends=&quot;url&quot;&gt;
      *    &lt;arg key=&quot;label.date&quot; position=&quot;0&quot;/&gt;
@@ -1935,59 +1935,59 @@ public class FieldChecks {
      *      &lt;var-value&gt;http,ftp&lt;/var-value&gt;
      *    &lt;/var&gt;
      *  &lt;/field&gt;
-     *  EEE
+     *  ãƒ»ãƒ»ãƒ»
      * &lt;/form&gt;
      * </pre></code>
-     * <h5>validation.xml‚Éİ’è‚ğ—v‚·‚é&lt;var&gt;—v‘f</h5>
+     * <h5>validation.xmlã«è¨­å®šã‚’è¦ã™ã‚‹&lt;var&gt;è¦ç´ </h5>
      * <table border="1">
      *  <tr>
      *   <td><center><b><code>var-name</code></b></center></td>
      *   <td><center><b><code>var-value</code></b></center></td>
-     *   <td><center><b>•K{«</b></center></td>
-     *   <td><center><b>ŠT—v</b></center></td>
+     *   <td><center><b>å¿…é ˆæ€§</b></center></td>
+     *   <td><center><b>æ¦‚è¦</b></center></td>
      *  </tr>
      *  <tr>
      *   <td> allowallschemes </td>
-     *   <td>trueior falsej</td>
+     *   <td>trueï¼ˆor falseï¼‰</td>
      *   <td>false</td>
-     *   <td>‘S‚Ä‚ÌƒXƒL[ƒ€‚ğ‹–‰Â‚·‚é‚©”»’f‚·‚éƒtƒ‰ƒOBƒfƒtƒHƒ‹ƒgfalseB</td>
+     *   <td>å…¨ã¦ã®ã‚¹ã‚­ãƒ¼ãƒ ã‚’è¨±å¯ã™ã‚‹ã‹åˆ¤æ–­ã™ã‚‹ãƒ•ãƒ©ã‚°ã€‚ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆfalseã€‚</td>
      *  </tr>
      *  <tr>
      *   <td> allow2slashes </td>
-     *   <td>trueior falsej</td>
+     *   <td>trueï¼ˆor falseï¼‰</td>
      *   <td>false</td>
-     *   <td>ƒ_ƒuƒ‹ƒXƒ‰ƒbƒVƒ…‚ğ‹–‰Â‚·‚é‚©”»’f‚·‚éƒtƒ‰ƒOBƒfƒtƒHƒ‹ƒgfalseB</td>
+     *   <td>ãƒ€ãƒ–ãƒ«ã‚¹ãƒ©ãƒƒã‚·ãƒ¥ã‚’è¨±å¯ã™ã‚‹ã‹åˆ¤æ–­ã™ã‚‹ãƒ•ãƒ©ã‚°ã€‚ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆfalseã€‚</td>
      *  </tr>
      *  <tr>
      *   <td> nofragments </td>
-     *   <td>trueior falsej</td>
+     *   <td>trueï¼ˆor falseï¼‰</td>
      *   <td>false</td>
-     *   <td>URL•ªŠ„‹Ö~‚©”»’f‚·‚éƒtƒ‰ƒOBƒfƒtƒHƒ‹ƒgfalseB</td>
+     *   <td>URLåˆ†å‰²ç¦æ­¢ã‹åˆ¤æ–­ã™ã‚‹ãƒ•ãƒ©ã‚°ã€‚ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆfalseã€‚</td>
      *  </tr>
      *  <tr>
      *   <td> schemes </td>
-     *   <td>ƒvƒƒgƒRƒ‹</td>
+     *   <td>ãƒ—ãƒ­ãƒˆã‚³ãƒ«</td>
      *   <td>false</td>
-     *   <td>‹–‰Â‚·‚éƒXƒL[ƒ€B•¡”‚ ‚éê‡‚ÍƒJƒ“ƒ}‹æØ‚è‚Åw’èB
-     *       ƒfƒtƒHƒ‹ƒg‚Íhttp, https, ftpB</td>
+     *   <td>è¨±å¯ã™ã‚‹ã‚¹ã‚­ãƒ¼ãƒ ã€‚è¤‡æ•°ã‚ã‚‹å ´åˆã¯ã‚«ãƒ³ãƒåŒºåˆ‡ã‚Šã§æŒ‡å®šã€‚
+     *       ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã¯http, https, ftpã€‚</td>
      *  </tr>
      * </table>
      *
-     * @param bean ŒŸ¸‘ÎÛ‚ÌJavaBeanƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param va Validator‚É‚æ‚è—pˆÓ‚³‚ê‚½ValidatorAction
-     * @param field ƒtƒB[ƒ‹ƒhƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param errors ƒGƒ‰[
-     * @return “ü—Í’l‚ª³‚µ‚¯‚ê‚Î true
+     * @param bean æ¤œæŸ»å¯¾è±¡ã®JavaBeanã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param va Validatorã«ã‚ˆã‚Šç”¨æ„ã•ã‚ŒãŸValidatorAction
+     * @param field ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param errors ã‚¨ãƒ©ãƒ¼
+     * @return å…¥åŠ›å€¤ãŒæ­£ã—ã‘ã‚Œã° true
      */
     public boolean validateUrl(Object bean, ValidatorAction va,
             Field field, ValidationErrors errors) {
-        // ŒŸØ’l
+        // æ¤œè¨¼å€¤
         String value = extractValue(bean, field);
         if (StringUtils.isEmpty(value)) {
             return true;
         }
 
-        // ƒIƒvƒVƒ‡ƒ“‚Ì•Ï”‚ğæ“¾‚·‚é
+        // ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã®å¤‰æ•°ã‚’å–å¾—ã™ã‚‹
         boolean allowallschemes =
             "true".equals(field.getVarValue("allowallschemes"));
         boolean allow2slashes =
@@ -1997,7 +1997,7 @@ public class FieldChecks {
         String schemesVar = allowallschemes ? null : field
                 .getVarValue("schemes");
 
-        // ŒŸØ
+        // æ¤œè¨¼
         if (!ValidationUtil.isUrl(
                 value, allowallschemes, allow2slashes,
                 nofragments, schemesVar)) {
@@ -2008,18 +2008,18 @@ public class FieldChecks {
     }
 
     /**
-     * w’è‚³‚ê‚½ƒtƒB[ƒ‹ƒh‚ÌƒoƒCƒg—ñ’·‚ªw’è‚µ‚½”ÍˆÍ“à‚Å‚ ‚é‚±‚Æ‚ğ
-     * ƒ`ƒFƒbƒN‚·‚éB
-     * ƒ`ƒFƒbƒN‚Éˆø‚Á‚©‚©‚Á‚½ê‡‚ÍAƒGƒ‰[î•ñ‚ğerrors‚É’Ç‰Á‚µA
-     * false‚ğ•Ô‹p‚·‚éB
+     * æŒ‡å®šã•ã‚ŒãŸãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®ãƒã‚¤ãƒˆåˆ—é•·ãŒæŒ‡å®šã—ãŸç¯„å›²å†…ã§ã‚ã‚‹ã“ã¨ã‚’
+     * ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã€‚
+     * ãƒã‚§ãƒƒã‚¯ã«å¼•ã£ã‹ã‹ã£ãŸå ´åˆã¯ã€ã‚¨ãƒ©ãƒ¼æƒ…å ±ã‚’errorsã«è¿½åŠ ã—ã€
+     * falseã‚’è¿”å´ã™ã‚‹ã€‚
      *
-     * <p>ˆÈ‰º‚ÍAƒoƒCƒg—ñ’·‚ª5ˆÈãA10ˆÈ‰º‚Å‚ ‚é‚Æ‚«‚Ì‚İ true
-     * ‚ğ•Ô‹p‚·‚éŒŸØ‚Ìİ’è—á‚Å‚ ‚éB
+     * <p>ä»¥ä¸‹ã¯ã€ãƒã‚¤ãƒˆåˆ—é•·ãŒ5ä»¥ä¸Šã€10ä»¥ä¸‹ã§ã‚ã‚‹ã¨ãã®ã¿ true
+     * ã‚’è¿”å´ã™ã‚‹æ¤œè¨¼ã®è¨­å®šä¾‹ã§ã‚ã‚‹ã€‚
      *
-     * <h5>validation.xml‚Ì‹Lq—á</h5>
+     * <h5>validation.xmlã®è¨˜è¿°ä¾‹</h5>
      * <code><pre>
      * &lt;form name=&quot;sample&quot;&gt;
-     *  EEE
+     *  ãƒ»ãƒ»ãƒ»
      *  &lt;field property=&quot;stringField&quot;
      *      depends=&quot;byteRange&quot;&gt;
      *    &lt;arg key=&quot;sample.stringField&quot; position="0"/&gt;
@@ -2036,61 +2036,61 @@ public class FieldChecks {
      *      &lt;var-value&gt;Windows-31J&lt;/var-value&gt;
      *    &lt;/var&gt;
      *  &lt;/field&gt;
-     *  EEE
+     *  ãƒ»ãƒ»ãƒ»
      * &lt;/form&gt;
      * </pre></code>
-     * <h5>validation.xml‚Éİ’è‚ğ—v‚·‚é&lt;var&gt;—v‘f</h5>
+     * <h5>validation.xmlã«è¨­å®šã‚’è¦ã™ã‚‹&lt;var&gt;è¦ç´ </h5>
      * <table border="1">
      *  <tr>
      *   <td><center><b><code>var-name</code></b></center></td>
      *   <td><center><b><code>var-value</code></b></center></td>
-     *   <td><center><b>•K{«</b></center></td>
-     *   <td><center><b>ŠT—v</b></center></td>
+     *   <td><center><b>å¿…é ˆæ€§</b></center></td>
+     *   <td><center><b>æ¦‚è¦</b></center></td>
      *  </tr>
      *  <tr>
      *   <td> maxByteLength </td>
-     *   <td>Å‘åƒoƒCƒg”</td>
+     *   <td>æœ€å¤§ãƒã‚¤ãƒˆæ•°</td>
      *   <td>false</td>
-     *   <td>“ü—Í•¶š—ñƒoƒCƒg’·‚ğŒŸØ‚·‚é‚½‚ß‚ÌÅ‘åƒoƒCƒg’·B
-     *        È—ª‚ÍA<code>int</code>Œ^‚ÌÅ‘å’l‚ªw’è‚³‚ê‚éB</td>
+     *   <td>å…¥åŠ›æ–‡å­—åˆ—ãƒã‚¤ãƒˆé•·ã‚’æ¤œè¨¼ã™ã‚‹ãŸã‚ã®æœ€å¤§ãƒã‚¤ãƒˆé•·ã€‚
+     *        çœç•¥æ™‚ã¯ã€<code>int</code>å‹ã®æœ€å¤§å€¤ãŒæŒ‡å®šã•ã‚Œã‚‹ã€‚</td>
      *  </tr>
      *  <tr>
      *   <td> minByteLength </td>
-     *   <td>Å¬ƒoƒCƒg”</td>
+     *   <td>æœ€å°ãƒã‚¤ãƒˆæ•°</td>
      *   <td>false</td>
-     *   <td>“ü—Í•¶š—ñƒoƒCƒg’·‚ğŒŸØ‚·‚é‚½‚ß‚ÌÅ¬ƒoƒCƒg’·B
-     *        È—ª‚ÍA0‚ªw’è‚³‚ê‚éB</td>
+     *   <td>å…¥åŠ›æ–‡å­—åˆ—ãƒã‚¤ãƒˆé•·ã‚’æ¤œè¨¼ã™ã‚‹ãŸã‚ã®æœ€å°ãƒã‚¤ãƒˆé•·ã€‚
+     *        çœç•¥æ™‚ã¯ã€0ãŒæŒ‡å®šã•ã‚Œã‚‹ã€‚</td>
      *  </tr>
      *  <tr>
      *   <td> encoding </td>
-     *   <td>•¶šƒGƒ“ƒR[ƒfƒBƒ“ƒO</td>
+     *   <td>æ–‡å­—ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°</td>
      *   <td>false</td>
-     *   <td>“ü—Í•¶š‚ğƒoƒCƒg—ñ‚É•ÏŠ·‚·‚éÛ‚Ég—p‚·‚é•¶šƒGƒ“ƒR[ƒfƒBƒ“ƒOB
-     *   È—ª‚³‚ê‚½ê‡‚ÍVM‚ÌƒfƒtƒHƒ‹ƒgƒGƒ“ƒR[ƒfƒBƒ“ƒO‚ªg—p‚³‚ê‚éB</td>
+     *   <td>å…¥åŠ›æ–‡å­—ã‚’ãƒã‚¤ãƒˆåˆ—ã«å¤‰æ›ã™ã‚‹éš›ã«ä½¿ç”¨ã™ã‚‹æ–‡å­—ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ã€‚
+     *   çœç•¥ã•ã‚ŒãŸå ´åˆã¯VMã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ãŒä½¿ç”¨ã•ã‚Œã‚‹ã€‚</td>
      *  </tr>
      * </table>
      *
-     * @param bean ŒŸ¸‘ÎÛ‚ÌƒIƒuƒWƒFƒNƒg
-     * @param va Validator‚É‚æ‚è—pˆÓ‚³‚ê‚½ValidatorAction
-     * @param field ƒtƒB[ƒ‹ƒhƒIƒuƒWƒFƒNƒg
-     * @param errors ƒGƒ‰[
-     * @return “ü—Í’l‚ª³‚µ‚¯‚ê‚Î true
-     * @throws ValidatorException validation’è‹`ƒtƒ@ƒCƒ‹‚Ìİ’èƒ~ƒX‚ª‚ ‚Á‚½ê‡
-     * ƒXƒ[‚³‚ê‚é—áŠOB
+     * @param bean æ¤œæŸ»å¯¾è±¡ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param va Validatorã«ã‚ˆã‚Šç”¨æ„ã•ã‚ŒãŸValidatorAction
+     * @param field ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param errors ã‚¨ãƒ©ãƒ¼
+     * @return å…¥åŠ›å€¤ãŒæ­£ã—ã‘ã‚Œã° true
+     * @throws ValidatorException validationå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ã®è¨­å®šãƒŸã‚¹ãŒã‚ã£ãŸå ´åˆ
+     * ã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ä¾‹å¤–ã€‚
      */
     public boolean validateByteRange(Object bean,
             ValidatorAction va, Field field, ValidationErrors errors)
             throws ValidatorException {
-        // ŒŸØ’l
+        // æ¤œè¨¼å€¤
         String value = extractValue(bean, field);
         if (StringUtils.isEmpty(value)) {
             return true;
         }
 
-        // ƒGƒ“ƒR[ƒfƒBƒ“ƒO
+        // ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°
         String encoding = field.getVarValue("encoding");
 
-        // Å¬ƒoƒCƒg—ñ’·
+        // æœ€å°ãƒã‚¤ãƒˆåˆ—é•·
         int min = 0;
         String minStr = field.getVarValue("minByteLength");
         if (!GenericValidator.isBlankOrNull(minStr)) {
@@ -2105,7 +2105,7 @@ public class FieldChecks {
             }
         }
 
-        // Å‘åƒoƒCƒg—ñ’·
+        // æœ€å¤§ãƒã‚¤ãƒˆåˆ—é•·
         int max = Integer.MAX_VALUE;
         String maxStr = field.getVarValue("maxByteLength");
         if (!GenericValidator.isBlankOrNull(maxStr)) {
@@ -2120,7 +2120,7 @@ public class FieldChecks {
             }
         }
 
-        // ŒŸØ
+        // æ¤œè¨¼
         try {
             if (!ValidationUtil.isByteInRange(value, encoding, min, max)) {
                 rejectValue(errors, field, va, bean);
@@ -2135,17 +2135,17 @@ public class FieldChecks {
     }
 
     /**
-     * “ú•t‚ªw’è‚µ‚½”ÍˆÍ“à‚Å‚ ‚é‚©‚Ç‚¤‚©ƒ`ƒFƒbƒN‚·‚éB
-     * ƒ`ƒFƒbƒN‚Éˆø‚Á‚©‚©‚Á‚½ê‡‚ÍAƒGƒ‰[î•ñ‚ğerrors‚É’Ç‰Á‚µA
-     * false‚ğ•Ô‹p‚·‚éB
+     * æ—¥ä»˜ãŒæŒ‡å®šã—ãŸç¯„å›²å†…ã§ã‚ã‚‹ã‹ã©ã†ã‹ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã€‚
+     * ãƒã‚§ãƒƒã‚¯ã«å¼•ã£ã‹ã‹ã£ãŸå ´åˆã¯ã€ã‚¨ãƒ©ãƒ¼æƒ…å ±ã‚’errorsã«è¿½åŠ ã—ã€
+     * falseã‚’è¿”å´ã™ã‚‹ã€‚
      *
-     * <p>ˆÈ‰º‚ÍA“ú•t‚ª2000/01/01‚©‚ç2010/12/31‚Ì”ÍˆÍ“à‚Å‚ ‚é‚©‚Ç‚¤‚©‚Ì
-     * ŒŸØ‚Ìİ’è—á‚Å‚ ‚éB
+     * <p>ä»¥ä¸‹ã¯ã€æ—¥ä»˜ãŒ2000/01/01ã‹ã‚‰2010/12/31ã®ç¯„å›²å†…ã§ã‚ã‚‹ã‹ã©ã†ã‹ã®
+     * æ¤œè¨¼ã®è¨­å®šä¾‹ã§ã‚ã‚‹ã€‚
      *
-     * <h5>validation.xml‚Ì‹Lq—á</h5>
+     * <h5>validation.xmlã®è¨˜è¿°ä¾‹</h5>
      * <code><pre>
      * &lt;form name=&quot;sample&quot;&gt;
-     *  EEE
+     *  ãƒ»ãƒ»ãƒ»
      *  &lt;field property=&quot;date&quot;
      *      depends=&quot;dateRange&quot;&gt;
      *    &lt;arg key=&quot;date&quot; position=&quot;0&quot;/&gt;
@@ -2158,82 +2158,82 @@ public class FieldChecks {
      *      &lt;var-value&gt;2010/12/31&lt;/var-value&gt;
      *    &lt;/var&gt;
      *  &lt;/field&gt;
-     *  EEE
+     *  ãƒ»ãƒ»ãƒ»
      * &lt;/form&gt;
      * </pre></code>
-     * <h5>validation.xml‚Éİ’è‚ğ—v‚·‚é&lt;var&gt;—v‘f</h5>
+     * <h5>validation.xmlã«è¨­å®šã‚’è¦ã™ã‚‹&lt;var&gt;è¦ç´ </h5>
      * <table border="1">
      *  <tr>
      *   <td><center><b><code>var-name</code></b></center></td>
      *   <td><center><b><code>var-value</code></b></center></td>
-     *   <td><center><b>•K{«</b></center></td>
-     *   <td><center><b>ŠT—v</b></center></td>
+     *   <td><center><b>å¿…é ˆæ€§</b></center></td>
+     *   <td><center><b>æ¦‚è¦</b></center></td>
      *  </tr>
      *  <tr>
      *   <td> startDate </td>
-     *   <td>ŠJn“ú•t</td>
+     *   <td>é–‹å§‹æ—¥ä»˜</td>
      *   <td>false</td>
-     *   <td>“ú•t”ÍˆÍ‚ÌŠJn‚Ìè‡’l‚Æ‚È‚é“ú•tB
-     *   “ú•tƒpƒ^[ƒ“‚Åw’è‚µ‚½Œ`®‚Åİ’è‚·‚é‚±‚ÆB</td>
+     *   <td>æ—¥ä»˜ç¯„å›²ã®é–‹å§‹ã®é–¾å€¤ã¨ãªã‚‹æ—¥ä»˜ã€‚
+     *   æ—¥ä»˜ãƒ‘ã‚¿ãƒ¼ãƒ³ã§æŒ‡å®šã—ãŸå½¢å¼ã§è¨­å®šã™ã‚‹ã“ã¨ã€‚</td>
      *  </tr>
      *  <tr>
      *   <td> endDate </td>
-     *   <td>I—¹“ú•t</td>
+     *   <td>çµ‚äº†æ—¥ä»˜</td>
      *   <td>false</td>
-     *   <td>“ú•t”ÍˆÍ‚ÌI—¹‚Ìè‡’l‚Æ‚È‚é“ú•tB
-     *   “ú•tƒpƒ^[ƒ“‚Åw’è‚µ‚½Œ`®‚Åİ’è‚·‚é‚±‚ÆB</td>
+     *   <td>æ—¥ä»˜ç¯„å›²ã®çµ‚äº†ã®é–¾å€¤ã¨ãªã‚‹æ—¥ä»˜ã€‚
+     *   æ—¥ä»˜ãƒ‘ã‚¿ãƒ¼ãƒ³ã§æŒ‡å®šã—ãŸå½¢å¼ã§è¨­å®šã™ã‚‹ã“ã¨ã€‚</td>
      *  </tr>
      *  <tr>
      *   <td> datePattern </td>
-     *   <td>“ú•tƒpƒ^[ƒ“</td>
+     *   <td>æ—¥ä»˜ãƒ‘ã‚¿ãƒ¼ãƒ³</td>
      *   <td>false</td>
-     *   <td>“ú•tƒpƒ^[ƒ“‚ğw’è‚·‚éB“ü—Í’l‚ÌŒ…”ƒ`ƒFƒbƒN‚Ís‚í‚È‚¢B
-     *   ‚½‚Æ‚¦‚ÎA“ú•tƒpƒ^[ƒ“‚ªyyyy/MM/dd‚Ìê‡A2001/1/1‚ÍƒGƒ‰[‚É‚È‚ç‚È‚¢B
-     *   datePattern‚ÆdatePatternStrict‚ª—¼•ûw’è‚³‚ê‚Ä‚¢‚éê‡‚ÍA
-     *   datePattern‚ª—Dæ‚µ‚Äg—p‚³‚ê‚éB
+     *   <td>æ—¥ä»˜ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’æŒ‡å®šã™ã‚‹ã€‚å…¥åŠ›å€¤ã®æ¡æ•°ãƒã‚§ãƒƒã‚¯ã¯è¡Œã‚ãªã„ã€‚
+     *   ãŸã¨ãˆã°ã€æ—¥ä»˜ãƒ‘ã‚¿ãƒ¼ãƒ³ãŒyyyy/MM/ddã®å ´åˆã€2001/1/1ã¯ã‚¨ãƒ©ãƒ¼ã«ãªã‚‰ãªã„ã€‚
+     *   datePatternã¨datePatternStrictãŒä¸¡æ–¹æŒ‡å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã¯ã€
+     *   datePatternãŒå„ªå…ˆã—ã¦ä½¿ç”¨ã•ã‚Œã‚‹ã€‚
      *   </td>
      *  </tr>
      *  <tr>
      *   <td> datePatternStrict </td>
-     *   <td>“ú•tƒpƒ^[ƒ“</td>
+     *   <td>æ—¥ä»˜ãƒ‘ã‚¿ãƒ¼ãƒ³</td>
      *   <td>false</td>
-     *   <td>“ú•tƒpƒ^[ƒ“‚ğw’è‚·‚éB“ü—Í’l‚ÌŒ…”‚ªA
-     *   w’è‚³‚ê‚½“ú•tƒpƒ^[ƒ“‚ÌŒ…”‚É‡’v‚·‚é‚©‚Ìƒ`ƒFƒbƒN‚ğs‚¤B
-     *   ‚½‚Æ‚¦‚ÎA“ú•tƒpƒ^[ƒ“‚ªyyyy/MM/dd‚Ìê‡A2001/1/1‚ÍƒGƒ‰[‚É‚È‚éB
-     *   datePattern‚ÆdatePatternStrict‚ª—¼•ûw’è‚³‚ê‚Ä‚¢‚éê‡‚ÍA
-     *   datePattern‚ª—Dæ‚µ‚Äg—p‚³‚ê‚éB
+     *   <td>æ—¥ä»˜ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’æŒ‡å®šã™ã‚‹ã€‚å…¥åŠ›å€¤ã®æ¡æ•°ãŒã€
+     *   æŒ‡å®šã•ã‚ŒãŸæ—¥ä»˜ãƒ‘ã‚¿ãƒ¼ãƒ³ã®æ¡æ•°ã«åˆè‡´ã™ã‚‹ã‹ã®ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†ã€‚
+     *   ãŸã¨ãˆã°ã€æ—¥ä»˜ãƒ‘ã‚¿ãƒ¼ãƒ³ãŒyyyy/MM/ddã®å ´åˆã€2001/1/1ã¯ã‚¨ãƒ©ãƒ¼ã«ãªã‚‹ã€‚
+     *   datePatternã¨datePatternStrictãŒä¸¡æ–¹æŒ‡å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã¯ã€
+     *   datePatternãŒå„ªå…ˆã—ã¦ä½¿ç”¨ã•ã‚Œã‚‹ã€‚
      *   </td>
      *  </tr>
 
      * </table>
      *
-     * @param bean ŒŸ¸‘ÎÛ‚ÌƒIƒuƒWƒFƒNƒg
-     * @param va Validator‚É‚æ‚è—pˆÓ‚³‚ê‚½ValidatorAction
-     * @param field ƒtƒB[ƒ‹ƒhƒIƒuƒWƒFƒNƒg
-     * @param errors ƒGƒ‰[
-     * @return “ü—Í’l‚ª³‚µ‚¯‚ê‚Î true
-     * @throws ValidatorException datePattern‚Ü‚½‚ÍdatePatternStrict‚É•s³‚È
-     * ƒpƒ^[ƒ“•¶š‚ªŠÜ‚Ü‚ê‚éê‡AstartDate‚Ü‚½‚ÍendDate‚ª“ú•t‚É•ÏŠ·‚Å‚«‚È‚¢
-     * ê‡‚ÉƒXƒ[‚³‚ê‚é
+     * @param bean æ¤œæŸ»å¯¾è±¡ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param va Validatorã«ã‚ˆã‚Šç”¨æ„ã•ã‚ŒãŸValidatorAction
+     * @param field ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param errors ã‚¨ãƒ©ãƒ¼
+     * @return å…¥åŠ›å€¤ãŒæ­£ã—ã‘ã‚Œã° true
+     * @throws ValidatorException datePatternã¾ãŸã¯datePatternStrictã«ä¸æ­£ãª
+     * ãƒ‘ã‚¿ãƒ¼ãƒ³æ–‡å­—ãŒå«ã¾ã‚Œã‚‹å ´åˆã€startDateã¾ãŸã¯endDateãŒæ—¥ä»˜ã«å¤‰æ›ã§ããªã„
+     * å ´åˆã«ã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹
      */
     public boolean validateDateRange(Object bean,
             ValidatorAction va, Field field, ValidationErrors errors)
             throws ValidatorException {
-        // ŒŸØ’l
+        // æ¤œè¨¼å€¤
         String value = extractValue(bean, field);
         if (StringUtils.isEmpty(value)) {
             return true;
         }
 
-        // “ú•t“ü—Íƒpƒ^[ƒ“
+        // æ—¥ä»˜å…¥åŠ›ãƒ‘ã‚¿ãƒ¼ãƒ³
         String datePattern = field.getVarValue("datePattern");
         String datePatternStrict = field.getVarValue("datePatternStrict");
 
-        // ”ÍˆÍw’è‚·‚é“ú•t
+        // ç¯„å›²æŒ‡å®šã™ã‚‹æ—¥ä»˜
         String startDateStr = field.getVarValue("startDate");
         String endDateStr = field.getVarValue("endDate");
 
-        // ŒŸØ
+        // æ¤œè¨¼
         try {
             if (!ValidationUtil.isDateInRange(value, startDateStr, endDateStr,
                     datePattern, datePatternStrict)) {
@@ -2248,22 +2248,22 @@ public class FieldChecks {
     }
 
     /**
-     * w’è‚³‚ê‚½ƒtƒB[ƒ‹ƒh‚Éˆê’v‚·‚é‘S‚Ä‚ÌƒvƒƒpƒeƒB’l‚ğƒ`ƒFƒbƒN‚·‚éB
-     * ƒ`ƒFƒbƒN‚Éˆø‚Á‚©‚©‚Á‚½ê‡‚ÍAƒGƒ‰[î•ñ‚ğerrors‚É’Ç‰Á‚µA
-     * false‚ğ•Ô‹p‚·‚éB
+     * æŒ‡å®šã•ã‚ŒãŸãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«ä¸€è‡´ã™ã‚‹å…¨ã¦ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£å€¤ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã€‚
+     * ãƒã‚§ãƒƒã‚¯ã«å¼•ã£ã‹ã‹ã£ãŸå ´åˆã¯ã€ã‚¨ãƒ©ãƒ¼æƒ…å ±ã‚’errorsã«è¿½åŠ ã—ã€
+     * falseã‚’è¿”å´ã™ã‚‹ã€‚
      *
-     * <p>”z—ñEƒRƒŒƒNƒVƒ‡ƒ“Œ^‚É‘Î‚µ‚Ä‚ÌƒtƒB[ƒ‹ƒhƒ`ƒFƒbƒN‚ª‰Â”\‚Å‚ ‚éB
-     * ”z—ñEƒRƒŒƒNƒVƒ‡ƒ“‚Ì‘S‚Ä‚Ì—v‘f‚É‘Î‚µ‚ÄAvalidation.xml‚Å
-     * ’è‹`‚µ‚½depends–¼‚©‚çhArrayh‚ğæ‚Á‚½ƒ`ƒFƒbƒNƒ‹[ƒ‹‚ğŒÄ‚Ño‚·B
-     * depends="requiredArray"@Ë "required" i•K{ƒ`ƒFƒbƒNj
+     * <p>é…åˆ—ãƒ»ã‚³ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³å‹ã«å¯¾ã—ã¦ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ãƒã‚§ãƒƒã‚¯ãŒå¯èƒ½ã§ã‚ã‚‹ã€‚
+     * é…åˆ—ãƒ»ã‚³ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³ã®å…¨ã¦ã®è¦ç´ ã«å¯¾ã—ã¦ã€validation.xmlã§
+     * å®šç¾©ã—ãŸdependsåã‹ã‚‰â€Arrayâ€ã‚’å–ã£ãŸãƒã‚§ãƒƒã‚¯ãƒ«ãƒ¼ãƒ«ã‚’å‘¼ã³å‡ºã™ã€‚
+     * depends="requiredArray"ã€€â‡’ "required" ï¼ˆå¿…é ˆãƒã‚§ãƒƒã‚¯ï¼‰
      *
-     * @param bean ŒŸ¸‘ÎÛ‚ÌJavaBeanƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param va Validator‚É‚æ‚è—pˆÓ‚³‚ê‚½ValidatorAction
-     * @param field ƒtƒB[ƒ‹ƒhƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param errors ƒGƒ‰[
-     * @return —v‘f‚·‚×‚Ä‚Ì“ü—Í’l‚ª³‚µ‚¯‚ê‚Î true
-     * @throws ValidatorException validation’è‹`ƒtƒ@ƒCƒ‹‚Ìİ’èƒ~ƒX‚ª‚ ‚Á‚½ê‡
-     * Aƒ`ƒFƒbƒN‘ÎÛ‚Ìbean‚ªnull‚Å‚ ‚éê‡‚ÉƒXƒ[‚³‚ê‚é—áŠOB
+     * @param bean æ¤œæŸ»å¯¾è±¡ã®JavaBeanã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param va Validatorã«ã‚ˆã‚Šç”¨æ„ã•ã‚ŒãŸValidatorAction
+     * @param field ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param errors ã‚¨ãƒ©ãƒ¼
+     * @return è¦ç´ ã™ã¹ã¦ã®å…¥åŠ›å€¤ãŒæ­£ã—ã‘ã‚Œã° true
+     * @throws ValidatorException validationå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ã®è¨­å®šãƒŸã‚¹ãŒã‚ã£ãŸå ´åˆ
+     * ã€ãƒã‚§ãƒƒã‚¯å¯¾è±¡ã®beanãŒnullã§ã‚ã‚‹å ´åˆã«ã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ä¾‹å¤–ã€‚
      */
     public boolean validateArraysIndex(Object bean,
             ValidatorAction va, Field field, ValidationErrors errors)
@@ -2273,8 +2273,8 @@ public class FieldChecks {
             throw new ValidatorException("validation target bean is null.");
         }
 
-        Class[] paramClass = null;  // ŒŸØƒƒ\ƒbƒh‚Ìˆø”‚ÌŒ^
-        Method method = null;       // ŒŸØƒƒ\ƒbƒh
+        Class[] paramClass = null;  // æ¤œè¨¼ãƒ¡ã‚½ãƒƒãƒ‰ã®å¼•æ•°ã®å‹
+        Method method = null;       // æ¤œè¨¼ãƒ¡ã‚½ãƒƒãƒ‰
         try {
             paramClass = getParamClass(va);
             if (paramClass == null || paramClass.length == 0) {
@@ -2299,28 +2299,28 @@ public class FieldChecks {
         }
 
         try {
-            // ”z—ñ‚ÌƒCƒ“ƒfƒbƒNƒX‚ª•Ï‚í‚Á‚Ä‚àA’l‚ª•Ï‰»‚µ‚È‚¢ƒpƒ‰ƒ[ƒ^
+            // é…åˆ—ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ãŒå¤‰ã‚ã£ã¦ã‚‚ã€å€¤ãŒå¤‰åŒ–ã—ãªã„ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
             Object[] argParams = new Object[paramClass.length];
             argParams[0] = bean;
             argParams[1] = va;
             argParams[3] = errors;
 
-            // ŒŸØ’li”z—ñ—v‘fj‚Ìæ‚èo‚µ
+            // æ¤œè¨¼å€¤ï¼ˆé…åˆ—è¦ç´ ï¼‰ã®å–ã‚Šå‡ºã—
             IndexedBeanWrapper bw = getIndexedBeanWrapper(bean);
             Map<String, Object> propertyMap =
                 bw.getIndexedPropertyValues(field.getKey());
 
-            boolean isValid = true; // ŒŸØƒtƒ‰ƒO
+            boolean isValid = true; // æ¤œè¨¼ãƒ•ãƒ©ã‚°
 
             for (String key : propertyMap.keySet()) {
-                // ƒCƒ“ƒfƒbƒNƒX•t‚«‚ÌƒvƒƒpƒeƒB–¼‚ÅƒtƒB[ƒ‹ƒh‚ğ‘‚«Š·‚¦‚é
+                // ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ä»˜ãã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£åã§ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æ›¸ãæ›ãˆã‚‹
                 Field indexedField = (Field) field.clone();
                 indexedField.setKey(key);
                 indexedField.setProperty(key);
 
-                argParams[2] = indexedField; // ƒtƒB[ƒ‹ƒh
+                argParams[2] = indexedField; // ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰
 
-                // “ü—Íƒ`ƒFƒbƒNƒƒ\ƒbƒh‚ÌŒÄ‚Ño‚µ
+                // å…¥åŠ›ãƒã‚§ãƒƒã‚¯ãƒ¡ã‚½ãƒƒãƒ‰ã®å‘¼ã³å‡ºã—
                 boolean bool = (Boolean) method.invoke(
                         this, argParams);
                 if (!bool) {
@@ -2342,19 +2342,19 @@ public class FieldChecks {
     }
 
     /**
-     * IndexedBeanWrapperÀ‘•ƒNƒ‰ƒX‚ğæ“¾‚·‚éB
-     * @param bean ƒ^[ƒQƒbƒg‚ÌBean
-     * @return IndexedBeanWrapper‚ÌÀ‘•
+     * IndexedBeanWrapperå®Ÿè£…ã‚¯ãƒ©ã‚¹ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @param bean ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã®Bean
+     * @return IndexedBeanWrapperã®å®Ÿè£…
      */
 	protected IndexedBeanWrapper getIndexedBeanWrapper(Object bean) {
 		return new JXPathIndexedBeanWrapperImpl(bean);
 	}
 
     /**
-     * ŒŸØƒ‹[ƒ‹‚É“n‚³‚ê‚éˆø”ƒNƒ‰ƒX”z—ñ‚ğæ“¾‚·‚éB
+     * æ¤œè¨¼ãƒ«ãƒ¼ãƒ«ã«æ¸¡ã•ã‚Œã‚‹å¼•æ•°ã‚¯ãƒ©ã‚¹é…åˆ—ã‚’å–å¾—ã™ã‚‹ã€‚
      *
-     * @param va Validator‚É‚æ‚è—pˆÓ‚³‚ê‚½ValidatorAction
-     * @return ˆø”ƒNƒ‰ƒX”z—ñ
+     * @param va Validatorã«ã‚ˆã‚Šç”¨æ„ã•ã‚ŒãŸValidatorAction
+     * @return å¼•æ•°ã‚¯ãƒ©ã‚¹é…åˆ—
      */
     protected Class[] getParamClass(ValidatorAction va) {
 
@@ -2373,23 +2373,23 @@ public class FieldChecks {
     }
 
     /**
-     * ”z—ñEƒRƒŒƒNƒVƒ‡ƒ“‚Ì—v‘f‚ğŒŸØ‚·‚éƒƒ\ƒbƒh‚ğæ“¾‚·‚éB
+     * é…åˆ—ãƒ»ã‚³ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³ã®è¦ç´ ã‚’æ¤œè¨¼ã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å–å¾—ã™ã‚‹ã€‚
      *
      * @param va ValidatorAction
-     * @param paramClass ˆø”ƒNƒ‰ƒX”z—ñ
-     * @return ŒŸØƒƒ\ƒbƒh
+     * @param paramClass å¼•æ•°ã‚¯ãƒ©ã‚¹é…åˆ—
+     * @return æ¤œè¨¼ãƒ¡ã‚½ãƒƒãƒ‰
      */
     protected Method getMethod(
             ValidatorAction va, Class[] paramClass) {
 
         String methodNameSource = va.getName();
         if (methodNameSource == null || "".equals(methodNameSource)) {
-            // ƒƒ\ƒbƒh–¼w’è‚ªnull‚Ü‚½‚Í‹ó•¶š‚Ì‚Æ‚«null•Ô‹pB
+            // ãƒ¡ã‚½ãƒƒãƒ‰åæŒ‡å®šãŒnullã¾ãŸã¯ç©ºæ–‡å­—ã®ã¨ãnullè¿”å´ã€‚
             return null;
         }
 
-        // name‘®«‚©‚ç"Array"‚ğœ‹‚µ‚½ƒƒ\ƒbƒh–¼‚ğ¶¬‚·‚é
-        // xxxxArray¨validateXxxx
+        // nameå±æ€§ã‹ã‚‰"Array"ã‚’é™¤å»ã—ãŸãƒ¡ã‚½ãƒƒãƒ‰åã‚’ç”Ÿæˆã™ã‚‹
+        // xxxxArrayâ†’validateXxxx
         char[] chars = methodNameSource.toCharArray();
         chars[0] = Character.toUpperCase(chars[0]);
         String validate = "validate" + new String(chars);
@@ -2406,18 +2406,18 @@ public class FieldChecks {
     }
 
     /**
-     * •¡”ƒtƒB[ƒ‹ƒh‚Ì‘ŠŠÖƒ`ƒFƒbƒN‚ğs‚¤B
+     * è¤‡æ•°ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®ç›¸é–¢ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†ã€‚
      *
-     * ‚±‚ÌŒŸØƒ‹[ƒ‹‚ÌÀs‚É‚Í{@link MultiFieldValidator} ‚ÌÀ‘•ƒNƒ‰ƒX‚ª•K—vB<br>
-     * À‘•‚µ‚½ƒNƒ‰ƒX‚Í <code>validation.xml</code> ‚Éİ’è‚ğs‚¤B<br>
-     * ƒGƒ‰[‚Æ‚È‚Á‚½ê‡‚É‚ÍAƒGƒ‰[î•ñ‚ğ¶¬‚µA
-     * w’è‚³‚ê‚½ƒGƒ‰[î•ñƒŠƒXƒg‚É’Ç‰Á‚·‚éB
-     * ‚±‚ÌŒŸØƒ‹[ƒ‹‚É‚ÍƒfƒtƒHƒ‹ƒg‚ÌƒGƒ‰[ƒƒbƒZ[ƒW‚ª‚È‚¢‚½‚ßA
-     * ƒƒbƒZ[ƒW‚Í <code>validation.xml</code> ‚É•K‚¸‹Lq‚·‚é‚±‚ÆB<br>
-     * valueƒtƒB[ƒ‹ƒh‚Ì’l‚ªAvalue1ƒtƒB[ƒ‹ƒh‚Ì’lˆÈãA
-     * value2ƒtƒB[ƒ‹ƒh‚Ì’lˆÈ‰º‚Å‚ ‚é‚±‚Æ‚ğŒŸØ‚·‚éê‡AˆÈ‰º‚Ì‚æ‚¤‚ÉÀ‘•A
-     * İ’è‚ğs‚¤B
-     * <h5>{@link MultiFieldValidator} ‚ÌÀ‘•—á</h5>
+     * ã“ã®æ¤œè¨¼ãƒ«ãƒ¼ãƒ«ã®å®Ÿè¡Œã«ã¯{@link MultiFieldValidator} ã®å®Ÿè£…ã‚¯ãƒ©ã‚¹ãŒå¿…è¦ã€‚<br>
+     * å®Ÿè£…ã—ãŸã‚¯ãƒ©ã‚¹ã¯ <code>validation.xml</code> ã«è¨­å®šã‚’è¡Œã†ã€‚<br>
+     * ã‚¨ãƒ©ãƒ¼ã¨ãªã£ãŸå ´åˆã«ã¯ã€ã‚¨ãƒ©ãƒ¼æƒ…å ±ã‚’ç”Ÿæˆã—ã€
+     * æŒ‡å®šã•ã‚ŒãŸã‚¨ãƒ©ãƒ¼æƒ…å ±ãƒªã‚¹ãƒˆã«è¿½åŠ ã™ã‚‹ã€‚
+     * ã“ã®æ¤œè¨¼ãƒ«ãƒ¼ãƒ«ã«ã¯ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒãªã„ãŸã‚ã€
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã¯ <code>validation.xml</code> ã«å¿…ãšè¨˜è¿°ã™ã‚‹ã“ã¨ã€‚<br>
+     * valueãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®å€¤ãŒã€value1ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®å€¤ä»¥ä¸Šã€
+     * value2ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®å€¤ä»¥ä¸‹ã§ã‚ã‚‹ã“ã¨ã‚’æ¤œè¨¼ã™ã‚‹å ´åˆã€ä»¥ä¸‹ã®ã‚ˆã†ã«å®Ÿè£…ã€
+     * è¨­å®šã‚’è¡Œã†ã€‚
+     * <h5>{@link MultiFieldValidator} ã®å®Ÿè£…ä¾‹</h5>
      * <code><pre>
      * public boolean validate(Object value, Object[] depends) {
      *     int value0 = Integer.parseInt(value);
@@ -2426,7 +2426,7 @@ public class FieldChecks {
      *     return (value1 <= value0 && value2 >= value0);
      * }
      * </pre></code>
-     * <h5>validation.xml‚Ìİ’è—á</h5>
+     * <h5>validation.xmlã®è¨­å®šä¾‹</h5>
      * <code><pre>
      * &lt;form name=&quot;/validateMultiField&quot;&gt;
      *   &lt;field property=&quot;value&quot; depends=&quot;multiField&quot;&gt;
@@ -2446,53 +2446,53 @@ public class FieldChecks {
      *   &lt;/field&gt;
      * &lt;/form&gt;
      * </pre></code>
-     * <h5>ƒƒbƒZ[ƒWƒŠƒ\[ƒXƒtƒ@ƒCƒ‹‚Ìİ’è—á</h5>
+     * <h5>ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒªã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ã®è¨­å®šä¾‹</h5>
      * <code>
-     * errors.multiField={0}‚Í{1}‚©‚ç{2}‚ÌŠÔ‚Ì’l‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B
+     * errors.multiField={0}ã¯{1}ã‹ã‚‰{2}ã®é–“ã®å€¤ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„ã€‚
      * </code>
      *
-     * <h5>validation.xml‚Éİ’è‚ğ—v‚·‚é&lt;var&gt;—v‘f</h5>
+     * <h5>validation.xmlã«è¨­å®šã‚’è¦ã™ã‚‹&lt;var&gt;è¦ç´ </h5>
      * <table border="1">
      *  <tr>
      *   <td><center><b><code>var-name</code></b></center></td>
      *   <td><center><b><code>var-value</code></b></center></td>
-     *   <td><center><b>•K{«</b></center></td>
-     *   <td><center><b>ŠT—v</b></center></td>
+     *   <td><center><b>å¿…é ˆæ€§</b></center></td>
+     *   <td><center><b>æ¦‚è¦</b></center></td>
      *  </tr>
      *  <tr>
      *   <td> fields </td>
-     *   <td>ŒŸØ‚É•K—v‚È‘¼‚ÌƒtƒB[ƒ‹ƒh–¼</td>
+     *   <td>æ¤œè¨¼ã«å¿…è¦ãªä»–ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å</td>
      *   <td>false</td>
-     *   <td>•¡”‚ÌƒtƒB[ƒ‹ƒh‚ğw’è‚·‚éê‡‚ÍƒtƒB[ƒ‹ƒh–¼‚ğƒJƒ“ƒ}‹æØ‚è‚Å
-     *   w’è‚·‚éB</td>
+     *   <td>è¤‡æ•°ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒ‡å®šã™ã‚‹å ´åˆã¯ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰åã‚’ã‚«ãƒ³ãƒåŒºåˆ‡ã‚Šã§
+     *   æŒ‡å®šã™ã‚‹ã€‚</td>
      *  </tr>
      *  <tr>
      *   <td> multiFieldValidator </td>
-     *   <td>{@link MultiFieldValidator} À‘•ƒNƒ‰ƒX–¼</td>
+     *   <td>{@link MultiFieldValidator} å®Ÿè£…ã‚¯ãƒ©ã‚¹å</td>
      *   <td>true</td>
-     *   <td>•¡”ƒtƒB[ƒ‹ƒh‚Ì‘ŠŠÖƒ`ƒFƒbƒN‚ğs‚¤ {@link MultiFieldValidator}
-     *   À‘•ƒNƒ‰ƒX–¼B</td>
+     *   <td>è¤‡æ•°ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®ç›¸é–¢ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã† {@link MultiFieldValidator}
+     *   å®Ÿè£…ã‚¯ãƒ©ã‚¹åã€‚</td>
      *  </tr>
      * </table>
      *
-     * @param bean ŒŸ¸‘ÎÛ‚ÌƒIƒuƒWƒFƒNƒg
-     * @param va Validator‚É‚æ‚è—pˆÓ‚³‚ê‚½ValidatorAction
-     * @param field ƒtƒB[ƒ‹ƒhƒIƒuƒWƒFƒNƒg
-     * @param errors ƒGƒ‰[
-     * @return “ü—Í’l‚ª³‚µ‚¯‚ê‚Î <code>true</code>
+     * @param bean æ¤œæŸ»å¯¾è±¡ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param va Validatorã«ã‚ˆã‚Šç”¨æ„ã•ã‚ŒãŸValidatorAction
+     * @param field ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param errors ã‚¨ãƒ©ãƒ¼
+     * @return å…¥åŠ›å€¤ãŒæ­£ã—ã‘ã‚Œã° <code>true</code>
      */
     public boolean validateMultiField(Object bean,
                                         ValidatorAction va,
                                         Field field,
                                         ValidationErrors errors) {
 
-        // bean‚ªnull‚ÌAƒGƒ‰[ƒƒO‚ğo—Í‚µAtrue‚ğ•Ô‹p‚·‚éB
+        // beanãŒnullã®æ™‚ã€ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã€trueã‚’è¿”å´ã™ã‚‹ã€‚
         if (bean == null) {
             log.error("bean is null.");
             return true;
         }
 
-        // ŒŸØ‘ÎÛ‚Ì’l‚ğæ“¾
+        // æ¤œè¨¼å¯¾è±¡ã®å€¤ã‚’å–å¾—
         Object value = null;
         if (bean instanceof String) {
             value = bean;
@@ -2507,10 +2507,10 @@ public class FieldChecks {
                 log.error(e.getMessage(), e);
             }
         }
-        // ‘¼‚ÌƒtƒB[ƒ‹ƒh‚ÉˆË‘¶‚µ‚½•K{“ü—Íƒ`ƒFƒbƒN‚ğl—¶‚µA
-        // ŒŸØ’l‚ªnull‚Ü‚½‚Í‹ó•¶š‚Ìê‡‚Å‚à•¡”ƒtƒB[ƒ‹ƒhƒ`ƒFƒbƒN‚ÍÀs‚·‚éB
+        // ä»–ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«ä¾å­˜ã—ãŸå¿…é ˆå…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚’è€ƒæ…®ã—ã€
+        // æ¤œè¨¼å€¤ãŒnullã¾ãŸã¯ç©ºæ–‡å­—ã®å ´åˆã§ã‚‚è¤‡æ•°ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ãƒã‚§ãƒƒã‚¯ã¯å®Ÿè¡Œã™ã‚‹ã€‚
         
-        // MultiFieldValidatorÀ‘•ƒNƒ‰ƒX–¼‚ğæ“¾
+        // MultiFieldValidatorå®Ÿè£…ã‚¯ãƒ©ã‚¹åã‚’å–å¾—
         String multiFieldValidatorClass
             = field.getVarValue("multiFieldValidator");
 
@@ -2535,7 +2535,7 @@ public class FieldChecks {
                     "var value[multiFieldValidator] is invalid.", e);
         }
         
-        // ŒŸØ‚ÌˆË‘¶ƒtƒB[ƒ‹ƒh‚Ì’l‚ğæ“¾
+        // æ¤œè¨¼ã®ä¾å­˜ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®å€¤ã‚’å–å¾—
         String fields = field.getVarValue("fields");
         List<Object> valueList = new ArrayList<Object>();
         if (fields != null) {
@@ -2574,15 +2574,15 @@ public class FieldChecks {
     }
 
     /**
-     * ƒIƒuƒWƒFƒNƒg‚©‚çŒŸØ’l‚ğæ‚èo‚·Bbean‚ªNull‚Ìê‡‚ÍNull‚ğ•Ô‚·B
-     * bean‚ªStringŒ^‚Ìê‡Abean‚ğ•Ô‚·B
-     * bean‚ªNumberŒ^‚ÆBooleanŒ^‚ÆCharacterŒ^‚Ìê‡Abean.toString()‚ğ•Ô‚·B
-     * ‚»‚êˆÈŠO‚Ìê‡Abean‚Æ<code>Field</code>ƒIƒuƒWƒFƒNƒg‚Ì’l‚©‚çA
-     * <code>ValidatorUtils</code>ƒNƒ‰ƒX‚Ìƒƒ\ƒbƒh‚ğ—˜—p‚µ‚Ä’l‚ğæ“¾‚·‚éB
+     * ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã‚‰æ¤œè¨¼å€¤ã‚’å–ã‚Šå‡ºã™ã€‚beanãŒNullã®å ´åˆã¯Nullã‚’è¿”ã™ã€‚
+     * beanãŒStringå‹ã®å ´åˆã€beanã‚’è¿”ã™ã€‚
+     * beanãŒNumberå‹ã¨Booleanå‹ã¨Characterå‹ã®å ´åˆã€bean.toString()ã‚’è¿”ã™ã€‚
+     * ãã‚Œä»¥å¤–ã®å ´åˆã€beanã¨<code>Field</code>ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å€¤ã‹ã‚‰ã€
+     * <code>ValidatorUtils</code>ã‚¯ãƒ©ã‚¹ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚’åˆ©ç”¨ã—ã¦å€¤ã‚’å–å¾—ã™ã‚‹ã€‚
      *
-     * @param bean ŒŸØ‘ÎÛ‚ÌƒIƒuƒWƒFƒNƒgB
-     * @param field <code>Field</code>ƒIƒuƒWƒFƒNƒgB
-     * @return ŒŸØ’lB
+     * @param bean æ¤œè¨¼å¯¾è±¡ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
+     * @param field <code>Field</code>ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
+     * @return æ¤œè¨¼å€¤ã€‚
      * @see ValidatorUtils#getValueAsString(Object, String)
      */
     protected String extractValue(Object bean, Field field) {
@@ -2603,13 +2603,13 @@ public class FieldChecks {
     }
 
     /**
-     * “ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚ª¶‚¶‚½ê‡‚ÉAƒGƒ‰[î•ñ‚ğA
-     * TERASOLUNA‹¤’Ê‚ÌƒGƒ‰[ƒCƒ“ƒ^ƒtƒF[ƒX‚Éˆø‚«“n‚·B
+     * å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãŒç”Ÿã˜ãŸå ´åˆã«ã€ã‚¨ãƒ©ãƒ¼æƒ…å ±ã‚’ã€
+     * TERASOLUNAå…±é€šã®ã‚¨ãƒ©ãƒ¼ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã«å¼•ãæ¸¡ã™ã€‚
      *
-     * @param errors ƒGƒ‰[
-     * @param va Validator‚É‚æ‚è—pˆÓ‚³‚ê‚½ValidatorAction
-     * @param field ƒtƒB[ƒ‹ƒhƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param bean “ü—ÍƒGƒ‰[‚ª¶‚¶‚½JavaBeanƒCƒ“ƒXƒ^ƒ“ƒX
+     * @param errors ã‚¨ãƒ©ãƒ¼
+     * @param va Validatorã«ã‚ˆã‚Šç”¨æ„ã•ã‚ŒãŸValidatorAction
+     * @param field ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param bean å…¥åŠ›ã‚¨ãƒ©ãƒ¼ãŒç”Ÿã˜ãŸJavaBeanã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
      */
     protected void rejectValue(ValidationErrors errors, Field field,
             ValidatorAction va, Object bean) {

@@ -26,12 +26,12 @@ import org.apache.commons.jxpath.ri.model.NodePointer;
 import org.apache.commons.jxpath.ri.model.beans.NullPointer;
 
 /**
- * {@link jp.terasoluna.fw.beans.jxpath.BeanPointerFactoryEx} ƒNƒ‰ƒX‚Ìƒuƒ‰ƒbƒNƒ{ƒbƒNƒXƒeƒXƒgB
+ * {@link jp.terasoluna.fw.beans.jxpath.BeanPointerFactoryEx} ã‚¯ãƒ©ã‚¹ã®ãƒ–ãƒ©ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ†ã‚¹ãƒˆã€‚
  * 
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4>
- * Beanƒ|ƒCƒ“ƒ^ƒtƒ@ƒNƒgƒŠ‚ÌŠg’£ƒNƒ‰ƒXB<br>
- * ‘O’ñğŒF
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4>
+ * Beanãƒã‚¤ãƒ³ã‚¿ãƒ•ã‚¡ã‚¯ãƒˆãƒªã®æ‹¡å¼µã‚¯ãƒ©ã‚¹ã€‚<br>
+ * å‰ææ¡ä»¶ï¼š
  * <p>
  * 
  * @see jp.terasoluna.fw.beans.jxpath.BeanPointerFactoryEx
@@ -40,9 +40,9 @@ public class BeanPointerFactoryExTest extends TestCase {
 
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -51,9 +51,9 @@ public class BeanPointerFactoryExTest extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -62,9 +62,9 @@ public class BeanPointerFactoryExTest extends TestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      * 
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public BeanPointerFactoryExTest(String name) {
         super(name);
@@ -74,25 +74,25 @@ public class BeanPointerFactoryExTest extends TestCase {
      * testGetOrder01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF
+     * å…¥åŠ›å€¤ï¼š
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) -:850<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) -:850<br>
      *         
      * <br>
-     * ƒ\[ƒg‡‚ğæ“¾‚·‚éƒƒ\ƒbƒhBŒÅ’è’l‚ğ•Ô‚·B
+     * ã‚½ãƒ¼ãƒˆé †ã‚’å–å¾—ã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ã€‚å›ºå®šå€¤ã‚’è¿”ã™ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetOrder01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
     	BeanPointerFactoryEx factory = new BeanPointerFactoryEx();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
     	assertEquals(850, factory.getOrder());
     }
 
@@ -100,38 +100,38 @@ public class BeanPointerFactoryExTest extends TestCase {
      * testCreateNodePointerQname01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) name:not null<br>
-     *         (ˆø”) bean:new Object()<br>
-     *         (ˆø”) locale:Locale("ja")<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) name:not null<br>
+     *         (å¼•æ•°) bean:new Object()<br>
+     *         (å¼•æ•°) locale:Locale("ja")<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) NodePointer:new BeanPointerEX {<br>
-     *                      locale=ˆø”‚Ìlocale<br>
-     *                      name=ˆø”‚Ìname<br>
-     *                      bean=ˆø”‚Ìbean<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) NodePointer:new BeanPointerEX {<br>
+     *                      locale=å¼•æ•°ã®locale<br>
+     *                      name=å¼•æ•°ã®name<br>
+     *                      bean=å¼•æ•°ã®bean<br>
      *                  }<br>
      *         
      * <br>
-     * ƒm[ƒhƒ|ƒCƒ“ƒ^‚ğæ“¾‚·‚éƒeƒXƒgB
+     * ãƒãƒ¼ãƒ‰ãƒã‚¤ãƒ³ã‚¿ã‚’å–å¾—ã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testCreateNodePointerQname01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
     	BeanPointerFactoryEx factory = new BeanPointerFactoryEx();
     	QName qName = new QName("name");
     	Object bean = new Object();
     	Locale locale = new Locale("ja");
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
     	NodePointer result = factory.createNodePointer(qName, bean, locale);
 
-        // ”»’è
+        // åˆ¤å®š
     	assertSame(BeanPointerEx.class, result.getClass());
     	assertSame(locale, result.getLocale());
     	assertSame(qName, result.getName());
@@ -142,37 +142,37 @@ public class BeanPointerFactoryExTest extends TestCase {
      * testCreateNodePointerNodePointer01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) parent:not null<br>
-     *         (ˆø”) name:not null<br>
-     *         (ˆø”) bean:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) parent:not null<br>
+     *         (å¼•æ•°) name:not null<br>
+     *         (å¼•æ•°) bean:null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) NodePointer:new NullPointer {<br>
-     *                      parent=ˆø”‚Ìparent<br>
-     *                      name=ˆø”‚Ìname<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) NodePointer:new NullPointer {<br>
+     *                      parent=å¼•æ•°ã®parent<br>
+     *                      name=å¼•æ•°ã®name<br>
      *                  }<br>
      *         
      * <br>
-     * ƒ^[ƒQƒbƒg‚ªnull‚Ìê‡‚ÌƒeƒXƒgB
+     * ã‚¿ãƒ¼ã‚²ãƒƒãƒˆãŒnullã®å ´åˆã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testCreateNodePointerNodePointer01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
     	BeanPointerFactoryEx factory = new BeanPointerFactoryEx();
     	QName qName = new QName("name");
     	Locale locale = new Locale("ja");
     	NodePointer nodePointer = NodePointer.newNodePointer(qName, null, locale);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
     	NodePointer result = factory.createNodePointer(nodePointer, qName, null);
 
-        // ”»’è
+        // åˆ¤å®š
     	assertSame(NullPointer.class, result.getClass());
     	assertSame(nodePointer, result.getParent());
     	assertSame(qName, result.getName());
@@ -182,39 +182,39 @@ public class BeanPointerFactoryExTest extends TestCase {
      * testCreateNodePointerNodePointer02()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) parent:not null<br>
-     *         (ˆø”) name:not null<br>
-     *         (ˆø”) bean:new Object()<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) parent:not null<br>
+     *         (å¼•æ•°) name:not null<br>
+     *         (å¼•æ•°) bean:new Object()<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) NodePointer:new BeanPointerEX {<br>
-     *                      parent=ˆø”‚Ìparent<br>
-     *                      name=ˆø”‚Ìname<br>
-     *                      bean=ˆø”‚Ìbean<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) NodePointer:new BeanPointerEX {<br>
+     *                      parent=å¼•æ•°ã®parent<br>
+     *                      name=å¼•æ•°ã®name<br>
+     *                      bean=å¼•æ•°ã®bean<br>
      *                  }<br>
      *         
      * <br>
-     * ƒ^[ƒQƒbƒg‚ªnull‚Å‚Í‚È‚¢ê‡‚ÌƒeƒXƒgB
+     * ã‚¿ãƒ¼ã‚²ãƒƒãƒˆãŒnullã§ã¯ãªã„å ´åˆã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testCreateNodePointerNodePointer02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
     	BeanPointerFactoryEx factory = new BeanPointerFactoryEx();
     	QName qName = new QName("name");
     	Object bean = new Object();
     	Locale locale = new Locale("ja");
     	NodePointer nodePointer = NodePointer.newNodePointer(qName, bean, locale);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
     	NodePointer result = factory.createNodePointer(nodePointer, qName, bean);
 
-        // ”»’è
+        // åˆ¤å®š
     	assertSame(BeanPointerEx.class, result.getClass());
     	assertSame(nodePointer, result.getParent());
     	assertSame(qName, result.getName());

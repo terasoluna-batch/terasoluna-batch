@@ -1,4 +1,4 @@
 /**
- * アノテーション
+ * 繧｢繝弱ユ繝ｼ繧ｷ繝ｧ繝ｳ
  */
 package jp.terasoluna.fw.batch.annotation;

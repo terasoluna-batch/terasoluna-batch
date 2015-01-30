@@ -24,41 +24,41 @@ import java.util.logging.Logger;
 import javax.sql.DataSource;
 
 /**
- * {@link StoredProcedureDAOiBatisImpl}‚ÌŒ±‚Ì‚½‚ß‚Ég—p‚³‚ê‚éB
+ * {@link StoredProcedureDAOiBatisImpl}ã®è©¦é¨“ã®ãŸã‚ã«ä½¿ç”¨ã•ã‚Œã‚‹ã€‚
  * 
  * {@link StoredProcedureDAOiBatisImpl_SqlMapClientTemplateStub01}
- * ‚©‚çg—p‚³‚ê‚éB
+ * ã‹ã‚‰ä½¿ç”¨ã•ã‚Œã‚‹ã€‚
  * 
  */
 public class StoredProcedureDAOiBatisImpl_DataSourceStub01 implements DataSource {
 
     public Connection getConnection() throws SQLException {
-        // TODO ©“®¶¬‚³‚ê‚½ƒƒ\ƒbƒhEƒXƒ^ƒu
+        // TODO è‡ªå‹•ç”Ÿæˆã•ã‚ŒãŸãƒ¡ã‚½ãƒƒãƒ‰ãƒ»ã‚¹ã‚¿ãƒ–
         return null;
     }
 
     public Connection getConnection(String username, String password) throws SQLException {
-        // TODO ©“®¶¬‚³‚ê‚½ƒƒ\ƒbƒhEƒXƒ^ƒu
+        // TODO è‡ªå‹•ç”Ÿæˆã•ã‚ŒãŸãƒ¡ã‚½ãƒƒãƒ‰ãƒ»ã‚¹ã‚¿ãƒ–
         return null;
     }
 
     public PrintWriter getLogWriter() throws SQLException {
-        // TODO ©“®¶¬‚³‚ê‚½ƒƒ\ƒbƒhEƒXƒ^ƒu
+        // TODO è‡ªå‹•ç”Ÿæˆã•ã‚ŒãŸãƒ¡ã‚½ãƒƒãƒ‰ãƒ»ã‚¹ã‚¿ãƒ–
         return null;
     }
 
     public void setLogWriter(PrintWriter out) throws SQLException {
-        // TODO ©“®¶¬‚³‚ê‚½ƒƒ\ƒbƒhEƒXƒ^ƒu
+        // TODO è‡ªå‹•ç”Ÿæˆã•ã‚ŒãŸãƒ¡ã‚½ãƒƒãƒ‰ãƒ»ã‚¹ã‚¿ãƒ–
         
     }
 
     public void setLoginTimeout(int seconds) throws SQLException {
-        // TODO ©“®¶¬‚³‚ê‚½ƒƒ\ƒbƒhEƒXƒ^ƒu
+        // TODO è‡ªå‹•ç”Ÿæˆã•ã‚ŒãŸãƒ¡ã‚½ãƒƒãƒ‰ãƒ»ã‚¹ã‚¿ãƒ–
         
     }
 
     public int getLoginTimeout() throws SQLException {
-        // TODO ©“®¶¬‚³‚ê‚½ƒƒ\ƒbƒhEƒXƒ^ƒu
+        // TODO è‡ªå‹•ç”Ÿæˆã•ã‚ŒãŸãƒ¡ã‚½ãƒƒãƒ‰ãƒ»ã‚¹ã‚¿ãƒ–
         return 0;
     }
 

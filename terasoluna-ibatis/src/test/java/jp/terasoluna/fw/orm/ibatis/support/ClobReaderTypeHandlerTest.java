@@ -28,11 +28,11 @@ import org.springframework.jdbc.support.lob.LobHandler;
 
 /**
  * {@link jp.terasoluna.fw.orm.ibatis.support.ClobReaderTypeHandler}
- * ƒNƒ‰ƒX‚Ìƒuƒ‰ƒbƒNƒ{ƒbƒNƒXƒeƒXƒgB
+ * ã‚¯ãƒ©ã‚¹ã®ãƒ–ãƒ©ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ†ã‚¹ãƒˆã€‚
  * 
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4>
- * iBATIS‚©‚ç—˜—p‚³‚ê‚éClob‚ÆƒXƒgƒŠ[ƒ€‚ğƒ}ƒbƒsƒ“ƒO‚·‚éÀ‘•‚ÌiBATIS‚Ìƒ^ƒCƒvƒnƒ“ƒhƒ‰B
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4>
+ * iBATISã‹ã‚‰åˆ©ç”¨ã•ã‚Œã‚‹Clobã¨ã‚¹ãƒˆãƒªãƒ¼ãƒ ã‚’ãƒãƒƒãƒ”ãƒ³ã‚°ã™ã‚‹å®Ÿè£…ã®iBATISã®ã‚¿ã‚¤ãƒ—ãƒãƒ³ãƒ‰ãƒ©ã€‚
  * <p>
  * 
  * @see jp.terasoluna.fw.orm.ibatis.support.ClobReaderTypeHandler
@@ -41,19 +41,19 @@ import org.springframework.jdbc.support.lob.LobHandler;
 public class ClobReaderTypeHandlerTest extends TestCase {
 
     /**
-     * ‚±‚ÌƒeƒXƒgƒP[ƒX‚ğÀs‚·‚éˆ×‚Ì
-     * GUI ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‹N“®‚·‚éB
+     * ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã‚’å®Ÿè¡Œã™ã‚‹ç‚ºã®
+     * GUI ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’èµ·å‹•ã™ã‚‹ã€‚
      * 
-     * @param args java ƒRƒ}ƒ“ƒh‚Éİ’è‚³‚ê‚½ƒpƒ‰ƒ[ƒ^
+     * @param args java ã‚³ãƒãƒ³ãƒ‰ã«è¨­å®šã•ã‚ŒãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public static void main(String[] args) {
         junit.swingui.TestRunner.run(ClobReaderTypeHandlerTest.class);
     }
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -62,9 +62,9 @@ public class ClobReaderTypeHandlerTest extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -73,9 +73,9 @@ public class ClobReaderTypeHandlerTest extends TestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      * 
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public ClobReaderTypeHandlerTest(String name) {
         super(name);
@@ -85,29 +85,29 @@ public class ClobReaderTypeHandlerTest extends TestCase {
      * testClobReaderTypeHandler01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) lobHandler:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) lobHandler:not null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») lobHandler:ˆø‚«”lobHandler‚Æ“¯ˆê‚ÌlobHandler<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) lobHandler:å¼•ãæ•°lobHandlerã¨åŒä¸€ã®lobHandler<br>
      *         
      * <br>
-     * ˆø‚«”‚ªnot null‚Ìê‡A‘®«‚Éİ’è‚·‚é‚±‚Æ‚ÌƒeƒXƒg
+     * å¼•ãæ•°ãŒnot nullã®å ´åˆã€å±æ€§ã«è¨­å®šã™ã‚‹ã“ã¨ã®ãƒ†ã‚¹ãƒˆ
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testClobReaderTypeHandler01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         LobHandler lob = new LobHandlerImpl01();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         ClobReaderTypeHandler handler = new ClobReaderTypeHandler(lob);
 
-        // ”»’è
+        // åˆ¤å®š
         assertSame(lob, UTUtil.getPrivateField(handler, "lobHandler"));
     }
 
@@ -115,32 +115,32 @@ public class ClobReaderTypeHandlerTest extends TestCase {
      * testClobReaderTypeHandler02()
      * <br><br>
      * 
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) lobHandler:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) lobHandler:null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalStateException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalStateException<br>
      *         
      * <br>
-     * ˆø”‚ªnull‚Ìê‡AIllegalStateException‚ªƒXƒ[‚ğ‚·‚é‚±‚Æ‚ÌƒeƒXƒg
+     * å¼•æ•°ãŒnullã®å ´åˆã€IllegalStateExceptionãŒã‚¹ãƒ­ãƒ¼ã‚’ã™ã‚‹ã“ã¨ã®ãƒ†ã‚¹ãƒˆ
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testClobReaderTypeHandler02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         LobHandler lob = null;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             ClobReaderTypeHandler handler =
                 new ClobReaderTypeHandler(lob);
             fail();
         } catch (IllegalStateException e) {
-            // ”»’è            
+            // åˆ¤å®š            
         }
     }
 
@@ -148,25 +148,25 @@ public class ClobReaderTypeHandlerTest extends TestCase {
      * testSetParameterInternal01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:ReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *         (ó‘Ô) lobCreator.setClobAsCharacterStream():³í<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:Readerã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *         (çŠ¶æ…‹) lobCreator.setClobAsCharacterStream():æ­£å¸¸<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) void:³í<br>
-     *         (ó‘Ô•Ï‰») lobCreator.setClobAsCharacterStream():ŒÄ‚Ño‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) void:æ­£å¸¸<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) lobCreator.setClobAsCharacterStream():å‘¼ã³å‡ºã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèª<br>
      *         
      * <br>
-     * lobCreator.setClobAsCharacterStream()‚ªÀs‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ÌƒeƒXƒgB
+     * lobCreator.setClobAsCharacterStream()ãŒå®Ÿè¡Œã•ã‚Œã¦ã„ã‚‹ã“ã¨ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testSetParameterInternal01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         LobHandler lob = new LobHandlerImpl01();
         
         PreparedStatement ps = null;
@@ -174,15 +174,15 @@ public class ClobReaderTypeHandlerTest extends TestCase {
         // value : Reader
         StringReader value = new StringReader("");
         String jdbcType = null;
-        // LobCreatorÀ‘•ƒNƒ‰ƒX : ŒÄ‚Ño‚µŠm”F
+        // LobCreatorå®Ÿè£…ã‚¯ãƒ©ã‚¹ : å‘¼ã³å‡ºã—ç¢ºèª
         LobCreatorImpl01 lobCreator = new LobCreatorImpl01();
         
         ClobReaderTypeHandler handler = new ClobReaderTypeHandler(lob);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         handler.setParameterInternal(ps, index, value, jdbcType, lobCreator);
 
-        // ”»’è
+        // åˆ¤å®š
         boolean b = ((Boolean) lobCreator.isSetClobAsCharacterStream)
         .booleanValue();
         assertTrue(b);
@@ -194,41 +194,41 @@ public class ClobReaderTypeHandlerTest extends TestCase {
      * testSetParameterInternal02()
      * <br><br>
      * 
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:ReaderˆÈŠO‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:Readerä»¥å¤–ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») ‚È‚µ:ClassCastExceptinon<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ãªã—:ClassCastExceptinon<br>
      *         
      * <br>
-     * ClassCastException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ÌƒeƒXƒgB
+     * ClassCastExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testSetParameterInternal02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         LobHandler lob = new LobHandlerImpl01();
         
         PreparedStatement ps = null;
         int index = 0;
-        // value : ReaderˆÈŠO
+        // value : Readerä»¥å¤–
         String value = "";
         String jdbcType = null;
-        // LobCreatorÀ‘•ƒNƒ‰ƒX
+        // LobCreatorå®Ÿè£…ã‚¯ãƒ©ã‚¹
         LobCreatorImpl01 lobCreator = new LobCreatorImpl01();
         
         ClobReaderTypeHandler handler = new ClobReaderTypeHandler(lob);
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             handler.setParameterInternal(ps, index, value, jdbcType, lobCreator);
             fail();
         } catch (ClassCastException e) {
-            // ”»’è
+            // åˆ¤å®š
         }
     }
 
@@ -236,23 +236,23 @@ public class ClobReaderTypeHandlerTest extends TestCase {
      * testSetParameterInternal03()
      * <br><br>
      * 
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ó‘Ô) lobCreator.setClobAsCharacterStream():SQLException<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) lobCreator.setClobAsCharacterStream():SQLException<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») ‚È‚µ:SQLException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ãªã—:SQLException<br>
      *         
      * <br>
-     * SQLException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ÌƒeƒXƒgB
+     * SQLExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testSetParameterInternal03() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         LobHandler lob = new LobHandlerImpl01();
         
         PreparedStatement ps = null;
@@ -260,17 +260,17 @@ public class ClobReaderTypeHandlerTest extends TestCase {
         // value : -
         StringReader value = null;
         String jdbcType = null;
-        // LobCreatorÀ‘•ƒNƒ‰ƒX : SQLException
+        // LobCreatorå®Ÿè£…ã‚¯ãƒ©ã‚¹ : SQLException
         LobCreatorImpl02 lobCreator = new LobCreatorImpl02();
         
         ClobReaderTypeHandler handler = new ClobReaderTypeHandler(lob);
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             handler.setParameterInternal(ps, index, value, jdbcType, lobCreator);
             fail();
         } catch (SQLException e) {
-            // ”»’è
+            // åˆ¤å®š
         }
     }
 
@@ -278,42 +278,42 @@ public class ClobReaderTypeHandlerTest extends TestCase {
      * testGetResultInternal01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ó‘Ô) lobHandler.getClobAsCharacterStream():not null<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) lobHandler.getClobAsCharacterStream():not null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:lobHandler.getClobAsCharacterStream()‚Ì–ß‚è’l‚Æ“¯ˆêƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *         (ó‘Ô•Ï‰») lobHandler.getClobAsCharacterStream():ŒÄ‚Ño‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:lobHandler.getClobAsCharacterStream()ã®æˆ»ã‚Šå€¤ã¨åŒä¸€ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) lobHandler.getClobAsCharacterStream():å‘¼ã³å‡ºã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèª<br>
      *         
      * <br>
-     * lobHandler.getClobAsCharacterStream()‚Ì–ß‚è’l‚Æ“¯ˆêƒCƒ“ƒXƒ^ƒ“ƒX‚ğ•Ô‹p‚·‚é‚±‚Æ‚ÌƒeƒXƒgB
+     * lobHandler.getClobAsCharacterStream()ã®æˆ»ã‚Šå€¤ã¨åŒä¸€ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’è¿”å´ã™ã‚‹ã“ã¨ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetResultInternal01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         LobHandlerImpl01 lob = new LobHandlerImpl01();
         
         ResultSet ps = null;
         int index = 0;
         
-        // LobHandlerÀ‘•ƒNƒ‰ƒX‚ÌgetClobAsCharacterStream‚ÌƒŠƒ^[ƒ“’l : 
-        // StringReaderƒCƒ“ƒXƒ^ƒ“ƒX
+        // LobHandlerå®Ÿè£…ã‚¯ãƒ©ã‚¹ã®getClobAsCharacterStreamã®ãƒªã‚¿ãƒ¼ãƒ³å€¤ : 
+        // StringReaderã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
         StringReader sr = new StringReader("");
         UTUtil.setPrivateField(lob, "r", sr);
         
         ClobReaderTypeHandler handler =
             new ClobReaderTypeHandler(lob);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         StringReader reader =
             (StringReader) handler.getResultInternal(ps, index, lob);
 
-        // ”»’è
+        // åˆ¤å®š
         boolean b = ((Boolean) lob.isGetClobAsCharacterStream).booleanValue();
         assertTrue(b);
         assertSame(sr, reader);
@@ -325,41 +325,41 @@ public class ClobReaderTypeHandlerTest extends TestCase {
      * testGetResultInternal02()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ó‘Ô) lobHandler.getClobAsCharacterStream():null<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) lobHandler.getClobAsCharacterStream():null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:null<br>
-     *         (ó‘Ô•Ï‰») lobHandler.getClobAsCharacterStream():ŒÄ‚Ño‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:null<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) lobHandler.getClobAsCharacterStream():å‘¼ã³å‡ºã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèª<br>
      *         
      * <br>
-     * null‚ğ•Ô‹p‚·‚é‚±‚Æ‚ÌƒeƒXƒgB
+     * nullã‚’è¿”å´ã™ã‚‹ã“ã¨ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetResultInternal02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         LobHandlerImpl01 lob = new LobHandlerImpl01();
         
         ResultSet ps = null;
         int index = 0;
         
-        // LobHandlerÀ‘•ƒNƒ‰ƒX‚ÌgetClobAsCharacterStream‚ÌƒŠƒ^[ƒ“’l : null
+        // LobHandlerå®Ÿè£…ã‚¯ãƒ©ã‚¹ã®getClobAsCharacterStreamã®ãƒªã‚¿ãƒ¼ãƒ³å€¤ : null
         StringReader sr = null;
         UTUtil.setPrivateField(lob, "r", sr);
         
         ClobReaderTypeHandler handler =
             new ClobReaderTypeHandler(lob);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         StringReader reader =
             (StringReader) handler.getResultInternal(ps, index, lob);
 
-        // ”»’è
+        // åˆ¤å®š
         boolean b = ((Boolean) lob.isGetClobAsCharacterStream).booleanValue();
         assertTrue(b);
         assertNull(reader);
@@ -369,23 +369,23 @@ public class ClobReaderTypeHandlerTest extends TestCase {
      * testGetResultInternal03()
      * <br><br>
      * 
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ó‘Ô) lobHandler.getClobAsCharacterStream():SQLException<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) lobHandler.getClobAsCharacterStream():SQLException<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:SQLException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:SQLException<br>
      *         
      * <br>
-     * SQLException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ÌƒeƒXƒgB
+     * SQLExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetResultInternal03() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         // getClobAsCharacterStream : SQLException
         LobHandlerImpl02 lob = new LobHandlerImpl02();
         
@@ -396,12 +396,12 @@ public class ClobReaderTypeHandlerTest extends TestCase {
             new ClobReaderTypeHandler(lob);
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             StringReader reader =
                 (StringReader) handler.getResultInternal(ps, index, lob);
             fail();
         } catch (SQLException e) {
-            // ”»’è
+            // åˆ¤å®š
         }
     }
 
@@ -409,23 +409,23 @@ public class ClobReaderTypeHandlerTest extends TestCase {
      * testValueOf01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) s:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) s:null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:null<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:null<br>
      *         
      * <br>
-     * null‚ğ•Ô‹p‚·‚é‚±‚Æ‚ÌƒeƒXƒgB
+     * nullã‚’è¿”å´ã™ã‚‹ã“ã¨ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValueOf01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         LobHandlerImpl01 lob = new LobHandlerImpl01();
         
         ClobReaderTypeHandler handler =
@@ -433,10 +433,10 @@ public class ClobReaderTypeHandlerTest extends TestCase {
         
         String s = null;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object obj = handler.valueOf(s);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNull(obj);
     }
 
@@ -444,23 +444,23 @@ public class ClobReaderTypeHandlerTest extends TestCase {
      * testValueOf02()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) s:""<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) s:""<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:new StringReader("".getBytes())<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:new StringReader("".getBytes())<br>
      *         
      * <br>
-     * ""‚ğ•¶šƒXƒgƒŠ[ƒ€‰»‚µ‚½‚à‚Ì‚ğ•Ô‹p‚·‚é‚±‚Æ‚ÌƒeƒXƒg
+     * ""ã‚’æ–‡å­—ã‚¹ãƒˆãƒªãƒ¼ãƒ åŒ–ã—ãŸã‚‚ã®ã‚’è¿”å´ã™ã‚‹ã“ã¨ã®ãƒ†ã‚¹ãƒˆ
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValueOf02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         LobHandlerImpl01 lob = new LobHandlerImpl01();
         
         ClobReaderTypeHandler handler =
@@ -468,10 +468,10 @@ public class ClobReaderTypeHandlerTest extends TestCase {
         
         String s = "";
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object obj = handler.valueOf(s);
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(StringReader.class.getName(),
                 obj.getClass().getName());
         String str = (String) UTUtil.getPrivateField(obj, "str");
@@ -482,23 +482,23 @@ public class ClobReaderTypeHandlerTest extends TestCase {
      * testValueOf03()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) s:"ABC"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) s:"ABC"<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:new StringReader("ABC".getBytes())<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:new StringReader("ABC".getBytes())<br>
      *         
      * <br>
-     * "ABC"‚ğ•¶šƒXƒgƒŠ[ƒ€‰»‚µ‚½‚à‚Ì‚ğ•Ô‹p‚·‚éƒeƒXƒg
+     * "ABC"ã‚’æ–‡å­—ã‚¹ãƒˆãƒªãƒ¼ãƒ åŒ–ã—ãŸã‚‚ã®ã‚’è¿”å´ã™ã‚‹ãƒ†ã‚¹ãƒˆ
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValueOf03() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         LobHandlerImpl01 lob = new LobHandlerImpl01();
         
         ClobReaderTypeHandler handler =
@@ -506,10 +506,10 @@ public class ClobReaderTypeHandlerTest extends TestCase {
         
         String s = "ABC";
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object obj = handler.valueOf(s);
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(StringReader.class.getName(),
                 obj.getClass().getName());
         String str = (String) UTUtil.getPrivateField(obj, "str");

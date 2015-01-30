@@ -19,16 +19,16 @@ package jp.terasoluna.fw.batch.executor.concurrent;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 /**
- * ƒoƒbƒ`ƒWƒ‡ƒuÀs—pƒXƒŒƒbƒhƒv[ƒ‹ƒGƒOƒ[ƒLƒ…[ƒ^B<br>
+ * ãƒãƒƒãƒã‚¸ãƒ§ãƒ–å®Ÿè¡Œç”¨ã‚¹ãƒ¬ãƒƒãƒ‰ãƒ—ãƒ¼ãƒ«ã‚¨ã‚°ã‚¼ã‚­ãƒ¥ãƒ¼ã‚¿ã€‚<br>
  */
 public class BatchThreadPoolTaskExecutor extends ThreadPoolTaskExecutor {
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      */
     public BatchThreadPoolTaskExecutor() {
         super();
-        // ƒLƒ…[ƒTƒCƒY‚É0‚ğİ’è‚µ–³Œø‰»‚·‚é
+        // ã‚­ãƒ¥ãƒ¼ã‚µã‚¤ã‚ºã«0ã‚’è¨­å®šã—ç„¡åŠ¹åŒ–ã™ã‚‹
         super.setQueueCapacity(0);
     }
 
@@ -37,7 +37,7 @@ public class BatchThreadPoolTaskExecutor extends ThreadPoolTaskExecutor {
      * @see org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor#setQueueCapacity(int)
      */
     public void setQueueCapacity(int queueCapacity) {
-        // ƒLƒ…[ƒTƒCƒY‚É0‚ğİ’è‚µ–³Œø‰»‚·‚é
+        // ã‚­ãƒ¥ãƒ¼ã‚µã‚¤ã‚ºã«0ã‚’è¨­å®šã—ç„¡åŠ¹åŒ–ã™ã‚‹
         super.setQueueCapacity(0);
     }
 

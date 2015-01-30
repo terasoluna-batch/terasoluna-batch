@@ -21,11 +21,11 @@ import java.util.HashMap;
 import junit.framework.TestCase;
 
 /**
- * {@link jp.terasoluna.fw.beans.jxpath.HashMapForJXPathIntrospector} ƒNƒ‰ƒX‚Ìƒuƒ‰ƒbƒNƒ{ƒbƒNƒXƒeƒXƒgB
+ * {@link jp.terasoluna.fw.beans.jxpath.HashMapForJXPathIntrospector} ã‚¯ãƒ©ã‚¹ã®ãƒ–ãƒ©ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ†ã‚¹ãƒˆã€‚
  * 
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4>
- * commons-JXPath‚ÌƒoƒO(JXPATH-152)‰ñ”ğ—pHashMapB<br>
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4>
+ * commons-JXPathã®ãƒã‚°(JXPATH-152)å›é¿ç”¨HashMapã€‚<br>
  * <p>
  * 
  * @see jp.terasoluna.fw.beans.jxpath.HashMapForJXPathIntrospector
@@ -34,9 +34,9 @@ public class HashMapForJXPathIntrospectorTest extends TestCase {
 
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -45,9 +45,9 @@ public class HashMapForJXPathIntrospectorTest extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -59,40 +59,40 @@ public class HashMapForJXPathIntrospectorTest extends TestCase {
      * testHashMapForJXPathIntrospector01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) HashMap<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) HashMap<br>
      *                {
      *                  "aaa"="xxx",
      *                  "bbb"="yyy"
      *                }<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) HashMapForJXPathIntrospector<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) HashMapForJXPathIntrospector<br>
      *                {
      *                  "aaa"="xxx",
      *                  "bbb"="yyy"
      *                }<br>
      *         
      * <br>
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^ˆø”‚É—^‚¦‚½Map‚ÌƒGƒ“ƒgƒŠ[‚ğ‚·‚×‚ÄŠÜ‚ŞƒCƒ“ƒXƒ^ƒ“ƒX‚ª‚Â‚­‚ç‚ê‚é‚±‚Æ‚ÌŠm”FB
-     * (ƒX[ƒp[ƒNƒ‰ƒX‚Ö‚ÌˆÏ÷Šm”FB)
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿å¼•æ•°ã«ä¸ãˆãŸMapã®ã‚¨ãƒ³ãƒˆãƒªãƒ¼ã‚’ã™ã¹ã¦å«ã‚€ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ãŒã¤ãã‚‰ã‚Œã‚‹ã“ã¨ã®ç¢ºèªã€‚
+     * (ã‚¹ãƒ¼ãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã¸ã®å§”è­²ç¢ºèªã€‚)
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testHashMapForJXPathIntrospector01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         HashMap<String, String> srcMap = new HashMap<String, String>();
         srcMap.put("aaa", "xxx");
         srcMap.put("bbb", "yyy");
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         HashMapForJXPathIntrospector<String, String> map = new HashMapForJXPathIntrospector<String, String>(srcMap);
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(2, map.size());
         assertEquals("xxx", map.get("aaa"));
         assertEquals("yyy", map.get("bbb"));
@@ -102,29 +102,29 @@ public class HashMapForJXPathIntrospectorTest extends TestCase {
      * testGet01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) "aaa"<br>
-     *         (ó‘Ô) {
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) "aaa"<br>
+     *         (çŠ¶æ…‹) {
      *                  "aaa"="xxx"
      *                }<br>
-     *         (ó‘Ô) put‚É2•b‚©‚©‚éƒL[ƒIƒuƒWƒFƒNƒg‚Åput’†<br>
+     *         (çŠ¶æ…‹) putã«2ç§’ã‹ã‹ã‚‹ã‚­ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã§putä¸­<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) "xxx"<br>
-     *         (ó‘Ô•Ï‰») get‚ª‘¦À‚É‚ÍI—¹‚µ‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) "xxx"<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) getãŒå³åº§ã«ã¯çµ‚äº†ã—ãªã„<br>
      *         
      * <br>
-     * put’†‚Íget‚ª‘Ò‚½‚³‚ê‚é‚±‚Æ‚ÌŠm”FB
-     * (–ß‚è’l‚ÍAƒX[ƒp[ƒNƒ‰ƒX‚Ö‚ÌˆÏ÷Šm”FB)
+     * putä¸­ã¯getãŒå¾…ãŸã•ã‚Œã‚‹ã“ã¨ã®ç¢ºèªã€‚
+     * (æˆ»ã‚Šå€¤ã¯ã€ã‚¹ãƒ¼ãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã¸ã®å§”è­²ç¢ºèªã€‚)
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGet01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         final HashMapForJXPathIntrospector<Object, String> map = new HashMapForJXPathIntrospector<Object, String>(new HashMap<Object, String>());
         map.put("aaa", "xxx");
         new Thread() {
@@ -137,13 +137,13 @@ public class HashMapForJXPathIntrospectorTest extends TestCase {
         }.start();
         Thread.sleep(500);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         long start = System.currentTimeMillis();
         String ret = map.get("aaa");
         long time = System.currentTimeMillis() - start;
 
-        // ”»’è
-        assertTrue(time > 1000); // –ñ1500ƒ~ƒŠ•b
+        // åˆ¤å®š
+        assertTrue(time > 1000); // ç´„1500ãƒŸãƒªç§’
         assertEquals("xxx", ret);
     }
 
@@ -151,30 +151,30 @@ public class HashMapForJXPathIntrospectorTest extends TestCase {
      * testGet02()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) "aaa"<br>
-     *         (ó‘Ô) {
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) "aaa"<br>
+     *         (çŠ¶æ…‹) {
      *                  "aaa"="xxx"
-     *                  get‚É2•b‚©‚©‚éƒL[ƒIƒuƒWƒFƒNƒg="wait"
+     *                  getã«2ç§’ã‹ã‹ã‚‹ã‚­ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ="wait"
      *                }<br>
-     *         (ó‘Ô) get‚É2•b‚©‚©‚éƒL[ƒIƒuƒWƒFƒNƒg‚Åget’†<br>
+     *         (çŠ¶æ…‹) getã«2ç§’ã‹ã‹ã‚‹ã‚­ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã§getä¸­<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) "xxx"<br>
-     *         (ó‘Ô•Ï‰») get‚Í‘¦À‚ÉI—¹‚·‚é<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) "xxx"<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) getã¯å³åº§ã«çµ‚äº†ã™ã‚‹<br>
      *         
      * <br>
-     * put’†‚Å‚È‚¯‚ê‚Îget‚Í“¯‚É•¡”ƒXƒŒƒbƒh‚Åg—p‰Â”\‚Å‚ ‚é‚±‚Æ‚ÌŠm”FB
-     * (–ß‚è’l‚ÍAƒX[ƒp[ƒNƒ‰ƒX‚Ö‚ÌˆÏ÷Šm”FB)
+     * putä¸­ã§ãªã‘ã‚Œã°getã¯åŒæ™‚ã«è¤‡æ•°ã‚¹ãƒ¬ãƒƒãƒ‰ã§ä½¿ç”¨å¯èƒ½ã§ã‚ã‚‹ã“ã¨ã®ç¢ºèªã€‚
+     * (æˆ»ã‚Šå€¤ã¯ã€ã‚¹ãƒ¼ãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã¸ã®å§”è­²ç¢ºèªã€‚)
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGet02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         final HashMapForJXPathIntrospector<Object, String> map = new HashMapForJXPathIntrospector<Object, String>(new HashMap<Object, String>());
         map.put("aaa", "xxx");
         final WaitHashObject waitKey = new WaitHashObject(2000);
@@ -189,13 +189,13 @@ public class HashMapForJXPathIntrospectorTest extends TestCase {
         }.start();
         Thread.sleep(500);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         long start = System.currentTimeMillis();
         String ret = map.get("aaa");
         long time = System.currentTimeMillis() - start;
 
-        // ”»’è
-        assertTrue(time < 500); // ‚Ù‚Ú0ƒ~ƒŠ•b
+        // åˆ¤å®š
+        assertTrue(time < 500); // ã»ã¼0ãƒŸãƒªç§’
         assertEquals("xxx", ret);
     }
 
@@ -203,30 +203,30 @@ public class HashMapForJXPathIntrospectorTest extends TestCase {
      * testPut01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) key:"aaa"<br>
-     *         (ˆø”) value:"xxx"<br>
-     *         (ó‘Ô) {
-     *                  (‹ó)
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) key:"aaa"<br>
+     *         (å¼•æ•°) value:"xxx"<br>
+     *         (çŠ¶æ…‹) {
+     *                  (ç©º)
      *                }<br>
-     *         (ó‘Ô) put‚É2•b‚©‚©‚éƒL[ƒIƒuƒWƒFƒNƒg‚Åput’†<br>
+     *         (çŠ¶æ…‹) putã«2ç§’ã‹ã‹ã‚‹ã‚­ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã§putä¸­<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») ƒGƒ“ƒgƒŠ["aaa"="xxx"‚ª’Ç‰Á‚³‚ê‚é<br>
-     *         (ó‘Ô•Ï‰») put‚ª‘¦À‚É‚ÍI—¹‚µ‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ã‚¨ãƒ³ãƒˆãƒªãƒ¼"aaa"="xxx"ãŒè¿½åŠ ã•ã‚Œã‚‹<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) putãŒå³åº§ã«ã¯çµ‚äº†ã—ãªã„<br>
      *         
      * <br>
-     * put’†‚Íput‚ª‘Ò‚½‚³‚ê‚é‚±‚Æ‚ÌŠm”FB
-     * (ƒGƒ“ƒgƒŠ[’Ç‰Á‚ÍAƒX[ƒp[ƒNƒ‰ƒX‚Ö‚ÌˆÏ÷Šm”FB)
+     * putä¸­ã¯putãŒå¾…ãŸã•ã‚Œã‚‹ã“ã¨ã®ç¢ºèªã€‚
+     * (ã‚¨ãƒ³ãƒˆãƒªãƒ¼è¿½åŠ ã¯ã€ã‚¹ãƒ¼ãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã¸ã®å§”è­²ç¢ºèªã€‚)
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testPut01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         final HashMapForJXPathIntrospector<Object, String> map = new HashMapForJXPathIntrospector<Object, String>(new HashMap<Object, String>());
         new Thread() {
 
@@ -238,13 +238,13 @@ public class HashMapForJXPathIntrospectorTest extends TestCase {
         }.start();
         Thread.sleep(500);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         long start = System.currentTimeMillis();
         map.put("aaa", "xxx");
         long time = System.currentTimeMillis() - start;
 
-        // ”»’è
-        assertTrue(time > 1000); // –ñ1500ƒ~ƒŠ•b
+        // åˆ¤å®š
+        assertTrue(time > 1000); // ç´„1500ãƒŸãƒªç§’
         assertEquals("xxx", map.get("aaa"));
     }
 
@@ -252,30 +252,30 @@ public class HashMapForJXPathIntrospectorTest extends TestCase {
      * testPut01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) key:"aaa"<br>
-     *         (ˆø”) value:"xxx"<br>
-     *         (ó‘Ô) {
-     *                  get‚É2•b‚©‚©‚éƒL[ƒIƒuƒWƒFƒNƒg="wait"
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) key:"aaa"<br>
+     *         (å¼•æ•°) value:"xxx"<br>
+     *         (çŠ¶æ…‹) {
+     *                  getã«2ç§’ã‹ã‹ã‚‹ã‚­ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ="wait"
      *                }<br>
-     *         (ó‘Ô) get‚É2•b‚©‚©‚éƒL[ƒIƒuƒWƒFƒNƒg‚Åget’†<br>
+     *         (çŠ¶æ…‹) getã«2ç§’ã‹ã‹ã‚‹ã‚­ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã§getä¸­<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») ƒGƒ“ƒgƒŠ["aaa"="xxx"‚ª’Ç‰Á‚³‚ê‚é<br>
-     *         (ó‘Ô•Ï‰») put‚ª‘¦À‚É‚ÍI—¹‚µ‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ã‚¨ãƒ³ãƒˆãƒªãƒ¼"aaa"="xxx"ãŒè¿½åŠ ã•ã‚Œã‚‹<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) putãŒå³åº§ã«ã¯çµ‚äº†ã—ãªã„<br>
      *         
      * <br>
-     * get’†‚Íput‚ª‘Ò‚½‚³‚ê‚é‚±‚Æ‚ÌŠm”FB
-     * (ƒGƒ“ƒgƒŠ[’Ç‰Á‚ÍAƒX[ƒp[ƒNƒ‰ƒX‚Ö‚ÌˆÏ÷Šm”FB)
+     * getä¸­ã¯putãŒå¾…ãŸã•ã‚Œã‚‹ã“ã¨ã®ç¢ºèªã€‚
+     * (ã‚¨ãƒ³ãƒˆãƒªãƒ¼è¿½åŠ ã¯ã€ã‚¹ãƒ¼ãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã¸ã®å§”è­²ç¢ºèªã€‚)
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testPut02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         final HashMapForJXPathIntrospector<Object, String> map = new HashMapForJXPathIntrospector<Object, String>(new HashMap<Object, String>());
         final WaitHashObject waitKey = new WaitHashObject(2000);
         map.put(waitKey, "wait");
@@ -289,20 +289,20 @@ public class HashMapForJXPathIntrospectorTest extends TestCase {
         }.start();
         Thread.sleep(500);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         long start = System.currentTimeMillis();
         map.put("aaa", "xxx");
         long time = System.currentTimeMillis() - start;
 
-        // ”»’è
-        assertTrue(time > 1000); // –ñ1500ƒ~ƒŠ•b
+        // åˆ¤å®š
+        assertTrue(time > 1000); // ç´„1500ãƒŸãƒªç§’
         assertEquals("xxx", map.get("aaa"));
     }
 
     /**
-     * HashMap‚Ö‚Ìput‚âget‚ÉŠÔ‚ª‚©‚©‚éƒL[ƒIƒuƒWƒFƒNƒgB
-     * put‚âget‚ÌÛ‚É—˜—p‚³‚ê‚éhashCodeƒƒ\ƒbƒh‚ÉAƒXƒŠ[ƒv‚ğ“ü‚ê‚Ä‚¢‚éB
-     * ƒXƒŠ[ƒvŠÔ‚ÍƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Åw’è‚·‚éB
+     * HashMapã¸ã®putã‚„getã«æ™‚é–“ãŒã‹ã‹ã‚‹ã‚­ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
+     * putã‚„getã®éš›ã«åˆ©ç”¨ã•ã‚Œã‚‹hashCodeãƒ¡ã‚½ãƒƒãƒ‰ã«ã€ã‚¹ãƒªãƒ¼ãƒ—ã‚’å…¥ã‚Œã¦ã„ã‚‹ã€‚
+     * ã‚¹ãƒªãƒ¼ãƒ—æ™‚é–“ã¯ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§æŒ‡å®šã™ã‚‹ã€‚
      */
     private static class WaitHashObject {
         private long sleepMillis;

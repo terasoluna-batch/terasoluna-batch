@@ -3,20 +3,20 @@ package jp.terasoluna.fw.file.dao.standard;
 import jp.terasoluna.fw.file.annotation.FileFormat;
 
 /**
- * AbstractFileLineWriter‚ÌŒ±‚Å—˜—p‚·‚éƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌƒXƒ^ƒuƒNƒ‰ƒXB<br>
+ * AbstractFileLineWriterã®è©¦é¨“ã§åˆ©ç”¨ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¹ã‚¿ãƒ–ã‚¯ãƒ©ã‚¹ã€‚<br>
  * <br>
- * ˆÈ‰º‚Ì@FileFormat‚Ìİ’è‚ğ‚Â<br>
+ * ä»¥ä¸‹ã®@FileFormatã®è¨­å®šã‚’æŒã¤<br>
  * <ul>
- * <li>‘S€–ÚFƒfƒtƒHƒ‹ƒg’l</li>
+ * <li>å…¨é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤</li>
  * </ul>
  * <br>
- * <code>@OutputFileColumn</code>İ’è‚È‚µ‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
+ * <code>@OutputFileColumn</code>è¨­å®šãªã—ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
  * <ul>
- * <li>ƒtƒB[ƒ‹ƒhFString noMappingColumn1</li>
- * <li>ƒtƒB[ƒ‹ƒhFString noMappingColumn2</li>
- * <li>ƒtƒB[ƒ‹ƒhFString noMappingColumn3</li>
+ * <li>ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString noMappingColumn1</li>
+ * <li>ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString noMappingColumn2</li>
+ * <li>ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString noMappingColumn3</li>
  * </ul>
- * @author æâ•î“O
+ * @author è¶™ä¿¸å¾¹
  */
 @FileFormat()
 public class AbstractFileLineWriter_Stub11 {
@@ -37,7 +37,7 @@ public class AbstractFileLineWriter_Stub11 {
     private String noMappingColumn3 = null;
 
     /**
-     * noMappingColumn1‚ğæ“¾‚·‚éB
+     * noMappingColumn1ã‚’å–å¾—ã™ã‚‹ã€‚
      * @return noMappingColumn1
      */
     public String getNoMappingColumn1() {
@@ -45,7 +45,7 @@ public class AbstractFileLineWriter_Stub11 {
     }
 
     /**
-     * noMappingColumn1‚ğİ’è‚·‚éB
+     * noMappingColumn1ã‚’è¨­å®šã™ã‚‹ã€‚
      * @param noMappingColumn1 noMappingColumn1
      */
     public void setNoMappingColumn1(String noMappingColumn1) {
@@ -53,7 +53,7 @@ public class AbstractFileLineWriter_Stub11 {
     }
 
     /**
-     * noMappingColumn2‚ğæ“¾‚·‚éB
+     * noMappingColumn2ã‚’å–å¾—ã™ã‚‹ã€‚
      * @return noMappingColumn2
      */
     public String getNoMappingColumn2() {
@@ -61,7 +61,7 @@ public class AbstractFileLineWriter_Stub11 {
     }
 
     /**
-     * noMappingColumn2‚ğİ’è‚·‚éB
+     * noMappingColumn2ã‚’è¨­å®šã™ã‚‹ã€‚
      * @param noMappingColumn2 noMappingColumn2
      */
     public void setNoMappingColumn2(String noMappingColumn2) {
@@ -69,7 +69,7 @@ public class AbstractFileLineWriter_Stub11 {
     }
 
     /**
-     * noMappingColumn3‚ğæ“¾‚·‚éB
+     * noMappingColumn3ã‚’å–å¾—ã™ã‚‹ã€‚
      * @return noMappingColumn3
      */
     public String getNoMappingColumn3() {
@@ -77,7 +77,7 @@ public class AbstractFileLineWriter_Stub11 {
     }
 
     /**
-     * noMappingColumn3‚ğİ’è‚·‚éB
+     * noMappingColumn3ã‚’è¨­å®šã™ã‚‹ã€‚
      * @param noMappingColumn3 noMappingColumn3
      */
     public void setNoMappingColumn3(String noMappingColumn3) {

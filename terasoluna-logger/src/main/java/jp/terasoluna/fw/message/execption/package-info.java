@@ -1,5 +1,5 @@
 /**
- * 内部例外パッケージ
+ * 蜀�驛ｨ萓句､悶ヱ繝�繧ｱ繝ｼ繧ｸ
  */
 package jp.terasoluna.fw.message.execption;
 

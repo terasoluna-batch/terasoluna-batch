@@ -22,7 +22,7 @@ import org.springframework.validation.Errors;
 
 public interface ValidationErrorHandler {
     /**
-     * “ü—Íƒ`ƒFƒbƒNƒGƒ‰[Žž‚Ìˆ—.<br>
+     * å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼æ™‚ã®å‡¦ç†.<br>
      * @param dataValueObject DataValueObject
      * @param errors Errors
      * @return ValidateStatus

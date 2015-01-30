@@ -20,11 +20,11 @@ import junit.framework.TestCase;
 
 /**
  * {@link jp.terasoluna.fw.dao.ibatis.StoredProcedureDAOiBatisImpl}
- * ƒNƒ‰ƒX‚Ìƒuƒ‰ƒbƒNƒ{ƒbƒNƒXƒeƒXƒgB
+ * ã‚¯ãƒ©ã‚¹ã®ãƒ–ãƒ©ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ†ã‚¹ãƒˆã€‚
  *
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4>
- * StoredProcedureDAOƒCƒ“ƒ^ƒtƒF[ƒX‚ÌiBATIS—pÀ‘•ƒNƒ‰ƒXB
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4>
+ * StoredProcedureDAOã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã®iBATISç”¨å®Ÿè£…ã‚¯ãƒ©ã‚¹ã€‚
  * <p>
  *
  * @see jp.terasoluna.fw.dao.ibatis.StoredProcedureDAOiBatisImpl
@@ -32,24 +32,24 @@ import junit.framework.TestCase;
 public class StoredProcedureDAOiBatisImplTest extends TestCase {
 
     /**
-     * ƒeƒXƒg‘ÎÛƒNƒ‰ƒX
+     * ãƒ†ã‚¹ãƒˆå¯¾è±¡ã‚¯ãƒ©ã‚¹
      */
     private StoredProcedureDAOiBatisImpl dao = new StoredProcedureDAOiBatisImpl();
 
     /**
-     * ‚±‚ÌƒeƒXƒgƒP[ƒX‚ğÀs‚·‚éˆ×‚Ì
-     * GUI ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‹N“®‚·‚éB
+     * ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã‚’å®Ÿè¡Œã™ã‚‹ç‚ºã®
+     * GUI ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’èµ·å‹•ã™ã‚‹ã€‚
      *
-     * @param args java ƒRƒ}ƒ“ƒh‚Éİ’è‚³‚ê‚½ƒpƒ‰ƒ[ƒ^
+     * @param args java ã‚³ãƒãƒ³ãƒ‰ã«è¨­å®šã•ã‚ŒãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public static void main(String[] args) {
         junit.swingui.TestRunner.run(StoredProcedureDAOiBatisImplTest.class);
     }
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -59,9 +59,9 @@ public class StoredProcedureDAOiBatisImplTest extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -71,9 +71,9 @@ public class StoredProcedureDAOiBatisImplTest extends TestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      *
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public StoredProcedureDAOiBatisImplTest(String name) {
         super(name);
@@ -83,30 +83,30 @@ public class StoredProcedureDAOiBatisImplTest extends TestCase {
      * testExecuteForObject01()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) sqlID:"sqlId"<br>
-     *         (ˆø”) bindParams:"1"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) sqlID:"sqlId"<br>
+     *         (å¼•æ•°) bindParams:"1"<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») queryForObject‚ÌŒÄoŠm”F:ˆø”‚ªsqlIdAbindParams‚ÅŒÄ‚Ño‚³‚ê‚Ä‚¢‚é–‚ğŠm”F<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) queryForObjectã®å‘¼å‡ºç¢ºèª:å¼•æ•°ãŒsqlIdã€bindParamsã§å‘¼ã³å‡ºã•ã‚Œã¦ã„ã‚‹äº‹ã‚’ç¢ºèª<br>
      *
      * <br>
-     * defineConnectionAqueryForObject‚ğ³í‚ÉŒÄ‚Ño‚·ê‡
+     * defineConnectionã€queryForObjectã‚’æ­£å¸¸ã«å‘¼ã³å‡ºã™å ´åˆ
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExecuteForObject01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         dao.setSqlMapClientTemplate(new StoredProcedureDAOiBatisImpl_SqlMapClientTemplateStub01());
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         dao.executeForObject("sqlId", "1");
 
-        // ”»’è
+        // åˆ¤å®š
         StoredProcedureDAOiBatisImpl_SqlMapClientTemplateStub01 sqlMapTemp = (StoredProcedureDAOiBatisImpl_SqlMapClientTemplateStub01) dao
                 .getSqlMapClientTemplate();
         assertTrue(sqlMapTemp.isCalled());

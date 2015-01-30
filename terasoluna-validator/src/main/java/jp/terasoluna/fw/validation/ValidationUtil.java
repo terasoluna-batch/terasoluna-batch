@@ -33,59 +33,59 @@ import org.apache.commons.validator.GenericValidator;
 import org.apache.commons.validator.UrlValidator;
 
 /**
- * ŒŸØƒƒWƒbƒN‚Ìƒ†[ƒeƒBƒŠƒeƒBƒNƒ‰ƒXB
+ * æ¤œè¨¼ãƒ­ã‚¸ãƒƒã‚¯ã®ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ã‚¯ãƒ©ã‚¹ã€‚
  *
  *
  */
 public class ValidationUtil {
     /**
-     * ”¼ŠpƒJƒi‚Ìƒ`ƒFƒbƒN‚Ég—p‚·‚é•¶š—ñB
+     * åŠè§’ã‚«ãƒŠã®ãƒã‚§ãƒƒã‚¯ã«ä½¿ç”¨ã™ã‚‹æ–‡å­—åˆ—ã€‚
      */
     protected static String hankakuKanaList =
-        "±²³´µ§¨©ª«¶·¸¹º»¼½¾¿ÀÁÂ¯ÃÄÅÆÇÈÉÊËÌÍÎÏĞÑÒÓÔÕÖ¬­®×ØÙÚÛÜ¦İßŞ°¥¤¡¢£";
+        "ï½±ï½²ï½³ï½´ï½µï½§ï½¨ï½©ï½ªï½«ï½¶ï½·ï½¸ï½¹ï½ºï½»ï½¼ï½½ï½¾ï½¿ï¾€ï¾ï¾‚ï½¯ï¾ƒï¾„ï¾…ï¾†ï¾‡ï¾ˆï¾‰ï¾Šï¾‹ï¾Œï¾ï¾ï¾ï¾ï¾‘ï¾’ï¾“ï¾”ï¾•ï¾–ï½¬ï½­ï½®ï¾—ï¾˜ï¾™ï¾šï¾›ï¾œï½¦ï¾ï¾Ÿï¾ï½°ï½¥ï½¤ï½¡ï½¢ï½£";
 
     /**
-     * ‘SŠpƒJƒi‚Ìƒ`ƒFƒbƒN‚Ég—p‚·‚é•¶š—ñB
+     * å…¨è§’ã‚«ãƒŠã®ãƒã‚§ãƒƒã‚¯ã«ä½¿ç”¨ã™ã‚‹æ–‡å­—åˆ—ã€‚
      */
     protected static String zenkakuKanaList =
-        "ƒAƒCƒEƒ”ƒGƒIƒ@ƒBƒDƒFƒHƒJƒLƒNƒPƒRƒ•ƒ–ƒKƒMƒOƒQƒSƒTƒVƒXƒZƒ\"
-            + "ƒUƒWƒYƒ[ƒ]ƒ^ƒ`ƒcƒeƒgƒ_ƒaƒdƒfƒhƒiƒjƒkƒlƒmƒnƒqƒtƒwƒz"
-            + "ƒoƒrƒuƒxƒ{ƒpƒsƒvƒyƒ|ƒ}ƒ~ƒ€ƒƒ‚ƒ„ƒ†ƒˆƒƒƒ…ƒ‡ƒ‰ƒŠƒ‹ƒŒƒ"
-            + "ƒƒƒƒ‘ƒ’ƒbƒ“[";
+        "ã‚¢ã‚¤ã‚¦ãƒ´ã‚¨ã‚ªã‚¡ã‚£ã‚¥ã‚§ã‚©ã‚«ã‚­ã‚¯ã‚±ã‚³ãƒµãƒ¶ã‚¬ã‚®ã‚°ã‚²ã‚´ã‚µã‚·ã‚¹ã‚»ã‚½"
+            + "ã‚¶ã‚¸ã‚ºã‚¼ã‚¾ã‚¿ãƒãƒ„ãƒ†ãƒˆãƒ€ãƒ‚ãƒ…ãƒ‡ãƒ‰ãƒŠãƒ‹ãƒŒãƒãƒãƒãƒ’ãƒ•ãƒ˜ãƒ›"
+            + "ãƒãƒ“ãƒ–ãƒ™ãƒœãƒ‘ãƒ”ãƒ—ãƒšãƒãƒãƒŸãƒ ãƒ¡ãƒ¢ãƒ¤ãƒ¦ãƒ¨ãƒ£ãƒ¥ãƒ§ãƒ©ãƒªãƒ«ãƒ¬ãƒ­"
+            + "ãƒ¯ãƒ®ãƒ°ãƒ±ãƒ²ãƒƒãƒ³ãƒ¼";
 
     /**
      * <code>ApplicationResources</code>
-     * ƒtƒ@ƒCƒ‹‚É’è‹`‚³‚ê‚½”¼Šp•¶šƒe[ƒuƒ‹‚ğæ“¾‚·‚éƒL[B
+     * ãƒ•ã‚¡ã‚¤ãƒ«ã«å®šç¾©ã•ã‚ŒãŸåŠè§’æ–‡å­—ãƒ†ãƒ¼ãƒ–ãƒ«ã‚’å–å¾—ã™ã‚‹ã‚­ãƒ¼ã€‚
      */
     protected static final String HANKAKU_KANA_LIST_KEY
         = "validation.hankaku.kana.list";
 
     /**
      * <code>ApplicationResources</code>
-     * ƒtƒ@ƒCƒ‹‚É’è‹`‚³‚ê‚½‘SŠp•¶šƒe[ƒuƒ‹‚ğæ“¾‚·‚éƒL[B
+     * ãƒ•ã‚¡ã‚¤ãƒ«ã«å®šç¾©ã•ã‚ŒãŸå…¨è§’æ–‡å­—ãƒ†ãƒ¼ãƒ–ãƒ«ã‚’å–å¾—ã™ã‚‹ã‚­ãƒ¼ã€‚
      */
     protected static final String ZENKAKU_KANA_LIST_KEY
         = "validation.zenkaku.kana.list";
 
     /**
-     * UNICODE•¶šƒR[ƒh'&#165;u0000'‚©‚ç'&#165;u00ff'‚Ì
-     * ”ÍˆÍ“à‚É‘¶İ‚·‚é‘SŠp•¶š—ñB
+     * UNICODEæ–‡å­—ã‚³ãƒ¼ãƒ‰'&#165;u0000'ã‹ã‚‰'&#165;u00ff'ã®
+     * ç¯„å›²å†…ã«å­˜åœ¨ã™ã‚‹å…¨è§’æ–‡å­—åˆ—ã€‚
      */
     protected static final String ZENKAKU_BEGIN_U00_LIST =
-        "_‘’˜NÊ‹}L÷~€";
+        "ï¼¼ï¿ ï¿¡Â§Â¨ï¿¢Â°Â±Â´Â¶Ã—Ã·";
 
     static {
-        // ”¼ŠpƒJƒiE‘SŠpƒJƒi’è‹`‚Ì•ÏX
+        // åŠè§’ã‚«ãƒŠãƒ»å…¨è§’ã‚«ãƒŠå®šç¾©ã®å¤‰æ›´
         setHankakuKanaList();
         setZenkakuKanaList();
     }
 
     /**
-     * ”¼ŠpƒJƒi’è‹`‚ğİ’è‚·‚éB
+     * åŠè§’ã‚«ãƒŠå®šç¾©ã‚’è¨­å®šã™ã‚‹ã€‚
      */
     protected static void setHankakuKanaList() {
         String value = null;
-        // ”¼ŠpƒJƒi•¶š—ñƒe[ƒuƒ‹‚ğæ“¾
+        // åŠè§’ã‚«ãƒŠæ–‡å­—åˆ—ãƒ†ãƒ¼ãƒ–ãƒ«ã‚’å–å¾—
         value = PropertyUtil.getProperty(HANKAKU_KANA_LIST_KEY);
         if (value != null) {
             hankakuKanaList = value;
@@ -93,10 +93,10 @@ public class ValidationUtil {
     }
 
     /**
-     * ‘SŠpƒJƒi’è‹`‚ğİ’è‚·‚éB
+     * å…¨è§’ã‚«ãƒŠå®šç¾©ã‚’è¨­å®šã™ã‚‹ã€‚
      */
     protected static void setZenkakuKanaList() {
-        // ‘SŠpƒJƒi•¶š—ñƒe[ƒuƒ‹‚ğæ“¾
+        // å…¨è§’ã‚«ãƒŠæ–‡å­—åˆ—ãƒ†ãƒ¼ãƒ–ãƒ«ã‚’å–å¾—
         String value = null;
         value = PropertyUtil.getProperty(ZENKAKU_KANA_LIST_KEY);
         if (value != null) {
@@ -105,20 +105,20 @@ public class ValidationUtil {
     }
 
     /**
-     * w’è‚³‚ê‚½•¶š‚ª”¼ŠpƒJƒi•¶š‚Å‚ ‚é‚±‚Æ‚ğƒ`ƒFƒbƒN‚·‚éB
+     * æŒ‡å®šã•ã‚ŒãŸæ–‡å­—ãŒåŠè§’ã‚«ãƒŠæ–‡å­—ã§ã‚ã‚‹ã“ã¨ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã€‚
      *
-     * @param c •¶š
-     * @return ”¼ŠpƒJƒi•¶š‚Å‚ ‚ê‚Î true
+     * @param c æ–‡å­—
+     * @return åŠè§’ã‚«ãƒŠæ–‡å­—ã§ã‚ã‚Œã° true
      */
     protected static boolean isHankakuKanaChar(char c) {
         return hankakuKanaList.indexOf(c) >= 0;
     }
 
     /**
-     * w’è‚³‚ê‚½•¶š‚ª”¼Šp•¶š‚Å‚ ‚é‚±‚Æ‚ğƒ`ƒFƒbƒN‚·‚éB
+     * æŒ‡å®šã•ã‚ŒãŸæ–‡å­—ãŒåŠè§’æ–‡å­—ã§ã‚ã‚‹ã“ã¨ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã€‚
      *
-     * @param c •¶š
-     * @return ”¼Šp•¶š‚Å‚ ‚ê‚Î true
+     * @param c æ–‡å­—
+     * @return åŠè§’æ–‡å­—ã§ã‚ã‚Œã° true
      */
     protected static boolean isHankakuChar(char c) {
         return (c <= '\u00ff' && ZENKAKU_BEGIN_U00_LIST.indexOf(c) < 0)
@@ -126,34 +126,34 @@ public class ValidationUtil {
     }
 
     /**
-     * w’è‚³‚ê‚½•¶š‚ª‘SŠp•¶š‚Å‚ ‚é‚±‚Æ‚ğƒ`ƒFƒbƒN‚·‚éB
+     * æŒ‡å®šã•ã‚ŒãŸæ–‡å­—ãŒå…¨è§’æ–‡å­—ã§ã‚ã‚‹ã“ã¨ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã€‚
      *
-     * @param c •¶š
-     * @return ‘SŠp•¶š‚Å‚ ‚ê‚Î true
+     * @param c æ–‡å­—
+     * @return å…¨è§’æ–‡å­—ã§ã‚ã‚Œã° true
      */
     protected static boolean isZenkakuChar(char c) {
         return !isHankakuChar(c);
     }
 
     /**
-     * w’è‚³‚ê‚½•¶š‚ª‘SŠpƒJƒi•¶š‚Å‚ ‚é‚±‚Æ‚ğƒ`ƒFƒbƒN‚·‚éB
+     * æŒ‡å®šã•ã‚ŒãŸæ–‡å­—ãŒå…¨è§’ã‚«ãƒŠæ–‡å­—ã§ã‚ã‚‹ã“ã¨ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã€‚
      *
-     * @param c •¶š
-     * @return ‘SŠpƒJƒi•¶š‚Å‚ ‚ê‚Î true
+     * @param c æ–‡å­—
+     * @return å…¨è§’ã‚«ãƒŠæ–‡å­—ã§ã‚ã‚Œã° true
      */
     protected static boolean isZenkakuKanaChar(char c) {
         return zenkakuKanaList.indexOf(c) >= 0;
     }
 
     /**
-     * ŒŸØ’l‚ª³‹K•\Œ»‚É‡’v‚·‚é‚±‚Æ‚ğƒ`ƒFƒbƒN‚·‚éB
+     * æ¤œè¨¼å€¤ãŒæ­£è¦è¡¨ç¾ã«åˆè‡´ã™ã‚‹ã“ã¨ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã€‚
      *
-     * @param value ŒŸØ’l
-     * @param mask ³‹K•\Œ»
+     * @param value æ¤œè¨¼å€¤
+     * @param mask æ­£è¦è¡¨ç¾
      * @return
-     *            ŒŸØ’l‚ª³‹K•\Œ»‚É‡’v‚·‚é‚È‚ç‚Î
-     *            <code>true</code>‚ğ•Ô‚·B
-     *            ‚»‚êˆÈŠO‚Ìê‡A<code>false</code>‚ğ•Ô‚·B
+     *            æ¤œè¨¼å€¤ãŒæ­£è¦è¡¨ç¾ã«åˆè‡´ã™ã‚‹ãªã‚‰ã°
+     *            <code>true</code>ã‚’è¿”ã™ã€‚
+     *            ãã‚Œä»¥å¤–ã®å ´åˆã€<code>false</code>ã‚’è¿”ã™ã€‚
      */
     public static boolean matchRegexp(String value, String mask) {
         if (!StringUtils.isEmpty(value)
@@ -164,116 +164,116 @@ public class ValidationUtil {
     }
 
     /**
-     * ŒŸØ’l‚ª‰p”š‚Ì‚İ‚©‚ç‚È‚é•¶š—ñ‚Å‚ ‚é‚±‚Æ‚ğƒ`ƒFƒbƒN‚·‚éB
+     * æ¤œè¨¼å€¤ãŒè‹±æ•°å­—ã®ã¿ã‹ã‚‰ãªã‚‹æ–‡å­—åˆ—ã§ã‚ã‚‹ã“ã¨ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã€‚
      *
-     * <code>null</code> •¶š—ñA‹ó•¶š—ñ‚ÍA³“–‚Æ‚İ‚È‚³‚ê‚éB
+     * <code>null</code> æ–‡å­—åˆ—ã€ç©ºæ–‡å­—åˆ—ã¯ã€æ­£å½“ã¨ã¿ãªã•ã‚Œã‚‹ã€‚
      *
-     * @param value ŒŸØ’l
+     * @param value æ¤œè¨¼å€¤
      * @return
-     *            ŒŸØ’l‚ª‰p”š‚Ì‚İ‚©‚ç‚È‚é•¶š—ñ‚Å‚ ‚é‚È‚ç‚Î
-     *            <code>true</code>‚ğ•Ô‚·B
-     *            ‚»‚êˆÈŠO‚Ìê‡A<code>false</code>‚ğ•Ô‚·B
+     *            æ¤œè¨¼å€¤ãŒè‹±æ•°å­—ã®ã¿ã‹ã‚‰ãªã‚‹æ–‡å­—åˆ—ã§ã‚ã‚‹ãªã‚‰ã°
+     *            <code>true</code>ã‚’è¿”ã™ã€‚
+     *            ãã‚Œä»¥å¤–ã®å ´åˆã€<code>false</code>ã‚’è¿”ã™ã€‚
      */
     public static boolean isAlphaNumericString(String value) {
         return matchRegexp(value, "^([0-9]|[a-z]|[A-Z])*$");
     }
 
     /**
-     * ŒŸØ’l‚ª‘å•¶š‰p”š‚Ì‚İ‚©‚ç‚È‚é•¶š—ñ‚Å‚ ‚é‚±‚Æ‚ğƒ`ƒFƒbƒN‚·‚éB
+     * æ¤œè¨¼å€¤ãŒå¤§æ–‡å­—è‹±æ•°å­—ã®ã¿ã‹ã‚‰ãªã‚‹æ–‡å­—åˆ—ã§ã‚ã‚‹ã“ã¨ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã€‚
      *
-     * <code>null</code> •¶š—ñA‹ó•¶š—ñ‚ÍA³“–‚Æ‚İ‚È‚³‚ê‚éB
+     * <code>null</code> æ–‡å­—åˆ—ã€ç©ºæ–‡å­—åˆ—ã¯ã€æ­£å½“ã¨ã¿ãªã•ã‚Œã‚‹ã€‚
      *
-     * @param value ŒŸØ’l
+     * @param value æ¤œè¨¼å€¤
      * @return
-     *            ŒŸØ’l‚ª‘å•¶š‰p”š‚Ì‚İ‚©‚ç‚È‚é•¶š—ñ‚Å‚ ‚é‚È‚ç‚Î
-     *            <code>true</code>‚ğ•Ô‚·B
-     *            ‚»‚êˆÈŠO‚Ìê‡A<code>false</code>‚ğ•Ô‚·B
+     *            æ¤œè¨¼å€¤ãŒå¤§æ–‡å­—è‹±æ•°å­—ã®ã¿ã‹ã‚‰ãªã‚‹æ–‡å­—åˆ—ã§ã‚ã‚‹ãªã‚‰ã°
+     *            <code>true</code>ã‚’è¿”ã™ã€‚
+     *            ãã‚Œä»¥å¤–ã®å ´åˆã€<code>false</code>ã‚’è¿”ã™ã€‚
      */
     public static boolean isUpperAlphaNumericString(String value) {
         return matchRegexp(value, "^([0-9]|[A-Z])*$");
     }
 
     /**
-     * ŒŸØ’l‚ª”š‚Ì‚İ‚©‚ç‚È‚é•¶š—ñ‚Å‚ ‚é‚±‚Æ‚ğƒ`ƒFƒbƒN‚·‚éB
+     * æ¤œè¨¼å€¤ãŒæ•°å­—ã®ã¿ã‹ã‚‰ãªã‚‹æ–‡å­—åˆ—ã§ã‚ã‚‹ã“ã¨ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã€‚
      *
-     * <code>null</code> •¶š—ñA‹ó•¶š—ñ‚ÍA³“–‚Æ‚İ‚È‚³‚ê‚éB
+     * <code>null</code> æ–‡å­—åˆ—ã€ç©ºæ–‡å­—åˆ—ã¯ã€æ­£å½“ã¨ã¿ãªã•ã‚Œã‚‹ã€‚
      *
-     * @param value ŒŸØ’l
+     * @param value æ¤œè¨¼å€¤
      * @return
-     *            ŒŸØ’l‚ª”š‚Ì‚İ‚©‚ç‚È‚é•¶š—ñ‚Å‚ ‚é‚È‚ç‚Î
-     *            <code>true</code>‚ğ•Ô‚·B
-     *            ‚»‚êˆÈŠO‚Ìê‡A<code>false</code>‚ğ•Ô‚·B
+     *            æ¤œè¨¼å€¤ãŒæ•°å­—ã®ã¿ã‹ã‚‰ãªã‚‹æ–‡å­—åˆ—ã§ã‚ã‚‹ãªã‚‰ã°
+     *            <code>true</code>ã‚’è¿”ã™ã€‚
+     *            ãã‚Œä»¥å¤–ã®å ´åˆã€<code>false</code>ã‚’è¿”ã™ã€‚
      */
     public static boolean isNumericString(String value) {
         return matchRegexp(value, "^([0-9])*$");
     }
 
     /**
-     * ŒŸØ’l‚ªw’è‚³‚ê‚½Œ…”‚Å‚ ‚é‚±‚Æ‚ğƒ`ƒFƒbƒN‚·‚éB
+     * æ¤œè¨¼å€¤ãŒæŒ‡å®šã•ã‚ŒãŸæ¡æ•°ã§ã‚ã‚‹ã“ã¨ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã€‚
      * <br>
-     * Œ…”ƒ`ƒFƒbƒN‚ÍA®”•”‚Æ¬”•”‚É•ª‚¯‚ÄAˆÈ‰º‚Ì‚æ‚¤‚És‚¤B
+     * æ¡æ•°ãƒã‚§ãƒƒã‚¯ã¯ã€æ•´æ•°éƒ¨ã¨å°æ•°éƒ¨ã«åˆ†ã‘ã¦ã€ä»¥ä¸‹ã®ã‚ˆã†ã«è¡Œã†ã€‚
      * <ul>
-     * <li>®”•”‚ÌŒ…”ƒ`ƒFƒbƒN
+     * <li>æ•´æ•°éƒ¨ã®æ¡æ•°ãƒã‚§ãƒƒã‚¯
      * <ol>
-     * <li><code>isAccordedInteger</code>‚ª<code>true</code>‚Ìê‡A
-     * ®”•”‚ÌŒ…”‚ªA<code>integerLength</code>‚Ì’l‚Æ
-     * ‡’v‚·‚é‚©‚Ç‚¤‚©‚ğƒ`ƒFƒbƒN‚·‚éB
+     * <li><code>isAccordedInteger</code>ãŒ<code>true</code>ã®å ´åˆã€
+     * æ•´æ•°éƒ¨ã®æ¡æ•°ãŒã€<code>integerLength</code>ã®å€¤ã¨
+     * åˆè‡´ã™ã‚‹ã‹ã©ã†ã‹ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã€‚
      *
-     * <li><code>isAccordedInteger</code>‚ª<code>false</code>‚Ìê‡A
-     * ®”•”‚ÌŒ…”‚ªA<code>integerLength</code>‚Ì’lˆÈ‰º‚Å‚ ‚é‚±‚Æ‚ğ
-     * ƒ`ƒFƒbƒN‚·‚éB
+     * <li><code>isAccordedInteger</code>ãŒ<code>false</code>ã®å ´åˆã€
+     * æ•´æ•°éƒ¨ã®æ¡æ•°ãŒã€<code>integerLength</code>ã®å€¤ä»¥ä¸‹ã§ã‚ã‚‹ã“ã¨ã‚’
+     * ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã€‚
      * </ol>
      *
-     * <li>¬”•”‚ÌŒ…”ƒ`ƒFƒbƒN
+     * <li>å°æ•°éƒ¨ã®æ¡æ•°ãƒã‚§ãƒƒã‚¯
      * <ol>
-     * <li><code>isAccordedScale</code>‚ª<code>true</code>‚Ìê‡A
-     * ¬”•”‚ÌŒ…”‚ªA<code>scaleLength</code>‚Ì’l‚Æ
-     * ‡’v‚·‚é‚©‚Ç‚¤‚©‚ğƒ`ƒFƒbƒN‚·‚éB
+     * <li><code>isAccordedScale</code>ãŒ<code>true</code>ã®å ´åˆã€
+     * å°æ•°éƒ¨ã®æ¡æ•°ãŒã€<code>scaleLength</code>ã®å€¤ã¨
+     * åˆè‡´ã™ã‚‹ã‹ã©ã†ã‹ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã€‚
      *
-     * <li><code>isAccordedScale</code>‚ª<code>true</code>‚Ìê‡A
-     * ¬”•”‚ÌŒ…”‚ªA<code>scaleLength</code>‚Ì’lˆÈ‰º‚Å‚ ‚é‚±‚Æ‚ğ
-     * ƒ`ƒFƒbƒN‚·‚éB
+     * <li><code>isAccordedScale</code>ãŒ<code>true</code>ã®å ´åˆã€
+     * å°æ•°éƒ¨ã®æ¡æ•°ãŒã€<code>scaleLength</code>ã®å€¤ä»¥ä¸‹ã§ã‚ã‚‹ã“ã¨ã‚’
+     * ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã€‚
      * </ol>
      * </ul>
      *
-     * @param value ŒŸØ’l
-     * @param integerLength ®”•”‚ÌŒ…”
+     * @param value æ¤œè¨¼å€¤
+     * @param integerLength æ•´æ•°éƒ¨ã®æ¡æ•°
      * @param isAccordedInteger
-     *           ®”•”‚ÌŒ…”ˆê’vƒ`ƒFƒbƒN‚ğs‚¤ê‡A
-     *           <code>true</code>‚ğw’è‚·‚éB
-     *           ®”•”‚ÌŒ…”ˆÈ“àƒ`ƒFƒbƒN‚ğs‚¤ê‡A
-     *           <code>false</code>‚ğw’è‚·‚éB
-     * @param scaleLength ¬”•”‚ÌŒ…”
+     *           æ•´æ•°éƒ¨ã®æ¡æ•°ä¸€è‡´ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†å ´åˆã€
+     *           <code>true</code>ã‚’æŒ‡å®šã™ã‚‹ã€‚
+     *           æ•´æ•°éƒ¨ã®æ¡æ•°ä»¥å†…ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†å ´åˆã€
+     *           <code>false</code>ã‚’æŒ‡å®šã™ã‚‹ã€‚
+     * @param scaleLength å°æ•°éƒ¨ã®æ¡æ•°
      * @param isAccordedScale
-     *           ¬”•”‚ÌŒ…”ˆê’vƒ`ƒFƒbƒN‚ğs‚¤ê‡A
-     *           <code>true</code>‚ğw’è‚·‚éB
-     *           ¬”•”‚ÌŒ…”ˆÈ“àƒ`ƒFƒbƒN‚ğs‚¤ê‡A
-     *           <code>false</code>‚ğw’è‚·‚éB
+     *           å°æ•°éƒ¨ã®æ¡æ•°ä¸€è‡´ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†å ´åˆã€
+     *           <code>true</code>ã‚’æŒ‡å®šã™ã‚‹ã€‚
+     *           å°æ•°éƒ¨ã®æ¡æ•°ä»¥å†…ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†å ´åˆã€
+     *           <code>false</code>ã‚’æŒ‡å®šã™ã‚‹ã€‚
      *
      * @return
-     *            ŒŸØ’l‚ªw’è‚³‚ê‚½Œ…”‚Å‚ ‚é‚È‚ç‚Î
-     *            <code>true</code>‚ğ•Ô‚·B
-     *            ‚»‚êˆÈŠO‚Ìê‡A<code>false</code>‚ğ•Ô‚·B
+     *            æ¤œè¨¼å€¤ãŒæŒ‡å®šã•ã‚ŒãŸæ¡æ•°ã§ã‚ã‚‹ãªã‚‰ã°
+     *            <code>true</code>ã‚’è¿”ã™ã€‚
+     *            ãã‚Œä»¥å¤–ã®å ´åˆã€<code>false</code>ã‚’è¿”ã™ã€‚
      */
     public static boolean isNumber(
             BigDecimal value, int integerLength, boolean isAccordedInteger,
             int scaleLength, boolean isAccordedScale) {
 
-        // ŒŸØ’l‚ªnull‚ÌAtrue•Ô‹p
+        // æ¤œè¨¼å€¤ãŒnullã®æ™‚ã€trueè¿”å´
         if (value == null) {
             return true;
         }
 
-        // ®”•”ƒ`ƒFƒbƒN‚ğs‚¤
-        // ®”•”â‘Î’l‚Ì‚İ’Šo
+        // æ•´æ•°éƒ¨ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†
+        // æ•´æ•°éƒ¨çµ¶å¯¾å€¤ã®ã¿æŠ½å‡º
         BigInteger bi = value.toBigInteger().abs();
-        // ®”Œ…”
+        // æ•´æ•°æ¡æ•°
         int length = bi.toString().length();
         if (!checkNumberFigures(length, integerLength, isAccordedInteger)) {
             return false;
         }
 
-        // ¬”•”ƒ`ƒFƒbƒN‚ğs‚¤
+        // å°æ•°éƒ¨ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†
         int scale = value.scale();
         if (!checkNumberFigures(scale, scaleLength, isAccordedScale)) {
             return false;
@@ -283,28 +283,28 @@ public class ValidationUtil {
     }
 
     /**
-     * Œ…”ƒ`ƒFƒbƒN‚ğs‚¤‚½‚ß‚Ìƒwƒ‹ƒpƒƒ\ƒbƒhB
+     * æ¡æ•°ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†ãŸã‚ã®ãƒ˜ãƒ«ãƒ‘ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      *
-     * @param length ÀÛ‚ÌŒ…”
-     * @param checkLength ”äŠr‚ğs‚¤‚½‚ß‚ÌŒ…”
+     * @param length å®Ÿéš›ã®æ¡æ•°
+     * @param checkLength æ¯”è¼ƒã‚’è¡Œã†ãŸã‚ã®æ¡æ•°
      * @param isAccorded
-     *           Œ…”ˆê’vƒ`ƒFƒbƒN‚ğs‚¤ê‡A<code>true</code>‚ğw’è‚·‚éB
-     *           Œ…”ˆÈ“àƒ`ƒFƒbƒN‚ğs‚¤ê‡A<code>false</code>‚ğw’è‚·‚éB
+     *           æ¡æ•°ä¸€è‡´ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†å ´åˆã€<code>true</code>ã‚’æŒ‡å®šã™ã‚‹ã€‚
+     *           æ¡æ•°ä»¥å†…ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†å ´åˆã€<code>false</code>ã‚’æŒ‡å®šã™ã‚‹ã€‚
      * @return
-     *            ÀÛ‚ÌŒ…”‚ªw’è‚³‚ê‚½Œ…”‚Å‚ ‚é‚È‚ç‚Î
-     *            <code>true</code>‚ğ•Ô‚·B
-     *            ‚»‚êˆÈŠO‚Ìê‡A<code>false</code>‚ğ•Ô‚·B
+     *            å®Ÿéš›ã®æ¡æ•°ãŒæŒ‡å®šã•ã‚ŒãŸæ¡æ•°ã§ã‚ã‚‹ãªã‚‰ã°
+     *            <code>true</code>ã‚’è¿”ã™ã€‚
+     *            ãã‚Œä»¥å¤–ã®å ´åˆã€<code>false</code>ã‚’è¿”ã™ã€‚
      */
     protected static boolean checkNumberFigures(
             int length, int checkLength, boolean isAccorded) {
-        // Œ…”ƒI[ƒo‚ÍAfalse‚ğ•Ô‹p
+        // æ¡æ•°ã‚ªãƒ¼ãƒæ™‚ã¯ã€falseã‚’è¿”å´
         if (length > checkLength) {
             return false;
         }
 
-        // ˆê’vw’è‚³‚ê‚Ä‚¢‚é‚Æ‚«
+        // ä¸€è‡´æŒ‡å®šã•ã‚Œã¦ã„ã‚‹ã¨ã
         if (isAccorded) {
-            // Œ…”•sˆê’v‚ÍAfalse‚ğ•Ô‹p
+            // æ¡æ•°ä¸ä¸€è‡´ã¯ã€falseã‚’è¿”å´
             if (length != checkLength) {
                 return false;
             }
@@ -313,20 +313,20 @@ public class ValidationUtil {
     }
 
     /**
-     * ŒŸØ’l‚ª”¼ŠpƒJƒi•¶š‚Ì‚İ‚©‚ç‚È‚é•¶š—ñ‚Å‚ ‚é‚©‚Ç‚¤‚©‚ğ
-     * ƒ`ƒFƒbƒN‚·‚éB
+     * æ¤œè¨¼å€¤ãŒåŠè§’ã‚«ãƒŠæ–‡å­—ã®ã¿ã‹ã‚‰ãªã‚‹æ–‡å­—åˆ—ã§ã‚ã‚‹ã‹ã©ã†ã‹ã‚’
+     * ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã€‚
      *
-     * <code>null</code> •¶š—ñA‹ó•¶š—ñ‚ÍA³“–‚Æ‚İ‚È‚³‚ê‚éB
+     * <code>null</code> æ–‡å­—åˆ—ã€ç©ºæ–‡å­—åˆ—ã¯ã€æ­£å½“ã¨ã¿ãªã•ã‚Œã‚‹ã€‚
      *
-     * @param value ŒŸØ’l
+     * @param value æ¤œè¨¼å€¤
      * @return
-     *            ŒŸØ’l‚ª”¼ŠpƒJƒi•¶š‚Ì‚İ‚©‚ç‚È‚é•¶š—ñ‚Å‚ ‚é‚È‚ç‚Î
-     *            <code>true</code>‚ğ•Ô‚·B
-     *            ‚»‚êˆÈŠO‚Ìê‡A<code>false</code>‚ğ•Ô‚·B
+     *            æ¤œè¨¼å€¤ãŒåŠè§’ã‚«ãƒŠæ–‡å­—ã®ã¿ã‹ã‚‰ãªã‚‹æ–‡å­—åˆ—ã§ã‚ã‚‹ãªã‚‰ã°
+     *            <code>true</code>ã‚’è¿”ã™ã€‚
+     *            ãã‚Œä»¥å¤–ã®å ´åˆã€<code>false</code>ã‚’è¿”ã™ã€‚
      */
     public static boolean isHankakuKanaString(String value) {
 
-        // ŒŸØ’l‚ªnull‚Ü‚½‚Í‹ó•¶š‚ÌAtrue•Ô‹p
+        // æ¤œè¨¼å€¤ãŒnullã¾ãŸã¯ç©ºæ–‡å­—ã®æ™‚ã€trueè¿”å´
         if (StringUtils.isEmpty(value)) {
             return true;
         }
@@ -342,20 +342,20 @@ public class ValidationUtil {
     }
 
     /**
-     * ŒŸØ’l‚ª”¼Šp•¶š‚Ì‚İ‚©‚ç‚È‚é•¶š—ñ‚Å‚ ‚é‚©‚Ç‚¤‚©‚ğ
-     * ƒ`ƒFƒbƒN‚·‚éB
+     * æ¤œè¨¼å€¤ãŒåŠè§’æ–‡å­—ã®ã¿ã‹ã‚‰ãªã‚‹æ–‡å­—åˆ—ã§ã‚ã‚‹ã‹ã©ã†ã‹ã‚’
+     * ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã€‚
      *
-     * <code>null</code> •¶š—ñA‹ó•¶š—ñ‚ÍA³“–‚Æ‚İ‚È‚³‚ê‚éB
+     * <code>null</code> æ–‡å­—åˆ—ã€ç©ºæ–‡å­—åˆ—ã¯ã€æ­£å½“ã¨ã¿ãªã•ã‚Œã‚‹ã€‚
      *
-     * @param value ŒŸØ’l
+     * @param value æ¤œè¨¼å€¤
      * @return
-     *            ŒŸØ’l‚ª”¼Šp•¶š‚Ì‚İ‚©‚ç‚È‚é•¶š—ñ‚Å‚ ‚é‚È‚ç‚Î
-     *            <code>true</code>‚ğ•Ô‚·B
-     *            ‚»‚êˆÈŠO‚Ìê‡A<code>false</code>‚ğ•Ô‚·B
+     *            æ¤œè¨¼å€¤ãŒåŠè§’æ–‡å­—ã®ã¿ã‹ã‚‰ãªã‚‹æ–‡å­—åˆ—ã§ã‚ã‚‹ãªã‚‰ã°
+     *            <code>true</code>ã‚’è¿”ã™ã€‚
+     *            ãã‚Œä»¥å¤–ã®å ´åˆã€<code>false</code>ã‚’è¿”ã™ã€‚
      */
     public static boolean isHankakuString(String value) {
 
-        // ŒŸØ’l‚ªnull‚Ü‚½‚Í‹ó•¶š‚ÌAtrue•Ô‹p
+        // æ¤œè¨¼å€¤ãŒnullã¾ãŸã¯ç©ºæ–‡å­—ã®æ™‚ã€trueè¿”å´
         if (StringUtils.isEmpty(value)) {
             return true;
         }
@@ -370,20 +370,20 @@ public class ValidationUtil {
     }
 
     /**
-     * ŒŸØ’l‚ª‘SŠp•¶š‚Ì‚İ‚©‚ç‚È‚é•¶š—ñ‚Å‚ ‚é‚©‚Ç‚¤‚©‚ğ
-     * ƒ`ƒFƒbƒN‚·‚éB
+     * æ¤œè¨¼å€¤ãŒå…¨è§’æ–‡å­—ã®ã¿ã‹ã‚‰ãªã‚‹æ–‡å­—åˆ—ã§ã‚ã‚‹ã‹ã©ã†ã‹ã‚’
+     * ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã€‚
      *
-     * <code>null</code> •¶š—ñA‹ó•¶š—ñ‚ÍA³“–‚Æ‚İ‚È‚³‚ê‚éB
+     * <code>null</code> æ–‡å­—åˆ—ã€ç©ºæ–‡å­—åˆ—ã¯ã€æ­£å½“ã¨ã¿ãªã•ã‚Œã‚‹ã€‚
      *
-     * @param value ŒŸØ’l
+     * @param value æ¤œè¨¼å€¤
      * @return
-     *            ŒŸØ’l‚ª‘SŠp•¶š‚Ì‚İ‚©‚ç‚È‚é•¶š—ñ‚Å‚ ‚é‚È‚ç‚Î
-     *            <code>true</code>‚ğ•Ô‚·B
-     *            ‚»‚êˆÈŠO‚Ìê‡A<code>false</code>‚ğ•Ô‚·B
+     *            æ¤œè¨¼å€¤ãŒå…¨è§’æ–‡å­—ã®ã¿ã‹ã‚‰ãªã‚‹æ–‡å­—åˆ—ã§ã‚ã‚‹ãªã‚‰ã°
+     *            <code>true</code>ã‚’è¿”ã™ã€‚
+     *            ãã‚Œä»¥å¤–ã®å ´åˆã€<code>false</code>ã‚’è¿”ã™ã€‚
      */
     public static boolean isZenkakuString(String value) {
 
-        // ŒŸØ’l‚ªnull‚Ü‚½‚Í‹ó•¶š‚ÌAtrue•Ô‹p
+        // æ¤œè¨¼å€¤ãŒnullã¾ãŸã¯ç©ºæ–‡å­—ã®æ™‚ã€trueè¿”å´
         if (StringUtils.isEmpty(value)) {
             return true;
         }
@@ -399,20 +399,20 @@ public class ValidationUtil {
     }
 
     /**
-     * ŒŸØ’l‚ª‘SŠpƒJƒi•¶š‚Ì‚İ‚©‚ç‚È‚é•¶š—ñ‚Å‚ ‚é‚©‚Ç‚¤‚©‚ğ
-     * ƒ`ƒFƒbƒN‚·‚éB
+     * æ¤œè¨¼å€¤ãŒå…¨è§’ã‚«ãƒŠæ–‡å­—ã®ã¿ã‹ã‚‰ãªã‚‹æ–‡å­—åˆ—ã§ã‚ã‚‹ã‹ã©ã†ã‹ã‚’
+     * ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã€‚
      *
-     * <code>null</code> •¶š—ñA‹ó•¶š—ñ‚ÍA³“–‚Æ‚İ‚È‚³‚ê‚éB
+     * <code>null</code> æ–‡å­—åˆ—ã€ç©ºæ–‡å­—åˆ—ã¯ã€æ­£å½“ã¨ã¿ãªã•ã‚Œã‚‹ã€‚
      *
-     * @param value ŒŸØ’l
+     * @param value æ¤œè¨¼å€¤
      * @return
-     *            ŒŸØ’l‚ª‘SŠpƒJƒi•¶š‚Ì‚İ‚©‚ç‚È‚é•¶š—ñ‚Å‚ ‚é‚È‚ç‚Î
-     *            <code>true</code>‚ğ•Ô‚·B
-     *            ‚»‚êˆÈŠO‚Ìê‡A<code>false</code>‚ğ•Ô‚·B
+     *            æ¤œè¨¼å€¤ãŒå…¨è§’ã‚«ãƒŠæ–‡å­—ã®ã¿ã‹ã‚‰ãªã‚‹æ–‡å­—åˆ—ã§ã‚ã‚‹ãªã‚‰ã°
+     *            <code>true</code>ã‚’è¿”ã™ã€‚
+     *            ãã‚Œä»¥å¤–ã®å ´åˆã€<code>false</code>ã‚’è¿”ã™ã€‚
     */
     public static boolean isZenkakuKanaString(String value) {
 
-        // ŒŸØ’l‚ªnull‚Ü‚½‚Í‹ó•¶š‚ÌAtrue•Ô‹p
+        // æ¤œè¨¼å€¤ãŒnullã¾ãŸã¯ç©ºæ–‡å­—ã®æ™‚ã€trueè¿”å´
         if (StringUtils.isEmpty(value)) {
             return true;
         }
@@ -428,34 +428,34 @@ public class ValidationUtil {
     }
 
     /**
-     * ŒŸØ’l‚ª‹Ö~•¶š‚ğŠÜ‚Ü‚È‚¢‚±‚Æ‚ğƒ`ƒFƒbƒN‚·‚éB
-     * ƒGƒXƒP[ƒv‚ª•K—v‚È•¶š‚Íu\v•¶š—ñ‚ğ•t‰Á‚·‚éB
-     * —á‚¦‚Îƒ_ƒuƒ‹ƒR[ƒe[ƒVƒ‡ƒ“u"v‚ğ‹Ö~•¶š‚É‚·‚éê‡A
-     * u\"v‚ÆƒGƒXƒP[ƒv•¶š—ñ‚ğ•t‰Á‚·‚é•K—v‚ª‚ ‚éB
+     * æ¤œè¨¼å€¤ãŒç¦æ­¢æ–‡å­—ã‚’å«ã¾ãªã„ã“ã¨ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã€‚
+     * ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—ãŒå¿…è¦ãªæ–‡å­—ã¯ã€Œ\ã€æ–‡å­—åˆ—ã‚’ä»˜åŠ ã™ã‚‹ã€‚
+     * ä¾‹ãˆã°ãƒ€ãƒ–ãƒ«ã‚³ãƒ¼ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã€Œ"ã€ã‚’ç¦æ­¢æ–‡å­—ã«ã™ã‚‹å ´åˆã€
+     * ã€Œ\"ã€ã¨ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—æ–‡å­—åˆ—ã‚’ä»˜åŠ ã™ã‚‹å¿…è¦ãŒã‚ã‚‹ã€‚
      *
-     * ‹Ö~•¶š‚ª<code>null</code>•¶š—ñA‚Ü‚½‚Í‹ó•¶š—ñ‚Í³“–‚Æ‚İ‚È‚³‚ê‚éB
+     * ç¦æ­¢æ–‡å­—ãŒ<code>null</code>æ–‡å­—åˆ—ã€ã¾ãŸã¯ç©ºæ–‡å­—åˆ—ã¯æ­£å½“ã¨ã¿ãªã•ã‚Œã‚‹ã€‚
      *
-     * @param value ŒŸØ’l
-     * @param prohibitedChars ‹Ö~•¶š‚Ì•¶š—ñ
-     * @return ŒŸØ’l‚ª‹Ö~•¶š‚ğŠÜ‚ñ‚Å‚¢‚È‚¯‚ê‚Î<code>true</code>A
-     * ‚»‚êˆÈŠO‚Í<code>false</code>‚ğ•Ô‚·B
+     * @param value æ¤œè¨¼å€¤
+     * @param prohibitedChars ç¦æ­¢æ–‡å­—ã®æ–‡å­—åˆ—
+     * @return æ¤œè¨¼å€¤ãŒç¦æ­¢æ–‡å­—ã‚’å«ã‚“ã§ã„ãªã‘ã‚Œã°<code>true</code>ã€
+     * ãã‚Œä»¥å¤–ã¯<code>false</code>ã‚’è¿”ã™ã€‚
      */
     public static boolean hasNotProhibitedChar(
             String value, String prohibitedChars) {
 
-        // ŒŸØ’l‚ªnull‚Ü‚½‚Í‹ó•¶š‚ÌAtrue•Ô‹p
+        // æ¤œè¨¼å€¤ãŒnullã¾ãŸã¯ç©ºæ–‡å­—ã®æ™‚ã€trueè¿”å´
         if (StringUtils.isEmpty(value)) {
             return true;
         }
 
         char[] chars = value.toCharArray();
 
-        // “ü—Í‹Ö~•¶š—ñ‚ª–¢İ’è‚Ìê‡Aƒ`ƒFƒbƒN‚ğs‚í‚È‚¢
+        // å…¥åŠ›ç¦æ­¢æ–‡å­—åˆ—ãŒæœªè¨­å®šã®å ´åˆã€ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã‚ãªã„
         if (prohibitedChars == null || "".equals(prohibitedChars)) {
             return true;
         }
 
-        // ŒŸØ
+        // æ¤œè¨¼
         for (int i = 0; i < chars.length; i++) {
             if (prohibitedChars.indexOf(chars[i]) >= 0) {
                 return false;
@@ -465,25 +465,25 @@ public class ValidationUtil {
     }
 
     /**
-     * ”z—ñA‚Ü‚½‚ÍA<code>Collection</code>‚Ì—v‘f”‚ªA
-     * w’è‚³‚ê‚½Å‘å’lEÅ¬’l‚Ì”ÍˆÍ“à‚Å‚ ‚é‚©‚Ç‚¤‚©‚ğƒ`ƒFƒbƒN‚·‚éB
+     * é…åˆ—ã€ã¾ãŸã¯ã€<code>Collection</code>ã®è¦ç´ æ•°ãŒã€
+     * æŒ‡å®šã•ã‚ŒãŸæœ€å¤§å€¤ãƒ»æœ€å°å€¤ã®ç¯„å›²å†…ã§ã‚ã‚‹ã‹ã©ã†ã‹ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã€‚
      *
-     * ŒŸ¸‘ÎÛ‚Ì”z—ñE<code>Collection</code>‚ª<code>null</code>‚Ì
-     * ê‡‚ÍA—v‘f”0‚Æ‚µ‚Äˆ—‚ªs‚í‚ê‚éB‚Ü‚½AŒŸ¸‘ÎÛ‚Ì’l‚ª”z—ñA
-     * Collection‚Å‚Í‚È‚¢ê‡‚ÍAIllegalArgumentException‚ªƒXƒ[‚³‚ê‚éB
+     * æ¤œæŸ»å¯¾è±¡ã®é…åˆ—ãƒ»<code>Collection</code>ãŒ<code>null</code>ã®
+     * å ´åˆã¯ã€è¦ç´ æ•°0ã¨ã—ã¦å‡¦ç†ãŒè¡Œã‚ã‚Œã‚‹ã€‚ã¾ãŸã€æ¤œæŸ»å¯¾è±¡ã®å€¤ãŒé…åˆ—ã€
+     * Collectionã§ã¯ãªã„å ´åˆã¯ã€IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã€‚
      *
-     * @param obj ŒŸ¸‘ÎÛ‚Ì”z—ñE<code>Collection</code>
-     * @param min —v‘f”‚ÌÅ¬’l
-     * @param max —v‘f”‚ÌÅ‘å’l
+     * @param obj æ¤œæŸ»å¯¾è±¡ã®é…åˆ—ãƒ»<code>Collection</code>
+     * @param min è¦ç´ æ•°ã®æœ€å°å€¤
+     * @param max è¦ç´ æ•°ã®æœ€å¤§å€¤
      * @return
-     *            ŒŸ¸‘ÎÛ‚Ì”z—ñE<code>Collection</code>‚ª
-     *            w’è‚³‚ê‚½Å‘å’lEÅ¬’l‚Ì”ÍˆÍ“à‚Å‚ ‚é‚È‚ç‚Î
-     *            <code>true</code>‚ğ•Ô‚·B
-     *            ‚»‚êˆÈŠO‚Ìê‡A<code>false</code>‚ğ•Ô‚·B
+     *            æ¤œæŸ»å¯¾è±¡ã®é…åˆ—ãƒ»<code>Collection</code>ãŒ
+     *            æŒ‡å®šã•ã‚ŒãŸæœ€å¤§å€¤ãƒ»æœ€å°å€¤ã®ç¯„å›²å†…ã§ã‚ã‚‹ãªã‚‰ã°
+     *            <code>true</code>ã‚’è¿”ã™ã€‚
+     *            ãã‚Œä»¥å¤–ã®å ´åˆã€<code>false</code>ã‚’è¿”ã™ã€‚
      */
     public static boolean isArrayInRange(Object obj, int min, int max) {
 
-        // ŒŸØ’l‚Ì”z—ñ’·
+        // æ¤œè¨¼å€¤ã®é…åˆ—é•·
         int targetLength = 0;
         if (obj == null) {
             targetLength = 0;
@@ -492,12 +492,12 @@ public class ValidationUtil {
         } else if (obj.getClass().isArray()) {
             targetLength = Array.getLength(obj);
         } else {
-            // ŒŸØ’l‚ª”z—ñŒ^‚Å‚Í‚È‚¢ê‡AIllegalArgumentException‚ğƒXƒ[
+            // æ¤œè¨¼å€¤ãŒé…åˆ—å‹ã§ã¯ãªã„å ´åˆã€IllegalArgumentExceptionã‚’ã‚¹ãƒ­ãƒ¼
             throw new IllegalArgumentException(obj.getClass().getName() +
                     " is neither Array nor Collection.");
         }
 
-        // “ü—Í‚³‚ê‚½—v‘f”‚ªw’è”ÍˆÍˆÈŠO‚È‚ç‚Îfalse‚ğ•Ô‹p
+        // å…¥åŠ›ã•ã‚ŒãŸè¦ç´ æ•°ãŒæŒ‡å®šç¯„å›²ä»¥å¤–ãªã‚‰ã°falseã‚’è¿”å´
         if (!GenericValidator.isInRange(targetLength, min, max)) {
             return false;
         }
@@ -506,20 +506,20 @@ public class ValidationUtil {
 
 
     /**
-     * ŒŸØ’l‚ªURLŒ`®‚Ì•¶š—ñ‚Å‚ ‚é‚©‚Ç‚¤‚©‚ğƒ`ƒFƒbƒN‚·‚éB
+     * æ¤œè¨¼å€¤ãŒURLå½¢å¼ã®æ–‡å­—åˆ—ã§ã‚ã‚‹ã‹ã©ã†ã‹ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã€‚
      *
-     * <code>null</code> •¶š—ñA‹ó•¶š—ñ‚ÍA³“–‚Æ‚İ‚È‚³‚ê‚éB
+     * <code>null</code> æ–‡å­—åˆ—ã€ç©ºæ–‡å­—åˆ—ã¯ã€æ­£å½“ã¨ã¿ãªã•ã‚Œã‚‹ã€‚
      *
-     * @param value ŒŸØ’l
-     * @param allowallschemes ‘S‚Ä‚ÌƒXƒL[ƒ€‚ğ‹–‰Â‚·‚é‚©‚Ç‚¤‚©‚ğw’è
-     * @param allow2slashes ƒ_ƒuƒ‹ƒXƒ‰ƒbƒVƒ…‚ğ‹–‰Â‚·‚é‚©‚Ç‚¤‚©‚ğw’è
-     * @param nofragments URL•ªŠ„‚ğ‹Ö~‚·‚é‚©‚Ç‚¤‚©‚ğw’è
-     * @param schemesVar ‹–‰Â‚·‚éƒXƒL[ƒ€B
-     * •¡”‚ ‚éê‡‚ÍƒJƒ“ƒ}‹æØ‚è‚Åw’è‚·‚éB
+     * @param value æ¤œè¨¼å€¤
+     * @param allowallschemes å…¨ã¦ã®ã‚¹ã‚­ãƒ¼ãƒ ã‚’è¨±å¯ã™ã‚‹ã‹ã©ã†ã‹ã‚’æŒ‡å®š
+     * @param allow2slashes ãƒ€ãƒ–ãƒ«ã‚¹ãƒ©ãƒƒã‚·ãƒ¥ã‚’è¨±å¯ã™ã‚‹ã‹ã©ã†ã‹ã‚’æŒ‡å®š
+     * @param nofragments URLåˆ†å‰²ã‚’ç¦æ­¢ã™ã‚‹ã‹ã©ã†ã‹ã‚’æŒ‡å®š
+     * @param schemesVar è¨±å¯ã™ã‚‹ã‚¹ã‚­ãƒ¼ãƒ ã€‚
+     * è¤‡æ•°ã‚ã‚‹å ´åˆã¯ã‚«ãƒ³ãƒåŒºåˆ‡ã‚Šã§æŒ‡å®šã™ã‚‹ã€‚
      * @return
-     *            ŒŸØ’l‚ªURLŒ`®‚Ì•¶š—ñ‚Å‚ ‚é‚È‚ç‚Î
-     *            <code>true</code>‚ğ•Ô‚·B
-     *            ‚»‚êˆÈŠO‚Ìê‡A<code>false</code>‚ğ•Ô‚·B
+     *            æ¤œè¨¼å€¤ãŒURLå½¢å¼ã®æ–‡å­—åˆ—ã§ã‚ã‚‹ãªã‚‰ã°
+     *            <code>true</code>ã‚’è¿”ã™ã€‚
+     *            ãã‚Œä»¥å¤–ã®å ´åˆã€<code>false</code>ã‚’è¿”ã™ã€‚
      */
     public static boolean isUrl(
             String value, boolean allowallschemes, boolean allow2slashes,
@@ -529,7 +529,7 @@ public class ValidationUtil {
             return true;
         }
 
-        // ƒIƒvƒVƒ‡ƒ“‚Ìİ’è
+        // ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã®è¨­å®š
         int options = 0;
         if (allowallschemes) {
             options += UrlValidator.ALLOW_ALL_SCHEMES ;
@@ -541,7 +541,7 @@ public class ValidationUtil {
             options += UrlValidator.NO_FRAGMENTS;
         }
 
-        // ƒIƒvƒVƒ‡ƒ“‚ª‚È‚¢ê‡‚ÍƒfƒtƒHƒ‹ƒg‚ÌGenericValidator‚ğg—p
+        // ã‚ªãƒ—ã‚·ãƒ§ãƒ³ãŒãªã„å ´åˆã¯ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®GenericValidatorã‚’ä½¿ç”¨
         if (options == 0 && schemesVar == null) {
             if (GenericValidator.isUrl(value)) {
                 return true;
@@ -549,7 +549,7 @@ public class ValidationUtil {
             return false;
         }
 
-        // ƒXƒL[ƒ€‚ğString[]‚É•ÏŠ·
+        // ã‚¹ã‚­ãƒ¼ãƒ ã‚’String[]ã«å¤‰æ›
         String[] schemes = null;
         if (schemesVar != null) {
 
@@ -562,7 +562,7 @@ public class ValidationUtil {
             }
         }
 
-        // ƒIƒvƒVƒ‡ƒ“‚ ‚è‚Ìê‡‚ÍUrlValidator‚ğg—p
+        // ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã‚ã‚Šã®å ´åˆã¯UrlValidatorã‚’ä½¿ç”¨
         UrlValidator urlValidator = new UrlValidator(schemes, options);
         if (urlValidator.isValid(value)) {
             return true;
@@ -571,30 +571,30 @@ public class ValidationUtil {
     }
 
     /**
-     * ŒŸØ’l‚ÌƒoƒCƒg—ñ’·‚ªw’è‚µ‚½Å‘å’lEÅ¬’l‚Ì”ÍˆÍ“à‚Å‚ ‚é‚©‚Ç‚¤‚©‚ğ
-     * ƒ`ƒFƒbƒN‚·‚éBƒTƒ|[ƒg‚³‚ê‚Ä‚¢‚È‚¢ƒGƒ“ƒR[ƒfƒBƒ“ƒO‚ğw’è‚µ‚½ê‡A
-     * —áŠO‚ª”­¶‚·‚éB
+     * æ¤œè¨¼å€¤ã®ãƒã‚¤ãƒˆåˆ—é•·ãŒæŒ‡å®šã—ãŸæœ€å¤§å€¤ãƒ»æœ€å°å€¤ã®ç¯„å›²å†…ã§ã‚ã‚‹ã‹ã©ã†ã‹ã‚’
+     * ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã€‚ã‚µãƒãƒ¼ãƒˆã•ã‚Œã¦ã„ãªã„ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ã‚’æŒ‡å®šã—ãŸå ´åˆã€
+     * ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã€‚
      *
-     * <code>null</code> •¶š—ñA‹ó•¶š—ñ‚ÍA³“–‚Æ‚İ‚È‚³‚ê‚éB
+     * <code>null</code> æ–‡å­—åˆ—ã€ç©ºæ–‡å­—åˆ—ã¯ã€æ­£å½“ã¨ã¿ãªã•ã‚Œã‚‹ã€‚
      *
-     * @param value ŒŸØ’l
-     * @param encoding ƒ`ƒFƒbƒN‚Ì•¶š—ñ‚Ì<code>encoding</code>–¼
-     * @param min Å‘å’l
-     * @param max Å¬’l
+     * @param value æ¤œè¨¼å€¤
+     * @param encoding ãƒã‚§ãƒƒã‚¯æ™‚ã®æ–‡å­—åˆ—ã®<code>encoding</code>å
+     * @param min æœ€å¤§å€¤
+     * @param max æœ€å°å€¤
      * @return
-     *            ŒŸØ’l‚ÌƒoƒCƒg—ñ’·‚ªw’è‚µ‚½Å‘å’lEÅ¬’l‚Ì
-     *            ”ÍˆÍ“à‚Å‚ ‚é‚È‚ç‚Î<code>true</code>‚ğ•Ô‚·B
-     *            ‚»‚êˆÈŠO‚Ìê‡A<code>false</code>‚ğ•Ô‚·B
+     *            æ¤œè¨¼å€¤ã®ãƒã‚¤ãƒˆåˆ—é•·ãŒæŒ‡å®šã—ãŸæœ€å¤§å€¤ãƒ»æœ€å°å€¤ã®
+     *            ç¯„å›²å†…ã§ã‚ã‚‹ãªã‚‰ã°<code>true</code>ã‚’è¿”ã™ã€‚
+     *            ãã‚Œä»¥å¤–ã®å ´åˆã€<code>false</code>ã‚’è¿”ã™ã€‚
      */
     public static boolean isByteInRange(
             String value, String encoding, int min, int max) {
 
-        // ŒŸØ’l‚ªnull‚Ü‚½‚Í‹ó•¶š‚ÌAtrue•Ô‹p
+        // æ¤œè¨¼å€¤ãŒnullã¾ãŸã¯ç©ºæ–‡å­—ã®æ™‚ã€trueè¿”å´
         if (StringUtils.isEmpty(value)) {
             return true;
         }
 
-        // w’èƒGƒ“ƒR[ƒfƒBƒ“ƒO‚ÅƒoƒCƒg’·‚ğæ“¾
+        // æŒ‡å®šã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ã§ãƒã‚¤ãƒˆé•·ã‚’å–å¾—
         int bytesLength = 0;
         try {
             bytesLength = StringUtil.getByteLength(value, encoding);
@@ -602,7 +602,7 @@ public class ValidationUtil {
             throw new IllegalArgumentException(e.getMessage());
         }
 
-        // ƒoƒCƒg”ƒ`ƒFƒbƒN
+        // ãƒã‚¤ãƒˆæ•°ãƒã‚§ãƒƒã‚¯
         if (!GenericValidator.isInRange(bytesLength, min, max)) {
             return false;
         }
@@ -610,36 +610,36 @@ public class ValidationUtil {
     }
 
     /**
-     * “ú•t‚ªw’è‚µ‚½”ÍˆÍ“à‚Å‚ ‚é‚©‚Ç‚¤‚©ƒ`ƒFƒbƒN‚·‚éB
+     * æ—¥ä»˜ãŒæŒ‡å®šã—ãŸç¯„å›²å†…ã§ã‚ã‚‹ã‹ã©ã†ã‹ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã€‚
      *
-     * <code>null</code> •¶š—ñA‹ó•¶š—ñ‚ÍA³“–‚Æ‚İ‚È‚³‚ê‚éB
+     * <code>null</code> æ–‡å­—åˆ—ã€ç©ºæ–‡å­—åˆ—ã¯ã€æ­£å½“ã¨ã¿ãªã•ã‚Œã‚‹ã€‚
      *
-     * @param value ŒŸØ’l
+     * @param value æ¤œè¨¼å€¤
      * @param startDateStr
-     *            “ú•t”ÍˆÍ‚ÌŠJn‚Ìè‡’l‚Æ‚È‚é“ú•tB
-     *            <code>datePattern</code>A‚Ü‚½‚ÍA
-     *            <code>datePatternStrict</code>‚Åw’è‚µ‚½Œ`®‚Åİ’è‚·‚é‚±‚ÆB
+     *            æ—¥ä»˜ç¯„å›²ã®é–‹å§‹ã®é–¾å€¤ã¨ãªã‚‹æ—¥ä»˜ã€‚
+     *            <code>datePattern</code>ã€ã¾ãŸã¯ã€
+     *            <code>datePatternStrict</code>ã§æŒ‡å®šã—ãŸå½¢å¼ã§è¨­å®šã™ã‚‹ã“ã¨ã€‚
      * @param endDateStr
-     *            “ú•t”ÍˆÍ‚ÌI—¹‚Ìè‡’l‚Æ‚È‚é“ú•tB
-     *            <code>datePattern</code>A‚Ü‚½‚ÍA
-     *            <code>datePatternStrict</code>‚Åw’è‚µ‚½Œ`®‚Åİ’è‚·‚é‚±‚ÆB
-     * @param datePattern ƒtƒH[ƒ}ƒbƒg‚·‚é“ú•tƒpƒ^[ƒ“B
-     * @param datePatternStrict ƒtƒH[ƒ}ƒbƒg‚·‚é“ú•tƒpƒ^[ƒ“B
+     *            æ—¥ä»˜ç¯„å›²ã®çµ‚äº†ã®é–¾å€¤ã¨ãªã‚‹æ—¥ä»˜ã€‚
+     *            <code>datePattern</code>ã€ã¾ãŸã¯ã€
+     *            <code>datePatternStrict</code>ã§æŒ‡å®šã—ãŸå½¢å¼ã§è¨­å®šã™ã‚‹ã“ã¨ã€‚
+     * @param datePattern ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã™ã‚‹æ—¥ä»˜ãƒ‘ã‚¿ãƒ¼ãƒ³ã€‚
+     * @param datePatternStrict ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã™ã‚‹æ—¥ä»˜ãƒ‘ã‚¿ãƒ¼ãƒ³ã€‚
      * @return
-     *            ŒŸØ’l‚ª”¼ŠpƒJƒi•¶š‚Ì‚İ‚©‚ç‚È‚é•¶š—ñ‚Å‚ ‚é‚È‚ç‚Î
-     *            <code>true</code>‚ğ•Ô‚·B
-     *            ‚»‚êˆÈŠO‚Ìê‡A<code>false</code>‚ğ•Ô‚·B
+     *            æ¤œè¨¼å€¤ãŒåŠè§’ã‚«ãƒŠæ–‡å­—ã®ã¿ã‹ã‚‰ãªã‚‹æ–‡å­—åˆ—ã§ã‚ã‚‹ãªã‚‰ã°
+     *            <code>true</code>ã‚’è¿”ã™ã€‚
+     *            ãã‚Œä»¥å¤–ã®å ´åˆã€<code>false</code>ã‚’è¿”ã™ã€‚
      */
     public static boolean isDateInRange(
             String value, String startDateStr, String endDateStr,
             String datePattern, String datePatternStrict) {
 
-        // ŒŸØ’l‚ªnull‚Ü‚½‚Í‹ó•¶š‚ÌAtrue•Ô‹p
+        // æ¤œè¨¼å€¤ãŒnullã¾ãŸã¯ç©ºæ–‡å­—ã®æ™‚ã€trueè¿”å´
         if (StringUtils.isEmpty(value)) {
             return true;
         }
 
-        // “ü—Í“ú•t‚Ì‘Ã“–«ƒ`ƒFƒbƒN
+        // å…¥åŠ›æ—¥ä»˜ã®å¦¥å½“æ€§ãƒã‚§ãƒƒã‚¯
         Date result = toDate(value, datePattern, datePatternStrict);
         if (result == null) {
             return false;
@@ -647,11 +647,11 @@ public class ValidationUtil {
 
         if (GenericValidator.isBlankOrNull(startDateStr)
                 && GenericValidator.isBlankOrNull(endDateStr)) {
-            // “ú•t”ÍˆÍ‚ªw’è‚³‚ê‚Ä‚¢‚È‚¢ê‡‚Í³í‚Æ‚İ‚È‚·
+            // æ—¥ä»˜ç¯„å›²ãŒæŒ‡å®šã•ã‚Œã¦ã„ãªã„å ´åˆã¯æ­£å¸¸ã¨ã¿ãªã™
             return true;
         }
 
-        // ŠJn“ú•tˆÈ~‚©‚Ç‚¤‚©ƒ`ƒFƒbƒN
+        // é–‹å§‹æ—¥ä»˜ä»¥é™ã‹ã©ã†ã‹ãƒã‚§ãƒƒã‚¯
         if (!GenericValidator.isBlankOrNull(startDateStr)) {
             Date startDate =
                 toDate(startDateStr, datePattern, datePatternStrict);
@@ -666,7 +666,7 @@ public class ValidationUtil {
             }
         }
 
-        // I—¹“ú•tˆÈ‘O‚©‚Ç‚¤‚©ƒ`ƒFƒbƒN
+        // çµ‚äº†æ—¥ä»˜ä»¥å‰ã‹ã©ã†ã‹ãƒã‚§ãƒƒã‚¯
         if (!GenericValidator.isBlankOrNull(endDateStr)) {
             Date endDate = toDate(endDateStr, datePattern, datePatternStrict);
 
@@ -684,42 +684,42 @@ public class ValidationUtil {
     }
 
     /**
-     * •¶š—ñ‚ğDateŒ^‚É•ÏŠ·‚·‚éB
+     * æ–‡å­—åˆ—ã‚’Dateå‹ã«å¤‰æ›ã™ã‚‹ã€‚
      * <br>
-     * •ÏŠ·‚ÍˆÈ‰º‚Ì‚æ‚¤‚És‚í‚ê‚éB
-     * ‚¢‚¸‚ê‚Ìê‡‚àAŒµŠi‚È“ú•tƒ`ƒFƒbƒN‚ªs‚í‚ê‚é‚½‚ßA
-     * 2000/02/31‚Ì‚æ‚¤‚ÈA‘¶İ‚µ‚È‚¢“ú•t‚ª<code>value</code>
-     * ‚Éw’è‚³‚ê‚½ê‡A<code>null</code>‚ª•Ô‹p‚³‚ê‚éB
+     * å¤‰æ›ã¯ä»¥ä¸‹ã®ã‚ˆã†ã«è¡Œã‚ã‚Œã‚‹ã€‚
+     * ã„ãšã‚Œã®å ´åˆã‚‚ã€å³æ ¼ãªæ—¥ä»˜ãƒã‚§ãƒƒã‚¯ãŒè¡Œã‚ã‚Œã‚‹ãŸã‚ã€
+     * 2000/02/31ã®ã‚ˆã†ãªã€å­˜åœ¨ã—ãªã„æ—¥ä»˜ãŒ<code>value</code>
+     * ã«æŒ‡å®šã•ã‚ŒãŸå ´åˆã€<code>null</code>ãŒè¿”å´ã•ã‚Œã‚‹ã€‚
      * <ul>
      * <li>
-     * <code>datePattern</code>‚ª<code>null</code>A‚¨‚æ‚ÑA
-     * ‹ó•¶š‚Å‚È‚¢ê‡<br>
-     * •¶š”‚ğl—¶‚µ‚È‚¢“ú•t•ÏŠ·‚ªs‚í‚ê‚éB
-     * ‚½‚Æ‚¦‚ÎA<code>datePattern</code>‚ªyyyy/MM/dd‚Ìê‡A
-     * 2000/1/1‚ğ•ÏŠ·‚·‚é‚ÆA2000/01/01‚ğ•\‚·DateŒ^‚ª•Ô‹p‚³‚ê‚éB
+     * <code>datePattern</code>ãŒ<code>null</code>ã€ãŠã‚ˆã³ã€
+     * ç©ºæ–‡å­—ã§ãªã„å ´åˆ<br>
+     * æ–‡å­—æ•°ã‚’è€ƒæ…®ã—ãªã„æ—¥ä»˜å¤‰æ›ãŒè¡Œã‚ã‚Œã‚‹ã€‚
+     * ãŸã¨ãˆã°ã€<code>datePattern</code>ãŒyyyy/MM/ddã®å ´åˆã€
+     * 2000/1/1ã‚’å¤‰æ›ã™ã‚‹ã¨ã€2000/01/01ã‚’è¡¨ã™Dateå‹ãŒè¿”å´ã•ã‚Œã‚‹ã€‚
      * <li>
-     * <code>datePatternStrict</code>‚ª<code>null</code>A‚¨‚æ‚ÑA
-     * ‹ó•¶š‚Å‚È‚¢ê‡<br>
-     * •¶š”‚ğl—¶‚µ‚½“ú•t•ÏŠ·‚ªs‚í‚ê‚éB
-     * ‚½‚Æ‚¦‚ÎA<code>datePattern</code>‚ªyyyy/MM/dd‚Ìê‡A
-     * 2000/1/1‚ğ•ÏŠ·‚·‚é‚ÆAnull‚ª•Ô‹p‚³‚ê‚éB
+     * <code>datePatternStrict</code>ãŒ<code>null</code>ã€ãŠã‚ˆã³ã€
+     * ç©ºæ–‡å­—ã§ãªã„å ´åˆ<br>
+     * æ–‡å­—æ•°ã‚’è€ƒæ…®ã—ãŸæ—¥ä»˜å¤‰æ›ãŒè¡Œã‚ã‚Œã‚‹ã€‚
+     * ãŸã¨ãˆã°ã€<code>datePattern</code>ãŒyyyy/MM/ddã®å ´åˆã€
+     * 2000/1/1ã‚’å¤‰æ›ã™ã‚‹ã¨ã€nullãŒè¿”å´ã•ã‚Œã‚‹ã€‚
      * <li>
-     * <code>datePattern</code>‚Æ<code>datePatternStrict</code>‚Ì
-     * ‚¢‚¸‚ê‚à‚ªA<code>null</code>A‚¨‚æ‚ÑA ‹ó•¶š‚Å‚È‚¢ê‡<br>
-     * <code>datePattern</code>‚ª—Dæ‚µ‚Ä—˜—p‚³‚ê‚éB
+     * <code>datePattern</code>ã¨<code>datePatternStrict</code>ã®
+     * ã„ãšã‚Œã‚‚ãŒã€<code>null</code>ã€ãŠã‚ˆã³ã€ ç©ºæ–‡å­—ã§ãªã„å ´åˆ<br>
+     * <code>datePattern</code>ãŒå„ªå…ˆã—ã¦åˆ©ç”¨ã•ã‚Œã‚‹ã€‚
      * <li>
-     * <code>datePattern</code>‚Æ<code>datePatternStrict</code>‚Ì
-     * ‚¢‚¸‚ê‚à‚ª<code>null</code>A‚Ü‚½‚ÍA‹ó•¶š‚Ìê‡<br>
-     * —áŠO‚ª•Ô‹p‚³‚ê‚éB
+     * <code>datePattern</code>ã¨<code>datePatternStrict</code>ã®
+     * ã„ãšã‚Œã‚‚ãŒ<code>null</code>ã€ã¾ãŸã¯ã€ç©ºæ–‡å­—ã®å ´åˆ<br>
+     * ä¾‹å¤–ãŒè¿”å´ã•ã‚Œã‚‹ã€‚
      * </ul>
      * <li>
-     * <code>value</code>‚ª<code>null</code>A‚¨‚æ‚ÑA
-     * ‹ó•¶š‚Ìê‡A<code>null</code>‚ª•Ô‹p‚³‚ê‚éB
+     * <code>value</code>ãŒ<code>null</code>ã€ãŠã‚ˆã³ã€
+     * ç©ºæ–‡å­—ã®å ´åˆã€<code>null</code>ãŒè¿”å´ã•ã‚Œã‚‹ã€‚
      *
-     * @param value •ÏŠ·‘ÎÛ‚Ì•¶š—ñ
-     * @param datePattern “ú•tƒpƒ^[ƒ“i•¶š”‚ğl—¶‚µ‚È‚¢ƒpƒ^[ƒ“w’èj
-     * @param datePatternStrict “ú•tƒpƒ^[ƒ“i•¶š”‚ğl—¶‚µ‚½ƒpƒ^[ƒ“w’èj
-     * @return •¶š—ñ‚©‚ç•ÏŠ·‚³‚ê‚½DateƒCƒ“ƒXƒ^ƒ“ƒXB•ÏŠ·‚ª•s‰Â”\‚Èê‡‚ÍnullB
+     * @param value å¤‰æ›å¯¾è±¡ã®æ–‡å­—åˆ—
+     * @param datePattern æ—¥ä»˜ãƒ‘ã‚¿ãƒ¼ãƒ³ï¼ˆæ–‡å­—æ•°ã‚’è€ƒæ…®ã—ãªã„ãƒ‘ã‚¿ãƒ¼ãƒ³æŒ‡å®šï¼‰
+     * @param datePatternStrict æ—¥ä»˜ãƒ‘ã‚¿ãƒ¼ãƒ³ï¼ˆæ–‡å­—æ•°ã‚’è€ƒæ…®ã—ãŸãƒ‘ã‚¿ãƒ¼ãƒ³æŒ‡å®šï¼‰
+     * @return æ–‡å­—åˆ—ã‹ã‚‰å¤‰æ›ã•ã‚ŒãŸDateã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚å¤‰æ›ãŒä¸å¯èƒ½ãªå ´åˆã¯nullã€‚
      */
     public static Date toDate(String value, String datePattern,
             String datePatternStrict) {
@@ -730,18 +730,18 @@ public class ValidationUtil {
 
         Date result = null;
         
-        // Œ…”ƒ`ƒFƒbƒN‚È‚µ‚Ì•ÏŠ·
+        // æ¡æ•°ãƒã‚§ãƒƒã‚¯ãªã—ã®å¤‰æ›
         if (datePattern != null && datePattern.length() > 0) {
             result = GenericTypeValidator.formatDate(value,
                             datePattern, false);
 
-        // Œ…”ƒ`ƒFƒbƒN‚ ‚è‚Ì•ÏŠ·
+        // æ¡æ•°ãƒã‚§ãƒƒã‚¯ã‚ã‚Šã®å¤‰æ›
         } else if (datePatternStrict != null
                 && datePatternStrict.length() > 0) {
             result = GenericTypeValidator.formatDate(value,
                             datePatternStrict, true);
 
-        // “ú•tƒpƒ^[ƒ“‚ªİ’è‚³‚ê‚Ä‚¢‚È‚¢
+        // æ—¥ä»˜ãƒ‘ã‚¿ãƒ¼ãƒ³ãŒè¨­å®šã•ã‚Œã¦ã„ãªã„
         } else {
             throw new IllegalArgumentException(
                     "datePattern or datePatternStrict must be specified.");

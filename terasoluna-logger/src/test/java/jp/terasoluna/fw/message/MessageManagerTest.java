@@ -16,7 +16,7 @@ public class MessageManagerTest {
     private ClassLoader currentClassLoader;
 
     /**
-     * ‘Oˆ—
+     * å‰å‡¦ç†
      * @throws Exception
      */
     @Before
@@ -25,7 +25,7 @@ public class MessageManagerTest {
     }
 
     /**
-     * Œãˆ—
+     * å¾Œå‡¦ç†
      * @throws Exception
      */
     @After
@@ -34,21 +34,21 @@ public class MessageManagerTest {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌŒ±y01:³íŒnz
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®è©¦é¨“ã€01:æ­£å¸¸ç³»ã€‘
      * 
      * <pre>
-     * –‘OğŒF
-     * E“Ç‚İ‚İ‘ÎÛ‚ÌƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚É‰½‚àİ’è‚³‚ê‚Ä‚¢‚È‚¢
+     * äº‹å‰æ¡ä»¶ï¼š
+     * ãƒ»èª­ã¿è¾¼ã¿å¯¾è±¡ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ã«ä½•ã‚‚è¨­å®šã•ã‚Œã¦ã„ãªã„
      * 
-     * Šm”F€–ÚF
-     * EƒƒbƒZ[ƒWID‚ÌƒtƒH[ƒ}ƒbƒg‚ª[%s]
-     * EƒƒbƒZ[ƒWƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚Ìƒx[ƒXƒl[ƒ€ƒŠƒXƒg‚ª‹ó
-     * E—áŠOƒXƒ[ƒtƒ‰ƒO‚ªfalse
+     * ç¢ºèªé …ç›®ï¼š
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸IDã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆãŒ[%s]
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ™ãƒ¼ã‚¹ãƒãƒ¼ãƒ ãƒªã‚¹ãƒˆãŒç©º
+     * ãƒ»ä¾‹å¤–ã‚¹ãƒ­ãƒ¼ãƒ•ãƒ©ã‚°ãŒfalse
      * </pre>
      */
     @Test
     public void testConstructor01() {
-        // İ’è‚Ì‚È‚¢ƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹
+        // è¨­å®šã®ãªã„ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«
         MessageManager manager = new MessageManager(
                 "jp/terasoluna/fw/message/terasoluna-logger01.properties");
         assertEquals("[%s] ", manager.messageIdFormat);
@@ -57,21 +57,21 @@ public class MessageManagerTest {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌŒ±y02:³íŒnz
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®è©¦é¨“ã€02:æ­£å¸¸ç³»ã€‘
      * 
      * <pre>
-     * –‘OğŒF
-     * E“Ç‚İ‚İ‘ÎÛ‚ÌƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚ÉŠe—v‘f‚Ì’l‚ªİ’è‚³‚ê‚Ä‚¢‚é
+     * äº‹å‰æ¡ä»¶ï¼š
+     * ãƒ»èª­ã¿è¾¼ã¿å¯¾è±¡ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ã«å„è¦ç´ ã®å€¤ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹
      * 
-     * Šm”F€–ÚF
-     * EƒƒbƒZ[ƒWID‚ÌƒtƒH[ƒ}ƒbƒg‚ª[%s]
-     * EƒƒbƒZ[ƒWƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚Ìƒx[ƒXƒl[ƒ€ƒŠƒXƒg‚É‘ÎÛƒtƒ@ƒCƒ‹–¼‚ªˆêŒæ“¾‚³‚ê‚Ä‚¢‚é
-     * E—áŠOƒXƒ[ƒtƒ‰ƒO‚ªtrue
+     * ç¢ºèªé …ç›®ï¼š
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸IDã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆãŒ[%s]
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ™ãƒ¼ã‚¹ãƒãƒ¼ãƒ ãƒªã‚¹ãƒˆã«å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«åãŒä¸€ä»¶å–å¾—ã•ã‚Œã¦ã„ã‚‹
+     * ãƒ»ä¾‹å¤–ã‚¹ãƒ­ãƒ¼ãƒ•ãƒ©ã‚°ãŒtrue
      * </pre>
      */
     @Test
     public void testConstructor02() {
-        // message.id.format‚Æmessage.basename‚ªİ’è‚³‚ê‚Ä‚¢‚éAthrow.if.resource.not.found‚ªtrue
+        // message.id.formatã¨message.basenameãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹ã€throw.if.resource.not.foundãŒtrue
         MessageManager manager = new MessageManager(
                 "jp/terasoluna/fw/message/terasoluna-logger02.properties");
         assertEquals("|%s| ", manager.messageIdFormat);
@@ -82,21 +82,21 @@ public class MessageManagerTest {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌŒ±y03:³íŒnz
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®è©¦é¨“ã€03:æ­£å¸¸ç³»ã€‘
      * 
      * <pre>
-     * –‘OğŒF
-     * E“Ç‚İ‚İ‘ÎÛ‚ÌƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚Émessage.basename‚ª•¡”İ’è‚³‚ê‚Ä‚¢‚é
+     * äº‹å‰æ¡ä»¶ï¼š
+     * ãƒ»èª­ã¿è¾¼ã¿å¯¾è±¡ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ã«message.basenameãŒè¤‡æ•°è¨­å®šã•ã‚Œã¦ã„ã‚‹
      * 
-     * Šm”F€–ÚF
-     * EƒƒbƒZ[ƒWID‚ÌƒtƒH[ƒ}ƒbƒg‚ª[%s]
-     * EƒƒbƒZ[ƒWƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚Ìƒx[ƒXƒl[ƒ€ƒŠƒXƒg‚É‘ÎÛƒtƒ@ƒCƒ‹–¼‚ª•¡”Œæ“¾‚³‚ê‚Ä‚¢‚é
-     * E—áŠOƒXƒ[ƒtƒ‰ƒO‚ªfalse
+     * ç¢ºèªé …ç›®ï¼š
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸IDã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆãŒ[%s]
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ™ãƒ¼ã‚¹ãƒãƒ¼ãƒ ãƒªã‚¹ãƒˆã«å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«åãŒè¤‡æ•°ä»¶å–å¾—ã•ã‚Œã¦ã„ã‚‹
+     * ãƒ»ä¾‹å¤–ã‚¹ãƒ­ãƒ¼ãƒ•ãƒ©ã‚°ãŒfalse
      * </pre>
      */
     @Test
     public void testConstructor03() {
-        // message.basename‚ª•¡”İ’è‚³‚ê‚Ä‚¢‚éAthrow.if.resource.not.found‚ªfalse
+        // message.basenameãŒè¤‡æ•°è¨­å®šã•ã‚Œã¦ã„ã‚‹ã€throw.if.resource.not.foundãŒfalse
         MessageManager manager = new MessageManager(
                 "jp/terasoluna/fw/message/terasoluna-logger03.properties");
         assertEquals("[%s] ", manager.messageIdFormat);
@@ -107,27 +107,27 @@ public class MessageManagerTest {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌŒ±y04:³íŒnz
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®è©¦é¨“ã€04:æ­£å¸¸ç³»ã€‘
      * 
      * <pre>
-     * –‘OğŒF
-     * E“Ç‚İ‚İ‘ÎÛ‚ÌƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚ªƒNƒ‰ƒXƒ[ƒ_ã‚É•¡”‘¶İ‚·‚é
+     * äº‹å‰æ¡ä»¶ï¼š
+     * ãƒ»èª­ã¿è¾¼ã¿å¯¾è±¡ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ãŒã‚¯ãƒ©ã‚¹ãƒ­ãƒ¼ãƒ€ä¸Šã«è¤‡æ•°å­˜åœ¨ã™ã‚‹
      * 
-     * Šm”F€–ÚF
-     * EƒƒbƒZ[ƒWID‚ÌƒtƒH[ƒ}ƒbƒg‚ª[%s]
-     * EƒƒbƒZ[ƒWƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚Ìƒx[ƒXƒl[ƒ€ƒŠƒXƒg‚É‘ÎÛƒtƒ@ƒCƒ‹–¼‚ª•¡”Œæ“¾‚³‚ê‚Ä‚¢‚é
-     * E—áŠOƒXƒ[ƒtƒ‰ƒO‚ªfalse
+     * ç¢ºèªé …ç›®ï¼š
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸IDã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆãŒ[%s]
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ™ãƒ¼ã‚¹ãƒãƒ¼ãƒ ãƒªã‚¹ãƒˆã«å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«åãŒè¤‡æ•°ä»¶å–å¾—ã•ã‚Œã¦ã„ã‚‹
+     * ãƒ»ä¾‹å¤–ã‚¹ãƒ­ãƒ¼ãƒ•ãƒ©ã‚°ãŒfalse
      * </pre>
      */
     @Test
     public void testConstructor04() {
-        // ŠY“–‚·‚éƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚ªƒNƒ‰ƒXƒ[ƒ_ã‚É•¡”‘¶İ‚·‚é
+        // è©²å½“ã™ã‚‹ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ãŒã‚¯ãƒ©ã‚¹ãƒ­ãƒ¼ãƒ€ä¸Šã«è¤‡æ•°å­˜åœ¨ã™ã‚‹
         MockClassLoader cl = new MockClassLoader();
         cl.addMapping("META-INF/terasoluna-logger.properties",
                 getResource("terasoluna-logger01.properties"),
                 getResource("terasoluna-logger02.properties"),
                 getResource("terasoluna-logger03.properties"));
-        // ƒNƒ‰ƒXƒ[ƒ_‚Ì·‚µ‘Ö‚¦
+        // ã‚¯ãƒ©ã‚¹ãƒ­ãƒ¼ãƒ€ã®å·®ã—æ›¿ãˆ
         Thread.currentThread().setContextClassLoader(cl);
 
         MessageManager manager = new MessageManager(
@@ -141,16 +141,16 @@ public class MessageManagerTest {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌŒ±y05:³íŒnz
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®è©¦é¨“ã€05:æ­£å¸¸ç³»ã€‘
      * 
      * <pre>
-     * –‘OğŒF
-     * E“Ç‚İ‚İ‘ÎÛ‚ÌƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚ªƒNƒ‰ƒXƒ[ƒ_ã‚É•¡”‘¶İ‚·‚é
+     * äº‹å‰æ¡ä»¶ï¼š
+     * ãƒ»èª­ã¿è¾¼ã¿å¯¾è±¡ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ãŒã‚¯ãƒ©ã‚¹ãƒ­ãƒ¼ãƒ€ä¸Šã«è¤‡æ•°å­˜åœ¨ã™ã‚‹
      * 
-     * Šm”F€–ÚF
-     * EƒƒbƒZ[ƒWID‚ÌƒtƒH[ƒ}ƒbƒg‚ª[%s]
-     * EƒƒbƒZ[ƒWƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚Ìƒx[ƒXƒl[ƒ€ƒŠƒXƒg‚É‘ÎÛƒtƒ@ƒCƒ‹–¼‚ª•¡”Œæ“¾‚³‚ê‚Ä‚¢‚é
-     * E—áŠOƒXƒ[ƒtƒ‰ƒO‚ªtruei—Dæ“x‚Ì‚‚¢ƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚Ì’l‚É‚È‚Á‚Ä‚¢‚é‚©Šm”F‚·‚éj
+     * ç¢ºèªé …ç›®ï¼š
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸IDã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆãŒ[%s]
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ™ãƒ¼ã‚¹ãƒãƒ¼ãƒ ãƒªã‚¹ãƒˆã«å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«åãŒè¤‡æ•°ä»¶å–å¾—ã•ã‚Œã¦ã„ã‚‹
+     * ãƒ»ä¾‹å¤–ã‚¹ãƒ­ãƒ¼ãƒ•ãƒ©ã‚°ãŒtrueï¼ˆå„ªå…ˆåº¦ã®é«˜ã„ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ã®å€¤ã«ãªã£ã¦ã„ã‚‹ã‹ç¢ºèªã™ã‚‹ï¼‰
      * </pre>
      */
     @Test
@@ -160,7 +160,7 @@ public class MessageManagerTest {
                 getResource("terasoluna-logger02.properties"),
                 getResource("terasoluna-logger01.properties"),
                 getResource("terasoluna-logger03.properties"));
-        // ƒNƒ‰ƒXƒ[ƒ_‚Ì·‚µ‘Ö‚¦
+        // ã‚¯ãƒ©ã‚¹ãƒ­ãƒ¼ãƒ€ã®å·®ã—æ›¿ãˆ
         Thread.currentThread().setContextClassLoader(cl);
 
         MessageManager manager = new MessageManager(
@@ -174,21 +174,21 @@ public class MessageManagerTest {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌŒ±y06:ˆÙíŒnz
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®è©¦é¨“ã€06:ç•°å¸¸ç³»ã€‘
      * 
      * <pre>
-     * –‘OğŒF
-     * E•s³‚ÈƒNƒ‰ƒXƒ[ƒ_‚ğİ’è‚·‚é
+     * äº‹å‰æ¡ä»¶ï¼š
+     * ãƒ»ä¸æ­£ãªã‚¯ãƒ©ã‚¹ãƒ­ãƒ¼ãƒ€ã‚’è¨­å®šã™ã‚‹
      * 
-     * Šm”F€–ÚF
-     * EƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌŒÄ‚Ño‚µ‚É‚æ‚éAMessageRuntimeException‚Ì”­¶‚ğŠm”F
+     * ç¢ºèªé …ç›®ï¼š
+     * ãƒ»ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å‘¼ã³å‡ºã—ã«ã‚ˆã‚‹ã€MessageRuntimeExceptionã®ç™ºç”Ÿã‚’ç¢ºèª
      */
     @Test
     public void testConstructor06() {
         Thread.currentThread().setContextClassLoader(new BadClassLoader());
         try {
             new MessageManager("");
-            fail("—áŠO‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½");
+            fail("ä¾‹å¤–ãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸ");
         } catch (Exception e) {
             e.printStackTrace();
             assertEquals("java.lang.RuntimeException: hoge", e.getMessage());
@@ -222,15 +222,15 @@ public class MessageManagerTest {
     }
 
     /**
-     * getMessageƒƒ\ƒbƒhŒ±y01:³íŒnz getMessagePatternƒƒ\ƒbƒh‚Ì“®ì‚ğŠm”F‚·‚é
+     * getMessageãƒ¡ã‚½ãƒƒãƒ‰è©¦é¨“ã€01:æ­£å¸¸ç³»ã€‘ getMessagePatternãƒ¡ã‚½ãƒƒãƒ‰ã®å‹•ä½œã‚’ç¢ºèªã™ã‚‹
      * 
      * <pre>
-     * –‘OğŒF
-     * E“Ç‚İ‚ŞƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚é
+     * äº‹å‰æ¡ä»¶ï¼š
+     * ãƒ»èª­ã¿è¾¼ã‚€ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚‹
      * 
-     * Šm”F€–ÚF
-     * Ew’è‚µ‚½ƒƒbƒZ[ƒWID‚ª‘¶İ‚µ‚È‚¢ê‡Anull’l‚ª•Ô‚é
-     * Ew’è‚µ‚½ƒƒbƒZ[ƒWID‚ªnull’l‚Ìê‡Anull’l‚ª•Ô‚é
+     * ç¢ºèªé …ç›®ï¼š
+     * ãƒ»æŒ‡å®šã—ãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸IDãŒå­˜åœ¨ã—ãªã„å ´åˆã€nullå€¤ãŒè¿”ã‚‹
+     * ãƒ»æŒ‡å®šã—ãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸IDãŒnullå€¤ã®å ´åˆã€nullå€¤ãŒè¿”ã‚‹
      * </pre>
      */
     @Test
@@ -242,15 +242,15 @@ public class MessageManagerTest {
     }
 
     /**
-     * getMessageƒƒ\ƒbƒhŒ±y02:ˆÙíŒnz getMessagePatternƒƒ\ƒbƒh‚Ì—áŠOˆ—‚ğŠm”F‚·‚é
+     * getMessageãƒ¡ã‚½ãƒƒãƒ‰è©¦é¨“ã€02:ç•°å¸¸ç³»ã€‘ getMessagePatternãƒ¡ã‚½ãƒƒãƒ‰ã®ä¾‹å¤–å‡¦ç†ã‚’ç¢ºèªã™ã‚‹
      * 
      * <pre>
-     * –‘OğŒF
-     * E“Ç‚İ‚ŞƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚é
-     * E—áŠOƒXƒ[ƒtƒ‰ƒO‚ªtrue
+     * äº‹å‰æ¡ä»¶ï¼š
+     * ãƒ»èª­ã¿è¾¼ã‚€ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚‹
+     * ãƒ»ä¾‹å¤–ã‚¹ãƒ­ãƒ¼ãƒ•ãƒ©ã‚°ãŒtrue
      * 
-     * Šm”F€–ÚF
-     * Ew’è‚µ‚½ƒƒbƒZ[ƒWID‚ª‘¶İ‚µ‚È‚¢ê‡AMessageRuntimeException‚ª•Ô‚é
+     * ç¢ºèªé …ç›®ï¼š
+     * ãƒ»æŒ‡å®šã—ãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸IDãŒå­˜åœ¨ã—ãªã„å ´åˆã€MessageRuntimeExceptionãŒè¿”ã‚‹
      * </pre>
      */
     @Test
@@ -259,7 +259,7 @@ public class MessageManagerTest {
                 "jp/terasoluna/fw/message/terasoluna-logger02.properties");
         try {
             manager.getMessagePattern("hoge", null);
-            fail("—áŠO‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½");
+            fail("ä¾‹å¤–ãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸ");
         } catch (Exception e) {
             e.printStackTrace();
             assertEquals("key[hoge] is not found", e.getMessage());
@@ -268,53 +268,53 @@ public class MessageManagerTest {
     }
 
     /**
-     * getMessageƒƒ\ƒbƒhŒ±y03:³íŒnz ƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚É‘¶İ‚·‚éƒƒbƒZ[ƒW‚ğæ“¾
+     * getMessageãƒ¡ã‚½ãƒƒãƒ‰è©¦é¨“ã€03:æ­£å¸¸ç³»ã€‘ ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ã«å­˜åœ¨ã™ã‚‹ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å–å¾—
      * 
      * <pre>
-     * –‘OğŒF
-     * E“Ç‚İ‚ŞƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚ÉŠY“–‚·‚éƒƒbƒZ[ƒW‚ªİ’è‚³‚ê‚Ä‚¢‚é
+     * äº‹å‰æ¡ä»¶ï¼š
+     * ãƒ»èª­ã¿è¾¼ã‚€ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ã«è©²å½“ã™ã‚‹ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹
      * 
-     * Šm”F€–ÚF
-     * EƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚©‚çŠú‘Ò‚·‚éƒƒbƒZ[ƒW‚ªæ“¾‚³‚ê‚Ä‚¢‚é
+     * ç¢ºèªé …ç›®ï¼š
+     * ãƒ»ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰æœŸå¾…ã™ã‚‹ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒå–å¾—ã•ã‚Œã¦ã„ã‚‹
      * </pre>
      */
     @Test
     public void testGetMessage03() {
         MessageManager manager = new MessageManager(
                 "jp/terasoluna/fw/message/terasoluna-logger04.properties");
-        assertEquals("[message01] ƒƒbƒZ[ƒW01",
+        assertEquals("[message01] ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸01",
                 manager.getMessage(true, "message01"));
 
     }
 
     /**
-     * getMessageƒƒ\ƒbƒhŒ±y04:³íŒnz ƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚É‘¶İ‚·‚éƒƒbƒZ[ƒW‚ğæ“¾
+     * getMessageãƒ¡ã‚½ãƒƒãƒ‰è©¦é¨“ã€04:æ­£å¸¸ç³»ã€‘ ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ã«å­˜åœ¨ã™ã‚‹ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å–å¾—
      * 
      * <pre>
-     * –‘OğŒF
-     * EƒŠƒ\[ƒX–³‚µ‚ÌğŒ‚ÅgetMessageƒƒ\ƒbƒh‚ğŒÄ‚Ño‚µ‚Ä‚¢‚é
+     * äº‹å‰æ¡ä»¶ï¼š
+     * ãƒ»ãƒªã‚½ãƒ¼ã‚¹ç„¡ã—ã®æ¡ä»¶ã§getMessageãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã—ã¦ã„ã‚‹
      * 
-     * Šm”F€–ÚF
-     * Eİ’è‚µ‚½’uŠ·ƒpƒ‰ƒ[ƒ^‚ª³í‚Éo—Í‚³‚ê‚Ä‚¢‚é
+     * ç¢ºèªé …ç›®ï¼š
+     * ãƒ»è¨­å®šã—ãŸç½®æ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãŒæ­£å¸¸ã«å‡ºåŠ›ã•ã‚Œã¦ã„ã‚‹
      * </pre>
      */
     @Test
     public void testGetMessage04() {
         MessageManager manager = new MessageManager("");
-        assertEquals("ƒƒbƒZ[ƒW01 ’uŠ·•¶š—ñ01=hoge,’uŠ·•¶š—ñ02=foo", manager.getMessage(
-                false, "ƒƒbƒZ[ƒW01 ’uŠ·•¶š—ñ01={0},’uŠ·•¶š—ñ02={1}", null, "hoge", "foo"));
+        assertEquals("ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸01 ç½®æ›æ–‡å­—åˆ—01=hoge,ç½®æ›æ–‡å­—åˆ—02=foo", manager.getMessage(
+                false, "ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸01 ç½®æ›æ–‡å­—åˆ—01={0},ç½®æ›æ–‡å­—åˆ—02={1}", null, "hoge", "foo"));
     }
 
     /**
-     * getMessageƒƒ\ƒbƒhŒ±y05:ˆÙíŒnz
+     * getMessageãƒ¡ã‚½ãƒƒãƒ‰è©¦é¨“ã€05:ç•°å¸¸ç³»ã€‘
      * 
      * <pre>
-     * –‘OğŒF
-     * E“Ç‚İ‚İ‘ÎÛ‚ÌƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚É•s³‚È’uŠ·ƒpƒ‰ƒ[ƒ^‚ªİ’è‚³‚ê‚½ƒƒbƒZ[ƒW‚ª‘¶İ‚·‚é
-     * E—áŠOƒXƒ[ƒtƒ‰ƒO‚ªtrue
+     * äº‹å‰æ¡ä»¶ï¼š
+     * ãƒ»èª­ã¿è¾¼ã¿å¯¾è±¡ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ã«ä¸æ­£ãªç½®æ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãŒè¨­å®šã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒå­˜åœ¨ã™ã‚‹
+     * ãƒ»ä¾‹å¤–ã‚¹ãƒ­ãƒ¼ãƒ•ãƒ©ã‚°ãŒtrue
      * 
-     * Šm”F€–ÚF
-     * E•s³’uŠ·ƒpƒ‰ƒ[ƒ^‚ğİ’è‚µ‚½ƒƒbƒZ[ƒW‚ÌŒÄ‚Ño‚µ‚É‚æ‚èAMessageRuntimeException‚ª•Ô‚é
+     * ç¢ºèªé …ç›®ï¼š
+     * ãƒ»ä¸æ­£ç½®æ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’è¨­å®šã—ãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®å‘¼ã³å‡ºã—ã«ã‚ˆã‚Šã€MessageRuntimeExceptionãŒè¿”ã‚‹
      * </pre>
      */
     @Test
@@ -324,11 +324,11 @@ public class MessageManagerTest {
 
         try {
             manager.getMessage(true, "message02");
-            fail("—áŠO‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½");
+            fail("ä¾‹å¤–ãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸ");
         } catch (Exception e) {
             e.printStackTrace();
             assertEquals(
-                    "message pattern is illeagal. pattern=ƒƒbƒZ[ƒW02{a}] logId=message02",
+                    "message pattern is illeagal. pattern=ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸02{a}] logId=message02",
                     e.getMessage());
             assertEquals(MessageRuntimeException.class, e.getClass());
         }
@@ -336,14 +336,14 @@ public class MessageManagerTest {
     }
 
     /**
-     * getStringOrNullƒƒ\ƒbƒhŒ±y01:³íŒnz
+     * getStringOrNullãƒ¡ã‚½ãƒƒãƒ‰è©¦é¨“ã€01:æ­£å¸¸ç³»ã€‘
      * 
      * <pre>
-     * –‘OğŒF
-     * EgetStringOrNullƒƒ\ƒbƒh‚Ìˆø”‚Å‚ ‚éResourceBundle‚Ì’l‚ªnull‚Å‚ ‚é
+     * äº‹å‰æ¡ä»¶ï¼š
+     * ãƒ»getStringOrNullãƒ¡ã‚½ãƒƒãƒ‰ã®å¼•æ•°ã§ã‚ã‚‹ResourceBundleã®å€¤ãŒnullã§ã‚ã‚‹
      * 
-     * Šm”F€–ÚF
-     * Enull’l‚ª•Ô‚é
+     * ç¢ºèªé …ç›®ï¼š
+     * ãƒ»nullå€¤ãŒè¿”ã‚‹
      * </pre>
      */
     @Test
@@ -354,15 +354,15 @@ public class MessageManagerTest {
     }
 
     /**
-     * getStringOrNullƒƒ\ƒbƒhŒ±y02:ˆÙíŒnz
+     * getStringOrNullãƒ¡ã‚½ãƒƒãƒ‰è©¦é¨“ã€02:ç•°å¸¸ç³»ã€‘
      * 
      * <pre>
-     * –‘OğŒF
-     * EgetStringOrNullƒƒ\ƒbƒh‚Ìˆø”‚Å‚ ‚éStringŒ^•Ï”key‚Ì’l‚ªnull‚Å‚ ‚é
-     * E—áŠOƒXƒ[ƒtƒ‰ƒO‚ªtrue
+     * äº‹å‰æ¡ä»¶ï¼š
+     * ãƒ»getStringOrNullãƒ¡ã‚½ãƒƒãƒ‰ã®å¼•æ•°ã§ã‚ã‚‹Stringå‹å¤‰æ•°keyã®å€¤ãŒnullã§ã‚ã‚‹
+     * ãƒ»ä¾‹å¤–ã‚¹ãƒ­ãƒ¼ãƒ•ãƒ©ã‚°ãŒtrue
      * 
-     * Šm”F€–ÚF
-     * EMessageRuntimeException‚ª•Ô‚é‚±‚Æ
+     * ç¢ºèªé …ç›®ï¼š
+     * ãƒ»MessageRuntimeExceptionãŒè¿”ã‚‹ã“ã¨
      * </pre>
      */
     @Test
@@ -371,7 +371,7 @@ public class MessageManagerTest {
                 "jp/terasoluna/fw/message/terasoluna-logger02.properties");
         try {
             manager.getMessagePattern(null, null);
-            fail("—áŠO‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½");
+            fail("ä¾‹å¤–ãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸ");
         } catch (Exception e) {
             e.printStackTrace();
             assertEquals("key is null", e.getMessage());
@@ -380,16 +380,16 @@ public class MessageManagerTest {
     }
 
     /**
-     * getResourceBundleƒƒ\ƒbƒhŒ±y01:ˆÙíŒnz getStringOrNull‚Ì—áŠOˆ—‚ğŠm”F‚·‚é
+     * getResourceBundleãƒ¡ã‚½ãƒƒãƒ‰è©¦é¨“ã€01:ç•°å¸¸ç³»ã€‘ getStringOrNullã®ä¾‹å¤–å‡¦ç†ã‚’ç¢ºèªã™ã‚‹
      * 
      * <pre>
-     * –‘OğŒF
-     * E“Ç‚İ‚İ‘ÎÛ‚ÌƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚é
-     * E‘¶İ‚µ‚È‚¢ƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚ğw’è‚µ‚ÄgetResourceBundleƒƒ\ƒbƒh‚ğŒÄ‚Ño‚·
-     * E—áŠOƒXƒ[ƒtƒ‰ƒO‚ªtrue
+     * äº‹å‰æ¡ä»¶ï¼š
+     * ãƒ»èª­ã¿è¾¼ã¿å¯¾è±¡ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚‹
+     * ãƒ»å­˜åœ¨ã—ãªã„ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ã‚’æŒ‡å®šã—ã¦getResourceBundleãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã™
+     * ãƒ»ä¾‹å¤–ã‚¹ãƒ­ãƒ¼ãƒ•ãƒ©ã‚°ãŒtrue
      * 
-     * Šm”F€–ÚF
-     * EgetResourceBundleƒƒ\ƒbƒh‚©‚çMessageRuntimeException‚ª•Ô‚é
+     * ç¢ºèªé …ç›®ï¼š
+     * ãƒ»getResourceBundleãƒ¡ã‚½ãƒƒãƒ‰ã‹ã‚‰MessageRuntimeExceptionãŒè¿”ã‚‹
      * </pre>
      */
     @Test
@@ -398,7 +398,7 @@ public class MessageManagerTest {
                 "jp/terasoluna/fw/message/terasoluna-logger02.properties");
         try {
             manager.getResourceBundle("META-INF/hoge.properties", null);
-            fail("—áŠO‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½");
+            fail("ä¾‹å¤–ãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸ");
         } catch (Exception e) {
             e.printStackTrace();
             assertEquals("resource[META-INF/hoge.properties] is not found",
@@ -408,11 +408,11 @@ public class MessageManagerTest {
     }
 
     /**
-     * getClassLoaderƒƒ\ƒbƒhŒ±y01:³íŒnz
+     * getClassLoaderãƒ¡ã‚½ãƒƒãƒ‰è©¦é¨“ã€01:æ­£å¸¸ç³»ã€‘
      * 
      * <pre>
-     * Šm”F€–ÚF
-     * EƒXƒŒƒbƒh‚Éİ’è‚³‚ê‚½ƒRƒ“ƒeƒLƒXƒgƒNƒ‰ƒXƒ[ƒ_‚ªgetClassLoaderƒƒ\ƒbƒh‚É‚æ‚èæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F
+     * ç¢ºèªé …ç›®ï¼š
+     * ãƒ»ã‚¹ãƒ¬ãƒƒãƒ‰ã«è¨­å®šã•ã‚ŒãŸã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆã‚¯ãƒ©ã‚¹ãƒ­ãƒ¼ãƒ€ãŒgetClassLoaderãƒ¡ã‚½ãƒƒãƒ‰ã«ã‚ˆã‚Šå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèª
      * </pre>
      */
     @Test
@@ -422,12 +422,12 @@ public class MessageManagerTest {
     }
 
     /**
-     * getClassLoaderƒƒ\ƒbƒhŒ±y02:³íŒnz
+     * getClassLoaderãƒ¡ã‚½ãƒƒãƒ‰è©¦é¨“ã€02:æ­£å¸¸ç³»ã€‘
      * 
      * <pre>
-     * Šm”F€–ÚF
-     * EƒXƒŒƒbƒh‚Éİ’è‚³‚ê‚½ƒRƒ“ƒeƒLƒXƒgƒNƒ‰ƒXƒ[ƒ_‚É‘Î‚µAnull’l‚ğİ’è‚·‚é
-     * EMessageManager.getClassLoader‚ÌŒ‹‰Ê‚ªMessageManager.class‚ğƒ[ƒh‚µ‚½ƒNƒ‰ƒXƒ[ƒ_‚É‚È‚Á‚Ä‚é‚±‚Æ‚ğŠm”F
+     * ç¢ºèªé …ç›®ï¼š
+     * ãƒ»ã‚¹ãƒ¬ãƒƒãƒ‰ã«è¨­å®šã•ã‚ŒãŸã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆã‚¯ãƒ©ã‚¹ãƒ­ãƒ¼ãƒ€ã«å¯¾ã—ã€nullå€¤ã‚’è¨­å®šã™ã‚‹
+     * ãƒ»MessageManager.getClassLoaderã®çµæœãŒMessageManager.classã‚’ãƒ­ãƒ¼ãƒ‰ã—ãŸã‚¯ãƒ©ã‚¹ãƒ­ãƒ¼ãƒ€ã«ãªã£ã¦ã‚‹ã“ã¨ã‚’ç¢ºèª
      * </pre>
      */
     @Test

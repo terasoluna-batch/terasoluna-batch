@@ -18,14 +18,14 @@ package jp.terasoluna.fw.message;
 
 
 /**
- * DataSourceMessageSourceƒNƒ‰ƒX‚Å—˜—p‚·‚éƒXƒ^ƒu
+ * DataSourceMessageSourceã‚¯ãƒ©ã‚¹ã§åˆ©ç”¨ã™ã‚‹ã‚¹ã‚¿ãƒ–
  *
  */
 public class DataSourceMessageSource_DataSourceMessageSourceStub01 extends
         DataSourceMessageSource {
    
     /**
-     * ŒÄ‚Ño‚µŠm”F
+     * å‘¼ã³å‡ºã—ç¢ºèª
      */
     protected boolean isRead = false;
     

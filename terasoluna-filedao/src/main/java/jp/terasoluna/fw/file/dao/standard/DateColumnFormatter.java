@@ -24,27 +24,27 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * ƒJƒ‰ƒ€ƒtƒH[ƒ}ƒbƒg(ƒtƒ@ƒCƒ‹‘j‚ğs‚¤ƒNƒ‰ƒXB
+ * ã‚«ãƒ©ãƒ ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆ(ãƒ•ã‚¡ã‚¤ãƒ«æ›¸è¾¼ï¼‰ã‚’è¡Œã†ã‚¯ãƒ©ã‚¹ã€‚
  * <p>
- * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚©‚çƒf[ƒ^‚ğæ“¾‚µA•¶š—ñ‚ğFileUpdateDAO‚É•Ô‹p‚·‚éB ƒAƒmƒe[ƒVƒ‡ƒ“‚Ì‹Lq‚É]‚¢DateŒ^‚ÌƒtƒH[ƒ}ƒbƒgˆ—‚ğs‚¤B
+ * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã‚‰ãƒ‡ãƒ¼ã‚¿ã‚’å–å¾—ã—ã€æ–‡å­—åˆ—ã‚’FileUpdateDAOã«è¿”å´ã™ã‚‹ã€‚ ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã®è¨˜è¿°ã«å¾“ã„Dateå‹ã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆå‡¦ç†ã‚’è¡Œã†ã€‚
  * </p>
  */
 public class DateColumnFormatter implements ColumnFormatter {
 
     /**
-     * “ú•tƒtƒH[ƒ}ƒbƒg‚ğŠi”[‚·‚éƒ}ƒbƒv
+     * æ—¥ä»˜ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’æ ¼ç´ã™ã‚‹ãƒãƒƒãƒ—
      */
     private Map<String, DateFormatLocal> map = new ConcurrentHashMap<String, DateFormatLocal>();
 
     /**
-     * DateŒ^‚ÌƒtƒH[ƒ}ƒbƒgˆ—‚ğs‚¢A•¶š—ñ‚ğ•Ô‹p‚·‚éB
-     * @param t ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg
-     * @param method ƒJƒ‰ƒ€ƒtƒH[ƒ}ƒbƒg‚ğs‚¤‘®«‚ÌƒQƒbƒ^ƒƒ\ƒbƒh
-     * @param columnFormat ƒJƒ‰ƒ€ƒtƒH[ƒ}ƒbƒg—p‚Ì•¶š—ñ
-     * @return •¶š—ñ
-     * @throws IllegalArgumentException ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚Ìgetterƒƒ\ƒbƒh‚ÌƒAƒNƒZƒX‚É¸”s‚µ‚½‚Æ‚«
-     * @throws IllegalAccessException ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚Ö‚Ìİ’è‚ª¸”s‚µ‚½‚Æ‚«
-     * @throws InvocationTargetException ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚Ìƒƒ\ƒbƒh‚ª—áŠO‚ğƒXƒ[‚µ‚½‚Æ‚«
+     * Dateå‹ã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆå‡¦ç†ã‚’è¡Œã„ã€æ–‡å­—åˆ—ã‚’è¿”å´ã™ã‚‹ã€‚
+     * @param t ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param method ã‚«ãƒ©ãƒ ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’è¡Œã†å±æ€§ã®ã‚²ãƒƒã‚¿ãƒ¡ã‚½ãƒƒãƒ‰
+     * @param columnFormat ã‚«ãƒ©ãƒ ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆç”¨ã®æ–‡å­—åˆ—
+     * @return æ–‡å­—åˆ—
+     * @throws IllegalArgumentException ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®getterãƒ¡ã‚½ãƒƒãƒ‰ã®ã‚¢ã‚¯ã‚»ã‚¹ã«å¤±æ•—ã—ãŸã¨ã
+     * @throws IllegalAccessException ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¸ã®è¨­å®šãŒå¤±æ•—ã—ãŸã¨ã
+     * @throws InvocationTargetException ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ãƒ¡ã‚½ãƒƒãƒ‰ãŒä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã—ãŸã¨ã
      */
     public String format(Object t, Method method, String columnFormat)
                                                                       throws IllegalArgumentException,
@@ -53,7 +53,7 @@ public class DateColumnFormatter implements ColumnFormatter {
 
         Date column = (Date) method.invoke(t);
 
-        // ƒJƒ‰ƒ€’l‚ªnull‚Ìê‡‚Í‹ó•¶š‚ğ•Ô‚·B
+        // ã‚«ãƒ©ãƒ å€¤ãŒnullã®å ´åˆã¯ç©ºæ–‡å­—ã‚’è¿”ã™ã€‚
         if (column == null) {
             return "";
         }

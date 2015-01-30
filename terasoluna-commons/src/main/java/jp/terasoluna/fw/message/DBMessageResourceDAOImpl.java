@@ -25,18 +25,18 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 
 /**
- * DB���烁�b�Z�[�W���\�[�X���擾����DBMessageResourceDAO�̎����N���X�B
- * �{�N���X�́A���b�Z�[�W���\�[�X���i�[����DB���猟��SQL�����g�p���A
- * ���b�Z�[�W���\�[�X��DBMessage�I�u�W�F�N�g�̃��X�g�Ƃ��Ă܂Ƃ߁A�ԋp����B
+ * DBからメッセージリソースを取得するDBMessageResourceDAOの実装クラス。
+ * 本クラスは、メッセージリソースを格納したDBから検索SQL文を使用し、
+ * メッセージリソースをDBMessageオブジェクトのリストとしてまとめ、返却する。
  * <br><br>
- * <strong>�g�p���@</strong>
+ * <strong>使用方法</strong>
  * <br>
- * ���̃N���X���g�p����ɂ̓A�v���P�[�V�����R���e�L�X�g�N������DAO�Ƃ���
- * �F��������K�v������B<br>
+ * このクラスを使用するにはアプリケーションコンテキスト起動時にDAOとして
+ * 認識させる必要がある。<br>
  * <br>
- * <strong>�ݒ��</strong><br>
- * DAO�̎����N���X�Ƃ��Ė{�N���X���g�p����ꍇ�ABean��`�t�@�C����
- * �ȉ��̋L�q������B<br>
+ * <strong>設定例</strong><br>
+ * DAOの実装クラスとして本クラスを使用する場合、Bean定義ファイルに
+ * 以下の記述をする。<br>
  * <pre>
  * &lt;bean id = &quot;dBMessageResourceDAO&quot;
  *   class = &quot;jp.terasoluna.fw.message.DBMessageResourceDAOImpl&quot;&gt;
@@ -46,45 +46,45 @@ import org.springframework.jdbc.core.support.JdbcDaoSupport;
  * &lt;/bean&gt;
  * </pre>
  * 
- * <strong>���</strong><br>
- * &lt;bean&gt;�v�f��id������DBMessageResourceDAO���w�肵�A&lt;bean&gt;�v�f��
- * &lt;property&gt;�v�f�ɂ�dataSource��ݒ肷��B<br> 
+ * <strong>解説</strong><br>
+ * &lt;bean&gt;要素のid属性にDBMessageResourceDAOを指定し、&lt;bean&gt;要素内
+ * &lt;property&gt;要素にはdataSourceを設定する。<br> 
  * 
- * <h3>����SQL���ɂ���</h3>
+ * <h3>検索SQL文について</h3>
  * 
- * DB���烁�b�Z�[�W���\�[�X���擾���錟��SQL���ɂ͏����l���^�����Ă���B
- * �f�t�H���g�̌���SQL����
+ * DBからメッセージリソースを取得する検索SQL文には初期値が与えられている。
+ * デフォルトの検索SQL文は
  * <pre>SELECT CODE,MESSAGE FROM MESSAGES</pre>
- * �ł���B
- * �f�t�H���g�̌���SQL�����g�p����ꍇ�ADB�̃J�������͈ȉ��̒ʂ�ƂȂ�B<br>
- * �e�[�u���� = MESSAGES<br>
- * ���b�Z�[�W�R�[�h���i�[����J������ = CODE<br>
- * ���b�Z�[�W�{�����i�[����J������ = MESSAGE<br>
- * ���A�f�t�H���g�̌���SQL�����g�p����ꍇ�A���P�[���Ή��͍s���Ȃ��B
- * ���P�[���Ή�����ꍇ�́A���L�A����SQL���̕ύX���K�v�ƂȂ�B
+ * である。
+ * デフォルトの検索SQL文を使用する場合、DBのカラム名は以下の通りとなる。<br>
+ * テーブル名 = MESSAGES<br>
+ * メッセージコードを格納するカラム名 = CODE<br>
+ * メッセージ本文を格納するカラム名 = MESSAGE<br>
+ * 尚、デフォルトの検索SQL文を使用する場合、ロケール対応は行われない。
+ * ロケール対応する場合は、下記、検索SQL文の変更が必要となる。
  * 
  * 
- * <h4>����SQL���̕ύX1</h4>
- * ���̕ύX���@�͌���SQL���̃t�H�[�}�b�g�ɂ��������āA�e�[�u�����y�ъe�J��������
- * �Ǝ��Ɏw�肵�A�{�N���X�̋@�\�ɂ���āA����SQL���𐶐�������@�ł���B���̕��@
- * �����{���邱�ƂŁA�ȉ��̂��Ƃ��\�ɂȂ�B<br>
- * �P�DDB�̃e�[�u�����y�ъe�J�������̎��R�Ȑݒ�<br>
- * �Q�D���P�[���Ή�<br>
- * ����SQL���̃t�H�[�}�b�g
- * <pre>SELECT ���b�Z�[�W�R�[�h�̃J������ , ����R�[�h�̃J������ , ���R�[�h�̃J������, �o���A���g�R�[�h�̃J������ ,���b�Z�[�W�{�̂̃J������ FROM �e�[�u����
+ * <h4>検索SQL文の変更1</h4>
+ * この変更方法は検索SQL文のフォーマットにしたがって、テーブル名及び各カラム名を
+ * 独自に指定し、本クラスの機能によって、検索SQL文を生成する方法である。この方法
+ * を実施することで、以下のことが可能になる。<br>
+ * １．DBのテーブル名及び各カラム名の自由な設定<br>
+ * ２．ロケール対応<br>
+ * 検索SQL文のフォーマット
+ * <pre>SELECT メッセージコードのカラム名 , 言語コードのカラム名 , 国コードのカラム名, バリアントコードのカラム名 ,メッセージ本体のカラム名 FROM テーブル名
  * </pre>
- * �e�[�u�����y�ъe�J�������̑S�Ă������͈ꕔ���w�肷�邱�Ƃ�DB�̃e�[�u�����y��
- * �J�����������R�ɐݒ�o����B�ꕔ�̒l�݂̂��w�肵���ꍇ�A�w�肳��Ă��Ȃ��l��
- * ��L�f�t�H���g�̌���SQL���̒l���g�p�����B<br>
- * ���A����R�[�h�̃J�������A���R�[�h�̃J�������A�o���A���g�R�[�h�̃J��������
- * �w�肷�邵�A�e�J������L���ɂ��邱�Ƃɂ��A�����̃R�[�h�ɂ�郍�P�[����
- * ���ʂ��\�ƂȂ�B
- * �����̒l�͖{�N���X���Ɏ�������Ă���e�X�̃Z�b�^�[�𗘗p���鎖�ŕύX�o����B
+ * テーブル名及び各カラム名の全てもしくは一部を指定することでDBのテーブル名及び
+ * カラム名を自由に設定出来る。一部の値のみを指定した場合、指定されていない値は
+ * 上記デフォルトの検索SQL文の値が使用される。<br>
+ * 又、言語コードのカラム名、国コードのカラム名、バリアントコードのカラム名を
+ * 指定するし、各カラムを有効にすることにより、これらのコードによるロケールの
+ * 判別が可能となる。
+ * これらの値は本クラス内に実装されている各々のセッターを利用する事で変更出来る。
  * <br>
  * <br>
- * <strong>�ݒ��</strong><br>
- * Bean��`�t�@�C�����ňȉ��̂悤�ȋL�q������B<br>
- * �e�[�u�����y�ъe�J�������̑S�Ă�Ǝ��ɐݒ肷��ꍇ�B
+ * <strong>設定例</strong><br>
+ * Bean定義ファイル内で以下のような記述をする。<br>
+ * テーブル名及び各カラム名の全てを独自に設定する場合。
  * 
  * <pre>
  * &lt;bean id = &quot;DBMessageResourceDAO&quot;
@@ -112,29 +112,29 @@ import org.springframework.jdbc.core.support.JdbcDaoSupport;
  * &lt;/bean&gt;
  * </pre>
  * 
- * &lt;bean&gt;�v�f��&lt;properities&gt;�v�f��name�����ɕύX�������e�[�u������
- * �J���������w�肵�Avalue�����ɂĐݒ肵�����l���w�肷��B<br>
+ * &lt;bean&gt;要素内&lt;properities&gt;要素のname属性に変更したいテーブル名や
+ * カラム名を指定し、value属性にて設定したい値を指定する。<br>
  * <br>
- * ��L�ݒ�ɂ�茟��SQL����
+ * 上記設定により検索SQL文は
  * <pre>SELECT BANGOU,GENGO,KUNI,HOUGEN,HONBUN FROM DBMESSAGES</pre>
- * �ƂȂ�B<br>
- * �܂�DB�̃e�[�u�����y�уJ�������͈ȉ��̒ʂ�ƂȂ�B <br>
- * �e�[�u���� = DBMESSAGES<br>
- * ���b�Z�[�W�R�[�h���i�[����J������ = BANGOU<br>
- * ���b�Z�[�W�̌���R�[�h���i�[����J������ = GENGO<br>
- * ���b�Z�[�W�̍��R�[�h���i�[����J������ = KUNI<br>
- * ���b�Z�[�W�̃o���A���g�R�[�h���i�[����J������ = HOUGEN<br>
- * ���b�Z�[�W�{�����i�[����J������ = HONBUN<br>
+ * となる。<br>
+ * またDBのテーブル名及びカラム名は以下の通りとなる。 <br>
+ * テーブル名 = DBMESSAGES<br>
+ * メッセージコードを格納するカラム名 = BANGOU<br>
+ * メッセージの言語コードを格納するカラム名 = GENGO<br>
+ * メッセージの国コードを格納するカラム名 = KUNI<br>
+ * メッセージのバリアントコードを格納するカラム名 = HOUGEN<br>
+ * メッセージ本文を格納するカラム名 = HONBUN<br>
  * 
  * 
- * <h4>����SQL���̕ύX2</h4>
- * ���̕ύX���@�͖{�N���X�̋@�\�ɂ�錟��SQL���̐������s�킸�ɁA����SQL����Ǝ�
- * �Ɏw�肷����@�ł���BWHERE��Ȃǌ���SQL���̃t�H�[�}�b�g�ł͑Ή��o���Ȃ�
- * �N�G���𗘗p����ꍇ�ɗL���ł���B<br>
+ * <h4>検索SQL文の変更2</h4>
+ * この変更方法は本クラスの機能による検索SQL文の生成を行わずに、検索SQL文を独自
+ * に指定する方法である。WHERE句など検索SQL文のフォーマットでは対応出来ない
+ * クエリを利用する場合に有効である。<br>
  * <br>
- * <strong>�ݒ��</strong><br>
- * Bean��`�t�@�C�����ňȉ��̂悤�ȋL�q������B
- * ����SQL���y�уe�[�u�����A�e�J�������̑S�Ă�Ǝ��ɐݒ肷��ꍇ�B<br>
+ * <strong>設定例</strong><br>
+ * Bean定義ファイル内で以下のような記述をする。
+ * 検索SQL文及びテーブル名、各カラム名の全てを独自に設定する場合。<br>
  * <br>
  * 
  * <pre>
@@ -151,28 +151,28 @@ import org.springframework.jdbc.core.support.JdbcDaoSupport;
  * &lt;/bean&gt;
  * </pre>
  * 
- * &lt;bean&gt;�v�f��&lt;properities&gt;�v�f��name�����Ɍ���SQL���Ǝg�p����
- * �J���������w�肵�Avalue�����ɂĐݒ肵����SQL�����w�肷��B<br>
+ * &lt;bean&gt;要素内&lt;properities&gt;要素のname属性に検索SQL文と使用する
+ * カラム名を指定し、value属性にて設定したいSQL文を指定する。<br>
  * <br>
- * SQL����<br>
- * �V�K�J������ as �f�t�H���g�̃J������<br>
- * �Ƃ��邱�Ƃ�DB�̃J��������ύX���邱�Ƃ��o����B
- * �������A�f�t�H���g�Œl���n����Ă��郁�b�Z�[�W�R�[�h�y�у��b�Z�[�W�̂Q�J����
- * �݂̂̑Ή��ƂȂ�B���P�[���Ή�����ꍇ�A���̑��̃J������ݒ肷��K�v������B
- * ���̏ꍇ�͌���SQL���̕ύX1�ɕ킢�A�J������L���ɂ���K�v������B<br>
+ * SQL文で<br>
+ * 新規カラム名 as デフォルトのカラム名<br>
+ * とすることでDBのカラム名を変更することが出来る。
+ * ただし、デフォルトで値が渡されているメッセージコード及びメッセージの２カラム
+ * のみの対応となる。ロケール対応する場合、その他のカラムを設定する必要がある。
+ * その場合は検索SQL文の変更1に倣い、カラムを有効にする必要がある。<br>
  * <br>
- * ��L�ݒ�ɂ�茟��SQL����
+ * 上記設定により検索SQL文は
  * <pre>SELECT BANGOU as CODE,HONBUN as MESSAGE FROM DBDATA WHERE CATEGORY = "DBMESSAGE"
  * </pre>
- * �ƂȂ�B<br>
+ * となる。<br>
  * 
- * �܂�DB�̃e�[�u�����y�уJ�������͈ȉ��̒ʂ�ƂȂ�B<br>
- * �e�[�u���� = DBDATA<br>
- * ���b�Z�[�W�R�[�h���i�[����J������ = BANGOU<br>
- * ���b�Z�[�W�̌���R�[�h���i�[����J������ = null<br>
- * ���b�Z�[�W�̍��R�[�h���i�[����J������ = null<br>
- * ���b�Z�[�W�̃o���A���g�R�[�h���i�[����J������ = null<br>
- * ���b�Z�[�W�{�����i�[����J������ = HONBUN<br>
+ * またDBのテーブル名及びカラム名は以下の通りとなる。<br>
+ * テーブル名 = DBDATA<br>
+ * メッセージコードを格納するカラム名 = BANGOU<br>
+ * メッセージの言語コードを格納するカラム名 = null<br>
+ * メッセージの国コードを格納するカラム名 = null<br>
+ * メッセージのバリアントコードを格納するカラム名 = null<br>
+ * メッセージ本文を格納するカラム名 = HONBUN<br>
  * 
  * @see jp.terasoluna.fw.message.DataSourceMessageSource
  * @see jp.terasoluna.fw.message.DBMessage
@@ -183,143 +183,143 @@ import org.springframework.jdbc.core.support.JdbcDaoSupport;
 public class DBMessageResourceDAOImpl extends JdbcDaoSupport implements
         DBMessageResourceDAO {
     /**
-     * ���b�Z�[�W���i�[����DB�̃e�[�u�����B�f�t�H���g��MESSAGES�B
+     * メッセージを格納するDBのテーブル名。デフォルトはMESSAGES。
      */
     protected String tableName = "MESSAGES";
 
     /**
-     * ���b�Z�[�W�R�[�h���i�[����DB�̃J�������B�f�t�H���g��CODE�B
+     * メッセージコードを格納するDBのカラム名。デフォルトはCODE。
      */
     protected String codeColumn = "CODE";
 
     /**
-     * ����R�[�h���i�[����DB�̃J�������B�f�t�H���g��null�B
+     * 言語コードを格納するDBのカラム名。デフォルトはnull。
      */
     protected String languageColumn = null;
 
     /**
-     * ���R�[�h���i�[����DB�̃J�������B�f�t�H���g��null�B
+     * 国コードを格納するDBのカラム名。デフォルトはnull。
      */
     protected String countryColumn = null;
 
     /**
-     * �o���A���g�R�[�h���i�[����DB�̃J�������B�f�t�H���g��null�B
+     * バリアントコードを格納するDBのカラム名。デフォルトはnull。
      */
     protected String variantColumn = null;
 
     /**
-     * ���b�Z�[�W���i�[����DB�̃J�������B�f�t�H���g��MESSAGE�B
+     * メッセージを格納するDBのカラム名。デフォルトはMESSAGE。
      */
     protected String messageColumn = "MESSAGE";
 
     /**
-     * �O������ݒ肳���DB�������Ɏg�p�����SQL���B
-     * �ݒ肳��Ă���ꍇ�A�����炪���s�����B
+     * 外部から設定されるDB検索時に使用されるSQL文。
+     * 設定されている場合、こちらが実行される。
      */
     protected String findMessageSql = null;
 
     /**
-     * ���O�N���X�B
+     * ログクラス。
      */
     private static Log log = LogFactory.getLog(DBMessageResourceDAOImpl.class);
 
     /**
-     * ���b�Z�[�W���i�[����DB�̃e�[�u������ݒ肷��B�ݒ肳��Ă��Ȃ��ꍇ��
-     * �f�t�H���g�̒lMESSAGES���g�p�����B
+     * メッセージを格納するDBのテーブル名を設定する。設定されていない場合は
+     * デフォルトの値MESSAGESが使用される。
      * 
      * @param tableName
-     *            ���b�Z�[�W���i�[����DB�̃e�[�u�����B
+     *            メッセージを格納したDBのテーブル名。
      */
     public void setTableName(String tableName) {
         this.tableName = tableName;
     }
 
     /**
-     * ���b�Z�[�W�R�[�h���i�[����DB�̃J��������ݒ肷��B�ݒ肳��Ă��Ȃ��ꍇ��
-     * �f�t�H���g�̒lCODE���g�p�����B
+     * メッセージコードを格納するDBのカラム名を設定する。設定されていない場合は
+     * デフォルトの値CODEが使用される。
      * 
      * @param codeColumn
-     *            ���b�Z�[�W�R�[�h���i�[����DB�̃J�������B
+     *            メッセージコードを格納したDBのカラム名。
      */
     public void setCodeColumn(String codeColumn) {
         this.codeColumn = codeColumn;
     }
 
     /**
-     * ����R�[�h���i�[����DB�̃J��������ݒ肷��B�ݒ肳��Ă��Ȃ��ꍇ��
-     * �f�t�H���g�̒lnull���g�p�����B
+     * 言語コードを格納するDBのカラム名を設定する。設定されていない場合は
+     * デフォルトの値nullが使用される。
      * 
      * @param languageColumn
-     *            ����R�[�h���i�[����DB�̃J�������B
+     *            言語コードを格納したDBのカラム名。
      */
     public void setLanguageColumn(String languageColumn) {
         this.languageColumn = languageColumn;
     }
 
     /**
-     * ���R�[�h���i�[����DB�̃J��������ݒ肷��B�ݒ肳��Ă��Ȃ��ꍇ��
-     * �f�t�H���g�̒lnull���g�p�����B
+     * 国コードを格納するDBのカラム名を設定する。設定されていない場合は
+     * デフォルトの値nullが使用される。
      * 
      * @param countryColumn
-     *            ���R�[�h���i�[����DB�̃J�������B
+     *            国コードを格納したDBのカラム名。
      */
     public void setCountryColumn(String countryColumn) {
         this.countryColumn = countryColumn;
     }
 
     /**
-     * �o���A���g�R�[�h���i�[����DB�̃J��������ݒ肷��B�ݒ肳��Ă��Ȃ��ꍇ��
-     * �f�t�H���g�̒lnull���g�p�����B
+     * バリアントコードを格納するDBのカラム名を設定する。設定されていない場合は
+     * デフォルトの値nullが使用される。
      * 
      * @param variantColumn
-     *            �o���A���g�R�[�h���i�[����DB�̃J�������B
+     *            バリアントコードを格納したDBのカラム名。
      */
     public void setVariantColumn(String variantColumn) {
         this.variantColumn = variantColumn;
     }
 
     /**
-     * ���b�Z�[�W���i�[����DB�̃J��������ݒ肷��B�ݒ肳��Ă��Ȃ��ꍇ��
-     * �f�t�H���g�̒lMESSAGE���g�p�����B
+     * メッセージを格納するDBのカラム名を設定する。設定されていない場合は
+     * デフォルトの値MESSAGEが使用される。
      * 
      * @param messageColumn
-     *            ���b�Z�[�W���i�[����DB�̃J�������B
+     *            メッセージを格納したDBのカラム名。
      */
     public void setMessageColumn(String messageColumn) {
         this.messageColumn = messageColumn;
     }
 
     /**
-     * DB���烁�b�Z�[�W���\�[�X����������SQL����ݒ肷��B�ݒ肳��Ă��Ȃ��ꍇ��
-     * makeSql���\�b�h�ɂč쐬���ꂽSQL�������s�����B
+     * DBからメッセージリソースを検索するSQL文を設定する。設定されていない場合は
+     * makeSqlメソッドにて作成されたSQL文が実行される。
      * 
      * @param findMessageSql
-     *            �O������ݒ肳���DB�������Ɏg�p�����SQL���B
+     *            外部から設定されるDB検索時に使用されるSQL文。
      */
     public void setFindMessageSql(String findMessageSql) {
         this.findMessageSql = findMessageSql;
     }
 
     /**
-     * ���b�Z�[�W���\�[�X���擾����RDBMS�I�y���[�V�����N���X�B
+     * メッセージリソースを取得するRDBMSオペレーションクラス。
      */
     protected DBMessageQuery dBMessageQuery = null;
     
     /**
-     * DBMessageResourceDAOImpl�𐶐�����B
+     * DBMessageResourceDAOImplを生成する。
      */
     protected DBMessageResourceDAOImpl() {
         super();
     }
 
     /**
-     * DB��胁�b�Z�[�W���\�[�X���擾����DBMessageQuery�𐶐�����B
-     * �R���X�g���N�^�ɓn�����l�̂����A���b�Z�[�W�R�[�h�̃J�������A
-     * ����R�[�h�̃J�������A���R�[�h�̃J��������null�̏ꍇ������B<br>
-     * null���n���ꂽ�ꍇ�A�����̃J������DB�ɑ��݂��Ȃ����̂Ƃ��ď��������B
+     * DBよりメッセージリソースを取得するDBMessageQueryを生成する。
+     * コンストラクタに渡される値のうち、メッセージコードのカラム名、
+     * 言語コードのカラム名、国コードのカラム名はnullの場合がある。<br>
+     * nullが渡された場合、これらのカラムはDBに存在しないものとして処理される。
      * 
      * @throws IllegalArgumentException
-     *             DB�Ƃ̐ڑ����擾�ł��Ȃ������ꍇ
+     *             DBとの接続が取得できなかった場合
      */
     @Override
     protected void initDao() {
@@ -335,59 +335,59 @@ public class DBMessageResourceDAOImpl extends JdbcDaoSupport implements
     }
 
     /**
-     * DB����擾�������b�Z�[�W���\�[�X��DBMessage�I�u�W�F�N�g�Ɋi�[���A���X�g�^
-     * �ŕԋp����B
+     * DBから取得したメッセージリソースをDBMessageオブジェクトに格納し、リスト型
+     * で返却する。
      * 
-     * @return ���b�Z�[�W���\�[�X�̃��X�g
+     * @return メッセージリソースのリスト
      */
     @SuppressWarnings("unchecked")
     public List<DBMessage> findDBMessages() {
-        // JDBCDaoSupport�ɂ�DBMessageQuery���K����������邽�߁A
-        // null�ɂ͂Ȃ�Ȃ��B
+        // JDBCDaoSupportにてDBMessageQueryが必ず生成されるため、
+        // nullにはならない。
         return dBMessageQuery.execute();
     }
 
     /**
-     * DB���烁�b�Z�[�W���\�[�X���擾����SQL���𐶐�����B
-     * SQL�������O�ɃJ�������y�уe�[�u�����ɕs���Ȓl���n����Ă��Ȃ�����
-     * �`�F�b�N������B�K�{�J�������i���b�Z�[�W�R�[�h�A���b�Z�[�W�{�́j
-     * �ƃe�[�u������null�`�F�b�N�y�ы󕶎��`�F�b�N�����{����B
-     * ���̑��̃J�������͋󕶎��`�F�b�N�݂̂����{����B
+     * DBからメッセージリソースを取得するSQL文を生成する。
+     * SQL文生成前にカラム名及びテーブル名に不正な値が渡されていないかの
+     * チェックをする。必須カラム名（メッセージコード、メッセージ本体）
+     * とテーブル名はnullチェック及び空文字チェックを実施する。
+     * その他のカラム名は空文字チェックのみを実施する。
      * 
-     * @return DB���烁�b�Z�[�W���\�[�X���擾����SQL���B
-     *          null�͕ԋp���Ȃ��B
+     * @return DBからメッセージリソースを取得するSQL文。
+     *          nullは返却しない。
      * 
      */
     protected String makeSql() {
-        // �J�������`�F�b�N
+        // カラム名チェック
         checkRequiredColumnName(codeColumn, "codeColumn");
         checkNotRequiredColumnName(languageColumn, "languageColumn");
         checkNotRequiredColumnName(countryColumn, "countryColumn");
         checkNotRequiredColumnName(variantColumn, "variantColumn");
         checkRequiredColumnName(messageColumn, "messageColumn");
         checkRequiredColumnName(tableName, "tableName");
-        // �O������SQL�����w�肳�ꂽ�ꍇ�A��������g�p����B
+        // 外部からSQL文を指定された場合、そちらを使用する。
         StringBuilder sql = null;
         if (findMessageSql != null) {
             sql = new StringBuilder(findMessageSql);
         } else {
-            // SQL���̎w�肪�Ȃ��ꍇ�A�V���ɐ�������B
+            // SQL文の指定がない場合、新たに生成する。
             sql = new StringBuilder("SELECT ");
             sql.append(codeColumn);
             sql.append(",");
-            // ����R�[�h�̃J���������A�ݒ肳��Ă��Ȃ��ꍇ��
-            // ����R�[�h���������Ȃ��B
+            // 言語コードのカラム名が、設定されていない場合は
+            // 言語コードを検索しない。
             if (languageColumn != null) {
                 sql.append(languageColumn);
                 sql.append(",");
             }
-            // ���R�[�h�̃J���������A�ݒ肳��Ă��Ȃ��ꍇ�͍��R�[�h���������Ȃ��B
+            // 国コードのカラム名が、設定されていない場合は国コードを検索しない。
             if (countryColumn != null) {
                 sql.append(countryColumn);
                 sql.append(",");
             }
-            // �o���A���g�R�[�h�̃J���������A�ݒ肳��Ă��Ȃ��ꍇ��
-            // �o���A���g�R�[�h���������Ȃ��B
+            // バリアントコードのカラム名が、設定されていない場合は
+            // バリアントコードを検索しない。
             if (variantColumn != null) {
                 sql.append(variantColumn);
                 sql.append(",");
@@ -403,17 +403,17 @@ public class DBMessageResourceDAOImpl extends JdbcDaoSupport implements
     }
 
     /**
-     * �K�{�J�����̃J�������y�уe�[�u�������`�F�b�N����B
-     * null�`�F�b�N�y�ы󕶎��`�F�b�N�����{����B
+     * 必須カラムのカラム名及びテーブル名をチェックする。
+     * nullチェック及び空文字チェックを実施する。
      * 
      * @param value
-     *            DB�ł̃J�������������̓e�[�u����
+     *            DBでのカラム名もしくはテーブル名
      * @param columnName
-     *            �����Ώۂ̃J�����������̓e�[�u��
+     *            検査対象のカラムもしくはテーブル
      */
     protected void checkRequiredColumnName(String value, String columnName) {
-        // �J�������̃G���[�`�F�b�N�B
-        // ���b�Z�[�W�R�[�h�̃J��������null�������͋󕶎��̏ꍇ�A�G���[��Ԃ��B
+        // カラム名のエラーチェック。
+        // メッセージコードのカラム名がnullもしくは空文字の場合、エラーを返す。
         if (value == null || "".equals(value)) {
             log.error("illegalArgument: " + columnName + " is null or empty.");
             throw new IllegalArgumentException("illegalArgument: " + columnName
@@ -422,16 +422,16 @@ public class DBMessageResourceDAOImpl extends JdbcDaoSupport implements
     }
 
     /**
-     * �K�{�J�����ȊO�̃J���������`�F�b�N����B �󕶎��`�F�b�N�����{����B
+     * 必須カラム以外のカラム名をチェックする。 空文字チェックを実施する。
      * 
      * @param value
-     *            DB�ł̃J������
+     *            DBでのカラム名
      * @param columnName
-     *            �����Ώۂ̃J����
+     *            検査対象のカラム
      */
     protected void checkNotRequiredColumnName(String value, String columnName) {
-        // �J�������̃G���[�`�F�b�N�B
-        // ���b�Z�[�W�R�[�h�̃J���������󕶎��̏ꍇ�A�G���[��Ԃ��B
+        // カラム名のエラーチェック。
+        // メッセージコードのカラム名が空文字の場合、エラーを返す。
         if ("".equals(value)) {
             log.error("illegalArgument: " + columnName + " is empty.");
             throw new IllegalArgumentException("illegalArgument: " + columnName

@@ -22,7 +22,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * CollectorThreadFactory.<br>
  * <p>
- * ƒRƒŒƒNƒ^‚ª¶¬‚·‚éƒXƒŒƒbƒh—p‚ÌƒXƒŒƒbƒhƒtƒ@ƒNƒgƒŠB
+ * ã‚³ãƒ¬ã‚¯ã‚¿ãŒç”Ÿæˆã™ã‚‹ã‚¹ãƒ¬ãƒƒãƒ‰ç”¨ã®ã‚¹ãƒ¬ãƒƒãƒ‰ãƒ•ã‚¡ã‚¯ãƒˆãƒªã€‚
  * </p>
  */
 public class CollectorThreadFactory implements ThreadFactory {
@@ -42,7 +42,7 @@ public class CollectorThreadFactory implements ThreadFactory {
     final String namePrefix;
 
     /**
-     * CollectorThreadFactoryƒRƒ“ƒXƒgƒ‰ƒNƒ^.
+     * CollectorThreadFactoryã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿.
      */
     public CollectorThreadFactory() {
         SecurityManager s = System.getSecurityManager();

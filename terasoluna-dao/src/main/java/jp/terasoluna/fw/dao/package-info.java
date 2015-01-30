@@ -1,4 +1,4 @@
 /**
- * DAO�֘A
+ * DAO関連
  */
 package jp.terasoluna.fw.dao;

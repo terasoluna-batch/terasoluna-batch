@@ -24,7 +24,7 @@ import org.springframework.validation.Errors;
 import org.springmodules.validation.commons.ValidatorFactory;
 
 /**
- * ValidatoFactory‚ÌƒXƒ^ƒuƒNƒ‰ƒXBCommons-Validator‚ğİ’è‚Å‚«‚éB
+ * ValidatoFactoryã®ã‚¹ã‚¿ãƒ–ã‚¯ãƒ©ã‚¹ã€‚Commons-Validatorã‚’è¨­å®šã§ãã‚‹ã€‚
  *
  */
 public class BaseMultiFieldValidator_ValidatorFactoryStub01 implements
@@ -32,7 +32,7 @@ public class BaseMultiFieldValidator_ValidatorFactoryStub01 implements
     private Validator validator = null;
 
     /**
-     * @param validator İ’è‚·‚é validatorB
+     * @param validator è¨­å®šã™ã‚‹ validatorã€‚
      */
     public void setValidator(Validator validator) {
         this.validator = validator;
@@ -43,12 +43,12 @@ public class BaseMultiFieldValidator_ValidatorFactoryStub01 implements
     }
 
     public boolean hasRulesForBean(String beanName, Locale locale) {
-        // TODO ©“®¶¬‚³‚ê‚½ƒƒ\ƒbƒhEƒXƒ^ƒu
+        // TODO è‡ªå‹•ç”Ÿæˆã•ã‚ŒãŸãƒ¡ã‚½ãƒƒãƒ‰ãƒ»ã‚¹ã‚¿ãƒ–
         return false;
     }
 
     public ValidatorResources getValidatorResources() {
-        // TODO ©“®¶¬‚³‚ê‚½ƒƒ\ƒbƒhEƒXƒ^ƒu
+        // TODO è‡ªå‹•ç”Ÿæˆã•ã‚ŒãŸãƒ¡ã‚½ãƒƒãƒ‰ãƒ»ã‚¹ã‚¿ãƒ–
         return null;
     }
 

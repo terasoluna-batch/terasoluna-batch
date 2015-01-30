@@ -33,48 +33,48 @@ public class DecimalColumnParser_FileLineObjectStub01 {
     private BigDecimal decimal11 = null;
 
     /**
-     * public‚Åˆø”‚ ‚è‚Ì³í‚Ìsetterƒƒ\ƒbƒh
-     * @param decimal01 İ’è‚·‚é decimal01
+     * publicã§å¼•æ•°ã‚ã‚Šã®æ­£å¸¸ã®setterãƒ¡ã‚½ãƒƒãƒ‰
+     * @param decimal01 è¨­å®šã™ã‚‹ decimal01
      */
     public void setDecimal01(BigDecimal decimal01) {
         this.decimal01 = decimal01;
     }
 
     /**
-     * public‚Åˆø”‚ ‚è‚Ì³í‚Ìsetterƒƒ\ƒbƒh
-     * @param decimal02 İ’è‚·‚é decimal02
+     * publicã§å¼•æ•°ã‚ã‚Šã®æ­£å¸¸ã®setterãƒ¡ã‚½ãƒƒãƒ‰
+     * @param decimal02 è¨­å®šã™ã‚‹ decimal02
      */
     public void setDecimal02(BigDecimal decimal02) {
         this.decimal02 = decimal02;
     }
 
     /**
-     * public‚Åˆø”‚ ‚è‚ÌˆÙí‚Ìsetterƒƒ\ƒbƒh
-     * @param decimal03 İ’è‚·‚é decimal03
+     * publicã§å¼•æ•°ã‚ã‚Šã®ç•°å¸¸ã®setterãƒ¡ã‚½ãƒƒãƒ‰
+     * @param decimal03 è¨­å®šã™ã‚‹ decimal03
      */
     public void setDecimal03(BigDecimal decimal03) {
         this.decimal03 = decimal03;
     }
 
     /**
-     * private‚Åˆø”‚ ‚è‚ÌˆÙí‚Ìsetterƒƒ\ƒbƒh
-     * @param decimal04 İ’è‚·‚é decimal04
+     * privateã§å¼•æ•°ã‚ã‚Šã®ç•°å¸¸ã®setterãƒ¡ã‚½ãƒƒãƒ‰
+     * @param decimal04 è¨­å®šã™ã‚‹ decimal04
      */
     private void setDecimal04(BigDecimal decimal04) {
         this.decimal04 = decimal04;
     }
 
     /**
-     * public‚Åˆø”‚ ‚è‚ÌˆÙí‚Ìsetterƒƒ\ƒbƒh
-     * @param decimal05 İ’è‚·‚é decimal05
+     * publicã§å¼•æ•°ã‚ã‚Šã®ç•°å¸¸ã®setterãƒ¡ã‚½ãƒƒãƒ‰
+     * @param decimal05 è¨­å®šã™ã‚‹ decimal05
      */
     public void setDecimal05(BigDecimal decimal05) {
         throw new RuntimeException();
     }
 
     /**
-     * public‚Åˆø”‚ª“ñ‚Â‚ÌˆÙí‚Ìsetterƒƒ\ƒbƒh
-     * @param decimal06 İ’è‚·‚é decimal06
+     * publicã§å¼•æ•°ãŒäºŒã¤ã®ç•°å¸¸ã®setterãƒ¡ã‚½ãƒƒãƒ‰
+     * @param decimal06 è¨­å®šã™ã‚‹ decimal06
      */
     public void setDecimal06(BigDecimal decimal061, BigDecimal decimal062) {
         this.decimal06 = decimal061;
@@ -82,40 +82,40 @@ public class DecimalColumnParser_FileLineObjectStub01 {
     }
 
     /**
-     * public‚Åˆø”‚ª‚ ‚è‚ÌˆÙí‚Ìsetterƒƒ\ƒbƒh
-     * @param decimal07 İ’è‚·‚é decimal07
+     * publicã§å¼•æ•°ãŒã‚ã‚Šã®ç•°å¸¸ã®setterãƒ¡ã‚½ãƒƒãƒ‰
+     * @param decimal07 è¨­å®šã™ã‚‹ decimal07
      */
     public void setDecimal07(BigDecimal decimal07) {
         this.decimal07 = decimal07;
     }
 
     /**
-     * public‚Åˆø”‚ª‚ ‚è‚ÌˆÙí‚Ìsetterƒƒ\ƒbƒh
-     * @param decimal08 İ’è‚·‚é decimal08
+     * publicã§å¼•æ•°ãŒã‚ã‚Šã®ç•°å¸¸ã®setterãƒ¡ã‚½ãƒƒãƒ‰
+     * @param decimal08 è¨­å®šã™ã‚‹ decimal08
      */
     public void setDecimal08(BigDecimal decimal08) {
         this.decimal08 = decimal08;
     }
 
     /**
-     * public‚Åˆø”‚ª‚ ‚è‚ÌˆÙí‚Ìsetterƒƒ\ƒbƒh
-     * @param decimal09 İ’è‚·‚é decimal09
+     * publicã§å¼•æ•°ãŒã‚ã‚Šã®ç•°å¸¸ã®setterãƒ¡ã‚½ãƒƒãƒ‰
+     * @param decimal09 è¨­å®šã™ã‚‹ decimal09
      */
     public void setDecimal09(BigDecimal decimal09) {
         this.decimal09 = decimal09;
     }
 
     /**
-     * public‚Åˆø”‚ª‚ ‚è‚ÌˆÙí‚Ìsetterƒƒ\ƒbƒh
-     * @param decimal10 İ’è‚·‚é decimal10
+     * publicã§å¼•æ•°ãŒã‚ã‚Šã®ç•°å¸¸ã®setterãƒ¡ã‚½ãƒƒãƒ‰
+     * @param decimal10 è¨­å®šã™ã‚‹ decimal10
      */
     public void setDecimal10(BigDecimal decimal10) {
         this.decimal10 = decimal10;
     }
 
     /**
-     * public‚Åˆø”‚ª‚ ‚è‚ÌˆÙí‚Ìsetterƒƒ\ƒbƒh
-     * @param decimal11 İ’è‚·‚é decimal11
+     * publicã§å¼•æ•°ãŒã‚ã‚Šã®ç•°å¸¸ã®setterãƒ¡ã‚½ãƒƒãƒ‰
+     * @param decimal11 è¨­å®šã™ã‚‹ decimal11
      */
     public void setDecimal11(BigDecimal decimal11) {
         this.decimal11 = decimal11;

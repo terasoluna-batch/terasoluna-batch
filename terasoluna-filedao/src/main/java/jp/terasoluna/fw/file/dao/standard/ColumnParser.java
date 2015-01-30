@@ -21,23 +21,23 @@ import java.lang.reflect.Method;
 import java.text.ParseException;
 
 /**
- * ƒJƒ‰ƒ€ƒp[ƒT[ƒCƒ“ƒ^ƒtƒF[ƒXB
+ * ã‚«ãƒ©ãƒ ãƒ‘ãƒ¼ã‚µãƒ¼ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã€‚
  * <p>
- * Žw’è‚³‚ê‚½•¶Žš—ñ‚ðƒp[ƒX‚µABigDecimalŒ^ADateŒ^‚É•ÏŠ·‚·‚éB ‚Ü‚½Aƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌŠe‘®«‚É’l‚ðŠi”[‚·‚éB
+ * æŒ‡å®šã•ã‚ŒãŸæ–‡å­—åˆ—ã‚’ãƒ‘ãƒ¼ã‚¹ã—ã€BigDecimalåž‹ã€Dateåž‹ã«å¤‰æ›ã™ã‚‹ã€‚ ã¾ãŸã€ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å„å±žæ€§ã«å€¤ã‚’æ ¼ç´ã™ã‚‹ã€‚
  * </p>
  */
 public interface ColumnParser {
 
     /**
-     * ƒJƒ‰ƒ€‚Ì•¶Žš—ñ‚ðƒp[ƒX‚µAƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÉŠi”[‚·‚éB
-     * @param column ƒJƒ‰ƒ€‚Ì•¶Žš—ñ
-     * @param t ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg
-     * @param method ƒJƒ‰ƒ€‚Ì•¶Žš—ñ‚ðƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÉŠi”[‚·‚éƒƒ\ƒbƒh
-     * @param columnFormat ƒp[ƒX‚·‚éÛ‚ÌƒtƒH[ƒ}ƒbƒg•¶Žš—ñ
-     * @throws IllegalArgumentException ƒtƒH[ƒ}ƒbƒg•¶Žš—ñ‚ªƒtƒH[ƒ}ƒbƒg‚Æ‚µ‚Ä•s³‚Å‚ ‚é‚Æ‚«
-     * @throws IllegalAccessException ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚Ö‚ÌÝ’è‚ªŽ¸”s‚µ‚½‚Æ‚«
-     * @throws InvocationTargetException ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚Ìƒƒ\ƒbƒh‚ª—áŠO‚ðƒXƒ[‚µ‚½‚Æ‚«
-     * @throws ParseException ƒp[ƒXˆ—‚ªŽ¸”s‚µ‚½‚Æ‚«
+     * ã‚«ãƒ©ãƒ ã®æ–‡å­—åˆ—ã‚’ãƒ‘ãƒ¼ã‚¹ã—ã€ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«æ ¼ç´ã™ã‚‹ã€‚
+     * @param column ã‚«ãƒ©ãƒ ã®æ–‡å­—åˆ—
+     * @param t ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param method ã‚«ãƒ©ãƒ ã®æ–‡å­—åˆ—ã‚’ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«æ ¼ç´ã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰
+     * @param columnFormat ãƒ‘ãƒ¼ã‚¹ã™ã‚‹éš›ã®ãƒ•ã‚©ãƒ¼ãƒžãƒƒãƒˆæ–‡å­—åˆ—
+     * @throws IllegalArgumentException ãƒ•ã‚©ãƒ¼ãƒžãƒƒãƒˆæ–‡å­—åˆ—ãŒãƒ•ã‚©ãƒ¼ãƒžãƒƒãƒˆã¨ã—ã¦ä¸æ­£ã§ã‚ã‚‹ã¨ã
+     * @throws IllegalAccessException ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¸ã®è¨­å®šãŒå¤±æ•—ã—ãŸã¨ã
+     * @throws InvocationTargetException ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ãƒ¡ã‚½ãƒƒãƒ‰ãŒä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã—ãŸã¨ã
+     * @throws ParseException ãƒ‘ãƒ¼ã‚¹å‡¦ç†ãŒå¤±æ•—ã—ãŸã¨ã
      */
     void parse(String column, Object t, Method method, String columnFormat)
                                                                            throws IllegalArgumentException,

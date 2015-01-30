@@ -5,7 +5,7 @@ import jp.terasoluna.fw.file.annotation.InputFileColumn;
 import jp.terasoluna.fw.file.annotation.OutputFileColumn;
 
 /**
- * public‚Ìgetƒƒ\ƒbƒh‚ª—áŠO‚ğƒXƒ[‚·‚éƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgB
+ * publicã®getãƒ¡ã‚½ãƒƒãƒ‰ãŒä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
  */
 @FileFormat()
 public class IntColumnFormatter_Stub03 {
@@ -16,6 +16,6 @@ public class IntColumnFormatter_Stub03 {
     private int intValue;
 
     public int getIntValue() {
-        throw new UnsupportedOperationException("getIntValue()‚©‚ç‚Ì—áŠO‚Å‚·");
+        throw new UnsupportedOperationException("getIntValue()ã‹ã‚‰ã®ä¾‹å¤–ã§ã™");
     }
 }

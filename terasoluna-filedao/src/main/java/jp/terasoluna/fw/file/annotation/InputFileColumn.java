@@ -23,89 +23,89 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * ���͐ݒ�p�̃A�m�e�[�V�����B
+ * 入力設定用のアノテーション。
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Target(ElementType.FIELD)
 public @interface InputFileColumn {
     /**
-     * �J����Index�B<br>
+     * カラムIndex。<br>
      * <br>
-     * �J������Index�i���ԁj�������B<b>���͕K�{����</b>�B<br>
-     * �J����Index�͓����N���X�̒��ŏd�����Ȃ��悤�Ɏ������邱�ƁB
+     * カラムのIndex（順番）を示す。<b>入力必須項目</b>。<br>
+     * カラムIndexは同じクラスの中で重複しないように実装すること。
      */
     int columnIndex();
 
     /**
-     * �J�����̃t�H�[�}�b�g�B<br>
+     * カラムのフォーマット。<br>
      * <br>
-     * DATE�^�ABigDecimal�^�̓��͒l�̃t�H�[�}�b�g�������B<br>
-     * (��)"yyyy/MM/dd","###,###,###"<br>
+     * DATE型、BigDecimal型の入力値のフォーマットを示す。<br>
+     * (例)"yyyy/MM/dd","###,###,###"<br>
      */
     String columnFormat() default "";
 
     /**
-     * �J�����̃o�C�g���B
+     * カラムのバイト数。
      * <p>
-     * �Œ蒷���o�͂̊e�J�����̃o�C�g���������B�܂��A���̑��̃t�@�C���Ńp�f�B���O�������s���ꍇ�ɓ��͂��s���B
+     * 固定長入出力の各カラムのバイト数を示す。また、その他のファイルでパディング処理を行う場合に入力を行う。
      * </p>
-     * <b>�Œ蒷�t�@�C���̏ꍇ�A���͕K�{���ځB</b><br>
-     * <b>�p�f�B���O�������s���ꍇ�A���͕K�{���ځB</b><br>
+     * <b>固定長ファイルの場合、入力必須項目。</b><br>
+     * <b>パディング処理を行う場合、入力必須項目。</b><br>
      */
     int bytes() default -1;
 
     /**
-     * �p�f�B���O��ʁB<br>
+     * パディング種別。<br>
      * <br>
-     * �p�f�B���O�̎��(�E�l/���l/�p�f�B���O�Ȃ�[LEFT/RIGHT/NONE])�������B
+     * パディングの種別(右詰/左詰/パディングなし[LEFT/RIGHT/NONE])を示す。
      */
     PaddingType paddingType() default PaddingType.NONE;
 
     /**
-     * �p�f�B���O�����B<br>
+     * パディング文字。<br>
      * <br>
-     * �p�f�B���O���镶���������B<b>(���p����1�����̂ݐݒ�\�B)</b><br>
-     * �p�f�B���O�����́A�W���uBean��`�t�@�C���ɐݒ肳�ꂽ�������1�����ڂ̔��p�����̂ݗL���ƂȂ�B<br>
-     * �S�p���������͂��ꂽ�ꍇ�̓G���[�ƂȂ菈�����I������B<br>
-     * 2�����ȏ���͂��Ă�1�����ڂ̂ݏ����ɗ��p�����B<br>
-     * ��؂蕶���A�͂ݕ����A�s��؂蕶���Ɠ��������𗘗p���邱�Ƃ͂ł��Ȃ��B
+     * パディングする文字を示す。<b>(半角文字1文字のみ設定可能。)</b><br>
+     * パディング文字は、ジョブBean定義ファイルに設定された文字列の1文字目の半角文字のみ有効となる。<br>
+     * 全角文字が入力された場合はエラーとなり処理を終了する。<br>
+     * 2文字以上入力しても1文字目のみ処理に利用される。<br>
+     * 区切り文字、囲み文字、行区切り文字と同じ文字を利用することはできない。
      */
     char paddingChar() default ' ';
 
     /**
-     * �����ϊ���ʁB<br>
+     * 文字変換種別。<br>
      * <br>
-     * String�^�̍��ڂɂ��āA�啶���ϊ��E�������ϊ��E���ϊ��������B<br>
-     * �啶���ϊ�:StringConverterToUpperCase.class<br>
-     * �������ϊ�:StringConverterToLowerCase.class<br>
-     * ���ϊ�:NullStringConverter.class<br>
+     * String型の項目について、大文字変換・小文字変換・無変換を示す。<br>
+     * 大文字変換:StringConverterToUpperCase.class<br>
+     * 小文字変換:StringConverterToLowerCase.class<br>
+     * 無変換:NullStringConverter.class<br>
      */
     Class<? extends StringConverter> stringConverter() default NullStringConverter.class;
 
     /**
-     * �g������ʁB<br>
+     * トリム種別。<br>
      * <br>
-     * �g�����̎��(�E�l/���l/�g�����Ȃ�[LEFT/RIGHT/NONE])�������B
+     * トリムの種別(右詰/左詰/トリムなし[LEFT/RIGHT/NONE])を示す。
      */
     TrimType trimType() default TrimType.NONE;
 
     /**
-     * �g���������B<br>
+     * トリム文字。<br>
      * <br>
-     * �g�������镶���������B<b>(���p�����̂ݐݒ�\)</b><br>
-     * �g���������́A�W���uBean��`�t�@�C���ɐݒ肳�ꂽ�������1�����ڂ̔��p�����̂ݗL���ƂȂ�B<br>
-     * �S�p���������͂��ꂽ�ꍇ�̓G���[�ƂȂ菈�����I������B<br>
-     * 2�����ȏ���͂��Ă�1�����ڂ̂ݏ����ɗ��p�����B<br>
-     * ��؂蕶���A�͂ݕ����A�s��؂蕶���Ɠ��������𗘗p���邱�Ƃ͂ł��Ȃ��B
+     * トリムする文字を示す。<b>(半角文字のみ設定可能)</b><br>
+     * トリム文字は、ジョブBean定義ファイルに設定された文字列の1文字目の半角文字のみ有効となる。<br>
+     * 全角文字が入力された場合はエラーとなり処理を終了する。<br>
+     * 2文字以上入力しても1文字目のみ処理に利用される。<br>
+     * 区切り文字、囲み文字、行区切り文字と同じ文字を利用することはできない。
      */
     char trimChar() default ' ';
 
     /**
-     * �͂ݕ����B
+     * 囲み文字。
      * <p>
-     * CSV,�ϒ��t�@�C���̊e�J�����̈͂ݕ�����ݒ肷��B�͂ݕ����͔��p�����Ɍ���B<br>
-     * �u'\u0000'�ichar�^�̍ŏ��l�j�v��ݒ肷��ƁA�t���[�����[�N�͈͂ݕ��������Ɣ��f����B �f�t�H���g�l�́u'\u0000'�ichar�^�̍ŏ��l�j�v�B
+     * CSV,可変長ファイルの各カラムの囲み文字を設定する。囲み文字は半角文字に限る。<br>
+     * 「'\u0000'（char型の最小値）」を設定すると、フレームワークは囲み文字無しと判断する。 デフォルト値は「'\u0000'（char型の最小値）」。
      * </p>
      */
     char columnEncloseChar() default Character.MIN_VALUE;

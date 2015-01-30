@@ -30,23 +30,23 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.support.AbstractMessageSource;
 
 /**
- * DAO����擾�������b�Z�[�W���\�[�X���A���b�Z�[�W�R�[�h�y�у��P�[�����L�[
- * �Ƃ��āA���b�Z�[�W�������̓��b�Z�[�W�t�H�[�}�b�g�����肷��N���X�B
+ * DAOから取得したメッセージリソースより、メッセージコード及びロケールをキー
+ * として、メッセージもしくはメッセージフォーマットを決定するクラス。
  * 
  * <p>
- * �{�N���X�̓N���X���[�h����DB���Q�Ƃ��ADB���̃��b�Z�[�W���\�[�X���烁�b�Z�[�W
- * �������̓��b�Z�[�W�t�H�[�}�b�g�����肷��N���X�ł���B
- * �܂��A���ۉ��ɑΉ����Ă���A����R�[�h�A���R�[�h�A�o���A���g�R�[�h�ɂ��
- * ���P�[�����ʂ��\�ł���B
+ * 本クラスはクラスロード時にDBを参照し、DB中のメッセージリソースからメッセージ
+ * もしくはメッセージフォーマットを決定するクラスである。
+ * また、国際化に対応しており、言語コード、国コード、バリアントコードによる
+ * ロケール判別が可能である。
  * </p>
- * <strong>�g�p���@</strong><br>
- * ���̃N���X�𗘗p����ɂ̓A�v���P�[�V�����R���e�L�X�g�N������MessageSource
- * �Ƃ��Đݒ肵�A�܂����b�Z�[�W���\�[�X���i�[����DB�Ƃ̐ڑ�������
- * DAO�I�u�W�F�N�g�Ƃ��Đݒ肷��K�v������B<br>
+ * <strong>使用方法</strong><br>
+ * このクラスを利用するにはアプリケーションコンテキスト起動時にMessageSource
+ * として設定し、またメッセージリソースを格納したDBとの接続をする
+ * DAOオブジェクトとして設定する必要がある。<br>
  * <br>
- * <strong>�ݒ��</strong><br>
- * Bean��`�t�@�C���Ɉȉ��̓��e�̋L�q������B<br>
- * DAO�Ƃ���DBMessageResourceDAO�𗘗p�����ꍇ<br>
+ * <strong>設定例</strong><br>
+ * Bean定義ファイルに以下の内容の記述をする。<br>
+ * DAOとしてDBMessageResourceDAOを利用した場合<br>
  * 
  * <pre>
  * &lt;bean id = &quot;messageSource&quot;
@@ -57,25 +57,25 @@ import org.springframework.context.support.AbstractMessageSource;
  * &lt;/bean&gt;
  * </pre>
  * 
- * <strong>���</strong><br>
- * &lt;bean&gt;�v�f��id������"messageSource" ���w�肷�邱�Ƃ�MessageSource
- * �Ƃ��ĔF�������B<br>
- * &lt;bean>�v�f��&lt;property&gt;�v�f�ɂ�DAO�̐ݒ���L�q����B<br>
+ * <strong>解説</strong><br>
+ * &lt;bean&gt;要素のid属性に"messageSource" を指定することでMessageSource
+ * として認識される。<br>
+ * &lt;bean>要素内&lt;property&gt;要素にはDAOの設定を記述する。<br>
  * <br>
  * 
  * <br>
- * �f�t�H���g���P�[���̕ύX<br>
- * �f�t�H���g���P�[���́A���b�Z�[�W���\�[�X�̃��P�[�����ݒ肳��Ă��Ȃ��ꍇ�A
- * �������͐ݒ肳��Ă��Ă����������P�[�����ݒ肳��Ă��Ȃ��ꍇ�Ɏw�肳���
- * ���P�[���ł���B<br>
- * �f�t�H���g���P�[���̏����ݒ�́A�N���C�A���g��VM�Ŏg�p����郍�P�[���ł���B
+ * デフォルトロケールの変更<br>
+ * デフォルトロケールは、メッセージリソースのロケールが設定されていない場合、
+ * もしくは設定されていても正しくロケールが設定されていない場合に指定される
+ * ロケールである。<br>
+ * デフォルトロケールの初期設定は、クライアントのVMで使用されるロケールである。
  * <br>
- * �f�t�H���g���P�[���͖{�N���X���Ɏ�������Ă���setDefaultLocale�𗘗p����
- * ���ƂŕύX���邱�Ƃ��o����B <br>
+ * デフォルトロケールは本クラス内に実装されているsetDefaultLocaleを利用する
+ * ことで変更することが出来る。 <br>
  * <br>
- * <strong>�ݒ��</strong><br>
- * Bean��`�t�@�C�����Ɉȉ��̓��e�̋L�q������B<br>
- * �f�t�H���g���P�[������{��i����R�[�h�uja�v)�ɂ���ꍇ�B<br>
+ * <strong>設定例</strong><br>
+ * Bean定義ファイル中に以下の内容の記述をする。<br>
+ * デフォルトロケールを日本語（言語コード「ja」)にする場合。<br>
  * <br>
  * 
  * <pre>
@@ -90,9 +90,9 @@ import org.springframework.context.support.AbstractMessageSource;
  * &lt;/bean&gt;
  * </pre>
  * 
- * <strong>���</strong><br>
- * &lt;bean&gt;�v�f��&lt;properities&gt;�v�f��name������defaultLocale���w�肵�A
- * value�����ɂĐݒ肵�����l���w�肷��B
+ * <strong>解説</strong><br>
+ * &lt;bean&gt;要素内&lt;properities&gt;要素のname属性にdefaultLocaleを指定し、
+ * value属性にて設定したい値を指定する。
  * 
  * @see jp.terasoluna.fw.message.DBMessage
  * @see jp.terasoluna.fw.message.DBMessageQuery
@@ -105,7 +105,7 @@ public class DataSourceMessageSource extends AbstractMessageSource implements
         InitializingBean {
 
     /**
-     * ���b�Z�[�W�R�[�h���Ƀ��P�[���ƃ��b�Z�[�W�t�H�[�}�b�g���}�b�v�ŕێ�����B
+     * メッセージコード毎にロケールとメッセージフォーマットをマップで保持する。
      * <br>
      * Map &lt;Code, Map &lt;Locale, MessageFormat&gt;&gt;
      */
@@ -113,49 +113,49 @@ public class DataSourceMessageSource extends AbstractMessageSource implements
                             = new HashMap<String, Map<Locale, MessageFormat>>();
 
     /**
-     * ���P�[�����Ƀ��b�Z�[�W�R�[�h�ƃ��b�Z�[�W���}�b�v�ŕێ�����B
+     * ロケール毎にメッセージコードとメッセージをマップで保持する。
      * <br/> Map &lt;Locale, Properties&gt;
      */
     protected Map<Locale, Properties> cachedMergedProperties
                             = new HashMap<Locale, Properties>();
 
     /**
-     * ���O�N���X�B
+     * ログクラス。
      */
     private static Log log = LogFactory.getLog(DataSourceMessageSource.class);
     
     /**
-     * ���P�[�����w�肳��Ă��Ȃ��ꍇ�̃f�t�H���g���P�[���B ���b�Z�[�W���\�[�X��
-     * �Ń��P�[�����w�肳��Ă��Ȃ��ꍇ�A ���̃��P�[�����ݒ肳���B
-     * �f�t�H���g�ł̓T�[�o�[��JVM�̌���R�[�h�݂̂����P�[���Ƃ��Ďg�p����B
+     * ロケールが指定されていない場合のデフォルトロケール。 メッセージリソース内
+     * でロケールが指定されていない場合、 このロケールが設定される。
+     * デフォルトではサーバー側JVMの言語コードのみをロケールとして使用する。
      */
     protected Locale defaultLocale
                             = new Locale(Locale.getDefault().getLanguage());
     
     /**
-     * ���b�Z�[�W���\�[�X���擾����DAO�B
+     * メッセージリソースを取得するDAO。
      */
     protected DBMessageResourceDAO dbMessageResourceDAO = null;
 
     /**
-     * �f�t�H���g���P�[����ݒ肷��B�ݒ肵�Ȃ��ꍇ�̓N���C�A���g��VM�̃��P�[��
-     * ���ݒ肳���BVM�̃��P�[�����F���ł��Ȃ��ꍇ�͉p�ꂪ�ݒ肳���B
+     * デフォルトロケールを設定する。設定しない場合はクライアントのVMのロケール
+     * が設定される。VMのロケールが認識できない場合は英語が設定される。
      * 
      * @see #getMessageInternal
      * @see java.util.Locale#getDefault
      * 
      * @param defaultLocale
-     *            �f�t�H���g�̃��P�[���B
+     *            デフォルトのロケール。
      */
     public void setDefaultLocale(Locale defaultLocale) {
         this.defaultLocale = defaultLocale;
     }
 
     /**
-     * DBMessageResourceDAO��ݒ肷��B
+     * DBMessageResourceDAOを設定する。
      * 
      * @param dbMessageResourceDAO
-     *            �S�Ẵ��b�Z�[�W���\�[�X���擾����DAO
+     *            全てのメッセージリソースを取得するDAO
      */
     public void setDbMessageResourceDAO(
             DBMessageResourceDAO dbMessageResourceDAO) {
@@ -163,9 +163,9 @@ public class DataSourceMessageSource extends AbstractMessageSource implements
     }
 
     /**
-     * Web�A�v���P�[�V�����R���e�L�X�g�N�����Ɏ��s�����B<br>
-     * ���b�Z�[�W���\�[�X���烁�b�Z�[�W�R�[�h�A���P�[���A���b�Z�[�W
-     * �i���b�Z�[�W�t�H�[�}�b�g�܂ށj�̂R���ڂŕ��ނ��A�L���b�V���ɕێ�����B
+     * Webアプリケーションコンテキスト起動時に実行される。<br>
+     * メッセージリソースからメッセージコード、ロケール、メッセージ
+     * （メッセージフォーマット含む）の３項目で分類し、キャッシュに保持する。
      * 
      * @see #cachedMergedProperties
      * 
@@ -178,21 +178,21 @@ public class DataSourceMessageSource extends AbstractMessageSource implements
     }
 
     /**
-     * ���b�Z�[�W���\�[�X�������[�h����B
-     * ���̃��\�b�h�𖾎��I�ɌĂяo�����Ƃ�DB���瓮�I�Ƀ��b�Z�[�W���\�[�X��
-     * �����[�h����BDB�̍X�V���������ꍇ�A���̃��\�b�h���Ăяo�����Ƃ�
-     * ���b�Z�[�W���\�[�X�������[�h���邱�Ƃ��\�B
+     * メッセージリソースをリロードする。
+     * このメソッドを明示的に呼び出すことでDBから動的にメッセージリソースを
+     * リロードする。DBの更新があった場合、このメソッドを呼び出すことで
+     * メッセージリソースをリロードすることが可能。
      */
     public synchronized void reloadDataSourceMessage() {
         readMessagesFromDataSource();
     }
     
     /**
-     * DAO���烁�b�Z�[�W���\�[�X���擾���A��������B���b�Z�[�W���\�[�X�����P�[��
-     * �ʂɂ܂Ƃ߁A���b�Z�[�W�R�[�h�ƃ��b�Z�[�W�{�̂��Z�b�g�ɂ��Ċi�[����B
-     * �擾�����S�Ẵ��b�Z�[�W���\�[�X�ɑ΂��Ď��{����B<br>
-     * ���b�Z�[�W���\�[�X�Ƃ́A���b�Z�[�W�R�[�h�A����R�[�h�A���R�[�h�A
-     * �o���A���g�R�[�h�A���b�Z�[�W�{�̂ł���B
+     * DAOからメッセージリソースを取得し、整理する。メッセージリソースをロケール
+     * 別にまとめ、メッセージコードとメッセージ本体をセットにして格納する。
+     * 取得した全てのメッセージリソースに対して実施する。<br>
+     * メッセージリソースとは、メッセージコード、言語コード、国コード、
+     * バリアントコード、メッセージ本体である。
      */
      protected synchronized void readMessagesFromDataSource() {
         if (log.isDebugEnabled()) {
@@ -200,10 +200,10 @@ public class DataSourceMessageSource extends AbstractMessageSource implements
         }
         cachedMergedProperties.clear();
         cachedMessageFormats.clear();
-        // DAO���烁�b�Z�[�W���\�[�X���擾����
+        // DAOからメッセージリソースを取得する
         List<DBMessage> messages = dbMessageResourceDAO.findDBMessages();
-        //���b�Z�[�W�R�[�h�ƃ��b�Z�[�W���e��null�ł͂Ȃ��ꍇ�A
-        //�L���b�V���ɓǂݍ���
+        //メッセージコードとメッセージ内容がnullではない場合、
+        //キャッシュに読み込む
         for (DBMessage message : messages) {
             if (message.code != null && message.message != null) {
                 mapMessage(message);
@@ -215,19 +215,19 @@ public class DataSourceMessageSource extends AbstractMessageSource implements
     }
 
     /**
-     * ���b�Z�[�W���\�[�X�����P�[���ʂɐ������A���b�Z�[�W�R�[�h�ƃ��b�Z�[�W�{��
-     * ���Z�b�g�ɂ��āA�n�b�V���e�[�u���Ɋi�[����B
+     * メッセージリソースをロケール別に整理し、メッセージコードとメッセージ本体
+     * をセットにして、ハッシュテーブルに格納する。
      * 
      * @param message
-     *            ���b�Z�[�W���\�[�X���i�[����DBMessage�I�u�W�F�N�g�B
+     *            メッセージリソースを格納したDBMessageオブジェクト。
      */
     protected void mapMessage(DBMessage message) {
-        // ���P�[���I�u�W�F�N�g������R�[�h�A���R�[�h�A�o���A���g�R�[�h����
-        // ��������B
+        // ロケールオブジェクトを言語コード、国コード、バリアントコードから
+        // 生成する。
         Locale locale = createLocale(message);
-        // ���P�[���ɑΉ�����S�Ẵ��b�Z�[�W���擾����B
+        // ロケールに対応する全てのメッセージを取得する。
         Properties messages = getMessages(locale);
-        // �擾�����S�Ẵ��b�Z�[�W�ɐV�K���b�Z�[�W��ǉ�����B
+        // 取得した全てのメッセージに新規メッセージを追加する。
         messages.setProperty(message.getCode(), message.getMessage());
         if (log.isDebugEnabled()) {
             log.debug("add Message[" + message.getMessage() + "] (code["
@@ -236,20 +236,20 @@ public class DataSourceMessageSource extends AbstractMessageSource implements
     }
 
     /**
-     * Locale�I�u�W�F�N�g�𐶐�����B<br>
-     * ����R�[�h�A���R�[�h�A�o���A���g�R�[�h����Locale�I�u�W�F�N�g�𐶐�����B
-     * ����R�[�h���^�����Ă��Ȃ��ꍇ�́A�f�t�H���g���P�[���̌���R�[�h�̂�
-     * ���i�[���ALocale�I�u�W�F�N�g�𐶐�����B
+     * Localeオブジェクトを生成する。<br>
+     * 言語コード、国コード、バリアントコードからLocaleオブジェクトを生成する。
+     * 言語コードが与えられていない場合は、デフォルトロケールの言語コードのみ
+     * を格納し、Localeオブジェクトを生成する。
      * 
-     * @param message ���b�Z�[�W���\�[�X
+     * @param message メッセージリソース
      * 
      * @return
-     *      ����R�[�h�A���R�[�h�A�o���A���g�R�[�h���i�[����Locale�I�u�W�F�N�g�B
+     *      言語コード、国コード、バリアントコードを格納したLocaleオブジェクト。
      *
      * @throws IllegalArgumentException
-     *      ���b�Z�[�W�R�[�h�y�у��b�Z�[�W�����݂��郁�b�Z�[�W���\�[�X��
-     *      ���P�[�����ݒ肳��Ă��Ȃ��B���A�f�t�H���g���P�[�����ݒ�o���Ȃ�
-     *      �ꍇ�̃G���[�B
+     *      メッセージコード及びメッセージが存在するメッセージリソースに
+     *      ロケールが設定されていない。かつ、デフォルトロケールも設定出来ない
+     *      場合のエラー。
      */
     protected Locale createLocale(DBMessage message) {
         if (message.getLanguage() == null) {
@@ -274,20 +274,20 @@ public class DataSourceMessageSource extends AbstractMessageSource implements
     }
 
     /**
-     * ���P�[���ɑΉ�����S�Ẵ��b�Z�[�W��ԋp����B �w�肳�ꂽ���P�[����
-     * ���b�Z�[�W�����݂��Ȃ��ꍇ�͐V���ɐ������Anull��ԋp���Ȃ��B
+     * ロケールに対応する全てのメッセージを返却する。 指定されたロケールの
+     * メッセージが存在しない場合は新たに生成し、nullを返却しない。
      * 
      * @param locale
-     *            ���b�Z�[�W�̃��P�[���B
+     *            メッセージのロケール。
      * 
-     * @return ���P�[���ɑΉ������S�Ẵ��b�Z�[�W�B ���b�Z�[�W�R�[�h��
-     * ���b�Z�[�W�{�̂��֘A�t�����A�i�[����Ă���B
+     * @return ロケールに対応した全てのメッセージ。 メッセージコードと
+     * メッセージ本体が関連付けられ、格納されている。
      */
     protected Properties getMessages(Locale locale) {
-        // ���P�[�����L�[�Ƃ��A�S�Ẵ��b�Z�[�W���擾���� �B
+        // ロケールをキーとし、全てのメッセージを取得する 。
         Properties messages = cachedMergedProperties.get(locale);
-        // ���P�[���ɑΉ������S�Ẵ��b�Z�[�W�����݂��Ȃ������ꍇ�A
-        // �V���ɍ쐬���AcachedMergedProperties���Ɋi�[����B
+        // ロケールに対応した全てのメッセージが存在しなかった場合、
+        // 新たに作成し、cachedMergedProperties内に格納する。
         if (messages == null) {
             messages = new Properties();
             cachedMergedProperties.put(locale, messages);
@@ -296,16 +296,16 @@ public class DataSourceMessageSource extends AbstractMessageSource implements
     }
 
     /**
-     * �����Ƃ��ēn���ꂽ���b�Z�[�W�R�[�h�ƃ��P�[�����烁�b�Z�[�W�����肵�A
-     * ���b�Z�[�W��ԋp����B�e�N���X����Ăяo����郁�\�b�h�B
-     * AbstractMessageSource�̃��\�b�h���I�[�o�[���C�h���Ă���B
+     * 引数として渡されたメッセージコードとロケールからメッセージを決定し、
+     * メッセージを返却する。親クラスから呼び出されるメソッド。
+     * AbstractMessageSourceのメソッドをオーバーライドしている。
      * 
      * @param code
-     *            ���b�Z�[�W�R�[�h
+     *            メッセージコード
      * @param locale
-     *            ���b�Z�[�W�̃��P�[��
+     *            メッセージのロケール
      * 
-     * @return ���b�Z�[�W�{��
+     * @return メッセージ本体
      */
     @Override
     protected synchronized String resolveCodeWithoutArguments(
@@ -322,85 +322,85 @@ public class DataSourceMessageSource extends AbstractMessageSource implements
     }
 
     /**
-     * ���b�Z�[�W�R�[�h�ƃ��P�[�����烁�b�Z�[�W�����肷��B �����Ƃ��ė^����ꂽ
-     * ���P�[���Ń��b�Z�[�W�̌��肪�o���Ȃ������ꍇ�A���P�[����ω������A
-     * ���b�Z�[�W�̎擾�����݂�B
-     * �܂��A�f�t�H���g���P�[�����^�����Ă����ꍇ�A�f�t�H���g���P�[���ł�
-     * ���b�Z�[�W�̌�����Ō�Ɏ��݂�B
+     * メッセージコードとロケールからメッセージを決定する。 引数として与えられた
+     * ロケールでメッセージの決定が出来なかった場合、ロケールを変化させ、
+     * メッセージの取得を試みる。
+     * また、デフォルトロケールが与えられていた場合、デフォルトロケールでの
+     * メッセージの決定を最後に試みる。
      * 
      * @param code
-     *            ���b�Z�[�W�R�[�h
+     *            メッセージコード
      * @param locale
-     *            ���b�Z�[�W�̃��P�[��
+     *            メッセージのロケール
      * 
-     * @return ���b�Z�[�W�{��
+     * @return メッセージ本体
      */
     protected String internalResolveCodeWithoutArguments(
             String code,
             Locale locale) {
-        // ���b�Z�[�W�R�[�h�ƃ��P�[���ɑΉ��������b�Z�[�W�{�̂�msg�Ɋi�[����B
+        // メッセージコードとロケールに対応したメッセージ本体をmsgに格納する。
         String msg = getMessages(locale).getProperty(code);
-        // ���b�Z�[�W�{�̂̎擾���o�����ꍇ�A���b�Z�[�W�{�̂�ԋp����B
+        // メッセージ本体の取得が出来た場合、メッセージ本体を返却する。
         if (msg != null) {
             return msg;
         }
-        // ���b�Z�[�W�{�̂̎擾���o���Ȃ������ꍇ�A���P�[����ω�������
-        // ���b�Z�[�W�{�̂̎擾�����݂�B
+        // メッセージ本体の取得が出来なかった場合、ロケールを変化させて
+        // メッセージ本体の取得を試みる。
 
-        // ���P�[���I�u�W�F�N�g�̃p�^�[���̐���
+        // ロケールオブジェクトのパターンの生成
         List<Locale> locales = getAlternativeLocales(locale);
-        // ���b�Z�[�W�R�[�h�ƐV���ɐ����������P�[���ɑΉ��������b�Z�[�W�����肵�A
-        // ���b�Z�[�W�{�̂�ԋp���܂��B
+        // メッセージコードと新たに生成したロケールに対応したメッセージを決定し、
+        // メッセージ本体を返却します。
         for (int i = 0; i < locales.size(); i++) {
             msg = getMessages(locales.get(i)).getProperty(code);
             if (msg != null) {
                 return msg;
             }
         }
-        // ���b�Z�[�W���擾�ł��Ȃ����ꍇ��null��ԋp����B
+        // メッセージが取得できなった場合はnullを返却する。
         return null;
     }
 
     /**
-     * ���b�Z�[�W�����肷��ۂ̃L�[�𐶐�����B ���P�[���̒l����
-     * ���P�[���I�u�W�F�N�g�𐶐����A���X�g�Ɋi�[�A�ԋp����B
-     * �P�D����locale�̌���R�[�h�A���R�[�h�������́B�i�o���A���g�R�[�h���폜�B�j
-     * �Q�D����locale�̌���R�[�h�������́B�i���R�[�h�A�o���A���g�R�[�h���폜�B�j
-     * �R�D�f�t�H���g���P�[���̌���R�[�h�A���R�[�h�A�o���A���g�R�[�h�������́B
-     * �S�D�f�t�H���g���P�[���̌���R�[�h�A���R�[�h�������́B
-     * �T�D�f�t�H���g���P�[���̌���R�[�h�������́B
+     * メッセージを決定する際のキーを生成する。 ロケールの値から
+     * ロケールオブジェクトを生成し、リストに格納、返却する。
+     * １．引数localeの言語コード、国コードを持つもの。（バリアントコードを削除。）
+     * ２．引数localeの言語コードを持つもの。（国コード、バリアントコードを削除。）
+     * ３．デフォルトロケールの言語コード、国コード、バリアントコードを持つもの。
+     * ４．デフォルトロケールの言語コード、国コードを持つもの。
+     * ５．デフォルトロケールの言語コードを持つもの。
      * 
      * @param locale
-     *            ���P�[���I�u�W�F�N�g
+     *            ロケールオブジェクト
      * 
-     * @return ���b�Z�[�W����̃L�[�ƂȂ郍�P�[���I�u�W�F�N�g
+     * @return メッセージ決定のキーとなるロケールオブジェクト
      */
     protected List<Locale> getAlternativeLocales(Locale locale) {
         List<Locale> locales = new ArrayList<Locale>();
-        // ���P�[�����Ƀo���A���g�R�[�h�����݂���ꍇ
+        // ロケール内にバリアントコードが存在する場合
         if (locale.getVariant().length() > 0) {
-            // Locale(language,country,"")��ݒ�
+            // Locale(language,country,"")を設定
             locales.add(new Locale(locale.getLanguage(), locale.getCountry()));
         }
-        // ���P�[�����ɍ��R�[�h�����݂���ꍇ
+        // ロケール内に国コードが存在する場合
         if (locale.getCountry().length() > 0) {
-            // Locale(language,"","")��ݒ�
+            // Locale(language,"","")を設定
             locales.add(new Locale(locale.getLanguage()));
         }
-        // �f�t�H���g���P�[�����ݒ肳��Ă���ꍇ
+        // デフォルトロケールが設定されている場合
         if (defaultLocale != null && !locale.equals(defaultLocale)) {
             if (defaultLocale.getVariant().length() > 0) {
-                // Locale(language,country,"")��ݒ�
+                // Locale(language,country,"")を設定
                 locales.add(defaultLocale);
             }
             if (defaultLocale.getCountry().length() > 0) {
-                // Locale(language,country,"")��ݒ�
+                // Locale(language,country,"")を設定
                 locales.add(new Locale(defaultLocale.getLanguage(),
                         defaultLocale.getCountry()));
             }
-            // ���P�[�����ɍ��R�[�h�����݂���ꍇ
+            // ロケール内に国コードが存在する場合
             if (defaultLocale.getLanguage().length() > 0) {
-                // Locale(language,"","")��ݒ�
+                // Locale(language,"","")を設定
                 locales.add(new Locale(defaultLocale.getLanguage()));
             }
         }
@@ -408,26 +408,26 @@ public class DataSourceMessageSource extends AbstractMessageSource implements
     }
 
     /**
-     * �����Ƃ��ēn���ꂽ���b�Z�[�W�R�[�h�ƃ��P�[�����烁�b�Z�[�W�t�H�[�}�b�g��
-     * ���肵�A���b�Z�[�W�t�H�[�}�b�g��ԋp����B
-     * �e�N���X����Ăяo����郁�\�b�h�BAbstractMessageSource�̃��\�b�h��
-     * �I�[�o�[���C�h���Ă���B
+     * 引数として渡されたメッセージコードとロケールからメッセージフォーマットを
+     * 決定し、メッセージフォーマットを返却する。
+     * 親クラスから呼び出されるメソッド。AbstractMessageSourceのメソッドを
+     * オーバーライドしている。
      * 
      * @param code
-     *            ���b�Z�[�W�R�[�h
+     *            メッセージコード
      * @param locale
-     *            ���b�Z�[�W�̃��P�[��
+     *            メッセージのロケール
      * 
-     * @return ���b�Z�[�W�t�H�[�}�b�g
+     * @return メッセージフォーマット
      */
     @Override
     protected synchronized MessageFormat resolveCode(
             String code,
             Locale locale) {
-        // ���b�Z�[�W�R�[�h�ƃ��P�[���ɑΉ��������b�Z�[�W�{�̂�messageFormat��
-        // �i�[����B
+        // メッセージコードとロケールに対応したメッセージ本体をmessageFormatに
+        // 格納する。
         MessageFormat messageFormat = getMessageFormat(code, locale);
-        // ���b�Z�[�W�{�̂̎擾���o�����ꍇ�A���b�Z�[�W�t�H�[�}�b�g��ԋp����
+        // メッセージ本体の取得が出来た場合、メッセージフォーマットを返却する
         if (messageFormat != null) {
             if (log.isDebugEnabled()) {
                 log.debug("resolved [" + code + "] for locale [" + locale
@@ -435,13 +435,13 @@ public class DataSourceMessageSource extends AbstractMessageSource implements
             }
             return messageFormat;
         }
-        // ���b�Z�[�W�t�H�[�}�b�g�̎擾���o���Ȃ������ꍇ�A���P�[����ω�������
-        // ���b�Z�[�W�t�H�[�}�b�g�̎擾�����݂�B
+        // メッセージフォーマットの取得が出来なかった場合、ロケールを変化させて
+        // メッセージフォーマットの取得を試みる。
 
-        // ���P�[���I�u�W�F�N�g�̃p�^�[���̐���
+        // ロケールオブジェクトのパターンの生成
         List<Locale> locales = getAlternativeLocales(locale);
-        // ���b�Z�[�W�R�[�h�ƐV���ɐ����������P�[���ɑΉ�����
-        // ���b�Z�[�W�t�H�[�}�b�g�����肵�A���b�Z�[�W�t�H�[�}�b�g��ԋp���܂��B
+        // メッセージコードと新たに生成したロケールに対応した
+        // メッセージフォーマットを決定し、メッセージフォーマットを返却します。
         for (int i = 0; i < locales.size(); i++) {
             messageFormat = getMessageFormat(code, locales.get(i));
             if (messageFormat != null) {
@@ -458,27 +458,27 @@ public class DataSourceMessageSource extends AbstractMessageSource implements
                         + locale + "]");
             }
         }
-        // ���b�Z�[�W�t�H�[�}�b�g���擾�o���Ȃ������ꍇ��null��ԋp����B
+        // メッセージフォーマットが取得出来なかった場合はnullを返却する。
         return null;
     }
 
     /**
-     * �����Ƃ��ēn���ꂽ���b�Z�[�W�R�[�h�ƃ��P�[�����烁�b�Z�[�W�t�H�[�}�b�g
-     * �����肷��B
+     * 引数として渡されたメッセージコードとロケールからメッセージフォーマット
+     * を決定する。
      * 
      * @param code
-     *            ���b�Z�[�W�R�[�h
+     *            メッセージコード
      * @param locale
-     *            ���b�Z�[�W�̃��P�[��
+     *            メッセージのロケール
      * 
-     * @return ���肳�ꂽ���b�Z�[�W�t�H�[�}�b�g
+     * @return 決定されたメッセージフォーマット
      */
     protected MessageFormat getMessageFormat(String code, Locale locale) {
-        // ���b�Z�[�W�R�[�h�ɑΉ��������P�[���}�b�v���擾����B
+        // メッセージコードに対応したロケールマップを取得する。
         Map<Locale, MessageFormat> localeMap
                                    = this.cachedMessageFormats.get(code);
-        // ���P�[���}�b�v�����݂����ꍇ�A���P�[���}�b�v��胍�P�[���ɑΉ�����
-        // ���b�Z�[�W�t�H�[�}�b�g���擾�A�ԋp����B
+        // ロケールマップが存在した場合、ロケールマップよりロケールに対応する
+        // メッセージフォーマットを取得、返却する。
         if (localeMap != null) {
             MessageFormat result = localeMap.get(locale);
             if (result != null) {
@@ -488,21 +488,21 @@ public class DataSourceMessageSource extends AbstractMessageSource implements
         
         String msg = getMessages(locale).getProperty(code);
 
-        // ���b�Z�[�W�����݂���ꍇ
+        // メッセージが存在する場合
         if (msg != null) {
 
-            // ���P�[���}�b�v�����݂��Ȃ��ꍇ�A�V���Ƀ��P�[���}�b�v�𐶐����A
-            // ���b�Z�[�W�t�H�[�}�b�g��ԋp����B
+            // ロケールマップが存在しない場合、新たにロケールマップを生成し、
+            // メッセージフォーマットを返却する。
             if (localeMap == null) {
                 localeMap = new HashMap<Locale, MessageFormat>();
                 this.cachedMessageFormats.put(code, localeMap);
             }
-            // ���b�Z�[�W�ƃ��P�[����胁�b�Z�[�W�t�H�[�}�b�g���쐬����B
+            // メッセージとロケールよりメッセージフォーマットを作成する。
             MessageFormat result = createMessageFormat(msg, locale);
             localeMap.put(locale, result);
             return result;
         }
-        // ���b�Z�[�W�t�H�[�}�b�g���擾�o���Ȃ������ꍇ��null��ԋp����B
+        // メッセージフォーマットが取得出来なかった場合はnullを返却する。
         return null;
     }
 }

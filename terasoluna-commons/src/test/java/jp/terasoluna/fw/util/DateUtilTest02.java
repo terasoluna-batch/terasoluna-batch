@@ -24,9 +24,9 @@ import java.util.Date;
 import java.util.Map;
 
 /**
- * DateUtil ƒuƒ‰ƒbƒNƒ{ƒbƒNƒXƒeƒXƒgB<br>
- * staticƒCƒjƒVƒƒƒ‰ƒCƒU‚Ì“®ì‚ğƒeƒXƒg‘ÎÛ‚Æ‚µ‚Ä‚¢‚é‚½‚ßA
- * ‘¼‚Ìƒƒ\ƒbƒh‚ªÀs‚³‚ê‚éDateUtilTest01‚Æ‚ÍƒeƒXƒgƒP[ƒX‚ğ•ªŠ„‚µ‚Ä‚¢‚éB
+ * DateUtil ãƒ–ãƒ©ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ†ã‚¹ãƒˆã€‚<br>
+ * staticã‚¤ãƒ‹ã‚·ãƒ£ãƒ©ã‚¤ã‚¶ã®å‹•ä½œã‚’ãƒ†ã‚¹ãƒˆå¯¾è±¡ã¨ã—ã¦ã„ã‚‹ãŸã‚ã€
+ * ä»–ã®ãƒ¡ã‚½ãƒƒãƒ‰ãŒå®Ÿè¡Œã•ã‚Œã‚‹DateUtilTest01ã¨ã¯ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã‚’åˆ†å‰²ã—ã¦ã„ã‚‹ã€‚
  */
 public class DateUtilTest02 extends PropertyTestCase {
 
@@ -40,21 +40,21 @@ public class DateUtilTest02 extends PropertyTestCase {
 
     @Override
     protected void setUpData() throws Exception {
-        addProperty("wareki.gengo.0.name", "•½¬");
+        addProperty("wareki.gengo.0.name", "å¹³æˆ");
         addProperty("wareki.gengo.0.roman", "H");
         addProperty("wareki.gengo.0.startDate", "1989/01/08");
-        addProperty("wareki.gengo.1.name", "º˜a");
+        addProperty("wareki.gengo.1.name", "æ˜­å’Œ");
         addProperty("wareki.gengo.1.roman", "S");
         addProperty("wareki.gengo.1.startDate", "1926/12/25");
-        addProperty("wareki.gengo.2.name", "‘å³");
+        addProperty("wareki.gengo.2.name", "å¤§æ­£");
         addProperty("wareki.gengo.2.roman", "T");
         addProperty("wareki.gengo.2.startDate", "1912/07/30");
-        addProperty("wareki.gengo.3.name", "–¾¡");
+        addProperty("wareki.gengo.3.name", "æ˜æ²»");
         addProperty("wareki.gengo.3.roman", "M");
         addProperty("wareki.gengo.3.startDate", "1868/09/04");
-        addProperty("wareki.gengo.4.name", "•½¬");
+        addProperty("wareki.gengo.4.name", "å¹³æˆ");
         addProperty("wareki.gengo.4.roman", "H");
-        addProperty("wareki.gengo.5.name", "•½¬");
+        addProperty("wareki.gengo.5.name", "å¹³æˆ");
         addProperty("wareki.gengo.5.roman", "H");
         addProperty("wareki.gengo.5.startDate", "asdf");
     }
@@ -68,45 +68,45 @@ public class DateUtilTest02 extends PropertyTestCase {
      * testStatic01()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ó‘Ô) ƒvƒƒpƒeƒB:wareki.gengo.0.name = •½¬<br>
-     *                 @@wareki.gengo.0.roman = H<br>
-     *                 @@wareki.gengo.0.startDate = 1989/01/08<br>
-     *                 @@wareki.gengo.1.name = º˜a<br>
-     *                 @@wareki.gengo.1.roman = S<br>
-     *                 @@wareki.gengo.1.startDate = 1926/12/25<br>
-     *                 @@wareki.gengo.2.name = ‘å³<br>
-     *                 @@wareki.gengo.2.roman = T<br>
-     *                 @@wareki.gengo.2.startDate = 1912/07/30<br>
-     *                 @@wareki.gengo.3.name = –¾¡<br>
-     *                 @@wareki.gengo.3.roman = M<br>
-     *                 @@wareki.gengo.3.startDate = 1868/09/04<br>
-     *                 @@wareki.gengo.4.name = •½¬<br>
-     *                 @@wareki.gengo.4.roman = H<br>
-     *                 @@wareki.gengo.5.name = •½¬<br>
-     *                 @@wareki.gengo.5.roman = H<br>
-     *                 @@wareki.gengo.5.startDate = asdf<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£:wareki.gengo.0.name = å¹³æˆ<br>
+     *                 ã€€ã€€wareki.gengo.0.roman = H<br>
+     *                 ã€€ã€€wareki.gengo.0.startDate = 1989/01/08<br>
+     *                 ã€€ã€€wareki.gengo.1.name = æ˜­å’Œ<br>
+     *                 ã€€ã€€wareki.gengo.1.roman = S<br>
+     *                 ã€€ã€€wareki.gengo.1.startDate = 1926/12/25<br>
+     *                 ã€€ã€€wareki.gengo.2.name = å¤§æ­£<br>
+     *                 ã€€ã€€wareki.gengo.2.roman = T<br>
+     *                 ã€€ã€€wareki.gengo.2.startDate = 1912/07/30<br>
+     *                 ã€€ã€€wareki.gengo.3.name = æ˜æ²»<br>
+     *                 ã€€ã€€wareki.gengo.3.roman = M<br>
+     *                 ã€€ã€€wareki.gengo.3.startDate = 1868/09/04<br>
+     *                 ã€€ã€€wareki.gengo.4.name = å¹³æˆ<br>
+     *                 ã€€ã€€wareki.gengo.4.roman = H<br>
+     *                 ã€€ã€€wareki.gengo.5.name = å¹³æˆ<br>
+     *                 ã€€ã€€wareki.gengo.5.roman = H<br>
+     *                 ã€€ã€€wareki.gengo.5.startDate = asdf<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») ƒvƒ‰ƒCƒx[ƒgƒtƒB[ƒ‹ƒh:ƒvƒ‰ƒCƒx[ƒgƒtƒB[ƒ‹ƒh‚Å‚ ‚éuGENGO_NAMEvuGENGO_ROMANvuGENGO_BEGIN_DATESvuGENGO_BEGIN_YEARSv‚ÌƒTƒCƒY‚ª‚S‚Å‚ ‚é‚±‚ÆB<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:<errorƒŒƒxƒ‹><br>
-     *                    ƒƒbƒZ[ƒWFwareki.gengo.4.startDate not found<br>
-     *                    <errorƒŒƒxƒ‹><br>
-     *                    ƒƒbƒZ[ƒWFUnparseable date: "asdf"<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ãƒ—ãƒ©ã‚¤ãƒ™ãƒ¼ãƒˆãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰:ãƒ—ãƒ©ã‚¤ãƒ™ãƒ¼ãƒˆãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã§ã‚ã‚‹ã€ŒGENGO_NAMEã€ã€ŒGENGO_ROMANã€ã€ŒGENGO_BEGIN_DATESã€ã€ŒGENGO_BEGIN_YEARSã€ã®ã‚µã‚¤ã‚ºãŒï¼”ã§ã‚ã‚‹ã“ã¨ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:<errorãƒ¬ãƒ™ãƒ«><br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼šwareki.gengo.4.startDate not found<br>
+     *                    <errorãƒ¬ãƒ™ãƒ«><br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼šUnparseable date: "asdf"<br>
      *
      * <br>
-     * ‚·‚×‚Ä‚Ìƒpƒ^[ƒ“‚ğ–Ô—…‚·‚éƒeƒXƒg
+     * ã™ã¹ã¦ã®ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’ç¶²ç¾…ã™ã‚‹ãƒ†ã‚¹ãƒˆ
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testStatic01() throws Exception {
 
-        // Œ‹‰ÊŠm”F
-        //ƒvƒ‰ƒCƒx[ƒgƒtƒB[ƒ‹ƒh‚ÌŒ”‚ª4Œ‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚éB
+        // çµæœç¢ºèª
+        //ãƒ—ãƒ©ã‚¤ãƒ™ãƒ¼ãƒˆãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®ä»¶æ•°ãŒ4ä»¶ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
         Map GENGO_NAME
                 = (Map) UTUtil.getPrivateField(DateUtil.class, "GENGO_NAME");
         Map GENGO_ROMAN

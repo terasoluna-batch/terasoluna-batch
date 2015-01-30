@@ -19,7 +19,7 @@ package jp.terasoluna.fw.validation.springmodules;
 import org.springframework.validation.Errors;
 
 /**
- * BaseMultiFieldValidatorƒNƒ‰ƒX‚ÌÀ‘•ƒNƒ‰ƒXB
+ * BaseMultiFieldValidatorã‚¯ãƒ©ã‚¹ã®å®Ÿè£…ã‚¯ãƒ©ã‚¹ã€‚
  *
  */
 public class BaseMultiFieldValidatorImpl01 extends BaseMultiFieldValidator {

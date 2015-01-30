@@ -20,14 +20,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * DataSourceMessageSourceƒNƒ‰ƒX‚Å—˜—p‚·‚éƒXƒ^ƒu
+ * DataSourceMessageSourceã‚¯ãƒ©ã‚¹ã§åˆ©ç”¨ã™ã‚‹ã‚¹ã‚¿ãƒ–
  *
  */
 public class DataSourceMessageSource_DataSourceMessageSourceStub02 extends
         DataSourceMessageSource {
     
     /**
-     * ˆø”message‚ğŠi”[‚·‚é
+     * å¼•æ•°messageã‚’æ ¼ç´ã™ã‚‹
      */
     protected List<DBMessage> list = new ArrayList<DBMessage>();
 

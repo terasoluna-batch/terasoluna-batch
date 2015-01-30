@@ -20,7 +20,7 @@ package jp.terasoluna.fw.message;
 public class DBMessageResourceDAOImpl_DBMessageResourceDAOImplStub01 extends
         DBMessageResourceDAOImpl {
     /**
-     * ŒÄ‚Ño‚µŠm”F
+     * å‘¼ã³å‡ºã—ç¢ºèª
      */
     protected boolean isRead = false;
   

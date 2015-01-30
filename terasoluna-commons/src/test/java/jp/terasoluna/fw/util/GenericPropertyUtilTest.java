@@ -31,11 +31,11 @@ import org.apache.commons.beanutils.BeanUtilsBean;
 import org.apache.commons.beanutils.PropertyUtilsBean;
 
 /**
- * {@link jp.terasoluna.fw.GenericPropertyUtil} ƒNƒ‰ƒX‚ÌƒeƒXƒgB
+ * {@link jp.terasoluna.fw.GenericPropertyUtil} ã‚¯ãƒ©ã‚¹ã®ãƒ†ã‚¹ãƒˆã€‚
  *
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4>
- * <code>JavaBean</code>‚ÌƒvƒƒpƒeƒB‚Ì<code>Generics</code>‚ğˆµ‚¤‚½‚ß‚Ìƒ†[ƒeƒBƒŠƒeƒBƒNƒ‰ƒXB
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4>
+ * <code>JavaBean</code>ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã®<code>Generics</code>ã‚’æ‰±ã†ãŸã‚ã®ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ã‚¯ãƒ©ã‚¹ã€‚
  * <p>
  *
  * @see jp.terasoluna.fw.util.GenericPropertyUtil
@@ -43,15 +43,15 @@ import org.apache.commons.beanutils.PropertyUtilsBean;
 public class GenericPropertyUtilTest extends TestCase {
 
     /**
-     * PropertyUtilsBeanB
+     * PropertyUtilsBeanã€‚
      */
     private PropertyUtilsBean defaultPropertyUtilsBean = null;
 
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -63,9 +63,9 @@ public class GenericPropertyUtilTest extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -77,9 +77,9 @@ public class GenericPropertyUtilTest extends TestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      *
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public GenericPropertyUtilTest(String name) {
         super(name);
@@ -89,27 +89,27 @@ public class GenericPropertyUtilTest extends TestCase {
      * testResolveCollectionType01()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:null<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
      *
      * <br>
-     * ˆø”bean‚ªnull‚Ìê‡‚ÉIllegalArgumentException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°beanãŒnullã®å ´åˆã«IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testResolveCollectionType01() throws Exception {
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             GenericPropertyUtil.resolveCollectionType(null, null);
-            // ”»’è
-            fail("—áŠO‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            // åˆ¤å®š
+            fail("ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalArgumentException e) {
             assertEquals(IllegalArgumentException.class.getName(),
                     e.getClass().getName());
@@ -120,29 +120,29 @@ public class GenericPropertyUtilTest extends TestCase {
      * testResolveCollectionType02()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:ObjectƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *         (ˆø”) name:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:Objectã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *         (å¼•æ•°) name:null<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
      *
      * <br>
-     * ˆø”name‚ªnull‚Ìê‡‚ÉIllegalArgumentException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°nameãŒnullã®å ´åˆã«IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testResolveCollectionType02() throws Exception {
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             GenericPropertyUtil.resolveCollectionType(
                     new Object(), null);
-            // ”»’è
-            fail("—áŠO‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            // åˆ¤å®š
+            fail("ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalArgumentException e) {
             assertEquals(IllegalArgumentException.class.getName(),
                     e.getClass().getName());
@@ -153,29 +153,29 @@ public class GenericPropertyUtilTest extends TestCase {
      * testResolveCollectionType03()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:Object‚ÌClassƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *         (ˆø”) name:""i‹ó•¶šj<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:Objectã®Classã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *         (å¼•æ•°) name:""ï¼ˆç©ºæ–‡å­—ï¼‰<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
      *
      * <br>
-     * ˆø”name‚ª‹ó•¶š‚Ìê‡‚ÉIllegalArgumentException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°nameãŒç©ºæ–‡å­—ã®å ´åˆã«IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testResolveCollectionType03() throws Exception {
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             GenericPropertyUtil.resolveCollectionType(
                     new Object(), "");
-            // ”»’è
-            fail("—áŠO‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            // åˆ¤å®š
+            fail("ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalArgumentException e) {
             assertEquals(IllegalArgumentException.class.getName(),
                     e.getClass().getName());
@@ -186,29 +186,29 @@ public class GenericPropertyUtilTest extends TestCase {
      * testResolveCollectionType04()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:Object‚ÌClassƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *         (ˆø”) name:"   "i‹ó”’•¶š—ñj<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:Objectã®Classã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *         (å¼•æ•°) name:"   "ï¼ˆç©ºç™½æ–‡å­—åˆ—ï¼‰<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
      *
      * <br>
-     * ˆø”name‚ª‹ó”’•¶š—ñ‚Ìê‡‚ÉIllegalArgumentException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°nameãŒç©ºç™½æ–‡å­—åˆ—ã®å ´åˆã«IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testResolveCollectionType04() throws Exception {
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             GenericPropertyUtil.resolveCollectionType(
                     new Object(), "   ");
-            // ”»’è
-            fail("—áŠO‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            // åˆ¤å®š
+            fail("ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalArgumentException e) {
             assertEquals(IllegalArgumentException.class.getName(),
                     e.getClass().getName());
@@ -219,30 +219,30 @@ public class GenericPropertyUtilTest extends TestCase {
      * testResolveCollectionType05()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:ƒtƒB[ƒ‹ƒhList<String> list0‚ğ‚Â‚ªA‚»‚Ìgetter‚ğ‚½‚È‚¢ƒNƒ‰ƒXB<br>
-     *         (ˆø”) name:"list0"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰List<String> list0ã‚’æŒã¤ãŒã€ãã®getterã‚’æŒãŸãªã„ã‚¯ãƒ©ã‚¹ã€‚<br>
+     *         (å¼•æ•°) name:"list0"<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
      *
      * <br>
-     * ‘Î‰‚·‚éƒƒ\ƒbƒh‚ª‘¶İ‚µ‚È‚¢ê‡‚ÉIllegalArgumentException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¯¾å¿œã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ãŒå­˜åœ¨ã—ãªã„å ´åˆã«IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testResolveCollectionType05() throws Exception {
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             GenericPropertyUtil.resolveCollectionType(
                     new GenericPropertyUtil_Stub01(),
                     "list0");
-            // ”»’è
-            fail("—áŠO‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            // åˆ¤å®š
+            fail("ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalArgumentException e) {
             assertEquals(IllegalArgumentException.class.getName(),
                     e.getClass().getName());
@@ -253,31 +253,31 @@ public class GenericPropertyUtilTest extends TestCase {
      * testResolveCollectionType06()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FE
+     * è¦³ç‚¹ï¼šE
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:ƒtƒB[ƒ‹ƒhList<String> list1‚ÆA‚»‚Ìgetter‚ğ‚ÂƒNƒ‰ƒXB<br>
-     *         (ˆø”) name:"list1"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰List<String> list1ã¨ã€ãã®getterã‚’æŒã¤ã‚¯ãƒ©ã‚¹ã€‚<br>
+     *         (å¼•æ•°) name:"list1"<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Class:String.class<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Class:String.class<br>
      *
      * <br>
-     * —v‘fŒ^‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * è¦ç´ å‹ãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testResolveCollectionType06() throws Exception {
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Class actual = GenericPropertyUtil.resolveCollectionType(
                 new GenericPropertyUtil_Stub01(),
                 "list1");
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(String.class, actual);
     }
 
@@ -285,30 +285,30 @@ public class GenericPropertyUtilTest extends TestCase {
      * testResolveCollectionType07()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FE
+     * è¦³ç‚¹ï¼šE
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:ƒtƒB[ƒ‹ƒhList<Map<String, Object>> list2‚ÆA‚»‚Ìgetter‚ğ‚ÂƒNƒ‰ƒXB<br>
-     *         (ˆø”) name:"list2"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰List<Map<String, Object>> list2ã¨ã€ãã®getterã‚’æŒã¤ã‚¯ãƒ©ã‚¹ã€‚<br>
+     *         (å¼•æ•°) name:"list2"<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Class:Map.class<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Class:Map.class<br>
      *
      * <br>
-     * ƒpƒ‰ƒ[ƒ^•t‚ÌŒ^‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ä»˜ã®å‹ãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testResolveCollectionType07() throws Exception {
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Class actual = GenericPropertyUtil.resolveCollectionType(
                 new GenericPropertyUtil_Stub01(),
                 "list2");
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(Map.class, actual);
     }
 
@@ -316,30 +316,30 @@ public class GenericPropertyUtilTest extends TestCase {
      * testResolveCollectionType08()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FE
+     * è¦³ç‚¹ï¼šE
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:ƒtƒB[ƒ‹ƒhList<String[]> list3‚ÆA‚»‚Ìgetter‚ğ‚ÂƒNƒ‰ƒXB<br>
-     *         (ˆø”) name:"list3"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰List<String[]> list3ã¨ã€ãã®getterã‚’æŒã¤ã‚¯ãƒ©ã‚¹ã€‚<br>
+     *         (å¼•æ•°) name:"list3"<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Class:String[].class<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Class:String[].class<br>
      *
      * <br>
-     * ”z—ñŒ^‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * é…åˆ—å‹ãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testResolveCollectionType08() throws Exception {
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Class actual = GenericPropertyUtil.resolveCollectionType(
                 new GenericPropertyUtil_Stub01(),
                 "list3");
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(String[].class, actual);
     }
 
@@ -347,31 +347,31 @@ public class GenericPropertyUtilTest extends TestCase {
      * testResolveCollectionType09()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:ƒtƒB[ƒ‹ƒhint integer‚ÆA‚»‚Ìgetter‚ğ‚ÂƒNƒ‰ƒXB<br>
-     *         (ˆø”) name:"integer"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰int integerã¨ã€ãã®getterã‚’æŒã¤ã‚¯ãƒ©ã‚¹ã€‚<br>
+     *         (å¼•æ•°) name:"integer"<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalStateException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalStateException<br>
      *
      * <br>
-     * w’è‚µ‚½ƒvƒƒpƒeƒB‚ªƒvƒŠƒ~ƒeƒBƒuŒ^‚Ìê‡AIllegalStateException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * æŒ‡å®šã—ãŸãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãŒãƒ—ãƒªãƒŸãƒ†ã‚£ãƒ–å‹ã®å ´åˆã€IllegalStateExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testResolveCollectionType09() throws Exception {
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             GenericPropertyUtil.resolveCollectionType(
                     new GenericPropertyUtil_Stub01(),
                     "integer");
-            // ”»’è
-            fail("—áŠO‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            // åˆ¤å®š
+            fail("ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalStateException e) {
             assertEquals(IllegalStateException.class.getName(),
                     e.getClass().getName());
@@ -382,31 +382,31 @@ public class GenericPropertyUtilTest extends TestCase {
      * testResolveCollectionType10()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:ƒtƒB[ƒ‹ƒhObject object‚ÆA‚»‚Ìgetter‚ğ‚ÂƒNƒ‰ƒXB<br>
-     *         (ˆø”) name:"object"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰Object objectã¨ã€ãã®getterã‚’æŒã¤ã‚¯ãƒ©ã‚¹ã€‚<br>
+     *         (å¼•æ•°) name:"object"<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalStateException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalStateException<br>
      *
      * <br>
-     * w’è‚µ‚½ƒvƒƒpƒeƒB‚ªCollectionˆÈŠO‚ÌŒ^‚Ìê‡AIllegalStateException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * æŒ‡å®šã—ãŸãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãŒCollectionä»¥å¤–ã®å‹ã®å ´åˆã€IllegalStateExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testResolveCollectionType10() throws Exception {
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             GenericPropertyUtil.resolveCollectionType(
                     new GenericPropertyUtil_Stub01(),
                     "object");
-            // ”»’è
-            fail("—áŠO‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            // åˆ¤å®š
+            fail("ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalStateException e) {
             assertEquals(IllegalStateException.class.getName(),
                     e.getClass().getName());
@@ -417,29 +417,29 @@ public class GenericPropertyUtilTest extends TestCase {
      * testResolveCollectionType11()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:ƒtƒB[ƒ‹ƒhList<? extends String> list5‚Æ‚»‚Ìgetter‚ğ‚ÂƒNƒ‰ƒXB<br>
-     *         (ˆø”) name:"list5"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰List<? extends String> list5ã¨ãã®getterã‚’æŒã¤ã‚¯ãƒ©ã‚¹ã€‚<br>
+     *         (å¼•æ•°) name:"list5"<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Class:Object.class<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Class:Object.class<br>
      *
      * <br>
-     * Œ^ƒpƒ‰ƒ[ƒ^w’è‚ªƒƒCƒ‹ƒhƒJ[ƒh‚Ìê‡AObject‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿æŒ‡å®šãŒãƒ¯ã‚¤ãƒ«ãƒ‰ã‚«ãƒ¼ãƒ‰ã®å ´åˆã€ObjectãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testResolveCollectionType11() throws Exception {
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Class actual = GenericPropertyUtil.resolveCollectionType(
                 new GenericPropertyUtil_Stub01(),
                     "list5");
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(Object.class, actual);
     }
 
@@ -447,30 +447,30 @@ public class GenericPropertyUtilTest extends TestCase {
      * testResolveTypeObjectStringClassint01()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:null<br>
-     *         (ˆø”) index:0<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:null<br>
+     *         (å¼•æ•°) index:0<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    ƒƒbƒZ[ƒWF"Argument 'bean' ("<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Argument 'bean' ("<br>
      *                    + Object.class.getName() + " is null"<br>
      *
      * <br>
-     * ˆø”bean‚ªnull‚Ìê‡‚ÉIllegalArgumentException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°beanãŒnullã®å ´åˆã«IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testResolveTypeObjectStringClassint01() throws Exception {
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             GenericPropertyUtil.resolveType(null, (String) null, null, 0);
-            // ”»’è
-            fail("—áŠO‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            // åˆ¤å®š
+            fail("ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalArgumentException e) {
             String message = "Argument 'bean' ("
                 + Object.class.getName() + " is null";
@@ -484,32 +484,32 @@ public class GenericPropertyUtilTest extends TestCase {
      * testResolveTypeObjectStringClassint02()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:ObjectƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *         (ˆø”) name:null<br>
-     *         (ˆø”) index:0<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:Objectã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *         (å¼•æ•°) name:null<br>
+     *         (å¼•æ•°) index:0<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    ƒƒbƒZ[ƒWF"Argument 'name' ("<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Argument 'name' ("<br>
      *                    + String.class.getName() + " is empty"<br>
      *
      * <br>
-     * ˆø”name‚ªnull‚Ìê‡‚ÉIllegalArgumentException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°nameãŒnullã®å ´åˆã«IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testResolveTypeObjectStringClassint02() throws Exception {
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             GenericPropertyUtil.resolveType(
                     new Object(), (String) null, null, 0);
-            // ”»’è
-            fail("—áŠO‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            // åˆ¤å®š
+            fail("ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalArgumentException e) {
             String message = "Argument 'name' ("
                 + String.class.getName() + " is empty";
@@ -523,32 +523,32 @@ public class GenericPropertyUtilTest extends TestCase {
      * testResolveTypeObjectStringClassint03()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:ObjectƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *         (ˆø”) name:""i‹ó•¶šj<br>
-     *         (ˆø”) index:0<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:Objectã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *         (å¼•æ•°) name:""ï¼ˆç©ºæ–‡å­—ï¼‰<br>
+     *         (å¼•æ•°) index:0<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    ƒƒbƒZ[ƒWF"Argument 'name' ("<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Argument 'name' ("<br>
      *                    + String.class.getName() + " is empty"<br>
      *
      * <br>
-     * ˆø”name‚ª‹ó•¶š‚Ìê‡‚ÉIllegalArgumentException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°nameãŒç©ºæ–‡å­—ã®å ´åˆã«IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testResolveTypeObjectStringClassint03() throws Exception {
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             GenericPropertyUtil.resolveType(
                     new Object(), "", null, 0);
-            // ”»’è
-            fail("—áŠO‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            // åˆ¤å®š
+            fail("ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalArgumentException e) {
             String message = "Argument 'name' ("
                 + String.class.getName() + " is empty";
@@ -562,32 +562,32 @@ public class GenericPropertyUtilTest extends TestCase {
      * testResolveTypeObjectStringClassint04()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:ObjectƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *         (ˆø”) name:"   "i‹ó”’•¶š—ñj<br>
-     *         (ˆø”) index:0<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:Objectã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *         (å¼•æ•°) name:"   "ï¼ˆç©ºç™½æ–‡å­—åˆ—ï¼‰<br>
+     *         (å¼•æ•°) index:0<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    ƒƒbƒZ[ƒWF"Argument 'name' ("<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Argument 'name' ("<br>
      *                    + String.class.getName() + " is empty"<br>
      *
      * <br>
-     * ˆø”name‚ª‹ó”’•¶š—ñ‚Ìê‡‚ÉIllegalArgumentException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°nameãŒç©ºç™½æ–‡å­—åˆ—ã®å ´åˆã«IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testResolveTypeObjectStringClassint04() throws Exception {
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             GenericPropertyUtil.resolveType(
                     new Object(), "   ", null, 0);
-            // ”»’è
-            fail("—áŠO‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            // åˆ¤å®š
+            fail("ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalArgumentException e) {
             String message = "Argument 'name' ("
                 + String.class.getName() + " is empty";
@@ -601,32 +601,32 @@ public class GenericPropertyUtilTest extends TestCase {
      * testResolveTypeObjectStringClassint05()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:ƒtƒB[ƒ‹ƒhMap<String, Object> map0‚ğ‚Â‚ªA‚»‚Ìgetter‚ğ‚½‚È‚¢ƒNƒ‰ƒXB<br>
-     *         (ˆø”) name:"map0"<br>
-     *         (ˆø”) genericClass:Map.class<br>
-     *         (ˆø”) index:0<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰Map<String, Object> map0ã‚’æŒã¤ãŒã€ãã®getterã‚’æŒãŸãªã„ã‚¯ãƒ©ã‚¹ã€‚<br>
+     *         (å¼•æ•°) name:"map0"<br>
+     *         (å¼•æ•°) genericClass:Map.class<br>
+     *         (å¼•æ•°) index:0<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
      *
      * <br>
-     * ‘Î‰‚·‚éƒƒ\ƒbƒh‚ª‘¶İ‚µ‚È‚¢ê‡‚ÉIllegalArgumentException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¯¾å¿œã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ãŒå­˜åœ¨ã—ãªã„å ´åˆã«IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testResolveTypeObjectStringClassint05() throws Exception {
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             GenericPropertyUtil.resolveType(
                     new GenericPropertyUtil_Stub01(),
                     "map0", Map.class, 0);
-            // ”»’è
-            fail("—áŠO‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            // åˆ¤å®š
+            fail("ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalArgumentException e) {
             assertEquals(IllegalArgumentException.class.getName(),
                     e.getClass().getName());
@@ -637,32 +637,32 @@ public class GenericPropertyUtilTest extends TestCase {
      * testResolveTypeObjectStringClassint06()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:ƒtƒB[ƒ‹ƒhMap<String, Object> map1‚Æ‚»‚Ìgetter‚ğ‚ÂƒNƒ‰ƒXB<br>
-     *         (ˆø”) name:"map1"<br>
-     *         (ˆø”) genericClass:Map.class<br>
-     *         (ˆø”) index:-1<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰Map<String, Object> map1ã¨ãã®getterã‚’æŒã¤ã‚¯ãƒ©ã‚¹ã€‚<br>
+     *         (å¼•æ•°) name:"map1"<br>
+     *         (å¼•æ•°) genericClass:Map.class<br>
+     *         (å¼•æ•°) index:-1<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
      *
      * <br>
-     * ˆø”index‚ª•‰‚Ì”‚Å‚ ‚éê‡‚ÉIllegalArgumentException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°indexãŒè² ã®æ•°ã§ã‚ã‚‹å ´åˆã«IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testResolveTypeObjectStringClassint06() throws Exception {
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             GenericPropertyUtil.resolveType(
                     new GenericPropertyUtil_Stub01(),
                     "map1", Map.class, -1);
-            // ”»’è
-            fail("—áŠO‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            // åˆ¤å®š
+            fail("ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalArgumentException e) {
             assertEquals(IllegalArgumentException.class.getName(),
                     e.getClass().getName());
@@ -673,33 +673,33 @@ public class GenericPropertyUtilTest extends TestCase {
      * testResolveTypeObjectStringClassint07()
      * <br><br>
      *
-     * i³íŒnj
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰
      * <br>
-     * ŠÏ“_FE
+     * è¦³ç‚¹ï¼šE
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:ƒtƒB[ƒ‹ƒhMap<String, Object> map1‚Æ‚»‚Ìgetter‚ğ‚ÂƒNƒ‰ƒXB<br>
-     *         (ˆø”) name:"map1"<br>
-     *         (ˆø”) genericClass:Map.class<br>
-     *         (ˆø”) index:0<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰Map<String, Object> map1ã¨ãã®getterã‚’æŒã¤ã‚¯ãƒ©ã‚¹ã€‚<br>
+     *         (å¼•æ•°) name:"map1"<br>
+     *         (å¼•æ•°) genericClass:Map.class<br>
+     *         (å¼•æ•°) index:0<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Class:String.class<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Class:String.class<br>
      *
      * <br>
-     * ˆø”index‚ªŒ^ƒpƒ‰ƒ[ƒ^”‚Ì”ÍˆÍ“à‚Å‚ ‚éê‡‚ÉŒ^‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°indexãŒå‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿æ•°ã®ç¯„å›²å†…ã§ã‚ã‚‹å ´åˆã«å‹ãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testResolveTypeObjectStringClassint07() throws Exception {
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Class actual = GenericPropertyUtil.resolveType(
                 new GenericPropertyUtil_Stub01(),
                 "map1", Map.class, 0);
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(String.class, actual);
     }
 
@@ -707,32 +707,32 @@ public class GenericPropertyUtilTest extends TestCase {
      * testResolveTypeObjectStringClassint08()
      * <br><br>
      *
-     * i³íŒnj
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰
      * <br>
-     * ŠÏ“_FE
+     * è¦³ç‚¹ï¼šE
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:ƒtƒB[ƒ‹ƒhMap<String, Object> map1‚Æ‚»‚Ìgetter‚ğ‚ÂƒNƒ‰ƒXB<br>
-     *         (ˆø”) name:"map1"<br>
-     *         (ˆø”) genericClass:Map.class<br>
-     *         (ˆø”) index:1<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰Map<String, Object> map1ã¨ãã®getterã‚’æŒã¤ã‚¯ãƒ©ã‚¹ã€‚<br>
+     *         (å¼•æ•°) name:"map1"<br>
+     *         (å¼•æ•°) genericClass:Map.class<br>
+     *         (å¼•æ•°) index:1<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Class:Object.class<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Class:Object.class<br>
      *
      * <br>
-     * ˆø”index‚ªŒ^ƒpƒ‰ƒ[ƒ^”‚Ì”ÍˆÍ“à‚Å‚ ‚éê‡‚ÉŒ^‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°indexãŒå‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿æ•°ã®ç¯„å›²å†…ã§ã‚ã‚‹å ´åˆã«å‹ãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testResolveTypeObjectStringClassint08() throws Exception {
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Class actual = GenericPropertyUtil.resolveType(
                 new GenericPropertyUtil_Stub01(),
                 "map1", Map.class, 0);
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(String.class, actual);
     }
 
@@ -740,32 +740,32 @@ public class GenericPropertyUtilTest extends TestCase {
      * testResolveTypeObjectStringClassint09()
      * <br><br>
      *
-     * iˆÙíŒnj
+     * ï¼ˆç•°å¸¸ç³»ï¼‰
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:ƒtƒB[ƒ‹ƒhMap<String, Object> map1‚Æ‚»‚Ìgetter‚ğ‚ÂƒNƒ‰ƒXB<br>
-     *         (ˆø”) name:"map1"<br>
-     *         (ˆø”) genericClass:Map.class<br>
-     *         (ˆø”) index:2<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰Map<String, Object> map1ã¨ãã®getterã‚’æŒã¤ã‚¯ãƒ©ã‚¹ã€‚<br>
+     *         (å¼•æ•°) name:"map1"<br>
+     *         (å¼•æ•°) genericClass:Map.class<br>
+     *         (å¼•æ•°) index:2<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
      *
      * <br>
-     * ˆø”index‚ªŒ^ƒpƒ‰ƒ[ƒ^”‚Ì”ÍˆÍŠO‚Å‚ ‚éê‡‚ÉIllegalArgumentException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°indexãŒå‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿æ•°ã®ç¯„å›²å¤–ã§ã‚ã‚‹å ´åˆã«IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testResolveTypeObjectStringClassint09() throws Exception {
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             GenericPropertyUtil.resolveType(
                     new GenericPropertyUtil_Stub01(),
                     "map1", Map.class, 2);
-            // ”»’è
-            fail("—áŠO‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            // åˆ¤å®š
+            fail("ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalArgumentException e) {
             assertEquals(IllegalArgumentException.class.getName(),
                     e.getClass().getName());
@@ -776,32 +776,32 @@ public class GenericPropertyUtilTest extends TestCase {
      * testResolveTypeObjectStringClassint10()
      * <br><br>
      *
-     * iˆÙíŒnj
+     * ï¼ˆç•°å¸¸ç³»ï¼‰
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:ƒtƒB[ƒ‹ƒhMap<String, Object> map1‚Æ‚»‚Ìgetter‚ğ‚ÂƒNƒ‰ƒXB<br>
-     *         (ˆø”) name:"map1"<br>
-     *         (ˆø”) genericClass:null<br>
-     *         (ˆø”) index:1<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰Map<String, Object> map1ã¨ãã®getterã‚’æŒã¤ã‚¯ãƒ©ã‚¹ã€‚<br>
+     *         (å¼•æ•°) name:"map1"<br>
+     *         (å¼•æ•°) genericClass:null<br>
+     *         (å¼•æ•°) index:1<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
      *
      * <br>
-     * ˆø”genericClass‚ªnull‚Å‚ ‚éê‡‚ÉIllegalArgumentException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°genericClassãŒnullã§ã‚ã‚‹å ´åˆã«IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testResolveTypeObjectStringClassint10() throws Exception {
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             GenericPropertyUtil.resolveType(
                     new GenericPropertyUtil_Stub01(),
                     "map1", null, 1);
-            // ”»’è
-            fail("—áŠO‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            // åˆ¤å®š
+            fail("ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalArgumentException e) {
             assertEquals(IllegalArgumentException.class.getName(),
                     e.getClass().getName());
@@ -812,33 +812,33 @@ public class GenericPropertyUtilTest extends TestCase {
      * testResolveTypeObjectStringClassint11()
      * <br><br>
      *
-     * i³íŒnj
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰
      * <br>
-     * ŠÏ“_FE
+     * è¦³ç‚¹ï¼šE
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:ƒtƒB[ƒ‹ƒhMap<String[], List<String>> map2‚Æ‚»‚Ìgetter‚ğ‚ÂƒNƒ‰ƒXB<br>
-     *         (ˆø”) name:"map2"<br>
-     *         (ˆø”) genericClass:Map.class<br>
-     *         (ˆø”) index:0<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰Map<String[], List<String>> map2ã¨ãã®getterã‚’æŒã¤ã‚¯ãƒ©ã‚¹ã€‚<br>
+     *         (å¼•æ•°) name:"map2"<br>
+     *         (å¼•æ•°) genericClass:Map.class<br>
+     *         (å¼•æ•°) index:0<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Class:String[].class<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Class:String[].class<br>
      *
      * <br>
-     * ”z—ñŒ^‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * é…åˆ—å‹ãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testResolveTypeObjectStringClassint11() throws Exception {
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Class actual = GenericPropertyUtil.resolveType(
                 new GenericPropertyUtil_Stub01(),
                 "map2", Map.class, 0);
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(String[].class, actual);
     }
 
@@ -846,32 +846,32 @@ public class GenericPropertyUtilTest extends TestCase {
      * testResolveTypeObjectStringClassint12()
      * <br><br>
      *
-     * i³íŒnj
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰
      * <br>
-     * ŠÏ“_FE
+     * è¦³ç‚¹ï¼šE
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:ƒtƒB[ƒ‹ƒhMap<String[], List<String>> map2‚Æ‚»‚Ìgetter‚ğ‚ÂƒNƒ‰ƒXB<br>
-     *         (ˆø”) name:"map2"<br>
-     *         (ˆø”) genericClass:Map.class<br>
-     *         (ˆø”) index:1<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰Map<String[], List<String>> map2ã¨ãã®getterã‚’æŒã¤ã‚¯ãƒ©ã‚¹ã€‚<br>
+     *         (å¼•æ•°) name:"map2"<br>
+     *         (å¼•æ•°) genericClass:Map.class<br>
+     *         (å¼•æ•°) index:1<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Class:List.class<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Class:List.class<br>
      *
      * <br>
-     * ƒpƒ‰ƒ[ƒ^•t‚ÌŒ^‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ä»˜ã®å‹ãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testResolveTypeObjectStringClassint12() throws Exception {
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Class actual = GenericPropertyUtil.resolveType(
                 new GenericPropertyUtil_Stub01(),
                 "map2", Map.class, 1);
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(List.class, actual);
     }
 
@@ -879,33 +879,33 @@ public class GenericPropertyUtilTest extends TestCase {
      * testResolveTypeObjectStringClassint13()
      * <br><br>
      *
-     * iˆÙíŒnj
+     * ï¼ˆç•°å¸¸ç³»ï¼‰
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:ƒtƒB[ƒ‹ƒhMap<String[], List<String>> map2‚Æ‚»‚Ìgetter‚ğ‚ÂƒNƒ‰ƒXB<br>
-     *         (ˆø”) name:"map2"<br>
-     *         (ˆø”) genericClass:String.class<br>
-     *         (ˆø”) index:1<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰Map<String[], List<String>> map2ã¨ãã®getterã‚’æŒã¤ã‚¯ãƒ©ã‚¹ã€‚<br>
+     *         (å¼•æ•°) name:"map2"<br>
+     *         (å¼•æ•°) genericClass:String.class<br>
+     *         (å¼•æ•°) index:1<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalStateException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalStateException<br>
      *
      * <br>
-     * genericClass‚ªƒtƒB[ƒ‹ƒh‚ÌŒ^‚Æ‡’v‚µ‚È‚¢ê‡A
-     * IllegalStateException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgBB
+     * genericClassãŒãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®å‹ã¨åˆè‡´ã—ãªã„å ´åˆã€
+     * IllegalStateExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testResolveTypeObjectStringClassint13() throws Exception {
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             GenericPropertyUtil.resolveType(new GenericPropertyUtil_Stub01(),
                     "map2", String.class, 1);
-            // ”»’è
-            fail("—áŠO‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            // åˆ¤å®š
+            fail("ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalStateException e) {
             assertEquals(IllegalStateException.class.getName(),
                     e.getClass().getName());
@@ -916,35 +916,35 @@ public class GenericPropertyUtilTest extends TestCase {
      * testResolveTypeObjectStringClassint14()
      * <br><br>
      *
-     * iˆÙíŒnj
+     * ï¼ˆç•°å¸¸ç³»ï¼‰
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:ƒtƒB[ƒ‹ƒh‚¢int integer‚Æ‚»‚Ìgetter‚ğ‚ÂƒNƒ‰ƒXB<br>
-     *         (ˆø”) name:"integer"<br>
-     *         (ˆø”) genericClass:int.class<br>
-     *         (ˆø”) index:1<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã„int integerã¨ãã®getterã‚’æŒã¤ã‚¯ãƒ©ã‚¹ã€‚<br>
+     *         (å¼•æ•°) name:"integer"<br>
+     *         (å¼•æ•°) genericClass:int.class<br>
+     *         (å¼•æ•°) index:1<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalStateException<br>
-     *                            ƒƒbƒZ[ƒWF"No parameterizedType was detected."<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalStateException<br>
+     *                            ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"No parameterizedType was detected."<br>
      *
      * <br>
-     * w’è‚µ‚½ƒvƒƒpƒeƒB‚ªƒvƒŠƒ~ƒeƒBƒuŒ^‚Ìê‡A
-     * IllegalStateException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * æŒ‡å®šã—ãŸãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãŒãƒ—ãƒªãƒŸãƒ†ã‚£ãƒ–å‹ã®å ´åˆã€
+     * IllegalStateExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testResolveTypeObjectStringClassint14() throws Exception {
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             GenericPropertyUtil.resolveType(
                     new GenericPropertyUtil_Stub01(),
                     "integer", int.class, 1);
-            // ”»’è
-            fail("—áŠO‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            // åˆ¤å®š
+            fail("ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalStateException e) {
             assertEquals("No parameterizedType was detected.",
                     e.getMessage());
@@ -957,35 +957,35 @@ public class GenericPropertyUtilTest extends TestCase {
      * testResolveTypeObjectStringClassint15()
      * <br><br>
      *
-     * iˆÙíŒnj
+     * ï¼ˆç•°å¸¸ç³»ï¼‰
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:ƒtƒB[ƒ‹ƒh‚¢Object object‚Æ‚»‚Ìgetter‚ğ‚ÂƒNƒ‰ƒXB<br>
-     *         (ˆø”) name:"object"<br>
-     *         (ˆø”) genericClass:Object.class<br>
-     *         (ˆø”) index:1<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã„Object objectã¨ãã®getterã‚’æŒã¤ã‚¯ãƒ©ã‚¹ã€‚<br>
+     *         (å¼•æ•°) name:"object"<br>
+     *         (å¼•æ•°) genericClass:Object.class<br>
+     *         (å¼•æ•°) index:1<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalStateException<br>
-     *                            ƒƒbƒZ[ƒWF"No parameterizedType was detected."<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalStateException<br>
+     *                            ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"No parameterizedType was detected."<br>
      *
      * <br>
-     * w’è‚µ‚½ƒvƒƒpƒeƒB‚ªƒIƒuƒWƒFƒNƒgŒ^‚Ìê‡A
-     * IllegalStateException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * æŒ‡å®šã—ãŸãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãŒã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆå‹ã®å ´åˆã€
+     * IllegalStateExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testResolveTypeObjectStringClassint15() throws Exception {
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             GenericPropertyUtil.resolveType(
                     new GenericPropertyUtil_Stub01(),
                     "object", Object.class, 1);
-            // ”»’è
-            fail("—áŠO‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            // åˆ¤å®š
+            fail("ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalStateException e) {
             assertEquals("No parameterizedType was detected.",
                     e.getMessage());
@@ -998,32 +998,32 @@ public class GenericPropertyUtilTest extends TestCase {
      * testResolveTypeObjectStringClassint16()
      * <br><br>
      *
-     * i³íŒnj
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰
      * <br>
-     * ŠÏ“_FE
+     * è¦³ç‚¹ï¼šE
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:ƒtƒB[ƒ‹ƒhMap<?, ?> map3‚Æ‚»‚Ìgetter‚ğ‚ÂƒNƒ‰ƒXB<br>
-     *         (ˆø”) name:"map3"<br>
-     *         (ˆø”) genericClass:Map.class<br>
-     *         (ˆø”) index:1<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰Map<?, ?> map3ã¨ãã®getterã‚’æŒã¤ã‚¯ãƒ©ã‚¹ã€‚<br>
+     *         (å¼•æ•°) name:"map3"<br>
+     *         (å¼•æ•°) genericClass:Map.class<br>
+     *         (å¼•æ•°) index:1<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Class:Object.class<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Class:Object.class<br>
      *
      * <br>
-     * Œ^ƒpƒ‰ƒ[ƒ^w’è‚ªƒƒCƒ‹ƒhƒJ[ƒh‚Ìê‡AObject‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿æŒ‡å®šãŒãƒ¯ã‚¤ãƒ«ãƒ‰ã‚«ãƒ¼ãƒ‰ã®å ´åˆã€ObjectãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testResolveTypeObjectStringClassint16() throws Exception {
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Class actual = GenericPropertyUtil.resolveType(
                 new GenericPropertyUtil_Stub01(),
                 "map3", Map.class, 0);
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(Object.class, actual);
     }
 
@@ -1031,30 +1031,30 @@ public class GenericPropertyUtilTest extends TestCase {
      * testGetMethod01()
      * <br><br>
      *
-     * iˆÙíŒnj
+     * ï¼ˆç•°å¸¸ç³»ï¼‰
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:ƒtƒB[ƒ‹ƒhString stringAgetter, setter‚ğ‚½‚È‚¢ƒNƒ‰ƒXB<br>
-     *         (ˆø”) name:"string"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰String stringã€getter, setterã‚’æŒãŸãªã„ã‚¯ãƒ©ã‚¹ã€‚<br>
+     *         (å¼•æ•°) name:"string"<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    ƒƒbƒZ[ƒWFbean‚ÌŠ®‘SCüƒNƒ‰ƒX–¼ + " has no getter for property string"<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼šbeanã®å®Œå…¨ä¿®é£¾ã‚¯ãƒ©ã‚¹å + " has no getter for property string"<br>
      *
      * <br>
-     * ‘Î‰‚·‚éƒtƒB[ƒ‹ƒh‚ª‘¶İ‚µ‚È‚¢ê‡‚ÉIllegalArgumentException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¯¾å¿œã™ã‚‹ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ãŒå­˜åœ¨ã—ãªã„å ´åˆã«IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetMethod01() throws Exception {
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             GenericPropertyUtil.getMethod(
                     new GenericPropertyUtil_Stub02(), "string");
-            // ”»’è
-            fail("—áŠO‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            // åˆ¤å®š
+            fail("ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalArgumentException e) {
             String message = GenericPropertyUtil_Stub02.class.getName()
                 + " has no getter for property string";
@@ -1068,30 +1068,30 @@ public class GenericPropertyUtilTest extends TestCase {
      * testGetMethod02()
      * <br><br>
      *
-     * iˆÙíŒnj
+     * ï¼ˆç•°å¸¸ç³»ï¼‰
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:ƒtƒB[ƒ‹ƒhString string1‚ğ‚Â‚ªA‚»‚Ìgetter‚ğ‚½‚È‚¢ƒNƒ‰ƒXB<br>
-     *         (ˆø”) name:"string1"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰String string1ã‚’æŒã¤ãŒã€ãã®getterã‚’æŒãŸãªã„ã‚¯ãƒ©ã‚¹ã€‚<br>
+     *         (å¼•æ•°) name:"string1"<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    ƒƒbƒZ[ƒWFbean‚ÌŠ®‘SCüƒNƒ‰ƒX–¼ + " has no getter for property string1"<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼šbeanã®å®Œå…¨ä¿®é£¾ã‚¯ãƒ©ã‚¹å + " has no getter for property string1"<br>
      *
      * <br>
-     * ‘Î‰‚·‚éƒƒ\ƒbƒh‚ª‘¶İ‚µ‚È‚¢ê‡‚ÉIllegalArgumentException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¯¾å¿œã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ãŒå­˜åœ¨ã—ãªã„å ´åˆã«IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetMethod02() throws Exception {
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             GenericPropertyUtil.getMethod(
                     new GenericPropertyUtil_Stub02(), "string1");
-            // ”»’è
-            fail("—áŠO‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            // åˆ¤å®š
+            fail("ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalArgumentException e) {
             String message = GenericPropertyUtil_Stub02.class.getName()
                 + " has no getter for property string1";
@@ -1105,28 +1105,28 @@ public class GenericPropertyUtilTest extends TestCase {
      * testGetMethod03()
      * <br><br>
      *
-     * i³íŒnj
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰
      * <br>
-     * ŠÏ“_FE
+     * è¦³ç‚¹ï¼šE
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:ƒtƒB[ƒ‹ƒhString string2‚Æ‚»‚Ìgetter‚ğ‚ÂƒNƒ‰ƒXB<br>
-     *         (ˆø”) name:"string2"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰String string2ã¨ãã®getterã‚’æŒã¤ã‚¯ãƒ©ã‚¹ã€‚<br>
+     *         (å¼•æ•°) name:"string2"<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Method:bean‚ÌgetString2ƒƒ\ƒbƒh<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Method:beanã®getString2ãƒ¡ã‚½ãƒƒãƒ‰<br>
      *
      * <br>
-     * ‘Î‰‚·‚éƒƒ\ƒbƒh‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¯¾å¿œã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetMethod03() throws Exception {
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Method actual = GenericPropertyUtil.getMethod(
                 new GenericPropertyUtil_Stub02(), "string2");
 
-        // ”»’è
+        // åˆ¤å®š
         Method expected =
             GenericPropertyUtil_Stub02.class.getDeclaredMethod(
                     "getString2", new Class[0]);
@@ -1137,32 +1137,32 @@ public class GenericPropertyUtilTest extends TestCase {
      * testGetMethod04()
      * <br><br>
      *
-     * iˆÙíŒnj
+     * ï¼ˆç•°å¸¸ç³»ï¼‰
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:ƒtƒB[ƒ‹ƒhbean1‚ğ‚Â‚ªA‚»‚Ìgetter‚ğ‚½‚È‚¢ƒNƒ‰ƒXB<br>
-     *         (ˆø”) name:"bean1.string"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰bean1ã‚’æŒã¤ãŒã€ãã®getterã‚’æŒãŸãªã„ã‚¯ãƒ©ã‚¹ã€‚<br>
+     *         (å¼•æ•°) name:"bean1.string"<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    ƒƒbƒZ[ƒWF"Failed to detect getter for "<br>
-     *                    + bean‚ÌŠ®‘SCüƒNƒ‰ƒX–¼ + "#bean1.string"<br>
-     *                    ƒ‰ƒbƒv‚³‚ê‚½—áŠOFNoSuchMethodException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Failed to detect getter for "<br>
+     *                    + beanã®å®Œå…¨ä¿®é£¾ã‚¯ãƒ©ã‚¹å + "#bean1.string"<br>
+     *                    ãƒ©ãƒƒãƒ—ã•ã‚ŒãŸä¾‹å¤–ï¼šNoSuchMethodException<br>
      *
      * <br>
-     * PropertyUtils#getPropertyDescriptor‚ÅNoSuchMethodException‚ªƒXƒ[‚³‚ê‚éê‡‚ÌƒeƒXƒgB
+     * PropertyUtils#getPropertyDescriptorã§NoSuchMethodExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹å ´åˆã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetMethod04() throws Exception {
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             GenericPropertyUtil.getMethod(
                     new GenericPropertyUtil_Stub02(), "bean1.string");
-            // ”»’è
-            fail("—áŠO‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            // åˆ¤å®š
+            fail("ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalArgumentException e) {
             String message = "Failed to detect getter for "
                 + GenericPropertyUtil_Stub02.class.getName() + "#bean1.string";
@@ -1177,36 +1177,36 @@ public class GenericPropertyUtilTest extends TestCase {
      * testGetMethod05()
      * <br><br>
      *
-     * iˆÙíŒnj
+     * ï¼ˆç•°å¸¸ç³»ï¼‰
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:ƒtƒB[ƒ‹ƒhbean2‚Æ‚»‚Ìgetter‚ğ‚ÂƒNƒ‰ƒXB<br>
-     *                (getter‚Å‚ÍRuntimeException‚ªƒXƒ[‚³‚ê‚é)<br>
-     *         (ˆø”) name:"bean2.string"<br>
-     *         (ó‘Ô) PropertyUtils#getPropertyDescriptor‚ÌÀsŒ‹‰Ê:
-     *                  InvocationTargetException‚ğƒXƒ[
-     *                    ¦JavaBean‚Ìgetter‚ÅRuntimeException‚ğƒXƒ[<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰bean2ã¨ãã®getterã‚’æŒã¤ã‚¯ãƒ©ã‚¹ã€‚<br>
+     *                (getterã§ã¯RuntimeExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹)<br>
+     *         (å¼•æ•°) name:"bean2.string"<br>
+     *         (çŠ¶æ…‹) PropertyUtils#getPropertyDescriptorã®å®Ÿè¡Œçµæœ:
+     *                  InvocationTargetExceptionã‚’ã‚¹ãƒ­ãƒ¼
+     *                    â€»JavaBeanã®getterã§RuntimeExceptionã‚’ã‚¹ãƒ­ãƒ¼<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    ƒƒbƒZ[ƒWF"Failed to detect getter for "<br>
-     *                    + bean‚ÌŠ®‘SCüƒNƒ‰ƒX–¼ + "#bean2.string"<br>
-     *                    ƒ‰ƒbƒv‚³‚ê‚½—áŠOFInvocationTargetException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Failed to detect getter for "<br>
+     *                    + beanã®å®Œå…¨ä¿®é£¾ã‚¯ãƒ©ã‚¹å + "#bean2.string"<br>
+     *                    ãƒ©ãƒƒãƒ—ã•ã‚ŒãŸä¾‹å¤–ï¼šInvocationTargetException<br>
      *
      * <br>
-     * PropertyUtils#getPropertyDescriptor‚ÅInvocationTargetException‚ªƒXƒ[‚³‚ê‚éê‡‚ÌƒeƒXƒgB
+     * PropertyUtils#getPropertyDescriptorã§InvocationTargetExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹å ´åˆã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetMethod05() throws Exception {
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             GenericPropertyUtil.getMethod(
                     new GenericPropertyUtil_Stub02(), "bean2.string");
-            // ”»’è
-            fail("—áŠO‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            // åˆ¤å®š
+            fail("ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalArgumentException e) {
             String message = "Failed to detect getter for "
                 + GenericPropertyUtil_Stub02.class.getName() + "#bean2.string";
@@ -1221,40 +1221,40 @@ public class GenericPropertyUtilTest extends TestCase {
      * testGetMethod06()
      * <br><br>
      *
-     * iˆÙíŒnj
+     * ï¼ˆç•°å¸¸ç³»ï¼‰
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:ƒtƒB[ƒ‹ƒhString string2‚Æ‚»‚Ìgetter‚ğ‚ÂƒNƒ‰ƒXB<br>
-     *         (ˆø”) name:"string2"<br>
-     *         (ó‘Ô) PropertyUtils#getPropertyDescriptor‚ÌÀsŒ‹‰Ê:
-     *                  IllegalAccessException‚ğƒXƒ[
-     *                    ¦PropertyUtilsBean‚ÌƒXƒ^ƒu‚ÅIllegalAccessException‚ğƒXƒ[<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰String string2ã¨ãã®getterã‚’æŒã¤ã‚¯ãƒ©ã‚¹ã€‚<br>
+     *         (å¼•æ•°) name:"string2"<br>
+     *         (çŠ¶æ…‹) PropertyUtils#getPropertyDescriptorã®å®Ÿè¡Œçµæœ:
+     *                  IllegalAccessExceptionã‚’ã‚¹ãƒ­ãƒ¼
+     *                    â€»PropertyUtilsBeanã®ã‚¹ã‚¿ãƒ–ã§IllegalAccessExceptionã‚’ã‚¹ãƒ­ãƒ¼<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    ƒƒbƒZ[ƒWF"Failed to detect getter for "<br>
-     *                    + bean‚ÌŠ®‘SCüƒNƒ‰ƒX–¼ + "#string2"<br>
-     *                    ƒ‰ƒbƒv‚³‚ê‚½—áŠOFIllegalAccessException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Failed to detect getter for "<br>
+     *                    + beanã®å®Œå…¨ä¿®é£¾ã‚¯ãƒ©ã‚¹å + "#string2"<br>
+     *                    ãƒ©ãƒƒãƒ—ã•ã‚ŒãŸä¾‹å¤–ï¼šIllegalAccessException<br>
      *
      * <br>
-     * PropertyUtils#getPropertyDescriptor‚ÅIllegalAccessException‚ªƒXƒ[‚³‚ê‚éê‡‚ÌƒeƒXƒgB
+     * PropertyUtils#getPropertyDescriptorã§IllegalAccessExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹å ´åˆã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetMethod06() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         BeanUtilsBean beanUtilsBean = BeanUtilsBean.getInstance();
         UTUtil.setPrivateField(beanUtilsBean, "propertyUtilsBean",
                 new GenericPropertyUtil_PropertyUtilsBeanStub01());
         try {
             
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             GenericPropertyUtil.getMethod(
                     new GenericPropertyUtil_Stub02(), "string2");
-            // ”»’è
-            fail("—áŠO‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            // åˆ¤å®š
+            fail("ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalArgumentException e) {
             String message = "Failed to detect getter for "
                 + GenericPropertyUtil_Stub02.class.getName() + "#string2";
@@ -1269,31 +1269,31 @@ public class GenericPropertyUtilTest extends TestCase {
      * testResolveTypeClassClassTypeint01()
      * <br><br>
      *
-     * iˆÙíŒnj
+     * ï¼ˆç•°å¸¸ç³»ï¼‰
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) genericClass:null<br>
-     *         (ˆø”) index:0<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) genericClass:null<br>
+     *         (å¼•æ•°) index:0<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    ƒƒbƒZ[ƒWF"Argument 'genericsClass' ("<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Argument 'genericsClass' ("<br>
      *                    + Class.class.getName() + ") is null"<br>
      *
      * <br>
-     * ˆø”genericClass‚ªnull‚Ìê‡‚ÉIllegalArgumentException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°genericClassãŒnullã®å ´åˆã«IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testResolveTypeClassClassTypeint01() throws Exception {
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             GenericPropertyUtil.resolveType((Class) null, (Class) null, null, 0);
-            // ”»’è
-            fail("—áŠO‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            // åˆ¤å®š
+            fail("ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalArgumentException e) {
             String message = "Argument 'genericsClass' ("
                     + Class.class.getName() + ") is null";
@@ -1307,31 +1307,31 @@ public class GenericPropertyUtilTest extends TestCase {
      * testResolveTypeClassClassTypeint02()
      * <br><br>
      *
-     * iˆÙíŒnj
+     * ï¼ˆç•°å¸¸ç³»ï¼‰
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) genericClass:List.class<br>
-     *         (ˆø”) clazz:null<br>
-     *         (ˆø”) index:0<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) genericClass:List.class<br>
+     *         (å¼•æ•°) clazz:null<br>
+     *         (å¼•æ•°) index:0<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalStateException<br>
-     *                    ƒƒbƒZ[ƒWFgenericClass+ " is not assignable from " + clazz<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalStateException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼šgenericClass+ " is not assignable from " + clazz<br>
      *
      * <br>
-     * ˆø”clazz‚ªnull‚Ìê‡‚ÉIllegalStateException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°clazzãŒnullã®å ´åˆã«IllegalStateExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testResolveTypeClassClassTypeint02() throws Exception {
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             GenericPropertyUtil.resolveType(List.class, (Class) null, null, 0);
-            // ”»’è
-            fail("—áŠO‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            // åˆ¤å®š
+            fail("ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalStateException e) {
             String message = List.class + " is not assignable from "
                 + "null";
@@ -1345,30 +1345,30 @@ public class GenericPropertyUtilTest extends TestCase {
      * testResolveTypeClassClassTypeint03()
      * <br><br>
      *
-     * iˆÙíŒnj
+     * ï¼ˆç•°å¸¸ç³»ï¼‰
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) genericClass:List.class<br>
-     *         (ˆø”) clazz:Object.class<br>
-     *         (ˆø”) index:0<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) genericClass:List.class<br>
+     *         (å¼•æ•°) clazz:Object.class<br>
+     *         (å¼•æ•°) index:0<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalStateException<br>
-     *                    ƒƒbƒZ[ƒWFgenericClass+ " is not assignable from " + clazz<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalStateException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼šgenericClass+ " is not assignable from " + clazz<br>
      *
      * <br>
-     * ˆø”clazz‚ªgenericClass‚ÌƒTƒuƒNƒ‰ƒX‚Å‚Í‚È‚¢ê‡‚ÉIllegalStateException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°clazzãŒgenericClassã®ã‚µãƒ–ã‚¯ãƒ©ã‚¹ã§ã¯ãªã„å ´åˆã«IllegalStateExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testResolveTypeClassClassTypeint03() throws Exception {
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             GenericPropertyUtil.resolveType(List.class, Object.class, null, 0);
-            // ”»’è
-            fail("—áŠO‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            // åˆ¤å®š
+            fail("ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalStateException e) {
             String message = List.class + " is not assignable from "
                 + Object.class;
@@ -1382,33 +1382,33 @@ public class GenericPropertyUtilTest extends TestCase {
      * testResolveTypeClassClassTypeint04()
      * <br><br>
      *
-     * iˆÙíŒnj
+     * ï¼ˆç•°å¸¸ç³»ï¼‰
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) genericClass:List.class<br>
-     *         (ˆø”) clazz:ArrayListŒp³ƒNƒ‰ƒX(ƒpƒ‰ƒ[ƒ^‚ÉString‚ğw’è)<br>
-     *         (ˆø”) type:null<br>
-     *         (ˆø”) index:-1<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) genericClass:List.class<br>
+     *         (å¼•æ•°) clazz:ArrayListç¶™æ‰¿ã‚¯ãƒ©ã‚¹(ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã«Stringã‚’æŒ‡å®š)<br>
+     *         (å¼•æ•°) type:null<br>
+     *         (å¼•æ•°) index:-1<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    ƒƒbƒZ[ƒWF"Argument 'index'(-1) is out of bounds of"<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Argument 'index'(-1) is out of bounds of"<br>
      *                    + " generics parameters")<br>
      *
      * <br>
-     * ˆø”index‚ª•‰‚Ì”‚Å‚ ‚éê‡‚ÉIllegalArgumentException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°indexãŒè² ã®æ•°ã§ã‚ã‚‹å ´åˆã«IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testResolveTypeClassClassTypeint04() throws Exception {
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             GenericPropertyUtil.resolveType(List.class,
                     GenericPropertyUtil_ArrayListStub01.class, null, -1);
-            // ”»’è
-            fail("—áŠO‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            // åˆ¤å®š
+            fail("ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalArgumentException e) {
             String message = "Argument 'index'(-1) is out of bounds of"
                 + " generics parameters";
@@ -1422,30 +1422,30 @@ public class GenericPropertyUtilTest extends TestCase {
      * testResolveTypeClassClassTypeint05()
      * <br><br>
      *
-     * iˆÙíŒnj
+     * ï¼ˆç•°å¸¸ç³»ï¼‰
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) genericClass:List.class<br>
-     *         (ˆø”) clazz:ArrayListŒp³ƒNƒ‰ƒX(ƒpƒ‰ƒ[ƒ^‚ÉString‚ğw’è)<br>
-     *         (ˆø”) type:null<br>
-     *         (ˆø”) index:0<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) genericClass:List.class<br>
+     *         (å¼•æ•°) clazz:ArrayListç¶™æ‰¿ã‚¯ãƒ©ã‚¹(ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã«Stringã‚’æŒ‡å®š)<br>
+     *         (å¼•æ•°) type:null<br>
+     *         (å¼•æ•°) index:0<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Class:String.class<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Class:String.class<br>
      *
      * <br>
-     * ˆø”index‚ªŒ^ƒpƒ‰ƒ[ƒ^”‚Ì”ÍˆÍ“à‚Å‚ ‚éê‡‚ÉŒ^‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°indexãŒå‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿æ•°ã®ç¯„å›²å†…ã§ã‚ã‚‹å ´åˆã«å‹ãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testResolveTypeClassClassTypeint05() throws Exception {
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Class actual = GenericPropertyUtil.resolveType(List.class,
                 GenericPropertyUtil_ArrayListStub01.class, null, 0);
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(String.class, actual);
     }
 
@@ -1453,33 +1453,33 @@ public class GenericPropertyUtilTest extends TestCase {
      * testResolveTypeClassClassTypeint06()
      * <br><br>
      *
-     * iˆÙíŒnj
+     * ï¼ˆç•°å¸¸ç³»ï¼‰
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) genericClass:List.class<br>
-     *         (ˆø”) clazz:ArrayListŒp³ƒNƒ‰ƒX(ƒpƒ‰ƒ[ƒ^‚ÉString‚ğw’è)<br>
-     *         (ˆø”) type:null<br>
-     *         (ˆø”) index:1<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) genericClass:List.class<br>
+     *         (å¼•æ•°) clazz:ArrayListç¶™æ‰¿ã‚¯ãƒ©ã‚¹(ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã«Stringã‚’æŒ‡å®š)<br>
+     *         (å¼•æ•°) type:null<br>
+     *         (å¼•æ•°) index:1<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    ƒƒbƒZ[ƒWF"Argument 'index'(1) is out of bounds of"<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Argument 'index'(1) is out of bounds of"<br>
      *                    + " generics parameters")<br>
      *
      * <br>
-     * ˆø”index‚ªŒ^ƒpƒ‰ƒ[ƒ^”‚Ì”ÍˆÍŠO‚Å‚ ‚éê‡‚ÉIllegalArgumentException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°indexãŒå‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿æ•°ã®ç¯„å›²å¤–ã§ã‚ã‚‹å ´åˆã«IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testResolveTypeClassClassTypeint06() throws Exception {
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             GenericPropertyUtil.resolveType(List.class,
                     GenericPropertyUtil_ArrayListStub01.class, null, 1);
-            // ”»’è
-            fail("—áŠO‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            // åˆ¤å®š
+            fail("ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalArgumentException e) {
             String message = "Argument 'index'(1) is out of bounds of"
                 + " generics parameters";
@@ -1493,35 +1493,35 @@ public class GenericPropertyUtilTest extends TestCase {
      * testResolveTypeClassClassTypeint07()
      * <br><br>
      *
-     * i³íŒnj
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰
      * <br>
-     * ŠÏ“_FE
+     * è¦³ç‚¹ï¼šE
      * <br><br>
-     * “ü—Í’lF(ˆø”) genericClass:List.class<br>
-     *         (ˆø”) clazz:ArrayList.class<br>
-     *         (ˆø”) type:List.class<br>
-     *         (ˆø”) index:0<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) genericClass:List.class<br>
+     *         (å¼•æ•°) clazz:ArrayList.class<br>
+     *         (å¼•æ•°) type:List.class<br>
+     *         (å¼•æ•°) index:0<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Class:Object.class<br>
-     *            (ó‘Ô•Ï‰») ƒƒOo—Í:<br>
-     *                    ƒƒOƒŒƒxƒ‹FTRACE
-     *                    ƒƒbƒZ[ƒWF"Concrete type of Type(E) was not
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Class:Object.class<br>
+     *            (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°å‡ºåŠ›:<br>
+     *                    ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ï¼šTRACE
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Concrete type of Type(E) was not
      *                    found in ancestorList([java.util.AbstractList<E>, java.util.List<E>])"<br>
      *
      * <br>
-     * Œ^‚ª“Á’è‚Å‚«‚È‚¢ê‡‚ÉObject‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
-     * iŒo˜HŠm”F‚Ì‚½‚ß‚É“Á•Ê‚ÉƒgƒŒ[ƒXƒƒO‚ğƒ`ƒFƒbƒN‚·‚éj
+     * å‹ãŒç‰¹å®šã§ããªã„å ´åˆã«ObjectãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
+     * ï¼ˆçµŒè·¯ç¢ºèªã®ãŸã‚ã«ç‰¹åˆ¥ã«ãƒˆãƒ¬ãƒ¼ã‚¹ãƒ­ã‚°ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ï¼‰
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testResolveTypeClassClassTypeint07() throws Exception {
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Class actual = GenericPropertyUtil.resolveType(List.class,
                 ArrayList.class, List.class, 0);
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(Object.class, actual);
         assertTrue(LogUTUtil.checkTrace(
                 "Concrete type of Type(E) was "
@@ -1533,40 +1533,40 @@ public class GenericPropertyUtilTest extends TestCase {
      * testResolveTypeClassClassTypeint08()
      * <br><br>
      *
-     * i³íŒnj
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰
      * <br>
-     * ŠÏ“_FE
+     * è¦³ç‚¹ï¼šE
      * <br><br>
-     * “ü—Í’lF(ˆø”) genericClass:List.class<br>
-     *         (ˆø”) clazz:ArrayList.class<br>
-     *         (ˆø”) type:List<String>‚ğ•\‚·ParameterizedType<br>
-     *         (ˆø”) index:0<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) genericClass:List.class<br>
+     *         (å¼•æ•°) clazz:ArrayList.class<br>
+     *         (å¼•æ•°) type:List<String>ã‚’è¡¨ã™ParameterizedType<br>
+     *         (å¼•æ•°) index:0<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Class:String.class<br>
-     *            (ó‘Ô•Ï‰») ƒƒOo—Í:<br>
-     *                    ƒƒOƒŒƒxƒ‹FTRACE
-     *                    ƒƒbƒZ[ƒWF"Argument 'genericClass'(java.util.List)
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Class:String.class<br>
+     *            (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°å‡ºåŠ›:<br>
+     *                    ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ï¼šTRACE
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Argument 'genericClass'(java.util.List)
      *                    does not declare type parameter"<br>
      *
      * <br>
-     * type‚ÅŒ^‚ª“Á’è‚³‚ê‚éê‡‚ÉAŒ^ƒpƒ‰ƒ[ƒ^‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
-     * iŒo˜HŠm”F‚Ì‚½‚ß‚É“Á•Ê‚ÉƒgƒŒ[ƒXƒƒO‚ğƒ`ƒFƒbƒN‚·‚éj
+     * typeã§å‹ãŒç‰¹å®šã•ã‚Œã‚‹å ´åˆã«ã€å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
+     * ï¼ˆçµŒè·¯ç¢ºèªã®ãŸã‚ã«ç‰¹åˆ¥ã«ãƒˆãƒ¬ãƒ¼ã‚¹ãƒ­ã‚°ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ï¼‰
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testResolveTypeClassClassTypeint08() throws Exception {
-        //  ‘Oˆ—
+        //  å‰å‡¦ç†
         Method method = GenericPropertyUtil_Stub01.class.getMethod(
                 "getList1", new Class[0]);
         Type type = method.getGenericReturnType();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Class actual = GenericPropertyUtil.resolveType(List.class,
                 List.class, type, 0);
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(String.class, actual);
         LogUTUtil.checkTrace("",
                 new IllegalStateException("Argument "

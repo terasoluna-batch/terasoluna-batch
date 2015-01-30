@@ -26,11 +26,11 @@ import org.apache.commons.validator.Var;
 
 /**
  * {@link jp.terasoluna.fw.validation.FieldChecks}
- * ƒNƒ‰ƒX‚Ìƒuƒ‰ƒbƒNƒ{ƒbƒNƒXƒeƒXƒgB
+ * ã‚¯ãƒ©ã‚¹ã®ãƒ–ãƒ©ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ†ã‚¹ãƒˆã€‚
  *
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4>
- * TERASOLUNA‚Ì“ü—Íƒ`ƒFƒbƒN‹@”\‚Å‹¤’Ê‚Ég—p‚³‚ê‚éŒŸØƒ‹[ƒ‹ƒNƒ‰ƒXB
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4>
+ * TERASOLUNAã®å…¥åŠ›ãƒã‚§ãƒƒã‚¯æ©Ÿèƒ½ã§å…±é€šã«ä½¿ç”¨ã•ã‚Œã‚‹æ¤œè¨¼ãƒ«ãƒ¼ãƒ«ã‚¯ãƒ©ã‚¹ã€‚
  * <p>
  *
  * @see jp.terasoluna.fw.validation.FieldChecks
@@ -38,34 +38,34 @@ import org.apache.commons.validator.Var;
 public class FieldChecksTest09 extends TestCase {
 
     /**
-     * ƒeƒXƒg—pƒCƒ“ƒXƒ^ƒ“ƒXB
+     * ãƒ†ã‚¹ãƒˆç”¨ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
      */
     private ValidatorAction va = null;
 
     /**
-     * ƒeƒXƒg—pƒCƒ“ƒXƒ^ƒ“ƒXB
+     * ãƒ†ã‚¹ãƒˆç”¨ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
      */
     private Field field = null;
 
     /**
-     * ƒeƒXƒg—pƒCƒ“ƒXƒ^ƒ“ƒXB
+     * ãƒ†ã‚¹ãƒˆç”¨ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
      */
     private FieldChecks_ValidationErrorsImpl01 errors = null;
 
     /**
-     * ‚±‚ÌƒeƒXƒgƒP[ƒX‚ğÀs‚·‚éˆ×‚Ì
-     * GUI ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‹N“®‚·‚éB
+     * ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã‚’å®Ÿè¡Œã™ã‚‹ç‚ºã®
+     * GUI ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’èµ·å‹•ã™ã‚‹ã€‚
      *
-     * @param args java ƒRƒ}ƒ“ƒh‚Éİ’è‚³‚ê‚½ƒpƒ‰ƒ[ƒ^
+     * @param args java ã‚³ãƒãƒ³ãƒ‰ã«è¨­å®šã•ã‚ŒãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public static void main(String[] args) {
         junit.swingui.TestRunner.run(FieldChecksTest09.class);
     }
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -77,9 +77,9 @@ public class FieldChecksTest09 extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -88,9 +88,9 @@ public class FieldChecksTest09 extends TestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      *
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public FieldChecksTest09(String name) {
         super(name);
@@ -100,31 +100,31 @@ public class FieldChecksTest09 extends TestCase {
      * testValidateUrl01()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC,F
+     * è¦³ç‚¹ï¼šC,F
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:null<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:null<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚ªnull‚Ìê‡Atrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanãŒnullã®å ´åˆã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateUrl01() throws Exception {
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertTrue(new FieldChecks().validateUrl(null, va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(0, errors.addErrorCount);
     }
 
@@ -132,31 +132,31 @@ public class FieldChecksTest09 extends TestCase {
      * testValidateUrl02()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC,F
+     * è¦³ç‚¹ï¼šC,F
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:""<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:""<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚ª‹ó•¶š‚Ìê‡Atrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanãŒç©ºæ–‡å­—ã®å ´åˆã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateUrl02() throws Exception {
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertTrue(new FieldChecks().validateUrl("", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(0, errors.addErrorCount);
     }
 
@@ -164,39 +164,39 @@ public class FieldChecksTest09 extends TestCase {
      * testValidateUrl03()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:abc://terasoluna.com/index.html#fragment<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:abc://terasoluna.com/index.html#fragment<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                allowallschemes=true<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * var‚Ìallowallschemes‚ªtrue‚Ì‚Æ‚«Abean‚ÌƒXƒL[ƒ}–¼‚ª•s³‚Èê‡‚Å‚àtrue‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * varã®allowallschemesãŒtrueã®ã¨ãã€beanã®ã‚¹ã‚­ãƒ¼ãƒåãŒä¸æ­£ãªå ´åˆã§ã‚‚trueãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateUrl03() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Var var = new Var();
         var.setName("allowallschemes");
         var.setValue("true");
         field.addVar(var);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertTrue(new FieldChecks().validateUrl(
             "abc://terasoluna.com/index.html#fragment", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(0, errors.addErrorCount);
     }
 
@@ -204,40 +204,40 @@ public class FieldChecksTest09 extends TestCase {
      * testValidateUrl04()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:abc://terasoluna.com/index.html<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:abc://terasoluna.com/index.html<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                allowallschemes=null<br>
      *                schemes=http,ftp<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
-     *         (ó‘Ô•Ï‰») errors:bean,field,va‚ğˆø”‚Æ‚µ‚ÄaddErrors‚ªŒÄ‚Ño‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:bean,field,vaã‚’å¼•æ•°ã¨ã—ã¦addErrorsãŒå‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
      *
      * <br>
-     * var‚Ìallowallschemes‚ªnull‚ÅAbean‚ÌƒXƒL[ƒ}–¼‚ªvar‚Ìschemes‚Éw’è‚³‚ê‚½ƒXƒL[ƒ}‚Æˆê’v‚µ‚È‚¢ê‡AƒGƒ‰[‚ğ’Ç‰Á‚µ‚Äfalse‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * varã®allowallschemesãŒnullã§ã€beanã®ã‚¹ã‚­ãƒ¼ãƒåãŒvarã®schemesã«æŒ‡å®šã•ã‚ŒãŸã‚¹ã‚­ãƒ¼ãƒã¨ä¸€è‡´ã—ãªã„å ´åˆã€ã‚¨ãƒ©ãƒ¼ã‚’è¿½åŠ ã—ã¦falseãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateUrl04() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Var var = new Var();
         var.setName("schemes");
         var.setValue("http,ftp");
         field.addVar(var);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertFalse(new FieldChecks().validateUrl(
             "abc://terasoluna.com/index.html", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(1, errors.addErrorCount);
         assertEquals("abc://terasoluna.com/index.html", errors.beanList.get(0));
         assertSame(va, errors.vaList.get(0));
@@ -248,32 +248,32 @@ public class FieldChecksTest09 extends TestCase {
      * testValidateUrl05()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:abc://terasoluna.com/index.html<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:abc://terasoluna.com/index.html<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                allowallschemes=""<br>
      *                schemes=http,ftp<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
-     *         (ó‘Ô•Ï‰») errors:bean,field,va‚ğˆø”‚Æ‚µ‚Ä
-     *                           addErrors‚ªŒÄ‚Ño‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:bean,field,vaã‚’å¼•æ•°ã¨ã—ã¦
+     *                           addErrorsãŒå‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
      *
      * <br>
-     * var‚Ìallowallschemes‚ª‹ó•¶š‚ÅA
-     * bean‚ÌƒXƒL[ƒ}–¼‚ªvar‚Ìschemes‚Éw’è‚³‚ê‚½ƒXƒL[ƒ}‚Æˆê’v‚µ‚È‚¢ê‡A
-     * ƒGƒ‰[‚ğ’Ç‰Á‚µ‚Äfalse‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * varã®allowallschemesãŒç©ºæ–‡å­—ã§ã€
+     * beanã®ã‚¹ã‚­ãƒ¼ãƒåãŒvarã®schemesã«æŒ‡å®šã•ã‚ŒãŸã‚¹ã‚­ãƒ¼ãƒã¨ä¸€è‡´ã—ãªã„å ´åˆã€
+     * ã‚¨ãƒ©ãƒ¼ã‚’è¿½åŠ ã—ã¦falseãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateUrl05() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Var var1 = new Var();
         var1.setName("allowallschemes");
         var1.setValue("");
@@ -284,12 +284,12 @@ public class FieldChecksTest09 extends TestCase {
         var2.setValue("http,ftp");
         field.addVar(var2);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertFalse(new FieldChecks().validateUrl(
             "abc://terasoluna.com/index.html", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(1, errors.addErrorCount);
         assertEquals("abc://terasoluna.com/index.html", errors.beanList.get(0));
         assertSame(va, errors.vaList.get(0));
@@ -300,32 +300,32 @@ public class FieldChecksTest09 extends TestCase {
      * testValidateUrl06()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:abc://terasoluna.com/index.html<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:abc://terasoluna.com/index.html<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                allowallschemes="test"<br>
      *                schemes=http,ftp<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
-     *         (ó‘Ô•Ï‰») errors:bean,field,va‚ğˆø”‚Æ‚µ‚Ä
-     *                           addErrors‚ªŒÄ‚Ño‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:bean,field,vaã‚’å¼•æ•°ã¨ã—ã¦
+     *                           addErrorsãŒå‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
      *
      * <br>
-     * var‚Ìallowallschemes‚ªtrueˆÈŠO‚Ì•¶š—ñ‚ÅA
-     * bean‚ÌƒXƒL[ƒ}–¼‚ªvar‚Ìschemes‚Éw’è‚³‚ê‚½ƒXƒL[ƒ}‚Æˆê’v‚µ‚È‚¢ê‡A
-     * ƒGƒ‰[‚ğ’Ç‰Á‚µ‚Äfalse‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * varã®allowallschemesãŒtrueä»¥å¤–ã®æ–‡å­—åˆ—ã§ã€
+     * beanã®ã‚¹ã‚­ãƒ¼ãƒåãŒvarã®schemesã«æŒ‡å®šã•ã‚ŒãŸã‚¹ã‚­ãƒ¼ãƒã¨ä¸€è‡´ã—ãªã„å ´åˆã€
+     * ã‚¨ãƒ©ãƒ¼ã‚’è¿½åŠ ã—ã¦falseãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateUrl06() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Var var1 = new Var();
         var1.setName("allowallschemes");
         var1.setValue("test");
@@ -336,12 +336,12 @@ public class FieldChecksTest09 extends TestCase {
         var2.setValue("http,ftp");
         field.addVar(var2);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertFalse(new FieldChecks().validateUrl(
             "abc://terasoluna.com/index.html", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(1, errors.addErrorCount);
         assertEquals("abc://terasoluna.com/index.html", errors.beanList.get(0));
         assertSame(va, errors.vaList.get(0));
@@ -352,31 +352,31 @@ public class FieldChecksTest09 extends TestCase {
      * testValidateUrl07()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:abc://terasoluna.com/index.html<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:abc://terasoluna.com/index.html<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                allowallschemes="test"<br>
      *                schemes=http,ftp,abc<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * var‚Ìallowallschemes‚ªtrueˆÈŠO‚Ì•¶š—ñ‚ÅA
-     * bean‚ÌƒXƒL[ƒ}–¼‚ªvar‚Ìschemes‚Éw’è‚³‚ê‚½ƒXƒL[ƒ}‚Æˆê’v‚·‚éê‡A
-     * true‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * varã®allowallschemesãŒtrueä»¥å¤–ã®æ–‡å­—åˆ—ã§ã€
+     * beanã®ã‚¹ã‚­ãƒ¼ãƒåãŒvarã®schemesã«æŒ‡å®šã•ã‚ŒãŸã‚¹ã‚­ãƒ¼ãƒã¨ä¸€è‡´ã™ã‚‹å ´åˆã€
+     * trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateUrl07() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Var var1 = new Var();
         var1.setName("allowallschemes");
         var1.setValue("test");
@@ -387,12 +387,12 @@ public class FieldChecksTest09 extends TestCase {
         var2.setValue("http,ftp,abc");
         field.addVar(var2);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertTrue(new FieldChecks().validateUrl(
             "abc://terasoluna.com/index.html", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(0, errors.addErrorCount);
     }
 
@@ -400,29 +400,29 @@ public class FieldChecksTest09 extends TestCase {
      * testValidateUrl08()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:abc://terasoluna.com//index.html<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:abc://terasoluna.com//index.html<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                allowallschemes="true"<br>
      *                allow2slashes="true"<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * var‚Ìallow2slashes‚ªtrue‚Ì‚Æ‚«Abean‚Ìurl‚Ì‹æØ‚è‚è•¶š‚Éu//v‚ªŠÜ‚Ü‚ê‚Ä‚¢‚Ä‚àtrue‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * varã®allow2slashesãŒtrueã®ã¨ãã€beanã®urlã®åŒºåˆ‡ã‚Šã‚Šæ–‡å­—ã«ã€Œ//ã€ãŒå«ã¾ã‚Œã¦ã„ã¦ã‚‚trueãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateUrl08() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Var var1 = new Var();
         var1.setName("allowallschemes");
         var1.setValue("true");
@@ -433,12 +433,12 @@ public class FieldChecksTest09 extends TestCase {
         var2.setValue("true");
         field.addVar(var2);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertTrue(new FieldChecks().validateUrl(
             "abc://terasoluna.com//index.html", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(0, errors.addErrorCount);
     }
 
@@ -446,43 +446,43 @@ public class FieldChecksTest09 extends TestCase {
      * testValidateUrl09()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:abc://terasoluna.com//index.html<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:abc://terasoluna.com//index.html<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                allowallschemes="true"<br>
      *                allow2slashes=null<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
-     *         (ó‘Ô•Ï‰») errors:bean,field,va‚ğˆø”‚Æ‚µ‚Ä
-     *                           addErrors‚ªŒÄ‚Ño‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:bean,field,vaã‚’å¼•æ•°ã¨ã—ã¦
+     *                           addErrorsãŒå‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
      *
      * <br>
-     * var‚Ìallow2slashes‚ªnull‚ÅA
-     * bean‚Ìurl‚Ì‹æØ‚è‚è•¶š‚Éu//v‚ªŠÜ‚Ü‚ê‚Ä‚¢‚éê‡A
-     * ƒGƒ‰[‚ğ’Ç‰Á‚µ‚Äfalse‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * varã®allow2slashesãŒnullã§ã€
+     * beanã®urlã®åŒºåˆ‡ã‚Šã‚Šæ–‡å­—ã«ã€Œ//ã€ãŒå«ã¾ã‚Œã¦ã„ã‚‹å ´åˆã€
+     * ã‚¨ãƒ©ãƒ¼ã‚’è¿½åŠ ã—ã¦falseãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateUrl09() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Var var = new Var();
         var.setName("allowallschemes");
         var.setValue("true");
         field.addVar(var);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertFalse(new FieldChecks().validateUrl(
             "abc://terasoluna.com//index.html", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(1, errors.addErrorCount);
         assertEquals("abc://terasoluna.com//index.html", errors.beanList.get(0));
         assertSame(va, errors.vaList.get(0));
@@ -493,32 +493,32 @@ public class FieldChecksTest09 extends TestCase {
      * testValidateUrl10()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:abc://terasoluna.com//index.html<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:abc://terasoluna.com//index.html<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                allowallschemes="true"<br>
      *                allow2slashes=""<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
-     *         (ó‘Ô•Ï‰») errors:bean,field,va‚ğˆø”‚Æ‚µ‚Ä
-     *                           addErrors‚ªŒÄ‚Ño‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:bean,field,vaã‚’å¼•æ•°ã¨ã—ã¦
+     *                           addErrorsãŒå‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
      *
      * <br>
-     * var‚Ìallow2slashes‚ª‹ó•¶š‚ÅA
-     * bean‚Ìurl‚Ì‹æØ‚è‚è•¶š‚Éu//v‚ªŠÜ‚Ü‚ê‚Ä‚¢‚éê‡A
-     * ƒGƒ‰[‚ğ’Ç‰Á‚µ‚Äfalse‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * varã®allow2slashesãŒç©ºæ–‡å­—ã§ã€
+     * beanã®urlã®åŒºåˆ‡ã‚Šã‚Šæ–‡å­—ã«ã€Œ//ã€ãŒå«ã¾ã‚Œã¦ã„ã‚‹å ´åˆã€
+     * ã‚¨ãƒ©ãƒ¼ã‚’è¿½åŠ ã—ã¦falseãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateUrl10() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Var var1 = new Var();
         var1.setName("allowallschemes");
         var1.setValue("true");
@@ -529,12 +529,12 @@ public class FieldChecksTest09 extends TestCase {
         var2.setValue("");
         field.addVar(var2);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertFalse(new FieldChecks().validateUrl(
             "abc://terasoluna.com//index.html", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(1, errors.addErrorCount);
         assertEquals("abc://terasoluna.com//index.html", errors.beanList.get(0));
         assertSame(va, errors.vaList.get(0));
@@ -545,32 +545,32 @@ public class FieldChecksTest09 extends TestCase {
      * testValidateUrl11()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:abc://terasoluna.com//index.html<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:abc://terasoluna.com//index.html<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                allowallschemes="true"<br>
      *                allow2slashes="test"<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
-     *         (ó‘Ô•Ï‰») errors:bean,field,va‚ğˆø”‚Æ‚µ‚Ä
-     *                           addErrors‚ªŒÄ‚Ño‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:bean,field,vaã‚’å¼•æ•°ã¨ã—ã¦
+     *                           addErrorsãŒå‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
      *
      * <br>
-     * var‚Ìallow2slashes‚ªtrueˆÈŠO‚Ì•¶š—ñ‚ÅA
-     * bean‚Ìurl‚Ì‹æØ‚è‚è•¶š‚Éu//v‚ªŠÜ‚Ü‚ê‚Ä‚¢‚éê‡A
-     * ƒGƒ‰[‚ğ’Ç‰Á‚µ‚Äfalse‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * varã®allow2slashesãŒtrueä»¥å¤–ã®æ–‡å­—åˆ—ã§ã€
+     * beanã®urlã®åŒºåˆ‡ã‚Šã‚Šæ–‡å­—ã«ã€Œ//ã€ãŒå«ã¾ã‚Œã¦ã„ã‚‹å ´åˆã€
+     * ã‚¨ãƒ©ãƒ¼ã‚’è¿½åŠ ã—ã¦falseãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateUrl11() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Var var1 = new Var();
         var1.setName("allowallschemes");
         var1.setValue("true");
@@ -581,12 +581,12 @@ public class FieldChecksTest09 extends TestCase {
         var2.setValue("test");
         field.addVar(var2);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertFalse(new FieldChecks().validateUrl(
             "abc://terasoluna.com//index.html", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(1, errors.addErrorCount);
         assertEquals("abc://terasoluna.com//index.html", errors.beanList.get(0));
         assertSame(va, errors.vaList.get(0));
@@ -597,31 +597,31 @@ public class FieldChecksTest09 extends TestCase {
      * testValidateUrl12()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:abc://terasoluna.com/index.html#fragment<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:abc://terasoluna.com/index.html#fragment<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                allowallschemes="true"<br>
      *                nofragments="true"<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
-     *         (ó‘Ô•Ï‰») errors:bean,field,va‚ğˆø”‚Æ‚µ‚Ä
-     *                           addErrors‚ªŒÄ‚Ño‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:bean,field,vaã‚’å¼•æ•°ã¨ã—ã¦
+     *                           addErrorsãŒå‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
      *
      * <br>
-     * var‚Ìnofragments‚ªtrue‚ÅAbean‚Ìurl‚Éƒtƒ‰ƒOƒƒ“ƒg‚ª‘¶İ‚·‚éê‡A
-     * ƒGƒ‰[‚ğ’Ç‰Á‚µ‚Äfalse‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * varã®nofragmentsãŒtrueã§ã€beanã®urlã«ãƒ•ãƒ©ã‚°ãƒ¡ãƒ³ãƒˆãŒå­˜åœ¨ã™ã‚‹å ´åˆã€
+     * ã‚¨ãƒ©ãƒ¼ã‚’è¿½åŠ ã—ã¦falseãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateUrl12() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Var var1 = new Var();
         var1.setName("allowallschemes");
         var1.setValue("true");
@@ -632,12 +632,12 @@ public class FieldChecksTest09 extends TestCase {
         var2.setValue("true");
         field.addVar(var2);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertFalse(new FieldChecks().validateUrl(
             "abc://terasoluna.com/index.html#fragment", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(1, errors.addErrorCount);
         assertEquals("abc://terasoluna.com/index.html#fragment",
                 errors.beanList.get(0));
@@ -649,40 +649,40 @@ public class FieldChecksTest09 extends TestCase {
      * testValidateUrl13()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:abc://terasoluna.com/index.html#fragment<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:abc://terasoluna.com/index.html#fragment<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                allowallschemes="true"<br>
      *                nofragments=null<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * var‚Ìnofragments‚ªnull‚ÅAbean‚Ìurl‚Éƒtƒ‰ƒOƒƒ“ƒg‚ª‘¶İ‚·‚éê‡Atrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * varã®nofragmentsãŒnullã§ã€beanã®urlã«ãƒ•ãƒ©ã‚°ãƒ¡ãƒ³ãƒˆãŒå­˜åœ¨ã™ã‚‹å ´åˆã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateUrl13() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Var var = new Var();
         var.setName("allowallschemes");
         var.setValue("true");
         field.addVar(var);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertTrue(new FieldChecks().validateUrl(
             "abc://terasoluna.com/index.html#fragment", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(0, errors.addErrorCount);
     }
 
@@ -690,29 +690,29 @@ public class FieldChecksTest09 extends TestCase {
      * testValidateUrl14()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:abc://terasoluna.com/index.html#fragment<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:abc://terasoluna.com/index.html#fragment<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                allowallschemes="true"<br>
      *                nofragments=""<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * var‚Ìnofragments‚ª‹ó•¶š‚ÅAbean‚Ìurl‚Éƒtƒ‰ƒOƒƒ“ƒg‚ª‘¶İ‚·‚éê‡Atrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * varã®nofragmentsãŒç©ºæ–‡å­—ã§ã€beanã®urlã«ãƒ•ãƒ©ã‚°ãƒ¡ãƒ³ãƒˆãŒå­˜åœ¨ã™ã‚‹å ´åˆã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateUrl14() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Var var1 = new Var();
         var1.setName("allowallschemes");
         var1.setValue("true");
@@ -723,12 +723,12 @@ public class FieldChecksTest09 extends TestCase {
         var2.setValue("");
         field.addVar(var2);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertTrue(new FieldChecks().validateUrl(
             "abc://terasoluna.com/index.html#fragment", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(0, errors.addErrorCount);
     }
 
@@ -736,30 +736,30 @@ public class FieldChecksTest09 extends TestCase {
      * testValidateUrl15()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:abc://terasoluna.com/index.html#fragment<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:abc://terasoluna.com/index.html#fragment<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                allowallschemes="true"<br>
      *                nofragments="test"<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * var‚Ìnofragments‚ªtrueˆÈŠO‚Ì•¶š—ñ‚ÅA
-     * bean‚Ìurl‚Éƒtƒ‰ƒOƒƒ“ƒg‚ª‘¶İ‚·‚éê‡Atrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * varã®nofragmentsãŒtrueä»¥å¤–ã®æ–‡å­—åˆ—ã§ã€
+     * beanã®urlã«ãƒ•ãƒ©ã‚°ãƒ¡ãƒ³ãƒˆãŒå­˜åœ¨ã™ã‚‹å ´åˆã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateUrl15() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Var var1 = new Var();
         var1.setName("allowallschemes");
         var1.setValue("true");
@@ -770,12 +770,12 @@ public class FieldChecksTest09 extends TestCase {
         var2.setValue("test");
         field.addVar(var2);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertTrue(new FieldChecks().validateUrl(
             "abc://terasoluna.com/index.html#fragment", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(0, errors.addErrorCount);
     }
 
@@ -783,31 +783,31 @@ public class FieldChecksTest09 extends TestCase {
      * testValidateByteRange01()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC,F
+     * è¦³ç‚¹ï¼šC,F
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:null<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:null<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚ªnull‚Ìê‡Atrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanãŒnullã®å ´åˆã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateByteRange01() throws Exception {
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertTrue(new FieldChecks().validateByteRange(null, va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(0, errors.addErrorCount);
     }
 
@@ -815,31 +815,31 @@ public class FieldChecksTest09 extends TestCase {
      * testValidateByteRange02()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC,F
+     * è¦³ç‚¹ï¼šC,F
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:""<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:""<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚ª‹ó•¶š‚Ìê‡Atrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanãŒç©ºæ–‡å­—ã®å ´åˆã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateByteRange02() throws Exception {
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertTrue(new FieldChecks().validateByteRange("", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(0, errors.addErrorCount);
     }
 
@@ -847,42 +847,42 @@ public class FieldChecksTest09 extends TestCase {
      * testValidateByteRange03()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF,G
+     * è¦³ç‚¹ï¼šF,G
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"test"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"test"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                minByteLength="test"<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:ValidatorException<br>
-     *                    ƒƒbƒZ[ƒWF"Mistake on validation definition file.
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ValidatorException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Mistake on validation definition file.
      *                    - minByteLength is not number.
      *                    You'll have to check it over. "<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:ƒƒOƒŒƒxƒ‹FƒGƒ‰[<br>
-     *                    ƒƒbƒZ[ƒWF"Mistake on validation definition file.
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ï¼šã‚¨ãƒ©ãƒ¼<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Mistake on validation definition file.
      *                    - minByteLength is not number.
      *                    You'll have to check it over. ", new NumberFormatException()<br>
      *
      * <br>
-     * var‚ÌmaxByteLength‚Ì’l‚ª”’l‚É•ÏŠ·‚Å‚«‚È‚¢ê‡A
-     * ValidatorException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * varã®maxByteLengthã®å€¤ãŒæ•°å€¤ã«å¤‰æ›ã§ããªã„å ´åˆã€
+     * ValidatorExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateByteRange03() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Var var = new Var();
         var.setName("minByteLength");
         var.setValue("test");
         field.addVar(var);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         try {
             new FieldChecks().validateByteRange("test", va, field, errors);
             fail();
@@ -899,42 +899,42 @@ public class FieldChecksTest09 extends TestCase {
      * testValidateByteRange04()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF,G
+     * è¦³ç‚¹ï¼šF,G
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"test"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"test"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                maxByteLength="test"<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:ValidatorException<br>
-     *                    ƒƒbƒZ[ƒWF"Mistake on validation definition file.
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ValidatorException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Mistake on validation definition file.
      *                    - maxByteLength is not number.
      *                    You'll have to check it over. "<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:ƒƒOƒŒƒxƒ‹FƒGƒ‰[<br>
-     *                    ƒƒbƒZ[ƒWF"Mistake on validation definition file.
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ï¼šã‚¨ãƒ©ãƒ¼<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Mistake on validation definition file.
      *                    - maxByteLength is not number.
      *                    You'll have to check it over. ", new NumberFormatException()<br>
      *
      * <br>
-     * var‚ÌmaxByteLength‚Ì’l‚ª”’l‚É•ÏŠ·‚Å‚«‚È‚¢ê‡A
-     * ValidatorException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * varã®maxByteLengthã®å€¤ãŒæ•°å€¤ã«å¤‰æ›ã§ããªã„å ´åˆã€
+     * ValidatorExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateByteRange04() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Var var = new Var();
         var.setName("maxByteLength");
         var.setValue("test");
         field.addVar(var);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         try {
             new FieldChecks().validateByteRange("test", va, field, errors);
             fail();
@@ -951,35 +951,35 @@ public class FieldChecksTest09 extends TestCase {
      * testValidateByteRange05()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"test"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"test"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
      *                minByteLength=null<br>
      *                maxByteLength=null<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * var‚ÌminByteLengthAmaxByteLength‚ªnull‚Ìê‡A
-     * ”ÍˆÍ‚ª0`Integer.MAX_LENGTH‚Æ‚µ‚Äƒ`ƒFƒbƒN‚ªs‚í‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * ¦‹«ŠE’lƒeƒXƒg‚Í•¨—“I‚É•s‰Â”\‚È‚½‚ßÈ—ª‚·‚éB
+     * varã®minByteLengthã€maxByteLengthãŒnullã®å ´åˆã€
+     * ç¯„å›²ãŒ0ï½Integer.MAX_LENGTHã¨ã—ã¦ãƒã‚§ãƒƒã‚¯ãŒè¡Œã‚ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * â€»å¢ƒç•Œå€¤ãƒ†ã‚¹ãƒˆã¯ç‰©ç†çš„ã«ä¸å¯èƒ½ãªãŸã‚çœç•¥ã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateByteRange05() throws Exception {
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertTrue(new FieldChecks().validateByteRange("test", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(0, errors.addErrorCount);
     }
 
@@ -987,31 +987,31 @@ public class FieldChecksTest09 extends TestCase {
      * testValidateByteRange06()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"test"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"test"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
      *                minByteLength=""<br>
      *                maxByteLength=""<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * var‚ÌminByteLengthAmaxByteLength‚ª‹ó•¶š‚Ìê‡A
-     * ”ÍˆÍ‚ª0`Integer.MAX_LENGTH‚Æ‚µ‚Äƒ`ƒFƒbƒN‚ªs‚í‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * ¦‹«ŠE’lƒeƒXƒg‚Í•¨—“I‚É•s‰Â”\‚È‚½‚ßÈ—ª‚·‚éB
+     * varã®minByteLengthã€maxByteLengthãŒç©ºæ–‡å­—ã®å ´åˆã€
+     * ç¯„å›²ãŒ0ï½Integer.MAX_LENGTHã¨ã—ã¦ãƒã‚§ãƒƒã‚¯ãŒè¡Œã‚ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * â€»å¢ƒç•Œå€¤ãƒ†ã‚¹ãƒˆã¯ç‰©ç†çš„ã«ä¸å¯èƒ½ãªãŸã‚çœç•¥ã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateByteRange06() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Var var1 = new Var();
         var1.setName("minByteLength");
         var1.setValue("");
@@ -1022,11 +1022,11 @@ public class FieldChecksTest09 extends TestCase {
         var2.setValue("");
         field.addVar(var2);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertTrue(new FieldChecks().validateByteRange("test", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(0, errors.addErrorCount);
     }
 
@@ -1034,38 +1034,38 @@ public class FieldChecksTest09 extends TestCase {
      * testValidateByteRange07()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF,G
+     * è¦³ç‚¹ï¼šF,G
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"test"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"test"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                encoding="test"<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:ValidatorException<br>
-     *                    ƒƒbƒZ[ƒWF"encoding[test] is not supported."<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:ƒƒOƒŒƒxƒ‹FƒGƒ‰[<br>
-     *                    ƒƒbƒZ[ƒWF"encoding[test] is not supported."<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ValidatorException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"encoding[test] is not supported."<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ï¼šã‚¨ãƒ©ãƒ¼<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"encoding[test] is not supported."<br>
      *
      * <br>
-     * var‚Ìencoding‚ªƒTƒ|[ƒg‚³‚ê‚È‚¢ƒGƒ“ƒR[ƒfƒBƒ“ƒO‚Ìê‡A
-     * ValidatorException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * varã®encodingãŒã‚µãƒãƒ¼ãƒˆã•ã‚Œãªã„ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ã®å ´åˆã€
+     * ValidatorExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateByteRange07() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Var var = new Var();
         var.setName("encoding");
         var.setValue("test");
         field.addVar(var);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         try {
             new FieldChecks().validateByteRange("test", va, field, errors);
             fail();
@@ -1080,31 +1080,31 @@ public class FieldChecksTest09 extends TestCase {
      * testValidateByteRange08()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"‚ ‚¢‚¤"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"ã‚ã„ã†"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                minByteLength="6"<br>
      *                maxByteLength="6"<br>
      *                encoding=null<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * var‚Ìencoding‚ªnull‚Ìê‡A
-     * ƒfƒtƒHƒ‹ƒg‚ÌƒGƒ“ƒR[ƒfƒBƒ“ƒO‚ÅƒGƒ“ƒR[ƒh‚ªs‚í‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * varã®encodingãŒnullã®å ´åˆã€
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ã§ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰ãŒè¡Œã‚ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateByteRange08() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Var var1 = new Var();
         var1.setName("minByteLength");
         var1.setValue("6");
@@ -1115,11 +1115,11 @@ public class FieldChecksTest09 extends TestCase {
         var2.setValue("6");
         field.addVar(var2);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
-        assertTrue(new FieldChecks().validateByteRange("‚ ‚¢‚¤", va, field, errors));
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
+        assertTrue(new FieldChecks().validateByteRange("ã‚ã„ã†", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(0, errors.addErrorCount);
     }
 
@@ -1127,31 +1127,31 @@ public class FieldChecksTest09 extends TestCase {
      * testValidateByteRange09()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"‚ ‚¢‚¤"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"ã‚ã„ã†"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                minByteLength="6"<br>
      *                maxByteLength="6"<br>
      *                encoding=""<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * var‚Ìencoding‚ª‹ó•¶š‚Ìê‡A
-     * ƒfƒtƒHƒ‹ƒg‚ÌƒGƒ“ƒR[ƒfƒBƒ“ƒO‚ÅƒGƒ“ƒR[ƒh‚ªs‚í‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * varã®encodingãŒç©ºæ–‡å­—ã®å ´åˆã€
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ã§ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰ãŒè¡Œã‚ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateByteRange09() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Var var1 = new Var();
         var1.setName("minByteLength");
         var1.setValue("6");
@@ -1167,11 +1167,11 @@ public class FieldChecksTest09 extends TestCase {
         var3.setValue("");
         field.addVar(var3);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
-        assertTrue(new FieldChecks().validateByteRange("‚ ‚¢‚¤", va, field, errors));
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
+        assertTrue(new FieldChecks().validateByteRange("ã‚ã„ã†", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(0, errors.addErrorCount);
     }
 
@@ -1179,31 +1179,31 @@ public class FieldChecksTest09 extends TestCase {
      * testValidateByteRange10()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"‚ ‚¢‚¤"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"ã‚ã„ã†"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                minByteLength="7"<br>
      *                maxByteLength="10"<br>
      *                encoding="UTF-8"<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * bean‚Ì’l‚ªw’è‚µ‚½ƒGƒ“ƒR[ƒfƒBƒ“ƒO‚Å”ÍˆÍ“à‚Å‚ ‚éê‡A
-     * true‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * beanã®å€¤ãŒæŒ‡å®šã—ãŸã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ã§ç¯„å›²å†…ã§ã‚ã‚‹å ´åˆã€
+     * trueãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateByteRange10() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Var var1 = new Var();
         var1.setName("minByteLength");
         var1.setValue("7");
@@ -1219,11 +1219,11 @@ public class FieldChecksTest09 extends TestCase {
         var3.setValue("UTF-8");
         field.addVar(var3);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
-        assertTrue(new FieldChecks().validateByteRange("‚ ‚¢‚¤", va, field, errors));
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
+        assertTrue(new FieldChecks().validateByteRange("ã‚ã„ã†", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(0, errors.addErrorCount);
     }
 
@@ -1231,33 +1231,33 @@ public class FieldChecksTest09 extends TestCase {
      * testValidateByteRange11()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"‚ ‚¢‚¤"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"ã‚ã„ã†"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                minByteLength="7"<br>
      *                maxByteLength="10"<br>
      *                encoding="Windows-31J"<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
-     *         (ó‘Ô•Ï‰») errors:bean,field,va‚ğˆø”‚Æ‚µ‚Ä
-     *                           addErrors‚ªŒÄ‚Ño‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:bean,field,vaã‚’å¼•æ•°ã¨ã—ã¦
+     *                           addErrorsãŒå‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
      *
      * <br>
-     * bean‚Ì’l‚ğvar‚Ìencoding‚ÅƒGƒ“ƒR[ƒh‚µ‚½ƒoƒCƒg”‚ª
-     * minByteLength‚Ì’l‚æ‚è¬‚³‚¢ê‡A
-     * ƒGƒ‰[‚ğ’Ç‰Á‚µ‚Äfalse‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * beanã®å€¤ã‚’varã®encodingã§ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰ã—ãŸãƒã‚¤ãƒˆæ•°ãŒ
+     * minByteLengthã®å€¤ã‚ˆã‚Šå°ã•ã„å ´åˆã€
+     * ã‚¨ãƒ©ãƒ¼ã‚’è¿½åŠ ã—ã¦falseãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateByteRange11() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Var var1 = new Var();
         var1.setName("minByteLength");
         var1.setValue("7");
@@ -1273,13 +1273,13 @@ public class FieldChecksTest09 extends TestCase {
         var3.setValue("Windows-31J");
         field.addVar(var3);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
-        assertFalse(new FieldChecks().validateByteRange("‚ ‚¢‚¤", va, field, errors));
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
+        assertFalse(new FieldChecks().validateByteRange("ã‚ã„ã†", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(1, errors.addErrorCount);
-        assertEquals("‚ ‚¢‚¤", errors.beanList.get(0));
+        assertEquals("ã‚ã„ã†", errors.beanList.get(0));
         assertSame(va, errors.vaList.get(0));
         assertSame(field, errors.fieldList.get(0));
     }
@@ -1288,33 +1288,33 @@ public class FieldChecksTest09 extends TestCase {
      * testValidateByteRange12()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"‚ ‚¢‚¤"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"ã‚ã„ã†"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                minByteLength="5"<br>
      *                maxByteLength="8"<br>
      *                encoding="UTF-8"<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
-     *         (ó‘Ô•Ï‰») errors:bean,field,va‚ğˆø”‚Æ‚µ‚Ä
-     *                           addErrors‚ªŒÄ‚Ño‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:bean,field,vaã‚’å¼•æ•°ã¨ã—ã¦
+     *                           addErrorsãŒå‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
      *
      * <br>
-     * bean‚Ì’l‚ğvar‚Ìencoding‚ÅƒGƒ“ƒR[ƒh‚µ‚½ƒoƒCƒg”‚ª
-     * maxByteLength‚Ì’l‚æ‚è‘å‚«‚¢ê‡A
-     * ƒGƒ‰[‚ğ’Ç‰Á‚µ‚Äfalse‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * beanã®å€¤ã‚’varã®encodingã§ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰ã—ãŸãƒã‚¤ãƒˆæ•°ãŒ
+     * maxByteLengthã®å€¤ã‚ˆã‚Šå¤§ãã„å ´åˆã€
+     * ã‚¨ãƒ©ãƒ¼ã‚’è¿½åŠ ã—ã¦falseãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateByteRange12() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Var var1 = new Var();
         var1.setName("minByteLength");
         var1.setValue("5");
@@ -1330,13 +1330,13 @@ public class FieldChecksTest09 extends TestCase {
         var3.setValue("UTF-8");
         field.addVar(var3);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
-        assertFalse(new FieldChecks().validateByteRange("‚ ‚¢‚¤", va, field, errors));
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
+        assertFalse(new FieldChecks().validateByteRange("ã‚ã„ã†", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(1, errors.addErrorCount);
-        assertEquals("‚ ‚¢‚¤", errors.beanList.get(0));
+        assertEquals("ã‚ã„ã†", errors.beanList.get(0));
         assertSame(va, errors.vaList.get(0));
         assertSame(field, errors.fieldList.get(0));
     }

@@ -13,26 +13,26 @@ import jp.terasoluna.utlib.UTUtil;
 import junit.framework.TestCase;
 
 /**
- * {@link jp.terasoluna.fw.file.dao.standard.DecimalFormatLocal} ƒNƒ‰ƒX‚ÌƒeƒXƒgB
+ * {@link jp.terasoluna.fw.file.dao.standard.DecimalFormatLocal} ã‚¯ãƒ©ã‚¹ã®ãƒ†ã‚¹ãƒˆã€‚
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4> DecimalFormat‚ªƒXƒŒƒbƒhƒZ[ƒt‚Å‚Í‚È‚¢‚½‚ßAThreadLocal‚ğg—p‚µ‚ÄƒXƒŒƒbƒhƒZ[ƒt‚É‚·‚éB
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4> DecimalFormatãŒã‚¹ãƒ¬ãƒƒãƒ‰ã‚»ãƒ¼ãƒ•ã§ã¯ãªã„ãŸã‚ã€ThreadLocalã‚’ä½¿ç”¨ã—ã¦ã‚¹ãƒ¬ãƒƒãƒ‰ã‚»ãƒ¼ãƒ•ã«ã™ã‚‹ã€‚
  * <p>
- * @author ›I ‰¶”ü
+ * @author å§œ æ©ç¾
  * @see jp.terasoluna.fw.file.dao.standard.DecimalFormatLocal
  */
 public class DecimalFormatLocalTest extends TestCase {
 
     /**
-     * ‚±‚ÌƒeƒXƒgƒP[ƒX‚ğÀs‚·‚éˆ×‚Ì GUI ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‹N“®‚·‚éB
-     * @param args java ƒRƒ}ƒ“ƒh‚Éİ’è‚³‚ê‚½ƒpƒ‰ƒ[ƒ^
+     * ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã‚’å®Ÿè¡Œã™ã‚‹ç‚ºã® GUI ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’èµ·å‹•ã™ã‚‹ã€‚
+     * @param args java ã‚³ãƒãƒ³ãƒ‰ã«è¨­å®šã•ã‚ŒãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public static void main(String[] args) {
         // junit.swingui.TestRunner.run(DecimalFormatLocalTest.class);
     }
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -41,8 +41,8 @@ public class DecimalFormatLocalTest extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -51,8 +51,8 @@ public class DecimalFormatLocalTest extends TestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public DecimalFormatLocalTest(String name) {
         super(name);
@@ -61,24 +61,24 @@ public class DecimalFormatLocalTest extends TestCase {
     /**
      * testDecimalFormatLocalStringpattern01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE.F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE.F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) pattern:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) pattern:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.pattern:ˆø”pattern‚Æ“¯‚¶’l<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.pattern:å¼•æ•°patternã¨åŒã˜å€¤<br>
      * <br>
-     * ˆø”pattern‚Æ“¯‚¶’l‚ªİ’è‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚é <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * å¼•æ•°patternã¨åŒã˜å€¤ãŒè¨­å®šã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testDecimalFormatLocalStringpattern01() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String pattern = new String();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         DecimalFormatLocal decimalFormatLocal = new DecimalFormatLocal(pattern);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(decimalFormatLocal);
         assertSame(pattern, UTUtil.getPrivateField(decimalFormatLocal,
                 "pattern"));
@@ -87,27 +87,27 @@ public class DecimalFormatLocalTest extends TestCase {
     /**
      * testInitialValue01() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FE.‚f <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE.ï¼§ <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) pattern:null<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) pattern:null<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») ‚È‚µ:NullPointerException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ãªã—:NullPointerException<br>
      * <br>
-     * ‘O’ñğŒ‚ªnull‚Ìê‡NullPointerException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * å‰ææ¡ä»¶ãŒnullã®å ´åˆNullPointerExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testInitialValue01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DecimalFormatLocal decimalFormatLocal = new DecimalFormatLocal(null);
 
-        // ‘Oˆ—(ó‘Ô)
+        // å‰å‡¦ç†(çŠ¶æ…‹)
         UTUtil.setPrivateField(decimalFormatLocal, "pattern", null);
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             decimalFormatLocal.initialValue();
-            fail("NullPointerException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("NullPointerExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (NullPointerException e) {
             assertTrue(e instanceof NullPointerException);
         }
@@ -116,28 +116,28 @@ public class DecimalFormatLocalTest extends TestCase {
     /**
      * testInitialValue02() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE.F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE.F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) pattern:"-\\#,##0.##"<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) pattern:"-\\#,##0.##"<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) DecimalFormat:pattern‚É‘Î‚·‚éDecimalFormatƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) DecimalFormat:patternã«å¯¾ã™ã‚‹DecimalFormatã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     * ‘O’ñğŒ‚ªnull‚¶‚á‚È‚¢ê‡³íÀ{‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * å‰ææ¡ä»¶ãŒnullã˜ã‚ƒãªã„å ´åˆæ­£å¸¸å®Ÿæ–½ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testInitialValue02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DecimalFormatLocal decimalFormatLocal = new DecimalFormatLocal(null);
         String pattern = "-\\#,##0.##";
 
-        // ‘Oˆ—(ó‘Ô)
+        // å‰å‡¦ç†(çŠ¶æ…‹)
         UTUtil.setPrivateField(decimalFormatLocal, "pattern", pattern);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         DecimalFormat result = decimalFormatLocal.initialValue();
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertTrue(result instanceof DecimalFormat);
         assertEquals(pattern, DecimalFormat.class.cast(result).toPattern());

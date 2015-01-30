@@ -11,26 +11,26 @@ import jp.terasoluna.utlib.UTUtil;
 import junit.framework.TestCase;
 
 /**
- * {@link jp.terasoluna.fw.file.dao.FileException} ƒNƒ‰ƒX‚ÌƒeƒXƒgB
+ * {@link jp.terasoluna.fw.file.dao.FileException} ã‚¯ãƒ©ã‚¹ã®ãƒ†ã‚¹ãƒˆã€‚
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4> ƒtƒ@ƒCƒ‹ƒAƒNƒZƒX‹@”\‚Å”­¶‚·‚é—áŠO‚ğƒ‰ƒbƒv‚·‚éRuntimeException
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4> ãƒ•ã‚¡ã‚¤ãƒ«ã‚¢ã‚¯ã‚»ã‚¹æ©Ÿèƒ½ã§ç™ºç”Ÿã™ã‚‹ä¾‹å¤–ã‚’ãƒ©ãƒƒãƒ—ã™ã‚‹RuntimeException
  * <p>
- * @author ‰œ“c“Ni
+ * @author å¥¥ç”°å“²å¸
  * @see jp.terasoluna.fw.file.dao.FileException
  */
 public class FileExceptionTest extends TestCase {
 
     /**
-     * ‚±‚ÌƒeƒXƒgƒP[ƒX‚ğÀs‚·‚éˆ×‚Ì GUI ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‹N“®‚·‚éB
-     * @param args java ƒRƒ}ƒ“ƒh‚Éİ’è‚³‚ê‚½ƒpƒ‰ƒ[ƒ^
+     * ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã‚’å®Ÿè¡Œã™ã‚‹ç‚ºã® GUI ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’èµ·å‹•ã™ã‚‹ã€‚
+     * @param args java ã‚³ãƒãƒ³ãƒ‰ã«è¨­å®šã•ã‚ŒãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public static void main(String[] args) {
         // junit.swingui.TestRunner.run(FileExceptionTest.class);
     }
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -39,8 +39,8 @@ public class FileExceptionTest extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -49,8 +49,8 @@ public class FileExceptionTest extends TestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public FileExceptionTest(String name) {
         super(name);
@@ -59,36 +59,36 @@ public class FileExceptionTest extends TestCase {
     /**
      * testFileExceptionException01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE <br>
      * <br>
-     * “ü—Í’lF(ˆø”) e:ExceptionƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) e:Exceptionã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») FileException.cause:ˆø”e‚Æ“¯‚¶ƒIƒuƒWƒFƒNƒgB<br>
-     * (ó‘Ô•Ï‰») FileException.fileName:null‚ªİ’è<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) FileException.cause:å¼•æ•°eã¨åŒã˜ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) FileException.fileName:nullãŒè¨­å®š<br>
      * <br>
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ìˆø”‚Åó‚¯æ‚Á‚½Exception‚ğƒ‰ƒbƒv‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * ³íƒP[ƒX <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å¼•æ•°ã§å—ã‘å–ã£ãŸExceptionã‚’ãƒ©ãƒƒãƒ—ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
 
     public void testFileExceptionException01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
-        // ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌŒ±‚È‚Ì‚ÅA•s—v
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
+        // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®è©¦é¨“ãªã®ã§ã€ä¸è¦
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         Exception e = new Exception();
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ‚È‚µ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         FileException fe = new FileException(e);
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertSame(e, fe.getCause());
         assertNull(UTUtil.getPrivateField(fe, "fileName"));
     }
@@ -96,40 +96,40 @@ public class FileExceptionTest extends TestCase {
     /**
      * testFileExceptionExceptionString01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE <br>
      * <br>
-     * “ü—Í’lF(ˆø”) e:not null<br>
-     * ExceptionƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ˆø”) fileName:not null<br>
-     * ‹óStringƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) e:not null<br>
+     * Exceptionã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (å¼•æ•°) fileName:not null<br>
+     * ç©ºStringã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») FileException.fileName:ˆø”filename‚Æ“¯‚¶ƒIƒuƒWƒFƒNƒg<br>
-     * (ó‘Ô•Ï‰») FileException.cause:ˆø”e‚Æ“¯‚¶ƒIƒuƒWƒFƒNƒgB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) FileException.fileName:å¼•æ•°filenameã¨åŒã˜ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) FileException.cause:å¼•æ•°eã¨åŒã˜ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚<br>
      * <br>
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ìˆø”‚Åó‚¯æ‚Á‚½Exception‚ğƒ‰ƒbƒv‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * fileName‚ª‘®«‚Éİ’è‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å¼•æ•°ã§å—ã‘å–ã£ãŸExceptionã‚’ãƒ©ãƒƒãƒ—ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * fileNameãŒå±æ€§ã«è¨­å®šã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
 
     public void testFileExceptionExceptionString01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
-        // ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌŒ±‚È‚Ì‚ÅA•s—v
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
+        // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®è©¦é¨“ãªã®ã§ã€ä¸è¦
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         Exception e = new Exception();
         String fileName = new String();
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ‚È‚µ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         FileException fe = new FileException(e, fileName);
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertSame(fileName, UTUtil.getPrivateField(fe, "fileName"));
         assertSame(e, fe.getCause());
     }
@@ -137,37 +137,37 @@ public class FileExceptionTest extends TestCase {
     /**
      * testFileExceptionString01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE <br>
      * <br>
-     * “ü—Í’lF(ˆø”) message:not null<br>
-     * ‹ó‚ÌStringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) message:not null<br>
+     * ç©ºã®Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») FileException.detailMessage: ˆø”StringObject‚Æ“¯‚¶StringƒIƒuƒWƒFƒNƒg<br>
-     * (ó‘Ô•Ï‰») FileException.fileName:null<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) FileException.detailMessage: å¼•æ•°StringObjectã¨åŒã˜Stringã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) FileException.fileName:null<br>
      * <br>
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^ˆø”‚É—áŠOƒƒbƒZ[ƒW‚ğİ’è‚·‚éB<br>
-     * —áŠOƒIƒuƒWƒFƒNƒg¶¬Œã‚ÉƒƒbƒZ[ƒW‚ªŠi”[‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿å¼•æ•°ã«ä¾‹å¤–ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’è¨­å®šã™ã‚‹ã€‚<br>
+     * ä¾‹å¤–ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç”Ÿæˆå¾Œã«ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒæ ¼ç´ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
 
     public void testFileExceptionString01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
-        // ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌŒ±‚È‚Ì‚ÅA•s—v
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
+        // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®è©¦é¨“ãªã®ã§ã€ä¸è¦
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String message = new String();
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ‚È‚µ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         FileException fe = new FileException(message);
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertSame(message, UTUtil.getPrivateField(fe, "detailMessage"));
         assertNull(UTUtil.getPrivateField(fe, "fileName"));
     }
@@ -175,41 +175,41 @@ public class FileExceptionTest extends TestCase {
     /**
      * testFileExceptionStringString01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE <br>
      * <br>
-     * “ü—Í’lF(ˆø”) message:not null<br>
-     * ‹ó‚ÌStringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ˆø”) fileName:not null<br>
-     * ‹ó‚ÌStringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) message:not null<br>
+     * ç©ºã®Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (å¼•æ•°) fileName:not null<br>
+     * ç©ºã®Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») FileException.detailMessage: ˆø”StringObject‚Æ“¯‚¶ƒIƒuƒWƒFƒNƒgB<br>
-     * (ó‘Ô•Ï‰») FileException.fileName:ˆø”filename‚Æ“¯‚¶ƒIƒuƒWƒFƒNƒg<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) FileException.detailMessage: å¼•æ•°StringObjectã¨åŒã˜ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) FileException.fileName:å¼•æ•°filenameã¨åŒã˜ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
      * <br>
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^ˆø”‚É—áŠOƒƒbƒZ[ƒW‚ğİ’è‚·‚éB<br>
-     * —áŠOƒIƒuƒWƒFƒNƒg¶¬Œã‚ÉƒƒbƒZ[ƒW‚ªŠi”[‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * fileName‚ª‘®«‚Éİ’è‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿å¼•æ•°ã«ä¾‹å¤–ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’è¨­å®šã™ã‚‹ã€‚<br>
+     * ä¾‹å¤–ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç”Ÿæˆå¾Œã«ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒæ ¼ç´ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * fileNameãŒå±æ€§ã«è¨­å®šã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
 
     public void testFileExceptionStringString01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
-        // ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌŒ±‚È‚Ì‚ÅA•s—v
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
+        // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®è©¦é¨“ãªã®ã§ã€ä¸è¦
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String message = new String();
         String fileName = new String();
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ‚È‚µ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         FileException fe = new FileException(message, fileName);
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertSame(message, UTUtil.getPrivateField(fe, "detailMessage"));
         assertSame(fileName, UTUtil.getPrivateField(fe, "fileName"));
     }
@@ -217,42 +217,42 @@ public class FileExceptionTest extends TestCase {
     /**
      * testFileExceptionStringException01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE <br>
      * <br>
-     * “ü—Í’lF(ˆø”) message:not null<br>
-     * ‹ó‚ÌStringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ˆø”) e:not null<br>
-     * ExceptionƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) message:not null<br>
+     * ç©ºã®Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (å¼•æ•°) e:not null<br>
+     * Exceptionã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») FileException.detailMessage:ˆø”stringObject‚Æ“¯‚¶ƒIƒuƒWƒFƒNƒgB<br>
-     * (ó‘Ô•Ï‰») FileException.cause:ˆø”e‚Æ“¯‚¶ƒIƒuƒWƒFƒNƒg<br>
-     * (ó‘Ô•Ï‰») FileException.fileName:null<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) FileException.detailMessage:å¼•æ•°stringObjectã¨åŒã˜ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) FileException.cause:å¼•æ•°eã¨åŒã˜ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) FileException.fileName:null<br>
      * <br>
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^ˆø”‚É—áŠOƒƒbƒZ[ƒW‚ğİ’è‚·‚éB<br>
-     * —áŠOƒIƒuƒWƒFƒNƒg¶¬Œã‚ÉƒƒbƒZ[ƒW‚ªŠi”[‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * message‚ª‘®«‚Éİ’è‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿å¼•æ•°ã«ä¾‹å¤–ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’è¨­å®šã™ã‚‹ã€‚<br>
+     * ä¾‹å¤–ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç”Ÿæˆå¾Œã«ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒæ ¼ç´ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * messageãŒå±æ€§ã«è¨­å®šã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
 
     public void testFileExceptionStringException01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
-        // ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌŒ±‚È‚Ì‚ÅA•s—v
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
+        // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®è©¦é¨“ãªã®ã§ã€ä¸è¦
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         Exception e = new Exception();
         String message = new String();
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ‚È‚µ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         FileException fe = new FileException(message, e);
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertSame(message, UTUtil.getPrivateField(fe, "detailMessage"));
         assertNull(UTUtil.getPrivateField(fe, "fileName"));
         assertSame(e, UTUtil.getPrivateField(fe, "cause"));
@@ -261,46 +261,46 @@ public class FileExceptionTest extends TestCase {
     /**
      * testFileExceptionStringExceptionString01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE <br>
      * <br>
-     * “ü—Í’lF(ˆø”) message:not null<br>
-     * ‹ó‚ÌStringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ˆø”) e:not null<br>
-     * ExceptionƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ˆø”) fileName:not null<br>
-     * ‹ó‚ÌStringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) message:not null<br>
+     * ç©ºã®Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (å¼•æ•°) e:not null<br>
+     * Exceptionã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (å¼•æ•°) fileName:not null<br>
+     * ç©ºã®Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») FileException.detailMessage:ˆø”stringObject‚Æ “¯‚¶ƒIƒuƒWƒFƒNƒgB<br>
-     * (ó‘Ô•Ï‰») FileException.cause:ˆø”e‚Æ“¯‚¶ƒIƒuƒWƒFƒNƒg<br>
-     * (ó‘Ô•Ï‰») FileException.fileName:ˆø”filename‚Æ“¯‚¶ƒIƒuƒWƒFƒNƒg<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) FileException.detailMessage:å¼•æ•°stringObjectã¨ åŒã˜ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) FileException.cause:å¼•æ•°eã¨åŒã˜ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) FileException.fileName:å¼•æ•°filenameã¨åŒã˜ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
      * <br>
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ìˆø”‚Åó‚¯æ‚Á‚½Exception‚ğƒ‰ƒbƒv‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^ˆø”‚É—áŠOƒƒbƒZ[ƒW‚ğİ’è‚·‚éB<br>
-     * —áŠOƒIƒuƒWƒFƒNƒg¶¬Œã‚ÉƒƒbƒZ[ƒW‚ªŠi”[‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * fileName‚ª‘®«‚Éİ’è‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å¼•æ•°ã§å—ã‘å–ã£ãŸExceptionã‚’ãƒ©ãƒƒãƒ—ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿å¼•æ•°ã«ä¾‹å¤–ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’è¨­å®šã™ã‚‹ã€‚<br>
+     * ä¾‹å¤–ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç”Ÿæˆå¾Œã«ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒæ ¼ç´ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * fileNameãŒå±æ€§ã«è¨­å®šã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
 
     public void testFileExceptionStringExceptionString01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
-        // ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌŒ±‚È‚Ì‚ÅA•s—v
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
+        // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®è©¦é¨“ãªã®ã§ã€ä¸è¦
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         Exception e = new Exception();
         String message = new String();
         String fileName = new String();
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ‚È‚µ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         FileException fe = new FileException(message, e, fileName);
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertSame(message, UTUtil.getPrivateField(fe, "detailMessage"));
         assertSame(fileName, UTUtil.getPrivateField(fe, "fileName"));
         assertSame(e, UTUtil.getPrivateField(fe, "cause"));
@@ -309,37 +309,37 @@ public class FileExceptionTest extends TestCase {
     /**
      * testGetFileName01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FF <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šF <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) fileName:not null<br>
-     * ‹ó‚ÌStringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) fileName:not null<br>
+     * ç©ºã®Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:‘O’ñğŒ‚Ìfilename‚Æ“¯‚¶ƒIƒuƒWƒFƒNƒg<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:å‰ææ¡ä»¶ã®filenameã¨åŒã˜ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
      * <br>
-     * ‘®«‚ª³‚µ‚­æ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * å±æ€§ãŒæ­£ã—ãå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
 
     public void testGetFileName01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         FileException fe = new FileException(new String());
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         String fileName = new String();
         UTUtil.setPrivateField(fe, "fileName", fileName);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = fe.getFileName();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertSame(fileName, result);
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
-        // ‚È‚µ
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
+        // ãªã—
     }
 
 }

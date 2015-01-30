@@ -6,12 +6,12 @@ import jp.terasoluna.fw.file.annotation.StringConverterToUpperCase;
 import jp.terasoluna.fw.file.annotation.TrimType;
 
 /**
- * FileFormatƒAƒmƒe[ƒVƒ‡ƒ“‚Ìİ’è‚ğ‚ÂAƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgƒXƒ^ƒuƒNƒ‰ƒX
+ * FileFormatã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã®è¨­å®šã‚’æŒã¤ã€ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¹ã‚¿ãƒ–ã‚¯ãƒ©ã‚¹
  * <p>
- * ˆÈ‰º‚Ìİ’è‚ğ‚Â<br>
+ * ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤<br>
  * <ul>
  * <li>@FileFormat()
- * <li>‘®«
+ * <li>å±æ€§
  * <ul>
  * <li>@InputFileColumn(columnIndex = 0, bytes = 5, stringConverter = StringConverterToUpperCase.class, trimChar = '0', trimType
  * = TrimType.LEFT) String shopId
@@ -25,14 +25,14 @@ public class FixedFileLineIterator_Stub03 {
     private String shopId = null;
 
     /**
-     * @return shopId ‚ğ–ß‚µ‚Ü‚·B
+     * @return shopId ã‚’æˆ»ã—ã¾ã™ã€‚
      */
     public String getShopId() {
         return shopId;
     }
 
     /**
-     * @param shopId İ’è‚·‚é shopIdB
+     * @param shopId è¨­å®šã™ã‚‹ shopIdã€‚
      */
     public void setShopId(String shopId) {
         this.shopId = shopId;

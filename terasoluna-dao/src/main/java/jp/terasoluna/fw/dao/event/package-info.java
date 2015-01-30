@@ -1,4 +1,4 @@
 /**
- * DAOイベント処理関連
+ * DAO繧､繝吶Φ繝亥�ｦ逅�髢｢騾｣
  */
 package jp.terasoluna.fw.dao.event;

@@ -19,31 +19,31 @@ package jp.terasoluna.fw.collector.util.strategy;
 import java.util.Comparator;
 
 /**
- * CompareStrategyÀ‘•ƒNƒ‰ƒX.<br>
- * ŠO•”Comparator‚Ìcompareƒƒ\ƒbƒh‚Å”äŠr‚·‚éƒXƒgƒ‰ƒeƒWB
- * compareƒƒ\ƒbƒh‚ª0‚ğ•Ô‚¹‚Î“™‚µ‚¢A0ˆÈŠO‚ğ•Ô‚¹‚Î“™‚µ‚­‚È‚¢A‚Æ‚¢‚¤Œ‹‰Ê‚É‚È‚éB<br>
- * ‚±‚ÌƒNƒ‰ƒX‚ÍAŠù‘¶‚ÌComparator‚ğCompareStrategy‚Æ‚µ‚Ä—˜—p‚·‚é‚½‚ß‚É—pˆÓ‚µ‚Ä‚¢‚éB<br>
- * ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒN”»’è‚Ì‚½‚ß‚ÉAV‹K‚É”äŠrƒƒWƒbƒN‚ğÀ‘•‚·‚éê‡‚ÍA
- * ‚±‚ÌƒNƒ‰ƒX‚É—^‚¦‚éComparator‚ğV‹K‚Éì¬‚·‚é‚Ì‚Å‚Í‚È‚­A
- * CompareStrategyÀ‘•ƒNƒ‰ƒX‚ğì¬‚·‚é‚±‚Æ‚ğ„§‚·‚éB<br>
- * (CompareStrategy‚ÍComparator‚ÆˆÙ‚È‚èA2‚Â‚ÌƒIƒuƒWƒFƒNƒg‚Ì‘å¬ŠÖŒW‚ğŒˆ‚ß‚éd—l‚ª•s—vB)<br>
- * ‚È‚¨AŠO•”Comparator‚ªƒXƒe[ƒgƒŒƒX‚Å‚ ‚ê‚ÎA‚±‚ÌƒNƒ‰ƒX‚àƒXƒe[ƒgƒŒƒX‚Å‚ ‚éB
- * ‚»‚Ì‚½‚ßAŠO•”Comparator‚ªƒXƒe[ƒgƒŒƒX‚Å‚ ‚ê‚ÎA
- * ”äŠr‚Ì‚½‚Ñ‚ÉŠO•”Comparator‚â‚±‚ÌƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğì¬‚µ‚È‚¨‚·•K—v‚Í–³‚¢B
+ * CompareStrategyå®Ÿè£…ã‚¯ãƒ©ã‚¹.<br>
+ * å¤–éƒ¨Comparatorã®compareãƒ¡ã‚½ãƒƒãƒ‰ã§æ¯”è¼ƒã™ã‚‹ã‚¹ãƒˆãƒ©ãƒ†ã‚¸ã€‚
+ * compareãƒ¡ã‚½ãƒƒãƒ‰ãŒ0ã‚’è¿”ã›ã°ç­‰ã—ã„ã€0ä»¥å¤–ã‚’è¿”ã›ã°ç­‰ã—ããªã„ã€ã¨ã„ã†çµæœã«ãªã‚‹ã€‚<br>
+ * ã“ã®ã‚¯ãƒ©ã‚¹ã¯ã€æ—¢å­˜ã®Comparatorã‚’CompareStrategyã¨ã—ã¦åˆ©ç”¨ã™ã‚‹ãŸã‚ã«ç”¨æ„ã—ã¦ã„ã‚‹ã€‚<br>
+ * ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯åˆ¤å®šã®ãŸã‚ã«ã€æ–°è¦ã«æ¯”è¼ƒãƒ­ã‚¸ãƒƒã‚¯ã‚’å®Ÿè£…ã™ã‚‹å ´åˆã¯ã€
+ * ã“ã®ã‚¯ãƒ©ã‚¹ã«ä¸ãˆã‚‹Comparatorã‚’æ–°è¦ã«ä½œæˆã™ã‚‹ã®ã§ã¯ãªãã€
+ * CompareStrategyå®Ÿè£…ã‚¯ãƒ©ã‚¹ã‚’ä½œæˆã™ã‚‹ã“ã¨ã‚’æ¨å¥¨ã™ã‚‹ã€‚<br>
+ * (CompareStrategyã¯Comparatorã¨ç•°ãªã‚Šã€2ã¤ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å¤§å°é–¢ä¿‚ã‚’æ±ºã‚ã‚‹ä»•æ§˜ãŒä¸è¦ã€‚)<br>
+ * ãªãŠã€å¤–éƒ¨ComparatorãŒã‚¹ãƒ†ãƒ¼ãƒˆãƒ¬ã‚¹ã§ã‚ã‚Œã°ã€ã“ã®ã‚¯ãƒ©ã‚¹ã‚‚ã‚¹ãƒ†ãƒ¼ãƒˆãƒ¬ã‚¹ã§ã‚ã‚‹ã€‚
+ * ãã®ãŸã‚ã€å¤–éƒ¨ComparatorãŒã‚¹ãƒ†ãƒ¼ãƒˆãƒ¬ã‚¹ã§ã‚ã‚Œã°ã€
+ * æ¯”è¼ƒã®ãŸã³ã«å¤–éƒ¨Comparatorã‚„ã“ã®ã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ä½œæˆã—ãªãŠã™å¿…è¦ã¯ç„¡ã„ã€‚
  * @see Comparator
  * @see CompareStrategy
  */
 public class ComparatorCompareStrategy implements CompareStrategy<Object> {
 
     /**
-     * ŠO•”Comparator.
+     * å¤–éƒ¨Comparator.
      */
     @SuppressWarnings("rawtypes")
     private Comparator comparator = null;
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^.
-     * @param comparator 2‚Â‚ÌƒIƒuƒWƒFƒNƒg‚ğ”äŠr‚·‚éComparator
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿.
+     * @param comparator 2ã¤ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’æ¯”è¼ƒã™ã‚‹Comparator
      */
     public ComparatorCompareStrategy(Comparator<?> comparator) {
         this.comparator = comparator;

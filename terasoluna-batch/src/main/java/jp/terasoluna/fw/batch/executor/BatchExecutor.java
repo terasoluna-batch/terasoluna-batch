@@ -20,14 +20,14 @@ import jp.terasoluna.fw.batch.executor.vo.BLogicResult;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
 
 /**
- * ƒoƒbƒ`ƒGƒOƒ[ƒLƒ…[ƒ^ƒCƒ“ƒ^ƒtƒF[ƒXB
+ * ãƒãƒƒãƒã‚¨ã‚°ã‚¼ã‚­ãƒ¥ãƒ¼ã‚¿ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã€‚
  */
 public interface BatchExecutor {
 
     /**
-     * <h6>ƒoƒbƒ`Às.</h6>
-     * @param jobRecord Às‚·‚éƒWƒ‡ƒuƒŒƒR[ƒh
-     * @return ƒrƒWƒlƒXƒƒWƒbƒNÀsŒ‹‰Ê
+     * <h6>ãƒãƒƒãƒå®Ÿè¡Œ.</h6>
+     * @param jobRecord å®Ÿè¡Œã™ã‚‹ã‚¸ãƒ§ãƒ–ãƒ¬ã‚³ãƒ¼ãƒ‰
+     * @return ãƒ“ã‚¸ãƒã‚¹ãƒ­ã‚¸ãƒƒã‚¯å®Ÿè¡Œçµæœ
      */
     BLogicResult executeBatch(BatchJobData jobRecord);
 

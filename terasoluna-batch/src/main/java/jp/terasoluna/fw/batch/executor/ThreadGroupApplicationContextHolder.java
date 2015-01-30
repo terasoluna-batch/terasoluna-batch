@@ -24,37 +24,37 @@ import jp.terasoluna.fw.logger.TLogger;
 import org.springframework.context.ApplicationContext;
 
 public class ThreadGroupApplicationContextHolder {
-    /** ƒƒK[. */
+    /** ãƒ­ã‚¬ãƒ¼. */
     private static final TLogger LOGGER = TLogger
             .getLogger(ThreadGroupApplicationContextHolder.class);
 
-    /** ƒXƒŒƒbƒhƒOƒ‹[ƒv–ˆ‚ÉApplicationContext‚ğ•Û‚·‚é. */
+    /** ã‚¹ãƒ¬ãƒƒãƒ‰ã‚°ãƒ«ãƒ¼ãƒ—æ¯ã«ApplicationContextã‚’ä¿æŒã™ã‚‹. */
     private static final ConcurrentHashMap<ThreadGroup, ApplicationContext> tga = new ConcurrentHashMap<ThreadGroup, ApplicationContext>();
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      */
     protected ThreadGroupApplicationContextHolder() {
     }
 
     /**
-     * ApplicationContext‚ğæ“¾‚·‚é.<br>
+     * ApplicationContextã‚’å–å¾—ã™ã‚‹.<br>
      * <p>
-     * ƒJƒŒƒ“ƒgƒXƒŒƒbƒh‚ªŠ‘®‚·‚éƒXƒŒƒbƒhƒOƒ‹[ƒv‚ÉŠ„‚è“–‚Ä‚ç‚ê‚½ApplicationContext‚ğæ“¾‚·‚éB
+     * ã‚«ãƒ¬ãƒ³ãƒˆã‚¹ãƒ¬ãƒƒãƒ‰ãŒæ‰€å±ã™ã‚‹ã‚¹ãƒ¬ãƒƒãƒ‰ã‚°ãƒ«ãƒ¼ãƒ—ã«å‰²ã‚Šå½“ã¦ã‚‰ã‚ŒãŸApplicationContextã‚’å–å¾—ã™ã‚‹ã€‚
      * </p>
-     * @return ApplicationContext‚ğ•Ô‹p‚·‚é
+     * @return ApplicationContextã‚’è¿”å´ã™ã‚‹
      */
     public static ApplicationContext getCurrentThreadGroupApplicationContext() {
         return getThreadGroupApplicationContext(getThreadGroup());
     }
 
     /**
-     * ApplicationContext‚ğæ“¾‚·‚é.<br>
+     * ApplicationContextã‚’å–å¾—ã™ã‚‹.<br>
      * <p>
-     * ˆø”‚Å“n‚µ‚½ƒXƒŒƒbƒhƒOƒ‹[ƒv‚ÉŠ„‚è“–‚Ä‚ç‚ê‚½ApplicationContext‚ğæ“¾‚·‚éB
+     * å¼•æ•°ã§æ¸¡ã—ãŸã‚¹ãƒ¬ãƒƒãƒ‰ã‚°ãƒ«ãƒ¼ãƒ—ã«å‰²ã‚Šå½“ã¦ã‚‰ã‚ŒãŸApplicationContextã‚’å–å¾—ã™ã‚‹ã€‚
      * </p>
      * @param threadGroup ThreadGroup
-     * @return ApplicationContext‚ğ•Ô‹p‚·‚é
+     * @return ApplicationContextã‚’è¿”å´ã™ã‚‹
      */
     public static ApplicationContext getThreadGroupApplicationContext(
             ThreadGroup threadGroup) {
@@ -73,9 +73,9 @@ public class ThreadGroupApplicationContextHolder {
     }
 
     /**
-     * ApplicationContext‚ğİ’è‚·‚é.<br>
+     * ApplicationContextã‚’è¨­å®šã™ã‚‹.<br>
      * <p>
-     * ‚±‚±‚Åİ’è‚·‚éApplicationContext‚ÍƒXƒŒƒbƒhƒOƒ‹[ƒv–ˆ‚É•Û‚³‚ê‚éB
+     * ã“ã“ã§è¨­å®šã™ã‚‹ApplicationContextã¯ã‚¹ãƒ¬ãƒƒãƒ‰ã‚°ãƒ«ãƒ¼ãƒ—æ¯ã«ä¿æŒã•ã‚Œã‚‹ã€‚
      * </p>
      * @param applicationContext ApplicationContext
      */
@@ -102,7 +102,7 @@ public class ThreadGroupApplicationContextHolder {
     }
 
     /**
-     * ApplicationContext‚ğíœ‚·‚é.<br>
+     * ApplicationContextã‚’å‰Šé™¤ã™ã‚‹.<br>
      */
     protected static void removeApplicationContext() {
         ThreadGroup tg = getThreadGroup();
@@ -117,7 +117,7 @@ public class ThreadGroupApplicationContextHolder {
     }
 
     /**
-     * ƒXƒŒƒbƒhƒOƒ‹[ƒv‚ğæ“¾‚·‚é.
+     * ã‚¹ãƒ¬ãƒƒãƒ‰ã‚°ãƒ«ãƒ¼ãƒ—ã‚’å–å¾—ã™ã‚‹.
      * @return ThreadGroup
      */
     private static ThreadGroup getThreadGroup() {
@@ -129,8 +129,8 @@ public class ThreadGroupApplicationContextHolder {
     }
 
     /**
-     * ƒXƒŒƒbƒhƒOƒ‹[ƒv‚ÆƒXƒŒƒbƒh–¼‚ğ•Ô‚·ƒƒ\ƒbƒh.<br>
-     * ƒfƒoƒbƒO—pƒƒbƒZ[ƒW‚ğ•Ô‚·B
+     * ã‚¹ãƒ¬ãƒƒãƒ‰ã‚°ãƒ«ãƒ¼ãƒ—ã¨ã‚¹ãƒ¬ãƒƒãƒ‰åã‚’è¿”ã™ãƒ¡ã‚½ãƒƒãƒ‰.<br>
+     * ãƒ‡ãƒãƒƒã‚°ç”¨ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’è¿”ã™ã€‚
      * @return String
      */
     private static String getThreadMessage() {

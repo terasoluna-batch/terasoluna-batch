@@ -17,47 +17,47 @@
 package jp.terasoluna.fw.file.dao;
 
 /**
- * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚Ì’l‚ğo—Í‚·‚éFileLineWriter‚ğ¶¬‚·‚é‚½‚ß‚ÌƒCƒ“ƒ^ƒtƒF[ƒXB
+ * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å€¤ã‚’å‡ºåŠ›ã™ã‚‹FileLineWriterã‚’ç”Ÿæˆã™ã‚‹ãŸã‚ã®ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã€‚
  * <p>
- * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚©‚ç’l‚ğæ‚èo‚µ‚ÄƒeƒLƒXƒgƒtƒ@ƒCƒ‹‚Éo—Í‚·‚é<code>FileLineWriter</code> ‚ğ¶¬‚·‚é‚½‚ß‚ÌƒCƒ“ƒ^ƒtƒF[ƒX‚Å‚ ‚éB ƒTƒuƒNƒ‰ƒX‚ÅÀ‘•‚·‚éƒƒ\ƒbƒh‚Í<code>execute</code>‚Ì‚İB
- * ˆø”‚É‚Íƒf[ƒ^‚ğ‘‚«‚Şƒtƒ@ƒCƒ‹‚ÌƒpƒXi‘Š‘ÎƒpƒX/â‘ÎƒpƒXj‚ÆA ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌƒNƒ‰ƒX‚ğİ’è‚·‚éB<br>
- * FileLineWriter‚ğ¶¬‚·‚é•û–@‚ğˆÈ‰º‚É‚ ‚°‚éB
+ * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã‚‰å€¤ã‚’å–ã‚Šå‡ºã—ã¦ãƒ†ã‚­ã‚¹ãƒˆãƒ•ã‚¡ã‚¤ãƒ«ã«å‡ºåŠ›ã™ã‚‹<code>FileLineWriter</code> ã‚’ç”Ÿæˆã™ã‚‹ãŸã‚ã®ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã§ã‚ã‚‹ã€‚ ã‚µãƒ–ã‚¯ãƒ©ã‚¹ã§å®Ÿè£…ã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ã¯<code>execute</code>ã®ã¿ã€‚
+ * å¼•æ•°ã«ã¯ãƒ‡ãƒ¼ã‚¿ã‚’æ›¸ãè¾¼ã‚€ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹ï¼ˆç›¸å¯¾ãƒ‘ã‚¹/çµ¶å¯¾ãƒ‘ã‚¹ï¼‰ã¨ã€ ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¯ãƒ©ã‚¹ã‚’è¨­å®šã™ã‚‹ã€‚<br>
+ * FileLineWriterã‚’ç”Ÿæˆã™ã‚‹æ–¹æ³•ã‚’ä»¥ä¸‹ã«ã‚ã’ã‚‹ã€‚
  * </p>
  * <p>
- * <strong>İ’è—á</strong><br>
- * ƒrƒWƒlƒXƒƒWƒbƒN(SampleLogic)‚Ì’†‚ÅFileLineWriter‚ğ¶¬‚·‚é—áB
+ * <strong>è¨­å®šä¾‹</strong><br>
+ * ãƒ“ã‚¸ãƒã‚¹ãƒ­ã‚¸ãƒƒã‚¯(SampleLogic)ã®ä¸­ã§FileLineWriterã‚’ç”Ÿæˆã™ã‚‹ä¾‹ã€‚
  * 
  * <pre>
- * &lt;li&gt;1.FileUpdateDAO‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚Ìî•ñ‚ğƒWƒ‡ƒuBean’è‹`ƒtƒ@ƒCƒ‹‚Éİ’è‚·‚éB&lt;/li&gt;
+ * &lt;li&gt;1.FileUpdateDAOã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã®æƒ…å ±ã‚’ã‚¸ãƒ§ãƒ–Beanå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ã«è¨­å®šã™ã‚‹ã€‚&lt;/li&gt;
  * &lt;code&gt;
  * &lt;bean id=&quot;blogic&quot; 
- * @class=&quot;jp.terasoluna.batch.sample.SampleLogic&quot;&gt;
+ * ã€€class=&quot;jp.terasoluna.batch.sample.SampleLogic&quot;&gt;
  *  &lt;property name=&quot;fileUpdateDAO&quot; ref=&quot;csvFileUpdateDao&quot; /&gt;
  * &lt;/bean&gt;
  * &lt;/code&gt;
- * QÆ‚·‚éFileQueryDAO‚ÌƒTƒuƒNƒ‰ƒX‚ÍuFileAccessBean.xmlv‚ğQÆ‚Ì‚±‚ÆB
+ * å‚ç…§ã™ã‚‹FileQueryDAOã®ã‚µãƒ–ã‚¯ãƒ©ã‚¹ã¯ã€ŒFileAccessBean.xmlã€ã‚’å‚ç…§ã®ã“ã¨ã€‚
  * 
- * &lt;li&gt;2.FileLineWriter‚ğƒrƒWƒlƒXƒƒWƒbƒN‚Ì’†‚Å¶¬‚·‚éB
+ * &lt;li&gt;2.FileLineWriterã‚’ãƒ“ã‚¸ãƒã‚¹ãƒ­ã‚¸ãƒƒã‚¯ã®ä¸­ã§ç”Ÿæˆã™ã‚‹ã€‚
  * &lt;code&gt;
- * FileUpdateDAO fileDao = null;   //FileUpdateDAO‚ÌƒCƒ“ƒXƒ^ƒ“ƒX¶¬‚ÍƒWƒ‡ƒuBean’è‹`ƒtƒ@ƒCƒ‹‚É‹Lq‚·‚éBsetter‚ÍÈ—ªB
- * cc
- * // FileLineWriter‚ğ¶¬B
- * FileLineWriter fileLineWriter = fileDao.execute(&quot;yƒAƒNƒZƒX‚·‚éƒtƒ@ƒCƒ‹–¼z&quot;, yƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌƒNƒ‰ƒXz);
- * cc
+ * FileUpdateDAO fileDao = null;   //FileUpdateDAOã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ç”Ÿæˆã¯ã‚¸ãƒ§ãƒ–Beanå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ã«è¨˜è¿°ã™ã‚‹ã€‚setterã¯çœç•¥ã€‚
+ * â€¦â€¦
+ * // FileLineWriterã‚’ç”Ÿæˆã€‚
+ * FileLineWriter fileLineWriter = fileDao.execute(&quot;ã€ã‚¢ã‚¯ã‚»ã‚¹ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«åã€‘&quot;, ã€ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¯ãƒ©ã‚¹ã€‘);
+ * â€¦â€¦
  * &lt;/code&gt;
  * </pre>
  * 
  * </p>
- * FileLineWriter‚ÌÚ×‚ÍA{@link jp.terasoluna.fw.file.dao.FileLineWriter}‚ğQÆ‚Ì‚±‚ÆB
+ * FileLineWriterã®è©³ç´°ã¯ã€{@link jp.terasoluna.fw.file.dao.FileLineWriter}ã‚’å‚ç…§ã®ã“ã¨ã€‚
  */
 public interface FileUpdateDAO {
 
     /**
-     * ƒtƒ@ƒCƒ‹–¼‚ğw’è‚µ‚ÄA<code>FileLineWriter</code>‚ğæ“¾‚·‚éB
-     * @param fileName ƒtƒ@ƒCƒ‹–¼iâ‘ÎƒpƒX‚Ü‚½‚Í‘Š‘ÎƒpƒX‚Ì‚Ç‚¿‚ç‚©j
-     * @param clazz 1s•ª‚Ì•¶š—ñ‚ğŠi”[‚·‚éƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgƒNƒ‰ƒX
-     * @param <T> ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg
-     * @return ƒtƒ@ƒCƒ‹o—Í—pWriter
+     * ãƒ•ã‚¡ã‚¤ãƒ«åã‚’æŒ‡å®šã—ã¦ã€<code>FileLineWriter</code>ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @param fileName ãƒ•ã‚¡ã‚¤ãƒ«åï¼ˆçµ¶å¯¾ãƒ‘ã‚¹ã¾ãŸã¯ç›¸å¯¾ãƒ‘ã‚¹ã®ã©ã¡ã‚‰ã‹ï¼‰
+     * @param clazz 1è¡Œåˆ†ã®æ–‡å­—åˆ—ã‚’æ ¼ç´ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¯ãƒ©ã‚¹
+     * @param <T> ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @return ãƒ•ã‚¡ã‚¤ãƒ«å‡ºåŠ›ç”¨Writer
      */
     <T> FileLineWriter<T> execute(String fileName, Class<T> clazz);
 

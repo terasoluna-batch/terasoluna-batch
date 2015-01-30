@@ -23,30 +23,30 @@ import jp.terasoluna.fw.collector.validate.ValidationErrorHandler;
 import org.springframework.validation.Validator;
 
 /**
- * DaoCollectorİ’è€–Ú
+ * DaoCollectorè¨­å®šé …ç›®
  */
 public class DaoCollectorConfig extends AbstractCollectorConfig {
 
     /** QueryResultHandleDao */
     protected Object queryResultHandleDao = null;
 
-    /** Às‚·‚éƒƒ\ƒbƒh–¼ */
+    /** å®Ÿè¡Œã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰å */
     protected String methodName = null;
 
-    /** SQL‚ÉƒoƒCƒ“ƒh‚·‚é’l‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg */
+    /** SQLã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹å€¤ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ */
     protected Object bindParams = null;
 
-    /** 1:Nƒ}ƒbƒsƒ“ƒOg—pƒtƒ‰ƒOig—p‚Ítruej */
+    /** 1:Nãƒãƒƒãƒ”ãƒ³ã‚°ä½¿ç”¨ãƒ•ãƒ©ã‚°ï¼ˆä½¿ç”¨æ™‚ã¯trueï¼‰ */
     protected boolean relation1n = false;
 
-    /** DaoCollector‘OŒãˆ— */
+    /** DaoCollectorå‰å¾Œå‡¦ç† */
     protected DaoCollectorPrePostProcess daoCollectorPrePostProcess = null;
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-     * @param queryResultHandleDao QueryResultHandleDaoƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param methodName Às‚·‚éƒƒ\ƒbƒh–¼
-     * @param bindParams SQL‚ÉƒoƒCƒ“ƒh‚·‚é’l‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+     * @param queryResultHandleDao QueryResultHandleDaoã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param methodName å®Ÿè¡Œã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰å
+     * @param bindParams SQLã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹å€¤ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      */
     public DaoCollectorConfig(Object queryResultHandleDao, String methodName,
             Object bindParams) {
@@ -56,8 +56,8 @@ public class DaoCollectorConfig extends AbstractCollectorConfig {
     }
 
     /**
-     * ƒLƒ…[ƒTƒCƒY‚ğİ’è‚·‚é
-     * @param queueSize ƒLƒ…[ƒTƒCƒY
+     * ã‚­ãƒ¥ãƒ¼ã‚µã‚¤ã‚ºã‚’è¨­å®šã™ã‚‹
+     * @param queueSize ã‚­ãƒ¥ãƒ¼ã‚µã‚¤ã‚º
      * @return DaoCollectorConfig
      */
     public DaoCollectorConfig addQueueSize(int queueSize) {
@@ -66,7 +66,7 @@ public class DaoCollectorConfig extends AbstractCollectorConfig {
     }
 
     /**
-     * CollectorExceptionHandler‚ğİ’è‚·‚é
+     * CollectorExceptionHandlerã‚’è¨­å®šã™ã‚‹
      * @param exceptionHandler CollectorExceptionHandler
      * @return DaoCollectorConfig
      */
@@ -77,7 +77,7 @@ public class DaoCollectorConfig extends AbstractCollectorConfig {
     }
 
     /**
-     * Validator‚ğİ’è‚·‚é
+     * Validatorã‚’è¨­å®šã™ã‚‹
      * @param validator Validator
      * @return DaoCollectorConfig
      */
@@ -87,7 +87,7 @@ public class DaoCollectorConfig extends AbstractCollectorConfig {
     }
 
     /**
-     * ValidationErrorHandler‚ğİ’è‚·‚é
+     * ValidationErrorHandlerã‚’è¨­å®šã™ã‚‹
      * @param validationErrorHandler ValidationErrorHandler
      * @return DaoCollectorConfig
      */
@@ -98,8 +98,8 @@ public class DaoCollectorConfig extends AbstractCollectorConfig {
     }
 
     /**
-     * 1:Nƒ}ƒbƒsƒ“ƒOg—pƒtƒ‰ƒO‚ğİ’è‚·‚é
-     * @param relation1n 1:Nƒ}ƒbƒsƒ“ƒOg—pƒtƒ‰ƒO
+     * 1:Nãƒãƒƒãƒ”ãƒ³ã‚°ä½¿ç”¨ãƒ•ãƒ©ã‚°ã‚’è¨­å®šã™ã‚‹
+     * @param relation1n 1:Nãƒãƒƒãƒ”ãƒ³ã‚°ä½¿ç”¨ãƒ•ãƒ©ã‚°
      * @return DaoCollectorConfig
      */
     public DaoCollectorConfig addRelation1n(boolean relation1n) {
@@ -108,8 +108,8 @@ public class DaoCollectorConfig extends AbstractCollectorConfig {
     }
 
     /**
-     * DaoCollector‘OŒãˆ—‚ğİ’è‚·‚é
-     * @param daoCollectorPrePostProcess DaoCollector‘OŒãˆ—
+     * DaoCollectorå‰å¾Œå‡¦ç†ã‚’è¨­å®šã™ã‚‹
+     * @param daoCollectorPrePostProcess DaoCollectorå‰å¾Œå‡¦ç†
      * @return DaoCollectorConfig
      */
     public DaoCollectorConfig addDaoCollectorPrePostProcess(
@@ -119,8 +119,8 @@ public class DaoCollectorConfig extends AbstractCollectorConfig {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Åˆ—‚ğÀs‚·‚éƒtƒ‰ƒO‚ğİ’è‚·‚é
-     * @param executeByConstructor ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Åˆ—‚ğÀs‚·‚éƒtƒ‰ƒO
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§å‡¦ç†ã‚’å®Ÿè¡Œã™ã‚‹ãƒ•ãƒ©ã‚°ã‚’è¨­å®šã™ã‚‹
+     * @param executeByConstructor ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§å‡¦ç†ã‚’å®Ÿè¡Œã™ã‚‹ãƒ•ãƒ©ã‚°
      * @return DaoCollectorConfig
      */
     public DaoCollectorConfig addExecuteByConstructor(
@@ -130,7 +130,7 @@ public class DaoCollectorConfig extends AbstractCollectorConfig {
     }
 
     /**
-     * QueryResultHandleDao‚ğæ“¾‚·‚éB
+     * QueryResultHandleDaoã‚’å–å¾—ã™ã‚‹ã€‚
      * @return QueryResultHandleDao
      */
     public Object getQueryResultHandleDao() {
@@ -138,7 +138,7 @@ public class DaoCollectorConfig extends AbstractCollectorConfig {
     }
 
     /**
-     * QueryResultHandleDao‚ğİ’è‚·‚éB
+     * QueryResultHandleDaoã‚’è¨­å®šã™ã‚‹ã€‚
      * @param queryResultHandleDao QueryResultHandleDao
      */
     public void setQueryResultHandleDao(Object queryResultHandleDao) {
@@ -146,64 +146,64 @@ public class DaoCollectorConfig extends AbstractCollectorConfig {
     }
 
     /**
-     * Às‚·‚éƒƒ\ƒbƒh–¼‚ğæ“¾‚·‚éB
-     * @return Às‚·‚éƒƒ\ƒbƒh–¼
+     * å®Ÿè¡Œã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰åã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return å®Ÿè¡Œã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰å
      */
     public String getMethodName() {
         return methodName;
     }
 
     /**
-     * Às‚·‚éƒƒ\ƒbƒh–¼‚ğİ’è‚·‚éB
-     * @param methodName Às‚·‚éƒƒ\ƒbƒh–¼
+     * å®Ÿè¡Œã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰åã‚’è¨­å®šã™ã‚‹ã€‚
+     * @param methodName å®Ÿè¡Œã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰å
      */
     public void setMethodName(String methodName) {
         this.methodName = methodName;
     }
 
     /**
-     * SQL‚ÉƒoƒCƒ“ƒh‚·‚é’l‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg‚ğæ“¾‚·‚éB
-     * @return SQL‚ÉƒoƒCƒ“ƒh‚·‚é’l‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg
+     * SQLã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹å€¤ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return SQLã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹å€¤ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      */
     public Object getBindParams() {
         return bindParams;
     }
 
     /**
-     * SQL‚ÉƒoƒCƒ“ƒh‚·‚é’l‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg‚ğİ’è‚·‚éB
-     * @param bindParams SQL‚ÉƒoƒCƒ“ƒh‚·‚é’l‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg
+     * SQLã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹å€¤ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’è¨­å®šã™ã‚‹ã€‚
+     * @param bindParams SQLã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹å€¤ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      */
     public void setBindParams(Object bindParams) {
         this.bindParams = bindParams;
     }
 
     /**
-     * 1:Nƒ}ƒbƒsƒ“ƒOg—pƒtƒ‰ƒO‚ğæ“¾‚·‚éB
-     * @return 1:Nƒ}ƒbƒsƒ“ƒOg—pƒtƒ‰ƒO
+     * 1:Nãƒãƒƒãƒ”ãƒ³ã‚°ä½¿ç”¨ãƒ•ãƒ©ã‚°ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return 1:Nãƒãƒƒãƒ”ãƒ³ã‚°ä½¿ç”¨ãƒ•ãƒ©ã‚°
      */
     public boolean isRelation1n() {
         return relation1n;
     }
 
     /**
-     * 1:Nƒ}ƒbƒsƒ“ƒOg—pƒtƒ‰ƒO‚ğİ’è‚·‚éB
-     * @param relation1n 1:Nƒ}ƒbƒsƒ“ƒOg—pƒtƒ‰ƒO
+     * 1:Nãƒãƒƒãƒ”ãƒ³ã‚°ä½¿ç”¨ãƒ•ãƒ©ã‚°ã‚’è¨­å®šã™ã‚‹ã€‚
+     * @param relation1n 1:Nãƒãƒƒãƒ”ãƒ³ã‚°ä½¿ç”¨ãƒ•ãƒ©ã‚°
      */
     public void setRelation1n(boolean relation1n) {
         this.relation1n = relation1n;
     }
 
     /**
-     * DaoCollector‘OŒãˆ—‚ğæ“¾‚·‚éB
-     * @return DaoCollector‘Oˆ—
+     * DaoCollectorå‰å¾Œå‡¦ç†ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return DaoCollectorå‰å‡¦ç†
      */
     public DaoCollectorPrePostProcess getDaoCollectorPrePostProcess() {
         return daoCollectorPrePostProcess;
     }
 
     /**
-     * DaoCollector‘OŒãˆ—‚ğİ’è‚·‚éB
-     * @param daoCollectorPrePostProcess DaoCollector‘OŒãˆ—
+     * DaoCollectorå‰å¾Œå‡¦ç†ã‚’è¨­å®šã™ã‚‹ã€‚
+     * @param daoCollectorPrePostProcess DaoCollectorå‰å¾Œå‡¦ç†
      */
     public void setDaoCollectorPrePostProcess(
             DaoCollectorPrePostProcess daoCollectorPrePostProcess) {

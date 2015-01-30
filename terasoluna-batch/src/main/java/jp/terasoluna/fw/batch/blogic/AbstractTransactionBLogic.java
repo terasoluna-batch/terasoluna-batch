@@ -30,14 +30,14 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionStatus;
 
 /**
- * ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“ŠÇ—‚ğs‚¤ƒrƒWƒlƒXƒƒWƒbƒN’ŠÛƒNƒ‰ƒXB<br>
+ * ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ç®¡ç†ã‚’è¡Œã†ãƒ“ã‚¸ãƒã‚¹ãƒ­ã‚¸ãƒƒã‚¯æŠ½è±¡ã‚¯ãƒ©ã‚¹ã€‚<br>
  * <br>
- * ƒtƒŒ[ƒ€ƒ[ƒN‘¤‚Åƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“ŠÇ—‚ğs‚¢‚½‚¢ê‡A‚±‚Ì’ŠÛƒNƒ‰ƒX‚ğŒp³‚µAAbstractTransactionBLogic#doMainƒƒ\ƒbƒh‚ğÀ‘•‚µ‚ÄƒrƒWƒlƒXƒƒWƒbƒN‚ªì¬‚·‚éB<br>
- * ‚±‚Ì’ŠÛƒNƒ‰ƒX‚ğŒp³‚µ‚½ƒrƒWƒlƒXƒƒWƒbƒN‚Ìƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“‚ÌU•‘‚¢‚ÍˆÈ‰º‚Ì’Ê‚è‚Å‚ ‚éB
+ * ãƒ•ãƒ¬ãƒ¼ãƒ ãƒ¯ãƒ¼ã‚¯å´ã§ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ç®¡ç†ã‚’è¡Œã„ãŸã„å ´åˆã€ã“ã®æŠ½è±¡ã‚¯ãƒ©ã‚¹ã‚’ç¶™æ‰¿ã—ã€AbstractTransactionBLogic#doMainãƒ¡ã‚½ãƒƒãƒ‰ã‚’å®Ÿè£…ã—ã¦ãƒ“ã‚¸ãƒã‚¹ãƒ­ã‚¸ãƒƒã‚¯ãŒä½œæˆã™ã‚‹ã€‚<br>
+ * ã“ã®æŠ½è±¡ã‚¯ãƒ©ã‚¹ã‚’ç¶™æ‰¿ã—ãŸãƒ“ã‚¸ãƒã‚¹ãƒ­ã‚¸ãƒƒã‚¯ã®ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã®æŒ¯èˆã„ã¯ä»¥ä¸‹ã®é€šã‚Šã§ã‚ã‚‹ã€‚
  * <ol>
- * <li>ƒrƒWƒlƒXƒƒWƒbƒNŠJn‚³‚ê‚½Aƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“‚ªŠJn‚³‚ê‚éB</li>
- * <li>Às—áŠO‚ªƒXƒ[‚³‚ê‚½Aƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“ŠJn‚Ü‚Åƒ[ƒ‹ƒoƒbƒN‚³‚ê‚éB</li>
- * <li>ƒrƒWƒlƒXƒƒWƒbƒNI—¹ŒãAƒRƒ~ƒbƒg‚³‚êAƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“‚ªI—¹‚³‚ê‚éB</li>
+ * <li>ãƒ“ã‚¸ãƒã‚¹ãƒ­ã‚¸ãƒƒã‚¯é–‹å§‹ã•ã‚ŒãŸæ™‚ã€ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ãŒé–‹å§‹ã•ã‚Œã‚‹ã€‚</li>
+ * <li>å®Ÿè¡Œä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚ŒãŸæ™‚ã€ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³é–‹å§‹æ™‚ã¾ã§ãƒ­ãƒ¼ãƒ«ãƒãƒƒã‚¯ã•ã‚Œã‚‹ã€‚</li>
+ * <li>ãƒ“ã‚¸ãƒã‚¹ãƒ­ã‚¸ãƒƒã‚¯çµ‚äº†å¾Œã€ã‚³ãƒŸãƒƒãƒˆã•ã‚Œã€ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ãŒçµ‚äº†ã•ã‚Œã‚‹ã€‚</li>
  * </ol>
  * @see jp.terasoluna.fw.batch.blogic.BLogic
  * @see jp.terasoluna.fw.batch.blogic.AbstractBLogic
@@ -45,12 +45,12 @@ import org.springframework.transaction.TransactionStatus;
 public abstract class AbstractTransactionBLogic extends AbstractBLogic {
 
     /**
-     * ƒvƒƒZƒXI—¹ƒR[ƒhiˆÙíj
+     * ãƒ—ãƒ­ã‚»ã‚¹çµ‚äº†ã‚³ãƒ¼ãƒ‰ï¼ˆç•°å¸¸ï¼‰
      */
     private static final int PROCESS_END_STATUS_FAILURE = 255;
 
     /**
-     * ƒƒO.
+     * ãƒ­ã‚°.
      */
     private static final TLogger LOGGER = TLogger
             .getLogger(AbstractTransactionBLogic.class);
@@ -66,7 +66,7 @@ public abstract class AbstractTransactionBLogic extends AbstractBLogic {
     private Map<String, TransactionStatus> transactionStatusMap = null;
 
     /**
-     * ƒoƒbƒ`ˆ—Àsƒƒ\ƒbƒh.
+     * ãƒãƒƒãƒå‡¦ç†å®Ÿè¡Œãƒ¡ã‚½ãƒƒãƒ‰.
      * @see jp.terasoluna.fw.batch.blogic.BLogic#execute(java.lang.String[], com.ibatis.sqlmap.client.SqlMapClient)
      */
     public int execute(BLogicParam param) {
@@ -76,14 +76,14 @@ public abstract class AbstractTransactionBLogic extends AbstractBLogic {
         this.transactionManagerMap = ctx
                 .getBeansOfType(PlatformTransactionManager.class);
 
-        // ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“ŠJn
+        // ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³é–‹å§‹
         this.transactionStatusMap = startTransactions(this.transactionManagerMap);
 
         try {
-            // åˆ—
+            // ä¸»å‡¦ç†
             status = doMain(param);
 
-            // ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“ƒRƒ~ƒbƒg
+            // ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã‚³ãƒŸãƒƒãƒˆ
             commitTransactions(this.transactionManagerMap,
                     this.transactionStatusMap);
         } catch (Throwable e) {
@@ -92,7 +92,7 @@ public abstract class AbstractTransactionBLogic extends AbstractBLogic {
             }
             throw new BatchException(e);
         } finally {
-            // ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“I—¹i–¢ƒRƒ~ƒbƒgƒ[ƒ‹ƒoƒbƒNj
+            // ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³çµ‚äº†ï¼ˆæœªã‚³ãƒŸãƒƒãƒˆæ™‚ãƒ­ãƒ¼ãƒ«ãƒãƒƒã‚¯ï¼‰
             boolean et = endTransactions(this.transactionManagerMap,
                     this.transactionStatusMap);
             if (!et) {
@@ -104,7 +104,7 @@ public abstract class AbstractTransactionBLogic extends AbstractBLogic {
     }
 
     /**
-     * åˆ—.
+     * ä¸»å‡¦ç†.
      * @param param
      * @return
      * @throws SQLException
@@ -112,9 +112,9 @@ public abstract class AbstractTransactionBLogic extends AbstractBLogic {
     public abstract int doMain(BLogicParam param);
 
     /**
-     * ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“ŠJn.
-     * @param trnMngMap PlatformTransactionManagerƒ}ƒbƒv
-     * @return TransactionStatusƒ}ƒbƒv
+     * ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³é–‹å§‹.
+     * @param trnMngMap PlatformTransactionManagerãƒãƒƒãƒ—
+     * @return TransactionStatusãƒãƒƒãƒ—
      */
     private Map<String, TransactionStatus> startTransactions(Map<?, ?> trnMngMap) {
         return BatchUtil.startTransactions(
@@ -122,9 +122,9 @@ public abstract class AbstractTransactionBLogic extends AbstractBLogic {
     }
 
     /**
-     * ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“ƒRƒ~ƒbƒg.
-     * @param trnMngMap PlatformTransactionManagerƒ}ƒbƒv
-     * @param tranStatMap TransactionStatusƒ}ƒbƒv
+     * ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã‚³ãƒŸãƒƒãƒˆ.
+     * @param trnMngMap PlatformTransactionManagerãƒãƒƒãƒ—
+     * @param tranStatMap TransactionStatusãƒãƒƒãƒ—
      */
     private void commitTransactions(Map<?, ?> trnMngMap,
             Map<String, TransactionStatus> tranStatMap) {
@@ -132,10 +132,10 @@ public abstract class AbstractTransactionBLogic extends AbstractBLogic {
     }
 
     /**
-     * ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“I—¹i–¢ƒRƒ~ƒbƒgƒ[ƒ‹ƒoƒbƒNj.
-     * @param trnMngMap PlatformTransactionManagerƒ}ƒbƒv
-     * @param tranStatMap TransactionStatusƒ}ƒbƒv
-     * @return ³í‚È‚çtrue
+     * ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³çµ‚äº†ï¼ˆæœªã‚³ãƒŸãƒƒãƒˆæ™‚ãƒ­ãƒ¼ãƒ«ãƒãƒƒã‚¯ï¼‰.
+     * @param trnMngMap PlatformTransactionManagerãƒãƒƒãƒ—
+     * @param tranStatMap TransactionStatusãƒãƒƒãƒ—
+     * @return æ­£å¸¸ãªã‚‰true
      */
     private boolean endTransactions(Map<?, ?> trnMngMap,
             Map<String, TransactionStatus> tranStatMap) {

@@ -41,163 +41,163 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionException;
 
 /**
- * ”ñ“¯Šúƒoƒbƒ`ƒGƒOƒ[ƒLƒ…[ƒ^B<br>
+ * éåŒæœŸãƒãƒƒãƒã‚¨ã‚°ã‚¼ã‚­ãƒ¥ãƒ¼ã‚¿ã€‚<br>
  * <br>
- * í’“ƒvƒƒZƒX‚Æ‚µ‚Ä‹N“®‚µAƒWƒ‡ƒuŠÇ—ƒe[ƒuƒ‹‚É“o˜^‚³‚ê‚½ƒWƒ‡ƒu‚ğæ“¾‚µAƒWƒ‡ƒu‚ÌÀs‚ğBatchServantƒNƒ‰ƒX‚ÉˆÚ÷‚·‚éB<br>
- * ‚Ü‚½ƒWƒ‡ƒuŠÇ—ƒe[ƒuƒ‹‚ÉƒWƒ‡ƒuÀsŒ‹‰Ê‚ğXV‚·‚éB<br>
+ * å¸¸é§ãƒ—ãƒ­ã‚»ã‚¹ã¨ã—ã¦èµ·å‹•ã—ã€ã‚¸ãƒ§ãƒ–ç®¡ç†ãƒ†ãƒ¼ãƒ–ãƒ«ã«ç™»éŒ²ã•ã‚ŒãŸã‚¸ãƒ§ãƒ–ã‚’å–å¾—ã—ã€ã‚¸ãƒ§ãƒ–ã®å®Ÿè¡Œã‚’BatchServantã‚¯ãƒ©ã‚¹ã«ç§»è­²ã™ã‚‹ã€‚<br>
+ * ã¾ãŸã‚¸ãƒ§ãƒ–ç®¡ç†ãƒ†ãƒ¼ãƒ–ãƒ«ã«ã‚¸ãƒ§ãƒ–å®Ÿè¡Œçµæœã‚’æ›´æ–°ã™ã‚‹ã€‚<br>
  * @see jp.terasoluna.fw.batch.executor.AbstractJobBatchExecutor
  */
 public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
 
     /**
-     * ƒƒK[.
+     * ãƒ­ã‚¬ãƒ¼.
      */
     private static final TLogger LOGGER = TLogger
             .getLogger(AsyncBatchExecutor.class);
 
     /**
-     * ƒ^ƒXƒNƒGƒOƒ[ƒLƒ…[ƒ^‚ÌBean–¼
+     * ã‚¿ã‚¹ã‚¯ã‚¨ã‚°ã‚¼ã‚­ãƒ¥ãƒ¼ã‚¿ã®Beanå
      */
     private static final String BATCH_TASK_EXECUTOR = "batchTaskExecutor.default";
 
     /**
-     * ƒXƒŒƒbƒhÀs—p‚ÌBatchServantƒNƒ‰ƒX‚ÌBean–¼
+     * ã‚¹ãƒ¬ãƒƒãƒ‰å®Ÿè¡Œç”¨ã®BatchServantã‚¯ãƒ©ã‚¹ã®Beanå
      */
     private static final String BATCH_TASK_SERVANT = "batchTaskExecutor.batchServant";
 
     /**
-     * ƒf[ƒ^ƒx[ƒXˆÙí‚ÌƒŠƒgƒ‰ƒC‰ñ”’è‹`–¼
+     * ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ç•°å¸¸æ™‚ã®ãƒªãƒˆãƒ©ã‚¤å›æ•°å®šç¾©å
      */
     private static final String BATCH_DB_ABNORMAL_RETRY_MAX = "batchTaskExecutor.dbAbnormalRetryMax";
 
     /**
-     * ƒf[ƒ^ƒx[ƒXˆÙí‚ÌƒŠƒgƒ‰ƒCŠÔŠu’è‹`–¼
+     * ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ç•°å¸¸æ™‚ã®ãƒªãƒˆãƒ©ã‚¤é–“éš”å®šç¾©å
      */
     private static final String BATCH_DB_ABNORMAL_RETRY_INTERVAL = "batchTaskExecutor.dbAbnormalRetryInterval";
 
     /**
-     * ƒf[ƒ^ƒx[ƒXˆÙí‚ÌƒŠƒgƒ‰ƒC‰ñ”‚ğƒŠƒZƒbƒg‚·‚é‘O‰ñ‚©‚ç‚Ì”­¶ŠÔŠu’è‹`–¼
+     * ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ç•°å¸¸æ™‚ã®ãƒªãƒˆãƒ©ã‚¤å›æ•°ã‚’ãƒªã‚»ãƒƒãƒˆã™ã‚‹å‰å›ã‹ã‚‰ã®ç™ºç”Ÿé–“éš”å®šç¾©å
      */
     private static final String BATCH_DB_ABNORMAL_RETRY_RESET = "batchTaskExecutor.dbAbnormalRetryReset";
 
     /**
-     * ƒWƒ‡ƒuÀsƒŠƒgƒ‰ƒCŠÔŠuiƒ~ƒŠ•bj’è‹`–¼
+     * ã‚¸ãƒ§ãƒ–å®Ÿè¡Œãƒªãƒˆãƒ©ã‚¤é–“éš”ï¼ˆãƒŸãƒªç§’ï¼‰å®šç¾©å
      */
     private static final String BATCH_EXECUTE_RETRY_INTERVAL = "batchTaskExecutor.executeRetryInterval";
 
     /**
-     * ƒWƒ‡ƒuÀsƒŠƒgƒ‰ƒC‰ñ”’è‹`–¼
+     * ã‚¸ãƒ§ãƒ–å®Ÿè¡Œãƒªãƒˆãƒ©ã‚¤å›æ•°å®šç¾©å
      */
     private static final String BATCH_EXECUTE_RETRY_COUNTMAX = "batchTaskExecutor.executeRetryCountMax";
 
     /**
-     * ‹ó‚«ƒXƒŒƒbƒhc”è‡’l‚ÌƒfƒtƒHƒ‹ƒg’l
+     * ç©ºãã‚¹ãƒ¬ãƒƒãƒ‰æ®‹æ•°é–¾å€¤ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤
      */
     private static final String BATCH_AVAILABLE_THREADTHRESHOLD_COUNT = "batchTaskExecutor.availableThreadThresholdCount";
 
     /**
-     * ‹ó‚«ƒXƒŒƒbƒhc”è‡’lˆÈ‰º‚Ìê‡‚ÌƒEƒFƒCƒgŠÔiƒ~ƒŠ•bj‚ÌƒfƒtƒHƒ‹ƒg’l
+     * ç©ºãã‚¹ãƒ¬ãƒƒãƒ‰æ®‹æ•°é–¾å€¤ä»¥ä¸‹ã®å ´åˆã®ã‚¦ã‚§ã‚¤ãƒˆæ™‚é–“ï¼ˆãƒŸãƒªç§’ï¼‰ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤
      */
     private static final String BATCH_AVAILABLE_THREADTHRESHOLD_WAIT = "batchTaskExecutor.availableThreadThresholdWait";
 
     /**
-     * ƒf[ƒ^ƒx[ƒXˆÙí‚ÌƒŠƒgƒ‰ƒC‰ñ”‚ÌƒfƒtƒHƒ‹ƒg’l
+     * ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ç•°å¸¸æ™‚ã®ãƒªãƒˆãƒ©ã‚¤å›æ•°ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤
      */
     private static final long BATCH_DB_ABNORMAL_RETRY_MAX_DEFAULT = 0;
 
     /**
-     * ƒf[ƒ^ƒx[ƒXˆÙí‚ÌƒŠƒgƒ‰ƒCŠÔŠu‚ÌƒfƒtƒHƒ‹ƒg’liƒ~ƒŠ•bj
+     * ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ç•°å¸¸æ™‚ã®ãƒªãƒˆãƒ©ã‚¤é–“éš”ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ï¼ˆãƒŸãƒªç§’ï¼‰
      */
     private static final long BATCH_DB_ABNORMAL_RETRY_INTERVAL_DEFAULT = 20000;
 
     /**
-     * ƒf[ƒ^ƒx[ƒXˆÙí‚ÌƒŠƒgƒ‰ƒC‰ñ”‚ğƒŠƒZƒbƒg‚·‚é‘O‰ñ‚©‚ç‚Ì”­¶ŠÔŠu‚ÌƒfƒtƒHƒ‹ƒg’liƒ~ƒŠ•bj
+     * ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ç•°å¸¸æ™‚ã®ãƒªãƒˆãƒ©ã‚¤å›æ•°ã‚’ãƒªã‚»ãƒƒãƒˆã™ã‚‹å‰å›ã‹ã‚‰ã®ç™ºç”Ÿé–“éš”ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ï¼ˆãƒŸãƒªç§’ï¼‰
      */
     private static final long BATCH_DB_ABNORMAL_RETRY_RESET_DEFAULT = 600000;
 
     /**
-     * ƒvƒƒZƒXI—¹ƒR[ƒhi³íj
+     * ãƒ—ãƒ­ã‚»ã‚¹çµ‚äº†ã‚³ãƒ¼ãƒ‰ï¼ˆæ­£å¸¸ï¼‰
      */
     private static final int PROCESS_END_STATUS_NORMAL = 0;
 
     /**
-     * ƒvƒƒZƒXI—¹ƒR[ƒhiˆÙíj
+     * ãƒ—ãƒ­ã‚»ã‚¹çµ‚äº†ã‚³ãƒ¼ãƒ‰ï¼ˆç•°å¸¸ï¼‰
      */
     private static final int PROCESS_END_STATUS_FAILURE = 255;
 
     /**
-     * ƒWƒ‡ƒuÀsƒŠƒgƒ‰ƒCŠÔŠuiƒ~ƒŠ•bj‚ÌƒfƒtƒHƒ‹ƒg’l
+     * ã‚¸ãƒ§ãƒ–å®Ÿè¡Œãƒªãƒˆãƒ©ã‚¤é–“éš”ï¼ˆãƒŸãƒªç§’ï¼‰ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤
      */
     protected static final long DEFAULT_EXECUTE_RETRY_INTERVAL = 1000;
 
     /**
-     * ƒWƒ‡ƒuÀsƒŠƒgƒ‰ƒC‰ñ”‚ÌƒfƒtƒHƒ‹ƒg’l
+     * ã‚¸ãƒ§ãƒ–å®Ÿè¡Œãƒªãƒˆãƒ©ã‚¤å›æ•°ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤
      */
     protected static final long DEFAULT_EXECUTE_RETRY_COUNTMAX = 10;
 
     /**
-     * ‹ó‚«ƒXƒŒƒbƒhc”è‡’l‚ÌƒfƒtƒHƒ‹ƒg’l
+     * ç©ºãã‚¹ãƒ¬ãƒƒãƒ‰æ®‹æ•°é–¾å€¤ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤
      */
     protected static final long DEFAULT_AVAILABLE_THREADTHRESHOLD_COUNT = 1;
 
     /**
-     * ‹ó‚«ƒXƒŒƒbƒhc”è‡’lˆÈ‰º‚Ìê‡‚ÌƒEƒFƒCƒgŠÔiƒ~ƒŠ•bj‚ÌƒfƒtƒHƒ‹ƒg’l
+     * ç©ºãã‚¹ãƒ¬ãƒƒãƒ‰æ®‹æ•°é–¾å€¤ä»¥ä¸‹ã®å ´åˆã®ã‚¦ã‚§ã‚¤ãƒˆæ™‚é–“ï¼ˆãƒŸãƒªç§’ï¼‰ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤
      */
     protected static final long DEFAULT_AVAILABLE_THREADTHRESHOLD_WAIT = 100;
 
-    /** ƒXƒŒƒbƒhƒOƒ‹[ƒvƒvƒŠƒtƒBƒbƒNƒX. */
+    /** ã‚¹ãƒ¬ãƒƒãƒ‰ã‚°ãƒ«ãƒ¼ãƒ—ãƒ—ãƒªãƒ•ã‚£ãƒƒã‚¯ã‚¹. */
     public static final String THREAD_GROUP_PREFIX = AsyncBatchExecutor.class
             .getSimpleName()
             + "ThreadGroup";
 
-    /** ƒXƒŒƒbƒh–¼ƒvƒŠƒtƒBƒbƒNƒX. */
+    /** ã‚¹ãƒ¬ãƒƒãƒ‰åãƒ—ãƒªãƒ•ã‚£ãƒƒã‚¯ã‚¹. */
     public static final String THREAD_NAME_PREFIX = AsyncBatchExecutor.class
             .getSimpleName()
             + "Thread";
 
-    /** ƒXƒŒƒbƒhƒOƒ‹[ƒvƒZƒpƒŒ[ƒ^. */
+    /** ã‚¹ãƒ¬ãƒƒãƒ‰ã‚°ãƒ«ãƒ¼ãƒ—ã‚»ãƒ‘ãƒ¬ãƒ¼ã‚¿. */
     public static final String THREAD_GROUP_SEPARATOR = "-";
 
-    /** ƒXƒŒƒbƒh–¼ƒZƒpƒŒ[ƒ^. */
+    /** ã‚¹ãƒ¬ãƒƒãƒ‰åã‚»ãƒ‘ãƒ¬ãƒ¼ã‚¿. */
     public static final String THREAD_NAME_SEPARATOR = "-";
 
-    /** ƒXƒŒƒbƒhƒOƒ‹[ƒv”Ô†. */
+    /** ã‚¹ãƒ¬ãƒƒãƒ‰ã‚°ãƒ«ãƒ¼ãƒ—ç•ªå·. */
     protected static AtomicInteger threadGroupNo = new AtomicInteger(0);
 
     /**
-     * ƒWƒ‡ƒuÀsƒŠƒgƒ‰ƒCŠÔŠuiƒ~ƒŠ•bj
+     * ã‚¸ãƒ§ãƒ–å®Ÿè¡Œãƒªãƒˆãƒ©ã‚¤é–“éš”ï¼ˆãƒŸãƒªç§’ï¼‰
      */
     protected static long executeRetryInterval = DEFAULT_EXECUTE_RETRY_INTERVAL;
 
     /**
-     * ƒWƒ‡ƒuÀsƒŠƒgƒ‰ƒC‰ñ”
+     * ã‚¸ãƒ§ãƒ–å®Ÿè¡Œãƒªãƒˆãƒ©ã‚¤å›æ•°
      */
     protected static long executeRetryCountMax = DEFAULT_EXECUTE_RETRY_COUNTMAX;
 
     /**
-     * ‹ó‚«ƒXƒŒƒbƒhc”è‡’l
+     * ç©ºãã‚¹ãƒ¬ãƒƒãƒ‰æ®‹æ•°é–¾å€¤
      */
     protected static long availableThreadThresholdCount = DEFAULT_AVAILABLE_THREADTHRESHOLD_COUNT;
 
     /**
-     * ‹ó‚«ƒXƒŒƒbƒhc”è‡’lˆÈ‰º‚Ìê‡‚ÌƒEƒFƒCƒgŠÔiƒ~ƒŠ•bj
+     * ç©ºãã‚¹ãƒ¬ãƒƒãƒ‰æ®‹æ•°é–¾å€¤ä»¥ä¸‹ã®å ´åˆã®ã‚¦ã‚§ã‚¤ãƒˆæ™‚é–“ï¼ˆãƒŸãƒªç§’ï¼‰
      */
     protected static long availableThreadThresholdWait = DEFAULT_AVAILABLE_THREADTHRESHOLD_WAIT;
 
     /**
-     * ”jŠüŒó•â‚Ì(activeCount‚ª0‚É‚È‚Á‚½‚ç”jŠü‚µ‚Ä‚æ‚¢)ThreadGroup‚ÌListB
+     * ç ´æ£„å€™è£œã®(activeCountãŒ0ã«ãªã£ãŸã‚‰ç ´æ£„ã—ã¦ã‚ˆã„)ThreadGroupã®Listã€‚
      */
     protected static List<ThreadGroup> destroyCandidateThreadGroupList = new LinkedList<ThreadGroup>();
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      */
     protected AsyncBatchExecutor() {
         super();
     }
 
     /**
-     * ƒƒCƒ“ƒƒ\ƒbƒh.
+     * ãƒ¡ã‚¤ãƒ³ãƒ¡ã‚½ãƒƒãƒ‰.
      * @param args
      */
     public static void main(String[] args) {
@@ -208,7 +208,7 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
         int status = PROCESS_END_STATUS_FAILURE;
         long lastExceptionTime = System.currentTimeMillis();
 
-        // ƒvƒƒpƒeƒB‚©‚ç’l‚ğæ“¾
+        // ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‹ã‚‰å€¤ã‚’å–å¾—
         String dbAbnormalRetryMaxStr = PropertyUtil
                 .getProperty(BATCH_DB_ABNORMAL_RETRY_MAX);
         String dbAbnormalRetryIntervalStr = PropertyUtil
@@ -224,7 +224,7 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
         String availableThreadThresholdWaitStr = PropertyUtil
                 .getProperty(BATCH_AVAILABLE_THREADTHRESHOLD_WAIT);
 
-        // ƒf[ƒ^ƒx[ƒXˆÙí‚ÌƒŠƒgƒ‰ƒC‰ñ”
+        // ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ç•°å¸¸æ™‚ã®ãƒªãƒˆãƒ©ã‚¤å›æ•°
         if (dbAbnormalRetryMaxStr != null
                 && dbAbnormalRetryMaxStr.length() != 0) {
             try {
@@ -237,7 +237,7 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
             }
         }
 
-        // ƒf[ƒ^ƒx[ƒXˆÙí‚ÌƒŠƒgƒ‰ƒCŠÔŠuiƒ~ƒŠ•bj
+        // ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ç•°å¸¸æ™‚ã®ãƒªãƒˆãƒ©ã‚¤é–“éš”ï¼ˆãƒŸãƒªç§’ï¼‰
         if (dbAbnormalRetryIntervalStr != null
                 && dbAbnormalRetryIntervalStr.length() != 0) {
             try {
@@ -251,7 +251,7 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
             }
         }
 
-        // ƒf[ƒ^ƒx[ƒXˆÙí‚ÌƒŠƒgƒ‰ƒC‰ñ”‚ğƒŠƒZƒbƒg‚·‚é‘O‰ñ‚©‚ç‚Ì”­¶ŠÔŠuiƒ~ƒŠ•bj
+        // ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ç•°å¸¸æ™‚ã®ãƒªãƒˆãƒ©ã‚¤å›æ•°ã‚’ãƒªã‚»ãƒƒãƒˆã™ã‚‹å‰å›ã‹ã‚‰ã®ç™ºç”Ÿé–“éš”ï¼ˆãƒŸãƒªç§’ï¼‰
         if (dbAbnormalRetryResetStr != null
                 && dbAbnormalRetryResetStr.length() != 0) {
             try {
@@ -264,7 +264,7 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
             }
         }
 
-        // ƒWƒ‡ƒuÀsƒŠƒgƒ‰ƒCŠÔŠuiƒ~ƒŠ•bj
+        // ã‚¸ãƒ§ãƒ–å®Ÿè¡Œãƒªãƒˆãƒ©ã‚¤é–“éš”ï¼ˆãƒŸãƒªç§’ï¼‰
         if (executeRetryIntervalStr != null
                 && executeRetryIntervalStr.length() != 0) {
             try {
@@ -277,7 +277,7 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
             }
         }
 
-        // ƒWƒ‡ƒuÀsƒŠƒgƒ‰ƒC‰ñ”
+        // ã‚¸ãƒ§ãƒ–å®Ÿè¡Œãƒªãƒˆãƒ©ã‚¤å›æ•°
         if (executeRetryCountMaxStr != null
                 && executeRetryCountMaxStr.length() != 0) {
             try {
@@ -290,7 +290,7 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
             }
         }
 
-        // ‹ó‚«ƒXƒŒƒbƒhc”è‡’l
+        // ç©ºãã‚¹ãƒ¬ãƒƒãƒ‰æ®‹æ•°é–¾å€¤
         if (availableThreadThresholdCountStr != null
                 && availableThreadThresholdCountStr.length() != 0) {
             try {
@@ -305,7 +305,7 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
             }
         }
 
-        // ‹ó‚«ƒXƒŒƒbƒhc”è‡’lˆÈ‰º‚Ìê‡‚ÌƒEƒFƒCƒgŠÔiƒ~ƒŠ•bj
+        // ç©ºãã‚¹ãƒ¬ãƒƒãƒ‰æ®‹æ•°é–¾å€¤ä»¥ä¸‹ã®å ´åˆã®ã‚¦ã‚§ã‚¤ãƒˆæ™‚é–“ï¼ˆãƒŸãƒªç§’ï¼‰
         if (availableThreadThresholdWaitStr != null
                 && availableThreadThresholdWaitStr.length() != 0) {
             try {
@@ -326,23 +326,23 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
                 break;
             } catch (RetryableExecuteException e) {
                 Throwable cause = e.getCause();
-                // ‘O‰ñ‚©‚çw’èŠÔˆÈãŒo‰ß‚µ‚Ä‚¢‚½‚çƒŠƒgƒ‰ƒC‰ñ”ƒŠƒZƒbƒg
+                // å‰å›ã‹ã‚‰æŒ‡å®šæ™‚é–“ä»¥ä¸ŠçµŒéã—ã¦ã„ãŸã‚‰ãƒªãƒˆãƒ©ã‚¤å›æ•°ãƒªã‚»ãƒƒãƒˆ
                 if ((System.currentTimeMillis() - lastExceptionTime) > retryCountReset) {
                     retryCount = 0;
                 }
                 lastExceptionTime = System.currentTimeMillis();
 
-                // ƒŠƒgƒ‰ƒC‰ñ”ƒ`ƒFƒbƒN
+                // ãƒªãƒˆãƒ©ã‚¤å›æ•°ãƒã‚§ãƒƒã‚¯
                 if (retryCount >= retryCountMax) {
                     LOGGER.error(LogId.EAL025031, cause);
                     break;
                 }
 
-                // ƒXƒŠ[ƒvŠÔ‘Ò‚Â
+                // ã‚¹ãƒªãƒ¼ãƒ—æ™‚é–“å¾…ã¤
                 try {
                     Thread.sleep(retryInterval);
                 } catch (InterruptedException e1) {
-                    // ‚È‚É‚à‚µ‚È‚¢
+                    // ãªã«ã‚‚ã—ãªã„
                 }
 
                 retryCount++;
@@ -359,7 +359,7 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
     }
 
     /**
-     * ƒGƒOƒ[ƒLƒ…[ƒ^ƒƒCƒ“ƒƒ\ƒbƒh.
+     * ã‚¨ã‚°ã‚¼ã‚­ãƒ¥ãƒ¼ã‚¿ãƒ¡ã‚¤ãƒ³ãƒ¡ã‚½ãƒƒãƒ‰.
      * @param args
      */
     public static int executorMain(String[] args) {
@@ -372,12 +372,12 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
 
         LOGGER.info(LogId.IAL025005);
 
-        // ‘æ1ˆø”‚©‚çƒWƒ‡ƒu‹Æ–±ƒR[ƒh‚ğæ“¾
+        // ç¬¬1å¼•æ•°ã‹ã‚‰ã‚¸ãƒ§ãƒ–æ¥­å‹™ã‚³ãƒ¼ãƒ‰ã‚’å–å¾—
         if (args.length > 0) {
             jobAppCd = args[0];
         }
 
-        // ˆø”‚Éw’è‚³‚ê‚Ä‚¢‚È‚¢ê‡‚ÍŠÂ‹«•Ï”‚©‚çƒWƒ‡ƒu‹Æ–±ƒR[ƒh‚ğæ“¾
+        // å¼•æ•°ã«æŒ‡å®šã•ã‚Œã¦ã„ãªã„å ´åˆã¯ç’°å¢ƒå¤‰æ•°ã‹ã‚‰ã‚¸ãƒ§ãƒ–æ¥­å‹™ã‚³ãƒ¼ãƒ‰ã‚’å–å¾—
         if (jobAppCd == null || jobAppCd.length() == 0) {
             jobAppCd = JobUtil.getenv(ENV_JOB_APP_CD);
             if (jobAppCd != null && jobAppCd.length() == 0) {
@@ -389,10 +389,10 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
             LOGGER.info(LogId.IAL025006, jobAppCd == null ? "" : jobAppCd);
         }
 
-        // ƒGƒOƒ[ƒLƒ…[ƒ^¶¬
+        // ã‚¨ã‚°ã‚¼ã‚­ãƒ¥ãƒ¼ã‚¿ç”Ÿæˆ
         AsyncBatchExecutor executor = new AsyncBatchExecutor();
 
-        // ƒVƒXƒeƒ€DAO‚ğæ“¾
+        // ã‚·ã‚¹ãƒ†ãƒ DAOã‚’å–å¾—
         SystemDao systemDao = executor.getSystemDao();
         if (systemDao == null) {
             LOGGER.info(LogId.IAL025018);
@@ -404,11 +404,11 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
             return status;
         }
 
-        // ƒ^ƒXƒNƒGƒOƒ[ƒLƒ…[ƒ^‚ÆBatchServantƒNƒ‰ƒX‚ÌBean–¼æ“¾
+        // ã‚¿ã‚¹ã‚¯ã‚¨ã‚°ã‚¼ã‚­ãƒ¥ãƒ¼ã‚¿ã¨BatchServantã‚¯ãƒ©ã‚¹ã®Beanåå–å¾—
         batchTaskExecutorName = PropertyUtil.getProperty(BATCH_TASK_EXECUTOR);
         batchTaskServantName = PropertyUtil.getProperty(BATCH_TASK_SERVANT);
 
-        // ƒ^ƒXƒNƒGƒOƒ[ƒLƒ…[ƒ^æ“¾
+        // ã‚¿ã‚¹ã‚¯ã‚¨ã‚°ã‚¼ã‚­ãƒ¥ãƒ¼ã‚¿å–å¾—
         ApplicationContext ctx = executor.getDefaultApplicationContext();
         if (ctx != null) {
             if (ctx.containsBean(batchTaskExecutorName)) {
@@ -431,7 +431,7 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
 
         try {
             do {
-                // ƒWƒ‡ƒuƒŠƒXƒg‚©‚ç1Œ‚Ì‚İæ“¾iÀsƒXƒŒƒbƒh‚É‹ó‚«‚ª‚ ‚éê‡‚Ì‚İæ“¾‚·‚éj
+                // ã‚¸ãƒ§ãƒ–ãƒªã‚¹ãƒˆã‹ã‚‰1ä»¶ã®ã¿å–å¾—ï¼ˆå®Ÿè¡Œã‚¹ãƒ¬ãƒƒãƒ‰ã«ç©ºããŒã‚ã‚‹å ´åˆã®ã¿å–å¾—ã™ã‚‹ï¼‰
                 List<BatchJobListResult> jobList = null;
                 if (checkTaskQueue(taskExecutor)) {
                     if (jobAppCd == null) {
@@ -443,7 +443,7 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
                 }
 
                 if (jobList != null && !jobList.isEmpty()) {
-                    // ƒŠƒXƒg‚Ì‚PŒ–Ú‚Ì‚İæ“¾
+                    // ãƒªã‚¹ãƒˆã®ï¼‘ä»¶ç›®ã®ã¿å–å¾—
                     BatchJobListResult batchJobListResult = jobList.get(0);
 
                     if (batchJobListResult != null) {
@@ -453,14 +453,14 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
                         }
 
                         if (LOGGER.isDebugEnabled()) {
-                            // ƒXƒŒƒbƒhƒv[ƒ‹ƒ^ƒXƒNƒGƒOƒ[ƒLƒ…[ƒ^‚ÌƒXƒe[ƒ^ƒX‚ğƒfƒoƒbƒOƒƒO‚Éo—Í
+                            // ã‚¹ãƒ¬ãƒƒãƒ‰ãƒ—ãƒ¼ãƒ«ã‚¿ã‚¹ã‚¯ã‚¨ã‚°ã‚¼ã‚­ãƒ¥ãƒ¼ã‚¿ã®ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã‚’ãƒ‡ãƒãƒƒã‚°ãƒ­ã‚°ã«å‡ºåŠ›
                             logOutputTaskExecutor(LOGGER, taskExecutor);
                         }
 
-                        // ÀsƒXƒŒƒbƒh‚É‹ó‚«‚ª‚ ‚ê‚Îƒoƒbƒ`ˆ—Às
+                        // å®Ÿè¡Œã‚¹ãƒ¬ãƒƒãƒ‰ã«ç©ºããŒã‚ã‚Œã°ãƒãƒƒãƒå‡¦ç†å®Ÿè¡Œ
                         if (checkTaskQueue(taskExecutor)) {
 
-                            // ƒoƒbƒ`ˆ—Às
+                            // ãƒãƒƒãƒå‡¦ç†å®Ÿè¡Œ
                             boolean executeResult = executeJob(executor, ctx,
                                     taskExecutor, batchTaskServantName,
                                     batchJobListResult);
@@ -471,21 +471,21 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
                     }
                 }
 
-                // I—¹ƒtƒ‰ƒOƒtƒ@ƒCƒ‹ƒ`ƒFƒbƒN
+                // çµ‚äº†ãƒ•ãƒ©ã‚°ãƒ•ã‚¡ã‚¤ãƒ«ãƒã‚§ãƒƒã‚¯
                 if (checkEndFile(executor.getExecutorEndMonitoringFile())) {
-                    // I—¹ƒtƒ‰ƒOƒtƒ@ƒCƒ‹”­Œ©
+                    // çµ‚äº†ãƒ•ãƒ©ã‚°ãƒ•ã‚¡ã‚¤ãƒ«ç™ºè¦‹
                     LOGGER.info(LogId.IAL025011);
                     break;
                 }
 
-                // ƒWƒ‡ƒuƒŠƒXƒg‚ª‹ó‚Ì‚Æ‚« or ÀsƒXƒŒƒbƒh‚É‹ó‚«‚ª–³‚¢ê‡ ‚Íw’èŠÔƒEƒFƒCƒg
+                // ã‚¸ãƒ§ãƒ–ãƒªã‚¹ãƒˆãŒç©ºã®ã¨ã or å®Ÿè¡Œã‚¹ãƒ¬ãƒƒãƒ‰ã«ç©ºããŒç„¡ã„å ´åˆ ã¯æŒ‡å®šæ™‚é–“ã‚¦ã‚§ã‚¤ãƒˆ
                 if (jobList == null || jobList.size() == 0) {
-                    // ƒWƒ‡ƒu‚ÌÀsŠÔŠuiƒ~ƒŠ•bj
+                    // ã‚¸ãƒ§ãƒ–ã®å®Ÿè¡Œé–“éš”ï¼ˆãƒŸãƒªç§’ï¼‰
                     if (executor.getJobIntervalTime() >= 0) {
                         try {
                             Thread.sleep(executor.getJobIntervalTime());
                         } catch (InterruptedException e) {
-                            // Š„‚è‚İóM‚Åˆ—I—¹
+                            // å‰²ã‚Šè¾¼ã¿å—ä¿¡ã§å‡¦ç†çµ‚äº†
                             if (LOGGER.isInfoEnabled()) {
                                 LOGGER.info(LogId.IAL025012, e.getMessage());
                             }
@@ -497,15 +497,15 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
                 if (LOGGER.isTraceEnabled()) {
                     LOGGER.trace(LogId.TAL025010, BatchUtil.getMemoryInfo());
                 }
-                // í’“—p‚Éƒ‹[ƒv
+                // å¸¸é§ç”¨ã«ãƒ«ãƒ¼ãƒ—
             } while (true);
         } catch (Throwable e) {
-            // ˆê’U•Û‘¶‚µ‚Ä‚¨‚­
+            // ä¸€æ—¦ä¿å­˜ã—ã¦ãŠã
             throwable = e;
         } finally {
             LOGGER.debug(LogId.DAL025028);
 
-            // I—¹‚Éƒ^ƒXƒN‚ª‚Í‚¯‚é‚Ü‚Å‘Ò‚Â
+            // çµ‚äº†æ™‚ã«ã‚¿ã‚¹ã‚¯ãŒã¯ã‘ã‚‹ã¾ã§å¾…ã¤
             taskExecutor.setWaitForTasksToCompleteOnShutdown(true);
 
             LOGGER.debug(LogId.DAL025029);
@@ -538,8 +538,8 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
             }
             Throwable cause = throwable.getCause();
             if (cause != null && cause instanceof DataAccessException) {
-                // Œ´ˆö—áŠO‚ªDataAccessException‚Ìê‡‚ÍƒXƒe[ƒ^ƒXŠJnE•ÏX‚Ì
-                // DBƒtƒFƒCƒ‹ƒI[ƒo[‚ğl—¶‚µAƒŠƒgƒ‰ƒC—áŠO‚Æ‚µ‚ÄƒƒCƒ“ƒƒ\ƒbƒh‚ÉƒXƒ[‚·‚éB
+                // åŸå› ä¾‹å¤–ãŒDataAccessExceptionã®å ´åˆã¯ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹é–‹å§‹ãƒ»å¤‰æ›´æ™‚ã®
+                // DBãƒ•ã‚§ã‚¤ãƒ«ã‚ªãƒ¼ãƒãƒ¼ã‚’è€ƒæ…®ã—ã€ãƒªãƒˆãƒ©ã‚¤ä¾‹å¤–ã¨ã—ã¦ãƒ¡ã‚¤ãƒ³ãƒ¡ã‚½ãƒƒãƒ‰ã«ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã€‚
                 throw new RetryableExecuteException(cause);
             }
         } else {
@@ -551,7 +551,7 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
     }
 
     /**
-     * ƒoƒbƒ`ˆ—Às.
+     * ãƒãƒƒãƒå‡¦ç†å®Ÿè¡Œ.
      * @param executor AsyncBatchExecutor
      * @param ctx ApplicationContext
      * @param taskExecutor ThreadPoolTaskExecutor
@@ -565,7 +565,7 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
         boolean status = false;
         BatchServant job = null;
 
-        // ”jŠü‚µ‚Ä‚æ‚¢ThreadGroup‚ğ”jŠü
+        // ç ´æ£„ã—ã¦ã‚ˆã„ThreadGroupã‚’ç ´æ£„
         destroyThreadGroupsIfPossible();
 
         if (executor == null || ctx == null || taskExecutor == null
@@ -573,14 +573,14 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
             return status;
         }
 
-        // ƒVƒXƒeƒ€DAO‚ğæ“¾
+        // ã‚·ã‚¹ãƒ†ãƒ DAOã‚’å–å¾—
         SystemDao systemDao = executor.getSystemDao();
         if (systemDao == null) {
             LOGGER.info(LogId.IAL025018);
             return status;
         }
 
-        // PlatformTransactionManager‚ğæ“¾
+        // PlatformTransactionManagerã‚’å–å¾—
         PlatformTransactionManager transactionManager = executor
                 .getSysTransactionManager();
         if (transactionManager == null) {
@@ -588,7 +588,7 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
             return status;
         }
 
-        // ƒRƒ“ƒeƒLƒXƒg‚©‚çBatchServantƒCƒ“ƒXƒ^ƒ“ƒXæ“¾
+        // ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆã‹ã‚‰BatchServantã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹å–å¾—
         if (ctx != null) {
             try {
                 job = (BatchServant) ctx.getBean(batchTaskServantName,
@@ -603,21 +603,21 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
             LOGGER.error(LogId.EAL025030, batchTaskServantName);
             return status;
         } else {
-            // ƒWƒ‡ƒuƒXƒe[ƒ^ƒXİ’èiŠJnj
+            // ã‚¸ãƒ§ãƒ–ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹è¨­å®šï¼ˆé–‹å§‹ï¼‰
             boolean st = executor.startBatchStatus(batchJobListResult
                     .getJobSequenceId(), systemDao, transactionManager);
             if (st) {
-                // BatchServant‚ÉƒWƒ‡ƒuƒV[ƒPƒ“ƒXƒR[ƒh‚ğİ’è
+                // BatchServantã«ã‚¸ãƒ§ãƒ–ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’è¨­å®š
                 job.setJobSequenceId(batchJobListResult.getJobSequenceId());
 
-                // ƒXƒŒƒbƒhƒOƒ‹[ƒvƒvƒŠƒtƒBƒbƒNƒXİ’è
+                // ã‚¹ãƒ¬ãƒƒãƒ‰ã‚°ãƒ«ãƒ¼ãƒ—ãƒ—ãƒªãƒ•ã‚£ãƒƒã‚¯ã‚¹è¨­å®š
                 StringBuilder tgn = new StringBuilder();
                 tgn.append(THREAD_GROUP_PREFIX);
                 tgn.append(THREAD_GROUP_SEPARATOR);
                 tgn.append(threadGroupNo.incrementAndGet());
                 taskExecutor.setThreadGroupName(tgn.toString());
 
-                // ƒXƒŒƒbƒh–¼ƒvƒŠƒtƒBƒbƒNƒXİ’è
+                // ã‚¹ãƒ¬ãƒƒãƒ‰åãƒ—ãƒªãƒ•ã‚£ãƒƒã‚¯ã‚¹è¨­å®š
                 StringBuilder tn = new StringBuilder();
                 tn.append(THREAD_NAME_PREFIX);
                 tn.append(THREAD_NAME_SEPARATOR);
@@ -634,12 +634,12 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
                 long executeRetryCount = 0;
                 do {
                     try {
-                        // ƒWƒ‡ƒuÀs
+                        // ã‚¸ãƒ§ãƒ–å®Ÿè¡Œ
                         taskExecutor.execute(new BatchServantTaskEndTracker(job, taskExecutor.getThreadGroup()));
                         break;
                     } catch (TaskRejectedException tre) {
 
-                        // ƒŠƒgƒ‰ƒC‰ñ”ƒ`ƒFƒbƒN
+                        // ãƒªãƒˆãƒ©ã‚¤å›æ•°ãƒã‚§ãƒƒã‚¯
                         if (executeRetryCount >= executeRetryCountMax) {
                             LOGGER.error(LogId.EAL025047, batchJobListResult
                                     .getJobSequenceId());
@@ -649,25 +649,25 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
                             return status;
                         }
 
-                        // ƒXƒŠ[ƒvŠÔ‘Ò‚Â
+                        // ã‚¹ãƒªãƒ¼ãƒ—æ™‚é–“å¾…ã¤
                         try {
                             Thread.sleep(executeRetryInterval);
                         } catch (InterruptedException e1) {
-                            // ‚È‚É‚à‚µ‚È‚¢
+                            // ãªã«ã‚‚ã—ãªã„
                         }
 
                         executeRetryCount++;
                     }
                 } while (true);
 
-                // •Ô‹pƒXƒe[ƒ^ƒX‚ğ³í‚É
+                // è¿”å´ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã‚’æ­£å¸¸ã«
                 status = true;
             } else {
                 if (LOGGER.isInfoEnabled()) {
                     LOGGER.info(LogId.IAL025010, batchJobListResult
                             .getJobSequenceId());
                 }
-                // ƒWƒ‡ƒuƒXƒe[ƒ^ƒXXV¸”sƒ|[ƒŠƒ“ƒOƒ‹[ƒv‚ÍŒp‘±‚³‚¹‚éB
+                // ã‚¸ãƒ§ãƒ–ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹æ›´æ–°å¤±æ•—æ™‚ãƒãƒ¼ãƒªãƒ³ã‚°ãƒ«ãƒ¼ãƒ—ã¯ç¶™ç¶šã•ã›ã‚‹ã€‚
                 status = true;
             }
         }
@@ -675,9 +675,9 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
     }
 
     /**
-     * ƒ^ƒXƒNƒGƒOƒ[ƒLƒ…[ƒ^‚É‹ó‚«‚ª‚ ‚é‚©ƒ`ƒFƒbƒN
-     * @param taskExecutor ƒ^ƒXƒNƒGƒOƒ[ƒLƒ…[ƒ^
-     * @return ‹ó‚«‚Ì—L–³
+     * ã‚¿ã‚¹ã‚¯ã‚¨ã‚°ã‚¼ã‚­ãƒ¥ãƒ¼ã‚¿ã«ç©ºããŒã‚ã‚‹ã‹ãƒã‚§ãƒƒã‚¯
+     * @param taskExecutor ã‚¿ã‚¹ã‚¯ã‚¨ã‚°ã‚¼ã‚­ãƒ¥ãƒ¼ã‚¿
+     * @return ç©ºãã®æœ‰ç„¡
      */
     protected static boolean checkTaskQueue(ThreadPoolTaskExecutor taskExecutor) {
         int maxPoolSize = 0;
@@ -687,37 +687,37 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
             activeCount = taskExecutor.getActiveCount();
             maxPoolSize = taskExecutor.getMaxPoolSize();
 
-            // ƒXƒŒƒbƒh‹ó‚«”‚ªè‡’lˆÈ‰º‚Ìê‡‚ÍƒEƒFƒCƒg
+            // ã‚¹ãƒ¬ãƒƒãƒ‰ç©ºãæ•°ãŒé–¾å€¤ä»¥ä¸‹ã®å ´åˆã¯ã‚¦ã‚§ã‚¤ãƒˆ
             if ((maxPoolSize - activeCount) <= availableThreadThresholdCount) {
-                // ƒXƒŠ[ƒvŠÔ‘Ò‚Â
+                // ã‚¹ãƒªãƒ¼ãƒ—æ™‚é–“å¾…ã¤
                 try {
                     Thread.sleep(availableThreadThresholdWait);
                 } catch (InterruptedException e1) {
-                    // ‚È‚É‚à‚µ‚È‚¢
+                    // ãªã«ã‚‚ã—ãªã„
                 }
             }
 
-            // ƒXƒŒƒbƒh‚Ì‹ó‚«ƒ`ƒFƒbƒN
+            // ã‚¹ãƒ¬ãƒƒãƒ‰ã®ç©ºããƒã‚§ãƒƒã‚¯
             if (activeCount < maxPoolSize) {
-                // ‹ó‚«‚ ‚è
+                // ç©ºãã‚ã‚Š
                 return true;
             }
-            // ƒXƒŒƒbƒh‚Ì‹ó‚«ƒ`ƒFƒbƒN
+            // ã‚¹ãƒ¬ãƒƒãƒ‰ã®ç©ºããƒã‚§ãƒƒã‚¯
             if (taskExecutor.getThreadPoolExecutor().getQueue()
                     .remainingCapacity() > 0) {
-                // ‹ó‚«‚ ‚è
+                // ç©ºãã‚ã‚Š
                 return true;
             }
         }
 
-        // ‹ó‚«‚È‚µ
+        // ç©ºããªã—
         return false;
     }
 
     /**
-     * I—¹ƒtƒ‰ƒOƒtƒ@ƒCƒ‹ƒ`ƒFƒbƒN
-     * @param endFilePath I—¹ƒtƒ‰ƒOƒtƒ@ƒCƒ‹ƒpƒX
-     * @return I—¹ƒtƒ‰ƒOƒtƒ@ƒCƒ‹ƒ`ƒFƒbƒNŒ‹‰Ê
+     * çµ‚äº†ãƒ•ãƒ©ã‚°ãƒ•ã‚¡ã‚¤ãƒ«ãƒã‚§ãƒƒã‚¯
+     * @param endFilePath çµ‚äº†ãƒ•ãƒ©ã‚°ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹
+     * @return çµ‚äº†ãƒ•ãƒ©ã‚°ãƒ•ã‚¡ã‚¤ãƒ«ãƒã‚§ãƒƒã‚¯çµæœ
      */
     protected static boolean checkEndFile(String endFilePath) {
         if (endFilePath != null && endFilePath.length() != 0) {
@@ -728,7 +728,7 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
     }
 
     /**
-     * ƒXƒŒƒbƒhƒv[ƒ‹ƒ^ƒXƒNƒGƒOƒ[ƒLƒ…[ƒ^‚ÌƒXƒe[ƒ^ƒX‚ğƒfƒoƒbƒOƒƒO‚Éo—Í
+     * ã‚¹ãƒ¬ãƒƒãƒ‰ãƒ—ãƒ¼ãƒ«ã‚¿ã‚¹ã‚¯ã‚¨ã‚°ã‚¼ã‚­ãƒ¥ãƒ¼ã‚¿ã®ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã‚’ãƒ‡ãƒãƒƒã‚°ãƒ­ã‚°ã«å‡ºåŠ›
      * @param log Log
      * @param taskExec ThreadPoolTaskExecutor
      */
@@ -746,7 +746,7 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
     }
 
     /**
-     * ApplicationContext‚ğƒNƒ[ƒY‚·‚é.
+     * ApplicationContextã‚’ã‚¯ãƒ­ãƒ¼ã‚ºã™ã‚‹.
      * @param context
      */
     protected static void closeRootApplicationContext(ApplicationContext context) {
@@ -758,30 +758,30 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
     }
 
     /**
-     * BatchServant‚Ìrunƒƒ\ƒbƒh‚ÌI—¹‚ğŒŸ’m‚µ‚ÄA
-     * ƒWƒ‡ƒuÀs‚ÉV‚½‚Éì¬‚³‚ê‚Ä‚¢‚½ThreadGroup‚ğA”jŠüŒó•â‚É‰Á‚¦‚é‚½‚ß‚ÌƒNƒ‰ƒXB
+     * BatchServantã®runãƒ¡ã‚½ãƒƒãƒ‰ã®çµ‚äº†ã‚’æ¤œçŸ¥ã—ã¦ã€
+     * ã‚¸ãƒ§ãƒ–å®Ÿè¡Œæ™‚ã«æ–°ãŸã«ä½œæˆã•ã‚Œã¦ã„ãŸThreadGroupã‚’ã€ç ´æ£„å€™è£œã«åŠ ãˆã‚‹ãŸã‚ã®ã‚¯ãƒ©ã‚¹ã€‚
      */
     protected static class BatchServantTaskEndTracker implements Runnable {
 
         /**
-         * ”ñ“¯Šú‚ÅÀs‚·‚éBatchServant(ˆÏ÷æ)B
+         * éåŒæœŸã§å®Ÿè¡Œã™ã‚‹BatchServant(å§”è­²å…ˆ)ã€‚
          */
         private BatchServant job = null;
 
         /**
-         * ƒWƒ‡ƒuÀs‚ÉV‚½‚Éì¬‚³‚ê‚Ä‚¢‚½ThreadGroupB
+         * ã‚¸ãƒ§ãƒ–å®Ÿè¡Œæ™‚ã«æ–°ãŸã«ä½œæˆã•ã‚Œã¦ã„ãŸThreadGroupã€‚
          */
         private ThreadGroup newThreadGroup = null;
 
         /**
-         * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-         * ƒXƒŒƒbƒhƒv[ƒ‹‚ÌƒXƒŒƒbƒh‚ªg‚¢‚Ü‚í‚³‚ê‚é‚Æ‚«A
-         * runƒƒ\ƒbƒh‚ğÀs‚·‚éƒXƒŒƒbƒh‚ÌThreadGroup‚ÆAƒWƒ‡ƒuÀs‚ÉV‚½‚Éì¬‚³‚ê‚Ä‚¢‚½ThreadGroup‚ÍA
-         * “¯ˆê‚Å‚Í‚È‚­A
-         * ƒWƒ‡ƒuÀs‚ÉV‚½‚Éì¬‚³‚ê‚Ä‚¢‚½ThreadGroup‚Ì•û‚ğ”jŠüŒó•â‚É‰Á‚¦‚é•K—v‚ª‚ ‚é‚½‚ßA
-         * ƒWƒ‡ƒuÀs‚ÉV‚½‚Éì¬‚³‚ê‚Ä‚¢‚½ThreadGroup‚ğˆø”‚Åó‚¯æ‚éB
-         * @param job ”ñ“¯Šú‚ÅÀs‚·‚éBatchServant(ˆÏ÷æ)(nullˆÈŠO)
-         * @param newThreadGroup ƒWƒ‡ƒuÀs‚ÉV‚½‚Éì¬‚³‚ê‚Ä‚¢‚½ThreadGroup(nullˆÈŠO)
+         * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+         * ã‚¹ãƒ¬ãƒƒãƒ‰ãƒ—ãƒ¼ãƒ«ã®ã‚¹ãƒ¬ãƒƒãƒ‰ãŒä½¿ã„ã¾ã‚ã•ã‚Œã‚‹ã¨ãã€
+         * runãƒ¡ã‚½ãƒƒãƒ‰ã‚’å®Ÿè¡Œã™ã‚‹ã‚¹ãƒ¬ãƒƒãƒ‰ã®ThreadGroupã¨ã€ã‚¸ãƒ§ãƒ–å®Ÿè¡Œæ™‚ã«æ–°ãŸã«ä½œæˆã•ã‚Œã¦ã„ãŸThreadGroupã¯ã€
+         * åŒä¸€ã§ã¯ãªãã€
+         * ã‚¸ãƒ§ãƒ–å®Ÿè¡Œæ™‚ã«æ–°ãŸã«ä½œæˆã•ã‚Œã¦ã„ãŸThreadGroupã®æ–¹ã‚’ç ´æ£„å€™è£œã«åŠ ãˆã‚‹å¿…è¦ãŒã‚ã‚‹ãŸã‚ã€
+         * ã‚¸ãƒ§ãƒ–å®Ÿè¡Œæ™‚ã«æ–°ãŸã«ä½œæˆã•ã‚Œã¦ã„ãŸThreadGroupã‚’å¼•æ•°ã§å—ã‘å–ã‚‹ã€‚
+         * @param job éåŒæœŸã§å®Ÿè¡Œã™ã‚‹BatchServant(å§”è­²å…ˆ)(nullä»¥å¤–)
+         * @param newThreadGroup ã‚¸ãƒ§ãƒ–å®Ÿè¡Œæ™‚ã«æ–°ãŸã«ä½œæˆã•ã‚Œã¦ã„ãŸThreadGroup(nullä»¥å¤–)
          */
         public BatchServantTaskEndTracker(BatchServant job, ThreadGroup newThreadGroup) {
             this.job = job;
@@ -789,8 +789,8 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
         }
 
         /**
-         * BatchServant‚Ìrunƒƒ\ƒbƒh‚ÌI—¹‚ÉA
-         * ƒWƒ‡ƒuÀs‚ÉV‚½‚Éì¬‚³‚ê‚Ä‚¢‚½ThreadGroup‚ğA”jŠüŒó•â‚É‰Á‚¦‚éB
+         * BatchServantã®runãƒ¡ã‚½ãƒƒãƒ‰ã®çµ‚äº†æ™‚ã«ã€
+         * ã‚¸ãƒ§ãƒ–å®Ÿè¡Œæ™‚ã«æ–°ãŸã«ä½œæˆã•ã‚Œã¦ã„ãŸThreadGroupã‚’ã€ç ´æ£„å€™è£œã«åŠ ãˆã‚‹ã€‚
          * @see java.lang.Runnable#run()
          */
         public void run() {
@@ -805,9 +805,9 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
     }
 
     /**
-     * ”jŠüŒó•â‚ÌŠeThreadGroup‚ÌƒAƒNƒeƒBƒuƒXƒŒƒbƒh”‚ğŒŸ¸‚µA
-     * ƒAƒNƒeƒBƒuƒXƒŒƒbƒh”‚ª0‚ÌThreadGroup‚Ìdestroyƒƒ\ƒbƒh‚ğÀs‚·‚éB
-     * (ƒXƒŒƒbƒhƒv[ƒ‹‚É•Û‚³‚ê‚Ä‚¢‚éƒAƒCƒhƒ‹ƒXƒŒƒbƒh‚àAƒAƒNƒeƒBƒuƒXƒŒƒbƒh”‚ÉƒJƒEƒ“ƒg‚³‚ê‚éB)
+     * ç ´æ£„å€™è£œã®å„ThreadGroupã®ã‚¢ã‚¯ãƒ†ã‚£ãƒ–ã‚¹ãƒ¬ãƒƒãƒ‰æ•°ã‚’æ¤œæŸ»ã—ã€
+     * ã‚¢ã‚¯ãƒ†ã‚£ãƒ–ã‚¹ãƒ¬ãƒƒãƒ‰æ•°ãŒ0ã®ThreadGroupã®destroyãƒ¡ã‚½ãƒƒãƒ‰ã‚’å®Ÿè¡Œã™ã‚‹ã€‚
+     * (ã‚¹ãƒ¬ãƒƒãƒ‰ãƒ—ãƒ¼ãƒ«ã«ä¿æŒã•ã‚Œã¦ã„ã‚‹ã‚¢ã‚¤ãƒ‰ãƒ«ã‚¹ãƒ¬ãƒƒãƒ‰ã‚‚ã€ã‚¢ã‚¯ãƒ†ã‚£ãƒ–ã‚¹ãƒ¬ãƒƒãƒ‰æ•°ã«ã‚«ã‚¦ãƒ³ãƒˆã•ã‚Œã‚‹ã€‚)
      */
     protected static void destroyThreadGroupsIfPossible() {
         if (LOGGER.isDebugEnabled()) {
@@ -821,9 +821,9 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
                 ThreadGroup threadGroup = it.next();
                 int activeCount = threadGroup.activeCount();
                 
-                // ŒŸ¸“_‚ÅAƒAƒNƒeƒBƒuƒXƒŒƒbƒh‚ª‹‚È‚¢ƒXƒŒƒbƒhƒOƒ‹[ƒv‚Ì‚İdestroyB
-                // ‚±‚±‚ÅƒAƒNƒeƒBƒuƒXƒŒƒbƒh‚ªc‚Á‚Ä‚¢‚é‚à‚Ì‚ÍA
-                // Ÿ‰ñ‚±‚Ìƒƒ\ƒbƒh‚ªÀs‚³‚ê‚½‚Æ‚«‚ÉŒŸ¸‚·‚éB
+                // æ¤œæŸ»æ™‚ç‚¹ã§ã€ã‚¢ã‚¯ãƒ†ã‚£ãƒ–ã‚¹ãƒ¬ãƒƒãƒ‰ãŒå±…ãªã„ã‚¹ãƒ¬ãƒƒãƒ‰ã‚°ãƒ«ãƒ¼ãƒ—ã®ã¿destroyã€‚
+                // ã“ã“ã§ã‚¢ã‚¯ãƒ†ã‚£ãƒ–ã‚¹ãƒ¬ãƒƒãƒ‰ãŒæ®‹ã£ã¦ã„ã‚‹ã‚‚ã®ã¯ã€
+                // æ¬¡å›ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ãŒå®Ÿè¡Œã•ã‚ŒãŸã¨ãã«æ¤œæŸ»ã™ã‚‹ã€‚
                 if (activeCount == 0) {
                     if (LOGGER.isDebugEnabled()) {
                         LOGGER.debug(LogId.DAL025058, threadGroup.getName(), activeCount);
@@ -845,10 +845,10 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
     }
 
     /**
-     * ƒAƒNƒeƒBƒuThreadGroups‚Ìî•ñ‚ğƒfƒoƒbƒOƒƒOo—Í‚·‚éB
-     * ThreadGroups‚Ìdestroy‘OŒã‚ÅAdestroy‘O‚È‚Ì‚©destroyŒã‚È‚Ì‚©‚Ìî•ñ‚ğƒƒOo—ÍŒã‚ÉA
-     * ‚±‚Ìƒƒ\ƒbƒh‚ªÀs‚³‚ê‚é‚±‚Æ‚ğ‘z’è‚µ‚Ä‚¢‚éB
-     * LOGGER.isDebugEnabled()‚É‚æ‚éƒƒOƒŒƒxƒ‹‚Ì”»’è‚ÍA‚±‚Ìƒƒ\ƒbƒh‚ÌŒÄ‚Ño‚µŒ³‚Ås‚¤‚±‚Æ‚ğ‘z’è‚µ‚Ä‚¢‚éB
+     * ã‚¢ã‚¯ãƒ†ã‚£ãƒ–ThreadGroupsã®æƒ…å ±ã‚’ãƒ‡ãƒãƒƒã‚°ãƒ­ã‚°å‡ºåŠ›ã™ã‚‹ã€‚
+     * ThreadGroupsã®destroyå‰å¾Œã§ã€destroyå‰ãªã®ã‹destroyå¾Œãªã®ã‹ã®æƒ…å ±ã‚’ãƒ­ã‚°å‡ºåŠ›å¾Œã«ã€
+     * ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ãŒå®Ÿè¡Œã•ã‚Œã‚‹ã“ã¨ã‚’æƒ³å®šã—ã¦ã„ã‚‹ã€‚
+     * LOGGER.isDebugEnabled()ã«ã‚ˆã‚‹ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ã®åˆ¤å®šã¯ã€ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã®å‘¼ã³å‡ºã—å…ƒã§è¡Œã†ã“ã¨ã‚’æƒ³å®šã—ã¦ã„ã‚‹ã€‚
      */
     protected static void logActiveThreadGroupsInfo() {
         ThreadGroup currentThreadGroup = Thread.currentThread().getThreadGroup();

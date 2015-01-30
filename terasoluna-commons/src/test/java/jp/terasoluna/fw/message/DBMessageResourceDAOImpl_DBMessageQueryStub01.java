@@ -31,12 +31,12 @@ DBMessageQuery {
     }
 
     /**
-     * ŒÄ‚Ño‚µŠm”F
+     * å‘¼ã³å‡ºã—ç¢ºèª
      */
     protected boolean isRead = false;
     
     /**
-     * •Ô‹p’l¶¬
+     * è¿”å´å€¤ç”Ÿæˆ
      */
     protected List list = new ArrayList();
     

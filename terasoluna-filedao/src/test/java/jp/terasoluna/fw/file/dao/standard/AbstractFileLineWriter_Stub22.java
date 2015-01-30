@@ -7,51 +7,51 @@ import jp.terasoluna.fw.file.annotation.StringConverterToLowerCase;
 import jp.terasoluna.fw.file.annotation.StringConverterToUpperCase;
 
 /**
- * AbstractFileLineWriter‚ÌŒ±‚Å—˜—p‚·‚éƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌƒXƒ^ƒuƒNƒ‰ƒXB<br>
+ * AbstractFileLineWriterã®è©¦é¨“ã§åˆ©ç”¨ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¹ã‚¿ãƒ–ã‚¯ãƒ©ã‚¹ã€‚<br>
  * <br>
- * ˆÈ‰º‚Ì@FileFormat‚Ìİ’è‚ğ‚Â<br>
+ * ä»¥ä¸‹ã®@FileFormatã®è¨­å®šã‚’æŒã¤<br>
  * <ul>
- * <li>‘S€–ÚFƒfƒtƒHƒ‹ƒg’l</li>
+ * <li>å…¨é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤</li>
  * </ul>
  * <br>
- * <code>@OutputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
+ * <code>@OutputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
  * <ul>
- * <li>ƒtƒB[ƒ‹ƒhFString column1
- *     <code>@OutputFileColumn</code>İ’è<br>
- * > columnIndexF0<br>
- * > stringConverterFNullStringConverter.class<br>
- * > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l</li> </ul>
+ * <li>ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column1
+ *     <code>@OutputFileColumn</code>è¨­å®š<br>
+ * > columnIndexï¼š0<br>
+ * > stringConverterï¼šNullStringConverter.class<br>
+ * > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤</li> </ul>
  * <ul>
- * <li>ƒtƒB[ƒ‹ƒhFString column2 <code>@OutputFileColumn</code>İ’è<br>
- * > columnIndexF1<br>
- * > stringConverterFStringConverterToLowerCase.class<br>
- * > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l</li>
+ * <li>ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column2 <code>@OutputFileColumn</code>è¨­å®š<br>
+ * > columnIndexï¼š1<br>
+ * > stringConverterï¼šStringConverterToLowerCase.class<br>
+ * > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤</li>
  * </ul>
  * <ul>
- * <li>ƒtƒB[ƒ‹ƒhFString column3 <code>@OutputFileColumn</code>İ’è<br>
- * > columnIndexF2<br>
- * > stringConverterFStringConverterToUpperCase.class<br>
- * > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l</li>
+ * <li>ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column3 <code>@OutputFileColumn</code>è¨­å®š<br>
+ * > columnIndexï¼š2<br>
+ * > stringConverterï¼šStringConverterToUpperCase.class<br>
+ * > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤</li>
  * </ul>
  * <ul>
- * <li>ƒtƒB[ƒ‹ƒhFString column4 <code>@OutputFileColumn</code>İ’è<br>
- * > columnIndexF3<br>
- * > stringConverterFNullStringConverter.class<br>
- * > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l</li>
+ * <li>ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column4 <code>@OutputFileColumn</code>è¨­å®š<br>
+ * > columnIndexï¼š3<br>
+ * > stringConverterï¼šNullStringConverter.class<br>
+ * > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤</li>
  * </ul>
  * <ul>
- * <li>ƒtƒB[ƒ‹ƒhFString column5 <code>@OutputFileColumn</code>İ’è<br>
- * > columnIndexF4<br>
- * > stringConverterFStringConverterToLowerCase.class<br>
- * > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l</li>
+ * <li>ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column5 <code>@OutputFileColumn</code>è¨­å®š<br>
+ * > columnIndexï¼š4<br>
+ * > stringConverterï¼šStringConverterToLowerCase.class<br>
+ * > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤</li>
  * </ul>
  * <ul>
- * <li>ƒtƒB[ƒ‹ƒhFString column6 <code>@OutputFileColumn</code>İ’è<br>
- * > columnIndexF5<br>
- * > stringConverterFStringConverterToUpperCase.class<br>
- * > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l</li>
+ * <li>ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column6 <code>@OutputFileColumn</code>è¨­å®š<br>
+ * > columnIndexï¼š5<br>
+ * > stringConverterï¼šStringConverterToUpperCase.class<br>
+ * > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤</li>
  * </ul>
- * @author æâ•î“O
+ * @author è¶™ä¿¸å¾¹
  */
 @FileFormat()
 public class AbstractFileLineWriter_Stub22 {
@@ -93,7 +93,7 @@ public class AbstractFileLineWriter_Stub22 {
     private String column6 = null;
 
     /**
-     * column1‚ğæ“¾‚·‚éB
+     * column1ã‚’å–å¾—ã™ã‚‹ã€‚
      * @return column1
      */
     public String getColumn1() {
@@ -101,7 +101,7 @@ public class AbstractFileLineWriter_Stub22 {
     }
 
     /**
-     * column1‚ğİ’è‚·‚éB
+     * column1ã‚’è¨­å®šã™ã‚‹ã€‚
      * @param column1 column1
      */
     public void setColumn1(String column1) {
@@ -109,7 +109,7 @@ public class AbstractFileLineWriter_Stub22 {
     }
 
     /**
-     * column2‚ğæ“¾‚·‚éB
+     * column2ã‚’å–å¾—ã™ã‚‹ã€‚
      * @return column2
      */
     public String getColumn2() {
@@ -117,7 +117,7 @@ public class AbstractFileLineWriter_Stub22 {
     }
 
     /**
-     * column2‚ğİ’è‚·‚éB
+     * column2ã‚’è¨­å®šã™ã‚‹ã€‚
      * @param column2 column2
      */
     public void setColumn2(String column2) {
@@ -125,7 +125,7 @@ public class AbstractFileLineWriter_Stub22 {
     }
 
     /**
-     * column3‚ğæ“¾‚·‚éB
+     * column3ã‚’å–å¾—ã™ã‚‹ã€‚
      * @return column3
      */
     public String getColumn3() {
@@ -133,7 +133,7 @@ public class AbstractFileLineWriter_Stub22 {
     }
 
     /**
-     * column3‚ğİ’è‚·‚éB
+     * column3ã‚’è¨­å®šã™ã‚‹ã€‚
      * @param column3 column3
      */
     public void setColumn3(String column3) {
@@ -141,7 +141,7 @@ public class AbstractFileLineWriter_Stub22 {
     }
 
     /**
-     * column4‚ğæ“¾‚·‚éB
+     * column4ã‚’å–å¾—ã™ã‚‹ã€‚
      * @return column4
      */
     public String getColumn4() {
@@ -149,7 +149,7 @@ public class AbstractFileLineWriter_Stub22 {
     }
 
     /**
-     * column4‚ğİ’è‚·‚éB
+     * column4ã‚’è¨­å®šã™ã‚‹ã€‚
      * @param column4 column4
      */
     public void setColumn4(String column4) {
@@ -157,7 +157,7 @@ public class AbstractFileLineWriter_Stub22 {
     }
 
     /**
-     * column5‚ğæ“¾‚·‚éB
+     * column5ã‚’å–å¾—ã™ã‚‹ã€‚
      * @return column5
      */
     public String getColumn5() {
@@ -165,7 +165,7 @@ public class AbstractFileLineWriter_Stub22 {
     }
 
     /**
-     * column5‚ğİ’è‚·‚éB
+     * column5ã‚’è¨­å®šã™ã‚‹ã€‚
      * @param column5 column5
      */
     public void setColumn5(String column5) {
@@ -173,7 +173,7 @@ public class AbstractFileLineWriter_Stub22 {
     }
 
     /**
-     * column6‚ğæ“¾‚·‚éB
+     * column6ã‚’å–å¾—ã™ã‚‹ã€‚
      * @return column6
      */
     public String getColumn6() {
@@ -181,7 +181,7 @@ public class AbstractFileLineWriter_Stub22 {
     }
 
     /**
-     * column6‚ğİ’è‚·‚éB
+     * column6ã‚’è¨­å®šã™ã‚‹ã€‚
      * @param column6 column6
      */
     public void setColumn6(String column6) {

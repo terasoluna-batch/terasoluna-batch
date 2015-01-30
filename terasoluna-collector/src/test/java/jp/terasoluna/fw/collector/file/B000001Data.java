@@ -10,7 +10,7 @@ import jp.terasoluna.fw.file.annotation.FileFormat;
 import jp.terasoluna.fw.file.annotation.InputFileColumn;
 
 /**
- * CSVƒtƒ@ƒCƒ‹1ƒŒƒR[ƒh‚ğƒ}ƒbƒsƒ“ƒO‚·‚éBean
+ * CSVãƒ•ã‚¡ã‚¤ãƒ«1ãƒ¬ã‚³ãƒ¼ãƒ‰ã‚’ãƒãƒƒãƒ”ãƒ³ã‚°ã™ã‚‹Bean
  * 
  * 
  * 
@@ -18,19 +18,19 @@ import jp.terasoluna.fw.file.annotation.InputFileColumn;
 @FileFormat(lineFeedChar = "\r\n", fileEncoding = "UTF-8")
 public class B000001Data {
 
-	// ID (1”Ô–Ú‚ÌƒJƒ‰ƒ€)
+	// ID (1ç•ªç›®ã®ã‚«ãƒ©ãƒ )
 	@InputFileColumn(columnIndex = 0)
 	private int id = 0;
 
-	// –¼š (2”Ô–Ú‚ÌƒJƒ‰ƒ€)
+	// åå­— (2ç•ªç›®ã®ã‚«ãƒ©ãƒ )
 	@InputFileColumn(columnIndex = 1)
 	private String familyname = null;
 
-	// –¼‘O (3”Ô–Ú‚ÌƒJƒ‰ƒ€)
+	// åå‰ (3ç•ªç›®ã®ã‚«ãƒ©ãƒ )
 	@InputFileColumn(columnIndex = 2)
 	private String firstname = null;
 
-	// ”N—î (4”Ô–Ú‚ÌƒJƒ‰ƒ€)
+	// å¹´é½¢ (4ç•ªç›®ã®ã‚«ãƒ©ãƒ )
 	@InputFileColumn(columnIndex = 3)
 	private int age = 0;
 

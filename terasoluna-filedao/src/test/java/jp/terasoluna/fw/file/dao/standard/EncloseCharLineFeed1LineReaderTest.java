@@ -21,26 +21,26 @@ import junit.framework.TestCase;
 import org.easymock.classextension.EasyMock;
 
 /**
- * {@link jp.terasoluna.fw.file.dao.standard.EncloseCharLineFeed1LineReader} ƒNƒ‰ƒX‚ÌƒeƒXƒgB
+ * {@link jp.terasoluna.fw.file.dao.standard.EncloseCharLineFeed1LineReader} ã‚¯ãƒ©ã‚¹ã®ãƒ†ã‚¹ãƒˆã€‚
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4> ˆÍ‚İ•¶š—L‚èAs‹æØ‚è•¶š‚ª1•¶š‚Ìê‡‚Ìƒtƒ@ƒCƒ‹‚©‚ç1s•ª‚Ì•¶š—ñ‚ğæ“¾‚·‚éˆ—‚ğs‚¤B
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4> å›²ã¿æ–‡å­—æœ‰ã‚Šã€è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—ãŒ1æ–‡å­—ã®å ´åˆã®ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰1è¡Œåˆ†ã®æ–‡å­—åˆ—ã‚’å–å¾—ã™ã‚‹å‡¦ç†ã‚’è¡Œã†ã€‚
  * <p>
- * @author ‰œ“c“Ni
+ * @author å¥¥ç”°å“²å¸
  * @see jp.terasoluna.fw.file.dao.standard.EncloseCharLineFeed1LineReader
  */
 public class EncloseCharLineFeed1LineReaderTest extends TestCase {
 
     /**
-     * ‚±‚ÌƒeƒXƒgƒP[ƒX‚ğÀs‚·‚éˆ×‚Ì GUI ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‹N“®‚·‚éB
-     * @param args java ƒRƒ}ƒ“ƒh‚Éİ’è‚³‚ê‚½ƒpƒ‰ƒ[ƒ^
+     * ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã‚’å®Ÿè¡Œã™ã‚‹ç‚ºã® GUI ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’èµ·å‹•ã™ã‚‹ã€‚
+     * @param args java ã‚³ãƒãƒ³ãƒ‰ã«è¨­å®šã•ã‚ŒãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public static void main(String[] args) {
         // junit.swingui.TestRunner.run(EncloseCharLineFeed1LineReaderTest.class);
     }
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -49,8 +49,8 @@ public class EncloseCharLineFeed1LineReaderTest extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -59,8 +59,8 @@ public class EncloseCharLineFeed1LineReaderTest extends TestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public EncloseCharLineFeed1LineReaderTest(String name) {
         super(name);
@@ -69,26 +69,26 @@ public class EncloseCharLineFeed1LineReaderTest extends TestCase {
     /**
      * testEncloseCharLineFeed1LineReader01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE <br>
      * <br>
-     * “ü—Í’lF(ˆø”) delimiterCharacter:a'<br>
-     * (ˆø”) encloseCharacter:b'<br>
-     * (ˆø”) reader:BufferedReader‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ˆø”) lineFeedChar:"\r"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) delimiterCharacter:a'<br>
+     * (å¼•æ•°) encloseCharacter:b'<br>
+     * (å¼•æ•°) reader:BufferedReaderã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (å¼•æ•°) lineFeedChar:"\r"<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.delimiterCharacter:ˆø”delimiterCharacter‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô•Ï‰») this.encloseCharacter:ˆø”encloseCharacter‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô•Ï‰») this.reader:ˆø”reader‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô•Ï‰») this.lineFeedChar:ˆø”lineFeedChar‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.delimiterCharacter:å¼•æ•°delimiterCharacterã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.encloseCharacter:å¼•æ•°encloseCharacterã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.reader:å¼•æ•°readerã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.lineFeedChar:å¼•æ•°lineFeedCharã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     * ƒIƒuƒWƒFƒNƒg‚ª¶¬‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒç”Ÿæˆã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testEncloseCharLineFeed1LineReader01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚È‚µ
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ãªã—
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         char delimiterCharacter = 'a';
         char[] encloseCharacter = { 'b' };
         byte[] buf = {};
@@ -97,16 +97,16 @@ public class EncloseCharLineFeed1LineReaderTest extends TestCase {
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         String lineFeedChar = "\r";
 
-        // ‘O’ñğŒ‚È‚µ
+        // å‰ææ¡ä»¶ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         EncloseCharLineFeed1LineReader testCalss = new EncloseCharLineFeed1LineReader(
                 delimiterCharacter, Character.MIN_VALUE, encloseCharacter,
                 bufferedReader, lineFeedChar);
 
-        // •Ô‹p’l‚È‚µ
+        // è¿”å´å€¤ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         char char01 = (Character) UTUtil.getPrivateField(testCalss,
                 "delimiterCharacter");
         assertEquals(delimiterCharacter, char01);
@@ -123,24 +123,24 @@ public class EncloseCharLineFeed1LineReaderTest extends TestCase {
     /**
      * testEncloseCharLineFeed1LineReader02() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) delimiterCharacter:Character.MIN_VALUE<br>
-     * (ˆø”) encloseCharacter:\"<br>
-     * (ˆø”) reader:BufferedReader‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ˆø”) lineFeedChar:""<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) delimiterCharacter:Character.MIN_VALUE<br>
+     * (å¼•æ•°) encloseCharacter:\"<br>
+     * (å¼•æ•°) reader:BufferedReaderã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (å¼•æ•°) lineFeedChar:""<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     * ƒƒbƒZ[ƒWF"delimiterCharacter can not use '\\u0000'."<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"delimiterCharacter can not use '\\u0000'."<br>
      * <br>
-     * ‹æØ‚è•¶š‚ª'\u0000'‚¾‚Á‚½ê‡AIllegalArgumentException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * åŒºåˆ‡ã‚Šæ–‡å­—ãŒ'\u0000'ã ã£ãŸå ´åˆã€IllegalArgumentExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testEncloseCharLineFeed1LineReader02() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚È‚µ
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ãªã—
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         char delimiterCharacter = Character.MIN_VALUE;
         char[] encloseCharacter = { '"' };
         byte[] buf = {};
@@ -149,18 +149,18 @@ public class EncloseCharLineFeed1LineReaderTest extends TestCase {
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         String lineFeedChar = "";
 
-        // ‘O’ñğŒ‚È‚µ
+        // å‰ææ¡ä»¶ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             new EncloseCharLineFeed1LineReader(delimiterCharacter,
                     Character.MIN_VALUE, encloseCharacter, bufferedReader,
                     lineFeedChar);
-            fail("IllegalArgumentException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B¸”s‚Å‚·B");
+            fail("IllegalArgumentExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚å¤±æ•—ã§ã™ã€‚");
         } catch (Exception e) {
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(IllegalArgumentException.class, e.getClass());
             assertEquals("delimiterCharacter can not use '\\u0000'.", e
                     .getMessage());
@@ -170,24 +170,24 @@ public class EncloseCharLineFeed1LineReaderTest extends TestCase {
     /**
      * testEncloseCharLineFeed1LineReader03() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) delimiterCharacter:,'<br>
-     * (ˆø”) encloseCharacter:Character.MIN_VALUE<br>
-     * (ˆø”) reader:BufferedReader‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ˆø”) lineFeedChar:""<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) delimiterCharacter:,'<br>
+     * (å¼•æ•°) encloseCharacter:Character.MIN_VALUE<br>
+     * (å¼•æ•°) reader:BufferedReaderã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (å¼•æ•°) lineFeedChar:""<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     * ƒƒbƒZ[ƒWF"encloseCharacter can not use '\\u0000'."<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"encloseCharacter can not use '\\u0000'."<br>
      * <br>
-     * ˆÍ‚İ•¶š‚ª'\u0000'‚¾‚Á‚½ê‡AIllegalArgumentException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * å›²ã¿æ–‡å­—ãŒ'\u0000'ã ã£ãŸå ´åˆã€IllegalArgumentExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testEncloseCharLineFeed1LineReader03() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚È‚µ
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ãªã—
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         char delimiterCharacter = ',';
         char[] encloseCharacter = null;
         byte[] buf = {};
@@ -196,18 +196,18 @@ public class EncloseCharLineFeed1LineReaderTest extends TestCase {
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         String lineFeedChar = "";
 
-        // ‘O’ñğŒ‚È‚µ
+        // å‰ææ¡ä»¶ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             new EncloseCharLineFeed1LineReader(delimiterCharacter,
                     Character.MIN_VALUE, encloseCharacter, bufferedReader,
                     lineFeedChar);
-            fail("IllegalArgumentException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B¸”s‚Å‚·B");
+            fail("IllegalArgumentExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚å¤±æ•—ã§ã™ã€‚");
         } catch (Exception e) {
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(IllegalArgumentException.class, e.getClass());
             assertEquals("columnEncloseCharacter is required.", e.getMessage());
         }
@@ -216,41 +216,41 @@ public class EncloseCharLineFeed1LineReaderTest extends TestCase {
     /**
      * testEncloseCharLineFeed1LineReader04() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) delimiterCharacter:,'<br>
-     * (ˆø”) encloseCharacter:"\"<br>
-     * (ˆø”) reader:null<br>
-     * (ˆø”) lineFeedChar:""<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) delimiterCharacter:,'<br>
+     * (å¼•æ•°) encloseCharacter:"\"<br>
+     * (å¼•æ•°) reader:null<br>
+     * (å¼•æ•°) lineFeedChar:""<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     * ƒƒbƒZ[ƒWF"reader is required."<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"reader is required."<br>
      * <br>
-     * ƒtƒ@ƒCƒ‹ƒAƒNƒZƒX—p‚Ì•¶šƒXƒgƒŠ[ƒ€‚ªnull‚¾‚Á‚½ê‡AIllegalArgumentException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ãƒ•ã‚¡ã‚¤ãƒ«ã‚¢ã‚¯ã‚»ã‚¹ç”¨ã®æ–‡å­—ã‚¹ãƒˆãƒªãƒ¼ãƒ ãŒnullã ã£ãŸå ´åˆã€IllegalArgumentExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testEncloseCharLineFeed1LineReader04() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚È‚µ
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ãªã—
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         char delimiterCharacter = ',';
         char[] encloseCharacter = { '\"' };
         BufferedReader bufferedReader = null;
         String lineFeedChar = "";
 
-        // ‘O’ñğŒ‚È‚µ
+        // å‰ææ¡ä»¶ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             new EncloseCharLineFeed1LineReader(delimiterCharacter,
                     Character.MIN_VALUE, encloseCharacter, bufferedReader,
                     lineFeedChar);
-            fail("IllegalArgumentException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B¸”s‚Å‚·B");
+            fail("IllegalArgumentExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚å¤±æ•—ã§ã™ã€‚");
         } catch (Exception e) {
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(IllegalArgumentException.class, e.getClass());
             assertEquals("reader is required.", e.getMessage());
         }
@@ -259,24 +259,24 @@ public class EncloseCharLineFeed1LineReaderTest extends TestCase {
     /**
      * testEncloseCharLineFeed1LineReader05() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) delimiterCharacter:,'<br>
-     * (ˆø”) encloseCharacter:"\"<br>
-     * (ˆø”) reader:BufferedReader‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ˆø”) lineFeedChar:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) delimiterCharacter:,'<br>
+     * (å¼•æ•°) encloseCharacter:"\"<br>
+     * (å¼•æ•°) reader:BufferedReaderã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (å¼•æ•°) lineFeedChar:null<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     * ƒƒbƒZ[ƒWF"lineFeedChar is required."<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"lineFeedChar is required."<br>
      * <br>
-     * s‹æØ‚è•¶š‚ªnull‚¾‚Á‚½ê‡AIllegalArgumentException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—ãŒnullã ã£ãŸå ´åˆã€IllegalArgumentExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testEncloseCharLineFeed1LineReader05() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚È‚µ
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ãªã—
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         char delimiterCharacter = ',';
         char[] encloseCharacter = { '\"' };
         byte[] buf = {};
@@ -285,18 +285,18 @@ public class EncloseCharLineFeed1LineReaderTest extends TestCase {
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         String lineFeedChar = null;
 
-        // ‘O’ñğŒ‚È‚µ
+        // å‰ææ¡ä»¶ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             new EncloseCharLineFeed1LineReader(delimiterCharacter,
                     Character.MIN_VALUE, encloseCharacter, bufferedReader,
                     lineFeedChar);
-            fail("IllegalArgumentException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B¸”s‚Å‚·B");
+            fail("IllegalArgumentExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚å¤±æ•—ã§ã™ã€‚");
         } catch (Exception e) {
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(IllegalArgumentException.class, e.getClass());
             assertEquals("lineFeedChar is required.", e.getMessage());
         }
@@ -305,24 +305,24 @@ public class EncloseCharLineFeed1LineReaderTest extends TestCase {
     /**
      * testEncloseCharLineFeed1LineReader06() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) delimiterCharacter:,'<br>
-     * (ˆø”) encloseCharacter:"\"<br>
-     * (ˆø”) reader:BufferedReader‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ˆø”) lineFeedChar:""<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) delimiterCharacter:,'<br>
+     * (å¼•æ•°) encloseCharacter:"\"<br>
+     * (å¼•æ•°) reader:BufferedReaderã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (å¼•æ•°) lineFeedChar:""<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     * ƒƒbƒZ[ƒWF"lineFeedChar should be defined by 1 digit of character string."<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"lineFeedChar should be defined by 1 digit of character string."<br>
      * <br>
-     * s‹æØ‚è•¶š‚ª1•¶šˆÈŠO‚¾‚Á‚½ê‡AIllegalArgumentException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—ãŒ1æ–‡å­—ä»¥å¤–ã ã£ãŸå ´åˆã€IllegalArgumentExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testEncloseCharLineFeed1LineReader06() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚È‚µ
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ãªã—
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         char delimiterCharacter = ',';
         char[] encloseCharacter = { '\"' };
         byte[] buf = {};
@@ -331,18 +331,18 @@ public class EncloseCharLineFeed1LineReaderTest extends TestCase {
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         String lineFeedChar = "";
 
-        // ‘O’ñğŒ‚È‚µ
+        // å‰ææ¡ä»¶ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             new EncloseCharLineFeed1LineReader(delimiterCharacter,
                     Character.MIN_VALUE, encloseCharacter, bufferedReader,
                     lineFeedChar);
-            fail("IllegalArgumentException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B¸”s‚Å‚·B");
+            fail("IllegalArgumentExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚å¤±æ•—ã§ã™ã€‚");
         } catch (Exception e) {
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(IllegalArgumentException.class, e.getClass());
             assertEquals("lineFeedChar should be defined by 1"
                     + " digit of character string.", e.getMessage());
@@ -352,24 +352,24 @@ public class EncloseCharLineFeed1LineReaderTest extends TestCase {
     /**
      * testEncloseCharLineFeed1LineReader07() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) delimiterCharacter:,'<br>
-     * (ˆø”) encloseCharacter:"\"<br>
-     * (ˆø”) reader:BufferedReader‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ˆø”) lineFeedChar:"\r\n"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) delimiterCharacter:,'<br>
+     * (å¼•æ•°) encloseCharacter:"\"<br>
+     * (å¼•æ•°) reader:BufferedReaderã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (å¼•æ•°) lineFeedChar:"\r\n"<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     * ƒƒbƒZ[ƒWF"lineFeedChar should be defined by 1 digit of character string."<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"lineFeedChar should be defined by 1 digit of character string."<br>
      * <br>
-     * s‹æØ‚è•¶š‚ª1•¶šˆÈŠO‚¾‚Á‚½ê‡AIllegalArgumentException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—ãŒ1æ–‡å­—ä»¥å¤–ã ã£ãŸå ´åˆã€IllegalArgumentExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testEncloseCharLineFeed1LineReader07() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚È‚µ
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ãªã—
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         char delimiterCharacter = ',';
         char[] encloseCharacter = { '\"' };
         byte[] buf = {};
@@ -378,18 +378,18 @@ public class EncloseCharLineFeed1LineReaderTest extends TestCase {
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         String lineFeedChar = "\r\n";
 
-        // ‘O’ñğŒ‚È‚µ
+        // å‰ææ¡ä»¶ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             new EncloseCharLineFeed1LineReader(delimiterCharacter,
                     Character.MIN_VALUE, encloseCharacter, bufferedReader,
                     lineFeedChar);
-            fail("IllegalArgumentException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B¸”s‚Å‚·B");
+            fail("IllegalArgumentExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚å¤±æ•—ã§ã™ã€‚");
         } catch (Exception e) {
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(IllegalArgumentException.class, e.getClass());
             assertEquals("lineFeedChar should be defined by 1"
                     + " digit of character string.", e.getMessage());
@@ -399,32 +399,32 @@ public class EncloseCharLineFeed1LineReaderTest extends TestCase {
     /**
      * testReadLine01() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) reader:not null<br>
-     * ReaderÀ‘•ƒXƒ^ƒu<br>
-     * #ready(), #read()‚ÅIOException‚ğƒXƒ[‚·‚é<br>
-     * (ó‘Ô) lineFeedChar:''\r'<br>
-     * (ó‘Ô) delimiter:not null<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) reader:not null<br>
+     * Readerå®Ÿè£…ã‚¹ã‚¿ãƒ–<br>
+     * #ready(), #read()ã§IOExceptionã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹<br>
+     * (çŠ¶æ…‹) lineFeedChar:''\r'<br>
+     * (çŠ¶æ…‹) delimiter:not null<br>
      * 'a'<br>
-     * (ó‘Ô) encloseCharacter:not null<br>
+     * (çŠ¶æ…‹) encloseCharacter:not null<br>
      * 'b'<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») ‚È‚µ:IOException‚ª”­¶BFileExceptio‚Éƒ‰ƒbƒv‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * ƒƒbƒZ[ƒWF"Reader control operation was failed."<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ãªã—:IOExceptionãŒç™ºç”Ÿã€‚FileExceptioã«ãƒ©ãƒƒãƒ—ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Reader control operation was failed."<br>
      * <br>
-     * Reader‚ªƒf[ƒ^‚Ì“Ç‚İæ‚è‚É¸”s‚µ‚½ê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ReaderãŒãƒ‡ãƒ¼ã‚¿ã®èª­ã¿å–ã‚Šã«å¤±æ•—ã—ãŸå ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testReadLine01() throws Exception {
-        // Mockì¬
+        // Mockä½œæˆ
         Reader reader = EasyMock.createMock(Reader.class);
         EasyMock.expect(reader.read()).andReturn(null).andThrow(
                 new IOException());
         EasyMock.replay(reader);
 
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         char delimiterCharacter = 'a';
         char[] encloseCharacter = { 'b' };
         String parm = "\r";
@@ -432,18 +432,18 @@ public class EncloseCharLineFeed1LineReaderTest extends TestCase {
                 delimiterCharacter, Character.MIN_VALUE, encloseCharacter,
                 reader, parm);
 
-        // ˆø”‚È‚µ
+        // å¼•æ•°ãªã—
 
-        // ‘O’ñğŒ(ƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åİ’è‚³‚ê‚é)
+        // å‰ææ¡ä»¶(ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§è¨­å®šã•ã‚Œã‚‹)
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             target.readLine();
-            fail("FileException‚ªƒXƒ[‚³‚ê‚È‚©‚Á‚½");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œãªã‹ã£ãŸ");
         } catch (Exception e) {
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(FileException.class, e.getClass());
             assertEquals(IOException.class.getName(), e.getCause().getClass()
                     .getName());
@@ -454,25 +454,25 @@ public class EncloseCharLineFeed1LineReaderTest extends TestCase {
     /**
      * testReadLine02() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) reader‚ª“Ç‚İæ‚é•¶š—ñ:""(‹ó)<br>
-     * (ó‘Ô) reader:not null <br>
-     * BufferedReader‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) lineFeedChar:'\r'<br>
-     * (ó‘Ô) delimiter:not null<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) readerãŒèª­ã¿å–ã‚‹æ–‡å­—åˆ—:""(ç©º)<br>
+     * (çŠ¶æ…‹) reader:not null <br>
+     * BufferedReaderã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) lineFeedChar:'\r'<br>
+     * (çŠ¶æ…‹) delimiter:not null<br>
      * 'a'<br>
-     * (ó‘Ô) encloseCharacter:not null<br>
+     * (çŠ¶æ…‹) encloseCharacter:not null<br>
      * 'b'<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:""<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:""<br>
      * <br>
-     * “Ç‚İ‚ñ‚¾ƒf[ƒ^‚ª‚È‚¢i‹ó•¶šj‚Ìê‡A‹ó•¶š‚ª•¶š—ñ‚Æ‚µ‚Ä•Ô‹p‚³‚ê‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * èª­ã¿è¾¼ã‚“ã ãƒ‡ãƒ¼ã‚¿ãŒãªã„ï¼ˆç©ºæ–‡å­—ï¼‰ã®å ´åˆã€ç©ºæ–‡å­—ãŒæ–‡å­—åˆ—ã¨ã—ã¦è¿”å´ã•ã‚Œã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testReadLine02() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         char dChar = 'a';
         char[] eChar = { 'b' };
         byte[] buf = "".getBytes();
@@ -483,39 +483,39 @@ public class EncloseCharLineFeed1LineReaderTest extends TestCase {
         EncloseCharLineFeed1LineReader testCalss = new EncloseCharLineFeed1LineReader(
                 dChar, Character.MIN_VALUE, eChar, bufferedReader, parm);
 
-        // ˆø”‚È‚µ
+        // å¼•æ•°ãªã—
 
-        // ‘O’ñğŒ(ƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åİ’è‚³‚ê‚é)
+        // å‰ææ¡ä»¶(ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§è¨­å®šã•ã‚Œã‚‹)
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = testCalss.readLine();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals("", result);
 
-        // ó‘Ô•Ï‰»‚È‚µ
+        // çŠ¶æ…‹å¤‰åŒ–ãªã—
     }
 
     /**
      * testReadLine03() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) reader‚ª“Ç‚İæ‚é•¶š—ñ:"aaa,aaa,aaa\r"<br>
-     * (ó‘Ô) reader:not null <br>
-     * BufferedReader‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) lineFeedChar:'\r'<br>
-     * (ó‘Ô) delimiter:','<br>
-     * (ó‘Ô) encloseCharacter:'\"'<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) readerãŒèª­ã¿å–ã‚‹æ–‡å­—åˆ—:"aaa,aaa,aaa\r"<br>
+     * (çŠ¶æ…‹) reader:not null <br>
+     * BufferedReaderã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) lineFeedChar:'\r'<br>
+     * (çŠ¶æ…‹) delimiter:','<br>
+     * (çŠ¶æ…‹) encloseCharacter:'\"'<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:"aaa,aaa,aaa"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:"aaa,aaa,aaa"<br>
      * <br>
-     * ˆÍ‚İ•¶š‚ª‚È‚¢ê‡‚ÍAs‹æØ‚è•¶š‚ğœ‚¢‚½•¶š—ñ‚ª•Ô‹p‚³‚ê‚é <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * å›²ã¿æ–‡å­—ãŒãªã„å ´åˆã¯ã€è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—ã‚’é™¤ã„ãŸæ–‡å­—åˆ—ãŒè¿”å´ã•ã‚Œã‚‹ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testReadLine03() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         char dChar = ',';
         char[] eChar = { '\"', '\"', '\"', '\"' };
         byte[] buf = "aaa,aaa,aaa\r".getBytes();
@@ -526,38 +526,38 @@ public class EncloseCharLineFeed1LineReaderTest extends TestCase {
         EncloseCharLineFeed1LineReader testCalss = new EncloseCharLineFeed1LineReader(
                 dChar, Character.MIN_VALUE, eChar, bufferedReader, parm);
 
-        // ˆø”‚È‚µ
+        // å¼•æ•°ãªã—
 
-        // ‘O’ñğŒ(ƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åİ’è‚³‚ê‚é)
+        // å‰ææ¡ä»¶(ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§è¨­å®šã•ã‚Œã‚‹)
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = testCalss.readLine();
 
-        // •Ô‹p’l‚È‚µ
+        // è¿”å´å€¤ãªã—
         assertEquals("aaa,aaa,aaa", result);
     }
 
     /**
      * testReadLine04() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) reader‚ª“Ç‚İæ‚é•¶š—ñ:"\"aaa\",\"aaa\",\"aaa\"\r"<br>
-     * (ó‘Ô) reader:not null <br>
-     * BufferedReader‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) lineFeedChar:'\r'<br>
-     * (ó‘Ô) delimiter:','<br>
-     * (ó‘Ô) encloseCharacter:'\"'<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) readerãŒèª­ã¿å–ã‚‹æ–‡å­—åˆ—:"\"aaa\",\"aaa\",\"aaa\"\r"<br>
+     * (çŠ¶æ…‹) reader:not null <br>
+     * BufferedReaderã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) lineFeedChar:'\r'<br>
+     * (çŠ¶æ…‹) delimiter:','<br>
+     * (çŠ¶æ…‹) encloseCharacter:'\"'<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:"\"aaa\",\"aaa\",\"aaa\""<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:"\"aaa\",\"aaa\",\"aaa\""<br>
      * <br>
-     * ˆÍ‚İ•¶š‚ª‚ ‚éê‡‚ÍAˆÍ‚İ•¶š‚ª‚ ‚é‚Ü‚Ü‚Ì•¶š—ñ‚ª•Ô‹p‚³‚ê‚éB<br>
-     * s‹æØ‚è•¶š‚ğœ‚¢‚½•¶š—ñ‚ª•Ô‹p‚³‚ê‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * å›²ã¿æ–‡å­—ãŒã‚ã‚‹å ´åˆã¯ã€å›²ã¿æ–‡å­—ãŒã‚ã‚‹ã¾ã¾ã®æ–‡å­—åˆ—ãŒè¿”å´ã•ã‚Œã‚‹ã€‚<br>
+     * è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—ã‚’é™¤ã„ãŸæ–‡å­—åˆ—ãŒè¿”å´ã•ã‚Œã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testReadLine04() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         char dChar = ',';
         char[] eChar = { '\"', '\"', '\"', '\"' };
         byte[] buf = "\"aaa\",\"aaa\",\"aaa\"\r".getBytes();
@@ -568,40 +568,40 @@ public class EncloseCharLineFeed1LineReaderTest extends TestCase {
         EncloseCharLineFeed1LineReader testCalss = new EncloseCharLineFeed1LineReader(
                 dChar, Character.MIN_VALUE, eChar, bufferedReader, parm);
 
-        // ˆø”‚È‚µ
+        // å¼•æ•°ãªã—
 
-        // ‘O’ñğŒ(ƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åİ’è‚³‚ê‚é)
+        // å‰ææ¡ä»¶(ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§è¨­å®šã•ã‚Œã‚‹)
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = testCalss.readLine();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals("\"aaa\",\"aaa\",\"aaa\"", result);
 
-        // ó‘Ô•Ï‰»‚È‚µ
+        // çŠ¶æ…‹å¤‰åŒ–ãªã—
     }
 
     /**
      * testReadLine05() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) reader‚ª“Ç‚İæ‚é•¶š—ñ:"\"aa,a\",\"aa\"\"a\",\"aa\ra\"\r"<br>
-     * (ó‘Ô) reader:not null <br>
-     * BufferedReader‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) lineFeedChar:'\r'<br>
-     * (ó‘Ô) delimiter:','<br>
-     * (ó‘Ô) encloseCharacter:'\"'<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) readerãŒèª­ã¿å–ã‚‹æ–‡å­—åˆ—:"\"aa,a\",\"aa\"\"a\",\"aa\ra\"\r"<br>
+     * (çŠ¶æ…‹) reader:not null <br>
+     * BufferedReaderã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) lineFeedChar:'\r'<br>
+     * (çŠ¶æ…‹) delimiter:','<br>
+     * (çŠ¶æ…‹) encloseCharacter:'\"'<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:"\"aa,a\",\"aa\"\"a\",\"aa\ra\""<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:"\"aa,a\",\"aa\"\"a\",\"aa\ra\""<br>
      * <br>
-     * •¶š—ñ‚Ì’†‚ÉˆÍ‚İ•¶šA‹æØ‚è•¶šAs‹æØ‚è•¶š‚ªŠÜ‚Ü‚ê‚Ä‚¢‚éê‡B@iˆÍ‚İ•¶š‚ÌƒGƒXƒP[ƒv‚È‚Çj<br>
-     * s‹æØ‚è•¶š‚ğœ‚¢‚½•¶š—ñ‚ª•Ô‹p‚³‚ê‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ–‡å­—åˆ—ã®ä¸­ã«å›²ã¿æ–‡å­—ã€åŒºåˆ‡ã‚Šæ–‡å­—ã€è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—ãŒå«ã¾ã‚Œã¦ã„ã‚‹å ´åˆã€‚ã€€ï¼ˆå›²ã¿æ–‡å­—ã®ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—ãªã©ï¼‰<br>
+     * è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—ã‚’é™¤ã„ãŸæ–‡å­—åˆ—ãŒè¿”å´ã•ã‚Œã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testReadLine05() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         char dChar = ',';
         char[] eChar = { '\"', '\"', '\"', '\"' };
         byte[] buf = "\"aa,a\",\"aa\"\"a\",\"aa\ra\"\r".getBytes();
@@ -612,40 +612,40 @@ public class EncloseCharLineFeed1LineReaderTest extends TestCase {
         EncloseCharLineFeed1LineReader testCalss = new EncloseCharLineFeed1LineReader(
                 dChar, Character.MIN_VALUE, eChar, bufferedReader, parm);
 
-        // ˆø”‚È‚µ
+        // å¼•æ•°ãªã—
 
-        // ‘O’ñğŒ(ƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åİ’è‚³‚ê‚é)
+        // å‰ææ¡ä»¶(ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§è¨­å®šã•ã‚Œã‚‹)
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = testCalss.readLine();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals("\"aa,a\",\"aa\"\"a\",\"aa\ra\"", result);
 
-        // ó‘Ô•Ï‰»‚È‚µ
+        // çŠ¶æ…‹å¤‰åŒ–ãªã—
     }
 
     /**
      * testReadLine06() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) reader‚ª“Ç‚İæ‚é•¶š—ñ:"\"aaa\",\"aaa\",\"aaa\"aaa\r"<br>
-     * (ó‘Ô) reader:not null <br>
-     * BufferedReader‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) lineFeedChar:'\r'<br>
-     * (ó‘Ô) delimiter:','<br>
-     * (ó‘Ô) encloseCharacter:'\"'<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) readerãŒèª­ã¿å–ã‚‹æ–‡å­—åˆ—:"\"aaa\",\"aaa\",\"aaa\"aaa\r"<br>
+     * (çŠ¶æ…‹) reader:not null <br>
+     * BufferedReaderã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) lineFeedChar:'\r'<br>
+     * (çŠ¶æ…‹) delimiter:','<br>
+     * (çŠ¶æ…‹) encloseCharacter:'\"'<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:"\"aaa\",\"aaa\",\"aaa\"aaa"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:"\"aaa\",\"aaa\",\"aaa\"aaa"<br>
      * <br>
-     * •¶š—ñ‚ª1s•Ô‹p‚³‚ê‚éBˆÍ‚İ•¶š(I—¹‘¤)‚ÌŒã‚ë‚É•¶š—ñ‚ª‚Â‚È‚ª‚éê‡A‹æØ‚è•¶š‚à‚µ‚­‚Ís‹æØ‚è•¶š‚ª—ˆ‚é‚Ü‚Å‚Ì•¶š—ñ‚Í‘S‚Ä‘O‚ÌƒJƒ‰ƒ€‚ÉŠÜ‚Ü‚ê‚éB<br>
-     * s‹æØ‚è•¶š‚ğœ‚¢‚½•¶š—ñ‚ª•Ô‹p‚³‚ê‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ–‡å­—åˆ—ãŒ1è¡Œè¿”å´ã•ã‚Œã‚‹ã€‚å›²ã¿æ–‡å­—(çµ‚äº†å´)ã®å¾Œã‚ã«æ–‡å­—åˆ—ãŒã¤ãªãŒã‚‹å ´åˆã€åŒºåˆ‡ã‚Šæ–‡å­—ã‚‚ã—ãã¯è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—ãŒæ¥ã‚‹ã¾ã§ã®æ–‡å­—åˆ—ã¯å…¨ã¦å‰ã®ã‚«ãƒ©ãƒ ã«å«ã¾ã‚Œã‚‹ã€‚<br>
+     * è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—ã‚’é™¤ã„ãŸæ–‡å­—åˆ—ãŒè¿”å´ã•ã‚Œã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testReadLine06() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         char dChar = ',';
         char[] eChar = { '\"', '\"', '\"', '\"' };
         byte[] buf = "\"aaa\",\"aaa\",\"aaa\"aaa\r".getBytes();
@@ -656,40 +656,40 @@ public class EncloseCharLineFeed1LineReaderTest extends TestCase {
         EncloseCharLineFeed1LineReader testCalss = new EncloseCharLineFeed1LineReader(
                 dChar, Character.MIN_VALUE, eChar, bufferedReader, parm);
 
-        // ˆø”‚È‚µ
+        // å¼•æ•°ãªã—
 
-        // ‘O’ñğŒ(ƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åİ’è‚³‚ê‚é)
+        // å‰ææ¡ä»¶(ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§è¨­å®šã•ã‚Œã‚‹)
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = testCalss.readLine();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals("\"aaa\",\"aaa\",\"aaa\"aaa", result);
 
-        // ó‘Ô•Ï‰»‚È‚µ
+        // çŠ¶æ…‹å¤‰åŒ–ãªã—
     }
 
     /**
      * testReadLine07() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) reader‚ª“Ç‚İæ‚é•¶š—ñ:"\r"<br>
-     * (ó‘Ô) reader:not null <br>
-     * BufferedReader‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) lineFeedChar:'\r'<br>
-     * (ó‘Ô) delimiter:','<br>
-     * (ó‘Ô) encloseCharacter:'\"'<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) readerãŒèª­ã¿å–ã‚‹æ–‡å­—åˆ—:"\r"<br>
+     * (çŠ¶æ…‹) reader:not null <br>
+     * BufferedReaderã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) lineFeedChar:'\r'<br>
+     * (çŠ¶æ…‹) delimiter:','<br>
+     * (çŠ¶æ…‹) encloseCharacter:'\"'<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:""<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:""<br>
      * <br>
-     * •¶š—ñ‚Ì’†‚És‹æØ‚è•¶š‚Ì‚İB<br>
-     * s‹æØ‚è•¶š‚ğœ‚¢‚½•¶š—ñ‚ª•Ô‹p‚³‚ê‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ–‡å­—åˆ—ã®ä¸­ã«è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—ã®ã¿ã€‚<br>
+     * è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—ã‚’é™¤ã„ãŸæ–‡å­—åˆ—ãŒè¿”å´ã•ã‚Œã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testReadLine07() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         char dChar = ',';
         char[] eChar = { '\"' };
         byte[] buf = "\r".getBytes();
@@ -700,39 +700,39 @@ public class EncloseCharLineFeed1LineReaderTest extends TestCase {
         EncloseCharLineFeed1LineReader testCalss = new EncloseCharLineFeed1LineReader(
                 dChar, Character.MIN_VALUE, eChar, bufferedReader, parm);
 
-        // ˆø”‚È‚µ
+        // å¼•æ•°ãªã—
 
-        // ‘O’ñğŒ(ƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åİ’è‚³‚ê‚é)
+        // å‰ææ¡ä»¶(ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§è¨­å®šã•ã‚Œã‚‹)
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = testCalss.readLine();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals("", result);
 
-        // ó‘Ô•Ï‰»‚È‚µ
+        // çŠ¶æ…‹å¤‰åŒ–ãªã—
     }
 
     /**
      * testReadLine08() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) reader‚ª“Ç‚İæ‚é•¶š—ñ:"aaa"<br>
-     * (ó‘Ô) reader:not null <br>
-     * BufferedReader‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) lineFeedChar:\r'<br>
-     * (ó‘Ô) delimiter:,'<br>
-     * (ó‘Ô) encloseCharacter:\"'<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) readerãŒèª­ã¿å–ã‚‹æ–‡å­—åˆ—:"aaa"<br>
+     * (çŠ¶æ…‹) reader:not null <br>
+     * BufferedReaderã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) lineFeedChar:\r'<br>
+     * (çŠ¶æ…‹) delimiter:,'<br>
+     * (çŠ¶æ…‹) encloseCharacter:\"'<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:"aaa"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:"aaa"<br>
      * <br>
-     * s‹æØ‚è•¶š‚ª‚È‚¢ƒf[ƒ^‚ğ“Ç‚İ‚ñ‚¾ê‡AÅIƒf[ƒ^‚Ü‚Å‚Ì•¶š—ñ‚ª•Ô‹p‚³‚ê‚é <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—ãŒãªã„ãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿è¾¼ã‚“ã å ´åˆã€æœ€çµ‚ãƒ‡ãƒ¼ã‚¿ã¾ã§ã®æ–‡å­—åˆ—ãŒè¿”å´ã•ã‚Œã‚‹ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testReadLine08() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         char dChar = ',';
         char[] eChar = { '\"' };
         byte[] buf = "aaa".getBytes();
@@ -743,39 +743,39 @@ public class EncloseCharLineFeed1LineReaderTest extends TestCase {
         EncloseCharLineFeed1LineReader testCalss = new EncloseCharLineFeed1LineReader(
                 dChar, Character.MIN_VALUE, eChar, bufferedReader, parm);
 
-        // ˆø”‚È‚µ
+        // å¼•æ•°ãªã—
 
-        // ‘O’ñğŒ(ƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åİ’è‚³‚ê‚é)
+        // å‰ææ¡ä»¶(ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§è¨­å®šã•ã‚Œã‚‹)
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = testCalss.readLine();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals("aaa", result);
 
-        // ó‘Ô•Ï‰»‚È‚µ
+        // çŠ¶æ…‹å¤‰åŒ–ãªã—
     }
 
     /**
      * testReadLine09() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) reader‚ª“Ç‚İæ‚é•¶š—ñ:"aaa,aaa,aaa\raaa,aaa"<br>
-     * (ó‘Ô) reader:not null <br>
-     * BufferedReader‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) lineFeedChar:'\r'<br>
-     * (ó‘Ô) delimiter:','<br>
-     * (ó‘Ô) encloseCharacter:'\"'<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) readerãŒèª­ã¿å–ã‚‹æ–‡å­—åˆ—:"aaa,aaa,aaa\raaa,aaa"<br>
+     * (çŠ¶æ…‹) reader:not null <br>
+     * BufferedReaderã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) lineFeedChar:'\r'<br>
+     * (çŠ¶æ…‹) delimiter:','<br>
+     * (çŠ¶æ…‹) encloseCharacter:'\"'<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:"aaa,aaa,aaa"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:"aaa,aaa,aaa"<br>
      * <br>
-     * “Ç‚İ‚ñ‚¾ƒf[ƒ^‚É‰üs•¶š‚ªŠÜ‚Ü‚ê‚Ä‚¢‚½‚ç‚»‚±‚Ü‚Å‚Ì•¶š—ñ‚ª•Ô‹p‚³‚ê‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * èª­ã¿è¾¼ã‚“ã ãƒ‡ãƒ¼ã‚¿ã«æ”¹è¡Œæ–‡å­—ãŒå«ã¾ã‚Œã¦ã„ãŸã‚‰ãã“ã¾ã§ã®æ–‡å­—åˆ—ãŒè¿”å´ã•ã‚Œã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testReadLine09() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         char dChar = ',';
         char[] eChar = { '\"', '\"', '\"', '\"' };
         byte[] buf = "aaa,aaa,aaa\raaa,aaa".getBytes();
@@ -786,41 +786,41 @@ public class EncloseCharLineFeed1LineReaderTest extends TestCase {
         EncloseCharLineFeed1LineReader testCalss = new EncloseCharLineFeed1LineReader(
                 dChar, Character.MIN_VALUE, eChar, bufferedReader, parm);
 
-        // ˆø”‚È‚µ
+        // å¼•æ•°ãªã—
 
-        // ‘O’ñğŒ(ƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åİ’è‚³‚ê‚é)
+        // å‰ææ¡ä»¶(ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§è¨­å®šã•ã‚Œã‚‹)
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = testCalss.readLine();
 
-        // •Ô‹p’l‚È‚µ
+        // è¿”å´å€¤ãªã—
         assertEquals("aaa,aaa,aaa", result);
     }
 
     /**
      * testReadLine10() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) reader‚ª“Ç‚İæ‚é•¶š—ñ:"‚‚‚,‚‚‚,‚‚‚\r"<br>
-     * (ó‘Ô) reader:not null <br>
-     * BufferedReader‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) lineFeedChar:'\r'<br>
-     * (ó‘Ô) delimiter:','<br>
-     * (ó‘Ô) encloseCharacter:'\"'<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) readerãŒèª­ã¿å–ã‚‹æ–‡å­—åˆ—:"ï½ï½ï½,ï½ï½ï½,ï½ï½ï½\r"<br>
+     * (çŠ¶æ…‹) reader:not null <br>
+     * BufferedReaderã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) lineFeedChar:'\r'<br>
+     * (çŠ¶æ…‹) delimiter:','<br>
+     * (çŠ¶æ…‹) encloseCharacter:'\"'<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:"‚‚‚,‚‚‚,‚‚‚"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:"ï½ï½ï½,ï½ï½ï½,ï½ï½ï½"<br>
      * <br>
-     * •¶š—ñ‚Ì’†‚ÉA‘SŠp•¶š‚ªŠÜ‚Ü‚ê‚Ä‚¢‚éê‡B<br>
-     * s‹æØ‚è•¶š‚ğœ‚¢‚½•¶š—ñ‚ª•Ô‹p‚³‚ê‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ–‡å­—åˆ—ã®ä¸­ã«ã€å…¨è§’æ–‡å­—ãŒå«ã¾ã‚Œã¦ã„ã‚‹å ´åˆã€‚<br>
+     * è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—ã‚’é™¤ã„ãŸæ–‡å­—åˆ—ãŒè¿”å´ã•ã‚Œã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testReadLine10() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         char dChar = ',';
         char[] eChar = { '\"', '\"', '\"', '\"' };
-        byte[] buf = "‚‚‚,‚‚‚,‚‚‚\r".getBytes();
+        byte[] buf = "ï½ï½ï½,ï½ï½ï½,ï½ï½ï½\r".getBytes();
         InputStream inputStream = new ByteArrayInputStream(buf);
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
@@ -828,37 +828,37 @@ public class EncloseCharLineFeed1LineReaderTest extends TestCase {
         EncloseCharLineFeed1LineReader testCalss = new EncloseCharLineFeed1LineReader(
                 dChar, Character.MIN_VALUE, eChar, bufferedReader, parm);
 
-        // ˆø”‚È‚µ
+        // å¼•æ•°ãªã—
 
-        // ‘O’ñğŒ(ƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åİ’è‚³‚ê‚é)
+        // å‰ææ¡ä»¶(ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§è¨­å®šã•ã‚Œã‚‹)
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = testCalss.readLine();
 
-        // •Ô‹p’l‚È‚µ
-        assertEquals("‚‚‚,‚‚‚,‚‚‚", result);
+        // è¿”å´å€¤ãªã—
+        assertEquals("ï½ï½ï½,ï½ï½ï½,ï½ï½ï½", result);
     }
 
     /**
      * testReadLine11() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) reader‚ª“Ç‚İæ‚é•¶š—ñ:"aaa,aaa,aaaaaa\r\naaa"<br>
-     * (ó‘Ô) reader:not null <br>
-     * BufferedReader‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) lineFeedChar:'\r'<br>
-     * (ó‘Ô) delimiter:','<br>
-     * (ó‘Ô) encloseCharacter:'\"'<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) readerãŒèª­ã¿å–ã‚‹æ–‡å­—åˆ—:"aaa,aaa,aaaaaa\r\naaa"<br>
+     * (çŠ¶æ…‹) reader:not null <br>
+     * BufferedReaderã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) lineFeedChar:'\r'<br>
+     * (çŠ¶æ…‹) delimiter:','<br>
+     * (çŠ¶æ…‹) encloseCharacter:'\"'<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:"aaa,aaa,aaaaaa"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:"aaa,aaa,aaaaaa"<br>
      * <br>
-     * “Ç‚İ‚ñ‚¾ƒf[ƒ^‚É‰üs•¶š(\r\n)‚ªŠÜ‚Ü‚ê‚Ä‚¢‚½ê‡A\r‚Ü‚Å‚Ì•¶š—ñ‚ª•Ô‹p‚³‚ê‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * èª­ã¿è¾¼ã‚“ã ãƒ‡ãƒ¼ã‚¿ã«æ”¹è¡Œæ–‡å­—(\r\n)ãŒå«ã¾ã‚Œã¦ã„ãŸå ´åˆã€\rã¾ã§ã®æ–‡å­—åˆ—ãŒè¿”å´ã•ã‚Œã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testReadLine11() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         char dChar = ',';
         char[] eChar = { '\"', '\"', '\"', '\"' };
         byte[] buf = "aaa,aaa,aaaaaa\r\naaa".getBytes();
@@ -869,24 +869,24 @@ public class EncloseCharLineFeed1LineReaderTest extends TestCase {
         EncloseCharLineFeed1LineReader testCalss = new EncloseCharLineFeed1LineReader(
                 dChar, Character.MIN_VALUE, eChar, bufferedReader, parm);
 
-        // ˆø”‚È‚µ
+        // å¼•æ•°ãªã—
 
-        // ‘O’ñğŒ(ƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åİ’è‚³‚ê‚é)
+        // å‰ææ¡ä»¶(ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§è¨­å®šã•ã‚Œã‚‹)
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = testCalss.readLine();
 
-        // •Ô‹p’l‚È‚µ
+        // è¿”å´å€¤ãªã—
         assertEquals("aaa,aaa,aaaaaa", result);
     }
 
     /**
-     * ³íŒn<br>
-     * ƒJƒ‰ƒ€–ˆ‚ÌˆÍ‚İ•¶šİ’è—L‚è
+     * æ­£å¸¸ç³»<br>
+     * ã‚«ãƒ©ãƒ æ¯ã®å›²ã¿æ–‡å­—è¨­å®šæœ‰ã‚Š
      * @throws Exception
      */
     public void testReadLine12() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         char dChar = ',';
         char[] eChar = { '\"', Character.MIN_VALUE, '|' };
         byte[] buf = "\"aaa\",\"aaa\",|aaaaaa|\r\naaa".getBytes();
@@ -898,20 +898,20 @@ public class EncloseCharLineFeed1LineReaderTest extends TestCase {
         EncloseCharLineFeed1LineReader testCalss = new EncloseCharLineFeed1LineReader(
                 dChar, Character.MIN_VALUE, eChar, bufferedReader, parm);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = testCalss.readLine();
 
-        // •Ô‹p’l‚È‚µ
+        // è¿”å´å€¤ãªã—
         assertEquals("\"aaa\",\"aaa\",|aaaaaa|", result);
     }
 
     /**
-     * ³íŒn<br>
-     * ƒJƒ‰ƒ€–ˆ‚ÌˆÍ‚İ•¶šİ’è—L‚è
+     * æ­£å¸¸ç³»<br>
+     * ã‚«ãƒ©ãƒ æ¯ã®å›²ã¿æ–‡å­—è¨­å®šæœ‰ã‚Š
      * @throws Exception
      */
     public void testReadLine13() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         char dChar = ',';
         char[] eChar = { '\"', Character.MIN_VALUE, '|' };
         byte[] buf = "\"a\raa\",\"aaa\",|aaa\raaa|\r\naaa".getBytes();
@@ -923,20 +923,20 @@ public class EncloseCharLineFeed1LineReaderTest extends TestCase {
         EncloseCharLineFeed1LineReader testCalss = new EncloseCharLineFeed1LineReader(
                 dChar, Character.MIN_VALUE, eChar, bufferedReader, parm);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = testCalss.readLine();
 
-        // •Ô‹p’l‚È‚µ
+        // è¿”å´å€¤ãªã—
         assertEquals("\"a\raa\",\"aaa\",|aaa\raaa|", result);
     }
 
     /**
-     * ³íŒn<br>
+     * æ­£å¸¸ç³»<br>
      * eColChar.length : 0
      * @throws Exception
      */
     public void testReadLine14() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         char dChar = ',';
         char[] eColChar = {};
         char eChar = '\"';
@@ -949,10 +949,10 @@ public class EncloseCharLineFeed1LineReaderTest extends TestCase {
         EncloseCharLineFeed1LineReader testCalss = new EncloseCharLineFeed1LineReader(
                 dChar, eChar, eColChar, bufferedReader, parm);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = testCalss.readLine();
 
-        // •Ô‹p’l‚È‚µ
+        // è¿”å´å€¤ãªã—
         assertEquals("\"a\raa\",\"aaa\",|aaaaaa|", result);
     }
 
@@ -961,7 +961,7 @@ public class EncloseCharLineFeed1LineReaderTest extends TestCase {
      * @throws Exception
      */
     public void testGetEncloseCharcter001() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         char dChar = ',';
         char[] eColChar = { '\"', '\"', '\"', '\"' };
         char eChar = '\'';
@@ -976,11 +976,11 @@ public class EncloseCharLineFeed1LineReaderTest extends TestCase {
 
         int index = 0;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object result = UTUtil.invokePrivate(testCalss, "getEncloseCharcter",
                 int.class, index);
 
-        // •Ô‹p’l‚È‚µ
+        // è¿”å´å€¤ãªã—
         assertNotNull(result);
         assertEquals(Character.valueOf('\"'), (Character) result);
     }
@@ -990,7 +990,7 @@ public class EncloseCharLineFeed1LineReaderTest extends TestCase {
      * @throws Exception
      */
     public void testGetEncloseCharcter002() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         char dChar = ',';
         char[] eColChar = { '\"', '\"', '\"', '\"' };
         char eChar = '\'';
@@ -1005,11 +1005,11 @@ public class EncloseCharLineFeed1LineReaderTest extends TestCase {
 
         int index = 1;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object result = UTUtil.invokePrivate(testCalss, "getEncloseCharcter",
                 int.class, index);
 
-        // •Ô‹p’l‚È‚µ
+        // è¿”å´å€¤ãªã—
         assertNotNull(result);
         assertEquals(Character.valueOf('\"'), (Character) result);
     }
@@ -1019,7 +1019,7 @@ public class EncloseCharLineFeed1LineReaderTest extends TestCase {
      * @throws Exception
      */
     public void testGetEncloseCharcter003() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         char dChar = ',';
         char[] eColChar = { '\"', '\"', '\"', '\"' };
         char eChar = '\'';
@@ -1034,11 +1034,11 @@ public class EncloseCharLineFeed1LineReaderTest extends TestCase {
 
         int index = 3;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object result = UTUtil.invokePrivate(testCalss, "getEncloseCharcter",
                 int.class, index);
 
-        // •Ô‹p’l‚È‚µ
+        // è¿”å´å€¤ãªã—
         assertNotNull(result);
         assertEquals(Character.valueOf('\"'), (Character) result);
     }
@@ -1048,7 +1048,7 @@ public class EncloseCharLineFeed1LineReaderTest extends TestCase {
      * @throws Exception
      */
     public void testGetEncloseCharcter004() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         char dChar = ',';
         char[] eColChar = { '\"', '\"', '\"', '\"' };
         char eChar = '\'';
@@ -1063,11 +1063,11 @@ public class EncloseCharLineFeed1LineReaderTest extends TestCase {
 
         int index = 4;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object result = UTUtil.invokePrivate(testCalss, "getEncloseCharcter",
                 int.class, index);
 
-        // •Ô‹p’l‚È‚µ
+        // è¿”å´å€¤ãªã—
         assertNotNull(result);
         assertEquals(Character.valueOf('\''), (Character) result);
     }
@@ -1077,7 +1077,7 @@ public class EncloseCharLineFeed1LineReaderTest extends TestCase {
      * @throws Exception
      */
     public void testGetEncloseCharcter005() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         char dChar = ',';
         char[] eColChar = { '\"', '\"', '\"', '\"' };
         char eChar = '\'';
@@ -1092,11 +1092,11 @@ public class EncloseCharLineFeed1LineReaderTest extends TestCase {
 
         int index = 5;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object result = UTUtil.invokePrivate(testCalss, "getEncloseCharcter",
                 int.class, index);
 
-        // •Ô‹p’l‚È‚µ
+        // è¿”å´å€¤ãªã—
         assertNotNull(result);
         assertEquals(Character.valueOf('\''), (Character) result);
     }

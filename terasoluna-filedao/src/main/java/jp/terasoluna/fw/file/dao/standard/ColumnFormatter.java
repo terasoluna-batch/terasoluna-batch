@@ -20,22 +20,22 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 /**
- * ƒJƒ‰ƒ€ƒtƒH[ƒ}ƒbƒg(ƒtƒ@ƒCƒ‹‘žjƒCƒ“ƒ^ƒtƒF[ƒXB
+ * ã‚«ãƒ©ãƒ ãƒ•ã‚©ãƒ¼ãƒžãƒƒãƒˆ(ãƒ•ã‚¡ã‚¤ãƒ«æ›¸è¾¼ï¼‰ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã€‚
  * <p>
- * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚©‚çƒf[ƒ^‚ðŽæ“¾‚µA•¶Žš—ñ‚ðFileUpdateDAO‚É•Ô‹p‚·‚éB BigDecimalŒ^ADateŒ^‚É‚Â‚¢‚Ä‚ÍAƒAƒmƒe[ƒVƒ‡ƒ“‚Ì‹Lq‚É]‚¢ƒtƒH[ƒ}ƒbƒgˆ—‚ðs‚¤B
+ * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã‚‰ãƒ‡ãƒ¼ã‚¿ã‚’å–å¾—ã—ã€æ–‡å­—åˆ—ã‚’FileUpdateDAOã«è¿”å´ã™ã‚‹ã€‚ BigDecimalåž‹ã€Dateåž‹ã«ã¤ã„ã¦ã¯ã€ã‚¢ãƒŽãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã®è¨˜è¿°ã«å¾“ã„ãƒ•ã‚©ãƒ¼ãƒžãƒƒãƒˆå‡¦ç†ã‚’è¡Œã†ã€‚
  * </p>
  */
 public interface ColumnFormatter {
 
     /**
-     * ƒtƒH[ƒ}ƒbƒgˆ—‚ðs‚¢A•¶Žš—ñ‚ð•Ô‹p‚·‚éB
-     * @param t ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg
-     * @param method ƒJƒ‰ƒ€ƒtƒH[ƒ}ƒbƒg‚ðs‚¤‘®«‚ÌƒQƒbƒ^ƒƒ\ƒbƒh
-     * @param string ƒJƒ‰ƒ€ƒtƒH[ƒ}ƒbƒg—p‚Ì•¶Žš—ñ
-     * @return •¶Žš—ñ
-     * @throws IllegalArgumentException ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚Ìgetterƒƒ\ƒbƒh‚ÌƒAƒNƒZƒX‚ÉŽ¸”s‚µ‚½‚Æ‚«
-     * @throws IllegalAccessException ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚Ö‚ÌÝ’è‚ªŽ¸”s‚µ‚½‚Æ‚«
-     * @throws InvocationTargetException ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚Ìƒƒ\ƒbƒh‚ª—áŠO‚ðƒXƒ[‚µ‚½‚Æ‚«
+     * ãƒ•ã‚©ãƒ¼ãƒžãƒƒãƒˆå‡¦ç†ã‚’è¡Œã„ã€æ–‡å­—åˆ—ã‚’è¿”å´ã™ã‚‹ã€‚
+     * @param t ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param method ã‚«ãƒ©ãƒ ãƒ•ã‚©ãƒ¼ãƒžãƒƒãƒˆã‚’è¡Œã†å±žæ€§ã®ã‚²ãƒƒã‚¿ãƒ¡ã‚½ãƒƒãƒ‰
+     * @param string ã‚«ãƒ©ãƒ ãƒ•ã‚©ãƒ¼ãƒžãƒƒãƒˆç”¨ã®æ–‡å­—åˆ—
+     * @return æ–‡å­—åˆ—
+     * @throws IllegalArgumentException ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®getterãƒ¡ã‚½ãƒƒãƒ‰ã®ã‚¢ã‚¯ã‚»ã‚¹ã«å¤±æ•—ã—ãŸã¨ã
+     * @throws IllegalAccessException ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¸ã®è¨­å®šãŒå¤±æ•—ã—ãŸã¨ã
+     * @throws InvocationTargetException ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ãƒ¡ã‚½ãƒƒãƒ‰ãŒä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã—ãŸã¨ã
      */
     String format(Object t, Method method, String string)
                                                          throws IllegalArgumentException,

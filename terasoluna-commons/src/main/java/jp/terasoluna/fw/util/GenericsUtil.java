@@ -31,61 +31,61 @@ import org.apache.commons.logging.LogFactory;
 
 
 /**
- * <code>Generics</code>‚ğˆµ‚¤‚½‚ß‚Ìƒ†[ƒeƒBƒŠƒeƒBƒNƒ‰ƒXB
+ * <code>Generics</code>ã‚’æ‰±ã†ãŸã‚ã®ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ã‚¯ãƒ©ã‚¹ã€‚
  *
  */
 public class GenericsUtil {
     /**
-     * ƒƒOƒNƒ‰ƒXB
+     * ãƒ­ã‚°ã‚¯ãƒ©ã‚¹ã€‚
      */
     private static final Log log = LogFactory.getLog(GenericsUtil.class);
 
     /**
-     * ƒNƒ‰ƒX‚ÌŒ^ƒpƒ‰ƒ[ƒ^‚ÌÀÛ‚ÌŒ^‚ğæ“¾‚·‚éB
+     * ã‚¯ãƒ©ã‚¹ã®å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å®Ÿéš›ã®å‹ã‚’å–å¾—ã™ã‚‹ã€‚
      * <p>
-     * <h5>ÀÛ‚ÌŒ^‚Ìæ“¾‚Ì‰Â”Û</h5>
-     * ‚±‚ÌƒNƒ‰ƒX‚ÅÀÛ‚ÌŒ^‚ğæ“¾‚Å‚«‚é‚Ì‚ÍAƒNƒ‰ƒXéŒ¾‚ÅÀÛ‚ÌŒ^‚ª
-     * w’è‚³‚ê‚Ä‚¢‚éê‡‚Å‚ ‚éB ƒNƒ‰ƒXéŒ¾‚ÅÀÛ‚ÌŒ^‚ªw’è‚³‚ê‚Ä‚¢‚È‚¢ê‡A
-     * ƒNƒ‰ƒXéŒ¾‚Å<code>WildCardType</code>‚ª
-     * w’è‚³‚ê‚Ä‚¢‚éê‡A‚¨‚æ‚ÑAƒR[ƒh’†‚Å•Ï”éŒ¾‚ÌÛ‚ÉÀÛ‚ÌŒ^‚ª
-     * w’è‚³‚ê‚Ä‚¢‚éê‡‚Íæ“¾‚Å‚«‚È‚¢B
+     * <h5>å®Ÿéš›ã®å‹ã®å–å¾—ã®å¯å¦</h5>
+     * ã“ã®ã‚¯ãƒ©ã‚¹ã§å®Ÿéš›ã®å‹ã‚’å–å¾—ã§ãã‚‹ã®ã¯ã€ã‚¯ãƒ©ã‚¹å®£è¨€ã§å®Ÿéš›ã®å‹ãŒ
+     * æŒ‡å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã§ã‚ã‚‹ã€‚ ã‚¯ãƒ©ã‚¹å®£è¨€ã§å®Ÿéš›ã®å‹ãŒæŒ‡å®šã•ã‚Œã¦ã„ãªã„å ´åˆã€
+     * ã‚¯ãƒ©ã‚¹å®£è¨€ã§<code>WildCardType</code>ãŒ
+     * æŒ‡å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã€ãŠã‚ˆã³ã€ã‚³ãƒ¼ãƒ‰ä¸­ã§å¤‰æ•°å®£è¨€ã®éš›ã«å®Ÿéš›ã®å‹ãŒ
+     * æŒ‡å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã¯å–å¾—ã§ããªã„ã€‚
      * <ul>
-     *   <li>æ“¾‚Å‚«‚é—á(qƒNƒ‰ƒX‚Ì‚Å‹ï‘ÌƒNƒ‰ƒX‚ªw’è‚³‚ê‚Ä‚¢‚é)
+     *   <li>å–å¾—ã§ãã‚‹ä¾‹(å­ã‚¯ãƒ©ã‚¹ã®ã§å…·ä½“ã‚¯ãƒ©ã‚¹ãŒæŒ‡å®šã•ã‚Œã¦ã„ã‚‹)
      *     <code><pre>
      *     public class Descendant extends Generic&lt;String, Integer&gt; {
      *        ...
      *     }
      *     </pre></code>
-     * ‚±‚Ìê‡A³‚µ‚­[<code>String</code>, <code>Integer</code>]‚Ì
-     * ”z—ñ‚ªæ“¾‚Å‚«‚é
+     * ã“ã®å ´åˆã€æ­£ã—ã[<code>String</code>, <code>Integer</code>]ã®
+     * é…åˆ—ãŒå–å¾—ã§ãã‚‹
      *   </li>
-     *   <li>æ“¾‚Å‚«‚é—á(qƒNƒ‰ƒX‚ÌƒNƒ‰ƒXéŒ¾‚Å”z—ñ‚ªw’è‚³‚ê‚Ä‚¢‚é)
+     *   <li>å–å¾—ã§ãã‚‹ä¾‹(å­ã‚¯ãƒ©ã‚¹ã®ã‚¯ãƒ©ã‚¹å®£è¨€ã§é…åˆ—ãŒæŒ‡å®šã•ã‚Œã¦ã„ã‚‹)
      *     <code><pre>
      *     public class Descendant extends Generic&lt;String[], Integer&gt; {
      *        ...
      *     }
      *     </pre></code>
-     * ‚±‚Ìê‡A³‚µ‚­[<code>String[]</code>, <code>Integer</code>]‚Ì
-     * ”z—ñ‚ªæ“¾‚Å‚«‚é
+     * ã“ã®å ´åˆã€æ­£ã—ã[<code>String[]</code>, <code>Integer</code>]ã®
+     * é…åˆ—ãŒå–å¾—ã§ãã‚‹
      *   </li>
-     *   <li>æ“¾‚Å‚«‚é—á(qƒNƒ‰ƒX‚ÌƒNƒ‰ƒXéŒ¾‚ÅŒ^ƒpƒ‰ƒ[ƒ^‚ğ‚Â‹ï‘ÌƒNƒ‰ƒX‚ªw’è‚³‚ê‚Ä‚¢‚é)
+     *   <li>å–å¾—ã§ãã‚‹ä¾‹(å­ã‚¯ãƒ©ã‚¹ã®ã‚¯ãƒ©ã‚¹å®£è¨€ã§å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’æŒã¤å…·ä½“ã‚¯ãƒ©ã‚¹ãŒæŒ‡å®šã•ã‚Œã¦ã„ã‚‹)
      *     <code><pre>
      *     public class Descendant
      *         extends Generic&lt;String[], Map&lt;String, Object&gt;&gt; {
      *        ...
      *     }
      *     </pre></code>
-     * ‚±‚Ìê‡A³‚µ‚­[<code>String[]</code>, <code>Map</code>]‚Ì
-     * ”z—ñ‚ªæ“¾‚Å‚«‚é
+     * ã“ã®å ´åˆã€æ­£ã—ã[<code>String[]</code>, <code>Map</code>]ã®
+     * é…åˆ—ãŒå–å¾—ã§ãã‚‹
      *   </li>
-     *   <li>æ“¾‚Å‚«‚È‚¢—á(qƒNƒ‰ƒX‚ÌƒNƒ‰ƒXéŒ¾‚ÅŒ^ƒpƒ‰ƒ[ƒ^‚ªw’è‚³‚ê‚Ä‚¢‚é)
+     *   <li>å–å¾—ã§ããªã„ä¾‹(å­ã‚¯ãƒ©ã‚¹ã®ã‚¯ãƒ©ã‚¹å®£è¨€ã§å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãŒæŒ‡å®šã•ã‚Œã¦ã„ã‚‹)
      *     <code><pre>
      *     public class Descendant&lt;P, Q&gt; extends Generic&lt;S, T&gt; {
      *        ...
      *     }
      *     </pre></code>
      *   </li>
-     *   <li>æ“¾‚Å‚«‚È‚¢—á(qƒNƒ‰ƒX‚ÌƒNƒ‰ƒXéŒ¾‚ÅƒƒCƒ‹ƒhƒJ[ƒh‚ªw’è‚³‚ê‚Ä‚¢‚é)
+     *   <li>å–å¾—ã§ããªã„ä¾‹(å­ã‚¯ãƒ©ã‚¹ã®ã‚¯ãƒ©ã‚¹å®£è¨€ã§ãƒ¯ã‚¤ãƒ«ãƒ‰ã‚«ãƒ¼ãƒ‰ãŒæŒ‡å®šã•ã‚Œã¦ã„ã‚‹)
      *     <code><pre>
      *     public class Descendant&lt;P extends String, Q super Bean&gt;
      *         extends Generic&lt;S, T&gt; {
@@ -93,7 +93,7 @@ public class GenericsUtil {
      *     }
      *     </pre></code>
      *   </li>
-     *   <li>æ“¾‚Å‚«‚È‚¢—á(ƒR[ƒh’†‚Å‹ï‘ÌƒNƒ‰ƒX‚ªw’è‚³‚ê‚Ä‚¢‚é)
+     *   <li>å–å¾—ã§ããªã„ä¾‹(ã‚³ãƒ¼ãƒ‰ä¸­ã§å…·ä½“ã‚¯ãƒ©ã‚¹ãŒæŒ‡å®šã•ã‚Œã¦ã„ã‚‹)
      *     <code><pre>
      *     Generic&lt;String, Integer&gt; descendant =
      *         new Generic&lt;String, Integer&gt;();
@@ -102,11 +102,11 @@ public class GenericsUtil {
      * </ul>
      * </p>
      * <p>
-     * <h5>‘½¢‘ãŒp³‚Ìê‡</h5>
-     * <code>genericType</code>‚©‚ç<code>descendantClass</code>‚Ü‚Å
-     * ‘½¢‘ã‚ÌŒp³‚ª‚ ‚éê‡‚àAÀÛ‚ÌŒ^‚ğæ“¾‚·‚é‚±‚Æ‚ª‚Å‚«‚éB
+     * <h5>å¤šä¸–ä»£ç¶™æ‰¿ã®å ´åˆ</h5>
+     * <code>genericType</code>ã‹ã‚‰<code>descendantClass</code>ã¾ã§
+     * å¤šä¸–ä»£ã®ç¶™æ‰¿ãŒã‚ã‚‹å ´åˆã‚‚ã€å®Ÿéš›ã®å‹ã‚’å–å¾—ã™ã‚‹ã“ã¨ãŒã§ãã‚‹ã€‚
      * <ul>
-     *   <li>‘½¢‘ãŒp³‚Ì—á
+     *   <li>å¤šä¸–ä»£ç¶™æ‰¿ã®ä¾‹
      *     <code><pre>
      *       public class Child&lt;S, T&gt; extends Generic&lt;S, T&gt; {
      *          ...
@@ -120,18 +120,18 @@ public class GenericsUtil {
      *          ...
      *       }
      * </pre></code>
-     * ‚±‚Ìê‡A³‚µ‚­[<code>String</code>, <code>Integer</code>]‚Ì
-     * ”z—ñ‚ªæ“¾‚Å‚«‚é
+     * ã“ã®å ´åˆã€æ­£ã—ã[<code>String</code>, <code>Integer</code>]ã®
+     * é…åˆ—ãŒå–å¾—ã§ãã‚‹
      *   </li>
      * </ul>
      * </p>
      * <p>
-     * <h5>Œ^ƒpƒ‰ƒ[ƒ^‚Ì‡”Ô‚ª•ÏX‚³‚ê‚½ê‡</h5>
-     * <code>genericType</code>‚©‚ç<code>descendantClass</code>‚Ü‚Å‚Ì
-     * Œp³‚Ì‰ß’ö‚ÅŒ^ƒpƒ‰ƒ[ƒ^‚Ì‡”Ô‚ª“ü‚ê‘Ö‚í‚Á‚½ê‡‚Å‚àA
-     * <code>genercClass</code>‚ÅéŒ¾‚³‚ê‚½‡”Ô‚ÅÀÛ‚ÌŒ^‚ğæ“¾‚Å‚«‚éB
+     * <h5>å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®é †ç•ªãŒå¤‰æ›´ã•ã‚ŒãŸå ´åˆ</h5>
+     * <code>genericType</code>ã‹ã‚‰<code>descendantClass</code>ã¾ã§ã®
+     * ç¶™æ‰¿ã®éç¨‹ã§å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®é †ç•ªãŒå…¥ã‚Œæ›¿ã‚ã£ãŸå ´åˆã§ã‚‚ã€
+     * <code>genercClass</code>ã§å®£è¨€ã•ã‚ŒãŸé †ç•ªã§å®Ÿéš›ã®å‹ã‚’å–å¾—ã§ãã‚‹ã€‚
      * <ul>
-     *   <li>‡”Ô‚ª“ü‚ê‘Ö‚í‚éê‡‚Ì—á
+     *   <li>é †ç•ªãŒå…¥ã‚Œæ›¿ã‚ã‚‹å ´åˆã®ä¾‹
      *     <code><pre>
      *       public class Generic&lt;S, T&gt; {
      *          ...
@@ -146,26 +146,26 @@ public class GenericsUtil {
      *          ...
      *       }
      * </pre></code>
-     * ‚±‚Ìê‡A³‚µ‚­[<code>String</code>, <code>Integer</code>]‚Ì
-     * ”z—ñ‚ªæ“¾‚Å‚«‚é
+     * ã“ã®å ´åˆã€æ­£ã—ã[<code>String</code>, <code>Integer</code>]ã®
+     * é…åˆ—ãŒå–å¾—ã§ãã‚‹
      *    </li>
      * </ul>
      * </p>
      *
-     * @param <T> Œ^ƒpƒ‰ƒ[ƒ^éŒ¾‚ğ‚µ‚½ƒNƒ‰ƒX‚ÌŒ^B
-     * @param genericClass Œ^ƒpƒ‰ƒ[ƒ^éŒ¾‚ğ‚µ‚½ƒNƒ‰ƒXB
-     * @param descendantClass <code>genericsClass</code>‚ğŒp³‚µA
-     *      ‹ï‘Ì“I‚ÈŒ^ƒpƒ‰ƒ[ƒ^‚ğw’è‚µ‚½ƒNƒ‰ƒXB
-     * @return ÀÛ‚ÌŒ^‚ğ•\‚·<code>Class</code>ƒCƒ“ƒXƒ^ƒ“ƒX‚Ì”z—ñB
-     *               ‡”Ô‚Í<code>genercClass</code>‚ÅéŒ¾‚³‚ê‚½‡”Ô‚Å‚ ‚éB
-     * @throws IllegalArgumentException ˆø”<code>genericClass</code>‚ª
-     *      <code>null</code>‚Ìê‡B
-     *      ˆø”<code>descendantClass</code>‚ª<code>null</code>‚Ìê‡B
+     * @param <T> å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å®£è¨€ã‚’ã—ãŸã‚¯ãƒ©ã‚¹ã®å‹ã€‚
+     * @param genericClass å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å®£è¨€ã‚’ã—ãŸã‚¯ãƒ©ã‚¹ã€‚
+     * @param descendantClass <code>genericsClass</code>ã‚’ç¶™æ‰¿ã—ã€
+     *      å…·ä½“çš„ãªå‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’æŒ‡å®šã—ãŸã‚¯ãƒ©ã‚¹ã€‚
+     * @return å®Ÿéš›ã®å‹ã‚’è¡¨ã™<code>Class</code>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã®é…åˆ—ã€‚
+     *               é †ç•ªã¯<code>genercClass</code>ã§å®£è¨€ã•ã‚ŒãŸé †ç•ªã§ã‚ã‚‹ã€‚
+     * @throws IllegalArgumentException å¼•æ•°<code>genericClass</code>ãŒ
+     *      <code>null</code>ã®å ´åˆã€‚
+     *      å¼•æ•°<code>descendantClass</code>ãŒ<code>null</code>ã®å ´åˆã€‚
      * @throws IllegalStateException
-     *       <code>descendantClass</code>‚ÌÀ‘•‚ÅŒ^ƒpƒ‰ƒ[ƒ^‚ª
-     *          ‹ï‘ÌƒNƒ‰ƒX‚Æ‚µ‚Äw’è‚³‚ê‚Ä‚¢‚È‚¢ê‡B
-     *      ˆø”<code>genercClass</code>‚ªŒ^ƒpƒ‰ƒ[ƒ^‚ğéŒ¾‚µ‚½ƒNƒ‰ƒX‚Å‚Í
-     *      ‚È‚©‚Á‚½ê‡B
+     *       <code>descendantClass</code>ã®å®Ÿè£…ã§å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãŒ
+     *          å…·ä½“ã‚¯ãƒ©ã‚¹ã¨ã—ã¦æŒ‡å®šã•ã‚Œã¦ã„ãªã„å ´åˆã€‚
+     *      å¼•æ•°<code>genercClass</code>ãŒå‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’å®£è¨€ã—ãŸã‚¯ãƒ©ã‚¹ã§ã¯
+     *      ãªã‹ã£ãŸå ´åˆã€‚
      */
     @SuppressWarnings("unchecked")
     public static <T>  Class[] resolveParameterizedClass(
@@ -187,15 +187,15 @@ public class GenericsUtil {
 
         ParameterizedType parameterizedType =
             ancestorTypeList.get(ancestorTypeList.size() - 1);
-        // parameterizedType‚ÌÀÛ‚ÌŒ^ˆø”‚ğ•\‚· Type ƒIƒuƒWƒFƒNƒg‚Ì”z—ñ
-        // —áFAbstractBLogic<P, R>‚ÌŒ^ˆø”‚ÍP‚ÆRB
+        // parameterizedTypeã®å®Ÿéš›ã®å‹å¼•æ•°ã‚’è¡¨ã™ Type ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®é…åˆ—
+        // ä¾‹ï¼šAbstractBLogic<P, R>ã®å‹å¼•æ•°ã¯Pã¨Rã€‚
         Type[] actualTypes = parameterizedType.getActualTypeArguments();
 
-        // ƒCƒ“ƒXƒ^ƒ“ƒX‚ÅéŒ¾‚³‚ê‚½Œ^ƒpƒ‰ƒ[ƒ^‚ğÀÛ‚ÌŒ^‚É‰ğŒˆ‚·‚éB
+        // ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã§å®£è¨€ã•ã‚ŒãŸå‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’å®Ÿéš›ã®å‹ã«è§£æ±ºã™ã‚‹ã€‚
         Class[] actualClasses = new Class[actualTypes.length];
         for (int i = 0; i < actualTypes.length; i++) {
-            // actualTypes[i]¨i”Ô–Ú‚ÌŒ^ˆø”B
-            // ancestorList¨Œ^ƒpƒ‰ƒ[ƒ^éŒ¾‚µ‚Ä‚¢‚éƒNƒ‰ƒX‚ÌƒŠƒXƒgB
+            // actualTypes[i]â†’iç•ªç›®ã®å‹å¼•æ•°ã€‚
+            // ancestorListâ†’å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å®£è¨€ã—ã¦ã„ã‚‹ã‚¯ãƒ©ã‚¹ã®ãƒªã‚¹ãƒˆã€‚
             actualClasses[i] =
                 resolveTypeVariable(actualTypes[i], ancestorTypeList);
         }
@@ -203,51 +203,51 @@ public class GenericsUtil {
     }
 
     /**
-     * Œ^ƒpƒ‰ƒ[ƒ^‚ÌÀÛ‚ÌŒ^‚ğæ“¾‚·‚éB
+     * å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å®Ÿéš›ã®å‹ã‚’å–å¾—ã™ã‚‹ã€‚
      * <p>
-     * <h5>ÀÛ‚ÌŒ^‚Ìæ“¾‚Ì‰Â”Û</h5>
-     * ‚±‚ÌƒNƒ‰ƒX‚ÅÀÛ‚ÌŒ^‚ğæ“¾‚Å‚«‚é‚Ì‚ÍAƒNƒ‰ƒXéŒ¾‚ÅÀÛ‚ÌŒ^‚ª
-     * w’è‚³‚ê‚Ä‚¢‚éê‡‚Å‚ ‚éB ƒNƒ‰ƒXéŒ¾‚ÅÀÛ‚ÌŒ^‚ªw’è‚³‚ê‚Ä‚¢‚È‚¢ê‡A
-     * ƒNƒ‰ƒXéŒ¾‚Å<code>WildCardType</code>‚ª
-     * w’è‚³‚ê‚Ä‚¢‚éê‡A‚¨‚æ‚ÑAƒR[ƒh’†‚Å•Ï”éŒ¾‚ÌÛ‚ÉÀÛ‚ÌŒ^‚ª
-     * w’è‚³‚ê‚Ä‚¢‚éê‡‚Íæ“¾‚Å‚«‚È‚¢B
+     * <h5>å®Ÿéš›ã®å‹ã®å–å¾—ã®å¯å¦</h5>
+     * ã“ã®ã‚¯ãƒ©ã‚¹ã§å®Ÿéš›ã®å‹ã‚’å–å¾—ã§ãã‚‹ã®ã¯ã€ã‚¯ãƒ©ã‚¹å®£è¨€ã§å®Ÿéš›ã®å‹ãŒ
+     * æŒ‡å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã§ã‚ã‚‹ã€‚ ã‚¯ãƒ©ã‚¹å®£è¨€ã§å®Ÿéš›ã®å‹ãŒæŒ‡å®šã•ã‚Œã¦ã„ãªã„å ´åˆã€
+     * ã‚¯ãƒ©ã‚¹å®£è¨€ã§<code>WildCardType</code>ãŒ
+     * æŒ‡å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã€ãŠã‚ˆã³ã€ã‚³ãƒ¼ãƒ‰ä¸­ã§å¤‰æ•°å®£è¨€ã®éš›ã«å®Ÿéš›ã®å‹ãŒ
+     * æŒ‡å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã¯å–å¾—ã§ããªã„ã€‚
      * <ul>
-     *   <li>æ“¾‚Å‚«‚é—á(qƒNƒ‰ƒX‚Ì‚Å‹ï‘ÌƒNƒ‰ƒX‚ªw’è‚³‚ê‚Ä‚¢‚é)
+     *   <li>å–å¾—ã§ãã‚‹ä¾‹(å­ã‚¯ãƒ©ã‚¹ã®ã§å…·ä½“ã‚¯ãƒ©ã‚¹ãŒæŒ‡å®šã•ã‚Œã¦ã„ã‚‹)
      *     <code><pre>
      *     public class Descendant extends Generic&lt;String, Integer&gt; {
      *        ...
      *     }
      *     </pre></code>
-     * ‚±‚Ìê‡A³‚µ‚­<code>String</code>‚Ü‚½‚Í<code>Integer</code>‚ª
-     * æ“¾‚Å‚«‚é
+     * ã“ã®å ´åˆã€æ­£ã—ã<code>String</code>ã¾ãŸã¯<code>Integer</code>ãŒ
+     * å–å¾—ã§ãã‚‹
      *   </li>
-     *   <li>æ“¾‚Å‚«‚é—á(qƒNƒ‰ƒX‚ÌƒNƒ‰ƒXéŒ¾‚Å”z—ñ‚ªw’è‚³‚ê‚Ä‚¢‚é)
+     *   <li>å–å¾—ã§ãã‚‹ä¾‹(å­ã‚¯ãƒ©ã‚¹ã®ã‚¯ãƒ©ã‚¹å®£è¨€ã§é…åˆ—ãŒæŒ‡å®šã•ã‚Œã¦ã„ã‚‹)
      *     <code><pre>
      *     public class Descendant extends Generic&lt;String[], Integer&gt; {
      *        ...
      *     }
      *     </pre></code>
-     * ‚±‚Ìê‡A³‚µ‚­<code>String[]</code>‚Ü‚½‚Í<code>Integer</code>‚ª
-     * æ“¾‚Å‚«‚é
+     * ã“ã®å ´åˆã€æ­£ã—ã<code>String[]</code>ã¾ãŸã¯<code>Integer</code>ãŒ
+     * å–å¾—ã§ãã‚‹
      *   </li>
-     *   <li>æ“¾‚Å‚«‚é—á(qƒNƒ‰ƒX‚ÌƒNƒ‰ƒXéŒ¾‚ÅŒ^ƒpƒ‰ƒ[ƒ^‚ğ‚Â‹ï‘ÌƒNƒ‰ƒX‚ªw’è‚³‚ê‚Ä‚¢‚é)
+     *   <li>å–å¾—ã§ãã‚‹ä¾‹(å­ã‚¯ãƒ©ã‚¹ã®ã‚¯ãƒ©ã‚¹å®£è¨€ã§å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’æŒã¤å…·ä½“ã‚¯ãƒ©ã‚¹ãŒæŒ‡å®šã•ã‚Œã¦ã„ã‚‹)
      *     <code><pre>
      *     public class Descendant
      *         extends Generic&lt;String[], Map&lt;String, Object&gt;&gt; {
      *        ...
      *     }
      *     </pre></code>
-     * ‚±‚Ìê‡A³‚µ‚­<code>String[]</code>‚Ü‚½‚Í<code>Map</code>
-     * ‚ªæ“¾‚Å‚«‚é
+     * ã“ã®å ´åˆã€æ­£ã—ã<code>String[]</code>ã¾ãŸã¯<code>Map</code>
+     * ãŒå–å¾—ã§ãã‚‹
      *   </li>
-     *   <li>æ“¾‚Å‚«‚È‚¢—á(qƒNƒ‰ƒX‚ÌƒNƒ‰ƒXéŒ¾‚ÅŒ^ƒpƒ‰ƒ[ƒ^‚ªw’è‚³‚ê‚Ä‚¢‚é)
+     *   <li>å–å¾—ã§ããªã„ä¾‹(å­ã‚¯ãƒ©ã‚¹ã®ã‚¯ãƒ©ã‚¹å®£è¨€ã§å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãŒæŒ‡å®šã•ã‚Œã¦ã„ã‚‹)
      *     <code><pre>
      *     public class Descendant&lt;P, Q&gt; extends Generic&lt;S, T&gt; {
      *        ...
      *     }
      *     </pre></code>
      *   </li>
-     *   <li>æ“¾‚Å‚«‚È‚¢—á(qƒNƒ‰ƒX‚ÌƒNƒ‰ƒXéŒ¾‚ÅƒƒCƒ‹ƒhƒJ[ƒh‚ªw’è‚³‚ê‚Ä‚¢‚é)
+     *   <li>å–å¾—ã§ããªã„ä¾‹(å­ã‚¯ãƒ©ã‚¹ã®ã‚¯ãƒ©ã‚¹å®£è¨€ã§ãƒ¯ã‚¤ãƒ«ãƒ‰ã‚«ãƒ¼ãƒ‰ãŒæŒ‡å®šã•ã‚Œã¦ã„ã‚‹)
      *     <code><pre>
      *     public class Descendant&lt;P extends String, Q super Bean&gt;
      *         extends Generic&lt;S, T&gt; {
@@ -255,7 +255,7 @@ public class GenericsUtil {
      *     }
      *     </pre></code>
      *   </li>
-     *   <li>æ“¾‚Å‚«‚È‚¢—á(ƒR[ƒh’†‚Å‹ï‘ÌƒNƒ‰ƒX‚ªw’è‚³‚ê‚Ä‚¢‚é)
+     *   <li>å–å¾—ã§ããªã„ä¾‹(ã‚³ãƒ¼ãƒ‰ä¸­ã§å…·ä½“ã‚¯ãƒ©ã‚¹ãŒæŒ‡å®šã•ã‚Œã¦ã„ã‚‹)
      *     <code><pre>
      *     Generic&lt;String, Integer&gt; descendant =
      *         new Generic&lt;String, Integer&gt;();
@@ -265,11 +265,11 @@ public class GenericsUtil {
 
      * </p>
      * <p>
-     * <h5>‘½¢‘ãŒp³‚Ìê‡</h5>
-     * <code>genericType</code>‚©‚ç<code>descendantClass</code>‚Ü‚Å
-     * ‘½¢‘ã‚ÌŒp³‚ª‚ ‚éê‡‚àAÀÛ‚ÌŒ^‚ğæ“¾‚·‚é‚±‚Æ‚ª‚Å‚«‚éB
+     * <h5>å¤šä¸–ä»£ç¶™æ‰¿ã®å ´åˆ</h5>
+     * <code>genericType</code>ã‹ã‚‰<code>descendantClass</code>ã¾ã§
+     * å¤šä¸–ä»£ã®ç¶™æ‰¿ãŒã‚ã‚‹å ´åˆã‚‚ã€å®Ÿéš›ã®å‹ã‚’å–å¾—ã™ã‚‹ã“ã¨ãŒã§ãã‚‹ã€‚
      * <ul>
-     *   <li>‘½¢‘ãŒp³‚Ì—á
+     *   <li>å¤šä¸–ä»£ç¶™æ‰¿ã®ä¾‹
      *     <code><pre>
      *       public class Child&lt;S, T&gt; extends Generic&lt;S, T&gt; {
      *          ...
@@ -283,18 +283,18 @@ public class GenericsUtil {
      *          ...
      *       }
      * </pre></code>
-     * ‚±‚Ìê‡A³‚µ‚­<code>String</code>‚Ü‚½‚Í<code>Integer</code>
-     * ‚ªæ“¾‚Å‚«‚é
+     * ã“ã®å ´åˆã€æ­£ã—ã<code>String</code>ã¾ãŸã¯<code>Integer</code>
+     * ãŒå–å¾—ã§ãã‚‹
      *   </li>
      * </ul>
      * </p>
      * <p>
-     * <h5>Œ^ƒpƒ‰ƒ[ƒ^‚Ì‡”Ô‚ª•ÏX‚³‚ê‚½ê‡</h5>
-     * <code>genericType</code>‚©‚ç<code>descendantClass</code>‚Ü‚Å‚Ì
-     * Œp³‚Ì‰ß’ö‚ÅŒ^ƒpƒ‰ƒ[ƒ^‚Ì‡”Ô‚ª“ü‚ê‘Ö‚í‚Á‚½ê‡‚Å‚àA
-     * <code>genercClass</code>‚ÅéŒ¾‚³‚ê‚½‡”Ô‚ÅÀÛ‚ÌŒ^‚ğæ“¾‚Å‚«‚éB
+     * <h5>å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®é †ç•ªãŒå¤‰æ›´ã•ã‚ŒãŸå ´åˆ</h5>
+     * <code>genericType</code>ã‹ã‚‰<code>descendantClass</code>ã¾ã§ã®
+     * ç¶™æ‰¿ã®éç¨‹ã§å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®é †ç•ªãŒå…¥ã‚Œæ›¿ã‚ã£ãŸå ´åˆã§ã‚‚ã€
+     * <code>genercClass</code>ã§å®£è¨€ã•ã‚ŒãŸé †ç•ªã§å®Ÿéš›ã®å‹ã‚’å–å¾—ã§ãã‚‹ã€‚
      * <ul>
-     *   <li>‡”Ô‚ª“ü‚ê‘Ö‚í‚éê‡‚Ì—á
+     *   <li>é †ç•ªãŒå…¥ã‚Œæ›¿ã‚ã‚‹å ´åˆã®ä¾‹
      *     <code><pre>
      *       public class Generic&lt;S, T&gt; {
      *          ...
@@ -309,28 +309,28 @@ public class GenericsUtil {
      *          ...
      *       }
      * </pre></code>
-     * ‚±‚Ìê‡A³‚µ‚­<code>String</code>‚Ü‚½‚Í<code>Integer</code>
-     * ‚ªæ“¾‚Å‚«‚é
+     * ã“ã®å ´åˆã€æ­£ã—ã<code>String</code>ã¾ãŸã¯<code>Integer</code>
+     * ãŒå–å¾—ã§ãã‚‹
      *    </li>
      * </ul>
      * </p>
      *
-     * @param <T> Œ^ƒpƒ‰ƒ[ƒ^éŒ¾‚ğ‚µ‚½ƒNƒ‰ƒX‚ÌŒ^B
-     * @param genericClass Œ^ƒpƒ‰ƒ[ƒ^éŒ¾‚ğ‚µ‚½ƒNƒ‰ƒXB
-     * @param descendantClass <code>genericsClass</code>‚ğŒp³‚µA
-     *      ‹ï‘Ì“I‚ÈŒ^ƒpƒ‰ƒ[ƒ^‚ğw’è‚µ‚½ƒNƒ‰ƒXB
-     * @param index ÀÛ‚ÌŒ^‚ğæ“¾‚·‚éŒ^ƒpƒ‰ƒ[ƒ^‚ÌéŒ¾‡˜B
-     * @return ÀÛ‚ÌŒ^‚ğ•\‚·<code>Class</code>ƒCƒ“ƒXƒ^ƒ“ƒXB
-     * @throws IllegalArgumentException ˆø”<code>genericClass</code>‚ª
-     *      <code>null</code>‚Ìê‡B
-     *      ˆø”<code>descendantClass</code>‚ª<code>null</code>‚Ìê‡B
-     *      ˆø”<code>index</code>‚ª<code>0</code>‚æ‚è¬‚³‚¢A‚Ü‚½‚ÍA
-     *      éŒ¾‚³‚ê‚½Œ^ƒpƒ‰ƒ[ƒ^”ˆÈã‚Ìê‡B
+     * @param <T> å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å®£è¨€ã‚’ã—ãŸã‚¯ãƒ©ã‚¹ã®å‹ã€‚
+     * @param genericClass å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å®£è¨€ã‚’ã—ãŸã‚¯ãƒ©ã‚¹ã€‚
+     * @param descendantClass <code>genericsClass</code>ã‚’ç¶™æ‰¿ã—ã€
+     *      å…·ä½“çš„ãªå‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’æŒ‡å®šã—ãŸã‚¯ãƒ©ã‚¹ã€‚
+     * @param index å®Ÿéš›ã®å‹ã‚’å–å¾—ã™ã‚‹å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å®£è¨€é †åºã€‚
+     * @return å®Ÿéš›ã®å‹ã‚’è¡¨ã™<code>Class</code>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
+     * @throws IllegalArgumentException å¼•æ•°<code>genericClass</code>ãŒ
+     *      <code>null</code>ã®å ´åˆã€‚
+     *      å¼•æ•°<code>descendantClass</code>ãŒ<code>null</code>ã®å ´åˆã€‚
+     *      å¼•æ•°<code>index</code>ãŒ<code>0</code>ã‚ˆã‚Šå°ã•ã„ã€ã¾ãŸã¯ã€
+     *      å®£è¨€ã•ã‚ŒãŸå‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿æ•°ä»¥ä¸Šã®å ´åˆã€‚
      * @throws IllegalStateException
-     *       <code>descendantClass</code>‚ÌÀ‘•‚ÅŒ^ƒpƒ‰ƒ[ƒ^‚ª
-     *          ‹ï‘ÌƒNƒ‰ƒX‚Æ‚µ‚Äw’è‚³‚ê‚Ä‚¢‚È‚¢ê‡B
-     *      ˆø”<code>genercClass</code>‚ªŒ^ƒpƒ‰ƒ[ƒ^‚ğéŒ¾‚µ‚½ƒNƒ‰ƒX‚Å‚Í
-     *      ‚È‚©‚Á‚½ê‡B
+     *       <code>descendantClass</code>ã®å®Ÿè£…ã§å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãŒ
+     *          å…·ä½“ã‚¯ãƒ©ã‚¹ã¨ã—ã¦æŒ‡å®šã•ã‚Œã¦ã„ãªã„å ´åˆã€‚
+     *      å¼•æ•°<code>genercClass</code>ãŒå‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’å®£è¨€ã—ãŸã‚¯ãƒ©ã‚¹ã§ã¯
+     *      ãªã‹ã£ãŸå ´åˆã€‚
      */
     @SuppressWarnings("unchecked")
     public static <T> Class resolveParameterizedClass(
@@ -353,11 +353,11 @@ public class GenericsUtil {
 
         ParameterizedType parameterizedType =
             ancestorTypeList.get(ancestorTypeList.size() - 1);
-        // parameterizedType‚ÌÀÛ‚ÌŒ^ˆø”‚ğ•\‚· Type ƒIƒuƒWƒFƒNƒg‚Ì”z—ñ
-        // —áFAbstractBLogic<P, R>‚ÌŒ^ˆø”‚ÍP‚ÆRB
+        // parameterizedTypeã®å®Ÿéš›ã®å‹å¼•æ•°ã‚’è¡¨ã™ Type ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®é…åˆ—
+        // ä¾‹ï¼šAbstractBLogic<P, R>ã®å‹å¼•æ•°ã¯Pã¨Rã€‚
         Type[] actualTypes = parameterizedType.getActualTypeArguments();
 
-        // ƒCƒ“ƒXƒ^ƒ“ƒX‚ÅéŒ¾‚³‚ê‚½Œ^ƒpƒ‰ƒ[ƒ^‚ğÀÛ‚ÌŒ^‚É‰ğŒˆ‚·‚éB
+        // ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã§å®£è¨€ã•ã‚ŒãŸå‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’å®Ÿéš›ã®å‹ã«è§£æ±ºã™ã‚‹ã€‚
         if (index < 0 || index >= actualTypes.length) {
             throw new IllegalArgumentException(
                     "Argument 'index'(" + Integer.toString(index)
@@ -365,25 +365,25 @@ public class GenericsUtil {
                     + " generics parameters");
         }
 
-        // actualTypes[index]¨index”Ô–Ú‚ÌŒ^ˆø”B
-        // ancestorList¨Œ^ƒpƒ‰ƒ[ƒ^éŒ¾‚µ‚Ä‚¢‚éƒNƒ‰ƒX‚ÌƒŠƒXƒgB
+        // actualTypes[index]â†’indexç•ªç›®ã®å‹å¼•æ•°ã€‚
+        // ancestorListâ†’å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å®£è¨€ã—ã¦ã„ã‚‹ã‚¯ãƒ©ã‚¹ã®ãƒªã‚¹ãƒˆã€‚
         return resolveTypeVariable(actualTypes[index], ancestorTypeList);
     }
 
     /**
-     * “Á’è‚ÌŒ^‚©‚çŒ^ƒpƒ‰ƒ[ƒ^‚ğéŒ¾‚µ‚½ƒNƒ‰ƒX‚Ü‚Å‚Ì
-     * <code>ParameterizedType</code>‚ÌƒŠƒXƒg‚ğæ“¾‚·‚éB
+     * ç‰¹å®šã®å‹ã‹ã‚‰å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’å®£è¨€ã—ãŸã‚¯ãƒ©ã‚¹ã¾ã§ã®
+     * <code>ParameterizedType</code>ã®ãƒªã‚¹ãƒˆã‚’å–å¾—ã™ã‚‹ã€‚
      *
-     * @param <T> Œ^ƒpƒ‰ƒ[ƒ^éŒ¾‚ğ‚µ‚½ƒNƒ‰ƒX‚ÌŒ^B
-     * @param genericClass Œ^ƒpƒ‰ƒ[ƒ^éŒ¾‚ğ‚µ‚½ƒNƒ‰ƒXB
-     * @param descendantClass <code>genericsClass</code>‚ğŒp³‚µA
-     *      ‹ï‘Ì“I‚ÈŒ^ƒpƒ‰ƒ[ƒ^‚ğw’è‚µ‚½ƒNƒ‰ƒXB
-     * @return “Á’è‚ÌŒ^‚©‚çŒ^ƒpƒ‰ƒ[ƒ^‚ğéŒ¾‚µ‚½ƒNƒ‰ƒX‚Ü‚Å‚Ì
-     *      <code>ParameterizedType</code>‚ÌƒŠƒXƒgB
-     * @throws IllegalStateException <code>descendantClass</code>‚Ì
-     *      À‘•‚ÅŒ^ƒpƒ‰ƒ[ƒ^‚ª‹ï‘ÌƒNƒ‰ƒX‚Æ‚µ‚Äw’è‚³‚ê‚Ä‚¢‚È‚¢ê‡B
-     *      ˆø”<code>genercClass</code>‚ªŒ^ƒpƒ‰ƒ[ƒ^‚ğéŒ¾‚µ‚½ƒNƒ‰ƒX‚Å‚Í
-     *      ‚È‚©‚Á‚½ê‡B
+     * @param <T> å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å®£è¨€ã‚’ã—ãŸã‚¯ãƒ©ã‚¹ã®å‹ã€‚
+     * @param genericClass å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å®£è¨€ã‚’ã—ãŸã‚¯ãƒ©ã‚¹ã€‚
+     * @param descendantClass <code>genericsClass</code>ã‚’ç¶™æ‰¿ã—ã€
+     *      å…·ä½“çš„ãªå‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’æŒ‡å®šã—ãŸã‚¯ãƒ©ã‚¹ã€‚
+     * @return ç‰¹å®šã®å‹ã‹ã‚‰å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’å®£è¨€ã—ãŸã‚¯ãƒ©ã‚¹ã¾ã§ã®
+     *      <code>ParameterizedType</code>ã®ãƒªã‚¹ãƒˆã€‚
+     * @throws IllegalStateException <code>descendantClass</code>ã®
+     *      å®Ÿè£…ã§å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãŒå…·ä½“ã‚¯ãƒ©ã‚¹ã¨ã—ã¦æŒ‡å®šã•ã‚Œã¦ã„ãªã„å ´åˆã€‚
+     *      å¼•æ•°<code>genercClass</code>ãŒå‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’å®£è¨€ã—ãŸã‚¯ãƒ©ã‚¹ã§ã¯
+     *      ãªã‹ã£ãŸå ´åˆã€‚
      */
     @SuppressWarnings("unchecked")
     protected static <T> List<ParameterizedType> getAncestorTypeList(
@@ -400,8 +400,8 @@ public class GenericsUtil {
                 break;
             }
 
-            // Œ^ƒpƒ‰ƒ[ƒ^‚ğéŒ¾‚µ‚½ƒNƒ‰ƒX‚ªƒCƒ“ƒ^ƒtƒF[ƒX‚Ìê‡A
-            // ƒCƒ“ƒ^ƒtƒF[ƒX‚É‚Â‚¢‚Ä‚àƒ`ƒFƒbƒN‚ğs‚¤B
+            // å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’å®£è¨€ã—ãŸã‚¯ãƒ©ã‚¹ãŒã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã®å ´åˆã€
+            // ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã«ã¤ã„ã¦ã‚‚ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†ã€‚
             if (!isInterface) {
                 clazz = clazz.getSuperclass();
                 continue;
@@ -411,17 +411,17 @@ public class GenericsUtil {
                 break;
             }
 
-            // ƒNƒ‰ƒX‚ÌƒCƒ“ƒ^ƒtƒF[ƒX“à‚ÉAw’è‚µ‚½ƒCƒ“ƒ^ƒtƒF[ƒX‚ª‘¶İ‚µ‚È‚©‚Á‚½
-            // ê‡‚É”õ‚¦‚ÄAeƒNƒ‰ƒX‚ğƒ`ƒFƒbƒN‘ÎÛ‚É‚·‚éB
-            // Œ»ó‚±‚Ì‰ÓŠ‚ğ’Ê‰ß‚·‚é‚±‚Æ‚Í‚È‚¢‚Æv‚í‚ê‚éB
-            // ”O‚Ì‚½‚ßAƒ`ƒFƒbƒN‚ğc‚µ‚Ä‚¨‚­B
-            // ——R‚ÍAGenerics‚ÌƒŠƒtƒŒƒNƒVƒ‡ƒ“API‚É‚Â‚¢‚Ä‚ÍÀ‘•‚ª•s’è‚Å‚ ‚é‚½‚ß‚Å‚ ‚éB
-            // –â‘è‚ª‚ ‚éê‡‚ÍAíœ‚·‚é‚±‚ÆB
+            // ã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹å†…ã«ã€æŒ‡å®šã—ãŸã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ãŒå­˜åœ¨ã—ãªã‹ã£ãŸ
+            // å ´åˆã«å‚™ãˆã¦ã€è¦ªã‚¯ãƒ©ã‚¹ã‚’ãƒã‚§ãƒƒã‚¯å¯¾è±¡ã«ã™ã‚‹ã€‚
+            // ç¾çŠ¶ã“ã®ç®‡æ‰€ã‚’é€šéã™ã‚‹ã“ã¨ã¯ãªã„ã¨æ€ã‚ã‚Œã‚‹ã€‚
+            // å¿µã®ãŸã‚ã€ãƒã‚§ãƒƒã‚¯ã‚’æ®‹ã—ã¦ãŠãã€‚
+            // ç†ç”±ã¯ã€Genericsã®ãƒªãƒ•ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³APIã«ã¤ã„ã¦ã¯å®Ÿè£…ãŒä¸å®šã§ã‚ã‚‹ãŸã‚ã§ã‚ã‚‹ã€‚
+            // å•é¡ŒãŒã‚ã‚‹å ´åˆã¯ã€å‰Šé™¤ã™ã‚‹ã“ã¨ã€‚
             clazz = clazz.getSuperclass();
         }
 
-        // Œ^ƒpƒ‰ƒ[ƒ^éŒ¾‚µ‚Ä‚¢‚éƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğæ“¾B
-        // —áFAbstractBLogic<P, R>ƒNƒ‰ƒXB
+        // å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å®£è¨€ã—ã¦ã„ã‚‹ã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’å–å¾—ã€‚
+        // ä¾‹ï¼šAbstractBLogic<P, R>ã‚¯ãƒ©ã‚¹ã€‚
         if (ancestorTypeList.isEmpty()) {
             throw new IllegalStateException(
                     "Argument 'genericClass'("
@@ -429,10 +429,10 @@ public class GenericsUtil {
                     + ") does not declare type parameter");
         }
 
-        // ‚±‚Ì‰ÓŠ‚Ìƒ`ƒFƒbƒN‚Å—áŠO‚ªo‚éê‡‚Í‚È‚¢‚Æv‚í‚ê‚é‚ªA
-        // ”O‚Ì‚½‚ßAƒ`ƒFƒbƒN‚ğc‚µ‚Ä‚¨‚­B
-        // ——R‚ÍAGenerics‚ÌƒŠƒtƒŒƒNƒVƒ‡ƒ“API‚É‚Â‚¢‚Ä‚ÍÀ‘•‚ª•s’è‚Å‚ ‚é‚½‚ß‚Å‚ ‚éB
-        // –â‘è‚ª‚ ‚éê‡‚ÍAíœ‚·‚é‚±‚ÆB
+        // ã“ã®ç®‡æ‰€ã®ãƒã‚§ãƒƒã‚¯ã§ä¾‹å¤–ãŒå‡ºã‚‹å ´åˆã¯ãªã„ã¨æ€ã‚ã‚Œã‚‹ãŒã€
+        // å¿µã®ãŸã‚ã€ãƒã‚§ãƒƒã‚¯ã‚’æ®‹ã—ã¦ãŠãã€‚
+        // ç†ç”±ã¯ã€Genericsã®ãƒªãƒ•ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³APIã«ã¤ã„ã¦ã¯å®Ÿè£…ãŒä¸å®šã§ã‚ã‚‹ãŸã‚ã§ã‚ã‚‹ã€‚
+        // å•é¡ŒãŒã‚ã‚‹å ´åˆã¯ã€å‰Šé™¤ã™ã‚‹ã“ã¨ã€‚
         ParameterizedType targetType =
             ancestorTypeList.get(ancestorTypeList.size() - 1);
         if (!targetType.getRawType().equals(genericClass)) {
@@ -445,17 +445,17 @@ public class GenericsUtil {
     }
 
     /**
-     * ƒCƒ“ƒ^ƒtƒF[ƒXŒ^‚©‚çŒ^ƒpƒ‰ƒ[ƒ^‚ğéŒ¾‚µ‚½ƒNƒ‰ƒX‚Ü‚Å‚Ì
-     * <code>ParameterizedType</code>‚ÌƒŠƒXƒg‚ğæ“¾‚·‚éB
+     * ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹å‹ã‹ã‚‰å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’å®£è¨€ã—ãŸã‚¯ãƒ©ã‚¹ã¾ã§ã®
+     * <code>ParameterizedType</code>ã®ãƒªã‚¹ãƒˆã‚’å–å¾—ã™ã‚‹ã€‚
      *
-     * @param <T> Œ^ƒpƒ‰ƒ[ƒ^‚ğéŒ¾‚µ‚½ƒNƒ‰ƒX‚ÌŒ^B
+     * @param <T> å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’å®£è¨€ã—ãŸã‚¯ãƒ©ã‚¹ã®å‹ã€‚
      *
-     * @param genericClass Œ^ƒpƒ‰ƒ[ƒ^‚ğéŒ¾‚µ‚½ƒNƒ‰ƒXB
-     * @param ancestorTypeList <code>ParameterizedType</code>‚ğ
-     *      ’Ç‰Á‚·‚éƒŠƒXƒgB
-     * @param clazz ŒŸ¸‘ÎÛ‚ÌƒCƒ“ƒ^ƒtƒF[ƒXŒ^B
-     * @return Œ^ƒpƒ‰ƒ[ƒ^‚ğéŒ¾‚µ‚½ƒNƒ‰ƒX‚ªŒ©‚Â‚©‚Á‚½ê‡‚Í<code>true</code>B
-     *      Œ©‚Â‚©‚ç‚È‚©‚Á‚½ê‡‚Í<code>false</code>B
+     * @param genericClass å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’å®£è¨€ã—ãŸã‚¯ãƒ©ã‚¹ã€‚
+     * @param ancestorTypeList <code>ParameterizedType</code>ã‚’
+     *      è¿½åŠ ã™ã‚‹ãƒªã‚¹ãƒˆã€‚
+     * @param clazz æ¤œæŸ»å¯¾è±¡ã®ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹å‹ã€‚
+     * @return å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’å®£è¨€ã—ãŸã‚¯ãƒ©ã‚¹ãŒè¦‹ã¤ã‹ã£ãŸå ´åˆã¯<code>true</code>ã€‚
+     *      è¦‹ã¤ã‹ã‚‰ãªã‹ã£ãŸå ´åˆã¯<code>false</code>ã€‚
      */
     @SuppressWarnings("unchecked")
     protected static <T> boolean checkInterfaceAncestors(Class<T> genericClass,
@@ -480,16 +480,16 @@ public class GenericsUtil {
     }
 
     /**
-     * <code>Type</code>Œ^‚ğƒ`ƒFƒbƒN‚µA<code>ParameterizedType</code>
-     * ‚©‚ÂAŒ^ƒpƒ‰ƒ[ƒ^‚ğéŒ¾‚µ‚½ƒNƒ‰ƒX‚ÌƒTƒuƒNƒ‰ƒX‚Å‚ ‚éê‡AƒŠƒXƒg‚É’Ç‰Á‚·‚éB
+     * <code>Type</code>å‹ã‚’ãƒã‚§ãƒƒã‚¯ã—ã€<code>ParameterizedType</code>
+     * ã‹ã¤ã€å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’å®£è¨€ã—ãŸã‚¯ãƒ©ã‚¹ã®ã‚µãƒ–ã‚¯ãƒ©ã‚¹ã§ã‚ã‚‹å ´åˆã€ãƒªã‚¹ãƒˆã«è¿½åŠ ã™ã‚‹ã€‚
      *
-     * @param <T> Œ^ƒpƒ‰ƒ[ƒ^‚ğéŒ¾‚µ‚½ƒNƒ‰ƒX‚ÌŒ^B
+     * @param <T> å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’å®£è¨€ã—ãŸã‚¯ãƒ©ã‚¹ã®å‹ã€‚
      *
-     * @param type ŒŸ¸‘ÎÛ‚ÌŒ^B
-     * @param genericClass Œ^ƒpƒ‰ƒ[ƒ^‚ğéŒ¾‚µ‚½ƒNƒ‰ƒXB
-     * @param ancestorTypeList <code>ParameterizedType</code>‚ğ
-     *      ’Ç‰Á‚·‚éƒŠƒXƒgB
-     * @return <code>type</code>‚ªŒ^ƒpƒ‰ƒ[ƒ^‚ğéŒ¾‚µ‚½ƒNƒ‰ƒX‚Æ“¯‚¶ƒNƒ‰ƒX‚Ìê‡B
+     * @param type æ¤œæŸ»å¯¾è±¡ã®å‹ã€‚
+     * @param genericClass å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’å®£è¨€ã—ãŸã‚¯ãƒ©ã‚¹ã€‚
+     * @param ancestorTypeList <code>ParameterizedType</code>ã‚’
+     *      è¿½åŠ ã™ã‚‹ãƒªã‚¹ãƒˆã€‚
+     * @return <code>type</code>ãŒå‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’å®£è¨€ã—ãŸã‚¯ãƒ©ã‚¹ã¨åŒã˜ã‚¯ãƒ©ã‚¹ã®å ´åˆã€‚
      */
     @SuppressWarnings("unchecked")
     protected static <T> boolean checkParameterizedType(
@@ -499,23 +499,23 @@ public class GenericsUtil {
             return false;
         }
 
-        // ParameterizedType‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚Å‚ ‚éê‡AParameterizedType
-        // ‚ÉƒLƒƒƒXƒg‚·‚éB
+        // ParameterizedTypeã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã§ã‚ã‚‹å ´åˆã€ParameterizedType
+        // ã«ã‚­ãƒ£ã‚¹ãƒˆã™ã‚‹ã€‚
         ParameterizedType parameterlizedType = (ParameterizedType) type;
 
-        // ƒCƒ“ƒ^ƒtƒF[ƒX‚ÌGenerics‚Ìê‡AˆÙ‚È‚éParameterizedType‚ª
-        // “n‚³‚ê‚é‚©‚à‚µ‚ê‚È‚¢‚Ì‚Åƒ`ƒFƒbƒNB
-        // ‚½‚¾‚µAŒ»ó‚Å‚ÍˆÙ‚È‚é‚à‚Ì‚ª“n‚³‚ê‚é‚±‚Æ‚Í‚È‚¢‚Æv‚í‚ê‚éB
-        // ”O‚Ì‚½‚ßAƒ`ƒFƒbƒN‚ğc‚µ‚Ä‚¨‚­B
-        // ——R‚ÍAGenerics‚ÌƒŠƒtƒŒƒNƒVƒ‡ƒ“API‚É‚Â‚¢‚Ä‚ÍÀ‘•‚ª•s’è‚Å‚ ‚é‚½‚ß‚Å‚ ‚éB
-        // –â‘è‚ª‚ ‚éê‡‚ÍAíœ‚·‚é‚±‚ÆB
+        // ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã®Genericsã®å ´åˆã€ç•°ãªã‚‹ParameterizedTypeãŒ
+        // æ¸¡ã•ã‚Œã‚‹ã‹ã‚‚ã—ã‚Œãªã„ã®ã§ãƒã‚§ãƒƒã‚¯ã€‚
+        // ãŸã ã—ã€ç¾çŠ¶ã§ã¯ç•°ãªã‚‹ã‚‚ã®ãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã¯ãªã„ã¨æ€ã‚ã‚Œã‚‹ã€‚
+        // å¿µã®ãŸã‚ã€ãƒã‚§ãƒƒã‚¯ã‚’æ®‹ã—ã¦ãŠãã€‚
+        // ç†ç”±ã¯ã€Genericsã®ãƒªãƒ•ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³APIã«ã¤ã„ã¦ã¯å®Ÿè£…ãŒä¸å®šã§ã‚ã‚‹ãŸã‚ã§ã‚ã‚‹ã€‚
+        // å•é¡ŒãŒã‚ã‚‹å ´åˆã¯ã€å‰Šé™¤ã™ã‚‹ã“ã¨ã€‚
         if (!genericClass.isAssignableFrom(
                 (Class) parameterlizedType.getRawType())) {
             return false;
         }
         ancestorTypeList.add(parameterlizedType);
 
-        // #getRawTypeŒ^ƒpƒ‰ƒ[ƒ^éŒ¾‚Ì‚È‚¢Type‚ğæ“¾‚·‚éB
+        // #getRawTypeå‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å®£è¨€ã®ãªã„Typeã‚’å–å¾—ã™ã‚‹ã€‚
         if (parameterlizedType.getRawType().equals(genericClass)) {
             return true;
         }
@@ -523,19 +523,19 @@ public class GenericsUtil {
     }
 
     /**
-     * Œ^ƒpƒ‰ƒ[ƒ^‚Ì‹ï‘Ì“I‚È<code>Type</code>‚ğæ“¾‚·‚éB
+     * å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å…·ä½“çš„ãª<code>Type</code>ã‚’å–å¾—ã™ã‚‹ã€‚
      *
-     * @param type ‰ğŒˆ‚·‚é•K—v‚Ì‚ ‚é<code>Type</code>ƒCƒ“ƒXƒ^ƒ“ƒXB
-     * @param ancestorTypeList <code>type</code>‚Ì‹ï‘Ì“I‚ÈŒ^‚ª
-     *      éŒ¾‚³‚ê‚Ä‚¢‚é‰Â”\«‚Ì‚ ‚é<code>ParameterizedType</code>‚ÌƒŠƒXƒgB
-     * @return Às‚ÌŒ^•Ï”B
-     * @throws IllegalStateException ˆø”<code>type</code>‚ª
-     *      <code>Class</code>Œ^A‚¨‚æ‚ÑA
-     *      <code>TypeVariable</code>Œ^‚Å‚Í‚È‚¢ê‡B
-     *      ˆø”<code>type</code>‚ªƒƒ\ƒbƒhA
-     *      ‚Ü‚½‚ÍAƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÅéŒ¾‚³‚ê‚Ä‚¢‚éê‡B
-     *      ˆø”<code>type</code>‚ÌÀÛ‚ÌŒ^‚ª<code>Class</code>‚Å‚Í‚È‚¢
-     *      (ƒƒCƒ‹ƒhƒJ[ƒhA”z—ñ)ê‡B
+     * @param type è§£æ±ºã™ã‚‹å¿…è¦ã®ã‚ã‚‹<code>Type</code>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
+     * @param ancestorTypeList <code>type</code>ã®å…·ä½“çš„ãªå‹ãŒ
+     *      å®£è¨€ã•ã‚Œã¦ã„ã‚‹å¯èƒ½æ€§ã®ã‚ã‚‹<code>ParameterizedType</code>ã®ãƒªã‚¹ãƒˆã€‚
+     * @return å®Ÿè¡Œæ™‚ã®å‹å¤‰æ•°ã€‚
+     * @throws IllegalStateException å¼•æ•°<code>type</code>ãŒ
+     *      <code>Class</code>å‹ã€ãŠã‚ˆã³ã€
+     *      <code>TypeVariable</code>å‹ã§ã¯ãªã„å ´åˆã€‚
+     *      å¼•æ•°<code>type</code>ãŒãƒ¡ã‚½ãƒƒãƒ‰ã€
+     *      ã¾ãŸã¯ã€ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§å®£è¨€ã•ã‚Œã¦ã„ã‚‹å ´åˆã€‚
+     *      å¼•æ•°<code>type</code>ã®å®Ÿéš›ã®å‹ãŒ<code>Class</code>ã§ã¯ãªã„
+     *      (ãƒ¯ã‚¤ãƒ«ãƒ‰ã‚«ãƒ¼ãƒ‰ã€é…åˆ—)å ´åˆã€‚
      */
     @SuppressWarnings("unchecked")
     protected static Class resolveTypeVariable (Type type,
@@ -546,13 +546,13 @@ public class GenericsUtil {
             return getRawClass(type);
         }
 
-        // TypeVariable:Œ^•Ï”‚ğ’è‹`‚·‚éƒCƒ“ƒ^ƒtƒF[ƒXB
+        // TypeVariable:å‹å¤‰æ•°ã‚’å®šç¾©ã™ã‚‹ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã€‚
         TypeVariable targetType = (TypeVariable) type;
         Type actualType = null;
         for (int i = ancestorTypeList.size() - 1; i >= 0; i--) {
             ParameterizedType ancestorType = ancestorTypeList.get(i);
 
-            // Œ^ƒpƒ‰ƒ[ƒ^‚ªéŒ¾‚³‚ê‚Ä‚¢‚éƒNƒ‰ƒX‚ğæ“¾
+            // å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãŒå®£è¨€ã•ã‚Œã¦ã„ã‚‹ã‚¯ãƒ©ã‚¹ã‚’å–å¾—
             GenericDeclaration declaration = targetType.getGenericDeclaration();
             if (!(declaration instanceof Class)) {
                 throw new IllegalStateException("TypeVariable("
@@ -560,22 +560,22 @@ public class GenericsUtil {
                         + "(ie. is declared at Method or Constructor)");
             }
 
-            // ‘cæƒNƒ‰ƒX‚ªGenerics‚ÌéŒ¾Œ³‚Å‚È‚¢ê‡‚Í”ò‚Î‚·B
+            // ç¥–å…ˆã‚¯ãƒ©ã‚¹ãŒGenericsã®å®£è¨€å…ƒã§ãªã„å ´åˆã¯é£›ã°ã™ã€‚
             Class declaredClass = (Class) declaration;
             if (declaredClass != ancestorType.getRawType()) {
                 continue;
             }
 
-            // Œ^ƒpƒ‰ƒ[ƒ^‚ÌéŒ¾‡˜‚ğ‰ğŒˆ‚µ‚ÄA‘ã“ü‚³‚ê‚½Œ^ˆø”‚ğæ“¾B
-            // —áFConcreteAbstractBLogic<R,P> extends AbstractBLogic<P,R>
-            //      ‚Ì‚æ‚¤‚Èê‡‚É³‚µ‚­type‚É‘Î‰‚·‚éƒpƒ‰ƒ[ƒ^‚ğæ‚èo‚·B
+            // å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å®£è¨€é †åºã‚’è§£æ±ºã—ã¦ã€ä»£å…¥ã•ã‚ŒãŸå‹å¼•æ•°ã‚’å–å¾—ã€‚
+            // ä¾‹ï¼šConcreteAbstractBLogic<R,P> extends AbstractBLogic<P,R>
+            //      ã®ã‚ˆã†ãªå ´åˆã«æ­£ã—ãtypeã«å¯¾å¿œã™ã‚‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’å–ã‚Šå‡ºã™ã€‚
             Type[] parameterTypes = declaredClass.getTypeParameters();
             int index = ArrayUtils.indexOf(parameterTypes, targetType);
             if (index == -1) {
-                // ‚±‚Ì‰ÓŠ‚Ìƒ`ƒFƒbƒN‚Å—áŠO‚ªo‚éê‡‚Í‚È‚¢‚Æv‚í‚ê‚é‚ªA
-                // ”O‚Ì‚½‚ßAƒ`ƒFƒbƒN‚ğc‚µ‚Ä‚¨‚­B
-                // ——R‚ÍAGenerics‚ÌƒŠƒtƒŒƒNƒVƒ‡ƒ“API‚É‚Â‚¢‚Ä‚ÍÀ‘•‚ª•s’è‚Å‚ ‚é‚½‚ß‚Å‚ ‚éB
-                // –â‘è‚ª‚ ‚éê‡‚ÍAíœ‚·‚é‚±‚ÆB
+                // ã“ã®ç®‡æ‰€ã®ãƒã‚§ãƒƒã‚¯ã§ä¾‹å¤–ãŒå‡ºã‚‹å ´åˆã¯ãªã„ã¨æ€ã‚ã‚Œã‚‹ãŒã€
+                // å¿µã®ãŸã‚ã€ãƒã‚§ãƒƒã‚¯ã‚’æ®‹ã—ã¦ãŠãã€‚
+                // ç†ç”±ã¯ã€Genericsã®ãƒªãƒ•ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³APIã«ã¤ã„ã¦ã¯å®Ÿè£…ãŒä¸å®šã§ã‚ã‚‹ãŸã‚ã§ã‚ã‚‹ã€‚
+                // å•é¡ŒãŒã‚ã‚‹å ´åˆã¯ã€å‰Šé™¤ã™ã‚‹ã“ã¨ã€‚
                 throw new IllegalStateException("Class("
                         + declaredClass.getName()
                         + ") does not declare TypeValidable("
@@ -599,19 +599,19 @@ public class GenericsUtil {
     }
 
     /**
-     * ˆø”<code>type</code>‚ª<code>Class</code>Œ^
-     * ‚Å‚ ‚é‚©A<code>TypeVariable</code>Œ^‚©‚ğ”»’è‚·‚éB
+     * å¼•æ•°<code>type</code>ãŒ<code>Class</code>å‹
+     * ã§ã‚ã‚‹ã‹ã€<code>TypeVariable</code>å‹ã‹ã‚’åˆ¤å®šã™ã‚‹ã€‚
      *
-     * @param type <code>Type</code>ƒCƒ“ƒXƒ^ƒ“ƒXB
-     * @return ˆø”<code>type</code>‚ª
-     *      <code>Class, ParameterizedType, GenericArrayType</code>‚Ìê‡
-     *        <code>true</code>B
-     *      ˆø”<code>type</code>‚ª<code>TypeVariable</code>‚Ìê‡
-     *        <code>false</code>B
-     * @throws IllegalStateException ˆø”<code>type</code>‚ª
-     *      <code>Class</code>A<code>ParameterizedType</code>A
-     *      <code>GenericArrayType</code>A<code>TypeVariable</code>‚Ì
-     *      ‚¢‚¸‚ê‚Å‚à‚È‚¢ê‡B
+     * @param type <code>Type</code>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
+     * @return å¼•æ•°<code>type</code>ãŒ
+     *      <code>Class, ParameterizedType, GenericArrayType</code>ã®å ´åˆ
+     *        <code>true</code>ã€‚
+     *      å¼•æ•°<code>type</code>ãŒ<code>TypeVariable</code>ã®å ´åˆ
+     *        <code>false</code>ã€‚
+     * @throws IllegalStateException å¼•æ•°<code>type</code>ãŒ
+     *      <code>Class</code>ã€<code>ParameterizedType</code>ã€
+     *      <code>GenericArrayType</code>ã€<code>TypeVariable</code>ã®
+     *      ã„ãšã‚Œã§ã‚‚ãªã„å ´åˆã€‚
      */
     protected static boolean isNotTypeVariable(Type type)
         throws IllegalStateException {
@@ -633,13 +633,13 @@ public class GenericsUtil {
     }
 
     /**
-     * ˆø”<code>type</code>‚ÌÀÛ‚ÌŒ^‚ğ•Ô‹p‚·‚éB
+     * å¼•æ•°<code>type</code>ã®å®Ÿéš›ã®å‹ã‚’è¿”å´ã™ã‚‹ã€‚
      *
-     * @param type <code>Type</code>ƒCƒ“ƒXƒ^ƒ“ƒXB
-     * @return <code>Class</code>ƒCƒ“ƒXƒ^ƒ“ƒXB
-     * @throws IllegalStateException ˆø”<code>type</code>‚ª
-     *      <code>Class</code>A<code>ParameterizedType</code>A
-     *      <code>GenericArrayType</code>‚Ì‚¢‚¸‚ê‚Å‚à‚È‚¢ê‡B
+     * @param type <code>Type</code>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
+     * @return <code>Class</code>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
+     * @throws IllegalStateException å¼•æ•°<code>type</code>ãŒ
+     *      <code>Class</code>ã€<code>ParameterizedType</code>ã€
+     *      <code>GenericArrayType</code>ã®ã„ãšã‚Œã§ã‚‚ãªã„å ´åˆã€‚
      */
     @SuppressWarnings("unchecked")
     protected static Class getRawClass(Type type)

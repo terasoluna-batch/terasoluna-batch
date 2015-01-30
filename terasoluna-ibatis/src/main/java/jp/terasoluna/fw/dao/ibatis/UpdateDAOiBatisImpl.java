@@ -32,31 +32,31 @@ import org.springframework.orm.ibatis.support.SqlMapClientDaoSupport;
 import com.ibatis.sqlmap.client.SqlMapExecutor;
 
 /**
- * UpdateDAOƒCƒ“ƒ^ƒtƒF[ƒX‚ÌiBATIS—pÀ‘•ƒNƒ‰ƒXB
+ * UpdateDAOã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã®iBATISç”¨å®Ÿè£…ã‚¯ãƒ©ã‚¹ã€‚
  * <p/>
- * ‚±‚ÌƒNƒ‰ƒX‚ÍABean’è‹`ƒtƒ@ƒCƒ‹‚ÉBean’è‹`‚ğs‚¢ƒT[ƒrƒX‘w‚É
- * ƒCƒ“ƒWƒFƒNƒVƒ‡ƒ“‚µ‚Äg—p‚·‚éBˆÈ‰º‚Éİ’è—á‚¨‚æ‚ÑÀ‘•—á‚ğ¦‚·B<br/>
+ * ã“ã®ã‚¯ãƒ©ã‚¹ã¯ã€Beanå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ã«Beanå®šç¾©ã‚’è¡Œã„ã‚µãƒ¼ãƒ“ã‚¹å±¤ã«
+ * ã‚¤ãƒ³ã‚¸ã‚§ã‚¯ã‚·ãƒ§ãƒ³ã—ã¦ä½¿ç”¨ã™ã‚‹ã€‚ä»¥ä¸‹ã«è¨­å®šä¾‹ãŠã‚ˆã³å®Ÿè£…ä¾‹ã‚’ç¤ºã™ã€‚<br/>
  * <p/>
- * <b>’ˆÓ“_</b><br/>
- * executeBatch‚ÍiBATIS‚Ìƒoƒbƒ`Às‹@”\‚ğg—p‚µ‚Ä‚¢‚éB
- * executeBatch‚Ì–ß‚è’l‚ÍAÀs‚µ‚½SQL‚É‚æ‚é•ÏXs”‚ª•Ô‹p‚·‚é‚ªA
- * java.sql.PreparedStatement‚ğg—p‚µ‚Ä‚¢‚é‚½‚ßA
- * ƒhƒ‰ƒCƒo‚É‚æ‚è³Šm‚Ès”‚ªæ“¾‚Å‚«‚È‚¢ƒP[ƒX‚ª‚ ‚éB<br/>
- * •ÏXs”‚ª³Šm‚Éæ“¾‚Å‚«‚È‚¢ƒhƒ‰ƒCƒo‚ğg—p‚·‚éê‡A
- * •ÏXs”‚ªƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“‚É‰e‹¿‚ğ—^‚¦‚é‹Æ–±‚Å‚Í
- * (•ÏXs”‚ª0Œ‚Ìê‡ƒGƒ‰[ˆ—‚ğ‚·‚éƒP[ƒX“™)A
- * ƒoƒbƒ`XV‚Íg—p‚µ‚È‚¢‚±‚ÆB<br/>
- * Ql‘—¿j<br/>
+ * <b>æ³¨æ„ç‚¹</b><br/>
+ * executeBatchã¯iBATISã®ãƒãƒƒãƒå®Ÿè¡Œæ©Ÿèƒ½ã‚’ä½¿ç”¨ã—ã¦ã„ã‚‹ã€‚
+ * executeBatchã®æˆ»ã‚Šå€¤ã¯ã€å®Ÿè¡Œã—ãŸSQLã«ã‚ˆã‚‹å¤‰æ›´è¡Œæ•°ãŒè¿”å´ã™ã‚‹ãŒã€
+ * java.sql.PreparedStatementã‚’ä½¿ç”¨ã—ã¦ã„ã‚‹ãŸã‚ã€
+ * ãƒ‰ãƒ©ã‚¤ãƒã«ã‚ˆã‚Šæ­£ç¢ºãªè¡Œæ•°ãŒå–å¾—ã§ããªã„ã‚±ãƒ¼ã‚¹ãŒã‚ã‚‹ã€‚<br/>
+ * å¤‰æ›´è¡Œæ•°ãŒæ­£ç¢ºã«å–å¾—ã§ããªã„ãƒ‰ãƒ©ã‚¤ãƒã‚’ä½¿ç”¨ã™ã‚‹å ´åˆã€
+ * å¤‰æ›´è¡Œæ•°ãŒãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã«å½±éŸ¿ã‚’ä¸ãˆã‚‹æ¥­å‹™ã§ã¯
+ * (å¤‰æ›´è¡Œæ•°ãŒ0ä»¶ã®å ´åˆã‚¨ãƒ©ãƒ¼å‡¦ç†ã‚’ã™ã‚‹ã‚±ãƒ¼ã‚¹ç­‰)ã€
+ * ãƒãƒƒãƒæ›´æ–°ã¯ä½¿ç”¨ã—ãªã„ã“ã¨ã€‚<br/>
+ * å‚è€ƒè³‡æ–™ï¼‰<br/>
  * <a href="http://otndnld.oracle.co.jp/document/products/oracle10g/101/doc_v5/java.101/B13514-02.pdf#page=450"
  * target="_blank">
  * http://otndnld.oracle.co.jp/document/products/oracle10g/101/doc_v5/java.101/B13514-02.pdf</a>
  * <br/>
- * 450ƒy[ƒWu•W€ƒoƒbƒ`ˆ—‚ÌOracle À‘•‚ÌXVŒ”v‚ğQÆ‚Ì‚±‚ÆB<br/>
+ * 450ãƒšãƒ¼ã‚¸ã€Œæ¨™æº–ãƒãƒƒãƒå‡¦ç†ã®Oracle å®Ÿè£…ã®æ›´æ–°ä»¶æ•°ã€ã‚’å‚ç…§ã®ã“ã¨ã€‚<br/>
  * 
  * <p/>
  * <fieldset style="border:1pt solid black;padding:10px;width:100%;">
  * <legend>
- * Bean’è‹`ƒtƒ@ƒCƒ‹‚Ì—á
+ * Beanå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ã®ä¾‹
  * </legend>
  * <p/>
  * <code>
@@ -87,7 +87,7 @@ import com.ibatis.sqlmap.client.SqlMapExecutor;
  * <p/>
  * <fieldset style="border:1pt solid black;padding:10px;width:100%;">
  * <legend>
- * ƒT[ƒrƒX‘w‚Å‚Ìg—p•û–@Fƒf[ƒ^ˆêŒ‚ÌXVˆ—
+ * ã‚µãƒ¼ãƒ“ã‚¹å±¤ã§ã®ä½¿ç”¨æ–¹æ³•ï¼šãƒ‡ãƒ¼ã‚¿ä¸€ä»¶ã®æ›´æ–°å‡¦ç†
  * </legend>
  * <p/>
  * <code>
@@ -120,7 +120,7 @@ import com.ibatis.sqlmap.client.SqlMapExecutor;
  * <p/>
  * <fieldset style="border:1pt solid black;padding:10px;width:100%;">
  * <legend>
- * ƒT[ƒrƒX‘w‚Å‚Ìg—p•û–@FƒIƒ“ƒ‰ƒCƒ“ƒoƒbƒ`ˆ—
+ * ã‚µãƒ¼ãƒ“ã‚¹å±¤ã§ã®ä½¿ç”¨æ–¹æ³•ï¼šã‚ªãƒ³ãƒ©ã‚¤ãƒ³ãƒãƒƒãƒå‡¦ç†
  * </legend>
  * <p/>
  * <code>
@@ -155,26 +155,26 @@ import com.ibatis.sqlmap.client.SqlMapExecutor;
 public class UpdateDAOiBatisImpl extends SqlMapClientDaoSupport implements
         UpdateDAO {
     /**
-     * ƒƒOƒCƒ“ƒXƒ^ƒ“ƒX
+     * ãƒ­ã‚°ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
      */
     static Log log
         = LogFactory.getLog(UpdateDAOiBatisImpl.class);
 
     /**
-     * ƒoƒbƒ`Às—p‚ÌSQL
-     * @deprecated ‚±‚Ì•Ï”‚Í«—ˆíœ‚³‚ê‚Ü‚·
+     * ãƒãƒƒãƒå®Ÿè¡Œç”¨ã®SQL
+     * @deprecated ã“ã®å¤‰æ•°ã¯å°†æ¥å‰Šé™¤ã•ã‚Œã¾ã™
      */
     @Deprecated
     protected final ThreadLocal<List<SqlHolder>> batchSqls 
         = new ThreadLocal<List<SqlHolder>>();
     
     /**
-     * ˆø”sqlID‚Åw’è‚³‚ê‚½SQL‚ğÀs‚µ‚ÄAŒ‹‰ÊŒ”‚ğ•Ô‹p‚·‚éB
-     * Às‚·‚éSQL‚Íuinsert, update deletev‚Ì3í—Ş‚Æ‚·‚éB
+     * å¼•æ•°sqlIDã§æŒ‡å®šã•ã‚ŒãŸSQLã‚’å®Ÿè¡Œã—ã¦ã€çµæœä»¶æ•°ã‚’è¿”å´ã™ã‚‹ã€‚
+     * å®Ÿè¡Œã™ã‚‹SQLã¯ã€Œinsert, update deleteã€ã®3ç¨®é¡ã¨ã™ã‚‹ã€‚
      *
-     * @param sqlID Às‚·‚éSQL‚ÌID
-     * @param bindParams SQL‚ÉƒoƒCƒ“ƒh‚·‚é’l‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg
-     * @return SQL‚ÌÀsŒ‹‰ÊŒ”‚ğ•Ô‹p
+     * @param sqlID å®Ÿè¡Œã™ã‚‹SQLã®ID
+     * @param bindParams SQLã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹å€¤ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @return SQLã®å®Ÿè¡Œçµæœä»¶æ•°ã‚’è¿”å´
      */
     public int execute(String sqlID, Object bindParams) {
 
@@ -182,10 +182,10 @@ public class UpdateDAOiBatisImpl extends SqlMapClientDaoSupport implements
             log.debug("execute Start.");
         }
 
-        //SqlMapClient‚Ìæ“¾
+        //SqlMapClientã®å–å¾—
         SqlMapClientTemplate sqlMapTemp = getSqlMapClientTemplate();
 
-        // SQL‚ÌÀsFƒf[ƒ^’Ç‰ÁB
+        // SQLã®å®Ÿè¡Œï¼šãƒ‡ãƒ¼ã‚¿è¿½åŠ ã€‚
         int row = sqlMapTemp.update(sqlID, bindParams);
 
         if (log.isDebugEnabled()) {
@@ -195,23 +195,23 @@ public class UpdateDAOiBatisImpl extends SqlMapClientDaoSupport implements
     }
 
     /**
-     * ƒoƒbƒ`’Ç‰Áƒƒ\ƒbƒhB
-     * ˆø”‚ÌSQL‚ğƒXƒŒƒbƒhƒ[ƒJƒ‹‚É•Û‚·‚éB
-     * •¡”‚ÌƒŠƒNƒGƒXƒg‚ğ‚Ü‚½‚¢‚ÅSQL‚ğ•Û‚·‚é‚±‚Æ‚Í‚Å‚«‚È‚¢B
-     * ’Ç‰ÁŒã‚ÉA<code>UpdateDAO#executeBatch()</code>‚ÅAˆêŠ‡Às‚ğs‚¤B
+     * ãƒãƒƒãƒè¿½åŠ ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
+     * å¼•æ•°ã®SQLã‚’ã‚¹ãƒ¬ãƒƒãƒ‰ãƒ­ãƒ¼ã‚«ãƒ«ã«ä¿æŒã™ã‚‹ã€‚
+     * è¤‡æ•°ã®ãƒªã‚¯ã‚¨ã‚¹ãƒˆã‚’ã¾ãŸã„ã§SQLã‚’ä¿æŒã™ã‚‹ã“ã¨ã¯ã§ããªã„ã€‚
+     * è¿½åŠ å¾Œã«ã€<code>UpdateDAO#executeBatch()</code>ã§ã€ä¸€æ‹¬å®Ÿè¡Œã‚’è¡Œã†ã€‚
      * 
-     * <b>’ˆÓF</b>‚±‚Ìƒƒ\ƒbƒh‚ğg—p‚·‚é‚ÆAƒoƒbƒ`XV‘ÎÛ‚ÌSQL‚ª
-     * ƒNƒŠƒA‚³‚ê‚È‚¢‰Â”\«‚ª‚ ‚éB{@link #executeBatch(List)}‚ğg—p‚·‚é‚±‚ÆB
+     * <b>æ³¨æ„ï¼š</b>ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚’ä½¿ç”¨ã™ã‚‹ã¨ã€ãƒãƒƒãƒæ›´æ–°å¯¾è±¡ã®SQLãŒ
+     * ã‚¯ãƒªã‚¢ã•ã‚Œãªã„å¯èƒ½æ€§ãŒã‚ã‚‹ã€‚{@link #executeBatch(List)}ã‚’ä½¿ç”¨ã™ã‚‹ã“ã¨ã€‚
      *
-     * @param sqlID Às‚·‚éSQL‚ÌID
-     * @param bindParams SQL‚ÉƒoƒCƒ“ƒh‚·‚é’l‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg
-     * @deprecated addBatch‚Ì‘ã‚í‚è‚É{@link #executeBatch(List)}
-     * ‚ğg—p‚·‚é‚±‚Æ
+     * @param sqlID å®Ÿè¡Œã™ã‚‹SQLã®ID
+     * @param bindParams SQLã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹å€¤ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @deprecated addBatchã®ä»£ã‚ã‚Šã«{@link #executeBatch(List)}
+     * ã‚’ä½¿ç”¨ã™ã‚‹ã“ã¨
      */
     @SuppressWarnings("deprecation")
     @Deprecated
     public void addBatch(final String sqlID, final Object bindParams) {
-        // ƒXƒŒƒbƒhƒ[ƒJƒ‹‚Ìæ“¾
+        // ã‚¹ãƒ¬ãƒƒãƒ‰ãƒ­ãƒ¼ã‚«ãƒ«ã®å–å¾—
         List<SqlHolder> sqlHolders = batchSqls.get();
         if (sqlHolders == null) {
             sqlHolders = new ArrayList<SqlHolder>();
@@ -221,7 +221,7 @@ public class UpdateDAOiBatisImpl extends SqlMapClientDaoSupport implements
             }
         }
         
-        // ƒoƒbƒ`—p‚ÌSQL‚ğƒXƒŒƒbƒhƒ[ƒJƒ‹‚É•Û‚·‚é    
+        // ãƒãƒƒãƒç”¨ã®SQLã‚’ã‚¹ãƒ¬ãƒƒãƒ‰ãƒ­ãƒ¼ã‚«ãƒ«ã«ä¿æŒã™ã‚‹    
         sqlHolders.add(new SqlHolder(sqlID, bindParams));
         if (log.isDebugEnabled()) {
             log.debug("Add batch sql.  SQL_ID='" + sqlID 
@@ -230,26 +230,26 @@ public class UpdateDAOiBatisImpl extends SqlMapClientDaoSupport implements
     }
 
     /**
-     * ƒoƒbƒ`ˆ—‚ÌÀsƒƒ\ƒbƒhB
-     * <code>{@link #addBatch(String, Object)}</code>‚Å’Ç‰Á‚³‚ê‚½SQL‚ğ
-     * ˆêŠ‡Às‚·‚éBƒoƒbƒ`ÀsŒã‚ÍSQL‚ğƒNƒŠƒA‚·‚éB
-     * <code>{@link #addBatch(String, Object)}</code>‚ÅSQL‚ğ’Ç‰Á‚µ‚Ä‚¢‚È‚¢ê‡A
-     * Às—áŠO‚ª”­¶‚·‚éB
+     * ãƒãƒƒãƒå‡¦ç†ã®å®Ÿè¡Œãƒ¡ã‚½ãƒƒãƒ‰ã€‚
+     * <code>{@link #addBatch(String, Object)}</code>ã§è¿½åŠ ã•ã‚ŒãŸSQLã‚’
+     * ä¸€æ‹¬å®Ÿè¡Œã™ã‚‹ã€‚ãƒãƒƒãƒå®Ÿè¡Œå¾Œã¯SQLã‚’ã‚¯ãƒªã‚¢ã™ã‚‹ã€‚
+     * <code>{@link #addBatch(String, Object)}</code>ã§SQLã‚’è¿½åŠ ã—ã¦ã„ãªã„å ´åˆã€
+     * å®Ÿè¡Œæ™‚ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã€‚
      * 
-     * <b>’ˆÓF</b>‚±‚Ìƒƒ\ƒbƒh‚ğg—p‚·‚é‚ÆAƒoƒbƒ`XV‘ÎÛ‚ÌSQL‚ª
-     * ƒNƒŠƒA‚³‚ê‚È‚¢‰Â”\«‚ª‚ ‚éB{@link #executeBatch(List)}‚ğg—p‚·‚é‚±‚ÆB
+     * <b>æ³¨æ„ï¼š</b>ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚’ä½¿ç”¨ã™ã‚‹ã¨ã€ãƒãƒƒãƒæ›´æ–°å¯¾è±¡ã®SQLãŒ
+     * ã‚¯ãƒªã‚¢ã•ã‚Œãªã„å¯èƒ½æ€§ãŒã‚ã‚‹ã€‚{@link #executeBatch(List)}ã‚’ä½¿ç”¨ã™ã‚‹ã“ã¨ã€‚
      *
-     * @return SQL‚ÌÀsŒ‹‰Ê
-     * @deprecated addBatch‚Ì‘ã‚í‚è‚É{@link #executeBatch(List)}
-     * ‚ğg—p‚·‚é‚±‚Æ
+     * @return SQLã®å®Ÿè¡Œçµæœ
+     * @deprecated addBatchã®ä»£ã‚ã‚Šã«{@link #executeBatch(List)}
+     * ã‚’ä½¿ç”¨ã™ã‚‹ã“ã¨
      */
     @SuppressWarnings("deprecation")
     @Deprecated
     public int executeBatch() {
-        // ƒXƒŒƒbƒhƒ[ƒJƒ‹‚©‚çSQL‚ğæ‚èo‚·
+        // ã‚¹ãƒ¬ãƒƒãƒ‰ãƒ­ãƒ¼ã‚«ãƒ«ã‹ã‚‰SQLã‚’å–ã‚Šå‡ºã™
         final List<SqlHolder> sqlHolders = batchSqls.get();
         
-        // SQLƒoƒbƒ`Às
+        // SQLãƒãƒƒãƒå®Ÿè¡Œ
         Integer result = 0;
         try {
             result = (Integer) getSqlMapClientTemplate().execute(
@@ -278,7 +278,7 @@ public class UpdateDAOiBatisImpl extends SqlMapClientDaoSupport implements
                 }
             });
         } finally {
-            // ƒXƒŒƒbƒhƒ[ƒJƒ‹‚©‚çSQL‚ğíœ
+            // ã‚¹ãƒ¬ãƒƒãƒ‰ãƒ­ãƒ¼ã‚«ãƒ«ã‹ã‚‰SQLã‚’å‰Šé™¤
             batchSqls.remove();
             if (log.isDebugEnabled()) {
                 log.debug("Remove SqlHolder in ThreadLocal.");
@@ -292,33 +292,33 @@ public class UpdateDAOiBatisImpl extends SqlMapClientDaoSupport implements
     }
 
     /**
-     * ƒoƒbƒ`ˆ—‚ÌÀsƒƒ\ƒbƒhB<br/>
+     * ãƒãƒƒãƒå‡¦ç†ã®å®Ÿè¡Œãƒ¡ã‚½ãƒƒãƒ‰ã€‚<br/>
      * 
-     * ˆø”‚Ì{@link SqlHolder}‚ÌƒŠƒXƒg‚Åw’è‚³‚ê‚½‚·‚×‚Ä‚ÌSQL‚ğÀs‚·‚éB<br/>
+     * å¼•æ•°ã®{@link SqlHolder}ã®ãƒªã‚¹ãƒˆã§æŒ‡å®šã•ã‚ŒãŸã™ã¹ã¦ã®SQLã‚’å®Ÿè¡Œã™ã‚‹ã€‚<br/>
      * 
      * <br/>
-     * <b>’ˆÓ“_</b><br/>
-     * executeBatch‚ÍiBATIS‚Ìƒoƒbƒ`Às‹@”\‚ğg—p‚µ‚Ä‚¢‚éB
-     * executeBatch‚Ì–ß‚è’l‚ÍAÀs‚µ‚½SQL‚É‚æ‚é•ÏXs”‚ª•Ô‹p‚·‚é‚ªA
-     * java.sql.PreparedStatement‚ğg—p‚µ‚Ä‚¢‚é‚½‚ßA
-     * ƒhƒ‰ƒCƒo‚É‚æ‚è³Šm‚Ès”‚ªæ“¾‚Å‚«‚È‚¢ƒP[ƒX‚ª‚ ‚éB<br/>
-     * •ÏXs”‚ª³Šm‚Éæ“¾‚Å‚«‚È‚¢ƒhƒ‰ƒCƒo‚ğg—p‚·‚éê‡A
-     * •ÏXs”‚ªƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“‚É‰e‹¿‚ğ—^‚¦‚é‹Æ–±‚Å‚Í
-     * (•ÏXs”‚ª0Œ‚Ìê‡ƒGƒ‰[ˆ—‚ğ‚·‚éƒP[ƒX“™)A
-     * ƒoƒbƒ`XV‚Íg—p‚µ‚È‚¢‚±‚ÆB<br/>
-     * Ql‘—¿j<br/>
+     * <b>æ³¨æ„ç‚¹</b><br/>
+     * executeBatchã¯iBATISã®ãƒãƒƒãƒå®Ÿè¡Œæ©Ÿèƒ½ã‚’ä½¿ç”¨ã—ã¦ã„ã‚‹ã€‚
+     * executeBatchã®æˆ»ã‚Šå€¤ã¯ã€å®Ÿè¡Œã—ãŸSQLã«ã‚ˆã‚‹å¤‰æ›´è¡Œæ•°ãŒè¿”å´ã™ã‚‹ãŒã€
+     * java.sql.PreparedStatementã‚’ä½¿ç”¨ã—ã¦ã„ã‚‹ãŸã‚ã€
+     * ãƒ‰ãƒ©ã‚¤ãƒã«ã‚ˆã‚Šæ­£ç¢ºãªè¡Œæ•°ãŒå–å¾—ã§ããªã„ã‚±ãƒ¼ã‚¹ãŒã‚ã‚‹ã€‚<br/>
+     * å¤‰æ›´è¡Œæ•°ãŒæ­£ç¢ºã«å–å¾—ã§ããªã„ãƒ‰ãƒ©ã‚¤ãƒã‚’ä½¿ç”¨ã™ã‚‹å ´åˆã€
+     * å¤‰æ›´è¡Œæ•°ãŒãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã«å½±éŸ¿ã‚’ä¸ãˆã‚‹æ¥­å‹™ã§ã¯
+     * (å¤‰æ›´è¡Œæ•°ãŒ0ä»¶ã®å ´åˆã‚¨ãƒ©ãƒ¼å‡¦ç†ã‚’ã™ã‚‹ã‚±ãƒ¼ã‚¹ç­‰)ã€
+     * ãƒãƒƒãƒæ›´æ–°ã¯ä½¿ç”¨ã—ãªã„ã“ã¨ã€‚<br/>
+     * å‚è€ƒè³‡æ–™ï¼‰<br/>
      * <a href="http://otndnld.oracle.co.jp/document/products/oracle10g/101/doc_v5/java.101/B13514-02.pdf#page=450"
      * target="_blank">
      * http://otndnld.oracle.co.jp/document/products/oracle10g/101/doc_v5/java.101/B13514-02.pdf</a>
      * <br/>
-     * 450ƒy[ƒWu•W€ƒoƒbƒ`ˆ—‚ÌOracle À‘•‚ÌXVŒ”v‚ğQÆ‚Ì‚±‚ÆB<br/>
+     * 450ãƒšãƒ¼ã‚¸ã€Œæ¨™æº–ãƒãƒƒãƒå‡¦ç†ã®Oracle å®Ÿè£…ã®æ›´æ–°ä»¶æ•°ã€ã‚’å‚ç…§ã®ã“ã¨ã€‚<br/>
      * 
-     * @param sqlHolders ƒoƒbƒ`XV‘ÎÛ‚ÌsqlIdAƒpƒ‰ƒ[ƒ^‚ğŠi”[‚µ‚½
-     * SqlHolderƒCƒ“ƒXƒ^ƒ“ƒX‚ÌƒŠƒXƒg
-     * @return SQL‚ÌÀsŒ‹‰ÊŒ”
+     * @param sqlHolders ãƒãƒƒãƒæ›´æ–°å¯¾è±¡ã®sqlIdã€ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’æ ¼ç´ã—ãŸ
+     * SqlHolderã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã®ãƒªã‚¹ãƒˆ
+     * @return SQLã®å®Ÿè¡Œçµæœä»¶æ•°
      */
     public int executeBatch(final List<SqlHolder> sqlHolders) {
-        // SQLƒoƒbƒ`Às
+        // SQLãƒãƒƒãƒå®Ÿè¡Œ
         Integer result = 0;
         result = (Integer) getSqlMapClientTemplate().execute(
                 new SqlMapClientCallback() {

@@ -19,12 +19,12 @@ package jp.terasoluna.fw.batch.executor;
 import org.springframework.util.Assert;
 
 /**
- * �񓯊��o�b�`�G�O�[�L���[�^���̃��g���C�\��O�B<br>
+ * 非同期バッチエグゼキュータ内のリトライ可能例外。<br>
  * <br>
- * �񓯊��o�b�`�G�O�[�L���[�^���Ń��C�����\�b�h���Ń��g���C�\�ȃG���[�Ƃ��ĕߑ��\
- * �ł��邱�Ƃ��������߂̗�O�ł���B<br>
- * ���M���O���j�Ƃ��Ă͌݊������l�����A�{��O�N���X�Ō�����O�����b�v���ăX���[����ۂ̓��O�o�͂����A
- * ���C�����\�b�h���Ō�����O�ɑ΂��ďo�͂��邱�ƁB<br>
+ * 非同期バッチエグゼキュータ内でメインメソッド内でリトライ可能なエラーとして捕捉可能
+ * であることを示すための例外である。<br>
+ * ロギング方針としては互換性を考慮し、本例外クラスで原因例外をラップしてスローする際はログ出力せず、
+ * メインメソッド内で原因例外に対して出力すること。<br>
  * 
  * @see jp.terasoluna.fw.batch.executor.AbstractJobBatchExecutor
  * @see jp.terasoluna.fw.batch.executor.AsyncBatchExecutor
@@ -32,15 +32,15 @@ import org.springframework.util.Assert;
 public class RetryableExecuteException extends RuntimeException {
 
     /**
-     * �V���A���o�[�W����UID�B
+     * シリアルバージョンUID。
      */
     private static final long serialVersionUID = -298806643234717470L;
 
     /**
-     * �R���X�g���N�^�B
-     * �񓯊��o�b�`�G�O�[�L���[�^�̃��C�����\�b�h�Ń��g���C�\�ȗ�O��n�����ƁB<br>
+     * コンストラクタ。
+     * 非同期バッチエグゼキュータのメインメソッドでリトライ可能な例外を渡すこと。<br>
      * 
-     * @param cause ���g���C�\�Ȍ�����O
+     * @param cause リトライ可能な原因例外
      * @see jp.terasoluna.fw.batch.executor.AsyncBatchExecutor#main(String[])
      */
     public RetryableExecuteException(Throwable cause) {

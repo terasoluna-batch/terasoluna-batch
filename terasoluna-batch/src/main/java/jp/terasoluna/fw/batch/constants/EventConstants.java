@@ -17,17 +17,17 @@
 package jp.terasoluna.fw.batch.constants;
 
 /**
- * ƒCƒxƒ“ƒg’è”’è‹`ƒNƒ‰ƒXB
+ * ã‚¤ãƒ™ãƒ³ãƒˆå®šæ•°å®šç¾©ã‚¯ãƒ©ã‚¹ã€‚
  */
 public class EventConstants {
 
     /**
-     * ƒXƒe[ƒ^ƒX•ÏXŒ_‹@F‹N“®.
+     * ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹å¤‰æ›´å¥‘æ©Ÿï¼šèµ·å‹•æ™‚.
      */
     public static final String EVENT_STATUS_START = "0";
 
     /**
-     * ƒXƒe[ƒ^ƒX•ÏXŒ_‹@F³íI—¹.
+     * ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹å¤‰æ›´å¥‘æ©Ÿï¼šæ­£å¸¸çµ‚äº†æ™‚.
      */
     public static final String EVENT_STATUS_NORMAL_TERMINATION = "1";
 

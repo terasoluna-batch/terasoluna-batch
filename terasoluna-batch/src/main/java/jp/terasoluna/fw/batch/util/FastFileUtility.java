@@ -27,22 +27,22 @@ import jp.terasoluna.fw.file.dao.FileException;
 import jp.terasoluna.fw.file.util.FileUtility;
 
 /**
- * �t�@�C���R�s�[�������ɍs�����[�e�B���e�B�B<br>
+ * ファイルコピーを高速に行うユーティリティ。<br>
  * <br>
- * TERASOLUNA�o�b�`�t���[�����[�N��FileUtility�ɂ��R�s�[���s���ƁA�t�@�C�����b�N�A�`�����N1024�o�C�g�ɂ��o�C�g�ڑ����ɂ��A����NFS�ւ̃t�@�C���R�s�[�ɂĐ��\�򉻂���������B<br>
- * ���̂��߁ANFS���g�p�����t�@�C���R�s�[�Ő��\���o�Ȃ��ꍇ�� ���N���X�ɂ��t�@�C���R�s�[���s�����ƁB
+ * TERASOLUNAバッチフレームワークのFileUtilityによるコピーを行うと、ファイルロック、チャンク1024バイトによるバイト移送時により、特にNFSへのファイルコピーにて性能劣化が発生する。<br>
+ * このため、NFSを使用したファイルコピーで性能が出ない場合は 当クラスによるファイルコピーを行うこと。
  */
 public class FastFileUtility extends FileUtility {
 
     /**
-     * �t�@�C�����R�s�[����B
+     * ファイルをコピーする。
      * <p>
-     * �R�s�[���̃t�@�C���̃p�X���󂯎��A �R�s�[��̃p�X�Ƀt�@�C�����R�s�[����B<br>
-     * �R�s�[��Ƀt�@�C�������݂���ꍇ�A�㏑���ŃR�s�[�����B<br>
+     * コピー元のファイルのパスを受け取り、 コピー先のパスにファイルをコピーする。<br>
+     * コピー先にファイルが存在する場合、上書きでコピーされる。<br>
      * </p>
-     * @param srcFile �R�s�[���̃t�@�C���̃p�X
-     * @param newFile �R�s�[��̃t�@�C���̃p�X
-     * @throws �t�@�C���@�\��O
+     * @param srcFile コピー元のファイルのパス
+     * @param newFile コピー先のファイルのパス
+     * @throws ファイル機能例外
      */
     public static void copyFile(String srcFile, String newFile) {
 
@@ -54,7 +54,7 @@ public class FastFileUtility extends FileUtility {
         }
 
         File srcFileObject = new File(srcFile);
-        // �R�s�[���̃p�X�Ƀt�@�C�������݂��Ȃ��ꍇ�A�G���[�𓊂��ď������I������B
+        // コピー元のパスにファイルが存在しない場合、エラーを投げて処理を終了する。
         if (!srcFileObject.exists()) {
             throw new FileException(srcFile + " is not exist.");
         }
@@ -81,10 +81,10 @@ public class FastFileUtility extends FileUtility {
     }
 
     /**
-     * Channel���N���[�Y����B<br>
+     * Channelをクローズする。<br>
      * <p>
-     * �����ɓn���ꂽchannel��null�łȂ���΃N���[�Y����B<br>
-     * �܂��A�N���[�Y����ۂ�IOException��O�����������ꍇ�͖�������B<br>
+     * 引数に渡されたchannelがnullでなければクローズする。<br>
+     * また、クローズする際にIOException例外が発生した場合は無視する。<br>
      * </p>
      * @param channel Channel
      */
@@ -94,15 +94,15 @@ public class FastFileUtility extends FileUtility {
                 channel.close();
             }
         } catch (IOException e) {
-            // �Ȃɂ����Ȃ�
+            // なにもしない
         }
     }
 
     /**
-     * FileInputStream���N���[�Y����B<br>
+     * FileInputStreamをクローズする。<br>
      * <p>
-     * �����ɓn���ꂽstream��null�łȂ���΃N���[�Y����B<br>
-     * �܂��A�N���[�Y����ۂ�IOException��O�����������ꍇ�͖�������B<br>
+     * 引数に渡されたstreamがnullでなければクローズする。<br>
+     * また、クローズする際にIOException例外が発生した場合は無視する。<br>
      * </p>
      * @param stream FileInputStream
      */
@@ -112,15 +112,15 @@ public class FastFileUtility extends FileUtility {
                 stream.close();
             }
         } catch (IOException e) {
-            // �Ȃɂ����Ȃ�
+            // なにもしない
         }
     }
 
     /**
-     * FileOutputStream���N���[�Y����B<br>
+     * FileOutputStreamをクローズする。<br>
      * <p>
-     * �����ɓn���ꂽstream��null�łȂ���΃N���[�Y����B<br>
-     * �܂��A�N���[�Y����ۂ�IOException��O�����������ꍇ�͖�������B<br>
+     * 引数に渡されたstreamがnullでなければクローズする。<br>
+     * また、クローズする際にIOException例外が発生した場合は無視する。<br>
      * </p>
      * @param fos FileOutputStream
      */
@@ -130,7 +130,7 @@ public class FastFileUtility extends FileUtility {
                 stream.close();
             }
         } catch (IOException e) {
-            // �Ȃɂ����Ȃ�
+            // なにもしない
         }
     }
 }

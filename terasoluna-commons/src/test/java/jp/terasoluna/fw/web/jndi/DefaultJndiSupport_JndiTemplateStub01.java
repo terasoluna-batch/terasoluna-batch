@@ -21,7 +21,7 @@ import javax.naming.NamingException;
 import org.springframework.jndi.JndiTemplate;
 
 /**
- * DefaultJndiSupportTestƒNƒ‰ƒX‚Å—˜—p‚·‚éB
+ * DefaultJndiSupportTestã‚¯ãƒ©ã‚¹ã§åˆ©ç”¨ã™ã‚‹ã€‚
  * 
  */
 public class DefaultJndiSupport_JndiTemplateStub01 extends JndiTemplate {

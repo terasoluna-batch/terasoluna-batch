@@ -24,24 +24,24 @@ import java.sql.SQLException;
 import org.springframework.jdbc.support.lob.LobCreator;
 
 /**
- * LobCreatorÀ‘•ƒNƒ‰ƒXB
+ * LobCreatorå®Ÿè£…ã‚¯ãƒ©ã‚¹ã€‚
  * 
  */
 public class LobCreatorImpl01 implements LobCreator {
 
     /**
-     * setBlobAsBinaryStream‚ÌŒÄ‚Ño‚µŠm”Fƒtƒ‰ƒO
+     * setBlobAsBinaryStreamã®å‘¼ã³å‡ºã—ç¢ºèªãƒ•ãƒ©ã‚°
      */
     public boolean isSetBlobAsBinaryStream = false;
 
     /**
-     * setClobAsCharacterStream‚ÌŒÄ‚Ño‚µŠm”Fƒtƒ‰ƒO
+     * setClobAsCharacterStreamã®å‘¼ã³å‡ºã—ç¢ºèªãƒ•ãƒ©ã‚°
      */
     public boolean isSetClobAsCharacterStream = false;
     
     /**
-     * BlobInputStreamTypeHandler#setParameterInternalƒeƒXƒg
-     * ŒÄ‚Ño‚µŠm”F
+     * BlobInputStreamTypeHandler#setParameterInternalãƒ†ã‚¹ãƒˆ
+     * å‘¼ã³å‡ºã—ç¢ºèª
      */
     public void setBlobAsBinaryStream(PreparedStatement arg0, int arg1,
             InputStream arg2, int arg3) throws SQLException {
@@ -49,8 +49,8 @@ public class LobCreatorImpl01 implements LobCreator {
     }
     
     /**
-     * ClobReaderTypeHandler#setParameterInternalƒeƒXƒg
-     * ŒÄ‚Ño‚µŠm”F
+     * ClobReaderTypeHandler#setParameterInternalãƒ†ã‚¹ãƒˆ
+     * å‘¼ã³å‡ºã—ç¢ºèª
      */
     public void setClobAsCharacterStream(PreparedStatement arg0, int arg1,
             Reader arg2, int arg3) throws SQLException {

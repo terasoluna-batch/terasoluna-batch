@@ -1,7 +1,7 @@
 /**
  * @(#)CollectorExceptionTest.java
- * ƒVƒXƒeƒ€–¼:TERASOLUNA-IDE
- * ƒtƒ@ƒCƒ‹ƒo[ƒWƒ‡ƒ“:$Id: CollectorExceptionTest.java 6835 2012-01-13 13:44:36Z bthashidumets $
+ * ã‚·ã‚¹ãƒ†ãƒ å:TERASOLUNA-IDE
+ * ãƒ•ã‚¡ã‚¤ãƒ«ãƒãƒ¼ã‚¸ãƒ§ãƒ³:$Id: CollectorExceptionTest.java 6835 2012-01-13 13:44:36Z bthashidumets $
  * Copyright 2009 NTT DATA Corporation.
  */
 package jp.terasoluna.fw.collector.exception;
@@ -15,13 +15,13 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
- * [‚±‚ÌƒNƒ‰ƒX‚Ìà–¾‚ğ‘‚«‚Ü‚µ‚å‚¤]
+ * [ã“ã®ã‚¯ãƒ©ã‚¹ã®èª¬æ˜ã‚’æ›¸ãã¾ã—ã‚‡ã†]
  * @version $Revision$
  */
 public class CollectorExceptionTest {
 
     /**
-     * [ƒƒ\ƒbƒh‚Ìà–¾‚ğ‘‚«‚Ü‚µ‚å‚¤]
+     * [ãƒ¡ã‚½ãƒƒãƒ‰ã®èª¬æ˜ã‚’æ›¸ãã¾ã—ã‚‡ã†]
      * @throws java.lang.Exception
      */
     @BeforeClass
@@ -29,7 +29,7 @@ public class CollectorExceptionTest {
     }
 
     /**
-     * [ƒƒ\ƒbƒh‚Ìà–¾‚ğ‘‚«‚Ü‚µ‚å‚¤]
+     * [ãƒ¡ã‚½ãƒƒãƒ‰ã®èª¬æ˜ã‚’æ›¸ãã¾ã—ã‚‡ã†]
      * @throws java.lang.Exception
      */
     @AfterClass
@@ -37,7 +37,7 @@ public class CollectorExceptionTest {
     }
 
     /**
-     * [ƒƒ\ƒbƒh‚Ìà–¾‚ğ‘‚«‚Ü‚µ‚å‚¤]
+     * [ãƒ¡ã‚½ãƒƒãƒ‰ã®èª¬æ˜ã‚’æ›¸ãã¾ã—ã‚‡ã†]
      * @throws java.lang.Exception
      */
     @Before
@@ -45,7 +45,7 @@ public class CollectorExceptionTest {
     }
 
     /**
-     * [ƒƒ\ƒbƒh‚Ìà–¾‚ğ‘‚«‚Ü‚µ‚å‚¤]
+     * [ãƒ¡ã‚½ãƒƒãƒ‰ã®èª¬æ˜ã‚’æ›¸ãã¾ã—ã‚‡ã†]
      * @throws java.lang.Exception
      */
     @After
@@ -53,7 +53,7 @@ public class CollectorExceptionTest {
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.exception.CollectorException#CollectorException()} ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * {@link jp.terasoluna.fw.collector.exception.CollectorException#CollectorException()} ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     @Test
     public void testCollectorException001() {
@@ -63,7 +63,7 @@ public class CollectorExceptionTest {
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.exception.CollectorException#CollectorException(java.lang.String)} ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * {@link jp.terasoluna.fw.collector.exception.CollectorException#CollectorException(java.lang.String)} ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     @Test
     public void testCollectorExceptionString001() {
@@ -73,7 +73,7 @@ public class CollectorExceptionTest {
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.exception.CollectorException#CollectorException(java.lang.Throwable)} ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * {@link jp.terasoluna.fw.collector.exception.CollectorException#CollectorException(java.lang.Throwable)} ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     @Test
     public void testCollectorExceptionThrowable001() {
@@ -85,7 +85,7 @@ public class CollectorExceptionTest {
 
     /**
      * {@link jp.terasoluna.fw.collector.exception.CollectorException#CollectorException(java.lang.String, java.lang.Throwable)}
-     * ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     @Test
     public void testCollectorExceptionStringThrowable001() {

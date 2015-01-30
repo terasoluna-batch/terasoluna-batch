@@ -17,60 +17,60 @@
 package jp.terasoluna.fw.batch.executor.vo;
 
 /**
- * ƒWƒ‡ƒu1Œæ“¾—pDAO‚Ì“ü—Íƒpƒ‰ƒ[ƒ^B<br>
+ * ã‚¸ãƒ§ãƒ–1ä»¶å–å¾—ç”¨DAOã®å…¥åŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã€‚<br>
  */
 public class BatchJobManagementParam {
     /**
-     * ƒtƒB[ƒ‹ƒh [jobSequenceId] €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ƒWƒ‡ƒuƒV[ƒPƒ“ƒXƒR[ƒh
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [jobSequenceId] é …ç›®ã®å‹ [java.lang.String]<br>
+     * ã‚¸ãƒ§ãƒ–ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã‚³ãƒ¼ãƒ‰
      */
     private String jobSequenceId;
 
     /**
-     * ƒtƒB[ƒ‹ƒh [forUpdate] €–Ú‚ÌŒ^ [boolean]<br>
-     * FOR UPDATEƒtƒ‰ƒO
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [forUpdate] é …ç›®ã®å‹ [boolean]<br>
+     * FOR UPDATEãƒ•ãƒ©ã‚°
      */
     private boolean ForUpdate;
 
     /**
-     * ƒtƒB[ƒ‹ƒh [jobSequenceId]‚ÌƒZƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ƒWƒ‡ƒuƒV[ƒPƒ“ƒXƒR[ƒh
-     * @param jobSequenceId ƒtƒB[ƒ‹ƒh[jobSequenceId]‚ÉŠi”[‚µ‚½‚¢’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [jobSequenceId]ã®ã‚»ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * ã‚¸ãƒ§ãƒ–ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã‚³ãƒ¼ãƒ‰
+     * @param jobSequenceId ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobSequenceId]ã«æ ¼ç´ã—ãŸã„å€¤
      */
     public void setJobSequenceId(final String jobSequenceId) {
         this.jobSequenceId = jobSequenceId;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh[jobSequenceId]‚ÌƒQƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ƒWƒ‡ƒuƒV[ƒPƒ“ƒXƒR[ƒh
-     * @return ƒtƒB[ƒ‹ƒh[jobSequenceId]‚ÉŠi”[‚³‚ê‚Ä‚¢‚é’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobSequenceId]ã®ã‚²ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * ã‚¸ãƒ§ãƒ–ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã‚³ãƒ¼ãƒ‰
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobSequenceId]ã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹å€¤
      */
     public String getJobSequenceId() {
         return jobSequenceId;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [forUpdate]‚ÌƒZƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [boolean]<br>
-     * FOR UPDATEƒtƒ‰ƒO
-     * @param argForUpdate ƒtƒB[ƒ‹ƒh[forUpdate]‚ÉŠi”[‚µ‚½‚¢’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [forUpdate]ã®ã‚»ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [boolean]<br>
+     * FOR UPDATEãƒ•ãƒ©ã‚°
+     * @param argForUpdate ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[forUpdate]ã«æ ¼ç´ã—ãŸã„å€¤
      */
     public void setForUpdate(final boolean argForUpdate) {
         this.ForUpdate = argForUpdate;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh[forUpdate]‚ÌƒQƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [boolean]<br>
-     * FOR UPDATEƒtƒ‰ƒO
-     * @return ƒtƒB[ƒ‹ƒh[forUpdate]‚ÉŠi”[‚³‚ê‚Ä‚¢‚é’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[forUpdate]ã®ã‚²ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [boolean]<br>
+     * FOR UPDATEãƒ•ãƒ©ã‚°
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[forUpdate]ã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹å€¤
      */
     public boolean getForUpdate() {
         return ForUpdate;
     }
 
     /**
-     * ‚±‚ÌƒoƒŠƒ…[ƒIƒuƒWƒFƒNƒg‚Ì•¶š—ñ•\Œ»‚ğæ“¾‚µ‚Ü‚·B ƒIƒuƒWƒFƒNƒg‚ÌƒVƒƒƒ[”ÍˆÍ‚Å‚µ‚©toString‚³‚ê‚È‚¢“_‚É’ˆÓ‚µ‚Ä—˜—p‚µ‚Ä‚­‚¾‚³‚¢B
-     * @return ƒoƒŠƒ…[ƒIƒuƒWƒFƒNƒg‚Ì•¶š—ñ•\Œ»B
+     * ã“ã®ãƒãƒªãƒ¥ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®æ–‡å­—åˆ—è¡¨ç¾ã‚’å–å¾—ã—ã¾ã™ã€‚ ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚·ãƒ£ãƒ­ãƒ¼ç¯„å›²ã§ã—ã‹toStringã•ã‚Œãªã„ç‚¹ã«æ³¨æ„ã—ã¦åˆ©ç”¨ã—ã¦ãã ã•ã„ã€‚
+     * @return ãƒãƒªãƒ¥ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®æ–‡å­—åˆ—è¡¨ç¾ã€‚
      */
     public String toString() {
         final StringBuffer buf = new StringBuffer();

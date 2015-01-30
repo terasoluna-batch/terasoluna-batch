@@ -45,7 +45,7 @@ public class AbstractCollector002Test {
     public void testExecute001() {
         AbstractCollectorStubHasNext1<AbstractCollectorTestBean> col = new AbstractCollectorStubHasNext1<AbstractCollectorTestBean>();
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         try {
             col.execute();
         } catch (SystemException e) {
@@ -65,7 +65,7 @@ public class AbstractCollector002Test {
     public void testHasNext001() {
         AbstractCollectorStubHasNext2<AbstractCollectorTestBean> col = new AbstractCollectorStubHasNext2<AbstractCollectorTestBean>();
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = col.hasNext();
 
         assertFalse(result);
@@ -78,7 +78,7 @@ public class AbstractCollector002Test {
     public void testHasNext002() {
         AbstractCollectorStubHasNext3<AbstractCollectorTestBean> col = new AbstractCollectorStubHasNext3<AbstractCollectorTestBean>();
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = col.hasNext();
 
         assertFalse(result);
@@ -91,7 +91,7 @@ public class AbstractCollector002Test {
     public void testHasNext003() {
         AbstractCollectorStubHasNext3<AbstractCollectorTestBean> col = new AbstractCollectorStubHasNext3<AbstractCollectorTestBean>();
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = col.hasNext();
 
         assertFalse(result);
@@ -104,7 +104,7 @@ public class AbstractCollector002Test {
     public void testHasNext004() {
         AbstractCollectorStubHasNext4<AbstractCollectorTestBean> col = new AbstractCollectorStubHasNext4<AbstractCollectorTestBean>();
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = col.hasNext();
 
         assertFalse(result);
@@ -223,53 +223,53 @@ public class AbstractCollector002Test {
 
     // @Test
     // public void testGetPrevious() {
-    // fail("‚Ü‚¾À‘•‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ");
+    // fail("ã¾ã å®Ÿè£…ã•ã‚Œã¦ã„ã¾ã›ã‚“");
     // }
     //
     // @Test
     // public void testGetCurrent() {
-    // fail("‚Ü‚¾À‘•‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ");
+    // fail("ã¾ã å®Ÿè£…ã•ã‚Œã¦ã„ã¾ã›ã‚“");
     // }
     //
     // @Test
     // public void testClose() {
-    // fail("‚Ü‚¾À‘•‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ");
+    // fail("ã¾ã å®Ÿè£…ã•ã‚Œã¦ã„ã¾ã›ã‚“");
     // }
     //
     // @Test
     // public void testRemove() {
-    // fail("‚Ü‚¾À‘•‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ");
+    // fail("ã¾ã å®Ÿè£…ã•ã‚Œã¦ã„ã¾ã›ã‚“");
     // }
     //
     // @Test
     // public void testIterator() {
-    // fail("‚Ü‚¾À‘•‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ");
+    // fail("ã¾ã å®Ÿè£…ã•ã‚Œã¦ã„ã¾ã›ã‚“");
     // }
     //
     // @Test
     // public void testSetQueueSize() {
-    // // fail("‚Ü‚¾À‘•‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ");
+    // // fail("ã¾ã å®Ÿè£…ã•ã‚Œã¦ã„ã¾ã›ã‚“");
     // }
     //
     // @Test
     // public void testGetSleepWait() {
-    // // fail("‚Ü‚¾À‘•‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ");
+    // // fail("ã¾ã å®Ÿè£…ã•ã‚Œã¦ã„ã¾ã›ã‚“");
     // }
     //
     // @Test
     // public void testSetSleepWait() {
-    // // fail("‚Ü‚¾À‘•‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ");
+    // // fail("ã¾ã å®Ÿè£…ã•ã‚Œã¦ã„ã¾ã›ã‚“");
     // }
     //
     // @Test
     // public void testCloseQuietly() {
-    // // fail("‚Ü‚¾À‘•‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ");
+    // // fail("ã¾ã å®Ÿè£…ã•ã‚Œã¦ã„ã¾ã›ã‚“");
     // }
 
     
     /**
-     * hasNext()‚ÌƒeƒXƒg
-     * ƒXƒLƒbƒvˆ—‚É‚¨‚¢‚ÄAValidateErrorStatus‚ªSKIP‚Ìê‡‚Ì“®ìŠm”F
+     * hasNext()ã®ãƒ†ã‚¹ãƒˆ
+     * ã‚¹ã‚­ãƒƒãƒ—å‡¦ç†ã«ãŠã„ã¦ã€ValidateErrorStatusãŒSKIPã®å ´åˆã®å‹•ä½œç¢ºèª
      */
     @Test
     public void testHasNext005() throws InterruptedException{
@@ -280,7 +280,7 @@ public class AbstractCollector002Test {
         col.addQueue(skip);
         col.addQueue(vo1);
         
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = col.hasNext();
 
         assertTrue(result);
@@ -288,8 +288,8 @@ public class AbstractCollector002Test {
 
 
     /**
-     * hasNext()‚ÌƒeƒXƒg
-     * ƒXƒLƒbƒvˆ—‚É‚¨‚¢‚ÄAValidateErrorStatus‚ªEND‚Ìê‡‚Ì“®ìŠm”F
+     * hasNext()ã®ãƒ†ã‚¹ãƒˆ
+     * ã‚¹ã‚­ãƒƒãƒ—å‡¦ç†ã«ãŠã„ã¦ã€ValidateErrorStatusãŒENDã®å ´åˆã®å‹•ä½œç¢ºèª
      */
     @Test
     public void testHasNext006() throws InterruptedException{
@@ -300,150 +300,150 @@ public class AbstractCollector002Test {
         col.addQueue(end);
         col.addQueue(vo1);
         
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = col.hasNext();
 
         assertFalse(result);
     }
 
     /**
-     * hasNext()‚ÌƒeƒXƒg
-     * ƒXƒLƒbƒvˆ—‚É‚¨‚¢‚ÄA—áŠO‚ª”­¶‚µA—áŠOƒnƒ“ƒhƒ‰‚Ìˆ—Œ‹‰Ê‚ªSKIP‚Æ‚È‚Á‚½ê‡‚Ì“®ìŠm”F
+     * hasNext()ã®ãƒ†ã‚¹ãƒˆ
+     * ã‚¹ã‚­ãƒƒãƒ—å‡¦ç†ã«ãŠã„ã¦ã€ä¾‹å¤–ãŒç™ºç”Ÿã—ã€ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©ã®å‡¦ç†çµæœãŒSKIPã¨ãªã£ãŸå ´åˆã®å‹•ä½œç¢ºèª
      */
     @Test
     public void testHasNext007() throws Exception {
 		AbstractCollectorStubHasNext5<AbstractCollectorTestBean> col = new AbstractCollectorStubHasNext5<AbstractCollectorTestBean>(
 				2, CollectorExceptionHandlerStatus.SKIP);
         DataValueObject vo1 = new DataValueObject(new Object());
-        DataValueObject skip = new DataValueObject(new Exception("hasNext()ƒeƒXƒgF—áŠOƒnƒ“ƒhƒ‰‚Ìˆ—Œ‹‰ÊSKIP")); 
+        DataValueObject skip = new DataValueObject(new Exception("hasNext()ãƒ†ã‚¹ãƒˆï¼šä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©ã®å‡¦ç†çµæœSKIP")); 
 
         col.addQueue(skip);
         col.addQueue(vo1);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = col.hasNext();
 
         assertTrue(result);
     }
     
     /**
-     * hasNext()‚ÌƒeƒXƒg
-     * ƒXƒLƒbƒvˆ—‚É‚¨‚¢‚ÄA—áŠO‚ª”­¶‚µA—áŠOƒnƒ“ƒhƒ‰‚Ìˆ—Œ‹‰Ê‚ªEND‚Æ‚È‚Á‚½ê‡‚Ì“®ìŠm”F
+     * hasNext()ã®ãƒ†ã‚¹ãƒˆ
+     * ã‚¹ã‚­ãƒƒãƒ—å‡¦ç†ã«ãŠã„ã¦ã€ä¾‹å¤–ãŒç™ºç”Ÿã—ã€ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©ã®å‡¦ç†çµæœãŒENDã¨ãªã£ãŸå ´åˆã®å‹•ä½œç¢ºèª
      */
     @Test
     public void testHasNext008() throws Exception {
 		AbstractCollectorStubHasNext5<AbstractCollectorTestBean> col = new AbstractCollectorStubHasNext5<AbstractCollectorTestBean>(
 				2, CollectorExceptionHandlerStatus.END);
         DataValueObject vo1 = new DataValueObject(new Object());
-        DataValueObject end = new DataValueObject(new Exception("hasNext()ƒeƒXƒgF—áŠOƒnƒ“ƒhƒ‰‚Ìˆ—Œ‹‰ÊEND")); 
+        DataValueObject end = new DataValueObject(new Exception("hasNext()ãƒ†ã‚¹ãƒˆï¼šä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©ã®å‡¦ç†çµæœEND")); 
 
         col.addQueue(end);
         col.addQueue(vo1);
         
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = col.hasNext();
 
         assertFalse(result);
     }
     
     /**
-     * handleException()‚ÌƒeƒXƒg
-     * ”»’èÏ‚İ‚Å‚È‚¢DataValueObject‚ª“n‚³‚ê‚½ê‡AexceptionHandler#handleException‚ÌŒ‹‰Ê‚ğ•Ô‚·‚±‚Æ‚ğŠm”F
+     * handleException()ã®ãƒ†ã‚¹ãƒˆ
+     * åˆ¤å®šæ¸ˆã¿ã§ãªã„DataValueObjectãŒæ¸¡ã•ã‚ŒãŸå ´åˆã€exceptionHandler#handleExceptionã®çµæœã‚’è¿”ã™ã“ã¨ã‚’ç¢ºèª
      */
     @Test
     public void testHandleException001() throws Exception {
 		AbstractCollectorStubHasNext5<AbstractCollectorTestBean> col = new AbstractCollectorStubHasNext5<AbstractCollectorTestBean>(
 				2, CollectorExceptionHandlerStatus.END);
-        DataValueObject end = new DataValueObject(new Exception("hasNext()ƒeƒXƒgF—áŠOƒnƒ“ƒhƒ‰‚Ìˆ—Œ‹‰ÊEND"));
+        DataValueObject end = new DataValueObject(new Exception("hasNext()ãƒ†ã‚¹ãƒˆï¼šä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©ã®å‡¦ç†çµæœEND"));
     	
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         assertEquals(CollectorExceptionHandlerStatus.END, col.handleException(end));
         assertEquals(CollectorExceptionHandlerStatus.END, end.getExceptionHandlerStatus());
     }
     
     /**
-     * handleException()‚ÌƒeƒXƒg
-     * exceptionHandlerStatus ‚É”»’èÏ‚İ‚ÌŒ‹‰Ê‚ªŠi”[‚³‚ê‚Ä‚¢‚éê‡‚ÍA‰ü‚ß‚Ä”»’è‚Ís‚í‚¸”»’èÏ‚İ‚ÌŒ‹‰Ê‚ğ•Ô‚·‚±‚Æ‚ğŠm”FB
-     * –{ƒeƒXƒgƒR[ƒh‚Å‚ÍAhandleExeption ‚ÌŒ‹‰Ê‚ª CollectorExceptionHandlerStatus.END ‚Æ‚È‚Á‚Ä‚¢‚Ä‚à
-     * ”»’èÏ‚İ‚ÌŒ‹‰Ê CollectorExceptionHandlerStatus.SKIP ‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚µ‚Ä‚¢‚éB
+     * handleException()ã®ãƒ†ã‚¹ãƒˆ
+     * exceptionHandlerStatus ã«åˆ¤å®šæ¸ˆã¿ã®çµæœãŒæ ¼ç´ã•ã‚Œã¦ã„ã‚‹å ´åˆã¯ã€æ”¹ã‚ã¦åˆ¤å®šã¯è¡Œã‚ãšåˆ¤å®šæ¸ˆã¿ã®çµæœã‚’è¿”ã™ã“ã¨ã‚’ç¢ºèªã€‚
+     * æœ¬ãƒ†ã‚¹ãƒˆã‚³ãƒ¼ãƒ‰ã§ã¯ã€handleExeption ã®çµæœãŒ CollectorExceptionHandlerStatus.END ã¨ãªã£ã¦ã„ã¦ã‚‚
+     * åˆ¤å®šæ¸ˆã¿ã®çµæœ CollectorExceptionHandlerStatus.SKIP ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã—ã¦ã„ã‚‹ã€‚
      */
     @Test
     public void testHandleException002() throws Exception {
 		AbstractCollectorStubHasNext5<AbstractCollectorTestBean> col = new AbstractCollectorStubHasNext5<AbstractCollectorTestBean>(
 				2, CollectorExceptionHandlerStatus.END);
-        DataValueObject skip = new DataValueObject(new Exception("hasNext()ƒeƒXƒgF—áŠOƒnƒ“ƒhƒ‰‚Ìˆ—Œ‹‰ÊSKIP"));
+        DataValueObject skip = new DataValueObject(new Exception("hasNext()ãƒ†ã‚¹ãƒˆï¼šä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©ã®å‡¦ç†çµæœSKIP"));
         skip.setExceptionHandlerStatus(CollectorExceptionHandlerStatus.SKIP);
     	
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         assertEquals(skip.getExceptionHandlerStatus(), col.handleException(skip));
     }
     
     /**
-     * handleException()‚ÌƒeƒXƒg
-     * exceptionHandler == null‚ÌCollector‚Å‚ ‚éê‡Anull‚ğ•Ô‚·‚±‚Æ‚ğŠm”F
+     * handleException()ã®ãƒ†ã‚¹ãƒˆ
+     * exceptionHandler == nullã®Collectorã§ã‚ã‚‹å ´åˆã€nullã‚’è¿”ã™ã“ã¨ã‚’ç¢ºèª
      */
     @Test
     public void testHandleException003() throws Exception {
 		AbstractCollectorStubHasNext5<AbstractCollectorTestBean> col = new AbstractCollectorStubHasNext5<AbstractCollectorTestBean>(2);
         DataValueObject skip = new DataValueObject("hoge");
     	
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         assertNull(col.handleException(skip));
     }
     
     /**
-     * setFinish()‚ÌƒeƒXƒg
-     * NotificationBlockingQueue‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚Å‚ ‚éê‡A
-     * ƒLƒ…[‚É‘Î‚µƒLƒ…[ƒCƒ“ƒO‚ÌI—¹‚ğ’Ê’m‚·‚éˆ—‚ğÀs‚·‚é‚±‚Æ‚ğŠm”F‚·‚é
+     * setFinish()ã®ãƒ†ã‚¹ãƒˆ
+     * NotificationBlockingQueueã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã§ã‚ã‚‹å ´åˆã€
+     * ã‚­ãƒ¥ãƒ¼ã«å¯¾ã—ã‚­ãƒ¥ãƒ¼ã‚¤ãƒ³ã‚°ã®çµ‚äº†ã‚’é€šçŸ¥ã™ã‚‹å‡¦ç†ã‚’å®Ÿè¡Œã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹
      */
     @Test
     public void testSetFinish001() throws Exception {
-    	// AbstractCollectorStubSetFinish1‚Å‚ÍArrayBlockingQueue‚ğg—p‚·‚é
+    	// AbstractCollectorStubSetFinish1ã§ã¯ArrayBlockingQueueã‚’ä½¿ç”¨ã™ã‚‹
     	AbstractCollectorStubSetFinish1<AbstractCollectorTestBean> col = new AbstractCollectorStubSetFinish1<AbstractCollectorTestBean>();
-    	// ƒLƒ…[‚ğì¬‚·‚éBƒLƒ…[‚Íexecuteƒƒ\ƒbƒh“à‚Å‚Ì‚İcreate‚³‚ê‚éB
+    	// ã‚­ãƒ¥ãƒ¼ã‚’ä½œæˆã™ã‚‹ã€‚ã‚­ãƒ¥ãƒ¼ã¯executeãƒ¡ã‚½ãƒƒãƒ‰å†…ã§ã®ã¿createã•ã‚Œã‚‹ã€‚
     	col.execute();
 
-    	// AbstractCollector‚ÌI—¹ƒtƒ‰ƒOfinish‚ğŠm”F
+    	// AbstractCollectorã®çµ‚äº†ãƒ•ãƒ©ã‚°finishã‚’ç¢ºèª
     	boolean finish = (Boolean) ReflectionUtils.getField(col, AbstractCollector.class, "finish");
     	assertFalse(finish);
     	
-    	// ƒeƒXƒgÀ{
+    	// ãƒ†ã‚¹ãƒˆå®Ÿæ–½
     	col.setFinish();
-    	// I—¹ƒtƒ‰ƒO‚ªƒLƒ…[‚É“ü‚Á‚Ä‚¢‚é‚±‚Æ‚ğŠm”F
+    	// çµ‚äº†ãƒ•ãƒ©ã‚°ãŒã‚­ãƒ¥ãƒ¼ã«å…¥ã£ã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèª
     	assertEquals(CollectorStatus.END, col.getQueue().peek().getCollectorStatus());
-    	// finishQueueingFlag‚ğŠm”FB
-    	// finishQueueing‚ªÀs‚³‚ê‚Ä‚¢‚ê‚Îƒtƒ‰ƒO‚Ítrue‚É‚È‚Á‚Ä‚¢‚é‚Í‚¸B
+    	// finishQueueingFlagã‚’ç¢ºèªã€‚
+    	// finishQueueingãŒå®Ÿè¡Œã•ã‚Œã¦ã„ã‚Œã°ãƒ•ãƒ©ã‚°ã¯trueã«ãªã£ã¦ã„ã‚‹ã¯ãšã€‚
     	ArrayBlockingQueueEx<DataValueObject> arrayBlockingQueueEx = (ArrayBlockingQueueEx<DataValueObject>) col.getQueue();
     	boolean finishQueueingFlag = (Boolean) ReflectionUtils.getField(arrayBlockingQueueEx, "finishQueueingFlag");
     	assertTrue(finishQueueingFlag);
     	
-    	// AbstractCollector‚ÌI—¹ƒtƒ‰ƒOfinish‚ğŠm”F
+    	// AbstractCollectorã®çµ‚äº†ãƒ•ãƒ©ã‚°finishã‚’ç¢ºèª
     	finish = (Boolean) ReflectionUtils.getField(col, AbstractCollector.class, "finish");
     	assertTrue(finish);
     }
 
     /**
-     * setFinish()‚ÌƒeƒXƒg
-     * NotificationBlockingQueue‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚Å‚È‚¢ê‡A
-     * ƒLƒ…[‚É‘Î‚µƒLƒ…[ƒCƒ“ƒO‚ÌI—¹‚ğ’Ê’m‚·‚éˆ—‚ğÀs‚¹‚¸I—¹‚·‚é‚±‚Æ‚ğŠm”F‚·‚é
+     * setFinish()ã®ãƒ†ã‚¹ãƒˆ
+     * NotificationBlockingQueueã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã§ãªã„å ´åˆã€
+     * ã‚­ãƒ¥ãƒ¼ã«å¯¾ã—ã‚­ãƒ¥ãƒ¼ã‚¤ãƒ³ã‚°ã®çµ‚äº†ã‚’é€šçŸ¥ã™ã‚‹å‡¦ç†ã‚’å®Ÿè¡Œã›ãšçµ‚äº†ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹
      */
     @Test
     public void testSetFinish002() throws Exception {
-    	// AbstractCollectorStubSetFinish2‚Å‚ÍArrayBlockingQueue‚ğg—p‚·‚é
+    	// AbstractCollectorStubSetFinish2ã§ã¯ArrayBlockingQueueã‚’ä½¿ç”¨ã™ã‚‹
     	AbstractCollectorStubSetFinish2<AbstractCollectorTestBean> col = new AbstractCollectorStubSetFinish2<AbstractCollectorTestBean>();
-    	// ƒLƒ…[‚ğì¬‚·‚éBƒLƒ…[‚Íexecuteƒƒ\ƒbƒh“à‚Å‚Ì‚İcreate‚³‚ê‚éB
+    	// ã‚­ãƒ¥ãƒ¼ã‚’ä½œæˆã™ã‚‹ã€‚ã‚­ãƒ¥ãƒ¼ã¯executeãƒ¡ã‚½ãƒƒãƒ‰å†…ã§ã®ã¿createã•ã‚Œã‚‹ã€‚
     	col.execute();
     	
-    	// AbstractCollector‚ÌI—¹ƒtƒ‰ƒOfinish‚ğŠm”F
+    	// AbstractCollectorã®çµ‚äº†ãƒ•ãƒ©ã‚°finishã‚’ç¢ºèª
     	boolean finish = (Boolean) ReflectionUtils.getField(col, AbstractCollector.class, "finish");
     	assertFalse(finish);
     	
-    	// ƒeƒXƒgÀ{
+    	// ãƒ†ã‚¹ãƒˆå®Ÿæ–½
     	col.setFinish();
-    	// I—¹ƒtƒ‰ƒO‚ªƒLƒ…[‚É“ü‚Á‚Ä‚¢‚é‚±‚Æ‚ğŠm”F
+    	// çµ‚äº†ãƒ•ãƒ©ã‚°ãŒã‚­ãƒ¥ãƒ¼ã«å…¥ã£ã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèª
     	assertEquals(CollectorStatus.END, col.getQueue().peek().getCollectorStatus());
     	
-    	// AbstractCollector‚ÌI—¹ƒtƒ‰ƒOfinish‚ğŠm”F
+    	// AbstractCollectorã®çµ‚äº†ãƒ•ãƒ©ã‚°finishã‚’ç¢ºèª
     	finish = (Boolean) ReflectionUtils.getField(col, AbstractCollector.class, "finish");
     	assertTrue(finish);    	
     }

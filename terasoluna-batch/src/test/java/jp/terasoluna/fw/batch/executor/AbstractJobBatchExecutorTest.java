@@ -34,7 +34,7 @@ import static org.mockito.Mockito.*;
 public class AbstractJobBatchExecutorTest extends DaoTestCase {
 
     /**
-     * ���p����DAO�N���X
+     * 利用するDAOクラス
      */
     private SystemDao systemDao = null;
 
@@ -65,11 +65,11 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
     }
 
     /**
-     * �W���u�X�e�[�^�X����̃e�X�g <br>
+     * ジョブステータス判定のテスト <br>
      * <br>
-     * �e�X�g�T�v�F �N�����u0�v�Ō��݃W���u�X�e�[�^�X�������{�u0�v�̏ꍇ�A �W���u�X�e�[�^�X���茋�ʂ����s���u1�v��ԋp���邱�Ƃ��m�F����B <br>
+     * テスト概要： 起動時「0」で現在ジョブステータスが未実施「0」の場合、 ジョブステータス判定結果が実行中「1」を返却することを確認する。 <br>
      * <br>
-     * �m�F���ځF���s���u1�v���ԋp����邱�Ƃ��m�F����B<br>
+     * 確認項目：実行中「1」が返却されることを確認する。<br>
      * <br>
      * @throws Exception
      */
@@ -87,11 +87,11 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
     }
 
     /**
-     * �W���u�X�e�[�^�X����̃e�X�g <br>
+     * ジョブステータス判定のテスト <br>
      * <br>
-     * �e�X�g�T�v�F �N�����u0�v�Ō��݃W���u�X�e�[�^�X�����s���u1�v�̏ꍇ�A �W���u�X�e�[�^�X���茋�ʂ�null��ԋp���邱�Ƃ��m�F����B <br>
+     * テスト概要： 起動時「0」で現在ジョブステータスが実行中「1」の場合、 ジョブステータス判定結果がnullを返却することを確認する。 <br>
      * <br>
-     * �m�F���ځFnull���ԋp����邱�Ƃ��m�F����B<br>
+     * 確認項目：nullが返却されることを確認する。<br>
      * <br>
      * @throws Exception
      */
@@ -109,11 +109,11 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
     }
 
     /**
-     * �W���u�X�e�[�^�X����̃e�X�g <br>
+     * ジョブステータス判定のテスト <br>
      * <br>
-     * �e�X�g�T�v�F �N�����u0�v�Ō��݃W���u�X�e�[�^�X�������ρu2�v�̏ꍇ�A �W���u�X�e�[�^�X���茋�ʂ�null��ԋp���邱�Ƃ��m�F����B <br>
+     * テスト概要： 起動時「0」で現在ジョブステータスが処理済「2」の場合、 ジョブステータス判定結果がnullを返却することを確認する。 <br>
      * <br>
-     * �m�F���ځFnull���ԋp����邱�Ƃ��m�F����B<br>
+     * 確認項目：nullが返却されることを確認する。<br>
      * <br>
      * @throws Exception
      */
@@ -131,11 +131,11 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
     }
 
     /**
-     * �W���u�X�e�[�^�X����̃e�X�g <br>
+     * ジョブステータス判定のテスト <br>
      * <br>
-     * �e�X�g�T�v�F ����I�����u1�v�Ō��݃W���u�X�e�[�^�X�����s���u0�v�̏ꍇ�A �W���u�X�e�[�^�X���茋�ʂ�null��ԋp���邱�Ƃ��m�F����B <br>
+     * テスト概要： 正常終了時「1」で現在ジョブステータスが実行中「0」の場合、 ジョブステータス判定結果がnullを返却することを確認する。 <br>
      * <br>
-     * �m�F���ځFnull���ԋp����邱�Ƃ��m�F����B<br>
+     * 確認項目：nullが返却されることを確認する。<br>
      * <br>
      * @throws Exception
      */
@@ -154,11 +154,11 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
     }
 
     /**
-     * �W���u�X�e�[�^�X����̃e�X�g <br>
+     * ジョブステータス判定のテスト <br>
      * <br>
-     * �e�X�g�T�v�F ����I�����u1�v�Ō��݃W���u�X�e�[�^�X�����s���u1�v�̏ꍇ�A �W���u�X�e�[�^�X���茋�ʂ������ρu2�v��ԋp���邱�Ƃ��m�F����B <br>
+     * テスト概要： 正常終了時「1」で現在ジョブステータスが実行中「1」の場合、 ジョブステータス判定結果が処理済「2」を返却することを確認する。 <br>
      * <br>
-     * �m�F���ځF�����ρu2�v���ԋp����邱�Ƃ��m�F����B<br>
+     * 確認項目：処理済「2」が返却されることを確認する。<br>
      * <br>
      * @throws Exception
      */
@@ -177,11 +177,11 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
     }
 
     /**
-     * �W���u�X�e�[�^�X����̃e�X�g <br>
+     * ジョブステータス判定のテスト <br>
      * <br>
-     * �e�X�g�T�v�F ����I�����u1�v�Ō��݃W���u�X�e�[�^�X�������ρu2�v�̏ꍇ�A �W���u�X�e�[�^�X���茋�ʂ�null��ԋp���邱�Ƃ��m�F����B <br>
+     * テスト概要： 正常終了時「1」で現在ジョブステータスが処理済「2」の場合、 ジョブステータス判定結果がnullを返却することを確認する。 <br>
      * <br>
-     * �m�F���ځFnull���ԋp����邱�Ƃ��m�F����B<br>
+     * 確認項目：nullが返却されることを確認する。<br>
      * <br>
      * @throws Exception
      */
@@ -200,15 +200,15 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
     }
 
     /**
-     * �W���u�X�e�[�^�X�X�V���\�b�h�̃e�X�g<br>
+     * ジョブステータス更新メソッドのテスト<br>
      * <br>
-     * �e�X�g�T�v�F<br>
-     * �N�����u0�v�ŃW���u�Ǘ��e�[�u���ɓo�^����Ă��� �W���u�V�[�P���X�R�[�h�u0000000001�v�̃W���u�X�e�[�^�X��
-     * �����{�u0�v�̏ꍇtrue���ԋp����邱�Ƃ��m�F����B <br>
+     * テスト概要：<br>
+     * 起動時「0」でジョブ管理テーブルに登録されている ジョブシーケンスコード「0000000001」のジョブステータスが
+     * 未実施「0」の場合trueが返却されることを確認する。 <br>
      * <br>
-     * �m�F���ځF<br>
-     * true���ԋp����邱�ƁB<br>
-     * DB�̃X�e�[�^�X���X�V����Ă��邱�ƁB
+     * 確認項目：<br>
+     * trueが返却されること。<br>
+     * DBのステータスが更新されていること。
      * @throws Exception
      */
     public void testUpdateBatchStatus01() throws Exception {
@@ -227,15 +227,15 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
     }
 
     /**
-     * �W���u�X�e�[�^�X�X�V���\�b�h�̃e�X�g<br>
+     * ジョブステータス更新メソッドのテスト<br>
      * <br>
-     * �e�X�g�T�v�F<br>
-     * �N�����u0�v�ŃW���u�Ǘ��e�[�u���ɓo�^����Ă��� �W���u�V�[�P���X�R�[�h�u0000000002�v�̃W���u�X�e�[�^�X��
-     * ���s���u1�v�̏ꍇfalse���ԋp����邱�Ƃ��m�F����B <br>
+     * テスト概要：<br>
+     * 起動時「0」でジョブ管理テーブルに登録されている ジョブシーケンスコード「0000000002」のジョブステータスが
+     * 実行中「1」の場合falseが返却されることを確認する。 <br>
      * <br>
-     * �m�F���ځF<br>
-     * false���ԋp����邱�ƁB<br>
-     * DB�̃X�e�[�^�X���X�V����Ă��邱�ƁB
+     * 確認項目：<br>
+     * falseが返却されること。<br>
+     * DBのステータスが更新されていること。
      * @throws Exception
      */
     public void testUpdateBatchStatus02() throws Exception {
@@ -254,15 +254,15 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
     }
 
     /**
-     * �W���u�X�e�[�^�X�X�V���\�b�h�̃e�X�g<br>
+     * ジョブステータス更新メソッドのテスト<br>
      * <br>
-     * �e�X�g�T�v�F<br>
-     * �N�����u0�v�ŃW���u�Ǘ��e�[�u���ɓo�^����Ă��� �W���u�V�[�P���X�R�[�h�u0000000003�v�̃W���u�X�e�[�^�X��
-     * �����ρu2�v�̏ꍇfalse���ԋp����邱�Ƃ��m�F����B <br>
+     * テスト概要：<br>
+     * 起動時「0」でジョブ管理テーブルに登録されている ジョブシーケンスコード「0000000003」のジョブステータスが
+     * 処理済「2」の場合falseが返却されることを確認する。 <br>
      * <br>
-     * �m�F���ځF<br>
-     * false���ԋp����邱�ƁB<br>
-     * DB�̃X�e�[�^�X���X�V����Ă��邱�ƁB
+     * 確認項目：<br>
+     * falseが返却されること。<br>
+     * DBのステータスが更新されていること。
      * @throws Exception
      */
     public void testUpdateBatchStatus03() throws Exception {
@@ -281,15 +281,15 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
     }
 
     /**
-     * �W���u�X�e�[�^�X�X�V���\�b�h�̃e�X�g<br>
+     * ジョブステータス更新メソッドのテスト<br>
      * <br>
-     * �e�X�g�T�v�F<br>
-     * ����I�����u1�v�ŃW���u�Ǘ��e�[�u���ɓo�^����Ă��� �W���u�V�[�P���X�R�[�h�u0000000001�v�̃W���u�X�e�[�^�X��
-     * �����{�u0�v�̏ꍇ false���ԋp����邱�Ƃ��m�F����B <br>
+     * テスト概要：<br>
+     * 正常終了時「1」でジョブ管理テーブルに登録されている ジョブシーケンスコード「0000000001」のジョブステータスが
+     * 未実施「0」の場合 falseが返却されることを確認する。 <br>
      * <br>
-     * �m�F���ځF<br>
-     * false���ԋp����邱�ƁB<br>
-     * DB�̃X�e�[�^�X���X�V����Ă��邱�ƁB
+     * 確認項目：<br>
+     * falseが返却されること。<br>
+     * DBのステータスが更新されていること。
      * @throws Exception
      */
     public void testUpdateBatchStatus04() throws Exception {
@@ -308,15 +308,15 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
     }
 
     /**
-     * �W���u�X�e�[�^�X�X�V���\�b�h�̃e�X�g<br>
+     * ジョブステータス更新メソッドのテスト<br>
      * <br>
-     * �e�X�g�T�v�F<br>
-     * ����I�����u1�v�ŃW���u�Ǘ��e�[�u���ɓo�^����Ă��� �W���u�V�[�P���X�R�[�h�u0000000002�v�̃W���u�X�e�[�^�X��
-     * ���s���u1�v�̏ꍇ true���ԋp����邱�Ƃ��m�F����B <br>
+     * テスト概要：<br>
+     * 正常終了時「1」でジョブ管理テーブルに登録されている ジョブシーケンスコード「0000000002」のジョブステータスが
+     * 実行中「1」の場合 trueが返却されることを確認する。 <br>
      * <br>
-     * �m�F���ځF<br>
-     * true���ԋp����邱�ƁB<br>
-     * DB�̃X�e�[�^�X���X�V����Ă��邱�ƁB
+     * 確認項目：<br>
+     * trueが返却されること。<br>
+     * DBのステータスが更新されていること。
      * @throws Exception
      */
     public void testUpdateBatchStatus05() throws Exception {
@@ -335,15 +335,15 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
     }
 
     /**
-     * �W���u�X�e�[�^�X�X�V���\�b�h�̃e�X�g<br>
+     * ジョブステータス更新メソッドのテスト<br>
      * <br>
-     * �e�X�g�T�v�F<br>
-     * ����I�����u1�v�ŃW���u�Ǘ��e�[�u���ɓo�^����Ă��� �W���u�V�[�P���X�R�[�h�u0000000003�v�̃W���u�X�e�[�^�X��
-     * �����ρu2�v�̏ꍇ false���ԋp����邱�Ƃ��m�F����B <br>
+     * テスト概要：<br>
+     * 正常終了時「1」でジョブ管理テーブルに登録されている ジョブシーケンスコード「0000000003」のジョブステータスが
+     * 処理済「2」の場合 falseが返却されることを確認する。 <br>
      * <br>
-     * �m�F���ځF<br>
-     * false���ԋp����邱�ƁB<br>
-     * DB�̃X�e�[�^�X���X�V����Ă��邱�ƁB
+     * 確認項目：<br>
+     * falseが返却されること。<br>
+     * DBのステータスが更新されていること。
      * @throws Exception
      */
     public void testUpdateBatchStatus06() throws Exception {
@@ -362,14 +362,14 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
     }
 
     /**
-     * �W���u�X�e�[�^�X�X�V���\�b�h�̃e�X�g<br>
+     * ジョブステータス更新メソッドのテスト<br>
      * <br>
-     * �e�X�g�T�v�F<br>
-     * DB�t�F�[���I�[�o�̔�����z�肵�ATransactionManager#getTransaction(tranDef)�ɂ��
-     * �g�����U�N�V�����J�n����TransactionException�����������ꍇ�A�ďo�����ɃX���[����邱�ƁB<br>
+     * テスト概要：<br>
+     * DBフェールオーバの発生を想定し、TransactionManager#getTransaction(tranDef)による
+     * トランザクション開始時にTransactionExceptionが発生した場合、呼出し元にスローされること。<br>
      * <br>
-     * �m�F���ځF<br>
-     * TransactionException���X���[����邱�ƁB
+     * 確認項目：<br>
+     * TransactionExceptionがスローされること。
      * 
      * @throws Exception
      */
@@ -381,19 +381,19 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
                 systemDao, transactionManager);
             fail();
         } catch (TransactionException e) {
-            assertEquals("�g�����U�N�V�����J�n�m�F", e.getMessage());
+            assertEquals("トランザクション開始確認", e.getMessage());
         }
     }
 
     /**
-     * �W���u�X�e�[�^�X�X�V���\�b�h�̃e�X�g<br>
+     * ジョブステータス更新メソッドのテスト<br>
      * <br>
-     * �e�X�g�T�v�F<br>
-     * DB�t�F�[���I�[�o�̔�����z�肵�AJobUtil.updateJobStatus()�ɂ��
-     * DB�X�V����DataAccessException�����������ꍇ�A�ďo�����ɃX���[����邱�ƁB<br>
+     * テスト概要：<br>
+     * DBフェールオーバの発生を想定し、JobUtil.updateJobStatus()による
+     * DB更新時にDataAccessExceptionが発生した場合、呼出し元にスローされること。<br>
      * <br>
-     * �m�F���ځF<br>
-     * DataAccessException���X���[����邱�ƁB
+     * 確認項目：<br>
+     * DataAccessExceptionがスローされること。
      * 
      * @throws Exception
      */
@@ -401,7 +401,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
         SystemDao systemDao = mock(SystemDao.class);
         when(systemDao.updateJobTable(any(BatchJobManagementUpdateParam.class)))
-                .thenThrow(new DataAccessException("DB�X�e�[�^�X�X�V����O�m�F�p") {});
+                .thenThrow(new DataAccessException("DBステータス更新時例外確認用") {});
         when(systemDao.selectJob(any(BatchJobManagementParam.class)))
                 .thenReturn(new BatchJobData(){{
                     setJobSequenceId("0000000003");
@@ -413,26 +413,26 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
                 systemDao, transactionManager);
             fail();
         } catch (DataAccessException e) {
-            assertEquals("DB�X�e�[�^�X�X�V����O�m�F�p", e.getMessage());
+            assertEquals("DBステータス更新時例外確認用", e.getMessage());
         }
     }
 
     /**
-     * �W���u�X�e�[�^�X�X�V���\�b�h�̃e�X�g<br>
+     * ジョブステータス更新メソッドのテスト<br>
      * <br>
-     * �e�X�g�T�v�F<br>
-     * DB�t�F�[���I�[�o�̔�����z�肵�AJobUtil.selectJob(jobSequenceId, true, systemDao)�ɂ��
-     * DB�Q�Ǝ���DataAccessException�����������ꍇ�A�ďo�����ɃX���[����邱�ƁB<br>
+     * テスト概要：<br>
+     * DBフェールオーバの発生を想定し、JobUtil.selectJob(jobSequenceId, true, systemDao)による
+     * DB参照時にDataAccessExceptionが発生した場合、呼出し元にスローされること。<br>
      * <br>
-     * �m�F���ځF<br>
-     * DataAccessException���X���[����邱�ƁB
+     * 確認項目：<br>
+     * DataAccessExceptionがスローされること。
      * 
      * @throws Exception
      */
     public void testUpdateBatchStatus09() throws Exception {
         SystemDao systemDao = mock(SystemDao.class);
         when(systemDao.selectJob(any(BatchJobManagementParam.class)))
-                .thenThrow(new DataAccessException("DB�X�e�[�^�X�Q�Ǝ���O�m�F�p") {
+                .thenThrow(new DataAccessException("DBステータス参照時例外確認用") {
                 });
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
         try {
@@ -440,19 +440,19 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
                     systemDao, transactionManager);
             fail();
         } catch (DataAccessException e) {
-            assertEquals("DB�X�e�[�^�X�Q�Ǝ���O�m�F�p", e.getMessage());
+            assertEquals("DBステータス参照時例外確認用", e.getMessage());
         }
     }
 
     /**
-     * �W���u�X�e�[�^�X�X�V���\�b�h�̃e�X�g<br>
+     * ジョブステータス更新メソッドのテスト<br>
      * <br>
-     * �e�X�g�T�v�F<br>
-     * DB�t�F�[���I�[�o�̔�����z�肵�AtransactionManager.commit(tranStatus)�ɂ��
-     * �g�����U�N�V�����R�~�b�g���s����TransactionException�����������ꍇ�A�ďo�����ɃX���[����邱�ƁB<br>
+     * テスト概要：<br>
+     * DBフェールオーバの発生を想定し、transactionManager.commit(tranStatus)による
+     * トランザクションコミット失敗時にTransactionExceptionが発生した場合、呼出し元にスローされること。<br>
      * <br>
-     * �m�F���ځF<br>
-     * TransactionException���X���[����邱�ƁB
+     * 確認項目：<br>
+     * TransactionExceptionがスローされること。
      * 
      * @throws Exception
      */
@@ -463,20 +463,20 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
             exe.updateBatchStatus("0000000005", "1", "0", systemDao, transactionManager);
             fail();
         } catch (TransactionException e) {
-            assertEquals("�R�~�b�g�m�F�p", e.getMessage());
+            assertEquals("コミット確認用", e.getMessage());
         }
     }
 
     /**
-     * �W���u�X�e�[�^�X�X�V���\�b�h�̃e�X�g<br>
+     * ジョブステータス更新メソッドのテスト<br>
      * <br>
-     * �e�X�g�T�v�F<br>
-     * DB�t�F�[���I�[�o�ȊO�̗�O������z�肵�AtransactionManager��null�̏ꍇ�ɂ��
-     * �g�����U�N�V�����J�n����NullPointerException�����������ꍇ�A
-     * BatchException�Ƀ��b�v���ꂽ��ԂŌďo�����ɃX���[����邱�ƁB<br>
+     * テスト概要：<br>
+     * DBフェールオーバ以外の例外発生を想定し、transactionManagerがnullの場合による
+     * トランザクション開始時にNullPointerExceptionが発生した場合、
+     * BatchExceptionにラップされた状態で呼出し元にスローされること。<br>
      * <br>
-     * �m�F���ځF<br>
-     * BatchException���X���[����邱�ƁB
+     * 確認項目：<br>
+     * BatchExceptionがスローされること。
      *
      * @throws Exception
      */
@@ -491,15 +491,15 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
     }
 
     /**
-     * �W���u�X�e�[�^�X�X�V�i�W���u�I���j���\�b�h�̃e�X�g<br>
+     * ジョブステータス更新（ジョブ終了）メソッドのテスト<br>
      * <br>
-     * �e�X�g�T�v�F<br>
-     * ����I�����u1�v�ŃW���u�Ǘ��e�[�u���ɓo�^����Ă��� �W���u�V�[�P���X�R�[�h�u0000000001�v�̃W���u�X�e�[�^�X��
-     * �����{�u0�v�̏ꍇ false���ԋp����邱�Ƃ��m�F����B <br>
+     * テスト概要：<br>
+     * 正常終了時「1」でジョブ管理テーブルに登録されている ジョブシーケンスコード「0000000001」のジョブステータスが
+     * 未実施「0」の場合 falseが返却されることを確認する。 <br>
      * <br>
-     * �m�F���ځF<br>
-     * false���ԋp����邱�ƁB<br>
-     * DB�̃X�e�[�^�X���X�V����Ă��Ȃ����ƁB
+     * 確認項目：<br>
+     * falseが返却されること。<br>
+     * DBのステータスが更新されていないこと。
      * @throws Exception
      */
     public void testEndBatchStatus01() throws Exception {
@@ -517,15 +517,15 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
     }
 
     /**
-     * �W���u�X�e�[�^�X�X�V�i�W���u�I���j���\�b�h�̃e�X�g<br>
+     * ジョブステータス更新（ジョブ終了）メソッドのテスト<br>
      * <br>
-     * �e�X�g�T�v�F<br>
-     * ����I�����u1�v�ŃW���u�Ǘ��e�[�u���ɓo�^����Ă��� �W���u�V�[�P���X�R�[�h�u0000000002�v�̃W���u�X�e�[�^�X��
-     * ���s���u1�v�̏ꍇ true���ԋp����邱�Ƃ��m�F����B <br>
+     * テスト概要：<br>
+     * 正常終了時「1」でジョブ管理テーブルに登録されている ジョブシーケンスコード「0000000002」のジョブステータスが
+     * 実行中「1」の場合 trueが返却されることを確認する。 <br>
      * <br>
-     * �m�F���ځF<br>
-     * true���ԋp����邱�ƁB<br>
-     * DB�̃X�e�[�^�X���X�V����Ă��邱�ƁB
+     * 確認項目：<br>
+     * trueが返却されること。<br>
+     * DBのステータスが更新されていること。
      * @throws Exception
      */
     public void testEndBatchStatus02() throws Exception {
@@ -544,15 +544,15 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
     }
 
     /**
-     * �W���u�X�e�[�^�X�X�V�i�W���u�I���j���\�b�h�̃e�X�g<br>
+     * ジョブステータス更新（ジョブ終了）メソッドのテスト<br>
      * <br>
-     * �e�X�g�T�v�F<br>
-     * ����I�����u1�v�ŃW���u�Ǘ��e�[�u���ɓo�^����Ă��� �W���u�V�[�P���X�R�[�h�u0000000003�v�̃W���u�X�e�[�^�X��
-     * �����ρu2�v�̏ꍇ false���ԋp����邱�Ƃ��m�F����B <br>
+     * テスト概要：<br>
+     * 正常終了時「1」でジョブ管理テーブルに登録されている ジョブシーケンスコード「0000000003」のジョブステータスが
+     * 処理済「2」の場合 falseが返却されることを確認する。 <br>
      * <br>
-     * �m�F���ځF<br>
-     * false���ԋp����邱�ƁB<br>
-     * DB�̃X�e�[�^�X���X�V����Ă��Ȃ����ƁB
+     * 確認項目：<br>
+     * falseが返却されること。<br>
+     * DBのステータスが更新されていないこと。
      * @throws Exception
      */
     public void testEndBatchStatus03() throws Exception {
@@ -570,15 +570,15 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
     }
 
     /**
-     * �W���u�X�e�[�^�X�X�V�i�W���u�J�n�j���\�b�h�̃e�X�g<br>
+     * ジョブステータス更新（ジョブ開始）メソッドのテスト<br>
      * <br>
-     * �e�X�g�T�v�F<br>
-     * �N�����u0�v�ŃW���u�Ǘ��e�[�u���ɓo�^����Ă��� �W���u�V�[�P���X�R�[�h�u0000000001�v�̃W���u�X�e�[�^�X��
-     * �����{�u0�v�̏ꍇ true���ԋp����邱�Ƃ��m�F����B <br>
+     * テスト概要：<br>
+     * 起動時「0」でジョブ管理テーブルに登録されている ジョブシーケンスコード「0000000001」のジョブステータスが
+     * 未実施「0」の場合 trueが返却されることを確認する。 <br>
      * <br>
-     * �m�F���ځF<br>
-     * true���ԋp����邱�ƁB<br>
-     * DB�̃X�e�[�^�X���X�V����Ă��邱�ƁB
+     * 確認項目：<br>
+     * trueが返却されること。<br>
+     * DBのステータスが更新されていること。
      * @throws Exception
      */
     public void testStartBatchStatus01() throws Exception {
@@ -596,15 +596,15 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
     }
 
     /**
-     * �W���u�X�e�[�^�X�X�V�i�W���u�J�n�j���\�b�h�̃e�X�g<br>
+     * ジョブステータス更新（ジョブ開始）メソッドのテスト<br>
      * <br>
-     * �e�X�g�T�v�F<br>
-     * �N�����u0�v�ŃW���u�Ǘ��e�[�u���ɓo�^����Ă��� �W���u�V�[�P���X�R�[�h�u0000000002�v�̃W���u�X�e�[�^�X��
-     * ���s���u1�v�̏ꍇfalse���ԋp����邱�Ƃ��m�F����B <br>
+     * テスト概要：<br>
+     * 起動時「0」でジョブ管理テーブルに登録されている ジョブシーケンスコード「0000000002」のジョブステータスが
+     * 実行中「1」の場合falseが返却されることを確認する。 <br>
      * <br>
-     * �m�F���ځF<br>
-     * false���ԋp����邱�ƁB<br>
-     * DB�̃X�e�[�^�X���X�V����Ă��Ȃ����ƁB
+     * 確認項目：<br>
+     * falseが返却されること。<br>
+     * DBのステータスが更新されていないこと。
      * @throws Exception
      */
     public void testStartBatchStatus02() throws Exception {
@@ -622,15 +622,15 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
     }
 
     /**
-     * �W���u�X�e�[�^�X�X�V�i�W���u�J�n�j���\�b�h�̃e�X�g<br>
+     * ジョブステータス更新（ジョブ開始）メソッドのテスト<br>
      * <br>
-     * �e�X�g�T�v�F<br>
-     * �N�����u0�v�ŃW���u�Ǘ��e�[�u���ɓo�^����Ă��� �W���u�V�[�P���X�R�[�h�u0000000003�v�̃W���u�X�e�[�^�X��
-     * �����ρu2�v�̏ꍇ false���ԋp����邱�Ƃ��m�F����B <br>
+     * テスト概要：<br>
+     * 起動時「0」でジョブ管理テーブルに登録されている ジョブシーケンスコード「0000000003」のジョブステータスが
+     * 処理済「2」の場合 falseが返却されることを確認する。 <br>
      * <br>
-     * �m�F���ځF<br>
-     * false���ԋp����邱�ƁB<br>
-     * DB�̃X�e�[�^�X���X�V����Ă��Ȃ����ƁB
+     * 確認項目：<br>
+     * falseが返却されること。<br>
+     * DBのステータスが更新されていないこと。
      * @throws Exception
      */
     public void testStartBatchStatus03() throws Exception {
@@ -648,15 +648,15 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
     }
 
     /**
-     * �W���u���s���\�b�h�̃e�X�g<br>
+     * ジョブ実行メソッドのテスト<br>
      * <br>
-     * �e�X�g�T�v�F<br>
-     * �N�����u0�v�ŃW���u�Ǘ��e�[�u���ɓo�^����Ă��� �W���u�V�[�P���X�R�[�h�u0000000001�v�̃W���u��
-     * ����Ɏ��s����邱�Ƃ��m�F����B <br>
+     * テスト概要：<br>
+     * 起動時「0」でジョブ管理テーブルに登録されている ジョブシーケンスコード「0000000001」のジョブが
+     * 正常に実行されることを確認する。 <br>
      * <br>
-     * �m�F���ځF<br>
-     * �W���u�I���R�[�h��0���ԋp����邱�ƁB<br>
-     * DB�̃X�e�[�^�X���X�V����Ă��邱�ƁB
+     * 確認項目：<br>
+     * ジョブ終了コードに0が返却されること。<br>
+     * DBのステータスが更新されていること。
      * @throws Exception
      */
     public void testExecuteBatch01() throws Exception {
@@ -713,14 +713,14 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
         BLogicResult result = exe.executeBatch("0000000003");
 
         assertNotNull(result);
-        // �X�V�X�e�[�^�X�s�����̂��߁A�r�W�l�X���W�b�N�͖����{�̂܂ܕԋp�����B
+        // 更新ステータス不整合のため、ビジネスロジックは未実施のまま返却される。
         assertEquals(-1, result.getBlogicStatus());
     }
 
     /**
-     * GetJobIntervalTime���\�b�h�̃e�X�g<br>
+     * GetJobIntervalTimeメソッドのテスト<br>
      * <br>
-     * �e�X�g�T�v�F getter���\�b�h�̃e�X�g�ł��邽�߁A�����l�����m�ɕԂ���邱�Ƃ��m�F����B
+     * テスト概要： getterメソッドのテストであるため、初期値が正確に返されることを確認する。
      * @throws Exception
      */
     public void testGetJobIntervalTime01() throws Exception {
@@ -731,9 +731,9 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
     }
 
     /**
-     * getExecutorEndMonitoringFile���\�b�h�̃e�X�g<br>
+     * getExecutorEndMonitoringFileメソッドのテスト<br>
      * <br>
-     * �e�X�g�T�v�Fgetter���\�b�h�̃e�X�g�ł��邽�߁A�����l��null�ł��邱�Ƃ��m�F����B
+     * テスト概要：getterメソッドのテストであるため、初期値がnullであることを確認する。
      * @throws Exception
      */
     public void testGetExecutorEndMonitoringFile01() throws Exception {
@@ -745,9 +745,9 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
     }
 
     /**
-     * getExecutorJobTerminateWaitIntervalTime���\�b�h�̃e�X�g<br>
+     * getExecutorJobTerminateWaitIntervalTimeメソッドのテスト<br>
      * <br>
-     * �e�X�g�T�v�Fgetter���\�b�h�̃e�X�g�ł��邽�߁A�����l��5000�ł��邱�Ƃ��m�F����B
+     * テスト概要：getterメソッドのテストであるため、初期値が5000であることを確認する。
      * @throws Exception
      */
     public void testGetExecutorJobTerminateWaitIntervalTime01()
@@ -758,9 +758,9 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
     }
 
     /**
-     * setChangeStartStatus���\�b�h�̃e�X�g<br>
+     * setChangeStartStatusメソッドのテスト<br>
      * <br>
-     * �e�X�g�T�v�Fsetter���\�b�h�̃e�X�g�ł��邽�߁A�����l��false�ł��邱�Ƃ��m�F����B
+     * テスト概要：setterメソッドのテストであるため、初期値がfalseであることを確認する。
      * @throws Exception
      */
     public void testSetChangeStartStatus01() throws Exception {
@@ -771,9 +771,9 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
     }
 
     /**
-     * setChangeStartStatus���\�b�h�̃e�X�g<br>
+     * setChangeStartStatusメソッドのテスト<br>
      * <br>
-     * �e�X�g�T�v�Fsetter���\�b�h�̃e�X�g�ł��邽�߁A������true��^���Atrue���ԋp����邱�Ƃ��m�F����B
+     * テスト概要：setterメソッドのテストであるため、引数にtrueを与え、trueが返却されることを確認する。
      * @throws Exception
      */
     public void testSetChangeStartStatus02() throws Exception {

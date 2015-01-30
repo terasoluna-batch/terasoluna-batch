@@ -61,7 +61,7 @@ public class FileValidateCollector013Test extends DaoTestCase {
 
     public void testFileValidateCollector013() throws Exception {
         if (this.csvFileQueryDAO == null) {
-            fail("csvFileQueryDAO‚ªnull‚Å‚·B");
+            fail("csvFileQueryDAOãŒnullã§ã™ã€‚");
         }
 
         URL url = getClass().getClassLoader().getResource("USER_TEST.csv");
@@ -74,7 +74,7 @@ public class FileValidateCollector013Test extends DaoTestCase {
         }
 
         if (url == null) {
-            fail("url‚ªnull‚Å‚·B");
+            fail("urlãŒnullã§ã™ã€‚");
         }
 
         // Collector<B000001Data> ac = new FileValidateCollector<B000001Data>(
@@ -93,11 +93,11 @@ public class FileValidateCollector013Test extends DaoTestCase {
 
             }
         } finally {
-            // ƒNƒ[ƒY
+            // ã‚¯ãƒ­ãƒ¼ã‚º
             FileValidateCollector.closeQuietly(it);
         }
 
-        // ƒRƒŒƒNƒ^ƒXƒŒƒbƒh”ƒ`ƒFƒbƒN
+        // ã‚³ãƒ¬ã‚¯ã‚¿ã‚¹ãƒ¬ãƒƒãƒ‰æ•°ãƒã‚§ãƒƒã‚¯
         assertTrue(CollectorTestUtil
                 .lessThanCollectorThreadCount(0 + this.previousThreadCount));
 
@@ -138,7 +138,7 @@ public class FileValidateCollector013Test extends DaoTestCase {
             assertEquals(count_first, count);
         }
 
-        // ƒRƒŒƒNƒ^ƒXƒŒƒbƒh”ƒ`ƒFƒbƒN
+        // ã‚³ãƒ¬ã‚¯ã‚¿ã‚¹ãƒ¬ãƒƒãƒ‰æ•°ãƒã‚§ãƒƒã‚¯
         assertTrue(CollectorTestUtil
                 .lessThanCollectorThreadCount(0 + this.previousThreadCount));
 

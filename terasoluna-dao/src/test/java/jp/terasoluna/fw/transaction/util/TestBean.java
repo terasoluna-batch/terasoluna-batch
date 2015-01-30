@@ -21,7 +21,7 @@ import org.springframework.beans.factory.BeanFactoryAware;
 import org.springframework.beans.factory.BeanNameAware;
 
 /**
- * bean‚âAOPƒtƒŒ[ƒ€ƒ[ƒN‚È‚Ç‚ÌŒ±‚Ég‚í‚ê‚éTestBeanB
+ * beanã‚„AOPãƒ•ãƒ¬ãƒ¼ãƒ ãƒ¯ãƒ¼ã‚¯ãªã©ã®è©¦é¨“ã«ä½¿ã‚ã‚Œã‚‹TestBeanã€‚
  */
 public class TestBean implements BeanNameAware, BeanFactoryAware, ITestBean,
         Comparable {
@@ -64,7 +64,7 @@ public class TestBean implements BeanNameAware, BeanFactoryAware, ITestBean,
     }
 
     /**
-     * @see ITestBeanƒNƒ‰ƒX‚Ìexceptional(Throwable)
+     * @see ITestBeanã‚¯ãƒ©ã‚¹ã®exceptional(Throwable)
      */
     public void exceptional(Throwable t) throws Throwable {
         if (t != null) {

@@ -24,15 +24,15 @@ import org.springframework.orm.ibatis.SqlMapClientTemplate;
 import org.springframework.orm.ibatis.support.SqlMapClientDaoSupport;
 
 /**
- * StoredProcedureDAOƒCƒ“ƒ^ƒtƒF[ƒX‚ÌiBATIS—pÀ‘•ƒNƒ‰ƒXB
+ * StoredProcedureDAOã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã®iBATISç”¨å®Ÿè£…ã‚¯ãƒ©ã‚¹ã€‚
  *<p/>
- * ‚±‚ÌƒNƒ‰ƒX‚ÍABean’è‹`ƒtƒ@ƒCƒ‹‚ÉBean’è‹`‚ğs‚¢ƒT[ƒrƒX‘w‚É
- * ƒCƒ“ƒWƒFƒNƒVƒ‡ƒ“‚µ‚Äg—p‚·‚éBˆÈ‰º‚Éİ’è—á‚¨‚æ‚ÑÀ‘•—á‚ğ¦‚·B<br/>
+ * ã“ã®ã‚¯ãƒ©ã‚¹ã¯ã€Beanå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ã«Beanå®šç¾©ã‚’è¡Œã„ã‚µãƒ¼ãƒ“ã‚¹å±¤ã«
+ * ã‚¤ãƒ³ã‚¸ã‚§ã‚¯ã‚·ãƒ§ãƒ³ã—ã¦ä½¿ç”¨ã™ã‚‹ã€‚ä»¥ä¸‹ã«è¨­å®šä¾‹ãŠã‚ˆã³å®Ÿè£…ä¾‹ã‚’ç¤ºã™ã€‚<br/>
  *
  * <br/>
  * <fieldset style="border:1pt solid black;padding:10px;width:100%;">
  * <legend>
- * Bean’è‹`ƒtƒ@ƒCƒ‹‚Ì—á
+ * Beanå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ã®ä¾‹
  * </legend>
  * <p/>
  * <code>
@@ -61,7 +61,7 @@ import org.springframework.orm.ibatis.support.SqlMapClientDaoSupport;
  * <p/>
  * <fieldset style="border:1pt solid black;padding:10px;width:100%;">
  * <legend>
- * ƒT[ƒrƒX‘w‚Å‚Ìg—p•û–@
+ * ã‚µãƒ¼ãƒ“ã‚¹å±¤ã§ã®ä½¿ç”¨æ–¹æ³•
  * </legend>
  * <p/>
  * <code>
@@ -95,7 +95,7 @@ import org.springframework.orm.ibatis.support.SqlMapClientDaoSupport;
  * <p/>
  * <fieldset style="border:1pt solid black;padding:10px;width:100%;">
  * <legend>
- * iBATIS‚Ìİ’è—á
+ * iBATISã®è¨­å®šä¾‹
  * </legend>
  * <p/>
  * <code>
@@ -117,18 +117,18 @@ public class StoredProcedureDAOiBatisImpl extends SqlMapClientDaoSupport
         implements StoredProcedureDAO {
 
     /**
-     * ƒƒOƒCƒ“ƒXƒ^ƒ“ƒX
+     * ãƒ­ã‚°ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
      */
     private static Log log = LogFactory
             .getLog(StoredProcedureDAOiBatisImpl.class);
 
     /**
-     * w’è‚³‚ê‚½SQLID‚ÌƒXƒgƒAƒhƒvƒƒV[ƒWƒƒ[‚ğÀs‚·‚éB
-     * ƒXƒgƒAƒhƒvƒƒV[ƒWƒƒ[‚ÌŒ‹‰Ê‚Å‚ ‚éƒAƒEƒgƒpƒ‰ƒ[ƒ^‚ÍA
-     * ˆø”‚ÌbindParams‚É”½‰f‚³‚ê‚éB
+     * æŒ‡å®šã•ã‚ŒãŸSQLIDã®ã‚¹ãƒˆã‚¢ãƒ‰ãƒ—ãƒ­ã‚·ãƒ¼ã‚¸ãƒ£ãƒ¼ã‚’å®Ÿè¡Œã™ã‚‹ã€‚
+     * ã‚¹ãƒˆã‚¢ãƒ‰ãƒ—ãƒ­ã‚·ãƒ¼ã‚¸ãƒ£ãƒ¼ã®çµæœã§ã‚ã‚‹ã‚¢ã‚¦ãƒˆãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã¯ã€
+     * å¼•æ•°ã®bindParamsã«åæ˜ ã•ã‚Œã‚‹ã€‚
      *
-     * @param sqlID Às‚·‚éSQL‚ÌID
-     * @param bindParams SQL‚ÉƒoƒCƒ“ƒh‚·‚é’l‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg
+     * @param sqlID å®Ÿè¡Œã™ã‚‹SQLã®ID
+     * @param bindParams SQLã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹å€¤ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      */
     public void executeForObject(String sqlID, Object bindParams) {
 
@@ -136,10 +136,10 @@ public class StoredProcedureDAOiBatisImpl extends SqlMapClientDaoSupport
             log.debug("executeForObject Start.");
         }
 
-        //SqlMapClient‚Ìæ“¾
+        //SqlMapClientã®å–å¾—
         SqlMapClientTemplate sqlMapTemp = getSqlMapClientTemplate();
 
-        //SQL‚ÌÀsF’l‚Ìæ“¾
+        //SQLã®å®Ÿè¡Œï¼šå€¤ã®å–å¾—
         sqlMapTemp.queryForObject(sqlID, bindParams);
 
         if (log.isDebugEnabled()) {

@@ -20,93 +20,93 @@ import org.springframework.validation.Errors;
 import org.springmodules.validation.commons.DefaultBeanValidator;
 
 /**
- * ‘ŠŠÖƒ`ƒFƒbƒN‚ğs‚È‚¤’ŠÛƒNƒ‰ƒXB
+ * ç›¸é–¢ãƒã‚§ãƒƒã‚¯ã‚’è¡Œãªã†æŠ½è±¡ã‚¯ãƒ©ã‚¹ã€‚
  * 
- * <p>Spring-Modules Validator‚É‚æ‚é’P€–Úƒ`ƒFƒbƒNˆÈŠO‚É‘ŠŠÖ‚Éƒ`ƒFƒbƒN‚ğ
- * s‚È‚¢‚½‚¢ê‡‚Ég—p‚·‚éB
- * ‚½‚¾‚µADBƒAƒNƒZƒX‚ª•K—v‚Èƒ`ƒFƒbƒN‚ÍŠe‹Æ–±ƒNƒ‰ƒX‚É‚Äƒ`ƒFƒbƒN‚·‚é‚±‚ÆB
- * ƒTƒuƒNƒ‰ƒX‚Í{@link #validateMultiField(Object, Errors)}ƒƒ\ƒbƒh‚ğ
- * ƒI[ƒo[ƒ‰ƒCƒh‚µAƒ`ƒFƒbƒNƒƒWƒbƒN‚ğ‹Lq‚·‚éB</p>
+ * <p>Spring-Modules Validatorã«ã‚ˆã‚‹å˜é …ç›®ãƒã‚§ãƒƒã‚¯ä»¥å¤–ã«ç›¸é–¢ã«ãƒã‚§ãƒƒã‚¯ã‚’
+ * è¡Œãªã„ãŸã„å ´åˆã«ä½¿ç”¨ã™ã‚‹ã€‚
+ * ãŸã ã—ã€DBã‚¢ã‚¯ã‚»ã‚¹ãŒå¿…è¦ãªãƒã‚§ãƒƒã‚¯ã¯å„æ¥­å‹™ã‚¯ãƒ©ã‚¹ã«ã¦ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã“ã¨ã€‚
+ * ã‚µãƒ–ã‚¯ãƒ©ã‚¹ã¯{@link #validateMultiField(Object, Errors)}ãƒ¡ã‚½ãƒƒãƒ‰ã‚’
+ * ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã—ã€ãƒã‚§ãƒƒã‚¯ãƒ­ã‚¸ãƒƒã‚¯ã‚’è¨˜è¿°ã™ã‚‹ã€‚</p>
  * 
- * <h5>ƒTƒuƒNƒ‰ƒX‚ÌÀ‘•—á</h5>
+ * <h5>ã‚µãƒ–ã‚¯ãƒ©ã‚¹ã®å®Ÿè£…ä¾‹</h5>
  * 
- * <p>ƒTƒuƒNƒ‰ƒX‚Í{@link #validateMultiField(Object, Errors)}ƒƒ\ƒbƒh‚ğ
- * ƒI[ƒo[ƒ‰ƒCƒh‚·‚éB
- * ˆø”‚Ìobj‚ÍŒŸ¸‘ÎÛ‚ÌJavaBean‚Å‚ ‚é‚½‚ßAŠeJavaBean‚ÌŒ^‚ÉƒLƒƒƒXƒg‚µ‚Ä‚©‚ç
- * ‘®«‚ğæ‚èo‚·B
- * ƒGƒ‰[‚ğ’Ç‰Á‚·‚éê‡Aˆø”errors‚Ìrejectƒƒ\ƒbƒhArejectValueƒƒ\ƒbƒh‚ğ
- * Às‚·‚éB </p>
+ * <p>ã‚µãƒ–ã‚¯ãƒ©ã‚¹ã¯{@link #validateMultiField(Object, Errors)}ãƒ¡ã‚½ãƒƒãƒ‰ã‚’
+ * ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã™ã‚‹ã€‚
+ * å¼•æ•°ã®objã¯æ¤œæŸ»å¯¾è±¡ã®JavaBeanã§ã‚ã‚‹ãŸã‚ã€å„JavaBeanã®å‹ã«ã‚­ãƒ£ã‚¹ãƒˆã—ã¦ã‹ã‚‰
+ * å±æ€§ã‚’å–ã‚Šå‡ºã™ã€‚
+ * ã‚¨ãƒ©ãƒ¼ã‚’è¿½åŠ ã™ã‚‹å ´åˆã€å¼•æ•°errorsã®rejectãƒ¡ã‚½ãƒƒãƒ‰ã€rejectValueãƒ¡ã‚½ãƒƒãƒ‰ã‚’
+ * å®Ÿè¡Œã™ã‚‹ã€‚ </p>
  * 
  * <pre>
  * protected void validateMultiField(Object obj, Errors errors) {
  *
- *     // JavaBean‚Ìæ“¾
+ *     // JavaBeanã®å–å¾—
  *     SampleBean bean = (SampleBean) obj;
  *
- *     // ‚P‚Â–Ú‚Ì‘®«
+ *     // ï¼‘ã¤ç›®ã®å±æ€§
  *     String field1 = bean.getField1();
  * 
- *     // ‚Q‚Â–Ú‚Ì‘®«
+ *     // ï¼’ã¤ç›®ã®å±æ€§
  *     String field2 = bean.getField2();
  *       
- *     // ‚P‚Â–Ú‚Ì‘®«‚Æ‚Q‚Â–Ú‚Ì‘®«‚ª“¯‚¶‚Å‚Í‚È‚¢ê‡AƒGƒ‰[‚ğ’Ç‰Á‚·‚é
+ *     // ï¼‘ã¤ç›®ã®å±æ€§ã¨ï¼’ã¤ç›®ã®å±æ€§ãŒåŒã˜ã§ã¯ãªã„å ´åˆã€ã‚¨ãƒ©ãƒ¼ã‚’è¿½åŠ ã™ã‚‹
  *     if (!field1.equals(field2) {
- *         // ƒGƒ‰[‚ğ’Ç‰Á‚·‚é
+ *         // ã‚¨ãƒ©ãƒ¼ã‚’è¿½åŠ ã™ã‚‹
  *         errors.reject("errors.sample");
  *     }
  * }
  * </pre>
  * 
- * <h5>ErrorsƒCƒ“ƒ^ƒtƒF[ƒX‚Ì‘ã•\“I‚ÈƒGƒ‰[’Ç‰Áƒƒ\ƒbƒh</h5>
+ * <h5>Errorsã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã®ä»£è¡¨çš„ãªã‚¨ãƒ©ãƒ¼è¿½åŠ ãƒ¡ã‚½ãƒƒãƒ‰</h5>
  * 
  * <table border="1">
  * <tr>
- *  <td><center><b>ƒƒ\ƒbƒh–¼</b></center></td>
- *  <td><center><b>à–¾</b></center></td>
+ *  <td><center><b>ãƒ¡ã‚½ãƒƒãƒ‰å</b></center></td>
+ *  <td><center><b>èª¬æ˜</b></center></td>
  * </tr>
  * 
  * <tr>
  *  <td>void rejectValue(String field, String errorCode)</center></td>
- *  <td>ƒGƒ‰[‚ğ’Ç‰Á‚·‚éBfield‚É‚ÍJavaBean‚ÌƒvƒƒpƒeƒB–¼A
- * errorCode‚É‚ÍƒŠƒ\[ƒXƒoƒ“ƒhƒ‹‚ÌƒL[‚ğw’è‚·‚éB
- * ’uŠ·•¶š—ñ‚ª‚È‚¢ƒGƒ‰[‚Ég—p‚·‚éB</td>
+ *  <td>ã‚¨ãƒ©ãƒ¼ã‚’è¿½åŠ ã™ã‚‹ã€‚fieldã«ã¯JavaBeanã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£åã€
+ * errorCodeã«ã¯ãƒªã‚½ãƒ¼ã‚¹ãƒãƒ³ãƒ‰ãƒ«ã®ã‚­ãƒ¼ã‚’æŒ‡å®šã™ã‚‹ã€‚
+ * ç½®æ›æ–‡å­—åˆ—ãŒãªã„ã‚¨ãƒ©ãƒ¼ã«ä½¿ç”¨ã™ã‚‹ã€‚</td>
  * </tr>
  * <tr>
  *  <td>void rejectValue(String field, String errorCode, Object[] errorArgs, 
  *  String defaultMessage)</center></td>
- *  <td>ƒGƒ‰[‚ğ’Ç‰Á‚·‚éBfieldAerrorCode‚Íã‹L‚Æ“¯—lBerrorArgs‚Í’uŠ·•¶š—ñA
- * defaultMessage‚ÍƒfƒtƒHƒ‹ƒgƒƒbƒZ[ƒW‚ğw’è‚·‚éBiTerasoluna‚Å‚Í
- * ƒfƒtƒHƒ‹ƒgƒƒbƒZ[ƒW‚Íg—p‚µ‚È‚¢‚½‚ßA”CˆÓ‚Ì•¶š—ñ‚ğİ’è‚·‚éj</td>
+ *  <td>ã‚¨ãƒ©ãƒ¼ã‚’è¿½åŠ ã™ã‚‹ã€‚fieldã€errorCodeã¯ä¸Šè¨˜ã¨åŒæ§˜ã€‚errorArgsã¯ç½®æ›æ–‡å­—åˆ—ã€
+ * defaultMessageã¯ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’æŒ‡å®šã™ã‚‹ã€‚ï¼ˆTerasolunaã§ã¯
+ * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã¯ä½¿ç”¨ã—ãªã„ãŸã‚ã€ä»»æ„ã®æ–‡å­—åˆ—ã‚’è¨­å®šã™ã‚‹ï¼‰</td>
  * </tr>
  * <tr>
  *  <td>void reject(String errorCode)</center></td>
- *  <td>ƒGƒ‰[‚ğ’Ç‰Á‚·‚éBƒŠƒ\[ƒXƒoƒ“ƒhƒ‹‚ÌƒL[‚Ì‚İw’è‚·‚éB
- * fieldî•ñ‚ğw’è‚µ‚È‚¢‘ŠŠÖƒ`ƒFƒbƒN“™‚Ég—p‚·‚éB</td>
+ *  <td>ã‚¨ãƒ©ãƒ¼ã‚’è¿½åŠ ã™ã‚‹ã€‚ãƒªã‚½ãƒ¼ã‚¹ãƒãƒ³ãƒ‰ãƒ«ã®ã‚­ãƒ¼ã®ã¿æŒ‡å®šã™ã‚‹ã€‚
+ * fieldæƒ…å ±ã‚’æŒ‡å®šã—ãªã„ç›¸é–¢ãƒã‚§ãƒƒã‚¯ç­‰ã«ä½¿ç”¨ã™ã‚‹ã€‚</td>
  * </tr>
  * <tr>
  *  <td>void reject(String errorCode, Object[] errorArgs, 
  *  String defaultMessage)</center></td>
- *  <td>ƒGƒ‰[‚ğ’Ç‰Á‚·‚éBerrorArgs‚Í’uŠ·•¶š—ñAdefaultMessage‚Í
- *  ƒfƒtƒHƒ‹ƒgƒƒbƒZ[ƒW‚ğw’è‚·‚éBiTerasoluna‚Å‚Í
- *  ƒfƒtƒHƒ‹ƒgƒƒbƒZ[ƒW‚Íg—p‚µ‚È‚¢‚½‚ßA”CˆÓ‚Ì•¶š—ñ‚ğİ’è‚·‚éj
- * fieldî•ñ‚ğw’è‚µ‚È‚¢‘ŠŠÖƒ`ƒFƒbƒN“™‚Ég—p‚·‚éB</td>
+ *  <td>ã‚¨ãƒ©ãƒ¼ã‚’è¿½åŠ ã™ã‚‹ã€‚errorArgsã¯ç½®æ›æ–‡å­—åˆ—ã€defaultMessageã¯
+ *  ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’æŒ‡å®šã™ã‚‹ã€‚ï¼ˆTerasolunaã§ã¯
+ *  ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã¯ä½¿ç”¨ã—ãªã„ãŸã‚ã€ä»»æ„ã®æ–‡å­—åˆ—ã‚’è¨­å®šã™ã‚‹ï¼‰
+ * fieldæƒ…å ±ã‚’æŒ‡å®šã—ãªã„ç›¸é–¢ãƒã‚§ãƒƒã‚¯ç­‰ã«ä½¿ç”¨ã™ã‚‹ã€‚</td>
  * </tr>
  * </table>
  * 
- * <h5>Bean’è‹`ƒtƒ@ƒCƒ‹‚Ì‹Lq—ái“ü—Íƒ`ƒFƒbƒNƒNƒ‰ƒXj</h5>
+ * <h5>Beanå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ã®è¨˜è¿°ä¾‹ï¼ˆå…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¯ãƒ©ã‚¹ï¼‰</h5>
  * 
- * <p>Springã‚Å‚±‚Ì“ü—Íƒ`ƒFƒbƒN‹@”\‚ğg—p‚·‚éê‡A
- * “ü—Íƒ`ƒFƒbƒNƒtƒ@ƒNƒgƒŠi“ü—Íƒ`ƒFƒbƒNƒNƒ‰ƒX‚Ì‰Šú‰»‚ğs‚È‚¤ƒNƒ‰ƒXj‚Æ
- * “ü—Íƒ`ƒFƒbƒNƒNƒ‰ƒX‚ğBean’è‹`ƒtƒ@ƒCƒ‹‚Éİ’è‚·‚é•K—v‚ª‚ ‚éB</p>
+ * <p>Springä¸Šã§ã“ã®å…¥åŠ›ãƒã‚§ãƒƒã‚¯æ©Ÿèƒ½ã‚’ä½¿ç”¨ã™ã‚‹å ´åˆã€
+ * å…¥åŠ›ãƒã‚§ãƒƒã‚¯ãƒ•ã‚¡ã‚¯ãƒˆãƒªï¼ˆå…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¯ãƒ©ã‚¹ã®åˆæœŸåŒ–ã‚’è¡Œãªã†ã‚¯ãƒ©ã‚¹ï¼‰ã¨
+ * å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¯ãƒ©ã‚¹ã‚’Beanå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ã«è¨­å®šã™ã‚‹å¿…è¦ãŒã‚ã‚‹ã€‚</p>
  * <pre>
- * &lt;!-- “ü—Íƒ`ƒFƒbƒNƒNƒ‰ƒX‚Ìƒtƒ@ƒNƒgƒŠ --&gt;
+ * &lt;!-- å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¯ãƒ©ã‚¹ã®ãƒ•ã‚¡ã‚¯ãƒˆãƒª --&gt;
  * &lt;bean id="validatorFactory"     
  *   class="org.springmodules.commons.validator.DefaultValidatorFactory"&gt; 
  *   &lt;property name="validationConfigLocations"&gt; 
  *     &lt;list&gt; 
- *       &lt;!-- ‚±‚±‚É‹Lq‚µ‚½ƒoƒŠƒf[ƒVƒ‡ƒ“’è‹`ƒtƒ@ƒCƒ‹ivalidation.xmlj‚â
- *            ƒoƒŠƒf[ƒVƒ‡ƒ“ƒ‹[ƒ‹’è‹`ƒtƒ@ƒCƒ‹ivalidation-rules.xmlj‚ğ
- *            SpringƒtƒŒ[ƒ€ƒ[ƒN‚ªİ’èƒtƒ@ƒCƒ‹‚Æ‚µ‚Ä”F¯‚·‚é --&gt; 
+ *       &lt;!-- ã“ã“ã«è¨˜è¿°ã—ãŸãƒãƒªãƒ‡ãƒ¼ã‚·ãƒ§ãƒ³å®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ï¼ˆvalidation.xmlï¼‰ã‚„
+ *            ãƒãƒªãƒ‡ãƒ¼ã‚·ãƒ§ãƒ³ãƒ«ãƒ¼ãƒ«å®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ï¼ˆvalidation-rules.xmlï¼‰ã‚’
+ *            Springãƒ•ãƒ¬ãƒ¼ãƒ ãƒ¯ãƒ¼ã‚¯ãŒè¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã¨ã—ã¦èªè­˜ã™ã‚‹ --&gt; 
  *       &lt;value&gt;<b>/WEB-INF/validation/validator-rules.xml</b>&lt;/value&gt;
  *       &lt;value&gt;<b>/WEB-INF/validation/validator-rules-ex.xml</b>&lt;/value&gt;
  *       &lt;value&gt;<b>/WEB-INF/validation/validation.xml</b>&lt;/value&gt; 
@@ -114,25 +114,25 @@ import org.springmodules.validation.commons.DefaultBeanValidator;
  *   &lt;/property&gt; 
  * &lt;/bean&gt; 
  *   
- * &lt;!--@‘ŠŠÖƒ`ƒFƒbƒN‚ğs‚È‚¤“ü—Íƒ`ƒFƒbƒNƒNƒ‰ƒX 
- *   class‘®«‚Éì¬‚µ‚½‘ŠŠÖƒ`ƒFƒbƒNƒNƒ‰ƒX‚ğ‹Lq‚·‚é--&gt;
+ * &lt;!--ã€€ç›¸é–¢ãƒã‚§ãƒƒã‚¯ã‚’è¡Œãªã†å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¯ãƒ©ã‚¹ 
+ *   classå±æ€§ã«ä½œæˆã—ãŸç›¸é–¢ãƒã‚§ãƒƒã‚¯ã‚¯ãƒ©ã‚¹ã‚’è¨˜è¿°ã™ã‚‹--&gt;
  * &lt;bean id="sampleValidator"  <b>class="jp.terasoluna.sample2.validation.SampleMultiFieldValidator"</b>&gt; 
  *   &lt;property name="validatorFactory"&gt;&lt;ref local="validatorFactory"/&gt;&lt;/property&gt; 
  * &lt;/bean&gt;
  * </pre>
  * 
- * <h5>Bean’è‹`ƒtƒ@ƒCƒ‹‚Ì‹Lq—áiƒRƒ“ƒgƒ[ƒ‰j</h5>
+ * <h5>Beanå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ã®è¨˜è¿°ä¾‹ï¼ˆã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ©ï¼‰</h5>
  * 
- * <p>Bean’è‹`ƒtƒ@ƒCƒ‹‚Åİ’è‚µ‚½“ü—Íƒ`ƒFƒbƒN‹@”\‚ğg—p‚·‚é‚½‚ß‚ÉA
- * ƒRƒ“ƒgƒ[ƒ‰‚Ìvalidator‘®«‚Éã‹L‚Åİ’è‚µ‚½“ü—Íƒ`ƒFƒbƒN‹@”\‚ğ
- * İ’è‚·‚é•K—v‚ª‚ ‚éB</p>
+ * <p>Beanå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ã§è¨­å®šã—ãŸå…¥åŠ›ãƒã‚§ãƒƒã‚¯æ©Ÿèƒ½ã‚’ä½¿ç”¨ã™ã‚‹ãŸã‚ã«ã€
+ * ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ©ã®validatorå±æ€§ã«ä¸Šè¨˜ã§è¨­å®šã—ãŸå…¥åŠ›ãƒã‚§ãƒƒã‚¯æ©Ÿèƒ½ã‚’
+ * è¨­å®šã™ã‚‹å¿…è¦ãŒã‚ã‚‹ã€‚</p>
  * <pre>
- * &lt;!-- ƒTƒ“ƒvƒ‹“ü—Íƒ`ƒFƒbƒN‹Æ–± --&gt;
+ * &lt;!-- ã‚µãƒ³ãƒ—ãƒ«å…¥åŠ›ãƒã‚§ãƒƒã‚¯æ¥­å‹™ --&gt;
  * &lt;bean name="/secure/blogic/validateSample.do" 
  *   class="jp.terasoluna.sample2.web.controller.ValidateSampleController"
  *   parent="xmlRequestController"&gt;  
  *   &lt;property name="sumService" ref="sumService"/&gt;  
- *   &lt;property name=<b>"validator"</b> ref=<b>gsampleValidator"</b>/&gt;
+ *   &lt;property name=<b>"validator"</b> ref=<b>â€œsampleValidator"</b>/&gt;
  *   &lt;property name="commandClass"&gt;
  *     &lt;value&gt;jp.terasoluna.sample2.dto.SampleDto&lt;/value&gt;
  *   &lt;/property&gt;
@@ -146,33 +146,33 @@ import org.springmodules.validation.commons.DefaultBeanValidator;
 public abstract class BaseMultiFieldValidator extends DefaultBeanValidator {
 
     /**
-     * “ü—Íƒ`ƒFƒbƒNƒƒ\ƒbƒhB
-     * İ’èƒtƒ@ƒCƒ‹‚É‚æ‚é’P€–Úƒ`ƒFƒbƒN‚ğŒÄ‚Ño‚µA
-     * ƒGƒ‰[‚ª‚È‚¯‚ê‚Î{@link #validateMultiField(Object, Errors)}
-     * ƒƒ\ƒbƒh‚ğŒÄ‚Ño‚·B
+     * å…¥åŠ›ãƒã‚§ãƒƒã‚¯ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
+     * è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã«ã‚ˆã‚‹å˜é …ç›®ãƒã‚§ãƒƒã‚¯ã‚’å‘¼ã³å‡ºã—ã€
+     * ã‚¨ãƒ©ãƒ¼ãŒãªã‘ã‚Œã°{@link #validateMultiField(Object, Errors)}
+     * ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã™ã€‚
      * 
-     * @param obj ŒŸ¸‘ÎÛ‚ÌJavaBean
-     * @param errors ƒGƒ‰[
+     * @param obj æ¤œæŸ»å¯¾è±¡ã®JavaBean
+     * @param errors ã‚¨ãƒ©ãƒ¼
      */
     @Override
     public void validate(Object obj, Errors errors) {
         
-        // İ’èƒtƒ@ƒCƒ‹‚É‚æ‚é’P€–Úƒ`ƒFƒbƒN
+        // è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã«ã‚ˆã‚‹å˜é …ç›®ãƒã‚§ãƒƒã‚¯
         super.validate(obj, errors);
         
-        // ƒGƒ‰[‚ª‚È‚¯‚ê‚Î‘ŠŠÖƒ`ƒFƒbƒN‚ğs‚È‚¤
+        // ã‚¨ãƒ©ãƒ¼ãŒãªã‘ã‚Œã°ç›¸é–¢ãƒã‚§ãƒƒã‚¯ã‚’è¡Œãªã†
         if (!errors.hasErrors()) {
             validateMultiField(obj, errors);
         }
     }
 
     /**
-     * ‘ŠŠÖƒ`ƒFƒbƒN‚ğs‚È‚¤ƒƒ\ƒbƒhB
-     * ’P€–Úƒ`ƒFƒbƒN‚ÅƒGƒ‰[‚ª”­¶‚µ‚È‚¢ê‡AŒÄ‚Ño‚³‚ê‚éB
-     * ƒTƒuƒNƒ‰ƒX‚Í‚±‚Ìƒƒ\ƒbƒh‚ğÀ‘•‚·‚é
+     * ç›¸é–¢ãƒã‚§ãƒƒã‚¯ã‚’è¡Œãªã†ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
+     * å˜é …ç›®ãƒã‚§ãƒƒã‚¯ã§ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãªã„å ´åˆã€å‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚
+     * ã‚µãƒ–ã‚¯ãƒ©ã‚¹ã¯ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å®Ÿè£…ã™ã‚‹
      * 
-     * @param obj ŒŸ¸‘ÎÛ‚ÌJavaBean
-     * @param errors ƒGƒ‰[
+     * @param obj æ¤œæŸ»å¯¾è±¡ã®JavaBean
+     * @param errors ã‚¨ãƒ©ãƒ¼
      */
     protected abstract void validateMultiField(Object obj, Errors errors);
 }

@@ -21,22 +21,22 @@ import org.junit.Test;
 public class LineFeed0LineReaderTest extends TestCase {
 
     /**
-     * ³í<br>
+     * æ­£å¸¸<br>
      * @throws Exception
      */
     @Test
     public void testLineFeed0LineReader01() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String str = "123456789012345678901234567890";
         Reader reader = new BufferedReader(new StringReader(str));
         String encoding = "UTF-8";
         int totalBytes = 10;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         LineFeed0LineReader target = new LineFeed0LineReader(reader, encoding,
                 totalBytes);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(reader);
         assertSame(reader, UTUtil.getPrivateField(target, "reader"));
         assertEquals(encoding, UTUtil.getPrivateField(target, "fileEncoding"));
@@ -44,83 +44,83 @@ public class LineFeed0LineReaderTest extends TestCase {
     }
 
     /**
-     * ˆÙí<br>
+     * ç•°å¸¸<br>
      * reader : null
      * @throws Exception
      */
     @Test
     public void testLineFeed0LineReader02() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         Reader reader = null;
         String encoding = "UTF-8";
         int totalBytes = 10;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             new LineFeed0LineReader(reader, encoding, totalBytes);
             fail();
         } catch (Exception e) {
-            // ”»’è
+            // åˆ¤å®š
             assertTrue(e instanceof IllegalArgumentException);
             assertEquals("reader is required.", e.getMessage());
         }
     }
 
     /**
-     * ˆÙí<br>
+     * ç•°å¸¸<br>
      * encoding : null
      * @throws Exception
      */
     @Test
     public void testLineFeed0LineReader03() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String str = "123456789012345678901234567890";
         Reader reader = new BufferedReader(new StringReader(str));
         String encoding = null;
         int totalBytes = 10;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             new LineFeed0LineReader(reader, encoding, totalBytes);
             fail();
         } catch (Exception e) {
-            // ”»’è
+            // åˆ¤å®š
             assertTrue(e instanceof IllegalArgumentException);
             assertEquals("fileEncoding is required.", e.getMessage());
         }
     }
 
     /**
-     * ˆÙí<br>
+     * ç•°å¸¸<br>
      * totalBytes < 0
      * @throws Exception
      */
     @Test
     public void testLineFeed0LineReader04() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String str = "123456789012345678901234567890";
         Reader reader = new BufferedReader(new StringReader(str));
         String encoding = "UTF-8";
         int totalBytes = -1;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             new LineFeed0LineReader(reader, encoding, totalBytes);
             fail();
         } catch (Exception e) {
-            // ”»’è
+            // åˆ¤å®š
             assertTrue(e instanceof IllegalArgumentException);
             assertEquals("totalBytes is larger than 0.", e.getMessage());
         }
     }
 
     /**
-     * ³í<br>
+     * æ­£å¸¸<br>
      * @throws Exception
      */
     @Test
     public void testReadLine01() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String str = "111122223333444455556";
         Reader reader = new BufferedReader(new StringReader(str));
         String encoding = "UTF-8";
@@ -129,8 +129,8 @@ public class LineFeed0LineReaderTest extends TestCase {
         LineFeed0LineReader target = new LineFeed0LineReader(reader, encoding,
                 totalBytes);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertEquals(target.readLine(), "1111");
         assertEquals(target.readLine(), "2222");
         assertEquals(target.readLine(), "3333");
@@ -141,12 +141,12 @@ public class LineFeed0LineReaderTest extends TestCase {
     }
 
     /**
-     * ³í<br>
+     * æ­£å¸¸<br>
      * @throws Exception
      */
     @Test
     public void testReadLine02() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String str = "11112222333344445555";
         Reader reader = new BufferedReader(new StringReader(str));
         String encoding = "UTF-8";
@@ -155,8 +155,8 @@ public class LineFeed0LineReaderTest extends TestCase {
         LineFeed0LineReader target = new LineFeed0LineReader(reader, encoding,
                 totalBytes);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertEquals(target.readLine(), "1111");
         assertEquals(target.readLine(), "2222");
         assertEquals(target.readLine(), "3333");
@@ -166,14 +166,14 @@ public class LineFeed0LineReaderTest extends TestCase {
     }
 
     /**
-     * ³í<br>
+     * æ­£å¸¸<br>
      * encoding : UTF-8
      * @throws Exception
      */
     @Test
     public void testReadLine03() throws Exception {
-        // ‘Oˆ—(ˆø”)
-        String str = "1‚ 2‚¢‚R‚¤‚S‚¦ŒÜ‚¨";
+        // å‰å‡¦ç†(å¼•æ•°)
+        String str = "1ã‚2ã„ï¼“ã†ï¼”ãˆäº”ãŠ";
         Reader reader = new BufferedReader(new StringReader(str));
         String encoding = "UTF-8";
         int totalBytes = 4;
@@ -181,24 +181,24 @@ public class LineFeed0LineReaderTest extends TestCase {
         LineFeed0LineReader target = new LineFeed0LineReader(reader, encoding,
                 totalBytes);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
-        assertEquals(target.readLine(), "1‚ ");
-        assertEquals(target.readLine(), "2‚¢");
-        assertEquals(target.readLine(), "‚R‚¤");
-        assertEquals(target.readLine(), "‚S‚¦");
-        assertEquals(target.readLine(), "ŒÜ‚¨");
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
+        assertEquals(target.readLine(), "1ã‚");
+        assertEquals(target.readLine(), "2ã„");
+        assertEquals(target.readLine(), "ï¼“ã†");
+        assertEquals(target.readLine(), "ï¼”ãˆ");
+        assertEquals(target.readLine(), "äº”ãŠ");
         assertEquals(target.readLine(), "");
     }
 
     /**
-     * ³í<br>
+     * æ­£å¸¸<br>
      * encoding : UTF-8
      * @throws Exception
      */
     @Test
     public void testReadLine04() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String str = "\r\r\n\n\\\"\"\".,/@<>";
         Reader reader = new BufferedReader(new StringReader(str));
         String encoding = "UTF-8";
@@ -207,8 +207,8 @@ public class LineFeed0LineReaderTest extends TestCase {
         LineFeed0LineReader target = new LineFeed0LineReader(reader, encoding,
                 totalBytes);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertEquals(target.readLine(), "\r\r\n\n");
         assertEquals(target.readLine(), "\\\"\"\"");
         assertEquals(target.readLine(), ".,/@");
@@ -217,14 +217,14 @@ public class LineFeed0LineReaderTest extends TestCase {
     }
 
     /**
-     * ³í<br>
+     * æ­£å¸¸<br>
      * encoding : Shift-JIS
      * @throws Exception
      */
     @Test
     public void testReadLine05() throws Exception {
-        // ‘Oˆ—(ˆø”)
-        String str = "1‚ 12‚¢2‚R‚¤‚S‚¦ŒÜ‚¨";
+        // å‰å‡¦ç†(å¼•æ•°)
+        String str = "1ã‚12ã„2ï¼“ã†ï¼”ãˆäº”ãŠ";
         Reader reader = new BufferedReader(new StringReader(str));
         String encoding = "Shift-JIS";
         int totalBytes = 4;
@@ -232,24 +232,24 @@ public class LineFeed0LineReaderTest extends TestCase {
         LineFeed0LineReader target = new LineFeed0LineReader(reader, encoding,
                 totalBytes);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
-        assertEquals(target.readLine(), "1‚ 1");
-        assertEquals(target.readLine(), "2‚¢2");
-        assertEquals(target.readLine(), "‚R‚¤");
-        assertEquals(target.readLine(), "‚S‚¦");
-        assertEquals(target.readLine(), "ŒÜ‚¨");
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
+        assertEquals(target.readLine(), "1ã‚1");
+        assertEquals(target.readLine(), "2ã„2");
+        assertEquals(target.readLine(), "ï¼“ã†");
+        assertEquals(target.readLine(), "ï¼”ãˆ");
+        assertEquals(target.readLine(), "äº”ãŠ");
         assertEquals(target.readLine(), "");
     }
 
     /**
-     * ³í<br>
+     * æ­£å¸¸<br>
      * encoding : Shift-JIS
      * @throws Exception
      */
     @Test
     public void testReadLine06() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String str = "\r\r\n\n\\\"\"\".,/@<>";
         Reader reader = new BufferedReader(new StringReader(str));
         String encoding = "Shift-JIS";
@@ -258,8 +258,8 @@ public class LineFeed0LineReaderTest extends TestCase {
         LineFeed0LineReader target = new LineFeed0LineReader(reader, encoding,
                 totalBytes);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertEquals(target.readLine(), "\r\r\n\n");
         assertEquals(target.readLine(), "\\\"\"\"");
         assertEquals(target.readLine(), ".,/@");
@@ -268,14 +268,14 @@ public class LineFeed0LineReaderTest extends TestCase {
     }
 
     /**
-     * ³í<br>
+     * æ­£å¸¸<br>
      * encoding : EUC-JP
      * @throws Exception
      */
     @Test
     public void testReadLine07() throws Exception {
-        // ‘Oˆ—(ˆø”)
-        String str = "1‚ 12‚¢2‚R‚¤‚S‚¦ŒÜ‚¨";
+        // å‰å‡¦ç†(å¼•æ•°)
+        String str = "1ã‚12ã„2ï¼“ã†ï¼”ãˆäº”ãŠ";
         Reader reader = new BufferedReader(new StringReader(str));
         String encoding = "EUC-JP";
         int totalBytes = 4;
@@ -283,24 +283,24 @@ public class LineFeed0LineReaderTest extends TestCase {
         LineFeed0LineReader target = new LineFeed0LineReader(reader, encoding,
                 totalBytes);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
-        assertEquals(target.readLine(), "1‚ 1");
-        assertEquals(target.readLine(), "2‚¢2");
-        assertEquals(target.readLine(), "‚R‚¤");
-        assertEquals(target.readLine(), "‚S‚¦");
-        assertEquals(target.readLine(), "ŒÜ‚¨");
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
+        assertEquals(target.readLine(), "1ã‚1");
+        assertEquals(target.readLine(), "2ã„2");
+        assertEquals(target.readLine(), "ï¼“ã†");
+        assertEquals(target.readLine(), "ï¼”ãˆ");
+        assertEquals(target.readLine(), "äº”ãŠ");
         assertEquals(target.readLine(), "");
     }
 
     /**
-     * ³í<br>
+     * æ­£å¸¸<br>
      * encoding : EUC-JP
      * @throws Exception
      */
     @Test
     public void testReadLine08() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String str = "\r\r\n\n\\\"\"\".,/@<>";
         Reader reader = new BufferedReader(new StringReader(str));
         String encoding = "EUC-JP";
@@ -309,8 +309,8 @@ public class LineFeed0LineReaderTest extends TestCase {
         LineFeed0LineReader target = new LineFeed0LineReader(reader, encoding,
                 totalBytes);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertEquals(target.readLine(), "\r\r\n\n");
         assertEquals(target.readLine(), "\\\"\"\"");
         assertEquals(target.readLine(), ".,/@");
@@ -319,13 +319,13 @@ public class LineFeed0LineReaderTest extends TestCase {
     }
 
     /**
-     * ˆÙí<br>
-     * encoding : •s³’l
+     * ç•°å¸¸<br>
+     * encoding : ä¸æ­£å€¤
      * @throws Exception
      */
     @Test
     public void testReadLine09() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String str = "123456789012345678901234567890";
         Reader reader = new BufferedReader(new StringReader(str));
         String encoding = "";
@@ -333,12 +333,12 @@ public class LineFeed0LineReaderTest extends TestCase {
 
         LineFeed0LineReader target = new LineFeed0LineReader(reader, encoding,
                 totalBytes);
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             target.readLine();
             fail();
         } catch (Exception e) {
-            // ”»’è
+            // åˆ¤å®š
             assertTrue(e instanceof FileException);
             assertEquals("Reader control operation was failed.", e.getMessage());
             assertTrue(e.getCause() instanceof IOException);
@@ -346,17 +346,17 @@ public class LineFeed0LineReaderTest extends TestCase {
     }
 
     /**
-     * ˆÙí<br>
+     * ç•°å¸¸<br>
      * Reader#read() : IOException
      * @throws Exception
      */
     @Test
     public void testReadLine10() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String encoding = "UTF-8";
         int totalBytes = 10;
 
-        // Mockì¬
+        // Mockä½œæˆ
         Reader reader = EasyMock.createMock(Reader.class);
         EasyMock.expect(reader.read()).andReturn(null).andThrow(
                 new IOException());
@@ -364,12 +364,12 @@ public class LineFeed0LineReaderTest extends TestCase {
 
         LineFeed0LineReader target = new LineFeed0LineReader(reader, encoding,
                 totalBytes);
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             target.readLine();
             fail();
         } catch (Exception e) {
-            // ”»’è
+            // åˆ¤å®š
             assertTrue(e instanceof FileException);
             assertEquals("Reader control operation was failed.", e.getMessage());
             assertTrue(e.getCause() instanceof IOException);

@@ -3,21 +3,21 @@ package jp.terasoluna.fw.file.dao.standard;
 import jp.terasoluna.fw.file.annotation.StringConverter;
 
 /**
- * StringConverterƒXƒ^ƒuƒNƒ‰ƒXB<br>
- * “ü—Íƒf[ƒ^‚É"_convert()"‚ğ’Ç‰Á‚µ‚½Œ‹‰Ê‚ğ•Ô‚·
- * @author æâ•î“O
+ * StringConverterã‚¹ã‚¿ãƒ–ã‚¯ãƒ©ã‚¹ã€‚<br>
+ * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ã«"_convert()"ã‚’è¿½åŠ ã—ãŸçµæœã‚’è¿”ã™
+ * @author è¶™ä¿¸å¾¹
  */
 public class AbstractFileLineWriter_StringConverterStub03 implements
                                                          StringConverter {
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      */
     public AbstractFileLineWriter_StringConverterStub03() {
     }
 
     /**
-     * •ÏŠ·ˆ—‚ğs‚í‚È‚¢B
+     * å¤‰æ›å‡¦ç†ã‚’è¡Œã‚ãªã„ã€‚
      */
     public String convert(String s) {
         return s + "_convert()";

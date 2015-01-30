@@ -26,13 +26,13 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.jdbc.object.MappingSqlQuery;
 
 /**
- * ƒƒbƒZ[ƒWƒŠƒ\[ƒX‚ðŽæ“¾‚·‚éRDBMSƒIƒyƒŒ[ƒVƒ‡ƒ“ƒNƒ‰ƒXB<br>
- * DB‚©‚çŽæ“¾‚µ‚½ƒƒbƒZ[ƒWƒŠƒ\[ƒX‚ðDBMessageƒIƒuƒWƒFƒNƒg‚ÉŠi”[‚µA•Ô‹p‚·‚éB
+ * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒªã‚½ãƒ¼ã‚¹ã‚’å–å¾—ã™ã‚‹RDBMSã‚ªãƒšãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã‚¯ãƒ©ã‚¹ã€‚<br>
+ * DBã‹ã‚‰å–å¾—ã—ãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒªã‚½ãƒ¼ã‚¹ã‚’DBMessageã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«æ ¼ç´ã—ã€è¿”å´ã™ã‚‹ã€‚
  * <br>
- * DBMessageƒIƒuƒWƒFƒNƒg“à‚É‚ÍƒƒbƒZ[ƒWƒR[ƒhAŒ¾ŒêƒR[ƒhA‘ƒR[ƒhA
- * ƒoƒŠƒAƒ“ƒgƒR[ƒhAƒƒbƒZ[ƒW–{‘Ì‚ªŠi”[‚³‚ê‚éB‚½‚¾‚µAŒ¾ŒêƒR[ƒhA‘ƒR[ƒh
- * ‹y‚ÑƒoƒŠƒAƒ“ƒgƒR[ƒh‚Í•K{‚Å‚Í‚È‚¢B‘¶Ý‚µ‚È‚¢ê‡‚ÍADBMessageƒIƒuƒWƒFƒNƒg
- * •Ô‹pŽž‚ÉŠY“–•”•ª‚Énull‚ðÝ’è‚·‚éB
+ * DBMessageã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆå†…ã«ã¯ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚³ãƒ¼ãƒ‰ã€è¨€èªžã‚³ãƒ¼ãƒ‰ã€å›½ã‚³ãƒ¼ãƒ‰ã€
+ * ãƒãƒªã‚¢ãƒ³ãƒˆã‚³ãƒ¼ãƒ‰ã€ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸æœ¬ä½“ãŒæ ¼ç´ã•ã‚Œã‚‹ã€‚ãŸã ã—ã€è¨€èªžã‚³ãƒ¼ãƒ‰ã€å›½ã‚³ãƒ¼ãƒ‰
+ * åŠã³ãƒãƒªã‚¢ãƒ³ãƒˆã‚³ãƒ¼ãƒ‰ã¯å¿…é ˆã§ã¯ãªã„ã€‚å­˜åœ¨ã—ãªã„å ´åˆã¯ã€DBMessageã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+ * è¿”å´æ™‚ã«è©²å½“éƒ¨åˆ†ã«nullã‚’è¨­å®šã™ã‚‹ã€‚
  * 
  * @see jp.terasoluna.fw.message.DataSourceMessageSource
  * @see jp.terasoluna.fw.message.DBMessage
@@ -43,60 +43,60 @@ import org.springframework.jdbc.object.MappingSqlQuery;
 public class DBMessageQuery extends MappingSqlQuery {
   
     /**
-     * ƒƒbƒZ[ƒWƒR[ƒh‚ðŠi”[‚µ‚½Œ‹‰ÊƒZƒbƒg‚ÌƒJƒ‰ƒ€–¼B
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚³ãƒ¼ãƒ‰ã‚’æ ¼ç´ã—ãŸçµæžœã‚»ãƒƒãƒˆã®ã‚«ãƒ©ãƒ åã€‚
      */
     protected String rsCodeColumn = null;
     
     /**
-     * ƒƒbƒZ[ƒW‚ÌŒ¾ŒêƒR[ƒh‚ðŠi”[‚µ‚½Œ‹‰ÊƒZƒbƒg‚ÌƒJƒ‰ƒ€–¼B
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®è¨€èªžã‚³ãƒ¼ãƒ‰ã‚’æ ¼ç´ã—ãŸçµæžœã‚»ãƒƒãƒˆã®ã‚«ãƒ©ãƒ åã€‚
      */
     protected String rsLanguageColumn = null;
     
     /**
-     * ƒƒbƒZ[ƒW‚Ì‘ƒR[ƒh‚ðŠi”[‚µ‚½Œ‹‰ÊƒZƒbƒg‚ÌƒJƒ‰ƒ€–¼B
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®å›½ã‚³ãƒ¼ãƒ‰ã‚’æ ¼ç´ã—ãŸçµæžœã‚»ãƒƒãƒˆã®ã‚«ãƒ©ãƒ åã€‚
      */
     protected String rsCountryColumn = null;
     
     /**
-     * ƒƒbƒZ[ƒW‚ÌƒoƒŠƒAƒ“ƒgƒR[ƒh‚ðŠi”[‚µ‚½Œ‹‰ÊƒZƒbƒg‚ÌƒJƒ‰ƒ€–¼B
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®ãƒãƒªã‚¢ãƒ³ãƒˆã‚³ãƒ¼ãƒ‰ã‚’æ ¼ç´ã—ãŸçµæžœã‚»ãƒƒãƒˆã®ã‚«ãƒ©ãƒ åã€‚
      */
     protected String rsVariantColumn = null;
     
     /**
-     * ƒƒbƒZ[ƒW–{‘Ì‚ðŠi”[‚µ‚½Œ‹‰ÊƒZƒbƒg‚ÌƒJƒ‰ƒ€–¼B
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸æœ¬ä½“ã‚’æ ¼ç´ã—ãŸçµæžœã‚»ãƒƒãƒˆã®ã‚«ãƒ©ãƒ åã€‚
      */
     protected String rsMessageColumn = null;
     
     /**
-     * ƒƒOƒNƒ‰ƒXB
+     * ãƒ­ã‚°ã‚¯ãƒ©ã‚¹ã€‚
      */
     private static Log log = LogFactory.getLog(DBMessageQuery.class);
     
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^“à‚ÅeƒNƒ‰ƒX‚ÉSQL•¶‚ð“n‚µAƒRƒ“ƒpƒCƒ‹ˆ—‚ð‚·‚éB
-     * ƒRƒ“ƒpƒCƒ‹ˆ—‘O‚ÉƒJƒ‰ƒ€–¼‚É•s³‚È’l‚ª“n‚³‚ê‚Ä‚¢‚È‚¢‚©‚ðƒ`ƒFƒbƒN‚·‚éB
-     * •K{ƒJƒ‰ƒ€–¼iƒƒbƒZ[ƒWƒR[ƒhAƒƒbƒZ[ƒW–{‘Ìj‚Ínullƒ`ƒFƒbƒN‹y‚Ñ‹ó•¶Žš
-     * ƒ`ƒFƒbƒN‚ðŽÀŽ{‚·‚éB‚»‚Ì‘¼‚ÌƒJƒ‰ƒ€–¼‚Í‹ó•¶Žšƒ`ƒFƒbƒN‚Ì‚Ý‚ðŽÀŽ{‚·‚éB
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿å†…ã§è¦ªã‚¯ãƒ©ã‚¹ã«SQLæ–‡ã‚’æ¸¡ã—ã€ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«å‡¦ç†ã‚’ã™ã‚‹ã€‚
+     * ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«å‡¦ç†å‰ã«ã‚«ãƒ©ãƒ åã«ä¸æ­£ãªå€¤ãŒæ¸¡ã•ã‚Œã¦ã„ãªã„ã‹ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã€‚
+     * å¿…é ˆã‚«ãƒ©ãƒ åï¼ˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚³ãƒ¼ãƒ‰ã€ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸æœ¬ä½“ï¼‰ã¯nullãƒã‚§ãƒƒã‚¯åŠã³ç©ºæ–‡å­—
+     * ãƒã‚§ãƒƒã‚¯ã‚’å®Ÿæ–½ã™ã‚‹ã€‚ãã®ä»–ã®ã‚«ãƒ©ãƒ åã¯ç©ºæ–‡å­—ãƒã‚§ãƒƒã‚¯ã®ã¿ã‚’å®Ÿæ–½ã™ã‚‹ã€‚
      * 
      * @param ds
-     *            ƒƒbƒZ[ƒWƒŠƒ\[ƒX‚ðŠi”[‚µ‚½ƒf[ƒ^ƒZƒbƒgB
+     *            ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒªã‚½ãƒ¼ã‚¹ã‚’æ ¼ç´ã—ãŸãƒ‡ãƒ¼ã‚¿ã‚»ãƒƒãƒˆã€‚
      * @param sql
-     *            DB‚©‚çƒƒbƒZ[ƒWƒŠƒ\[ƒX‚ðŽæ“¾‚·‚éSQL•¶B
+     *            DBã‹ã‚‰ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒªã‚½ãƒ¼ã‚¹ã‚’å–å¾—ã™ã‚‹SQLæ–‡ã€‚
      * @param codeColumn
-     *            ƒƒbƒZ[ƒWƒR[ƒh‚ªŠi”[‚³‚ê‚½DB“à‚ÌƒJƒ‰ƒ€–¼B
-     *            ‘¶Ý‚µ‚È‚¢ê‡‚ÍŒx‚ðo‚·B
+     *            ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚³ãƒ¼ãƒ‰ãŒæ ¼ç´ã•ã‚ŒãŸDBå†…ã®ã‚«ãƒ©ãƒ åã€‚
+     *            å­˜åœ¨ã—ãªã„å ´åˆã¯è­¦å‘Šã‚’å‡ºã™ã€‚
      * @param languageColumn
-     *            ƒƒbƒZ[ƒW‚ÌŒ¾ŒêƒR[ƒh‚ªŠi”[‚³‚ê‚½DB“à‚ÌƒJƒ‰ƒ€–¼B
-     *            ŒŸõ‘ÎÛ‚Æ‚µ‚È‚¢ê‡‚Ínull‚Æ‚·‚éB
+     *            ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®è¨€èªžã‚³ãƒ¼ãƒ‰ãŒæ ¼ç´ã•ã‚ŒãŸDBå†…ã®ã‚«ãƒ©ãƒ åã€‚
+     *            æ¤œç´¢å¯¾è±¡ã¨ã—ãªã„å ´åˆã¯nullã¨ã™ã‚‹ã€‚
      * @param countryColumn
-     *            ƒƒbƒZ[ƒW‚Ì‘ƒR[ƒh‚ªŠi”[‚³‚ê‚½DB“à‚ÌƒJƒ‰ƒ€–¼B
-     *            ŒŸõ‘ÎÛ‚Æ‚µ‚È‚¢ê‡‚Ínull‚Æ‚·‚éB
+     *            ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®å›½ã‚³ãƒ¼ãƒ‰ãŒæ ¼ç´ã•ã‚ŒãŸDBå†…ã®ã‚«ãƒ©ãƒ åã€‚
+     *            æ¤œç´¢å¯¾è±¡ã¨ã—ãªã„å ´åˆã¯nullã¨ã™ã‚‹ã€‚
      * @param variantColumn
-     *            ƒƒbƒZ[ƒW‚ÌƒoƒŠƒAƒ“ƒgƒR[ƒh‚ªŠi”[‚³‚ê‚½DB“à‚ÌƒJƒ‰ƒ€–¼B
-     *            ŒŸõ‘ÎÛ‚Æ‚µ‚È‚¢ê‡‚Ínull‚Æ‚·‚éB
+     *            ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®ãƒãƒªã‚¢ãƒ³ãƒˆã‚³ãƒ¼ãƒ‰ãŒæ ¼ç´ã•ã‚ŒãŸDBå†…ã®ã‚«ãƒ©ãƒ åã€‚
+     *            æ¤œç´¢å¯¾è±¡ã¨ã—ãªã„å ´åˆã¯nullã¨ã™ã‚‹ã€‚
      * @param messageColumn
-     *            ƒƒbƒZ[ƒW–{‘Ì‚ªŠi”[‚³‚ê‚½DB“à‚ÌƒJƒ‰ƒ€–¼B
-     *            ‘¶Ý‚µ‚È‚¢ê‡‚ÍŒx‚ðo‚·B
+     *            ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸æœ¬ä½“ãŒæ ¼ç´ã•ã‚ŒãŸDBå†…ã®ã‚«ãƒ©ãƒ åã€‚
+     *            å­˜åœ¨ã—ãªã„å ´åˆã¯è­¦å‘Šã‚’å‡ºã™ã€‚
      * 
      */
     public DBMessageQuery(DataSource ds, String sql, String codeColumn,
@@ -112,34 +112,34 @@ public class DBMessageQuery extends MappingSqlQuery {
     }
     
     /**
-     * DB‚©‚çŽæ“¾‚µ‚½ƒƒbƒZ[ƒWƒŠƒ\[ƒX‚ðDBMessageƒIƒuƒWƒFƒNƒg‚ÉŠi”[A•Ô‹p‚·‚éB
-     * ˆø”‚Æ‚µ‚Ä“n‚³‚ê‚½Œ‹‰ÊƒZƒbƒg‚ÌŒ»Ýs‚Ì“à—e‚ðŒ³‚É‚µ‚Äì¬‚µ‚½DBMessage
-     * ƒIƒuƒWƒFƒNƒg‚ð•Ô‚·B
+     * DBã‹ã‚‰å–å¾—ã—ãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒªã‚½ãƒ¼ã‚¹ã‚’DBMessageã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«æ ¼ç´ã€è¿”å´ã™ã‚‹ã€‚
+     * å¼•æ•°ã¨ã—ã¦æ¸¡ã•ã‚ŒãŸçµæžœã‚»ãƒƒãƒˆã®ç¾åœ¨è¡Œã®å†…å®¹ã‚’å…ƒã«ã—ã¦ä½œæˆã—ãŸDBMessage
+     * ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’è¿”ã™ã€‚
      * 
-     * @return ƒƒbƒZ[ƒWƒŠƒ\[ƒX‚ðŠi”[‚µ‚½DBMessageƒIƒuƒWƒFƒNƒg
+     * @return ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒªã‚½ãƒ¼ã‚¹ã‚’æ ¼ç´ã—ãŸDBMessageã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      * 
      * @param rs
-     *            DB‚©‚çŽæ“¾‚µ‚½’l‚ð•ÛŽ‚·‚éŒ‹‰ÊƒZƒbƒg
+     *            DBã‹ã‚‰å–å¾—ã—ãŸå€¤ã‚’ä¿æŒã™ã‚‹çµæžœã‚»ãƒƒãƒˆ
      * @param rowNum
-     *            ˆ—‚µ‚Ä‚¢‚éŒ‹‰ÊƒZƒbƒg‚Ìs”Ô†
+     *            å‡¦ç†ã—ã¦ã„ã‚‹çµæžœã‚»ãƒƒãƒˆã®è¡Œç•ªå·
      * 
      * @throws SQLException
-     *             SQL—áŠO
+     *             SQLä¾‹å¤–
      */
     @Override
     protected Object mapRow(ResultSet rs, int rowNum) throws SQLException {
-        // ƒƒbƒZ[ƒWƒR[ƒhB
+        // ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚³ãƒ¼ãƒ‰ã€‚
         String code = null;
-        // ƒƒbƒZ[ƒW‚ÌŒ¾ŒêƒR[ƒhB
+        // ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®è¨€èªžã‚³ãƒ¼ãƒ‰ã€‚
         String language = null;
-        // ƒƒbƒZ[ƒW‚Ì‘ƒR[ƒhB
+        // ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®å›½ã‚³ãƒ¼ãƒ‰ã€‚
         String country = null;
-        // ƒƒbƒZ[ƒW‚ÌƒoƒŠƒAƒ“ƒgƒR[ƒhB
+        // ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®ãƒãƒªã‚¢ãƒ³ãƒˆã‚³ãƒ¼ãƒ‰ã€‚
         String variant = null;
-        // ƒƒbƒZ[ƒW–{‘ÌB
+        // ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸æœ¬ä½“ã€‚
         String message = null;
 
-        // ƒƒbƒZ[ƒWƒR[ƒh‚ª‘¶Ý‚µ‚È‚¢ê‡AŒx‚·‚éB
+        // ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚³ãƒ¼ãƒ‰ãŒå­˜åœ¨ã—ãªã„å ´åˆã€è­¦å‘Šã™ã‚‹ã€‚
         code = rs.getString(rsCodeColumn);
         if (code == null) {
             code = "";
@@ -148,7 +148,7 @@ public class DBMessageQuery extends MappingSqlQuery {
             }
         }
 
-        // Œ¾ŒêƒR[ƒhƒJƒ‰ƒ€‚ª‘¶Ý‚·‚é‚ªAŒ¾ŒêƒR[ƒh‚ª‘¶Ý‚µ‚È‚¢ê‡A‹ó•¶Žš‚ð“ü‚ê‚éB
+        // è¨€èªžã‚³ãƒ¼ãƒ‰ã‚«ãƒ©ãƒ ãŒå­˜åœ¨ã™ã‚‹ãŒã€è¨€èªžã‚³ãƒ¼ãƒ‰ãŒå­˜åœ¨ã—ãªã„å ´åˆã€ç©ºæ–‡å­—ã‚’å…¥ã‚Œã‚‹ã€‚
         if (rsLanguageColumn != null) {
             language = rs.getString(rsLanguageColumn);
             if (language == null) {
@@ -156,7 +156,7 @@ public class DBMessageQuery extends MappingSqlQuery {
             }
         }
 
-        // ‘ƒR[ƒhƒJƒ‰ƒ€‚ª‘¶Ý‚·‚é‚ªA‘ƒR[ƒh‚ª‘¶Ý‚µ‚È‚¢ê‡A‹ó•¶Žš‚ð“ü‚ê‚éB
+        // å›½ã‚³ãƒ¼ãƒ‰ã‚«ãƒ©ãƒ ãŒå­˜åœ¨ã™ã‚‹ãŒã€å›½ã‚³ãƒ¼ãƒ‰ãŒå­˜åœ¨ã—ãªã„å ´åˆã€ç©ºæ–‡å­—ã‚’å…¥ã‚Œã‚‹ã€‚
         if (rsCountryColumn != null) {
             country = rs.getString(rsCountryColumn);
             if (country == null) {
@@ -164,8 +164,8 @@ public class DBMessageQuery extends MappingSqlQuery {
             }
         }
 
-        // ƒoƒŠƒAƒ“ƒgƒR[ƒhƒJƒ‰ƒ€‚ª‘¶Ý‚·‚é‚ªAƒoƒŠƒAƒ“ƒgƒR[ƒh‚ª‘¶Ý‚µ‚È‚¢ê‡A
-        // ‹ó•¶Žš‚ð“ü‚ê‚éB
+        // ãƒãƒªã‚¢ãƒ³ãƒˆã‚³ãƒ¼ãƒ‰ã‚«ãƒ©ãƒ ãŒå­˜åœ¨ã™ã‚‹ãŒã€ãƒãƒªã‚¢ãƒ³ãƒˆã‚³ãƒ¼ãƒ‰ãŒå­˜åœ¨ã—ãªã„å ´åˆã€
+        // ç©ºæ–‡å­—ã‚’å…¥ã‚Œã‚‹ã€‚
         if (rsVariantColumn != null) {
             variant = rs.getString(rsVariantColumn);
             if (variant == null) {
@@ -173,7 +173,7 @@ public class DBMessageQuery extends MappingSqlQuery {
             }
         }
 
-        // ƒƒbƒZ[ƒW–{‘Ì‚ª‘¶Ý‚µ‚È‚¢ê‡A‹ó•¶Žš‚ð“ü‚ê‚éB
+        // ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸æœ¬ä½“ãŒå­˜åœ¨ã—ãªã„å ´åˆã€ç©ºæ–‡å­—ã‚’å…¥ã‚Œã‚‹ã€‚
         message = rs.getString(rsMessageColumn);
         if (message == null) {
             message = "";

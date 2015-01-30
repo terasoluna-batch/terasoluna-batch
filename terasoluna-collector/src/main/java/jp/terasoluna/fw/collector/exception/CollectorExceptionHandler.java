@@ -20,7 +20,7 @@ import jp.terasoluna.fw.collector.vo.DataValueObject;
 
 public interface CollectorExceptionHandler {
     /**
-     * —áŠO‚Ìˆ—.<br>
+     * ä¾‹å¤–æ™‚ã®å‡¦ç†.<br>
      * @param dataValueObject DataValueObject
      * @return ExceptionHandlerStatus
      */

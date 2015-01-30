@@ -21,39 +21,39 @@ import jp.terasoluna.fw.collector.validate.ValidateErrorStatus;
 
 /**
  * DataValueObject.<br>
- * ƒLƒ…[‚Éƒf[ƒ^‚â—áŠO‚ğŠi”[‚·‚éÛ‚Ì” B
+ * ã‚­ãƒ¥ãƒ¼ã«ãƒ‡ãƒ¼ã‚¿ã‚„ä¾‹å¤–ã‚’æ ¼ç´ã™ã‚‹éš›ã®ç®±ã€‚
  */
 public class DataValueObject {
-    /** ƒf[ƒ^ƒJƒEƒ“ƒgiæ“¾‚µ‚½ƒf[ƒ^‚ª‰½Œ–Ú‚Ìƒf[ƒ^‚©‚ğ¦‚·i1Œ–Ú=1jj */
+    /** ãƒ‡ãƒ¼ã‚¿ã‚«ã‚¦ãƒ³ãƒˆï¼ˆå–å¾—ã—ãŸãƒ‡ãƒ¼ã‚¿ãŒä½•ä»¶ç›®ã®ãƒ‡ãƒ¼ã‚¿ã‹ã‚’ç¤ºã™ï¼ˆ1ä»¶ç›®=1ï¼‰ï¼‰ */
     protected long dataCount = -1;
 
-    /** ÀsŒ‹‰Êƒf[ƒ^ */
+    /** å®Ÿè¡Œçµæœãƒ‡ãƒ¼ã‚¿ */
     protected Object value = null;
 
-    /** ”­¶‚µ‚½—áŠO */
+    /** ç™ºç”Ÿã—ãŸä¾‹å¤– */
     protected Throwable throwable = null;
 
-    /** “ü—Íƒ`ƒFƒbƒNƒXƒe[ƒ^ƒX */
+    /** å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ */
     protected ValidateErrorStatus validateStatus = null;
 
-    /** ƒRƒŒƒNƒ^ƒXƒe[ƒ^ƒX */
+    /** ã‚³ãƒ¬ã‚¯ã‚¿ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ */
     protected CollectorStatus collectorStatus = null;
 
-    /** —áŠOƒnƒ“ƒhƒ‰ƒXƒe[ƒ^ƒX */
+    /** ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ */
     protected CollectorExceptionHandlerStatus exceptionHandlerStatus = null;
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^iÀsŒ‹‰Êƒf[ƒ^j<br>
-     * @param value Object ÀsŒ‹‰Êƒf[ƒ^
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ï¼ˆå®Ÿè¡Œçµæœãƒ‡ãƒ¼ã‚¿ï¼‰<br>
+     * @param value Object å®Ÿè¡Œçµæœãƒ‡ãƒ¼ã‚¿
      */
     public DataValueObject(Object value) {
         this.value = value;
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^iÀsŒ‹‰Êƒf[ƒ^j<br>
-     * @param value Object ÀsŒ‹‰Êƒf[ƒ^
-     * @param dataCount long ƒf[ƒ^ƒJƒEƒ“ƒ^
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ï¼ˆå®Ÿè¡Œçµæœãƒ‡ãƒ¼ã‚¿ï¼‰<br>
+     * @param value Object å®Ÿè¡Œçµæœãƒ‡ãƒ¼ã‚¿
+     * @param dataCount long ãƒ‡ãƒ¼ã‚¿ã‚«ã‚¦ãƒ³ã‚¿
      */
     public DataValueObject(Object value, long dataCount) {
         this.value = value;
@@ -61,17 +61,17 @@ public class DataValueObject {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^i”­¶‚µ‚½—áŠOj<br>
-     * @param throwable Throwable ”­¶‚µ‚½—áŠO
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ï¼ˆç™ºç”Ÿã—ãŸä¾‹å¤–ï¼‰<br>
+     * @param throwable Throwable ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public DataValueObject(Throwable throwable) {
         this.throwable = throwable;
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^i”­¶‚µ‚½—áŠOj<br>
-     * @param throwable Throwable ”­¶‚µ‚½—áŠO
-     * @param dataCount long ƒf[ƒ^ƒJƒEƒ“ƒ^
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ï¼ˆç™ºç”Ÿã—ãŸä¾‹å¤–ï¼‰<br>
+     * @param throwable Throwable ç™ºç”Ÿã—ãŸä¾‹å¤–
+     * @param dataCount long ãƒ‡ãƒ¼ã‚¿ã‚«ã‚¦ãƒ³ã‚¿
      */
     public DataValueObject(Throwable throwable, long dataCount) {
         this.throwable = throwable;
@@ -79,23 +79,23 @@ public class DataValueObject {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^i“ü—Íƒ`ƒFƒbƒNƒXƒe[ƒ^ƒXj<br>
-     * @param validateStatus ValidateStatus “ü—Íƒ`ƒFƒbƒNƒXƒe[ƒ^ƒX
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ï¼ˆå…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ï¼‰<br>
+     * @param validateStatus ValidateStatus å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹
      */
     public DataValueObject(ValidateErrorStatus validateStatus) {
         this.validateStatus = validateStatus;
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^iƒRƒŒƒNƒ^ƒXƒe[ƒ^ƒXj<br>
-     * @param collectorStatus CollectorStatus ƒRƒŒƒNƒ^ƒXƒe[ƒ^ƒX
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ï¼ˆã‚³ãƒ¬ã‚¯ã‚¿ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ï¼‰<br>
+     * @param collectorStatus CollectorStatus ã‚³ãƒ¬ã‚¯ã‚¿ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹
      */
     public DataValueObject(CollectorStatus collectorStatus) {
         this.collectorStatus = collectorStatus;
     }
 
     /**
-     * ƒf[ƒ^ƒJƒEƒ“ƒg‚ğæ“¾‚·‚é.<br>
+     * ãƒ‡ãƒ¼ã‚¿ã‚«ã‚¦ãƒ³ãƒˆã‚’å–å¾—ã™ã‚‹.<br>
      * @return long
      */
     public long getDataCount() {
@@ -103,64 +103,64 @@ public class DataValueObject {
     }
 
     /**
-     * ÀsŒ‹‰Êƒf[ƒ^<br>
-     * @return ÀsŒ‹‰Êƒf[ƒ^
+     * å®Ÿè¡Œçµæœãƒ‡ãƒ¼ã‚¿<br>
+     * @return å®Ÿè¡Œçµæœãƒ‡ãƒ¼ã‚¿
      */
     public Object getValue() {
         return value;
     }
 
     /**
-     * ”­¶‚µ‚½—áŠO<br>
-     * @return ”­¶‚µ‚½—áŠO
+     * ç™ºç”Ÿã—ãŸä¾‹å¤–<br>
+     * @return ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public Throwable getThrowable() {
         return throwable;
     }
 
     /**
-     * ”­¶‚µ‚½—áŠO<br>
-     * @param throwable ”­¶‚µ‚½—áŠO
+     * ç™ºç”Ÿã—ãŸä¾‹å¤–<br>
+     * @param throwable ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void setThrowable(Throwable throwable) {
         this.throwable = throwable;
     }
 
     /**
-     * “ü—Íƒ`ƒFƒbƒNƒXƒe[ƒ^ƒX<br>
-     * @return “ü—Íƒ`ƒFƒbƒNƒXƒe[ƒ^ƒX
+     * å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹<br>
+     * @return å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹
      */
     public ValidateErrorStatus getValidateStatus() {
         return validateStatus;
     }
 
     /**
-     * ƒRƒŒƒNƒ^ƒXƒe[ƒ^ƒX<br>
-     * @return ƒRƒŒƒNƒ^ƒXƒe[ƒ^ƒX
+     * ã‚³ãƒ¬ã‚¯ã‚¿ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹<br>
+     * @return ã‚³ãƒ¬ã‚¯ã‚¿ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹
      */
     public CollectorStatus getCollectorStatus() {
         return collectorStatus;
     }
 
     /**
-     * ƒRƒŒƒNƒ^ƒXƒe[ƒ^ƒX<br>
-     * @param collectorStatus ƒRƒŒƒNƒ^ƒXƒe[ƒ^ƒX
+     * ã‚³ãƒ¬ã‚¯ã‚¿ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹<br>
+     * @param collectorStatus ã‚³ãƒ¬ã‚¯ã‚¿ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹
      */
     public void setCollectorStatus(CollectorStatus collectorStatus) {
         this.collectorStatus = collectorStatus;
     }
 
     /**
-     * —áŠOƒnƒ“ƒhƒ‰ƒXƒe[ƒ^ƒX<br>
-     * @return —áŠOƒnƒ“ƒhƒ‰ƒXƒe[ƒ^ƒX
+     * ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹<br>
+     * @return ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹
      */
     public CollectorExceptionHandlerStatus getExceptionHandlerStatus() {
         return exceptionHandlerStatus;
     }
 
     /**
-     * —áŠOƒnƒ“ƒhƒ‰ƒXƒe[ƒ^ƒX<br>
-     * @param exceptionHandlerStatus —áŠOƒnƒ“ƒhƒ‰ƒXƒe[ƒ^ƒX
+     * ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹<br>
+     * @param exceptionHandlerStatus ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹
      */
     public void setExceptionHandlerStatus(
             CollectorExceptionHandlerStatus exceptionHandlerStatus) {

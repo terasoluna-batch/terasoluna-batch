@@ -28,11 +28,11 @@ import org.apache.commons.validator.ValidatorException;
 import org.apache.commons.validator.Var;
 
 /**
- * {@link jp.terasoluna.fw.validation.FieldChecks} ƒNƒ‰ƒX‚Ìƒuƒ‰ƒbƒNƒ{ƒbƒNƒXƒeƒXƒgB
+ * {@link jp.terasoluna.fw.validation.FieldChecks} ã‚¯ãƒ©ã‚¹ã®ãƒ–ãƒ©ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ†ã‚¹ãƒˆã€‚
  *
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4>
- * TERASOLUNA‚Ì“ü—Íƒ`ƒFƒbƒN‹@”\‚Å‹¤’Ê‚Ég—p‚³‚ê‚éŒŸØƒ‹[ƒ‹ƒNƒ‰ƒXB
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4>
+ * TERASOLUNAã®å…¥åŠ›ãƒã‚§ãƒƒã‚¯æ©Ÿèƒ½ã§å…±é€šã«ä½¿ç”¨ã•ã‚Œã‚‹æ¤œè¨¼ãƒ«ãƒ¼ãƒ«ã‚¯ãƒ©ã‚¹ã€‚
  * <p>
  *
  * @see jp.terasoluna.fw.validation.FieldChecks
@@ -40,19 +40,19 @@ import org.apache.commons.validator.Var;
 public class FieldChecksTest07 extends TestCase {
 
     /**
-     * ‚±‚ÌƒeƒXƒgƒP[ƒX‚ğÀs‚·‚éˆ×‚Ì
-     * GUI ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‹N“®‚·‚éB
+     * ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã‚’å®Ÿè¡Œã™ã‚‹ç‚ºã®
+     * GUI ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’èµ·å‹•ã™ã‚‹ã€‚
      *
-     * @param args java ƒRƒ}ƒ“ƒh‚Éİ’è‚³‚ê‚½ƒpƒ‰ƒ[ƒ^
+     * @param args java ã‚³ãƒãƒ³ãƒ‰ã«è¨­å®šã•ã‚ŒãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public static void main(String[] args) {
         junit.swingui.TestRunner.run(FieldChecksTest07.class);
     }
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -62,9 +62,9 @@ public class FieldChecksTest07 extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -73,9 +73,9 @@ public class FieldChecksTest07 extends TestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      *
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public FieldChecksTest07(String name) {
         super(name);
@@ -85,27 +85,27 @@ public class FieldChecksTest07 extends TestCase {
      * testValidateHankakuKanaString01()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:null<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:null<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚ªnull‚Ìê‡Atrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanãŒnullã®å ´åˆã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateHankakuKanaString01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         // bean : null
         Object bean = null;
         // va : not null
@@ -116,11 +116,11 @@ public class FieldChecksTest07 extends TestCase {
         FieldChecks_ValidationErrorsImpl01 errors =
             new FieldChecks_ValidationErrorsImpl01();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean b =
             new FieldChecks().validateHankakuKanaString(bean, va, field, errors);
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(b);
         assertEquals(0, errors.addErrorCount);
     }
@@ -129,27 +129,27 @@ public class FieldChecksTest07 extends TestCase {
      * testValidateHankakuKanaString02()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:""<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:""<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚ª‹ó•¶š‚Ìê‡Atrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanãŒç©ºæ–‡å­—ã®å ´åˆã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateHankakuKanaString02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         // bean : ""
         Object bean = "";
         // va : not null
@@ -160,11 +160,11 @@ public class FieldChecksTest07 extends TestCase {
         FieldChecks_ValidationErrorsImpl01 errors =
             new FieldChecks_ValidationErrorsImpl01();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean b =
             new FieldChecks().validateHankakuKanaString(bean, va, field, errors);
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(b);
         assertEquals(0, errors.addErrorCount);
     }
@@ -173,29 +173,29 @@ public class FieldChecksTest07 extends TestCase {
      * testValidateHankakuKanaString03()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"Êİ¶¸"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"ï¾Šï¾ï½¶ï½¸"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚ª”¼ŠpƒJƒi•¶š‚Ì‚İ‚Å\¬‚³‚ê‚Ä‚¢‚éê‡Atrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanãŒåŠè§’ã‚«ãƒŠæ–‡å­—ã®ã¿ã§æ§‹æˆã•ã‚Œã¦ã„ã‚‹å ´åˆã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateHankakuKanaString03() throws Exception {
-        // ‘Oˆ—
-        // bean : "Êİ¶¸"
-        Object bean = "Êİ¶¸";
+        // å‰å‡¦ç†
+        // bean : "ï¾Šï¾ï½¶ï½¸"
+        Object bean = "ï¾Šï¾ï½¶ï½¸";
         // va : not null
         ValidatorAction va = new ValidatorAction();
         // field : not null
@@ -204,11 +204,11 @@ public class FieldChecksTest07 extends TestCase {
         FieldChecks_ValidationErrorsImpl01 errors =
             new FieldChecks_ValidationErrorsImpl01();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean b =
             new FieldChecks().validateHankakuKanaString(bean, va, field, errors);
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(b);
         assertEquals(0, errors.addErrorCount);
     }
@@ -217,29 +217,29 @@ public class FieldChecksTest07 extends TestCase {
      * testValidateHankakuKanaString04()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"ƒnƒ“ƒJƒN"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"ãƒãƒ³ã‚«ã‚¯"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
-     *         (ó‘Ô•Ï‰») errors:bean,field,va‚ğˆø”‚Æ‚µ‚ÄaddErrors‚ªŒÄ‚Ño‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:bean,field,vaã‚’å¼•æ•°ã¨ã—ã¦addErrorsãŒå‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚É”¼ŠpƒJƒiˆÈŠO‚Ì•¶š‚ªŠÜ‚Ü‚ê‚Ä‚¢‚éê‡AƒGƒ‰[‚ğ’Ç‰Á‚µ‚Äfalse‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanã«åŠè§’ã‚«ãƒŠä»¥å¤–ã®æ–‡å­—ãŒå«ã¾ã‚Œã¦ã„ã‚‹å ´åˆã€ã‚¨ãƒ©ãƒ¼ã‚’è¿½åŠ ã—ã¦falseãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateHankakuKanaString04() throws Exception {
-        // ‘Oˆ—
-        // bean : "ƒnƒ“ƒJƒN"
-        Object bean = "ƒnƒ“ƒJƒN";
+        // å‰å‡¦ç†
+        // bean : "ãƒãƒ³ã‚«ã‚¯"
+        Object bean = "ãƒãƒ³ã‚«ã‚¯";
         // va : not null
         ValidatorAction va = new ValidatorAction();
         // field : not null
@@ -248,15 +248,15 @@ public class FieldChecksTest07 extends TestCase {
         FieldChecks_ValidationErrorsImpl01 errors =
             new FieldChecks_ValidationErrorsImpl01();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean b =
             new FieldChecks().validateHankakuKanaString(bean, va, field, errors);
 
-        // ”»’è
+        // åˆ¤å®š
         assertFalse(b);
-        // ŒÄoŠm”F
+        // å‘¼å‡ºç¢ºèª
         assertEquals(1, errors.addErrorCount);
-        // ˆø”Šm”F
+        // å¼•æ•°ç¢ºèª
         ArrayList beanList = (ArrayList) UTUtil.getPrivateField(errors, "beanList");
         assertSame(bean, beanList.get(0));
         ArrayList vaList = (ArrayList) UTUtil.getPrivateField(errors, "vaList");
@@ -269,27 +269,27 @@ public class FieldChecksTest07 extends TestCase {
      * testValidateHankakuString01()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:null<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:null<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚ªnull‚Ìê‡Atrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanãŒnullã®å ´åˆã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateHankakuString01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         // bean : null
         Object bean = null;
         // va : not null
@@ -300,11 +300,11 @@ public class FieldChecksTest07 extends TestCase {
         FieldChecks_ValidationErrorsImpl01 errors =
             new FieldChecks_ValidationErrorsImpl01();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean b =
             new FieldChecks().validateHankakuString(bean, va, field, errors);
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(b);
         assertEquals(0, errors.addErrorCount);
     }
@@ -313,27 +313,27 @@ public class FieldChecksTest07 extends TestCase {
      * testValidateHankakuString02()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:""<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:""<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚ª‹ó•¶š‚Ìê‡Atrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanãŒç©ºæ–‡å­—ã®å ´åˆã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateHankakuString02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         // bean : ""
         Object bean = "";
         // va : not null
@@ -344,11 +344,11 @@ public class FieldChecksTest07 extends TestCase {
         FieldChecks_ValidationErrorsImpl01 errors =
             new FieldChecks_ValidationErrorsImpl01();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean b =
             new FieldChecks().validateHankakuString(bean, va, field, errors);
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(b);
         assertEquals(0, errors.addErrorCount);
     }
@@ -357,29 +357,29 @@ public class FieldChecksTest07 extends TestCase {
      * testValidateHankakuString03()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"1a±"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"1aï½±"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚ª”¼Šp•¶š‚Ì‚İ‚Å\¬‚³‚ê‚Ä‚¢‚éê‡Atrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanãŒåŠè§’æ–‡å­—ã®ã¿ã§æ§‹æˆã•ã‚Œã¦ã„ã‚‹å ´åˆã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateHankakuString03() throws Exception {
-        // ‘Oˆ—
-        // bean : "1a±"
-        Object bean = "1a±";
+        // å‰å‡¦ç†
+        // bean : "1aï½±"
+        Object bean = "1aï½±";
         // va : not null
         ValidatorAction va = new ValidatorAction();
         // field : not null
@@ -388,11 +388,11 @@ public class FieldChecksTest07 extends TestCase {
         FieldChecks_ValidationErrorsImpl01 errors =
             new FieldChecks_ValidationErrorsImpl01();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean b =
             new FieldChecks().validateHankakuString(bean, va, field, errors);
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(b);
         assertEquals(0, errors.addErrorCount);
     }
@@ -401,29 +401,29 @@ public class FieldChecksTest07 extends TestCase {
      * testValidateHankakuString04()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"‘SŠpƒA"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"å…¨è§’ã‚¢"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
-     *         (ó‘Ô•Ï‰») errors:bean,field,va‚ğˆø”‚Æ‚µ‚ÄaddErrors‚ªŒÄ‚Ño‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:bean,field,vaã‚’å¼•æ•°ã¨ã—ã¦addErrorsãŒå‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚É”¼ŠpˆÈŠO‚Ì•¶š‚ªŠÜ‚Ü‚ê‚Ä‚¢‚éê‡AƒGƒ‰[‚ğ’Ç‰Á‚µ‚Äfalse‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanã«åŠè§’ä»¥å¤–ã®æ–‡å­—ãŒå«ã¾ã‚Œã¦ã„ã‚‹å ´åˆã€ã‚¨ãƒ©ãƒ¼ã‚’è¿½åŠ ã—ã¦falseãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateHankakuString04() throws Exception {
-        // ‘Oˆ—
-        // bean : "‘SŠpƒA"
-        Object bean = "‘SŠpƒA";
+        // å‰å‡¦ç†
+        // bean : "å…¨è§’ã‚¢"
+        Object bean = "å…¨è§’ã‚¢";
         // va : not null
         ValidatorAction va = new ValidatorAction();
         // field : not null
@@ -432,15 +432,15 @@ public class FieldChecksTest07 extends TestCase {
         FieldChecks_ValidationErrorsImpl01 errors =
             new FieldChecks_ValidationErrorsImpl01();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean b =
             new FieldChecks().validateHankakuString(bean, va, field, errors);
 
-        // ”»’è
+        // åˆ¤å®š
         assertFalse(b);
-        // ŒÄoŠm”F
+        // å‘¼å‡ºç¢ºèª
         assertEquals(1, errors.addErrorCount);
-        // ˆø”Šm”F
+        // å¼•æ•°ç¢ºèª
         ArrayList beanList = (ArrayList) UTUtil.getPrivateField(errors, "beanList");
         assertSame(bean, beanList.get(0));
         ArrayList vaList = (ArrayList) UTUtil.getPrivateField(errors, "vaList");
@@ -453,27 +453,27 @@ public class FieldChecksTest07 extends TestCase {
      * testValidateZenkakuString01()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:null<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:null<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚ªnull‚Ìê‡Atrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanãŒnullã®å ´åˆã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateZenkakuString01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         // bean : null
         Object bean = null;
         // va : not null
@@ -484,11 +484,11 @@ public class FieldChecksTest07 extends TestCase {
         FieldChecks_ValidationErrorsImpl01 errors =
             new FieldChecks_ValidationErrorsImpl01();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean b =
             new FieldChecks().validateZenkakuString(bean, va, field, errors);
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(b);
         assertEquals(0, errors.addErrorCount);
     }
@@ -497,27 +497,27 @@ public class FieldChecksTest07 extends TestCase {
      * testValidateZenkakuString02()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:""<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:""<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚ª‹ó•¶š‚Ìê‡Atrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanãŒç©ºæ–‡å­—ã®å ´åˆã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateZenkakuString02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         // bean : ""
         Object bean = "";
         // va : not null
@@ -528,11 +528,11 @@ public class FieldChecksTest07 extends TestCase {
         FieldChecks_ValidationErrorsImpl01 errors =
             new FieldChecks_ValidationErrorsImpl01();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean b =
             new FieldChecks().validateZenkakuString(bean, va, field, errors);
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(b);
         assertEquals(0, errors.addErrorCount);
     }
@@ -541,29 +541,29 @@ public class FieldChecksTest07 extends TestCase {
      * testValidateZenkakuString03()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"‘SŠpƒA"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"å…¨è§’ã‚¢"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚ª‘SŠp•¶š‚Ì‚İ‚Å\¬‚³‚ê‚Ä‚¢‚éê‡Atrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanãŒå…¨è§’æ–‡å­—ã®ã¿ã§æ§‹æˆã•ã‚Œã¦ã„ã‚‹å ´åˆã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateZenkakuString03() throws Exception {
-        // ‘Oˆ—
-        // bean : "‘SŠpƒA"
-        Object bean = "‘SŠpƒA";
+        // å‰å‡¦ç†
+        // bean : "å…¨è§’ã‚¢"
+        Object bean = "å…¨è§’ã‚¢";
         // va : not null
         ValidatorAction va = new ValidatorAction();
         // field : not null
@@ -572,11 +572,11 @@ public class FieldChecksTest07 extends TestCase {
         FieldChecks_ValidationErrorsImpl01 errors =
             new FieldChecks_ValidationErrorsImpl01();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean b =
             new FieldChecks().validateZenkakuString(bean, va, field, errors);
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(b);
         assertEquals(0, errors.addErrorCount);
     }
@@ -585,29 +585,29 @@ public class FieldChecksTest07 extends TestCase {
      * testValidateZenkakuString04()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"1a±"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"1aï½±"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
-     *         (ó‘Ô•Ï‰») errors:bean,field,va‚ğˆø”‚Æ‚µ‚ÄaddErrors‚ªŒÄ‚Ño‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:bean,field,vaã‚’å¼•æ•°ã¨ã—ã¦addErrorsãŒå‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚É‘SŠpˆÈŠO‚Ì•¶š‚ªŠÜ‚Ü‚ê‚Ä‚¢‚éê‡AƒGƒ‰[‚ğ’Ç‰Á‚µ‚Äfalse‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanã«å…¨è§’ä»¥å¤–ã®æ–‡å­—ãŒå«ã¾ã‚Œã¦ã„ã‚‹å ´åˆã€ã‚¨ãƒ©ãƒ¼ã‚’è¿½åŠ ã—ã¦falseãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateZenkakuString04() throws Exception {
-        // ‘Oˆ—
-        // bean : "1a±"
-        Object bean = "1a±";
+        // å‰å‡¦ç†
+        // bean : "1aï½±"
+        Object bean = "1aï½±";
         // va : not null
         ValidatorAction va = new ValidatorAction();
         // field : not null
@@ -616,15 +616,15 @@ public class FieldChecksTest07 extends TestCase {
         FieldChecks_ValidationErrorsImpl01 errors =
             new FieldChecks_ValidationErrorsImpl01();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean b =
             new FieldChecks().validateZenkakuString(bean, va, field, errors);
 
-        // ”»’è
+        // åˆ¤å®š
         assertFalse(b);
-        // ŒÄoŠm”F
+        // å‘¼å‡ºç¢ºèª
         assertEquals(1, errors.addErrorCount);
-        // ˆø”Šm”F
+        // å¼•æ•°ç¢ºèª
         ArrayList beanList = (ArrayList) UTUtil.getPrivateField(errors, "beanList");
         assertSame(bean, beanList.get(0));
         ArrayList vaList = (ArrayList) UTUtil.getPrivateField(errors, "vaList");
@@ -637,27 +637,27 @@ public class FieldChecksTest07 extends TestCase {
      * testValidateZenkakuKanaString01()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:null<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:null<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚ªnull‚Ìê‡Atrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanãŒnullã®å ´åˆã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateZenkakuKanaString01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         // bean : null
         Object bean = null;
         // va : not null
@@ -668,11 +668,11 @@ public class FieldChecksTest07 extends TestCase {
         FieldChecks_ValidationErrorsImpl01 errors =
             new FieldChecks_ValidationErrorsImpl01();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean b =
             new FieldChecks().validateZenkakuKanaString(bean, va, field, errors);
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(b);
         assertEquals(0, errors.addErrorCount);
     }
@@ -681,27 +681,27 @@ public class FieldChecksTest07 extends TestCase {
      * testValidateZenkakuKanaString02()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:""<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:""<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚ª‹ó•¶š‚Ìê‡Atrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanãŒç©ºæ–‡å­—ã®å ´åˆã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateZenkakuKanaString02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         // bean : ""
         Object bean = "";
         // va : not null
@@ -712,11 +712,11 @@ public class FieldChecksTest07 extends TestCase {
         FieldChecks_ValidationErrorsImpl01 errors =
             new FieldChecks_ValidationErrorsImpl01();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean b =
             new FieldChecks().validateZenkakuKanaString(bean, va, field, errors);
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(b);
         assertEquals(0, errors.addErrorCount);
     }
@@ -725,29 +725,29 @@ public class FieldChecksTest07 extends TestCase {
      * testValidateZenkakuKanaString03()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"ƒ[ƒ“ƒJƒN"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"ã‚¼ãƒ³ã‚«ã‚¯"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚ª‘SŠpƒJƒi•¶š‚Ì‚İ‚Å\¬‚³‚ê‚Ä‚¢‚éê‡Atrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanãŒå…¨è§’ã‚«ãƒŠæ–‡å­—ã®ã¿ã§æ§‹æˆã•ã‚Œã¦ã„ã‚‹å ´åˆã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateZenkakuKanaString03() throws Exception {
-        // ‘Oˆ—
-        // bean : "ƒ[ƒ“ƒJƒN"
-        Object bean = "ƒ[ƒ“ƒJƒN";
+        // å‰å‡¦ç†
+        // bean : "ã‚¼ãƒ³ã‚«ã‚¯"
+        Object bean = "ã‚¼ãƒ³ã‚«ã‚¯";
         // va : not null
         ValidatorAction va = new ValidatorAction();
         // field : not null
@@ -756,11 +756,11 @@ public class FieldChecksTest07 extends TestCase {
         FieldChecks_ValidationErrorsImpl01 errors =
             new FieldChecks_ValidationErrorsImpl01();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean b =
             new FieldChecks().validateZenkakuKanaString(bean, va, field, errors);
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(b);
         assertEquals(0, errors.addErrorCount);
     }
@@ -769,29 +769,29 @@ public class FieldChecksTest07 extends TestCase {
      * testValidateZenkakuKanaString04()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"1a‚ "<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"1aã‚"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
-     *         (ó‘Ô•Ï‰») errors:bean,field,va‚ğˆø”‚Æ‚µ‚ÄaddErrors‚ªŒÄ‚Ño‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:bean,field,vaã‚’å¼•æ•°ã¨ã—ã¦addErrorsãŒå‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚É‘SŠpƒJƒiˆÈŠO‚Ì•¶š‚ªŠÜ‚Ü‚ê‚Ä‚¢‚éê‡AƒGƒ‰[‚ğ’Ç‰Á‚µ‚Äfalse‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanã«å…¨è§’ã‚«ãƒŠä»¥å¤–ã®æ–‡å­—ãŒå«ã¾ã‚Œã¦ã„ã‚‹å ´åˆã€ã‚¨ãƒ©ãƒ¼ã‚’è¿½åŠ ã—ã¦falseãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateZenkakuKanaString04() throws Exception {
-        // ‘Oˆ—
-        // bean : "1a‚ "
-        Object bean = "1a‚ ";
+        // å‰å‡¦ç†
+        // bean : "1aã‚"
+        Object bean = "1aã‚";
         // va : not null
         ValidatorAction va = new ValidatorAction();
         // field : not null
@@ -800,15 +800,15 @@ public class FieldChecksTest07 extends TestCase {
         FieldChecks_ValidationErrorsImpl01 errors =
             new FieldChecks_ValidationErrorsImpl01();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean b =
             new FieldChecks().validateZenkakuKanaString(bean, va, field, errors);
 
-        // ”»’è
+        // åˆ¤å®š
         assertFalse(b);
-        // ŒÄoŠm”F
+        // å‘¼å‡ºç¢ºèª
         assertEquals(1, errors.addErrorCount);
-        // ˆø”Šm”F
+        // å¼•æ•°ç¢ºèª
         ArrayList beanList = (ArrayList) UTUtil.getPrivateField(errors, "beanList");
         assertSame(bean, beanList.get(0));
         ArrayList vaList = (ArrayList) UTUtil.getPrivateField(errors, "vaList");
@@ -821,27 +821,27 @@ public class FieldChecksTest07 extends TestCase {
      * testValidateProhibited01()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:null<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:null<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚ªnull‚Ìê‡Atrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanãŒnullã®å ´åˆã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateProhibited01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         // bean : null
         Object bean = null;
         // va : not null
@@ -852,11 +852,11 @@ public class FieldChecksTest07 extends TestCase {
         FieldChecks_ValidationErrorsImpl01 errors =
             new FieldChecks_ValidationErrorsImpl01();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean b =
             new FieldChecks().validateProhibited(bean, va, field, errors);
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(b);
         assertEquals(0, errors.addErrorCount);
     }
@@ -865,27 +865,27 @@ public class FieldChecksTest07 extends TestCase {
      * testValidateProhibited02()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:""<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:""<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚ª‹ó•¶š‚Ìê‡Atrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanãŒç©ºæ–‡å­—ã®å ´åˆã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateProhibited02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         // bean : ""
         Object bean = "";
         // va : not null
@@ -896,11 +896,11 @@ public class FieldChecksTest07 extends TestCase {
         FieldChecks_ValidationErrorsImpl01 errors =
             new FieldChecks_ValidationErrorsImpl01();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean b =
             new FieldChecks().validateProhibited(bean, va, field, errors);
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(b);
         assertEquals(0, errors.addErrorCount);
     }
@@ -909,30 +909,30 @@ public class FieldChecksTest07 extends TestCase {
      * testValidateProhibited03()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"test"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"test"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                chars=null<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:ValidatorException<br>
-     *                    ƒƒbƒZ[ƒWF"var[chars] must be specified."<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:ƒƒOƒŒƒxƒ‹FƒGƒ‰[<br>
-     *                    ƒƒbƒZ[ƒWF"var[chars] must be specified."<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ValidatorException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"var[chars] must be specified."<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ï¼šã‚¨ãƒ©ãƒ¼<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"var[chars] must be specified."<br>
      *
      * <br>
-     * var‚Ìchars‚ªnull‚Ìê‡AValidatorException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * varã®charsãŒnullã®å ´åˆã€ValidatorExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateProhibited03() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         // bean : "test"
         Object bean = "test";
         // va : not null
@@ -950,12 +950,12 @@ public class FieldChecksTest07 extends TestCase {
         
         
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             @SuppressWarnings("unused") boolean b =
                 new FieldChecks().validateProhibited(bean, va, field, errors);
             fail();
         } catch (ValidatorException e) {
-            // ”»’è
+            // åˆ¤å®š
             String message = "var[chars] must be specified.";
             assertEquals(message, e.getMessage());
             assertTrue(LogUTUtil.checkError(message));
@@ -966,30 +966,30 @@ public class FieldChecksTest07 extends TestCase {
      * testValidateProhibited04()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"test"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"test"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                chars=""<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:ValidatorException<br>
-     *                    ƒƒbƒZ[ƒWF"var[chars] must be specified."<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:ƒƒOƒŒƒxƒ‹FƒGƒ‰[<br>
-     *                    ƒƒbƒZ[ƒWF"var[chars] must be specified."<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ValidatorException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"var[chars] must be specified."<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ï¼šã‚¨ãƒ©ãƒ¼<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"var[chars] must be specified."<br>
      *
      * <br>
-     * var‚Ìchars‚ªnull‚Ìê‡AValidatorException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * varã®charsãŒnullã®å ´åˆã€ValidatorExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateProhibited04() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         // bean : "test"
         Object bean = "test";
         // va : not null
@@ -1007,12 +1007,12 @@ public class FieldChecksTest07 extends TestCase {
         
         
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             @SuppressWarnings("unused") boolean b =
                 new FieldChecks().validateProhibited(bean, va, field, errors);
             fail();
         } catch (ValidatorException e) {
-            // ”»’è
+            // åˆ¤å®š
             String message = "var[chars] must be specified.";
             assertEquals(message, e.getMessage());
             assertTrue(LogUTUtil.checkError(message));
@@ -1023,30 +1023,30 @@ public class FieldChecksTest07 extends TestCase {
      * testValidateProhibited05()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"‡B‡A‡@"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
-     *                chars="‚ ‡@t"<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"â‘¢â‘¡â‘ "<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
+     *                chars="ã‚â‘ t"<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
-     *         (ó‘Ô•Ï‰») errors:bean,field,va‚ğˆø”‚Æ‚µ‚ÄaddErrors‚ªŒÄ‚Ño‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:bean,field,vaã‚’å¼•æ•°ã¨ã—ã¦addErrorsãŒå‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
      *
      * <br>
-     * bean‚Évar‚Ìchars‚Åw’è‚³‚ê‚½•¶š‚ªŠÜ‚Ü‚ê‚éê‡AƒGƒ‰[‚ğ’Ç‰Á‚µ‚Äfalse‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * beanã«varã®charsã§æŒ‡å®šã•ã‚ŒãŸæ–‡å­—ãŒå«ã¾ã‚Œã‚‹å ´åˆã€ã‚¨ãƒ©ãƒ¼ã‚’è¿½åŠ ã—ã¦falseãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateProhibited05() throws Exception {
-        // ‘Oˆ—
-        // bean : "‡B‡A‡@"
-        Object bean = "‡B‡A‡@";
+        // å‰å‡¦ç†
+        // bean : "â‘¢â‘¡â‘ "
+        Object bean = "â‘¢â‘¡â‘ ";
         // va : not null
         ValidatorAction va = new ValidatorAction();
         
@@ -1054,22 +1054,22 @@ public class FieldChecksTest07 extends TestCase {
         Field field = new Field();
         Var var = new Var();
         var.setName("chars");
-        var.setValue("‚ ‡@t");
+        var.setValue("ã‚â‘ t");
         field.addVar(var);
         
         // errors : not null
         FieldChecks_ValidationErrorsImpl01 errors =
             new FieldChecks_ValidationErrorsImpl01();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean b =
             new FieldChecks().validateProhibited(bean, va, field, errors);
 
-        // ”»’è
+        // åˆ¤å®š
         assertFalse(b);
-        // ŒÄoŠm”F
+        // å‘¼å‡ºç¢ºèª
         assertEquals(1, errors.addErrorCount);
-        // ˆø”Šm”F
+        // å¼•æ•°ç¢ºèª
         ArrayList beanList = (ArrayList) UTUtil.getPrivateField(errors, "beanList");
         assertSame(bean, beanList.get(0));
         ArrayList vaList = (ArrayList) UTUtil.getPrivateField(errors, "vaList");
@@ -1082,30 +1082,30 @@ public class FieldChecksTest07 extends TestCase {
      * testValidateProhibited06()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"‡B‡A‡@"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
-     *                chars="‡C‡D‡E"<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"â‘¢â‘¡â‘ "<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
+     *                chars="â‘£â‘¤â‘¥"<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * bean‚Évar‚Ìchars‚Åw’è‚³‚ê‚½•¶š‚ªŠÜ‚Ü‚ê‚È‚¢ê‡Atrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * beanã«varã®charsã§æŒ‡å®šã•ã‚ŒãŸæ–‡å­—ãŒå«ã¾ã‚Œãªã„å ´åˆã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateProhibited06() throws Exception {
-        // ‘Oˆ—
-        // bean : "‡B‡A‡@"
-        Object bean = "‡B‡A‡@";
+        // å‰å‡¦ç†
+        // bean : "â‘¢â‘¡â‘ "
+        Object bean = "â‘¢â‘¡â‘ ";
         // va : not null
         ValidatorAction va = new ValidatorAction();
         
@@ -1113,20 +1113,20 @@ public class FieldChecksTest07 extends TestCase {
         Field field = new Field();
         Var var = new Var();
         var.setName("chars");
-        var.setValue("‡C‡D‡E");
+        var.setValue("â‘£â‘¤â‘¥");
         field.addVar(var);
         
         // errors : not null
         FieldChecks_ValidationErrorsImpl01 errors =
             new FieldChecks_ValidationErrorsImpl01();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean b =
             new FieldChecks().validateProhibited(bean, va, field, errors);
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(b);
-        // ŒÄoŠm”F
+        // å‘¼å‡ºç¢ºèª
         assertEquals(0, errors.addErrorCount);
     }
     
@@ -1134,30 +1134,30 @@ public class FieldChecksTest07 extends TestCase {
      * testValidateProhibited07()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"‡B‡A "<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
-     *                chars="‚ ‡@t "<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"â‘¢â‘¡ "<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
+     *                chars="ã‚â‘ t "<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
-     *         (ó‘Ô•Ï‰») errors:bean,field,va‚ğˆø”‚Æ‚µ‚ÄaddErrors‚ªŒÄ‚Ño‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:bean,field,vaã‚’å¼•æ•°ã¨ã—ã¦addErrorsãŒå‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
      *
      * <br>
-     * bean‚Évar‚Ìchars‚Åw’è‚³‚ê‚½•¶š‚ªŠÜ‚Ü‚ê‚éê‡AƒGƒ‰[‚ğ’Ç‰Á‚µ‚Äfalse‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * beanã«varã®charsã§æŒ‡å®šã•ã‚ŒãŸæ–‡å­—ãŒå«ã¾ã‚Œã‚‹å ´åˆã€ã‚¨ãƒ©ãƒ¼ã‚’è¿½åŠ ã—ã¦falseãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateProhibited07() throws Exception {
-        // ‘Oˆ—
-        // bean : "‡B‡A "
-        Object bean = "‡B‡A ";
+        // å‰å‡¦ç†
+        // bean : "â‘¢â‘¡ "
+        Object bean = "â‘¢â‘¡ ";
         // va : not null
         ValidatorAction va = new ValidatorAction();
         
@@ -1165,22 +1165,22 @@ public class FieldChecksTest07 extends TestCase {
         Field field = new Field();
         Var var = new Var();
         var.setName("chars");
-        var.setValue("‚ ‡@t ");
+        var.setValue("ã‚â‘ t ");
         field.addVar(var);
         
         // errors : not null
         FieldChecks_ValidationErrorsImpl01 errors =
             new FieldChecks_ValidationErrorsImpl01();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean b =
             new FieldChecks().validateProhibited(bean, va, field, errors);
 
-        // ”»’è
+        // åˆ¤å®š
         assertFalse(b);
-        // ŒÄoŠm”F
+        // å‘¼å‡ºç¢ºèª
         assertEquals(1, errors.addErrorCount);
-        // ˆø”Šm”F
+        // å¼•æ•°ç¢ºèª
         ArrayList beanList = (ArrayList) UTUtil.getPrivateField(errors, "beanList");
         assertSame(bean, beanList.get(0));
         ArrayList vaList = (ArrayList) UTUtil.getPrivateField(errors, "vaList");
@@ -1193,28 +1193,28 @@ public class FieldChecksTest07 extends TestCase {
      * testValidateProhibited08()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"    "<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
-     *                chars="‚ ‡@t "<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"    "<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
+     *                chars="ã‚â‘ t "<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
-     *         (ó‘Ô•Ï‰») errors:bean,field,va‚ğˆø”‚Æ‚µ‚ÄaddErrors‚ªŒÄ‚Ño‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:bean,field,vaã‚’å¼•æ•°ã¨ã—ã¦addErrorsãŒå‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
      *
      * <br>
-     * bean‚Évar‚Ìchars‚Åw’è‚³‚ê‚½•¶š‚ªŠÜ‚Ü‚ê‚éê‡AƒGƒ‰[‚ğ’Ç‰Á‚µ‚Äfalse‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * beanã«varã®charsã§æŒ‡å®šã•ã‚ŒãŸæ–‡å­—ãŒå«ã¾ã‚Œã‚‹å ´åˆã€ã‚¨ãƒ©ãƒ¼ã‚’è¿½åŠ ã—ã¦falseãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateProhibited08() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         // bean : "    "
         Object bean = "    ";
         // va : not null
@@ -1224,22 +1224,22 @@ public class FieldChecksTest07 extends TestCase {
         Field field = new Field();
         Var var = new Var();
         var.setName("chars");
-        var.setValue("‚ ‡@t ");
+        var.setValue("ã‚â‘ t ");
         field.addVar(var);
         
         // errors : not null
         FieldChecks_ValidationErrorsImpl01 errors =
             new FieldChecks_ValidationErrorsImpl01();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean b =
             new FieldChecks().validateProhibited(bean, va, field, errors);
 
-        // ”»’è
+        // åˆ¤å®š
         assertFalse(b);
-        // ŒÄoŠm”F
+        // å‘¼å‡ºç¢ºèª
         assertEquals(1, errors.addErrorCount);
-        // ˆø”Šm”F
+        // å¼•æ•°ç¢ºèª
         ArrayList beanList = (ArrayList) UTUtil.getPrivateField(errors, "beanList");
         assertSame(bean, beanList.get(0));
         ArrayList vaList = (ArrayList) UTUtil.getPrivateField(errors, "vaList");

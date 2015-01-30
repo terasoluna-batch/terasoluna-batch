@@ -8,7 +8,7 @@ import org.springframework.transaction.TransactionStatus;
 public class PlatformTransactionManagerStub01 implements PlatformTransactionManager {
 
     public TransactionStatus getTransaction(TransactionDefinition definition) throws TransactionException {
-        throw new TransactionException("ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“ŠJnŠm”F"){
+        throw new TransactionException("ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³é–‹å§‹ç¢ºèª"){
             /**
              * 
              */
@@ -16,7 +16,7 @@ public class PlatformTransactionManagerStub01 implements PlatformTransactionMana
     }
 
     public void commit(TransactionStatus status) throws TransactionException {
-        throw new TransactionException("ƒRƒ~ƒbƒgŠm”F") {
+        throw new TransactionException("ã‚³ãƒŸãƒƒãƒˆç¢ºèª") {
             /**
              * 
              */
@@ -25,7 +25,7 @@ public class PlatformTransactionManagerStub01 implements PlatformTransactionMana
     }
 
     public void rollback(TransactionStatus status) throws TransactionException {
-        throw new TransactionException("ƒ[ƒ‹ƒoƒbƒNŠm”F") {
+        throw new TransactionException("ãƒ­ãƒ¼ãƒ«ãƒãƒƒã‚¯ç¢ºèª") {
             /**
              * 
              */

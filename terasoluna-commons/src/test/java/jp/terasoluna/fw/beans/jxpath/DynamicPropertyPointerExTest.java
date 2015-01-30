@@ -28,12 +28,12 @@ import org.apache.commons.jxpath.ri.QName;
 import org.apache.commons.jxpath.ri.model.NodePointer;
 
 /**
- * {@link jp.terasoluna.fw.beans.jxpath.DynamicPropertyPointerEx} ƒNƒ‰ƒX‚Ìƒuƒ‰ƒbƒNƒ{ƒbƒNƒXƒeƒXƒgB
+ * {@link jp.terasoluna.fw.beans.jxpath.DynamicPropertyPointerEx} ã‚¯ãƒ©ã‚¹ã®ãƒ–ãƒ©ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ†ã‚¹ãƒˆã€‚
  * 
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4>
- * null’l‚ğˆµ‚¤‚½‚ß‚ÌMap—pƒvƒƒpƒeƒBƒ|ƒCƒ“ƒ^Šg’£ƒNƒ‰ƒXB<br>
- * ‘O’ñğŒF
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4>
+ * nullå€¤ã‚’æ‰±ã†ãŸã‚ã®Mapç”¨ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒã‚¤ãƒ³ã‚¿æ‹¡å¼µã‚¯ãƒ©ã‚¹ã€‚<br>
+ * å‰ææ¡ä»¶ï¼š
  * <p>
  * 
  * @see jp.terasoluna.fw.beans.jxpath.DynamicPropertyPointerEx
@@ -42,9 +42,9 @@ public class DynamicPropertyPointerExTest extends TestCase {
 
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -53,9 +53,9 @@ public class DynamicPropertyPointerExTest extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -64,9 +64,9 @@ public class DynamicPropertyPointerExTest extends TestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      * 
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public DynamicPropertyPointerExTest(String name) {
         super(name);
@@ -76,24 +76,24 @@ public class DynamicPropertyPointerExTest extends TestCase {
      * testGetLength01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ó‘Ô) getBaseValue():null<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) getBaseValue():null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) -:1<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) -:1<br>
      *         
      * <br>
-     * —v‘f‚Ì’l‚ªnull‚Ìê‡‚ÌƒeƒXƒgB‚P‚ğ•Ô‚·B
+     * è¦ç´ ã®å€¤ãŒnullã®å ´åˆã®ãƒ†ã‚¹ãƒˆã€‚ï¼‘ã‚’è¿”ã™ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testGetLength01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
     	QName qName = new QName("name");
     	Map map = new HashMap();
     	map.put("key", null);
@@ -104,7 +104,7 @@ public class DynamicPropertyPointerExTest extends TestCase {
     		= new DynamicPropertyPointerEx(nodePointer, handler);
     	pointer.setPropertyName("key");
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
     	assertEquals(1, pointer.getLength());
     }
 
@@ -112,25 +112,25 @@ public class DynamicPropertyPointerExTest extends TestCase {
      * testGetLength02()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ó‘Ô) getBaseValue():not null<br>
-     *         (ó‘Ô) ValueUtils.getLength(value):ŒÄ‚Ño‚µŠm”F‚ğs‚È‚¤<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) getBaseValue():not null<br>
+     *         (çŠ¶æ…‹) ValueUtils.getLength(value):å‘¼ã³å‡ºã—ç¢ºèªã‚’è¡Œãªã†<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) -:ValueUtils.getLength(value)‚ÌŒ‹‰Ê<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) -:ValueUtils.getLength(value)ã®çµæœ<br>
      *         
      * <br>
-     * —v‘f‚ªnull‚Å‚Í‚È‚¢ê‡‚ÌƒeƒXƒgBValueUtils.getLength()‚ğ•Ô‚·B
+     * è¦ç´ ãŒnullã§ã¯ãªã„å ´åˆã®ãƒ†ã‚¹ãƒˆã€‚ValueUtils.getLength()ã‚’è¿”ã™ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testGetLength02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
     	QName qName = new QName("name");
     	Map map = new HashMap();
     	map.put("key", new String[]{"a", "b", "c"});
@@ -141,7 +141,7 @@ public class DynamicPropertyPointerExTest extends TestCase {
     		= new DynamicPropertyPointerEx(nodePointer, handler);
     	pointer.setPropertyName("key");
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
     	assertEquals(3, pointer.getLength());
     }
 

@@ -17,10 +17,10 @@
 package jp.terasoluna.fw.beans;
 
 /**
- * JXPathIndexedBeanWrapperImplTest‚Åg—p‚·‚éƒXƒ^ƒuƒNƒ‰ƒXB
+ * JXPathIndexedBeanWrapperImplTestã§ä½¿ç”¨ã™ã‚‹ã‚¹ã‚¿ãƒ–ã‚¯ãƒ©ã‚¹ã€‚
  * 
  * 
- * testExtractIncrementIndexStringXX()ƒƒ\ƒbƒh‚Åg—p‚·‚éB
+ * testExtractIncrementIndexStringXX()ãƒ¡ã‚½ãƒƒãƒ‰ã§ä½¿ç”¨ã™ã‚‹ã€‚
  *
  */
 public class JXPathIndexedBeanWrapperImplStub02 extends
@@ -28,21 +28,21 @@ public class JXPathIndexedBeanWrapperImplStub02 extends
  
     
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-     * @param obj ƒ‰ƒbƒv‚·‚éBean
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * @param obj ãƒ©ãƒƒãƒ—ã™ã‚‹Bean
      */
     public JXPathIndexedBeanWrapperImplStub02(Object obj) {
         super(obj);
     }
 
     /**
-     * ƒCƒ“ƒNƒŠƒƒ“ƒg‚³‚ê‚½“Y‚¦š‚ğæ‚èo‚·ƒXƒ^ƒuƒƒ\ƒbƒhB
-     * @param property JavaƒvƒƒpƒeƒB–¼B
-     * @return String XPathŒ`®‚Ì“Y‚¦šB 
+     * ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ãƒˆã•ã‚ŒãŸæ·»ãˆå­—ã‚’å–ã‚Šå‡ºã™ã‚¹ã‚¿ãƒ–ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
+     * @param property Javaãƒ—ãƒ­ãƒ‘ãƒ†ã‚£åã€‚
+     * @return String XPathå½¢å¼ã®æ·»ãˆå­—ã€‚ 
      */
     @Override
     protected String extractIncrementIndex(String property,int increment) {
-        // “®“I‚É–ß‚è’l‚ğì¬B
+        // å‹•çš„ã«æˆ»ã‚Šå€¤ã‚’ä½œæˆã€‚
         return property + ":" + increment;
     }
     

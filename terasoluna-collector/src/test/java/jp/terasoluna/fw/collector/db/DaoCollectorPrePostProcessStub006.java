@@ -21,7 +21,7 @@ public class DaoCollectorPrePostProcessStub006 implements DaoCollectorPrePostPro
     public <P> DaoCollectorPrePostProcessStatus postprocessException(
             DaoCollector<P> collector, Throwable throwable) {
         execPostprocExcpFlg = true;
-        return DaoCollectorPrePostProcessStatus.END;	// ENDÇï‘Ç∑
+        return DaoCollectorPrePostProcessStatus.END;	// END„ÇíËøî„Åô
     }
 
     public boolean getExecPreprocFlg() {

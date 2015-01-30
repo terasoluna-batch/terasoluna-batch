@@ -44,287 +44,287 @@ import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.transaction.PlatformTransactionManager;
 
 /**
- * “¯Šúƒoƒbƒ`ƒGƒOƒ[ƒLƒ…[ƒ^’ŠÛƒNƒ‰ƒXB<br>
+ * åŒæœŸãƒãƒƒãƒã‚¨ã‚°ã‚¼ã‚­ãƒ¥ãƒ¼ã‚¿æŠ½è±¡ã‚¯ãƒ©ã‚¹ã€‚<br>
  * <br>
- * “¯ŠúƒWƒ‡ƒu‹N“®—p‚Ìƒoƒbƒ`ƒGƒOƒ[ƒLƒ…[ƒ^B
+ * åŒæœŸã‚¸ãƒ§ãƒ–èµ·å‹•ç”¨ã®ãƒãƒƒãƒã‚¨ã‚°ã‚¼ã‚­ãƒ¥ãƒ¼ã‚¿ã€‚
  * @see jp.terasoluna.fw.batch.executor.BatchExecutor
  * @see jp.terasoluna.fw.batch.executor.SyncBatchExecutor
  */
 public abstract class AbstractBatchExecutor implements BatchExecutor {
 
     /**
-     * ƒƒO.
+     * ãƒ­ã‚°.
      */
     private static final TLogger LOGGER = TLogger
             .getLogger(AbstractBatchExecutor.class);
 
     /**
-     * ŠÂ‹«•Ï”FƒWƒ‡ƒuƒV[ƒPƒ“ƒXƒR[ƒh.
+     * ç’°å¢ƒå¤‰æ•°ï¼šã‚¸ãƒ§ãƒ–ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã‚³ãƒ¼ãƒ‰.
      */
     protected static final String ENV_JOB_SEQ_ID = "JOB_SEQ_ID";
 
     /**
-     * ŠÂ‹«•Ï”FƒWƒ‡ƒu‹Æ–±ƒR[ƒh.
+     * ç’°å¢ƒå¤‰æ•°ï¼šã‚¸ãƒ§ãƒ–æ¥­å‹™ã‚³ãƒ¼ãƒ‰.
      */
     protected static final String ENV_JOB_APP_CD = "JOB_APP_CD";
 
     /**
-     * ŠÂ‹«•Ï”Fbean’è‹`ƒtƒ@ƒCƒ‹ƒpƒX.
+     * ç’°å¢ƒå¤‰æ•°ï¼šbeanå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹.
      */
     protected static final String ENV_JOB_BEAN_DEFINITION_PATH = "JOB_BEAN_DEFINITION_PATH";
 
     /**
-     * ŠÂ‹«•Ï”Fˆø”‚ÌÅ‘åŒÂ”.
+     * ç’°å¢ƒå¤‰æ•°ï¼šå¼•æ•°ã®æœ€å¤§å€‹æ•°.
      */
     protected static final int ENV_JOB_ARG_MAX = 20;
 
     /**
-     * ŠÂ‹«•Ï”Fˆø”.
+     * ç’°å¢ƒå¤‰æ•°ï¼šå¼•æ•°.
      */
     protected static final String ENV_JOB_ARG_NM = "JOB_ARG_NM";
 
     /**
-     * ŠÂ‹«•Ï”Fˆø”1.
+     * ç’°å¢ƒå¤‰æ•°ï¼šå¼•æ•°1.
      */
     protected static final String ENV_JOB_ARG_NM1 = "JOB_ARG_NM1";
 
     /**
-     * ŠÂ‹«•Ï”Fˆø”2.
+     * ç’°å¢ƒå¤‰æ•°ï¼šå¼•æ•°2.
      */
     protected static final String ENV_JOB_ARG_NM2 = "JOB_ARG_NM2";
 
     /**
-     * ŠÂ‹«•Ï”Fˆø”3.
+     * ç’°å¢ƒå¤‰æ•°ï¼šå¼•æ•°3.
      */
     protected static final String ENV_JOB_ARG_NM3 = "JOB_ARG_NM3";
 
     /**
-     * ŠÂ‹«•Ï”Fˆø”4.
+     * ç’°å¢ƒå¤‰æ•°ï¼šå¼•æ•°4.
      */
     protected static final String ENV_JOB_ARG_NM4 = "JOB_ARG_NM4";
 
     /**
-     * ŠÂ‹«•Ï”Fˆø”5.
+     * ç’°å¢ƒå¤‰æ•°ï¼šå¼•æ•°5.
      */
     protected static final String ENV_JOB_ARG_NM5 = "JOB_ARG_NM5";
 
     /**
-     * ŠÂ‹«•Ï”Fˆø”6.
+     * ç’°å¢ƒå¤‰æ•°ï¼šå¼•æ•°6.
      */
     protected static final String ENV_JOB_ARG_NM6 = "JOB_ARG_NM6";
 
     /**
-     * ŠÂ‹«•Ï”Fˆø”7.
+     * ç’°å¢ƒå¤‰æ•°ï¼šå¼•æ•°7.
      */
     protected static final String ENV_JOB_ARG_NM7 = "JOB_ARG_NM7";
 
     /**
-     * ŠÂ‹«•Ï”Fˆø”8.
+     * ç’°å¢ƒå¤‰æ•°ï¼šå¼•æ•°8.
      */
     protected static final String ENV_JOB_ARG_NM8 = "JOB_ARG_NM8";
 
     /**
-     * ŠÂ‹«•Ï”Fˆø”9.
+     * ç’°å¢ƒå¤‰æ•°ï¼šå¼•æ•°9.
      */
     protected static final String ENV_JOB_ARG_NM9 = "JOB_ARG_NM9";
 
     /**
-     * ŠÂ‹«•Ï”Fˆø”10.
+     * ç’°å¢ƒå¤‰æ•°ï¼šå¼•æ•°10.
      */
     protected static final String ENV_JOB_ARG_NM10 = "JOB_ARG_NM10";
 
     /**
-     * ŠÂ‹«•Ï”Fˆø”11.
+     * ç’°å¢ƒå¤‰æ•°ï¼šå¼•æ•°11.
      */
     protected static final String ENV_JOB_ARG_NM11 = "JOB_ARG_NM11";
 
     /**
-     * ŠÂ‹«•Ï”Fˆø”12.
+     * ç’°å¢ƒå¤‰æ•°ï¼šå¼•æ•°12.
      */
     protected static final String ENV_JOB_ARG_NM12 = "JOB_ARG_NM12";
 
     /**
-     * ŠÂ‹«•Ï”Fˆø”13.
+     * ç’°å¢ƒå¤‰æ•°ï¼šå¼•æ•°13.
      */
     protected static final String ENV_JOB_ARG_NM13 = "JOB_ARG_NM13";
 
     /**
-     * ŠÂ‹«•Ï”Fˆø”14.
+     * ç’°å¢ƒå¤‰æ•°ï¼šå¼•æ•°14.
      */
     protected static final String ENV_JOB_ARG_NM14 = "JOB_ARG_NM14";
 
     /**
-     * ŠÂ‹«•Ï”Fˆø”15.
+     * ç’°å¢ƒå¤‰æ•°ï¼šå¼•æ•°15.
      */
     protected static final String ENV_JOB_ARG_NM15 = "JOB_ARG_NM15";
 
     /**
-     * ŠÂ‹«•Ï”Fˆø”16.
+     * ç’°å¢ƒå¤‰æ•°ï¼šå¼•æ•°16.
      */
     protected static final String ENV_JOB_ARG_NM16 = "JOB_ARG_NM16";
 
     /**
-     * ŠÂ‹«•Ï”Fˆø”17.
+     * ç’°å¢ƒå¤‰æ•°ï¼šå¼•æ•°17.
      */
     protected static final String ENV_JOB_ARG_NM17 = "JOB_ARG_NM17";
 
     /**
-     * ŠÂ‹«•Ï”Fˆø”18.
+     * ç’°å¢ƒå¤‰æ•°ï¼šå¼•æ•°18.
      */
     protected static final String ENV_JOB_ARG_NM18 = "JOB_ARG_NM18";
 
     /**
-     * ŠÂ‹«•Ï”Fˆø”19.
+     * ç’°å¢ƒå¤‰æ•°ï¼šå¼•æ•°19.
      */
     protected static final String ENV_JOB_ARG_NM19 = "JOB_ARG_NM19";
 
     /**
-     * ŠÂ‹«•Ï”Fˆø”20.
+     * ç’°å¢ƒå¤‰æ•°ï¼šå¼•æ•°20.
      */
     protected static final String ENV_JOB_ARG_NM20 = "JOB_ARG_NM20";
 
     /**
-     * ŠÂ‹«•Ï”F‹Æ–±ƒXƒe[ƒ^ƒX.
+     * ç’°å¢ƒå¤‰æ•°ï¼šæ¥­å‹™ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹.
      */
     protected static final String ENV_BLOGIC_APP_STATUS = "BLOGIC_APP_STATUS";
 
     /**
-     * ŠÂ‹«•Ï”FƒXƒe[ƒ^ƒX.
+     * ç’°å¢ƒå¤‰æ•°ï¼šã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹.
      */
     protected static final String ENV_CUR_APP_STATUS = "CUR_APP_STATUS";
 
     /**
-     * ƒVƒXƒeƒ€—pDAO’è‹`iƒXƒe[ƒ^ƒXQÆEXV—pjæ“¾—pƒL[.
+     * ã‚·ã‚¹ãƒ†ãƒ ç”¨DAOå®šç¾©ï¼ˆã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹å‚ç…§ãƒ»æ›´æ–°ç”¨ï¼‰å–å¾—ç”¨ã‚­ãƒ¼.
      */
     protected static final String SYSTEM_DATASOURCE_DAO = "systemDataSource.systemDao";
 
     /**
-     * ƒVƒXƒeƒ€—ptransactionManager’è‹`iƒXƒe[ƒ^ƒXQÆEXV—pjæ“¾—pƒL[.
+     * ã‚·ã‚¹ãƒ†ãƒ ç”¨transactionManagerå®šç¾©ï¼ˆã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹å‚ç…§ãƒ»æ›´æ–°ç”¨ï¼‰å–å¾—ç”¨ã‚­ãƒ¼.
      */
     protected static final String SYSTEM_DATASOURCE_TRANSACTION_MANAGER = "systemDataSource.transactionManager";
 
     /**
-     * ŠÇ——pBean’è‹`ƒtƒ@ƒCƒ‹‚ğ”z’u‚·‚éƒNƒ‰ƒXƒpƒX.
+     * ç®¡ç†ç”¨Beanå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é…ç½®ã™ã‚‹ã‚¯ãƒ©ã‚¹ãƒ‘ã‚¹.
      */
     protected static final String BEAN_DEFINITION_ADMIN_CLASSPATH_KEY = "beanDefinition.admin.classpath";
 
     /**
-     * ŠÇ——pBean’è‹`iŠî–{•”j
+     * ç®¡ç†ç”¨Beanå®šç¾©ï¼ˆåŸºæœ¬éƒ¨ï¼‰
      */
     protected static final String BEAN_DEFINITION_DEFAULT = "beanDefinition.admin.default";
 
     /**
-     * ŠÇ——pBean’è‹`iƒf[ƒ^ƒ\[ƒX•”j
+     * ç®¡ç†ç”¨Beanå®šç¾©ï¼ˆãƒ‡ãƒ¼ã‚¿ã‚½ãƒ¼ã‚¹éƒ¨ï¼‰
      */
     protected static final String BEAN_DEFINITION_DATASOURCE = "beanDefinition.admin.dataSource";
 
     /**
-     * ‹Æ–±—pBean’è‹`ƒtƒ@ƒCƒ‹‚ğ”z’u‚·‚éƒNƒ‰ƒXƒpƒX.
+     * æ¥­å‹™ç”¨Beanå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é…ç½®ã™ã‚‹ã‚¯ãƒ©ã‚¹ãƒ‘ã‚¹.
      */
     protected static final String BEAN_DEFINITION_BUSINESS_CLASSPATH_KEY = "beanDefinition.business.classpath";
 
     /**
-     * Bean’è‹`ƒtƒ@ƒCƒ‹–¼.
+     * Beanå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«å.
      */
     protected static final String PROPERTY_BEAN_FILENAME_SUFFIX = ".xml";
 
     /**
-     * ƒƒbƒZ[ƒWƒ\[ƒXƒAƒNƒZƒT‚ÌBean–¼æ“¾ƒL[.
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚½ãƒ¼ã‚¹ã‚¢ã‚¯ã‚»ã‚µã®Beanåå–å¾—ã‚­ãƒ¼.
      */
     protected static final String BEAN_MESSAGE_ACCESSOR_DEFAULT = "messageAccessor.default";
 
     /**
-     * JobComponentƒAƒmƒe[ƒVƒ‡ƒ“—LŒø‰»ƒtƒ‰ƒOæ“¾ƒL[.
+     * JobComponentã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³æœ‰åŠ¹åŒ–ãƒ•ãƒ©ã‚°å–å¾—ã‚­ãƒ¼.
      */
     protected static final String ENABLE_JOBCOMPONENT_ANNOTATION = "enableJobComponentAnnotation";
 
     /**
-     * BLogic‚ÌBean–¼‚É•t—^‚·‚éÚ”öŒê.
+     * BLogicã®Beanåã«ä»˜ä¸ã™ã‚‹æ¥å°¾èª.
      */
     protected static final String DEFAULT_BLOGIC_BEAN_NAME_SUFFIX = "BLogic";
 
     /**
-     * —áŠOƒnƒ“ƒhƒ‰‚ÌBean–¼‚É•t—^‚·‚éÚ”öŒê.
+     * ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©ã®Beanåã«ä»˜ä¸ã™ã‚‹æ¥å°¾èª.
      */
     protected static final String DEFAULT_BLOGIC_EXCEPTION_HANDLER_BEAN_NAME_SUFFIX = "ExceptionHandler";
 
     /**
-     * ƒfƒtƒHƒ‹ƒg‚Ì—áŠOƒnƒ“ƒhƒ‰‚ÌBean–¼.
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©ã®Beanå.
      */
     protected static final String DEFAULT_BLOGIC_EXCEPTION_HANDLER_BEAN_NAME = "defaultExceptionHandler";
 
     /**
-     * ƒAƒvƒŠƒP[ƒVƒ‡ƒ“ƒRƒ“ƒeƒLƒXƒgƒNƒ‰ƒX–¼.
+     * ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆã‚¯ãƒ©ã‚¹å.
      */
     protected static final String APPLICATION_CONTEXT = "org.springframework.context.support.ClassPathXmlApplicationContext";
 
     /**
-     * ’uŠ·•¶š—ñÚ“ªŒê
+     * ç½®æ›æ–‡å­—åˆ—æ¥é ­èª
      */
     protected static final String REPLACE_STRING_PREFIX = "\\$\\{";
 
     /**
-     * ’uŠ·•¶š—ñÚ”öŒê
+     * ç½®æ›æ–‡å­—åˆ—æ¥å°¾èª
      */
     protected static final String REPLACE_STRING_SUFFIX = "\\}";
 
     /**
-     * ’uŠ·•¶š—ñFƒWƒ‡ƒu‹Æ–±ƒR[ƒh
+     * ç½®æ›æ–‡å­—åˆ—ï¼šã‚¸ãƒ§ãƒ–æ¥­å‹™ã‚³ãƒ¼ãƒ‰
      */
     protected static final String REPLACE_STRING_JOB_APP_CD = "jobAppCd";
 
     /**
-     * ’uŠ·•¶š—ñFƒWƒ‡ƒu‹Æ–±ƒR[ƒhi‘å•¶šj
+     * ç½®æ›æ–‡å­—åˆ—ï¼šã‚¸ãƒ§ãƒ–æ¥­å‹™ã‚³ãƒ¼ãƒ‰ï¼ˆå¤§æ–‡å­—ï¼‰
      */
     protected static final String REPLACE_STRING_JOB_APP_CD_UPPER = "jobAppCdUpper";
 
     /**
-     * ’uŠ·•¶š—ñFƒWƒ‡ƒu‹Æ–±ƒR[ƒhi¬•¶šj
+     * ç½®æ›æ–‡å­—åˆ—ï¼šã‚¸ãƒ§ãƒ–æ¥­å‹™ã‚³ãƒ¼ãƒ‰ï¼ˆå°æ–‡å­—ï¼‰
      */
     protected static final String REPLACE_STRING_JOB_APP_CD_LOWER = "jobAppCdLower";
 
     /**
-     * ’uŠ·•¶š—ñFˆø”.
+     * ç½®æ›æ–‡å­—åˆ—ï¼šå¼•æ•°.
      */
     protected static final String REPLACE_STRING_JOB_ARG = "jobArg";
 
     /**
-     * ’uŠ·•¶š—ñFˆø”‚ÌÅ‘åŒÂ”.
+     * ç½®æ›æ–‡å­—åˆ—ï¼šå¼•æ•°ã®æœ€å¤§å€‹æ•°.
      */
     protected static final int REPLACE_STRING_JOB_ARG_MAX = 20;
 
     /**
-     * ƒoƒbƒ`ˆø”‚Ì”.
+     * ãƒãƒƒãƒå¼•æ•°ã®æ•°.
      */
     protected static final int ARGUMENT_COUNT = 20;
 
     /**
-     * ƒoƒbƒ`ˆø”‚ÌƒtƒB[ƒ‹ƒh–¼.
+     * ãƒãƒƒãƒå¼•æ•°ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å.
      */
     protected static final String FIELD_JOB_ARG = "JobArgNm";
 
     /**
-     * ƒNƒ‰ƒXƒ[ƒ_.
+     * ã‚¯ãƒ©ã‚¹ãƒ­ãƒ¼ãƒ€.
      */
     protected static ClassLoader cl = null;
 
     /**
-     * ƒVƒXƒeƒ€—pDAO’è‹`iƒXƒe[ƒ^ƒXQÆEXV—pj.
+     * ã‚·ã‚¹ãƒ†ãƒ ç”¨DAOå®šç¾©ï¼ˆã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹å‚ç…§ãƒ»æ›´æ–°ç”¨ï¼‰.
      */
     protected SystemDao systemDao = null;
 
     /**
-     * ƒVƒXƒeƒ€—ptransactionManager’è‹`iƒXƒe[ƒ^ƒXQÆEXV—pj.
+     * ã‚·ã‚¹ãƒ†ãƒ ç”¨transactionManagerå®šç¾©ï¼ˆã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹å‚ç…§ãƒ»æ›´æ–°ç”¨ï¼‰.
      */
     protected PlatformTransactionManager sysTransactionManager = null;
 
     /**
-     * ƒVƒXƒeƒ€—pƒAƒvƒŠƒP[ƒVƒ‡ƒ“ƒRƒ“ƒeƒLƒXƒg.
+     * ã‚·ã‚¹ãƒ†ãƒ ç”¨ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆ.
      */
     protected ApplicationContext defaultApplicationContext = null;
 
     /**
-     * JobComponentƒAƒmƒe[ƒVƒ‡ƒ“—LŒø‰»ƒtƒ‰ƒO
+     * JobComponentã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³æœ‰åŠ¹åŒ–ãƒ•ãƒ©ã‚°
      */
     protected boolean enableJobComponentAnnotation = false;
 
@@ -333,7 +333,7 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
      * an SQL Map.
      */
     static {
-        // ƒNƒ‰ƒXƒ[ƒ_æ“¾iƒJƒŒƒ“ƒgƒXƒŒƒbƒh‚ÌƒRƒ“ƒeƒLƒXƒgƒNƒ‰ƒXƒ[ƒ_j
+        // ã‚¯ãƒ©ã‚¹ãƒ­ãƒ¼ãƒ€å–å¾—ï¼ˆã‚«ãƒ¬ãƒ³ãƒˆã‚¹ãƒ¬ãƒƒãƒ‰ã®ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆã‚¯ãƒ©ã‚¹ãƒ­ãƒ¼ãƒ€ï¼‰
         cl = Thread.currentThread().getContextClassLoader();
         if (cl == null) {
             LOGGER.error(LogId.EAL025002);
@@ -341,7 +341,7 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      */
     protected AbstractBatchExecutor() {
         super();
@@ -349,19 +349,19 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
     }
 
     /**
-     * ‰Šú‰»
+     * åˆæœŸåŒ–
      */
     protected void init() {
-        // ƒVƒXƒeƒ€‹¤’ÊAppContextName‰Šú‰»
+        // ã‚·ã‚¹ãƒ†ãƒ å…±é€šAppContextNameåˆæœŸåŒ–
         initDefaultAppContext();
 
-        // ƒVƒXƒeƒ€‹¤’ÊDAO‰Šú‰»
+        // ã‚·ã‚¹ãƒ†ãƒ å…±é€šDAOåˆæœŸåŒ–
         initSystemDatasourceDao();
 
-        // ƒGƒ‰[ƒƒbƒZ[ƒW‚Ì‰Šú‰»
+        // ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®åˆæœŸåŒ–
         initDefaultErrorMessage();
 
-        // JobComponentƒAƒmƒe[ƒVƒ‡ƒ“—LŒø‰»ƒtƒ‰ƒOæ“¾
+        // JobComponentã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³æœ‰åŠ¹åŒ–ãƒ•ãƒ©ã‚°å–å¾—
         String enableJobComponentAnnotationStr = PropertyUtil
                 .getProperty(ENABLE_JOBCOMPONENT_ANNOTATION);
         if (enableJobComponentAnnotationStr != null
@@ -372,10 +372,10 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
     }
 
     /**
-     * ŠÇ——p‚É—p‚¢‚ç‚ê‚éApplicationContext‚ğ‰Šú‰»‚·‚é.
+     * ç®¡ç†ç”¨ã«ç”¨ã„ã‚‰ã‚Œã‚‹ApplicationContextã‚’åˆæœŸåŒ–ã™ã‚‹.
      */
     protected void initDefaultAppContext() {
-        // ƒVƒXƒeƒ€ƒAƒvƒŠƒP[ƒVƒ‡ƒ“ƒRƒ“ƒeƒLƒXƒgæ“¾
+        // ã‚·ã‚¹ãƒ†ãƒ ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆå–å¾—
         String defaultAppContextName = getDefaultBeanFileName();
         if (defaultAppContextName == null || "".equals(defaultAppContextName)) {
             LOGGER.error(LogId.EAL025003);
@@ -389,21 +389,21 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
     }
 
     /**
-     * ƒVƒXƒeƒ€‹¤’Ê‚Å—p‚¢‚ç‚ê‚éDAO‚ğBean’è‹`ƒtƒ@ƒCƒ‹‚©‚çæ“¾‚·‚é.
+     * ã‚·ã‚¹ãƒ†ãƒ å…±é€šã§ç”¨ã„ã‚‰ã‚Œã‚‹DAOã‚’Beanå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰å–å¾—ã™ã‚‹.
      */
     protected void initSystemDatasourceDao() {
-        // AbstractJobBatchExecutor‚ÉˆÚ“®
+        // AbstractJobBatchExecutorã«ç§»å‹•
     }
 
     /**
-     * ƒGƒ‰[ƒƒbƒZ[ƒW‚Ì‰Šú‰».
+     * ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®åˆæœŸåŒ–.
      */
     protected void initDefaultErrorMessage() {
         if (defaultApplicationContext == null) {
             return;
         }
 
-        // ƒƒbƒZ[ƒWƒ\[ƒXƒAƒNƒZƒT‚ÌBean–¼æ“¾
+        // ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚½ãƒ¼ã‚¹ã‚¢ã‚¯ã‚»ã‚µã®Beanåå–å¾—
         String value = PropertyUtil.getProperty(BEAN_MESSAGE_ACCESSOR_DEFAULT);
 
         if (value == null) {
@@ -413,7 +413,7 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
             return;
         }
 
-        // ƒƒbƒZ[ƒWƒ\[ƒXƒAƒNƒZƒTæ“¾.
+        // ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚½ãƒ¼ã‚¹ã‚¢ã‚¯ã‚»ã‚µå–å¾—.
         if (defaultApplicationContext.containsBean(value)) {
             MessageAccessor messageAccessor = null;
             try {
@@ -442,7 +442,7 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
     }
 
     /**
-     * ƒXƒŒƒbƒhƒOƒ‹[ƒv‚ÆƒXƒŒƒbƒh–¼‚ğ•Ô‚·ƒƒ\ƒbƒh.
+     * ã‚¹ãƒ¬ãƒƒãƒ‰ã‚°ãƒ«ãƒ¼ãƒ—ã¨ã‚¹ãƒ¬ãƒƒãƒ‰åã‚’è¿”ã™ãƒ¡ã‚½ãƒƒãƒ‰.
      * @return String
      */
     protected String getThreadMessage() {
@@ -464,7 +464,7 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
     }
 
     /**
-     * ƒWƒ‡ƒu—pApplicationContext‚ğ‰Šú‰»‚·‚é.
+     * ã‚¸ãƒ§ãƒ–ç”¨ApplicationContextã‚’åˆæœŸåŒ–ã™ã‚‹.
      * @param jobAppCd String
      * @param jobRecord BatchJobData
      * @return ApplicationContext
@@ -491,7 +491,7 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
     }
 
     /**
-     * ApplicationContext‚ğƒNƒ[ƒY‚·‚é.
+     * ApplicationContextã‚’ã‚¯ãƒ­ãƒ¼ã‚ºã™ã‚‹.
      * @param context
      */
     protected void closeApplicationContext(ApplicationContext context) {
@@ -511,26 +511,26 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
     public BLogicResult executeBatch(BatchJobData jobRecord) {
         BLogicResult result = new BLogicResult();
 
-        // ƒoƒbƒ`ƒWƒ‡ƒuƒŒƒR[ƒhƒf[ƒ^‚ğBLogicParam‚É•ÏŠ·‚·‚é
+        // ãƒãƒƒãƒã‚¸ãƒ§ãƒ–ãƒ¬ã‚³ãƒ¼ãƒ‰ãƒ‡ãƒ¼ã‚¿ã‚’BLogicParamã«å¤‰æ›ã™ã‚‹
         BLogicParam param = convertBLogicParam(jobRecord);
         if (param == null) {
-            // ˆÙíI—¹
+            // ç•°å¸¸çµ‚äº†
             return result;
         }
 
         LOGGER.debug(LogId.DAL025044, param);
 
-        // ƒWƒ‡ƒu‹Æ–±ƒR[ƒhi‘æˆêˆø”j‚©‚çƒNƒ‰ƒX–¼‚ğæ“¾
+        // ã‚¸ãƒ§ãƒ–æ¥­å‹™ã‚³ãƒ¼ãƒ‰ï¼ˆç¬¬ä¸€å¼•æ•°ï¼‰ã‹ã‚‰ã‚¯ãƒ©ã‚¹åã‚’å–å¾—
         String jobAppCd = jobRecord.getJobAppCd();
 
-        // BLogic‚ÌBean–¼æ“¾
+        // BLogicã®Beanåå–å¾—
         String blogicBeanName = getBlogicBeanName(jobAppCd);
         if ((blogicBeanName == null || blogicBeanName.length() == 0)) {
             LOGGER.error(LogId.EAL025007, jobRecord.getJobAppCd());
             return result;
         }
 
-        // —áŠOƒnƒ“ƒhƒ‰‚ÌBean–¼æ“¾
+        // ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©ã®Beanåå–å¾—
         String exceptionHandlerBeanName = getExceptionHandlerBeanName(jobAppCd);
         if ((exceptionHandlerBeanName == null || exceptionHandlerBeanName
                 .length() == 0)) {
@@ -540,20 +540,20 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
             return result;
         }
 
-        // Bean’è‹`ƒtƒ@ƒCƒ‹æ“¾
+        // Beanå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«å–å¾—
         ApplicationContext context = initJobAppContext(jobAppCd, jobRecord);
         ThreadGroupApplicationContextHolder.setApplicationContext(context);
 
         try {
-            // ƒoƒbƒ`Às
+            // ãƒãƒƒãƒå®Ÿè¡Œ
             if (blogicBeanName != null && 0 < blogicBeanName.length()) {
-                // ƒNƒ‰ƒX
+                // ã‚¯ãƒ©ã‚¹
                 result = executeBatchClass(blogicBeanName,
                         exceptionHandlerBeanName, param, context);
             }
         } finally {
             ThreadGroupApplicationContextHolder.removeApplicationContext();
-            // ƒWƒ‡ƒu—pApplicationContext‚ğƒNƒ[ƒY‚·‚é
+            // ã‚¸ãƒ§ãƒ–ç”¨ApplicationContextã‚’ã‚¯ãƒ­ãƒ¼ã‚ºã™ã‚‹
             closeApplicationContext(context);
         }
 
@@ -561,7 +561,7 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
     }
 
     /**
-     * ƒoƒbƒ`ƒWƒ‡ƒuƒŒƒR[ƒhƒf[ƒ^‚ğBLogicParam‚É•ÏŠ·‚·‚é
+     * ãƒãƒƒãƒã‚¸ãƒ§ãƒ–ãƒ¬ã‚³ãƒ¼ãƒ‰ãƒ‡ãƒ¼ã‚¿ã‚’BLogicParamã«å¤‰æ›ã™ã‚‹
      * @param jobRecord BatchJobData
      * @return BLogicParam
      */
@@ -570,18 +570,18 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
         param.setJobSequenceId(jobRecord.getJobSequenceId());
         param.setJobAppCd(jobRecord.getJobAppCd());
 
-        // ˆø”ƒRƒs[
+        // å¼•æ•°ã‚³ãƒ”ãƒ¼
         boolean ret = argumentCopy(jobRecord, param, FIELD_JOB_ARG);
         if (!ret) {
-            // ˆÙíI—¹
+            // ç•°å¸¸çµ‚äº†
             return null;
         }
         return param;
     }
 
     /**
-     * ŠÇ——pBean’è‹`iŠî–{•”jƒtƒ@ƒCƒ‹–¼‚ğæ“¾‚·‚éB
-     * @return ŠÇ——pBean’è‹`iŠî–{•”jƒtƒ@ƒCƒ‹–¼
+     * ç®¡ç†ç”¨Beanå®šç¾©ï¼ˆåŸºæœ¬éƒ¨ï¼‰ãƒ•ã‚¡ã‚¤ãƒ«åã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return ç®¡ç†ç”¨Beanå®šç¾©ï¼ˆåŸºæœ¬éƒ¨ï¼‰ãƒ•ã‚¡ã‚¤ãƒ«å
      */
     protected static String getDefaultBeanFileName() {
         StringBuilder str = new StringBuilder();
@@ -595,8 +595,8 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
     }
 
     /**
-     * ŠÇ——pBean’è‹`iƒf[ƒ^ƒ\[ƒX•”jƒtƒ@ƒCƒ‹–¼‚ğæ“¾‚·‚éB
-     * @return ŠÇ——pBean’è‹`iƒf[ƒ^ƒ\[ƒX•”jƒtƒ@ƒCƒ‹–¼
+     * ç®¡ç†ç”¨Beanå®šç¾©ï¼ˆãƒ‡ãƒ¼ã‚¿ã‚½ãƒ¼ã‚¹éƒ¨ï¼‰ãƒ•ã‚¡ã‚¤ãƒ«åã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return ç®¡ç†ç”¨Beanå®šç¾©ï¼ˆãƒ‡ãƒ¼ã‚¿ã‚½ãƒ¼ã‚¹éƒ¨ï¼‰ãƒ•ã‚¡ã‚¤ãƒ«å
      */
     protected static String getDataSourceBeanFileName() {
         StringBuilder str = new StringBuilder();
@@ -611,12 +611,12 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
     }
 
     /**
-     * <h6>ƒoƒbƒ`ƒNƒ‰ƒXÀs.</h6>
-     * @param blogicBeanName ƒrƒWƒlƒXƒƒWƒbƒNBean–¼
-     * @param exceptionHandlerBeanName —áŠOƒnƒ“ƒhƒ‰Bean–¼
-     * @param param ƒrƒWƒlƒXƒƒWƒbƒNƒpƒ‰ƒ[ƒ^
-     * @param context ƒRƒ“ƒeƒLƒXƒg
-     * @return ÀsƒXƒe[ƒ^ƒX
+     * <h6>ãƒãƒƒãƒã‚¯ãƒ©ã‚¹å®Ÿè¡Œ.</h6>
+     * @param blogicBeanName ãƒ“ã‚¸ãƒã‚¹ãƒ­ã‚¸ãƒƒã‚¯Beanå
+     * @param exceptionHandlerBeanName ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©Beanå
+     * @param param ãƒ“ã‚¸ãƒã‚¹ãƒ­ã‚¸ãƒƒã‚¯ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
+     * @param context ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆ
+     * @return å®Ÿè¡Œã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹
      */
     protected BLogicResult executeBatchClass(String blogicBeanName,
             String exceptionHandlerBeanName, BLogicParam param,
@@ -626,13 +626,13 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
         ExceptionHandler exceptionHandler = null;
         String findBlogicBeanName = null;
 
-        // ApplicationContext‚ªæ“¾‚Å‚«‚È‚©‚Á‚½ê‡
+        // ApplicationContextãŒå–å¾—ã§ããªã‹ã£ãŸå ´åˆ
         if (context == null) {
             LOGGER.error(LogId.EAL025008);
             return result;
         }
 
-        // ƒAƒmƒe[ƒVƒ‡ƒ“‚ğŒŸõ
+        // ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã‚’æ¤œç´¢
         if (this.enableJobComponentAnnotation) {
             GenericBeanFactoryAccessorEx gbfa = new GenericBeanFactoryAccessorEx(
                     context);
@@ -656,7 +656,7 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
         }
 
         if (findBlogicBeanName == null) {
-            // ƒrƒWƒlƒXƒƒWƒbƒN‚ÌBean‚ª‘¶İ‚·‚é‚©Šm”F
+            // ãƒ“ã‚¸ãƒã‚¹ãƒ­ã‚¸ãƒƒã‚¯ã®BeanãŒå­˜åœ¨ã™ã‚‹ã‹ç¢ºèª
             if (context.containsBean(blogicBeanName)) {
                 findBlogicBeanName = blogicBeanName;
             } else if (context.containsBean(Introspector
@@ -665,7 +665,7 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
             }
         }
 
-        // ƒrƒWƒlƒXƒƒWƒbƒN‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğBean’è‹`‚©‚çæ“¾
+        // ãƒ“ã‚¸ãƒã‚¹ãƒ­ã‚¸ãƒƒã‚¯ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’Beanå®šç¾©ã‹ã‚‰å–å¾—
         if (findBlogicBeanName != null) {
             try {
                 blogic = (BLogic) context.getBean(findBlogicBeanName,
@@ -681,7 +681,7 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
             return result;
         }
 
-        // —áŠOƒnƒ“ƒhƒ‰‚ÌBean‚ª‘¶İ‚·‚é‚©Šm”F
+        // ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©ã®BeanãŒå­˜åœ¨ã™ã‚‹ã‹ç¢ºèª
         String findExceptionHandlerBeanName = null;
         if (context.containsBean(exceptionHandlerBeanName)) {
             findExceptionHandlerBeanName = exceptionHandlerBeanName;
@@ -691,20 +691,20 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
                     .decapitalize(exceptionHandlerBeanName);
         }
 
-        // —áŠOƒnƒ“ƒhƒ‰‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğBean’è‹`‚©‚çæ“¾
+        // ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’Beanå®šç¾©ã‹ã‚‰å–å¾—
         if (findExceptionHandlerBeanName != null) {
             try {
                 exceptionHandler = (ExceptionHandler) context.getBean(
                         findExceptionHandlerBeanName, ExceptionHandler.class);
             } catch (Throwable e) {
                 LOGGER.trace(LogId.TAL025002, e, exceptionHandlerBeanName);
-                // —áŠOƒnƒ“ƒhƒ‰‚ÍŒ©‚Â‚©‚ç‚È‚­‚Ä‚à‘±s
+                // ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©ã¯è¦‹ã¤ã‹ã‚‰ãªãã¦ã‚‚ç¶šè¡Œ
             }
         }
 
-        // ‹Æ–±ŒÂ•Ê—áŠOƒnƒ“ƒhƒ‰‚ª‚È‚¢ê‡‚Í‹¤’Ê—áŠOƒnƒ“ƒhƒ‰‚ğæ“¾‚·‚é
+        // æ¥­å‹™å€‹åˆ¥ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©ãŒãªã„å ´åˆã¯å…±é€šä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©ã‚’å–å¾—ã™ã‚‹
         if (exceptionHandler == null) {
-            // ƒfƒtƒHƒ‹ƒg‚Ì—áŠOƒnƒ“ƒhƒ‰‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğBean’è‹`‚©‚çæ“¾
+            // ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’Beanå®šç¾©ã‹ã‚‰å–å¾—
             if (context.containsBean(getDefaultExceptionHandlerBeanName())) {
                 try {
                     exceptionHandler = (ExceptionHandler) context.getBean(
@@ -712,21 +712,21 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
                             ExceptionHandler.class);
                 } catch (Throwable e) {
                     LOGGER.trace(LogId.TAL025002, e, exceptionHandlerBeanName);
-                    // —áŠOƒnƒ“ƒhƒ‰‚ÍŒ©‚Â‚©‚ç‚È‚­‚Ä‚à‘±s
+                    // ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©ã¯è¦‹ã¤ã‹ã‚‰ãªãã¦ã‚‚ç¶šè¡Œ
                 }
             }
         }
 
         try {
-            // BLogic#executeƒƒ\ƒbƒhÀs
+            // BLogic#executeãƒ¡ã‚½ãƒƒãƒ‰å®Ÿè¡Œ
             int blogicStatus = blogic.execute(param);
 
             result.setBlogicStatus(blogicStatus);
 
         } catch (Throwable e) {
-            // —áŠOƒnƒ“ƒhƒ‰‚ª‘¶İ‚·‚éê‡
+            // ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©ãŒå­˜åœ¨ã™ã‚‹å ´åˆ
             if (exceptionHandler != null) {
-                // —áŠOˆ—‚ğs‚¤
+                // ä¾‹å¤–å‡¦ç†ã‚’è¡Œã†
                 result.setBlogicStatus(exceptionHandler
                         .handleThrowableException(e));
             }
@@ -736,34 +736,34 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
     }
 
     /**
-     * <h6>ˆø”ƒtƒB[ƒ‹ƒh(1`20)ƒRƒs[.</h6>
-     * @param from ƒRƒs[Œ³ƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param to ƒRƒs[æƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param field ƒtƒB[ƒ‹ƒh–¼
-     * @return ƒRƒs[‚ª¬Œ÷‚µ‚½‚çtrue
+     * <h6>å¼•æ•°ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰(1ï½20)ã‚³ãƒ”ãƒ¼.</h6>
+     * @param from ã‚³ãƒ”ãƒ¼å…ƒã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param to ã‚³ãƒ”ãƒ¼å…ˆã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param field ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å
+     * @return ã‚³ãƒ”ãƒ¼ãŒæˆåŠŸã—ãŸã‚‰true
      */
     protected boolean argumentCopy(Object from, Object to, String field) {
         for (int i = 1; i <= ARGUMENT_COUNT; i++) {
-            // getterƒƒ\ƒbƒh–¼¶¬
+            // getterãƒ¡ã‚½ãƒƒãƒ‰åç”Ÿæˆ
             StringBuilder getterName = new StringBuilder();
             getterName.append("get");
             getterName.append(field);
             getterName.append(i);
 
-            // getterÀs
+            // getterå®Ÿè¡Œ
             String argument = (String) getMethod(from, getterName.toString());
 
             if (argument != null) {
-                // setterƒƒ\ƒbƒh–¼¶¬
+                // setterãƒ¡ã‚½ãƒƒãƒ‰åç”Ÿæˆ
                 StringBuilder setterName = new StringBuilder();
                 setterName.append("set");
                 setterName.append(field);
                 setterName.append(i);
 
-                // setterÀs
+                // setterå®Ÿè¡Œ
                 boolean ret = setMethod(to, setterName.toString(), argument);
                 if (!ret) {
-                    // ˆÙíI—¹
+                    // ç•°å¸¸çµ‚äº†
                     return ret;
                 }
             }
@@ -772,11 +772,11 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
     }
 
     /**
-     * <h6>ƒpƒ‰ƒ[ƒ^İ’è.</h6>
-     * @param obj ‘ÎÛƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param methodName ƒƒ\ƒbƒh–¼
-     * @param argument ˆø”
-     * @return ƒƒ\ƒbƒh‚ªÀs‚Å‚«‚ê‚Îtrue
+     * <h6>ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿è¨­å®š.</h6>
+     * @param obj å¯¾è±¡ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param methodName ãƒ¡ã‚½ãƒƒãƒ‰å
+     * @param argument å¼•æ•°
+     * @return ãƒ¡ã‚½ãƒƒãƒ‰ãŒå®Ÿè¡Œã§ãã‚Œã°true
      */
     protected boolean setMethod(Object obj, String methodName, String argument) {
 
@@ -786,7 +786,7 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
         }
 
         try {
-            // Bean‚Éƒpƒ‰ƒ[ƒ^İ’è
+            // Beanã«ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿è¨­å®š
             Method method = obj.getClass().getMethod(methodName,
                     new Class[] { String.class });
             method.invoke(obj, new Object[] { argument });
@@ -811,10 +811,10 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
     }
 
     /**
-     * <h6>ƒpƒ‰ƒ[ƒ^İ’è.</h6>
-     * @param obj ‘ÎÛƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param methodName ƒƒ\ƒbƒh–¼
-     * @return ƒpƒ‰ƒ[ƒ^‚ªİ’è‚³‚ê‚½ƒIƒuƒWƒFƒNƒg
+     * <h6>ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿è¨­å®š.</h6>
+     * @param obj å¯¾è±¡ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param methodName ãƒ¡ã‚½ãƒƒãƒ‰å
+     * @return ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãŒè¨­å®šã•ã‚ŒãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      */
     protected Object getMethod(Object obj, String methodName) {
         Method method = null;
@@ -826,7 +826,7 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
         }
 
         try {
-            // Bean‚©‚çƒpƒ‰ƒ[ƒ^æ“¾
+            // Beanã‹ã‚‰ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å–å¾—
             method = obj.getClass().getMethod(methodName, new Class[] {});
             result = method.invoke(obj, new Object[] {});
         } catch (SecurityException e) {
@@ -849,9 +849,9 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
     }
 
     /**
-     * <h6>ƒAƒvƒŠƒP[ƒVƒ‡ƒ“ƒRƒ“ƒeƒLƒXƒgæ“¾.</h6>
-     * @param batchBeanFileName Bean’è‹`ƒtƒ@ƒCƒ‹–¼
-     * @return ƒAƒvƒŠƒP[ƒVƒ‡ƒ“ƒRƒ“ƒeƒLƒXƒg
+     * <h6>ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆå–å¾—.</h6>
+     * @param batchBeanFileName Beanå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«å
+     * @return ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆ
      */
     protected static ApplicationContext getApplicationContext(
             String... batchBeanFileName) {
@@ -859,14 +859,14 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
         Class<?> clazz = null;
         Constructor<?> constructor = null;
         try {
-            // ƒNƒ‰ƒX“Ç‚İ‚İ
+            // ã‚¯ãƒ©ã‚¹èª­ã¿è¾¼ã¿
             clazz = cl.loadClass(APPLICATION_CONTEXT);
         } catch (ClassNotFoundException e) {
             LOGGER.error(LogId.EAL025013, e);
             return null;
         }
         try {
-            // ƒRƒ“ƒXƒgƒ‰ƒNƒ^æ“¾
+            // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿å–å¾—
             Class<?>[] arrClass = new Class[] { String[].class };
             constructor = clazz.getConstructor(arrClass);
         } catch (SecurityException e) {
@@ -878,23 +878,23 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
         }
         try {
             Object[] array = new Object[] { (Object[]) batchBeanFileName };
-            // ƒRƒ“ƒeƒLƒXƒg‚ÌƒCƒ“ƒXƒ^ƒ“ƒX¶¬
+            // ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ç”Ÿæˆ
             ctx = (ApplicationContext) constructor.newInstance(array);
             return ctx;
         } catch (IllegalArgumentException e) {
-            // ‰½‚à‚µ‚È‚¢
+            // ä½•ã‚‚ã—ãªã„
             LOGGER.warn(LogId.WAL025002, e);
         } catch (InstantiationException e) {
-            // ‰½‚à‚µ‚È‚¢
+            // ä½•ã‚‚ã—ãªã„
             LOGGER.warn(LogId.WAL025002, e);
         } catch (IllegalAccessException e) {
-            // ‰½‚à‚µ‚È‚¢
+            // ä½•ã‚‚ã—ãªã„
             LOGGER.warn(LogId.WAL025002, e);
         } catch (InvocationTargetException e) {
-            // ‰½‚à‚µ‚È‚¢
+            // ä½•ã‚‚ã—ãªã„
             LOGGER.warn(LogId.WAL025002, e);
         } catch (RuntimeException e) {
-            // ‰½‚à‚µ‚È‚¢
+            // ä½•ã‚‚ã—ãªã„
             LOGGER.warn(LogId.WAL025002, e);
         }
 
@@ -902,10 +902,10 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
     }
 
     /**
-     * <h6>Bean’è‹`ƒtƒ@ƒCƒ‹–¼æ“¾.</h6>
-     * @param jobAppCd ƒWƒ‡ƒuƒAƒvƒŠƒP[ƒVƒ‡ƒ“ƒR[ƒh
+     * <h6>Beanå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«åå–å¾—.</h6>
+     * @param jobAppCd ã‚¸ãƒ§ãƒ–ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚³ãƒ¼ãƒ‰
      * @param jobRecord BatchJobData
-     * @return Bean’è‹`ƒtƒ@ƒCƒ‹–¼
+     * @return Beanå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«å
      */
     protected String getBeanFileName(String jobAppCd, BatchJobData jobRecord) {
         StringBuilder str = new StringBuilder();
@@ -913,7 +913,7 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
         String classpath = PropertyUtil
                 .getProperty(BEAN_DEFINITION_BUSINESS_CLASSPATH_KEY);
 
-        // ’uŠ·•¶š—ñ‚ğ’uŠ·‚·‚é
+        // ç½®æ›æ–‡å­—åˆ—ã‚’ç½®æ›ã™ã‚‹
         classpath = replaceString(classpath, jobAppCd, jobRecord);
 
         str.append(classpath == null ? "" : classpath);
@@ -924,11 +924,11 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
     }
 
     /**
-     * ’uŠ·•¶š—ñ‚ğ’uŠ·‚·‚é
-     * @param value “ü—Í•¶š—ñ
-     * @param jobAppCd ƒWƒ‡ƒuƒAƒvƒŠƒP[ƒVƒ‡ƒ“ƒR[ƒh
+     * ç½®æ›æ–‡å­—åˆ—ã‚’ç½®æ›ã™ã‚‹
+     * @param value å…¥åŠ›æ–‡å­—åˆ—
+     * @param jobAppCd ã‚¸ãƒ§ãƒ–ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚³ãƒ¼ãƒ‰
      * @param jobRecord BatchJobData
-     * @return Œ‹‰Ê•¶š—ñ
+     * @return çµæœæ–‡å­—åˆ—
      */
     protected String replaceString(String value, String jobAppCd,
             BatchJobData jobRecord) {
@@ -981,9 +981,9 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
     }
 
     /**
-     * <h6>Às‚·‚éBLogic‚ÌBean–¼‚ğæ“¾‚·‚é.</h6>
-     * @param jobAppCd ƒWƒ‡ƒuƒAƒvƒŠƒP[ƒVƒ‡ƒ“ƒR[ƒh
-     * @return BLogic‚ÌBean–¼
+     * <h6>å®Ÿè¡Œã™ã‚‹BLogicã®Beanåã‚’å–å¾—ã™ã‚‹.</h6>
+     * @param jobAppCd ã‚¸ãƒ§ãƒ–ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚³ãƒ¼ãƒ‰
+     * @return BLogicã®Beanå
      */
     protected String getBlogicBeanName(String jobAppCd) {
         StringBuilder str = new StringBuilder();
@@ -997,9 +997,9 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
     }
 
     /**
-     * <h6>—áŠOƒnƒ“ƒhƒ‰‚ÌBean–¼‚ğæ“¾‚·‚é.</h6>
-     * @param jobAppCd ƒWƒ‡ƒuƒAƒvƒŠƒP[ƒVƒ‡ƒ“ƒR[ƒh
-     * @return —áŠOƒnƒ“ƒhƒ‰‚ÌBean–¼
+     * <h6>ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©ã®Beanåã‚’å–å¾—ã™ã‚‹.</h6>
+     * @param jobAppCd ã‚¸ãƒ§ãƒ–ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚³ãƒ¼ãƒ‰
+     * @return ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©ã®Beanå
      */
     protected String getExceptionHandlerBeanName(String jobAppCd) {
         StringBuilder str = new StringBuilder();
@@ -1013,15 +1013,15 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
     }
 
     /**
-     * <h6>ƒfƒtƒHƒ‹ƒg‚Ì—áŠOƒnƒ“ƒhƒ‰‚ÌBean–¼‚ğæ“¾‚·‚é.</h6>
-     * @return —áŠOƒnƒ“ƒhƒ‰‚ÌBean–¼
+     * <h6>ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©ã®Beanåã‚’å–å¾—ã™ã‚‹.</h6>
+     * @return ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©ã®Beanå
      */
     protected String getDefaultExceptionHandlerBeanName() {
         return DEFAULT_BLOGIC_EXCEPTION_HANDLER_BEAN_NAME;
     }
 
     /**
-     * ƒVƒXƒeƒ€—pƒAƒvƒŠƒP[ƒVƒ‡ƒ“ƒRƒ“ƒeƒLƒXƒgæ“¾.
+     * ã‚·ã‚¹ãƒ†ãƒ ç”¨ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆå–å¾—.
      * @return the defaultApplicationContext
      */
     protected ApplicationContext getDefaultApplicationContext() {
@@ -1029,7 +1029,7 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
     }
 
     /**
-     * ƒVƒXƒeƒ€—pDAO’è‹`iƒXƒe[ƒ^ƒXQÆEXV—pj
+     * ã‚·ã‚¹ãƒ†ãƒ ç”¨DAOå®šç¾©ï¼ˆã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹å‚ç…§ãƒ»æ›´æ–°ç”¨ï¼‰
      * @return the systemDao
      */
     public SystemDao getSystemDao() {
@@ -1037,7 +1037,7 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
     }
 
     /**
-     * ƒVƒXƒeƒ€—ptransactionManager’è‹`iƒXƒe[ƒ^ƒXQÆEXV—pj
+     * ã‚·ã‚¹ãƒ†ãƒ ç”¨transactionManagerå®šç¾©ï¼ˆã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹å‚ç…§ãƒ»æ›´æ–°ç”¨ï¼‰
      * @return the sysTransactionManager
      */
     public PlatformTransactionManager getSysTransactionManager() {

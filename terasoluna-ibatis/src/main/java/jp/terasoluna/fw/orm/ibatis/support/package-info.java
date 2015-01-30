@@ -1,4 +1,4 @@
 /**
- * iBATIS関連サポートクラス
+ * iBATIS髢｢騾｣繧ｵ繝昴�ｼ繝医け繝ｩ繧ｹ
  */
 package jp.terasoluna.fw.orm.ibatis.support;

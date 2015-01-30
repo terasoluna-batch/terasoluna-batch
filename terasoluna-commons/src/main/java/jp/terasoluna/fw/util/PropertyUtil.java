@@ -34,66 +34,66 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
- * �v���p�e�B�t�@�C������v���p�e�B���擾���郆�[�e�B���e�B�N���X�B
+ * プロパティファイルからプロパティを取得するユーティリティクラス。
  *
- * <p>�f�t�H���g�ł� ApplicationResources �t�@�C����ǂݍ��ނ��A
- * ApplicationResources �t�@�C���ňȉ��̂悤�Ɏw�肷�邱�Ƃɂ��A
- * ���̃v���p�e�B�t�@�C����ǉ��œǂݍ��ނ��Ƃ��ł���B</p>
- * <strong>ApplicationResources.properties�̐ݒ菑��</strong><br>
+ * <p>デフォルトでは ApplicationResources ファイルを読み込むが、
+ * ApplicationResources ファイルで以下のように指定することにより、
+ * 他のプロパティファイルを追加で読み込むこともできる。</p>
+ * <strong>ApplicationResources.propertiesの設定書式</strong><br>
  * <code><pre>
- *   add.property.file.1 = <i>&lt;�ǉ��v���p�e�B�t�@�C����1&gt;</i>
- *   add.property.file.2 = <i>&lt;�ǉ��v���p�e�B�t�@�C����2&gt;</i>
+ *   add.property.file.1 = <i>&lt;追加プロパティファイル名1&gt;</i>
+ *   add.property.file.2 = <i>&lt;追加プロパティファイル名2&gt;</i>
  *   ...
  * </pre></code>
  * 
  * <p>
- * �܂��A�v���p�e�B�t�@�C�����ʂɎw�肵���ȉ��̋@�\������
+ * また、プロパティファイルを個別に指定した以下の機能がある
  * <ol>
- *  <li>�����L�[�����ɂ��l�擾</li>
- *  <li>�����L�[�擾</li>
+ *  <li>部分キー検索による値取得</li>
+ *  <li>部分キー取得</li>
  * </ol>
- * �ڍׂ́A
- * getPropertyNames() ���\�b�h�A
- * getPropertiesValues() ���\�b�h���Q�ƁB
+ * 詳細は、
+ * getPropertyNames() メソッド、
+ * getPropertiesValues() メソッドを参照。
  * </p>
  *
  */
 public class PropertyUtil {
 
     /**
-     * ���O�N���X�B
+     * ログクラス。
      */
     private static Log log = LogFactory.getLog(PropertyUtil.class);
 
     /**
-     * �f�t�H���g�v���p�e�B�t�@�C�����B
+     * デフォルトプロパティファイル名。
      */
     public static final String DEFAULT_PROPERTY_FILE
         = "ApplicationResources.properties";
 
     /**
-     * �ǉ��v���p�e�B�t�@�C���w��̃v���t�B�b�N�X�B
+     * 追加プロパティファイル指定のプリフィックス。
      */
     private static final String ADD_PROPERTY_PREFIX = "add.property.file.";
     
     /**
-     * �v���p�e�B�t�@�C���̊g���q�B
+     * プロパティファイルの拡張子。
      */
     private static final String PROPERTY_EXTENSION = ".properties";
 
     /**
-     * �v���p�e�B�̃L�[�ƒl��ێ�����I�u�W�F�N�g�B
+     * プロパティのキーと値を保持するオブジェクト。
      */
     private static TreeMap<String, String> props =
             new TreeMap<String, String>();
     
     /**
-     * �ǂݍ��񂾃v���p�e�B�t�@�C�������X�g�B
+     * 読み込んだプロパティファイル名リスト。
      */
     private static Set<String> files = new HashSet<String>();
 
     /**
-     * �N���X���[�h���Ƀv���p�e�B�t�@�C����ǂݍ��ݏ���������B
+     * クラスロード時にプロパティファイルを読み込み初期化する。
      */
     static {
         StringBuilder key = new StringBuilder();
@@ -114,20 +114,20 @@ public class PropertyUtil {
     }
 
     /**
-     * �w�肳�ꂽ�v���p�e�B�t�@�C����ǂݍ��ށB
+     * 指定されたプロパティファイルを読み込む。
      * 
      * <p>
-     *  �ǂݍ��܂ꂽ�v���p�e�B�t�@�C���́A
-     *  �ȑO�ǂݍ��񂾓��e�ɒǉ������B
+     *  読み込まれたプロパティファイルは、
+     *  以前読み込んだ内容に追加される。
      * </p>
      *
-     * @param name �v���p�e�B�t�@�C����
+     * @param name プロパティファイル名
      */
     private static void load(String name) {
         StringBuilder key = new StringBuilder();
         Properties p = readPropertyFile(name);
         for (Map.Entry e : p.entrySet()) {
-            // �ǂݍ��񂾂��̂����ׂ�props�ɒǉ�����B
+            // 読み込んだものをすべてpropsに追加する。
             props.put((String) e.getKey(), (String) e.getValue());
         }
 
@@ -147,19 +147,19 @@ public class PropertyUtil {
     }
 
     /**
-     * �w�肳�ꂽ�v���p�e�B�t�@�C����ǂݍ��ށB
+     * 指定されたプロパティファイルを読み込む。
      * 
      * <p>
-     * �ȑO�ǂݍ��񂾓��e�ɒǉ������B
+     * 以前読み込んだ内容に追加される。
      * </p>
-     * @param name �v���p�e�B�t�@�C����
-     * @return �v���p�e�B���X�g
+     * @param name プロパティファイル名
+     * @return プロパティリスト
      */
     private static Properties readPropertyFile(String name) {
-        // �J�����g�X���b�h�̃R���e�L�X�g�N���X���[�_���g�p�����
-        // WEB-INF/classes�̃v���p�e�B�t�@�C����ǂނ��Ƃ��ł��Ȃ��ꍇ������B
-        // ����JNLP�Ń��\�[�X���擾����ɂ́A���C���X���b�h�̃R���e�L�X�g
-        // �N���X���[�_�𗘗p���Ȃ���΂Ȃ�Ȃ����ߗ����𕹗p����B
+        // カレントスレッドのコンテキストクラスローダを使用すると
+        // WEB-INF/classesのプロパティファイルを読むことができない場合がある。
+        // だがJNLPでリソースを取得するには、メインスレッドのコンテキスト
+        // クラスローダを利用しなければならないため両方を併用する。
         InputStream is = Thread.currentThread()
                 .getContextClassLoader().getResourceAsStream(name);
         if (is == null) {
@@ -192,9 +192,9 @@ public class PropertyUtil {
     }
 
     /**
-     * �v���p�e�B�t�@�C������ǂݍ��܂ꂽ���e���A
-     * �R�}���h���C���� &quot;-D&quot; �I�v�V�������Ŏw�肳�ꂽ
-     * �V�X�e���v���p�e�B�ŏ㏑������B
+     * プロパティファイルから読み込まれた内容を、
+     * コマンドラインの &quot;-D&quot; オプション等で指定された
+     * システムプロパティで上書きする。
      */
     private static void overrideProperties() {
         Enumeration<String> enumeration = 
@@ -209,14 +209,14 @@ public class PropertyUtil {
     }
 
     /**
-     * �w�肳�ꂽ�v���p�e�B�t�@�C����ǉ��œǂݍ��ށB
+     * 指定されたプロパティファイルを追加で読み込む。
      * 
      * <p>
-     *  ������Ăяo���Ă�1�x�����ǂݍ��܂�Ȃ��B
-     *  �v���p�e�B�t�@�C������ ".properties" �͏ȗ��ł���B
+     *  複数回呼び出しても1度しか読み込まれない。
+     *  プロパティファイル名の ".properties" は省略できる。
      * </p>
      * 
-     * @param name �v���p�e�B�t�@�C����
+     * @param name プロパティファイル名
      */
     public static synchronized void addPropertyFile(String name) {
         if (!name.endsWith(PROPERTY_EXTENSION)) {
@@ -231,30 +231,30 @@ public class PropertyUtil {
     }
 
     /**
-     * �w�肳�ꂽ�L�[�̃v���p�e�B���擾����B
+     * 指定されたキーのプロパティを取得する。
      *
      * <p>
-     *  �Q�ƒl�� &quot;@&quot; �t���̕�����ł��鎞�A�ԐڃL�[�Ƃ݂Ȃ�
-     *  ������x &quot;@&quot; ���O������������L�[�Ƃ��Č�������B
+     *  参照値が &quot;@&quot; 付きの文字列である時、間接キーとみなし
+     *  もう一度 &quot;@&quot; を外した文字列をキーとして検索する。
      *  <code>key=@key</code>
-     *  �Ƃ����`�Œ�`����Ă��鎞�A�������[�v��������邽�߁A
-     *  <code>@key</code>�𒼐ڕԋp����B
-     *  �擪�� &quot;@&quot; �ł��镶�����l�Ƃ��Đݒ肷��ۂɂ�
-     *  �擪�� &quot;@@&quot; �� &quot;@&quot; �ɕύX���v���p�e�B�t�@�C��
-     *  �ɐݒ肷�鎖�ŁA�ԐڃL�[�����̋@�\������ł���B
+     *  という形で定義されている時、無限ループを回避するため、
+     *  <code>@key</code>を直接返却する。
+     *  先頭が &quot;@&quot; である文字列を値として設定する際には
+     *  先頭の &quot;@@&quot; を &quot;@&quot; に変更しプロパティファイル
+     *  に設定する事で、間接キー検索の機能を回避できる。
      * </p>
      * 
-     * @param key �v���p�e�B�̃L�[
-     * @return �w�肳�ꂽ�L�[�̃v���p�e�B�̒l
+     * @param key プロパティのキー
+     * @return 指定されたキーのプロパティの値
      */
     public static String getProperty(String key) {
         String result = props.get(key);
             
-        // (�L�[)=@(�L�[)�̎��A�������[�v���
+        // (キー)=@(キー)の時、無限ループ回避
         if (result != null && result.equals("@" + key)) {
             return result;
         }
-        // @@�̏ꍇ�͊ԐڃL�[������������A@�ƌ��Ȃ��B
+        // @@の場合は間接キー検索を回避し、@と見なす。
         if (result != null && result.startsWith("@@")) {
             return result.substring(1);
         }
@@ -266,15 +266,15 @@ public class PropertyUtil {
     }
 
     /**
-     * �w�肳�ꂽ�L�[�̃v���p�e�B���擾����B
+     * 指定されたキーのプロパティを取得する。
      * 
      * <p>
-     *  �v���p�e�B��������Ȃ������ꍇ�ɂ́A�w�肳�ꂽ�f�t�H���g���Ԃ����B
+     *  プロパティが見つからなかった場合には、指定されたデフォルトが返される。
      * </p>
      * 
-     * @param key �v���p�e�B�̃L�[
-     * @param defaultValue �v���p�e�B�̃f�t�H���g�l
-     * @return �w�肳�ꂽ�L�[�̃v���p�e�B�̒l
+     * @param key プロパティのキー
+     * @param defaultValue プロパティのデフォルト値
+     * @return 指定されたキーのプロパティの値
      */
     public static String getProperty(String key, String defaultValue) {
         String result = props.get(key);
@@ -285,19 +285,19 @@ public class PropertyUtil {
     }
 
     /**
-     * �v���p�e�B�̂��ׂẴL�[�̃��X�g���擾����B
+     * プロパティのすべてのキーのリストを取得する。
      *
-     * @return �v���p�e�B�̂��ׂẴL�[�̃��X�g
+     * @return プロパティのすべてのキーのリスト
      */
     public static Enumeration getPropertyNames() {
         return Collections.enumeration(props.keySet());
     }
 
     /**
-     * �w�肳�ꂽ�v���t�B�b�N�X����n�܂�L�[�̃��X�g���擾����B
+     * 指定されたプリフィックスから始まるキーのリストを取得する。
      * 
-     * @param keyPrefix �L�[�̃v���t�B�b�N�X
-     * @return �w�肳�ꂽ�v���t�B�b�N�X����n�܂�L�[�̃��X�g
+     * @param keyPrefix キーのプリフィックス
+     * @return 指定されたプリフィックスから始まるキーのリスト
      */
     public static Enumeration<String> getPropertyNames(String keyPrefix) {
         Map<String, String> map = props.tailMap(keyPrefix);
@@ -313,12 +313,12 @@ public class PropertyUtil {
     }
 
     /**
-     * �v���p�e�B�t�@�C�����A�����L�[��������w�肷�邱�Ƃɂ��
-     * �l�Z�b�g���擾����B
+     * プロパティファイル名、部分キー文字列を指定することにより
+     * 値セットを取得する。
      * 
-     * @param propertyName �v���p�e�B�t�@�C����
-     * @param keyPrefix �����L�[������
-     * @return �l�Z�b�g
+     * @param propertyName プロパティファイル名
+     * @param keyPrefix 部分キー文字列
+     * @return 値セット
      */
     public static Set getPropertiesValues(String propertyName ,
             String keyPrefix) {
@@ -338,12 +338,12 @@ public class PropertyUtil {
 
 
     /**
-     * �v���p�e�B���w�肵�A�����L�[�v���t�B�b�N�X�ɍ��v����
-     *  �L�[�ꗗ���擾����B
+     * プロパティを指定し、部分キープリフィックスに合致する
+     *  キー一覧を取得する。
      * 
-     * @param localProps �v���p�e�B
-     * @param keyPrefix �����L�[�v���t�B�b�N�X
-     * @return �����L�[�v���t�B�b�N�X�ɍ��v����L�[�ꗗ
+     * @param localProps プロパティ
+     * @param keyPrefix 部分キープリフィックス
+     * @return 部分キープリフィックスに合致するキー一覧
      */
     public static Enumeration<String> getPropertyNames(
             Properties localProps , String keyPrefix) {
@@ -364,11 +364,11 @@ public class PropertyUtil {
     }
 
     /**
-     * �L�[�ꗗ�ɑ΂��A�v���p�e�B���擾�����l���擾����B
+     * キー一覧に対し、プロパティより取得した値を取得する。
      * 
-     * @param localProps �v���p�e�B
-     * @param propertyNames �L�[�̈ꗗ
-     * @return �l�Z�b�g
+     * @param localProps プロパティ
+     * @param propertyNames キーの一覧
+     * @return 値セット
      */
     public static Set<String> getPropertiesValues(Properties localProps,
              Enumeration<String> propertyNames) {
@@ -387,13 +387,13 @@ public class PropertyUtil {
 
 
     /**
-     * �w�肵���v���p�e�B�t�@�C�����ŁA�v���p�e�B�I�u�W�F�N�g���擾����B
+     * 指定したプロパティファイル名で、プロパティオブジェクトを取得する。
      * 
-     * @param propertyName �v���p�e�B�t�@�C��
-     * @return �v���p�e�B�I�u�W�F�N�g
+     * @param propertyName プロパティファイル
+     * @return プロパティオブジェクト
      */
     public static Properties loadProperties(String propertyName) {
-        // propertyName��null�܂��͋󕶎��̎��Anull��ԋp����B
+        // propertyNameがnullまたは空文字の時、nullを返却する。
         if (propertyName == null || "".equals(propertyName)) {
             return null;
         }
@@ -405,10 +405,10 @@ public class PropertyUtil {
             resourceName.append(PROPERTY_EXTENSION);
         }
         
-        //�J�����g�X���b�h�̃R���e�L�X�g�N���X���[�_���g�p�����
-        // WEB-INF/classes�̃v���p�e�B�t�@�C����ǂނ��Ƃ��ł��Ȃ��ꍇ������B
-        // ����JNLP�Ń��\�[�X���擾����ɂ́A���C���X���b�h�̃R���e�L�X�g
-        // �N���X���[�_�𗘗p���Ȃ���΂Ȃ�Ȃ����ߗ����𕹗p����B
+        //カレントスレッドのコンテキストクラスローダを使用すると
+        // WEB-INF/classesのプロパティファイルを読むことができない場合がある。
+        // だがJNLPでリソースを取得するには、メインスレッドのコンテキスト
+        // クラスローダを利用しなければならないため両方を併用する。
         InputStream is = Thread.currentThread().getContextClassLoader()
                 .getResourceAsStream(resourceName.toString());
         if (is == null) {
@@ -439,15 +439,15 @@ public class PropertyUtil {
     }
 
     /**
-     * �v���p�e�B�t�@�C���̓ǂݏo���p�X���擾����B
+     * プロパティファイルの読み出しパスを取得する。
      * 
-     * �v���p�e�B�t�@�C����ǉ����s�����v���p�e�B�t�@�C����
-     * ���݂���f�B���N�g�����x�[�X�ɂ��Ēǉ����ꂽ�v���p�e�B�t�@�C����ǂވׁA
-     * �v���p�e�B�t�@�C���̓ǂݏo���f�B���N�g�����擾����B
+     * プロパティファイルを追加を行ったプロパティファイルが
+     * 存在するディレクトリをベースにして追加されたプロパティファイルを読む為、
+     * プロパティファイルの読み出しディレクトリを取得する。
      * 
-     * @param resource �ǉ��w����L�q���Ă���v���p�e�B�t�@�C��
-     * @param addFile �ǉ�����v���p�e�B�t�@�C��
-     * @return �ǉ�����v���p�e�B�t�@�C���̓ǂݏo���p�X
+     * @param resource 追加指定を記述しているプロパティファイル
+     * @param addFile 追加するプロパティファイル
+     * @return 追加するプロパティファイルの読み出しパス
      */
     private static String getPropertiesPath(String resource, String addFile) {
         File file = new File(resource);

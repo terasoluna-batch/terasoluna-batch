@@ -70,13 +70,13 @@ public class BatchUpdateExecutorTest {
         Object value = null;
         UpdateDAO updateDAO = null;
 
-        // ƒpƒ‰ƒ[ƒ^
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
         List<BatchUpdateResult> result = null;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         result = BatchUpdateExecutor.executeBatch(value, updateDAO);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertNotNull(result);
         assertEquals(0, result.size());
     }
@@ -89,13 +89,13 @@ public class BatchUpdateExecutorTest {
         Object value = new Object();
         UpdateDAO updateDAO = new MockUpdateDao();
 
-        // ƒpƒ‰ƒ[ƒ^
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
         List<BatchUpdateResult> result = null;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         result = BatchUpdateExecutor.executeBatch(value, updateDAO);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertNotNull(result);
         assertEquals(0, result.size());
     }
@@ -108,14 +108,14 @@ public class BatchUpdateExecutorTest {
         BatchUpdateSupport bus = new BatchUpdateSupportImpl();
         MockUpdateDao updateDAO = new MockUpdateDao();
 
-        // ƒpƒ‰ƒ[ƒ^
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
         List<BatchUpdateResult> result = null;
         updateDAO.addResult(Integer.valueOf(0));
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         result = BatchUpdateExecutor.executeBatch(bus, updateDAO);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertNotNull(result);
         assertEquals(1, result.size());
         assertEquals(null, result.get(0).getExecuteBatchException());
@@ -132,14 +132,14 @@ public class BatchUpdateExecutorTest {
         BatchUpdateSupport bus = new BatchUpdateSupportImpl();
         MockUpdateDao updateDAO = new MockUpdateDao();
 
-        // ƒpƒ‰ƒ[ƒ^
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
         List<BatchUpdateResult> result = null;
         updateDAO.addResult(new Exception("ERROR"));
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         result = BatchUpdateExecutor.executeBatch(bus, updateDAO);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertNotNull(result);
         assertEquals(1, result.size());
         assertNotNull(result.get(0).getExecuteBatchException());
@@ -162,14 +162,14 @@ public class BatchUpdateExecutorTest {
         busList.add(bus2);
         MockUpdateDao updateDAO = new MockUpdateDao();
 
-        // ƒpƒ‰ƒ[ƒ^
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
         List<BatchUpdateResult> result = null;
         updateDAO.addResult(Integer.valueOf(0));
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         result = BatchUpdateExecutor.executeBatch(busList, updateDAO);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertNotNull(result);
         assertEquals(2, result.size());
         assertNull(result.get(0).getExecuteBatchException());
@@ -190,14 +190,14 @@ public class BatchUpdateExecutorTest {
         busArray[1] = bus2;
         MockUpdateDao updateDAO = new MockUpdateDao();
 
-        // ƒpƒ‰ƒ[ƒ^
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
         List<BatchUpdateResult> result = null;
         updateDAO.addResult(Integer.valueOf(0));
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         result = BatchUpdateExecutor.executeBatch(busArray, updateDAO);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertNotNull(result);
         assertEquals(2, result.size());
         assertNull(result.get(0).getExecuteBatchException());
@@ -214,14 +214,14 @@ public class BatchUpdateExecutorTest {
         DummyJobContext djc = new DummyJobContext();
         MockUpdateDao updateDAO = new MockUpdateDao();
 
-        // ƒpƒ‰ƒ[ƒ^
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
         List<BatchUpdateResult> result = null;
         updateDAO.addResult(Integer.valueOf(0));
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         result = BatchUpdateExecutor.executeBatch(djc, updateDAO);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertNotNull(result);
         assertEquals(1, result.size());
         assertNull(result.get(0).getExecuteBatchException());
@@ -235,13 +235,13 @@ public class BatchUpdateExecutorTest {
      */
     @Test
     public void testClearAll001() {
-        // ƒpƒ‰ƒ[ƒ^
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
         Object value = null;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         BatchUpdateExecutor.clearAll(value);
 
-        // ŒŸØ
+        // æ¤œè¨¼
     }
 
     /**
@@ -249,13 +249,13 @@ public class BatchUpdateExecutorTest {
      */
     @Test
     public void testClearAll002() {
-        // ƒpƒ‰ƒ[ƒ^
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
         Object value = new Object();
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         BatchUpdateExecutor.clearAll(value);
 
-        // ŒŸØ
+        // æ¤œè¨¼
     }
 
     /**
@@ -264,15 +264,15 @@ public class BatchUpdateExecutorTest {
     @SuppressWarnings("unchecked")
     @Test
     public void testClearAll003() {
-        // ƒpƒ‰ƒ[ƒ^
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
         BatchUpdateSupport bus = new BatchUpdateSupportImpl();
 
         bus.addBatch("hogeSql", null);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         BatchUpdateExecutor.clearAll(bus);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         Map<String, Queue<SqlHolder>> batchSqlsMap = null;
         try {
             batchSqlsMap = (Map<String, Queue<SqlHolder>>) UTUtil
@@ -292,7 +292,7 @@ public class BatchUpdateExecutorTest {
     @SuppressWarnings("unchecked")
     @Test
     public void testClearAll004() {
-        // ƒpƒ‰ƒ[ƒ^
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
         List<BatchUpdateSupport> busList = new ArrayList<BatchUpdateSupport>();
         BatchUpdateSupport bus1 = new BatchUpdateSupportImpl();
         BatchUpdateSupport bus2 = new BatchUpdateSupportImpl();
@@ -301,10 +301,10 @@ public class BatchUpdateExecutorTest {
         busList.add(bus1);
         busList.add(bus2);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         BatchUpdateExecutor.clearAll(busList);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         Map<String, Queue<SqlHolder>> batchSqlsMap1 = null;
         Map<String, Queue<SqlHolder>> batchSqlsMap2 = null;
         try {
@@ -329,7 +329,7 @@ public class BatchUpdateExecutorTest {
     @SuppressWarnings("unchecked")
     @Test
     public void testClearAll005() {
-        // ƒpƒ‰ƒ[ƒ^
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
         BatchUpdateSupport[] busArray = new BatchUpdateSupport[2];
         BatchUpdateSupport bus1 = new BatchUpdateSupportImpl();
         BatchUpdateSupport bus2 = new BatchUpdateSupportImpl();
@@ -338,10 +338,10 @@ public class BatchUpdateExecutorTest {
         busArray[0] = bus1;
         busArray[1] = bus2;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         BatchUpdateExecutor.clearAll(busArray);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         Map<String, Queue<SqlHolder>> batchSqlsMap1 = null;
         Map<String, Queue<SqlHolder>> batchSqlsMap2 = null;
         try {
@@ -366,15 +366,15 @@ public class BatchUpdateExecutorTest {
     @SuppressWarnings("unchecked")
     @Test
     public void testClearAll006() {
-        // ƒpƒ‰ƒ[ƒ^
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
         DummyJobContext djc = new DummyJobContext();
         BatchUpdateSupport bus = djc.getBatchUpdateSupport();
         bus.addBatch("hogeSql", null);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         BatchUpdateExecutor.clearAll(djc);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         Map<String, Queue<SqlHolder>> batchSqlsMap = null;
         try {
             batchSqlsMap = (Map<String, Queue<SqlHolder>>) UTUtil

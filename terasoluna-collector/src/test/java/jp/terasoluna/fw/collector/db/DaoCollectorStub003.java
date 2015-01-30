@@ -13,7 +13,7 @@ public class DaoCollectorStub003 extends DaoCollector<HogeBean> {
 
     public DaoCollectorStub003() {
         this.inQueue = new ArrayBlockingQueue<DataValueObject>(1);
-        // ‚ ‚ç‚©‚¶‚ßƒ_ƒ~[ƒIƒuƒWƒFƒNƒg‚ğƒLƒ…[‚É“ü‚ê‚ÄAŸ‰ñ’Ç‰Á‚ÉƒuƒƒbƒN‚³‚ê‚éó‘Ô‚ğ‚Â‚­‚éB
+        // ã‚ã‚‰ã‹ã˜ã‚ãƒ€ãƒŸãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ã‚­ãƒ¥ãƒ¼ã«å…¥ã‚Œã¦ã€æ¬¡å›è¿½åŠ æ™‚ã«ãƒ–ãƒ­ãƒƒã‚¯ã•ã‚Œã‚‹çŠ¶æ…‹ã‚’ã¤ãã‚‹ã€‚
         this.inQueue.add(new DataValueObject("dummy"));
     }
 
@@ -23,7 +23,7 @@ public class DaoCollectorStub003 extends DaoCollector<HogeBean> {
         if (inQueue.remainingCapacity() == 0) {
             this.blocked = true;
         }
-        // ƒLƒ…[‚Ì—e—Ê‚ğ’´‚¦‚Ä‚¢‚é‚½‚ßA‚±‚±‚ÅƒuƒƒbƒN‚·‚éB
+        // ã‚­ãƒ¥ãƒ¼ã®å®¹é‡ã‚’è¶…ãˆã¦ã„ã‚‹ãŸã‚ã€ã“ã“ã§ãƒ–ãƒ­ãƒƒã‚¯ã™ã‚‹ã€‚
         inQueue.put(dataValueObject);
     }
 

@@ -17,49 +17,49 @@
 package jp.terasoluna.fw.validation;
 
 /**
- * {@link FieldChecksExtend}‚ğƒeƒXƒg‚·‚é‚½‚ß‚ÌJavaBeanB
+ * {@link FieldChecksExtend}ã‚’ãƒ†ã‚¹ãƒˆã™ã‚‹ãŸã‚ã®JavaBeanã€‚
  * 
  *
  */
 public class FieldChecks_JavaBeanStub02 {
 
     /**
-     * field1B
+     * field1ã€‚
      */
     protected Object field1 = null;
 
     /**
-     * field2B
+     * field2ã€‚
      */
     protected Object field2 = null;
 
     /**
-     * field3B
+     * field3ã€‚
      */
     protected Object field3 = null;
 
     /**
-     * field1 ‚ğ•Ô‹p‚·‚éB
+     * field1 ã‚’è¿”å´ã™ã‚‹ã€‚
      * 
-     * @return field1B
+     * @return field1ã€‚
      */
     public Object getField1() {
         return this.field1;
     }
 
     /**
-     * field2 ‚ğ•Ô‹p‚·‚éB
+     * field2 ã‚’è¿”å´ã™ã‚‹ã€‚
      * 
-     * @return field2B
+     * @return field2ã€‚
      */
     public Object getField2() {
         return this.field2;
     }
 
     /**
-     * field3 ‚ğ•Ô‹p‚·‚éB
+     * field3 ã‚’è¿”å´ã™ã‚‹ã€‚
      * 
-     * @return field3B
+     * @return field3ã€‚
      */
     public Object getField3() {
         return this.field3;

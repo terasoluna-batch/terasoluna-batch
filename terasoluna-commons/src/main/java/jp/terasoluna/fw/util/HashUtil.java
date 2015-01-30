@@ -23,18 +23,18 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
- * ƒnƒbƒVƒ…’l‚ğŒvZ‚·‚éƒ†[ƒeƒBƒŠƒeƒBƒNƒ‰ƒXB
+ * ãƒãƒƒã‚·ãƒ¥å€¤ã‚’è¨ˆç®—ã™ã‚‹ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ã‚¯ãƒ©ã‚¹ã€‚
  * 
  * <p>
- *  java.security.MessageDigest‚ğ—p‚¢‚ÄA•¶š—ñ‚ÌƒnƒbƒVƒ…’l‚ğ
- *  æ“¾‚·‚éB<br>
- *  MD5ASHA1A‚»‚Ì‘¼ƒAƒ‹ƒSƒŠƒYƒ€‚ğg—p‚µ‚Äæ“¾‚·‚éB
- *  <strong>g—p—á</strong><br>
+ *  java.security.MessageDigestã‚’ç”¨ã„ã¦ã€æ–‡å­—åˆ—ã®ãƒãƒƒã‚·ãƒ¥å€¤ã‚’
+ *  å–å¾—ã™ã‚‹ã€‚<br>
+ *  MD5ã€SHA1ã€ãã®ä»–ã‚¢ãƒ«ã‚´ãƒªã‚ºãƒ ã‚’ä½¿ç”¨ã—ã¦å–å¾—ã™ã‚‹ã€‚
+ *  <strong>ä½¿ç”¨ä¾‹</strong><br>
  *  <code><pre>
- *   EEE
- *    // DB‚É“o˜^‚·‚éƒ†[ƒUƒpƒXƒ[ƒh‚ÌƒnƒbƒVƒ…’l‚ğŒvZ‚·‚éB
+ *   ãƒ»ãƒ»ãƒ»
+ *    // DBã«ç™»éŒ²ã™ã‚‹ãƒ¦ãƒ¼ã‚¶ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã®ãƒãƒƒã‚·ãƒ¥å€¤ã‚’è¨ˆç®—ã™ã‚‹ã€‚
  *    byte[] hash = HashUtil.hashMD5(userPassword);
- *   EEE
+ *   ãƒ»ãƒ»ãƒ»
  *  </pre></code>
  * </p>
  *
@@ -42,17 +42,17 @@ import org.apache.commons.logging.LogFactory;
 public class HashUtil {
 
     /**
-     * ƒƒOƒNƒ‰ƒXB
+     * ãƒ­ã‚°ã‚¯ãƒ©ã‚¹ã€‚
      */
     private static Log log = LogFactory.getLog(HashUtil.class);
 
     /**
-     * w’è‚³‚ê‚½ƒAƒ‹ƒSƒŠƒYƒ€‚Å•¶š—ñ‚ğƒnƒbƒVƒ…’l‚ğæ“¾‚·‚éB
+     * æŒ‡å®šã•ã‚ŒãŸã‚¢ãƒ«ã‚´ãƒªã‚ºãƒ ã§æ–‡å­—åˆ—ã‚’ãƒãƒƒã‚·ãƒ¥å€¤ã‚’å–å¾—ã™ã‚‹ã€‚
      *
-     * @param algorithm ƒnƒbƒVƒ…ƒAƒ‹ƒSƒŠƒYƒ€
-     * @param str ƒnƒbƒVƒ…’l‚Ìæ“¾‘ÎÛ‚Ì•¶š—ñ
-     * @return ƒnƒbƒVƒ…’l
-     * @throws NoSuchAlgorithmException ƒnƒbƒVƒ…ƒAƒ‹ƒSƒŠƒYƒ€‚ª•s³‚È‚Æ‚«
+     * @param algorithm ãƒãƒƒã‚·ãƒ¥ã‚¢ãƒ«ã‚´ãƒªã‚ºãƒ 
+     * @param str ãƒãƒƒã‚·ãƒ¥å€¤ã®å–å¾—å¯¾è±¡ã®æ–‡å­—åˆ—
+     * @return ãƒãƒƒã‚·ãƒ¥å€¤
+     * @throws NoSuchAlgorithmException ãƒãƒƒã‚·ãƒ¥ã‚¢ãƒ«ã‚´ãƒªã‚ºãƒ ãŒä¸æ­£ãªã¨ã
      * 
      */
     public static byte[] hash(String algorithm, String str)
@@ -65,10 +65,10 @@ public class HashUtil {
     }
 
     /**
-     * MD5ƒAƒ‹ƒSƒŠƒYƒ€‚Å•¶š—ñ‚ÌƒnƒbƒVƒ…’l‚ğæ“¾‚·‚éB
+     * MD5ã‚¢ãƒ«ã‚´ãƒªã‚ºãƒ ã§æ–‡å­—åˆ—ã®ãƒãƒƒã‚·ãƒ¥å€¤ã‚’å–å¾—ã™ã‚‹ã€‚
      * 
-     * @param str ƒnƒbƒVƒ…’l‚Ìæ“¾‘ÎÛ‚Ì•¶š—ñ
-     * @return ƒnƒbƒVƒ…’l
+     * @param str ãƒãƒƒã‚·ãƒ¥å€¤ã®å–å¾—å¯¾è±¡ã®æ–‡å­—åˆ—
+     * @return ãƒãƒƒã‚·ãƒ¥å€¤
      */
     public static byte[] hashMD5(String str) {
         try {
@@ -81,10 +81,10 @@ public class HashUtil {
     }
 
     /**
-     * SHA1ƒAƒ‹ƒSƒŠƒYƒ€‚Å•¶š—ñ‚ÌƒnƒbƒVƒ…’l‚ğæ“¾‚·‚éB
+     * SHA1ã‚¢ãƒ«ã‚´ãƒªã‚ºãƒ ã§æ–‡å­—åˆ—ã®ãƒãƒƒã‚·ãƒ¥å€¤ã‚’å–å¾—ã™ã‚‹ã€‚
      * 
-     * @param str ƒnƒbƒVƒ…’l‚Ìæ“¾‘ÎÛ‚Ì•¶š—ñ
-     * @return ƒnƒbƒVƒ…’l
+     * @param str ãƒãƒƒã‚·ãƒ¥å€¤ã®å–å¾—å¯¾è±¡ã®æ–‡å­—åˆ—
+     * @return ãƒãƒƒã‚·ãƒ¥å€¤
      */
     public static byte[] hashSHA1(String str) {
         try {

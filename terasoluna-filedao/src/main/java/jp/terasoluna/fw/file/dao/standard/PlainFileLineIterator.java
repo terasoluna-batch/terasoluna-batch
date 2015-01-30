@@ -23,97 +23,97 @@ import java.util.NoSuchElementException;
 import jp.terasoluna.fw.file.dao.FileLineException;
 
 /**
- * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ğ—p‚¢‚È‚¢ƒtƒ@ƒCƒ‹“Ç‹@”\B
+ * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ç”¨ã„ãªã„ãƒ•ã‚¡ã‚¤ãƒ«èª­è¾¼æ©Ÿèƒ½ã€‚
  * <p>
- * ƒeƒLƒXƒgƒtƒ@ƒCƒ‹‚©‚ç1s•ª‚Ìƒf[ƒ^‚ğ“Ç‚İæ‚è•¶š—ñ‚Æ‚µ‚ÄŒÄoŒ³‚É•Ô‹p‚·‚éB ‘¼‚Ìƒtƒ@ƒCƒ‹ƒAƒNƒZƒX‹@”\‚Æ‚ÍˆÙ‚È‚èAƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ğg‚í‚È‚¢B
+ * ãƒ†ã‚­ã‚¹ãƒˆãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰1è¡Œåˆ†ã®ãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿å–ã‚Šæ–‡å­—åˆ—ã¨ã—ã¦å‘¼å‡ºå…ƒã«è¿”å´ã™ã‚‹ã€‚ ä»–ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚¢ã‚¯ã‚»ã‚¹æ©Ÿèƒ½ã¨ã¯ç•°ãªã‚Šã€ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ä½¿ã‚ãªã„ã€‚
  * </p>
- * <b>¦—˜—p‚·‚éƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌƒAƒmƒe[ƒVƒ‡ƒ“€–Ú</b><br>
- * ú@D@{@link jp.terasoluna.fw.file.annotation.FileFormat}‚Ìİ’è€–Ú<br>
+ * <b>â€»åˆ©ç”¨ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³é …ç›®</b><br>
+ * â…°ï¼@{@link jp.terasoluna.fw.file.annotation.FileFormat}ã®è¨­å®šé …ç›®<br>
  * <div align="center">
  * <table width="90%" border="1" bgcolor="#FFFFFF">
  * <tr>
- * <td><b>˜_—€–Ú–¼</b></td>
- * <td><b>•¨—€–Ú–¼</b></td>
- * <td><b>ƒfƒtƒHƒ‹ƒg’l</b></td>
- * <td><b>•K{«</b></td>
+ * <td><b>è«–ç†é …ç›®å</b></td>
+ * <td><b>ç‰©ç†é …ç›®å</b></td>
+ * <td><b>ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤</b></td>
+ * <td><b>å¿…é ˆæ€§</b></td>
  * </tr>
  * <tr>
- * <td> <code>s‹æØ‚è•¶š</code></td>
+ * <td> <code>è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—</code></td>
  * <td> <code>lineFeedChar</code></td>
- * <td> <code>ƒVƒXƒeƒ€‚Ìs‹æØ‚è•¶š</code></td>
- * <td> <code>ƒIƒvƒVƒ‡ƒ“</code></td>
+ * <td> <code>ã‚·ã‚¹ãƒ†ãƒ ã®è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—</code></td>
+ * <td> <code>ã‚ªãƒ—ã‚·ãƒ§ãƒ³</code></td>
  * </tr>
  * <tr>
- * <td> <code>ƒtƒ@ƒCƒ‹ƒGƒ“ƒR[ƒfƒBƒ“ƒO</code></td>
+ * <td> <code>ãƒ•ã‚¡ã‚¤ãƒ«ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°</code></td>
  * <td> <code>fileEncodeing</code></td>
- * <td> <code>ƒVƒXƒeƒ€‚Ìƒtƒ@ƒCƒ‹ƒGƒ“ƒR[ƒfƒBƒ“ƒO</code></td>
- * <td> <code>ƒIƒvƒVƒ‡ƒ“</code></td>
+ * <td> <code>ã‚·ã‚¹ãƒ†ãƒ ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°</code></td>
+ * <td> <code>ã‚ªãƒ—ã‚·ãƒ§ãƒ³</code></td>
  * </tr>
  * <tr>
- * <td> <code>ƒwƒbƒ_s”</code></td>
+ * <td> <code>ãƒ˜ãƒƒãƒ€è¡Œæ•°</code></td>
  * <td> <code>headerLineCount</code></td>
  * <td> <code>0</code></td>
- * <td> <code>ƒIƒvƒVƒ‡ƒ“</code></td>
+ * <td> <code>ã‚ªãƒ—ã‚·ãƒ§ãƒ³</code></td>
  * </tr>
  * <tr>
- * <td> <code>ƒgƒŒƒCƒ‰s”</code></td>
+ * <td> <code>ãƒˆãƒ¬ã‚¤ãƒ©è¡Œæ•°</code></td>
  * <td> <code>trailerLineCount</code></td>
  * <td> <code>0</code></td>
- * <td> <code>ƒIƒvƒVƒ‡ƒ“</code></td>
+ * <td> <code>ã‚ªãƒ—ã‚·ãƒ§ãƒ³</code></td>
  * </tr>
  * </table>
  * </div> <br>
- * <b>¦’ˆÓ–€</b><br>
+ * <b>â€»æ³¨æ„äº‹é …</b><br>
  * <ul>
- * @
- * <li>‹æØ‚è•¶š‚ÆˆÍ‚İ•¶š‚Ìİ’è‚Í–³‹‚·‚éB</li>
+ * ã€€
+ * <li>åŒºåˆ‡ã‚Šæ–‡å­—ã¨å›²ã¿æ–‡å­—ã®è¨­å®šã¯ç„¡è¦–ã™ã‚‹ã€‚</li>
  * </ul>
  */
 public class PlainFileLineIterator extends AbstractFileLineIterator<Object> {
 
     /**
-     * ‹æØ‚è•¶šB
+     * åŒºåˆ‡ã‚Šæ–‡å­—ã€‚
      */
     private char delimiter = ',';
 
     /**
-     * ˆÍ‚İ•¶šB
+     * å›²ã¿æ–‡å­—ã€‚
      */
     private char encloseChar = Character.MIN_VALUE;
 
     /**
-     * Œ»İƒtƒ@ƒCƒ‹“ü—Íˆ—Ï‚İ‚Ìƒf[ƒ^•”“à‚Ìs”B
+     * ç¾åœ¨ãƒ•ã‚¡ã‚¤ãƒ«å…¥åŠ›å‡¦ç†æ¸ˆã¿ã®ãƒ‡ãƒ¼ã‚¿éƒ¨å†…ã®è¡Œæ•°ã€‚
      */
     private int currentLineCount = 0;
 
     /**
-     * ƒgƒŒƒCƒ‰•”ˆ—Šm”F—pƒtƒ‰ƒOB
+     * ãƒˆãƒ¬ã‚¤ãƒ©éƒ¨å‡¦ç†ç¢ºèªç”¨ãƒ•ãƒ©ã‚°ã€‚
      */
     private boolean readTrailer = false;
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-     * @param fileName ƒtƒ@ƒCƒ‹–¼
-     * @param clazz Œ‹‰ÊƒNƒ‰ƒX
-     * @param columnParserMap ƒtƒH[ƒ}ƒbƒgˆ—ƒŠƒXƒg
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * @param fileName ãƒ•ã‚¡ã‚¤ãƒ«å
+     * @param clazz çµæœã‚¯ãƒ©ã‚¹
+     * @param columnParserMap ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆå‡¦ç†ãƒªã‚¹ãƒˆ
      */
     @SuppressWarnings("unchecked")
     public PlainFileLineIterator(String fileName, Class clazz,
             Map<String, ColumnParser> columnParserMap) {
         super(fileName, clazz, columnParserMap);
 
-        // ‰Šú‰»ˆ—‚ğs‚¤B
+        // åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
         super.init();
     }
 
     /**
-     * •¶š—ñ•ªŠ„ˆ—B
+     * æ–‡å­—åˆ—åˆ†å‰²å‡¦ç†ã€‚
      * <p>
-     * ƒf[ƒ^•”‚Ìƒf[ƒ^‚Ps•ª‚ğƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌƒAƒmƒe[ƒVƒ‡ƒ“‚Ì‹Lq‚É]‚¢ƒJƒ‰ƒ€‚É•ªŠ„‚·‚éB<br>
-     * ‚±‚ÌƒNƒ‰ƒX‚Å‚Íˆ—‚ÍÀ‘•‚³‚ê‚Ä‚¢‚È‚¢‚½‚ßA<code>UnsupportedOperationException</code>‚ªƒXƒ[‚³‚ê‚éB
+     * ãƒ‡ãƒ¼ã‚¿éƒ¨ã®ãƒ‡ãƒ¼ã‚¿ï¼‘è¡Œåˆ†ã‚’ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã®è¨˜è¿°ã«å¾“ã„ã‚«ãƒ©ãƒ ã«åˆ†å‰²ã™ã‚‹ã€‚<br>
+     * ã“ã®ã‚¯ãƒ©ã‚¹ã§ã¯å‡¦ç†ã¯å®Ÿè£…ã•ã‚Œã¦ã„ãªã„ãŸã‚ã€<code>UnsupportedOperationException</code>ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã€‚
      * </p>
-     * @param fileLineString ƒf[ƒ^•”‚Ìƒf[ƒ^‚Ps•ª
-     * @return ƒf[ƒ^•”‚Ps‚Ì•¶š—ñ‚ğ•ª‰ğ‚µ‚½•¶š”z—ñ
+     * @param fileLineString ãƒ‡ãƒ¼ã‚¿éƒ¨ã®ãƒ‡ãƒ¼ã‚¿ï¼‘è¡Œåˆ†
+     * @return ãƒ‡ãƒ¼ã‚¿éƒ¨ï¼‘è¡Œã®æ–‡å­—åˆ—ã‚’åˆ†è§£ã—ãŸæ–‡å­—é…åˆ—
      */
     @Override
     public String[] separateColumns(String fileLineString) {
@@ -122,11 +122,11 @@ public class PlainFileLineIterator extends AbstractFileLineIterator<Object> {
     }
 
     /**
-     * ŒJ‚è•Ô‚µˆ—‚Åƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ğ•Ô‹p‚·‚éB
+     * ç¹°ã‚Šè¿”ã—å‡¦ç†ã§ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’è¿”å´ã™ã‚‹ã€‚
      * <p>
-     * Ÿ‚Ìs‚ÌƒŒƒR[ƒh‚Ìî•ñ‚ğƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÉŠi”[‚µ‚Ä•Ô‹p‚·‚éB<br>
+     * æ¬¡ã®è¡Œã®ãƒ¬ã‚³ãƒ¼ãƒ‰ã®æƒ…å ±ã‚’ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«æ ¼ç´ã—ã¦è¿”å´ã™ã‚‹ã€‚<br>
      * </p>
-     * @return ƒtƒ@ƒCƒ‹‚Ì‚Ps•ª‚Ì•¶š—ñ
+     * @return ãƒ•ã‚¡ã‚¤ãƒ«ã®ï¼‘è¡Œåˆ†ã®æ–‡å­—åˆ—
      */
     @Override
     public String next() {
@@ -147,8 +147,8 @@ public class PlainFileLineIterator extends AbstractFileLineIterator<Object> {
     }
 
     /**
-     * ƒf[ƒ^•”‚Ìƒf[ƒ^‚ğ“Ç‚İ”ò‚Î‚·ˆ—‚ğs‚¤B<br>
-     * @param skipLines “Ç‚İ”ò‚Î‚·s”B
+     * ãƒ‡ãƒ¼ã‚¿éƒ¨ã®ãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿é£›ã°ã™å‡¦ç†ã‚’è¡Œã†ã€‚<br>
+     * @param skipLines èª­ã¿é£›ã°ã™è¡Œæ•°ã€‚
      */
     public void skip(int skipLines) {
         for (int i = 0; i < skipLines; i++) {
@@ -164,8 +164,8 @@ public class PlainFileLineIterator extends AbstractFileLineIterator<Object> {
     }
 
     /**
-     * ƒgƒŒƒCƒ‰•”‚Ìƒf[ƒ^‚ğæ“¾‚·‚éB<br>
-     * @return ƒgƒŒƒCƒ‰•”‚Ì•¶š—ñƒŠƒXƒg
+     * ãƒˆãƒ¬ã‚¤ãƒ©éƒ¨ã®ãƒ‡ãƒ¼ã‚¿ã‚’å–å¾—ã™ã‚‹ã€‚<br>
+     * @return ãƒˆãƒ¬ã‚¤ãƒ©éƒ¨ã®æ–‡å­—åˆ—ãƒªã‚¹ãƒˆ
      * @see jp.terasoluna.fw.file.dao.standard.AbstractFileLineIterator#getTrailer()
      */
     @Override
@@ -176,8 +176,8 @@ public class PlainFileLineIterator extends AbstractFileLineIterator<Object> {
     }
 
     /**
-     * ‹æØ‚è•¶š‚ğæ“¾‚·‚éB
-     * @return ‹æØ‚è•¶š
+     * åŒºåˆ‡ã‚Šæ–‡å­—ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return åŒºåˆ‡ã‚Šæ–‡å­—
      */
     @Override
     public char getDelimiter() {
@@ -185,8 +185,8 @@ public class PlainFileLineIterator extends AbstractFileLineIterator<Object> {
     }
 
     /**
-     * ˆÍ‚İ•¶š‚ğæ“¾‚·‚éB
-     * @return ˆÍ‚İ•¶š
+     * å›²ã¿æ–‡å­—ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return å›²ã¿æ–‡å­—
      */
     @Override
     public char getEncloseChar() {
@@ -194,8 +194,8 @@ public class PlainFileLineIterator extends AbstractFileLineIterator<Object> {
     }
 
     /**
-     * Œ»İƒtƒ@ƒCƒ‹“ü—Íˆ—Ï‚İ‚Ìƒf[ƒ^•”“à‚Ìs”‚ğæ“¾‚·‚éB
-     * @return Œ»İƒtƒ@ƒCƒ‹“ü—Íˆ—Ï‚İ‚Ìƒf[ƒ^•”“à‚Ìs”B
+     * ç¾åœ¨ãƒ•ã‚¡ã‚¤ãƒ«å…¥åŠ›å‡¦ç†æ¸ˆã¿ã®ãƒ‡ãƒ¼ã‚¿éƒ¨å†…ã®è¡Œæ•°ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return ç¾åœ¨ãƒ•ã‚¡ã‚¤ãƒ«å…¥åŠ›å‡¦ç†æ¸ˆã¿ã®ãƒ‡ãƒ¼ã‚¿éƒ¨å†…ã®è¡Œæ•°ã€‚
      */
     @Override
     public int getCurrentLineCount() {
@@ -203,8 +203,8 @@ public class PlainFileLineIterator extends AbstractFileLineIterator<Object> {
     }
 
     /**
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÉƒAƒmƒe[ƒVƒ‡ƒ“‚ªİ’è‚³‚ê‚Ä‚¢‚é–‚ğƒ`ƒFƒbƒN‚·‚é‚©‚Ç‚¤‚©‚ğ•Ô‚·B<br>
-     * PlainFileLineIterator‚Å‚Íƒ`ƒFƒbƒN‚ğs‚í‚È‚¢‚½‚ßAfalseB
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹äº‹ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã‹ã©ã†ã‹ã‚’è¿”ã™ã€‚<br>
+     * PlainFileLineIteratorã§ã¯ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã‚ãªã„ãŸã‚ã€falseã€‚
      * @return false
      */
     @Override

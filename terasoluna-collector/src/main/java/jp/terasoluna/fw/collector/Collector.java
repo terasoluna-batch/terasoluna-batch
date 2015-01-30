@@ -20,35 +20,35 @@ import java.io.Closeable;
 import java.util.Iterator;
 
 /**
- * �R���N�^�C���^�t�F�[�X<br>
+ * コレクタインタフェース<br>
  * @param &lt;P&gt;
  */
 public interface Collector<P> extends Iterator<P>, Iterable<P>, Closeable {
     /**
-     * 1���O�̗v�f��Ԃ��܂��B<br>
+     * 1件前の要素を返します。<br>
      * <p>
-     * 1���ڂ̏ꍇ��null���Ԃ�܂��B<br>
-     * �|�C���^�͈ړ����܂���B
+     * 1件目の場合はnullが返ります。<br>
+     * ポインタは移動しません。
      * </p>
      * @return &lt;P&gt;
      */
     P getPrevious();
 
     /**
-     * ���݂̗v�f��Ԃ��܂��B<br>
+     * 現在の要素を返します。<br>
      * <p>
-     * null�̏ꍇ�͌��݂̗v�f�����݂��Ȃ����Ƃ������܂��B<br>
-     * �|�C���^�͈ړ����܂���B
+     * nullの場合は現在の要素が存在しないことを示します。<br>
+     * ポインタは移動しません。
      * </p>
      * @return &lt;P&gt;
      */
     P getCurrent();
 
     /**
-     * �|�C���^�����̗v�f�Ɉڂ����Ɏ��̗v�f��Ԃ��܂��B<br>
+     * ポインタを次の要素に移さずに次の要素を返します。<br>
      * <p>
-     * null�̏ꍇ�͎��̗v�f�����݂��Ȃ����Ƃ������܂��B<br>
-     * �|�C���^�͈ړ����܂���B
+     * nullの場合は次の要素が存在しないことを示します。<br>
+     * ポインタは移動しません。
      * </p>
      * @return &lt;P&gt;
      */

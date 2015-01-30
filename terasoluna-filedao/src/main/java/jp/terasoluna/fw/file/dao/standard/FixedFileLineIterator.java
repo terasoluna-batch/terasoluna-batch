@@ -24,132 +24,132 @@ import jp.terasoluna.fw.file.annotation.InputFileColumn;
 import jp.terasoluna.fw.file.dao.FileException;
 
 /**
- * �Œ蒷�t�@�C���p�̃t�@�C���A�N�Z�X(�f�[�^�擾)�N���X�B
+ * 固定長ファイル用のファイルアクセス(データ取得)クラス。
  * <p>
- * �Œ蒷�t�@�C������f�[�^��ǂݍ��݁A 1�s���̃f�[�^���t�@�C���s�I�u�W�F�N�g�Ɋi�[����B
+ * 固定長ファイルからデータを読み込み、 1行分のデータをファイル行オブジェクトに格納する。
  * </p>
- * <b>�����p����t�@�C���s�I�u�W�F�N�g�̃A�m�e�[�V��������</b><br>
- * �@�D@{@link FileFormat}�̐ݒ荀��<br>
+ * <b>※利用するファイル行オブジェクトのアノテーション項目</b><br>
+ * ⅰ．@{@link FileFormat}の設定項目<br>
  * <div align="center">
  * <table width="90%" border="1" bgcolor="#FFFFFF">
  * <tr>
- * <td><b>�_�����ږ�</b></td>
- * <td><b>�������ږ�</b></td>
- * <td><b>�f�t�H���g�l</b></td>
- * <td><b>�K�{��</b></td>
+ * <td><b>論理項目名</b></td>
+ * <td><b>物理項目名</b></td>
+ * <td><b>デフォルト値</b></td>
+ * <td><b>必須性</b></td>
  * </tr>
  * <tr>
- * <td> <code>�s��؂蕶��</code></td>
+ * <td> <code>行区切り文字</code></td>
  * <td> <code>lineFeedChar</code></td>
- * <td> <code>�V�X�e���̍s��؂蕶��</code></td>
- * <td> <code>�I�v�V����</code></td>
+ * <td> <code>システムの行区切り文字</code></td>
+ * <td> <code>オプション</code></td>
  * <tr>
  * <tr>
- * <td> <code>�t�@�C���G���R�[�f�B���O</code></td>
+ * <td> <code>ファイルエンコーディング</code></td>
  * <td> <code>fileEncodeing</code></td>
- * <td> <code>�V�X�e���̃t�@�C���G���R�[�f�B���O</code></td>
- * <td> <code>�I�v�V����</code></td>
+ * <td> <code>システムのファイルエンコーディング</code></td>
+ * <td> <code>オプション</code></td>
  * <tr>
  * <tr>
- * <td> <code>�w�b�_�s��</code></td>
+ * <td> <code>ヘッダ行数</code></td>
  * <td> <code>headerLineCount</code></td>
  * <td> <code>0</code></td>
- * <td> <code>�I�v�V����</code></td>
+ * <td> <code>オプション</code></td>
  * <tr>
  * <tr>
- * <td> <code>�g���C���s��</code></td>
+ * <td> <code>トレイラ行数</code></td>
  * <td> <code>trailerLineCount</code></td>
  * <td> <code>0</code></td>
- * <td> <code>�I�v�V����</code></td>
+ * <td> <code>オプション</code></td>
  * <tr>
  * </table>
  * </div> <br>
- * �A�D@{@link InputFileColumn}�A@{@link jp.terasoluna.fw.file.annotation.OutputFileColumn}�̐ݒ荀��<br>
+ * ⅱ．@{@link InputFileColumn}、@{@link jp.terasoluna.fw.file.annotation.OutputFileColumn}の設定項目<br>
  * <div align="center">
  * <table width="90%" border="1" bgcolor="#FFFFFF">
  * <tr>
- * <td><b>�_�����ږ�</b></td>
- * <td><b>�������ږ�</b></td>
- * <td><b>�f�t�H���g�l</b></td>
- * <td><b>�K�{��</b></td>
+ * <td><b>論理項目名</b></td>
+ * <td><b>物理項目名</b></td>
+ * <td><b>デフォルト値</b></td>
+ * <td><b>必須性</b></td>
  * </tr>
  * <tr>
- * <td> <code>�J�����C���f�b�N�X</code></td>
+ * <td> <code>カラムインデックス</code></td>
  * <td> <code>columnIndex</code></td>
  * <td>-</td>
- * <td> <code>�K�{</code></td>
+ * <td> <code>必須</code></td>
  * </tr>
  * <tr>
- * <td> <code>�t�H�[�}�b�g</code></td>
+ * <td> <code>フォーマット</code></td>
  * <td> <code>columnFormat</code></td>
  * <td> <code>""</code></td>
- * <td> <code>�I�v�V����</code></td>
+ * <td> <code>オプション</code></td>
  * </tr>
  * <tr>
- * <td> <code>�o�C�g��</code></td>
+ * <td> <code>バイト長</code></td>
  * <td> <code>bytes</code></td>
  * <td> <code>-1</code></td>
- * <td> <code>�I�v�V����</code></td>
+ * <td> <code>オプション</code></td>
  * </tr>
  * <tr>
- * <td> <code>�p�f�B���O���</code></td>
+ * <td> <code>パディング種別</code></td>
  * <td> <code>paddingType</code></td>
- * <td> <code>�p�f�B���O�Ȃ�</code></td>
- * <td> <code>�I�v�V����</code></td>
+ * <td> <code>パディングなし</code></td>
+ * <td> <code>オプション</code></td>
  * </tr>
  * <tr>
- * <td> <code>�p�f�B���O����</code></td>
+ * <td> <code>パディング文字</code></td>
  * <td> <code>paddingChar</code></td>
  * <td> <code>' '</code></td>
- * <td> <code>�I�v�V����</code></td>
+ * <td> <code>オプション</code></td>
  * </tr>
  * <tr>
- * <td> <code>�g�������</code></td>
+ * <td> <code>トリム種別</code></td>
  * <td> <code>trimType</code></td>
- * <td> <code>�g�����Ȃ�</code></td>
- * <td> <code>�I�v�V����</code></td>
+ * <td> <code>トリムなし</code></td>
+ * <td> <code>オプション</code></td>
  * </tr>
  * <tr>
- * <td> <code>�g��������</code></td>
+ * <td> <code>トリム文字</code></td>
  * <td> <code>trimChar</code></td>
  * <td> <code>' '</code></td>
- * <td> <code>�I�v�V����</code></td>
+ * <td> <code>オプション</code></td>
  * </tr>
  * <tr>
- * <td> <code>�����ϊ����</code></td>
+ * <td> <code>文字変換種別</code></td>
  * <td> <code>stringConverter</code></td>
  * <td> <code>NullStringConverter.class</code></td>
- * <td> <code>�I�v�V����</code></td>
+ * <td> <code>オプション</code></td>
  * </tr>
  * </table>
  * </div> <br>
- * <b>�����ӎ���</b><br>
+ * <b>※注意事項</b><br>
  * <ul>
- * �@
- * <li>��؂蕶����ݒ肷�邱�Ƃ͏o���Ȃ��B(�G���[����)</li> �@
- * <li>�͂ݕ�����ݒ肷�邱�Ƃ͏o���Ȃ��B(�G���[����)</li>
+ * 　
+ * <li>区切り文字を設定することは出来ない。(エラー発生)</li> 　
+ * <li>囲み文字を設定することは出来ない。(エラー発生)</li>
  * </ul>
- * @param <T> �t�@�C���s�I�u�W�F�N�g�B
+ * @param <T> ファイル行オブジェクト。
  */
 public class FixedFileLineIterator<T> extends AbstractFileLineIterator<T> {
 
     /**
-     * ��؂蕶���B�Œ蒷�t�@�C���́u,(�J���})�v�ŌŒ�B
+     * 区切り文字。固定長ファイルは「,(カンマ)」で固定。
      */
     private static final char DELIMITER = ',';
 
     /**
-     * �͂ݕ����B�Œ蒷�t�@�C���́u'\u0000'�v�ŌŒ�B
+     * 囲み文字。固定長ファイルは「'\u0000'」で固定。
      */
     private static final char ENCLOSE_CHAR = Character.MIN_VALUE;
 
     /**
-     * �R���X�g���N�^�B
+     * コンストラクタ。
      * <p>
-     * ��؂蕶���������l�ȊO�̏ꍇ�A �͂ݕ����������l�ȊO�̏ꍇ��<code>FileException</code>���X���[�����B
-     * @param fileName �t�@�C����
-     * @param clazz ���ʃN���X
-     * @param columnParserMap �t�H�[�}�b�g�������X�g
+     * 区切り文字が初期値以外の場合、 囲み文字が初期値以外の場合は<code>FileException</code>がスローされる。
+     * @param fileName ファイル名
+     * @param clazz 結果クラス
+     * @param columnParserMap フォーマット処理リスト
      */
     public FixedFileLineIterator(String fileName, Class<T> clazz,
             Map<String, ColumnParser> columnParserMap) {
@@ -158,19 +158,19 @@ public class FixedFileLineIterator<T> extends AbstractFileLineIterator<T> {
 
         FileFormat fileFormat = clazz.getAnnotation(FileFormat.class);
 
-        // ��؂蕶���������l�ȊO�̏ꍇ�A��O���X���[����B
+        // 区切り文字が初期値以外の場合、例外をスローする。
         if (fileFormat.delimiter() != DELIMITER) {
             throw new FileException("Delimiter can not change.",
                     new IllegalStateException(), fileName);
         }
 
-        // �͂ݕ����������l�ȊO�̏ꍇ�A��O���X���[����B
+        // 囲み文字が初期値以外の場合、例外をスローする。
         if (fileFormat.encloseChar() != ENCLOSE_CHAR) {
             throw new FileException("EncloseChar can not change.",
                     new IllegalStateException(), fileName);
         }
 
-        // �s��؂蕶���������ꍇ�A�w�b�_�E�g���C���͗��p�s�Ȃ̂ŗ�O���X���[����B
+        // 行区切り文字が無い場合、ヘッダ・トレイラは利用不可なので例外をスローする。
         if ("".equals(fileFormat.lineFeedChar())
                 && (fileFormat.headerLineCount() > 0 || fileFormat
                         .trailerLineCount() > 0)) {
@@ -178,30 +178,30 @@ public class FixedFileLineIterator<T> extends AbstractFileLineIterator<T> {
                     new IllegalStateException(), fileName);
         }
         
-        // �s��؂蕶����ݒ肷��B
-        // �Œ蒷�̏ꍇ�̂݉��s�����������邽�߁Asuper�N���X�ł̐ݒ���㏑������B
+        // 行区切り文字を設定する。
+        // 固定長の場合のみ改行無しを許可するため、superクラスでの設定を上書きする。
         setLineFeedChar(fileFormat.lineFeedChar());
 
-        // �������������s���B
+        // 初期化処理を行う。
         super.init();
     }
 
     /**
-     * �ǂݍ��񂾌Œ蒷�̃��R�[�h���A�m�e�[�V������byte���A columnIndex�ɏ]���ĕ�������B<br>
-     * ����<code>fileLineString</code>��<code>null</code>�������� �󕶎��̏ꍇ�́A�v�f�������Ȃ�<code>String</code>�z���Ԃ��܂��B
+     * 読み込んだ固定長のレコードをアノテーションのbyte数、 columnIndexに従って分解する。<br>
+     * 引数<code>fileLineString</code>が<code>null</code>もしくは 空文字の場合は、要素を持たない<code>String</code>配列を返します。
      * <p>
-     * �����̏����́A<br>
+     * 処理の順序は、<br>
      * <ul>
-     * <li>�t�@�C���s�I�u�W�F�N�g�Œ�`�����o�C�g���̍��v�ƃt�@�C������ǂݎ����1�s������̃o�C�g�����r����</li>
-     * <li>�t�@�C���s�I�u�W�F�N�g�̃A�m�e�[�V�����Œ�`����bytes�����̕�����𐶐�����</li>
+     * <li>ファイル行オブジェクトで定義したバイト数の合計とファイルから読み取った1行あたりのバイト数を比較する</li>
+     * <li>ファイル行オブジェクトのアノテーションで定義したbytes数分の文字列を生成する</li>
      * </ul>
      * <p>
-     * @param fileLineString �Œ蒷�t�@�C����1���R�[�h���̕�����
-     * @return �f�[�^���P�s�̕�����𕪉����������z��
+     * @param fileLineString 固定長ファイルの1レコード分の文字列
+     * @return データ部１行の文字列を分解した文字配列
      */
     protected String[] separateColumns(String fileLineString) {
 
-        // ���R�[�h������null���󕶎��̏ꍇ�͗v�f�O�̔z���ԋp
+        // レコード文字列がnullか空文字の場合は要素０の配列を返却
         if (fileLineString == null || "".equals(fileLineString)) {
             return new String[0];
         }
@@ -209,10 +209,10 @@ public class FixedFileLineIterator<T> extends AbstractFileLineIterator<T> {
         int[] columnBytes = getColumnBytes();
         String[] results = new String[columnBytes.length];
 
-        // �t�@�C���s�I�u�W�F�N�g�Œ�`�����o�C�g���̍��v�ƃt�@�C������ǂݎ����1�s������̃o�C�g�����r����
+        // ファイル行オブジェクトで定義したバイト数の合計とファイルから読み取った1行あたりのバイト数を比較する
         try {
-            // �t�@�C������ǂݎ����1�s������̃o�C�g���ƁA�t�@�C���s�I�u�W�F�N�g��
-            // ��`�����o�C�g���̍��v���r����B
+            // ファイルから読み取った1行あたりのバイト数と、ファイル行オブジェクトで
+            // 定義したバイト数の合計を比較する。
             byte[] bytes = fileLineString.getBytes(getFileEncoding());
             if (getTotalBytes() != bytes.length) {
                 throw new FileException("Total Columns byte is different "
@@ -220,7 +220,7 @@ public class FixedFileLineIterator<T> extends AbstractFileLineIterator<T> {
                         new IllegalStateException(), this.getFileName());
             }
 
-            // �@�t�@�C���s�I�u�W�F�N�g�̃A�m�e�[�V�����Œ�`����bytes�����̕�����𐶐�����
+            // 　ファイル行オブジェクトのアノテーションで定義したbytes数分の文字列を生成する
             int byteIndex = 0;
 
             for (int i = 0; i < columnBytes.length; i++) {
@@ -238,10 +238,10 @@ public class FixedFileLineIterator<T> extends AbstractFileLineIterator<T> {
     }
 
     /**
-     * �ΏۃJ�����ɑ΂���o�C�g���`�F�b�N���s������Ԃ��B<br>
-     * FixedFileLineIterator�͌Œ蒷�̂��߁A�s�P�ʂŃo�C�g���`�F�b�N���s���B<br>
-     * ���̂��߃J�����ɑ΂���o�C�g���`�F�b�N�͍s��Ȃ��B
-     * @param inputFileColumn �ΏۃJ������InputFileColumn���
+     * 対象カラムに対するバイト数チェックを行うかを返す。<br>
+     * FixedFileLineIteratorは固定長のため、行単位でバイト数チェックを行う。<br>
+     * そのためカラムに対するバイト数チェックは行わない。
+     * @param inputFileColumn 対象カラムのInputFileColumn情報
      * @return false
      */
     @Override
@@ -250,10 +250,10 @@ public class FixedFileLineIterator<T> extends AbstractFileLineIterator<T> {
     }
 
     /**
-     * �ΏۃJ�����ɑ΂���o�C�g���`�F�b�N���s������Ԃ��B<br>
-     * FixedFileLineIterator�͌Œ蒷�̂��߁A�s�P�ʂŃo�C�g���`�F�b�N���s���B<br>
-     * ���̂��߃J�����ɑ΂���o�C�g���`�F�b�N�͍s��Ȃ��B
-     * @param columnByte �ΏۃJ�����̃o�C�g��
+     * 対象カラムに対するバイト数チェックを行うかを返す。<br>
+     * FixedFileLineIteratorは固定長のため、行単位でバイト数チェックを行う。<br>
+     * そのためカラムに対するバイト数チェックは行わない。
+     * @param columnByte 対象カラムのバイト数
      * @return false
      */
     @Override
@@ -262,10 +262,10 @@ public class FixedFileLineIterator<T> extends AbstractFileLineIterator<T> {
     }
 
     /**
-     * �͂ݕ������ݒ肳��Ă��Ȃ������`�F�b�N���邩��Ԃ��B<br>
-     * FixedFileLineIterator�͌Œ蒷�̂��߁A�͂ݕ����͐ݒ肵�Ȃ��B<br>
-     * ���̂��߈͂ݕ������ݒ肳��Ă��Ȃ������`�F�b�N����B
-     * @return �`�F�b�N���s���ꍇ��true�B
+     * 囲み文字が設定されていない事をチェックするかを返す。<br>
+     * FixedFileLineIteratorは固定長のため、囲み文字は設定しない。<br>
+     * そのため囲み文字が設定されていない事をチェックする。
+     * @return チェックを行う場合はtrue。
      */
     @Override
     protected boolean isCheckEncloseChar() {
@@ -273,9 +273,9 @@ public class FixedFileLineIterator<T> extends AbstractFileLineIterator<T> {
     }
 
     /**
-     * ��؂蕶�����擾����B<br>
-     * �Œ蒷�t�@�C���́u,(�J���})�v�ŌŒ�B
-     * @return �s��؂蕶��
+     * 区切り文字を取得する。<br>
+     * 固定長ファイルは「,(カンマ)」で固定。
+     * @return 行区切り文字
      */
     @Override
     public char getDelimiter() {
@@ -284,9 +284,9 @@ public class FixedFileLineIterator<T> extends AbstractFileLineIterator<T> {
     }
 
     /**
-     * �͂ݕ������擾����B<br>
-     * �Œ蒷�t�@�C���́u'\u0000'�v�ŌŒ�B
-     * @return �͂ݕ���
+     * 囲み文字を取得する。<br>
+     * 固定長ファイルは「'\u0000'」で固定。
+     * @return 囲み文字
      */
     @Override
     public char getEncloseChar() {

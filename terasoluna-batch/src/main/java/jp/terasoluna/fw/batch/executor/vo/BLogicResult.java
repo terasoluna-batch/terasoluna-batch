@@ -17,22 +17,22 @@
 package jp.terasoluna.fw.batch.executor.vo;
 
 /**
- * ƒrƒWƒlƒXƒƒWƒbƒNÀsŒ‹‰Êƒpƒ‰ƒ[ƒ^B<br>
+ * ãƒ“ã‚¸ãƒã‚¹ãƒ­ã‚¸ãƒƒã‚¯å®Ÿè¡Œçµæœãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã€‚<br>
  */
 public class BLogicResult {
 
     /**
-     * ƒrƒWƒlƒXƒƒWƒbƒN‚Ì–ß‚è’l
+     * ãƒ“ã‚¸ãƒã‚¹ãƒ­ã‚¸ãƒƒã‚¯ã®æˆ»ã‚Šå€¤
      */
     protected int blogicStatus = -1;
 
     /**
-     * ƒrƒWƒlƒXƒƒWƒbƒN‚Å”­¶‚µ‚½—áŠO
+     * ãƒ“ã‚¸ãƒã‚¹ãƒ­ã‚¸ãƒƒã‚¯ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     protected Throwable blogicThrowable = null;
 
     /**
-     * ƒrƒWƒlƒXƒƒWƒbƒN‚Ì–ß‚è’l
+     * ãƒ“ã‚¸ãƒã‚¹ãƒ­ã‚¸ãƒƒã‚¯ã®æˆ»ã‚Šå€¤
      * @return the blogicStatus
      */
     public int getBlogicStatus() {
@@ -40,7 +40,7 @@ public class BLogicResult {
     }
 
     /**
-     * ƒrƒWƒlƒXƒƒWƒbƒN‚Ì–ß‚è’l
+     * ãƒ“ã‚¸ãƒã‚¹ãƒ­ã‚¸ãƒƒã‚¯ã®æˆ»ã‚Šå€¤
      * @param blogicStatus the blogicStatus to set
      */
     public void setBlogicStatus(int blogicStatus) {
@@ -48,7 +48,7 @@ public class BLogicResult {
     }
 
     /**
-     * ƒrƒWƒlƒXƒƒWƒbƒN‚Å”­¶‚µ‚½—áŠO
+     * ãƒ“ã‚¸ãƒã‚¹ãƒ­ã‚¸ãƒƒã‚¯ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @return the blogicThrowable
      */
     public Throwable getBlogicThrowable() {
@@ -56,7 +56,7 @@ public class BLogicResult {
     }
 
     /**
-     * ƒrƒWƒlƒXƒƒWƒbƒN‚Å”­¶‚µ‚½—áŠO
+     * ãƒ“ã‚¸ãƒã‚¹ãƒ­ã‚¸ãƒƒã‚¯ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @param blogicThrowable the blogicThrowable to set
      */
     public void setBlogicThrowable(Throwable blogicThrowable) {

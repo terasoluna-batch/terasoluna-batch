@@ -3,14 +3,14 @@ package jp.terasoluna.fw.file.dao.standard;
 import jp.terasoluna.fw.file.annotation.FileFormat;
 
 /**
- * FileFormatƒAƒmƒe[ƒVƒ‡ƒ“‚Ìİ’è‚ğ‚ÂAƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgƒXƒ^ƒu
+ * FileFormatã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã®è¨­å®šã‚’æŒã¤ã€ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¹ã‚¿ãƒ–
  * <p>
- * ˆÈ‰º‚Ìİ’è‚ğ‚Â<br>
+ * ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤<br>
  * <ul>
  * <li>@FileFormat(trailerLineCount = 0)
- * <li>‘®«
+ * <li>å±æ€§
  * <ul>
- * <li>‚È‚µ
+ * <li>ãªã—
  * </ul>
  * </ul>
  */

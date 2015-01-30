@@ -25,7 +25,7 @@ import java.lang.annotation.Target;
 import org.springframework.stereotype.Component;
 
 /**
- * ƒWƒ‡ƒu‚ÌƒrƒWƒlƒXƒƒWƒbƒN‚É•t—^‚·‚éƒAƒmƒe[ƒVƒ‡ƒ“B
+ * ã‚¸ãƒ§ãƒ–ã®ãƒ“ã‚¸ãƒã‚¹ãƒ­ã‚¸ãƒƒã‚¯ã«ä»˜ä¸ã™ã‚‹ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã€‚
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
@@ -33,14 +33,14 @@ import org.springframework.stereotype.Component;
 @Component
 public @interface JobComponent {
     /**
-     * Bean–¼‚ğw’è‚·‚é<br>
-     * @return Bean–¼
+     * Beanåã‚’æŒ‡å®šã™ã‚‹<br>
+     * @return Beanå
      */
     String value() default "";
 
     /**
-     * ƒWƒ‡ƒuID‚ğw’è‚·‚é<br>
-     * @return ƒWƒ‡ƒuID
+     * ã‚¸ãƒ§ãƒ–IDã‚’æŒ‡å®šã™ã‚‹<br>
+     * @return ã‚¸ãƒ§ãƒ–ID
      */
     String jobId() default "";
 }

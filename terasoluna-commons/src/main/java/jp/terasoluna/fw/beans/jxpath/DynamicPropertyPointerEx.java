@@ -22,24 +22,24 @@ import org.apache.commons.jxpath.ri.model.dynamic.DynamicPropertyPointer;
 import org.apache.commons.jxpath.util.ValueUtils;
 
 /**
- * null’l‚ğˆµ‚¤‚½‚ß‚ÌMap—pƒvƒƒpƒeƒBƒ|ƒCƒ“ƒ^Šg’£ƒNƒ‰ƒXB
+ * nullå€¤ã‚’æ‰±ã†ãŸã‚ã®Mapç”¨ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒã‚¤ãƒ³ã‚¿æ‹¡å¼µã‚¯ãƒ©ã‚¹ã€‚
  * 
- * <p>ƒfƒtƒHƒ‹ƒg‚ÌMapƒvƒƒpƒeƒBƒ|ƒCƒ“ƒ^‚Å‚ÍA
- * Map‚Ì’l‚Énull‚ª“ü‚Á‚Ä‚¢‚½ê‡A’l‚ª‚È‚¢‚à‚Ì‚Æ‚µ‚Äˆµ‚í‚ê‚éB
- * null‚ğæ“¾‚µ‚½‚¢ê‡A–{ƒNƒ‰ƒX‚ğg—p‚·‚é•K—v‚ª‚ ‚éB</p>
+ * <p>ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®Mapãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒã‚¤ãƒ³ã‚¿ã§ã¯ã€
+ * Mapã®å€¤ã«nullãŒå…¥ã£ã¦ã„ãŸå ´åˆã€å€¤ãŒãªã„ã‚‚ã®ã¨ã—ã¦æ‰±ã‚ã‚Œã‚‹ã€‚
+ * nullã‚’å–å¾—ã—ãŸã„å ´åˆã€æœ¬ã‚¯ãƒ©ã‚¹ã‚’ä½¿ç”¨ã™ã‚‹å¿…è¦ãŒã‚ã‚‹ã€‚</p>
  * 
  */
 public class DynamicPropertyPointerEx extends DynamicPropertyPointer {
 
     /**
-     * ƒVƒŠƒAƒ‹ƒo[ƒWƒ‡ƒ“IDB
+     * ã‚·ãƒªã‚¢ãƒ«ãƒãƒ¼ã‚¸ãƒ§ãƒ³IDã€‚
      */
     private static final long serialVersionUID = -2235777024563491060L;
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-     * @param parent eMap—pƒ|ƒCƒ“ƒ^
-     * @param handler ƒvƒƒpƒeƒBƒnƒ“ƒhƒ‰
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * @param parent è¦ªMapç”¨ãƒã‚¤ãƒ³ã‚¿
+     * @param handler ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒãƒ³ãƒ‰ãƒ©
      */
     public DynamicPropertyPointerEx(NodePointer parent,
             DynamicPropertyHandler handler) {
@@ -47,12 +47,12 @@ public class DynamicPropertyPointerEx extends DynamicPropertyPointer {
     }
 
     /**
-     * —v‘f”‚ğæ“¾‚·‚éB
-     * @return —v‘f”
+     * è¦ç´ æ•°ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return è¦ç´ æ•°
      */
     @Override
     public int getLength() {
-        // —v‘f‚Ì’l‚ªnull‚È‚ç‚ÎA—v‘f”‚P‚Æ‚·‚é
+        // è¦ç´ ã®å€¤ãŒnullãªã‚‰ã°ã€è¦ç´ æ•°ï¼‘ã¨ã™ã‚‹
         Object value = getBaseValue();
         if (value == null) {
             return 1;

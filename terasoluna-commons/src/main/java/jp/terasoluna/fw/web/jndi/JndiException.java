@@ -17,41 +17,41 @@
 package jp.terasoluna.fw.web.jndi;
 
 /**
- * JNDI�֘A��O�N���X�B
+ * JNDI関連例外クラス。
  *
  * <p>
- *  JNDI�֘A�G���[��\������B
+ *  JNDI関連エラーを表現する。
  * </p>
  *
- *  JndiException�N���X�́ARuntimeException�N���X�̃T�u�N���X�ł���B
- *  JndiException���X���[����ꍇ�ɂ́A���̃��\�b�h��thorws��ɖ����I�ɋL�q����
- *  �K�v�͂Ȃ��B<br>
+ *  JndiExceptionクラスは、RuntimeExceptionクラスのサブクラスである。
+ *  JndiExceptionをスローする場合には、そのメソッドのthorws句に明示的に記述する
+ *  必要はない。<br>
  *
- *  �R���X�g���N�^�ł̐������ɁA�G���[���b�Z�[�W���w�肷�邱�Ƃ��ł���B
+ *  コンストラクタでの生成時に、エラーメッセージを指定することができる。
  * </p>
  *
  */
 public class JndiException extends RuntimeException {
     
     /**
-     * �V���A���o�[�W����ID�B
+     * シリアルバージョンID。
      */
     private static final long serialVersionUID = -7105599934896030074L;
 
     /**
-     * �R���X�g���N�^�B
+     * コンストラクタ。
      *
-     * @param cause �����ƂȂ�����O
+     * @param cause 原因となった例外
      */
     public JndiException(Throwable cause) {
         super(cause);
     }
     
     /**
-     * �R���X�g���N�^�B
+     * コンストラクタ。
      *
-     * @param message �G���[���b�Z�[�W
-     * @param cause �����ƂȂ�����O
+     * @param message エラーメッセージ
+     * @param cause 原因となった例外
      */
     public JndiException(String message,
                             Throwable cause) {

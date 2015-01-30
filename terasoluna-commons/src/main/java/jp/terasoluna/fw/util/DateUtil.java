@@ -32,25 +32,25 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
- * ���t�E�����E�J�����_�[�֘A�̃��[�e�B���e�B�N���X�B
+ * 日付・時刻・カレンダー関連のユーティリティクラス。
  *
  */
 public class DateUtil {
 
     /**
-     * ���O�N���X
+     * ログクラス
      */
     private static Log log = LogFactory.getLog(DateUtil.class);
 
     /**
-     * �V�X�e���������擾����B
+     * システム時刻を取得する。
      *
-     * <p>Web�T�[�o��AP�T�[�o�𕪗�������N���X�^�\���ɂ����ꍇ�́A�}�V����
-     * ���V�X�e�����t���قȂ�\��������B���������邽�߁A�V�X�e�����t
-     * �擾�ɂ͕K�����̃��\�b�h�𗘗p���A�K�v�ɉ����ē���}�V���̓��t���擾
-     * ����Ȃǂ̑[�u���Ƃ��悤�ɂ��Ă����B</p>
+     * <p>WebサーバとAPサーバを分離したりクラスタ構成にした場合は、マシンに
+     * よりシステム日付が異なる可能性がある。これを避けるため、システム日付
+     * 取得には必ずこのメソッドを利用し、必要に応じて特定マシンの日付を取得
+     * するなどの措置がとれるようにしておく。</p>
      *
-     * @return �V�X�e������
+     * @return システム時刻
      */
     public static java.util.Date getSystemTime() {
         Calendar calendar = Calendar.getInstance();
@@ -58,103 +58,103 @@ public class DateUtil {
     }
 
     /**
-     * java.util.Date�C���X�^���X��a��Ƃ��Ďw��̃t�H�[�}�b�g��
-     * �ϊ�����B
+     * java.util.Dateインスタンスを和暦として指定のフォーマットに
+     * 変換する。
      *
      * <p>
      *  ApplicationResources.properties
-     *  �Ŏw�肳�ꂽ���t�t�H�[�}�b�g��p���āA����A�a��̕ϊ���
-     *  �s�����Ƃ��ł���B<br>
-     *  ���L�́A�a��̋��E�ƂȂ���t�A�a��A�A���t�@�x�b�g��������
-     *  �ݒ��ł���B
-     *  <strong> ApplicationResources.properties �ɂ��
-     *  �a��̐ݒ��</strong><br>
+     *  で指定された日付フォーマットを用いて、西暦、和暦の変換を
+     *  行うことができる。<br>
+     *  下記は、和暦の境界となる日付、和暦名、アルファベット頭文字の
+     *  設定例である。
+     *  <strong> ApplicationResources.properties による
+     *  和暦の設定例</strong><br>
      *  <code><pre>
-     *  wareki.gengo.0.name = ����
+     *  wareki.gengo.0.name = 平成
      *  wareki.gengo.0.roman = H
      *  wareki.gengo.0.startDate = 1989/01/08
-     *  wareki.gengo.1.name = ���a
+     *  wareki.gengo.1.name = 昭和
      *  wareki.gengo.1.roman = S
      *  wareki.gengo.1.startDate = 1926/12/25
-     *  wareki.gengo.2.name = �吳
+     *  wareki.gengo.2.name = 大正
      *  wareki.gengo.2.roman = T
      *  wareki.gengo.2.startDate = 1912/07/30
-     *  wareki.gengo.3.name = ����
+     *  wareki.gengo.3.name = 明治
      *  wareki.gengo.3.roman = M
      *  wareki.gengo.3.startDate = 1868/09/04
      *  </pre></code>
      * </p>
      *
-     * <strong>�t�H�[�}�b�g������</strong><br>
-     * <p>�t�H�[�}�b�g�́Ajava.text.SimpleDateFormat �N���X��
-     * <i>�����p�^�[��������</i> �Ƃ��ĉ��߂���邪�A�ȉ��̃p�^�[�������̉��߂�
-     * �i�f�t�H���g���P�[���́j SimpleDateFormat �N���X�ƈقȂ�B
+     * <strong>フォーマット文字列</strong><br>
+     * <p>フォーマットは、java.text.SimpleDateFormat クラスの
+     * <i>時刻パターン文字列</i> として解釈されるが、以下のパターン文字の解釈が
+     * （デフォルトロケールの） SimpleDateFormat クラスと異なる。
      * </p>
      *
      * <div width="90%" align="center">
      *  <table border="1">
      *   <tr>
-     *    <th>�L��</th>
+     *    <th>記号</th>
      *    <th><code>&nbsp;SimpleDateFormat</code>&nbsp;</th>
      *    <th><code>&nbsp;dateToWarekiString()</code>&nbsp;</th>
      *   </tr>
      *   <tr>
      *    <td>G</td>
-     *    <td align="left">�I��<br><br>��F<br>AD</td>
-     *    <td align="left">�a���<br><br>
-     *                     ��F<br>
-     *                    �i4�ȏ�̘A�������p�^�[�������j<br>
-     *                     �����A�吳�A���a�A����<br>
-     *                     �i3�ȉ��̘A�������p�^�[�������j<br>
-     *                     M�AT�AS�AH</td>
+     *    <td align="left">紀元<br><br>例：<br>AD</td>
+     *    <td align="left">和暦元号<br><br>
+     *                     例：<br>
+     *                    （4個以上の連続したパターン文字）<br>
+     *                     明治、大正、昭和、平成<br>
+     *                     （3個以下の連続したパターン文字）<br>
+     *                     M、T、S、H</td>
      *   </tr>
      *   <tr>
      *    <td>y</td>
-     *    <td align="left">�N�i����j<br><br>��F<br>2002</td>
-     *    <td align="left">�N�i�a��j<br><br>��F<br>14</td>
+     *    <td align="left">年（西暦）<br><br>例：<br>2002</td>
+     *    <td align="left">年（和暦）<br><br>例：<br>14</td>
      *   </tr>
      *   <tr>
      *    <td>E</td>
-     *    <td align="left">�j��<br><br>��F<br>Tuesday</td>
-     *    <td align="left">�j���i���{��\�L�j<br><br>
-     *                     ��F<br>
-     *                    �i4�ȏ�̘A�������p�^�[�������j<br>
-     *                     ���j���A�Ηj���A���j��<br>
-     *                     �i3�ȉ��̘A�������p�^�[�������j<br>
-     *                     ���A�΁A��</td>
+     *    <td align="left">曜日<br><br>例：<br>Tuesday</td>
+     *    <td align="left">曜日（日本語表記）<br><br>
+     *                     例：<br>
+     *                    （4個以上の連続したパターン文字）<br>
+     *                     月曜日、火曜日、水曜日<br>
+     *                     （3個以下の連続したパターン文字）<br>
+     *                     月、火、水</td>
      *   </tr>
      * </table>
      * </div>
      *
-     * <p>�����̂����A�j���iE�j�ɂ��Ă� SimpleDateFotmat
-     * �̃C���X�^���X�쐬���ɁA���P�[���� &quot;ja&quot;
-     * �Ɏw�肷�邱�Ƃŕϊ������B</p>
+     * <p>これらのうち、曜日（E）については SimpleDateFotmat
+     * のインスタンス作成時に、ロケールを &quot;ja&quot;
+     * に指定することで変換される。</p>
      *
-     * <p>�a������A����јa��N�ɂ��ẮAgetWarekiGengoName()�A
-     * getWarekiGengoRoman()�AgetWarekiYear() ���\�b�h�ɂ���Ď擾����B
-     * �����̃��\�b�h�ŎQ�Ƃ���a��̐ݒ�́AAplicationResources �t�@�C����
-     * �ȉ��̏����ōs���B</p>
+     * <p>和暦元号名、および和暦年については、getWarekiGengoName()、
+     * getWarekiGengoRoman()、getWarekiYear() メソッドによって取得する。
+     * これらのメソッドで参照する和暦の設定は、AplicationResources ファイルで
+     * 以下の書式で行う。</p>
      *
      * <p><code><pre>
-     * wareki.gengo.<i>ID</i>.name=<i>������</i>
-     * wareki.gengo.<i>ID</i>.roman=<i>�����̃��[�}���\�L</i>
-     * wareki.gengo.<i>ID</i>.startDate=<i>�����@�{�s���i����:yyyy/MM/dd�`���j</i>
+     * wareki.gengo.<i>ID</i>.name=<i>元号名</i>
+     * wareki.gengo.<i>ID</i>.roman=<i>元号のローマ字表記</i>
+     * wareki.gengo.<i>ID</i>.startDate=<i>元号法施行日（西暦:yyyy/MM/dd形式）</i>
      * </pre></code></p>
      *
-     * <p>ID�́A��L�̎O�̐ݒ���֘A�t�����邽�߂̂��̂ł���A�C�ӂ̕������
-     * �w��ł���B</p>
+     * <p>IDは、上記の三つの設定を関連付けするためのものであり、任意の文字列を
+     * 指定できる。</p>
      *
-     * @param format �t�H�[�}�b�g
-     * @param date ������ɕϊ����鎞���f�[�^
-     * @return �a��Ƃ��ăt�H�[�}�b�g���ꂽ������
+     * @param format フォーマット
+     * @param date 文字列に変換する時刻データ
+     * @return 和暦としてフォーマットされた文字列
      */
     public static String dateToWarekiString(String format,
                                             java.util.Date date) {
 
-        // SimpleDateFormat�ɂ��t�H�[�}�b�g�̑O�Ɍ���'G'�A����єN'y'��
-        // �p�^�[��������a��ɒu������
+        // SimpleDateFormatによるフォーマットの前に元号'G'、および年'y'の
+        // パターン文字を和暦に置換する
         StringBuilder sb = new StringBuilder();
-        boolean inQuote = false; // �V���O���N�H�[�g�̒��ł��邩�ǂ���
+        boolean inQuote = false; // シングルクォートの中であるかどうか
         char prevCh = 0;
         int count = 0;
         for (int i = 0; i < format.length(); i++) {
@@ -163,7 +163,7 @@ public class DateUtil {
                 if (prevCh == 'G' && count >= 4) {
                     sb.append(getWarekiGengoName(date));
                 } else if (prevCh == 'G') {
-                    // �����̃��[�}���\�L�̏ꍇ�́A�N�H�[�g���Ă���
+                    // 元号のローマ字表記の場合は、クォートしておく
                     sb.append('\'');
                     sb.append(getWarekiGengoRoman(date));
                     sb.append('\'');
@@ -177,17 +177,17 @@ public class DateUtil {
                 sb.append('\'');
                 inQuote = !inQuote;
             } else if (!inQuote && (ch == 'G' || ch == 'y')) {
-                // ch�͘a��ϊ��œƎ��ɉ��߂���t�H�[�}�b�g�����ł���ꍇ�́A
-                // �J��Ԃ��񐔂��J�E���g����B
+                // chは和暦変換で独自に解釈するフォーマット文字である場合は、
+                // 繰り返し回数をカウントする。
                 prevCh = ch;
                 ++count;
             } else {
-                // ���̑��̕����́A�f�ʂ�����
+                // その他の文字は、素通しする
                 sb.append(ch);
             }
         }
 
-        // �t�H�[�}�b�g���̍Ō�̃A�C�e������������B
+        // フォーマット中の最後のアイテムを処理する。
         if (count > 0) {
             if (prevCh == 'G' && count >= 4) {
                 sb.append(getWarekiGengoName(date));
@@ -209,43 +209,43 @@ public class DateUtil {
     }
 
     /**
-     * ApplicationResources �t�@�C���ɂ����Ęa��֘A�̐ݒ��
-     * �擾����ۂ̃L�[�̃v���t�B�b�N�X�B
+     * ApplicationResources ファイルにおいて和暦関連の設定を
+     * 取得する際のキーのプリフィックス。
      */
     private static final String GENGO_KEY = "wareki.gengo.";
 
     /**
-     * �����{�s�����猳�����ւ̃}�b�v�B
+     * 元号施行日から元号名へのマップ。
      */
     private static final Map<Date, String> GENGO_NAME
             = new HashMap<Date, String>();
 
     /**
-     * �����{�s�����猳���̃��[�}���\�L�i�Z�k�`�j�ւ̃}�b�v�B
+     * 元号施行日から元号のローマ字表記（短縮形）へのマップ。
      */
     private static final Map<Date, String> GENGO_ROMAN =
             new HashMap<Date, String>();
 
     /**
-     * �a��̊e�������{�s���ꂽ������t�̃��X�g�B���X�g�̐擪����A
-     * �Â����ɕ��ׂ���B
+     * 和暦の各元号が施行された西暦日付のリスト。リストの先頭から、
+     * 古い順に並べられる。
      */
     private static final Date[] GENGO_BEGIN_DATES;
 
     /**
-     * �a��̊e�������{�s���ꂽ����N�̃��X�g�B���X�g�̐擪����A
-     * �Â����ɕ��ׂ���B
+     * 和暦の各元号が施行された西暦年のリスト。リストの先頭から、
+     * 古い順に並べられる。
      */
     private static final int[] GENGO_BEGIN_YEARS;
 
     /**
-     * �N���X���[�h���ɁAApplicationResources �t�@�C���Ŏw�肳�ꂽ
-     * �Ƃ���ɘa��f�[�^������������B
+     * クラスロード時に、ApplicationResources ファイルで指定された
+     * とおりに和暦データを初期化する。
      */
     static {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 
-        // �v���p�e�B����u�����̊J�n���v�Ɓu�����v�̃}�b�v���쐬����
+        // プロパティから「元号の開始日」と「元号」のマップを作成する
         Enumeration<String> enumaration =
             PropertyUtil.getPropertyNames(GENGO_KEY);
         Set<String> ids = new HashSet<String>();
@@ -283,13 +283,13 @@ public class DateUtil {
             }
         }
 
-        // �����̊J�n���̔z����쐬���A�\�[�g���Ă���
+        // 元号の開始日の配列を作成し、ソートしておく
         Set<Date> keySet = GENGO_NAME.keySet();
         int size = keySet.size();
         GENGO_BEGIN_DATES = keySet.toArray(new Date[size]);
         Arrays.sort(GENGO_BEGIN_DATES);
 
-        // �u�����̊J�n���̔z��v�ƑΉ�����悤�Ɍ����̊J�n�N�̔z����쐬����
+        // 「元号の開始日の配列」と対応するように元号の開始年の配列を作成する
         GENGO_BEGIN_YEARS = new int[size];
         Calendar calendar = Calendar.getInstance();
         for (int i = 0; i < GENGO_BEGIN_DATES.length; i++) {
@@ -299,14 +299,14 @@ public class DateUtil {
     }
 
     /**
-     * �w�肳�ꂽ���t�̘a������擾����B
+     * 指定された日付の和暦元号を取得する。
      *
      * <p>
-     * �a����́AApplicationResources �t�@�C���Ŏw�肷��B
+     * 和暦元号は、ApplicationResources ファイルで指定する。
      * </p>
      *
-     * @param date ���t
-     * @return �a���
+     * @param date 日付
+     * @return 和暦元号
      */
     public static String getWarekiGengoName(Date date) {
         for (int i = GENGO_BEGIN_DATES.length - 1; i >= 0; i--) {
@@ -319,12 +319,12 @@ public class DateUtil {
     }
 
     /**
-     * �w�肳�ꂽ���t�̘a����̃��[�}���\�L�i�Z�k�`�j���擾����B
+     * 指定された日付の和暦元号のローマ字表記（短縮形）を取得する。
      *
-     * <p>�a����̃��[�}���\�L�́AApplicationResources�t�@�C���Ŏw�肷��B</p>
+     * <p>和暦元号のローマ字表記は、ApplicationResourcesファイルで指定する。</p>
      *
-     * @param date ���t
-     * @return �a����̃��[�}���\�L
+     * @param date 日付
+     * @return 和暦元号のローマ字表記
      */
     public static String getWarekiGengoRoman(Date date) {
         for (int i = GENGO_BEGIN_DATES.length - 1; i >= 0; i--) {
@@ -337,10 +337,10 @@ public class DateUtil {
     }
 
     /**
-     * �w�肳�ꂽ���t�̘a��N���擾����B
+     * 指定された日付の和暦年を取得する。
      *
-     * @param date ���t
-     * @return �a��N
+     * @param date 日付
+     * @return 和暦年
      */
     public static int getWarekiYear(Date date) {
         for (int i = GENGO_BEGIN_DATES.length - 1; i >= 0; i--) {

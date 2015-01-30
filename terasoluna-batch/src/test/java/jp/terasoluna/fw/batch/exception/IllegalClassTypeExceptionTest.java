@@ -19,13 +19,13 @@ package jp.terasoluna.fw.batch.exception;
 import junit.framework.TestCase;
 
 /**
- * IllegalClassTypeExceptionÇÃÉeÉXÉgÉPÅ[ÉXÅB
+ * IllegalClassTypeException„ÅÆ„ÉÜ„Çπ„Éà„Ç±„Éº„Çπ„ÄÇ
  */
 public class IllegalClassTypeExceptionTest extends TestCase {
 
     /**
      * {@see IllegalClassTypeException#IllegalClassTypeException(java.lang.String)}
-     * ÇÃÉeÉXÉgÉPÅ[ÉXÅB
+     * „ÅÆ„ÉÜ„Çπ„Éà„Ç±„Éº„Çπ„ÄÇ
      */
     public void testIllegalClassTypeExceptionString() {
         IllegalClassTypeException e = new IllegalClassTypeException("message");
@@ -34,7 +34,7 @@ public class IllegalClassTypeExceptionTest extends TestCase {
 
     /**
      * {@see IllegalClassTypeException#IllegalClassTypeException(java.lang.Throwable)}
-     * ÇÃÉeÉXÉgÉPÅ[ÉXÅB
+     * „ÅÆ„ÉÜ„Çπ„Éà„Ç±„Éº„Çπ„ÄÇ
      */
     public void testIllegalClassTypeExceptionThrowable() {
         Exception cause = new RuntimeException("cause message");
@@ -44,7 +44,7 @@ public class IllegalClassTypeExceptionTest extends TestCase {
 
     /**
      * {@see IllegalClassTypeException#IllegalClassTypeException(java.lang.String, java.lang.Throwable)}
-     * ÇÃÉeÉXÉgÉPÅ[ÉXÅB
+     * „ÅÆ„ÉÜ„Çπ„Éà„Ç±„Éº„Çπ„ÄÇ
      */
     public void testIllegalClassTypeExcetpionStringThrowable() {
         Exception cause = new RuntimeException("cause message");

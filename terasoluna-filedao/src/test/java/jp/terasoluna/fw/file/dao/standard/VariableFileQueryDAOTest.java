@@ -18,26 +18,26 @@ import jp.terasoluna.utlib.UTUtil;
 import junit.framework.TestCase;
 
 /**
- * {@link jp.terasoluna.fw.file.dao.standard.VariableFileQueryDAO} ƒNƒ‰ƒX‚ÌƒeƒXƒgB
+ * {@link jp.terasoluna.fw.file.dao.standard.VariableFileQueryDAO} ã‚¯ãƒ©ã‚¹ã®ãƒ†ã‚¹ãƒˆã€‚
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4> ‰Â•Ï’·ƒtƒ@ƒCƒ‹“Çæ—p‚ÌFileLineIterator¶¬ƒNƒ‰ƒXB
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4> å¯å¤‰é•·ãƒ•ã‚¡ã‚¤ãƒ«èª­å–ç”¨ã®FileLineIteratorç”Ÿæˆã‚¯ãƒ©ã‚¹ã€‚
  * <p>
- * @author ‰œ“c“Ni
+ * @author å¥¥ç”°å“²å¸
  * @see jp.terasoluna.fw.file.dao.standard.VariableFileQueryDAO
  */
 public class VariableFileQueryDAOTest extends TestCase {
 
     /**
-     * ‚±‚ÌƒeƒXƒgƒP[ƒX‚ğÀs‚·‚éˆ×‚Ì GUI ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‹N“®‚·‚éB
-     * @param args java ƒRƒ}ƒ“ƒh‚Éİ’è‚³‚ê‚½ƒpƒ‰ƒ[ƒ^
+     * ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã‚’å®Ÿè¡Œã™ã‚‹ç‚ºã® GUI ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’èµ·å‹•ã™ã‚‹ã€‚
+     * @param args java ã‚³ãƒãƒ³ãƒ‰ã«è¨­å®šã•ã‚ŒãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public static void main(String[] args) {
         // junit.swingui.TestRunner.run(VariableFileQueryDAOTest.class);
     }
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -47,8 +47,8 @@ public class VariableFileQueryDAOTest extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -57,8 +57,8 @@ public class VariableFileQueryDAOTest extends TestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public VariableFileQueryDAOTest(String name) {
         super(name);
@@ -67,50 +67,50 @@ public class VariableFileQueryDAOTest extends TestCase {
     /**
      * testExcecute01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileName:VariableFileQueryDAO_execute01.txt<br>
-     * @ƒf[ƒ^‚ğ‚½‚È‚¢ƒtƒ@ƒCƒ‹‚ÌƒpƒX<br>
-     * (ˆø”) clazz:VariableFileQueryDAO_Stub01<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) AbstractFileQueryDAO.columnParserMap:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂMap<String, ColumnParser>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"java.lang.String"=NullColumnParser.java<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileName:VariableFileQueryDAO_execute01.txt<br>
+     * ã€€ãƒ‡ãƒ¼ã‚¿ã‚’æŒãŸãªã„ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹<br>
+     * (å¼•æ•°) clazz:VariableFileQueryDAO_Stub01<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) AbstractFileQueryDAO.columnParserMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤Map<String, ColumnParser>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"java.lang.String"=NullColumnParser.java<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) FileLineIterator:VariableFileLineIterator‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô•Ï‰») VariableFileLineIterator:ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ª1‰ñŒÄ‚Î‚ê‚é‚±‚ÆB<br>
-     * ƒpƒ‰ƒ[ƒ^‚Éˆø”‚ª“n‚³‚ê‚é‚±‚ÆB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) FileLineIterator:VariableFileLineIteratorã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) VariableFileLineIterator:ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãŒ1å›å‘¼ã°ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã«å¼•æ•°ãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
      * <br>
-     * ˆø”‚ªnull‚Å‚Í‚È‚¢ê‡AVariableFileLineIterator‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ªæ“¾‚Å‚«‚é‚±‚ÆB<br>
-     * ‚±‚Ìƒƒ\ƒbƒh‚ÍAVariableFileLineWriter‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ğŒÄ‚Ño‚·‚¾‚¯‚È‚Ì‚ÅAˆø”‚ÌƒoƒŠƒG[ƒVƒ‡ƒ“‚Íˆê‚Â‚µ‚©s‚í‚È‚¢B <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * å¼•æ•°ãŒnullã§ã¯ãªã„å ´åˆã€VariableFileLineIteratorã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ãŒå–å¾—ã§ãã‚‹ã“ã¨ã€‚<br>
+     * ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã¯ã€VariableFileLineWriterã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã‚’å‘¼ã³å‡ºã™ã ã‘ãªã®ã§ã€å¼•æ•°ã®ãƒãƒªã‚¨ãƒ¼ã‚·ãƒ§ãƒ³ã¯ä¸€ã¤ã—ã‹è¡Œã‚ãªã„ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testExcecute01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         VariableFileQueryDAO fileQueryDAO = new VariableFileQueryDAO();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         URL url = this.getClass().getResource("File_Empty.txt");
         String fileName = url.getPath();
         Class<VariableFileQueryDAO_Stub01> clazz = VariableFileQueryDAO_Stub01.class;
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
         UTUtil
                 .setPrivateField(fileQueryDAO, "columnParserMap",
                         columnParserMap);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         FileLineIterator fileLineIterator = fileQueryDAO.execute(fileName,
                 VariableFileQueryDAO_Stub01.class);
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals(VariableFileLineIterator.class, fileLineIterator
                 .getClass());
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         List arguments = VMOUTUtil.getArguments(VariableFileLineIterator.class,
                 "<init>", 0);
         assertEquals(fileName, arguments.get(0));

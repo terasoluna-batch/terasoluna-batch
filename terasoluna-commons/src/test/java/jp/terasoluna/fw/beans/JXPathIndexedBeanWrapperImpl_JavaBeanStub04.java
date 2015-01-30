@@ -20,91 +20,91 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * IndexedBeanWrapperImplTest#testGetIndexedPropertyNameList04‚Åg—p‚·‚é
- * ƒXƒ^ƒuƒNƒ‰ƒXB
+ * IndexedBeanWrapperImplTest#testGetIndexedPropertyNameList04ã§ä½¿ç”¨ã™ã‚‹
+ * ã‚¹ã‚¿ãƒ–ã‚¯ãƒ©ã‚¹ã€‚
  */
 public class JXPathIndexedBeanWrapperImpl_JavaBeanStub04 {
 
     /**
-     * ƒeƒXƒg—pƒvƒƒpƒeƒBB
+     * ãƒ†ã‚¹ãƒˆç”¨ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã€‚
      */
     private List<Foo> foo = new ArrayList<Foo>();
     
     /**
-     * ƒeƒXƒg—pƒvƒƒpƒeƒBB
+     * ãƒ†ã‚¹ãƒˆç”¨ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã€‚
      */
     private Foo[] foos = null;
 
     /**
-     * @return foo ‚ğ–ß‚µ‚Ü‚·B
+     * @return foo ã‚’æˆ»ã—ã¾ã™ã€‚
      */
     public List<Foo> getFoo() {
         return foo;
     }
 
     /**
-     * @param foo İ’è‚·‚é fooB
+     * @param foo è¨­å®šã™ã‚‹ fooã€‚
      */
     public void setFoo(List<Foo> foo) {
         this.foo = foo;
     }
     
     /**
-     * foos‚ğæ“¾‚·‚éB
-     * @return foosB
+     * foosã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return foosã€‚
      */
     public Foo[] getFoos() {
         return foos;
     }
 
     /**
-     * foos‚ğİ’è‚·‚é
-     * @param foos foosB
+     * foosã‚’è¨­å®šã™ã‚‹
+     * @param foos foosã€‚
      */
     public void setFoos(Foo[] foos) {
         this.foos = foos;
     }
 
     /**
-     * ƒeƒXƒg—pƒvƒƒpƒeƒBƒNƒ‰ƒXB
+     * ãƒ†ã‚¹ãƒˆç”¨ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚¯ãƒ©ã‚¹ã€‚
      */
     public static class Foo {
 
         /**
-         * ƒeƒXƒg—pƒvƒƒpƒeƒBB
+         * ãƒ†ã‚¹ãƒˆç”¨ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã€‚
          */
         private Bar bar = null;
 
         /**
-         * ƒeƒXƒg—pƒvƒƒpƒeƒBB
+         * ãƒ†ã‚¹ãƒˆç”¨ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã€‚
          */
         private String property = "";
         
         /**
-         * @return bar ‚ğ–ß‚µ‚Ü‚·B
+         * @return bar ã‚’æˆ»ã—ã¾ã™ã€‚
          */
         public Bar getBar() {
             return bar;
         }
 
         /**
-         * @param bar İ’è‚·‚é barB
+         * @param bar è¨­å®šã™ã‚‹ barã€‚
          */
         public void setBar(Bar bar) {
             this.bar = bar;
         }
 
         /**
-         * property‚ğæ“¾‚·‚éB
-         * @return propertyB
+         * propertyã‚’å–å¾—ã™ã‚‹ã€‚
+         * @return propertyã€‚
          */
         public String getProperty() {
             return property;
         }
 
         /**
-         * property‚ğİ’è‚·‚é
-         * @param property propertyB
+         * propertyã‚’è¨­å®šã™ã‚‹
+         * @param property propertyã€‚
          */
         public void setProperty(String property) {
             this.property = property;
@@ -113,36 +113,36 @@ public class JXPathIndexedBeanWrapperImpl_JavaBeanStub04 {
     }
 
     /**
-     * ƒeƒXƒg—pƒvƒƒpƒeƒBƒNƒ‰ƒXB
+     * ãƒ†ã‚¹ãƒˆç”¨ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚¯ãƒ©ã‚¹ã€‚
      */
     public static class Bar {
 
         /**
-         * ƒeƒXƒg—pƒvƒƒpƒeƒBB
+         * ãƒ†ã‚¹ãƒˆç”¨ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã€‚
          */
         private String hoge = null;
         
         /**
-         * ƒeƒXƒg—pƒvƒƒpƒeƒBB
+         * ãƒ†ã‚¹ãƒˆç”¨ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã€‚
          */
         private String[] hogeArray = null;
 
         /**
-         * @return hoge ‚ğ–ß‚µ‚Ü‚·B
+         * @return hoge ã‚’æˆ»ã—ã¾ã™ã€‚
          */
         public String getHoge() {
             return hoge;
         }
 
         /**
-         * @param hoge İ’è‚·‚é hogeB
+         * @param hoge è¨­å®šã™ã‚‹ hogeã€‚
          */
         public void setHoge(String hoge) {
             this.hoge = hoge;
         }
 
         /**
-         * hogeArray‚ğæ“¾‚·‚éB
+         * hogeArrayã‚’å–å¾—ã™ã‚‹ã€‚
          * @return hogeArray
          */
         public String[] getHogeArray() {
@@ -150,7 +150,7 @@ public class JXPathIndexedBeanWrapperImpl_JavaBeanStub04 {
         }
 
         /**
-         * hogeArray‚ğİ’è‚·‚éB
+         * hogeArrayã‚’è¨­å®šã™ã‚‹ã€‚
          * @param hogeArray hogeArray
          */
         public void setHogeArray(String[] hogeArray) {

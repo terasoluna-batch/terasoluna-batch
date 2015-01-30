@@ -28,36 +28,36 @@ import org.apache.commons.beanutils.PropertyUtils;
 
 
 /**
- * �^�ϊ����s�����߂̃��[�e�B���e�B�N���X�B
+ * 型変換を行うためのユーティリティクラス。
  * 
  */
 public class ConvertUtil {
 
     /**
-     * <code>class</code>�t�B�[���h��\���t�B�[���h��
+     * <code>class</code>フィールドを表すフィールド名
      */
     public static final String CLASS_FIELDNAME = "class";
 
     /**
-     * �I�u�W�F�N�g��z��ɕϊ�����B
+     * オブジェクトを配列に変換する。
      * <ul>
-     *   <li><code>null</code>�̏ꍇ - <code>Object[0]</code>��ԋp</li>
-     *   <li><code>Object[]</code>�̏ꍇ - ���̂܂ܕԋp</li>
-     *   <li><code>Collection</code>�̏ꍇ - �z��ɕϊ����ĕԋp</li>
-     *   <li>����ȊO�̏ꍇ - �v�f��1���z��Ƃ��ĕԋp</li>
+     *   <li><code>null</code>の場合 - <code>Object[0]</code>を返却</li>
+     *   <li><code>Object[]</code>の場合 - そのまま返却</li>
+     *   <li><code>Collection</code>の場合 - 配列に変換して返却</li>
+     *   <li>それ以外の場合 - 要素を1つ持つ配列として返却</li>
      * </ul>
      * 
      * <p>
-     * �^�ۏႳ�ꂽ�z�񂪗~�����ꍇ�́A{@link #toList(Object, Class)}��
-     * �g�p���āA���L�̂悤�ɂ��邱�ƁB
+     * 型保障された配列が欲しい場合は、{@link #toList(Object, Class)}を
+     * 使用して、下記のようにすること。
      * <code><pre>
      * List<String> list = ConvertUtil.toList(value, String.class);
      * String[] array = list.toArray(new String[list.size()]);
      * </pre></code>
      * </p>
      * 
-     * @param obj �I�u�W�F�N�g�B
-     * @return �I�u�W�F�N�g��ϊ������z��B
+     * @param obj オブジェクト。
+     * @return オブジェクトを変換した配列。
      */
     public static Object[] toArray(Object obj) {
         if (obj == null) {
@@ -71,22 +71,22 @@ public class ConvertUtil {
     }
 
     /**
-     * �I�u�W�F�N�g�����X�g�ɕϊ�����B
+     * オブジェクトをリストに変換する。
      * <ul>
-     *   <li><code>null</code>�̏ꍇ - �v�f�������Ȃ�<code>T</code>�^�̃��X�g�Ƃ��ĕԋp</li>
-     *   <li><code>Object[]</code>�̏ꍇ - <code>T</code>�^�̃��X�g�ɕϊ����ĕԋp</li>
-     *   <li><code>Collection</code>�̏ꍇ - <code>T</code>�^�̃��X�g�Ƃ��ĕԋp</li>
-     *   <li>����ȊO�̏ꍇ - �v�f��1����<code>T</code>�^�̃��X�g�Ƃ��ĕԋp</li>
+     *   <li><code>null</code>の場合 - 要素を持たない<code>T</code>型のリストとして返却</li>
+     *   <li><code>Object[]</code>の場合 - <code>T</code>型のリストに変換して返却</li>
+     *   <li><code>Collection</code>の場合 - <code>T</code>型のリストとして返却</li>
+     *   <li>それ以外の場合 - 要素を1つ持つ<code>T</code>型のリストとして返却</li>
      * </ul>
      * 
-     * @param <E> �ԋp���郊�X�g�̗v�f��\���^�B
-     * @param obj �I�u�W�F�N�g�B
-     * @param elementClass �ԋp���郊�X�g�̗v�f��\���^�B 
-     * @return �I�u�W�F�N�g��ϊ��������X�g�B
-     * @throws IllegalArgumentException ����<code>clazz</code>��
-     *           <code>null</code>�̏ꍇ
-     *           <code>obj</code>�܂��́A���̗v�f��<code>T</code>�^
-     *           �ł͂Ȃ��ꍇ�B
+     * @param <E> 返却するリストの要素を表す型。
+     * @param obj オブジェクト。
+     * @param elementClass 返却するリストの要素を表す型。 
+     * @return オブジェクトを変換したリスト。
+     * @throws IllegalArgumentException 引数<code>clazz</code>が
+     *           <code>null</code>の場合
+     *           <code>obj</code>または、その要素が<code>T</code>型
+     *           ではない場合。
      */
     @SuppressWarnings("unchecked")
     public static <E> List<E> toList(Object obj, Class<E> elementClass)
@@ -113,13 +113,13 @@ public class ConvertUtil {
     }
 
     /**
-     * �I�u�W�F�N�g��<code>T</code>�^�ɕϊ�����B
+     * オブジェクトを<code>T</code>型に変換する。
      * 
-     * @param <T> �ϊ���̌^�B
-     * @param obj �I�u�W�F�N�g�B
-     * @param clazz �ϊ���̌^�B
-     * @return �ϊ���̃I�u�W�F�N�g�B
-     * @throws IllegalArgumentException �ϊ��Ɏ��s�����ꍇ�B
+     * @param <T> 変換後の型。
+     * @param obj オブジェクト。
+     * @param clazz 変換後の型。
+     * @return 変換後のオブジェクト。
+     * @throws IllegalArgumentException 変換に失敗した場合。
      */
     public static <T> T convert(Object obj, Class<T> clazz)
             throws IllegalArgumentException {
@@ -127,18 +127,18 @@ public class ConvertUtil {
     }
 
     /**
-     * <code>null</code>�ł͂Ȃ��I�u�W�F�N�g��
-     * <code>T</code>�^�ɕϊ�����B
+     * <code>null</code>ではないオブジェクトを
+     * <code>T</code>型に変換する。
      * <p>
-     * �v���~�e�B�u�^�ɑΉ�����l�Ȃǂ̕ϊ��ɗ��p����B
+     * プリミティブ型に対応する値などの変換に利用する。
      * </p>
      * 
-     * @param <T> �ϊ���̌^�B
-     * @param obj �I�u�W�F�N�g�B
-     * @param clazz �ϊ���̌^�B
-     * @return �ϊ���̃I�u�W�F�N�g�B
-     * @throws IllegalArgumentException �ϊ��Ɏ��s�����ꍇ�B
-     *      ����<code>obj</code>��<code>null</code>�̏ꍇ�B
+     * @param <T> 変換後の型。
+     * @param obj オブジェクト。
+     * @param clazz 変換後の型。
+     * @return 変換後のオブジェクト。
+     * @throws IllegalArgumentException 変換に失敗した場合。
+     *      引数<code>obj</code>が<code>null</code>の場合。
      */
     public static <T> T convertIfNotNull(Object obj, Class<T> clazz)
             throws IllegalArgumentException {
@@ -146,30 +146,30 @@ public class ConvertUtil {
     }
     
     /**
-     * �I�u�W�F�N�g��<code>T</code>�^�ɕϊ�����B
+     * オブジェクトを<code>T</code>型に変換する。
      * <p>
      * <ul>
-     *  <li><code>allowsNull</code>��<code>false</code>����
-     *        <code>obj</code>��<code>null</code> - ��O���X���[�B
-     *  <li><code>allowsNull</code>��<code>true</code>����
-     *        <code>obj</code>��<code>null</code> - <code>null</code>��ԋp�B
-     *  <li><code>obj</code>��<code>clazz</code>�^ - ���̂܂ܕԋp�B
-     *  <li><code>obj</code>��<code>clazz</code>�^�ł͂Ȃ�
-     *        - <code>ConvertUtils</code>���g�p���ēK�؂Ȍ^�ɕϊ����ĕԋp�B
+     *  <li><code>allowsNull</code>が<code>false</code>かつ
+     *        <code>obj</code>が<code>null</code> - 例外をスロー。
+     *  <li><code>allowsNull</code>が<code>true</code>かつ
+     *        <code>obj</code>が<code>null</code> - <code>null</code>を返却。
+     *  <li><code>obj</code>が<code>clazz</code>型 - そのまま返却。
+     *  <li><code>obj</code>が<code>clazz</code>型ではない
+     *        - <code>ConvertUtils</code>を使用して適切な型に変換して返却。
      * </ul>
      * </p>
      * 
-     * @param <T> �ϊ���̌^�B
-     * @param obj �I�u�W�F�N�g�B
-     * @param clazz �ϊ���̌^�B
-     * @param allowsNull ����<code>obj</code>��<code>null</code>��
-     *      �ꍇ�����e���邩�ǂ����B
-     * @return �ϊ���̃I�u�W�F�N�g�B
-     * @throws IllegalArgumentException ����<code>clazz</code>��
-     *      <code>null</code>�̏ꍇ�B
-     *      ����<code>allowsNull</code>��<code>false</code>����
-     *        ����<code>obj</code>��<code>null</code>�̏ꍇ�B
-     *      �ϊ��Ɏ��s�����ꍇ�B
+     * @param <T> 変換後の型。
+     * @param obj オブジェクト。
+     * @param clazz 変換後の型。
+     * @param allowsNull 引数<code>obj</code>が<code>null</code>の
+     *      場合を許容するかどうか。
+     * @return 変換後のオブジェクト。
+     * @throws IllegalArgumentException 引数<code>clazz</code>が
+     *      <code>null</code>の場合。
+     *      引数<code>allowsNull</code>が<code>false</code>かつ
+     *        引数<code>obj</code>が<code>null</code>の場合。
+     *      変換に失敗した場合。
      */
     @SuppressWarnings("unchecked")
     public static <T> T convert(
@@ -205,13 +205,13 @@ public class ConvertUtil {
     }
 
     /**
-     * ����<code>value</code>���v���~�e�B�u�^�̔z��ł���΁A
-     * �v�f��<code>String</code>�ɕϊ�����<code>List</code>�Ɋi�[
-     * ���郆�[�e�B���e�B���\�b�h�B
+     * 引数<code>value</code>がプリミティブ型の配列であれば、
+     * 要素を<code>String</code>に変換して<code>List</code>に格納
+     * するユーティリティメソッド。
      * 
-     * @param value �v���~�e�B�u�^�̔z��B
-     * @return �������v���~�e�B�u�^�̔z��̏ꍇ�A�S�v�f���i�[����<code>List</code>�B
-     *          ����ȊO�̏ꍇ�͈�����<code>value</code>���̂��́B
+     * @param value プリミティブ型の配列。
+     * @return 引数がプリミティブ型の配列の場合、全要素を格納した<code>List</code>。
+     *          それ以外の場合は引数の<code>value</code>そのもの。
      */
     public static Object convertPrimitiveArrayToList(Object value) {
         if (value == null) {
@@ -219,12 +219,12 @@ public class ConvertUtil {
         }
         Class type = value.getClass().getComponentType();
         
-        // value���z��^�ł͂Ȃ��ꍇ
+        // valueが配列型ではない場合
         if (type == null) {
             return value;
         }
         
-        // �z��̗v�f���v���~�e�B�u�^�ł͂Ȃ��ꍇ
+        // 配列の要素がプリミティブ型ではない場合
         if (!type.isPrimitive()) {
             return value;
         }
@@ -233,7 +233,7 @@ public class ConvertUtil {
         
         if (value instanceof boolean[]) {
             for (boolean data : (boolean[]) value) {
-                // String�^�ɕϊ�����K�v�͂Ȃ��B
+                // String型に変換する必要はない。
                 list.add(data);
             }
         } else if (value instanceof byte[]) {
@@ -269,22 +269,22 @@ public class ConvertUtil {
     }
 
     /**
-     * �I�u�W�F�N�g�̃R���N�V�����܂��͔z����}�b�v�̃��X�g�ɕϊ�����B
+     * オブジェクトのコレクションまたは配列をマップのリストに変換する。
      * <p>
-     * ���X�g�̗v�f�ł���}�b�v��{@link #CLASS_FIELDNAME}�������S�Ă�
-     * �t�B�[���h�ɂ��āA�t�B�[���h�����L�[�Ƃ���l�����B
-     * �������A�t�B�[���h�����啶���Ŏn�܂��Ă���ꍇ�A�ŏ���1������
-     * �������ɕϊ������̂Œ��ӂ��邱�ƁB
+     * リストの要素であるマップは{@link #CLASS_FIELDNAME}を除く全ての
+     * フィールドについて、フィールド名をキーとする値を持つ。
+     * ただし、フィールド名が大文字で始まっている場合、最初の1文字が
+     * 小文字に変換されるので注意すること。
      * </p>
      * <ul>
-     *   <li><code>null</code>�̏ꍇ - �v�f�������Ȃ��}�b�v�̃��X�g�Ƃ��ĕԋp</li>
-     *   <li><code>Object[]</code>�̏ꍇ - �}�b�v�̃��X�g�ɕϊ����ĕԋp</li>
-     *   <li><code>Collection</code>�̏ꍇ - �}�b�v�̃��X�g�Ƃ��ĕԋp</li>
-     *   <li>����ȊO�̏ꍇ - �v�f��1���}�b�v�̃��X�g�Ƃ��ĕԋp</li>
+     *   <li><code>null</code>の場合 - 要素を持たないマップのリストとして返却</li>
+     *   <li><code>Object[]</code>の場合 - マップのリストに変換して返却</li>
+     *   <li><code>Collection</code>の場合 - マップのリストとして返却</li>
+     *   <li>それ以外の場合 - 要素を1つ持つマップのリストとして返却</li>
      * </ul>
-     * @param obj �I�u�W�F�N�g�B
-     * @return �I�u�W�F�N�g��ϊ������}�b�v�̃��X�g�B
-     * @throws IllegalArgumentException �ϊ����ɗ\�����Ȃ���O�����������ꍇ�B
+     * @param obj オブジェクト。
+     * @return オブジェクトを変換したマップのリスト。
+     * @throws IllegalArgumentException 変換中に予期しない例外が発生した場合。
      */
     @SuppressWarnings("unchecked")
     public static List<Map<String, Object>> toListOfMap(Object obj)

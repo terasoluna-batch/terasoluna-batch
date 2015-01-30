@@ -20,31 +20,31 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 /**
- * DateFormat‚ÌThreadLocalƒNƒ‰ƒXB<br>
- * SimpleDateFormat‚ªƒXƒŒƒbƒhƒZ[ƒt‚Å‚Í‚È‚¢‚½‚ßAThreadLocal‚ğg—p‚µ‚Ä<br>
- * ƒXƒŒƒbƒhƒZ[ƒt‚É‚·‚éB
+ * DateFormatã®ThreadLocalã‚¯ãƒ©ã‚¹ã€‚<br>
+ * SimpleDateFormatãŒã‚¹ãƒ¬ãƒƒãƒ‰ã‚»ãƒ¼ãƒ•ã§ã¯ãªã„ãŸã‚ã€ThreadLocalã‚’ä½¿ç”¨ã—ã¦<br>
+ * ã‚¹ãƒ¬ãƒƒãƒ‰ã‚»ãƒ¼ãƒ•ã«ã™ã‚‹ã€‚
  */
 public class DateFormatLocal extends ThreadLocal<DateFormat> {
 
     /**
-     * ƒtƒH[ƒ}ƒbƒgƒpƒ^[ƒ“
+     * ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆãƒ‘ã‚¿ãƒ¼ãƒ³
      */
     private String pattern = null;
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      */
     public DateFormatLocal(String pattern) {
         this.pattern = pattern;
     }
 
     /**
-     * ‰Šú‰»B
-     * @return DateFormatƒCƒ“ƒXƒ^ƒ“ƒX
+     * åˆæœŸåŒ–ã€‚
+     * @return DateFormatã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
      */
     @Override
     protected DateFormat initialValue() {
-        // ƒXƒŒƒbƒh–ˆ‚Ì‰Šú‰»
+        // ã‚¹ãƒ¬ãƒƒãƒ‰æ¯ã®åˆæœŸåŒ–
         SimpleDateFormat sdf = new SimpleDateFormat(pattern);
         sdf.setLenient(false);
         return sdf;

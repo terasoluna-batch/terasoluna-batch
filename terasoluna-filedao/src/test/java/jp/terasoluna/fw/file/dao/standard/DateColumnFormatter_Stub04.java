@@ -5,9 +5,9 @@ import java.util.Date;
 import jp.terasoluna.fw.file.annotation.FileFormat;
 
 /**
- * メソッドに引数を持つオブジェクトスタブクラス
+ * 繝｡繧ｽ繝�繝峨↓蠑墓焚繧呈戟縺､繧ｪ繝悶ず繧ｧ繧ｯ繝医せ繧ｿ繝悶け繝ｩ繧ｹ
  * <p>
- * 以下の設定を持つ<br>
+ * 莉･荳九�ｮ險ｭ螳壹ｒ謖√▽<br>
  * <ul>
  * <li>@FileFormat()
  */

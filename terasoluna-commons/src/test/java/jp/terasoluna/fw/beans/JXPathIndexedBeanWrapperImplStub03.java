@@ -17,89 +17,89 @@
 package jp.terasoluna.fw.beans;
 
 /**
- * JXPathIndexedBeanWrapperImplTest‚Åg—p‚·‚éƒXƒ^ƒuƒNƒ‰ƒXB
+ * JXPathIndexedBeanWrapperImplTestã§ä½¿ç”¨ã™ã‚‹ã‚¹ã‚¿ãƒ–ã‚¯ãƒ©ã‚¹ã€‚
  *
  */
 public class JXPathIndexedBeanWrapperImplStub03 extends
         JXPathIndexedBeanWrapperImpl {
  
     /**
-     * isMapPropertyƒXƒ^ƒuƒƒ\ƒbƒh‚Ì“ü—ÍŠm”F—pƒƒ“ƒoB
+     * isMapPropertyã‚¹ã‚¿ãƒ–ãƒ¡ã‚½ãƒƒãƒ‰ã®å…¥åŠ›ç¢ºèªç”¨ãƒ¡ãƒ³ãƒã€‚
      */
     public String isMapPropertyParam1 = null;
     
     /**
-     * isMapPropertyƒXƒ^ƒuƒƒ\ƒbƒh‚Ì–ß‚è’lİ’è—pƒƒ“ƒoB
+     * isMapPropertyã‚¹ã‚¿ãƒ–ãƒ¡ã‚½ãƒƒãƒ‰ã®æˆ»ã‚Šå€¤è¨­å®šç”¨ãƒ¡ãƒ³ãƒã€‚
      */
     public boolean isMapPropertyResult = false;
     
     /**
-     * extractIncrementIndexƒXƒ^ƒuƒƒ\ƒbƒh‚Ì“ü—ÍŠm”F—pB
+     * extractIncrementIndexã‚¹ã‚¿ãƒ–ãƒ¡ã‚½ãƒƒãƒ‰ã®å…¥åŠ›ç¢ºèªç”¨ã€‚
      */
     public String extractIncrementIndexParam1 = null;
     
     /**
-     * extractIncrementIndexƒXƒ^ƒuƒƒ\ƒbƒh‚Ì–ß‚è’lİ’è—pB
+     * extractIncrementIndexã‚¹ã‚¿ãƒ–ãƒ¡ã‚½ãƒƒãƒ‰ã®æˆ»ã‚Šå€¤è¨­å®šç”¨ã€‚
      */
     public String extractIncrementIndexResult = null;
     
     
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-     * @param obj ƒ‰ƒbƒv‚·‚éBean
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * @param obj ãƒ©ãƒƒãƒ—ã™ã‚‹Bean
      */
     public JXPathIndexedBeanWrapperImplStub03(Object obj) {
         super(obj);
     }
 
     /**
-     * MapŒ^‘®«‚©‚Ç‚¤‚©”»’f‚·‚éƒXƒ^ƒuƒƒ\ƒbƒhB
-     * @param property JavaƒvƒƒpƒeƒB–¼B
-     * @return boolean true‚ğ•Ô‚·B 
+     * Mapå‹å±æ€§ã‹ã©ã†ã‹åˆ¤æ–­ã™ã‚‹ã‚¹ã‚¿ãƒ–ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
+     * @param property Javaãƒ—ãƒ­ãƒ‘ãƒ†ã‚£åã€‚
+     * @return boolean trueã‚’è¿”ã™ã€‚ 
      */
     @Override
     protected boolean isMapProperty(String property) {
-        // “ü—ÍŠm”F—pƒƒ“ƒo‚ÉŠi”[B
+        // å…¥åŠ›ç¢ºèªç”¨ãƒ¡ãƒ³ãƒã«æ ¼ç´ã€‚
         this.isMapPropertyParam1 = property;
         
-        // –ß‚è’lİ’è—pƒƒ“ƒo‚Ì’l‚ğ•Ô‚·B
+        // æˆ»ã‚Šå€¤è¨­å®šç”¨ãƒ¡ãƒ³ãƒã®å€¤ã‚’è¿”ã™ã€‚
         return this.isMapPropertyResult;
     }
     
 
     /**
-     * MapƒvƒƒpƒeƒB‚ğXPathŒ`®‚ÉƒGƒXƒP[ƒv‚·‚éƒXƒ^ƒuƒƒ\ƒbƒhB
-     * @param property JavaƒvƒƒpƒeƒB–¼B
-     * @return String XPathB 
+     * Mapãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚’XPathå½¢å¼ã«ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—ã™ã‚‹ã‚¹ã‚¿ãƒ–ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
+     * @param property Javaãƒ—ãƒ­ãƒ‘ãƒ†ã‚£åã€‚
+     * @return String XPathã€‚ 
      */
     @Override
     protected String escapeMapProperty(String property) {
-        // “®“I‚É–ß‚è’l‚ğì¬B
+        // å‹•çš„ã«æˆ»ã‚Šå€¤ã‚’ä½œæˆã€‚
         return property+"[@name='key']";
     }
     
     /**
-     * ‘®«–¼‚ğæ‚èo‚·ƒXƒ^ƒuƒƒ\ƒbƒhB
-     * @param property XPath‚Ìƒm[ƒhB
-     * @return ‘®«–¼B
+     * å±æ€§åã‚’å–ã‚Šå‡ºã™ã‚¹ã‚¿ãƒ–ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
+     * @param property XPathã®ãƒãƒ¼ãƒ‰ã€‚
+     * @return å±æ€§åã€‚
      */
     @Override
     protected String extractAttributeName(String property) {
-        // “®“I‚É–ß‚è’l‚ğì¬B
+        // å‹•çš„ã«æˆ»ã‚Šå€¤ã‚’ä½œæˆã€‚
         return property+"Attribute";
     }
     
     /**
-     * ƒCƒ“ƒNƒŠƒƒ“ƒg‚³‚ê‚½“Y‚¦š‚ğæ‚èo‚·ƒXƒ^ƒuƒƒ\ƒbƒhB
-     * @param property JavaƒvƒƒpƒeƒB–¼B
-     * @return String XPathŒ`®‚Ì“Y‚¦šB 
+     * ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ãƒˆã•ã‚ŒãŸæ·»ãˆå­—ã‚’å–ã‚Šå‡ºã™ã‚¹ã‚¿ãƒ–ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
+     * @param property Javaãƒ—ãƒ­ãƒ‘ãƒ†ã‚£åã€‚
+     * @return String XPathå½¢å¼ã®æ·»ãˆå­—ã€‚ 
      */
     @Override
     protected String extractIncrementIndex(String property) {
-        // “ü—ÍŠm”F—pƒƒ“ƒo‚ÉŠi”[B
+        // å…¥åŠ›ç¢ºèªç”¨ãƒ¡ãƒ³ãƒã«æ ¼ç´ã€‚
         this.extractIncrementIndexParam1 = property;
         
-        // –ß‚è’lİ’è—pƒƒ“ƒo‚Ì’l‚ğ•Ô‚·B
+        // æˆ»ã‚Šå€¤è¨­å®šç”¨ãƒ¡ãƒ³ãƒã®å€¤ã‚’è¿”ã™ã€‚
         return extractIncrementIndexResult;
     }
 

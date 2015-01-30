@@ -20,21 +20,21 @@ import jp.terasoluna.utlib.LogUTUtil;
 import junit.framework.TestCase;
 
 /**
- * {@link jp.terasoluna.fw.beans.JXPathIndexedBeanWrapperImpl} ƒNƒ‰ƒX‚Ìƒuƒ‰ƒbƒNƒ{ƒbƒNƒXƒeƒXƒgB
+ * {@link jp.terasoluna.fw.beans.JXPathIndexedBeanWrapperImpl} ã‚¯ãƒ©ã‚¹ã®ãƒ–ãƒ©ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ†ã‚¹ãƒˆã€‚
  * 
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4>
- * JavaBean‚Ì”z—ñEƒRƒŒƒNƒVƒ‡ƒ“Œ^‘®«‚ÉƒAƒNƒZƒX‚Å‚«‚éƒNƒ‰ƒXB<br>
- * ‘O’ñğŒF<br>
- * utoXPathvƒƒ\ƒbƒh‚Ìˆø”‚É‚Ínull‚Í“ü‚ç‚È‚¢B<br>
- * uextractIncrementIndex(String)vƒƒ\ƒbƒh‚Ìˆø”‚É‚Ínull‚Í“ü‚ç‚È‚¢B<br>
- * uextractIncrementIndex(String,int)vƒƒ\ƒbƒh‚Ì‘æ‚Pˆø”‚É‚Ínull‚Í“ü‚ç‚È‚¢B<br>
- * uextractIncrementIndex(String,int)vƒƒ\ƒbƒh‚Ì‘æ‚Qˆø”‚É‚Í1‚©-1‚µ‚©“ü‚ç‚È‚¢B<br>
- * uextractIndexvƒƒ\ƒbƒh‚Ìˆø”‚É‚Ínull‚Í“ü‚ç‚È‚¢B<br>
- * uescapeMapPropertyvƒƒ\ƒbƒh‚Ìˆø”‚É‚Ínull‚Í“ü‚ç‚È‚¢B<br>
- * uextractMapPropertyNamevƒƒ\ƒbƒh‚Ìˆø”‚É‚Ínull‚Í“ü‚ç‚È‚¢B<br>
- * uextractMapPropertyKeyvƒƒ\ƒbƒh‚Ìˆø”‚É‚Ínull‚Í“ü‚ç‚È‚¢B<br>
- * uisMapPropertyvƒƒ\ƒbƒh‚Ìˆø”‚É‚Ínull‚Í“ü‚ç‚È‚¢B
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4>
+ * JavaBeanã®é…åˆ—ãƒ»ã‚³ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³å‹å±æ€§ã«ã‚¢ã‚¯ã‚»ã‚¹ã§ãã‚‹ã‚¯ãƒ©ã‚¹ã€‚<br>
+ * å‰ææ¡ä»¶ï¼š<br>
+ * ã€ŒtoXPathã€ãƒ¡ã‚½ãƒƒãƒ‰ã®å¼•æ•°ã«ã¯nullã¯å…¥ã‚‰ãªã„ã€‚<br>
+ * ã€ŒextractIncrementIndex(String)ã€ãƒ¡ã‚½ãƒƒãƒ‰ã®å¼•æ•°ã«ã¯nullã¯å…¥ã‚‰ãªã„ã€‚<br>
+ * ã€ŒextractIncrementIndex(String,int)ã€ãƒ¡ã‚½ãƒƒãƒ‰ã®ç¬¬ï¼‘å¼•æ•°ã«ã¯nullã¯å…¥ã‚‰ãªã„ã€‚<br>
+ * ã€ŒextractIncrementIndex(String,int)ã€ãƒ¡ã‚½ãƒƒãƒ‰ã®ç¬¬ï¼’å¼•æ•°ã«ã¯1ã‹-1ã—ã‹å…¥ã‚‰ãªã„ã€‚<br>
+ * ã€ŒextractIndexã€ãƒ¡ã‚½ãƒƒãƒ‰ã®å¼•æ•°ã«ã¯nullã¯å…¥ã‚‰ãªã„ã€‚<br>
+ * ã€ŒescapeMapPropertyã€ãƒ¡ã‚½ãƒƒãƒ‰ã®å¼•æ•°ã«ã¯nullã¯å…¥ã‚‰ãªã„ã€‚<br>
+ * ã€ŒextractMapPropertyNameã€ãƒ¡ã‚½ãƒƒãƒ‰ã®å¼•æ•°ã«ã¯nullã¯å…¥ã‚‰ãªã„ã€‚<br>
+ * ã€ŒextractMapPropertyKeyã€ãƒ¡ã‚½ãƒƒãƒ‰ã®å¼•æ•°ã«ã¯nullã¯å…¥ã‚‰ãªã„ã€‚<br>
+ * ã€ŒisMapPropertyã€ãƒ¡ã‚½ãƒƒãƒ‰ã®å¼•æ•°ã«ã¯nullã¯å…¥ã‚‰ãªã„ã€‚
  * <p>
  * 
  * @see jp.terasoluna.fw.beans.JXPathIndexedBeanWrapperImpl
@@ -43,9 +43,9 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
 
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -54,9 +54,9 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -65,9 +65,9 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      * 
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public JXPathIndexedBeanWrapperImplTest02(String name) {
         super(name);
@@ -77,40 +77,40 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * testToXPath01()
      * <br><br>
      * 
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) property:""i‹ó•¶šj<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) property:""ï¼ˆç©ºæ–‡å­—ï¼‰<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    @ƒƒbƒZ[ƒWFProperty name is null or blank.<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:ƒƒOƒŒƒxƒ‹FƒGƒ‰[<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ã€€ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼šProperty name is null or blank.<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ï¼šã‚¨ãƒ©ãƒ¼<br>
      *                    Property name is null or blank.<br>
      *         
      * <br>
-     * y‹ó•¶š‚ÌƒeƒXƒgz<br>
-     * ˆø”‚Ìproperty‚ª‹ó•¶š‚ÌƒeƒXƒgB
+     * ã€ç©ºæ–‡å­—ã®ãƒ†ã‚¹ãƒˆã€‘<br>
+     * å¼•æ•°ã®propertyãŒç©ºæ–‡å­—ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testToXPath01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object object = new Object();
         JXPathIndexedBeanWrapperImplStub03 test = 
             new JXPathIndexedBeanWrapperImplStub03(object);
         
-        // “ü—Í’lİ’è
+        // å…¥åŠ›å€¤è¨­å®š
         String property = "";
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try{
             test.toXPath(property);
             fail();
         }catch(IllegalArgumentException e){
-            // ”»’è
+            // åˆ¤å®š
             assertEquals("Property name is null or blank.", 
                         e.getMessage());
             assertTrue(LogUTUtil.checkError(
@@ -123,40 +123,40 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * testToXPath02()
      * <br><br>
      * 
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) property:"."<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) property:"."<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    @ƒƒbƒZ[ƒWFProperty name is null or blank.<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:ƒƒOƒŒƒxƒ‹FƒGƒ‰[<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ã€€ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼šProperty name is null or blank.<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ï¼šã‚¨ãƒ©ãƒ¼<br>
      *                    Property name is null or blank.<br>
      *         
      * <br>
-     * y•¶š‚ÌƒeƒXƒgz<br>
-     * ˆø”‚Ìproperty‚ª"."‚Ì‚İ‚Ìƒpƒ^[ƒ“‚ÌƒeƒXƒgB
+     * ã€æ–‡å­—ã®ãƒ†ã‚¹ãƒˆã€‘<br>
+     * å¼•æ•°ã®propertyãŒ"."ã®ã¿ã®ãƒ‘ã‚¿ãƒ¼ãƒ³ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testToXPath02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object object = new Object();
         JXPathIndexedBeanWrapperImplStub03 test = 
             new JXPathIndexedBeanWrapperImplStub03(object);
         
-        // “ü—Í’lİ’è
+        // å…¥åŠ›å€¤è¨­å®š
         String property = ".";
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try{
             test.toXPath(property);
             fail();
         }catch(IllegalArgumentException e){
-            // ”»’è
+            // åˆ¤å®š
             assertEquals("Property name is null or blank.", 
                         e.getMessage());
             assertTrue(LogUTUtil.checkError(
@@ -169,44 +169,44 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * testToXPath03()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) property:"abc"<br>
-     *         (ó‘Ô) isMapProperty:false‚ğ•Ô‚·B<br>
-     *         (ó‘Ô) extractAttributeName:property+"Attribute"‚ğ•Ô‚·B<br>
-     *         (ó‘Ô) extractIncrementIndex:"[3]"‚ğ•Ô‚·B<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) property:"abc"<br>
+     *         (çŠ¶æ…‹) isMapProperty:falseã‚’è¿”ã™ã€‚<br>
+     *         (çŠ¶æ…‹) extractAttributeName:property+"Attribute"ã‚’è¿”ã™ã€‚<br>
+     *         (çŠ¶æ…‹) extractIncrementIndex:"[3]"ã‚’è¿”ã™ã€‚<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:/abcAttribute[3]<br>
-     *         (ó‘Ô•Ï‰») isMapProperty:ˆø”"abc"‚ª“n‚³‚ê‚½‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») extractAttributeName:“–ƒƒ\ƒbƒh‚Íˆø”(property="abc")‚Å–ß‚è’lproperty+"Attribute"‚Æ‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») extractIncrementIndex:ˆø”"abc"‚ª“n‚³‚ê‚½‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:/abcAttribute[3]<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) isMapProperty:å¼•æ•°"abc"ãŒæ¸¡ã•ã‚ŒãŸã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) extractAttributeName:å½“ãƒ¡ã‚½ãƒƒãƒ‰ã¯å¼•æ•°(property="abc")ã§æˆ»ã‚Šå€¤property+"Attribute"ã¨ã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) extractIncrementIndex:å¼•æ•°"abc"ãŒæ¸¡ã•ã‚ŒãŸã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *         
      * <br>
-     * yJavaBean or Primitive‚ÌƒeƒXƒgz<br>
-     * for•¶1‰ñÀs‚Ìê‡B
+     * ã€JavaBean or Primitiveã®ãƒ†ã‚¹ãƒˆã€‘<br>
+     * foræ–‡1å›å®Ÿè¡Œã®å ´åˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testToXPath03() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object object = new Object();
         JXPathIndexedBeanWrapperImplStub03 test = 
             new JXPathIndexedBeanWrapperImplStub03(object);
         
-        // “ü—Í’lİ’è
+        // å…¥åŠ›å€¤è¨­å®š
         String property = "abc";
         
-        // ‘O’ñiƒXƒ^ƒujİ’è
+        // å‰æï¼ˆã‚¹ã‚¿ãƒ–ï¼‰è¨­å®š
         test.isMapPropertyResult = false;
         test.extractIncrementIndexResult = "[3]";
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = test.toXPath(property);
-        // ”»’è
+        // åˆ¤å®š
         assertEquals("abc",test.isMapPropertyParam1);
         assertEquals("abc",test.extractIncrementIndexParam1);
         assertEquals("/abcAttribute[3]",result);
@@ -217,46 +217,46 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * testToXPath04()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) property:"abc.def.ghi"<br>
-     *         (ó‘Ô) isMapProperty:false‚ğ•Ô‚·B<br>
-     *         (ó‘Ô) extractAttributeName:property+"Attribute"‚ğ•Ô‚·B<br>
-     *         (ó‘Ô) extractIncrementIndex:""‚ğ•Ô‚·B<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) property:"abc.def.ghi"<br>
+     *         (çŠ¶æ…‹) isMapProperty:falseã‚’è¿”ã™ã€‚<br>
+     *         (çŠ¶æ…‹) extractAttributeName:property+"Attribute"ã‚’è¿”ã™ã€‚<br>
+     *         (çŠ¶æ…‹) extractIncrementIndex:""ã‚’è¿”ã™ã€‚<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:/abcAttribute/defAttribute/ghiAttribute<br>
-     *         (ó‘Ô•Ï‰») isMapProperty:ˆø”"ghi"‚ª“n‚³‚ê‚½‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») extractAttributeName:“–ƒƒ\ƒbƒh‚Íˆø”(property="abc")‚Å–ß‚è’lproperty+"Attribute"‚Æ‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») extractIncrementIndex:ˆø”"ghi"‚ª“n‚³‚ê‚½‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:/abcAttribute/defAttribute/ghiAttribute<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) isMapProperty:å¼•æ•°"ghi"ãŒæ¸¡ã•ã‚ŒãŸã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) extractAttributeName:å½“ãƒ¡ã‚½ãƒƒãƒ‰ã¯å¼•æ•°(property="abc")ã§æˆ»ã‚Šå€¤property+"Attribute"ã¨ã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) extractIncrementIndex:å¼•æ•°"ghi"ãŒæ¸¡ã•ã‚ŒãŸã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *         
      * <br>
-     * yJavaBean or Primitive‚ÌƒeƒXƒgz<br>
-     * for•¶•¡”‰ñÀs‚Ìê‡B<br>
-     * iˆø”‚Ìproperty‚É"."‚ğŠÜ‚Ş•¶š—ñ‚Ìƒpƒ^[ƒ“j
+     * ã€JavaBean or Primitiveã®ãƒ†ã‚¹ãƒˆã€‘<br>
+     * foræ–‡è¤‡æ•°å›å®Ÿè¡Œã®å ´åˆã€‚<br>
+     * ï¼ˆå¼•æ•°ã®propertyã«"."ã‚’å«ã‚€æ–‡å­—åˆ—ã®ãƒ‘ã‚¿ãƒ¼ãƒ³ï¼‰
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testToXPath04() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object object = new Object();
         JXPathIndexedBeanWrapperImplStub03 test = 
             new JXPathIndexedBeanWrapperImplStub03(object);
         
-        // “ü—Í’lİ’è
+        // å…¥åŠ›å€¤è¨­å®š
         String property = "abc.def.ghi";
         
-        // ‘O’ñiƒXƒ^ƒujİ’è
+        // å‰æï¼ˆã‚¹ã‚¿ãƒ–ï¼‰è¨­å®š
         test.isMapPropertyResult = false;
         test.extractIncrementIndexResult = "";
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = test.toXPath(property);
         
-        // ”»’è
+        // åˆ¤å®š
         assertEquals("ghi",test.isMapPropertyParam1);
         assertEquals("ghi",test.extractIncrementIndexParam1);
         assertEquals("/abcAttribute/defAttribute/ghiAttribute",result);
@@ -266,45 +266,45 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * testToXPath05()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) property:"abc"<br>
-     *         (ó‘Ô) isMapProperty:true‚ğ•Ô‚·B<br>
-     *         (ó‘Ô) escapeMapProperty:property+"[@name='key']"‚ğ•Ô‚·B<br>
-     *         (ó‘Ô) extractIncrementIndex:"[3]"‚ğ•Ô‚·B<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) property:"abc"<br>
+     *         (çŠ¶æ…‹) isMapProperty:trueã‚’è¿”ã™ã€‚<br>
+     *         (çŠ¶æ…‹) escapeMapProperty:property+"[@name='key']"ã‚’è¿”ã™ã€‚<br>
+     *         (çŠ¶æ…‹) extractIncrementIndex:"[3]"ã‚’è¿”ã™ã€‚<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:/abc[@name='key'][3]<br>
-     *         (ó‘Ô•Ï‰») isMapProperty:ˆø”"abc"‚ª“n‚³‚ê‚½‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») escapeMapProperty:“–ƒƒ\ƒbƒh‚Íˆø”(property="abc")‚Å–ß‚è’lproperty+"[@name='key']"‚Æ‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») extractIncrementIndex:ˆø”"abc"‚ª“n‚³‚ê‚½‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:/abc[@name='key'][3]<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) isMapProperty:å¼•æ•°"abc"ãŒæ¸¡ã•ã‚ŒãŸã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) escapeMapProperty:å½“ãƒ¡ã‚½ãƒƒãƒ‰ã¯å¼•æ•°(property="abc")ã§æˆ»ã‚Šå€¤property+"[@name='key']"ã¨ã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) extractIncrementIndex:å¼•æ•°"abc"ãŒæ¸¡ã•ã‚ŒãŸã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *         
      * <br>
-     * yMap‚ÌƒeƒXƒgz<br>
-     * for•¶1‰ñÀs‚Ìê‡B
+     * ã€Mapã®ãƒ†ã‚¹ãƒˆã€‘<br>
+     * foræ–‡1å›å®Ÿè¡Œã®å ´åˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testToXPath05() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object object = new Object();
         JXPathIndexedBeanWrapperImplStub03 test = 
             new JXPathIndexedBeanWrapperImplStub03(object);
         
-        // “ü—Í’lİ’è
+        // å…¥åŠ›å€¤è¨­å®š
         String property = "abc";
         
-        // ‘O’ñiƒXƒ^ƒujİ’è
+        // å‰æï¼ˆã‚¹ã‚¿ãƒ–ï¼‰è¨­å®š
         test.isMapPropertyResult = true;
         test.extractIncrementIndexResult = "[3]";
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = test.toXPath(property);
         
-        // ”»’è
+        // åˆ¤å®š
         assertEquals("abc",test.isMapPropertyParam1);
         assertEquals("abc",test.extractIncrementIndexParam1);
         assertEquals("/abc[@name='key'][3]",result);
@@ -314,46 +314,46 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * testToXPath06()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) property:"abc.def..ghi"<br>
-     *         (ó‘Ô) isMapProperty:true‚ğ•Ô‚·B<br>
-     *         (ó‘Ô) escapeMapProperty:property+"[@name='key']"‚ğ•Ô‚·B<br>
-     *         (ó‘Ô) extractIncrementIndex:""‚ğ•Ô‚·B<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) property:"abc.def..ghi"<br>
+     *         (çŠ¶æ…‹) isMapProperty:trueã‚’è¿”ã™ã€‚<br>
+     *         (çŠ¶æ…‹) escapeMapProperty:property+"[@name='key']"ã‚’è¿”ã™ã€‚<br>
+     *         (çŠ¶æ…‹) extractIncrementIndex:""ã‚’è¿”ã™ã€‚<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:/abc[@name='key']/def[@name='key']/ghi[@name='key']<br>
-     *         (ó‘Ô•Ï‰») isMapProperty:ˆø”"ghi"‚ª“n‚³‚ê‚½‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») escapeMapProperty:“–ƒƒ\ƒbƒh‚Íˆø”(property="abc")‚Å–ß‚è’lproperty+"[@name='key']"‚Æ‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») extractIncrementIndex:ˆø”"ghi"‚ª“n‚³‚ê‚½‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:/abc[@name='key']/def[@name='key']/ghi[@name='key']<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) isMapProperty:å¼•æ•°"ghi"ãŒæ¸¡ã•ã‚ŒãŸã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) escapeMapProperty:å½“ãƒ¡ã‚½ãƒƒãƒ‰ã¯å¼•æ•°(property="abc")ã§æˆ»ã‚Šå€¤property+"[@name='key']"ã¨ã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) extractIncrementIndex:å¼•æ•°"ghi"ãŒæ¸¡ã•ã‚ŒãŸã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *         
      * <br>
-     * yMap‚ÌƒeƒXƒgz<br>
-     * for•¶•¡”‰ñÀs‚Ìê‡B<br>
-     * iˆø”‚Ìproperty‚É".."‚ğŠÜ‚Ş•¶š—ñ‚Ìƒpƒ^[ƒ“j
+     * ã€Mapã®ãƒ†ã‚¹ãƒˆã€‘<br>
+     * foræ–‡è¤‡æ•°å›å®Ÿè¡Œã®å ´åˆã€‚<br>
+     * ï¼ˆå¼•æ•°ã®propertyã«".."ã‚’å«ã‚€æ–‡å­—åˆ—ã®ãƒ‘ã‚¿ãƒ¼ãƒ³ï¼‰
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testToXPath06() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object object = new Object();
         JXPathIndexedBeanWrapperImplStub03 test = 
             new JXPathIndexedBeanWrapperImplStub03(object);
         
-        // “ü—Í’lİ’è
+        // å…¥åŠ›å€¤è¨­å®š
         String property = "abc.def..ghi";
         
-        // ‘O’ñiƒXƒ^ƒujİ’è
+        // å‰æï¼ˆã‚¹ã‚¿ãƒ–ï¼‰è¨­å®š
         test.isMapPropertyResult = true;
         test.extractIncrementIndexResult = "";
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = test.toXPath(property);
         
-        // ”»’è
+        // åˆ¤å®š
         assertEquals("ghi",test.isMapPropertyParam1);
         assertEquals("ghi",test.extractIncrementIndexParam1);
         assertEquals("/abc[@name='key']/def[@name='key']/ghi[@name='key']",
@@ -364,45 +364,45 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * testToXPath07()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) property:"abc.def..ghi"<br>
-     *         (ó‘Ô) isMapProperty:false‚ğ•Ô‚·B<br>
-     *         (ó‘Ô) extractAttributeName:property+"Attribute"‚ğ•Ô‚·B<br>
-     *         (ó‘Ô) extractIncrementIndex:""‚ğ•Ô‚·B<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) property:"abc.def..ghi"<br>
+     *         (çŠ¶æ…‹) isMapProperty:falseã‚’è¿”ã™ã€‚<br>
+     *         (çŠ¶æ…‹) extractAttributeName:property+"Attribute"ã‚’è¿”ã™ã€‚<br>
+     *         (çŠ¶æ…‹) extractIncrementIndex:""ã‚’è¿”ã™ã€‚<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:/abcAttribute/defAttribute/ghiAttribute<br>
-     *         (ó‘Ô•Ï‰») isMapProperty:ˆø”"ghi"‚ª“n‚³‚ê‚½‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») extractAttributeName:“–ƒƒ\ƒbƒh‚Íˆø”(property="abc")‚Å–ß‚è’lproperty+"Attribute"‚Æ‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») extractIncrementIndex:ˆø”"ghi"‚ª“n‚³‚ê‚½‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:/abcAttribute/defAttribute/ghiAttribute<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) isMapProperty:å¼•æ•°"ghi"ãŒæ¸¡ã•ã‚ŒãŸã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) extractAttributeName:å½“ãƒ¡ã‚½ãƒƒãƒ‰ã¯å¼•æ•°(property="abc")ã§æˆ»ã‚Šå€¤property+"Attribute"ã¨ã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) extractIncrementIndex:å¼•æ•°"ghi"ãŒæ¸¡ã•ã‚ŒãŸã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *         
      * <br>
-     * y•s³•¶š‚ÌƒeƒXƒgz<br>
-     * ˆø”‚Ìproperty‚É".."i"."2‰ñ˜A‘±j‚ğŠÜ‚Ş•¶š—ñ‚Ìƒpƒ^[ƒ“‚ÌƒeƒXƒgB
+     * ã€ä¸æ­£æ–‡å­—ã®ãƒ†ã‚¹ãƒˆã€‘<br>
+     * å¼•æ•°ã®propertyã«".."ï¼ˆ"."2å›é€£ç¶šï¼‰ã‚’å«ã‚€æ–‡å­—åˆ—ã®ãƒ‘ã‚¿ãƒ¼ãƒ³ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testToXPath07() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object object = new Object();
         JXPathIndexedBeanWrapperImplStub03 test = 
             new JXPathIndexedBeanWrapperImplStub03(object);
         
-        // “ü—Í’lİ’è
+        // å…¥åŠ›å€¤è¨­å®š
         String property = "abc.def..ghi";
         
-        // ‘O’ñiƒXƒ^ƒujİ’è
+        // å‰æï¼ˆã‚¹ã‚¿ãƒ–ï¼‰è¨­å®š
         test.isMapPropertyResult = false;
         test.extractIncrementIndexResult = "";
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = test.toXPath(property);
         
-        // ”»’è
+        // åˆ¤å®š
         assertEquals("ghi",test.isMapPropertyParam1);
         assertEquals("ghi",test.extractIncrementIndexParam1);
         assertEquals("/abcAttribute/defAttribute/ghiAttribute",result);
@@ -412,36 +412,36 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * testExtractIncrementIndexString01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) property:"abc"<br>
-     *         (ó‘Ô) extractIncremantIndex(String,int):uproperty+":"+incrementv‚ğ•Ô‚·B<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) property:"abc"<br>
+     *         (çŠ¶æ…‹) extractIncremantIndex(String,int):ã€Œproperty+":"+incrementã€ã‚’è¿”ã™ã€‚<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:"abc:1"<br>
-     *         (ó‘Ô•Ï‰») extractIncremantIndex(String,int):“–ƒƒ\ƒbƒh‚Íˆø”(property="abc",increment=1)‚Å–ß‚è’lproperty+":"+increment‚Æ‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:"abc:1"<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) extractIncremantIndex(String,int):å½“ãƒ¡ã‚½ãƒƒãƒ‰ã¯å¼•æ•°(property="abc",increment=1)ã§æˆ»ã‚Šå€¤property+":"+incrementã¨ã™ã‚‹ã€‚<br>
      *         
      * <br>
-     * yextractIncremantIndex(String,int)@@ŒÄ‚Ño‚µ‚ÌƒeƒXƒgz
+     * ã€extractIncremantIndex(String,int)ã€€ã€€å‘¼ã³å‡ºã—ã®ãƒ†ã‚¹ãƒˆã€‘
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExtractIncrementIndexString01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object object = new Object();
         JXPathIndexedBeanWrapperImplStub02 test = 
             new JXPathIndexedBeanWrapperImplStub02(object);
         
-        // “ü—Í’lİ’è
+        // å…¥åŠ›å€¤è¨­å®š
         String property = "abc";
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = test.extractIncrementIndex(property);
         
-        // ”»’è
+        // åˆ¤å®š
         assertEquals("abc:1",result);
     }
 
@@ -449,43 +449,43 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * testExtractIncremantIndexStringint01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) property:"abc"<br>
-     *         (ˆø”) increment:1<br>
-     *         (ó‘Ô) extractIndex:""‚ğ•Ô‚·B<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) property:"abc"<br>
+     *         (å¼•æ•°) increment:1<br>
+     *         (çŠ¶æ…‹) extractIndex:""ã‚’è¿”ã™ã€‚<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:""<br>
-     *         (ó‘Ô•Ï‰») extractIndex:ˆø”"abc"‚ª“n‚³‚ê‚½‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:""<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) extractIndex:å¼•æ•°"abc"ãŒæ¸¡ã•ã‚ŒãŸã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *         
      * <br>
-     * y•¶š—ñ‚ÌƒeƒXƒgz<br>
-     * increment‚ª1‚Å<br>
-     * extractIndex‚ª""‚ğ•Ô‚·ƒpƒ^[ƒ“‚ÌƒeƒXƒgB
+     * ã€æ–‡å­—åˆ—ã®ãƒ†ã‚¹ãƒˆã€‘<br>
+     * incrementãŒ1ã§<br>
+     * extractIndexãŒ""ã‚’è¿”ã™ãƒ‘ã‚¿ãƒ¼ãƒ³ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExtractIncremantIndexStringint01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object object = new Object();
         JXPathIndexedBeanWrapperImplStub01 test = 
             new JXPathIndexedBeanWrapperImplStub01(object);
         
-        // “ü—Í’l
+        // å…¥åŠ›å€¤
         String property = "abc";
         int increment = 1;
         
-        // ‘O’ñiƒXƒ^ƒuj
+        // å‰æï¼ˆã‚¹ã‚¿ãƒ–ï¼‰
         test.extractIndexResult = "";
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = test.extractIncrementIndex(property,increment);
         
-        // ”»’è
+        // åˆ¤å®š
         assertEquals("abc",test.extractIndexParam1);
         assertEquals("",result);
     }
@@ -494,43 +494,43 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * testExtractIncremantIndexStringint02()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) property:"abc"<br>
-     *         (ˆø”) increment:1<br>
-     *         (ó‘Ô) extractIndex:"2"‚ğ•Ô‚·B<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) property:"abc"<br>
+     *         (å¼•æ•°) increment:1<br>
+     *         (çŠ¶æ…‹) extractIndex:"2"ã‚’è¿”ã™ã€‚<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:"[3]"<br>
-     *         (ó‘Ô•Ï‰») extractIndex:ˆø”"abc"‚ª“n‚³‚ê‚½‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:"[3]"<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) extractIndex:å¼•æ•°"abc"ãŒæ¸¡ã•ã‚ŒãŸã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *         
      * <br>
-     * y•¶š—ñ‚ÌƒeƒXƒgz<br>
-     * increment‚ª1‚Å<br>
-     * extractIndex‚ª"2"‚ğ•Ô‚·ƒpƒ^[ƒ“‚ÌƒeƒXƒgB
+     * ã€æ–‡å­—åˆ—ã®ãƒ†ã‚¹ãƒˆã€‘<br>
+     * incrementãŒ1ã§<br>
+     * extractIndexãŒ"2"ã‚’è¿”ã™ãƒ‘ã‚¿ãƒ¼ãƒ³ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExtractIncremantIndexStringint02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object object = new Object();
         JXPathIndexedBeanWrapperImplStub01 test = 
             new JXPathIndexedBeanWrapperImplStub01(object);
         
-        // “ü—Í’l
+        // å…¥åŠ›å€¤
         String property = "abc";
         int increment = 1;
         
-        // ‘O’ñiƒXƒ^ƒuj
+        // å‰æï¼ˆã‚¹ã‚¿ãƒ–ï¼‰
         test.extractIndexResult = "2";
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = test.extractIncrementIndex(property,increment);
         
-        // ”»’è
+        // åˆ¤å®š
         assertEquals("abc",test.extractIndexParam1);
         assertEquals("[3]",result);
     }
@@ -539,43 +539,43 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * testExtractIncremantIndexStringint03()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) property:"abc"<br>
-     *         (ˆø”) increment:-1<br>
-     *         (ó‘Ô) extractIndex:"2"‚ğ•Ô‚·B<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) property:"abc"<br>
+     *         (å¼•æ•°) increment:-1<br>
+     *         (çŠ¶æ…‹) extractIndex:"2"ã‚’è¿”ã™ã€‚<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:"[1]"<br>
-     *         (ó‘Ô•Ï‰») extractIndex:ˆø”"abc"‚ª“n‚³‚ê‚½‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:"[1]"<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) extractIndex:å¼•æ•°"abc"ãŒæ¸¡ã•ã‚ŒãŸã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *         
      * <br>
-     * y•¶š—ñ‚ÌƒeƒXƒgz<br>
-     * increment‚ª-1‚Å<br>
-     * extractIndex‚ª"2"‚ğ•Ô‚·ƒpƒ^[ƒ“‚ÌƒeƒXƒgB
+     * ã€æ–‡å­—åˆ—ã®ãƒ†ã‚¹ãƒˆã€‘<br>
+     * incrementãŒ-1ã§<br>
+     * extractIndexãŒ"2"ã‚’è¿”ã™ãƒ‘ã‚¿ãƒ¼ãƒ³ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExtractIncremantIndexStringint03() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object object = new Object();
         JXPathIndexedBeanWrapperImplStub01 test = 
             new JXPathIndexedBeanWrapperImplStub01(object);
         
-        // “ü—Í’l
+        // å…¥åŠ›å€¤
         String property = "abc";
         int increment = -1;
         
-        // ‘O’ñiƒXƒ^ƒuj
+        // å‰æï¼ˆã‚¹ã‚¿ãƒ–ï¼‰
         test.extractIndexResult = "2";
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = test.extractIncrementIndex(property,increment);
         
-        // ”»’è
+        // åˆ¤å®š
         assertEquals("abc",test.extractIndexParam1);
         assertEquals("[1]",result);
     }
@@ -584,35 +584,35 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * testExtractIndex01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) property:""[‹ó•¶š]<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) property:""[ç©ºæ–‡å­—]<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:""<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:""<br>
      *         
      * <br>
-     * y‹ó•¶š‚ÌƒeƒXƒgz<br>
-     * ˆø”‚Ìproperty‚ª‹ó•¶š‚ÌƒeƒXƒgB
+     * ã€ç©ºæ–‡å­—ã®ãƒ†ã‚¹ãƒˆã€‘<br>
+     * å¼•æ•°ã®propertyãŒç©ºæ–‡å­—ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExtractIndex01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object object = new Object();
         JXPathIndexedBeanWrapperImpl test = 
             new JXPathIndexedBeanWrapperImpl(object);
         
-        // “ü—Í’l
+        // å…¥åŠ›å€¤
         String property = "";
                 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = test.extractIndex(property);
         
-        // ”»’è
+        // åˆ¤å®š
         assertEquals("",result);
     }
 
@@ -620,35 +620,35 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * testExtractIndex02()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) property:"abc"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) property:"abc"<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:""<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:""<br>
      *         
      * <br>
-     * y•¶š‚ÌƒeƒXƒgz<br>
-     * ˆø”‚Ìproperty‚É"["‚Ü‚½‚Í"]"‚ª“ü‚Á‚Ä‚¢‚È‚¢ƒpƒ^[ƒ“‚ÌƒeƒXƒgB
+     * ã€æ–‡å­—ã®ãƒ†ã‚¹ãƒˆã€‘<br>
+     * å¼•æ•°ã®propertyã«"["ã¾ãŸã¯"]"ãŒå…¥ã£ã¦ã„ãªã„ãƒ‘ã‚¿ãƒ¼ãƒ³ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExtractIndex02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object object = new Object();
         JXPathIndexedBeanWrapperImpl test = 
             new JXPathIndexedBeanWrapperImpl(object);
         
-        // “ü—Í’l
+        // å…¥åŠ›å€¤
         String property = "abc";
                 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = test.extractIndex(property);
         
-        // ”»’è
+        // åˆ¤å®š
         assertEquals("",result);
     }
 
@@ -656,40 +656,40 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * testExtractIndex03()
      * <br><br>
      * 
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) property:"["<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) property:"["<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    @ƒƒbƒZ[ƒWFCannot get Index. Invalid property name. '['<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:ƒƒOƒŒƒxƒ‹FƒGƒ‰[<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ã€€ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼šCannot get Index. Invalid property name. '['<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ï¼šã‚¨ãƒ©ãƒ¼<br>
      *                    Cannot get Index. Invalid property name. '['<br>
      *         
      * <br>
-     * y•s³•¶š‚ÌƒeƒXƒgz<br>
-     * ˆø”‚Ìproperty‚ª"["‚Ìƒpƒ^[ƒ“‚ÌƒeƒXƒgB
+     * ã€ä¸æ­£æ–‡å­—ã®ãƒ†ã‚¹ãƒˆã€‘<br>
+     * å¼•æ•°ã®propertyãŒ"["ã®ãƒ‘ã‚¿ãƒ¼ãƒ³ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExtractIndex03() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object object = new Object();
         JXPathIndexedBeanWrapperImpl test = 
             new JXPathIndexedBeanWrapperImpl(object);
         
-        // “ü—Í’l
+        // å…¥åŠ›å€¤
         String property = "[";
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try{
             test.extractIndex(property);
             fail();
         }catch(IllegalArgumentException e){
-            // ”»’è
+            // åˆ¤å®š
             assertEquals("Cannot get Index. Invalid property name. '['", 
                         e.getMessage());
             assertTrue(LogUTUtil.checkError(
@@ -702,40 +702,40 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * testExtractIndex04()
      * <br><br>
      * 
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) property:"]"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) property:"]"<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    @ƒƒbƒZ[ƒWFCannot get Index. Invalid property name. ']'<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:ƒƒOƒŒƒxƒ‹FƒGƒ‰[<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ã€€ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼šCannot get Index. Invalid property name. ']'<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ï¼šã‚¨ãƒ©ãƒ¼<br>
      *                    Cannot get Index. Invalid property name. ']'<br>
      *         
      * <br>
-     * y•s³•¶š‚ÌƒeƒXƒgz<br>
-     * ˆø”‚Ìproperty‚ª"]"‚Ìƒpƒ^[ƒ“‚ÌƒeƒXƒgB
+     * ã€ä¸æ­£æ–‡å­—ã®ãƒ†ã‚¹ãƒˆã€‘<br>
+     * å¼•æ•°ã®propertyãŒ"]"ã®ãƒ‘ã‚¿ãƒ¼ãƒ³ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExtractIndex04() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object object = new Object();
         JXPathIndexedBeanWrapperImpl test = 
             new JXPathIndexedBeanWrapperImpl(object);
         
-        // “ü—Í’l
+        // å…¥åŠ›å€¤
         String property = "]";
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try{
             test.extractIndex(property);
             fail();
         }catch(IllegalArgumentException e){
-            // ”»’è
+            // åˆ¤å®š
             assertEquals("Cannot get Index. Invalid property name. ']'", 
                         e.getMessage());
             assertTrue(LogUTUtil.checkError(
@@ -748,40 +748,40 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * testExtractIndex05()
      * <br><br>
      * 
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) property:"]["<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) property:"]["<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    @ƒƒbƒZ[ƒWFCannot get Index. Invalid property name. ']['<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:ƒƒOƒŒƒxƒ‹FƒGƒ‰[<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ã€€ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼šCannot get Index. Invalid property name. ']['<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ï¼šã‚¨ãƒ©ãƒ¼<br>
      *                    Cannot get Index. Invalid property name. ']['<br>
      *         
      * <br>
-     * y•s³•¶š‚ÌƒeƒXƒgz<br>
-     * ˆø”‚Ìproperty‚ª"]["‚Ìƒpƒ^[ƒ“‚ÌƒeƒXƒgB
+     * ã€ä¸æ­£æ–‡å­—ã®ãƒ†ã‚¹ãƒˆã€‘<br>
+     * å¼•æ•°ã®propertyãŒ"]["ã®ãƒ‘ã‚¿ãƒ¼ãƒ³ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExtractIndex05() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object object = new Object();
         JXPathIndexedBeanWrapperImpl test = 
             new JXPathIndexedBeanWrapperImpl(object);
         
-        // “ü—Í’l
+        // å…¥åŠ›å€¤
         String property = "][";
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try{
             test.extractIndex(property);
             fail();
         }catch(IllegalArgumentException e){
-            // ”»’è
+            // åˆ¤å®š
             assertEquals("Cannot get Index. Invalid property name. ']['", 
                         e.getMessage());
             assertTrue(LogUTUtil.checkError(
@@ -794,35 +794,35 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * testExtractIndex06()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) property:"[]"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) property:"[]"<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:""<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:""<br>
      *         
      * <br>
-     * y•¶š‚ÌƒeƒXƒgz<br>
-     * ˆø”‚Ìproperty‚ª"[]"‚Ìƒpƒ^[ƒ“‚ÌƒeƒXƒgB
+     * ã€æ–‡å­—ã®ãƒ†ã‚¹ãƒˆã€‘<br>
+     * å¼•æ•°ã®propertyãŒ"[]"ã®ãƒ‘ã‚¿ãƒ¼ãƒ³ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExtractIndex06() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object object = new Object();
         JXPathIndexedBeanWrapperImpl test = 
             new JXPathIndexedBeanWrapperImpl(object);
         
-        // “ü—Í’l
+        // å…¥åŠ›å€¤
         String property = "[]";
                 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = test.extractIndex(property);
         
-        // ”»’è
+        // åˆ¤å®š
         assertEquals("",result);
     }
 
@@ -830,35 +830,35 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * testExtractIndex07()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) property:"ab[c]d[3]"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) property:"ab[c]d[3]"<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:"3"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:"3"<br>
      *         
      * <br>
-     * y•¶š‚ÌƒeƒXƒgz<br>
-     * ˆø”‚Ìproperty‚É"[]"‚ª“ñ‚Â“ü‚Á‚Ä‚¢‚éƒpƒ^[ƒ“‚ÌƒeƒXƒgB
+     * ã€æ–‡å­—ã®ãƒ†ã‚¹ãƒˆã€‘<br>
+     * å¼•æ•°ã®propertyã«"[]"ãŒäºŒã¤å…¥ã£ã¦ã„ã‚‹ãƒ‘ã‚¿ãƒ¼ãƒ³ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExtractIndex07() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object object = new Object();
         JXPathIndexedBeanWrapperImpl test = 
             new JXPathIndexedBeanWrapperImpl(object);
         
-        // “ü—Í’l
+        // å…¥åŠ›å€¤
         String property = "ab[c]d[3]";
                 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = test.extractIndex(property);
         
-        // ”»’è
+        // åˆ¤å®š
         assertEquals("3",result);
     }
 
@@ -866,38 +866,38 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * testEscapeMapProperty01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) property:"abc"<br>
-     *         (ó‘Ô) extractMapPropertyName:property+"Name"‚ğ•Ô‚·B<br>
-     *         (ó‘Ô) extractMapPropertyKey:property+"Key"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) property:"abc"<br>
+     *         (çŠ¶æ…‹) extractMapPropertyName:property+"Name"ã‚’è¿”ã™ã€‚<br>
+     *         (çŠ¶æ…‹) extractMapPropertyKey:property+"Key"<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:abcName/abcKey<br>
-     *         (ó‘Ô•Ï‰») extractMapPropertyName:“–ƒƒ\ƒbƒh‚Íˆø”(property="abc")‚Å–ß‚è’lproperty+"Name"‚Æ‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») extractMapPropertyKey:“–ƒƒ\ƒbƒh‚Íˆø”(property="abc")‚Å–ß‚è’lproperty+"Key"‚Æ‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:abcName/abcKey<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) extractMapPropertyName:å½“ãƒ¡ã‚½ãƒƒãƒ‰ã¯å¼•æ•°(property="abc")ã§æˆ»ã‚Šå€¤property+"Name"ã¨ã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) extractMapPropertyKey:å½“ãƒ¡ã‚½ãƒƒãƒ‰ã¯å¼•æ•°(property="abc")ã§æˆ»ã‚Šå€¤property+"Key"ã¨ã™ã‚‹ã€‚<br>
      *         
      * <br>
-     * yƒƒ\ƒbƒh‚ÌŒÄ‚Ño‚µ‚ÆŒ‹‰Ê‚Ì®Œ`‚ÌƒeƒXƒgz
+     * ã€ãƒ¡ã‚½ãƒƒãƒ‰ã®å‘¼ã³å‡ºã—ã¨çµæœã®æ•´å½¢ã®ãƒ†ã‚¹ãƒˆã€‘
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testEscapeMapProperty01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object object = new Object();
         JXPathIndexedBeanWrapperImplStub01 test = 
             new JXPathIndexedBeanWrapperImplStub01(object);
         
-        // “ü—Í’lİ’è
+        // å…¥åŠ›å€¤è¨­å®š
         String property = "abc";
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = test.escapeMapProperty(property);
         
-        // ”»’è
+        // åˆ¤å®š
         assertEquals("abcName/abcKey",result);
     }
 
@@ -905,40 +905,40 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * testExtractMapPropertyName01()
      * <br><br>
      * 
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) property:""i‹ó•¶šj<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) property:""ï¼ˆç©ºæ–‡å­—ï¼‰<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    @ƒƒbƒZ[ƒWFCannot get Map attribute. Invalid property name. ''<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:ƒƒOƒŒƒxƒ‹FƒGƒ‰[<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ã€€ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼šCannot get Map attribute. Invalid property name. ''<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ï¼šã‚¨ãƒ©ãƒ¼<br>
      *                    Cannot get Map attribute. Invalid property name. ''<br>
      *         
      * <br>
-     * y‹ó•¶š‚ÌƒeƒXƒgz<br>
-     * ˆø”‚Ìproperty‚ª‹ó•¶š‚ÌƒeƒXƒgB
+     * ã€ç©ºæ–‡å­—ã®ãƒ†ã‚¹ãƒˆã€‘<br>
+     * å¼•æ•°ã®propertyãŒç©ºæ–‡å­—ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExtractMapPropertyName01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object object = new Object();
         JXPathIndexedBeanWrapperImpl test = 
             new JXPathIndexedBeanWrapperImpl(object);
         
-        // “ü—Í’l
+        // å…¥åŠ›å€¤
         String property = "";
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try{
             test.extractMapPropertyName(property);
             fail();
         }catch(IllegalArgumentException e){
-            // ”»’è
+            // åˆ¤å®š
             assertEquals(
                     "Cannot get Map attribute. Invalid property name. ''", 
                         e.getMessage());
@@ -952,40 +952,40 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * testExtractMapPropertyName02()
      * <br><br>
      * 
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) property:"abc"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) property:"abc"<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    @ƒƒbƒZ[ƒWFCannot get Map attribute. Invalid property name. 'abc'<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:ƒƒOƒŒƒxƒ‹FƒGƒ‰[<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ã€€ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼šCannot get Map attribute. Invalid property name. 'abc'<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ï¼šã‚¨ãƒ©ãƒ¼<br>
      *                    Cannot get Map attribute. Invalid property name. 'abc'<br>
      *         
      * <br>
-     * y•s³•¶š‚ÌƒeƒXƒgz<br>
-     * ˆø”‚Ìproperty‚É"("‚Ü‚½‚Í")"‚ª“ü‚Á‚Ä‚¢‚È‚¢ƒpƒ^[ƒ“‚ÌƒeƒXƒgB
+     * ã€ä¸æ­£æ–‡å­—ã®ãƒ†ã‚¹ãƒˆã€‘<br>
+     * å¼•æ•°ã®propertyã«"("ã¾ãŸã¯")"ãŒå…¥ã£ã¦ã„ãªã„ãƒ‘ã‚¿ãƒ¼ãƒ³ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExtractMapPropertyName02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object object = new Object();
         JXPathIndexedBeanWrapperImpl test = 
             new JXPathIndexedBeanWrapperImpl(object);
         
-        // “ü—Í’l
+        // å…¥åŠ›å€¤
         String property = "abc";
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try{
             test.extractMapPropertyName(property);
             fail();
         }catch(IllegalArgumentException e){
-            // ”»’è
+            // åˆ¤å®š
             assertEquals("Cannot get Map attribute. Invalid property name. 'abc'", 
                         e.getMessage());
             assertTrue(LogUTUtil.checkError(
@@ -998,35 +998,35 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * testExtractMapPropertyName03()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) property:"("<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) property:"("<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:""<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:""<br>
      *         
      * <br>
-     * y•¶š‚ÌƒeƒXƒgz<br>
-     * ˆø”‚Ìproperty‚ª"("‚Ìƒpƒ^[ƒ“‚ÌƒeƒXƒgB
+     * ã€æ–‡å­—ã®ãƒ†ã‚¹ãƒˆã€‘<br>
+     * å¼•æ•°ã®propertyãŒ"("ã®ãƒ‘ã‚¿ãƒ¼ãƒ³ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExtractMapPropertyName03() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object object = new Object();
         JXPathIndexedBeanWrapperImpl test = 
             new JXPathIndexedBeanWrapperImpl(object);
         
-        // “ü—Í’lİ’è
+        // å…¥åŠ›å€¤è¨­å®š
         String property = "(";
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = test.extractMapPropertyName(property);
         
-        // ”»’è
+        // åˆ¤å®š
         assertEquals("",result);
     }
 
@@ -1034,35 +1034,35 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * testExtractMapPropertyName04()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) property:"ab()"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) property:"ab()"<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:"ab"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:"ab"<br>
      *         
      * <br>
-     * y•¶š‚ÌƒeƒXƒgz<br>
-     * ˆø”‚Ìproperty‚Ì"()"‚Ì‘O‚É‚¾‚¯•¶š‚ª“ü‚Á‚Ä‚¢‚éƒpƒ^[ƒ“‚ÌƒeƒXƒgB
+     * ã€æ–‡å­—ã®ãƒ†ã‚¹ãƒˆã€‘<br>
+     * å¼•æ•°ã®propertyã®"()"ã®å‰ã«ã ã‘æ–‡å­—ãŒå…¥ã£ã¦ã„ã‚‹ãƒ‘ã‚¿ãƒ¼ãƒ³ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExtractMapPropertyName04() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object object = new Object();
         JXPathIndexedBeanWrapperImpl test = 
             new JXPathIndexedBeanWrapperImpl(object);
         
-        // “ü—Í’lİ’è
+        // å…¥åŠ›å€¤è¨­å®š
         String property = "ab()";
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = test.extractMapPropertyName(property);
         
-        // ”»’è
+        // åˆ¤å®š
         assertEquals("ab",result);
     }
 
@@ -1070,40 +1070,40 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * testExtractMapPropertyKey01()
      * <br><br>
      * 
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) property:""i‹ó•¶šj<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) property:""ï¼ˆç©ºæ–‡å­—ï¼‰<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    @ƒƒbƒZ[ƒWFCannot get Map key. Invalid property name. ''<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:ƒƒOƒŒƒxƒ‹FƒGƒ‰[<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ã€€ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼šCannot get Map key. Invalid property name. ''<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ï¼šã‚¨ãƒ©ãƒ¼<br>
      *                    Cannot get Map key. Invalid property name. ''<br>
      *         
      * <br>
-     * y‹ó•¶š‚ÌƒeƒXƒgz<br>
-     * ˆø”‚Ìproperty‚ª‹ó•¶š‚ÌƒeƒXƒgB
+     * ã€ç©ºæ–‡å­—ã®ãƒ†ã‚¹ãƒˆã€‘<br>
+     * å¼•æ•°ã®propertyãŒç©ºæ–‡å­—ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExtractMapPropertyKey01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object object = new Object();
         JXPathIndexedBeanWrapperImpl test = 
             new JXPathIndexedBeanWrapperImpl(object);
         
-        // “ü—Í’l
+        // å…¥åŠ›å€¤
         String property = "";
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try{
             test.extractMapPropertyKey(property);
             fail();
         }catch(IllegalArgumentException e){
-            // ”»’è
+            // åˆ¤å®š
             assertEquals("Cannot get Map key. Invalid property name. ''", 
                         e.getMessage());
             assertTrue(LogUTUtil.checkError(
@@ -1116,40 +1116,40 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * testExtractMapPropertyKey02()
      * <br><br>
      * 
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) property:"abc"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) property:"abc"<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    @ƒƒbƒZ[ƒWFCannot get Map key. Invalid property name. 'abc'<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:ƒƒOƒŒƒxƒ‹FƒGƒ‰[<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ã€€ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼šCannot get Map key. Invalid property name. 'abc'<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ï¼šã‚¨ãƒ©ãƒ¼<br>
      *                    Cannot get Map key. Invalid property name. 'abc'<br>
      *         
      * <br>
-     * y•s³•¶š‚ÌƒeƒXƒgz<br>
-     * ˆø”‚Ìproperty‚É"("‚Ü‚½‚Í")"‚ª“ü‚Á‚Ä‚¢‚È‚¢ƒpƒ^[ƒ“‚ÌƒeƒXƒgB
+     * ã€ä¸æ­£æ–‡å­—ã®ãƒ†ã‚¹ãƒˆã€‘<br>
+     * å¼•æ•°ã®propertyã«"("ã¾ãŸã¯")"ãŒå…¥ã£ã¦ã„ãªã„ãƒ‘ã‚¿ãƒ¼ãƒ³ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExtractMapPropertyKey02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object object = new Object();
         JXPathIndexedBeanWrapperImpl test = 
             new JXPathIndexedBeanWrapperImpl(object);
         
-        // “ü—Í’l
+        // å…¥åŠ›å€¤
         String property = "abc";
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try{
             test.extractMapPropertyKey(property);
             fail();
         }catch(IllegalArgumentException e){
-            // ”»’è
+            // åˆ¤å®š
             assertEquals("Cannot get Map key. Invalid property name. 'abc'", 
                         e.getMessage());
             assertTrue(LogUTUtil.checkError(
@@ -1162,40 +1162,40 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * testExtractMapPropertyKey03()
      * <br><br>
      * 
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) property:"("<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) property:"("<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    @ƒƒbƒZ[ƒWFCannot get Map key. Invalid property name. '('<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:ƒƒOƒŒƒxƒ‹FƒGƒ‰[<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ã€€ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼šCannot get Map key. Invalid property name. '('<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ï¼šã‚¨ãƒ©ãƒ¼<br>
      *                    Cannot get Map key. Invalid property name. '('<br>
      *         
      * <br>
-     * y•s³•¶š‚ÌƒeƒXƒgz<br>
-     * ˆø”‚Ìproperty‚ª"("‚Ìƒpƒ^[ƒ“‚ÌƒeƒXƒgB
+     * ã€ä¸æ­£æ–‡å­—ã®ãƒ†ã‚¹ãƒˆã€‘<br>
+     * å¼•æ•°ã®propertyãŒ"("ã®ãƒ‘ã‚¿ãƒ¼ãƒ³ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExtractMapPropertyKey03() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object object = new Object();
         JXPathIndexedBeanWrapperImpl test = 
             new JXPathIndexedBeanWrapperImpl(object);
         
-        // “ü—Í’l
+        // å…¥åŠ›å€¤
         String property = "(";
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try{
             test.extractMapPropertyKey(property);
             fail();
         }catch(IllegalArgumentException e){
-            // ”»’è
+            // åˆ¤å®š
             assertEquals("Cannot get Map key. Invalid property name. '('", 
                         e.getMessage());
             assertTrue(LogUTUtil.checkError(
@@ -1208,40 +1208,40 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * testExtractMapPropertyKey04()
      * <br><br>
      * 
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) property:")"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) property:")"<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    @ƒƒbƒZ[ƒWFCannot get Map key. Invalid property name. ')'<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:ƒƒOƒŒƒxƒ‹FƒGƒ‰[<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ã€€ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼šCannot get Map key. Invalid property name. ')'<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ï¼šã‚¨ãƒ©ãƒ¼<br>
      *                    Cannot get Map key. Invalid property name. ')'<br>
      *         
      * <br>
-     * y•s³•¶š‚ÌƒeƒXƒgz<br>
-     * ˆø”‚Ìproperty‚ª")"‚Ìƒpƒ^[ƒ“‚ÌƒeƒXƒgB
+     * ã€ä¸æ­£æ–‡å­—ã®ãƒ†ã‚¹ãƒˆã€‘<br>
+     * å¼•æ•°ã®propertyãŒ")"ã®ãƒ‘ã‚¿ãƒ¼ãƒ³ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExtractMapPropertyKey04() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object object = new Object();
         JXPathIndexedBeanWrapperImpl test = 
             new JXPathIndexedBeanWrapperImpl(object);
         
-        // “ü—Í’l
+        // å…¥åŠ›å€¤
         String property = ")";
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try{
             test.extractMapPropertyKey(property);
             fail();
         }catch(IllegalArgumentException e){
-            // ”»’è
+            // åˆ¤å®š
             assertEquals("Cannot get Map key. Invalid property name. ')'", 
                         e.getMessage());
             assertTrue(LogUTUtil.checkError(
@@ -1254,40 +1254,40 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * testExtractMapPropertyKey05()
      * <br><br>
      * 
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) property:")("<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) property:")("<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    @ƒƒbƒZ[ƒWFCannot get Map key. Invalid property name. ')('<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:ƒƒOƒŒƒxƒ‹FƒGƒ‰[<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ã€€ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼šCannot get Map key. Invalid property name. ')('<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ï¼šã‚¨ãƒ©ãƒ¼<br>
      *                    Cannot get Map key. Invalid property name. ')('<br>
      *         
      * <br>
-     * y•s³•¶š‚ÌƒeƒXƒgz<br>
-     * ˆø”‚Ìproperty‚ª")("‚Ìƒpƒ^[ƒ“‚ÌƒeƒXƒgB
+     * ã€ä¸æ­£æ–‡å­—ã®ãƒ†ã‚¹ãƒˆã€‘<br>
+     * å¼•æ•°ã®propertyãŒ")("ã®ãƒ‘ã‚¿ãƒ¼ãƒ³ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExtractMapPropertyKey05() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object object = new Object();
         JXPathIndexedBeanWrapperImpl test = 
             new JXPathIndexedBeanWrapperImpl(object);
         
-        // “ü—Í’l
+        // å…¥åŠ›å€¤
         String property = ")(";
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try{
             test.extractMapPropertyKey(property);
             fail();
         }catch(IllegalArgumentException e){
-            // ”»’è
+            // åˆ¤å®š
             assertEquals("Cannot get Map key. Invalid property name. ')('", 
                         e.getMessage());
             assertTrue(LogUTUtil.checkError(
@@ -1300,35 +1300,35 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * testExtractMapPropertyKey06()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) property:"()"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) property:"()"<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:""<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:""<br>
      *         
      * <br>
-     * y•¶š‚ÌƒeƒXƒgz<br>
-     * ˆø”‚Ìproperty‚ª"()"‚Ìƒpƒ^[ƒ“‚ÌƒeƒXƒgB
+     * ã€æ–‡å­—ã®ãƒ†ã‚¹ãƒˆã€‘<br>
+     * å¼•æ•°ã®propertyãŒ"()"ã®ãƒ‘ã‚¿ãƒ¼ãƒ³ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExtractMapPropertyKey06() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object object = new Object();
         JXPathIndexedBeanWrapperImpl test = 
             new JXPathIndexedBeanWrapperImpl(object);
         
-        // “ü—Í’lİ’è
+        // å…¥åŠ›å€¤è¨­å®š
         String property = "()";
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = test.extractMapPropertyKey(property);
         
-        // ”»’è
+        // åˆ¤å®š
         assertEquals("",result);
     }
 
@@ -1336,35 +1336,35 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * testExtractMapPropertyKey07()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) property:"ab(cd)e"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) property:"ab(cd)e"<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:"cd"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:"cd"<br>
      *         
      * <br>
-     * y•¶š‚ÌƒeƒXƒgz<br>
-     * ˆø”‚Ìproperty‚Ì"("‚Æ")"‚Ì‘OŒã‚É•¶š‚ª“ü‚Á‚Ä‚¢‚éƒpƒ^[ƒ“‚ÌƒeƒXƒgB
+     * ã€æ–‡å­—ã®ãƒ†ã‚¹ãƒˆã€‘<br>
+     * å¼•æ•°ã®propertyã®"("ã¨")"ã®å‰å¾Œã«æ–‡å­—ãŒå…¥ã£ã¦ã„ã‚‹ãƒ‘ã‚¿ãƒ¼ãƒ³ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExtractMapPropertyKey07() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object object = new Object();
         JXPathIndexedBeanWrapperImpl test = 
             new JXPathIndexedBeanWrapperImpl(object);
         
-        // “ü—Í’lİ’è
+        // å…¥åŠ›å€¤è¨­å®š
         String property = "ab(cd)e";
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = test.extractMapPropertyKey(property);
         
-        // ”»’è
+        // åˆ¤å®š
         assertEquals("cd",result);
     }
 
@@ -1372,35 +1372,35 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * testIsMapProperty01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) property:""i‹ó•¶šj<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) property:""ï¼ˆç©ºæ–‡å­—ï¼‰<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
      *         
      * <br>
-     * y‹ó•¶š‚ÌƒeƒXƒgz<br>
-     * ˆø”‚Ìproperty‚ª‹ó•¶š‚ÌƒeƒXƒgB
+     * ã€ç©ºæ–‡å­—ã®ãƒ†ã‚¹ãƒˆã€‘<br>
+     * å¼•æ•°ã®propertyãŒç©ºæ–‡å­—ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsMapProperty01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object object = new Object();
         JXPathIndexedBeanWrapperImplStub01 test = 
             new JXPathIndexedBeanWrapperImplStub01(object);
         
-        // “ü—Í’lİ’è
+        // å…¥åŠ›å€¤è¨­å®š
         String property = "";
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean result = test.isMapProperty(property);
         
-        // ”»’è
+        // åˆ¤å®š
         assertFalse(result);
     }
 
@@ -1408,35 +1408,35 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * testIsMapProperty02()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) property:"abc"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) property:"abc"<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
      *         
      * <br>
-     * y•¶š‚ÌƒeƒXƒgz<br>
-     * ˆø”‚Ìproperty‚É"("‚Ü‚½‚Í")"‚ª“ü‚Á‚Ä‚¢‚È‚¢ƒpƒ^[ƒ“‚ÌƒeƒXƒgB
+     * ã€æ–‡å­—ã®ãƒ†ã‚¹ãƒˆã€‘<br>
+     * å¼•æ•°ã®propertyã«"("ã¾ãŸã¯")"ãŒå…¥ã£ã¦ã„ãªã„ãƒ‘ã‚¿ãƒ¼ãƒ³ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsMapProperty02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object object = new Object();
         JXPathIndexedBeanWrapperImplStub01 test = 
             new JXPathIndexedBeanWrapperImplStub01(object);
         
-        // “ü—Í’lİ’è
+        // å…¥åŠ›å€¤è¨­å®š
         String property = "abc";
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean result = test.isMapProperty(property);
         
-        // ”»’è
+        // åˆ¤å®š
         assertFalse(result);
     }
 
@@ -1444,35 +1444,35 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * testIsMapProperty03()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) property:"("<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) property:"("<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
      *         
      * <br>
-     * y•¶š‚ÌƒeƒXƒgz<br>
-     * ˆø”‚Ìproperty‚ª"("‚Ìƒpƒ^[ƒ“‚ÌƒeƒXƒgB
+     * ã€æ–‡å­—ã®ãƒ†ã‚¹ãƒˆã€‘<br>
+     * å¼•æ•°ã®propertyãŒ"("ã®ãƒ‘ã‚¿ãƒ¼ãƒ³ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsMapProperty03() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object object = new Object();
         JXPathIndexedBeanWrapperImplStub01 test = 
             new JXPathIndexedBeanWrapperImplStub01(object);
         
-        // “ü—Í’lİ’è
+        // å…¥åŠ›å€¤è¨­å®š
         String property = "(";
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean result = test.isMapProperty(property);
         
-        // ”»’è
+        // åˆ¤å®š
         assertFalse(result);
     }
 
@@ -1480,35 +1480,35 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * testIsMapProperty04()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) property:")"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) property:")"<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
      *         
      * <br>
-     * y•¶š‚ÌƒeƒXƒgz<br>
-     * ˆø”‚Ìproperty‚ª")"‚Ìƒpƒ^[ƒ“‚ÌƒeƒXƒgB
+     * ã€æ–‡å­—ã®ãƒ†ã‚¹ãƒˆã€‘<br>
+     * å¼•æ•°ã®propertyãŒ")"ã®ãƒ‘ã‚¿ãƒ¼ãƒ³ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsMapProperty04() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object object = new Object();
         JXPathIndexedBeanWrapperImplStub01 test = 
             new JXPathIndexedBeanWrapperImplStub01(object);
         
-        // “ü—Í’lİ’è
+        // å…¥åŠ›å€¤è¨­å®š
         String property = ")";
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean result = test.isMapProperty(property);
         
-        // ”»’è
+        // åˆ¤å®š
         assertFalse(result);
     }
 
@@ -1516,35 +1516,35 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * testIsMapProperty05()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) property:")("<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) property:")("<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *         
      * <br>
-     * y•¶š‚ÌƒeƒXƒgz<br>
-     * ˆø”‚Ìproperty‚ª")("‚Ìƒpƒ^[ƒ“‚ÌƒeƒXƒgB
+     * ã€æ–‡å­—ã®ãƒ†ã‚¹ãƒˆã€‘<br>
+     * å¼•æ•°ã®propertyãŒ")("ã®ãƒ‘ã‚¿ãƒ¼ãƒ³ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsMapProperty05() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object object = new Object();
         JXPathIndexedBeanWrapperImplStub01 test = 
             new JXPathIndexedBeanWrapperImplStub01(object);
         
-        // “ü—Í’lİ’è
+        // å…¥åŠ›å€¤è¨­å®š
         String property = ")(";
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean result = test.isMapProperty(property);
         
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(result);
     }
 
@@ -1552,35 +1552,35 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * testIsMapProperty06()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) property:"()"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) property:"()"<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *         
      * <br>
-     * y•¶š‚ÌƒeƒXƒgz<br>
-     * ˆø”‚Ìproperty‚ª"()"‚Ìƒpƒ^[ƒ“‚ÌƒeƒXƒgB
+     * ã€æ–‡å­—ã®ãƒ†ã‚¹ãƒˆã€‘<br>
+     * å¼•æ•°ã®propertyãŒ"()"ã®ãƒ‘ã‚¿ãƒ¼ãƒ³ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsMapProperty06() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object object = new Object();
         JXPathIndexedBeanWrapperImplStub01 test = 
             new JXPathIndexedBeanWrapperImplStub01(object);
         
-        // “ü—Í’lİ’è
+        // å…¥åŠ›å€¤è¨­å®š
         String property = "()";
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean result = test.isMapProperty(property);
         
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(result);
     }
 

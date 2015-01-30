@@ -21,14 +21,14 @@ import java.util.concurrent.Callable;
 
 
 /**
- * {@link GenericsUtil}‚ÌƒeƒXƒg‚Ì‚½‚ß‚ÌƒXƒ^ƒuƒNƒ‰ƒXB
+ * {@link GenericsUtil}ã®ãƒ†ã‚¹ãƒˆã®ãŸã‚ã®ã‚¹ã‚¿ãƒ–ã‚¯ãƒ©ã‚¹ã€‚
  *
  */
 public class GenericsUtil_FutureTaskStub03
         extends GenericsUtil_FutureTaskStub01<Map<String, Object>> {
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      *
      * @param callable
      */

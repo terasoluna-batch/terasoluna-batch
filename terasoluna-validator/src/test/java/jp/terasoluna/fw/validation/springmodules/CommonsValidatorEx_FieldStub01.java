@@ -23,28 +23,28 @@ import org.apache.commons.validator.ValidatorException;
 import org.apache.commons.validator.ValidatorResults;
 
 /**
- * Field‚ÌƒXƒ^ƒuƒNƒ‰ƒXB
+ * Fieldã®ã‚¹ã‚¿ãƒ–ã‚¯ãƒ©ã‚¹ã€‚
  * 
  */
 public class CommonsValidatorEx_FieldStub01 extends Field {
     
     /**
-     * ƒVƒŠƒAƒ‹ƒo[ƒWƒ‡ƒ“IDB
+     * ã‚·ãƒªã‚¢ãƒ«ãƒãƒ¼ã‚¸ãƒ§ãƒ³IDã€‚
      */
     private static final long serialVersionUID = -4645334897091822184L;
 
     /**
-     * validateƒƒ\ƒbƒh‚Ì–ß‚è’lB
+     * validateãƒ¡ã‚½ãƒƒãƒ‰ã®æˆ»ã‚Šå€¤ã€‚
      */
     protected ValidatorResults validateReturn = null;
 
     /**
-     * validateƒƒ\ƒbƒh‚ªƒXƒ[‚·‚évalidatorExceptionB
+     * validateãƒ¡ã‚½ãƒƒãƒ‰ãŒã‚¹ãƒ­ãƒ¼ã™ã‚‹validatorExceptionã€‚
      */
     protected ValidatorException validatorException = null;
 
     /**
-     * ƒI[ƒo[ƒ‰ƒCƒh‚µ‚½validateƒƒ\ƒbƒhB
+     * ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã—ãŸvalidateãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     @Override
     public ValidatorResults validate(Map params, Map actions)

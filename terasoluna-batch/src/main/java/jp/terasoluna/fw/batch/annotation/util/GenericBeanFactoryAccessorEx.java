@@ -29,10 +29,10 @@ import org.springframework.beans.factory.support.AbstractBeanDefinition;
 import org.springframework.core.annotation.AnnotationUtils;
 
 /**
- * GenericBeanFactoryAccessor‚ÌŠg’£ƒNƒ‰ƒXB
+ * GenericBeanFactoryAccessorã®æ‹¡å¼µã‚¯ãƒ©ã‚¹ã€‚
  * <p>
- * ƒAƒmƒe[ƒVƒ‡ƒ“‚ÌŒ^‚ÅBean‚ğ’Tõ‚·‚éƒƒ\ƒbƒh‚ğ eƒRƒ“ƒeƒLƒXƒg‚©‚ç‚àbeanæ“¾‚Å‚«‚é‚æ‚¤‚É•ÏXB
- * singleton(ƒfƒtƒHƒ‹ƒg)‚Ìbean‚ÉJDKƒvƒƒLƒV‚ª‚Â‚¢‚Ä‚¢‚Ä‚àAƒAƒmƒe[ƒVƒ‡ƒ“‚ÌŒŸ¸‚ª‚Å‚«‚é‚æ‚¤‚É•ÏXB
+ * ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã®å‹ã§Beanã‚’æ¢ç´¢ã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ã‚’ è¦ªã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆã‹ã‚‰ã‚‚beanå–å¾—ã§ãã‚‹ã‚ˆã†ã«å¤‰æ›´ã€‚
+ * singleton(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ)ã®beanã«JDKãƒ—ãƒ­ã‚­ã‚·ãŒã¤ã„ã¦ã„ã¦ã‚‚ã€ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã®æ¤œæŸ»ãŒã§ãã‚‹ã‚ˆã†ã«å¤‰æ›´ã€‚
  * </p>
  * @see org.springframework.beans.factory.BeanFactoryUtils
  */
@@ -40,7 +40,7 @@ public class GenericBeanFactoryAccessorEx {
 
     private ListableBeanFactory beanFactory;
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      * @param beanFactory
      */
     public GenericBeanFactoryAccessorEx(ListableBeanFactory beanFactory) {

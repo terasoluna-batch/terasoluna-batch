@@ -13,7 +13,7 @@ public class DaoCollectorPrePostProcessStub003 implements DaoCollectorPrePostPro
 
     public <P> DaoCollectorPrePostProcessStatus postprocessException(
             DaoCollector<P> collector, Throwable throwable) {
-    	if("postprocessExceptionƒeƒXƒg".equals(throwable.getMessage())) {
+    	if("postprocessExceptionãƒ†ã‚¹ãƒˆ".equals(throwable.getMessage())) {
     		return DaoCollectorPrePostProcessStatus.THROW;
     	} else {
     		return DaoCollectorPrePostProcessStatus.END;

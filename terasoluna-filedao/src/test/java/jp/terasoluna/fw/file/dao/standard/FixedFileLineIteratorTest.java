@@ -26,27 +26,27 @@ import jp.terasoluna.utlib.UTUtil;
 import junit.framework.TestCase;
 
 /**
- * {@link jp.terasoluna.fw.file.dao.standard.FixedFileLineIterator} ƒNƒ‰ƒX‚ÌƒeƒXƒgB
+ * {@link jp.terasoluna.fw.file.dao.standard.FixedFileLineIterator} ã‚¯ãƒ©ã‚¹ã®ãƒ†ã‚¹ãƒˆã€‚
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4> ŒÅ’è’·ƒtƒ@ƒCƒ‹—p‚Ìƒtƒ@ƒCƒ‹ƒAƒNƒZƒX(ƒf[ƒ^æ“¾)ƒNƒ‰ƒXB
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4> å›ºå®šé•·ãƒ•ã‚¡ã‚¤ãƒ«ç”¨ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚¢ã‚¯ã‚»ã‚¹(ãƒ‡ãƒ¼ã‚¿å–å¾—)ã‚¯ãƒ©ã‚¹ã€‚
  * <p>
- * @author ‰œ“c“Ni
- * @author æâ•î“O
+ * @author å¥¥ç”°å“²å¸
+ * @author è¶™ä¿¸å¾¹
  * @see jp.terasoluna.fw.file.dao.standard.FixedFileLineIterator
  */
 public class FixedFileLineIteratorTest extends TestCase {
 
     /**
-     * ‚±‚ÌƒeƒXƒgƒP[ƒX‚ğÀs‚·‚éˆ×‚Ì GUI ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‹N“®‚·‚éB
-     * @param args java ƒRƒ}ƒ“ƒh‚Éİ’è‚³‚ê‚½ƒpƒ‰ƒ[ƒ^
+     * ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã‚’å®Ÿè¡Œã™ã‚‹ç‚ºã® GUI ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’èµ·å‹•ã™ã‚‹ã€‚
+     * @param args java ã‚³ãƒãƒ³ãƒ‰ã«è¨­å®šã•ã‚ŒãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public static void main(String[] args) {
         // junit.swingui.TestRunner.run(FixedFileLineIteratorTest.class);
     }
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -56,8 +56,8 @@ public class FixedFileLineIteratorTest extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -66,8 +66,8 @@ public class FixedFileLineIteratorTest extends TestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public FixedFileLineIteratorTest(String name) {
         super(name);
@@ -76,33 +76,33 @@ public class FixedFileLineIteratorTest extends TestCase {
     /**
      * testFixedFileLineIterator01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileName:"aaa.txt"<br>
-     * (ˆø”) clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂFileFormatƒAƒmƒe[ƒVƒ‡ƒ“‚ğ‚ÂƒXƒ^ƒu<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileName:"aaa.txt"<br>
+     * (å¼•æ•°) clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤FileFormatã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã‚’æŒã¤ã‚¹ã‚¿ãƒ–<br>
      * FixedFileLineIterator_Stub01<br>
-     * @ ƒAƒmƒe[ƒVƒ‡ƒ“FileFormatF‰Šú’l<br>
-     * (ˆø”) columnParserMap:ˆÈ‰º‚Ìİ’è‚ğ‚ÂHashMap‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * —v‘f1<br>
+     * ã€€ ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³FileFormatï¼šåˆæœŸå€¤<br>
+     * (å¼•æ•°) columnParserMap:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤HashMapã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * è¦ç´ 1<br>
      * key:"java.lang.String"<br>
-     * value:ColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * FixedFileLineWriter_ColumnParserStub01ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * ‹óÀ‘•<br>
-     * (ó‘Ô) totalDefineBytes:0<br>
+     * value:ColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * FixedFileLineWriter_ColumnParserStub01ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) totalDefineBytes:0<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») AbstractFileLineIteratorƒRƒ“ƒXƒgƒ‰ƒNƒ^:1‰ñŒÄ‚Î‚ê‚éB<br>
-     * ˆø”‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒX‚ª“n‚³‚ê‚éB<br>
-     * (ó‘Ô•Ï‰») AbstractFileLineIterator#init():1‰ñŒÄ‚Î‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) AbstractFileLineIteratorã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿:1å›å‘¼ã°ã‚Œã‚‹ã€‚<br>
+     * å¼•æ•°ã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ãŒæ¸¡ã•ã‚Œã‚‹ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) AbstractFileLineIterator#init():1å›å‘¼ã°ã‚Œã‚‹ã€‚<br>
      * <br>
-     * ³í‚ÉƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ìˆ—‚ªs‚í‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã«ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å‡¦ç†ãŒè¡Œã‚ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testFixedFileLineIterator01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚È‚µ
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ãªã—
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         URL url = FixedFileLineIteratorTest.class.getResource("/aaa.txt");
         String fileName = url.getPath();
         Class<FixedFileLineIterator_Stub01> clazz = FixedFileLineIterator_Stub01.class;
@@ -113,15 +113,15 @@ public class FixedFileLineIteratorTest extends TestCase {
         columnParserMap.put("java.math.BigDecimal", parser);
         columnParserMap.put("java.lang.int", parser);
 
-        // ‘O’ñğŒ‚È‚µ
+        // å‰ææ¡ä»¶ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         new FixedFileLineIterator<FixedFileLineIterator_Stub01>(fileName,
                 clazz, columnParserMap);
 
-        // •Ô‹p’l‚È‚µ
+        // è¿”å´å€¤ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
                 "<init>"));
         List arguments = VMOUTUtil.getArguments(AbstractFileLineIterator.class,
@@ -136,36 +136,36 @@ public class FixedFileLineIteratorTest extends TestCase {
     /**
      * testFixedFileLineIterator02() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FG <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileName:"aaa.txt"<br>
-     * (ˆø”) clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂFileFormatƒAƒmƒe[ƒVƒ‡ƒ“‚ğ‚ÂƒXƒ^ƒu<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileName:"aaa.txt"<br>
+     * (å¼•æ•°) clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤FileFormatã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã‚’æŒã¤ã‚¹ã‚¿ãƒ–<br>
      * FixedFileLineIterator_Stub05<br>
-     * @ƒAƒmƒe[ƒVƒ‡ƒ“FileFormatFdelimiter‚ª‰Šú’lˆÈŠO<br>
-     * @FileFormat(delimiter='A')<br> (ˆø”) columnParserMap:ˆÈ‰º‚Ìİ’è‚ğ‚ÂHashMap‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                                —v‘f1<br>
+     * ã€€ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³FileFormatï¼šdelimiterãŒåˆæœŸå€¤ä»¥å¤–<br>
+     * @FileFormat(delimiter='ã€')<br> (å¼•æ•°) columnParserMap:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤HashMapã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                                è¦ç´ 1<br>
      *                                key:"java.lang.String"<br>
-     *                                value:ColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                                FixedFileLineWriter_ColumnParserStub01ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                                ‹óÀ‘•<br>
-     *                                (ó‘Ô) totalDefineBytes:0<br>
+     *                                value:ColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                                FixedFileLineWriter_ColumnParserStub01ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                                ç©ºå®Ÿè£…<br>
+     *                                (çŠ¶æ…‹) totalDefineBytes:0<br>
      * <br>
-     *                                Šú‘Ò’lF(ó‘Ô•Ï‰») AbstractFileLineIteratorƒRƒ“ƒXƒgƒ‰ƒNƒ^:1‰ñŒÄ‚Î‚ê‚éB<br>
-     *                                ˆø”‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒX‚ª“n‚³‚ê‚éB<br>
-     *                                (ó‘Ô•Ï‰») AbstractFileLineIterator#init():ŒÄ‚Î‚ê‚È‚¢B<br>
-     *                                (ó‘Ô•Ï‰»)
-     *                                ‚È‚µ:"Delimiter can not change."‚ÌƒƒbƒZ[ƒWAIllegalStateExceptionAƒtƒ@ƒCƒ‹–¼‚ğ‚ÂFileException‚ª”­¶‚·‚éB<br>
+     *                                æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) AbstractFileLineIteratorã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿:1å›å‘¼ã°ã‚Œã‚‹ã€‚<br>
+     *                                å¼•æ•°ã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ãŒæ¸¡ã•ã‚Œã‚‹ã€‚<br>
+     *                                (çŠ¶æ…‹å¤‰åŒ–) AbstractFileLineIterator#init():å‘¼ã°ã‚Œãªã„ã€‚<br>
+     *                                (çŠ¶æ…‹å¤‰åŒ–)
+     *                                ãªã—:"Delimiter can not change."ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã€IllegalStateExceptionã€ãƒ•ã‚¡ã‚¤ãƒ«åã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
      * <br>
-     *                                —áŠOB@FileFormat‚Ìdelimiter‚É‰Šú’lˆÈŠO‚ğİ’è‚µ‚½ê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *                                ƒtƒ@ƒCƒ‹–¼‚ª“ü—Í’l‚ÌfileName‚Éˆê’v‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                                ä¾‹å¤–ã€‚@FileFormatã®delimiterã«åˆæœŸå€¤ä»¥å¤–ã‚’è¨­å®šã—ãŸå ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *                                ãƒ•ã‚¡ã‚¤ãƒ«åãŒå…¥åŠ›å€¤ã®fileNameã«ä¸€è‡´ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testFixedFileLineIterator02() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚È‚µ
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ãªã—
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         URL url = FixedFileLineIteratorTest.class.getResource("/aaa.txt");
         String fileName = url.getPath();
         Class<FixedFileLineIterator_Stub05> clazz = FixedFileLineIterator_Stub05.class;
@@ -176,17 +176,17 @@ public class FixedFileLineIteratorTest extends TestCase {
         columnParserMap.put("java.math.BigDecimal", parser);
         columnParserMap.put("java.lang.int", parser);
 
-        // ‘O’ñğŒ‚È‚µ
+        // å‰ææ¡ä»¶ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             new FixedFileLineIterator<FixedFileLineIterator_Stub05>(fileName,
                     clazz, columnParserMap);
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (FileException e) {
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(1, VMOUTUtil.getCallCount(
                     AbstractFileLineIterator.class, "<init>"));
             List arguments = VMOUTUtil.getArguments(
@@ -203,36 +203,36 @@ public class FixedFileLineIteratorTest extends TestCase {
     /**
      * testFixedFileLineIterator03() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FG <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileName:"aaa.txt"<br>
-     * (ˆø”) clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂFileFormatƒAƒmƒe[ƒVƒ‡ƒ“‚ğ‚ÂƒXƒ^ƒu<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileName:"aaa.txt"<br>
+     * (å¼•æ•°) clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤FileFormatã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã‚’æŒã¤ã‚¹ã‚¿ãƒ–<br>
      * FixedFileLineIterator_Stub06<br>
-     * @ƒAƒmƒe[ƒVƒ‡ƒ“FileFormatFencloseChar‚ª‰Šú’lˆÈŠO<br>
-     * @FileFormat(encloseChar='"')<br> (ˆø”) columnParserMap:ˆÈ‰º‚Ìİ’è‚ğ‚ÂHashMap‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                                  —v‘f1<br>
+     * ã€€ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³FileFormatï¼šencloseCharãŒåˆæœŸå€¤ä»¥å¤–<br>
+     * @FileFormat(encloseChar='"')<br> (å¼•æ•°) columnParserMap:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤HashMapã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                                  è¦ç´ 1<br>
      *                                  key:"java.lang.String"<br>
-     *                                  value:ColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                                  FixedFileLineWriter_ColumnParserStub01ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                                  ‹óÀ‘•<br>
-     *                                  (ó‘Ô) totalDefineBytes:0<br>
+     *                                  value:ColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                                  FixedFileLineWriter_ColumnParserStub01ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                                  ç©ºå®Ÿè£…<br>
+     *                                  (çŠ¶æ…‹) totalDefineBytes:0<br>
      * <br>
-     *                                  Šú‘Ò’lF(ó‘Ô•Ï‰») AbstractFileLineIteratorƒRƒ“ƒXƒgƒ‰ƒNƒ^:1‰ñŒÄ‚Î‚ê‚éB<br>
-     *                                  ˆø”‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒX‚ª“n‚³‚ê‚éB<br>
-     *                                  (ó‘Ô•Ï‰») AbstractFileLineIterator#init():ŒÄ‚Î‚ê‚È‚¢B<br>
-     *                                  (ó‘Ô•Ï‰»)
-     *                                  ‚È‚µ:"EncloseChar can not change."‚ÌƒƒbƒZ[ƒWAIllegalStateExceptionAƒtƒ@ƒCƒ‹–¼‚ğ‚ÂFileException‚ª”­¶‚·‚éB<br>
+     *                                  æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) AbstractFileLineIteratorã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿:1å›å‘¼ã°ã‚Œã‚‹ã€‚<br>
+     *                                  å¼•æ•°ã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ãŒæ¸¡ã•ã‚Œã‚‹ã€‚<br>
+     *                                  (çŠ¶æ…‹å¤‰åŒ–) AbstractFileLineIterator#init():å‘¼ã°ã‚Œãªã„ã€‚<br>
+     *                                  (çŠ¶æ…‹å¤‰åŒ–)
+     *                                  ãªã—:"EncloseChar can not change."ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã€IllegalStateExceptionã€ãƒ•ã‚¡ã‚¤ãƒ«åã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
      * <br>
-     *                                  —áŠOB@FileFormat‚ÌencloseChar‚É‰Šú’lˆÈŠO‚ğİ’è‚µ‚½ê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *                                  ƒtƒ@ƒCƒ‹–¼‚ª“ü—Í’l‚ÌfileName‚Éˆê’v‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                                  ä¾‹å¤–ã€‚@FileFormatã®encloseCharã«åˆæœŸå€¤ä»¥å¤–ã‚’è¨­å®šã—ãŸå ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *                                  ãƒ•ã‚¡ã‚¤ãƒ«åãŒå…¥åŠ›å€¤ã®fileNameã«ä¸€è‡´ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testFixedFileLineIterator03() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚È‚µ
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ãªã—
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         URL url = FixedFileLineIteratorTest.class.getResource("/aaa.txt");
         String fileName = url.getPath();
         Class<FixedFileLineIterator_Stub06> clazz = FixedFileLineIterator_Stub06.class;
@@ -243,17 +243,17 @@ public class FixedFileLineIteratorTest extends TestCase {
         columnParserMap.put("java.math.BigDecimal", parser);
         columnParserMap.put("java.lang.int", parser);
 
-        // ‘O’ñğŒ‚È‚µ
+        // å‰ææ¡ä»¶ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             new FixedFileLineIterator<FixedFileLineIterator_Stub06>(fileName,
                     clazz, columnParserMap);
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (FileException e) {
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(1, VMOUTUtil.getCallCount(
                     AbstractFileLineIterator.class, "<init>"));
             List arguments = VMOUTUtil.getArguments(
@@ -270,38 +270,38 @@ public class FixedFileLineIteratorTest extends TestCase {
     /**
      * testFixedFileLineIterator04() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileName:"aaa.txt"<br>
-     * (ˆø”) clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂFileFormatƒAƒmƒe[ƒVƒ‡ƒ“‚ğ‚ÂƒXƒ^ƒu<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileName:"aaa.txt"<br>
+     * (å¼•æ•°) clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤FileFormatã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã‚’æŒã¤ã‚¹ã‚¿ãƒ–<br>
      * FixedFileLineIterator_Stub02<br>
-     * @ ƒAƒmƒe[ƒVƒ‡ƒ“FileFormatF‰Šú’l<br>
-     * ‘®«F<br>
-     * @@@@InputFileColumn(columnIndex = 1, bytes = 5)<br>
-     * @@@String column1;<br>
-     * @@@@InputFileColumn(columnIndex = 1, bytes = 3)<br>
-     * @@@String column2;<br>
-     * (ˆø”) columnParserMap:ˆÈ‰º‚Ìİ’è‚ğ‚ÂHashMap‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * —v‘f1<br>
+     * ã€€ ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³FileFormatï¼šåˆæœŸå€¤<br>
+     * å±æ€§ï¼š<br>
+     * ã€€ã€€ã€€@InputFileColumn(columnIndex = 1, bytes = 5)<br>
+     * ã€€ã€€ã€€String column1;<br>
+     * ã€€ã€€ã€€@InputFileColumn(columnIndex = 1, bytes = 3)<br>
+     * ã€€ã€€ã€€String column2;<br>
+     * (å¼•æ•°) columnParserMap:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤HashMapã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * è¦ç´ 1<br>
      * key:"java.lang.String"<br>
-     * value:ColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * FixedFileLineWriter_ColumnParserStub01ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * ‹óÀ‘•<br>
-     * (ó‘Ô) totalDefineBytes:0<br>
+     * value:ColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * FixedFileLineWriter_ColumnParserStub01ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) totalDefineBytes:0<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») AbstractFileLineIteratorƒRƒ“ƒXƒgƒ‰ƒNƒ^:1‰ñŒÄ‚Î‚ê‚éB<br>
-     * ˆø”‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒX‚ª“n‚³‚ê‚éB<br>
-     * (ó‘Ô•Ï‰») AbstractFileLineIterator#init():1‰ñŒÄ‚Î‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) AbstractFileLineIteratorã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿:1å›å‘¼ã°ã‚Œã‚‹ã€‚<br>
+     * å¼•æ•°ã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ãŒæ¸¡ã•ã‚Œã‚‹ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) AbstractFileLineIterator#init():1å›å‘¼ã°ã‚Œã‚‹ã€‚<br>
      * <br>
-     * ³í‚ÉƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ìˆ—‚ªs‚í‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã«ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å‡¦ç†ãŒè¡Œã‚ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testFixedFileLineIterator04() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚È‚µ
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ãªã—
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         URL url = FixedFileLineIteratorTest.class.getResource("/aaa.txt");
         String fileName = url.getPath();
         Class<FixedFileLineIterator_Stub02> clazz = FixedFileLineIterator_Stub02.class;
@@ -312,15 +312,15 @@ public class FixedFileLineIteratorTest extends TestCase {
         columnParserMap.put("java.math.BigDecimal", parser);
         columnParserMap.put("java.lang.int", parser);
 
-        // ‘O’ñğŒ‚È‚µ
+        // å‰ææ¡ä»¶ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         new FixedFileLineIterator<FixedFileLineIterator_Stub02>(fileName,
                 clazz, columnParserMap);
 
-        // •Ô‹p’l‚È‚µ
+        // è¿”å´å€¤ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
                 "<init>"));
         List arguments = VMOUTUtil.getArguments(AbstractFileLineIterator.class,
@@ -333,12 +333,12 @@ public class FixedFileLineIteratorTest extends TestCase {
     }
 
     /**
-     * ˆÙíŒn<br>
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÉInputFileColumnƒAƒmƒe[ƒVƒ‡ƒ“‚ª–³‚µ
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ç³»<br>
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«InputFileColumnã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ãŒç„¡ã—
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testFixedFileLineIterator05() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         URL url = this.getClass().getResource("File_Empty.txt");
         String fileName = url.getPath();
         Class<FileLineObject_Empty> clazz = FileLineObject_Empty.class;
@@ -346,15 +346,15 @@ public class FixedFileLineIteratorTest extends TestCase {
         ColumnParser columnParser = new CSVFileLineIterator_ColumnParserStub01();
         columnParserMap.put("java.lang.String", columnParser);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             new FixedFileLineIterator<FileLineObject_Empty>(fileName, clazz,
                     columnParserMap);
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (FileException e) {
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals("InputFileColumn is not found.", e.getMessage());
             assertEquals(fileName, e.getFileName());
             assertEquals(IllegalStateException.class, e.getCause().getClass());
@@ -362,27 +362,27 @@ public class FixedFileLineIteratorTest extends TestCase {
     }
 
     /**
-     * ˆÙíŒn<br>
-     * InputFileColumn‚ÉEncloseChar‚ªİ’è‚³‚ê‚Ä‚¢‚éê‡AƒGƒ‰[‚Æ‚·‚é
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ç³»<br>
+     * InputFileColumnã«EncloseCharãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã€ã‚¨ãƒ©ãƒ¼ã¨ã™ã‚‹
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testFixedFileLineIterator06() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         URL url = this.getClass().getResource("File_Empty.txt");
         String fileName = url.getPath();
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         ColumnParser columnParser = new CSVFileLineIterator_ColumnParserStub01();
         columnParserMap.put("java.lang.String", columnParser);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             new FixedFileLineIterator<CSVFileLine_Stub01>(fileName,
                     CSVFileLine_Stub01.class, columnParserMap);
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (FileException e) {
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals("columnEncloseChar can not change.", e.getMessage());
             assertEquals(fileName, e.getFileName());
             assertEquals(IllegalStateException.class, e.getCause().getClass());
@@ -390,29 +390,29 @@ public class FixedFileLineIteratorTest extends TestCase {
     }
 
     /**
-     * ˆÙíŒn<br>
-     * s‹æØ‚è–³‚µ‚ÌŒÅ’è’·Œ`®ƒtƒ@ƒCƒ‹‚Åƒwƒbƒ_s”‚ğw’è‚µ‚½ê‡A<br>
-     * ˆÙíI—¹‚·‚é–‚ğŠm”F‚·‚éB
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ç³»<br>
+     * è¡ŒåŒºåˆ‡ã‚Šç„¡ã—ã®å›ºå®šé•·å½¢å¼ãƒ•ã‚¡ã‚¤ãƒ«ã§ãƒ˜ãƒƒãƒ€è¡Œæ•°ã‚’æŒ‡å®šã—ãŸå ´åˆã€<br>
+     * ç•°å¸¸çµ‚äº†ã™ã‚‹äº‹ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testFixedFileLineIterator07() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         URL url = this.getClass().getResource("File_Empty.txt");
         String fileName = url.getPath();
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         ColumnParser columnParser = new CSVFileLineIterator_ColumnParserStub01();
         columnParserMap.put("java.lang.String", columnParser);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             new FixedFileLineIterator<FixedFileLine_Stub03>(fileName,
                     FixedFileLine_Stub03.class, columnParserMap);
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (FileException e) {
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals("HeaderLineCount or trailerLineCount cannot be used.",
                     e.getMessage());
             assertEquals(fileName, e.getFileName());
@@ -421,29 +421,29 @@ public class FixedFileLineIteratorTest extends TestCase {
     }
 
     /**
-     * ˆÙíŒn<br>
-     * s‹æØ‚è–³‚µ‚ÌŒÅ’è’·Œ`®ƒtƒ@ƒCƒ‹‚ÅƒgƒŒƒCƒ‰s”‚ğw’è‚µ‚½ê‡A<br>
-     * ˆÙíI—¹‚·‚é–‚ğŠm”F‚·‚éB
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ç³»<br>
+     * è¡ŒåŒºåˆ‡ã‚Šç„¡ã—ã®å›ºå®šé•·å½¢å¼ãƒ•ã‚¡ã‚¤ãƒ«ã§ãƒˆãƒ¬ã‚¤ãƒ©è¡Œæ•°ã‚’æŒ‡å®šã—ãŸå ´åˆã€<br>
+     * ç•°å¸¸çµ‚äº†ã™ã‚‹äº‹ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testFixedFileLineIterator08() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         URL url = this.getClass().getResource("File_Empty.txt");
         String fileName = url.getPath();
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         ColumnParser columnParser = new CSVFileLineIterator_ColumnParserStub01();
         columnParserMap.put("java.lang.String", columnParser);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             new FixedFileLineIterator<FixedFileLine_Stub04>(fileName,
                     FixedFileLine_Stub04.class, columnParserMap);
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (FileException e) {
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals("HeaderLineCount or trailerLineCount cannot be used.",
                     e.getMessage());
             assertEquals(fileName, e.getFileName());
@@ -454,20 +454,20 @@ public class FixedFileLineIteratorTest extends TestCase {
     /**
      * testSeparateColumns01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileLineString:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileLineString:null<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String[]:new String[0]<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String[]:new String[0]<br>
      * <br>
-     * ³íƒpƒ^[ƒ“B<br>
-     * null‚ªˆø”‚Æ‚µ‚Ä“n‚³‚ê‚½ê‡A—v‘f”0‚Ì”z—ñ‚ğ•Ô‹p‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * ’Êí‚Ìˆ—‚Å‚±‚Ì•Ô‹p’l‚ª–ß‚é‚±‚Æ‚Í‚È‚¢B <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ãƒ‘ã‚¿ãƒ¼ãƒ³ã€‚<br>
+     * nullãŒå¼•æ•°ã¨ã—ã¦æ¸¡ã•ã‚ŒãŸå ´åˆã€è¦ç´ æ•°0ã®é…åˆ—ã‚’è¿”å´ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * é€šå¸¸ã®å‡¦ç†ã§ã“ã®è¿”å´å€¤ãŒæˆ»ã‚‹ã“ã¨ã¯ãªã„ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testSeparateColumns01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = FixedFileLineIteratorTest.class.getResource("/aaa.txt");
         String fileName = url.getPath();
         Class<FixedFileLineIterator_Stub01> clazz = FixedFileLineIterator_Stub01.class;
@@ -480,39 +480,39 @@ public class FixedFileLineIteratorTest extends TestCase {
         FixedFileLineIterator<FixedFileLineIterator_Stub01> lineIterator = new FixedFileLineIterator<FixedFileLineIterator_Stub01>(
                 fileName, clazz, columnParserMap);
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String fileLineString = null;
 
-        // ‘O’ñğŒ‚È‚µ
+        // å‰ææ¡ä»¶ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String[] columns = lineIterator.separateColumns(fileLineString);
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals(0, columns.length);
 
-        // ó‘Ô•Ï‰»‚È‚µ
+        // çŠ¶æ…‹å¤‰åŒ–ãªã—
     }
 
     /**
      * testSeparateColumns02() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileLineString:"aaa"<br>
-     * (ó‘Ô) this.fields[]:”z—ñ—v‘f‚ª0<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileLineString:"aaa"<br>
+     * (çŠ¶æ…‹) this.fields[]:é…åˆ—è¦ç´ ãŒ0<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:Illega‚ŒStateException‚ª”­¶BFileException‚Éƒ‰ƒbƒv‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * ƒtƒ@ƒCƒ‹–¼‚ª“ü—Í’l‚ÌfileName‚Éˆê’v‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * ƒƒbƒZ[ƒWF"Total Columns byte is different from Total FileLineObject's columns byte."<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:Illegaï½ŒStateExceptionãŒç™ºç”Ÿã€‚FileExceptionã«ãƒ©ãƒƒãƒ—ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * ãƒ•ã‚¡ã‚¤ãƒ«åãŒå…¥åŠ›å€¤ã®fileNameã«ä¸€è‡´ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Total Columns byte is different from Total FileLineObject's columns byte."<br>
      * <br>
-     * —áŠOBƒAƒmƒe[ƒVƒ‡ƒ“‚Åİ’è‚µ‚½ƒoƒCƒg”‚Ì‡Œv‚ÆAƒtƒ@ƒCƒ‹‚Ì1s‚ ‚½‚è‚ÌƒoƒCƒg”‚ªˆÙ‚È‚éê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌƒCƒ“ƒXƒ^ƒ“ƒX•Ï”‚ª‚È‚¢ê‡B <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ä¾‹å¤–ã€‚ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã§è¨­å®šã—ãŸãƒã‚¤ãƒˆæ•°ã®åˆè¨ˆã¨ã€ãƒ•ã‚¡ã‚¤ãƒ«ã®1è¡Œã‚ãŸã‚Šã®ãƒã‚¤ãƒˆæ•°ãŒç•°ãªã‚‹å ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹å¤‰æ•°ãŒãªã„å ´åˆã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testSeparateColumns02() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = FixedFileLineIteratorTest.class.getResource("/aaa.txt");
         String fileName = url.getPath();
         Class<FixedFileLineIterator_Stub01> clazz = FixedFileLineIterator_Stub01.class;
@@ -525,18 +525,18 @@ public class FixedFileLineIteratorTest extends TestCase {
         FixedFileLineIterator<FixedFileLineIterator_Stub01> lineIterator = new FixedFileLineIterator<FixedFileLineIterator_Stub01>(
                 fileName, clazz, columnParserMap);
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String fileLineString = "aaa";
 
-        // ‘O’ñğŒ(ƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åfileds[]‚Éİ’è‚³‚ê‚é)
+        // å‰ææ¡ä»¶(ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§fileds[]ã«è¨­å®šã•ã‚Œã‚‹)
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             lineIterator.separateColumns(fileLineString);
         } catch (FileException e) {
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(IllegalStateException.class, e.getCause().getClass());
             assertEquals(fileName, e.getFileName());
             String message = "Total Columns byte is different from "
@@ -548,24 +548,24 @@ public class FixedFileLineIteratorTest extends TestCase {
     /**
      * testSeparateColumns03() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE, F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE, F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileLineString:"12345"<br>
-     * (ó‘Ô) this.fields[]:”z—ñ—v‘f‚ª1<br>
-     * (ó‘Ô) this.field[]‚ÌƒAƒmƒe[ƒVƒ‡ƒ“InputFileColumn:@InputFileColumn(columnIndex = 0, bytes = 5, stringConverter =
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileLineString:"12345"<br>
+     * (çŠ¶æ…‹) this.fields[]:é…åˆ—è¦ç´ ãŒ1<br>
+     * (çŠ¶æ…‹) this.field[]ã®ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³InputFileColumn:@InputFileColumn(columnIndex = 0, bytes = 5, stringConverter =
      * StringConverterToUpperCase.class, trimChar = '0', trimType = TrimType.LEFT)<br>
      * private String shopId = null;<br>
-     * (ó‘Ô) AbstractFileLineIterator.fileEncoding:ƒVƒXƒeƒ€ƒfƒtƒHƒ‹ƒg<br>
+     * (çŠ¶æ…‹) AbstractFileLineIterator.fileEncoding:ã‚·ã‚¹ãƒ†ãƒ ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String[]:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂString”z—ñ<br>
-     * @—v‘f1F"12345"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String[]:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤Stringé…åˆ—<br>
+     * ã€€è¦ç´ 1ï¼š"12345"<br>
      * <br>
-     * ³íƒpƒ^[ƒ“B”z—ñ—v‘f1‚Ì•¶š—ñŒ^”z—ñ‚ğ•Ô‹p‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ãƒ‘ã‚¿ãƒ¼ãƒ³ã€‚é…åˆ—è¦ç´ 1ã®æ–‡å­—åˆ—å‹é…åˆ—ã‚’è¿”å´ã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testSeparateColumns03() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = FixedFileLineIteratorTest.class.getResource("/aaa.txt");
         String fileName = url.getPath();
         Class<FixedFileLineIterator_Stub03> clazz = FixedFileLineIterator_Stub03.class;
@@ -578,43 +578,43 @@ public class FixedFileLineIteratorTest extends TestCase {
         FixedFileLineIterator<FixedFileLineIterator_Stub03> lineIterator = new FixedFileLineIterator<FixedFileLineIterator_Stub03>(
                 fileName, clazz, columnParserMap);
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String fileLineString = "12345";
 
-        // ‘O’ñğŒ(ƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åfileds[]‚Éİ’è‚³‚ê‚é)
+        // å‰ææ¡ä»¶(ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§fileds[]ã«è¨­å®šã•ã‚Œã‚‹)
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String[] columns = lineIterator.separateColumns(fileLineString);
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals(1, columns.length);
         assertEquals("12345", columns[0]);
 
-        // ó‘Ô•Ï‰»‚È‚µ
+        // çŠ¶æ…‹å¤‰åŒ–ãªã—
     }
 
     /**
      * testSeparateColumns04() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileLineString:"12345"<br>
-     * (ó‘Ô) this.fields[]:”z—ñ—v‘f‚ª1<br>
-     * (ó‘Ô) this.field[]‚ÌƒAƒmƒe[ƒVƒ‡ƒ“InputFileColumn:@InputFileColumn(columnIndex = 0, bytes = 5, stringConverter =
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileLineString:"12345"<br>
+     * (çŠ¶æ…‹) this.fields[]:é…åˆ—è¦ç´ ãŒ1<br>
+     * (çŠ¶æ…‹) this.field[]ã®ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³InputFileColumn:@InputFileColumn(columnIndex = 0, bytes = 5, stringConverter =
      * StringConverterToUpperCase.class, trimChar = '0', trimType = TrimType.LEFT)<br>
      * private String shopId = null;<br>
-     * (ó‘Ô) AbstractFileLineIterator.fileEncoding:‘¶İ‚µ‚È‚¢ƒGƒ“ƒR[ƒh<br>
+     * (çŠ¶æ…‹) AbstractFileLineIterator.fileEncoding:å­˜åœ¨ã—ãªã„ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:UnsupoortedEncodingException‚ª”­¶BFileException‚Éƒ‰ƒbƒv‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚é<br>
-     * ƒtƒ@ƒCƒ‹–¼‚ª“ü—Í’l‚ÌfileName‚Éˆê’v‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * ƒƒbƒZ[ƒWF"fileEncoding which isn't supported was set."<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:UnsupoortedEncodingExceptionãŒç™ºç”Ÿã€‚FileExceptionã«ãƒ©ãƒƒãƒ—ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹<br>
+     * ãƒ•ã‚¡ã‚¤ãƒ«åãŒå…¥åŠ›å€¤ã®fileNameã«ä¸€è‡´ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"fileEncoding which isn't supported was set."<br>
      * <br>
-     * —áŠOBİ’è‚³‚ê‚Ä‚¢‚éƒGƒ“ƒR[ƒh‚ª‘¶İ‚µ‚È‚¢ê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ä¾‹å¤–ã€‚è¨­å®šã•ã‚Œã¦ã„ã‚‹ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰ãŒå­˜åœ¨ã—ãªã„å ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testSeparateColumns04() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = FixedFileLineIteratorTest.class.getResource("/aaa.txt");
         String fileName = url.getPath();
         Class<FixedFileLineIterator_Stub03> clazz = FixedFileLineIterator_Stub03.class;
@@ -627,20 +627,20 @@ public class FixedFileLineIteratorTest extends TestCase {
         FixedFileLineIterator<FixedFileLineIterator_Stub03> lineIterator = new FixedFileLineIterator<FixedFileLineIterator_Stub03>(
                 fileName, clazz, columnParserMap);
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String fileLineString = "12345";
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(lineIterator, "fileEncoding", "aaa");
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             lineIterator.separateColumns(fileLineString);
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (FileException e) {
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(UnsupportedEncodingException.class, e.getCause()
                     .getClass());
             assertEquals(fileName, e.getFileName());
@@ -652,12 +652,12 @@ public class FixedFileLineIteratorTest extends TestCase {
     /**
      * testSeparateColumns05() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE, F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE, F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileLineString:"2006/12/10aaaaa123456789"<br>
-     * (ó‘Ô) this.fields[]:”z—ñ—v‘f‚ª3<br>
-     * (ó‘Ô) this.field[]‚ÌƒAƒmƒe[ƒVƒ‡ƒ“InputFileColumn:@InputFileColumn(columnIndex = 0, bytes = 10, columnFormat = "yyyy/MM/dd")<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileLineString:"2006/12/10aaaaa123456789"<br>
+     * (çŠ¶æ…‹) this.fields[]:é…åˆ—è¦ç´ ãŒ3<br>
+     * (çŠ¶æ…‹) this.field[]ã®ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³InputFileColumn:@InputFileColumn(columnIndex = 0, bytes = 10, columnFormat = "yyyy/MM/dd")<br>
      * private Date hiduke = null;<br>
      * <br>
      * @InputFileColumn(columnIndex = 1, bytes = 5, stringConverter = StringConverterToUpperCase.class, trimChar = '0', trimType
@@ -666,19 +666,19 @@ public class FixedFileLineIteratorTest extends TestCase {
      * <br>
      * @InputFileColumn(columnIndex = 2, bytes = 9, columnFormat = "#########")<br>
      *                              private BigDecimal uriage = null;<br>
-     *                              (ó‘Ô) AbstractFileLineIterator.fileEncoding:ƒVƒXƒeƒ€ƒfƒtƒHƒ‹ƒg<br>
+     *                              (çŠ¶æ…‹) AbstractFileLineIterator.fileEncoding:ã‚·ã‚¹ãƒ†ãƒ ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ<br>
      * <br>
-     *                              Šú‘Ò’lF(–ß‚è’l) String[]:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂString”z—ñ<br>
-     *                              @—v‘f1F"2006/12/10"<br>
-     *                              @—v‘f2F"aaaaa"<br>
-     *                              @—v‘f3F"123456789"<br>
+     *                              æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String[]:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤Stringé…åˆ—<br>
+     *                              ã€€è¦ç´ 1ï¼š"2006/12/10"<br>
+     *                              ã€€è¦ç´ 2ï¼š"aaaaa"<br>
+     *                              ã€€è¦ç´ 3ï¼š"123456789"<br>
      * <br>
-     *                              ³íƒpƒ^[ƒ“<br>
-     *                              ”z—ñ—v‘f3‚Ì•¶š—ñ•û”z—ñ‚ğ•Ô‹p‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                              æ­£å¸¸ãƒ‘ã‚¿ãƒ¼ãƒ³<br>
+     *                              é…åˆ—è¦ç´ 3ã®æ–‡å­—åˆ—æ–¹é…åˆ—ã‚’è¿”å´ã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testSeparateColumns05() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = FixedFileLineIteratorTest.class.getResource("/aaa.txt");
         String fileName = url.getPath();
         Class<FixedFileLineIterator_Stub04> clazz = FixedFileLineIterator_Stub04.class;
@@ -691,40 +691,40 @@ public class FixedFileLineIteratorTest extends TestCase {
         FixedFileLineIterator<FixedFileLineIterator_Stub04> lineIterator = new FixedFileLineIterator<FixedFileLineIterator_Stub04>(
                 fileName, clazz, columnParserMap);
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String fileLineString = "2006/12/10aaaaa123456789";
 
-        // ‘O’ñğŒ(ƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åfileds[]‚Éİ’è‚³‚ê‚é)
+        // å‰ææ¡ä»¶(ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§fileds[]ã«è¨­å®šã•ã‚Œã‚‹)
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String[] columns = lineIterator.separateColumns(fileLineString);
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals(3, columns.length);
         assertEquals("2006/12/10", columns[0]);
         assertEquals("aaaaa", columns[1]);
         assertEquals("123456789", columns[2]);
 
-        // ó‘Ô•Ï‰»‚È‚µ
+        // çŠ¶æ…‹å¤‰åŒ–ãªã—
     }
 
     /**
      * testSeparateColumns06() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE, F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE, F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileLineString:‹ó•¶š<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileLineString:ç©ºæ–‡å­—<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String[]:new String[0]<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String[]:new String[0]<br>
      * <br>
-     * ³íƒpƒ^[ƒ“B<br>
-     * ‹ó•¶š‚ªˆø”‚Æ‚µ‚Ä“n‚³‚ê‚½ê‡A—v‘f”0‚Ì”z—ñ‚ğ•Ô‹p‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * ’Êí‚Ìˆ—‚Å‚±‚Ì•Ô‹p’l‚ª–ß‚é‚±‚Æ‚Í‚È‚¢B <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ãƒ‘ã‚¿ãƒ¼ãƒ³ã€‚<br>
+     * ç©ºæ–‡å­—ãŒå¼•æ•°ã¨ã—ã¦æ¸¡ã•ã‚ŒãŸå ´åˆã€è¦ç´ æ•°0ã®é…åˆ—ã‚’è¿”å´ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * é€šå¸¸ã®å‡¦ç†ã§ã“ã®è¿”å´å€¤ãŒæˆ»ã‚‹ã“ã¨ã¯ãªã„ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testSeparateColumns06() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = FixedFileLineIteratorTest.class.getResource("/aaa.txt");
         String fileName = url.getPath();
         Class<FixedFileLineIterator_Stub01> clazz = FixedFileLineIterator_Stub01.class;
@@ -737,27 +737,27 @@ public class FixedFileLineIteratorTest extends TestCase {
         FixedFileLineIterator<FixedFileLineIterator_Stub01> lineIterator = new FixedFileLineIterator<FixedFileLineIterator_Stub01>(
                 fileName, clazz, columnParserMap);
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String fileLineString = "";
 
-        // ‘O’ñğŒ(ƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åfileds[]‚Éİ’è‚³‚ê‚é)
+        // å‰ææ¡ä»¶(ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§fileds[]ã«è¨­å®šã•ã‚Œã‚‹)
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String[] columns = lineIterator.separateColumns(fileLineString);
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals(0, columns.length);
     }
 
     /**
      * testSeparateColumns07() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileLineString:"2006/01/01‚ ‚ ‚ ‚ ‚ 012345678"i‘SŠp•¶š‚ğg—pj<br>
-     * (ó‘Ô) this.fields[]:”z—ñ—v‘f‚ª3<br>
-     * (ó‘Ô) this.field[]‚ÌƒAƒmƒe[ƒVƒ‡ƒ“InputFileColumn:@InputFileColumn(columnIndex = 0, bytes = 10, columnFormat = "yyyy/MM/dd")<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileLineString:"2006/01/01ã‚ã‚ã‚ã‚ã‚012345678"ï¼ˆå…¨è§’æ–‡å­—ã‚’ä½¿ç”¨ï¼‰<br>
+     * (çŠ¶æ…‹) this.fields[]:é…åˆ—è¦ç´ ãŒ3<br>
+     * (çŠ¶æ…‹) this.field[]ã®ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³InputFileColumn:@InputFileColumn(columnIndex = 0, bytes = 10, columnFormat = "yyyy/MM/dd")<br>
      * private Date hiduke = null;<br>
      * <br>
      * @InputFileColumn(columnIndex = 1, bytes = 5, stringConverter = StringConverterToUpperCase.class, trimChar = '0', trimType
@@ -766,18 +766,18 @@ public class FixedFileLineIteratorTest extends TestCase {
      * <br>
      * @InputFileColumn(columnIndex = 2, bytes = 9, columnFormat = "#########")<br>
      *                              private BigDecimal uriage = null;<br>
-     *                              (ó‘Ô) AbstractFileLineIterator.fileEncoding:ƒVƒXƒeƒ€ƒfƒtƒHƒ‹ƒg<br>
+     *                              (çŠ¶æ…‹) AbstractFileLineIterator.fileEncoding:ã‚·ã‚¹ãƒ†ãƒ ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ<br>
      * <br>
-     *                              Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:Illega‚ŒStateException‚ª”­¶BFileException‚Éƒ‰ƒbƒv‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *                              ƒtƒ@ƒCƒ‹–¼‚ª“ü—Í’l‚ÌfileName‚Éˆê’v‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *                              ƒƒbƒZ[ƒWF"Total Columns byte is different from Total FileLineObject's columns byte."<br>
+     *                              æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:Illegaï½ŒStateExceptionãŒç™ºç”Ÿã€‚FileExceptionã«ãƒ©ãƒƒãƒ—ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *                              ãƒ•ã‚¡ã‚¤ãƒ«åãŒå…¥åŠ›å€¤ã®fileNameã«ä¸€è‡´ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *                              ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Total Columns byte is different from Total FileLineObject's columns byte."<br>
      * <br>
-     *                              —áŠOBƒAƒmƒe[ƒVƒ‡ƒ“‚Åİ’è‚µ‚½ƒoƒCƒg”‚Ì‡Œv‚ÆAƒtƒ@ƒCƒ‹‚Ì1s‚ ‚½‚è‚ÌƒoƒCƒg”‚ªˆÙ‚È‚éê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *                              ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌƒCƒ“ƒXƒ^ƒ“ƒX•Ï”‚ª‚È‚¢ê‡B <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                              ä¾‹å¤–ã€‚ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã§è¨­å®šã—ãŸãƒã‚¤ãƒˆæ•°ã®åˆè¨ˆã¨ã€ãƒ•ã‚¡ã‚¤ãƒ«ã®1è¡Œã‚ãŸã‚Šã®ãƒã‚¤ãƒˆæ•°ãŒç•°ãªã‚‹å ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *                              ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹å¤‰æ•°ãŒãªã„å ´åˆã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testSeparateColumns07() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = FixedFileLineIteratorTest.class.getResource("/aaa.txt");
         String fileName = url.getPath();
         Class<FixedFileLineIterator_Stub04> clazz = FixedFileLineIterator_Stub04.class;
@@ -790,19 +790,19 @@ public class FixedFileLineIteratorTest extends TestCase {
         FixedFileLineIterator<FixedFileLineIterator_Stub04> lineIterator = new FixedFileLineIterator<FixedFileLineIterator_Stub04>(
                 fileName, clazz, columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        String fileLineString = "2006/01/01‚ ‚ ‚ ‚ ‚ 012345678";
+        // å¼•æ•°ã®è¨­å®š
+        String fileLineString = "2006/01/01ã‚ã‚ã‚ã‚ã‚012345678";
 
-        // ‘O’ñğŒ(ƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åfileds[]‚Éİ’è‚³‚ê‚é)
+        // å‰ææ¡ä»¶(ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§fileds[]ã«è¨­å®šã•ã‚Œã‚‹)
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             lineIterator.separateColumns(fileLineString);
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (FileException e) {
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(IllegalStateException.class, e.getCause().getClass());
             assertEquals(fileName, e.getFileName());
             String message = "Total Columns byte is different from "
@@ -814,20 +814,20 @@ public class FixedFileLineIteratorTest extends TestCase {
     /**
      * testIsCheckByte01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FA <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šA <br>
      * <br>
-     * “ü—Í’lF(ˆø”) inputFileColumn:null<br>
-     * (ó‘Ô) -:‚È‚µ<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) inputFileColumn:null<br>
+     * (çŠ¶æ…‹) -:ãªã—<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
-     * (ó‘Ô•Ï‰») -:‚È‚µ<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) -:ãªã—<br>
      * <br>
-     * false‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * falseãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsCheckByte01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = FixedFileLineIteratorTest.class.getResource("/aaa.txt");
         String fileName = url.getPath();
         Class<FixedFileLineIterator_Stub01> clazz = FixedFileLineIterator_Stub01.class;
@@ -838,34 +838,34 @@ public class FixedFileLineIteratorTest extends TestCase {
         FixedFileLineIterator<FixedFileLineIterator_Stub01> lineIterator = new FixedFileLineIterator<FixedFileLineIterator_Stub01>(
                 fileName, clazz, columnParserMap);
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         InputFileColumn inputFileColumn = null;
 
-        // ‘O’ñğŒ‚È‚µ
+        // å‰ææ¡ä»¶ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean result = lineIterator.isCheckByte(inputFileColumn);
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertFalse(result);
 
-        // ó‘Ô•Ï‰»‚È‚µ
+        // çŠ¶æ…‹å¤‰åŒ–ãªã—
     }
 
     /**
      * testGetDelimiter01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC <br>
      * <br>
-     * “ü—Í’lF <br>
-     * Šú‘Ò’lF(–ß‚è’l) DELIMITER:,(ƒJƒ“ƒ})'<br>
+     * å…¥åŠ›å€¤ï¼š <br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) DELIMITER:,(ã‚«ãƒ³ãƒ)'<br>
      * <br>
-     * delimiter‚Ìgetterƒƒ\ƒbƒh‚ª³‚µ‚­’l‚ğæ“¾‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * delimiterã®getterãƒ¡ã‚½ãƒƒãƒ‰ãŒæ­£ã—ãå€¤ã‚’å–å¾—ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetDelimiter01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = FixedFileLineIteratorTest.class.getResource("/aaa.txt");
         String fileName = url.getPath();
         Class<FixedFileLineIterator_Stub01> clazz = FixedFileLineIterator_Stub01.class;
@@ -880,33 +880,33 @@ public class FixedFileLineIteratorTest extends TestCase {
         FixedFileLineIterator<FixedFileLineIterator_Stub01> lineIterator = new FixedFileLineIterator<FixedFileLineIterator_Stub01>(
                 fileName, clazz, columnParserMap);
 
-        // ˆø”‚È‚µ
+        // å¼•æ•°ãªã—
 
-        // ‘O’ñğŒ‚È‚µ
+        // å‰ææ¡ä»¶ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         char result = lineIterator.getDelimiter();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals(',', result);
 
-        // ó‘Ô•Ï‰»‚È‚µ
+        // çŠ¶æ…‹å¤‰åŒ–ãªã—
     }
 
     /**
      * testGetEncloseChar01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC <br>
      * <br>
-     * “ü—Í’lF <br>
-     * Šú‘Ò’lF(–ß‚è’l) ENCLOSE_CHAR:Character.MIN_VALUE<br>
+     * å…¥åŠ›å€¤ï¼š <br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) ENCLOSE_CHAR:Character.MIN_VALUE<br>
      * <br>
-     * encloseChar‚Ìgetterƒƒ\ƒbƒh‚ª³‚µ‚­’l‚ğæ“¾‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * encloseCharã®getterãƒ¡ã‚½ãƒƒãƒ‰ãŒæ­£ã—ãå€¤ã‚’å–å¾—ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetEncloseChar01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = FixedFileLineIteratorTest.class.getResource("/aaa.txt");
         String fileName = url.getPath();
         Class<FixedFileLineIterator_Stub01> clazz = FixedFileLineIterator_Stub01.class;
@@ -921,26 +921,26 @@ public class FixedFileLineIteratorTest extends TestCase {
         FixedFileLineIterator<FixedFileLineIterator_Stub01> lineIterator = new FixedFileLineIterator<FixedFileLineIterator_Stub01>(
                 fileName, clazz, columnParserMap);
 
-        // ˆø”‚È‚µ
+        // å¼•æ•°ãªã—
 
-        // ‘O’ñğŒ‚È‚µ
+        // å‰ææ¡ä»¶ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         char result = lineIterator.getEncloseChar();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals(Character.MIN_VALUE, result);
 
-        // ó‘Ô•Ï‰»‚È‚µ
+        // çŠ¶æ…‹å¤‰åŒ–ãªã—
     }
 
     /**
-     * ³íŒn<br>
-     * ŒÅ’è’·‰üs–³‚µ
+     * æ­£å¸¸ç³»<br>
+     * å›ºå®šé•·æ”¹è¡Œç„¡ã—
      * @throws Exception
      */
     public void testNext01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "FixedFileLineIterator_next01.txt");
         String fileName = url.getPath();
@@ -953,12 +953,12 @@ public class FixedFileLineIteratorTest extends TestCase {
         FixedFileLineIterator<FixedFileLine_Stub01> fileLineIterator = new FixedFileLineIterator<FixedFileLine_Stub01>(
                 fileName, FixedFileLine_Stub01.class, columnParserMap);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         FixedFileLine_Stub01 result1 = fileLineIterator.next();
         FixedFileLine_Stub01 result2 = fileLineIterator.next();
         FixedFileLine_Stub01 result3 = fileLineIterator.next();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals("1", result1.getColumn1());
         assertEquals("22", result1.getColumn2());
         assertEquals("333", result1.getColumn3());
@@ -976,12 +976,12 @@ public class FixedFileLineIteratorTest extends TestCase {
     }
 
     /**
-     * ³íŒn<br>
-     * ŒÅ’è’·
+     * æ­£å¸¸ç³»<br>
+     * å›ºå®šé•·
      * @throws Exception
      */
     public void testNext02() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "FixedFileLineIterator_next02.txt");
         String fileName = url.getPath();
@@ -994,12 +994,12 @@ public class FixedFileLineIteratorTest extends TestCase {
         FixedFileLineIterator<FixedFileLine_Stub02> fileLineIterator = new FixedFileLineIterator<FixedFileLine_Stub02>(
                 fileName, FixedFileLine_Stub02.class, columnParserMap);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         FixedFileLine_Stub02 result1 = fileLineIterator.next();
         FixedFileLine_Stub02 result2 = fileLineIterator.next();
         FixedFileLine_Stub02 result3 = fileLineIterator.next();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals("1", result1.getColumn1());
         assertEquals("22", result1.getColumn2());
         assertEquals("333", result1.getColumn3());
@@ -1017,26 +1017,26 @@ public class FixedFileLineIteratorTest extends TestCase {
     }
 
     /**
-     * ³íŒn<br>
-     * ƒLƒƒƒbƒVƒ…‚µ‚Ä‚¢‚éƒAƒmƒe[ƒVƒ‡ƒ“‚Ìî•ñ‚ğ—˜—p‚µ‚Ä‚¢‚é–‚ğŠm”F‚·‚éB<br>
+     * æ­£å¸¸ç³»<br>
+     * ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã—ã¦ã„ã‚‹ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã®æƒ…å ±ã‚’åˆ©ç”¨ã—ã¦ã„ã‚‹äº‹ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * @throws Exception
      */
     public void testNext03() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource("CsvFileLineIterator_next01.txt");
         String fileName = url.getPath();
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        // —lX‚Èİ’è‚ª‚³‚ê‚Ä‚¢‚éƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ğİ’è
+        // æ§˜ã€…ãªè¨­å®šãŒã•ã‚Œã¦ã„ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’è¨­å®š
         FixedFileLineIterator<CSVFileLine_Stub04> fileLineIterator = new FixedFileLineIterator<CSVFileLine_Stub04>(
                 fileName, CSVFileLine_Stub04.class, columnParserMap);
 
-        // ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚Éİ’è‚µ‚Ä‚ ‚Á‚½’l‚ğ‘S‚Äã‘‚«
-        // ˆÈ‰º‚Ìİ’è‚ª“K—p‚³‚ê‚ê‚ÎAƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚Ì
-        // ƒAƒmƒe[ƒVƒ‡ƒ“‚ÉƒAƒNƒZƒX‚µ‚Ä‚¢‚È‚¢‚±‚Æ‚É‚È‚éB
+        // ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«è¨­å®šã—ã¦ã‚ã£ãŸå€¤ã‚’å…¨ã¦ä¸Šæ›¸ã
+        // ä»¥ä¸‹ã®è¨­å®šãŒé©ç”¨ã•ã‚Œã‚Œã°ã€ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®
+        // ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã«ã‚¢ã‚¯ã‚»ã‚¹ã—ã¦ã„ãªã„ã“ã¨ã«ãªã‚‹ã€‚
         char[] charArray = new char[] { 0, 0, 0, 0 };
-        // ‘O’ñğŒ
+        // å‰ææ¡ä»¶
         UTUtil.setPrivateField(fileLineIterator, "lineFeedChar", "\r\n");
         UTUtil.setPrivateField(fileLineIterator, "inputFileColumns", null);
         UTUtil.setPrivateField(fileLineIterator, "columnFormats", new String[] {
@@ -1057,12 +1057,12 @@ public class FixedFileLineIteratorTest extends TestCase {
                 fileLineIterator, "lineReader");
         UTUtil.setPrivateField(reader, "lineFeedChar", "\r\n");
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         CSVFileLine_Stub04 result1 = fileLineIterator.next();
         CSVFileLine_Stub04 result2 = fileLineIterator.next();
         CSVFileLine_Stub04 result3 = fileLineIterator.next();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals("\"1\",", result1.getColumn1());
         assertEquals("22,", result1.getColumn2());
         assertEquals("333,", result1.getColumn3());

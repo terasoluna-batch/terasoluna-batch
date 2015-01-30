@@ -22,11 +22,11 @@ import jp.terasoluna.utlib.PropertyTestCase;
 import jp.terasoluna.utlib.UTUtil;
 
 /**
- * {@link jp.terasoluna.fw.validation.ValidationUtil} ƒNƒ‰ƒX‚Ìƒuƒ‰ƒbƒNƒ{ƒbƒNƒXƒeƒXƒgB
+ * {@link jp.terasoluna.fw.validation.ValidationUtil} ã‚¯ãƒ©ã‚¹ã®ãƒ–ãƒ©ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ†ã‚¹ãƒˆã€‚
  *
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4>
- * ŒŸØƒƒWƒbƒN‚Ìƒ†[ƒeƒBƒŠƒeƒBƒNƒ‰ƒXB
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4>
+ * æ¤œè¨¼ãƒ­ã‚¸ãƒƒã‚¯ã®ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ã‚¯ãƒ©ã‚¹ã€‚
  * <p>
  *
  * @see jp.terasoluna.fw.validation.ValidationUtil
@@ -34,36 +34,36 @@ import jp.terasoluna.utlib.UTUtil;
 public class ValidationUtilTest02 extends PropertyTestCase {
 
     /**
-     * ‚±‚ÌƒeƒXƒgƒP[ƒX‚ğÀs‚·‚éˆ×‚Ì
-     * GUI ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‹N“®‚·‚éB
+     * ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã‚’å®Ÿè¡Œã™ã‚‹ç‚ºã®
+     * GUI ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’èµ·å‹•ã™ã‚‹ã€‚
      *
-     * @param args java ƒRƒ}ƒ“ƒh‚Éİ’è‚³‚ê‚½ƒpƒ‰ƒ[ƒ^
+     * @param args java ã‚³ãƒãƒ³ãƒ‰ã«è¨­å®šã•ã‚ŒãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public static void main(String[] args) {
         junit.swingui.TestRunner.run(ValidationUtilTest02.class);
     }
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see jp.terasoluna.utlib.spring.PropertyTestCase#setUpData()
      */
     @Override
     protected void setUpData() throws Exception {
         UTUtil.setPrivateField(ValidationUtil.class, "hankakuKanaList",
-        "±²³´µ§¨©ª«¶·¸¹º»¼½¾¿ÀÁÂ¯ÃÄÅÆÇÈÉÊËÌÍÎÏĞÑÒÓÔÕÖ¬­®×ØÙÚÛÜ¦İßŞ°¥¤¡¢£");
+        "ï½±ï½²ï½³ï½´ï½µï½§ï½¨ï½©ï½ªï½«ï½¶ï½·ï½¸ï½¹ï½ºï½»ï½¼ï½½ï½¾ï½¿ï¾€ï¾ï¾‚ï½¯ï¾ƒï¾„ï¾…ï¾†ï¾‡ï¾ˆï¾‰ï¾Šï¾‹ï¾Œï¾ï¾ï¾ï¾ï¾‘ï¾’ï¾“ï¾”ï¾•ï¾–ï½¬ï½­ï½®ï¾—ï¾˜ï¾™ï¾šï¾›ï¾œï½¦ï¾ï¾Ÿï¾ï½°ï½¥ï½¤ï½¡ï½¢ï½£");
     UTUtil.setPrivateField(ValidationUtil.class, "zenkakuKanaList",
-        "ƒAƒCƒEƒ”ƒGƒIƒ@ƒBƒDƒFƒHƒJƒLƒNƒPƒRƒ•ƒ–ƒKƒMƒOƒQƒSƒTƒVƒXƒZƒ\" +
-        "ƒUƒWƒYƒ[ƒ]ƒ^ƒ`ƒcƒeƒgƒ_ƒaƒdƒfƒhƒiƒjƒkƒlƒmƒnƒqƒtƒwƒz" +
-        "ƒoƒrƒuƒxƒ{ƒpƒsƒvƒyƒ|ƒ}ƒ~ƒ€ƒƒ‚ƒ„ƒ†ƒˆƒƒƒ…ƒ‡ƒ‰ƒŠƒ‹ƒŒƒ" +
-        "ƒƒƒƒ‘ƒ’ƒbƒ“[");
+        "ã‚¢ã‚¤ã‚¦ãƒ´ã‚¨ã‚ªã‚¡ã‚£ã‚¥ã‚§ã‚©ã‚«ã‚­ã‚¯ã‚±ã‚³ãƒµãƒ¶ã‚¬ã‚®ã‚°ã‚²ã‚´ã‚µã‚·ã‚¹ã‚»ã‚½" +
+        "ã‚¶ã‚¸ã‚ºã‚¼ã‚¾ã‚¿ãƒãƒ„ãƒ†ãƒˆãƒ€ãƒ‚ãƒ…ãƒ‡ãƒ‰ãƒŠãƒ‹ãƒŒãƒãƒãƒãƒ’ãƒ•ãƒ˜ãƒ›" +
+        "ãƒãƒ“ãƒ–ãƒ™ãƒœãƒ‘ãƒ”ãƒ—ãƒšãƒãƒãƒŸãƒ ãƒ¡ãƒ¢ãƒ¤ãƒ¦ãƒ¨ãƒ£ãƒ¥ãƒ§ãƒ©ãƒªãƒ«ãƒ¬ãƒ­" +
+        "ãƒ¯ãƒ®ãƒ°ãƒ±ãƒ²ãƒƒãƒ³ãƒ¼");
 }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see jp.terasoluna.utlib.spring.PropertyTestCase#cleanUpData()
      */
     @Override
@@ -71,9 +71,9 @@ public class ValidationUtilTest02 extends PropertyTestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      *
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public ValidationUtilTest02(String name) {
         super(name);
@@ -83,23 +83,23 @@ public class ValidationUtilTest02 extends PropertyTestCase {
      * testMatchRegexp01()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”value‚ªnull‚Ìê‡Atrue‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°valueãŒnullã®å ´åˆã€trueãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testMatchRegexp01() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertTrue(ValidationUtil.matchRegexp(null, "^([0-9])*$"));
     }
 
@@ -107,23 +107,23 @@ public class ValidationUtilTest02 extends PropertyTestCase {
      * testMatchRegexp02()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:""<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:""<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”value‚ª‹ó•¶š‚Ìê‡Atrue‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°valueãŒç©ºæ–‡å­—ã®å ´åˆã€trueãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testMatchRegexp02() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertTrue(ValidationUtil.matchRegexp("", "^([0-9])*$"));
     }
 
@@ -131,25 +131,25 @@ public class ValidationUtilTest02 extends PropertyTestCase {
      * testMatchRegexp03()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"123"<br>
-     *         (ˆø”) mask:"^([0-9])*$"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"123"<br>
+     *         (å¼•æ•°) mask:"^([0-9])*$"<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”value‚ªˆø”mask‚Ì³‹K•\Œ»‚ÉŠY“–‚·‚éê‡Atrue‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * ¦ƒ`ƒFƒbƒNˆ—‚ÍGenericValidator.matchRegexp(String, String)‚ªs‚È‚¤‚½‚ßAŠe³‹K•\Œ»‚É‘Î‚·‚éÚ×‚ÈŠm”F‚Ís‚È‚í‚È‚¢
+     * å¼•æ•°valueãŒå¼•æ•°maskã®æ­£è¦è¡¨ç¾ã«è©²å½“ã™ã‚‹å ´åˆã€trueãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * â€»ãƒã‚§ãƒƒã‚¯å‡¦ç†ã¯GenericValidator.matchRegexp(String, String)ãŒè¡Œãªã†ãŸã‚ã€å„æ­£è¦è¡¨ç¾ã«å¯¾ã™ã‚‹è©³ç´°ãªç¢ºèªã¯è¡Œãªã‚ãªã„
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testMatchRegexp03() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertTrue(ValidationUtil.matchRegexp("123", "^([0-9])*$"));
     }
 
@@ -157,25 +157,25 @@ public class ValidationUtilTest02 extends PropertyTestCase {
      * testMatchRegexp04()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"a12"<br>
-     *         (ˆø”) mask:"^([0-9])*$"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"a12"<br>
+     *         (å¼•æ•°) mask:"^([0-9])*$"<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
      *
      * <br>
-     * ˆø”value‚ªˆø”mask‚Ì³‹K•\Œ»‚ÉŠY“–‚µ‚È‚¢ê‡Atrue‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * ¦ƒ`ƒFƒbƒNˆ—‚ÍGenericValidator.matchRegexp(String, String)‚ªs‚È‚¤‚½‚ßAŠe³‹K•\Œ»‚É‘Î‚·‚éÚ×‚ÈŠm”F‚Ís‚È‚í‚È‚¢
+     * å¼•æ•°valueãŒå¼•æ•°maskã®æ­£è¦è¡¨ç¾ã«è©²å½“ã—ãªã„å ´åˆã€trueãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * â€»ãƒã‚§ãƒƒã‚¯å‡¦ç†ã¯GenericValidator.matchRegexp(String, String)ãŒè¡Œãªã†ãŸã‚ã€å„æ­£è¦è¡¨ç¾ã«å¯¾ã™ã‚‹è©³ç´°ãªç¢ºèªã¯è¡Œãªã‚ãªã„
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testMatchRegexp04() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertFalse(ValidationUtil.matchRegexp("a12", "^([0-9])*$"));
     }
 
@@ -183,23 +183,23 @@ public class ValidationUtilTest02 extends PropertyTestCase {
      * testIsAlphaNumericString01()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”value‚ªnull‚Ìê‡Atrue‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°valueãŒnullã®å ´åˆã€trueãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsAlphaNumericString01() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertTrue(ValidationUtil.isAlphaNumericString(null));
     }
 
@@ -207,23 +207,23 @@ public class ValidationUtilTest02 extends PropertyTestCase {
      * testIsAlphaNumericString02()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:""<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:""<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”value‚ª‹ó•¶š‚Ìê‡Atrue‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°valueãŒç©ºæ–‡å­—ã®å ´åˆã€trueãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsAlphaNumericString02() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertTrue(ValidationUtil.isAlphaNumericString(""));
     }
 
@@ -231,23 +231,23 @@ public class ValidationUtilTest02 extends PropertyTestCase {
      * testIsAlphaNumericString03()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"0aA"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"0aA"<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”value‚ª”¼Šp‰p”š‚Ì‚İ‚Å\¬‚³‚ê‚éê‡Atrue‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°valueãŒåŠè§’è‹±æ•°å­—ã®ã¿ã§æ§‹æˆã•ã‚Œã‚‹å ´åˆã€trueãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsAlphaNumericString03() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertTrue(ValidationUtil.isAlphaNumericString("0aA"));
     }
 
@@ -255,23 +255,23 @@ public class ValidationUtilTest02 extends PropertyTestCase {
      * testIsAlphaNumericString04()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"Zg3%"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"Zg3%"<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
      *
      * <br>
-     * ˆø”value‚ª”¼Šp‰p”šˆÈŠO‚ğŠÜ‚Şê‡Afalse‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°valueãŒåŠè§’è‹±æ•°å­—ä»¥å¤–ã‚’å«ã‚€å ´åˆã€falseãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsAlphaNumericString04() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertFalse(ValidationUtil.isAlphaNumericString("Zg3%"));
     }
 
@@ -279,23 +279,23 @@ public class ValidationUtilTest02 extends PropertyTestCase {
      * testIsUpperAlphaNumericString01()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”value‚ªnull‚Ìê‡Atrue‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°valueãŒnullã®å ´åˆã€trueãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsUpperAlphaNumericString01() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertTrue(ValidationUtil.isUpperAlphaNumericString(null));
     }
 
@@ -303,23 +303,23 @@ public class ValidationUtilTest02 extends PropertyTestCase {
      * testIsUpperAlphaNumericString02()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:""<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:""<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”value‚ª‹ó•¶š‚Ìê‡Atrue‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°valueãŒç©ºæ–‡å­—ã®å ´åˆã€trueãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsUpperAlphaNumericString02() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertTrue(ValidationUtil.isUpperAlphaNumericString(""));
     }
 
@@ -327,23 +327,23 @@ public class ValidationUtilTest02 extends PropertyTestCase {
      * testIsUpperAlphaNumericString03()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"A0"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"A0"<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”value‚ª‘å•¶š”¼Šp‰p”š‚Ì‚İ‚Å\¬‚³‚ê‚éê‡Atrue‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°valueãŒå¤§æ–‡å­—åŠè§’è‹±æ•°å­—ã®ã¿ã§æ§‹æˆã•ã‚Œã‚‹å ´åˆã€trueãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsUpperAlphaNumericString03() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertTrue(ValidationUtil.isUpperAlphaNumericString("A0"));
     }
 
@@ -351,23 +351,23 @@ public class ValidationUtilTest02 extends PropertyTestCase {
      * testIsUpperAlphaNumericString04()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"Aa0"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"Aa0"<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
      *
      * <br>
-     * ˆø”value‚ª‘å•¶š”¼Šp‰p”šˆÈŠO‚ğŠÜ‚Şê‡Afalse‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°valueãŒå¤§æ–‡å­—åŠè§’è‹±æ•°å­—ä»¥å¤–ã‚’å«ã‚€å ´åˆã€falseãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsUpperAlphaNumericString04() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertFalse(ValidationUtil.isUpperAlphaNumericString("Aa0"));
     }
 
@@ -375,23 +375,23 @@ public class ValidationUtilTest02 extends PropertyTestCase {
      * testIsNumericString01()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”value‚ªnull‚Ìê‡Atrue‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°valueãŒnullã®å ´åˆã€trueãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsNumericString01() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertTrue(ValidationUtil.isNumericString(null));
     }
 
@@ -399,23 +399,23 @@ public class ValidationUtilTest02 extends PropertyTestCase {
      * testIsNumericString02()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:""<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:""<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”value‚ª‹ó•¶š‚Ìê‡Atrue‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°valueãŒç©ºæ–‡å­—ã®å ´åˆã€trueãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsNumericString02() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertTrue(ValidationUtil.isNumericString(""));
     }
 
@@ -423,23 +423,23 @@ public class ValidationUtilTest02 extends PropertyTestCase {
      * testIsNumericString03()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"9876"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"9876"<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”value‚ª”š‚Ì‚İ‚Å\¬‚³‚ê‚éê‡Atrue‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°valueãŒæ•°å­—ã®ã¿ã§æ§‹æˆã•ã‚Œã‚‹å ´åˆã€trueãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsNumericString03() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertTrue(ValidationUtil.isNumericString("9876"));
     }
 
@@ -447,23 +447,23 @@ public class ValidationUtilTest02 extends PropertyTestCase {
      * testIsNumericString04()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"Aa0"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"Aa0"<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
      *
      * <br>
-     * ˆø”value‚ª”šˆÈŠO‚ğŠÜ‚Şê‡Afalse‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°valueãŒæ•°å­—ä»¥å¤–ã‚’å«ã‚€å ´åˆã€falseãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsNumericString04() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertFalse(ValidationUtil.isNumericString("Aa0"));
     }
 
@@ -471,23 +471,23 @@ public class ValidationUtilTest02 extends PropertyTestCase {
      * testIsNumber01()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * value‚ªnull‚Ìê‡Atrue‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * valueãŒnullã®å ´åˆã€trueãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsNumber01() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertTrue(ValidationUtil.isNumber(null, 3, false, 3, false));
     }
 
@@ -495,27 +495,27 @@ public class ValidationUtilTest02 extends PropertyTestCase {
      * testIsNumber02()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:BigDecimal("123.45")<br>
-     *         (ˆø”) integerLength:1<br>
-     *         (ˆø”) isAccordedInteger:false<br>
-     *         (ˆø”) scaleLength:3<br>
-     *         (ˆø”) isAccordedScale:false<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:BigDecimal("123.45")<br>
+     *         (å¼•æ•°) integerLength:1<br>
+     *         (å¼•æ•°) isAccordedInteger:false<br>
+     *         (å¼•æ•°) scaleLength:3<br>
+     *         (å¼•æ•°) isAccordedScale:false<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
      *
      * <br>
-     * isAccordedInteger‚ªfalse‚ÅA®”•”Œ…”‚ªintegerLength‚æ‚è‘å‚«‚¢ê‡Afalse‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * isAccordedIntegerãŒfalseã§ã€æ•´æ•°éƒ¨æ¡æ•°ãŒintegerLengthã‚ˆã‚Šå¤§ãã„å ´åˆã€falseãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsNumber02() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertFalse(ValidationUtil.isNumber(new BigDecimal("123.45"), 1, false,
                 3, false));
     }
@@ -524,27 +524,27 @@ public class ValidationUtilTest02 extends PropertyTestCase {
      * testIsNumber03()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:BigDecimal("123.45")<br>
-     *         (ˆø”) integerLength:5<br>
-     *         (ˆø”) isAccordedInteger:true<br>
-     *         (ˆø”) scaleLength:3<br>
-     *         (ˆø”) isAccordedScale:false<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:BigDecimal("123.45")<br>
+     *         (å¼•æ•°) integerLength:5<br>
+     *         (å¼•æ•°) isAccordedInteger:true<br>
+     *         (å¼•æ•°) scaleLength:3<br>
+     *         (å¼•æ•°) isAccordedScale:false<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
      *
      * <br>
-     * isAccordedInteger‚ªtrue‚ÅA®”•”Œ…”‚ªintegerLength‚Æ“™‚µ‚­‚È‚¢ê‡Afalse‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * isAccordedIntegerãŒtrueã§ã€æ•´æ•°éƒ¨æ¡æ•°ãŒintegerLengthã¨ç­‰ã—ããªã„å ´åˆã€falseãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsNumber03() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertFalse(ValidationUtil.isNumber(new BigDecimal("123.45"), 5, true,
                 3, false));
     }
@@ -553,27 +553,27 @@ public class ValidationUtilTest02 extends PropertyTestCase {
      * testIsNumber04()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:BigDecimal("123.45")<br>
-     *         (ˆø”) integerLength:5<br>
-     *         (ˆø”) isAccordedInteger:false<br>
-     *         (ˆø”) scaleLength:1<br>
-     *         (ˆø”) isAccordedScale:false<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:BigDecimal("123.45")<br>
+     *         (å¼•æ•°) integerLength:5<br>
+     *         (å¼•æ•°) isAccordedInteger:false<br>
+     *         (å¼•æ•°) scaleLength:1<br>
+     *         (å¼•æ•°) isAccordedScale:false<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
      *
      * <br>
-     * ®”•”Œ…”‚ÍğŒ‚ğ–‚½‚µAAccordedScale‚ªfalse‚ÅA¬”•”Œ…”‚ªscaleLength‚æ‚è‘å‚«‚¢ê‡Afalse‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * æ•´æ•°éƒ¨æ¡æ•°ã¯æ¡ä»¶ã‚’æº€ãŸã—ã€AccordedScaleãŒfalseã§ã€å°æ•°éƒ¨æ¡æ•°ãŒscaleLengthã‚ˆã‚Šå¤§ãã„å ´åˆã€falseãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsNumber04() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertFalse(ValidationUtil.isNumber(new BigDecimal("123.45"), 5, false,
                 1, false));
     }
@@ -582,27 +582,27 @@ public class ValidationUtilTest02 extends PropertyTestCase {
      * testIsNumber05()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:BigDecimal("123.45")<br>
-     *         (ˆø”) integerLength:3<br>
-     *         (ˆø”) isAccordedInteger:true<br>
-     *         (ˆø”) scaleLength:3<br>
-     *         (ˆø”) isAccordedScale:true<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:BigDecimal("123.45")<br>
+     *         (å¼•æ•°) integerLength:3<br>
+     *         (å¼•æ•°) isAccordedInteger:true<br>
+     *         (å¼•æ•°) scaleLength:3<br>
+     *         (å¼•æ•°) isAccordedScale:true<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
      *
      * <br>
-     * ®”•”Œ…”‚ÍğŒ‚ğ–‚½‚µAisAccordedScale‚ªtrue‚ÅA¬”•”Œ…”‚ªscaleLength‚Æ“™‚µ‚­‚È‚¢ê‡Afalse‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * æ•´æ•°éƒ¨æ¡æ•°ã¯æ¡ä»¶ã‚’æº€ãŸã—ã€isAccordedScaleãŒtrueã§ã€å°æ•°éƒ¨æ¡æ•°ãŒscaleLengthã¨ç­‰ã—ããªã„å ´åˆã€falseãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsNumber05() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertFalse(ValidationUtil.isNumber(new BigDecimal("123.45"), 3, true,
                 3, true));
     }
@@ -611,27 +611,27 @@ public class ValidationUtilTest02 extends PropertyTestCase {
      * testIsNumber06()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:BigDecimal("123.45")<br>
-     *         (ˆø”) integerLength:5<br>
-     *         (ˆø”) isAccordedInteger:false<br>
-     *         (ˆø”) scaleLength:3<br>
-     *         (ˆø”) isAccordedScale:false<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:BigDecimal("123.45")<br>
+     *         (å¼•æ•°) integerLength:5<br>
+     *         (å¼•æ•°) isAccordedInteger:false<br>
+     *         (å¼•æ•°) scaleLength:3<br>
+     *         (å¼•æ•°) isAccordedScale:false<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * isAccordedIntegerEscaleLength‚ªfalse‚Ìê‡A®”•”Œ…”E¬”•”Œ…”‚ªintegerLengthEscaleLength‚æ‚è¬‚³‚¯‚ê‚Îtrue‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * isAccordedIntegerãƒ»scaleLengthãŒfalseã®å ´åˆã€æ•´æ•°éƒ¨æ¡æ•°ãƒ»å°æ•°éƒ¨æ¡æ•°ãŒintegerLengthãƒ»scaleLengthã‚ˆã‚Šå°ã•ã‘ã‚Œã°trueãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsNumber06() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertTrue(ValidationUtil.isNumber(new BigDecimal("123.45"), 5, false,
                 3, false));
     }
@@ -640,27 +640,27 @@ public class ValidationUtilTest02 extends PropertyTestCase {
      * testIsNumber07()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:BigDecimal("123.45")<br>
-     *         (ˆø”) integerLength:3<br>
-     *         (ˆø”) isAccordedInteger:true<br>
-     *         (ˆø”) scaleLength:2<br>
-     *         (ˆø”) isAccordedScale:true<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:BigDecimal("123.45")<br>
+     *         (å¼•æ•°) integerLength:3<br>
+     *         (å¼•æ•°) isAccordedInteger:true<br>
+     *         (å¼•æ•°) scaleLength:2<br>
+     *         (å¼•æ•°) isAccordedScale:true<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * isAccordedIntegerEscaleLength‚ªtrue‚Ìê‡A®”•”Œ…”E¬”•”Œ…”‚ªintegerLengthEscaleLength‚Æ“™‚µ‚¯‚ê‚Îtrue‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * isAccordedIntegerãƒ»scaleLengthãŒtrueã®å ´åˆã€æ•´æ•°éƒ¨æ¡æ•°ãƒ»å°æ•°éƒ¨æ¡æ•°ãŒintegerLengthãƒ»scaleLengthã¨ç­‰ã—ã‘ã‚Œã°trueãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsNumber07() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertTrue(ValidationUtil.isNumber(new BigDecimal("123.45"), 3, true,
                 2, true));
     }
@@ -668,27 +668,27 @@ public class ValidationUtilTest02 extends PropertyTestCase {
      * testIsNumber08()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:BigDecimal("123.45")<br>
-     *         (ˆø”) integerLength:3<br>
-     *         (ˆø”) isAccordedInteger:false<br>
-     *         (ˆø”) scaleLength:2<br>
-     *         (ˆø”) isAccordedScale:false<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:BigDecimal("123.45")<br>
+     *         (å¼•æ•°) integerLength:3<br>
+     *         (å¼•æ•°) isAccordedInteger:false<br>
+     *         (å¼•æ•°) scaleLength:2<br>
+     *         (å¼•æ•°) isAccordedScale:false<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * isAccordedIntegerEscaleLength‚ªfalse‚Ìê‡A®”•”Œ…”E¬”•”Œ…”‚ªintegerLengthEscaleLength‚Æ“™‚µ‚¯‚ê‚Îtrue‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * isAccordedIntegerãƒ»scaleLengthãŒfalseã®å ´åˆã€æ•´æ•°éƒ¨æ¡æ•°ãƒ»å°æ•°éƒ¨æ¡æ•°ãŒintegerLengthãƒ»scaleLengthã¨ç­‰ã—ã‘ã‚Œã°trueãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsNumber08() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertTrue(ValidationUtil.isNumber(new BigDecimal("123.45"), 3, false,
                 2, false));
     }
@@ -697,27 +697,27 @@ public class ValidationUtilTest02 extends PropertyTestCase {
      * testIsNumber09()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:BigDecimal("123.00000")<br>
-     *         (ˆø”) integerLength:3<br>
-     *         (ˆø”) isAccordedInteger:false<br>
-     *         (ˆø”) scaleLength:2<br>
-     *         (ˆø”) isAccordedScale:false<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:BigDecimal("123.00000")<br>
+     *         (å¼•æ•°) integerLength:3<br>
+     *         (å¼•æ•°) isAccordedInteger:false<br>
+     *         (å¼•æ•°) scaleLength:2<br>
+     *         (å¼•æ•°) isAccordedScale:false<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
      *
      * <br>
-     * ®”•”Œ…”‚ÍğŒ‚ğ–‚½‚µAAccordedScale‚ªfalse‚ÅA¬”•”Œ…”‚ªscaleLength‚æ‚è‘å‚«‚¢ê‡Afalse‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * æ•´æ•°éƒ¨æ¡æ•°ã¯æ¡ä»¶ã‚’æº€ãŸã—ã€AccordedScaleãŒfalseã§ã€å°æ•°éƒ¨æ¡æ•°ãŒscaleLengthã‚ˆã‚Šå¤§ãã„å ´åˆã€falseãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsNumber09() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertFalse(ValidationUtil.isNumber(new BigDecimal("123.00000"), 3,
                 false, 2, false));
     }

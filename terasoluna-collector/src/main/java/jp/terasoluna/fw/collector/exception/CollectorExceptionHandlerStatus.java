@@ -18,17 +18,17 @@ package jp.terasoluna.fw.collector.exception;
 
 public enum CollectorExceptionHandlerStatus {
     /**
-     * —áŠO‚ðƒXƒ[‚·‚é
+     * ä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹
      */
     THROW,
 
     /**
-     * —áŠO‚ðƒXƒ[‚¹‚¸‚É–³Ž‹‚·‚é
+     * ä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã›ãšã«ç„¡è¦–ã™ã‚‹
      */
     SKIP,
 
     /**
-     * —áŠO‚ðƒXƒ[‚¹‚¸‚ÉƒRƒŒƒNƒ^‚ðI—¹‚·‚é
+     * ä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã›ãšã«ã‚³ãƒ¬ã‚¯ã‚¿ã‚’çµ‚äº†ã™ã‚‹
      */
     END
 }

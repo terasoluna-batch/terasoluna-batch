@@ -40,19 +40,19 @@ import jp.terasoluna.utlib.UTUtil;
 import junit.framework.TestCase;
 
 /**
- * {@link jp.terasoluna.fw.file.dao.standard.AbstractFileLineIterator} ƒNƒ‰ƒX‚ÌƒeƒXƒgB
+ * {@link jp.terasoluna.fw.file.dao.standard.AbstractFileLineIterator} ã‚¯ãƒ©ã‚¹ã®ãƒ†ã‚¹ãƒˆã€‚
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4> ƒtƒ@ƒCƒ‹ƒAƒNƒZƒX(“Çæ)‚ÌƒX[ƒp[ƒNƒ‰ƒXB’ŠÛƒNƒ‰ƒX‚Ì‚½‚ßAAbstractFileLineIteratorImplƒNƒ‰ƒX‚ğì¬‚µ‚ÄŒ±‚ğÀ{‚·‚éB
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4> ãƒ•ã‚¡ã‚¤ãƒ«ã‚¢ã‚¯ã‚»ã‚¹(èª­å–)ã®ã‚¹ãƒ¼ãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã€‚æŠ½è±¡ã‚¯ãƒ©ã‚¹ã®ãŸã‚ã€AbstractFileLineIteratorImplã‚¯ãƒ©ã‚¹ã‚’ä½œæˆã—ã¦è©¦é¨“ã‚’å®Ÿæ–½ã™ã‚‹ã€‚
  * <p>
- * @author ‰œ“c“Ni
- * @author æâ•î“O
+ * @author å¥¥ç”°å“²å¸
+ * @author è¶™ä¿¸å¾¹
  * @see jp.terasoluna.fw.file.dao.standard.AbstractFileLineIterator
  */
 public class AbstractFileLineIteratorTest extends TestCase {
 
     /**
-     * ‚±‚ÌƒeƒXƒgƒP[ƒX‚ğÀs‚·‚éˆ×‚Ì GUI ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‹N“®‚·‚éB
-     * @param args java ƒRƒ}ƒ“ƒh‚Éİ’è‚³‚ê‚½ƒpƒ‰ƒ[ƒ^
+     * ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã‚’å®Ÿè¡Œã™ã‚‹ç‚ºã® GUI ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’èµ·å‹•ã™ã‚‹ã€‚
+     * @param args java ã‚³ãƒãƒ³ãƒ‰ã«è¨­å®šã•ã‚ŒãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public static void main(String[] args) {
         // junit.swingui.TestRunner.run(AbstractFileLineIteratorTest.class
@@ -60,8 +60,8 @@ public class AbstractFileLineIteratorTest extends TestCase {
     }
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -71,8 +71,8 @@ public class AbstractFileLineIteratorTest extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -81,8 +81,8 @@ public class AbstractFileLineIteratorTest extends TestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public AbstractFileLineIteratorTest(String name) {
         super(name);
@@ -91,62 +91,62 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testAbstractFileLineIteratorStringClassMap01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "AbstractFileLineIterator_ƒinit„01"<br>
-     * (ˆø”) clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂClassƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * @FileFormat‚Ìİ’è‚ğ‚Â<br> - delimiterF"|"(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)<br>
-     *                       - encloseCharF"\""(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)<br>
-     *                       - lineFeedCharF"\r"(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)<br>
-     *                       - fileEncodingF"MS932"(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)<br>
-     *                       - headerLineCountF1(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)<br>
-     *                       - trailerLineCountF1(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)<br>
-     *                       (ˆø”) columnParserMap:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂMap<String, ColumnParser>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                       E"int"=IntColumnParser<br>
-     *                       E"java.lang.String"=NullColumnParser.java<br>
-     *                       (ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     *                       @‹óÀ‘•<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "AbstractFileLineIterator_ï¼œinitï¼01"<br>
+     * (å¼•æ•°) clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤Classã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * @FileFormatã®è¨­å®šã‚’æŒã¤<br> - delimiterï¼š"|"(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)<br>
+     *                       - encloseCharï¼š"\""(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)<br>
+     *                       - lineFeedCharï¼š"\r"(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)<br>
+     *                       - fileEncodingï¼š"MS932"(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)<br>
+     *                       - headerLineCountï¼š1(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)<br>
+     *                       - trailerLineCountï¼š1(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)<br>
+     *                       (å¼•æ•°) columnParserMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤Map<String, ColumnParser>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                       ãƒ»"int"=IntColumnParser<br>
+     *                       ãƒ»"java.lang.String"=NullColumnParser.java<br>
+     *                       (çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     *                       ã€€ç©ºå®Ÿè£…<br>
      * <br>
-     *                       Šú‘Ò’lF(ó‘Ô•Ï‰») this.fileName:ˆø”fileName‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                       "AbstractFileLineIterator_ƒinit„01"<br>
-     *                       (ó‘Ô•Ï‰») this.clazz:ˆø”clazz‚Ì‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                       (ó‘Ô•Ï‰») lineFeedChar:"\r"<br>
-     *                       (ó‘Ô•Ï‰») fileEncoding:"MS932"<br>
-     *                       (ó‘Ô•Ï‰») headerLineCount:1<br>
-     *                       (ó‘Ô•Ï‰») trailerLineCount:1<br>
-     *                       (ó‘Ô•Ï‰») this.columnParserMap:ˆø”columnParserMap“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                       (ó‘Ô•Ï‰») —áŠO:‚È‚¢<br>
+     *                       æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.fileName:å¼•æ•°fileNameã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                       "AbstractFileLineIterator_ï¼œinitï¼01"<br>
+     *                       (çŠ¶æ…‹å¤‰åŒ–) this.clazz:å¼•æ•°clazzã®ã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                       (çŠ¶æ…‹å¤‰åŒ–) lineFeedChar:"\r"<br>
+     *                       (çŠ¶æ…‹å¤‰åŒ–) fileEncoding:"MS932"<br>
+     *                       (çŠ¶æ…‹å¤‰åŒ–) headerLineCount:1<br>
+     *                       (çŠ¶æ…‹å¤‰åŒ–) trailerLineCount:1<br>
+     *                       (çŠ¶æ…‹å¤‰åŒ–) this.columnParserMap:å¼•æ•°columnParserMapåŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                       (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ãªã„<br>
      * <br>
-     *                       ³íƒpƒ^[ƒ“B<br>
-     *                       ˆø”‚Éİ’è‚³‚ê‚½î•ñ‚É‚æ‚èAbstractFileLineIteratorƒNƒ‰ƒX‚ª‰Šú‰»‚³‚ê‚Ä¶¬‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                       æ­£å¸¸ãƒ‘ã‚¿ãƒ¼ãƒ³ã€‚<br>
+     *                       å¼•æ•°ã«è¨­å®šã•ã‚ŒãŸæƒ…å ±ã«ã‚ˆã‚ŠAbstractFileLineIteratorã‚¯ãƒ©ã‚¹ãŒåˆæœŸåŒ–ã•ã‚Œã¦ç”Ÿæˆã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testAbstractFileLineIteratorStringClassMap01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
-        // ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚È‚Ì‚Å•s—v
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
+        // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãªã®ã§ä¸è¦
 
-        // ˆø”‚Ìİ’è
-        String fileName = "AbstractFileLineIterator_ƒinit„01";
+        // å¼•æ•°ã®è¨­å®š
+        String fileName = "AbstractFileLineIterator_ï¼œinitï¼01";
         Class<AbstractFileLineIterator_Stub01> clazz = AbstractFileLineIterator_Stub01.class;
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("int", new IntColumnParser());
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineIterator.class,
                 "init", null);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub01> fileLineIterator = new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub01>(
                 fileName, clazz, columnParserMap);
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(fileName, UTUtil.getPrivateField(fileLineIterator,
                 "fileName"));
         assertSame(AbstractFileLineIterator_Stub01.class, UTUtil
@@ -166,58 +166,58 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testAbstractFileLineIteratorStringClassMap02() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FC,G <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,G <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileName:null<br>
-     * (ˆø”) clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂClassƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * @FileFormat‚Ìİ’è‚ğ‚Â<br> - delimiterF"|"(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)<br>
-     *                       - encloseCharF"\""(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)<br>
-     *                       - lineFeedCharF"\r"(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)<br>
-     *                       - fileEncodingF"MS932"(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)<br>
-     *                       - headerLineCountF1(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)<br>
-     *                       - trailerLineCountF1(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)<br>
-     *                       (ˆø”) columnParserMap:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂMap<String, ColumnParser>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                       E"int"=IntColumnParser<br>
-     *                       E"java.lang.String"=NullColumnParser.java<br>
-     *                       (ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     *                       @‹óÀ‘•<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileName:null<br>
+     * (å¼•æ•°) clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤Classã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * @FileFormatã®è¨­å®šã‚’æŒã¤<br> - delimiterï¼š"|"(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)<br>
+     *                       - encloseCharï¼š"\""(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)<br>
+     *                       - lineFeedCharï¼š"\r"(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)<br>
+     *                       - fileEncodingï¼š"MS932"(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)<br>
+     *                       - headerLineCountï¼š1(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)<br>
+     *                       - trailerLineCountï¼š1(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)<br>
+     *                       (å¼•æ•°) columnParserMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤Map<String, ColumnParser>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                       ãƒ»"int"=IntColumnParser<br>
+     *                       ãƒ»"java.lang.String"=NullColumnParser.java<br>
+     *                       (çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     *                       ã€€ç©ºå®Ÿè£…<br>
      * <br>
-     *                       Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *                       EƒƒbƒZ[ƒWF"fileName is required."<br>
-     *                       EŒ´ˆö—áŠOFIllegalArgumentException<br>
-     *                       Eƒtƒ@ƒCƒ‹–¼Fnull<br>
+     *                       æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *                       ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"fileName is required."<br>
+     *                       ãƒ»åŸå› ä¾‹å¤–ï¼šIllegalArgumentException<br>
+     *                       ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šnull<br>
      * <br>
-     *                       —áŠOB<br>
-     *                       ƒtƒ@ƒCƒ‹–¼‚ªİ’è‚³‚ê‚Ä‚¢‚È‚¢(null)ê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                       ä¾‹å¤–ã€‚<br>
+     *                       ãƒ•ã‚¡ã‚¤ãƒ«åãŒè¨­å®šã•ã‚Œã¦ã„ãªã„(null)å ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testAbstractFileLineIteratorStringClassMap02() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
-        // ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚È‚Ì‚Å•s—v
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
+        // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãªã®ã§ä¸è¦
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String fileName = null;
         Class<AbstractFileLineIterator_Stub01> clazz = AbstractFileLineIterator_Stub01.class;
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("int", new IntColumnParser());
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineIterator.class,
                 "init", null);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub01>(
                     fileName, clazz, columnParserMap);
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (FileException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(0, VMOUTUtil.getCallCount(
                     AbstractFileLineIterator.class, "buildLineReader"));
 
@@ -231,52 +231,52 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testAbstractFileLineIteratorStringClassMap03() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE,G <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE,G <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "AbstractFileLineIterator_ƒinit„03"<br>
-     * (ˆø”) clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂClassƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * @FileFormat‚Ìİ’è‚ğ‚Ä‚È‚¢<br> (ˆø”) columnParserMap:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂMap<String, ColumnParser>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                         E"int"=IntColumnParser<br>
-     *                         E"java.lang.String"=NullColumnParser.java<br>
-     *                         (ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     *                         @‹óÀ‘•<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "AbstractFileLineIterator_ï¼œinitï¼03"<br>
+     * (å¼•æ•°) clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤Classã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * @FileFormatã®è¨­å®šã‚’æŒã¦ãªã„<br> (å¼•æ•°) columnParserMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤Map<String, ColumnParser>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                         ãƒ»"int"=IntColumnParser<br>
+     *                         ãƒ»"java.lang.String"=NullColumnParser.java<br>
+     *                         (çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     *                         ã€€ç©ºå®Ÿè£…<br>
      * <br>
-     *                         Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *                         EƒƒbƒZ[ƒWF"FileFormat annotation is not found."<br>
-     *                         EŒ´ˆö—áŠOFIllegalStateException<br>
-     *                         Eƒtƒ@ƒCƒ‹–¼Fˆø”fileName‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒXB<br>
+     *                         æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *                         ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"FileFormat annotation is not found."<br>
+     *                         ãƒ»åŸå› ä¾‹å¤–ï¼šIllegalStateException<br>
+     *                         ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šå¼•æ•°fileNameã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚<br>
      * <br>
-     *                         —áŠOB<br>
-     *                         ˆø”clazz‚É“n‚³‚ê‚½ƒNƒ‰ƒXƒCƒ“ƒXƒ^ƒ“ƒX‚ÉA@FileFormat‚Ìİ’è‚ª‘¶İ‚µ‚È‚¢ê‡‚ÍA—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                         ä¾‹å¤–ã€‚<br>
+     *                         å¼•æ•°clazzã«æ¸¡ã•ã‚ŒãŸã‚¯ãƒ©ã‚¹ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã«ã€@FileFormatã®è¨­å®šãŒå­˜åœ¨ã—ãªã„å ´åˆã¯ã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testAbstractFileLineIteratorStringClassMap03() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
-        // ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚È‚Ì‚Å•s—v
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
+        // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãªã®ã§ä¸è¦
 
-        // ˆø”‚Ìİ’è
-        String fileName = "AbstractFileLineIterator_ƒinit„03";
+        // å¼•æ•°ã®è¨­å®š
+        String fileName = "AbstractFileLineIterator_ï¼œinitï¼03";
         Class<AbstractFileLineIterator_Stub02> clazz = AbstractFileLineIterator_Stub02.class;
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("int", new IntColumnParser());
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineIterator.class,
                 "init", null);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub02>(
                     fileName, clazz, columnParserMap);
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (FileException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(0, VMOUTUtil.getCallCount(
                     AbstractFileLineIterator.class, "buildLineReader"));
 
@@ -290,63 +290,63 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testAbstractFileLineIteratorStringClassMap04() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC,E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "AbstractFileLineIterator_ƒinit„04"<br>
-     * (ˆø”) clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂClassƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * @FileFormat‚Ìİ’è‚ğ‚Â<br> - delimiterF"|"(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)<br>
-     *                       - encloseCharF"\""(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)<br>
-     *                       - lineFeedCharF""(‹ó•¶š)<br>
-     *                       - fileEncodingF""(‹ó•¶š)<br>
-     *                       - headerLineCountF1(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)<br>
-     *                       - trailerLineCountF1(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)<br>
-     *                       (ˆø”) columnParserMap:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂMap<String, ColumnParser>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                       E"int"=IntColumnParser<br>
-     *                       E"java.lang.String"=NullColumnParser.java<br>
-     *                       (ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     *                       @‹óÀ‘•<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "AbstractFileLineIterator_ï¼œinitï¼04"<br>
+     * (å¼•æ•°) clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤Classã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * @FileFormatã®è¨­å®šã‚’æŒã¤<br> - delimiterï¼š"|"(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)<br>
+     *                       - encloseCharï¼š"\""(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)<br>
+     *                       - lineFeedCharï¼š""(ç©ºæ–‡å­—)<br>
+     *                       - fileEncodingï¼š""(ç©ºæ–‡å­—)<br>
+     *                       - headerLineCountï¼š1(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)<br>
+     *                       - trailerLineCountï¼š1(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)<br>
+     *                       (å¼•æ•°) columnParserMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤Map<String, ColumnParser>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                       ãƒ»"int"=IntColumnParser<br>
+     *                       ãƒ»"java.lang.String"=NullColumnParser.java<br>
+     *                       (çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     *                       ã€€ç©ºå®Ÿè£…<br>
      * <br>
-     *                       Šú‘Ò’lF(ó‘Ô•Ï‰») this.fileName:ˆø”fileName‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                       "AbstractFileLineIterator_ƒinit„04"<br>
-     *                       (ó‘Ô•Ï‰») this.clazz:ˆø”clazz‚Ì‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                       (ó‘Ô•Ï‰») lineFeedChar:ƒVƒXƒeƒ€‚Ìs‹æØ‚è•¶š<br>
+     *                       æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.fileName:å¼•æ•°fileNameã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                       "AbstractFileLineIterator_ï¼œinitï¼04"<br>
+     *                       (çŠ¶æ…‹å¤‰åŒ–) this.clazz:å¼•æ•°clazzã®ã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                       (çŠ¶æ…‹å¤‰åŒ–) lineFeedChar:ã‚·ã‚¹ãƒ†ãƒ ã®è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—<br>
      *                       System.getProperty("line.separator")<br>
-     *                       (ó‘Ô•Ï‰») fileEncoding:ƒVƒXƒeƒ€‚Ìƒtƒ@ƒCƒ‹ƒGƒ“ƒR[ƒfƒBƒ“ƒO<br>
+     *                       (çŠ¶æ…‹å¤‰åŒ–) fileEncoding:ã‚·ã‚¹ãƒ†ãƒ ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°<br>
      *                       System.getProperty("file.encoding")<br>
-     *                       (ó‘Ô•Ï‰») headerLineCount:1<br>
-     *                       (ó‘Ô•Ï‰») trailerLineCount:1<br>
-     *                       (ó‘Ô•Ï‰») this.columnParserMap:ˆø”columnParserMap“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     *                       (çŠ¶æ…‹å¤‰åŒ–) headerLineCount:1<br>
+     *                       (çŠ¶æ…‹å¤‰åŒ–) trailerLineCount:1<br>
+     *                       (çŠ¶æ…‹å¤‰åŒ–) this.columnParserMap:å¼•æ•°columnParserMapåŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     *                       ³íƒpƒ^[ƒ“B<br>
-     *                       ˆø”clazz‚É“n‚³‚ê‚½ƒNƒ‰ƒXƒCƒ“ƒXƒ^ƒ“ƒX‚Ì—FileFormat‚ÉulineFeedCharv‚ÆufileEncodingv‚ª‹ó•¶š‚Åİ’è‚³‚ê‚Ä‚¢‚éê‡AAbstractFileLineIteratorƒNƒ‰ƒX‚Ìthis
-     *                       .lineFeddChar‚Æthis.fileEncoding‚ªƒVƒXƒeƒ€ƒfƒtƒHƒ‹ƒg’l‚Å‰Šú‰»‚³‚ê‚Ä¶¬‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                       æ­£å¸¸ãƒ‘ã‚¿ãƒ¼ãƒ³ã€‚<br>
+     *                       å¼•æ•°clazzã«æ¸¡ã•ã‚ŒãŸã‚¯ãƒ©ã‚¹ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã®ï¼ FileFormatã«ã€ŒlineFeedCharã€ã¨ã€ŒfileEncodingã€ãŒç©ºæ–‡å­—ã§è¨­å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã€AbstractFileLineIteratorã‚¯ãƒ©ã‚¹ã®this
+     *                       .lineFeddCharã¨this.fileEncodingãŒã‚·ã‚¹ãƒ†ãƒ ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ã§åˆæœŸåŒ–ã•ã‚Œã¦ç”Ÿæˆã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testAbstractFileLineIteratorStringClassMap04() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
-        // ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚È‚Ì‚Å•s—v
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
+        // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãªã®ã§ä¸è¦
 
-        // ˆø”‚Ìİ’è
-        String fileName = "AbstractFileLineIterator_ƒinit„04";
+        // å¼•æ•°ã®è¨­å®š
+        String fileName = "AbstractFileLineIterator_ï¼œinitï¼04";
         Class<AbstractFileLineIterator_Stub03> clazz = AbstractFileLineIterator_Stub03.class;
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("int", new IntColumnParser());
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineIterator.class,
                 "init", null);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub03> fileLineIterator = new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub03>(
                 fileName, clazz, columnParserMap);
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(fileName, UTUtil.getPrivateField(fileLineIterator,
                 "fileName"));
         assertSame(AbstractFileLineIterator_Stub03.class, UTUtil
@@ -366,59 +366,59 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testAbstractFileLineIteratorStringClassMap05() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FC,G <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,G <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "AbstractFileLineIterator_ƒinit„05"<br>
-     * (ˆø”) clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂClassƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * @FileFormat‚Ìİ’è‚ğ‚Â<br> - delimiterF";"(encloseChar‚Æ“¯‚¶’l)<br>
-     *                       - encloseCharF";"(delimiter‚Æ“¯‚¶’l)<br>
-     *                       - lineFeedCharF"\r"(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)<br>
-     *                       - fileEncodingF"MS932"(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)<br>
-     *                       - headerLineCountF1(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)<br>
-     *                       - trailerLineCountF1(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)<br>
-     *                       (ˆø”) columnParserMap:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂMap<String, ColumnParser>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                       E"int"=IntColumnParser<br>
-     *                       E"java.lang.String"=NullColumnParser.java<br>
-     *                       (ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     *                       @‹óÀ‘•<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "AbstractFileLineIterator_ï¼œinitï¼05"<br>
+     * (å¼•æ•°) clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤Classã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * @FileFormatã®è¨­å®šã‚’æŒã¤<br> - delimiterï¼š";"(encloseCharã¨åŒã˜å€¤)<br>
+     *                       - encloseCharï¼š";"(delimiterã¨åŒã˜å€¤)<br>
+     *                       - lineFeedCharï¼š"\r"(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)<br>
+     *                       - fileEncodingï¼š"MS932"(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)<br>
+     *                       - headerLineCountï¼š1(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)<br>
+     *                       - trailerLineCountï¼š1(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)<br>
+     *                       (å¼•æ•°) columnParserMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤Map<String, ColumnParser>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                       ãƒ»"int"=IntColumnParser<br>
+     *                       ãƒ»"java.lang.String"=NullColumnParser.java<br>
+     *                       (çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     *                       ã€€ç©ºå®Ÿè£…<br>
      * <br>
-     *                       Šú‘Ò’lF(ó‘Ô•Ï‰») lineFeedChar:I8<br>
-     *                       (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *                       EƒƒbƒZ[ƒWF"Delimiter is the same as EncloseChar and is no use."<br>
-     *                       EŒ´ˆö—áŠOFIllegalStateException<br>
-     *                       Eƒtƒ@ƒCƒ‹–¼Fˆø”fileName‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒXB<br>
+     *                       æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) lineFeedChar:I8<br>
+     *                       (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *                       ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Delimiter is the same as EncloseChar and is no use."<br>
+     *                       ãƒ»åŸå› ä¾‹å¤–ï¼šIllegalStateException<br>
+     *                       ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šå¼•æ•°fileNameã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚<br>
      * <br>
-     *                       —áŠOB<br>
-     *                       ˆø”clazz‚É“n‚³‚ê‚½ƒNƒ‰ƒXƒCƒ“ƒXƒ^ƒ“ƒX‚Ì@FileForma‚Éudelimiterv‚ÆuencloseCharv‚ª“¯‚¶ê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                       ä¾‹å¤–ã€‚<br>
+     *                       å¼•æ•°clazzã«æ¸¡ã•ã‚ŒãŸã‚¯ãƒ©ã‚¹ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã®@FileFormaã«ã€Œdelimiterã€ã¨ã€ŒencloseCharã€ãŒåŒã˜å ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testAbstractFileLineIteratorStringClassMap05() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
-        // ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚È‚Ì‚Å•s—v
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
+        // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãªã®ã§ä¸è¦
 
-        // ˆø”‚Ìİ’è
-        String fileName = "AbstractFileLineIterator_ƒinit„05";
+        // å¼•æ•°ã®è¨­å®š
+        String fileName = "AbstractFileLineIterator_ï¼œinitï¼05";
         Class<AbstractFileLineIterator_Stub04> clazz = AbstractFileLineIterator_Stub04.class;
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("int", new IntColumnParser());
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineIterator.class,
                 "init", null);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub04>(
                     fileName, clazz, columnParserMap);
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (FileException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(0, VMOUTUtil.getCallCount(
                     AbstractFileLineIterator.class, "buildLineReader"));
 
@@ -433,59 +433,59 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testAbstractFileLineIteratorStringClassMap06() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FC,G <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,G <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * ""<br>
-     * (ˆø”) clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂClassƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * @FileFormat‚Ìİ’è‚ğ‚Â<br> - delimiterF"|"(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)<br>
-     *                       - encloseCharF"\""(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)<br>
-     *                       - lineFeedCharF"\r"(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)<br>
-     *                       - fileEncodingF"MS932"(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)<br>
-     *                       - headerLineCountF1(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)<br>
-     *                       - trailerLineCountF1(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)<br>
-     *                       (ˆø”) columnParserMap:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂMap<String, ColumnParser>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                       E"int"=IntColumnParser<br>
-     *                       E"java.lang.String"=NullColumnParser.java<br>
-     *                       (ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     *                       @‹óÀ‘•<br>
+     * (å¼•æ•°) clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤Classã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * @FileFormatã®è¨­å®šã‚’æŒã¤<br> - delimiterï¼š"|"(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)<br>
+     *                       - encloseCharï¼š"\""(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)<br>
+     *                       - lineFeedCharï¼š"\r"(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)<br>
+     *                       - fileEncodingï¼š"MS932"(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)<br>
+     *                       - headerLineCountï¼š1(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)<br>
+     *                       - trailerLineCountï¼š1(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)<br>
+     *                       (å¼•æ•°) columnParserMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤Map<String, ColumnParser>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                       ãƒ»"int"=IntColumnParser<br>
+     *                       ãƒ»"java.lang.String"=NullColumnParser.java<br>
+     *                       (çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     *                       ã€€ç©ºå®Ÿè£…<br>
      * <br>
-     *                       Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *                       EƒƒbƒZ[ƒWF"fileName is required."<br>
-     *                       EŒ´ˆö—áŠOFIllegalArgumentException<br>
-     *                       Eƒtƒ@ƒCƒ‹–¼F""(‹ó•¶š)<br>
+     *                       æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *                       ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"fileName is required."<br>
+     *                       ãƒ»åŸå› ä¾‹å¤–ï¼šIllegalArgumentException<br>
+     *                       ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼š""(ç©ºæ–‡å­—)<br>
      * <br>
-     *                       —áŠOB<br>
-     *                       ƒtƒ@ƒCƒ‹–¼‚ª‹ó•¶š‚Ìê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                       ä¾‹å¤–ã€‚<br>
+     *                       ãƒ•ã‚¡ã‚¤ãƒ«åãŒç©ºæ–‡å­—ã®å ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testAbstractFileLineIteratorStringClassMap06() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
-        // ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚È‚Ì‚Å•s—v
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
+        // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãªã®ã§ä¸è¦
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String fileName = "";
         Class<AbstractFileLineIterator_Stub01> clazz = AbstractFileLineIterator_Stub01.class;
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("int", new IntColumnParser());
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineIterator.class,
                 "init", null);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub01>(
                     fileName, clazz, columnParserMap);
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (FileException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(0, VMOUTUtil.getCallCount(
                     AbstractFileLineIterator.class, "buildLineReader"));
 
@@ -499,53 +499,53 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testAbstractFileLineIteratorStringClassMap07() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FC,G <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,G <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "AbstractFileLineIterator_ƒinit„07"<br>
-     * (ˆø”) clazz:null<br>
-     * (ˆø”) columnParserMap:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂMap<String, ColumnParser>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"int"=IntColumnParser<br>
-     * E"java.lang.String"=NullColumnParser.java<br>
-     * (ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "AbstractFileLineIterator_ï¼œinitï¼07"<br>
+     * (å¼•æ•°) clazz:null<br>
+     * (å¼•æ•°) columnParserMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤Map<String, ColumnParser>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"int"=IntColumnParser<br>
+     * ãƒ»"java.lang.String"=NullColumnParser.java<br>
+     * (çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"clazz is required."<br>
-     * EŒ´ˆö—áŠOFIllegalArgumentException<br>
-     * Eƒtƒ@ƒCƒ‹–¼Fˆø”fileName‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒXB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"clazz is required."<br>
+     * ãƒ»åŸå› ä¾‹å¤–ï¼šIllegalArgumentException<br>
+     * ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šå¼•æ•°fileNameã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚<br>
      * <br>
-     * —áŠOB<br>
-     * ˆø”clazz‚ªunullv‚Ìê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ä¾‹å¤–ã€‚<br>
+     * å¼•æ•°clazzãŒã€Œnullã€ã®å ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testAbstractFileLineIteratorStringClassMap07() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
-        // ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚È‚Ì‚Å•s—v
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
+        // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãªã®ã§ä¸è¦
 
-        // ˆø”‚Ìİ’è
-        String fileName = "AbstractFileLineIterator_ƒinit„07";
+        // å¼•æ•°ã®è¨­å®š
+        String fileName = "AbstractFileLineIterator_ï¼œinitï¼07";
         Class<AbstractFileLineIterator_Stub01> clazz = null;
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("int", new IntColumnParser());
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineIterator.class,
                 "init", null);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub01>(
                     fileName, clazz, columnParserMap);
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (FileException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(0, VMOUTUtil.getCallCount(
                     AbstractFileLineIterator.class, "buildLineReader"));
 
@@ -559,55 +559,55 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testAbstractFileLineIteratorStringClassMap08() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FC,G <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,G <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "AbstractFileLineIterator_ƒinit„08"<br>
-     * (ˆø”) clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂClassƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * @FileFormat‚Ìİ’è‚ğ‚Â<br> - delimiterF"|"(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)<br>
-     *                       - encloseCharF"\""(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)<br>
-     *                       - lineFeedCharF"\r"(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)<br>
-     *                       - fileEncodingF"MS932"(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)<br>
-     *                       - headerLineCountF1(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)<br>
-     *                       - trailerLineCountF1(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)<br>
-     *                       (ˆø”) columnParserMap:null<br>
-     *                       (ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     *                       @‹óÀ‘•<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "AbstractFileLineIterator_ï¼œinitï¼08"<br>
+     * (å¼•æ•°) clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤Classã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * @FileFormatã®è¨­å®šã‚’æŒã¤<br> - delimiterï¼š"|"(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)<br>
+     *                       - encloseCharï¼š"\""(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)<br>
+     *                       - lineFeedCharï¼š"\r"(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)<br>
+     *                       - fileEncodingï¼š"MS932"(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)<br>
+     *                       - headerLineCountï¼š1(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)<br>
+     *                       - trailerLineCountï¼š1(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)<br>
+     *                       (å¼•æ•°) columnParserMap:null<br>
+     *                       (çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     *                       ã€€ç©ºå®Ÿè£…<br>
      * <br>
-     *                       Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *                       EƒƒbƒZ[ƒWF"columnFormaterMap is required."<br>
-     *                       EŒ´ˆö—áŠOFIllegalArgumentException<br>
-     *                       Eƒtƒ@ƒCƒ‹–¼Fˆø”fileName‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒXB<br>
+     *                       æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *                       ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"columnFormaterMap is required."<br>
+     *                       ãƒ»åŸå› ä¾‹å¤–ï¼šIllegalArgumentException<br>
+     *                       ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šå¼•æ•°fileNameã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚<br>
      * <br>
-     *                       —áŠOB<br>
-     *                       ˆø”columnParserMap‚ªunullv‚Ìê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                       ä¾‹å¤–ã€‚<br>
+     *                       å¼•æ•°columnParserMapãŒã€Œnullã€ã®å ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testAbstractFileLineIteratorStringClassMap08() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
-        // ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚È‚Ì‚Å•s—v
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
+        // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãªã®ã§ä¸è¦
 
-        // ˆø”‚Ìİ’è
-        String fileName = "AbstractFileLineIterator_ƒinit„08";
+        // å¼•æ•°ã®è¨­å®š
+        String fileName = "AbstractFileLineIterator_ï¼œinitï¼08";
         Class<AbstractFileLineIterator_Stub01> clazz = AbstractFileLineIterator_Stub01.class;
         Map<String, ColumnParser> columnParserMap = null;
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineIterator.class,
                 "init", null);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub01>(
                     fileName, clazz, columnParserMap);
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (FileException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(0, VMOUTUtil.getCallCount(
                     AbstractFileLineIterator.class, "buildLineReader"));
 
@@ -621,60 +621,60 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testAbstractFileLineIteratorStringClassMap09() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FC,G <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,G <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "AbstractFileLineIterator_ƒinit„11"<br>
-     * (ˆø”) clazz:ˆÈ‰º‚Ìİ’è‚ğ‚Â’ŠÛClassƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * @FileFormat‚Ìİ’è‚ğ‚Â<br> - delimiterF"|"(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)<br>
-     *                       - encloseCharF"\""(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)<br>
-     *                       - lineFeedCharF""(‹ó•¶š)<br>
-     *                       - fileEncodingF""(‹ó•¶š)<br>
-     *                       - headerLineCountF1(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)<br>
-     *                       - trailerLineCountF1(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "AbstractFileLineIterator_ï¼œinitï¼11"<br>
+     * (å¼•æ•°) clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤æŠ½è±¡Classã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * @FileFormatã®è¨­å®šã‚’æŒã¤<br> - delimiterï¼š"|"(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)<br>
+     *                       - encloseCharï¼š"\""(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)<br>
+     *                       - lineFeedCharï¼š""(ç©ºæ–‡å­—)<br>
+     *                       - fileEncodingï¼š""(ç©ºæ–‡å­—)<br>
+     *                       - headerLineCountï¼š1(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)<br>
+     *                       - trailerLineCountï¼š1(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)<br>
      * <br>
-     *                       ¦’ŠÛƒNƒ‰ƒX‚Å‚ ‚éB<br>
-     *                       (ˆø”) columnParserMap:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂMap<String, ColumnParser>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                       E"int"=IntColumnParser<br>
-     *                       E"java.lang.String"=NullColumnParser.java<br>
-     *                       (ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     *                       @‹óÀ‘•<br>
+     *                       â€»æŠ½è±¡ã‚¯ãƒ©ã‚¹ã§ã‚ã‚‹ã€‚<br>
+     *                       (å¼•æ•°) columnParserMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤Map<String, ColumnParser>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                       ãƒ»"int"=IntColumnParser<br>
+     *                       ãƒ»"java.lang.String"=NullColumnParser.java<br>
+     *                       (çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     *                       ã€€ç©ºå®Ÿè£…<br>
      * <br>
-     *                       Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *                       EƒƒbƒZ[ƒWF"Failed in instantiation of clazz."<br>
-     *                       EŒ´ˆö—áŠOFInstantiationException<br>
-     *                       Eƒtƒ@ƒCƒ‹–¼Fˆø”fileName‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒXB<br>
+     *                       æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *                       ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Failed in instantiation of clazz."<br>
+     *                       ãƒ»åŸå› ä¾‹å¤–ï¼šInstantiationException<br>
+     *                       ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šå¼•æ•°fileNameã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚<br>
      * <br>
-     *                       —áŠOB<br>
-     *                       ƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Å‚«‚È‚¢Class‚ªˆø”Clazz‚Éİ’è‚³‚ê‚½ê‡‚É—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                       ä¾‹å¤–ã€‚<br>
+     *                       ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§ããªã„ClassãŒå¼•æ•°Clazzã«è¨­å®šã•ã‚ŒãŸå ´åˆã«ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testAbstractFileLineIteratorStringClassMap09() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
-        // ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚È‚Ì‚Å•s—v
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
+        // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãªã®ã§ä¸è¦
 
-        // ˆø”‚Ìİ’è
-        String fileName = "AbstractFileLineIterator_ƒinit„11";
+        // å¼•æ•°ã®è¨­å®š
+        String fileName = "AbstractFileLineIterator_ï¼œinitï¼11";
         Class<AbstractFileLineIterator_Stub05> clazz = AbstractFileLineIterator_Stub05.class;
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("int", new IntColumnParser());
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineIterator.class,
                 "init", null);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub05>(
                     fileName, clazz, columnParserMap);
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (FileException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(0, VMOUTUtil.getCallCount(
                     AbstractFileLineIterator.class, "buildLineReader"));
 
@@ -688,60 +688,60 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testAbstractFileLineIteratorStringClassMap10() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FC,G <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,G <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "AbstractFileLineIterator_ƒinit„12"<br>
-     * (ˆø”) clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂClassƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * @FileFormat‚Ìİ’è‚ğ‚Â<br> - delimiterF"|"(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)<br>
-     *                       - encloseCharF"\""(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)<br>
-     *                       - lineFeedCharF""(‹ó•¶š)<br>
-     *                       - fileEncodingF""(‹ó•¶š)<br>
-     *                       - headerLineCountF1(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)<br>
-     *                       - trailerLineCountF1(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "AbstractFileLineIterator_ï¼œinitï¼12"<br>
+     * (å¼•æ•°) clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤Classã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * @FileFormatã®è¨­å®šã‚’æŒã¤<br> - delimiterï¼š"|"(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)<br>
+     *                       - encloseCharï¼š"\""(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)<br>
+     *                       - lineFeedCharï¼š""(ç©ºæ–‡å­—)<br>
+     *                       - fileEncodingï¼š""(ç©ºæ–‡å­—)<br>
+     *                       - headerLineCountï¼š1(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)<br>
+     *                       - trailerLineCountï¼š1(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)<br>
      * <br>
-     *                       ¦ƒfƒtƒHƒ‹ƒgƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ªuprivatev‚ÅéŒ¾‚³‚ê‚Ä‚¢‚éB<br>
-     *                       (ˆø”) columnParserMap:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂMap<String, ColumnParser>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                       E"int"=IntColumnParser<br>
-     *                       E"java.lang.String"=NullColumnParser.java<br>
-     *                       (ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     *                       @‹óÀ‘•<br>
+     *                       â€»ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãŒã€Œprivateã€ã§å®£è¨€ã•ã‚Œã¦ã„ã‚‹ã€‚<br>
+     *                       (å¼•æ•°) columnParserMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤Map<String, ColumnParser>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                       ãƒ»"int"=IntColumnParser<br>
+     *                       ãƒ»"java.lang.String"=NullColumnParser.java<br>
+     *                       (çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     *                       ã€€ç©ºå®Ÿè£…<br>
      * <br>
-     *                       Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *                       EƒƒbƒZ[ƒWF"clazz's nullary  constructor is not accessible"<br>
-     *                       EŒ´ˆö—áŠOFIllegalAccessException<br>
-     *                       Eƒtƒ@ƒCƒ‹–¼Fˆø”fileName‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒXB<br>
+     *                       æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *                       ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"clazz's nullary  constructor is not accessible"<br>
+     *                       ãƒ»åŸå› ä¾‹å¤–ï¼šIllegalAccessException<br>
+     *                       ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šå¼•æ•°fileNameã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚<br>
      * <br>
-     *                       —áŠOB<br>
-     *                       ƒfƒtƒHƒ‹ƒgƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ì’¼ÚƒAƒNƒZƒX‚ªo—ˆ‚È‚¢Class‚ªˆø”Clazz‚Éİ’è‚³‚ê‚½ê‡‚É—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                       ä¾‹å¤–ã€‚<br>
+     *                       ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®ç›´æ¥ã‚¢ã‚¯ã‚»ã‚¹ãŒå‡ºæ¥ãªã„ClassãŒå¼•æ•°Clazzã«è¨­å®šã•ã‚ŒãŸå ´åˆã«ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testAbstractFileLineIteratorStringClassMap10() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
-        // ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚È‚Ì‚Å•s—v
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
+        // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãªã®ã§ä¸è¦
 
-        // ˆø”‚Ìİ’è
-        String fileName = "AbstractFileLineIterator_ƒinit„12";
+        // å¼•æ•°ã®è¨­å®š
+        String fileName = "AbstractFileLineIterator_ï¼œinitï¼12";
         Class<AbstractFileLineIterator_Stub06> clazz = AbstractFileLineIterator_Stub06.class;
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("int", new IntColumnParser());
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineIterator.class,
                 "init", null);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub06>(
                     fileName, clazz, columnParserMap);
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (FileException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(0, VMOUTUtil.getCallCount(
                     AbstractFileLineIterator.class, "buildLineReader"));
 
@@ -756,55 +756,55 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testAbstractFileLineIteratorStringClassMap11() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FC,G <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,G <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "AbstractFileLineIterator_ƒinit„13"<br>
-     * (ˆø”) clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂClassƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * @FileFormat‚Ìİ’è‚ğ‚Â<br> - delimiterF"|"(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)<br>
-     *                       - encloseCharF"\""(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)<br>
-     *                       - lineFeedCharF"\r"(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)<br>
-     *                       - fileEncodingF"MS932"(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)<br>
-     *                       - headerLineCountF1(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)<br>
-     *                       - trailerLineCountF1(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)<br>
-     *                       (ˆø”) columnParserMap:—v‘f‚ğ‚½‚È‚¢Map<String, ColumnParser>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                       (ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     *                       @‹óÀ‘•<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "AbstractFileLineIterator_ï¼œinitï¼13"<br>
+     * (å¼•æ•°) clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤Classã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * @FileFormatã®è¨­å®šã‚’æŒã¤<br> - delimiterï¼š"|"(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)<br>
+     *                       - encloseCharï¼š"\""(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)<br>
+     *                       - lineFeedCharï¼š"\r"(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)<br>
+     *                       - fileEncodingï¼š"MS932"(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)<br>
+     *                       - headerLineCountï¼š1(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)<br>
+     *                       - trailerLineCountï¼š1(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)<br>
+     *                       (å¼•æ•°) columnParserMap:è¦ç´ ã‚’æŒãŸãªã„Map<String, ColumnParser>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                       (çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     *                       ã€€ç©ºå®Ÿè£…<br>
      * <br>
-     *                       Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *                       EƒƒbƒZ[ƒWF"columnFormaterMap is required."<br>
-     *                       EŒ´ˆö—áŠOFIllegalArgumentException<br>
-     *                       Eƒtƒ@ƒCƒ‹–¼Fˆø”fileName‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒXB<br>
+     *                       æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *                       ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"columnFormaterMap is required."<br>
+     *                       ãƒ»åŸå› ä¾‹å¤–ï¼šIllegalArgumentException<br>
+     *                       ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šå¼•æ•°fileNameã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚<br>
      * <br>
-     *                       —áŠOB<br>
-     *                       ˆø”columnParserMap‚Í‚ ‚é‚ªA‚»‚ÌMap‚É—v‘f‚ª–³‚¢ê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                       ä¾‹å¤–ã€‚<br>
+     *                       å¼•æ•°columnParserMapã¯ã‚ã‚‹ãŒã€ãã®Mapã«è¦ç´ ãŒç„¡ã„å ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testAbstractFileLineIteratorStringClassMap11() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
-        // ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚È‚Ì‚Å•s—v
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
+        // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãªã®ã§ä¸è¦
 
-        // ˆø”‚Ìİ’è
-        String fileName = "AbstractFileLineIterator_ƒinit„13";
+        // å¼•æ•°ã®è¨­å®š
+        String fileName = "AbstractFileLineIterator_ï¼œinitï¼13";
         Class<AbstractFileLineIterator_Stub01> clazz = AbstractFileLineIterator_Stub01.class;
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineIterator.class,
                 "init", null);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub01>(
                     fileName, clazz, columnParserMap);
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (FileException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(0, VMOUTUtil.getCallCount(
                     AbstractFileLineIterator.class, "buildLineReader"));
 
@@ -818,30 +818,30 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testHasNext01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FF <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šF <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl<br>
-     * “Ç‚İæ‚Á‚½ƒf[ƒ^1s•ª‚ğƒJƒ“ƒ}i,j‚Å‹æØ‚Á‚ÄAƒJƒ‰ƒ€‚Æ‚µ‚Ä•Ô‚·<br>
-     * (ó‘Ô) this.reader:not null<br>
-     * ReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl<br>
+     * èª­ã¿å–ã£ãŸãƒ‡ãƒ¼ã‚¿1è¡Œåˆ†ã‚’ã‚«ãƒ³ãƒï¼ˆ,ï¼‰ã§åŒºåˆ‡ã£ã¦ã€ã‚«ãƒ©ãƒ ã¨ã—ã¦è¿”ã™<br>
+     * (çŠ¶æ…‹) this.reader:not null<br>
+     * Readerã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "AbstractFileLineIterator_bulidFields01.txt"<br>
-     * (ó‘Ô) ‘ÎÛƒtƒ@ƒCƒ‹:ˆÈ‰º‚Ì“à—e‚ğ‚Â"AbstractFileLineIterator_hasNext01.txt"ƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚éB<br>
+     * (çŠ¶æ…‹) å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«:ä»¥ä¸‹ã®å†…å®¹ã‚’æŒã¤"AbstractFileLineIterator_hasNext01.txt"ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚‹ã€‚<br>
      * -------------------<br>
-     * 1s–Ú<br>
+     * 1è¡Œç›®<br>
      * -------------------<br>
-     * ¦“Áêƒf[ƒ^<br>
+     * â€»ç‰¹æ®Šãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     * (ó‘Ô•Ï‰») reader.ready():1‰ñŒÄ‚Î‚ê‚é<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) reader.ready():1å›å‘¼ã°ã‚Œã‚‹<br>
      * <br>
-     * ³íƒpƒ^[ƒ“<br>
-     * ƒtƒB[ƒ‹ƒhreader‚©‚çŸ‚Ìs‚ÌƒŒƒR[ƒh‚Ìæ“¾‚ª‰Â”\‚Èê‡‚Ítrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ãƒ‘ã‚¿ãƒ¼ãƒ³<br>
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰readerã‹ã‚‰æ¬¡ã®è¡Œã®ãƒ¬ã‚³ãƒ¼ãƒ‰ã®å–å¾—ãŒå¯èƒ½ãªå ´åˆã¯trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testHasNext01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_hasNext01.txt");
         String fileName = url.getPath();
@@ -853,49 +853,49 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub07.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ‚È‚µ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean result = fileLineIterator.hasNext();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertTrue(result);
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(1, VMOUTUtil.getCallCount(BufferedReader.class, "read"));
     }
 
     /**
      * testHasNext02() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FF <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šF <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl<br>
-     * “Ç‚İæ‚Á‚½ƒf[ƒ^1s•ª‚ğƒJƒ“ƒ}i,j‚Å‹æØ‚Á‚ÄAƒJƒ‰ƒ€‚Æ‚µ‚Ä•Ô‚·<br>
-     * (ó‘Ô) this.reader:not null<br>
-     * ReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl<br>
+     * èª­ã¿å–ã£ãŸãƒ‡ãƒ¼ã‚¿1è¡Œåˆ†ã‚’ã‚«ãƒ³ãƒï¼ˆ,ï¼‰ã§åŒºåˆ‡ã£ã¦ã€ã‚«ãƒ©ãƒ ã¨ã—ã¦è¿”ã™<br>
+     * (çŠ¶æ…‹) this.reader:not null<br>
+     * Readerã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "AbstractFileLineIterator_hasNext02.txt"<br>
-     * (ó‘Ô) ‘ÎÛƒtƒ@ƒCƒ‹:ˆÈ‰º‚Ì“à—e‚ğ‚Â"AbstractFileLineIterator_hasNext02.txt"ƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚éB<br>
+     * (çŠ¶æ…‹) å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«:ä»¥ä¸‹ã®å†…å®¹ã‚’æŒã¤"AbstractFileLineIterator_hasNext02.txt"ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚‹ã€‚<br>
      * -------------------<br>
-     * ‹ó<br>
+     * ç©º<br>
      * -------------------<br>
-     * ¦“Áêƒf[ƒ^<br>
+     * â€»ç‰¹æ®Šãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
-     * (ó‘Ô•Ï‰») reader.ready():1‰ñŒÄ‚Î‚ê‚é<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) reader.ready():1å›å‘¼ã°ã‚Œã‚‹<br>
      * <br>
-     * ³íƒpƒ^[ƒ“<br>
-     * ƒtƒB[ƒ‹ƒhreader‚©‚çŸ‚Ìs‚ÌƒŒƒR[ƒh‚Ìæ“¾‚ª•s‰Â”\‚Èê‡‚Ífalse‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ãƒ‘ã‚¿ãƒ¼ãƒ³<br>
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰readerã‹ã‚‰æ¬¡ã®è¡Œã®ãƒ¬ã‚³ãƒ¼ãƒ‰ã®å–å¾—ãŒä¸å¯èƒ½ãªå ´åˆã¯falseãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testHasNext02() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_hasNext02.txt");
         String fileName = url.getPath();
@@ -907,47 +907,47 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub07.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ‚È‚µ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean result = fileLineIterator.hasNext();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertFalse(result);
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(1, VMOUTUtil.getCallCount(BufferedReader.class, "read"));
     }
 
     /**
      * testHasNext03() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FC,G <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,G <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl<br>
-     * “Ç‚İæ‚Á‚½ƒf[ƒ^1s•ª‚ğƒJƒ“ƒ}i,j‚Å‹æØ‚Á‚ÄAƒJƒ‰ƒ€‚Æ‚µ‚Ä•Ô‚·<br>
-     * (ó‘Ô) this.reader:not null<br>
-     * ReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl<br>
+     * èª­ã¿å–ã£ãŸãƒ‡ãƒ¼ã‚¿1è¡Œåˆ†ã‚’ã‚«ãƒ³ãƒï¼ˆ,ï¼‰ã§åŒºåˆ‡ã£ã¦ã€ã‚«ãƒ©ãƒ ã¨ã—ã¦è¿”ã™<br>
+     * (çŠ¶æ…‹) this.reader:not null<br>
+     * Readerã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "AbstractFileLineIterator_hasNext02.txt"<br>
-     * (ó‘Ô) reader.ready():IOException‚ğ”­¶‚·‚éB<br>
+     * (çŠ¶æ…‹) reader.ready():IOExceptionã‚’ç™ºç”Ÿã™ã‚‹ã€‚<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») reader.ready():1‰ñŒÄ‚Î‚ê‚é<br>
-     * (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"Processing of reader was failed."<br>
-     * EŒ´ˆö—áŠOFIOException<br>
-     * Eƒtƒ@ƒCƒ‹–¼FƒtƒB[ƒ‹ƒhfileName‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒXB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) reader.ready():1å›å‘¼ã°ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Processing of reader was failed."<br>
+     * ãƒ»åŸå› ä¾‹å¤–ï¼šIOException<br>
+     * ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰fileNameã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚<br>
      * <br>
-     * Œ‹‰ÊƒNƒ‰ƒX‚ªİ’è‚³‚ê‚Ä‚¢‚È‚¢ê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * çµæœã‚¯ãƒ©ã‚¹ãŒè¨­å®šã•ã‚Œã¦ã„ãªã„å ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testHasNext03() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_hasNext02.txt");
         String fileName = url.getPath();
@@ -959,23 +959,23 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub07.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         IOException exception = new IOException();
         VMOUTUtil.setExceptionAtAllTimes(BufferedReader.class, "read",
                 exception);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             fileLineIterator.hasNext();
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸ");
         } catch (FileException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(1, VMOUTUtil
                     .getCallCount(BufferedReader.class, "read"));
 
@@ -989,27 +989,27 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testHasNext04() <br>
      * <br>
-     * (ˆÙíŒn) <br>
+     * (ç•°å¸¸ç³») <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl<br>
-     * “Ç‚İæ‚Á‚½ƒf[ƒ^1s•ª‚ğƒJƒ“ƒ}i,j‚Å‹æØ‚Á‚ÄAƒJƒ‰ƒ€‚Æ‚µ‚Ä•Ô‚·<br>
-     * (ó‘Ô) this.reader:not null<br>
-     * ReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl<br>
+     * èª­ã¿å–ã£ãŸãƒ‡ãƒ¼ã‚¿1è¡Œåˆ†ã‚’ã‚«ãƒ³ãƒï¼ˆ,ï¼‰ã§åŒºåˆ‡ã£ã¦ã€ã‚«ãƒ©ãƒ ã¨ã—ã¦è¿”ã™<br>
+     * (çŠ¶æ…‹) this.reader:not null<br>
+     * Readerã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     * (ó‘Ô) reader.ready():IOException‚ğ”­¶‚·‚éB<br>
+     * (çŠ¶æ…‹) reader.ready():IOExceptionã‚’ç™ºç”Ÿã™ã‚‹ã€‚<br>
      * <br>
-     * Šú‘Ò’lF<br>
-     * (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"Processing of reader#reset was failed."<br>
-     * EŒ´ˆö—áŠOFIOException<br>
-     * Eƒtƒ@ƒCƒ‹–¼FƒtƒB[ƒ‹ƒhfileName‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒXB<br>
+     * æœŸå¾…å€¤ï¼š<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Processing of reader#reset was failed."<br>
+     * ãƒ»åŸå› ä¾‹å¤–ï¼šIOException<br>
+     * ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰fileNameã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚<br>
      * <br>
-     * Œ‹‰ÊƒNƒ‰ƒX‚ªİ’è‚³‚ê‚Ä‚¢‚È‚¢ê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * çµæœã‚¯ãƒ©ã‚¹ãŒè¨­å®šã•ã‚Œã¦ã„ãªã„å ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testHasNext04() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource("File_Empty.txt");
         String fileName = url.getPath();
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
@@ -1019,23 +1019,23 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub07.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         IOException exception = new IOException();
         VMOUTUtil.setExceptionAtAllTimes(BufferedReader.class, "reset",
                 exception);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             fileLineIterator.hasNext();
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸ");
         } catch (FileException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
 
             assertSame(FileException.class, e.getClass());
             assertEquals("Processing of reader#reset was failed.", e
@@ -1048,34 +1048,34 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testNext01() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl<br>
-     * “Ç‚İæ‚Á‚½ƒf[ƒ^1s•ª‚ğƒJƒ“ƒ}i,j‚Å‹æØ‚Á‚ÄAƒJƒ‰ƒ€‚Æ‚µ‚Ä•Ô‚·<br>
-     * (ó‘Ô) this.clazz:ƒCƒ“ƒ^ƒtƒF[ƒX‚È‚Ç‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Å‚«‚È‚¢Class‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * ¦ƒCƒ“ƒXƒ^ƒ“ƒX¶¬Œã‚Éİ’è‚·‚éB<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl<br>
+     * èª­ã¿å–ã£ãŸãƒ‡ãƒ¼ã‚¿1è¡Œåˆ†ã‚’ã‚«ãƒ³ãƒï¼ˆ,ï¼‰ã§åŒºåˆ‡ã£ã¦ã€ã‚«ãƒ©ãƒ ã¨ã—ã¦è¿”ã™<br>
+     * (çŠ¶æ…‹) this.clazz:ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ãªã©ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§ããªã„Classã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * â€»ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ç”Ÿæˆå¾Œã«è¨­å®šã™ã‚‹ã€‚<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "AbstractFileLineIterator_next06.txt"<br>
-     * (ó‘Ô) this.currentLineCount:0<br>
-     * (ó‘Ô) this.readTrailer:false<br>
-     * (ó‘Ô) this.isCheckByte():true<br>
+     * (çŠ¶æ…‹) this.currentLineCount:0<br>
+     * (çŠ¶æ…‹) this.readTrailer:false<br>
+     * (çŠ¶æ…‹) this.isCheckByte():true<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.hasNext():2‰ñŒÄ‚Î‚ê‚é<br>
-     * ¦readLine()‚Ì’†‚ÅhasNext‚ª‚P‰ñŒÄ‚Î‚ê‚Ä‚¢‚éB<br>
-     * (ó‘Ô•Ï‰») this.readLine():1‰ñŒÄ‚Î‚ê‚é<br>
-     * (ó‘Ô•Ï‰») this.separateColumns(String):ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"Failed in an instantiate of a FileLineObject."<br>
-     * EŒ´ˆö—áŠOFInstantiationException<br>
-     * Eƒtƒ@ƒCƒ‹–¼FƒtƒB[ƒ‹ƒhfileName‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒXB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.hasNext():2å›å‘¼ã°ã‚Œã‚‹<br>
+     * â€»readLine()ã®ä¸­ã§hasNextãŒï¼‘å›å‘¼ã°ã‚Œã¦ã„ã‚‹ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.readLine():1å›å‘¼ã°ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.separateColumns(String):å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Failed in an instantiate of a FileLineObject."<br>
+     * ãƒ»åŸå› ä¾‹å¤–ï¼šInstantiationException<br>
+     * ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰fileNameã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚<br>
      * <br>
-     * —áŠOB<br>
-     * ƒtƒB[ƒ‹ƒhclazz‚ÉƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Å‚«‚È‚¢ƒNƒ‰ƒX‚ªİ’è‚³‚ê‚½ê‡AFileException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ä¾‹å¤–ã€‚<br>
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰clazzã«ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§ããªã„ã‚¯ãƒ©ã‚¹ãŒè¨­å®šã•ã‚ŒãŸå ´åˆã€FileExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testNext01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_next06.txt");
         String fileName = url.getPath();
@@ -1087,23 +1087,23 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub07.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(fileLineIterator, "clazz",
                 AbstractFileLineIterator_Stub14.class);
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Éİ’è‚µ‚Ä‚¢‚éB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–æ™‚ã«è¨­å®šã—ã¦ã„ã‚‹ã€‚
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             fileLineIterator.next();
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸ");
         } catch (FileException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(2, VMOUTUtil.getCallCount(
                     AbstractFileLineIterator.class, "hasNext"));
             assertEquals(1, VMOUTUtil.getCallCount(
@@ -1122,34 +1122,34 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testNext02() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl<br>
-     * “Ç‚İæ‚Á‚½ƒf[ƒ^1s•ª‚ğƒJƒ“ƒ}i,j‚Å‹æØ‚Á‚ÄAƒJƒ‰ƒ€‚Æ‚µ‚Ä•Ô‚·<br>
-     * (ó‘Ô) this.clazz:ƒfƒtƒHƒ‹ƒgƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ì’¼ÚÀs‚ª•s‰Â”\(privateéŒ¾)‚ÈClass‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * ¦ƒCƒ“ƒXƒ^ƒ“ƒX¶¬Œã‚Éİ’è‚·‚éB<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl<br>
+     * èª­ã¿å–ã£ãŸãƒ‡ãƒ¼ã‚¿1è¡Œåˆ†ã‚’ã‚«ãƒ³ãƒï¼ˆ,ï¼‰ã§åŒºåˆ‡ã£ã¦ã€ã‚«ãƒ©ãƒ ã¨ã—ã¦è¿”ã™<br>
+     * (çŠ¶æ…‹) this.clazz:ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®ç›´æ¥å®Ÿè¡ŒãŒä¸å¯èƒ½(privateå®£è¨€)ãªClassã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * â€»ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ç”Ÿæˆå¾Œã«è¨­å®šã™ã‚‹ã€‚<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "AbstractFileLineIterator_next06.txt"<br>
-     * (ó‘Ô) this.currentLineCount:0<br>
-     * (ó‘Ô) this.readTrailer:false<br>
-     * (ó‘Ô) this.isCheckByte():true<br>
+     * (çŠ¶æ…‹) this.currentLineCount:0<br>
+     * (çŠ¶æ…‹) this.readTrailer:false<br>
+     * (çŠ¶æ…‹) this.isCheckByte():true<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.hasNext():2‰ñŒÄ‚Î‚ê‚é<br>
-     * ¦readLine()‚Ì’†‚ÅhasNext‚ª‚P‰ñŒÄ‚Î‚ê‚Ä‚¢‚éB<br>
-     * (ó‘Ô•Ï‰») this.readLine():1‰ñŒÄ‚Î‚ê‚é<br>
-     * (ó‘Ô•Ï‰») this.separateColumns(String):ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"Failed in an instantiate of a FileLineObject."<br>
-     * EŒ´ˆö—áŠOFIllegalAccessException<br>
-     * Eƒtƒ@ƒCƒ‹–¼FƒtƒB[ƒ‹ƒhfileName‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒXB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.hasNext():2å›å‘¼ã°ã‚Œã‚‹<br>
+     * â€»readLine()ã®ä¸­ã§hasNextãŒï¼‘å›å‘¼ã°ã‚Œã¦ã„ã‚‹ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.readLine():1å›å‘¼ã°ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.separateColumns(String):å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Failed in an instantiate of a FileLineObject."<br>
+     * ãƒ»åŸå› ä¾‹å¤–ï¼šIllegalAccessException<br>
+     * ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰fileNameã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚<br>
      * <br>
-     * —áŠOB<br>
-     * ƒtƒB[ƒ‹ƒhclazz‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ª’¼ÚÀs‚Å‚«‚È‚¢‚æ‚¤‚Éİ’è‚³‚ê‚Ä‚¢‚éê‡AFileException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ä¾‹å¤–ã€‚<br>
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰clazzã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãŒç›´æ¥å®Ÿè¡Œã§ããªã„ã‚ˆã†ã«è¨­å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã€FileExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testNext02() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_next06.txt");
         String fileName = url.getPath();
@@ -1161,23 +1161,23 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub07.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(fileLineIterator, "clazz",
                 AbstractFileLineIterator_Stub15.class);
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Éİ’è‚µ‚Ä‚¢‚éB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–æ™‚ã«è¨­å®šã—ã¦ã„ã‚‹ã€‚
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             fileLineIterator.next();
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸ");
         } catch (FileException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(2, VMOUTUtil.getCallCount(
                     AbstractFileLineIterator.class, "hasNext"));
             assertEquals(1, VMOUTUtil.getCallCount(
@@ -1196,47 +1196,47 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testNext03() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE, F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE, F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl<br>
-     * “Ç‚İæ‚Á‚½ƒf[ƒ^1s•ª‚ğƒJƒ“ƒ}i,j‚Å‹æØ‚Á‚ÄAƒJƒ‰ƒ€‚Æ‚µ‚Ä•Ô‚·<br>
-     * (ó‘Ô) this.clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂƒCƒ“ƒXƒ^ƒ“ƒX‰»‰Â”\Class‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E@FileFormat‚Ìİ’è‚ğ‚Â<br>
-     * - ‘S€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     * EƒtƒB[ƒ‹ƒh‚¨‚æ‚ÑA@InputFileColumn‚Ìİ’è‚Í‚È‚¢<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl<br>
+     * èª­ã¿å–ã£ãŸãƒ‡ãƒ¼ã‚¿1è¡Œåˆ†ã‚’ã‚«ãƒ³ãƒï¼ˆ,ï¼‰ã§åŒºåˆ‡ã£ã¦ã€ã‚«ãƒ©ãƒ ã¨ã—ã¦è¿”ã™<br>
+     * (çŠ¶æ…‹) this.clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–å¯èƒ½Classã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»@FileFormatã®è¨­å®šã‚’æŒã¤<br>
+     * - å…¨é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * ãƒ»ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ãŠã‚ˆã³ã€@InputFileColumnã®è¨­å®šã¯ãªã„<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "AbstractFileLineIterator_next06.txt"<br>
-     * (ó‘Ô) this.currentLineCount:0<br>
-     * (ó‘Ô) this.readTrailer:false<br>
-     * (ó‘Ô) this.isCheckByte():true<br>
-     * (ó‘Ô) ‘ÎÛƒtƒ@ƒCƒ‹:ˆÈ‰º‚Ì“à—e‚ğ‚Â"AbstractFileLineIterator_next06.txt"ƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚éB<br>
+     * (çŠ¶æ…‹) this.currentLineCount:0<br>
+     * (çŠ¶æ…‹) this.readTrailer:false<br>
+     * (çŠ¶æ…‹) this.isCheckByte():true<br>
+     * (çŠ¶æ…‹) å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«:ä»¥ä¸‹ã®å†…å®¹ã‚’æŒã¤"AbstractFileLineIterator_next06.txt"ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚‹ã€‚<br>
      * -------------------<br>
-     * ‹ós<br>
-     * ‹ós<br>
-     * ‹ós<br>
+     * ç©ºè¡Œ<br>
+     * ç©ºè¡Œ<br>
+     * ç©ºè¡Œ<br>
      * -------------------<br>
-     * ¦“Áêƒf[ƒ^<br>
+     * â€»ç‰¹æ®Šãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) this.clazz.getClass():this.clazz‚Åİ’è‚³‚ê‚Ä‚¢‚éƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô•Ï‰») FileDAOUtility.trim(String, String, char, TrimType):ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») FileDAOUtility.padding(String, String, int, char, PaddingType):ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») NullColumnParser#parse():ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») DateColumnParser#parse():ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») DecimalColumnParser#parse():ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») IntColumnParser#parse():ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») NullStringConverter#convert():ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») this.hasNext():2‰ñŒÄ‚Î‚ê‚é<br>
-     * ¦readLine()‚Ì’†‚ÅhasNext‚ª‚P‰ñŒÄ‚Î‚ê‚Ä‚¢‚éB<br>
-     * (ó‘Ô•Ï‰») this.readLine():1‰ñŒÄ‚Î‚ê‚é<br>
-     * (ó‘Ô•Ï‰») this.separateColumns(String):1‰ñŒÄ‚Î‚ê‚é<br>
-     * (ó‘Ô•Ï‰») this.currentLineCount:1<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) this.clazz.getClass():this.clazzã§è¨­å®šã•ã‚Œã¦ã„ã‚‹ã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) FileDAOUtility.trim(String, String, char, TrimType):å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) FileDAOUtility.padding(String, String, int, char, PaddingType):å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) NullColumnParser#parse():å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) DateColumnParser#parse():å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) DecimalColumnParser#parse():å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) IntColumnParser#parse():å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) NullStringConverter#convert():å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.hasNext():2å›å‘¼ã°ã‚Œã‚‹<br>
+     * â€»readLine()ã®ä¸­ã§hasNextãŒï¼‘å›å‘¼ã°ã‚Œã¦ã„ã‚‹ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.readLine():1å›å‘¼ã°ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.separateColumns(String):1å›å‘¼ã°ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.currentLineCount:1<br>
      * <br>
-     * ƒtƒ@ƒCƒ‹‚©‚ç“Ç‚İæ‚Á‚½ƒJƒ‰ƒ€‚ª‹ó•¶š‚ÅAƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgclazz‚ÉƒtƒB[ƒ‹ƒh‚ª‚È‚¢ê‡‚ÍAƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ªæ“¾‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰èª­ã¿å–ã£ãŸã‚«ãƒ©ãƒ ãŒç©ºæ–‡å­—ã§ã€ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆclazzã«ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ãŒãªã„å ´åˆã¯ã€ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒå–å¾—ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testNext03() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_next06.txt");
         String fileName = url.getPath();
@@ -1248,19 +1248,19 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub08.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Éİ’è‚µ‚Ä‚¢‚éB
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–æ™‚ã«è¨­å®šã—ã¦ã„ã‚‹ã€‚
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object result = fileLineIterator.next();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertSame(AbstractFileLineIterator_Stub08.class, result.getClass());
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(0, VMOUTUtil.getCallCount(FileDAOUtility.class, "trim"));
         assertEquals(0, VMOUTUtil.getCallCount(FileDAOUtility.class, "padding"));
         assertEquals(0, VMOUTUtil.getCallCount(NullColumnParser.class, "parse"));
@@ -1275,7 +1275,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
         assertEquals("readLine", 1, VMOUTUtil.getCallCount(
                 AbstractFileLineIterator.class, "readLine"));
 
-        // maven‚©‚ç‹N“®‚·‚é‚Æ‚È‚º‚©separateColumns‚ªæ“¾‚Å‚«‚È‚¢‚½‚ßAƒXƒLƒbƒv‚·‚é
+        // mavenã‹ã‚‰èµ·å‹•ã™ã‚‹ã¨ãªãœã‹separateColumnsãŒå–å¾—ã§ããªã„ãŸã‚ã€ã‚¹ã‚­ãƒƒãƒ—ã™ã‚‹
         if (!("jp.co.dgic.testing.common.DJUnitClassLoader".equals(System
                 .getProperty("java.system.class.loader")))) {
             assertEquals("separateColumns", 1, VMOUTUtil.getCallCount(
@@ -1288,53 +1288,53 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testNext04() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FF,G <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šF,G <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl<br>
-     * “Ç‚İæ‚Á‚½ƒf[ƒ^1s•ª‚ğƒJƒ“ƒ}i,j‚Å‹æØ‚Á‚ÄAƒJƒ‰ƒ€‚Æ‚µ‚Ä•Ô‚·<br>
-     * (ó‘Ô) this.clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂƒCƒ“ƒXƒ^ƒ“ƒX‰»‰Â”\Class‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E@FileFormat‚Ìİ’è‚ğ‚Â<br>
-     * - ‘S€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     * E@InputFileColumnİ’è‚ª‚È‚¢ƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * - ƒtƒB[ƒ‹ƒhFString column1<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl<br>
+     * èª­ã¿å–ã£ãŸãƒ‡ãƒ¼ã‚¿1è¡Œåˆ†ã‚’ã‚«ãƒ³ãƒï¼ˆ,ï¼‰ã§åŒºåˆ‡ã£ã¦ã€ã‚«ãƒ©ãƒ ã¨ã—ã¦è¿”ã™<br>
+     * (çŠ¶æ…‹) this.clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–å¯èƒ½Classã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»@FileFormatã®è¨­å®šã‚’æŒã¤<br>
+     * - å…¨é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * ãƒ»@InputFileColumnè¨­å®šãŒãªã„ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column1<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "AbstractFileLineIterator_bulidFields01.txt"<br>
-     * (ó‘Ô) this.currentLineCount:0<br>
-     * (ó‘Ô) this.readTrailer:false<br>
-     * (ó‘Ô) this.isCheckByte():true<br>
-     * (ó‘Ô) ‘ÎÛƒtƒ@ƒCƒ‹:ˆÈ‰º‚Ì“à—e‚ğ‚Â"AbstractFileLineIterator_bulidFields01.txt"ƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚éB<br>
+     * (çŠ¶æ…‹) this.currentLineCount:0<br>
+     * (çŠ¶æ…‹) this.readTrailer:false<br>
+     * (çŠ¶æ…‹) this.isCheckByte():true<br>
+     * (çŠ¶æ…‹) å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«:ä»¥ä¸‹ã®å†…å®¹ã‚’æŒã¤"AbstractFileLineIterator_bulidFields01.txt"ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚‹ã€‚<br>
      * -------------------<br>
      * test<br>
      * -------------------<br>
-     * ¦“Áêƒf[ƒ^<br>
+     * â€»ç‰¹æ®Šãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») FileDAOUtility.trim(String, String, char, TrimType):ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») FileDAOUtility.padding(String, String, int, char, PaddingType):ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») NullColumnParser#parse():ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») DateColumnParser#parse():ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») DecimalColumnParser#parse():ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») IntColumnParser#parse():ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») NullStringConverter#convert():ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») this.hasNext():2‰ñŒÄ‚Î‚ê‚é<br>
-     * ¦readLine()‚Ì’†‚ÅhasNext‚ª‚P‰ñŒÄ‚Î‚ê‚Ä‚¢‚éB<br>
-     * (ó‘Ô•Ï‰») this.readLine():1‰ñŒÄ‚Î‚ê‚é<br>
-     * (ó‘Ô•Ï‰») this.separateColumns(String):1‰ñŒÄ‚Î‚ê‚é<br>
-     * (ó‘Ô•Ï‰») this.currentLineCount:0<br>
-     * (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileLineException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"Column Count is different from FileLineObject's column counts"<br>
-     * EŒ´ˆö—áŠOFIllegalStateException<br>
-     * Eƒtƒ@ƒCƒ‹–¼FƒtƒB[ƒ‹ƒhfileName‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒXB<br>
-     * Es”Ô†F1<br>
-     * EƒJƒ‰ƒ€–¼Fnull<br>
-     * EƒJƒ‰ƒ€ƒCƒ“ƒfƒbƒNƒXF-1<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) FileDAOUtility.trim(String, String, char, TrimType):å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) FileDAOUtility.padding(String, String, int, char, PaddingType):å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) NullColumnParser#parse():å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) DateColumnParser#parse():å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) DecimalColumnParser#parse():å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) IntColumnParser#parse():å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) NullStringConverter#convert():å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.hasNext():2å›å‘¼ã°ã‚Œã‚‹<br>
+     * â€»readLine()ã®ä¸­ã§hasNextãŒï¼‘å›å‘¼ã°ã‚Œã¦ã„ã‚‹ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.readLine():1å›å‘¼ã°ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.separateColumns(String):1å›å‘¼ã°ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.currentLineCount:0<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileLineExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Column Count is different from FileLineObject's column counts"<br>
+     * ãƒ»åŸå› ä¾‹å¤–ï¼šIllegalStateException<br>
+     * ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰fileNameã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚<br>
+     * ãƒ»è¡Œç•ªå·ï¼š1<br>
+     * ãƒ»ã‚«ãƒ©ãƒ åï¼šnull<br>
+     * ãƒ»ã‚«ãƒ©ãƒ ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ï¼š-1<br>
      * <br>
-     * ƒtƒ@ƒCƒ‹‚©‚ç“Ç‚İæ‚Á‚½ƒJƒ‰ƒ€”‚Æƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌƒJƒ‰ƒ€”‚ª‡‚í‚È‚¢ê‡‚ÉAFileLineException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * ‚±‚±‚Å‚ÍAƒtƒ@ƒCƒ‹‚©‚ç“Ç‚İæ‚Á‚½ƒJƒ‰ƒ€‚ª1‚Â‘¶İ‚µAƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgclazz‚É@InputFileColumn’è‹`‚ª‚È‚¢ƒtƒB[ƒ‹ƒh‚Ì‚İ‚ ‚éê‡‚ğŒ±‚µ‚Ä‚¢‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰èª­ã¿å–ã£ãŸã‚«ãƒ©ãƒ æ•°ã¨ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚«ãƒ©ãƒ æ•°ãŒåˆã‚ãªã„å ´åˆã«ã€FileLineExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * ã“ã“ã§ã¯ã€ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰èª­ã¿å–ã£ãŸã‚«ãƒ©ãƒ ãŒ1ã¤å­˜åœ¨ã—ã€ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆclazzã«@InputFileColumnå®šç¾©ãŒãªã„ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®ã¿ã‚ã‚‹å ´åˆã‚’è©¦é¨“ã—ã¦ã„ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testNext04() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_next08.txt");
         String fileName = url.getPath();
@@ -1346,21 +1346,21 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub08.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Éİ’è‚µ‚Ä‚¢‚éB
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–æ™‚ã«è¨­å®šã—ã¦ã„ã‚‹ã€‚
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             fileLineIterator.next();
-            fail("FileLineException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½");
+            fail("FileLineExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸ");
         } catch (FileLineException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(0, VMOUTUtil
                     .getCallCount(FileDAOUtility.class, "trim"));
             assertEquals(0, VMOUTUtil.getCallCount(FileDAOUtility.class,
@@ -1380,7 +1380,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
             assertEquals("readLine", 1, VMOUTUtil.getCallCount(
                     AbstractFileLineIterator.class, "readLine"));
 
-            // maven‚©‚ç‹N“®‚·‚é‚Æ‚È‚º‚©separateColumns‚ªæ“¾‚Å‚«‚È‚¢‚½‚ßAƒXƒLƒbƒv‚·‚é
+            // mavenã‹ã‚‰èµ·å‹•ã™ã‚‹ã¨ãªãœã‹separateColumnsãŒå–å¾—ã§ããªã„ãŸã‚ã€ã‚¹ã‚­ãƒƒãƒ—ã™ã‚‹
             if (!("jp.co.dgic.testing.common.DJUnitClassLoader".equals(System
                     .getProperty("java.system.class.loader")))) {
                 assertEquals("separateColumns", 1, VMOUTUtil.getCallCount(
@@ -1405,71 +1405,71 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testNext05() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl<br>
-     * “Ç‚İæ‚Á‚½ƒf[ƒ^1s•ª‚ğƒJƒ“ƒ}i,j‚Å‹æØ‚Á‚ÄAƒJƒ‰ƒ€‚Æ‚µ‚Ä•Ô‚·<br>
-     * (ó‘Ô) this.clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂƒCƒ“ƒXƒ^ƒ“ƒX‰»‰Â”\Class‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E@FileFormat‚Ìİ’è‚ğ‚Â<br>
-     * - encloseCharF"\""<br>
-     * - ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     * E@InputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * - ƒtƒB[ƒ‹ƒhFString column2<br>
-     * @InputFileColumnİ’è<br> > columnIndexF1<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFint column1<br>
-     * @InputFileColumnİ’è<br> > columnIndexF0<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFDate column4<br>
-     * @InputFileColumnİ’è<br> > columnIndexF3<br>
-     *                        > columnFormatFyyyy/MM/dd<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFBigDecimal column3<br>
-     * @InputFileColumnİ’è<br> > columnIndexF2<br>
-     *                        > columnFormatF###,###<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl<br>
+     * èª­ã¿å–ã£ãŸãƒ‡ãƒ¼ã‚¿1è¡Œåˆ†ã‚’ã‚«ãƒ³ãƒï¼ˆ,ï¼‰ã§åŒºåˆ‡ã£ã¦ã€ã‚«ãƒ©ãƒ ã¨ã—ã¦è¿”ã™<br>
+     * (çŠ¶æ…‹) this.clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–å¯èƒ½Classã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»@FileFormatã®è¨­å®šã‚’æŒã¤<br>
+     * - encloseCharï¼š"\""<br>
+     * - ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * ãƒ»@InputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column2<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š1<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šint column1<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š0<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šDate column4<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š3<br>
+     *                        > columnFormatï¼šyyyy/MM/dd<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šBigDecimal column3<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š2<br>
+     *                        > columnFormatï¼š###,###<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                        "AbstractFileLineIterator_next09.txt"<br>
-     *                        (ó‘Ô) this.currentLineCount:0<br>
-     *                        (ó‘Ô) this.columnParserMap:ˆÈ‰º‚Ì—v‘f‚ğ‚Â<br>
-     *                        Map<String, ColumnParser>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.lang.String"=NullColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.util.Date"=DateColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.math.BigDecimal"=DecimalColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"int"=IntColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        (ó‘Ô) this.readTrailer:false<br>
-     *                        (ó‘Ô) this.isCheckByte():true<br>
-     *                        (ó‘Ô) ‘ÎÛƒtƒ@ƒCƒ‹:ˆÈ‰º‚Ì“à—e‚ğ‚Â"AbstractFileLineIterator_next09.txt"ƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚éB<br>
+     *                        (çŠ¶æ…‹) this.currentLineCount:0<br>
+     *                        (çŠ¶æ…‹) this.columnParserMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤<br>
+     *                        Map<String, ColumnParser>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.lang.String"=NullColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.util.Date"=DateColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.math.BigDecimal"=DecimalColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"int"=IntColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        (çŠ¶æ…‹) this.readTrailer:false<br>
+     *                        (çŠ¶æ…‹) this.isCheckByte():true<br>
+     *                        (çŠ¶æ…‹) å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«:ä»¥ä¸‹ã®å†…å®¹ã‚’æŒã¤"AbstractFileLineIterator_next09.txt"ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚‹ã€‚<br>
      *                        -------------------<br>
      *                        1,line1,111111,1980/01/21<br>
      *                        -------------------<br>
-     *                        ¦³íƒf[ƒ^<br>
+     *                        â€»æ­£å¸¸ãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     *                        Šú‘Ò’lF(–ß‚è’l) this.clazz.getClass():this.clazz‚Åİ’è‚³‚ê‚Ä‚¢‚éƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        - column1F1<br>
-     *                        - column2F"line1"<br>
-     *                        - column3F111111<br>
-     *                        - column4F1980/01/21<br>
-     *                        (ó‘Ô•Ï‰») FileDAOUtility.trim(String, String, char, TrimType):4‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») FileDAOUtility.padding(String, String, int, char, PaddingType):4‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») NullColumnParser#parse():1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») DateColumnParser#parse():1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») DecimalColumnParser#parse():1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») IntColumnParser#parse():1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») NullStringConverter#convert():1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.hasNext():2‰ñŒÄ‚Î‚ê‚é<br>
-     *                        ¦readLine()‚Ì’†‚ÅhasNext‚ª‚P‰ñŒÄ‚Î‚ê‚Ä‚¢‚éB<br>
-     *                        (ó‘Ô•Ï‰») this.readLine():1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.separateColumns(String):1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.currentLineCount:1<br>
+     *                        æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) this.clazz.getClass():this.clazzã§è¨­å®šã•ã‚Œã¦ã„ã‚‹ã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        - column1ï¼š1<br>
+     *                        - column2ï¼š"line1"<br>
+     *                        - column3ï¼š111111<br>
+     *                        - column4ï¼š1980/01/21<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) FileDAOUtility.trim(String, String, char, TrimType):4å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) FileDAOUtility.padding(String, String, int, char, PaddingType):4å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) NullColumnParser#parse():1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) DateColumnParser#parse():1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) DecimalColumnParser#parse():1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) IntColumnParser#parse():1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) NullStringConverter#convert():1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.hasNext():2å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        â€»readLine()ã®ä¸­ã§hasNextãŒï¼‘å›å‘¼ã°ã‚Œã¦ã„ã‚‹ã€‚<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.readLine():1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.separateColumns(String):1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.currentLineCount:1<br>
      * <br>
-     *                        ³íB(ƒoƒCƒg”ƒ`ƒFƒbƒN‚·‚é)<br>
-     *                        ‘ÎÛƒtƒ@ƒCƒ‹‚Ì“à—e‚ª³‚µ‚­İ’è‚³‚ê‚½ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ªæ“¾‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                        æ­£å¸¸ã€‚(ãƒã‚¤ãƒˆæ•°ãƒã‚§ãƒƒã‚¯ã™ã‚‹)<br>
+     *                        å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã®å†…å®¹ãŒæ­£ã—ãè¨­å®šã•ã‚ŒãŸãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒå–å¾—ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testNext05() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_next09.txt");
         String fileName = url.getPath();
@@ -1483,16 +1483,16 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub09.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Éİ’è‚µ‚Ä‚¢‚éB
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–æ™‚ã«è¨­å®šã—ã¦ã„ã‚‹ã€‚
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         AbstractFileLineIterator_Stub09 result = fileLineIterator.next();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals("getColumn1", 1, result.getColumn1());
         assertEquals("line1", result.getColumn2());
         assertEquals(new BigDecimal(111111), result.getColumn3());
@@ -1501,7 +1501,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
         assertEquals(column4.getTime().toString(), result.getColumn4()
                 .toString());
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(4, VMOUTUtil.getCallCount(FileDAOUtility.class, "trim"));
         assertEquals(4, VMOUTUtil.getCallCount(FileDAOUtility.class, "padding"));
         assertEquals("NullColumnParser", 1, VMOUTUtil.getCallCount(
@@ -1519,7 +1519,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
         assertEquals("readLine", 1, VMOUTUtil.getCallCount(
                 AbstractFileLineIterator.class, "readLine"));
 
-        // maven‚©‚ç‹N“®‚·‚é‚Æ‚È‚º‚©separateColumns‚ªæ“¾‚Å‚«‚È‚¢‚½‚ßAƒXƒLƒbƒv‚·‚é
+        // mavenã‹ã‚‰èµ·å‹•ã™ã‚‹ã¨ãªãœã‹separateColumnsãŒå–å¾—ã§ããªã„ãŸã‚ã€ã‚¹ã‚­ãƒƒãƒ—ã™ã‚‹
         if (!("jp.co.dgic.testing.common.DJUnitClassLoader".equals(System
                 .getProperty("java.system.class.loader")))) {
             assertEquals("separateColumns", 1, VMOUTUtil.getCallCount(
@@ -1533,65 +1533,65 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testNext06() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FE,G <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE,G <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl<br>
-     * “Ç‚İæ‚Á‚½ƒf[ƒ^1s•ª‚ğƒJƒ“ƒ}i,j‚Å‹æØ‚Á‚ÄAƒJƒ‰ƒ€‚Æ‚µ‚Ä•Ô‚·<br>
-     * (ó‘Ô) this.clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂƒCƒ“ƒXƒ^ƒ“ƒX‰»‰Â”\Class‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E@FileFormat‚Ìİ’è‚ğ‚Â<br>
-     * - ‘S€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     * E@InputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * - ƒtƒB[ƒ‹ƒhFString column1<br>
-     * @InputFileColumnİ’è<br> > columnIndexF0<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFString column2<br>
-     * @InputFileColumnİ’è<br> > columnIndexF1<br>
-     *                        > bytesF5<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl<br>
+     * èª­ã¿å–ã£ãŸãƒ‡ãƒ¼ã‚¿1è¡Œåˆ†ã‚’ã‚«ãƒ³ãƒï¼ˆ,ï¼‰ã§åŒºåˆ‡ã£ã¦ã€ã‚«ãƒ©ãƒ ã¨ã—ã¦è¿”ã™<br>
+     * (çŠ¶æ…‹) this.clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–å¯èƒ½Classã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»@FileFormatã®è¨­å®šã‚’æŒã¤<br>
+     * - å…¨é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * ãƒ»@InputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column1<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š0<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column2<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š1<br>
+     *                        > bytesï¼š5<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                        "AbstractFileLineIterator_next12.txt"<br>
-     *                        (ó‘Ô) this.currentLineCount:0<br>
-     *                        (ó‘Ô) this.columnParserMap:ˆÈ‰º‚Ì—v‘f‚ğ‚Â<br>
-     *                        Map<String, ColumnParser>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.lang.String"=NullColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.util.Date"=DateColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.math.BigDecimal"=DecimalColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"int"=IntColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        (ó‘Ô) this.readTrailer:false<br>
-     *                        (ó‘Ô) this.isCheckByte():true<br>
-     *                        (ó‘Ô) ‘ÎÛƒtƒ@ƒCƒ‹:ˆÈ‰º‚Ì“à—e‚ğ‚Â"AbstractFileLineIterator_next12.txt"ƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚éB<br>
+     *                        (çŠ¶æ…‹) this.currentLineCount:0<br>
+     *                        (çŠ¶æ…‹) this.columnParserMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤<br>
+     *                        Map<String, ColumnParser>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.lang.String"=NullColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.util.Date"=DateColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.math.BigDecimal"=DecimalColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"int"=IntColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        (çŠ¶æ…‹) this.readTrailer:false<br>
+     *                        (çŠ¶æ…‹) this.isCheckByte():true<br>
+     *                        (çŠ¶æ…‹) å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«:ä»¥ä¸‹ã®å†…å®¹ã‚’æŒã¤"AbstractFileLineIterator_next12.txt"ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚‹ã€‚<br>
      *                        -------------------<br>
      *                        ABCDE,1234<br>
      *                        -------------------<br>
-     *                        ¦Œ…”ˆÙíƒf[ƒ^<br>
+     *                        â€»æ¡æ•°ç•°å¸¸ãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     *                        Šú‘Ò’lF(ó‘Ô•Ï‰») FileDAOUtility.trim(String, String, char, TrimType):1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») FileDAOUtility.padding(String, String, int, char, PaddingType):1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») NullColumnParser#parse():1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») DateColumnParser#parse():ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») DecimalColumnParser#parse():ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») IntColumnParser#parse():ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») NullStringConverter#convert():1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.hasNext():2‰ñŒÄ‚Î‚ê‚é<br>
-     *                        ¦readLine()‚Ì’†‚ÅhasNext‚ª‚P‰ñŒÄ‚Î‚ê‚Ä‚¢‚éB<br>
-     *                        (ó‘Ô•Ï‰») this.readLine():1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.separateColumns(String):1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.currentLineCount:0<br>
-     *                        (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileLineException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *                        EƒƒbƒZ[ƒWF"Data size is different from a set point of a column."<br>
-     *                        EŒ´ˆö—áŠOFIllegalStateException<br>
-     *                        Eƒtƒ@ƒCƒ‹–¼FƒtƒB[ƒ‹ƒhfileName‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒXB<br>
-     *                        Es”Ô†F1<br>
-     *                        EƒJƒ‰ƒ€–¼Fcolumn2<br>
-     *                        EƒJƒ‰ƒ€ƒCƒ“ƒfƒbƒNƒXF1<br>
+     *                        æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) FileDAOUtility.trim(String, String, char, TrimType):1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) FileDAOUtility.padding(String, String, int, char, PaddingType):1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) NullColumnParser#parse():1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) DateColumnParser#parse():å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) DecimalColumnParser#parse():å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) IntColumnParser#parse():å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) NullStringConverter#convert():1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.hasNext():2å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        â€»readLine()ã®ä¸­ã§hasNextãŒï¼‘å›å‘¼ã°ã‚Œã¦ã„ã‚‹ã€‚<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.readLine():1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.separateColumns(String):1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.currentLineCount:0<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileLineExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *                        ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Data size is different from a set point of a column."<br>
+     *                        ãƒ»åŸå› ä¾‹å¤–ï¼šIllegalStateException<br>
+     *                        ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰fileNameã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚<br>
+     *                        ãƒ»è¡Œç•ªå·ï¼š1<br>
+     *                        ãƒ»ã‚«ãƒ©ãƒ åï¼šcolumn2<br>
+     *                        ãƒ»ã‚«ãƒ©ãƒ ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ï¼š1<br>
      * <br>
-     *                        —áŠOB<br>
-     *                        ƒtƒB[ƒ‹ƒhclazz‚É@InputFileColumn‚Ébytes’è‹`‚ª‚ ‚è“ü—Í‚³‚ê‚½ƒtƒ@ƒCƒ‹‚Ìî•ñ‚ªbytesİ’è‚É‚ ‚Á‚Ä‚È‚¢ê‡AFileLineException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                        ä¾‹å¤–ã€‚<br>
+     *                        ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰clazzã«@InputFileColumnã«byteså®šç¾©ãŒã‚ã‚Šå…¥åŠ›ã•ã‚ŒãŸãƒ•ã‚¡ã‚¤ãƒ«ã®æƒ…å ±ãŒbytesè¨­å®šã«ã‚ã£ã¦ãªã„å ´åˆã€FileLineExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testNext06() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_next12.txt");
         String fileName = url.getPath();
@@ -1605,21 +1605,21 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub10.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Éİ’è‚µ‚Ä‚¢‚éB
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–æ™‚ã«è¨­å®šã—ã¦ã„ã‚‹ã€‚
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             fileLineIterator.next();
-            fail("FileLineException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½");
+            fail("FileLineExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸ");
         } catch (FileLineException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals("FileDAOUtility:trim", 1, VMOUTUtil.getCallCount(
                     FileDAOUtility.class, "trim"));
             assertEquals("FileDAOUtility:padding", 1, VMOUTUtil.getCallCount(
@@ -1639,7 +1639,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
             assertEquals("readLine", 1, VMOUTUtil.getCallCount(
                     AbstractFileLineIterator.class, "readLine"));
 
-            // maven‚©‚ç‹N“®‚·‚é‚Æ‚È‚º‚©separateColumns‚ªæ“¾‚Å‚«‚È‚¢‚½‚ßAƒXƒLƒbƒv‚·‚é
+            // mavenã‹ã‚‰èµ·å‹•ã™ã‚‹ã¨ãªãœã‹separateColumnsãŒå–å¾—ã§ããªã„ãŸã‚ã€ã‚¹ã‚­ãƒƒãƒ—ã™ã‚‹
             if (!("jp.co.dgic.testing.common.DJUnitClassLoader".equals(System
                     .getProperty("java.system.class.loader")))) {
                 assertEquals("separateColumns", 1, VMOUTUtil.getCallCount(
@@ -1664,62 +1664,62 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testNext07() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl<br>
-     * “Ç‚İæ‚Á‚½ƒf[ƒ^1s•ª‚ğƒJƒ“ƒ}i,j‚Å‹æØ‚Á‚ÄAƒJƒ‰ƒ€‚Æ‚µ‚Ä•Ô‚·<br>
-     * (ó‘Ô) this.clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂƒCƒ“ƒXƒ^ƒ“ƒX‰»‰Â”\Class‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E@FileFormat‚Ìİ’è‚ğ‚Â<br>
-     * - ‘S€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     * E@InputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * - ƒtƒB[ƒ‹ƒhFString column1<br>
-     * @InputFileColumnİ’è<br> > columnIndexF0<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFString column2<br>
-     * @InputFileColumnİ’è<br> > columnIndexF1<br>
-     *                        > bytesF5<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl<br>
+     * èª­ã¿å–ã£ãŸãƒ‡ãƒ¼ã‚¿1è¡Œåˆ†ã‚’ã‚«ãƒ³ãƒï¼ˆ,ï¼‰ã§åŒºåˆ‡ã£ã¦ã€ã‚«ãƒ©ãƒ ã¨ã—ã¦è¿”ã™<br>
+     * (çŠ¶æ…‹) this.clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–å¯èƒ½Classã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»@FileFormatã®è¨­å®šã‚’æŒã¤<br>
+     * - å…¨é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * ãƒ»@InputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column1<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š0<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column2<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š1<br>
+     *                        > bytesï¼š5<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                        "AbstractFileLineIterator_next13.txt"<br>
-     *                        (ó‘Ô) this.currentLineCount:0<br>
-     *                        (ó‘Ô) this.columnParserMap:ˆÈ‰º‚Ì—v‘f‚ğ‚Â<br>
-     *                        Map<String, ColumnParser>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.lang.String"=NullColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.util.Date"=DateColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.math.BigDecimal"=DecimalColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"int"=IntColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        (ó‘Ô) this.readTrailer:false<br>
-     *                        (ó‘Ô) this.isCheckByte():true<br>
-     *                        (ó‘Ô) ‘ÎÛƒtƒ@ƒCƒ‹:ˆÈ‰º‚Ì“à—e‚ğ‚Â"AbstractFileLineIterator_next13.txt"ƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚éB<br>
+     *                        (çŠ¶æ…‹) this.currentLineCount:0<br>
+     *                        (çŠ¶æ…‹) this.columnParserMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤<br>
+     *                        Map<String, ColumnParser>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.lang.String"=NullColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.util.Date"=DateColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.math.BigDecimal"=DecimalColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"int"=IntColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        (çŠ¶æ…‹) this.readTrailer:false<br>
+     *                        (çŠ¶æ…‹) this.isCheckByte():true<br>
+     *                        (çŠ¶æ…‹) å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«:ä»¥ä¸‹ã®å†…å®¹ã‚’æŒã¤"AbstractFileLineIterator_next13.txt"ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚‹ã€‚<br>
      *                        -------------------<br>
      *                        ABCDE,12345<br>
      *                        -------------------<br>
-     *                        ¦³íƒf[ƒ^<br>
+     *                        â€»æ­£å¸¸ãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     *                        Šú‘Ò’lF(–ß‚è’l) this.clazz.getClass():this.clazz‚Åİ’è‚³‚ê‚Ä‚¢‚éƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        - column1F"ABCDE"<br>
-     *                        - column2F"12345"<br>
-     *                        (ó‘Ô•Ï‰») FileDAOUtility.trim(String, String, char, TrimType):2‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») FileDAOUtility.padding(String, String, int, char, PaddingType):2‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») NullColumnParser#parse():2‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») DateColumnParser#parse():ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») DecimalColumnParser#parse():ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») IntColumnParser#parse():ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») NullStringConverter#convert():2‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.hasNext():2‰ñŒÄ‚Î‚ê‚é<br>
-     *                        ¦readLine()‚Ì’†‚ÅhasNext‚ª‚P‰ñŒÄ‚Î‚ê‚Ä‚¢‚éB<br>
-     *                        (ó‘Ô•Ï‰») this.readLine():1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.separateColumns(String):1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.currentLineCount:1<br>
+     *                        æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) this.clazz.getClass():this.clazzã§è¨­å®šã•ã‚Œã¦ã„ã‚‹ã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        - column1ï¼š"ABCDE"<br>
+     *                        - column2ï¼š"12345"<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) FileDAOUtility.trim(String, String, char, TrimType):2å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) FileDAOUtility.padding(String, String, int, char, PaddingType):2å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) NullColumnParser#parse():2å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) DateColumnParser#parse():å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) DecimalColumnParser#parse():å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) IntColumnParser#parse():å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) NullStringConverter#convert():2å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.hasNext():2å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        â€»readLine()ã®ä¸­ã§hasNextãŒï¼‘å›å‘¼ã°ã‚Œã¦ã„ã‚‹ã€‚<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.readLine():1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.separateColumns(String):1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.currentLineCount:1<br>
      * <br>
-     *                        ³íB<br>
-     *                        ƒtƒB[ƒ‹ƒhclazz‚É@InputFileColumn‚Ébytes’è‹`‚ª‚ ‚è“ü—Í‚³‚ê‚½ƒtƒ@ƒCƒ‹‚Ìî•ñ‚ªbytesİ’è‚É‚ ‚Á‚Ä‚¢‚éê‡A‘ÎÛƒtƒ@ƒCƒ‹‚Ì“à—e‚ª³‚µ‚­İ’è‚³‚ê‚½ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ªæ“¾‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚é
-     *                        B <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                        æ­£å¸¸ã€‚<br>
+     *                        ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰clazzã«@InputFileColumnã«byteså®šç¾©ãŒã‚ã‚Šå…¥åŠ›ã•ã‚ŒãŸãƒ•ã‚¡ã‚¤ãƒ«ã®æƒ…å ±ãŒbytesè¨­å®šã«ã‚ã£ã¦ã„ã‚‹å ´åˆã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã®å†…å®¹ãŒæ­£ã—ãè¨­å®šã•ã‚ŒãŸãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒå–å¾—ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹
+     *                        ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testNext07() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_next13.txt");
         String fileName = url.getPath();
@@ -1733,20 +1733,20 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub10.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Éİ’è‚µ‚Ä‚¢‚éB
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–æ™‚ã«è¨­å®šã—ã¦ã„ã‚‹ã€‚
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         AbstractFileLineIterator_Stub10 result = fileLineIterator.next();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals("ABCDE", result.getColumn1());
         assertEquals("12345", result.getColumn2());
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(2, VMOUTUtil.getCallCount(FileDAOUtility.class, "trim"));
         assertEquals(2, VMOUTUtil.getCallCount(FileDAOUtility.class, "padding"));
         assertEquals(2, VMOUTUtil.getCallCount(NullColumnParser.class, "parse"));
@@ -1761,7 +1761,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
         assertEquals("readLine", 1, VMOUTUtil.getCallCount(
                 AbstractFileLineIterator.class, "readLine"));
 
-        // maven‚©‚ç‹N“®‚·‚é‚Æ‚È‚º‚©separateColumns‚ªæ“¾‚Å‚«‚È‚¢‚½‚ßAƒXƒLƒbƒv‚·‚é
+        // mavenã‹ã‚‰èµ·å‹•ã™ã‚‹ã¨ãªãœã‹separateColumnsãŒå–å¾—ã§ããªã„ãŸã‚ã€ã‚¹ã‚­ãƒƒãƒ—ã™ã‚‹
         if (!("jp.co.dgic.testing.common.DJUnitClassLoader".equals(System
                 .getProperty("java.system.class.loader")))) {
             assertEquals("separateColumns", 1, VMOUTUtil.getCallCount(
@@ -1775,61 +1775,61 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testNext08() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl<br>
-     * “Ç‚İæ‚Á‚½ƒf[ƒ^1s•ª‚ğƒJƒ“ƒ}i,j‚Å‹æØ‚Á‚ÄAƒJƒ‰ƒ€‚Æ‚µ‚Ä•Ô‚·<br>
-     * (ó‘Ô) this.clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂƒCƒ“ƒXƒ^ƒ“ƒX‰»‰Â”\Class‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E@FileFormat‚Ìİ’è‚ğ‚Â<br>
-     * - ‘S€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     * E@InputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * - ƒtƒB[ƒ‹ƒhFString column2<br>
-     * @InputFileColumnİ’è<br> > columnIndexF1<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFint column1<br>
-     * @InputFileColumnİ’è<br> > columnIndexF0<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl<br>
+     * èª­ã¿å–ã£ãŸãƒ‡ãƒ¼ã‚¿1è¡Œåˆ†ã‚’ã‚«ãƒ³ãƒï¼ˆ,ï¼‰ã§åŒºåˆ‡ã£ã¦ã€ã‚«ãƒ©ãƒ ã¨ã—ã¦è¿”ã™<br>
+     * (çŠ¶æ…‹) this.clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–å¯èƒ½Classã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»@FileFormatã®è¨­å®šã‚’æŒã¤<br>
+     * - å…¨é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * ãƒ»@InputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column2<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š1<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šint column1<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š0<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                        "AbstractFileLineIterator_next15.txt"<br>
-     *                        (ó‘Ô) this.currentLineCount:0<br>
-     *                        (ó‘Ô) this.columnParserMap:ˆÈ‰º‚Ì—v‘f‚ğ‚Â<br>
-     *                        Map<String, ColumnParser>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.lang.String"=ColumnParserƒXƒ^ƒu(Às‚·‚é‚Æ—áŠO‚ğ“Š‚°‚éB)<br>
-     *                        E"int"=IntColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        (ó‘Ô) this.readTrailer:false<br>
-     *                        (ó‘Ô) this.isCheckByte():true<br>
-     *                        (ó‘Ô) ColumnParser.parse():IllegalArgumentException—áŠO‚ª”­¶<br>
-     *                        (ó‘Ô) ‘ÎÛƒtƒ@ƒCƒ‹:ˆÈ‰º‚Ì“à—e‚ğ‚Â"AbstractFileLineIterator_next15.txt"ƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚éB<br>
+     *                        (çŠ¶æ…‹) this.currentLineCount:0<br>
+     *                        (çŠ¶æ…‹) this.columnParserMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤<br>
+     *                        Map<String, ColumnParser>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.lang.String"=ColumnParserã‚¹ã‚¿ãƒ–(å®Ÿè¡Œã™ã‚‹ã¨ä¾‹å¤–ã‚’æŠ•ã’ã‚‹ã€‚)<br>
+     *                        ãƒ»"int"=IntColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        (çŠ¶æ…‹) this.readTrailer:false<br>
+     *                        (çŠ¶æ…‹) this.isCheckByte():true<br>
+     *                        (çŠ¶æ…‹) ColumnParser.parse():IllegalArgumentExceptionä¾‹å¤–ãŒç™ºç”Ÿ<br>
+     *                        (çŠ¶æ…‹) å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«:ä»¥ä¸‹ã®å†…å®¹ã‚’æŒã¤"AbstractFileLineIterator_next15.txt"ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚‹ã€‚<br>
      *                        -------------------<br>
      *                        1,ABCDE<br>
      *                        -------------------<br>
-     *                        ¦³íƒf[ƒ^<br>
+     *                        â€»æ­£å¸¸ãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     *                        Šú‘Ò’lF(ó‘Ô•Ï‰») FileDAOUtility.trim(String, String, char, TrimType):2‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») FileDAOUtility.padding(String, String, int, char, PaddingType):2‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») IntColumnParser#parse():1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») NullStringConverter#convert():2‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.hasNext():2‰ñŒÄ‚Î‚ê‚é<br>
-     *                        ¦readLine()‚Ì’†‚ÅhasNext‚ª‚P‰ñŒÄ‚Î‚ê‚Ä‚¢‚éB<br>
-     *                        (ó‘Ô•Ï‰») this.readLine():1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.separateColumns(String):1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.currentLineCount:0<br>
-     *                        (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileLineException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *                        EƒƒbƒZ[ƒWF"Failed in coluomn data parsing."<br>
-     *                        EŒ´ˆö—áŠOFllegalArgumentException<br>
-     *                        (ColumnParser.parse()‚Å”­¶‚µ‚½—áŠO)<br>
-     *                        Eƒtƒ@ƒCƒ‹–¼FƒtƒB[ƒ‹ƒhfileName‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒXB<br>
-     *                        Es”Ô†F1<br>
-     *                        EƒJƒ‰ƒ€–¼Fcolumn2<br>
-     *                        EƒJƒ‰ƒ€ƒCƒ“ƒfƒbƒNƒXF1<br>
+     *                        æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) FileDAOUtility.trim(String, String, char, TrimType):2å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) FileDAOUtility.padding(String, String, int, char, PaddingType):2å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) IntColumnParser#parse():1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) NullStringConverter#convert():2å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.hasNext():2å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        â€»readLine()ã®ä¸­ã§hasNextãŒï¼‘å›å‘¼ã°ã‚Œã¦ã„ã‚‹ã€‚<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.readLine():1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.separateColumns(String):1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.currentLineCount:0<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileLineExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *                        ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Failed in coluomn data parsing."<br>
+     *                        ãƒ»åŸå› ä¾‹å¤–ï¼šllegalArgumentException<br>
+     *                        (ColumnParser.parse()ã§ç™ºç”Ÿã—ãŸä¾‹å¤–)<br>
+     *                        ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰fileNameã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚<br>
+     *                        ãƒ»è¡Œç•ªå·ï¼š1<br>
+     *                        ãƒ»ã‚«ãƒ©ãƒ åï¼šcolumn2<br>
+     *                        ãƒ»ã‚«ãƒ©ãƒ ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ï¼š1<br>
      * <br>
-     *                        —áŠOB<br>
-     *                        ‘ÎÛƒtƒ@ƒCƒ‹‚©‚çæ“¾‚µ‚½ƒf[ƒ^‚ğƒtƒB[ƒ‹ƒh‚ÌŒ^‚É‚ ‚í‚¹‚Äƒp[ƒY‚·‚éˆ—‚ÅllegalArgumentException‚ª”­¶‚µ‚½ê‡AFileLineException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                        ä¾‹å¤–ã€‚<br>
+     *                        å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰å–å¾—ã—ãŸãƒ‡ãƒ¼ã‚¿ã‚’ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®å‹ã«ã‚ã‚ã›ã¦ãƒ‘ãƒ¼ã‚ºã™ã‚‹å‡¦ç†ã§llegalArgumentExceptionãŒç™ºç”Ÿã—ãŸå ´åˆã€FileLineExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testNext08() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_next15.txt");
         String fileName = url.getPath();
@@ -1842,21 +1842,21 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub11.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Éİ’è‚µ‚Ä‚¢‚éB
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–æ™‚ã«è¨­å®šã—ã¦ã„ã‚‹ã€‚
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             fileLineIterator.next();
-            fail("FileLineException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½");
+            fail("FileLineExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸ");
         } catch (FileLineException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(2, VMOUTUtil
                     .getCallCount(FileDAOUtility.class, "trim"));
             assertEquals(2, VMOUTUtil.getCallCount(FileDAOUtility.class,
@@ -1870,7 +1870,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
             assertEquals("AbstractFileLineIterator", 1, VMOUTUtil.getCallCount(
                     AbstractFileLineIterator.class, "readLine"));
 
-            // maven‚©‚ç‹N“®‚·‚é‚Æ‚È‚º‚©separateColumns‚ªæ“¾‚Å‚«‚È‚¢‚½‚ßAƒXƒLƒbƒv‚·‚é
+            // mavenã‹ã‚‰èµ·å‹•ã™ã‚‹ã¨ãªãœã‹separateColumnsãŒå–å¾—ã§ããªã„ãŸã‚ã€ã‚¹ã‚­ãƒƒãƒ—ã™ã‚‹
             if (!("jp.co.dgic.testing.common.DJUnitClassLoader".equals(System
                     .getProperty("java.system.class.loader")))) {
                 assertEquals("separateColumns", 1, VMOUTUtil.getCallCount(
@@ -1893,61 +1893,61 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testNext09() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl<br>
-     * “Ç‚İæ‚Á‚½ƒf[ƒ^1s•ª‚ğƒJƒ“ƒ}i,j‚Å‹æØ‚Á‚ÄAƒJƒ‰ƒ€‚Æ‚µ‚Ä•Ô‚·<br>
-     * (ó‘Ô) this.clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂƒCƒ“ƒXƒ^ƒ“ƒX‰»‰Â”\Class‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E@FileFormat‚Ìİ’è‚ğ‚Â<br>
-     * - ‘S€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     * E@InputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * - ƒtƒB[ƒ‹ƒhFString column2<br>
-     * @InputFileColumnİ’è<br> > columnIndexF1<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFint column1<br>
-     * @InputFileColumnİ’è<br> > columnIndexF0<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl<br>
+     * èª­ã¿å–ã£ãŸãƒ‡ãƒ¼ã‚¿1è¡Œåˆ†ã‚’ã‚«ãƒ³ãƒï¼ˆ,ï¼‰ã§åŒºåˆ‡ã£ã¦ã€ã‚«ãƒ©ãƒ ã¨ã—ã¦è¿”ã™<br>
+     * (çŠ¶æ…‹) this.clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–å¯èƒ½Classã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»@FileFormatã®è¨­å®šã‚’æŒã¤<br>
+     * - å…¨é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * ãƒ»@InputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column2<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š1<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šint column1<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š0<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                        "AbstractFileLineIterator_next15.txt"<br>
-     *                        (ó‘Ô) this.currentLineCount:0<br>
-     *                        (ó‘Ô) this.columnParserMap:ˆÈ‰º‚Ì—v‘f‚ğ‚Â<br>
-     *                        Map<String, ColumnParser>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.lang.String"=ColumnParserƒXƒ^ƒu(Às‚·‚é‚Æ—áŠO‚ğ“Š‚°‚éB)<br>
-     *                        E"int"=IntColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        (ó‘Ô) this.readTrailer:false<br>
-     *                        (ó‘Ô) this.isCheckByte():true<br>
-     *                        (ó‘Ô) ColumnParser.parse():IllegalAccessException—áŠO‚ª”­¶<br>
-     *                        (ó‘Ô) ‘ÎÛƒtƒ@ƒCƒ‹:ˆÈ‰º‚Ì“à—e‚ğ‚Â"AbstractFileLineIterator_next15.txt"ƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚éB<br>
+     *                        (çŠ¶æ…‹) this.currentLineCount:0<br>
+     *                        (çŠ¶æ…‹) this.columnParserMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤<br>
+     *                        Map<String, ColumnParser>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.lang.String"=ColumnParserã‚¹ã‚¿ãƒ–(å®Ÿè¡Œã™ã‚‹ã¨ä¾‹å¤–ã‚’æŠ•ã’ã‚‹ã€‚)<br>
+     *                        ãƒ»"int"=IntColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        (çŠ¶æ…‹) this.readTrailer:false<br>
+     *                        (çŠ¶æ…‹) this.isCheckByte():true<br>
+     *                        (çŠ¶æ…‹) ColumnParser.parse():IllegalAccessExceptionä¾‹å¤–ãŒç™ºç”Ÿ<br>
+     *                        (çŠ¶æ…‹) å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«:ä»¥ä¸‹ã®å†…å®¹ã‚’æŒã¤"AbstractFileLineIterator_next15.txt"ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚‹ã€‚<br>
      *                        -------------------<br>
      *                        1,ABCDE<br>
      *                        -------------------<br>
-     *                        ¦³íƒf[ƒ^<br>
+     *                        â€»æ­£å¸¸ãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     *                        Šú‘Ò’lF(ó‘Ô•Ï‰») FileDAOUtility.trim(String, String, char, TrimType):2‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») FileDAOUtility.padding(String, String, int, char, PaddingType):2‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») IntColumnParser#parse():1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») NullStringConverter#convert():2‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.hasNext():2‰ñŒÄ‚Î‚ê‚é<br>
-     *                        ¦readLine()‚Ì’†‚ÅhasNext‚ª‚P‰ñŒÄ‚Î‚ê‚Ä‚¢‚éB<br>
-     *                        (ó‘Ô•Ï‰») this.readLine():1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.separateColumns(String):1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.currentLineCount:0<br>
-     *                        (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileLineException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *                        EƒƒbƒZ[ƒWF"Failed in coluomn data parsing."<br>
-     *                        EŒ´ˆö—áŠOFIllegalAccessException<br>
-     *                        (ColumnParser.parse()‚Å”­¶‚µ‚½—áŠO)<br>
-     *                        Eƒtƒ@ƒCƒ‹–¼FƒtƒB[ƒ‹ƒhfileName‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒXB<br>
-     *                        Es”Ô†F1<br>
-     *                        EƒJƒ‰ƒ€–¼Fcolumn2<br>
-     *                        EƒJƒ‰ƒ€ƒCƒ“ƒfƒbƒNƒXF1<br>
+     *                        æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) FileDAOUtility.trim(String, String, char, TrimType):2å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) FileDAOUtility.padding(String, String, int, char, PaddingType):2å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) IntColumnParser#parse():1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) NullStringConverter#convert():2å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.hasNext():2å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        â€»readLine()ã®ä¸­ã§hasNextãŒï¼‘å›å‘¼ã°ã‚Œã¦ã„ã‚‹ã€‚<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.readLine():1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.separateColumns(String):1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.currentLineCount:0<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileLineExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *                        ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Failed in coluomn data parsing."<br>
+     *                        ãƒ»åŸå› ä¾‹å¤–ï¼šIllegalAccessException<br>
+     *                        (ColumnParser.parse()ã§ç™ºç”Ÿã—ãŸä¾‹å¤–)<br>
+     *                        ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰fileNameã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚<br>
+     *                        ãƒ»è¡Œç•ªå·ï¼š1<br>
+     *                        ãƒ»ã‚«ãƒ©ãƒ åï¼šcolumn2<br>
+     *                        ãƒ»ã‚«ãƒ©ãƒ ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ï¼š1<br>
      * <br>
-     *                        —áŠOB<br>
-     *                        ‘ÎÛƒtƒ@ƒCƒ‹‚©‚çæ“¾‚µ‚½ƒf[ƒ^‚ğƒtƒB[ƒ‹ƒh‚ÌŒ^‚É‚ ‚í‚¹‚Äƒp[ƒY‚·‚éˆ—‚ÅIllegalAccessException‚ª”­¶‚µ‚½ê‡AFileLineException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                        ä¾‹å¤–ã€‚<br>
+     *                        å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰å–å¾—ã—ãŸãƒ‡ãƒ¼ã‚¿ã‚’ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®å‹ã«ã‚ã‚ã›ã¦ãƒ‘ãƒ¼ã‚ºã™ã‚‹å‡¦ç†ã§IllegalAccessExceptionãŒç™ºç”Ÿã—ãŸå ´åˆã€FileLineExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testNext09() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_next15.txt");
         String fileName = url.getPath();
@@ -1960,21 +1960,21 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub11.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Éİ’è‚µ‚Ä‚¢‚éB
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–æ™‚ã«è¨­å®šã—ã¦ã„ã‚‹ã€‚
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             fileLineIterator.next();
-            fail("FileLineException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½");
+            fail("FileLineExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸ");
         } catch (FileLineException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(2, VMOUTUtil
                     .getCallCount(FileDAOUtility.class, "trim"));
             assertEquals(2, VMOUTUtil.getCallCount(FileDAOUtility.class,
@@ -1988,7 +1988,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
             assertEquals("AbstractFileLineIterator", 1, VMOUTUtil.getCallCount(
                     AbstractFileLineIterator.class, "readLine"));
 
-            // maven‚©‚ç‹N“®‚·‚é‚Æ‚È‚º‚©separateColumns‚ªæ“¾‚Å‚«‚È‚¢‚½‚ßAƒXƒLƒbƒv‚·‚é
+            // mavenã‹ã‚‰èµ·å‹•ã™ã‚‹ã¨ãªãœã‹separateColumnsãŒå–å¾—ã§ããªã„ãŸã‚ã€ã‚¹ã‚­ãƒƒãƒ—ã™ã‚‹
             if (!("jp.co.dgic.testing.common.DJUnitClassLoader".equals(System
                     .getProperty("java.system.class.loader")))) {
                 assertEquals("separateColumns", 1, VMOUTUtil.getCallCount(
@@ -2011,62 +2011,62 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testNext10() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl<br>
-     * “Ç‚İæ‚Á‚½ƒf[ƒ^1s•ª‚ğƒJƒ“ƒ}i,j‚Å‹æØ‚Á‚ÄAƒJƒ‰ƒ€‚Æ‚µ‚Ä•Ô‚·<br>
-     * (ó‘Ô) this.clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂƒCƒ“ƒXƒ^ƒ“ƒX‰»‰Â”\Class‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E@FileFormat‚Ìİ’è‚ğ‚Â<br>
-     * - ‘S€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     * E@InputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * - ƒtƒB[ƒ‹ƒhFString column2<br>
-     * @InputFileColumnİ’è<br> > columnIndexF1<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFint column1<br>
-     * @InputFileColumnİ’è<br> > columnIndexF0<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl<br>
+     * èª­ã¿å–ã£ãŸãƒ‡ãƒ¼ã‚¿1è¡Œåˆ†ã‚’ã‚«ãƒ³ãƒï¼ˆ,ï¼‰ã§åŒºåˆ‡ã£ã¦ã€ã‚«ãƒ©ãƒ ã¨ã—ã¦è¿”ã™<br>
+     * (çŠ¶æ…‹) this.clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–å¯èƒ½Classã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»@FileFormatã®è¨­å®šã‚’æŒã¤<br>
+     * - å…¨é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * ãƒ»@InputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column2<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š1<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šint column1<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š0<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                        "AbstractFileLineIterator_next15.txt"<br>
-     *                        (ó‘Ô) this.currentLineCount:0<br>
-     *                        (ó‘Ô) this.columnParserMap:ˆÈ‰º‚Ì—v‘f‚ğ‚Â<br>
-     *                        Map<String, ColumnParser>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.lang.String"=ColumnParserƒXƒ^ƒu(Às‚·‚é‚Æ—áŠO‚ğ“Š‚°‚éB)<br>
-     *                        E"int"=IntColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        (ó‘Ô) this.readTrailer:false<br>
-     *                        (ó‘Ô) this.isCheckByte():true<br>
-     *                        (ó‘Ô) ColumnParser.parse():InvocationTargetException—áŠO‚ª”­¶<br>
-     *                        (ó‘Ô) ‘ÎÛƒtƒ@ƒCƒ‹:ˆÈ‰º‚Ì“à—e‚ğ‚Â"AbstractFileLineIterator_next15.txt"ƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚éB<br>
+     *                        (çŠ¶æ…‹) this.currentLineCount:0<br>
+     *                        (çŠ¶æ…‹) this.columnParserMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤<br>
+     *                        Map<String, ColumnParser>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.lang.String"=ColumnParserã‚¹ã‚¿ãƒ–(å®Ÿè¡Œã™ã‚‹ã¨ä¾‹å¤–ã‚’æŠ•ã’ã‚‹ã€‚)<br>
+     *                        ãƒ»"int"=IntColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        (çŠ¶æ…‹) this.readTrailer:false<br>
+     *                        (çŠ¶æ…‹) this.isCheckByte():true<br>
+     *                        (çŠ¶æ…‹) ColumnParser.parse():InvocationTargetExceptionä¾‹å¤–ãŒç™ºç”Ÿ<br>
+     *                        (çŠ¶æ…‹) å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«:ä»¥ä¸‹ã®å†…å®¹ã‚’æŒã¤"AbstractFileLineIterator_next15.txt"ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚‹ã€‚<br>
      *                        -------------------<br>
      *                        1,ABCDE<br>
      *                        -------------------<br>
-     *                        ¦³íƒf[ƒ^<br>
+     *                        â€»æ­£å¸¸ãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     *                        Šú‘Ò’lF(ó‘Ô•Ï‰») FileDAOUtility.trim(String, String, char, TrimType):2‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») FileDAOUtility.padding(String, String, int, char, PaddingType):2‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») IntColumnParser#parse():1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») NullStringConverter#convert():2‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.hasNext():2‰ñŒÄ‚Î‚ê‚é<br>
-     *                        ¦readLine()‚Ì’†‚ÅhasNext‚ª‚P‰ñŒÄ‚Î‚ê‚Ä‚¢‚éB<br>
-     *                        (ó‘Ô•Ï‰») this.readLine():1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.separateColumns(String):1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.currentLineCount:0<br>
-     *                        (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileLineException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *                        EƒƒbƒZ[ƒWF"Failed in coluomn data parsing."<br>
-     *                        EŒ´ˆö—áŠOFInvocationTargetException<br>
-     *                        (ColumnParser.parse()‚Å”­¶‚µ‚½—áŠO)<br>
-     *                        Eƒtƒ@ƒCƒ‹–¼FƒtƒB[ƒ‹ƒhfileName‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒXB<br>
-     *                        Es”Ô†F1<br>
-     *                        EƒJƒ‰ƒ€–¼Fcolumn2<br>
-     *                        EƒJƒ‰ƒ€ƒCƒ“ƒfƒbƒNƒXF1<br>
+     *                        æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) FileDAOUtility.trim(String, String, char, TrimType):2å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) FileDAOUtility.padding(String, String, int, char, PaddingType):2å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) IntColumnParser#parse():1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) NullStringConverter#convert():2å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.hasNext():2å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        â€»readLine()ã®ä¸­ã§hasNextãŒï¼‘å›å‘¼ã°ã‚Œã¦ã„ã‚‹ã€‚<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.readLine():1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.separateColumns(String):1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.currentLineCount:0<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileLineExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *                        ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Failed in coluomn data parsing."<br>
+     *                        ãƒ»åŸå› ä¾‹å¤–ï¼šInvocationTargetException<br>
+     *                        (ColumnParser.parse()ã§ç™ºç”Ÿã—ãŸä¾‹å¤–)<br>
+     *                        ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰fileNameã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚<br>
+     *                        ãƒ»è¡Œç•ªå·ï¼š1<br>
+     *                        ãƒ»ã‚«ãƒ©ãƒ åï¼šcolumn2<br>
+     *                        ãƒ»ã‚«ãƒ©ãƒ ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ï¼š1<br>
      * <br>
-     *                        —áŠOB<br>
-     *                        ‘ÎÛƒtƒ@ƒCƒ‹‚©‚çæ“¾‚µ‚½ƒf[ƒ^‚ğƒtƒB[ƒ‹ƒh‚ÌŒ^‚É‚ ‚í‚¹‚Äƒp[ƒY‚·‚éˆ—‚ÅInvocationTargetException‚ª”­¶‚µ‚½ê‡AFileLineException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     *                        ä¾‹å¤–ã€‚<br>
+     *                        å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰å–å¾—ã—ãŸãƒ‡ãƒ¼ã‚¿ã‚’ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®å‹ã«ã‚ã‚ã›ã¦ãƒ‘ãƒ¼ã‚ºã™ã‚‹å‡¦ç†ã§InvocationTargetExceptionãŒç™ºç”Ÿã—ãŸå ´åˆã€FileLineExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testNext10() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_next15.txt");
         String fileName = url.getPath();
@@ -2079,21 +2079,21 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub11.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Éİ’è‚µ‚Ä‚¢‚éB
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–æ™‚ã«è¨­å®šã—ã¦ã„ã‚‹ã€‚
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             fileLineIterator.next();
-            fail("FileLineException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½");
+            fail("FileLineExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸ");
         } catch (FileLineException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(2, VMOUTUtil
                     .getCallCount(FileDAOUtility.class, "trim"));
             assertEquals(2, VMOUTUtil.getCallCount(FileDAOUtility.class,
@@ -2107,7 +2107,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
             assertEquals("AbstractFileLineIterator", 1, VMOUTUtil.getCallCount(
                     AbstractFileLineIterator.class, "readLine"));
 
-            // maven‚©‚ç‹N“®‚·‚é‚Æ‚È‚º‚©separateColumns‚ªæ“¾‚Å‚«‚È‚¢‚½‚ßAƒXƒLƒbƒv‚·‚é
+            // mavenã‹ã‚‰èµ·å‹•ã™ã‚‹ã¨ãªãœã‹separateColumnsãŒå–å¾—ã§ããªã„ãŸã‚ã€ã‚¹ã‚­ãƒƒãƒ—ã™ã‚‹
             if (!("jp.co.dgic.testing.common.DJUnitClassLoader".equals(System
                     .getProperty("java.system.class.loader")))) {
                 assertEquals("separateColumns", 1, VMOUTUtil.getCallCount(
@@ -2130,61 +2130,61 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testNext11() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl<br>
-     * “Ç‚İæ‚Á‚½ƒf[ƒ^1s•ª‚ğƒJƒ“ƒ}i,j‚Å‹æØ‚Á‚ÄAƒJƒ‰ƒ€‚Æ‚µ‚Ä•Ô‚·<br>
-     * (ó‘Ô) this.clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂƒCƒ“ƒXƒ^ƒ“ƒX‰»‰Â”\Class‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E@FileFormat‚Ìİ’è‚ğ‚Â<br>
-     * - ‘S€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     * E@InputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * - ƒtƒB[ƒ‹ƒhFString column2<br>
-     * @InputFileColumnİ’è<br> > columnIndexF1<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFint column1<br>
-     * @InputFileColumnİ’è<br> > columnIndexF0<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl<br>
+     * èª­ã¿å–ã£ãŸãƒ‡ãƒ¼ã‚¿1è¡Œåˆ†ã‚’ã‚«ãƒ³ãƒï¼ˆ,ï¼‰ã§åŒºåˆ‡ã£ã¦ã€ã‚«ãƒ©ãƒ ã¨ã—ã¦è¿”ã™<br>
+     * (çŠ¶æ…‹) this.clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–å¯èƒ½Classã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»@FileFormatã®è¨­å®šã‚’æŒã¤<br>
+     * - å…¨é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * ãƒ»@InputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column2<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š1<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šint column1<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š0<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                        "AbstractFileLineIterator_next15.txt"<br>
-     *                        (ó‘Ô) this.currentLineCount:0<br>
-     *                        (ó‘Ô) this.columnParserMap:ˆÈ‰º‚Ì—v‘f‚ğ‚Â<br>
-     *                        Map<String, ColumnParser>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.lang.String"=ColumnParserƒXƒ^ƒu(Às‚·‚é‚Æ—áŠO‚ğ“Š‚°‚éB)<br>
-     *                        E"int"=IntColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        (ó‘Ô) this.readTrailer:false<br>
-     *                        (ó‘Ô) this.isCheckByte():true<br>
-     *                        (ó‘Ô) ColumnParser.parse():ParsrException—áŠO”­¶<br>
-     *                        (ó‘Ô) ‘ÎÛƒtƒ@ƒCƒ‹:ˆÈ‰º‚Ì“à—e‚ğ‚Â"AbstractFileLineIterator_next15.txt"ƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚éB<br>
+     *                        (çŠ¶æ…‹) this.currentLineCount:0<br>
+     *                        (çŠ¶æ…‹) this.columnParserMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤<br>
+     *                        Map<String, ColumnParser>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.lang.String"=ColumnParserã‚¹ã‚¿ãƒ–(å®Ÿè¡Œã™ã‚‹ã¨ä¾‹å¤–ã‚’æŠ•ã’ã‚‹ã€‚)<br>
+     *                        ãƒ»"int"=IntColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        (çŠ¶æ…‹) this.readTrailer:false<br>
+     *                        (çŠ¶æ…‹) this.isCheckByte():true<br>
+     *                        (çŠ¶æ…‹) ColumnParser.parse():ParsrExceptionä¾‹å¤–ç™ºç”Ÿ<br>
+     *                        (çŠ¶æ…‹) å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«:ä»¥ä¸‹ã®å†…å®¹ã‚’æŒã¤"AbstractFileLineIterator_next15.txt"ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚‹ã€‚<br>
      *                        -------------------<br>
      *                        1,ABCDE<br>
      *                        -------------------<br>
-     *                        ¦³íƒf[ƒ^<br>
+     *                        â€»æ­£å¸¸ãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     *                        Šú‘Ò’lF(ó‘Ô•Ï‰») FileDAOUtility.trim(String, String, char, TrimType):2‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») FileDAOUtility.padding(String, String, int, char, PaddingType):2‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») IntColumnParser#parse():1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») NullStringConverter#convert():2‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.hasNext():2‰ñŒÄ‚Î‚ê‚é<br>
-     *                        ¦readLine()‚Ì’†‚ÅhasNext‚ª‚P‰ñŒÄ‚Î‚ê‚Ä‚¢‚éB<br>
-     *                        (ó‘Ô•Ï‰») this.readLine():1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.separateColumns(String):1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.currentLineCount:0<br>
-     *                        (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileLineException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *                        EƒƒbƒZ[ƒWF"Failed in coluomn data parsing."<br>
-     *                        EŒ´ˆö—áŠOFParsrException<br>
-     *                        (ColumnParser.parse()‚Å”­¶‚µ‚½—áŠO)<br>
-     *                        Eƒtƒ@ƒCƒ‹–¼FƒtƒB[ƒ‹ƒhfileName‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒXB<br>
-     *                        Es”Ô†F1<br>
-     *                        EƒJƒ‰ƒ€–¼Fcolumn2<br>
-     *                        EƒJƒ‰ƒ€ƒCƒ“ƒfƒbƒNƒXF1<br>
+     *                        æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) FileDAOUtility.trim(String, String, char, TrimType):2å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) FileDAOUtility.padding(String, String, int, char, PaddingType):2å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) IntColumnParser#parse():1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) NullStringConverter#convert():2å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.hasNext():2å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        â€»readLine()ã®ä¸­ã§hasNextãŒï¼‘å›å‘¼ã°ã‚Œã¦ã„ã‚‹ã€‚<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.readLine():1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.separateColumns(String):1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.currentLineCount:0<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileLineExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *                        ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Failed in coluomn data parsing."<br>
+     *                        ãƒ»åŸå› ä¾‹å¤–ï¼šParsrException<br>
+     *                        (ColumnParser.parse()ã§ç™ºç”Ÿã—ãŸä¾‹å¤–)<br>
+     *                        ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰fileNameã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚<br>
+     *                        ãƒ»è¡Œç•ªå·ï¼š1<br>
+     *                        ãƒ»ã‚«ãƒ©ãƒ åï¼šcolumn2<br>
+     *                        ãƒ»ã‚«ãƒ©ãƒ ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ï¼š1<br>
      * <br>
-     *                        —áŠOB<br>
-     *                        ‘ÎÛƒtƒ@ƒCƒ‹‚©‚çæ“¾‚µ‚½ƒf[ƒ^‚ğƒtƒB[ƒ‹ƒh‚ÌŒ^‚É‚ ‚í‚¹‚Äƒp[ƒY‚·‚éˆ—‚ÅParsrException‚ª”­¶‚µ‚½ê‡AFileLineException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                        ä¾‹å¤–ã€‚<br>
+     *                        å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰å–å¾—ã—ãŸãƒ‡ãƒ¼ã‚¿ã‚’ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®å‹ã«ã‚ã‚ã›ã¦ãƒ‘ãƒ¼ã‚ºã™ã‚‹å‡¦ç†ã§ParsrExceptionãŒç™ºç”Ÿã—ãŸå ´åˆã€FileLineExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testNext11() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_next15.txt");
         String fileName = url.getPath();
@@ -2197,21 +2197,21 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub11.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Éİ’è‚µ‚Ä‚¢‚éB
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–æ™‚ã«è¨­å®šã—ã¦ã„ã‚‹ã€‚
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             fileLineIterator.next();
-            fail("FileLineException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½");
+            fail("FileLineExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸ");
         } catch (FileLineException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(2, VMOUTUtil
                     .getCallCount(FileDAOUtility.class, "trim"));
             assertEquals(2, VMOUTUtil.getCallCount(FileDAOUtility.class,
@@ -2225,7 +2225,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
             assertEquals("readLine", 1, VMOUTUtil.getCallCount(
                     AbstractFileLineIterator.class, "readLine"));
 
-            // maven‚©‚ç‹N“®‚·‚é‚Æ‚È‚º‚©separateColumns‚ªæ“¾‚Å‚«‚È‚¢‚½‚ßAƒXƒLƒbƒv‚·‚é
+            // mavenã‹ã‚‰èµ·å‹•ã™ã‚‹ã¨ãªãœã‹separateColumnsãŒå–å¾—ã§ããªã„ãŸã‚ã€ã‚¹ã‚­ãƒƒãƒ—ã™ã‚‹
             if (!("jp.co.dgic.testing.common.DJUnitClassLoader".equals(System
                     .getProperty("java.system.class.loader")))) {
                 assertEquals("separateColumns", 1, VMOUTUtil.getCallCount(
@@ -2248,88 +2248,88 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testNext12() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD,E,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD,E,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl<br>
-     * “Ç‚İæ‚Á‚½ƒf[ƒ^1s•ª‚ğƒJƒ“ƒ}i,j‚Å‹æØ‚Á‚ÄAƒJƒ‰ƒ€‚Æ‚µ‚Ä•Ô‚·<br>
-     * (ó‘Ô) this.clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂƒCƒ“ƒXƒ^ƒ“ƒX‰»‰Â”\Class‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E@FileFormat‚Ìİ’è‚ğ‚Â<br>
-     * - encloseCharF"\""<br>
-     * - ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     * E@InputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * - ƒtƒB[ƒ‹ƒhFString column2<br>
-     * @InputFileColumnİ’è<br> > columnIndexF1<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFint column1<br>
-     * @InputFileColumnİ’è<br> > columnIndexF0<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFDate column4<br>
-     * @InputFileColumnİ’è<br> > columnIndexF3<br>
-     *                        > columnFormatFyyyy/MM/dd<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFBigDecimal column3<br>
-     * @InputFileColumnİ’è<br> > columnIndexF2<br>
-     *                        > columnFormatF###,###<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl<br>
+     * èª­ã¿å–ã£ãŸãƒ‡ãƒ¼ã‚¿1è¡Œåˆ†ã‚’ã‚«ãƒ³ãƒï¼ˆ,ï¼‰ã§åŒºåˆ‡ã£ã¦ã€ã‚«ãƒ©ãƒ ã¨ã—ã¦è¿”ã™<br>
+     * (çŠ¶æ…‹) this.clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–å¯èƒ½Classã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»@FileFormatã®è¨­å®šã‚’æŒã¤<br>
+     * - encloseCharï¼š"\""<br>
+     * - ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * ãƒ»@InputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column2<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š1<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šint column1<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š0<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šDate column4<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š3<br>
+     *                        > columnFormatï¼šyyyy/MM/dd<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šBigDecimal column3<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š2<br>
+     *                        > columnFormatï¼š###,###<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                        "AbstractFileLineIterator_next19.txt"<br>
-     *                        (ó‘Ô) this.currentLineCount:0<br>
-     *                        (ó‘Ô) this.columnParserMap:ˆÈ‰º‚Ì—v‘f‚ğ‚Â<br>
-     *                        Map<String, ColumnParser>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.lang.String"=NullColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.util.Date"=DateColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.math.BigDecimal"=DecimalColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"int"=IntColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        (ó‘Ô) this.readTrailer:false<br>
-     *                        (ó‘Ô) this.isCheckByte():true<br>
-     *                        (ó‘Ô) ‘ÎÛƒtƒ@ƒCƒ‹:ˆÈ‰º‚Ì“à—e‚ğ‚Â"AbstractFileLineIterator_next19.txt"ƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚éB<br>
+     *                        (çŠ¶æ…‹) this.currentLineCount:0<br>
+     *                        (çŠ¶æ…‹) this.columnParserMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤<br>
+     *                        Map<String, ColumnParser>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.lang.String"=NullColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.util.Date"=DateColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.math.BigDecimal"=DecimalColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"int"=IntColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        (çŠ¶æ…‹) this.readTrailer:false<br>
+     *                        (çŠ¶æ…‹) this.isCheckByte():true<br>
+     *                        (çŠ¶æ…‹) å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«:ä»¥ä¸‹ã®å†…å®¹ã‚’æŒã¤"AbstractFileLineIterator_next19.txt"ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚‹ã€‚<br>
      *                        -------------------<br>
      *                        1,line1,111111,1980/01/21<br>
      *                        2,line2,222222,1980/02/21<br>
      *                        3,line3,333333,1980/03/21<br>
      *                        -------------------<br>
-     *                        ¦•¡”³íƒf[ƒ^<br>
+     *                        â€»è¤‡æ•°æ­£å¸¸ãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     *                        Šú‘Ò’lF(–ß‚è’l) this.clazz.getClass():this.clazz‚Åİ’è‚³‚ê‚Ä‚¢‚éƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E1‰ñ–Ú‚ÌÀsŒ‹‰Ê<br>
-     *                        - column1F1<br>
-     *                        - column2F"line1"<br>
-     *                        - column3F111111<br>
-     *                        - column4F1980/01/21<br>
+     *                        æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) this.clazz.getClass():this.clazzã§è¨­å®šã•ã‚Œã¦ã„ã‚‹ã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»1å›ç›®ã®å®Ÿè¡Œçµæœ<br>
+     *                        - column1ï¼š1<br>
+     *                        - column2ï¼š"line1"<br>
+     *                        - column3ï¼š111111<br>
+     *                        - column4ï¼š1980/01/21<br>
      * <br>
-     *                        E2‰ñ–Ú‚ÌÀsŒ‹‰Ê<br>
-     *                        - column1F2<br>
-     *                        - column2F"line2"<br>
-     *                        - column3F222222<br>
-     *                        - column4F1980/02/21<br>
+     *                        ãƒ»2å›ç›®ã®å®Ÿè¡Œçµæœ<br>
+     *                        - column1ï¼š2<br>
+     *                        - column2ï¼š"line2"<br>
+     *                        - column3ï¼š222222<br>
+     *                        - column4ï¼š1980/02/21<br>
      * <br>
-     *                        E3‰ñ–Ú‚ÌÀsŒ‹‰Ê<br>
-     *                        - column1F3<br>
-     *                        - column2F"line3"<br>
-     *                        - column3F333333<br>
-     *                        - column4F1980/03/21<br>
-     *                        (ó‘Ô•Ï‰») FileDAOUtility.trim(String, String, char, TrimType):1‰ñ‚ÌÀs–ˆ‚É4‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») FileDAOUtility.padding(String, String, int, char, PaddingType):1‰ñ‚ÌÀs–ˆ‚É4‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») NullColumnParser#parse():1‰ñ‚ÌÀs–ˆ‚É1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») DateColumnParser#parse():1‰ñ‚ÌÀs–ˆ‚É1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») DecimalColumnParser#parse():1‰ñ‚ÌÀs–ˆ‚É1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») IntColumnParser#parse():1‰ñ‚ÌÀs–ˆ‚É1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») NullStringConverter#convert():1‰ñ‚ÌÀs–ˆ‚É4‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.hasNext():1‰ñ‚ÌÀs–ˆ‚É2‰ñŒÄ‚Î‚ê‚é<br>
-     *                        ¦readLine()‚Ì’†‚ÅhasNext‚ª‚P‰ñŒÄ‚Î‚ê‚Ä‚¢‚éB<br>
-     *                        (ó‘Ô•Ï‰») this.readLine():1‰ñ‚ÌÀs–ˆ‚É1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.separateColumns(String):1‰ñ‚ÌÀs–ˆ‚É1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.currentLineCount:E1‰ñ–ÚÀsŒãF1<br>
-     *                        E2‰ñ–ÚÀsŒãF2<br>
-     *                        E3‰ñ–ÚÀsŒãF3<br>
+     *                        ãƒ»3å›ç›®ã®å®Ÿè¡Œçµæœ<br>
+     *                        - column1ï¼š3<br>
+     *                        - column2ï¼š"line3"<br>
+     *                        - column3ï¼š333333<br>
+     *                        - column4ï¼š1980/03/21<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) FileDAOUtility.trim(String, String, char, TrimType):1å›ã®å®Ÿè¡Œæ¯ã«4å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) FileDAOUtility.padding(String, String, int, char, PaddingType):1å›ã®å®Ÿè¡Œæ¯ã«4å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) NullColumnParser#parse():1å›ã®å®Ÿè¡Œæ¯ã«1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) DateColumnParser#parse():1å›ã®å®Ÿè¡Œæ¯ã«1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) DecimalColumnParser#parse():1å›ã®å®Ÿè¡Œæ¯ã«1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) IntColumnParser#parse():1å›ã®å®Ÿè¡Œæ¯ã«1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) NullStringConverter#convert():1å›ã®å®Ÿè¡Œæ¯ã«4å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.hasNext():1å›ã®å®Ÿè¡Œæ¯ã«2å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        â€»readLine()ã®ä¸­ã§hasNextãŒï¼‘å›å‘¼ã°ã‚Œã¦ã„ã‚‹ã€‚<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.readLine():1å›ã®å®Ÿè¡Œæ¯ã«1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.separateColumns(String):1å›ã®å®Ÿè¡Œæ¯ã«1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.currentLineCount:ãƒ»1å›ç›®å®Ÿè¡Œå¾Œï¼š1<br>
+     *                        ãƒ»2å›ç›®å®Ÿè¡Œå¾Œï¼š2<br>
+     *                        ãƒ»3å›ç›®å®Ÿè¡Œå¾Œï¼š3<br>
      * <br>
-     *                        ³íB<br>
-     *                        ‘ÎÛƒtƒ@ƒCƒ‹‚É‚ ‚é•¡”s‚Ìî•ñ‚ªŠe1s‚É‘Î‚µ‚Änext()ƒƒ\ƒbƒh‚ğŒÄ‚Ô“x‚É³‚µ‚­İ’è‚³‚ê‚½ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ªæ“¾‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                        æ­£å¸¸ã€‚<br>
+     *                        å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã«ã‚ã‚‹è¤‡æ•°è¡Œã®æƒ…å ±ãŒå„1è¡Œã«å¯¾ã—ã¦next()ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã¶åº¦ã«æ­£ã—ãè¨­å®šã•ã‚ŒãŸãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒå–å¾—ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testNext12() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_next19.txt");
         String fileName = url.getPath();
@@ -2343,16 +2343,16 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub09.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Éİ’è‚µ‚Ä‚¢‚éB
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–æ™‚ã«è¨­å®šã—ã¦ã„ã‚‹ã€‚
 
-        // ƒeƒXƒgÀ{i1‰ñ–Új
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ï¼ˆ1å›ç›®ï¼‰
         AbstractFileLineIterator_Stub09 result = fileLineIterator.next();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals("getColumn1", 1, result.getColumn1());
         assertEquals("line1", result.getColumn2());
         assertEquals(new BigDecimal(111111), result.getColumn3());
@@ -2361,7 +2361,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
         assertEquals(column4.getTime().toString(), result.getColumn4()
                 .toString());
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(4, VMOUTUtil.getCallCount(FileDAOUtility.class, "trim"));
         assertEquals(4, VMOUTUtil.getCallCount(FileDAOUtility.class, "padding"));
         assertEquals("NullColumnParser", 1, VMOUTUtil.getCallCount(
@@ -2379,7 +2379,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
         assertEquals("readLine", 1, VMOUTUtil.getCallCount(
                 AbstractFileLineIterator.class, "readLine"));
 
-        // maven‚©‚ç‹N“®‚·‚é‚Æ‚È‚º‚©separateColumns‚ªæ“¾‚Å‚«‚È‚¢‚½‚ßAƒXƒLƒbƒv‚·‚é
+        // mavenã‹ã‚‰èµ·å‹•ã™ã‚‹ã¨ãªãœã‹separateColumnsãŒå–å¾—ã§ããªã„ãŸã‚ã€ã‚¹ã‚­ãƒƒãƒ—ã™ã‚‹
         if (!("jp.co.dgic.testing.common.DJUnitClassLoader".equals(System
                 .getProperty("java.system.class.loader")))) {
             assertEquals("separateColumns", 1, VMOUTUtil.getCallCount(
@@ -2389,10 +2389,10 @@ public class AbstractFileLineIteratorTest extends TestCase {
         assertEquals("currentLineCount", 1, UTUtil.getPrivateField(
                 fileLineIterator, "currentLineCount"));
 
-        // ƒeƒXƒgÀ{i2‰ñ–Új
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ï¼ˆ2å›ç›®ï¼‰
         AbstractFileLineIterator_Stub09 result02 = fileLineIterator.next();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals("getColumn1", 2, result02.getColumn1());
         assertEquals("line2", result02.getColumn2());
         assertEquals(new BigDecimal(222222), result02.getColumn3());
@@ -2400,7 +2400,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
         assertEquals(column4.getTime().toString(), result02.getColumn4()
                 .toString());
 
-        // ó‘Ô•Ï‰»‚ÌŠm”FiŒÄ‚Ño‚µ‰ñ”‚Í1‰ñ–Ú{¡‰ñ‚É‚È‚éj
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèªï¼ˆå‘¼ã³å‡ºã—å›æ•°ã¯1å›ç›®ï¼‹ä»Šå›ã«ãªã‚‹ï¼‰
         assertEquals(8, VMOUTUtil.getCallCount(FileDAOUtility.class, "trim"));
         assertEquals(8, VMOUTUtil.getCallCount(FileDAOUtility.class, "padding"));
         assertEquals("NullColumnParser", 2, VMOUTUtil.getCallCount(
@@ -2418,7 +2418,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
         assertEquals("AbstractFileLineIterator", 2, VMOUTUtil.getCallCount(
                 AbstractFileLineIterator.class, "readLine"));
 
-        // maven‚©‚ç‹N“®‚·‚é‚Æ‚È‚º‚©separateColumns‚ªæ“¾‚Å‚«‚È‚¢‚½‚ßAƒXƒLƒbƒv‚·‚é
+        // mavenã‹ã‚‰èµ·å‹•ã™ã‚‹ã¨ãªãœã‹separateColumnsãŒå–å¾—ã§ããªã„ãŸã‚ã€ã‚¹ã‚­ãƒƒãƒ—ã™ã‚‹
         if (!("jp.co.dgic.testing.common.DJUnitClassLoader".equals(System
                 .getProperty("java.system.class.loader")))) {
             assertEquals("separateColumns", 2, VMOUTUtil.getCallCount(
@@ -2428,10 +2428,10 @@ public class AbstractFileLineIteratorTest extends TestCase {
         assertEquals("currentLineCount", 2, UTUtil.getPrivateField(
                 fileLineIterator, "currentLineCount"));
 
-        // ƒeƒXƒgÀ{i3‰ñ–Új
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ï¼ˆ3å›ç›®ï¼‰
         AbstractFileLineIterator_Stub09 result03 = fileLineIterator.next();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals(3, result03.getColumn1());
         assertEquals("line3", result03.getColumn2());
         assertEquals(new BigDecimal(333333), result03.getColumn3());
@@ -2439,7 +2439,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
         assertEquals(column4.getTime().toString(), result03.getColumn4()
                 .toString());
 
-        // ó‘Ô•Ï‰»‚ÌŠm”FiŒÄ‚Ño‚µ‰ñ”‚Í1‰ñ–Ú{2‰ñ–Ú{¡‰ñ‚É‚È‚éj
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèªï¼ˆå‘¼ã³å‡ºã—å›æ•°ã¯1å›ç›®ï¼‹2å›ç›®ï¼‹ä»Šå›ã«ãªã‚‹ï¼‰
         assertEquals(12, VMOUTUtil.getCallCount(FileDAOUtility.class, "trim"));
         assertEquals(12, VMOUTUtil
                 .getCallCount(FileDAOUtility.class, "padding"));
@@ -2455,7 +2455,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
         assertEquals(3, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
                 "readLine"));
 
-        // maven‚©‚ç‹N“®‚·‚é‚Æ‚È‚º‚©separateColumns‚ªæ“¾‚Å‚«‚È‚¢‚½‚ßAƒXƒLƒbƒv‚·‚é
+        // mavenã‹ã‚‰èµ·å‹•ã™ã‚‹ã¨ãªãœã‹separateColumnsãŒå–å¾—ã§ããªã„ãŸã‚ã€ã‚¹ã‚­ãƒƒãƒ—ã™ã‚‹
         if (!("jp.co.dgic.testing.common.DJUnitClassLoader".equals(System
                 .getProperty("java.system.class.loader")))) {
             assertEquals("separateColumns", 3, VMOUTUtil.getCallCount(
@@ -2469,60 +2469,60 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testNext13() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl<br>
-     * “Ç‚İæ‚Á‚½ƒf[ƒ^1s•ª‚ğƒJƒ“ƒ}i,j‚Å‹æØ‚Á‚ÄAƒJƒ‰ƒ€‚Æ‚µ‚Ä•Ô‚·<br>
-     * (ó‘Ô) this.clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂƒCƒ“ƒXƒ^ƒ“ƒX‰»‰Â”\Class‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E@FileFormat‚Ìİ’è‚ğ‚Â<br>
-     * - ‘S€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     * E@InputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * - ƒtƒB[ƒ‹ƒhFString column1<br>
-     * @InputFileColumnİ’è<br> > columnIndexF0<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl<br>
+     * èª­ã¿å–ã£ãŸãƒ‡ãƒ¼ã‚¿1è¡Œåˆ†ã‚’ã‚«ãƒ³ãƒï¼ˆ,ï¼‰ã§åŒºåˆ‡ã£ã¦ã€ã‚«ãƒ©ãƒ ã¨ã—ã¦è¿”ã™<br>
+     * (çŠ¶æ…‹) this.clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–å¯èƒ½Classã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»@FileFormatã®è¨­å®šã‚’æŒã¤<br>
+     * - å…¨é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * ãƒ»@InputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column1<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š0<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                        "File_Empty.txt"<br>
-     *                        (ó‘Ô) this.currentLineCount:0<br>
-     *                        (ó‘Ô) this.columnParserMap:ˆÈ‰º‚Ì—v‘f‚ğ‚Â<br>
-     *                        Map<String, ColumnParser>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.lang.String"=NullColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.util.Date"=DateColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.math.BigDecimal"=DecimalColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"int"=IntColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        (ó‘Ô) this.readTrailer:false<br>
-     *                        (ó‘Ô) this.isCheckByte():true<br>
-     *                        (ó‘Ô) ‘ÎÛƒtƒ@ƒCƒ‹:ˆÈ‰º‚Ì“à—e‚ğ‚Â"File_Empty.txt"ƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚éB<br>
+     *                        (çŠ¶æ…‹) this.currentLineCount:0<br>
+     *                        (çŠ¶æ…‹) this.columnParserMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤<br>
+     *                        Map<String, ColumnParser>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.lang.String"=NullColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.util.Date"=DateColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.math.BigDecimal"=DecimalColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"int"=IntColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        (çŠ¶æ…‹) this.readTrailer:false<br>
+     *                        (çŠ¶æ…‹) this.isCheckByte():true<br>
+     *                        (çŠ¶æ…‹) å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«:ä»¥ä¸‹ã®å†…å®¹ã‚’æŒã¤"File_Empty.txt"ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚‹ã€‚<br>
      *                        -------------------<br>
-     *                        ‹ó<br>
+     *                        ç©º<br>
      *                        -------------------<br>
-     *                        ¦hasNext()‚ªfalse‚É‚È‚éƒf[ƒ^<br>
+     *                        â€»hasNext()ãŒfalseã«ãªã‚‹ãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     *                        Šú‘Ò’lF(ó‘Ô•Ï‰») FileDAOUtility.trim(String, String, char, TrimType):ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») FileDAOUtility.padding(String, String, int, char, PaddingType):ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») NullColumnParser#parse():ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») DateColumnParser#parse():ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») DecimalColumnParser#parse():ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») IntColumnParser#parse():ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») NullStringConverter#convert():ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») this.hasNext():1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.readLine():ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») this.separateColumns(String):ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») this.currentLineCount:0<br>
-     *                        (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileLineException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *                        EƒƒbƒZ[ƒWF"The data which can be acquired doesn't exist."<br>
-     *                        EŒ´ˆö—áŠOFNoSuchElementException<br>
-     *                        Eƒtƒ@ƒCƒ‹–¼FƒtƒB[ƒ‹ƒhfileName‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒXB<br>
-     *                        Es”Ô†F0<br>
-     *                        EƒJƒ‰ƒ€–¼Fnull<br>
-     *                        EƒJƒ‰ƒ€ƒCƒ“ƒfƒbƒNƒXF-1<br>
+     *                        æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) FileDAOUtility.trim(String, String, char, TrimType):å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) FileDAOUtility.padding(String, String, int, char, PaddingType):å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) NullColumnParser#parse():å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) DateColumnParser#parse():å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) DecimalColumnParser#parse():å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) IntColumnParser#parse():å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) NullStringConverter#convert():å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.hasNext():1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.readLine():å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.separateColumns(String):å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.currentLineCount:0<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileLineExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *                        ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"The data which can be acquired doesn't exist."<br>
+     *                        ãƒ»åŸå› ä¾‹å¤–ï¼šNoSuchElementException<br>
+     *                        ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰fileNameã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚<br>
+     *                        ãƒ»è¡Œç•ªå·ï¼š0<br>
+     *                        ãƒ»ã‚«ãƒ©ãƒ åï¼šnull<br>
+     *                        ãƒ»ã‚«ãƒ©ãƒ ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ï¼š-1<br>
      * <br>
-     *                        —áŠOB<br>
-     *                        ‘ÎÛƒtƒ@ƒCƒ‹‚Ì“à—e‚ª‹ó‚Ìê‡iƒtƒ@ƒCƒ‹‚É“Ç‚ß‚éƒf[ƒ^‚ª‚È‚¢ê‡j‚ÉAFileLineException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                        ä¾‹å¤–ã€‚<br>
+     *                        å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã®å†…å®¹ãŒç©ºã®å ´åˆï¼ˆãƒ•ã‚¡ã‚¤ãƒ«ã«èª­ã‚ã‚‹ãƒ‡ãƒ¼ã‚¿ãŒãªã„å ´åˆï¼‰ã«ã€FileLineExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testNext13() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_next20.txt");
         String fileName = url.getPath();
@@ -2536,21 +2536,21 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub12.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Éİ’è‚µ‚Ä‚¢‚éB
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–æ™‚ã«è¨­å®šã—ã¦ã„ã‚‹ã€‚
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             fileLineIterator.next();
-            fail("FileLineException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("FileLineExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (FileLineException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(0, VMOUTUtil
                     .getCallCount(FileDAOUtility.class, "trim"));
             assertEquals(0, VMOUTUtil.getCallCount(FileDAOUtility.class,
@@ -2588,72 +2588,72 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testNext14() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl<br>
-     * “Ç‚İæ‚Á‚½ƒf[ƒ^1s•ª‚ğƒJƒ“ƒ}i,j‚Å‹æØ‚Á‚ÄAƒJƒ‰ƒ€‚Æ‚µ‚Ä•Ô‚·<br>
-     * (ó‘Ô) this.clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂƒCƒ“ƒXƒ^ƒ“ƒX‰»‰Â”\Class‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E@FileFormat‚Ìİ’è‚ğ‚Â<br>
-     * - encloseCharF"\""<br>
-     * - ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     * E@InputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * - ƒtƒB[ƒ‹ƒhFString column2<br>
-     * @InputFileColumnİ’è<br> > columnIndexF1<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFint column1<br>
-     * @InputFileColumnİ’è<br> > columnIndexF0<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFDate column4<br>
-     * @InputFileColumnİ’è<br> > columnIndexF3<br>
-     *                        > columnFormatFyyyy/MM/dd<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFBigDecimal column3<br>
-     * @InputFileColumnİ’è<br> > columnIndexF2<br>
-     *                        > columnFormatF###,###<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl<br>
+     * èª­ã¿å–ã£ãŸãƒ‡ãƒ¼ã‚¿1è¡Œåˆ†ã‚’ã‚«ãƒ³ãƒï¼ˆ,ï¼‰ã§åŒºåˆ‡ã£ã¦ã€ã‚«ãƒ©ãƒ ã¨ã—ã¦è¿”ã™<br>
+     * (çŠ¶æ…‹) this.clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–å¯èƒ½Classã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»@FileFormatã®è¨­å®šã‚’æŒã¤<br>
+     * - encloseCharï¼š"\""<br>
+     * - ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * ãƒ»@InputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column2<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š1<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šint column1<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š0<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šDate column4<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š3<br>
+     *                        > columnFormatï¼šyyyy/MM/dd<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šBigDecimal column3<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š2<br>
+     *                        > columnFormatï¼š###,###<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                        "AbstractFileLineIterator_next09.txt"<br>
-     *                        (ó‘Ô) this.currentLineCount:0<br>
-     *                        (ó‘Ô) this.columnParserMap:ˆÈ‰º‚Ì—v‘f‚ğ‚Â<br>
-     *                        Map<String, ColumnParser>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.lang.String"=NullColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.util.Date"=DateColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.math.BigDecimal"=DecimalColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"int"=IntColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        (ó‘Ô) this.readTrailer:true<br>
-     *                        (ó‘Ô) this.isCheckByte():true<br>
-     *                        (ó‘Ô) ‘ÎÛƒtƒ@ƒCƒ‹:ˆÈ‰º‚Ì“à—e‚ğ‚Â"AbstractFileLineIterator_next09.txt"ƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚éB<br>
+     *                        (çŠ¶æ…‹) this.currentLineCount:0<br>
+     *                        (çŠ¶æ…‹) this.columnParserMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤<br>
+     *                        Map<String, ColumnParser>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.lang.String"=NullColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.util.Date"=DateColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.math.BigDecimal"=DecimalColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"int"=IntColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        (çŠ¶æ…‹) this.readTrailer:true<br>
+     *                        (çŠ¶æ…‹) this.isCheckByte():true<br>
+     *                        (çŠ¶æ…‹) å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«:ä»¥ä¸‹ã®å†…å®¹ã‚’æŒã¤"AbstractFileLineIterator_next09.txt"ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚‹ã€‚<br>
      *                        -------------------<br>
      *                        1,line1,111111,1980/01/21<br>
      *                        -------------------<br>
-     *                        ¦³íƒf[ƒ^<br>
+     *                        â€»æ­£å¸¸ãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     *                        Šú‘Ò’lF(ó‘Ô•Ï‰») FileDAOUtility.trim(String, String, char, TrimType):ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») FileDAOUtility.padding(String, String, int, char, PaddingType):ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») NullColumnParser#parse():ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») DateColumnParser#parse():ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») DecimalColumnParser#parse():ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») IntColumnParser#parse():ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») NullStringConverter#convert():ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») this.hasNext():ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») this.readLine():ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») this.separateColumns(String):ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») this.currentLineCount:0<br>
-     *                        (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileLineException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *                        EƒƒbƒZ[ƒWF"Data part should be called before trailer part."<br>
-     *                        EŒ´ˆö—áŠOFIllegalStateException<br>
-     *                        Eƒtƒ@ƒCƒ‹–¼FƒtƒB[ƒ‹ƒhfileName‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒXB<br>
-     *                        Es”Ô†F0<br>
-     *                        EƒJƒ‰ƒ€–¼Fnull<br>
-     *                        EƒJƒ‰ƒ€ƒCƒ“ƒfƒbƒNƒXF-1<br>
+     *                        æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) FileDAOUtility.trim(String, String, char, TrimType):å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) FileDAOUtility.padding(String, String, int, char, PaddingType):å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) NullColumnParser#parse():å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) DateColumnParser#parse():å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) DecimalColumnParser#parse():å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) IntColumnParser#parse():å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) NullStringConverter#convert():å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.hasNext():å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.readLine():å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.separateColumns(String):å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.currentLineCount:0<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileLineExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *                        ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Data part should be called before trailer part."<br>
+     *                        ãƒ»åŸå› ä¾‹å¤–ï¼šIllegalStateException<br>
+     *                        ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰fileNameã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚<br>
+     *                        ãƒ»è¡Œç•ªå·ï¼š0<br>
+     *                        ãƒ»ã‚«ãƒ©ãƒ åï¼šnull<br>
+     *                        ãƒ»ã‚«ãƒ©ãƒ ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ï¼š-1<br>
      * <br>
-     *                        —áŠOB<br>
-     *                        ƒgƒŒƒCƒ‰•”‚Ìƒf[ƒ^æ“¾‚ªs‚í‚ê‚½Œã‚Énext()‚ªŒÄ‚Î‚ê‚½ê‡‚ÉAFileLineException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                        ä¾‹å¤–ã€‚<br>
+     *                        ãƒˆãƒ¬ã‚¤ãƒ©éƒ¨ã®ãƒ‡ãƒ¼ã‚¿å–å¾—ãŒè¡Œã‚ã‚ŒãŸå¾Œã«next()ãŒå‘¼ã°ã‚ŒãŸå ´åˆã«ã€FileLineExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testNext14() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_next09.txt");
         String fileName = url.getPath();
@@ -2667,22 +2667,22 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub09.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(fileLineIterator, "readTrailer", true);
-        // ‚»‚Ì‘¼‚ÍAƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Éİ’è‚µ‚Ä‚¢‚éB
+        // ãã®ä»–ã¯ã€ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–æ™‚ã«è¨­å®šã—ã¦ã„ã‚‹ã€‚
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             fileLineIterator.next();
-            fail("FileLineException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("FileLineExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (FileLineException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(0, VMOUTUtil
                     .getCallCount(FileDAOUtility.class, "trim"));
             assertEquals(0, VMOUTUtil.getCallCount(FileDAOUtility.class,
@@ -2720,73 +2720,73 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testNext15() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl<br>
-     * “Ç‚İæ‚Á‚½ƒf[ƒ^1s•ª‚ğƒJƒ“ƒ}i,j‚Å‹æØ‚Á‚ÄAƒJƒ‰ƒ€‚Æ‚µ‚Ä•Ô‚·<br>
-     * (ó‘Ô) this.clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂƒCƒ“ƒXƒ^ƒ“ƒX‰»‰Â”\Class‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E@FileFormat‚Ìİ’è‚ğ‚Â<br>
-     * - encloseCharF"\""<br>
-     * - ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     * E@InputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * - ƒtƒB[ƒ‹ƒhFString column2<br>
-     * @InputFileColumnİ’è<br> > columnIndexF1<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFint column1<br>
-     * @InputFileColumnİ’è<br> > columnIndexF0<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFDate column4<br>
-     * @InputFileColumnİ’è<br> > columnIndexF3<br>
-     *                        > columnFormatFyyyy/MM/dd<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFBigDecimal column3<br>
-     * @InputFileColumnİ’è<br> > columnIndexF2<br>
-     *                        > columnFormatF###,###<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl<br>
+     * èª­ã¿å–ã£ãŸãƒ‡ãƒ¼ã‚¿1è¡Œåˆ†ã‚’ã‚«ãƒ³ãƒï¼ˆ,ï¼‰ã§åŒºåˆ‡ã£ã¦ã€ã‚«ãƒ©ãƒ ã¨ã—ã¦è¿”ã™<br>
+     * (çŠ¶æ…‹) this.clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–å¯èƒ½Classã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»@FileFormatã®è¨­å®šã‚’æŒã¤<br>
+     * - encloseCharï¼š"\""<br>
+     * - ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * ãƒ»@InputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column2<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š1<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šint column1<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š0<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šDate column4<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š3<br>
+     *                        > columnFormatï¼šyyyy/MM/dd<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šBigDecimal column3<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š2<br>
+     *                        > columnFormatï¼š###,###<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                        "AbstractFileLineIterator_next23.txt"<br>
-     *                        (ó‘Ô) this.currentLineCount:0<br>
-     *                        (ó‘Ô) this.columnParserMap:ˆÈ‰º‚Ì—v‘f‚ğ‚Â<br>
-     *                        Map<String, ColumnParser>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.lang.String"=NullColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.util.Date"=DateColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.math.BigDecimal"=DecimalColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"int"=IntColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        (ó‘Ô) this.readTrailer:false<br>
-     *                        (ó‘Ô) this.isCheckByte():true<br>
-     *                        (ó‘Ô) ‘ÎÛƒtƒ@ƒCƒ‹:ˆÈ‰º‚Ì“à—e‚ğ‚Â"AbstractFileLineIterator_next23.txt"ƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚éB<br>
+     *                        (çŠ¶æ…‹) this.currentLineCount:0<br>
+     *                        (çŠ¶æ…‹) this.columnParserMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤<br>
+     *                        Map<String, ColumnParser>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.lang.String"=NullColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.util.Date"=DateColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.math.BigDecimal"=DecimalColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"int"=IntColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        (çŠ¶æ…‹) this.readTrailer:false<br>
+     *                        (çŠ¶æ…‹) this.isCheckByte():true<br>
+     *                        (çŠ¶æ…‹) å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«:ä»¥ä¸‹ã®å†…å®¹ã‚’æŒã¤"AbstractFileLineIterator_next23.txt"ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚‹ã€‚<br>
      *                        -------------------<br>
      *                        1,line1,111111<br>
      *                        -------------------<br>
-     *                        ¦ƒJƒ‰ƒ€”‚ª‚R‚ÅƒtƒB[ƒ‹ƒh‚Ì”‚Æ‡‚Á‚Ä‚È‚¢B<br>
+     *                        â€»ã‚«ãƒ©ãƒ æ•°ãŒï¼“ã§ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®æ•°ã¨åˆã£ã¦ãªã„ã€‚<br>
      * <br>
-     *                        Šú‘Ò’lF(ó‘Ô•Ï‰») FileDAOUtility.trim(String, String, char, TrimType):ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») FileDAOUtility.padding(String, String, int, char, PaddingType):ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») NullColumnParser#parse():ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») DateColumnParser#parse():ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») DecimalColumnParser#parse():ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») IntColumnParser#parse():ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») NullStringConverter#convert():ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») this.hasNext():2‰ñŒÄ‚Î‚ê‚é<br>
-     *                        ¦readLine()‚Ì’†‚ÅhasNext‚ª‚P‰ñŒÄ‚Î‚ê‚Ä‚¢‚éB<br>
-     *                        (ó‘Ô•Ï‰») this.readLine():1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.separateColumns(String):1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.currentLineCount:0<br>
-     *                        (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileLineException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *                        EƒƒbƒZ[ƒWF"Column Count is different from FileLineObject's column counts"<br>
-     *                        EŒ´ˆö—áŠOFIllegalStateException<br>
-     *                        Eƒtƒ@ƒCƒ‹–¼FƒtƒB[ƒ‹ƒhfileName‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒXB<br>
-     *                        Es”Ô†F1<br>
-     *                        EƒJƒ‰ƒ€–¼Fnull<br>
-     *                        EƒJƒ‰ƒ€ƒCƒ“ƒfƒbƒNƒXF-1<br>
+     *                        æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) FileDAOUtility.trim(String, String, char, TrimType):å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) FileDAOUtility.padding(String, String, int, char, PaddingType):å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) NullColumnParser#parse():å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) DateColumnParser#parse():å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) DecimalColumnParser#parse():å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) IntColumnParser#parse():å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) NullStringConverter#convert():å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.hasNext():2å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        â€»readLine()ã®ä¸­ã§hasNextãŒï¼‘å›å‘¼ã°ã‚Œã¦ã„ã‚‹ã€‚<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.readLine():1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.separateColumns(String):1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.currentLineCount:0<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileLineExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *                        ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Column Count is different from FileLineObject's column counts"<br>
+     *                        ãƒ»åŸå› ä¾‹å¤–ï¼šIllegalStateException<br>
+     *                        ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰fileNameã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚<br>
+     *                        ãƒ»è¡Œç•ªå·ï¼š1<br>
+     *                        ãƒ»ã‚«ãƒ©ãƒ åï¼šnull<br>
+     *                        ãƒ»ã‚«ãƒ©ãƒ ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ï¼š-1<br>
      * <br>
-     *                        —áŠOB<br>
-     *                        ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚Ìƒ}ƒbƒsƒ“ƒO‘ÎÛƒtƒB[ƒ‹ƒh‚Ì”‚Æ‡‚í‚È‚¢ƒf[ƒ^‚ğ‘ÎÛƒtƒ@ƒCƒ‹‚©‚ç“Ç‚Şê‡‚ÉAFileLineException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                        ä¾‹å¤–ã€‚<br>
+     *                        ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ãƒãƒƒãƒ”ãƒ³ã‚°å¯¾è±¡ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®æ•°ã¨åˆã‚ãªã„ãƒ‡ãƒ¼ã‚¿ã‚’å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰èª­ã‚€å ´åˆã«ã€FileLineExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testNext15() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_next23.txt");
         String fileName = url.getPath();
@@ -2800,21 +2800,21 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub09.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Éİ’è‚µ‚Ä‚¢‚éB
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–æ™‚ã«è¨­å®šã—ã¦ã„ã‚‹ã€‚
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             fileLineIterator.next();
-            fail("FileLineException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("FileLineExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (FileLineException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(0, VMOUTUtil
                     .getCallCount(FileDAOUtility.class, "trim"));
             assertEquals(0, VMOUTUtil.getCallCount(FileDAOUtility.class,
@@ -2834,7 +2834,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
             assertEquals("readLine", 1, VMOUTUtil.getCallCount(
                     AbstractFileLineIterator.class, "readLine"));
 
-            // maven‚©‚ç‹N“®‚·‚é‚Æ‚È‚º‚©separateColumns‚ªæ“¾‚Å‚«‚È‚¢‚½‚ßAƒXƒLƒbƒv‚·‚é
+            // mavenã‹ã‚‰èµ·å‹•ã™ã‚‹ã¨ãªãœã‹separateColumnsãŒå–å¾—ã§ããªã„ãŸã‚ã€ã‚¹ã‚­ãƒƒãƒ—ã™ã‚‹
             if (!("jp.co.dgic.testing.common.DJUnitClassLoader".equals(System
                     .getProperty("java.system.class.loader")))) {
                 assertEquals("separateColumns", 1, VMOUTUtil.getCallCount(
@@ -2858,68 +2858,68 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testNext16() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl<br>
-     * “Ç‚İæ‚Á‚½ƒf[ƒ^1s•ª‚ğƒJƒ“ƒ}i,j‚Å‹æØ‚Á‚ÄAƒJƒ‰ƒ€‚Æ‚µ‚Ä•Ô‚·<br>
-     * (ó‘Ô) this.clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂƒCƒ“ƒXƒ^ƒ“ƒX‰»‰Â”\Class‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E@FileFormat‚Ìİ’è‚ğ‚Â<br>
-     * - encloseCharF"\""<br>
-     * - ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     * E@InputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * - ƒtƒB[ƒ‹ƒhFString column2<br>
-     * @InputFileColumnİ’è<br> > columnIndexF1<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFint column1<br>
-     * @InputFileColumnİ’è<br> > columnIndexF0<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFDate column4<br>
-     * @InputFileColumnİ’è<br> > columnIndexF3<br>
-     *                        > columnFormatFyyyy/MM/dd<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFBigDecimal column3<br>
-     * @InputFileColumnİ’è<br> > columnIndexF2<br>
-     *                        > columnFormatF###,###<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl<br>
+     * èª­ã¿å–ã£ãŸãƒ‡ãƒ¼ã‚¿1è¡Œåˆ†ã‚’ã‚«ãƒ³ãƒï¼ˆ,ï¼‰ã§åŒºåˆ‡ã£ã¦ã€ã‚«ãƒ©ãƒ ã¨ã—ã¦è¿”ã™<br>
+     * (çŠ¶æ…‹) this.clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–å¯èƒ½Classã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»@FileFormatã®è¨­å®šã‚’æŒã¤<br>
+     * - encloseCharï¼š"\""<br>
+     * - ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * ãƒ»@InputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column2<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š1<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šint column1<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š0<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šDate column4<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š3<br>
+     *                        > columnFormatï¼šyyyy/MM/dd<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šBigDecimal column3<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š2<br>
+     *                        > columnFormatï¼š###,###<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                        "AbstractFileLineIterator_next09.txt"<br>
-     *                        (ó‘Ô) this.currentLineCount:0<br>
-     *                        (ó‘Ô) this.columnParserMap:ˆÈ‰º‚Ì—v‘f‚ğ‚Â<br>
-     *                        Map<String, ColumnParser>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.lang.String"=NullColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.util.Date"=DateColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.math.BigDecimal"=DecimalColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"int"=IntColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        (ó‘Ô) this.readTrailer:false<br>
-     *                        (ó‘Ô) this.readLine():FileException—áŠO‚ª”­¶<br>
-     *                        (ó‘Ô) this.isCheckByte():true<br>
-     *                        (ó‘Ô) ‘ÎÛƒtƒ@ƒCƒ‹:ˆÈ‰º‚Ì“à—e‚ğ‚Â"AbstractFileLineIterator_next09.txt"ƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚éB<br>
+     *                        (çŠ¶æ…‹) this.currentLineCount:0<br>
+     *                        (çŠ¶æ…‹) this.columnParserMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤<br>
+     *                        Map<String, ColumnParser>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.lang.String"=NullColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.util.Date"=DateColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.math.BigDecimal"=DecimalColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"int"=IntColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        (çŠ¶æ…‹) this.readTrailer:false<br>
+     *                        (çŠ¶æ…‹) this.readLine():FileExceptionä¾‹å¤–ãŒç™ºç”Ÿ<br>
+     *                        (çŠ¶æ…‹) this.isCheckByte():true<br>
+     *                        (çŠ¶æ…‹) å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«:ä»¥ä¸‹ã®å†…å®¹ã‚’æŒã¤"AbstractFileLineIterator_next09.txt"ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚‹ã€‚<br>
      *                        -------------------<br>
      *                        1,line1,111111,1980/01/21<br>
      *                        -------------------<br>
-     *                        ¦³íƒf[ƒ^<br>
+     *                        â€»æ­£å¸¸ãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     *                        Šú‘Ò’lF(ó‘Ô•Ï‰») FileDAOUtility.trim(String, String, char, TrimType):ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») FileDAOUtility.padding(String, String, int, char, PaddingType):ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») NullColumnParser#parse():ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») DateColumnParser#parse():ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») DecimalColumnParser#parse():ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») IntColumnParser#parse():ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») NullStringConverter#convert():ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») this.hasNext():‚P‰ñŒÄ‚Î‚ê‚é<br>
-     *                        ¦readLine()‚Ì’†‚ÅƒGƒ‰[‚ª‹N‚«‚é‚½‚ßA“à•”‚ÅhasNext‚ÍŒÄ‚Î‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») this.readLine():1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.separateColumns(String):ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») this.currentLineCount:0<br>
-     *                        (ó‘Ô•Ï‰») —áŠO:this.readLine()‚Å”­¶‚µ‚½FileException‚ª‚»‚Ì‚Ü‚ÜƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     *                        æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) FileDAOUtility.trim(String, String, char, TrimType):å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) FileDAOUtility.padding(String, String, int, char, PaddingType):å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) NullColumnParser#parse():å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) DateColumnParser#parse():å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) DecimalColumnParser#parse():å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) IntColumnParser#parse():å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) NullStringConverter#convert():å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.hasNext():ï¼‘å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        â€»readLine()ã®ä¸­ã§ã‚¨ãƒ©ãƒ¼ãŒèµ·ãã‚‹ãŸã‚ã€å†…éƒ¨ã§hasNextã¯å‘¼ã°ãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.readLine():1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.separateColumns(String):å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.currentLineCount:0<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:this.readLine()ã§ç™ºç”Ÿã—ãŸFileExceptionãŒãã®ã¾ã¾ã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     *                        —áŠOB<br>
-     *                        ‘ÎÛƒtƒ@ƒCƒ‹‚Ì“Ç‚İ‚É¸”s‚µ‚½ê‡‚ÉAŒ´ˆö—áŠO‚ª‚»‚Ì‚Ü‚ÜƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                        ä¾‹å¤–ã€‚<br>
+     *                        å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã®èª­ã¿ã«å¤±æ•—ã—ãŸå ´åˆã«ã€åŸå› ä¾‹å¤–ãŒãã®ã¾ã¾ã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testNext16() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_next09.txt");
         String fileName = url.getPath();
@@ -2933,24 +2933,24 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub09.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        FileException exception = new FileException("readLine‚Å‚ÌƒGƒ‰[‚Å‚·B");
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        FileException exception = new FileException("readLineã§ã®ã‚¨ãƒ©ãƒ¼ã§ã™ã€‚");
         VMOUTUtil.setExceptionAtAllTimes(AbstractFileLineIterator.class,
                 "readLine", exception);
-        // ‚»‚Ì‘¼‚ÍAƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Éİ’è‚µ‚Ä‚¢‚éB
+        // ãã®ä»–ã¯ã€ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–æ™‚ã«è¨­å®šã—ã¦ã„ã‚‹ã€‚
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             fileLineIterator.next();
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (FileException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(0, VMOUTUtil
                     .getCallCount(FileDAOUtility.class, "trim"));
             assertEquals(0, VMOUTUtil.getCallCount(FileDAOUtility.class,
@@ -2981,95 +2981,95 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testNext17() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD,E,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD,E,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl<br>
-     * “Ç‚İæ‚Á‚½ƒf[ƒ^1s•ª‚ğƒJƒ“ƒ}i,j‚Å‹æØ‚Á‚ÄAƒJƒ‰ƒ€‚Æ‚µ‚Ä•Ô‚·<br>
-     * (ó‘Ô) this.clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂƒCƒ“ƒXƒ^ƒ“ƒX‰»‰Â”\Class‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E@FileFormat‚Ìİ’è‚ğ‚Â<br>
-     * - encloseCharF"\""<br>
-     * - ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     * E@InputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * - ƒtƒB[ƒ‹ƒhFString column2<br>
-     * @InputFileColumnİ’è<br> > columnIndexF1<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFint column1<br>
-     * @InputFileColumnİ’è<br> > columnIndexF0<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFDate column4<br>
-     * @InputFileColumnİ’è<br> > columnIndexF3<br>
-     *                        > columnFormatFyyyy/MM/dd<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFBigDecimal column3<br>
-     * @InputFileColumnİ’è<br> > columnIndexF2<br>
-     *                        > columnFormatF###,###<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        E@InputFileColumnİ’è‚È‚µ‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     *                        - ƒtƒB[ƒ‹ƒhFString noMappingColumn1<br>
-     *                        - ƒtƒB[ƒ‹ƒhFString noMappingColumn2<br>
-     *                        - ƒtƒB[ƒ‹ƒhFString noMappingColumn3<br>
-     *                        - ƒtƒB[ƒ‹ƒhFString noMappingColumn4<br>
-     *                        ¦ƒNƒ‰ƒX’è‹`A@—L‚è–³‚µ‚ÌƒtƒB[ƒ‹ƒh‚Ì‡”Ô‚ğ¬‚º‚Ä’è‹`‚·‚é‚±‚ÆB<br>
-     *                        (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl<br>
+     * èª­ã¿å–ã£ãŸãƒ‡ãƒ¼ã‚¿1è¡Œåˆ†ã‚’ã‚«ãƒ³ãƒï¼ˆ,ï¼‰ã§åŒºåˆ‡ã£ã¦ã€ã‚«ãƒ©ãƒ ã¨ã—ã¦è¿”ã™<br>
+     * (çŠ¶æ…‹) this.clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–å¯èƒ½Classã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»@FileFormatã®è¨­å®šã‚’æŒã¤<br>
+     * - encloseCharï¼š"\""<br>
+     * - ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * ãƒ»@InputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column2<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š1<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šint column1<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š0<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šDate column4<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š3<br>
+     *                        > columnFormatï¼šyyyy/MM/dd<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šBigDecimal column3<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š2<br>
+     *                        > columnFormatï¼š###,###<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        ãƒ»@InputFileColumnè¨­å®šãªã—ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString noMappingColumn1<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString noMappingColumn2<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString noMappingColumn3<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString noMappingColumn4<br>
+     *                        â€»ã‚¯ãƒ©ã‚¹å®šç¾©æ™‚ã€@æœ‰ã‚Šç„¡ã—ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®é †ç•ªã‚’æ··ãœã¦å®šç¾©ã™ã‚‹ã“ã¨ã€‚<br>
+     *                        (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                        "AbstractFileLineIterator_next19.txt"<br>
-     *                        (ó‘Ô) this.currentLineCount:0<br>
-     *                        (ó‘Ô) this.columnParserMap:ˆÈ‰º‚Ì—v‘f‚ğ‚Â<br>
-     *                        Map<String, ColumnParser>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.lang.String"=NullColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.util.Date"=DateColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.math.BigDecimal"=DecimalColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"int"=IntColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        (ó‘Ô) this.readTrailer:false<br>
-     *                        (ó‘Ô) this.isCheckByte():true<br>
-     *                        (ó‘Ô) ‘ÎÛƒtƒ@ƒCƒ‹:ˆÈ‰º‚Ì“à—e‚ğ‚Â"AbstractFileLineIterator_next19.txt"ƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚éB<br>
+     *                        (çŠ¶æ…‹) this.currentLineCount:0<br>
+     *                        (çŠ¶æ…‹) this.columnParserMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤<br>
+     *                        Map<String, ColumnParser>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.lang.String"=NullColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.util.Date"=DateColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.math.BigDecimal"=DecimalColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"int"=IntColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        (çŠ¶æ…‹) this.readTrailer:false<br>
+     *                        (çŠ¶æ…‹) this.isCheckByte():true<br>
+     *                        (çŠ¶æ…‹) å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«:ä»¥ä¸‹ã®å†…å®¹ã‚’æŒã¤"AbstractFileLineIterator_next19.txt"ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚‹ã€‚<br>
      *                        -------------------<br>
      *                        1,line1,111111,1980/01/21<br>
      *                        2,line2,222222,1980/02/21<br>
      *                        3,line3,333333,1980/03/21<br>
      *                        -------------------<br>
-     *                        ¦•¡”³íƒf[ƒ^<br>
+     *                        â€»è¤‡æ•°æ­£å¸¸ãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     *                        Šú‘Ò’lF(–ß‚è’l) this.clazz.getClass():this.clazz‚Åİ’è‚³‚ê‚Ä‚¢‚éƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E1‰ñ–Ú‚ÌÀsŒ‹‰Ê<br>
-     *                        - column1F1<br>
-     *                        - column2F"line1"<br>
-     *                        - column3F111111<br>
-     *                        - column4F1980/01/21<br>
+     *                        æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) this.clazz.getClass():this.clazzã§è¨­å®šã•ã‚Œã¦ã„ã‚‹ã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»1å›ç›®ã®å®Ÿè¡Œçµæœ<br>
+     *                        - column1ï¼š1<br>
+     *                        - column2ï¼š"line1"<br>
+     *                        - column3ï¼š111111<br>
+     *                        - column4ï¼š1980/01/21<br>
      * <br>
-     *                        E2‰ñ–Ú‚ÌÀsŒ‹‰Ê<br>
-     *                        - column1F2<br>
-     *                        - column2F"line2"<br>
-     *                        - column3F222222<br>
-     *                        - column4F1980/02/21<br>
+     *                        ãƒ»2å›ç›®ã®å®Ÿè¡Œçµæœ<br>
+     *                        - column1ï¼š2<br>
+     *                        - column2ï¼š"line2"<br>
+     *                        - column3ï¼š222222<br>
+     *                        - column4ï¼š1980/02/21<br>
      * <br>
-     *                        E3‰ñ–Ú‚ÌÀsŒ‹‰Ê<br>
-     *                        - column1F3<br>
-     *                        - column2F"line3"<br>
-     *                        - column3F333333<br>
-     *                        - column4F1980/03/21<br>
-     *                        (ó‘Ô•Ï‰») FileDAOUtility.trim(String, String, char, TrimType):1‰ñ‚ÌÀs–ˆ‚É4‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») FileDAOUtility.padding(String, String, int, char, PaddingType):1‰ñ‚ÌÀs–ˆ‚É4‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») NullColumnParser#parse():1‰ñ‚ÌÀs–ˆ‚É4‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») DateColumnParser#parse():1‰ñ‚ÌÀs–ˆ‚É4‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») DecimalColumnParser#parse():1‰ñ‚ÌÀs–ˆ‚É4‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») IntColumnParser#parse():1‰ñ‚ÌÀs–ˆ‚É4‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») NullStringConverter#convert():1‰ñ‚ÌÀs–ˆ‚É4‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.hasNext():1‰ñ‚ÌÀs–ˆ‚É2‰ñŒÄ‚Î‚ê‚é<br>
-     *                        ¦readLine()‚Ì’†‚ÅhasNext‚ª‚P‰ñŒÄ‚Î‚ê‚Ä‚¢‚éB<br>
-     *                        (ó‘Ô•Ï‰») this.readLine():1‰ñ‚ÌÀs–ˆ‚É1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.separateColumns(String):1‰ñ‚ÌÀs–ˆ‚É1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.currentLineCount:E1‰ñ–ÚÀsŒãF1<br>
-     *                        E2‰ñ–ÚÀsŒãF2<br>
-     *                        E3‰ñ–ÚÀsŒãF3<br>
+     *                        ãƒ»3å›ç›®ã®å®Ÿè¡Œçµæœ<br>
+     *                        - column1ï¼š3<br>
+     *                        - column2ï¼š"line3"<br>
+     *                        - column3ï¼š333333<br>
+     *                        - column4ï¼š1980/03/21<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) FileDAOUtility.trim(String, String, char, TrimType):1å›ã®å®Ÿè¡Œæ¯ã«4å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) FileDAOUtility.padding(String, String, int, char, PaddingType):1å›ã®å®Ÿè¡Œæ¯ã«4å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) NullColumnParser#parse():1å›ã®å®Ÿè¡Œæ¯ã«4å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) DateColumnParser#parse():1å›ã®å®Ÿè¡Œæ¯ã«4å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) DecimalColumnParser#parse():1å›ã®å®Ÿè¡Œæ¯ã«4å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) IntColumnParser#parse():1å›ã®å®Ÿè¡Œæ¯ã«4å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) NullStringConverter#convert():1å›ã®å®Ÿè¡Œæ¯ã«4å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.hasNext():1å›ã®å®Ÿè¡Œæ¯ã«2å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        â€»readLine()ã®ä¸­ã§hasNextãŒï¼‘å›å‘¼ã°ã‚Œã¦ã„ã‚‹ã€‚<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.readLine():1å›ã®å®Ÿè¡Œæ¯ã«1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.separateColumns(String):1å›ã®å®Ÿè¡Œæ¯ã«1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.currentLineCount:ãƒ»1å›ç›®å®Ÿè¡Œå¾Œï¼š1<br>
+     *                        ãƒ»2å›ç›®å®Ÿè¡Œå¾Œï¼š2<br>
+     *                        ãƒ»3å›ç›®å®Ÿè¡Œå¾Œï¼š3<br>
      * <br>
-     *                        ³íB<br>
-     *                        ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚É@InputFileColumn‚Ìİ’è‚ª‚È‚¢ƒtƒB[ƒ‹ƒh‚ª—L‚Á‚Ä‚à–â‘è‚È‚­ˆÈ‰º‚Ìˆ—‚ª‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *                        ‘ÎÛƒtƒ@ƒCƒ‹‚É‚ ‚é•¡”s‚Ìî•ñ‚ªŠe1s‚É‘Î‚µ‚Änext()ƒƒ\ƒbƒh‚ğŒÄ‚Ô“x‚É³‚µ‚­İ’è‚³‚ê‚½ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ªæ“¾‚³‚ê‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                        æ­£å¸¸ã€‚<br>
+     *                        ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«@InputFileColumnã®è¨­å®šãŒãªã„ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ãŒæœ‰ã£ã¦ã‚‚å•é¡Œãªãä»¥ä¸‹ã®å‡¦ç†ãŒã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *                        å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã«ã‚ã‚‹è¤‡æ•°è¡Œã®æƒ…å ±ãŒå„1è¡Œã«å¯¾ã—ã¦next()ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã¶åº¦ã«æ­£ã—ãè¨­å®šã•ã‚ŒãŸãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒå–å¾—ã•ã‚Œã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testNext17() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_next19.txt");
         String fileName = url.getPath();
@@ -3083,16 +3083,16 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub13.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Éİ’è‚µ‚Ä‚¢‚éB
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–æ™‚ã«è¨­å®šã—ã¦ã„ã‚‹ã€‚
 
-        // ƒeƒXƒgÀ{i1‰ñ–Új
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ï¼ˆ1å›ç›®ï¼‰
         AbstractFileLineIterator_Stub13 result = fileLineIterator.next();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals("getColumn1", 1, result.getColumn1());
         assertEquals("line1", result.getColumn2());
         assertEquals(new BigDecimal(111111), result.getColumn3());
@@ -3101,7 +3101,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
         assertEquals(column4.getTime().toString(), result.getColumn4()
                 .toString());
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(4, VMOUTUtil.getCallCount(FileDAOUtility.class, "trim"));
         assertEquals(4, VMOUTUtil.getCallCount(FileDAOUtility.class, "padding"));
         assertEquals("NullColumnParser", 1, VMOUTUtil.getCallCount(
@@ -3119,7 +3119,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
         assertEquals("AbstractFileLineIterator", 1, VMOUTUtil.getCallCount(
                 AbstractFileLineIterator.class, "readLine"));
 
-        // maven‚©‚ç‹N“®‚·‚é‚Æ‚È‚º‚©separateColumns‚ªæ“¾‚Å‚«‚È‚¢‚½‚ßAƒXƒLƒbƒv‚·‚é
+        // mavenã‹ã‚‰èµ·å‹•ã™ã‚‹ã¨ãªãœã‹separateColumnsãŒå–å¾—ã§ããªã„ãŸã‚ã€ã‚¹ã‚­ãƒƒãƒ—ã™ã‚‹
         if (!("jp.co.dgic.testing.common.DJUnitClassLoader".equals(System
                 .getProperty("java.system.class.loader")))) {
             assertEquals("separateColumns", 1, VMOUTUtil.getCallCount(
@@ -3129,10 +3129,10 @@ public class AbstractFileLineIteratorTest extends TestCase {
         assertEquals("currentLineCount", 1, UTUtil.getPrivateField(
                 fileLineIterator, "currentLineCount"));
 
-        // ƒeƒXƒgÀ{i2‰ñ–Új
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ï¼ˆ2å›ç›®ï¼‰
         AbstractFileLineIterator_Stub13 result02 = fileLineIterator.next();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals(2, result02.getColumn1());
         assertEquals("line2", result02.getColumn2());
         assertEquals(new BigDecimal(222222), result02.getColumn3());
@@ -3140,7 +3140,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
         assertEquals(column4.getTime().toString(), result02.getColumn4()
                 .toString());
 
-        // ó‘Ô•Ï‰»‚ÌŠm”FiŒÄ‚Ño‚µ‰ñ”‚Í1‰ñ–Ú{¡‰ñ‚É‚È‚éj
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèªï¼ˆå‘¼ã³å‡ºã—å›æ•°ã¯1å›ç›®ï¼‹ä»Šå›ã«ãªã‚‹ï¼‰
         assertEquals(8, VMOUTUtil.getCallCount(FileDAOUtility.class, "trim"));
         assertEquals(8, VMOUTUtil.getCallCount(FileDAOUtility.class, "padding"));
         assertEquals(2, VMOUTUtil.getCallCount(NullColumnParser.class, "parse"));
@@ -3155,7 +3155,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
         assertEquals(2, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
                 "readLine"));
 
-        // maven‚©‚ç‹N“®‚·‚é‚Æ‚È‚º‚©separateColumns‚ªæ“¾‚Å‚«‚È‚¢‚½‚ßAƒXƒLƒbƒv‚·‚é
+        // mavenã‹ã‚‰èµ·å‹•ã™ã‚‹ã¨ãªãœã‹separateColumnsãŒå–å¾—ã§ããªã„ãŸã‚ã€ã‚¹ã‚­ãƒƒãƒ—ã™ã‚‹
         if (!("jp.co.dgic.testing.common.DJUnitClassLoader".equals(System
                 .getProperty("java.system.class.loader")))) {
             assertEquals("separateColumns", 2, VMOUTUtil.getCallCount(
@@ -3165,10 +3165,10 @@ public class AbstractFileLineIteratorTest extends TestCase {
         assertEquals(2, UTUtil.getPrivateField(fileLineIterator,
                 "currentLineCount"));
 
-        // ƒeƒXƒgÀ{i3‰ñ–Új
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ï¼ˆ3å›ç›®ï¼‰
         AbstractFileLineIterator_Stub13 result03 = fileLineIterator.next();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals(3, result03.getColumn1());
         assertEquals("line3", result03.getColumn2());
         assertEquals(new BigDecimal(333333), result03.getColumn3());
@@ -3176,7 +3176,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
         assertEquals(column4.getTime().toString(), result03.getColumn4()
                 .toString());
 
-        // ó‘Ô•Ï‰»‚ÌŠm”FiŒÄ‚Ño‚µ‰ñ”‚Í1‰ñ–Ú{2‰ñ–Ú{¡‰ñ‚É‚È‚éj
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèªï¼ˆå‘¼ã³å‡ºã—å›æ•°ã¯1å›ç›®ï¼‹2å›ç›®ï¼‹ä»Šå›ã«ãªã‚‹ï¼‰
         assertEquals(12, VMOUTUtil.getCallCount(FileDAOUtility.class, "trim"));
         assertEquals(12, VMOUTUtil
                 .getCallCount(FileDAOUtility.class, "padding"));
@@ -3192,7 +3192,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
         assertEquals(3, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
                 "readLine"));
 
-        // maven‚©‚ç‹N“®‚·‚é‚Æ‚È‚º‚©separateColumns‚ªæ“¾‚Å‚«‚È‚¢‚½‚ßAƒXƒLƒbƒv‚·‚é
+        // mavenã‹ã‚‰èµ·å‹•ã™ã‚‹ã¨ãªãœã‹separateColumnsãŒå–å¾—ã§ããªã„ãŸã‚ã€ã‚¹ã‚­ãƒƒãƒ—ã™ã‚‹
         if (!("jp.co.dgic.testing.common.DJUnitClassLoader".equals(System
                 .getProperty("java.system.class.loader")))) {
             assertEquals("separateColumns", 3, VMOUTUtil.getCallCount(
@@ -3206,68 +3206,68 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testNext18() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl<br>
-     * “Ç‚İæ‚Á‚½ƒf[ƒ^1s•ª‚ğƒJƒ“ƒ}i,j‚Å‹æØ‚Á‚ÄAƒJƒ‰ƒ€‚Æ‚µ‚Ä•Ô‚·<br>
-     * (ó‘Ô) this.clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂƒCƒ“ƒXƒ^ƒ“ƒX‰»‰Â”\Class‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E@FileFormat‚Ìİ’è‚ğ‚Â<br>
-     * - encloseCharF"\""<br>
-     * - ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     * E@InputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * - ƒtƒB[ƒ‹ƒhFString column2<br>
-     * @InputFileColumnİ’è<br> > columnIndexF1<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFint column1<br>
-     * @InputFileColumnİ’è<br> > columnIndexF0<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFDate column4<br>
-     * @InputFileColumnİ’è<br> > columnIndexF3<br>
-     *                        > columnFormatFyyyy/MM/dd<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFBigDecimal column3<br>
-     * @InputFileColumnİ’è<br> > columnIndexF2<br>
-     *                        > columnFormatF###,###<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl<br>
+     * èª­ã¿å–ã£ãŸãƒ‡ãƒ¼ã‚¿1è¡Œåˆ†ã‚’ã‚«ãƒ³ãƒï¼ˆ,ï¼‰ã§åŒºåˆ‡ã£ã¦ã€ã‚«ãƒ©ãƒ ã¨ã—ã¦è¿”ã™<br>
+     * (çŠ¶æ…‹) this.clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–å¯èƒ½Classã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»@FileFormatã®è¨­å®šã‚’æŒã¤<br>
+     * - encloseCharï¼š"\""<br>
+     * - ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * ãƒ»@InputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column2<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š1<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šint column1<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š0<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šDate column4<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š3<br>
+     *                        > columnFormatï¼šyyyy/MM/dd<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šBigDecimal column3<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š2<br>
+     *                        > columnFormatï¼š###,###<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                        "AbstractFileLineIterator_next09.txt"<br>
-     *                        (ó‘Ô) this.currentLineCount:0<br>
-     *                        (ó‘Ô) this.columnParserMap:ˆÈ‰º‚Ì—v‘f‚ğ‚Â<br>
-     *                        Map<String, ColumnParser>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.lang.String"=NullColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.util.Date"=DateColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.math.BigDecimal"=DecimalColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"int"=IntColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        (ó‘Ô) this.readTrailer:false<br>
-     *                        (ó‘Ô) this.isCheckByte():true<br>
-     *                        (ó‘Ô) FileDAOUtility.trim(String, String, char, TrimType):FileException—áŠO‚ª”­¶<br>
-     *                        (ó‘Ô) ‘ÎÛƒtƒ@ƒCƒ‹:ˆÈ‰º‚Ì“à—e‚ğ‚Â"AbstractFileLineIterator_next09.txt"ƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚éB<br>
+     *                        (çŠ¶æ…‹) this.currentLineCount:0<br>
+     *                        (çŠ¶æ…‹) this.columnParserMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤<br>
+     *                        Map<String, ColumnParser>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.lang.String"=NullColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.util.Date"=DateColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.math.BigDecimal"=DecimalColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"int"=IntColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        (çŠ¶æ…‹) this.readTrailer:false<br>
+     *                        (çŠ¶æ…‹) this.isCheckByte():true<br>
+     *                        (çŠ¶æ…‹) FileDAOUtility.trim(String, String, char, TrimType):FileExceptionä¾‹å¤–ãŒç™ºç”Ÿ<br>
+     *                        (çŠ¶æ…‹) å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«:ä»¥ä¸‹ã®å†…å®¹ã‚’æŒã¤"AbstractFileLineIterator_next09.txt"ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚‹ã€‚<br>
      *                        -------------------<br>
      *                        1,line1,111111,1980/01/21<br>
      *                        -------------------<br>
-     *                        ¦³íƒf[ƒ^<br>
+     *                        â€»æ­£å¸¸ãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     *                        Šú‘Ò’lF(ó‘Ô•Ï‰») FileDAOUtility.trim(String, String, char, TrimType):1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») FileDAOUtility.padding(String, String, int, char, PaddingType):ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») NullColumnParser#parse():ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») DateColumnParser#parse():ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») DecimalColumnParser#parse():ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») IntColumnParser#parse():ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») NullStringConverter#convert():ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») this.hasNext():2‰ñŒÄ‚Î‚ê‚é<br>
-     *                        ¦readLine()‚Ì’†‚ÅhasNext‚ª‚P‰ñŒÄ‚Î‚ê‚Ä‚¢‚éB<br>
-     *                        (ó‘Ô•Ï‰») this.readLine():1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.separateColumns(String):1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.currentLineCount:0<br>
-     *                        (ó‘Ô•Ï‰») —áŠO:FileDAOUtility.trim(String, String, char, TrimType)‚Å”­¶‚µ‚½FileException‚ª‚»‚Ì‚Ü‚ÜƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     *                        æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) FileDAOUtility.trim(String, String, char, TrimType):1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) FileDAOUtility.padding(String, String, int, char, PaddingType):å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) NullColumnParser#parse():å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) DateColumnParser#parse():å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) DecimalColumnParser#parse():å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) IntColumnParser#parse():å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) NullStringConverter#convert():å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.hasNext():2å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        â€»readLine()ã®ä¸­ã§hasNextãŒï¼‘å›å‘¼ã°ã‚Œã¦ã„ã‚‹ã€‚<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.readLine():1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.separateColumns(String):1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.currentLineCount:0<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:FileDAOUtility.trim(String, String, char, TrimType)ã§ç™ºç”Ÿã—ãŸFileExceptionãŒãã®ã¾ã¾ã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     *                        —áŠOB<br>
-     *                        ‘ÎÛƒtƒ@ƒCƒ‹Ëƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚Ìƒ}ƒbƒsƒ“ƒOˆ—’†‚ÌƒgƒŠƒ€ˆ—‚Å—áŠO‚ª”­¶‚µ‚½ê‡‚ÉAŒ´ˆö—áŠO‚ª‚»‚Ì‚Ü‚ÜƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                        ä¾‹å¤–ã€‚<br>
+     *                        å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«â‡’ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ãƒãƒƒãƒ”ãƒ³ã‚°å‡¦ç†ä¸­ã®ãƒˆãƒªãƒ å‡¦ç†ã§ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã«ã€åŸå› ä¾‹å¤–ãŒãã®ã¾ã¾ã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testNext18() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_next09.txt");
         String fileName = url.getPath();
@@ -3281,24 +3281,24 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub09.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        FileException exception = new FileException("trim‚Å‚ÌƒGƒ‰[‚Å‚·B");
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        FileException exception = new FileException("trimã§ã®ã‚¨ãƒ©ãƒ¼ã§ã™ã€‚");
         VMOUTUtil.setExceptionAtAllTimes(FileDAOUtility.class, "trim",
                 exception);
-        // ‚»‚Ì‘¼‚ÍAƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Éİ’è‚µ‚Ä‚¢‚éB
+        // ãã®ä»–ã¯ã€ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–æ™‚ã«è¨­å®šã—ã¦ã„ã‚‹ã€‚
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             fileLineIterator.next();
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (FileException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals("FileDAOUtility", 1, VMOUTUtil.getCallCount(
                     FileDAOUtility.class, "trim"));
             assertEquals(0, VMOUTUtil.getCallCount(FileDAOUtility.class,
@@ -3318,7 +3318,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
             assertEquals("readLine", 1, VMOUTUtil.getCallCount(
                     AbstractFileLineIterator.class, "readLine"));
 
-            // maven‚©‚ç‹N“®‚·‚é‚Æ‚È‚º‚©separateColumns‚ªæ“¾‚Å‚«‚È‚¢‚½‚ßAƒXƒLƒbƒv‚·‚é
+            // mavenã‹ã‚‰èµ·å‹•ã™ã‚‹ã¨ãªãœã‹separateColumnsãŒå–å¾—ã§ããªã„ãŸã‚ã€ã‚¹ã‚­ãƒƒãƒ—ã™ã‚‹
             if (!("jp.co.dgic.testing.common.DJUnitClassLoader".equals(System
                     .getProperty("java.system.class.loader")))) {
                 assertEquals("separateColumns", 1, VMOUTUtil.getCallCount(
@@ -3335,69 +3335,69 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testNext19() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl<br>
-     * “Ç‚İæ‚Á‚½ƒf[ƒ^1s•ª‚ğƒJƒ“ƒ}i,j‚Å‹æØ‚Á‚ÄAƒJƒ‰ƒ€‚Æ‚µ‚Ä•Ô‚·<br>
-     * (ó‘Ô) this.clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂƒCƒ“ƒXƒ^ƒ“ƒX‰»‰Â”\Class‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E@FileFormat‚Ìİ’è‚ğ‚Â<br>
-     * - encloseCharF"\""<br>
-     * - ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     * E@InputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * - ƒtƒB[ƒ‹ƒhFString column2<br>
-     * @InputFileColumnİ’è<br> > columnIndexF1<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFint column1<br>
-     * @InputFileColumnİ’è<br> > columnIndexF0<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFDate column4<br>
-     * @InputFileColumnİ’è<br> > columnIndexF3<br>
-     *                        > columnFormatFyyyy/MM/dd<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFBigDecimal column3<br>
-     * @InputFileColumnİ’è<br> > columnIndexF2<br>
-     *                        > columnFormatF###,###<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl<br>
+     * èª­ã¿å–ã£ãŸãƒ‡ãƒ¼ã‚¿1è¡Œåˆ†ã‚’ã‚«ãƒ³ãƒï¼ˆ,ï¼‰ã§åŒºåˆ‡ã£ã¦ã€ã‚«ãƒ©ãƒ ã¨ã—ã¦è¿”ã™<br>
+     * (çŠ¶æ…‹) this.clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–å¯èƒ½Classã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»@FileFormatã®è¨­å®šã‚’æŒã¤<br>
+     * - encloseCharï¼š"\""<br>
+     * - ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * ãƒ»@InputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column2<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š1<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šint column1<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š0<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šDate column4<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š3<br>
+     *                        > columnFormatï¼šyyyy/MM/dd<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šBigDecimal column3<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š2<br>
+     *                        > columnFormatï¼š###,###<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                        "AbstractFileLineIterator_next09.txt"<br>
-     *                        (ó‘Ô) this.currentLineCount:0<br>
-     *                        (ó‘Ô) this.columnParserMap:ˆÈ‰º‚Ì—v‘f‚ğ‚Â<br>
-     *                        Map<String, ColumnParser>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.lang.String"=NullColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.util.Date"=DateColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.math.BigDecimal"=DecimalColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"int"=IntColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        (ó‘Ô) this.readTrailer:false<br>
-     *                        (ó‘Ô) this.isCheckByte():true<br>
-     *                        (ó‘Ô) FileDAOUtility.padding(String, String, int, char, PaddingType):FileException—áŠO‚ª”­¶<br>
-     *                        (ó‘Ô) ‘ÎÛƒtƒ@ƒCƒ‹:ˆÈ‰º‚Ì“à—e‚ğ‚Â"AbstractFileLineIterator_next09.txt"ƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚éB<br>
+     *                        (çŠ¶æ…‹) this.currentLineCount:0<br>
+     *                        (çŠ¶æ…‹) this.columnParserMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤<br>
+     *                        Map<String, ColumnParser>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.lang.String"=NullColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.util.Date"=DateColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.math.BigDecimal"=DecimalColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"int"=IntColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        (çŠ¶æ…‹) this.readTrailer:false<br>
+     *                        (çŠ¶æ…‹) this.isCheckByte():true<br>
+     *                        (çŠ¶æ…‹) FileDAOUtility.padding(String, String, int, char, PaddingType):FileExceptionä¾‹å¤–ãŒç™ºç”Ÿ<br>
+     *                        (çŠ¶æ…‹) å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«:ä»¥ä¸‹ã®å†…å®¹ã‚’æŒã¤"AbstractFileLineIterator_next09.txt"ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚‹ã€‚<br>
      *                        -------------------<br>
      *                        1,line1,111111,1980/01/21<br>
      *                        -------------------<br>
-     *                        ¦³íƒf[ƒ^<br>
+     *                        â€»æ­£å¸¸ãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     *                        Šú‘Ò’lF(ó‘Ô•Ï‰») FileDAOUtility.trim(String, String, char, TrimType):1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») FileDAOUtility.padding(String, String, int, char, PaddingType):1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») NullColumnParser#parse():ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») DateColumnParser#parse():ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») DecimalColumnParser#parse():ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») IntColumnParser#parse():ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») NullStringConverter#convert():ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») this.hasNext():2‰ñŒÄ‚Î‚ê‚é<br>
-     *                        ¦readLine()‚Ì’†‚ÅhasNext‚ª‚P‰ñŒÄ‚Î‚ê‚Ä‚¢‚éB<br>
-     *                        (ó‘Ô•Ï‰») this.readLine():1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.separateColumns(String):1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.currentLineCount:0<br>
-     *                        (ó‘Ô•Ï‰») —áŠO:FileDAOUtility.padding(String, String, int, char,
-     *                        PaddingType)‚Å”­¶‚µ‚½FileException‚ª‚»‚Ì‚Ü‚ÜƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     *                        æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) FileDAOUtility.trim(String, String, char, TrimType):1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) FileDAOUtility.padding(String, String, int, char, PaddingType):1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) NullColumnParser#parse():å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) DateColumnParser#parse():å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) DecimalColumnParser#parse():å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) IntColumnParser#parse():å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) NullStringConverter#convert():å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.hasNext():2å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        â€»readLine()ã®ä¸­ã§hasNextãŒï¼‘å›å‘¼ã°ã‚Œã¦ã„ã‚‹ã€‚<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.readLine():1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.separateColumns(String):1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.currentLineCount:0<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:FileDAOUtility.padding(String, String, int, char,
+     *                        PaddingType)ã§ç™ºç”Ÿã—ãŸFileExceptionãŒãã®ã¾ã¾ã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     *                        —áŠOB<br>
-     *                        ‘ÎÛƒtƒ@ƒCƒ‹Ëƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚Ìƒ}ƒbƒsƒ“ƒOˆ—’†‚ÌƒpƒfƒBƒ“ƒOˆ—‚Å—áŠO‚ª”­¶‚µ‚½ê‡‚ÉAŒ´ˆö—áŠO‚ª‚»‚Ì‚Ü‚ÜƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                        ä¾‹å¤–ã€‚<br>
+     *                        å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«â‡’ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ãƒãƒƒãƒ”ãƒ³ã‚°å‡¦ç†ä¸­ã®ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°å‡¦ç†ã§ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã«ã€åŸå› ä¾‹å¤–ãŒãã®ã¾ã¾ã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testNext19() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_next09.txt");
         String fileName = url.getPath();
@@ -3411,24 +3411,24 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub09.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        FileException exception = new FileException("padding‚Å‚ÌƒGƒ‰[‚Å‚·B");
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        FileException exception = new FileException("paddingã§ã®ã‚¨ãƒ©ãƒ¼ã§ã™ã€‚");
         VMOUTUtil.setExceptionAtAllTimes(FileDAOUtility.class, "padding",
                 exception);
-        // ‚»‚Ì‘¼‚ÍAƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Éİ’è‚µ‚Ä‚¢‚éB
+        // ãã®ä»–ã¯ã€ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–æ™‚ã«è¨­å®šã—ã¦ã„ã‚‹ã€‚
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             fileLineIterator.next();
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (FileException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals("FileDAOUtility:trim", 1, VMOUTUtil.getCallCount(
                     FileDAOUtility.class, "trim"));
             assertEquals("FileDAOUtility:padding", 1, VMOUTUtil.getCallCount(
@@ -3448,7 +3448,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
             assertEquals("readLine", 1, VMOUTUtil.getCallCount(
                     AbstractFileLineIterator.class, "readLine"));
 
-            // maven‚©‚ç‹N“®‚·‚é‚Æ‚È‚º‚©separateColumns‚ªæ“¾‚Å‚«‚È‚¢‚½‚ßAƒXƒLƒbƒv‚·‚é
+            // mavenã‹ã‚‰èµ·å‹•ã™ã‚‹ã¨ãªãœã‹separateColumnsãŒå–å¾—ã§ããªã„ãŸã‚ã€ã‚¹ã‚­ãƒƒãƒ—ã™ã‚‹
             if (!("jp.co.dgic.testing.common.DJUnitClassLoader".equals(System
                     .getProperty("java.system.class.loader")))) {
                 assertEquals("separateColumns", 1, VMOUTUtil.getCallCount(
@@ -3465,67 +3465,67 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testNext20() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl<br>
-     * “Ç‚İæ‚Á‚½ƒf[ƒ^1s•ª‚ğƒJƒ“ƒ}i,j‚Å‹æØ‚Á‚ÄAƒJƒ‰ƒ€‚Æ‚µ‚Ä•Ô‚·<br>
-     * (ó‘Ô) this.clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂƒCƒ“ƒXƒ^ƒ“ƒX‰»‰Â”\Class‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E@FileFormat‚Ìİ’è‚ğ‚Â<br>
-     * - encloseCharF"\""<br>
-     * - ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     * E@InputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * - ƒtƒB[ƒ‹ƒhFString column2<br>
-     * @InputFileColumnİ’è<br> > columnIndexF1<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFint column1<br>
-     * @InputFileColumnİ’è<br> > columnIndexF0<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFDate column4<br>
-     * @InputFileColumnİ’è<br> > columnIndexF3<br>
-     *                        > columnFormatFyyyy/MM/dd<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFBigDecimal column3<br>
-     * @InputFileColumnİ’è<br> > columnIndexF2<br>
-     *                        > columnFormatF###,###<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl<br>
+     * èª­ã¿å–ã£ãŸãƒ‡ãƒ¼ã‚¿1è¡Œåˆ†ã‚’ã‚«ãƒ³ãƒï¼ˆ,ï¼‰ã§åŒºåˆ‡ã£ã¦ã€ã‚«ãƒ©ãƒ ã¨ã—ã¦è¿”ã™<br>
+     * (çŠ¶æ…‹) this.clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–å¯èƒ½Classã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»@FileFormatã®è¨­å®šã‚’æŒã¤<br>
+     * - encloseCharï¼š"\""<br>
+     * - ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * ãƒ»@InputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column2<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š1<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šint column1<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š0<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šDate column4<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š3<br>
+     *                        > columnFormatï¼šyyyy/MM/dd<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šBigDecimal column3<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š2<br>
+     *                        > columnFormatï¼š###,###<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                        "AbstractFileLineIterator_next09.txt"<br>
-     *                        (ó‘Ô) this.currentLineCount:0<br>
-     *                        (ó‘Ô) this.columnParserMap:ˆÈ‰º‚Ì—v‘f‚ğ‚Â<br>
-     *                        Map<String, ColumnParser>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.lang.String"=NullColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.util.Date"=DateColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.math.BigDecimal"=DecimalColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"int"=IntColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        (ó‘Ô) this.readTrailer:false<br>
-     *                        (ó‘Ô) this.hasNext():FileException—áŠO‚ª”­¶<br>
-     *                        (ó‘Ô) this.isCheckByte():true<br>
-     *                        (ó‘Ô) ‘ÎÛƒtƒ@ƒCƒ‹:ˆÈ‰º‚Ì“à—e‚ğ‚Â"AbstractFileLineIterator_next09.txt"ƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚éB<br>
+     *                        (çŠ¶æ…‹) this.currentLineCount:0<br>
+     *                        (çŠ¶æ…‹) this.columnParserMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤<br>
+     *                        Map<String, ColumnParser>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.lang.String"=NullColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.util.Date"=DateColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.math.BigDecimal"=DecimalColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"int"=IntColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        (çŠ¶æ…‹) this.readTrailer:false<br>
+     *                        (çŠ¶æ…‹) this.hasNext():FileExceptionä¾‹å¤–ãŒç™ºç”Ÿ<br>
+     *                        (çŠ¶æ…‹) this.isCheckByte():true<br>
+     *                        (çŠ¶æ…‹) å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«:ä»¥ä¸‹ã®å†…å®¹ã‚’æŒã¤"AbstractFileLineIterator_next09.txt"ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚‹ã€‚<br>
      *                        -------------------<br>
      *                        1,line1,111111,1980/01/21<br>
      *                        -------------------<br>
-     *                        ¦³íƒf[ƒ^<br>
+     *                        â€»æ­£å¸¸ãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     *                        Šú‘Ò’lF(ó‘Ô•Ï‰») FileDAOUtility.trim(String, String, char, TrimType):ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») FileDAOUtility.padding(String, String, int, char, PaddingType):ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») NullColumnParser#parse():ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») DateColumnParser#parse():ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») DecimalColumnParser#parse():ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») IntColumnParser#parse():ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») NullStringConverter#convert():ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») this.hasNext():‚P‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.readLine():ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») this.separateColumns(String):ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») this.currentLineCount:0<br>
-     *                        (ó‘Ô•Ï‰») —áŠO:this.hasNext()‚Å”­¶‚µ‚½FileException‚ª‚»‚Ì‚Ü‚ÜƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     *                        æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) FileDAOUtility.trim(String, String, char, TrimType):å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) FileDAOUtility.padding(String, String, int, char, PaddingType):å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) NullColumnParser#parse():å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) DateColumnParser#parse():å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) DecimalColumnParser#parse():å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) IntColumnParser#parse():å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) NullStringConverter#convert():å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.hasNext():ï¼‘å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.readLine():å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.separateColumns(String):å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.currentLineCount:0<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:this.hasNext()ã§ç™ºç”Ÿã—ãŸFileExceptionãŒãã®ã¾ã¾ã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     *                        —áŠOB<br>
-     *                        ‘ÎÛƒtƒ@ƒCƒ‹‚É‘Î‚µ‚ÄŸ‚Ìˆ—ƒf[ƒ^‚ª‚ ‚é‚©‚Ìƒ`ƒFƒbƒNˆ—‚Å—áŠO‚ª”­¶‚µ‚½ê‡‚ÉAŒ´ˆö—áŠO‚ª‚»‚Ì‚Ü‚ÜƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                        ä¾‹å¤–ã€‚<br>
+     *                        å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã«å¯¾ã—ã¦æ¬¡ã®å‡¦ç†ãƒ‡ãƒ¼ã‚¿ãŒã‚ã‚‹ã‹ã®ãƒã‚§ãƒƒã‚¯å‡¦ç†ã§ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã«ã€åŸå› ä¾‹å¤–ãŒãã®ã¾ã¾ã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testNext20() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_next09.txt");
         String fileName = url.getPath();
@@ -3539,24 +3539,24 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub09.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        FileException exception = new FileException("padding‚Å‚ÌƒGƒ‰[‚Å‚·B");
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        FileException exception = new FileException("paddingã§ã®ã‚¨ãƒ©ãƒ¼ã§ã™ã€‚");
         VMOUTUtil.setExceptionAtAllTimes(AbstractFileLineIterator.class,
                 "hasNext", exception);
-        // ‚»‚Ì‘¼‚ÍAƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Éİ’è‚µ‚Ä‚¢‚éB
+        // ãã®ä»–ã¯ã€ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–æ™‚ã«è¨­å®šã—ã¦ã„ã‚‹ã€‚
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             fileLineIterator.next();
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (FileException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(0, VMOUTUtil
                     .getCallCount(FileDAOUtility.class, "trim"));
             assertEquals(0, VMOUTUtil.getCallCount(FileDAOUtility.class,
@@ -3587,73 +3587,73 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testNext21() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl<br>
-     * “Ç‚İæ‚Á‚½ƒf[ƒ^1s•ª‚ğƒJƒ“ƒ}i,j‚Å‹æØ‚Á‚ÄAƒJƒ‰ƒ€‚Æ‚µ‚Ä•Ô‚·<br>
-     * (ó‘Ô) this.clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂƒCƒ“ƒXƒ^ƒ“ƒX‰»‰Â”\Class‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E@FileFormat‚Ìİ’è‚ğ‚Â<br>
-     * - encloseCharF"\""<br>
-     * - ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     * E@InputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * - ƒtƒB[ƒ‹ƒhFString column2<br>
-     * @InputFileColumnİ’è<br> > columnIndexF1<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFint column1<br>
-     * @InputFileColumnİ’è<br> > columnIndexF0<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFDate column4<br>
-     * @InputFileColumnİ’è<br> > columnIndexF3<br>
-     *                        > columnFormatFyyyy/MM/dd<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFBigDecimal column3<br>
-     * @InputFileColumnİ’è<br> > columnIndexF2<br>
-     *                        > columnFormatF###,###<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl<br>
+     * èª­ã¿å–ã£ãŸãƒ‡ãƒ¼ã‚¿1è¡Œåˆ†ã‚’ã‚«ãƒ³ãƒï¼ˆ,ï¼‰ã§åŒºåˆ‡ã£ã¦ã€ã‚«ãƒ©ãƒ ã¨ã—ã¦è¿”ã™<br>
+     * (çŠ¶æ…‹) this.clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–å¯èƒ½Classã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»@FileFormatã®è¨­å®šã‚’æŒã¤<br>
+     * - encloseCharï¼š"\""<br>
+     * - ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * ãƒ»@InputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column2<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š1<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šint column1<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š0<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šDate column4<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š3<br>
+     *                        > columnFormatï¼šyyyy/MM/dd<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šBigDecimal column3<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š2<br>
+     *                        > columnFormatï¼š###,###<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                        "AbstractFileLineIterator_next09.txt"<br>
-     *                        (ó‘Ô) this.currentLineCount:0<br>
-     *                        (ó‘Ô) this.columnParserMap:ˆÈ‰º‚Ì—v‘f‚ğ‚Â<br>
-     *                        Map<String, ColumnParser>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.lang.String"=NullColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.util.Date"=DateColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.math.BigDecimal"=DecimalColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"int"=IntColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        (ó‘Ô) this.readTrailer:false<br>
-     *                        (ó‘Ô) this.isCheckByte():false<br>
-     *                        (ó‘Ô) ‘ÎÛƒtƒ@ƒCƒ‹:ˆÈ‰º‚Ì“à—e‚ğ‚Â"AbstractFileLineIterator_next09.txt"ƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚éB<br>
+     *                        (çŠ¶æ…‹) this.currentLineCount:0<br>
+     *                        (çŠ¶æ…‹) this.columnParserMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤<br>
+     *                        Map<String, ColumnParser>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.lang.String"=NullColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.util.Date"=DateColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.math.BigDecimal"=DecimalColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"int"=IntColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        (çŠ¶æ…‹) this.readTrailer:false<br>
+     *                        (çŠ¶æ…‹) this.isCheckByte():false<br>
+     *                        (çŠ¶æ…‹) å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«:ä»¥ä¸‹ã®å†…å®¹ã‚’æŒã¤"AbstractFileLineIterator_next09.txt"ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚‹ã€‚<br>
      *                        -------------------<br>
      *                        1,line1,111111,1980/01/21<br>
      *                        -------------------<br>
-     *                        ¦³íƒf[ƒ^<br>
+     *                        â€»æ­£å¸¸ãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     *                        Šú‘Ò’lF(–ß‚è’l) this.clazz.getClass():this.clazz‚Åİ’è‚³‚ê‚Ä‚¢‚éƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        - column1F1<br>
-     *                        - column2F"line1"<br>
-     *                        - column3F111111<br>
-     *                        - column4F1980/01/21<br>
-     *                        (ó‘Ô•Ï‰») FileDAOUtility.trim(String, String, char, TrimType):4‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») FileDAOUtility.padding(String, String, int, char, PaddingType):4‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») NullColumnParser#parse():1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») DateColumnParser#parse():1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») DecimalColumnParser#parse():1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») IntColumnParser#parse():1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») NullStringConverter#convert():4‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.hasNext():2‰ñŒÄ‚Î‚ê‚é<br>
-     *                        ¦readLine()‚Ì’†‚ÅhasNext‚ª‚P‰ñŒÄ‚Î‚ê‚Ä‚¢‚éB<br>
-     *                        (ó‘Ô•Ï‰») this.readLine():1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.separateColumns(String):1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») String.getBytes():ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») this.currentLineCount:1<br>
+     *                        æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) this.clazz.getClass():this.clazzã§è¨­å®šã•ã‚Œã¦ã„ã‚‹ã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        - column1ï¼š1<br>
+     *                        - column2ï¼š"line1"<br>
+     *                        - column3ï¼š111111<br>
+     *                        - column4ï¼š1980/01/21<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) FileDAOUtility.trim(String, String, char, TrimType):4å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) FileDAOUtility.padding(String, String, int, char, PaddingType):4å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) NullColumnParser#parse():1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) DateColumnParser#parse():1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) DecimalColumnParser#parse():1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) IntColumnParser#parse():1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) NullStringConverter#convert():4å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.hasNext():2å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        â€»readLine()ã®ä¸­ã§hasNextãŒï¼‘å›å‘¼ã°ã‚Œã¦ã„ã‚‹ã€‚<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.readLine():1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.separateColumns(String):1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) String.getBytes():å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.currentLineCount:1<br>
      * <br>
-     *                        ³íB(ƒoƒCƒg”ƒ`ƒFƒbƒN‚µ‚È‚¢)<br>
-     *                        ‘ÎÛƒtƒ@ƒCƒ‹‚Ì“à—e‚ª³‚µ‚­İ’è‚³‚ê‚½ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ªæ“¾‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *                        ’A‚µAƒoƒCƒg”ƒ`ƒFƒbƒN‚ª‘–‚ç‚È‚¢‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                        æ­£å¸¸ã€‚(ãƒã‚¤ãƒˆæ•°ãƒã‚§ãƒƒã‚¯ã—ãªã„)<br>
+     *                        å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã®å†…å®¹ãŒæ­£ã—ãè¨­å®šã•ã‚ŒãŸãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒå–å¾—ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *                        ä½†ã—ã€ãƒã‚¤ãƒˆæ•°ãƒã‚§ãƒƒã‚¯ãŒèµ°ã‚‰ãªã„ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testNext21() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_next09.txt");
         String fileName = url.getPath();
@@ -3667,18 +3667,18 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub09.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineIterator.class,
                 "isCheckByte", false);
-        // ‚»‚Ì‘¼‚ÍAƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Éİ’è‚µ‚Ä‚¢‚éB
+        // ãã®ä»–ã¯ã€ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–æ™‚ã«è¨­å®šã—ã¦ã„ã‚‹ã€‚
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         AbstractFileLineIterator_Stub09 result = fileLineIterator.next();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals("getColumn1", 1, result.getColumn1());
         assertEquals("line1", result.getColumn2());
         assertEquals(new BigDecimal(111111), result.getColumn3());
@@ -3687,7 +3687,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
         assertEquals(column4.getTime().toString(), result.getColumn4()
                 .toString());
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(4, VMOUTUtil.getCallCount(FileDAOUtility.class, "trim"));
         assertEquals(4, VMOUTUtil.getCallCount(FileDAOUtility.class, "padding"));
         assertEquals("NullColumnParser", 1, VMOUTUtil.getCallCount(
@@ -3705,7 +3705,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
         assertEquals("AbstractFileLineIterator", 1, VMOUTUtil.getCallCount(
                 AbstractFileLineIterator.class, "readLine"));
 
-        // maven‚©‚ç‹N“®‚·‚é‚Æ‚È‚º‚©separateColumns‚ªæ“¾‚Å‚«‚È‚¢‚½‚ßAƒXƒLƒbƒv‚·‚é
+        // mavenã‹ã‚‰èµ·å‹•ã™ã‚‹ã¨ãªãœã‹separateColumnsãŒå–å¾—ã§ããªã„ãŸã‚ã€ã‚¹ã‚­ãƒƒãƒ—ã™ã‚‹
         if (!("jp.co.dgic.testing.common.DJUnitClassLoader".equals(System
                 .getProperty("java.system.class.loader")))) {
             assertEquals("separateColumns", 1, VMOUTUtil.getCallCount(
@@ -3720,66 +3720,66 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testNext22() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl<br>
-     * “Ç‚İæ‚Á‚½ƒf[ƒ^1s•ª‚ğƒJƒ“ƒ}i,j‚Å‹æØ‚Á‚ÄAƒJƒ‰ƒ€‚Æ‚µ‚Ä•Ô‚·<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl<br>
+     * èª­ã¿å–ã£ãŸãƒ‡ãƒ¼ã‚¿1è¡Œåˆ†ã‚’ã‚«ãƒ³ãƒï¼ˆ,ï¼‰ã§åŒºåˆ‡ã£ã¦ã€ã‚«ãƒ©ãƒ ã¨ã—ã¦è¿”ã™<br>
      * <br>
-     * ¦ƒCƒ“ƒXƒ^ƒ“ƒX¶¬‚Éthis.fileEncoding‚ğ"aaa"‚É’u‚«Š·‚¦‚é‚±‚Æ<br>
-     * (ó‘Ô) this.clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂƒCƒ“ƒXƒ^ƒ“ƒX‰»‰Â”\Class‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E@FileFormat‚Ìİ’è‚ğ‚Â<br>
-     * - ‘S€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     * E@InputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * - ƒtƒB[ƒ‹ƒhFString column1<br>
-     * @InputFileColumnİ’è<br> > columnIndexF0<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFString column2<br>
-     * @InputFileColumnİ’è<br> > columnIndexF1<br>
-     *                        > bytesF5<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * â€»ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ç”Ÿæˆæ™‚ã«this.fileEncodingã‚’"aaa"ã«ç½®ãæ›ãˆã‚‹ã“ã¨<br>
+     * (çŠ¶æ…‹) this.clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–å¯èƒ½Classã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»@FileFormatã®è¨­å®šã‚’æŒã¤<br>
+     * - å…¨é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * ãƒ»@InputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column1<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š0<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column2<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š1<br>
+     *                        > bytesï¼š5<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                        "AbstractFileLineIterator_next13.txt"<br>
-     *                        (ó‘Ô) this.currentLineCount:0<br>
-     *                        (ó‘Ô) this.columnParserMap:ˆÈ‰º‚Ì—v‘f‚ğ‚Â<br>
-     *                        Map<String, ColumnParser>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.lang.String"=NullColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.util.Date"=DateColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.math.BigDecimal"=DecimalColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"int"=IntColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        (ó‘Ô) this.readTrailer:false<br>
-     *                        (ó‘Ô) this.isCheckByte():true<br>
-     *                        (ó‘Ô) ‘ÎÛƒtƒ@ƒCƒ‹:ˆÈ‰º‚Ì“à—e‚ğ‚Â"AbstractFileLineIterator_next13.txt"ƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚éB<br>
+     *                        (çŠ¶æ…‹) this.currentLineCount:0<br>
+     *                        (çŠ¶æ…‹) this.columnParserMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤<br>
+     *                        Map<String, ColumnParser>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.lang.String"=NullColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.util.Date"=DateColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.math.BigDecimal"=DecimalColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"int"=IntColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        (çŠ¶æ…‹) this.readTrailer:false<br>
+     *                        (çŠ¶æ…‹) this.isCheckByte():true<br>
+     *                        (çŠ¶æ…‹) å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«:ä»¥ä¸‹ã®å†…å®¹ã‚’æŒã¤"AbstractFileLineIterator_next13.txt"ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚‹ã€‚<br>
      *                        -------------------<br>
      *                        ABCDE,12345<br>
      *                        -------------------<br>
-     *                        ¦³íƒf[ƒ^<br>
+     *                        â€»æ­£å¸¸ãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     *                        Šú‘Ò’lF(ó‘Ô•Ï‰») FileDAOUtility.trim(String, String, char, TrimType):1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») FileDAOUtility.padding(String, String, int, char, PaddingType):1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») NullColumnParser#parse():1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») DateColumnParser#parse():ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») DecimalColumnParser#parse():ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») IntColumnParser#parse():ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») NullStringConverter#convert():1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.hasNext():2‰ñŒÄ‚Î‚ê‚é<br>
-     *                        ¦readLine()‚Ì’†‚ÅhasNext‚ª‚P‰ñŒÄ‚Î‚ê‚Ä‚¢‚éB<br>
-     *                        (ó‘Ô•Ï‰») this.readLine():1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.separateColumns(String):1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.currentLineCount:0<br>
-     *                        (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *                        EƒƒbƒZ[ƒWF"fileEncoding which isn't supported was set."<br>
-     *                        EŒ´ˆö—áŠOFUnsupportedEncodingException<br>
-     *                        Eƒtƒ@ƒCƒ‹–¼FƒtƒB[ƒ‹ƒhfileName‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒXB<br>
+     *                        æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) FileDAOUtility.trim(String, String, char, TrimType):1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) FileDAOUtility.padding(String, String, int, char, PaddingType):1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) NullColumnParser#parse():1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) DateColumnParser#parse():å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) DecimalColumnParser#parse():å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) IntColumnParser#parse():å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) NullStringConverter#convert():1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.hasNext():2å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        â€»readLine()ã®ä¸­ã§hasNextãŒï¼‘å›å‘¼ã°ã‚Œã¦ã„ã‚‹ã€‚<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.readLine():1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.separateColumns(String):1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.currentLineCount:0<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *                        ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"fileEncoding which isn't supported was set."<br>
+     *                        ãƒ»åŸå› ä¾‹å¤–ï¼šUnsupportedEncodingException<br>
+     *                        ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰fileNameã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚<br>
      * <br>
-     *                        —áŠOB<br>
-     *                        ƒRƒ“ƒXƒgƒ‰ƒNƒ^¶¬Œã‚ÉAfileEncoding‚ğ•s³‚ÈƒGƒ“ƒR[ƒfƒBƒ“ƒO•¶š—ñ‚É’u‚«Š·‚¦‚½ê‡‚ÍA#next()ŒÄ‚Ño‚µ‚É—áŠO‚ª‹N‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     *                        ä¾‹å¤–ã€‚<br>
+     *                        ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ç”Ÿæˆå¾Œã«ã€fileEncodingã‚’ä¸æ­£ãªã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°æ–‡å­—åˆ—ã«ç½®ãæ›ãˆãŸå ´åˆã¯ã€#next()å‘¼ã³å‡ºã—æ™‚ã«ä¾‹å¤–ãŒèµ·ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     *                        ¦•s³‚ÉƒNƒ‰ƒX‚ğ‘‚«Š·‚¦‚È‚¯‚ê‚ÎAƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÅŒÄ‚Î‚ê‚é#buildLineReader()‚É‚æ‚èA—áŠO‚ª‹N‚«‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                        â€»ä¸æ­£ã«ã‚¯ãƒ©ã‚¹ã‚’æ›¸ãæ›ãˆãªã‘ã‚Œã°ã€ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§å‘¼ã°ã‚Œã‚‹#buildLineReader()ã«ã‚ˆã‚Šã€ä¾‹å¤–ãŒèµ·ãã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testNext22() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_next13.txt");
         String fileName = url.getPath();
@@ -3793,22 +3793,22 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub10.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Éİ’è‚µ‚Ä‚¢‚éB
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–æ™‚ã«è¨­å®šã—ã¦ã„ã‚‹ã€‚
         UTUtil.setPrivateField(fileLineIterator, "fileEncoding", "aaa");
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             fileLineIterator.next();
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸ");
         } catch (FileException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals("FileDAOUtility:trim", 1, VMOUTUtil.getCallCount(
                     FileDAOUtility.class, "trim"));
             assertEquals("FileDAOUtility:padding", 1, VMOUTUtil.getCallCount(
@@ -3828,7 +3828,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
             assertEquals("readLine", 1, VMOUTUtil.getCallCount(
                     AbstractFileLineIterator.class, "readLine"));
 
-            // maven‚©‚ç‹N“®‚·‚é‚Æ‚È‚º‚©separateColumns‚ªæ“¾‚Å‚«‚È‚¢‚½‚ßAƒXƒLƒbƒv‚·‚é
+            // mavenã‹ã‚‰èµ·å‹•ã™ã‚‹ã¨ãªãœã‹separateColumnsãŒå–å¾—ã§ããªã„ãŸã‚ã€ã‚¹ã‚­ãƒƒãƒ—ã™ã‚‹
             if (!("jp.co.dgic.testing.common.DJUnitClassLoader".equals(System
                     .getProperty("java.system.class.loader")))) {
                 assertEquals("separateColumns", 1, VMOUTUtil.getCallCount(
@@ -3850,20 +3850,20 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testRemove01() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂUnsupportedOperationException()‚ª”­¶‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"remove() isn't supported."<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤UnsupportedOperationException()ãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"remove() isn't supported."<br>
      * <br>
-     * ƒƒ\ƒbƒh‚ğÀs‚·‚é‚ÆƒAƒ“ƒTƒ|[ƒg—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å®Ÿè¡Œã™ã‚‹ã¨ã‚¢ãƒ³ã‚µãƒãƒ¼ãƒˆä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testRemove01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_next06.txt");
         String fileName = url.getPath();
@@ -3874,21 +3874,21 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub07.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ‚È‚µ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             fileLineIterator.remove();
-            fail("UnsupportedOperationException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("UnsupportedOperationExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (UnsupportedOperationException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(UnsupportedOperationException.class, e.getClass());
             assertEquals("remove() isn't supported.", e.getMessage());
         }
@@ -3897,33 +3897,33 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testInit01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FF <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šF <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.calledInit:true<br>
-     * (ó‘Ô) this.buildFields():³íˆ—<br>
-     * (ó‘Ô) this.buildStringConverters():³íˆ—<br>
-     * (ó‘Ô) this.buildMethods():³íˆ—<br>
-     * (ó‘Ô) this.buildHeader():³íˆ—<br>
-     * (ó‘Ô) this.buildTrailerQueue():³íˆ—<br>
-     * (ó‘Ô) this.buildLineReader():³íˆ—<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.calledInit:true<br>
+     * (çŠ¶æ…‹) this.buildFields():æ­£å¸¸å‡¦ç†<br>
+     * (çŠ¶æ…‹) this.buildStringConverters():æ­£å¸¸å‡¦ç†<br>
+     * (çŠ¶æ…‹) this.buildMethods():æ­£å¸¸å‡¦ç†<br>
+     * (çŠ¶æ…‹) this.buildHeader():æ­£å¸¸å‡¦ç†<br>
+     * (çŠ¶æ…‹) this.buildTrailerQueue():æ­£å¸¸å‡¦ç†<br>
+     * (çŠ¶æ…‹) this.buildLineReader():æ­£å¸¸å‡¦ç†<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.calledInit:true<br>
-     * (ó‘Ô•Ï‰») this.buildFields():ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») this.buildStringConverters():ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») this.buildMethods():ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») this.buildLineReader():ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») this.buildHeader():ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») this.buildTrailerQueue():ŒÄ‚Î‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.calledInit:true<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.buildFields():å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.buildStringConverters():å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.buildMethods():å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.buildLineReader():å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.buildHeader():å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.buildTrailerQueue():å‘¼ã°ã‚Œãªã„<br>
      * <br>
-     * ³íB<br>
-     * Šù‚Éinit()‚ªŒÄ‚Î‚ê‚½ê‡‚ÍAinit()ˆ—‚ªs‚í‚È‚¢‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã€‚<br>
+     * æ—¢ã«init()ãŒå‘¼ã°ã‚ŒãŸå ´åˆã¯ã€init()å‡¦ç†ãŒè¡Œã‚ãªã„ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testInit01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_next06.txt");
         String fileName = url.getPath();
@@ -3934,19 +3934,19 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub07.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(fileLineIterator, "calledInit", true);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         fileLineIterator.init();
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertTrue((Boolean) UTUtil.getPrivateField(fileLineIterator,
                 "calledInit"));
         assertFalse(VMOUTUtil.isCalled(AbstractFileLineIterator.class,
@@ -3966,33 +3966,33 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testInit02() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FF <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šF <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.calledInit:false<br>
-     * (ó‘Ô) this.buildFields():³íˆ—<br>
-     * (ó‘Ô) this.buildStringConverters():³íˆ—<br>
-     * (ó‘Ô) this.buildMethods():³íˆ—<br>
-     * (ó‘Ô) this.buildHeader():³íˆ—<br>
-     * (ó‘Ô) this.buildTrailerQueue():³íˆ—<br>
-     * (ó‘Ô) this.buildLineReader():³íˆ—<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.calledInit:false<br>
+     * (çŠ¶æ…‹) this.buildFields():æ­£å¸¸å‡¦ç†<br>
+     * (çŠ¶æ…‹) this.buildStringConverters():æ­£å¸¸å‡¦ç†<br>
+     * (çŠ¶æ…‹) this.buildMethods():æ­£å¸¸å‡¦ç†<br>
+     * (çŠ¶æ…‹) this.buildHeader():æ­£å¸¸å‡¦ç†<br>
+     * (çŠ¶æ…‹) this.buildTrailerQueue():æ­£å¸¸å‡¦ç†<br>
+     * (çŠ¶æ…‹) this.buildLineReader():æ­£å¸¸å‡¦ç†<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.calledInit:true<br>
-     * (ó‘Ô•Ï‰») this.buildFields():1‰ñŒÄ‚Î‚ê‚é<br>
-     * (ó‘Ô•Ï‰») this.buildStringConverters():1‰ñŒÄ‚Î‚ê‚é<br>
-     * (ó‘Ô•Ï‰») this.buildMethods():1‰ñŒÄ‚Î‚ê‚é<br>
-     * (ó‘Ô•Ï‰») this.buildLineReader():1‰ñŒÄ‚Î‚ê‚é<br>
-     * (ó‘Ô•Ï‰») this.buildHeader():1‰ñŒÄ‚Î‚ê‚é<br>
-     * (ó‘Ô•Ï‰») this.buildTrailerQueue():1‰ñŒÄ‚Î‚ê‚é<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.calledInit:true<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.buildFields():1å›å‘¼ã°ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.buildStringConverters():1å›å‘¼ã°ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.buildMethods():1å›å‘¼ã°ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.buildLineReader():1å›å‘¼ã°ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.buildHeader():1å›å‘¼ã°ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.buildTrailerQueue():1å›å‘¼ã°ã‚Œã‚‹<br>
      * <br>
-     * ³íB<br>
-     * Å‰‚ÉInit()ˆ—‚ªŒÄ‚Î‚ê‚½ê‡‚ÍAinit()ˆ—‚ªs‚í‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã€‚<br>
+     * æœ€åˆã«Init()å‡¦ç†ãŒå‘¼ã°ã‚ŒãŸå ´åˆã¯ã€init()å‡¦ç†ãŒè¡Œã‚ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testInit02() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource("File_Empty.txt");
         String fileName = url.getPath();
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
@@ -4002,19 +4002,19 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub07.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(fileLineIterator, "calledInit", false);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         fileLineIterator.init();
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertTrue((Boolean) UTUtil.getPrivateField(fileLineIterator,
                 "calledInit"));
         assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
@@ -4034,34 +4034,34 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testInit03() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.calledInit:false<br>
-     * (ó‘Ô) this.buildFields():FileException—áŠO‚ª”­¶‚·‚éB<br>
-     * (ó‘Ô) this.buildStringConverters():³íˆ—<br>
-     * (ó‘Ô) this.buildMethods():³íˆ—<br>
-     * (ó‘Ô) this.buildHeader():³íˆ—<br>
-     * (ó‘Ô) this.buildTrailerQueue():³íˆ—<br>
-     * (ó‘Ô) this.buildLineReader():³íˆ—<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.calledInit:false<br>
+     * (çŠ¶æ…‹) this.buildFields():FileExceptionä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * (çŠ¶æ…‹) this.buildStringConverters():æ­£å¸¸å‡¦ç†<br>
+     * (çŠ¶æ…‹) this.buildMethods():æ­£å¸¸å‡¦ç†<br>
+     * (çŠ¶æ…‹) this.buildHeader():æ­£å¸¸å‡¦ç†<br>
+     * (çŠ¶æ…‹) this.buildTrailerQueue():æ­£å¸¸å‡¦ç†<br>
+     * (çŠ¶æ…‹) this.buildLineReader():æ­£å¸¸å‡¦ç†<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.calledInit:false<br>
-     * (ó‘Ô•Ï‰») this.buildFields():1‰ñŒÄ‚Î‚ê‚é<br>
-     * (ó‘Ô•Ï‰») this.buildStringConverters():ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») this.buildMethods():ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») this.buildLineReader():ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») this.buildHeader():ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») this.buildTrailerQueue():ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») —áŠO:this.buildFields()‚Å”­¶‚µ‚½—áŠO‚ª‚»‚Ì‚Ü‚Ü“Š‚°‚ç‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.calledInit:false<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.buildFields():1å›å‘¼ã°ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.buildStringConverters():å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.buildMethods():å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.buildLineReader():å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.buildHeader():å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.buildTrailerQueue():å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:this.buildFields()ã§ç™ºç”Ÿã—ãŸä¾‹å¤–ãŒãã®ã¾ã¾æŠ•ã’ã‚‰ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * —áŠOB<br>
-     * this.buildFields()ˆ—‚Å—áŠO‚ª”­¶‚µ‚½ê‡‚ÉA—áŠO‚ª‚»‚Ì‚Ü‚Ü“Š‚°‚ç‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ä¾‹å¤–ã€‚<br>
+     * this.buildFields()å‡¦ç†ã§ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã«ã€ä¾‹å¤–ãŒãã®ã¾ã¾æŠ•ã’ã‚‰ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testInit03() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource("File_Empty.txt");
         String fileName = url.getPath();
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
@@ -4071,24 +4071,24 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub07.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(fileLineIterator, "calledInit", false);
-        FileException exception = new FileException("buildFields‚ÌƒGƒ‰[‚Å‚·");
+        FileException exception = new FileException("buildFieldsã®ã‚¨ãƒ©ãƒ¼ã§ã™");
         VMOUTUtil.setExceptionAtAllTimes(AbstractFileLineIterator.class,
                 "buildFields", exception);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             fileLineIterator.init();
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (FileException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertFalse((Boolean) UTUtil.getPrivateField(fileLineIterator,
                     "calledInit"));
             assertEquals(1, VMOUTUtil.getCallCount(
@@ -4111,34 +4111,34 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testInit04() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.calledInit:false<br>
-     * (ó‘Ô) this.buildFields():³íˆ—<br>
-     * (ó‘Ô) this.buildStringConverters():FileLineException—áŠO‚ª”­¶‚·‚éB<br>
-     * (ó‘Ô) this.buildMethods():³íˆ—<br>
-     * (ó‘Ô) this.buildHeader():³íˆ—<br>
-     * (ó‘Ô) this.buildTrailerQueue():³íˆ—<br>
-     * (ó‘Ô) this.buildLineReader():³íˆ—<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.calledInit:false<br>
+     * (çŠ¶æ…‹) this.buildFields():æ­£å¸¸å‡¦ç†<br>
+     * (çŠ¶æ…‹) this.buildStringConverters():FileLineExceptionä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * (çŠ¶æ…‹) this.buildMethods():æ­£å¸¸å‡¦ç†<br>
+     * (çŠ¶æ…‹) this.buildHeader():æ­£å¸¸å‡¦ç†<br>
+     * (çŠ¶æ…‹) this.buildTrailerQueue():æ­£å¸¸å‡¦ç†<br>
+     * (çŠ¶æ…‹) this.buildLineReader():æ­£å¸¸å‡¦ç†<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.calledInit:false<br>
-     * (ó‘Ô•Ï‰») this.buildFields():1‰ñŒÄ‚Î‚ê‚é<br>
-     * (ó‘Ô•Ï‰») this.buildStringConverters():1‰ñŒÄ‚Î‚ê‚é<br>
-     * (ó‘Ô•Ï‰») this.buildMethods():ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») this.buildLineReader():ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») this.buildHeader():ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») this.buildTrailerQueue():ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») —áŠO:this.buildStringConverter()‚Å”­¶‚µ‚½—áŠO‚ª‚»‚Ì‚Ü‚Ü“Š‚°‚ç‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.calledInit:false<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.buildFields():1å›å‘¼ã°ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.buildStringConverters():1å›å‘¼ã°ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.buildMethods():å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.buildLineReader():å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.buildHeader():å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.buildTrailerQueue():å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:this.buildStringConverter()ã§ç™ºç”Ÿã—ãŸä¾‹å¤–ãŒãã®ã¾ã¾æŠ•ã’ã‚‰ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * —áŠOB<br>
-     * this.buildStringConverter()ˆ—‚Å—áŠO‚ª”­¶‚µ‚½ê‡‚ÉA—áŠO‚ª‚»‚Ì‚Ü‚Ü“Š‚°‚ç‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ä¾‹å¤–ã€‚<br>
+     * this.buildStringConverter()å‡¦ç†ã§ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã«ã€ä¾‹å¤–ãŒãã®ã¾ã¾æŠ•ã’ã‚‰ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testInit04() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource("File_Empty.txt");
         String fileName = url.getPath();
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
@@ -4148,25 +4148,25 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub07.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(fileLineIterator, "calledInit", false);
         FileLineException exception = new FileLineException(
-                "buildStringConverters‚ÌƒGƒ‰[‚Å‚·");
+                "buildStringConvertersã®ã‚¨ãƒ©ãƒ¼ã§ã™");
         VMOUTUtil.setExceptionAtAllTimes(AbstractFileLineIterator.class,
                 "buildStringConverters", exception);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             fileLineIterator.init();
-            fail("FileLineException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("FileLineExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (FileLineException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertFalse((Boolean) UTUtil.getPrivateField(fileLineIterator,
                     "calledInit"));
             assertEquals(1, VMOUTUtil.getCallCount(
@@ -4189,34 +4189,34 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testInit05() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.calledInit:false<br>
-     * (ó‘Ô) this.buildFields():³íˆ—<br>
-     * (ó‘Ô) this.buildStringConverters():³íˆ—<br>
-     * (ó‘Ô) this.buildMethods():FileException—áŠO‚ª”­¶‚·‚éB<br>
-     * (ó‘Ô) this.buildHeader():³íˆ—<br>
-     * (ó‘Ô) this.buildTrailerQueue():³íˆ—<br>
-     * (ó‘Ô) this.buildLineReader():³íˆ—<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.calledInit:false<br>
+     * (çŠ¶æ…‹) this.buildFields():æ­£å¸¸å‡¦ç†<br>
+     * (çŠ¶æ…‹) this.buildStringConverters():æ­£å¸¸å‡¦ç†<br>
+     * (çŠ¶æ…‹) this.buildMethods():FileExceptionä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * (çŠ¶æ…‹) this.buildHeader():æ­£å¸¸å‡¦ç†<br>
+     * (çŠ¶æ…‹) this.buildTrailerQueue():æ­£å¸¸å‡¦ç†<br>
+     * (çŠ¶æ…‹) this.buildLineReader():æ­£å¸¸å‡¦ç†<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.calledInit:false<br>
-     * (ó‘Ô•Ï‰») this.buildFields():1‰ñŒÄ‚Î‚ê‚é<br>
-     * (ó‘Ô•Ï‰») this.buildStringConverters():1‰ñŒÄ‚Î‚ê‚é<br>
-     * (ó‘Ô•Ï‰») this.buildMethods():1‰ñŒÄ‚Î‚ê‚é<br>
-     * (ó‘Ô•Ï‰») this.buildLineReader():ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») this.buildHeader():ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») this.buildTrailerQueue():ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») —áŠO:this.buildMethods()‚Å”­¶‚µ‚½—áŠO‚ª‚»‚Ì‚Ü‚Ü“Š‚°‚ç‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.calledInit:false<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.buildFields():1å›å‘¼ã°ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.buildStringConverters():1å›å‘¼ã°ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.buildMethods():1å›å‘¼ã°ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.buildLineReader():å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.buildHeader():å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.buildTrailerQueue():å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:this.buildMethods()ã§ç™ºç”Ÿã—ãŸä¾‹å¤–ãŒãã®ã¾ã¾æŠ•ã’ã‚‰ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * —áŠOB<br>
-     * this.buildMethods()ˆ—‚Å—áŠO‚ª”­¶‚µ‚½ê‡‚ÉA—áŠO‚ª‚»‚Ì‚Ü‚Ü“Š‚°‚ç‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ä¾‹å¤–ã€‚<br>
+     * this.buildMethods()å‡¦ç†ã§ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã«ã€ä¾‹å¤–ãŒãã®ã¾ã¾æŠ•ã’ã‚‰ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testInit05() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource("File_Empty.txt");
         String fileName = url.getPath();
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
@@ -4226,24 +4226,24 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub07.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(fileLineIterator, "calledInit", false);
-        FileException exception = new FileException("buildMethods‚ÌƒGƒ‰[‚Å‚·");
+        FileException exception = new FileException("buildMethodsã®ã‚¨ãƒ©ãƒ¼ã§ã™");
         VMOUTUtil.setExceptionAtAllTimes(AbstractFileLineIterator.class,
                 "buildMethods", exception);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             fileLineIterator.init();
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (FileException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertFalse((Boolean) UTUtil.getPrivateField(fileLineIterator,
                     "calledInit"));
             assertEquals(1, VMOUTUtil.getCallCount(
@@ -4266,34 +4266,34 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testInit06() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.calledInit:false<br>
-     * (ó‘Ô) this.buildFields():³íˆ—<br>
-     * (ó‘Ô) this.buildStringConverters():³íˆ—<br>
-     * (ó‘Ô) this.buildMethods():³íˆ—<br>
-     * (ó‘Ô) this.buildHeader():FileException—áŠO‚ª”­¶‚·‚éB<br>
-     * (ó‘Ô) this.buildTrailerQueue():³íˆ—<br>
-     * (ó‘Ô) this.buildLineReader():³íˆ—<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.calledInit:false<br>
+     * (çŠ¶æ…‹) this.buildFields():æ­£å¸¸å‡¦ç†<br>
+     * (çŠ¶æ…‹) this.buildStringConverters():æ­£å¸¸å‡¦ç†<br>
+     * (çŠ¶æ…‹) this.buildMethods():æ­£å¸¸å‡¦ç†<br>
+     * (çŠ¶æ…‹) this.buildHeader():FileExceptionä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * (çŠ¶æ…‹) this.buildTrailerQueue():æ­£å¸¸å‡¦ç†<br>
+     * (çŠ¶æ…‹) this.buildLineReader():æ­£å¸¸å‡¦ç†<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.calledInit:false<br>
-     * (ó‘Ô•Ï‰») this.buildFields():1‰ñŒÄ‚Î‚ê‚é<br>
-     * (ó‘Ô•Ï‰») this.buildStringConverters():1‰ñŒÄ‚Î‚ê‚é<br>
-     * (ó‘Ô•Ï‰») this.buildMethods():1‰ñŒÄ‚Î‚ê‚é<br>
-     * (ó‘Ô•Ï‰») this.buildLineReader():1‰ñŒÄ‚Î‚ê‚é<br>
-     * (ó‘Ô•Ï‰») this.buildHeader():1‰ñŒÄ‚Î‚ê‚é<br>
-     * (ó‘Ô•Ï‰») this.buildTrailerQueue():ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») —áŠO:this.buildHeader()‚Å”­¶‚µ‚½—áŠO‚ª‚»‚Ì‚Ü‚Ü“Š‚°‚ç‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.calledInit:false<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.buildFields():1å›å‘¼ã°ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.buildStringConverters():1å›å‘¼ã°ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.buildMethods():1å›å‘¼ã°ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.buildLineReader():1å›å‘¼ã°ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.buildHeader():1å›å‘¼ã°ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.buildTrailerQueue():å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:this.buildHeader()ã§ç™ºç”Ÿã—ãŸä¾‹å¤–ãŒãã®ã¾ã¾æŠ•ã’ã‚‰ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * —áŠOB<br>
-     * this.buildHeader()ˆ—‚Å—áŠO‚ª”­¶‚µ‚½ê‡‚ÉA—áŠO‚ª‚»‚Ì‚Ü‚Ü“Š‚°‚ç‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ä¾‹å¤–ã€‚<br>
+     * this.buildHeader()å‡¦ç†ã§ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã«ã€ä¾‹å¤–ãŒãã®ã¾ã¾æŠ•ã’ã‚‰ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testInit06() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource("File_Empty.txt");
         String fileName = url.getPath();
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
@@ -4303,24 +4303,24 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub07.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(fileLineIterator, "calledInit", false);
-        FileException exception = new FileException("buildHeaders‚ÌƒGƒ‰[‚Å‚·");
+        FileException exception = new FileException("buildHeadersã®ã‚¨ãƒ©ãƒ¼ã§ã™");
         VMOUTUtil.setExceptionAtAllTimes(AbstractFileLineIterator.class,
                 "buildHeader", exception);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             fileLineIterator.init();
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (FileException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertFalse((Boolean) UTUtil.getPrivateField(fileLineIterator,
                     "calledInit"));
             assertEquals(1, VMOUTUtil.getCallCount(
@@ -4343,34 +4343,34 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testInit07() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.calledInit:false<br>
-     * (ó‘Ô) this.buildFields():³íˆ—<br>
-     * (ó‘Ô) this.buildStringConverters():³íˆ—<br>
-     * (ó‘Ô) this.buildMethods():³íˆ—<br>
-     * (ó‘Ô) this.buildHeader():³íˆ—<br>
-     * (ó‘Ô) this.buildTrailerQueue():FileException—áŠO‚ª”­¶‚·‚éB<br>
-     * (ó‘Ô) this.buildLineReader():³íˆ—<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.calledInit:false<br>
+     * (çŠ¶æ…‹) this.buildFields():æ­£å¸¸å‡¦ç†<br>
+     * (çŠ¶æ…‹) this.buildStringConverters():æ­£å¸¸å‡¦ç†<br>
+     * (çŠ¶æ…‹) this.buildMethods():æ­£å¸¸å‡¦ç†<br>
+     * (çŠ¶æ…‹) this.buildHeader():æ­£å¸¸å‡¦ç†<br>
+     * (çŠ¶æ…‹) this.buildTrailerQueue():FileExceptionä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * (çŠ¶æ…‹) this.buildLineReader():æ­£å¸¸å‡¦ç†<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.calledInit:false<br>
-     * (ó‘Ô•Ï‰») this.buildFields():1‰ñŒÄ‚Î‚ê‚é<br>
-     * (ó‘Ô•Ï‰») this.buildStringConverters():1‰ñŒÄ‚Î‚ê‚é<br>
-     * (ó‘Ô•Ï‰») this.buildMethods():1‰ñŒÄ‚Î‚ê‚é<br>
-     * (ó‘Ô•Ï‰») this.buildLineReader():1‰ñŒÄ‚Î‚ê‚é<br>
-     * (ó‘Ô•Ï‰») this.buildHeader():1‰ñŒÄ‚Î‚ê‚é<br>
-     * (ó‘Ô•Ï‰») this.buildTrailerQueue():1‰ñŒÄ‚Î‚ê‚é<br>
-     * (ó‘Ô•Ï‰») —áŠO:this.buildTrailerQueue()‚Å”­¶‚µ‚½—áŠO‚ª‚»‚Ì‚Ü‚Ü“Š‚°‚ç‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.calledInit:false<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.buildFields():1å›å‘¼ã°ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.buildStringConverters():1å›å‘¼ã°ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.buildMethods():1å›å‘¼ã°ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.buildLineReader():1å›å‘¼ã°ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.buildHeader():1å›å‘¼ã°ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.buildTrailerQueue():1å›å‘¼ã°ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:this.buildTrailerQueue()ã§ç™ºç”Ÿã—ãŸä¾‹å¤–ãŒãã®ã¾ã¾æŠ•ã’ã‚‰ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * —áŠOB<br>
-     * this.buildTrailerQueue()ˆ—‚Å—áŠO‚ª”­¶‚µ‚½ê‡‚ÉA—áŠO‚ª‚»‚Ì‚Ü‚Ü“Š‚°‚ç‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ä¾‹å¤–ã€‚<br>
+     * this.buildTrailerQueue()å‡¦ç†ã§ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã«ã€ä¾‹å¤–ãŒãã®ã¾ã¾æŠ•ã’ã‚‰ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testInit07() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource("File_Empty.txt");
         String fileName = url.getPath();
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
@@ -4380,24 +4380,24 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub07.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(fileLineIterator, "calledInit", false);
-        FileException exception = new FileException("buildTrailerQueue‚ÌƒGƒ‰[‚Å‚·");
+        FileException exception = new FileException("buildTrailerQueueã®ã‚¨ãƒ©ãƒ¼ã§ã™");
         VMOUTUtil.setExceptionAtAllTimes(AbstractFileLineIterator.class,
                 "buildTrailerQueue", exception);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             fileLineIterator.init();
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (FileException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertFalse((Boolean) UTUtil.getPrivateField(fileLineIterator,
                     "calledInit"));
             assertEquals(1, VMOUTUtil.getCallCount(
@@ -4420,34 +4420,34 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testInit08() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.calledInit:false<br>
-     * (ó‘Ô) this.buildFields():³íˆ—<br>
-     * (ó‘Ô) this.buildStringConverters():³íˆ—<br>
-     * (ó‘Ô) this.buildMethods():³íˆ—<br>
-     * (ó‘Ô) this.buildHeader():³íˆ—<br>
-     * (ó‘Ô) this.buildTrailerQueue():³íˆ—<br>
-     * (ó‘Ô) this.buildLineReader():FileException—áŠO‚ª”­¶‚·‚éB<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.calledInit:false<br>
+     * (çŠ¶æ…‹) this.buildFields():æ­£å¸¸å‡¦ç†<br>
+     * (çŠ¶æ…‹) this.buildStringConverters():æ­£å¸¸å‡¦ç†<br>
+     * (çŠ¶æ…‹) this.buildMethods():æ­£å¸¸å‡¦ç†<br>
+     * (çŠ¶æ…‹) this.buildHeader():æ­£å¸¸å‡¦ç†<br>
+     * (çŠ¶æ…‹) this.buildTrailerQueue():æ­£å¸¸å‡¦ç†<br>
+     * (çŠ¶æ…‹) this.buildLineReader():FileExceptionä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.calledInit:false<br>
-     * (ó‘Ô•Ï‰») this.buildFields():1‰ñŒÄ‚Î‚ê‚é<br>
-     * (ó‘Ô•Ï‰») this.buildStringConverters():1‰ñŒÄ‚Î‚ê‚é<br>
-     * (ó‘Ô•Ï‰») this.buildMethods():1‰ñŒÄ‚Î‚ê‚é<br>
-     * (ó‘Ô•Ï‰») this.buildLineReader():1‰ñŒÄ‚Î‚ê‚é<br>
-     * (ó‘Ô•Ï‰») this.buildHeader():ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») this.buildTrailerQueue():ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») —áŠO:this.buildLineReader()‚Å”­¶‚µ‚½—áŠO‚ª‚»‚Ì‚Ü‚Ü“Š‚°‚ç‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.calledInit:false<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.buildFields():1å›å‘¼ã°ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.buildStringConverters():1å›å‘¼ã°ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.buildMethods():1å›å‘¼ã°ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.buildLineReader():1å›å‘¼ã°ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.buildHeader():å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.buildTrailerQueue():å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:this.buildLineReader()ã§ç™ºç”Ÿã—ãŸä¾‹å¤–ãŒãã®ã¾ã¾æŠ•ã’ã‚‰ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * —áŠOB<br>
-     * this.buildLineReader()ˆ—‚Å—áŠO‚ª”­¶‚µ‚½ê‡‚ÉA—áŠO‚ª‚»‚Ì‚Ü‚Ü“Š‚°‚ç‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ä¾‹å¤–ã€‚<br>
+     * this.buildLineReader()å‡¦ç†ã§ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã«ã€ä¾‹å¤–ãŒãã®ã¾ã¾æŠ•ã’ã‚‰ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testInit08() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource("File_Empty.txt");
         String fileName = url.getPath();
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
@@ -4457,24 +4457,24 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub07.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(fileLineIterator, "calledInit", false);
-        FileException exception = new FileException("buildLineReader‚ÌƒGƒ‰[‚Å‚·");
+        FileException exception = new FileException("buildLineReaderã®ã‚¨ãƒ©ãƒ¼ã§ã™");
         VMOUTUtil.setExceptionAtAllTimes(AbstractFileLineIterator.class,
                 "buildLineReader", exception);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             fileLineIterator.init();
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (FileException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertFalse((Boolean) UTUtil.getPrivateField(fileLineIterator,
                     "calledInit"));
             assertEquals(1, VMOUTUtil.getCallCount(
@@ -4497,31 +4497,31 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testBuildLineReader01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FF <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šF <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl03<br>
-     * @#getEncloseChar()F'\"'‚ğ•Ô‚·<br>
-     * @#getDelimiter()F','‚ğ•Ô‚·<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl03<br>
+     * ã€€#getEncloseChar()ï¼š'\"'ã‚’è¿”ã™<br>
+     * ã€€#getDelimiter()ï¼š','ã‚’è¿”ã™<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "AbstractFileLineIterator_bulidFields01.txt"<br>
-     * (ó‘Ô) this.fileEncoding:ƒVƒXƒeƒ€ƒfƒtƒHƒ‹ƒg’l<br>
-     * (ó‘Ô) this.lineFeedChar:"\r\n"<br>
-     * (ó‘Ô) this.lineReader:null<br>
+     * (çŠ¶æ…‹) this.fileEncoding:ã‚·ã‚¹ãƒ†ãƒ ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * (çŠ¶æ…‹) this.lineFeedChar:"\r\n"<br>
+     * (çŠ¶æ…‹) this.lineReader:null<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.reader:"AbstractFileLineIterator_buildLineReader01.txt"‚É‘Î‚·‚éBufferedReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô•Ï‰») this.lineReader:ˆÈ‰º‚Ìİ’è‚ğ‚ÂEncloseCharLineFeed2LineReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * EdelimiterCharacterF','<br>
-     * EencloseCharacterF''\"'<br>
-     * ElineFeedCharF"\r\n"<br>
-     * EreaderF"AbstractFileLineIterator_buildLineReader01.txt"‚É‘Î‚·‚éBufferedReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.reader:"AbstractFileLineIterator_buildLineReader01.txt"ã«å¯¾ã™ã‚‹BufferedReaderã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.lineReader:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤EncloseCharLineFeed2LineReaderã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»delimiterCharacterï¼š','<br>
+     * ãƒ»encloseCharacterï¼š''\"'<br>
+     * ãƒ»lineFeedCharï¼š"\r\n"<br>
+     * ãƒ»readerï¼š"AbstractFileLineIterator_buildLineReader01.txt"ã«å¯¾ã™ã‚‹BufferedReaderã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     * ³íB<br>
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌƒNƒ‰ƒX‚Ì@FileFormat‚Ìİ’è‚ÉuˆÍ‚İ•¶šv‚Æu‹æØ‚è•¶šv‚Æu2Œ…‚Ìs‹æØ‚è•¶šv‚ªİ’è‚³‚ê‚Ä‚¢‚éê‡‚ÉA³‚µ‚­ˆ—‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã€‚<br>
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¯ãƒ©ã‚¹ã®@FileFormatã®è¨­å®šã«ã€Œå›²ã¿æ–‡å­—ã€ã¨ã€ŒåŒºåˆ‡ã‚Šæ–‡å­—ã€ã¨ã€Œ2æ¡ã®è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—ã€ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã«ã€æ­£ã—ãå‡¦ç†ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testBuildLineReader01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_buildLineReader01.txt");
         String fileName = url.getPath();
@@ -4532,21 +4532,21 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub20.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(fileLineIterator, "enclosed", true);
         UTUtil.setPrivateField(fileLineIterator, "columnEncloseChar",
                 new char[] {});
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         UTUtil.invokePrivate(fileLineIterator, "buildLineReader");
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         Object reader = UTUtil.getPrivateField(fileLineIterator, "reader");
         assertEquals(BufferedReader.class, reader.getClass());
 
@@ -4562,38 +4562,38 @@ public class AbstractFileLineIteratorTest extends TestCase {
         String result = ((BufferedReader) reader).readLine();
         assertEquals("AbstractFileLineIterator_buildLineReader01", result);
 
-        // Œãˆ—
+        // å¾Œå‡¦ç†
         ((BufferedReader) reader).close();
     }
 
     /**
      * testBuildLineReader02() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FF <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šF <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl03<br>
-     * @#getEncloseChar()F'\"'‚ğ•Ô‚·<br>
-     * @#getDelimiter()F','‚ğ•Ô‚·<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl03<br>
+     * ã€€#getEncloseChar()ï¼š'\"'ã‚’è¿”ã™<br>
+     * ã€€#getDelimiter()ï¼š','ã‚’è¿”ã™<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "AbstractFileLineIterator_buildLineReader01.txt"<br>
-     * (ó‘Ô) this.fileEncoding:ƒVƒXƒeƒ€ƒfƒtƒHƒ‹ƒg’l<br>
-     * (ó‘Ô) this.lineFeedChar:"\r"<br>
-     * (ó‘Ô) this.lineReader:null<br>
+     * (çŠ¶æ…‹) this.fileEncoding:ã‚·ã‚¹ãƒ†ãƒ ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * (çŠ¶æ…‹) this.lineFeedChar:"\r"<br>
+     * (çŠ¶æ…‹) this.lineReader:null<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.reader:"AbstractFileLineIterator_buildLineReader01.txt"‚É‘Î‚·‚éBufferedReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô•Ï‰») this.lineReader:ˆÈ‰º‚Ìİ’è‚ğ‚ÂEncloseCharLineFeed1LineReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * EdelimiterCharacterF','<br>
-     * EencloseCharacterF''\"'<br>
-     * ElineFeedCharF"\r"<br>
-     * EreaderF"AbstractFileLineIterator_buildLineReader01.txt"‚É‘Î‚·‚éBufferedReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.reader:"AbstractFileLineIterator_buildLineReader01.txt"ã«å¯¾ã™ã‚‹BufferedReaderã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.lineReader:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤EncloseCharLineFeed1LineReaderã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»delimiterCharacterï¼š','<br>
+     * ãƒ»encloseCharacterï¼š''\"'<br>
+     * ãƒ»lineFeedCharï¼š"\r"<br>
+     * ãƒ»readerï¼š"AbstractFileLineIterator_buildLineReader01.txt"ã«å¯¾ã™ã‚‹BufferedReaderã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     * ³íB<br>
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌƒNƒ‰ƒX‚Ì@FileFormat‚Ìİ’è‚ÉuˆÍ‚İ•¶šv‚Æu‹æØ‚è•¶šv‚Æu1Œ…‚Ìs‹æØ‚è•¶šv‚ªİ’è‚³‚ê‚Ä‚¢‚éê‡‚ÉA³‚µ‚­ˆ—‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã€‚<br>
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¯ãƒ©ã‚¹ã®@FileFormatã®è¨­å®šã«ã€Œå›²ã¿æ–‡å­—ã€ã¨ã€ŒåŒºåˆ‡ã‚Šæ–‡å­—ã€ã¨ã€Œ1æ¡ã®è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—ã€ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã«ã€æ­£ã—ãå‡¦ç†ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testBuildLineReader02() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_buildLineReader01.txt");
         String fileName = url.getPath();
@@ -4604,21 +4604,21 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub21.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(fileLineIterator, "enclosed", true);
         UTUtil.setPrivateField(fileLineIterator, "columnEncloseChar",
                 new char[] {});
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         UTUtil.invokePrivate(fileLineIterator, "buildLineReader");
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         Object reader = UTUtil.getPrivateField(fileLineIterator, "reader");
         assertEquals(BufferedReader.class, reader.getClass());
 
@@ -4634,36 +4634,36 @@ public class AbstractFileLineIteratorTest extends TestCase {
         String result = ((BufferedReader) reader).readLine();
         assertEquals("AbstractFileLineIterator_buildLineReader01", result);
 
-        // Œãˆ—
+        // å¾Œå‡¦ç†
         ((BufferedReader) reader).close();
     }
 
     /**
      * testBuildLineReader03() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FF <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šF <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl04<br>
-     * @#getEncloseChar()FCharacter.MIN_VALUE‚ğ•Ô‚·<br>
-     * @#getDelimiter()F','‚ğ•Ô‚·<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl04<br>
+     * ã€€#getEncloseChar()ï¼šCharacter.MIN_VALUEã‚’è¿”ã™<br>
+     * ã€€#getDelimiter()ï¼š','ã‚’è¿”ã™<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "AbstractFileLineIterator_buildLineReader01.txt"<br>
-     * (ó‘Ô) this.fileEncoding:ƒVƒXƒeƒ€ƒfƒtƒHƒ‹ƒg’l<br>
-     * (ó‘Ô) this.lineFeedChar:"\r\n"<br>
-     * (ó‘Ô) this.lineReader:null<br>
+     * (çŠ¶æ…‹) this.fileEncoding:ã‚·ã‚¹ãƒ†ãƒ ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * (çŠ¶æ…‹) this.lineFeedChar:"\r\n"<br>
+     * (çŠ¶æ…‹) this.lineReader:null<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.reader:"AbstractFileLineIterator_buildLineReader01.txt"‚É‘Î‚·‚éBufferedReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô•Ï‰») this.lineReader:ˆÈ‰º‚Ìİ’è‚ğ‚ÂLineFeed2LineReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * ElineFeedCharF"\r\n"<br>
-     * EreaderF"AbstractFileLineIterator_buildLineReader01.txt"‚É‘Î‚·‚éBufferedReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.reader:"AbstractFileLineIterator_buildLineReader01.txt"ã«å¯¾ã™ã‚‹BufferedReaderã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.lineReader:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤LineFeed2LineReaderã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»lineFeedCharï¼š"\r\n"<br>
+     * ãƒ»readerï¼š"AbstractFileLineIterator_buildLineReader01.txt"ã«å¯¾ã™ã‚‹BufferedReaderã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     * ³íB<br>
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌƒNƒ‰ƒX‚Ì@FileFormat‚Ìİ’è‚Éu‹æØ‚è•¶šv‚Æu2Œ…‚Ìs‹æØ‚è•¶šv‚ªİ’è‚³‚ê‚Ä‚¢‚éê‡‚ÉA³‚µ‚­ˆ—‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã€‚<br>
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¯ãƒ©ã‚¹ã®@FileFormatã®è¨­å®šã«ã€ŒåŒºåˆ‡ã‚Šæ–‡å­—ã€ã¨ã€Œ2æ¡ã®è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—ã€ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã«ã€æ­£ã—ãå‡¦ç†ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testBuildLineReader03() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_buildLineReader01.txt");
         String fileName = url.getPath();
@@ -4674,19 +4674,19 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub20.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Éİ’èÏ‚İ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–æ™‚ã«è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         UTUtil.invokePrivate(fileLineIterator, "buildLineReader");
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         Object reader = UTUtil.getPrivateField(fileLineIterator, "reader");
         assertEquals(BufferedReader.class, reader.getClass());
 
@@ -4699,36 +4699,36 @@ public class AbstractFileLineIteratorTest extends TestCase {
         String result = ((BufferedReader) reader).readLine();
         assertEquals("AbstractFileLineIterator_buildLineReader01", result);
 
-        // Œãˆ—
+        // å¾Œå‡¦ç†
         ((BufferedReader) reader).close();
     }
 
     /**
      * testBuildLineReader04() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FF <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šF <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl04<br>
-     * @#getEncloseChar()FCharacter.MIN_VALUE‚ğ•Ô‚·<br>
-     * @#getDelimiter()F','‚ğ•Ô‚·<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl04<br>
+     * ã€€#getEncloseChar()ï¼šCharacter.MIN_VALUEã‚’è¿”ã™<br>
+     * ã€€#getDelimiter()ï¼š','ã‚’è¿”ã™<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "AbstractFileLineIterator_buildLineReader01.txt"<br>
-     * (ó‘Ô) this.fileEncoding:ƒVƒXƒeƒ€ƒfƒtƒHƒ‹ƒg’l<br>
-     * (ó‘Ô) this.lineFeedChar:"\r"<br>
-     * (ó‘Ô) this.lineReader:null<br>
+     * (çŠ¶æ…‹) this.fileEncoding:ã‚·ã‚¹ãƒ†ãƒ ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * (çŠ¶æ…‹) this.lineFeedChar:"\r"<br>
+     * (çŠ¶æ…‹) this.lineReader:null<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.reader:"AbstractFileLineIterator_buildLineReader01.txt"‚É‘Î‚·‚éBufferedReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô•Ï‰») this.lineReader:ˆÈ‰º‚Ìİ’è‚ğ‚ÂLineFeed1LineReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * ElineFeedCharF"\r"<br>
-     * EreaderF"AbstractFileLineIterator_buildLineReader01.txt"‚É‘Î‚·‚éBufferedReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.reader:"AbstractFileLineIterator_buildLineReader01.txt"ã«å¯¾ã™ã‚‹BufferedReaderã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.lineReader:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤LineFeed1LineReaderã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»lineFeedCharï¼š"\r"<br>
+     * ãƒ»readerï¼š"AbstractFileLineIterator_buildLineReader01.txt"ã«å¯¾ã™ã‚‹BufferedReaderã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     * ³íB<br>
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌƒNƒ‰ƒX‚Ì@FileFormat‚Ìİ’è‚Éu‹æØ‚è•¶šv‚Æu1Œ…‚Ìs‹æØ‚è•¶šv‚ªİ’è‚³‚ê‚Ä‚¢‚éê‡‚ÉA³‚µ‚­ˆ—‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã€‚<br>
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¯ãƒ©ã‚¹ã®@FileFormatã®è¨­å®šã«ã€ŒåŒºåˆ‡ã‚Šæ–‡å­—ã€ã¨ã€Œ1æ¡ã®è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—ã€ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã«ã€æ­£ã—ãå‡¦ç†ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testBuildLineReader04() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_buildLineReader01.txt");
         String fileName = url.getPath();
@@ -4739,19 +4739,19 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub21.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Éİ’èÏ‚İ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–æ™‚ã«è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         UTUtil.invokePrivate(fileLineIterator, "buildLineReader");
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         Object reader = UTUtil.getPrivateField(fileLineIterator, "reader");
         assertEquals(BufferedReader.class, reader.getClass());
 
@@ -4764,42 +4764,42 @@ public class AbstractFileLineIteratorTest extends TestCase {
         String result = ((BufferedReader) reader).readLine();
         assertEquals("AbstractFileLineIterator_buildLineReader01", result);
 
-        // Œãˆ—
+        // å¾Œå‡¦ç†
         ((BufferedReader) reader).close();
     }
 
     /**
      * testBuildLineReader05() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl03<br>
-     * @#getEncloseChar()F'\"'‚ğ•Ô‚·<br>
-     * @#getDelimiter()F','‚ğ•Ô‚·<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "AbstractFileLineIterator_buildLineReader_noExist.txt"i‘¶İ‚µ‚È‚¢ƒtƒ@ƒCƒ‹j<br>
-     * ¦ƒCƒ“ƒXƒ^ƒ“ƒX¶¬Œã‚Éİ’è‚·‚éB<br>
-     * (ó‘Ô) this.fileEncoding:ƒVƒXƒeƒ€ƒfƒtƒHƒ‹ƒg’l<br>
-     * (ó‘Ô) this.lineFeedChar:"\r\n"<br>
-     * (ó‘Ô) this.lineReader:null<br>
-     * ¦ƒCƒ“ƒXƒ^ƒ“ƒX¶¬Œã‚Éİ’è‚·‚éB<br>
-     * (ó‘Ô) this.reader:null<br>
-     * ¦ƒCƒ“ƒXƒ^ƒ“ƒX¶¬Œã‚Éİ’è‚·‚éB<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl03<br>
+     * ã€€#getEncloseChar()ï¼š'\"'ã‚’è¿”ã™<br>
+     * ã€€#getDelimiter()ï¼š','ã‚’è¿”ã™<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "AbstractFileLineIterator_buildLineReader_noExist.txt"ï¼ˆå­˜åœ¨ã—ãªã„ãƒ•ã‚¡ã‚¤ãƒ«ï¼‰<br>
+     * â€»ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ç”Ÿæˆå¾Œã«è¨­å®šã™ã‚‹ã€‚<br>
+     * (çŠ¶æ…‹) this.fileEncoding:ã‚·ã‚¹ãƒ†ãƒ ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * (çŠ¶æ…‹) this.lineFeedChar:"\r\n"<br>
+     * (çŠ¶æ…‹) this.lineReader:null<br>
+     * â€»ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ç”Ÿæˆå¾Œã«è¨­å®šã™ã‚‹ã€‚<br>
+     * (çŠ¶æ…‹) this.reader:null<br>
+     * â€»ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ç”Ÿæˆå¾Œã«è¨­å®šã™ã‚‹ã€‚<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.reader:null<br>
-     * (ó‘Ô•Ï‰») this.lineReader:null<br>
-     * (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"Failed in generation of reader."<br>
-     * EŒ´ˆö—áŠOFFileNotFoundException<br>
-     * Eƒtƒ@ƒCƒ‹–¼FƒtƒB[ƒ‹ƒhfileName‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒXB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.reader:null<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.lineReader:null<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Failed in generation of reader."<br>
+     * ãƒ»åŸå› ä¾‹å¤–ï¼šFileNotFoundException<br>
+     * ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰fileNameã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚<br>
      * <br>
-     * —áŠOB<br>
-     * ‘¶İ‚µ‚È‚¢ƒtƒ@ƒCƒ‹‚ğfileName‚Éİ’è‚µ‚½ê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ä¾‹å¤–ã€‚<br>
+     * å­˜åœ¨ã—ãªã„ãƒ•ã‚¡ã‚¤ãƒ«ã‚’fileNameã«è¨­å®šã—ãŸå ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testBuildLineReader05() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_buildLineReader01.txt");
         String fileName = url.getPath();
@@ -4810,25 +4810,25 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub20.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         String fileName_test = "AbstractFileLineIterator_buildLineReader_noExist.txt";
         UTUtil.setPrivateField(fileLineIterator, "fileName", fileName_test);
         UTUtil.setPrivateField(fileLineIterator, "lineReader", null);
         UTUtil.setPrivateField(fileLineIterator, "reader", null);
-        // ‚»‚Ì‘¼‚ÍAƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Éİ’èÏ‚İ
+        // ãã®ä»–ã¯ã€ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–æ™‚ã«è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             UTUtil.invokePrivate(fileLineIterator, "buildLineReader");
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (FileException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertNull(UTUtil.getPrivateField(fileLineIterator, "reader"));
             assertNull(UTUtil.getPrivateField(fileLineIterator, "lineReader"));
 
@@ -4842,35 +4842,35 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testBuildLineReader06() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl03<br>
-     * @#getEncloseChar()F'\"'‚ğ•Ô‚·<br>
-     * @#getDelimiter()F','‚ğ•Ô‚·<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl03<br>
+     * ã€€#getEncloseChar()ï¼š'\"'ã‚’è¿”ã™<br>
+     * ã€€#getDelimiter()ï¼š','ã‚’è¿”ã™<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "File_1Linecsv"<br>
-     * (ó‘Ô) this.fileEncoding:‘¶İ‚µ‚È‚¢ƒGƒ“ƒR[ƒh<br>
-     * ¦ƒCƒ“ƒXƒ^ƒ“ƒX¶¬Œã‚Éİ’è‚·‚é<br>
-     * (ó‘Ô) this.lineFeedChar:"\r\n"<br>
-     * (ó‘Ô) this.lineReader:null<br>
-     * ¦ƒCƒ“ƒXƒ^ƒ“ƒX¶¬Œã‚Éİ’è‚·‚éB<br>
-     * (ó‘Ô) this.reader:null<br>
-     * ¦ƒCƒ“ƒXƒ^ƒ“ƒX¶¬Œã‚Éİ’è‚·‚éB<br>
+     * (çŠ¶æ…‹) this.fileEncoding:å­˜åœ¨ã—ãªã„ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰<br>
+     * â€»ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ç”Ÿæˆå¾Œã«è¨­å®šã™ã‚‹<br>
+     * (çŠ¶æ…‹) this.lineFeedChar:"\r\n"<br>
+     * (çŠ¶æ…‹) this.lineReader:null<br>
+     * â€»ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ç”Ÿæˆå¾Œã«è¨­å®šã™ã‚‹ã€‚<br>
+     * (çŠ¶æ…‹) this.reader:null<br>
+     * â€»ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ç”Ÿæˆå¾Œã«è¨­å®šã™ã‚‹ã€‚<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.reader:null<br>
-     * (ó‘Ô•Ï‰») this.lineReader:null<br>
-     * (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"Failed in generation of reader."<br>
-     * EŒ´ˆö—áŠOFUnsupportedEncodingException<br>
-     * Eƒtƒ@ƒCƒ‹–¼FƒtƒB[ƒ‹ƒhfileName‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒXB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.reader:null<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.lineReader:null<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Failed in generation of reader."<br>
+     * ãƒ»åŸå› ä¾‹å¤–ï¼šUnsupportedEncodingException<br>
+     * ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰fileNameã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚<br>
      * <br>
-     * —áŠOB<br>
-     * ‘¶İ‚µ‚È‚¢ƒGƒ“ƒR[ƒh‚ğfileEncode‚Éİ’è‚µ‚½ê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ä¾‹å¤–ã€‚<br>
+     * å­˜åœ¨ã—ãªã„ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰ã‚’fileEncodeã«è¨­å®šã—ãŸå ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testBuildLineReader06() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_buildLineReader01.txt");
         String fileName = url.getPath();
@@ -4881,24 +4881,24 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub20.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(fileLineIterator, "fileEncoding", "aaa");
         UTUtil.setPrivateField(fileLineIterator, "lineReader", null);
         UTUtil.setPrivateField(fileLineIterator, "reader", null);
-        // ‚»‚Ì‘¼‚ÍAƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Éİ’èÏ‚İ
+        // ãã®ä»–ã¯ã€ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–æ™‚ã«è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             UTUtil.invokePrivate(fileLineIterator, "buildLineReader");
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (FileException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertNull(UTUtil.getPrivateField(fileLineIterator, "reader"));
             assertNull(UTUtil.getPrivateField(fileLineIterator, "lineReader"));
 
@@ -4913,35 +4913,35 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testBuildLineReader07() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl04<br>
-     * @#getEncloseChar()FCharacter.MIN_VALUE‚ğ•Ô‚·<br>
-     * @#getDelimiter()F','‚ğ•Ô‚·<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl04<br>
+     * ã€€#getEncloseChar()ï¼šCharacter.MIN_VALUEã‚’è¿”ã™<br>
+     * ã€€#getDelimiter()ï¼š','ã‚’è¿”ã™<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "AbstractFileLineIterator_buildLineReader01.txt"<br>
-     * (ó‘Ô) this.fileEncoding:ƒVƒXƒeƒ€ƒfƒtƒHƒ‹ƒg’l<br>
-     * (ó‘Ô) this.lineFeedChar:"\r\r\r"<br>
-     * ¦ƒCƒ“ƒXƒ^ƒ“ƒX¶¬Œã‚Éİ’è‚·‚é<br>
-     * (ó‘Ô) this.lineReader:null<br>
-     * ¦ƒCƒ“ƒXƒ^ƒ“ƒX¶¬Œã‚Éİ’è‚·‚éB<br>
-     * (ó‘Ô) this.reader:null<br>
-     * ¦ƒCƒ“ƒXƒ^ƒ“ƒX¶¬Œã‚Éİ’è‚·‚éB<br>
+     * (çŠ¶æ…‹) this.fileEncoding:ã‚·ã‚¹ãƒ†ãƒ ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * (çŠ¶æ…‹) this.lineFeedChar:"\r\r\r"<br>
+     * â€»ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ç”Ÿæˆå¾Œã«è¨­å®šã™ã‚‹<br>
+     * (çŠ¶æ…‹) this.lineReader:null<br>
+     * â€»ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ç”Ÿæˆå¾Œã«è¨­å®šã™ã‚‹ã€‚<br>
+     * (çŠ¶æ…‹) this.reader:null<br>
+     * â€»ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ç”Ÿæˆå¾Œã«è¨­å®šã™ã‚‹ã€‚<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.reader:"AbstractFileLineIterator_buildLineReader01.txt"‚É‘Î‚·‚éBufferedReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô•Ï‰») this.lineReader:null<br>
-     * (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"lineFeedChar length must be 0 or 1 or 2. but: 3"<br>
-     * EŒ´ˆö—áŠOFIllegalStateException<br>
-     * Eƒtƒ@ƒCƒ‹–¼FƒtƒB[ƒ‹ƒhfileName‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒXB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.reader:"AbstractFileLineIterator_buildLineReader01.txt"ã«å¯¾ã™ã‚‹BufferedReaderã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.lineReader:null<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"lineFeedChar length must be 0 or 1 or 2. but: 3"<br>
+     * ãƒ»åŸå› ä¾‹å¤–ï¼šIllegalStateException<br>
+     * ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰fileNameã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚<br>
      * <br>
-     * —áŠOB<br>
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌƒNƒ‰ƒX‚Ì@FileFormat‚Ìİ’è‚Éu‹æØ‚è•¶šv‚Æu3Œ…ˆÈã‚Ìs‹æØ‚è•¶šv‚ªİ’è‚³‚ê‚Ä‚¢‚éê‡‚ÉA—áŠO‚ğƒXƒ[‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ä¾‹å¤–ã€‚<br>
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¯ãƒ©ã‚¹ã®@FileFormatã®è¨­å®šã«ã€ŒåŒºåˆ‡ã‚Šæ–‡å­—ã€ã¨ã€Œ3æ¡ä»¥ä¸Šã®è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—ã€ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã«ã€ä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testBuildLineReader07() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_buildLineReader01.txt");
         String fileName = url.getPath();
@@ -4952,24 +4952,24 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub20.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(fileLineIterator, "lineFeedChar", "\r\r\r");
         UTUtil.setPrivateField(fileLineIterator, "lineReader", null);
         UTUtil.setPrivateField(fileLineIterator, "reader", null);
-        // ‚»‚Ì‘¼‚ÍAƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Éİ’èÏ‚İ
+        // ãã®ä»–ã¯ã€ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–æ™‚ã«è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             UTUtil.invokePrivate(fileLineIterator, "buildLineReader");
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (FileException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             Object reader = UTUtil.getPrivateField(fileLineIterator, "reader");
             assertEquals(BufferedReader.class, reader.getClass());
 
@@ -4988,35 +4988,35 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testBuildLineReader08() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl03<br>
-     * @#getEncloseChar()F'\"'‚ğ•Ô‚·<br>
-     * @#getDelimiter()F','‚ğ•Ô‚·<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl03<br>
+     * ã€€#getEncloseChar()ï¼š'\"'ã‚’è¿”ã™<br>
+     * ã€€#getDelimiter()ï¼š','ã‚’è¿”ã™<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "AbstractFileLineIterator_buildLineReader01.txt"<br>
-     * (ó‘Ô) this.fileEncoding:ƒVƒXƒeƒ€ƒfƒtƒHƒ‹ƒg’l<br>
-     * (ó‘Ô) this.lineFeedChar:"\r\r\r"<br>
-     * ¦ƒCƒ“ƒXƒ^ƒ“ƒX¶¬Œã‚Éİ’è‚·‚é<br>
-     * (ó‘Ô) this.lineReader:null<br>
-     * ¦ƒCƒ“ƒXƒ^ƒ“ƒX¶¬Œã‚Éİ’è‚·‚éB<br>
-     * (ó‘Ô) this.reader:null<br>
-     * ¦ƒCƒ“ƒXƒ^ƒ“ƒX¶¬Œã‚Éİ’è‚·‚éB<br>
+     * (çŠ¶æ…‹) this.fileEncoding:ã‚·ã‚¹ãƒ†ãƒ ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * (çŠ¶æ…‹) this.lineFeedChar:"\r\r\r"<br>
+     * â€»ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ç”Ÿæˆå¾Œã«è¨­å®šã™ã‚‹<br>
+     * (çŠ¶æ…‹) this.lineReader:null<br>
+     * â€»ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ç”Ÿæˆå¾Œã«è¨­å®šã™ã‚‹ã€‚<br>
+     * (çŠ¶æ…‹) this.reader:null<br>
+     * â€»ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ç”Ÿæˆå¾Œã«è¨­å®šã™ã‚‹ã€‚<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.reader:"AbstractFileLineIterator_buildLineReader01.txt"‚É‘Î‚·‚éBufferedReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô•Ï‰») this.lineReader:null<br>
-     * (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"lineFeedChar length must be 0 or 1 or 2. but: 3"<br>
-     * EŒ´ˆö—áŠOFIllegalStateException<br>
-     * Eƒtƒ@ƒCƒ‹–¼FƒtƒB[ƒ‹ƒhfileName‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒXB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.reader:"AbstractFileLineIterator_buildLineReader01.txt"ã«å¯¾ã™ã‚‹BufferedReaderã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.lineReader:null<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"lineFeedChar length must be 0 or 1 or 2. but: 3"<br>
+     * ãƒ»åŸå› ä¾‹å¤–ï¼šIllegalStateException<br>
+     * ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰fileNameã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚<br>
      * <br>
-     * —áŠOB<br>
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌƒNƒ‰ƒX‚Ì@FileFormat‚Ìİ’è‚ÉuˆÍ‚İ•¶šv‚Æu‹æØ‚è•¶šv‚Æu3Œ…ˆÈã‚Ìs‹æØ‚è•¶šv‚ªİ’è‚³‚ê‚Ä‚¢‚éê‡‚ÉA—áŠO‚ğƒXƒ[‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ä¾‹å¤–ã€‚<br>
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¯ãƒ©ã‚¹ã®@FileFormatã®è¨­å®šã«ã€Œå›²ã¿æ–‡å­—ã€ã¨ã€ŒåŒºåˆ‡ã‚Šæ–‡å­—ã€ã¨ã€Œ3æ¡ä»¥ä¸Šã®è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—ã€ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã«ã€ä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testBuildLineReader08() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_buildLineReader01.txt");
         String fileName = url.getPath();
@@ -5027,24 +5027,24 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub20.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(fileLineIterator, "lineFeedChar", "\r\r\r");
         UTUtil.setPrivateField(fileLineIterator, "lineReader", null);
         UTUtil.setPrivateField(fileLineIterator, "reader", null);
-        // ‚»‚Ì‘¼‚ÍAƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Éİ’èÏ‚İ
+        // ãã®ä»–ã¯ã€ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–æ™‚ã«è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             UTUtil.invokePrivate(fileLineIterator, "buildLineReader");
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (FileException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             Object reader = UTUtil.getPrivateField(fileLineIterator, "reader");
             assertEquals(BufferedReader.class, reader.getClass());
 
@@ -5063,17 +5063,17 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testBuildLineReader09() <br>
      * <br>
-     * (ˆÙíŒn) <br>
+     * (ç•°å¸¸ç³») <br>
      * <br>
-     * “ü—Í’lFmarkSupported ‚ªfalse‚ğ•Ô‚·<br>
+     * å…¥åŠ›å€¤ï¼šmarkSupported ãŒfalseã‚’è¿”ã™<br>
      * <br>
-     * Šú‘Ò’lF —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"BufferedReader of this JVM dose not support mark method"<br>
+     * æœŸå¾…å€¤ï¼š ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"BufferedReader of this JVM dose not support mark method"<br>
      * <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testBuildLineReader09() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource("File_Empty.txt");
         String fileName = url.getPath();
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
@@ -5083,11 +5083,11 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub21.class,
                 columnParserMap);
 
-        // markSupported‚ªfalse‚ğ•Ô‹p‚·‚é‚æ‚¤‚Éİ’è
+        // markSupportedãŒfalseã‚’è¿”å´ã™ã‚‹ã‚ˆã†ã«è¨­å®š
         VMOUTUtil.setReturnValueAtAllTimes(BufferedReader.class,
                 "markSupported", false);
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             UTUtil.invokePrivate(fileLineIterator, "buildLineReader");
             fail();
         } catch (FileException e) {
@@ -5100,32 +5100,32 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testBuildFields01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂƒCƒ“ƒXƒ^ƒ“ƒX‰»‰Â”\Class‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E@FileFormat‚Ìİ’è‚ğ‚Â<br>
-     * - ‘S€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     * EƒtƒB[ƒ‹ƒh‚ª‚Ä‚È‚¢B<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–å¯èƒ½Classã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»@FileFormatã®è¨­å®šã‚’æŒã¤<br>
+     * - å…¨é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * ãƒ»ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ãŒæŒã¦ãªã„ã€‚<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "AbstractFileLineIterator_bulidFields01.txt"<br>
-     * (ó‘Ô) this.fields:null<br>
-     * (ó‘Ô) this.columnParserMap:ˆÈ‰º‚Ì—v‘f‚ğ‚Â<br>
-     * Map<String, ColumnParser>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"java.lang.String"=NullColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * (çŠ¶æ…‹) this.fields:null<br>
+     * (çŠ¶æ…‹) this.columnParserMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤<br>
+     * Map<String, ColumnParser>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"java.lang.String"=NullColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») Field.getAnnotation():ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») this.fields:—v‘f‚ğ‚½‚È‚¢Field”z—ñƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô•Ï‰») Class.getDeclaredFields():2‰ñŒÄ‚Î‚ê‚é<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) Field.getAnnotation():å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.fields:è¦ç´ ã‚’æŒãŸãªã„Fieldé…åˆ—ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) Class.getDeclaredFields():2å›å‘¼ã°ã‚Œã‚‹<br>
      * <br>
-     * ³íB<br>
-     * ƒtƒB[ƒ‹ƒhclazz‚ªƒtƒB[ƒ‹ƒh‚ğ‚Á‚Ä‚È‚¢ê‡A³íI—¹‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã€‚<br>
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰clazzãŒãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã£ã¦ãªã„å ´åˆã€æ­£å¸¸çµ‚äº†ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testBuildFields01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_bulidFields01.txt");
         String fileName = url.getPath();
@@ -5136,19 +5136,19 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub07.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(fileLineIterator, "fields", null);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         UTUtil.invokePrivate(fileLineIterator, "buildFields");
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(0, VMOUTUtil.getCallCount(Field.class, "getAnnotation"));
         Object result_fields = (Field[]) UTUtil.getPrivateField(
                 fileLineIterator, "fields");
@@ -5162,35 +5162,35 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testBuildFields02() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂƒCƒ“ƒXƒ^ƒ“ƒX‰»‰Â”\Class‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E@FileFormat‚Ìİ’è‚ğ‚Â<br>
-     * - ‘S€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     * E@InputFileColumnİ’è‚È‚µ‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * - ƒtƒB[ƒ‹ƒhFString noMappingColumn3<br>
-     * - ƒtƒB[ƒ‹ƒhFString noMappingColumn1<br>
-     * - ƒtƒB[ƒ‹ƒhFString noMappingColumn2<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–å¯èƒ½Classã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»@FileFormatã®è¨­å®šã‚’æŒã¤<br>
+     * - å…¨é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * ãƒ»@InputFileColumnè¨­å®šãªã—ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString noMappingColumn3<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString noMappingColumn1<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString noMappingColumn2<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "AbstractFileLineIterator_bulidFields01.txt"<br>
-     * (ó‘Ô) this.fields:null<br>
-     * (ó‘Ô) this.columnParserMap:ˆÈ‰º‚Ì—v‘f‚ğ‚Â<br>
-     * Map<String, ColumnParser>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"java.lang.String"=NullColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * (çŠ¶æ…‹) this.fields:null<br>
+     * (çŠ¶æ…‹) this.columnParserMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤<br>
+     * Map<String, ColumnParser>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"java.lang.String"=NullColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») Field.getAnnotation():3‰ñŒÄ‚Î‚ê‚é<br>
-     * (ó‘Ô•Ï‰») this.fields:—v‘f‚ğ‚½‚È‚¢Field”z—ñƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô•Ï‰») Class.getDeclaredFields():2‰ñŒÄ‚Î‚ê‚é<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) Field.getAnnotation():3å›å‘¼ã°ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.fields:è¦ç´ ã‚’æŒãŸãªã„Fieldé…åˆ—ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) Class.getDeclaredFields():2å›å‘¼ã°ã‚Œã‚‹<br>
      * <br>
-     * ³íB<br>
-     * ƒtƒB[ƒ‹ƒhclazz‚ª@InputFileColumnİ’è‚È‚µ‚ÌƒtƒB[ƒ‹ƒh‚Ì‚İ‚Âê‡Aƒ}ƒbƒsƒ“ƒO‘ÎÛƒtƒB[ƒ‹ƒh‚Ìî•ñ‚ª³‚µ‚­İ’è‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã€‚<br>
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰clazzãŒ@InputFileColumnè¨­å®šãªã—ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®ã¿æŒã¤å ´åˆã€ãƒãƒƒãƒ”ãƒ³ã‚°å¯¾è±¡ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®æƒ…å ±ãŒæ­£ã—ãè¨­å®šã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testBuildFields02() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_bulidFields01.txt");
         String fileName = url.getPath();
@@ -5201,19 +5201,19 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub30.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(fileLineIterator, "fields", null);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         UTUtil.invokePrivate(fileLineIterator, "buildFields");
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(3, VMOUTUtil.getCallCount(Field.class, "getAnnotation"));
         Object result_fields = (Field[]) UTUtil.getPrivateField(
                 fileLineIterator, "fields");
@@ -5227,48 +5227,48 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testBuildFields03() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂƒCƒ“ƒXƒ^ƒ“ƒX‰»‰Â”\Class‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E@FileFormat‚Ìİ’è‚ğ‚Â<br>
-     * - ‘S€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     * E@InputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * - ƒtƒB[ƒ‹ƒhFString column3<br>
-     * @InputFileColumnİ’è<br> > columnIndexF2<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFString column1<br>
-     * @InputFileColumnİ’è<br> > columnIndexF0<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFString column2<br>
-     * @InputFileColumnİ’è<br> > columnIndexF1<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        ¦columnIndex‚ªd•¡‚µ‚È‚¢B<br>
-     *                        (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–å¯èƒ½Classã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»@FileFormatã®è¨­å®šã‚’æŒã¤<br>
+     * - å…¨é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * ãƒ»@InputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column3<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š2<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column1<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š0<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column2<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š1<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        â€»columnIndexãŒé‡è¤‡ã—ãªã„ã€‚<br>
+     *                        (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                        "AbstractFileLineIterator_bulidFields01.txt"<br>
-     *                        (ó‘Ô) this.fields:null<br>
-     *                        (ó‘Ô) this.columnParserMap:ˆÈ‰º‚Ì—v‘f‚ğ‚Â<br>
-     *                        Map<String, ColumnParser>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.lang.String"=NullColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     *                        (çŠ¶æ…‹) this.fields:null<br>
+     *                        (çŠ¶æ…‹) this.columnParserMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤<br>
+     *                        Map<String, ColumnParser>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.lang.String"=NullColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     *                        Šú‘Ò’lF(ó‘Ô•Ï‰») Field.getAnnotation():6‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.fields:this.clazz‚É‘Î‚·‚éƒtƒB[ƒ‹ƒh—v‘f3‚Â‚ğ‚ÂField”z—ñƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        ‚PDcolumn1<br>
-     *                        ‚QDcolumn2<br>
-     *                        ‚RDcolumn3<br>
+     *                        æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) Field.getAnnotation():6å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.fields:this.clazzã«å¯¾ã™ã‚‹ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰è¦ç´ 3ã¤ã‚’æŒã¤Fieldé…åˆ—ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ï¼‘ï¼column1<br>
+     *                        ï¼’ï¼column2<br>
+     *                        ï¼“ï¼column3<br>
      * <br>
-     *                        ¦‡”Ô‚ÍcolumnIndex‡<br>
-     *                        (ó‘Ô•Ï‰») Class.getDeclaredFields():2‰ñŒÄ‚Î‚ê‚é<br>
+     *                        â€»é †ç•ªã¯columnIndexé †<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) Class.getDeclaredFields():2å›å‘¼ã°ã‚Œã‚‹<br>
      * <br>
-     *                        ³íB<br>
-     *                        ƒtƒB[ƒ‹ƒhclazz‚ª•¡”‚Ì@InputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚Ì‚İ‚¿A‚Ü‚½ŠeƒtƒB[ƒ‹ƒh‚ÌcolumnIndex’l‚Éd•¡‚ª‚È‚¢ê‡Aƒ}ƒbƒsƒ“ƒO‘ÎÛƒtƒB[ƒ‹ƒh‚Ìî•ñ‚ª³‚µ‚­İ’è‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚é
-     *                        B <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                        æ­£å¸¸ã€‚<br>
+     *                        ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰clazzãŒè¤‡æ•°ã®@InputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®ã¿æŒã¡ã€ã¾ãŸå„ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®columnIndexå€¤ã«é‡è¤‡ãŒãªã„å ´åˆã€ãƒãƒƒãƒ”ãƒ³ã‚°å¯¾è±¡ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®æƒ…å ±ãŒæ­£ã—ãè¨­å®šã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹
+     *                        ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testBuildFields03() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_bulidFields01.txt");
         String fileName = url.getPath();
@@ -5279,19 +5279,19 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub31.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(fileLineIterator, "fields", null);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         UTUtil.invokePrivate(fileLineIterator, "buildFields");
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(6, VMOUTUtil.getCallCount(Field.class, "getAnnotation"));
         Object result_fields = (Field[]) UTUtil.getPrivateField(
                 fileLineIterator, "fields");
@@ -5308,53 +5308,53 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testBuildFields04() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂƒCƒ“ƒXƒ^ƒ“ƒX‰»‰Â”\Class‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E@FileFormat‚Ìİ’è‚ğ‚Â<br>
-     * - ‘S€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     * E@InputFileColumnİ’è‚È‚µ‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * - ƒtƒB[ƒ‹ƒhFString noMappingColumn3<br>
-     * - ƒtƒB[ƒ‹ƒhFString noMappingColumn1<br>
-     * - ƒtƒB[ƒ‹ƒhFString noMappingColumn2<br>
-     * E@InputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * - ƒtƒB[ƒ‹ƒhFString column3<br>
-     * @InputFileColumnİ’è<br> > columnIndexF2<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFString column1<br>
-     * @InputFileColumnİ’è<br> > columnIndexF0<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFString column2<br>
-     * @InputFileColumnİ’è<br> > columnIndexF1<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        ¦columnIndex‚ªd•¡‚µ‚È‚¢B<br>
-     *                        ¦ƒNƒ‰ƒX’è‹`A@—L‚è–³‚µ‚ÌƒtƒB[ƒ‹ƒh‚Ì‡”Ô‚ğ¬‚º‚Ä’è‹`‚·‚é‚±‚ÆB<br>
-     *                        (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–å¯èƒ½Classã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»@FileFormatã®è¨­å®šã‚’æŒã¤<br>
+     * - å…¨é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * ãƒ»@InputFileColumnè¨­å®šãªã—ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString noMappingColumn3<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString noMappingColumn1<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString noMappingColumn2<br>
+     * ãƒ»@InputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column3<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š2<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column1<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š0<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column2<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š1<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        â€»columnIndexãŒé‡è¤‡ã—ãªã„ã€‚<br>
+     *                        â€»ã‚¯ãƒ©ã‚¹å®šç¾©æ™‚ã€@æœ‰ã‚Šç„¡ã—ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®é †ç•ªã‚’æ··ãœã¦å®šç¾©ã™ã‚‹ã“ã¨ã€‚<br>
+     *                        (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                        "AbstractFileLineIterator_bulidFields01.txt"<br>
-     *                        (ó‘Ô) this.fields:null<br>
-     *                        (ó‘Ô) this.columnParserMap:ˆÈ‰º‚Ì—v‘f‚ğ‚Â<br>
-     *                        Map<String, ColumnParser>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.lang.String"=NullColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     *                        (çŠ¶æ…‹) this.fields:null<br>
+     *                        (çŠ¶æ…‹) this.columnParserMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤<br>
+     *                        Map<String, ColumnParser>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.lang.String"=NullColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     *                        Šú‘Ò’lF(ó‘Ô•Ï‰») Field.getAnnotation():9‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.fields:this.clazz‚É‘Î‚·‚éƒtƒB[ƒ‹ƒh—v‘f3‚Â‚ğ‚ÂField”z—ñƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        ‚PDcolumn1<br>
-     *                        ‚QDcolumn2<br>
-     *                        ‚RDcolumn3<br>
+     *                        æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) Field.getAnnotation():9å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.fields:this.clazzã«å¯¾ã™ã‚‹ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰è¦ç´ 3ã¤ã‚’æŒã¤Fieldé…åˆ—ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ï¼‘ï¼column1<br>
+     *                        ï¼’ï¼column2<br>
+     *                        ï¼“ï¼column3<br>
      * <br>
-     *                        ¦‡”Ô‚ÍcolumnIndex‡<br>
-     *                        (ó‘Ô•Ï‰») Class.getDeclaredFields():2‰ñŒÄ‚Î‚ê‚é<br>
+     *                        â€»é †ç•ªã¯columnIndexé †<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) Class.getDeclaredFields():2å›å‘¼ã°ã‚Œã‚‹<br>
      * <br>
-     *                        ³íB<br>
-     *                        ƒtƒB[ƒ‹ƒhclazz‚ª•¡”‚Ì@InputFileColumnİ’è‚ ‚èE‚È‚µ‚ÌƒtƒB[ƒ‹ƒh‚ğ‚¿A‚Ü‚½ŠeƒtƒB[ƒ‹ƒh‚ÌcolumnIndex’l‚Éd•¡‚ª‚È‚¢ê‡Aƒ}ƒbƒsƒ“ƒO‘ÎÛƒtƒB[ƒ‹ƒh‚Ìî•ñ‚ª³‚µ‚­İ’è‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚é
-     *                        B <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                        æ­£å¸¸ã€‚<br>
+     *                        ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰clazzãŒè¤‡æ•°ã®@InputFileColumnè¨­å®šã‚ã‚Šãƒ»ãªã—ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¡ã€ã¾ãŸå„ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®columnIndexå€¤ã«é‡è¤‡ãŒãªã„å ´åˆã€ãƒãƒƒãƒ”ãƒ³ã‚°å¯¾è±¡ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®æƒ…å ±ãŒæ­£ã—ãè¨­å®šã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹
+     *                        ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testBuildFields04() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_bulidFields01.txt");
         String fileName = url.getPath();
@@ -5365,19 +5365,19 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub32.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(fileLineIterator, "fields", null);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         UTUtil.invokePrivate(fileLineIterator, "buildFields");
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(9, VMOUTUtil.getCallCount(Field.class, "getAnnotation"));
         Object result_fields = (Field[]) UTUtil.getPrivateField(
                 fileLineIterator, "fields");
@@ -5394,45 +5394,45 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testBuildFields05() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂƒCƒ“ƒXƒ^ƒ“ƒX‰»‰Â”\Class‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E@FileFormat‚Ìİ’è‚ğ‚Â<br>
-     * - ‘S€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     * E@InputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * - ƒtƒB[ƒ‹ƒhFString column3<br>
-     * @InputFileColumnİ’è<br> > columnIndexF1<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFString column1<br>
-     * @InputFileColumnİ’è<br> > columnIndexF0<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFString column2<br>
-     * @InputFileColumnİ’è<br> > columnIndexF1<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        ¦columnIndex‚ªd•¡‚·‚éB<br>
-     *                        (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–å¯èƒ½Classã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»@FileFormatã®è¨­å®šã‚’æŒã¤<br>
+     * - å…¨é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * ãƒ»@InputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column3<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š1<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column1<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š0<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column2<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š1<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        â€»columnIndexãŒé‡è¤‡ã™ã‚‹ã€‚<br>
+     *                        (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                        "AbstractFileLineIterator_bulidFields01.txt"<br>
-     *                        (ó‘Ô) this.fields:null<br>
-     *                        (ó‘Ô) this.columnParserMap:ˆÈ‰º‚Ì—v‘f‚ğ‚Â<br>
-     *                        Map<String, ColumnParser>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.lang.String"=NullColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     *                        (çŠ¶æ…‹) this.fields:null<br>
+     *                        (çŠ¶æ…‹) this.columnParserMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤<br>
+     *                        Map<String, ColumnParser>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.lang.String"=NullColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     *                        Šú‘Ò’lF(ó‘Ô•Ï‰») Field.getAnnotation():3‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.fields:null<br>
-     *                        (ó‘Ô•Ï‰») Class.getDeclaredFields():2‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») -:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *                        EƒƒbƒZ[ƒWF"Column Index is duplicate : 1"<br>
-     *                        Eƒtƒ@ƒCƒ‹–¼FƒtƒB[ƒ‹ƒhfileName‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒXB<br>
+     *                        æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) Field.getAnnotation():3å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.fields:null<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) Class.getDeclaredFields():2å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) -:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *                        ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Column Index is duplicate : 1"<br>
+     *                        ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰fileNameã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚<br>
      * <br>
-     *                        —áŠOB<br>
-     *                        ƒtƒB[ƒ‹ƒhclazz‚ª•¡”‚Ì@InputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚Ì‚İ‚¿A‚Ü‚½ŠeƒtƒB[ƒ‹ƒh‚ÌcolumnIndex’l‚ªd•¡‚µ‚Ä‚¢‚éê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                        ä¾‹å¤–ã€‚<br>
+     *                        ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰clazzãŒè¤‡æ•°ã®@InputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®ã¿æŒã¡ã€ã¾ãŸå„ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®columnIndexå€¤ãŒé‡è¤‡ã—ã¦ã„ã‚‹å ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testBuildFields05() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_bulidFields01.txt");
         String fileName = url.getPath();
@@ -5443,21 +5443,21 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub33.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(fileLineIterator, "fields", null);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             UTUtil.invokePrivate(fileLineIterator, "buildFields");
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸ");
         } catch (FileException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(3, VMOUTUtil
                     .getCallCount(Field.class, "getAnnotation"));
             Object result_fields = (Field[]) UTUtil.getPrivateField(
@@ -5475,50 +5475,50 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testBuildFields06() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂƒCƒ“ƒXƒ^ƒ“ƒX‰»‰Â”\Class‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E@FileFormat‚Ìİ’è‚ğ‚Â<br>
-     * - ‘S€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     * E@InputFileColumnİ’è‚È‚µ‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * - ƒtƒB[ƒ‹ƒhFString noMappingColumn3<br>
-     * - ƒtƒB[ƒ‹ƒhFString noMappingColumn1<br>
-     * - ƒtƒB[ƒ‹ƒhFString noMappingColumn2<br>
-     * E@InputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * - ƒtƒB[ƒ‹ƒhFString column3<br>
-     * @InputFileColumnİ’è<br> > columnIndexF3<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFString column1<br>
-     * @InputFileColumnİ’è<br> > columnIndexF0<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFString column2<br>
-     * @InputFileColumnİ’è<br> > columnIndexF1<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        ¦columnIndex‚Íd•¡‚µ‚È‚¢‚ªA˜A”Ô‚Å‚Í‚È‚¢B<br>
-     *                        ¦ƒNƒ‰ƒX’è‹`A@—L‚è–³‚µ‚ÌƒtƒB[ƒ‹ƒh‚Ì‡”Ô‚ğ¬‚º‚Ä’è‹`‚·‚é‚±‚ÆB<br>
-     *                        (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–å¯èƒ½Classã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»@FileFormatã®è¨­å®šã‚’æŒã¤<br>
+     * - å…¨é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * ãƒ»@InputFileColumnè¨­å®šãªã—ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString noMappingColumn3<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString noMappingColumn1<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString noMappingColumn2<br>
+     * ãƒ»@InputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column3<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š3<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column1<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š0<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column2<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š1<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        â€»columnIndexã¯é‡è¤‡ã—ãªã„ãŒã€é€£ç•ªã§ã¯ãªã„ã€‚<br>
+     *                        â€»ã‚¯ãƒ©ã‚¹å®šç¾©æ™‚ã€@æœ‰ã‚Šç„¡ã—ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®é †ç•ªã‚’æ··ãœã¦å®šç¾©ã™ã‚‹ã“ã¨ã€‚<br>
+     *                        (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                        "AbstractFileLineIterator_bulidFields01.txt"<br>
-     *                        (ó‘Ô) this.fields:null<br>
-     *                        (ó‘Ô) this.columnParserMap:ˆÈ‰º‚Ì—v‘f‚ğ‚Â<br>
-     *                        Map<String, ColumnParser>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.lang.String"=NullColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     *                        (çŠ¶æ…‹) this.fields:null<br>
+     *                        (çŠ¶æ…‹) this.columnParserMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤<br>
+     *                        Map<String, ColumnParser>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.lang.String"=NullColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     *                        Šú‘Ò’lF(ó‘Ô•Ï‰») Field.getAnnotation():6‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») Class.getDeclaredFields():2‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») -:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *                        EƒƒbƒZ[ƒWF"columnIndex in FileLineObject is not sequential order."<br>
-     *                        Eƒtƒ@ƒCƒ‹–¼FƒtƒB[ƒ‹ƒhfileName‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        Eƒ‰ƒbƒv‚³‚ê‚½—áŠOFIllegalStateException<br>
+     *                        æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) Field.getAnnotation():6å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) Class.getDeclaredFields():2å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) -:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *                        ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"columnIndex in FileLineObject is not sequential order."<br>
+     *                        ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰fileNameã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»ãƒ©ãƒƒãƒ—ã•ã‚ŒãŸä¾‹å¤–ï¼šIllegalStateException<br>
      * <br>
-     *                        —áŠOB<br>
-     *                        ƒtƒB[ƒ‹ƒhclazz‚ª•¡”‚Ì@InputFileColumnİ’è‚ ‚èE‚È‚µ‚ÌƒtƒB[ƒ‹ƒh‚ğ‚¿A‚Ü‚½ŠeƒtƒB[ƒ‹ƒh‚ÌcolumnIndex’l‚ª‡”Ô‚Å‚Í‚È‚¢ê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                        ä¾‹å¤–ã€‚<br>
+     *                        ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰clazzãŒè¤‡æ•°ã®@InputFileColumnè¨­å®šã‚ã‚Šãƒ»ãªã—ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¡ã€ã¾ãŸå„ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®columnIndexå€¤ãŒé †ç•ªã§ã¯ãªã„å ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testBuildFields06() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_bulidFields01.txt");
         String fileName = url.getPath();
@@ -5529,21 +5529,21 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub34.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(fileLineIterator, "fields", null);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             UTUtil.invokePrivate(fileLineIterator, "buildFields");
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸ");
         } catch (FileException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(6, VMOUTUtil
                     .getCallCount(Field.class, "getAnnotation"));
             assertEquals(2, VMOUTUtil.getCallCount(Class.class,
@@ -5561,58 +5561,58 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testBuildFields07() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂƒCƒ“ƒXƒ^ƒ“ƒX‰»‰Â”\Class‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E@FileFormat‚Ìİ’è‚ğ‚Â<br>
-     * - ‘S€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     * E@InputFileColumnİ’è‚È‚µ‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * - ƒtƒB[ƒ‹ƒhFString noMappingColumn3<br>
-     * E@InputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * - ƒtƒB[ƒ‹ƒhFString column3<br>
-     * @InputFileColumnİ’è<br> > columnIndexF3<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–å¯èƒ½Classã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»@FileFormatã®è¨­å®šã‚’æŒã¤<br>
+     * - å…¨é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * ãƒ»@InputFileColumnè¨­å®šãªã—ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString noMappingColumn3<br>
+     * ãƒ»@InputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column3<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š3<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
      * <br>
-     *                        ˆÈ‰º‚Ìİ’è‚ÍŒp³Œ³‚ÌeƒNƒ‰ƒX‚É’è‹`‚³‚ê‚Ä‚¢‚éB<br>
-     *                        E@InputFileColumnİ’è‚È‚µ‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     *                        - ƒtƒB[ƒ‹ƒhFString noMappingColumn1<br>
-     *                        - ƒtƒB[ƒ‹ƒhFString noMappingColumn2<br>
-     *                        E@InputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     *                        - ƒtƒB[ƒ‹ƒhFString column1<br>
-     * @InputFileColumnİ’è<br> > columnIndexF0<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFString column2<br>
-     * @InputFileColumnİ’è<br> > columnIndexF1<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        ¦columnIndex‚Íd•¡‚µ‚È‚¢B<br>
-     *                        ¦ƒNƒ‰ƒX‚ªŒp³ŠÖŒW‚É‚ ‚èAeƒNƒ‰ƒX‚É‚à@InputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚ª‚ ‚éB<br>
-     *                        ¦ƒNƒ‰ƒX’è‹`A@—L‚è–³‚µ‚ÌƒtƒB[ƒ‹ƒh‚Ì‡”Ô‚ğ¬‚º‚Ä’è‹`‚·‚é‚±‚ÆB<br>
-     *                        (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     *                        ä»¥ä¸‹ã®è¨­å®šã¯ç¶™æ‰¿å…ƒã®è¦ªã‚¯ãƒ©ã‚¹ã«å®šç¾©ã•ã‚Œã¦ã„ã‚‹ã€‚<br>
+     *                        ãƒ»@InputFileColumnè¨­å®šãªã—ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString noMappingColumn1<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString noMappingColumn2<br>
+     *                        ãƒ»@InputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column1<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š0<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column2<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š1<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        â€»columnIndexã¯é‡è¤‡ã—ãªã„ã€‚<br>
+     *                        â€»ã‚¯ãƒ©ã‚¹ãŒç¶™æ‰¿é–¢ä¿‚ã«ã‚ã‚Šã€è¦ªã‚¯ãƒ©ã‚¹ã«ã‚‚@InputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ãŒã‚ã‚‹ã€‚<br>
+     *                        â€»ã‚¯ãƒ©ã‚¹å®šç¾©æ™‚ã€@æœ‰ã‚Šç„¡ã—ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®é †ç•ªã‚’æ··ãœã¦å®šç¾©ã™ã‚‹ã“ã¨ã€‚<br>
+     *                        (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                        "AbstractFileLineIterator_bulidFields01.txt"<br>
-     *                        (ó‘Ô) this.fields:null<br>
-     *                        (ó‘Ô) this.columnParserMap:ˆÈ‰º‚Ì—v‘f‚ğ‚Â<br>
-     *                        Map<String, ColumnParser>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.lang.String"=NullColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     *                        (çŠ¶æ…‹) this.fields:null<br>
+     *                        (çŠ¶æ…‹) this.columnParserMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤<br>
+     *                        Map<String, ColumnParser>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.lang.String"=NullColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     *                        Šú‘Ò’lF(ó‘Ô•Ï‰») Field.getAnnotation():9‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.fields:this.clazz‚É‘Î‚·‚éƒtƒB[ƒ‹ƒh—v‘f3‚Â‚ğ‚ÂField”z—ñƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        ‚PDcolumn1<br>
-     *                        ‚QDcolumn2<br>
-     *                        ‚RDcolumn3<br>
+     *                        æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) Field.getAnnotation():9å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.fields:this.clazzã«å¯¾ã™ã‚‹ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰è¦ç´ 3ã¤ã‚’æŒã¤Fieldé…åˆ—ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ï¼‘ï¼column1<br>
+     *                        ï¼’ï¼column2<br>
+     *                        ï¼“ï¼column3<br>
      * <br>
-     *                        ¦‡”Ô‚ÍcolumnIndex‡<br>
-     *                        (ó‘Ô•Ï‰») Class.getDeclaredFields():3‰ñŒÄ‚Î‚ê‚é<br>
+     *                        â€»é †ç•ªã¯columnIndexé †<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) Class.getDeclaredFields():3å›å‘¼ã°ã‚Œã‚‹<br>
      * <br>
-     *                        ³íB<br>
-     *                        ƒtƒB[ƒ‹ƒhclazz‚ª•¡”‚Ì@InputFileColumnİ’è‚ ‚èE‚È‚µ‚ÌƒtƒB[ƒ‹ƒh‚ğ‚¿AŠeƒtƒB[ƒ‹ƒh‚ÌcolumnIndex’l‚Éd•¡‚ª‚È‚¢A‚Ü‚½ƒtƒB[ƒ‹ƒh‚Ì’è‹`‚ªeƒNƒ‰ƒX‚É‚à‚ ‚éê‡A
-     *                        eƒNƒ‰ƒX‚ğŠÜ‚ß‚½ƒ}ƒbƒsƒ“ƒO‘ÎÛƒtƒB[ƒ‹ƒh‚Ìî•ñ‚ª³‚µ‚­İ’è‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                        æ­£å¸¸ã€‚<br>
+     *                        ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰clazzãŒè¤‡æ•°ã®@InputFileColumnè¨­å®šã‚ã‚Šãƒ»ãªã—ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¡ã€å„ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®columnIndexå€¤ã«é‡è¤‡ãŒãªã„ã€ã¾ãŸãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®å®šç¾©ãŒè¦ªã‚¯ãƒ©ã‚¹ã«ã‚‚ã‚ã‚‹å ´åˆã€
+     *                        è¦ªã‚¯ãƒ©ã‚¹ã‚’å«ã‚ãŸãƒãƒƒãƒ”ãƒ³ã‚°å¯¾è±¡ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®æƒ…å ±ãŒæ­£ã—ãè¨­å®šã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testBuildFields07() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_bulidFields01.txt");
         String fileName = url.getPath();
@@ -5623,19 +5623,19 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub36.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(fileLineIterator, "fields", null);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         UTUtil.invokePrivate(fileLineIterator, "buildFields");
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(9, VMOUTUtil.getCallCount(Field.class, "getAnnotation"));
         Object result_fields = (Field[]) UTUtil.getPrivateField(
                 fileLineIterator, "fields");
@@ -5652,48 +5652,48 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testBuildFields08() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂƒCƒ“ƒXƒ^ƒ“ƒX‰»‰Â”\Class‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E@FileFormat‚Ìİ’è‚ğ‚Â<br>
-     * - ‘S€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     * E@InputFileColumn‚Æ@OutputFileColumn‚Ìİ’è‚ª‚ ‚éƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * - ƒtƒB[ƒ‹ƒhFString column3<br>
-     * @InputFileColumn‚Æ@OutputFileColumn‚Ìİ’è<br> > columnIndexF2<br>
-     *                                           > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                                           - ƒtƒB[ƒ‹ƒhFString column1<br>
-     * @InputFileColumn‚Æ@OutputFileColumn‚Ìİ’è<br> > columnIndexF0<br>
-     *                                           > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                                           - ƒtƒB[ƒ‹ƒhFString column2<br>
-     * @InputFileColumn‚Æ@OutputFileColumn‚Ìİ’è<br> > columnIndexF1<br>
-     *                                           > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                                           ¦columnIndex‚ªd•¡‚µ‚È‚¢B<br>
-     *                                           (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–å¯èƒ½Classã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»@FileFormatã®è¨­å®šã‚’æŒã¤<br>
+     * - å…¨é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * ãƒ»@InputFileColumnã¨@OutputFileColumnã®è¨­å®šãŒã‚ã‚‹ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column3<br>
+     * @InputFileColumnã¨@OutputFileColumnã®è¨­å®š<br> > columnIndexï¼š2<br>
+     *                                           > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                                           - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column1<br>
+     * @InputFileColumnã¨@OutputFileColumnã®è¨­å®š<br> > columnIndexï¼š0<br>
+     *                                           > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                                           - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column2<br>
+     * @InputFileColumnã¨@OutputFileColumnã®è¨­å®š<br> > columnIndexï¼š1<br>
+     *                                           > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                                           â€»columnIndexãŒé‡è¤‡ã—ãªã„ã€‚<br>
+     *                                           (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                                           "AbstractFileLineIterator_bulidFields01.txt"<br>
-     *                                           (ó‘Ô) this.fields:null<br>
-     *                                           (ó‘Ô) this.columnParserMap:ˆÈ‰º‚Ì—v‘f‚ğ‚Â<br>
-     *                                           Map<String, ColumnParser>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                                           E"java.lang.String"=NullColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     *                                           (çŠ¶æ…‹) this.fields:null<br>
+     *                                           (çŠ¶æ…‹) this.columnParserMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤<br>
+     *                                           Map<String, ColumnParser>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                                           ãƒ»"java.lang.String"=NullColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     *                                           Šú‘Ò’lF(ó‘Ô•Ï‰») Field.getAnnotation():3‰ñŒÄ‚Î‚ê‚é<br>
-     *                                           (ó‘Ô•Ï‰») this.fields:this.clazz‚É‘Î‚·‚éƒtƒB[ƒ‹ƒh—v‘f3‚Â‚ğ‚ÂField”z—ñƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                                           ‚PDcolumn1<br>
-     *                                           ‚QDcolumn2<br>
-     *                                           ‚RDcolumn3<br>
+     *                                           æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) Field.getAnnotation():3å›å‘¼ã°ã‚Œã‚‹<br>
+     *                                           (çŠ¶æ…‹å¤‰åŒ–) this.fields:this.clazzã«å¯¾ã™ã‚‹ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰è¦ç´ 3ã¤ã‚’æŒã¤Fieldé…åˆ—ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                                           ï¼‘ï¼column1<br>
+     *                                           ï¼’ï¼column2<br>
+     *                                           ï¼“ï¼column3<br>
      * <br>
-     *                                           ¦‡”Ô‚ÍcolumnIndex‡<br>
-     *                                           (ó‘Ô•Ï‰») Class.getDeclaredFields():2‰ñŒÄ‚Î‚ê‚é<br>
+     *                                           â€»é †ç•ªã¯columnIndexé †<br>
+     *                                           (çŠ¶æ…‹å¤‰åŒ–) Class.getDeclaredFields():2å›å‘¼ã°ã‚Œã‚‹<br>
      * <br>
-     *                                           ³íB<br>
-     *                                           ƒtƒB[ƒ‹ƒhclazz‚ª•¡”‚Ì@InputFileColumn‚Æ@OutputFileColumn‚Ìİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚ğ‚¿A‚Ü‚½ŠeƒtƒB[ƒ‹ƒh‚ÌcolumnIndex’l‚Éd•¡‚ª‚È‚¢ê‡
-     *                                           Aƒ}ƒbƒsƒ“ƒO‘ÎÛƒtƒB[ƒ‹ƒh‚Ìî•ñ‚ª³‚µ‚­İ’è‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                                           æ­£å¸¸ã€‚<br>
+     *                                           ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰clazzãŒè¤‡æ•°ã®@InputFileColumnã¨@OutputFileColumnã®è¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¡ã€ã¾ãŸå„ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®columnIndexå€¤ã«é‡è¤‡ãŒãªã„å ´åˆ
+     *                                           ã€ãƒãƒƒãƒ”ãƒ³ã‚°å¯¾è±¡ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®æƒ…å ±ãŒæ­£ã—ãè¨­å®šã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testBuildFields08() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_bulidFields01.txt");
         String fileName = url.getPath();
@@ -5704,19 +5704,19 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub37.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(fileLineIterator, "fields", null);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         UTUtil.invokePrivate(fileLineIterator, "buildFields");
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(6, VMOUTUtil.getCallCount(Field.class, "getAnnotation"));
         Object result_fields = (Field[]) UTUtil.getPrivateField(
                 fileLineIterator, "fields");
@@ -5733,47 +5733,47 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testBuildFields09() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FB,G <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šB,G <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂƒCƒ“ƒXƒ^ƒ“ƒX‰»‰Â”\Class‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E@FileFormat‚Ìİ’è‚ğ‚Â<br>
-     * - ‘S€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     * E@InputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * - ƒtƒB[ƒ‹ƒhFString column3<br>
-     * @InputFileColumnİ’è<br> > columnIndexF3<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFString column1<br>
-     * @InputFileColumnİ’è<br> > columnIndexF1<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFString column2<br>
-     * @InputFileColumnİ’è<br> > columnIndexF2<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        ¦columnIndex‚ªd•¡‚µ‚È‚¢B<br>
-     *                        (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–å¯èƒ½Classã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»@FileFormatã®è¨­å®šã‚’æŒã¤<br>
+     * - å…¨é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * ãƒ»@InputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column3<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š3<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column1<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š1<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column2<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š2<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        â€»columnIndexãŒé‡è¤‡ã—ãªã„ã€‚<br>
+     *                        (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                        "AbstractFileLineIterator_bulidFields01.txt"<br>
-     *                        (ó‘Ô) this.fields:null<br>
-     *                        (ó‘Ô) this.columnParserMap:ˆÈ‰º‚Ì—v‘f‚ğ‚Â<br>
-     *                        Map<String, ColumnParser>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.lang.String"=NullColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     *                        (çŠ¶æ…‹) this.fields:null<br>
+     *                        (çŠ¶æ…‹) this.columnParserMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤<br>
+     *                        Map<String, ColumnParser>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.lang.String"=NullColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     *                        Šú‘Ò’lF(ó‘Ô•Ï‰») Field.getAnnotation():1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.fields:null<br>
-     *                        (ó‘Ô•Ï‰») Class.getDeclaredFields():2‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») -:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *                        EŒ´ˆö—áŠOFIllegalStateException<br>
-     *                        EƒƒbƒZ[ƒWF"Column Index in FileLineObject is bigger than the total number of the field."<br>
-     *                        Eƒtƒ@ƒCƒ‹–¼FƒtƒB[ƒ‹ƒhfileName‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒXB<br>
+     *                        æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) Field.getAnnotation():1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.fields:null<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) Class.getDeclaredFields():2å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) -:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *                        ãƒ»åŸå› ä¾‹å¤–ï¼šIllegalStateException<br>
+     *                        ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Column Index in FileLineObject is bigger than the total number of the field."<br>
+     *                        ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰fileNameã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚<br>
      * <br>
-     *                        ˆÙíB<br>
-     *                        ƒtƒB[ƒ‹ƒhclazz‚ª•¡”‚Ì@InputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚Ì‚İ‚¿A‚Ü‚½ŠeƒtƒB[ƒ‹ƒh‚ÌcolumnIndex’l‚Éd•¡‚ª‚È‚¢‚ª0‚©‚çn‚Ü‚é˜A”Ô‚Å‚Í‚È‚¢ê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚é
-     *                        B <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                        ç•°å¸¸ã€‚<br>
+     *                        ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰clazzãŒè¤‡æ•°ã®@InputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®ã¿æŒã¡ã€ã¾ãŸå„ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®columnIndexå€¤ã«é‡è¤‡ãŒãªã„ãŒ0ã‹ã‚‰å§‹ã¾ã‚‹é€£ç•ªã§ã¯ãªã„å ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹
+     *                        ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testBuildFields09() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_bulidFields01.txt");
         String fileName = url.getPath();
@@ -5784,25 +5784,25 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub38.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(fileLineIterator, "fields", null);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             UTUtil.invokePrivate(fileLineIterator, "buildFields");
-            fail("FileException‚ª”­¶‚µ‚Ä‚¢‚Ü‚¹‚ñB");
+            fail("FileExceptionãŒç™ºç”Ÿã—ã¦ã„ã¾ã›ã‚“ã€‚");
         } catch (FileException e) {
-            // —áŠO‚ÌŠm”F
+            // ä¾‹å¤–ã®ç¢ºèª
             assertTrue(IllegalStateException.class.isAssignableFrom(e
                     .getCause().getClass()));
             assertEquals("Column Index in FileLineObject is bigger than the "
                     + "total number of the field.", e.getMessage());
             assertEquals(fileName, e.getFileName());
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(1, VMOUTUtil
                     .getCallCount(Field.class, "getAnnotation"));
             Object result_fields = UTUtil.getPrivateField(fileLineIterator,
@@ -5816,47 +5816,47 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testBuildFields10() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FB,G <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šB,G <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂƒCƒ“ƒXƒ^ƒ“ƒX‰»‰Â”\Class‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E@FileFormat‚Ìİ’è‚ğ‚Â<br>
-     * - ‘S€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     * E@InputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * - ƒtƒB[ƒ‹ƒhFString column3<br>
-     * @InputFileColumnİ’è<br> > columnIndexF2<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFString column1<br>
-     * @InputFileColumnİ’è<br> > columnIndexF0<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFString column2<br>
-     * @InputFileColumnİ’è<br> > columnIndexF-1<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        ¦columnIndex‚ªd•¡‚µ‚È‚¢B<br>
-     *                        (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–å¯èƒ½Classã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»@FileFormatã®è¨­å®šã‚’æŒã¤<br>
+     * - å…¨é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * ãƒ»@InputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column3<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š2<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column1<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š0<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column2<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š-1<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        â€»columnIndexãŒé‡è¤‡ã—ãªã„ã€‚<br>
+     *                        (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                        "AbstractFileLineIterator_bulidFields01.txt"<br>
-     *                        (ó‘Ô) this.fields:null<br>
-     *                        (ó‘Ô) this.columnParserMap:ˆÈ‰º‚Ì—v‘f‚ğ‚Â<br>
-     *                        Map<String, ColumnParser>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.lang.String"=NullColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     *                        (çŠ¶æ…‹) this.fields:null<br>
+     *                        (çŠ¶æ…‹) this.columnParserMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤<br>
+     *                        Map<String, ColumnParser>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.lang.String"=NullColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     *                        Šú‘Ò’lF(ó‘Ô•Ï‰») Field.getAnnotation():3‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.fields:null<br>
-     *                        (ó‘Ô•Ï‰») Class.getDeclaredFields():2‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») -:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *                        EŒ´ˆö—áŠOFIllegalStateException<br>
-     *                        EƒƒbƒZ[ƒWF"Column Index in FileLineObject is the minus number."<br>
-     *                        Eƒtƒ@ƒCƒ‹–¼FƒtƒB[ƒ‹ƒhfileName‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒXB<br>
+     *                        æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) Field.getAnnotation():3å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.fields:null<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) Class.getDeclaredFields():2å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) -:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *                        ãƒ»åŸå› ä¾‹å¤–ï¼šIllegalStateException<br>
+     *                        ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Column Index in FileLineObject is the minus number."<br>
+     *                        ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰fileNameã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚<br>
      * <br>
-     *                        ˆÙíB<br>
-     *                        ƒtƒB[ƒ‹ƒhclazz‚ª•¡”‚Ì@InputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚Ì‚İ‚¿A‚Ü‚½ŠeƒtƒB[ƒ‹ƒh‚ÌcolumnIndex’l‚Éd•¡‚ª‚È‚¢‚ªAƒ}ƒCƒiƒX’l‚ªİ’è‚³‚ê‚½ê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚é
-     *                        B <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                        ç•°å¸¸ã€‚<br>
+     *                        ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰clazzãŒè¤‡æ•°ã®@InputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®ã¿æŒã¡ã€ã¾ãŸå„ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®columnIndexå€¤ã«é‡è¤‡ãŒãªã„ãŒã€ãƒã‚¤ãƒŠã‚¹å€¤ãŒè¨­å®šã•ã‚ŒãŸå ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹
+     *                        ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testBuildFields10() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_bulidFields01.txt");
         String fileName = url.getPath();
@@ -5867,25 +5867,25 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub39.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(fileLineIterator, "fields", null);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             UTUtil.invokePrivate(fileLineIterator, "buildFields");
-            fail("FileException‚ª”­¶‚µ‚Ä‚¢‚Ü‚¹‚ñB");
+            fail("FileExceptionãŒç™ºç”Ÿã—ã¦ã„ã¾ã›ã‚“ã€‚");
         } catch (FileException e) {
-            // —áŠO‚ÌŠm”F
+            // ä¾‹å¤–ã®ç¢ºèª
             assertTrue(IllegalStateException.class.isAssignableFrom(e
                     .getCause().getClass()));
             assertEquals("Column Index in FileLineObject is the minus number.",
                     e.getMessage());
             assertEquals(fileName, e.getFileName());
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(3, VMOUTUtil
                     .getCallCount(Field.class, "getAnnotation"));
             Object result_fields = UTUtil.getPrivateField(fileLineIterator,
@@ -5899,48 +5899,48 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testBuildFields11() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FB,G <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šB,G <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂƒCƒ“ƒXƒ^ƒ“ƒX‰»‰Â”\Class‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E@FileFormat‚Ìİ’è‚ğ‚Â<br>
-     * - ‘S€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     * E@InputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * - ƒtƒB[ƒ‹ƒhFString column3<br>
-     * @InputFileColumnİ’è<br> > columnIndexF2<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFlong column1<br>
-     * @InputFileColumnİ’è<br> > columnIndexF0<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFString column2<br>
-     * @InputFileColumnİ’è<br> > columnIndexF1<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        ¦columnIndex‚ªd•¡‚µ‚È‚¢B<br>
-     *                        ¦this.columnParserMap‚É‘¶İ‚µ‚È‚¢ƒ^ƒCƒv‚ÌƒtƒB[ƒ‹ƒh‚ª‚ ‚éB<br>
-     *                        (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–å¯èƒ½Classã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»@FileFormatã®è¨­å®šã‚’æŒã¤<br>
+     * - å…¨é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * ãƒ»@InputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column3<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š2<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šlong column1<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š0<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column2<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š1<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        â€»columnIndexãŒé‡è¤‡ã—ãªã„ã€‚<br>
+     *                        â€»this.columnParserMapã«å­˜åœ¨ã—ãªã„ã‚¿ã‚¤ãƒ—ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ãŒã‚ã‚‹ã€‚<br>
+     *                        (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                        "AbstractFileLineIterator_bulidFields01.txt"<br>
-     *                        (ó‘Ô) this.fields:null<br>
-     *                        (ó‘Ô) this.columnParserMap:ˆÈ‰º‚Ì—v‘f‚ğ‚Â<br>
-     *                        Map<String, ColumnParser>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E"java.lang.String"=NullColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     *                        (çŠ¶æ…‹) this.fields:null<br>
+     *                        (çŠ¶æ…‹) this.columnParserMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤<br>
+     *                        Map<String, ColumnParser>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»"java.lang.String"=NullColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     *                        Šú‘Ò’lF(ó‘Ô•Ï‰») Field.getAnnotation():2‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.fields:null<br>
-     *                        (ó‘Ô•Ï‰») Class.getDeclaredFields():2‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») -:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *                        EŒ´ˆö—áŠOFIllegalStateException<br>
-     *                        EƒƒbƒZ[ƒWF"There is a type which isn't supported in a mapping target field in FileLineObject."<br>
-     *                        Eƒtƒ@ƒCƒ‹–¼FƒtƒB[ƒ‹ƒhfileName‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒXB<br>
+     *                        æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) Field.getAnnotation():2å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.fields:null<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) Class.getDeclaredFields():2å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) -:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *                        ãƒ»åŸå› ä¾‹å¤–ï¼šIllegalStateException<br>
+     *                        ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"There is a type which isn't supported in a mapping target field in FileLineObject."<br>
+     *                        ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰fileNameã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚<br>
      * <br>
-     *                        ˆÙíB<br>
-     *                        ƒtƒB[ƒ‹ƒhclazz‚ª•¡”‚Ì@InputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚Ì‚İ‚¿A‘ÎÛƒtƒB[ƒ‹ƒh‚ªthis.columnParserMap‚É‘¶İ‚µ‚È‚¢Œ^‚ÌƒtƒB[ƒ‹ƒh‚Ìê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚é
-     *                        B <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                        ç•°å¸¸ã€‚<br>
+     *                        ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰clazzãŒè¤‡æ•°ã®@InputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®ã¿æŒã¡ã€å¯¾è±¡ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ãŒthis.columnParserMapã«å­˜åœ¨ã—ãªã„å‹ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®å ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹
+     *                        ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testBuildFields11() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_bulidFields01.txt");
         String fileName = url.getPath();
@@ -5951,25 +5951,25 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub90.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(fileLineIterator, "fields", null);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             UTUtil.invokePrivate(fileLineIterator, "buildFields");
-            fail("FileException‚ª”­¶‚µ‚Ä‚¢‚Ü‚¹‚ñB");
+            fail("FileExceptionãŒç™ºç”Ÿã—ã¦ã„ã¾ã›ã‚“ã€‚");
         } catch (FileException e) {
-            // —áŠO‚ÌŠm”F
+            // ä¾‹å¤–ã®ç¢ºèª
             assertTrue(IllegalStateException.class.isAssignableFrom(e
                     .getCause().getClass()));
             assertEquals("There is a type which isn't supported in a mapping "
                     + "target field in FileLineObject.", e.getMessage());
             assertEquals(fileName, e.getFileName());
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(2, VMOUTUtil
                     .getCallCount(Field.class, "getAnnotation"));
             Object result_fields = UTUtil.getPrivateField(fileLineIterator,
@@ -5983,37 +5983,37 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testBuildStringConverter01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD,E,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD,E,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂƒCƒ“ƒXƒ^ƒ“ƒX‰»‰Â”\Class‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E@FileFormat‚Ìİ’è‚ğ‚Â<br>
-     * - ‘S€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     * EƒtƒB[ƒ‹ƒh‚ª‚Ä‚È‚¢B<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–å¯èƒ½Classã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»@FileFormatã®è¨­å®šã‚’æŒã¤<br>
+     * - å…¨é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * ãƒ»ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ãŒæŒã¦ãªã„ã€‚<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "AbstractFileLineIterator_bulidFields01.txt"<br>
-     * (ó‘Ô) this.stringConverter:null<br>
-     * (ó‘Ô) this.stringConverterCacheMap:—v‘f‚ğ‚Á‚Ä‚È‚¢HashMap<Class, StringConverter>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) this.currentLineCount:0<br>
-     * (ó‘Ô) #buildFields‚ÌÀs:ƒeƒXƒg‘O‚É#buildFields()‚ğÀs‚·‚éB<br>
+     * (çŠ¶æ…‹) this.stringConverter:null<br>
+     * (çŠ¶æ…‹) this.stringConverterCacheMap:è¦ç´ ã‚’æŒã£ã¦ãªã„HashMap<Class, StringConverter>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) this.currentLineCount:0<br>
+     * (çŠ¶æ…‹) #buildFieldsã®å®Ÿè¡Œ:ãƒ†ã‚¹ãƒˆå‰ã«#buildFields()ã‚’å®Ÿè¡Œã™ã‚‹ã€‚<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») Field.getAnnotationij:ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») Class.newInstance():ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») Map.containsKey(Object):ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») Map.put(K, V):ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») Map.get(Object):ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») this.stringConverters:—v‘f‚ğ‚½‚È‚¢StringConverter”z—ñƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô•Ï‰») this.stringConverterCacheMap:—v‘f‚ğ‚Á‚Ä‚È‚¢HashMap<Class, StringConverter>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) Field.getAnnotationï¼ˆï¼‰:å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) Class.newInstance():å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) Map.containsKey(Object):å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) Map.put(K, V):å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) Map.get(Object):å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.stringConverters:è¦ç´ ã‚’æŒãŸãªã„StringConverteré…åˆ—ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.stringConverterCacheMap:è¦ç´ ã‚’æŒã£ã¦ãªã„HashMap<Class, StringConverter>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     * ³íB<br>
-     * ƒtƒB[ƒ‹ƒhclazz‚ªƒtƒB[ƒ‹ƒh‚ğ‚Á‚Ä‚È‚¢ê‡AStringConverterŠÖ˜AƒtƒB[ƒ‹ƒh‚ª³í‚É(StringConverterî•ñ‚È‚µ)‰Šú‰»‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã€‚<br>
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰clazzãŒãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã£ã¦ãªã„å ´åˆã€StringConverteré–¢é€£ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ãŒæ­£å¸¸ã«(StringConverteræƒ…å ±ãªã—)åˆæœŸåŒ–ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testBuildStringConverter01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_bulidFields01.txt");
         String fileName = url.getPath();
@@ -6024,25 +6024,25 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub07.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         Map<Class, StringConverter> cache_stringConverterCacheMap = new HashMap<Class, StringConverter>();
         UTUtil.setPrivateField(fileLineIterator, "stringConverterCacheMap",
                 cache_stringConverterCacheMap);
 
         UTUtil.invokePrivate(fileLineIterator, "buildFields");
         VMOUTUtil.initialize();
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Å‚·‚Å‚Éİ’èÏ‚İ
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§ã™ã§ã«è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         UTUtil.invokePrivate(fileLineIterator, "buildStringConverters");
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(0, VMOUTUtil.getCallCount(Field.class, "getAnnotation"));
         assertEquals(0, VMOUTUtil.getCallCount(Class.class, "newInstance"));
         assertEquals(0, VMOUTUtil.getCallCount(Map.class, "containsKey"));
@@ -6060,38 +6060,38 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testBuildStringConverter02() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD,E,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD,E,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂƒCƒ“ƒXƒ^ƒ“ƒX‰»‰Â”\Class‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E@FileFormat‚Ìİ’è‚ğ‚Â<br>
-     * - ‘S€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     * E@InputFileColumnİ’è‚È‚µ‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * - ƒtƒB[ƒ‹ƒhFString noMappingColumn1<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–å¯èƒ½Classã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»@FileFormatã®è¨­å®šã‚’æŒã¤<br>
+     * - å…¨é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * ãƒ»@InputFileColumnè¨­å®šãªã—ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString noMappingColumn1<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "AbstractFileLineIterator_bulidFields01.txt"<br>
-     * (ó‘Ô) this.stringConverter:null<br>
-     * (ó‘Ô) this.stringConverterCacheMap:—v‘f‚ğ‚Á‚Ä‚È‚¢HashMap<Class, StringConverter>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) this.currentLineCount:0<br>
-     * (ó‘Ô) #buildFields‚ÌÀs:ƒeƒXƒg‘O‚É#buildFields()‚ğÀs‚·‚éB<br>
+     * (çŠ¶æ…‹) this.stringConverter:null<br>
+     * (çŠ¶æ…‹) this.stringConverterCacheMap:è¦ç´ ã‚’æŒã£ã¦ãªã„HashMap<Class, StringConverter>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) this.currentLineCount:0<br>
+     * (çŠ¶æ…‹) #buildFieldsã®å®Ÿè¡Œ:ãƒ†ã‚¹ãƒˆå‰ã«#buildFields()ã‚’å®Ÿè¡Œã™ã‚‹ã€‚<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») Field.getAnnotationij:ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») Class.newInstance():ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») Map.containsKey(Object):ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») Map.put(K, V):ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») Map.get(Object):ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») this.stringConverters:—v‘f‚ğ‚½‚È‚¢StringConverter”z—ñƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô•Ï‰») this.stringConverterCacheMap:—v‘f‚ğ‚Á‚Ä‚È‚¢HashMap<Class, StringConverter>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) Field.getAnnotationï¼ˆï¼‰:å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) Class.newInstance():å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) Map.containsKey(Object):å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) Map.put(K, V):å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) Map.get(Object):å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.stringConverters:è¦ç´ ã‚’æŒãŸãªã„StringConverteré…åˆ—ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.stringConverterCacheMap:è¦ç´ ã‚’æŒã£ã¦ãªã„HashMap<Class, StringConverter>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     * ³íB<br>
-     * ƒtƒB[ƒ‹ƒhclazz‚ª@InputFileColumnİ’è‚È‚µ‚ÌƒtƒB[ƒ‹ƒhi‚P‚Âj‚Ì‚İ‚Âê‡AStringConverterŠÖ˜AƒtƒB[ƒ‹ƒh‚ª³í‚É(StringConverterî•ñ‚È‚µ)‰Šú‰»‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã€‚<br>
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰clazzãŒ@InputFileColumnè¨­å®šãªã—ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼ˆï¼‘ã¤ï¼‰ã®ã¿æŒã¤å ´åˆã€StringConverteré–¢é€£ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ãŒæ­£å¸¸ã«(StringConverteræƒ…å ±ãªã—)åˆæœŸåŒ–ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testBuildStringConverter02() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_bulidFields01.txt");
         String fileName = url.getPath();
@@ -6102,25 +6102,25 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub40.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         Map<Class, StringConverter> cache_stringConverterCacheMap = new HashMap<Class, StringConverter>();
         UTUtil.setPrivateField(fileLineIterator, "stringConverterCacheMap",
                 cache_stringConverterCacheMap);
 
         UTUtil.invokePrivate(fileLineIterator, "buildFields");
         VMOUTUtil.initialize();
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Å‚·‚Å‚Éİ’èÏ‚İ
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§ã™ã§ã«è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         UTUtil.invokePrivate(fileLineIterator, "buildStringConverters");
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(0, VMOUTUtil.getCallCount(Field.class, "getAnnotation"));
         assertEquals(0, VMOUTUtil.getCallCount(Class.class, "newInstance"));
         assertEquals(0, VMOUTUtil.getCallCount(Map.class, "containsKey"));
@@ -6138,48 +6138,48 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testBuildStringConverter03() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD,E,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD,E,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂƒCƒ“ƒXƒ^ƒ“ƒX‰»‰Â”\Class‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E@FileFormat‚Ìİ’è‚ğ‚Â<br>
-     * - ‘S€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     * E@InputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * - ƒtƒB[ƒ‹ƒhFString column1<br>
-     * @InputFileColumnİ’è<br> > columnIndexF0<br>
-     *                        > stringConverterF<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–å¯èƒ½Classã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»@FileFormatã®è¨­å®šã‚’æŒã¤<br>
+     * - å…¨é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * ãƒ»@InputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column1<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š0<br>
+     *                        > stringConverterï¼š<br>
      *                        StringConverterToUpperCase.class<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                        "AbstractFileLineIterator_bulidFields01.txt"<br>
-     *                        (ó‘Ô) this.stringConverter:null<br>
-     *                        (ó‘Ô) this.stringConverterCacheMap:—v‘f‚ğ‚Á‚Ä‚È‚¢HashMap<Class, StringConverter>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        (ó‘Ô) this.currentLineCount:0<br>
-     *                        (ó‘Ô) #buildFields‚ÌÀs:ƒeƒXƒg‘O‚É#buildFields()‚ğÀs‚·‚éB<br>
+     *                        (çŠ¶æ…‹) this.stringConverter:null<br>
+     *                        (çŠ¶æ…‹) this.stringConverterCacheMap:è¦ç´ ã‚’æŒã£ã¦ãªã„HashMap<Class, StringConverter>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        (çŠ¶æ…‹) this.currentLineCount:0<br>
+     *                        (çŠ¶æ…‹) #buildFieldsã®å®Ÿè¡Œ:ãƒ†ã‚¹ãƒˆå‰ã«#buildFields()ã‚’å®Ÿè¡Œã™ã‚‹ã€‚<br>
      * <br>
-     *                        Šú‘Ò’lF(ó‘Ô•Ï‰») Class.newInstance():1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») Map.containsKey(Object):1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») Map.put(K, V):1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») Map.get(Object):ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») this.stringConverters:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂStringConverter”z—ñƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E[0]FStringConverterToUpperCaseƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     *                        æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) Class.newInstance():1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) Map.containsKey(Object):1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) Map.put(K, V):1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) Map.get(Object):å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.stringConverters:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤StringConverteré…åˆ—ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»[0]ï¼šStringConverterToUpperCaseã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     *                        ¦this.stringConverterCacheMap‚ÉŠi”[‚³‚ê‚Ä‚¢‚éStringConverterToUpperCaseƒCƒ“ƒXƒ^ƒ“ƒX‚Æ“¯‚¶‚à‚ÌB<br>
-     *                        (ó‘Ô•Ï‰») this.stringConverterCacheMap:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂHashMap<Class, StringConverter>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E StringConverterToUpperCase.class<br>
-     *                        =StringConverterToUpperCaseƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     *                        â€»this.stringConverterCacheMapã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹StringConverterToUpperCaseã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã¨åŒã˜ã‚‚ã®ã€‚<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.stringConverterCacheMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤HashMap<Class, StringConverter>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ» StringConverterToUpperCase.class<br>
+     *                        =StringConverterToUpperCaseã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     *                        ³íB<br>
-     *                        ƒtƒB[ƒ‹ƒhclazz‚ª@InputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒhi
-     *                        ‚P‚Âj‚Ì‚İ‚Âê‡AStringConverter”z—ñ‚É‚Í1‚Â‚ÌStringConverter‚ªAƒLƒƒƒbƒVƒ…‚É‚Í‚P‚Â‚ÌStringConverter‚ªİ’è‚³‚ê‚éA‚©‚Â‘S•”“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒX‚Ì‚±‚Æ‚ğŠm
-     *                        ”F ‚· ‚é B <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                        æ­£å¸¸ã€‚<br>
+     *                        ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰clazzãŒ@InputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼ˆ
+     *                        ï¼‘ã¤ï¼‰ã®ã¿æŒã¤å ´åˆã€StringConverteré…åˆ—ã«ã¯1ã¤ã®StringConverterãŒã€ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã«ã¯ï¼‘ã¤ã®StringConverterãŒè¨­å®šã•ã‚Œã‚‹ã€ã‹ã¤å…¨éƒ¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã®ã“ã¨ã‚’ç¢º
+     *                        èª ã™ ã‚‹ ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testBuildStringConverter03() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_bulidFields01.txt");
         String fileName = url.getPath();
@@ -6190,25 +6190,25 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub41.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         Map<Class, StringConverter> cache_stringConverterCacheMap = new HashMap<Class, StringConverter>();
         UTUtil.setPrivateField(fileLineIterator, "stringConverterCacheMap",
                 cache_stringConverterCacheMap);
 
         UTUtil.invokePrivate(fileLineIterator, "buildFields");
         VMOUTUtil.initialize();
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Å‚·‚Å‚Éİ’èÏ‚İ
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§ã™ã§ã«è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         UTUtil.invokePrivate(fileLineIterator, "buildStringConverters");
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(1, VMOUTUtil.getCallCount(Class.class, "newInstance"));
         assertEquals(1, VMOUTUtil.getCallCount(Map.class, "containsKey"));
         assertEquals(1, VMOUTUtil.getCallCount(Map.class, "put"));
@@ -6229,40 +6229,40 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testBuildStringConverter04() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD,E,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD,E,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂƒCƒ“ƒXƒ^ƒ“ƒX‰»‰Â”\Class‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E@FileFormat‚Ìİ’è‚ğ‚Â<br>
-     * - ‘S€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     * E@InputFileColumnİ’è‚È‚µ‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * - ƒtƒB[ƒ‹ƒhFString noMappingColumn3<br>
-     * - ƒtƒB[ƒ‹ƒhFString noMappingColumn1<br>
-     * - ƒtƒB[ƒ‹ƒhFString noMappingColumn2<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–å¯èƒ½Classã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»@FileFormatã®è¨­å®šã‚’æŒã¤<br>
+     * - å…¨é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * ãƒ»@InputFileColumnè¨­å®šãªã—ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString noMappingColumn3<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString noMappingColumn1<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString noMappingColumn2<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "AbstractFileLineIterator_bulidFields01.txt"<br>
-     * (ó‘Ô) this.stringConverter:null<br>
-     * (ó‘Ô) this.stringConverterCacheMap:—v‘f‚ğ‚Á‚Ä‚È‚¢HashMap<Class, StringConverter>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) this.currentLineCount:0<br>
-     * (ó‘Ô) #buildFields‚ÌÀs:ƒeƒXƒg‘O‚É#buildFields()‚ğÀs‚·‚éB<br>
+     * (çŠ¶æ…‹) this.stringConverter:null<br>
+     * (çŠ¶æ…‹) this.stringConverterCacheMap:è¦ç´ ã‚’æŒã£ã¦ãªã„HashMap<Class, StringConverter>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) this.currentLineCount:0<br>
+     * (çŠ¶æ…‹) #buildFieldsã®å®Ÿè¡Œ:ãƒ†ã‚¹ãƒˆå‰ã«#buildFields()ã‚’å®Ÿè¡Œã™ã‚‹ã€‚<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») Field.getAnnotationij:ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») Class.newInstance():ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») Map.containsKey(Object):ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») Map.put(K, V):ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») Map.get(Object):ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») this.stringConverters:—v‘f‚ğ‚½‚È‚¢StringConverter”z—ñƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô•Ï‰») this.stringConverterCacheMap:—v‘f‚ğ‚Á‚Ä‚È‚¢HashMap<Class, StringConverter>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) Field.getAnnotationï¼ˆï¼‰:å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) Class.newInstance():å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) Map.containsKey(Object):å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) Map.put(K, V):å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) Map.get(Object):å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.stringConverters:è¦ç´ ã‚’æŒãŸãªã„StringConverteré…åˆ—ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.stringConverterCacheMap:è¦ç´ ã‚’æŒã£ã¦ãªã„HashMap<Class, StringConverter>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     * ³íB<br>
-     * ƒtƒB[ƒ‹ƒhclazz‚ª@InputFileColumnİ’è‚È‚µ‚ÌƒtƒB[ƒ‹ƒhi‚R‚Âj‚Ì‚İ‚Âê‡AStringConverterŠÖ˜AƒtƒB[ƒ‹ƒh‚ª³í‚É(StringConverterî•ñ‚È‚µ)‰Šú‰»‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã€‚<br>
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰clazzãŒ@InputFileColumnè¨­å®šãªã—ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼ˆï¼“ã¤ï¼‰ã®ã¿æŒã¤å ´åˆã€StringConverteré–¢é€£ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ãŒæ­£å¸¸ã«(StringConverteræƒ…å ±ãªã—)åˆæœŸåŒ–ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testBuildStringConverter04() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_bulidFields01.txt");
         String fileName = url.getPath();
@@ -6273,25 +6273,25 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub42.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         Map<Class, StringConverter> cache_stringConverterCacheMap = new HashMap<Class, StringConverter>();
         UTUtil.setPrivateField(fileLineIterator, "stringConverterCacheMap",
                 cache_stringConverterCacheMap);
 
         UTUtil.invokePrivate(fileLineIterator, "buildFields");
         VMOUTUtil.initialize();
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Å‚·‚Å‚Éİ’èÏ‚İ
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§ã™ã§ã«è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         UTUtil.invokePrivate(fileLineIterator, "buildStringConverters");
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(0, VMOUTUtil.getCallCount(Field.class, "getAnnotation"));
         assertEquals(0, VMOUTUtil.getCallCount(Class.class, "newInstance"));
         assertEquals(0, VMOUTUtil.getCallCount(Map.class, "containsKey"));
@@ -6309,62 +6309,62 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testBuildStringConverter05() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD,E,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD,E,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂƒCƒ“ƒXƒ^ƒ“ƒX‰»‰Â”\Class‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E@FileFormat‚Ìİ’è‚ğ‚Â<br>
-     * - ‘S€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     * E@InputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * - ƒtƒB[ƒ‹ƒhFString column3<br>
-     * @InputFileColumnİ’è<br> > columnIndexF2<br>
-     *                        > stringConverterF<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–å¯èƒ½Classã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»@FileFormatã®è¨­å®šã‚’æŒã¤<br>
+     * - å…¨é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * ãƒ»@InputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column3<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š2<br>
+     *                        > stringConverterï¼š<br>
      *                        StringConverterToUpperCase.class<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFString column1<br>
-     * @InputFileColumnİ’è<br> > columnIndexF0<br>
-     *                        > stringConverterF<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column1<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š0<br>
+     *                        > stringConverterï¼š<br>
      *                        StringConverterToUpperCase.class<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFString column2<br>
-     * @InputFileColumnİ’è<br> > columnIndexF1<br>
-     *                        > stringConverterF<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column2<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š1<br>
+     *                        > stringConverterï¼š<br>
      *                        StringConverterToUpperCase.class<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        ¦columnIndex‚ªd•¡‚µ‚È‚¢B<br>
-     *                        ¦stringConverter‚ª‘S•”“¯‚¶B<br>
-     *                        (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        â€»columnIndexãŒé‡è¤‡ã—ãªã„ã€‚<br>
+     *                        â€»stringConverterãŒå…¨éƒ¨åŒã˜ã€‚<br>
+     *                        (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                        "AbstractFileLineIterator_bulidFields01.txt"<br>
-     *                        (ó‘Ô) this.stringConverter:null<br>
-     *                        (ó‘Ô) this.stringConverterCacheMap:—v‘f‚ğ‚Á‚Ä‚È‚¢HashMap<Class, StringConverter>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        (ó‘Ô) this.currentLineCount:0<br>
-     *                        (ó‘Ô) #buildFields‚ÌÀs:ƒeƒXƒg‘O‚É#buildFields()‚ğÀs‚·‚éB<br>
+     *                        (çŠ¶æ…‹) this.stringConverter:null<br>
+     *                        (çŠ¶æ…‹) this.stringConverterCacheMap:è¦ç´ ã‚’æŒã£ã¦ãªã„HashMap<Class, StringConverter>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        (çŠ¶æ…‹) this.currentLineCount:0<br>
+     *                        (çŠ¶æ…‹) #buildFieldsã®å®Ÿè¡Œ:ãƒ†ã‚¹ãƒˆå‰ã«#buildFields()ã‚’å®Ÿè¡Œã™ã‚‹ã€‚<br>
      * <br>
-     *                        Šú‘Ò’lF(ó‘Ô•Ï‰») Class.newInstance():1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») Map.containsKey(Object):3‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») Map.put(K, V):1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») Map.get(Object):2‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.stringConverters:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂStringConverter”z—ñƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E[0]FStringConverterToUpperCaseƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E[1]FStringConverterToUpperCaseƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E[2]FStringConverterToUpperCaseƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     *                        æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) Class.newInstance():1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) Map.containsKey(Object):3å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) Map.put(K, V):1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) Map.get(Object):2å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.stringConverters:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤StringConverteré…åˆ—ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»[0]ï¼šStringConverterToUpperCaseã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»[1]ï¼šStringConverterToUpperCaseã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»[2]ï¼šStringConverterToUpperCaseã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     *                        ¦‚R‚Â‘S•”this.stringConverterCacheMap‚ÉŠi”[‚³‚ê‚Ä‚¢‚éStringConverterToUpperCaseƒCƒ“ƒXƒ^ƒ“ƒX‚Æ“¯‚¶‚à‚ÌB<br>
-     *                        (ó‘Ô•Ï‰») this.stringConverterCacheMap:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂHashMap<Class, StringConverter>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E StringConverterToUpperCase.class<br>
-     *                        =StringConverterToUpperCaseƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     *                        â€»ï¼“ã¤å…¨éƒ¨this.stringConverterCacheMapã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹StringConverterToUpperCaseã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã¨åŒã˜ã‚‚ã®ã€‚<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.stringConverterCacheMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤HashMap<Class, StringConverter>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ» StringConverterToUpperCase.class<br>
+     *                        =StringConverterToUpperCaseã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     *                        ³íB<br>
-     *                        ƒtƒB[ƒ‹ƒhclazz‚ª@InputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒhi
-     *                        ‚R‚Âj‚Ì‚İ‚¿Aİ’è‚³‚ê‚½stringConverter‚à‘SƒtƒB[ƒ‹ƒh“¯‚¶‚Ìê‡AStringConverter”z—ñ‚É‚Í‚R‚Â‚ÌStringConverter‚ªAƒLƒƒƒbƒVƒ…‚É‚Í‚P‚Â‚ÌStringCo
-     *                        n v e r t e r ‚ª İ ’è ‚³ ‚ê ‚é A ‚© ‚Â ‘S •” “¯ ‚¶ ƒC ƒ“ ƒX ƒ^ ƒ“ ƒX ‚Ì ‚± ‚Æ ‚ğ Šm ”F ‚· ‚é B <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                        æ­£å¸¸ã€‚<br>
+     *                        ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰clazzãŒ@InputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼ˆ
+     *                        ï¼“ã¤ï¼‰ã®ã¿æŒã¡ã€è¨­å®šã•ã‚ŒãŸstringConverterã‚‚å…¨ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰åŒã˜ã®å ´åˆã€StringConverteré…åˆ—ã«ã¯ï¼“ã¤ã®StringConverterãŒã€ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã«ã¯ï¼‘ã¤ã®StringCo
+     *                        n v e r t e r ãŒ è¨­ å®š ã• ã‚Œ ã‚‹ ã€ ã‹ ã¤ å…¨ éƒ¨ åŒ ã˜ ã‚¤ ãƒ³ ã‚¹ ã‚¿ ãƒ³ ã‚¹ ã® ã“ ã¨ ã‚’ ç¢º èª ã™ ã‚‹ ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testBuildStringConverter05() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_bulidFields01.txt");
         String fileName = url.getPath();
@@ -6375,25 +6375,25 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub43.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         Map<Class, StringConverter> cache_stringConverterCacheMap = new HashMap<Class, StringConverter>();
         UTUtil.setPrivateField(fileLineIterator, "stringConverterCacheMap",
                 cache_stringConverterCacheMap);
 
         UTUtil.invokePrivate(fileLineIterator, "buildFields");
         VMOUTUtil.initialize();
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Å‚·‚Å‚Éİ’èÏ‚İ
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§ã™ã§ã«è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         UTUtil.invokePrivate(fileLineIterator, "buildStringConverters");
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(1, VMOUTUtil.getCallCount(Class.class, "newInstance"));
         assertEquals(3, VMOUTUtil.getCallCount(Map.class, "containsKey"));
         assertEquals(1, VMOUTUtil.getCallCount(Map.class, "put"));
@@ -6416,58 +6416,58 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testBuildStringConverter06() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂƒCƒ“ƒXƒ^ƒ“ƒX‰»‰Â”\Class‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E@FileFormat‚Ìİ’è‚ğ‚Â<br>
-     * - ‘S€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     * E@InputFileColumnİ’è‚ ‚èE‚È‚µ‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * - ƒtƒB[ƒ‹ƒhFString column1<br>
-     * @InputFileColumnİ’è<br> > columnIndexF0<br>
-     *                        > stringConverterF<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–å¯èƒ½Classã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»@FileFormatã®è¨­å®šã‚’æŒã¤<br>
+     * - å…¨é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * ãƒ»@InputFileColumnè¨­å®šã‚ã‚Šãƒ»ãªã—ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column1<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š0<br>
+     *                        > stringConverterï¼š<br>
      *                        StringConverterToUpperCase.class<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFString noMappingColumn1<br>
-     *                        - ƒtƒB[ƒ‹ƒhFString column2<br>
-     * @InputFileColumnİ’è<br> > columnIndexF1<br>
-     *                        > stringConverterF<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString noMappingColumn1<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column2<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š1<br>
+     *                        > stringConverterï¼š<br>
      *                        StringConverterToUpperCase.class<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        ¦columnIndex‚ªd•¡‚µ‚È‚¢B<br>
-     *                        ¦stringConverter‚ª‘S•”“¯‚¶B<br>
-     *                        (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        â€»columnIndexãŒé‡è¤‡ã—ãªã„ã€‚<br>
+     *                        â€»stringConverterãŒå…¨éƒ¨åŒã˜ã€‚<br>
+     *                        (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                        "AbstractFileLineIterator_bulidFields01.txt"<br>
-     *                        (ó‘Ô) this.stringConverter:null<br>
-     *                        (ó‘Ô) this.stringConverterCacheMap:—v‘f‚ğ‚Á‚Ä‚È‚¢HashMap<Class, StringConverter>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        (ó‘Ô) this.currentLineCount:0<br>
-     *                        (ó‘Ô) #buildFields‚ÌÀs:ƒeƒXƒg‘O‚É#buildFields()‚ğÀs‚·‚éB<br>
+     *                        (çŠ¶æ…‹) this.stringConverter:null<br>
+     *                        (çŠ¶æ…‹) this.stringConverterCacheMap:è¦ç´ ã‚’æŒã£ã¦ãªã„HashMap<Class, StringConverter>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        (çŠ¶æ…‹) this.currentLineCount:0<br>
+     *                        (çŠ¶æ…‹) #buildFieldsã®å®Ÿè¡Œ:ãƒ†ã‚¹ãƒˆå‰ã«#buildFields()ã‚’å®Ÿè¡Œã™ã‚‹ã€‚<br>
      * <br>
-     *                        Šú‘Ò’lF(ó‘Ô•Ï‰») Class.newInstance():1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») Map.containsKey(Object):2‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») Map.put(K, V):1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») Map.get(Object):1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.stringConverters:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂStringConverter”z—ñƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E[0]FStringConverterToUpperCaseƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E[1]Fnull<br>
-     *                        E[2]FStringConverterToUpperCaseƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     *                        æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) Class.newInstance():1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) Map.containsKey(Object):2å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) Map.put(K, V):1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) Map.get(Object):1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.stringConverters:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤StringConverteré…åˆ—ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»[0]ï¼šStringConverterToUpperCaseã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»[1]ï¼šnull<br>
+     *                        ãƒ»[2]ï¼šStringConverterToUpperCaseã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     *                        ¦Ši”[‚³‚ê‚Ä‚¢‚éƒCƒ“ƒXƒ^ƒ“ƒX‚Íthis.stringConverterCacheMap‚ÉŠi”[‚³‚ê‚Ä‚¢‚éStringConverterToUpperCaseƒCƒ“ƒXƒ^ƒ“ƒX‚Æ“¯‚¶‚à‚ÌB<br>
-     *                        (ó‘Ô•Ï‰») this.stringConverterCacheMap:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂHashMap<Class, StringConverter>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E StringConverterToUpperCase.class<br>
-     *                        =StringConverterToUpperCaseƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     *                        â€»æ ¼ç´ã•ã‚Œã¦ã„ã‚‹ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã¯this.stringConverterCacheMapã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹StringConverterToUpperCaseã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã¨åŒã˜ã‚‚ã®ã€‚<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.stringConverterCacheMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤HashMap<Class, StringConverter>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ» StringConverterToUpperCase.class<br>
+     *                        =StringConverterToUpperCaseã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     *                        ³íB<br>
-     *                        ƒtƒB[ƒ‹ƒhclazz‚ª@InputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹i
-     *                        ‚Q‚Âjƒh‚Æ‚È‚¢ƒtƒB[ƒ‹ƒhi‚P‚Âj‚ğ‚¿Aİ’è‚³‚ê‚½stringConverter‚à‘SƒtƒB[ƒ‹ƒh“¯‚¶‚Ìê‡AStringConverter”z—ñ‚É‚Í‚Q‚Â‚ÌStringConverter‚ªAƒLƒƒƒbƒVƒ…‚É
-     *                        ‚Í ‚P ‚Â ‚Ì S t r i n g C o n v e r t e r ‚ª İ ’è ‚³ ‚ê ‚é A ‚© ‚Â ‘S •” “¯ ‚¶ ƒC ƒ“ ƒX ƒ^ ƒ“ ƒX ‚Ì ‚± ‚Æ ‚ğ Šm ”F ‚· ‚é B <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                        æ­£å¸¸ã€‚<br>
+     *                        ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰clazzãŒ@InputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ï¼ˆ
+     *                        ï¼’ã¤ï¼‰ãƒ‰ã¨ãªã„ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼ˆï¼‘ã¤ï¼‰ã‚’æŒã¡ã€è¨­å®šã•ã‚ŒãŸstringConverterã‚‚å…¨ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰åŒã˜ã®å ´åˆã€StringConverteré…åˆ—ã«ã¯ï¼’ã¤ã®StringConverterãŒã€ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã«
+     *                        ã¯ ï¼‘ ã¤ ã® S t r i n g C o n v e r t e r ãŒ è¨­ å®š ã• ã‚Œ ã‚‹ ã€ ã‹ ã¤ å…¨ éƒ¨ åŒ ã˜ ã‚¤ ãƒ³ ã‚¹ ã‚¿ ãƒ³ ã‚¹ ã® ã“ ã¨ ã‚’ ç¢º èª ã™ ã‚‹ ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testBuildStringConverter06() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_bulidFields01.txt");
         String fileName = url.getPath();
@@ -6478,25 +6478,25 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub44.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         Map<Class, StringConverter> cache_stringConverterCacheMap = new HashMap<Class, StringConverter>();
         UTUtil.setPrivateField(fileLineIterator, "stringConverterCacheMap",
                 cache_stringConverterCacheMap);
 
         UTUtil.invokePrivate(fileLineIterator, "buildFields");
         VMOUTUtil.initialize();
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Å‚·‚Å‚Éİ’èÏ‚İ
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§ã™ã§ã«è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         UTUtil.invokePrivate(fileLineIterator, "buildStringConverters");
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(1, VMOUTUtil.getCallCount(Class.class, "newInstance"));
         assertEquals(2, VMOUTUtil.getCallCount(Map.class, "containsKey"));
         assertEquals(1, VMOUTUtil.getCallCount(Map.class, "put"));
@@ -6518,76 +6518,76 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testBuildStringConverter07() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂƒCƒ“ƒXƒ^ƒ“ƒX‰»‰Â”\Class‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E@FileFormat‚Ìİ’è‚ğ‚Â<br>
-     * - ‘S€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     * E@InputFileColumnİ’è‚ ‚èE‚È‚µ‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * - ƒtƒB[ƒ‹ƒhFString column3<br>
-     * @InputFileColumnİ’è<br> > columnIndexF2<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFString column5<br>
-     * @InputFileColumnİ’è<br> > columnIndexF4<br>
-     *                        > stringConverterF<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–å¯èƒ½Classã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»@FileFormatã®è¨­å®šã‚’æŒã¤<br>
+     * - å…¨é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * ãƒ»@InputFileColumnè¨­å®šã‚ã‚Šãƒ»ãªã—ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column3<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š2<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column5<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š4<br>
+     *                        > stringConverterï¼š<br>
      *                        StringConverterToLowerCase.class<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFString column1<br>
-     * @InputFileColumnİ’è<br> > columnIndexF0<br>
-     *                        > stringConverterF<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column1<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š0<br>
+     *                        > stringConverterï¼š<br>
      *                        NullStringConverter.class<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFString column4<br>
-     * @InputFileColumnİ’è<br> > columnIndexF3<br>
-     *                        > stringConverterF<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column4<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š3<br>
+     *                        > stringConverterï¼š<br>
      *                        StringConverterToUpperCase.class<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFString column2<br>
-     * @InputFileColumnİ’è<br> > columnIndexF1<br>
-     *                        > stringConverterF<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column2<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š1<br>
+     *                        > stringConverterï¼š<br>
      *                        StringConverterToLowerCase.class<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        ¦columnIndex‚ªd•¡‚µ‚È‚¢B<br>
-     *                        ¦2‰ÓŠ‚Å“¯‚¶stringConverter‚ğ—˜—p‚µ‚Ä‚¢‚éB<br>
-     *                        stringConverter‚Ìí—Ş‚Í‚R‚Â<br>
-     *                        (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        â€»columnIndexãŒé‡è¤‡ã—ãªã„ã€‚<br>
+     *                        â€»2ç®‡æ‰€ã§åŒã˜stringConverterã‚’åˆ©ç”¨ã—ã¦ã„ã‚‹ã€‚<br>
+     *                        stringConverterã®ç¨®é¡ã¯ï¼“ã¤<br>
+     *                        (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                        "AbstractFileLineIterator_bulidFields01.txt"<br>
-     *                        (ó‘Ô) this.stringConverter:null<br>
-     *                        (ó‘Ô) this.stringConverterCacheMap:—v‘f‚ğ‚Á‚Ä‚È‚¢HashMap<Class, StringConverter>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        (ó‘Ô) this.currentLineCount:0<br>
-     *                        (ó‘Ô) #buildFields‚ÌÀs:ƒeƒXƒg‘O‚É#buildFields()‚ğÀs‚·‚éB<br>
+     *                        (çŠ¶æ…‹) this.stringConverter:null<br>
+     *                        (çŠ¶æ…‹) this.stringConverterCacheMap:è¦ç´ ã‚’æŒã£ã¦ãªã„HashMap<Class, StringConverter>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        (çŠ¶æ…‹) this.currentLineCount:0<br>
+     *                        (çŠ¶æ…‹) #buildFieldsã®å®Ÿè¡Œ:ãƒ†ã‚¹ãƒˆå‰ã«#buildFields()ã‚’å®Ÿè¡Œã™ã‚‹ã€‚<br>
      * <br>
-     *                        Šú‘Ò’lF(ó‘Ô•Ï‰») Class.newInstance():3‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») Map.containsKey(Object):5‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») Map.put(K, V):3‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») Map.get(Object):2‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.stringConverters:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂStringConverter”z—ñƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E[0]FNullStringConverterƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E[1]FStringConverterToLowerCaseƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E[2]FNullStringConverterƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E[3]FStringConverterToUpperCaseƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E[4]FStringConverterToLowerCaseƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     *                        æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) Class.newInstance():3å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) Map.containsKey(Object):5å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) Map.put(K, V):3å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) Map.get(Object):2å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.stringConverters:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤StringConverteré…åˆ—ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»[0]ï¼šNullStringConverterã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»[1]ï¼šStringConverterToLowerCaseã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»[2]ï¼šNullStringConverterã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»[3]ï¼šStringConverterToUpperCaseã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»[4]ï¼šStringConverterToLowerCaseã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     *                        ¦Ši”[‚³‚ê‚Ä‚¢‚éƒCƒ“ƒXƒ^ƒ“ƒX‚Íthis.stringConverterCacheMap‚ÉŠi”[‚³‚ê‚Ä‚¢‚é“¯‚¶Œ^‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚Æ“¯‚¶‚à‚ÌB<br>
-     *                        (ó‘Ô•Ï‰») this.stringConverterCacheMap:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂHashMap<Class, StringConverter>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E NullStringConverter.class<br>
-     *                        =NullStringConverterƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E StringConverterToUpperCase.class<br>
-     *                        =StringConverterToUpperCaseƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E StringConverterToLowerCase.class<br>
-     *                        =StringConverterToLowerCaseƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     *                        â€»æ ¼ç´ã•ã‚Œã¦ã„ã‚‹ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã¯this.stringConverterCacheMapã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹åŒã˜å‹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã¨åŒã˜ã‚‚ã®ã€‚<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.stringConverterCacheMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤HashMap<Class, StringConverter>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ» NullStringConverter.class<br>
+     *                        =NullStringConverterã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ» StringConverterToUpperCase.class<br>
+     *                        =StringConverterToUpperCaseã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ» StringConverterToLowerCase.class<br>
+     *                        =StringConverterToLowerCaseã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     *                        ³íB<br>
-     *                        ƒtƒB[ƒ‹ƒhclazz‚ª@InputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒhi5‚Âj‚Ì‚İ‚¿Aİ’è‚³‚ê‚½stringConverter‚àd•¡(2‰ÓŠ)‚ª‚ ‚éê‡AStringConverter”z—ñ‚É‚Í‚T‚Â‚ÌStringConverter‚ª
-     *                        AƒLƒƒƒbƒVƒ…‚É‚Í‚R‚Â‚ÌStringConverter‚ªİ’è‚³‚ê‚éA‚©‚Â“¯ˆêƒ^ƒCƒv‚Í“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒX‚ğ—˜—p‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                        æ­£å¸¸ã€‚<br>
+     *                        ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰clazzãŒ@InputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼ˆ5ã¤ï¼‰ã®ã¿æŒã¡ã€è¨­å®šã•ã‚ŒãŸstringConverterã‚‚é‡è¤‡(2ç®‡æ‰€)ãŒã‚ã‚‹å ´åˆã€StringConverteré…åˆ—ã«ã¯ï¼•ã¤ã®StringConverterãŒ
+     *                        ã€ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã«ã¯ï¼“ã¤ã®StringConverterãŒè¨­å®šã•ã‚Œã‚‹ã€ã‹ã¤åŒä¸€ã‚¿ã‚¤ãƒ—ã¯åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’åˆ©ç”¨ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testBuildStringConverter07() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_bulidFields01.txt");
         String fileName = url.getPath();
@@ -6598,25 +6598,25 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub45.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         Map<Class, StringConverter> cache_stringConverterCacheMap = new HashMap<Class, StringConverter>();
         UTUtil.setPrivateField(fileLineIterator, "stringConverterCacheMap",
                 cache_stringConverterCacheMap);
 
         UTUtil.invokePrivate(fileLineIterator, "buildFields");
         VMOUTUtil.initialize();
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Å‚·‚Å‚Éİ’èÏ‚İ
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§ã™ã§ã«è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         UTUtil.invokePrivate(fileLineIterator, "buildStringConverters");
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(3, VMOUTUtil.getCallCount(Class.class, "newInstance"));
         assertEquals(5, VMOUTUtil.getCallCount(Map.class, "containsKey"));
         assertEquals(3, VMOUTUtil.getCallCount(Map.class, "put"));
@@ -6652,54 +6652,54 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testBuildStringConverter08() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂƒCƒ“ƒXƒ^ƒ“ƒX‰»‰Â”\Class‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E@FileFormat‚Ìİ’è‚ğ‚Â<br>
-     * - ‘S€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     * E@InputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * - ƒtƒB[ƒ‹ƒhFString column1<br>
-     * @InputFileColumnİ’è<br> > columnIndexF0<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFString column2<br>
-     * @InputFileColumnİ’è<br> > columnIndexF1<br>
-     *                        > stringConverterF<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–å¯èƒ½Classã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»@FileFormatã®è¨­å®šã‚’æŒã¤<br>
+     * - å…¨é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * ãƒ»@InputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column1<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š0<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column2<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š1<br>
+     *                        > stringConverterï¼š<br>
      *                        StringConverter.class<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        ¦stringConverter‚ªƒCƒ“ƒ^ƒtƒF[ƒXB<br>
-     *                        (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        â€»stringConverterãŒã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã€‚<br>
+     *                        (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                        "AbstractFileLineIterator_bulidFields01.txt"<br>
-     *                        (ó‘Ô) this.stringConverter:null<br>
-     *                        (ó‘Ô) this.stringConverterCacheMap:—v‘f‚ğ‚Á‚Ä‚È‚¢HashMap<Class, StringConverter>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        (ó‘Ô) this.currentLineCount:0<br>
-     *                        (ó‘Ô) #buildFields‚ÌÀs:ƒeƒXƒg‘O‚É#buildFields()‚ğÀs‚·‚éB<br>
+     *                        (çŠ¶æ…‹) this.stringConverter:null<br>
+     *                        (çŠ¶æ…‹) this.stringConverterCacheMap:è¦ç´ ã‚’æŒã£ã¦ãªã„HashMap<Class, StringConverter>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        (çŠ¶æ…‹) this.currentLineCount:0<br>
+     *                        (çŠ¶æ…‹) #buildFieldsã®å®Ÿè¡Œ:ãƒ†ã‚¹ãƒˆå‰ã«#buildFields()ã‚’å®Ÿè¡Œã™ã‚‹ã€‚<br>
      * <br>
-     *                        Šú‘Ò’lF(ó‘Ô•Ï‰») Class.newInstance():2‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») Map.containsKey(Object):2‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») Map.put(K, V):1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») Map.get(Object):ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») this.stringConverters:null<br>
-     *                        (ó‘Ô•Ï‰») this.stringConverterCacheMap:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂHashMap<Class, StringConverter>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E NullStringConverter.class<br>
-     *                        =NullStringConverterƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileLineException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *                        EƒƒbƒZ[ƒWF"Failed in an instantiate of a stringConverter."<br>
-     *                        EŒ´ˆö—áŠOFInstantiationException<br>
-     *                        Eƒtƒ@ƒCƒ‹–¼FƒtƒB[ƒ‹ƒhfileName‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒXB<br>
-     *                        Es”Ô†F-1<br>
-     *                        EƒJƒ‰ƒ€–¼Fcolumn2<br>
-     *                        EƒJƒ‰ƒ€ƒCƒ“ƒfƒbƒNƒXF1<br>
+     *                        æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) Class.newInstance():2å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) Map.containsKey(Object):2å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) Map.put(K, V):1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) Map.get(Object):å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.stringConverters:null<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.stringConverterCacheMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤HashMap<Class, StringConverter>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ» NullStringConverter.class<br>
+     *                        =NullStringConverterã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileLineExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *                        ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Failed in an instantiate of a stringConverter."<br>
+     *                        ãƒ»åŸå› ä¾‹å¤–ï¼šInstantiationException<br>
+     *                        ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰fileNameã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚<br>
+     *                        ãƒ»è¡Œç•ªå·ï¼š-1<br>
+     *                        ãƒ»ã‚«ãƒ©ãƒ åï¼šcolumn2<br>
+     *                        ãƒ»ã‚«ãƒ©ãƒ ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ï¼š1<br>
      * <br>
-     *                        —áŠOB<br>
-     *                        ƒtƒB[ƒ‹ƒhclazz‚ª@InputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚ğ‚¿Aİ’è‚³‚ê‚½stringConverter‚ªƒCƒ“ƒ^ƒtƒF[ƒX‚Ìê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                        ä¾‹å¤–ã€‚<br>
+     *                        ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰clazzãŒ@InputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¡ã€è¨­å®šã•ã‚ŒãŸstringConverterãŒã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã®å ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testBuildStringConverter08() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_bulidFields01.txt");
         String fileName = url.getPath();
@@ -6710,27 +6710,27 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub46.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         Map<Class, StringConverter> cache_stringConverterCacheMap = new HashMap<Class, StringConverter>();
         UTUtil.setPrivateField(fileLineIterator, "stringConverterCacheMap",
                 cache_stringConverterCacheMap);
 
         UTUtil.invokePrivate(fileLineIterator, "buildFields");
         VMOUTUtil.initialize();
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Å‚·‚Å‚Éİ’èÏ‚İ
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§ã™ã§ã«è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             UTUtil.invokePrivate(fileLineIterator, "buildStringConverters");
-            fail("FileLineException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("FileLineExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (FileLineException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(2, VMOUTUtil.getCallCount(Class.class, "newInstance"));
             assertEquals(2, VMOUTUtil.getCallCount(Map.class, "containsKey"));
             assertEquals(1, VMOUTUtil.getCallCount(Map.class, "put"));
@@ -6761,53 +6761,53 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testBuildStringConverter09() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂƒCƒ“ƒXƒ^ƒ“ƒX‰»‰Â”\Class‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E@FileFormat‚Ìİ’è‚ğ‚Â<br>
-     * - ‘S€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     * E@InputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * - ƒtƒB[ƒ‹ƒhFString column1<br>
-     * @InputFileColumnİ’è<br> > columnIndexF0<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFString column2<br>
-     * @InputFileColumnİ’è<br> > columnIndexF1<br>
-     *                        > stringConverterFƒfƒtƒHƒ‹ƒg‚Å’¼ÚƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Å‚«‚È‚¢“Æ©StringConverter.class<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–å¯èƒ½Classã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»@FileFormatã®è¨­å®šã‚’æŒã¤<br>
+     * - å…¨é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * ãƒ»@InputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column1<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š0<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column2<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š1<br>
+     *                        > stringConverterï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã§ç›´æ¥ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§ããªã„ç‹¬è‡ªStringConverter.class<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                        "AbstractFileLineIterator_bulidFields01.txt"<br>
-     *                        (ó‘Ô) this.stringConverter:null<br>
-     *                        (ó‘Ô) this.stringConverterCacheMap:—v‘f‚ğ‚Á‚Ä‚È‚¢HashMap<Class, StringConverter>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        (ó‘Ô) this.currentLineCount:0<br>
-     *                        (ó‘Ô) #buildFields‚ÌÀs:ƒeƒXƒg‘O‚É#buildFields()‚ğÀs‚·‚éB<br>
+     *                        (çŠ¶æ…‹) this.stringConverter:null<br>
+     *                        (çŠ¶æ…‹) this.stringConverterCacheMap:è¦ç´ ã‚’æŒã£ã¦ãªã„HashMap<Class, StringConverter>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        (çŠ¶æ…‹) this.currentLineCount:0<br>
+     *                        (çŠ¶æ…‹) #buildFieldsã®å®Ÿè¡Œ:ãƒ†ã‚¹ãƒˆå‰ã«#buildFields()ã‚’å®Ÿè¡Œã™ã‚‹ã€‚<br>
      * <br>
-     *                        Šú‘Ò’lF(ó‘Ô•Ï‰») Class.newInstance():2‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») Map.containsKey(Object):2‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») Map.put(K, V):1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») Map.get(Object):ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») this.stringConverters:null<br>
-     *                        (ó‘Ô•Ï‰») this.stringConverterCacheMap:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂHashMap<Class, StringConverter>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E NullStringConverter.class<br>
-     *                        =NullStringConverterƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileLineException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *                        EƒƒbƒZ[ƒWF"Failed in an instantiate of a stringConverter."<br>
-     *                        EŒ´ˆö—áŠOFIllegalAccessException<br>
-     *                        Eƒtƒ@ƒCƒ‹–¼FƒtƒB[ƒ‹ƒhfileName‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒXB<br>
-     *                        Es”Ô†F-1<br>
-     *                        EƒJƒ‰ƒ€–¼Fcolumn2<br>
-     *                        EƒJƒ‰ƒ€ƒCƒ“ƒfƒbƒNƒXF1<br>
+     *                        æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) Class.newInstance():2å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) Map.containsKey(Object):2å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) Map.put(K, V):1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) Map.get(Object):å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.stringConverters:null<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.stringConverterCacheMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤HashMap<Class, StringConverter>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ» NullStringConverter.class<br>
+     *                        =NullStringConverterã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileLineExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *                        ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Failed in an instantiate of a stringConverter."<br>
+     *                        ãƒ»åŸå› ä¾‹å¤–ï¼šIllegalAccessException<br>
+     *                        ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰fileNameã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚<br>
+     *                        ãƒ»è¡Œç•ªå·ï¼š-1<br>
+     *                        ãƒ»ã‚«ãƒ©ãƒ åï¼šcolumn2<br>
+     *                        ãƒ»ã‚«ãƒ©ãƒ ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ï¼š1<br>
      * <br>
-     *                        —áŠOB<br>
-     *                        ƒtƒB[ƒ‹ƒhclazz‚ª@InputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚ğ‚¿Aİ’è‚³‚ê‚½stringConverter‚ªƒfƒtƒHƒ‹ƒgƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÅƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Å‚«‚È‚¢ƒNƒ‰ƒX‚Ìê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚é
-     *                        B <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                        ä¾‹å¤–ã€‚<br>
+     *                        ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰clazzãŒ@InputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¡ã€è¨­å®šã•ã‚ŒãŸstringConverterãŒãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§ããªã„ã‚¯ãƒ©ã‚¹ã®å ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹
+     *                        ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testBuildStringConverter09() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_bulidFields01.txt");
         String fileName = url.getPath();
@@ -6818,27 +6818,27 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub47.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         Map<Class, StringConverter> cache_stringConverterCacheMap = new HashMap<Class, StringConverter>();
         UTUtil.setPrivateField(fileLineIterator, "stringConverterCacheMap",
                 cache_stringConverterCacheMap);
 
         UTUtil.invokePrivate(fileLineIterator, "buildFields");
         VMOUTUtil.initialize();
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Å‚·‚Å‚Éİ’èÏ‚İ
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§ã™ã§ã«è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             UTUtil.invokePrivate(fileLineIterator, "buildStringConverters");
-            fail("FileLineException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("FileLineExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (FileLineException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
 
             assertEquals(2, VMOUTUtil.getCallCount(Class.class, "newInstance"));
             assertEquals(2, VMOUTUtil.getCallCount(Map.class, "containsKey"));
@@ -6870,68 +6870,68 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testBuildStringConverter10() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂƒCƒ“ƒXƒ^ƒ“ƒX‰»‰Â”\Class‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E@FileFormat‚Ìİ’è‚ğ‚Â<br>
-     * - ‘S€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     * E@InputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * - ƒtƒB[ƒ‹ƒhFString column3<br>
-     * @InputFileColumnİ’è<br> > columnIndexF2<br>
-     *                        > stringConverterF<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–å¯èƒ½Classã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»@FileFormatã®è¨­å®šã‚’æŒã¤<br>
+     * - å…¨é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * ãƒ»@InputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column3<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š2<br>
+     *                        > stringConverterï¼š<br>
      *                        StringConverterToUpperCase.class<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFString column1<br>
-     * @InputFileColumnİ’è<br> > columnIndexF0<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFString column2<br>
-     * @InputFileColumnİ’è<br> > columnIndexF1<br>
-     *                        > stringConverterF<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column1<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š0<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column2<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š1<br>
+     *                        > stringConverterï¼š<br>
      *                        StringConverterToLowerCase<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        ¦columnIndex‚ªd•¡‚µ‚È‚¢B<br>
-     *                        ¦stringConverter‚ª‘S•”ˆá‚¤B<br>
-     *                        (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        â€»columnIndexãŒé‡è¤‡ã—ãªã„ã€‚<br>
+     *                        â€»stringConverterãŒå…¨éƒ¨é•ã†ã€‚<br>
+     *                        (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                        "AbstractFileLineIterator_bulidFields01.txt"<br>
-     *                        (ó‘Ô) this.stringConverter:null<br>
-     *                        (ó‘Ô) this.stringConverterCacheMap:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂHashMap<Class, StringConverter>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E NullStringConverter.class<br>
-     *                        =NullStringConverterƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E StringConverterToUpperCase.class<br>
-     *                        =StringConverterToUpperCaseƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E StringConverterToLowerCase.class<br>
-     *                        =StringConverterToLowerCaseƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        (ó‘Ô) this.currentLineCount:0<br>
-     *                        (ó‘Ô) #buildFields‚ÌÀs:ƒeƒXƒg‘O‚É#buildFields()‚ğÀs‚·‚éB<br>
+     *                        (çŠ¶æ…‹) this.stringConverter:null<br>
+     *                        (çŠ¶æ…‹) this.stringConverterCacheMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤HashMap<Class, StringConverter>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ» NullStringConverter.class<br>
+     *                        =NullStringConverterã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ» StringConverterToUpperCase.class<br>
+     *                        =StringConverterToUpperCaseã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ» StringConverterToLowerCase.class<br>
+     *                        =StringConverterToLowerCaseã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        (çŠ¶æ…‹) this.currentLineCount:0<br>
+     *                        (çŠ¶æ…‹) #buildFieldsã®å®Ÿè¡Œ:ãƒ†ã‚¹ãƒˆå‰ã«#buildFields()ã‚’å®Ÿè¡Œã™ã‚‹ã€‚<br>
      * <br>
-     *                        Šú‘Ò’lF(ó‘Ô•Ï‰») Class.newInstance():ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») Map.containsKey(Object):3‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») Map.put(K, V):ŒÄ‚Î‚ê‚È‚¢<br>
-     *                        (ó‘Ô•Ï‰») Map.get(Object):3‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.stringConverters:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂStringConverter”z—ñƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E[0]FNullStringConverterƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E[1]FStringConverterToLowerCaseƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E[2]FStringConverterToUpperCaseƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     *                        æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) Class.newInstance():å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) Map.containsKey(Object):3å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) Map.put(K, V):å‘¼ã°ã‚Œãªã„<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) Map.get(Object):3å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.stringConverters:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤StringConverteré…åˆ—ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»[0]ï¼šNullStringConverterã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»[1]ï¼šStringConverterToLowerCaseã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»[2]ï¼šStringConverterToUpperCaseã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     *                        ¦Ši”[‚³‚ê‚Ä‚¢‚éƒCƒ“ƒXƒ^ƒ“ƒX‚Íthis.stringConverterCacheMap‚ÉŠi”[‚³‚ê‚Ä‚¢‚é“¯‚¶Œ^‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚Æ“¯‚¶‚à‚ÌB<br>
-     *                        (ó‘Ô•Ï‰») this.stringConverterCacheMap:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂHashMap<Class, StringConverter>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E NullStringConverter.class<br>
-     *                        =NullStringConverterƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E StringConverterToUpperCase.class<br>
-     *                        =StringConverterToUpperCaseƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E StringConverterToLowerCase.class<br>
-     *                        =StringConverterToLowerCaseƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     *                        â€»æ ¼ç´ã•ã‚Œã¦ã„ã‚‹ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã¯this.stringConverterCacheMapã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹åŒã˜å‹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã¨åŒã˜ã‚‚ã®ã€‚<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.stringConverterCacheMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤HashMap<Class, StringConverter>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ» NullStringConverter.class<br>
+     *                        =NullStringConverterã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ» StringConverterToUpperCase.class<br>
+     *                        =StringConverterToUpperCaseã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ» StringConverterToLowerCase.class<br>
+     *                        =StringConverterToLowerCaseã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     *                        ³íB<br>
-     *                        StaticƒtƒB[ƒ‹ƒhthis.stringConverterCacheMap‚ÉƒLƒƒƒbƒVƒ…‚ª‚ ‚éê‡AStringConverter‚ÌƒCƒ“ƒXƒ^ƒ“ƒX¶¬‚È‚µ‚ÅƒLƒƒƒbƒVƒ…‚ğ—˜—p‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                        æ­£å¸¸ã€‚<br>
+     *                        Staticãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰this.stringConverterCacheMapã«ã‚­ãƒ£ãƒƒã‚·ãƒ¥ãŒã‚ã‚‹å ´åˆã€StringConverterã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ç”Ÿæˆãªã—ã§ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã‚’åˆ©ç”¨ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testBuildStringConverter10() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_bulidFields01.txt");
         String fileName = url.getPath();
@@ -6942,10 +6942,10 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub48.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         Map<Class, StringConverter> cache_stringConverterCacheMap = new HashMap<Class, StringConverter>();
         StringConverter cache01 = new NullStringConverter();
         StringConverter cache02 = new StringConverterToLowerCase();
@@ -6960,14 +6960,14 @@ public class AbstractFileLineIteratorTest extends TestCase {
 
         UTUtil.invokePrivate(fileLineIterator, "buildFields");
         VMOUTUtil.initialize();
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Å‚·‚Å‚Éİ’èÏ‚İ
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§ã™ã§ã«è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         UTUtil.invokePrivate(fileLineIterator, "buildStringConverters");
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(0, VMOUTUtil.getCallCount(Class.class, "newInstance"));
         assertEquals(3, VMOUTUtil.getCallCount(Map.class, "containsKey"));
         assertEquals(0, VMOUTUtil.getCallCount(Map.class, "put"));
@@ -6994,28 +6994,28 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testBuildMethods01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD,E,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD,E,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂƒCƒ“ƒXƒ^ƒ“ƒX‰»‰Â”\Class‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E@FileFormat‚Ìİ’è‚ğ‚Â<br>
-     * - ‘S€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     * EƒtƒB[ƒ‹ƒh‚ª‚Ä‚È‚¢B<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–å¯èƒ½Classã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»@FileFormatã®è¨­å®šã‚’æŒã¤<br>
+     * - å…¨é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * ãƒ»ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ãŒæŒã¦ãªã„ã€‚<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "AbstractFileLineIterator_bulidFields01.txt"<br>
-     * (ó‘Ô) #buildFields‚ÌÀs:ƒeƒXƒg‘O‚É#buildFields()‚ğÀs‚·‚éB<br>
+     * (çŠ¶æ…‹) #buildFieldsã®å®Ÿè¡Œ:ãƒ†ã‚¹ãƒˆå‰ã«#buildFields()ã‚’å®Ÿè¡Œã™ã‚‹ã€‚<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») Class.getMethod(String):ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») this.methods:—v‘f‚ğ‚½‚È‚¢Method”z—ñƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) Class.getMethod(String):å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.methods:è¦ç´ ã‚’æŒãŸãªã„Methodé…åˆ—ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     * ³íB<br>
-     * ƒtƒB[ƒ‹ƒhclazz‚ªƒtƒB[ƒ‹ƒh‚ğ‚Á‚Ä‚È‚¢ê‡Athis.methods‚Éƒƒ\ƒbƒhî•ñ‚ª¶¬‚³‚ê‚È‚¢‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã€‚<br>
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰clazzãŒãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã£ã¦ãªã„å ´åˆã€this.methodsã«ãƒ¡ã‚½ãƒƒãƒ‰æƒ…å ±ãŒç”Ÿæˆã•ã‚Œãªã„ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testBuildMethods01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_bulidFields01.txt");
         String fileName = url.getPath();
@@ -7026,21 +7026,21 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub07.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.invokePrivate(fileLineIterator, "buildFields");
         VMOUTUtil.initialize();
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åİ’èÏ‚İ
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         UTUtil.invokePrivate(fileLineIterator, "buildMethods");
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(0, VMOUTUtil.getCallCount(Class.class, "getMethod"));
         Method[] methods = (Method[]) UTUtil.getPrivateField(fileLineIterator,
                 "methods");
@@ -7050,29 +7050,29 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testBuildMethods02() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD,E,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD,E,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂƒCƒ“ƒXƒ^ƒ“ƒX‰»‰Â”\Class‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E@FileFormat‚Ìİ’è‚ğ‚Â<br>
-     * - ‘S€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     * E@InputFileColumnİ’è‚È‚µ‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * - ƒtƒB[ƒ‹ƒhFString noMappingColumn1<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–å¯èƒ½Classã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»@FileFormatã®è¨­å®šã‚’æŒã¤<br>
+     * - å…¨é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * ãƒ»@InputFileColumnè¨­å®šãªã—ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString noMappingColumn1<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "AbstractFileLineIterator_bulidFields01.txt"<br>
-     * (ó‘Ô) #buildFields‚ÌÀs:ƒeƒXƒg‘O‚É#buildFields()‚ğÀs‚·‚éB<br>
+     * (çŠ¶æ…‹) #buildFieldsã®å®Ÿè¡Œ:ãƒ†ã‚¹ãƒˆå‰ã«#buildFields()ã‚’å®Ÿè¡Œã™ã‚‹ã€‚<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») Class.getMethod(String):ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») this.methods:—v‘f‚ğ‚½‚È‚¢Method”z—ñƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) Class.getMethod(String):å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.methods:è¦ç´ ã‚’æŒãŸãªã„Methodé…åˆ—ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     * ³íB<br>
-     * ƒtƒB[ƒ‹ƒhclazz‚ª@InputFileColumnİ’è‚È‚µ‚ÌƒtƒB[ƒ‹ƒhi‚P‚Âj‚Ì‚İ‚Âê‡Athis.methods‚Éƒƒ\ƒbƒhî•ñ‚ª¶¬‚³‚ê‚È‚¢‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã€‚<br>
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰clazzãŒ@InputFileColumnè¨­å®šãªã—ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼ˆï¼‘ã¤ï¼‰ã®ã¿æŒã¤å ´åˆã€this.methodsã«ãƒ¡ã‚½ãƒƒãƒ‰æƒ…å ±ãŒç”Ÿæˆã•ã‚Œãªã„ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testBuildMethods02() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_bulidFields01.txt");
         String fileName = url.getPath();
@@ -7083,21 +7083,21 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub50.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.invokePrivate(fileLineIterator, "buildFields");
         VMOUTUtil.initialize();
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åİ’èÏ‚İ
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         UTUtil.invokePrivate(fileLineIterator, "buildMethods");
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(0, VMOUTUtil.getCallCount(Class.class, "getMethod"));
         Method[] methods = (Method[]) UTUtil.getPrivateField(fileLineIterator,
                 "methods");
@@ -7107,37 +7107,37 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testBuildMethods03() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD,E,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD,E,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂƒCƒ“ƒXƒ^ƒ“ƒX‰»‰Â”\Class‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E@FileFormat‚Ìİ’è‚ğ‚Â<br>
-     * - ‘S€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     * E@InputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * - ƒtƒB[ƒ‹ƒhFString column1<br>
-     * @InputFileColumnİ’è<br> > columnIndexF0<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        EƒtƒB[ƒ‹ƒh‚É‘Î‚·‚éƒZƒbƒ^ƒƒ\ƒbƒh‚ª‘¶İ‚·‚éB<br>
-     *                        (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–å¯èƒ½Classã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»@FileFormatã®è¨­å®šã‚’æŒã¤<br>
+     * - å…¨é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * ãƒ»@InputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column1<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š0<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        ãƒ»ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«å¯¾ã™ã‚‹ã‚»ãƒƒã‚¿ãƒ¡ã‚½ãƒƒãƒ‰ãŒå­˜åœ¨ã™ã‚‹ã€‚<br>
+     *                        (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                        "AbstractFileLineIterator_bulidFields01.txt"<br>
-     *                        (ó‘Ô) #buildFields‚ÌÀs:ƒeƒXƒg‘O‚É#buildFields()‚ğÀs‚·‚éB<br>
+     *                        (çŠ¶æ…‹) #buildFieldsã®å®Ÿè¡Œ:ãƒ†ã‚¹ãƒˆå‰ã«#buildFields()ã‚’å®Ÿè¡Œã™ã‚‹ã€‚<br>
      * <br>
-     *                        Šú‘Ò’lF(ó‘Ô•Ï‰») Class.getMethod(String):1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.methods:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂMethod”z—ñƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E[0]FsetColumn1(String)‚Ìƒƒ\ƒbƒhƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     *                        æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) Class.getMethod(String):1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.methods:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤Methodé…åˆ—ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»[0]ï¼šsetColumn1(String)ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     *                        ¦ƒƒ\ƒbƒh–¼‚Æˆø”‚ÌŒ^‚ªŠm”Fƒ|ƒCƒ“ƒg<br>
+     *                        â€»ãƒ¡ã‚½ãƒƒãƒ‰åã¨å¼•æ•°ã®å‹ãŒç¢ºèªãƒã‚¤ãƒ³ãƒˆ<br>
      * <br>
-     *                        ³íB<br>
-     *                        ƒtƒB[ƒ‹ƒhclazz‚ª@InputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒhi‚P‚Âj‚Ì‚İ‚¿A‚»‚ÌƒtƒB[ƒ‹ƒh‚É‘Î‚·‚éƒZƒbƒ^ƒƒ\ƒbƒh‚ª‘¶İ‚·‚éê‡Athis.methods‚É‚»‚ÌƒtƒB[ƒ‹ƒh‚É‘Î‚·‚éƒZƒbƒ^
-     *                        ƒ ƒ\ ƒb ƒh ‚Ì î •ñ ‚ª ¶ ¬ ‚³ ‚ê ‚é ‚± ‚Æ ‚ğ Šm ”F ‚· ‚é B <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                        æ­£å¸¸ã€‚<br>
+     *                        ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰clazzãŒ@InputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼ˆï¼‘ã¤ï¼‰ã®ã¿æŒã¡ã€ãã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«å¯¾ã™ã‚‹ã‚»ãƒƒã‚¿ãƒ¡ã‚½ãƒƒãƒ‰ãŒå­˜åœ¨ã™ã‚‹å ´åˆã€this.methodsã«ãã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«å¯¾ã™ã‚‹ã‚»ãƒƒã‚¿
+     *                        ãƒ¡ ã‚½ ãƒƒ ãƒ‰ ã® æƒ… å ± ãŒ ç”Ÿ æˆ ã• ã‚Œ ã‚‹ ã“ ã¨ ã‚’ ç¢º èª ã™ ã‚‹ ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testBuildMethods03() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_bulidFields01.txt");
         String fileName = url.getPath();
@@ -7148,21 +7148,21 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub51.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.invokePrivate(fileLineIterator, "buildFields");
         VMOUTUtil.initialize();
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åİ’èÏ‚İ
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         UTUtil.invokePrivate(fileLineIterator, "buildMethods");
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(1, VMOUTUtil.getCallCount(Class.class, "getMethod"));
         Method[] methods = (Method[]) UTUtil.getPrivateField(fileLineIterator,
                 "methods");
@@ -7176,36 +7176,36 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testBuildMethods04() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂƒCƒ“ƒXƒ^ƒ“ƒX‰»‰Â”\Class‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E@FileFormat‚Ìİ’è‚ğ‚Â<br>
-     * - ‘S€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     * E@InputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * - ƒtƒB[ƒ‹ƒhFString column1<br>
-     * @InputFileColumnİ’è<br> > columnIndexF0<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        EƒtƒB[ƒ‹ƒh‚É‘Î‚·‚éƒZƒbƒ^ƒƒ\ƒbƒh‚ª‘¶İ‚µ‚È‚¢B<br>
-     *                        (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–å¯èƒ½Classã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»@FileFormatã®è¨­å®šã‚’æŒã¤<br>
+     * - å…¨é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * ãƒ»@InputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column1<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š0<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        ãƒ»ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«å¯¾ã™ã‚‹ã‚»ãƒƒã‚¿ãƒ¡ã‚½ãƒƒãƒ‰ãŒå­˜åœ¨ã—ãªã„ã€‚<br>
+     *                        (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                        "AbstractFileLineIterator_bulidFields01.txt"<br>
-     *                        (ó‘Ô) #buildFields‚ÌÀs:ƒeƒXƒg‘O‚É#buildFields()‚ğÀs‚·‚éB<br>
+     *                        (çŠ¶æ…‹) #buildFieldsã®å®Ÿè¡Œ:ãƒ†ã‚¹ãƒˆå‰ã«#buildFields()ã‚’å®Ÿè¡Œã™ã‚‹ã€‚<br>
      * <br>
-     *                        Šú‘Ò’lF(ó‘Ô•Ï‰») Class.getMethod(String):1‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.methods:null<br>
-     *                        (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *                        EƒƒbƒZ[ƒWF"The setter method of column doesn't exist."<br>
-     *                        EŒ´ˆö—áŠOFNoSuchMethodException<br>
-     *                        Eƒtƒ@ƒCƒ‹–¼FƒtƒB[ƒ‹ƒhfileName‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒXB<br>
+     *                        æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) Class.getMethod(String):1å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.methods:null<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *                        ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"The setter method of column doesn't exist."<br>
+     *                        ãƒ»åŸå› ä¾‹å¤–ï¼šNoSuchMethodException<br>
+     *                        ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰fileNameã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚<br>
      * <br>
-     *                        —áŠOB<br>
-     *                        ƒtƒB[ƒ‹ƒhclazz‚ª@InputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â‚ªA‚»‚ÌƒtƒB[ƒ‹ƒh‚É‘Î‚·‚éƒZƒbƒ^ƒƒ\ƒbƒh‚ğ‚½‚È‚¢ê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                        ä¾‹å¤–ã€‚<br>
+     *                        ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰clazzãŒ@InputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤ãŒã€ãã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«å¯¾ã™ã‚‹ã‚»ãƒƒã‚¿ãƒ¡ã‚½ãƒƒãƒ‰ã‚’æŒãŸãªã„å ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testBuildMethods04() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_bulidFields01.txt");
         String fileName = url.getPath();
@@ -7216,23 +7216,23 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub52.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.invokePrivate(fileLineIterator, "buildFields");
         VMOUTUtil.initialize();
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åİ’èÏ‚İ
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             UTUtil.invokePrivate(fileLineIterator, "buildMethods");
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (FileException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(1, VMOUTUtil.getCallCount(Class.class, "getMethod"));
             Method[] methods = (Method[]) UTUtil.getPrivateField(
                     fileLineIterator, "methods");
@@ -7249,31 +7249,31 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testBuildMethods05() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD,E,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD,E,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂƒCƒ“ƒXƒ^ƒ“ƒX‰»‰Â”\Class‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E@FileFormat‚Ìİ’è‚ğ‚Â<br>
-     * - ‘S€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     * E@InputFileColumnİ’è‚È‚µ‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * - ƒtƒB[ƒ‹ƒhFString noMappingColumn3<br>
-     * - ƒtƒB[ƒ‹ƒhFString noMappingColumn1<br>
-     * - ƒtƒB[ƒ‹ƒhFString noMappingColumn2<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–å¯èƒ½Classã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»@FileFormatã®è¨­å®šã‚’æŒã¤<br>
+     * - å…¨é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * ãƒ»@InputFileColumnè¨­å®šãªã—ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString noMappingColumn3<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString noMappingColumn1<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString noMappingColumn2<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "AbstractFileLineIterator_bulidFields01.txt"<br>
-     * (ó‘Ô) #buildFields‚ÌÀs:ƒeƒXƒg‘O‚É#buildFields()‚ğÀs‚·‚éB<br>
+     * (çŠ¶æ…‹) #buildFieldsã®å®Ÿè¡Œ:ãƒ†ã‚¹ãƒˆå‰ã«#buildFields()ã‚’å®Ÿè¡Œã™ã‚‹ã€‚<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») Class.getMethod(String):ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») this.methods:—v‘f‚ğ‚½‚È‚¢Method”z—ñƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) Class.getMethod(String):å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.methods:è¦ç´ ã‚’æŒãŸãªã„Methodé…åˆ—ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     * ³íB<br>
-     * ƒtƒB[ƒ‹ƒhclazz‚ª@InputFileColumnİ’è‚È‚µ‚ÌƒtƒB[ƒ‹ƒhi‚R‚Âj‚Ì‚İ‚Âê‡Athis.methods‚Éƒƒ\ƒbƒhî•ñ‚ª¶¬‚³‚ê‚È‚¢‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã€‚<br>
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰clazzãŒ@InputFileColumnè¨­å®šãªã—ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼ˆï¼“ã¤ï¼‰ã®ã¿æŒã¤å ´åˆã€this.methodsã«ãƒ¡ã‚½ãƒƒãƒ‰æƒ…å ±ãŒç”Ÿæˆã•ã‚Œãªã„ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testBuildMethods05() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_bulidFields01.txt");
         String fileName = url.getPath();
@@ -7284,21 +7284,21 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub53.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.invokePrivate(fileLineIterator, "buildFields");
         VMOUTUtil.initialize();
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åİ’èÏ‚İ
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         UTUtil.invokePrivate(fileLineIterator, "buildMethods");
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(0, VMOUTUtil.getCallCount(Class.class, "getMethod"));
         Method[] methods = (Method[]) UTUtil.getPrivateField(fileLineIterator,
                 "methods");
@@ -7308,42 +7308,42 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testBuildMethods06() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD,E,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD,E,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂƒCƒ“ƒXƒ^ƒ“ƒX‰»‰Â”\Class‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E@FileFormat‚Ìİ’è‚ğ‚Â<br>
-     * - ‘S€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     * E@InputFileColumnİ’è‚ ‚èE‚È‚µ‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * - ƒtƒB[ƒ‹ƒhFString column1<br>
-     * @InputFileColumnİ’è<br> > columnIndexF0<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFString noMappingColumn1<br>
-     *                        - ƒtƒB[ƒ‹ƒhFString column2<br>
-     * @InputFileColumnİ’è<br> > columnIndexF1<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        ¦columnIndex‚ªd•¡‚µ‚È‚¢B<br>
-     *                        (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–å¯èƒ½Classã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»@FileFormatã®è¨­å®šã‚’æŒã¤<br>
+     * - å…¨é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * ãƒ»@InputFileColumnè¨­å®šã‚ã‚Šãƒ»ãªã—ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column1<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š0<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString noMappingColumn1<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column2<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š1<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        â€»columnIndexãŒé‡è¤‡ã—ãªã„ã€‚<br>
+     *                        (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                        "AbstractFileLineIterator_bulidFields01.txt"<br>
-     *                        (ó‘Ô) #buildFields‚ÌÀs:ƒeƒXƒg‘O‚É#buildFields()‚ğÀs‚·‚éB<br>
+     *                        (çŠ¶æ…‹) #buildFieldsã®å®Ÿè¡Œ:ãƒ†ã‚¹ãƒˆå‰ã«#buildFields()ã‚’å®Ÿè¡Œã™ã‚‹ã€‚<br>
      * <br>
-     *                        Šú‘Ò’lF(ó‘Ô•Ï‰») Class.getMethod(String):2‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.methods:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂMethod”z—ñƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E[0]FsetColumn1(String)‚Ìƒƒ\ƒbƒhƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E[1]FsetColumn2(String)‚Ìƒƒ\ƒbƒhƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     *                        æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) Class.getMethod(String):2å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.methods:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤Methodé…åˆ—ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»[0]ï¼šsetColumn1(String)ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»[1]ï¼šsetColumn2(String)ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     *                        ¦ƒƒ\ƒbƒh–¼‚Æˆø”‚ÌŒ^‚ªŠm”Fƒ|ƒCƒ“ƒg<br>
+     *                        â€»ãƒ¡ã‚½ãƒƒãƒ‰åã¨å¼•æ•°ã®å‹ãŒç¢ºèªãƒã‚¤ãƒ³ãƒˆ<br>
      * <br>
-     *                        ³íB<br>
-     *                        ƒtƒB[ƒ‹ƒhclazz‚ª@InputFileColumnİ’è‚ ‚éE‚È‚µ‚ÌƒtƒB[ƒ‹ƒhi
-     *                        ‚R‚Âj‚ğ—¼•û‚¿A@İ’è‚ ‚èƒtƒB[ƒ‹ƒh‚ÌƒZƒbƒ^ƒƒ\ƒbƒh‚ª‘¶İ‚·‚éê‡Athis.methods‚É—İ’è‚ ‚éƒtƒB[ƒ‹ƒh‚É‘Î‚·‚éƒƒ\ƒbƒhî•ñ‚Ì‚İ¶¬‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                        æ­£å¸¸ã€‚<br>
+     *                        ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰clazzãŒ@InputFileColumnè¨­å®šã‚ã‚‹ãƒ»ãªã—ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼ˆ
+     *                        ï¼“ã¤ï¼‰ã‚’ä¸¡æ–¹æŒã¡ã€@è¨­å®šã‚ã‚Šãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®ã‚»ãƒƒã‚¿ãƒ¡ã‚½ãƒƒãƒ‰ãŒå­˜åœ¨ã™ã‚‹å ´åˆã€this.methodsã«ï¼ è¨­å®šã‚ã‚‹ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«å¯¾ã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰æƒ…å ±ã®ã¿ç”Ÿæˆã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testBuildMethods06() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_bulidFields01.txt");
         String fileName = url.getPath();
@@ -7354,21 +7354,21 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub54.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.invokePrivate(fileLineIterator, "buildFields");
         VMOUTUtil.initialize();
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åİ’èÏ‚İ
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         UTUtil.invokePrivate(fileLineIterator, "buildMethods");
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(2, VMOUTUtil.getCallCount(Class.class, "getMethod"));
         Method[] methods = (Method[]) UTUtil.getPrivateField(fileLineIterator,
                 "methods");
@@ -7386,52 +7386,52 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testBuildMethods07() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD,E,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD,E,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.clazz:ˆÈ‰º‚Ìİ’è‚ğ‚ÂƒCƒ“ƒXƒ^ƒ“ƒX‰»‰Â”\Class‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E@FileFormat‚Ìİ’è‚ğ‚Â<br>
-     * - encloseCharF"\""<br>
-     * - ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     * E@InputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * - ƒtƒB[ƒ‹ƒhFString column2<br>
-     * @InputFileColumnİ’è<br> > columnIndexF1<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFint column1<br>
-     * @InputFileColumnİ’è<br> > columnIndexF0<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFDate column4<br>
-     * @InputFileColumnİ’è<br> > columnIndexF3<br>
-     *                        > columnFormatFyyyy/MM/dd<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        - ƒtƒB[ƒ‹ƒhFBigDecimal column3<br>
-     * @InputFileColumnİ’è<br> > columnIndexF2<br>
-     *                        > columnFormatF###,###<br>
-     *                        > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l<br>
-     *                        ¦columnIndex‚ªd•¡‚µ‚È‚¢B<br>
-     *                        (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.clazz:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–å¯èƒ½Classã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»@FileFormatã®è¨­å®šã‚’æŒã¤<br>
+     * - encloseCharï¼š"\""<br>
+     * - ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * ãƒ»@InputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column2<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š1<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šint column1<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š0<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šDate column4<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š3<br>
+     *                        > columnFormatï¼šyyyy/MM/dd<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šBigDecimal column3<br>
+     * @InputFileColumnè¨­å®š<br> > columnIndexï¼š2<br>
+     *                        > columnFormatï¼š###,###<br>
+     *                        > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     *                        â€»columnIndexãŒé‡è¤‡ã—ãªã„ã€‚<br>
+     *                        (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                        "AbstractFileLineIterator_bulidFields01.txt"<br>
-     *                        (ó‘Ô) #buildFields‚ÌÀs:ƒeƒXƒg‘O‚É#buildFields()‚ğÀs‚·‚éB<br>
+     *                        (çŠ¶æ…‹) #buildFieldsã®å®Ÿè¡Œ:ãƒ†ã‚¹ãƒˆå‰ã«#buildFields()ã‚’å®Ÿè¡Œã™ã‚‹ã€‚<br>
      * <br>
-     *                        Šú‘Ò’lF(ó‘Ô•Ï‰») Class.getMethod(String):4‰ñŒÄ‚Î‚ê‚é<br>
-     *                        (ó‘Ô•Ï‰») this.methods:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂMethod”z—ñƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E[0]FsetColumn1(int)‚Ìƒƒ\ƒbƒhƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E[1]FsetColumn2(String)‚Ìƒƒ\ƒbƒhƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E[2]FsetColumn3(BigDecimal)‚Ìƒƒ\ƒbƒhƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                        E[3]FsetColumn4(Date)‚Ìƒƒ\ƒbƒhƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     *                        æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) Class.getMethod(String):4å›å‘¼ã°ã‚Œã‚‹<br>
+     *                        (çŠ¶æ…‹å¤‰åŒ–) this.methods:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤Methodé…åˆ—ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»[0]ï¼šsetColumn1(int)ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»[1]ï¼šsetColumn2(String)ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»[2]ï¼šsetColumn3(BigDecimal)ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                        ãƒ»[3]ï¼šsetColumn4(Date)ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     *                        ¦ƒƒ\ƒbƒh–¼‚Æˆø”‚ÌŒ^‚ªŠm”Fƒ|ƒCƒ“ƒg<br>
+     *                        â€»ãƒ¡ã‚½ãƒƒãƒ‰åã¨å¼•æ•°ã®å‹ãŒç¢ºèªãƒã‚¤ãƒ³ãƒˆ<br>
      * <br>
-     *                        ³íB<br>
-     *                        ƒtƒB[ƒ‹ƒhclazz‚ª@InputFileColumnİ’è‚È‚µ‚ÌƒtƒB[ƒ‹ƒhi‚S‚Âj‚Ì‚İ‚¿A‚»‚ÌƒtƒB[ƒ‹ƒh‚É‘Î‚·‚éƒZƒbƒ^ƒƒ\ƒbƒh‚ª‘¶İ‚·‚éê‡Athis.methods‚ÉƒtƒB[ƒ‹ƒh‚É‘Î‚·‚éƒZƒbƒ^ƒƒ\
-     *                        ƒb ƒh ‚Ì î •ñ ‚ª ¶ ¬ ‚³ ‚ê ‚é ‚± ‚Æ ‚ğ Šm ”F ‚· ‚é B <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *                        æ­£å¸¸ã€‚<br>
+     *                        ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰clazzãŒ@InputFileColumnè¨­å®šãªã—ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼ˆï¼”ã¤ï¼‰ã®ã¿æŒã¡ã€ãã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«å¯¾ã™ã‚‹ã‚»ãƒƒã‚¿ãƒ¡ã‚½ãƒƒãƒ‰ãŒå­˜åœ¨ã™ã‚‹å ´åˆã€this.methodsã«ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«å¯¾ã™ã‚‹ã‚»ãƒƒã‚¿ãƒ¡ã‚½
+     *                        ãƒƒ ãƒ‰ ã® æƒ… å ± ãŒ ç”Ÿ æˆ ã• ã‚Œ ã‚‹ ã“ ã¨ ã‚’ ç¢º èª ã™ ã‚‹ ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testBuildMethods07() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_bulidFields01.txt");
         String fileName = url.getPath();
@@ -7445,21 +7445,21 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub55.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.invokePrivate(fileLineIterator, "buildFields");
         VMOUTUtil.initialize();
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åİ’èÏ‚İ
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         UTUtil.invokePrivate(fileLineIterator, "buildMethods");
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(4, VMOUTUtil.getCallCount(Class.class, "getMethod"));
         Method[] methods = (Method[]) UTUtil.getPrivateField(fileLineIterator,
                 "methods");
@@ -7488,38 +7488,38 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testBuildHeader01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD,E,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD,E,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "AbstractFileLineIterator_buildHeader01.txt"<br>
-     * (ó‘Ô) this.headerLineCount:0<br>
-     * (ó‘Ô) this.lineReader:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂLineReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"‚Ps–Úƒf[ƒ^"<br>
-     * E"‚Qs–Úƒf[ƒ^"<br>
-     * E"‚Rs–Úƒf[ƒ^"<br>
-     * E"‚Ss–Úƒf[ƒ^"<br>
-     * E"‚Ts–Úƒf[ƒ^"<br>
-     * (ó‘Ô) this.header:—v‘f‚ğ‚½‚È‚¢ArrayList<String>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) this.hasNext(j:this.lineReader‚Ì’è‹`‚É]‚¤<br>
+     * (çŠ¶æ…‹) this.headerLineCount:0<br>
+     * (çŠ¶æ…‹) this.lineReader:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤LineReaderã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"ï¼‘è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼’è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼“è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼”è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼•è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * (çŠ¶æ…‹) this.header:è¦ç´ ã‚’æŒãŸãªã„ArrayList<String>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) this.hasNext(ï¼‰:this.lineReaderã®å®šç¾©ã«å¾“ã†<br>
      * <br>
-     * ¦ŒÄ‚Î‚ê‚éƒ^ƒCƒ~ƒ“ƒO‚É‚ ‚í‚¹‚Ä’è‹`<br>
-     * (ó‘Ô) LineReader.readLine():this.lineReader‚Ì’è‹`‚É]‚¤<br>
+     * â€»å‘¼ã°ã‚Œã‚‹ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã«ã‚ã‚ã›ã¦å®šç¾©<br>
+     * (çŠ¶æ…‹) LineReader.readLine():this.lineReaderã®å®šç¾©ã«å¾“ã†<br>
      * <br>
-     * ¦ŒÄ‚Î‚ê‚éƒ^ƒCƒ~ƒ“ƒO‚É‚ ‚í‚¹‚Ä’è‹`<br>
+     * â€»å‘¼ã°ã‚Œã‚‹ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã«ã‚ã‚ã›ã¦å®šç¾©<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.header:—v‘f‚ğ‚½‚È‚¢ArrayList<String>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô•Ï‰») LineReader.readLine():ŒÄ‚Î‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.header:è¦ç´ ã‚’æŒãŸãªã„ArrayList<String>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) LineReader.readLine():å‘¼ã°ã‚Œãªã„<br>
      * <br>
-     * ³íƒpƒ^[ƒ“B<br>
-     * ƒwƒbƒ_•”‚ª‚È‚¢ê‡‚Íthis.header‚ª‹ó‚Ì‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ãƒ‘ã‚¿ãƒ¼ãƒ³ã€‚<br>
+     * ãƒ˜ãƒƒãƒ€éƒ¨ãŒãªã„å ´åˆã¯this.headerãŒç©ºã®ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testBuildHeader01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_buildHeader01.txt");
         String fileName = url.getPath();
@@ -7531,19 +7531,19 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 columnParserMap);
         UTUtil.invokePrivate(fileLineIterator, "buildLineReader");
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åİ’èÏ‚İ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         UTUtil.invokePrivate(fileLineIterator, "buildHeader");
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         Object header_object = UTUtil.getPrivateField(fileLineIterator,
                 "header");
         assertEquals(ArrayList.class, header_object.getClass());
@@ -7559,39 +7559,39 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testBuildHeader02() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD,E,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD,E,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "AbstractFileLineIterator_buildHeader01.txt"<br>
-     * (ó‘Ô) this.headerLineCount:1<br>
-     * (ó‘Ô) this.lineReader:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂLineReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"‚Ps–Úƒf[ƒ^"<br>
-     * E"‚Qs–Úƒf[ƒ^"<br>
-     * E"‚Rs–Úƒf[ƒ^"<br>
-     * E"‚Ss–Úƒf[ƒ^"<br>
-     * E"‚Ts–Úƒf[ƒ^"<br>
-     * (ó‘Ô) this.header:—v‘f‚ğ‚½‚È‚¢ArrayList<String>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) this.hasNext(j:this.lineReader‚Ì’è‹`‚É]‚¤<br>
+     * (çŠ¶æ…‹) this.headerLineCount:1<br>
+     * (çŠ¶æ…‹) this.lineReader:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤LineReaderã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"ï¼‘è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼’è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼“è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼”è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼•è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * (çŠ¶æ…‹) this.header:è¦ç´ ã‚’æŒãŸãªã„ArrayList<String>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) this.hasNext(ï¼‰:this.lineReaderã®å®šç¾©ã«å¾“ã†<br>
      * <br>
-     * ¦ŒÄ‚Î‚ê‚éƒ^ƒCƒ~ƒ“ƒO‚É‚ ‚í‚¹‚Ä’è‹`<br>
-     * (ó‘Ô) LineReader.readLine():this.lineReader‚Ì’è‹`‚É]‚¤<br>
+     * â€»å‘¼ã°ã‚Œã‚‹ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã«ã‚ã‚ã›ã¦å®šç¾©<br>
+     * (çŠ¶æ…‹) LineReader.readLine():this.lineReaderã®å®šç¾©ã«å¾“ã†<br>
      * <br>
-     * ¦ŒÄ‚Î‚ê‚éƒ^ƒCƒ~ƒ“ƒO‚É‚ ‚í‚¹‚Ä’è‹`<br>
+     * â€»å‘¼ã°ã‚Œã‚‹ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã«ã‚ã‚ã›ã¦å®šç¾©<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.header:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂArrayList<String>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E[0]F"‚Ps–Úƒf[ƒ^"<br>
-     * (ó‘Ô•Ï‰») LineReader.readLine():1‰ñŒÄ‚Î‚ê‚é<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.header:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤ArrayList<String>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»[0]ï¼š"ï¼‘è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) LineReader.readLine():1å›å‘¼ã°ã‚Œã‚‹<br>
      * <br>
-     * ³íƒpƒ^[ƒ“B<br>
-     * ƒwƒbƒ_•”‚ª1s‚Ìê‡Athis.header‚É1s‚Ìî•ñ‚ªŠi”[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ãƒ‘ã‚¿ãƒ¼ãƒ³ã€‚<br>
+     * ãƒ˜ãƒƒãƒ€éƒ¨ãŒ1è¡Œã®å ´åˆã€this.headerã«1è¡Œã®æƒ…å ±ãŒæ ¼ç´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testBuildHeader02() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_buildHeader01.txt");
         String fileName = url.getPath();
@@ -7603,25 +7603,25 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 columnParserMap);
         UTUtil.invokePrivate(fileLineIterator, "buildLineReader");
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åİ’èÏ‚İ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         UTUtil.invokePrivate(fileLineIterator, "buildHeader");
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         Object header_object = UTUtil.getPrivateField(fileLineIterator,
                 "header");
         assertEquals(ArrayList.class, header_object.getClass());
         List header = (List) header_object;
         assertEquals(1, header.size());
-        assertEquals("1s–Úƒf[ƒ^", header.get(0));
+        assertEquals("1è¡Œç›®ãƒ‡ãƒ¼ã‚¿", header.get(0));
 
         Object lineReader = UTUtil.getPrivateField(fileLineIterator,
                 "lineReader");
@@ -7632,41 +7632,41 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testBuildHeader03() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "AbstractFileLineIterator_buildHeader01.txt"<br>
-     * (ó‘Ô) this.headerLineCount:3<br>
-     * (ó‘Ô) this.lineReader:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂLineReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"‚Ps–Úƒf[ƒ^"<br>
-     * E"‚Qs–Úƒf[ƒ^"<br>
-     * E"‚Rs–Úƒf[ƒ^"<br>
-     * E"‚Ss–Úƒf[ƒ^"<br>
-     * E"‚Ts–Úƒf[ƒ^"<br>
-     * (ó‘Ô) this.header:—v‘f‚ğ‚½‚È‚¢ArrayList<String>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) this.hasNext(j:this.lineReader‚Ì’è‹`‚É]‚¤<br>
+     * (çŠ¶æ…‹) this.headerLineCount:3<br>
+     * (çŠ¶æ…‹) this.lineReader:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤LineReaderã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"ï¼‘è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼’è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼“è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼”è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼•è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * (çŠ¶æ…‹) this.header:è¦ç´ ã‚’æŒãŸãªã„ArrayList<String>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) this.hasNext(ï¼‰:this.lineReaderã®å®šç¾©ã«å¾“ã†<br>
      * <br>
-     * ¦ŒÄ‚Î‚ê‚éƒ^ƒCƒ~ƒ“ƒO‚É‚ ‚í‚¹‚Ä’è‹`<br>
-     * (ó‘Ô) LineReader.readLine():this.lineReader‚Ì’è‹`‚É]‚¤<br>
+     * â€»å‘¼ã°ã‚Œã‚‹ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã«ã‚ã‚ã›ã¦å®šç¾©<br>
+     * (çŠ¶æ…‹) LineReader.readLine():this.lineReaderã®å®šç¾©ã«å¾“ã†<br>
      * <br>
-     * ¦ŒÄ‚Î‚ê‚éƒ^ƒCƒ~ƒ“ƒO‚É‚ ‚í‚¹‚Ä’è‹`<br>
+     * â€»å‘¼ã°ã‚Œã‚‹ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã«ã‚ã‚ã›ã¦å®šç¾©<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.header:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂArrayList<String>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E[0]F"‚Ps–Úƒf[ƒ^"<br>
-     * E[1]F"‚Qs–Úƒf[ƒ^"<br>
-     * E[2]F"‚Rs–Úƒf[ƒ^"<br>
-     * (ó‘Ô•Ï‰») LineReader.readLine():3‰ñŒÄ‚Î‚ê‚é<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.header:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤ArrayList<String>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»[0]ï¼š"ï¼‘è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»[1]ï¼š"ï¼’è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»[2]ï¼š"ï¼“è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) LineReader.readLine():3å›å‘¼ã°ã‚Œã‚‹<br>
      * <br>
-     * ³íƒpƒ^[ƒ“B<br>
-     * ƒwƒbƒ_•”‚ª3s‚Ìê‡Athis.header‚É3s‚Ìî•ñ‚ªŠi”[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ãƒ‘ã‚¿ãƒ¼ãƒ³ã€‚<br>
+     * ãƒ˜ãƒƒãƒ€éƒ¨ãŒ3è¡Œã®å ´åˆã€this.headerã«3è¡Œã®æƒ…å ±ãŒæ ¼ç´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testBuildHeader03() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_buildHeader01.txt");
         String fileName = url.getPath();
@@ -7678,27 +7678,27 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 columnParserMap);
         UTUtil.invokePrivate(fileLineIterator, "buildLineReader");
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åİ’èÏ‚İ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         UTUtil.invokePrivate(fileLineIterator, "buildHeader");
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         Object header_object = UTUtil.getPrivateField(fileLineIterator,
                 "header");
         assertEquals(ArrayList.class, header_object.getClass());
         List header = (List) header_object;
         assertEquals(3, header.size());
-        assertEquals("1s–Úƒf[ƒ^", header.get(0));
-        assertEquals("2s–Úƒf[ƒ^", header.get(1));
-        assertEquals("3s–Úƒf[ƒ^", header.get(2));
+        assertEquals("1è¡Œç›®ãƒ‡ãƒ¼ã‚¿", header.get(0));
+        assertEquals("2è¡Œç›®ãƒ‡ãƒ¼ã‚¿", header.get(1));
+        assertEquals("3è¡Œç›®ãƒ‡ãƒ¼ã‚¿", header.get(2));
 
         Object lineReader = UTUtil.getPrivateField(fileLineIterator,
                 "lineReader");
@@ -7709,39 +7709,39 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testBuildHeader04() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "AbstractFileLineIterator_buildHeader02.txt"<br>
-     * (ó‘Ô) this.headerLineCount:3<br>
-     * (ó‘Ô) this.lineReader:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂLineReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"‚Ps–Úƒf[ƒ^"<br>
-     * E"‚Qs–Úƒf[ƒ^"<br>
+     * (çŠ¶æ…‹) this.headerLineCount:3<br>
+     * (çŠ¶æ…‹) this.lineReader:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤LineReaderã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"ï¼‘è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼’è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
      * <br>
-     * ¦ƒwƒbƒ_s‚æ‚èƒf[ƒ^ƒtƒ@ƒCƒ‹‚Ìs”‚ª­‚È‚¢B<br>
-     * (ó‘Ô) this.header:—v‘f‚ğ‚½‚È‚¢ArrayList<String>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) this.hasNext(j:this.lineReader‚Ì’è‹`‚É]‚¤<br>
+     * â€»ãƒ˜ãƒƒãƒ€è¡Œã‚ˆã‚Šãƒ‡ãƒ¼ã‚¿ãƒ•ã‚¡ã‚¤ãƒ«ã®è¡Œæ•°ãŒå°‘ãªã„ã€‚<br>
+     * (çŠ¶æ…‹) this.header:è¦ç´ ã‚’æŒãŸãªã„ArrayList<String>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) this.hasNext(ï¼‰:this.lineReaderã®å®šç¾©ã«å¾“ã†<br>
      * <br>
-     * ¦ŒÄ‚Î‚ê‚éƒ^ƒCƒ~ƒ“ƒO‚É‚ ‚í‚¹‚Ä’è‹`<br>
-     * (ó‘Ô) LineReader.readLine():this.lineReader‚Ì’è‹`‚É]‚¤<br>
+     * â€»å‘¼ã°ã‚Œã‚‹ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã«ã‚ã‚ã›ã¦å®šç¾©<br>
+     * (çŠ¶æ…‹) LineReader.readLine():this.lineReaderã®å®šç¾©ã«å¾“ã†<br>
      * <br>
-     * ¦ŒÄ‚Î‚ê‚éƒ^ƒCƒ~ƒ“ƒO‚É‚ ‚í‚¹‚Ä’è‹`<br>
+     * â€»å‘¼ã°ã‚Œã‚‹ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã«ã‚ã‚ã›ã¦å®šç¾©<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») LineReader.readLine():2‰ñŒÄ‚Î‚ê‚é<br>
-     * (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"The data which can be acquired doesn't exist."<br>
-     * EŒ´ˆö—áŠOFNoSuchElementException<br>
-     * Eƒtƒ@ƒCƒ‹–¼FƒtƒB[ƒ‹ƒhfileName‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒXB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) LineReader.readLine():2å›å‘¼ã°ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"The data which can be acquired doesn't exist."<br>
+     * ãƒ»åŸå› ä¾‹å¤–ï¼šNoSuchElementException<br>
+     * ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰fileNameã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚<br>
      * <br>
-     * —áŠO<br>
-     * ƒwƒbƒ_•”‚Ìs”‚æ‚è‘ÎÛƒf[ƒ^‚Ìs”‚ª­‚È‚¢ê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ä¾‹å¤–<br>
+     * ãƒ˜ãƒƒãƒ€éƒ¨ã®è¡Œæ•°ã‚ˆã‚Šå¯¾è±¡ãƒ‡ãƒ¼ã‚¿ã®è¡Œæ•°ãŒå°‘ãªã„å ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testBuildHeader04() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_buildHeader02.txt");
         String fileName = url.getPath();
@@ -7753,21 +7753,21 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 columnParserMap);
         UTUtil.invokePrivate(fileLineIterator, "buildLineReader");
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åİ’èÏ‚İ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             UTUtil.invokePrivate(fileLineIterator, "buildHeader");
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸ");
         } catch (FileException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(FileException.class, e.getClass());
             assertEquals("The data which can be acquired doesn't exist.", e
                     .getMessage());
@@ -7784,37 +7784,37 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testBuildHeader05() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "AbstractFileLineIterator_buildHeader01.txt"<br>
-     * (ó‘Ô) this.headerLineCount:1<br>
-     * (ó‘Ô) this.lineReader:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂLineReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"‚Ps–Úƒf[ƒ^"<br>
-     * E"‚Qs–Úƒf[ƒ^"<br>
-     * E"‚Rs–Úƒf[ƒ^"<br>
-     * E"‚Ss–Úƒf[ƒ^"<br>
-     * E"‚Ts–Úƒf[ƒ^"<br>
-     * (ó‘Ô) this.header:—v‘f‚ğ‚½‚È‚¢ArrayList<String>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) this.hasNext(j:this.lineReader‚Ì’è‹`‚É]‚¤<br>
+     * (çŠ¶æ…‹) this.headerLineCount:1<br>
+     * (çŠ¶æ…‹) this.lineReader:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤LineReaderã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"ï¼‘è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼’è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼“è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼”è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼•è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * (çŠ¶æ…‹) this.header:è¦ç´ ã‚’æŒãŸãªã„ArrayList<String>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) this.hasNext(ï¼‰:this.lineReaderã®å®šç¾©ã«å¾“ã†<br>
      * <br>
-     * ¦ŒÄ‚Î‚ê‚éƒ^ƒCƒ~ƒ“ƒO‚É‚ ‚í‚¹‚Ä’è‹`<br>
-     * (ó‘Ô) LineReader.readLine():FileException‚ª”­¶‚·‚éB<br>
+     * â€»å‘¼ã°ã‚Œã‚‹ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã«ã‚ã‚ã›ã¦å®šç¾©<br>
+     * (çŠ¶æ…‹) LineReader.readLine():FileExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"Error occurred by reading processing of a File."<br>
-     * EŒ´ˆö—áŠOFFileException(LineReader.readLine()‚ÌŒ‹‰ÊƒCƒ“ƒXƒ^ƒ“ƒX)<br>
-     * Eƒtƒ@ƒCƒ‹–¼FƒtƒB[ƒ‹ƒhfileName‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒXB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Error occurred by reading processing of a File."<br>
+     * ãƒ»åŸå› ä¾‹å¤–ï¼šFileException(LineReader.readLine()ã®çµæœã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹)<br>
+     * ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰fileNameã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚<br>
      * <br>
-     * —áŠO<br>
-     * ƒwƒbƒ_•”‚Ìsƒf[ƒ^æ“¾‚ÅFileException‚ª”­¶‚µ‚½ê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ä¾‹å¤–<br>
+     * ãƒ˜ãƒƒãƒ€éƒ¨ã®è¡Œãƒ‡ãƒ¼ã‚¿å–å¾—ã§FileExceptionãŒç™ºç”Ÿã—ãŸå ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testBuildHeader05() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_buildHeader01.txt");
         String fileName = url.getPath();
@@ -7826,26 +7826,26 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 columnParserMap);
         UTUtil.invokePrivate(fileLineIterator, "buildLineReader");
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         Object lineReader = UTUtil.getPrivateField(fileLineIterator,
                 "lineReader");
-        FileException exception = new FileException("readLine‚©‚ç‚Ì—áŠO‚Å‚·");
+        FileException exception = new FileException("readLineã‹ã‚‰ã®ä¾‹å¤–ã§ã™");
         VMOUTUtil.setReturnValueAtAllTimes(lineReader.getClass(), "readLine",
                 exception);
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åİ’èÏ‚İ
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             UTUtil.invokePrivate(fileLineIterator, "buildHeader");
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸ");
         } catch (FileException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(FileException.class, e.getClass());
             assertEquals("Error occurred by reading processing of a File.", e
                     .getMessage());
@@ -7857,34 +7857,34 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testBuildHeader06() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "AbstractFileLineIterator_buildHeader01.txt"<br>
-     * (ó‘Ô) this.headerLineCount:1<br>
-     * (ó‘Ô) this.lineReader:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂLineReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"‚Ps–Úƒf[ƒ^"<br>
-     * E"‚Qs–Úƒf[ƒ^"<br>
-     * E"‚Rs–Úƒf[ƒ^"<br>
-     * E"‚Ss–Úƒf[ƒ^"<br>
-     * E"‚Ts–Úƒf[ƒ^"<br>
-     * (ó‘Ô) this.header:—v‘f‚ğ‚½‚È‚¢ArrayList<String>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) this.hasNext(j:FileException‚ª”­¶‚·‚éB<br>
-     * (ó‘Ô) LineReader.readLine():this.lineReader‚Ì’è‹`‚É]‚¤<br>
+     * (çŠ¶æ…‹) this.headerLineCount:1<br>
+     * (çŠ¶æ…‹) this.lineReader:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤LineReaderã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"ï¼‘è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼’è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼“è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼”è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼•è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * (çŠ¶æ…‹) this.header:è¦ç´ ã‚’æŒãŸãªã„ArrayList<String>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) this.hasNext(ï¼‰:FileExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * (çŠ¶æ…‹) LineReader.readLine():this.lineReaderã®å®šç¾©ã«å¾“ã†<br>
      * <br>
-     * ¦ŒÄ‚Î‚ê‚éƒ^ƒCƒ~ƒ“ƒO‚É‚ ‚í‚¹‚Ä’è‹`<br>
+     * â€»å‘¼ã°ã‚Œã‚‹ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã«ã‚ã‚ã›ã¦å®šç¾©<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:this.hasNext(j‚Å”­¶‚µ‚½FileException‚ª‚»‚Ì‚Ü‚ÜƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:this.hasNext(ï¼‰ã§ç™ºç”Ÿã—ãŸFileExceptionãŒãã®ã¾ã¾ã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * —áŠO<br>
-     * ‘ÎÛƒtƒ@ƒCƒ‹‚Ìˆ—‘ÎÛsŠm”Fƒ`ƒFƒbƒN‚ÅƒGƒ‰[‚ª”­¶‚µ‚½ê‡A‚»‚Ì—áŠO‚ª‚»‚Ì‚Ü‚Ü•Ô‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ä¾‹å¤–<br>
+     * å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã®å‡¦ç†å¯¾è±¡è¡Œç¢ºèªãƒã‚§ãƒƒã‚¯ã§ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´åˆã€ãã®ä¾‹å¤–ãŒãã®ã¾ã¾è¿”ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testBuildHeader06() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_buildHeader01.txt");
         String fileName = url.getPath();
@@ -7896,24 +7896,24 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 columnParserMap);
         UTUtil.invokePrivate(fileLineIterator, "buildLineReader");
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        FileException exception = new FileException("readLine‚©‚ç‚Ì—áŠO‚Å‚·");
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        FileException exception = new FileException("readLineã‹ã‚‰ã®ä¾‹å¤–ã§ã™");
         VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineIterator.class,
                 "hasNext", exception);
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åİ’èÏ‚İ
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             UTUtil.invokePrivate(fileLineIterator, "buildHeader");
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸ");
         } catch (FileException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertSame(exception, e);
         }
     }
@@ -7921,35 +7921,35 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testBuildTrailerQueue01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD,E,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD,E,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "AbstractFileLineIterator_getTrailer01.txt"<br>
-     * (ó‘Ô) this.trailerLineCount:0<br>
-     * (ó‘Ô) this.lineReader:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂLineReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"‚Rs–Úƒf[ƒ^"<br>
-     * E"‚Ss–Úƒf[ƒ^"<br>
-     * E"‚Ts–Úƒf[ƒ^"<br>
-     * (ó‘Ô) this.trailerQueue:null<br>
-     * (ó‘Ô) this.hasNext():this.lineReader‚Ì’è‹`‚É]‚¤<br>
+     * (çŠ¶æ…‹) this.trailerLineCount:0<br>
+     * (çŠ¶æ…‹) this.lineReader:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤LineReaderã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"ï¼“è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼”è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼•è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * (çŠ¶æ…‹) this.trailerQueue:null<br>
+     * (çŠ¶æ…‹) this.hasNext():this.lineReaderã®å®šç¾©ã«å¾“ã†<br>
      * <br>
-     * ¦ŒÄ‚Î‚ê‚éƒ^ƒCƒ~ƒ“ƒO‚É‚ ‚í‚¹‚Ä’è‹`<br>
-     * (ó‘Ô) LineReader.readLine():this.lineReader‚Ì’è‹`‚É]‚¤<br>
+     * â€»å‘¼ã°ã‚Œã‚‹ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã«ã‚ã‚ã›ã¦å®šç¾©<br>
+     * (çŠ¶æ…‹) LineReader.readLine():this.lineReaderã®å®šç¾©ã«å¾“ã†<br>
      * <br>
-     * ¦ŒÄ‚Î‚ê‚éƒ^ƒCƒ~ƒ“ƒO‚É‚ ‚í‚¹‚Ä’è‹`<br>
+     * â€»å‘¼ã°ã‚Œã‚‹ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã«ã‚ã‚ã›ã¦å®šç¾©<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.trailerQueue:null<br>
-     * (ó‘Ô•Ï‰») LineReader.readLine():ŒÄ‚Î‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.trailerQueue:null<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) LineReader.readLine():å‘¼ã°ã‚Œãªã„<br>
      * <br>
-     * ³íƒpƒ^[ƒ“BiƒgƒŒƒCƒ‰•”0sj<br>
-     * ƒgƒŒƒCƒ‰•”‚ª‚È‚¢ê‡AƒgƒŒƒCƒ‰ƒLƒ…[‚ª¶¬‚³‚ê‚È‚¢‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ãƒ‘ã‚¿ãƒ¼ãƒ³ã€‚ï¼ˆãƒˆãƒ¬ã‚¤ãƒ©éƒ¨0è¡Œï¼‰<br>
+     * ãƒˆãƒ¬ã‚¤ãƒ©éƒ¨ãŒãªã„å ´åˆã€ãƒˆãƒ¬ã‚¤ãƒ©ã‚­ãƒ¥ãƒ¼ãŒç”Ÿæˆã•ã‚Œãªã„ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testBuildTrailerQueue01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_getTrailer01.txt");
         String fileName = url.getPath();
@@ -7961,19 +7961,19 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 columnParserMap);
         UTUtil.invokePrivate(fileLineIterator, "buildLineReader");
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åİ’èÏ‚İ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         UTUtil.invokePrivate(fileLineIterator, "buildTrailerQueue");
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         Object trailerQueue_object = UTUtil.getPrivateField(fileLineIterator,
                 "trailerQueue");
         assertNull(trailerQueue_object);
@@ -7987,37 +7987,37 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testBuildTrailerQueue02() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD,E,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD,E,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "AbstractFileLineIterator_getTrailer01.txt"<br>
-     * (ó‘Ô) this.trailerLineCount:1<br>
-     * (ó‘Ô) this.lineReader:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂLineReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"‚Rs–Úƒf[ƒ^"<br>
-     * E"‚Ss–Úƒf[ƒ^"<br>
-     * E"‚Ts–Úƒf[ƒ^"<br>
-     * (ó‘Ô) this.trailerQueue:null<br>
-     * (ó‘Ô) this.hasNext():this.lineReader‚Ì’è‹`‚É]‚¤<br>
+     * (çŠ¶æ…‹) this.trailerLineCount:1<br>
+     * (çŠ¶æ…‹) this.lineReader:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤LineReaderã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"ï¼“è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼”è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼•è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * (çŠ¶æ…‹) this.trailerQueue:null<br>
+     * (çŠ¶æ…‹) this.hasNext():this.lineReaderã®å®šç¾©ã«å¾“ã†<br>
      * <br>
-     * ¦ŒÄ‚Î‚ê‚éƒ^ƒCƒ~ƒ“ƒO‚É‚ ‚í‚¹‚Ä’è‹`<br>
-     * (ó‘Ô) LineReader.readLine():this.lineReader‚Ì’è‹`‚É]‚¤<br>
+     * â€»å‘¼ã°ã‚Œã‚‹ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã«ã‚ã‚ã›ã¦å®šç¾©<br>
+     * (çŠ¶æ…‹) LineReader.readLine():this.lineReaderã®å®šç¾©ã«å¾“ã†<br>
      * <br>
-     * ¦ŒÄ‚Î‚ê‚éƒ^ƒCƒ~ƒ“ƒO‚É‚ ‚í‚¹‚Ä’è‹`<br>
+     * â€»å‘¼ã°ã‚Œã‚‹ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã«ã‚ã‚ã›ã¦å®šç¾©<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.trailerQueue:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂArrayBlockingQueue<String>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"‚Rs–Úƒf[ƒ^"<br>
-     * (ó‘Ô•Ï‰») LineReader.readLine():1‰ñŒÄ‚Î‚ê‚é<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.trailerQueue:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤ArrayBlockingQueue<String>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"ï¼“è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) LineReader.readLine():1å›å‘¼ã°ã‚Œã‚‹<br>
      * <br>
-     * ³íƒpƒ^[ƒ“BiƒgƒŒƒCƒ‰•”1sj<br>
-     * ƒgƒŒƒCƒ‰•”‚ª1s‚ ‚éê‡AƒgƒŒƒCƒ‰ƒLƒ…[‚ª¶¬‚³‚êA‚»‚Ì’†‚Éƒf[ƒ^•”‚Ì1sƒf[ƒ^‚ªŠi”[‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ãƒ‘ã‚¿ãƒ¼ãƒ³ã€‚ï¼ˆãƒˆãƒ¬ã‚¤ãƒ©éƒ¨1è¡Œï¼‰<br>
+     * ãƒˆãƒ¬ã‚¤ãƒ©éƒ¨ãŒ1è¡Œã‚ã‚‹å ´åˆã€ãƒˆãƒ¬ã‚¤ãƒ©ã‚­ãƒ¥ãƒ¼ãŒç”Ÿæˆã•ã‚Œã€ãã®ä¸­ã«ãƒ‡ãƒ¼ã‚¿éƒ¨ã®1è¡Œãƒ‡ãƒ¼ã‚¿ãŒæ ¼ç´ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testBuildTrailerQueue02() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_getTrailer01.txt");
         String fileName = url.getPath();
@@ -8029,25 +8029,25 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 columnParserMap);
         UTUtil.invokePrivate(fileLineIterator, "buildLineReader");
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åİ’èÏ‚İ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         UTUtil.invokePrivate(fileLineIterator, "buildTrailerQueue");
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         Object trailerQueue_object = UTUtil.getPrivateField(fileLineIterator,
                 "trailerQueue");
         assertEquals(ArrayBlockingQueue.class, trailerQueue_object.getClass());
         ArrayBlockingQueue trailerQueue = (ArrayBlockingQueue) trailerQueue_object;
         assertEquals(1, trailerQueue.size());
-        assertEquals("3s–Úƒf[ƒ^", trailerQueue.poll());
+        assertEquals("3è¡Œç›®ãƒ‡ãƒ¼ã‚¿", trailerQueue.poll());
 
         Object lineReader = UTUtil.getPrivateField(fileLineIterator,
                 "lineReader");
@@ -8058,39 +8058,39 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testBuildTrailerQueue03() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD,E,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD,E,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "AbstractFileLineIterator_getTrailer01.txt"<br>
-     * (ó‘Ô) this.trailerLineCount:3<br>
-     * (ó‘Ô) this.lineReader:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂLineReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"‚Rs–Úƒf[ƒ^"<br>
-     * E"‚Ss–Úƒf[ƒ^"<br>
-     * E"‚Ts–Úƒf[ƒ^"<br>
-     * (ó‘Ô) this.trailerQueue:null<br>
-     * (ó‘Ô) this.hasNext():this.lineReader‚Ì’è‹`‚É]‚¤<br>
+     * (çŠ¶æ…‹) this.trailerLineCount:3<br>
+     * (çŠ¶æ…‹) this.lineReader:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤LineReaderã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"ï¼“è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼”è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼•è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * (çŠ¶æ…‹) this.trailerQueue:null<br>
+     * (çŠ¶æ…‹) this.hasNext():this.lineReaderã®å®šç¾©ã«å¾“ã†<br>
      * <br>
-     * ¦ŒÄ‚Î‚ê‚éƒ^ƒCƒ~ƒ“ƒO‚É‚ ‚í‚¹‚Ä’è‹`<br>
-     * (ó‘Ô) LineReader.readLine():this.lineReader‚Ì’è‹`‚É]‚¤<br>
+     * â€»å‘¼ã°ã‚Œã‚‹ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã«ã‚ã‚ã›ã¦å®šç¾©<br>
+     * (çŠ¶æ…‹) LineReader.readLine():this.lineReaderã®å®šç¾©ã«å¾“ã†<br>
      * <br>
-     * ¦ŒÄ‚Î‚ê‚éƒ^ƒCƒ~ƒ“ƒO‚É‚ ‚í‚¹‚Ä’è‹`<br>
+     * â€»å‘¼ã°ã‚Œã‚‹ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã«ã‚ã‚ã›ã¦å®šç¾©<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.trailerQueue:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂArrayBlockingQueue<String>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"‚Rs–Úƒf[ƒ^"<br>
-     * E"‚Ss–Úƒf[ƒ^"<br>
-     * E"‚Ts–Úƒf[ƒ^"<br>
-     * (ó‘Ô•Ï‰») LineReader.readLine():3‰ñŒÄ‚Î‚ê‚é<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.trailerQueue:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤ArrayBlockingQueue<String>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"ï¼“è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼”è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼•è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) LineReader.readLine():3å›å‘¼ã°ã‚Œã‚‹<br>
      * <br>
-     * ³íƒpƒ^[ƒ“BiƒgƒŒƒCƒ‰•”3sj<br>
-     * ƒgƒŒƒCƒ‰•”‚ª3s‚ ‚éê‡AƒgƒŒƒCƒ‰ƒLƒ…[‚ª¶¬‚³‚êA‚»‚Ì’†‚Éƒf[ƒ^•”‚Ì3sƒf[ƒ^‚ªŠi”[‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ãƒ‘ã‚¿ãƒ¼ãƒ³ã€‚ï¼ˆãƒˆãƒ¬ã‚¤ãƒ©éƒ¨3è¡Œï¼‰<br>
+     * ãƒˆãƒ¬ã‚¤ãƒ©éƒ¨ãŒ3è¡Œã‚ã‚‹å ´åˆã€ãƒˆãƒ¬ã‚¤ãƒ©ã‚­ãƒ¥ãƒ¼ãŒç”Ÿæˆã•ã‚Œã€ãã®ä¸­ã«ãƒ‡ãƒ¼ã‚¿éƒ¨ã®3è¡Œãƒ‡ãƒ¼ã‚¿ãŒæ ¼ç´ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testBuildTrailerQueue03() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_getTrailer01.txt");
         String fileName = url.getPath();
@@ -8102,27 +8102,27 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 columnParserMap);
         UTUtil.invokePrivate(fileLineIterator, "buildLineReader");
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åİ’èÏ‚İ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         UTUtil.invokePrivate(fileLineIterator, "buildTrailerQueue");
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         Object trailerQueue_object = UTUtil.getPrivateField(fileLineIterator,
                 "trailerQueue");
         assertEquals(ArrayBlockingQueue.class, trailerQueue_object.getClass());
         ArrayBlockingQueue trailerQueue = (ArrayBlockingQueue) trailerQueue_object;
         assertEquals(3, trailerQueue.size());
-        assertEquals("3s–Úƒf[ƒ^", trailerQueue.poll());
-        assertEquals("4s–Úƒf[ƒ^", trailerQueue.poll());
-        assertEquals("5s–Úƒf[ƒ^", trailerQueue.poll());
+        assertEquals("3è¡Œç›®ãƒ‡ãƒ¼ã‚¿", trailerQueue.poll());
+        assertEquals("4è¡Œç›®ãƒ‡ãƒ¼ã‚¿", trailerQueue.poll());
+        assertEquals("5è¡Œç›®ãƒ‡ãƒ¼ã‚¿", trailerQueue.poll());
 
         Object lineReader = UTUtil.getPrivateField(fileLineIterator,
                 "lineReader");
@@ -8133,35 +8133,35 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testBuildTrailerQueue04() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "AbstractFileLineIterator_getTrailer01.txt"<br>
-     * (ó‘Ô) this.trailerLineCount:1<br>
-     * (ó‘Ô) this.lineReader:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂLineReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"‚Rs–Úƒf[ƒ^"<br>
-     * E"‚Ss–Úƒf[ƒ^"<br>
-     * E"‚Ts–Úƒf[ƒ^"<br>
-     * (ó‘Ô) this.trailerQueue:null<br>
-     * (ó‘Ô) this.hasNext():FileException—áŠO‚ª”­¶‚·‚éB<br>
-     * (ó‘Ô) LineReader.readLine():this.lineReader‚Ì’è‹`‚É]‚¤<br>
+     * (çŠ¶æ…‹) this.trailerLineCount:1<br>
+     * (çŠ¶æ…‹) this.lineReader:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤LineReaderã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"ï¼“è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼”è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼•è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * (çŠ¶æ…‹) this.trailerQueue:null<br>
+     * (çŠ¶æ…‹) this.hasNext():FileExceptionä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * (çŠ¶æ…‹) LineReader.readLine():this.lineReaderã®å®šç¾©ã«å¾“ã†<br>
      * <br>
-     * ¦ŒÄ‚Î‚ê‚éƒ^ƒCƒ~ƒ“ƒO‚É‚ ‚í‚¹‚Ä’è‹`<br>
+     * â€»å‘¼ã°ã‚Œã‚‹ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã«ã‚ã‚ã›ã¦å®šç¾©<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.trailerQueue:—v‘f‚ğ‚½‚È‚¢ArrayBlockingQueue<String>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô•Ï‰») LineReader.readLine():ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») —áŠO:this.hasNext(j‚Å”­¶‚µ‚½FileException‚ª‚»‚Ì‚Ü‚ÜƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.trailerQueue:è¦ç´ ã‚’æŒãŸãªã„ArrayBlockingQueue<String>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) LineReader.readLine():å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:this.hasNext(ï¼‰ã§ç™ºç”Ÿã—ãŸFileExceptionãŒãã®ã¾ã¾ã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * —áŠOBiƒgƒŒƒCƒ‰•”1sj<br>
-     * Ÿ‚Ìˆ—‘ÎÛs‚É‘Î‚·‚é‘¶İƒ`ƒFƒbƒNˆ—‚ÅƒGƒ‰[‚ª”­¶‚µ‚½ê‡A‚»‚Ì—áŠO‚ª‚»‚Ì‚Ü‚Ü•Ô‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ä¾‹å¤–ã€‚ï¼ˆãƒˆãƒ¬ã‚¤ãƒ©éƒ¨1è¡Œï¼‰<br>
+     * æ¬¡ã®å‡¦ç†å¯¾è±¡è¡Œã«å¯¾ã™ã‚‹å­˜åœ¨ãƒã‚§ãƒƒã‚¯å‡¦ç†ã§ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´åˆã€ãã®ä¾‹å¤–ãŒãã®ã¾ã¾è¿”ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testBuildTrailerQueue04() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_getTrailer01.txt");
         String fileName = url.getPath();
@@ -8173,24 +8173,24 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 columnParserMap);
         UTUtil.invokePrivate(fileLineIterator, "buildLineReader");
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åİ’èÏ‚İ
-        FileException exception = new FileException("hasNext‚Å‚ÌƒGƒ‰[‚Å‚·");
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§è¨­å®šæ¸ˆã¿
+        FileException exception = new FileException("hasNextã§ã®ã‚¨ãƒ©ãƒ¼ã§ã™");
         VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineIterator.class,
                 "hasNext", exception);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             UTUtil.invokePrivate(fileLineIterator, "buildTrailerQueue");
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸ");
         } catch (FileException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             Object trailerQueue_object = UTUtil.getPrivateField(
                     fileLineIterator, "trailerQueue");
             assertEquals(ArrayBlockingQueue.class, trailerQueue_object
@@ -8210,35 +8210,35 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testBuildTrailerQueue05() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "AbstractFileLineIterator_getTrailer01.txt"<br>
-     * (ó‘Ô) this.trailerLineCount:1<br>
-     * (ó‘Ô) this.lineReader:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂLineReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"‚Rs–Úƒf[ƒ^"<br>
-     * E"‚Ss–Úƒf[ƒ^"<br>
-     * E"‚Ts–Úƒf[ƒ^"<br>
-     * (ó‘Ô) this.trailerQueue:null<br>
-     * (ó‘Ô) this.hasNext():this.lineReader‚Ì’è‹`‚É]‚¤<br>
+     * (çŠ¶æ…‹) this.trailerLineCount:1<br>
+     * (çŠ¶æ…‹) this.lineReader:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤LineReaderã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"ï¼“è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼”è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼•è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * (çŠ¶æ…‹) this.trailerQueue:null<br>
+     * (çŠ¶æ…‹) this.hasNext():this.lineReaderã®å®šç¾©ã«å¾“ã†<br>
      * <br>
-     * ¦ŒÄ‚Î‚ê‚éƒ^ƒCƒ~ƒ“ƒO‚É‚ ‚í‚¹‚Ä’è‹`<br>
-     * (ó‘Ô) LineReader.readLine():FileException—áŠO‚ª”­¶‚·‚éB<br>
+     * â€»å‘¼ã°ã‚Œã‚‹ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã«ã‚ã‚ã›ã¦å®šç¾©<br>
+     * (çŠ¶æ…‹) LineReader.readLine():FileExceptionä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"Error occurred by reading processing of a File."<br>
-     * EŒ´ˆö—áŠOFFileException(LineReader.readLine()‚ÌŒ‹‰ÊƒCƒ“ƒXƒ^ƒ“ƒX)<br>
-     * Eƒtƒ@ƒCƒ‹–¼FƒtƒB[ƒ‹ƒhfileName‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒXB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Error occurred by reading processing of a File."<br>
+     * ãƒ»åŸå› ä¾‹å¤–ï¼šFileException(LineReader.readLine()ã®çµæœã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹)<br>
+     * ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰fileNameã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚<br>
      * <br>
-     * —áŠOBiƒgƒŒƒCƒ‰•”1sj<br>
-     * ƒgƒŒƒCƒ‰•”‚Ìsƒf[ƒ^æ“¾‚ÅFileException‚ª”­¶‚µ‚½ê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ä¾‹å¤–ã€‚ï¼ˆãƒˆãƒ¬ã‚¤ãƒ©éƒ¨1è¡Œï¼‰<br>
+     * ãƒˆãƒ¬ã‚¤ãƒ©éƒ¨ã®è¡Œãƒ‡ãƒ¼ã‚¿å–å¾—ã§FileExceptionãŒç™ºç”Ÿã—ãŸå ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testBuildTrailerQueue05() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_getTrailer01.txt");
         String fileName = url.getPath();
@@ -8250,26 +8250,26 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 columnParserMap);
         UTUtil.invokePrivate(fileLineIterator, "buildLineReader");
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åİ’èÏ‚İ
-        FileException exception = new FileException("readLine‚Å‚ÌƒGƒ‰[‚Å‚·");
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§è¨­å®šæ¸ˆã¿
+        FileException exception = new FileException("readLineã§ã®ã‚¨ãƒ©ãƒ¼ã§ã™");
         Object lineReader = UTUtil.getPrivateField(fileLineIterator,
                 "lineReader");
         VMOUTUtil.setReturnValueAtAllTimes(lineReader.getClass(), "readLine",
                 exception);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             UTUtil.invokePrivate(fileLineIterator, "buildTrailerQueue");
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸ");
         } catch (FileException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(FileException.class, e.getClass());
             assertEquals("Error occurred by reading processing of a File.", e
                     .getMessage());
@@ -8281,37 +8281,37 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testBuildTrailerQueue06() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "AbstractFileLineIterator_buildTrailerQueue02.txt"<br>
-     * (ó‘Ô) this.trailerLineCount:3<br>
-     * (ó‘Ô) this.lineReader:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂLineReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"‚Rs–Úƒf[ƒ^"<br>
-     * E"‚Ss–Úƒf[ƒ^"<br>
+     * (çŠ¶æ…‹) this.trailerLineCount:3<br>
+     * (çŠ¶æ…‹) this.lineReader:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤LineReaderã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"ï¼“è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼”è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
      * <br>
-     * ¦ƒgƒŒƒCƒ‰s‚æ‚èƒf[ƒ^ƒtƒ@ƒCƒ‹‚Ìs”‚ª­‚È‚¢B<br>
-     * (ó‘Ô) this.trailerQueue:null<br>
-     * (ó‘Ô) this.hasNext():this.lineReader‚Ì’è‹`‚É]‚¤<br>
+     * â€»ãƒˆãƒ¬ã‚¤ãƒ©è¡Œã‚ˆã‚Šãƒ‡ãƒ¼ã‚¿ãƒ•ã‚¡ã‚¤ãƒ«ã®è¡Œæ•°ãŒå°‘ãªã„ã€‚<br>
+     * (çŠ¶æ…‹) this.trailerQueue:null<br>
+     * (çŠ¶æ…‹) this.hasNext():this.lineReaderã®å®šç¾©ã«å¾“ã†<br>
      * <br>
-     * ¦ŒÄ‚Î‚ê‚éƒ^ƒCƒ~ƒ“ƒO‚É‚ ‚í‚¹‚Ä’è‹`<br>
-     * (ó‘Ô) LineReader.readLine():this.lineReader‚Ì’è‹`‚É]‚¤<br>
+     * â€»å‘¼ã°ã‚Œã‚‹ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã«ã‚ã‚ã›ã¦å®šç¾©<br>
+     * (çŠ¶æ…‹) LineReader.readLine():this.lineReaderã®å®šç¾©ã«å¾“ã†<br>
      * <br>
-     * ¦ŒÄ‚Î‚ê‚éƒ^ƒCƒ~ƒ“ƒO‚É‚ ‚í‚¹‚Ä’è‹`<br>
+     * â€»å‘¼ã°ã‚Œã‚‹ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã«ã‚ã‚ã›ã¦å®šç¾©<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"The data which can be acquired doesn't exist."<br>
-     * EŒ´ˆö—áŠOFNoSuchElementException<br>
-     * Eƒtƒ@ƒCƒ‹–¼FƒtƒB[ƒ‹ƒhfileName‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒXB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"The data which can be acquired doesn't exist."<br>
+     * ãƒ»åŸå› ä¾‹å¤–ï¼šNoSuchElementException<br>
+     * ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰fileNameã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚<br>
      * <br>
-     * ƒgƒŒƒCƒ‰•”‚Ìs”‚æ‚è‘ÎÛƒf[ƒ^‚Ìs”‚ª­‚È‚¢ê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ãƒˆãƒ¬ã‚¤ãƒ©éƒ¨ã®è¡Œæ•°ã‚ˆã‚Šå¯¾è±¡ãƒ‡ãƒ¼ã‚¿ã®è¡Œæ•°ãŒå°‘ãªã„å ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testBuildTrailerQueue06() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_buildTrailerQueue02.txt");
         String fileName = url.getPath();
@@ -8323,21 +8323,21 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 columnParserMap);
         UTUtil.invokePrivate(fileLineIterator, "buildLineReader");
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åİ’èÏ‚İ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             UTUtil.invokePrivate(fileLineIterator, "buildTrailerQueue");
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸ");
         } catch (FileException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(FileException.class, e.getClass());
             assertEquals("The data which can be acquired doesn't exist.", e
                     .getMessage());
@@ -8349,24 +8349,24 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testCloseFile01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FF <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šF <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "AbstractFileLineIterator_closeFile01.txt"<br>
-     * (ó‘Ô) this.reader:ReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) Reader.close():³íI—¹<br>
+     * (çŠ¶æ…‹) this.reader:Readerã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) Reader.close():æ­£å¸¸çµ‚äº†<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») reader.close():ŒÄ‚Î‚ê‚é<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) reader.close():å‘¼ã°ã‚Œã‚‹<br>
      * <br>
-     * ³í<br>
-     * ƒNƒ[ƒYˆ—‚ª³‚µ‚­Às‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸<br>
+     * ã‚¯ãƒ­ãƒ¼ã‚ºå‡¦ç†ãŒæ­£ã—ãå®Ÿè¡Œã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testCloseFile01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_closeFile01.txt");
         String fileName = url.getPath();
@@ -8378,46 +8378,46 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 columnParserMap);
         fileLineIterator.init();
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åİ’èÏ‚İ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         fileLineIterator.closeFile();
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(1, VMOUTUtil.getCallCount(BufferedReader.class, "close"));
     }
 
     /**
      * testCloseFile02() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "AbstractFileLineIterator_closeFile01.txt"<br>
-     * (ó‘Ô) this.reader:ReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) Reader.close():IOException—áŠO‚ª”­¶<br>
+     * (çŠ¶æ…‹) this.reader:Readerã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) Reader.close():IOExceptionä¾‹å¤–ãŒç™ºç”Ÿ<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"Processing of reader was failed."<br>
-     * EŒ´ˆö—áŠOFIOException(Reader.close()‚©‚ç‚Ì‚à‚Ì)<br>
-     * Eƒtƒ@ƒCƒ‹–¼FƒtƒB[ƒ‹ƒhfileName‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒXB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Processing of reader was failed."<br>
+     * ãƒ»åŸå› ä¾‹å¤–ï¼šIOException(Reader.close()ã‹ã‚‰ã®ã‚‚ã®)<br>
+     * ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰fileNameã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚<br>
      * <br>
-     * —áŠO<br>
-     * ƒNƒ[ƒXˆ—‚ÅIOException‚ª”­¶‚µ‚½ê‡AFileException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ä¾‹å¤–<br>
+     * ã‚¯ãƒ­ãƒ¼ã‚¹å‡¦ç†ã§IOExceptionãŒç™ºç”Ÿã—ãŸå ´åˆã€FileExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testCloseFile02() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_closeFile01.txt");
         String fileName = url.getPath();
@@ -8429,24 +8429,24 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 columnParserMap);
         fileLineIterator.init();
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åİ’èÏ‚İ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§è¨­å®šæ¸ˆã¿
         IOException exception = new IOException();
         VMOUTUtil.setExceptionAtAllTimes(BufferedReader.class, "close",
                 exception);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             fileLineIterator.closeFile();
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸ");
         } catch (FileException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(FileException.class, e.getClass());
             assertEquals("Processing of reader was failed.", e.getMessage());
             assertSame(exception, e.getCause());
@@ -8457,28 +8457,28 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testGetHeader01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.header:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂArrayList<String>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * ‚PD"ƒwƒbƒ_s1"<br>
-     * ‚QD"ƒwƒbƒ_s2"<br>
-     * ‚RD"ƒwƒbƒ_s3"<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.header:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤ArrayList<String>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ï¼‘ï¼"ãƒ˜ãƒƒãƒ€è¡Œ1"<br>
+     * ï¼’ï¼"ãƒ˜ãƒƒãƒ€è¡Œ2"<br>
+     * ï¼“ï¼"ãƒ˜ãƒƒãƒ€è¡Œ3"<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) List<String>:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂArrayList<String>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * ‚PD"ƒwƒbƒ_s1"<br>
-     * ‚QD"ƒwƒbƒ_s2"<br>
-     * ‚RD"ƒwƒbƒ_s3"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) List<String>:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤ArrayList<String>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ï¼‘ï¼"ãƒ˜ãƒƒãƒ€è¡Œ1"<br>
+     * ï¼’ï¼"ãƒ˜ãƒƒãƒ€è¡Œ2"<br>
+     * ï¼“ï¼"ãƒ˜ãƒƒãƒ€è¡Œ3"<br>
      * <br>
-     * ³íƒpƒ^[ƒ“B<br>
-     * ƒwƒbƒ_•”‚Ìî•ñ‚ª³‚µ‚­æ“¾‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ãƒ‘ã‚¿ãƒ¼ãƒ³ã€‚<br>
+     * ãƒ˜ãƒƒãƒ€éƒ¨ã®æƒ…å ±ãŒæ­£ã—ãå–å¾—ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testGetHeader01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource("File_Empty.txt");
         String fileName = url.getPath();
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
@@ -8488,69 +8488,69 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub07.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         List<String> header = new ArrayList<String>();
-        header.add("ƒwƒbƒ_s1");
-        header.add("ƒwƒbƒ_s2");
-        header.add("ƒwƒbƒ_s3");
+        header.add("ãƒ˜ãƒƒãƒ€è¡Œ1");
+        header.add("ãƒ˜ãƒƒãƒ€è¡Œ2");
+        header.add("ãƒ˜ãƒƒãƒ€è¡Œ3");
         UTUtil.setPrivateField(fileLineIterator, "header", header);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         List result = fileLineIterator.getHeader();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals(ArrayList.class, result.getClass());
-        assertEquals("ƒwƒbƒ_s1", result.get(0));
-        assertEquals("ƒwƒbƒ_s2", result.get(1));
-        assertEquals("ƒwƒbƒ_s3", result.get(2));
+        assertEquals("ãƒ˜ãƒƒãƒ€è¡Œ1", result.get(0));
+        assertEquals("ãƒ˜ãƒƒãƒ€è¡Œ2", result.get(1));
+        assertEquals("ãƒ˜ãƒƒãƒ€è¡Œ3", result.get(2));
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
-        // ‚È‚µ
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
+        // ãªã—
     }
 
     /**
      * testGetTrailer01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD,E,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD,E,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "AbstractFileLineIterator_getTrailer01.txt"<br>
-     * (ó‘Ô) this.readTrailer:false<br>
-     * (ó‘Ô) this.trailerLineCount:0<br>
-     * (ó‘Ô) this.lineReader:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂLineReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"‚Rs–Úƒf[ƒ^"<br>
-     * E"‚Ss–Úƒf[ƒ^"<br>
-     * E"‚Ts–Úƒf[ƒ^"<br>
-     * (ó‘Ô) this.trailerQueue:—v‘f‚ğ‚½‚È‚¢Queue<String>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) this.trailer:—v‘f‚ğ‚½‚È‚¢ArrayList<String>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) this.hasNext():this.lineReader‚Ì’è‹`‚É]‚¤<br>
+     * (çŠ¶æ…‹) this.readTrailer:false<br>
+     * (çŠ¶æ…‹) this.trailerLineCount:0<br>
+     * (çŠ¶æ…‹) this.lineReader:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤LineReaderã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"ï¼“è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼”è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼•è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * (çŠ¶æ…‹) this.trailerQueue:è¦ç´ ã‚’æŒãŸãªã„Queue<String>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) this.trailer:è¦ç´ ã‚’æŒãŸãªã„ArrayList<String>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) this.hasNext():this.lineReaderã®å®šç¾©ã«å¾“ã†<br>
      * <br>
-     * ¦ŒÄ‚Î‚ê‚éƒ^ƒCƒ~ƒ“ƒO‚É‚ ‚í‚¹‚Ä’è‹`<br>
-     * (ó‘Ô) LineReader.readLine():this.lineReader‚Ì’è‹`‚É]‚¤<br>
+     * â€»å‘¼ã°ã‚Œã‚‹ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã«ã‚ã‚ã›ã¦å®šç¾©<br>
+     * (çŠ¶æ…‹) LineReader.readLine():this.lineReaderã®å®šç¾©ã«å¾“ã†<br>
      * <br>
-     * ¦ŒÄ‚Î‚ê‚éƒ^ƒCƒ~ƒ“ƒO‚É‚ ‚í‚¹‚Ä’è‹`<br>
+     * â€»å‘¼ã°ã‚Œã‚‹ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã«ã‚ã‚ã›ã¦å®šç¾©<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) List<String>:—v‘f‚ğ‚½‚È‚¢ArrayList<String>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) List<String>:è¦ç´ ã‚’æŒãŸãªã„ArrayList<String>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     * ¦this.trailer‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô•Ï‰») this.trailer:—v‘f‚ğ‚½‚È‚¢ArrayList<String>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô•Ï‰») this.readTrailer:true<br>
-     * (ó‘Ô•Ï‰») LineReader.readLine():3‰ñŒÄ‚Î‚ê‚é<br>
+     * â€»this.trailerã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.trailer:è¦ç´ ã‚’æŒãŸãªã„ArrayList<String>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.readTrailer:true<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) LineReader.readLine():3å›å‘¼ã°ã‚Œã‚‹<br>
      * <br>
-     * ³íƒpƒ^[ƒ“BiƒgƒŒƒCƒ‰•”0sj<br>
-     * ƒgƒŒƒCƒ‰•”‚ª‚È‚¢ê‡‚ÍŒ‹‰Ê‚ª‹ó‚Ì‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * ‚Ü‚½Aƒf[ƒ^s‚Ìî•ñ‚ª‘S•””ò‚Î‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ãƒ‘ã‚¿ãƒ¼ãƒ³ã€‚ï¼ˆãƒˆãƒ¬ã‚¤ãƒ©éƒ¨0è¡Œï¼‰<br>
+     * ãƒˆãƒ¬ã‚¤ãƒ©éƒ¨ãŒãªã„å ´åˆã¯çµæœãŒç©ºã®ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * ã¾ãŸã€ãƒ‡ãƒ¼ã‚¿è¡Œã®æƒ…å ±ãŒå…¨éƒ¨é£›ã°ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testGetTrailer01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_getTrailer01.txt");
         String fileName = url.getPath();
@@ -8561,22 +8561,22 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub80.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         fileLineIterator.init();
         VMOUTUtil.initialize();
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åİ’èÏ‚İ
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         List<String> result = fileLineIterator.getTrailer();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertSame(ArrayList.class, result.getClass());
         assertEquals(0, result.size());
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         Object trailer_object = UTUtil.getPrivateField(fileLineIterator,
                 "trailer");
         assertSame(ArrayList.class, trailer_object.getClass());
@@ -8593,45 +8593,45 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testGetTrailer02() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "AbstractFileLineIterator_getTrailer02.txt"<br>
-     * (ó‘Ô) this.readTrailer:false<br>
-     * (ó‘Ô) this.trailerLineCount:1<br>
-     * (ó‘Ô) this.lineReader:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂLineReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"‚Rs–Úƒf[ƒ^"<br>
-     * E"‚Ss–Úƒf[ƒ^"<br>
-     * E"‚Ts–Úƒf[ƒ^"<br>
-     * (ó‘Ô) this.trailerQueue:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂQueue<String>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"‚Qs–Úƒf[ƒ^"<br>
-     * (ó‘Ô) this.trailer:—v‘f‚ğ‚½‚È‚¢ArrayList<String>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) this.hasNext():this.lineReader‚Ì’è‹`‚É]‚¤<br>
+     * (çŠ¶æ…‹) this.readTrailer:false<br>
+     * (çŠ¶æ…‹) this.trailerLineCount:1<br>
+     * (çŠ¶æ…‹) this.lineReader:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤LineReaderã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"ï¼“è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼”è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼•è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * (çŠ¶æ…‹) this.trailerQueue:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤Queue<String>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"ï¼’è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * (çŠ¶æ…‹) this.trailer:è¦ç´ ã‚’æŒãŸãªã„ArrayList<String>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) this.hasNext():this.lineReaderã®å®šç¾©ã«å¾“ã†<br>
      * <br>
-     * ¦ŒÄ‚Î‚ê‚éƒ^ƒCƒ~ƒ“ƒO‚É‚ ‚í‚¹‚Ä’è‹`<br>
-     * (ó‘Ô) LineReader.readLine():this.lineReader‚Ì’è‹`‚É]‚¤<br>
+     * â€»å‘¼ã°ã‚Œã‚‹ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã«ã‚ã‚ã›ã¦å®šç¾©<br>
+     * (çŠ¶æ…‹) LineReader.readLine():this.lineReaderã®å®šç¾©ã«å¾“ã†<br>
      * <br>
-     * ¦ŒÄ‚Î‚ê‚éƒ^ƒCƒ~ƒ“ƒO‚É‚ ‚í‚¹‚Ä’è‹`<br>
+     * â€»å‘¼ã°ã‚Œã‚‹ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã«ã‚ã‚ã›ã¦å®šç¾©<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) List<String>:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂArrayList<String>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"‚Ts–Úƒf[ƒ^"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) List<String>:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤ArrayList<String>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"ï¼•è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
      * <br>
-     * ¦this.trailer‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô•Ï‰») this.trailer:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂArrayList<String>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"‚Ts–Úƒf[ƒ^"<br>
-     * (ó‘Ô•Ï‰») this.readTrailer:true<br>
-     * (ó‘Ô•Ï‰») LineReader.readLine():3‰ñŒÄ‚Î‚ê‚é<br>
+     * â€»this.trailerã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.trailer:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤ArrayList<String>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"ï¼•è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.readTrailer:true<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) LineReader.readLine():3å›å‘¼ã°ã‚Œã‚‹<br>
      * <br>
-     * ³íƒpƒ^[ƒ“BiƒgƒŒƒCƒ‰•”1sj<br>
-     * ƒf[ƒ^s‚ğ‘S•”“Ç‚ñ‚Å‚È‚¢ê‡(•¡”s)‚ÉƒgƒŒƒCƒ‰•”‚ğæ“¾‚·‚éê‡A³‚µ‚­this.trailerî•ñ‚ª•Ô‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ãƒ‘ã‚¿ãƒ¼ãƒ³ã€‚ï¼ˆãƒˆãƒ¬ã‚¤ãƒ©éƒ¨1è¡Œï¼‰<br>
+     * ãƒ‡ãƒ¼ã‚¿è¡Œã‚’å…¨éƒ¨èª­ã‚“ã§ãªã„å ´åˆ(è¤‡æ•°è¡Œ)ã«ãƒˆãƒ¬ã‚¤ãƒ©éƒ¨ã‚’å–å¾—ã™ã‚‹å ´åˆã€æ­£ã—ãthis.traileræƒ…å ±ãŒè¿”ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testGetTrailer02() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_getTrailer02.txt");
         String fileName = url.getPath();
@@ -8642,29 +8642,29 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub81.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         fileLineIterator.init();
         VMOUTUtil.initialize();
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åİ’èÏ‚İ
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         List<String> result = fileLineIterator.getTrailer();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertSame(ArrayList.class, result.getClass());
         assertEquals(1, result.size());
-        assertEquals("5s–Úƒf[ƒ^", result.get(0));
+        assertEquals("5è¡Œç›®ãƒ‡ãƒ¼ã‚¿", result.get(0));
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         Object trailer_object = UTUtil.getPrivateField(fileLineIterator,
                 "trailer");
         assertSame(ArrayList.class, trailer_object.getClass());
         List<String> trailer = (List<String>) trailer_object;
         assertEquals(1, trailer.size());
-        assertEquals("5s–Úƒf[ƒ^", trailer.get(0));
+        assertEquals("5è¡Œç›®ãƒ‡ãƒ¼ã‚¿", trailer.get(0));
 
         assertTrue((Boolean) UTUtil.getPrivateField(fileLineIterator,
                 "readTrailer"));
@@ -8678,49 +8678,49 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testGetTrailer03() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "AbstractFileLineIterator_getTrailer02.txt"<br>
-     * (ó‘Ô) this.readTrailer:false<br>
-     * (ó‘Ô) this.trailerLineCount:3<br>
-     * (ó‘Ô) this.lineReader:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂLineReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"‚Ts–Úƒf[ƒ^"<br>
-     * (ó‘Ô) this.trailerQueue:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂQueue<String>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"‚Qs–Úƒf[ƒ^"<br>
-     * E"‚Rs–Úƒf[ƒ^"<br>
-     * E"‚Ss–Úƒf[ƒ^"<br>
-     * (ó‘Ô) this.trailer:—v‘f‚ğ‚½‚È‚¢ArrayList<String>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) this.hasNext():this.lineReader‚Ì’è‹`‚É]‚¤<br>
+     * (çŠ¶æ…‹) this.readTrailer:false<br>
+     * (çŠ¶æ…‹) this.trailerLineCount:3<br>
+     * (çŠ¶æ…‹) this.lineReader:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤LineReaderã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"ï¼•è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * (çŠ¶æ…‹) this.trailerQueue:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤Queue<String>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"ï¼’è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼“è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼”è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * (çŠ¶æ…‹) this.trailer:è¦ç´ ã‚’æŒãŸãªã„ArrayList<String>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) this.hasNext():this.lineReaderã®å®šç¾©ã«å¾“ã†<br>
      * <br>
-     * ¦ŒÄ‚Î‚ê‚éƒ^ƒCƒ~ƒ“ƒO‚É‚ ‚í‚¹‚Ä’è‹`<br>
-     * (ó‘Ô) LineReader.readLine():this.lineReader‚Ì’è‹`‚É]‚¤<br>
+     * â€»å‘¼ã°ã‚Œã‚‹ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã«ã‚ã‚ã›ã¦å®šç¾©<br>
+     * (çŠ¶æ…‹) LineReader.readLine():this.lineReaderã®å®šç¾©ã«å¾“ã†<br>
      * <br>
-     * ¦ŒÄ‚Î‚ê‚éƒ^ƒCƒ~ƒ“ƒO‚É‚ ‚í‚¹‚Ä’è‹`<br>
+     * â€»å‘¼ã°ã‚Œã‚‹ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã«ã‚ã‚ã›ã¦å®šç¾©<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) List<String>:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂArrayList<String>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"‚Rs–Úƒf[ƒ^"<br>
-     * E"‚Ss–Úƒf[ƒ^"<br>
-     * E"‚Ts–Úƒf[ƒ^"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) List<String>:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤ArrayList<String>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"ï¼“è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼”è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼•è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
      * <br>
-     * ¦this.trailer‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô•Ï‰») this.trailer:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂArrayList<String>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"‚Rs–Úƒf[ƒ^"<br>
-     * E"‚Ss–Úƒf[ƒ^"<br>
-     * E"‚Ts–Úƒf[ƒ^"<br>
-     * (ó‘Ô•Ï‰») this.readTrailer:true<br>
-     * (ó‘Ô•Ï‰») LineReader.readLine():1‰ñŒÄ‚Î‚ê‚é<br>
+     * â€»this.trailerã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.trailer:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤ArrayList<String>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"ï¼“è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼”è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼•è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.readTrailer:true<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) LineReader.readLine():1å›å‘¼ã°ã‚Œã‚‹<br>
      * <br>
-     * ³íƒpƒ^[ƒ“BiƒgƒŒƒCƒ‰•”3sj<br>
-     * ƒf[ƒ^s‚ğ‘S•”“Ç‚ñ‚Å‚È‚¢ê‡(•¡”s)‚ÉƒgƒŒƒCƒ‰•”‚ğæ“¾‚·‚éê‡A³‚µ‚­this.trailerî•ñ‚ª•Ô‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ãƒ‘ã‚¿ãƒ¼ãƒ³ã€‚ï¼ˆãƒˆãƒ¬ã‚¤ãƒ©éƒ¨3è¡Œï¼‰<br>
+     * ãƒ‡ãƒ¼ã‚¿è¡Œã‚’å…¨éƒ¨èª­ã‚“ã§ãªã„å ´åˆ(è¤‡æ•°è¡Œ)ã«ãƒˆãƒ¬ã‚¤ãƒ©éƒ¨ã‚’å–å¾—ã™ã‚‹å ´åˆã€æ­£ã—ãthis.traileræƒ…å ±ãŒè¿”ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testGetTrailer03() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_getTrailer02.txt");
         String fileName = url.getPath();
@@ -8731,33 +8731,33 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub82.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         fileLineIterator.init();
         VMOUTUtil.initialize();
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åİ’èÏ‚İ
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         List<String> result = fileLineIterator.getTrailer();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertSame(ArrayList.class, result.getClass());
         assertEquals(3, result.size());
-        assertEquals("3s–Úƒf[ƒ^", result.get(0));
-        assertEquals("4s–Úƒf[ƒ^", result.get(1));
-        assertEquals("5s–Úƒf[ƒ^", result.get(2));
+        assertEquals("3è¡Œç›®ãƒ‡ãƒ¼ã‚¿", result.get(0));
+        assertEquals("4è¡Œç›®ãƒ‡ãƒ¼ã‚¿", result.get(1));
+        assertEquals("5è¡Œç›®ãƒ‡ãƒ¼ã‚¿", result.get(2));
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         Object trailer_object = UTUtil.getPrivateField(fileLineIterator,
                 "trailer");
         assertSame(ArrayList.class, trailer_object.getClass());
         List<String> trailer = (List<String>) trailer_object;
         assertEquals(3, trailer.size());
-        assertEquals("3s–Úƒf[ƒ^", trailer.get(0));
-        assertEquals("4s–Úƒf[ƒ^", trailer.get(1));
-        assertEquals("5s–Úƒf[ƒ^", trailer.get(2));
+        assertEquals("3è¡Œç›®ãƒ‡ãƒ¼ã‚¿", trailer.get(0));
+        assertEquals("4è¡Œç›®ãƒ‡ãƒ¼ã‚¿", trailer.get(1));
+        assertEquals("5è¡Œç›®ãƒ‡ãƒ¼ã‚¿", trailer.get(2));
 
         assertTrue((Boolean) UTUtil.getPrivateField(fileLineIterator,
                 "readTrailer"));
@@ -8771,39 +8771,39 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testGetTrailer04() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "AbstractFileLineIterator_getTrailer02.txt"<br>
-     * (ó‘Ô) this.readTrailer:false<br>
-     * (ó‘Ô) this.trailerLineCount:1<br>
-     * (ó‘Ô) this.lineReader:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂLineReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"‚Rs–Úƒf[ƒ^"<br>
-     * E"‚Ss–Úƒf[ƒ^"<br>
-     * E"‚Ts–Úƒf[ƒ^"<br>
-     * (ó‘Ô) this.trailerQueue:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂQueue<String>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"‚Qs–Úƒf[ƒ^"<br>
-     * (ó‘Ô) this.trailer:—v‘f‚ğ‚½‚È‚¢ArrayList<String>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) this.hasNext():FileException—áŠO‚ª”­¶‚·‚éB<br>
-     * (ó‘Ô) LineReader.readLine():this.lineReader‚Ì’è‹`‚É]‚¤<br>
+     * (çŠ¶æ…‹) this.readTrailer:false<br>
+     * (çŠ¶æ…‹) this.trailerLineCount:1<br>
+     * (çŠ¶æ…‹) this.lineReader:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤LineReaderã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"ï¼“è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼”è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼•è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * (çŠ¶æ…‹) this.trailerQueue:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤Queue<String>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"ï¼’è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * (çŠ¶æ…‹) this.trailer:è¦ç´ ã‚’æŒãŸãªã„ArrayList<String>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) this.hasNext():FileExceptionä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * (çŠ¶æ…‹) LineReader.readLine():this.lineReaderã®å®šç¾©ã«å¾“ã†<br>
      * <br>
-     * ¦ŒÄ‚Î‚ê‚éƒ^ƒCƒ~ƒ“ƒO‚É‚ ‚í‚¹‚Ä’è‹`<br>
+     * â€»å‘¼ã°ã‚Œã‚‹ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã«ã‚ã‚ã›ã¦å®šç¾©<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.trailer:—v‘f‚ğ‚½‚È‚¢ArrayList<String>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô•Ï‰») this.readTrailer:false<br>
-     * (ó‘Ô•Ï‰») LineReader.readLine():ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») ‚È‚µ:this.hasNext(j‚Å”­¶‚µ‚½FileException‚ª‚»‚Ì‚Ü‚ÜƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.trailer:è¦ç´ ã‚’æŒãŸãªã„ArrayList<String>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.readTrailer:false<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) LineReader.readLine():å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ãªã—:this.hasNext(ï¼‰ã§ç™ºç”Ÿã—ãŸFileExceptionãŒãã®ã¾ã¾ã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * —áŠOBiƒgƒŒƒCƒ‰•”1sj<br>
-     * Ÿ‚Ìˆ—‘ÎÛs‚É‘Î‚·‚é‘¶İƒ`ƒFƒbƒNˆ—‚ÅƒGƒ‰[‚ª”­¶‚µ‚½ê‡A‚»‚Ì—áŠO‚ª‚»‚Ì‚Ü‚Ü•Ô‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ä¾‹å¤–ã€‚ï¼ˆãƒˆãƒ¬ã‚¤ãƒ©éƒ¨1è¡Œï¼‰<br>
+     * æ¬¡ã®å‡¦ç†å¯¾è±¡è¡Œã«å¯¾ã™ã‚‹å­˜åœ¨ãƒã‚§ãƒƒã‚¯å‡¦ç†ã§ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´åˆã€ãã®ä¾‹å¤–ãŒãã®ã¾ã¾è¿”ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testGetTrailer04() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_getTrailer02.txt");
         String fileName = url.getPath();
@@ -8814,26 +8814,26 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub81.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         fileLineIterator.init();
         VMOUTUtil.initialize();
-        FileException exception = new FileException("hasNext‚Å‚ÌƒGƒ‰[‚Å‚·");
+        FileException exception = new FileException("hasNextã§ã®ã‚¨ãƒ©ãƒ¼ã§ã™");
         VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineIterator.class,
                 "hasNext", exception);
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åİ’èÏ‚İ
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             fileLineIterator.getTrailer();
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸ");
         } catch (FileException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             Object trailer_object = UTUtil.getPrivateField(fileLineIterator,
                     "trailer");
             assertSame(ArrayList.class, trailer_object.getClass());
@@ -8855,43 +8855,43 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testGetTrailer05() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "AbstractFileLineIterator_getTrailer02.txt"<br>
-     * (ó‘Ô) this.readTrailer:true<br>
-     * (ó‘Ô) this.trailerLineCount:1<br>
-     * (ó‘Ô) this.lineReader:î•ñ‚ğ‚½‚È‚¢LineReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) this.trailerQueue:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂQueue<String>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"‚Ts–Úƒf[ƒ^"<br>
-     * (ó‘Ô) this.trailer:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂArrayList<String>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"‚Ts–Úƒf[ƒ^"<br>
-     * (ó‘Ô) this.hasNext():this.lineReader‚Ì’è‹`‚É]‚¤<br>
+     * (çŠ¶æ…‹) this.readTrailer:true<br>
+     * (çŠ¶æ…‹) this.trailerLineCount:1<br>
+     * (çŠ¶æ…‹) this.lineReader:æƒ…å ±ã‚’æŒãŸãªã„LineReaderã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) this.trailerQueue:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤Queue<String>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"ï¼•è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * (çŠ¶æ…‹) this.trailer:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤ArrayList<String>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"ï¼•è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * (çŠ¶æ…‹) this.hasNext():this.lineReaderã®å®šç¾©ã«å¾“ã†<br>
      * <br>
-     * ¦ŒÄ‚Î‚ê‚éƒ^ƒCƒ~ƒ“ƒO‚É‚ ‚í‚¹‚Ä’è‹`<br>
-     * (ó‘Ô) LineReader.readLine():this.lineReader‚Ì’è‹`‚É]‚¤<br>
+     * â€»å‘¼ã°ã‚Œã‚‹ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã«ã‚ã‚ã›ã¦å®šç¾©<br>
+     * (çŠ¶æ…‹) LineReader.readLine():this.lineReaderã®å®šç¾©ã«å¾“ã†<br>
      * <br>
-     * ¦ŒÄ‚Î‚ê‚éƒ^ƒCƒ~ƒ“ƒO‚É‚ ‚í‚¹‚Ä’è‹`<br>
+     * â€»å‘¼ã°ã‚Œã‚‹ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã«ã‚ã‚ã›ã¦å®šç¾©<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) List<String>:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂArrayList<String>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"‚Ts–Úƒf[ƒ^"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) List<String>:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤ArrayList<String>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"ï¼•è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
      * <br>
-     * ¦this.trailer‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô•Ï‰») this.trailer:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂArrayList<String>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"‚Ts–Úƒf[ƒ^"<br>
-     * (ó‘Ô•Ï‰») this.readTrailer:true<br>
-     * (ó‘Ô•Ï‰») LineReader.readLine():ŒÄ‚Î‚ê‚È‚¢<br>
+     * â€»this.trailerã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.trailer:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤ArrayList<String>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"ï¼•è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.readTrailer:true<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) LineReader.readLine():å‘¼ã°ã‚Œãªã„<br>
      * <br>
-     * ³íƒpƒ^[ƒ“BiƒgƒŒƒCƒ‰•”1sj<br>
-     * ƒgƒŒƒCƒ‰•”‚ªŠù‚É¶¬‚³‚ê‚Ä‚¢‚éê‡AƒLƒƒƒbƒVƒ…‚³‚ê‚Ä‚¢‚éƒgƒŒƒCƒ‰•”‚ª‚»‚Ì‚Ü‚Ü•Ô‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ãƒ‘ã‚¿ãƒ¼ãƒ³ã€‚ï¼ˆãƒˆãƒ¬ã‚¤ãƒ©éƒ¨1è¡Œï¼‰<br>
+     * ãƒˆãƒ¬ã‚¤ãƒ©éƒ¨ãŒæ—¢ã«ç”Ÿæˆã•ã‚Œã¦ã„ã‚‹å ´åˆã€ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã•ã‚Œã¦ã„ã‚‹ãƒˆãƒ¬ã‚¤ãƒ©éƒ¨ãŒãã®ã¾ã¾è¿”ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testGetTrailer05() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_getTrailer02.txt");
         String fileName = url.getPath();
@@ -8902,30 +8902,30 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub81.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         fileLineIterator.init();
         fileLineIterator.getTrailer();
         VMOUTUtil.initialize();
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åİ’èÏ‚İ
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         List<String> result = fileLineIterator.getTrailer();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertSame(ArrayList.class, result.getClass());
         assertEquals(1, result.size());
-        assertEquals("5s–Úƒf[ƒ^", result.get(0));
+        assertEquals("5è¡Œç›®ãƒ‡ãƒ¼ã‚¿", result.get(0));
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         Object trailer_object = UTUtil.getPrivateField(fileLineIterator,
                 "trailer");
         assertSame(ArrayList.class, trailer_object.getClass());
         List<String> trailer = (List<String>) trailer_object;
         assertEquals(1, trailer.size());
-        assertEquals("5s–Úƒf[ƒ^", trailer.get(0));
+        assertEquals("5è¡Œç›®ãƒ‡ãƒ¼ã‚¿", trailer.get(0));
 
         assertTrue((Boolean) UTUtil.getPrivateField(fileLineIterator,
                 "readTrailer"));
@@ -8939,42 +8939,42 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testGetTrailer06() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "AbstractFileLineIterator_getTrailer03.txt"<br>
-     * (ó‘Ô) this.readTrailer:false<br>
-     * (ó‘Ô) this.trailerLineCount:1<br>
-     * (ó‘Ô) this.lineReader:î•ñ‚ğ‚½‚È‚¢LineReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) this.trailerQueue:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂQueue<String>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"‚Ts–Úƒf[ƒ^"<br>
-     * (ó‘Ô) this.trailer:—v‘f‚ğ‚½‚È‚¢ArrayList<String>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) this.hasNext():this.lineReader‚Ì’è‹`‚É]‚¤<br>
+     * (çŠ¶æ…‹) this.readTrailer:false<br>
+     * (çŠ¶æ…‹) this.trailerLineCount:1<br>
+     * (çŠ¶æ…‹) this.lineReader:æƒ…å ±ã‚’æŒãŸãªã„LineReaderã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) this.trailerQueue:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤Queue<String>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"ï¼•è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * (çŠ¶æ…‹) this.trailer:è¦ç´ ã‚’æŒãŸãªã„ArrayList<String>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) this.hasNext():this.lineReaderã®å®šç¾©ã«å¾“ã†<br>
      * <br>
-     * ¦ŒÄ‚Î‚ê‚éƒ^ƒCƒ~ƒ“ƒO‚É‚ ‚í‚¹‚Ä’è‹`<br>
-     * (ó‘Ô) LineReader.readLine():this.lineReader‚Ì’è‹`‚É]‚¤<br>
+     * â€»å‘¼ã°ã‚Œã‚‹ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã«ã‚ã‚ã›ã¦å®šç¾©<br>
+     * (çŠ¶æ…‹) LineReader.readLine():this.lineReaderã®å®šç¾©ã«å¾“ã†<br>
      * <br>
-     * ¦ŒÄ‚Î‚ê‚éƒ^ƒCƒ~ƒ“ƒO‚É‚ ‚í‚¹‚Ä’è‹`<br>
+     * â€»å‘¼ã°ã‚Œã‚‹ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã«ã‚ã‚ã›ã¦å®šç¾©<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) List<String>:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂArrayList<String>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"‚Ts–Úƒf[ƒ^"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) List<String>:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤ArrayList<String>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"ï¼•è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
      * <br>
-     * ¦this.trailer‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô•Ï‰») this.trailer:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂArrayList<String>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"‚Ts–Úƒf[ƒ^"<br>
-     * (ó‘Ô•Ï‰») this.readTrailer:true<br>
-     * (ó‘Ô•Ï‰») LineReader.readLine():ŒÄ‚Î‚ê‚È‚¢<br>
+     * â€»this.trailerã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.trailer:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤ArrayList<String>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"ï¼•è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.readTrailer:true<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) LineReader.readLine():å‘¼ã°ã‚Œãªã„<br>
      * <br>
-     * ³íƒpƒ^[ƒ“BiƒgƒŒƒCƒ‰•”1sj<br>
-     * ƒf[ƒ^s‚ğ‘S•”“Ç‚ñ‚¾Œã‚ÉƒgƒŒƒCƒ‰•”‚ğæ“¾‚·‚éê‡A³‚µ‚­this.trailerî•ñ‚ª•Ô‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ãƒ‘ã‚¿ãƒ¼ãƒ³ã€‚ï¼ˆãƒˆãƒ¬ã‚¤ãƒ©éƒ¨1è¡Œï¼‰<br>
+     * ãƒ‡ãƒ¼ã‚¿è¡Œã‚’å…¨éƒ¨èª­ã‚“ã å¾Œã«ãƒˆãƒ¬ã‚¤ãƒ©éƒ¨ã‚’å–å¾—ã™ã‚‹å ´åˆã€æ­£ã—ãthis.traileræƒ…å ±ãŒè¿”ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testGetTrailer06() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_getTrailer03.txt");
         String fileName = url.getPath();
@@ -8985,29 +8985,29 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub81.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         fileLineIterator.init();
         VMOUTUtil.initialize();
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åİ’èÏ‚İ
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         List<String> result = fileLineIterator.getTrailer();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertSame(ArrayList.class, result.getClass());
         assertEquals(1, result.size());
-        assertEquals("5s–Úƒf[ƒ^", result.get(0));
+        assertEquals("5è¡Œç›®ãƒ‡ãƒ¼ã‚¿", result.get(0));
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         Object trailer_object = UTUtil.getPrivateField(fileLineIterator,
                 "trailer");
         assertSame(ArrayList.class, trailer_object.getClass());
         List<String> trailer = (List<String>) trailer_object;
         assertEquals(1, trailer.size());
-        assertEquals("5s–Úƒf[ƒ^", trailer.get(0));
+        assertEquals("5è¡Œç›®ãƒ‡ãƒ¼ã‚¿", trailer.get(0));
 
         assertTrue((Boolean) UTUtil.getPrivateField(fileLineIterator,
                 "readTrailer"));
@@ -9021,38 +9021,38 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testGetTrailer07() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "AbstractFileLineIterator_getTrailer02.txt"<br>
-     * (ó‘Ô) this.readTrailer:false<br>
-     * (ó‘Ô) this.trailerLineCount:1<br>
-     * (ó‘Ô) this.lineReader:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂLineReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"‚Rs–Úƒf[ƒ^"<br>
-     * E"‚Ss–Úƒf[ƒ^"<br>
-     * E"‚Ts–Úƒf[ƒ^"<br>
-     * (ó‘Ô) this.trailerQueue:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂQueue<String>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"‚Qs–Úƒf[ƒ^"<br>
-     * (ó‘Ô) this.trailer:—v‘f‚ğ‚½‚È‚¢ArrayList<String>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) this.hasNext():this.lineReader‚Ì’è‹`‚É]‚¤<br>
+     * (çŠ¶æ…‹) this.readTrailer:false<br>
+     * (çŠ¶æ…‹) this.trailerLineCount:1<br>
+     * (çŠ¶æ…‹) this.lineReader:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤LineReaderã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"ï¼“è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼”è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼•è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * (çŠ¶æ…‹) this.trailerQueue:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤Queue<String>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"ï¼’è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * (çŠ¶æ…‹) this.trailer:è¦ç´ ã‚’æŒãŸãªã„ArrayList<String>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) this.hasNext():this.lineReaderã®å®šç¾©ã«å¾“ã†<br>
      * <br>
-     * ¦ŒÄ‚Î‚ê‚éƒ^ƒCƒ~ƒ“ƒO‚É‚ ‚í‚¹‚Ä’è‹`<br>
-     * (ó‘Ô) LineReader.readLine():FileException—áŠO‚ª”­¶‚·‚éB<br>
+     * â€»å‘¼ã°ã‚Œã‚‹ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã«ã‚ã‚ã›ã¦å®šç¾©<br>
+     * (çŠ¶æ…‹) LineReader.readLine():FileExceptionä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») ‚È‚µ:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"Processing of lineReader was failed."<br>
-     * EŒ´ˆö—áŠOFLineReader.readLine()‚ÅƒXƒ[‚³‚ê‚½—áŠO<br>
-     * Eƒtƒ@ƒCƒ‹–¼FƒtƒB[ƒ‹ƒhfileName‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒXB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ãªã—:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Processing of lineReader was failed."<br>
+     * ãƒ»åŸå› ä¾‹å¤–ï¼šLineReader.readLine()ã§ã‚¹ãƒ­ãƒ¼ã•ã‚ŒãŸä¾‹å¤–<br>
+     * ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰fileNameã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚<br>
      * <br>
-     * —áŠOBiƒgƒŒƒCƒ‰•”1sj<br>
-     * Ÿ‚Ìˆ—‘ÎÛs‚É‘Î‚·‚é‘¶İƒ`ƒFƒbƒNˆ—‚ÅƒGƒ‰[‚ª”­¶‚µ‚½ê‡A‚»‚Ì—áŠO‚ª‚»‚Ì‚Ü‚Ü•Ô‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ä¾‹å¤–ã€‚ï¼ˆãƒˆãƒ¬ã‚¤ãƒ©éƒ¨1è¡Œï¼‰<br>
+     * æ¬¡ã®å‡¦ç†å¯¾è±¡è¡Œã«å¯¾ã™ã‚‹å­˜åœ¨ãƒã‚§ãƒƒã‚¯å‡¦ç†ã§ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´åˆã€ãã®ä¾‹å¤–ãŒãã®ã¾ã¾è¿”ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetTrailer07() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_getTrailer02.txt");
         String fileName = url.getPath();
@@ -9063,28 +9063,28 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub81.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         fileLineIterator.init();
         VMOUTUtil.initialize();
-        FileException exception = new FileException("readLine‚Å‚ÌƒGƒ‰[‚Å‚·");
+        FileException exception = new FileException("readLineã§ã®ã‚¨ãƒ©ãƒ¼ã§ã™");
         Object lineReader = UTUtil.getPrivateField(fileLineIterator,
                 "lineReader");
         VMOUTUtil.setReturnValueAtAllTimes(lineReader.getClass(), "readLine",
                 exception);
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åİ’èÏ‚İ
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             fileLineIterator.getTrailer();
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸ");
         } catch (FileException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(FileException.class, e.getClass());
             assertEquals("Processing of lineReader was failed.", e.getMessage());
             assertSame(exception, e.getCause());
@@ -9095,41 +9095,41 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testReadLine01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD,E,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD,E,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "AbstractFileLineIterator_skip01.txt"<br>
-     * (ó‘Ô) this.trailerQueue:null<br>
-     * (ó‘Ô) this.lineReader:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂLineReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"‚Ps–Úƒf[ƒ^"<br>
-     * E"‚Qs–Úƒf[ƒ^"<br>
-     * E"‚Rs–Úƒf[ƒ^"<br>
-     * E"‚Ss–Úƒf[ƒ^"<br>
-     * E"‚Ts–Úƒf[ƒ^"<br>
-     * E"‚Us–Úƒf[ƒ^"<br>
-     * E"‚Vs–Úƒf[ƒ^"<br>
-     * (ó‘Ô) this.trailerLineCount:0<br>
-     * (ó‘Ô) this.hasNext():this.lineReader‚Ì’è‹`‚É]‚¤<br>
+     * (çŠ¶æ…‹) this.trailerQueue:null<br>
+     * (çŠ¶æ…‹) this.lineReader:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤LineReaderã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"ï¼‘è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼’è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼“è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼”è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼•è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼–è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼—è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * (çŠ¶æ…‹) this.trailerLineCount:0<br>
+     * (çŠ¶æ…‹) this.hasNext():this.lineReaderã®å®šç¾©ã«å¾“ã†<br>
      * <br>
-     * ¦ŒÄ‚Î‚ê‚éƒ^ƒCƒ~ƒ“ƒO‚É‚ ‚í‚¹‚Ä’è‹`<br>
-     * (ó‘Ô) LineReader.readLine():this.lineReader‚Ì’è‹`‚É]‚¤<br>
+     * â€»å‘¼ã°ã‚Œã‚‹ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã«ã‚ã‚ã›ã¦å®šç¾©<br>
+     * (çŠ¶æ…‹) LineReader.readLine():this.lineReaderã®å®šç¾©ã«å¾“ã†<br>
      * <br>
-     * ¦ŒÄ‚Î‚ê‚éƒ^ƒCƒ~ƒ“ƒO‚É‚ ‚í‚¹‚Ä’è‹`<br>
+     * â€»å‘¼ã°ã‚Œã‚‹ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã«ã‚ã‚ã›ã¦å®šç¾©<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:"‚Ps–Úƒf[ƒ^"<br>
-     * (ó‘Ô•Ï‰») this.trailerQueue:null<br>
-     * (ó‘Ô•Ï‰») LineReader.readLine():1‰ñŒÄ‚Î‚ê‚é<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:"ï¼‘è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.trailerQueue:null<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) LineReader.readLine():1å›å‘¼ã°ã‚Œã‚‹<br>
      * <br>
-     * ³íƒpƒ^[ƒ“<br>
-     * (ƒgƒŒƒCƒ‰•”‚È‚µ)B<br>
-     * ƒgƒŒƒCƒ‰•”‚ª‚È‚¢ê‡Aƒf[ƒ^•”‚Ìƒf[ƒ^1s•ª‚ª•Ô‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ãƒ‘ã‚¿ãƒ¼ãƒ³<br>
+     * (ãƒˆãƒ¬ã‚¤ãƒ©éƒ¨ãªã—)ã€‚<br>
+     * ãƒˆãƒ¬ã‚¤ãƒ©éƒ¨ãŒãªã„å ´åˆã€ãƒ‡ãƒ¼ã‚¿éƒ¨ã®ãƒ‡ãƒ¼ã‚¿1è¡Œåˆ†ãŒè¿”ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testReadLine01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_skip01.txt");
         String fileName = url.getPath();
@@ -9140,20 +9140,20 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub80.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         fileLineIterator.init();
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åİ’èÏ‚İ
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = fileLineIterator.readLine();
 
-        // •Ô‹p’l‚ÌŠm”F
-        assertEquals("1s–Úƒf[ƒ^", result);
+        // è¿”å´å€¤ã®ç¢ºèª
+        assertEquals("1è¡Œç›®ãƒ‡ãƒ¼ã‚¿", result);
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertNull(UTUtil.getPrivateField(fileLineIterator, "trailerQueue"));
 
         Object lineReader = UTUtil.getPrivateField(fileLineIterator,
@@ -9165,42 +9165,42 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testReadLine02() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD,E,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD,E,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "AbstractFileLineIterator_readLine02.txt"<br>
-     * (ó‘Ô) this.trailerQueue:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂQueue<String>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"‚Rs–Úƒf[ƒ^"<br>
-     * (ó‘Ô) this.lineReader:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂLineReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"‚Ss–Úƒf[ƒ^"<br>
-     * E"‚Ts–Úƒf[ƒ^"<br>
-     * E"‚Us–Úƒf[ƒ^"<br>
-     * E"‚Vs–Úƒf[ƒ^"<br>
-     * (ó‘Ô) this.trailerLineCount:1<br>
-     * (ó‘Ô) this.hasNext():this.lineReader‚Ì’è‹`‚É]‚¤<br>
+     * (çŠ¶æ…‹) this.trailerQueue:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤Queue<String>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"ï¼“è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * (çŠ¶æ…‹) this.lineReader:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤LineReaderã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"ï¼”è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼•è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼–è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼—è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * (çŠ¶æ…‹) this.trailerLineCount:1<br>
+     * (çŠ¶æ…‹) this.hasNext():this.lineReaderã®å®šç¾©ã«å¾“ã†<br>
      * <br>
-     * ¦ŒÄ‚Î‚ê‚éƒ^ƒCƒ~ƒ“ƒO‚É‚ ‚í‚¹‚Ä’è‹`<br>
-     * (ó‘Ô) LineReader.readLine():this.lineReader‚Ì’è‹`‚É]‚¤<br>
+     * â€»å‘¼ã°ã‚Œã‚‹ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã«ã‚ã‚ã›ã¦å®šç¾©<br>
+     * (çŠ¶æ…‹) LineReader.readLine():this.lineReaderã®å®šç¾©ã«å¾“ã†<br>
      * <br>
-     * ¦ŒÄ‚Î‚ê‚éƒ^ƒCƒ~ƒ“ƒO‚É‚ ‚í‚¹‚Ä’è‹`<br>
+     * â€»å‘¼ã°ã‚Œã‚‹ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã«ã‚ã‚ã›ã¦å®šç¾©<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:"‚Rs–Úƒf[ƒ^"<br>
-     * (ó‘Ô•Ï‰») this.trailerQueue:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂQueue<String>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"‚Ss–Úƒf[ƒ^"<br>
-     * (ó‘Ô•Ï‰») Queue#add():1‰ñŒÄ‚Î‚ê‚é<br>
-     * (ó‘Ô•Ï‰») LineReader.readLine():1‰ñŒÄ‚Î‚ê‚é<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:"ï¼“è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.trailerQueue:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤Queue<String>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"ï¼”è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) Queue#add():1å›å‘¼ã°ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) LineReader.readLine():1å›å‘¼ã°ã‚Œã‚‹<br>
      * <br>
-     * ³íƒpƒ^[ƒ“<br>
-     * (ƒgƒŒƒCƒ‰•”1sA‚Q‰ñ–ÚˆÈŒã‚ÌÀs)B<br>
-     * ƒgƒŒƒCƒ‰•”‚ª—L‚éƒf[ƒ^‚É‘Î‚µ‚ÄreadLine()‚ğ1‰ñˆÈãÀs‚µ‚½Œã‚ÉreadLine()‚ğÀs‚µ‚½ê‡AƒgƒŒƒCƒ‰ƒLƒ…[‚Ì“à—e‚ªXV‚³‚êƒLƒ…[‚ÌÅ‰‚Ìƒf[ƒ^‚ªƒf[ƒ^•”‚Ìƒf[ƒ^‚Æ‚µ‚Ä•Ô‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ãƒ‘ã‚¿ãƒ¼ãƒ³<br>
+     * (ãƒˆãƒ¬ã‚¤ãƒ©éƒ¨1è¡Œã€ï¼’å›ç›®ä»¥å¾Œã®å®Ÿè¡Œ)ã€‚<br>
+     * ãƒˆãƒ¬ã‚¤ãƒ©éƒ¨ãŒæœ‰ã‚‹ãƒ‡ãƒ¼ã‚¿ã«å¯¾ã—ã¦readLine()ã‚’1å›ä»¥ä¸Šå®Ÿè¡Œã—ãŸå¾Œã«readLine()ã‚’å®Ÿè¡Œã—ãŸå ´åˆã€ãƒˆãƒ¬ã‚¤ãƒ©ã‚­ãƒ¥ãƒ¼ã®å†…å®¹ãŒæ›´æ–°ã•ã‚Œã‚­ãƒ¥ãƒ¼ã®æœ€åˆã®ãƒ‡ãƒ¼ã‚¿ãŒãƒ‡ãƒ¼ã‚¿éƒ¨ã®ãƒ‡ãƒ¼ã‚¿ã¨ã—ã¦è¿”ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testReadLine02() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_readLine02.txt");
         String fileName = url.getPath();
@@ -9211,27 +9211,27 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub81.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         fileLineIterator.init();
         VMOUTUtil.initialize();
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åİ’èÏ‚İ
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = fileLineIterator.readLine();
 
-        // •Ô‹p’l‚ÌŠm”F
-        assertEquals("3s–Úƒf[ƒ^", result);
+        // è¿”å´å€¤ã®ç¢ºèª
+        assertEquals("3è¡Œç›®ãƒ‡ãƒ¼ã‚¿", result);
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         Object trailerQueue_object = UTUtil.getPrivateField(fileLineIterator,
                 "trailerQueue");
         assertEquals(ArrayBlockingQueue.class, trailerQueue_object.getClass());
         ArrayBlockingQueue trailerQueue = (ArrayBlockingQueue) trailerQueue_object;
         assertEquals(1, trailerQueue.size());
-        assertEquals("4s–Úƒf[ƒ^", trailerQueue.poll());
+        assertEquals("4è¡Œç›®ãƒ‡ãƒ¼ã‚¿", trailerQueue.poll());
 
         assertEquals(1, VMOUTUtil.getCallCount(Queue.class, "add"));
 
@@ -9244,44 +9244,44 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testReadLine03() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD,E,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD,E,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "AbstractFileLineIterator_readLine02.txt"<br>
-     * (ó‘Ô) this.trailerQueue:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂQueue<String>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"‚Rs–Úƒf[ƒ^"<br>
-     * E"‚Ss–Úƒf[ƒ^"<br>
-     * E"‚Ts–Úƒf[ƒ^"<br>
-     * (ó‘Ô) this.lineReader:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂLineReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"‚Us–Úƒf[ƒ^"<br>
-     * E"‚Vs–Úƒf[ƒ^"<br>
-     * (ó‘Ô) this.trailerLineCount:3<br>
-     * (ó‘Ô) this.hasNext():this.lineReader‚Ì’è‹`‚É]‚¤<br>
+     * (çŠ¶æ…‹) this.trailerQueue:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤Queue<String>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"ï¼“è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼”è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼•è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * (çŠ¶æ…‹) this.lineReader:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤LineReaderã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"ï¼–è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼—è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * (çŠ¶æ…‹) this.trailerLineCount:3<br>
+     * (çŠ¶æ…‹) this.hasNext():this.lineReaderã®å®šç¾©ã«å¾“ã†<br>
      * <br>
-     * ¦ŒÄ‚Î‚ê‚éƒ^ƒCƒ~ƒ“ƒO‚É‚ ‚í‚¹‚Ä’è‹`<br>
-     * (ó‘Ô) LineReader.readLine():this.lineReader‚Ì’è‹`‚É]‚¤<br>
+     * â€»å‘¼ã°ã‚Œã‚‹ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã«ã‚ã‚ã›ã¦å®šç¾©<br>
+     * (çŠ¶æ…‹) LineReader.readLine():this.lineReaderã®å®šç¾©ã«å¾“ã†<br>
      * <br>
-     * ¦ŒÄ‚Î‚ê‚éƒ^ƒCƒ~ƒ“ƒO‚É‚ ‚í‚¹‚Ä’è‹`<br>
+     * â€»å‘¼ã°ã‚Œã‚‹ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã«ã‚ã‚ã›ã¦å®šç¾©<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:"‚Rs–Úƒf[ƒ^"<br>
-     * (ó‘Ô•Ï‰») this.trailerQueue:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂQueue<String>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"‚Ss–Úƒf[ƒ^"<br>
-     * E"‚Ts–Úƒf[ƒ^"<br>
-     * E"‚Us–Úƒf[ƒ^"<br>
-     * (ó‘Ô•Ï‰») Queue#add():1‰ñŒÄ‚Î‚ê‚é<br>
-     * (ó‘Ô•Ï‰») LineReader.readLine():1‰ñŒÄ‚Î‚ê‚é<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:"ï¼“è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.trailerQueue:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤Queue<String>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"ï¼”è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼•è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼–è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) Queue#add():1å›å‘¼ã°ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) LineReader.readLine():1å›å‘¼ã°ã‚Œã‚‹<br>
      * <br>
-     * ³íƒpƒ^[ƒ“<br>
-     * (ƒgƒŒƒCƒ‰•”•¡”sA‚Q‰ñ–ÚˆÈŒã‚ÌÀs)B<br>
-     * ƒgƒŒƒCƒ‰•”‚ª—L‚éƒf[ƒ^‚É‘Î‚µ‚ÄreadLine()‚ğ1‰ñˆÈãÀs‚µ‚½Œã‚ÉreadLine()‚ğÀs‚µ‚½ê‡AƒgƒŒƒCƒ‰ƒLƒ…[‚Ì“à—e‚ªXV‚³‚êƒLƒ…[‚ÌÅ‰‚Ìƒf[ƒ^‚ªƒf[ƒ^•”‚Ìƒf[ƒ^‚Æ‚µ‚Ä•Ô‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ãƒ‘ã‚¿ãƒ¼ãƒ³<br>
+     * (ãƒˆãƒ¬ã‚¤ãƒ©éƒ¨è¤‡æ•°è¡Œã€ï¼’å›ç›®ä»¥å¾Œã®å®Ÿè¡Œ)ã€‚<br>
+     * ãƒˆãƒ¬ã‚¤ãƒ©éƒ¨ãŒæœ‰ã‚‹ãƒ‡ãƒ¼ã‚¿ã«å¯¾ã—ã¦readLine()ã‚’1å›ä»¥ä¸Šå®Ÿè¡Œã—ãŸå¾Œã«readLine()ã‚’å®Ÿè¡Œã—ãŸå ´åˆã€ãƒˆãƒ¬ã‚¤ãƒ©ã‚­ãƒ¥ãƒ¼ã®å†…å®¹ãŒæ›´æ–°ã•ã‚Œã‚­ãƒ¥ãƒ¼ã®æœ€åˆã®ãƒ‡ãƒ¼ã‚¿ãŒãƒ‡ãƒ¼ã‚¿éƒ¨ã®ãƒ‡ãƒ¼ã‚¿ã¨ã—ã¦è¿”ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testReadLine03() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_readLine02.txt");
         String fileName = url.getPath();
@@ -9292,29 +9292,29 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub82.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         fileLineIterator.init();
         VMOUTUtil.initialize();
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åİ’èÏ‚İ
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = fileLineIterator.readLine();
 
-        // •Ô‹p’l‚ÌŠm”F
-        assertEquals("3s–Úƒf[ƒ^", result);
+        // è¿”å´å€¤ã®ç¢ºèª
+        assertEquals("3è¡Œç›®ãƒ‡ãƒ¼ã‚¿", result);
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         Object trailerQueue_object = UTUtil.getPrivateField(fileLineIterator,
                 "trailerQueue");
         assertEquals(ArrayBlockingQueue.class, trailerQueue_object.getClass());
         ArrayBlockingQueue trailerQueue = (ArrayBlockingQueue) trailerQueue_object;
         assertEquals(3, trailerQueue.size());
-        assertEquals("4s–Úƒf[ƒ^", trailerQueue.poll());
-        assertEquals("5s–Úƒf[ƒ^", trailerQueue.poll());
-        assertEquals("6s–Úƒf[ƒ^", trailerQueue.poll());
+        assertEquals("4è¡Œç›®ãƒ‡ãƒ¼ã‚¿", trailerQueue.poll());
+        assertEquals("5è¡Œç›®ãƒ‡ãƒ¼ã‚¿", trailerQueue.poll());
+        assertEquals("6è¡Œç›®ãƒ‡ãƒ¼ã‚¿", trailerQueue.poll());
 
         assertEquals(1, VMOUTUtil.getCallCount(Queue.class, "add"));
 
@@ -9327,36 +9327,36 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testReadLine04() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD,E,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD,E,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "AbstractFileLineIterator_readLine03.txt"<br>
-     * (ó‘Ô) this.trailerQueue:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂQueue<String>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"‚Vs–Úƒf[ƒ^"<br>
-     * (ó‘Ô) this.lineReader:î•ñ‚ğ‚½‚È‚¢LineReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) this.trailerLineCount:1<br>
-     * (ó‘Ô) this.hasNext():this.lineReader‚Ì’è‹`‚É]‚¤<br>
+     * (çŠ¶æ…‹) this.trailerQueue:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤Queue<String>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"ï¼—è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * (çŠ¶æ…‹) this.lineReader:æƒ…å ±ã‚’æŒãŸãªã„LineReaderã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) this.trailerLineCount:1<br>
+     * (çŠ¶æ…‹) this.hasNext():this.lineReaderã®å®šç¾©ã«å¾“ã†<br>
      * <br>
-     * ¦ŒÄ‚Î‚ê‚éƒ^ƒCƒ~ƒ“ƒO‚É‚ ‚í‚¹‚Ä’è‹` Ë false<br>
-     * (ó‘Ô) LineReader.readLine():this.lineReader‚Ì’è‹`‚É]‚¤<br>
+     * â€»å‘¼ã°ã‚Œã‚‹ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã«ã‚ã‚ã›ã¦å®šç¾© â‡’ false<br>
+     * (çŠ¶æ…‹) LineReader.readLine():this.lineReaderã®å®šç¾©ã«å¾“ã†<br>
      * <br>
-     * ¦ŒÄ‚Î‚ê‚éƒ^ƒCƒ~ƒ“ƒO‚É‚ ‚í‚¹‚Ä’è‹`<br>
+     * â€»å‘¼ã°ã‚Œã‚‹ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã«ã‚ã‚ã›ã¦å®šç¾©<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:null<br>
-     * (ó‘Ô•Ï‰») this.trailerQueue:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂQueue<String>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"‚Vs–Úƒf[ƒ^"<br>
-     * (ó‘Ô•Ï‰») Queue#add():ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») LineReader.readLine():ŒÄ‚Î‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:null<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.trailerQueue:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤Queue<String>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"ï¼—è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) Queue#add():å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) LineReader.readLine():å‘¼ã°ã‚Œãªã„<br>
      * <br>
-     * ƒf[ƒ^•”‚ğ‘S•”“Ç‚ñ‚¾Œã‚ÌreadLine()‚ğÀs‚µ‚½ê‡Anull‚ğ•Ô‚·‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ãƒ‡ãƒ¼ã‚¿éƒ¨ã‚’å…¨éƒ¨èª­ã‚“ã å¾Œã®readLine()ã‚’å®Ÿè¡Œã—ãŸå ´åˆã€nullã‚’è¿”ã™ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testReadLine04() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_readLine03.txt");
         String fileName = url.getPath();
@@ -9367,27 +9367,27 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub81.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         fileLineIterator.init();
         VMOUTUtil.initialize();
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åİ’èÏ‚İ
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = fileLineIterator.readLine();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertNull(result);
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         Object trailerQueue_object = UTUtil.getPrivateField(fileLineIterator,
                 "trailerQueue");
         assertEquals(ArrayBlockingQueue.class, trailerQueue_object.getClass());
         ArrayBlockingQueue trailerQueue = (ArrayBlockingQueue) trailerQueue_object;
         assertEquals(1, trailerQueue.size());
-        assertEquals("7s–Úƒf[ƒ^", trailerQueue.poll());
+        assertEquals("7è¡Œç›®ãƒ‡ãƒ¼ã‚¿", trailerQueue.poll());
 
         assertEquals(0, VMOUTUtil.getCallCount(Queue.class, "add"));
 
@@ -9400,43 +9400,43 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testReadLine05() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "AbstractFileLineIterator_skip01.txt"<br>
-     * (ó‘Ô) this.trailerQueue:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂQueue<String>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"4s–Úƒf[ƒ^"<br>
-     * E"5s–Úƒf[ƒ^"<br>
-     * E"6s–Úƒf[ƒ^"<br>
-     * E"7s–Úƒf[ƒ^"<br>
-     * (ó‘Ô) this.lineReader:î•ñ‚ğ‚½‚È‚¢LineReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) this.trailerLineCount:3<br>
-     * (ó‘Ô) this.hasNext():this.lineReader‚Ì’è‹`‚É]‚¤<br>
+     * (çŠ¶æ…‹) this.trailerQueue:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤Queue<String>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"4è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"5è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"6è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"7è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * (çŠ¶æ…‹) this.lineReader:æƒ…å ±ã‚’æŒãŸãªã„LineReaderã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) this.trailerLineCount:3<br>
+     * (çŠ¶æ…‹) this.hasNext():this.lineReaderã®å®šç¾©ã«å¾“ã†<br>
      * <br>
-     * ¦ŒÄ‚Î‚ê‚éƒ^ƒCƒ~ƒ“ƒO‚É‚ ‚í‚¹‚Ä’è‹`<br>
-     * (ó‘Ô) LineReader.readLine():this.lineReader‚Ì’è‹`‚É]‚¤<br>
+     * â€»å‘¼ã°ã‚Œã‚‹ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã«ã‚ã‚ã›ã¦å®šç¾©<br>
+     * (çŠ¶æ…‹) LineReader.readLine():this.lineReaderã®å®šç¾©ã«å¾“ã†<br>
      * <br>
-     * ¦ŒÄ‚Î‚ê‚éƒ^ƒCƒ~ƒ“ƒO‚É‚ ‚í‚¹‚Ä’è‹`<br>
+     * â€»å‘¼ã°ã‚Œã‚‹ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã«ã‚ã‚ã›ã¦å®šç¾©<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:null<br>
-     * (ó‘Ô•Ï‰») this.trailerQueue:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂQueue<String>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"4s–Úƒf[ƒ^"<br>
-     * E"5s–Úƒf[ƒ^"<br>
-     * E"6s–Úƒf[ƒ^"<br>
-     * E"7s–Úƒf[ƒ^"<br>
-     * (ó‘Ô•Ï‰») Queue#add():ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») LineReader.readLine():ŒÄ‚Î‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:null<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.trailerQueue:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤Queue<String>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"4è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"5è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"6è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"7è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) Queue#add():å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) LineReader.readLine():å‘¼ã°ã‚Œãªã„<br>
      * <br>
-     * ³íƒpƒ^[ƒ“B<br>
-     * ƒwƒbƒ_•”AƒgƒŒƒCƒ‰•”‚Í—L‚é‚ªƒf[ƒ^•”‚ª‚È‚¢ƒf[ƒ^‚É‘Î‚µ‚ÄreadLine()‚ğÀs‚µ‚½ê‡Anull‚ª•Ô‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ãƒ‘ã‚¿ãƒ¼ãƒ³ã€‚<br>
+     * ãƒ˜ãƒƒãƒ€éƒ¨ã€ãƒˆãƒ¬ã‚¤ãƒ©éƒ¨ã¯æœ‰ã‚‹ãŒãƒ‡ãƒ¼ã‚¿éƒ¨ãŒãªã„ãƒ‡ãƒ¼ã‚¿ã«å¯¾ã—ã¦readLine()ã‚’å®Ÿè¡Œã—ãŸå ´åˆã€nullãŒè¿”ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testReadLine05() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_skip01.txt");
         String fileName = url.getPath();
@@ -9447,30 +9447,30 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub83.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         fileLineIterator.init();
         VMOUTUtil.initialize();
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åİ’èÏ‚İ
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = fileLineIterator.readLine();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertNull(result);
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         Object trailerQueue_object = UTUtil.getPrivateField(fileLineIterator,
                 "trailerQueue");
         assertEquals(ArrayBlockingQueue.class, trailerQueue_object.getClass());
         ArrayBlockingQueue trailerQueue = (ArrayBlockingQueue) trailerQueue_object;
         assertEquals(4, trailerQueue.size());
-        assertEquals("4s–Úƒf[ƒ^", trailerQueue.poll());
-        assertEquals("5s–Úƒf[ƒ^", trailerQueue.poll());
-        assertEquals("6s–Úƒf[ƒ^", trailerQueue.poll());
-        assertEquals("7s–Úƒf[ƒ^", trailerQueue.poll());
+        assertEquals("4è¡Œç›®ãƒ‡ãƒ¼ã‚¿", trailerQueue.poll());
+        assertEquals("5è¡Œç›®ãƒ‡ãƒ¼ã‚¿", trailerQueue.poll());
+        assertEquals("6è¡Œç›®ãƒ‡ãƒ¼ã‚¿", trailerQueue.poll());
+        assertEquals("7è¡Œç›®ãƒ‡ãƒ¼ã‚¿", trailerQueue.poll());
 
         assertEquals(0, VMOUTUtil.getCallCount(Queue.class, "add"));
 
@@ -9483,39 +9483,39 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testReadLine06() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "AbstractFileLineIterator_skip01.txt"<br>
-     * (ó‘Ô) this.trailerQueue:null<br>
-     * (ó‘Ô) this.lineReader:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂLineReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"‚Ps–Úƒf[ƒ^"<br>
-     * E"‚Qs–Úƒf[ƒ^"<br>
-     * E"‚Rs–Úƒf[ƒ^"<br>
-     * E"‚Ss–Úƒf[ƒ^"<br>
-     * E"‚Ts–Úƒf[ƒ^"<br>
-     * E"‚Us–Úƒf[ƒ^"<br>
-     * E"‚Vs–Úƒf[ƒ^"<br>
-     * (ó‘Ô) this.trailerLineCount:0<br>
-     * (ó‘Ô) this.hasNext():this.lineReader‚Ì’è‹`‚É]‚¤<br>
+     * (çŠ¶æ…‹) this.trailerQueue:null<br>
+     * (çŠ¶æ…‹) this.lineReader:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤LineReaderã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"ï¼‘è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼’è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼“è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼”è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼•è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼–è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * ãƒ»"ï¼—è¡Œç›®ãƒ‡ãƒ¼ã‚¿"<br>
+     * (çŠ¶æ…‹) this.trailerLineCount:0<br>
+     * (çŠ¶æ…‹) this.hasNext():this.lineReaderã®å®šç¾©ã«å¾“ã†<br>
      * <br>
-     * ¦ŒÄ‚Î‚ê‚éƒ^ƒCƒ~ƒ“ƒO‚É‚ ‚í‚¹‚Ä’è‹`<br>
-     * (ó‘Ô) LineReader.readLine():FileException—áŠO‚ª”­¶‚·‚éB<br>
+     * â€»å‘¼ã°ã‚Œã‚‹ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã«ã‚ã‚ã›ã¦å®šç¾©<br>
+     * (çŠ¶æ…‹) LineReader.readLine():FileExceptionä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"Processing of lineReader was failed."<br>
-     * EŒ´ˆö—áŠOFLineReader.readLine()‚ÅƒXƒ[‚³‚ê‚½—áŠO<br>
-     * Eƒtƒ@ƒCƒ‹–¼FƒtƒB[ƒ‹ƒhfileName‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒXB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Processing of lineReader was failed."<br>
+     * ãƒ»åŸå› ä¾‹å¤–ï¼šLineReader.readLine()ã§ã‚¹ãƒ­ãƒ¼ã•ã‚ŒãŸä¾‹å¤–<br>
+     * ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰fileNameã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚<br>
      * <br>
-     * —áŠOB<br>
-     * LineReader‚©‚ç—áŠO‚ª”­¶‚µ‚½ê‡A‚»‚Ì—áŠO‚ªFileException‚Éƒ‰ƒbƒv‚³‚ê‚ÄƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ä¾‹å¤–ã€‚<br>
+     * LineReaderã‹ã‚‰ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€ãã®ä¾‹å¤–ãŒFileExceptionã«ãƒ©ãƒƒãƒ—ã•ã‚Œã¦ã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testReadLine06() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_skip01.txt");
         String fileName = url.getPath();
@@ -9526,27 +9526,27 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub80.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         fileLineIterator.init();
         Object lineReader = UTUtil.getPrivateField(fileLineIterator,
                 "lineReader");
-        FileException exception = new FileException("readLine‚©‚ç‚Ì—áŠO‚Å‚·");
+        FileException exception = new FileException("readLineã‹ã‚‰ã®ä¾‹å¤–ã§ã™");
         VMOUTUtil.setExceptionAtAllTimes(lineReader.getClass(), "readLine",
                 exception);
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åİ’èÏ‚İ
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             fileLineIterator.readLine();
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸ");
         } catch (FileException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(FileException.class, e.getClass());
             assertEquals("Processing of lineReader was failed.", e.getMessage());
             assertSame(exception, e.getCause());
@@ -9557,24 +9557,24 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testSkipint01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD,E,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD,E,F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) skipLines:0<br>
-     * (ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.readLine():³íÀs<br>
-     * (ó‘Ô) this.currentLineCount:0<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) skipLines:0<br>
+     * (çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.readLine():æ­£å¸¸å®Ÿè¡Œ<br>
+     * (çŠ¶æ…‹) this.currentLineCount:0<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.readLine:ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») this.currentLineCount:0<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.readLine:å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.currentLineCount:0<br>
      * <br>
-     * ³íƒpƒ^[ƒ“B<br>
-     * Skip‘ÎÛs‚ª‚È‚¢ê‡A‚»‚Ì‚Ü‚Ü³íI—¹‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ãƒ‘ã‚¿ãƒ¼ãƒ³ã€‚<br>
+     * Skipå¯¾è±¡è¡ŒãŒãªã„å ´åˆã€ãã®ã¾ã¾æ­£å¸¸çµ‚äº†ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testSkipint01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_skip01.txt");
         String fileName = url.getPath();
@@ -9586,20 +9586,20 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 columnParserMap);
         UTUtil.setPrivateField(fileLineIterator, "currentLineCount", 0);
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         int skipLines = 0;
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         fileLineIterator.init();
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åİ’èÏ‚İ
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         fileLineIterator.skip(skipLines);
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(0, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
                 "readLine"));
         assertEquals(0, UTUtil.getPrivateField(fileLineIterator,
@@ -9609,24 +9609,24 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testSkipint02() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD,E,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD,E,F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) skipLines:1<br>
-     * (ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.readLine():³íÀs<br>
-     * (ó‘Ô) this.currentLineCount:0<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) skipLines:1<br>
+     * (çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.readLine():æ­£å¸¸å®Ÿè¡Œ<br>
+     * (çŠ¶æ…‹) this.currentLineCount:0<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.readLine:1‰ñŒÄ‚Î‚ê‚é<br>
-     * (ó‘Ô•Ï‰») this.currentLineCount:1<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.readLine:1å›å‘¼ã°ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.currentLineCount:1<br>
      * <br>
-     * ³íƒpƒ^[ƒ“B<br>
-     * Skip‘ÎÛs‚ª‚Ps‚Ìê‡A‘ÎÛƒf[ƒ^‚ğ‚Ps“Ç‚Ş‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ãƒ‘ã‚¿ãƒ¼ãƒ³ã€‚<br>
+     * Skipå¯¾è±¡è¡ŒãŒï¼‘è¡Œã®å ´åˆã€å¯¾è±¡ãƒ‡ãƒ¼ã‚¿ã‚’ï¼‘è¡Œèª­ã‚€ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testSkipint02() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_skip01.txt");
         String fileName = url.getPath();
@@ -9638,20 +9638,20 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 columnParserMap);
         UTUtil.setPrivateField(fileLineIterator, "currentLineCount", 0);
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         int skipLines = 1;
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         fileLineIterator.init();
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åİ’èÏ‚İ
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         fileLineIterator.skip(skipLines);
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
                 "readLine"));
         assertEquals(1, UTUtil.getPrivateField(fileLineIterator,
@@ -9661,23 +9661,23 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testSkipint03() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD,E,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD,E,F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) skipLines:3<br>
-     * (ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.readLine():³íÀs<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) skipLines:3<br>
+     * (çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.readLine():æ­£å¸¸å®Ÿè¡Œ<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.readLine:3‰ñŒÄ‚Î‚ê‚é<br>
-     * (ó‘Ô) this.currentLineCount:3<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.readLine:3å›å‘¼ã°ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹) this.currentLineCount:3<br>
      * <br>
-     * ³íƒpƒ^[ƒ“B<br>
-     * Skip‘ÎÛs‚ª‚Rs‚Ìê‡A‘ÎÛƒf[ƒ^‚ğ‚Rs“Ç‚Ş‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ãƒ‘ã‚¿ãƒ¼ãƒ³ã€‚<br>
+     * Skipå¯¾è±¡è¡ŒãŒï¼“è¡Œã®å ´åˆã€å¯¾è±¡ãƒ‡ãƒ¼ã‚¿ã‚’ï¼“è¡Œèª­ã‚€ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testSkipint03() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_skip01.txt");
         String fileName = url.getPath();
@@ -9689,20 +9689,20 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 columnParserMap);
         UTUtil.setPrivateField(fileLineIterator, "currentLineCount", 0);
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         int skipLines = 3;
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         fileLineIterator.init();
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åİ’èÏ‚İ
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         fileLineIterator.skip(skipLines);
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(3, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
                 "readLine"));
         assertEquals(3, UTUtil.getPrivateField(fileLineIterator,
@@ -9712,24 +9712,24 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testSkipint04() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) skipLines:1<br>
-     * (ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.readLine():FileException—áŠO‚ğ”­¶‚·‚éB<br>
-     * (ó‘Ô) this.currentLineCount:0<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) skipLines:1<br>
+     * (çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.readLine():FileExceptionä¾‹å¤–ã‚’ç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * (çŠ¶æ…‹) this.currentLineCount:0<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.currentLineCount:0<br>
-     * (ó‘Ô•Ï‰») ‚È‚µ:this.readLine()‚Å”­¶‚µ‚½FileException‚ª‚»‚Ì‚Ü‚ÜƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.currentLineCount:0<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ãªã—:this.readLine()ã§ç™ºç”Ÿã—ãŸFileExceptionãŒãã®ã¾ã¾ã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * —áŠOB<br>
-     * ‘ÎÛƒf[ƒ^‚ğ“Ç‚Şˆ—‚Å—áŠO‚ª”­¶‚µ‚½ê‡A‚»‚Ì—áŠO‚ª‚»‚Ì‚Ü‚Ü•Ô‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éBB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ä¾‹å¤–ã€‚<br>
+     * å¯¾è±¡ãƒ‡ãƒ¼ã‚¿ã‚’èª­ã‚€å‡¦ç†ã§ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€ãã®ä¾‹å¤–ãŒãã®ã¾ã¾è¿”ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testSkipint04() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_skip01.txt");
         String fileName = url.getPath();
@@ -9741,25 +9741,25 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 columnParserMap);
         UTUtil.setPrivateField(fileLineIterator, "currentLineCount", 0);
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         int skipLines = 1;
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         fileLineIterator.init();
-        FileException exception = new FileException("readLine‚©‚ç‚Ì—áŠO‚Å‚·");
+        FileException exception = new FileException("readLineã‹ã‚‰ã®ä¾‹å¤–ã§ã™");
         VMOUTUtil.setExceptionAtAllTimes(AbstractFileLineIterator.class,
                 "readLine", exception);
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Åİ’èÏ‚İ
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             fileLineIterator.skip(skipLines);
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸ");
         } catch (FileException e) {
-            // —áŠO‚ÌŠm”F
+            // ä¾‹å¤–ã®ç¢ºèª
             assertSame(exception, e);
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(0, UTUtil.getPrivateField(fileLineIterator,
                     "currentLineCount"));
         }
@@ -9768,32 +9768,32 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testSkipint05() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) skipLines:100<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) skipLines:100<br>
      * <br>
-     * ¦ˆ—‘ÎÛƒtƒ@ƒCƒ‹‚Ìs”‚ğ’´‚¦‚éİ’è<br>
-     * (ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.readLine():³íÀs<br>
-     * (ó‘Ô) this.currentLineCount:0<br>
+     * â€»å‡¦ç†å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã®è¡Œæ•°ã‚’è¶…ãˆã‚‹è¨­å®š<br>
+     * (çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.readLine():æ­£å¸¸å®Ÿè¡Œ<br>
+     * (çŠ¶æ…‹) this.currentLineCount:0<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.readLine:7‰ñŒÄ‚Î‚ê‚é<br>
-     * (ó‘Ô•Ï‰») this.currentLineCount:7<br>
-     * ¦ƒtƒ@ƒCƒ‹‚Ìƒf[ƒ^s”<br>
-     * (ó‘Ô•Ï‰») ‚È‚µ:ˆÈ‰º‚Ìİ’è‚ğ‚ÂFileLineException‚ª”­¶‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"The data which can be acquired doesn't exist."<br>
-     * EŒ´ˆö—áŠOFNoSuchElementException<br>
-     * Eƒtƒ@ƒCƒ‹–¼Fˆ—‘ÎÛƒtƒ@ƒCƒ‹–¼<br>
-     * Es”Ô†F8<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.readLine:7å›å‘¼ã°ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.currentLineCount:7<br>
+     * â€»ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‡ãƒ¼ã‚¿è¡Œæ•°<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ãªã—:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤FileLineExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"The data which can be acquired doesn't exist."<br>
+     * ãƒ»åŸå› ä¾‹å¤–ï¼šNoSuchElementException<br>
+     * ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šå‡¦ç†å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«å<br>
+     * ãƒ»è¡Œç•ªå·ï¼š8<br>
      * <br>
-     * —áŠOB<br>
-     * Skip‘ÎÛs‚Ì”‚ª‘ÎÛƒf[ƒ^‚Ì”‚ğ‰z‚¦‚éê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ä¾‹å¤–ã€‚<br>
+     * Skipå¯¾è±¡è¡Œã®æ•°ãŒå¯¾è±¡ãƒ‡ãƒ¼ã‚¿ã®æ•°ã‚’è¶Šãˆã‚‹å ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testSkipint05() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_skip01.txt");
         String fileName = url.getPath();
@@ -9805,18 +9805,18 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 columnParserMap);
         UTUtil.setPrivateField(fileLineIterator, "currentLineCount", 0);
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         int skipLines = 100;
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         fileLineIterator.init();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             fileLineIterator.skip(skipLines);
-            fail("FileLineException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½");
+            fail("FileLineExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸ");
         } catch (FileLineException e) {
-            // —áŠO‚ÌŠm”F
+            // ä¾‹å¤–ã®ç¢ºèª
             assertEquals("The data which can be acquired doesn't exist.", e
                     .getMessage());
             assertTrue(NoSuchElementException.class.isAssignableFrom(e
@@ -9824,7 +9824,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
             assertEquals(fileName, e.getFileName());
             assertEquals(8, e.getLineNo());
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(7, VMOUTUtil.getCallCount(
                     AbstractFileLineIterator.class, "readLine"));
 
@@ -9836,21 +9836,21 @@ public class AbstractFileLineIteratorTest extends TestCase {
     /**
      * testGetLineFeedChar01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FF <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šF <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.lineFeedChar:"\r"<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.lineFeedChar:"\r"<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) this.lineFeedChar:"\r"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) this.lineFeedChar:"\r"<br>
      * <br>
-     * lineFeedChar‚Ìgetterƒƒ\ƒbƒh‚ª³‚µ‚­’l‚ğæ“¾‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * lineFeedCharã®getterãƒ¡ã‚½ãƒƒãƒ‰ãŒæ­£ã—ãå€¤ã‚’å–å¾—ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testGetLineFeedChar01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_skip01.txt");
         String fileName = url.getPath();
@@ -9861,40 +9861,40 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub01.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ‘O’ñğŒ‚ÅlineFeedChar‚É"\r"‚ğİ’èÏ‚İ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // å‰ææ¡ä»¶ã§lineFeedCharã«"\r"ã‚’è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = fileLineIterator.getLineFeedChar();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals("\r", result);
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
-        // ‚È‚µ
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
+        // ãªã—
     }
 
     /**
      * testGetFileEncoding01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FF <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šF <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.fileEncoding:not null<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.fileEncoding:not null<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) this.fileEncoding:not null<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) this.fileEncoding:not null<br>
      * <br>
-     * fileEncoding‚Ìgetterƒƒ\ƒbƒh‚ª³‚µ‚­’l‚ğæ“¾‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * fileEncodingã®getterãƒ¡ã‚½ãƒƒãƒ‰ãŒæ­£ã—ãå€¤ã‚’å–å¾—ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testGetFileEncoding01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_skip01.txt");
         String fileName = url.getPath();
@@ -9905,40 +9905,40 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub01.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ‘O’ñğŒ‚ÅfileEncoding‚É"MS932"‚ğİ’èÏ‚İ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // å‰ææ¡ä»¶ã§fileEncodingã«"MS932"ã‚’è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = fileLineIterator.getFileEncoding();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals("MS932", result);
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
-        // ‚È‚µ
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
+        // ãªã—
     }
 
     /**
      * testGetHeaderLineCount01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FF <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šF <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.headerLineCount:not null<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.headerLineCount:not null<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) this.headerLineCount:not null<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) this.headerLineCount:not null<br>
      * <br>
-     * headerLineCount‚Ìgetterƒƒ\ƒbƒh‚ª³‚µ‚­’l‚ğæ“¾‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * headerLineCountã®getterãƒ¡ã‚½ãƒƒãƒ‰ãŒæ­£ã—ãå€¤ã‚’å–å¾—ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testGetHeaderLineCount01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_skip01.txt");
         String fileName = url.getPath();
@@ -9949,40 +9949,40 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub01.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ‘O’ñğŒ‚ÅheaderLineCount‚É1‚ğİ’èÏ‚İ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // å‰ææ¡ä»¶ã§headerLineCountã«1ã‚’è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         int result = fileLineIterator.getHeaderLineCount();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals(1, result);
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
-        // ‚È‚µ
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
+        // ãªã—
     }
 
     /**
      * testGetTrailerLineCount01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FF <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šF <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.trailerLineCount:100<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.trailerLineCount:100<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) this.trailerLineCount:100<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) this.trailerLineCount:100<br>
      * <br>
-     * trailerLineCount‚Ìgetterƒƒ\ƒbƒh‚ª³‚µ‚­’l‚ğæ“¾‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * trailerLineCountã®getterãƒ¡ã‚½ãƒƒãƒ‰ãŒæ­£ã—ãå€¤ã‚’å–å¾—ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testGetTrailerLineCount01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_skip01.txt");
         String fileName = url.getPath();
@@ -9993,40 +9993,40 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub01.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ‘O’ñğŒ‚ÅtrailerLineCount‚É1‚ğİ’èÏ‚İ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // å‰ææ¡ä»¶ã§trailerLineCountã«1ã‚’è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         int result = fileLineIterator.getTrailerLineCount();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals(1, result);
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
-        // ‚È‚µ
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
+        // ãªã—
     }
 
     /**
      * testGetCurrentLineCount01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FF <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šF <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.currentLineCount:100<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.currentLineCount:100<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) this.currentLineCount:100<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) this.currentLineCount:100<br>
      * <br>
-     * currentLineCount‚Ìgetterƒƒ\ƒbƒh‚ª³‚µ‚­’l‚ğæ“¾‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * currentLineCountã®getterãƒ¡ã‚½ãƒƒãƒ‰ãŒæ­£ã—ãå€¤ã‚’å–å¾—ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testGetCurrentLineCount01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_skip01.txt");
         String fileName = url.getPath();
@@ -10037,40 +10037,40 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub01.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(fileLineIterator, "currentLineCount", 1);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         int result = fileLineIterator.getCurrentLineCount();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals(1, result);
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
-        // ‚È‚µ
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
+        // ãªã—
     }
 
     /**
      * testGetFields01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FF <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šF <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.fields:not null<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.fields:not null<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) this.fields:not null<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) this.fields:not null<br>
      * <br>
-     * fields‚Ìgetterƒƒ\ƒbƒh‚ª³‚µ‚­’l‚ğæ“¾‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * fieldsã®getterãƒ¡ã‚½ãƒƒãƒ‰ãŒæ­£ã—ãå€¤ã‚’å–å¾—ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testGetFields01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_skip01.txt");
         String fileName = url.getPath();
@@ -10081,41 +10081,41 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub01.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         Field[] fields = new Field[] {};
         UTUtil.setPrivateField(fileLineIterator, "fields", fields);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Field[] result = fileLineIterator.getFields();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertSame(fields, result);
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
-        // ‚È‚µ
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
+        // ãªã—
     }
 
     /**
      * testGetFileName01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FF <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šF <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) AbstractFileLineIteratorÀ‘•ƒNƒ‰ƒX:AbstractFileLineIteratorImpl02<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) this.fileName:not null<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) AbstractFileLineIteratorå®Ÿè£…ã‚¯ãƒ©ã‚¹:AbstractFileLineIteratorImpl02<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) this.fileName:not null<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) this.fileName:not null<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) this.fileName:not null<br>
      * <br>
-     * fileName‚Ìgetterƒƒ\ƒbƒh‚ª³‚µ‚­’l‚ğæ“¾‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * fileNameã®getterãƒ¡ã‚½ãƒƒãƒ‰ãŒæ­£ã—ãå€¤ã‚’å–å¾—ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testGetFileName01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         URL url = this.getClass().getResource(
                 "AbstractFileLineIterator_skip01.txt");
         String fileName = url.getPath();
@@ -10126,37 +10126,37 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub01.class,
                 columnParserMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        String fileName_dummy = "ƒtƒ@ƒCƒ‹–¼";
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        String fileName_dummy = "ãƒ•ã‚¡ã‚¤ãƒ«å";
         UTUtil.setPrivateField(fileLineIterator, "fileName", fileName_dummy);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = fileLineIterator.getFileName();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals(fileName_dummy, result);
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
-        // ‚È‚µ
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
+        // ãªã—
     }
 
     /**
      * testIsCheckByte01() <br>
      * <br>
-     * (³íŒn) <br>
+     * (æ­£å¸¸ç³») <br>
      * <br>
-     * “ü—Í’lF(ˆø”) inputFileColumn:not null<br>
-     * (ó‘Ô) inputFileColumn#bytes():1<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) inputFileColumn:not null<br>
+     * (çŠ¶æ…‹) inputFileColumn#bytes():1<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      * <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsCheckByte01() throws Exception {
-        // ‘Oˆ—(Œ±‘ÎÛ)
+        // å‰å‡¦ç†(è©¦é¨“å¯¾è±¡)
         String fileName = this.getClass().getResource("File_Empty.txt")
                 .getPath();
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
@@ -10165,32 +10165,32 @@ public class AbstractFileLineIteratorTest extends TestCase {
         AbstractFileLineIterator<FixedFileLine_Stub01> fileLineWriter = new AbstractFileLineIteratorImpl02<FixedFileLine_Stub01>(
                 fileName, FixedFileLine_Stub01.class, columnParserMap);
 
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         Field column = FixedFileLine_Stub01.class.getDeclaredFields()[0];
         InputFileColumn inputFileColumn = column
                 .getAnnotation(InputFileColumn.class);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean result = fileLineWriter.isCheckByte(inputFileColumn);
 
-        // ”»’è(–ß‚è’l)
+        // åˆ¤å®š(æˆ»ã‚Šå€¤)
         assertTrue(result);
     }
 
     /**
      * testIsCheckByte02() <br>
      * <br>
-     * (ˆÙíŒn) <br>
+     * (ç•°å¸¸ç³») <br>
      * <br>
-     * “ü—Í’lF(ˆø”) inputFileColumn:not null<br>
-     * (ó‘Ô) inputFileColumn#bytes():-1<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) inputFileColumn:not null<br>
+     * (çŠ¶æ…‹) inputFileColumn#bytes():-1<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
      * <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsCheckByte02() throws Exception {
-        // ‘Oˆ—(Œ±‘ÎÛ)
+        // å‰å‡¦ç†(è©¦é¨“å¯¾è±¡)
         String fileName = this.getClass().getResource("File_Empty.txt")
                 .getPath();
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
@@ -10200,16 +10200,16 @@ public class AbstractFileLineIteratorTest extends TestCase {
                 fileName, AbstractFileLineIterator_Stub80.class,
                 columnParserMap);
 
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         Field column = AbstractFileLineIterator_Stub80.class
                 .getDeclaredFields()[0];
         InputFileColumn inputFileColumn = column
                 .getAnnotation(InputFileColumn.class);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean result = fileLineWriter.isCheckByte(inputFileColumn);
 
-        // ”»’è(–ß‚è’l)
+        // åˆ¤å®š(æˆ»ã‚Šå€¤)
         assertFalse(result);
     }
 

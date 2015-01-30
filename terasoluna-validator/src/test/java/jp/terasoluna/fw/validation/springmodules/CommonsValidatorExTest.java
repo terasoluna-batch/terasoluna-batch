@@ -33,11 +33,11 @@ import org.apache.commons.validator.ValidatorResults;
 
 /**
  * {@link jp.terasoluna.fw.validation.springmodules.CommonsValidatorEx}
- * ƒNƒ‰ƒX‚ÌƒeƒXƒgB
+ * ã‚¯ãƒ©ã‚¹ã®ãƒ†ã‚¹ãƒˆã€‚
  * 
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4>
- * Jakaruta-Commons‚ÌValidatorŠg’£ƒNƒ‰ƒXB
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4>
+ * Jakaruta-Commonsã®Validatoræ‹¡å¼µã‚¯ãƒ©ã‚¹ã€‚
  * <p>
  * 
  * @see jp.terasoluna.fw.validation.springmodules.CommonsValidatorEx
@@ -45,20 +45,20 @@ import org.apache.commons.validator.ValidatorResults;
 public class CommonsValidatorExTest extends TestCase {
 
     /**
-     * ‚±‚ÌƒeƒXƒgƒP[ƒX‚ğÀs‚·‚éˆ×‚Ì GUI ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‹N“®‚·‚éB
+     * ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã‚’å®Ÿè¡Œã™ã‚‹ç‚ºã® GUI ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’èµ·å‹•ã™ã‚‹ã€‚
      * 
      * @param args
-     *            java ƒRƒ}ƒ“ƒh‚Éİ’è‚³‚ê‚½ƒpƒ‰ƒ[ƒ^
+     *            java ã‚³ãƒãƒ³ãƒ‰ã«è¨­å®šã•ã‚ŒãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public static void main(String[] args) {
         junit.swingui.TestRunner.run(CommonsValidatorExTest.class);
     }
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -67,10 +67,10 @@ public class CommonsValidatorExTest extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -79,10 +79,10 @@ public class CommonsValidatorExTest extends TestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      * 
      * @param name
-     *            ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     *            ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public CommonsValidatorExTest(String name) {
         super(name);
@@ -92,23 +92,23 @@ public class CommonsValidatorExTest extends TestCase {
      * testGetValidatorException01() <br>
      * <br>
      * 
-     * (³íŒn) <br>
-     * ŠÏ“_FA,C <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šA,C <br>
      * <br>
-     * “ü—Í’lF(‘O’ñğŒ) this.validatorException:ValidatorException<br>
+     * å…¥åŠ›å€¤ï¼š(å‰ææ¡ä»¶) this.validatorException:ValidatorException<br>
      * 
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l)
-     * ValidatorException:this.validatorException‚Æ“¯ˆêƒCƒ“ƒXƒ^ƒ“ƒX‚ÌValidatorException<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤)
+     * ValidatorException:this.validatorExceptionã¨åŒä¸€ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã®ValidatorException<br>
      * 
      * <br>
-     * ‘®«‚Éİ’è‚³‚ê‚Ä‚¢‚évalidatorException‚ğ•Ô‹p‚·‚é‚±‚Æ‚ÌƒeƒXƒgB <br>
+     * å±æ€§ã«è¨­å®šã•ã‚Œã¦ã„ã‚‹validatorExceptionã‚’è¿”å´ã™ã‚‹ã“ã¨ã®ãƒ†ã‚¹ãƒˆã€‚ <br>
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetValidatorException01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         ValidatorResources resources = new ValidatorResources();
         CommonsValidatorEx commonsValidatorEx = new CommonsValidatorEx(
                 resources, null);
@@ -116,11 +116,11 @@ public class CommonsValidatorExTest extends TestCase {
         UTUtil.setPrivateField(commonsValidatorEx, "validatorException",
                 validatorException);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         ValidatorException resultValidatorException = commonsValidatorEx
                 .getValidatorException();
 
-        // ”»’è
+        // åˆ¤å®š
         assertSame(validatorException, resultValidatorException);
     }
 
@@ -128,34 +128,34 @@ public class CommonsValidatorExTest extends TestCase {
      * testValidate01() <br>
      * <br>
      * 
-     * (³íŒn) <br>
-     * ŠÏ“_FA <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šA <br>
      * <br>
-     * “ü—Í’lF(‘O’ñğŒ) super.validate():—áŠO‚ğƒXƒ[‚µ‚È‚¢<br>
+     * å…¥åŠ›å€¤ï¼š(å‰ææ¡ä»¶) super.validate():ä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã—ãªã„<br>
      * 
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) ValidatorResults:super.validate()‚ÌŒ‹‰Ê<br>
-     * (ó‘Ô•Ï‰») this.validatorException:null<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) ValidatorResults:super.validate()ã®çµæœ<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.validatorException:null<br>
      * 
      * <br>
-     * super.validate()‚ª—áŠO‚ğƒXƒ[‚µ‚È‚¢ê‡Asuper.validate()‚ÌŒ‹‰Ê‚ğ•Ô‹p‚·‚é‚±‚Æ‚ÌƒeƒXƒgBB
+     * super.validate()ãŒä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã—ãªã„å ´åˆã€super.validate()ã®çµæœã‚’è¿”å´ã™ã‚‹ã“ã¨ã®ãƒ†ã‚¹ãƒˆã€‚ã€‚
      * <br>
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidate01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         CommonsValidatorEx_ValidatorResourcesStub01 resources = 
             new CommonsValidatorEx_ValidatorResourcesStub01();
         Form form = new Form();
         resources.setForm(form);
 
-        // super.validate()‚ÌƒI[ƒo[ƒ‰ƒCƒh‚Í‚Å‚«‚È‚¢‚½‚ßA
-        // Field‚Ìƒ‚ƒbƒNƒNƒ‰ƒX‚ğì¬‚µ‚ÄA
-        // super.validate()‚ªŒÄ‚Ño‚·Afield.validate()‚Ì
-        // Œ‹‰Ê‚ğ‘€ì‚·‚éB
-        // super.validate()‚ÍAfield.validate()‚ÌŒ‹‰Ê‚ğƒ}[ƒW‚µ‚Ä•Ô‹p‚µ‚Ä‚¢‚éB
+        // super.validate()ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã¯ã§ããªã„ãŸã‚ã€
+        // Fieldã®ãƒ¢ãƒƒã‚¯ã‚¯ãƒ©ã‚¹ã‚’ä½œæˆã—ã¦ã€
+        // super.validate()ãŒå‘¼ã³å‡ºã™ã€field.validate()ã®
+        // çµæœã‚’æ“ä½œã™ã‚‹ã€‚
+        // super.validate()ã¯ã€field.validate()ã®çµæœã‚’ãƒãƒ¼ã‚¸ã—ã¦è¿”å´ã—ã¦ã„ã‚‹ã€‚
         CommonsValidatorEx_FieldStub01 field =
             new CommonsValidatorEx_FieldStub01();
         List<Field> lFields = new ArrayList<Field>();
@@ -174,11 +174,11 @@ public class CommonsValidatorExTest extends TestCase {
         CommonsValidatorEx commonsValidatorEx = new CommonsValidatorEx(
                 resources, "formName");
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         ValidatorResults result = commonsValidatorEx.validate();
 
-        // ”»’è
-        // result‚ªAfield.validate()‚ÌŒ‹‰Ê‚ğŠÜ‚ñ‚Å‚¢‚é‚©‚ğŠm”F‚·‚éB
+        // åˆ¤å®š
+        // resultãŒã€field.validate()ã®çµæœã‚’å«ã‚“ã§ã„ã‚‹ã‹ã‚’ç¢ºèªã™ã‚‹ã€‚
         Map resultHResults = (Map) UTUtil.getPrivateField(result, "hResults");
         assertEquals(1, resultHResults.size());
         assertSame(validatorResult, resultHResults.get("test"));
@@ -188,35 +188,35 @@ public class CommonsValidatorExTest extends TestCase {
      * testValidate02() <br>
      * <br>
      * 
-     * (³íŒn) <br>
-     * ŠÏ“_FA,G <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šA,G <br>
      * <br>
-     * “ü—Í’lF(‘O’ñğŒ) super.validate():ValidatorException‚ğƒXƒ[‚·‚é<br>
+     * å…¥åŠ›å€¤ï¼š(å‰ææ¡ä»¶) super.validate():ValidatorExceptionã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹<br>
      * 
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:super.validate()‚ªƒXƒ[‚µ‚½ValidatorException<br>
-     * (ó‘Ô•Ï‰») this.validatorException:super.validate()‚ªƒXƒ[‚µ‚½ValidatorException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:super.validate()ãŒã‚¹ãƒ­ãƒ¼ã—ãŸValidatorException<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.validatorException:super.validate()ãŒã‚¹ãƒ­ãƒ¼ã—ãŸValidatorException<br>
      * 
      * <br>
-     * super.validate()‚ªValidatorException‚ğƒXƒ[‚·‚éê‡A‚»‚Ì—áŠO‚ğ‘®«‚Éİ’è‚µ‚½ŒãA‚»‚Ì‚Ü‚ÜƒXƒ[‚·‚é‚±‚Æ‚ÌƒeƒXƒgB
+     * super.validate()ãŒValidatorExceptionã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹å ´åˆã€ãã®ä¾‹å¤–ã‚’å±æ€§ã«è¨­å®šã—ãŸå¾Œã€ãã®ã¾ã¾ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã“ã¨ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidate02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         CommonsValidatorEx_ValidatorResourcesStub01 resources = 
             new CommonsValidatorEx_ValidatorResourcesStub01();
         Form form = new Form();
         resources.setForm(form);
 
-        // super.validate()‚ÌƒI[ƒo[ƒ‰ƒCƒh‚Í‚Å‚«‚È‚¢‚½‚ßA
-        // Field‚Ìƒ‚ƒbƒNƒNƒ‰ƒX‚ğì¬‚µ‚ÄA
-        // super.validate()‚ªŒÄ‚Ño‚·Afield.validate()‚Ì
-        // Œ‹‰Ê‚ğ‘€ì‚·‚éB
-        // super.validate()‚ÍAfield.validate()‚ªƒXƒ[‚µ‚½validatorException‚ğ
-        // ‚»‚Ì‚Ü‚ÜƒXƒ[‚µ‚Ä‚¢‚éB
+        // super.validate()ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã¯ã§ããªã„ãŸã‚ã€
+        // Fieldã®ãƒ¢ãƒƒã‚¯ã‚¯ãƒ©ã‚¹ã‚’ä½œæˆã—ã¦ã€
+        // super.validate()ãŒå‘¼ã³å‡ºã™ã€field.validate()ã®
+        // çµæœã‚’æ“ä½œã™ã‚‹ã€‚
+        // super.validate()ã¯ã€field.validate()ãŒã‚¹ãƒ­ãƒ¼ã—ãŸvalidatorExceptionã‚’
+        // ãã®ã¾ã¾ã‚¹ãƒ­ãƒ¼ã—ã¦ã„ã‚‹ã€‚
         CommonsValidatorEx_FieldStub01 field =
             new CommonsValidatorEx_FieldStub01();
         List<Field> lFields = new ArrayList<Field>();
@@ -228,13 +228,13 @@ public class CommonsValidatorExTest extends TestCase {
         CommonsValidatorEx commonsValidatorEx = new CommonsValidatorEx(
                 resources, "formName");
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             commonsValidatorEx.validate();
             fail();
         } catch (ValidatorException e) {
-            // ”»’è
-            // field.validate()‚ªƒXƒ[‚µ‚½ValidatorException‚Æ“¯ˆêƒCƒ“ƒXƒ^ƒ“ƒX‚©‚ğŠm”F‚·‚éB
+            // åˆ¤å®š
+            // field.validate()ãŒã‚¹ãƒ­ãƒ¼ã—ãŸValidatorExceptionã¨åŒä¸€ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‹ã‚’ç¢ºèªã™ã‚‹ã€‚
             assertSame(field.validatorException, e);
             assertSame(e, commonsValidatorEx.getValidatorException());
         }
@@ -244,23 +244,23 @@ public class CommonsValidatorExTest extends TestCase {
      * testClear01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA,C
+     * è¦³ç‚¹ï¼šA,C
      * <br><br>
-     * “ü—Í’lF(‘O’ñğŒ) this.validatorException:ValidatorException<br>
+     * å…¥åŠ›å€¤ï¼š(å‰ææ¡ä»¶) this.validatorException:ValidatorException<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.validatorException:null<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.validatorException:null<br>
      *         
      * <br>
-     * ‘®«‚Éİ’è‚³‚ê‚Ä‚¢‚évalidatorException‚ğƒNƒŠƒA‚·‚é‚±‚Æ‚ÌƒeƒXƒgB
+     * å±æ€§ã«è¨­å®šã•ã‚Œã¦ã„ã‚‹validatorExceptionã‚’ã‚¯ãƒªã‚¢ã™ã‚‹ã“ã¨ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testClear01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         ValidatorResources resources = new ValidatorResources();
         CommonsValidatorEx commonsValidatorEx = new CommonsValidatorEx(
                 resources, null);
@@ -268,12 +268,12 @@ public class CommonsValidatorExTest extends TestCase {
         UTUtil.setPrivateField(commonsValidatorEx, "validatorException",
                 validatorException);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         commonsValidatorEx.clear();
         ValidatorException result = (ValidatorException)UTUtil
             .getPrivateField(commonsValidatorEx, "validatorException");
 
-        // ”»’è
+        // åˆ¤å®š
         assertNull(result);
     }
 }

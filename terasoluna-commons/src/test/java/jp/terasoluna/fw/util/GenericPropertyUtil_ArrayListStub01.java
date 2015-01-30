@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 
 /**
- * {@link GenericPropertyUtil}‚ÌƒeƒXƒg‚Ì‚½‚ß‚ÌƒXƒ^ƒuƒNƒ‰ƒXB
+ * {@link GenericPropertyUtil}ã®ãƒ†ã‚¹ãƒˆã®ãŸã‚ã®ã‚¹ã‚¿ãƒ–ã‚¯ãƒ©ã‚¹ã€‚
  *
  */
 public class GenericPropertyUtil_ArrayListStub01

@@ -1,4 +1,4 @@
 /**
- * DAOのiBATIS用イベント処理クラス
+ * DAO縺ｮiBATIS逕ｨ繧､繝吶Φ繝亥�ｦ逅�繧ｯ繝ｩ繧ｹ
  */
 package jp.terasoluna.fw.dao.ibatis.event;

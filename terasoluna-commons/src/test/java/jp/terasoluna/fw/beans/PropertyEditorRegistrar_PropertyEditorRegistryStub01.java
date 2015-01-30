@@ -21,7 +21,7 @@ import java.beans.PropertyEditor;
 import org.springframework.beans.PropertyEditorRegistry;
 
 /**
- * PropertyEditorRegistryのスタブ。
+ * PropertyEditorRegistry縺ｮ繧ｹ繧ｿ繝悶�
  *
  */
 public class PropertyEditorRegistrar_PropertyEditorRegistryStub01 implements

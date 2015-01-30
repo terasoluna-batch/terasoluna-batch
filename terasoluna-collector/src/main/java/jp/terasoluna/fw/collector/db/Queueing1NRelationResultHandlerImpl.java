@@ -27,31 +27,31 @@ import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.beanutils.PropertyUtils;
 
 /**
- * Queueing1NRelationResultHandlerImpl‚ÌÀ‘•ƒNƒ‰ƒX<br>
+ * Queueing1NRelationResultHandlerImplã®å®Ÿè£…ã‚¯ãƒ©ã‚¹<br>
  * <p>
- * QueueingResultHandlerImpl‚Ì1:Nƒ}ƒbƒsƒ“ƒO‘Î‰”ÅB<br>
- * 1:Nƒ}ƒbƒsƒ“ƒOg—pAiBATIS‚Í1:N\‘¢‚ÌƒIƒuƒWƒFƒNƒg‚ªŠ®¬‚·‚é‘O‚É ResultHandler#handleResult()‚É“n‚·‚½‚ßA ‚±‚ÌƒRƒŒƒNƒ^‚Å‚ÍA
- * ResultHandler#handleResult()‚É“n‚³‚ê‚½Œ‹‰Ê‚ğAŸ‰ñ“¯ƒƒ\ƒbƒh‚ªÀs‚³‚ê‚½‚Æ‚«‚É ƒLƒ…[‚ÉŠi”[‚·‚éB ÅŒã‚É“n‚³‚ê‚½Œ‹‰Ê‚ÍAiBATIS‚ªˆ—‚ğI‚¦‚½“_‚ÅƒLƒ…[‚ÉŠi”[‚·‚éB<br>
- * ‚Ü‚½A1:Nƒ}ƒbƒsƒ“ƒOg—pAiBATIS‚Í‘S‚Ä‚Ìƒf[ƒ^‚ğæ“¾‚µI‚í‚é‚Ü‚ÅA ResultHandler#handleResult()‚É“n‚µ‚½ƒIƒuƒWƒFƒNƒg‚ğA‘S‚ÄiBATIS“à•”‚É•Û‚µ‘±‚¯‚é‚½‚ßA
- * ‚±‚ÌƒRƒŒƒNƒ^‚Å‚ÍAResultHandler#handleResult()‚É“n‚³‚ê‚½ƒIƒuƒWƒFƒNƒg‚ÌƒVƒƒƒ[ƒRƒs[‚ğƒLƒ…[‚ÉŠi”[‚µA
- * ResultHandler#handleResult()‚É“n‚³‚ê‚½ƒIƒuƒWƒFƒNƒg‚Ì‘SƒvƒƒpƒeƒB‚ğ‰Šú‰»‚·‚éB
+ * QueueingResultHandlerImplã®1:Nãƒãƒƒãƒ”ãƒ³ã‚°å¯¾å¿œç‰ˆã€‚<br>
+ * 1:Nãƒãƒƒãƒ”ãƒ³ã‚°ä½¿ç”¨æ™‚ã€iBATISã¯1:Næ§‹é€ ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒå®Œæˆã™ã‚‹å‰ã« ResultHandler#handleResult()ã«æ¸¡ã™ãŸã‚ã€ ã“ã®ã‚³ãƒ¬ã‚¯ã‚¿ã§ã¯ã€
+ * ResultHandler#handleResult()ã«æ¸¡ã•ã‚ŒãŸçµæœã‚’ã€æ¬¡å›åŒãƒ¡ã‚½ãƒƒãƒ‰ãŒå®Ÿè¡Œã•ã‚ŒãŸã¨ãã« ã‚­ãƒ¥ãƒ¼ã«æ ¼ç´ã™ã‚‹ã€‚ æœ€å¾Œã«æ¸¡ã•ã‚ŒãŸçµæœã¯ã€iBATISãŒå‡¦ç†ã‚’çµ‚ãˆãŸæ™‚ç‚¹ã§ã‚­ãƒ¥ãƒ¼ã«æ ¼ç´ã™ã‚‹ã€‚<br>
+ * ã¾ãŸã€1:Nãƒãƒƒãƒ”ãƒ³ã‚°ä½¿ç”¨æ™‚ã€iBATISã¯å…¨ã¦ã®ãƒ‡ãƒ¼ã‚¿ã‚’å–å¾—ã—çµ‚ã‚ã‚‹ã¾ã§ã€ ResultHandler#handleResult()ã«æ¸¡ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ã€å…¨ã¦iBATISå†…éƒ¨ã«ä¿æŒã—ç¶šã‘ã‚‹ãŸã‚ã€
+ * ã“ã®ã‚³ãƒ¬ã‚¯ã‚¿ã§ã¯ã€ResultHandler#handleResult()ã«æ¸¡ã•ã‚ŒãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚·ãƒ£ãƒ­ãƒ¼ã‚³ãƒ”ãƒ¼ã‚’ã‚­ãƒ¥ãƒ¼ã«æ ¼ç´ã—ã€
+ * ResultHandler#handleResult()ã«æ¸¡ã•ã‚ŒãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å…¨ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚’åˆæœŸåŒ–ã™ã‚‹ã€‚
  * </p>
  * <p>
- * g—pã‚Ì’ˆÓF
+ * ä½¿ç”¨ä¸Šã®æ³¨æ„ï¼š
  * <ul>
- * <li>resultMap—v‘f‚ÌgroupBy‘®«‚É‘‚©‚ê‚½—ñ‚ğ‘æ1ƒ\[ƒgƒL[‚Æ‚µ‚Äƒ\[ƒg(ORDER BY)‚·‚é‚±‚ÆB<br>
- * (ƒ\[ƒgƒL[‚ğŒë‚Á‚½ê‡A‚Ü‚½‚Íƒ\[ƒg‚ğ‚µ‚È‚¢ê‡A 1:N\‘¢‚ÌƒRƒŒƒNƒ^Œ‹‰ÊƒNƒ‰ƒX‚ª•sŠ®‘S‚Èó‘Ô‚ÅBLogic‚ğÀs‚µ‚Ä‚µ‚Ü‚¤‚Ì‚Å’ˆÓ‚·‚é‚±‚Æ)</li>
+ * <li>resultMapè¦ç´ ã®groupByå±æ€§ã«æ›¸ã‹ã‚ŒãŸåˆ—ã‚’ç¬¬1ã‚½ãƒ¼ãƒˆã‚­ãƒ¼ã¨ã—ã¦ã‚½ãƒ¼ãƒˆ(ORDER BY)ã™ã‚‹ã“ã¨ã€‚<br>
+ * (ã‚½ãƒ¼ãƒˆã‚­ãƒ¼ã‚’èª¤ã£ãŸå ´åˆã€ã¾ãŸã¯ã‚½ãƒ¼ãƒˆã‚’ã—ãªã„å ´åˆã€ 1:Næ§‹é€ ã®ã‚³ãƒ¬ã‚¯ã‚¿çµæœã‚¯ãƒ©ã‚¹ãŒä¸å®Œå…¨ãªçŠ¶æ…‹ã§BLogicã‚’å®Ÿè¡Œã—ã¦ã—ã¾ã†ã®ã§æ³¨æ„ã™ã‚‹ã“ã¨)</li>
  * </ul>
  * </p>
  * <p>
- * g‚¢‚Ç‚±‚ë
+ * ä½¿ã„ã©ã“ã‚
  * <ul>
- * <li>ƒRƒŒƒNƒ^—p‚ÌsqlMap‚ÅiBATIS‚Ì1:Nƒ}ƒbƒsƒ“ƒO‚ğ—˜—p‚µA‚©‚ÂA ƒf[ƒ^—Ê‚ª‘½‚­Aƒƒ‚ƒŠ‚ğß–ñ‚·‚é•K—v‚ª‚ ‚é‚Æ‚«<br>
- * (1:Nƒ}ƒbƒsƒ“ƒO‚ğ—˜—p‚µ‚È‚¢ê‡‚ÍA ƒIƒuƒWƒFƒNƒg‚ÌƒVƒƒƒ[ƒRƒs[‚â‰Šú‰»‚Í•s—v‚Å‚ ‚é‚½‚ßA QueueingResultHandlerImpl‚ğg—p‚·‚é‚±‚Æ)</li>
+ * <li>ã‚³ãƒ¬ã‚¯ã‚¿ç”¨ã®sqlMapã§iBATISã®1:Nãƒãƒƒãƒ”ãƒ³ã‚°ã‚’åˆ©ç”¨ã—ã€ã‹ã¤ã€ ãƒ‡ãƒ¼ã‚¿é‡ãŒå¤šãã€ãƒ¡ãƒ¢ãƒªã‚’ç¯€ç´„ã™ã‚‹å¿…è¦ãŒã‚ã‚‹ã¨ã<br>
+ * (1:Nãƒãƒƒãƒ”ãƒ³ã‚°ã‚’åˆ©ç”¨ã—ãªã„å ´åˆã¯ã€ ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚·ãƒ£ãƒ­ãƒ¼ã‚³ãƒ”ãƒ¼ã‚„åˆæœŸåŒ–ã¯ä¸è¦ã§ã‚ã‚‹ãŸã‚ã€ QueueingResultHandlerImplã‚’ä½¿ç”¨ã™ã‚‹ã“ã¨)</li>
  * </ul>
  * </p>
  * <p>
- * sqlMap‹Lq—á1(1:Nƒ}ƒbƒsƒ“ƒO)F
+ * sqlMapè¨˜è¿°ä¾‹1(1:Nãƒãƒƒãƒ”ãƒ³ã‚°)ï¼š
  * 
  * <pre>
  * &lt;resultMap id=&quot;rmap_JB1231_SQL&quot; class=&quot;sample.JB1231Data&quot; &lt;b&gt;groupBy=&quot;col1&quot;&lt;/b&gt;&gt;
@@ -77,7 +77,7 @@ import org.apache.commons.beanutils.PropertyUtils;
  * &lt;/select&gt;
  * </pre>
  * 
- * sqlMap‹Lq—á2(1:M:Nƒ}ƒbƒsƒ“ƒO)F
+ * sqlMapè¨˜è¿°ä¾‹2(1:M:Nãƒãƒƒãƒ”ãƒ³ã‚°)ï¼š
  * 
  * <pre>
  * &lt;resultMap id=&quot;rmap_JB1231_SQL&quot; class=&quot;sample.JB1231Data&quot; &lt;b&gt;groupBy=&quot;col1&quot;&lt;/b&gt;&gt;
@@ -136,7 +136,7 @@ public class Queueing1NRelationResultHandlerImpl extends
             .getLogger(Queueing1NRelationResultHandlerImpl.class);
 
     /**
-     * ‘O‰ñhandleResultƒƒ\ƒbƒh‚É“n‚³‚ê‚½<code>Row</code>ƒf[ƒ^‚ğƒLƒ…[‚ÉŠi”[‚·‚éB
+     * å‰å›handleResultãƒ¡ã‚½ãƒƒãƒ‰ã«æ¸¡ã•ã‚ŒãŸ<code>Row</code>ãƒ‡ãƒ¼ã‚¿ã‚’ã‚­ãƒ¥ãƒ¼ã«æ ¼ç´ã™ã‚‹ã€‚
      */
     public void delayCollect() {
         if (this.prevRow == null) {
@@ -146,13 +146,13 @@ public class Queueing1NRelationResultHandlerImpl extends
             return;
         }
         try {
-            // ƒIƒuƒWƒFƒNƒg‚ÌƒVƒƒƒ[ƒRƒs[‚ğì¬
+            // ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚·ãƒ£ãƒ­ãƒ¼ã‚³ãƒ”ãƒ¼ã‚’ä½œæˆ
             Object copy = BeanUtils.cloneBean(this.prevRow);
             PropertyUtils.copyProperties(this.prevRow, this.prevRow
                     .getClass().newInstance());
 
             if (this.daoCollector != null) {
-                // æ“¾‚µ‚½ƒIƒuƒWƒFƒNƒg‚ÌƒVƒƒƒ[ƒRƒs[‚ğ1ŒƒLƒ…[‚É‚Â‚ß‚é
+                // å–å¾—ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚·ãƒ£ãƒ­ãƒ¼ã‚³ãƒ”ãƒ¼ã‚’1ä»¶ã‚­ãƒ¥ãƒ¼ã«ã¤ã‚ã‚‹
                 this.daoCollector.addQueue(new DataValueObject(copy,
                         this.dataCount.incrementAndGet()));
             }
@@ -169,8 +169,8 @@ public class Queueing1NRelationResultHandlerImpl extends
                 LOGGER.trace(LogId.TAL041002, Thread.currentThread()
                         .getName());
             }
-            // InterruptedException”­¶‚É‚æ‚èƒXƒŒƒbƒh‚ÌuŠ„‚è‚İó‘Ôv‚ÍƒNƒŠƒA‚³‚ê‚éB
-            // ŒÄ‚Ño‚µŒ³‚ÉŠ„‚è‚İ‚ª”­¶‚µ‚½‚±‚Æ‚ğ’Ê’m‚·‚é•K—v‚ª‚ ‚é‚½‚ßAuŠ„‚è‚İó‘Ôv‚ğÄ“x•Û‘¶‚·‚éB
+            // InterruptedExceptionç™ºç”Ÿã«ã‚ˆã‚Šã‚¹ãƒ¬ãƒƒãƒ‰ã®ã€Œå‰²ã‚Šè¾¼ã¿çŠ¶æ…‹ã€ã¯ã‚¯ãƒªã‚¢ã•ã‚Œã‚‹ã€‚
+            // å‘¼ã³å‡ºã—å…ƒã«å‰²ã‚Šè¾¼ã¿ãŒç™ºç”Ÿã—ãŸã“ã¨ã‚’é€šçŸ¥ã™ã‚‹å¿…è¦ãŒã‚ã‚‹ãŸã‚ã€ã€Œå‰²ã‚Šè¾¼ã¿çŠ¶æ…‹ã€ã‚’å†åº¦ä¿å­˜ã™ã‚‹ã€‚
             Thread.currentThread().interrupt();
         }
     }

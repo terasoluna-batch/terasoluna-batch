@@ -26,11 +26,11 @@ import junit.framework.TestCase;
 
 /**
  * {@link jp.terasoluna.fw.dao.ibatis.UpdateDAOiBatisImpl}
- * ƒNƒ‰ƒX‚Ìƒuƒ‰ƒbƒNƒ{ƒbƒNƒXƒeƒXƒgB
+ * ã‚¯ãƒ©ã‚¹ã®ãƒ–ãƒ©ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ†ã‚¹ãƒˆã€‚
  *
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4>
- * UpdateDAOƒCƒ“ƒ^ƒtƒF[ƒX‚ÌiBATIS—pÀ‘•ƒNƒ‰ƒXB
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4>
+ * UpdateDAOã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã®iBATISç”¨å®Ÿè£…ã‚¯ãƒ©ã‚¹ã€‚
  * <p>
  *
  * @see jp.terasoluna.fw.dao.ibatis.UpdateDAOiBatisImpl
@@ -38,24 +38,24 @@ import junit.framework.TestCase;
 public class UpdateDAOiBatisImplTest extends TestCase {
 
     /**
-     * ƒeƒXƒg‘ÎÛƒNƒ‰ƒX
+     * ãƒ†ã‚¹ãƒˆå¯¾è±¡ã‚¯ãƒ©ã‚¹
      */
     private UpdateDAOiBatisImpl dao = new UpdateDAOiBatisImpl();
 
     /**
-     * ‚±‚ÌƒeƒXƒgƒP[ƒX‚ğÀs‚·‚éˆ×‚Ì
-     * GUI ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‹N“®‚·‚éB
+     * ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã‚’å®Ÿè¡Œã™ã‚‹ç‚ºã®
+     * GUI ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’èµ·å‹•ã™ã‚‹ã€‚
      *
-     * @param args java ƒRƒ}ƒ“ƒh‚Éİ’è‚³‚ê‚½ƒpƒ‰ƒ[ƒ^
+     * @param args java ã‚³ãƒãƒ³ãƒ‰ã«è¨­å®šã•ã‚ŒãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public static void main(String[] args) {
         junit.swingui.TestRunner.run(UpdateDAOiBatisImplTest.class);
     }
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -66,9 +66,9 @@ public class UpdateDAOiBatisImplTest extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -78,9 +78,9 @@ public class UpdateDAOiBatisImplTest extends TestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      *
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public UpdateDAOiBatisImplTest(String name) {
         super(name);
@@ -90,32 +90,32 @@ public class UpdateDAOiBatisImplTest extends TestCase {
      * testExecute01()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) sqlID:"sqlId"<br>
-     *         (ˆø”) bindParams:"1"<br>
-     *         (ó‘Ô) update‚Ì–ß‚è’l:1<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) sqlID:"sqlId"<br>
+     *         (å¼•æ•°) bindParams:"1"<br>
+     *         (çŠ¶æ…‹) updateã®æˆ»ã‚Šå€¤:1<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) E:1<br>
-     *         (ó‘Ô•Ï‰») update‚ÌŒÄoŠm”F:ˆø”‚ªsqlIdAbindParams‚ÅŒÄ‚Ño‚³‚ê‚Ä‚¢‚é–‚ğŠm”F<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) E:1<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) updateã®å‘¼å‡ºç¢ºèª:å¼•æ•°ãŒsqlIdã€bindParamsã§å‘¼ã³å‡ºã•ã‚Œã¦ã„ã‚‹äº‹ã‚’ç¢ºèª<br>
      *
      * <br>
-     * update‚ğ³í‚ÉŒÄ‚Ño‚µAŒ‹‰Ê‚ª•Ô‹p‚³‚ê‚éê‡
+     * updateã‚’æ­£å¸¸ã«å‘¼ã³å‡ºã—ã€çµæœãŒè¿”å´ã•ã‚Œã‚‹å ´åˆ
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExecute01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         dao.setSqlMapClientTemplate(new UpdateDAOiBatisImpl_SqlMapClientTemplateStub01());
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         int i = dao.execute("sqlId", "1");
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(1, i);
         UpdateDAOiBatisImpl_SqlMapClientTemplateStub01 sqlMapTemp = (UpdateDAOiBatisImpl_SqlMapClientTemplateStub01) dao
                 .getSqlMapClientTemplate();
@@ -128,32 +128,32 @@ public class UpdateDAOiBatisImplTest extends TestCase {
      * testAddBatch01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) sqlID:"sqlID1"<br>
-     *         (ˆø”) bindParams:"1"<br>
-     *         (ó‘Ô) batchSqls.get()‚É‚Äæ“¾‚µ‚½ListusqlHoldersv:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) sqlID:"sqlID1"<br>
+     *         (å¼•æ•°) bindParams:"1"<br>
+     *         (çŠ¶æ…‹) batchSqls.get()ã«ã¦å–å¾—ã—ãŸListã€ŒsqlHoldersã€:null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») batchSqls.get()‚É‚Äæ“¾‚µ‚½ListusqlHoldersv:List[0] = <br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) batchSqls.get()ã«ã¦å–å¾—ã—ãŸListã€ŒsqlHoldersã€:List[0] = <br>
      *                        SqlHolder(sqlID="sqlID1",bindParams="1")<br>
      *         
      * <br>
-     * sqlHolders‚ªnull‚Ìê‡
+     * sqlHoldersãŒnullã®å ´åˆ
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings({"unchecked","deprecation"})
     public void testAddBatch01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         dao.addBatch("sqlID1", "1");
 
-        // ”»’è
+        // åˆ¤å®š
         Object obj = UTUtil.getPrivateField(dao, "batchSqls");
         List<SqlHolder> sqlHolders
             = ((ThreadLocal<List<SqlHolder>>) obj).get();
@@ -166,31 +166,31 @@ public class UpdateDAOiBatisImplTest extends TestCase {
      * testAddBatch02()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) sqlID:"sqlID2"<br>
-     *         (ˆø”) bindParams:"2"<br>
-     *         (ó‘Ô) batchSqls.get()‚É‚Äæ“¾‚µ‚½ListusqlHoldersv:Not Null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) sqlID:"sqlID2"<br>
+     *         (å¼•æ•°) bindParams:"2"<br>
+     *         (çŠ¶æ…‹) batchSqls.get()ã«ã¦å–å¾—ã—ãŸListã€ŒsqlHoldersã€:Not Null<br>
      *                List[0] = <br>
      *                    SqlHolder(sqlID="sqlID1",bindParams="1")<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») batchSqls.get()‚É‚Äæ“¾‚µ‚½ListusqlHoldersv:List[0] = <br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) batchSqls.get()ã«ã¦å–å¾—ã—ãŸListã€ŒsqlHoldersã€:List[0] = <br>
      *                        SqlHolder(sqlID="sqlID1",bindParams="1")<br>
      *                    List[1] = <br>
      *                        SqlHolder(sqlID="sqlID2",bindParams="2")<br>
      *         
      * <br>
-     * sqlHolders‚ªNot null‚Ìê‡
+     * sqlHoldersãŒNot nullã®å ´åˆ
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings({"unchecked","deprecation"})
     public void testAddBatch02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         dao.setSqlMapClientTemplate(
                 new UpdateDAOiBatisImpl_SqlMapClientTemplateStub01());
         ThreadLocal<List<SqlHolder>> batchSqls
@@ -200,10 +200,10 @@ public class UpdateDAOiBatisImplTest extends TestCase {
         batchSqls.set(sqlHolders);
         UTUtil.setPrivateField(dao, "batchSqls", batchSqls);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         dao.addBatch("sqlID2", "2");
 
-        // ”»’è
+        // åˆ¤å®š
         Object obj = UTUtil.getPrivateField(dao, "batchSqls");
         sqlHolders = ((ThreadLocal<List<SqlHolder>>) obj).get();
         SqlHolder sqlHolder = sqlHolders.get(0);
@@ -218,34 +218,34 @@ public class UpdateDAOiBatisImplTest extends TestCase {
      * testExecuteBatch01()
      * <br><br>
      * 
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ó‘Ô) batchSqls.get()‚É‚Äæ“¾‚µ‚½ListusqlHoldersv:null<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) batchSqls.get()ã«ã¦å–å¾—ã—ãŸListã€ŒsqlHoldersã€:null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalStateException<br>
-     *                    ƒƒbƒZ[ƒWFNo batch sql. Call #addBatch(String, Object) at least 1 time.<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:ƒƒƒbƒZ[ƒW„<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalStateException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼šNo batch sql. Call #addBatch(String, Object) at least 1 time.<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ï¼œãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼<br>
      *                    No batch sql. Call #addBatch(String, Object) at least 1 time.<br>
      *         
      * <br>
-     * sqlHolders‚ªAnull‚Ìê‡
+     * sqlHoldersãŒã€nullã®å ´åˆ
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("deprecation")
     public void testExecuteBatch01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             dao.executeBatch();
-            fail("ƒeƒXƒg¸”s");
+            fail("ãƒ†ã‚¹ãƒˆå¤±æ•—");
         } catch (IllegalArgumentException e) {
-            // ”»’è
+            // åˆ¤å®š
             assertEquals("No SqlMapClient specified", e.getMessage());
         }
     }
@@ -254,27 +254,27 @@ public class UpdateDAOiBatisImplTest extends TestCase {
      * testExecuteBatch02()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ó‘Ô) batchSqls.get()‚É‚Äæ“¾‚µ‚½ListusqlHoldersv:size = 0<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) batchSqls.get()ã«ã¦å–å¾—ã—ãŸListã€ŒsqlHoldersã€:size = 0<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalStateException<br>
-     *                    ƒƒbƒZ[ƒWFNo batch sql. Call #addBatch(String, Object) at least 1 time.<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:ƒƒƒbƒZ[ƒW„<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalStateException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼šNo batch sql. Call #addBatch(String, Object) at least 1 time.<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ï¼œãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼<br>
      *                    No batch sql. Call #addBatch(String, Object) at least 1 time.<br>
      *         
      * <br>
-     * sqlHolders‚ªAsize=0‚Ìê‡
+     * sqlHoldersãŒã€size=0ã®å ´åˆ
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("deprecation")
     public void testExecuteBatch02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         dao.setSqlMapClientTemplate(
                 new UpdateDAOiBatisImpl_SqlMapClientTemplateStub01());
         ThreadLocal<List<SqlHolder>> batchSqls
@@ -283,10 +283,10 @@ public class UpdateDAOiBatisImplTest extends TestCase {
         batchSqls.set(sqlHolders);
         UTUtil.setPrivateField(dao, "batchSqls", batchSqls);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         int i = dao.executeBatch();
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(1, i);
         UpdateDAOiBatisImple_SqlMapSessionImpl sqlMap
             = (UpdateDAOiBatisImple_SqlMapSessionImpl) dao
@@ -300,28 +300,28 @@ public class UpdateDAOiBatisImplTest extends TestCase {
      * testExecuteBatch03()
      * <br><br>
      * 
-     * (³íŒn) 
+     * (æ­£å¸¸ç³») 
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ó‘Ô) batchSqls.get()‚É‚Äæ“¾‚µ‚½ListusqlHoldersv:size = 1<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) batchSqls.get()ã«ã¦å–å¾—ã—ãŸListã€ŒsqlHoldersã€:size = 1<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) int:1<br>
-     *         (ó‘Ô•Ï‰») startBatch‚ÌŒÄoŠm”F:ŒÄ‚Ño‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») addBatch‚ÌŒÄoŠm”F:ŒÄ‚Ño‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») executeBatch‚ÌŒÄoŠm”F:ŒÄ‚Ño‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») batchSqls.get()‚É‚Äæ“¾‚µ‚½ListusqlHoldersv:null<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) int:1<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) startBatchã®å‘¼å‡ºç¢ºèª:å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) addBatchã®å‘¼å‡ºç¢ºèª:å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) executeBatchã®å‘¼å‡ºç¢ºèª:å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) batchSqls.get()ã«ã¦å–å¾—ã—ãŸListã€ŒsqlHoldersã€:null<br>
      *         
      * <br>
-     * sqlHolders‚ªAsize=1‚Ìê‡
+     * sqlHoldersãŒã€size=1ã®å ´åˆ
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("deprecation")
     public void testExecuteBatch03() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         dao.setSqlMapClientTemplate(new UpdateDAOiBatisImpl_SqlMapClientTemplateStub01());
         ThreadLocal<List<SqlHolder>> batchSqls = new ThreadLocal<List<SqlHolder>>();
         List<SqlHolder> sqlHolders = new ArrayList<SqlHolder>();
@@ -329,10 +329,10 @@ public class UpdateDAOiBatisImplTest extends TestCase {
         batchSqls.set(sqlHolders);
         UTUtil.setPrivateField(dao, "batchSqls", batchSqls);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         int i = dao.executeBatch();
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(1, i);
         UpdateDAOiBatisImple_SqlMapSessionImpl sqlMap
             = (UpdateDAOiBatisImple_SqlMapSessionImpl) dao
@@ -350,28 +350,28 @@ public class UpdateDAOiBatisImplTest extends TestCase {
      * testExecuteBatch04()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ó‘Ô) batchSqls.get()‚É‚Äæ“¾‚µ‚½ListusqlHoldersv:size = 3<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) batchSqls.get()ã«ã¦å–å¾—ã—ãŸListã€ŒsqlHoldersã€:size = 3<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) int:3<br>
-     *         (ó‘Ô•Ï‰») startBatch‚ÌŒÄoŠm”F:ŒÄ‚Ño‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») addBatch‚ÌŒÄoŠm”F:ŒÄ‚Ño‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») executeBatch‚ÌŒÄoŠm”F:ŒÄ‚Ño‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») batchSqls.get()‚É‚Äæ“¾‚µ‚½ListusqlHoldersv:null<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) int:3<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) startBatchã®å‘¼å‡ºç¢ºèª:å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) addBatchã®å‘¼å‡ºç¢ºèª:å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) executeBatchã®å‘¼å‡ºç¢ºèª:å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) batchSqls.get()ã«ã¦å–å¾—ã—ãŸListã€ŒsqlHoldersã€:null<br>
      *         
      * <br>
-     * sqlHolders‚ªAsize=3‚Ìê‡
+     * sqlHoldersãŒã€size=3ã®å ´åˆ
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("deprecation")
     public void testExecuteBatch04() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         dao.setSqlMapClientTemplate(new UpdateDAOiBatisImpl_SqlMapClientTemplateStub01());
         ThreadLocal<List<SqlHolder>> batchSqls = new ThreadLocal<List<SqlHolder>>();
         List<SqlHolder> sqlHolders = new ArrayList<SqlHolder>();
@@ -381,10 +381,10 @@ public class UpdateDAOiBatisImplTest extends TestCase {
         batchSqls.set(sqlHolders);
         UTUtil.setPrivateField(dao, "batchSqls", batchSqls);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         int i = dao.executeBatch();
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(1, i);
         UpdateDAOiBatisImple_SqlMapSessionImpl sqlMap
             = (UpdateDAOiBatisImple_SqlMapSessionImpl) dao
@@ -406,31 +406,31 @@ public class UpdateDAOiBatisImplTest extends TestCase {
      * testExecuteBatchList01()
      * <br><br>
      * 
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) sqlHolders:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) sqlHolders:null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    ƒƒbƒZ[ƒWFNo SqlMapClient specified<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼šNo SqlMapClient specified<br>
      *         
      * <br>
-     * sqlHolders‚ªAnull‚Ìê‡
+     * sqlHoldersãŒã€nullã®å ´åˆ
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExecuteBatchList01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             dao.executeBatch(null);
-            fail("ƒeƒXƒg¸”s");
+            fail("ãƒ†ã‚¹ãƒˆå¤±æ•—");
         } catch (IllegalArgumentException e) {
-            // ”»’è
+            // åˆ¤å®š
             assertEquals("No SqlMapClient specified", e.getMessage());
         }
     }
@@ -439,33 +439,33 @@ public class UpdateDAOiBatisImplTest extends TestCase {
      * testExecuteBatchList02()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) sqlHolders:size=0<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) sqlHolders:size=0<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») startBatch‚ÌŒÄoŠm”F:ŒÄ‚Ño‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») update‚ÌŒÄoŠm”F:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
-     *         (ó‘Ô•Ï‰») executeBatch‚ÌŒÄoŠm”F:ŒÄ‚Ño‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) startBatchã®å‘¼å‡ºç¢ºèª:å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) updateã®å‘¼å‡ºç¢ºèª:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) executeBatchã®å‘¼å‡ºç¢ºèª:å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *         
      * <br>
-     * sqlHolders‚ªAsize=0‚Ìê‡
+     * sqlHoldersãŒã€size=0ã®å ´åˆ
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExecuteBatchList02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         dao.setSqlMapClientTemplate(
                 new UpdateDAOiBatisImpl_SqlMapClientTemplateStub01());
         List<SqlHolder> sqlHolders = new ArrayList<SqlHolder>();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         int i = dao.executeBatch(sqlHolders);
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(1, i);
         UpdateDAOiBatisImple_SqlMapSessionImpl sqlMap
             = (UpdateDAOiBatisImple_SqlMapSessionImpl) dao
@@ -479,35 +479,35 @@ public class UpdateDAOiBatisImplTest extends TestCase {
      * testExecuteBatchList03()
      * <br><br>
      * 
-     * (³íŒn) 
+     * (æ­£å¸¸ç³») 
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) sqlHolders:size=1<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) sqlHolders:size=1<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) int:1<br>
-     *         (ó‘Ô•Ï‰») startBatch‚ÌŒÄoŠm”F:ŒÄ‚Ño‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») update‚ÌŒÄoŠm”F:ŒÄ‚Ño‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») executeBatch‚ÌŒÄoŠm”F:ŒÄ‚Ño‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») batchSqls.get()‚É‚Äæ“¾‚µ‚½ListusqlHoldersv:null<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) int:1<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) startBatchã®å‘¼å‡ºç¢ºèª:å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) updateã®å‘¼å‡ºç¢ºèª:å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) executeBatchã®å‘¼å‡ºç¢ºèª:å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) batchSqls.get()ã«ã¦å–å¾—ã—ãŸListã€ŒsqlHoldersã€:null<br>
      *         
      * <br>
-     * sqlHolders‚ªAsize=1‚Ìê‡
+     * sqlHoldersãŒã€size=1ã®å ´åˆ
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExecuteBatchList03() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         dao.setSqlMapClientTemplate(new UpdateDAOiBatisImpl_SqlMapClientTemplateStub01());
         List<SqlHolder> sqlHolders = new ArrayList<SqlHolder>();
         sqlHolders.add(new SqlHolder("sqlID1","1"));
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         int i = dao.executeBatch(sqlHolders);
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(1, i);
         UpdateDAOiBatisImple_SqlMapSessionImpl sqlMap
             = (UpdateDAOiBatisImple_SqlMapSessionImpl) dao
@@ -525,37 +525,37 @@ public class UpdateDAOiBatisImplTest extends TestCase {
      * testExecuteBatchList04()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) sqlHolders:size=3<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) sqlHolders:size=3<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) int:3<br>
-     *         (ó‘Ô•Ï‰») startBatch‚ÌŒÄoŠm”F:ŒÄ‚Ño‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») update‚ÌŒÄoŠm”F:ŒÄ‚Ño‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») executeBatch‚ÌŒÄoŠm”F:ŒÄ‚Ño‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») batchSqls.get()‚É‚Äæ“¾‚µ‚½ListusqlHoldersv:null<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) int:3<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) startBatchã®å‘¼å‡ºç¢ºèª:å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) updateã®å‘¼å‡ºç¢ºèª:å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) executeBatchã®å‘¼å‡ºç¢ºèª:å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) batchSqls.get()ã«ã¦å–å¾—ã—ãŸListã€ŒsqlHoldersã€:null<br>
      *         
      * <br>
-     * sqlHolders‚ªAsize=3‚Ìê‡
+     * sqlHoldersãŒã€size=3ã®å ´åˆ
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExecuteBatchList04() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         dao.setSqlMapClientTemplate(new UpdateDAOiBatisImpl_SqlMapClientTemplateStub01());
         List<SqlHolder> sqlHolders = new ArrayList<SqlHolder>();
         sqlHolders.add(new SqlHolder("sqlID1","1"));
         sqlHolders.add(new SqlHolder("sqlID2","2"));
         sqlHolders.add(new SqlHolder("sqlID3","3"));
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         int i = dao.executeBatch(sqlHolders);
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(1, i);
         UpdateDAOiBatisImple_SqlMapSessionImpl sqlMap
             = (UpdateDAOiBatisImple_SqlMapSessionImpl) dao

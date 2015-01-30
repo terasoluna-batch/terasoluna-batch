@@ -26,46 +26,46 @@ import jp.terasoluna.fw.file.annotation.TrimType;
 import jp.terasoluna.fw.file.dao.FileException;
 
 /**
- * FileDAO—p‚Ìƒ†[ƒeƒBƒŠƒeƒBB
+ * FileDAOç”¨ã®ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ã€‚
  * <p>
- * ƒpƒfƒBƒ“ƒOˆ—AƒgƒŠƒ€ˆ—‚ğ’ñ‹Ÿ‚·‚éB
+ * ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°å‡¦ç†ã€ãƒˆãƒªãƒ å‡¦ç†ã‚’æä¾›ã™ã‚‹ã€‚
  * </p>
  */
 public class FileDAOUtility {
 
     /**
-     * ƒtƒ@ƒCƒ‹ƒGƒ“ƒR[ƒfƒBƒ“ƒO‚ÌƒLƒƒƒbƒVƒ…B
+     * ãƒ•ã‚¡ã‚¤ãƒ«ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ã®ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã€‚
      */
     private static final Map<String, Map<Character, Boolean>> encodingCache = new ConcurrentHashMap<String, Map<Character, Boolean>>();
 
     /**
-     * ƒpƒfƒBƒ“ƒOˆ—B<br>
+     * ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°å‡¦ç†ã€‚<br>
      * <br>
-     * ƒJƒ‰ƒ€‚Ì•¶š—ñ‚ğƒAƒmƒe[ƒVƒ‡ƒ“‚Åw’è‚³‚ê‚½•¶š‚ÅƒpƒfƒBƒ“ƒO‚·‚éB<br>
-     * •¶š—ñ‚É’Ç‰Á‚³‚ê‚é‚Ì‚ÍAƒpƒfƒBƒ“ƒO•¶šupaddingCharv‚Åw’è‚µ‚½•¶šB<br>
-     * ƒpƒfƒBƒ“ƒO•¶š‚Í”¼Šp1•¶š‚Å‚ ‚é‚Ì‚ÅA‘SŠp•¶š‚ª“ü—Í‚³‚ê‚½ê‡‚Í“ü—ÍƒGƒ‰[‚Æ‚È‚éB
-     * @param columnString ƒpƒfƒBƒ“ƒOˆ—‘O‚Ì‚PƒJƒ‰ƒ€•ª‚Ì•¶š—ñ
-     * @param fileEncoding ƒtƒ@ƒCƒ‹ƒGƒ“ƒR[ƒfƒBƒ“ƒO
-     * @param columnBytes ƒpƒfƒBƒ“ƒOˆ—Œã‚Ì1ƒJƒ‰ƒ€‚ÌƒoƒCƒg”
-     * @param paddingChar ƒpƒfƒBƒ“ƒO•¶š
-     * @param paddingType ƒpƒfƒBƒ“ƒOƒ^ƒCƒv
-     * @return ƒpƒfƒBƒ“ƒOˆ—Ï‚Ì‚PƒJƒ‰ƒ€•ª‚Ì•¶š—ñ
+     * ã‚«ãƒ©ãƒ ã®æ–‡å­—åˆ—ã‚’ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã§æŒ‡å®šã•ã‚ŒãŸæ–‡å­—ã§ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°ã™ã‚‹ã€‚<br>
+     * æ–‡å­—åˆ—ã«è¿½åŠ ã•ã‚Œã‚‹ã®ã¯ã€ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°æ–‡å­—ã€ŒpaddingCharã€ã§æŒ‡å®šã—ãŸæ–‡å­—ã€‚<br>
+     * ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°æ–‡å­—ã¯åŠè§’1æ–‡å­—ã§ã‚ã‚‹ã®ã§ã€å…¨è§’æ–‡å­—ãŒå…¥åŠ›ã•ã‚ŒãŸå ´åˆã¯å…¥åŠ›ã‚¨ãƒ©ãƒ¼ã¨ãªã‚‹ã€‚
+     * @param columnString ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°å‡¦ç†å‰ã®ï¼‘ã‚«ãƒ©ãƒ åˆ†ã®æ–‡å­—åˆ—
+     * @param fileEncoding ãƒ•ã‚¡ã‚¤ãƒ«ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°
+     * @param columnBytes ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°å‡¦ç†å¾Œã®1ã‚«ãƒ©ãƒ ã®ãƒã‚¤ãƒˆæ•°
+     * @param paddingChar ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°æ–‡å­—
+     * @param paddingType ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°ã‚¿ã‚¤ãƒ—
+     * @return ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°å‡¦ç†æ¸ˆã®ï¼‘ã‚«ãƒ©ãƒ åˆ†ã®æ–‡å­—åˆ—
      */
     public static String padding(String columnString, String fileEncoding,
             int columnBytes, char paddingChar, PaddingType paddingType) {
 
-        // NONE‚Ì‚Æ‚«‚Í‚»‚Ì‚Ü‚Ü•¶š—ñ‚ğ•Ô‹p‚·‚é
+        // NONEã®ã¨ãã¯ãã®ã¾ã¾æ–‡å­—åˆ—ã‚’è¿”å´ã™ã‚‹
         if (PaddingType.NONE.equals(paddingType)) {
             return columnString;
         }
 
-        // ”¼Šp•¶š‚Ì”»’è
+        // åŠè§’æ–‡å­—ã®åˆ¤å®š
         if (!isHalfWidthChar(fileEncoding, paddingChar)) {
             throw new FileException("Padding char is not half-width character.");
         }
 
         try {
-            // ƒpƒfƒBƒ“ƒOˆ—Œã‚ÌƒoƒCƒg”‚æ‚è‘ÎÛ•¶š—ñ‚ª’·‚¢ê‡‚ÍƒpƒfƒBƒ“ƒOˆ—‚µ‚È‚¢B
+            // ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°å‡¦ç†å¾Œã®ãƒã‚¤ãƒˆæ•°ã‚ˆã‚Šå¯¾è±¡æ–‡å­—åˆ—ãŒé•·ã„å ´åˆã¯ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°å‡¦ç†ã—ãªã„ã€‚
             int paddingSize = columnBytes
                     - columnString.getBytes(fileEncoding).length;
 
@@ -96,26 +96,26 @@ public class FileDAOUtility {
     }
 
     /**
-     * ƒgƒŠƒ€ˆ—B<br>
+     * ãƒˆãƒªãƒ å‡¦ç†ã€‚<br>
      * <br>
-     * ƒJƒ‰ƒ€‚Ì•¶š—ñ‚ğƒAƒmƒe[ƒVƒ‡ƒ“‚Åw’è‚³‚ê‚½•¶š‚ÅƒgƒŠƒ€‚·‚éB<br>
-     * •¶š—ñ‚©‚çæ‚èœ‚©‚ê‚é‚Ì‚ÍAƒgƒŠƒ€•¶šutrimCharv‚Åw’è‚µ‚½•¶šB<br>
-     * ƒgƒŠƒ€•¶š‚Í”¼Šp1•¶š‚Å‚ ‚é‚Ì‚ÅA‘SŠp•¶š‚ª“ü—Í‚³‚ê‚½ê‡‚Í“ü—ÍƒGƒ‰[‚Æ‚È‚éB
-     * @param columnString ƒgƒŠƒ€ˆ—‘O‚Ì‚PƒJƒ‰ƒ€•ª‚Ì•¶š—ñ
-     * @param fileEncoding ƒtƒ@ƒCƒ‹ƒGƒ“ƒR[ƒfƒBƒ“ƒO
-     * @param trimChar ƒgƒŠƒ€•¶š(”¼Šp)
-     * @param trimType ƒgƒŠƒ€ƒ^ƒCƒv
-     * @return ƒgƒŠƒ€ˆ—Œã‚Ì‚PƒJƒ‰ƒ€•ª‚Ì•¶š—ñ
+     * ã‚«ãƒ©ãƒ ã®æ–‡å­—åˆ—ã‚’ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã§æŒ‡å®šã•ã‚ŒãŸæ–‡å­—ã§ãƒˆãƒªãƒ ã™ã‚‹ã€‚<br>
+     * æ–‡å­—åˆ—ã‹ã‚‰å–ã‚Šé™¤ã‹ã‚Œã‚‹ã®ã¯ã€ãƒˆãƒªãƒ æ–‡å­—ã€ŒtrimCharã€ã§æŒ‡å®šã—ãŸæ–‡å­—ã€‚<br>
+     * ãƒˆãƒªãƒ æ–‡å­—ã¯åŠè§’1æ–‡å­—ã§ã‚ã‚‹ã®ã§ã€å…¨è§’æ–‡å­—ãŒå…¥åŠ›ã•ã‚ŒãŸå ´åˆã¯å…¥åŠ›ã‚¨ãƒ©ãƒ¼ã¨ãªã‚‹ã€‚
+     * @param columnString ãƒˆãƒªãƒ å‡¦ç†å‰ã®ï¼‘ã‚«ãƒ©ãƒ åˆ†ã®æ–‡å­—åˆ—
+     * @param fileEncoding ãƒ•ã‚¡ã‚¤ãƒ«ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°
+     * @param trimChar ãƒˆãƒªãƒ æ–‡å­—(åŠè§’)
+     * @param trimType ãƒˆãƒªãƒ ã‚¿ã‚¤ãƒ—
+     * @return ãƒˆãƒªãƒ å‡¦ç†å¾Œã®ï¼‘ã‚«ãƒ©ãƒ åˆ†ã®æ–‡å­—åˆ—
      */
     public static String trim(String columnString, String fileEncoding,
             char trimChar, TrimType trimType) {
 
-        // NONE‚Ì‚Æ‚«‚Í‚»‚Ì‚Ü‚Ü•¶š—ñ‚ğ•Ô‹p‚·‚é
+        // NONEã®ã¨ãã¯ãã®ã¾ã¾æ–‡å­—åˆ—ã‚’è¿”å´ã™ã‚‹
         if (TrimType.NONE.equals(trimType)) {
             return columnString;
         }
 
-        // ”¼Šp•¶š‚Ì”»’è
+        // åŠè§’æ–‡å­—ã®åˆ¤å®š
         if (!isHalfWidthChar(fileEncoding, trimChar)) {
             throw new FileException("Trim char is not half-width character.");
         }
@@ -138,11 +138,11 @@ public class FileDAOUtility {
     }
 
     /**
-     * ”¼Šp•¶š‚©ƒ`ƒFƒbƒN‚ğs‚¤B
-     * @param fileEncoding ƒtƒ@ƒCƒ‹ƒGƒ“ƒR[ƒfƒBƒ“ƒO
-     * @param checkChar ƒ`ƒFƒbƒN‚ğs‚¤•¶š
-     * @return ”¼Šp•¶š‚Ìê‡‚Étrue‚ğ•Ô‹p‚·‚é
-     * @throws FileException ‘¶İ‚µ‚È‚¢ƒGƒ“ƒR[ƒfƒBƒ“ƒO‚Ìê‡
+     * åŠè§’æ–‡å­—ã‹ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†ã€‚
+     * @param fileEncoding ãƒ•ã‚¡ã‚¤ãƒ«ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°
+     * @param checkChar ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†æ–‡å­—
+     * @return åŠè§’æ–‡å­—ã®å ´åˆã«trueã‚’è¿”å´ã™ã‚‹
+     * @throws FileException å­˜åœ¨ã—ãªã„ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ã®å ´åˆ
      */
     private static boolean isHalfWidthChar(String fileEncoding, char checkChar)
                                                                                throws FileException {

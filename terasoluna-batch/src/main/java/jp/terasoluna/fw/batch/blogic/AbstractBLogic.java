@@ -19,11 +19,11 @@ package jp.terasoluna.fw.batch.blogic;
 import org.springframework.context.support.ApplicationObjectSupport;
 
 /**
- * ƒrƒWƒlƒXƒƒWƒbƒN’ŠÛƒNƒ‰ƒXB<br>
+ * ãƒ“ã‚¸ãƒã‚¹ãƒ­ã‚¸ãƒƒã‚¯æŠ½è±¡ã‚¯ãƒ©ã‚¹ã€‚<br>
  * <br>
- * ”CˆÓ‚Éƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“‚ğŠÇ—‚µ‚½‚¢ê‡‚ÌAbstractBLogic‚ğŒp³‚·‚é‚±‚ÆB<br>
- * BLogicƒCƒ“ƒ^ƒtƒF[ƒX‚Æ‚Ì‘Šˆá“_‚Æ‚µ‚ÄAApplicationObjectSupport‚ğŒp³‚µ‚Ä‚¨‚èA<br>
- * Œp³ƒNƒ‰ƒX“à‚Å“Ç‚İ‚ñ‚¾ƒRƒ“ƒeƒi‚©‚çBean‚ğ’¼Úæ“¾‚·‚é‚±‚Æ‚ª‰Â”\B<br>
+ * ä»»æ„ã«ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã‚’ç®¡ç†ã—ãŸã„å ´åˆã®AbstractBLogicã‚’ç¶™æ‰¿ã™ã‚‹ã“ã¨ã€‚<br>
+ * BLogicã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã¨ã®ç›¸é•ç‚¹ã¨ã—ã¦ã€ApplicationObjectSupportã‚’ç¶™æ‰¿ã—ã¦ãŠã‚Šã€<br>
+ * ç¶™æ‰¿ã‚¯ãƒ©ã‚¹å†…ã§èª­ã¿è¾¼ã‚“ã ã‚³ãƒ³ãƒ†ãƒŠã‹ã‚‰Beanã‚’ç›´æ¥å–å¾—ã™ã‚‹ã“ã¨ãŒå¯èƒ½ã€‚<br>
  * @see org.springframework.context.support.ApplicationObjectSupport
  * @see jp.terasoluna.fw.batch.blogic.BLogic
  * @see jp.terasoluna.fw.batch.blogic.AbstractTransactionBLogic

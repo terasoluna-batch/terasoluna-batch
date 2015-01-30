@@ -14,27 +14,27 @@ import jp.terasoluna.utlib.UTUtil;
 import junit.framework.TestCase;
 
 /**
- * {@link jp.terasoluna.fw.file.dao.standard.AbstractFileQueryDAO} ƒNƒ‰ƒX‚ÌƒeƒXƒgB
+ * {@link jp.terasoluna.fw.file.dao.standard.AbstractFileQueryDAO} ã‚¯ãƒ©ã‚¹ã®ãƒ†ã‚¹ãƒˆã€‚
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4> ƒtƒ@ƒCƒ‹‚Ìƒf[ƒ^æ“¾—p‚ÌFileLineIterator‚ğ¶¬‚·‚éB<br>
- * iƒeƒXƒgÀs‚Ì‚½‚ßAƒXƒ^ƒul‚ğ—pˆÓ‚·‚éj
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4> ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‡ãƒ¼ã‚¿å–å¾—ç”¨ã®FileLineIteratorã‚’ç”Ÿæˆã™ã‚‹ã€‚<br>
+ * ï¼ˆãƒ†ã‚¹ãƒˆå®Ÿè¡Œã®ãŸã‚ã€ã‚¹ã‚¿ãƒ–lã‚’ç”¨æ„ã™ã‚‹ï¼‰
  * <p>
- * @author ‰œ“c“Ni
+ * @author å¥¥ç”°å“²å¸
  * @see jp.terasoluna.fw.file.dao.standard.AbstractFileQueryDAO
  */
 public class AbstractFileQueryDAOTest extends TestCase {
 
     /**
-     * ‚±‚ÌƒeƒXƒgƒP[ƒX‚ğÀs‚·‚éˆ×‚Ì GUI ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‹N“®‚·‚éB
-     * @param args java ƒRƒ}ƒ“ƒh‚Éİ’è‚³‚ê‚½ƒpƒ‰ƒ[ƒ^
+     * ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã‚’å®Ÿè¡Œã™ã‚‹ç‚ºã® GUI ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’èµ·å‹•ã™ã‚‹ã€‚
+     * @param args java ã‚³ãƒãƒ³ãƒ‰ã«è¨­å®šã•ã‚ŒãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public static void main(String[] args) {
         // junit.swingui.TestRunner.run(AbstractFileQueryDAOTest.class);
     }
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -43,8 +43,8 @@ public class AbstractFileQueryDAOTest extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -53,8 +53,8 @@ public class AbstractFileQueryDAOTest extends TestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public AbstractFileQueryDAOTest(String name) {
         super(name);
@@ -63,33 +63,33 @@ public class AbstractFileQueryDAOTest extends TestCase {
     /**
      * testSetColumnParserMap01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE <br>
      * <br>
-     * “ü—Í’lF(ˆø”) columnParserMap:Map<String, ColumnParser>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) columnParserMap:Map<String, ColumnParser>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.columnParserMap:ˆø”‚Åw’è‚µ‚½ Map<String, ColumnParser>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.columnParserMap:å¼•æ•°ã§æŒ‡å®šã—ãŸ Map<String, ColumnParser>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     * columnParserMap‚Ìsetterƒƒ\ƒbƒh‚Ì’l‚ª³‚µ‚­İ’è‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * columnParserMapã®setterãƒ¡ã‚½ãƒƒãƒ‰ã®å€¤ãŒæ­£ã—ãè¨­å®šã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testSetColumnParserMap01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         AbstractFileQueryDAO abstractFileQueryDAO = new AbstractFileQueryDAO_Stub01();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ‚È‚µ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         abstractFileQueryDAO.setColumnParserMap(columnParserMap);
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         Object result = UTUtil.getPrivateField(abstractFileQueryDAO,
                 "columnParserMap");
         assertSame(columnParserMap, result);
@@ -98,37 +98,37 @@ public class AbstractFileQueryDAOTest extends TestCase {
     /**
      * testGetColumnParserMap01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FF <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šF <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) this.columnParserMap:Map<String, ColumnParser>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) this.columnParserMap:Map<String, ColumnParser>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) columnParserMap:Map<String, ColumnParser>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) columnParserMap:Map<String, ColumnParser>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     * columnParserMap‚Ìgetterƒƒ\ƒbƒh‚ª³‚µ‚­’l‚ğæ“¾‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * columnParserMapã®getterãƒ¡ã‚½ãƒƒãƒ‰ãŒæ­£ã—ãå€¤ã‚’å–å¾—ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetColumnParserMap01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         AbstractFileQueryDAO abstractFileQueryDAO = new AbstractFileQueryDAO_Stub01();
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         UTUtil.setPrivateField(abstractFileQueryDAO, "columnParserMap",
                 columnParserMap);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Map<String, ColumnParser> result = abstractFileQueryDAO
                 .getColumnParserMap();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertSame(columnParserMap, result);
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
-        // ‚È‚µ
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
+        // ãªã—
     }
 
 }

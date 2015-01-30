@@ -51,213 +51,213 @@ public abstract class BatchUtilTestBase extends TestCase {
     }
 
     /**
-     * •¶š—ñŒ‹‡ƒƒ\ƒbƒh‚ÌƒeƒXƒg<br>
+     * æ–‡å­—åˆ—çµåˆãƒ¡ã‚½ãƒƒãƒ‰ã®ãƒ†ã‚¹ãƒˆ<br>
      * <br>
-     * ƒeƒXƒgŠT—vF<br>
-     * “ü—Í‚³‚ê‚½•¶š—ñ”z—ñ‚Ì“à—e‚ª³í‚ÉŒ‹‡‚³‚ê‚é‚©‚Ç‚¤‚©‚ğŠm”F‚·‚éB <br>
-     * Šm”F€–ÚF<br>
-     * Œ‹‡‚³‚ê‚½•¶š—ñ‚ª•Ô‹p‚³‚ê‚é‚±‚Æ<br>
+     * ãƒ†ã‚¹ãƒˆæ¦‚è¦ï¼š<br>
+     * å…¥åŠ›ã•ã‚ŒãŸæ–‡å­—åˆ—é…åˆ—ã®å†…å®¹ãŒæ­£å¸¸ã«çµåˆã•ã‚Œã‚‹ã‹ã©ã†ã‹ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * ç¢ºèªé …ç›®ï¼š<br>
+     * çµåˆã•ã‚ŒãŸæ–‡å­—åˆ—ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨<br>
      * @throws Exception
      */
     public void testCat01() throws Exception {
 
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         String[] args = { "test1", "test2" };
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = BatchUtil.cat((Object[]) args);
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
         assertEquals("test1test2", result);
     }
 
     /**
-     * •¶š—ñŒ‹‡ƒƒ\ƒbƒh‚ÌƒeƒXƒg<br>
+     * æ–‡å­—åˆ—çµåˆãƒ¡ã‚½ãƒƒãƒ‰ã®ãƒ†ã‚¹ãƒˆ<br>
      * <br>
-     * ƒeƒXƒgŠT—vF<br>
-     * null‚ªİ’è‚³‚ê‚½ê‡null‚ğ•Ô‹p‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * Šm”F€–ÚF<br>
-     * null‚ª•Ô‹p‚³‚ê‚é‚±‚Æ<br>
+     * ãƒ†ã‚¹ãƒˆæ¦‚è¦ï¼š<br>
+     * nullãŒè¨­å®šã•ã‚ŒãŸå ´åˆnullã‚’è¿”å´ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * ç¢ºèªé …ç›®ï¼š<br>
+     * nullãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨<br>
      * @throws Exception
      */
     public void testCat02() throws Exception {
 
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         String[] args = null;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = BatchUtil.cat((Object[]) args);
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
         assertNull(result);
     }
 
     /**
-     * •¶š—ñŒ‹‡ƒƒ\ƒbƒh‚ÌƒeƒXƒg<br>
+     * æ–‡å­—åˆ—çµåˆãƒ¡ã‚½ãƒƒãƒ‰ã®ãƒ†ã‚¹ãƒˆ<br>
      * <br>
-     * ƒeƒXƒgŠT—vF<br>
-     * ‹ó•¶š‚ªİ’è‚³‚ê‚½ê‡A‹ó•¶š‚ğ•Ô‹p‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * Šm”F€–ÚF<br>
-     * ‹ó•¶š‚ª•Ô‹p‚³‚ê‚é‚±‚Æ<br>
+     * ãƒ†ã‚¹ãƒˆæ¦‚è¦ï¼š<br>
+     * ç©ºæ–‡å­—ãŒè¨­å®šã•ã‚ŒãŸå ´åˆã€ç©ºæ–‡å­—ã‚’è¿”å´ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * ç¢ºèªé …ç›®ï¼š<br>
+     * ç©ºæ–‡å­—ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨<br>
      * @throws Exception
      */
     public void testCat03() throws Exception {
 
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         String[] args = { "" };
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = BatchUtil.cat((Object[]) args);
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
         assertEquals("", result);
     }
 
     /**
-     * •¶š—ñŒ‹‡ƒƒ\ƒbƒh‚ÌƒeƒXƒg<br>
+     * æ–‡å­—åˆ—çµåˆãƒ¡ã‚½ãƒƒãƒ‰ã®ãƒ†ã‚¹ãƒˆ<br>
      * <br>
-     * ƒeƒXƒgŠT—vF<br>
-     * 3‚ÂˆÈã‚Ì•¶š—ñ‚ªİ’è‚³‚ê‚Ä‚¨‚èAŠÔ‚Ì•¶š—ñ‚Énull‚ªŠÜ‚Ü‚ê‚Ä‚¢‚éê‡Anull‚Í”ò‚Î‚µ‚ÄŒ‹‡‚µ‚½•¶š—ñ‚ğ•Ô‹p‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * Šm”F€–ÚF<br>
-     * null‚ğ”ò‚Î‚µ‚½Œ‹‡•¶š—ñ‚ª•Ô‹p‚³‚ê‚é‚±‚Æ<br>
+     * ãƒ†ã‚¹ãƒˆæ¦‚è¦ï¼š<br>
+     * 3ã¤ä»¥ä¸Šã®æ–‡å­—åˆ—ãŒè¨­å®šã•ã‚Œã¦ãŠã‚Šã€é–“ã®æ–‡å­—åˆ—ã«nullãŒå«ã¾ã‚Œã¦ã„ã‚‹å ´åˆã€nullã¯é£›ã°ã—ã¦çµåˆã—ãŸæ–‡å­—åˆ—ã‚’è¿”å´ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * ç¢ºèªé …ç›®ï¼š<br>
+     * nullã‚’é£›ã°ã—ãŸçµåˆæ–‡å­—åˆ—ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨<br>
      * @throws Exception
      */
     public void testCat04() throws Exception {
 
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         String[] args = { "test1", null, "test2" };
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = BatchUtil.cat((Object[]) args);
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
         assertEquals("test1test2", result);
     }
 
     /**
-     * ƒCƒ“ƒtƒHƒƒO‚ÌŠJnƒƒbƒZ[ƒW‚ğæ“¾‚·‚éƒƒ\ƒbƒh‚ÌƒeƒXƒg<br>
+     * ã‚¤ãƒ³ãƒ•ã‚©ãƒ­ã‚°ã®é–‹å§‹ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å–å¾—ã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ã®ãƒ†ã‚¹ãƒˆ<br>
      * <br>
-     * ƒeƒXƒgŠT—vF<br>
-     * “ü—Í‚É•¶š—ñ‚ğ—^‚¦‚½A‘z’è‚µ‚½ƒƒO•¶š—ñ‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * Šm”F€–ÚF<br>
-     * “ü—Í•¶š—ñ‚ª–„‚ß‚Ü‚ê‚½ƒƒO•¶š—ñ‚ª•Ô‹p‚³‚ê‚é‚±‚Æ<br>
+     * ãƒ†ã‚¹ãƒˆæ¦‚è¦ï¼š<br>
+     * å…¥åŠ›ã«æ–‡å­—åˆ—ã‚’ä¸ãˆãŸæ™‚ã€æƒ³å®šã—ãŸãƒ­ã‚°æ–‡å­—åˆ—ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * ç¢ºèªé …ç›®ï¼š<br>
+     * å…¥åŠ›æ–‡å­—åˆ—ãŒåŸ‹ã‚è¾¼ã¾ã‚ŒãŸãƒ­ã‚°æ–‡å­—åˆ—ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨<br>
      * @throws Exception
      */
     public void testGetInfoLogStartMsg01() throws Exception {
 
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         String arg = "test1";
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = BatchUtil.getInfoLogStartMsg(arg);
 
-        // Œ‹‰ÊŒŸØ
-        assertEquals("[test1] ˆ—ŠJn", result);
+        // çµæœæ¤œè¨¼
+        assertEquals("[test1] å‡¦ç†é–‹å§‹", result);
     }
 
     /**
-     * ƒCƒ“ƒtƒHƒƒO‚ÌŠJnƒƒbƒZ[ƒW‚ğæ“¾‚·‚éƒƒ\ƒbƒh‚ÌƒeƒXƒg<br>
+     * ã‚¤ãƒ³ãƒ•ã‚©ãƒ­ã‚°ã®é–‹å§‹ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å–å¾—ã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ã®ãƒ†ã‚¹ãƒˆ<br>
      * <br>
-     * ƒeƒXƒgŠT—vF<br>
-     * “ü—Í‚Énull‚ğ—^‚¦‚½A‘z’è‚µ‚½ƒƒO•¶š—ñ‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * Šm”F€–ÚF<br>
-     * “ü—Í•¶š—ñ‚ª–„‚ß‚Ü‚ê‚È‚¢ƒƒO•¶š—ñ‚ª•Ô‹p‚³‚ê‚é‚±‚Æ<br>
+     * ãƒ†ã‚¹ãƒˆæ¦‚è¦ï¼š<br>
+     * å…¥åŠ›ã«nullã‚’ä¸ãˆãŸæ™‚ã€æƒ³å®šã—ãŸãƒ­ã‚°æ–‡å­—åˆ—ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * ç¢ºèªé …ç›®ï¼š<br>
+     * å…¥åŠ›æ–‡å­—åˆ—ãŒåŸ‹ã‚è¾¼ã¾ã‚Œãªã„ãƒ­ã‚°æ–‡å­—åˆ—ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨<br>
      * @throws Exception
      */
     public void testGetInfoLogStartMsg02() throws Exception {
 
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         String arg = null;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = BatchUtil.getInfoLogStartMsg(arg);
 
-        // Œ‹‰ÊŒŸØ
-        assertEquals("[] ˆ—ŠJn", result);
+        // çµæœæ¤œè¨¼
+        assertEquals("[] å‡¦ç†é–‹å§‹", result);
     }
 
     /**
-     * ƒCƒ“ƒtƒHƒƒO‚ÌŠJnƒƒbƒZ[ƒW‚ğæ“¾‚·‚éƒƒ\ƒbƒh‚ÌƒeƒXƒg<br>
+     * ã‚¤ãƒ³ãƒ•ã‚©ãƒ­ã‚°ã®é–‹å§‹ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å–å¾—ã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ã®ãƒ†ã‚¹ãƒˆ<br>
      * <br>
-     * ƒeƒXƒgŠT—vF<br>
-     * “ü—Í‚É‹ó•¶š‚ğ—^‚¦‚½A‘z’è‚µ‚½ƒƒO•¶š—ñ‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * Šm”F€–ÚF<br>
-     * “ü—Í•¶š—ñ‚ª–„‚ß‚Ü‚ê‚È‚¢ƒƒO•¶š—ñ‚ª•Ô‹p‚³‚ê‚é‚±‚Æ<br>
+     * ãƒ†ã‚¹ãƒˆæ¦‚è¦ï¼š<br>
+     * å…¥åŠ›ã«ç©ºæ–‡å­—ã‚’ä¸ãˆãŸæ™‚ã€æƒ³å®šã—ãŸãƒ­ã‚°æ–‡å­—åˆ—ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * ç¢ºèªé …ç›®ï¼š<br>
+     * å…¥åŠ›æ–‡å­—åˆ—ãŒåŸ‹ã‚è¾¼ã¾ã‚Œãªã„ãƒ­ã‚°æ–‡å­—åˆ—ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨<br>
      * @throws Exception
      */
     public void testGetInfoLogStartMsg03() throws Exception {
 
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         String arg = "";
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = BatchUtil.getInfoLogStartMsg(arg);
 
-        // Œ‹‰ÊŒŸØ
-        assertEquals("[] ˆ—ŠJn", result);
+        // çµæœæ¤œè¨¼
+        assertEquals("[] å‡¦ç†é–‹å§‹", result);
     }
 
     /**
-     * ƒCƒ“ƒtƒHƒƒO‚ÌI—¹ƒƒbƒZ[ƒW‚ğæ“¾‚·‚éƒƒ\ƒbƒh‚ÌƒeƒXƒg<br>
+     * ã‚¤ãƒ³ãƒ•ã‚©ãƒ­ã‚°ã®çµ‚äº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å–å¾—ã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ã®ãƒ†ã‚¹ãƒˆ<br>
      * <br>
-     * ƒeƒXƒgŠT—vF<br>
-     * “ü—Í‚É•¶š—ñ‚ğ—^‚¦‚½A‘z’è‚µ‚½ƒƒO•¶š—ñ‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * Šm”F€–ÚF<br>
-     * “ü—Í•¶š—ñ‚ª–„‚ß‚Ü‚ê‚½ƒƒO•¶š—ñ‚ª•Ô‹p‚³‚ê‚é‚±‚Æ<br>
+     * ãƒ†ã‚¹ãƒˆæ¦‚è¦ï¼š<br>
+     * å…¥åŠ›ã«æ–‡å­—åˆ—ã‚’ä¸ãˆãŸæ™‚ã€æƒ³å®šã—ãŸãƒ­ã‚°æ–‡å­—åˆ—ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * ç¢ºèªé …ç›®ï¼š<br>
+     * å…¥åŠ›æ–‡å­—åˆ—ãŒåŸ‹ã‚è¾¼ã¾ã‚ŒãŸãƒ­ã‚°æ–‡å­—åˆ—ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨<br>
      * @throws Exception
      */
     public void testGetInfoLogEndMsg01() throws Exception {
 
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         String arg = "test1";
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = BatchUtil.getInfoLogEndMsg(arg);
 
-        // Œ‹‰ÊŒŸØ
-        assertEquals("[test1] ˆ—I—¹", result);
+        // çµæœæ¤œè¨¼
+        assertEquals("[test1] å‡¦ç†çµ‚äº†", result);
     }
 
     /**
-     * ƒCƒ“ƒtƒHƒƒO‚ÌI—¹ƒƒbƒZ[ƒW‚ğæ“¾‚·‚éƒƒ\ƒbƒh‚ÌƒeƒXƒg<br>
+     * ã‚¤ãƒ³ãƒ•ã‚©ãƒ­ã‚°ã®çµ‚äº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å–å¾—ã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ã®ãƒ†ã‚¹ãƒˆ<br>
      * <br>
-     * ƒeƒXƒgŠT—vF<br>
-     * “ü—Í‚É‹ó•¶š‚ğ—^‚¦‚½A‘z’è‚µ‚½ƒƒO•¶š—ñ‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * Šm”F€–ÚF<br>
-     * “ü—Í•¶š—ñ‚ª–„‚ß‚Ü‚ê‚È‚¢ƒƒO•¶š—ñ‚ª•Ô‹p‚³‚ê‚é‚±‚Æ<br>
+     * ãƒ†ã‚¹ãƒˆæ¦‚è¦ï¼š<br>
+     * å…¥åŠ›ã«ç©ºæ–‡å­—ã‚’ä¸ãˆãŸæ™‚ã€æƒ³å®šã—ãŸãƒ­ã‚°æ–‡å­—åˆ—ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * ç¢ºèªé …ç›®ï¼š<br>
+     * å…¥åŠ›æ–‡å­—åˆ—ãŒåŸ‹ã‚è¾¼ã¾ã‚Œãªã„ãƒ­ã‚°æ–‡å­—åˆ—ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨<br>
      * @throws Exception
      */
     public void testGetInfoLogEndMsg02() throws Exception {
 
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         String arg = null;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = BatchUtil.getInfoLogEndMsg(arg);
 
-        // Œ‹‰ÊŒŸØ
-        assertEquals("[] ˆ—I—¹", result);
+        // çµæœæ¤œè¨¼
+        assertEquals("[] å‡¦ç†çµ‚äº†", result);
     }
 
     /**
-     * ƒCƒ“ƒtƒHƒƒO‚ÌI—¹ƒƒbƒZ[ƒW‚ğæ“¾‚·‚éƒƒ\ƒbƒh‚ÌƒeƒXƒg<br>
+     * ã‚¤ãƒ³ãƒ•ã‚©ãƒ­ã‚°ã®çµ‚äº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å–å¾—ã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ã®ãƒ†ã‚¹ãƒˆ<br>
      * <br>
-     * ƒeƒXƒgŠT—vF<br>
-     * “ü—Í‚É‹ó•¶š‚ğ—^‚¦‚½A‘z’è‚µ‚½ƒƒO•¶š—ñ‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * Šm”F€–ÚF<br>
-     * “ü—Í•¶š—ñ‚ª–„‚ß‚Ü‚ê‚È‚¢ƒƒO•¶š—ñ‚ª•Ô‹p‚³‚ê‚é‚±‚Æ<br>
+     * ãƒ†ã‚¹ãƒˆæ¦‚è¦ï¼š<br>
+     * å…¥åŠ›ã«ç©ºæ–‡å­—ã‚’ä¸ãˆãŸæ™‚ã€æƒ³å®šã—ãŸãƒ­ã‚°æ–‡å­—åˆ—ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * ç¢ºèªé …ç›®ï¼š<br>
+     * å…¥åŠ›æ–‡å­—åˆ—ãŒåŸ‹ã‚è¾¼ã¾ã‚Œãªã„ãƒ­ã‚°æ–‡å­—åˆ—ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨<br>
      * @throws Exception
      */
     public void testGetInfoLogEndMsg03() throws Exception {
 
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         String arg = "";
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = BatchUtil.getInfoLogEndMsg(arg);
 
-        // Œ‹‰ÊŒŸØ
-        assertEquals("[] ˆ—I—¹", result);
+        // çµæœæ¤œè¨¼
+        assertEquals("[] å‡¦ç†çµ‚äº†", result);
     }
 
     /**
@@ -266,10 +266,10 @@ public abstract class BatchUtilTestBase extends TestCase {
      */
     public void testGetTransactionDefinition01() throws Exception {
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         TransactionDefinition result = BatchUtil.getTransactionDefinition();
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
         assertNotNull(result);
     }
 
@@ -279,13 +279,13 @@ public abstract class BatchUtilTestBase extends TestCase {
      */
     public void testGetTransactionDefinition02() throws Exception {
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         TransactionDefinition result = BatchUtil.getTransactionDefinition(
                 TransactionDefinition.PROPAGATION_REQUIRED,
                 TransactionDefinition.ISOLATION_DEFAULT,
                 TransactionDefinition.TIMEOUT_DEFAULT, false);
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
         assertNotNull(result);
     }
 
@@ -295,16 +295,16 @@ public abstract class BatchUtilTestBase extends TestCase {
      */
     public void testChangeListToArray01() throws Exception {
 
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         List<String> list = new ArrayList<String>();
         list.add("test1");
         list.add("test2");
         list.add("test3");
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String[] result = BatchUtil.changeListToArray(list, String.class);
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
         assertEquals("test1", result[0]);
         assertEquals("test2", result[1]);
         assertEquals("test3", result[2]);
@@ -316,18 +316,18 @@ public abstract class BatchUtilTestBase extends TestCase {
      */
     public void testChangeListToArray02() throws Exception {
 
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         List<String> list = new ArrayList<String>();
         list.add("test1");
         list.add("test2");
         list.add("test3");
         try {
 
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             @SuppressWarnings("unused")
             String[] result = BatchUtil.changeListToArray(list, null);
 
-            // Œ‹‰ÊŒŸØ
+            // çµæœæ¤œè¨¼
             fail();
         } catch (IllegalClassTypeException e) {
             assertNotNull(e);
@@ -341,17 +341,17 @@ public abstract class BatchUtilTestBase extends TestCase {
      */
     public void testChangeListToArray03() throws Exception {
 
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         List<String> list = new ArrayList<String>();
         list.add("test1");
         list.add("test2");
         list.add("test3");
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             @SuppressWarnings("unused")
             String[] result = BatchUtil.changeListToArray(list, Integer.class);
 
-            // Œ‹‰ÊŒŸØ
+            // çµæœæ¤œè¨¼
             fail();
         } catch (IllegalClassTypeException e) {
             assertNotNull(e);
@@ -365,10 +365,10 @@ public abstract class BatchUtilTestBase extends TestCase {
      */
     public void testGetProperties01() throws Exception {
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         List<String> result = BatchUtil.getProperties("messages", "errors");
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
         assertEquals(26, result.size());
     }
 
@@ -377,13 +377,13 @@ public abstract class BatchUtilTestBase extends TestCase {
      * @throws Exception
      */
     public void testStartTransaction01() throws Exception {
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         PlatformTransactionManager tran = null;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         TransactionStatus result = BatchUtil.startTransaction(tran);
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
         assertNull(result);
     }
 
@@ -392,13 +392,13 @@ public abstract class BatchUtilTestBase extends TestCase {
      * @throws Exception
      */
     public void testStartTransaction02() throws Exception {
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         TransactionStatus result = BatchUtil.startTransaction(tran);
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
         assertNotNull(result);
     }
 
@@ -407,13 +407,13 @@ public abstract class BatchUtilTestBase extends TestCase {
      * @throws Exception
      */
     public void testStartTransaction03() throws Exception {
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         TransactionStatus result = BatchUtil.startTransaction(tran, log);
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
         assertNotNull(result);
     }
 
@@ -422,16 +422,16 @@ public abstract class BatchUtilTestBase extends TestCase {
      * @throws Exception
      */
     public void testStartTransaction04() throws Exception {
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         TransactionStatus result = BatchUtil.startTransaction(tran,
                 TransactionDefinition.PROPAGATION_REQUIRED,
                 TransactionDefinition.ISOLATION_DEFAULT,
                 TransactionDefinition.TIMEOUT_DEFAULT, false);
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
         assertNotNull(result);
     }
 
@@ -440,16 +440,16 @@ public abstract class BatchUtilTestBase extends TestCase {
      * @throws Exception
      */
     public void testStartTransaction05() throws Exception {
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         TransactionStatus result = BatchUtil.startTransaction(tran,
                 TransactionDefinition.PROPAGATION_REQUIRED,
                 TransactionDefinition.ISOLATION_DEFAULT,
                 TransactionDefinition.TIMEOUT_DEFAULT, false, log);
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
         assertNotNull(result);
     }
 
@@ -458,14 +458,14 @@ public abstract class BatchUtilTestBase extends TestCase {
      * @throws Exception
      */
     public void testStartTransaction06() throws Exception {
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
         TransactionDefinition def = BatchUtil.getTransactionDefinition();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         TransactionStatus result = BatchUtil.startTransaction(tran, def);
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
         assertNotNull(result);
     }
 
@@ -474,26 +474,26 @@ public abstract class BatchUtilTestBase extends TestCase {
      * @throws Exception
      */
     public void testStartTransaction07() throws Exception {
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
         TransactionDefinition def = BatchUtil.getTransactionDefinition();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         TransactionStatus result = BatchUtil.startTransaction(tran, def, log);
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
         assertNotNull(result);
     }
 
     public void testStartTransaction08() throws Exception {
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
         TransactionDefinition def = BatchUtil.getTransactionDefinition();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         TransactionStatus result = BatchUtil.startTransaction(tran, null, log);
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
         assertNotNull(result);
     }
 
@@ -503,17 +503,17 @@ public abstract class BatchUtilTestBase extends TestCase {
      */
     @SuppressWarnings("unchecked")
     public void testStartTransactions01() throws Exception {
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         TransactionDefinition def = BatchUtil.getTransactionDefinition();
         Map<String, PlatformTransactionManager> tranMap = new HashMap();
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
         tranMap.put("tran", tran);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Map<String, TransactionStatus> result = BatchUtil.startTransactions(
                 def, tranMap);
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
         assertNotNull(result);
     }
 
@@ -523,17 +523,17 @@ public abstract class BatchUtilTestBase extends TestCase {
      */
     @SuppressWarnings("unchecked")
     public void testStartTransactions02() throws Exception {
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         TransactionDefinition def = BatchUtil.getTransactionDefinition();
         Map<String, PlatformTransactionManager> tranMap = new HashMap();
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
         tranMap.put("tran", tran);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Map<String, TransactionStatus> result = BatchUtil.startTransactions(
                 def, tranMap, log);
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
         assertNotNull(result);
     }
 
@@ -542,7 +542,7 @@ public abstract class BatchUtilTestBase extends TestCase {
      * @throws Exception
      */
     public void testStartTransactions03() throws Exception {
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         TransactionDefinition def = BatchUtil.getTransactionDefinition();
         Map<String, PlatformTransactionManager> tranMap = new LinkedHashMap<String, PlatformTransactionManager>();
         PlatformTransactionManagerStub3 tran1 = new PlatformTransactionManagerStub3();
@@ -555,12 +555,12 @@ public abstract class BatchUtilTestBase extends TestCase {
         PlatformTransactionManagerStub3 tran4 = new PlatformTransactionManagerStub3();
         tranMap.put("tran4", tran4);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             BatchUtil.startTransactions(def, tranMap, log);
             fail();
         } catch (TransactionException e) {
-            // Œ‹‰ÊŒŸØ
+            // çµæœæ¤œè¨¼
             assertTrue(tran1.wasCalledGetTransaction());
             assertFalse(tran2.wasCalledGetTransaction());
             assertFalse(tran3.wasCalledGetTransaction());
@@ -577,7 +577,7 @@ public abstract class BatchUtilTestBase extends TestCase {
      * @throws Exception
      */
     public void testStartTransactions04() throws Exception {
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         TransactionDefinition def = BatchUtil.getTransactionDefinition();
         Map<String, PlatformTransactionManager> tranMap = new LinkedHashMap<String, PlatformTransactionManager>();
         PlatformTransactionManagerStub3 tran1 = new PlatformTransactionManagerStub3();
@@ -590,12 +590,12 @@ public abstract class BatchUtilTestBase extends TestCase {
         PlatformTransactionManagerStub3 tran4 = new PlatformTransactionManagerStub3();
         tranMap.put("tran4", tran4);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             BatchUtil.startTransactions(def, tranMap, log);
             fail();
         } catch (TransactionException e) {
-            // Œ‹‰ÊŒŸØ
+            // çµæœæ¤œè¨¼
             assertTrue(tran1.wasCalledGetTransaction());
             assertTrue(tran2.wasCalledGetTransaction());
             assertFalse(tran3.wasCalledGetTransaction());
@@ -612,7 +612,7 @@ public abstract class BatchUtilTestBase extends TestCase {
      * @throws Exception
      */
     public void testStartTransactions05() throws Exception {
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         TransactionDefinition def = BatchUtil.getTransactionDefinition();
         Map<String, PlatformTransactionManager> tranMap = new LinkedHashMap<String, PlatformTransactionManager>();
         PlatformTransactionManagerStub3 tran1 = new PlatformTransactionManagerStub3();
@@ -625,12 +625,12 @@ public abstract class BatchUtilTestBase extends TestCase {
         tran4.setFailStartTx(true);
         tranMap.put("tran4", tran4);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             BatchUtil.startTransactions(def, tranMap, log);
             fail();
         } catch (TransactionException e) {
-            // Œ‹‰ÊŒŸØ
+            // çµæœæ¤œè¨¼
             assertTrue(tran1.wasCalledGetTransaction());
             assertTrue(tran2.wasCalledGetTransaction());
             assertTrue(tran3.wasCalledGetTransaction());
@@ -647,7 +647,7 @@ public abstract class BatchUtilTestBase extends TestCase {
      * @throws Exception
      */
     public void testStartTransactions06() throws Exception {
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         TransactionDefinition def = BatchUtil.getTransactionDefinition();
         Map<String, PlatformTransactionManager> tranMap = new LinkedHashMap<String, PlatformTransactionManager>();
         PlatformTransactionManagerStub3 tran1 = new PlatformTransactionManagerStub3();
@@ -659,9 +659,9 @@ public abstract class BatchUtilTestBase extends TestCase {
         PlatformTransactionManagerStub3 tran4 = new PlatformTransactionManagerStub3();
         tranMap.put("tran4", tran4);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Map<?,?> statMap = BatchUtil.startTransactions(def, tranMap, log);
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
         assertTrue(statMap instanceof LinkedHashMap);
         assertTrue(tran1.wasCalledGetTransaction());
         assertTrue(tran2.wasCalledGetTransaction());
@@ -678,11 +678,11 @@ public abstract class BatchUtilTestBase extends TestCase {
      * @throws Exception
      */
     public void testCommitTransaction01() throws Exception {
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
         TransactionStatus stat = new TransactionStatusStub();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             BatchUtil.commitTransaction(tran, stat);
         } catch (Exception e) {
@@ -691,7 +691,7 @@ public abstract class BatchUtilTestBase extends TestCase {
             return;
         }
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
     }
 
     /**
@@ -699,11 +699,11 @@ public abstract class BatchUtilTestBase extends TestCase {
      * @throws Exception
      */
     public void testCommitTransaction02() throws Exception {
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
         TransactionStatus stat = new TransactionStatusStub();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             BatchUtil.commitTransaction(tran, stat, log);
         } catch (Exception e) {
@@ -712,7 +712,7 @@ public abstract class BatchUtilTestBase extends TestCase {
             return;
         }
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
     }
 
     /**
@@ -720,13 +720,13 @@ public abstract class BatchUtilTestBase extends TestCase {
      * @throws Exception
      */
     public void testCommitTransactions01() throws Exception {
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         Map<String, PlatformTransactionManager> tranMap = new HashMap<String, PlatformTransactionManager>();
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
         tranMap.put("tran", tran);
         Map<String, TransactionStatus> statMap = new HashMap<String, TransactionStatus>();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             BatchUtil.commitTransactions(tranMap, statMap);
         } catch (Exception e) {
@@ -735,7 +735,7 @@ public abstract class BatchUtilTestBase extends TestCase {
             return;
         }
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
     }
 
     /**
@@ -743,14 +743,14 @@ public abstract class BatchUtilTestBase extends TestCase {
      * @throws Exception
      */
     public void testCommitTransactions02() throws Exception {
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         Map<String, PlatformTransactionManager> tranMap = new HashMap<String, PlatformTransactionManager>();
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
         tranMap.put("tran", tran);
         Map<String, TransactionStatus> statMap = new HashMap<String, TransactionStatus>();
         statMap.put("tran", new TransactionStatusStub());
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             BatchUtil.commitTransactions(tranMap, statMap, log);
         } catch (Exception e) {
@@ -759,7 +759,7 @@ public abstract class BatchUtilTestBase extends TestCase {
             return;
         }
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
     }
 
     /**
@@ -767,7 +767,7 @@ public abstract class BatchUtilTestBase extends TestCase {
      * @throws Exception
      */
     public void testCommitTransaction03() throws Exception {
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         Map<String, PlatformTransactionManager> tranMap = new HashMap<String, PlatformTransactionManager>();
         PlatformTransactionManagerStub4 tran = new PlatformTransactionManagerStub4();
         tranMap.put("tran1", tran);
@@ -783,18 +783,18 @@ public abstract class BatchUtilTestBase extends TestCase {
         status3.setName("stat3");
         TransactionStatusStub status4 = new TransactionStatusStub();
         status4.setName("stat4");
-        // LinkedHashMap‚É¸‡‚ÅtransactionStatus‚ğ’Ç‰ÁB
+        // LinkedHashMapã«æ˜‡é †ã§transactionStatusã‚’è¿½åŠ ã€‚
         statMap.put("tran1", status1);
         statMap.put("tran2", status2);
         statMap.put("tran3", status3);
         statMap.put("tran4", status4);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         BatchUtil.commitTransactions(tranMap, statMap, log);
         
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
         List<TransactionStatus> statusList = tran.getStatusList();
-        // statMap‚Ìput‡‚Æ‹t‡‚ÉƒRƒ~ƒbƒg‚³‚ê‚Ä‚¢‚é‚±‚ÆB
+        // statMapã®puté †ã¨é€†é †ã«ã‚³ãƒŸãƒƒãƒˆã•ã‚Œã¦ã„ã‚‹ã“ã¨ã€‚
         assertEquals("stat4", ((TransactionStatusStub) statusList.get(0)).getName());
         assertEquals("stat3", ((TransactionStatusStub) statusList.get(1)).getName());
         assertEquals("stat2", ((TransactionStatusStub) statusList.get(2)).getName());
@@ -806,11 +806,11 @@ public abstract class BatchUtilTestBase extends TestCase {
      * @throws Exception
      */
     public void testEndTransaction01() throws Exception {
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
         TransactionStatus stat = new TransactionStatusStub();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             BatchUtil.endTransaction(tran, stat);
         } catch (Exception e) {
@@ -819,7 +819,7 @@ public abstract class BatchUtilTestBase extends TestCase {
             return;
         }
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
     }
 
     /**
@@ -827,11 +827,11 @@ public abstract class BatchUtilTestBase extends TestCase {
      * @throws Exception
      */
     public void testEndTransaction02() throws Exception {
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
         TransactionStatus stat = new TransactionStatusStub();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             BatchUtil.endTransaction(tran, stat, log);
         } catch (Exception e) {
@@ -840,7 +840,7 @@ public abstract class BatchUtilTestBase extends TestCase {
             return;
         }
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
     }
 
     /**
@@ -848,14 +848,14 @@ public abstract class BatchUtilTestBase extends TestCase {
      * @throws Exception
      */
     public void testEndTransactions01() throws Exception {
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         Map<String, PlatformTransactionManager> tranMap = new HashMap<String, PlatformTransactionManager>();
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
         tranMap.put("tran", tran);
         Map<String, TransactionStatus> statMap = new HashMap<String, TransactionStatus>();
         statMap.put("tran", new TransactionStatusStub());
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean result = false;
         try {
             result = BatchUtil.endTransactions(tranMap, statMap);
@@ -865,7 +865,7 @@ public abstract class BatchUtilTestBase extends TestCase {
             return;
         }
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
         assertTrue(result);
     }
 
@@ -874,7 +874,7 @@ public abstract class BatchUtilTestBase extends TestCase {
      * @throws Exception
      */
     public void testEndTransactions02() throws Exception {
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         Map<String, PlatformTransactionManager> tranMap = new HashMap<String, PlatformTransactionManager>();
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
         PlatformTransactionManager tran2 = new PlatformTransactionManagerStub2();
@@ -884,7 +884,7 @@ public abstract class BatchUtilTestBase extends TestCase {
         statMap.put("tran", new TransactionStatusStub());
         statMap.put("tran2", new TransactionStatusStub());
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean result = true;
         try {
             result = BatchUtil.endTransactions(tranMap, statMap, log);
@@ -894,7 +894,7 @@ public abstract class BatchUtilTestBase extends TestCase {
             return;
         }
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
         assertFalse(result);
     }
 
@@ -903,7 +903,7 @@ public abstract class BatchUtilTestBase extends TestCase {
      * @throws Exception
      */
     public void testEndTransactions03() throws Exception {
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         Map<String, PlatformTransactionManager> tranMap = new HashMap<String, PlatformTransactionManager>();
         PlatformTransactionManagerStub4 tran = new PlatformTransactionManagerStub4();
         tranMap.put("tran1", tran);
@@ -911,7 +911,7 @@ public abstract class BatchUtilTestBase extends TestCase {
         tranMap.put("tran3", tran);
         tranMap.put("tran4", tran);
 
-        // TransactionStatus‚Í‘S‚Äƒ[ƒ‹ƒoƒbƒN‚³‚ê‚é‚±‚Æ‚ğ‘z’è‚µA‡˜‚ªtranMap‚Ìput‚Æ‹t‡‚ÅÀ{‚³‚ê‚é‚±‚ÆB
+        // TransactionStatusã¯å…¨ã¦ãƒ­ãƒ¼ãƒ«ãƒãƒƒã‚¯ã•ã‚Œã‚‹ã“ã¨ã‚’æƒ³å®šã—ã€é †åºãŒtranMapã®putã¨é€†é †ã§å®Ÿæ–½ã•ã‚Œã‚‹ã“ã¨ã€‚
         Map<String, TransactionStatus> statMap = new LinkedHashMap<String, TransactionStatus>();
         TransactionStatusStub stat1 = new TransactionStatusStub();
         stat1.setName("stat1");
@@ -934,13 +934,13 @@ public abstract class BatchUtilTestBase extends TestCase {
         statMap.put("tran3", stat3);
         statMap.put("tran4", stat4);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean result = BatchUtil.endTransactions(tranMap, statMap, log);
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
         assertTrue(result);
         List<TransactionStatus> statList = tran.getStatusList();
-        // statMap‚Ìput‚Æ‹t‡‚Åƒ[ƒ‹ƒoƒbƒN‚³‚ê‚Ä‚¢‚é‚±‚ÆB
+        // statMapã®putã¨é€†é †ã§ãƒ­ãƒ¼ãƒ«ãƒãƒƒã‚¯ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã€‚
         assertEquals("stat4", ((TransactionStatusStub) statList.get(0)).getName());
         assertEquals("stat3", ((TransactionStatusStub) statList.get(1)).getName());
         assertEquals("stat2", ((TransactionStatusStub) statList.get(2)).getName());
@@ -952,9 +952,9 @@ public abstract class BatchUtilTestBase extends TestCase {
      * @throws Exception
      */
     public void testSetSavepoint01() throws Exception {
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object result = null;
         try {
             result = BatchUtil.setSavepoint(new TransactionStatusStub());
@@ -964,7 +964,7 @@ public abstract class BatchUtilTestBase extends TestCase {
             return;
         }
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
         assertNotNull(result);
     }
 
@@ -973,9 +973,9 @@ public abstract class BatchUtilTestBase extends TestCase {
      * @throws Exception
      */
     public void testSetSavepoint02() throws Exception {
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object result = null;
         try {
             result = BatchUtil.setSavepoint(new TransactionStatusStub(), log);
@@ -985,7 +985,7 @@ public abstract class BatchUtilTestBase extends TestCase {
             return;
         }
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
         assertNotNull(result);
     }
 
@@ -994,9 +994,9 @@ public abstract class BatchUtilTestBase extends TestCase {
      * @throws Exception
      */
     public void testReleaseSavepoint01() throws Exception {
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             BatchUtil.releaseSavepoint(new TransactionStatusStub(),
                     new Object());
@@ -1006,7 +1006,7 @@ public abstract class BatchUtilTestBase extends TestCase {
             return;
         }
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
     }
 
     /**
@@ -1014,9 +1014,9 @@ public abstract class BatchUtilTestBase extends TestCase {
      * @throws Exception
      */
     public void testReleaseSavepoint02() throws Exception {
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             BatchUtil.releaseSavepoint(new TransactionStatusStub(),
                     new Object(), log);
@@ -1026,7 +1026,7 @@ public abstract class BatchUtilTestBase extends TestCase {
             return;
         }
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
     }
 
     /**
@@ -1034,9 +1034,9 @@ public abstract class BatchUtilTestBase extends TestCase {
      * @throws Exception
      */
     public void testRollbackSavepoint01() throws Exception {
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             BatchUtil.rollbackSavepoint(new TransactionStatusStub(),
                     new Object());
@@ -1046,7 +1046,7 @@ public abstract class BatchUtilTestBase extends TestCase {
             return;
         }
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
     }
 
     /**
@@ -1054,9 +1054,9 @@ public abstract class BatchUtilTestBase extends TestCase {
      * @throws Exception
      */
     public void testRollbackSavepoint02() throws Exception {
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             BatchUtil.rollbackSavepoint(new TransactionStatusStub(),
                     new Object(), log);
@@ -1066,7 +1066,7 @@ public abstract class BatchUtilTestBase extends TestCase {
             return;
         }
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
     }
 
     /**
@@ -1074,11 +1074,11 @@ public abstract class BatchUtilTestBase extends TestCase {
      * @throws Exception
      */
     public void testRollbackTransaction01() throws Exception {
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
         TransactionStatus stat = new TransactionStatusStub();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             BatchUtil.rollbackTransaction(tran, stat);
         } catch (Exception e) {
@@ -1087,7 +1087,7 @@ public abstract class BatchUtilTestBase extends TestCase {
             return;
         }
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
     }
 
     /**
@@ -1095,11 +1095,11 @@ public abstract class BatchUtilTestBase extends TestCase {
      * @throws Exception
      */
     public void testRollbackTransaction02() throws Exception {
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
         TransactionStatus stat = new TransactionStatusStub();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             BatchUtil.rollbackTransaction(tran, stat, log);
         } catch (Exception e) {
@@ -1108,7 +1108,7 @@ public abstract class BatchUtilTestBase extends TestCase {
             return;
         }
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
     }
 
     /**
@@ -1116,11 +1116,11 @@ public abstract class BatchUtilTestBase extends TestCase {
      * @throws Exception
      */
     public void testCommitRestartTransaction01() throws Exception {
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
         TransactionStatus stat = new TransactionStatusStub();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         TransactionStatus result = null;
         try {
             result = BatchUtil.commitRestartTransaction(tran, stat);
@@ -1130,7 +1130,7 @@ public abstract class BatchUtilTestBase extends TestCase {
             return;
         }
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
         assertNotNull(result);
     }
 
@@ -1139,11 +1139,11 @@ public abstract class BatchUtilTestBase extends TestCase {
      * @throws Exception
      */
     public void testCommitRestartTransaction02() throws Exception {
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
         TransactionStatus stat = new TransactionStatusStub();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         TransactionStatus result = null;
         try {
             result = BatchUtil.commitRestartTransaction(tran, stat, log);
@@ -1153,7 +1153,7 @@ public abstract class BatchUtilTestBase extends TestCase {
             return;
         }
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
         assertNotNull(result);
     }
 
@@ -1162,12 +1162,12 @@ public abstract class BatchUtilTestBase extends TestCase {
      * @throws Exception
      */
     public void testCommitRestartTransaction03() throws Exception {
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
         TransactionStatus stat = new TransactionStatusStub();
         TransactionDefinition def = BatchUtil.getTransactionDefinition();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         TransactionStatus result = null;
         try {
             result = BatchUtil.commitRestartTransaction(tran, stat, def);
@@ -1177,7 +1177,7 @@ public abstract class BatchUtilTestBase extends TestCase {
             return;
         }
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
         assertNotNull(result);
     }
 
@@ -1186,12 +1186,12 @@ public abstract class BatchUtilTestBase extends TestCase {
      * @throws Exception
      */
     public void testCommitRestartTransaction04() throws Exception {
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
         TransactionStatus stat = new TransactionStatusStub();
         TransactionDefinition def = BatchUtil.getTransactionDefinition();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         TransactionStatus result = null;
         try {
             result = BatchUtil.commitRestartTransaction(tran, stat, def, log);
@@ -1201,7 +1201,7 @@ public abstract class BatchUtilTestBase extends TestCase {
             return;
         }
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
         assertNotNull(result);
     }
 
@@ -1210,11 +1210,11 @@ public abstract class BatchUtilTestBase extends TestCase {
      * @throws Exception
      */
     public void testRollbackRestartTransaction001() throws Exception {
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
         TransactionStatus stat = new TransactionStatusStub();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         TransactionStatus result = null;
         try {
             result = BatchUtil.rollbackRestartTransaction(tran, stat);
@@ -1224,7 +1224,7 @@ public abstract class BatchUtilTestBase extends TestCase {
             return;
         }
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
         assertNotNull(result);
     }
 
@@ -1233,11 +1233,11 @@ public abstract class BatchUtilTestBase extends TestCase {
      * @throws Exception
      */
     public void testRollbackRestartTransaction002() throws Exception {
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
         TransactionStatus stat = new TransactionStatusStub();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         TransactionStatus result = null;
         try {
             result = BatchUtil.rollbackRestartTransaction(tran, stat, log);
@@ -1247,7 +1247,7 @@ public abstract class BatchUtilTestBase extends TestCase {
             return;
         }
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
         assertNotNull(result);
     }
 
@@ -1256,12 +1256,12 @@ public abstract class BatchUtilTestBase extends TestCase {
      * @throws Exception
      */
     public void testRollbackRestartTransaction003() throws Exception {
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
         TransactionStatus stat = new TransactionStatusStub();
         TransactionDefinition def = BatchUtil.getTransactionDefinition();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         TransactionStatus result = null;
         try {
             result = BatchUtil.rollbackRestartTransaction(tran, stat, def);
@@ -1271,7 +1271,7 @@ public abstract class BatchUtilTestBase extends TestCase {
             return;
         }
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
         assertNotNull(result);
     }
 
@@ -1280,12 +1280,12 @@ public abstract class BatchUtilTestBase extends TestCase {
      * @throws Exception
      */
     public void testRollbackRestartTransaction004() throws Exception {
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
         TransactionStatus stat = new TransactionStatusStub();
         TransactionDefinition def = BatchUtil.getTransactionDefinition();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         TransactionStatus result = null;
         try {
             result = BatchUtil.rollbackRestartTransaction(tran, stat, def, log);
@@ -1295,7 +1295,7 @@ public abstract class BatchUtilTestBase extends TestCase {
             return;
         }
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
         assertNotNull(result);
     }
 

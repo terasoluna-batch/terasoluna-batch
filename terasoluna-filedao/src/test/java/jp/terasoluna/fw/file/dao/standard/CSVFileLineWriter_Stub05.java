@@ -5,11 +5,11 @@ import jp.terasoluna.fw.file.annotation.InputFileColumn;
 import jp.terasoluna.fw.file.annotation.OutputFileColumn;
 
 /**
- * FileFormatƒAƒmƒe[ƒVƒ‡ƒ“‚ğ‚¿A‘®«‚ğ‚½‚È‚¢ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgƒXƒ^ƒu
+ * FileFormatã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã‚’æŒã¡ã€å±æ€§ã‚’æŒãŸãªã„ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¹ã‚¿ãƒ–
  * <p>
- * FileFormatƒAƒmƒe[ƒVƒ‡ƒ“‚ÅA‹æØ‚è•¶š‚ğİ’è‚µ‚Ä‚¢‚éB
+ * FileFormatã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã§ã€åŒºåˆ‡ã‚Šæ–‡å­—ã‚’è¨­å®šã—ã¦ã„ã‚‹ã€‚
  */
-@FileFormat(delimiter = 'A')
+@FileFormat(delimiter = 'ã€')
 public class CSVFileLineWriter_Stub05 {
     @InputFileColumn(columnIndex = 0)
     @OutputFileColumn(columnIndex = 0)

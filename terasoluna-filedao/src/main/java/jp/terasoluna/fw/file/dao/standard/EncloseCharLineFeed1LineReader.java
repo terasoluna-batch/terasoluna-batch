@@ -22,43 +22,43 @@ import java.io.Reader;
 import jp.terasoluna.fw.file.dao.FileException;
 
 /**
- * ƒtƒ@ƒCƒ‹‚©‚çƒf[ƒ^•”‚Ìƒf[ƒ^‚ğ1s•ª“Ç‚İæ‚èA•¶š—ñ‚Æ‚µ‚ÄŒÄoŒ³‚É•Ô‹p‚·‚éB
+ * ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ãƒ‡ãƒ¼ã‚¿éƒ¨ã®ãƒ‡ãƒ¼ã‚¿ã‚’1è¡Œåˆ†èª­ã¿å–ã‚Šã€æ–‡å­—åˆ—ã¨ã—ã¦å‘¼å‡ºå…ƒã«è¿”å´ã™ã‚‹ã€‚
  */
 public class EncloseCharLineFeed1LineReader implements LineReader {
 
     /**
-     * ‹æØ‚è•¶šB
+     * åŒºåˆ‡ã‚Šæ–‡å­—ã€‚
      */
     private char delimiterCharacter = Character.MIN_VALUE;
 
     /**
-     * ˆÍ‚İ•¶šB
+     * å›²ã¿æ–‡å­—ã€‚
      */
     private char encloseCharacter = Character.MIN_VALUE;
 
     /**
-     * ƒJƒ‰ƒ€‚²‚Æ‚ÌˆÍ‚İ•¶šB
+     * ã‚«ãƒ©ãƒ ã”ã¨ã®å›²ã¿æ–‡å­—ã€‚
      */
     private char[] columnEncloseCharacter = null;
 
     /**
-     * ƒtƒ@ƒCƒ‹ƒAƒNƒZƒX—p‚Ì•¶šƒXƒgƒŠ[ƒ€B
+     * ãƒ•ã‚¡ã‚¤ãƒ«ã‚¢ã‚¯ã‚»ã‚¹ç”¨ã®æ–‡å­—ã‚¹ãƒˆãƒªãƒ¼ãƒ ã€‚
      */
     private Reader reader = null;
 
     /**
-     * s‹æØ‚è•¶šB
+     * è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—ã€‚
      */
     private String lineFeedChar = null;
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-     * @param delimiterCharacter ‹æØ‚è•¶š
-     * @param encloseCharacter ˆÍ‚İ•¶š
-     * @param columnEncloseCharacter ƒJƒ‰ƒ€‚²‚Æ‚ÌˆÍ‚İ•¶š
-     * @param reader ƒtƒ@ƒCƒ‹ƒAƒNƒZƒX—p‚Ì•¶šƒXƒgƒŠ[ƒ€
-     * @param lineFeedChar s‹æØ‚è•¶š
-     * @throws IllegalArgumentException ˆø”‚Ìİ’è‚ªŠÔˆá‚Á‚½ê‡B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * @param delimiterCharacter åŒºåˆ‡ã‚Šæ–‡å­—
+     * @param encloseCharacter å›²ã¿æ–‡å­—
+     * @param columnEncloseCharacter ã‚«ãƒ©ãƒ ã”ã¨ã®å›²ã¿æ–‡å­—
+     * @param reader ãƒ•ã‚¡ã‚¤ãƒ«ã‚¢ã‚¯ã‚»ã‚¹ç”¨ã®æ–‡å­—ã‚¹ãƒˆãƒªãƒ¼ãƒ 
+     * @param lineFeedChar è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—
+     * @throws IllegalArgumentException å¼•æ•°ã®è¨­å®šãŒé–“é•ã£ãŸå ´åˆã€‚
      */
     public EncloseCharLineFeed1LineReader(char delimiterCharacter,
             char encloseCharacter, char[] columnEncloseCharacter,
@@ -95,27 +95,27 @@ public class EncloseCharLineFeed1LineReader implements LineReader {
     }
 
     /**
-     * ƒtƒ@ƒCƒ‹‚©‚çƒf[ƒ^•”‚Ìƒf[ƒ^‚ğ1s•ª“Ç‚İæ‚èA•¶š—ñ‚Æ‚µ‚ÄŒÄoŒ³‚É•Ô‹p‚·‚éB
-     * @return ƒf[ƒ^•”‚Ì‚Ps•ª‚Ì•¶š—ñ
-     * @throws FileException Reader‚Ìˆ—‚Å—áŠO‚ª”­¶‚µ‚½ê‡B
+     * ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ãƒ‡ãƒ¼ã‚¿éƒ¨ã®ãƒ‡ãƒ¼ã‚¿ã‚’1è¡Œåˆ†èª­ã¿å–ã‚Šã€æ–‡å­—åˆ—ã¨ã—ã¦å‘¼å‡ºå…ƒã«è¿”å´ã™ã‚‹ã€‚
+     * @return ãƒ‡ãƒ¼ã‚¿éƒ¨ã®ï¼‘è¡Œåˆ†ã®æ–‡å­—åˆ—
+     * @throws FileException Readerã®å‡¦ç†ã§ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€‚
      */
     public String readLine() {
-        // 1ƒJƒ‰ƒ€•ª‚Ì•¶š—ñ‚ğŠi”[‚·‚éƒoƒbƒtƒ@
+        // 1ã‚«ãƒ©ãƒ åˆ†ã®æ–‡å­—åˆ—ã‚’æ ¼ç´ã™ã‚‹ãƒãƒƒãƒ•ã‚¡
         StringBuilder currentLineStringBuilder = new StringBuilder();
 
-        // ƒ`ƒFƒbƒN‘ÎÛ•¶š‚Ì’¼‘O‚Ì•¶š
+        // ãƒã‚§ãƒƒã‚¯å¯¾è±¡æ–‡å­—ã®ç›´å‰ã®æ–‡å­—
         char previousChar = Character.MIN_VALUE;
 
-        // ƒ`ƒFƒbƒN‘ÎÛ•¶š
+        // ãƒã‚§ãƒƒã‚¯å¯¾è±¡æ–‡å­—
         char currentChar = Character.MIN_VALUE;
 
-        // ˆÍ‚İ•¶š‚ªI—¹‚µ‚Ä‚¢‚é‚©Šm”F‚·‚éƒtƒ‰ƒOBtrue‚È‚çƒJƒ‰ƒ€‚ÍˆÍ‚İ•¶š‚ÅˆÍ‚Ü‚ê‚Ä‚¢‚éB
+        // å›²ã¿æ–‡å­—ãŒçµ‚äº†ã—ã¦ã„ã‚‹ã‹ç¢ºèªã™ã‚‹ãƒ•ãƒ©ã‚°ã€‚trueãªã‚‰ã‚«ãƒ©ãƒ ã¯å›²ã¿æ–‡å­—ã§å›²ã¾ã‚Œã¦ã„ã‚‹ã€‚
         boolean isEnclosed = true;
 
-        // ƒGƒXƒP[ƒvƒV[ƒPƒ“ƒX‚ğ“Ç‚İ‚ñ‚¾‚çtrue‚ÉB‚»‚êˆÈŠO‚Ìê‡‚ÍfalseB
+        // ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã‚’èª­ã¿è¾¼ã‚“ã ã‚‰trueã«ã€‚ãã‚Œä»¥å¤–ã®å ´åˆã¯falseã€‚
         boolean isEscape = false;
 
-        // s‹æØ‚è•¶š‚Ì1•¶š–ÚB
+        // è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—ã®1æ–‡å­—ç›®ã€‚
         char lineFeedChar1 = lineFeedChar.charAt(0);
 
         int chr = 0;
@@ -204,9 +204,9 @@ public class EncloseCharLineFeed1LineReader implements LineReader {
     }
 
     /**
-     * ƒJƒ‰ƒ€‚É‘Î‰‚·‚éˆÍ‚İ•¶š‚ğæ“¾‚·‚éB
-     * @param index ƒJƒ‰ƒ€‚ÌƒCƒ“ƒfƒbƒNƒX
-     * @return ˆÍ‚İ•¶š
+     * ã‚«ãƒ©ãƒ ã«å¯¾å¿œã™ã‚‹å›²ã¿æ–‡å­—ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @param index ã‚«ãƒ©ãƒ ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+     * @return å›²ã¿æ–‡å­—
      */
     private char getEncloseCharcter(int index) {
         if (columnEncloseCharacter.length == 0

@@ -24,21 +24,21 @@ import jp.terasoluna.fw.file.dao.FileLineIterator;
 import jp.terasoluna.fw.file.dao.FileLineWriter;
 
 /**
- * CollectorUtilityƒNƒ‰ƒX.
+ * CollectorUtilityã‚¯ãƒ©ã‚¹.
  */
 public class CollectorUtility {
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^.
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿.
      */
     protected CollectorUtility() {
     }
 
     /**
-     * Collector‚ğƒNƒ[ƒY‚·‚éB<br>
+     * Collectorã‚’ã‚¯ãƒ­ãƒ¼ã‚ºã™ã‚‹ã€‚<br>
      * <p>
-     * ˆø”‚É“n‚³‚ê‚½collector‚ªnull‚Å‚È‚¯‚ê‚ÎƒNƒ[ƒY‚·‚éB<br>
-     * ‚Ü‚½AƒNƒ[ƒY‚·‚éÛ‚É—áŠO‚ª”­¶‚µ‚½ê‡‚Í–³‹‚·‚éB<br>
+     * å¼•æ•°ã«æ¸¡ã•ã‚ŒãŸcollectorãŒnullã§ãªã‘ã‚Œã°ã‚¯ãƒ­ãƒ¼ã‚ºã™ã‚‹ã€‚<br>
+     * ã¾ãŸã€ã‚¯ãƒ­ãƒ¼ã‚ºã™ã‚‹éš›ã«ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã¯ç„¡è¦–ã™ã‚‹ã€‚<br>
      * </p>
      * @param collector Collector
      */
@@ -48,15 +48,15 @@ public class CollectorUtility {
                 collector.close();
             }
         } catch (IOException e) {
-            // ‚È‚É‚à‚µ‚È‚¢
+            // ãªã«ã‚‚ã—ãªã„
         }
     }
 
     /**
-     * FileLineIterator‚ğƒNƒ[ƒY‚·‚éB<br>
+     * FileLineIteratorã‚’ã‚¯ãƒ­ãƒ¼ã‚ºã™ã‚‹ã€‚<br>
      * <p>
-     * ˆø”‚É“n‚³‚ê‚½iterator‚ªnull‚Å‚È‚¯‚ê‚ÎƒNƒ[ƒY‚·‚éB<br>
-     * ‚Ü‚½AƒNƒ[ƒY‚·‚éÛ‚ÉFileException—áŠO‚ª”­¶‚µ‚½ê‡‚Í–³‹‚·‚éB<br>
+     * å¼•æ•°ã«æ¸¡ã•ã‚ŒãŸiteratorãŒnullã§ãªã‘ã‚Œã°ã‚¯ãƒ­ãƒ¼ã‚ºã™ã‚‹ã€‚<br>
+     * ã¾ãŸã€ã‚¯ãƒ­ãƒ¼ã‚ºã™ã‚‹éš›ã«FileExceptionä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã¯ç„¡è¦–ã™ã‚‹ã€‚<br>
      * </p>
      * @param <T>
      * @param iterator FileLineIterator&lt;T&gt;
@@ -67,15 +67,15 @@ public class CollectorUtility {
                 iterator.closeFile();
             }
         } catch (FileException e) {
-            // ‚È‚É‚à‚µ‚È‚¢
+            // ãªã«ã‚‚ã—ãªã„
         }
     }
 
     /**
-     * FileLineWriter‚ğƒNƒ[ƒY‚·‚éB<br>
+     * FileLineWriterã‚’ã‚¯ãƒ­ãƒ¼ã‚ºã™ã‚‹ã€‚<br>
      * <p>
-     * ˆø”‚É“n‚³‚ê‚½writer‚ªnull‚Å‚È‚¯‚ê‚ÎƒNƒ[ƒY‚·‚éB<br>
-     * ‚Ü‚½AƒNƒ[ƒY‚·‚éÛ‚ÉFileException—áŠO‚ª”­¶‚µ‚½ê‡‚Í–³‹‚·‚éB<br>
+     * å¼•æ•°ã«æ¸¡ã•ã‚ŒãŸwriterãŒnullã§ãªã‘ã‚Œã°ã‚¯ãƒ­ãƒ¼ã‚ºã™ã‚‹ã€‚<br>
+     * ã¾ãŸã€ã‚¯ãƒ­ãƒ¼ã‚ºã™ã‚‹éš›ã«FileExceptionä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã¯ç„¡è¦–ã™ã‚‹ã€‚<br>
      * </p>
      * @param <T>
      * @param writer FileLineWriter&lt;T&gt;
@@ -86,7 +86,7 @@ public class CollectorUtility {
                 writer.closeFile();
             }
         } catch (FileException e) {
-            // ‚È‚É‚à‚µ‚È‚¢
+            // ãªã«ã‚‚ã—ãªã„
         }
     }
 }

@@ -24,11 +24,11 @@ import java.util.logging.Logger;
 import javax.sql.DataSource;
 
 /**
- * {@link QueryDAOiBatisImpl}�̎����̂��߂Ɏg�p�����B
+ * {@link QueryDAOiBatisImpl}の試験のために使用される。
  * 
- * {@link QueryDAOiBatisImpl_SqlMapClientTemplateStub01}��
+ * {@link QueryDAOiBatisImpl_SqlMapClientTemplateStub01}と
  * {@link QueryDAOiBatisImpl_SqlMapClientTemplateStub02}
- * ����g�p�����B
+ * から使用される。
  * 
  */
 public class QueryDAOiBatisImpl_DataSourceStub01 implements DataSource {

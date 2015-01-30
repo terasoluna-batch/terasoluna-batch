@@ -28,9 +28,9 @@ import org.apache.commons.beanutils.DynaProperty;
 import org.apache.commons.beanutils.NestedNullException;
 
 /**
- * {@link jp.terasoluna.fw.util.BeanUtil} ƒNƒ‰ƒX‚Ì ƒuƒ‰ƒbƒNƒ{ƒbƒNƒXƒeƒXƒgB
+ * {@link jp.terasoluna.fw.util.BeanUtil} ã‚¯ãƒ©ã‚¹ã® ãƒ–ãƒ©ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ†ã‚¹ãƒˆã€‚
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4> BeanŠÖ˜A‚Ìƒ†[ƒeƒBƒŠƒeƒBƒNƒ‰ƒXB
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4> Beané–¢é€£ã®ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ã‚¯ãƒ©ã‚¹ã€‚
  * <p>
  * @see jp.terasoluna.fw.util.BeanUtil
  */
@@ -39,8 +39,8 @@ public class BeanUtilTest extends TestCase {
 
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -49,8 +49,8 @@ public class BeanUtilTest extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -59,8 +59,8 @@ public class BeanUtilTest extends TestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public BeanUtilTest(String name) {
         super(name);
@@ -69,29 +69,29 @@ public class BeanUtilTest extends TestCase {
     /**
      * testSetBeanProperty01() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) bean:setParam1()ƒƒ\ƒbƒh“à‚ÅException”­¶<br>
-     * (ˆø”) property:"param1"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:setParam1()ãƒ¡ã‚½ãƒƒãƒ‰å†…ã§Exceptionç™ºç”Ÿ<br>
+     * (å¼•æ•°) property:"param1"<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:PropertyAccessExceptionF<br>
-     * ƒ‰ƒbƒv‚µ‚½—áŠOFException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:PropertyAccessExceptionï¼š<br>
+     * ãƒ©ãƒƒãƒ—ã—ãŸä¾‹å¤–ï¼šException<br>
      * <br>
-     * PropertyUtils#setProperty()ƒƒ\ƒbƒh‚ÅInvocationTargetException‚ª”­¶‚µ‚½A InvocationTargetException‚ªƒ‰ƒbƒv‚µ‚Ä‚¢‚½—áŠOƒCƒ“ƒXƒ^ƒ“ƒX‚ğ
-     * PropertyAccessException‚Åƒ‰ƒbƒv‚·‚é‚±‚ÆB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * PropertyUtils#setProperty()ãƒ¡ã‚½ãƒƒãƒ‰ã§InvocationTargetExceptionãŒç™ºç”Ÿã—ãŸæ™‚ã€ InvocationTargetExceptionãŒãƒ©ãƒƒãƒ—ã—ã¦ã„ãŸä¾‹å¤–ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’
+     * PropertyAccessExceptionã§ãƒ©ãƒƒãƒ—ã™ã‚‹ã“ã¨ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testSetBeanProperty01() throws Exception {
-        // ƒeƒXƒg—pJavaBean¶¬
+        // ãƒ†ã‚¹ãƒˆç”¨JavaBeanç”Ÿæˆ
         BeanUtil_BeanStub01 bean = new BeanUtil_BeanStub01();
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         try {
             BeanUtil.setBeanProperty(bean, "param1", "PARAM1");
             fail();
         } catch (PropertyAccessException e) {
-            // ƒeƒXƒgŒ‹‰ÊŠm”F
+            // ãƒ†ã‚¹ãƒˆçµæœç¢ºèª
             assertEquals(Exception.class.getName(), e.getCause().getClass()
                     .getName());
         }
@@ -100,28 +100,28 @@ public class BeanUtilTest extends TestCase {
     /**
      * testSetBeanProperty02() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) bean:param3‚ğ‚½‚È‚¢<br>
-     * (ˆø”) property:"param3"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:param3ã‚’æŒãŸãªã„<br>
+     * (å¼•æ•°) property:"param3"<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:PropertyAccessExceptionF<br>
-     * ƒ‰ƒbƒv‚µ‚½—áŠOFNoSuchMethodException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:PropertyAccessExceptionï¼š<br>
+     * ãƒ©ãƒƒãƒ—ã—ãŸä¾‹å¤–ï¼šNoSuchMethodException<br>
      * <br>
-     * PropertyUtils#setProperty()ƒƒ\ƒbƒh‚ÅNoSuchMethodException‚ª”­¶‚µ‚½APropertyAccessException‚Åƒ‰ƒbƒv‚·‚é‚±‚ÆB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * PropertyUtils#setProperty()ãƒ¡ã‚½ãƒƒãƒ‰ã§NoSuchMethodExceptionãŒç™ºç”Ÿã—ãŸæ™‚ã€PropertyAccessExceptionã§ãƒ©ãƒƒãƒ—ã™ã‚‹ã“ã¨ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testSetBeanProperty02() throws Exception {
-        // ƒeƒXƒg—pJavaBean¶¬
+        // ãƒ†ã‚¹ãƒˆç”¨JavaBeanç”Ÿæˆ
         BeanUtil_BeanStub01 bean = new BeanUtil_BeanStub01();
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         try {
             BeanUtil.setBeanProperty(bean, "param3", "PARAM3");
             fail();
         } catch (PropertyAccessException e) {
-            // ƒeƒXƒgŒ‹‰ÊŠm”F
+            // ãƒ†ã‚¹ãƒˆçµæœç¢ºèª
             assertEquals(NoSuchMethodException.class.getName(), e.getCause()
                     .getClass().getName());
         }
@@ -130,25 +130,25 @@ public class BeanUtilTest extends TestCase {
     /**
      * testSetBeanProperty03() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) bean:null<br>
-     * (ˆø”) property:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:null<br>
+     * (å¼•æ•°) property:not null<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:PropertyAccessExceptionF<br>
-     * ƒ‰ƒbƒv‚µ‚½—áŠOFIllegalArgumentException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:PropertyAccessExceptionï¼š<br>
+     * ãƒ©ãƒƒãƒ—ã—ãŸä¾‹å¤–ï¼šIllegalArgumentException<br>
      * <br>
-     * PropertyUtils#setProperty()ƒƒ\ƒbƒh‚ÅIllegalArgumentException‚ª”­¶‚µ‚½APropertyAccessException‚Åƒ‰ƒbƒv‚·‚é‚±‚ÆB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * PropertyUtils#setProperty()ãƒ¡ã‚½ãƒƒãƒ‰ã§IllegalArgumentExceptionãŒç™ºç”Ÿã—ãŸæ™‚ã€PropertyAccessExceptionã§ãƒ©ãƒƒãƒ—ã™ã‚‹ã“ã¨ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testSetBeanProperty03() throws Exception {
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         try {
             BeanUtil.setBeanProperty(null, "param1", "PARAM1");
             fail();
         } catch (PropertyAccessException e) {
-            // ƒeƒXƒgŒ‹‰ÊŠm”F
+            // ãƒ†ã‚¹ãƒˆçµæœç¢ºèª
             assertEquals(IllegalArgumentException.class.getName(), e.getCause()
                     .getClass().getName());
         }
@@ -157,28 +157,28 @@ public class BeanUtilTest extends TestCase {
     /**
      * testSetBeanProperty04() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) bean:not null<br>
-     * (ˆø”) property:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:not null<br>
+     * (å¼•æ•°) property:null<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:PropertyAccessExceptionF<br>
-     * ƒ‰ƒbƒv‚µ‚½—áŠOFIllegalArgumentException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:PropertyAccessExceptionï¼š<br>
+     * ãƒ©ãƒƒãƒ—ã—ãŸä¾‹å¤–ï¼šIllegalArgumentException<br>
      * <br>
-     * PropertyUtils#setProperty()ƒƒ\ƒbƒh‚ÅIllegalArgumentException‚ª”­¶‚µ‚½APropertyAccessException‚Åƒ‰ƒbƒv‚·‚é‚±‚ÆB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * PropertyUtils#setProperty()ãƒ¡ã‚½ãƒƒãƒ‰ã§IllegalArgumentExceptionãŒç™ºç”Ÿã—ãŸæ™‚ã€PropertyAccessExceptionã§ãƒ©ãƒƒãƒ—ã™ã‚‹ã“ã¨ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testSetBeanProperty04() throws Exception {
-        // ƒeƒXƒg—pJavaBean¶¬
+        // ãƒ†ã‚¹ãƒˆç”¨JavaBeanç”Ÿæˆ
         BeanUtil_BeanStub01 bean = new BeanUtil_BeanStub01();
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         try {
             BeanUtil.setBeanProperty(bean, null, "PARAM1");
             fail();
         } catch (PropertyAccessException e) {
-            // ƒeƒXƒgŒ‹‰ÊŠm”F
+            // ãƒ†ã‚¹ãƒˆçµæœç¢ºèª
             assertEquals(IllegalArgumentException.class.getName(), e.getCause()
                     .getClass().getName());
         }
@@ -187,82 +187,82 @@ public class BeanUtilTest extends TestCase {
     /**
      * testSetBeanProperty05() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FA <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šA <br>
      * <br>
-     * “ü—Í’lF(ˆø”) bean:param2=null<br>
-     * (ˆø”) property:"param2"<br>
-     * (ˆø”) value:"PARAM2"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:param2=null<br>
+     * (å¼•æ•°) property:"param2"<br>
+     * (å¼•æ•°) value:"PARAM2"<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») bean:param2="PARAM2"<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) bean:param2="PARAM2"<br>
      * <br>
-     * PropertyUtils#setProperty()ƒƒ\ƒbƒh‚ª³‚µ‚­ŒÄ‚Ño‚³‚êAˆ—‚ª³í‚És‚È‚í‚ê‚é‚±‚ÆB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * PropertyUtils#setProperty()ãƒ¡ã‚½ãƒƒãƒ‰ãŒæ­£ã—ãå‘¼ã³å‡ºã•ã‚Œã€å‡¦ç†ãŒæ­£å¸¸ã«è¡Œãªã‚ã‚Œã‚‹ã“ã¨ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testSetBeanProperty05() throws Exception {
-        // ƒeƒXƒg—pJavaBean¶¬
+        // ãƒ†ã‚¹ãƒˆç”¨JavaBeanç”Ÿæˆ
         BeanUtil_BeanStub01 bean = new BeanUtil_BeanStub01();
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         BeanUtil.setBeanProperty(bean, "param2", "PARAM2");
 
-        // ƒeƒXƒgŒ‹‰ÊŠm”F
+        // ãƒ†ã‚¹ãƒˆçµæœç¢ºèª
         assertEquals("PARAM2", UTUtil.getPrivateField(bean, "param2"));
     }
 
     /**
      * testSetBeanProperty06() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FA <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šA <br>
      * <br>
-     * “ü—Í’lF(ˆø”) bean:param2="PARAM2"<br>
-     * (ˆø”) property:"param2"<br>
-     * (ˆø”) value:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:param2="PARAM2"<br>
+     * (å¼•æ•°) property:"param2"<br>
+     * (å¼•æ•°) value:null<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») bean:param2=null<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) bean:param2=null<br>
      * <br>
-     * PropertyUtils#setProperty()ƒƒ\ƒbƒh‚ª³‚µ‚­ŒÄ‚Ño‚³‚êAˆ—‚ª³í‚És‚È‚í‚ê‚é‚±‚ÆB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * PropertyUtils#setProperty()ãƒ¡ã‚½ãƒƒãƒ‰ãŒæ­£ã—ãå‘¼ã³å‡ºã•ã‚Œã€å‡¦ç†ãŒæ­£å¸¸ã«è¡Œãªã‚ã‚Œã‚‹ã“ã¨ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testSetBeanProperty06() throws Exception {
-        // ƒeƒXƒg—pJavaBean¶¬
+        // ãƒ†ã‚¹ãƒˆç”¨JavaBeanç”Ÿæˆ
         BeanUtil_BeanStub01 bean = new BeanUtil_BeanStub01();
         bean.setParam2("PARAM2");
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         BeanUtil.setBeanProperty(bean, "param2", null);
 
-        // ƒeƒXƒgŒ‹‰ÊŠm”F
+        // ãƒ†ã‚¹ãƒˆçµæœç¢ºèª
         assertNull(UTUtil.getPrivateField(bean, "param2"));
     }
 
     /**
      * testSetBeanProperty07() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) bean:not null<br>
-     * (ˆø”) property:""<br>
-     * (ˆø”) value:"PARAM"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:not null<br>
+     * (å¼•æ•°) property:""<br>
+     * (å¼•æ•°) value:"PARAM"<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:PropertyAccessExceptionF<br>
-     * ƒ‰ƒbƒv‚µ‚½—áŠOFNoSuchMethodException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:PropertyAccessExceptionï¼š<br>
+     * ãƒ©ãƒƒãƒ—ã—ãŸä¾‹å¤–ï¼šNoSuchMethodException<br>
      * <br>
-     * property‚ª‹ó•¶š‚ÌAPropertyAccessException‚ğƒXƒ[‚·‚é‚±‚ÆB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * propertyãŒç©ºæ–‡å­—ã®æ™‚ã€PropertyAccessExceptionã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã“ã¨ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testSetBeanProperty07() throws Exception {
-        // ƒeƒXƒg—pJavaBean¶¬
+        // ãƒ†ã‚¹ãƒˆç”¨JavaBeanç”Ÿæˆ
         BeanUtil_BeanStub01 bean = new BeanUtil_BeanStub01();
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         try {
             BeanUtil.setBeanProperty(bean, "", "PARAM");
             fail();
         } catch (PropertyAccessException e) {
-            // ƒeƒXƒgŒ‹‰ÊŠm”F
+            // ãƒ†ã‚¹ãƒˆçµæœç¢ºèª
             assertEquals(NoSuchMethodException.class.getName(), e.getCause()
                     .getClass().getName());
         }
@@ -271,29 +271,29 @@ public class BeanUtilTest extends TestCase {
     /**
      * testGetBeanProperty01() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) bean:getParam1()ƒƒ\ƒbƒh“à‚ÅException”­¶<br>
-     * (ˆø”) property:"param1"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:getParam1()ãƒ¡ã‚½ãƒƒãƒ‰å†…ã§Exceptionç™ºç”Ÿ<br>
+     * (å¼•æ•°) property:"param1"<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:PropertyAccessExceptionF<br>
-     * ƒ‰ƒbƒv‚µ‚½—áŠOFException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:PropertyAccessExceptionï¼š<br>
+     * ãƒ©ãƒƒãƒ—ã—ãŸä¾‹å¤–ï¼šException<br>
      * <br>
-     * PropertyUtils#getProperty()ƒƒ\ƒbƒh‚ÅInvocationTargetException‚ª”­¶‚µ‚½A InvocationTargetException‚ªƒ‰ƒbƒv‚µ‚Ä‚¢‚½—áŠOƒCƒ“ƒXƒ^ƒ“ƒX‚ğ
-     * PropertyAccessException‚Åƒ‰ƒbƒv‚·‚é‚±‚ÆB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * PropertyUtils#getProperty()ãƒ¡ã‚½ãƒƒãƒ‰ã§InvocationTargetExceptionãŒç™ºç”Ÿã—ãŸæ™‚ã€ InvocationTargetExceptionãŒãƒ©ãƒƒãƒ—ã—ã¦ã„ãŸä¾‹å¤–ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’
+     * PropertyAccessExceptionã§ãƒ©ãƒƒãƒ—ã™ã‚‹ã“ã¨ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetBeanProperty01() throws Exception {
-        // ƒeƒXƒg—pJavaBean¶¬
+        // ãƒ†ã‚¹ãƒˆç”¨JavaBeanç”Ÿæˆ
         BeanUtil_BeanStub01 bean = new BeanUtil_BeanStub01();
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         try {
             BeanUtil.getBeanProperty(bean, "param1");
             fail();
         } catch (PropertyAccessException e) {
-            // ƒeƒXƒgŒ‹‰ÊŠm”F
+            // ãƒ†ã‚¹ãƒˆçµæœç¢ºèª
             assertEquals(Exception.class.getName(), e.getCause().getClass()
                     .getName());
         }
@@ -302,28 +302,28 @@ public class BeanUtilTest extends TestCase {
     /**
      * testGetBeanProperty02() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) bean:param3‚ğ‚½‚È‚¢<br>
-     * (ˆø”) property:"param3"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:param3ã‚’æŒãŸãªã„<br>
+     * (å¼•æ•°) property:"param3"<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:PropertyAccessExceptionF<br>
-     * ƒ‰ƒbƒv‚µ‚½—áŠOFNoSuchMethodException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:PropertyAccessExceptionï¼š<br>
+     * ãƒ©ãƒƒãƒ—ã—ãŸä¾‹å¤–ï¼šNoSuchMethodException<br>
      * <br>
-     * PropertyUtils#getProperty()ƒƒ\ƒbƒh‚ÅNoSuchMethodException‚ª”­¶‚µ‚½APropertyAccessException‚Åƒ‰ƒbƒv‚·‚é‚±‚ÆB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * PropertyUtils#getProperty()ãƒ¡ã‚½ãƒƒãƒ‰ã§NoSuchMethodExceptionãŒç™ºç”Ÿã—ãŸæ™‚ã€PropertyAccessExceptionã§ãƒ©ãƒƒãƒ—ã™ã‚‹ã“ã¨ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetBeanProperty02() throws Exception {
-        // ƒeƒXƒg—pJavaBean¶¬
+        // ãƒ†ã‚¹ãƒˆç”¨JavaBeanç”Ÿæˆ
         BeanUtil_BeanStub01 bean = new BeanUtil_BeanStub01();
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         try {
             BeanUtil.getBeanProperty(bean, "param3");
             fail();
         } catch (PropertyAccessException e) {
-            // ƒeƒXƒgŒ‹‰ÊŠm”F
+            // ãƒ†ã‚¹ãƒˆçµæœç¢ºèª
             assertEquals(NoSuchMethodException.class.getName(), e.getCause()
                     .getClass().getName());
         }
@@ -332,25 +332,25 @@ public class BeanUtilTest extends TestCase {
     /**
      * testGetBeanProperty03() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) bean:null<br>
-     * (ˆø”) property:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:null<br>
+     * (å¼•æ•°) property:not null<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:PropertyAccessExceptionF<br>
-     * ƒ‰ƒbƒv‚µ‚½—áŠOFIllegalArgumentException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:PropertyAccessExceptionï¼š<br>
+     * ãƒ©ãƒƒãƒ—ã—ãŸä¾‹å¤–ï¼šIllegalArgumentException<br>
      * <br>
-     * PropertyUtils#getProperty()ƒƒ\ƒbƒh‚ÅIllegalArgumentException‚ª”­¶‚µ‚½APropertyAccessException‚Åƒ‰ƒbƒv‚·‚é‚±‚ÆB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * PropertyUtils#getProperty()ãƒ¡ã‚½ãƒƒãƒ‰ã§IllegalArgumentExceptionãŒç™ºç”Ÿã—ãŸæ™‚ã€PropertyAccessExceptionã§ãƒ©ãƒƒãƒ—ã™ã‚‹ã“ã¨ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetBeanProperty03() throws Exception {
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         try {
             BeanUtil.getBeanProperty(null, "param1");
             fail();
         } catch (PropertyAccessException e) {
-            // ƒeƒXƒgŒ‹‰ÊŠm”F
+            // ãƒ†ã‚¹ãƒˆçµæœç¢ºèª
             assertEquals(IllegalArgumentException.class.getName(), e.getCause()
                     .getClass().getName());
         }
@@ -359,28 +359,28 @@ public class BeanUtilTest extends TestCase {
     /**
      * testGetBeanProperty04() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) bean:not null<br>
-     * (ˆø”) property:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:not null<br>
+     * (å¼•æ•°) property:null<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:PropertyAccessExceptionF<br>
-     * ƒ‰ƒbƒv‚µ‚½—áŠOFIllegalArgumentException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:PropertyAccessExceptionï¼š<br>
+     * ãƒ©ãƒƒãƒ—ã—ãŸä¾‹å¤–ï¼šIllegalArgumentException<br>
      * <br>
-     * PropertyUtils#getProperty()ƒƒ\ƒbƒh‚ÅIllegalArgumentException‚ª”­¶‚µ‚½APropertyAccessException‚Åƒ‰ƒbƒv‚·‚é‚±‚ÆB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * PropertyUtils#getProperty()ãƒ¡ã‚½ãƒƒãƒ‰ã§IllegalArgumentExceptionãŒç™ºç”Ÿã—ãŸæ™‚ã€PropertyAccessExceptionã§ãƒ©ãƒƒãƒ—ã™ã‚‹ã“ã¨ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetBeanProperty04() throws Exception {
-        // ƒeƒXƒg—pJavaBean¶¬
+        // ãƒ†ã‚¹ãƒˆç”¨JavaBeanç”Ÿæˆ
         BeanUtil_BeanStub01 bean = new BeanUtil_BeanStub01();
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         try {
             BeanUtil.getBeanProperty(bean, null);
             fail();
         } catch (PropertyAccessException e) {
-            // ƒeƒXƒgŒ‹‰ÊŠm”F
+            // ãƒ†ã‚¹ãƒˆçµæœç¢ºèª
             assertEquals(IllegalArgumentException.class.getName(), e.getCause()
                     .getClass().getName());
         }
@@ -389,73 +389,73 @@ public class BeanUtilTest extends TestCase {
     /**
      * testGetBeanProperty05() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FA <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šA <br>
      * <br>
-     * “ü—Í’lF(ˆø”) bean:param2="PARAM2"<br>
-     * (ˆø”) property:"param2"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:param2="PARAM2"<br>
+     * (å¼•æ•°) property:"param2"<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:"PARAM2"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:"PARAM2"<br>
      * <br>
-     * PropertyUtils#getProperty()ƒƒ\ƒbƒh‚ª³‚µ‚­ŒÄ‚Ño‚³‚êAˆ—‚ª³í‚És‚È‚í‚ê‚é‚±‚ÆB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * PropertyUtils#getProperty()ãƒ¡ã‚½ãƒƒãƒ‰ãŒæ­£ã—ãå‘¼ã³å‡ºã•ã‚Œã€å‡¦ç†ãŒæ­£å¸¸ã«è¡Œãªã‚ã‚Œã‚‹ã“ã¨ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetBeanProperty05() throws Exception {
-        // ƒeƒXƒg—pJavaBean¶¬
+        // ãƒ†ã‚¹ãƒˆç”¨JavaBeanç”Ÿæˆ
         BeanUtil_BeanStub01 bean = new BeanUtil_BeanStub01();
         bean.setParam2("PARAM2");
 
-        // ƒeƒXƒgÀsE”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œãƒ»åˆ¤å®š
         assertEquals("PARAM2", BeanUtil.getBeanProperty(bean, "param2"));
     }
 
     /**
      * testGetBeanProperty06() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FA <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šA <br>
      * <br>
-     * “ü—Í’lF(ˆø”) bean:param2=null<br>
-     * (ˆø”) property:"param2"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:param2=null<br>
+     * (å¼•æ•°) property:"param2"<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:null<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:null<br>
      * <br>
-     * PropertyUtils#getProperty()ƒƒ\ƒbƒh‚ª³‚µ‚­ŒÄ‚Ño‚³‚êAˆ—‚ª³í‚És‚È‚í‚ê‚é‚±‚ÆB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * PropertyUtils#getProperty()ãƒ¡ã‚½ãƒƒãƒ‰ãŒæ­£ã—ãå‘¼ã³å‡ºã•ã‚Œã€å‡¦ç†ãŒæ­£å¸¸ã«è¡Œãªã‚ã‚Œã‚‹ã“ã¨ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetBeanProperty06() throws Exception {
-        // ƒeƒXƒg—pJavaBean¶¬
+        // ãƒ†ã‚¹ãƒˆç”¨JavaBeanç”Ÿæˆ
         BeanUtil_BeanStub01 bean = new BeanUtil_BeanStub01();
 
-        // ƒeƒXƒgÀsE”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œãƒ»åˆ¤å®š
         assertNull(BeanUtil.getBeanProperty(bean, "param2"));
     }
 
     /**
      * testGetBeanProperty07() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) bean:not null<br>
-     * (ˆø”) property:""<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:not null<br>
+     * (å¼•æ•°) property:""<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:PropertyAccessExceptionF<br>
-     * ƒ‰ƒbƒv‚µ‚½—áŠOFNoSuchMethodException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:PropertyAccessExceptionï¼š<br>
+     * ãƒ©ãƒƒãƒ—ã—ãŸä¾‹å¤–ï¼šNoSuchMethodException<br>
      * <br>
-     * property‚ª‹ó•¶š‚ÌAPropertyAccessException‚ğƒXƒ[‚·‚é‚±‚ÆB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * propertyãŒç©ºæ–‡å­—ã®æ™‚ã€PropertyAccessExceptionã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã“ã¨ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetBeanProperty07() throws Exception {
-        // ƒeƒXƒg—pJavaBean¶¬
+        // ãƒ†ã‚¹ãƒˆç”¨JavaBeanç”Ÿæˆ
         BeanUtil_BeanStub01 bean = new BeanUtil_BeanStub01();
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         try {
             BeanUtil.getBeanProperty(bean, "");
             fail();
         } catch (PropertyAccessException e) {
-            // ƒeƒXƒgŒ‹‰ÊŠm”F
+            // ãƒ†ã‚¹ãƒˆçµæœç¢ºèª
             assertEquals(NoSuchMethodException.class.getName(), e.getCause()
                     .getClass().getName());
         }
@@ -464,29 +464,29 @@ public class BeanUtilTest extends TestCase {
     /**
      * testGetBeanPropertyType01() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) bean:getParam1()ƒƒ\ƒbƒh“à‚ÅException”­¶<br>
-     * (ˆø”) property:"param1"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:getParam1()ãƒ¡ã‚½ãƒƒãƒ‰å†…ã§Exceptionç™ºç”Ÿ<br>
+     * (å¼•æ•°) property:"param1"<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:PropertyAccessExceptionF<br>
-     * ƒ‰ƒbƒv‚µ‚½—áŠOFException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:PropertyAccessExceptionï¼š<br>
+     * ãƒ©ãƒƒãƒ—ã—ãŸä¾‹å¤–ï¼šException<br>
      * <br>
-     * PropertyUtils#getProperty()ƒƒ\ƒbƒh‚ÅInvocationTargetException‚ª”­¶‚µ‚½A InvocationTargetException‚ªƒ‰ƒbƒv‚µ‚Ä‚¢‚½—áŠOƒCƒ“ƒXƒ^ƒ“ƒX‚ğ
-     * PropertyAccessException‚Åƒ‰ƒbƒv‚·‚é‚±‚ÆB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * PropertyUtils#getProperty()ãƒ¡ã‚½ãƒƒãƒ‰ã§InvocationTargetExceptionãŒç™ºç”Ÿã—ãŸæ™‚ã€ InvocationTargetExceptionãŒãƒ©ãƒƒãƒ—ã—ã¦ã„ãŸä¾‹å¤–ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’
+     * PropertyAccessExceptionã§ãƒ©ãƒƒãƒ—ã™ã‚‹ã“ã¨ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetBeanPropertyType01() throws Exception {
-        // ƒeƒXƒg—pJavaBean¶¬
+        // ãƒ†ã‚¹ãƒˆç”¨JavaBeanç”Ÿæˆ
         BeanUtil_BeanStub01 bean = new BeanUtil_BeanStub01();
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         try {
             BeanUtil.getBeanPropertyType(bean, "param1(0).");
             fail();
         } catch (PropertyAccessException e) {
-            // ƒeƒXƒgŒ‹‰ÊŠm”F
+            // ãƒ†ã‚¹ãƒˆçµæœç¢ºèª
             assertSame(InvocationTargetException.class, e.getCause().getClass());
         }
     }
@@ -494,23 +494,23 @@ public class BeanUtilTest extends TestCase {
     /**
      * testGetBeanPropertyType02() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FA <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šA <br>
      * <br>
-     * “ü—Í’lF(ˆø”) bean:param3‚ğ‚½‚È‚¢<br>
-     * (ˆø”) property:"param3"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:param3ã‚’æŒãŸãªã„<br>
+     * (å¼•æ•°) property:"param3"<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:PropertyAccessExceptionF<br>
-     * ƒ‰ƒbƒv‚µ‚½—áŠOFNoSuchMethodException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:PropertyAccessExceptionï¼š<br>
+     * ãƒ©ãƒƒãƒ—ã—ãŸä¾‹å¤–ï¼šNoSuchMethodException<br>
      * <br>
-     * PropertyUtils#getProperty()ƒƒ\ƒbƒh‚ÅNoSuchMethodException‚ª”­¶‚µ‚½A PropertyAccessException‚Åƒ‰ƒbƒv‚·‚é‚±‚ÆB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * PropertyUtils#getProperty()ãƒ¡ã‚½ãƒƒãƒ‰ã§NoSuchMethodExceptionãŒç™ºç”Ÿã—ãŸæ™‚ã€ PropertyAccessExceptionã§ãƒ©ãƒƒãƒ—ã™ã‚‹ã“ã¨ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetBeanPropertyType02() throws Exception {
-        // ƒeƒXƒg—pJavaBean¶¬
+        // ãƒ†ã‚¹ãƒˆç”¨JavaBeanç”Ÿæˆ
         BeanUtil_BeanStub01 bean = new BeanUtil_BeanStub01();
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         assertNull(BeanUtil.getBeanPropertyType(bean, "param3"));
 
     }
@@ -518,25 +518,25 @@ public class BeanUtilTest extends TestCase {
     /**
      * testGetBeanPropertyType03() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) bean:null<br>
-     * (ˆø”) property:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:null<br>
+     * (å¼•æ•°) property:not null<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:PropertyAccessExceptionF<br>
-     * ƒ‰ƒbƒv‚µ‚½—áŠOFIllegalArgumentException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:PropertyAccessExceptionï¼š<br>
+     * ãƒ©ãƒƒãƒ—ã—ãŸä¾‹å¤–ï¼šIllegalArgumentException<br>
      * <br>
-     * PropertyUtils#getProperty()ƒƒ\ƒbƒh‚ÅIllegalArgumentException‚ª”­¶‚µ‚½APropertyAccessException‚Åƒ‰ƒbƒv‚·‚é‚±‚ÆB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * PropertyUtils#getProperty()ãƒ¡ã‚½ãƒƒãƒ‰ã§IllegalArgumentExceptionãŒç™ºç”Ÿã—ãŸæ™‚ã€PropertyAccessExceptionã§ãƒ©ãƒƒãƒ—ã™ã‚‹ã“ã¨ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetBeanPropertyType03() throws Exception {
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         try {
             BeanUtil.getBeanPropertyType(null, "param1");
             fail();
         } catch (PropertyAccessException e) {
-            // ƒeƒXƒgŒ‹‰ÊŠm”F
+            // ãƒ†ã‚¹ãƒˆçµæœç¢ºèª
             assertEquals(IllegalArgumentException.class.getName(), e.getCause()
                     .getClass().getName());
         }
@@ -545,28 +545,28 @@ public class BeanUtilTest extends TestCase {
     /**
      * testGetBeanPropertyType04() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) bean:not null<br>
-     * (ˆø”) property:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:not null<br>
+     * (å¼•æ•°) property:null<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:PropertyAccessExceptionF<br>
-     * ƒ‰ƒbƒv‚µ‚½—áŠOFIllegalArgumentException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:PropertyAccessExceptionï¼š<br>
+     * ãƒ©ãƒƒãƒ—ã—ãŸä¾‹å¤–ï¼šIllegalArgumentException<br>
      * <br>
-     * PropertyUtils#getProperty()ƒƒ\ƒbƒh‚ÅIllegalArgumentException‚ª”­¶‚µ‚½APropertyAccessException‚Åƒ‰ƒbƒv‚·‚é‚±‚ÆB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * PropertyUtils#getProperty()ãƒ¡ã‚½ãƒƒãƒ‰ã§IllegalArgumentExceptionãŒç™ºç”Ÿã—ãŸæ™‚ã€PropertyAccessExceptionã§ãƒ©ãƒƒãƒ—ã™ã‚‹ã“ã¨ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetBeanPropertyType04() throws Exception {
-        // ƒeƒXƒg—pJavaBean¶¬
+        // ãƒ†ã‚¹ãƒˆç”¨JavaBeanç”Ÿæˆ
         BeanUtil_BeanStub01 bean = new BeanUtil_BeanStub01();
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         try {
             BeanUtil.getBeanPropertyType(bean, null);
             fail();
         } catch (PropertyAccessException e) {
-            // ƒeƒXƒgŒ‹‰ÊŠm”F
+            // ãƒ†ã‚¹ãƒˆçµæœç¢ºèª
             assertEquals(IllegalArgumentException.class.getName(), e.getCause()
                     .getClass().getName());
         }
@@ -575,73 +575,73 @@ public class BeanUtilTest extends TestCase {
     /**
      * testGetBeanPropertyType05() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FA <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šA <br>
      * <br>
-     * “ü—Í’lF(ˆø”) bean:param2="PARAM2"<br>
-     * (ˆø”) property:"param2"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:param2="PARAM2"<br>
+     * (å¼•æ•°) property:"param2"<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:"PARAM2"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:"PARAM2"<br>
      * <br>
-     * PropertyUtils#getProperty()ƒƒ\ƒbƒh‚ª³‚µ‚­ŒÄ‚Ño‚³‚êAˆ—‚ª³í‚És‚È‚í‚ê‚é‚±‚ÆB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * PropertyUtils#getProperty()ãƒ¡ã‚½ãƒƒãƒ‰ãŒæ­£ã—ãå‘¼ã³å‡ºã•ã‚Œã€å‡¦ç†ãŒæ­£å¸¸ã«è¡Œãªã‚ã‚Œã‚‹ã“ã¨ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetBeanPropertyType05() throws Exception {
-        // ƒeƒXƒg—pJavaBean¶¬
+        // ãƒ†ã‚¹ãƒˆç”¨JavaBeanç”Ÿæˆ
         BeanUtil_BeanStub01 bean = new BeanUtil_BeanStub01();
         bean.setParam2("PARAM2");
 
-        // ƒeƒXƒgÀsE”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œãƒ»åˆ¤å®š
         assertSame(String.class, BeanUtil.getBeanPropertyType(bean, "param2"));
     }
 
     /**
      * testGetBeanPropertyType06() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FA <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šA <br>
      * <br>
-     * “ü—Í’lF(ˆø”) bean:param2=null<br>
-     * (ˆø”) property:"param2"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:param2=null<br>
+     * (å¼•æ•°) property:"param2"<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:null<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:null<br>
      * <br>
-     * PropertyUtils#getProperty()ƒƒ\ƒbƒh‚ª³‚µ‚­ŒÄ‚Ño‚³‚êAˆ—‚ª³í‚És‚È‚í‚ê‚é‚±‚ÆB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * PropertyUtils#getProperty()ãƒ¡ã‚½ãƒƒãƒ‰ãŒæ­£ã—ãå‘¼ã³å‡ºã•ã‚Œã€å‡¦ç†ãŒæ­£å¸¸ã«è¡Œãªã‚ã‚Œã‚‹ã“ã¨ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetBeanPropertyType06() throws Exception {
-        // ƒeƒXƒg—pJavaBean¶¬
+        // ãƒ†ã‚¹ãƒˆç”¨JavaBeanç”Ÿæˆ
         BeanUtil_BeanStub01 bean = new BeanUtil_BeanStub01();
 
-        // ƒeƒXƒgÀsE”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œãƒ»åˆ¤å®š
         assertSame(String.class, BeanUtil.getBeanPropertyType(bean, "param2"));
     }
 
     /**
      * testGetBeanPropertyType07() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) bean:not null<br>
-     * (ˆø”) property:""<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:not null<br>
+     * (å¼•æ•°) property:""<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:PropertyAccessExceptionF<br>
-     * ƒ‰ƒbƒv‚µ‚½—áŠOFNestedNullException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:PropertyAccessExceptionï¼š<br>
+     * ãƒ©ãƒƒãƒ—ã—ãŸä¾‹å¤–ï¼šNestedNullException<br>
      * <br>
-     * property‚ª‹ó•¶š‚ÌAPropertyAccessException‚ğƒXƒ[‚·‚é‚±‚ÆB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * propertyãŒç©ºæ–‡å­—ã®æ™‚ã€PropertyAccessExceptionã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã“ã¨ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetBeanPropertyType07() throws Exception {
-        // ƒeƒXƒg—pJavaBean¶¬
+        // ãƒ†ã‚¹ãƒˆç”¨JavaBeanç”Ÿæˆ
         Map map = new HashMap();
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         try {
             BeanUtil.getBeanPropertyType(map, "aa.(a)");
             fail();
         } catch (PropertyAccessException e) {
-            // ƒeƒXƒgŒ‹‰ÊŠm”F
+            // ãƒ†ã‚¹ãƒˆçµæœç¢ºèª
             assertEquals(NestedNullException.class.getName(), e.getCause()
                     .getClass().getName());
         }
@@ -650,27 +650,27 @@ public class BeanUtilTest extends TestCase {
     /**
      * testGetBeanPropertyType08() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FA <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šA <br>
      * <br>
-     * “ü—Í’lF(ˆø”) bean:BeanUtil_DynaBeanImpl01<br>
-     * testString(StringŒ^)<br>
-     * (ˆø”) property:"testString"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:BeanUtil_DynaBeanImpl01<br>
+     * testString(Stringå‹)<br>
+     * (å¼•æ•°) property:"testString"<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:String.class<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:String.class<br>
      * <br>
-     * DynaBean‚ÌƒtƒB[ƒ‹ƒh‚ª”z—ñECollectionŒ^‚Å‚Í‚È‚¢ê‡ Aˆ—‚ª³í‚És‚È‚í‚ê‚é‚±‚ÆB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * DynaBeanã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ãŒé…åˆ—ãƒ»Collectionå‹ã§ã¯ãªã„å ´åˆ ã€å‡¦ç†ãŒæ­£å¸¸ã«è¡Œãªã‚ã‚Œã‚‹ã“ã¨ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetBeanPropertyType08() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DynaProperty dynaProperty = new DynaProperty("testString", String.class);
         BeanUtil_DynaClassImpl01 dynaClass = new BeanUtil_DynaClassImpl01();
         dynaClass.setDynaProperty(dynaProperty);
         DynaBean bean = new BeanUtil_DynaBeanImpl01(dynaClass);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertEquals(String.class, BeanUtil.getBeanPropertyType(bean,
                 "testString"));
     }
@@ -678,28 +678,28 @@ public class BeanUtilTest extends TestCase {
     /**
      * testGetBeanPropertyType09() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FA <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šA <br>
      * <br>
-     * “ü—Í’lF(ˆø”) bean:BeanUtil_DynaBeanImpl01<br>
-     * testArray(String[]Œ^)<br>
-     * (ˆø”) property:"testArray"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:BeanUtil_DynaBeanImpl01<br>
+     * testArray(String[]å‹)<br>
+     * (å¼•æ•°) property:"testArray"<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:String[].class<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:String[].class<br>
      * <br>
-     * DynaBean‚ÌƒtƒB[ƒ‹ƒh‚ª”z—ñECollectionŒ^‚Å‚·ê‡ Aˆ—‚ª³í‚És‚È‚í‚ê‚é‚±‚ÆB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * DynaBeanã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ãŒé…åˆ—ãƒ»Collectionå‹ã§ã™å ´åˆ ã€å‡¦ç†ãŒæ­£å¸¸ã«è¡Œãªã‚ã‚Œã‚‹ã“ã¨ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetBeanPropertyType09() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DynaProperty dynaProperty = new DynaProperty("testArray",
                 String[].class);
         BeanUtil_DynaClassImpl01 dynaClass = new BeanUtil_DynaClassImpl01();
         dynaClass.setDynaProperty(dynaProperty);
         DynaBean bean = new BeanUtil_DynaBeanImpl01(dynaClass);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertEquals(String[].class, BeanUtil.getBeanPropertyType(bean,
                 "testArray"));
     }
@@ -707,25 +707,25 @@ public class BeanUtilTest extends TestCase {
     /**
      * testGetBeanPropertyType10() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FA <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šA <br>
      * <br>
-     * “ü—Í’lF(ˆø”) bean:BeanUtil_DynaBeanImpl01<br>
-     * (ˆø”) property:"testNull"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:BeanUtil_DynaBeanImpl01<br>
+     * (å¼•æ•°) property:"testNull"<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:null<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:null<br>
      * <br>
-     * w’è‚³‚ê‚½‘®«‚ªDynaBean‚É‘¶İ‚µ‚È‚¢ê‡Aˆ—‚ª³í‚És‚È‚í‚ê‚é‚±‚ÆB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æŒ‡å®šã•ã‚ŒãŸå±æ€§ãŒDynaBeanã«å­˜åœ¨ã—ãªã„å ´åˆã€å‡¦ç†ãŒæ­£å¸¸ã«è¡Œãªã‚ã‚Œã‚‹ã“ã¨ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetBeanPropertyType10() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         BeanUtil_DynaClassImpl01 dynaClass = new BeanUtil_DynaClassImpl01();
         dynaClass.setDynaProperty(null);
         DynaBean bean = new BeanUtil_DynaBeanImpl01(dynaClass);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertEquals(null, BeanUtil.getBeanPropertyType(bean, "testNull"));
     }
 }

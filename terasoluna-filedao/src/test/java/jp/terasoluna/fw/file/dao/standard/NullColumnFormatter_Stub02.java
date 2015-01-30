@@ -1,7 +1,7 @@
 package jp.terasoluna.fw.file.dao.standard;
 
 /**
- * getterメソッドがprivateのファイル行オブジェクトスタブクラス
+ * getter繝｡繧ｽ繝�繝峨′private縺ｮ繝輔ぃ繧､繝ｫ陦後が繝悶ず繧ｧ繧ｯ繝医せ繧ｿ繝悶け繝ｩ繧ｹ
  */
 public class NullColumnFormatter_Stub02 {
     private String string = null;

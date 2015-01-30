@@ -23,7 +23,7 @@
     <!-- Properties -->
     <properties>
         <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
-        <encoding>Windows-31J</encoding>
+        <encoding>UTF-8</encoding>
         <project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
         <jdk.version>1.7</jdk.version>
 

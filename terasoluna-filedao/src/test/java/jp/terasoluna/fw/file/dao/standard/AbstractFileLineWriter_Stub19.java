@@ -4,32 +4,32 @@ import jp.terasoluna.fw.file.annotation.FileFormat;
 import jp.terasoluna.fw.file.annotation.OutputFileColumn;
 
 /**
- * AbstractFileLineWriter‚ÌŒ±‚Å—˜—p‚·‚éƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌƒXƒ^ƒuƒNƒ‰ƒXB<br>
+ * AbstractFileLineWriterã®è©¦é¨“ã§åˆ©ç”¨ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¹ã‚¿ãƒ–ã‚¯ãƒ©ã‚¹ã€‚<br>
  * <br>
- * ˆÈ‰º‚Ì@FileFormat‚Ìİ’è‚ğ‚Â<br>
+ * ä»¥ä¸‹ã®@FileFormatã®è¨­å®šã‚’æŒã¤<br>
  * <ul>
- * <li>‘S€–ÚFƒfƒtƒHƒ‹ƒg’l</li>
+ * <li>å…¨é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤</li>
  * </ul>
  * <br>
- * <code>@OutputFileColumn</code>İ’è‚È‚µ‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
+ * <code>@OutputFileColumn</code>è¨­å®šãªã—ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
  * <ul>
- * <li>ƒtƒB[ƒ‹ƒhFString noMappingColumn1</li>
- * <li>ƒtƒB[ƒ‹ƒhFString noMappingColumn2</li>
- * <li>ƒtƒB[ƒ‹ƒhFString noMappingColumn3</li>
+ * <li>ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString noMappingColumn1</li>
+ * <li>ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString noMappingColumn2</li>
+ * <li>ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString noMappingColumn3</li>
  * </ul>
- * <code>@OutputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
+ * <code>@OutputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
  * <ul>
- * <li>ƒtƒB[ƒ‹ƒhFString column2
- *     <code>@OutputFileColumn</code>İ’è<br>
- * > columnIndexF1<br>
- * > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l</li> </ul> <code>@OutputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
+ * <li>ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column2
+ *     <code>@OutputFileColumn</code>è¨­å®š<br>
+ * > columnIndexï¼š1<br>
+ * > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤</li> </ul> <code>@OutputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
  * <ul>
- * <li>ƒtƒB[ƒ‹ƒhFString column3
- *     <code>@OutputFileColumn</code>İ’è<br>
- * > columnIndexF2<br>
- * > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l</li> </ul> <br>
- * ¦eƒNƒ‰ƒX‚à<code>@OutputFileColumn</code>İ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â
- * @author æâ•î“O
+ * <li>ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column3
+ *     <code>@OutputFileColumn</code>è¨­å®š<br>
+ * > columnIndexï¼š2<br>
+ * > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤</li> </ul> <br>
+ * â€»è¦ªã‚¯ãƒ©ã‚¹ã‚‚<code>@OutputFileColumn</code>è¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤
+ * @author è¶™ä¿¸å¾¹
  */
 @FileFormat()
 public class AbstractFileLineWriter_Stub19 extends
@@ -58,7 +58,7 @@ public class AbstractFileLineWriter_Stub19 extends
     private String column3 = null;
 
     /**
-     * column2‚ğæ“¾‚·‚éB
+     * column2ã‚’å–å¾—ã™ã‚‹ã€‚
      * @return column2
      */
     public String getColumn2() {
@@ -66,7 +66,7 @@ public class AbstractFileLineWriter_Stub19 extends
     }
 
     /**
-     * column2‚ğİ’è‚·‚éB
+     * column2ã‚’è¨­å®šã™ã‚‹ã€‚
      * @param column2 column2
      */
     public void setColumn2(String column2) {
@@ -74,7 +74,7 @@ public class AbstractFileLineWriter_Stub19 extends
     }
 
     /**
-     * column3‚ğæ“¾‚·‚éB
+     * column3ã‚’å–å¾—ã™ã‚‹ã€‚
      * @return column3
      */
     public String getColumn3() {
@@ -82,7 +82,7 @@ public class AbstractFileLineWriter_Stub19 extends
     }
 
     /**
-     * column3‚ğİ’è‚·‚éB
+     * column3ã‚’è¨­å®šã™ã‚‹ã€‚
      * @param column3 column3
      */
     public void setColumn3(String column3) {
@@ -90,7 +90,7 @@ public class AbstractFileLineWriter_Stub19 extends
     }
 
     /**
-     * noMappingColumn1‚ğæ“¾‚·‚éB
+     * noMappingColumn1ã‚’å–å¾—ã™ã‚‹ã€‚
      * @return noMappingColumn1
      */
     public String getNoMappingColumn1() {
@@ -98,7 +98,7 @@ public class AbstractFileLineWriter_Stub19 extends
     }
 
     /**
-     * noMappingColumn1‚ğİ’è‚·‚éB
+     * noMappingColumn1ã‚’è¨­å®šã™ã‚‹ã€‚
      * @param noMappingColumn1 noMappingColumn1
      */
     public void setNoMappingColumn1(String noMappingColumn1) {
@@ -106,7 +106,7 @@ public class AbstractFileLineWriter_Stub19 extends
     }
 
     /**
-     * noMappingColumn2‚ğæ“¾‚·‚éB
+     * noMappingColumn2ã‚’å–å¾—ã™ã‚‹ã€‚
      * @return noMappingColumn2
      */
     public String getNoMappingColumn2() {
@@ -114,7 +114,7 @@ public class AbstractFileLineWriter_Stub19 extends
     }
 
     /**
-     * noMappingColumn2‚ğİ’è‚·‚éB
+     * noMappingColumn2ã‚’è¨­å®šã™ã‚‹ã€‚
      * @param noMappingColumn2 noMappingColumn2
      */
     public void setNoMappingColumn2(String noMappingColumn2) {

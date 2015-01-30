@@ -65,12 +65,12 @@ public class DaoCollector006Test extends DaoTestCase {
 
     /**
      * {@link jp.terasoluna.fw.collector.db.DaoCollector#DaoCollector(Object, String, Object, int)}
-     * ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     public void testDaoCollectorObjectStringObjectInt004()
                                                                         throws Exception {
         if (this.userListQueryResultHandleDao == null) {
-            fail("queryResultHandleDAO‚ªnull‚Å‚·B");
+            fail("queryResultHandleDAOãŒnullã§ã™ã€‚");
         }
 
         int count_first = 0;
@@ -89,7 +89,7 @@ public class DaoCollector006Test extends DaoTestCase {
             DaoCollector.closeQuietly(it);
         }
 
-        // ƒRƒŒƒNƒ^ƒXƒŒƒbƒh”ƒ`ƒFƒbƒN
+        // ã‚³ãƒ¬ã‚¯ã‚¿ã‚¹ãƒ¬ãƒƒãƒ‰æ•°ãƒã‚§ãƒƒã‚¯
         assertTrue(CollectorTestUtil
                 .lessThanCollectorThreadCount(1 + this.previousThreadCount));
 
@@ -107,13 +107,13 @@ public class DaoCollector006Test extends DaoTestCase {
 
                 count++;
 
-                // ‚ ‚¦‚Ä–ˆ‰ñA“r’†‚Å”²‚¯‚é
+                // ã‚ãˆã¦æ¯å›ã€é€”ä¸­ã§æŠœã‘ã‚‹
                 if (count > 900) {
                     break;
                 }
             }
 
-            // ƒRƒŒƒNƒ^ƒXƒŒƒbƒh”ƒ`ƒFƒbƒN
+            // ã‚³ãƒ¬ã‚¯ã‚¿ã‚¹ãƒ¬ãƒƒãƒ‰æ•°ãƒã‚§ãƒƒã‚¯
             assertTrue(CollectorTestUtil.lessThanCollectorThreadCount(count
                     + this.previousThreadCount));
 

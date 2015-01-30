@@ -21,22 +21,22 @@ import java.util.Properties;
 
 
 /**
- * DataSourceMessageSourceƒNƒ‰ƒX‚Å—˜—p‚·‚éƒXƒ^ƒu
+ * DataSourceMessageSourceã‚¯ãƒ©ã‚¹ã§åˆ©ç”¨ã™ã‚‹ã‚¹ã‚¿ãƒ–
  *
  */
 public class DataSourceMessageSource_DataSourceMessageSourceStub19 extends
         DataSourceMessageSource {
     /**
-     * ŒÄ‚Ño‚µŠm”F
+     * å‘¼ã³å‡ºã—ç¢ºèª
      */
     protected boolean isRead_A1 = false;
     
     /**
-     * ƒƒP[ƒ‹¶¬
+     * ãƒ­ã‚±ãƒ¼ãƒ«ç”Ÿæˆ
      */
     Locale locale_A1 = new Locale("ja", "JP", "");
     /**
-     * ˆø”code‚ğŠi”[
+     * å¼•æ•°codeã‚’æ ¼ç´
      */
     protected String code = "code01";
     

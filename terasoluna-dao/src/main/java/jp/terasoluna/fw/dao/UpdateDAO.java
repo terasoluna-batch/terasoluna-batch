@@ -19,55 +19,55 @@ package jp.terasoluna.fw.dao;
 import java.util.List;
 
 /**
- * UpdateDAOƒCƒ“ƒ^ƒtƒF[ƒXB
+ * UpdateDAOã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã€‚
  * 
- * XVŒnSQL‚ğÀs‚·‚é‚½‚ß‚ÌDAOƒCƒ“ƒ^ƒtƒF[ƒX‚Å‚ ‚éB
+ * æ›´æ–°ç³»SQLã‚’å®Ÿè¡Œã™ã‚‹ãŸã‚ã®DAOã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã§ã‚ã‚‹ã€‚
  * 
  */
 public interface UpdateDAO {
 
     /**
-     * ˆø”sqlID‚Åw’è‚³‚ê‚½SQL‚ğÀs‚µ‚ÄAŒ‹‰ÊŒ”‚ğ•Ô‹p‚·‚éB
-     * Às‚·‚éSQL‚Íuinsert, update deletev‚Ì3í—Ş‚Æ‚·‚éB
+     * å¼•æ•°sqlIDã§æŒ‡å®šã•ã‚ŒãŸSQLã‚’å®Ÿè¡Œã—ã¦ã€çµæœä»¶æ•°ã‚’è¿”å´ã™ã‚‹ã€‚
+     * å®Ÿè¡Œã™ã‚‹SQLã¯ã€Œinsert, update deleteã€ã®3ç¨®é¡ã¨ã™ã‚‹ã€‚
      * 
-     * @param sqlID Às‚·‚éSQL‚ÌID
-     * @param bindParams SQL‚ÉƒoƒCƒ“ƒh‚·‚é’l‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg
-     * @return SQL‚ÌÀsŒ‹‰ÊŒ”‚ğ•Ô‹p
+     * @param sqlID å®Ÿè¡Œã™ã‚‹SQLã®ID
+     * @param bindParams SQLã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹å€¤ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @return SQLã®å®Ÿè¡Œçµæœä»¶æ•°ã‚’è¿”å´
      */
     int execute(String sqlID, Object bindParams);
 
     /**
-     * ƒoƒbƒ`’Ç‰Áƒƒ\ƒbƒhB
-     * ƒoƒbƒ`ˆ—‚Æ‚µ‚Ä’Ç‰Á‚µ‚½‚¢SQL‚ÌSQLID‚ÆƒoƒCƒ“ƒhƒpƒ‰ƒ[ƒ^‚ğ
-     * ˆø”‚É“n‚·B
+     * ãƒãƒƒãƒè¿½åŠ ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
+     * ãƒãƒƒãƒå‡¦ç†ã¨ã—ã¦è¿½åŠ ã—ãŸã„SQLã®SQLIDã¨ãƒã‚¤ãƒ³ãƒ‰ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’
+     * å¼•æ•°ã«æ¸¡ã™ã€‚
      * 
-     * @param sqlID Às‚·‚éSQL‚ÌID
-     * @param bindParams SQL‚ÉƒoƒCƒ“ƒh‚·‚é’l‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg
-     * @deprecated addBatch‚Ì‘ã‚í‚è‚É{@link #executeBatch(List)}
-     * ‚ğg—p‚·‚é‚±‚Æ
+     * @param sqlID å®Ÿè¡Œã™ã‚‹SQLã®ID
+     * @param bindParams SQLã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹å€¤ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @deprecated addBatchã®ä»£ã‚ã‚Šã«{@link #executeBatch(List)}
+     * ã‚’ä½¿ç”¨ã™ã‚‹ã“ã¨
      */
     @Deprecated
     void addBatch(String sqlID, Object bindParams);
 
     /**
-     * ƒoƒbƒ`ˆ—‚ÌÀsƒƒ\ƒbƒhB
+     * ãƒãƒƒãƒå‡¦ç†ã®å®Ÿè¡Œãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      * 
-     * @return SQL‚ÌÀsŒ‹‰Ê
-     * @deprecated executeBatch‚Ì‘ã‚í‚è‚É{@link #executeBatch(List)}
-     * ‚ğg—p‚·‚é‚±‚Æ
+     * @return SQLã®å®Ÿè¡Œçµæœ
+     * @deprecated executeBatchã®ä»£ã‚ã‚Šã«{@link #executeBatch(List)}
+     * ã‚’ä½¿ç”¨ã™ã‚‹ã“ã¨
      */
     @Deprecated
     int executeBatch();
     
     /**
-     * ƒoƒbƒ`XVˆ—‚ğs‚¤ƒƒ\ƒbƒhB<br/>
-     * ˆø”‚Ì{@link SqlHolder}‚ÌƒŠƒXƒg‚Åw’è‚³‚ê‚½‚·‚×‚Ä‚ÌSQL‚ğÀs‚·‚éB
-     * DAOƒCƒ“ƒXƒ^ƒ“ƒX‚Éó‘Ô‚ğ‚½‚¹‚È‚¢ˆ×Aƒoƒbƒ`XV‘ÎÛ‚ÌSQL‚Í‚·‚×‚Ä
-     * ‚±‚Ìƒƒ\ƒbƒh“à‚ÅÀs‚Ü‚ÅŠ®Œ‹‚·‚é•K—v‚ª‚ ‚éB
+     * ãƒãƒƒãƒæ›´æ–°å‡¦ç†ã‚’è¡Œã†ãƒ¡ã‚½ãƒƒãƒ‰ã€‚<br/>
+     * å¼•æ•°ã®{@link SqlHolder}ã®ãƒªã‚¹ãƒˆã§æŒ‡å®šã•ã‚ŒãŸã™ã¹ã¦ã®SQLã‚’å®Ÿè¡Œã™ã‚‹ã€‚
+     * DAOã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã«çŠ¶æ…‹ã‚’æŒãŸã›ãªã„ç‚ºã€ãƒãƒƒãƒæ›´æ–°å¯¾è±¡ã®SQLã¯ã™ã¹ã¦
+     * ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰å†…ã§å®Ÿè¡Œã¾ã§å®Œçµã™ã‚‹å¿…è¦ãŒã‚ã‚‹ã€‚
      * 
-     * @param sqlHolders ƒoƒbƒ`XV‘ÎÛ‚ÌsqlIdAƒpƒ‰ƒ[ƒ^‚ğŠi”[‚µ‚½
-     * SqlHolderƒCƒ“ƒXƒ^ƒ“ƒX‚ÌƒŠƒXƒg
-     * @return SQL‚ÌÀsŒ‹‰ÊŒ”
+     * @param sqlHolders ãƒãƒƒãƒæ›´æ–°å¯¾è±¡ã®sqlIdã€ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’æ ¼ç´ã—ãŸ
+     * SqlHolderã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã®ãƒªã‚¹ãƒˆ
+     * @return SQLã®å®Ÿè¡Œçµæœä»¶æ•°
      */
     int executeBatch(List<SqlHolder> sqlHolders);
 

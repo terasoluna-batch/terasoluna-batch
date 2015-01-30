@@ -22,25 +22,25 @@ import java.io.Reader;
 import jp.terasoluna.fw.file.dao.FileException;
 
 /**
- * ƒtƒ@ƒCƒ‹‚©‚çƒf[ƒ^•”‚Ìƒf[ƒ^‚ğ1s•ª“Ç‚İæ‚èA•¶š—ñ‚Æ‚µ‚ÄŒÄoŒ³‚É•Ô‹p‚·‚éB
+ * ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ãƒ‡ãƒ¼ã‚¿éƒ¨ã®ãƒ‡ãƒ¼ã‚¿ã‚’1è¡Œåˆ†èª­ã¿å–ã‚Šã€æ–‡å­—åˆ—ã¨ã—ã¦å‘¼å‡ºå…ƒã«è¿”å´ã™ã‚‹ã€‚
  */
 public class LineFeed1LineReader implements LineReader {
 
     /**
-     * ƒtƒ@ƒCƒ‹ƒAƒNƒZƒX—p‚Ì•¶šƒXƒgƒŠ[ƒ€B
+     * ãƒ•ã‚¡ã‚¤ãƒ«ã‚¢ã‚¯ã‚»ã‚¹ç”¨ã®æ–‡å­—ã‚¹ãƒˆãƒªãƒ¼ãƒ ã€‚
      */
     private Reader reader = null;
 
     /**
-     * s‹æØ‚è•¶šB
+     * è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—ã€‚
      */
     private String lineFeedChar = null;
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-     * @param reader ƒtƒ@ƒCƒ‹ƒAƒNƒZƒX—p‚Ì•¶šƒXƒgƒŠ[ƒ€
-     * @param lineFeedChar s‹æØ‚è•¶š
-     * @throws IllegalArgumentException ˆø”‚Ìİ’è‚ªŠÔˆá‚Á‚½ê‡B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * @param reader ãƒ•ã‚¡ã‚¤ãƒ«ã‚¢ã‚¯ã‚»ã‚¹ç”¨ã®æ–‡å­—ã‚¹ãƒˆãƒªãƒ¼ãƒ 
+     * @param lineFeedChar è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—
+     * @throws IllegalArgumentException å¼•æ•°ã®è¨­å®šãŒé–“é•ã£ãŸå ´åˆã€‚
      */
     public LineFeed1LineReader(Reader reader, String lineFeedChar) {
 
@@ -62,17 +62,17 @@ public class LineFeed1LineReader implements LineReader {
     }
 
     /**
-     * ƒtƒ@ƒCƒ‹‚©‚çƒf[ƒ^•”‚Ìƒf[ƒ^‚ğ1s•ª“Ç‚İæ‚èA•¶š—ñ‚Æ‚µ‚ÄŒÄoŒ³‚É•Ô‹p‚·‚éB
-     * @return ƒf[ƒ^•”‚Ì‚Ps•ª‚Ì•¶š—ñ
-     * @throws FileException Reader‚Ìˆ—‚Å—áŠO‚ª”­¶‚µ‚½ê‡B
+     * ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ãƒ‡ãƒ¼ã‚¿éƒ¨ã®ãƒ‡ãƒ¼ã‚¿ã‚’1è¡Œåˆ†èª­ã¿å–ã‚Šã€æ–‡å­—åˆ—ã¨ã—ã¦å‘¼å‡ºå…ƒã«è¿”å´ã™ã‚‹ã€‚
+     * @return ãƒ‡ãƒ¼ã‚¿éƒ¨ã®ï¼‘è¡Œåˆ†ã®æ–‡å­—åˆ—
+     * @throws FileException Readerã®å‡¦ç†ã§ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€‚
      */
     public String readLine() {
         StringBuilder currentLineStringBuilder = new StringBuilder();
 
-        // ƒ`ƒFƒbƒN‘ÎÛ•¶š
+        // ãƒã‚§ãƒƒã‚¯å¯¾è±¡æ–‡å­—
         char currentChar = Character.MIN_VALUE;
 
-        // s‹æØ‚è•¶š‚Ì1•¶š–ÚB
+        // è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—ã®1æ–‡å­—ç›®ã€‚
         char lineFeedChar1 = lineFeedChar.charAt(0);
 
         int chr = 0;

@@ -17,9 +17,9 @@
 package jp.terasoluna.fw.collector.vo;
 
 /**
- * コレクタステータス
+ * 繧ｳ繝ｬ繧ｯ繧ｿ繧ｹ繝�繝ｼ繧ｿ繧ｹ
  */
 public enum CollectorStatus {
-    // 終了フラグ
+    // 邨ゆｺ�繝輔Λ繧ｰ
     END
 }

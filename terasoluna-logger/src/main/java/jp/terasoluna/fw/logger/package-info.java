@@ -1,5 +1,5 @@
 /**
- * 汎用ロガーパッケージ
+ * 豎守畑繝ｭ繧ｬ繝ｼ繝代ャ繧ｱ繝ｼ繧ｸ
  */
 package jp.terasoluna.fw.logger;
 

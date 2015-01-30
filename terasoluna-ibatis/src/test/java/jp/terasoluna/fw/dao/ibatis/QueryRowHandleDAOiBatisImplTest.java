@@ -9,11 +9,11 @@ import junit.framework.TestCase;
 
 /**
  * {@link jp.co.nttdata.illigra.lucy.illigralib.dao.ibatis.RowHandledQueryDAOiBatisImpl}
- * ƒNƒ‰ƒX‚Ìƒuƒ‰ƒbƒNƒ{ƒbƒNƒXƒeƒXƒgB
+ * ã‚¯ãƒ©ã‚¹ã®ãƒ–ãƒ©ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ†ã‚¹ãƒˆã€‚
  * 
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4>
- * RowHandledQueryDAOƒCƒ“ƒ^ƒtƒF[ƒX‚ÌiBATIS—pÀ‘•ƒNƒ‰ƒXB
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4>
+ * RowHandledQueryDAOã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã®iBATISç”¨å®Ÿè£…ã‚¯ãƒ©ã‚¹ã€‚
  * <p>
  * 
  * @see jp.terasoluna.fw.dao.ibatis.QueryDAOiBatisImpl
@@ -21,15 +21,15 @@ import junit.framework.TestCase;
 public class QueryRowHandleDAOiBatisImplTest extends TestCase {
 
     /**
-     * ƒeƒXƒg‘ÎÛƒNƒ‰ƒX
+     * ãƒ†ã‚¹ãƒˆå¯¾è±¡ã‚¯ãƒ©ã‚¹
      */
     private QueryRowHandleDAOiBatisImpl dao = new QueryRowHandleDAOiBatisImpl();
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -39,10 +39,10 @@ public class QueryRowHandleDAOiBatisImplTest extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -55,29 +55,29 @@ public class QueryRowHandleDAOiBatisImplTest extends TestCase {
      * testExecuteWithRowHandler01()
      * <br><br>
      *
-     * ³íŒn
+     * æ­£å¸¸ç³»
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) sqlID:"sqlId"<br>
-     *         (ˆø”) bindParams:"hoge"<br>
-     *         (ˆø”) rowHandler:not null<br>
-     *         (‘O’ñğŒ) sqlMapClientTemplate:SqlMapClientTemplateStub01<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) sqlID:"sqlId"<br>
+     *         (å¼•æ•°) bindParams:"hoge"<br>
+     *         (å¼•æ•°) rowHandler:not null<br>
+     *         (å‰ææ¡ä»¶) sqlMapClientTemplate:SqlMapClientTemplateStub01<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) ‚È‚µ<br>
-     *         (ó‘Ô•Ï‰») SqlMapClientTemplate‚ÌŒÄoŠm”F:ˆø”‚ªsqlIDAbindParams‚Å
-     *                    ŒÄ‚Ño‚³‚ê‚Ä‚¢‚é–‚ğŠm”F<br>
-     *         (ó‘Ô•Ï‰») DataRowHandler‚ÌŒÄoŠm”F:yINFOƒƒOz"param=hoge"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) ãªã—<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) SqlMapClientTemplateã®å‘¼å‡ºç¢ºèª:å¼•æ•°ãŒsqlIDã€bindParamsã§
+     *                    å‘¼ã³å‡ºã•ã‚Œã¦ã„ã‚‹äº‹ã‚’ç¢ºèª<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) DataRowHandlerã®å‘¼å‡ºç¢ºèª:ã€INFOãƒ­ã‚°ã€‘"param=hoge"<br>
      *
      * <br>
-     * ƒoƒCƒ“ƒhƒpƒ‰ƒ[ƒ^‚ªnull‚Å‚È‚¢ê‡A³í‚ÉDataRowHandler‚ª
-     * Às‚³‚ê‚é‚±‚Æ‚ğŠm”F
+     * ãƒã‚¤ãƒ³ãƒ‰ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãŒnullã§ãªã„å ´åˆã€æ­£å¸¸ã«DataRowHandlerãŒ
+     * å®Ÿè¡Œã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèª
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExecuteWithRowHandler01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         QueryRowHandleDAOiBatisImpl_SqlMapClientTemplateStub01 sqlMapClTemp = 
             new QueryRowHandleDAOiBatisImpl_SqlMapClientTemplateStub01();
         dao.setSqlMapClientTemplate(sqlMapClTemp);
@@ -85,14 +85,14 @@ public class QueryRowHandleDAOiBatisImplTest extends TestCase {
         DataRowHandler rowHandler = 
                     new QueryRowHandleDAOiBatisImpl_DataRowHandlerImpl();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         dao.executeWithRowHandler("sqlId", "hoge", rowHandler);
 
-        // ŒŸ¸
+        // æ¤œæŸ»
         assertTrue(sqlMapClTemp.isCalled());
         assertEquals("sqlId", sqlMapClTemp.getStatementName());
         assertEquals("hoge", sqlMapClTemp.getParameterObject());
-        // RowHandlerWrappereŒo—R‚ÅDataRowHandler‚ªÀs‚³‚ê‚½‚±‚Æ‚ÌŠm”F
+        // RowHandlerWrappereçµŒç”±ã§DataRowHandlerãŒå®Ÿè¡Œã•ã‚ŒãŸã“ã¨ã®ç¢ºèª
         assertTrue(LogUTUtil.checkInfo("param=hoge"));
     }
 
@@ -100,42 +100,42 @@ public class QueryRowHandleDAOiBatisImplTest extends TestCase {
      * testExecuteWithRowHandler02()
      * <br><br>
      *
-     * ³íŒn
+     * æ­£å¸¸ç³»
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) sqlID:"sqlId"<br>
-     *         (ˆø”) bindParams:null<br>
-     *         (ˆø”) rowHandler:not null<br>
-     *         (‘O’ñğŒ) sqlMapClientTemplate:SqlMapClientTemplateStub01<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) sqlID:"sqlId"<br>
+     *         (å¼•æ•°) bindParams:null<br>
+     *         (å¼•æ•°) rowHandler:not null<br>
+     *         (å‰ææ¡ä»¶) sqlMapClientTemplate:SqlMapClientTemplateStub01<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) ‚È‚µ<br>
-     *         (ó‘Ô•Ï‰») SqlMapClientTemplate‚ÌŒÄoŠm”F:ˆø”‚ªsqlIDAbindParams‚Å
-     *                    ŒÄ‚Ño‚³‚ê‚Ä‚¢‚é–‚ğŠm”F<br>
-     *         (ó‘Ô•Ï‰») DataRowHandler‚ÌŒÄoŠm”F:yINFOƒƒOz"param=hoge"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) ãªã—<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) SqlMapClientTemplateã®å‘¼å‡ºç¢ºèª:å¼•æ•°ãŒsqlIDã€bindParamsã§
+     *                    å‘¼ã³å‡ºã•ã‚Œã¦ã„ã‚‹äº‹ã‚’ç¢ºèª<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) DataRowHandlerã®å‘¼å‡ºç¢ºèª:ã€INFOãƒ­ã‚°ã€‘"param=hoge"<br>
      *
      * <br>
-     * ƒoƒCƒ“ƒhƒpƒ‰ƒ[ƒ^‚ªnull‚Ìê‡A³í‚ÉDataRowHandler‚ª
-     * Às‚³‚ê‚é‚±‚Æ‚ğŠm”F
+     * ãƒã‚¤ãƒ³ãƒ‰ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãŒnullã®å ´åˆã€æ­£å¸¸ã«DataRowHandlerãŒ
+     * å®Ÿè¡Œã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèª
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExecuteWithRowHandler02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         QueryRowHandleDAOiBatisImpl_SqlMapClientTemplateStub01 sqlMapClTemp = new QueryRowHandleDAOiBatisImpl_SqlMapClientTemplateStub01();
         dao.setSqlMapClientTemplate(sqlMapClTemp);
 
         DataRowHandler rowHandler = new QueryRowHandleDAOiBatisImpl_DataRowHandlerImpl();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         dao.executeWithRowHandler("sqlId", null, rowHandler);
 
-        // ŒŸ¸
+        // æ¤œæŸ»
         assertTrue(sqlMapClTemp.isCalled());
         assertEquals("sqlId", sqlMapClTemp.getStatementName());
         assertNull(sqlMapClTemp.getParameterObject());
-        // RowHandlerWrappereŒo—R‚ÅDataRowHandler‚ªÀs‚³‚ê‚½‚±‚Æ‚ÌŠm”F
+        // RowHandlerWrappereçµŒç”±ã§DataRowHandlerãŒå®Ÿè¡Œã•ã‚ŒãŸã“ã¨ã®ç¢ºèª
         assertTrue(LogUTUtil.checkInfo("param is null"));
     }
 

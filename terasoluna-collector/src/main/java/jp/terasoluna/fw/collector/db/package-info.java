@@ -1,4 +1,4 @@
 /**
- * データベースコレクタ
+ * 繝�繝ｼ繧ｿ繝吶�ｼ繧ｹ繧ｳ繝ｬ繧ｯ繧ｿ
  */
 package jp.terasoluna.fw.collector.db;

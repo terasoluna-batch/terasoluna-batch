@@ -26,18 +26,18 @@ import org.springframework.validation.Errors;
 import org.springmodules.validation.commons.MessageUtils;
 
 /**
- * {@link jp.terasoluna.fw.validation.FieldChecks}ƒNƒ‰ƒX‚É‚ÄA
- * SpringƒtƒŒ[ƒ€ƒ[ƒN‚Ì{@link org.springframework.validation.Errors}
- * ƒCƒ“ƒ^ƒtƒF[ƒX‚ÉƒGƒ‰[î•ñ‚ğ’Ç‰Á‚·‚é‚½‚ß‚ÌƒNƒ‰ƒXB
+ * {@link jp.terasoluna.fw.validation.FieldChecks}ã‚¯ãƒ©ã‚¹ã«ã¦ã€
+ * Springãƒ•ãƒ¬ãƒ¼ãƒ ãƒ¯ãƒ¼ã‚¯ã®{@link org.springframework.validation.Errors}
+ * ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã«ã‚¨ãƒ©ãƒ¼æƒ…å ±ã‚’è¿½åŠ ã™ã‚‹ãŸã‚ã®ã‚¯ãƒ©ã‚¹ã€‚
  * 
- * <p>–{ƒNƒ‰ƒX‚Í{@link jp.terasoluna.fw.validation.FieldChecks}ƒNƒ‰ƒX
- * ‚É‚Äg—p‚³‚ê‚Ä‚¢‚éƒGƒ‰[ƒCƒ“ƒ^ƒtƒF[ƒX
+ * <p>æœ¬ã‚¯ãƒ©ã‚¹ã¯{@link jp.terasoluna.fw.validation.FieldChecks}ã‚¯ãƒ©ã‚¹
+ * ã«ã¦ä½¿ç”¨ã•ã‚Œã¦ã„ã‚‹ã‚¨ãƒ©ãƒ¼ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹
  * {@link jp.terasoluna.fw.validation.ValidationErrors}
- * ‚ÌÀ‘•ƒNƒ‰ƒX‚Å‚ ‚éB
- * {@link jp.terasoluna.fw.validation.FieldChecks}ƒNƒ‰ƒX‚É‚Ä
- * Validator¶¬ƒNƒ‰ƒX‚ÌŠg’£ƒNƒ‰ƒX‚Å‚ ‚é
+ * ã®å®Ÿè£…ã‚¯ãƒ©ã‚¹ã§ã‚ã‚‹ã€‚
+ * {@link jp.terasoluna.fw.validation.FieldChecks}ã‚¯ãƒ©ã‚¹ã«ã¦
+ * Validatorç”Ÿæˆã‚¯ãƒ©ã‚¹ã®æ‹¡å¼µã‚¯ãƒ©ã‚¹ã§ã‚ã‚‹
  * {@link jp.terasoluna.fw.validation.springmodules.DefaultValidatorFactoryEx}
- * ‚ğg—p‚·‚é‚ÆA–{ƒNƒ‰ƒX‚ªg—p‚³‚ê‚éB</p>
+ * ã‚’ä½¿ç”¨ã™ã‚‹ã¨ã€æœ¬ã‚¯ãƒ©ã‚¹ãŒä½¿ç”¨ã•ã‚Œã‚‹ã€‚</p>
  * 
  * @see jp.terasoluna.fw.validation.FieldChecks
  * @see jp.terasoluna.fw.validation.springmodules.DefaultValidatorFactoryEx
@@ -45,43 +45,43 @@ import org.springmodules.validation.commons.MessageUtils;
 public class SpringValidationErrors implements ValidationErrors {
     
     /**
-     * –{ƒNƒ‰ƒX‚Å—˜—p‚·‚éƒƒOB
+     * æœ¬ã‚¯ãƒ©ã‚¹ã§åˆ©ç”¨ã™ã‚‹ãƒ­ã‚°ã€‚
      */
     private static Log log = 
         LogFactory.getLog(SpringValidationErrors.class);
     
     /**
-     * ƒ‰ƒbƒv‚·‚éSpringƒtƒŒ[ƒ€ƒ[ƒN‚ÌƒGƒ‰[ƒIƒuƒWƒFƒNƒgB
+     * ãƒ©ãƒƒãƒ—ã™ã‚‹Springãƒ•ãƒ¬ãƒ¼ãƒ ãƒ¯ãƒ¼ã‚¯ã®ã‚¨ãƒ©ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
      */
     private Errors errors = null;
     
     /**
-     * SpringƒtƒŒ[ƒ€ƒ[ƒN‚ÌƒGƒ‰[ƒIƒuƒWƒFƒNƒg‚ğİ’è‚·‚éB
-     * @param errors İ’è‚·‚é errorsB
+     * Springãƒ•ãƒ¬ãƒ¼ãƒ ãƒ¯ãƒ¼ã‚¯ã®ã‚¨ãƒ©ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’è¨­å®šã™ã‚‹ã€‚
+     * @param errors è¨­å®šã™ã‚‹ errorsã€‚
      */
     public void setErrors(Errors errors) {
         this.errors = errors;
     }
 
     /**
-     * SpringƒtƒŒ[ƒ€ƒ[ƒN‚ÌƒGƒ‰[ƒIƒuƒWƒFƒNƒg‚ğæ“¾‚·‚éB
-     * @return errors ‚ğ–ß‚µ‚Ü‚·B
+     * Springãƒ•ãƒ¬ãƒ¼ãƒ ãƒ¯ãƒ¼ã‚¯ã®ã‚¨ãƒ©ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return errors ã‚’æˆ»ã—ã¾ã™ã€‚
      */
     public Errors getErrors() {
         return errors;
     }
     
     /**
-     * ƒGƒ‰[‚ğ’Ç‰Á‚·‚éB
-     * ƒ‰ƒbƒv‚µ‚½SpringƒtƒŒ[ƒ€ƒ[ƒN‚ÌƒGƒ‰[ƒIƒuƒWƒFƒNƒg‚É
-     * ƒGƒ‰[‚ğ’Ç‰Á‚·‚éB
+     * ã‚¨ãƒ©ãƒ¼ã‚’è¿½åŠ ã™ã‚‹ã€‚
+     * ãƒ©ãƒƒãƒ—ã—ãŸSpringãƒ•ãƒ¬ãƒ¼ãƒ ãƒ¯ãƒ¼ã‚¯ã®ã‚¨ãƒ©ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«
+     * ã‚¨ãƒ©ãƒ¼ã‚’è¿½åŠ ã™ã‚‹ã€‚
      * 
-     * @param bean ŒŸØ’†‚ÌƒIƒuƒWƒFƒNƒgB
-     * @param field commons-validator‚ÌFieldƒIƒuƒWƒFƒNƒgB
-     * @param va  commons-validator‚ÌValidatorActionƒIƒuƒWƒFƒNƒgB
+     * @param bean æ¤œè¨¼ä¸­ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
+     * @param field commons-validatorã®Fieldã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
+     * @param va  commons-validatorã®ValidatorActionã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
      */
     public void addError(Object bean, Field field, ValidatorAction va) {
-        // ƒGƒ‰[î•ñ‚Ìæ‚èo‚µ
+        // ã‚¨ãƒ©ãƒ¼æƒ…å ±ã®å–ã‚Šå‡ºã—
         String fieldCode = field.getKey();
         String errorCode = MessageUtils.getMessageKey(va, field);
         Object[] args = MessageUtils.getArgs(va, field);
@@ -91,7 +91,7 @@ public class SpringValidationErrors implements ValidationErrors {
                     + errorCode + "']");
         }
 
-        // ƒGƒ‰[’Ç‰Á
+        // ã‚¨ãƒ©ãƒ¼è¿½åŠ 
         errors.rejectValue(fieldCode, errorCode, args, errorCode);
     }
 }

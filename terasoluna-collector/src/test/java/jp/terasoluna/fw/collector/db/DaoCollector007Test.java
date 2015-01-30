@@ -16,7 +16,7 @@ import org.junit.Test;
 
 /**
  * DaoCollectorTest
- * Call‚Ì“®ìŠm”F‚ÆADaoCollectorPrePostProcess˜AŒg‚ÌŠm”F—p
+ * Callã®å‹•ä½œç¢ºèªã¨ã€DaoCollectorPrePostProcessé€£æºã®ç¢ºèªç”¨
  */
 public class DaoCollector007Test extends DaoTestCase {
 
@@ -64,13 +64,13 @@ public class DaoCollector007Test extends DaoTestCase {
     }
 
     /**
-     * Call()‚ÌƒeƒXƒgiƒŠƒgƒ‰ƒC‹@”\j
-     * Call()ƒƒ\ƒbƒh‚Ìˆ—‚É‚¨‚¢‚ÄAexpStatus‚ªRETRY‚Ì‚Éƒ‹[ƒvˆ—‚ğŒJ‚è•Ô‚µÀs‚·‚é‚±‚Æ‚ğŠm”F‚·‚é
+     * Call()ã®ãƒ†ã‚¹ãƒˆï¼ˆãƒªãƒˆãƒ©ã‚¤æ©Ÿèƒ½ï¼‰
+     * Call()ãƒ¡ã‚½ãƒƒãƒ‰ã®å‡¦ç†ã«ãŠã„ã¦ã€expStatusãŒRETRYã®æ™‚ã«ãƒ«ãƒ¼ãƒ—å‡¦ç†ã‚’ç¹°ã‚Šè¿”ã—å®Ÿè¡Œã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹
      */
     @Test
     public void testCall001() {
     	DaoCollectorPrePostProcessStub002 dbcppp = new DaoCollectorPrePostProcessStub002();
-    	// config‚Ìˆø”‚Éw’è‚µ‚½SQLID‚Í‘¶İ‚µ‚È‚¢ƒe[ƒuƒ‹‚ğQÆiCall‚ÅException‚ğ‹N‚±‚³‚¹‚éj
+    	// configã®å¼•æ•°ã«æŒ‡å®šã—ãŸSQLIDã¯å­˜åœ¨ã—ãªã„ãƒ†ãƒ¼ãƒ–ãƒ«ã‚’å‚ç…§ï¼ˆCallã§Exceptionã‚’èµ·ã“ã•ã›ã‚‹ï¼‰
     	DaoCollectorConfig config = new DaoCollectorConfig(
     			this.userListQueryResultHandleDao, "collectDummy", null);
     	config.setExecuteByConstructor(true);
@@ -87,8 +87,8 @@ public class DaoCollector007Test extends DaoTestCase {
     }
     
     /**
-     * Call()‚ÌƒeƒXƒg
-     * SQLÀs‚ÉƒGƒ‰[‚ª”­¶‚¹‚¸³íI—¹‚·‚éê‡
+     * Call()ã®ãƒ†ã‚¹ãƒˆ
+     * SQLå®Ÿè¡Œæ™‚ã«ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã›ãšæ­£å¸¸çµ‚äº†ã™ã‚‹å ´åˆ
      * @throws Exception
      */
     @Test
@@ -102,30 +102,30 @@ public class DaoCollector007Test extends DaoTestCase {
     	dbc.resultHandler = new QueueingResultHandlerImpl();
     	Integer returncode = new Integer(99);
     	
-    	// CallÀs
+    	// Callå®Ÿè¡Œ
     	try {
     		returncode = dbc.call();
     	} catch (Exception e) {
     		fail();
     	}
     	
-    	// Call–ß‚è’lŠm”F
+    	// Callæˆ»ã‚Šå€¤ç¢ºèª
     	assertEquals(0, returncode.intValue());
-    	// PrePostProcessÀsŒ‹‰ÊŠm”F
+    	// PrePostProcesså®Ÿè¡Œçµæœç¢ºèª
     	assertTrue(dbcppp.getExecPreprocFlg());
     	assertTrue(dbcppp.getExecPostProcCompFlg());
     	assertFalse(dbcppp.getExecPostProcExcpFlg());
     }
 
     /**
-     * Call()‚ÌƒeƒXƒg
-     * SQLÀs‚ÉƒGƒ‰[‚ª”­¶‚µAƒGƒ‰[‚ÌƒXƒe[ƒ^ƒX‚ªTHROW‚Å‚ ‚éê‡
+     * Call()ã®ãƒ†ã‚¹ãƒˆ
+     * SQLå®Ÿè¡Œæ™‚ã«ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã€ã‚¨ãƒ©ãƒ¼ã®ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãŒTHROWã§ã‚ã‚‹å ´åˆ
      * @throws Exception
      */
     @Test
     public void testCall003() throws Exception {
     	DaoCollectorPrePostProcessStub004 dbcppp = new DaoCollectorPrePostProcessStub004();
-    	// config‚Ìˆø”‚Éw’è‚µ‚½SQLID‚Í‘¶İ‚µ‚È‚¢ƒe[ƒuƒ‹‚ğQÆiCall‚ÅException‚ğ‹N‚±‚³‚¹‚éj
+    	// configã®å¼•æ•°ã«æŒ‡å®šã—ãŸSQLIDã¯å­˜åœ¨ã—ãªã„ãƒ†ãƒ¼ãƒ–ãƒ«ã‚’å‚ç…§ï¼ˆCallã§Exceptionã‚’èµ·ã“ã•ã›ã‚‹ï¼‰
     	DaoCollectorConfig config = new DaoCollectorConfig(
     			this.userListQueryResultHandleDao, "collectDummy", null);
     	config.setExecuteByConstructor(true);
@@ -134,30 +134,30 @@ public class DaoCollector007Test extends DaoTestCase {
     	dbc.resultHandler = new QueueingResultHandlerImpl();
     	Integer returncode = new Integer(99);
     	
-    	// CallÀs
+    	// Callå®Ÿè¡Œ
     	try {
     		returncode = dbc.call();
     	} catch (Exception e) {
     		fail();
     	}
     	
-    	// Call–ß‚è’lŠm”F
+    	// Callæˆ»ã‚Šå€¤ç¢ºèª
     	assertEquals(-1, returncode.intValue());
-    	// PrePostProcessÀsŒ‹‰ÊŠm”F
+    	// PrePostProcesså®Ÿè¡Œçµæœç¢ºèª
     	assertTrue(dbcppp.getExecPreprocFlg());
     	assertTrue(dbcppp.getExecPostProcCompFlg());
     	assertTrue(dbcppp.getExecPostProcExcpFlg());
     }
 
     /**
-     * Call()‚ÌƒeƒXƒg
-     * SQLÀs‚ÉƒGƒ‰[‚ª”­¶‚µAƒGƒ‰[‚ÌƒXƒe[ƒ^ƒX‚ªNULL‚Å‚ ‚éê‡
+     * Call()ã®ãƒ†ã‚¹ãƒˆ
+     * SQLå®Ÿè¡Œæ™‚ã«ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã€ã‚¨ãƒ©ãƒ¼ã®ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãŒNULLã§ã‚ã‚‹å ´åˆ
      * @throws Exception
      */
     @Test
     public void testCall004() throws Exception {
     	DaoCollectorPrePostProcessStub005 dbcppp = new DaoCollectorPrePostProcessStub005();
-    	// config‚Ìˆø”‚Éw’è‚µ‚½SQLID‚Í‘¶İ‚µ‚È‚¢ƒe[ƒuƒ‹‚ğQÆiCall‚ÅException‚ğ‹N‚±‚³‚¹‚éj
+    	// configã®å¼•æ•°ã«æŒ‡å®šã—ãŸSQLIDã¯å­˜åœ¨ã—ãªã„ãƒ†ãƒ¼ãƒ–ãƒ«ã‚’å‚ç…§ï¼ˆCallã§Exceptionã‚’èµ·ã“ã•ã›ã‚‹ï¼‰
     	DaoCollectorConfig config = new DaoCollectorConfig(
     			this.userListQueryResultHandleDao, "collectDummy", null);
     	config.setExecuteByConstructor(true);
@@ -166,30 +166,30 @@ public class DaoCollector007Test extends DaoTestCase {
     	dbc.resultHandler = new QueueingResultHandlerImpl();
     	Integer returncode = new Integer(99);
     	
-    	// CallÀs
+    	// Callå®Ÿè¡Œ
     	try {
     		returncode = dbc.call();
     	} catch (Exception e) {
     		fail();
     	}
     	
-    	// Call–ß‚è’lŠm”F
+    	// Callæˆ»ã‚Šå€¤ç¢ºèª
     	assertEquals(-1, returncode.intValue());
-    	// PrePostProcessÀsŒ‹‰ÊŠm”F
+    	// PrePostProcesså®Ÿè¡Œçµæœç¢ºèª
     	assertTrue(dbcppp.getExecPreprocFlg());
     	assertTrue(dbcppp.getExecPostProcCompFlg());
     	assertTrue(dbcppp.getExecPostProcExcpFlg());
     }
 
     /**
-     * Call()‚ÌƒeƒXƒg
-     * SQLÀs‚ÉƒGƒ‰[‚ª”­¶‚µAƒGƒ‰[‚ÌƒXƒe[ƒ^ƒX‚ªEND‚Å‚ ‚éê‡
+     * Call()ã®ãƒ†ã‚¹ãƒˆ
+     * SQLå®Ÿè¡Œæ™‚ã«ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã€ã‚¨ãƒ©ãƒ¼ã®ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãŒENDã§ã‚ã‚‹å ´åˆ
      * @throws Exception
      */
     @Test
     public void testCall005() throws Exception {
     	DaoCollectorPrePostProcessStub006 dbcppp = new DaoCollectorPrePostProcessStub006();
-    	// config‚Ìˆø”‚Éw’è‚µ‚½SQLID‚Í‘¶İ‚µ‚È‚¢ƒe[ƒuƒ‹‚ğQÆiCall‚ÅException‚ğ‹N‚±‚³‚¹‚éj
+    	// configã®å¼•æ•°ã«æŒ‡å®šã—ãŸSQLIDã¯å­˜åœ¨ã—ãªã„ãƒ†ãƒ¼ãƒ–ãƒ«ã‚’å‚ç…§ï¼ˆCallã§Exceptionã‚’èµ·ã“ã•ã›ã‚‹ï¼‰
     	DaoCollectorConfig config = new DaoCollectorConfig(
     			this.userListQueryResultHandleDao, "collectDummy", null);
     	config.setExecuteByConstructor(true);
@@ -198,37 +198,37 @@ public class DaoCollector007Test extends DaoTestCase {
     	dbc.resultHandler = new QueueingResultHandlerImpl();
     	Integer returncode = new Integer(99);
     	
-    	// CallÀs
+    	// Callå®Ÿè¡Œ
     	try {
     		returncode = dbc.call();
     	} catch (Exception e) {
     		fail();
     	}
     	
-    	// Call–ß‚è’lŠm”F
+    	// Callæˆ»ã‚Šå€¤ç¢ºèª
     	assertEquals(0, returncode.intValue());
-    	// PrePostProcessÀsŒ‹‰ÊŠm”F
+    	// PrePostProcesså®Ÿè¡Œçµæœç¢ºèª
     	assertTrue(dbcppp.getExecPreprocFlg());
     	assertTrue(dbcppp.getExecPostProcCompFlg());
     	assertTrue(dbcppp.getExecPostProcExcpFlg());
     }
     
     /**
-     * Call()‚ÌƒeƒXƒg
-     * SQLÀs‚ÉƒGƒ‰[‚ª”­¶‚µAƒGƒ‰[‚ÌƒXƒe[ƒ^ƒX‚ªRETRY‚Å‚ ‚éê‡
+     * Call()ã®ãƒ†ã‚¹ãƒˆ
+     * SQLå®Ÿè¡Œæ™‚ã«ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã€ã‚¨ãƒ©ãƒ¼ã®ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãŒRETRYã§ã‚ã‚‹å ´åˆ
      * @throws Exception
      */
 //    @Test
 //    public void testCall00x() throws Exception {
-//    	// testCall001‚Æ“à—e‚ªd•¡‚·‚é‚½‚ßÈ—ª
+//    	// testCall001ã¨å†…å®¹ãŒé‡è¤‡ã™ã‚‹ãŸã‚çœç•¥
 //    	fail();
 //    }
     
     
     /**
-     * preprocess()‚ÌƒeƒXƒg
-     * DaoCollector‚©‚çDaoCollectorPrePostProcess#preprocess(DaoCollector<P> collector)
-     * ‚Ö‚Ì’l‚Ìó‚¯“n‚µ‚ª³í‚É‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚é
+     * preprocess()ã®ãƒ†ã‚¹ãƒˆ
+     * DaoCollectorã‹ã‚‰DaoCollectorPrePostProcess#preprocess(DaoCollector<P> collector)
+     * ã¸ã®å€¤ã®å—ã‘æ¸¡ã—ãŒæ­£å¸¸ã«ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹
      */
     @Test
     public void testPreprocess001() throws Exception{
@@ -237,20 +237,20 @@ public class DaoCollector007Test extends DaoTestCase {
     			this.userListQueryResultHandleDao, "collectDummy", null);
     	config.setDaoCollectorPrePostProcess(dbcppp);
     	DaoCollector<UserBean> dbc = new DaoCollector<UserBean>(config);
-    	// preprocessÀs‘O‚ÌŠm”FiresultHandler‚Ínullj
+    	// preprocesså®Ÿè¡Œå‰ã®ç¢ºèªï¼ˆresultHandlerã¯nullï¼‰
     	assertNull(dbc.resultHandler);
     	
-    	// preprocessÀsiƒpƒ‰ƒ[ƒ^‚ª³í‚É“n‚ê‚ÎresultHandler‚ªİ’è‚³‚ê‚éj
+    	// preprocesså®Ÿè¡Œï¼ˆãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãŒæ­£å¸¸ã«æ¸¡ã‚Œã°resultHandlerãŒè¨­å®šã•ã‚Œã‚‹ï¼‰
     	dbc.preprocess();
     	
-    	// preprocessÀsŒãŠm”FiresultHandler‚ªİ’è‚³‚ê‚Ä‚¢‚é‚±‚Æj
+    	// preprocesså®Ÿè¡Œå¾Œç¢ºèªï¼ˆresultHandlerãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹ã“ã¨ï¼‰
     	assertTrue(dbc.resultHandler instanceof QueueingResultHandlerImpl);
     }
 
     /**
-     * postprocessException(Throwable th)‚ÌƒeƒXƒg
-     * DaoCollector‚©‚çDaoCollectorPrePostProcess#postprocessException(DaoCollector<P> collector, Throwable throwable)
-     * ‚Ö‚Ì’l‚Ìó‚¯“n‚µ‚ª³í‚É‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚é
+     * postprocessException(Throwable th)ã®ãƒ†ã‚¹ãƒˆ
+     * DaoCollectorã‹ã‚‰DaoCollectorPrePostProcess#postprocessException(DaoCollector<P> collector, Throwable throwable)
+     * ã¸ã®å€¤ã®å—ã‘æ¸¡ã—ãŒæ­£å¸¸ã«ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹
      */
     @Test
     public void testPostprocessException001() throws Exception {
@@ -260,19 +260,19 @@ public class DaoCollector007Test extends DaoTestCase {
     	config.setDaoCollectorPrePostProcess(dbcppp);
     	DaoCollector<UserBean> dbc = new DaoCollector<UserBean>(config);
     	
-    	Exception ex = new Exception("postprocessExceptionƒeƒXƒg");
-    	// preprocessÀsiƒpƒ‰ƒ[ƒ^‚ª³í‚É“n‚ê‚ÎDaoCollectorPreProcessStatus.THROW‚ª–ß‚è’l‚É‚È‚éj
+    	Exception ex = new Exception("postprocessExceptionãƒ†ã‚¹ãƒˆ");
+    	// preprocesså®Ÿè¡Œï¼ˆãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãŒæ­£å¸¸ã«æ¸¡ã‚Œã°DaoCollectorPreProcessStatus.THROWãŒæˆ»ã‚Šå€¤ã«ãªã‚‹ï¼‰
     	DaoCollectorPrePostProcessStatus status = dbc.postprocessException(ex);
     	
-    	// preprocessÀsŒãŠm”Fistatus‚ªTHROW‚È‚çOKj
+    	// preprocesså®Ÿè¡Œå¾Œç¢ºèªï¼ˆstatusãŒTHROWãªã‚‰OKï¼‰
     	assertEquals(DaoCollectorPrePostProcessStatus.THROW, status);
 
     }
 
     /**
-     * postprocessComplete()‚ÌƒeƒXƒg
-     * DaoCollector‚©‚çDaoCollectorPrePostProcess#postprocessComplete(DaoCollector<P> collector)
-     * ‚Ö‚Ì’l‚Ìó‚¯“n‚µ‚ª³í‚É‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚é
+     * postprocessComplete()ã®ãƒ†ã‚¹ãƒˆ
+     * DaoCollectorã‹ã‚‰DaoCollectorPrePostProcess#postprocessComplete(DaoCollector<P> collector)
+     * ã¸ã®å€¤ã®å—ã‘æ¸¡ã—ãŒæ­£å¸¸ã«ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹
      */
     @Test
     public void testPostprocessComplete001() throws Exception {
@@ -281,13 +281,13 @@ public class DaoCollector007Test extends DaoTestCase {
     			this.userListQueryResultHandleDao, "collectDummy", null);
     	config.setDaoCollectorPrePostProcess(dbcppp);
     	DaoCollector<UserBean> dbc = new DaoCollector<UserBean>(config);
-    	// preprocessÀs‘O‚ÌŠm”FiresultHandler‚Ínullj
+    	// preprocesså®Ÿè¡Œå‰ã®ç¢ºèªï¼ˆresultHandlerã¯nullï¼‰
     	assertNull(dbc.resultHandler);
     	
-    	// preprocessÀsiƒpƒ‰ƒ[ƒ^‚ª³í‚É“n‚ê‚ÎresultHandler‚ªİ’è‚³‚ê‚éj
+    	// preprocesså®Ÿè¡Œï¼ˆãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãŒæ­£å¸¸ã«æ¸¡ã‚Œã°resultHandlerãŒè¨­å®šã•ã‚Œã‚‹ï¼‰
     	dbc.postprocessComplete();
     	
-    	// preprocessÀsŒãŠm”FiresultHandler‚ªİ’è‚³‚ê‚Ä‚¢‚é‚±‚Æj
+    	// preprocesså®Ÿè¡Œå¾Œç¢ºèªï¼ˆresultHandlerãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹ã“ã¨ï¼‰
     	assertTrue(dbc.resultHandler instanceof QueueingResultHandlerImpl);
 
     }

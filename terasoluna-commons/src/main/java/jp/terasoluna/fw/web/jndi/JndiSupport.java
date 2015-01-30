@@ -17,11 +17,11 @@
 package jp.terasoluna.fw.web.jndi;
 
 /**
- * <p>JNDIŠÖ˜A‚Ìƒ†[ƒeƒBƒŠƒeƒBƒCƒ“ƒ^ƒtƒF[ƒXB</p>
+ * <p>JNDIé–¢é€£ã®ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã€‚</p>
  * 
- * WebAPƒRƒ“ƒeƒi‚ÌJNDIƒŠƒ\[ƒX‚ğˆµ‚¤‚½‚ß‚É‚Í‚±‚ÌƒCƒ“ƒ^ƒtƒF[ƒX‚ğÀ‘•‚·‚é
- * •K—v‚ª‚ ‚éB<br>
- * TERASOLUNA‚ÍƒfƒtƒHƒ‹ƒgÀ‘•ƒNƒ‰ƒX‚Æ‚µ‚Ä{@link DefaultJndiSupport}‚ğ’ñ‹Ÿ‚·‚éB
+ * WebAPã‚³ãƒ³ãƒ†ãƒŠã®JNDIãƒªã‚½ãƒ¼ã‚¹ã‚’æ‰±ã†ãŸã‚ã«ã¯ã“ã®ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã‚’å®Ÿè£…ã™ã‚‹
+ * å¿…è¦ãŒã‚ã‚‹ã€‚<br>
+ * TERASOLUNAã¯ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå®Ÿè£…ã‚¯ãƒ©ã‚¹ã¨ã—ã¦{@link DefaultJndiSupport}ã‚’æä¾›ã™ã‚‹ã€‚
  * <br>
  * <br>
  * @see jp.terasoluna.fw.web.jndi.DefaultJndiSupport
@@ -29,31 +29,31 @@ package jp.terasoluna.fw.web.jndi;
 public interface JndiSupport {
     
     /**
-     * DIƒRƒ“ƒeƒi‚©‚çæ“¾‚·‚éJndiSupportÀ‘•ƒNƒ‰ƒX‚ÌƒL[
+     * DIã‚³ãƒ³ãƒ†ãƒŠã‹ã‚‰å–å¾—ã™ã‚‹JndiSupportå®Ÿè£…ã‚¯ãƒ©ã‚¹ã®ã‚­ãƒ¼
      */
     public static final String JNDI_SUPPORT_KEY = "jndiSupport";
     
     /**
-     * w’è‚³‚ê‚½ƒIƒuƒWƒFƒNƒg‚ğæ“¾‚·‚éB
+     * æŒ‡å®šã•ã‚ŒãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å–å¾—ã™ã‚‹ã€‚
      *
-     * @param name ƒIƒuƒWƒFƒNƒg–¼
-     * @return ƒIƒuƒWƒFƒNƒg
+     * @param name ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆå
+     * @return ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      */
     public Object lookup(String name);
     
     /**
-     * –¼‘O‚ğƒIƒuƒWƒFƒNƒg‚ÉƒoƒCƒ“ƒh‚µ‚ÄA
-     * Šù‘¶‚ÌƒoƒCƒ“ƒfƒBƒ“ƒO‚ğã‘‚«‚·‚éB
+     * åå‰ã‚’ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«ãƒã‚¤ãƒ³ãƒ‰ã—ã¦ã€
+     * æ—¢å­˜ã®ãƒã‚¤ãƒ³ãƒ‡ã‚£ãƒ³ã‚°ã‚’ä¸Šæ›¸ãã™ã‚‹ã€‚
      *
-     * @param name ƒIƒuƒWƒFƒNƒg–¼
-     * @param obj ƒoƒCƒ“ƒh‚³‚ê‚éƒIƒuƒWƒFƒNƒg
+     * @param name ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆå
+     * @param obj ãƒã‚¤ãƒ³ãƒ‰ã•ã‚Œã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      */
     public void rebind(String name, Object obj);
     
     /**
-     * w’è‚³‚ê‚½ƒIƒuƒWƒFƒNƒg‚ğƒAƒ“ƒoƒCƒ“ƒh‚·‚éB
+     * æŒ‡å®šã•ã‚ŒãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ã‚¢ãƒ³ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹ã€‚
      * 
-     * @param name ƒIƒuƒWƒFƒNƒg–¼
+     * @param name ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆå
      */
     public void unbind(String name);
 }

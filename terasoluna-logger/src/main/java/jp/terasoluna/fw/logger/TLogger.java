@@ -23,25 +23,25 @@ import org.apache.commons.logging.LogFactory;
 import jp.terasoluna.fw.message.MessageManager;
 
 /**
- * ”Ä—pƒƒK[ƒNƒ‰ƒXB<br>
+ * æ±Žç”¨ãƒ­ã‚¬ãƒ¼ã‚¯ãƒ©ã‚¹ã€‚<br>
  * <p>
- * CommonsLogging‚ÌƒƒK[‚ðƒ‰ƒbƒv‚µ‚½ƒƒK[‚Å‚·B<br>
- * ƒƒOƒƒbƒZ[ƒW‚ðƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚ÅŠÇ—‚µAƒƒOo—Íƒƒ\ƒbƒh‚Ìˆø”‚ÉƒƒOID‚ð“n‚·‚±‚Æ‚ÅAƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹’†‚ÌƒƒOID‚É‘Î‚·‚éƒƒbƒZ[ƒW‚ðo—Í‚Å‚«‚Ü‚·B
+ * CommonsLoggingã®ãƒ­ã‚¬ãƒ¼ã‚’ãƒ©ãƒƒãƒ—ã—ãŸãƒ­ã‚¬ãƒ¼ã§ã™ã€‚<br>
+ * ãƒ­ã‚°ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ã§ç®¡ç†ã—ã€ãƒ­ã‚°å‡ºåŠ›ãƒ¡ã‚½ãƒƒãƒ‰ã®å¼•æ•°ã«ãƒ­ã‚°IDã‚’æ¸¡ã™ã“ã¨ã§ã€ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ä¸­ã®ãƒ­ã‚°IDã«å¯¾ã™ã‚‹ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å‡ºåŠ›ã§ãã¾ã™ã€‚
  * </p>
- * <h3>ƒƒK[Žæ“¾</h3>
+ * <h3>ãƒ­ã‚¬ãƒ¼å–å¾—</h3>
  * <p>
- * ƒƒK[‚ÌŽæ“¾‚Í‘¼‚ÌƒƒK[ƒ‰ƒCƒuƒ‰ƒŠ‚Æ‚Ù‚Ú“¯‚¶‚Å‚·B
+ * ãƒ­ã‚¬ãƒ¼ã®å–å¾—ã¯ä»–ã®ãƒ­ã‚¬ãƒ¼ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã¨ã»ã¼åŒã˜ã§ã™ã€‚
  * </p>
  * 
  * <pre>
  * TLogger logger = TLogger.getLogger(XX.class);
- * ‚Ü‚½‚Í
- * TLogger logger = TLogger.getLogger("ƒJƒeƒSƒŠ–¼");
+ * ã¾ãŸã¯
+ * TLogger logger = TLogger.getLogger("ã‚«ãƒ†ã‚´ãƒªå");
  * </pre>
  * 
- * <h3>ƒƒOo—Í</h3>
+ * <h3>ãƒ­ã‚°å‡ºåŠ›</h3>
  * <p>
- * ŽŸ‚Ì‚æ‚¤‚ÈƒƒOƒƒbƒZ[ƒWƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚ª‚ ‚éê‡
+ * æ¬¡ã®ã‚ˆã†ãªãƒ­ã‚°ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ãŒã‚ã‚‹å ´åˆ
  * </p>
  * 
  * <pre>
@@ -49,7 +49,7 @@ import jp.terasoluna.fw.message.MessageManager;
  * ERR001=error message
  * </pre>
  * <p>
- * ‚±‚ÌƒƒbƒZ[ƒW‚ðo—Í‚·‚é‚É‚Í
+ * ã“ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å‡ºåŠ›ã™ã‚‹ã«ã¯
  * </p>
  * 
  * <pre>
@@ -57,7 +57,7 @@ import jp.terasoluna.fw.message.MessageManager;
  * logger.error(&quot;ERR001&quot;);
  * </pre>
  * <p>
- * ‚Ì‚æ‚¤‚ÉƒƒOƒŒƒxƒ‹‚É‰ž‚¶‚½ƒƒ\ƒbƒh‚ÉƒƒOID‚ð“n‚µ‚ÄŽÀs‚µ‚Ü‚·B o—ÍƒƒbƒZ[ƒW‚Í
+ * ã®ã‚ˆã†ã«ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ã«å¿œã˜ãŸãƒ¡ã‚½ãƒƒãƒ‰ã«ãƒ­ã‚°IDã‚’æ¸¡ã—ã¦å®Ÿè¡Œã—ã¾ã™ã€‚ å‡ºåŠ›ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã¯
  * </p>
  * 
  * <pre>
@@ -65,9 +65,9 @@ import jp.terasoluna.fw.message.MessageManager;
  * [ERR001] error message
  * </pre>
  * <p>
- * ‚Æ‚È‚è‚Ü‚·BƒƒbƒZ[ƒW‚Ì‘O‚É[ƒƒOID]‚ªŽ©“®‚Å•t‚«‚Ü‚·B<br>
+ * ã¨ãªã‚Šã¾ã™ã€‚ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®å‰ã«[ãƒ­ã‚°ID]ãŒè‡ªå‹•ã§ä»˜ãã¾ã™ã€‚<br>
  * 
- * ƒƒOƒŒƒxƒ‹‚Í
+ * ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ã¯
  * <ul>
  * <li>FATAL</li>
  * <li>ERROR</li>
@@ -76,34 +76,34 @@ import jp.terasoluna.fw.message.MessageManager;
  * <li>DEBUG</li>
  * <li>TRACE</li>
  * </ul>
- * ‚ª‚ ‚è‚Ü‚·B<code>log(String logId)</code>ƒƒ\ƒbƒh‚ðŽg—p‚·‚é‚ÆAƒƒOID‚Ìˆê•¶Žš–Ú‚ðŒ©‚ÄƒƒOƒŒƒxƒ‹‚ð”»’f‚µ‚Ü‚·B
+ * ãŒã‚ã‚Šã¾ã™ã€‚<code>log(String logId)</code>ãƒ¡ã‚½ãƒƒãƒ‰ã‚’ä½¿ç”¨ã™ã‚‹ã¨ã€ãƒ­ã‚°IDã®ä¸€æ–‡å­—ç›®ã‚’è¦‹ã¦ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ã‚’åˆ¤æ–­ã—ã¾ã™ã€‚
  * </p>
- * <h3>ƒpƒ‰ƒ[ƒ^’uŠ·</h3>
+ * <h3>ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ç½®æ›</h3>
  * <p>
- * o—Í‚·‚éƒƒOƒƒbƒZ[ƒW‚ðì¬‚·‚éÛ‚ÉA{@link java.text.MessageFormat}
- * ‚ðŽg—p‚µ‚Ä‚¢‚Ü‚·B’uŠ·ƒpƒ‰ƒ[ƒ^‚ð‰Â•Ï’·”z—ñ‚Å“n‚·‚±‚Æ‚ª‚Å‚«‚Ü‚·B
+ * å‡ºåŠ›ã™ã‚‹ãƒ­ã‚°ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’ä½œæˆã™ã‚‹éš›ã«ã€{@link java.text.MessageFormat}
+ * ã‚’ä½¿ç”¨ã—ã¦ã„ã¾ã™ã€‚ç½®æ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’å¯å¤‰é•·é…åˆ—ã§æ¸¡ã™ã“ã¨ãŒã§ãã¾ã™ã€‚
  * </p>
  * 
  * <pre>
  * DEB002={0} is {1}.
  * </pre>
  * <p>
- * ‚Æ‚¢‚¤’è‹`‚ª‚ ‚éê‡A
+ * ã¨ã„ã†å®šç¾©ãŒã‚ã‚‹å ´åˆã€
  * </p>
  * 
  * <pre>
  * logger.debug(&quot;DEB002&quot;, &quot;hoge&quot;, &quot;foo&quot;);
  * </pre>
  * <p>
- * ‚ðŽÀs‚·‚é‚Æo—ÍƒƒbƒZ[ƒW‚Í
+ * ã‚’å®Ÿè¡Œã™ã‚‹ã¨å‡ºåŠ›ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã¯
  * </p>
  * 
  * <pre>
  * [DEB002] hoge is foo.
  * </pre>
  * <p>
- * ‚Æ‚È‚è‚Ü‚·B <br>
- * “à•”‚ÅƒƒbƒZ[ƒW•¶Žš—ñ‚ðì¬‚·‚éÛ‚ÉƒƒOƒŒƒxƒ‹‚Ìƒ`ƒFƒbƒN‚ðs‚Á‚Ä‚¢‚é‚Ì‚ÅA
+ * ã¨ãªã‚Šã¾ã™ã€‚ <br>
+ * å†…éƒ¨ã§ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸æ–‡å­—åˆ—ã‚’ä½œæˆã™ã‚‹éš›ã«ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ã®ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã£ã¦ã„ã‚‹ã®ã§ã€
  * </p>
  * 
  * <pre>
@@ -112,13 +112,13 @@ import jp.terasoluna.fw.message.MessageManager;
  * }
  * </pre>
  * <p>
- * ‚Æ‚¢‚¤if•¶‚ð‘‚­•K—v‚ª‚ ‚è‚Ü‚¹‚ñB(‚½‚¾‚µA
- * ƒpƒ‰ƒ[ƒ^‚ðì¬‚·‚éÛ‚Éƒƒ\ƒbƒh‚ðŒÄ‚Ño‚µ‚Ä‚¢‚éê‡‚Íif•¶‚ð‘‚¢‚Ä–¾Ž¦“I‚ÉƒƒOƒŒƒxƒ‹ƒ`ƒFƒbƒN‚ðs‚Á‚Ä‚­‚¾‚³‚¢B)
+ * ã¨ã„ã†ifæ–‡ã‚’æ›¸ãå¿…è¦ãŒã‚ã‚Šã¾ã›ã‚“ã€‚(ãŸã ã—ã€
+ * ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’ä½œæˆã™ã‚‹éš›ã«ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã—ã¦ã„ã‚‹å ´åˆã¯ifæ–‡ã‚’æ›¸ã„ã¦æ˜Žç¤ºçš„ã«ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã£ã¦ãã ã•ã„ã€‚)
  * </p>
- * <h3>ƒƒbƒZ[ƒWƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚É‚È‚¢ƒƒbƒZ[ƒW‚Ìo—Í</h3>
+ * <h3>ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ã«ãªã„ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®å‡ºåŠ›</h3>
  * <p>
- * ƒƒbƒZ[ƒWƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹’†‚ÌƒƒOID‚ð“n‚·‘¼‚ÉA’¼ÚƒƒbƒZ[ƒW‚ð“n‚·•û–@‚ª‚ ‚è‚Ü‚·B‘æ1ˆø”‚Éfalse
- * ‚ðÝ’è‚µA‘æ2ˆø”‚ÉƒƒbƒZ[ƒW–{•¶‚ð’¼Ú‹Lq‚Å‚«‚Ü‚·B‘æ3ˆø”ˆÈ~‚Í’uŠ·ƒpƒ‰ƒ[ƒ^‚Å‚·B‚±‚Ìê‡‚Í“–‘RƒƒOID‚Ío—Í‚³‚ê‚Ü‚¹‚ñB
+ * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ä¸­ã®ãƒ­ã‚°IDã‚’æ¸¡ã™ä»–ã«ã€ç›´æŽ¥ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’æ¸¡ã™æ–¹æ³•ãŒã‚ã‚Šã¾ã™ã€‚ç¬¬1å¼•æ•°ã«false
+ * ã‚’è¨­å®šã—ã€ç¬¬2å¼•æ•°ã«ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸æœ¬æ–‡ã‚’ç›´æŽ¥è¨˜è¿°ã§ãã¾ã™ã€‚ç¬¬3å¼•æ•°ä»¥é™ã¯ç½®æ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã§ã™ã€‚ã“ã®å ´åˆã¯å½“ç„¶ãƒ­ã‚°IDã¯å‡ºåŠ›ã•ã‚Œã¾ã›ã‚“ã€‚
  * </p>
  * 
  * <pre>
@@ -126,7 +126,7 @@ import jp.terasoluna.fw.message.MessageManager;
  * logger.info(false, &quot;Hello {0}!&quot;, &quot;World&quot;);
  * </pre>
  * <p>
- * o—ÍƒƒbƒZ[ƒW‚Í
+ * å‡ºåŠ›ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã¯
  * </p>
  * 
  * <pre>
@@ -134,111 +134,111 @@ import jp.terasoluna.fw.message.MessageManager;
  * Hello World!
  * </pre>
  * <p>
- * ‚Æ‚È‚è‚Ü‚·B
+ * ã¨ãªã‚Šã¾ã™ã€‚
  * </p>
- * <h3>Ý’èƒtƒ@ƒCƒ‹</h3>
+ * <h3>è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«</h3>
  * <p>
- * ƒNƒ‰ƒXƒpƒX’¼‰º‚Ì<code>META-INF</code>ƒfƒBƒŒƒNƒgƒŠ‚É<code>terasoluna-logger.properties</code>
- * ‚ðì¬‚µ‚Ä‚­‚¾‚³‚¢B
+ * ã‚¯ãƒ©ã‚¹ãƒ‘ã‚¹ç›´ä¸‹ã®<code>META-INF</code>ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã«<code>terasoluna-logger.properties</code>
+ * ã‚’ä½œæˆã—ã¦ãã ã•ã„ã€‚
  * </p>
- * <h4>ƒƒbƒZ[ƒWƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚Ìƒx[ƒXƒl[ƒ€Ý’è</h4>
+ * <h4>ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ™ãƒ¼ã‚¹ãƒãƒ¼ãƒ è¨­å®š</h4>
  * <p>
- * <code>terasoluna-logger.properties</code>‚Ì<code>message.basename</code>
- * ƒL[‚ÉƒƒbƒZ[ƒWƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚Ìƒx[ƒXƒl[ƒ€‚ðƒNƒ‰ƒXƒpƒX‘Š‘Î(FQCN)‚ÅÝ’è‚µ‚Ä‚­‚¾‚³‚¢B<br>
- * {@link java.util.ResourceBundle}‚Å“Ç‚Ýž‚Þ‚Ì‚ÅA‘Û‰»‚É‘Î‰ž‚µ‚Ä‚¢‚Ü‚·B
+ * <code>terasoluna-logger.properties</code>ã®<code>message.basename</code>
+ * ã‚­ãƒ¼ã«ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ™ãƒ¼ã‚¹ãƒãƒ¼ãƒ ã‚’ã‚¯ãƒ©ã‚¹ãƒ‘ã‚¹ç›¸å¯¾(FQCN)ã§è¨­å®šã—ã¦ãã ã•ã„ã€‚<br>
+ * {@link java.util.ResourceBundle}ã§èª­ã¿è¾¼ã‚€ã®ã§ã€å›½éš›åŒ–ã«å¯¾å¿œã—ã¦ã„ã¾ã™ã€‚
  * </p>
  * 
  * <pre>
  * message.basename = hoge
  * </pre>
  * <p>
- * ‚Æ‘‚­‚ÆƒNƒ‰ƒXƒpƒX’¼‰º‚Ìhoge.properties‚ª“Ç‚Ýž‚Ü‚ê‚Ü‚·B
+ * ã¨æ›¸ãã¨ã‚¯ãƒ©ã‚¹ãƒ‘ã‚¹ç›´ä¸‹ã®hoge.propertiesãŒèª­ã¿è¾¼ã¾ã‚Œã¾ã™ã€‚
  * </p>
  * 
  * <pre>
  * message.basename=hoge,foo,bar
  * </pre>
  * <p>
- * ‚Ì‚æ‚¤‚É”¼ŠpƒJƒ“ƒ}‹æØ‚è‚ÅÝ’è‚·‚é‚Æ‘S‚Ä‚ð“Ç‚Ýž‚Ý‚Ü‚·B<br>
- * <code>META-INF/terasoluna-logger.properies</code>‚Ì
- * <code>message.basename</code>‚Íƒ‚ƒWƒ…[ƒ‹–ˆ‚ÉÝ’è‚Å‚«‚Ü‚·B ƒƒK[‚Í‘S‚Ä‚Ìƒ‚ƒWƒ…[ƒ‹(jar)‚ªŽ‚ÂA
- * <code>message.basename</code>‚Ì’l‚ðƒ}[ƒW‚µ‚ÄƒƒbƒZ[ƒW‚ðŽæ“¾‚µ‚Ü‚·B <br>
- * ‚±‚ê‚É‚æ‚èAƒ‚ƒWƒ…[ƒ‹–ˆ‚ÉƒƒOƒƒbƒZ[ƒW‚ðŠÇ—‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B
+ * ã®ã‚ˆã†ã«åŠè§’ã‚«ãƒ³ãƒžåŒºåˆ‡ã‚Šã§è¨­å®šã™ã‚‹ã¨å…¨ã¦ã‚’èª­ã¿è¾¼ã¿ã¾ã™ã€‚<br>
+ * <code>META-INF/terasoluna-logger.properies</code>ã®
+ * <code>message.basename</code>ã¯ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«æ¯Žã«è¨­å®šã§ãã¾ã™ã€‚ ãƒ­ã‚¬ãƒ¼ã¯å…¨ã¦ã®ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«(jar)ãŒæŒã¤ã€
+ * <code>message.basename</code>ã®å€¤ã‚’ãƒžãƒ¼ã‚¸ã—ã¦ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å–å¾—ã—ã¾ã™ã€‚ <br>
+ * ã“ã‚Œã«ã‚ˆã‚Šã€ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«æ¯Žã«ãƒ­ã‚°ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’ç®¡ç†ã™ã‚‹ã“ã¨ãŒã§ãã¾ã™ã€‚
  * </p>
- * <h4>o—ÍƒƒOIDƒtƒH[ƒ}ƒbƒgÝ’è</h4>
+ * <h4>å‡ºåŠ›ãƒ­ã‚°IDãƒ•ã‚©ãƒ¼ãƒžãƒƒãƒˆè¨­å®š</h4>
  * <p>
- * ƒƒOo—ÍŽž‚ÉŽ©“®‚Å•t‰Á‚³‚ê‚éƒƒOID‚ÌƒtƒH[ƒ}ƒbƒg‚ðÝ’è‚Å‚«‚Ü‚·B<br>
- * <code>message.id.format</code>ƒL[‚É
+ * ãƒ­ã‚°å‡ºåŠ›æ™‚ã«è‡ªå‹•ã§ä»˜åŠ ã•ã‚Œã‚‹ãƒ­ã‚°IDã®ãƒ•ã‚©ãƒ¼ãƒžãƒƒãƒˆã‚’è¨­å®šã§ãã¾ã™ã€‚<br>
+ * <code>message.id.format</code>ã‚­ãƒ¼ã«
  * {@link java.lang.String#format(String, Object...)}
- * ‚ÌƒtƒH[ƒ}ƒbƒgŒ`Ž®‚ÅÝ’è‚µ‚Ä‚­‚¾‚³‚¢BƒƒOID‚ª•¶Žš—ñ‚Æ‚µ‚Ä“n‚³‚ê‚Ü‚·B <br>
- * Ý’è‚µ‚È‚¢ê‡‚Íu[%s]v‚ªƒfƒtƒHƒ‹ƒg’l‚Æ‚µ‚ÄŽg—p‚³‚ê‚Ü‚·B <br>
+ * ã®ãƒ•ã‚©ãƒ¼ãƒžãƒƒãƒˆå½¢å¼ã§è¨­å®šã—ã¦ãã ã•ã„ã€‚ãƒ­ã‚°IDãŒæ–‡å­—åˆ—ã¨ã—ã¦æ¸¡ã•ã‚Œã¾ã™ã€‚ <br>
+ * è¨­å®šã—ãªã„å ´åˆã¯ã€Œ[%s]ã€ãŒãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ã¨ã—ã¦ä½¿ç”¨ã•ã‚Œã¾ã™ã€‚ <br>
  * </p>
  * 
  * <pre>
  * message.id.format=[%-8s]
  * </pre>
  * <p>
- * ‚Ì‚æ‚¤‚ÉÝ’è‚·‚é‚ÆAƒ‚ƒWƒ…[ƒ‹ŠÔ‚ÅˆÙ‚È‚é’·‚³‚ÌƒƒOID‚ð¶Šñ‚¹‚Å‘µ‚¦‚Äo—Í‚Å‚«‚Ü‚·B <br>
- * ‚±‚ÌÝ’è’l‚Íƒ‚ƒWƒ…[ƒ‹–ˆ‚ÉŠÇ—‚·‚é‚±‚Æ‚Í‚Å‚«‚Ü‚¹‚ñB <br>
- * ƒNƒ‰ƒXƒ[ƒ_‚Ì“Ç‚Ýž‚Ý—Dæ“x‚ªˆê”Ô‚‚¢<code>terasoluna-logger.properties</code>‚Ì’l‚ª”½‰f‚³‚ê‚Ü‚·B
- * (’ÊíAƒAƒvƒŠ‘¤‚ÌÝ’è‚Æ‚È‚è‚Ü‚·B)
+ * ã®ã‚ˆã†ã«è¨­å®šã™ã‚‹ã¨ã€ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«é–“ã§ç•°ãªã‚‹é•·ã•ã®ãƒ­ã‚°IDã‚’å·¦å¯„ã›ã§æƒãˆã¦å‡ºåŠ›ã§ãã¾ã™ã€‚ <br>
+ * ã“ã®è¨­å®šå€¤ã¯ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«æ¯Žã«ç®¡ç†ã™ã‚‹ã“ã¨ã¯ã§ãã¾ã›ã‚“ã€‚ <br>
+ * ã‚¯ãƒ©ã‚¹ãƒ­ãƒ¼ãƒ€ã®èª­ã¿è¾¼ã¿å„ªå…ˆåº¦ãŒä¸€ç•ªé«˜ã„<code>terasoluna-logger.properties</code>ã®å€¤ãŒåæ˜ ã•ã‚Œã¾ã™ã€‚
+ * (é€šå¸¸ã€ã‚¢ãƒ—ãƒªå´ã®è¨­å®šã¨ãªã‚Šã¾ã™ã€‚)
  * </p>
  */
 public class TLogger implements Log {
     /**
-     * ƒƒK[ŽÀ‘ÌB
+     * ãƒ­ã‚¬ãƒ¼å®Ÿä½“ã€‚
      */
     private final Log logger;
 
     /**
-     * ƒƒK[Ý’èƒtƒ@ƒCƒ‹B
+     * ãƒ­ã‚¬ãƒ¼è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã€‚
      */
     private static final String CONFIG_FILENAME = "META-INF/terasoluna-logger.properties";
     /**
-     * ƒƒbƒZ[ƒWŠÇ—B
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ç®¡ç†ã€‚
      */
     private static final MessageManager MESSAGE_MANAGER = new MessageManager(
             CONFIG_FILENAME);
 
     /**
-     * ƒƒP[ƒ‹‚ð•ÛŽ‚·‚éƒXƒŒƒbƒhƒ[ƒJƒ‹B
+     * ãƒ­ã‚±ãƒ¼ãƒ«ã‚’ä¿æŒã™ã‚‹ã‚¹ãƒ¬ãƒƒãƒ‰ãƒ­ãƒ¼ã‚«ãƒ«ã€‚
      */
     private static final ThreadLocal<Locale> locale = new ThreadLocal<Locale>();
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      * 
-     * @param clazz ƒJƒeƒSƒŠ–¼‚Æ‚È‚éƒNƒ‰ƒX
+     * @param clazz ã‚«ãƒ†ã‚´ãƒªåã¨ãªã‚‹ã‚¯ãƒ©ã‚¹
      */
     protected TLogger(Class<?> clazz) {
         logger = LogFactory.getLog(clazz);
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      * 
-     * @param name ƒJƒeƒSƒŠ–¼
+     * @param name ã‚«ãƒ†ã‚´ãƒªå
      */
     protected TLogger(String name) {
         logger = LogFactory.getLog(name);
     }
 
     /**
-     * ƒƒP[ƒ‹‚ðÝ’è‚µ‚Ü‚·B
+     * ãƒ­ã‚±ãƒ¼ãƒ«ã‚’è¨­å®šã—ã¾ã™ã€‚
      * 
-     * @param locale ƒƒP[ƒ‹
+     * @param locale ãƒ­ã‚±ãƒ¼ãƒ«
      */
     public static void setLocale(Locale locale) {
         TLogger.locale.set(locale);
     }
 
     /**
-     * ƒƒOƒƒbƒZ[ƒW‚ðì¬‚µ‚Ü‚·B
+     * ãƒ­ã‚°ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’ä½œæˆã—ã¾ã™ã€‚
      * 
-     * @param resource ƒŠƒ\[ƒX—L–³
-     * @param logIdOrPattern ƒƒOIDiƒŠƒ\[ƒX—L‚Ìê‡j / ƒƒOƒƒbƒZ[ƒWƒpƒ^[ƒ“(ƒŠƒ\[ƒX–³‚Ìê‡)
-     * @param args ’uŠ·ƒpƒ‰ƒ[ƒ^
-     * @return ƒƒOƒƒbƒZ[ƒW•¶Žš—ñ
+     * @param resource ãƒªã‚½ãƒ¼ã‚¹æœ‰ç„¡
+     * @param logIdOrPattern ãƒ­ã‚°IDï¼ˆãƒªã‚½ãƒ¼ã‚¹æœ‰ã®å ´åˆï¼‰ / ãƒ­ã‚°ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ‘ã‚¿ãƒ¼ãƒ³(ãƒªã‚½ãƒ¼ã‚¹ç„¡ã®å ´åˆ)
+     * @param args ç½®æ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
+     * @return ãƒ­ã‚°ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸æ–‡å­—åˆ—
      * @see {@link MessageManager#getMessage(boolean, String, Locale, Object...)}
      */
     protected String createMessage(boolean resource, String logIdOrPattern,
@@ -249,20 +249,20 @@ public class TLogger implements Log {
     }
 
     /**
-     * ƒƒK[‚ðŽæ“¾‚µ‚Ü‚·B
+     * ãƒ­ã‚¬ãƒ¼ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * @param clazz ƒJƒeƒSƒŠ–¼‚Æ‚È‚éƒNƒ‰ƒX
-     * @return ƒƒK[
+     * @param clazz ã‚«ãƒ†ã‚´ãƒªåã¨ãªã‚‹ã‚¯ãƒ©ã‚¹
+     * @return ãƒ­ã‚¬ãƒ¼
      */
     public static TLogger getLogger(Class<?> clazz) {
         return new TLogger(clazz);
     }
 
     /**
-     * ƒƒK[‚ðŽæ“¾‚µ‚Ü‚·B
+     * ãƒ­ã‚¬ãƒ¼ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * @param name ƒJƒeƒSƒŠ–¼
-     * @return ƒƒK[
+     * @param name ã‚«ãƒ†ã‚´ãƒªå
+     * @return ãƒ­ã‚¬ãƒ¼
      */
     public static TLogger getLogger(String name) {
         return new TLogger(name);
@@ -278,11 +278,11 @@ public class TLogger implements Log {
     }
 
     /**
-     * FATALƒƒO‚ðo—Í‚µ‚Ü‚·B
+     * FATALãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚
      * 
-     * @param resource ƒŠƒ\[ƒX—L–³
-     * @param logIdOrPattern ƒƒOIDiƒŠƒ\[ƒX—L‚Ìê‡j / ƒƒOƒƒbƒZ[ƒWƒpƒ^[ƒ“(ƒŠƒ\[ƒX–³‚Ìê‡)
-     * @param args ’uŠ·ƒpƒ‰ƒ[ƒ^
+     * @param resource ãƒªã‚½ãƒ¼ã‚¹æœ‰ç„¡
+     * @param logIdOrPattern ãƒ­ã‚°IDï¼ˆãƒªã‚½ãƒ¼ã‚¹æœ‰ã®å ´åˆï¼‰ / ãƒ­ã‚°ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ‘ã‚¿ãƒ¼ãƒ³(ãƒªã‚½ãƒ¼ã‚¹ç„¡ã®å ´åˆ)
+     * @param args ç½®æ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public void fatal(boolean resource, String logIdOrPattern, Object... args) {
         if (isFatalEnabled()) {
@@ -292,12 +292,12 @@ public class TLogger implements Log {
     }
 
     /**
-     * FATALƒƒO‚ðo—Í‚µ‚Ü‚·B
+     * FATALãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚
      * 
-     * @param resource ƒŠƒ\[ƒX—L–³
-     * @param logIdOrPattern ƒƒOIDiƒŠƒ\[ƒX—L‚Ìê‡j / ƒƒOƒƒbƒZ[ƒWƒpƒ^[ƒ“(ƒŠƒ\[ƒX–³‚Ìê‡)
-     * @param throwable ‹Nˆö—áŠO
-     * @param args ’uŠ·ƒpƒ‰ƒ[ƒ^
+     * @param resource ãƒªã‚½ãƒ¼ã‚¹æœ‰ç„¡
+     * @param logIdOrPattern ãƒ­ã‚°IDï¼ˆãƒªã‚½ãƒ¼ã‚¹æœ‰ã®å ´åˆï¼‰ / ãƒ­ã‚°ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ‘ã‚¿ãƒ¼ãƒ³(ãƒªã‚½ãƒ¼ã‚¹ç„¡ã®å ´åˆ)
+     * @param throwable èµ·å› ä¾‹å¤–
+     * @param args ç½®æ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public void fatal(boolean resource, String logIdOrPattern,
             Throwable throwable, Object... args) {
@@ -308,21 +308,21 @@ public class TLogger implements Log {
     }
 
     /**
-     * FATALƒƒO‚ðo—Í‚µ‚Ü‚·B
+     * FATALãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚
      * 
-     * @param logId ƒƒOID
-     * @param args ’uŠ·ƒpƒ‰ƒ[ƒ^
+     * @param logId ãƒ­ã‚°ID
+     * @param args ç½®æ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public void fatal(String logId, Object... args) {
         fatal(true, logId, args);
     }
 
     /**
-     * FATALƒƒO‚ðo—Í‚µ‚Ü‚·B
+     * FATALãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚
      * 
-     * @param logId ƒƒOID
-     * @param throwable ‹Nˆö—áŠO
-     * @param args ’uŠ·ƒpƒ‰ƒ[ƒ^
+     * @param logId ãƒ­ã‚°ID
+     * @param throwable èµ·å› ä¾‹å¤–
+     * @param args ç½®æ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public void fatal(String logId, Throwable throwable, Object... args) {
         fatal(true, logId, throwable, args);
@@ -338,15 +338,15 @@ public class TLogger implements Log {
     }
 
     /**
-     * ERRORƒƒO‚ðo—Í‚µ‚Ü‚·B<br>
+     * ERRORãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚<br>
      * <p>
-     * ƒƒK[‚ÌƒƒOƒŒƒxƒ‹‚ªERROR‚æ‚è‚‚¢ê‡‚Ío—Í‚³‚ê‚Ü‚¹‚ñB<br>
-     * Ú×‚Í{@link TLogger}‚ðŽQÆ‚µ‚Ä‚­‚¾‚³‚¢B
+     * ãƒ­ã‚¬ãƒ¼ã®ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ãŒERRORã‚ˆã‚Šé«˜ã„å ´åˆã¯å‡ºåŠ›ã•ã‚Œã¾ã›ã‚“ã€‚<br>
+     * è©³ç´°ã¯{@link TLogger}ã‚’å‚ç…§ã—ã¦ãã ã•ã„ã€‚
      * </p>
      * 
-     * @param resource ƒŠƒ\[ƒX—L–³
-     * @param logIdOrPattern ƒƒOIDiƒŠƒ\[ƒX—L‚Ìê‡j / ƒƒOƒƒbƒZ[ƒWƒpƒ^[ƒ“(ƒŠƒ\[ƒX–³‚Ìê‡)
-     * @param args ’uŠ·ƒpƒ‰ƒ[ƒ^
+     * @param resource ãƒªã‚½ãƒ¼ã‚¹æœ‰ç„¡
+     * @param logIdOrPattern ãƒ­ã‚°IDï¼ˆãƒªã‚½ãƒ¼ã‚¹æœ‰ã®å ´åˆï¼‰ / ãƒ­ã‚°ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ‘ã‚¿ãƒ¼ãƒ³(ãƒªã‚½ãƒ¼ã‚¹ç„¡ã®å ´åˆ)
+     * @param args ç½®æ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public void error(boolean resource, String logIdOrPattern, Object... args) {
         if (isErrorEnabled()) {
@@ -356,16 +356,16 @@ public class TLogger implements Log {
     }
 
     /**
-     * ERRORƒƒO‚ðo—Í‚µ‚Ü‚·B<br>
+     * ERRORãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚<br>
      * <p>
-     * ƒƒK[‚ÌƒƒOƒŒƒxƒ‹‚ªERROR‚æ‚è‚‚¢ê‡‚Ío—Í‚³‚ê‚Ü‚¹‚ñB<br>
-     * Ú×‚Í{@link TLogger}‚ðŽQÆ‚µ‚Ä‚­‚¾‚³‚¢B
+     * ãƒ­ã‚¬ãƒ¼ã®ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ãŒERRORã‚ˆã‚Šé«˜ã„å ´åˆã¯å‡ºåŠ›ã•ã‚Œã¾ã›ã‚“ã€‚<br>
+     * è©³ç´°ã¯{@link TLogger}ã‚’å‚ç…§ã—ã¦ãã ã•ã„ã€‚
      * </p>
      * 
-     * @param resource ƒŠƒ\[ƒX—L–³
-     * @param logIdOrPattern ƒƒOIDiƒŠƒ\[ƒX—L‚Ìê‡j / ƒƒOƒƒbƒZ[ƒWƒpƒ^[ƒ“(ƒŠƒ\[ƒX–³‚Ìê‡)
-     * @param throwable ‹Nˆö—áŠO
-     * @param args ’uŠ·ƒpƒ‰ƒ[ƒ^
+     * @param resource ãƒªã‚½ãƒ¼ã‚¹æœ‰ç„¡
+     * @param logIdOrPattern ãƒ­ã‚°IDï¼ˆãƒªã‚½ãƒ¼ã‚¹æœ‰ã®å ´åˆï¼‰ / ãƒ­ã‚°ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ‘ã‚¿ãƒ¼ãƒ³(ãƒªã‚½ãƒ¼ã‚¹ç„¡ã®å ´åˆ)
+     * @param throwable èµ·å› ä¾‹å¤–
+     * @param args ç½®æ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public void error(boolean resource, String logIdOrPattern,
             Throwable throwable, Object... args) {
@@ -376,29 +376,29 @@ public class TLogger implements Log {
     }
 
     /**
-     * ERRORƒƒO‚ðo—Í‚µ‚Ü‚·B<br>
+     * ERRORãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚<br>
      * <p>
-     * ƒƒK[‚ÌƒƒOƒŒƒxƒ‹‚ªERROR‚æ‚è‚‚¢ê‡‚Ío—Í‚³‚ê‚Ü‚¹‚ñB<br>
-     * Ú×‚Í{@link TLogger}‚ðŽQÆ‚µ‚Ä‚­‚¾‚³‚¢B
+     * ãƒ­ã‚¬ãƒ¼ã®ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ãŒERRORã‚ˆã‚Šé«˜ã„å ´åˆã¯å‡ºåŠ›ã•ã‚Œã¾ã›ã‚“ã€‚<br>
+     * è©³ç´°ã¯{@link TLogger}ã‚’å‚ç…§ã—ã¦ãã ã•ã„ã€‚
      * </p>
      * 
-     * @param logId ƒƒOID
-     * @param args ’uŠ·ƒpƒ‰ƒ[ƒ^
+     * @param logId ãƒ­ã‚°ID
+     * @param args ç½®æ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public void error(String logId, Object... args) {
         error(true, logId, args);
     }
 
     /**
-     * ERRORƒƒO‚ðo—Í‚µ‚Ü‚·B<br>
+     * ERRORãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚<br>
      * <p>
-     * ƒƒK[‚ÌƒƒOƒŒƒxƒ‹‚ªERROR‚æ‚è‚‚¢ê‡‚Ío—Í‚³‚ê‚Ü‚¹‚ñB<br>
-     * Ú×‚Í{@link TLogger}‚ðŽQÆ‚µ‚Ä‚­‚¾‚³‚¢B
+     * ãƒ­ã‚¬ãƒ¼ã®ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ãŒERRORã‚ˆã‚Šé«˜ã„å ´åˆã¯å‡ºåŠ›ã•ã‚Œã¾ã›ã‚“ã€‚<br>
+     * è©³ç´°ã¯{@link TLogger}ã‚’å‚ç…§ã—ã¦ãã ã•ã„ã€‚
      * </p>
      * 
-     * @param logId ƒƒOID
-     * @param throwable ‹Nˆö—áŠO
-     * @param args ’uŠ·ƒpƒ‰ƒ[ƒ^
+     * @param logId ãƒ­ã‚°ID
+     * @param throwable èµ·å› ä¾‹å¤–
+     * @param args ç½®æ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public void error(String logId, Throwable throwable, Object... args) {
         error(true, logId, throwable, args);
@@ -414,15 +414,15 @@ public class TLogger implements Log {
     }
 
     /**
-     * WARNƒƒO‚ðo—Í‚µ‚Ü‚·B<br>
+     * WARNãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚<br>
      * <p>
-     * ƒƒK[‚ÌƒƒOƒŒƒxƒ‹‚ªWARN‚æ‚è‚‚¢ê‡‚Ío—Í‚³‚ê‚Ü‚¹‚ñB<br>
-     * Ú×‚Í{@link TLogger}‚ðŽQÆ‚µ‚Ä‚­‚¾‚³‚¢B
+     * ãƒ­ã‚¬ãƒ¼ã®ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ãŒWARNã‚ˆã‚Šé«˜ã„å ´åˆã¯å‡ºåŠ›ã•ã‚Œã¾ã›ã‚“ã€‚<br>
+     * è©³ç´°ã¯{@link TLogger}ã‚’å‚ç…§ã—ã¦ãã ã•ã„ã€‚
      * </p>
      * 
-     * @param resource ƒŠƒ\[ƒX—L–³
-     * @param logIdOrPattern ƒƒOIDiƒŠƒ\[ƒX—L‚Ìê‡j / ƒƒOƒƒbƒZ[ƒWƒpƒ^[ƒ“(ƒŠƒ\[ƒX–³‚Ìê‡)
-     * @param args ’uŠ·ƒpƒ‰ƒ[ƒ^
+     * @param resource ãƒªã‚½ãƒ¼ã‚¹æœ‰ç„¡
+     * @param logIdOrPattern ãƒ­ã‚°IDï¼ˆãƒªã‚½ãƒ¼ã‚¹æœ‰ã®å ´åˆï¼‰ / ãƒ­ã‚°ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ‘ã‚¿ãƒ¼ãƒ³(ãƒªã‚½ãƒ¼ã‚¹ç„¡ã®å ´åˆ)
+     * @param args ç½®æ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public void warn(boolean resource, String logIdOrPattern, Object... args) {
         if (isWarnEnabled()) {
@@ -432,16 +432,16 @@ public class TLogger implements Log {
     }
 
     /**
-     * WARNƒƒO‚ðo—Í‚µ‚Ü‚·B<br>
+     * WARNãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚<br>
      * <p>
-     * ƒƒK[‚ÌƒƒOƒŒƒxƒ‹‚ªWARN‚æ‚è‚‚¢ê‡‚Ío—Í‚³‚ê‚Ü‚¹‚ñB<br>
-     * Ú×‚Í{@link TLogger}‚ðŽQÆ‚µ‚Ä‚­‚¾‚³‚¢B
+     * ãƒ­ã‚¬ãƒ¼ã®ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ãŒWARNã‚ˆã‚Šé«˜ã„å ´åˆã¯å‡ºåŠ›ã•ã‚Œã¾ã›ã‚“ã€‚<br>
+     * è©³ç´°ã¯{@link TLogger}ã‚’å‚ç…§ã—ã¦ãã ã•ã„ã€‚
      * </p>
      * 
-     * @param resource ƒŠƒ\[ƒX—L–³
-     * @param logIdOrPattern ƒƒOIDiƒŠƒ\[ƒX—L‚Ìê‡j / ƒƒOƒƒbƒZ[ƒWƒpƒ^[ƒ“(ƒŠƒ\[ƒX–³‚Ìê‡)
-     * @param throwable ‹Nˆö—áŠO
-     * @param args ’uŠ·ƒpƒ‰ƒ[ƒ^
+     * @param resource ãƒªã‚½ãƒ¼ã‚¹æœ‰ç„¡
+     * @param logIdOrPattern ãƒ­ã‚°IDï¼ˆãƒªã‚½ãƒ¼ã‚¹æœ‰ã®å ´åˆï¼‰ / ãƒ­ã‚°ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ‘ã‚¿ãƒ¼ãƒ³(ãƒªã‚½ãƒ¼ã‚¹ç„¡ã®å ´åˆ)
+     * @param throwable èµ·å› ä¾‹å¤–
+     * @param args ç½®æ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public void warn(boolean resource, String logIdOrPattern,
             Throwable throwable, Object... args) {
@@ -452,29 +452,29 @@ public class TLogger implements Log {
     }
 
     /**
-     * WARNƒƒO‚ðo—Í‚µ‚Ü‚·B<br>
+     * WARNãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚<br>
      * <p>
-     * ƒƒK[‚ÌƒƒOƒŒƒxƒ‹‚ªWARN‚æ‚è‚‚¢ê‡‚Ío—Í‚³‚ê‚Ü‚¹‚ñB<br>
-     * Ú×‚Í{@link TLogger}‚ðŽQÆ‚µ‚Ä‚­‚¾‚³‚¢B
+     * ãƒ­ã‚¬ãƒ¼ã®ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ãŒWARNã‚ˆã‚Šé«˜ã„å ´åˆã¯å‡ºåŠ›ã•ã‚Œã¾ã›ã‚“ã€‚<br>
+     * è©³ç´°ã¯{@link TLogger}ã‚’å‚ç…§ã—ã¦ãã ã•ã„ã€‚
      * </p>
      * 
-     * @param logId @ƒƒOID
-     * @param args ’uŠ·ƒpƒ‰ƒ[ƒ^
+     * @param logId ã€€ãƒ­ã‚°ID
+     * @param args ç½®æ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public void warn(String logId, Object... args) {
         warn(true, logId, args);
     }
 
     /**
-     * WARNƒƒO‚ðo—Í‚µ‚Ü‚·B<br>
+     * WARNãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚<br>
      * <p>
-     * ƒƒK[‚ÌƒƒOƒŒƒxƒ‹‚ªWARN‚æ‚è‚‚¢ê‡‚Ío—Í‚³‚ê‚Ü‚¹‚ñB<br>
-     * Ú×‚Í{@link TLogger}‚ðŽQÆ‚µ‚Ä‚­‚¾‚³‚¢B
+     * ãƒ­ã‚¬ãƒ¼ã®ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ãŒWARNã‚ˆã‚Šé«˜ã„å ´åˆã¯å‡ºåŠ›ã•ã‚Œã¾ã›ã‚“ã€‚<br>
+     * è©³ç´°ã¯{@link TLogger}ã‚’å‚ç…§ã—ã¦ãã ã•ã„ã€‚
      * </p>
      * 
-     * @param logId ƒƒOID
-     * @param throwable ‹Nˆö—áŠO
-     * @param args ’uŠ·ƒpƒ‰ƒ[ƒ^
+     * @param logId ãƒ­ã‚°ID
+     * @param throwable èµ·å› ä¾‹å¤–
+     * @param args ç½®æ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public void warn(String logId, Throwable throwable, Object... args) {
         warn(true, logId, throwable, args);
@@ -490,15 +490,15 @@ public class TLogger implements Log {
     }
 
     /**
-     * INFOƒƒO‚ðo—Í‚µ‚Ü‚·B<br>
+     * INFOãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚<br>
      * <p>
-     * ƒƒK[‚ÌƒƒOƒŒƒxƒ‹‚ªINFO‚æ‚è‚‚¢ê‡‚Ío—Í‚³‚ê‚Ü‚¹‚ñB<br>
-     * Ú×‚Í{@link TLogger}‚ðŽQÆ‚µ‚Ä‚­‚¾‚³‚¢B
+     * ãƒ­ã‚¬ãƒ¼ã®ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ãŒINFOã‚ˆã‚Šé«˜ã„å ´åˆã¯å‡ºåŠ›ã•ã‚Œã¾ã›ã‚“ã€‚<br>
+     * è©³ç´°ã¯{@link TLogger}ã‚’å‚ç…§ã—ã¦ãã ã•ã„ã€‚
      * </p>
      * 
-     * @param resource ƒŠƒ\[ƒX—L–³
-     * @param logIdOrPattern ƒƒOIDiƒŠƒ\[ƒX—L‚Ìê‡j / ƒƒOƒƒbƒZ[ƒWƒpƒ^[ƒ“(ƒŠƒ\[ƒX–³‚Ìê‡)
-     * @param args ’uŠ·ƒpƒ‰ƒ[ƒ^
+     * @param resource ãƒªã‚½ãƒ¼ã‚¹æœ‰ç„¡
+     * @param logIdOrPattern ãƒ­ã‚°IDï¼ˆãƒªã‚½ãƒ¼ã‚¹æœ‰ã®å ´åˆï¼‰ / ãƒ­ã‚°ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ‘ã‚¿ãƒ¼ãƒ³(ãƒªã‚½ãƒ¼ã‚¹ç„¡ã®å ´åˆ)
+     * @param args ç½®æ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public void info(boolean resource, String logIdOrPattern, Object... args) {
         if (isInfoEnabled()) {
@@ -508,16 +508,16 @@ public class TLogger implements Log {
     }
 
     /**
-     * INFOƒƒO‚ðo—Í‚µ‚Ü‚·B<br>
+     * INFOãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚<br>
      * <p>
-     * ƒƒK[‚ÌƒƒOƒŒƒxƒ‹‚ªINFO‚æ‚è‚‚¢ê‡‚Ío—Í‚³‚ê‚Ü‚¹‚ñB<br>
-     * Ú×‚Í{@link TLogger}‚ðŽQÆ‚µ‚Ä‚­‚¾‚³‚¢B
+     * ãƒ­ã‚¬ãƒ¼ã®ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ãŒINFOã‚ˆã‚Šé«˜ã„å ´åˆã¯å‡ºåŠ›ã•ã‚Œã¾ã›ã‚“ã€‚<br>
+     * è©³ç´°ã¯{@link TLogger}ã‚’å‚ç…§ã—ã¦ãã ã•ã„ã€‚
      * </p>
      * 
-     * @param resource ƒŠƒ\[ƒX—L–³
-     * @param logIdOrPattern ƒƒOIDiƒŠƒ\[ƒX—L‚Ìê‡j / ƒƒOƒƒbƒZ[ƒWƒpƒ^[ƒ“(ƒŠƒ\[ƒX–³‚Ìê‡)
-     * @param throwable ‹Nˆö—áŠO
-     * @param args ’uŠ·ƒpƒ‰ƒ[ƒ^
+     * @param resource ãƒªã‚½ãƒ¼ã‚¹æœ‰ç„¡
+     * @param logIdOrPattern ãƒ­ã‚°IDï¼ˆãƒªã‚½ãƒ¼ã‚¹æœ‰ã®å ´åˆï¼‰ / ãƒ­ã‚°ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ‘ã‚¿ãƒ¼ãƒ³(ãƒªã‚½ãƒ¼ã‚¹ç„¡ã®å ´åˆ)
+     * @param throwable èµ·å› ä¾‹å¤–
+     * @param args ç½®æ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public void info(boolean resource, String logIdOrPattern,
             Throwable throwable, Object... args) {
@@ -528,29 +528,29 @@ public class TLogger implements Log {
     }
 
     /**
-     * INFOƒƒO‚ðo—Í‚µ‚Ü‚·B<br>
+     * INFOãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚<br>
      * <p>
-     * ƒƒK[‚ÌƒƒOƒŒƒxƒ‹‚ªINFO‚æ‚è‚‚¢ê‡‚Ío—Í‚³‚ê‚Ü‚¹‚ñB<br>
-     * Ú×‚Í{@link TLogger}‚ðŽQÆ‚µ‚Ä‚­‚¾‚³‚¢B
+     * ãƒ­ã‚¬ãƒ¼ã®ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ãŒINFOã‚ˆã‚Šé«˜ã„å ´åˆã¯å‡ºåŠ›ã•ã‚Œã¾ã›ã‚“ã€‚<br>
+     * è©³ç´°ã¯{@link TLogger}ã‚’å‚ç…§ã—ã¦ãã ã•ã„ã€‚
      * </p>
      * 
-     * @param logId ƒƒOID
-     * @param args ’uŠ·ƒpƒ‰ƒ[ƒ^
+     * @param logId ãƒ­ã‚°ID
+     * @param args ç½®æ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public void info(String logId, Object... args) {
         info(true, logId, args);
     }
 
     /**
-     * INFOƒƒO‚ðo—Í‚µ‚Ü‚·B<br>
+     * INFOãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚<br>
      * <p>
-     * ƒƒK[‚ÌƒƒOƒŒƒxƒ‹‚ªINFO‚æ‚è‚‚¢ê‡‚Ío—Í‚³‚ê‚Ü‚¹‚ñB<br>
-     * Ú×‚Í{@link TLogger}‚ðŽQÆ‚µ‚Ä‚­‚¾‚³‚¢B
+     * ãƒ­ã‚¬ãƒ¼ã®ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ãŒINFOã‚ˆã‚Šé«˜ã„å ´åˆã¯å‡ºåŠ›ã•ã‚Œã¾ã›ã‚“ã€‚<br>
+     * è©³ç´°ã¯{@link TLogger}ã‚’å‚ç…§ã—ã¦ãã ã•ã„ã€‚
      * </p>
      * 
-     * @param logId ƒƒOID
-     * @param throwable ‹Nˆö—áŠO
-     * @param args ’uŠ·ƒpƒ‰ƒ[ƒ^
+     * @param logId ãƒ­ã‚°ID
+     * @param throwable èµ·å› ä¾‹å¤–
+     * @param args ç½®æ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public void info(String logId, Throwable throwable, Object... args) {
         info(true, logId, throwable, args);
@@ -566,15 +566,15 @@ public class TLogger implements Log {
     }
 
     /**
-     * DEBUGƒƒO‚ðo—Í‚µ‚Ü‚·B<br>
+     * DEBUGãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚<br>
      * <p>
-     * ƒƒK[‚ÌƒƒOƒŒƒxƒ‹‚ªDEBUG‚æ‚è‚‚¢ê‡‚Ío—Í‚³‚ê‚Ü‚¹‚ñB<br>
-     * Ú×‚Í{@link TLogger}‚ðŽQÆ‚µ‚Ä‚­‚¾‚³‚¢B
+     * ãƒ­ã‚¬ãƒ¼ã®ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ãŒDEBUGã‚ˆã‚Šé«˜ã„å ´åˆã¯å‡ºåŠ›ã•ã‚Œã¾ã›ã‚“ã€‚<br>
+     * è©³ç´°ã¯{@link TLogger}ã‚’å‚ç…§ã—ã¦ãã ã•ã„ã€‚
      * </p>
      * 
-     * @param resource ƒŠƒ\[ƒX—L–³
-     * @param logIdOrPattern ƒƒOIDiƒŠƒ\[ƒX—L‚Ìê‡j / ƒƒOƒƒbƒZ[ƒWƒpƒ^[ƒ“(ƒŠƒ\[ƒX–³‚Ìê‡)
-     * @param args ’uŠ·ƒpƒ‰ƒ[ƒ^
+     * @param resource ãƒªã‚½ãƒ¼ã‚¹æœ‰ç„¡
+     * @param logIdOrPattern ãƒ­ã‚°IDï¼ˆãƒªã‚½ãƒ¼ã‚¹æœ‰ã®å ´åˆï¼‰ / ãƒ­ã‚°ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ‘ã‚¿ãƒ¼ãƒ³(ãƒªã‚½ãƒ¼ã‚¹ç„¡ã®å ´åˆ)
+     * @param args ç½®æ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public void debug(boolean resource, String logIdOrPattern, Object... args) {
         if (isDebugEnabled()) {
@@ -584,16 +584,16 @@ public class TLogger implements Log {
     }
 
     /**
-     * DEBUGƒƒO‚ðo—Í‚µ‚Ü‚·B<br>
+     * DEBUGãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚<br>
      * <p>
-     * ƒƒK[‚ÌƒƒOƒŒƒxƒ‹‚ªDEBUG‚æ‚è‚‚¢ê‡‚Ío—Í‚³‚ê‚Ü‚¹‚ñB<br>
-     * Ú×‚Í{@link TLogger}‚ðŽQÆ‚µ‚Ä‚­‚¾‚³‚¢B
+     * ãƒ­ã‚¬ãƒ¼ã®ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ãŒDEBUGã‚ˆã‚Šé«˜ã„å ´åˆã¯å‡ºåŠ›ã•ã‚Œã¾ã›ã‚“ã€‚<br>
+     * è©³ç´°ã¯{@link TLogger}ã‚’å‚ç…§ã—ã¦ãã ã•ã„ã€‚
      * </p>
      * 
-     * @param resource ƒŠƒ\[ƒX—L–³
-     * @param logIdOrPattern ƒƒOIDiƒŠƒ\[ƒX—L‚Ìê‡j / ƒƒOƒƒbƒZ[ƒWƒpƒ^[ƒ“(ƒŠƒ\[ƒX–³‚Ìê‡)
-     * @param throwable ‹Nˆö—áŠO
-     * @param args ’uŠ·ƒpƒ‰ƒ[ƒ^
+     * @param resource ãƒªã‚½ãƒ¼ã‚¹æœ‰ç„¡
+     * @param logIdOrPattern ãƒ­ã‚°IDï¼ˆãƒªã‚½ãƒ¼ã‚¹æœ‰ã®å ´åˆï¼‰ / ãƒ­ã‚°ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ‘ã‚¿ãƒ¼ãƒ³(ãƒªã‚½ãƒ¼ã‚¹ç„¡ã®å ´åˆ)
+     * @param throwable èµ·å› ä¾‹å¤–
+     * @param args ç½®æ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public void debug(boolean resource, String logIdOrPattern,
             Throwable throwable, Object... args) {
@@ -604,29 +604,29 @@ public class TLogger implements Log {
     }
 
     /**
-     * DEBUGƒƒO‚ðo—Í‚µ‚Ü‚·B<br>
+     * DEBUGãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚<br>
      * <p>
-     * ƒƒK[‚ÌƒƒOƒŒƒxƒ‹‚ªDEBUG‚æ‚è‚‚¢ê‡‚Ío—Í‚³‚ê‚Ü‚¹‚ñB<br>
-     * Ú×‚Í{@link TLogger}‚ðŽQÆ‚µ‚Ä‚­‚¾‚³‚¢B
+     * ãƒ­ã‚¬ãƒ¼ã®ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ãŒDEBUGã‚ˆã‚Šé«˜ã„å ´åˆã¯å‡ºåŠ›ã•ã‚Œã¾ã›ã‚“ã€‚<br>
+     * è©³ç´°ã¯{@link TLogger}ã‚’å‚ç…§ã—ã¦ãã ã•ã„ã€‚
      * </p>
      * 
-     * @param logId ƒƒOID
-     * @param args ’uŠ·ƒpƒ‰ƒ[ƒ^
+     * @param logId ãƒ­ã‚°ID
+     * @param args ç½®æ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public void debug(String logId, Object... args) {
         debug(true, logId, args);
     }
 
     /**
-     * DEBUGƒƒO‚ðo—Í‚µ‚Ü‚·B<br>
+     * DEBUGãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚<br>
      * <p>
-     * ƒƒK[‚ÌƒƒOƒŒƒxƒ‹‚ªDEBUG‚æ‚è‚‚¢ê‡‚Ío—Í‚³‚ê‚Ü‚¹‚ñB<br>
-     * Ú×‚Í{@link TLogger}‚ðŽQÆ‚µ‚Ä‚­‚¾‚³‚¢B
+     * ãƒ­ã‚¬ãƒ¼ã®ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ãŒDEBUGã‚ˆã‚Šé«˜ã„å ´åˆã¯å‡ºåŠ›ã•ã‚Œã¾ã›ã‚“ã€‚<br>
+     * è©³ç´°ã¯{@link TLogger}ã‚’å‚ç…§ã—ã¦ãã ã•ã„ã€‚
      * </p>
      * 
-     * @param logId ƒƒOID
-     * @param throwable ‹Nˆö—áŠO
-     * @param args ’uŠ·ƒpƒ‰ƒ[ƒ^
+     * @param logId ãƒ­ã‚°ID
+     * @param throwable èµ·å› ä¾‹å¤–
+     * @param args ç½®æ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public void debug(String logId, Throwable throwable, Object... args) {
         debug(true, logId, throwable, args);
@@ -642,15 +642,15 @@ public class TLogger implements Log {
     }
 
     /**
-     * TRACEƒƒO‚ðo—Í‚µ‚Ü‚·B<br>
+     * TRACEãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚<br>
      * <p>
-     * ƒƒK[‚ÌƒƒOƒŒƒxƒ‹‚ªTRACE‚æ‚è‚‚¢ê‡‚Ío—Í‚³‚ê‚Ü‚¹‚ñB<br>
-     * Ú×‚Í{@link TLogger}‚ðŽQÆ‚µ‚Ä‚­‚¾‚³‚¢B
+     * ãƒ­ã‚¬ãƒ¼ã®ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ãŒTRACEã‚ˆã‚Šé«˜ã„å ´åˆã¯å‡ºåŠ›ã•ã‚Œã¾ã›ã‚“ã€‚<br>
+     * è©³ç´°ã¯{@link TLogger}ã‚’å‚ç…§ã—ã¦ãã ã•ã„ã€‚
      * </p>
      * 
-     * @param resource ƒŠƒ\[ƒX—L–³
-     * @param logIdOrPattern ƒƒOIDiƒŠƒ\[ƒX—L‚Ìê‡j / ƒƒOƒƒbƒZ[ƒWƒpƒ^[ƒ“(ƒŠƒ\[ƒX–³‚Ìê‡)
-     * @param args ’uŠ·ƒpƒ‰ƒ[ƒ^
+     * @param resource ãƒªã‚½ãƒ¼ã‚¹æœ‰ç„¡
+     * @param logIdOrPattern ãƒ­ã‚°IDï¼ˆãƒªã‚½ãƒ¼ã‚¹æœ‰ã®å ´åˆï¼‰ / ãƒ­ã‚°ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ‘ã‚¿ãƒ¼ãƒ³(ãƒªã‚½ãƒ¼ã‚¹ç„¡ã®å ´åˆ)
+     * @param args ç½®æ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public void trace(boolean resource, String logIdOrPattern, Object... args) {
         if (isTraceEnabled()) {
@@ -660,16 +660,16 @@ public class TLogger implements Log {
     }
 
     /**
-     * TRACEƒƒO‚ðo—Í‚µ‚Ü‚·B<br>
+     * TRACEãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚<br>
      * <p>
-     * ƒƒK[‚ÌƒƒOƒŒƒxƒ‹‚ªTRACE‚æ‚è‚‚¢ê‡‚Ío—Í‚³‚ê‚Ü‚¹‚ñB<br>
-     * Ú×‚Í{@link TLogger}‚ðŽQÆ‚µ‚Ä‚­‚¾‚³‚¢B
+     * ãƒ­ã‚¬ãƒ¼ã®ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ãŒTRACEã‚ˆã‚Šé«˜ã„å ´åˆã¯å‡ºåŠ›ã•ã‚Œã¾ã›ã‚“ã€‚<br>
+     * è©³ç´°ã¯{@link TLogger}ã‚’å‚ç…§ã—ã¦ãã ã•ã„ã€‚
      * </p>
      * 
-     * @param resource ƒŠƒ\[ƒX—L–³
-     * @param logIdOrPattern ƒƒOIDiƒŠƒ\[ƒX—L‚Ìê‡j / ƒƒOƒƒbƒZ[ƒWƒpƒ^[ƒ“(ƒŠƒ\[ƒX–³‚Ìê‡)
-     * @param throwable ‹Nˆö—áŠO
-     * @param args ’uŠ·ƒpƒ‰ƒ[ƒ^
+     * @param resource ãƒªã‚½ãƒ¼ã‚¹æœ‰ç„¡
+     * @param logIdOrPattern ãƒ­ã‚°IDï¼ˆãƒªã‚½ãƒ¼ã‚¹æœ‰ã®å ´åˆï¼‰ / ãƒ­ã‚°ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ‘ã‚¿ãƒ¼ãƒ³(ãƒªã‚½ãƒ¼ã‚¹ç„¡ã®å ´åˆ)
+     * @param throwable èµ·å› ä¾‹å¤–
+     * @param args ç½®æ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public void trace(boolean resource, String logIdOrPattern,
             Throwable throwable, Object... args) {
@@ -680,50 +680,50 @@ public class TLogger implements Log {
     }
 
     /**
-     * TRACEƒƒO‚ðo—Í‚µ‚Ü‚·B<br>
+     * TRACEãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚<br>
      * <p>
-     * ƒƒK[‚ÌƒƒOƒŒƒxƒ‹‚ªTRACE‚æ‚è‚‚¢ê‡‚Ío—Í‚³‚ê‚Ü‚¹‚ñB<br>
-     * Ú×‚Í{@link TLogger}‚ðŽQÆ‚µ‚Ä‚­‚¾‚³‚¢B
+     * ãƒ­ã‚¬ãƒ¼ã®ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ãŒTRACEã‚ˆã‚Šé«˜ã„å ´åˆã¯å‡ºåŠ›ã•ã‚Œã¾ã›ã‚“ã€‚<br>
+     * è©³ç´°ã¯{@link TLogger}ã‚’å‚ç…§ã—ã¦ãã ã•ã„ã€‚
      * </p>
      * 
-     * @param logId ƒƒOID
-     * @param args ’uŠ·ƒpƒ‰ƒ[ƒ^
+     * @param logId ãƒ­ã‚°ID
+     * @param args ç½®æ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public void trace(String logId, Object... args) {
         trace(true, logId, args);
     }
 
     /**
-     * TRACEƒƒO‚ðo—Í‚µ‚Ü‚·B<br>
+     * TRACEãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚<br>
      * <p>
-     * ƒƒK[‚ÌƒƒOƒŒƒxƒ‹‚ªTRACE‚æ‚è‚‚¢ê‡‚Ío—Í‚³‚ê‚Ü‚¹‚ñB<br>
-     * Ú×‚Í{@link TLogger}‚ðŽQÆ‚µ‚Ä‚­‚¾‚³‚¢B
+     * ãƒ­ã‚¬ãƒ¼ã®ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ãŒTRACEã‚ˆã‚Šé«˜ã„å ´åˆã¯å‡ºåŠ›ã•ã‚Œã¾ã›ã‚“ã€‚<br>
+     * è©³ç´°ã¯{@link TLogger}ã‚’å‚ç…§ã—ã¦ãã ã•ã„ã€‚
      * </p>
      * 
-     * @param logId ƒƒOID
-     * @param throwable ‹Nˆö—áŠO
-     * @param args ’uŠ·ƒpƒ‰ƒ[ƒ^
+     * @param logId ãƒ­ã‚°ID
+     * @param throwable èµ·å› ä¾‹å¤–
+     * @param args ç½®æ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public void trace(String logId, Throwable throwable, Object... args) {
         trace(true, logId, throwable, args);
     }
 
     /**
-     * ƒƒOID‚ÌˆÈ‰º‚Ì‹K–ñ‚É‡‚Á‚½ƒŒƒxƒ‹‚ÌƒƒO‚ðo—Í‚µ‚Ü‚·B<br>
+     * ãƒ­ã‚°IDã®ä»¥ä¸‹ã®è¦ç´„ã«åˆã£ãŸãƒ¬ãƒ™ãƒ«ã®ãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚<br>
      * <p>
-     * ƒƒOID‚Ìæ“ª•¶Žš‚ª
+     * ãƒ­ã‚°IDã®å…ˆé ­æ–‡å­—ãŒ
      * <ul>
-     * <li>T...TRACEƒƒO</li>
-     * <li>D...DEBUGƒƒO</li>
-     * <li>I...INFOƒƒO</li>
-     * <li>W...WARNƒƒO</li>
-     * <li>E...ERRORƒƒO</li>
-     * <li>F...FATALƒƒO</li>
-     * <li>‚»‚êˆÈŠO...DEBUGƒƒO</li> </u>
+     * <li>T...TRACEãƒ­ã‚°</li>
+     * <li>D...DEBUGãƒ­ã‚°</li>
+     * <li>I...INFOãƒ­ã‚°</li>
+     * <li>W...WARNãƒ­ã‚°</li>
+     * <li>E...ERRORãƒ­ã‚°</li>
+     * <li>F...FATALãƒ­ã‚°</li>
+     * <li>ãã‚Œä»¥å¤–...DEBUGãƒ­ã‚°</li> </u>
      * </p>
      * 
-     * @param logId ƒƒOID
-     * @param args ’uŠ·ƒpƒ‰ƒ[ƒ^
+     * @param logId ãƒ­ã‚°ID
+     * @param args ç½®æ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public void log(String logId, Object... args) {
         if (logId != null && logId.length() > 0) {
@@ -755,21 +755,21 @@ public class TLogger implements Log {
     }
 
     /**
-     * ƒƒOID‚ÌˆÈ‰º‚Ì‹K–ñ‚É‡‚Á‚½ƒŒƒxƒ‹‚ÌƒƒO‚ðo—Í‚µ‚Ü‚·B<br>
+     * ãƒ­ã‚°IDã®ä»¥ä¸‹ã®è¦ç´„ã«åˆã£ãŸãƒ¬ãƒ™ãƒ«ã®ãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚<br>
      * <p>
-     * ƒƒOID‚Ìæ“ª•¶Žš‚ª
+     * ãƒ­ã‚°IDã®å…ˆé ­æ–‡å­—ãŒ
      * <ul>
-     * <li>T...TRACEƒƒO</li>
-     * <li>D...DEBUGƒƒO</li>
-     * <li>I...INFOƒƒO</li>
-     * <li>W...WARNƒƒO</li>
-     * <li>E...ERRORƒƒO</li>
-     * <li>F...FATALƒƒO</li>
-     * <li>‚»‚êˆÈŠO...DEBUGƒƒO</li> </u>
+     * <li>T...TRACEãƒ­ã‚°</li>
+     * <li>D...DEBUGãƒ­ã‚°</li>
+     * <li>I...INFOãƒ­ã‚°</li>
+     * <li>W...WARNãƒ­ã‚°</li>
+     * <li>E...ERRORãƒ­ã‚°</li>
+     * <li>F...FATALãƒ­ã‚°</li>
+     * <li>ãã‚Œä»¥å¤–...DEBUGãƒ­ã‚°</li> </u>
      * </p>
      * 
-     * @param logId ƒƒOID
-     * @param args ’uŠ·ƒpƒ‰ƒ[ƒ^
+     * @param logId ãƒ­ã‚°ID
+     * @param args ç½®æ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public void log(String logId, Throwable throwable, Object... args) {
         if (logId != null && logId.length() > 0) {
@@ -801,13 +801,13 @@ public class TLogger implements Log {
     }
 
     /**
-     * TRACEƒƒO‚ðo—Í‚µ‚Ü‚·B<br>
+     * TRACEãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚<br>
      * <p>
-     * CommonsLogging‚ÌLogƒCƒ“ƒ^ƒtƒF[ƒX‚ðŽÀ‘•‚·‚é‚½‚ß‚ÌAPI‚Å‚ ‚èAŽg—p‚µ‚È‚¢‚Å‚­‚¾‚³‚¢B<br>
-     * ‘ã‚í‚è‚É{@link #trace(String, Object...)}‚ðŽg—p‚µ‚Ä‚­‚¾‚³‚¢B
+     * CommonsLoggingã®Logã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã‚’å®Ÿè£…ã™ã‚‹ãŸã‚ã®APIã§ã‚ã‚Šã€ä½¿ç”¨ã—ãªã„ã§ãã ã•ã„ã€‚<br>
+     * ä»£ã‚ã‚Šã«{@link #trace(String, Object...)}ã‚’ä½¿ç”¨ã—ã¦ãã ã•ã„ã€‚
      * </p>
      * 
-     * @param message ƒƒbƒZ[ƒW
+     * @param message ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
      * 
      */
     @Deprecated
@@ -816,14 +816,14 @@ public class TLogger implements Log {
     }
 
     /**
-     * TRACEƒƒO‚ðo—Í‚µ‚Ü‚·B<br>
+     * TRACEãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚<br>
      * <p>
-     * CommonsLogging‚ÌLogƒCƒ“ƒ^ƒtƒF[ƒX‚ðŽÀ‘•‚·‚é‚½‚ß‚ÌAPI‚Å‚ ‚èAŽg—p‚µ‚È‚¢‚Å‚­‚¾‚³‚¢B<br>
-     * ‘ã‚í‚è‚É{@link #trace(String, Throwable, Object...)}‚ðŽg—p‚µ‚Ä‚­‚¾‚³‚¢B
+     * CommonsLoggingã®Logã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã‚’å®Ÿè£…ã™ã‚‹ãŸã‚ã®APIã§ã‚ã‚Šã€ä½¿ç”¨ã—ãªã„ã§ãã ã•ã„ã€‚<br>
+     * ä»£ã‚ã‚Šã«{@link #trace(String, Throwable, Object...)}ã‚’ä½¿ç”¨ã—ã¦ãã ã•ã„ã€‚
      * </p>
      * 
-     * @param message ƒƒbƒZ[ƒW
-     * @param t ‹Nˆö—áŠO
+     * @param message ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
+     * @param t èµ·å› ä¾‹å¤–
      * 
      */
     @Deprecated
@@ -832,13 +832,13 @@ public class TLogger implements Log {
     }
 
     /**
-     * DEBUGƒƒO‚ðo—Í‚µ‚Ü‚·B<br>
+     * DEBUGãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚<br>
      * <p>
-     * CommonsLogging‚ÌLogƒCƒ“ƒ^ƒtƒF[ƒX‚ðŽÀ‘•‚·‚é‚½‚ß‚ÌAPI‚Å‚ ‚èAŽg—p‚µ‚È‚¢‚Å‚­‚¾‚³‚¢B<br>
-     * ‘ã‚í‚è‚É{@link #debug(String, Object...)}‚ðŽg—p‚µ‚Ä‚­‚¾‚³‚¢B
+     * CommonsLoggingã®Logã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã‚’å®Ÿè£…ã™ã‚‹ãŸã‚ã®APIã§ã‚ã‚Šã€ä½¿ç”¨ã—ãªã„ã§ãã ã•ã„ã€‚<br>
+     * ä»£ã‚ã‚Šã«{@link #debug(String, Object...)}ã‚’ä½¿ç”¨ã—ã¦ãã ã•ã„ã€‚
      * </p>
      * 
-     * @param message ƒƒbƒZ[ƒW
+     * @param message ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
      * 
      */
     @Deprecated
@@ -847,14 +847,14 @@ public class TLogger implements Log {
     }
 
     /**
-     * DEBUGƒƒO‚ðo—Í‚µ‚Ü‚·B<br>
+     * DEBUGãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚<br>
      * <p>
-     * CommonsLogging‚ÌLogƒCƒ“ƒ^ƒtƒF[ƒX‚ðŽÀ‘•‚·‚é‚½‚ß‚ÌAPI‚Å‚ ‚èAŽg—p‚µ‚È‚¢‚Å‚­‚¾‚³‚¢B<br>
-     * ‘ã‚í‚è‚É{@link #debug(String, Throwable, Object...)}‚ðŽg—p‚µ‚Ä‚­‚¾‚³‚¢B
+     * CommonsLoggingã®Logã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã‚’å®Ÿè£…ã™ã‚‹ãŸã‚ã®APIã§ã‚ã‚Šã€ä½¿ç”¨ã—ãªã„ã§ãã ã•ã„ã€‚<br>
+     * ä»£ã‚ã‚Šã«{@link #debug(String, Throwable, Object...)}ã‚’ä½¿ç”¨ã—ã¦ãã ã•ã„ã€‚
      * </p>
      * 
-     * @param message ƒƒbƒZ[ƒW
-     * @param t ‹Nˆö—áŠO
+     * @param message ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
+     * @param t èµ·å› ä¾‹å¤–
      * 
      */
     @Deprecated
@@ -863,13 +863,13 @@ public class TLogger implements Log {
     }
 
     /**
-     * INFOƒƒO‚ðo—Í‚µ‚Ü‚·B<br>
+     * INFOãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚<br>
      * <p>
-     * CommonsLogging‚ÌLogƒCƒ“ƒ^ƒtƒF[ƒX‚ðŽÀ‘•‚·‚é‚½‚ß‚ÌAPI‚Å‚ ‚èAŽg—p‚µ‚È‚¢‚Å‚­‚¾‚³‚¢B<br>
-     * ‘ã‚í‚è‚É{@link #info(String, Object...)}‚ðŽg—p‚µ‚Ä‚­‚¾‚³‚¢B
+     * CommonsLoggingã®Logã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã‚’å®Ÿè£…ã™ã‚‹ãŸã‚ã®APIã§ã‚ã‚Šã€ä½¿ç”¨ã—ãªã„ã§ãã ã•ã„ã€‚<br>
+     * ä»£ã‚ã‚Šã«{@link #info(String, Object...)}ã‚’ä½¿ç”¨ã—ã¦ãã ã•ã„ã€‚
      * </p>
      * 
-     * @param message ƒƒbƒZ[ƒW
+     * @param message ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
      * 
      */
     @Deprecated
@@ -878,14 +878,14 @@ public class TLogger implements Log {
     }
 
     /**
-     * INFOƒƒO‚ðo—Í‚µ‚Ü‚·B<br>
+     * INFOãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚<br>
      * <p>
-     * CommonsLogging‚ÌLogƒCƒ“ƒ^ƒtƒF[ƒX‚ðŽÀ‘•‚·‚é‚½‚ß‚ÌAPI‚Å‚ ‚èAŽg—p‚µ‚È‚¢‚Å‚­‚¾‚³‚¢B<br>
-     * ‘ã‚í‚è‚É{@link #info(String, Throwable, Object...)}‚ðŽg—p‚µ‚Ä‚­‚¾‚³‚¢B
+     * CommonsLoggingã®Logã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã‚’å®Ÿè£…ã™ã‚‹ãŸã‚ã®APIã§ã‚ã‚Šã€ä½¿ç”¨ã—ãªã„ã§ãã ã•ã„ã€‚<br>
+     * ä»£ã‚ã‚Šã«{@link #info(String, Throwable, Object...)}ã‚’ä½¿ç”¨ã—ã¦ãã ã•ã„ã€‚
      * </p>
      * 
-     * @param message ƒƒbƒZ[ƒW
-     * @param t ‹Nˆö—áŠO
+     * @param message ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
+     * @param t èµ·å› ä¾‹å¤–
      * 
      */
     @Deprecated
@@ -894,13 +894,13 @@ public class TLogger implements Log {
     }
 
     /**
-     * WARNƒƒO‚ðo—Í‚µ‚Ü‚·B<br>
+     * WARNãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚<br>
      * <p>
-     * CommonsLogging‚ÌLogƒCƒ“ƒ^ƒtƒF[ƒX‚ðŽÀ‘•‚·‚é‚½‚ß‚ÌAPI‚Å‚ ‚èAŽg—p‚µ‚È‚¢‚Å‚­‚¾‚³‚¢B<br>
-     * ‘ã‚í‚è‚É{@link #warn(String, Object...)}‚ðŽg—p‚µ‚Ä‚­‚¾‚³‚¢B
+     * CommonsLoggingã®Logã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã‚’å®Ÿè£…ã™ã‚‹ãŸã‚ã®APIã§ã‚ã‚Šã€ä½¿ç”¨ã—ãªã„ã§ãã ã•ã„ã€‚<br>
+     * ä»£ã‚ã‚Šã«{@link #warn(String, Object...)}ã‚’ä½¿ç”¨ã—ã¦ãã ã•ã„ã€‚
      * </p>
      * 
-     * @param message ƒƒbƒZ[ƒW
+     * @param message ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
      * 
      */
     @Deprecated
@@ -909,14 +909,14 @@ public class TLogger implements Log {
     }
 
     /**
-     * WARNƒƒO‚ðo—Í‚µ‚Ü‚·B<br>
+     * WARNãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚<br>
      * <p>
-     * CommonsLogging‚ÌLogƒCƒ“ƒ^ƒtƒF[ƒX‚ðŽÀ‘•‚·‚é‚½‚ß‚ÌAPI‚Å‚ ‚èAŽg—p‚µ‚È‚¢‚Å‚­‚¾‚³‚¢B<br>
-     * ‘ã‚í‚è‚É{@link #warn(String, Throwable, Object...)}‚ðŽg—p‚µ‚Ä‚­‚¾‚³‚¢B
+     * CommonsLoggingã®Logã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã‚’å®Ÿè£…ã™ã‚‹ãŸã‚ã®APIã§ã‚ã‚Šã€ä½¿ç”¨ã—ãªã„ã§ãã ã•ã„ã€‚<br>
+     * ä»£ã‚ã‚Šã«{@link #warn(String, Throwable, Object...)}ã‚’ä½¿ç”¨ã—ã¦ãã ã•ã„ã€‚
      * </p>
      * 
-     * @param message ƒƒbƒZ[ƒW
-     * @param t ‹Nˆö—áŠO
+     * @param message ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
+     * @param t èµ·å› ä¾‹å¤–
      * 
      */
     @Deprecated
@@ -925,13 +925,13 @@ public class TLogger implements Log {
     }
 
     /**
-     * ERRORƒƒO‚ðo—Í‚µ‚Ü‚·B<br>
+     * ERRORãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚<br>
      * <p>
-     * CommonsLogging‚ÌLogƒCƒ“ƒ^ƒtƒF[ƒX‚ðŽÀ‘•‚·‚é‚½‚ß‚ÌAPI‚Å‚ ‚èAŽg—p‚µ‚È‚¢‚Å‚­‚¾‚³‚¢B<br>
-     * ‘ã‚í‚è‚É{@link #error(String, Object...)}‚ðŽg—p‚µ‚Ä‚­‚¾‚³‚¢B
+     * CommonsLoggingã®Logã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã‚’å®Ÿè£…ã™ã‚‹ãŸã‚ã®APIã§ã‚ã‚Šã€ä½¿ç”¨ã—ãªã„ã§ãã ã•ã„ã€‚<br>
+     * ä»£ã‚ã‚Šã«{@link #error(String, Object...)}ã‚’ä½¿ç”¨ã—ã¦ãã ã•ã„ã€‚
      * </p>
      * 
-     * @param message ƒƒbƒZ[ƒW
+     * @param message ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
      * 
      */
     @Deprecated
@@ -940,14 +940,14 @@ public class TLogger implements Log {
     }
 
     /**
-     * ERRORƒƒO‚ðo—Í‚µ‚Ü‚·B<br>
+     * ERRORãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚<br>
      * <p>
-     * CommonsLogging‚ÌLogƒCƒ“ƒ^ƒtƒF[ƒX‚ðŽÀ‘•‚·‚é‚½‚ß‚ÌAPI‚Å‚ ‚èAŽg—p‚µ‚È‚¢‚Å‚­‚¾‚³‚¢B<br>
-     * ‘ã‚í‚è‚É{@link #error(String, Throwable, Object...)}‚ðŽg—p‚µ‚Ä‚­‚¾‚³‚¢B
+     * CommonsLoggingã®Logã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã‚’å®Ÿè£…ã™ã‚‹ãŸã‚ã®APIã§ã‚ã‚Šã€ä½¿ç”¨ã—ãªã„ã§ãã ã•ã„ã€‚<br>
+     * ä»£ã‚ã‚Šã«{@link #error(String, Throwable, Object...)}ã‚’ä½¿ç”¨ã—ã¦ãã ã•ã„ã€‚
      * </p>
      * 
-     * @param message ƒƒbƒZ[ƒW
-     * @param t ‹Nˆö—áŠO
+     * @param message ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
+     * @param t èµ·å› ä¾‹å¤–
      * 
      */
     @Deprecated
@@ -956,13 +956,13 @@ public class TLogger implements Log {
     }
 
     /**
-     * FATALƒƒO‚ðo—Í‚µ‚Ü‚·B<br>
+     * FATALãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚<br>
      * <p>
-     * CommonsLogging‚ÌLogƒCƒ“ƒ^ƒtƒF[ƒX‚ðŽÀ‘•‚·‚é‚½‚ß‚ÌAPI‚Å‚ ‚èAŽg—p‚µ‚È‚¢‚Å‚­‚¾‚³‚¢B<br>
-     * ‘ã‚í‚è‚É{@link #fatal(String, Object...)}‚ðŽg—p‚µ‚Ä‚­‚¾‚³‚¢B
+     * CommonsLoggingã®Logã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã‚’å®Ÿè£…ã™ã‚‹ãŸã‚ã®APIã§ã‚ã‚Šã€ä½¿ç”¨ã—ãªã„ã§ãã ã•ã„ã€‚<br>
+     * ä»£ã‚ã‚Šã«{@link #fatal(String, Object...)}ã‚’ä½¿ç”¨ã—ã¦ãã ã•ã„ã€‚
      * </p>
      * 
-     * @param message ƒƒbƒZ[ƒW
+     * @param message ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
      * 
      */
     @Deprecated
@@ -971,14 +971,14 @@ public class TLogger implements Log {
     }
 
     /**
-     * FATALƒƒO‚ðo—Í‚µ‚Ü‚·B<br>
+     * FATALãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚<br>
      * <p>
-     * CommonsLogging‚ÌLogƒCƒ“ƒ^ƒtƒF[ƒX‚ðŽÀ‘•‚·‚é‚½‚ß‚ÌAPI‚Å‚ ‚èAŽg—p‚µ‚È‚¢‚Å‚­‚¾‚³‚¢B<br>
-     * ‘ã‚í‚è‚É{@link #fatal(String, Throwable, Object...)}‚ðŽg—p‚µ‚Ä‚­‚¾‚³‚¢B
+     * CommonsLoggingã®Logã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã‚’å®Ÿè£…ã™ã‚‹ãŸã‚ã®APIã§ã‚ã‚Šã€ä½¿ç”¨ã—ãªã„ã§ãã ã•ã„ã€‚<br>
+     * ä»£ã‚ã‚Šã«{@link #fatal(String, Throwable, Object...)}ã‚’ä½¿ç”¨ã—ã¦ãã ã•ã„ã€‚
      * </p>
      * 
-     * @param message ƒƒbƒZ[ƒW
-     * @param t ‹Nˆö—áŠO
+     * @param message ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
+     * @param t èµ·å› ä¾‹å¤–
      * 
      */
     @Deprecated
@@ -987,170 +987,170 @@ public class TLogger implements Log {
     }
 
     /**
-     * ƒƒOƒƒbƒZ[ƒW‚ðŽæ“¾‚µ‚Ü‚·B
+     * ãƒ­ã‚°ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * @param logId ƒƒOID
-     * @param args ’uŠ·ƒpƒ‰ƒ[ƒ^
-     * @return ƒƒOƒƒbƒZ[ƒW
+     * @param logId ãƒ­ã‚°ID
+     * @param args ç½®æ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
+     * @return ãƒ­ã‚°ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
      */
     public String getLogMessage(String logId, Object... args) {
         String message = createMessage(true, logId, args);
         return message;
     }
 
-    // CommonsLogging‚ÌLogƒCƒ“ƒ^ƒtƒF[ƒX‚Å—˜—p‚·‚é‚½‚ß‚ÌAPI‚ð—pˆÓ‚µ‚½‚½‚ß‚Ì‘Î‰ž
+    // CommonsLoggingã®Logã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã§åˆ©ç”¨ã™ã‚‹ãŸã‚ã®APIã‚’ç”¨æ„ã—ãŸãŸã‚ã®å¯¾å¿œ
 
     /**
-     * TRACEƒƒO‚ðo—Í‚µ‚Ü‚·B<br>
+     * TRACEãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚<br>
      * <p>
-     * ƒƒK[‚ÌƒƒOƒŒƒxƒ‹‚ªTRACE‚æ‚è‚‚¢ê‡‚Ío—Í‚³‚ê‚Ü‚¹‚ñB<br>
-     * Ú×‚Í{@link TLogger}‚ðŽQÆ‚µ‚Ä‚­‚¾‚³‚¢B
+     * ãƒ­ã‚¬ãƒ¼ã®ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ãŒTRACEã‚ˆã‚Šé«˜ã„å ´åˆã¯å‡ºåŠ›ã•ã‚Œã¾ã›ã‚“ã€‚<br>
+     * è©³ç´°ã¯{@link TLogger}ã‚’å‚ç…§ã—ã¦ãã ã•ã„ã€‚
      * </p>
      * 
-     * @param logId ƒƒOID
+     * @param logId ãƒ­ã‚°ID
      */
     public void trace(String logId) {
         trace(logId, (Object[]) null);
     }
 
     /**
-     * TRACEƒƒO‚ðo—Í‚µ‚Ü‚·B<br>
+     * TRACEãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚<br>
      * <p>
-     * ƒƒK[‚ÌƒƒOƒŒƒxƒ‹‚ªTRACE‚æ‚è‚‚¢ê‡‚Ío—Í‚³‚ê‚Ü‚¹‚ñB<br>
-     * Ú×‚Í{@link TLogger}‚ðŽQÆ‚µ‚Ä‚­‚¾‚³‚¢B
+     * ãƒ­ã‚¬ãƒ¼ã®ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ãŒTRACEã‚ˆã‚Šé«˜ã„å ´åˆã¯å‡ºåŠ›ã•ã‚Œã¾ã›ã‚“ã€‚<br>
+     * è©³ç´°ã¯{@link TLogger}ã‚’å‚ç…§ã—ã¦ãã ã•ã„ã€‚
      * </p>
      * 
-     * @param logId ƒƒOID
-     * @param throwable ‹Nˆö—áŠO
+     * @param logId ãƒ­ã‚°ID
+     * @param throwable èµ·å› ä¾‹å¤–
      */
     public void trace(String logId, Throwable throwable) {
         trace(logId, throwable, (Object[]) null);
     }
 
     /**
-     * DEBUGƒƒO‚ðo—Í‚µ‚Ü‚·B<br>
+     * DEBUGãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚<br>
      * <p>
-     * ƒƒK[‚ÌƒƒOƒŒƒxƒ‹‚ªDEBUG‚æ‚è‚‚¢ê‡‚Ío—Í‚³‚ê‚Ü‚¹‚ñB<br>
-     * Ú×‚Í{@link TLogger}‚ðŽQÆ‚µ‚Ä‚­‚¾‚³‚¢B
+     * ãƒ­ã‚¬ãƒ¼ã®ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ãŒDEBUGã‚ˆã‚Šé«˜ã„å ´åˆã¯å‡ºåŠ›ã•ã‚Œã¾ã›ã‚“ã€‚<br>
+     * è©³ç´°ã¯{@link TLogger}ã‚’å‚ç…§ã—ã¦ãã ã•ã„ã€‚
      * </p>
      * 
-     * @param logId ƒƒOID
+     * @param logId ãƒ­ã‚°ID
      */
     public void debug(String logId) {
         debug(logId, (Object[]) null);
     }
 
     /**
-     * DEBUGƒƒO‚ðo—Í‚µ‚Ü‚·B<br>
+     * DEBUGãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚<br>
      * <p>
-     * ƒƒK[‚ÌƒƒOƒŒƒxƒ‹‚ªDEBUG‚æ‚è‚‚¢ê‡‚Ío—Í‚³‚ê‚Ü‚¹‚ñB<br>
-     * Ú×‚Í{@link TLogger}‚ðŽQÆ‚µ‚Ä‚­‚¾‚³‚¢B
+     * ãƒ­ã‚¬ãƒ¼ã®ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ãŒDEBUGã‚ˆã‚Šé«˜ã„å ´åˆã¯å‡ºåŠ›ã•ã‚Œã¾ã›ã‚“ã€‚<br>
+     * è©³ç´°ã¯{@link TLogger}ã‚’å‚ç…§ã—ã¦ãã ã•ã„ã€‚
      * </p>
      * 
-     * @param logId ƒƒOID
-     * @param throwable ‹Nˆö—áŠO
+     * @param logId ãƒ­ã‚°ID
+     * @param throwable èµ·å› ä¾‹å¤–
      */
     public void debug(String logId, Throwable throwable) {
         debug(logId, throwable, (Object[]) null);
     }
 
     /**
-     * WARNƒƒO‚ðo—Í‚µ‚Ü‚·B<br>
+     * WARNãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚<br>
      * <p>
-     * ƒƒK[‚ÌƒƒOƒŒƒxƒ‹‚ªWARN‚æ‚è‚‚¢ê‡‚Ío—Í‚³‚ê‚Ü‚¹‚ñB<br>
-     * Ú×‚Í{@link TLogger}‚ðŽQÆ‚µ‚Ä‚­‚¾‚³‚¢B
+     * ãƒ­ã‚¬ãƒ¼ã®ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ãŒWARNã‚ˆã‚Šé«˜ã„å ´åˆã¯å‡ºåŠ›ã•ã‚Œã¾ã›ã‚“ã€‚<br>
+     * è©³ç´°ã¯{@link TLogger}ã‚’å‚ç…§ã—ã¦ãã ã•ã„ã€‚
      * </p>
      * 
-     * @param logId ƒƒOID
+     * @param logId ãƒ­ã‚°ID
      */
     public void warn(String logId) {
         warn(logId, (Object[]) null);
     }
 
     /**
-     * TRACEƒƒO‚ðo—Í‚µ‚Ü‚·B<br>
+     * TRACEãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚<br>
      * <p>
-     * ƒƒK[‚ÌƒƒOƒŒƒxƒ‹‚ªTRACE‚æ‚è‚‚¢ê‡‚Ío—Í‚³‚ê‚Ü‚¹‚ñB<br>
-     * Ú×‚Í{@link TLogger}‚ðŽQÆ‚µ‚Ä‚­‚¾‚³‚¢B
+     * ãƒ­ã‚¬ãƒ¼ã®ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ãŒTRACEã‚ˆã‚Šé«˜ã„å ´åˆã¯å‡ºåŠ›ã•ã‚Œã¾ã›ã‚“ã€‚<br>
+     * è©³ç´°ã¯{@link TLogger}ã‚’å‚ç…§ã—ã¦ãã ã•ã„ã€‚
      * </p>
      * 
-     * @param logId ƒƒOID
-     * @param throwable ‹Nˆö—áŠO
+     * @param logId ãƒ­ã‚°ID
+     * @param throwable èµ·å› ä¾‹å¤–
      */
     public void warn(String logId, Throwable throwable) {
         warn(logId, throwable, (Object[]) null);
     }
 
     /**
-     * INFOƒƒO‚ðo—Í‚µ‚Ü‚·B<br>
+     * INFOãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚<br>
      * <p>
-     * ƒƒK[‚ÌƒƒOƒŒƒxƒ‹‚ªINFO‚æ‚è‚‚¢ê‡‚Ío—Í‚³‚ê‚Ü‚¹‚ñB<br>
-     * Ú×‚Í{@link TLogger}‚ðŽQÆ‚µ‚Ä‚­‚¾‚³‚¢B
+     * ãƒ­ã‚¬ãƒ¼ã®ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ãŒINFOã‚ˆã‚Šé«˜ã„å ´åˆã¯å‡ºåŠ›ã•ã‚Œã¾ã›ã‚“ã€‚<br>
+     * è©³ç´°ã¯{@link TLogger}ã‚’å‚ç…§ã—ã¦ãã ã•ã„ã€‚
      * </p>
      * 
-     * @param logId ƒƒOID
+     * @param logId ãƒ­ã‚°ID
      */
     public void info(String logId) {
         info(logId, (Object[]) null);
     }
 
     /**
-     * INFOƒƒO‚ðo—Í‚µ‚Ü‚·B<br>
+     * INFOãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚<br>
      * <p>
-     * ƒƒK[‚ÌƒƒOƒŒƒxƒ‹‚ªINFO‚æ‚è‚‚¢ê‡‚Ío—Í‚³‚ê‚Ü‚¹‚ñB<br>
-     * Ú×‚Í{@link TLogger}‚ðŽQÆ‚µ‚Ä‚­‚¾‚³‚¢B
+     * ãƒ­ã‚¬ãƒ¼ã®ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ãŒINFOã‚ˆã‚Šé«˜ã„å ´åˆã¯å‡ºåŠ›ã•ã‚Œã¾ã›ã‚“ã€‚<br>
+     * è©³ç´°ã¯{@link TLogger}ã‚’å‚ç…§ã—ã¦ãã ã•ã„ã€‚
      * </p>
      * 
-     * @param logId ƒƒOID
-     * @param throwable ‹Nˆö—áŠO
+     * @param logId ãƒ­ã‚°ID
+     * @param throwable èµ·å› ä¾‹å¤–
      */
     public void info(String logId, Throwable throwable) {
         info(logId, throwable, (Object[]) null);
     }
 
     /**
-     * ERRORƒƒO‚ðo—Í‚µ‚Ü‚·B<br>
+     * ERRORãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚<br>
      * <p>
-     * ƒƒK[‚ÌƒƒOƒŒƒxƒ‹‚ªERROR‚æ‚è‚‚¢ê‡‚Ío—Í‚³‚ê‚Ü‚¹‚ñB<br>
-     * Ú×‚Í{@link TLogger}‚ðŽQÆ‚µ‚Ä‚­‚¾‚³‚¢B
+     * ãƒ­ã‚¬ãƒ¼ã®ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ãŒERRORã‚ˆã‚Šé«˜ã„å ´åˆã¯å‡ºåŠ›ã•ã‚Œã¾ã›ã‚“ã€‚<br>
+     * è©³ç´°ã¯{@link TLogger}ã‚’å‚ç…§ã—ã¦ãã ã•ã„ã€‚
      * </p>
      * 
-     * @param logId ƒƒOID
+     * @param logId ãƒ­ã‚°ID
      */
     public void error(String logId) {
         error(logId, (Object[]) null);
     }
 
     /**
-     * ERRORƒƒO‚ðo—Í‚µ‚Ü‚·B<br>
+     * ERRORãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚<br>
      * <p>
-     * ƒƒK[‚ÌƒƒOƒŒƒxƒ‹‚ªERROR‚æ‚è‚‚¢ê‡‚Ío—Í‚³‚ê‚Ü‚¹‚ñB<br>
-     * Ú×‚Í{@link TLogger}‚ðŽQÆ‚µ‚Ä‚­‚¾‚³‚¢B
+     * ãƒ­ã‚¬ãƒ¼ã®ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ãŒERRORã‚ˆã‚Šé«˜ã„å ´åˆã¯å‡ºåŠ›ã•ã‚Œã¾ã›ã‚“ã€‚<br>
+     * è©³ç´°ã¯{@link TLogger}ã‚’å‚ç…§ã—ã¦ãã ã•ã„ã€‚
      * </p>
      * 
-     * @param logId ƒƒOID
-     * @param throwable ‹Nˆö—áŠO
+     * @param logId ãƒ­ã‚°ID
+     * @param throwable èµ·å› ä¾‹å¤–
      */
     public void error(String logId, Throwable throwable) {
         error(logId, throwable, (Object[]) null);
     }
 
     /**
-     * FATALƒƒO‚ðo—Í‚µ‚Ü‚·B
+     * FATALãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚
      * 
-     * @param logId ƒƒOID
-     * @param throwable ‹Nˆö—áŠO
-     * @param args ’uŠ·ƒpƒ‰ƒ[ƒ^
+     * @param logId ãƒ­ã‚°ID
+     * @param throwable èµ·å› ä¾‹å¤–
+     * @param args ç½®æ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public void fatal(String logId) {
         fatal(logId, (Object[]) null);
     }
 
     /**
-     * FATALƒƒO‚ðo—Í‚µ‚Ü‚·B
+     * FATALãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚
      * 
-     * @param logId ƒƒOID
-     * @param throwable ‹Nˆö—áŠO
+     * @param logId ãƒ­ã‚°ID
+     * @param throwable èµ·å› ä¾‹å¤–
      */
     public void fatal(String logId, Throwable throwable) {
         fatal(logId, throwable, (Object[]) null);

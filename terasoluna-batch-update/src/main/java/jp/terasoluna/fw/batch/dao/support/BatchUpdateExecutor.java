@@ -33,23 +33,23 @@ import jp.terasoluna.fw.dao.UpdateDAO;
 import jp.terasoluna.fw.logger.TLogger;
 
 /**
- * ƒoƒbƒ`XVˆêŠ‡ÀsƒNƒ‰ƒX<br>
+ * ãƒãƒƒãƒæ›´æ–°ä¸€æ‹¬å®Ÿè¡Œã‚¯ãƒ©ã‚¹<br>
  */
 public class BatchUpdateExecutor {
     /**
-     * ƒƒK[.
+     * ãƒ­ã‚¬ãƒ¼.
      */
     private static final TLogger LOGGER = TLogger
             .getLogger(BatchUpdateExecutor.class);
 
     /**
-     * ƒoƒbƒ`XVˆêŠ‡Às.<br>
+     * ãƒãƒƒãƒæ›´æ–°ä¸€æ‹¬å®Ÿè¡Œ.<br>
      * <p>
-     * ƒIƒuƒWƒFƒNƒg“à‚ÌBatchUpdateSupportƒtƒB[ƒ‹ƒh‚ğ’Tõ‚µ‚ÄA‚·‚×‚Ä‚Ìƒoƒbƒ`XV‚ğÀs‚·‚éB<br>
+     * ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆå†…ã®BatchUpdateSupportãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æ¢ç´¢ã—ã¦ã€ã™ã¹ã¦ã®ãƒãƒƒãƒæ›´æ–°ã‚’å®Ÿè¡Œã™ã‚‹ã€‚<br>
      * </p>
-     * @param value Object ’Tõ‚·‚éƒIƒuƒWƒFƒNƒg
-     * @param updateDAO UpdateDAO Às‚Ég—p‚·‚éUpdateDAO
-     * @return executeBatch‚ÌÀsŒ‹‰ÊƒŠƒXƒg
+     * @param value Object æ¢ç´¢ã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param updateDAO UpdateDAO å®Ÿè¡Œã«ä½¿ç”¨ã™ã‚‹UpdateDAO
+     * @return executeBatchã®å®Ÿè¡Œçµæœãƒªã‚¹ãƒˆ
      */
     public static List<BatchUpdateResult> executeBatch(Object value,
             UpdateDAO updateDAO) {
@@ -58,18 +58,18 @@ public class BatchUpdateExecutor {
         if (value != null) {
             if (value instanceof BatchUpdateSupport) {
                 BatchUpdateSupport bus = (BatchUpdateSupport) value;
-                // 1ŒÀs
+                // 1ä»¶å®Ÿè¡Œ
                 int res = 0;
                 try {
                     res = bus.executeBatch(updateDAO);
                     resultList.add(new BatchUpdateResult(bus, Integer
                             .valueOf(res)));
                 } catch (Throwable e) {
-                    // ”­¶‚µ‚½—áŠO‚ğŠi”[
+                    // ç™ºç”Ÿã—ãŸä¾‹å¤–ã‚’æ ¼ç´
                     resultList.add(new BatchUpdateResult(bus, e));
                 }
             } else if (value instanceof List) {
-                // ƒŠƒXƒg‚ğ’Tõ
+                // ãƒªã‚¹ãƒˆã‚’æ¢ç´¢
                 List<?> valueList = (List<?>) value;
 
                 for (Object obj : valueList) {
@@ -77,7 +77,7 @@ public class BatchUpdateExecutor {
                     resultList.addAll(res);
                 }
             } else if (value.getClass().isArray()) {
-                // ”z—ñ‚ğ’Tõ
+                // é…åˆ—ã‚’æ¢ç´¢
                 Object[] valueArray = (Object[]) value;
 
                 for (Object obj : valueArray) {
@@ -85,7 +85,7 @@ public class BatchUpdateExecutor {
                     resultList.addAll(res);
                 }
             } else {
-                // ƒIƒuƒWƒFƒNƒg‚ğ’Tõ
+                // ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’æ¢ç´¢
                 List<BatchUpdateResult> res = executeBatchInnerObject(value,
                         updateDAO);
                 resultList.addAll(res);
@@ -96,10 +96,10 @@ public class BatchUpdateExecutor {
     }
 
     /**
-     * ƒIƒuƒWƒFƒNƒg‚É‘Î‚·‚éƒoƒbƒ`XVˆêŠ‡Àsi“à•”ŒÄ‚Ño‚µ—pj.<br>
-     * @param value Object ’Tõ‚·‚éƒIƒuƒWƒFƒNƒg
-     * @param updateDAO UpdateDAO Às‚Ég—p‚·‚éUpdateDAO
-     * @return executeBatch‚ÌÀsŒ‹‰ÊƒŠƒXƒg
+     * ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«å¯¾ã™ã‚‹ãƒãƒƒãƒæ›´æ–°ä¸€æ‹¬å®Ÿè¡Œï¼ˆå†…éƒ¨å‘¼ã³å‡ºã—ç”¨ï¼‰.<br>
+     * @param value Object æ¢ç´¢ã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param updateDAO UpdateDAO å®Ÿè¡Œã«ä½¿ç”¨ã™ã‚‹UpdateDAO
+     * @return executeBatchã®å®Ÿè¡Œçµæœãƒªã‚¹ãƒˆ
      */
     protected static List<BatchUpdateResult> executeBatchInnerObject(
             Object value, UpdateDAO updateDAO) {
@@ -147,33 +147,33 @@ public class BatchUpdateExecutor {
     }
 
     /**
-     * ƒoƒbƒ`XVƒŠƒXƒgƒNƒŠƒA.<br>
+     * ãƒãƒƒãƒæ›´æ–°ãƒªã‚¹ãƒˆã‚¯ãƒªã‚¢.<br>
      * <p>
-     * ƒIƒuƒWƒFƒNƒg“à‚ÌBatchUpdateSupportƒtƒB[ƒ‹ƒh‚ğ’Tõ‚µ‚ÄA‚·‚×‚Ä‚Ìƒoƒbƒ`XV‚ğƒNƒŠƒA‚·‚éB<br>
+     * ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆå†…ã®BatchUpdateSupportãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æ¢ç´¢ã—ã¦ã€ã™ã¹ã¦ã®ãƒãƒƒãƒæ›´æ–°ã‚’ã‚¯ãƒªã‚¢ã™ã‚‹ã€‚<br>
      * </p>
-     * @param value Object ’Tõ‚·‚éƒIƒuƒWƒFƒNƒg
+     * @param value Object æ¢ç´¢ã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      */
     public static void clearAll(Object value) {
         if (value != null) {
             if (value instanceof BatchUpdateSupport) {
-                // ƒNƒŠƒA
+                // ã‚¯ãƒªã‚¢
                 ((BatchUpdateSupport) value).clear();
             } else if (value instanceof List) {
-                // ƒŠƒXƒg‚ğ’Tõ
+                // ãƒªã‚¹ãƒˆã‚’æ¢ç´¢
                 List<?> valueList = (List<?>) value;
 
                 for (Object obj : valueList) {
                     clearAll(obj);
                 }
             } else if (value.getClass().isArray()) {
-                // ”z—ñ‚ğ’Tõ
+                // é…åˆ—ã‚’æ¢ç´¢
                 Object[] valueArray = (Object[]) value;
 
                 for (Object obj : valueArray) {
                     clearAll(obj);
                 }
             } else {
-                // ƒIƒuƒWƒFƒNƒg‚ğ’Tõ
+                // ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’æ¢ç´¢
                 clearAllInnerObject(value);
             }
         }
@@ -182,8 +182,8 @@ public class BatchUpdateExecutor {
     }
 
     /**
-     * ƒIƒuƒWƒFƒNƒg‚É‘Î‚·‚éƒoƒbƒ`XVƒŠƒXƒgƒNƒŠƒAi“à•”ŒÄ‚Ño‚µ—pj.<br>
-     * @param value Object ’Tõ‚·‚éƒIƒuƒWƒFƒNƒg
+     * ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«å¯¾ã™ã‚‹ãƒãƒƒãƒæ›´æ–°ãƒªã‚¹ãƒˆã‚¯ãƒªã‚¢ï¼ˆå†…éƒ¨å‘¼ã³å‡ºã—ç”¨ï¼‰.<br>
+     * @param value Object æ¢ç´¢ã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      */
     protected static void clearAllInnerObject(Object value) {
 
@@ -226,9 +226,9 @@ public class BatchUpdateExecutor {
     }
 
     /**
-     * ˆ—‘ÎÛƒNƒ‰ƒX‚Å‚ ‚é‚©”»’è‚·‚éB<br>
-     * @param clazz ƒNƒ‰ƒXŒ^
-     * @return true:ˆ—‘ÎÛ / false:ˆ—‘ÎÛŠOƒNƒ‰ƒX
+     * å‡¦ç†å¯¾è±¡ã‚¯ãƒ©ã‚¹ã§ã‚ã‚‹ã‹åˆ¤å®šã™ã‚‹ã€‚<br>
+     * @param clazz ã‚¯ãƒ©ã‚¹å‹
+     * @return true:å‡¦ç†å¯¾è±¡ / false:å‡¦ç†å¯¾è±¡å¤–ã‚¯ãƒ©ã‚¹
      */
     protected static boolean isTargetClass(Class<?> clazz) {
         if (clazz != null && clazz != Object.class && clazz != Class.class
@@ -240,9 +240,9 @@ public class BatchUpdateExecutor {
     }
 
     /**
-     * ƒvƒŠƒ~ƒeƒBƒu‚Ìƒ‰ƒbƒp[ƒNƒ‰ƒX‚ğ”»’è‚·‚é.<br>
+     * ãƒ—ãƒªãƒŸãƒ†ã‚£ãƒ–ã®ãƒ©ãƒƒãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã‚’åˆ¤å®šã™ã‚‹.<br>
      * @param pt Class&lt;?&gt;
-     * @return true:ƒvƒŠƒ~ƒeƒBƒu‚Ìƒ‰ƒbƒp[ƒNƒ‰ƒX‚Å‚ ‚é / false:ƒvƒŠƒ~ƒeƒBƒu‚Ìƒ‰ƒbƒp[ƒNƒ‰ƒX‚Å‚Í‚È‚¢
+     * @return true:ãƒ—ãƒªãƒŸãƒ†ã‚£ãƒ–ã®ãƒ©ãƒƒãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã§ã‚ã‚‹ / false:ãƒ—ãƒªãƒŸãƒ†ã‚£ãƒ–ã®ãƒ©ãƒƒãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã§ã¯ãªã„
      */
     protected static boolean isPrimitiveWrapper(Class<?> clazz) {
         if (clazz != null) {
@@ -262,7 +262,7 @@ public class BatchUpdateExecutor {
     }
 
     /**
-     * —áŠOƒƒO‚ğo—Í‚·‚éB
+     * ä¾‹å¤–ãƒ­ã‚°ã‚’å‡ºåŠ›ã™ã‚‹ã€‚
      * @param e Throwable
      */
     protected static void outputExceptionLog(Throwable e) {

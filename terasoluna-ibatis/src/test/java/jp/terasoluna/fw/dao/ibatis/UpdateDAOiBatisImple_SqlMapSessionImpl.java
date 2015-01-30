@@ -30,15 +30,15 @@ import com.ibatis.sqlmap.client.event.RowHandler;
 import com.ibatis.sqlmap.engine.execution.BatchException;
 
 /**
- * {@link UpdateDAOiBatisImpl}�̎����̂��߂Ɏg�p�����X�^�u�B
+ * {@link UpdateDAOiBatisImpl}の試験のために使用されるスタブ。
  *
- * {@link UpdateDAOiBatisImpl}����̌Ăяo���m�F�p�Ɏg�p�����B
+ * {@link UpdateDAOiBatisImpl}からの呼び出し確認用に使用される。
  *
  */
 public class UpdateDAOiBatisImple_SqlMapSessionImpl implements SqlMapSession {
 
     /*
-     * �Ăяo���m�F�p�ϐ�
+     * 呼び出し確認用変数
      */
     protected boolean startBatchCalled = false;
     protected boolean updateCalled = false;

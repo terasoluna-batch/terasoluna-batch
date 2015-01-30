@@ -17,49 +17,49 @@
 package jp.terasoluna.fw.beans;
 
 /**
- * IndexedBeanWrapperImplTest#testGetIndexedPropertyNameList03‚Åg—p‚·‚é
- * ƒXƒ^ƒuƒNƒ‰ƒXB
+ * IndexedBeanWrapperImplTest#testGetIndexedPropertyNameList03ã§ä½¿ç”¨ã™ã‚‹
+ * ã‚¹ã‚¿ãƒ–ã‚¯ãƒ©ã‚¹ã€‚
  */
 public class JXPathIndexedBeanWrapperImpl_JavaBeanStub03 {
 
     /**
-     * ƒeƒXƒg—pƒvƒƒpƒeƒBB
+     * ãƒ†ã‚¹ãƒˆç”¨ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã€‚
      */
     private Foo foo = null;
 
     /**
-     * @return foo ‚ğ–ß‚µ‚Ü‚·B
+     * @return foo ã‚’æˆ»ã—ã¾ã™ã€‚
      */
     public Foo getFoo() {
         return foo;
     }
 
     /**
-     * @param foo İ’è‚·‚é fooB
+     * @param foo è¨­å®šã™ã‚‹ fooã€‚
      */
     public void setFoo(Foo foo) {
         this.foo = foo;
     }
 
     /**
-     * ƒeƒXƒg—pƒvƒƒpƒeƒBƒNƒ‰ƒXB
+     * ãƒ†ã‚¹ãƒˆç”¨ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚¯ãƒ©ã‚¹ã€‚
      */
     public static class Foo {
 
         /**
-         * ƒeƒXƒg—pƒvƒƒpƒeƒBB
+         * ãƒ†ã‚¹ãƒˆç”¨ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã€‚
          */
         private Bar bar = null;
 
         /**
-         * @return bar ‚ğ–ß‚µ‚Ü‚·B
+         * @return bar ã‚’æˆ»ã—ã¾ã™ã€‚
          */
         public Bar getBar() {
             return bar;
         }
 
         /**
-         * @param bar İ’è‚·‚é barB
+         * @param bar è¨­å®šã™ã‚‹ barã€‚
          */
         public void setBar(Bar bar) {
             this.bar = bar;
@@ -68,24 +68,24 @@ public class JXPathIndexedBeanWrapperImpl_JavaBeanStub03 {
     }
 
     /**
-     * ƒeƒXƒg—pƒvƒƒpƒeƒBƒNƒ‰ƒXB
+     * ãƒ†ã‚¹ãƒˆç”¨ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚¯ãƒ©ã‚¹ã€‚
      */
     public static class Bar {
 
         /**
-         * ƒeƒXƒg—pƒvƒƒpƒeƒBB
+         * ãƒ†ã‚¹ãƒˆç”¨ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã€‚
          */
         private String hoge = null;
 
         /**
-         * @return hoge ‚ğ–ß‚µ‚Ü‚·B
+         * @return hoge ã‚’æˆ»ã—ã¾ã™ã€‚
          */
         public String getHoge() {
             return hoge;
         }
 
         /**
-         * @param hoge İ’è‚·‚é hogeB
+         * @param hoge è¨­å®šã™ã‚‹ hogeã€‚
          */
         public void setHoge(String hoge) {
             this.hoge = hoge;

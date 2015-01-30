@@ -17,13 +17,13 @@
 package jp.terasoluna.fw.file.dao.standard;
 
 /**
- * �t�@�C������f�[�^���̃f�[�^��1�s���ǂݎ��A������Ƃ��Čďo���ɕԋp����B
+ * ファイルからデータ部のデータを1行分読み取り、文字列として呼出元に返却する。
  */
 public interface LineReader {
 
     /**
-     * �t�@�C������f�[�^���̃f�[�^��1�s���ǂݎ��A������Ƃ��Čďo���ɕԋp����B
-     * @return �f�[�^���̂P�s���̕�����
+     * ファイルからデータ部のデータを1行分読み取り、文字列として呼出元に返却する。
+     * @return データ部の１行分の文字列
      */
     String readLine();
 }

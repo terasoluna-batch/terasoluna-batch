@@ -1,4 +1,4 @@
 /**
- * ƒRƒŒƒNƒ^‚Ì—áŠO
+ * ã‚³ãƒ¬ã‚¯ã‚¿ã®ä¾‹å¤–
  */
 package jp.terasoluna.fw.collector.exception;

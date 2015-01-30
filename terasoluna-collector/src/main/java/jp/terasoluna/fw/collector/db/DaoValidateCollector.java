@@ -24,17 +24,17 @@ import org.springframework.validation.Validator;
 
 /**
  * DaoValidateCollector<br>
- * “Æ—§‚µ‚½•ÊƒXƒŒƒbƒh‚ğ‹N“®‚µAQueryResultHandleDAO‚ğ”ñ“¯Šú‚ÅÀs‚·‚éB
+ * ç‹¬ç«‹ã—ãŸåˆ¥ã‚¹ãƒ¬ãƒƒãƒ‰ã‚’èµ·å‹•ã—ã€QueryResultHandleDAOã‚’éåŒæœŸã§å®Ÿè¡Œã™ã‚‹ã€‚
  * @param &ltP&gt
  */
 public class DaoValidateCollector<P> extends DaoCollector<P> {
 
     /**
-     * DaoValidateCollectorƒRƒ“ƒXƒgƒ‰ƒNƒ^<br>
-     * @param queryResultHandleDao QueryResultHandleDaoƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param methodName Às‚·‚éƒƒ\ƒbƒh–¼
-     * @param bindParams SQL‚ÉƒoƒCƒ“ƒh‚·‚é’l‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg
-     * @param validator Validator “ü—Íƒ`ƒFƒbƒN‚ğs‚¤ƒoƒŠƒf[ƒ^
+     * DaoValidateCollectorã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿<br>
+     * @param queryResultHandleDao QueryResultHandleDaoã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param methodName å®Ÿè¡Œã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰å
+     * @param bindParams SQLã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹å€¤ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param validator Validator å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†ãƒãƒªãƒ‡ãƒ¼ã‚¿
      */
     public DaoValidateCollector(Object queryResultHandleDao,
             String methodName, Object bindParams, Validator validator) {
@@ -43,12 +43,12 @@ public class DaoValidateCollector<P> extends DaoCollector<P> {
     }
 
     /**
-     * DaoValidateCollectorƒRƒ“ƒXƒgƒ‰ƒNƒ^<br>
-     * @param queryResultHandleDao QueryResultHandleDaoƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param methodName Às‚·‚éƒƒ\ƒbƒh–¼
-     * @param bindParams SQL‚ÉƒoƒCƒ“ƒh‚·‚é’l‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg
-     * @param validator Validator “ü—Íƒ`ƒFƒbƒN‚ğs‚¤ƒoƒŠƒf[ƒ^
-     * @param validationErrorHandler ValidationErrorHandler “ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚És‚¤ˆ—
+     * DaoValidateCollectorã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿<br>
+     * @param queryResultHandleDao QueryResultHandleDaoã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param methodName å®Ÿè¡Œã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰å
+     * @param bindParams SQLã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹å€¤ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param validator Validator å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†ãƒãƒªãƒ‡ãƒ¼ã‚¿
+     * @param validationErrorHandler ValidationErrorHandler å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼æ™‚ã«è¡Œã†å‡¦ç†
      */
     public DaoValidateCollector(Object queryResultHandleDao,
             String methodName, Object bindParams, Validator validator,
@@ -59,12 +59,12 @@ public class DaoValidateCollector<P> extends DaoCollector<P> {
     }
 
     /**
-     * DaoValidateCollectorƒRƒ“ƒXƒgƒ‰ƒNƒ^<br>
-     * @param queryResultHandleDao QueryResultHandleDaoƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param methodName Às‚·‚éƒƒ\ƒbƒh–¼
-     * @param bindParams SQL‚ÉƒoƒCƒ“ƒh‚·‚é’l‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg
-     * @param relation1n 1:Nƒ}ƒbƒsƒ“ƒOg—p‚Ítrue
-     * @param validator Validator “ü—Íƒ`ƒFƒbƒN‚ğs‚¤ƒoƒŠƒf[ƒ^
+     * DaoValidateCollectorã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿<br>
+     * @param queryResultHandleDao QueryResultHandleDaoã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param methodName å®Ÿè¡Œã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰å
+     * @param bindParams SQLã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹å€¤ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param relation1n 1:Nãƒãƒƒãƒ”ãƒ³ã‚°ä½¿ç”¨æ™‚ã¯true
+     * @param validator Validator å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†ãƒãƒªãƒ‡ãƒ¼ã‚¿
      */
     public DaoValidateCollector(Object queryResultHandleDao,
             String methodName, Object bindParams, boolean relation1n,
@@ -74,13 +74,13 @@ public class DaoValidateCollector<P> extends DaoCollector<P> {
     }
 
     /**
-     * DaoValidateCollectorƒRƒ“ƒXƒgƒ‰ƒNƒ^<br>
-     * @param queryResultHandleDao QueryResultHandleDaoƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param methodName Às‚·‚éƒƒ\ƒbƒh–¼
-     * @param bindParams SQL‚ÉƒoƒCƒ“ƒh‚·‚é’l‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg
-     * @param relation1n 1:Nƒ}ƒbƒsƒ“ƒOg—p‚Ítrue
-     * @param validator Validator “ü—Íƒ`ƒFƒbƒN‚ğs‚¤ƒoƒŠƒf[ƒ^
-     * @param validationErrorHandler ValidationErrorHandler “ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚És‚¤ˆ—
+     * DaoValidateCollectorã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿<br>
+     * @param queryResultHandleDao QueryResultHandleDaoã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param methodName å®Ÿè¡Œã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰å
+     * @param bindParams SQLã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹å€¤ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param relation1n 1:Nãƒãƒƒãƒ”ãƒ³ã‚°ä½¿ç”¨æ™‚ã¯true
+     * @param validator Validator å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†ãƒãƒªãƒ‡ãƒ¼ã‚¿
+     * @param validationErrorHandler ValidationErrorHandler å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼æ™‚ã«è¡Œã†å‡¦ç†
      */
     public DaoValidateCollector(Object queryResultHandleDao,
             String methodName, Object bindParams, boolean relation1n,
@@ -91,12 +91,12 @@ public class DaoValidateCollector<P> extends DaoCollector<P> {
     }
 
     /**
-     * DaoValidateCollectorƒRƒ“ƒXƒgƒ‰ƒNƒ^<br>
-     * @param queryResultHandleDao QueryResultHandleDaoƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param methodName Às‚·‚éƒƒ\ƒbƒh–¼
-     * @param bindParams SQL‚ÉƒoƒCƒ“ƒh‚·‚é’l‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg
-     * @param queueSize ƒLƒ…[‚ÌƒTƒCƒYi1ˆÈã‚ğİ’è‚·‚é‚±‚Æj
-     * @param validator Validator “ü—Íƒ`ƒFƒbƒN‚ğs‚¤ƒoƒŠƒf[ƒ^
+     * DaoValidateCollectorã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿<br>
+     * @param queryResultHandleDao QueryResultHandleDaoã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param methodName å®Ÿè¡Œã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰å
+     * @param bindParams SQLã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹å€¤ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param queueSize ã‚­ãƒ¥ãƒ¼ã®ã‚µã‚¤ã‚ºï¼ˆ1ä»¥ä¸Šã‚’è¨­å®šã™ã‚‹ã“ã¨ï¼‰
+     * @param validator Validator å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†ãƒãƒªãƒ‡ãƒ¼ã‚¿
      */
     public DaoValidateCollector(Object queryResultHandleDao,
             String methodName, Object bindParams, int queueSize, Validator validator) {
@@ -105,13 +105,13 @@ public class DaoValidateCollector<P> extends DaoCollector<P> {
     }
 
     /**
-     * DaoValidateCollectorƒRƒ“ƒXƒgƒ‰ƒNƒ^<br>
-     * @param queryResultHandleDao QueryResultHandleDaoƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param methodName Às‚·‚éƒƒ\ƒbƒh–¼
-     * @param bindParams SQL‚ÉƒoƒCƒ“ƒh‚·‚é’l‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg
-     * @param queueSize ƒLƒ…[‚ÌƒTƒCƒYi1ˆÈã‚ğİ’è‚·‚é‚±‚Æj
-     * @param validator Validator “ü—Íƒ`ƒFƒbƒN‚ğs‚¤ƒoƒŠƒf[ƒ^
-     * @param validationErrorHandler ValidationErrorHandler “ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚És‚¤ˆ—
+     * DaoValidateCollectorã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿<br>
+     * @param queryResultHandleDao QueryResultHandleDaoã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param methodName å®Ÿè¡Œã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰å
+     * @param bindParams SQLã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹å€¤ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param queueSize ã‚­ãƒ¥ãƒ¼ã®ã‚µã‚¤ã‚ºï¼ˆ1ä»¥ä¸Šã‚’è¨­å®šã™ã‚‹ã“ã¨ï¼‰
+     * @param validator Validator å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†ãƒãƒªãƒ‡ãƒ¼ã‚¿
+     * @param validationErrorHandler ValidationErrorHandler å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼æ™‚ã«è¡Œã†å‡¦ç†
      */
     public DaoValidateCollector(Object queryResultHandleDao,
             String methodName, Object bindParams, int queueSize,
@@ -122,13 +122,13 @@ public class DaoValidateCollector<P> extends DaoCollector<P> {
     }
 
     /**
-     * DaoValidateCollectorƒRƒ“ƒXƒgƒ‰ƒNƒ^<br>
-     * @param queryResultHandleDao QueryResultHandleDaoƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param methodName Às‚·‚éƒƒ\ƒbƒh–¼
-     * @param bindParams SQL‚ÉƒoƒCƒ“ƒh‚·‚é’l‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg
-     * @param queueSize ƒLƒ…[‚ÌƒTƒCƒYi1ˆÈã‚ğİ’è‚·‚é‚±‚Æj
-     * @param exceptionHandler —áŠOƒnƒ“ƒhƒ‰
-     * @param validator Validator “ü—Íƒ`ƒFƒbƒN‚ğs‚¤ƒoƒŠƒf[ƒ^
+     * DaoValidateCollectorã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿<br>
+     * @param queryResultHandleDao QueryResultHandleDaoã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param methodName å®Ÿè¡Œã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰å
+     * @param bindParams SQLã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹å€¤ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param queueSize ã‚­ãƒ¥ãƒ¼ã®ã‚µã‚¤ã‚ºï¼ˆ1ä»¥ä¸Šã‚’è¨­å®šã™ã‚‹ã“ã¨ï¼‰
+     * @param exceptionHandler ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©
+     * @param validator Validator å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†ãƒãƒªãƒ‡ãƒ¼ã‚¿
      */
     public DaoValidateCollector(Object queryResultHandleDao,
             String methodName, Object bindParams, int queueSize,
@@ -139,14 +139,14 @@ public class DaoValidateCollector<P> extends DaoCollector<P> {
     }
 
     /**
-     * DaoValidateCollectorƒRƒ“ƒXƒgƒ‰ƒNƒ^<br>
-     * @param queryResultHandleDao QueryResultHandleDaoƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param methodName Às‚·‚éƒƒ\ƒbƒh–¼
-     * @param bindParams SQL‚ÉƒoƒCƒ“ƒh‚·‚é’l‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg
-     * @param queueSize ƒLƒ…[‚ÌƒTƒCƒYi1ˆÈã‚ğİ’è‚·‚é‚±‚Æj
-     * @param exceptionHandler —áŠOƒnƒ“ƒhƒ‰
-     * @param validator Validator “ü—Íƒ`ƒFƒbƒN‚ğs‚¤ƒoƒŠƒf[ƒ^
-     * @param validationErrorHandler ValidationErrorHandler “ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚És‚¤ˆ—
+     * DaoValidateCollectorã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿<br>
+     * @param queryResultHandleDao QueryResultHandleDaoã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param methodName å®Ÿè¡Œã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰å
+     * @param bindParams SQLã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹å€¤ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param queueSize ã‚­ãƒ¥ãƒ¼ã®ã‚µã‚¤ã‚ºï¼ˆ1ä»¥ä¸Šã‚’è¨­å®šã™ã‚‹ã“ã¨ï¼‰
+     * @param exceptionHandler ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©
+     * @param validator Validator å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†ãƒãƒªãƒ‡ãƒ¼ã‚¿
+     * @param validationErrorHandler ValidationErrorHandler å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼æ™‚ã«è¡Œã†å‡¦ç†
      */
     public DaoValidateCollector(Object queryResultHandleDao,
             String methodName, Object bindParams, int queueSize,
@@ -159,15 +159,15 @@ public class DaoValidateCollector<P> extends DaoCollector<P> {
     }
 
     /**
-     * DaoValidateCollectorƒRƒ“ƒXƒgƒ‰ƒNƒ^<br>
-     * @param queryResultHandleDao QueryResultHandleDaoƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param methodName Às‚·‚éƒƒ\ƒbƒh–¼
-     * @param bindParams SQL‚ÉƒoƒCƒ“ƒh‚·‚é’l‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg
-     * @param queueSize ƒLƒ…[‚ÌƒTƒCƒYi1ˆÈã‚ğİ’è‚·‚é‚±‚Æj
-     * @param relation1n 1:Nƒ}ƒbƒsƒ“ƒOg—p‚Ítrue
-     * @param exceptionHandler —áŠOƒnƒ“ƒhƒ‰
-     * @param daoCollectorPrePostProcess DaoCollector‘OŒãˆ—
-     * @param validator Validator “ü—Íƒ`ƒFƒbƒN‚ğs‚¤ƒoƒŠƒf[ƒ^
+     * DaoValidateCollectorã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿<br>
+     * @param queryResultHandleDao QueryResultHandleDaoã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param methodName å®Ÿè¡Œã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰å
+     * @param bindParams SQLã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹å€¤ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param queueSize ã‚­ãƒ¥ãƒ¼ã®ã‚µã‚¤ã‚ºï¼ˆ1ä»¥ä¸Šã‚’è¨­å®šã™ã‚‹ã“ã¨ï¼‰
+     * @param relation1n 1:Nãƒãƒƒãƒ”ãƒ³ã‚°ä½¿ç”¨æ™‚ã¯true
+     * @param exceptionHandler ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©
+     * @param daoCollectorPrePostProcess DaoCollectorå‰å¾Œå‡¦ç†
+     * @param validator Validator å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†ãƒãƒªãƒ‡ãƒ¼ã‚¿
      */
     public DaoValidateCollector(Object queryResultHandleDao,
             String methodName, Object bindParams, int queueSize, boolean relation1n,
@@ -182,16 +182,16 @@ public class DaoValidateCollector<P> extends DaoCollector<P> {
     }
 
     /**
-     * DaoValidateCollectorƒRƒ“ƒXƒgƒ‰ƒNƒ^<br>
-     * @param queryResultHandleDao QueryResultHandleDaoƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param methodName Às‚·‚éƒƒ\ƒbƒh–¼
-     * @param bindParams SQL‚ÉƒoƒCƒ“ƒh‚·‚é’l‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg
-     * @param queueSize ƒLƒ…[‚ÌƒTƒCƒYi1ˆÈã‚ğİ’è‚·‚é‚±‚Æj
-     * @param relation1n 1:Nƒ}ƒbƒsƒ“ƒOg—p‚Ítrue
-     * @param exceptionHandler —áŠOƒnƒ“ƒhƒ‰
-     * @param daoCollectorPrePostProcess DaoCollector‘Oˆ—
-     * @param validator Validator “ü—Íƒ`ƒFƒbƒN‚ğs‚¤ƒoƒŠƒf[ƒ^
-     * @param validationErrorHandler ValidationErrorHandler “ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚És‚¤ˆ—
+     * DaoValidateCollectorã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿<br>
+     * @param queryResultHandleDao QueryResultHandleDaoã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param methodName å®Ÿè¡Œã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰å
+     * @param bindParams SQLã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹å€¤ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param queueSize ã‚­ãƒ¥ãƒ¼ã®ã‚µã‚¤ã‚ºï¼ˆ1ä»¥ä¸Šã‚’è¨­å®šã™ã‚‹ã“ã¨ï¼‰
+     * @param relation1n 1:Nãƒãƒƒãƒ”ãƒ³ã‚°ä½¿ç”¨æ™‚ã¯true
+     * @param exceptionHandler ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©
+     * @param daoCollectorPrePostProcess DaoCollectorå‰å‡¦ç†
+     * @param validator Validator å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†ãƒãƒªãƒ‡ãƒ¼ã‚¿
+     * @param validationErrorHandler ValidationErrorHandler å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼æ™‚ã«è¡Œã†å‡¦ç†
      */
     public DaoValidateCollector(Object queryResultHandleDao,
             String methodName, Object bindParams, int queueSize, boolean relation1n,
@@ -207,8 +207,8 @@ public class DaoValidateCollector<P> extends DaoCollector<P> {
     }
 
     /**
-     * DaoValidateCollectorƒRƒ“ƒXƒgƒ‰ƒNƒ^<br>
-     * @param config DaoCollectorConfig DaoCollectorİ’è€–Ú
+     * DaoValidateCollectorã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿<br>
+     * @param config DaoCollectorConfig DaoCollectorè¨­å®šé …ç›®
      */
     public DaoValidateCollector(DaoCollectorConfig config) {
         if (config == null) {
@@ -237,7 +237,7 @@ public class DaoValidateCollector<P> extends DaoCollector<P> {
         this.daoCollectorPrePostProcess = config.getDaoCollectorPrePostProcess();
 
         if (config.isExecuteByConstructor()) {
-            // ÀsŠJn
+            // å®Ÿè¡Œé–‹å§‹
             execute();
         }
     }

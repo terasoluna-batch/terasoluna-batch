@@ -20,23 +20,23 @@ import java.util.Locale;
 
 
 /**
- * DataSourceMessageSourceƒNƒ‰ƒX‚Å—˜—p‚·‚éƒXƒ^ƒu
+ * DataSourceMessageSourceã‚¯ãƒ©ã‚¹ã§åˆ©ç”¨ã™ã‚‹ã‚¹ã‚¿ãƒ–
  *
  */
 public class DataSourceMessageSource_DataSourceMessageSourceStub04 extends
         DataSourceMessageSource {
     /**
-     * ŒÄ‚Ño‚µŠm”F
+     * å‘¼ã³å‡ºã—ç¢ºèª
      */
     protected boolean isRead = false;
         
     /**
-     * ˆø”code‚ğŠi”[
+     * å¼•æ•°codeã‚’æ ¼ç´
      */
     protected String code = null;
     
     /**
-     * ˆø”locale‚ğŠi”[
+     * å¼•æ•°localeã‚’æ ¼ç´
      */
     protected Locale locale = null;
     

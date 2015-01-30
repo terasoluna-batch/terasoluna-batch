@@ -11,7 +11,7 @@ import jp.terasoluna.fw.file.annotation.InputFileColumn;
 import jp.terasoluna.fw.file.annotation.OutputFileColumn;
 
 /**
- * FileFormatアノテーションの設定を持つ、ファイル行オブジェクトスタブクラス
+ * FileFormat繧｢繝弱ユ繝ｼ繧ｷ繝ｧ繝ｳ縺ｮ險ｭ螳壹ｒ謖√▽縲√ヵ繧｡繧､繝ｫ陦後が繝悶ず繧ｧ繧ｯ繝医せ繧ｿ繝悶け繝ｩ繧ｹ
  * <ul>
  * <li>@FileFormat(encloseChar = '"')
  * </ul>

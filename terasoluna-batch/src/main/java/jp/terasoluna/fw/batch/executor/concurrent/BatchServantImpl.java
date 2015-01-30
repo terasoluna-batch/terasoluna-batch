@@ -20,21 +20,21 @@ import jp.terasoluna.fw.batch.executor.AbstractJobBatchExecutor;
 import jp.terasoluna.fw.batch.executor.vo.BLogicResult;
 
 /**
- * ƒoƒbƒ`ƒT[ƒoƒ“ƒgÀ‘•ƒNƒ‰ƒXB<br>
+ * ãƒãƒƒãƒã‚µãƒ¼ãƒãƒ³ãƒˆå®Ÿè£…ã‚¯ãƒ©ã‚¹ã€‚<br>
  * <br>
- * ”ñ“¯Šúƒoƒbƒ`ƒGƒOƒ[ƒLƒ…[ƒ^‚©‚çŒÄ‚Î‚êAw’è‚³‚ê‚½ƒWƒ‡ƒuƒV[ƒPƒ“ƒXƒR[ƒh‚©‚çƒWƒ‡ƒu‚ğÀs‚·‚éB
+ * éåŒæœŸãƒãƒƒãƒã‚¨ã‚°ã‚¼ã‚­ãƒ¥ãƒ¼ã‚¿ã‹ã‚‰å‘¼ã°ã‚Œã€æŒ‡å®šã•ã‚ŒãŸã‚¸ãƒ§ãƒ–ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã‚³ãƒ¼ãƒ‰ã‹ã‚‰ã‚¸ãƒ§ãƒ–ã‚’å®Ÿè¡Œã™ã‚‹ã€‚
  * @see jp.terasoluna.fw.batch.executor.AbstractJobBatchExecutor
  */
 public class BatchServantImpl extends AbstractJobBatchExecutor implements
                                                               BatchServant {
 
     /**
-     * ƒWƒ‡ƒuÀsƒXƒe[ƒ^ƒX
+     * ã‚¸ãƒ§ãƒ–å®Ÿè¡Œã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹
      */
     private BLogicResult result = new BLogicResult();
 
     /**
-     * ƒWƒ‡ƒuƒV[ƒPƒ“ƒXƒR[ƒh
+     * ã‚¸ãƒ§ãƒ–ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã‚³ãƒ¼ãƒ‰
      */
     private String jobSequenceId = null;
 
@@ -44,9 +44,9 @@ public class BatchServantImpl extends AbstractJobBatchExecutor implements
      */
     public void run() {
         try {
-            // ƒGƒ‰[ƒƒbƒZ[ƒW‚Ì‰Šú‰»
+            // ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®åˆæœŸåŒ–
             this.initDefaultErrorMessage();
-            // ƒoƒbƒ`Às
+            // ãƒãƒƒãƒå®Ÿè¡Œ
             this.result = this.executeBatch(this.jobSequenceId);
         } finally {
             closeApplicationContext(defaultApplicationContext);
@@ -54,7 +54,7 @@ public class BatchServantImpl extends AbstractJobBatchExecutor implements
     }
 
     /**
-     * ƒWƒ‡ƒuƒV[ƒPƒ“ƒXƒR[ƒh
+     * ã‚¸ãƒ§ãƒ–ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã‚³ãƒ¼ãƒ‰
      * @return the jobSequenceId
      */
     public String getJobSequenceId() {
@@ -70,7 +70,7 @@ public class BatchServantImpl extends AbstractJobBatchExecutor implements
     }
 
     /**
-     * ƒWƒ‡ƒuÀsƒXƒe[ƒ^ƒX
+     * ã‚¸ãƒ§ãƒ–å®Ÿè¡Œã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹
      * @return the result
      */
     public BLogicResult getResult() {

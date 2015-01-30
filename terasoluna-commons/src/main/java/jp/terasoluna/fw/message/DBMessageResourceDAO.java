@@ -19,11 +19,11 @@ package jp.terasoluna.fw.message;
 import java.util.List;
 
 /**
- * DB‚ÉŠi”[‚³‚ê‚Ä‚¢‚éƒƒbƒZ[ƒWƒŠƒ\[ƒX‚ÉƒAƒNƒZƒX‚·‚é‚½‚ß‚ÌDAOƒCƒ“ƒ^ƒtƒF[ƒXB
+ * DBã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒªã‚½ãƒ¼ã‚¹ã«ã‚¢ã‚¯ã‚»ã‚¹ã™ã‚‹ãŸã‚ã®DAOã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã€‚
  * <br>
- * TERASOLUNA‚Å‚Í–{ƒNƒ‰ƒX‚ÌÀ‘•ƒNƒ‰ƒXDBMessageDAOImpl‚ğ’ñ‹Ÿ‚·‚éB
+ * TERASOLUNAã§ã¯æœ¬ã‚¯ãƒ©ã‚¹ã®å®Ÿè£…ã‚¯ãƒ©ã‚¹DBMessageDAOImplã‚’æä¾›ã™ã‚‹ã€‚
  * <br><br>
- * DAO‚ÍDB‚©‚çƒƒbƒZ[ƒWƒŠƒ\[ƒX‚ğŒŸõ‚·‚é‹@”\‚ğ’ñ‹Ÿ‚·‚éB
+ * DAOã¯DBã‹ã‚‰ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒªã‚½ãƒ¼ã‚¹ã‚’æ¤œç´¢ã™ã‚‹æ©Ÿèƒ½ã‚’æä¾›ã™ã‚‹ã€‚
  * 
  * @see jp.terasoluna.fw.message.DataSourceMessageSource
  * @see jp.terasoluna.fw.message.DBMessage
@@ -34,11 +34,11 @@ import java.util.List;
 public interface DBMessageResourceDAO {
 
     /**
-     * DB“à‚Ì‘S‚Ä‚ÌƒƒbƒZ[ƒWƒŠƒ\[ƒX‚ğƒŠƒXƒg‚Å•Ô‹p‚·‚éBƒŠƒXƒg‚Ìƒpƒ‰ƒ[ƒ^Œ^‚Í
-     * DBMessage‚Å‚ ‚éB‚µ‚½‚ª‚Á‚ÄƒŠƒXƒg‚©‚çæ‚èo‚¹‚Î‚»‚Ì‚Ü‚ÜDBMessage
-     * ƒIƒuƒWƒFƒNƒg‚Æ‚µ‚Ä—˜—p‚Å‚«‚éBÚ‚µ‚­‚ÍDBMessageƒNƒ‰ƒX‚ğQÆ‚Ì‚±‚ÆB
+     * DBå†…ã®å…¨ã¦ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒªã‚½ãƒ¼ã‚¹ã‚’ãƒªã‚¹ãƒˆã§è¿”å´ã™ã‚‹ã€‚ãƒªã‚¹ãƒˆã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å‹ã¯
+     * DBMessageã§ã‚ã‚‹ã€‚ã—ãŸãŒã£ã¦ãƒªã‚¹ãƒˆã‹ã‚‰å–ã‚Šå‡ºã›ã°ãã®ã¾ã¾DBMessage
+     * ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¨ã—ã¦åˆ©ç”¨ã§ãã‚‹ã€‚è©³ã—ãã¯DBMessageã‚¯ãƒ©ã‚¹ã‚’å‚ç…§ã®ã“ã¨ã€‚
      * 
-     * @return ƒƒbƒZ[ƒWƒŠƒ\[ƒX‚ÌƒŠƒXƒgB
+     * @return ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒªã‚½ãƒ¼ã‚¹ã®ãƒªã‚¹ãƒˆã€‚
      */
     List<DBMessage> findDBMessages();
 

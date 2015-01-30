@@ -44,7 +44,7 @@ public class AbstractCollector001Test {
     public void testExecute001() {
         AbstractCollectorStubHasNext1<AbstractCollectorTestBean> col = new AbstractCollectorStubHasNext1<AbstractCollectorTestBean>();
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         try {
             col.execute();
         } catch (SystemException e) {
@@ -64,7 +64,7 @@ public class AbstractCollector001Test {
     public void testExecute002() {
         AbstractCollectorStub7<AbstractCollectorTestBean> col = new AbstractCollectorStub7<AbstractCollectorTestBean>();
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         col.execute();
     }
 
@@ -75,7 +75,7 @@ public class AbstractCollector001Test {
     public void testHasNext001() {
         AbstractCollectorStubHasNext2<AbstractCollectorTestBean> col = new AbstractCollectorStubHasNext2<AbstractCollectorTestBean>();
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = col.hasNext();
 
         assertFalse(result);
@@ -88,7 +88,7 @@ public class AbstractCollector001Test {
     public void testHasNext002() {
         AbstractCollectorStub3<AbstractCollectorTestBean> col = new AbstractCollectorStub3<AbstractCollectorTestBean>();
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = col.hasNext();
 
         assertFalse(result);
@@ -154,7 +154,7 @@ public class AbstractCollector001Test {
         AbstractCollectorTestBean result = null;
 
         result = col.next();
-        // poll()‚ÉInterruptedException‚ª”­¶‚µ‚Ä‚àA‚»‚êˆÈ‘O‚Épeek()‚ÅƒIƒuƒWƒFƒNƒg‚ª“¾‚ç‚ê‚Ä‚¢‚éB
+        // poll()æ™‚ã«InterruptedExceptionãŒç™ºç”Ÿã—ã¦ã‚‚ã€ãã‚Œä»¥å‰ã«peek()ã§ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒå¾—ã‚‰ã‚Œã¦ã„ã‚‹ã€‚
         assertNotNull(result);
         assertEquals("hoge", result.getHoge());
     }
@@ -346,12 +346,12 @@ public class AbstractCollector001Test {
 
     // @Test
     // public void testIterator() {
-    // fail("‚Ü‚¾À‘•‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ");
+    // fail("ã¾ã å®Ÿè£…ã•ã‚Œã¦ã„ã¾ã›ã‚“");
     // }
     //
     // @Test
     // public void testSetQueueSize() {
-    // // fail("‚Ü‚¾À‘•‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ");
+    // // fail("ã¾ã å®Ÿè£…ã•ã‚Œã¦ã„ã¾ã›ã‚“");
     // }
 
 }

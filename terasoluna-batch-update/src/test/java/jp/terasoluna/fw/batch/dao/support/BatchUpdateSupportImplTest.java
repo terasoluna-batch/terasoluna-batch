@@ -61,26 +61,26 @@ public class BatchUpdateSupportImplTest {
     /**
      * testBatchUpdateSupportImpl001<br>
      * <p>
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌƒeƒXƒg<br>
-     * —áŠO‚ª”­¶‚µ‚È‚¢‚±‚Æ<br>
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®ãƒ†ã‚¹ãƒˆ<br>
+     * ä¾‹å¤–ãŒç™ºç”Ÿã—ãªã„ã“ã¨<br>
      * </p>
      */
     @Test
     public void testBatchUpdateSupportImpl001() {
         BatchUpdateSupportImpl busi = null;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         busi = new BatchUpdateSupportImpl();
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertNotNull(busi);
     }
 
     /**
      * testBatchUpdateSupportImplUpdateDAO001 <br>
      * <p>
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌƒeƒXƒg<br>
-     * —áŠO‚ª”­¶‚µ‚È‚¢‚±‚Æ<br>
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®ãƒ†ã‚¹ãƒˆ<br>
+     * ä¾‹å¤–ãŒç™ºç”Ÿã—ãªã„ã“ã¨<br>
      * </p>
      */
     @Test
@@ -88,10 +88,10 @@ public class BatchUpdateSupportImplTest {
         BatchUpdateSupportImpl busi = null;
         UpdateDAO updateDAO = null;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         busi = new BatchUpdateSupportImpl(updateDAO);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertNotNull(busi);
         UpdateDAO updateDAOField = null;
         try {
@@ -115,10 +115,10 @@ public class BatchUpdateSupportImplTest {
         BatchUpdateSupportImpl busi = null;
         UpdateDAO updateDAO = new MockUpdateDao();
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         busi = new BatchUpdateSupportImpl(updateDAO);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertNotNull(busi);
         Object updateDAOField = null;
         try {
@@ -141,10 +141,10 @@ public class BatchUpdateSupportImplTest {
         UpdateDAO updateDAO = null;
         Comparator<String> comparator = null;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         busi = new BatchUpdateSupportImpl(updateDAO, comparator);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertNotNull(busi);
         Object updateDAOField = null;
         Object sqlIdOrderField = null;
@@ -171,10 +171,10 @@ public class BatchUpdateSupportImplTest {
         UpdateDAO updateDAO = new MockUpdateDao();
         Comparator<String> comparator = null;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         busi = new BatchUpdateSupportImpl(updateDAO, comparator);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertNotNull(busi);
         Object updateDAOField = null;
         Object sqlIdOrderField = null;
@@ -201,10 +201,10 @@ public class BatchUpdateSupportImplTest {
         UpdateDAO updateDAO = new MockUpdateDao();
         Comparator<String> comparator = new DummyComparatorImpl();
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         busi = new BatchUpdateSupportImpl(updateDAO, comparator);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertNotNull(busi);
         Object updateDAOField = null;
         Object comparatorField = null;
@@ -231,10 +231,10 @@ public class BatchUpdateSupportImplTest {
         UpdateDAO updateDAO = null;
         String[] sqlIdOrder = null;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         busi = new BatchUpdateSupportImpl(updateDAO, sqlIdOrder);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertNotNull(busi);
         Object updateDAOField = null;
         Object sqlIdOrderField = null;
@@ -261,10 +261,10 @@ public class BatchUpdateSupportImplTest {
         UpdateDAO updateDAO = new MockUpdateDao();
         String[] sqlIdOrder = null;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         busi = new BatchUpdateSupportImpl(updateDAO, sqlIdOrder);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertNotNull(busi);
         Object updateDAOField = null;
         Object sqlIdOrderField = null;
@@ -291,10 +291,10 @@ public class BatchUpdateSupportImplTest {
         UpdateDAO updateDAO = new MockUpdateDao();
         String[] sqlIdOrder = { "hoge" };
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         busi = new BatchUpdateSupportImpl(updateDAO, sqlIdOrder);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertNotNull(busi);
         Object updateDAOField = null;
         Object sqlIdOrderField = null;
@@ -321,13 +321,13 @@ public class BatchUpdateSupportImplTest {
         BatchUpdateSupportImpl busi = null;
         UpdateDAO updateDAO = new MockUpdateDao();
 
-        // ƒpƒ‰ƒ[ƒ^İ’è
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿è¨­å®š
         busi = new BatchUpdateSupportImpl(updateDAO);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         busi.addBatch(null, null);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         Map<String, Queue<SqlHolder>> batchSqlsMap = null;
         try {
             batchSqlsMap = (Map<String, Queue<SqlHolder>>) UTUtil
@@ -350,13 +350,13 @@ public class BatchUpdateSupportImplTest {
         BatchUpdateSupportImpl busi = null;
         UpdateDAO updateDAO = new MockUpdateDao();
 
-        // ƒpƒ‰ƒ[ƒ^İ’è
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿è¨­å®š
         busi = new BatchUpdateSupportImpl(updateDAO);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         busi.addBatch("", null);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         Map<String, Queue<SqlHolder>> batchSqlsMap = null;
         try {
             batchSqlsMap = (Map<String, Queue<SqlHolder>>) UTUtil
@@ -379,14 +379,14 @@ public class BatchUpdateSupportImplTest {
         BatchUpdateSupportImpl busi = null;
         UpdateDAO updateDAO = new MockUpdateDao();
 
-        // ƒpƒ‰ƒ[ƒ^İ’è
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿è¨­å®š
         busi = new BatchUpdateSupportImpl(updateDAO);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         String sqlId1 = "hogeSQL";
         busi.addBatch(sqlId1, null);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         Map<String, Queue<SqlHolder>> batchSqlsMap = null;
         try {
             batchSqlsMap = (Map<String, Queue<SqlHolder>>) UTUtil
@@ -412,14 +412,14 @@ public class BatchUpdateSupportImplTest {
         BatchUpdateSupportImpl busi = null;
         UpdateDAO updateDAO = new MockUpdateDao();
 
-        // ƒpƒ‰ƒ[ƒ^İ’è
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿è¨­å®š
         busi = new BatchUpdateSupportImpl(updateDAO);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         String sqlId1 = "hogeSQL";
         busi.addBatch(sqlId1, null);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         Map<String, Queue<SqlHolder>> batchSqlsMap = null;
         try {
             batchSqlsMap = (Map<String, Queue<SqlHolder>>) UTUtil
@@ -450,15 +450,15 @@ public class BatchUpdateSupportImplTest {
         BatchUpdateSupportImpl busi = null;
         UpdateDAO updateDAO = new MockUpdateDao();
 
-        // ƒpƒ‰ƒ[ƒ^İ’è
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿è¨­å®š
         busi = new BatchUpdateSupportImpl(updateDAO);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         String sqlId1 = "hogeSQL";
         DummyParam dummyParam1 = new DummyParam();
         busi.addBatch(sqlId1, dummyParam1);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         Map<String, Queue<SqlHolder>> batchSqlsMap = null;
         try {
             batchSqlsMap = (Map<String, Queue<SqlHolder>>) UTUtil
@@ -481,7 +481,7 @@ public class BatchUpdateSupportImplTest {
     /**
      * testExecuteBatch001<br>
      * <p>
-     * ƒ\[ƒg‚¹‚¸‚ÉÀs
+     * ã‚½ãƒ¼ãƒˆã›ãšã«å®Ÿè¡Œ
      * </p>
      */
     @Test
@@ -489,7 +489,7 @@ public class BatchUpdateSupportImplTest {
         BatchUpdateSupportImpl busi = null;
         MockUpdateDao updateDAO = new MockUpdateDao();
 
-        // ƒpƒ‰ƒ[ƒ^İ’è
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿è¨­å®š
         updateDAO.addResult(Integer.valueOf(0));
         busi = new BatchUpdateSupportImpl(updateDAO);
 
@@ -525,10 +525,10 @@ public class BatchUpdateSupportImplTest {
         busi.addBatch(sqlId9, dummyParam9);
         busi.addBatch(sqlId10, dummyParam10);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         int result = busi.executeBatch();
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertEquals(0, result);
         List<DaoParam> params = updateDAO.getParams();
         assertNotNull(params);
@@ -569,7 +569,7 @@ public class BatchUpdateSupportImplTest {
     /**
      * testExecuteBatch002<br>
      * <p>
-     * ƒ\[ƒg‚µ‚ÄÀs
+     * ã‚½ãƒ¼ãƒˆã—ã¦å®Ÿè¡Œ
      * </p>
      */
     @Test
@@ -577,7 +577,7 @@ public class BatchUpdateSupportImplTest {
         BatchUpdateSupportImpl busi = null;
         MockUpdateDao updateDAO = new MockUpdateDao();
 
-        // ƒpƒ‰ƒ[ƒ^İ’è
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿è¨­å®š
         updateDAO.addResult(Integer.valueOf(0));
         busi = new BatchUpdateSupportImpl(updateDAO);
 
@@ -613,11 +613,11 @@ public class BatchUpdateSupportImplTest {
         busi.addBatch(sqlId9, dummyParam9);
         busi.addBatch(sqlId10, dummyParam10);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         busi.sort();
         int result = busi.executeBatch();
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertEquals(0, result);
         List<DaoParam> params = updateDAO.getParams();
         assertNotNull(params);
@@ -658,7 +658,7 @@ public class BatchUpdateSupportImplTest {
     /**
      * testExecuteBatch003<br>
      * <p>
-     * ƒ\[ƒg‚µ‚ÄÀs
+     * ã‚½ãƒ¼ãƒˆã—ã¦å®Ÿè¡Œ
      * </p>
      */
     @Test
@@ -666,7 +666,7 @@ public class BatchUpdateSupportImplTest {
         BatchUpdateSupportImpl busi = null;
         MockUpdateDao updateDAO = new MockUpdateDao();
 
-        // ƒpƒ‰ƒ[ƒ^İ’è
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿è¨­å®š
         updateDAO.addResult(Integer.valueOf(0));
         busi = new BatchUpdateSupportImpl(updateDAO);
 
@@ -702,11 +702,11 @@ public class BatchUpdateSupportImplTest {
         busi.addBatch(sqlId9, dummyParam9);
         busi.addBatch(sqlId10, dummyParam10);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         busi.sort(new DummyComparatorImpl());
         int result = busi.executeBatch();
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertEquals(0, result);
         List<DaoParam> params = updateDAO.getParams();
         assertNotNull(params);
@@ -747,7 +747,7 @@ public class BatchUpdateSupportImplTest {
     /**
      * testExecuteBatch004<br>
      * <p>
-     * Às‡‚ğw’è‚µ‚ÄÀs
+     * å®Ÿè¡Œé †ã‚’æŒ‡å®šã—ã¦å®Ÿè¡Œ
      * </p>
      */
     @Test
@@ -755,7 +755,7 @@ public class BatchUpdateSupportImplTest {
         BatchUpdateSupportImpl busi = null;
         MockUpdateDao updateDAO = new MockUpdateDao();
 
-        // ƒpƒ‰ƒ[ƒ^İ’è
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿è¨­å®š
         updateDAO.addResult(Integer.valueOf(0));
         busi = new BatchUpdateSupportImpl(updateDAO);
 
@@ -791,11 +791,11 @@ public class BatchUpdateSupportImplTest {
         busi.addBatch(sqlId9, dummyParam9);
         busi.addBatch(sqlId10, dummyParam10);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         int result = busi.executeBatch(updateDAO, "hogeSQLc", "hogeSQLa",
                 "hogeSQLb");
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertEquals(0, result);
         List<DaoParam> params = updateDAO.getParams();
         assertNotNull(params);
@@ -836,7 +836,7 @@ public class BatchUpdateSupportImplTest {
     /**
      * testExecuteBatch005<br>
      * <p>
-     * Às‡‚ğw’è‚µ‚ÄÀs
+     * å®Ÿè¡Œé †ã‚’æŒ‡å®šã—ã¦å®Ÿè¡Œ
      * </p>
      */
     @Test
@@ -844,7 +844,7 @@ public class BatchUpdateSupportImplTest {
         BatchUpdateSupportImpl busi = null;
         MockUpdateDao updateDAO = new MockUpdateDao();
 
-        // ƒpƒ‰ƒ[ƒ^İ’è
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿è¨­å®š
         updateDAO.addResult(Integer.valueOf(0));
         busi = new BatchUpdateSupportImpl(updateDAO);
 
@@ -880,17 +880,17 @@ public class BatchUpdateSupportImplTest {
         busi.addBatch(sqlId9, dummyParam9);
         busi.addBatch(sqlId10, dummyParam10);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         int result = busi.executeBatch(updateDAO, (String) null);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertEquals(-200, result);
     }
 
     /**
      * testExecuteBatch006<br>
      * <p>
-     * Às‡‚ğw’è‚µ‚ÄÀs
+     * å®Ÿè¡Œé †ã‚’æŒ‡å®šã—ã¦å®Ÿè¡Œ
      * </p>
      */
     @Test
@@ -898,7 +898,7 @@ public class BatchUpdateSupportImplTest {
         BatchUpdateSupportImpl busi = null;
         MockUpdateDao updateDAO = new MockUpdateDao();
 
-        // ƒpƒ‰ƒ[ƒ^İ’è
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿è¨­å®š
         updateDAO.addResult(Integer.valueOf(0));
         busi = new BatchUpdateSupportImpl(updateDAO);
 
@@ -934,18 +934,18 @@ public class BatchUpdateSupportImplTest {
         busi.addBatch(sqlId9, dummyParam9);
         busi.addBatch(sqlId10, dummyParam10);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         int result = busi.executeBatch(updateDAO, "hogeSQLaa", "hogeSQLbb",
                 "hogeSQLc");
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertEquals(-200, result);
     }
 
     /**
      * testExecuteBatch007<br>
      * <p>
-     * Às‡‚ğw’è‚µ‚ÄÀs
+     * å®Ÿè¡Œé †ã‚’æŒ‡å®šã—ã¦å®Ÿè¡Œ
      * </p>
      */
     @Test
@@ -953,7 +953,7 @@ public class BatchUpdateSupportImplTest {
         BatchUpdateSupportImpl busi = null;
         MockUpdateDao updateDAO = new MockUpdateDao();
 
-        // ƒpƒ‰ƒ[ƒ^İ’è
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿è¨­å®š
         updateDAO.addResult(Integer.valueOf(0));
         busi = new BatchUpdateSupportImpl(updateDAO);
 
@@ -989,11 +989,11 @@ public class BatchUpdateSupportImplTest {
         busi.addBatch(sqlId9, dummyParam9);
         busi.addBatch(sqlId10, dummyParam10);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         int result = busi.executeBatch(updateDAO, "hogeSQLc", "hogeSQLa",
                 "hogeSQLb", "hogeSQLd");
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertEquals(0, result);
         List<DaoParam> params = updateDAO.getParams();
         assertNotNull(params);
@@ -1041,7 +1041,7 @@ public class BatchUpdateSupportImplTest {
         BatchUpdateSupportImpl busi = null;
         MockUpdateDao updateDAO = new MockUpdateDao();
 
-        // ƒpƒ‰ƒ[ƒ^İ’è
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿è¨­å®š
         updateDAO.addResult(Integer.valueOf(0));
         busi = new BatchUpdateSupportImpl(updateDAO);
 
@@ -1077,17 +1077,17 @@ public class BatchUpdateSupportImplTest {
         busi.addBatch(sqlId9, dummyParam9);
         busi.addBatch(sqlId10, dummyParam10);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         int result = busi.executeBatch((UpdateDAO) null);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertEquals(BatchUpdateSupport.ERROR_UPDATE_DAO_IS_NULL, result);
     }
 
     /**
      * testExecuteBatchUpdateDAO002<br>
      * <p>
-     * ƒ\[ƒg‚¹‚¸‚ÉÀs
+     * ã‚½ãƒ¼ãƒˆã›ãšã«å®Ÿè¡Œ
      * </p>
      */
     @Test
@@ -1096,7 +1096,7 @@ public class BatchUpdateSupportImplTest {
         MockUpdateDao updateDAO1 = new MockUpdateDao();
         MockUpdateDao updateDAO2 = new MockUpdateDao();
 
-        // ƒpƒ‰ƒ[ƒ^İ’è
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿è¨­å®š
         updateDAO1.addResult(Integer.valueOf(-1));
         updateDAO2.addResult(Integer.valueOf(0));
         busi = new BatchUpdateSupportImpl(updateDAO1);
@@ -1133,10 +1133,10 @@ public class BatchUpdateSupportImplTest {
         busi.addBatch(sqlId9, dummyParam9);
         busi.addBatch(sqlId10, dummyParam10);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         int result = busi.executeBatch(updateDAO2);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertEquals(0, result);
         List<DaoParam> params = updateDAO2.getParams();
         assertNotNull(params);
@@ -1177,7 +1177,7 @@ public class BatchUpdateSupportImplTest {
     /**
      * testExecuteBatchUpdateDAO003<br>
      * <p>
-     * ƒ\[ƒg‚¹‚¸‚ÉÀs
+     * ã‚½ãƒ¼ãƒˆã›ãšã«å®Ÿè¡Œ
      * </p>
      */
     @Test
@@ -1185,7 +1185,7 @@ public class BatchUpdateSupportImplTest {
         BatchUpdateSupportImpl busi = null;
         MockUpdateDao updateDAO = new MockUpdateDao();
 
-        // ƒpƒ‰ƒ[ƒ^İ’è
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿è¨­å®š
         updateDAO.addResult(Integer.valueOf(0));
         busi = new BatchUpdateSupportImpl(updateDAO);
 
@@ -1221,10 +1221,10 @@ public class BatchUpdateSupportImplTest {
         busi.addBatch(sqlId9, dummyParam9);
         busi.addBatch(sqlId10, dummyParam10);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         int result = busi.executeBatch(updateDAO);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertEquals(0, result);
         List<DaoParam> params = updateDAO.getParams();
         assertNotNull(params);
@@ -1265,7 +1265,7 @@ public class BatchUpdateSupportImplTest {
     /**
      * testExecuteBatchUpdateDAO004<br>
      * <p>
-     * ƒ\[ƒg‚µ‚ÄÀs
+     * ã‚½ãƒ¼ãƒˆã—ã¦å®Ÿè¡Œ
      * </p>
      */
     @Test
@@ -1274,7 +1274,7 @@ public class BatchUpdateSupportImplTest {
         MockUpdateDao updateDAO1 = new MockUpdateDao();
         MockUpdateDao updateDAO2 = new MockUpdateDao();
 
-        // ƒpƒ‰ƒ[ƒ^İ’è
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿è¨­å®š
         updateDAO1.addResult(Integer.valueOf(-1));
         updateDAO2.addResult(Integer.valueOf(0));
         busi = new BatchUpdateSupportImpl(updateDAO1);
@@ -1311,11 +1311,11 @@ public class BatchUpdateSupportImplTest {
         busi.addBatch(sqlId9, dummyParam9);
         busi.addBatch(sqlId10, dummyParam10);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         busi.sort();
         int result = busi.executeBatch(updateDAO2);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertEquals(0, result);
         List<DaoParam> params = updateDAO2.getParams();
         assertNotNull(params);
@@ -1356,7 +1356,7 @@ public class BatchUpdateSupportImplTest {
     /**
      * testExecuteBatchUpdateDAO005<br>
      * <p>
-     * ƒ\[ƒg‚µ‚ÄÀs
+     * ã‚½ãƒ¼ãƒˆã—ã¦å®Ÿè¡Œ
      * </p>
      */
     @Test
@@ -1364,7 +1364,7 @@ public class BatchUpdateSupportImplTest {
         BatchUpdateSupportImpl busi = null;
         MockUpdateDao updateDAO = new MockUpdateDao();
 
-        // ƒpƒ‰ƒ[ƒ^İ’è
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿è¨­å®š
         updateDAO.addResult(Integer.valueOf(0));
         busi = new BatchUpdateSupportImpl(updateDAO);
 
@@ -1400,11 +1400,11 @@ public class BatchUpdateSupportImplTest {
         busi.addBatch(sqlId9, dummyParam9);
         busi.addBatch(sqlId10, dummyParam10);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         busi.sort();
         int result = busi.executeBatch(updateDAO);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertEquals(0, result);
         List<DaoParam> params = updateDAO.getParams();
         assertNotNull(params);
@@ -1453,7 +1453,7 @@ public class BatchUpdateSupportImplTest {
         BatchUpdateSupportImpl busi = null;
         MockUpdateDao updateDAO = new MockUpdateDao();
 
-        // ƒpƒ‰ƒ[ƒ^İ’è
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿è¨­å®š
         updateDAO.addResult(Integer.valueOf(0));
         busi = new BatchUpdateSupportImpl(updateDAO);
 
@@ -1489,10 +1489,10 @@ public class BatchUpdateSupportImplTest {
         busi.addBatch(sqlId9, dummyParam9);
         busi.addBatch(sqlId10, dummyParam10);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         busi.clear();
 
-        // ŒŸØ
+        // æ¤œè¨¼
         Map<String, Queue<SqlHolder>> batchSqlsMap = null;
         try {
             batchSqlsMap = (Map<String, Queue<SqlHolder>>) UTUtil
@@ -1514,7 +1514,7 @@ public class BatchUpdateSupportImplTest {
         BatchUpdateSupportImpl busi = null;
         MockUpdateDao updateDAO = new MockUpdateDao();
 
-        // ƒpƒ‰ƒ[ƒ^İ’è
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿è¨­å®š
         updateDAO.addResult(Integer.valueOf(0));
         busi = new BatchUpdateSupportImpl(updateDAO);
 
@@ -1550,17 +1550,17 @@ public class BatchUpdateSupportImplTest {
         busi.addBatch(sqlId9, dummyParam9);
         busi.addBatch(sqlId10, dummyParam10);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         long count = busi.size();
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertEquals(10, count);
     }
 
     /**
      * testGetSqlHolderList001<br>
      * <p>
-     * ƒ\[ƒg‚¹‚¸‚ÉÀs
+     * ã‚½ãƒ¼ãƒˆã›ãšã«å®Ÿè¡Œ
      * </p>
      */
     @Test
@@ -1568,7 +1568,7 @@ public class BatchUpdateSupportImplTest {
         BatchUpdateSupportImpl busi = null;
         MockUpdateDao updateDAO = new MockUpdateDao();
 
-        // ƒpƒ‰ƒ[ƒ^İ’è
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿è¨­å®š
         updateDAO.addResult(Integer.valueOf(0));
         busi = new BatchUpdateSupportImpl(updateDAO);
 
@@ -1604,10 +1604,10 @@ public class BatchUpdateSupportImplTest {
         busi.addBatch(sqlId9, dummyParam9);
         busi.addBatch(sqlId10, dummyParam10);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         List<SqlHolder> list = busi.getSqlHolderList();
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertNotNull(list);
         assertEquals(10, list.size());
         assertEquals(sqlId1, list.get(0).getSqlID());
@@ -1625,7 +1625,7 @@ public class BatchUpdateSupportImplTest {
     /**
      * testGetSqlHolderList002<br>
      * <p>
-     * ƒ\[ƒg‚µ‚ÄÀs
+     * ã‚½ãƒ¼ãƒˆã—ã¦å®Ÿè¡Œ
      * </p>
      */
     @Test
@@ -1633,7 +1633,7 @@ public class BatchUpdateSupportImplTest {
         BatchUpdateSupportImpl busi = null;
         MockUpdateDao updateDAO = new MockUpdateDao();
 
-        // ƒpƒ‰ƒ[ƒ^İ’è
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿è¨­å®š
         updateDAO.addResult(Integer.valueOf(0));
         busi = new BatchUpdateSupportImpl(updateDAO);
 
@@ -1669,11 +1669,11 @@ public class BatchUpdateSupportImplTest {
         busi.addBatch(sqlId9, dummyParam9);
         busi.addBatch(sqlId10, dummyParam10);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         busi.sort();
         List<SqlHolder> list = busi.getSqlHolderList();
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertNotNull(list);
         assertEquals(10, list.size());
         assertEquals(sqlId4, list.get(0).getSqlID());
@@ -1691,7 +1691,7 @@ public class BatchUpdateSupportImplTest {
     /**
      * testGetSqlHolderList003<br>
      * <p>
-     * ƒ\[ƒg‚µ‚ÄÀs
+     * ã‚½ãƒ¼ãƒˆã—ã¦å®Ÿè¡Œ
      * </p>
      */
     @Test
@@ -1699,7 +1699,7 @@ public class BatchUpdateSupportImplTest {
         BatchUpdateSupportImpl busi = null;
         MockUpdateDao updateDAO = new MockUpdateDao();
 
-        // ƒpƒ‰ƒ[ƒ^İ’è
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿è¨­å®š
         updateDAO.addResult(Integer.valueOf(0));
         busi = new BatchUpdateSupportImpl(updateDAO);
 
@@ -1735,11 +1735,11 @@ public class BatchUpdateSupportImplTest {
         busi.addBatch(sqlId9, dummyParam9);
         busi.addBatch(sqlId10, dummyParam10);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         busi.sort(new DummyComparatorImpl());
         List<SqlHolder> list = busi.getSqlHolderList();
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertNotNull(list);
         assertEquals(10, list.size());
         assertEquals(sqlId1, list.get(0).getSqlID());
@@ -1764,7 +1764,7 @@ public class BatchUpdateSupportImplTest {
         BatchUpdateSupportImpl busi = null;
         MockUpdateDao updateDAO = new MockUpdateDao();
 
-        // ƒpƒ‰ƒ[ƒ^İ’è
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿è¨­å®š
         updateDAO.addResult(Integer.valueOf(0));
         busi = new BatchUpdateSupportImpl(updateDAO);
 
@@ -1800,10 +1800,10 @@ public class BatchUpdateSupportImplTest {
         busi.addBatch(sqlId9, dummyParam9);
         busi.addBatch(sqlId10, dummyParam10);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         List<SqlHolder> list = busi.getSqlHolderList(new DummyComparatorImpl());
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertNotNull(list);
         assertEquals(10, list.size());
         assertEquals(sqlId1, list.get(0).getSqlID());
@@ -1828,7 +1828,7 @@ public class BatchUpdateSupportImplTest {
         BatchUpdateSupportImpl busi = null;
         MockUpdateDao updateDAO = new MockUpdateDao();
 
-        // ƒpƒ‰ƒ[ƒ^İ’è
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿è¨­å®š
         updateDAO.addResult(Integer.valueOf(0));
         busi = new BatchUpdateSupportImpl(updateDAO);
 
@@ -1864,11 +1864,11 @@ public class BatchUpdateSupportImplTest {
         busi.addBatch(sqlId9, dummyParam9);
         busi.addBatch(sqlId10, dummyParam10);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         List<SqlHolder> list = busi.getSqlHolderList("hogeSQLc", "hogeSQLa",
                 "hogeSQLb");
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertNotNull(list);
         assertEquals(10, list.size());
         assertEquals(sqlId1, list.get(0).getSqlID());
@@ -1893,7 +1893,7 @@ public class BatchUpdateSupportImplTest {
         BatchUpdateSupportImpl busi = null;
         MockUpdateDao updateDAO = new MockUpdateDao();
 
-        // ƒpƒ‰ƒ[ƒ^İ’è
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿è¨­å®š
         updateDAO.addResult(Integer.valueOf(0));
         busi = new BatchUpdateSupportImpl(updateDAO);
 
@@ -1929,10 +1929,10 @@ public class BatchUpdateSupportImplTest {
         busi.addBatch(sqlId9, dummyParam9);
         busi.addBatch(sqlId10, dummyParam10);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         List<SqlHolder> list = busi.getSqlHolderList(null, "hogeSQLb");
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertNull(list);
     }
 
@@ -1946,7 +1946,7 @@ public class BatchUpdateSupportImplTest {
         BatchUpdateSupportImpl busi = null;
         MockUpdateDao updateDAO = new MockUpdateDao();
 
-        // ƒpƒ‰ƒ[ƒ^İ’è
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿è¨­å®š
         updateDAO.addResult(Integer.valueOf(0));
         busi = new BatchUpdateSupportImpl(updateDAO);
 
@@ -1982,11 +1982,11 @@ public class BatchUpdateSupportImplTest {
         busi.addBatch(sqlId9, dummyParam9);
         busi.addBatch(sqlId10, dummyParam10);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         List<SqlHolder> list = busi.getSqlHolderList("hogeSQLcc", "hogeSQLaa",
                 "hogeSQLbb");
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertNull(list);
     }
 
@@ -2000,7 +2000,7 @@ public class BatchUpdateSupportImplTest {
         BatchUpdateSupportImpl busi = null;
         MockUpdateDao updateDAO = new MockUpdateDao();
 
-        // ƒpƒ‰ƒ[ƒ^İ’è
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿è¨­å®š
         updateDAO.addResult(Integer.valueOf(0));
         busi = new BatchUpdateSupportImpl(updateDAO);
 
@@ -2036,11 +2036,11 @@ public class BatchUpdateSupportImplTest {
         busi.addBatch(sqlId9, dummyParam9);
         busi.addBatch(sqlId10, dummyParam10);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         List<SqlHolder> list = busi.getSqlHolderList("hogeSQLc", "hogeSQLa",
                 "hogeSQLb", "hogeSQLd");
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertNotNull(list);
         assertEquals(10, list.size());
         assertEquals(sqlId1, list.get(0).getSqlID());
@@ -2066,7 +2066,7 @@ public class BatchUpdateSupportImplTest {
         MockUpdateDao updateDAO = new MockUpdateDao();
         Comparator<String> comparator = null;
 
-        // ƒpƒ‰ƒ[ƒ^İ’è
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿è¨­å®š
         updateDAO.addResult(Integer.valueOf(0));
         busi = new BatchUpdateSupportImpl(updateDAO);
 
@@ -2102,17 +2102,17 @@ public class BatchUpdateSupportImplTest {
         busi.addBatch(sqlId9, dummyParam9);
         busi.addBatch(sqlId10, dummyParam10);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         int result = busi.executeBatch((UpdateDAO) null, comparator);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertEquals(BatchUpdateSupport.ERROR_UPDATE_DAO_IS_NULL, result);
     }
 
     /**
      * testExecuteBatchUpdateDAOComparator002<br>
      * <p>
-     * ƒ\[ƒg‚¹‚¸‚ÉÀs
+     * ã‚½ãƒ¼ãƒˆã›ãšã«å®Ÿè¡Œ
      * </p>
      */
     @Test
@@ -2122,7 +2122,7 @@ public class BatchUpdateSupportImplTest {
         MockUpdateDao updateDAO2 = new MockUpdateDao();
         Comparator<String> comparator = new DummyComparatorImpl();
 
-        // ƒpƒ‰ƒ[ƒ^İ’è
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿è¨­å®š
         updateDAO1.addResult(Integer.valueOf(-1));
         updateDAO2.addResult(Integer.valueOf(0));
         busi = new BatchUpdateSupportImpl(updateDAO1);
@@ -2159,10 +2159,10 @@ public class BatchUpdateSupportImplTest {
         busi.addBatch(sqlId9, dummyParam9);
         busi.addBatch(sqlId10, dummyParam10);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         int result = busi.executeBatch(updateDAO2, comparator);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertEquals(0, result);
         List<DaoParam> params = updateDAO2.getParams();
         assertNotNull(params);
@@ -2203,7 +2203,7 @@ public class BatchUpdateSupportImplTest {
     /**
      * testExecuteBatchUpdateDAOComparator003<br>
      * <p>
-     * ƒ\[ƒg‚¹‚¸‚ÉÀs
+     * ã‚½ãƒ¼ãƒˆã›ãšã«å®Ÿè¡Œ
      * </p>
      */
     @Test
@@ -2212,7 +2212,7 @@ public class BatchUpdateSupportImplTest {
         MockUpdateDao updateDAO = new MockUpdateDao();
         Comparator<String> comparator = new DummyComparatorImpl();
 
-        // ƒpƒ‰ƒ[ƒ^İ’è
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿è¨­å®š
         updateDAO.addResult(Integer.valueOf(0));
         busi = new BatchUpdateSupportImpl(updateDAO);
 
@@ -2248,10 +2248,10 @@ public class BatchUpdateSupportImplTest {
         busi.addBatch(sqlId9, dummyParam9);
         busi.addBatch(sqlId10, dummyParam10);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         int result = busi.executeBatch(updateDAO, comparator);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertEquals(0, result);
         List<DaoParam> params = updateDAO.getParams();
         assertNotNull(params);
@@ -2292,7 +2292,7 @@ public class BatchUpdateSupportImplTest {
     /**
      * testExecuteBatchUpdateDAOComparator004<br>
      * <p>
-     * ƒ\[ƒg‚µ‚ÄÀs
+     * ã‚½ãƒ¼ãƒˆã—ã¦å®Ÿè¡Œ
      * </p>
      */
     @Test
@@ -2302,7 +2302,7 @@ public class BatchUpdateSupportImplTest {
         MockUpdateDao updateDAO2 = new MockUpdateDao();
         Comparator<String> comparator = new DummyComparatorImpl();
 
-        // ƒpƒ‰ƒ[ƒ^İ’è
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿è¨­å®š
         updateDAO1.addResult(Integer.valueOf(-1));
         updateDAO2.addResult(Integer.valueOf(0));
         busi = new BatchUpdateSupportImpl(updateDAO1);
@@ -2339,11 +2339,11 @@ public class BatchUpdateSupportImplTest {
         busi.addBatch(sqlId9, dummyParam9);
         busi.addBatch(sqlId10, dummyParam10);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         busi.sort();
         int result = busi.executeBatch(updateDAO2, comparator);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertEquals(0, result);
         List<DaoParam> params = updateDAO2.getParams();
         assertNotNull(params);
@@ -2384,7 +2384,7 @@ public class BatchUpdateSupportImplTest {
     /**
      * testExecuteBatchUpdateDAOComparator005<br>
      * <p>
-     * ƒ\[ƒg‚µ‚ÄÀs
+     * ã‚½ãƒ¼ãƒˆã—ã¦å®Ÿè¡Œ
      * </p>
      */
     @Test
@@ -2393,7 +2393,7 @@ public class BatchUpdateSupportImplTest {
         MockUpdateDao updateDAO = new MockUpdateDao();
         Comparator<String> comparator = new DummyComparatorImpl();
 
-        // ƒpƒ‰ƒ[ƒ^İ’è
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿è¨­å®š
         updateDAO.addResult(Integer.valueOf(0));
         busi = new BatchUpdateSupportImpl(updateDAO);
 
@@ -2429,11 +2429,11 @@ public class BatchUpdateSupportImplTest {
         busi.addBatch(sqlId9, dummyParam9);
         busi.addBatch(sqlId10, dummyParam10);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         busi.sort();
         int result = busi.executeBatch(updateDAO, comparator);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertEquals(0, result);
         List<DaoParam> params = updateDAO.getParams();
         assertNotNull(params);

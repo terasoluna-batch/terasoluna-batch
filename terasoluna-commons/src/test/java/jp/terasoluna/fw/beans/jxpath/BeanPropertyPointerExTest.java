@@ -25,12 +25,12 @@ import org.apache.commons.jxpath.ri.QName;
 import org.apache.commons.jxpath.ri.model.NodePointer;
 
 /**
- * {@link jp.terasoluna.fw.beans.jxpath.BeanPropertyPointerEx} ƒNƒ‰ƒX‚Ìƒuƒ‰ƒbƒNƒ{ƒbƒNƒXƒeƒXƒgB
+ * {@link jp.terasoluna.fw.beans.jxpath.BeanPropertyPointerEx} ã‚¯ãƒ©ã‚¹ã®ãƒ–ãƒ©ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ†ã‚¹ãƒˆã€‚
  * 
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4>
- * null’l‚ğˆµ‚¤‚½‚ß‚ÌBeanƒvƒƒpƒeƒBƒ|ƒCƒ“ƒ^Šg’£ƒNƒ‰ƒXB<br>
- * ‘O’ñğŒF
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4>
+ * nullå€¤ã‚’æ‰±ã†ãŸã‚ã®Beanãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒã‚¤ãƒ³ã‚¿æ‹¡å¼µã‚¯ãƒ©ã‚¹ã€‚<br>
+ * å‰ææ¡ä»¶ï¼š
  * <p>
  * 
  * @see jp.terasoluna.fw.beans.jxpath.BeanPropertyPointerEx
@@ -38,9 +38,9 @@ import org.apache.commons.jxpath.ri.model.NodePointer;
 public class BeanPropertyPointerExTest extends TestCase {
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -49,9 +49,9 @@ public class BeanPropertyPointerExTest extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -60,9 +60,9 @@ public class BeanPropertyPointerExTest extends TestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      * 
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public BeanPropertyPointerExTest(String name) {
         super(name);
@@ -72,23 +72,23 @@ public class BeanPropertyPointerExTest extends TestCase {
      * testGetLength01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ó‘Ô) super.getLength():1<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) super.getLength():1<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) -:1<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) -:1<br>
      *         
      * <br>
-     * —v‘f”‚P‚ğ•Ô‚·ƒpƒ^[ƒ“‚ÌƒeƒXƒgB
+     * è¦ç´ æ•°ï¼‘ã‚’è¿”ã™ãƒ‘ã‚¿ãƒ¼ãƒ³ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetLength01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
     	QName qName = new QName("property");
     	BeanPropertyPointerEx_JavaBeanStub01 bean 
     		= new BeanPropertyPointerEx_JavaBeanStub01();
@@ -99,7 +99,7 @@ public class BeanPropertyPointerExTest extends TestCase {
     	BeanPropertyPointerEx pointer = new BeanPropertyPointerEx(nodePointer, beanInfo);
     	pointer.setPropertyName("property");
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
     	assertEquals(1, pointer.getLength());
     }
 
@@ -107,24 +107,24 @@ public class BeanPropertyPointerExTest extends TestCase {
      * testGetLength02()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ó‘Ô) super.getLength():0<br>
-     *         (ó‘Ô) getBaseValue():null<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) super.getLength():0<br>
+     *         (çŠ¶æ…‹) getBaseValue():null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) -:1<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) -:1<br>
      *         
      * <br>
-     * —v‘f”‚O‚©‚Â’l‚ªnull‚Ìƒpƒ^[ƒ“‚ÌƒeƒXƒgB‚P‚ğ•Ô‚·B
+     * è¦ç´ æ•°ï¼ã‹ã¤å€¤ãŒnullã®ãƒ‘ã‚¿ãƒ¼ãƒ³ã®ãƒ†ã‚¹ãƒˆã€‚ï¼‘ã‚’è¿”ã™ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetLength02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
     	QName qName = new QName("property");
     	BeanPropertyPointerEx_JavaBeanStub01 bean 
     		= new BeanPropertyPointerEx_JavaBeanStub01();
@@ -136,7 +136,7 @@ public class BeanPropertyPointerExTest extends TestCase {
     	BeanPropertyPointerEx pointer = new BeanPropertyPointerEx(nodePointer, beanInfo);
     	pointer.setPropertyName("listProperty");
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
     	assertEquals(1, pointer.getLength());
     }
 
@@ -144,24 +144,24 @@ public class BeanPropertyPointerExTest extends TestCase {
      * testGetLength03()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ó‘Ô) super.getLength():0<br>
-     *         (ó‘Ô) getBaseValue():not null<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) super.getLength():0<br>
+     *         (çŠ¶æ…‹) getBaseValue():not null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) -:0<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) -:0<br>
      *         
      * <br>
-     * —v‘f”‚O‚©‚Â’l‚ªnot null‚Ìƒpƒ^[ƒ“‚ÌƒeƒXƒgB‚O‚ğ•Ô‚·B
+     * è¦ç´ æ•°ï¼ã‹ã¤å€¤ãŒnot nullã®ãƒ‘ã‚¿ãƒ¼ãƒ³ã®ãƒ†ã‚¹ãƒˆã€‚ï¼ã‚’è¿”ã™ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetLength03() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
     	QName qName = new QName("property");
     	BeanPropertyPointerEx_JavaBeanStub01 bean 
     		= new BeanPropertyPointerEx_JavaBeanStub01();
@@ -172,7 +172,7 @@ public class BeanPropertyPointerExTest extends TestCase {
     	BeanPropertyPointerEx pointer = new BeanPropertyPointerEx(nodePointer, beanInfo);
     	pointer.setPropertyName("listProperty");
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
     	assertEquals(0, pointer.getLength());
     }
 
@@ -180,23 +180,23 @@ public class BeanPropertyPointerExTest extends TestCase {
      * testIsCollection01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>s
-     * “ü—Í’lF(ó‘Ô) getBaseValue():null<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) getBaseValue():null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
      *         
      * <br>
-     * ’l‚ªnull‚Ìê‡‚ÌƒeƒXƒgBFalse‚ğ•Ô‚·B
+     * å€¤ãŒnullã®å ´åˆã®ãƒ†ã‚¹ãƒˆã€‚Falseã‚’è¿”ã™ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsCollection01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
     	QName qName = new QName("property");
     	BeanPropertyPointerEx_JavaBeanStub01 bean 
     		= new BeanPropertyPointerEx_JavaBeanStub01();
@@ -207,7 +207,7 @@ public class BeanPropertyPointerExTest extends TestCase {
     	BeanPropertyPointerEx pointer = new BeanPropertyPointerEx(nodePointer, beanInfo);
     	pointer.setPropertyName("property");
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
     	assertFalse(pointer.isCollection());
     }
 
@@ -215,24 +215,24 @@ public class BeanPropertyPointerExTest extends TestCase {
      * testIsCollection02()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ó‘Ô) getBaseValue():not null<br>
-     *         (ó‘Ô) super.isCollection():ŒÄ‚Ño‚µŠm”F‚ğs‚È‚¤<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) getBaseValue():not null<br>
+     *         (çŠ¶æ…‹) super.isCollection():å‘¼ã³å‡ºã—ç¢ºèªã‚’è¡Œãªã†<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:super.isCollection()‚ÌŒ‹‰Ê<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:super.isCollection()ã®çµæœ<br>
      *         
      * <br>
-     * ’l‚ªnull‚Å‚Í‚È‚¢ê‡‚ÌƒeƒXƒgBSuper.isCollection()‚Ì–ß‚è’l‚ğ•Ô‚·B
+     * å€¤ãŒnullã§ã¯ãªã„å ´åˆã®ãƒ†ã‚¹ãƒˆã€‚Super.isCollection()ã®æˆ»ã‚Šå€¤ã‚’è¿”ã™ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsCollection02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
     	QName qName = new QName("property");
     	BeanPropertyPointerEx_JavaBeanStub01 bean 
     		= new BeanPropertyPointerEx_JavaBeanStub01();
@@ -243,7 +243,7 @@ public class BeanPropertyPointerExTest extends TestCase {
     	BeanPropertyPointerEx pointer = new BeanPropertyPointerEx(nodePointer, beanInfo);
     	pointer.setPropertyName("listProperty");
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
     	assertTrue(pointer.isCollection());
     }
 

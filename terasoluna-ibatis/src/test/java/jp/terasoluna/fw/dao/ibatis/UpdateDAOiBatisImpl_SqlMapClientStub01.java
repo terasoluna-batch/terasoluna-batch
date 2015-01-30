@@ -21,9 +21,9 @@ import com.ibatis.sqlmap.engine.impl.SqlMapClientImpl;
 import com.ibatis.sqlmap.engine.impl.SqlMapExecutorDelegate;
 
 /**
- * {@link UpdateDAOiBatisImpl}‚ÌŒ±‚Ì‚½‚ß‚Ég—p‚³‚ê‚éƒXƒ^ƒuB
+ * {@link UpdateDAOiBatisImpl}ã®è©¦é¨“ã®ãŸã‚ã«ä½¿ç”¨ã•ã‚Œã‚‹ã‚¹ã‚¿ãƒ–ã€‚
  *
- * {@link UpdateDAOiBatisImple_SqlMapSessionImpl}‚ğg—p‚·‚é‚½‚ß‚Ég—p‚³‚ê‚éB
+ * {@link UpdateDAOiBatisImple_SqlMapSessionImpl}ã‚’ä½¿ç”¨ã™ã‚‹ãŸã‚ã«ä½¿ç”¨ã•ã‚Œã‚‹ã€‚
  *
  */
 public class UpdateDAOiBatisImpl_SqlMapClientStub01 extends SqlMapClientImpl {
@@ -32,7 +32,7 @@ public class UpdateDAOiBatisImpl_SqlMapClientStub01 extends SqlMapClientImpl {
         = new UpdateDAOiBatisImple_SqlMapSessionImpl();
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      * @param delegate
      */
     public UpdateDAOiBatisImpl_SqlMapClientStub01() {
@@ -41,7 +41,7 @@ public class UpdateDAOiBatisImpl_SqlMapClientStub01 extends SqlMapClientImpl {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      * @param delegate
      */
     public UpdateDAOiBatisImpl_SqlMapClientStub01(SqlMapExecutorDelegate delegate) {
@@ -49,12 +49,12 @@ public class UpdateDAOiBatisImpl_SqlMapClientStub01 extends SqlMapClientImpl {
     }
 
     /**
-     * ƒeƒXƒg—p‚ÌSqlMapSession‚ğ•Ô‹p‚·‚éB
-     * @return ƒeƒXƒg—p‚ÌSqlMapSession
+     * ãƒ†ã‚¹ãƒˆç”¨ã®SqlMapSessionã‚’è¿”å´ã™ã‚‹ã€‚
+     * @return ãƒ†ã‚¹ãƒˆç”¨ã®SqlMapSession
      */
     @Override
     public SqlMapSession openSession() {
-        // TODO ©“®¶¬‚³‚ê‚½ƒƒ\ƒbƒhEƒXƒ^ƒu
+        // TODO è‡ªå‹•ç”Ÿæˆã•ã‚ŒãŸãƒ¡ã‚½ãƒƒãƒ‰ãƒ»ã‚¹ã‚¿ãƒ–
         return sqlMapSession;
     }
 

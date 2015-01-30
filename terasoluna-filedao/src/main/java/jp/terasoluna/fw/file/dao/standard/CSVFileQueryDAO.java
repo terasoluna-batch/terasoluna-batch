@@ -19,25 +19,25 @@ package jp.terasoluna.fw.file.dao.standard;
 import jp.terasoluna.fw.file.dao.FileLineIterator;
 
 /**
- * CSVƒtƒ@ƒCƒ‹“Çæ—p‚ÌFileLineIterator¶¬ƒNƒ‰ƒXB
+ * CSVãƒ•ã‚¡ã‚¤ãƒ«èª­å–ç”¨ã®FileLineIteratorç”Ÿæˆã‚¯ãƒ©ã‚¹ã€‚
  * <p>
- * CSVƒtƒ@ƒCƒ‹‚©‚çƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ğ¶¬‚·‚é<code>FileLineIterator</code> ‚ğ¶¬‚·‚é‚½‚ß‚ÌƒNƒ‰ƒX‚Å‚ ‚éBˆø”‚É‚Íƒf[ƒ^‚ğ“Ç‚İæ‚éCSVƒtƒ@ƒCƒ‹‚ÌƒpƒX‚Æ ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgƒNƒ‰ƒX‚ğİ’è‚·‚é‚±‚ÆB
+ * CSVãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ç”Ÿæˆã™ã‚‹<code>FileLineIterator</code> ã‚’ç”Ÿæˆã™ã‚‹ãŸã‚ã®ã‚¯ãƒ©ã‚¹ã§ã‚ã‚‹ã€‚å¼•æ•°ã«ã¯ãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿å–ã‚‹CSVãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹ã¨ ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¯ãƒ©ã‚¹ã‚’è¨­å®šã™ã‚‹ã“ã¨ã€‚
  * </p>
- * sƒIƒuƒWƒFƒNƒg‚Éİ’èo—ˆ‚éƒAƒmƒe[ƒVƒ‡ƒ“‚Ìà–¾‚Í{@link CSVFileLineIterator} ‚ÌJavaDoc‚ğQl‚µ‚Ä‰º‚³‚¢B
+ * è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«è¨­å®šå‡ºæ¥ã‚‹ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã®èª¬æ˜ã¯{@link CSVFileLineIterator} ã®JavaDocã‚’å‚è€ƒã—ã¦ä¸‹ã•ã„ã€‚
  */
 public class CSVFileQueryDAO extends AbstractFileQueryDAO {
 
     /**
-     * FileLineIteratoræ“¾—pƒƒ\ƒbƒhB
-     * @param <T> 1s•ª‚Ì•¶š—ñ‚ğŠi”[‚·‚éƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgƒNƒ‰ƒX
-     * @param fileName ƒtƒ@ƒCƒ‹–¼
-     * @param clazz ƒpƒ‰ƒ[ƒ^ƒNƒ‰ƒX
-     * @return CSVƒtƒ@ƒCƒ‹“Çæ—pƒIƒuƒWƒFƒNƒg
+     * FileLineIteratorå–å¾—ç”¨ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
+     * @param <T> 1è¡Œåˆ†ã®æ–‡å­—åˆ—ã‚’æ ¼ç´ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¯ãƒ©ã‚¹
+     * @param fileName ãƒ•ã‚¡ã‚¤ãƒ«å
+     * @param clazz ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚¯ãƒ©ã‚¹
+     * @return CSVãƒ•ã‚¡ã‚¤ãƒ«èª­å–ç”¨ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      */
     @Override
     public <T> FileLineIterator<T> execute(String fileName, Class<T> clazz) {
 
-        // FileLineIterator‚ğ¶¬‚·‚éB
+        // FileLineIteratorã‚’ç”Ÿæˆã™ã‚‹ã€‚
         CSVFileLineIterator<T> fileLineIterator = new CSVFileLineIterator<T>(
                 fileName, clazz, getColumnParserMap());
 

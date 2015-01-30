@@ -29,89 +29,89 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.transaction.PlatformTransactionManager;
 
 /**
- * AbstractBatchExecutorTest‚ÌƒeƒXƒgƒP[ƒXƒNƒ‰ƒX
+ * AbstractBatchExecutorTestã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã‚¯ãƒ©ã‚¹
  */
 public class AbstractBatchExecutorTest extends TestCase {
 
     /**
-     * blogicBeanName‚ªnull‚Ìê‡ABLogicResult‚ÌƒŠƒ^[ƒ“ƒR[ƒh‚ª-1‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚é ‚Ü‚½ƒƒO‚ÉJOB_APP_CD:[null]‚ªo—Í‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚é
+     * blogicBeanNameãŒnullã®å ´åˆã€BLogicResultã®ãƒªã‚¿ãƒ¼ãƒ³ã‚³ãƒ¼ãƒ‰ãŒ-1ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ ã¾ãŸãƒ­ã‚°ã«JOB_APP_CD:[null]ãŒå‡ºåŠ›ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹
      * @throws Exception
      */
     public void testExecuteBatch01() throws Exception {
 
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         BatchJobData param = new BatchJobData();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         AbstractBatchExecutor batchExecutor = new SyncBatchExecutor();
         BLogicResult result = batchExecutor.executeBatch(param);
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
         assertEquals(-1, result.getBlogicStatus());
     }
 
     /**
-     * blogicBeanName‚ª‹ó•¶š‚Ìê‡ABLogicResult‚ÌƒŠƒ^[ƒ“ƒR[ƒh‚ª-1‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚é ‚Ü‚½ƒƒO‚ÉJOB_APP_CD:[]‚ªo—Í‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚é
+     * blogicBeanNameãŒç©ºæ–‡å­—ã®å ´åˆã€BLogicResultã®ãƒªã‚¿ãƒ¼ãƒ³ã‚³ãƒ¼ãƒ‰ãŒ-1ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ ã¾ãŸãƒ­ã‚°ã«JOB_APP_CD:[]ãŒå‡ºåŠ›ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹
      * @throws Exception
      */
     public void testExecuteBatch02() throws Exception {
 
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         BatchJobData param = new BatchJobData();
         param.setJobAppCd("");
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         AbstractBatchExecutor batchExecutor = new SyncBatchExecutor();
         BLogicResult result = batchExecutor.executeBatch(param);
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
         assertEquals(-1, result.getBlogicStatus());
     }
 
     /**
-     * blogicBeanName‚ªB000001‚Ìê‡ABLogicResult‚ÌƒŠƒ^[ƒ“ƒR[ƒh‚ª0‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚é
-     * ƒeƒXƒg‚ğÀ{‚·‚é‚½‚ß‚É‚ÍAƒWƒ‡ƒuBean’è‹`ƒtƒ@ƒCƒ‹[B000001.xml]‚ÆB000001BLogic.java‚ª•K—v‚Æ‚È‚é
+     * blogicBeanNameãŒB000001ã®å ´åˆã€BLogicResultã®ãƒªã‚¿ãƒ¼ãƒ³ã‚³ãƒ¼ãƒ‰ãŒ0ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹
+     * ãƒ†ã‚¹ãƒˆã‚’å®Ÿæ–½ã™ã‚‹ãŸã‚ã«ã¯ã€ã‚¸ãƒ§ãƒ–Beanå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«[B000001.xml]ã¨B000001BLogic.javaãŒå¿…è¦ã¨ãªã‚‹
      * @throws Exception
      */
     public void testExecuteBatch03() throws Exception {
 
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         BatchJobData param = new BatchJobData();
         param.setJobAppCd("B000001");
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         AbstractBatchExecutor batchExecutor = new SyncBatchExecutor();
         BLogicResult result = batchExecutor.executeBatch(param);
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
         assertEquals(0, result.getBlogicStatus());
     }
 
     /**
-     * blogicBeanName‚ªB000001‚Ìê‡ABLogicResult‚ÌƒŠƒ^[ƒ“ƒR[ƒh‚ª0‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚é
-     * ƒeƒXƒg‚ğÀ{‚·‚é‚½‚ß‚É‚ÍAƒWƒ‡ƒuBean’è‹`ƒtƒ@ƒCƒ‹[B000001.xml]‚ÆB000001BLogic.java‚ª•K—v‚Æ‚È‚é
+     * blogicBeanNameãŒB000001ã®å ´åˆã€BLogicResultã®ãƒªã‚¿ãƒ¼ãƒ³ã‚³ãƒ¼ãƒ‰ãŒ0ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹
+     * ãƒ†ã‚¹ãƒˆã‚’å®Ÿæ–½ã™ã‚‹ãŸã‚ã«ã¯ã€ã‚¸ãƒ§ãƒ–Beanå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«[B000001.xml]ã¨B000001BLogic.javaãŒå¿…è¦ã¨ãªã‚‹
      * @throws Exception
      */
     public void testExecuteBatch04() throws Exception {
 
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         BatchJobData param = new BatchJobData();
         param.setJobAppCd("B000001");
         param.setJobArgNm1("test1");
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         AbstractBatchExecutor batchExecutor = new SyncBatchExecutor();
         BLogicResult result = batchExecutor.executeBatch(param);
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
         assertEquals(0, result.getBlogicStatus());
     }
 
     /**
-     * blogicBeanName‚ªB000001‚Ìê‡ABLogicResult‚ÌƒŠƒ^[ƒ“ƒR[ƒh‚ª0‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚é
-     * ƒeƒXƒg‚ğÀ{‚·‚é‚½‚ß‚É‚ÍAƒWƒ‡ƒuBean’è‹`ƒtƒ@ƒCƒ‹[B000001.xml]‚ÆB000001BLogic.java‚ª•K—v‚Æ‚È‚é
+     * blogicBeanNameãŒB000001ã®å ´åˆã€BLogicResultã®ãƒªã‚¿ãƒ¼ãƒ³ã‚³ãƒ¼ãƒ‰ãŒ0ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹
+     * ãƒ†ã‚¹ãƒˆã‚’å®Ÿæ–½ã™ã‚‹ãŸã‚ã«ã¯ã€ã‚¸ãƒ§ãƒ–Beanå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«[B000001.xml]ã¨B000001BLogic.javaãŒå¿…è¦ã¨ãªã‚‹
      * @throws Exception
      */
     public void testExecuteBatch05() throws Exception {
 
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         BatchJobData param = new BatchJobData();
         param.setJobAppCd("B000001");
         param.setJobArgNm1("test1");
@@ -134,78 +134,78 @@ public class AbstractBatchExecutorTest extends TestCase {
         param.setJobArgNm18("test18");
         param.setJobArgNm19("test19");
         param.setJobArgNm20("test20");
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         AbstractBatchExecutor batchExecutor = new SyncBatchExecutor();
         BLogicResult result = batchExecutor.executeBatch(param);
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
         assertEquals(0, result.getBlogicStatus());
     }
 
     /**
-     * blogicBeanName‚ªB000001‚Ìê‡ABLogicResult‚ÌƒŠƒ^[ƒ“ƒR[ƒh‚ª0‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚é
-     * ƒeƒXƒg‚ğÀ{‚·‚é‚½‚ß‚É‚ÍAƒWƒ‡ƒuBean’è‹`ƒtƒ@ƒCƒ‹[B000001.xml]‚ÆB000001BLogic.java‚ª•K—v‚Æ‚È‚é
+     * blogicBeanNameãŒB000001ã®å ´åˆã€BLogicResultã®ãƒªã‚¿ãƒ¼ãƒ³ã‚³ãƒ¼ãƒ‰ãŒ0ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹
+     * ãƒ†ã‚¹ãƒˆã‚’å®Ÿæ–½ã™ã‚‹ãŸã‚ã«ã¯ã€ã‚¸ãƒ§ãƒ–Beanå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«[B000001.xml]ã¨B000001BLogic.javaãŒå¿…è¦ã¨ãªã‚‹
      * @throws Exception
      */
     public void testExecuteBatch06() throws Exception {
 
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         BatchJobData param = new BatchJobData();
         param.setJobAppCd("B000002");
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         AbstractBatchExecutor batchExecutor = new SyncBatchExecutor();
         BLogicResult result = batchExecutor.executeBatch(param);
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
         assertEquals(1, result.getBlogicStatus());
     }
 
     /**
-     * blogicBeanName‚ªB000001‚Ìê‡ABLogicResult‚ÌƒŠƒ^[ƒ“ƒR[ƒh‚ª0‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚é
-     * ƒeƒXƒg‚ğÀ{‚·‚é‚½‚ß‚É‚ÍAƒWƒ‡ƒuBean’è‹`ƒtƒ@ƒCƒ‹[B000001.xml]‚ÆB000001BLogic.java‚ª•K—v‚Æ‚È‚é
+     * blogicBeanNameãŒB000001ã®å ´åˆã€BLogicResultã®ãƒªã‚¿ãƒ¼ãƒ³ã‚³ãƒ¼ãƒ‰ãŒ0ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹
+     * ãƒ†ã‚¹ãƒˆã‚’å®Ÿæ–½ã™ã‚‹ãŸã‚ã«ã¯ã€ã‚¸ãƒ§ãƒ–Beanå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«[B000001.xml]ã¨B000001BLogic.javaãŒå¿…è¦ã¨ãªã‚‹
      * @throws Exception
      */
     public void testExecuteBatch07() throws Exception {
 
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         BatchJobData param = new BatchJobData();
         param.setJobAppCd("B000003");
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         AbstractBatchExecutor batchExecutor = new SyncBatchExecutor();
         BLogicResult result = batchExecutor.executeBatch(param);
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
         assertEquals(255, result.getBlogicStatus());
     }
 
     /**
-     * blogicBeanName‚ªB000001‚Ìê‡ABLogicResult‚ÌƒŠƒ^[ƒ“ƒR[ƒh‚ª0‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚é
-     * ƒeƒXƒg‚ğÀ{‚·‚é‚½‚ß‚É‚ÍAƒWƒ‡ƒuBean’è‹`ƒtƒ@ƒCƒ‹[B000001.xml]‚ÆB000001BLogic.java‚ª•K—v‚Æ‚È‚é
+     * blogicBeanNameãŒB000001ã®å ´åˆã€BLogicResultã®ãƒªã‚¿ãƒ¼ãƒ³ã‚³ãƒ¼ãƒ‰ãŒ0ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹
+     * ãƒ†ã‚¹ãƒˆã‚’å®Ÿæ–½ã™ã‚‹ãŸã‚ã«ã¯ã€ã‚¸ãƒ§ãƒ–Beanå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«[B000001.xml]ã¨B000001BLogic.javaãŒå¿…è¦ã¨ãªã‚‹
      * @throws Exception
      */
     public void testExecuteBatch08() throws Exception {
 
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         BatchJobData param = new BatchJobData();
         param.setJobAppCd("B000004");
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         AbstractBatchExecutor batchExecutor = new SyncBatchExecutor();
         BLogicResult result = batchExecutor.executeBatch(param);
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
         assertEquals(100, result.getBlogicStatus());
     }
 
     /**
-     * uƒoƒbƒ`ƒWƒ‡ƒuƒŒƒR[ƒhƒf[ƒ^‚ğBLogicParam‚É•ÏŠ·‚·‚év‚Ånull‚ª•Ô‚éƒpƒ^[ƒ“
+     * ã€Œãƒãƒƒãƒã‚¸ãƒ§ãƒ–ãƒ¬ã‚³ãƒ¼ãƒ‰ãƒ‡ãƒ¼ã‚¿ã‚’BLogicParamã«å¤‰æ›ã™ã‚‹ã€ã§nullãŒè¿”ã‚‹ãƒ‘ã‚¿ãƒ¼ãƒ³
      * @throws Exception
      */
     public void testExecuteBatch09() throws Exception {
 
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         BatchJobData param = new BatchJobData();
         param.setJobAppCd("B000004");
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         AbstractBatchExecutor batchExecutor = new SyncBatchExecutor() {
             @Override
             protected BLogicParam convertBLogicParam(BatchJobData jobRecord) {
@@ -214,20 +214,20 @@ public class AbstractBatchExecutorTest extends TestCase {
         };
         BLogicResult result = batchExecutor.executeBatch(param);
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
         assertEquals(-1, result.getBlogicStatus());
     }
 
     /**
-     * u—áŠOƒnƒ“ƒhƒ‰‚ÌBean–¼æ“¾v‚Ånull‚ª•Ô‚éƒpƒ^[ƒ“
+     * ã€Œä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©ã®Beanåå–å¾—ã€ã§nullãŒè¿”ã‚‹ãƒ‘ã‚¿ãƒ¼ãƒ³
      * @throws Exception
      */
     public void testExecuteBatch10() throws Exception {
 
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         BatchJobData param = new BatchJobData();
         param.setJobAppCd("B000004");
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         AbstractBatchExecutor batchExecutor = new SyncBatchExecutor() {
             @Override
             protected String getExceptionHandlerBeanName(String jobAppCd) {
@@ -236,20 +236,20 @@ public class AbstractBatchExecutorTest extends TestCase {
         };
         BLogicResult result = batchExecutor.executeBatch(param);
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
         assertEquals(-1, result.getBlogicStatus());
     }
 
     /**
-     * u—áŠOƒnƒ“ƒhƒ‰‚ÌBean–¼æ“¾v‚Å‹ó‚Ì•¶š—ñ‚ª•Ô‚éƒpƒ^[ƒ“
+     * ã€Œä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©ã®Beanåå–å¾—ã€ã§ç©ºã®æ–‡å­—åˆ—ãŒè¿”ã‚‹ãƒ‘ã‚¿ãƒ¼ãƒ³
      * @throws Exception
      */
     public void testExecuteBatch11() throws Exception {
 
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         BatchJobData param = new BatchJobData();
         param.setJobAppCd("B000004");
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         AbstractBatchExecutor batchExecutor = new SyncBatchExecutor() {
             @Override
             protected String getExceptionHandlerBeanName(String jobAppCd) {
@@ -258,7 +258,7 @@ public class AbstractBatchExecutorTest extends TestCase {
         };
         BLogicResult result = batchExecutor.executeBatch(param);
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
         assertEquals(-1, result.getBlogicStatus());
     }
 
@@ -267,7 +267,7 @@ public class AbstractBatchExecutorTest extends TestCase {
      * @throws Exception
      */
     public void testConvertBLogicParam001() throws Exception {
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         BatchJobData param = new BatchJobData();
         param.setJobAppCd("B000004");
         param.setJobArgNm1("argJobArgNm1");
@@ -291,12 +291,12 @@ public class AbstractBatchExecutorTest extends TestCase {
         param.setJobArgNm19("argJobArgNm19");
         param.setJobArgNm20("argJobArgNm20");
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         AbstractBatchExecutor batchExecutor = new SyncBatchExecutor() {
         };
         BLogicParam result = batchExecutor.convertBLogicParam(param);
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
         assertNotNull(result);
         assertEquals("B000004", result.getJobAppCd());
         assertEquals("argJobArgNm1", result.getJobArgNm1());
@@ -326,11 +326,11 @@ public class AbstractBatchExecutorTest extends TestCase {
      * @throws Exception
      */
     public void testConvertBLogicParam002() throws Exception {
-        // ƒeƒXƒg“ü—Íƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆå…¥åŠ›ãƒ‡ãƒ¼ã‚¿è¨­å®š
         BatchJobData param = new BatchJobData();
         param.setJobAppCd("B000004");
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         AbstractBatchExecutor batchExecutor = new SyncBatchExecutor() {
             @Override
             protected boolean argumentCopy(Object from, Object to, String field) {
@@ -340,7 +340,7 @@ public class AbstractBatchExecutorTest extends TestCase {
         };
         BLogicParam result = batchExecutor.convertBLogicParam(param);
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
         assertNull(result);
     }
 
@@ -353,7 +353,7 @@ public class AbstractBatchExecutorTest extends TestCase {
         String exceptionHandlerBeanName = null;
         BLogicParam param = null;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         AbstractBatchExecutor exe = new SyncBatchExecutor();
         ApplicationContext context = null;
         BLogicResult result = exe.executeBatchClass(batchClassName,
@@ -372,7 +372,7 @@ public class AbstractBatchExecutorTest extends TestCase {
         String exceptionHandlerBeanName = "B000001ExceptionHandler";
         BLogicParam param = null;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         AbstractBatchExecutor exe = new SyncBatchExecutor();
         ApplicationContext context = new ClassPathXmlApplicationContext(
                 "beansDef/B000001.xml");
@@ -392,7 +392,7 @@ public class AbstractBatchExecutorTest extends TestCase {
         String exceptionHandlerBeanName = "B000001ExceptionHandler";
         BLogicParam param = null;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         AbstractBatchExecutor exe = new SyncBatchExecutor();
         ApplicationContext context = new ClassPathXmlApplicationContext(
                 "beansDef/B000001.xml");
@@ -412,7 +412,7 @@ public class AbstractBatchExecutorTest extends TestCase {
         String exceptionHandlerBeanName = "B000004ExceptionHandler";
         BLogicParam param = null;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         AbstractBatchExecutor exe = new SyncBatchExecutor();
         ApplicationContext context = new ClassPathXmlApplicationContext(
                 "beansDef/B000004.xml");
@@ -432,7 +432,7 @@ public class AbstractBatchExecutorTest extends TestCase {
         String exceptionHandlerBeanName = "B000000ExceptionHandler";
         BLogicParam param = null;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         AbstractBatchExecutor exe = new SyncBatchExecutor();
         ApplicationContext context = new ClassPathXmlApplicationContext(
                 "beansDef/B000001.xml");
@@ -453,7 +453,7 @@ public class AbstractBatchExecutorTest extends TestCase {
         BLogicParam param = new BLogicParam();
         param.setJobAppCd("B000006");
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         AbstractBatchExecutor exe = new SyncBatchExecutor();
         ApplicationContext context = new ClassPathXmlApplicationContext(
                 "beansDef/B000006.xml");
@@ -473,7 +473,7 @@ public class AbstractBatchExecutorTest extends TestCase {
         String exceptionHandlerBeanName = "B000007ExceptionHandler";
         BLogicParam param = null;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         AbstractBatchExecutor exe = new SyncBatchExecutor();
         ApplicationContext context = new ClassPathXmlApplicationContext(
                 "beansDef/B000007.xml");
@@ -493,7 +493,7 @@ public class AbstractBatchExecutorTest extends TestCase {
         String exceptionHandlerBeanName = "B000008ExceptionHandler";
         BLogicParam param = null;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         AbstractBatchExecutor exe = new SyncBatchExecutor();
         ApplicationContext context = new ClassPathXmlApplicationContext(
                 "beansDef/B000008.xml");
@@ -513,7 +513,7 @@ public class AbstractBatchExecutorTest extends TestCase {
         String exceptionHandlerBeanName = "B000009ExceptionHandler";
         BLogicParam param = null;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         AbstractBatchExecutor exe = new SyncBatchExecutor();
         ApplicationContext context = new ClassPathXmlApplicationContext(
                 "beansDef/B000009.xml");
@@ -529,8 +529,8 @@ public class AbstractBatchExecutorTest extends TestCase {
      * @throws Exception
      */
     public void testExecuteBatchClass010() throws Exception {
-        // JobComponentƒAƒmƒe[ƒVƒ‡ƒ“—LŒø‰»ƒtƒ‰ƒOƒvƒƒpƒeƒB‚ğíœ‚µA
-        // JobComponentƒAƒmƒe[ƒVƒ‡ƒ“‚ğ–³Œø‰»‚·‚é
+        // JobComponentã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³æœ‰åŠ¹åŒ–ãƒ•ãƒ©ã‚°ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚’å‰Šé™¤ã—ã€
+        // JobComponentã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã‚’ç„¡åŠ¹åŒ–ã™ã‚‹
         TerasolunaPropertyUtils.removeProperty("enableJobComponentAnnotation");
 
         String batchClassName = "B000010BLogic";
@@ -538,14 +538,14 @@ public class AbstractBatchExecutorTest extends TestCase {
         BLogicParam param = new BLogicParam();
         param.setJobAppCd("B000010");
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         AbstractBatchExecutor exe = new SyncBatchExecutor();
         ApplicationContext context = new ClassPathXmlApplicationContext(
                 "beansDef/B000010.xml");
         BLogicResult result = exe.executeBatchClass(batchClassName,
                 exceptionHandlerBeanName, param, context);
 
-        // JobComponentƒAƒmƒe[ƒVƒ‡ƒ“–³Œø‰»‚É‚æ‚èƒWƒ‡ƒu‚ªÀs‚³‚ê‚È‚¢
+        // JobComponentã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ç„¡åŠ¹åŒ–ã«ã‚ˆã‚Šã‚¸ãƒ§ãƒ–ãŒå®Ÿè¡Œã•ã‚Œãªã„
         assertEquals(-1, result.getBlogicStatus());
 
     }
@@ -561,7 +561,7 @@ public class AbstractBatchExecutorTest extends TestCase {
         Object to = null;
         String field = null;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = exe.argumentCopy(from, to, field);
 
         assertTrue(result);
@@ -579,7 +579,7 @@ public class AbstractBatchExecutorTest extends TestCase {
         Object to = null;
         String field = "Hoge";
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = exe.argumentCopy(from, to, field);
 
         assertFalse(result);
@@ -966,8 +966,8 @@ public class AbstractBatchExecutorTest extends TestCase {
 
         assertNull(result);
 
-        // ƒƒO‚ÌŠm”F‚ğ‚·‚é
-        // java.lang.reflect.InvocationTargetException‚ªƒXƒ[‚³‚ê‚Ä‚¢‚é‚±‚Æ
+        // ãƒ­ã‚°ã®ç¢ºèªã‚’ã™ã‚‹
+        // java.lang.reflect.InvocationTargetExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¦ã„ã‚‹ã“ã¨
 
     }
 
@@ -991,8 +991,8 @@ public class AbstractBatchExecutorTest extends TestCase {
         assertNull(result);
 
         AbstractBatchExecutor.cl = clBackup;
-        // ƒƒO‚ÌŠm”F‚ğ‚·‚é
-        // ClassNotFoundException‚ªƒXƒ[‚³‚ê‚Ä‚¢‚é‚±‚Æ
+        // ãƒ­ã‚°ã®ç¢ºèªã‚’ã™ã‚‹
+        // ClassNotFoundExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¦ã„ã‚‹ã“ã¨
 
     }
 

@@ -17,14 +17,14 @@
 package jp.terasoluna.fw.batch.executor.concurrent;
 
 /**
- * ƒoƒbƒ`ƒT[ƒoƒ“ƒgƒCƒ“ƒ^ƒtƒF[ƒXB<br>
+ * ãƒãƒƒãƒã‚µãƒ¼ãƒãƒ³ãƒˆã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã€‚<br>
  * <br>
- * ”ñ“¯Šúƒoƒbƒ`ƒGƒOƒ[ƒLƒ…[ƒ^‚©‚çŒÄ‚Î‚êAŽw’è‚³‚ê‚½ƒWƒ‡ƒuƒV[ƒPƒ“ƒXƒR[ƒh‚©‚çƒWƒ‡ƒu‚ðŽÀs‚·‚éB
+ * éžåŒæœŸãƒãƒƒãƒã‚¨ã‚°ã‚¼ã‚­ãƒ¥ãƒ¼ã‚¿ã‹ã‚‰å‘¼ã°ã‚Œã€æŒ‡å®šã•ã‚ŒãŸã‚¸ãƒ§ãƒ–ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã‚³ãƒ¼ãƒ‰ã‹ã‚‰ã‚¸ãƒ§ãƒ–ã‚’å®Ÿè¡Œã™ã‚‹ã€‚
  */
 public interface BatchServant extends Runnable {
 
     /**
-     * ƒWƒ‡ƒuƒV[ƒPƒ“ƒXƒR[ƒh‚ðÝ’è‚·‚é
+     * ã‚¸ãƒ§ãƒ–ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’è¨­å®šã™ã‚‹
      * @param jobSequenceId the jobSequenceId to set
      */
     void setJobSequenceId(String jobSequenceId);

@@ -19,25 +19,25 @@ package jp.terasoluna.fw.transaction.util;
 import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
 /**
- * ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“ŠÖ˜A‚Ìƒ†[ƒeƒBƒŠƒeƒBƒNƒ‰ƒXB
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4>
- * —áŠO‚ğ”­¶‚³‚¹‚¸‚Æ‚àƒ[ƒ‹ƒoƒbƒN‚ğÀs‚·‚é‚³‚¢‚Ég—p‚·‚éTransactionUtilƒNƒ‰ƒXB<br>
- * setRollbackOnlyƒƒ\ƒbƒhg—p‚µ‚ÄisRollbackOnlyƒXƒe[ƒ^ƒX‚ğtrue‚É•ÏX‚·‚éB
+ * ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³é–¢é€£ã®ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ã‚¯ãƒ©ã‚¹ã€‚
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4>
+ * ä¾‹å¤–ã‚’ç™ºç”Ÿã•ã›ãšã¨ã‚‚ãƒ­ãƒ¼ãƒ«ãƒãƒƒã‚¯ã‚’å®Ÿè¡Œã™ã‚‹ã•ã„ã«ä½¿ç”¨ã™ã‚‹TransactionUtilã‚¯ãƒ©ã‚¹ã€‚<br>
+ * setRollbackOnlyãƒ¡ã‚½ãƒƒãƒ‰ä½¿ç”¨ã—ã¦isRollbackOnlyã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã‚’trueã«å¤‰æ›´ã™ã‚‹ã€‚
  * <p>
  */
 public class TransactionUtil {
 
     /**
-     * ƒ[ƒ‹ƒoƒbƒNÀs‚Ìƒtƒ‰ƒO‚ğ—§‚Ä‚éB
+     * ãƒ­ãƒ¼ãƒ«ãƒãƒƒã‚¯å®Ÿè¡Œã®ãƒ•ãƒ©ã‚°ã‚’ç«‹ã¦ã‚‹ã€‚
      * 
      * <p>
-     * ‹Æ–±ˆ—‚Å‚Ìƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“ˆ—‚É‚¨‚¢‚ÄA—áŠO‚ğ”­¶‚³‚¹‚¸‚Æ‚àif•¶
-     * ‚ÌğŒ•ªŠò‚È‚Ç‚É‚æ‚Á‚Äƒ[ƒ‹ƒoƒbƒN‚ğÀs‚·‚é‚½‚ß‚Ìƒtƒ‰ƒO‚ğİ’è‚·‚éB
+     * æ¥­å‹™å‡¦ç†ã§ã®ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³å‡¦ç†ã«ãŠã„ã¦ã€ä¾‹å¤–ã‚’ç™ºç”Ÿã•ã›ãšã¨ã‚‚ifæ–‡
+     * ã®æ¡ä»¶åˆ†å²ãªã©ã«ã‚ˆã£ã¦ãƒ­ãƒ¼ãƒ«ãƒãƒƒã‚¯ã‚’å®Ÿè¡Œã™ã‚‹ãŸã‚ã®ãƒ•ãƒ©ã‚°ã‚’è¨­å®šã™ã‚‹ã€‚
      * </p>
      */
     public static void setRollbackOnly() {
 
-        // RollbackOnly‚Ìƒtƒ‰ƒO‚ğtrue‚Éİ’è‚·‚éB
+        // RollbackOnlyã®ãƒ•ãƒ©ã‚°ã‚’trueã«è¨­å®šã™ã‚‹ã€‚
         TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 
     }

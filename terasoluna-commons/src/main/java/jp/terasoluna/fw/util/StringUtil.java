@@ -27,124 +27,124 @@ import org.apache.commons.lang3.ClassUtils;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * •¶š—ñ‘€ì‚ğs‚¤ƒ†[ƒeƒBƒŠƒeƒBƒNƒ‰ƒXB
+ * æ–‡å­—åˆ—æ“ä½œã‚’è¡Œã†ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ã‚¯ãƒ©ã‚¹ã€‚
  *
  * <p>
- *  ”¼ŠpE‘SŠp•ÏŠ·AHTML“Áê•¶šƒGƒXƒP[ƒvASQL•¶LIKE‹å
- *  ƒGƒXƒP[ƒv“™A•¶š—ñ‘€ì‚É•K—v‚È‹@”\‚ğ’ñ‹Ÿ‚·‚éB
+ *  åŠè§’ãƒ»å…¨è§’å¤‰æ›ã€HTMLç‰¹æ®Šæ–‡å­—ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—ã€SQLæ–‡LIKEå¥
+ *  ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—ç­‰ã€æ–‡å­—åˆ—æ“ä½œã«å¿…è¦ãªæ©Ÿèƒ½ã‚’æä¾›ã™ã‚‹ã€‚
  * </p>
  * 
  */
 public class StringUtil {
 
     /**
-     * ÀsŠÂ‹«‚ÌOS‚Å—p‚¢‚ç‚ê‚é‰üsƒR[ƒh‚ğæ“¾‚·‚éB
+     * å®Ÿè¡Œç’°å¢ƒã®OSã§ç”¨ã„ã‚‰ã‚Œã‚‹æ”¹è¡Œã‚³ãƒ¼ãƒ‰ã‚’å–å¾—ã™ã‚‹ã€‚
      */
     public static final String LINE_SEP
         = System.getProperty("line.separator");
 
     /**
-     * ‘SŠp•¶šƒŠƒXƒgB
+     * å…¨è§’æ–‡å­—ãƒªã‚¹ãƒˆã€‚
      */
     private static final String ZENKAKU_LIST = 
-        "Ih”“•fij–{C|D^‚O‚P‚Q‚R‚S"
-        + "‚T‚U‚V‚W‚XFGƒ„H—‚`‚a‚b‚c‚d‚e‚f‚g"
-        + "‚h‚i‚j‚k‚l‚m‚n‚o‚p‚q‚r‚s‚t‚u‚v‚w‚x‚ym"
-        + "nOQM‚‚‚‚ƒ‚„‚…‚†‚‡‚ˆ‚‰‚Š‚‹‚Œ‚‚‚‚"
-        + "‚‘‚’‚“‚”‚•‚–‚—‚˜‚™‚šobpPBuvAE"
-        + "ƒ@ƒBƒDƒFƒHƒƒƒ…ƒ‡ƒb[ƒAƒCƒGƒIƒiƒjƒkƒlƒm"
-        + "ƒ}ƒ~ƒ€ƒƒ‚ƒ„ƒ†ƒˆƒ‰ƒŠƒ‹ƒŒƒƒ“JK@";
+        "ï¼â€ï¼ƒï¼„ï¼…ï¼†â€™ï¼ˆï¼‰ï¼Šï¼‹ï¼Œï¼ï¼ï¼ï¼ï¼‘ï¼’ï¼“ï¼”"
+        + "ï¼•ï¼–ï¼—ï¼˜ï¼™ï¼šï¼›ï¼œï¼ï¼ï¼Ÿï¼ ï¼¡ï¼¢ï¼£ï¼¤ï¼¥ï¼¦ï¼§ï¼¨"
+        + "ï¼©ï¼ªï¼«ï¼¬ï¼­ï¼®ï¼¯ï¼°ï¼±ï¼²ï¼³ï¼´ï¼µï¼¶ï¼·ï¼¸ï¼¹ï¼ºï¼»ï¿¥"
+        + "ï¼½ï¼¾ï¼¿ï½€ï½ï½‚ï½ƒï½„ï½…ï½†ï½‡ï½ˆï½‰ï½Šï½‹ï½Œï½ï½ï½ï½"
+        + "ï½‘ï½’ï½“ï½”ï½•ï½–ï½—ï½˜ï½™ï½šï½›ï½œï½ï¿£ã€‚ã€Œã€ã€ãƒ»"
+        + "ã‚¡ã‚£ã‚¥ã‚§ã‚©ãƒ£ãƒ¥ãƒ§ãƒƒãƒ¼ã‚¢ã‚¤ã‚¨ã‚ªãƒŠãƒ‹ãƒŒãƒãƒ"
+        + "ãƒãƒŸãƒ ãƒ¡ãƒ¢ãƒ¤ãƒ¦ãƒ¨ãƒ©ãƒªãƒ«ãƒ¬ãƒ­ãƒ³ã‚›ã‚œã€€";
 
 
     /**
-     * ‘SŠpƒJƒiƒŠƒXƒg(ƒJAƒTAƒ^Aƒn)s‚ÆƒEB
+     * å…¨è§’ã‚«ãƒŠãƒªã‚¹ãƒˆ(ã‚«ã€ã‚µã€ã‚¿ã€ãƒ)è¡Œã¨ã‚¦ã€‚
      */
     private static final String ZENKAKU_KASATAHA_LIST = 
-        "ƒJƒLƒNƒPƒRƒTƒVƒXƒZƒ\ƒ^ƒ`ƒcƒeƒgƒnƒqƒtƒwƒzƒE";
+        "ã‚«ã‚­ã‚¯ã‚±ã‚³ã‚µã‚·ã‚¹ã‚»ã‚½ã‚¿ãƒãƒ„ãƒ†ãƒˆãƒãƒ’ãƒ•ãƒ˜ãƒ›ã‚¦";
 
     /**
-     * ‘SŠpƒJƒiƒŠƒXƒg(ƒKAƒUAƒ_Aƒo)s‚Æƒ”B
+     * å…¨è§’ã‚«ãƒŠãƒªã‚¹ãƒˆ(ã‚¬ã€ã‚¶ã€ãƒ€ã€ãƒ)è¡Œã¨ãƒ´ã€‚
      */
     private static final String ZENKAKU_GAZADABA_LIST = 
-        "ƒKƒMƒOƒQƒSƒUƒWƒYƒ[ƒ]ƒ_ƒaƒdƒfƒhƒoƒrƒuƒxƒ{ƒ”";
+        "ã‚¬ã‚®ã‚°ã‚²ã‚´ã‚¶ã‚¸ã‚ºã‚¼ã‚¾ãƒ€ãƒ‚ãƒ…ãƒ‡ãƒ‰ãƒãƒ“ãƒ–ãƒ™ãƒœãƒ´";
 
     /**
-     * ‘SŠpƒJƒi(ƒ"[&yen;30f7])B
+     * å…¨è§’ã‚«ãƒŠ(ãƒ¯"[&yen;30f7])ã€‚
      */
     private static final Character ZENKAKU_WA_DAKUTEN = 
         new Character('\u30f7');
 
     /**
-     * ‘SŠpƒJƒi(ƒ’"[&yen;30fa])B
+     * å…¨è§’ã‚«ãƒŠ(ãƒ²"[&yen;30fa])ã€‚
      */
     private static final Character ZENKAKU_WO_DAKUTEN = 
         new Character('\u30fa');
 
     /**
-     * ‘SŠpƒJƒiƒŠƒXƒg(ƒp)sB
+     * å…¨è§’ã‚«ãƒŠãƒªã‚¹ãƒˆ(ãƒ‘)è¡Œã€‚
      */
-    private static final String ZENKAKU_PA_LIST = "ƒpƒsƒvƒyƒ|";
+    private static final String ZENKAKU_PA_LIST = "ãƒ‘ãƒ”ãƒ—ãƒšãƒ";
 
     /**
-     * ”¼Šp•¶šƒŠƒXƒgB
+     * åŠè§’æ–‡å­—ãƒªã‚¹ãƒˆã€‚
      */
     private static final String HANKAKU_LIST = 
         "!\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGH"
       + "IJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnop"
-      + "qrstuvwxyz{|}~¡¢£¤¥§¨©ª«¬­®¯°±²´µÅÆÇÈÉ"
-      + "ÏĞÑÒÓÔÕÖ×ØÙÚÛİŞß ";
+      + "qrstuvwxyz{|}~ï½¡ï½¢ï½£ï½¤ï½¥ï½§ï½¨ï½©ï½ªï½«ï½¬ï½­ï½®ï½¯ï½°ï½±ï½²ï½´ï½µï¾…ï¾†ï¾‡ï¾ˆï¾‰"
+      + "ï¾ï¾ï¾‘ï¾’ï¾“ï¾”ï¾•ï¾–ï¾—ï¾˜ï¾™ï¾šï¾›ï¾ï¾ï¾Ÿ ";
 
     /**
-     * ”¼ŠpƒJƒiƒŠƒXƒg(¶¤»¤À¤Ê)s‚Æ³B
+     * åŠè§’ã‚«ãƒŠãƒªã‚¹ãƒˆ(ï½¶ï½¤ï½»ï½¤ï¾€ï½¤ï¾Š)è¡Œã¨ï½³ã€‚
      */
     private static final String HANKAKU_KASATAHA_LIST
-        = "¶·¸¹º»¼½¾¿ÀÁÂÃÄÊËÌÍÎ³";
+        = "ï½¶ï½·ï½¸ï½¹ï½ºï½»ï½¼ï½½ï½¾ï½¿ï¾€ï¾ï¾‚ï¾ƒï¾„ï¾Šï¾‹ï¾Œï¾ï¾ï½³";
 
     /**
-     * ”¼ŠpƒJƒiƒŠƒXƒg(Ê)sB
+     * åŠè§’ã‚«ãƒŠãƒªã‚¹ãƒˆ(ï¾Š)è¡Œã€‚
      */
-    private static final String HANKAKU_HA_LIST = "ÊËÌÍÎ";
+    private static final String HANKAKU_HA_LIST = "ï¾Šï¾‹ï¾Œï¾ï¾";
 
     /**
-     * w’è‚³‚ê‚½•¶š‚ª”¼ŠpƒXƒy[ƒX‚©‚Ç‚¤‚©‚ğ”»•Ê‚·‚éB
-     * ‚±‚Ì StringUtil ‚ÌƒgƒŠƒ€Œnƒƒ\ƒbƒh‚Å‹¤’Ê‚Å—˜—p‚·‚éB
+     * æŒ‡å®šã•ã‚ŒãŸæ–‡å­—ãŒåŠè§’ã‚¹ãƒšãƒ¼ã‚¹ã‹ã©ã†ã‹ã‚’åˆ¤åˆ¥ã™ã‚‹ã€‚
+     * ã“ã® StringUtil ã®ãƒˆãƒªãƒ ç³»ãƒ¡ã‚½ãƒƒãƒ‰ã§å…±é€šã§åˆ©ç”¨ã™ã‚‹ã€‚
      *
-     * @param c ‘ÎÛ•¶š
-     * @return ƒzƒƒCƒgƒXƒy[ƒX‚Å‚ ‚é‚Æ‚«‚É true
+     * @param c å¯¾è±¡æ–‡å­—
+     * @return ãƒ›ãƒ¯ã‚¤ãƒˆã‚¹ãƒšãƒ¼ã‚¹ã§ã‚ã‚‹ã¨ãã« true
      */
     public static boolean isWhitespace(char c) {
         return c == ' ';
     }
 
     /**
-     * w’è‚³‚ê‚½•¶š‚ª‘SŠp‚Ü‚½‚Í”¼ŠpƒXƒy[ƒX‚©‚Ç‚¤‚©‚ğ”»•Ê‚·‚éB
-     * ‚±‚Ì StringUtil ‚ÌƒgƒŠƒ€Œnƒƒ\ƒbƒh‚Å‹¤’Ê‚Å—˜—p‚·‚éB
+     * æŒ‡å®šã•ã‚ŒãŸæ–‡å­—ãŒå…¨è§’ã¾ãŸã¯åŠè§’ã‚¹ãƒšãƒ¼ã‚¹ã‹ã©ã†ã‹ã‚’åˆ¤åˆ¥ã™ã‚‹ã€‚
+     * ã“ã® StringUtil ã®ãƒˆãƒªãƒ ç³»ãƒ¡ã‚½ãƒƒãƒ‰ã§å…±é€šã§åˆ©ç”¨ã™ã‚‹ã€‚
      *
-     * @param c ‘ÎÛ•¶š
-     * @return ‘SŠp‚Ü‚½‚Í”¼ŠpƒXƒy[ƒX‚Å‚ ‚é‚Æ‚«‚É true
+     * @param c å¯¾è±¡æ–‡å­—
+     * @return å…¨è§’ã¾ãŸã¯åŠè§’ã‚¹ãƒšãƒ¼ã‚¹ã§ã‚ã‚‹ã¨ãã« true
      */
     public static boolean isZenHankakuSpace(char c) {
-        return (c == '@' || c == ' ');
+        return (c == 'ã€€' || c == ' ');
     }
 
     /**
-     * •¶š—ñ‚Ì‰E‘¤‚ÌƒzƒƒCƒgƒXƒy[ƒX‚ğíœ‚·‚éBˆø”‚ª
-     * null ‚Ì‚Æ‚«‚Í null ‚ğ•Ô‚·B
+     * æ–‡å­—åˆ—ã®å³å´ã®ãƒ›ãƒ¯ã‚¤ãƒˆã‚¹ãƒšãƒ¼ã‚¹ã‚’å‰Šé™¤ã™ã‚‹ã€‚å¼•æ•°ãŒ
+     * null ã®ã¨ãã¯ null ã‚’è¿”ã™ã€‚
      *
      * <p>
-     * —á‚¦‚Î Oracle ‚Ìê‡A CHAR Œ^‚Ì—ñ‚Ì’l‚ğ
-     * ResultSet.getString() ‚Åæ“¾‚·‚é‚ÆA’è‹`’·‚Ü‚ÅƒXƒy[ƒX‚Å
-     * ƒpƒfƒBƒ“ƒO‚³‚ê‚½•¶š—ñ‚ª•Ô‚³‚ê‚éBˆê•ûA VARCHAR2 ‚Ìê‡‚Í
-     * ‰E’[‚ÌƒXƒy[ƒX‚ÍƒgƒŠƒ~ƒ“ƒO‚³‚ê‚é‚½‚ßA‚»‚Ì‚Ü‚Ü‚Å‚Í—¼Ò‚ğ³‚µ‚­•¶š—ñ
-     * ”äŠr‚·‚é‚±‚Æ‚ªo—ˆ‚È‚¢B‚Ü‚½A‰æ–Ê“ü—Í‚³‚ê‚½•¶š—ñ‚Ì‰E’[‚ÉƒXƒy[ƒX‚ª
-     * ŠÜ‚Ü‚ê‚Ä‚¢‚éê‡‚ÉA‚±‚ê‚ğ VARCHAR2 ‚Ì—ñ‚É‘}“ü‚·‚é‚Æ
-     * ƒXƒy[ƒX‚à‚»‚Ì‚Ü‚ÜŠi”[‚³‚ê‚é‚ªA‰E’[‚ÌƒXƒy[ƒX‚ğƒgƒŠƒ~ƒ“ƒO‚·‚é“®ì‚ª
-     * ‘Ã“–‚Èê‡‚à‘½‚¢B‚±‚Ì‚æ‚¤‚È‚Æ‚«‚É‚±‚Ìƒƒ\ƒbƒh‚ğ—˜—p‚·‚éB
+     * ä¾‹ãˆã° Oracle ã®å ´åˆã€ CHAR å‹ã®åˆ—ã®å€¤ã‚’
+     * ResultSet.getString() ã§å–å¾—ã™ã‚‹ã¨ã€å®šç¾©é•·ã¾ã§ã‚¹ãƒšãƒ¼ã‚¹ã§
+     * ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°ã•ã‚ŒãŸæ–‡å­—åˆ—ãŒè¿”ã•ã‚Œã‚‹ã€‚ä¸€æ–¹ã€ VARCHAR2 ã®å ´åˆã¯
+     * å³ç«¯ã®ã‚¹ãƒšãƒ¼ã‚¹ã¯ãƒˆãƒªãƒŸãƒ³ã‚°ã•ã‚Œã‚‹ãŸã‚ã€ãã®ã¾ã¾ã§ã¯ä¸¡è€…ã‚’æ­£ã—ãæ–‡å­—åˆ—
+     * æ¯”è¼ƒã™ã‚‹ã“ã¨ãŒå‡ºæ¥ãªã„ã€‚ã¾ãŸã€ç”»é¢å…¥åŠ›ã•ã‚ŒãŸæ–‡å­—åˆ—ã®å³ç«¯ã«ã‚¹ãƒšãƒ¼ã‚¹ãŒ
+     * å«ã¾ã‚Œã¦ã„ã‚‹å ´åˆã«ã€ã“ã‚Œã‚’ VARCHAR2 ã®åˆ—ã«æŒ¿å…¥ã™ã‚‹ã¨
+     * ã‚¹ãƒšãƒ¼ã‚¹ã‚‚ãã®ã¾ã¾æ ¼ç´ã•ã‚Œã‚‹ãŒã€å³ç«¯ã®ã‚¹ãƒšãƒ¼ã‚¹ã‚’ãƒˆãƒªãƒŸãƒ³ã‚°ã™ã‚‹å‹•ä½œãŒ
+     * å¦¥å½“ãªå ´åˆã‚‚å¤šã„ã€‚ã“ã®ã‚ˆã†ãªã¨ãã«ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚’åˆ©ç”¨ã™ã‚‹ã€‚
      * </p>
-     * ¦ ‘SŠpƒXƒy[ƒX‚ÍƒgƒŠƒ~ƒ“ƒO‚³‚ê‚È‚¢B
+     * â€» å…¨è§’ã‚¹ãƒšãƒ¼ã‚¹ã¯ãƒˆãƒªãƒŸãƒ³ã‚°ã•ã‚Œãªã„ã€‚
      *
-     * @param str •ÏŠ·‘O‚Ì•¶š—ñ
-     * @return •ÏŠ·Œã‚Ì•¶š—ñ
+     * @param str å¤‰æ›å‰ã®æ–‡å­—åˆ—
+     * @return å¤‰æ›å¾Œã®æ–‡å­—åˆ—
      */
     public static String rtrim(String str) {
         if (str == null) {
@@ -160,13 +160,13 @@ public class StringUtil {
     }
 
     /**
-     * •¶š—ñ‚Ì¶‘¤‚ÌƒzƒƒCƒgƒXƒy[ƒX‚ğíœ‚·‚éB
+     * æ–‡å­—åˆ—ã®å·¦å´ã®ãƒ›ãƒ¯ã‚¤ãƒˆã‚¹ãƒšãƒ¼ã‚¹ã‚’å‰Šé™¤ã™ã‚‹ã€‚
      * 
-     * ˆø”‚ª null ‚Ì‚Æ‚«‚Í null ‚ğ•Ô‚·B<br>
-     * ¦ ‘SŠpƒXƒy[ƒX‚ÍƒgƒŠƒ~ƒ“ƒO‚³‚ê‚È‚¢B
+     * å¼•æ•°ãŒ null ã®ã¨ãã¯ null ã‚’è¿”ã™ã€‚<br>
+     * â€» å…¨è§’ã‚¹ãƒšãƒ¼ã‚¹ã¯ãƒˆãƒªãƒŸãƒ³ã‚°ã•ã‚Œãªã„ã€‚
      *
-     * @param str •ÏŠ·‘O‚Ì•¶š—ñ
-     * @return •ÏŠ·Œã‚Ì•¶š—ñ
+     * @param str å¤‰æ›å‰ã®æ–‡å­—åˆ—
+     * @return å¤‰æ›å¾Œã®æ–‡å­—åˆ—
      */
     public static String ltrim(String str) {
         if (str == null) {
@@ -183,35 +183,35 @@ public class StringUtil {
     }
 
     /**
-     * •¶š—ñ‚Ì—¼‘¤‚ÌƒzƒƒCƒgƒXƒy[ƒX‚ğíœ‚·‚éB
+     * æ–‡å­—åˆ—ã®ä¸¡å´ã®ãƒ›ãƒ¯ã‚¤ãƒˆã‚¹ãƒšãƒ¼ã‚¹ã‚’å‰Šé™¤ã™ã‚‹ã€‚
      * 
-     * ˆø”‚ª null ‚Ì‚Æ‚«‚Í null ‚ğ•Ô‚·B<br>
-     * ¦ ‘SŠpƒXƒy[ƒX‚ÍƒgƒŠƒ~ƒ“ƒO‚³‚ê‚È‚¢B
+     * å¼•æ•°ãŒ null ã®ã¨ãã¯ null ã‚’è¿”ã™ã€‚<br>
+     * â€» å…¨è§’ã‚¹ãƒšãƒ¼ã‚¹ã¯ãƒˆãƒªãƒŸãƒ³ã‚°ã•ã‚Œãªã„ã€‚
      *
-     * @param str •ÏŠ·‘O‚Ì•¶š—ñ
-     * @return •ÏŠ·Œã‚Ì•¶š—ñ
+     * @param str å¤‰æ›å‰ã®æ–‡å­—åˆ—
+     * @return å¤‰æ›å¾Œã®æ–‡å­—åˆ—
      */
     public static String trim(String str) {
         return StringUtils.trim(str);
     }
 
     /**
-     * •¶š—ñ‚Ì‰E‘¤‚Ì‘SŠp‚¨‚æ‚Ñ”¼ŠpƒXƒy[ƒX‚ğíœ‚·‚éBˆø”‚ª
-     * null ‚Ì‚Æ‚«‚Í null ‚ğ•Ô‚·B
+     * æ–‡å­—åˆ—ã®å³å´ã®å…¨è§’ãŠã‚ˆã³åŠè§’ã‚¹ãƒšãƒ¼ã‚¹ã‚’å‰Šé™¤ã™ã‚‹ã€‚å¼•æ•°ãŒ
+     * null ã®ã¨ãã¯ null ã‚’è¿”ã™ã€‚
      *
      * <p>
-     * —á‚¦‚Î Oracle ‚Ìê‡A CHAR Œ^‚Ì—ñ‚Ì’l‚ğ
-     * ResultSet.getString() ‚Åæ“¾‚·‚é‚ÆA’è‹`’·‚Ü‚ÅƒXƒy[ƒX‚Å
-     * ƒpƒfƒBƒ“ƒO‚³‚ê‚½•¶š—ñ‚ª•Ô‚³‚ê‚éBˆê•ûA VARCHAR2 ‚Ìê‡‚Í
-     * ‰E’[‚ÌƒXƒy[ƒX‚ÍƒgƒŠƒ~ƒ“ƒO‚³‚ê‚é‚½‚ßA‚»‚Ì‚Ü‚Ü‚Å‚Í—¼Ò‚ğ³‚µ‚­•¶š—ñ
-     * ”äŠr‚·‚é‚±‚Æ‚ªo—ˆ‚È‚¢B‚Ü‚½A‰æ–Ê“ü—Í‚³‚ê‚½•¶š—ñ‚Ì‰E’[‚ÉƒXƒy[ƒX‚ª
-     * ŠÜ‚Ü‚ê‚Ä‚¢‚éê‡‚ÉA‚±‚ê‚ğ VARCHAR2 ‚Ì—ñ‚É‘}“ü‚·‚é‚Æ
-     * ƒXƒy[ƒX‚à‚»‚Ì‚Ü‚ÜŠi”[‚³‚ê‚é‚ªA‰E’[‚ÌƒXƒy[ƒX‚ğƒgƒŠƒ~ƒ“ƒO‚·‚é“®ì‚ª
-     * ‘Ã“–‚Èê‡‚à‘½‚¢B‚±‚Ì‚æ‚¤‚È‚Æ‚«‚É‚±‚Ìƒƒ\ƒbƒh‚ğ—˜—p‚·‚éB
+     * ä¾‹ãˆã° Oracle ã®å ´åˆã€ CHAR å‹ã®åˆ—ã®å€¤ã‚’
+     * ResultSet.getString() ã§å–å¾—ã™ã‚‹ã¨ã€å®šç¾©é•·ã¾ã§ã‚¹ãƒšãƒ¼ã‚¹ã§
+     * ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°ã•ã‚ŒãŸæ–‡å­—åˆ—ãŒè¿”ã•ã‚Œã‚‹ã€‚ä¸€æ–¹ã€ VARCHAR2 ã®å ´åˆã¯
+     * å³ç«¯ã®ã‚¹ãƒšãƒ¼ã‚¹ã¯ãƒˆãƒªãƒŸãƒ³ã‚°ã•ã‚Œã‚‹ãŸã‚ã€ãã®ã¾ã¾ã§ã¯ä¸¡è€…ã‚’æ­£ã—ãæ–‡å­—åˆ—
+     * æ¯”è¼ƒã™ã‚‹ã“ã¨ãŒå‡ºæ¥ãªã„ã€‚ã¾ãŸã€ç”»é¢å…¥åŠ›ã•ã‚ŒãŸæ–‡å­—åˆ—ã®å³ç«¯ã«ã‚¹ãƒšãƒ¼ã‚¹ãŒ
+     * å«ã¾ã‚Œã¦ã„ã‚‹å ´åˆã«ã€ã“ã‚Œã‚’ VARCHAR2 ã®åˆ—ã«æŒ¿å…¥ã™ã‚‹ã¨
+     * ã‚¹ãƒšãƒ¼ã‚¹ã‚‚ãã®ã¾ã¾æ ¼ç´ã•ã‚Œã‚‹ãŒã€å³ç«¯ã®ã‚¹ãƒšãƒ¼ã‚¹ã‚’ãƒˆãƒªãƒŸãƒ³ã‚°ã™ã‚‹å‹•ä½œãŒ
+     * å¦¥å½“ãªå ´åˆã‚‚å¤šã„ã€‚ã“ã®ã‚ˆã†ãªã¨ãã«ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚’åˆ©ç”¨ã™ã‚‹ã€‚
      * </p>
      *
-     * @param str •ÏŠ·‘O‚Ì•¶š—ñ
-     * @return •ÏŠ·Œã‚Ì•¶š—ñ
+     * @param str å¤‰æ›å‰ã®æ–‡å­—åˆ—
+     * @return å¤‰æ›å¾Œã®æ–‡å­—åˆ—
      */
     public static String rtrimZ(String str) {
         if (str == null) {
@@ -227,12 +227,12 @@ public class StringUtil {
     }
 
     /**
-     * •¶š—ñ‚Ì¶‘¤‚Ì‘SŠp‚¨‚æ‚Ñ”¼ŠpƒXƒy[ƒX‚ğíœ‚·‚éB
+     * æ–‡å­—åˆ—ã®å·¦å´ã®å…¨è§’ãŠã‚ˆã³åŠè§’ã‚¹ãƒšãƒ¼ã‚¹ã‚’å‰Šé™¤ã™ã‚‹ã€‚
      * 
-     * ˆø”‚ª null ‚Ì‚Æ‚«‚Í null ‚ğ•Ô‚·B<br>
+     * å¼•æ•°ãŒ null ã®ã¨ãã¯ null ã‚’è¿”ã™ã€‚<br>
      *
-     * @param str •ÏŠ·‘O‚Ì•¶š—ñ
-     * @return •ÏŠ·Œã‚Ì•¶š—ñ
+     * @param str å¤‰æ›å‰ã®æ–‡å­—åˆ—
+     * @return å¤‰æ›å¾Œã®æ–‡å­—åˆ—
      */
     public static String ltrimZ(String str) {
         if (str == null) {
@@ -249,35 +249,35 @@ public class StringUtil {
     }
 
     /**
-     * •¶š—ñ‚Ì—¼‘¤‚Ì‘SŠp‚¨‚æ‚Ñ”¼ŠpƒXƒy[ƒX‚ğíœ‚·‚éB
+     * æ–‡å­—åˆ—ã®ä¸¡å´ã®å…¨è§’ãŠã‚ˆã³åŠè§’ã‚¹ãƒšãƒ¼ã‚¹ã‚’å‰Šé™¤ã™ã‚‹ã€‚
      * 
-     * ˆø”‚ª null ‚Ì‚Æ‚«‚Í null ‚ğ•Ô‚·B<br>
+     * å¼•æ•°ãŒ null ã®ã¨ãã¯ null ã‚’è¿”ã™ã€‚<br>
      *
-     * @param str •ÏŠ·‘O‚Ì•¶š—ñ
-     * @return •ÏŠ·Œã‚Ì•¶š—ñ
+     * @param str å¤‰æ›å‰ã®æ–‡å­—åˆ—
+     * @return å¤‰æ›å¾Œã®æ–‡å­—åˆ—
      */
     public static String trimZ(String str) {
         return ltrimZ(rtrimZ(str));
     }
 
     /**
-     * w’è‚³‚ê‚½ƒNƒ‰ƒX–¼‚©‚ç’ZkƒNƒ‰ƒX–¼iƒpƒbƒP[ƒWCü‚È‚µj‚ğæ“¾‚·‚éB
+     * æŒ‡å®šã•ã‚ŒãŸã‚¯ãƒ©ã‚¹åã‹ã‚‰çŸ­ç¸®ã‚¯ãƒ©ã‚¹åï¼ˆãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ä¿®é£¾ãªã—ï¼‰ã‚’å–å¾—ã™ã‚‹ã€‚
      *
-     * @param longClassName ƒNƒ‰ƒX–¼
-     * @return ’ZkƒNƒ‰ƒX–¼
+     * @param longClassName ã‚¯ãƒ©ã‚¹å
+     * @return çŸ­ç¸®ã‚¯ãƒ©ã‚¹å
      */
     public static String toShortClassName(String longClassName) {
         return ClassUtils.getShortClassName(longClassName);
     }
 
     /**
-     * w’è‚³‚ê‚½•¶š—ñ‚©‚ç––”ö‚ÌŠg’£q‚ğæ“¾‚·‚éB
+     * æŒ‡å®šã•ã‚ŒãŸæ–‡å­—åˆ—ã‹ã‚‰æœ«å°¾ã®æ‹¡å¼µå­ã‚’å–å¾—ã™ã‚‹ã€‚
      * 
-     * Šg’£q‚ª‚È‚¢ê‡‚Í‹ó•¶š—ñ‚ğ•Ô‚·B
-     * name‚ªnull‚Ìê‡‚Ínull‚ğ•Ô‚·B
+     * æ‹¡å¼µå­ãŒãªã„å ´åˆã¯ç©ºæ–‡å­—åˆ—ã‚’è¿”ã™ã€‚
+     * nameãŒnullã®å ´åˆã¯nullã‚’è¿”ã™ã€‚
      *
-     * @param name Šg’£q‚Â‚«‚Ì–¼‘O
-     * @return Šg’£q
+     * @param name æ‹¡å¼µå­ã¤ãã®åå‰
+     * @return æ‹¡å¼µå­
      */
     public static String getExtension(String name) {
         if (name == null) {
@@ -288,11 +288,11 @@ public class StringUtil {
     }
 
     /**
-     * ƒoƒCƒg”z—ñ‚ğ16i•¶š—ñ‚É•ÏŠ·‚·‚éB
+     * ãƒã‚¤ãƒˆé…åˆ—ã‚’16é€²æ–‡å­—åˆ—ã«å¤‰æ›ã™ã‚‹ã€‚
      *
-     * @param byteArray ƒoƒCƒg”z—ñ
-     * @param delim ƒfƒŠƒ~ƒ^
-     * @return 16i•¶š—ñ
+     * @param byteArray ãƒã‚¤ãƒˆé…åˆ—
+     * @param delim ãƒ‡ãƒªãƒŸã‚¿
+     * @return 16é€²æ–‡å­—åˆ—
      */
     public static String toHexString(byte[] byteArray, String delim) {
         if (delim == null) {
@@ -314,10 +314,10 @@ public class StringUtil {
     }
 
     /**
-     * w’è‚³‚ê‚½•¶š—ñ‚Ì“ª•¶š‚ğ‘å•¶š‚É‚·‚éB
+     * æŒ‡å®šã•ã‚ŒãŸæ–‡å­—åˆ—ã®é ­æ–‡å­—ã‚’å¤§æ–‡å­—ã«ã™ã‚‹ã€‚
      *
-     * @param str •ÏŠ·‘O‚Ì•¶š—ñ
-     * @return •ÏŠ·Œã‚Ì•¶š—ñ
+     * @param str å¤‰æ›å‰ã®æ–‡å­—åˆ—
+     * @return å¤‰æ›å¾Œã®æ–‡å­—åˆ—
      */
     public static String capitalizeInitial(String str) {
         if (str == null || "".equals(str)) {
@@ -329,19 +329,19 @@ public class StringUtil {
     }
 
     /**
-     * CSVŒ`®‚Ì•¶š—ñ‚ğ•¶š—ñ‚Ì”z—ñ‚É•ÏŠ·‚·‚éB
+     * CSVå½¢å¼ã®æ–‡å­—åˆ—ã‚’æ–‡å­—åˆ—ã®é…åˆ—ã«å¤‰æ›ã™ã‚‹ã€‚
      * 
      * <p>
-     * •¶š—ñ‚Ìæ“ª‚ªƒJƒ“ƒ}‚Å
-     * n‚Ü‚Á‚Ä‚¢‚½‚èA•¶š—ñ‚ÌÅŒã‚ªƒJƒ“ƒ}‚ÅI‚í‚Á‚Ä‚¢‚éê‡‚É‚ÍA
-     * ‚»‚ê‚¼‚ê•ÏŠ·Œ‹‰Ê‚Ì”z—ñ‚ÌÅ‰‚©A‚ ‚é‚¢‚ÍÅŒã‚Ì—v‘f‚ª‹ó•¶š—ñ‚Æ‚È‚é‚æ‚¤‚É
-     * •ÏŠ·‚³‚ê‚éB</p>
-     * <p>ƒJƒ“ƒ}‚ª˜A‘±‚µ‚Ä‚¢‚éê‡‚É‚ÍA‹ó•¶š—ñ‚Æ‚µ‚Ä•ÏŠ·‚³‚ê‚éB</p>
-     * <p>csvString ‚ª null ‚¾‚Á‚½ê‡‚É‚ÍA
-     * —v‘f”0‚Ì”z—ñ‚É•ÏŠ·‚³‚ê‚éB
+     * æ–‡å­—åˆ—ã®å…ˆé ­ãŒã‚«ãƒ³ãƒã§
+     * å§‹ã¾ã£ã¦ã„ãŸã‚Šã€æ–‡å­—åˆ—ã®æœ€å¾ŒãŒã‚«ãƒ³ãƒã§çµ‚ã‚ã£ã¦ã„ã‚‹å ´åˆã«ã¯ã€
+     * ãã‚Œãã‚Œå¤‰æ›çµæœã®é…åˆ—ã®æœ€åˆã‹ã€ã‚ã‚‹ã„ã¯æœ€å¾Œã®è¦ç´ ãŒç©ºæ–‡å­—åˆ—ã¨ãªã‚‹ã‚ˆã†ã«
+     * å¤‰æ›ã•ã‚Œã‚‹ã€‚</p>
+     * <p>ã‚«ãƒ³ãƒãŒé€£ç¶šã—ã¦ã„ã‚‹å ´åˆã«ã¯ã€ç©ºæ–‡å­—åˆ—ã¨ã—ã¦å¤‰æ›ã•ã‚Œã‚‹ã€‚</p>
+     * <p>csvString ãŒ null ã ã£ãŸå ´åˆã«ã¯ã€
+     * è¦ç´ æ•°0ã®é…åˆ—ã«å¤‰æ›ã•ã‚Œã‚‹ã€‚
      *
-     * @param csvString CSVŒ`®‚Ì•¶š—ñ
-     * @return ƒJƒ“ƒ}‚Å•ª‰ğ‚³‚ê‚½•¶š—ñ‚ğ—v‘f‚É‚Â”z—ñ
+     * @param csvString CSVå½¢å¼ã®æ–‡å­—åˆ—
+     * @return ã‚«ãƒ³ãƒã§åˆ†è§£ã•ã‚ŒãŸæ–‡å­—åˆ—ã‚’è¦ç´ ã«æŒã¤é…åˆ—
      */
     public static String[] parseCSV(String csvString) {
         if (csvString == null) {
@@ -378,25 +378,25 @@ public class StringUtil {
     }
 
     /**
-     * CSVŒ`®‚Ì•¶š—ñ‚ğ•¶š—ñ‚Ì”z—ñ‚É•ÏŠ·‚·‚éB
+     * CSVå½¢å¼ã®æ–‡å­—åˆ—ã‚’æ–‡å­—åˆ—ã®é…åˆ—ã«å¤‰æ›ã™ã‚‹ã€‚
      * 
      * <p>
-     * •¶š—ñ‚Ìæ“ª‚ªƒJƒ“ƒ}‚Å
-     * n‚Ü‚Á‚Ä‚¢‚½‚èA•¶š—ñ‚ÌÅŒã‚ªƒJƒ“ƒ}‚ÅI‚í‚Á‚Ä‚¢‚éê‡‚É‚ÍA
-     * ‚»‚ê‚¼‚ê•ÏŠ·Œ‹‰Ê‚Ì”z—ñ‚ÌÅ‰‚©A‚ ‚é‚¢‚ÍÅŒã‚Ì—v‘f‚ª‹ó•¶š—ñ‚Æ‚È‚é‚æ‚¤‚É
-     * •ÏŠ·‚³‚ê‚éB</p>
-     * <p>ƒJƒ“ƒ}‚ª˜A‘±‚µ‚Ä‚¢‚éê‡‚É‚ÍA‹ó•¶š—ñ‚Æ‚µ‚Ä•ÏŠ·‚³‚ê‚éB</p>
-     * <p>csvString ‚ª null ‚¾‚Á‚½ê‡‚É‚ÍA
-     * —v‘f”0‚Ì”z—ñ‚É•ÏŠ·‚³‚ê‚éB<br>
-     * ƒGƒXƒP[ƒv•¶š—ñ‚Éİ’è‚³‚ê‚½•¶š—ñ‚ÌŸ‚É‚ ‚éƒJƒ“ƒ}‚Í‹æØ‚è•¶š
-     * ‚Æ‚µ‚Ä‚Í”F¯‚µ‚È‚¢B<br>
-     * ƒGƒXƒP[ƒv•¶š—ñ‚ÌŒã‚ÌƒGƒXƒP[ƒv•¶š—ñ‚ÍƒGƒXƒP[ƒv•¶š‚Æ‚µ‚Ä
-     * ”F¯‚µ‚È‚¢B
+     * æ–‡å­—åˆ—ã®å…ˆé ­ãŒã‚«ãƒ³ãƒã§
+     * å§‹ã¾ã£ã¦ã„ãŸã‚Šã€æ–‡å­—åˆ—ã®æœ€å¾ŒãŒã‚«ãƒ³ãƒã§çµ‚ã‚ã£ã¦ã„ã‚‹å ´åˆã«ã¯ã€
+     * ãã‚Œãã‚Œå¤‰æ›çµæœã®é…åˆ—ã®æœ€åˆã‹ã€ã‚ã‚‹ã„ã¯æœ€å¾Œã®è¦ç´ ãŒç©ºæ–‡å­—åˆ—ã¨ãªã‚‹ã‚ˆã†ã«
+     * å¤‰æ›ã•ã‚Œã‚‹ã€‚</p>
+     * <p>ã‚«ãƒ³ãƒãŒé€£ç¶šã—ã¦ã„ã‚‹å ´åˆã«ã¯ã€ç©ºæ–‡å­—åˆ—ã¨ã—ã¦å¤‰æ›ã•ã‚Œã‚‹ã€‚</p>
+     * <p>csvString ãŒ null ã ã£ãŸå ´åˆã«ã¯ã€
+     * è¦ç´ æ•°0ã®é…åˆ—ã«å¤‰æ›ã•ã‚Œã‚‹ã€‚<br>
+     * ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—æ–‡å­—åˆ—ã«è¨­å®šã•ã‚ŒãŸæ–‡å­—åˆ—ã®æ¬¡ã«ã‚ã‚‹ã‚«ãƒ³ãƒã¯åŒºåˆ‡ã‚Šæ–‡å­—
+     * ã¨ã—ã¦ã¯èªè­˜ã—ãªã„ã€‚<br>
+     * ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—æ–‡å­—åˆ—ã®å¾Œã®ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—æ–‡å­—åˆ—ã¯ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—æ–‡å­—ã¨ã—ã¦
+     * èªè­˜ã—ãªã„ã€‚
      * </p>
      * 
-     * @param csvString CSVŒ`®‚Ì•¶š—ñ
-     * @param escapeString ƒGƒXƒP[ƒv•¶š—ñ
-     * @return ƒJƒ“ƒ}‚Å•ª‰ğ‚³‚ê‚½•¶š—ñ‚ğ—v‘f‚É‚Â”z—ñ
+     * @param csvString CSVå½¢å¼ã®æ–‡å­—åˆ—
+     * @param escapeString ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—æ–‡å­—åˆ—
+     * @return ã‚«ãƒ³ãƒã§åˆ†è§£ã•ã‚ŒãŸæ–‡å­—åˆ—ã‚’è¦ç´ ã«æŒã¤é…åˆ—
      */
     public static String[] parseCSV(String csvString, String escapeString) {
         if (csvString == null) {
@@ -419,8 +419,8 @@ public class StringUtil {
             } else {
                 if (escapeString != null
                     && escapeString.indexOf(chars[i]) >= 0) {
-                    // ƒGƒXƒP[ƒv•¶š‚ÌŒã‚ÌƒGƒXƒP[ƒv•¶š‚Í’Êí‚Ì•¶š—ñ‚Æ
-                    // ”F¯‚·‚éB
+                    // ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—æ–‡å­—ã®å¾Œã®ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—æ–‡å­—ã¯é€šå¸¸ã®æ–‡å­—åˆ—ã¨
+                    // èªè­˜ã™ã‚‹ã€‚
                     if (escape) {
                         str.append(chars[i]);
                         escape = false;
@@ -438,13 +438,13 @@ public class StringUtil {
     }
 
     /**
-     * ˆø”‚Ìƒ}ƒbƒv‚Ìƒ_ƒ“ƒv‚ğæ“¾‚·‚éB
+     * å¼•æ•°ã®ãƒãƒƒãƒ—ã®ãƒ€ãƒ³ãƒ—ã‚’å–å¾—ã™ã‚‹ã€‚
      * 
-     * ’lƒIƒuƒWƒFƒNƒg‚É”z—ñ‚ªŠÜ‚Ü‚ê‚Ä‚¢‚éê‡AŠe—v‘fƒIƒuƒWƒFƒNƒg‚Ì
-     * toString()‚ğs‚¢A•¶š—ñ‚ğo—Í‚·‚éB
+     * å€¤ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«é…åˆ—ãŒå«ã¾ã‚Œã¦ã„ã‚‹å ´åˆã€å„è¦ç´ ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®
+     * toString()ã‚’è¡Œã„ã€æ–‡å­—åˆ—ã‚’å‡ºåŠ›ã™ã‚‹ã€‚
      *
-     * @param map “üo—Íƒ}ƒbƒv
-     * @return ƒ_ƒ“ƒv•¶š—ñ
+     * @param map å…¥å‡ºåŠ›ãƒãƒƒãƒ—
+     * @return ãƒ€ãƒ³ãƒ—æ–‡å­—åˆ—
      */
     public static String dump(Map<?, ?> map) {
 
@@ -460,7 +460,7 @@ public class StringUtil {
         Iterator it = map.keySet().iterator();
         while (it.hasNext()) {
             Object key = it.next();
-            // ƒL[ƒIƒuƒWƒFƒNƒg
+            // ã‚­ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
             String appendKey = null;
             if (key == null) {
                 appendKey = "null";
@@ -473,7 +473,7 @@ public class StringUtil {
             if (valueObj == null) {
                 sb.append("null");
             } else if (valueObj.getClass().isArray()) {
-                // ”z—ñŒ^‚È‚ç‚ÎŠe—v‘f‚ğæ“¾‚·‚é
+                // é…åˆ—å‹ãªã‚‰ã°å„è¦ç´ ã‚’å–å¾—ã™ã‚‹
                 sb.append(getArraysStr((Object[]) valueObj));
             } else {
                 sb.append(valueObj.toString());
@@ -485,33 +485,33 @@ public class StringUtil {
     }
 
     /**
-     * ƒ_ƒ“ƒv‘ÎÛ‚Ì’lƒIƒuƒWƒFƒNƒg‚ª”z—ñŒ`®‚Ìê‡A
-     * ”z—ñ—v‘f‚Å‚È‚­‚È‚é‚Ü‚ÅŒJ‚è•Ô‚µ’l‚ğæ“¾‚·‚éB
+     * ãƒ€ãƒ³ãƒ—å¯¾è±¡ã®å€¤ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒé…åˆ—å½¢å¼ã®å ´åˆã€
+     * é…åˆ—è¦ç´ ã§ãªããªã‚‹ã¾ã§ç¹°ã‚Šè¿”ã—å€¤ã‚’å–å¾—ã™ã‚‹ã€‚
      *
-     * @param arrayObj ”z—ñŒ^ƒIƒuƒWƒFƒNƒg
-     * @return ”z—ñƒ_ƒ“ƒv‘ÎÛ•¶š—ñ
+     * @param arrayObj é…åˆ—å‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @return é…åˆ—ãƒ€ãƒ³ãƒ—å¯¾è±¡æ–‡å­—åˆ—
      */
     public static String getArraysStr(Object[] arrayObj) {
         return ArrayUtils.toString(arrayObj, null);
     }
 
     /**
-     * ”¼Šp•¶š—ñ‚ğ‘SŠp•¶š—ñ‚É•ÏŠ·‚·‚éB
+     * åŠè§’æ–‡å­—åˆ—ã‚’å…¨è§’æ–‡å­—åˆ—ã«å¤‰æ›ã™ã‚‹ã€‚
      * 
      * <p>
-     * ƒJƒi•¶š‚É‘÷“_‚Ü‚½‚Í”¼‘÷“_‚ª‘±‚­ê‡‚ÍA‰Â”\‚ÈŒÀ‚è‚P•¶š‚É•ÏŠ·‚·‚éB<br>
-     * (—á) '¶' + 'Ş' =&gt; 'ƒK'</p>
+     * ã‚«ãƒŠæ–‡å­—ã«æ¿ç‚¹ã¾ãŸã¯åŠæ¿ç‚¹ãŒç¶šãå ´åˆã¯ã€å¯èƒ½ãªé™ã‚Šï¼‘æ–‡å­—ã«å¤‰æ›ã™ã‚‹ã€‚<br>
+     * (ä¾‹) 'ï½¶' + 'ï¾' =&gt; 'ã‚¬'</p>
      *
-     * <p>‚Ü‚½‚±‚Ì•ÏŠ·ˆ—‚Å‚ÍˆÈ‰º‚Ì‘SŠp•¶š‚à•ÏŠ·æ•¶š‚Æ‚³‚ê‚éB</p>
+     * <p>ã¾ãŸã“ã®å¤‰æ›å‡¦ç†ã§ã¯ä»¥ä¸‹ã®å…¨è§’æ–‡å­—ã‚‚å¤‰æ›å…ˆæ–‡å­—ã¨ã•ã‚Œã‚‹ã€‚</p>
      *
      * <p><ul>
-     *  <li>uƒ”v</li>
-     *  <li>uƒ"v('ƒ'‚É‘÷“_F&yen;u30f7)</li>
-     *  <li>uƒ’"v('ƒ’'‚É‘÷“_F&yen;30fa)</li>
+     *  <li>ã€Œãƒ´ã€</li>
+     *  <li>ã€Œãƒ¯"ã€('ãƒ¯'ã«æ¿ç‚¹ï¼š&yen;u30f7)</li>
+     *  <li>ã€Œãƒ²"ã€('ãƒ²'ã«æ¿ç‚¹ï¼š&yen;30fa)</li>
      * </ul></p>
      *
-     * @param value ”¼Šp•¶š—ñ
-     * @return ‘SŠp•¶š—ñ
+     * @param value åŠè§’æ–‡å­—åˆ—
+     * @return å…¨è§’æ–‡å­—åˆ—
      */
     public static String hankakuToZenkaku(String value) {
 
@@ -531,65 +531,65 @@ public class StringUtil {
             if (getValue != null) {
                 returnValue.append(getValue);
             } else if (i == (chars.length - 1)) {
-                // ÅŒã‚Ì•¶š
+                // æœ€å¾Œã®æ–‡å­—
                 getValue = getZenkakuKasatahaMoji(chars[i]);
                 if (getValue != null) {
-                    // ¶·¸¹º»¼½¾¿ÀÁÂÃÄÊËÌÍÎ³
+                    // ï½¶ï½·ï½¸ï½¹ï½ºï½»ï½¼ï½½ï½¾ï½¿ï¾€ï¾ï¾‚ï¾ƒï¾„ï¾Šï¾‹ï¾Œï¾ï¾ï½³
                     returnValue.append(getValue);
                 } else if (new Character(chars[i]).equals(
-                        new Character('Ü'))) {
-                    returnValue.append("ƒ");
+                        new Character('ï¾œ'))) {
+                    returnValue.append("ãƒ¯");
                 } else if (new Character(chars[i]).equals(
-                        new Character('¦'))) {
-                    returnValue.append("ƒ’");
+                        new Character('ï½¦'))) {
+                    returnValue.append("ãƒ²");
                 } else {
                     returnValue.append(String.valueOf(chars[i]));
                 }
             } else {
                 nextvalue = new Character(chars[i + 1]);
-                if (nextvalue.equals(new Character('Ş'))) {
+                if (nextvalue.equals(new Character('ï¾'))) {
                     getValue = getZenkakuDakuMoji(chars[i]);
                     if (getValue != null) {
-                        // ¶Ş·Ş¸Ş¹ŞºŞ»Ş¼Ş½Ş¾Ş¿ŞÀŞÁŞÂŞÃŞÄŞÊŞËŞÌŞÍŞÎŞ³Ş
+                        // ï½¶ï¾ï½·ï¾ï½¸ï¾ï½¹ï¾ï½ºï¾ï½»ï¾ï½¼ï¾ï½½ï¾ï½¾ï¾ï½¿ï¾ï¾€ï¾ï¾ï¾ï¾‚ï¾ï¾ƒï¾ï¾„ï¾ï¾Šï¾ï¾‹ï¾ï¾Œï¾ï¾ï¾ï¾ï¾ï½³ï¾
                         returnValue.append(getValue);
                         i++;
                     } else if (new Character(chars[i]).equals(
-                            new Character('Ü'))) {
-                        // ÜŞ
+                            new Character('ï¾œ'))) {
+                        // ï¾œï¾
                         returnValue.append(ZENKAKU_WA_DAKUTEN);
                         i++;
                     } else if (new Character(chars[i]).equals(
-                            new Character('¦'))) {
-                        // ¦Ş
+                            new Character('ï½¦'))) {
+                        // ï½¦ï¾
                         returnValue.append(ZENKAKU_WO_DAKUTEN);
                         i++;
                     } else {
-                        returnValue.append((String.valueOf(chars[i]) + "J"));
+                        returnValue.append((String.valueOf(chars[i]) + "ã‚›"));
                         i++;
                     }
-                } else if (nextvalue.equals(new Character('ß'))) {
+                } else if (nextvalue.equals(new Character('ï¾Ÿ'))) {
                     getValue = getZenkakuHandakuMoji(chars[i]);
                     if (getValue != null) {
-                        // ÊßËßÌßÍßÎß
+                        // ï¾Šï¾Ÿï¾‹ï¾Ÿï¾Œï¾Ÿï¾ï¾Ÿï¾ï¾Ÿ
                         returnValue.append(getValue);
                         i++;
                     } else {
-                        // ¶ß·ß¸ß¹ßºß»ß¼ß½ß¾ß¿ßÀßÁßÂßÃßÄß³ß
+                        // ï½¶ï¾Ÿï½·ï¾Ÿï½¸ï¾Ÿï½¹ï¾Ÿï½ºï¾Ÿï½»ï¾Ÿï½¼ï¾Ÿï½½ï¾Ÿï½¾ï¾Ÿï½¿ï¾Ÿï¾€ï¾Ÿï¾ï¾Ÿï¾‚ï¾Ÿï¾ƒï¾Ÿï¾„ï¾Ÿï½³ï¾Ÿ
                         getValue = getZenkakuKasatahaMoji(chars[i]);
-                        returnValue.append((String.valueOf(getValue) + "K"));
+                        returnValue.append((String.valueOf(getValue) + "ã‚œ"));
                         i++;
                     }
                 } else {
                     getValue = getZenkakuKasatahaMoji(chars[i]);
                     if (getValue != null) {
-                        // ¶·¸¹º»¼½¾¿ÀÁÂÃÄÊËÌÍÎ³
+                        // ï½¶ï½·ï½¸ï½¹ï½ºï½»ï½¼ï½½ï½¾ï½¿ï¾€ï¾ï¾‚ï¾ƒï¾„ï¾Šï¾‹ï¾Œï¾ï¾ï½³
                         returnValue.append(getValue);
                     } else if (new Character(chars[i]).equals(
-                            new Character('Ü'))) {
-                        returnValue.append("ƒ");
+                            new Character('ï¾œ'))) {
+                        returnValue.append("ãƒ¯");
                     } else if (new Character(chars[i]).equals(
-                            new Character('¦'))) {
-                        returnValue.append("ƒ’");
+                            new Character('ï½¦'))) {
+                        returnValue.append("ãƒ²");
                     } else {
                         returnValue.append(String.valueOf(chars[i]));
                     }
@@ -600,22 +600,22 @@ public class StringUtil {
     }
 
     /**
-     * ‘SŠp•¶š—ñ‚ğ”¼Šp•¶š—ñ‚É•ÏŠ·‚·‚éB
+     * å…¨è§’æ–‡å­—åˆ—ã‚’åŠè§’æ–‡å­—åˆ—ã«å¤‰æ›ã™ã‚‹ã€‚
      * 
      * <p>
-     * ‘÷“_‚Ü‚½‚Í”¼‘÷“_‚ğ‚ÂƒJƒi•¶š‚ÍA‚Q•¶š‚É•ª‰ğ‚³‚ê‚éB<br>
-     * (—á) 'ƒK' =&gt; '¶' + 'Ş'</p>
+     * æ¿ç‚¹ã¾ãŸã¯åŠæ¿ç‚¹ã‚’æŒã¤ã‚«ãƒŠæ–‡å­—ã¯ã€ï¼’æ–‡å­—ã«åˆ†è§£ã•ã‚Œã‚‹ã€‚<br>
+     * (ä¾‹) 'ã‚¬' =&gt; 'ï½¶' + 'ï¾'</p>
      *
-     * <p>‚Ü‚½‚±‚Ì•ÏŠ·ˆ—‚Å‚ÍˆÈ‰º‚Ì‘SŠp•¶š‚à•ÏŠ·Œ³•¶š‚Æó‚¯•t‚¯‚éB</p>
+     * <p>ã¾ãŸã“ã®å¤‰æ›å‡¦ç†ã§ã¯ä»¥ä¸‹ã®å…¨è§’æ–‡å­—ã‚‚å¤‰æ›å…ƒæ–‡å­—ã¨å—ã‘ä»˜ã‘ã‚‹ã€‚</p>
      *
      * <p><ul>
-     *  <li>uƒ”v</li>
-     *  <li>uƒ"v('ƒ'‚É‘÷“_F&yen;u30f7)</li>
-     *  <li>uƒ’"v('ƒ’'‚É‘÷“_F&yen;30fa)</li>
+     *  <li>ã€Œãƒ´ã€</li>
+     *  <li>ã€Œãƒ¯"ã€('ãƒ¯'ã«æ¿ç‚¹ï¼š&yen;u30f7)</li>
+     *  <li>ã€Œãƒ²"ã€('ãƒ²'ã«æ¿ç‚¹ï¼š&yen;30fa)</li>
      * </ul></p>
      *
-     * @param value ‘SŠp•¶š—ñ
-     * @return ”¼Šp•¶š—ñ
+     * @param value å…¨è§’æ–‡å­—åˆ—
+     * @return åŠè§’æ–‡å­—åˆ—
      */
     public static String zenkakuToHankaku(String value) {
 
@@ -641,12 +641,12 @@ public class StringUtil {
     }
 
     /**
-     * ”¼Šp•¶š‚ğ‘SŠp•¶š‚É•ÏŠ·‚·‚éB
+     * åŠè§’æ–‡å­—ã‚’å…¨è§’æ–‡å­—ã«å¤‰æ›ã™ã‚‹ã€‚
      * 
-     * ‘SŠp•¶šƒŠƒXƒg‚Ì•ÏŠ·ˆ—‚ğs‚¤B
+     * å…¨è§’æ–‡å­—ãƒªã‚¹ãƒˆã®å¤‰æ›å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
-     * @param c ”¼Šp•¶š
-     * @return ‘SŠp•¶š
+     * @param c åŠè§’æ–‡å­—
+     * @return å…¨è§’æ–‡å­—
      */
     private static String getZenkakuMoji(char c) {
 
@@ -659,12 +659,12 @@ public class StringUtil {
     }
 
     /**
-     * ”¼Šp•¶š‚ğ‘SŠp•¶š‚É•ÏŠ·‚·‚éB
+     * åŠè§’æ–‡å­—ã‚’å…¨è§’æ–‡å­—ã«å¤‰æ›ã™ã‚‹ã€‚
      * 
-     * ‘SŠpƒJƒi(ƒKAƒUAƒ_Aƒo)s‚Æƒ”‚Ì•ÏŠ·ˆ—‚ğs‚¤B
+     * å…¨è§’ã‚«ãƒŠ(ã‚¬ã€ã‚¶ã€ãƒ€ã€ãƒ)è¡Œã¨ãƒ´ã®å¤‰æ›å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
-     * @param c ”¼Šp•¶š
-     * @return ‘SŠp•¶š
+     * @param c åŠè§’æ–‡å­—
+     * @return å…¨è§’æ–‡å­—
      */
     private static String getZenkakuDakuMoji(char c) {
 
@@ -676,12 +676,12 @@ public class StringUtil {
     }
 
     /**
-     * ”¼Šp•¶š‚ğ‘SŠp•¶š‚É•ÏŠ·‚·‚éB
+     * åŠè§’æ–‡å­—ã‚’å…¨è§’æ–‡å­—ã«å¤‰æ›ã™ã‚‹ã€‚
      * 
-     * ‘SŠpƒJƒi(ƒp)s‚Ì•ÏŠ·ˆ—‚ğs‚¤B
+     * å…¨è§’ã‚«ãƒŠ(ãƒ‘)è¡Œã®å¤‰æ›å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
-     * @param c ”¼Šp•¶š
-     * @return ‘SŠp•¶š
+     * @param c åŠè§’æ–‡å­—
+     * @return å…¨è§’æ–‡å­—
      */
     private static String getZenkakuHandakuMoji(char c) {
 
@@ -693,12 +693,12 @@ public class StringUtil {
     }
 
     /**
-     * ”¼Šp•¶š‚ğ‘SŠp•¶š‚É•ÏŠ·‚·‚éB
+     * åŠè§’æ–‡å­—ã‚’å…¨è§’æ–‡å­—ã«å¤‰æ›ã™ã‚‹ã€‚
      * 
-     * ‘SŠpƒJƒi(ƒJAƒTAƒ^Aƒn)s‚ÆƒE‚Ì•ÏŠ·ˆ—‚ğs‚¤B
+     * å…¨è§’ã‚«ãƒŠ(ã‚«ã€ã‚µã€ã‚¿ã€ãƒ)è¡Œã¨ã‚¦ã®å¤‰æ›å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
-     * @param c ”¼Šp•¶š
-     * @return ‘SŠp•¶š
+     * @param c åŠè§’æ–‡å­—
+     * @return å…¨è§’æ–‡å­—
      */
     private static String getZenkakuKasatahaMoji(char c) {
 
@@ -710,20 +710,20 @@ public class StringUtil {
     }
 
     /**
-     * ‘SŠp•¶š‚ğ”¼Šp•¶š‚É•ÏŠ·‚·‚éB
+     * å…¨è§’æ–‡å­—ã‚’åŠè§’æ–‡å­—ã«å¤‰æ›ã™ã‚‹ã€‚
      * 
-     * ‚±‚Ìƒƒ\ƒbƒh‚Å‚ÍˆÈ‰º‚Ì•¶š‚ğ‘ÎÛ‚Æ‚µ‚½•ÏŠ·ˆ—‚ğs‚¤B<br>
+     * ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ã¯ä»¥ä¸‹ã®æ–‡å­—ã‚’å¯¾è±¡ã¨ã—ãŸå¤‰æ›å‡¦ç†ã‚’è¡Œã†ã€‚<br>
      *
      * <p><ul>
-     *  <li>”¼Šp•¶šƒŠƒXƒg</li>
-     *  <li>”¼ŠpƒJƒi(¶¤»¤À¤Ê)s‚Æ³</li>
-     *  <li>”¼ŠpƒJƒi(¶Ş¤»Ş¤ÀŞ¤ÊŞ)s‚Æ³Ş</li>
-     *  <li>”¼ŠpƒJƒi(Êß)s</li>
-     *  <li>”¼ŠpƒJƒi(ÜŞ¤¦Ş)</li>
+     *  <li>åŠè§’æ–‡å­—ãƒªã‚¹ãƒˆ</li>
+     *  <li>åŠè§’ã‚«ãƒŠ(ï½¶ï½¤ï½»ï½¤ï¾€ï½¤ï¾Š)è¡Œã¨ï½³</li>
+     *  <li>åŠè§’ã‚«ãƒŠ(ï½¶ï¾ï½¤ï½»ï¾ï½¤ï¾€ï¾ï½¤ï¾Šï¾)è¡Œã¨ï½³ï¾</li>
+     *  <li>åŠè§’ã‚«ãƒŠ(ï¾Šï¾Ÿ)è¡Œ</li>
+     *  <li>åŠè§’ã‚«ãƒŠ(ï¾œï¾ï½¤ï½¦ï¾)</li>
      * </ul></p>
      * 
-     * @param c ‘SŠp•¶š
-     * @return ”¼Šp•¶š
+     * @param c å…¨è§’æ–‡å­—
+     * @return åŠè§’æ–‡å­—
      */
     private static String getHankakuMoji(char c) {
 
@@ -737,55 +737,55 @@ public class StringUtil {
 
         index = ZENKAKU_KASATAHA_LIST.indexOf(c);
         if (index >= 0) {
-            // ƒJƒLƒNƒPƒRƒTƒVƒXƒZƒ\ƒ^ƒ`ƒcƒeƒgƒnƒqƒtƒwƒzƒE
+            // ã‚«ã‚­ã‚¯ã‚±ã‚³ã‚µã‚·ã‚¹ã‚»ã‚½ã‚¿ãƒãƒ„ãƒ†ãƒˆãƒãƒ’ãƒ•ãƒ˜ãƒ›ã‚¦
             return String.valueOf(HANKAKU_KASATAHA_LIST.charAt(index));
         }
 
         index = ZENKAKU_GAZADABA_LIST.indexOf(c);
         if (index >= 0) {
-            // ƒKƒMƒOƒQƒSƒUƒWƒYƒ[ƒ]"ƒ_ƒaƒdƒfƒhƒoƒrƒuƒxƒ{ƒ”
+            // ã‚¬ã‚®ã‚°ã‚²ã‚´ã‚¶ã‚¸ã‚ºã‚¼ã‚¾"ãƒ€ãƒ‚ãƒ…ãƒ‡ãƒ‰ãƒãƒ“ãƒ–ãƒ™ãƒœãƒ´
             value = String.valueOf(HANKAKU_KASATAHA_LIST.charAt(index));
-            return value + "Ş";
+            return value + "ï¾";
         }
 
         index = ZENKAKU_PA_LIST.indexOf(c);
         if (index >= 0) {
-            // ƒpƒsƒvƒyƒ|
+            // ãƒ‘ãƒ”ãƒ—ãƒšãƒ
             value = String.valueOf(HANKAKU_HA_LIST.charAt(index));
-            return value + "ß";
-        } else if ((new Character(c)).equals(new Character('ƒ'))) {
-            // ƒ
-            return "Ü";
-        } else if ((new Character(c)).equals(new Character('ƒ’'))) {
-            // ƒ’
-            return "¦";
+            return value + "ï¾Ÿ";
+        } else if ((new Character(c)).equals(new Character('ãƒ¯'))) {
+            // ãƒ¯
+            return "ï¾œ";
+        } else if ((new Character(c)).equals(new Character('ãƒ²'))) {
+            // ãƒ²
+            return "ï½¦";
         } else if ((new Character(c)).equals(ZENKAKU_WA_DAKUTEN)) {
-            // ƒ"[\u30f7]
-            return "ÜŞ";
+            // ãƒ¯"[\u30f7]
+            return "ï¾œï¾";
         } else if ((new Character(c)).equals(ZENKAKU_WO_DAKUTEN)) {
-            // ƒ’"[\u30fa]
-            return "¦Ş";
+            // ãƒ²"[\u30fa]
+            return "ï½¦ï¾";
         } else {
-            // ŠY“–‚È‚µ
+            // è©²å½“ãªã—
             return null;
         }
     }
 
     /**
-     * HTMLƒƒ^•¶š—ñ•ÏŠ·B
+     * HTMLãƒ¡ã‚¿æ–‡å­—åˆ—å¤‰æ›ã€‚
      * 
      * <p>
-     *  "&lt;"A"&gt;"A"&amp;"A"&quot;"A"&#39;"‚Æ‚¢‚Á‚½AHTML’†‚É
-     *  ‚»‚Ì‚Ü‚Üo—Í‚·‚é‚Æ–â‘è‚ª‚ ‚é•¶š‚ğ
-     *  "&amp;lt;"A"&amp;gt;"A"&amp;amp;"A"&amp;quot;"A"&amp;#39;"
-     *  ‚É•ÏŠ·‚·‚éB
+     *  "&lt;"ã€"&gt;"ã€"&amp;"ã€"&quot;"ã€"&#39;"ã¨ã„ã£ãŸã€HTMLä¸­ã«
+     *  ãã®ã¾ã¾å‡ºåŠ›ã™ã‚‹ã¨å•é¡ŒãŒã‚ã‚‹æ–‡å­—ã‚’
+     *  "&amp;lt;"ã€"&amp;gt;"ã€"&amp;amp;"ã€"&amp;quot;"ã€"&amp;#39;"
+     *  ã«å¤‰æ›ã™ã‚‹ã€‚
      * </p>
      * <p>
-     * null‚ª“n‚³‚ê‚½ê‡‚Ínull‚ğ•Ô‚·B
+     * nullãŒæ¸¡ã•ã‚ŒãŸå ´åˆã¯nullã‚’è¿”ã™ã€‚
      * </p
      *
-     * @param str •ÏŠ·‚·‚é•¶š—ñ
-     * @return •ÏŠ·Œã‚Ì•¶š—ñ
+     * @param str å¤‰æ›ã™ã‚‹æ–‡å­—åˆ—
+     * @return å¤‰æ›å¾Œã®æ–‡å­—åˆ—
      */
     public static String filter(String str) {
         if (str == null) {
@@ -812,26 +812,26 @@ public class StringUtil {
     }
 
     /**
-     * LIKEqŒê‚Ìƒpƒ^[ƒ“•¶š—ñ‚Å—p‚¢‚éƒGƒXƒP[ƒv•¶šB
+     * LIKEè¿°èªã®ãƒ‘ã‚¿ãƒ¼ãƒ³æ–‡å­—åˆ—ã§ç”¨ã„ã‚‹ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—æ–‡å­—ã€‚
      */
     public static final String LIKE_ESC_CHAR = "~";
 
     /**
-     * <p>ŒŸõğŒ•¶š—ñ‚ğLIKEqŒê‚Ìƒpƒ^[ƒ“•¶š—ñ‚É•ÏŠ·‚·‚éB</p>
+     * <p>æ¤œç´¢æ¡ä»¶æ–‡å­—åˆ—ã‚’LIKEè¿°èªã®ãƒ‘ã‚¿ãƒ¼ãƒ³æ–‡å­—åˆ—ã«å¤‰æ›ã™ã‚‹ã€‚</p>
      *
-     * <p>•ÏŠ·ƒ‹[ƒ‹‚ÍˆÈ‰º‚Ì’Ê‚èB</p>
+     * <p>å¤‰æ›ãƒ«ãƒ¼ãƒ«ã¯ä»¥ä¸‹ã®é€šã‚Šã€‚</p>
      *
      * <ol>
-     *   <li><code>LIKE_ESC_CHAR</code> ‚ğ <code>LIKE_ESC_CHAR</code> ‚Å
-     *       ƒGƒXƒP[ƒv‚·‚éB</li>
-     *   <li>'%'‚Æ'_'‚Æ'“'‚Æ'Q'‚ğ <code>LIKE_ESC_CHAR</code> ‚ÅƒGƒXƒP[ƒv‚·‚éB</li>
-     *   <li>––”ö‚É'%'‚ğ’Ç‰Á‚·‚éB</li>
+     *   <li><code>LIKE_ESC_CHAR</code> ã‚’ <code>LIKE_ESC_CHAR</code> ã§
+     *       ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—ã™ã‚‹ã€‚</li>
+     *   <li>'%'ã¨'_'ã¨'ï¼…'ã¨'ï¼¿'ã‚’ <code>LIKE_ESC_CHAR</code> ã§ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—ã™ã‚‹ã€‚</li>
+     *   <li>æœ«å°¾ã«'%'ã‚’è¿½åŠ ã™ã‚‹ã€‚</li>
      * </ol>
      *
-     * <p>condition‚ªnull‚Ìê‡‚Ínull‚ğ•Ô‚·B</p>
+     * <p>conditionãŒnullã®å ´åˆã¯nullã‚’è¿”ã™ã€‚</p>
      *
-     * @param condition ŒŸõğŒ•¶š—ñ
-     * @return •ÏŠ·Œã‚ÌŒŸõğŒ•¶š—ñ
+     * @param condition æ¤œç´¢æ¡ä»¶æ–‡å­—åˆ—
+     * @return å¤‰æ›å¾Œã®æ¤œç´¢æ¡ä»¶æ–‡å­—åˆ—
      */
     public static String toLikeCondition(String condition) {
         if (condition == null) {
@@ -844,7 +844,7 @@ public class StringUtil {
             if (c == esc) {
                 result.append(esc);
                 result.append(esc);
-            } else if (c == '%' || c == '_' || c == 'Q' || c == '“') {
+            } else if (c == '%' || c == '_' || c == 'ï¼¿' || c == 'ï¼…') {
                 result.append(esc);
                 result.append(c);
             } else {
@@ -856,16 +856,16 @@ public class StringUtil {
     }
 
     /**
-     * w’è‚³‚ê‚½•¶š—ñ‚ÌƒoƒCƒg—ñ’·‚ğæ“¾‚·‚éB
-     * ‘æ“ñˆø”‚ÌƒGƒ“ƒR[ƒfƒBƒ“ƒO‚ÅƒoƒCƒg—ñ‚É•ÏŠ·‚·‚é‚ªA
-     * ƒGƒ“ƒR[ƒh‚ªw’è‚³‚ê‚Ä‚¢‚È‚©‚Á‚½ê‡‚ÍƒfƒtƒHƒ‹ƒg‚ÌƒGƒ“ƒR[ƒfƒBƒ“ƒO‚Å
-     * ƒoƒCƒg—ñ‚É•ÏŠ·‚ğs‚¤B
+     * æŒ‡å®šã•ã‚ŒãŸæ–‡å­—åˆ—ã®ãƒã‚¤ãƒˆåˆ—é•·ã‚’å–å¾—ã™ã‚‹ã€‚
+     * ç¬¬äºŒå¼•æ•°ã®ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ã§ãƒã‚¤ãƒˆåˆ—ã«å¤‰æ›ã™ã‚‹ãŒã€
+     * ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰ãŒæŒ‡å®šã•ã‚Œã¦ã„ãªã‹ã£ãŸå ´åˆã¯ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ã§
+     * ãƒã‚¤ãƒˆåˆ—ã«å¤‰æ›ã‚’è¡Œã†ã€‚
      *
-     * @param value ƒoƒCƒg—ñ’·‚ğæ“¾‚·‚é‘ÎÛ‚Ì•¶š—ñ
-     * @param encoding •¶šƒGƒ“ƒR[ƒfƒBƒ“ƒO
-     * @return ƒoƒCƒg—ñ’·
-     * @throws UnsupportedEncodingException ƒTƒ|[ƒg‚³‚ê‚Ä‚¢‚È‚¢
-     * ƒGƒ“ƒR[ƒfƒBƒ“ƒO‚ğw’è‚µ‚½‚Æ‚«”­¶‚·‚é—áŠOB
+     * @param value ãƒã‚¤ãƒˆåˆ—é•·ã‚’å–å¾—ã™ã‚‹å¯¾è±¡ã®æ–‡å­—åˆ—
+     * @param encoding æ–‡å­—ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°
+     * @return ãƒã‚¤ãƒˆåˆ—é•·
+     * @throws UnsupportedEncodingException ã‚µãƒãƒ¼ãƒˆã•ã‚Œã¦ã„ãªã„
+     * ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ã‚’æŒ‡å®šã—ãŸã¨ãç™ºç”Ÿã™ã‚‹ä¾‹å¤–ã€‚
      */
     public static int getByteLength(String value, String encoding)
             throws UnsupportedEncodingException {

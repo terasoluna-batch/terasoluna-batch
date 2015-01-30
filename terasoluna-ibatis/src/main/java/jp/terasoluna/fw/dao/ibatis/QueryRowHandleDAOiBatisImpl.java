@@ -27,27 +27,27 @@ import org.springframework.orm.ibatis.support.SqlMapClientDaoSupport;
 
 /**
  * <p>
- * QueryRowHandleDAOƒCƒ“ƒ^ƒtƒF[ƒX‚ÌiBATISÀ‘•ƒNƒ‰ƒXB<br>
- * QÆŒnSQL‚ÌŒ‹‰Ê‚ğ1s‚¸‚Âˆ—‚·‚éB
+ * QueryRowHandleDAOã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã®iBATISå®Ÿè£…ã‚¯ãƒ©ã‚¹ã€‚<br>
+ * å‚ç…§ç³»SQLã®çµæœã‚’1è¡Œãšã¤å‡¦ç†ã™ã‚‹ã€‚
  * </p>
  * 
  * <p>
- * executeWithRowHandlerƒƒ\ƒbƒh‚Ìˆø”‚ÉDataRowHandlerÀ‘•ƒNƒ‰ƒX‚ğ“n‚µ‚Äg—p‚·‚éB<br>
- * executeWithRowHandlerƒƒ\ƒbƒh©‘Ì‚ÍASQL‚ÌÀsŒ‹‰Ê‚ğ•Ô‚³‚È‚¢‚±‚Æ‚É’ˆÓ‚·‚éB<br>
- * SQL‚ÌÀsŒ‹‰Ê‚Ì1s‚²‚Æ‚ÉDataRowHandler#handleRow()‚ªŒÄ‚Î‚êA
- * ˆø”‚É1s‚Ìƒf[ƒ^‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg‚ª“n‚³‚ê‚éB<br>
- * DataRowHandler#handleRow()‚É‚ÍA1s•ª‚Ìƒf[ƒ^ˆ—‚ğÀ‘•‚·‚é•K—v‚ª‚ ‚éB<br>
+ * executeWithRowHandlerãƒ¡ã‚½ãƒƒãƒ‰ã®å¼•æ•°ã«DataRowHandlerå®Ÿè£…ã‚¯ãƒ©ã‚¹ã‚’æ¸¡ã—ã¦ä½¿ç”¨ã™ã‚‹ã€‚<br>
+ * executeWithRowHandlerãƒ¡ã‚½ãƒƒãƒ‰è‡ªä½“ã¯ã€SQLã®å®Ÿè¡Œçµæœã‚’è¿”ã•ãªã„ã“ã¨ã«æ³¨æ„ã™ã‚‹ã€‚<br>
+ * SQLã®å®Ÿè¡Œçµæœã®1è¡Œã”ã¨ã«DataRowHandler#handleRow()ãŒå‘¼ã°ã‚Œã€
+ * å¼•æ•°ã«1è¡Œã®ãƒ‡ãƒ¼ã‚¿ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒæ¸¡ã•ã‚Œã‚‹ã€‚<br>
+ * DataRowHandler#handleRow()ã«ã¯ã€1è¡Œåˆ†ã®ãƒ‡ãƒ¼ã‚¿å‡¦ç†ã‚’å®Ÿè£…ã™ã‚‹å¿…è¦ãŒã‚ã‚‹ã€‚<br>
  * </p>
  * 
  * <p>
  * <fieldset style="border:1pt solid black;padding:10px;width:100%;">
- * <legend>’ˆÓ–€</legend>
- * iBATISƒ}ƒbƒsƒ“ƒO’è‹`ƒtƒ@ƒCƒ‹‚Ì&lt;statement&gt;—v‘fA&lt;select&gt;—v‘fA
- * &lt;procedure&gt;—v‘f‚É‚Ä‘å—Êƒf[ƒ^‚ğ•Ô‚·‚æ‚¤‚ÈƒNƒGƒŠ‚ğ‹Lq‚·‚éê‡‚É‚ÍA
- * fetchSize‘®«‚É“KØ‚È’l‚ğİ’è‚µ‚Ä‚¨‚­‚±‚ÆB<br>
- * fetchSize‘®«‚É‚ÍJDBCƒhƒ‰ƒCƒo‚Æƒf[ƒ^ƒx[ƒXŠÔ‚Ì’ÊM‚É‚¨‚¢‚ÄA
- * ˆê“x‚Ì’ÊM‚Åæ“¾‚·‚éƒf[ƒ^‚ÌŒ”‚ğİ’è‚·‚éB<br>
- * fetchSize‘®«‚ğÈ—ª‚µ‚½ê‡‚ÍŠeJDBCƒhƒ‰ƒCƒo‚ÌƒfƒtƒHƒ‹ƒg’l‚ª—˜—p‚³‚ê‚éB
+ * <legend>æ³¨æ„äº‹é …</legend>
+ * iBATISãƒãƒƒãƒ”ãƒ³ã‚°å®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ã®&lt;statement&gt;è¦ç´ ã€&lt;select&gt;è¦ç´ ã€
+ * &lt;procedure&gt;è¦ç´ ã«ã¦å¤§é‡ãƒ‡ãƒ¼ã‚¿ã‚’è¿”ã™ã‚ˆã†ãªã‚¯ã‚¨ãƒªã‚’è¨˜è¿°ã™ã‚‹å ´åˆã«ã¯ã€
+ * fetchSizeå±æ€§ã«é©åˆ‡ãªå€¤ã‚’è¨­å®šã—ã¦ãŠãã“ã¨ã€‚<br>
+ * fetchSizeå±æ€§ã«ã¯JDBCãƒ‰ãƒ©ã‚¤ãƒã¨ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹é–“ã®é€šä¿¡ã«ãŠã„ã¦ã€
+ * ä¸€åº¦ã®é€šä¿¡ã§å–å¾—ã™ã‚‹ãƒ‡ãƒ¼ã‚¿ã®ä»¶æ•°ã‚’è¨­å®šã™ã‚‹ã€‚<br>
+ * fetchSizeå±æ€§ã‚’çœç•¥ã—ãŸå ´åˆã¯å„JDBCãƒ‰ãƒ©ã‚¤ãƒã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ãŒåˆ©ç”¨ã•ã‚Œã‚‹ã€‚
  * </fieldset>
  * </p>
  * 
@@ -58,17 +58,17 @@ public class QueryRowHandleDAOiBatisImpl extends SqlMapClientDaoSupport
         implements QueryRowHandleDAO {
 
     /**
-     * ƒƒOƒCƒ“ƒXƒ^ƒ“ƒX
+     * ãƒ­ã‚°ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
      */
     private static Log log = LogFactory.
             getLog(QueryRowHandleDAOiBatisImpl.class);
 
     /**
-     * SQL‚ÌÀsŒ‹‰Ê‚ğDataRowHandler‚Å1s‚¸‚Âˆ—‚·‚éB
+     * SQLã®å®Ÿè¡Œçµæœã‚’DataRowHandlerã§1è¡Œãšã¤å‡¦ç†ã™ã‚‹ã€‚
      *
-     * @param sqlID Às‚·‚éSQL‚ÌID
-     * @param bindParams SQL‚ÉƒoƒCƒ“ƒh‚·‚é’l‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg
-     * @param rowHandler 1sæ“¾‚²‚Æ‚Éˆ—‚·‚éƒnƒ“ƒhƒ‰
+     * @param sqlID å®Ÿè¡Œã™ã‚‹SQLã®ID
+     * @param bindParams SQLã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹å€¤ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param rowHandler 1è¡Œå–å¾—ã”ã¨ã«å‡¦ç†ã™ã‚‹ãƒãƒ³ãƒ‰ãƒ©
      */
     public void executeWithRowHandler(final String sqlID,
             final Object bindParams, final DataRowHandler rowHandler) {
@@ -76,10 +76,10 @@ public class QueryRowHandleDAOiBatisImpl extends SqlMapClientDaoSupport
             log.debug("executeWithRowHandler Start.");
         }
 
-        // SqlMapClientTemplate‚Ìæ“¾
+        // SqlMapClientTemplateã®å–å¾—
         SqlMapClientTemplate sqlMapTemp = getSqlMapClientTemplate();
 
-        // SQL‚ÌÀs
+        // SQLã®å®Ÿè¡Œ
         sqlMapTemp.queryWithRowHandler(sqlID, bindParams,
                 new RowHandlerWrapper(rowHandler));
 

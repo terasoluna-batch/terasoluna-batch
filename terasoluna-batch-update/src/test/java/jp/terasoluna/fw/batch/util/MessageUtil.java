@@ -24,34 +24,34 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
- * ƒƒbƒZ[ƒWŠÇ—ƒ†[ƒeƒBƒŠƒeƒBB<br>
+ * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ç®¡ç†ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ã€‚<br>
  * <br>
  * <p>
- * ƒƒbƒZ[ƒW‚ÌŠÇ—‚ğs‚¢‚½‚¢ê‡‚É—˜—p‚·‚éB<br>
- * –{ƒNƒ‰ƒX‚ÌƒNƒ‰ƒX•Ï”‚É•Û‘¶‚³‚ê‚éMessageAccessor‚ÍƒXƒŒƒbƒhƒOƒ‹[ƒv–ˆ‚ÉƒCƒ“ƒXƒ^ƒ“ƒX‚ª•Û‚³‚ê‚éB
+ * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®ç®¡ç†ã‚’è¡Œã„ãŸã„å ´åˆã«åˆ©ç”¨ã™ã‚‹ã€‚<br>
+ * æœ¬ã‚¯ãƒ©ã‚¹ã®ã‚¯ãƒ©ã‚¹å¤‰æ•°ã«ä¿å­˜ã•ã‚Œã‚‹MessageAccessorã¯ã‚¹ãƒ¬ãƒƒãƒ‰ã‚°ãƒ«ãƒ¼ãƒ—æ¯ã«ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ãŒä¿æŒã•ã‚Œã‚‹ã€‚
  * </p>
  */
 public class MessageUtil {
 
-    /** ƒƒO. */
+    /** ãƒ­ã‚°. */
     private static Log log = LogFactory.getLog(MessageUtil.class);
 
-    /** ƒXƒŒƒbƒhƒOƒ‹[ƒv–ˆ‚ÉƒƒbƒZ[ƒWƒ\[ƒXƒAƒNƒZƒT‚ğ•Û‚·‚é. */
+    /** ã‚¹ãƒ¬ãƒƒãƒ‰ã‚°ãƒ«ãƒ¼ãƒ—æ¯ã«ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚½ãƒ¼ã‚¹ã‚¢ã‚¯ã‚»ã‚µã‚’ä¿æŒã™ã‚‹. */
     private static final ConcurrentHashMap<ThreadGroup, MessageAccessor> tgm = new ConcurrentHashMap<ThreadGroup, MessageAccessor>();
 
     /**
-     * ƒR[ƒh‚É‰‚¶‚½ƒƒbƒZ[ƒW‚ğ•Ô‹p‚·‚é<br>
-     * @param errorCode ƒR[ƒh
-     * @return ƒR[ƒh‚É‰‚¶‚½ƒƒbƒZ[ƒW‚ğ•Ô‹p‚·‚é
+     * ã‚³ãƒ¼ãƒ‰ã«å¿œã˜ãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’è¿”å´ã™ã‚‹<br>
+     * @param errorCode ã‚³ãƒ¼ãƒ‰
+     * @return ã‚³ãƒ¼ãƒ‰ã«å¿œã˜ãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’è¿”å´ã™ã‚‹
      */
     public static String getMessage(String code) {
         return getMessage(code, null);
     }
 
     /**
-     * ƒR[ƒh‚É‰‚¶‚½ƒƒbƒZ[ƒW‚ğ•Ô‹p‚·‚é<br>
-     * @param errorCode ƒR[ƒh
-     * @return ƒR[ƒh‚É‰‚¶‚½ƒƒbƒZ[ƒW‚ğ•Ô‹p‚·‚é
+     * ã‚³ãƒ¼ãƒ‰ã«å¿œã˜ãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’è¿”å´ã™ã‚‹<br>
+     * @param errorCode ã‚³ãƒ¼ãƒ‰
+     * @return ã‚³ãƒ¼ãƒ‰ã«å¿œã˜ãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’è¿”å´ã™ã‚‹
      */
     public static String getMessage(String code, Object[] args) {
         String mes = null;
@@ -73,7 +73,7 @@ public class MessageUtil {
             try {
                 mes = ma.getMessage(code, args);
             } catch (Throwable e) {
-                // ‰½‚à‚µ‚È‚¢
+                // ä½•ã‚‚ã—ãªã„
             }
         } else {
             if (log.isDebugEnabled()) {
@@ -83,7 +83,7 @@ public class MessageUtil {
             }
         }
 
-        // ƒƒbƒZ[ƒW‚ªŒ©‚Â‚©‚ç‚È‚©‚Á‚½ê‡
+        // ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒè¦‹ã¤ã‹ã‚‰ãªã‹ã£ãŸå ´åˆ
         if (mes == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("Message not found. CODE:[");
@@ -96,9 +96,9 @@ public class MessageUtil {
     }
 
     /**
-     * ƒƒbƒZ[ƒWƒ\[ƒXƒAƒNƒZƒT‚ğİ’è‚·‚é.<br>
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚½ãƒ¼ã‚¹ã‚¢ã‚¯ã‚»ã‚µã‚’è¨­å®šã™ã‚‹.<br>
      * <p>
-     * ‚±‚±‚Åİ’è‚·‚éMessageAccessor‚ÍƒXƒŒƒbƒhƒOƒ‹[ƒv–ˆ‚É•Û‚³‚ê‚éB
+     * ã“ã“ã§è¨­å®šã™ã‚‹MessageAccessorã¯ã‚¹ãƒ¬ãƒƒãƒ‰ã‚°ãƒ«ãƒ¼ãƒ—æ¯ã«ä¿æŒã•ã‚Œã‚‹ã€‚
      * </p>
      * @param messageAccessor MessageAccessor
      */
@@ -127,7 +127,7 @@ public class MessageUtil {
     }
 
     /**
-     * ƒƒbƒZ[ƒWƒ\[ƒXƒAƒNƒZƒT‚ğíœ‚·‚é.<br>
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚½ãƒ¼ã‚¹ã‚¢ã‚¯ã‚»ã‚µã‚’å‰Šé™¤ã™ã‚‹.<br>
      */
     public static void removeMessageAccessor() {
         ThreadGroup tg = getThreadGroup();
@@ -144,7 +144,7 @@ public class MessageUtil {
     }
 
     /**
-     * ƒXƒŒƒbƒhƒOƒ‹[ƒv‚ğæ“¾‚·‚é.
+     * ã‚¹ãƒ¬ãƒƒãƒ‰ã‚°ãƒ«ãƒ¼ãƒ—ã‚’å–å¾—ã™ã‚‹.
      * @return ThreadGroup
      */
     private static ThreadGroup getThreadGroup() {
@@ -156,8 +156,8 @@ public class MessageUtil {
     }
 
     /**
-     * ƒXƒŒƒbƒhƒOƒ‹[ƒv‚ÆƒXƒŒƒbƒh–¼‚ğ•Ô‚·ƒƒ\ƒbƒh.<br>
-     * ƒfƒoƒbƒO—pƒƒbƒZ[ƒW‚ğ•Ô‚·B
+     * ã‚¹ãƒ¬ãƒƒãƒ‰ã‚°ãƒ«ãƒ¼ãƒ—ã¨ã‚¹ãƒ¬ãƒƒãƒ‰åã‚’è¿”ã™ãƒ¡ã‚½ãƒƒãƒ‰.<br>
+     * ãƒ‡ãƒãƒƒã‚°ç”¨ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’è¿”ã™ã€‚
      * @return String
      */
     private static String getThreadMessage() {

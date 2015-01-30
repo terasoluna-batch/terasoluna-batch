@@ -24,29 +24,29 @@ import org.springframework.orm.ibatis.SqlMapClientTemplate;
 import com.ibatis.sqlmap.client.SqlMapClient;
 
 /**
- * {@link UpdateDAOiBatisImpl}‚ÌŒ±‚Ì‚½‚ß‚Ég—p‚³‚ê‚éƒXƒ^ƒuB
+ * {@link UpdateDAOiBatisImpl}ã®è©¦é¨“ã®ãŸã‚ã«ä½¿ç”¨ã•ã‚Œã‚‹ã‚¹ã‚¿ãƒ–ã€‚
  *
- * {@link UpdateDAOiBatisImpl}‚©‚ç‚ÌŒÄ‚Ño‚µŠm”F—p‚Ég—p‚³‚ê‚éB
+ * {@link UpdateDAOiBatisImpl}ã‹ã‚‰ã®å‘¼ã³å‡ºã—ç¢ºèªç”¨ã«ä½¿ç”¨ã•ã‚Œã‚‹ã€‚
  *
  */
 public class UpdateDAOiBatisImpl_SqlMapClientTemplateStub01 extends SqlMapClientTemplate {
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      */
     public UpdateDAOiBatisImpl_SqlMapClientTemplateStub01() {
 
-        //SqlMapClient‚Ìİ’è
+        //SqlMapClientã®è¨­å®š
         SqlMapClient sqlMapClient = new UpdateDAOiBatisImpl_SqlMapClientStub01();
         setSqlMapClient(sqlMapClient);
 
-        //ƒf[ƒ^ƒ\[ƒX‚Ìİ’è
+        //ãƒ‡ãƒ¼ã‚¿ã‚½ãƒ¼ã‚¹ã®è¨­å®š
         DataSource dataSource = new UpdateDAOiBatisImpl_DataSourceStub01();
         setDataSource(dataSource);
     }
 
     /**
-     * UpdateDAOiBatisImplƒeƒXƒg—pqueryForListƒƒ\ƒbƒh
+     * UpdateDAOiBatisImplãƒ†ã‚¹ãƒˆç”¨queryForListãƒ¡ã‚½ãƒƒãƒ‰
      */
     @Override
     public int update(String statementName, Object parameterObject) throws DataAccessException {
@@ -57,7 +57,7 @@ public class UpdateDAOiBatisImpl_SqlMapClientTemplateStub01 extends SqlMapClient
     }
 
     /*
-     * ŒÄ‚Ño‚µŠm”F—p•Ï”
+     * å‘¼ã³å‡ºã—ç¢ºèªç”¨å¤‰æ•°
      */
     private boolean called = false;
     private String statementName = null;

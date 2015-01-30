@@ -25,17 +25,17 @@ import org.springframework.validation.Validator;
 
 /**
  * FileValidateCollector.<br>
- * “Æ—§‚µ‚½•ÊƒXƒŒƒbƒh‚ğ‹N“®‚µAFileQueryDAO‚ğ”ñ“¯Šú‚ÅÀs‚·‚éB
+ * ç‹¬ç«‹ã—ãŸåˆ¥ã‚¹ãƒ¬ãƒƒãƒ‰ã‚’èµ·å‹•ã—ã€FileQueryDAOã‚’éåŒæœŸã§å®Ÿè¡Œã™ã‚‹ã€‚
  * @param &ltP&gt
  */
 public class FileValidateCollector<P> extends FileCollector<P> {
 
     /**
-     * FileValidateCollectorƒRƒ“ƒXƒgƒ‰ƒNƒ^.<br>
-     * @param fileQueryDAO FileQueryDAOƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param fileName ƒtƒ@ƒCƒ‹–¼iâ‘ÎƒpƒX‚Ü‚½‚Í‘Š‘ÎƒpƒX‚Ì‚Ç‚¿‚ç‚©j
-     * @param clazz 1s•ª‚Ì•¶š—ñ‚ğŠi”[‚·‚éƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgƒNƒ‰ƒX
-     * @param validator Validator “ü—Íƒ`ƒFƒbƒN‚ğs‚¤ƒoƒŠƒf[ƒ^
+     * FileValidateCollectorã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿.<br>
+     * @param fileQueryDAO FileQueryDAOã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param fileName ãƒ•ã‚¡ã‚¤ãƒ«åï¼ˆçµ¶å¯¾ãƒ‘ã‚¹ã¾ãŸã¯ç›¸å¯¾ãƒ‘ã‚¹ã®ã©ã¡ã‚‰ã‹ï¼‰
+     * @param clazz 1è¡Œåˆ†ã®æ–‡å­—åˆ—ã‚’æ ¼ç´ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¯ãƒ©ã‚¹
+     * @param validator Validator å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†ãƒãƒªãƒ‡ãƒ¼ã‚¿
      */
     public FileValidateCollector(FileQueryDAO fileQueryDAO, String fileName,
             Class<P> clazz, Validator validator) {
@@ -44,12 +44,12 @@ public class FileValidateCollector<P> extends FileCollector<P> {
     }
 
     /**
-     * FileValidateCollectorƒRƒ“ƒXƒgƒ‰ƒNƒ^.<br>
-     * @param fileQueryDAO FileQueryDAOƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param fileName ƒtƒ@ƒCƒ‹–¼iâ‘ÎƒpƒX‚Ü‚½‚Í‘Š‘ÎƒpƒX‚Ì‚Ç‚¿‚ç‚©j
-     * @param clazz 1s•ª‚Ì•¶š—ñ‚ğŠi”[‚·‚éƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgƒNƒ‰ƒX
-     * @param validator Validator “ü—Íƒ`ƒFƒbƒN‚ğs‚¤ƒoƒŠƒf[ƒ^
-     * @param validationErrorHandler ValidationErrorHandler “ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚És‚¤ˆ—
+     * FileValidateCollectorã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿.<br>
+     * @param fileQueryDAO FileQueryDAOã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param fileName ãƒ•ã‚¡ã‚¤ãƒ«åï¼ˆçµ¶å¯¾ãƒ‘ã‚¹ã¾ãŸã¯ç›¸å¯¾ãƒ‘ã‚¹ã®ã©ã¡ã‚‰ã‹ï¼‰
+     * @param clazz 1è¡Œåˆ†ã®æ–‡å­—åˆ—ã‚’æ ¼ç´ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¯ãƒ©ã‚¹
+     * @param validator Validator å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†ãƒãƒªãƒ‡ãƒ¼ã‚¿
+     * @param validationErrorHandler ValidationErrorHandler å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼æ™‚ã«è¡Œã†å‡¦ç†
      */
     public FileValidateCollector(FileQueryDAO fileQueryDAO, String fileName,
             Class<P> clazz, Validator validator,
@@ -60,12 +60,12 @@ public class FileValidateCollector<P> extends FileCollector<P> {
     }
 
     /**
-     * FileValidateCollectorƒRƒ“ƒXƒgƒ‰ƒNƒ^.<br>
-     * @param fileQueryDAO FileQueryDAOƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param fileName ƒtƒ@ƒCƒ‹–¼iâ‘ÎƒpƒX‚Ü‚½‚Í‘Š‘ÎƒpƒX‚Ì‚Ç‚¿‚ç‚©j
-     * @param clazz 1s•ª‚Ì•¶š—ñ‚ğŠi”[‚·‚éƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgƒNƒ‰ƒX
-     * @param exceptionHandler —áŠOƒnƒ“ƒhƒ‰
-     * @param validator Validator “ü—Íƒ`ƒFƒbƒN‚ğs‚¤ƒoƒŠƒf[ƒ^
+     * FileValidateCollectorã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿.<br>
+     * @param fileQueryDAO FileQueryDAOã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param fileName ãƒ•ã‚¡ã‚¤ãƒ«åï¼ˆçµ¶å¯¾ãƒ‘ã‚¹ã¾ãŸã¯ç›¸å¯¾ãƒ‘ã‚¹ã®ã©ã¡ã‚‰ã‹ï¼‰
+     * @param clazz 1è¡Œåˆ†ã®æ–‡å­—åˆ—ã‚’æ ¼ç´ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¯ãƒ©ã‚¹
+     * @param exceptionHandler ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©
+     * @param validator Validator å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†ãƒãƒªãƒ‡ãƒ¼ã‚¿
      */
     public FileValidateCollector(FileQueryDAO fileQueryDAO, String fileName,
             Class<P> clazz, CollectorExceptionHandler exceptionHandler,
@@ -75,13 +75,13 @@ public class FileValidateCollector<P> extends FileCollector<P> {
     }
 
     /**
-     * FileValidateCollectorƒRƒ“ƒXƒgƒ‰ƒNƒ^.<br>
-     * @param fileQueryDAO FileQueryDAOƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param fileName ƒtƒ@ƒCƒ‹–¼iâ‘ÎƒpƒX‚Ü‚½‚Í‘Š‘ÎƒpƒX‚Ì‚Ç‚¿‚ç‚©j
-     * @param clazz 1s•ª‚Ì•¶š—ñ‚ğŠi”[‚·‚éƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgƒNƒ‰ƒX
-     * @param exceptionHandler —áŠOƒnƒ“ƒhƒ‰
-     * @param validator Validator “ü—Íƒ`ƒFƒbƒN‚ğs‚¤ƒoƒŠƒf[ƒ^
-     * @param validationErrorHandler ValidationErrorHandler “ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚És‚¤ˆ—
+     * FileValidateCollectorã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿.<br>
+     * @param fileQueryDAO FileQueryDAOã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param fileName ãƒ•ã‚¡ã‚¤ãƒ«åï¼ˆçµ¶å¯¾ãƒ‘ã‚¹ã¾ãŸã¯ç›¸å¯¾ãƒ‘ã‚¹ã®ã©ã¡ã‚‰ã‹ï¼‰
+     * @param clazz 1è¡Œåˆ†ã®æ–‡å­—åˆ—ã‚’æ ¼ç´ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¯ãƒ©ã‚¹
+     * @param exceptionHandler ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©
+     * @param validator Validator å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†ãƒãƒªãƒ‡ãƒ¼ã‚¿
+     * @param validationErrorHandler ValidationErrorHandler å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼æ™‚ã«è¡Œã†å‡¦ç†
      */
     public FileValidateCollector(FileQueryDAO fileQueryDAO, String fileName,
             Class<P> clazz, CollectorExceptionHandler exceptionHandler,
@@ -92,13 +92,13 @@ public class FileValidateCollector<P> extends FileCollector<P> {
     }
 
     /**
-     * FileValidateCollectorƒRƒ“ƒXƒgƒ‰ƒNƒ^.<br>
-     * @param fileQueryDAO FileQueryDAOƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param fileName ƒtƒ@ƒCƒ‹–¼iâ‘ÎƒpƒX‚Ü‚½‚Í‘Š‘ÎƒpƒX‚Ì‚Ç‚¿‚ç‚©j
-     * @param clazz 1s•ª‚Ì•¶š—ñ‚ğŠi”[‚·‚éƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgƒNƒ‰ƒX
-     * @param queueSize ƒLƒ…[‚ÌƒTƒCƒYi1ˆÈã‚ğİ’è‚·‚é‚±‚Æj
-     * @param exceptionHandler —áŠOƒnƒ“ƒhƒ‰
-     * @param validator Validator “ü—Íƒ`ƒFƒbƒN‚ğs‚¤ƒoƒŠƒf[ƒ^
+     * FileValidateCollectorã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿.<br>
+     * @param fileQueryDAO FileQueryDAOã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param fileName ãƒ•ã‚¡ã‚¤ãƒ«åï¼ˆçµ¶å¯¾ãƒ‘ã‚¹ã¾ãŸã¯ç›¸å¯¾ãƒ‘ã‚¹ã®ã©ã¡ã‚‰ã‹ï¼‰
+     * @param clazz 1è¡Œåˆ†ã®æ–‡å­—åˆ—ã‚’æ ¼ç´ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¯ãƒ©ã‚¹
+     * @param queueSize ã‚­ãƒ¥ãƒ¼ã®ã‚µã‚¤ã‚ºï¼ˆ1ä»¥ä¸Šã‚’è¨­å®šã™ã‚‹ã“ã¨ï¼‰
+     * @param exceptionHandler ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©
+     * @param validator Validator å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†ãƒãƒªãƒ‡ãƒ¼ã‚¿
      */
     public FileValidateCollector(FileQueryDAO fileQueryDAO, String fileName,
             Class<P> clazz, int queueSize,
@@ -109,14 +109,14 @@ public class FileValidateCollector<P> extends FileCollector<P> {
     }
 
     /**
-     * FileValidateCollectorƒRƒ“ƒXƒgƒ‰ƒNƒ^.<br>
-     * @param fileQueryDAO FileQueryDAOƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param fileName ƒtƒ@ƒCƒ‹–¼iâ‘ÎƒpƒX‚Ü‚½‚Í‘Š‘ÎƒpƒX‚Ì‚Ç‚¿‚ç‚©j
-     * @param clazz 1s•ª‚Ì•¶š—ñ‚ğŠi”[‚·‚éƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgƒNƒ‰ƒX
-     * @param queueSize ƒLƒ…[‚ÌƒTƒCƒYi1ˆÈã‚ğİ’è‚·‚é‚±‚Æj
-     * @param exceptionHandler —áŠOƒnƒ“ƒhƒ‰
-     * @param validator Validator “ü—Íƒ`ƒFƒbƒN‚ğs‚¤ƒoƒŠƒf[ƒ^
-     * @param validationErrorHandler ValidationErrorHandler “ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚És‚¤ˆ—
+     * FileValidateCollectorã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿.<br>
+     * @param fileQueryDAO FileQueryDAOã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param fileName ãƒ•ã‚¡ã‚¤ãƒ«åï¼ˆçµ¶å¯¾ãƒ‘ã‚¹ã¾ãŸã¯ç›¸å¯¾ãƒ‘ã‚¹ã®ã©ã¡ã‚‰ã‹ï¼‰
+     * @param clazz 1è¡Œåˆ†ã®æ–‡å­—åˆ—ã‚’æ ¼ç´ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¯ãƒ©ã‚¹
+     * @param queueSize ã‚­ãƒ¥ãƒ¼ã®ã‚µã‚¤ã‚ºï¼ˆ1ä»¥ä¸Šã‚’è¨­å®šã™ã‚‹ã“ã¨ï¼‰
+     * @param exceptionHandler ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©
+     * @param validator Validator å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†ãƒãƒªãƒ‡ãƒ¼ã‚¿
+     * @param validationErrorHandler ValidationErrorHandler å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼æ™‚ã«è¡Œã†å‡¦ç†
      */
     public FileValidateCollector(FileQueryDAO fileQueryDAO, String fileName,
             Class<P> clazz, int queueSize,
@@ -129,8 +129,8 @@ public class FileValidateCollector<P> extends FileCollector<P> {
     }
 
     /**
-     * FileValidateCollectorƒRƒ“ƒXƒgƒ‰ƒNƒ^.<br>
-     * @param config FileCollectorConfig FileCollectorİ’è€–Ú
+     * FileValidateCollectorã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿.<br>
+     * @param config FileCollectorConfig FileCollectorè¨­å®šé …ç›®
      */
     public FileValidateCollector(FileCollectorConfig<P> config) {
         if (config == null) {
@@ -155,7 +155,7 @@ public class FileValidateCollector<P> extends FileCollector<P> {
         this.exceptionHandler = config.getExceptionHandler();
 
         if (config.isExecuteByConstructor()) {
-            // ÀsŠJn
+            // å®Ÿè¡Œé–‹å§‹
             execute();
         }
     }

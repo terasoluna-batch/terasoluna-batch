@@ -9,15 +9,15 @@ import org.springframework.orm.ibatis.SqlMapClientTemplate;
 import com.ibatis.sqlmap.client.event.RowHandler;
 
 /**
- * {@link QueryRowHandleDAOiBatisImpl}�̎����̂��߂Ɏg�p�����X�^�u�B
+ * {@link QueryRowHandleDAOiBatisImpl}の試験のために使用されるスタブ。
  * 
- * {@link QueryRowHandleDAOiBatisImpl}����̌Ăяo���m�F�p�Ɏg�p�����B
+ * {@link QueryRowHandleDAOiBatisImpl}からの呼び出し確認用に使用される。
  * 
  */
 public class QueryRowHandleDAOiBatisImpl_SqlMapClientTemplateStub01 extends
         SqlMapClientTemplate {
     /**
-     * �e�X�g�pqueryWithRowHandler���\�b�h
+     * テスト用queryWithRowHandlerメソッド
      */
     @Override
     public void queryWithRowHandler(String statementName,
@@ -30,7 +30,7 @@ public class QueryRowHandleDAOiBatisImpl_SqlMapClientTemplateStub01 extends
     }
 
     /*
-     * �Ăяo���m�F�p�ϐ�
+     * 呼び出し確認用変数
      */
     private boolean called = false;
     private String statementName = null;

@@ -9,10 +9,10 @@ public class DaoCollectorPrePostProcessStub002 implements DaoCollectorPrePostPro
     protected boolean retryFlag = false;
 
     public <P> void preprocess(DaoCollector<P> collector) {
-    	// preprocessƒƒ\ƒbƒh‚ªŒÄ‚Î‚ê‚é‚½‚Ñ‚ÉÀs‰ñ”‚ğƒCƒ“ƒNƒŠƒƒ“ƒg
+    	// preprocessãƒ¡ã‚½ãƒƒãƒ‰ãŒå‘¼ã°ã‚Œã‚‹ãŸã³ã«å®Ÿè¡Œå›æ•°ã‚’ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ãƒˆ
     	preprocessExecCount.getAndIncrement();
     	if(preprocessExecCount.get() >= 2) {
-    		// 2‰ñˆÈã‚±‚Ìˆ—‚ªÀs‚³‚ê‚Ä‚¢‚éê‡‚ÍƒŠƒgƒ‰ƒCƒtƒ‰ƒO‚ğtrue‚É‚·‚é
+    		// 2å›ä»¥ä¸Šã“ã®å‡¦ç†ãŒå®Ÿè¡Œã•ã‚Œã¦ã„ã‚‹å ´åˆã¯ãƒªãƒˆãƒ©ã‚¤ãƒ•ãƒ©ã‚°ã‚’trueã«ã™ã‚‹
     		retryFlag = true;
     	}
     }
@@ -24,10 +24,10 @@ public class DaoCollectorPrePostProcessStub002 implements DaoCollectorPrePostPro
     public <P> DaoCollectorPrePostProcessStatus postprocessException(
             DaoCollector<P> collector, Throwable throwable) {
         if (preprocessExecCount.get() == 1) {
-        	// 1‰ñ–Ú‚ÍRETRY‚ğ•Ô‚µ‚ÄƒŠƒgƒ‰ƒC‚³‚¹‚é
+        	// 1å›ç›®ã¯RETRYã‚’è¿”ã—ã¦ãƒªãƒˆãƒ©ã‚¤ã•ã›ã‚‹
         	return DaoCollectorPrePostProcessStatus.RETRY;
         } else {
-        	// 2‰ñ–ÚˆÈ~‚ÍEND‚ğ•Ô‚µ‚ÄI—¹‚³‚¹‚é
+        	// 2å›ç›®ä»¥é™ã¯ENDã‚’è¿”ã—ã¦çµ‚äº†ã•ã›ã‚‹
         	return DaoCollectorPrePostProcessStatus.END;
         }
     }

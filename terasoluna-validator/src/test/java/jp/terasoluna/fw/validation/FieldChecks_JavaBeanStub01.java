@@ -21,113 +21,113 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- * FieldChecksTest‚Åg—p‚·‚éƒXƒ^ƒuƒNƒ‰ƒXB
+ * FieldChecksTestã§ä½¿ç”¨ã™ã‚‹ã‚¹ã‚¿ãƒ–ã‚¯ãƒ©ã‚¹ã€‚
  *
  */
 public class FieldChecks_JavaBeanStub01 {
 
     /**
-     * ƒeƒXƒg—pƒvƒƒpƒeƒBB
+     * ãƒ†ã‚¹ãƒˆç”¨ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã€‚
      */
     private String field = "testProperty";
 
     /**
-     * ƒeƒXƒg—p”z—ñƒvƒƒpƒeƒBB
+     * ãƒ†ã‚¹ãƒˆç”¨é…åˆ—ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã€‚
      */
     private String[] array = null;
 
     /**
-     * ƒeƒXƒg—pListŒ^ƒvƒƒpƒeƒBB
+     * ãƒ†ã‚¹ãƒˆç”¨Listå‹ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã€‚
      */
     private List list = new ArrayList();
 
     /**
-     * ƒeƒXƒg—pint”z—ñƒvƒƒpƒeƒBB
+     * ãƒ†ã‚¹ãƒˆç”¨inté…åˆ—ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã€‚
      */
     private int[] intArray = null;
 
     /**
-     * ƒeƒXƒg—pJavaBean”z—ñƒvƒƒpƒeƒBB
+     * ãƒ†ã‚¹ãƒˆç”¨JavaBeané…åˆ—ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã€‚
      */
     private Object[] beanArray = null;
 
     /**
-     * ƒeƒXƒg—p”z—ñƒvƒƒpƒeƒBB
+     * ãƒ†ã‚¹ãƒˆç”¨é…åˆ—ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã€‚
      */
     private String[] field1 = null;
 
     /**
-     * ƒeƒXƒg—pStringŒ^ƒvƒƒpƒeƒBB
+     * ãƒ†ã‚¹ãƒˆç”¨Stringå‹ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã€‚
      */
     private String field2 = null;
 
     /**
-     * ƒeƒXƒg—pCollectionŒ^ƒvƒƒpƒeƒBB
+     * ãƒ†ã‚¹ãƒˆç”¨Collectionå‹ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã€‚
      */
     private Collection field3 = null;
 
     /**
-     * ƒeƒXƒg—pƒvƒŠƒ~ƒeƒBƒu”z—ñŒ^ƒvƒƒpƒeƒBB
+     * ãƒ†ã‚¹ãƒˆç”¨ãƒ—ãƒªãƒŸãƒ†ã‚£ãƒ–é…åˆ—å‹ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã€‚
      */
     private int[] field4 = null;
 
     /**
-     * ƒeƒXƒg—p”z—ñƒvƒƒpƒeƒBB
+     * ãƒ†ã‚¹ãƒˆç”¨é…åˆ—ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã€‚
      */
     @SuppressWarnings("unused")
     private String[] field5 = null;
 
     /**
-     * @return field ‚ğ–ß‚µ‚Ü‚·B
+     * @return field ã‚’æˆ»ã—ã¾ã™ã€‚
      */
     public String getField() {
         return field;
     }
 
     /**
-     * @param field İ’è‚·‚é fieldB
+     * @param field è¨­å®šã™ã‚‹ fieldã€‚
      */
     public void setField(String field) {
         this.field = field;
     }
 
     /**
-     * @return array ‚ğ–ß‚µ‚Ü‚·B
+     * @return array ã‚’æˆ»ã—ã¾ã™ã€‚
      */
     public String[] getArray() {
         return array;
     }
 
     /**
-     * @param array İ’è‚·‚é arrayB
+     * @param array è¨­å®šã™ã‚‹ arrayã€‚
      */
     public void setArray(String[] array) {
         this.array = array;
     }
 
     /**
-     * @return list ‚ğ–ß‚µ‚Ü‚·B
+     * @return list ã‚’æˆ»ã—ã¾ã™ã€‚
      */
     public List getList() {
         return list;
     }
 
     /**
-     * @param list İ’è‚·‚é listB
+     * @param list è¨­å®šã™ã‚‹ listã€‚
      */
     public void setList(List list) {
         this.list = list;
     }
 
     /**
-     * @return intArray ‚ğ–ß‚µ‚Ü‚·B
+     * @return intArray ã‚’æˆ»ã—ã¾ã™ã€‚
      */
     public int[] getIntArray() {
         return intArray;
     }
 
     /**
-     * @param intArray İ’è‚·‚é intArrayB
+     * @param intArray è¨­å®šã™ã‚‹ intArrayã€‚
      */
     public void setIntArray(int[] intArray) {
         this.intArray = intArray;
@@ -135,84 +135,84 @@ public class FieldChecks_JavaBeanStub01 {
 
 
     /**
-     * @return beanArray ‚ğ–ß‚µ‚Ü‚·B
+     * @return beanArray ã‚’æˆ»ã—ã¾ã™ã€‚
      */
     public Object[] getBeanArray() {
         return beanArray;
     }
 
     /**
-     * @param beanArray İ’è‚·‚é beanArrayB
+     * @param beanArray è¨­å®šã™ã‚‹ beanArrayã€‚
      */
     public void setBeanArray(Object[] beanArray) {
         this.beanArray = beanArray;
     }
 
     /**
-     * @return field1 ‚ğ–ß‚µ‚Ü‚·B
+     * @return field1 ã‚’æˆ»ã—ã¾ã™ã€‚
      */
     public String[] getField1() {
         return field1;
     }
 
     /**
-     * @param field1 İ’è‚·‚é field1B
+     * @param field1 è¨­å®šã™ã‚‹ field1ã€‚
      */
     public void setField1(String[] field1) {
         this.field1 = field1;
     }
 
     /**
-     * @return field2 ‚ğ–ß‚µ‚Ü‚·B
+     * @return field2 ã‚’æˆ»ã—ã¾ã™ã€‚
      */
     public String getField2() {
         return field2;
     }
 
     /**
-     * @param field2 İ’è‚·‚é field2B
+     * @param field2 è¨­å®šã™ã‚‹ field2ã€‚
      */
     public void setField2(String field2) {
         this.field2 = field2;
     }
 
     /**
-     * @return field3 ‚ğ–ß‚µ‚Ü‚·B
+     * @return field3 ã‚’æˆ»ã—ã¾ã™ã€‚
      */
     public Collection getField3() {
         return field3;
     }
 
     /**
-     * @param field3 İ’è‚·‚é field3B
+     * @param field3 è¨­å®šã™ã‚‹ field3ã€‚
      */
     public void setField3(Collection field3) {
         this.field3 = field3;
     }
 
     /**
-     * @return field4 ‚ğ–ß‚µ‚Ü‚·B
+     * @return field4 ã‚’æˆ»ã—ã¾ã™ã€‚
      */
     public int[] getField4() {
         return field4;
     }
 
     /**
-     * @param field4 İ’è‚·‚é field4B
+     * @param field4 è¨­å®šã™ã‚‹ field4ã€‚
      */
     public void setField4(int[] field4) {
         this.field4 = field4;
     }
 
     /**
-     * @return field5 ‚ğ–ß‚µ‚Ü‚·B
+     * @return field5 ã‚’æˆ»ã—ã¾ã™ã€‚
      */
     public String[] getField5() {
         throw new RuntimeException();
     }
 
     /**
-     * @param field5 İ’è‚·‚é field5B
+     * @param field5 è¨­å®šã™ã‚‹ field5ã€‚
      */
     public void setField5(String[] field5) {
         this.field5 = field5;

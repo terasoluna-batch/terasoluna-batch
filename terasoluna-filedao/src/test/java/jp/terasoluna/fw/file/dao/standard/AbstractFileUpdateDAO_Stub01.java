@@ -10,9 +10,9 @@ import jp.terasoluna.fw.file.dao.FileLineWriter;
 import jp.terasoluna.fw.file.dao.standard.AbstractFileUpdateDAO;
 
 /**
- * <code>AbstractFileUpdateDAO</code>‚ğƒeƒXƒg‚·‚é‚½‚ß‚ÌƒXƒ^ƒuƒNƒ‰ƒXB
+ * <code>AbstractFileUpdateDAO</code>ã‚’ãƒ†ã‚¹ãƒˆã™ã‚‹ãŸã‚ã®ã‚¹ã‚¿ãƒ–ã‚¯ãƒ©ã‚¹ã€‚
  * <p>
- * ‹óÀ‘•
+ * ç©ºå®Ÿè£…
  */
 public class AbstractFileUpdateDAO_Stub01 extends AbstractFileUpdateDAO {
 

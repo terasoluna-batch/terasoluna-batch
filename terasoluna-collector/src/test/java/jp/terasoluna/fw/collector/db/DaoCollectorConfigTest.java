@@ -53,7 +53,7 @@ public class DaoCollectorConfigTest {
 
     /**
      * {@link jp.terasoluna.fw.collector.db.DaoCollectorConfig#DaoCollectorConfig(Object, String, Object)}
-     * ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     @Test
     public void testDaoCollectorConfig001() {
@@ -61,7 +61,7 @@ public class DaoCollectorConfigTest {
         String methodName = null;
         Object bindParams = null;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         DaoCollectorConfig config = new DaoCollectorConfig(queryResultHandleDao,
                 methodName, bindParams);
 
@@ -70,7 +70,7 @@ public class DaoCollectorConfigTest {
 
     /**
      * {@link jp.terasoluna.fw.collector.db.DaoCollectorConfig#DaoCollectorConfig(Object, String, Object)} 
-     * ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     @Test
     public void testDaoCollectorConfig002() {
@@ -78,7 +78,7 @@ public class DaoCollectorConfigTest {
         String methodName = "hoge";
         Object bindParams = new Object();
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         DaoCollectorConfig config = new DaoCollectorConfig(queryResultHandleDao,
                 methodName, bindParams);
 
@@ -89,7 +89,7 @@ public class DaoCollectorConfigTest {
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.db.DaoCollectorConfig#addQueueSize(int)} ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * {@link jp.terasoluna.fw.collector.db.DaoCollectorConfig#addQueueSize(int)} ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     @Test
     public void testAddQueueSize001() {
@@ -102,7 +102,7 @@ public class DaoCollectorConfigTest {
 
         int queueSize = 123;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         config.addQueueSize(queueSize);
 
         assertNotNull(config);
@@ -114,7 +114,7 @@ public class DaoCollectorConfigTest {
 
     /**
      * {@link jp.terasoluna.fw.collector.db.DaoCollectorConfig#addExceptionHandler(jp.terasoluna.fw.collector.exception.CollectorExceptionHandler)} 
-     * ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     @Test
     public void testAddExceptionHandler001() {
@@ -132,7 +132,7 @@ public class DaoCollectorConfigTest {
             }
         };
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         config.addExceptionHandler(exceptionHandler);
 
         assertNotNull(config);
@@ -144,7 +144,7 @@ public class DaoCollectorConfigTest {
 
     /**
      * {@link jp.terasoluna.fw.collector.db.DaoCollectorConfig#addValidator(org.springframework.validation.Validator)}
-     * ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     @Test
     public void testAddValidator001() {
@@ -165,7 +165,7 @@ public class DaoCollectorConfigTest {
             }
         };
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         config.addValidator(validator);
 
         assertNotNull(config);
@@ -177,7 +177,7 @@ public class DaoCollectorConfigTest {
 
     /**
      * {@link jp.terasoluna.fw.collector.db.DaoCollectorConfig#addValidationErrorHandler(jp.terasoluna.fw.collector.validate.ValidationErrorHandler)}
-     * ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     @Test
     public void testAddValidationErrorHandler001() {
@@ -195,7 +195,7 @@ public class DaoCollectorConfigTest {
             }
         };
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         config.addValidationErrorHandler(validationErrorHandler);
 
         assertNotNull(config);
@@ -206,7 +206,7 @@ public class DaoCollectorConfigTest {
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.db.DaoCollectorConfig#addRelation1n(boolean)} ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * {@link jp.terasoluna.fw.collector.db.DaoCollectorConfig#addRelation1n(boolean)} ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     @Test
     public void testAddRelation1n001() {
@@ -219,7 +219,7 @@ public class DaoCollectorConfigTest {
 
         boolean relation1n = true;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         config.addRelation1n(relation1n);
 
         assertNotNull(config);
@@ -231,7 +231,7 @@ public class DaoCollectorConfigTest {
 
     /**
      * {@link jp.terasoluna.fw.collector.db.DaoCollectorConfig#addDaoCollectorPrePostProcess(jp.terasoluna.fw.collector.db.DaoCollectorPrePostProcess)}
-     * ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     @Test
     public void testAddDaoCollectorPrePostProcess001() {
@@ -255,7 +255,7 @@ public class DaoCollectorConfigTest {
             }
         };
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         config.addDaoCollectorPrePostProcess(daoCollectorPrePostProcess);
 
         assertNotNull(config);
@@ -268,7 +268,7 @@ public class DaoCollectorConfigTest {
 
     /**
      * {@link jp.terasoluna.fw.collector.db.DaoCollectorConfig#addExecuteByConstructor(boolean)}
-     * ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     @Test
     public void testAddExecuteByConstructor001() {
@@ -281,7 +281,7 @@ public class DaoCollectorConfigTest {
 
         boolean executeByConstructor = true;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         config.addExecuteByConstructor(executeByConstructor);
 
         assertNotNull(config);
@@ -292,7 +292,7 @@ public class DaoCollectorConfigTest {
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.db.DaoCollectorConfig#getQueryResultHandleDao()} ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * {@link jp.terasoluna.fw.collector.db.DaoCollectorConfig#getQueryResultHandleDao()} ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     @Test
     public void testGetQueryResultHandleDAO001() {
@@ -303,7 +303,7 @@ public class DaoCollectorConfigTest {
         DaoCollectorConfig config = new DaoCollectorConfig(queryResultHandleDao,
                 methodName, bindParams);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         Object result = config.getQueryResultHandleDao();
 
         assertNotNull(result);
@@ -312,7 +312,7 @@ public class DaoCollectorConfigTest {
 
     /**
      * {@link jp.terasoluna.fw.collector.db.DaoCollectorConfig#setQueryResultHandleDao(Object)} 
-     * ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     @Test
     public void testSetQueryResultHandleDAO001() {
@@ -324,7 +324,7 @@ public class DaoCollectorConfigTest {
         DaoCollectorConfig config = new DaoCollectorConfig(queryResultHandleDao,
                 methodName, bindParams);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         config.setQueryResultHandleDao(queryResultHandleDao2);
 
         assertNotNull(config.getQueryResultHandleDao());
@@ -332,7 +332,7 @@ public class DaoCollectorConfigTest {
     }
 
     /**
-     * {@link DaoCollectorConfig#getMethodName()} ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * {@link DaoCollectorConfig#getMethodName()} ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     @Test
     public void testGetMethodName001() {
@@ -343,7 +343,7 @@ public class DaoCollectorConfigTest {
         DaoCollectorConfig config = new DaoCollectorConfig(queryResultHandleDao,
                 methodName, bindParams);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         String result = config.getMethodName();
 
         assertNotNull(result);
@@ -351,7 +351,7 @@ public class DaoCollectorConfigTest {
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.db.DaoCollectorConfig#setMethodName(String)} ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * {@link jp.terasoluna.fw.collector.db.DaoCollectorConfig#setMethodName(String)} ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     @Test
     public void testSetMethodName001() {
@@ -364,7 +364,7 @@ public class DaoCollectorConfigTest {
         DaoCollectorConfig config = new DaoCollectorConfig(queryResultHandleDao,
                 methodName, bindParams);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         config.setMethodName(methodName2);
 
         assertNotNull(config.getMethodName());
@@ -372,7 +372,7 @@ public class DaoCollectorConfigTest {
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.db.DaoCollectorConfig#getBindParams()} ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * {@link jp.terasoluna.fw.collector.db.DaoCollectorConfig#getBindParams()} ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     @Test
     public void testGetBindParams001() {
@@ -383,7 +383,7 @@ public class DaoCollectorConfigTest {
         DaoCollectorConfig config = new DaoCollectorConfig(queryResultHandleDao,
                 methodName, bindParams);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         Object result = config.getBindParams();
 
         assertNotNull(result);
@@ -391,7 +391,7 @@ public class DaoCollectorConfigTest {
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.db.DaoCollectorConfig#setBindParams(java.lang.Object)} ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * {@link jp.terasoluna.fw.collector.db.DaoCollectorConfig#setBindParams(java.lang.Object)} ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     @Test
     public void testSetBindParams001() {
@@ -404,7 +404,7 @@ public class DaoCollectorConfigTest {
         DaoCollectorConfig config = new DaoCollectorConfig(queryResultHandleDao,
                 methodName, bindParams);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         config.setBindParams(bindParams2);
 
         assertNotNull(config.getBindParams());
@@ -412,7 +412,7 @@ public class DaoCollectorConfigTest {
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.db.DaoCollectorConfig#isRelation1n()} ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * {@link jp.terasoluna.fw.collector.db.DaoCollectorConfig#isRelation1n()} ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     @Test
     public void testIsRelation1n001() {
@@ -425,7 +425,7 @@ public class DaoCollectorConfigTest {
                 methodName, bindParams);
         config.setRelation1n(relation1n);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = config.isRelation1n();
 
         assertNotNull(result);
@@ -433,7 +433,7 @@ public class DaoCollectorConfigTest {
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.db.DaoCollectorConfig#setRelation1n(boolean)} ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * {@link jp.terasoluna.fw.collector.db.DaoCollectorConfig#setRelation1n(boolean)} ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     @Test
     public void testSetRelation1n001() {
@@ -446,7 +446,7 @@ public class DaoCollectorConfigTest {
         DaoCollectorConfig config = new DaoCollectorConfig(queryResultHandleDao,
                 methodName, bindParams);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         config.setRelation1n(relation1n);
 
         assertNotNull(config.isRelation1n());
@@ -454,7 +454,7 @@ public class DaoCollectorConfigTest {
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.db.DaoCollectorConfig#getDaoCollectorPrePostProcess()} ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * {@link jp.terasoluna.fw.collector.db.DaoCollectorConfig#getDaoCollectorPrePostProcess()} ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     @Test
     public void testGetDaoCollectorPrePostProcess001() {
@@ -478,7 +478,7 @@ public class DaoCollectorConfigTest {
         };
         config.setDaoCollectorPrePostProcess(daoCollectorPrePostProcess);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         DaoCollectorPrePostProcess result = config
                 .getDaoCollectorPrePostProcess();
 
@@ -488,7 +488,7 @@ public class DaoCollectorConfigTest {
 
     /**
      * {@link jp.terasoluna.fw.collector.db.DaoCollectorConfig#setDaoCollectorPrePostProcess(jp.terasoluna.fw.collector.db.DaoCollectorPrePostProcess)}
-     * ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     @Test
     public void setDaoCollectorPrePostProcess() {
@@ -526,7 +526,7 @@ public class DaoCollectorConfigTest {
             }
         };
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         config.setDaoCollectorPrePostProcess(daoCollectorPrePostProcess2);
 
         assertNotNull(config.getDaoCollectorPrePostProcess());

@@ -60,7 +60,7 @@ public class FileValidateCollector021Test extends DaoTestCase {
 
     public void testFileValidateCollector021() throws Exception {
         if (this.csvFileQueryDAO == null) {
-            fail("csvFileQueryDAO‚ªnull‚Å‚·B");
+            fail("csvFileQueryDAOãŒnullã§ã™ã€‚");
         }
 
         URL url = getClass().getClassLoader().getResource(
@@ -74,7 +74,7 @@ public class FileValidateCollector021Test extends DaoTestCase {
         }
 
         if (url == null) {
-            fail("url‚ªnull‚Å‚·B");
+            fail("urlãŒnullã§ã™ã€‚");
         }
 
         int count_first = 0;
@@ -93,24 +93,24 @@ public class FileValidateCollector021Test extends DaoTestCase {
 
             }
         } finally {
-            // ƒNƒ[ƒY
+            // ã‚¯ãƒ­ãƒ¼ã‚º
             FileValidateCollector.closeQuietly(it);
         }
 
-        // ƒRƒŒƒNƒ^ƒXƒŒƒbƒh”ƒ`ƒFƒbƒN
+        // ã‚³ãƒ¬ã‚¯ã‚¿ã‚¹ãƒ¬ãƒƒãƒ‰æ•°ãƒã‚§ãƒƒã‚¯
         assertTrue(CollectorTestUtil
                 .lessThanCollectorThreadCount(0 + this.previousThreadCount));
 
-        // Validator#supportsƒƒ\ƒbƒh‚ªŒÄ‚Î‚ê‚½‰ñ”
+        // Validator#supportsãƒ¡ã‚½ãƒƒãƒ‰ãŒå‘¼ã°ã‚ŒãŸå›æ•°
         assertEquals(1000, validator.getCallSupports());
 
-        // Validator#validateƒƒ\ƒbƒh‚ªŒÄ‚Î‚ê‚½‰ñ”
+        // Validator#validateãƒ¡ã‚½ãƒƒãƒ‰ãŒå‘¼ã°ã‚ŒãŸå›æ•°
         assertEquals(1000, validator.getCallValidate());
 
-        // ƒGƒ‰[‚ª”­¶‚µ‚½ƒtƒB[ƒ‹ƒh‚ÌŒ”
+        // ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®ä»¶æ•°
         assertEquals(10, validatorErrorHandler.getErrorFieldCount());
 
-        // ƒ‹[ƒv‚µ‚½‰ñ”iƒGƒ‰[‚Ì•ª­‚È‚­‚È‚éj
+        // ãƒ«ãƒ¼ãƒ—ã—ãŸå›æ•°ï¼ˆã‚¨ãƒ©ãƒ¼ã®åˆ†å°‘ãªããªã‚‹ï¼‰
         assertEquals(990, count_first);
     }
 

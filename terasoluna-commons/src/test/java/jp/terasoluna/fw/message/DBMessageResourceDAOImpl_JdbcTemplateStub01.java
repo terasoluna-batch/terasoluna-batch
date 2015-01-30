@@ -21,7 +21,7 @@ import javax.sql.DataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 /**
- * DBMessageResourceDAOImpl‚Åg—p‚·‚éƒXƒ^ƒuƒNƒ‰ƒXB
+ * DBMessageResourceDAOImplã§ä½¿ç”¨ã™ã‚‹ã‚¹ã‚¿ãƒ–ã‚¯ãƒ©ã‚¹ã€‚
  */
 public class DBMessageResourceDAOImpl_JdbcTemplateStub01 extends JdbcTemplate {
     

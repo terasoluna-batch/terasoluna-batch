@@ -16,15 +16,15 @@
 package jp.terasoluna.fw.message;
 
 /**
- * ƒƒbƒZ[ƒWƒtƒH[ƒ}ƒbƒ^ƒCƒ“ƒ^ƒtƒF[ƒXB
+ * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ•ã‚©ãƒ¼ãƒãƒƒã‚¿ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã€‚
  */
 public interface MessageFormatter {
     /**
-     * ƒtƒH[ƒ}ƒbƒg‰»‚³‚ê‚½•¶š—ñ‚ğ•Ô‹p‚µ‚Ü‚·B
+     * ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆåŒ–ã•ã‚ŒãŸæ–‡å­—åˆ—ã‚’è¿”å´ã—ã¾ã™ã€‚
      * 
-     * @param pattern ƒƒbƒZ[ƒWƒpƒ^[ƒ“
-     * @param args ’uŠ·ƒpƒ‰ƒ[ƒ^
-     * @return ƒtƒH[ƒ}ƒbƒg‰»‚³‚ê‚½•¶š—ñ
+     * @param pattern ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ‘ã‚¿ãƒ¼ãƒ³
+     * @param args ç½®æ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
+     * @return ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆåŒ–ã•ã‚ŒãŸæ–‡å­—åˆ—
      */
     String format(String pattern, Object... args);
 }

@@ -1,4 +1,4 @@
 /**
- * ファイルコレクタ
+ * 繝輔ぃ繧､繝ｫ繧ｳ繝ｬ繧ｯ繧ｿ
  */
 package jp.terasoluna.fw.collector.file;

@@ -28,27 +28,27 @@ import org.apache.commons.jxpath.ri.model.dynamic.DynamicPointerFactory;
 import org.apache.commons.jxpath.util.ValueUtils;
 
 /**
- * Map—pƒ|ƒCƒ“ƒ^ƒtƒ@ƒNƒgƒŠ‚ÌŠg’£ƒNƒ‰ƒXB
- * {@link #getOrder()}‚É‚ÄDynamicPointerFactory‚æ‚èæ‚Éƒ[ƒh‚³‚ê‚é
- * •K—v‚ª‚ ‚éB
+ * Mapç”¨ãƒã‚¤ãƒ³ã‚¿ãƒ•ã‚¡ã‚¯ãƒˆãƒªã®æ‹¡å¼µã‚¯ãƒ©ã‚¹ã€‚
+ * {@link #getOrder()}ã«ã¦DynamicPointerFactoryã‚ˆã‚Šå…ˆã«ãƒ­ãƒ¼ãƒ‰ã•ã‚Œã‚‹
+ * å¿…è¦ãŒã‚ã‚‹ã€‚
  */
 public class DynamicPointerFactoryEx extends DynamicPointerFactory {
 
     /**
-     * Map—pƒ|ƒCƒ“ƒ^ƒtƒ@ƒNƒgƒŠ‚ªƒ\[ƒg‚³‚ê‚é‡”ÔB
+     * Mapç”¨ãƒã‚¤ãƒ³ã‚¿ãƒ•ã‚¡ã‚¯ãƒˆãƒªãŒã‚½ãƒ¼ãƒˆã•ã‚Œã‚‹é †ç•ªã€‚
      */
     public static final int DYNAMIC_POINTER_FACTORY_EX_ORDER = 750;
     
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      */
     public DynamicPointerFactoryEx() {
         super();
     }
 
     /**
-     * ƒ\[ƒg‡‚ğæ“¾‚·‚éB
-     * @return ƒ\[ƒg‡
+     * ã‚½ãƒ¼ãƒˆé †ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return ã‚½ãƒ¼ãƒˆé †
      */
     @Override
     public int getOrder() {
@@ -56,11 +56,11 @@ public class DynamicPointerFactoryEx extends DynamicPointerFactory {
     }
     
     /**
-     * ƒm[ƒhƒ|ƒCƒ“ƒ^‚ğ¶¬‚·‚éB
+     * ãƒãƒ¼ãƒ‰ãƒã‚¤ãƒ³ã‚¿ã‚’ç”Ÿæˆã™ã‚‹ã€‚
      * @param name QName
-     * @param bean ƒ^[ƒQƒbƒg‚ÌMap
-     * @param locale ƒƒP[ƒ‹
-     * @return Map—pƒ|ƒCƒ“ƒ^
+     * @param bean ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã®Map
+     * @param locale ãƒ­ã‚±ãƒ¼ãƒ«
+     * @return Mapç”¨ãƒã‚¤ãƒ³ã‚¿
      */
     @Override
     public NodePointer createNodePointer(
@@ -76,11 +76,11 @@ public class DynamicPointerFactoryEx extends DynamicPointerFactory {
     }
 
     /**
-     * ƒm[ƒhƒ|ƒCƒ“ƒ^‚ğ¶¬‚·‚éB
-     * @param parent eMapƒ|ƒCƒ“ƒ^
+     * ãƒãƒ¼ãƒ‰ãƒã‚¤ãƒ³ã‚¿ã‚’ç”Ÿæˆã™ã‚‹ã€‚
+     * @param parent è¦ªMapãƒã‚¤ãƒ³ã‚¿
      * @param name QName
-     * @param bean ƒ^[ƒQƒbƒg‚ÌMap
-     * @return Map—pƒ|ƒCƒ“ƒ^
+     * @param bean ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã®Map
+     * @return Mapç”¨ãƒã‚¤ãƒ³ã‚¿
      */
     @Override
     public NodePointer createNodePointer(

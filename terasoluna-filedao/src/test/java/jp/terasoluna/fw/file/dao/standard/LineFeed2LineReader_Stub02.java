@@ -4,9 +4,9 @@ import java.io.IOException;
 import java.io.Reader;
 
 /**
- * Reader実装クラス
+ * Reader螳溯｣�繧ｯ繝ｩ繧ｹ
  * <p>
- * {@link #read()}を呼び出すと、IOExceptionをスローする
+ * {@link #read()}繧貞他縺ｳ蜃ｺ縺吶→縲！OException繧偵せ繝ｭ繝ｼ縺吶ｋ
  */
 public class LineFeed2LineReader_Stub02 extends Reader {
 

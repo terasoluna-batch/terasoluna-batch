@@ -17,15 +17,15 @@
 package jp.terasoluna.fw.collector.util.strategy;
 
 /**
- * 2‚Â‚ÌƒIƒuƒWƒFƒNƒg‚ª“™‚µ‚¢‚©“™‚µ‚­‚È‚¢‚©‚ğ”»’f‚·‚é•û–@‚ğÀ‘•/’ñ‹Ÿ‚·‚é‚½‚ß‚ÌƒCƒ“ƒ^ƒtƒF[ƒXB
+ * 2ã¤ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒç­‰ã—ã„ã‹ç­‰ã—ããªã„ã‹ã‚’åˆ¤æ–­ã™ã‚‹æ–¹æ³•ã‚’å®Ÿè£…/æä¾›ã™ã‚‹ãŸã‚ã®ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã€‚
  */
 public interface CompareStrategy<T> {
 
     /**
-     * value1‚Ævalue2‚ª“™‚µ‚¢‚©”Û‚©‚ğ”»’f‚·‚éB
-     * @param value1 ”äŠrŒ³inullˆÈŠO‚ÌƒIƒuƒWƒFƒNƒgjB
-     * @param value2 ”äŠræinullˆÈŠO‚ÌƒIƒuƒWƒFƒNƒgjB
-     * @return value1‚Ævalue2‚ª“™‚µ‚¢ê‡true/“™‚µ‚­‚È‚¢ê‡false
+     * value1ã¨value2ãŒç­‰ã—ã„ã‹å¦ã‹ã‚’åˆ¤æ–­ã™ã‚‹ã€‚
+     * @param value1 æ¯”è¼ƒå…ƒï¼ˆnullä»¥å¤–ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆï¼‰ã€‚
+     * @param value2 æ¯”è¼ƒå…ˆï¼ˆnullä»¥å¤–ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆï¼‰ã€‚
+     * @return value1ã¨value2ãŒç­‰ã—ã„å ´åˆtrue/ç­‰ã—ããªã„å ´åˆfalse
      */
     public boolean equalsObjects(T value1, T value2);
 

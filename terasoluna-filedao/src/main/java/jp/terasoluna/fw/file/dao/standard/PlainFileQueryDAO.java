@@ -19,26 +19,26 @@ package jp.terasoluna.fw.file.dao.standard;
 import jp.terasoluna.fw.file.dao.FileLineIterator;
 
 /**
- * FileLineIterator¶¬ƒNƒ‰ƒXB
+ * FileLineIteratorç”Ÿæˆã‚¯ãƒ©ã‚¹ã€‚
  * <p>
- * ƒtƒ@ƒCƒ‹‚©‚ç1s•ª‚Ì•¶š—ñ‚ğ“Ç‚İæ‚è•Ô‹p‚·‚é<code>FileLineIterator</code> ‚ğ¶¬‚·‚é‚½‚ß‚ÌƒNƒ‰ƒX‚Å‚ ‚éB
+ * ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰1è¡Œåˆ†ã®æ–‡å­—åˆ—ã‚’èª­ã¿å–ã‚Šè¿”å´ã™ã‚‹<code>FileLineIterator</code> ã‚’ç”Ÿæˆã™ã‚‹ãŸã‚ã®ã‚¯ãƒ©ã‚¹ã§ã‚ã‚‹ã€‚
  * </p>
- * sƒIƒuƒWƒFƒNƒg‚Éİ’èo—ˆ‚éƒAƒmƒe[ƒVƒ‡ƒ“‚Ìà–¾‚Í{@link PlainFileLineIterator} ‚ÌJavaDoc‚ğQl‚µ‚Ä‰º‚³‚¢B
+ * è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«è¨­å®šå‡ºæ¥ã‚‹ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã®èª¬æ˜ã¯{@link PlainFileLineIterator} ã®JavaDocã‚’å‚è€ƒã—ã¦ä¸‹ã•ã„ã€‚
  */
 public class PlainFileQueryDAO extends AbstractFileQueryDAO {
 
     /**
-     * FileLineIteratoræ“¾—pƒƒ\ƒbƒhB
-     * @param <T> 1s•ª‚Ì•¶š—ñ‚ğŠi”[‚·‚éƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgƒNƒ‰ƒX
-     * @param fileName ƒtƒ@ƒCƒ‹–¼
-     * @param clazz ƒpƒ‰ƒ[ƒ^ƒNƒ‰ƒX
-     * @return ƒtƒ@ƒCƒ‹“Çæ—pƒIƒuƒWƒFƒNƒg
+     * FileLineIteratorå–å¾—ç”¨ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
+     * @param <T> 1è¡Œåˆ†ã®æ–‡å­—åˆ—ã‚’æ ¼ç´ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¯ãƒ©ã‚¹
+     * @param fileName ãƒ•ã‚¡ã‚¤ãƒ«å
+     * @param clazz ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚¯ãƒ©ã‚¹
+     * @return ãƒ•ã‚¡ã‚¤ãƒ«èª­å–ç”¨ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      */
     @SuppressWarnings("unchecked")
     @Override
     public <T> FileLineIterator<T> execute(String fileName, Class<T> clazz) {
 
-        // FileLineIterator‚ğ¶¬‚·‚éB
+        // FileLineIteratorã‚’ç”Ÿæˆã™ã‚‹ã€‚
         PlainFileLineIterator fileLineIterator = new PlainFileLineIterator(
                 fileName, clazz, getColumnParserMap());
 

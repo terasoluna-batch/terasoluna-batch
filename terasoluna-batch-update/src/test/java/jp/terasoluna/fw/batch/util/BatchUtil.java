@@ -40,16 +40,16 @@ import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 
 /**
- * ƒoƒbƒ`À‘•—pƒ†[ƒeƒBƒŠƒeƒBB<br>
+ * ãƒãƒƒãƒå®Ÿè£…ç”¨ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ã€‚<br>
  * <br>
- * Šeíƒoƒbƒ`À‘•‚É‚Äg—p‚·‚éƒ†[ƒeƒBƒŠƒeƒBƒƒ\ƒbƒh‚ğ’è‹`‚·‚éB
+ * å„ç¨®ãƒãƒƒãƒå®Ÿè£…ã«ã¦ä½¿ç”¨ã™ã‚‹ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å®šç¾©ã™ã‚‹ã€‚
  */
 public class BatchUtil {
 
     /**
-     * ”Ä—p•¶š—ñŒ‹‡ƒƒ\ƒbƒhB
-     * @param args ”CˆÓ‚Ì’l
-     * @return ˆø”‚ğŒ‹‡‚µ‚½•¶š—ñ
+     * æ±ç”¨æ–‡å­—åˆ—çµåˆãƒ¡ã‚½ãƒƒãƒ‰ã€‚
+     * @param args ä»»æ„ã®å€¤
+     * @return å¼•æ•°ã‚’çµåˆã—ãŸæ–‡å­—åˆ—
      */
     public static String cat(Object... args) {
 
@@ -69,27 +69,27 @@ public class BatchUtil {
     }
 
     /**
-     * ƒCƒ“ƒtƒHƒƒO‚ÌŠJnƒƒbƒZ[ƒW‚ğæ“¾‚·‚éB
-     * @param jobCd ƒWƒ‡ƒu‹Æ–±ƒR[ƒh
-     * @return String ƒƒbƒZ[ƒW
+     * ã‚¤ãƒ³ãƒ•ã‚©ãƒ­ã‚°ã®é–‹å§‹ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @param jobCd ã‚¸ãƒ§ãƒ–æ¥­å‹™ã‚³ãƒ¼ãƒ‰
+     * @return String ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
      */
     public static String getInfoLogStartMsg(String jobCd) {
 
-        return BatchUtil.cat("[", jobCd, "] ", "ˆ—ŠJn");
+        return BatchUtil.cat("[", jobCd, "] ", "å‡¦ç†é–‹å§‹");
     }
 
     /**
-     * ƒCƒ“ƒtƒHƒƒO‚ÌI—¹ƒƒbƒZ[ƒW‚ğæ“¾‚·‚éB
-     * @param jobCd ƒWƒ‡ƒu‹Æ–±ƒR[ƒh
-     * @return String ƒƒbƒZ[ƒW
+     * ã‚¤ãƒ³ãƒ•ã‚©ãƒ­ã‚°ã®çµ‚äº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @param jobCd ã‚¸ãƒ§ãƒ–æ¥­å‹™ã‚³ãƒ¼ãƒ‰
+     * @return String ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
      */
     public static String getInfoLogEndMsg(String jobCd) {
 
-        return BatchUtil.cat("[", jobCd, "] ", "ˆ—I—¹");
+        return BatchUtil.cat("[", jobCd, "] ", "å‡¦ç†çµ‚äº†");
     }
 
     /**
-     * ƒfƒtƒHƒ‹ƒg‚ÌTransactionDefinition‚ğæ“¾‚·‚é
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®TransactionDefinitionã‚’å–å¾—ã™ã‚‹
      * @return
      */
     public static TransactionDefinition getTransactionDefinition() {
@@ -97,11 +97,11 @@ public class BatchUtil {
     }
 
     /**
-     * ƒfƒtƒHƒ‹ƒg‚ÌTransactionDefinition‚ğæ“¾‚·‚é
-     * @param propagationBehavior ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ““`”Àƒ‚[ƒh(@see TransactionDefinition) ƒfƒtƒHƒ‹ƒgFTransactionDefinition.PROPAGATION_REQUIRED
-     * @param isolationLevel ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“•ª—£ƒŒƒxƒ‹(@see TransactionDefinition) ƒfƒtƒHƒ‹ƒgFTransactionDefinition.ISOLATION_DEFAULT
-     * @param timeout ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“ƒ^ƒCƒ€ƒAƒEƒg(•b) ƒfƒtƒHƒ‹ƒgFTransactionDefinition.TIMEOUT_DEFAULT (ƒ^ƒCƒ€ƒAƒEƒg‚È‚µ)
-     * @param readOnly ƒŠ[ƒhƒIƒ“ƒŠ[ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“ ƒfƒtƒHƒ‹ƒgFfalse
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®TransactionDefinitionã‚’å–å¾—ã™ã‚‹
+     * @param propagationBehavior ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ä¼æ¬ãƒ¢ãƒ¼ãƒ‰(@see TransactionDefinition) ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆï¼šTransactionDefinition.PROPAGATION_REQUIRED
+     * @param isolationLevel ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³åˆ†é›¢ãƒ¬ãƒ™ãƒ«(@see TransactionDefinition) ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆï¼šTransactionDefinition.ISOLATION_DEFAULT
+     * @param timeout ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆ(ç§’) ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆï¼šTransactionDefinition.TIMEOUT_DEFAULT (ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆãªã—)
+     * @param readOnly ãƒªãƒ¼ãƒ‰ã‚ªãƒ³ãƒªãƒ¼ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆï¼šfalse
      * @return
      */
     public static TransactionDefinition getTransactionDefinition(
@@ -116,7 +116,7 @@ public class BatchUtil {
     }
 
     /**
-     * ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“‚ğŠJn‚³‚¹‚é
+     * ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã‚’é–‹å§‹ã•ã›ã‚‹
      * @param tran PlatformTransactionManager
      * @return TransactionStatus
      */
@@ -126,7 +126,7 @@ public class BatchUtil {
     }
 
     /**
-     * ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“‚ğŠJn‚³‚¹‚é
+     * ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã‚’é–‹å§‹ã•ã›ã‚‹
      * @param tran PlatformTransactionManager
      * @param log Log
      * @return TransactionStatus
@@ -137,12 +137,12 @@ public class BatchUtil {
     }
 
     /**
-     * ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“‚ğŠJn‚³‚¹‚é
+     * ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã‚’é–‹å§‹ã•ã›ã‚‹
      * @param tran PlatformTransactionManager
-     * @param propagationBehavior ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ““`”Àƒ‚[ƒh(@see TransactionDefinition) ƒfƒtƒHƒ‹ƒgFTransactionDefinition.PROPAGATION_REQUIRED
-     * @param isolationLevel ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“•ª—£ƒŒƒxƒ‹(@see TransactionDefinition) ƒfƒtƒHƒ‹ƒgFTransactionDefinition.ISOLATION_DEFAULT
-     * @param timeout ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“ƒ^ƒCƒ€ƒAƒEƒg(•b) ƒfƒtƒHƒ‹ƒgFTransactionDefinition.TIMEOUT_DEFAULT (ƒ^ƒCƒ€ƒAƒEƒg‚È‚µ)
-     * @param readOnly ƒŠ[ƒhƒIƒ“ƒŠ[ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“ ƒfƒtƒHƒ‹ƒgFfalse
+     * @param propagationBehavior ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ä¼æ¬ãƒ¢ãƒ¼ãƒ‰(@see TransactionDefinition) ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆï¼šTransactionDefinition.PROPAGATION_REQUIRED
+     * @param isolationLevel ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³åˆ†é›¢ãƒ¬ãƒ™ãƒ«(@see TransactionDefinition) ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆï¼šTransactionDefinition.ISOLATION_DEFAULT
+     * @param timeout ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆ(ç§’) ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆï¼šTransactionDefinition.TIMEOUT_DEFAULT (ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆãªã—)
+     * @param readOnly ãƒªãƒ¼ãƒ‰ã‚ªãƒ³ãƒªãƒ¼ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆï¼šfalse
      * @return TransactionStatus
      */
     public static TransactionStatus startTransaction(
@@ -153,12 +153,12 @@ public class BatchUtil {
     }
 
     /**
-     * ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“‚ğŠJn‚³‚¹‚é
+     * ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã‚’é–‹å§‹ã•ã›ã‚‹
      * @param tran PlatformTransactionManager
-     * @param propagationBehavior ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ““`”Àƒ‚[ƒh(@see TransactionDefinition) ƒfƒtƒHƒ‹ƒgFTransactionDefinition.PROPAGATION_REQUIRED
-     * @param isolationLevel ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“•ª—£ƒŒƒxƒ‹(@see TransactionDefinition) ƒfƒtƒHƒ‹ƒgFTransactionDefinition.ISOLATION_DEFAULT
-     * @param timeout ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“ƒ^ƒCƒ€ƒAƒEƒg(•b) ƒfƒtƒHƒ‹ƒgFTransactionDefinition.TIMEOUT_DEFAULT (ƒ^ƒCƒ€ƒAƒEƒg‚È‚µ)
-     * @param readOnly ƒŠ[ƒhƒIƒ“ƒŠ[ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“ ƒfƒtƒHƒ‹ƒgFfalse
+     * @param propagationBehavior ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ä¼æ¬ãƒ¢ãƒ¼ãƒ‰(@see TransactionDefinition) ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆï¼šTransactionDefinition.PROPAGATION_REQUIRED
+     * @param isolationLevel ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³åˆ†é›¢ãƒ¬ãƒ™ãƒ«(@see TransactionDefinition) ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆï¼šTransactionDefinition.ISOLATION_DEFAULT
+     * @param timeout ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆ(ç§’) ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆï¼šTransactionDefinition.TIMEOUT_DEFAULT (ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆãªã—)
+     * @param readOnly ãƒªãƒ¼ãƒ‰ã‚ªãƒ³ãƒªãƒ¼ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆï¼šfalse
      * @param log Log
      * @return TransactionStatus
      */
@@ -170,7 +170,7 @@ public class BatchUtil {
     }
 
     /**
-     * ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“‚ğŠJn‚³‚¹‚é
+     * ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã‚’é–‹å§‹ã•ã›ã‚‹
      * @param tran PlatformTransactionManager
      * @param def TransactionDefinition
      * @return TransactionStatus
@@ -181,7 +181,7 @@ public class BatchUtil {
     }
 
     /**
-     * ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“‚ğŠJn‚³‚¹‚é
+     * ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã‚’é–‹å§‹ã•ã›ã‚‹
      * @param tran PlatformTransactionManager
      * @param def TransactionDefinition
      * @param log Log
@@ -212,10 +212,10 @@ public class BatchUtil {
     }
 
     /**
-     * ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“‚ğŠJn‚³‚¹‚é
+     * ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã‚’é–‹å§‹ã•ã›ã‚‹
      * @param tranDef TransactionDefinition
-     * @param tranMap PlatformTransactionManagerƒ}ƒbƒv
-     * @return TransactionStatusƒ}ƒbƒv
+     * @param tranMap PlatformTransactionManagerãƒãƒƒãƒ—
+     * @return TransactionStatusãƒãƒƒãƒ—
      */
     public static Map<String, TransactionStatus> startTransactions(
             TransactionDefinition tranDef, Map<?, ?> tranMap) {
@@ -223,11 +223,11 @@ public class BatchUtil {
     }
 
     /**
-     * ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“‚ğŠJn‚³‚¹‚é
+     * ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã‚’é–‹å§‹ã•ã›ã‚‹
      * @param tranDef TransactionDefinition
-     * @param tranMap PlatformTransactionManagerƒ}ƒbƒv
+     * @param tranMap PlatformTransactionManagerãƒãƒƒãƒ—
      * @param log Log
-     * @return TransactionStatusƒ}ƒbƒv
+     * @return TransactionStatusãƒãƒƒãƒ—
      */
     public static Map<String, TransactionStatus> startTransactions(
             TransactionDefinition tranDef, Map<?, ?> tranMap, Log log) {
@@ -242,15 +242,15 @@ public class BatchUtil {
                 String key = null;
                 PlatformTransactionManager ptm = null;
 
-                // ƒ}ƒbƒvƒGƒ“ƒgƒŠ[
+                // ãƒãƒƒãƒ—ã‚¨ãƒ³ãƒˆãƒªãƒ¼
                 if (entObj instanceof Map.Entry) {
                     Map.Entry<?, ?> ent = (Entry<?, ?>) entObj;
                     if (ent != null) {
-                        // ƒL[æ‚èo‚µ
+                        // ã‚­ãƒ¼å–ã‚Šå‡ºã—
                         if (ent.getKey() instanceof String) {
                             key = (String) ent.getKey();
                         }
-                        // ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“ƒ}ƒl[ƒWƒƒæ‚èo‚µ
+                        // ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ãƒãƒãƒ¼ã‚¸ãƒ£å–ã‚Šå‡ºã—
                         if (ent.getValue() instanceof PlatformTransactionManager) {
                             ptm = (PlatformTransactionManager) ent.getValue();
                         }
@@ -273,10 +273,10 @@ public class BatchUtil {
                         }
                     }
 
-                    // ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“ŠJn
+                    // ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³é–‹å§‹
                     TransactionStatus trnStat = ptm.getTransaction(tranDef);
 
-                    // ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“ƒXƒe[ƒ^ƒX‚ğŠi”[
+                    // ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã‚’æ ¼ç´
                     if (statMap != null) {
                         statMap.put(key, trnStat);
                     }
@@ -294,7 +294,7 @@ public class BatchUtil {
     }
 
     /**
-     * ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“‚ğƒRƒ~ƒbƒg‚³‚¹‚é ƒRƒlƒNƒVƒ‡ƒ“‚ÌƒRƒ~ƒbƒg‚ğs‚¤
+     * ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã‚’ã‚³ãƒŸãƒƒãƒˆã•ã›ã‚‹ ã‚³ãƒã‚¯ã‚·ãƒ§ãƒ³ã®ã‚³ãƒŸãƒƒãƒˆã‚’è¡Œã†
      * @param tran PlatformTransactionManager
      * @param stat TransactionStatus
      */
@@ -304,7 +304,7 @@ public class BatchUtil {
     }
 
     /**
-     * ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“‚ğƒRƒ~ƒbƒg‚³‚¹‚é ƒRƒlƒNƒVƒ‡ƒ“‚ÌƒRƒ~ƒbƒg‚ğs‚¤
+     * ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã‚’ã‚³ãƒŸãƒƒãƒˆã•ã›ã‚‹ ã‚³ãƒã‚¯ã‚·ãƒ§ãƒ³ã®ã‚³ãƒŸãƒƒãƒˆã‚’è¡Œã†
      * @param tran PlatformTransactionManager
      * @param stat TransactionStatus
      * @param log Log
@@ -324,7 +324,7 @@ public class BatchUtil {
     }
 
     /**
-     * ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“‚ğƒRƒ~ƒbƒg‚³‚¹‚é
+     * ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã‚’ã‚³ãƒŸãƒƒãƒˆã•ã›ã‚‹
      * @param sqlMapperList
      * @throws SQLException
      */
@@ -334,7 +334,7 @@ public class BatchUtil {
     }
 
     /**
-     * ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“‚ğƒRƒ~ƒbƒg‚³‚¹‚é
+     * ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã‚’ã‚³ãƒŸãƒƒãƒˆã•ã›ã‚‹
      * @param sqlMapperList
      * @throws SQLException
      */
@@ -350,15 +350,15 @@ public class BatchUtil {
                 String key = null;
                 PlatformTransactionManager ptm = null;
 
-                // ƒ}ƒbƒvƒGƒ“ƒgƒŠ[
+                // ãƒãƒƒãƒ—ã‚¨ãƒ³ãƒˆãƒªãƒ¼
                 if (entObj instanceof Map.Entry) {
                     Map.Entry<?, ?> ent = (Entry<?, ?>) entObj;
                     if (ent != null) {
-                        // ƒL[æ‚èo‚µ
+                        // ã‚­ãƒ¼å–ã‚Šå‡ºã—
                         if (ent.getKey() instanceof String) {
                             key = (String) ent.getKey();
                         }
-                        // ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“ƒ}ƒl[ƒWƒƒæ‚èo‚µ
+                        // ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ãƒãƒãƒ¼ã‚¸ãƒ£å–ã‚Šå‡ºã—
                         if (ent.getValue() instanceof PlatformTransactionManager) {
                             ptm = (PlatformTransactionManager) ent.getValue();
                         }
@@ -368,7 +368,7 @@ public class BatchUtil {
                 if (ptm != null) {
                     TransactionStatus trnStat = null;
 
-                    // ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“ƒXƒe[ƒ^ƒX‚ğæ“¾
+                    // ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã‚’å–å¾—
                     if (statMap != null) {
                         trnStat = statMap.get(key);
                     }
@@ -382,7 +382,7 @@ public class BatchUtil {
                             count++;
                         }
 
-                        // ƒRƒ~ƒbƒg
+                        // ã‚³ãƒŸãƒƒãƒˆ
                         ptm.commit(trnStat);
                     }
                 }
@@ -391,7 +391,7 @@ public class BatchUtil {
     }
 
     /**
-     * ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“‚ğI—¹‚³‚¹‚éi–¢ƒRƒ~ƒbƒgƒ[ƒ‹ƒoƒbƒNj
+     * ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã‚’çµ‚äº†ã•ã›ã‚‹ï¼ˆæœªã‚³ãƒŸãƒƒãƒˆæ™‚ãƒ­ãƒ¼ãƒ«ãƒãƒƒã‚¯ï¼‰
      * @param tran PlatformTransactionManager
      * @param stat TransactionStatus
      */
@@ -401,7 +401,7 @@ public class BatchUtil {
     }
 
     /**
-     * ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“‚ğI—¹‚³‚¹‚éi–¢ƒRƒ~ƒbƒgƒ[ƒ‹ƒoƒbƒNj
+     * ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã‚’çµ‚äº†ã•ã›ã‚‹ï¼ˆæœªã‚³ãƒŸãƒƒãƒˆæ™‚ãƒ­ãƒ¼ãƒ«ãƒãƒƒã‚¯ï¼‰
      * @param tran PlatformTransactionManager
      * @param stat TransactionStatus
      * @param log Log
@@ -422,10 +422,10 @@ public class BatchUtil {
     }
 
     /**
-     * ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“‚ğI—¹‚³‚¹‚éi–¢ƒRƒ~ƒbƒgƒ[ƒ‹ƒoƒbƒNj
-     * @param tranMap PlatformTransactionManagerƒ}ƒbƒv
-     * @param statMap TransactionStatusƒ}ƒbƒv
-     * @return ˆø”‚Å—^‚¦‚ç‚ê‚½PlatformTransactionManager‚ª‘S‚Ä³í‚ÉI—¹‚Å‚«‚½ê‡‚Étrue‚ğ•Ô‹p‚·‚é
+     * ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã‚’çµ‚äº†ã•ã›ã‚‹ï¼ˆæœªã‚³ãƒŸãƒƒãƒˆæ™‚ãƒ­ãƒ¼ãƒ«ãƒãƒƒã‚¯ï¼‰
+     * @param tranMap PlatformTransactionManagerãƒãƒƒãƒ—
+     * @param statMap TransactionStatusãƒãƒƒãƒ—
+     * @return å¼•æ•°ã§ä¸ãˆã‚‰ã‚ŒãŸPlatformTransactionManagerãŒå…¨ã¦æ­£å¸¸ã«çµ‚äº†ã§ããŸå ´åˆã«trueã‚’è¿”å´ã™ã‚‹
      */
     public static boolean endTransactions(Map<?, ?> tranMap,
             Map<String, TransactionStatus> statMap) {
@@ -433,11 +433,11 @@ public class BatchUtil {
     }
 
     /**
-     * ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“‚ğI—¹‚³‚¹‚éi–¢ƒRƒ~ƒbƒgƒ[ƒ‹ƒoƒbƒNj
-     * @param tranMap PlatformTransactionManagerƒ}ƒbƒv
-     * @param statMap TransactionStatusƒ}ƒbƒv
+     * ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã‚’çµ‚äº†ã•ã›ã‚‹ï¼ˆæœªã‚³ãƒŸãƒƒãƒˆæ™‚ãƒ­ãƒ¼ãƒ«ãƒãƒƒã‚¯ï¼‰
+     * @param tranMap PlatformTransactionManagerãƒãƒƒãƒ—
+     * @param statMap TransactionStatusãƒãƒƒãƒ—
      * @param log Log
-     * @return ˆø”‚Å—^‚¦‚ç‚ê‚½PlatformTransactionManager‚ª‘S‚Ä³í‚ÉI—¹‚Å‚«‚½ê‡‚Étrue‚ğ•Ô‹p‚·‚é
+     * @return å¼•æ•°ã§ä¸ãˆã‚‰ã‚ŒãŸPlatformTransactionManagerãŒå…¨ã¦æ­£å¸¸ã«çµ‚äº†ã§ããŸå ´åˆã«trueã‚’è¿”å´ã™ã‚‹
      */
     public static boolean endTransactions(Map<?, ?> tranMap,
             Map<String, TransactionStatus> statMap, Log log) {
@@ -452,15 +452,15 @@ public class BatchUtil {
                 String key = null;
                 PlatformTransactionManager ptm = null;
 
-                // ƒ}ƒbƒvƒGƒ“ƒgƒŠ[
+                // ãƒãƒƒãƒ—ã‚¨ãƒ³ãƒˆãƒªãƒ¼
                 if (entObj instanceof Map.Entry) {
                     Map.Entry<?, ?> ent = (Entry<?, ?>) entObj;
                     if (ent != null) {
-                        // ƒL[æ‚èo‚µ
+                        // ã‚­ãƒ¼å–ã‚Šå‡ºã—
                         if (ent.getKey() instanceof String) {
                             key = (String) ent.getKey();
                         }
-                        // ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“ƒ}ƒl[ƒWƒƒæ‚èo‚µ
+                        // ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ãƒãƒãƒ¼ã‚¸ãƒ£å–ã‚Šå‡ºã—
                         if (ent.getValue() instanceof PlatformTransactionManager) {
                             ptm = (PlatformTransactionManager) ent.getValue();
                         }
@@ -470,12 +470,12 @@ public class BatchUtil {
                 if (ptm != null) {
                     TransactionStatus trnStat = null;
 
-                    // ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“ƒXƒe[ƒ^ƒX‚ğæ“¾
+                    // ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã‚’å–å¾—
                     if (statMap != null) {
                         trnStat = statMap.get(key);
                     }
 
-                    // ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“I—¹iƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“‚ª–¢Š®—¹‚Ìê‡‚Íƒ[ƒ‹ƒoƒbƒN‚·‚éj
+                    // ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³çµ‚äº†ï¼ˆãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ãŒæœªå®Œäº†ã®å ´åˆã¯ãƒ­ãƒ¼ãƒ«ãƒãƒƒã‚¯ã™ã‚‹ï¼‰
                     if (trnStat != null && !trnStat.isCompleted()) {
 
                         if (log != null && log.isDebugEnabled()) {
@@ -484,7 +484,7 @@ public class BatchUtil {
                             log.debug("CurrentConnection(end):" + trnStat);
                         }
 
-                        // ƒ[ƒ‹ƒoƒbƒN
+                        // ãƒ­ãƒ¼ãƒ«ãƒãƒƒã‚¯
                         try {
                             ptm.rollback(trnStat);
                         } catch (TransactionException e) {
@@ -493,7 +493,7 @@ public class BatchUtil {
                                         + Integer.toString(count), e);
                             }
                             isNormal = false;
-                            // —áŠO‚ª”­¶‚µ‚Ä‚à“r’†I—¹‚¹‚¸A‘¼‚Ìƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“I—¹‚ğ‚İ‚é
+                            // ä¾‹å¤–ãŒç™ºç”Ÿã—ã¦ã‚‚é€”ä¸­çµ‚äº†ã›ãšã€ä»–ã®ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³çµ‚äº†ã‚’è©¦ã¿ã‚‹
                         }
 
                         if (log != null && log.isDebugEnabled()) {
@@ -510,19 +510,19 @@ public class BatchUtil {
     }
 
     /**
-     * ƒZ[ƒuƒ|ƒCƒ“ƒg‚ğİ’è‚·‚é
+     * ã‚»ãƒ¼ãƒ–ãƒã‚¤ãƒ³ãƒˆã‚’è¨­å®šã™ã‚‹
      * @param stat TransactionStatus
-     * @return Object ƒZ[ƒuƒ|ƒCƒ“ƒg
+     * @return Object ã‚»ãƒ¼ãƒ–ãƒã‚¤ãƒ³ãƒˆ
      */
     public static Object setSavepoint(TransactionStatus stat) {
         return setSavepoint(stat, null);
     }
 
     /**
-     * ƒZ[ƒuƒ|ƒCƒ“ƒg‚ğİ’è‚·‚é
+     * ã‚»ãƒ¼ãƒ–ãƒã‚¤ãƒ³ãƒˆã‚’è¨­å®šã™ã‚‹
      * @param stat TransactionStatus
      * @param log Log
-     * @return Object ƒZ[ƒuƒ|ƒCƒ“ƒg
+     * @return Object ã‚»ãƒ¼ãƒ–ãƒã‚¤ãƒ³ãƒˆ
      */
     public static Object setSavepoint(TransactionStatus stat, Log log) {
         if (log != null && log.isDebugEnabled()) {
@@ -539,18 +539,18 @@ public class BatchUtil {
     }
 
     /**
-     * ƒZ[ƒuƒ|ƒCƒ“ƒg‚ğƒŠƒŠ[ƒX‚·‚é
+     * ã‚»ãƒ¼ãƒ–ãƒã‚¤ãƒ³ãƒˆã‚’ãƒªãƒªãƒ¼ã‚¹ã™ã‚‹
      * @param stat TransactionStatus
-     * @param savepoint ƒZ[ƒuƒ|ƒCƒ“ƒg
+     * @param savepoint ã‚»ãƒ¼ãƒ–ãƒã‚¤ãƒ³ãƒˆ
      */
     public static void releaseSavepoint(TransactionStatus stat, Object savepoint) {
         releaseSavepoint(stat, savepoint, null);
     }
 
     /**
-     * ƒZ[ƒuƒ|ƒCƒ“ƒg‚ğƒŠƒŠ[ƒX‚·‚é
+     * ã‚»ãƒ¼ãƒ–ãƒã‚¤ãƒ³ãƒˆã‚’ãƒªãƒªãƒ¼ã‚¹ã™ã‚‹
      * @param stat TransactionStatus
-     * @param savepoint ƒZ[ƒuƒ|ƒCƒ“ƒg
+     * @param savepoint ã‚»ãƒ¼ãƒ–ãƒã‚¤ãƒ³ãƒˆ
      * @param log Log
      */
     public static void releaseSavepoint(TransactionStatus stat,
@@ -567,9 +567,9 @@ public class BatchUtil {
     }
 
     /**
-     * ƒZ[ƒuƒ|ƒCƒ“ƒg‚Ü‚Åƒ[ƒ‹ƒoƒbƒN‚³‚¹‚é
+     * ã‚»ãƒ¼ãƒ–ãƒã‚¤ãƒ³ãƒˆã¾ã§ãƒ­ãƒ¼ãƒ«ãƒãƒƒã‚¯ã•ã›ã‚‹
      * @param stat TransactionStatus
-     * @param savepoint ƒZ[ƒuƒ|ƒCƒ“ƒg
+     * @param savepoint ã‚»ãƒ¼ãƒ–ãƒã‚¤ãƒ³ãƒˆ
      */
     public static void rollbackSavepoint(TransactionStatus stat,
             Object savepoint) {
@@ -577,9 +577,9 @@ public class BatchUtil {
     }
 
     /**
-     * ƒZ[ƒuƒ|ƒCƒ“ƒg‚Ü‚Åƒ[ƒ‹ƒoƒbƒN‚³‚¹‚é
+     * ã‚»ãƒ¼ãƒ–ãƒã‚¤ãƒ³ãƒˆã¾ã§ãƒ­ãƒ¼ãƒ«ãƒãƒƒã‚¯ã•ã›ã‚‹
      * @param stat TransactionStatus
-     * @param savepoint ƒZ[ƒuƒ|ƒCƒ“ƒg
+     * @param savepoint ã‚»ãƒ¼ãƒ–ãƒã‚¤ãƒ³ãƒˆ
      * @param log Log
      */
     public static void rollbackSavepoint(TransactionStatus stat,
@@ -596,8 +596,8 @@ public class BatchUtil {
     }
 
     /**
-     * ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“ŠJn‚Ü‚Åƒ[ƒ‹ƒoƒbƒN‚·‚éB
-     * @param tran ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“ƒ}ƒl[ƒWƒƒ
+     * ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³é–‹å§‹ã¾ã§ãƒ­ãƒ¼ãƒ«ãƒãƒƒã‚¯ã™ã‚‹ã€‚
+     * @param tran ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ãƒãƒãƒ¼ã‚¸ãƒ£
      * @param stat TransactionStatus
      */
     public static void rollbackTransaction(PlatformTransactionManager tran,
@@ -606,8 +606,8 @@ public class BatchUtil {
     }
 
     /**
-     * ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“ŠJn‚Ü‚Åƒ[ƒ‹ƒoƒbƒN‚·‚éB
-     * @param tran ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“ƒ}ƒl[ƒWƒƒ
+     * ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³é–‹å§‹ã¾ã§ãƒ­ãƒ¼ãƒ«ãƒãƒƒã‚¯ã™ã‚‹ã€‚
+     * @param tran ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ãƒãƒãƒ¼ã‚¸ãƒ£
      * @param stat TransactionStatus
      * @param log Log
      */
@@ -626,7 +626,7 @@ public class BatchUtil {
     }
 
     /**
-     * ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“‚ğƒRƒ~ƒbƒg‚³‚¹Aƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“‚ğÄ“xŠJn‚³‚¹‚é
+     * ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã‚’ã‚³ãƒŸãƒƒãƒˆã•ã›ã€ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã‚’å†åº¦é–‹å§‹ã•ã›ã‚‹
      * @param tran PlatformTransactionManager
      * @param stat TransactionStatus
      * @return
@@ -639,7 +639,7 @@ public class BatchUtil {
     }
 
     /**
-     * ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“‚ğƒRƒ~ƒbƒg‚³‚¹Aƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“‚ğÄ“xŠJn‚³‚¹‚é
+     * ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã‚’ã‚³ãƒŸãƒƒãƒˆã•ã›ã€ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã‚’å†åº¦é–‹å§‹ã•ã›ã‚‹
      * @param tran PlatformTransactionManager
      * @param stat TransactionStatus
      * @param log Log
@@ -652,7 +652,7 @@ public class BatchUtil {
     }
 
     /**
-     * ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“‚ğƒRƒ~ƒbƒg‚³‚¹Aƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“‚ğÄ“xŠJn‚³‚¹‚é
+     * ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã‚’ã‚³ãƒŸãƒƒãƒˆã•ã›ã€ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã‚’å†åº¦é–‹å§‹ã•ã›ã‚‹
      * @param tran PlatformTransactionManager
      * @param stat TransactionStatus
      * @param def TransactionDefinition
@@ -666,7 +666,7 @@ public class BatchUtil {
     }
 
     /**
-     * ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“‚ğƒRƒ~ƒbƒg‚³‚¹Aƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“‚ğÄ“xŠJn‚³‚¹‚é
+     * ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã‚’ã‚³ãƒŸãƒƒãƒˆã•ã›ã€ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã‚’å†åº¦é–‹å§‹ã•ã›ã‚‹
      * @param tran PlatformTransactionManager
      * @param stat TransactionStatus
      * @param def TransactionDefinition
@@ -681,7 +681,7 @@ public class BatchUtil {
     }
 
     /**
-     * ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“‚ğƒ[ƒ‹ƒoƒbƒN‚³‚¹Aƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“‚ğÄ“xŠJn‚³‚¹‚é
+     * ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã‚’ãƒ­ãƒ¼ãƒ«ãƒãƒƒã‚¯ã•ã›ã€ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã‚’å†åº¦é–‹å§‹ã•ã›ã‚‹
      * @param tran PlatformTransactionManager
      * @param stat TransactionStatus
      */
@@ -693,7 +693,7 @@ public class BatchUtil {
     }
 
     /**
-     * ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“‚ğƒ[ƒ‹ƒoƒbƒN‚³‚¹Aƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“‚ğÄ“xŠJn‚³‚¹‚é
+     * ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã‚’ãƒ­ãƒ¼ãƒ«ãƒãƒƒã‚¯ã•ã›ã€ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã‚’å†åº¦é–‹å§‹ã•ã›ã‚‹
      * @param tran PlatformTransactionManager
      * @param stat TransactionStatus
      * @param log Log
@@ -706,7 +706,7 @@ public class BatchUtil {
     }
 
     /**
-     * ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“‚ğƒ[ƒ‹ƒoƒbƒN‚³‚¹Aƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“‚ğÄ“xŠJn‚³‚¹‚é
+     * ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã‚’ãƒ­ãƒ¼ãƒ«ãƒãƒƒã‚¯ã•ã›ã€ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã‚’å†åº¦é–‹å§‹ã•ã›ã‚‹
      * @param tran PlatformTransactionManager
      * @param stat TransactionStatus
      * @param def TransactionDefinition
@@ -720,7 +720,7 @@ public class BatchUtil {
     }
 
     /**
-     * ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“‚ğƒ[ƒ‹ƒoƒbƒN‚³‚¹Aƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“‚ğÄ“xŠJn‚³‚¹‚é
+     * ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã‚’ãƒ­ãƒ¼ãƒ«ãƒãƒƒã‚¯ã•ã›ã€ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã‚’å†åº¦é–‹å§‹ã•ã›ã‚‹
      * @param tran PlatformTransactionManager
      * @param stat TransactionStatus
      * @param def TransactionDefinition
@@ -735,11 +735,11 @@ public class BatchUtil {
     }
 
     /**
-     * List‚ğ”z—ñŒ^‚É•ÏŠ·‚·‚é List‚Ì’†‚É•¡”‚ÌŒ^‚ª¬‚¶‚Á‚Ä‚¢‚éê‡‚Íg—p‚Å‚«‚È‚¢
-     * @param <E> •Ô‹p’l‚ÌŒ^
-     * @param list “ü—Íƒf[ƒ^
-     * @param clazz •Ô‹p’l‚ÌŒ^‚ğ‚ ‚ç‚í‚·ClassŒ^‚ÌƒCƒ“ƒXƒ^ƒ“ƒX
-     * @return List‚Ì’†g‚ğ”z—ñ‚É‚µ‚½‚à‚Ì
+     * Listã‚’é…åˆ—å‹ã«å¤‰æ›ã™ã‚‹ Listã®ä¸­ã«è¤‡æ•°ã®å‹ãŒæ··ã˜ã£ã¦ã„ã‚‹å ´åˆã¯ä½¿ç”¨ã§ããªã„
+     * @param <E> è¿”å´å€¤ã®å‹
+     * @param list å…¥åŠ›ãƒ‡ãƒ¼ã‚¿
+     * @param clazz è¿”å´å€¤ã®å‹ã‚’ã‚ã‚‰ã‚ã™Classå‹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @return Listã®ä¸­èº«ã‚’é…åˆ—ã«ã—ãŸã‚‚ã®
      */
     @SuppressWarnings("unchecked")
     public static <E> E[] changeListToArray(List<E> list, Class clazz) {
@@ -748,10 +748,10 @@ public class BatchUtil {
             throw new IllegalClassTypeException();
         }
 
-        // SQL‚ÌÀsF’l‚Ìæ“¾
+        // SQLã®å®Ÿè¡Œï¼šå€¤ã®å–å¾—
         List<E> castedList = list;
 
-        // ”z—ñ‚É•ÏŠ·
+        // é…åˆ—ã«å¤‰æ›
         E[] retArray = (E[]) Array.newInstance(clazz, castedList.size());
         try {
             castedList.toArray(retArray);
@@ -763,10 +763,10 @@ public class BatchUtil {
     }
 
     /**
-     * .propertiesƒtƒ@ƒCƒ‹‚©‚çƒOƒ‹[ƒvƒL[w’è‚Å’l‚ğæ‚èo‚· ƒOƒ‹[ƒvƒL[‚É‡’v‚µ‚½ƒL[‚É‘Î‚µ‚Ä¸‡ƒ\[ƒg‚ğs‚Á‚Ä‚©‚ç •Ô‹pƒŠƒXƒg‚Ö’l‚ğƒZƒbƒg‚µ‚Ä‚¢‚é
-     * @param propertyName .propertiesƒtƒ@ƒCƒ‹‚Ì–¼‘Oi.properties‚Í•K—v‚È‚¢j
-     * @param grpKey ƒOƒ‹[ƒvƒL[
-     * @return propertyName‚É‘¶İ‚·‚égrpKeyPrefix
+     * .propertiesãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ã‚°ãƒ«ãƒ¼ãƒ—ã‚­ãƒ¼æŒ‡å®šã§å€¤ã‚’å–ã‚Šå‡ºã™ ã‚°ãƒ«ãƒ¼ãƒ—ã‚­ãƒ¼ã«åˆè‡´ã—ãŸã‚­ãƒ¼ã«å¯¾ã—ã¦æ˜‡é †ã‚½ãƒ¼ãƒˆã‚’è¡Œã£ã¦ã‹ã‚‰ è¿”å´ãƒªã‚¹ãƒˆã¸å€¤ã‚’ã‚»ãƒƒãƒˆã—ã¦ã„ã‚‹
+     * @param propertyName .propertiesãƒ•ã‚¡ã‚¤ãƒ«ã®åå‰ï¼ˆ.propertiesã¯å¿…è¦ãªã„ï¼‰
+     * @param grpKey ã‚°ãƒ«ãƒ¼ãƒ—ã‚­ãƒ¼
+     * @return propertyNameã«å­˜åœ¨ã™ã‚‹grpKeyPrefix
      */
     public static List<String> getProperties(String propertyName, String grpKey) {
 

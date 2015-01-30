@@ -34,11 +34,11 @@ import org.apache.commons.beanutils.ConversionException;
 import org.apache.commons.beanutils.PropertyUtilsBean;
 
 /**
- * {@link jp.terasoluna.fw.client.util.ConvertUtil} ƒNƒ‰ƒX‚ÌƒeƒXƒgB
+ * {@link jp.terasoluna.fw.client.util.ConvertUtil} ã‚¯ãƒ©ã‚¹ã®ãƒ†ã‚¹ãƒˆã€‚
  * 
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4>
- * Œ^•ÏŠ·‚ğs‚¤‚½‚ß‚Ìƒ†[ƒeƒBƒŠƒeƒBƒNƒ‰ƒXB
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4>
+ * å‹å¤‰æ›ã‚’è¡Œã†ãŸã‚ã®ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ã‚¯ãƒ©ã‚¹ã€‚
  * <p>
  * 
  * @see jp.terasoluna.fw.client.util.ConvertUtil
@@ -46,14 +46,14 @@ import org.apache.commons.beanutils.PropertyUtilsBean;
 public class ConvertUtilTest extends TestCase {
     
     /**
-     * PropertyUtilsBeanB
+     * PropertyUtilsBeanã€‚
      */
     private PropertyUtilsBean defaultPropertyUtilsBean = null;
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -64,9 +64,9 @@ public class ConvertUtilTest extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -78,9 +78,9 @@ public class ConvertUtilTest extends TestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      * 
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public ConvertUtilTest(String name) {
         super(name);
@@ -90,26 +90,26 @@ public class ConvertUtilTest extends TestCase {
      * testToArray01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object[]:—v‘f‚ğ‚½‚È‚¢Object[] (—v‘f”‚ª0‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object[]:è¦ç´ ã‚’æŒãŸãªã„Object[] (è¦ç´ æ•°ãŒ0ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
      *         
      * <br>
-     * ˆø”obj‚ªnull‚¾‚Á‚½ê‡A—v‘f‚ğ‚½‚È‚¢Object[]‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°objãŒnullã ã£ãŸå ´åˆã€è¦ç´ ã‚’æŒãŸãªã„Object[]ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testToArray01() throws Exception {
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object[] result = ConvertUtil.toArray(null); 
         
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(0, result.length);
     }
 
@@ -117,27 +117,27 @@ public class ConvertUtilTest extends TestCase {
      * testToArray02()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:""(‹ó•¶š)<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:""(ç©ºæ–‡å­—)<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object[]:‚P—v‘f‚ğ‚ÂObject[] (—v‘f”‚ª‚P‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
-     *                   *—v‘f0:""(‹ó•¶š)<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object[]:ï¼‘è¦ç´ ã‚’æŒã¤Object[] (è¦ç´ æ•°ãŒï¼‘ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
+     *                   *è¦ç´ 0:""(ç©ºæ–‡å­—)<br>
      *         
      * <br>
-     * ˆø”obj‚ª""(‹ó•¶š)‚¾‚Á‚½ê‡A‚P—v‘f‚ğ‚ÂObject[]‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°objãŒ""(ç©ºæ–‡å­—)ã ã£ãŸå ´åˆã€ï¼‘è¦ç´ ã‚’æŒã¤Object[]ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testToArray02() throws Exception {
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object[] result = ConvertUtil.toArray(""); 
         
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(1, result.length);
         assertEquals("", result[0]);
     }
@@ -146,27 +146,27 @@ public class ConvertUtilTest extends TestCase {
      * testToArray03()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:"  "(‹ó”’•¶š—ñ)<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:"  "(ç©ºç™½æ–‡å­—åˆ—)<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object[]:‚P—v‘f‚ğ‚ÂObject[] (—v‘f”‚ª‚P‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
-     *                   *—v‘f0:"  "(‹ó”’•¶š—ñ)<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object[]:ï¼‘è¦ç´ ã‚’æŒã¤Object[] (è¦ç´ æ•°ãŒï¼‘ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
+     *                   *è¦ç´ 0:"  "(ç©ºç™½æ–‡å­—åˆ—)<br>
      *         
      * <br>
-     * ˆø”obj‚ª"  "(‹ó”’•¶š—ñ)‚¾‚Á‚½ê‡A‚P—v‘f‚ğ‚ÂObject[]‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°objãŒ"  "(ç©ºç™½æ–‡å­—åˆ—)ã ã£ãŸå ´åˆã€ï¼‘è¦ç´ ã‚’æŒã¤Object[]ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testToArray03() throws Exception {
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object[] result = ConvertUtil.toArray("  "); 
         
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(1, result.length);
         assertEquals("  ", result[0]);
     }
@@ -175,27 +175,27 @@ public class ConvertUtilTest extends TestCase {
      * testToArray04()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FE
+     * è¦³ç‚¹ï¼šE
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:"array"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:"array"<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object[]:‚P—v‘f‚ğ‚ÂObject[] (—v‘f”‚ª‚P‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
-     *                   *—v‘f0:"array"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object[]:ï¼‘è¦ç´ ã‚’æŒã¤Object[] (è¦ç´ æ•°ãŒï¼‘ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
+     *                   *è¦ç´ 0:"array"<br>
      *         
      * <br>
-     * ˆø”obj‚ª’Êí‚Ì•¶š—ñ‚¾‚Á‚½ê‡A‚P—v‘f‚ğ‚ÂObject[]‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°objãŒé€šå¸¸ã®æ–‡å­—åˆ—ã ã£ãŸå ´åˆã€ï¼‘è¦ç´ ã‚’æŒã¤Object[]ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testToArray04() throws Exception {
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object[] result = ConvertUtil.toArray("array"); 
         
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(1, result.length);
         assertEquals("array", result[0]);
     }
@@ -204,29 +204,29 @@ public class ConvertUtilTest extends TestCase {
      * testToArray05()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FD
+     * è¦³ç‚¹ï¼šD
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:—v‘f‚ğ‚½‚È‚¢Object[]<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:è¦ç´ ã‚’æŒãŸãªã„Object[]<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object[]:—v‘f‚ğ‚½‚È‚¢Object[] (—v‘f”‚ª‚O‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object[]:è¦ç´ ã‚’æŒãŸãªã„Object[] (è¦ç´ æ•°ãŒï¼ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
      *         
      * <br>
-     * ˆø”obj‚ª—v‘f‚ğ‚½‚È‚¢”z—ñ‚¾‚Á‚½ê‡A—v‘f‚ğ‚½‚È‚¢Object[]‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°objãŒè¦ç´ ã‚’æŒãŸãªã„é…åˆ—ã ã£ãŸå ´åˆã€è¦ç´ ã‚’æŒãŸãªã„Object[]ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testToArray05() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object obj = new Object[0];
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object[] result = ConvertUtil.toArray(obj); 
         
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(0, result.length);
     }
 
@@ -234,31 +234,31 @@ public class ConvertUtilTest extends TestCase {
      * testToArray06()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FD
+     * è¦³ç‚¹ï¼šD
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:‚P—v‘f‚ğ•Û‚·‚éString[]<br>
-     *                 *—v‘f‚O:"array"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:ï¼‘è¦ç´ ã‚’ä¿æŒã™ã‚‹String[]<br>
+     *                 *è¦ç´ ï¼:"array"<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object[]:‚P—v‘f‚ğ‚ÂObject[] (—v‘f”‚ª‚P‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
-     *                   *—v‘f0:"array"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object[]:ï¼‘è¦ç´ ã‚’æŒã¤Object[] (è¦ç´ æ•°ãŒï¼‘ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
+     *                   *è¦ç´ 0:"array"<br>
      *         
      * <br>
-     * ˆø”obj‚ª‚P—v‘f‚ğ•Û‚·‚é”z—ñ‚¾‚Á‚½ê‡A‚P—v‘f‚ğ•Û‚·‚éObject[]‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°objãŒï¼‘è¦ç´ ã‚’ä¿æŒã™ã‚‹é…åˆ—ã ã£ãŸå ´åˆã€ï¼‘è¦ç´ ã‚’ä¿æŒã™ã‚‹Object[]ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testToArray06() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         String[] obj = {"array"};
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object[] result = ConvertUtil.toArray(obj); 
         
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(1, result.length);
         assertEquals("array", result[0]);
     }
@@ -267,30 +267,30 @@ public class ConvertUtilTest extends TestCase {
      * testToArray07()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FD
+     * è¦³ç‚¹ï¼šD
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:‚R—v‘f‚ğ•Û‚·‚éObject[]<br>
-     *                 *—v‘f‚O:"array"<br>
-     *                 *—v‘f‚P:1<br>
-     *                 *—v‘f‚Q:MapƒCƒ“ƒXƒ^ƒ“ƒX (key="foo" value="something")<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:ï¼“è¦ç´ ã‚’ä¿æŒã™ã‚‹Object[]<br>
+     *                 *è¦ç´ ï¼:"array"<br>
+     *                 *è¦ç´ ï¼‘:1<br>
+     *                 *è¦ç´ ï¼’:Mapã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ (key="foo" value="something")<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object[]:‚R—v‘f‚ğ‚ÂObject[] (—v‘f”‚ª‚R‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
-     *                   *—v‘f0:"array"<br>
-     *                   *—v‘f1:1<br>
-     *                   *—v‘f2:MapƒCƒ“ƒXƒ^ƒ“ƒX(key="foo" value="something")<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object[]:ï¼“è¦ç´ ã‚’æŒã¤Object[] (è¦ç´ æ•°ãŒï¼“ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
+     *                   *è¦ç´ 0:"array"<br>
+     *                   *è¦ç´ 1:1<br>
+     *                   *è¦ç´ 2:Mapã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹(key="foo" value="something")<br>
      *         
      * <br>
-     * ˆø”obj‚ª‚R—v‘f‚ğ•Û‚·‚é”z—ñ‚¾‚Á‚½ê‡A‚R—v‘f‚ğ•Û‚·‚éObject[]‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°objãŒï¼“è¦ç´ ã‚’ä¿æŒã™ã‚‹é…åˆ—ã ã£ãŸå ´åˆã€ï¼“è¦ç´ ã‚’ä¿æŒã™ã‚‹Object[]ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testToArray07() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object[] obj = new Object[3];
         obj[0] = "array";
         obj[1] = 1;
@@ -298,10 +298,10 @@ public class ConvertUtilTest extends TestCase {
         map.put("foo", "something");
         obj[2] = map;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object[] result = ConvertUtil.toArray(obj); 
         
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(3, result.length);
         assertEquals("array", result[0]);
         assertEquals(1, result[1]);
@@ -314,29 +314,29 @@ public class ConvertUtilTest extends TestCase {
      * testToArray08()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FD
+     * è¦³ç‚¹ï¼šD
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:—v‘f‚ğ‚½‚È‚¢Collection<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:è¦ç´ ã‚’æŒãŸãªã„Collection<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object[]:—v‘f‚ğ‚½‚È‚¢Object[] (—v‘f”‚ª‚O‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object[]:è¦ç´ ã‚’æŒãŸãªã„Object[] (è¦ç´ æ•°ãŒï¼ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
      *         
      * <br>
-     * ˆø”obj‚ª—v‘f‚ğ‚½‚È‚¢Collection‚¾‚Á‚½ê‡A—v‘f‚ğ‚½‚È‚¢Object[]‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°objãŒè¦ç´ ã‚’æŒãŸãªã„Collectionã ã£ãŸå ´åˆã€è¦ç´ ã‚’æŒãŸãªã„Object[]ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testToArray08() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Collection obj = new Vector();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object[] result = ConvertUtil.toArray(obj); 
         
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(0, result.length);
     }
 
@@ -344,33 +344,33 @@ public class ConvertUtilTest extends TestCase {
      * testToArray09()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FD
+     * è¦³ç‚¹ï¼šD
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:‚P—v‘f‚ğ•Û‚·‚éCollection<br>
-     *                 *—v‘f0:"collection"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:ï¼‘è¦ç´ ã‚’ä¿æŒã™ã‚‹Collection<br>
+     *                 *è¦ç´ 0:"collection"<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object[]:‚P—v‘f‚ğ‚ÂObject[] (—v‘f”‚ª‚P‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
-     *                   *—v‘f0:"collection"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object[]:ï¼‘è¦ç´ ã‚’æŒã¤Object[] (è¦ç´ æ•°ãŒï¼‘ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
+     *                   *è¦ç´ 0:"collection"<br>
      *         
      * <br>
-     * ˆø”obj‚ª‚P—v‘f‚ğ•Û‚·‚éCollection‚¾‚Á‚½ê‡A‚P—v‘f‚ğ•Û‚·‚éObject[]‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°objãŒï¼‘è¦ç´ ã‚’ä¿æŒã™ã‚‹Collectionã ã£ãŸå ´åˆã€ï¼‘è¦ç´ ã‚’ä¿æŒã™ã‚‹Object[]ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testToArray09() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Collection obj = new Vector();
         obj.add("collection");
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object[] result = ConvertUtil.toArray(obj); 
         
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(1, result.length);
         assertEquals("collection", result[0]);
     }
@@ -379,30 +379,30 @@ public class ConvertUtilTest extends TestCase {
      * testToArray10()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FD
+     * è¦³ç‚¹ï¼šD
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:‚R—v‘f‚ğ•Û‚·‚éCollection<br>
-     *                 *—v‘f0:"collection"<br>
-     *                 *—v‘f1:1<br>
-     *                 *—v‘f2:MapƒCƒ“ƒXƒ^ƒ“ƒX(key="key" value="something")<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:ï¼“è¦ç´ ã‚’ä¿æŒã™ã‚‹Collection<br>
+     *                 *è¦ç´ 0:"collection"<br>
+     *                 *è¦ç´ 1:1<br>
+     *                 *è¦ç´ 2:Mapã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹(key="key" value="something")<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object[]:‚R—v‘f‚ğ‚ÂObject[] (—v‘f”‚ª‚R‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
-     *                   *—v‘f0:"collection"<br>
-     *                   *—v‘f1:1<br>
-     *                   *—v‘f2:MapƒCƒ“ƒXƒ^ƒ“ƒX(key="foo" value="something")<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object[]:ï¼“è¦ç´ ã‚’æŒã¤Object[] (è¦ç´ æ•°ãŒï¼“ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
+     *                   *è¦ç´ 0:"collection"<br>
+     *                   *è¦ç´ 1:1<br>
+     *                   *è¦ç´ 2:Mapã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹(key="foo" value="something")<br>
      *         
      * <br>
-     * ˆø”obj‚ª‚R—v‘f‚ğ•Û‚·‚écollection‚¾‚Á‚½ê‡A‚R—v‘f‚ğ•Û‚·‚éObject[]‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°objãŒï¼“è¦ç´ ã‚’ä¿æŒã™ã‚‹collectionã ã£ãŸå ´åˆã€ï¼“è¦ç´ ã‚’ä¿æŒã™ã‚‹Object[]ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testToArray10() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Collection obj = new Vector();
         obj.add("collection");
         obj.add(1);
@@ -410,10 +410,10 @@ public class ConvertUtilTest extends TestCase {
         map.put("foo", "something");
         obj.add(map);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object[] result = ConvertUtil.toArray(obj); 
         
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(3, result.length);
         assertEquals("collection", result[0]);
         assertEquals(1, result[1]);
@@ -425,32 +425,32 @@ public class ConvertUtilTest extends TestCase {
      * testToList01()
      * <br><br>
      * 
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC,G
+     * è¦³ç‚¹ï¼šC,G
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:null<br>
-     *         (ˆø”) elementClass:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:null<br>
+     *         (å¼•æ•°) elementClass:null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    —áŠO‚ÌƒƒbƒZ[ƒW:
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ä¾‹å¤–ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸:
      *                    "Argument 'elementClass' (" + Class.class.getName() 
-     *                    @+ ") is null"<br>
+     *                    ã€€+ ") is null"<br>
      *         
      * <br>
-     * ˆø”elementClass‚ªnull‚¾‚Á‚½ê‡AIllegalArgumentException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°elementClassãŒnullã ã£ãŸå ´åˆã€IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testToList01() throws Exception {
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             ConvertUtil.toList(null, null);
-            fail("IllegalArgumentException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalArgumentException e) {
-            // ”»’è
+            // åˆ¤å®š
             assertEquals(IllegalArgumentException.class.getName(),
                     e.getClass().getName());
             assertEquals("Argument 'elementClass' (" + Class.class.getName()
@@ -464,27 +464,27 @@ public class ConvertUtilTest extends TestCase {
      * testToList02()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:null<br>
-     *         (ˆø”) elementClass:Object.class<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:null<br>
+     *         (å¼•æ•°) elementClass:Object.class<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) List:—v‘f‚ğ‚½‚È‚¢List<Object> (—v‘f”‚ª‚O‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) List:è¦ç´ ã‚’æŒãŸãªã„List<Object> (è¦ç´ æ•°ãŒï¼ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
      *         
      * <br>
-     * ˆø”obj‚ªnull‚¾‚Á‚½ê‡AelementsClass‚Åw’è‚µ‚½Œ^‚ÌList‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°objãŒnullã ã£ãŸå ´åˆã€elementsClassã§æŒ‡å®šã—ãŸå‹ã®ListãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testToList02() throws Exception {
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         List<Object> result = ConvertUtil.toList(null, Object.class);
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(0, result.size());
     }
 
@@ -492,28 +492,28 @@ public class ConvertUtilTest extends TestCase {
      * testToList03()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:""(‹ó•¶š)<br>
-     *         (ˆø”) elementClass:Object.class<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:""(ç©ºæ–‡å­—)<br>
+     *         (å¼•æ•°) elementClass:Object.class<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) List:‚P—v‘f‚ğ‚ÂList<Object> (—v‘f”‚ª‚P‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
-     *                   *—v‘f0:""(‹ó•¶š)<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) List:ï¼‘è¦ç´ ã‚’æŒã¤List<Object> (è¦ç´ æ•°ãŒï¼‘ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
+     *                   *è¦ç´ 0:""(ç©ºæ–‡å­—)<br>
      *         
      * <br>
-     * ˆø”obj‚ª""(‹ó•¶š)‚¾‚Á‚½ê‡AelementsClass‚Åw’è‚µ‚½Œ^‚ÌList‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°objãŒ""(ç©ºæ–‡å­—)ã ã£ãŸå ´åˆã€elementsClassã§æŒ‡å®šã—ãŸå‹ã®ListãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testToList03() throws Exception {
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         List<Object> result = ConvertUtil.toList("", Object.class);
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(1, result.size());
         assertEquals("", result.get(0));
         
@@ -523,28 +523,28 @@ public class ConvertUtilTest extends TestCase {
      * testToList04()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:"  "(‹ó”’•¶š—ñ)<br>
-     *         (ˆø”) elementClass:Object.class<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:"  "(ç©ºç™½æ–‡å­—åˆ—)<br>
+     *         (å¼•æ•°) elementClass:Object.class<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) List:‚P—v‘f‚ğ‚ÂList<Object> (—v‘f”‚ª‚P‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
-     *                   *—v‘f0:"  "(‹ó”’•¶š—ñ)<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) List:ï¼‘è¦ç´ ã‚’æŒã¤List<Object> (è¦ç´ æ•°ãŒï¼‘ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
+     *                   *è¦ç´ 0:"  "(ç©ºç™½æ–‡å­—åˆ—)<br>
      *         
      * <br>
-     * ˆø”obj‚ª""(‹ó•¶š)‚¾‚Á‚½ê‡AelementsClass‚Åw’è‚µ‚½Œ^‚ÌList‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°objãŒ""(ç©ºæ–‡å­—)ã ã£ãŸå ´åˆã€elementsClassã§æŒ‡å®šã—ãŸå‹ã®ListãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testToList04() throws Exception {
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         List<Object> result = ConvertUtil.toList("  ", Object.class);
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(1, result.size());
         assertEquals("  ", result.get(0));
     }
@@ -553,28 +553,28 @@ public class ConvertUtilTest extends TestCase {
      * testToList05()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FE
+     * è¦³ç‚¹ï¼šE
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:"list"<br>
-     *         (ˆø”) elementClass:Object.class<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:"list"<br>
+     *         (å¼•æ•°) elementClass:Object.class<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) List:‚P—v‘f‚ğ‚ÂList<Object> (—v‘f”‚ª‚P‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
-     *                   *—v‘f0:"list"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) List:ï¼‘è¦ç´ ã‚’æŒã¤List<Object> (è¦ç´ æ•°ãŒï¼‘ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
+     *                   *è¦ç´ 0:"list"<br>
      *         
      * <br>
-     * ˆø”obj‚ª’Êí•¶š—ñ‚¾‚Á‚½ê‡AelementsClass‚Åw’è‚µ‚½Œ^‚ÌList‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°objãŒé€šå¸¸æ–‡å­—åˆ—ã ã£ãŸå ´åˆã€elementsClassã§æŒ‡å®šã—ãŸå‹ã®ListãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testToList05() throws Exception {
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         List<Object> result = ConvertUtil.toList("list", Object.class);
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(1, result.size());
         assertEquals("list", result.get(0));
     }
@@ -583,38 +583,38 @@ public class ConvertUtilTest extends TestCase {
      * testToList06()
      * <br><br>
      * 
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:"list"<br>
-     *         (ˆø”) elementClass:Thread.class<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:"list"<br>
+     *         (å¼•æ•°) elementClass:Thread.class<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    —áŠO‚ÌƒƒbƒZ[ƒW:
-     *                    "Unable to cast '" + ˆø”obj‚ÌŠ®‘SCüƒNƒ‰ƒX–¼ 
-     *                    @+ "' to '" + ˆø”elementClass‚ÌŠ®‘SCüƒNƒ‰ƒX–¼ + "'"<br>
-     *                    ƒ‰ƒbƒv‚³‚ê‚½—áŠO:ClassCastException<br>
-     *                    ƒ‰ƒbƒv‚³‚ê‚½—áŠO‚ÌƒƒbƒZ[ƒW:"Unable to cast '" 
-     *                    @+ ˆø”obj‚ÌŠ®‘SCüƒNƒ‰ƒX–¼ + "' to '" 
-     *                    + ˆø”elementClass‚ÌŠ®‘SCüƒNƒ‰ƒX–¼ + "'"<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ä¾‹å¤–ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸:
+     *                    "Unable to cast '" + å¼•æ•°objã®å®Œå…¨ä¿®é£¾ã‚¯ãƒ©ã‚¹å 
+     *                    ã€€+ "' to '" + å¼•æ•°elementClassã®å®Œå…¨ä¿®é£¾ã‚¯ãƒ©ã‚¹å + "'"<br>
+     *                    ãƒ©ãƒƒãƒ—ã•ã‚ŒãŸä¾‹å¤–:ClassCastException<br>
+     *                    ãƒ©ãƒƒãƒ—ã•ã‚ŒãŸä¾‹å¤–ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸:"Unable to cast '" 
+     *                    ã€€+ å¼•æ•°objã®å®Œå…¨ä¿®é£¾ã‚¯ãƒ©ã‚¹å + "' to '" 
+     *                    + å¼•æ•°elementClassã®å®Œå…¨ä¿®é£¾ã‚¯ãƒ©ã‚¹å + "'"<br>
      *         
      * <br>
-     * ˆø”obj‚ÌŒ^‚ªelementClass‚Åw’è‚µ‚½Œ^‚Æ“¯ˆêA‚à‚µ‚­‚ÍƒTƒuƒNƒ‰ƒX‚Å‚Í
-     * ‚È‚©‚Á‚½ê‡AIllegalArgumentException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°objã®å‹ãŒelementClassã§æŒ‡å®šã—ãŸå‹ã¨åŒä¸€ã€ã‚‚ã—ãã¯ã‚µãƒ–ã‚¯ãƒ©ã‚¹ã§ã¯
+     * ãªã‹ã£ãŸå ´åˆã€IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testToList06() throws Exception {
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             ConvertUtil.toList("list", Thread.class);
-            fail("IllegalArgumentException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalArgumentException e) {
-            // ”»’è
+            // åˆ¤å®š
             assertEquals(IllegalArgumentException.class.getName(),
                     e.getClass().getName());
             assertEquals("Unable to cast '" + "list".getClass().getName() 
@@ -633,30 +633,30 @@ public class ConvertUtilTest extends TestCase {
      * testToList07()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FD
+     * è¦³ç‚¹ï¼šD
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:—v‘f‚ğ‚½‚È‚¢Object[]<br>
-     *         (ˆø”) elementClass:String.class<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:è¦ç´ ã‚’æŒãŸãªã„Object[]<br>
+     *         (å¼•æ•°) elementClass:String.class<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) List:—v‘f‚ğ‚½‚È‚¢List<String> (—v‘f”‚ª‚O‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) List:è¦ç´ ã‚’æŒãŸãªã„List<String> (è¦ç´ æ•°ãŒï¼ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
      *         
      * <br>
-     * ˆø”obj‚ª—v‘f‚ğ‚½‚È‚¢”z—ñ‚¾‚Á‚½ê‡AelementsClass‚Åw’è‚µ‚½Œ^‚ÌList‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°objãŒè¦ç´ ã‚’æŒãŸãªã„é…åˆ—ã ã£ãŸå ´åˆã€elementsClassã§æŒ‡å®šã—ãŸå‹ã®ListãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testToList07() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object[] obj = new Object[0];
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         List<String> result = ConvertUtil.toList(obj, String.class);
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(0, result.size());
     }
 
@@ -664,32 +664,32 @@ public class ConvertUtilTest extends TestCase {
      * testToList08()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FD
+     * è¦³ç‚¹ï¼šD
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:‚P—v‘f‚ğ•Û‚·‚éObject[]<br>
-     *                 *—v‘f0:"foo"<br>
-     *         (ˆø”) elementClass:String.class<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:ï¼‘è¦ç´ ã‚’ä¿æŒã™ã‚‹Object[]<br>
+     *                 *è¦ç´ 0:"foo"<br>
+     *         (å¼•æ•°) elementClass:String.class<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) List:‚P—v‘f‚ğ‚ÂList<String> (—v‘f”‚ª‚P‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
-     *                   *—v‘f0:"foo"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) List:ï¼‘è¦ç´ ã‚’æŒã¤List<String> (è¦ç´ æ•°ãŒï¼‘ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
+     *                   *è¦ç´ 0:"foo"<br>
      *         
      * <br>
-     * ˆø”obj‚ª‚P—v‘f‚ğ•Û‚·‚é”z—ñ‚¾‚Á‚½ê‡AelementsClass‚Åw’è‚µ‚½Œ^‚ÌList‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°objãŒï¼‘è¦ç´ ã‚’ä¿æŒã™ã‚‹é…åˆ—ã ã£ãŸå ´åˆã€elementsClassã§æŒ‡å®šã—ãŸå‹ã®ListãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testToList08() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object[] obj = {"foo"};
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         List<String> result = ConvertUtil.toList(obj, String.class);
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(1, result.size());
         assertEquals("foo", result.get(0));
     }
@@ -698,39 +698,39 @@ public class ConvertUtilTest extends TestCase {
      * testToList09()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FD
+     * è¦³ç‚¹ï¼šD
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:‚R—v‘f‚ğ•Û‚·‚éObject[]<br>
-     *                 *—v‘f0:"foo"<br>
-     *                 *—v‘f2:"bar"<br>
-     *                 *—v‘f3:"baz"<br>
-     *         (ˆø”) elementClass:String.class<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:ï¼“è¦ç´ ã‚’ä¿æŒã™ã‚‹Object[]<br>
+     *                 *è¦ç´ 0:"foo"<br>
+     *                 *è¦ç´ 2:"bar"<br>
+     *                 *è¦ç´ 3:"baz"<br>
+     *         (å¼•æ•°) elementClass:String.class<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) List:‚R—v‘f‚ğ‚ÂList<String> (—v‘f”‚ª‚R‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
-     *                   *—v‘f0:"foo"<br>
-     *                   *—v‘f1:"bar"<br>
-     *                   *—v‘f2:"baz"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) List:ï¼“è¦ç´ ã‚’æŒã¤List<String> (è¦ç´ æ•°ãŒï¼“ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
+     *                   *è¦ç´ 0:"foo"<br>
+     *                   *è¦ç´ 1:"bar"<br>
+     *                   *è¦ç´ 2:"baz"<br>
      *         
      * <br>
-     * ˆø”obj‚ª‚R—v‘f‚ğ•Û‚·‚é”z—ñ‚¾‚Á‚½ê‡AelementsClass‚Åw’è‚µ‚½Œ^‚ÌList‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°objãŒï¼“è¦ç´ ã‚’ä¿æŒã™ã‚‹é…åˆ—ã ã£ãŸå ´åˆã€elementsClassã§æŒ‡å®šã—ãŸå‹ã®ListãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testToList09() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object[] obj = new Object[3];
         obj[0] = "foo";
         obj[1] = "bar";
         obj[2] = "baz";
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         List<String> result = ConvertUtil.toList(obj, String.class);
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(3, result.size());
         assertEquals("foo", result.get(0));
         assertEquals("bar", result.get(1));
@@ -741,47 +741,47 @@ public class ConvertUtilTest extends TestCase {
      * testToList10()
      * <br><br>
      * 
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:‚R—v‘f‚ğ•Û‚·‚éObject[]<br>
-     *                 *—v‘f0:"foo"<br>
-     *                 *—v‘f2:ThreadƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                 *—v‘f3:"baz"<br>
-     *         (ˆø”) elementClass:String.class<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:ï¼“è¦ç´ ã‚’ä¿æŒã™ã‚‹Object[]<br>
+     *                 *è¦ç´ 0:"foo"<br>
+     *                 *è¦ç´ 2:Threadã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                 *è¦ç´ 3:"baz"<br>
+     *         (å¼•æ•°) elementClass:String.class<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    —áŠO‚ÌƒƒbƒZ[ƒW:
-     *                    @"Unable to cast '" + Thread‚ÌŠ®‘SCüƒNƒ‰ƒX–¼
-     *                    @+ "' to '" + ˆø”elementClass‚ÌŠ®‘SCüƒNƒ‰ƒX–¼ + "'"<br>
-     *                    ƒ‰ƒbƒv‚³‚ê‚½—áŠO:ClassCastException<br>
-     *                    ƒ‰ƒbƒv‚³‚ê‚½—áŠO‚ÌƒƒbƒZ[ƒW:
-     *                    @"Unable to cast '" + Thread‚ÌŠ®‘SCüƒNƒ‰ƒX–¼
-     *                    + "' to '" + ˆø”elementClass‚ÌŠ®‘SCüƒNƒ‰ƒX–¼ + "'"<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ä¾‹å¤–ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸:
+     *                    ã€€"Unable to cast '" + Threadã®å®Œå…¨ä¿®é£¾ã‚¯ãƒ©ã‚¹å
+     *                    ã€€+ "' to '" + å¼•æ•°elementClassã®å®Œå…¨ä¿®é£¾ã‚¯ãƒ©ã‚¹å + "'"<br>
+     *                    ãƒ©ãƒƒãƒ—ã•ã‚ŒãŸä¾‹å¤–:ClassCastException<br>
+     *                    ãƒ©ãƒƒãƒ—ã•ã‚ŒãŸä¾‹å¤–ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸:
+     *                    ã€€"Unable to cast '" + Threadã®å®Œå…¨ä¿®é£¾ã‚¯ãƒ©ã‚¹å
+     *                    + "' to '" + å¼•æ•°elementClassã®å®Œå…¨ä¿®é£¾ã‚¯ãƒ©ã‚¹å + "'"<br>
      *         
      * <br>
-     * ˆø”obj‚Ì”z—ñ‚ÉelementClass‚Åw’è‚µ‚½Œ^‚Æ“¯ˆêA‚à‚µ‚­‚ÍƒTƒuƒNƒ‰ƒX‚Å‚Í‚È‚¢
-     * —v‘f‚ªŠÜ‚Ü‚ê‚Ä‚¢‚½ê‡AIllegalArgumentException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğ
-     * Šm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°objã®é…åˆ—ã«elementClassã§æŒ‡å®šã—ãŸå‹ã¨åŒä¸€ã€ã‚‚ã—ãã¯ã‚µãƒ–ã‚¯ãƒ©ã‚¹ã§ã¯ãªã„
+     * è¦ç´ ãŒå«ã¾ã‚Œã¦ã„ãŸå ´åˆã€IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’
+     * ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testToList10() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object[] obj = new Object[3];
         obj[0] = "foo";
         obj[1] = new Thread();
         obj[2] = "baz";
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             ConvertUtil.toList(obj, String.class);
-            fail("IllegalArgumentException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalArgumentException e) {
-            // ”»’è
+            // åˆ¤å®š
             assertEquals(IllegalArgumentException.class.getName(),
                     e.getClass().getName());
             assertEquals("Unable to cast '" + Thread.class.getName()
@@ -799,30 +799,30 @@ public class ConvertUtilTest extends TestCase {
      * testToList11()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FD
+     * è¦³ç‚¹ï¼šD
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:—v‘f‚ğ‚½‚È‚¢Collection<br>
-     *         (ˆø”) elementClass:String.class<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:è¦ç´ ã‚’æŒãŸãªã„Collection<br>
+     *         (å¼•æ•°) elementClass:String.class<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) List:—v‘f‚ğ‚½‚È‚¢List<String> (—v‘f”‚ª‚O‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) List:è¦ç´ ã‚’æŒãŸãªã„List<String> (è¦ç´ æ•°ãŒï¼ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
      *         
      * <br>
-     * ˆø”obj‚ª—v‘f‚ğ‚½‚È‚¢Collection‚¾‚Á‚½ê‡AelementsClass‚Åw’è‚µ‚½Œ^‚ÌList‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°objãŒè¦ç´ ã‚’æŒãŸãªã„Collectionã ã£ãŸå ´åˆã€elementsClassã§æŒ‡å®šã—ãŸå‹ã®ListãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testToList11() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Collection obj = new Vector(); 
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         List<String> result = ConvertUtil.toList(obj, String.class);
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(0, result.size());
 
     }
@@ -831,34 +831,34 @@ public class ConvertUtilTest extends TestCase {
      * testToList12()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FD
+     * è¦³ç‚¹ï¼šD
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:‚P—v‘f‚ğ•Û‚·‚éCollection<br>
-     *                 *—v‘f0:"foo"<br>
-     *         (ˆø”) elementClass:String.class<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:ï¼‘è¦ç´ ã‚’ä¿æŒã™ã‚‹Collection<br>
+     *                 *è¦ç´ 0:"foo"<br>
+     *         (å¼•æ•°) elementClass:String.class<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) List:‚P—v‘f‚ğ‚ÂList<String> (—v‘f”‚ª‚P‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
-     *                   *—v‘f0:"foo"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) List:ï¼‘è¦ç´ ã‚’æŒã¤List<String> (è¦ç´ æ•°ãŒï¼‘ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
+     *                   *è¦ç´ 0:"foo"<br>
      *         
      * <br>
-     * ˆø”obj‚ª‚P—v‘f‚ğ•Û‚·‚éCollection‚¾‚Á‚½ê‡AelementsClass‚Åw’è‚µ‚½Œ^‚ÌList‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°objãŒï¼‘è¦ç´ ã‚’ä¿æŒã™ã‚‹Collectionã ã£ãŸå ´åˆã€elementsClassã§æŒ‡å®šã—ãŸå‹ã®ListãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testToList12() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Collection obj = new Vector(); 
         obj.add("foo");
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         List<String> result = ConvertUtil.toList(obj, String.class);
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(1, result.size());
         assertEquals("foo", result.get(0));
     }
@@ -867,40 +867,40 @@ public class ConvertUtilTest extends TestCase {
      * testToList13()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FD
+     * è¦³ç‚¹ï¼šD
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:‚R—v‘f‚ğ•Û‚·‚éCollection<br>
-     *                 *—v‘f0:"foo"<br>
-     *                 *—v‘f2:"bar"<br>
-     *                 *—v‘f3:"baz"<br>
-     *         (ˆø”) elementClass:String.class<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:ï¼“è¦ç´ ã‚’ä¿æŒã™ã‚‹Collection<br>
+     *                 *è¦ç´ 0:"foo"<br>
+     *                 *è¦ç´ 2:"bar"<br>
+     *                 *è¦ç´ 3:"baz"<br>
+     *         (å¼•æ•°) elementClass:String.class<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) List:‚R—v‘f‚ğ‚ÂList<String> (—v‘f”‚ª‚R‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
-     *                   *—v‘f0:"foo"<br>
-     *                   *—v‘f1:"bar"<br>
-     *                   *—v‘f2:"baz"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) List:ï¼“è¦ç´ ã‚’æŒã¤List<String> (è¦ç´ æ•°ãŒï¼“ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
+     *                   *è¦ç´ 0:"foo"<br>
+     *                   *è¦ç´ 1:"bar"<br>
+     *                   *è¦ç´ 2:"baz"<br>
      *         
      * <br>
-     * ˆø”obj‚ª‚R—v‘f‚ğ•Û‚·‚éCollection‚¾‚Á‚½ê‡AelementsClass‚Åw’è‚µ‚½Œ^‚ÌList‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°objãŒï¼“è¦ç´ ã‚’ä¿æŒã™ã‚‹Collectionã ã£ãŸå ´åˆã€elementsClassã§æŒ‡å®šã—ãŸå‹ã®ListãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testToList13() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Collection obj = new Vector(); 
         obj.add("foo");
         obj.add("bar");
         obj.add("baz");
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         List<String> result = ConvertUtil.toList(obj, String.class);
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(3, result.size());
         assertEquals("foo", result.get(0));    
         assertEquals("bar", result.get(1));    
@@ -911,47 +911,47 @@ public class ConvertUtilTest extends TestCase {
      * testToList14()
      * <br><br>
      * 
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:‚R—v‘f‚ğ•Û‚·‚éCollection<br>
-     *                 *—v‘f0:"foo"<br>
-     *                 *—v‘f2:ThreadƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                 *—v‘f3:"baz"<br>
-     *         (ˆø”) elementClass:String.class<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:ï¼“è¦ç´ ã‚’ä¿æŒã™ã‚‹Collection<br>
+     *                 *è¦ç´ 0:"foo"<br>
+     *                 *è¦ç´ 2:Threadã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                 *è¦ç´ 3:"baz"<br>
+     *         (å¼•æ•°) elementClass:String.class<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    —áŠO‚ÌƒƒbƒZ[ƒW:
-     *                    "Unable to cast '" + Thread‚ÌŠ®‘SCüƒNƒ‰ƒX–¼
-     *                    @+ "' to '" + ˆø”elementClass‚ÌŠ®‘SCüƒNƒ‰ƒX–¼ + "'"<br>
-     *                    ƒ‰ƒbƒv‚³‚ê‚½—áŠO:ClassCastException<br>
-     *                    ƒ‰ƒbƒv‚³‚ê‚½—áŠO‚ÌƒƒbƒZ[ƒW:
-     *                    "Unable to cast '" + Thread‚ÌŠ®‘SCüƒNƒ‰ƒX–¼
-     *                    + "' to '" + ˆø”elementClass‚ÌŠ®‘SCüƒNƒ‰ƒX–¼ + "'"<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ä¾‹å¤–ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸:
+     *                    "Unable to cast '" + Threadã®å®Œå…¨ä¿®é£¾ã‚¯ãƒ©ã‚¹å
+     *                    ã€€+ "' to '" + å¼•æ•°elementClassã®å®Œå…¨ä¿®é£¾ã‚¯ãƒ©ã‚¹å + "'"<br>
+     *                    ãƒ©ãƒƒãƒ—ã•ã‚ŒãŸä¾‹å¤–:ClassCastException<br>
+     *                    ãƒ©ãƒƒãƒ—ã•ã‚ŒãŸä¾‹å¤–ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸:
+     *                    "Unable to cast '" + Threadã®å®Œå…¨ä¿®é£¾ã‚¯ãƒ©ã‚¹å
+     *                    + "' to '" + å¼•æ•°elementClassã®å®Œå…¨ä¿®é£¾ã‚¯ãƒ©ã‚¹å + "'"<br>
      *         
      * <br>
-     * ˆø”obj‚ÌCollection‚ÉelementClass‚Åw’è‚µ‚½Œ^‚Æ“¯ˆêA‚à‚µ‚­‚ÍƒTƒuƒNƒ‰ƒX
-     * ‚Å‚Í‚È‚¢—v‘f‚ªŠÜ‚Ü‚ê‚Ä‚¢‚½ê‡AIllegalArgumentException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°objã®Collectionã«elementClassã§æŒ‡å®šã—ãŸå‹ã¨åŒä¸€ã€ã‚‚ã—ãã¯ã‚µãƒ–ã‚¯ãƒ©ã‚¹
+     * ã§ã¯ãªã„è¦ç´ ãŒå«ã¾ã‚Œã¦ã„ãŸå ´åˆã€IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testToList14() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object[] obj = new Object[3];
         obj[0] = "foo";
         obj[1] = new Thread();
         obj[2] = "baz";
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             ConvertUtil.toList(obj, String.class);
-            fail("IllegalArgumentException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalArgumentException e) {
-            // ”»’è
+            // åˆ¤å®š
             assertEquals(IllegalArgumentException.class.getName(),
                     e.getClass().getName());
             assertEquals("Unable to cast '" + Thread.class.getName()
@@ -969,32 +969,32 @@ public class ConvertUtilTest extends TestCase {
      * testConvertObjectClass01()
      * <br><br>
      * 
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:"object"<br>
-     *         (ˆø”) clazz:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:"object"<br>
+     *         (å¼•æ•°) clazz:null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    —áŠO‚ÌƒƒbƒZ[ƒW:
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ä¾‹å¤–ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸:
      *                    "Argument 'clazz' (" + Object.class.getName() 
      *                    + ") is null"<br>
      *         
      * <br>
-     * ˆø”clazz‚ªnull‚¾‚Á‚½ê‡AIllegalArgumentException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°clazzãŒnullã ã£ãŸå ´åˆã€IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testConvertObjectClass01() throws Exception {
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             ConvertUtil.convert("object", null);
-            fail("IllegalArgumentException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalArgumentException e) {
-            // ”»’è
+            // åˆ¤å®š
             assertEquals(IllegalArgumentException.class.getName(),
                     e.getClass().getName());
             assertEquals("Argument 'clazz' (" + Object.class.getName()
@@ -1008,25 +1008,25 @@ public class ConvertUtilTest extends TestCase {
      * testConvertObjectClass02()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:null<br>
-     *         (ˆø”) clazz:Object.class<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:null<br>
+     *         (å¼•æ•°) clazz:Object.class<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) <T>:null<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) <T>:null<br>
      *         
      * <br>
-     * ˆø”obj‚ªnull‚¾‚Á‚½ê‡Anull‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°objãŒnullã ã£ãŸå ´åˆã€nullãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testConvertObjectClass02() throws Exception {
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertNull(ConvertUtil.convert(null, Object.class));
     }
 
@@ -1034,30 +1034,30 @@ public class ConvertUtilTest extends TestCase {
      * testConvertObjectClass03()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FE
+     * è¦³ç‚¹ï¼šE
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:List (ArrayList‚ÅƒCƒ“ƒXƒ^ƒ“ƒX‰»‚·‚é)<br>
-     *         (ˆø”) clazz:ArrayList.class<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:List (ArrayListã§ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã™ã‚‹)<br>
+     *         (å¼•æ•°) clazz:ArrayList.class<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) <T>:ListƒCƒ“ƒXƒ^ƒ“ƒX (ˆø”obj‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒX‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) <T>:Listã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ (å¼•æ•°objã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
      *         
      * <br>
-     * ˆø”obj‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒX‚ª•Ô‹p‚³‚ê‚é‚Ì‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°objã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ãŒè¿”å´ã•ã‚Œã‚‹ã®ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testConvertObjectClass03() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         List list = new ArrayList();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         List result = ConvertUtil.convert(list, ArrayList.class);
 
-        // ”»’è
+        // åˆ¤å®š
         assertSame(list, result);
     }
 
@@ -1065,27 +1065,27 @@ public class ConvertUtilTest extends TestCase {
      * testConvertObjectClass04()
      * <br><br>
      * 
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FE
+     * è¦³ç‚¹ï¼šE
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:ThreadƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *         (ˆø”) clazz:AlgorithmParameterGenerator.class<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:Threadã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *         (å¼•æ•°) clazz:AlgorithmParameterGenerator.class<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) <T>:IllegalArgumentException‚ªƒXƒ[‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) <T>:IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã€‚<br>
      *         
      * <br>
-     * ˆø”obj‚ÌŒ^‚ªclazz‚ÌŒ^‚ÆŒİŠ·«‚ª‚È‚¢ê‡AIllegalArgumentException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°objã®å‹ãŒclazzã®å‹ã¨äº’æ›æ€§ãŒãªã„å ´åˆã€IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testConvertObjectClass04() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Thread thread = new Thread();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
            ConvertUtil.convert(thread,
                     AlgorithmParameterGenerator.class);
@@ -1098,32 +1098,32 @@ public class ConvertUtilTest extends TestCase {
      * testConvertIfNotNull01()
      * <br><br>
      * 
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:"object"<br>
-     *         (ˆø”) clazz:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:"object"<br>
+     *         (å¼•æ•°) clazz:null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    —áŠO‚ÌƒƒbƒZ[ƒW:
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ä¾‹å¤–ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸:
      *                    "Argument 'clazz' (" + Object.class.getName() 
-     *                    @+ ") is null"<br>
+     *                    ã€€+ ") is null"<br>
      *         
      * <br>
-     * ˆø”clazz‚ªnull‚¾‚Á‚½ê‡AIllegalArgumentException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°clazzãŒnullã ã£ãŸå ´åˆã€IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testConvertIfNotNull01() throws Exception {
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             ConvertUtil.convertIfNotNull("object", null);
-            fail("IllegalArgumentException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalArgumentException e) {
-            // ”»’è
+            // åˆ¤å®š
             assertEquals(IllegalArgumentException.class.getName(),
                     e.getClass().getName());
             assertEquals("Argument 'clazz' (" + Object.class.getName()
@@ -1136,36 +1136,36 @@ public class ConvertUtilTest extends TestCase {
      * testConvertIfNotNull02()
      * <br><br>
      * 
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:null<br>
-     *         (ˆø”) clazz:Object.class<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:null<br>
+     *         (å¼•æ•°) clazz:Object.class<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    —áŠO‚ÌƒƒbƒZ[ƒW:
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ä¾‹å¤–ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸:
      *                    "Unable to cast 'null' to '" 
-     *                    @+ ˆø”clazz‚ÌŠ®‘SCüƒNƒ‰ƒX–¼ + "'"<br>
-     *                    ƒ‰ƒbƒv‚³‚ê‚½—áŠO:ClassCastException<br>
-     *                    ƒ‰ƒbƒv‚³‚ê‚½—áŠO‚ÌƒƒbƒZ[ƒW:
+     *                    ã€€+ å¼•æ•°clazzã®å®Œå…¨ä¿®é£¾ã‚¯ãƒ©ã‚¹å + "'"<br>
+     *                    ãƒ©ãƒƒãƒ—ã•ã‚ŒãŸä¾‹å¤–:ClassCastException<br>
+     *                    ãƒ©ãƒƒãƒ—ã•ã‚ŒãŸä¾‹å¤–ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸:
      *                    "Unable to cast 'null' to '" 
-     *                    @+ ˆø”clazz‚ÌŠ®‘SCüƒNƒ‰ƒX–¼ + "'"<br>
+     *                    ã€€+ å¼•æ•°clazzã®å®Œå…¨ä¿®é£¾ã‚¯ãƒ©ã‚¹å + "'"<br>
      *         
      * <br>
-     * ˆø”obj‚ªnull‚¾‚Á‚½ê‡AIllegalArgumentException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°objãŒnullã ã£ãŸå ´åˆã€IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testConvertIfNotNull02() throws Exception {
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             ConvertUtil.convertIfNotNull(null, Object.class);
-            fail("IllegalArgumentException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalArgumentException e) {
-            // ”»’è
+            // åˆ¤å®š
             assertEquals(IllegalArgumentException.class.getName(),
                     e.getClass().getName());
             assertEquals("Unable to cast 'null' to '" + Object.class.getName()
@@ -1181,30 +1181,30 @@ public class ConvertUtilTest extends TestCase {
      * testConvertIfNotNull03()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FE
+     * è¦³ç‚¹ï¼šE
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:List (ArrayList‚ÅƒCƒ“ƒXƒ^ƒ“ƒX‰»‚·‚é)<br>
-     *         (ˆø”) clazz:ArrayList.class<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:List (ArrayListã§ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã™ã‚‹)<br>
+     *         (å¼•æ•°) clazz:ArrayList.class<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) <T>:ListƒCƒ“ƒXƒ^ƒ“ƒX (ˆø”obj‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒX‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) <T>:Listã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ (å¼•æ•°objã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
      *         
      * <br>
-     * ˆø”obj‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒX‚ª•Ô‹p‚³‚ê‚é‚Ì‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°objã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ãŒè¿”å´ã•ã‚Œã‚‹ã®ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testConvertIfNotNull03() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         List list = new ArrayList();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         List result = ConvertUtil.convertIfNotNull(list, ArrayList.class);
 
-        // ”»’è
+        // åˆ¤å®š
         assertSame(list, result);
     }
 
@@ -1212,27 +1212,27 @@ public class ConvertUtilTest extends TestCase {
      * testConvertIfNotNull04()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FE
+     * è¦³ç‚¹ï¼šE
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:ThreadƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *         (ˆø”) clazz:AlgorithmParameterGenerator.class<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:Threadã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *         (å¼•æ•°) clazz:AlgorithmParameterGenerator.class<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) IllegalArgumentException‚ªƒXƒ[‚³‚ê‚é‚±‚ÆB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
      *         
      * <br>
-     * ˆø”obj‚ÌŒ^‚ªclazz‚ÌŒ^‚ÆŒİŠ·«‚ª‚È‚¢ê‡AIllegalArgumentException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°objã®å‹ãŒclazzã®å‹ã¨äº’æ›æ€§ãŒãªã„å ´åˆã€IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testConvertIfNotNull04() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Thread thread = new Thread();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             ConvertUtil.convert(thread,
                     AlgorithmParameterGenerator.class);
@@ -1246,33 +1246,33 @@ public class ConvertUtilTest extends TestCase {
      * testConvertObjectClassboolean01()
      * <br><br>
      * 
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:null<br>
-     *         (ˆø”) clazz:null<br>
-     *         (ˆø”) allowsNull:true<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:null<br>
+     *         (å¼•æ•°) clazz:null<br>
+     *         (å¼•æ•°) allowsNull:true<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    —áŠO‚ÌƒƒbƒZ[ƒW:
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ä¾‹å¤–ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸:
      *                    "Argument 'clazz' (" + Object.class.getName() 
      *                      + ") is null"<br>
      *         
      * <br>
-     * ˆø”clazz‚ªnull‚¾‚Á‚½ê‡AIllegalArgumentException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°clazzãŒnullã ã£ãŸå ´åˆã€IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testConvertObjectClassboolean01() throws Exception {
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             ConvertUtil.convert(null, null, true);
-            fail("IllegalArgumentException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalArgumentException e) {
-            // ”»’è
+            // åˆ¤å®š
             assertEquals(IllegalArgumentException.class.getName(),
                     e.getClass().getName());
             assertEquals("Argument 'clazz' (" + Object.class.getName()
@@ -1285,38 +1285,38 @@ public class ConvertUtilTest extends TestCase {
      * testConvertObjectClassboolean02()
      * <br><br>
      * 
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:null<br>
-     *         (ˆø”) clazz:Object.class<br>
-     *         (ˆø”) allowsNull:false<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:null<br>
+     *         (å¼•æ•°) clazz:Object.class<br>
+     *         (å¼•æ•°) allowsNull:false<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    —áŠO‚ÌƒƒbƒZ[ƒW:
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ä¾‹å¤–ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸:
      *                    "Unable to cast 'null' to '" 
-     *                      + ˆø”clazz‚ÌŠ®‘SCüƒNƒ‰ƒX–¼ + "'"<br>
-     *                    ƒ‰ƒbƒv‚³‚ê‚½—áŠO:ClassCastException<br>
-     *                    ƒ‰ƒbƒv‚³‚ê‚½—áŠO‚ÌƒƒbƒZ[ƒW:
+     *                      + å¼•æ•°clazzã®å®Œå…¨ä¿®é£¾ã‚¯ãƒ©ã‚¹å + "'"<br>
+     *                    ãƒ©ãƒƒãƒ—ã•ã‚ŒãŸä¾‹å¤–:ClassCastException<br>
+     *                    ãƒ©ãƒƒãƒ—ã•ã‚ŒãŸä¾‹å¤–ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸:
      *                    "Unable to cast 'null' to '" 
-     *                      + ˆø”clazz‚ÌŠ®‘SCüƒNƒ‰ƒX–¼ + "'"<br>
+     *                      + å¼•æ•°clazzã®å®Œå…¨ä¿®é£¾ã‚¯ãƒ©ã‚¹å + "'"<br>
      *         
      * <br>
-     * ˆø”clazz‚ªnull‚Å‚Í‚È‚­Aobj‚ªnullAallowsNull‚ªfalse‚¾‚Á‚½ê‡A
-     * IllegalArgumentException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°clazzãŒnullã§ã¯ãªãã€objãŒnullã€allowsNullãŒfalseã ã£ãŸå ´åˆã€
+     * IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testConvertObjectClassboolean02() throws Exception {
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             ConvertUtil.convert(null, Object.class, false);
-            fail("IllegalArgumentException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalArgumentException e) {
-            // ”»’è
+            // åˆ¤å®š
             assertEquals(IllegalArgumentException.class.getName(),
                     e.getClass().getName());
             assertEquals("Unable to cast 'null' to '" + Object.class.getName()
@@ -1332,26 +1332,26 @@ public class ConvertUtilTest extends TestCase {
      * testConvertObjectClassboolean03()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:null<br>
-     *         (ˆø”) clazz:Object.class<br>
-     *         (ˆø”) allowsNull:true<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:null<br>
+     *         (å¼•æ•°) clazz:Object.class<br>
+     *         (å¼•æ•°) allowsNull:true<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) <T>:null<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) <T>:null<br>
      *         
      * <br>
-     * ˆø”clazz‚ªnull‚Å‚Í‚È‚­Aobj‚ªnullAallowsNull‚ªtrue‚¾‚Á‚½ê‡Anull‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°clazzãŒnullã§ã¯ãªãã€objãŒnullã€allowsNullãŒtrueã ã£ãŸå ´åˆã€nullãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testConvertObjectClassboolean03() throws Exception {
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertNull(ConvertUtil.convert(null, Object.class, true));
     }
 
@@ -1359,31 +1359,31 @@ public class ConvertUtilTest extends TestCase {
      * testConvertObjectClassboolean04()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FE
+     * è¦³ç‚¹ï¼šE
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:ThreadƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *         (ˆø”) clazz:Thread.class<br>
-     *         (ˆø”) allowsNull:true<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:Threadã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *         (å¼•æ•°) clazz:Thread.class<br>
+     *         (å¼•æ•°) allowsNull:true<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) <T>:ThreadƒCƒ“ƒXƒ^ƒ“ƒX (ˆø”obj‚Æ“¯ˆêƒCƒ“ƒXƒ^ƒ“ƒX‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) <T>:Threadã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ (å¼•æ•°objã¨åŒä¸€ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
      *         
      * <br>
-     * ˆø”clazz‚ÌŒ^‚Æobj‚ÌŒ^‚ª“¯‚¶‚¾‚Á‚½ê‡Aclazz‚ÌŒ^‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°clazzã®å‹ã¨objã®å‹ãŒåŒã˜ã ã£ãŸå ´åˆã€clazzã®å‹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testConvertObjectClassboolean04() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Thread thread = new Thread();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Thread result = ConvertUtil.convert(thread, Thread.class, true);
 
-        // ”»’è
+        // åˆ¤å®š
         assertSame(thread, result);
     }
 
@@ -1391,31 +1391,31 @@ public class ConvertUtilTest extends TestCase {
      * testConvertObjectClassboolean05()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FE
+     * è¦³ç‚¹ï¼šE
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:List (ArrayList‚ÅƒCƒ“ƒXƒ^ƒ“ƒX‰»‚·‚é)<br>
-     *         (ˆø”) clazz:ArrayList.class<br>
-     *         (ˆø”) allowsNull:true<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:List (ArrayListã§ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã™ã‚‹)<br>
+     *         (å¼•æ•°) clazz:ArrayList.class<br>
+     *         (å¼•æ•°) allowsNull:true<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) <T>:ListƒCƒ“ƒXƒ^ƒ“ƒX (ˆø”obj‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒX‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) <T>:Listã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ (å¼•æ•°objã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
      *         
      * <br>
-     * ˆø”obj‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒX‚ª•Ô‹p‚³‚ê‚é‚Ì‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°objã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ãŒè¿”å´ã•ã‚Œã‚‹ã®ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testConvertObjectClassboolean05() throws Exception {
-        //  ‘Oˆ—
+        //  å‰å‡¦ç†
         List list = new ArrayList();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         List result = ConvertUtil.convert(list, ArrayList.class, true);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertSame(list, result);
     }
@@ -1424,28 +1424,28 @@ public class ConvertUtilTest extends TestCase {
      * testConvertObjectClassboolean06()
      * <br><br>
      * 
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FE
+     * è¦³ç‚¹ï¼šE
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:ThreadƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *         (ˆø”) clazz:AlgorithmParameterGenerator.class<br>
-     *         (ˆø”) allowsNull:true<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:Threadã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *         (å¼•æ•°) clazz:AlgorithmParameterGenerator.class<br>
+     *         (å¼•æ•°) allowsNull:true<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) <T>:IllegalArgumentException‚ªƒXƒ[‚³‚ê‚é‚±‚ÆB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) <T>:IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
      *         
      * <br>
-     * ˆø”clazz‚ÌŒ^‚ªobj‚ÌŒ^‚ÆŒİŠ·«‚ª‚È‚©‚Á‚½ê‡AIllegalArgumentException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°clazzã®å‹ãŒobjã®å‹ã¨äº’æ›æ€§ãŒãªã‹ã£ãŸå ´åˆã€IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testConvertObjectClassboolean06() throws Exception {
-        //  ‘Oˆ—
+        //  å‰å‡¦ç†
         Thread thread = new Thread();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             ConvertUtil.convert(thread,
                     AlgorithmParameterGenerator.class,
@@ -1459,32 +1459,32 @@ public class ConvertUtilTest extends TestCase {
      * testConvertObjectClassboolean07()
      * <br><br>
      * 
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:"abc"<br>
-     *         (ˆø”) clazz:BigInteger.class<br>
-     *         (ˆø”) allowsNull:false<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:"abc"<br>
+     *         (å¼•æ•°) clazz:BigInteger.class<br>
+     *         (å¼•æ•°) allowsNull:false<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    ƒ‰ƒbƒv‚³‚ê‚½—áŠO:ConversionException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ãƒ©ãƒƒãƒ—ã•ã‚ŒãŸä¾‹å¤–:ConversionException<br>
      *         
      * <br>
-     * CnvertUtils#convert‚Å—áŠO‚ª”­¶‚µ‚½ê‡AIllegalArgumentException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒg
+     * CnvertUtils#convertã§ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆ
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testConvertObjectClassboolean07() throws Exception {
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             ConvertUtil.convert("abc", BigInteger.class, false);
-            fail("IllegalArgumentException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalArgumentException e) {
-            // ”»’è
+            // åˆ¤å®š
             assertEquals(IllegalArgumentException.class.getName(),
                     e.getClass().getName());
             assertTrue(e.getCause() instanceof ConversionException);
@@ -1495,24 +1495,24 @@ public class ConvertUtilTest extends TestCase {
      * testConvertPrimitiveArrayToList01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:null<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:null<br>
      *         
      * <br>
-     * ˆø”value‚ªnull‚¾‚Á‚½ê‡Anull‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°valueãŒnullã ã£ãŸå ´åˆã€nullãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testConvertPrimitiveArrayToList01() throws Exception {
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertNull(ConvertUtil.convertPrimitiveArrayToList(null));
     }
 
@@ -1520,26 +1520,26 @@ public class ConvertUtilTest extends TestCase {
      * testConvertPrimitiveArrayToList02()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:""(‹ó•¶š)<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:""(ç©ºæ–‡å­—)<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:""(‹ó•¶š)<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:""(ç©ºæ–‡å­—)<br>
      *         
      * <br>
-     * ˆø”value‚ª""(‹ó•¶š)‚¾‚Á‚½ê‡A""(‹ó•¶š)‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°valueãŒ""(ç©ºæ–‡å­—)ã ã£ãŸå ´åˆã€""(ç©ºæ–‡å­—)ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testConvertPrimitiveArrayToList02() throws Exception {
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object result = ConvertUtil.convertPrimitiveArrayToList("");
         
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertEquals("", result);
     }
@@ -1548,26 +1548,26 @@ public class ConvertUtilTest extends TestCase {
      * testConvertPrimitiveArrayToList03()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"  "(‹ó”’•¶š—ñ)<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"  "(ç©ºç™½æ–‡å­—åˆ—)<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:"  "(‹ó”’•¶š—ñ)<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:"  "(ç©ºç™½æ–‡å­—åˆ—)<br>
      *         
      * <br>
-     * ˆø”value‚ª"  "(‹ó”’•¶š—ñ)‚¾‚Á‚½ê‡A""(‹ó•¶š)‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°valueãŒ"  "(ç©ºç™½æ–‡å­—åˆ—)ã ã£ãŸå ´åˆã€""(ç©ºæ–‡å­—)ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testConvertPrimitiveArrayToList03() throws Exception {
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object result = ConvertUtil.convertPrimitiveArrayToList("  ");
         
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertEquals("  ", result);
     }
@@ -1576,26 +1576,26 @@ public class ConvertUtilTest extends TestCase {
      * testConvertPrimitiveArrayToList04()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FE
+     * è¦³ç‚¹ï¼šE
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"noArray"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"noArray"<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:"noArray"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:"noArray"<br>
      *         
      * <br>
-     * ˆø”value‚ª’Êí•¶š—ñ‚¾‚Á‚½ê‡Aˆø”‚Ì’l‚ª‚»‚Ì‚Ü‚Ü•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°valueãŒé€šå¸¸æ–‡å­—åˆ—ã ã£ãŸå ´åˆã€å¼•æ•°ã®å€¤ãŒãã®ã¾ã¾è¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testConvertPrimitiveArrayToList04() throws Exception {
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object result = ConvertUtil.convertPrimitiveArrayToList("noarray");
         
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertEquals("noarray", result);
     }
@@ -1604,29 +1604,29 @@ public class ConvertUtilTest extends TestCase {
      * testConvertPrimitiveArrayToList05()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FD,E
+     * è¦³ç‚¹ï¼šD,E
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:—v‘f‚ğ•Û‚µ‚È‚¢Object[]<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:è¦ç´ ã‚’ä¿æŒã—ãªã„Object[]<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:—v‘f‚ğ•Û‚µ‚È‚¢Object[] (—v‘f”‚ª0‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:è¦ç´ ã‚’ä¿æŒã—ãªã„Object[] (è¦ç´ æ•°ãŒ0ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
      *         
      * <br>
-     * ˆø”value‚ªƒvƒŠƒ~ƒeƒBƒuŒ^ˆÈŠO‚Ì”z—ñ(—v‘f”0)‚¾‚Á‚½ê‡Aˆø”‚Ì’l‚ª‚»‚Ì‚Ü‚Ü•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°valueãŒãƒ—ãƒªãƒŸãƒ†ã‚£ãƒ–å‹ä»¥å¤–ã®é…åˆ—(è¦ç´ æ•°0)ã ã£ãŸå ´åˆã€å¼•æ•°ã®å€¤ãŒãã®ã¾ã¾è¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testConvertPrimitiveArrayToList05() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object[] value = new Object[0];
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object result = ConvertUtil.convertPrimitiveArrayToList(value);
         
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertTrue(result instanceof Object[]);
         Object[] arrayResult = (Object[]) result;
@@ -1637,31 +1637,31 @@ public class ConvertUtilTest extends TestCase {
      * testConvertPrimitiveArrayToList06()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FD,E
+     * è¦³ç‚¹ï¼šD,E
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:ˆÈ‰º‚Ì—v‘f‚ğ•Û‚·‚éObject[]<br>
-     *                 *—v‘f0:"foo"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:ä»¥ä¸‹ã®è¦ç´ ã‚’ä¿æŒã™ã‚‹Object[]<br>
+     *                 *è¦ç´ 0:"foo"<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:ˆÈ‰º‚Ì—v‘f‚ğ•Û‚·‚éObject[] (—v‘f”‚ª1‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
-     *                   *—v‘f0:"foo"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:ä»¥ä¸‹ã®è¦ç´ ã‚’ä¿æŒã™ã‚‹Object[] (è¦ç´ æ•°ãŒ1ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
+     *                   *è¦ç´ 0:"foo"<br>
      *         
      * <br>
-     * ˆø”value‚ªƒvƒŠƒ~ƒeƒBƒuŒ^ˆÈŠO‚Ì”z—ñ(—v‘f”1)‚¾‚Á‚½ê‡Aˆø”‚Ì’l‚ª‚»‚Ì‚Ü‚Ü•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°valueãŒãƒ—ãƒªãƒŸãƒ†ã‚£ãƒ–å‹ä»¥å¤–ã®é…åˆ—(è¦ç´ æ•°1)ã ã£ãŸå ´åˆã€å¼•æ•°ã®å€¤ãŒãã®ã¾ã¾è¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testConvertPrimitiveArrayToList06() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object[] value = {"foo"};
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object result = ConvertUtil.convertPrimitiveArrayToList(value);
         
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertTrue(result instanceof Object[]);
         Object[] arrayResult = (Object[]) result;
@@ -1674,35 +1674,35 @@ public class ConvertUtilTest extends TestCase {
      * testConvertPrimitiveArrayToList07()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FD,E
+     * è¦³ç‚¹ï¼šD,E
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:ˆÈ‰º‚Ì—v‘f‚ğ•Û‚·‚éObject[]<br>
-     *                 *—v‘f0:"foo"<br>
-     *                 *—v‘f1:"bar"<br>
-     *                 *—v‘f2:"baz"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:ä»¥ä¸‹ã®è¦ç´ ã‚’ä¿æŒã™ã‚‹Object[]<br>
+     *                 *è¦ç´ 0:"foo"<br>
+     *                 *è¦ç´ 1:"bar"<br>
+     *                 *è¦ç´ 2:"baz"<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:ˆÈ‰º‚Ì—v‘f‚ğ•Û‚·‚éObject[] (—v‘f”‚ª3‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
-     *                   *—v‘f0:"foo"<br>
-     *                   *—v‘f1:"bar"<br>
-     *                   *—v‘f3:"baz"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:ä»¥ä¸‹ã®è¦ç´ ã‚’ä¿æŒã™ã‚‹Object[] (è¦ç´ æ•°ãŒ3ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
+     *                   *è¦ç´ 0:"foo"<br>
+     *                   *è¦ç´ 1:"bar"<br>
+     *                   *è¦ç´ 3:"baz"<br>
      *         
      * <br>
-     * ˆø”value‚ªƒvƒŠƒ~ƒeƒBƒuŒ^ˆÈŠO‚Ì”z—ñ(—v‘f”3)‚¾‚Á‚½ê‡Aˆø”‚Ì’l‚ª‚»‚Ì‚Ü‚Ü•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°valueãŒãƒ—ãƒªãƒŸãƒ†ã‚£ãƒ–å‹ä»¥å¤–ã®é…åˆ—(è¦ç´ æ•°3)ã ã£ãŸå ´åˆã€å¼•æ•°ã®å€¤ãŒãã®ã¾ã¾è¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testConvertPrimitiveArrayToList07() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object[] value = {"foo", "bar", "baz"};
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object result = ConvertUtil.convertPrimitiveArrayToList(value);
         
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertTrue(result instanceof Object[]);
         Object[] arrayResult = (Object[]) result;
@@ -1716,29 +1716,29 @@ public class ConvertUtilTest extends TestCase {
      * testConvertPrimitiveArrayToList08()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FD,E
+     * è¦³ç‚¹ï¼šD,E
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:—v‘f‚ğ•Û‚µ‚È‚¢boolean[]<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:è¦ç´ ã‚’ä¿æŒã—ãªã„boolean[]<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:—v‘f‚ğ•Û‚µ‚È‚¢List (size‚ª0‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:è¦ç´ ã‚’ä¿æŒã—ãªã„List (sizeãŒ0ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
      *         
      * <br>
-     * ˆø”value‚ª—v‘f‚ğ•Û‚µ‚È‚¢booleanŒ^‚Ì”z—ñ‚¾‚Á‚½ê‡A—v‘f‚ğ•Û‚µ‚È‚¢List‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°valueãŒè¦ç´ ã‚’ä¿æŒã—ãªã„booleanå‹ã®é…åˆ—ã ã£ãŸå ´åˆã€è¦ç´ ã‚’ä¿æŒã—ãªã„ListãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testConvertPrimitiveArrayToList08() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         boolean[] value = new boolean[0];
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object result = ConvertUtil.convertPrimitiveArrayToList(value);
         
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertTrue(result instanceof List);
         List listResult = (List) result;
@@ -1749,31 +1749,31 @@ public class ConvertUtilTest extends TestCase {
      * testConvertPrimitiveArrayToList09()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FD,E
+     * è¦³ç‚¹ï¼šD,E
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:ˆÈ‰º‚Ì—v‘f‚ğ•Û‚·‚éboolean[]<br>
-     *                 *—v‘f0:true<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:ä»¥ä¸‹ã®è¦ç´ ã‚’ä¿æŒã™ã‚‹boolean[]<br>
+     *                 *è¦ç´ 0:true<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:ˆÈ‰º‚Ì—v‘f‚ğ•Û‚·‚éList(size‚ª1‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
-     *                   *—v‘f0:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:ä»¥ä¸‹ã®è¦ç´ ã‚’ä¿æŒã™ã‚‹List(sizeãŒ1ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
+     *                   *è¦ç´ 0:true<br>
      *         
      * <br>
-     * ˆø”value‚ªbooleanŒ^‚Ì”z—ñ(—v‘f”1)‚¾‚Á‚½ê‡AbooleanŒ^‚Ì’l‚ğ•Û‚·‚éList‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°valueãŒbooleanå‹ã®é…åˆ—(è¦ç´ æ•°1)ã ã£ãŸå ´åˆã€booleanå‹ã®å€¤ã‚’ä¿æŒã™ã‚‹ListãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testConvertPrimitiveArrayToList09() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         boolean[] value = {true};
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object result = ConvertUtil.convertPrimitiveArrayToList(value);
         
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertTrue(result instanceof List);
         List listResult = (List) result;
@@ -1785,35 +1785,35 @@ public class ConvertUtilTest extends TestCase {
      * testConvertPrimitiveArrayToList10()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FD,E
+     * è¦³ç‚¹ï¼šD,E
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:ˆÈ‰º‚Ì—v‘f‚ğ•Û‚·‚éboolean[]<br>
-     *                 *—v‘f0:true<br>
-     *                 *—v‘f1:false<br>
-     *                 *—v‘f2:true<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:ä»¥ä¸‹ã®è¦ç´ ã‚’ä¿æŒã™ã‚‹boolean[]<br>
+     *                 *è¦ç´ 0:true<br>
+     *                 *è¦ç´ 1:false<br>
+     *                 *è¦ç´ 2:true<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:ˆÈ‰º‚Ì—v‘f‚ğ•Û‚·‚éList(size‚ª3‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
-     *                   *—v‘f0:true<br>
-     *                   *—v‘f1:false<br>
-     *                   *—v‘f2:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:ä»¥ä¸‹ã®è¦ç´ ã‚’ä¿æŒã™ã‚‹List(sizeãŒ3ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
+     *                   *è¦ç´ 0:true<br>
+     *                   *è¦ç´ 1:false<br>
+     *                   *è¦ç´ 2:true<br>
      *         
      * <br>
-     * ˆø”value‚ªbooleanŒ^‚Ì”z—ñ(—v‘f”3)‚¾‚Á‚½ê‡AbooleanŒ^‚Ì’l‚ğ•Û‚·‚éList‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°valueãŒbooleanå‹ã®é…åˆ—(è¦ç´ æ•°3)ã ã£ãŸå ´åˆã€booleanå‹ã®å€¤ã‚’ä¿æŒã™ã‚‹ListãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testConvertPrimitiveArrayToList10() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         boolean[] value = {true, false, true};
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object result = ConvertUtil.convertPrimitiveArrayToList(value);
         
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertTrue(result instanceof List);
         List listResult = (List) result;
@@ -1827,29 +1827,29 @@ public class ConvertUtilTest extends TestCase {
      * testConvertPrimitiveArrayToList11()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FD,E
+     * è¦³ç‚¹ï¼šD,E
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:—v‘f‚ğ•Û‚µ‚È‚¢byte[]<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:è¦ç´ ã‚’ä¿æŒã—ãªã„byte[]<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:—v‘f‚ğ•Û‚µ‚È‚¢List (size‚ª0‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:è¦ç´ ã‚’ä¿æŒã—ãªã„List (sizeãŒ0ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
      *         
      * <br>
-     * ˆø”value‚ª—v‘f‚ğ•Û‚µ‚È‚¢byteŒ^‚Ì”z—ñ‚¾‚Á‚½ê‡A—v‘f‚ğ•Û‚µ‚È‚¢List‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°valueãŒè¦ç´ ã‚’ä¿æŒã—ãªã„byteå‹ã®é…åˆ—ã ã£ãŸå ´åˆã€è¦ç´ ã‚’ä¿æŒã—ãªã„ListãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testConvertPrimitiveArrayToList11() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         byte[] value = new byte[0];
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object result = ConvertUtil.convertPrimitiveArrayToList(value);
         
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertTrue(result instanceof List);
         List listResult = (List) result;
@@ -1860,31 +1860,31 @@ public class ConvertUtilTest extends TestCase {
      * testConvertPrimitiveArrayToList12()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FD,E
+     * è¦³ç‚¹ï¼šD,E
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:ˆÈ‰º‚Ì—v‘f‚ğ•Û‚·‚ébyte[]<br>
-     *                 *—v‘f0: (byte) 1<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:ä»¥ä¸‹ã®è¦ç´ ã‚’ä¿æŒã™ã‚‹byte[]<br>
+     *                 *è¦ç´ 0: (byte) 1<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:ˆÈ‰º‚Ì—v‘f‚ğ•Û‚·‚éList(size‚ª1‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
-     *                   *—v‘f0:"1"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:ä»¥ä¸‹ã®è¦ç´ ã‚’ä¿æŒã™ã‚‹List(sizeãŒ1ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
+     *                   *è¦ç´ 0:"1"<br>
      *         
      * <br>
-     * ˆø”value‚ªbyteŒ^‚Ì”z—ñ(—v‘f”1)‚¾‚Á‚½ê‡AStringŒ^‚É•ÏŠ·‚³‚ê‚½’l‚ğ•Û‚·‚éList‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°valueãŒbyteå‹ã®é…åˆ—(è¦ç´ æ•°1)ã ã£ãŸå ´åˆã€Stringå‹ã«å¤‰æ›ã•ã‚ŒãŸå€¤ã‚’ä¿æŒã™ã‚‹ListãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testConvertPrimitiveArrayToList12() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         byte[] value = {1};
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object result = ConvertUtil.convertPrimitiveArrayToList(value);
         
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertTrue(result instanceof List);
         List listResult = (List) result;
@@ -1896,35 +1896,35 @@ public class ConvertUtilTest extends TestCase {
      * testConvertPrimitiveArrayToList13()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FD,E
+     * è¦³ç‚¹ï¼šD,E
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:ˆÈ‰º‚Ì—v‘f‚ğ•Û‚·‚ébyte[]<br>
-     *                 *—v‘f0: (byte) 1<br>
-     *                 *—v‘f1: (byte) 2<br>
-     *                 *—v‘f2: (byte) 3<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:ä»¥ä¸‹ã®è¦ç´ ã‚’ä¿æŒã™ã‚‹byte[]<br>
+     *                 *è¦ç´ 0: (byte) 1<br>
+     *                 *è¦ç´ 1: (byte) 2<br>
+     *                 *è¦ç´ 2: (byte) 3<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:ˆÈ‰º‚Ì—v‘f‚ğ•Û‚·‚éList(size‚ª3‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
-     *                   *—v‘f0:"1"<br>
-     *                   *—v‘f1:"2"<br>
-     *                   *—v‘f2:"3"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:ä»¥ä¸‹ã®è¦ç´ ã‚’ä¿æŒã™ã‚‹List(sizeãŒ3ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
+     *                   *è¦ç´ 0:"1"<br>
+     *                   *è¦ç´ 1:"2"<br>
+     *                   *è¦ç´ 2:"3"<br>
      *         
      * <br>
-     * ˆø”value‚ªbyteŒ^‚Ì”z—ñ(—v‘f”3)‚¾‚Á‚½ê‡AStringŒ^‚É•ÏŠ·‚³‚ê‚½’l‚ğ•Û‚·‚éList‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°valueãŒbyteå‹ã®é…åˆ—(è¦ç´ æ•°3)ã ã£ãŸå ´åˆã€Stringå‹ã«å¤‰æ›ã•ã‚ŒãŸå€¤ã‚’ä¿æŒã™ã‚‹ListãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testConvertPrimitiveArrayToList13() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         byte[] value = {1, 2, 3};
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object result = ConvertUtil.convertPrimitiveArrayToList(value);
         
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertTrue(result instanceof List);
         List listResult = (List) result;
@@ -1938,29 +1938,29 @@ public class ConvertUtilTest extends TestCase {
      * testConvertPrimitiveArrayToList14()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FD,E
+     * è¦³ç‚¹ï¼šD,E
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:—v‘f‚ğ•Û‚µ‚È‚¢char[]<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:è¦ç´ ã‚’ä¿æŒã—ãªã„char[]<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:—v‘f‚ğ•Û‚µ‚È‚¢List (size‚ª0‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:è¦ç´ ã‚’ä¿æŒã—ãªã„List (sizeãŒ0ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
      *         
      * <br>
-     * ˆø”value‚ª—v‘f‚ğ•Û‚µ‚È‚¢charŒ^‚Ì”z—ñ‚¾‚Á‚½ê‡A—v‘f‚ğ•Û‚µ‚È‚¢List‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°valueãŒè¦ç´ ã‚’ä¿æŒã—ãªã„charå‹ã®é…åˆ—ã ã£ãŸå ´åˆã€è¦ç´ ã‚’ä¿æŒã—ãªã„ListãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testConvertPrimitiveArrayToList14() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         char[] value = new char[0];
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object result = ConvertUtil.convertPrimitiveArrayToList(value);
         
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertTrue(result instanceof List);
         List listResult = (List) result;
@@ -1971,31 +1971,31 @@ public class ConvertUtilTest extends TestCase {
      * testConvertPrimitiveArrayToList15()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FD,E
+     * è¦³ç‚¹ï¼šD,E
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:ˆÈ‰º‚Ì—v‘f‚ğ•Û‚·‚échar[]<br>
-     *                 *—v‘f0: 'A'<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:ä»¥ä¸‹ã®è¦ç´ ã‚’ä¿æŒã™ã‚‹char[]<br>
+     *                 *è¦ç´ 0: 'A'<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:ˆÈ‰º‚Ì—v‘f‚ğ•Û‚·‚éList(size‚ª1‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
-     *                   *—v‘f0: "A"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:ä»¥ä¸‹ã®è¦ç´ ã‚’ä¿æŒã™ã‚‹List(sizeãŒ1ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
+     *                   *è¦ç´ 0: "A"<br>
      *         
      * <br>
-     * ˆø”value‚ªcharŒ^‚Ì”z—ñ(—v‘f”1)‚¾‚Á‚½ê‡AStringŒ^‚É•ÏŠ·‚³‚ê‚½’l‚ğ•Û‚·‚éList‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°valueãŒcharå‹ã®é…åˆ—(è¦ç´ æ•°1)ã ã£ãŸå ´åˆã€Stringå‹ã«å¤‰æ›ã•ã‚ŒãŸå€¤ã‚’ä¿æŒã™ã‚‹ListãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testConvertPrimitiveArrayToList15() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         char[] value = {'A'};
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object result = ConvertUtil.convertPrimitiveArrayToList(value);
         
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertTrue(result instanceof List);
         List listResult = (List) result;
@@ -2007,35 +2007,35 @@ public class ConvertUtilTest extends TestCase {
      * testConvertPrimitiveArrayToList16()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FD,E
+     * è¦³ç‚¹ï¼šD,E
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:ˆÈ‰º‚Ì—v‘f‚ğ•Û‚·‚échar[]<br>
-     *                 *—v‘f0: 'A'<br>
-     *                 *—v‘f1: 'B'<br>
-     *                 *—v‘f2: 'C'<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:ä»¥ä¸‹ã®è¦ç´ ã‚’ä¿æŒã™ã‚‹char[]<br>
+     *                 *è¦ç´ 0: 'A'<br>
+     *                 *è¦ç´ 1: 'B'<br>
+     *                 *è¦ç´ 2: 'C'<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:ˆÈ‰º‚Ì—v‘f‚ğ•Û‚·‚éList(size‚ª3‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
-     *                   *—v‘f0: "A"<br>
-     *                   *—v‘f1: "B"<br>
-     *                   *—v‘f2: "C"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:ä»¥ä¸‹ã®è¦ç´ ã‚’ä¿æŒã™ã‚‹List(sizeãŒ3ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
+     *                   *è¦ç´ 0: "A"<br>
+     *                   *è¦ç´ 1: "B"<br>
+     *                   *è¦ç´ 2: "C"<br>
      *         
      * <br>
-     * ˆø”value‚ªcharŒ^‚Ì”z—ñ(—v‘f”3)‚¾‚Á‚½ê‡AStringŒ^‚É•ÏŠ·‚³‚ê‚½’l‚ğ•Û‚·‚éList‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°valueãŒcharå‹ã®é…åˆ—(è¦ç´ æ•°3)ã ã£ãŸå ´åˆã€Stringå‹ã«å¤‰æ›ã•ã‚ŒãŸå€¤ã‚’ä¿æŒã™ã‚‹ListãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testConvertPrimitiveArrayToList16() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         char[] value = {'A', 'B', 'C'};
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object result = ConvertUtil.convertPrimitiveArrayToList(value);
         
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertTrue(result instanceof List);
         List listResult = (List) result;
@@ -2049,29 +2049,29 @@ public class ConvertUtilTest extends TestCase {
      * testConvertPrimitiveArrayToList17()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FD,E
+     * è¦³ç‚¹ï¼šD,E
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:—v‘f‚ğ•Û‚µ‚È‚¢double[]<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:è¦ç´ ã‚’ä¿æŒã—ãªã„double[]<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:—v‘f‚ğ•Û‚µ‚È‚¢List (size‚ª0‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:è¦ç´ ã‚’ä¿æŒã—ãªã„List (sizeãŒ0ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
      *         
      * <br>
-     * ˆø”value‚ª—v‘f‚ğ•Û‚µ‚È‚¢doubleŒ^‚Ì”z—ñ‚¾‚Á‚½ê‡A—v‘f‚ğ•Û‚µ‚È‚¢List‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°valueãŒè¦ç´ ã‚’ä¿æŒã—ãªã„doubleå‹ã®é…åˆ—ã ã£ãŸå ´åˆã€è¦ç´ ã‚’ä¿æŒã—ãªã„ListãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testConvertPrimitiveArrayToList17() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         double[] value = new double[0];
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object result = ConvertUtil.convertPrimitiveArrayToList(value);
         
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertTrue(result instanceof List);
         List listResult = (List) result;
@@ -2082,31 +2082,31 @@ public class ConvertUtilTest extends TestCase {
      * testConvertPrimitiveArrayToList18()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FD,E
+     * è¦³ç‚¹ï¼šD,E
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:ˆÈ‰º‚Ì—v‘f‚ğ•Û‚·‚édouble[]<br>
-     *                 *—v‘f0: 123.456<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:ä»¥ä¸‹ã®è¦ç´ ã‚’ä¿æŒã™ã‚‹double[]<br>
+     *                 *è¦ç´ 0: 123.456<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:ˆÈ‰º‚Ì—v‘f‚ğ•Û‚·‚éList(size‚ª1‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
-     *                   *—v‘f0: "123.456"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:ä»¥ä¸‹ã®è¦ç´ ã‚’ä¿æŒã™ã‚‹List(sizeãŒ1ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
+     *                   *è¦ç´ 0: "123.456"<br>
      *         
      * <br>
-     * ˆø”value‚ªdoubleŒ^‚Ì”z—ñ(—v‘f”1)‚¾‚Á‚½ê‡AStringŒ^‚É•ÏŠ·‚³‚ê‚½’l‚ğ•Û‚·‚éList‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°valueãŒdoubleå‹ã®é…åˆ—(è¦ç´ æ•°1)ã ã£ãŸå ´åˆã€Stringå‹ã«å¤‰æ›ã•ã‚ŒãŸå€¤ã‚’ä¿æŒã™ã‚‹ListãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testConvertPrimitiveArrayToList18() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         double[] value = {123.456};
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object result = ConvertUtil.convertPrimitiveArrayToList(value);
         
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertTrue(result instanceof List);
         List listResult = (List) result;
@@ -2118,35 +2118,35 @@ public class ConvertUtilTest extends TestCase {
      * testConvertPrimitiveArrayToList19()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FD,E
+     * è¦³ç‚¹ï¼šD,E
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:ˆÈ‰º‚Ì—v‘f‚ğ•Û‚·‚édouble[]<br>
-     *                 *—v‘f0: 123.456<br>
-     *                 *—v‘f1: 12.34<br>
-     *                 *—v‘f2: 1.2<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:ä»¥ä¸‹ã®è¦ç´ ã‚’ä¿æŒã™ã‚‹double[]<br>
+     *                 *è¦ç´ 0: 123.456<br>
+     *                 *è¦ç´ 1: 12.34<br>
+     *                 *è¦ç´ 2: 1.2<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:ˆÈ‰º‚Ì—v‘f‚ğ•Û‚·‚éList(size‚ª3‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
-     *                   *—v‘f0: "123.456"<br>
-     *                   *—v‘f1: "12.34"<br>
-     *                   *—v‘f2: "1.2"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:ä»¥ä¸‹ã®è¦ç´ ã‚’ä¿æŒã™ã‚‹List(sizeãŒ3ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
+     *                   *è¦ç´ 0: "123.456"<br>
+     *                   *è¦ç´ 1: "12.34"<br>
+     *                   *è¦ç´ 2: "1.2"<br>
      *         
      * <br>
-     * ˆø”value‚ªdoubleŒ^‚Ì”z—ñ(—v‘f”3)‚¾‚Á‚½ê‡AStringŒ^‚É•ÏŠ·‚³‚ê‚½’l‚ğ•Û‚·‚éList‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°valueãŒdoubleå‹ã®é…åˆ—(è¦ç´ æ•°3)ã ã£ãŸå ´åˆã€Stringå‹ã«å¤‰æ›ã•ã‚ŒãŸå€¤ã‚’ä¿æŒã™ã‚‹ListãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testConvertPrimitiveArrayToList19() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         double[] value = {123.456, 12.34, 1.2};
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object result = ConvertUtil.convertPrimitiveArrayToList(value);
         
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertTrue(result instanceof List);
         List listResult = (List) result;
@@ -2160,29 +2160,29 @@ public class ConvertUtilTest extends TestCase {
      * testConvertPrimitiveArrayToList20()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FD,E
+     * è¦³ç‚¹ï¼šD,E
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:—v‘f‚ğ•Û‚µ‚È‚¢float[]<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:è¦ç´ ã‚’ä¿æŒã—ãªã„float[]<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:—v‘f‚ğ•Û‚µ‚È‚¢List (size‚ª0‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:è¦ç´ ã‚’ä¿æŒã—ãªã„List (sizeãŒ0ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
      *         
      * <br>
-     * ˆø”value‚ª—v‘f‚ğ•Û‚µ‚È‚¢floatŒ^‚Ì”z—ñ‚¾‚Á‚½ê‡A—v‘f‚ğ•Û‚µ‚È‚¢List‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°valueãŒè¦ç´ ã‚’ä¿æŒã—ãªã„floatå‹ã®é…åˆ—ã ã£ãŸå ´åˆã€è¦ç´ ã‚’ä¿æŒã—ãªã„ListãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testConvertPrimitiveArrayToList20() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         float[] value = new float[0];
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object result = ConvertUtil.convertPrimitiveArrayToList(value);
         
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertTrue(result instanceof List);
         List listResult = (List) result;
@@ -2193,31 +2193,31 @@ public class ConvertUtilTest extends TestCase {
      * testConvertPrimitiveArrayToList21()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FD,E
+     * è¦³ç‚¹ï¼šD,E
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:ˆÈ‰º‚Ì—v‘f‚ğ•Û‚·‚éfloat[]<br>
-     *                 *—v‘f0: 12.3F<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:ä»¥ä¸‹ã®è¦ç´ ã‚’ä¿æŒã™ã‚‹float[]<br>
+     *                 *è¦ç´ 0: 12.3F<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:ˆÈ‰º‚Ì—v‘f‚ğ•Û‚·‚éList(size‚ª1‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
-     *                   *—v‘f0: "12.3"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:ä»¥ä¸‹ã®è¦ç´ ã‚’ä¿æŒã™ã‚‹List(sizeãŒ1ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
+     *                   *è¦ç´ 0: "12.3"<br>
      *         
      * <br>
-     * ˆø”value‚ªfloatŒ^‚Ì”z—ñ(—v‘f”1)‚¾‚Á‚½ê‡AStringŒ^‚É•ÏŠ·‚³‚ê‚½’l‚ğ•Û‚·‚éList‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°valueãŒfloatå‹ã®é…åˆ—(è¦ç´ æ•°1)ã ã£ãŸå ´åˆã€Stringå‹ã«å¤‰æ›ã•ã‚ŒãŸå€¤ã‚’ä¿æŒã™ã‚‹ListãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testConvertPrimitiveArrayToList21() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         float[] value = {12.3F};
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object result = ConvertUtil.convertPrimitiveArrayToList(value);
         
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertTrue(result instanceof List);
         List listResult = (List) result;
@@ -2229,35 +2229,35 @@ public class ConvertUtilTest extends TestCase {
      * testConvertPrimitiveArrayToList22()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FD,E
+     * è¦³ç‚¹ï¼šD,E
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:ˆÈ‰º‚Ì—v‘f‚ğ•Û‚·‚éfloat[]<br>
-     *                 *—v‘f0: 12.3F<br>
-     *                 *—v‘f1: 1.2F<br>
-     *                 *—v‘f2: 1F<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:ä»¥ä¸‹ã®è¦ç´ ã‚’ä¿æŒã™ã‚‹float[]<br>
+     *                 *è¦ç´ 0: 12.3F<br>
+     *                 *è¦ç´ 1: 1.2F<br>
+     *                 *è¦ç´ 2: 1F<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:ˆÈ‰º‚Ì—v‘f‚ğ•Û‚·‚éList(size‚ª3‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
-     *                   *—v‘f0: "12.3"<br>
-     *                   *—v‘f1: "1.2"<br>
-     *                   *—v‘f2: "1.0"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:ä»¥ä¸‹ã®è¦ç´ ã‚’ä¿æŒã™ã‚‹List(sizeãŒ3ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
+     *                   *è¦ç´ 0: "12.3"<br>
+     *                   *è¦ç´ 1: "1.2"<br>
+     *                   *è¦ç´ 2: "1.0"<br>
      *         
      * <br>
-     * ˆø”value‚ªfloatŒ^‚Ì”z—ñ(—v‘f”3)‚¾‚Á‚½ê‡AStringŒ^‚É•ÏŠ·‚³‚ê‚½’l‚ğ•Û‚·‚éList‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°valueãŒfloatå‹ã®é…åˆ—(è¦ç´ æ•°3)ã ã£ãŸå ´åˆã€Stringå‹ã«å¤‰æ›ã•ã‚ŒãŸå€¤ã‚’ä¿æŒã™ã‚‹ListãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testConvertPrimitiveArrayToList22() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         float[] value = {12.3F, 1.2F, 1F};
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object result = ConvertUtil.convertPrimitiveArrayToList(value);
         
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertTrue(result instanceof List);
         List listResult = (List) result;
@@ -2271,29 +2271,29 @@ public class ConvertUtilTest extends TestCase {
      * testConvertPrimitiveArrayToList23()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FD,E
+     * è¦³ç‚¹ï¼šD,E
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:—v‘f‚ğ•Û‚µ‚È‚¢int[]<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:è¦ç´ ã‚’ä¿æŒã—ãªã„int[]<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:—v‘f‚ğ•Û‚µ‚È‚¢List (size‚ª0‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:è¦ç´ ã‚’ä¿æŒã—ãªã„List (sizeãŒ0ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
      *         
      * <br>
-     * ˆø”value‚ª—v‘f‚ğ•Û‚µ‚È‚¢intŒ^‚Ì”z—ñ‚¾‚Á‚½ê‡A—v‘f‚ğ•Û‚µ‚È‚¢List‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°valueãŒè¦ç´ ã‚’ä¿æŒã—ãªã„intå‹ã®é…åˆ—ã ã£ãŸå ´åˆã€è¦ç´ ã‚’ä¿æŒã—ãªã„ListãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testConvertPrimitiveArrayToList23() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         int[] value = new int[0];
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object result = ConvertUtil.convertPrimitiveArrayToList(value);
         
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertTrue(result instanceof List);
         List listResult = (List) result;
@@ -2304,31 +2304,31 @@ public class ConvertUtilTest extends TestCase {
      * testConvertPrimitiveArrayToList24()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FD,E
+     * è¦³ç‚¹ï¼šD,E
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:ˆÈ‰º‚Ì—v‘f‚ğ•Û‚·‚éint[]<br>
-     *                 *—v‘f0: 1<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:ä»¥ä¸‹ã®è¦ç´ ã‚’ä¿æŒã™ã‚‹int[]<br>
+     *                 *è¦ç´ 0: 1<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:ˆÈ‰º‚Ì—v‘f‚ğ•Û‚·‚éList(size‚ª1‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
-     *                   *—v‘f0: "1"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:ä»¥ä¸‹ã®è¦ç´ ã‚’ä¿æŒã™ã‚‹List(sizeãŒ1ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
+     *                   *è¦ç´ 0: "1"<br>
      *         
      * <br>
-     * ˆø”value‚ªintŒ^‚Ì”z—ñ(—v‘f”1)‚¾‚Á‚½ê‡AStringŒ^‚É•ÏŠ·‚³‚ê‚½’l‚ğ•Û‚·‚éList‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°valueãŒintå‹ã®é…åˆ—(è¦ç´ æ•°1)ã ã£ãŸå ´åˆã€Stringå‹ã«å¤‰æ›ã•ã‚ŒãŸå€¤ã‚’ä¿æŒã™ã‚‹ListãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testConvertPrimitiveArrayToList24() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         int[] value = {1};
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object result = ConvertUtil.convertPrimitiveArrayToList(value);
         
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertTrue(result instanceof List);
         List listResult = (List) result;
@@ -2340,35 +2340,35 @@ public class ConvertUtilTest extends TestCase {
      * testConvertPrimitiveArrayToList25()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FD,E
+     * è¦³ç‚¹ï¼šD,E
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:ˆÈ‰º‚Ì—v‘f‚ğ•Û‚·‚éint[]<br>
-     *                 *—v‘f0: 1<br>
-     *                 *—v‘f1: 2<br>
-     *                 *—v‘f2: 3<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:ä»¥ä¸‹ã®è¦ç´ ã‚’ä¿æŒã™ã‚‹int[]<br>
+     *                 *è¦ç´ 0: 1<br>
+     *                 *è¦ç´ 1: 2<br>
+     *                 *è¦ç´ 2: 3<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:ˆÈ‰º‚Ì—v‘f‚ğ•Û‚·‚éList(size‚ª3‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
-     *                   *—v‘f0: "1"<br>
-     *                   *—v‘f1: "2"<br>
-     *                   *—v‘f2: "3"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:ä»¥ä¸‹ã®è¦ç´ ã‚’ä¿æŒã™ã‚‹List(sizeãŒ3ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
+     *                   *è¦ç´ 0: "1"<br>
+     *                   *è¦ç´ 1: "2"<br>
+     *                   *è¦ç´ 2: "3"<br>
      *         
      * <br>
-     * ˆø”value‚ªintŒ^‚Ì”z—ñ(—v‘f”3)‚¾‚Á‚½ê‡AStringŒ^‚É•ÏŠ·‚³‚ê‚½’l‚ğ•Û‚·‚éList‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°valueãŒintå‹ã®é…åˆ—(è¦ç´ æ•°3)ã ã£ãŸå ´åˆã€Stringå‹ã«å¤‰æ›ã•ã‚ŒãŸå€¤ã‚’ä¿æŒã™ã‚‹ListãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testConvertPrimitiveArrayToList25() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         int[] value = {1, 2, 3};
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object result = ConvertUtil.convertPrimitiveArrayToList(value);
         
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertTrue(result instanceof List);
         List listResult = (List) result;
@@ -2382,29 +2382,29 @@ public class ConvertUtilTest extends TestCase {
      * testConvertPrimitiveArrayToList26()
      * <br><br>
      * 
-     * (³íŒn) or (ˆÙíŒn)
+     * (æ­£å¸¸ç³») or (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FD,E
+     * è¦³ç‚¹ï¼šD,E
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:—v‘f‚ğ•Û‚µ‚È‚¢long[]<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:è¦ç´ ã‚’ä¿æŒã—ãªã„long[]<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:—v‘f‚ğ•Û‚µ‚È‚¢List (size‚ª0‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:è¦ç´ ã‚’ä¿æŒã—ãªã„List (sizeãŒ0ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
      *         
      * <br>
-     * ˆø”value‚ª—v‘f‚ğ•Û‚µ‚È‚¢longŒ^‚Ì”z—ñ‚¾‚Á‚½ê‡A—v‘f‚ğ•Û‚µ‚È‚¢List‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°valueãŒè¦ç´ ã‚’ä¿æŒã—ãªã„longå‹ã®é…åˆ—ã ã£ãŸå ´åˆã€è¦ç´ ã‚’ä¿æŒã—ãªã„ListãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testConvertPrimitiveArrayToList26() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         long[] value = new long[0];
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object result = ConvertUtil.convertPrimitiveArrayToList(value);
         
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertTrue(result instanceof List);
         List listResult = (List) result;
@@ -2415,31 +2415,31 @@ public class ConvertUtilTest extends TestCase {
      * testConvertPrimitiveArrayToList27()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FD,E
+     * è¦³ç‚¹ï¼šD,E
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:ˆÈ‰º‚Ì—v‘f‚ğ•Û‚·‚élobg[]<br>
-     *                 *—v‘f0: 1L<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:ä»¥ä¸‹ã®è¦ç´ ã‚’ä¿æŒã™ã‚‹lobg[]<br>
+     *                 *è¦ç´ 0: 1L<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:ˆÈ‰º‚Ì—v‘f‚ğ•Û‚·‚éList(size‚ª1‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
-     *                   *—v‘f0: "1"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:ä»¥ä¸‹ã®è¦ç´ ã‚’ä¿æŒã™ã‚‹List(sizeãŒ1ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
+     *                   *è¦ç´ 0: "1"<br>
      *         
      * <br>
-     * ˆø”value‚ªlongŒ^‚Ì”z—ñ(—v‘f”1)‚¾‚Á‚½ê‡AStringŒ^‚É•ÏŠ·‚³‚ê‚½’l‚ğ•Û‚·‚éList‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°valueãŒlongå‹ã®é…åˆ—(è¦ç´ æ•°1)ã ã£ãŸå ´åˆã€Stringå‹ã«å¤‰æ›ã•ã‚ŒãŸå€¤ã‚’ä¿æŒã™ã‚‹ListãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testConvertPrimitiveArrayToList27() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         long[] value = {1L};
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object result = ConvertUtil.convertPrimitiveArrayToList(value);
         
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertTrue(result instanceof List);
         List listResult = (List) result;
@@ -2451,35 +2451,35 @@ public class ConvertUtilTest extends TestCase {
      * testConvertPrimitiveArrayToList28()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FD,E
+     * è¦³ç‚¹ï¼šD,E
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:ˆÈ‰º‚Ì—v‘f‚ğ•Û‚·‚élong[]<br>
-     *                 *—v‘f0: 1L<br>
-     *                 *—v‘f1: 2L<br>
-     *                 *—v‘f2: 3L<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:ä»¥ä¸‹ã®è¦ç´ ã‚’ä¿æŒã™ã‚‹long[]<br>
+     *                 *è¦ç´ 0: 1L<br>
+     *                 *è¦ç´ 1: 2L<br>
+     *                 *è¦ç´ 2: 3L<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:ˆÈ‰º‚Ì—v‘f‚ğ•Û‚·‚éList(size‚ª3‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
-     *                   *—v‘f0: "1"<br>
-     *                   *—v‘f1: "2"<br>
-     *                   *—v‘f2: "3"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:ä»¥ä¸‹ã®è¦ç´ ã‚’ä¿æŒã™ã‚‹List(sizeãŒ3ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
+     *                   *è¦ç´ 0: "1"<br>
+     *                   *è¦ç´ 1: "2"<br>
+     *                   *è¦ç´ 2: "3"<br>
      *         
      * <br>
-     * ˆø”value‚ªlongŒ^‚Ì”z—ñ(—v‘f”3)‚¾‚Á‚½ê‡AStringŒ^‚É•ÏŠ·‚³‚ê‚½’l‚ğ•Û‚·‚éList‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°valueãŒlongå‹ã®é…åˆ—(è¦ç´ æ•°3)ã ã£ãŸå ´åˆã€Stringå‹ã«å¤‰æ›ã•ã‚ŒãŸå€¤ã‚’ä¿æŒã™ã‚‹ListãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testConvertPrimitiveArrayToList28() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         long[] value = {1L, 2L, 3L};
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object result = ConvertUtil.convertPrimitiveArrayToList(value);
         
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertTrue(result instanceof List);
         List listResult = (List) result;
@@ -2493,29 +2493,29 @@ public class ConvertUtilTest extends TestCase {
      * testConvertPrimitiveArrayToList29()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FD,E
+     * è¦³ç‚¹ï¼šD,E
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:—v‘f‚ğ•Û‚µ‚È‚¢short[]<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:è¦ç´ ã‚’ä¿æŒã—ãªã„short[]<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:—v‘f‚ğ•Û‚µ‚È‚¢List (size‚ª0‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:è¦ç´ ã‚’ä¿æŒã—ãªã„List (sizeãŒ0ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
      *         
      * <br>
-     * ˆø”value‚ª—v‘f‚ğ•Û‚µ‚È‚¢shortŒ^‚Ì”z—ñ‚¾‚Á‚½ê‡A—v‘f‚ğ•Û‚µ‚È‚¢List‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°valueãŒè¦ç´ ã‚’ä¿æŒã—ãªã„shortå‹ã®é…åˆ—ã ã£ãŸå ´åˆã€è¦ç´ ã‚’ä¿æŒã—ãªã„ListãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testConvertPrimitiveArrayToList29() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         short[] value = new short[0];
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object result = ConvertUtil.convertPrimitiveArrayToList(value);
         
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertTrue(result instanceof List);
         List listResult = (List) result;
@@ -2527,31 +2527,31 @@ public class ConvertUtilTest extends TestCase {
      * testConvertPrimitiveArrayToList30()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FD,E
+     * è¦³ç‚¹ï¼šD,E
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:ˆÈ‰º‚Ì—v‘f‚ğ•Û‚·‚éshort[]<br>
-     *                 *—v‘f0: (short) 1<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:ä»¥ä¸‹ã®è¦ç´ ã‚’ä¿æŒã™ã‚‹short[]<br>
+     *                 *è¦ç´ 0: (short) 1<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:ˆÈ‰º‚Ì—v‘f‚ğ•Û‚·‚éList(size‚ª1‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
-     *                   *—v‘f0: "1"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:ä»¥ä¸‹ã®è¦ç´ ã‚’ä¿æŒã™ã‚‹List(sizeãŒ1ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
+     *                   *è¦ç´ 0: "1"<br>
      *         
      * <br>
-     * ˆø”value‚ªshortŒ^‚Ì”z—ñ(—v‘f”1)‚¾‚Á‚½ê‡AStringŒ^‚É•ÏŠ·‚³‚ê‚½’l‚ğ•Û‚·‚éList‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°valueãŒshortå‹ã®é…åˆ—(è¦ç´ æ•°1)ã ã£ãŸå ´åˆã€Stringå‹ã«å¤‰æ›ã•ã‚ŒãŸå€¤ã‚’ä¿æŒã™ã‚‹ListãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testConvertPrimitiveArrayToList30() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         short[] value = {(short) 1};
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object result = ConvertUtil.convertPrimitiveArrayToList(value);
         
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertTrue(result instanceof List);
         List listResult = (List) result;
@@ -2562,35 +2562,35 @@ public class ConvertUtilTest extends TestCase {
      * testConvertPrimitiveArrayToList31()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FD,E
+     * è¦³ç‚¹ï¼šD,E
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:ˆÈ‰º‚Ì—v‘f‚ğ•Û‚·‚éshort[]<br>
-     *                 *—v‘f0: (short) 1<br>
-     *                 *—v‘f1: (short) 2<br>
-     *                 *—v‘f2: (short) 3<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:ä»¥ä¸‹ã®è¦ç´ ã‚’ä¿æŒã™ã‚‹short[]<br>
+     *                 *è¦ç´ 0: (short) 1<br>
+     *                 *è¦ç´ 1: (short) 2<br>
+     *                 *è¦ç´ 2: (short) 3<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:ˆÈ‰º‚Ì—v‘f‚ğ•Û‚·‚éList(size‚ª3‚Å‚ ‚é‚±‚Æ‚ğŠm”F)<br>
-     *                   *—v‘f0: "1"<br>
-     *                   *—v‘f1: "2"<br>
-     *                   *—v‘f2: "3"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:ä»¥ä¸‹ã®è¦ç´ ã‚’ä¿æŒã™ã‚‹List(sizeãŒ3ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª)<br>
+     *                   *è¦ç´ 0: "1"<br>
+     *                   *è¦ç´ 1: "2"<br>
+     *                   *è¦ç´ 2: "3"<br>
      *         
      * <br>
-     * ˆø”value‚ªshortŒ^‚Ì”z—ñ(—v‘f”3)‚¾‚Á‚½ê‡AStringŒ^‚É•ÏŠ·‚³‚ê‚½’l‚ğ•Û‚·‚éList‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°valueãŒshortå‹ã®é…åˆ—(è¦ç´ æ•°3)ã ã£ãŸå ´åˆã€Stringå‹ã«å¤‰æ›ã•ã‚ŒãŸå€¤ã‚’ä¿æŒã™ã‚‹ListãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testConvertPrimitiveArrayToList31() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         short[] value = {(short) 1, (short) 2, (short) 3};
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object result = ConvertUtil.convertPrimitiveArrayToList(value);
         
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertTrue(result instanceof List);
         List listResult = (List) result;
@@ -2604,27 +2604,27 @@ public class ConvertUtilTest extends TestCase {
      * testToListOfMap01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FD, E
+     * è¦³ç‚¹ï¼šD, E
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) List<Map<String, Object>:—v‘f‚ğ‚½‚È‚¢Object[]<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) List<Map<String, Object>:è¦ç´ ã‚’æŒãŸãªã„Object[]<br>
      *         
      * <br>
-     * ˆø”obj‚ªnull‚Ìê‡A—v‘f‚ğ‚½‚È‚¢List<Map<String,Object>ƒCƒ“ƒXƒ^ƒ“ƒX‚ª•Ô‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒg
+     * å¼•æ•°objãŒnullã®å ´åˆã€è¦ç´ ã‚’æŒãŸãªã„List<Map<String,Object>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ãŒè¿”ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆ
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testToListOfMap01() throws Exception {
-        // ‘Oˆ—
-        // ƒeƒXƒgÀ{
+        // å‰å‡¦ç†
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         List<Map<String, Object>> actual = ConvertUtil.toListOfMap(null);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(actual);
         assertTrue(actual.isEmpty());
     }
@@ -2633,35 +2633,35 @@ public class ConvertUtilTest extends TestCase {
      * testToListOfMap02()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FD, E
+     * è¦³ç‚¹ï¼šD, E
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:3—v‘f‚ğ‚ÂJavaBeanƒXƒ^ƒu‚ÌƒŠƒXƒg<br>
-     *                —v‘f0=JavaBeanƒXƒ^ƒuƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                –ƒtƒB[ƒ‹ƒhA="value00"<br>
-     *                —v‘f1=JavaBeanƒXƒ^ƒuƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                –ƒtƒB[ƒ‹ƒhA="value01"<br>
-     *                —v‘f2=JavaBeanƒXƒ^ƒuƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                –ƒtƒB[ƒ‹ƒhA="value02"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:3è¦ç´ ã‚’æŒã¤JavaBeanã‚¹ã‚¿ãƒ–ã®ãƒªã‚¹ãƒˆ<br>
+     *                è¦ç´ 0=JavaBeanã‚¹ã‚¿ãƒ–ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                ï¼Šãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰A="value00"<br>
+     *                è¦ç´ 1=JavaBeanã‚¹ã‚¿ãƒ–ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                ï¼Šãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰A="value01"<br>
+     *                è¦ç´ 2=JavaBeanã‚¹ã‚¿ãƒ–ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                ï¼Šãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰A="value02"<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) List<Map<String, Object>:
-     *      3—v‘f‚ğ‚ÂList<Map<String, Object>>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) List<Map<String, Object>:
+     *      3è¦ç´ ã‚’æŒã¤List<Map<String, Object>>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                  <br>
-     *                  —v‘f0-=Map<String,Object>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                  –key="a",value="value00"<br>
-     *                  —v‘f1=Map<String,Object>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                  –key="a",value="value01"<br>
-     *                  —v‘f2=Map<String,Object>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                  –key="a",value="value02"<br>
+     *                  è¦ç´ 0-=Map<String,Object>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                  ï¼Škey="a",value="value00"<br>
+     *                  è¦ç´ 1=Map<String,Object>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                  ï¼Škey="a",value="value01"<br>
+     *                  è¦ç´ 2=Map<String,Object>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                  ï¼Škey="a",value="value02"<br>
      *         
      * <br>
-     * ˆø”obj‚ª•¡”‚ÌJavaBean—v‘f‚ğ‚ÂƒŠƒXƒg‚Ìê‡A
-     * 3‚Â‚Ì—v‘f‚ğ‚ÂList<Map<String,Object>ƒCƒ“ƒXƒ^ƒ“ƒX‚ª•Ô‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒg
+     * å¼•æ•°objãŒè¤‡æ•°ã®JavaBeanè¦ç´ ã‚’æŒã¤ãƒªã‚¹ãƒˆã®å ´åˆã€
+     * 3ã¤ã®è¦ç´ ã‚’æŒã¤List<Map<String,Object>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ãŒè¿”ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆ
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testToListOfMap02() throws Exception {
 
@@ -2676,10 +2676,10 @@ public class ConvertUtilTest extends TestCase {
         bean03.setA("value02");
         obj.add(bean03);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         List<Map<String, Object>> actual = ConvertUtil.toListOfMap(obj);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(actual);
         assertEquals(3, actual.size());
         assertEquals("value00", actual.get(0).get("a"));
@@ -2691,35 +2691,35 @@ public class ConvertUtilTest extends TestCase {
      * testToListOfMap03()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FD, E
+     * è¦³ç‚¹ï¼šD, E
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:3—v‘f‚ğ‚ÂJavaBeanƒXƒ^ƒu”z—ñ<br>
-     *                —v‘f0=JavaBeanƒXƒ^ƒuƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                –ƒtƒB[ƒ‹ƒhA="value00"<br>
-     *                —v‘f1=JavaBeanƒXƒ^ƒuƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                –ƒtƒB[ƒ‹ƒhA="value01"<br>
-     *                —v‘f2=JavaBeanƒXƒ^ƒuƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                –ƒtƒB[ƒ‹ƒhA="value02"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:3è¦ç´ ã‚’æŒã¤JavaBeanã‚¹ã‚¿ãƒ–é…åˆ—<br>
+     *                è¦ç´ 0=JavaBeanã‚¹ã‚¿ãƒ–ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                ï¼Šãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰A="value00"<br>
+     *                è¦ç´ 1=JavaBeanã‚¹ã‚¿ãƒ–ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                ï¼Šãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰A="value01"<br>
+     *                è¦ç´ 2=JavaBeanã‚¹ã‚¿ãƒ–ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                ï¼Šãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰A="value02"<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) List<Map<String, Object>:
-     * 3—v‘f‚ğ‚ÂList<Map<String, Object>>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) List<Map<String, Object>:
+     * 3è¦ç´ ã‚’æŒã¤List<Map<String, Object>>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                  <br>
-     *                  —v‘f0-=Map<String,Object>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                  –key="a",value="value00"<br>
-     *                  —v‘f1=Map<String,Object>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                  –key="a",value="value01"<br>
-     *                  —v‘f2=Map<String,Object>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                  –key="a",value="value02"<br>
+     *                  è¦ç´ 0-=Map<String,Object>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                  ï¼Škey="a",value="value00"<br>
+     *                  è¦ç´ 1=Map<String,Object>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                  ï¼Škey="a",value="value01"<br>
+     *                  è¦ç´ 2=Map<String,Object>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                  ï¼Škey="a",value="value02"<br>
      *         
      * <br>
-     * ˆø”obj‚ª•¡”‚ÌJavaBean—v‘f‚ğ‚Â”z—ñ‚Ìê‡A
-     * 3‚Â‚Ì—v‘f‚ğ‚ÂList<Map<String,Object>ƒCƒ“ƒXƒ^ƒ“ƒX‚ª•Ô‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒg
+     * å¼•æ•°objãŒè¤‡æ•°ã®JavaBeanè¦ç´ ã‚’æŒã¤é…åˆ—ã®å ´åˆã€
+     * 3ã¤ã®è¦ç´ ã‚’æŒã¤List<Map<String,Object>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ãŒè¿”ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆ
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testToListOfMap03() throws Exception {
         ConvertUtil_Stub01 bean = new ConvertUtil_Stub01();
@@ -2732,10 +2732,10 @@ public class ConvertUtilTest extends TestCase {
         ConvertUtil_Stub01[] obj =
             new ConvertUtil_Stub01[] {bean, bean02, bean03};
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         List<Map<String, Object>> actual = ConvertUtil.toListOfMap(obj);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(actual);
         assertEquals(3, actual.size());
         assertEquals("value00", actual.get(0).get("a"));
@@ -2747,36 +2747,36 @@ public class ConvertUtilTest extends TestCase {
      * testToListOfMap04()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FD, E
+     * è¦³ç‚¹ï¼šD, E
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:3—v‘f‚ğ‚ÂList<Map<String, Object>>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:3è¦ç´ ã‚’æŒã¤List<Map<String, Object>>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                <br>
-     *                —v‘f0=Map<String,Object>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                –key="a",value="value00"<br>
-     *                —v‘f1=Map<String,Object>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                –key="a",value="value01"<br>
-     *                —v‘f2=Map<String,Object>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                –key="a",value="value02"<br>
+     *                è¦ç´ 0=Map<String,Object>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                ï¼Škey="a",value="value00"<br>
+     *                è¦ç´ 1=Map<String,Object>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                ï¼Škey="a",value="value01"<br>
+     *                è¦ç´ 2=Map<String,Object>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                ï¼Škey="a",value="value02"<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) List<Map<String, Object>:
-     *      3—v‘f‚ğ‚ÂList<Map<String, Object>>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) List<Map<String, Object>:
+     *      3è¦ç´ ã‚’æŒã¤List<Map<String, Object>>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                  <br>
-     *                  —v‘f0-=Map<String,Object>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                  –key="a",value="value00"<br>
-     *                  —v‘f1=Map<String,Object>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                  –key="a",value="value01"<br>
-     *                  —v‘f2=Map<String,Object>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                  –key="a",value="value02"<br>
+     *                  è¦ç´ 0-=Map<String,Object>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                  ï¼Škey="a",value="value00"<br>
+     *                  è¦ç´ 1=Map<String,Object>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                  ï¼Škey="a",value="value01"<br>
+     *                  è¦ç´ 2=Map<String,Object>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                  ï¼Škey="a",value="value02"<br>
      *         
      * <br>
-     * ˆø”obj‚ª•¡”‚ÌMap—v‘f‚ğ‚ÂƒŠƒXƒg‚Ìê‡A
-     * 3‚Â‚Ì—v‘f‚ğ‚ÂList<Map<String,Object>ƒCƒ“ƒXƒ^ƒ“ƒX‚ª•Ô‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒg
+     * å¼•æ•°objãŒè¤‡æ•°ã®Mapè¦ç´ ã‚’æŒã¤ãƒªã‚¹ãƒˆã®å ´åˆã€
+     * 3ã¤ã®è¦ç´ ã‚’æŒã¤List<Map<String,Object>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ãŒè¿”ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆ
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testToListOfMap04() throws Exception {
         List<Map<String, Object>> obj = new ArrayList<Map<String, Object>>();
@@ -2791,10 +2791,10 @@ public class ConvertUtilTest extends TestCase {
         obj.add(row03);
 
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         List<Map<String, Object>> actual = ConvertUtil.toListOfMap(obj);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(actual);
         assertEquals(3, actual.size());
         assertEquals("value00", actual.get(0).get("a"));
@@ -2806,36 +2806,36 @@ public class ConvertUtilTest extends TestCase {
      * testToListOfMap05()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FD, E
+     * è¦³ç‚¹ï¼šD, E
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:3—v‘f‚ğ‚ÂMap<String, Object>ƒCƒ“ƒXƒ^ƒ“ƒX‚Ì”z—ñ<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:3è¦ç´ ã‚’æŒã¤Map<String, Object>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã®é…åˆ—<br>
      *                <br>
-     *                —v‘f0=Map<String,Object>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                –key="a",value="value00"<br>
-     *                —v‘f1=Map<String,Object>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                –key="a",value="value01"<br>
-     *                —v‘f2=Map<String,Object>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                –key="a",value="value02"<br>
+     *                è¦ç´ 0=Map<String,Object>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                ï¼Škey="a",value="value00"<br>
+     *                è¦ç´ 1=Map<String,Object>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                ï¼Škey="a",value="value01"<br>
+     *                è¦ç´ 2=Map<String,Object>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                ï¼Škey="a",value="value02"<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) List<Map<String, Object>:
-     *      3—v‘f‚ğ‚ÂList<Map<String, Object>>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) List<Map<String, Object>:
+     *      3è¦ç´ ã‚’æŒã¤List<Map<String, Object>>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                  <br>
-     *                  —v‘f0-=Map<String,Object>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                  –key="a",value="value00"<br>
-     *                  —v‘f1=Map<String,Object>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                  –key="a",value="value01"<br>
-     *                  —v‘f2=Map<String,Object>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                  –key="a",value="value02"<br>
+     *                  è¦ç´ 0-=Map<String,Object>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                  ï¼Škey="a",value="value00"<br>
+     *                  è¦ç´ 1=Map<String,Object>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                  ï¼Škey="a",value="value01"<br>
+     *                  è¦ç´ 2=Map<String,Object>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                  ï¼Škey="a",value="value02"<br>
      *         
      * <br>
-     * ˆø”obj‚ª•¡”‚ÌMap—v‘f‚ğ‚Â”z—ñ‚Ìê‡A
-     * 3‚Â‚Ì—v‘f‚ğ‚ÂList<Map<String,Object>ƒCƒ“ƒXƒ^ƒ“ƒX‚ª•Ô‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒg
+     * å¼•æ•°objãŒè¤‡æ•°ã®Mapè¦ç´ ã‚’æŒã¤é…åˆ—ã®å ´åˆã€
+     * 3ã¤ã®è¦ç´ ã‚’æŒã¤List<Map<String,Object>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ãŒè¿”ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆ
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testToListOfMap05() throws Exception {
         Map<String, Object> row = new HashMap<String, Object>();
@@ -2848,10 +2848,10 @@ public class ConvertUtilTest extends TestCase {
         Map[] obj = new Map[] {row, row02, row03};
 
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         List<Map<String, Object>> actual = ConvertUtil.toListOfMap(obj);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(actual);
         assertEquals(3, actual.size());
         assertEquals("value00", actual.get(0).get("a"));
@@ -2863,35 +2863,35 @@ public class ConvertUtilTest extends TestCase {
      * testToListOfMap06()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:JavaBeanƒXƒ^ƒuƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                –ƒtƒB[ƒ‹ƒhA="value00"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:JavaBeanã‚¹ã‚¿ãƒ–ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                ï¼Šãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰A="value00"<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) List<Map<String, Object>:
-     *      1—v‘f‚ğ‚ÂList<Map<String, Object>>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) List<Map<String, Object>:
+     *      1è¦ç´ ã‚’æŒã¤List<Map<String, Object>>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                  <br>
-     *                  —v‘f0-=Map<String,Object>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                  –key=A,value="value00"<br>
+     *                  è¦ç´ 0-=Map<String,Object>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                  ï¼Škey=A,value="value00"<br>
      *         
      * <br>
-     * ˆø”obj‚ªJavaBean‚Ìê‡A1‚Â‚Ì—v‘f‚ğ‚Â
-     * List<Map<String,Object>ƒCƒ“ƒXƒ^ƒ“ƒX‚ª•Ô‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒg
+     * å¼•æ•°objãŒJavaBeanã®å ´åˆã€1ã¤ã®è¦ç´ ã‚’æŒã¤
+     * List<Map<String,Object>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ãŒè¿”ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆ
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testToListOfMap06() throws Exception {
         ConvertUtil_Stub01 obj = new ConvertUtil_Stub01();
         obj.setA("value00");
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         List<Map<String, Object>> actual = ConvertUtil.toListOfMap(obj);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(actual);
         assertEquals(1, actual.size());
         assertEquals("value00", actual.get(0).get("a"));
@@ -2901,37 +2901,37 @@ public class ConvertUtilTest extends TestCase {
      * testToListOfMap08()
      * <br><br>
      * 
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:JavaBeanƒXƒ^ƒuƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                –ƒtƒB[ƒ‹ƒhA="value00"<br>
-     *         (ó‘Ô) PropertyUtils#describe‚ÌÀsŒ‹‰Ê:
-     *                  InvocationTargetException‚ğƒXƒ[
-     *                    ¦JavaBean‚Ìgetter‚ÅRuntimeException‚ğƒXƒ[<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:JavaBeanã‚¹ã‚¿ãƒ–ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                ï¼Šãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰A="value00"<br>
+     *         (çŠ¶æ…‹) PropertyUtils#describeã®å®Ÿè¡Œçµæœ:
+     *                  InvocationTargetExceptionã‚’ã‚¹ãƒ­ãƒ¼
+     *                    â€»JavaBeanã®getterã§RuntimeExceptionã‚’ã‚¹ãƒ­ãƒ¼<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    ƒ‰ƒbƒv‚³‚ê‚½—áŠOFInvocationTargetException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ãƒ©ãƒƒãƒ—ã•ã‚ŒãŸä¾‹å¤–ï¼šInvocationTargetException<br>
      *         
      * <br>
-     * PropertyUtils#descrive‚ÅInvocationTargetException‚ªƒXƒ[‚³‚ê‚½ê‡‚ÌƒeƒXƒg
+     * PropertyUtils#descriveã§InvocationTargetExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚ŒãŸå ´åˆã®ãƒ†ã‚¹ãƒˆ
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testToListOfMap08() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         ConvertUtil_Stub02 obj = new ConvertUtil_Stub02();
         obj.setA("value00");
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             ConvertUtil.toListOfMap(obj);
             fail();
         } catch (IllegalArgumentException e) {
-            // ”»’è
+            // åˆ¤å®š
             assertEquals(IllegalArgumentException.class.getName(),
                     e.getClass().getName());
             assertTrue(e.getCause() instanceof InvocationTargetException);
@@ -2943,28 +2943,28 @@ public class ConvertUtilTest extends TestCase {
      * testToListOfMap09()
      * <br><br>
      * 
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:JavaBeanƒXƒ^ƒuƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                –ƒtƒB[ƒ‹ƒhA="value00"<br>
-     *         (ó‘Ô) PropertyUtils#describe‚ÌÀsŒ‹‰Ê:
-     *                  IllegalAccessException‚ğƒXƒ[
-     *                    ¦PropertyUtilsBean‚ÌƒXƒ^ƒu‚ÅIllegalAccessException‚ğƒXƒ[<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:JavaBeanã‚¹ã‚¿ãƒ–ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                ï¼Šãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰A="value00"<br>
+     *         (çŠ¶æ…‹) PropertyUtils#describeã®å®Ÿè¡Œçµæœ:
+     *                  IllegalAccessExceptionã‚’ã‚¹ãƒ­ãƒ¼
+     *                    â€»PropertyUtilsBeanã®ã‚¹ã‚¿ãƒ–ã§IllegalAccessExceptionã‚’ã‚¹ãƒ­ãƒ¼<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    ƒ‰ƒbƒv‚³‚ê‚½—áŠOFIllegalAccessException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ãƒ©ãƒƒãƒ—ã•ã‚ŒãŸä¾‹å¤–ï¼šIllegalAccessException<br>
      *         
      * <br>
-     * PropertyUtils#descrive‚ÅIllegalAccessException‚ªƒXƒ[‚³‚ê‚½ê‡‚ÌƒeƒXƒg
+     * PropertyUtils#descriveã§IllegalAccessExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚ŒãŸå ´åˆã®ãƒ†ã‚¹ãƒˆ
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testToListOfMap09() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         List<ConvertUtil_Stub01> obj = new ArrayList<ConvertUtil_Stub01>();
         ConvertUtil_Stub01 bean = new ConvertUtil_Stub01();
         bean.setA("value00");
@@ -2974,11 +2974,11 @@ public class ConvertUtilTest extends TestCase {
                 new ConvertUtil_PropertyUtilsBeanStub01());
         
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             ConvertUtil.toListOfMap(obj);
             fail();
         } catch (IllegalArgumentException e) {
-            // ”»’è
+            // åˆ¤å®š
             assertEquals(IllegalArgumentException.class.getName(),
                     e.getClass().getName());
             assertTrue(e.getCause() instanceof IllegalAccessException);
@@ -2990,28 +2990,28 @@ public class ConvertUtilTest extends TestCase {
      * testToListOfMap10()
      * <br><br>
      * 
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:JavaBeanƒXƒ^ƒuƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                –ƒtƒB[ƒ‹ƒhA="value00"<br>
-     *         (ó‘Ô) PropertyUtils#describe‚ÌÀsŒ‹‰Ê:
-     *                  NoSuchMethodException‚ğƒXƒ[
-     *                    ¦PropertyUtilsBean‚ÌƒXƒ^ƒu‚ÅNoSuchMethodException‚ğƒXƒ[<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:JavaBeanã‚¹ã‚¿ãƒ–ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                ï¼Šãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰A="value00"<br>
+     *         (çŠ¶æ…‹) PropertyUtils#describeã®å®Ÿè¡Œçµæœ:
+     *                  NoSuchMethodExceptionã‚’ã‚¹ãƒ­ãƒ¼
+     *                    â€»PropertyUtilsBeanã®ã‚¹ã‚¿ãƒ–ã§NoSuchMethodExceptionã‚’ã‚¹ãƒ­ãƒ¼<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    ƒ‰ƒbƒv‚³‚ê‚½—áŠOFNoSuchMethodException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ãƒ©ãƒƒãƒ—ã•ã‚ŒãŸä¾‹å¤–ï¼šNoSuchMethodException<br>
      *         
      * <br>
-     * PropertyUtils#descrive‚ÅNoSuchMethodException‚ªƒXƒ[‚³‚ê‚½ê‡‚ÌƒeƒXƒg
+     * PropertyUtils#descriveã§NoSuchMethodExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚ŒãŸå ´åˆã®ãƒ†ã‚¹ãƒˆ
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testToListOfMap10() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         List<ConvertUtil_Stub01> obj = new ArrayList<ConvertUtil_Stub01>();
         ConvertUtil_Stub01 bean = new ConvertUtil_Stub01();
         bean.setA("value00");
@@ -3021,11 +3021,11 @@ public class ConvertUtilTest extends TestCase {
                 new ConvertUtil_PropertyUtilsBeanStub02());
         
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             ConvertUtil.toListOfMap(obj);
             fail();
         } catch (IllegalArgumentException e) {
-            // ”»’è
+            // åˆ¤å®š
             assertEquals(IllegalArgumentException.class.getName(),
                     e.getClass().getName());
             assertTrue(e.getCause() instanceof NoSuchMethodException);

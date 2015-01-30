@@ -20,80 +20,80 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * �t�@�C���A�N�Z�X(�f�[�^�擾)�p�̃C�e���[�^�C���^�t�F�[�X�B
+ * ファイルアクセス(データ取得)用のイテレータインタフェース。
  * <P>
- * �e�L�X�g�t�@�C����ǂ݁A�t�@�C���̕�������t�@�C���s�I�u�W�F�N�g�Ɋi�[����B FileLineIterator�̃C���X�^���X������FileQueryDAO���s���B �ڍׂ�
- * {@link jp.terasoluna.fw.file.dao.FileQueryDAO}���Q�Ƃ̂��ƁB<br>
- * <strong>�g�p��</strong><br>
- * <li>�t�@�C���s�I�u�W�F�N�g���擾�����B
+ * テキストファイルを読み、ファイルの文字列をファイル行オブジェクトに格納する。 FileLineIteratorのインスタンス生成はFileQueryDAOが行う。 詳細は
+ * {@link jp.terasoluna.fw.file.dao.FileQueryDAO}を参照のこと。<br>
+ * <strong>使用例</strong><br>
+ * <li>ファイル行オブジェクトを取得する例。
  * 
  * <pre>
  * &lt;code&gt;
- * // �t�@�C������1���R�[�h�̃f�[�^����͂�FileColumnSample�^�̃I�u�W�F�N�g�Ɋi�[����
- * �c�c
+ * // ファイルから1レコードのデータを入力しFileColumnSample型のオブジェクトに格納する
+ * ……
  *     while(fileLineIterator.&lt;strong&gt;hasNext()&lt;/strong&gt;){
  *        FileColumnSample fileColumnSample = fileLineIterator.&lt;strong&gt;next()&lt;/strong&gt;;
- * �c�c
+ * ……
  * &lt;/code&gt;
  * </pre>
  * 
- * <strong>����</strong>��FileLineIterator���񋟂��郁�\�b�h�B �ڍׂ�{@link #hasNext()}�A{@link #next()}���Q�Ƃ̂��ƁB
+ * <strong>太字</strong>はFileLineIteratorが提供するメソッド。 詳細は{@link #hasNext()}、{@link #next()}を参照のこと。
  * </P>
- * @param <T> �t�@�C���s�I�u�W�F�N�g�B
+ * @param <T> ファイル行オブジェクト。
  */
 @SuppressWarnings("unchecked")
 public interface FileLineIterator<T> extends Iterator {
 
     /**
-     * �t�@�C������f�[�^���擾�ł��邩�m�F����B
+     * ファイルからデータが取得できるか確認する。
      * <p>
-     * �J��Ԃ������ł���ɗv�f������ꍇ��<code>true</code> ��Ԃ��B
+     * 繰り返し処理でさらに要素がある場合に<code>true</code> を返す。
      * </p>
-     * @return �����q������ɗv�f�����ꍇ��<code>true</code>�B
+     * @return 反復子がさらに要素を持つ場合は<code>true</code>。
      */
     boolean hasNext();
 
     /**
-     * �t�@�C���s�I�u�W�F�N�g��ԋp����B
+     * ファイル行オブジェクトを返却する。
      * <p>
-     * <code>hasNext()</code>���\�b�h��<code>false</code>��Ԃ��܂� ���̃��\�b�h�Ăяo�����ɁA�t�@�C���s�I�u�W�F�N�g��1�ԋp����B
+     * <code>hasNext()</code>メソッドが<code>false</code>を返すまで このメソッド呼び出す毎に、ファイル行オブジェクトを1つ返却する。
      * </p>
-     * @return ���̃t�@�C���s�I�u�W�F�N�g�B
+     * @return 次のファイル行オブジェクト。
      */
     T next();
 
     /**
-     * �w�b�_���̕������ԋp����B
+     * ヘッダ部の文字列を返却する。
      * <p>
-     * �w�b�_���̃f�[�^�𕶎���̃��X�g�Ƃ��ČĂяo�����ɕԋp����B
+     * ヘッダ部のデータを文字列のリストとして呼び出し元に返却する。
      * </p>
-     * @return �����^�̃��X�g�B
+     * @return 文字型のリスト。
      */
     List<String> getHeader();
 
     /**
-     * �g���C�����̕������ԋp����B
+     * トレイラ部の文字列を返却する。
      * <p>
-     * �g���C�����̃f�[�^�𕶎���̃��X�g�Ƃ��ČĂяo�����ɕԋp����B
+     * トレイラ部のデータを文字列のリストとして呼び出し元に返却する。
      * </p>
-     * @return �����^�̃��X�g�B
+     * @return 文字型のリスト。
      */
     List<String> getTrailer();
 
     /**
-     * �X�L�b�v�����B
+     * スキップ処理。
      * <p>
-     * �t�@�C�����͋@�\�ł́A���͂��J�n����s���w��ł���B<br>
-     * ��ɁA���X�^�[�g�|�C���g����t�@�C���̓Ǎ����ĊJ����Ƃ��ɗ��p����B
+     * ファイル入力機能では、入力を開始する行を指定できる。<br>
+     * 主に、リスタートポイントからファイルの読込を再開するときに利用する。
      * </p>
-     * @param skipLines �ǂݔ�΂��s��
+     * @param skipLines 読み飛ばす行数
      */
     void skip(int skipLines);
 
     /**
-     * �t�@�C���N���[�Y.
+     * ファイルクローズ.
      * <p>
-     * �t�@�C���̓��̓X�g���[�������B �t�@�C�����͂����������i�K�ŕK�����s���邱�ƁB
+     * ファイルの入力ストリームを閉じる。 ファイル入力が完了した段階で必ず実行すること。
      * </p>
      */
     void closeFile();

@@ -18,7 +18,7 @@ package jp.terasoluna.fw.util;
 
 
 /**
- * {@link GenericsUtil}‚ÌƒeƒXƒg‚Ì‚½‚ß‚ÌƒXƒ^ƒuƒNƒ‰ƒXB
+ * {@link GenericsUtil}ã®ãƒ†ã‚¹ãƒˆã®ãŸã‚ã®ã‚¹ã‚¿ãƒ–ã‚¯ãƒ©ã‚¹ã€‚
  *
  * @param <P>
  * @param <Q>

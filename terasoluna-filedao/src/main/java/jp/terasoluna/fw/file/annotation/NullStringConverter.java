@@ -17,17 +17,17 @@
 package jp.terasoluna.fw.file.annotation;
 
 /**
- * –³•ÏŠ·ˆ—ƒNƒ‰ƒXB
+ * ç„¡å¤‰æ›å‡¦ç†ã‚¯ãƒ©ã‚¹ã€‚
  * <p>
- * StringŒ^‚ÌƒJƒ‰ƒ€‚É‚Â‚¢‚Ä•¶š•ÏŠ·ˆ—‚ğs‚í‚È‚¢B<br>
+ * Stringå‹ã®ã‚«ãƒ©ãƒ ã«ã¤ã„ã¦æ–‡å­—å¤‰æ›å‡¦ç†ã‚’è¡Œã‚ãªã„ã€‚<br>
  * </p>
  */
 public class NullStringConverter implements StringConverter {
 
     /**
-     * •¶š•ÏŠ·‚ğs‚í‚È‚¢B
-     * @param s •ÏŠ·‘O‚Ì•¶š—ñ
-     * @return •ÏŠ·‘O‚Ì•¶š—ñ
+     * æ–‡å­—å¤‰æ›ã‚’è¡Œã‚ãªã„ã€‚
+     * @param s å¤‰æ›å‰ã®æ–‡å­—åˆ—
+     * @return å¤‰æ›å‰ã®æ–‡å­—åˆ—
      */
     public String convert(String s) {
         return s;

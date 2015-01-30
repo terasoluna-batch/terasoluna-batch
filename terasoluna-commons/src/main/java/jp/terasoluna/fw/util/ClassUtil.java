@@ -20,65 +20,65 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
 /**
- *  •¶Žš—ñ(String)‚©‚çAƒCƒ“ƒXƒ^ƒ“ƒX‚ð¶¬‚·‚éƒ†[ƒeƒBƒŠƒeƒBƒNƒ‰ƒXB
+ *  æ–‡å­—åˆ—(String)ã‹ã‚‰ã€ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã™ã‚‹ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ã‚¯ãƒ©ã‚¹ã€‚
  * 
- * <li>’Êí‚ÌƒCƒ“ƒXƒ^ƒ“ƒX¶¬ˆ—</li>
+ * <li>é€šå¸¸ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ç”Ÿæˆå‡¦ç†</li>
  * <code><pre>
  *     Integer integer = new Integer("12");
  * </pre></code>
  * 
- * <li>’Êí‚Ì•¶Žš—ñ(String)‚©‚ç‚ÌƒCƒ“ƒXƒ^ƒ“ƒX¶¬ˆ—</li>
+ * <li>é€šå¸¸ã®æ–‡å­—åˆ—(String)ã‹ã‚‰ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ç”Ÿæˆå‡¦ç†</li>
  * <code><pre>
  *     Integer integer = null;
  * 
  *     Class createClass = null;
  *     Class paramClass = null;
  * 
- *     //ƒNƒ‰ƒXƒ[ƒ_‚ðŽæ“¾‚·‚é
+ *     //ã‚¯ãƒ©ã‚¹ãƒ­ãƒ¼ãƒ€ã‚’å–å¾—ã™ã‚‹
  *     Thread t = Thread.currentThread();
  *     ClassLoader cl = t.getContextClassLoader();
  * 
  *     try {
  * 
- *         //¶¬‚·‚éƒNƒ‰ƒX‚ÌClassƒIƒuƒWƒFƒNƒg‚ðŽæ“¾
+ *         //ç”Ÿæˆã™ã‚‹ã‚¯ãƒ©ã‚¹ã®Classã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å–å¾—
  *         createClass = cl.loadClass("java.lang.Integer");
- *         //ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ìˆø”‚Æ‚È‚éƒNƒ‰ƒX‚ÌClassƒIƒuƒWƒFƒNƒg‚ðŽæ“¾
+ *         //ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å¼•æ•°ã¨ãªã‚‹ã‚¯ãƒ©ã‚¹ã®Classã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å–å¾—
  *         paramClass = cl.loadClass("java.lang.String");
  * 
  *     } catch(ClassNotFoundException e) {
- *         //ƒNƒ‰ƒXƒtƒ@ƒCƒ‹‚ªŒ©‚Â‚©‚ç‚È‚©‚Á‚½ê‡B
+ *         //ã‚¯ãƒ©ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ãŒè¦‹ã¤ã‹ã‚‰ãªã‹ã£ãŸå ´åˆã€‚
  *     }
  * 
  *     try {
  * 
- *         //ConstructorƒIƒuƒWƒFƒNƒg‚ðŽæ“¾
+ *         //Constructorã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å–å¾—
  *         Constructor constructor =
  *             classObject.getConstructor(new Class[]{paramClassObject});
  * 
  *     } catch(NoSuchMethodException e) {
- *         //Žw’è‚³‚ê‚½ˆø”‚ð’è‹`‚µ‚½ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ª–³‚©‚Á‚½ê‡
+ *         //æŒ‡å®šã•ã‚ŒãŸå¼•æ•°ã‚’å®šç¾©ã—ãŸã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãŒç„¡ã‹ã£ãŸå ´åˆ
  *     } catch(SecurityException e) {
- *         //î•ñ‚Ö‚ÌƒAƒNƒZƒX‚ª‹‘”Û‚³‚ê‚½ê‡
+ *         //æƒ…å ±ã¸ã®ã‚¢ã‚¯ã‚»ã‚¹ãŒæ‹’å¦ã•ã‚ŒãŸå ´åˆ
  *     }
  * 
  *     try {
  * 
- *         //ƒCƒ“ƒXƒ^ƒ“ƒX‚Ì¶¬
+ *         //ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã®ç”Ÿæˆ
  *         integer = constructor.newInstance(new Object{"12"});
  * 
  *     } catch (IllegalArgumentException e) {
- *         //•s³‚Èˆø”‚ª“n‚³‚ê‚½ê‡
+ *         //ä¸æ­£ãªå¼•æ•°ãŒæ¸¡ã•ã‚ŒãŸå ´åˆ
  *     } catch (InstantiationException e) {
- *         //’ŠÛƒNƒ‰ƒX‚¾‚Á‚½ê‡
+ *         //æŠ½è±¡ã‚¯ãƒ©ã‚¹ã ã£ãŸå ´åˆ
  *     } catch (IllegalAccessException e) {
- *         //ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÉƒAƒNƒZƒXo—ˆ‚È‚©‚Á‚½ê‡
+ *         //ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã«ã‚¢ã‚¯ã‚»ã‚¹å‡ºæ¥ãªã‹ã£ãŸå ´åˆ
  *     } catch (InvocationTargetException e) {
- *         //ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ª—áŠO‚ðƒXƒ[‚µ‚½ê‡
+ *         //ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãŒä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã—ãŸå ´åˆ
  *     }
  * 
  * </pre></code>
  * 
- * <li>‚±‚ÌƒNƒ‰ƒX‚ðŽg—p‚µ‚½ê‡‚ÌƒCƒ“ƒXƒ^ƒ“ƒX¶¬ˆ—</li>
+ * <li>ã“ã®ã‚¯ãƒ©ã‚¹ã‚’ä½¿ç”¨ã—ãŸå ´åˆã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ç”Ÿæˆå‡¦ç†</li>
  * <code><pre>
  *     Integer integer = null;
  * 
@@ -86,7 +86,7 @@ import java.lang.reflect.InvocationTargetException;
  *         integer = (Integer) ClassUtil.create(
  *             "java.lang.Integer", new Object[] {"12"});
  *     } catch(ClassLoadException e) {
- *         //ƒCƒ“ƒXƒ^ƒ“ƒX¶¬Žž‚É—áŠO‚ª”­¶‚µ‚½ê‡
+ *         //ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ç”Ÿæˆæ™‚ã«ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆ
  *     }
  * </pre></code>
  * 
@@ -96,115 +96,115 @@ import java.lang.reflect.InvocationTargetException;
 public final class ClassUtil {
 
     /**
-     * ¶¬‚·‚éƒIƒuƒWƒFƒNƒg‚ÌƒNƒ‰ƒX–¼‚ðŒ³‚ÉƒCƒ“ƒXƒ^ƒ“ƒX‚ð¶¬‚µ‚Ü‚·B
+     * ç”Ÿæˆã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¯ãƒ©ã‚¹åã‚’å…ƒã«ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
      * 
-     * ƒNƒ‰ƒX–¼‚ª null ‚Å“n‚³‚ê‚½ê‡A
-     *  NullPointerException ‚ªƒXƒ[‚³‚ê‚Ü‚·B
+     * ã‚¯ãƒ©ã‚¹åãŒ null ã§æ¸¡ã•ã‚ŒãŸå ´åˆã€
+     *  NullPointerException ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã™ã€‚
      * @param className
-     * ¶¬‚·‚éƒIƒuƒWƒFƒNƒg‚ÌƒNƒ‰ƒX–¼
+     * ç”Ÿæˆã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¯ãƒ©ã‚¹å
      * @return
-     * ¶¬‚µ‚½ƒCƒ“ƒXƒ^ƒ“ƒX
+     * ç”Ÿæˆã—ãŸã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
      * @throws ClassLoadException
-     * ƒCƒ“ƒXƒ^ƒ“ƒX¶¬Žž‚É”­¶‚µ‚½—áŠO‚ðƒ‰ƒbƒv‚µ‚½—áŠO
+     * ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ç”Ÿæˆæ™‚ã«ç™ºç”Ÿã—ãŸä¾‹å¤–ã‚’ãƒ©ãƒƒãƒ—ã—ãŸä¾‹å¤–
      */
     public static Object create(String className) throws ClassLoadException {
 
-        // ŽQÆ‚ð¶¬
+        // å‚ç…§ã‚’ç”Ÿæˆ
         Object object = null;
 
-        // ƒNƒ‰ƒXƒ[ƒ_‚ðŽæ“¾‚·‚é
+        // ã‚¯ãƒ©ã‚¹ãƒ­ãƒ¼ãƒ€ã‚’å–å¾—ã™ã‚‹
         Thread t = Thread.currentThread();
         ClassLoader cl = t.getContextClassLoader();
 
         try {
-            // ClassƒCƒ“ƒXƒ^ƒ“ƒX‚ð¶¬‚µAƒIƒuƒWƒFƒNƒg‚ð¶¬‚·‚éB
+            // Classã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã—ã€ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ç”Ÿæˆã™ã‚‹ã€‚
             object = cl.loadClass(className).newInstance();
 
         } catch (InstantiationException e) {
-            // ’ŠÛƒNƒ‰ƒX‚¾‚Á‚½ê‡
+            // æŠ½è±¡ã‚¯ãƒ©ã‚¹ã ã£ãŸå ´åˆ
             throw new ClassLoadException(e);
         } catch (IllegalAccessException e) {
-            // ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÉƒAƒNƒZƒXo—ˆ‚È‚©‚Á‚½ê‡
+            // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã«ã‚¢ã‚¯ã‚»ã‚¹å‡ºæ¥ãªã‹ã£ãŸå ´åˆ
             throw new ClassLoadException(e);
         } catch (ClassNotFoundException e) {
-            // *.classƒtƒ@ƒCƒ‹‚ªŒ©‚Â‚©‚ç‚È‚¢ê‡
+            // *.classãƒ•ã‚¡ã‚¤ãƒ«ãŒè¦‹ã¤ã‹ã‚‰ãªã„å ´åˆ
             throw new ClassLoadException(e);
         }
 
-        // ¶¬‚³‚ê‚½ƒIƒuƒWƒFƒNƒg‚ð•Ô‚·B
+        // ç”Ÿæˆã•ã‚ŒãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’è¿”ã™ã€‚
         return object;
     }
 
     /**
-     * ¶¬‚·‚éƒIƒuƒWƒFƒNƒg‚ÌƒNƒ‰ƒX–¼‚ðŒ³‚ÉƒCƒ“ƒXƒ^ƒ“ƒX‚ð¶¬‚µ‚Ü‚·B
+     * ç”Ÿæˆã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¯ãƒ©ã‚¹åã‚’å…ƒã«ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
      * 
-     * ƒNƒ‰ƒX–¼‚ª null ‚Å“n‚³‚ê‚½ê‡A
-     *  NullPointerException ‚ªƒXƒ[‚³‚ê‚Ü‚·B
+     * ã‚¯ãƒ©ã‚¹åãŒ null ã§æ¸¡ã•ã‚ŒãŸå ´åˆã€
+     *  NullPointerException ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã™ã€‚
      * @param className
-     * ¶¬‚·‚éƒIƒuƒWƒFƒNƒg‚ÌƒNƒ‰ƒX–¼
+     * ç”Ÿæˆã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¯ãƒ©ã‚¹å
      * @param constructorParameter
-     * ¶¬‚·‚éƒIƒuƒWƒFƒNƒg‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ìƒpƒ‰ƒ[ƒ^<br>
-     * (’:)‚±‚Ìƒpƒ‰ƒ[ƒ^‚Í¶¬‚·‚éƒIƒuƒWƒFƒNƒg‚Ìˆø”‚Ì‡”Ô‚Æ‘Î‰ž‚·‚é•K—v‚ª‚ ‚è‚Ü‚·B
+     * ç”Ÿæˆã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿<br>
+     * (æ³¨:)ã“ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã¯ç”Ÿæˆã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å¼•æ•°ã®é †ç•ªã¨å¯¾å¿œã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚
      * @return
-     * ¶¬‚µ‚½ƒCƒ“ƒXƒ^ƒ“ƒX
+     * ç”Ÿæˆã—ãŸã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
      * @throws ClassLoadException
-     * ƒCƒ“ƒXƒ^ƒ“ƒX¶¬Žž‚É”­¶‚µ‚½—áŠO‚ðƒ‰ƒbƒv‚µ‚½—áŠO
+     * ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ç”Ÿæˆæ™‚ã«ç™ºç”Ÿã—ãŸä¾‹å¤–ã‚’ãƒ©ãƒƒãƒ—ã—ãŸä¾‹å¤–
      */
     public static Object create(String className,
                                  Object[] constructorParameter)
                                  throws ClassLoadException {
 
-        // ŽQÆ‚Ì¶¬
+        // å‚ç…§ã®ç”Ÿæˆ
         Constructor[] constructors = null;
 
-        // ƒNƒ‰ƒXƒ[ƒ_‚ðŽæ“¾‚·‚é
+        // ã‚¯ãƒ©ã‚¹ãƒ­ãƒ¼ãƒ€ã‚’å–å¾—ã™ã‚‹
         Thread t = Thread.currentThread();
         ClassLoader cl = t.getContextClassLoader();
 
         try {
-            // ‚±‚ÌClassƒCƒ“ƒXƒ^ƒ“ƒX‚ÌŽ‚ÂA
-            //‘S‚Ä‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^ƒIƒuƒWƒFƒNƒg‚ðŽæ“¾B
+            // ã“ã®Classã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã®æŒã¤ã€
+            //å…¨ã¦ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å–å¾—ã€‚
             constructors = cl.loadClass(className).getConstructors();
         } catch (SecurityException e) {
-            // î•ñ‚Ö‚ÌƒAƒNƒZƒX‚ª‹‘”Û‚³‚ê‚½ê‡
+            // æƒ…å ±ã¸ã®ã‚¢ã‚¯ã‚»ã‚¹ãŒæ‹’å¦ã•ã‚ŒãŸå ´åˆ
             throw new ClassLoadException(e);
         } catch (ClassNotFoundException e) {
-            // *.classƒtƒ@ƒCƒ‹‚ªŒ©‚Â‚©‚ç‚È‚¢ê‡
+            // *.classãƒ•ã‚¡ã‚¤ãƒ«ãŒè¦‹ã¤ã‹ã‚‰ãªã„å ´åˆ
             throw new ClassLoadException(e);
         }
 
-        // ”CˆÓ‚ÌƒIƒuƒWƒFƒNƒg‚ª¶¬‚³‚ê‚é‚Ü‚ÅA
-        // ‘S‚Ä‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^ƒIƒuƒWƒFƒNƒg‚©‚ç‚Ì¶¬‚ðŽŽ‚Ý‚é
+        // ä»»æ„ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒç”Ÿæˆã•ã‚Œã‚‹ã¾ã§ã€
+        // å…¨ã¦ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã‚‰ã®ç”Ÿæˆã‚’è©¦ã¿ã‚‹
         for (int i = 0; i < constructors.length; i++) {
 
-            // ŽQÆ‚ð¶¬
+            // å‚ç…§ã‚’ç”Ÿæˆ
             Object object = null;
 
             try {
-                // ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Éˆø”‚ð“n‚µAƒIƒuƒWƒFƒNƒg‚Ì¶¬‚ðŽŽ‚Ý‚éB
+                // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã«å¼•æ•°ã‚’æ¸¡ã—ã€ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ç”Ÿæˆã‚’è©¦ã¿ã‚‹ã€‚
                 object = constructors[i].newInstance(constructorParameter);
             } catch (IllegalArgumentException e) {
-                // •s³‚Èˆø”‚ª“n‚³‚ê‚½ê‡
+                // ä¸æ­£ãªå¼•æ•°ãŒæ¸¡ã•ã‚ŒãŸå ´åˆ
                 continue;
             } catch (InstantiationException e) {
-                // ’ŠÛƒNƒ‰ƒX‚¾‚Á‚½ê‡
+                // æŠ½è±¡ã‚¯ãƒ©ã‚¹ã ã£ãŸå ´åˆ
                 throw new ClassLoadException(e);
             } catch (IllegalAccessException e) {
-                // ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÉƒAƒNƒZƒXo—ˆ‚È‚©‚Á‚½ê‡
+                // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã«ã‚¢ã‚¯ã‚»ã‚¹å‡ºæ¥ãªã‹ã£ãŸå ´åˆ
                 throw new ClassLoadException(e);
             } catch (InvocationTargetException e) {
-                // ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ªƒXƒ[‚·‚é—áŠO‚ðƒ‰ƒbƒv
+                // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãŒã‚¹ãƒ­ãƒ¼ã™ã‚‹ä¾‹å¤–ã‚’ãƒ©ãƒƒãƒ—
                 throw new ClassLoadException(e);
             }
 
-            // ƒIƒuƒWƒFƒNƒg‚ª¶¬‚³‚ê‚Ä‚¢‚½ê‡ˆ—‚ðI—¹
+            // ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒç”Ÿæˆã•ã‚Œã¦ã„ãŸå ´åˆå‡¦ç†ã‚’çµ‚äº†
             if (object != null) {
                 return object;
             }
 
         }
 
-        // ƒIƒuƒWƒFƒNƒg‚ªA¶¬‚Å‚«‚È‚©‚Á‚½ê‡‚ÍA—áŠO‚ðƒXƒ[‚·‚é
+        // ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒã€ç”Ÿæˆã§ããªã‹ã£ãŸå ´åˆã¯ã€ä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹
         throw new ClassLoadException(
             new IllegalArgumentException("class name is " + className));
     }

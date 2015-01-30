@@ -34,22 +34,22 @@ import jp.terasoluna.utlib.UTUtil;
 import junit.framework.TestCase;
 
 /**
- * {@link jp.terasoluna.fw.beans.jxpath.JXPATH152PatchActivator} ƒNƒ‰ƒX‚Ìƒuƒ‰ƒbƒNƒ{ƒbƒNƒXƒeƒXƒgB
+ * {@link jp.terasoluna.fw.beans.jxpath.JXPATH152PatchActivator} ã‚¯ãƒ©ã‚¹ã®ãƒ–ãƒ©ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ†ã‚¹ãƒˆã€‚
  * 
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4>
- * commons-JXPath‚ÌƒoƒO(JXPATH-152)—pƒpƒbƒ`‚ğƒAƒNƒeƒBƒx[ƒg‚·‚éƒNƒ‰ƒXB<br>
- * ‘O’ñğŒF<br>
- * E‚±‚ÌƒeƒXƒg‚ğÀs‚·‚éÛAJVM‚ÌƒZƒLƒ…ƒŠƒeƒBƒ}ƒl[ƒWƒƒ‚ğ—LŒø‚É‚µ‚È‚¢‚±‚Æ<br>
- * E‚±‚ÌƒeƒXƒg‚ğÀs‚·‚éÛA“¯ˆêJVM“à‚Å“¯‚É‘¼‚ÌƒeƒXƒg‚ğÀs‚µ‚È‚¢‚±‚Æ<br>
- *   (ˆê“I‚ÉƒZƒLƒ…ƒŠƒeƒBƒ}ƒl[ƒWƒƒ‚ğ—LŒø‚É‚·‚é‚½‚ßA—LŒø‚É‚È‚Á‚Ä‚¢‚éŠÔ‚É‘¼‚ÌƒeƒXƒg‚ª“®ì‚·‚é‚ÆA
- *    ‚»‚ÌƒeƒXƒg‚ÅƒGƒ‰[‚ª”­¶‚·‚é‰Â”\«‚ª‚ ‚éB
- *    ‚È‚¨A“¯‚ÉÀs‚³‚¦‚µ‚È‚¯‚ê‚ÎA“¯ˆêJVM“à‚Å‚ ‚Æ‚©‚ç‘¼‚ÌƒeƒXƒg‚ğÀs‚µ‚Ä‚à‚æ‚¢B)<br>
- * E‚±‚ÌƒeƒXƒg‚ğÀs‚·‚éÛAJRE‚ÌƒZƒLƒ…ƒŠƒeƒBƒ|ƒŠƒV[ƒtƒ@ƒCƒ‹<br>
- *   (ƒfƒtƒHƒ‹ƒg‚Å‚ÍAJREƒCƒ“ƒXƒg[ƒ‹ƒfƒBƒŒƒNƒgƒŠ/lib/security/java.policy)‚É‚ÄA<br>
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4>
+ * commons-JXPathã®ãƒã‚°(JXPATH-152)ç”¨ãƒ‘ãƒƒãƒã‚’ã‚¢ã‚¯ãƒ†ã‚£ãƒ™ãƒ¼ãƒˆã™ã‚‹ã‚¯ãƒ©ã‚¹ã€‚<br>
+ * å‰ææ¡ä»¶ï¼š<br>
+ * ãƒ»ã“ã®ãƒ†ã‚¹ãƒˆã‚’å®Ÿè¡Œã™ã‚‹éš›ã€JVMã®ã‚»ã‚­ãƒ¥ãƒªãƒ†ã‚£ãƒãƒãƒ¼ã‚¸ãƒ£ã‚’æœ‰åŠ¹ã«ã—ãªã„ã“ã¨<br>
+ * ãƒ»ã“ã®ãƒ†ã‚¹ãƒˆã‚’å®Ÿè¡Œã™ã‚‹éš›ã€åŒä¸€JVMå†…ã§åŒæ™‚ã«ä»–ã®ãƒ†ã‚¹ãƒˆã‚’å®Ÿè¡Œã—ãªã„ã“ã¨<br>
+ *   (ä¸€æ™‚çš„ã«ã‚»ã‚­ãƒ¥ãƒªãƒ†ã‚£ãƒãƒãƒ¼ã‚¸ãƒ£ã‚’æœ‰åŠ¹ã«ã™ã‚‹ãŸã‚ã€æœ‰åŠ¹ã«ãªã£ã¦ã„ã‚‹é–“ã«ä»–ã®ãƒ†ã‚¹ãƒˆãŒå‹•ä½œã™ã‚‹ã¨ã€
+ *    ãã®ãƒ†ã‚¹ãƒˆã§ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã™ã‚‹å¯èƒ½æ€§ãŒã‚ã‚‹ã€‚
+ *    ãªãŠã€åŒæ™‚ã«å®Ÿè¡Œã•ãˆã—ãªã‘ã‚Œã°ã€åŒä¸€JVMå†…ã§ã‚ã¨ã‹ã‚‰ä»–ã®ãƒ†ã‚¹ãƒˆã‚’å®Ÿè¡Œã—ã¦ã‚‚ã‚ˆã„ã€‚)<br>
+ * ãƒ»ã“ã®ãƒ†ã‚¹ãƒˆã‚’å®Ÿè¡Œã™ã‚‹éš›ã€JREã®ã‚»ã‚­ãƒ¥ãƒªãƒ†ã‚£ãƒãƒªã‚·ãƒ¼ãƒ•ã‚¡ã‚¤ãƒ«<br>
+ *   (ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã§ã¯ã€JREã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª/lib/security/java.policy)ã«ã¦ã€<br>
  *   permission java.lang.reflect.ReflectPermission "suppressAccessChecks";<br>
- *   ‚ÌŒ ŒÀ‚ğ—^‚¦‚È‚¢‚±‚ÆB(ƒCƒ“ƒXƒg[ƒ‹Œã‚Ìó‘Ô‚Ì‚Ü‚Ü‚Å‚ ‚ê‚ÎA‚±‚ÌŒ ŒÀ‚Í‚È‚¢B)<br>
- * E‚±‚ÌƒeƒXƒg‚ğÀs‚·‚éÛAƒeƒXƒg‘ÎÛ‚Æ‚È‚éclassƒtƒ@ƒCƒ‹‚ÆAƒeƒXƒgƒP[ƒX‚Ìclassƒtƒ@ƒCƒ‹‚ÍA“¯ˆê‚ÌƒfƒBƒŒƒNƒgƒŠ‚Éo—Í‚µ‚È‚¢‚±‚ÆB
+ *   ã®æ¨©é™ã‚’ä¸ãˆãªã„ã“ã¨ã€‚(ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«å¾Œã®çŠ¶æ…‹ã®ã¾ã¾ã§ã‚ã‚Œã°ã€ã“ã®æ¨©é™ã¯ãªã„ã€‚)<br>
+ * ãƒ»ã“ã®ãƒ†ã‚¹ãƒˆã‚’å®Ÿè¡Œã™ã‚‹éš›ã€ãƒ†ã‚¹ãƒˆå¯¾è±¡ã¨ãªã‚‹classãƒ•ã‚¡ã‚¤ãƒ«ã¨ã€ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®classãƒ•ã‚¡ã‚¤ãƒ«ã¯ã€åŒä¸€ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã«å‡ºåŠ›ã—ãªã„ã“ã¨ã€‚
  * <p>
  * 
  * @see jp.terasoluna.fw.beans.jxpath.JXPATH152PatchActivator
@@ -63,30 +63,30 @@ public class JXPATH152PatchActivatorTest extends TestCase {
 
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
     protected void setUp() throws Exception {
         super.setUp();
 
-        // ƒNƒ‰ƒXƒ[ƒh‚³‚ê‚Ä‚¢‚È‚¯‚ê‚ÎƒNƒ‰ƒXƒ[ƒh
-        // (ƒNƒ‰ƒXƒ[ƒh‚ÉstaticƒCƒjƒVƒƒƒ‰ƒCƒUÀs)
+        // ã‚¯ãƒ©ã‚¹ãƒ­ãƒ¼ãƒ‰ã•ã‚Œã¦ã„ãªã‘ã‚Œã°ã‚¯ãƒ©ã‚¹ãƒ­ãƒ¼ãƒ‰
+        // (ã‚¯ãƒ©ã‚¹ãƒ­ãƒ¼ãƒ‰æ™‚ã«staticã‚¤ãƒ‹ã‚·ãƒ£ãƒ©ã‚¤ã‚¶å®Ÿè¡Œ)
         new JXPATH152PatchActivator();
 
-        // JXPATH152PatchActivator‚ÌstaticƒCƒjƒVƒƒƒ‰ƒCƒUÀsŒã‚Ìó‘Ô‚ğ•Û
-        // (tearDown‚ÅstaticƒCƒjƒVƒƒƒ‰ƒCƒUÀs‘O‚Ìó‘Ô‚É–ß‚µ‚Ä‚µ‚Ü‚í‚È‚¢‚æ‚¤‚É)
+        // JXPATH152PatchActivatorã®staticã‚¤ãƒ‹ã‚·ãƒ£ãƒ©ã‚¤ã‚¶å®Ÿè¡Œå¾Œã®çŠ¶æ…‹ã‚’ä¿æŒ
+        // (tearDownã§staticã‚¤ãƒ‹ã‚·ãƒ£ãƒ©ã‚¤ã‚¶å®Ÿè¡Œå‰ã®çŠ¶æ…‹ã«æˆ»ã—ã¦ã—ã¾ã‚ãªã„ã‚ˆã†ã«)
         byClassBak = (Map) UTUtil.getPrivateField(JXPathIntrospector.class, "byClass");
         byInterfaceBak = (Map) UTUtil.getPrivateField(JXPathIntrospector.class, "byInterface");
         LogUTUtil.flush();
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -100,36 +100,36 @@ public class JXPATH152PatchActivatorTest extends TestCase {
      * testActivate01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) |<br>
-     *         (ó‘Ô) JXPathIntrospector.byClasst:HashMap<br>
-     *         (ó‘Ô) JXPathIntrospector.byInterface:HashMap<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) ï¼<br>
+     *         (çŠ¶æ…‹) JXPathIntrospector.byClasst:HashMap<br>
+     *         (çŠ¶æ…‹) JXPathIntrospector.byInterface:HashMap<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») JXPathIntrospector.byClass‚ªHashMapForJXPathIntrospector‚É‚È‚Á‚Ä‚¢‚éB<br>
-     *         (ó‘Ô•Ï‰») JXPathIntrospector.byInterface‚ªHashMapForJXPathIntrospector‚É‚È‚Á‚Ä‚¢‚éB<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:ƒƒOƒŒƒxƒ‹FINFO<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) JXPathIntrospector.byClassãŒHashMapForJXPathIntrospectorã«ãªã£ã¦ã„ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) JXPathIntrospector.byInterfaceãŒHashMapForJXPathIntrospectorã«ãªã£ã¦ã„ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ï¼šINFO<br>
      *                    JXPATH-152 Patch activation succeeded.<br>
      *         
      * <br>
-     * ƒZƒLƒ…ƒŠƒeƒBƒ}ƒl[ƒWƒƒ‚É‘j~‚³‚ê‚È‚¯‚ê‚ÎA
-     * JXPathIntrospector‚ÌbyClass‚ÆbyInterface‚ªHashMapForJXPathIntrospectorƒCƒ“ƒXƒ^ƒ“ƒX‚É‚È‚Á‚Ä‚¢‚é‚±‚Æ‚ÌƒeƒXƒgB
+     * ã‚»ã‚­ãƒ¥ãƒªãƒ†ã‚£ãƒãƒãƒ¼ã‚¸ãƒ£ã«é˜»æ­¢ã•ã‚Œãªã‘ã‚Œã°ã€
+     * JXPathIntrospectorã®byClassã¨byInterfaceãŒHashMapForJXPathIntrospectorã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã«ãªã£ã¦ã„ã‚‹ã“ã¨ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testActivate01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         UTUtil.setPrivateField(JXPathIntrospector.class, "byClass", new HashMap());
         UTUtil.setPrivateField(JXPathIntrospector.class, "byInterface", new HashMap());
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         UTUtil.invokePrivate(JXPATH152PatchActivator.class, "activate");
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(LogUTUtil.checkInfo("JXPATH-152 Patch activation succeeded."));
         assertTrue(UTUtil.getPrivateField(JXPathIntrospector.class, "byClass").getClass() == HashMapForJXPathIntrospector.class);
         assertTrue(UTUtil.getPrivateField(JXPathIntrospector.class, "byInterface").getClass() == HashMapForJXPathIntrospector.class);
@@ -139,30 +139,30 @@ public class JXPATH152PatchActivatorTest extends TestCase {
      * testActivate01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) |<br>
-     *         (ó‘Ô) JXPathIntrospector.byClasst:HashMap<br>
-     *         (ó‘Ô) JXPathIntrospector.byInterface:HashMap<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) ï¼<br>
+     *         (çŠ¶æ…‹) JXPathIntrospector.byClasst:HashMap<br>
+     *         (çŠ¶æ…‹) JXPathIntrospector.byInterface:HashMap<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») JXPathIntrospector.byClass‚ªHashMap‚Ì‚Ü‚ÜB<br>
-     *         (ó‘Ô•Ï‰») JXPathIntrospector.byInterface‚ªHashMap‚Ì‚Ü‚ÜB<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:ƒƒOƒŒƒxƒ‹FFATAL<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) JXPathIntrospector.byClassãŒHashMapã®ã¾ã¾ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) JXPathIntrospector.byInterfaceãŒHashMapã®ã¾ã¾ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ï¼šFATAL<br>
      *                    JXPATH-152 Patch activation failed.<br>
      *         
      * <br>
-     * ƒZƒLƒ…ƒŠƒeƒBƒ}ƒl[ƒWƒƒ‚É‘j~‚³‚ê‚½ê‡A
-     * FATALƒƒO‚ğo—Í‚·‚é‚±‚Æ‚ÌƒeƒXƒgB
+     * ã‚»ã‚­ãƒ¥ãƒªãƒ†ã‚£ãƒãƒãƒ¼ã‚¸ãƒ£ã«é˜»æ­¢ã•ã‚ŒãŸå ´åˆã€
+     * FATALãƒ­ã‚°ã‚’å‡ºåŠ›ã™ã‚‹ã“ã¨ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testActivate02() throws Exception {
-//      TODO Java7ŠÂ‹«‰º‚Å‚ÍAccessController.doPrivileged()‚É“n‚µ‚Ä‚¢‚éAccessControlContext‚ÌDomainCombiner#combine()‚ªŒÄ‚Ño‚³‚ê‚¸A–{ƒeƒXƒg‚Ì“®ìŠm”F‚ª•s‰Â”\‚Å‚ ‚é‚½‚ßAƒRƒƒ“ƒgƒAƒEƒg‚µ‚Ä‚¢‚éB
-//        // ƒAƒNƒZƒXŒ İ’è
+//      TODO Java7ç’°å¢ƒä¸‹ã§ã¯AccessController.doPrivileged()ã«æ¸¡ã—ã¦ã„ã‚‹AccessControlContextã®DomainCombiner#combine()ãŒå‘¼ã³å‡ºã•ã‚Œãšã€æœ¬ãƒ†ã‚¹ãƒˆã®å‹•ä½œç¢ºèªãŒä¸å¯èƒ½ã§ã‚ã‚‹ãŸã‚ã€ã‚³ãƒ¡ãƒ³ãƒˆã‚¢ã‚¦ãƒˆã—ã¦ã„ã‚‹ã€‚
+//        // ã‚¢ã‚¯ã‚»ã‚¹æ¨©è¨­å®š
 //        final ProtectionDomain testTargetProtectionDomain = JXPATH152PatchActivator.class.getProtectionDomain();
 //        DomainCombiner domainCombiner = new DomainCombiner() {
 //            public ProtectionDomain[] combine(
@@ -170,16 +170,16 @@ public class JXPATH152PatchActivatorTest extends TestCase {
 //                    ProtectionDomain[] assignedDomains) {
 //                ProtectionDomain[] ret = new ProtectionDomain[currentDomains.length];
 //                for (int i = 0; i < currentDomains.length ;i++) {
-//                    // ƒeƒXƒgƒP[ƒXƒNƒ‰ƒX‚âƒ‰ƒCƒuƒ‰ƒŠ‚É‚ ‚éƒNƒ‰ƒX“™A
-//                    // Œ±‘ÎÛƒNƒ‰ƒX(‚ªŠÜ‚Ü‚ê‚éƒNƒ‰ƒXƒpƒX‚É‚ ‚éƒNƒ‰ƒX)ˆÈŠO‚ÍA‘S‘€ì‚É‘Î‚·‚éŒ ŒÀ‚ğ—^‚¦‚é
+//                    // ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã‚¯ãƒ©ã‚¹ã‚„ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã«ã‚ã‚‹ã‚¯ãƒ©ã‚¹ç­‰ã€
+//                    // è©¦é¨“å¯¾è±¡ã‚¯ãƒ©ã‚¹(ãŒå«ã¾ã‚Œã‚‹ã‚¯ãƒ©ã‚¹ãƒ‘ã‚¹ã«ã‚ã‚‹ã‚¯ãƒ©ã‚¹)ä»¥å¤–ã¯ã€å…¨æ“ä½œã«å¯¾ã™ã‚‹æ¨©é™ã‚’ä¸ãˆã‚‹
 //                    if (currentDomains[i].getCodeSource() != testTargetProtectionDomain.getCodeSource()) {
 //                        Permissions permissions = new Permissions();
 //                        permissions.add(new AllPermission());
 //                        ProtectionDomain pd = new ProtectionDomain(currentDomains[i].getCodeSource(), permissions);
 //                        ret[i] = pd;
 //                    } else {
-//                        // Œ±‘ÎÛƒNƒ‰ƒX(‚ªŠÜ‚Ü‚ê‚éƒNƒ‰ƒXƒpƒX‚É‚ ‚éƒNƒ‰ƒX)‚ÍAƒfƒtƒHƒ‹ƒg‚ÌŒ ŒÀ‚Ì‚Ü‚Ü
-//                        // (Field#setAccessible‚ª‹Ö~‚³‚ê‚é)
+//                        // è©¦é¨“å¯¾è±¡ã‚¯ãƒ©ã‚¹(ãŒå«ã¾ã‚Œã‚‹ã‚¯ãƒ©ã‚¹ãƒ‘ã‚¹ã«ã‚ã‚‹ã‚¯ãƒ©ã‚¹)ã¯ã€ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®æ¨©é™ã®ã¾ã¾
+//                        // (Field#setAccessibleãŒç¦æ­¢ã•ã‚Œã‚‹)
 //                        ret[i] = currentDomains[i];
 //                    }
 //                }
@@ -189,19 +189,19 @@ public class JXPATH152PatchActivatorTest extends TestCase {
 //        AccessControlContext acc = new AccessControlContext(AccessController.getContext(), domainCombiner);
 //        System.setSecurityManager(new SecurityManager());
 //
-//        // ã‹L‚ÌDomainCombiner‚Å•ÒW‚µ‚½ƒAƒNƒZƒXŒ İ’è‚ÅAƒeƒXƒg‚ğÀs
+//        // ä¸Šè¨˜ã®DomainCombinerã§ç·¨é›†ã—ãŸã‚¢ã‚¯ã‚»ã‚¹æ¨©è¨­å®šã§ã€ãƒ†ã‚¹ãƒˆã‚’å®Ÿè¡Œ
 //        AccessController.doPrivileged(new PrivilegedExceptionAction<Void>() {
 //
 //            public Void run() throws Exception {
 //                try {
-//                    // ‘Oˆ—
+//                    // å‰å‡¦ç†
 //                    UTUtil.setPrivateField(JXPathIntrospector.class, "byClass", new HashMap());
 //                    UTUtil.setPrivateField(JXPathIntrospector.class, "byInterface", new HashMap());
 //
-//                    // ƒeƒXƒgÀ{
+//                    // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
 //                    UTUtil.invokePrivate(JXPATH152PatchActivator.class, "activate");
 //
-//                    // ”»’è
+//                    // åˆ¤å®š
 //                    assertTrue(LogUTUtil.checkFatal("JXPATH-152 Patch activation failed.", new AccessControlException("")));
 //                    assertTrue(UTUtil.getPrivateField(JXPathIntrospector.class, "byClass").getClass() == HashMap.class);
 //                    assertTrue(UTUtil.getPrivateField(JXPathIntrospector.class, "byInterface").getClass() == HashMap.class);

@@ -22,19 +22,19 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * AbstractCollector—pArrayBlockingQueueƒTƒuƒNƒ‰ƒXB
+ * AbstractCollectorç”¨ArrayBlockingQueueã‚µãƒ–ã‚¯ãƒ©ã‚¹ã€‚
  * <p>
- * {@link ArrayBlockingQueue#peek()}‚Æ {@link ArrayBlockingQueue#isEmpty()}‚ÉA ƒLƒ…[‚ª‹ó‚Å‚ ‚ê‚ÎAƒLƒ…[‚É—v‘f‚ª“ü‚é‚©AƒLƒ…[ƒCƒ“ƒOI—¹ƒtƒ‰ƒO‚ªã‚ª‚é‚Ü‚Å ‘Ò‚Â‹@”\‚ğ‚Â‚¯‚Ä‚¢‚éB<br>
- * ArrayBlockingQueue“à‚ÌAƒuƒƒbƒN§Œä‚ğs‚Á‚Ä‚¢‚éConditionƒtƒB[ƒ‹ƒh‚Í ƒTƒuƒNƒ‰ƒX‚ÉŒöŠJ‚³‚ê‚Ä‚¢‚È‚¢‚½‚ßA ‚±‚ÌƒNƒ‰ƒX‚Å‚ÍArrayBlockingQueue‚Æç’·‚ÈÀ‘•‚ğ‚µ‚Ä‚¢‚éB<br>
+ * {@link ArrayBlockingQueue#peek()}ã¨ {@link ArrayBlockingQueue#isEmpty()}ã«ã€ ã‚­ãƒ¥ãƒ¼ãŒç©ºã§ã‚ã‚Œã°ã€ã‚­ãƒ¥ãƒ¼ã«è¦ç´ ãŒå…¥ã‚‹ã‹ã€ã‚­ãƒ¥ãƒ¼ã‚¤ãƒ³ã‚°çµ‚äº†ãƒ•ãƒ©ã‚°ãŒä¸ŠãŒã‚‹ã¾ã§ å¾…ã¤æ©Ÿèƒ½ã‚’ã¤ã‘ã¦ã„ã‚‹ã€‚<br>
+ * ArrayBlockingQueueå†…ã®ã€ãƒ–ãƒ­ãƒƒã‚¯åˆ¶å¾¡ã‚’è¡Œã£ã¦ã„ã‚‹Conditionãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã¯ ã‚µãƒ–ã‚¯ãƒ©ã‚¹ã«å…¬é–‹ã•ã‚Œã¦ã„ãªã„ãŸã‚ã€ ã“ã®ã‚¯ãƒ©ã‚¹ã§ã¯ArrayBlockingQueueã¨å†—é•·ãªå®Ÿè£…ã‚’ã—ã¦ã„ã‚‹ã€‚<br>
  * </p>
  * <p>
- * À‘•‚ÍAbstractCollector‚Ég—p‚³‚ê‚é‚à‚Ì‚Éi‚Á‚Ä‚¢‚é‚½‚ßA ‚·‚×‚Ä‚Ìƒƒ\ƒbƒh‚ªg—p‚Å‚«‚é‚í‚¯‚Å‚Í‚È‚¢B<br>
- * ‚±‚ÌƒNƒ‰ƒX‚ÅƒI[ƒo[ƒ‰ƒCƒh‚µ‚Ä‚¢‚éƒƒ\ƒbƒhˆÈŠO‚ÅA ƒLƒ…[‚Ìó‘Ô‚ğ•ÏX‚·‚éƒƒ\ƒbƒh‚âA‘Ò‚¿‚ª”­¶‚·‚éƒƒ\ƒbƒh‚ğÀs‚µ‚Ä‚Í‚È‚ç‚È‚¢B
+ * å®Ÿè£…ã¯AbstractCollectorã«ä½¿ç”¨ã•ã‚Œã‚‹ã‚‚ã®ã«çµã£ã¦ã„ã‚‹ãŸã‚ã€ ã™ã¹ã¦ã®ãƒ¡ã‚½ãƒƒãƒ‰ãŒä½¿ç”¨ã§ãã‚‹ã‚ã‘ã§ã¯ãªã„ã€‚<br>
+ * ã“ã®ã‚¯ãƒ©ã‚¹ã§ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã—ã¦ã„ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ä»¥å¤–ã§ã€ ã‚­ãƒ¥ãƒ¼ã®çŠ¶æ…‹ã‚’å¤‰æ›´ã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ã‚„ã€å¾…ã¡ãŒç™ºç”Ÿã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å®Ÿè¡Œã—ã¦ã¯ãªã‚‰ãªã„ã€‚
  * </p>
  * <p>
- * ƒLƒ…[‚É—v‘f‚ğ‹l‚ßI‚í‚Á‚½Œã‚ÍAƒLƒ…[‚É—v‘f‚ğ‹l‚ß‚éƒXƒŒƒbƒh‚ÅA•K‚¸finishQueueingƒƒ\ƒbƒh‚ğÀs‚·‚é‚±‚ÆB
+ * ã‚­ãƒ¥ãƒ¼ã«è¦ç´ ã‚’è©°ã‚çµ‚ã‚ã£ãŸå¾Œã¯ã€ã‚­ãƒ¥ãƒ¼ã«è¦ç´ ã‚’è©°ã‚ã‚‹ã‚¹ãƒ¬ãƒƒãƒ‰ã§ã€å¿…ãšfinishQueueingãƒ¡ã‚½ãƒƒãƒ‰ã‚’å®Ÿè¡Œã™ã‚‹ã“ã¨ã€‚
  * </p>
- * @param <E> ƒRƒŒƒNƒVƒ‡ƒ““à‚É‘¶İ‚·‚é—v‘f‚ÌŒ^
+ * @param <E> ã‚³ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³å†…ã«å­˜åœ¨ã™ã‚‹è¦ç´ ã®å‹
  */
 public class ArrayBlockingQueueEx<E> extends ArrayBlockingQueue<E>
                                                                   implements
@@ -46,34 +46,34 @@ public class ArrayBlockingQueueEx<E> extends ArrayBlockingQueue<E>
     private static final long serialVersionUID = 7441765139909417804L;
 
     /**
-     * ƒLƒ…[‚Ì‘€ì‚ğ“¯Šú‰»‚·‚éƒƒbƒNB
+     * ã‚­ãƒ¥ãƒ¼ã®æ“ä½œã‚’åŒæœŸåŒ–ã™ã‚‹ãƒ­ãƒƒã‚¯ã€‚
      */
     protected final ReentrantLock queueLock = new ReentrantLock();
 
     /**
-     * ƒLƒ…[‚ª‹ó‚Å‚È‚­‚È‚Á‚½‚Æ‚«‚É‘—M‚³‚ê‚éƒVƒOƒiƒ‹B
+     * ã‚­ãƒ¥ãƒ¼ãŒç©ºã§ãªããªã£ãŸã¨ãã«é€ä¿¡ã•ã‚Œã‚‹ã‚·ã‚°ãƒŠãƒ«ã€‚
      */
     protected final Condition notEmpty = queueLock.newCondition();
 
     /**
-     * ƒLƒ…[‚ªFull‚Å‚È‚­‚È‚Á‚½‚Æ‚«‚É‘—M‚³‚ê‚éƒVƒOƒiƒ‹B
+     * ã‚­ãƒ¥ãƒ¼ãŒFullã§ãªããªã£ãŸã¨ãã«é€ä¿¡ã•ã‚Œã‚‹ã‚·ã‚°ãƒŠãƒ«ã€‚
      */
     protected final Condition notFull = queueLock.newCondition();
 
     /**
-     * ƒLƒ…[ƒTƒCƒYB
+     * ã‚­ãƒ¥ãƒ¼ã‚µã‚¤ã‚ºã€‚
      */
     protected final int capacity;
 
     /**
-     * ƒLƒ…[ƒCƒ“ƒOI—¹ƒtƒ‰ƒOB
+     * ã‚­ãƒ¥ãƒ¼ã‚¤ãƒ³ã‚°çµ‚äº†ãƒ•ãƒ©ã‚°ã€‚
      */
     protected volatile boolean finishQueueingFlag = false;
 
     /**
-     * w’è‚³‚ê‚½ (ŒÅ’è) —e—Ê‚¨‚æ‚Ñw’è‚³‚ê‚½ƒAƒNƒZƒXƒ|ƒŠƒV[‚ğg—p‚µ‚ÄAArrayBlockingQueue ‚ğì¬‚·‚éB
-     * @param capacity ƒLƒ…[‚Ì—e—Ê
-     * @param fair true ‚Ìê‡A‘}“ü‚Ü‚½‚Ííœ‚ÉƒuƒƒbƒN‚³‚ê‚½ƒXƒŒƒbƒh‚É‘Î‚·‚éƒLƒ…[ƒAƒNƒZƒX‚ÍAFIFO ‚Ì‡˜‚Åˆ—‚³‚ê‚éB false ‚Ìê‡AƒAƒNƒZƒX‡˜‚Íw’è‚³‚ê‚È‚¢B
+     * æŒ‡å®šã•ã‚ŒãŸ (å›ºå®š) å®¹é‡ãŠã‚ˆã³æŒ‡å®šã•ã‚ŒãŸã‚¢ã‚¯ã‚»ã‚¹ãƒãƒªã‚·ãƒ¼ã‚’ä½¿ç”¨ã—ã¦ã€ArrayBlockingQueue ã‚’ä½œæˆã™ã‚‹ã€‚
+     * @param capacity ã‚­ãƒ¥ãƒ¼ã®å®¹é‡
+     * @param fair true ã®å ´åˆã€æŒ¿å…¥ã¾ãŸã¯å‰Šé™¤æ™‚ã«ãƒ–ãƒ­ãƒƒã‚¯ã•ã‚ŒãŸã‚¹ãƒ¬ãƒƒãƒ‰ã«å¯¾ã™ã‚‹ã‚­ãƒ¥ãƒ¼ã‚¢ã‚¯ã‚»ã‚¹ã¯ã€FIFO ã®é †åºã§å‡¦ç†ã•ã‚Œã‚‹ã€‚ false ã®å ´åˆã€ã‚¢ã‚¯ã‚»ã‚¹é †åºã¯æŒ‡å®šã•ã‚Œãªã„ã€‚
      * @see ArrayBlockingQueue#ArrayBlockingQueue(int, boolean)
      */
     public ArrayBlockingQueueEx(int capacity, boolean fair) {
@@ -82,8 +82,8 @@ public class ArrayBlockingQueueEx<E> extends ArrayBlockingQueue<E>
     }
 
     /**
-     * w’è‚³‚ê‚½ (ŒÅ’è) —e—Ê‚¨‚æ‚ÑƒfƒtƒHƒ‹ƒg‚ÌƒAƒNƒZƒXƒ|ƒŠƒV[‚ğg—p‚µ‚ÄAArrayBlockingQueue ‚ğì¬‚·‚éB
-     * @param capacity ƒLƒ…[‚Ì—e—Ê
+     * æŒ‡å®šã•ã‚ŒãŸ (å›ºå®š) å®¹é‡ãŠã‚ˆã³ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ã‚¢ã‚¯ã‚»ã‚¹ãƒãƒªã‚·ãƒ¼ã‚’ä½¿ç”¨ã—ã¦ã€ArrayBlockingQueue ã‚’ä½œæˆã™ã‚‹ã€‚
+     * @param capacity ã‚­ãƒ¥ãƒ¼ã®å®¹é‡
      * @see ArrayBlockingQueue#ArrayBlockingQueue(int)
      */
     public ArrayBlockingQueueEx(int capacity) {
@@ -92,9 +92,9 @@ public class ArrayBlockingQueueEx<E> extends ArrayBlockingQueue<E>
     }
 
     /**
-     * ƒLƒ…[ƒCƒ“ƒO‚ÌI—¹‚ğ’Ê’m‚·‚éB
+     * ã‚­ãƒ¥ãƒ¼ã‚¤ãƒ³ã‚°ã®çµ‚äº†ã‚’é€šçŸ¥ã™ã‚‹ã€‚
      * <p>
-     * ƒLƒ…[‚É—v‘f‚ª“ü‚é‚Ì‚ğ‘Ò‚Á‚Ä‚¢‚éƒXƒŒƒbƒh‚ª‚¢‚éê‡A‚»‚ÌƒuƒƒbƒN‚ğ‰ğœ‚·‚éB ƒLƒ…[‚É—v‘f‚ğ‹l‚ß‚éƒXƒŒƒbƒh‚ÍAƒLƒ…[ƒCƒ“ƒO‚ªŠ®—¹‚µ‚½‚ ‚Æ‚ÅA•K‚¸‚±‚Ìƒƒ\ƒbƒh‚ğÀs‚·‚é‚±‚ÆB
+     * ã‚­ãƒ¥ãƒ¼ã«è¦ç´ ãŒå…¥ã‚‹ã®ã‚’å¾…ã£ã¦ã„ã‚‹ã‚¹ãƒ¬ãƒƒãƒ‰ãŒã„ã‚‹å ´åˆã€ãã®ãƒ–ãƒ­ãƒƒã‚¯ã‚’è§£é™¤ã™ã‚‹ã€‚ ã‚­ãƒ¥ãƒ¼ã«è¦ç´ ã‚’è©°ã‚ã‚‹ã‚¹ãƒ¬ãƒƒãƒ‰ã¯ã€ã‚­ãƒ¥ãƒ¼ã‚¤ãƒ³ã‚°ãŒå®Œäº†ã—ãŸã‚ã¨ã§ã€å¿…ãšã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å®Ÿè¡Œã™ã‚‹ã“ã¨ã€‚
      * </p>
      */
     public void finishQueueing() {
@@ -102,7 +102,7 @@ public class ArrayBlockingQueueEx<E> extends ArrayBlockingQueue<E>
         try {
             finishQueueingFlag = true;
 
-            // —v‘f‚Ì“ü‚è‘Ò‚¿‚ğs‚Á‚Ä‚¢‚éƒXƒŒƒbƒh‚ÌƒuƒƒbƒN‚ğ‰ğœ‚·‚é
+            // è¦ç´ ã®å…¥ã‚Šå¾…ã¡ã‚’è¡Œã£ã¦ã„ã‚‹ã‚¹ãƒ¬ãƒƒãƒ‰ã®ãƒ–ãƒ­ãƒƒã‚¯ã‚’è§£é™¤ã™ã‚‹
             notEmpty.signalAll();
         } finally {
             queueLock.unlock();
@@ -110,16 +110,16 @@ public class ArrayBlockingQueueEx<E> extends ArrayBlockingQueue<E>
     }
 
     /**
-     * w’è‚³‚ê‚½—v‘f‚ğ‚±‚ÌƒLƒ…[‚Ì––”ö‚É‘}“ü‚·‚éB•K—v‚É‰‚¶A‹óŠÔ‚ª—˜—p‰Â”\‚É‚È‚é‚Ì‚ğw’è‚³‚ê‚½ŠÔ‚Ü‚Å‘Ò‹@‚·‚éB
+     * æŒ‡å®šã•ã‚ŒãŸè¦ç´ ã‚’ã“ã®ã‚­ãƒ¥ãƒ¼ã®æœ«å°¾ã«æŒ¿å…¥ã™ã‚‹ã€‚å¿…è¦ã«å¿œã˜ã€ç©ºé–“ãŒåˆ©ç”¨å¯èƒ½ã«ãªã‚‹ã®ã‚’æŒ‡å®šã•ã‚ŒãŸæ™‚é–“ã¾ã§å¾…æ©Ÿã™ã‚‹ã€‚
      * <p>
-     * ‚±‚Ìƒƒ\ƒbƒh‚Ì’è‹`‚ÍA{@link ArrayBlockingQueue#offer(Object, long, TimeUnit)}‚Æ“¯‚¶B
+     * ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã®å®šç¾©ã¯ã€{@link ArrayBlockingQueue#offer(Object, long, TimeUnit)}ã¨åŒã˜ã€‚
      * </p>
-     * @param o ’Ç‰Á‚·‚é—v‘f
-     * @param timeout ˆ—‚ğ’†~‚·‚é‚Ü‚Å‚Ì‘Ò‹@ŠÔB’PˆÊ‚Í unit
-     * @param unit timeout ƒpƒ‰ƒ[ƒ^‚Ì‰ğß•û–@‚ğw’è‚·‚é TimeUnit
-     * @return ¬Œ÷‚µ‚½ê‡‚Í trueA‹óŠÔ‚ª—˜—p‰Â”\‚É‚È‚é‘O‚Éw’è‚³‚ê‚½‘Ò‹@ŠÔ‚ªŒo‰ß‚µ‚½ê‡‚Í false
-     * @throws InterruptedException ‘Ò‹@’†‚ÉŠ„‚è‚İ‚ª”­¶‚µ‚½ê‡
-     * @throws NullPointerException w’è‚³‚ê‚½—v‘f‚ª null ‚Å‚ ‚éê‡
+     * @param o è¿½åŠ ã™ã‚‹è¦ç´ 
+     * @param timeout å‡¦ç†ã‚’ä¸­æ­¢ã™ã‚‹ã¾ã§ã®å¾…æ©Ÿæ™‚é–“ã€‚å˜ä½ã¯ unit
+     * @param unit timeout ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®è§£é‡ˆæ–¹æ³•ã‚’æŒ‡å®šã™ã‚‹ TimeUnit
+     * @return æˆåŠŸã—ãŸå ´åˆã¯ trueã€ç©ºé–“ãŒåˆ©ç”¨å¯èƒ½ã«ãªã‚‹å‰ã«æŒ‡å®šã•ã‚ŒãŸå¾…æ©Ÿæ™‚é–“ãŒçµŒéã—ãŸå ´åˆã¯ false
+     * @throws InterruptedException å¾…æ©Ÿä¸­ã«å‰²ã‚Šè¾¼ã¿ãŒç™ºç”Ÿã—ãŸå ´åˆ
+     * @throws NullPointerException æŒ‡å®šã•ã‚ŒãŸè¦ç´ ãŒ null ã§ã‚ã‚‹å ´åˆ
      * @see ArrayBlockingQueue#offer(Object, long, TimeUnit)
      */
     @Override
@@ -133,18 +133,18 @@ public class ArrayBlockingQueueEx<E> extends ArrayBlockingQueue<E>
         try {
             while (size() == capacity) {
 
-                // ƒLƒ…[‚ª‹ó‚­‚Ì‚ğ‘Ò‚Â
+                // ã‚­ãƒ¥ãƒ¼ãŒç©ºãã®ã‚’å¾…ã¤
                 nanos = notFull.awaitNanos(nanos);
                 if (nanos <= 0) {
 
-                    // ƒ^ƒCƒ€ƒAƒEƒg
+                    // ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆ
                     return false;
                 }
             }
             boolean success = super.offer(o);
             if (success) {
 
-                // —v‘f‚Ì“ü‚è‘Ò‚¿‚ğs‚Á‚Ä‚¢‚éƒXƒŒƒbƒh‚ÌƒuƒƒbƒN‚ğ‰ğœ‚·‚é
+                // è¦ç´ ã®å…¥ã‚Šå¾…ã¡ã‚’è¡Œã£ã¦ã„ã‚‹ã‚¹ãƒ¬ãƒƒãƒ‰ã®ãƒ–ãƒ­ãƒƒã‚¯ã‚’è§£é™¤ã™ã‚‹
                 notEmpty.signal();
             }
             return success;
@@ -154,13 +154,13 @@ public class ArrayBlockingQueueEx<E> extends ArrayBlockingQueue<E>
     }
 
     /**
-     * ‰Â”\‚Å‚ ‚ê‚ÎA‚±‚ÌƒLƒ…[‚Ì––”ö‚Éw’è‚³‚ê‚½—v‘f‚ğ‘}“ü‚·‚éB‚±‚ÌƒLƒ…[‚ª‚¢‚Á‚Ï‚¢‚Å‚ ‚éê‡‚É‚ÍA‘¦À‚É•Ô‚·B
+     * å¯èƒ½ã§ã‚ã‚Œã°ã€ã“ã®ã‚­ãƒ¥ãƒ¼ã®æœ«å°¾ã«æŒ‡å®šã•ã‚ŒãŸè¦ç´ ã‚’æŒ¿å…¥ã™ã‚‹ã€‚ã“ã®ã‚­ãƒ¥ãƒ¼ãŒã„ã£ã±ã„ã§ã‚ã‚‹å ´åˆã«ã¯ã€å³åº§ã«è¿”ã™ã€‚
      * <p>
-     * ‚±‚Ìƒƒ\ƒbƒh‚Ì’è‹`‚ÍA{@link ArrayBlockingQueue#offer(Object)}‚Æ“¯‚¶B
+     * ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã®å®šç¾©ã¯ã€{@link ArrayBlockingQueue#offer(Object)}ã¨åŒã˜ã€‚
      * </p>
-     * @param o ’Ç‰Á‚·‚é—v‘f
-     * @return —v‘f‚ğ‚±‚ÌƒLƒ…[‚É’Ç‰Á‰Â”\‚Èê‡‚Í trueA‚»‚¤‚Å‚È‚¢ê‡‚Í false
-     * @throws NullPointerException w’è‚³‚ê‚½—v‘f‚ª null ‚Å‚ ‚éê‡
+     * @param o è¿½åŠ ã™ã‚‹è¦ç´ 
+     * @return è¦ç´ ã‚’ã“ã®ã‚­ãƒ¥ãƒ¼ã«è¿½åŠ å¯èƒ½ãªå ´åˆã¯ trueã€ãã†ã§ãªã„å ´åˆã¯ false
+     * @throws NullPointerException æŒ‡å®šã•ã‚ŒãŸè¦ç´ ãŒ null ã§ã‚ã‚‹å ´åˆ
      * @see ArrayBlockingQueue#offer(Object)
      */
     @Override
@@ -173,7 +173,7 @@ public class ArrayBlockingQueueEx<E> extends ArrayBlockingQueue<E>
             boolean success = super.offer(o);
             if (success) {
 
-                // —v‘f‚Ì“ü‚è‘Ò‚¿‚ğs‚Á‚Ä‚¢‚éƒXƒŒƒbƒh‚ÌƒuƒƒbƒN‚ğ‰ğœ‚·‚é
+                // è¦ç´ ã®å…¥ã‚Šå¾…ã¡ã‚’è¡Œã£ã¦ã„ã‚‹ã‚¹ãƒ¬ãƒƒãƒ‰ã®ãƒ–ãƒ­ãƒƒã‚¯ã‚’è§£é™¤ã™ã‚‹
                 notEmpty.signal();
             }
             return success;
@@ -183,10 +183,10 @@ public class ArrayBlockingQueueEx<E> extends ArrayBlockingQueue<E>
     }
 
     /**
-     * w’è‚³‚ê‚½—v‘f‚ğ‚±‚ÌƒLƒ…[‚Ì––”ö‚É’Ç‰Á‚·‚éB•K—v‚É‰‚¶A‹óŠÔ‚ª—˜—p‰Â”\‚É‚È‚é‚Ü‚Å‘Ò‹@‚·‚éB
-     * @param o ’Ç‰Á‚·‚é—v‘f
-     * @throws InterruptedException ‘Ò‹@’†‚ÉŠ„‚è‚İ‚ª”­¶‚µ‚½ê‡
-     * @throws NullPointerException w’è‚³‚ê‚½—v‘f‚ª null ‚Å‚ ‚éê‡
+     * æŒ‡å®šã•ã‚ŒãŸè¦ç´ ã‚’ã“ã®ã‚­ãƒ¥ãƒ¼ã®æœ«å°¾ã«è¿½åŠ ã™ã‚‹ã€‚å¿…è¦ã«å¿œã˜ã€ç©ºé–“ãŒåˆ©ç”¨å¯èƒ½ã«ãªã‚‹ã¾ã§å¾…æ©Ÿã™ã‚‹ã€‚
+     * @param o è¿½åŠ ã™ã‚‹è¦ç´ 
+     * @throws InterruptedException å¾…æ©Ÿä¸­ã«å‰²ã‚Šè¾¼ã¿ãŒç™ºç”Ÿã—ãŸå ´åˆ
+     * @throws NullPointerException æŒ‡å®šã•ã‚ŒãŸè¦ç´ ãŒ null ã§ã‚ã‚‹å ´åˆ
      */
     @Override
     public void put(E o) throws InterruptedException {
@@ -197,12 +197,12 @@ public class ArrayBlockingQueueEx<E> extends ArrayBlockingQueue<E>
         try {
             while (size() == capacity) {
 
-                // ƒLƒ…[‚ª‹ó‚­‚Ì‚ğ‘Ò‚Â
+                // ã‚­ãƒ¥ãƒ¼ãŒç©ºãã®ã‚’å¾…ã¤
                 notFull.await();
             }
             super.put(o);
 
-            // —v‘f‚Ì“ü‚è‘Ò‚¿‚ğs‚Á‚Ä‚¢‚éƒXƒŒƒbƒh‚ÌƒuƒƒbƒN‚ğ‰ğœ‚·‚é
+            // è¦ç´ ã®å…¥ã‚Šå¾…ã¡ã‚’è¡Œã£ã¦ã„ã‚‹ã‚¹ãƒ¬ãƒƒãƒ‰ã®ãƒ–ãƒ­ãƒƒã‚¯ã‚’è§£é™¤ã™ã‚‹
             notEmpty.signal();
         } finally {
             queueLock.unlock();
@@ -210,15 +210,15 @@ public class ArrayBlockingQueueEx<E> extends ArrayBlockingQueue<E>
     }
 
     /**
-     * ƒLƒ…[‚Ìæ“ª‚ğæ“¾‚·‚é‚ªAíœ‚µ‚È‚¢B
+     * ã‚­ãƒ¥ãƒ¼ã®å…ˆé ­ã‚’å–å¾—ã™ã‚‹ãŒã€å‰Šé™¤ã—ãªã„ã€‚
      * <p>
-     * Šg’£d—lF<b> ƒLƒ…[‚ª‹ó‚Ìê‡‚ÍAƒLƒ…[‚É—v‘f‚ª“ü‚é‚©AƒLƒ…[ƒCƒ“ƒO‚ÌI—¹‚ª’Ê’m‚³‚ê‚é‚Ü‚Å‘Ò‚ÂB<br>
-     * ƒLƒ…[ƒCƒ“ƒO‚ÌI—¹‚ª’Ê’m‚³‚ê‚½ŒãAƒLƒ…[‚ª‹ó‚Ìê‡‚Í null ‚ğ•Ô‚·B
+     * æ‹¡å¼µä»•æ§˜ï¼š<b> ã‚­ãƒ¥ãƒ¼ãŒç©ºã®å ´åˆã¯ã€ã‚­ãƒ¥ãƒ¼ã«è¦ç´ ãŒå…¥ã‚‹ã‹ã€ã‚­ãƒ¥ãƒ¼ã‚¤ãƒ³ã‚°ã®çµ‚äº†ãŒé€šçŸ¥ã•ã‚Œã‚‹ã¾ã§å¾…ã¤ã€‚<br>
+     * ã‚­ãƒ¥ãƒ¼ã‚¤ãƒ³ã‚°ã®çµ‚äº†ãŒé€šçŸ¥ã•ã‚ŒãŸå¾Œã€ã‚­ãƒ¥ãƒ¼ãŒç©ºã®å ´åˆã¯ null ã‚’è¿”ã™ã€‚
      * </p>
      * <p>
-     * ƒLƒ…[‚É—v‘f‚ª‚ ‚éê‡‚âAƒLƒ…[ƒCƒ“ƒO‚ÌI—¹‚ª’Ê’m‚³‚ê‚½Œã‚Ìd—l‚ÍA {@link ArrayBlockingQueue#peek()}‚Æ“¯‚¶B
+     * ã‚­ãƒ¥ãƒ¼ã«è¦ç´ ãŒã‚ã‚‹å ´åˆã‚„ã€ã‚­ãƒ¥ãƒ¼ã‚¤ãƒ³ã‚°ã®çµ‚äº†ãŒé€šçŸ¥ã•ã‚ŒãŸå¾Œã®ä»•æ§˜ã¯ã€ {@link ArrayBlockingQueue#peek()}ã¨åŒã˜ã€‚
      * </p>
-     * @return ƒLƒ…[‚Ìæ“ªBƒLƒ…[ƒCƒ“ƒOI—¹Œã‚ÉƒLƒ…[‚ª‹ó‚Ìê‡‚Í null
+     * @return ã‚­ãƒ¥ãƒ¼ã®å…ˆé ­ã€‚ã‚­ãƒ¥ãƒ¼ã‚¤ãƒ³ã‚°çµ‚äº†å¾Œã«ã‚­ãƒ¥ãƒ¼ãŒç©ºã®å ´åˆã¯ null
      */
     @Override
     public E peek() {
@@ -227,7 +227,7 @@ public class ArrayBlockingQueueEx<E> extends ArrayBlockingQueue<E>
             while (!finishQueueingFlag && size() == 0) {
                 try {
 
-                    // ƒLƒ…[‚É—v‘f‚ª“ü‚é‚Ì‚ğ‚Ì‚ğ‘Ò‚Â
+                    // ã‚­ãƒ¥ãƒ¼ã«è¦ç´ ãŒå…¥ã‚‹ã®ã‚’ã®ã‚’å¾…ã¤
                     notEmpty.await();
                 } catch (InterruptedException e) {
                     return null;
@@ -240,17 +240,17 @@ public class ArrayBlockingQueueEx<E> extends ArrayBlockingQueue<E>
     }
 
     /**
-     * ‚±‚ÌƒLƒ…[‚Ìæ“ª‚ğæ“¾‚¨‚æ‚Ñíœ‚·‚éB‚±‚ÌƒLƒ…[‚É—v‘f‚ª‘¶İ‚µ‚È‚¢ê‡‚ÍA•K—v‚É‰‚¶‚Äw’è‚³‚ê‚½ŠÔ‚¾‚¯‘Ò‹@‚·‚éB
+     * ã“ã®ã‚­ãƒ¥ãƒ¼ã®å…ˆé ­ã‚’å–å¾—ãŠã‚ˆã³å‰Šé™¤ã™ã‚‹ã€‚ã“ã®ã‚­ãƒ¥ãƒ¼ã«è¦ç´ ãŒå­˜åœ¨ã—ãªã„å ´åˆã¯ã€å¿…è¦ã«å¿œã˜ã¦æŒ‡å®šã•ã‚ŒãŸæ™‚é–“ã ã‘å¾…æ©Ÿã™ã‚‹ã€‚
      * <p>
-     * Šg’£d—lF<b> ƒLƒ…[ƒCƒ“ƒO‚ÌI—¹‚ª’Ê’m‚³‚ê‚½ŒãAƒLƒ…[‚ª‹ó‚Ìê‡‚ÍAƒ^ƒCƒ€ƒAƒEƒg‚ğ‘Ò‚½‚¸‚É null ‚ğ•Ô‚·B
+     * æ‹¡å¼µä»•æ§˜ï¼š<b> ã‚­ãƒ¥ãƒ¼ã‚¤ãƒ³ã‚°ã®çµ‚äº†ãŒé€šçŸ¥ã•ã‚ŒãŸå¾Œã€ã‚­ãƒ¥ãƒ¼ãŒç©ºã®å ´åˆã¯ã€ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆã‚’å¾…ãŸãšã« null ã‚’è¿”ã™ã€‚
      * </p>
      * <p>
-     * ƒLƒ…[ƒCƒ“ƒO‚ÌI—¹‚ª’Ê’m‚³‚ê‚é‘O‚Ìd—l‚ÍA {@link ArrayBlockingQueue#poll(long, TimeUnit)}‚Æ“¯‚¶B
+     * ã‚­ãƒ¥ãƒ¼ã‚¤ãƒ³ã‚°ã®çµ‚äº†ãŒé€šçŸ¥ã•ã‚Œã‚‹å‰ã®ä»•æ§˜ã¯ã€ {@link ArrayBlockingQueue#poll(long, TimeUnit)}ã¨åŒã˜ã€‚
      * </p>
-     * @param timeout ˆ—‚ğ’†~‚·‚é‚Ü‚Å‚Ì‘Ò‹@ŠÔB’PˆÊ‚Í unit
-     * @param unit timeout ƒpƒ‰ƒ[ƒ^‚Ì‰ğß•û–@‚ğw’è‚·‚é TimeUnit
-     * @return ‚±‚ÌƒLƒ…[‚Ìæ“ªBw’è‚³‚ê‚½‘Ò‹@ŠÔ‚ªŒo‰ßA‚ ‚é‚¢‚ÍƒLƒ…[ƒCƒ“ƒO‚ÌI—¹‚ª’Ê’m‚³‚ê‚½Œã‚à—v‘f‚ª‘¶İ‚µ‚È‚¢ê‡‚Í null
-     * @throws InterruptedException ‘Ò‹@’†‚ÉŠ„‚è‚İ‚ª”­¶‚µ‚½ê‡
+     * @param timeout å‡¦ç†ã‚’ä¸­æ­¢ã™ã‚‹ã¾ã§ã®å¾…æ©Ÿæ™‚é–“ã€‚å˜ä½ã¯ unit
+     * @param unit timeout ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®è§£é‡ˆæ–¹æ³•ã‚’æŒ‡å®šã™ã‚‹ TimeUnit
+     * @return ã“ã®ã‚­ãƒ¥ãƒ¼ã®å…ˆé ­ã€‚æŒ‡å®šã•ã‚ŒãŸå¾…æ©Ÿæ™‚é–“ãŒçµŒéã€ã‚ã‚‹ã„ã¯ã‚­ãƒ¥ãƒ¼ã‚¤ãƒ³ã‚°ã®çµ‚äº†ãŒé€šçŸ¥ã•ã‚ŒãŸå¾Œã‚‚è¦ç´ ãŒå­˜åœ¨ã—ãªã„å ´åˆã¯ null
+     * @throws InterruptedException å¾…æ©Ÿä¸­ã«å‰²ã‚Šè¾¼ã¿ãŒç™ºç”Ÿã—ãŸå ´åˆ
      */
     @Override
     public E poll(long timeout, TimeUnit unit) throws InterruptedException {
@@ -259,22 +259,22 @@ public class ArrayBlockingQueueEx<E> extends ArrayBlockingQueue<E>
         try {
             while (!finishQueueingFlag && size() == 0) {
 
-                // ƒLƒ…[‚É—v‘f‚ª“ü‚é‚Ì‚ğ‚Ì‚ğ‘Ò‚Â
+                // ã‚­ãƒ¥ãƒ¼ã«è¦ç´ ãŒå…¥ã‚‹ã®ã‚’ã®ã‚’å¾…ã¤
                 nanos = notEmpty.awaitNanos(nanos);
                 if (nanos <= 0) {
 
-                    // ƒ^ƒCƒ€ƒAƒEƒg
+                    // ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆ
                     return null;
                 }
             }
             if (finishQueueingFlag && size() == 0) {
-                // ƒLƒ…[ƒCƒ“ƒO‚ÌI—¹‚ª’Ê’m‚³‚ê‚½ŒãA‚©‚ÂAƒLƒ…[‚ª‹ó
+                // ã‚­ãƒ¥ãƒ¼ã‚¤ãƒ³ã‚°ã®çµ‚äº†ãŒé€šçŸ¥ã•ã‚ŒãŸå¾Œã€ã‹ã¤ã€ã‚­ãƒ¥ãƒ¼ãŒç©º
                 return null;
             }
             E elm = super.poll(timeout, unit);
             if (elm != null) {
 
-                // ƒLƒ…[‚Ì‹ó‚«‘Ò‚¿‚ğs‚Á‚Ä‚¢‚éƒXƒŒƒbƒh‚ÌƒuƒƒbƒN‚ğ‰ğœ‚·‚é
+                // ã‚­ãƒ¥ãƒ¼ã®ç©ºãå¾…ã¡ã‚’è¡Œã£ã¦ã„ã‚‹ã‚¹ãƒ¬ãƒƒãƒ‰ã®ãƒ–ãƒ­ãƒƒã‚¯ã‚’è§£é™¤ã™ã‚‹
                 notFull.signal();
             }
             return elm;
@@ -284,8 +284,8 @@ public class ArrayBlockingQueueEx<E> extends ArrayBlockingQueue<E>
     }
 
     /**
-     * ‚±‚ÌƒLƒ…[‚Ìæ“ª‚ğæ“¾‚¨‚æ‚Ñíœ‚·‚éB
-     * @return ‚±‚ÌƒLƒ…[‚Ìæ“ªB—v‘f‚ª‘¶İ‚µ‚È‚¢ê‡‚Í null
+     * ã“ã®ã‚­ãƒ¥ãƒ¼ã®å…ˆé ­ã‚’å–å¾—ãŠã‚ˆã³å‰Šé™¤ã™ã‚‹ã€‚
+     * @return ã“ã®ã‚­ãƒ¥ãƒ¼ã®å…ˆé ­ã€‚è¦ç´ ãŒå­˜åœ¨ã—ãªã„å ´åˆã¯ null
      */
     @Override
     public E poll() {
@@ -294,7 +294,7 @@ public class ArrayBlockingQueueEx<E> extends ArrayBlockingQueue<E>
             E elm = super.poll();
             if (elm != null) {
 
-                // ƒLƒ…[‚Ì‹ó‚«‘Ò‚¿‚ğs‚Á‚Ä‚¢‚éƒXƒŒƒbƒh‚ÌƒuƒƒbƒN‚ğ‰ğœ‚·‚é
+                // ã‚­ãƒ¥ãƒ¼ã®ç©ºãå¾…ã¡ã‚’è¡Œã£ã¦ã„ã‚‹ã‚¹ãƒ¬ãƒƒãƒ‰ã®ãƒ–ãƒ­ãƒƒã‚¯ã‚’è§£é™¤ã™ã‚‹
                 notFull.signal();
             }
             return elm;
@@ -304,10 +304,10 @@ public class ArrayBlockingQueueEx<E> extends ArrayBlockingQueue<E>
     }
 
     /**
-     * ƒLƒ…[‚É—v‘f‚ª‚È‚¢ê‡‚É true ‚ğ•Ô‚·B
+     * ã‚­ãƒ¥ãƒ¼ã«è¦ç´ ãŒãªã„å ´åˆã« true ã‚’è¿”ã™ã€‚
      * <p>
-     * Šg’£d—lF<b> ƒLƒ…[‚ª‹ó‚Ìê‡‚ÍAƒLƒ…[‚É—v‘f‚ª“ü‚é‚©AƒLƒ…[ƒCƒ“ƒO‚ÌI—¹‚ª’Ê’m‚³‚ê‚é‚Ü‚Å‘Ò‚ÂB<br>
-     * ƒLƒ…[ƒCƒ“ƒO‚ÌI—¹‚ª’Ê’m‚³‚ê‚½ŒãAƒLƒ…[‚ª‹ó‚Ìê‡‚Í true ‚ğ•Ô‚·B
+     * æ‹¡å¼µä»•æ§˜ï¼š<b> ã‚­ãƒ¥ãƒ¼ãŒç©ºã®å ´åˆã¯ã€ã‚­ãƒ¥ãƒ¼ã«è¦ç´ ãŒå…¥ã‚‹ã‹ã€ã‚­ãƒ¥ãƒ¼ã‚¤ãƒ³ã‚°ã®çµ‚äº†ãŒé€šçŸ¥ã•ã‚Œã‚‹ã¾ã§å¾…ã¤ã€‚<br>
+     * ã‚­ãƒ¥ãƒ¼ã‚¤ãƒ³ã‚°ã®çµ‚äº†ãŒé€šçŸ¥ã•ã‚ŒãŸå¾Œã€ã‚­ãƒ¥ãƒ¼ãŒç©ºã®å ´åˆã¯ true ã‚’è¿”ã™ã€‚
      * </p>
      */
     @Override
@@ -317,7 +317,7 @@ public class ArrayBlockingQueueEx<E> extends ArrayBlockingQueue<E>
             while (!finishQueueingFlag && size() == 0) {
                 try {
 
-                    // ƒLƒ…[‚É—v‘f‚ª“ü‚é‚Ì‚ğ‚Ì‚ğ‘Ò‚Â
+                    // ã‚­ãƒ¥ãƒ¼ã«è¦ç´ ãŒå…¥ã‚‹ã®ã‚’ã®ã‚’å¾…ã¤
                     notEmpty.await();
                 } catch (InterruptedException e) {
                     return true;

@@ -22,54 +22,54 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
- * commons-JXPath‚ÌƒoƒO(JXPATH-152)‰ñ”ğ—pHashMapB
+ * commons-JXPathã®ãƒã‚°(JXPATH-152)å›é¿ç”¨HashMapã€‚
  * <p>
- * commons-JXPath-1.3‚Ì
- * JXPathIntrospector‚ÌÀ‘•‚É‡‚í‚¹‚ÄA
- * put‚Æget‚Ì‚İAƒXƒŒƒbƒhƒZ[ƒt‰»‚µ‚Ä‚¢‚éB<br>
- * “¯Šú‰»§Œä‚É‚ÍAReadWriteLock‚ğ—˜—p‚µ‚Ä‚¨‚èA
- * put‚ÌÀs’†‚ÍA‘¼‚ÌƒXƒŒƒbƒh‚Íput‚àget‚àÀs‚Å‚«‚È‚¢(ˆê“I‚É‘Ò‚¿ó‘Ô‚Æ‚È‚é)‚ªA
- * put‚ÌÀs’†‚Å‚È‚¯‚ê‚ÎA•¡”‚ÌƒXƒŒƒbƒh‚Å“¯‚Éget‚ğÀs‚·‚é‚±‚Æ‚ª‚Å‚«‚éB
+ * commons-JXPath-1.3ã®
+ * JXPathIntrospectorã®å®Ÿè£…ã«åˆã‚ã›ã¦ã€
+ * putã¨getã®ã¿ã€ã‚¹ãƒ¬ãƒƒãƒ‰ã‚»ãƒ¼ãƒ•åŒ–ã—ã¦ã„ã‚‹ã€‚<br>
+ * åŒæœŸåŒ–åˆ¶å¾¡ã«ã¯ã€ReadWriteLockã‚’åˆ©ç”¨ã—ã¦ãŠã‚Šã€
+ * putã®å®Ÿè¡Œä¸­ã¯ã€ä»–ã®ã‚¹ãƒ¬ãƒƒãƒ‰ã¯putã‚‚getã‚‚å®Ÿè¡Œã§ããªã„(ä¸€æ™‚çš„ã«å¾…ã¡çŠ¶æ…‹ã¨ãªã‚‹)ãŒã€
+ * putã®å®Ÿè¡Œä¸­ã§ãªã‘ã‚Œã°ã€è¤‡æ•°ã®ã‚¹ãƒ¬ãƒƒãƒ‰ã§åŒæ™‚ã«getã‚’å®Ÿè¡Œã™ã‚‹ã“ã¨ãŒã§ãã‚‹ã€‚
  * </p>
  * @see JXPATH152PatchActivator
  */
 public class HashMapForJXPathIntrospector<K, V> extends HashMap<K, V> {
 
     /**
-     * ƒVƒŠƒAƒ‹ƒo[ƒWƒ‡ƒ“IDB
+     * ã‚·ãƒªã‚¢ãƒ«ãƒãƒ¼ã‚¸ãƒ§ãƒ³IDã€‚
      */
     private static final long serialVersionUID = 1944915046869984094L;
 
     /**
-     * “Ç‚İ‚İƒƒbƒN‚Æ‘‚«‚İƒƒbƒN‚ÌƒyƒA‚ğ§Œä‚·‚éReadWriteLockB
+     * èª­ã¿è¾¼ã¿ãƒ­ãƒƒã‚¯ã¨æ›¸ãè¾¼ã¿ãƒ­ãƒƒã‚¯ã®ãƒšã‚¢ã‚’åˆ¶å¾¡ã™ã‚‹ReadWriteLockã€‚
      */
     private final ReentrantReadWriteLock readWriteLock = new ReentrantReadWriteLock();
 
     /**
-     * “Ç‚İ‚İƒƒbƒNB
+     * èª­ã¿è¾¼ã¿ãƒ­ãƒƒã‚¯ã€‚
      */
     private final Lock readLock = readWriteLock.readLock();
 
     /**
-     * ‘‚«‚İƒƒbƒNB
+     * æ›¸ãè¾¼ã¿ãƒ­ãƒƒã‚¯ã€‚
      */
     private final Lock writeLock = readWriteLock.writeLock();
 
     /**
-     * w’è‚³‚ê‚½ Map ‚Æ“¯‚¶ƒ}ƒbƒsƒ“ƒO‚ÅV‹K HashMapForJXPathIntrospector ‚ğì¬‚·‚éB
-     * @param m ‰Šúƒ}ƒbƒsƒ“ƒO‚ğ•Û‚µ‚½ƒ}ƒbƒv(JXPathIntrospector‚©‚çæ“¾‚µ‚½ƒ}ƒbƒv)
-     * @throws NullPointerException w’è‚³‚ê‚½ƒ}ƒbƒv‚ª null ‚Ìê‡
+     * æŒ‡å®šã•ã‚ŒãŸ Map ã¨åŒã˜ãƒãƒƒãƒ”ãƒ³ã‚°ã§æ–°è¦ HashMapForJXPathIntrospector ã‚’ä½œæˆã™ã‚‹ã€‚
+     * @param m åˆæœŸãƒãƒƒãƒ”ãƒ³ã‚°ã‚’ä¿æŒã—ãŸãƒãƒƒãƒ—(JXPathIntrospectorã‹ã‚‰å–å¾—ã—ãŸãƒãƒƒãƒ—)
+     * @throws NullPointerException æŒ‡å®šã•ã‚ŒãŸãƒãƒƒãƒ—ãŒ null ã®å ´åˆ
      */
     public HashMapForJXPathIntrospector(Map<? extends K, ? extends V> m) {
         super(m);
     }
 
     /**
-     * ƒL[‚Éƒ}ƒbƒsƒ“ƒO‚³‚ê‚Ä‚¢‚é’l‚ğ•Ô‚·B
+     * ã‚­ãƒ¼ã«ãƒãƒƒãƒ”ãƒ³ã‚°ã•ã‚Œã¦ã„ã‚‹å€¤ã‚’è¿”ã™ã€‚
      * <p>
-     * ‚±‚Ìƒƒ\ƒbƒh‚ÍA“Ç‚İ‚İƒƒbƒN‚ğŠl“¾‚µ‚½ó‘Ô‚ÅA{@link HashMap#get(Object)}‚ÉˆÏ÷‚·‚éB<br>
+     * ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã¯ã€èª­ã¿è¾¼ã¿ãƒ­ãƒƒã‚¯ã‚’ç²å¾—ã—ãŸçŠ¶æ…‹ã§ã€{@link HashMap#get(Object)}ã«å§”è­²ã™ã‚‹ã€‚<br>
      * </p>
-     * @param key ƒL[
+     * @param key ã‚­ãƒ¼
      * @see HashMap#get(Object)
      */
     @Override
@@ -83,12 +83,12 @@ public class HashMapForJXPathIntrospector<K, V> extends HashMap<K, V> {
     }
 
     /**
-     * w’è‚³‚ê‚½ƒL[‚Åw’è‚³‚ê‚½’l‚ğƒ}ƒbƒsƒ“ƒO‚·‚éB
+     * æŒ‡å®šã•ã‚ŒãŸã‚­ãƒ¼ã§æŒ‡å®šã•ã‚ŒãŸå€¤ã‚’ãƒãƒƒãƒ”ãƒ³ã‚°ã™ã‚‹ã€‚
      * <p>
-     * ‚±‚Ìƒƒ\ƒbƒh‚ÍA‘‚«‚İƒƒbƒN‚ğŠl“¾‚µ‚½ó‘Ô‚ÅA{@link HashMap#put(Object, Object)}‚ÉˆÏ÷‚·‚éB<br>
+     * ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã¯ã€æ›¸ãè¾¼ã¿ãƒ­ãƒƒã‚¯ã‚’ç²å¾—ã—ãŸçŠ¶æ…‹ã§ã€{@link HashMap#put(Object, Object)}ã«å§”è­²ã™ã‚‹ã€‚<br>
      * </p>
-     * @param key ƒL[
-     * @param value ’l
+     * @param key ã‚­ãƒ¼
+     * @param value å€¤
      * @see HashMap#put(Object, Object)
      */
     @Override

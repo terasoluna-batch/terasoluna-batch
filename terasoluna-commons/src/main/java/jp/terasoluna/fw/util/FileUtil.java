@@ -19,37 +19,37 @@ package jp.terasoluna.fw.util;
 import java.io.File;
 
 /**
- * �t�@�C������֘A�̃��[�e�B���e�B�N���X�B
+ * ファイル操作関連のユーティリティクラス。
  *
  * <p>
- *  �Z�b�V����ID�ɑΉ������f�B���N�g���̍쐬�A�擾�A�폜���s���B
- *  �e�Z�b�V����ID�ɑΉ������f�B���N�g���́A ApplicationRecoures 
- *  �t�@�C���� &quot;session.dir.base&quot; �Ŏ����ꂽ�f�B���N�g���̒���
- *  �쐬�����B<br>
- *  �Z�b�V�����ɑΉ������f�B���N�g���́A�T�[�o���ō쐬����PDF�̒��[�Ȃ�
- *  �Z�b�V�����ɕR�t�����ꎞ�I�ȃf�[�^���i�[����ۂɗ��p�ł���B<br>
- *  �Z�b�V�����ɕR�t�����f�B���N�g���́A HttpSession 
- *  �I�u�W�F�N�g�����������ꂽ�ۂɁA���̃��[�e�B���e�B�N���X�̃��\�b�h��
- *  �p���č폜����B<br>
- *  �Z�b�V�����̐����E�j�����Ď�����@�\�ɂ��ẮA
- *  HttpSessionListener���Q�ƁB
+ *  セッションIDに対応したディレクトリの作成、取得、削除を行う。
+ *  各セッションIDに対応したディレクトリは、 ApplicationRecoures 
+ *  ファイルの &quot;session.dir.base&quot; で示されたディレクトリの中に
+ *  作成される。<br>
+ *  セッションに対応したディレクトリは、サーバ側で作成したPDFの帳票など
+ *  セッションに紐付いた一時的なデータを格納する際に利用できる。<br>
+ *  セッションに紐付いたディレクトリは、 HttpSession 
+ *  オブジェクトが無効化された際に、このユーティリティクラスのメソッドを
+ *  用いて削除する。<br>
+ *  セッションの生成・破棄を監視する機能については、
+ *  HttpSessionListenerを参照。
  * </p>
  *
  */
 public class FileUtil {
 
     /**
-     * �Z�b�V�����ɑΉ��t�����ꂽ�f�B���N�g�����쐬����ۂɁA�e�f�B���N�g����
-     * �i�[����e�f�B���N�g������  ApplicationResource 
-     * �t�@�C������擾���邽�߂̃L�[�B
+     * セッションに対応付けされたディレクトリを作成する際に、各ディレクトリを
+     * 格納する親ディレクトリ名を  ApplicationResource 
+     * ファイルから取得するためのキー。
      */
     private static final String SESSION_DIR_BASE_KEY = "session.dir.base";
 
     /**
-     * �w�肳�ꂽ�Z�b�V����ID�ɑΉ�����f�B���N�g�������擾����B
+     * 指定されたセッションIDに対応するディレクトリ名を取得する。
      *
-     * @param sessionId �Z�b�V����ID
-     * @return �Z�b�V����ID�̃n�b�V���l�Ƃ��Đ������ꂽ�f�B���N�g����
+     * @param sessionId セッションID
+     * @return セッションIDのハッシュ値として生成されたディレクトリ名
      */
     public static String getSessionDirectoryName(String sessionId) {
         byte[] hash = HashUtil.hashSHA1(sessionId);
@@ -57,14 +57,14 @@ public class FileUtil {
     }
 
     /**
-     * �w�肳�ꂽ�Z�b�V����ID�ɑΉ�����f�B���N�g�����擾����B
+     * 指定されたセッションIDに対応するディレクトリを取得する。
      * 
      * <p>
-     * �v���p�e�B�L�[�̐ݒ���s�Ȃ�Ȃ������ꍇ�A
-     * �������͋󕶎��̏ꍇ�� temp�f�B���N�g����p����B
+     * プロパティキーの設定を行なわなかった場合、
+     * もしくは空文字の場合は tempディレクトリを用いる。
      * </p>
-     * @param sessionId �Z�b�V����ID
-     * @return �Z�b�V����ID�ɑΉ�����f�B���N�g���ƂȂ�t�@�C���I�u�W�F�N�g
+     * @param sessionId セッションID
+     * @return セッションIDに対応するディレクトリとなるファイルオブジェクト
      */
     public static File getSessionDirectory(String sessionId) {
         String dirBase = PropertyUtil.getProperty(SESSION_DIR_BASE_KEY);
@@ -78,12 +78,12 @@ public class FileUtil {
     }
 
     /**
-     * �w�肳�ꂽ�Z�b�V����ID�ɑΉ�����f�B���N�g�����쐬����B
+     * 指定されたセッションIDに対応するディレクトリを作成する。
      *
-     * <p>�쐬�����������ꍇ�ɂ́Atrue ��Ԃ��B</p>
+     * <p>作成が成功した場合には、true を返す。</p>
      *
-     * @param sessionId �Z�b�V����ID
-     * @return �f�B���N�g���̍쐬�ɐ�������� true
+     * @param sessionId セッションID
+     * @return ディレクトリの作成に成功すれば true
      */
     public static boolean makeSessionDirectory(String sessionId) {
         if (sessionId == null || "".equals(sessionId)) {
@@ -93,25 +93,25 @@ public class FileUtil {
     }
 
     /**
-     * �w�肳�ꂽ�Z�b�V����ID�ɑΉ�����f�B���N�g�����폜����B
+     * 指定されたセッションIDに対応するディレクトリを削除する。
      *
-     * <p>�폜�����������ꍇ�ɂ́Atrue ��Ԃ��B</p>
+     * <p>削除が成功した場合には、true を返す。</p>
      *
-     * @param sessionId �Z�b�V����ID
-     * @return �f�B���N�g���̍폜�ɐ�������� true 
+     * @param sessionId セッションID
+     * @return ディレクトリの削除に成功すれば true 
      */
     public static boolean removeSessionDirectory(String sessionId) {
         return rmdirs(getSessionDirectory(sessionId));
     }
 
     /**
-     * �w�肳�ꂽ�f�B���N�g�����폜����B
+     * 指定されたディレクトリを削除する。
      *
-     * <p>�f�B���N�g�����Ƀt�@�C���A�f�B���N�g����
-     * ����ꍇ�ł��A�ċA�I�ɍ폜�����B</p>
+     * <p>ディレクトリ内にファイル、ディレクトリが
+     * ある場合でも、再帰的に削除される。</p>
      *
-     * @param dir �폜����f�B���N�g��
-     * @return �f�B���N�g���̍폜�ɐ�������� true
+     * @param dir 削除するディレクトリ
+     * @return ディレクトリの削除に成功すれば true
      */
     public static boolean rmdirs(File dir) {
         if (dir == null) {

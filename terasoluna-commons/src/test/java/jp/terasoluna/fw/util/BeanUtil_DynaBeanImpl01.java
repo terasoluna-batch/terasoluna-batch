@@ -20,7 +20,7 @@ import org.apache.commons.beanutils.DynaBean;
 import org.apache.commons.beanutils.DynaClass;
 
 /**
- * {@link BeanUtil}‚ğƒeƒXƒg‚·‚é‚½‚ß‚Ì{@link DynaClass}À‘•ƒNƒ‰ƒXB
+ * {@link BeanUtil}ã‚’ãƒ†ã‚¹ãƒˆã™ã‚‹ãŸã‚ã®{@link DynaClass}å®Ÿè£…ã‚¯ãƒ©ã‚¹ã€‚
  * 
  * @see org.apache.commons.beanutils.DynaBean
  * @see jp.terasoluna.fw.util.BeanUtilTest
@@ -28,12 +28,12 @@ import org.apache.commons.beanutils.DynaClass;
 public class BeanUtil_DynaBeanImpl01 implements DynaBean {
     
     /**
-     * dynaClassB
+     * dynaClassã€‚
      */
     private DynaClass dynaClass = null;
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      * 
      * @param dynaClass
      */
@@ -43,7 +43,7 @@ public class BeanUtil_DynaBeanImpl01 implements DynaBean {
     }
 
     /** 
-     * dynaClass‚ğ•Ô‹p‚·‚éB
+     * dynaClassã‚’è¿”å´ã™ã‚‹ã€‚
      * @return dynaClass
      */
     public DynaClass getDynaClass() {

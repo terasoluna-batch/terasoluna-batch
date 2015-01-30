@@ -3,9 +3,9 @@ package jp.terasoluna.fw.file.dao.standard;
 import jp.terasoluna.fw.file.annotation.StringConverter;
 
 /**
- * StringConverterÀ‘•ƒNƒ‰ƒX
+ * StringConverterå®Ÿè£…ã‚¯ãƒ©ã‚¹
  * <p>
- * private‚ÈƒfƒtƒHƒ‹ƒgƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ğ‚ÂB
+ * privateãªãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã‚’æŒã¤ã€‚
  */
 public class AbstractFileLineIterator_StringConverterStub01 implements
                                                            StringConverter {

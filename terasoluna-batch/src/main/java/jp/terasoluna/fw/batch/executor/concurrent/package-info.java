@@ -1,4 +1,4 @@
 /**
- * エグゼキュータ関連 非同期処理用
+ * 繧ｨ繧ｰ繧ｼ繧ｭ繝･繝ｼ繧ｿ髢｢騾｣ 髱槫酔譛溷�ｦ逅�逕ｨ
  */
 package jp.terasoluna.fw.batch.executor.concurrent;

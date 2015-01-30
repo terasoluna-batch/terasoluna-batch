@@ -33,10 +33,10 @@ public class CollectorUtilityTest {
     public void testCloseQuietly001() {
         CollectorStub<HogeBean> collector = new CollectorStub<HogeBean>();
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         CollectorUtility.closeQuietly(collector);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(collector.isCloseCalled());
     }
 
@@ -48,10 +48,10 @@ public class CollectorUtilityTest {
         CollectorStub<HogeBean> collector = new CollectorStub<HogeBean>();
         collector.setCloseException(true);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         CollectorUtility.closeQuietly(collector);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(collector.isCloseCalled());
     }
 
@@ -62,10 +62,10 @@ public class CollectorUtilityTest {
     public void testCloseQuietlyFileLineIteratorOfT001() {
         FileLineIteratorStub<Hoge> iterator = new FileLineIteratorStub<Hoge>();
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         CollectorUtility.closeQuietly(iterator);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(iterator.isCloseFileCalled());
     }
 
@@ -77,10 +77,10 @@ public class CollectorUtilityTest {
         FileLineIteratorStub<Hoge> iterator = new FileLineIteratorStub<Hoge>();
         iterator.setCloseException(true);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         CollectorUtility.closeQuietly(iterator);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(iterator.isCloseFileCalled());
     }
 
@@ -91,10 +91,10 @@ public class CollectorUtilityTest {
     public void testCloseQuietlyFileLineWriterOfT001() {
         FileLineWriterStub<Hoge> writer = new FileLineWriterStub<Hoge>();
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         CollectorUtility.closeQuietly(writer);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(writer.isCloseFileCalled());
     }
 
@@ -106,10 +106,10 @@ public class CollectorUtilityTest {
         FileLineWriterStub<Hoge> writer = new FileLineWriterStub<Hoge>();
         writer.setCloseException(true);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         CollectorUtility.closeQuietly(writer);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(writer.isCloseFileCalled());
     }
 }

@@ -25,26 +25,26 @@ import org.apache.commons.jxpath.ri.model.beans.BeanPointer;
 import org.apache.commons.jxpath.ri.model.beans.PropertyPointer;
 
 /**
- * Beanƒ|ƒCƒ“ƒ^‚ÌŠg’£ƒNƒ‰ƒXB
+ * Beanãƒã‚¤ãƒ³ã‚¿ã®æ‹¡å¼µã‚¯ãƒ©ã‚¹ã€‚
  */
 public class BeanPointerEx extends BeanPointer {
 
     /**
-     * ƒVƒŠƒAƒ‹ƒo[ƒWƒ‡ƒ“IDB
+     * ã‚·ãƒªã‚¢ãƒ«ãƒãƒ¼ã‚¸ãƒ§ãƒ³IDã€‚
      */
     private static final long serialVersionUID = -7414445615036653661L;
     
     /**
-     * ƒ^[ƒQƒbƒg‚ÌBean‚Ìî•ñB
+     * ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã®Beanã®æƒ…å ±ã€‚
      */
     private JXPathBeanInfo beanInfo;
     
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      * @param name QName
-     * @param bean ƒ^[ƒQƒbƒg‚ÌBean
-     * @param beanInfo ƒ^[ƒQƒbƒg‚ÌBean‚Ìî•ñ
-     * @param locale ƒƒP[ƒ‹
+     * @param bean ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã®Bean
+     * @param beanInfo ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã®Beanã®æƒ…å ±
+     * @param locale ãƒ­ã‚±ãƒ¼ãƒ«
      */
     public BeanPointerEx(QName name, Object bean, JXPathBeanInfo beanInfo,
             Locale locale) {
@@ -53,11 +53,11 @@ public class BeanPointerEx extends BeanPointer {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-     * @param parent eBeanƒ|ƒCƒ“ƒ^
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * @param parent è¦ªBeanãƒã‚¤ãƒ³ã‚¿
      * @param name QName
-     * @param bean ƒ^[ƒQƒbƒg‚ÌBean
-     * @param beanInfo ƒ^[ƒQƒbƒg‚ÌBean‚Ìî•ñ
+     * @param bean ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã®Bean
+     * @param beanInfo ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã®Beanã®æƒ…å ±
      */
     public BeanPointerEx(NodePointer parent, QName name, Object bean,
             JXPathBeanInfo beanInfo) {
@@ -66,8 +66,8 @@ public class BeanPointerEx extends BeanPointer {
     }
 
     /**
-     * ƒvƒƒpƒeƒBƒ|ƒCƒ“ƒ^‚ğæ“¾‚·‚éB
-     * @return BeanƒvƒƒpƒeƒBƒ|ƒCƒ“ƒ^
+     * ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒã‚¤ãƒ³ã‚¿ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return Beanãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒã‚¤ãƒ³ã‚¿
      */
     @Override
     public PropertyPointer getPropertyPointer() {

@@ -23,11 +23,11 @@ import jp.terasoluna.utlib.PropertyTestCase;
 import jp.terasoluna.utlib.UTUtil;
 
 /**
- * {@link jp.terasoluna.fw.validation.ValidationUtil} ƒNƒ‰ƒX‚Ìƒuƒ‰ƒbƒNƒ{ƒbƒNƒXƒeƒXƒgB
+ * {@link jp.terasoluna.fw.validation.ValidationUtil} ã‚¯ãƒ©ã‚¹ã®ãƒ–ãƒ©ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ†ã‚¹ãƒˆã€‚
  *
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4>
- * ŒŸØƒƒWƒbƒN‚Ìƒ†[ƒeƒBƒŠƒeƒBƒNƒ‰ƒXB
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4>
+ * æ¤œè¨¼ãƒ­ã‚¸ãƒƒã‚¯ã®ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ã‚¯ãƒ©ã‚¹ã€‚
  * <p>
  *
  * @see jp.terasoluna.fw.validation.ValidationUtil
@@ -35,36 +35,36 @@ import jp.terasoluna.utlib.UTUtil;
 public class ValidationUtilTest04 extends PropertyTestCase {
 
     /**
-     * ‚±‚ÌƒeƒXƒgƒP[ƒX‚ğÀs‚·‚éˆ×‚Ì
-     * GUI ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‹N“®‚·‚éB
+     * ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã‚’å®Ÿè¡Œã™ã‚‹ç‚ºã®
+     * GUI ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’èµ·å‹•ã™ã‚‹ã€‚
      *
-     * @param args java ƒRƒ}ƒ“ƒh‚Éİ’è‚³‚ê‚½ƒpƒ‰ƒ[ƒ^
+     * @param args java ã‚³ãƒãƒ³ãƒ‰ã«è¨­å®šã•ã‚ŒãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public static void main(String[] args) {
         junit.swingui.TestRunner.run(ValidationUtilTest04.class);
     }
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see jp.terasoluna.utlib.spring.PropertyTestCase#setUpData()
      */
     @Override
     protected void setUpData() throws Exception {
         UTUtil.setPrivateField(ValidationUtil.class, "hankakuKanaList",
-            "±²³´µ§¨©ª«¶·¸¹º»¼½¾¿ÀÁÂ¯ÃÄÅÆÇÈÉÊËÌÍÎÏĞÑÒÓÔÕÖ¬­®×ØÙÚÛÜ¦İßŞ°¥¤¡¢£");
+            "ï½±ï½²ï½³ï½´ï½µï½§ï½¨ï½©ï½ªï½«ï½¶ï½·ï½¸ï½¹ï½ºï½»ï½¼ï½½ï½¾ï½¿ï¾€ï¾ï¾‚ï½¯ï¾ƒï¾„ï¾…ï¾†ï¾‡ï¾ˆï¾‰ï¾Šï¾‹ï¾Œï¾ï¾ï¾ï¾ï¾‘ï¾’ï¾“ï¾”ï¾•ï¾–ï½¬ï½­ï½®ï¾—ï¾˜ï¾™ï¾šï¾›ï¾œï½¦ï¾ï¾Ÿï¾ï½°ï½¥ï½¤ï½¡ï½¢ï½£");
         UTUtil.setPrivateField(ValidationUtil.class, "zenkakuKanaList",
-            "ƒAƒCƒEƒ”ƒGƒIƒ@ƒBƒDƒFƒHƒJƒLƒNƒPƒRƒ•ƒ–ƒKƒMƒOƒQƒSƒTƒVƒXƒZƒ\" +
-            "ƒUƒWƒYƒ[ƒ]ƒ^ƒ`ƒcƒeƒgƒ_ƒaƒdƒfƒhƒiƒjƒkƒlƒmƒnƒqƒtƒwƒz" +
-            "ƒoƒrƒuƒxƒ{ƒpƒsƒvƒyƒ|ƒ}ƒ~ƒ€ƒƒ‚ƒ„ƒ†ƒˆƒƒƒ…ƒ‡ƒ‰ƒŠƒ‹ƒŒƒ" +
-            "ƒƒƒƒ‘ƒ’ƒbƒ“[");
+            "ã‚¢ã‚¤ã‚¦ãƒ´ã‚¨ã‚ªã‚¡ã‚£ã‚¥ã‚§ã‚©ã‚«ã‚­ã‚¯ã‚±ã‚³ãƒµãƒ¶ã‚¬ã‚®ã‚°ã‚²ã‚´ã‚µã‚·ã‚¹ã‚»ã‚½" +
+            "ã‚¶ã‚¸ã‚ºã‚¼ã‚¾ã‚¿ãƒãƒ„ãƒ†ãƒˆãƒ€ãƒ‚ãƒ…ãƒ‡ãƒ‰ãƒŠãƒ‹ãƒŒãƒãƒãƒãƒ’ãƒ•ãƒ˜ãƒ›" +
+            "ãƒãƒ“ãƒ–ãƒ™ãƒœãƒ‘ãƒ”ãƒ—ãƒšãƒãƒãƒŸãƒ ãƒ¡ãƒ¢ãƒ¤ãƒ¦ãƒ¨ãƒ£ãƒ¥ãƒ§ãƒ©ãƒªãƒ«ãƒ¬ãƒ­" +
+            "ãƒ¯ãƒ®ãƒ°ãƒ±ãƒ²ãƒƒãƒ³ãƒ¼");
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see jp.terasoluna.utlib.spring.PropertyTestCase#cleanUpData()
      */
     @Override
@@ -72,9 +72,9 @@ public class ValidationUtilTest04 extends PropertyTestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      *
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public ValidationUtilTest04(String name) {
         super(name);
@@ -84,23 +84,23 @@ public class ValidationUtilTest04 extends PropertyTestCase {
      * testHasNotProhibitedChar01()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”value‚ªnull‚Ìê‡Atrue‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°valueãŒnullã®å ´åˆã€trueãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testHasNotProhibitedChar01() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertTrue(ValidationUtil.hasNotProhibitedChar(null, "abc"));
     }
 
@@ -108,23 +108,23 @@ public class ValidationUtilTest04 extends PropertyTestCase {
      * testHasNotProhibitedChar02()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:""<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:""<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”value‚ª‹ó•¶š‚Ìê‡Atrue‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°valueãŒç©ºæ–‡å­—ã®å ´åˆã€trueãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testHasNotProhibitedChar02() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertTrue(ValidationUtil.hasNotProhibitedChar("", "abc"));
     }
 
@@ -132,24 +132,24 @@ public class ValidationUtilTest04 extends PropertyTestCase {
      * testHasNotProhibitedChar03()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"abc"<br>
-     *         (ˆø”) prohibitedChars:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"abc"<br>
+     *         (å¼•æ•°) prohibitedChars:null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”prohibitedChars‚ªnull‚Ìê‡Atrue‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°prohibitedCharsãŒnullã®å ´åˆã€trueãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testHasNotProhibitedChar03() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertTrue(ValidationUtil.hasNotProhibitedChar("abc", null));
     }
 
@@ -157,24 +157,24 @@ public class ValidationUtilTest04 extends PropertyTestCase {
      * testHasNotProhibitedChar04()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"abc"<br>
-     *         (ˆø”) prohibitedChars:""i‹ó•¶šj<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"abc"<br>
+     *         (å¼•æ•°) prohibitedChars:""ï¼ˆç©ºæ–‡å­—ï¼‰<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”prohibitedChars‚ª‹ó•¶š‚Ìê‡Atrue‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°prohibitedCharsãŒç©ºæ–‡å­—ã®å ´åˆã€trueãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testHasNotProhibitedChar04() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertTrue(ValidationUtil.hasNotProhibitedChar("abc", ""));
     }
 
@@ -182,24 +182,24 @@ public class ValidationUtilTest04 extends PropertyTestCase {
      * testHasNotProhibitedChar05()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"a"<br>
-     *         (ˆø”) prohibitedChars:"abc"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"a"<br>
+     *         (å¼•æ•°) prohibitedChars:"abc"<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
      *
      * <br>
-     * ˆø”value‚ª1•¶š‚Å‚»‚ê‚ª‹Ö~•¶š‚Ìê‡Afalse‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°valueãŒ1æ–‡å­—ã§ãã‚ŒãŒç¦æ­¢æ–‡å­—ã®å ´åˆã€falseãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testHasNotProhibitedChar05() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertFalse(ValidationUtil.hasNotProhibitedChar("a", "abc"));
     }
 
@@ -207,24 +207,24 @@ public class ValidationUtilTest04 extends PropertyTestCase {
      * testHasNotProhibitedChar06()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"d"<br>
-     *         (ˆø”) prohibitedChars:"abc"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"d"<br>
+     *         (å¼•æ•°) prohibitedChars:"abc"<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”value‚ª1•¶š‚Å‚»‚ê‚ª‹Ö~•¶š‚Å‚È‚¢ê‡Atrue‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°valueãŒ1æ–‡å­—ã§ãã‚ŒãŒç¦æ­¢æ–‡å­—ã§ãªã„å ´åˆã€trueãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testHasNotProhibitedChar06() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertTrue(ValidationUtil.hasNotProhibitedChar("d", "abc"));
     }
 
@@ -232,24 +232,24 @@ public class ValidationUtilTest04 extends PropertyTestCase {
      * testHasNotProhibitedChar07()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"abc"<br>
-     *         (ˆø”) prohibitedChars:"cde"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"abc"<br>
+     *         (å¼•æ•°) prohibitedChars:"cde"<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
      *
      * <br>
-     * ˆø”value‚ª•¡”•¶š‚Å‚»‚ê‚ª‹Ö~•¶š‚ğŠÜ‚Şê‡Afalse‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°valueãŒè¤‡æ•°æ–‡å­—ã§ãã‚ŒãŒç¦æ­¢æ–‡å­—ã‚’å«ã‚€å ´åˆã€falseãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testHasNotProhibitedChar07() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertFalse(ValidationUtil.hasNotProhibitedChar("abc", "cde"));
     }
 
@@ -257,24 +257,24 @@ public class ValidationUtilTest04 extends PropertyTestCase {
      * testHasNotProhibitedChar08()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"abc"<br>
-     *         (ˆø”) prohibitedChars:"def"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"abc"<br>
+     *         (å¼•æ•°) prohibitedChars:"def"<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”value‚ª•¡”•¶š‚Å‚»‚ê‚ª‹Ö~•¶š‚ğŠÜ‚Ü‚È‚¢ê‡Atrue‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°valueãŒè¤‡æ•°æ–‡å­—ã§ãã‚ŒãŒç¦æ­¢æ–‡å­—ã‚’å«ã¾ãªã„å ´åˆã€trueãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testHasNotProhibitedChar08() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertTrue(ValidationUtil.hasNotProhibitedChar("abc", "def"));
     }
 
@@ -282,24 +282,24 @@ public class ValidationUtilTest04 extends PropertyTestCase {
      * testHasNotProhibitedChar09()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"ab\""<br>
-     *         (ˆø”) prohibitedChars:"cd\""<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"ab\""<br>
+     *         (å¼•æ•°) prohibitedChars:"cd\""<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
      *
      * <br>
-     * ˆø”value‚ÉƒGƒXƒP[ƒv‚ª•K—v‚È•¶š‚ğŠÜ‚İ‚»‚ê‚ª‹Ö~•¶š‚Ìê‡Afalse‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°valueã«ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—ãŒå¿…è¦ãªæ–‡å­—ã‚’å«ã¿ãã‚ŒãŒç¦æ­¢æ–‡å­—ã®å ´åˆã€falseãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testHasNotProhibitedChar09() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertFalse(ValidationUtil.hasNotProhibitedChar("ab\"", "cd\""));
     }
 
@@ -307,25 +307,25 @@ public class ValidationUtilTest04 extends PropertyTestCase {
      * testHasNotProhibitedChar10()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"ab\""<br>
-     *         (ˆø”) prohibitedChars:"de\\"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"ab\""<br>
+     *         (å¼•æ•°) prohibitedChars:"de\\"<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”value‚ÉƒGƒXƒP[ƒv‚ª•K—v‚È•¶š‚ğŠÜ‚İ‚»‚ê‚ª‹Ö~•¶š‚Å‚È‚¢ê‡A
-     * true‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°valueã«ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—ãŒå¿…è¦ãªæ–‡å­—ã‚’å«ã¿ãã‚ŒãŒç¦æ­¢æ–‡å­—ã§ãªã„å ´åˆã€
+     * trueãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testHasNotProhibitedChar10() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertTrue(ValidationUtil.hasNotProhibitedChar("ab\"", "cd\\"));
     }
 
@@ -333,33 +333,33 @@ public class ValidationUtilTest04 extends PropertyTestCase {
      * testIsArrayInRange01()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:null<br>
-     *         (ˆø”) min:1<br>
-     *         (ˆø”) max:5<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:null<br>
+     *         (å¼•æ•°) min:1<br>
+     *         (å¼•æ•°) max:5<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
      *
      * <br>
-     * ˆø”obj‚ªnull‚Ìê‡‚Åmin‚ª‚PˆÈã‚Ìê‡Afalse‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°objãŒnullã®å ´åˆã§minãŒï¼‘ä»¥ä¸Šã®å ´åˆã€falseãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsArrayInRange01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object obj = null;
         int min = 1;
         int max = 5;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean result = ValidationUtil.isArrayInRange(obj, min, max);
 
-        // ”»’è
+        // åˆ¤å®š
         assertFalse(result);
     }
 
@@ -367,31 +367,31 @@ public class ValidationUtilTest04 extends PropertyTestCase {
      * testIsArrayInRange02()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:""(String)<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:""(String)<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     * ó‘Ô•Ï‰»F(—áŠO) IllegalArgumentException<br>
-     *                  ƒƒbƒZ[ƒWFjava.lang.String is neither Array nor Collection.
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     * çŠ¶æ…‹å¤‰åŒ–ï¼š(ä¾‹å¤–) IllegalArgumentException<br>
+     *                  ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼šjava.lang.String is neither Array nor Collection.
      *
      * <br>
-     * ˆø”obj‚ª”z—ñECollectionŒ^‚Å‚Í‚È‚¢ê‡A
-     * IllegalArgumentException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°objãŒé…åˆ—ãƒ»Collectionå‹ã§ã¯ãªã„å ´åˆã€
+     * IllegalArgumentExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsArrayInRange02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object obj = "";
         int min = 0;
         int max = 0;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             ValidationUtil.isArrayInRange(obj, min, max);
             fail();
@@ -405,34 +405,34 @@ public class ValidationUtilTest04 extends PropertyTestCase {
      * testIsArrayInRange03()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:{"a","b","c"}<br>
-     *                i”z—ñj<br>
-     *         (ˆø”) min:0<br>
-     *         (ˆø”) max:10<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:{"a","b","c"}<br>
+     *                ï¼ˆé…åˆ—ï¼‰<br>
+     *         (å¼•æ•°) min:0<br>
+     *         (å¼•æ•°) max:10<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”obj‚ª”z—ñ‚ÅA”ÍˆÍ“à‚Ìê‡
+     * å¼•æ•°objãŒé…åˆ—ã§ã€ç¯„å›²å†…ã®å ´åˆ
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsArrayInRange03() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object obj = new String[]{"a","b","c"};
         int min = 0;
         int max = 10;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean result = ValidationUtil.isArrayInRange(obj, min, max);
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(result);
     }
 
@@ -440,28 +440,28 @@ public class ValidationUtilTest04 extends PropertyTestCase {
      * testIsArrayInRange04()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:ArrayList<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:ArrayList<br>
      *                [1="a"]<br>
      *                [2="b"]<br>
      *                [3="c"]<br>
-     *         (ˆø”) min:5<br>
-     *         (ˆø”) max:10<br>
+     *         (å¼•æ•°) min:5<br>
+     *         (å¼•æ•°) max:10<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
      *
      * <br>
-     * ˆø”obj‚ªƒRƒŒƒNƒVƒ‡ƒ“‚ÅA”ÍˆÍŠO‚Ìê‡
+     * å¼•æ•°objãŒã‚³ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³ã§ã€ç¯„å›²å¤–ã®å ´åˆ
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsArrayInRange04() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         List<String> obj = new ArrayList<String>();
         obj.add("a");
         obj.add("b");
@@ -469,10 +469,10 @@ public class ValidationUtilTest04 extends PropertyTestCase {
         int min = 5;
         int max = 10;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean result = ValidationUtil.isArrayInRange(obj, min, max);
 
-        // ”»’è
+        // åˆ¤å®š
         assertFalse(result);
     }
 
@@ -480,35 +480,35 @@ public class ValidationUtilTest04 extends PropertyTestCase {
      * testIsArrayInRange05()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:int[] {<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:int[] {<br>
      *                  1,2,3<br>
      *                };<br>
-     *         (ˆø”) min:0<br>
-     *         (ˆø”) max:2<br>
+     *         (å¼•æ•°) min:0<br>
+     *         (å¼•æ•°) max:2<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
      *
      * <br>
-     * ˆø”‚ªƒvƒŠƒ~ƒeƒBƒu”z—ñŒ^‚ÅA”ÍˆÍŠO‚Ìê‡
+     * å¼•æ•°ãŒãƒ—ãƒªãƒŸãƒ†ã‚£ãƒ–é…åˆ—å‹ã§ã€ç¯„å›²å¤–ã®å ´åˆ
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsArrayInRange05() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         int[] array = new int[]{
             1, 2, 3
         };
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean result = ValidationUtil.isArrayInRange(array, 0, 2);
 
-        // ”»’è
+        // åˆ¤å®š
         assertFalse(result);
     }
 
@@ -516,34 +516,34 @@ public class ValidationUtilTest04 extends PropertyTestCase {
      * testIsUrl01()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”value‚ªnull‚Ìê‡
+     * å¼•æ•°valueãŒnullã®å ´åˆ
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsUrl01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         String value = null;
         boolean allowallschemes = false;
         boolean allow2slashes = false;
         boolean nofragments = false;
         String schemesVar = null;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean result = ValidationUtil.isUrl(value, allowallschemes,
                 allow2slashes, nofragments, schemesVar);
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(result);
     }
 
@@ -551,34 +551,34 @@ public class ValidationUtilTest04 extends PropertyTestCase {
      * testIsUrl02()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:""<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:""<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”value‚ª‹ó”’‚Ìê‡
+     * å¼•æ•°valueãŒç©ºç™½ã®å ´åˆ
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsUrl02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         String value = "";
         boolean allowallschemes = false;
         boolean allow2slashes = false;
         boolean nofragments = false;
         String schemesVar = null;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean result = ValidationUtil.isUrl(value, allowallschemes,
                 allow2slashes, nofragments, schemesVar);
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(result);
     }
 
@@ -586,38 +586,38 @@ public class ValidationUtilTest04 extends PropertyTestCase {
      * testIsUrl03()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:http://www.nttdata.co.jp/index.html<br>
-     *         (ˆø”) allowallschemes:false<br>
-     *         (ˆø”) allow2slashes:false<br>
-     *         (ˆø”) nofragments:false<br>
-     *         (ˆø”) schemesVar:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:http://www.nttdata.co.jp/index.html<br>
+     *         (å¼•æ•°) allowallschemes:false<br>
+     *         (å¼•æ•°) allow2slashes:false<br>
+     *         (å¼•æ•°) nofragments:false<br>
+     *         (å¼•æ•°) schemesVar:null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”value‚ª³í‚ÈURL‚ÅAƒIƒvƒVƒ‡ƒ“‚ªfalseAschemesVar‚ªnull‚Ìê‡
+     * å¼•æ•°valueãŒæ­£å¸¸ãªURLã§ã€ã‚ªãƒ—ã‚·ãƒ§ãƒ³ãŒfalseã€schemesVarãŒnullã®å ´åˆ
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsUrl03() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         String value = "http://www.nttdata.co.jp/index.html";
         boolean allowallschemes = false;
         boolean allow2slashes = false;
         boolean nofragments = false;
         String schemesVar = null;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean result = ValidationUtil.isUrl(value, allowallschemes,
                 allow2slashes, nofragments, schemesVar);
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(result);
     }
 
@@ -625,38 +625,38 @@ public class ValidationUtilTest04 extends PropertyTestCase {
      * testIsUrl04()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:http://www.nttdata.co.jp<br>
-     *         (ˆø”) allowallschemes:false<br>
-     *         (ˆø”) allow2slashes:false<br>
-     *         (ˆø”) nofragments:false<br>
-     *         (ˆø”) schemesVar:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:http://www.nttdata.co.jp<br>
+     *         (å¼•æ•°) allowallschemes:false<br>
+     *         (å¼•æ•°) allow2slashes:false<br>
+     *         (å¼•æ•°) nofragments:false<br>
+     *         (å¼•æ•°) schemesVar:null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”value‚ª³í‚ÈURL‚ÅAƒIƒvƒVƒ‡ƒ“‚ªfalseAschemesVar‚ªnull‚Ìê‡
+     * å¼•æ•°valueãŒæ­£å¸¸ãªURLã§ã€ã‚ªãƒ—ã‚·ãƒ§ãƒ³ãŒfalseã€schemesVarãŒnullã®å ´åˆ
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsUrl04() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         String value = "http://www.nttdata.co.jp";
         boolean allowallschemes = false;
         boolean allow2slashes = false;
         boolean nofragments = false;
         String schemesVar = null;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean result = ValidationUtil.isUrl(value, allowallschemes,
                 allow2slashes, nofragments, schemesVar);
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(result);
     }
 
@@ -664,38 +664,38 @@ public class ValidationUtilTest04 extends PropertyTestCase {
      * testIsUrl05()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:http://www.nttdata.co.jp/index.html<br>
-     *         (ˆø”) allowallschemes:false<br>
-     *         (ˆø”) allow2slashes:false<br>
-     *         (ˆø”) nofragments:false<br>
-     *         (ˆø”) schemesVar:""<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:http://www.nttdata.co.jp/index.html<br>
+     *         (å¼•æ•°) allowallschemes:false<br>
+     *         (å¼•æ•°) allow2slashes:false<br>
+     *         (å¼•æ•°) nofragments:false<br>
+     *         (å¼•æ•°) schemesVar:""<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
      *
      * <br>
-     * ˆø”value‚ªURL‚Å‚Í‚È‚¢•¶š—ñ‚ÅAƒIƒvƒVƒ‡ƒ“‚ªfalseAschemesVar‚ª‹ó”’‚Ìê‡
+     * å¼•æ•°valueãŒURLã§ã¯ãªã„æ–‡å­—åˆ—ã§ã€ã‚ªãƒ—ã‚·ãƒ§ãƒ³ãŒfalseã€schemesVarãŒç©ºç™½ã®å ´åˆ
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsUrl05() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         String value = "http://www.nttdata.co.jp/index.html";
         boolean allowallschemes = false;
         boolean allow2slashes = false;
         boolean nofragments = false;
         String schemesVar = "";
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean result = ValidationUtil.isUrl(value, allowallschemes,
                 allow2slashes, nofragments, schemesVar);
 
-        // ”»’è
+        // åˆ¤å®š
         assertFalse(result);
     }
 
@@ -703,38 +703,38 @@ public class ValidationUtilTest04 extends PropertyTestCase {
      * testIsUrl06()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:http://www.nttdata.co.jp/<br>
-     *         (ˆø”) allowallschemes:true<br>
-     *         (ˆø”) allow2slashes:true<br>
-     *         (ˆø”) nofragments:true<br>
-     *         (ˆø”) schemesVar:"http"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:http://www.nttdata.co.jp/<br>
+     *         (å¼•æ•°) allowallschemes:true<br>
+     *         (å¼•æ•°) allow2slashes:true<br>
+     *         (å¼•æ•°) nofragments:true<br>
+     *         (å¼•æ•°) schemesVar:"http"<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”value‚ª³í‚ÈURL‚ÅAƒIƒvƒVƒ‡ƒ“‚ªtrueAschemesVar‚ªNotNull‚Ìê‡
+     * å¼•æ•°valueãŒæ­£å¸¸ãªURLã§ã€ã‚ªãƒ—ã‚·ãƒ§ãƒ³ãŒtrueã€schemesVarãŒNotNullã®å ´åˆ
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsUrl06() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         String value = "http://www.nttdata.co.jp/";
         boolean allowallschemes = true;
         boolean allow2slashes = true;
         boolean nofragments = true;
         String schemesVar = "http";
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean result = ValidationUtil.isUrl(value, allowallschemes,
                 allow2slashes, nofragments, schemesVar);
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(result);
     }
 
@@ -742,38 +742,38 @@ public class ValidationUtilTest04 extends PropertyTestCase {
      * testIsUrl07()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:https://www.nttdata.co.jp/index.html<br>
-     *         (ˆø”) allowallschemes:true<br>
-     *         (ˆø”) allow2slashes:true<br>
-     *         (ˆø”) nofragments:true<br>
-     *         (ˆø”) schemesVar:"http,ftp,https"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:https://www.nttdata.co.jp/index.html<br>
+     *         (å¼•æ•°) allowallschemes:true<br>
+     *         (å¼•æ•°) allow2slashes:true<br>
+     *         (å¼•æ•°) nofragments:true<br>
+     *         (å¼•æ•°) schemesVar:"http,ftp,https"<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”value‚ª³í‚ÈURL‚ÅAƒIƒvƒVƒ‡ƒ“‚ªtrueAschemesVar‚ªNotNull(ƒJƒ“ƒ}‹æØ‚è‚Ì•¡”)‚Ìê‡
+     * å¼•æ•°valueãŒæ­£å¸¸ãªURLã§ã€ã‚ªãƒ—ã‚·ãƒ§ãƒ³ãŒtrueã€schemesVarãŒNotNull(ã‚«ãƒ³ãƒåŒºåˆ‡ã‚Šã®è¤‡æ•°)ã®å ´åˆ
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsUrl07() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         String value = "https://www.nttdata.co.jp/index.html";
         boolean allowallschemes = true;
         boolean allow2slashes = true;
         boolean nofragments = true;
         String schemesVar = "http,ftp,https";
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean result = ValidationUtil.isUrl(value, allowallschemes,
                 allow2slashes, nofragments, schemesVar);
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(result);
     }
 

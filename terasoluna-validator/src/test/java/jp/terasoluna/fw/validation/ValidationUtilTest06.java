@@ -22,11 +22,11 @@ import java.util.Date;
 import jp.terasoluna.utlib.PropertyTestCase;
 
 /**
- * {@link jp.terasoluna.fw.validation.ValidationUtil} ƒNƒ‰ƒX‚Ìƒuƒ‰ƒbƒNƒ{ƒbƒNƒXƒeƒXƒgB
+ * {@link jp.terasoluna.fw.validation.ValidationUtil} ã‚¯ãƒ©ã‚¹ã®ãƒ–ãƒ©ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ†ã‚¹ãƒˆã€‚
  *
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4>
- * ŒŸØƒƒWƒbƒN‚Ìƒ†[ƒeƒBƒŠƒeƒBƒNƒ‰ƒXB
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4>
+ * æ¤œè¨¼ãƒ­ã‚¸ãƒƒã‚¯ã®ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ã‚¯ãƒ©ã‚¹ã€‚
  * <p>
  *
  * @see jp.terasoluna.fw.validation.ValidationUtil
@@ -34,19 +34,19 @@ import jp.terasoluna.utlib.PropertyTestCase;
 public class ValidationUtilTest06 extends PropertyTestCase {
 
     /**
-     * ‚±‚ÌƒeƒXƒgƒP[ƒX‚ğÀs‚·‚éˆ×‚Ì
-     * GUI ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‹N“®‚·‚éB
+     * ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã‚’å®Ÿè¡Œã™ã‚‹ç‚ºã®
+     * GUI ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’èµ·å‹•ã™ã‚‹ã€‚
      *
-     * @param args java ƒRƒ}ƒ“ƒh‚Éİ’è‚³‚ê‚½ƒpƒ‰ƒ[ƒ^
+     * @param args java ã‚³ãƒãƒ³ãƒ‰ã«è¨­å®šã•ã‚ŒãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public static void main(String[] args) {
         junit.swingui.TestRunner.run(ValidationUtilTest06.class);
     }
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see jp.terasoluna.utlib.spring.PropertyTestCase#setUpData()
      */
     @Override
@@ -54,9 +54,9 @@ public class ValidationUtilTest06 extends PropertyTestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see jp.terasoluna.utlib.spring.PropertyTestCase#cleanUpData()
      */
     @Override
@@ -64,9 +64,9 @@ public class ValidationUtilTest06 extends PropertyTestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      *
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public ValidationUtilTest06(String name) {
         super(name);
@@ -76,32 +76,32 @@ public class ValidationUtilTest06 extends PropertyTestCase {
      * testToDate01()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Date:null<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Date:null<br>
      *
      * <br>
-     * ˆø”value‚ªnull‚Ìê‡
+     * å¼•æ•°valueãŒnullã®å ´åˆ
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testToDate01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         String value = null;
         String datePattern = "yyyy/MM/dd";
         String datePatternStrict = null;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Date result = ValidationUtil.toDate(
                 value, datePattern, datePatternStrict);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNull(result);
     }
 
@@ -109,32 +109,32 @@ public class ValidationUtilTest06 extends PropertyTestCase {
      * testToDate02()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:""<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:""<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Date:null<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Date:null<br>
      *
      * <br>
-     * ˆø”value‚ª‹ó”’‚Ìê‡
+     * å¼•æ•°valueãŒç©ºç™½ã®å ´åˆ
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testToDate02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         String value = "";
         String datePattern = "yyyy/MM/dd";
         String datePatternStrict = null;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Date result = ValidationUtil.toDate(
                 value, datePattern, datePatternStrict);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNull(result);
     }
 
@@ -142,36 +142,36 @@ public class ValidationUtilTest06 extends PropertyTestCase {
      * testToDate03()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF,G
+     * è¦³ç‚¹ï¼šF,G
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"2005/11/1"<br>
-     *         (ˆø”) datePattern:null<br>
-     *         (ˆø”) datePatternStrict:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"2005/11/1"<br>
+     *         (å¼•æ•°) datePattern:null<br>
+     *         (å¼•æ•°) datePatternStrict:null<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    ƒƒbƒZ[ƒWF"datePattern or datePatternStrict must be specified."<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"datePattern or datePatternStrict must be specified."<br>
      *
      * <br>
-     * ˆø”datePatternAdatePatternStrict‚ªnull‚Ìê‡
+     * å¼•æ•°datePatternã€datePatternStrictãŒnullã®å ´åˆ
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testToDate03() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         String value = "2005/11/1";
         String datePattern = null;
         String datePatternStrict = null;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             ValidationUtil.toDate(value, datePattern, datePatternStrict);
-            fail("—áŠO‚ª”­¶‚µ‚È‚¢B");
+            fail("ä¾‹å¤–ãŒç™ºç”Ÿã—ãªã„ã€‚");
         } catch (Exception e) {
-            //”»’è
+            //åˆ¤å®š
             assertEquals("datePattern or datePatternStrict must be specified.",
                     e.getMessage());
         }
@@ -181,36 +181,36 @@ public class ValidationUtilTest06 extends PropertyTestCase {
      * testToDate04()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF,G
+     * è¦³ç‚¹ï¼šF,G
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"2005/11/1"<br>
-     *         (ˆø”) datePattern:""<br>
-     *         (ˆø”) datePatternStrict:""<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"2005/11/1"<br>
+     *         (å¼•æ•°) datePattern:""<br>
+     *         (å¼•æ•°) datePatternStrict:""<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    ƒƒbƒZ[ƒWF"datePattern or datePatternStrict must be specified."<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"datePattern or datePatternStrict must be specified."<br>
      *
      * <br>
-     * ˆø”datePatternAdatePatternStrict‚ª‹ó”’‚Ìê‡
+     * å¼•æ•°datePatternã€datePatternStrictãŒç©ºç™½ã®å ´åˆ
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testToDate04() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         String value = "2005/11/1";
         String datePattern = "";
         String datePatternStrict = "";
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             ValidationUtil.toDate(value, datePattern, datePatternStrict);
-            fail("—áŠO‚ª”­¶‚µ‚È‚¢B");
+            fail("ä¾‹å¤–ãŒç™ºç”Ÿã—ãªã„ã€‚");
         } catch (Exception e) {
-            //”»’è
+            //åˆ¤å®š
             assertEquals("datePattern or datePatternStrict must be specified.",
                     e.getMessage());
         }
@@ -220,34 +220,34 @@ public class ValidationUtilTest06 extends PropertyTestCase {
      * testToDate05()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"2005/11/1"<br>
-     *         (ˆø”) datePattern:"yyyy/MM/dd"<br>
-     *         (ˆø”) datePatternStrict:"yyyy.MM.dd"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"2005/11/1"<br>
+     *         (å¼•æ•°) datePattern:"yyyy/MM/dd"<br>
+     *         (å¼•æ•°) datePatternStrict:"yyyy.MM.dd"<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Date:"2005/11/1"‚ÌDateŒ^<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Date:"2005/11/1"ã®Dateå‹<br>
      *
      * <br>
-     * ˆø”datePattern,datePatternStrict‚ªNotNull‚Å³í‚ÉDate‚É•ÏŠ·‚Å‚«‚éê‡
+     * å¼•æ•°datePattern,datePatternStrictãŒNotNullã§æ­£å¸¸ã«Dateã«å¤‰æ›ã§ãã‚‹å ´åˆ
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testToDate05() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         String value = "2005/11/1";
         String datePattern = "yyyy/MM/dd";
         String datePatternStrict = "yyyy.MM.dd";
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Date result = ValidationUtil.toDate(
                 value, datePattern, datePatternStrict);
 
-        // ”»’è
+        // åˆ¤å®š
         SimpleDateFormat format = new SimpleDateFormat(datePattern);
         Date hope = format.parse(value);
         assertEquals(hope, result);
@@ -258,34 +258,34 @@ public class ValidationUtilTest06 extends PropertyTestCase {
      * testToDate06()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"2005/11/1"<br>
-     *         (ˆø”) datePattern:null<br>
-     *         (ˆø”) datePatternStrict:"yyyy/MM/dd"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"2005/11/1"<br>
+     *         (å¼•æ•°) datePattern:null<br>
+     *         (å¼•æ•°) datePatternStrict:"yyyy/MM/dd"<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Date:null<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Date:null<br>
      *
      * <br>
-     * ˆø”datePatternStrict‚ªNotNull‚ÅDate‚É•ÏŠ·‚Å‚«‚¸Anull‚Æ‚È‚éê‡
+     * å¼•æ•°datePatternStrictãŒNotNullã§Dateã«å¤‰æ›ã§ããšã€nullã¨ãªã‚‹å ´åˆ
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testToDate06() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         String value = "2005/11/1";
         String datePattern = null;
         String datePatternStrict = "yyyy/MM/dd";
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Date result = ValidationUtil.toDate(
                 value, datePattern, datePatternStrict);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNull(result);
     }
 
@@ -293,33 +293,33 @@ public class ValidationUtilTest06 extends PropertyTestCase {
      * testToDate07()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"2005/11/24"<br>
-     *         (ˆø”) datePattern:"yyyy/MM/dd"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"2005/11/24"<br>
+     *         (å¼•æ•°) datePattern:"yyyy/MM/dd"<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Date:"2005/11/24"‚ÌDateŒ^<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Date:"2005/11/24"ã®Dateå‹<br>
      *
      * <br>
-     * ˆø”datePattern‚ªNotNull‚Å³í‚ÉDate‚É•ÏŠ·‚Å‚«‚éê‡
+     * å¼•æ•°datePatternãŒNotNullã§æ­£å¸¸ã«Dateã«å¤‰æ›ã§ãã‚‹å ´åˆ
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testToDate07() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         String value = "2005/11/24";
         String datePattern = "yyyy/MM/dd";
         String datePatternStrict = null;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Date result = ValidationUtil.toDate(
                 value, datePattern, datePatternStrict);
 
-        // ”»’è
+        // åˆ¤å®š
         SimpleDateFormat format = new SimpleDateFormat(datePattern);
         Date hope = format.parse(value);
         assertEquals(hope, result);
@@ -330,34 +330,34 @@ public class ValidationUtilTest06 extends PropertyTestCase {
      * testToDate08()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"2005/11/24"<br>
-     *         (ˆø”) datePattern:null<br>
-     *         (ˆø”) datePatternStrict:"yyyy/MM/dd"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"2005/11/24"<br>
+     *         (å¼•æ•°) datePattern:null<br>
+     *         (å¼•æ•°) datePatternStrict:"yyyy/MM/dd"<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Date:"2005/11/24"‚ÌDateŒ^<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Date:"2005/11/24"ã®Dateå‹<br>
      *
      * <br>
-     * ˆø”datePatternStrict‚ªNotNull‚Å³í‚ÉDate‚É•ÏŠ·‚Å‚«‚éê‡
+     * å¼•æ•°datePatternStrictãŒNotNullã§æ­£å¸¸ã«Dateã«å¤‰æ›ã§ãã‚‹å ´åˆ
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testToDate08() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         String value = "2005/11/24";
         String datePattern = null;
         String datePatternStrict = "yyyy/MM/dd";
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Date result = ValidationUtil.toDate(
                 value, datePattern, datePatternStrict);
 
-        // ”»’è
+        // åˆ¤å®š
         SimpleDateFormat format = new SimpleDateFormat(datePatternStrict);
         Date hope = format.parse(value);
         assertEquals(hope, result);
@@ -368,33 +368,33 @@ public class ValidationUtilTest06 extends PropertyTestCase {
      * testToDate09()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF,G
+     * è¦³ç‚¹ï¼šF,G
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"2005/11/24"<br>
-     *         (ˆø”) datePattern:"asdf"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"2005/11/24"<br>
+     *         (å¼•æ•°) datePattern:"asdf"<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:—áŠOFIllegalArgumentException<br>
-     *                    ƒƒbƒZ[ƒWFIllegal pattern character 'f'<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä¾‹å¤–ï¼šIllegalArgumentException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼šIllegal pattern character 'f'<br>
      *
      * <br>
-     * datePattern‚É–³Œø‚È•¶š—ñ‚ª‚ ‚éê‡
+     * datePatternã«ç„¡åŠ¹ãªæ–‡å­—åˆ—ãŒã‚ã‚‹å ´åˆ
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testToDate09() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         String value = "2005/11/24";
         String datePattern = "asdf";
         String datePatternStrict = null;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             ValidationUtil.toDate(value, datePattern, datePatternStrict);
-            fail("—áŠO‚ª”­¶‚µ‚È‚¢B");
+            fail("ä¾‹å¤–ãŒç™ºç”Ÿã—ãªã„ã€‚");
         } catch (IllegalArgumentException e) {
             assertEquals("Illegal pattern character 'f'", e.getMessage());
         }
@@ -404,34 +404,34 @@ public class ValidationUtilTest06 extends PropertyTestCase {
      * testToDate10()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF,G
+     * è¦³ç‚¹ï¼šF,G
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"2005/11/24"<br>
-     *         (ˆø”) datePattern:null<br>
-     *         (ˆø”) datePatternStrict:"asdf"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"2005/11/24"<br>
+     *         (å¼•æ•°) datePattern:null<br>
+     *         (å¼•æ•°) datePatternStrict:"asdf"<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:—áŠOFIllegalArgumentException<br>
-     *                    ƒƒbƒZ[ƒWFIllegal pattern character 'f'<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä¾‹å¤–ï¼šIllegalArgumentException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼šIllegal pattern character 'f'<br>
      *
      * <br>
-     * datePatternStrict‚É–³Œø‚È•¶š—ñ‚ª‚ ‚éê‡
+     * datePatternStrictã«ç„¡åŠ¹ãªæ–‡å­—åˆ—ãŒã‚ã‚‹å ´åˆ
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testToDate10() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         String value = "2005/11/24";
         String datePattern = null;
         String datePatternStrict = "asdf";
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             ValidationUtil.toDate(value, datePattern, datePatternStrict);
-            fail("—áŠO‚ª”­¶‚µ‚È‚¢B");
+            fail("ä¾‹å¤–ãŒç™ºç”Ÿã—ãªã„ã€‚");
         } catch (IllegalArgumentException e) {
             assertEquals("Illegal pattern character 'f'", e.getMessage());
         }
@@ -441,33 +441,33 @@ public class ValidationUtilTest06 extends PropertyTestCase {
      * testToDate11()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"2005/2/29"<br>
-     *         (ˆø”) datePattern:"yyyy/MM/dd"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"2005/2/29"<br>
+     *         (å¼•æ•°) datePattern:"yyyy/MM/dd"<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Date:null<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Date:null<br>
      *
      * <br>
-     * “ü—Í’l‚ª‘¶İ‚µ‚È‚¢“ú•t‚Ìê‡
+     * å…¥åŠ›å€¤ãŒå­˜åœ¨ã—ãªã„æ—¥ä»˜ã®å ´åˆ
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testToDate11() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         String value = "2005/2/29";
         String datePattern = "yyyy/MM/dd";
         String datePatternStrict = null;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Date result = ValidationUtil.toDate(
                 value, datePattern, datePatternStrict);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNull(result);
     }
 
@@ -475,34 +475,34 @@ public class ValidationUtilTest06 extends PropertyTestCase {
      * testToDate12()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"2005/02/29"<br>
-     *         (ˆø”) datePattern:null<br>
-     *         (ˆø”) datePatternStrict:"yyyy/MM/dd"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"2005/02/29"<br>
+     *         (å¼•æ•°) datePattern:null<br>
+     *         (å¼•æ•°) datePatternStrict:"yyyy/MM/dd"<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Date:null<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Date:null<br>
      *
      * <br>
-     * “ü—Í’l‚ª‘¶İ‚µ‚È‚¢“ú•t‚Ìê‡
+     * å…¥åŠ›å€¤ãŒå­˜åœ¨ã—ãªã„æ—¥ä»˜ã®å ´åˆ
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testToDate12() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         String value = "2005/02/29";
         String datePattern = null;
         String datePatternStrict = "yyyy/MM/dd";
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Date result = ValidationUtil.toDate(
                 value, datePattern, datePatternStrict);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNull(result);
     }
 
@@ -510,33 +510,33 @@ public class ValidationUtilTest06 extends PropertyTestCase {
      * testToDate13()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"test"<br>
-     *         (ˆø”) datePattern:"yyyy/MM/dd"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"test"<br>
+     *         (å¼•æ•°) datePattern:"yyyy/MM/dd"<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Date:null<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Date:null<br>
      *
      * <br>
-     * “ü—Í’l‚ª“ú•t‚É•ÏŠ·‚Å‚«‚È‚¢ê‡
+     * å…¥åŠ›å€¤ãŒæ—¥ä»˜ã«å¤‰æ›ã§ããªã„å ´åˆ
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testToDate13() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         String value = "test";
         String datePattern = "yyyy/MM/dd";
         String datePatternStrict = null;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Date result = ValidationUtil.toDate(
                 value, datePattern, datePatternStrict);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNull(result);
     }
 

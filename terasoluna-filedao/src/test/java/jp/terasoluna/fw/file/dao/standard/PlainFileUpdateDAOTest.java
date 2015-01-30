@@ -18,27 +18,27 @@ import jp.terasoluna.utlib.UTUtil;
 import junit.framework.TestCase;
 
 /**
- * {@link jp.terasoluna.fw.file.dao.standard.PlainFileUpdateDAO} ƒNƒ‰ƒX‚ÌƒeƒXƒgB
+ * {@link jp.terasoluna.fw.file.dao.standard.PlainFileUpdateDAO} ã‚¯ãƒ©ã‚¹ã®ãƒ†ã‚¹ãƒˆã€‚
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4> ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ğ—p‚¢‚È‚¢ƒtƒ@ƒCƒ‹o—Í—p‚ÌFileLineWriter‚ğ¶¬‚·‚éB<br>
- * AbstractFileUpdateDAO‚ÌƒTƒuƒNƒ‰ƒXB
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4> ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ç”¨ã„ãªã„ãƒ•ã‚¡ã‚¤ãƒ«å‡ºåŠ›ç”¨ã®FileLineWriterã‚’ç”Ÿæˆã™ã‚‹ã€‚<br>
+ * AbstractFileUpdateDAOã®ã‚µãƒ–ã‚¯ãƒ©ã‚¹ã€‚
  * <p>
- * @author ‰œ“c“Ni
+ * @author å¥¥ç”°å“²å¸
  * @see jp.terasoluna.fw.file.dao.standard.PlainFileUpdateDAO
  */
 public class PlainFileUpdateDAOTest extends TestCase {
 
     /**
-     * ‚±‚ÌƒeƒXƒgƒP[ƒX‚ğÀs‚·‚éˆ×‚Ì GUI ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‹N“®‚·‚éB
-     * @param args java ƒRƒ}ƒ“ƒh‚Éİ’è‚³‚ê‚½ƒpƒ‰ƒ[ƒ^
+     * ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã‚’å®Ÿè¡Œã™ã‚‹ç‚ºã® GUI ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’èµ·å‹•ã™ã‚‹ã€‚
+     * @param args java ã‚³ãƒãƒ³ãƒ‰ã«è¨­å®šã•ã‚ŒãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public static void main(String[] args) {
         // junit.swingui.TestRunner.run(PlainFileUpdateDAOTest.class);
     }
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -47,8 +47,8 @@ public class PlainFileUpdateDAOTest extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -57,8 +57,8 @@ public class PlainFileUpdateDAOTest extends TestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public PlainFileUpdateDAOTest(String name) {
         super(name);
@@ -67,47 +67,47 @@ public class PlainFileUpdateDAOTest extends TestCase {
     /**
      * testExecute01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileName:PlainFileUpdateDAO01.txt<br>
-     * @ƒf[ƒ^‚ğ‚½‚È‚¢ƒtƒ@ƒCƒ‹‚ÌƒpƒX<br>
-     * (ˆø”) clazz:PlainFileUpdateDAO_Stub01<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) AbstractFileUpdateDAO.columnFormatterMap:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂMap<String, ColumnFormatter>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"java.lang.String"=NullColumnFormatterƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileName:PlainFileUpdateDAO01.txt<br>
+     * ã€€ãƒ‡ãƒ¼ã‚¿ã‚’æŒãŸãªã„ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹<br>
+     * (å¼•æ•°) clazz:PlainFileUpdateDAO_Stub01<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) AbstractFileUpdateDAO.columnFormatterMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤Map<String, ColumnFormatter>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"java.lang.String"=NullColumnFormatterã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) FileLineWriter:PlainFileLineWriter‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô•Ï‰») PlainFileLineWriter#PlainFileLineWriter():‚P‰ñŒÄ‚Ño‚³‚ê‚é‚±‚Æ<br>
-     * ˆø”‚ª“n‚³‚ê‚é‚±‚Æ<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) FileLineWriter:PlainFileLineWriterã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) PlainFileLineWriter#PlainFileLineWriter():ï¼‘å›å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨<br>
+     * å¼•æ•°ãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨<br>
      * <br>
-     * ³íƒpƒ^[ƒ“<br>
-     * ˆø”‚ª‚»‚ê‚¼‚ênot null‚Å‚ ‚ê‚ÎA–ß‚è’l‚ª‹A‚Á‚Ä‚­‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ãƒ‘ã‚¿ãƒ¼ãƒ³<br>
+     * å¼•æ•°ãŒãã‚Œãã‚Œnot nullã§ã‚ã‚Œã°ã€æˆ»ã‚Šå€¤ãŒå¸°ã£ã¦ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testExecute01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         PlainFileUpdateDAO fileUpdateDAO = new PlainFileUpdateDAO();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         URL url = this.getClass().getResource("File_Empty.txt");
         String fileName = url.getPath();
         Class<PlainFileUpdateDAO_Stub01> clazz = PlainFileUpdateDAO_Stub01.class;
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
         UTUtil.setPrivateField(fileUpdateDAO, "columnFormatterMap",
                 columnFormatterMap);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         FileLineWriter fileLineWriter = fileUpdateDAO.execute(fileName, clazz);
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals(PlainFileLineWriter.class, fileLineWriter.getClass());
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(1, VMOUTUtil.getCallCount(PlainFileLineWriter.class,
                 "<init>"));
         List arguments = VMOUTUtil.getArguments(PlainFileLineWriter.class,

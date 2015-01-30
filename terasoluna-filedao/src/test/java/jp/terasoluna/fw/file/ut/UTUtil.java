@@ -17,36 +17,36 @@ import java.util.Date;
 import junit.framework.Assert;
 
 /**
- *  JUnit‚Å‚Ì’P‘ÌƒeƒXƒg‚ğƒTƒ|[ƒg‚·‚éƒ†[ƒeƒBƒŠƒeƒBƒNƒ‰ƒXB
+ * â— JUnitã§ã®å˜ä½“ãƒ†ã‚¹ãƒˆã‚’ã‚µãƒãƒ¼ãƒˆã™ã‚‹ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ã‚¯ãƒ©ã‚¹ã€‚
  * @version 2003.08.29
- * @author ’O‰H —²
+ * @author ä¸¹ç¾½ éš†
  */
 public class UTUtil {
 
     /**
-     * “ú•t‚ÌƒtƒH[ƒ}ƒbƒg•¶š—ñ
+     * æ—¥ä»˜ã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆæ–‡å­—åˆ—
      */
     private static final String DATE_FORMAT = "yyyy-MM-dd";
 
     /**
-     * “ú•t‚ğ”äŠr‚·‚é‚½‚ß‚Ìassertƒ†[ƒeƒBƒŠƒeƒBƒƒ\ƒbƒhB <BR>
+     * æ—¥ä»˜ã‚’æ¯”è¼ƒã™ã‚‹ãŸã‚ã®assertãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ãƒ¡ã‚½ãƒƒãƒ‰ã€‚ <BR>
      * <BR>
-     * selectRows()‚ÍDATEŒ^‚Ì’l‚ğ"yyyy-MM-dd HH:mm:ss.fffffffff"ƒtƒH[ƒ}ƒbƒg‚Å •Ô‹p‚·‚é‚æ‚¤‚É‚È‚Á‚Ä‚¢‚é‚½‚ßA‚»‚Ì‚Ü‚Ü‚Å‚Í’l‚Ì”äŠr‚ª‚µ‚Ã‚ç‚¢B<BR>
-     * ‚»‚Ì‚½‚ßA“ú•t—p‚Ìassertƒ†[ƒeƒBƒŠƒeƒBƒƒ\ƒbƒh‚ğ—pˆÓ‚µ‚Ä‚¢‚éB <BR>
+     * selectRows()ã¯DATEå‹ã®å€¤ã‚’"yyyy-MM-dd HH:mm:ss.fffffffff"ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã§ è¿”å´ã™ã‚‹ã‚ˆã†ã«ãªã£ã¦ã„ã‚‹ãŸã‚ã€ãã®ã¾ã¾ã§ã¯å€¤ã®æ¯”è¼ƒãŒã—ã¥ã‚‰ã„ã€‚<BR>
+     * ãã®ãŸã‚ã€æ—¥ä»˜ç”¨ã®assertãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ãƒ¡ã‚½ãƒƒãƒ‰ã‚’ç”¨æ„ã—ã¦ã„ã‚‹ã€‚ <BR>
      * <BR>
      * 
      * <pre>
-     * [g—p—á]
+     * [ä½¿ç”¨ä¾‹]
      * List list = UTUtil.selectRows(&quot;CUSTOMER&quot;, &quot;C_ID=1&quot;);
      * Map map = (Map) list.get(0);
      * UTUtil.assertEqualsDate(&quot;2003-01-01&quot;, map.get(&quot;C_REGIST_DATE&quot;));
      * </pre>
-     * @param expected Šú‘Ò’l
-     * @param actual ÀÛ‚Ì’l
+     * @param expected æœŸå¾…å€¤
+     * @param actual å®Ÿéš›ã®å€¤
      */
     public static void assertEqualsDate(Object expected, Object actual) {
 
-        // ƒpƒ‰ƒ[ƒ^‚ªStringŒ^‚Å‚È‚¯‚ê‚Î—áŠO‚ğ•Ô‚·B
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãŒStringå‹ã§ãªã‘ã‚Œã°ä¾‹å¤–ã‚’è¿”ã™ã€‚
         if ((expected != null) && (!(expected instanceof String))) {
             throw new IllegalArgumentException();
         }
@@ -54,34 +54,34 @@ public class UTUtil {
             throw new IllegalArgumentException();
         }
 
-        // "yyyy-MM-dd HH:mm:ss.fffffffff"‚Ì"yyyy-MM-dd"‚¾‚¯æ‚èo‚·B
+        // "yyyy-MM-dd HH:mm:ss.fffffffff"ã®"yyyy-MM-dd"ã ã‘å–ã‚Šå‡ºã™ã€‚
         String actualDate = (actual != null) ? ((String) actual).substring(0,
                 10) : null;
 
-        // String‚ÉƒLƒƒƒXƒg‚µ‚½ã‚ÅassertEquals‚·‚éB
+        // Stringã«ã‚­ãƒ£ã‚¹ãƒˆã—ãŸä¸Šã§assertEqualsã™ã‚‹ã€‚
         String expectedDate = (String) expected;
         Assert.assertEquals(expectedDate, actualDate);
     }
 
     /**
-     * ‚ğ”äŠr‚·‚é‚½‚ß‚Ìassertƒ†[ƒeƒBƒŠƒeƒBƒƒ\ƒbƒhB <BR>
+     * æ™‚åˆ»ã‚’æ¯”è¼ƒã™ã‚‹ãŸã‚ã®assertãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ãƒ¡ã‚½ãƒƒãƒ‰ã€‚ <BR>
      * <BR>
-     * selectRows()‚ÍDATEŒ^‚Ì’l‚ğ"yyyy-MM-dd HH:mm:ss.fffffffff"ƒtƒH[ƒ}ƒbƒg‚Å •Ô‹p‚·‚é‚æ‚¤‚É‚È‚Á‚Ä‚¢‚é‚½‚ßA‚»‚Ì‚Ü‚Ü‚Å‚Í’l‚Ì”äŠr‚ª‚µ‚Ã‚ç‚¢B<BR>
-     * ‚»‚Ì‚½‚ßA—p‚Ìassertƒ†[ƒeƒBƒŠƒeƒBƒƒ\ƒbƒh‚ğ—pˆÓ‚µ‚Ä‚¢‚éB <BR>
+     * selectRows()ã¯DATEå‹ã®å€¤ã‚’"yyyy-MM-dd HH:mm:ss.fffffffff"ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã§ è¿”å´ã™ã‚‹ã‚ˆã†ã«ãªã£ã¦ã„ã‚‹ãŸã‚ã€ãã®ã¾ã¾ã§ã¯å€¤ã®æ¯”è¼ƒãŒã—ã¥ã‚‰ã„ã€‚<BR>
+     * ãã®ãŸã‚ã€æ™‚åˆ»ç”¨ã®assertãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ãƒ¡ã‚½ãƒƒãƒ‰ã‚’ç”¨æ„ã—ã¦ã„ã‚‹ã€‚ <BR>
      * <BR>
      * 
      * <pre>
-     * [g—p—á]
+     * [ä½¿ç”¨ä¾‹]
      * List list = UTUtil.selectRows(&quot;CUSTOMER&quot;, &quot;C_ID=1&quot;);
      * Map map = (Map) list.get(0);
      * UTUtil.assertEqualsDate(&quot;12:34:56&quot;, map.get(&quot;C_UPDATE_TIME&quot;));
      * </pre>
-     * @param expected Šú‘Ò’l
-     * @param actual ÀÛ‚Ì’l
+     * @param expected æœŸå¾…å€¤
+     * @param actual å®Ÿéš›ã®å€¤
      */
     public static void assertEqualsTime(Object expected, Object actual) {
 
-        // ƒpƒ‰ƒ[ƒ^‚ªStringŒ^‚Å‚È‚¯‚ê‚Î—áŠO‚ğ•Ô‚·B
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãŒStringå‹ã§ãªã‘ã‚Œã°ä¾‹å¤–ã‚’è¿”ã™ã€‚
         if ((expected != null) && (!(expected instanceof String))) {
             throw new IllegalArgumentException();
         }
@@ -89,35 +89,35 @@ public class UTUtil {
             throw new IllegalArgumentException();
         }
 
-        // "yyyy-MM-dd HH:mm:ss.fffffffff"‚Ì"HH:mm:ss"‚¾‚¯æ‚èo‚·B
+        // "yyyy-MM-dd HH:mm:ss.fffffffff"ã®"HH:mm:ss"ã ã‘å–ã‚Šå‡ºã™ã€‚
         String actualTime = (actual != null) ? ((String) actual).substring(11,
                 19) : null;
 
-        // String‚ÉƒLƒƒƒXƒg‚µ‚½ã‚ÅassertEquals‚·‚éB
+        // Stringã«ã‚­ãƒ£ã‚¹ãƒˆã—ãŸä¸Šã§assertEqualsã™ã‚‹ã€‚
         String expectedTime = (String) expected;
         Assert.assertEquals(expectedTime, actualTime);
     }
 
     /**
-     * “ú•t{‚ğ”äŠr‚·‚é‚½‚ß‚Ìassertƒ†[ƒeƒBƒŠƒeƒBƒƒ\ƒbƒhB <BR>
+     * æ—¥ä»˜ï¼‹æ™‚åˆ»ã‚’æ¯”è¼ƒã™ã‚‹ãŸã‚ã®assertãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ãƒ¡ã‚½ãƒƒãƒ‰ã€‚ <BR>
      * <BR>
-     * selectRows()‚ÍDATEŒ^‚Ì’l‚ğ"yyyy-MM-dd HH:mm:ss.fffffffff"ƒtƒH[ƒ}ƒbƒg‚Å •Ô‹p‚·‚é‚æ‚¤‚É‚È‚Á‚Ä‚¢‚é‚½‚ßA‚»‚Ì‚Ü‚Ü‚Å‚Í’l‚Ì”äŠr‚ª‚µ‚Ã‚ç‚¢B<BR>
-     * ‚»‚Ì‚½‚ßA“ú•t{—p‚Ìassertƒ†[ƒeƒBƒŠƒeƒBƒƒ\ƒbƒh‚ğ—pˆÓ‚µ‚Ä‚¢‚éB <BR>
+     * selectRows()ã¯DATEå‹ã®å€¤ã‚’"yyyy-MM-dd HH:mm:ss.fffffffff"ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã§ è¿”å´ã™ã‚‹ã‚ˆã†ã«ãªã£ã¦ã„ã‚‹ãŸã‚ã€ãã®ã¾ã¾ã§ã¯å€¤ã®æ¯”è¼ƒãŒã—ã¥ã‚‰ã„ã€‚<BR>
+     * ãã®ãŸã‚ã€æ—¥ä»˜ï¼‹æ™‚åˆ»ç”¨ã®assertãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ãƒ¡ã‚½ãƒƒãƒ‰ã‚’ç”¨æ„ã—ã¦ã„ã‚‹ã€‚ <BR>
      * <BR>
      * 
      * <pre>
-     * [g—p—á]
+     * [ä½¿ç”¨ä¾‹]
      * List list = UTUtil.selectRows(&quot;CUSTOMER&quot;, &quot;C_ID=1&quot;);
      * Map map = (Map) list.get(0);
      * UTUtil.assertEqualsDateTime(&quot;2003-01-01 12:00:05&quot;,
      *     map.get(&quot;C_UPDATE_DATE&quot;));
      * </pre>
-     * @param expected Šú‘Ò’l
-     * @param actual ÀÛ‚Ì’l
+     * @param expected æœŸå¾…å€¤
+     * @param actual å®Ÿéš›ã®å€¤
      */
     public static void assertEqualsDateTime(Object expected, Object actual) {
 
-        // ƒpƒ‰ƒ[ƒ^‚ªStringŒ^‚Å‚È‚¯‚ê‚Î—áŠO‚ğ•Ô‚·B
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãŒStringå‹ã§ãªã‘ã‚Œã°ä¾‹å¤–ã‚’è¿”ã™ã€‚
         if ((expected != null) && (!(expected instanceof String))) {
             throw new IllegalArgumentException();
         }
@@ -125,127 +125,127 @@ public class UTUtil {
             throw new IllegalArgumentException();
         }
 
-        // "yyyy-MM-dd HH:mm:ss.fffffffff"‚Ì"yyyy-MM-dd HH:mm:ss"‚¾‚¯æ‚èo‚·B
+        // "yyyy-MM-dd HH:mm:ss.fffffffff"ã®"yyyy-MM-dd HH:mm:ss"ã ã‘å–ã‚Šå‡ºã™ã€‚
         String actualDateTime = (actual != null) ? ((String) actual).substring(
                 0, 19) : null;
 
-        // String‚ÉƒLƒƒƒXƒg‚µ‚½ã‚ÅassertEquals‚·‚éB
+        // Stringã«ã‚­ãƒ£ã‚¹ãƒˆã—ãŸä¸Šã§assertEqualsã™ã‚‹ã€‚
         String expectedDateTime = (String) expected;
         Assert.assertEquals(expectedDateTime, actualDateTime);
     }
 
     /**
-     * Œ»İ“ú•t‚Æ”äŠr‚·‚é‚½‚ß‚Ìassertƒ†[ƒeƒBƒŠƒeƒBƒƒ\ƒbƒhB <BR>
+     * ç¾åœ¨æ—¥ä»˜ã¨æ¯”è¼ƒã™ã‚‹ãŸã‚ã®assertãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ãƒ¡ã‚½ãƒƒãƒ‰ã€‚ <BR>
      * <BR>
-     * selectRows()‚ÍDATEŒ^‚Ì’l‚ğ"yyyy-MM-dd HH:mm:ss.fffffffff"ƒtƒH[ƒ}ƒbƒg‚Å •Ô‹p‚·‚é‚æ‚¤‚É‚È‚Á‚Ä‚¢‚é‚½‚ßA‚»‚Ì‚Ü‚Ü‚Å‚Í’l‚Ì”äŠr‚ª‚µ‚Ã‚ç‚¢B<BR>
-     * ‚»‚Ì‚½‚ßAŒ»İ“ú•t‚Æ”äŠr‚·‚éassertƒ†[ƒeƒBƒŠƒeƒBƒƒ\ƒbƒh‚ğ—pˆÓ‚µ‚Ä‚¢‚éB
+     * selectRows()ã¯DATEå‹ã®å€¤ã‚’"yyyy-MM-dd HH:mm:ss.fffffffff"ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã§ è¿”å´ã™ã‚‹ã‚ˆã†ã«ãªã£ã¦ã„ã‚‹ãŸã‚ã€ãã®ã¾ã¾ã§ã¯å€¤ã®æ¯”è¼ƒãŒã—ã¥ã‚‰ã„ã€‚<BR>
+     * ãã®ãŸã‚ã€ç¾åœ¨æ—¥ä»˜ã¨æ¯”è¼ƒã™ã‚‹assertãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ãƒ¡ã‚½ãƒƒãƒ‰ã‚’ç”¨æ„ã—ã¦ã„ã‚‹ã€‚
      * 
      * <pre>
-     * [g—p—á]
+     * [ä½¿ç”¨ä¾‹]
      * List list = UTUtil.selectRows(&quot;CUSTOMER&quot;, &quot;C_ID=1&quot;);
      * Map map = (Map) list.get(0);
      * UTUtil.assertEqualsToday(map.get(&quot;C_UPDATE_DATE&quot;));
      * </pre>
-     * @param actual ÀÛ‚Ì’l
+     * @param actual å®Ÿéš›ã®å€¤
      */
     public static void assertEqualsToday(Object actual) {
 
-        // ƒpƒ‰ƒ[ƒ^‚ªStringŒ^‚Å‚È‚¯‚ê‚Î—áŠO‚ğ•Ô‚·B
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãŒStringå‹ã§ãªã‘ã‚Œã°ä¾‹å¤–ã‚’è¿”ã™ã€‚
         if ((actual != null) && (!(actual instanceof String))) {
             throw new IllegalArgumentException();
         }
 
-        // Œ»İ“ú•t‚Ì•¶š—ñ‚ğæ“¾‚·‚éB
+        // ç¾åœ¨æ—¥ä»˜ã®æ–‡å­—åˆ—ã‚’å–å¾—ã™ã‚‹ã€‚
         Date d = new Date();
         SimpleDateFormat f = new SimpleDateFormat(DATE_FORMAT);
         String currentDate = f.format(d);
 
-        // “ú•t‚Ì•¶š—ñ‚ğassertEquals‚·‚éB
+        // æ—¥ä»˜ã®æ–‡å­—åˆ—ã‚’assertEqualsã™ã‚‹ã€‚
         assertEqualsDate(currentDate, actual);
     }
 
     /**
-     * ƒtƒ@ƒCƒ‹‚Ì’†g‚ğƒoƒCƒiƒŠ”äŠr‚·‚éB
+     * ãƒ•ã‚¡ã‚¤ãƒ«ã®ä¸­èº«ã‚’ãƒã‚¤ãƒŠãƒªæ¯”è¼ƒã™ã‚‹ã€‚
      * 
      * <pre>
-     * [g—p—á]
+     * [ä½¿ç”¨ä¾‹]
      * class SampleTest extends TestCase {
      *     &#064;SuppressWarnings(&quot;unchecked&quot;) public void testDoSomething() throws Excepton {
-     *         // ‚È‚ñ‚ç‚©‚Ìˆ—‚ğÀs‚µŒ‹‰Ê‚Ìƒtƒ@ƒCƒ‹‚ª–ß‚³‚ê‚éB
+     *         // ãªã‚“ã‚‰ã‹ã®å‡¦ç†ã‚’å®Ÿè¡Œã—çµæœã®ãƒ•ã‚¡ã‚¤ãƒ«ãŒæˆ»ã•ã‚Œã‚‹ã€‚
      *         File actual = Sample.doSomething();
      * 
-     *         // ”äŠr‚·‚é‚½‚ß‚ÌŠú‘Ò’lƒf[ƒ^‚Ìƒtƒ@ƒCƒ‹‚ğæ“¾‚·‚éB
-     *         // ƒtƒ@ƒCƒ‹‚ÍSampleTestƒNƒ‰ƒX‚Æ“¯‚¶ƒtƒHƒ‹ƒ_‚É’u‚¢‚Ä‚ ‚éB
+     *         // æ¯”è¼ƒã™ã‚‹ãŸã‚ã®æœŸå¾…å€¤ãƒ‡ãƒ¼ã‚¿ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å–å¾—ã™ã‚‹ã€‚
+     *         // ãƒ•ã‚¡ã‚¤ãƒ«ã¯SampleTestã‚¯ãƒ©ã‚¹ã¨åŒã˜ãƒ•ã‚©ãƒ«ãƒ€ã«ç½®ã„ã¦ã‚ã‚‹ã€‚
      *         File expected = UTUtil.getFile(this, &quot;expected.txt&quot;);
      * 
-     *         // ƒtƒ@ƒCƒ‹‚Ì”äŠr‚ğ‚·‚éB
+     *         // ãƒ•ã‚¡ã‚¤ãƒ«ã®æ¯”è¼ƒã‚’ã™ã‚‹ã€‚
      *         UTUtil.assertEqualsFile(expected, actual);
      *          
      *     }
      * }
      * </pre>
-     * @param expected Šú‘Ò’l‚Ìƒtƒ@ƒCƒ‹
-     * @param actual ÀÛ‚Ì’l‚Ìƒtƒ@ƒCƒ‹
+     * @param expected æœŸå¾…å€¤ã®ãƒ•ã‚¡ã‚¤ãƒ«
+     * @param actual å®Ÿéš›ã®å€¤ã®ãƒ•ã‚¡ã‚¤ãƒ«
      */
     public static void assertEqualsFile(File expected, File actual) {
 
-        // ƒpƒ‰ƒ[ƒ^‚ªnull‚Ìê‡‚Í—áŠO‚ğ•Ô‚·B
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãŒnullã®å ´åˆã¯ä¾‹å¤–ã‚’è¿”ã™ã€‚
         if ((expected == null) || (actual == null)) {
             throw new IllegalArgumentException();
         }
 
-        // ’†g‚ğ”äŠr‚·‚é‚½‚ß‚Ìƒ‰ƒbƒp[ƒIƒuƒWƒFƒNƒg(FileContent)‚ğ¶¬
+        // ä¸­èº«ã‚’æ¯”è¼ƒã™ã‚‹ãŸã‚ã®ãƒ©ãƒƒãƒ‘ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ(FileContent)ã‚’ç”Ÿæˆ
         FileContent expectedContent = new FileContent(expected);
         FileContent actualContent = new FileContent(actual);
 
-        // assert‚É‚©‚¯‚éB
+        // assertã«ã‹ã‘ã‚‹ã€‚
         Assert.assertTrue(expectedContent.equals(actualContent));
     }
 
     /**
-     * ƒeƒXƒgƒNƒ‰ƒX‚Æ“¯‚¶ƒtƒHƒ‹ƒ_‚É’u‚¢‚Ä‚ ‚éƒeƒXƒg—pƒtƒ@ƒCƒ‹‚Ì FileƒIƒuƒWƒFƒNƒg‚ğæ“¾‚·‚éB
+     * ãƒ†ã‚¹ãƒˆã‚¯ãƒ©ã‚¹ã¨åŒã˜ãƒ•ã‚©ãƒ«ãƒ€ã«ç½®ã„ã¦ã‚ã‚‹ãƒ†ã‚¹ãƒˆç”¨ãƒ•ã‚¡ã‚¤ãƒ«ã® Fileã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å–å¾—ã™ã‚‹ã€‚
      * 
      * <pre>
-     * [g—p—á]
+     * [ä½¿ç”¨ä¾‹]
      * class SampleTest extends TestCase {
      *     &#064;SuppressWarnings(&quot;unchecked&quot;) public void testDoSomething() throws Excepton {
-     *         // ‚È‚ñ‚ç‚©‚Ìˆ—‚ğÀs‚µŒ‹‰Ê‚Ìƒtƒ@ƒCƒ‹‚ª–ß‚³‚ê‚éB
+     *         // ãªã‚“ã‚‰ã‹ã®å‡¦ç†ã‚’å®Ÿè¡Œã—çµæœã®ãƒ•ã‚¡ã‚¤ãƒ«ãŒæˆ»ã•ã‚Œã‚‹ã€‚
      *         File actual = Sample.doSomething();
      * 
-     *         // ”äŠr‚·‚é‚½‚ß‚ÌŠú‘Ò’lƒf[ƒ^‚Ìƒtƒ@ƒCƒ‹‚ğæ“¾‚·‚éB
-     *         // ƒtƒ@ƒCƒ‹‚ÍSampleTestƒNƒ‰ƒX‚Æ“¯‚¶ƒtƒHƒ‹ƒ_‚É’u‚¢‚Ä‚ ‚éB
+     *         // æ¯”è¼ƒã™ã‚‹ãŸã‚ã®æœŸå¾…å€¤ãƒ‡ãƒ¼ã‚¿ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å–å¾—ã™ã‚‹ã€‚
+     *         // ãƒ•ã‚¡ã‚¤ãƒ«ã¯SampleTestã‚¯ãƒ©ã‚¹ã¨åŒã˜ãƒ•ã‚©ãƒ«ãƒ€ã«ç½®ã„ã¦ã‚ã‚‹ã€‚
      *         File expected = UTUtil.getFile(SampleTest.class, &quot;expected.txt&quot;);
      * 
-     *         // ƒtƒ@ƒCƒ‹‚Ì”äŠr‚ğ‚·‚éB
+     *         // ãƒ•ã‚¡ã‚¤ãƒ«ã®æ¯”è¼ƒã‚’ã™ã‚‹ã€‚
      *         UTUtil.assertEqualsFile(expected, actual);
      *          
      *     }
      * }
      * </pre>
-     * @param cls ƒeƒXƒgƒNƒ‰ƒX‚ÌClassƒIƒuƒWƒFƒNƒg
-     * @param filename ƒtƒ@ƒCƒ‹–¼
-     * @return w’è‚³‚ê‚½ƒtƒ@ƒCƒ‹–¼‚ÌFileƒIƒuƒWƒFƒNƒgB ƒtƒ@ƒCƒ‹‚ª‘¶İ‚µ‚È‚¢ê‡‚Ínull‚ğ•Ô‚·B
+     * @param cls ãƒ†ã‚¹ãƒˆã‚¯ãƒ©ã‚¹ã®Classã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param filename ãƒ•ã‚¡ã‚¤ãƒ«å
+     * @return æŒ‡å®šã•ã‚ŒãŸãƒ•ã‚¡ã‚¤ãƒ«åã®Fileã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚ ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã—ãªã„å ´åˆã¯nullã‚’è¿”ã™ã€‚
      */
     @SuppressWarnings("unchecked")
     public static File getFile(Class cls, String filename) {
 
-        // ƒtƒ@ƒCƒ‹–¼‚ªƒkƒ‹A‹ó•¶š—ñ‚Ìê‡‚Íƒkƒ‹‚ğ•Ô‚·B
+        // ãƒ•ã‚¡ã‚¤ãƒ«åãŒãƒŒãƒ«ã€ç©ºæ–‡å­—åˆ—ã®å ´åˆã¯ãƒŒãƒ«ã‚’è¿”ã™ã€‚
         if ((filename == null) || ("".equals(filename))) {
             return null;
         }
 
-        // w’è‚³‚ê‚½ƒtƒ@ƒCƒ‹–¼‚ÌURL‚ğæ“¾‚·‚éB
-        // "file://c:/folder/filename"‚Ì‚æ‚¤‚ÈURL‚ª“¾‚ç‚ê‚éB
+        // æŒ‡å®šã•ã‚ŒãŸãƒ•ã‚¡ã‚¤ãƒ«åã®URLã‚’å–å¾—ã™ã‚‹ã€‚
+        // "file://c:/folder/filename"ã®ã‚ˆã†ãªURLãŒå¾—ã‚‰ã‚Œã‚‹ã€‚
         URL url = cls.getResource(filename);
 
-        // URL‚ªƒkƒ‹‚È‚ç‚Îƒkƒ‹‚ğ•Ô‚·B
+        // URLãŒãƒŒãƒ«ãªã‚‰ã°ãƒŒãƒ«ã‚’è¿”ã™ã€‚
         if (url == null) {
             return null;
         }
 
-        // URL‚©‚çURI‚ğ¶¬‚·‚éB
-        // URISyntaxException‚ª”­¶‚·‚é‚±‚Æ‚Í–Àã‚ ‚è“¾‚È‚¢‚Ì‚ÅAcatchˆÈ‰º‚Ì
-        // ƒR[ƒh‚Íƒkƒ‹‚ğ•Ô‚·‚¾‚¯‚É‚µ‚Ä‚¢‚éB
+        // URLã‹ã‚‰URIã‚’ç”Ÿæˆã™ã‚‹ã€‚
+        // URISyntaxExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã¯äº‹å®Ÿä¸Šã‚ã‚Šå¾—ãªã„ã®ã§ã€catchä»¥ä¸‹ã®
+        // ã‚³ãƒ¼ãƒ‰ã¯ãƒŒãƒ«ã‚’è¿”ã™ã ã‘ã«ã—ã¦ã„ã‚‹ã€‚
         URI uri = null;
         try {
             uri = new URI(url.toString());
@@ -253,44 +253,44 @@ public class UTUtil {
             return null;
         }
 
-        // FileƒIƒuƒWƒFƒNƒg‚ğ¶¬‚µ‚Ä•Ô‚·B
+        // Fileã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ç”Ÿæˆã—ã¦è¿”ã™ã€‚
         return new File(uri);
     }
 
     /**
-     * ƒeƒXƒgƒNƒ‰ƒX‚Æ“¯‚¶ƒtƒHƒ‹ƒ_‚É’u‚¢‚Ä‚ ‚éƒeƒXƒg—pƒtƒ@ƒCƒ‹‚Ì FileƒIƒuƒWƒFƒNƒg‚ğæ“¾‚·‚éB
+     * ãƒ†ã‚¹ãƒˆã‚¯ãƒ©ã‚¹ã¨åŒã˜ãƒ•ã‚©ãƒ«ãƒ€ã«ç½®ã„ã¦ã‚ã‚‹ãƒ†ã‚¹ãƒˆç”¨ãƒ•ã‚¡ã‚¤ãƒ«ã® Fileã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å–å¾—ã™ã‚‹ã€‚
      * 
      * <pre>
-     * [g—p—á]
+     * [ä½¿ç”¨ä¾‹]
      * class SampleTest extends TestCase {
      *     &#064;SuppressWarnings(&quot;unchecked&quot;) public void testDoSomething() throws Excepton {
-     *         // ‚È‚ñ‚ç‚©‚Ìˆ—‚ğÀs‚µŒ‹‰Ê‚Ìƒtƒ@ƒCƒ‹‚ª–ß‚³‚ê‚éB
+     *         // ãªã‚“ã‚‰ã‹ã®å‡¦ç†ã‚’å®Ÿè¡Œã—çµæœã®ãƒ•ã‚¡ã‚¤ãƒ«ãŒæˆ»ã•ã‚Œã‚‹ã€‚
      *         File actual = Sample.doSomething();
      * 
-     *         // ”äŠr‚·‚é‚½‚ß‚ÌŠú‘Ò’lƒf[ƒ^‚Ìƒtƒ@ƒCƒ‹‚ğæ“¾‚·‚éB
-     *         // ƒtƒ@ƒCƒ‹‚ÍSampleTestƒNƒ‰ƒX‚Æ“¯‚¶ƒtƒHƒ‹ƒ_‚É’u‚¢‚Ä‚ ‚éB
+     *         // æ¯”è¼ƒã™ã‚‹ãŸã‚ã®æœŸå¾…å€¤ãƒ‡ãƒ¼ã‚¿ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å–å¾—ã™ã‚‹ã€‚
+     *         // ãƒ•ã‚¡ã‚¤ãƒ«ã¯SampleTestã‚¯ãƒ©ã‚¹ã¨åŒã˜ãƒ•ã‚©ãƒ«ãƒ€ã«ç½®ã„ã¦ã‚ã‚‹ã€‚
      *         File expected = UTUtil.getFile(this, &quot;expected.txt&quot;);
      * 
-     *         // ƒtƒ@ƒCƒ‹‚Ì”äŠr‚ğ‚·‚éB
+     *         // ãƒ•ã‚¡ã‚¤ãƒ«ã®æ¯”è¼ƒã‚’ã™ã‚‹ã€‚
      *         UTUtil.assertEqualsFile(expected, actual);
      *          
      *     }
      * }
      * </pre>
-     * @param instance ƒeƒXƒgƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param filename ƒtƒ@ƒCƒ‹–¼
-     * @return w’è‚³‚ê‚½ƒtƒ@ƒCƒ‹–¼‚ÌFileƒIƒuƒWƒFƒNƒgB ƒtƒ@ƒCƒ‹‚ª‘¶İ‚µ‚È‚¢ê‡‚Ínull‚ğ•Ô‚·B
+     * @param instance ãƒ†ã‚¹ãƒˆã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param filename ãƒ•ã‚¡ã‚¤ãƒ«å
+     * @return æŒ‡å®šã•ã‚ŒãŸãƒ•ã‚¡ã‚¤ãƒ«åã®Fileã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚ ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã—ãªã„å ´åˆã¯nullã‚’è¿”ã™ã€‚
      */
     public static File getFile(Object instance, String filename) {
         return getFile(instance.getClass(), filename);
     }
 
     /**
-     * privateƒƒ\ƒbƒhistatic‚Å‚È‚¢‚à‚Ìj‚ğŒÄ‚Ño‚·B<BR>
-     * ƒpƒ‰ƒ[ƒ^0ŒÂ`2ŒÂ‚Ìƒƒ\ƒbƒh‚É‚Íê—p‚Ìƒƒ\ƒbƒh‚ª—pˆÓ‚³‚ê‚Ä‚¢‚é‚Ì‚ÅA ‚»‚¿‚ç‚ğ—˜—p‚µ‚½•û‚ªƒVƒ“ƒvƒ‹‚É‹Lq‚Å‚«‚éB
+     * privateãƒ¡ã‚½ãƒƒãƒ‰ï¼ˆstaticã§ãªã„ã‚‚ã®ï¼‰ã‚’å‘¼ã³å‡ºã™ã€‚<BR>
+     * ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿0å€‹ï½2å€‹ã®ãƒ¡ã‚½ãƒƒãƒ‰ã«ã¯å°‚ç”¨ã®ãƒ¡ã‚½ãƒƒãƒ‰ãŒç”¨æ„ã•ã‚Œã¦ã„ã‚‹ã®ã§ã€ ãã¡ã‚‰ã‚’åˆ©ç”¨ã—ãŸæ–¹ãŒã‚·ãƒ³ãƒ—ãƒ«ã«è¨˜è¿°ã§ãã‚‹ã€‚
      * 
      * <pre>
-     * [g—p—á]
+     * [ä½¿ç”¨ä¾‹]
      * class Sample {
      *     private int calcAdd(int val1, int val2, int val3) {
      *         return val1 + val2 + val3;
@@ -311,11 +311,11 @@ public class UTUtil {
      *     }
      * }
      * </pre>
-     * @param target ŒÄ‚Ño‚·‘ÎÛ‚ÌƒIƒuƒWƒFƒNƒg
-     * @param methodName ŒÄ‚Ño‚µ‚½‚¢ƒƒ\ƒbƒh‚Ì–¼‘O
-     * @param argTypes ˆø”‚ÌŒ^‚Ì”z—ñ
-     * @param args ˆø”‚Ì’l‚Ì”z—ñB int,boolean“™‚ÌŠî–{ƒf[ƒ^Œ^‚ÍAInteger, Boolean“™‚Ìƒ‰ƒbƒp[ƒNƒ‰ƒX‚É Ši”[‚µ‚Ä’l‚ğ“n‚·•K—v‚ ‚èB
-     * @return ƒƒ\ƒbƒh‚Ì–ß‚è’lBŒÄ‚Ño‚µ‘¤‚Åƒ_ƒEƒ“ƒLƒƒƒXƒg‚ª•K—vB int, boolean“™‚ÌŠî–{ƒf[ƒ^Œ^‚ÍAInteger, Boolean“™‚Ì ƒ‰ƒbƒp[ƒNƒ‰ƒX‚ÉŠi”[‚³‚ê‚Ä’l‚ª–ß‚³‚ê‚éB
+     * @param target å‘¼ã³å‡ºã™å¯¾è±¡ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param methodName å‘¼ã³å‡ºã—ãŸã„ãƒ¡ã‚½ãƒƒãƒ‰ã®åå‰
+     * @param argTypes å¼•æ•°ã®å‹ã®é…åˆ—
+     * @param args å¼•æ•°ã®å€¤ã®é…åˆ—ã€‚ int,booleanç­‰ã®åŸºæœ¬ãƒ‡ãƒ¼ã‚¿å‹ã¯ã€Integer, Booleanç­‰ã®ãƒ©ãƒƒãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã« æ ¼ç´ã—ã¦å€¤ã‚’æ¸¡ã™å¿…è¦ã‚ã‚Šã€‚
+     * @return ãƒ¡ã‚½ãƒƒãƒ‰ã®æˆ»ã‚Šå€¤ã€‚å‘¼ã³å‡ºã—å´ã§ãƒ€ã‚¦ãƒ³ã‚­ãƒ£ã‚¹ãƒˆãŒå¿…è¦ã€‚ int, booleanç­‰ã®åŸºæœ¬ãƒ‡ãƒ¼ã‚¿å‹ã¯ã€Integer, Booleanç­‰ã® ãƒ©ãƒƒãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã«æ ¼ç´ã•ã‚Œã¦å€¤ãŒæˆ»ã•ã‚Œã‚‹ã€‚
      * @throws Exception
      */
     @SuppressWarnings("unchecked")
@@ -327,10 +327,10 @@ public class UTUtil {
     }
 
     /**
-     * privateƒƒ\ƒbƒhistatic‚Å‚È‚¢‚à‚Ìj‚ğŒÄ‚Ño‚·iƒpƒ‰ƒ[ƒ^0ŒÂ—pjB
+     * privateãƒ¡ã‚½ãƒƒãƒ‰ï¼ˆstaticã§ãªã„ã‚‚ã®ï¼‰ã‚’å‘¼ã³å‡ºã™ï¼ˆãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿0å€‹ç”¨ï¼‰ã€‚
      * 
      * <pre>
-     * [g—p—á]
+     * [ä½¿ç”¨ä¾‹]
      * class Sample {
      *     private int getString() {
      *         return &quot;success&quot;;
@@ -346,9 +346,9 @@ public class UTUtil {
      *     }
      * }
      * </pre>
-     * @param target ŒÄ‚Ño‚·‘ÎÛ‚ÌƒIƒuƒWƒFƒNƒg
-     * @param methodName ŒÄ‚Ño‚µ‚½‚¢ƒƒ\ƒbƒh‚Ì–¼‘O
-     * @return ƒƒ\ƒbƒh‚Ì–ß‚è’lBŒÄ‚Ño‚µ‘¤‚Åƒ_ƒEƒ“ƒLƒƒƒXƒg‚ª•K—vB int, boolean“™‚ÌŠî–{ƒf[ƒ^Œ^‚ÍAInteger, Boolean“™‚Ì ƒ‰ƒbƒp[ƒNƒ‰ƒX‚ÉŠi”[‚³‚ê‚Ä’l‚ª–ß‚³‚ê‚éB
+     * @param target å‘¼ã³å‡ºã™å¯¾è±¡ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param methodName å‘¼ã³å‡ºã—ãŸã„ãƒ¡ã‚½ãƒƒãƒ‰ã®åå‰
+     * @return ãƒ¡ã‚½ãƒƒãƒ‰ã®æˆ»ã‚Šå€¤ã€‚å‘¼ã³å‡ºã—å´ã§ãƒ€ã‚¦ãƒ³ã‚­ãƒ£ã‚¹ãƒˆãŒå¿…è¦ã€‚ int, booleanç­‰ã®åŸºæœ¬ãƒ‡ãƒ¼ã‚¿å‹ã¯ã€Integer, Booleanç­‰ã® ãƒ©ãƒƒãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã«æ ¼ç´ã•ã‚Œã¦å€¤ãŒæˆ»ã•ã‚Œã‚‹ã€‚
      * @throws Exception
      */
     public static Object invokePrivate(Object target, String methodName)
@@ -359,10 +359,10 @@ public class UTUtil {
     }
 
     /**
-     * privateƒƒ\ƒbƒhistatic‚Å‚È‚¢‚à‚Ìj‚ğŒÄ‚Ño‚·iƒpƒ‰ƒ[ƒ^1ŒÂ—pjB
+     * privateãƒ¡ã‚½ãƒƒãƒ‰ï¼ˆstaticã§ãªã„ã‚‚ã®ï¼‰ã‚’å‘¼ã³å‡ºã™ï¼ˆãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿1å€‹ç”¨ï¼‰ã€‚
      * 
      * <pre>
-     * [g—p—á]
+     * [ä½¿ç”¨ä¾‹]
      * class Sample {
      *     private long square(long val) {
      *         return val &circ; 2;
@@ -378,11 +378,11 @@ public class UTUtil {
      *     }
      * }
      * </pre>
-     * @param target ŒÄ‚Ño‚·‘ÎÛ‚ÌƒIƒuƒWƒFƒNƒg
-     * @param methodName ŒÄ‚Ño‚µ‚½‚¢ƒƒ\ƒbƒh‚Ì–¼‘O
-     * @param argType ˆø”‚ÌŒ^
-     * @param arg ˆø”‚Ì’lB int,boolean“™‚ÌŠî–{ƒf[ƒ^Œ^‚ÍAInteger, Boolean“™‚Ìƒ‰ƒbƒp[ƒNƒ‰ƒX‚É Ši”[‚µ‚Ä’l‚ğ“n‚·•K—v‚ ‚èB
-     * @return ƒƒ\ƒbƒh‚Ì–ß‚è’lBŒÄ‚Ño‚µ‘¤‚Åƒ_ƒEƒ“ƒLƒƒƒXƒg‚ª•K—vB int, boolean“™‚ÌŠî–{ƒf[ƒ^Œ^‚ÍAInteger, Boolean“™‚Ì ƒ‰ƒbƒp[ƒNƒ‰ƒX‚ÉŠi”[‚³‚ê‚Ä’l‚ª–ß‚³‚ê‚éB
+     * @param target å‘¼ã³å‡ºã™å¯¾è±¡ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param methodName å‘¼ã³å‡ºã—ãŸã„ãƒ¡ã‚½ãƒƒãƒ‰ã®åå‰
+     * @param argType å¼•æ•°ã®å‹
+     * @param arg å¼•æ•°ã®å€¤ã€‚ int,booleanç­‰ã®åŸºæœ¬ãƒ‡ãƒ¼ã‚¿å‹ã¯ã€Integer, Booleanç­‰ã®ãƒ©ãƒƒãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã« æ ¼ç´ã—ã¦å€¤ã‚’æ¸¡ã™å¿…è¦ã‚ã‚Šã€‚
+     * @return ãƒ¡ã‚½ãƒƒãƒ‰ã®æˆ»ã‚Šå€¤ã€‚å‘¼ã³å‡ºã—å´ã§ãƒ€ã‚¦ãƒ³ã‚­ãƒ£ã‚¹ãƒˆãŒå¿…è¦ã€‚ int, booleanç­‰ã®åŸºæœ¬ãƒ‡ãƒ¼ã‚¿å‹ã¯ã€Integer, Booleanç­‰ã® ãƒ©ãƒƒãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã«æ ¼ç´ã•ã‚Œã¦å€¤ãŒæˆ»ã•ã‚Œã‚‹ã€‚
      * @throws Exception
      */
     @SuppressWarnings("unchecked")
@@ -394,10 +394,10 @@ public class UTUtil {
     }
 
     /**
-     * privateƒƒ\ƒbƒhistatic‚Å‚È‚¢‚à‚Ìj‚ğŒÄ‚Ño‚·iƒpƒ‰ƒ[ƒ^2ŒÂ—pjB
+     * privateãƒ¡ã‚½ãƒƒãƒ‰ï¼ˆstaticã§ãªã„ã‚‚ã®ï¼‰ã‚’å‘¼ã³å‡ºã™ï¼ˆãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿2å€‹ç”¨ï¼‰ã€‚
      * 
      * <pre>
-     * [g—p—á]
+     * [ä½¿ç”¨ä¾‹]
      * class Sample {
      *     private static int calcAdd(int val1, int val2) {
      *         return val1 + val2;
@@ -419,13 +419,13 @@ public class UTUtil {
      *     }
      * }
      * </pre>
-     * @param target ŒÄ‚Ño‚·‘ÎÛ‚ÌƒIƒuƒWƒFƒNƒg
-     * @param methodName ŒÄ‚Ño‚µ‚½‚¢ƒƒ\ƒbƒh‚Ì–¼‘O
-     * @param argType1 ‘æˆêˆø”‚ÌŒ^
-     * @param argType2 ‘æ“ñˆø”‚ÌŒ^
-     * @param arg1 ‘æˆêˆø”‚Ì’lB int,boolean“™‚ÌŠî–{ƒf[ƒ^Œ^‚ÍAInteger, Boolean“™‚Ìƒ‰ƒbƒp[ƒNƒ‰ƒX‚É Ši”[‚µ‚Ä’l‚ğ“n‚·•K—v‚ ‚èB
-     * @param arg2 ‘æ“ñˆø”‚Ì’lB
-     * @return ƒƒ\ƒbƒh‚Ì–ß‚è’lBŒÄ‚Ño‚µ‘¤‚Åƒ_ƒEƒ“ƒLƒƒƒXƒg‚ª•K—vB int, boolean“™‚ÌŠî–{ƒf[ƒ^Œ^‚ÍAInteger, Boolean“™‚Ì ƒ‰ƒbƒp[ƒNƒ‰ƒX‚ÉŠi”[‚³‚ê‚Ä’l‚ª–ß‚³‚ê‚éB
+     * @param target å‘¼ã³å‡ºã™å¯¾è±¡ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param methodName å‘¼ã³å‡ºã—ãŸã„ãƒ¡ã‚½ãƒƒãƒ‰ã®åå‰
+     * @param argType1 ç¬¬ä¸€å¼•æ•°ã®å‹
+     * @param argType2 ç¬¬äºŒå¼•æ•°ã®å‹
+     * @param arg1 ç¬¬ä¸€å¼•æ•°ã®å€¤ã€‚ int,booleanç­‰ã®åŸºæœ¬ãƒ‡ãƒ¼ã‚¿å‹ã¯ã€Integer, Booleanç­‰ã®ãƒ©ãƒƒãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã« æ ¼ç´ã—ã¦å€¤ã‚’æ¸¡ã™å¿…è¦ã‚ã‚Šã€‚
+     * @param arg2 ç¬¬äºŒå¼•æ•°ã®å€¤ã€‚
+     * @return ãƒ¡ã‚½ãƒƒãƒ‰ã®æˆ»ã‚Šå€¤ã€‚å‘¼ã³å‡ºã—å´ã§ãƒ€ã‚¦ãƒ³ã‚­ãƒ£ã‚¹ãƒˆãŒå¿…è¦ã€‚ int, booleanç­‰ã®åŸºæœ¬ãƒ‡ãƒ¼ã‚¿å‹ã¯ã€Integer, Booleanç­‰ã® ãƒ©ãƒƒãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã«æ ¼ç´ã•ã‚Œã¦å€¤ãŒæˆ»ã•ã‚Œã‚‹ã€‚
      * @throws Exception
      */
     @SuppressWarnings("unchecked")
@@ -438,12 +438,12 @@ public class UTUtil {
     }
 
     /**
-     * static‚Èprivateƒƒ\ƒbƒh‚ğŒÄ‚Ño‚·B <BR>
+     * staticãªprivateãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã™ã€‚ <BR>
      * <BR>
-     * ƒpƒ‰ƒ[ƒ^0ŒÂ`2ŒÂ‚Ìƒƒ\ƒbƒh‚É‚Íê—p‚Ìƒƒ\ƒbƒh‚ª—pˆÓ‚³‚ê‚Ä‚¢‚é‚Ì‚ÅA ‚»‚¿‚ç‚ğ—˜—p‚µ‚½•û‚ªƒVƒ“ƒvƒ‹‚É‹Lq‚Å‚«‚éB
+     * ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿0å€‹ï½2å€‹ã®ãƒ¡ã‚½ãƒƒãƒ‰ã«ã¯å°‚ç”¨ã®ãƒ¡ã‚½ãƒƒãƒ‰ãŒç”¨æ„ã•ã‚Œã¦ã„ã‚‹ã®ã§ã€ ãã¡ã‚‰ã‚’åˆ©ç”¨ã—ãŸæ–¹ãŒã‚·ãƒ³ãƒ—ãƒ«ã«è¨˜è¿°ã§ãã‚‹ã€‚
      * 
      * <pre>
-     * [g—p—á]
+     * [ä½¿ç”¨ä¾‹]
      * class Sample {
      *     private static int calcAdd(int val1, int val2, int val3) {
      *         return val1 + val2 + val3;
@@ -463,11 +463,11 @@ public class UTUtil {
      *     }
      * }
      * </pre>
-     * @param target ŒÄ‚Ño‚·‘ÎÛ‚ÌƒNƒ‰ƒX
-     * @param methodName ŒÄ‚Ño‚µ‚½‚¢ƒƒ\ƒbƒh‚Ì–¼‘O
-     * @param argTypes ˆø”‚ÌŒ^‚Ì”z—ñ
-     * @param args ˆø”‚Ì’l‚Ì”z—ñB int,boolean“™‚ÌŠî–{ƒf[ƒ^Œ^‚ÍAInteger, Boolean“™‚Ìƒ‰ƒbƒp[ƒNƒ‰ƒX‚É Ši”[‚µ‚Ä’l‚ğ“n‚·•K—v‚ ‚èB
-     * @return ƒƒ\ƒbƒh‚Ì–ß‚è’lBŒÄ‚Ño‚µ‘¤‚Åƒ_ƒEƒ“ƒLƒƒƒXƒg‚ª•K—vB int, boolean“™‚ÌŠî–{ƒf[ƒ^Œ^‚ÍAInteger, Boolean“™‚Ì ƒ‰ƒbƒp[ƒNƒ‰ƒX‚ÉŠi”[‚³‚ê‚Ä’l‚ª–ß‚³‚ê‚éB
+     * @param target å‘¼ã³å‡ºã™å¯¾è±¡ã®ã‚¯ãƒ©ã‚¹
+     * @param methodName å‘¼ã³å‡ºã—ãŸã„ãƒ¡ã‚½ãƒƒãƒ‰ã®åå‰
+     * @param argTypes å¼•æ•°ã®å‹ã®é…åˆ—
+     * @param args å¼•æ•°ã®å€¤ã®é…åˆ—ã€‚ int,booleanç­‰ã®åŸºæœ¬ãƒ‡ãƒ¼ã‚¿å‹ã¯ã€Integer, Booleanç­‰ã®ãƒ©ãƒƒãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã« æ ¼ç´ã—ã¦å€¤ã‚’æ¸¡ã™å¿…è¦ã‚ã‚Šã€‚
+     * @return ãƒ¡ã‚½ãƒƒãƒ‰ã®æˆ»ã‚Šå€¤ã€‚å‘¼ã³å‡ºã—å´ã§ãƒ€ã‚¦ãƒ³ã‚­ãƒ£ã‚¹ãƒˆãŒå¿…è¦ã€‚ int, booleanç­‰ã®åŸºæœ¬ãƒ‡ãƒ¼ã‚¿å‹ã¯ã€Integer, Booleanç­‰ã® ãƒ©ãƒƒãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã«æ ¼ç´ã•ã‚Œã¦å€¤ãŒæˆ»ã•ã‚Œã‚‹ã€‚
      * @throws Exception
      */
     @SuppressWarnings("unchecked")
@@ -479,10 +479,10 @@ public class UTUtil {
     }
 
     /**
-     * static‚Èprivateƒƒ\ƒbƒh‚ğŒÄ‚Ño‚·iƒpƒ‰ƒ[ƒ^0ŒÂ—pjB
+     * staticãªprivateãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã™ï¼ˆãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿0å€‹ç”¨ï¼‰ã€‚
      * 
      * <pre>
-     * [g—p—á]
+     * [ä½¿ç”¨ä¾‹]
      * class Sample {
      *     private static int getString() {
      *         return &quot;success&quot;;
@@ -497,9 +497,9 @@ public class UTUtil {
      *     }
      * }
      * </pre>
-     * @param target ŒÄ‚Ño‚·‘ÎÛ‚ÌƒNƒ‰ƒX
-     * @param methodName ŒÄ‚Ño‚µ‚½‚¢ƒƒ\ƒbƒh‚Ì–¼‘O
-     * @return ƒƒ\ƒbƒh‚Ì–ß‚è’lBŒÄ‚Ño‚µ‘¤‚Åƒ_ƒEƒ“ƒLƒƒƒXƒg‚ª•K—vB int, boolean“™‚ÌŠî–{ƒf[ƒ^Œ^‚ÍAInteger, Boolean“™‚Ì ƒ‰ƒbƒp[ƒNƒ‰ƒX‚ÉŠi”[‚³‚ê‚Ä’l‚ª–ß‚³‚ê‚éB
+     * @param target å‘¼ã³å‡ºã™å¯¾è±¡ã®ã‚¯ãƒ©ã‚¹
+     * @param methodName å‘¼ã³å‡ºã—ãŸã„ãƒ¡ã‚½ãƒƒãƒ‰ã®åå‰
+     * @return ãƒ¡ã‚½ãƒƒãƒ‰ã®æˆ»ã‚Šå€¤ã€‚å‘¼ã³å‡ºã—å´ã§ãƒ€ã‚¦ãƒ³ã‚­ãƒ£ã‚¹ãƒˆãŒå¿…è¦ã€‚ int, booleanç­‰ã®åŸºæœ¬ãƒ‡ãƒ¼ã‚¿å‹ã¯ã€Integer, Booleanç­‰ã® ãƒ©ãƒƒãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã«æ ¼ç´ã•ã‚Œã¦å€¤ãŒæˆ»ã•ã‚Œã‚‹ã€‚
      * @throws Exception
      */
     @SuppressWarnings("unchecked")
@@ -511,10 +511,10 @@ public class UTUtil {
     }
 
     /**
-     * static‚Èprivateƒƒ\ƒbƒh‚ğŒÄ‚Ño‚·iƒpƒ‰ƒ[ƒ^1ŒÂ—pjB
+     * staticãªprivateãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã™ï¼ˆãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿1å€‹ç”¨ï¼‰ã€‚
      * 
      * <pre>
-     * [g—p—á]
+     * [ä½¿ç”¨ä¾‹]
      * class Sample {
      *     private static long square(long val) {
      *         return val &circ; 2;
@@ -529,11 +529,11 @@ public class UTUtil {
      *     }
      * }
      * </pre>
-     * @param target ŒÄ‚Ño‚·‘ÎÛ‚ÌƒNƒ‰ƒX
-     * @param methodName ŒÄ‚Ño‚µ‚½‚¢ƒƒ\ƒbƒh‚Ì–¼‘O
-     * @param argType ˆø”‚ÌŒ^
-     * @param arg ˆø”‚Ì’lB int,boolean“™‚ÌŠî–{ƒf[ƒ^Œ^‚ÍAInteger, Boolean“™‚Ìƒ‰ƒbƒp[ƒNƒ‰ƒX‚É Ši”[‚µ‚Ä’l‚ğ“n‚·•K—v‚ ‚èB
-     * @return ƒƒ\ƒbƒh‚Ì–ß‚è’lBŒÄ‚Ño‚µ‘¤‚Åƒ_ƒEƒ“ƒLƒƒƒXƒg‚ª•K—vB int, boolean“™‚ÌŠî–{ƒf[ƒ^Œ^‚ÍAInteger, Boolean“™‚Ì ƒ‰ƒbƒp[ƒNƒ‰ƒX‚ÉŠi”[‚³‚ê‚Ä’l‚ª–ß‚³‚ê‚éB
+     * @param target å‘¼ã³å‡ºã™å¯¾è±¡ã®ã‚¯ãƒ©ã‚¹
+     * @param methodName å‘¼ã³å‡ºã—ãŸã„ãƒ¡ã‚½ãƒƒãƒ‰ã®åå‰
+     * @param argType å¼•æ•°ã®å‹
+     * @param arg å¼•æ•°ã®å€¤ã€‚ int,booleanç­‰ã®åŸºæœ¬ãƒ‡ãƒ¼ã‚¿å‹ã¯ã€Integer, Booleanç­‰ã®ãƒ©ãƒƒãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã« æ ¼ç´ã—ã¦å€¤ã‚’æ¸¡ã™å¿…è¦ã‚ã‚Šã€‚
+     * @return ãƒ¡ã‚½ãƒƒãƒ‰ã®æˆ»ã‚Šå€¤ã€‚å‘¼ã³å‡ºã—å´ã§ãƒ€ã‚¦ãƒ³ã‚­ãƒ£ã‚¹ãƒˆãŒå¿…è¦ã€‚ int, booleanç­‰ã®åŸºæœ¬ãƒ‡ãƒ¼ã‚¿å‹ã¯ã€Integer, Booleanç­‰ã® ãƒ©ãƒƒãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã«æ ¼ç´ã•ã‚Œã¦å€¤ãŒæˆ»ã•ã‚Œã‚‹ã€‚
      * @throws Exception
      */
     @SuppressWarnings("unchecked")
@@ -545,10 +545,10 @@ public class UTUtil {
     }
 
     /**
-     * static‚Èprivateƒƒ\ƒbƒh‚ğŒÄ‚Ño‚·iƒpƒ‰ƒ[ƒ^2ŒÂ—pjB
+     * staticãªprivateãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã™ï¼ˆãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿2å€‹ç”¨ï¼‰ã€‚
      * 
      * <pre>
-     * [g—p—á]
+     * [ä½¿ç”¨ä¾‹]
      * class Sample {
      *     private static int calcAdd(int val1, int val2) {
      *         return val1 + val2;
@@ -569,13 +569,13 @@ public class UTUtil {
      *     }
      * }
      * </pre>
-     * @param target ŒÄ‚Ño‚·‘ÎÛ‚ÌƒNƒ‰ƒX
-     * @param methodName ŒÄ‚Ño‚µ‚½‚¢ƒƒ\ƒbƒh‚Ì–¼‘O
-     * @param argType1 ‘æˆêˆø”‚ÌŒ^
-     * @param argType2 ‘æ“ñˆø”‚ÌŒ^
-     * @param arg1 ‘æˆêˆø”‚Ì’lB int,boolean“™‚ÌŠî–{ƒf[ƒ^Œ^‚ÍAInteger, Boolean“™‚Ìƒ‰ƒbƒp[ƒNƒ‰ƒX‚É Ši”[‚µ‚Ä’l‚ğ“n‚·•K—v‚ ‚èB
-     * @param arg2 ‘æ“ñˆø”‚Ì’lB
-     * @return ƒƒ\ƒbƒh‚Ì–ß‚è’lBŒÄ‚Ño‚µ‘¤‚Åƒ_ƒEƒ“ƒLƒƒƒXƒg‚ª•K—vB int, boolean“™‚ÌŠî–{ƒf[ƒ^Œ^‚ÍAInteger, Boolean“™‚Ì ƒ‰ƒbƒp[ƒNƒ‰ƒX‚ÉŠi”[‚³‚ê‚Ä’l‚ª–ß‚³‚ê‚éB
+     * @param target å‘¼ã³å‡ºã™å¯¾è±¡ã®ã‚¯ãƒ©ã‚¹
+     * @param methodName å‘¼ã³å‡ºã—ãŸã„ãƒ¡ã‚½ãƒƒãƒ‰ã®åå‰
+     * @param argType1 ç¬¬ä¸€å¼•æ•°ã®å‹
+     * @param argType2 ç¬¬äºŒå¼•æ•°ã®å‹
+     * @param arg1 ç¬¬ä¸€å¼•æ•°ã®å€¤ã€‚ int,booleanç­‰ã®åŸºæœ¬ãƒ‡ãƒ¼ã‚¿å‹ã¯ã€Integer, Booleanç­‰ã®ãƒ©ãƒƒãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã« æ ¼ç´ã—ã¦å€¤ã‚’æ¸¡ã™å¿…è¦ã‚ã‚Šã€‚
+     * @param arg2 ç¬¬äºŒå¼•æ•°ã®å€¤ã€‚
+     * @return ãƒ¡ã‚½ãƒƒãƒ‰ã®æˆ»ã‚Šå€¤ã€‚å‘¼ã³å‡ºã—å´ã§ãƒ€ã‚¦ãƒ³ã‚­ãƒ£ã‚¹ãƒˆãŒå¿…è¦ã€‚ int, booleanç­‰ã®åŸºæœ¬ãƒ‡ãƒ¼ã‚¿å‹ã¯ã€Integer, Booleanç­‰ã® ãƒ©ãƒƒãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã«æ ¼ç´ã•ã‚Œã¦å€¤ãŒæˆ»ã•ã‚Œã‚‹ã€‚
      * @throws Exception
      */
     @SuppressWarnings("unchecked")
@@ -588,17 +588,17 @@ public class UTUtil {
     }
 
     /**
-     * w’è‚µ‚½ƒIƒuƒWƒFƒNƒg‚ÌprivateƒtƒB[ƒ‹ƒh‚Ì’l‚ğ•Ô‚·B
-     * @param target ‘ÎÛ‚ÌƒIƒuƒWƒFƒNƒg
-     * @param fieldName ’l‚ğæ“¾‚·‚éprivateƒtƒB[ƒ‹ƒh‚Ì–¼‘O
-     * @return privateƒtƒB[ƒ‹ƒh‚Ì’l
+     * æŒ‡å®šã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®privateãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®å€¤ã‚’è¿”ã™ã€‚
+     * @param target å¯¾è±¡ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param fieldName å€¤ã‚’å–å¾—ã™ã‚‹privateãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®åå‰
+     * @return privateãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®å€¤
      * @exception NoSuchFieldException
      */
     @SuppressWarnings("unchecked")
     public static Object getField(Object target, String fieldName)
                                                                   throws NoSuchFieldException {
 
-        // ƒpƒ‰ƒ[ƒ^’l‚Ìƒ`ƒFƒbƒN
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å€¤ã®ãƒã‚§ãƒƒã‚¯
         if (target == null) {
             throw new IllegalArgumentException();
         }
@@ -606,35 +606,35 @@ public class UTUtil {
             throw new IllegalArgumentException();
         }
 
-        // privateƒtƒB[ƒ‹ƒhæ“¾ˆ—B
-        // ƒX[ƒp[ƒNƒ‰ƒX‘S‚Ä‚É‚Â‚¢‚ÄŒÄ‚Ño‚µ‚ğƒgƒ‰ƒC‚·‚éB
+        // privateãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å–å¾—å‡¦ç†ã€‚
+        // ã‚¹ãƒ¼ãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹å…¨ã¦ã«ã¤ã„ã¦å‘¼ã³å‡ºã—ã‚’ãƒˆãƒ©ã‚¤ã™ã‚‹ã€‚
         for (Class c = target.getClass(); c != null; c = c.getSuperclass()) {
             try {
                 Field field = c.getDeclaredField(fieldName);
                 field.setAccessible(true);
                 return field.get(target);
             } catch (Exception e) {
-                // æ“¾‚µ‚æ‚¤‚Æ‚µ‚½ƒtƒB[ƒ‹ƒh‚ª‘¶İ‚µ‚È‚©‚Á‚½ê‡A‰½‚à‚µ‚È‚¢B
-                // (eƒNƒ‰ƒX‚Å“¯‚¶ƒgƒ‰ƒC‚ğŒJ‚è•Ô‚·)
+                // å–å¾—ã—ã‚ˆã†ã¨ã—ãŸãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ãŒå­˜åœ¨ã—ãªã‹ã£ãŸå ´åˆã€ä½•ã‚‚ã—ãªã„ã€‚
+                // (è¦ªã‚¯ãƒ©ã‚¹ã§åŒã˜ãƒˆãƒ©ã‚¤ã‚’ç¹°ã‚Šè¿”ã™)
             }
         }
-        // æ“¾‚µ‚æ‚¤‚Æ‚µ‚½ƒtƒB[ƒ‹ƒh‚ª‘¶İ‚µ‚È‚©‚Á‚½ê‡
+        // å–å¾—ã—ã‚ˆã†ã¨ã—ãŸãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ãŒå­˜åœ¨ã—ãªã‹ã£ãŸå ´åˆ
         throw new NoSuchFieldException("Could get value for field "
                 + target.getClass().getName() + "." + fieldName);
     }
 
     /**
-     * w’è‚µ‚½ƒNƒ‰ƒX‚Ìstatic‚ÈprivateƒtƒB[ƒ‹ƒh‚Ì’l‚ğ•Ô‚·B
-     * @param target ‘ÎÛ‚ÌƒNƒ‰ƒX
-     * @param fieldName ’l‚ğæ“¾‚·‚éprivateƒtƒB[ƒ‹ƒh‚Ì–¼‘O
-     * @return privateƒtƒB[ƒ‹ƒh‚Ì’l
+     * æŒ‡å®šã—ãŸã‚¯ãƒ©ã‚¹ã®staticãªprivateãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®å€¤ã‚’è¿”ã™ã€‚
+     * @param target å¯¾è±¡ã®ã‚¯ãƒ©ã‚¹
+     * @param fieldName å€¤ã‚’å–å¾—ã™ã‚‹privateãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®åå‰
+     * @return privateãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®å€¤
      * @exception NoSuchFieldException
      */
     @SuppressWarnings("unchecked")
     public static Object getField(Class target, String fieldName)
                                                                  throws NoSuchFieldException {
 
-        // ƒpƒ‰ƒ[ƒ^’l‚Ìƒ`ƒFƒbƒN
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å€¤ã®ãƒã‚§ãƒƒã‚¯
         if (target == null) {
             throw new IllegalArgumentException();
         }
@@ -642,8 +642,8 @@ public class UTUtil {
             throw new IllegalArgumentException();
         }
 
-        // privateƒtƒB[ƒ‹ƒhæ“¾ˆ—B
-        // ƒX[ƒp[ƒNƒ‰ƒX‘S‚Ä‚É‚Â‚¢‚ÄŒÄ‚Ño‚µ‚ğƒgƒ‰ƒC‚·‚éB
+        // privateãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å–å¾—å‡¦ç†ã€‚
+        // ã‚¹ãƒ¼ãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹å…¨ã¦ã«ã¤ã„ã¦å‘¼ã³å‡ºã—ã‚’ãƒˆãƒ©ã‚¤ã™ã‚‹ã€‚
         Class c = target;
         while (c != null) {
             try {
@@ -651,28 +651,28 @@ public class UTUtil {
                 field.setAccessible(true);
                 return field.get(c);
             } catch (Exception e) {
-                // æ“¾‚µ‚æ‚¤‚Æ‚µ‚½ƒtƒB[ƒ‹ƒh‚ª‘¶İ‚µ‚È‚©‚Á‚½ê‡A‰½‚à‚µ‚È‚¢B
-                // (eƒNƒ‰ƒX‚Å“¯‚¶ƒgƒ‰ƒC‚ğŒJ‚è•Ô‚·)
+                // å–å¾—ã—ã‚ˆã†ã¨ã—ãŸãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ãŒå­˜åœ¨ã—ãªã‹ã£ãŸå ´åˆã€ä½•ã‚‚ã—ãªã„ã€‚
+                // (è¦ªã‚¯ãƒ©ã‚¹ã§åŒã˜ãƒˆãƒ©ã‚¤ã‚’ç¹°ã‚Šè¿”ã™)
             }
             c = c.getSuperclass();
         }
-        // æ“¾‚µ‚æ‚¤‚Æ‚µ‚½ƒtƒB[ƒ‹ƒh‚ª‘¶İ‚µ‚È‚©‚Á‚½ê‡
+        // å–å¾—ã—ã‚ˆã†ã¨ã—ãŸãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ãŒå­˜åœ¨ã—ãªã‹ã£ãŸå ´åˆ
         throw new NoSuchFieldException("Could get value for field "
                 + target.getName() + "." + fieldName);
     }
 
     /**
-     * w’è‚µ‚½ƒIƒuƒWƒFƒNƒg‚ÌprivateƒtƒB[ƒ‹ƒh‚É’l‚ğİ’è‚·‚éB
-     * @param target ‘ÎÛ‚ÌƒIƒuƒWƒFƒNƒg
-     * @param fieldName ’l‚ğİ’è‚·‚éprivateƒtƒB[ƒ‹ƒh‚Ì–¼‘O
-     * @param value İ’è‚·‚é’lB int,boolean“™‚ÌŠî–{ƒf[ƒ^Œ^‚ÍAInteger, Boolean“™‚Ìƒ‰ƒbƒp[ƒNƒ‰ƒX‚É Ši”[‚µ‚Ä’l‚ğ“n‚·•K—v‚ ‚èB
+     * æŒ‡å®šã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®privateãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«å€¤ã‚’è¨­å®šã™ã‚‹ã€‚
+     * @param target å¯¾è±¡ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param fieldName å€¤ã‚’è¨­å®šã™ã‚‹privateãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®åå‰
+     * @param value è¨­å®šã™ã‚‹å€¤ã€‚ int,booleanç­‰ã®åŸºæœ¬ãƒ‡ãƒ¼ã‚¿å‹ã¯ã€Integer, Booleanç­‰ã®ãƒ©ãƒƒãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã« æ ¼ç´ã—ã¦å€¤ã‚’æ¸¡ã™å¿…è¦ã‚ã‚Šã€‚
      * @exception NoSuchFieldException
      */
     @SuppressWarnings("unchecked")
     public static void setField(Object target, String fieldName, Object value)
                                                                               throws NoSuchFieldException {
 
-        // ƒpƒ‰ƒ[ƒ^’l‚Ìƒ`ƒFƒbƒN
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å€¤ã®ãƒã‚§ãƒƒã‚¯
         if (target == null) {
             throw new IllegalArgumentException();
         }
@@ -680,8 +680,8 @@ public class UTUtil {
             throw new IllegalArgumentException();
         }
 
-        // privateƒtƒB[ƒ‹ƒhİ’èˆ—B
-        // ƒX[ƒp[ƒNƒ‰ƒX‘S‚Ä‚É‚Â‚¢‚ÄŒÄ‚Ño‚µ‚ğƒgƒ‰ƒC‚·‚éB
+        // privateãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰è¨­å®šå‡¦ç†ã€‚
+        // ã‚¹ãƒ¼ãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹å…¨ã¦ã«ã¤ã„ã¦å‘¼ã³å‡ºã—ã‚’ãƒˆãƒ©ã‚¤ã™ã‚‹ã€‚
         for (Class c = target.getClass(); c != null; c = c.getSuperclass()) {
             try {
                 Field field = c.getDeclaredField(fieldName);
@@ -689,27 +689,27 @@ public class UTUtil {
                 field.set(target, value);
                 return;
             } catch (Exception e) {
-                // İ’è‚µ‚æ‚¤‚Æ‚µ‚½ƒtƒB[ƒ‹ƒh‚ª‘¶İ‚µ‚È‚©‚Á‚½ê‡A‰½‚à‚µ‚È‚¢B
-                // (eƒNƒ‰ƒX‚Å“¯‚¶ƒgƒ‰ƒC‚ğŒJ‚è•Ô‚·)
+                // è¨­å®šã—ã‚ˆã†ã¨ã—ãŸãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ãŒå­˜åœ¨ã—ãªã‹ã£ãŸå ´åˆã€ä½•ã‚‚ã—ãªã„ã€‚
+                // (è¦ªã‚¯ãƒ©ã‚¹ã§åŒã˜ãƒˆãƒ©ã‚¤ã‚’ç¹°ã‚Šè¿”ã™)
             }
         }
-        // İ’è‚µ‚æ‚¤‚Æ‚µ‚½ƒtƒB[ƒ‹ƒh‚ª‘¶İ‚µ‚È‚©‚Á‚½ê‡
+        // è¨­å®šã—ã‚ˆã†ã¨ã—ãŸãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ãŒå­˜åœ¨ã—ãªã‹ã£ãŸå ´åˆ
         throw new NoSuchFieldException("Could set value for field "
                 + target.getClass().getName() + "." + fieldName);
     }
 
     /**
-     * w’è‚µ‚½ƒNƒ‰ƒX‚Ìstatic‚ÈprivateƒtƒB[ƒ‹ƒh‚É’l‚ğİ’è‚·‚éB
-     * @param target ‘ÎÛ‚ÌƒNƒ‰ƒX
-     * @param fieldName ’l‚ğİ’è‚·‚éprivateƒtƒB[ƒ‹ƒh‚Ì–¼‘O
-     * @param value İ’è‚·‚é’lB int,boolean“™‚ÌŠî–{ƒf[ƒ^Œ^‚ÍAInteger, Boolean“™‚Ìƒ‰ƒbƒp[ƒNƒ‰ƒX‚É Ši”[‚µ‚Ä’l‚ğ“n‚·•K—v‚ ‚èB
+     * æŒ‡å®šã—ãŸã‚¯ãƒ©ã‚¹ã®staticãªprivateãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«å€¤ã‚’è¨­å®šã™ã‚‹ã€‚
+     * @param target å¯¾è±¡ã®ã‚¯ãƒ©ã‚¹
+     * @param fieldName å€¤ã‚’è¨­å®šã™ã‚‹privateãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®åå‰
+     * @param value è¨­å®šã™ã‚‹å€¤ã€‚ int,booleanç­‰ã®åŸºæœ¬ãƒ‡ãƒ¼ã‚¿å‹ã¯ã€Integer, Booleanç­‰ã®ãƒ©ãƒƒãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã« æ ¼ç´ã—ã¦å€¤ã‚’æ¸¡ã™å¿…è¦ã‚ã‚Šã€‚
      * @exception NoSuchFieldException
      */
     @SuppressWarnings("unchecked")
     public static void setField(Class target, String fieldName, Object value)
                                                                              throws NoSuchFieldException {
 
-        // ƒpƒ‰ƒ[ƒ^’l‚Ìƒ`ƒFƒbƒN
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å€¤ã®ãƒã‚§ãƒƒã‚¯
         if (target == null) {
             throw new IllegalArgumentException();
         }
@@ -725,12 +725,12 @@ public class UTUtil {
                 field.set(c, value);
                 return;
             } catch (Exception ex) {
-                // İ’è‚µ‚æ‚¤‚Æ‚µ‚½ƒtƒB[ƒ‹ƒh‚ª‘¶İ‚µ‚È‚©‚Á‚½ê‡A‰½‚à‚µ‚È‚¢B
-                // (eƒNƒ‰ƒX‚Å“¯‚¶ƒgƒ‰ƒC‚ğŒJ‚è•Ô‚·)
+                // è¨­å®šã—ã‚ˆã†ã¨ã—ãŸãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ãŒå­˜åœ¨ã—ãªã‹ã£ãŸå ´åˆã€ä½•ã‚‚ã—ãªã„ã€‚
+                // (è¦ªã‚¯ãƒ©ã‚¹ã§åŒã˜ãƒˆãƒ©ã‚¤ã‚’ç¹°ã‚Šè¿”ã™)
             }
             c = c.getSuperclass();
         }
-        // İ’è‚µ‚æ‚¤‚Æ‚µ‚½ƒtƒB[ƒ‹ƒh‚ª‘¶İ‚µ‚È‚©‚Á‚½ê‡
+        // è¨­å®šã—ã‚ˆã†ã¨ã—ãŸãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ãŒå­˜åœ¨ã—ãªã‹ã£ãŸå ´åˆ
         throw new NoSuchFieldException("Could set value for static field "
                 + target.getName() + "." + fieldName);
     }

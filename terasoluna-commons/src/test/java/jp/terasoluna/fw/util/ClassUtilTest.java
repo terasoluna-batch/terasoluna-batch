@@ -19,10 +19,10 @@ package jp.terasoluna.fw.util;
 import junit.framework.TestCase;
 
 /**
- * ClassUtil ƒuƒ‰ƒbƒNƒ{ƒbƒNƒXƒeƒXƒgB<br>
+ * ClassUtil ãƒ–ãƒ©ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ†ã‚¹ãƒˆã€‚<br>
  * <br>
- * (‘O’ñğŒ)<br>
- *     ‚È‚µ
+ * (å‰ææ¡ä»¶)<br>
+ *     ãªã—
  * <br>
  */
 @SuppressWarnings("unused")
@@ -53,26 +53,26 @@ public class ClassUtilTest extends TestCase {
     }
 
     /**
-     * testCreate01(String)B<br>
+     * testCreate01(String)ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FE<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šE<br>
      * <br>
-     * “ü—Í’l :¶¬‚·‚éƒIƒuƒWƒFƒNƒg‚ÌƒNƒ‰ƒX–¼<br>
-     * Šú‘Ò’l :¶¬‚µ‚½ƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ :ç”Ÿæˆã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¯ãƒ©ã‚¹å<br>
+     * æœŸå¾…å€¤ :ç”Ÿæˆã—ãŸã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *
-     * ¶¬‚·‚éƒIƒuƒWƒFƒNƒg‚ÌƒNƒ‰ƒX–¼‚ğŒ³‚ÉƒCƒ“ƒXƒ^ƒ“ƒX‚ğ¶¬‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * ç”Ÿæˆã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¯ãƒ©ã‚¹åã‚’å…ƒã«ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *
      */
     public void testCreateString01() {
-        //‰Šúİ’è
+        //åˆæœŸè¨­å®š
         String input = "java.lang.String";
 
         try {
-            //ƒeƒXƒgÀs
+            //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
             Object obj = ClassUtil.create(input);
 
-            //Œ‹‰ÊŠm”F
+            //çµæœç¢ºèª
             assertEquals("java.lang.String", obj.getClass().getName());
         } catch (ClassLoadException e) {
             fail();
@@ -80,27 +80,27 @@ public class ClassUtilTest extends TestCase {
     }
 
     /**
-     * testCreate02(String)B<br>
+     * testCreate02(String)ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FE<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šE<br>
      * <br>
-     * “ü—Í’l :¶¬‚·‚éƒIƒuƒWƒFƒNƒg‚ÌƒNƒ‰ƒX–¼(Terasoluna‘Î‰)<br>
-     * Šú‘Ò’l :¶¬‚µ‚½ƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ :ç”Ÿæˆã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¯ãƒ©ã‚¹å(Terasolunaå¯¾å¿œ)<br>
+     * æœŸå¾…å€¤ :ç”Ÿæˆã—ãŸã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *
-     * ¶¬‚·‚éƒIƒuƒWƒFƒNƒg‚ÌTerasoluna‚É‘Î‰‚µ‚½ƒNƒ‰ƒX–¼‚ğŒ³‚É
-     * ƒCƒ“ƒXƒ^ƒ“ƒX‚ğ¶¬‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * ç”Ÿæˆã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®Terasolunaã«å¯¾å¿œã—ãŸã‚¯ãƒ©ã‚¹åã‚’å…ƒã«
+     * ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *
      */
     public void testCreateString02() {
-        //‰Šúİ’è
+        //åˆæœŸè¨­å®š
         String input = "jp.terasoluna.fw.util.ClassUtil";
 
         try {
-            //ƒeƒXƒgÀs
+            //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
             Object obj = ClassUtil.create(input);
 
-            //Œ‹‰ÊŠm”F
+            //çµæœç¢ºèª
             assertEquals(
                 "jp.terasoluna.fw.util.ClassUtil",
                 obj.getClass().getName());
@@ -110,119 +110,119 @@ public class ClassUtilTest extends TestCase {
     }
 
     /**
-     * testCreate03(String)B<br>
+     * testCreate03(String)ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FG<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šG<br>
      * <br>
-     * “ü—Í’l :’ŠÛƒNƒ‰ƒXAƒCƒ“ƒ^ƒtƒF[ƒXƒNƒ‰ƒX–¼<br>
-     * Šú‘Ò’l :InstantiationException<br>
+     * å…¥åŠ›å€¤ :æŠ½è±¡ã‚¯ãƒ©ã‚¹ã€ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã‚¯ãƒ©ã‚¹å<br>
+     * æœŸå¾…å€¤ :InstantiationException<br>
      *
-     * w’è‚µ‚½ƒNƒ‰ƒX‚ªnullƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ğ•Û‚µ‚È‚¢ƒNƒ‰ƒX‚Ìê‡A
-     * InstantiationException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æŒ‡å®šã—ãŸã‚¯ãƒ©ã‚¹ãŒnullã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã‚’ä¿æŒã—ãªã„ã‚¯ãƒ©ã‚¹ã®å ´åˆã€
+     * InstantiationExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *
      */
     public void testCreateString03() {
-        //‰Šúİ’è
+        //åˆæœŸè¨­å®š
         String input = "javax.swing.AbstractAction";
 
         try {
-            //ƒeƒXƒgÀs
+            //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
             ClassUtil.create(input);
             fail();
         } catch (ClassLoadException e) {
             if (e.getMessage().indexOf("InstantiationException") == -1) {
-                //Œ‹‰ÊŠm”F
+                //çµæœç¢ºèª
                 fail();
             }
         }
     }
 
     /**
-     * testCreate04(String)B<br>
+     * testCreate04(String)ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FG<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šG<br>
      * <br>
-     * “ü—Í’l :*.class‚ª‚È‚¢ƒNƒ‰ƒX–¼<br>
-     * Šú‘Ò’l :ClassNotFoundException<br>
+     * å…¥åŠ›å€¤ :*.classãŒãªã„ã‚¯ãƒ©ã‚¹å<br>
+     * æœŸå¾…å€¤ :ClassNotFoundException<br>
      *
-     * w’è‚µ‚½ƒNƒ‰ƒX‚ª‘¶İ‚µ‚È‚¢ê‡A
-     * ClassNotFoundException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æŒ‡å®šã—ãŸã‚¯ãƒ©ã‚¹ãŒå­˜åœ¨ã—ãªã„å ´åˆã€
+     * ClassNotFoundExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *
      */
     public void testCreateString04() {
-        //‰Šúİ’è
+        //åˆæœŸè¨­å®š
         String input = "java.lang.Str";
 
         try {
-            //ƒeƒXƒgÀs
+            //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
             ClassUtil.create(input);
             fail();
         } catch (ClassLoadException e) {
             if (e.getMessage().indexOf("ClassNotFoundException") == -1) {
-                //Œ‹‰ÊŠm”F
+                //çµæœç¢ºèª
                 fail();
             }
         }
     }
 
     /**
-     * testCreate05(String)B<br>
+     * testCreate05(String)ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FG<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šG<br>
      * <br>
-     * “ü—Í’l :ƒAƒNƒZƒX‚Å‚«‚È‚¢ƒRƒ“ƒXƒgƒ‰ƒNƒ^<br>
-     * Šú‘Ò’l :IllegalAccessException<br>
+     * å…¥åŠ›å€¤ :ã‚¢ã‚¯ã‚»ã‚¹ã§ããªã„ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿<br>
+     * æœŸå¾…å€¤ :IllegalAccessException<br>
      *
-     * w’è‚µ‚½ƒNƒ‰ƒX‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÉƒAƒNƒZƒX‚Å‚«‚È‚¢ê‡A
-     * IllegalAccessException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æŒ‡å®šã—ãŸã‚¯ãƒ©ã‚¹ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã«ã‚¢ã‚¯ã‚»ã‚¹ã§ããªã„å ´åˆã€
+     * IllegalAccessExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *
      */
     public void testCreateString05() {
-        //‰Šúİ’è
+        //åˆæœŸè¨­å®š
         String input = "java.lang.Void";
 
         try {
-            //ƒeƒXƒgÀs
+            //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
             ClassUtil.create(input);
 
         } catch (ClassLoadException e) {
             if (e.getMessage().indexOf("IllegalAccessException") == -1) {
-                //Œ‹‰ÊŠm”F
+                //çµæœç¢ºèª
                 fail();
             }
         }
     }
 
     /**
-     * testCreate01(String, Object[])B<br>
+     * testCreate01(String, Object[])ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FE<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šE<br>
      * <br>
-     * “ü—Í’l :¶¬‚·‚éƒIƒuƒWƒFƒNƒg‚ÌƒNƒ‰ƒX–¼AƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ìƒpƒ‰ƒ[ƒ^1‚Â<br>
-     * Šú‘Ò’l :¶¬‚µ‚½ƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ :ç”Ÿæˆã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¯ãƒ©ã‚¹åã€ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿1ã¤<br>
+     * æœŸå¾…å€¤ :ç”Ÿæˆã—ãŸã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ìˆø”‚ª1‚Â‚ÌA
-     * ¶¬‚·‚éƒIƒuƒWƒFƒNƒg‚ÌƒNƒ‰ƒX–¼‚ğŒ³‚ÉƒCƒ“ƒXƒ^ƒ“ƒX‚ğ¶¬‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å¼•æ•°ãŒ1ã¤ã®æ™‚ã€
+     * ç”Ÿæˆã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¯ãƒ©ã‚¹åã‚’å…ƒã«ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *
      */
     public void testCreateStringObjectArray01() {
-        //‰Šúİ’è
+        //åˆæœŸè¨­å®š
         String input = "java.lang.Integer";
 
         try {
-            //ƒeƒXƒgÀs
+            //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
             Object obj = ClassUtil.create(input, new Object[] { "12" });
             java.lang.Integer resultObj = (java.lang.Integer) obj;
 
-            //Œ‹‰ÊŠm”F
-            //ƒNƒ‰ƒX–¼
+            //çµæœç¢ºèª
+            //ã‚¯ãƒ©ã‚¹å
             assertEquals("java.lang.Integer", obj.getClass().getName());
 
-            //“à—e
+            //å†…å®¹
             assertEquals("12", resultObj.toString());
 
         } catch (ClassLoadException e) {
@@ -231,32 +231,32 @@ public class ClassUtilTest extends TestCase {
     }
 
     /**
-     * testCreate02(String, Object[])B<br>
+     * testCreate02(String, Object[])ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FE<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šE<br>
      * <br>
-     * “ü—Í’l :¶¬‚·‚éƒIƒuƒWƒFƒNƒg‚ÌƒNƒ‰ƒX–¼AƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ìƒpƒ‰ƒ[ƒ^‚ª‹ó<br>
-     * Šú‘Ò’l :¶¬‚µ‚½ƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ :ç”Ÿæˆã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¯ãƒ©ã‚¹åã€ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãŒç©º<br>
+     * æœŸå¾…å€¤ :ç”Ÿæˆã—ãŸã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ìˆø”‚ª‹ó‚ÌA
-     * ¶¬‚·‚éƒIƒuƒWƒFƒNƒg‚ÌƒNƒ‰ƒX–¼‚ğŒ³‚ÉƒCƒ“ƒXƒ^ƒ“ƒX‚ğ¶¬‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å¼•æ•°ãŒç©ºã®æ™‚ã€
+     * ç”Ÿæˆã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¯ãƒ©ã‚¹åã‚’å…ƒã«ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *
      */
     public void testCreateStringObjectArray02() {
-        //‰Šúİ’è
+        //åˆæœŸè¨­å®š
         String input = "java.lang.String";
 
         try {
-            //ƒeƒXƒgÀs
+            //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
             Object obj = ClassUtil.create(input, new Object[]{});
             java.lang.String resultObj = (java.lang.String) obj;
 
-            //Œ‹‰ÊŠm”F
-            //ƒNƒ‰ƒX–¼
+            //çµæœç¢ºèª
+            //ã‚¯ãƒ©ã‚¹å
             assertEquals("java.lang.String", obj.getClass().getName());
 
-            //“à—e
+            //å†…å®¹
             assertEquals("", resultObj);
 
         } catch (ClassLoadException e) {
@@ -265,35 +265,35 @@ public class ClassUtilTest extends TestCase {
     }
 
     /**
-     * testCreate03(String, Object[])B<br>
+     * testCreate03(String, Object[])ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FE<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šE<br>
      * <br>
-     * “ü—Í’l :¶¬‚·‚éƒIƒuƒWƒFƒNƒg‚ÌƒNƒ‰ƒX–¼AƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ìƒpƒ‰ƒ[ƒ^2‚Â<br>
-     * Šú‘Ò’l :¶¬‚µ‚½ƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ :ç”Ÿæˆã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¯ãƒ©ã‚¹åã€ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿2ã¤<br>
+     * æœŸå¾…å€¤ :ç”Ÿæˆã—ãŸã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ìˆø”‚ª2‚Â‚ÌA
-     * ¶¬‚·‚éƒIƒuƒWƒFƒNƒg‚ÌƒNƒ‰ƒX–¼‚ğŒ³‚ÉƒCƒ“ƒXƒ^ƒ“ƒX‚ğ¶¬‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å¼•æ•°ãŒ2ã¤ã®æ™‚ã€
+     * ç”Ÿæˆã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¯ãƒ©ã‚¹åã‚’å…ƒã«ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *
      */
     public void testCreateStringObjectArray03() {
-        //‰Šúİ’è
+        //åˆæœŸè¨­å®š
         String input = "java.util.Locale";
         String language = "es";
         String country = "MEXICO";
 
         try {
-            //ƒeƒXƒgÀs
+            //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
             Object obj =
                 ClassUtil.create(input, new Object[] { language, country });
             java.util.Locale resultObj = (java.util.Locale) obj;
 
-            //Œ‹‰ÊŠm”F
-            //ƒNƒ‰ƒX–¼
+            //çµæœç¢ºèª
+            //ã‚¯ãƒ©ã‚¹å
             assertEquals("java.util.Locale", obj.getClass().getName());
 
-            //“à—e
+            //å†…å®¹
             assertEquals("MEXICO", resultObj.getCountry());
             assertEquals("es", resultObj.getLanguage());
 
@@ -303,27 +303,27 @@ public class ClassUtilTest extends TestCase {
     }
 
     /**
-     * testCreate04(String, Object[])B<br>
+     * testCreate04(String, Object[])ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FE<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šE<br>
      * <br>
-     * “ü—Í’l :¶¬‚·‚éƒIƒuƒWƒFƒNƒg‚ÌƒNƒ‰ƒX–¼(Terasoluna‘Î‰)AƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ìƒpƒ‰ƒ[ƒ^<br>
-     * Šú‘Ò’l :¶¬‚µ‚½ƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ :ç”Ÿæˆã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¯ãƒ©ã‚¹å(Terasolunaå¯¾å¿œ)ã€ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿<br>
+     * æœŸå¾…å€¤ :ç”Ÿæˆã—ãŸã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *
-     * ¶¬‚·‚éƒIƒuƒWƒFƒNƒg‚ÌTerasoluna‚É‘Î‰‚µ‚½ƒNƒ‰ƒX–¼‚ğŒ³‚É
-     * ƒCƒ“ƒXƒ^ƒ“ƒX‚ğ¶¬‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * ç”Ÿæˆã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®Terasolunaã«å¯¾å¿œã—ãŸã‚¯ãƒ©ã‚¹åã‚’å…ƒã«
+     * ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *
      */
     public void testCreateStringObjectArray04() {
-        //‰Šúİ’è
+        //åˆæœŸè¨­å®š
         String input = ClassUtil.class.getName();
 
         try {
-            //ƒeƒXƒgÀs
+            //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
             Object obj = ClassUtil.create(input, new Object[] {});
 
-            //Œ‹‰ÊŠm”F
+            //çµæœç¢ºèª
             assertEquals(input, obj.getClass().getName());
 
         } catch (ClassLoadException e) {
@@ -332,115 +332,115 @@ public class ClassUtilTest extends TestCase {
     }
 
     /**
-     * testCreate05(String, Object[])B<br>
+     * testCreate05(String, Object[])ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FG<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šG<br>
      * <br>
-     * “ü—Í’l :*.class‚ª‚È‚¢ƒNƒ‰ƒX–¼<br>
-     * Šú‘Ò’l :ClassNotFoundException<br>
+     * å…¥åŠ›å€¤ :*.classãŒãªã„ã‚¯ãƒ©ã‚¹å<br>
+     * æœŸå¾…å€¤ :ClassNotFoundException<br>
      *
-     * w’è‚µ‚½ƒNƒ‰ƒX‚ª‘¶İ‚µ‚È‚¢ê‡AClassNotFoundException‚ª”­¶‚µA
-     * ‚»‚ê‚ğƒ‰ƒbƒv‚·‚éClassLoadException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æŒ‡å®šã—ãŸã‚¯ãƒ©ã‚¹ãŒå­˜åœ¨ã—ãªã„å ´åˆã€ClassNotFoundExceptionãŒç™ºç”Ÿã—ã€
+     * ãã‚Œã‚’ãƒ©ãƒƒãƒ—ã™ã‚‹ClassLoadExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *
      */
     public void testCreateStringObjectArray05() {
-        //‰Šúİ’è
+        //åˆæœŸè¨­å®š
         String input = "java.lang.Str";
 
         try {
-            //ƒeƒXƒgÀs
+            //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
             ClassUtil.create(input, new Object[] {});
         } catch (ClassLoadException e) {
             if (e.getMessage().indexOf("ClassNotFoundException") == -1) {
-                //Œ‹‰ÊŠm”F
+                //çµæœç¢ºèª
                 fail();
             }
         }
     }
 
     /**
-     * testCreate06(String, Object[])B<br>
+     * testCreate06(String, Object[])ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FG<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šG<br>
      * <br>
-     * “ü—Í’l :’ŠÛƒNƒ‰ƒX<br>
-     * Šú‘Ò’l :InstantiationException<br>
+     * å…¥åŠ›å€¤ :æŠ½è±¡ã‚¯ãƒ©ã‚¹<br>
+     * æœŸå¾…å€¤ :InstantiationException<br>
      * 
-     * w’è‚µ‚½ƒNƒ‰ƒX‚ª’ŠÛƒNƒ‰ƒX‚Ìê‡AInstantiationException‚ª”­¶‚µA
-     * ‚»‚ê‚ğƒ‰ƒbƒv‚·‚é—áŠOClassLoadException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æŒ‡å®šã—ãŸã‚¯ãƒ©ã‚¹ãŒæŠ½è±¡ã‚¯ãƒ©ã‚¹ã®å ´åˆã€InstantiationExceptionãŒç™ºç”Ÿã—ã€
+     * ãã‚Œã‚’ãƒ©ãƒƒãƒ—ã™ã‚‹ä¾‹å¤–ClassLoadExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *
      */
     public void testCreateStringObjectArray06() {
-        //‰Šúİ’è
+        //åˆæœŸè¨­å®š
         String input = "javax.swing.AbstractAction";
 
         try {
-            //ƒeƒXƒgÀs
+            //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
             ClassUtil.create(input, new Object[] { "1", "2" });
         } catch (ClassLoadException e) {
             if (e.getMessage().indexOf("InstantiationException") == -1) {
-                //Œ‹‰ÊŠm”F
+                //çµæœç¢ºèª
                 fail();
             }
         }
     }
 
     /**
-     * testCreate07(String, Object[])B<br>
+     * testCreate07(String, Object[])ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FG<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šG<br>
      * <br>
-     * “ü—Í’l :¶¬‚·‚éƒIƒuƒWƒFƒNƒg‚ÌƒNƒ‰ƒX–¼AƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ìƒpƒ‰ƒ[ƒ^null<br>
-     * Šú‘Ò’l :InvocationTargetException<br>
+     * å…¥åŠ›å€¤ :ç”Ÿæˆã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¯ãƒ©ã‚¹åã€ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿null<br>
+     * æœŸå¾…å€¤ :InvocationTargetException<br>
      *
-     * ƒIƒuƒWƒFƒNƒg‚ª¶¬‚Å‚«‚È‚©‚Á‚½ê‡AInvocationTargetException‚ª”­¶‚µA
-     * ‚»‚ê‚ğƒ‰ƒbƒv‚·‚é—áŠOClassLoadException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒç”Ÿæˆã§ããªã‹ã£ãŸå ´åˆã€InvocationTargetExceptionãŒç™ºç”Ÿã—ã€
+     * ãã‚Œã‚’ãƒ©ãƒƒãƒ—ã™ã‚‹ä¾‹å¤–ClassLoadExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *
      */
     public void testCreateStringObjectArray07() {
-        //‰Šúİ’è
+        //åˆæœŸè¨­å®š
         String input = "java.lang.String";
 
         try {
-            //ƒeƒXƒgÀs
+            //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
             ClassUtil.create(input, new Object[] { null });
         } catch (ClassLoadException e) {
             if (e.getMessage().indexOf("InvocationTargetException") == -1) {
-                //Œ‹‰ÊŠm”F
+                //çµæœç¢ºèª
                 fail();
             }
         }
     }
 
     /**
-     * testCreate08(String, Object[])B<br>
+     * testCreate08(String, Object[])ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FG<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šG<br>
      * <br>
-     * “ü—Í’l :¶¬‚·‚éƒIƒuƒWƒFƒNƒg‚ÌƒNƒ‰ƒX–¼AƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ìƒpƒ‰ƒ[ƒ^<br>
-     * Šú‘Ò’l :IllegalArgumentException<br>
+     * å…¥åŠ›å€¤ :ç”Ÿæˆã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¯ãƒ©ã‚¹åã€ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿<br>
+     * æœŸå¾…å€¤ :IllegalArgumentException<br>
      *
-     * ƒIƒuƒWƒFƒNƒg‚ª¶¬‚Å‚«‚È‚©‚Á‚½ê‡AIllegalArgumentException‚ª”­¶‚µA
-     * ‚»‚ê‚ğƒ‰ƒbƒv‚·‚é—áŠOClassLoadException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒç”Ÿæˆã§ããªã‹ã£ãŸå ´åˆã€IllegalArgumentExceptionãŒç™ºç”Ÿã—ã€
+     * ãã‚Œã‚’ãƒ©ãƒƒãƒ—ã™ã‚‹ä¾‹å¤–ClassLoadExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *
      */
     public void testCreateStringObjectArray08() {
-        //‰Šúİ’è
+        //åˆæœŸè¨­å®š
         String input = "java.lang.Void";
         try {
-            //ƒeƒXƒgÀs
+            //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
             ClassUtil.create(input, new Object[] {});
         } catch (ClassLoadException e) {
             if (e.getMessage().indexOf("IllegalArgumentException") == -1) {
-                //Œ‹‰ÊŠm”F
+                //çµæœç¢ºèª
                 fail();
             }
             if (e.getCause().getMessage().indexOf("class name is java.lang.Void") == -1) {
-                //Œ‹‰ÊŠm”F
+                //çµæœç¢ºèª
                 fail();
             }
         }

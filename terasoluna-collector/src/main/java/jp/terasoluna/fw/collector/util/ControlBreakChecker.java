@@ -30,7 +30,7 @@ import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 
 /**
- * ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒNƒ`ƒFƒbƒJ[.<br>
+ * ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯ãƒã‚§ãƒƒã‚«ãƒ¼.<br>
  */
 public class ControlBreakChecker {
 
@@ -41,47 +41,47 @@ public class ControlBreakChecker {
             .getLogger(ControlBreakChecker.class);
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^.
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿.
      */
     protected ControlBreakChecker() {
     }
 
     /**
-     * ‘Oˆ—ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒN”»’èƒƒ\ƒbƒh.<br>
+     * å‰å‡¦ç†ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯åˆ¤å®šãƒ¡ã‚½ãƒƒãƒ‰.<br>
      * @param collector Collector&lt;?&gt;
      * @param keys String...
-     * @return true:ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒN‚ğs‚¤/false:ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒN‚µ‚È‚¢
+     * @return true:ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯ã‚’è¡Œã†/false:ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯ã—ãªã„
      */
     public static boolean isPreBreak(Collector<?> collector, String... keys) {
         return isPreBreak(collector, null, keys);
     }
 
     /**
-     * ‘Oˆ—ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒN”»’èƒƒ\ƒbƒh.<br>
-     * keys‚Ì”‚ÆcompareStrategies‚Ì”‚ÆA”äŠr‚É—˜—p‚³‚ê‚éCompareStrategy‚ÌŠÖŒW‚ÍˆÈ‰º‚Ì‚æ‚¤‚É‚È‚é.<br>
+     * å‰å‡¦ç†ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯åˆ¤å®šãƒ¡ã‚½ãƒƒãƒ‰.<br>
+     * keysã®æ•°ã¨compareStrategiesã®æ•°ã¨ã€æ¯”è¼ƒæ™‚ã«åˆ©ç”¨ã•ã‚Œã‚‹CompareStrategyã®é–¢ä¿‚ã¯ä»¥ä¸‹ã®ã‚ˆã†ã«ãªã‚‹.<br>
      * <ul>
-     * <li>keys : compareStrategies = N : N (‚Ü‚½‚ÍNˆÈã)‚Ìê‡
+     * <li>keys : compareStrategies = N : N (ã¾ãŸã¯Nä»¥ä¸Š)ã®å ´åˆ
      * <ul>
-     * <li>keys[i]‚ÌCompareStrategy‚ÍcompareStrategies[i]</li>
+     * <li>keys[i]ã®CompareStrategyã¯compareStrategies[i]</li>
      * </ul>
      * </li>
-     * <li>keys : compareStrategies = N : 1‚Ìê‡
+     * <li>keys : compareStrategies = N : 1ã®å ´åˆ
      * <ul>
-     * <li>keys[i]‚ÌCompareStrategy‚ÍcompareStrategies[0]</li>
+     * <li>keys[i]ã®CompareStrategyã¯compareStrategies[0]</li>
      * </ul>
      * </li>
-     * <li>keys : compareStrategies = N : M (N &gt; M)‚Ìê‡
+     * <li>keys : compareStrategies = N : M (N &gt; M)ã®å ´åˆ
      * <ul>
-     * <li>keys[i] (i &lt; M)‚ÌCompareStrategy‚ÍcompareStrategies[i]</li>
-     * <li>keys[i] (i &gt;= M)‚ÌCompareStrategy‚Ínull</li>
+     * <li>keys[i] (i &lt; M)ã®CompareStrategyã¯compareStrategies[i]</li>
+     * <li>keys[i] (i &gt;= M)ã®CompareStrategyã¯null</li>
      * </ul>
      * </li>
      * </ul>
-     * ”äŠrd—l‚ÍA{@link #equalsObjects(Object, Object, CompareStrategy)} ‚ğQÆ‚Ì‚±‚Æ.
+     * æ¯”è¼ƒä»•æ§˜ã¯ã€{@link #equalsObjects(Object, Object, CompareStrategy)} ã‚’å‚ç…§ã®ã“ã¨.
      * @param collector Collector&lt;?&gt;
      * @param compareStrategies CompareStrategy&lt;?&gt;[]
      * @param keys String[]
-     * @return true:ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒN‚ğs‚¤/false:ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒN‚µ‚È‚¢
+     * @return true:ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯ã‚’è¡Œã†/false:ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯ã—ãªã„
      * @see #equalsObjects(Object, Object, CompareStrategy)
      */
     public static boolean isPreBreak(Collector<?> collector,
@@ -96,41 +96,41 @@ public class ControlBreakChecker {
     }
 
     /**
-     * Œãˆ—ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒN”»’èƒƒ\ƒbƒh.<br>
+     * å¾Œå‡¦ç†ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯åˆ¤å®šãƒ¡ã‚½ãƒƒãƒ‰.<br>
      * @param collector Collector&lt;?&gt;
      * @param keys String...
-     * @return true:ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒN‚ğs‚¤/false:ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒN‚µ‚È‚¢
+     * @return true:ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯ã‚’è¡Œã†/false:ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯ã—ãªã„
      */
     public static boolean isBreak(Collector<?> collector, String... keys) {
         return isBreak(collector, null, keys);
     }
 
     /**
-     * Œãˆ—ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒN”»’èƒƒ\ƒbƒh.<br>
-     * keys‚Ì”‚ÆcompareStrategies‚Ì”‚ÆA”äŠr‚É—˜—p‚³‚ê‚éCompareStrategy‚ÌŠÖŒW‚ÍˆÈ‰º‚Ì‚æ‚¤‚É‚È‚é.<br>
+     * å¾Œå‡¦ç†ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯åˆ¤å®šãƒ¡ã‚½ãƒƒãƒ‰.<br>
+     * keysã®æ•°ã¨compareStrategiesã®æ•°ã¨ã€æ¯”è¼ƒæ™‚ã«åˆ©ç”¨ã•ã‚Œã‚‹CompareStrategyã®é–¢ä¿‚ã¯ä»¥ä¸‹ã®ã‚ˆã†ã«ãªã‚‹.<br>
      * <ul>
-     * <li>keys : compareStrategies = N : N (‚Ü‚½‚ÍNˆÈã)‚Ìê‡
+     * <li>keys : compareStrategies = N : N (ã¾ãŸã¯Nä»¥ä¸Š)ã®å ´åˆ
      * <ul>
-     * <li>keys[i]‚ÌCompareStrategy‚ÍcompareStrategies[i]</li>
+     * <li>keys[i]ã®CompareStrategyã¯compareStrategies[i]</li>
      * </ul>
      * </li>
-     * <li>keys : compareStrategies = N : 1‚Ìê‡
+     * <li>keys : compareStrategies = N : 1ã®å ´åˆ
      * <ul>
-     * <li>keys[i]‚ÌCompareStrategy‚ÍcompareStrategies[0]</li>
+     * <li>keys[i]ã®CompareStrategyã¯compareStrategies[0]</li>
      * </ul>
      * </li>
-     * <li>keys : compareStrategies = N : M (N &gt; M)‚Ìê‡
+     * <li>keys : compareStrategies = N : M (N &gt; M)ã®å ´åˆ
      * <ul>
-     * <li>keys[i] (i &lt; M)‚ÌCompareStrategy‚ÍcompareStrategies[i]</li>
-     * <li>keys[i] (i &gt;= M)‚ÌCompareStrategy‚Ínull</li>
+     * <li>keys[i] (i &lt; M)ã®CompareStrategyã¯compareStrategies[i]</li>
+     * <li>keys[i] (i &gt;= M)ã®CompareStrategyã¯null</li>
      * </ul>
      * </li>
      * </ul>
-     * ”äŠrd—l‚ÍA{@link #equalsObjects(Object, Object, CompareStrategy)} ‚ğQÆ‚Ì‚±‚Æ.
+     * æ¯”è¼ƒä»•æ§˜ã¯ã€{@link #equalsObjects(Object, Object, CompareStrategy)} ã‚’å‚ç…§ã®ã“ã¨.
      * @param collector Collector&lt;?&gt;
      * @param compareStrategies CompareStrategy&lt;?&gt;[]
      * @param keys String[]
-     * @return true:ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒN‚ğs‚¤/false:ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒN‚µ‚È‚¢
+     * @return true:ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯ã‚’è¡Œã†/false:ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯ã—ãªã„
      * @see #equalsObjects(Object, Object, CompareStrategy)
      */
     public static boolean isBreak(Collector<?> collector,
@@ -145,18 +145,18 @@ public class ControlBreakChecker {
     }
 
     /**
-     * ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒN”»’èƒƒ\ƒbƒh.<br>
-     * ‚±‚Ìƒƒ\ƒbƒh‚ÍAver.1.1.xˆÈ‘O‚Æ‚ÌŒİŠ·«‚ğ•Û‚Â‚½‚ß‚Éc‚µ‚Ä‚¢‚é.<br>
-     * V‹K‚Éì¬‚·‚éƒR[ƒh‚Ìê‡‚ÍA<br>
-     * {@link #isBreak(Collector, CompareStrategy[], String[])}A<br>
-     * {@link #isPreBreak(Collector, CompareStrategy[], String[])}A<br>
+     * ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯åˆ¤å®šãƒ¡ã‚½ãƒƒãƒ‰.<br>
+     * ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã¯ã€ver.1.1.xä»¥å‰ã¨ã®äº’æ›æ€§ã‚’ä¿ã¤ãŸã‚ã«æ®‹ã—ã¦ã„ã‚‹.<br>
+     * æ–°è¦ã«ä½œæˆã™ã‚‹ã‚³ãƒ¼ãƒ‰ã®å ´åˆã¯ã€<br>
+     * {@link #isBreak(Collector, CompareStrategy[], String[])}ã€<br>
+     * {@link #isPreBreak(Collector, CompareStrategy[], String[])}ã€<br>
      * {@link #isBreakInternal(Object, Object, CompareStrategy[], String...)}<br>
-     * ‚ğg—p‚·‚é‚±‚Æ.<br>
-     * @param current Object ”äŠrŒ³ƒIƒuƒWƒFƒNƒg
-     * @param other Object ”äŠræƒIƒuƒWƒFƒNƒg
+     * ã‚’ä½¿ç”¨ã™ã‚‹ã“ã¨.<br>
+     * @param current Object æ¯”è¼ƒå…ƒã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param other Object æ¯”è¼ƒå…ˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      * @param comparators Comparator&lt;?&gt;[]
      * @param keys String...
-     * @return true:ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒN‚ğs‚¤/false:ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒN‚µ‚È‚¢
+     * @return true:ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯ã‚’è¡Œã†/false:ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯ã—ãªã„
      * @see #isBreak(Collector, CompareStrategy[], String[])
      * @see #isPreBreak(Collector, CompareStrategy[], String[])
      * @see #isBreakInternal(Object, Object, CompareStrategy[], String...)
@@ -164,7 +164,7 @@ public class ControlBreakChecker {
     protected static boolean isBreakInternal(Object current, Object other,
             Comparator<?>[] comparators, String... keys) {
 
-        // comparator -> compareStrategy‚Ö‚Ì‹l‚ß‘Ö‚¦‚ğs‚¤
+        // comparator -> compareStrategyã¸ã®è©°ã‚æ›¿ãˆã‚’è¡Œã†
         if (comparators != null) {
             CompareStrategy<?>[] compareStrategies = new CompareStrategy[comparators.length];
 
@@ -181,47 +181,47 @@ public class ControlBreakChecker {
     }
 
     /**
-     * ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒN”»’èƒƒ\ƒbƒh.<br>
-     * keys‚Ì”‚ÆcompareStrategies‚Ì”‚ÆA”äŠr‚É—˜—p‚³‚ê‚éCompareStrategy‚ÌŠÖŒW‚ÍˆÈ‰º‚Ì‚æ‚¤‚É‚È‚é.<br>
+     * ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯åˆ¤å®šãƒ¡ã‚½ãƒƒãƒ‰.<br>
+     * keysã®æ•°ã¨compareStrategiesã®æ•°ã¨ã€æ¯”è¼ƒæ™‚ã«åˆ©ç”¨ã•ã‚Œã‚‹CompareStrategyã®é–¢ä¿‚ã¯ä»¥ä¸‹ã®ã‚ˆã†ã«ãªã‚‹.<br>
      * <ul>
-     * <li>keys : compareStrategies = N : N (‚Ü‚½‚ÍNˆÈã)‚Ìê‡
+     * <li>keys : compareStrategies = N : N (ã¾ãŸã¯Nä»¥ä¸Š)ã®å ´åˆ
      * <ul>
-     * <li>keys[i]‚ÌCompareStrategy‚ÍcompareStrategies[i]</li>
+     * <li>keys[i]ã®CompareStrategyã¯compareStrategies[i]</li>
      * </ul>
      * </li>
-     * <li>keys : compareStrategies = N : 1‚Ìê‡
+     * <li>keys : compareStrategies = N : 1ã®å ´åˆ
      * <ul>
-     * <li>keys[i]‚ÌCompareStrategy‚ÍcompareStrategies[0]</li>
+     * <li>keys[i]ã®CompareStrategyã¯compareStrategies[0]</li>
      * </ul>
      * </li>
-     * <li>keys : compareStrategies = N : M (N &gt; M)‚Ìê‡
+     * <li>keys : compareStrategies = N : M (N &gt; M)ã®å ´åˆ
      * <ul>
-     * <li>keys[i] (i &lt; M)‚ÌCompareStrategy‚ÍcompareStrategies[i]</li>
-     * <li>keys[i] (i &gt;= M)‚ÌCompareStrategy‚Ínull</li>
+     * <li>keys[i] (i &lt; M)ã®CompareStrategyã¯compareStrategies[i]</li>
+     * <li>keys[i] (i &gt;= M)ã®CompareStrategyã¯null</li>
      * </ul>
      * </li>
      * </ul>
-     * ”äŠr‚É‚Í {@link #equalsObjects(Object, Object, CompareStrategy)} ƒƒ\ƒbƒh‚ğg—p‚·‚é.
-     * @param current Object ”äŠrŒ³ƒIƒuƒWƒFƒNƒg
-     * @param other Object ”äŠræƒIƒuƒWƒFƒNƒg
+     * æ¯”è¼ƒã«ã¯ {@link #equalsObjects(Object, Object, CompareStrategy)} ãƒ¡ã‚½ãƒƒãƒ‰ã‚’ä½¿ç”¨ã™ã‚‹.
+     * @param current Object æ¯”è¼ƒå…ƒã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param other Object æ¯”è¼ƒå…ˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      * @param compareStrategies CompareStrategy&lt;?&gt;[]
      * @param keys String...
-     * @return true:ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒN‚ğs‚¤/false:ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒN‚µ‚È‚¢
+     * @return true:ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯ã‚’è¡Œã†/false:ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯ã—ãªã„
      * @see #equalsObjects(Object, Object, CompareStrategy)
      */
     protected static boolean isBreakInternal(Object current, Object other,
             CompareStrategy<?>[] compareStrategies, String... keys) {
 
-        // keyƒŠƒXƒg‚ª‹ó‚à‚µ‚­‚Ínull‚Ìê‡‚Ífalse
+        // keyãƒªã‚¹ãƒˆãŒç©ºã‚‚ã—ãã¯nullã®å ´åˆã¯false
         if (keys == null || keys.length == 0) {
-            // ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒN‚È‚µ
+            // ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯ãªã—
             return false;
         }
 
-        // •Ğ•û‚ªnull‚ÅA‚à‚¤•Ğ•û‚ªnot null‚Ìê‡‚Ítrue
+        // ç‰‡æ–¹ãŒnullã§ã€ã‚‚ã†ç‰‡æ–¹ãŒnot nullã®å ´åˆã¯true
         if ((current != null && other == null)
                 || (current == null && other != null)) {
-            // ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒN”­¶
+            // ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯ç™ºç”Ÿ
             return true;
         }
 
@@ -243,40 +243,40 @@ public class ControlBreakChecker {
                     Object currentValue = null;
                     Object otherValue = null;
 
-                    // ’l‚ğæ“¾‚·‚é
+                    // å€¤ã‚’å–å¾—ã™ã‚‹
                     try {
                         currentValue = PropertyUtils.getProperty(current, key);
                     } catch (Exception e) {
                         logOutputPropNotFound(e, current, key);
-                        // ƒƒO‚ğo—Í‚µ‚ÄŸ‚Ì€–Ú‚ğƒ`ƒFƒbƒN
+                        // ãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¦æ¬¡ã®é …ç›®ã‚’ãƒã‚§ãƒƒã‚¯
                         continue;
                     }
 
-                    // ’l‚ğæ“¾‚·‚é
+                    // å€¤ã‚’å–å¾—ã™ã‚‹
                     try {
                         otherValue = PropertyUtils.getProperty(other, key);
                     } catch (Exception e) {
                         logOutputPropNotFound(e, other, key);
-                        // ƒƒO‚ğo—Í‚µ‚ÄŸ‚Ì€–Ú‚ğƒ`ƒFƒbƒN
+                        // ãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¦æ¬¡ã®é …ç›®ã‚’ãƒã‚§ãƒƒã‚¯
                         continue;
                     }
 
-                    // ”äŠr
+                    // æ¯”è¼ƒ
                     if (!equalsObjects(currentValue, otherValue, compareStrategy)) {
                         return true;
                     }
                 }
             }
         }
-        // ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒN‚È‚µ
+        // ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯ãªã—
         return false;
     }
 
     /**
-     * ‘Oˆ—ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒNƒL[æ“¾.<br>
+     * å‰å‡¦ç†ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯ã‚­ãƒ¼å–å¾—.<br>
      * @param collector Collector&lt;?&gt;
      * @param keys String...
-     * @return ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒNƒL[ƒŠƒXƒg
+     * @return ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯ã‚­ãƒ¼ãƒªã‚¹ãƒˆ
      */
     public static Map<String, Object> getPreBreakKey(Collector<?> collector,
             String... keys) {
@@ -284,31 +284,31 @@ public class ControlBreakChecker {
     }
 
     /**
-     * ‘Oˆ—ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒNƒL[æ“¾.<br>
-     * keys‚Ì”‚ÆcompareStrategies‚Ì”‚ÆA”äŠr‚É—˜—p‚³‚ê‚éCompareStrategy‚ÌŠÖŒW‚ÍˆÈ‰º‚Ì‚æ‚¤‚É‚È‚é.<br>
+     * å‰å‡¦ç†ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯ã‚­ãƒ¼å–å¾—.<br>
+     * keysã®æ•°ã¨compareStrategiesã®æ•°ã¨ã€æ¯”è¼ƒæ™‚ã«åˆ©ç”¨ã•ã‚Œã‚‹CompareStrategyã®é–¢ä¿‚ã¯ä»¥ä¸‹ã®ã‚ˆã†ã«ãªã‚‹.<br>
      * <ul>
-     * <li>keys : compareStrategies = N : N (‚Ü‚½‚ÍNˆÈã)‚Ìê‡
+     * <li>keys : compareStrategies = N : N (ã¾ãŸã¯Nä»¥ä¸Š)ã®å ´åˆ
      * <ul>
-     * <li>keys[i]‚ÌCompareStrategy‚ÍcompareStrategies[i]</li>
+     * <li>keys[i]ã®CompareStrategyã¯compareStrategies[i]</li>
      * </ul>
      * </li>
-     * <li>keys : compareStrategies = N : 1‚Ìê‡
+     * <li>keys : compareStrategies = N : 1ã®å ´åˆ
      * <ul>
-     * <li>keys[i]‚ÌCompareStrategy‚ÍcompareStrategies[0]</li>
+     * <li>keys[i]ã®CompareStrategyã¯compareStrategies[0]</li>
      * </ul>
      * </li>
-     * <li>keys : compareStrategies = N : M (N &gt; M)‚Ìê‡
+     * <li>keys : compareStrategies = N : M (N &gt; M)ã®å ´åˆ
      * <ul>
-     * <li>keys[i] (i &lt; M)‚ÌCompareStrategy‚ÍcompareStrategies[i]</li>
-     * <li>keys[i] (i &gt;= M)‚ÌCompareStrategy‚Ínull</li>
+     * <li>keys[i] (i &lt; M)ã®CompareStrategyã¯compareStrategies[i]</li>
+     * <li>keys[i] (i &gt;= M)ã®CompareStrategyã¯null</li>
      * </ul>
      * </li>
      * </ul>
-     * ”äŠrd—l‚ÍA{@link #equalsObjects(Object, Object, CompareStrategy)} ‚ğQÆ‚Ì‚±‚Æ.
+     * æ¯”è¼ƒä»•æ§˜ã¯ã€{@link #equalsObjects(Object, Object, CompareStrategy)} ã‚’å‚ç…§ã®ã“ã¨.
      * @param collector Collector&lt;?&gt;
      * @param compareStrategies CompareStrategy&lt;?&gt;[]
      * @param keys String[]
-     * @return ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒNƒL[ƒŠƒXƒg
+     * @return ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯ã‚­ãƒ¼ãƒªã‚¹ãƒˆ
      * @see #equalsObjects(Object, Object, CompareStrategy)
      */
     public static Map<String, Object> getPreBreakKey(Collector<?> collector,
@@ -324,10 +324,10 @@ public class ControlBreakChecker {
     }
 
     /**
-     * Œãˆ—ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒNƒL[æ“¾.<br>
+     * å¾Œå‡¦ç†ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯ã‚­ãƒ¼å–å¾—.<br>
      * @param collector Collector&lt;?&gt;
      * @param keys String...
-     * @return ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒNƒL[ƒŠƒXƒg
+     * @return ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯ã‚­ãƒ¼ãƒªã‚¹ãƒˆ
      */
     public static Map<String, Object> getBreakKey(Collector<?> collector,
             String... keys) {
@@ -335,31 +335,31 @@ public class ControlBreakChecker {
     }
 
     /**
-     * Œãˆ—ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒNƒL[æ“¾.<br>
-     * keys‚Ì”‚ÆcompareStrategies‚Ì”‚ÆA”äŠr‚É—˜—p‚³‚ê‚éCompareStrategy‚ÌŠÖŒW‚ÍˆÈ‰º‚Ì‚æ‚¤‚É‚È‚é.<br>
+     * å¾Œå‡¦ç†ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯ã‚­ãƒ¼å–å¾—.<br>
+     * keysã®æ•°ã¨compareStrategiesã®æ•°ã¨ã€æ¯”è¼ƒæ™‚ã«åˆ©ç”¨ã•ã‚Œã‚‹CompareStrategyã®é–¢ä¿‚ã¯ä»¥ä¸‹ã®ã‚ˆã†ã«ãªã‚‹.<br>
      * <ul>
-     * <li>keys : compareStrategies = N : N (‚Ü‚½‚ÍNˆÈã)‚Ìê‡
+     * <li>keys : compareStrategies = N : N (ã¾ãŸã¯Nä»¥ä¸Š)ã®å ´åˆ
      * <ul>
-     * <li>keys[i]‚ÌCompareStrategy‚ÍcompareStrategies[i]</li>
+     * <li>keys[i]ã®CompareStrategyã¯compareStrategies[i]</li>
      * </ul>
      * </li>
-     * <li>keys : compareStrategies = N : 1‚Ìê‡
+     * <li>keys : compareStrategies = N : 1ã®å ´åˆ
      * <ul>
-     * <li>keys[i]‚ÌCompareStrategy‚ÍcompareStrategies[0]</li>
+     * <li>keys[i]ã®CompareStrategyã¯compareStrategies[0]</li>
      * </ul>
      * </li>
-     * <li>keys : compareStrategies = N : M (N &gt; M)‚Ìê‡
+     * <li>keys : compareStrategies = N : M (N &gt; M)ã®å ´åˆ
      * <ul>
-     * <li>keys[i] (i &lt; M)‚ÌCompareStrategy‚ÍcompareStrategies[i]</li>
-     * <li>keys[i] (i &gt;= M)‚ÌCompareStrategy‚Ínull</li>
+     * <li>keys[i] (i &lt; M)ã®CompareStrategyã¯compareStrategies[i]</li>
+     * <li>keys[i] (i &gt;= M)ã®CompareStrategyã¯null</li>
      * </ul>
      * </li>
      * </ul>
-     * ”äŠrd—l‚ÍA{@link #equalsObjects(Object, Object, CompareStrategy)} ‚ğQÆ‚Ì‚±‚Æ.
+     * æ¯”è¼ƒä»•æ§˜ã¯ã€{@link #equalsObjects(Object, Object, CompareStrategy)} ã‚’å‚ç…§ã®ã“ã¨.
      * @param collector Collector&lt;?&gt;
      * @param compareStrategies CompareStrategy&lt;?&gt;[]
      * @param keys String[]
-     * @return ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒNƒL[ƒŠƒXƒg
+     * @return ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯ã‚­ãƒ¼ãƒªã‚¹ãƒˆ
      * @see #equalsObjects(Object, Object, CompareStrategy)
      */
     public static Map<String, Object> getBreakKey(Collector<?> collector,
@@ -375,18 +375,18 @@ public class ControlBreakChecker {
     }
 
     /**
-     * ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒNƒL[æ“¾.<br>
-     * ‚±‚Ìƒƒ\ƒbƒh‚ÍAver.1.1.xˆÈ‘O‚Æ‚ÌŒİŠ·«‚ğ•Û‚Â‚½‚ß‚Éc‚µ‚Ä‚¢‚é.<br>
-     * V‹K‚Éì¬‚·‚éƒR[ƒh‚Ìê‡‚ÍA<br>
-     * {@link #getBreakKey(Collector, CompareStrategy[], String[])}A<br>
-     * {@link #getPreBreakKey(Collector, CompareStrategy[], String[])}A<br>
+     * ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯ã‚­ãƒ¼å–å¾—.<br>
+     * ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã¯ã€ver.1.1.xä»¥å‰ã¨ã®äº’æ›æ€§ã‚’ä¿ã¤ãŸã‚ã«æ®‹ã—ã¦ã„ã‚‹.<br>
+     * æ–°è¦ã«ä½œæˆã™ã‚‹ã‚³ãƒ¼ãƒ‰ã®å ´åˆã¯ã€<br>
+     * {@link #getBreakKey(Collector, CompareStrategy[], String[])}ã€<br>
+     * {@link #getPreBreakKey(Collector, CompareStrategy[], String[])}ã€<br>
      * {@link #getBreakKeyInternal(Object, Object, CompareStrategy[], String...)}<br>
-     * ‚ğg—p‚·‚é‚±‚Æ.<br>
-     * @param current Object ”äŠrŒ³ƒIƒuƒWƒFƒNƒg
-     * @param other Object ”äŠræƒIƒuƒWƒFƒNƒg
+     * ã‚’ä½¿ç”¨ã™ã‚‹ã“ã¨.<br>
+     * @param current Object æ¯”è¼ƒå…ƒã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param other Object æ¯”è¼ƒå…ˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      * @param comparators Comparator&lt;?&gt;[]
      * @param keys String...
-     * @return ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒNƒL[ƒŠƒXƒg
+     * @return ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯ã‚­ãƒ¼ãƒªã‚¹ãƒˆ
      * @see #getBreakKey(Collector, CompareStrategy[], String[])
      * @see #getPreBreakKey(Collector, CompareStrategy[], String[])
      * @see #getBreakKeyInternal(Object, Object, CompareStrategy[], String...)
@@ -394,7 +394,7 @@ public class ControlBreakChecker {
     protected static Map<String, Object> getBreakKeyInternal(Object current,
             Object other, Comparator<?>[] comparators, String... keys) {
 
-        // comparator -> compareStrategy‚Ö‚Ì‹l‚ß‘Ö‚¦‚ğs‚¤
+        // comparator -> compareStrategyã¸ã®è©°ã‚æ›¿ãˆã‚’è¡Œã†
         if (comparators != null) {
             CompareStrategy<?>[] compareStrategies = new CompareStrategy[comparators.length];
 
@@ -410,32 +410,32 @@ public class ControlBreakChecker {
     }
 
     /**
-     * ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒNƒL[æ“¾.<br>
-     * keys‚Ì”‚ÆcompareStrategies‚Ì”‚ÆA”äŠr‚É—˜—p‚³‚ê‚éCompareStrategy‚ÌŠÖŒW‚ÍˆÈ‰º‚Ì‚æ‚¤‚É‚È‚é.<br>
+     * ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯ã‚­ãƒ¼å–å¾—.<br>
+     * keysã®æ•°ã¨compareStrategiesã®æ•°ã¨ã€æ¯”è¼ƒæ™‚ã«åˆ©ç”¨ã•ã‚Œã‚‹CompareStrategyã®é–¢ä¿‚ã¯ä»¥ä¸‹ã®ã‚ˆã†ã«ãªã‚‹.<br>
      * <ul>
-     * <li>keys : compareStrategies = N : N (‚Ü‚½‚ÍNˆÈã)‚Ìê‡
+     * <li>keys : compareStrategies = N : N (ã¾ãŸã¯Nä»¥ä¸Š)ã®å ´åˆ
      * <ul>
-     * <li>keys[i]‚ÌCompareStrategy‚ÍcompareStrategies[i]</li>
+     * <li>keys[i]ã®CompareStrategyã¯compareStrategies[i]</li>
      * </ul>
      * </li>
-     * <li>keys : compareStrategies = N : 1‚Ìê‡
+     * <li>keys : compareStrategies = N : 1ã®å ´åˆ
      * <ul>
-     * <li>keys[i]‚ÌCompareStrategy‚ÍcompareStrategies[0]</li>
+     * <li>keys[i]ã®CompareStrategyã¯compareStrategies[0]</li>
      * </ul>
      * </li>
-     * <li>keys : compareStrategies = N : M (N &gt; M)‚Ìê‡
+     * <li>keys : compareStrategies = N : M (N &gt; M)ã®å ´åˆ
      * <ul>
-     * <li>keys[i] (i &lt; M)‚ÌCompareStrategy‚ÍcompareStrategies[i]</li>
-     * <li>keys[i] (i &gt;= M)‚ÌCompareStrategy‚Ínull</li>
+     * <li>keys[i] (i &lt; M)ã®CompareStrategyã¯compareStrategies[i]</li>
+     * <li>keys[i] (i &gt;= M)ã®CompareStrategyã¯null</li>
      * </ul>
      * </li>
      * </ul>
-     * ”äŠr‚É‚Í {@link #equalsObjects(Object, Object, CompareStrategy)} ƒƒ\ƒbƒh‚ğg—p‚·‚é.
-     * @param current Object ”äŠrŒ³ƒIƒuƒWƒFƒNƒg
-     * @param other Object ”äŠræƒIƒuƒWƒFƒNƒg
+     * æ¯”è¼ƒã«ã¯ {@link #equalsObjects(Object, Object, CompareStrategy)} ãƒ¡ã‚½ãƒƒãƒ‰ã‚’ä½¿ç”¨ã™ã‚‹.
+     * @param current Object æ¯”è¼ƒå…ƒã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param other Object æ¯”è¼ƒå…ˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      * @param compareStrategies CompareStrategy&lt;?&gt;[]
      * @param keys String...
-     * @return ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒNƒL[ƒŠƒXƒg
+     * @return ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯ã‚­ãƒ¼ãƒªã‚¹ãƒˆ
      * @see #equalsObjects(Object, Object, CompareStrategy)
      */
     protected static Map<String, Object> getBreakKeyInternal(Object current,
@@ -444,9 +444,9 @@ public class ControlBreakChecker {
         boolean inBreak = false;
         Map<String, Object> result = new LinkedHashMap<String, Object>();
 
-        // keyƒŠƒXƒg‚ª‹ó‚à‚µ‚­‚Ínull‚Ìê‡‚Ífalse
+        // keyãƒªã‚¹ãƒˆãŒç©ºã‚‚ã—ãã¯nullã®å ´åˆã¯false
         if (keys == null || keys.length == 0) {
-            // ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒN‚È‚µ
+            // ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯ãªã—
             return result;
         }
 
@@ -466,39 +466,39 @@ public class ControlBreakChecker {
 
             if (key != null && key.length() != 0) {
 
-                // ’l‚ğæ“¾‚·‚é
+                // å€¤ã‚’å–å¾—ã™ã‚‹
                 if (current != null) {
                     try {
                         currentValue = PropertyUtils.getProperty(current, key);
                     } catch (Exception e) {
                         logOutputPropNotFound(e, current, key);
-                        // ƒƒO‚ğo—Í‚µ‚ÄŸ‚Ì€–Ú‚ğƒ`ƒFƒbƒN
+                        // ãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¦æ¬¡ã®é …ç›®ã‚’ãƒã‚§ãƒƒã‚¯
                         continue;
                     }
                 }
 
-                // ’l‚ğæ“¾‚·‚é
+                // å€¤ã‚’å–å¾—ã™ã‚‹
                 if (other != null) {
                     try {
                         otherValue = PropertyUtils.getProperty(other, key);
                     } catch (Exception e) {
                         logOutputPropNotFound(e, other, key);
-                        // ƒƒO‚ğo—Í‚µ‚ÄŸ‚Ì€–Ú‚ğƒ`ƒFƒbƒN
+                        // ãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¦æ¬¡ã®é …ç›®ã‚’ãƒã‚§ãƒƒã‚¯
                         continue;
                     }
                 }
 
                 if (!inBreak) {
-                    // •Ğ•û‚ªnull‚ÅA‚à‚¤•Ğ•û‚ªnot null‚Ìê‡‚Ítrue
+                    // ç‰‡æ–¹ãŒnullã§ã€ã‚‚ã†ç‰‡æ–¹ãŒnot nullã®å ´åˆã¯true
                     if ((current != null && other == null)
                             || (current == null && other != null)) {
-                        // ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒN”­¶
+                        // ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯ç™ºç”Ÿ
                         inBreak = true;
                     }
 
-                    // ”äŠr
+                    // æ¯”è¼ƒ
                     if (!equalsObjects(currentValue, otherValue, compareStrategy)) {
-                        // ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒN”­¶
+                        // ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯ç™ºç”Ÿ
                         inBreak = true;
                     }
                 }
@@ -512,15 +512,15 @@ public class ControlBreakChecker {
     }
 
     /**
-     * ‚ ‚éƒIƒuƒWƒFƒNƒg‚Æ•Ê‚ÌƒIƒuƒWƒFƒNƒg‚ª“™‚µ‚¢‚©‚Ç‚¤‚©”äŠr‚·‚é.<br>
-     * <code>equalsObjects(value1, value2, null);</code> ‚ğÀs‚·‚é‚Ì‚Æ“™‰¿‚Å‚ ‚é.<br>
-     * ‚±‚Ìƒƒ\ƒbƒh‚ÍAver.1.1.xˆÈ‘O‚Æ‚ÌƒRƒ“ƒpƒCƒ‹ŒİŠ·«‚ğ•Û‚Â‚½‚ß‚Éc‚µ‚Ä‚¢‚é.<br>
+     * ã‚ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¨åˆ¥ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒç­‰ã—ã„ã‹ã©ã†ã‹æ¯”è¼ƒã™ã‚‹.<br>
+     * <code>equalsObjects(value1, value2, null);</code> ã‚’å®Ÿè¡Œã™ã‚‹ã®ã¨ç­‰ä¾¡ã§ã‚ã‚‹.<br>
+     * ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã¯ã€ver.1.1.xä»¥å‰ã¨ã®ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«äº’æ›æ€§ã‚’ä¿ã¤ãŸã‚ã«æ®‹ã—ã¦ã„ã‚‹.<br>
      * 
-     * ˆÈ‰º‚ÌƒNƒ‰ƒX‚ğ<b>œ‚­</b>AComparableÀ‘•ƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX“¯m‚Ì”äŠr‚ÍA
-     * ver.1.1.xˆÈ‘O‚Æ‚Í”äŠrŒ‹‰Ê‚ªˆÙ‚È‚é‰Â”\«‚ª‚ ‚é.<br>
+     * ä»¥ä¸‹ã®ã‚¯ãƒ©ã‚¹ã‚’<b>é™¤ã</b>ã€Comparableå®Ÿè£…ã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒå£«ã®æ¯”è¼ƒã¯ã€
+     * ver.1.1.xä»¥å‰ã¨ã¯æ¯”è¼ƒçµæœãŒç•°ãªã‚‹å¯èƒ½æ€§ãŒã‚ã‚‹.<br>
      * <ul>
-     * <li>ver.1.1.xˆÈ‘O‚Å‚Íequalsƒƒ\ƒbƒh‚Å”äŠr‚³‚êA‚©‚ÂA
-     * Comparable‚ÌÀ‘•‚Æequals‚ÌÀ‘•‚ÉˆêŠÑ«‚ª‚ ‚éƒNƒ‰ƒX.
+     * <li>ver.1.1.xä»¥å‰ã§ã¯equalsãƒ¡ã‚½ãƒƒãƒ‰ã§æ¯”è¼ƒã•ã‚Œã€ã‹ã¤ã€
+     * Comparableã®å®Ÿè£…ã¨equalsã®å®Ÿè£…ã«ä¸€è²«æ€§ãŒã‚ã‚‹ã‚¯ãƒ©ã‚¹.
      * <ul>
      * <li>java.math.BigInteger</li>
      * <li>java.lang.Byte</li>
@@ -532,26 +532,26 @@ public class ControlBreakChecker {
      * <li>java.lang.Boolean</li>
      * <li>java.lang.Character</li>
      * <li>java.lang.String</li>
-     * <li>java.util.Date(java.sql.Date“™‚ÌƒTƒuƒNƒ‰ƒX‚ğŠÜ‚Ü‚È‚¢)</li>
+     * <li>java.util.Date(java.sql.Dateç­‰ã®ã‚µãƒ–ã‚¯ãƒ©ã‚¹ã‚’å«ã¾ãªã„)</li>
      * </ul>
      * </li>
      * </ul>
      * 
-     * ‚±‚Ìƒƒ\ƒbƒh‚Ì‘ã‚í‚è‚ÉA<br>
+     * ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã®ä»£ã‚ã‚Šã«ã€<br>
      * {@link #equalsObjects(Object, Object, CompareStrategy)}<br>
-     * ‚ğg—p‚·‚é‚±‚Æ.<br>
-     * @param value1 Object ”äŠrŒ³ƒIƒuƒWƒFƒNƒg
-     * @param value2 Object ”äŠræƒIƒuƒWƒFƒNƒg
-     * @return “™‚µ‚¢ê‡:true / ‚»‚¤‚Å‚È‚¢ê‡:false
+     * ã‚’ä½¿ç”¨ã™ã‚‹ã“ã¨.<br>
+     * @param value1 Object æ¯”è¼ƒå…ƒã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param value2 Object æ¯”è¼ƒå…ˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @return ç­‰ã—ã„å ´åˆ:true / ãã†ã§ãªã„å ´åˆ:false
      * @see #equalsObjects(Object, Object, CompareStrategy)
-     * @deprecated ‚±‚Ìƒƒ\ƒbƒh‚Ì‘ã‚í‚è‚ÉA{@link #equalsObjects(Object, Object, CompareStrategy)}‚ğg—p‚·‚é‚±‚Æ.
+     * @deprecated ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã®ä»£ã‚ã‚Šã«ã€{@link #equalsObjects(Object, Object, CompareStrategy)}ã‚’ä½¿ç”¨ã™ã‚‹ã“ã¨.
      */
     protected static boolean equalsObjects(Object value1, Object value2) {
         return equalsObjects(value1, value2, null);
     }
 
     /**
-     * ƒƒOo—ÍiƒvƒƒpƒeƒB‚ªŒ©‚Â‚©‚ç‚È‚©‚Á‚½ê‡j.<br>
+     * ãƒ­ã‚°å‡ºåŠ›ï¼ˆãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãŒè¦‹ã¤ã‹ã‚‰ãªã‹ã£ãŸå ´åˆï¼‰.<br>
      * @param e Exception
      * @param obj Object
      * @param key String
@@ -566,55 +566,55 @@ public class ControlBreakChecker {
     }
 
     /**
-     * ‚ ‚éƒIƒuƒWƒFƒNƒg‚Æ•Ê‚ÌƒIƒuƒWƒFƒNƒg‚ª“™‚µ‚¢‚©‚Ç‚¤‚©”äŠr‚·‚é.<br>
+     * ã‚ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¨åˆ¥ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒç­‰ã—ã„ã‹ã©ã†ã‹æ¯”è¼ƒã™ã‚‹.<br>
      * <ul>
-     * <li>‚Ç‚¿‚ç‚ànull‚Å‚È‚¢ê‡AˆÈ‰º‚Ì‚æ‚¤‚É”äŠr‚·‚é.
+     * <li>ã©ã¡ã‚‰ã‚‚nullã§ãªã„å ´åˆã€ä»¥ä¸‹ã®ã‚ˆã†ã«æ¯”è¼ƒã™ã‚‹.
      * <ul>
-     * <li>compareStrategy‚ªnull‚Å‚È‚¢ê‡AcompareStrategy‚Å”äŠr</li>
-     * <li>compareStrategy‚ªnull‚Å‚ ‚éê‡A”äŠrŒ³ƒIƒuƒWƒFƒNƒg‚ÌŒ^‚É‰‚¶‚ÄAˆÈ‰º‚Ì‚æ‚¤‚É”äŠr
+     * <li>compareStrategyãŒnullã§ãªã„å ´åˆã€compareStrategyã§æ¯”è¼ƒ</li>
+     * <li>compareStrategyãŒnullã§ã‚ã‚‹å ´åˆã€æ¯”è¼ƒå…ƒã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å‹ã«å¿œã˜ã¦ã€ä»¥ä¸‹ã®ã‚ˆã†ã«æ¯”è¼ƒ
      * <ul>
-     * <li>”äŠrŒ³ƒIƒuƒWƒFƒNƒg‚ªComparableÀ‘•ƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚Ìê‡AComparable#compareTo‚Å”äŠr
-     * <li>”äŠrŒ³ƒIƒuƒWƒFƒNƒg‚ªClass‚Ü‚½‚Í‚»‚ÌƒX[ƒp[ƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚Ìê‡AObject#equals‚Å”äŠr
-     * <li>ã‹L2‚ÂˆÈŠO‚Ìê‡Aorg.apache.commons.lang.builder.EqualsBuilder#reflectionEquals‚Å”äŠr
+     * <li>æ¯”è¼ƒå…ƒã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒComparableå®Ÿè£…ã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã®å ´åˆã€Comparable#compareToã§æ¯”è¼ƒ
+     * <li>æ¯”è¼ƒå…ƒã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒClassã¾ãŸã¯ãã®ã‚¹ãƒ¼ãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã®å ´åˆã€Object#equalsã§æ¯”è¼ƒ
+     * <li>ä¸Šè¨˜2ã¤ä»¥å¤–ã®å ´åˆã€org.apache.commons.lang.builder.EqualsBuilder#reflectionEqualsã§æ¯”è¼ƒ
      * </ul>
      * </li>
      * </ul>
      * </li>
-     * <li>‚Ç‚¿‚ç‚ànull‚Ìê‡A“™‚µ‚¢‚Æ‚İ‚È‚·.</li>
-     * <li>‚Ç‚¿‚©ˆê•û‚Ì‚İ‚ªnull‚Ìê‡A“™‚­‚È‚¢‚Æ‚İ‚È‚·.</li>
+     * <li>ã©ã¡ã‚‰ã‚‚nullã®å ´åˆã€ç­‰ã—ã„ã¨ã¿ãªã™.</li>
+     * <li>ã©ã¡ã‹ä¸€æ–¹ã®ã¿ãŒnullã®å ´åˆã€ç­‰ããªã„ã¨ã¿ãªã™.</li>
      * </ul>
-     * @param value1 Object ”äŠrŒ³ƒIƒuƒWƒFƒNƒg
-     * @param value2 Object ”äŠræƒIƒuƒWƒFƒNƒg
+     * @param value1 Object æ¯”è¼ƒå…ƒã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param value2 Object æ¯”è¼ƒå…ˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      * @param compareStrategy CompareStrategy
-     * @return “™‚µ‚¢ê‡:true / ‚»‚¤‚Å‚È‚¢ê‡:false
+     * @return ç­‰ã—ã„å ´åˆ:true / ãã†ã§ãªã„å ´åˆ:false
      */
     @SuppressWarnings({"rawtypes", "unchecked"})
     protected static boolean equalsObjects(Object value1,
             Object value2, CompareStrategy compareStrategy) {
 
         if (value1 != null && value2 != null) {
-            // value1,value2‚Ì‚Ç‚¿‚ç‚É‚à’l‚ª“ü‚Á‚Ä‚¢‚éê‡
+            // value1,value2ã®ã©ã¡ã‚‰ã«ã‚‚å€¤ãŒå…¥ã£ã¦ã„ã‚‹å ´åˆ
             if (compareStrategy != null) {
                 return compareStrategy.equalsObjects(value1, value2);
             } else {
                 Class<? extends Object> clazz = value1.getClass();
 
                 if (value1 instanceof Comparable) {
-                    // value1‚ªComparable‚ğÀ‘•‚µ‚Ä‚¢‚éê‡‚ÍcompareTo‚Å”äŠr‚·‚é
+                    // value1ãŒComparableã‚’å®Ÿè£…ã—ã¦ã„ã‚‹å ´åˆã¯compareToã§æ¯”è¼ƒã™ã‚‹
                     return (((Comparable) value1).compareTo(value2) == 0);
                 } else if (clazz.isAssignableFrom(Class.class)) {
-                    // value1‚ªClass‚Ü‚½‚Í‚»‚ÌƒX[ƒp[ƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚Ìê‡Object#equals‚Å”äŠr‚·‚é
+                    // value1ãŒClassã¾ãŸã¯ãã®ã‚¹ãƒ¼ãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã®å ´åˆObject#equalsã§æ¯”è¼ƒã™ã‚‹
                     return value1.equals(value2);
                 } else {
-                    // ‚»‚êˆÈŠO‚Ìê‡‚ÍreflectionEquals‚Å”äŠr‚·‚é
+                    // ãã‚Œä»¥å¤–ã®å ´åˆã¯reflectionEqualsã§æ¯”è¼ƒã™ã‚‹
                     return EqualsBuilder.reflectionEquals(value1, value2);
                 }
             }
         } else if (value1 == null && value2 == null) {
-            // value1,value2‚Ì‚Ç‚¿‚ç‚É‚à’l‚ª“ü‚Á‚Ä‚¢‚È‚¢ê‡
+            // value1,value2ã®ã©ã¡ã‚‰ã«ã‚‚å€¤ãŒå…¥ã£ã¦ã„ãªã„å ´åˆ
             return true;
         }
-        // value1,value2‚Ì‚Ç‚¿‚ç‚©ˆê•û‚É’l‚ª“ü‚Á‚Ä‚¢‚éê‡
+        // value1,value2ã®ã©ã¡ã‚‰ã‹ä¸€æ–¹ã«å€¤ãŒå…¥ã£ã¦ã„ã‚‹å ´åˆ
         return false;
 
     }

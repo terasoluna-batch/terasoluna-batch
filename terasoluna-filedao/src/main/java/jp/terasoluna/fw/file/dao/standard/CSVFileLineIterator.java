@@ -21,138 +21,138 @@ import java.util.Map;
 import jp.terasoluna.fw.file.dao.FileException;
 
 /**
- * CSVƒtƒ@ƒCƒ‹—p‚Ìƒtƒ@ƒCƒ‹ƒAƒNƒZƒX(ƒf[ƒ^æ“¾)ƒNƒ‰ƒXB
+ * CSVãƒ•ã‚¡ã‚¤ãƒ«ç”¨ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚¢ã‚¯ã‚»ã‚¹(ãƒ‡ãƒ¼ã‚¿å–å¾—)ã‚¯ãƒ©ã‚¹ã€‚
  * <p>
- * CSVƒtƒ@ƒCƒ‹‚©‚çƒf[ƒ^‚ğ“Ç‚İ‚İA1s•ª‚Ìƒf[ƒ^‚ğƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÉŠi”[‚·‚éB
+ * CSVãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿è¾¼ã¿ã€1è¡Œåˆ†ã®ãƒ‡ãƒ¼ã‚¿ã‚’ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«æ ¼ç´ã™ã‚‹ã€‚
  * </p>
- * <b>¦—˜—p‚·‚éƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌƒAƒmƒe[ƒVƒ‡ƒ“€–Ú</b><br>
- * ú@D@{@link FileFormat}‚Ìİ’è€–Ú<br>
+ * <b>â€»åˆ©ç”¨ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³é …ç›®</b><br>
+ * â…°ï¼@{@link FileFormat}ã®è¨­å®šé …ç›®<br>
  * <div align="center">
  * <table width="90%" border="1" bgcolor="#FFFFFF">
  * <tr>
- * <td><b>˜_—€–Ú–¼</b></td>
- * <td><b>•¨—€–Ú–¼</b></td>
- * <td><b>ƒfƒtƒHƒ‹ƒg’l</b></td>
- * <td><b>•K{«</b></td>
+ * <td><b>è«–ç†é …ç›®å</b></td>
+ * <td><b>ç‰©ç†é …ç›®å</b></td>
+ * <td><b>ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤</b></td>
+ * <td><b>å¿…é ˆæ€§</b></td>
  * </tr>
  * <tr>
- * <td> <code>s‹æØ‚è•¶š</code></td>
+ * <td> <code>è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—</code></td>
  * <td> <code>lineFeedChar</code></td>
- * <td> <code>ƒVƒXƒeƒ€‚Ìs‹æØ‚è•¶š</code></td>
- * <td> <code>ƒIƒvƒVƒ‡ƒ“</code></td>
+ * <td> <code>ã‚·ã‚¹ãƒ†ãƒ ã®è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—</code></td>
+ * <td> <code>ã‚ªãƒ—ã‚·ãƒ§ãƒ³</code></td>
  * </tr>
  * <tr>
- * <td> <code>ˆÍ‚İ•¶š</code></td>
+ * <td> <code>å›²ã¿æ–‡å­—</code></td>
  * <td> <code>encloseChar</code></td>
- * <td> <code>‚È‚µ('\u0000')</code></td>
- * <td> <code>ƒIƒvƒVƒ‡ƒ“</code></td>
+ * <td> <code>ãªã—('\u0000')</code></td>
+ * <td> <code>ã‚ªãƒ—ã‚·ãƒ§ãƒ³</code></td>
  * </tr>
  * <tr>
- * <td> <code>ƒtƒ@ƒCƒ‹ƒGƒ“ƒR[ƒfƒBƒ“ƒO</code></td>
+ * <td> <code>ãƒ•ã‚¡ã‚¤ãƒ«ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°</code></td>
  * <td> <code>fileEncodeing</code></td>
- * <td> <code>ƒVƒXƒeƒ€‚Ìƒtƒ@ƒCƒ‹ƒGƒ“ƒR[ƒfƒBƒ“ƒO</code></td>
- * <td> <code>ƒIƒvƒVƒ‡ƒ“</code></td>
+ * <td> <code>ã‚·ã‚¹ãƒ†ãƒ ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°</code></td>
+ * <td> <code>ã‚ªãƒ—ã‚·ãƒ§ãƒ³</code></td>
  * </tr>
  * <tr>
- * <td> <code>ƒwƒbƒ_s”</code></td>
+ * <td> <code>ãƒ˜ãƒƒãƒ€è¡Œæ•°</code></td>
  * <td> <code>headerLineCount</code></td>
  * <td> <code>0</code></td>
- * <td> <code>ƒIƒvƒVƒ‡ƒ“</code></td>
+ * <td> <code>ã‚ªãƒ—ã‚·ãƒ§ãƒ³</code></td>
  * </tr>
  * <tr>
- * <td> <code>ƒgƒŒƒCƒ‰s”</code></td>
+ * <td> <code>ãƒˆãƒ¬ã‚¤ãƒ©è¡Œæ•°</code></td>
  * <td> <code>trailerLineCount</code></td>
  * <td> <code>0</code></td>
- * <td> <code>ƒIƒvƒVƒ‡ƒ“</code></td>
+ * <td> <code>ã‚ªãƒ—ã‚·ãƒ§ãƒ³</code></td>
  * </tr>
  * </table>
  * </div> <br>
- * úAD@{@link jp.terasoluna.fw.file.annotation.InputFileColumn}A@{@link jp.terasoluna.fw.file.annotation.OutputFileColumn}‚Ìİ’è€–Ú<br>
+ * â…±ï¼@{@link jp.terasoluna.fw.file.annotation.InputFileColumn}ã€@{@link jp.terasoluna.fw.file.annotation.OutputFileColumn}ã®è¨­å®šé …ç›®<br>
  * <div align="center">
  * <table width="90%" border="1" bgcolor="#FFFFFF">
  * <tr>
- * <td><b>˜_—€–Ú–¼</b></td>
- * <td><b>•¨—€–Ú–¼</b></td>
- * <td><b>ƒfƒtƒHƒ‹ƒg’l</b></td>
- * <td><b>•K{«</b></td>
+ * <td><b>è«–ç†é …ç›®å</b></td>
+ * <td><b>ç‰©ç†é …ç›®å</b></td>
+ * <td><b>ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤</b></td>
+ * <td><b>å¿…é ˆæ€§</b></td>
  * </tr>
  * <tr>
- * <td> <code>ƒJƒ‰ƒ€ƒCƒ“ƒfƒbƒNƒX</code></td>
+ * <td> <code>ã‚«ãƒ©ãƒ ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹</code></td>
  * <td> <code>columnIndex</code></td>
  * <td>-</td>
- * <td> <code>•K{</code></td>
+ * <td> <code>å¿…é ˆ</code></td>
  * </tr>
  * <tr>
- * <td> <code>ƒtƒH[ƒ}ƒbƒg</code></td>
+ * <td> <code>ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆ</code></td>
  * <td> <code>columnFormat</code></td>
  * <td> <code>""</code></td>
- * <td> <code>ƒIƒvƒVƒ‡ƒ“</code></td>
+ * <td> <code>ã‚ªãƒ—ã‚·ãƒ§ãƒ³</code></td>
  * </tr>
  * <tr>
- * <td> <code>ƒoƒCƒg’·</code></td>
+ * <td> <code>ãƒã‚¤ãƒˆé•·</code></td>
  * <td> <code>bytes</code></td>
  * <td>-</td>
- * <td> <code>•K{</code></td>
+ * <td> <code>å¿…é ˆ</code></td>
  * </tr>
  * <tr>
- * <td> <code>ƒpƒfƒBƒ“ƒOí•Ê</code></td>
+ * <td> <code>ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°ç¨®åˆ¥</code></td>
  * <td> <code>paddingType</code></td>
- * <td> <code>ƒpƒfƒBƒ“ƒO‚È‚µ</code></td>
- * <td> <code>ƒIƒvƒVƒ‡ƒ“</code></td>
+ * <td> <code>ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°ãªã—</code></td>
+ * <td> <code>ã‚ªãƒ—ã‚·ãƒ§ãƒ³</code></td>
  * </tr>
  * <tr>
- * <td> <code>ƒpƒfƒBƒ“ƒO•¶š</code></td>
+ * <td> <code>ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°æ–‡å­—</code></td>
  * <td> <code>paddingChar</code></td>
  * <td> <code>' '</code></td>
- * <td> <code>ƒIƒvƒVƒ‡ƒ“</code></td>
+ * <td> <code>ã‚ªãƒ—ã‚·ãƒ§ãƒ³</code></td>
  * </tr>
  * <tr>
- * <td> <code>ƒgƒŠƒ€í•Ê</code></td>
+ * <td> <code>ãƒˆãƒªãƒ ç¨®åˆ¥</code></td>
  * <td> <code>trimType</code></td>
- * <td> <code>ƒgƒŠƒ€‚È‚µ</code></td>
- * <td> <code>ƒIƒvƒVƒ‡ƒ“</code></td>
+ * <td> <code>ãƒˆãƒªãƒ ãªã—</code></td>
+ * <td> <code>ã‚ªãƒ—ã‚·ãƒ§ãƒ³</code></td>
  * </tr>
  * <tr>
- * <td> <code>ƒgƒŠƒ€•¶š</code></td>
+ * <td> <code>ãƒˆãƒªãƒ æ–‡å­—</code></td>
  * <td> <code>trimChar</code></td>
  * <td> <code>' '</code></td>
- * <td> <code>ƒIƒvƒVƒ‡ƒ“</code></td>
+ * <td> <code>ã‚ªãƒ—ã‚·ãƒ§ãƒ³</code></td>
  * </tr>
  * <tr>
- * <td> <code>•¶š•ÏŠ·í•Ê</code></td>
+ * <td> <code>æ–‡å­—å¤‰æ›ç¨®åˆ¥</code></td>
  * <td> <code>stringConverter</code></td>
  * <td> <code>NullStringConverter.class</code></td>
- * <td> <code>ƒIƒvƒVƒ‡ƒ“</code></td>
+ * <td> <code>ã‚ªãƒ—ã‚·ãƒ§ãƒ³</code></td>
  * </tr>
  * </table>
  * </div> <br>
- * <b>¦’ˆÓ–€</b><br>
+ * <b>â€»æ³¨æ„äº‹é …</b><br>
  * <ul>
- * @
- * <li>‹æØ‚è•¶š‚ğ<code>','</cod>ˆÈŠO‚Éİ’è‚·‚é‚±‚Æ‚Ío—ˆ‚È‚¢B(ƒGƒ‰[”­¶)</li>
+ * ã€€
+ * <li>åŒºåˆ‡ã‚Šæ–‡å­—ã‚’<code>','</cod>ä»¥å¤–ã«è¨­å®šã™ã‚‹ã“ã¨ã¯å‡ºæ¥ãªã„ã€‚(ã‚¨ãƒ©ãƒ¼ç™ºç”Ÿ)</li>
  * </ul>
- * @param <T> ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgB
+ * @param <T> ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
  */
 public class CSVFileLineIterator<T> extends VariableFileLineIterator<T> {
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-     * @param fileName ƒtƒ@ƒCƒ‹–¼
-     * @param clazz ƒtƒ@ƒCƒ‹sŒ‹‰ÊƒNƒ‰ƒX
-     * @param columnParserMap ƒJƒ‰ƒ€ƒtƒH[ƒ}ƒbƒgˆ—‚ğŠi”[‚·‚éƒ}ƒbƒv
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * @param fileName ãƒ•ã‚¡ã‚¤ãƒ«å
+     * @param clazz ãƒ•ã‚¡ã‚¤ãƒ«è¡Œçµæœã‚¯ãƒ©ã‚¹
+     * @param columnParserMap ã‚«ãƒ©ãƒ ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆå‡¦ç†ã‚’æ ¼ç´ã™ã‚‹ãƒãƒƒãƒ—
      */
     public CSVFileLineIterator(String fileName, Class<T> clazz,
             Map<String, ColumnParser> columnParserMap) {
 
         super(fileName, clazz, columnParserMap);
 
-        // ‹æØ‚è•¶š‚ª‰Šú’lˆÈŠO‚Ìê‡A—áŠO‚ğƒXƒ[‚·‚éB
+        // åŒºåˆ‡ã‚Šæ–‡å­—ãŒåˆæœŸå€¤ä»¥å¤–ã®å ´åˆã€ä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã€‚
         if (getDelimiter() != ',') {
             throw new FileException("Delimiter can not change.",
                     new IllegalStateException(), fileName);
         }
 
-        // ‰Šú‰»ˆ—‚ğs‚¤B
+        // åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
         super.init();
     }
 }

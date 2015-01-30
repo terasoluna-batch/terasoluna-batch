@@ -11,37 +11,37 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 /**
- * ƒtƒ@ƒCƒ‹‚Ì’†g‚ğƒoƒCƒiƒŠ”äŠr‚·‚é‚½‚ß‚Ìƒ‰ƒbƒp[ƒNƒ‰ƒXB <BR>
+ * ãƒ•ã‚¡ã‚¤ãƒ«ã®ä¸­èº«ã‚’ãƒã‚¤ãƒŠãƒªæ¯”è¼ƒã™ã‚‹ãŸã‚ã®ãƒ©ãƒƒãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã€‚ <BR>
  * <BR>
- * ’Êí‚ÍUTUtil.assertEqualsFile()ƒƒ\ƒbƒh‚ª‚ ‚é‚Ì‚ÅA‚±‚ÌƒNƒ‰ƒX‚ğ’¼Ú g‚¤•K—v«‚Í­‚È‚¢‚Æv‚í‚ê‚éB
- * @author –Ø‘º^K
+ * é€šå¸¸ã¯UTUtil.assertEqualsFile()ãƒ¡ã‚½ãƒƒãƒ‰ãŒã‚ã‚‹ã®ã§ã€ã“ã®ã‚¯ãƒ©ã‚¹ã‚’ç›´æ¥ ä½¿ã†å¿…è¦æ€§ã¯å°‘ãªã„ã¨æ€ã‚ã‚Œã‚‹ã€‚
+ * @author æœ¨æ‘çœŸå¹¸
  * @version 2003.08.20
  */
 public class FileContent {
 
     /**
-     * •Û‚·‚éƒtƒ@ƒCƒ‹ƒIƒuƒWƒFƒNƒgB
+     * ä¿æŒã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
      */
     private File file = null;
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-     * @param file ’†g‚ğ”äŠr‚µ‚½‚¢ƒtƒ@ƒCƒ‹
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * @param file ä¸­èº«ã‚’æ¯”è¼ƒã—ãŸã„ãƒ•ã‚¡ã‚¤ãƒ«
      */
     public FileContent(File file) {
         this.file = file;
     }
 
     /**
-     * •Û‚µ‚Ä‚¢‚éFileƒIƒuƒWƒFƒNƒg‚ğæ“¾‚·‚éB
-     * @return FileƒIƒuƒWƒFƒNƒg
+     * ä¿æŒã—ã¦ã„ã‚‹Fileã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return Fileã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      */
     public File getFile() {
         return file;
     }
 
     /**
-     * ƒnƒbƒVƒ…ƒR[ƒh‚ğ•Ô‚·B
+     * ãƒãƒƒã‚·ãƒ¥ã‚³ãƒ¼ãƒ‰ã‚’è¿”ã™ã€‚
      * @see java.lang.Object#hashCode()
      */
     public int hashCode() {
@@ -71,9 +71,9 @@ public class FileContent {
     }
 
     /**
-     * ƒtƒ@ƒCƒ‹‚ğƒoƒCƒiƒŠ”äŠr‚·‚éB
-     * @param other ”äŠr‘ÎÆ‚Ìƒtƒ@ƒCƒ‹
-     * @return ”äŠrŒ‹‰ÊB“¯ˆê‚È‚çtrueAˆÙ‚È‚ê‚Îfalse‚ğ•Ô‚·B
+     * ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ãƒã‚¤ãƒŠãƒªæ¯”è¼ƒã™ã‚‹ã€‚
+     * @param other æ¯”è¼ƒå¯¾ç…§ã®ãƒ•ã‚¡ã‚¤ãƒ«
+     * @return æ¯”è¼ƒçµæœã€‚åŒä¸€ãªã‚‰trueã€ç•°ãªã‚Œã°falseã‚’è¿”ã™ã€‚
      */
     public boolean equals(FileContent other) {
         if (hashCode() != other.hashCode()) {
@@ -127,7 +127,7 @@ public class FileContent {
     }
 
     /**
-     * toString‚ÌƒI[ƒo[ƒ‰ƒCƒhBƒtƒ@ƒCƒ‹‚ÌƒpƒX‚ğ•Ô‚·À‘•‚É‚È‚Á‚Ä‚¢‚éB
+     * toStringã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã€‚ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹ã‚’è¿”ã™å®Ÿè£…ã«ãªã£ã¦ã„ã‚‹ã€‚
      * @see java.lang.Object#toString()
      */
     public String toString() {
@@ -135,8 +135,8 @@ public class FileContent {
     }
 
     /**
-     * “Ç‚İ‚ñ‚¾ƒoƒCƒg”‚ğ•W€o—Í‚Éo—Í‚·‚éB
-     * @param bytes “Ç‚İ‚ñ‚¾ƒoƒCƒg”
+     * èª­ã¿è¾¼ã‚“ã ãƒã‚¤ãƒˆæ•°ã‚’æ¨™æº–å‡ºåŠ›ã«å‡ºåŠ›ã™ã‚‹ã€‚
+     * @param bytes èª­ã¿è¾¼ã‚“ã ãƒã‚¤ãƒˆæ•°
      */
     private void printReadBytes(long bytes) {
         printLength();
@@ -144,14 +144,14 @@ public class FileContent {
     }
 
     /**
-     * ƒnƒbƒVƒ…ƒR[ƒh‚ğ•W€o—Í‚Éo—Í‚·‚éB
+     * ãƒãƒƒã‚·ãƒ¥ã‚³ãƒ¼ãƒ‰ã‚’æ¨™æº–å‡ºåŠ›ã«å‡ºåŠ›ã™ã‚‹ã€‚
      */
     private void printHashCode() {
         System.out.println("hashCode of " + toString() + " is " + hashCode());
     }
 
     /**
-     * ƒtƒ@ƒCƒ‹‚Ì’·‚³‚ğ•W€o—Í‚Éo—Í‚·‚éB
+     * ãƒ•ã‚¡ã‚¤ãƒ«ã®é•·ã•ã‚’æ¨™æº–å‡ºåŠ›ã«å‡ºåŠ›ã™ã‚‹ã€‚
      */
     private void printLength() {
         System.out

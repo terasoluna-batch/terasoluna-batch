@@ -4,14 +4,14 @@ import jp.terasoluna.fw.file.annotation.FileFormat;
 import jp.terasoluna.fw.file.annotation.InputFileColumn;
 
 /**
- * FileFormatƒAƒmƒe[ƒVƒ‡ƒ“‚Ìİ’è‚ğ‚ÂAƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgƒXƒ^ƒu
+ * FileFormatã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã®è¨­å®šã‚’æŒã¤ã€ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¹ã‚¿ãƒ–
  * <p>
- * AbstractFileLineIterator_Stub35‚ğŒp³‚·‚éƒTƒuƒNƒ‰ƒXB<br>
+ * AbstractFileLineIterator_Stub35ã‚’ç¶™æ‰¿ã™ã‚‹ã‚µãƒ–ã‚¯ãƒ©ã‚¹ã€‚<br>
  * <p>
- * ˆÈ‰º‚Ìİ’è‚ğ‚Â<br>
+ * ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤<br>
  * <ul>
  * <li>@FileFormat()
- * <li>‘®«
+ * <li>å±æ€§
  * <ul>
  * <li>@InputFileColumn(columnIndex=2)<br>
  * String noMappingColumn3

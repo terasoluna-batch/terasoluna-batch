@@ -1,4 +1,4 @@
 /**
- * トランザクション関連ユーティリティ
+ * 繝医Λ繝ｳ繧ｶ繧ｯ繧ｷ繝ｧ繝ｳ髢｢騾｣繝ｦ繝ｼ繝�繧｣繝ｪ繝�繧｣
  */
 package jp.terasoluna.fw.transaction.util;

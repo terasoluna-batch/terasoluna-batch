@@ -17,19 +17,19 @@
 package jp.terasoluna.fw.validation.springmodules;
 
 /**
- * Validation’è‹`ƒtƒ@ƒCƒ‹‚ÉŠÔˆá‚¢‚ª‚ ‚Á‚½ê‡AƒXƒ[‚³‚ê‚é—áŠOB
+ * Validationå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ã«é–“é•ã„ãŒã‚ã£ãŸå ´åˆã€ã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ä¾‹å¤–ã€‚
  *
  */
 public class ValidatorException extends RuntimeException {
 
     /**
-     * ƒVƒŠƒAƒ‹ƒo[ƒWƒ‡ƒ“IDB
+     * ã‚·ãƒªã‚¢ãƒ«ãƒãƒ¼ã‚¸ãƒ§ãƒ³IDã€‚
      */
     private static final long serialVersionUID = 7103001896009436057L;
 
     /**
-     * Œ´ˆö—áŠO‚ğˆø”‚É‚ÂƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-     * @param e Œ´ˆö—áŠOB
+     * åŸå› ä¾‹å¤–ã‚’å¼•æ•°ã«æŒã¤ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * @param e åŸå› ä¾‹å¤–ã€‚
      */
     ValidatorException(Exception e) {
         super(e);

@@ -26,11 +26,11 @@ import org.apache.commons.validator.Var;
 
 /**
  * {@link jp.terasoluna.fw.validation.FieldChecks}
- * ƒNƒ‰ƒX‚Ìƒuƒ‰ƒbƒNƒ{ƒbƒNƒXƒeƒXƒgB
+ * ã‚¯ãƒ©ã‚¹ã®ãƒ–ãƒ©ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ†ã‚¹ãƒˆã€‚
  *
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4>
- * TERASOLUNA‚Ì“ü—Íƒ`ƒFƒbƒN‹@”\‚Å‹¤’Ê‚Ég—p‚³‚ê‚éŒŸØƒ‹[ƒ‹ƒNƒ‰ƒXB
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4>
+ * TERASOLUNAã®å…¥åŠ›ãƒã‚§ãƒƒã‚¯æ©Ÿèƒ½ã§å…±é€šã«ä½¿ç”¨ã•ã‚Œã‚‹æ¤œè¨¼ãƒ«ãƒ¼ãƒ«ã‚¯ãƒ©ã‚¹ã€‚
  * <p>
  *
  * @see jp.terasoluna.fw.validation.FieldChecks
@@ -38,34 +38,34 @@ import org.apache.commons.validator.Var;
 public class FieldChecksTest04 extends TestCase {
 
     /**
-     * ƒeƒXƒg—pƒCƒ“ƒXƒ^ƒ“ƒXB
+     * ãƒ†ã‚¹ãƒˆç”¨ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
      */
     private ValidatorAction va = null;
 
     /**
-     * ƒeƒXƒg—pƒCƒ“ƒXƒ^ƒ“ƒXB
+     * ãƒ†ã‚¹ãƒˆç”¨ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
      */
     private Field field = null;
 
     /**
-     * ƒeƒXƒg—pƒCƒ“ƒXƒ^ƒ“ƒXB
+     * ãƒ†ã‚¹ãƒˆç”¨ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
      */
     private FieldChecks_ValidationErrorsImpl01 errors = null;
 
     /**
-     * ‚±‚ÌƒeƒXƒgƒP[ƒX‚ğÀs‚·‚éˆ×‚Ì
-     * GUI ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‹N“®‚·‚éB
+     * ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã‚’å®Ÿè¡Œã™ã‚‹ç‚ºã®
+     * GUI ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’èµ·å‹•ã™ã‚‹ã€‚
      *
-     * @param args java ƒRƒ}ƒ“ƒh‚Éİ’è‚³‚ê‚½ƒpƒ‰ƒ[ƒ^
+     * @param args java ã‚³ãƒãƒ³ãƒ‰ã«è¨­å®šã•ã‚ŒãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public static void main(String[] args) {
         junit.swingui.TestRunner.run(FieldChecksTest04.class);
     }
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -77,9 +77,9 @@ public class FieldChecksTest04 extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -88,9 +88,9 @@ public class FieldChecksTest04 extends TestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      *
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public FieldChecksTest04(String name) {
         super(name);
@@ -100,31 +100,31 @@ public class FieldChecksTest04 extends TestCase {
      * testValidateIntRange01()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC,F
+     * è¦³ç‚¹ï¼šC,F
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:null<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:null<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚ªnull‚Ìê‡Atrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanãŒnullã®å ´åˆã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateIntRange01() throws Exception {
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertTrue(new FieldChecks().validateIntRange(null, va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(0, errors.addErrorCount);
     }
 
@@ -132,31 +132,31 @@ public class FieldChecksTest04 extends TestCase {
      * testValidateIntRange02()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC,F
+     * è¦³ç‚¹ï¼šC,F
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:""<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:""<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚ª‹ó•¶š‚Ìê‡Atrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanãŒç©ºæ–‡å­—ã®å ´åˆã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateIntRange02() throws Exception {
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertTrue(new FieldChecks().validateIntRange("", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(0, errors.addErrorCount);
     }
 
@@ -164,33 +164,33 @@ public class FieldChecksTest04 extends TestCase {
      * testValidateIntRange03()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"1.5"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"1.5"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
-     *         (ó‘Ô•Ï‰») errors:bean,field,va‚ğˆø”‚Æ‚µ‚Ä
-     *                           addErrors‚ªŒÄ‚Ño‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:bean,field,vaã‚’å¼•æ•°ã¨ã—ã¦
+     *                           addErrorsãŒå‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚ªintŒ^‚É•ÏŠ·‚Å‚«‚È‚¢ê‡A
-     * ƒGƒ‰[‚ğ’Ç‰Á‚µ‚Äfalse‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanãŒintå‹ã«å¤‰æ›ã§ããªã„å ´åˆã€
+     * ã‚¨ãƒ©ãƒ¼ã‚’è¿½åŠ ã—ã¦falseãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateIntRange03() throws Exception {
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertFalse(new FieldChecks().validateIntRange("1.5", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(1, errors.addErrorCount);
         assertEquals("1.5", errors.beanList.get(0));
         assertSame(va, errors.vaList.get(0));
@@ -201,34 +201,34 @@ public class FieldChecksTest04 extends TestCase {
      * testValidateIntRange04()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"-2147483648"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"-2147483648"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                intRangeMin=null<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * var‚ÌintRangeMin‚ªnull‚Ìê‡A
-     * ”ÍˆÍ‚ÌÅ¬’l‚ªInteger.MIN_VALUE‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * varã®intRangeMinãŒnullã®å ´åˆã€
+     * ç¯„å›²ã®æœ€å°å€¤ãŒInteger.MIN_VALUEã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateIntRange04() throws Exception {
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertTrue(
                 new FieldChecks().validateIntRange("-2147483648", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(0, errors.addErrorCount);
     }
 
@@ -236,35 +236,35 @@ public class FieldChecksTest04 extends TestCase {
      * testValidateIntRange05()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"-2147483649"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"-2147483649"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                intRangeMin=null<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
-     *         (ó‘Ô•Ï‰») errors:bean,field,va‚ğˆø”‚Æ‚µ‚Ä
-     *                           addErrors‚ªŒÄ‚Ño‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:bean,field,vaã‚’å¼•æ•°ã¨ã—ã¦
+     *                           addErrorsãŒå‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
      *
      * <br>
-     * var‚ÌintRangeMin‚ªnull‚Ìê‡A
-     * ”ÍˆÍ‚ÌÅ¬’l‚ªInteger.MIN_VALUE‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * varã®intRangeMinãŒnullã®å ´åˆã€
+     * ç¯„å›²ã®æœ€å°å€¤ãŒInteger.MIN_VALUEã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateIntRange05() throws Exception {
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertFalse(
                 new FieldChecks().validateIntRange("-2147483649", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(1, errors.addErrorCount);
         assertEquals("-2147483649", errors.beanList.get(0));
         assertSame(va, errors.vaList.get(0));
@@ -275,40 +275,40 @@ public class FieldChecksTest04 extends TestCase {
      * testValidateIntRange06()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"-2147483648"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"-2147483648"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                intRangeMin=""<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * var‚ÌintRangeMin‚ª‹ó•¶š‚Ìê‡A
-     * ”ÍˆÍ‚ÌÅ¬’l‚ªInteger.MIN_VALUE‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * varã®intRangeMinãŒç©ºæ–‡å­—ã®å ´åˆã€
+     * ç¯„å›²ã®æœ€å°å€¤ãŒInteger.MIN_VALUEã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateIntRange06() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Var var = new Var();
         var.setName("intRangeMin");
         var.setValue("");
         field.addVar(var);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertTrue(
                 new FieldChecks().validateIntRange("-2147483648", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(0, errors.addErrorCount);
     }
 
@@ -316,41 +316,41 @@ public class FieldChecksTest04 extends TestCase {
      * testValidateIntRange07()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"-2147483649"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"-2147483649"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                intRangeMin=""<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
-     *         (ó‘Ô•Ï‰») errors:bean,field,va‚ğˆø”‚Æ‚µ‚Ä
-     *                           addErrors‚ªŒÄ‚Ño‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:bean,field,vaã‚’å¼•æ•°ã¨ã—ã¦
+     *                           addErrorsãŒå‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
      *
      * <br>
-     * var‚ÌintRangeMin‚ª‹ó•¶š‚Ìê‡A
-     * ”ÍˆÍ‚ÌÅ¬’l‚ªInteger.MIN_VALUE‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * varã®intRangeMinãŒç©ºæ–‡å­—ã®å ´åˆã€
+     * ç¯„å›²ã®æœ€å°å€¤ãŒInteger.MIN_VALUEã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateIntRange07() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Var var = new Var();
         var.setName("intRangeMin");
         var.setValue("");
         field.addVar(var);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertFalse(
                 new FieldChecks().validateIntRange("-2147483649", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(1, errors.addErrorCount);
         assertEquals("-2147483649", errors.beanList.get(0));
         assertSame(va, errors.vaList.get(0));
@@ -361,34 +361,34 @@ public class FieldChecksTest04 extends TestCase {
      * testValidateIntRange08()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"2147483647"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"2147483647"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                intRangeMax=null<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * var‚ÌintRangeMax‚ªnull‚Ìê‡A
-     * ”ÍˆÍ‚ÌÅ‘å’l‚ªInteger.MAX_VALUE‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * varã®intRangeMaxãŒnullã®å ´åˆã€
+     * ç¯„å›²ã®æœ€å¤§å€¤ãŒInteger.MAX_VALUEã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateIntRange08() throws Exception {
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertTrue(
                 new FieldChecks().validateIntRange("2147483647", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(0, errors.addErrorCount);
     }
 
@@ -396,35 +396,35 @@ public class FieldChecksTest04 extends TestCase {
      * testValidateIntRange09()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"2147483648"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"2147483648"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                intRangeMax=null<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
-     *         (ó‘Ô•Ï‰») errors:bean,field,va‚ğˆø”‚Æ‚µ‚Ä
-     *                           addErrors‚ªŒÄ‚Ño‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:bean,field,vaã‚’å¼•æ•°ã¨ã—ã¦
+     *                           addErrorsãŒå‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
      *
      * <br>
-     * var‚ÌintRangeMax‚ªnull‚Ìê‡A
-     * ”ÍˆÍ‚ÌÅ‘å’l‚ªInteger.MAX_VALUE‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * varã®intRangeMaxãŒnullã®å ´åˆã€
+     * ç¯„å›²ã®æœ€å¤§å€¤ãŒInteger.MAX_VALUEã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateIntRange09() throws Exception {
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertFalse(
                 new FieldChecks().validateIntRange("2147483648", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(1, errors.addErrorCount);
         assertEquals("2147483648", errors.beanList.get(0));
         assertSame(va, errors.vaList.get(0));
@@ -435,40 +435,40 @@ public class FieldChecksTest04 extends TestCase {
      * testValidateIntRange10()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"2147483647"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"2147483647"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                intRangeMax=""<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * var‚ÌintRangeMax‚ª‹ó•¶š‚Ìê‡A
-     * ”ÍˆÍ‚ÌÅ‘å’l‚ªInteger.MAX_VALUE‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * varã®intRangeMaxãŒç©ºæ–‡å­—ã®å ´åˆã€
+     * ç¯„å›²ã®æœ€å¤§å€¤ãŒInteger.MAX_VALUEã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateIntRange10() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Var var = new Var();
         var.setName("intRangeMin");
         var.setValue("");
         field.addVar(var);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertTrue(
                 new FieldChecks().validateIntRange("2147483647", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(0, errors.addErrorCount);
     }
 
@@ -476,41 +476,41 @@ public class FieldChecksTest04 extends TestCase {
      * testValidateIntRange11()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"2147483648"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"2147483648"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                intRangeMax=""<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
-     *         (ó‘Ô•Ï‰») errors:bean,field,va‚ğˆø”‚Æ‚µ‚Ä
-     *                           addErrors‚ªŒÄ‚Ño‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:bean,field,vaã‚’å¼•æ•°ã¨ã—ã¦
+     *                           addErrorsãŒå‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
      *
      * <br>
-     * var‚ÌintRangeMax‚ª‹ó•¶š‚Ìê‡A
-     * ”ÍˆÍ‚ÌÅ‘å’l‚ªInteger.MAX_VALUE‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * varã®intRangeMaxãŒç©ºæ–‡å­—ã®å ´åˆã€
+     * ç¯„å›²ã®æœ€å¤§å€¤ãŒInteger.MAX_VALUEã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateIntRange11() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Var var = new Var();
         var.setName("intRangeMin");
         var.setValue("");
         field.addVar(var);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertFalse(
                 new FieldChecks().validateIntRange("2147483648", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(1, errors.addErrorCount);
         assertEquals("2147483648", errors.beanList.get(0));
         assertSame(va, errors.vaList.get(0));
@@ -521,42 +521,42 @@ public class FieldChecksTest04 extends TestCase {
      * testValidateIntRange12()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF,G
+     * è¦³ç‚¹ï¼šF,G
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"5"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"5"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                intRangeMin="1.5"<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:ValidatorException<br>
-     *                    ƒƒbƒZ[ƒWF"Mistake on validation definition file.
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ValidatorException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Mistake on validation definition file.
      *                    - intRangeMin is not number.
      *                    You'll have to check it over. "<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:ƒƒOƒŒƒxƒ‹FƒGƒ‰[<br>
-     *                    ƒƒbƒZ[ƒWF"Mistake on validation definition file.
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ï¼šã‚¨ãƒ©ãƒ¼<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Mistake on validation definition file.
      *                    - intRangeMin is not number.
      *                    You'll have to check it over. ", new NumberFormatException()<br>
      *
      * <br>
-     * var‚ÌintRangeMin‚Ì’l‚ªintŒ^‚É•ÏŠ·‚Å‚«‚È‚¢ê‡A
-     * ValidatorException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * varã®intRangeMinã®å€¤ãŒintå‹ã«å¤‰æ›ã§ããªã„å ´åˆã€
+     * ValidatorExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateIntRange12() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Var var = new Var();
         var.setName("intRangeMin");
         var.setValue("1.5");
         field.addVar(var);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         try {
             new FieldChecks().validateIntRange("5", va, field, errors);
             fail();
@@ -573,42 +573,42 @@ public class FieldChecksTest04 extends TestCase {
      * testValidateIntRange13()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF,G
+     * è¦³ç‚¹ï¼šF,G
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"5"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"5"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                intRangeMax="5.5"<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:ValidatorException<br>
-     *                    ƒƒbƒZ[ƒWF"Mistake on validation definition file.
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ValidatorException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Mistake on validation definition file.
      *                    - intRangeMax is not number.
      *                    You'll have to check it over. "<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:ƒƒOƒŒƒxƒ‹FƒGƒ‰[<br>
-     *                    ƒƒbƒZ[ƒWF"Mistake on validation definition file.
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ï¼šã‚¨ãƒ©ãƒ¼<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Mistake on validation definition file.
      *                    - intRangeMax is not number.
      *                    You'll have to check it over. ", new NumberFormatException()<br>
      *
      * <br>
-     * var‚ÌintRangeMax‚Ì’l‚ªintŒ^‚É•ÏŠ·‚Å‚«‚È‚¢ê‡A
-     * ValidatorException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * varã®intRangeMaxã®å€¤ãŒintå‹ã«å¤‰æ›ã§ããªã„å ´åˆã€
+     * ValidatorExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateIntRange13() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Var var = new Var();
         var.setName("intRangeMax");
         var.setValue("5.5");
         field.addVar(var);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         try {
             new FieldChecks().validateIntRange("5", va, field, errors);
             fail();
@@ -625,30 +625,30 @@ public class FieldChecksTest04 extends TestCase {
      * testValidateIntRange14()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"5"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"5"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                intRangeMin="1"<br>
      *                intRangeMax="10"<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * bean‚Ì’l‚ªAintRangeMin‚ÆintRangeMax‚Ì”ÍˆÍ“à‚Ì’l‚Ìê‡A
-     * true‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * beanã®å€¤ãŒã€intRangeMinã¨intRangeMaxã®ç¯„å›²å†…ã®å€¤ã®å ´åˆã€
+     * trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateIntRange14() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Var var1 = new Var();
         var1.setName("intRangeMin");
         var1.setValue("1");
@@ -659,12 +659,12 @@ public class FieldChecksTest04 extends TestCase {
         var2.setValue("10");
         field.addVar(var2);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertTrue(
                 new FieldChecks().validateIntRange("5", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(0, errors.addErrorCount);
 
     }
@@ -673,31 +673,31 @@ public class FieldChecksTest04 extends TestCase {
      * testValidateIntRange15()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"5"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"5"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                intRangeMin="6"<br>
      *                intRangeMax="10"<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
-     *         (ó‘Ô•Ï‰») errors:bean,field,va‚ğˆø”‚Æ‚µ‚Ä
-     *                           addErrors‚ªŒÄ‚Ño‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:bean,field,vaã‚’å¼•æ•°ã¨ã—ã¦
+     *                           addErrorsãŒå‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
      *
      * <br>
-     * bean‚Ì’l‚ªAintRangeMin‚Ì’l‚æ‚è¬‚³‚¢ê‡A
-     * ƒGƒ‰[‚ğ’Ç‰Á‚µ‚Äfalse‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * beanã®å€¤ãŒã€intRangeMinã®å€¤ã‚ˆã‚Šå°ã•ã„å ´åˆã€
+     * ã‚¨ãƒ©ãƒ¼ã‚’è¿½åŠ ã—ã¦falseãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateIntRange15() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Var var1 = new Var();
         var1.setName("intRangeMin");
         var1.setValue("6");
@@ -708,12 +708,12 @@ public class FieldChecksTest04 extends TestCase {
         var2.setValue("10");
         field.addVar(var2);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertFalse(
                 new FieldChecks().validateIntRange("5", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(1, errors.addErrorCount);
         assertEquals("5", errors.beanList.get(0));
         assertSame(va, errors.vaList.get(0));
@@ -725,31 +725,31 @@ public class FieldChecksTest04 extends TestCase {
      * testValidateIntRange16()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"5"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"5"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                intRangeMin="1"<br>
      *                intRangeMax="4"<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
-     *         (ó‘Ô•Ï‰») errors:bean,field,va‚ğˆø”‚Æ‚µ‚Ä
-     *                           addErrors‚ªŒÄ‚Ño‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:bean,field,vaã‚’å¼•æ•°ã¨ã—ã¦
+     *                           addErrorsãŒå‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
      *
      * <br>
-     * bean‚Ì’l‚ªAintRangeMax‚Ì’l‚æ‚è‘å‚«‚¢ê‡A
-     * ƒGƒ‰[‚ğ’Ç‰Á‚µ‚Äfalse‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * beanã®å€¤ãŒã€intRangeMaxã®å€¤ã‚ˆã‚Šå¤§ãã„å ´åˆã€
+     * ã‚¨ãƒ©ãƒ¼ã‚’è¿½åŠ ã—ã¦falseãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateIntRange16() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Var var1 = new Var();
         var1.setName("intRangeMin");
         var1.setValue("1");
@@ -760,12 +760,12 @@ public class FieldChecksTest04 extends TestCase {
         var2.setValue("4");
         field.addVar(var2);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertFalse(
                 new FieldChecks().validateIntRange("5", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(1, errors.addErrorCount);
         assertEquals("5", errors.beanList.get(0));
         assertSame(va, errors.vaList.get(0));
@@ -777,30 +777,30 @@ public class FieldChecksTest04 extends TestCase {
      * testValidateIntRange17()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"5"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"5"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                intRangeMin="5"<br>
      *                intRangeMax="5"<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * bean‚Ì’l‚ÆAintRangeMax,intRangeMin‚Ì’l‚Æ“™‚µ‚¢ê‡A
-     * true‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * beanã®å€¤ã¨ã€intRangeMax,intRangeMinã®å€¤ã¨ç­‰ã—ã„å ´åˆã€
+     * trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateIntRange17() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Var var1 = new Var();
         var1.setName("intRangeMin");
         var1.setValue("5");
@@ -811,12 +811,12 @@ public class FieldChecksTest04 extends TestCase {
         var2.setValue("5");
         field.addVar(var2);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertTrue(
                 new FieldChecks().validateIntRange("5", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(0, errors.addErrorCount);
 
     }
@@ -825,31 +825,31 @@ public class FieldChecksTest04 extends TestCase {
      * testValidateDoubleRange01()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC,F
+     * è¦³ç‚¹ï¼šC,F
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:null<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:null<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚ªnull‚Ìê‡Atrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanãŒnullã®å ´åˆã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateDoubleRange01() throws Exception {
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertTrue(new FieldChecks().validateDoubleRange(null, va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(0, errors.addErrorCount);
     }
 
@@ -857,31 +857,31 @@ public class FieldChecksTest04 extends TestCase {
      * testValidateDoubleRange02()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC,F
+     * è¦³ç‚¹ï¼šC,F
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:""<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:""<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚ª‹ó•¶š‚Ìê‡Atrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanãŒç©ºæ–‡å­—ã®å ´åˆã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateDoubleRange02() throws Exception {
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertTrue(new FieldChecks().validateDoubleRange("", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(0, errors.addErrorCount);
     }
 
@@ -889,33 +889,33 @@ public class FieldChecksTest04 extends TestCase {
      * testValidateDoubleRange03()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"test"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"test"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
-     *         (ó‘Ô•Ï‰») errors:bean,field,va‚ğˆø”‚Æ‚µ‚Ä
-     *                           addErrors‚ªŒÄ‚Ño‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:bean,field,vaã‚’å¼•æ•°ã¨ã—ã¦
+     *                           addErrorsãŒå‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚ªdoubleŒ^‚É•ÏŠ·‚Å‚«‚È‚¢ê‡A
-     * ƒGƒ‰[‚ğ’Ç‰Á‚µ‚Äfalse‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanãŒdoubleå‹ã«å¤‰æ›ã§ããªã„å ´åˆã€
+     * ã‚¨ãƒ©ãƒ¼ã‚’è¿½åŠ ã—ã¦falseãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateDoubleRange03() throws Exception {
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertFalse(new FieldChecks().validateDoubleRange("test", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(1, errors.addErrorCount);
         assertEquals("test", errors.beanList.get(0));
         assertSame(va, errors.vaList.get(0));
@@ -926,34 +926,34 @@ public class FieldChecksTest04 extends TestCase {
      * testValidateDoubleRange04()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"4.9E-324"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"4.9E-324"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                doubleRangeMin=null<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * var‚ÌdoubleRangeMin‚ªnull‚Ìê‡A
-     * ”ÍˆÍ‚ÌÅ¬’l‚ªDouble.MIN_VALUE‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * varã®doubleRangeMinãŒnullã®å ´åˆã€
+     * ç¯„å›²ã®æœ€å°å€¤ãŒDouble.MIN_VALUEã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateDoubleRange04() throws Exception {
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertTrue(
                 new FieldChecks().validateDoubleRange("4.9E-324", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(0, errors.addErrorCount);
     }
 
@@ -961,40 +961,40 @@ public class FieldChecksTest04 extends TestCase {
      * testValidateDoubleRange05()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"4.9E-324"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"4.9E-324"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                doubleRangeMin=""<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * var‚ÌdoubleRangeMin‚ª‹ó•¶š‚Ìê‡A
-     * ”ÍˆÍ‚ÌÅ¬’l‚ªDouble.MIN_VALUE‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * varã®doubleRangeMinãŒç©ºæ–‡å­—ã®å ´åˆã€
+     * ç¯„å›²ã®æœ€å°å€¤ãŒDouble.MIN_VALUEã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateDoubleRange05() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Var var = new Var();
         var.setName("doubleRangeMin");
         var.setValue("");
         field.addVar(var);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertTrue(
                 new FieldChecks().validateDoubleRange("4.9E-324", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(0, errors.addErrorCount);
     }
 
@@ -1002,34 +1002,34 @@ public class FieldChecksTest04 extends TestCase {
      * testValidateDoubleRange06()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"1.7976931348623157E308"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"1.7976931348623157E308"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                doubleRangeMax=null<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * var‚ÌdoubleRangeMax‚ªnull‚Ìê‡A”ÍˆÍ‚ÌÅ‘å’l‚ªDouble.MAX_VALUE‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * varã®doubleRangeMaxãŒnullã®å ´åˆã€ç¯„å›²ã®æœ€å¤§å€¤ãŒDouble.MAX_VALUEã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateDoubleRange06() throws Exception {
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertTrue(
                 new FieldChecks().validateDoubleRange(
                         "1.7976931348623157E308", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(0, errors.addErrorCount);
     }
 
@@ -1037,40 +1037,40 @@ public class FieldChecksTest04 extends TestCase {
      * testValidateDoubleRange07()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"1.7976931348623157E308"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"1.7976931348623157E308"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                doubleRangeMax=""<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * var‚ÌdoubleRangeMax‚ª‹ó•¶š‚Ìê‡A”ÍˆÍ‚ÌÅ‘å’l‚ªDouble.MAX_VALUE‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * varã®doubleRangeMaxãŒç©ºæ–‡å­—ã®å ´åˆã€ç¯„å›²ã®æœ€å¤§å€¤ãŒDouble.MAX_VALUEã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateDoubleRange07() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Var var = new Var();
         var.setName("doubleRangeMax");
         var.setValue("");
         field.addVar(var);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertTrue(
                 new FieldChecks().validateDoubleRange(
                         "1.7976931348623157E308", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(0, errors.addErrorCount);
     }
 
@@ -1078,42 +1078,42 @@ public class FieldChecksTest04 extends TestCase {
      * testValidateDoubleRange08()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"0.5E1"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"0.5E1"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                doubleRangeMin="test"<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:ValidatorException<br>
-     *                    ƒƒbƒZ[ƒWF"Mistake on validation definition file.
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ValidatorException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Mistake on validation definition file.
      *                    - doubleRangeMin is not number.
      *                    You'll have to check it over. "<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:ƒƒOƒŒƒxƒ‹FƒGƒ‰[<br>
-     *                    ƒƒbƒZ[ƒWF"Mistake on validation definition file.
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ï¼šã‚¨ãƒ©ãƒ¼<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Mistake on validation definition file.
      *                    - doubleRangeMin is not number.
      *                    You'll have to check it over. ", new NumberFormatException()<br>
      *
      * <br>
-     * var‚ÌdoubleRangeMin‚Ì’l‚ªdoubleŒ^‚É•ÏŠ·‚Å‚«‚È‚¢ê‡A
-     * ValidatorException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * varã®doubleRangeMinã®å€¤ãŒdoubleå‹ã«å¤‰æ›ã§ããªã„å ´åˆã€
+     * ValidatorExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateDoubleRange08() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Var var = new Var();
         var.setName("doubleRangeMin");
         var.setValue("test");
         field.addVar(var);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         try {
             new FieldChecks().validateDoubleRange("0.5E1", va, field, errors);
             fail();
@@ -1130,42 +1130,42 @@ public class FieldChecksTest04 extends TestCase {
      * testValidateDoubleRange09()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"0.5E1"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"0.5E1"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                doubleRangeMax="test"<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:ValidatorException<br>
-     *                    ƒƒbƒZ[ƒWF"Mistake on validation definition file.
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ValidatorException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Mistake on validation definition file.
      *                    - doubleRangeMax is not number.
      *                    You'll have to check it over. "<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:ƒƒOƒŒƒxƒ‹FƒGƒ‰[<br>
-     *                    ƒƒbƒZ[ƒWF"Mistake on validation definition file.
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ï¼šã‚¨ãƒ©ãƒ¼<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Mistake on validation definition file.
      *                    - doubleRangeMax is not number.
      *                    You'll have to check it over. ", new NumberFormatException()<br>
      *
      * <br>
-     * var‚ÌdoubleRangeMax‚Ì’l‚ªdoubleŒ^‚É•ÏŠ·‚Å‚«‚È‚¢ê‡A
-     * ValidatorException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * varã®doubleRangeMaxã®å€¤ãŒdoubleå‹ã«å¤‰æ›ã§ããªã„å ´åˆã€
+     * ValidatorExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateDoubleRange09() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Var var = new Var();
         var.setName("doubleRangeMax");
         var.setValue("test");
         field.addVar(var);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         try {
             new FieldChecks().validateDoubleRange("0.5E1", va, field, errors);
             fail();
@@ -1182,30 +1182,30 @@ public class FieldChecksTest04 extends TestCase {
      * testValidateDoubleRange10()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"0.5E1"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"0.5E1"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                doubleRangeMin="0.1E1"<br>
      *                doubleRangeMax="0.1E2"<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * bean‚Ì’l‚ªAdoubleRangeMin‚ÆdoubleRangeMax‚Ì”ÍˆÍ“à‚Ì’l‚Ìê‡A
-     * true‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * beanã®å€¤ãŒã€doubleRangeMinã¨doubleRangeMaxã®ç¯„å›²å†…ã®å€¤ã®å ´åˆã€
+     * trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateDoubleRange10() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Var var1 = new Var();
         var1.setName("doubleRangeMin");
         var1.setValue("0.1E1");
@@ -1216,12 +1216,12 @@ public class FieldChecksTest04 extends TestCase {
         var2.setValue("0.1E2");
         field.addVar(var2);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertTrue(
                 new FieldChecks().validateDoubleRange("0.5E1", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(0, errors.addErrorCount);
 
     }
@@ -1230,29 +1230,29 @@ public class FieldChecksTest04 extends TestCase {
      * testValidateDoubleRange11()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"0.5E1"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"0.5E1"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                doubleRangeMin="0.1E2"<br>
      *                doubleRangeMax="0.1E3"<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
-     *         (ó‘Ô•Ï‰») errors:bean,field,va‚ğˆø”‚Æ‚µ‚ÄaddErrors‚ªŒÄ‚Ño‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:bean,field,vaã‚’å¼•æ•°ã¨ã—ã¦addErrorsãŒå‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
      *
      * <br>
-     * bean‚Ì’l‚ªAdoubleRangeMin‚Ì’l‚æ‚è¬‚³‚¢ê‡AƒGƒ‰[‚ğ’Ç‰Á‚µ‚Äfalse‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * beanã®å€¤ãŒã€doubleRangeMinã®å€¤ã‚ˆã‚Šå°ã•ã„å ´åˆã€ã‚¨ãƒ©ãƒ¼ã‚’è¿½åŠ ã—ã¦falseãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateDoubleRange11() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Var var1 = new Var();
         var1.setName("doubleRangeMin");
         var1.setValue("0.1E2");
@@ -1263,12 +1263,12 @@ public class FieldChecksTest04 extends TestCase {
         var2.setValue("0.1E3");
         field.addVar(var2);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertFalse(
                 new FieldChecks().validateDoubleRange("0.5E1", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(1, errors.addErrorCount);
         assertEquals("0.5E1", errors.beanList.get(0));
         assertSame(va, errors.vaList.get(0));
@@ -1279,29 +1279,29 @@ public class FieldChecksTest04 extends TestCase {
      * testValidateDoubleRange12()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"0.5E1"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"0.5E1"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                doubleRangeMin="0.1E1"<br>
      *                doubleRangeMax="0.4E1"<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
-     *         (ó‘Ô•Ï‰») errors:bean,field,va‚ğˆø”‚Æ‚µ‚ÄaddErrors‚ªŒÄ‚Ño‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:bean,field,vaã‚’å¼•æ•°ã¨ã—ã¦addErrorsãŒå‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
      *
      * <br>
-     * bean‚Ì’l‚ªAdoubleRangeMax‚Ì’l‚æ‚è‘å‚«‚¢ê‡AƒGƒ‰[‚ğ’Ç‰Á‚µ‚Äfalse‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * beanã®å€¤ãŒã€doubleRangeMaxã®å€¤ã‚ˆã‚Šå¤§ãã„å ´åˆã€ã‚¨ãƒ©ãƒ¼ã‚’è¿½åŠ ã—ã¦falseãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateDoubleRange12() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Var var1 = new Var();
         var1.setName("doubleRangeMin");
         var1.setValue("0.1E1");
@@ -1312,12 +1312,12 @@ public class FieldChecksTest04 extends TestCase {
         var2.setValue("0.4E1");
         field.addVar(var2);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertFalse(
                 new FieldChecks().validateDoubleRange("0.5E1", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(1, errors.addErrorCount);
         assertEquals("0.5E1", errors.beanList.get(0));
         assertSame(va, errors.vaList.get(0));
@@ -1328,29 +1328,29 @@ public class FieldChecksTest04 extends TestCase {
      * testValidateDoubleRange13()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"0.5E1"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"0.5E1"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                doubleRangeMin="0.5E1"<br>
      *                doubleRangeMax="0.5E1"<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * bean‚Ì’l‚ÆAdoubleRangeMax,doubleRangeMin‚Ì’l‚Æ“™‚µ‚¢ê‡Atrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * beanã®å€¤ã¨ã€doubleRangeMax,doubleRangeMinã®å€¤ã¨ç­‰ã—ã„å ´åˆã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateDoubleRange13() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Var var1 = new Var();
         var1.setName("doubleRangeMin");
         var1.setValue("0.5E1");
@@ -1361,12 +1361,12 @@ public class FieldChecksTest04 extends TestCase {
         var2.setValue("0.5E1");
         field.addVar(var2);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertTrue(
                 new FieldChecks().validateDoubleRange("0.5E1", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(0, errors.addErrorCount);
     }
 

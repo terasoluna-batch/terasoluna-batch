@@ -32,23 +32,23 @@ import org.apache.commons.logging.LogFactory;
 
 
 /**
- * <code>JavaBean</code>‚ÌƒvƒƒpƒeƒB‚Ì
- * <code>Generics</code>‚ğˆµ‚¤‚½‚ß‚Ìƒ†[ƒeƒBƒŠƒeƒBƒNƒ‰ƒXB
+ * <code>JavaBean</code>ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã®
+ * <code>Generics</code>ã‚’æ‰±ã†ãŸã‚ã®ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ã‚¯ãƒ©ã‚¹ã€‚
  *
  */
 public class GenericPropertyUtil {
 
     /**
-     * ƒƒOƒNƒ‰ƒXB
+     * ãƒ­ã‚°ã‚¯ãƒ©ã‚¹ã€‚
      */
     private static final Log log =
         LogFactory.getLog(GenericPropertyUtil.class);
 
     /**
-     * <code>JavaBean</code>‚Ì
-     * <code>Collection</code>Œ^ƒvƒƒpƒeƒB‚Ì—v‘f‚ÌŒ^‚ğæ“¾‚·‚éB
+     * <code>JavaBean</code>ã®
+     * <code>Collection</code>å‹ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã®è¦ç´ ã®å‹ã‚’å–å¾—ã™ã‚‹ã€‚
      * <p>
-     * <h5>æ“¾—á</h5>
+     * <h5>å–å¾—ä¾‹</h5>
      * <pre><code>
      * public class Bean {
      *     private List&lt;String&gt; list;
@@ -57,8 +57,8 @@ public class GenericPropertyUtil {
      *     }
      * }
      * </code></pre>
-     * ã‹L‚Ì‚æ‚¤‚È<code>Bean</code>‚É‘Î‚µ‚ÄAˆÈ‰º‚Ì‚æ‚¤‚Ég—p‚·‚é‚ÆA
-     * String.class‚ğæ“¾‚Å‚«‚éB
+     * ä¸Šè¨˜ã®ã‚ˆã†ãª<code>Bean</code>ã«å¯¾ã—ã¦ã€ä»¥ä¸‹ã®ã‚ˆã†ã«ä½¿ç”¨ã™ã‚‹ã¨ã€
+     * String.classã‚’å–å¾—ã§ãã‚‹ã€‚
      * <pre><code>
      * Bean bean = new Bean();
      * Class elementType =
@@ -66,17 +66,17 @@ public class GenericPropertyUtil {
      *         bean, "list");
      * </code></pre>
      *
-     * @param bean <code>JavaBean</code>ƒCƒ“ƒXƒ^ƒ“ƒXB
-     * @param name <code>Collection</code>Œ^ƒvƒƒpƒeƒB‚Ì–¼‘OB
-     * @return <code>Collection</code>‚Ì—v‘f‚ÌŒ^B
-     *      “Á’è‚Å‚«‚È‚¢ê‡‚Í<code>Object</code>Œ^‚ª•Ô‹p‚³‚ê‚éB
-     * @throws IllegalArgumentException ˆø”<code>bean</code>‚ª
-     *      <code>null</code>‚Ìê‡Bˆø”<code>name</code>‚ª
-     *      <code>null</code>A‹ó•¶šA‹ó”’•¶š—ñ‚Ìê‡B
-     *      <code>JavaBean</code>‚ÌƒvƒƒpƒeƒB‚Ì
-     *      æ“¾ƒƒ\ƒbƒh‚ğæ“¾‚Å‚«‚È‚©‚Á‚½ê‡
-     * @throws IllegalStateException w’è‚³‚ê‚½ƒvƒƒpƒeƒB‚ª<code>Collection</code>À‘•ƒNƒ‰ƒX
-     *      ‚Å‚Í‚È‚¢ê‡B
+     * @param bean <code>JavaBean</code>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
+     * @param name <code>Collection</code>å‹ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã®åå‰ã€‚
+     * @return <code>Collection</code>ã®è¦ç´ ã®å‹ã€‚
+     *      ç‰¹å®šã§ããªã„å ´åˆã¯<code>Object</code>å‹ãŒè¿”å´ã•ã‚Œã‚‹ã€‚
+     * @throws IllegalArgumentException å¼•æ•°<code>bean</code>ãŒ
+     *      <code>null</code>ã®å ´åˆã€‚å¼•æ•°<code>name</code>ãŒ
+     *      <code>null</code>ã€ç©ºæ–‡å­—ã€ç©ºç™½æ–‡å­—åˆ—ã®å ´åˆã€‚
+     *      <code>JavaBean</code>ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã®
+     *      å–å¾—ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å–å¾—ã§ããªã‹ã£ãŸå ´åˆ
+     * @throws IllegalStateException æŒ‡å®šã•ã‚ŒãŸãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãŒ<code>Collection</code>å®Ÿè£…ã‚¯ãƒ©ã‚¹
+     *      ã§ã¯ãªã„å ´åˆã€‚
      */
     @SuppressWarnings("unchecked")
     public static Class resolveCollectionType(Object bean, String name)
@@ -85,10 +85,10 @@ public class GenericPropertyUtil {
     }
 
     /**
-     * <code>JavaBean</code>‚Ì
-     * <code>Generics</code>Œ^ƒvƒƒpƒeƒB‚Åw’è‚³‚ê‚½Œ^‚ğæ“¾‚·‚éB
+     * <code>JavaBean</code>ã®
+     * <code>Generics</code>å‹ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã§æŒ‡å®šã•ã‚ŒãŸå‹ã‚’å–å¾—ã™ã‚‹ã€‚
      * <p>
-     * <h5>æ“¾—á</h5>
+     * <h5>å–å¾—ä¾‹</h5>
      * <pre><code>
      * public class Bean {
      *     private Map&lt;String, Boolean&gt; map;
@@ -97,8 +97,8 @@ public class GenericPropertyUtil {
      *     }
      * }
      * </code></pre>
-     * ã‹L‚Ì‚æ‚¤‚È<code>Bean</code>‚É‘Î‚µ‚ÄAˆÈ‰º‚Ì‚æ‚¤‚Ég—p‚·‚é‚ÆA
-     * String.class‚ğæ“¾‚Å‚«‚éB
+     * ä¸Šè¨˜ã®ã‚ˆã†ãª<code>Bean</code>ã«å¯¾ã—ã¦ã€ä»¥ä¸‹ã®ã‚ˆã†ã«ä½¿ç”¨ã™ã‚‹ã¨ã€
+     * String.classã‚’å–å¾—ã§ãã‚‹ã€‚
      * <pre><code>
      * Bean bean = new Bean();
      * Class keyType =
@@ -106,22 +106,22 @@ public class GenericPropertyUtil {
      *         bean, "map", Map.class, 0);
      * </code></pre>
      *
-     * @param bean <code>JavaBean</code>ƒCƒ“ƒXƒ^ƒ“ƒXB
-     * @param name <code>Generics</code>Œ^ƒvƒƒpƒeƒB‚Ì–¼‘OB
-     * @param genericClass <code>Generics</code>Œ^ƒvƒƒpƒeƒB‚Ì
-     *      Œ^’è‹`‚ğs‚Á‚Ä‚¢‚éƒNƒ‰ƒXB
-     * @param index Œ^ƒpƒ‰ƒ[ƒ^‚ÌéŒ¾‡˜B
-     * @return <code>Generics</code>Œ^ƒvƒƒpƒeƒB‚Åw’è‚³‚ê‚½Œ^B
-     *      “Á’è‚Å‚«‚È‚¢ê‡‚Í<code>Object</code>Œ^‚ª•Ô‹p‚³‚ê‚éB
-     * @throws IllegalArgumentException ˆø”<code>bean</code>‚ª
-     *      <code>null</code>‚Ìê‡Bˆø”<code>name</code>‚ª
-     *      <code>null</code>A‹ó•¶šA‹ó”’•¶š—ñ‚Ìê‡B
-     *      ˆø”<code>genericClass</code>‚ª<code>null</code>‚Ìê‡B
-     *      ˆø”<code>index</code>‚ª<code>0</code>‚æ‚è¬‚³‚¢A‚Ü‚½‚ÍA
-     *      éŒ¾‚³‚ê‚½Œ^ƒpƒ‰ƒ[ƒ^”ˆÈã‚Ìê‡B
-     *      <code>JavaBean</code>‚ÌƒvƒƒpƒeƒB‚Ì
-     *      æ“¾ƒƒ\ƒbƒh‚ğæ“¾‚Å‚«‚È‚©‚Á‚½ê‡
-     * @throws IllegalStateException Œ^ƒpƒ‰ƒ[ƒ^‚ª<code>WildCardType</code>‚Å‚ ‚éê‡B
+     * @param bean <code>JavaBean</code>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
+     * @param name <code>Generics</code>å‹ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã®åå‰ã€‚
+     * @param genericClass <code>Generics</code>å‹ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã®
+     *      å‹å®šç¾©ã‚’è¡Œã£ã¦ã„ã‚‹ã‚¯ãƒ©ã‚¹ã€‚
+     * @param index å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å®£è¨€é †åºã€‚
+     * @return <code>Generics</code>å‹ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã§æŒ‡å®šã•ã‚ŒãŸå‹ã€‚
+     *      ç‰¹å®šã§ããªã„å ´åˆã¯<code>Object</code>å‹ãŒè¿”å´ã•ã‚Œã‚‹ã€‚
+     * @throws IllegalArgumentException å¼•æ•°<code>bean</code>ãŒ
+     *      <code>null</code>ã®å ´åˆã€‚å¼•æ•°<code>name</code>ãŒ
+     *      <code>null</code>ã€ç©ºæ–‡å­—ã€ç©ºç™½æ–‡å­—åˆ—ã®å ´åˆã€‚
+     *      å¼•æ•°<code>genericClass</code>ãŒ<code>null</code>ã®å ´åˆã€‚
+     *      å¼•æ•°<code>index</code>ãŒ<code>0</code>ã‚ˆã‚Šå°ã•ã„ã€ã¾ãŸã¯ã€
+     *      å®£è¨€ã•ã‚ŒãŸå‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿æ•°ä»¥ä¸Šã®å ´åˆã€‚
+     *      <code>JavaBean</code>ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã®
+     *      å–å¾—ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å–å¾—ã§ããªã‹ã£ãŸå ´åˆ
+     * @throws IllegalStateException å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãŒ<code>WildCardType</code>ã§ã‚ã‚‹å ´åˆã€‚
      */
     @SuppressWarnings("unchecked")
     public static Class resolveType(Object bean, String name,
@@ -145,14 +145,14 @@ public class GenericPropertyUtil {
     }
 
     /**
-     * <code>JavaBean</code>‚ÌƒvƒƒpƒeƒB‚Ìæ“¾ƒƒ\ƒbƒh‚ğ
-     * æ“¾‚·‚éB
+     * <code>JavaBean</code>ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã®å–å¾—ãƒ¡ã‚½ãƒƒãƒ‰ã‚’
+     * å–å¾—ã™ã‚‹ã€‚
      *
-     * @param bean <code>JavaBean</code>ƒCƒ“ƒXƒ^ƒ“ƒXB
-     * @param name <code>Generics</code>Œ^ƒvƒƒpƒeƒB‚Ì–¼‘OB
-     * @return <code>JavaBean</code>‚É’è‹`‚³‚ê‚½ƒvƒƒpƒeƒB‚Ìæ“¾ƒƒ\ƒbƒhB
-     * @throws IllegalArgumentException <code>JavaBean</code>‚ÌƒvƒƒpƒeƒB‚Ì
-     * æ“¾ƒƒ\ƒbƒh‚ğæ“¾‚Å‚«‚È‚©‚Á‚½ê‡B
+     * @param bean <code>JavaBean</code>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
+     * @param name <code>Generics</code>å‹ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã®åå‰ã€‚
+     * @return <code>JavaBean</code>ã«å®šç¾©ã•ã‚ŒãŸãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã®å–å¾—ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
+     * @throws IllegalArgumentException <code>JavaBean</code>ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã®
+     * å–å¾—ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å–å¾—ã§ããªã‹ã£ãŸå ´åˆã€‚
      */
     protected static Method getMethod(Object bean, String name)
             throws IllegalArgumentException {
@@ -181,23 +181,23 @@ public class GenericPropertyUtil {
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒhA‚Ü‚½‚ÍAƒƒ\ƒbƒh‚Ìî•ñ‚ğŒ³‚É
-     * <code>Generics</code>Œ^‚Åw’è‚³‚ê‚½Œ^‚ğæ“¾‚·‚éB
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã€ã¾ãŸã¯ã€ãƒ¡ã‚½ãƒƒãƒ‰ã®æƒ…å ±ã‚’å…ƒã«
+     * <code>Generics</code>å‹ã§æŒ‡å®šã•ã‚ŒãŸå‹ã‚’å–å¾—ã™ã‚‹ã€‚
      *
-     * @param genericClass <code>Generics</code>Œ^ƒvƒƒpƒeƒB‚Ì
-     *      Œ^’è‹`‚ğs‚Á‚Ä‚¢‚éƒNƒ‰ƒXB
-     * @param clazz ‹ï‘Ì“I‚ÈŒ^ƒpƒ‰ƒ[ƒ^‚ğw’è‚µ‚½ƒNƒ‰ƒXB
-     * @param type ‹ï‘Ì“I‚ÈŒ^ƒpƒ‰ƒ[ƒ^‚ğw’è‚µ‚½ƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚Ì
-     *      <code>Type</code>ƒCƒ“ƒXƒ^ƒ“ƒXB
-     * @param index Œ^ƒpƒ‰ƒ[ƒ^‚ÌéŒ¾‡˜B
-     * @return <code>Generics</code>Œ^‚Åw’è‚³‚ê‚½Œ^B
-     *      “Á’è‚Å‚«‚È‚¢ê‡‚Í<code>Object</code>Œ^‚ª•Ô‹p‚³‚ê‚éB
-     * @throws IllegalArgumentException ˆø”<code>genericClass</code>‚ª
-     *      <code>null</code>‚Ìê‡B
-     *      ˆø”<code>clazz</code>‚ª<code>null</code>‚Ìê‡B
-     *      ˆø”<code>index</code>‚ª<code>0</code>‚æ‚è¬‚³‚¢A‚Ü‚½‚ÍA
-     *      éŒ¾‚³‚ê‚½Œ^ƒpƒ‰ƒ[ƒ^”ˆÈã‚Ìê‡B
-     * @throws IllegalStateException Œ^ƒpƒ‰ƒ[ƒ^‚ª<code>WildCardType</code>‚Å‚ ‚éê‡B
+     * @param genericClass <code>Generics</code>å‹ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã®
+     *      å‹å®šç¾©ã‚’è¡Œã£ã¦ã„ã‚‹ã‚¯ãƒ©ã‚¹ã€‚
+     * @param clazz å…·ä½“çš„ãªå‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’æŒ‡å®šã—ãŸã‚¯ãƒ©ã‚¹ã€‚
+     * @param type å…·ä½“çš„ãªå‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’æŒ‡å®šã—ãŸã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã®
+     *      <code>Type</code>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
+     * @param index å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å®£è¨€é †åºã€‚
+     * @return <code>Generics</code>å‹ã§æŒ‡å®šã•ã‚ŒãŸå‹ã€‚
+     *      ç‰¹å®šã§ããªã„å ´åˆã¯<code>Object</code>å‹ãŒè¿”å´ã•ã‚Œã‚‹ã€‚
+     * @throws IllegalArgumentException å¼•æ•°<code>genericClass</code>ãŒ
+     *      <code>null</code>ã®å ´åˆã€‚
+     *      å¼•æ•°<code>clazz</code>ãŒ<code>null</code>ã®å ´åˆã€‚
+     *      å¼•æ•°<code>index</code>ãŒ<code>0</code>ã‚ˆã‚Šå°ã•ã„ã€ã¾ãŸã¯ã€
+     *      å®£è¨€ã•ã‚ŒãŸå‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿æ•°ä»¥ä¸Šã®å ´åˆã€‚
+     * @throws IllegalStateException å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãŒ<code>WildCardType</code>ã§ã‚ã‚‹å ´åˆã€‚
      */
     @SuppressWarnings("unchecked")
     protected static Class resolveType(Class genericClass, Class clazz,
@@ -236,7 +236,7 @@ public class GenericPropertyUtil {
             ancestorTypeList.get(ancestorTypeList.size() - 1);
         Type[] actualTypes = parameterizedType.getActualTypeArguments();
 
-        // ƒCƒ“ƒXƒ^ƒ“ƒX‚ÅéŒ¾‚³‚ê‚½Œ^ƒpƒ‰ƒ[ƒ^‚ğÀÛ‚ÌŒ^‚É‰ğŒˆ‚·‚éB
+        // ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã§å®£è¨€ã•ã‚ŒãŸå‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’å®Ÿéš›ã®å‹ã«è§£æ±ºã™ã‚‹ã€‚
         if (index < 0 || index >= actualTypes.length) {
             throw new IllegalArgumentException(
                     "Argument 'index'(" + Integer.toString(index)

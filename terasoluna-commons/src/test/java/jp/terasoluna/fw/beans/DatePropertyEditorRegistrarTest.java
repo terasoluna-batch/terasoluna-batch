@@ -26,11 +26,11 @@ import junit.framework.TestCase;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 
 /**
- * {@link jp.terasoluna.fw.beans.DatePropertyEditorRegistrar} ƒNƒ‰ƒX‚Ìƒuƒ‰ƒbƒNƒ{ƒbƒNƒXƒeƒXƒgB
+ * {@link jp.terasoluna.fw.beans.DatePropertyEditorRegistrar} ã‚¯ãƒ©ã‚¹ã®ãƒ–ãƒ©ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ†ã‚¹ãƒˆã€‚
  * 
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4>
- * DateŒ^‚ÌƒvƒƒpƒeƒBƒGƒfƒBƒ^‚ğ¶¬‚·‚éƒNƒ‰ƒXB
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4>
+ * Dateå‹ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚¨ãƒ‡ã‚£ã‚¿ã‚’ç”Ÿæˆã™ã‚‹ã‚¯ãƒ©ã‚¹ã€‚
  * <p>
  * 
  * @see jp.terasoluna.fw.beans.DatePropertyEditorRegistrar
@@ -39,9 +39,9 @@ public class DatePropertyEditorRegistrarTest extends TestCase {
 
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -50,9 +50,9 @@ public class DatePropertyEditorRegistrarTest extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -61,9 +61,9 @@ public class DatePropertyEditorRegistrarTest extends TestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      * 
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public DatePropertyEditorRegistrarTest(String name) {
         super(name);
@@ -73,33 +73,33 @@ public class DatePropertyEditorRegistrarTest extends TestCase {
      * testSetDateFormat01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) dateFormat:SimpleDateFormat("yyyyMMdd")<br>
-     *         (ó‘Ô) this.dateFormat:SimpleDateFormat("yyyy/MM/dd")<br>
-     *         (ó‘Ô) ‚È‚µ:[<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) dateFormat:SimpleDateFormat("yyyyMMdd")<br>
+     *         (çŠ¶æ…‹) this.dateFormat:SimpleDateFormat("yyyy/MM/dd")<br>
+     *         (çŠ¶æ…‹) ãªã—:ãƒ¼<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.dateFormat:SimpleDateFormat("yyyyMMdd")<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.dateFormat:SimpleDateFormat("yyyyMMdd")<br>
      *         
      * <br>
-     * dateFormate‘®«‚Ìsetƒƒ\ƒbƒh‚ÌƒeƒXƒgB
+     * dateFormateå±æ€§ã®setãƒ¡ã‚½ãƒƒãƒ‰ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testSetDateFormat01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
     	DatePropertyEditorRegistrar registrar
     		= new DatePropertyEditorRegistrar();
     	DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
     	registrar.setDateFormat(dateFormat);
 
-        // ”»’è
+        // åˆ¤å®š
     	assertSame(dateFormat, UTUtil.getPrivateField(registrar, "dateFormat"));
     }
 
@@ -107,33 +107,33 @@ public class DatePropertyEditorRegistrarTest extends TestCase {
      * testRegisterCustomEditors01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) registry:PropertyEditorRegistry‚Ìƒ‚ƒbƒN<br>
-     *         (ó‘Ô) this.dateFormat:SimpleDateFormat("yyyy/MM/dd")<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) registry:PropertyEditorRegistryã®ãƒ¢ãƒƒã‚¯<br>
+     *         (çŠ¶æ…‹) this.dateFormat:SimpleDateFormat("yyyy/MM/dd")<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») registry.registerCustomEditorij:ˆø”‚ğó‚¯æ‚Á‚½‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) registry.registerCustomEditorï¼ˆï¼‰:å¼•æ•°ã‚’å—ã‘å–ã£ãŸã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *         
      * <br>
-     * ƒvƒƒpƒeƒBƒGƒfƒBƒ^¶¬ƒƒ\ƒbƒh‚ğŒÄ‚Ño‚·ƒeƒXƒgB
+     * ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚¨ãƒ‡ã‚£ã‚¿ç”Ÿæˆãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã™ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testRegisterCustomEditors01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
     	DatePropertyEditorRegistrar registrar
             = new DatePropertyEditorRegistrar();
     	PropertyEditorRegistrar_PropertyEditorRegistryStub01 registry
     		= new PropertyEditorRegistrar_PropertyEditorRegistryStub01();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
     	registrar.registerCustomEditors(registry);
 
-        // ”»’è
+        // åˆ¤å®š
     	assertSame(Date.class, registry.clazz);
     	assertSame(CustomDateEditor.class, registry.editor.getClass());
     	SimpleDateFormat resultDateFormat 

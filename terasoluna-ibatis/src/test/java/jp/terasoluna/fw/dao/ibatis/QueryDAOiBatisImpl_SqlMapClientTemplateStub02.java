@@ -24,29 +24,29 @@ import org.springframework.orm.ibatis.SqlMapClientTemplate;
 import com.ibatis.sqlmap.client.SqlMapClient;
 
 /**
- * {@link QueryDAOiBatisImpl}‚ÌŒ±‚Ì‚½‚ß‚Ég—p‚³‚ê‚éƒXƒ^ƒuB
+ * {@link QueryDAOiBatisImpl}ã®è©¦é¨“ã®ãŸã‚ã«ä½¿ç”¨ã•ã‚Œã‚‹ã‚¹ã‚¿ãƒ–ã€‚
  * 
- * {@link QueryDAOiBatisImpl}‚©‚ç‚ÌŒÄ‚Ño‚µŠm”F—p‚Ég—p‚³‚ê‚éB
+ * {@link QueryDAOiBatisImpl}ã‹ã‚‰ã®å‘¼ã³å‡ºã—ç¢ºèªç”¨ã«ä½¿ç”¨ã•ã‚Œã‚‹ã€‚
  * 
  */
 public class QueryDAOiBatisImpl_SqlMapClientTemplateStub02 extends SqlMapClientTemplate {
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      */
     public QueryDAOiBatisImpl_SqlMapClientTemplateStub02() {
 
-        //SqlMapClient‚Ìİ’è
+        //SqlMapClientã®è¨­å®š
         SqlMapClient sqlMapClient = new QueryDAOiBatisImpl_SqlMapClientStub01();
         setSqlMapClient(sqlMapClient);
 
-        //ƒf[ƒ^ƒ\[ƒX‚Ìİ’è
+        //ãƒ‡ãƒ¼ã‚¿ã‚½ãƒ¼ã‚¹ã®è¨­å®š
         DataSource dataSource = new QueryDAOiBatisImpl_DataSourceStub01();
         setDataSource(dataSource);
     }
 
     /**
-     * ƒeƒXƒg—pqueryForObjectƒƒ\ƒbƒh
+     * ãƒ†ã‚¹ãƒˆç”¨queryForObjectãƒ¡ã‚½ãƒƒãƒ‰
      */
     @Override
     public Object queryForObject(String statementName, Object parameterObject) throws DataAccessException {
@@ -57,7 +57,7 @@ public class QueryDAOiBatisImpl_SqlMapClientTemplateStub02 extends SqlMapClientT
     }
 
     /*
-     * ŒÄ‚Ño‚µŠm”F—p•Ï”
+     * å‘¼ã³å‡ºã—ç¢ºèªç”¨å¤‰æ•°
      */
     private boolean called = false;
     private String statementName = null;

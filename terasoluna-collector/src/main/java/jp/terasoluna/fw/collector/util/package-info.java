@@ -1,4 +1,4 @@
 /**
- * ユーティリティ
+ * 繝ｦ繝ｼ繝�繧｣繝ｪ繝�繧｣
  */
 package jp.terasoluna.fw.collector.util;

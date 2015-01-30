@@ -1,4 +1,4 @@
 /**
- * DAO‚ÌiBATIS—pÀ‘•ƒNƒ‰ƒX
+ * DAOã®iBATISç”¨å®Ÿè£…ã‚¯ãƒ©ã‚¹
  */
 package jp.terasoluna.fw.dao.ibatis;

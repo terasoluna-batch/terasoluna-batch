@@ -25,7 +25,7 @@ import org.springframework.jdbc.support.lob.LobCreator;
 import org.springframework.jdbc.support.lob.LobHandler;
 
 /**
- * LobHandlerÀ‘•ƒNƒ‰ƒXB
+ * LobHandlerå®Ÿè£…ã‚¯ãƒ©ã‚¹ã€‚
  * 
  */
 public class LobHandlerImpl02 implements LobHandler {
@@ -36,8 +36,8 @@ public class LobHandlerImpl02 implements LobHandler {
     public SQLException e = new SQLException();
     
     /**
-     * BlobInputStreamTypeHandler#setParameterInternalƒeƒXƒg
-     * SQLException‚ğƒXƒ[‚·‚éB
+     * BlobInputStreamTypeHandler#setParameterInternalãƒ†ã‚¹ãƒˆ
+     * SQLExceptionã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã€‚
      */
     public InputStream getBlobAsBinaryStream(ResultSet arg0, int arg1)
             throws SQLException {
@@ -45,8 +45,8 @@ public class LobHandlerImpl02 implements LobHandler {
     }
     
     /**
-     * ClobReaderTypeHandler#setParameterInternalƒeƒXƒg
-     * SQLException‚ğƒXƒ[‚·‚éB
+     * ClobReaderTypeHandler#setParameterInternalãƒ†ã‚¹ãƒˆ
+     * SQLExceptionã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã€‚
      */
     public Reader getClobAsCharacterStream(ResultSet arg0, int arg1)
             throws SQLException {

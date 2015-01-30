@@ -1,4 +1,4 @@
 /**
- * ビジネスロジック関連
+ * 繝薙ず繝阪せ繝ｭ繧ｸ繝�繧ｯ髢｢騾｣
  */
 package jp.terasoluna.fw.batch.blogic;

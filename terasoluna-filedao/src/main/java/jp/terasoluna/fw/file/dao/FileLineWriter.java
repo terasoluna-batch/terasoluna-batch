@@ -19,89 +19,89 @@ package jp.terasoluna.fw.file.dao;
 import java.util.List;
 
 /**
- * ƒtƒ@ƒCƒ‹ƒAƒNƒZƒX(ƒf[ƒ^o—Í)—p‚ÌƒCƒ“ƒ^ƒtƒF[ƒXB
+ * ãƒ•ã‚¡ã‚¤ãƒ«ã‚¢ã‚¯ã‚»ã‚¹(ãƒ‡ãƒ¼ã‚¿å‡ºåŠ›)ç”¨ã®ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã€‚
  * <p>
- * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚©‚ç’l‚ğæ‚èo‚µAƒeƒLƒXƒgƒtƒ@ƒCƒ‹‚É‘‚«‚ŞB FileLineWriter‚Ì¶¬‚ÍAFileUpdateDAO‚à‚µ‚­‚ÍAƒWƒ‡ƒuBean’è‹`ƒtƒ@ƒCƒ‹‚ÉƒIƒuƒWƒFƒNƒg¶¬‚Ìİ’è‚ğ‹Lq‚·‚éB<br>
- * FileUpdateDAO‚ÌÚ×‚ÍA{@link jp.terasoluna.fw.file.dao.FileUpdateDAO}‚ğQÆ‚Ì‚±‚ÆB
+ * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã‚‰å€¤ã‚’å–ã‚Šå‡ºã—ã€ãƒ†ã‚­ã‚¹ãƒˆãƒ•ã‚¡ã‚¤ãƒ«ã«æ›¸ãè¾¼ã‚€ã€‚ FileLineWriterã®ç”Ÿæˆã¯ã€FileUpdateDAOã‚‚ã—ãã¯ã€ã‚¸ãƒ§ãƒ–Beanå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ã«ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç”Ÿæˆã®è¨­å®šã‚’è¨˜è¿°ã™ã‚‹ã€‚<br>
+ * FileUpdateDAOã®è©³ç´°ã¯ã€{@link jp.terasoluna.fw.file.dao.FileUpdateDAO}ã‚’å‚ç…§ã®ã“ã¨ã€‚
  * </p>
  * <p>
- * <strong>İ’è—á</strong>
- * <li>ƒWƒ‡ƒuBean’è‹`ƒtƒ@ƒCƒ‹‚Ìİ’è—á
+ * <strong>è¨­å®šä¾‹</strong>
+ * <li>ã‚¸ãƒ§ãƒ–Beanå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ã®è¨­å®šä¾‹
  * 
  * <pre>
  * &lt;code&gt;
- * &lt;!-- ƒWƒ‡ƒuBean’è‹`ƒtƒ@ƒCƒ‹‚±‚±‚©‚ç --&gt;
+ * &lt;!-- ã‚¸ãƒ§ãƒ–Beanå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ã“ã“ã‹ã‚‰ --&gt;
  * &lt;bean id=&quot;blogic&quot; class=&quot;testBlogic&quot;&gt;
  *   &lt;property name=&quot;writer&quot;&gt;
  *     &lt;bean class=&quot;jp.terasoluna.fw.file.dao.standard.CSVFileLineWriter&quot;
  *       destroy-method=&quot;closeFile&quot;&gt;
- *       &lt;constructor-arg index=&quot;0&quot;&gt;&lt;value&gt;yƒtƒ@ƒCƒ‹–¼z&lt;/value&gt;&lt;/constructor-arg&gt;
- *       &lt;constructor-arg index=&quot;1&quot;&gt;&lt;value&gt;yƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌƒNƒ‰ƒX(ƒtƒ‹ƒpƒX)z&lt;/value&gt;&lt;/constructor-arg&gt;
+ *       &lt;constructor-arg index=&quot;0&quot;&gt;&lt;value&gt;ã€ãƒ•ã‚¡ã‚¤ãƒ«åã€‘&lt;/value&gt;&lt;/constructor-arg&gt;
+ *       &lt;constructor-arg index=&quot;1&quot;&gt;&lt;value&gt;ã€ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¯ãƒ©ã‚¹(ãƒ•ãƒ«ãƒ‘ã‚¹)ã€‘&lt;/value&gt;&lt;/constructor-arg&gt;
  *       &lt;constructor-arg index=&quot;2&quot; ref=&quot;columnFormatterMap&quot; /&gt;
  *     &lt;/bean&gt;
  *   &lt;/property&gt;
  * &lt;/bean&gt;
- * &lt;!-- ƒWƒ‡ƒuBean’è‹`ƒtƒ@ƒCƒ‹‚±‚±‚Ü‚Å --&gt;
- * ¦ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ìˆø”‚Éƒtƒ@ƒCƒ‹–¼Aƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌƒNƒ‰ƒX‚ğ“n‚·B
- * ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ìˆø”‚Ì1”Ô–Ú‚Íyƒtƒ@ƒCƒ‹–¼z
- * ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ìˆø”‚Ì2”Ô–Ú‚Íyƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌƒNƒ‰ƒX(ƒtƒ‹ƒpƒX)z
- * ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ìˆø”‚Ì3”Ô–Ú‚ÍucolumnFormatterMapv(ŒÅ’è)B
- *  @
- * ƒrƒWƒlƒXƒƒWƒbƒN‚É‚ÍFileLineWriterŒ^‚ÌƒIƒuƒWƒFƒNƒg‚Æ‚»‚Ìsetter‚ğ—pˆÓ‚·‚éB
- * // ƒrƒWƒlƒXƒƒWƒbƒN‚Ì‹Lq—á@‚±‚±‚©‚ç
+ * &lt;!-- ã‚¸ãƒ§ãƒ–Beanå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ã“ã“ã¾ã§ --&gt;
+ * â€»ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å¼•æ•°ã«ãƒ•ã‚¡ã‚¤ãƒ«åã€ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¯ãƒ©ã‚¹ã‚’æ¸¡ã™ã€‚
+ * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å¼•æ•°ã®1ç•ªç›®ã¯ã€ãƒ•ã‚¡ã‚¤ãƒ«åã€‘
+ * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å¼•æ•°ã®2ç•ªç›®ã¯ã€ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¯ãƒ©ã‚¹(ãƒ•ãƒ«ãƒ‘ã‚¹)ã€‘
+ * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å¼•æ•°ã®3ç•ªç›®ã¯ã€ŒcolumnFormatterMapã€(å›ºå®š)ã€‚
+ *  ã€€
+ * ãƒ“ã‚¸ãƒã‚¹ãƒ­ã‚¸ãƒƒã‚¯ã«ã¯FileLineWriterå‹ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¨ãã®setterã‚’ç”¨æ„ã™ã‚‹ã€‚
+ * // ãƒ“ã‚¸ãƒã‚¹ãƒ­ã‚¸ãƒƒã‚¯ã®è¨˜è¿°ä¾‹ã€€ã“ã“ã‹ã‚‰
  * private FileLineWriter&lt;FileColumnSample&gt; fileLineWriter = null;
  * 
  * public void setFileLineWriter(FileLineWriter&lt;FileColumnSample&gt; 
- * @fileLineWriter){
+ * ã€€fileLineWriter){
  *     this.fileLineWriter = fileLineWriter;
  * }
- * // ƒrƒWƒlƒXƒƒWƒbƒN‚Ì‹Lq—á@‚±‚±‚Ü‚Å
+ * // ãƒ“ã‚¸ãƒã‚¹ãƒ­ã‚¸ãƒƒã‚¯ã®è¨˜è¿°ä¾‹ã€€ã“ã“ã¾ã§
  * &lt;/code&gt;
  * </pre>
  * 
- * <strong>g—p—á</strong><br>
- * <li>ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚Ìî•ñ‚ğo—Í‚·‚éB
+ * <strong>ä½¿ç”¨ä¾‹</strong><br>
+ * <li>ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®æƒ…å ±ã‚’å‡ºåŠ›ã™ã‚‹ã€‚
  * 
  * <pre>
  * &lt;code&gt;
- * // ƒrƒWƒlƒXƒƒWƒbƒN‚Ì‹Lq—á@‚±‚±‚©‚ç
+ * // ãƒ“ã‚¸ãƒã‚¹ãƒ­ã‚¸ãƒƒã‚¯ã®è¨˜è¿°ä¾‹ã€€ã“ã“ã‹ã‚‰
  * private FileLineWriter&lt;FileColumnSample&gt; fileLineWriter = null;
- * cc
- *     // FileColumnSampleŒ^‚Ìƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚©‚ç’l‚ğæ‚èo‚µAƒeƒLƒXƒgƒtƒ@ƒCƒ‹‚Éo—Í‚·‚éB
+ * â€¦â€¦
+ *     // FileColumnSampleå‹ã®ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã‚‰å€¤ã‚’å–ã‚Šå‡ºã—ã€ãƒ†ã‚­ã‚¹ãƒˆãƒ•ã‚¡ã‚¤ãƒ«ã«å‡ºåŠ›ã™ã‚‹ã€‚
  *     fileLineWriter.&lt;strong&gt;printDataLine&lt;/strong&gt;(fileColumnSample);
- * cc
- * // ƒrƒWƒlƒXƒƒWƒbƒN‚Ì‹Lq—á@‚±‚±‚Ü‚Å
+ * â€¦â€¦
+ * // ãƒ“ã‚¸ãƒã‚¹ãƒ­ã‚¸ãƒƒã‚¯ã®è¨˜è¿°ä¾‹ã€€ã“ã“ã¾ã§
  * &lt;/code&gt;
  * </pre>
  * 
- * <strong>‘¾š</strong>‚ÍFileLineWriter‚ª’ñ‹Ÿ‚·‚éƒƒ\ƒbƒhB Ú×‚Í<code>printDataLine</code>‚ğQÆ‚Ì‚±‚ÆB
+ * <strong>å¤ªå­—</strong>ã¯FileLineWriterãŒæä¾›ã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ã€‚ è©³ç´°ã¯<code>printDataLine</code>ã‚’å‚ç…§ã®ã“ã¨ã€‚
  * </P>
- * @param <T> ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg
+ * @param <T> ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
  */
 public interface FileLineWriter<T> {
 
     /**
-     * ƒwƒbƒ_•”‚É•¶š—ñ‚ğ‘‚«‚ŞB
-     * @param headerLine ƒwƒbƒ_•”‚É‘‚«‚Ş•¶š—ñŒ^‚ÌƒŠƒXƒgƒIƒuƒWƒFƒNƒg
+     * ãƒ˜ãƒƒãƒ€éƒ¨ã«æ–‡å­—åˆ—ã‚’æ›¸ãè¾¼ã‚€ã€‚
+     * @param headerLine ãƒ˜ãƒƒãƒ€éƒ¨ã«æ›¸ãè¾¼ã‚€æ–‡å­—åˆ—å‹ã®ãƒªã‚¹ãƒˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      */
     void printHeaderLine(List<String> headerLine);
 
     /**
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚Ìƒf[ƒ^‚ğ‘‚«‚ŞB
-     * @param t ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ãƒ‡ãƒ¼ã‚¿ã‚’æ›¸ãè¾¼ã‚€ã€‚
+     * @param t ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      */
     void printDataLine(T t);
 
     /**
-     * ƒgƒŒƒCƒ‰•”‚É•¶š—ñ‚ğ‘‚«‚ŞB
-     * @param trailerLine ƒgƒŒƒCƒ‰•”‚É‘‚«‚Ş•¶š—ñŒ^‚ÌƒŠƒXƒgƒIƒuƒWƒFƒNƒg
+     * ãƒˆãƒ¬ã‚¤ãƒ©éƒ¨ã«æ–‡å­—åˆ—ã‚’æ›¸ãè¾¼ã‚€ã€‚
+     * @param trailerLine ãƒˆãƒ¬ã‚¤ãƒ©éƒ¨ã«æ›¸ãè¾¼ã‚€æ–‡å­—åˆ—å‹ã®ãƒªã‚¹ãƒˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      */
     void printTrailerLine(List<String> trailerLine);
 
     /**
-     * ƒtƒ@ƒCƒ‹•ÂÇˆ—B
+     * ãƒ•ã‚¡ã‚¤ãƒ«é–‰å¡å‡¦ç†ã€‚
      * <p>
-     * ˆ—I—¹Œã‚É•K‚¸Às‚·‚é‚±‚ÆB
+     * å‡¦ç†çµ‚äº†å¾Œã«å¿…ãšå®Ÿè¡Œã™ã‚‹ã“ã¨ã€‚
      * </p>
      */
     void closeFile();

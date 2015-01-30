@@ -17,11 +17,11 @@
 package jp.terasoluna.fw.transaction.util;
 
 /**
- * TestBeanクラスのためのインターフェース
+ * TestBean繧ｯ繝ｩ繧ｹ縺ｮ縺溘ａ縺ｮ繧､繝ｳ繧ｿ繝ｼ繝輔ぉ繝ｼ繧ｹ
  */
 public interface ITestBean {
 
-    // 非null時の例外を投げます。
+    // 髱柤ull譎ゅ�ｮ萓句､悶ｒ謚輔￡縺ｾ縺吶�
     void exceptional(Throwable t) throws Throwable;
 
 }

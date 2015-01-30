@@ -23,33 +23,33 @@ import jp.terasoluna.utlib.UTUtil;
 
 /**
  * 
- * FileUtil ƒuƒ‰ƒbƒNƒ{ƒbƒNƒXƒeƒXƒgB<br>
+ * FileUtil ãƒ–ãƒ©ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ†ã‚¹ãƒˆã€‚<br>
  *
- * (‘O’ñğŒ)<br>
- * @EƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹(system.properties)‚É‚ÄAƒZƒbƒVƒ‡ƒ“
- * @@ƒfƒBƒŒƒNƒgƒŠ‚Ìƒx[ƒX–¼‚ªˆÈ‰º‚Ì‚æ‚¤‚Éw’è‚³‚ê‚Ä‚¢‚é‚±‚Æ<br>
- * @@iƒfƒtƒHƒ‹ƒgó‘Ô‚È‚çOKj<br>
- * @@@session.dir.base=/tmp/sessions<br>
- * @EƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹(test.properties)‚ÉAíœƒeƒXƒg—p‚Ì
- * @@ƒfƒBƒŒƒNƒgƒŠ‚Ìƒx[ƒX–¼‚ğˆÈ‰º‚Ì‚æ‚¤‚É’Ç‰Áw’è‚·‚é‚±‚Æ<br>
- * @@@fileutiltest.dir.base=/tmp/test<br>
+ * (å‰ææ¡ä»¶)<br>
+ * ã€€ãƒ»ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«(system.properties)ã«ã¦ã€ã‚»ãƒƒã‚·ãƒ§ãƒ³
+ * ã€€ã€€ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®ãƒ™ãƒ¼ã‚¹åãŒä»¥ä¸‹ã®ã‚ˆã†ã«æŒ‡å®šã•ã‚Œã¦ã„ã‚‹ã“ã¨<br>
+ * ã€€ã€€ï¼ˆãƒ‡ãƒ•ã‚©ãƒ«ãƒˆçŠ¶æ…‹ãªã‚‰OKï¼‰<br>
+ * ã€€ã€€ã€€session.dir.base=/tmp/sessions<br>
+ * ã€€ãƒ»ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«(test.properties)ã«ã€å‰Šé™¤ãƒ†ã‚¹ãƒˆç”¨ã®
+ * ã€€ã€€ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®ãƒ™ãƒ¼ã‚¹åã‚’ä»¥ä¸‹ã®ã‚ˆã†ã«è¿½åŠ æŒ‡å®šã™ã‚‹ã“ã¨<br>
+ * ã€€ã€€ã€€fileutiltest.dir.base=/tmp/test<br>
  *
  */
 @SuppressWarnings("unused")
 public class FileUtilTest extends PropertyTestCase {
 
     /**
-     * ƒZƒbƒVƒ‡ƒ“ƒfƒBƒŒƒNƒgƒŠ–¼‚ğƒvƒƒpƒeƒB‚©‚çæ“¾‚·‚éƒL[’lB
+     * ã‚»ãƒƒã‚·ãƒ§ãƒ³ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªåã‚’ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‹ã‚‰å–å¾—ã™ã‚‹ã‚­ãƒ¼å€¤ã€‚
      */
     public static final String SESSIONS_DIR = "session.dir.base";
 
     /*
-     * ƒZƒbƒVƒ‡ƒ“ƒfƒBƒŒƒNƒgƒŠ‚Ìâ‘ÎƒpƒXB
+     * ã‚»ãƒƒã‚·ãƒ§ãƒ³ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®çµ¶å¯¾ãƒ‘ã‚¹ã€‚
      */
     String TMP_SESSIONS_DIR = "/tmp/sessions/";
 
     /*
-     * FileUtilƒeƒXƒg—pƒfƒBƒŒƒNƒgƒŠ‚Ìâ‘ÎƒpƒXB
+     * FileUtilãƒ†ã‚¹ãƒˆç”¨ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®çµ¶å¯¾ãƒ‘ã‚¹ã€‚
      */
     String TMP_TEST_DIR = "/tmp/test/";
 
@@ -74,20 +74,20 @@ public class FileUtilTest extends PropertyTestCase {
     /**
      * getSessionDirectoryName(1)
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_F<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼š<br>
      * 
-     * “ü—Í’lF16Œ…‚Ì‰p”š<br>
-     * Šú‘Ò’lF“ü—Í‚ÌƒnƒbƒVƒ…’l‚ğ16i•ÏŠ·‚µ‚½‚à‚Ì<br>
-     * @throws Exception —áŠO  */
+     * å…¥åŠ›å€¤ï¼š16æ¡ã®è‹±æ•°å­—<br>
+     * æœŸå¾…å€¤ï¼šå…¥åŠ›ã®ãƒãƒƒã‚·ãƒ¥å€¤ã‚’16é€²å¤‰æ›ã—ãŸã‚‚ã®<br>
+     * @throws Exception ä¾‹å¤–  */
     public void testGetSessionDirectoryName01() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = "01234567abcdefgh";
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String result = FileUtil.getSessionDirectoryName(input);
 
-        // Œ‹‰Ê‚ÌŠm”F
+        // çµæœã®ç¢ºèª
         String hope = StringUtil.toHexString(HashUtil.hashSHA1(input), "");
         assertEquals(hope, result);
     }
@@ -95,18 +95,18 @@ public class FileUtilTest extends PropertyTestCase {
     /**
      * getSessionDirectoryName(2)
      * 
-     * (ˆÙíŒn)<br>
-     * ŠÏ“_F<br>
+     * (ç•°å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼š<br>
      * 
-     * “ü—Í’lFnull<br>
-     * Šú‘Ò’lFNullPointerException<br>
-     * @throws Exception —áŠO
+     * å…¥åŠ›å€¤ï¼šnull<br>
+     * æœŸå¾…å€¤ï¼šNullPointerException<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testGetSessionDirectoryName02() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = null;
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         try {
             String result = FileUtil.getSessionDirectoryName(input);
             fail();
@@ -118,20 +118,20 @@ public class FileUtilTest extends PropertyTestCase {
     /**
      * getSessionDirectoryName(3)
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_F<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼š<br>
      * 
-     * “ü—Í’lF""(‹ó•¶š)<br>
-     * Šú‘Ò’lF“ü—Í‚ÌƒnƒbƒVƒ…’l‚ğ16i•ÏŠ·‚µ‚½‚à‚Ì<br>
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ï¼š""(ç©ºæ–‡å­—)<br>
+     * æœŸå¾…å€¤ï¼šå…¥åŠ›ã®ãƒãƒƒã‚·ãƒ¥å€¤ã‚’16é€²å¤‰æ›ã—ãŸã‚‚ã®<br>
+     * @throws Exception ä¾‹å¤– */
     public void testGetSessionDirectoryName03() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = "";
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String result = FileUtil.getSessionDirectoryName(input);
 
-        // Œ‹‰Ê‚ÌŠm”F
+        // çµæœã®ç¢ºèª
         String hope = StringUtil.toHexString(HashUtil.hashSHA1(input), "");
         assertEquals(hope, result);
     }
@@ -139,20 +139,20 @@ public class FileUtilTest extends PropertyTestCase {
     /**
      * getSessionDirectory(1)
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_F<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼š<br>
      * 
-     * “ü—Í’lF16Œ…‚Ì‰p”š<br>
-     * Šú‘Ò’lF“ü—Í‚É‘Î‰‚·‚éƒfƒBƒŒƒNƒgƒŠ–¼‚ÌƒfƒBƒŒƒNƒgƒŠ<br>
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ï¼š16æ¡ã®è‹±æ•°å­—<br>
+     * æœŸå¾…å€¤ï¼šå…¥åŠ›ã«å¯¾å¿œã™ã‚‹ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªåã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª<br>
+     * @throws Exception ä¾‹å¤– */
     public void testGetSessionDirectory01() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = "01234567abcdefgh";
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         File result = FileUtil.getSessionDirectory(input);
 
-        // Œ‹‰Ê‚ÌŠm”F
+        // çµæœã®ç¢ºèª
         String dirName = StringUtil.toHexString(HashUtil.hashSHA1(input), "");
         File hope = new File(TMP_SESSIONS_DIR + dirName);
         assertEquals(hope, result);
@@ -161,17 +161,17 @@ public class FileUtilTest extends PropertyTestCase {
     /**
      * getSessionDirectory(2)
      * 
-     * (ˆÙíŒn)<br>
-     * ŠÏ“_F<br>
+     * (ç•°å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼š<br>
      * 
-     * “ü—Í’lFnull<br>
-     * Šú‘Ò’lFNullPointerException<br>
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ï¼šnull<br>
+     * æœŸå¾…å€¤ï¼šNullPointerException<br>
+     * @throws Exception ä¾‹å¤– */
     public void testGetSessionDirectory02() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = null;
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         try {
             File result = FileUtil.getSessionDirectory(input);
             fail();
@@ -183,20 +183,20 @@ public class FileUtilTest extends PropertyTestCase {
     /**
      * getSessionDirectory(3)
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_F<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼š<br>
      * 
-     * “ü—Í’lF""(‹ó•¶š)<br>
-     * Šú‘Ò’lF“ü—Í‚É‘Î‰‚·‚éƒfƒBƒŒƒNƒgƒŠ–¼‚ÌƒfƒBƒŒƒNƒgƒŠ<br>
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ï¼š""(ç©ºæ–‡å­—)<br>
+     * æœŸå¾…å€¤ï¼šå…¥åŠ›ã«å¯¾å¿œã™ã‚‹ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªåã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª<br>
+     * @throws Exception ä¾‹å¤– */
     public void testGetSessionDirectory03() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = "";
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         File result = FileUtil.getSessionDirectory(input);
 
-        // Œ‹‰Ê‚ÌŠm”F
+        // çµæœã®ç¢ºèª
         String dirName = StringUtil.toHexString(HashUtil.hashSHA1(input), "");
         File hope = new File(TMP_SESSIONS_DIR + dirName);
         assertEquals(hope, result);
@@ -205,23 +205,23 @@ public class FileUtilTest extends PropertyTestCase {
     /**
      * getSessionDirectory(4)
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_F<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼š<br>
      * 
-     * ƒvƒƒpƒeƒB‚Ìsession.dir.base‚ªİ’è‚³‚ê‚Ä‚¢‚È‚¢A
-     * ƒfƒtƒHƒ‹ƒg‚ÌƒfƒBƒŒƒNƒgƒŠ‚ª•Ô‚Á‚Ä—ˆ‚é–‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã®session.dir.baseãŒè¨­å®šã•ã‚Œã¦ã„ãªã„æ™‚ã€
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãŒè¿”ã£ã¦æ¥ã‚‹äº‹ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testGetSessionDirectory04() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = "01234567abcdefgh";
 
-        // ƒvƒƒpƒeƒBíœ
+        // ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£å‰Šé™¤
         deleteProperty("session.dir.base");
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         File result = FileUtil.getSessionDirectory(input);
 
-        // Œ‹‰Ê‚ÌŠm”F
+        // çµæœã®ç¢ºèª
         String dirName = StringUtil.toHexString(HashUtil.hashSHA1(input), "");
         File hope = new File(File.separator + "temp" + File.separator + dirName);
         assertEquals(hope, result);
@@ -230,25 +230,25 @@ public class FileUtilTest extends PropertyTestCase {
     /**
      * getSessionDirectory(5)
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_F<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼š<br>
      * 
-     * ƒvƒƒpƒeƒB‚Ìsession.dir.base‚Ì’l‚ª‹ó•¶š‚ÌA
-     * ƒfƒtƒHƒ‹ƒg‚ÌƒfƒBƒŒƒNƒgƒŠ‚ª•Ô‚Á‚Ä—ˆ‚é–‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã®session.dir.baseã®å€¤ãŒç©ºæ–‡å­—ã®æ™‚ã€
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãŒè¿”ã£ã¦æ¥ã‚‹äº‹ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     @SuppressWarnings("unchecked")
     public void testGetSessionDirectory05() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = "01234567abcdefgh";
 
-        // ƒvƒƒpƒeƒB‚Ì’l‚ğ‹ó•¶š‚Éİ’è
+        // ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã®å€¤ã‚’ç©ºæ–‡å­—ã«è¨­å®š
         deleteProperty("session.dir.base");
         addProperty("session.dir.base", "");
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         File result = FileUtil.getSessionDirectory(input);
 
-        // Œ‹‰Ê‚ÌŠm”F
+        // çµæœã®ç¢ºèª
         String dirName = StringUtil.toHexString(HashUtil.hashSHA1(input), "");
         File hope = new File(File.separator + "temp" + File.separator + dirName);
         assertEquals(hope, result);
@@ -257,31 +257,31 @@ public class FileUtilTest extends PropertyTestCase {
     /**
      * makeSessionDirectory(1)
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_F<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼š<br>
      * 
-     * “ü—Í’lF16Œ…‚Ì‰p”š<br>
-     * Šú‘Ò’lFƒeƒXƒg‘ÎÛ‚ÌÀs‚ª¬Œ÷‚µA“ü—Í‚É‘Î‰‚·‚éƒfƒBƒŒƒNƒgƒŠ–¼‚Ì
-     * @@@@ƒfƒBƒŒƒNƒgƒŠ‚ªì¬‚³‚ê‚Ä‚¢‚é‚±‚Æ<br>
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ï¼š16æ¡ã®è‹±æ•°å­—<br>
+     * æœŸå¾…å€¤ï¼šãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡ŒãŒæˆåŠŸã—ã€å…¥åŠ›ã«å¯¾å¿œã™ã‚‹ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªåã®
+     * ã€€ã€€ã€€ã€€ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãŒä½œæˆã•ã‚Œã¦ã„ã‚‹ã“ã¨<br>
+     * @throws Exception ä¾‹å¤– */
     public void testMakeSessionDirectory01() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = "01234567abcdefgh";
 
-        // –‘O€”õ
+        // äº‹å‰æº–å‚™
         String dirName = StringUtil.toHexString(HashUtil.hashSHA1(input), "");
         File dir = new File(TMP_SESSIONS_DIR + dirName);
-        // ì¬‚·‚éƒfƒBƒŒƒNƒgƒŠ‚ª‘¶İ‚·‚éê‡Aíœ
+        // ä½œæˆã™ã‚‹ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãŒå­˜åœ¨ã™ã‚‹å ´åˆã€å‰Šé™¤
         if (dir.exists()) {
             dir.delete();
         }
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         boolean result = FileUtil.makeSessionDirectory(input);
 
-        // Œ‹‰Ê‚ÌŠm”F
+        // çµæœã®ç¢ºèª
         assertTrue(result);
-        // ƒfƒBƒŒƒNƒgƒŠ‚ªì¬‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ÌŠm”F
+        // ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãŒä½œæˆã•ã‚Œã¦ã„ã‚‹ã“ã¨ã®ç¢ºèª
         if (!dir.exists()) {
             fail();
         }
@@ -290,32 +290,32 @@ public class FileUtilTest extends PropertyTestCase {
     /**
      * makeSessionDirectory(2)
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_F<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼š<br>
      * 
-     * “ü—Í’lF16Œ…‚Ì‰p”šiŠù‚É‘Î‰‚·‚éƒfƒBƒŒƒNƒgƒŠ‚ª‘¶İ‚·‚éj<br>
-     * Šú‘Ò’lFƒeƒXƒg‘ÎÛ‚ÌÀs‚ª¸”s‚µA“ü—Í‚É‘Î‰‚·‚éƒfƒBƒŒƒNƒgƒŠ–¼‚Ì
-     * @@@@ƒfƒBƒŒƒNƒgƒŠ‚ªì¬‚³‚ê‚Ä‚¢‚é‚±‚Æ<br>
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ï¼š16æ¡ã®è‹±æ•°å­—ï¼ˆæ—¢ã«å¯¾å¿œã™ã‚‹ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãŒå­˜åœ¨ã™ã‚‹ï¼‰<br>
+     * æœŸå¾…å€¤ï¼šãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡ŒãŒå¤±æ•—ã—ã€å…¥åŠ›ã«å¯¾å¿œã™ã‚‹ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªåã®
+     * ã€€ã€€ã€€ã€€ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãŒä½œæˆã•ã‚Œã¦ã„ã‚‹ã“ã¨<br>
+     * @throws Exception ä¾‹å¤– */
     public void testMakeSessionDirectory02() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = "01234567abcdefgh";
 
-        // –‘O€”õ
+        // äº‹å‰æº–å‚™
         String dirName = StringUtil.toHexString(HashUtil.hashSHA1(input), "");
         File dir = new File(TMP_SESSIONS_DIR + dirName);
-        // ì¬‚³‚ê‚éƒfƒBƒŒƒNƒgƒŠ‚ª‘¶İ‚·‚éê‡Aíœ
+        // ä½œæˆã•ã‚Œã‚‹ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãŒå­˜åœ¨ã™ã‚‹å ´åˆã€å‰Šé™¤
         if (dir.exists()) {
             dir.delete();
         }
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀsi2‰ñŒJ‚è•Ô‚·j
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œï¼ˆ2å›ç¹°ã‚Šè¿”ã™ï¼‰
         FileUtil.makeSessionDirectory(input);
         boolean result = FileUtil.makeSessionDirectory(input);
 
-        // Œ‹‰Ê‚ÌŠm”F
+        // çµæœã®ç¢ºèª
         assertFalse(result);
-        // ƒfƒBƒŒƒNƒgƒŠ‚ªì¬‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ÌŠm”F
+        // ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãŒä½œæˆã•ã‚Œã¦ã„ã‚‹ã“ã¨ã®ç¢ºèª
         if (!dir.exists()) {
             fail();
         }
@@ -324,70 +324,70 @@ public class FileUtilTest extends PropertyTestCase {
     /**
      * makeSessionDirectory(3)
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_F<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼š<br>
      * 
-     * “ü—Í’lFnull<br>
-     * Šú‘Ò’lFfalse<br>
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ï¼šnull<br>
+     * æœŸå¾…å€¤ï¼šfalse<br>
+     * @throws Exception ä¾‹å¤– */
     public void testMakeSessionDirectory03() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = null;
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         boolean result = FileUtil.makeSessionDirectory(input);
 
-        // Œ‹‰Ê‚ÌŠm”F
+        // çµæœã®ç¢ºèª
         assertFalse(result);
     }
 
     /**
      * makeSessionDirectory(4)
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_F<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼š<br>
      * 
-     * “ü—Í’lF""(‹ó•¶š)<br>
-     * Šú‘Ò’lFfalse<br>
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ï¼š""(ç©ºæ–‡å­—)<br>
+     * æœŸå¾…å€¤ï¼šfalse<br>
+     * @throws Exception ä¾‹å¤– */
     public void testMakeSessionDirectory04() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = "";
 
-        // –‘O€”õ
+        // äº‹å‰æº–å‚™
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         boolean result = FileUtil.makeSessionDirectory(input);
 
-        // Œ‹‰Ê‚ÌŠm”F
+        // çµæœã®ç¢ºèª
         assertFalse(result);
     }
 
     /**
      * rmdirs(1)
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_F<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼š<br>
      * 
-     * “ü—Í’lF”CˆÓ‚ÌƒfƒBƒŒƒNƒgƒŠiƒTƒuƒfƒBƒŒƒNƒgƒŠAƒtƒ@ƒCƒ‹‚È‚µj<br>
-     * Šú‘Ò’lFƒeƒXƒg‘ÎÛ‚ÌÀs‚ª¬Œ÷‚µAƒfƒBƒŒƒNƒgƒŠ‚ªíœ‚³‚ê‚é‚±‚Æ<br>
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ï¼šä»»æ„ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªï¼ˆã‚µãƒ–ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã€ãƒ•ã‚¡ã‚¤ãƒ«ãªã—ï¼‰<br>
+     * æœŸå¾…å€¤ï¼šãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡ŒãŒæˆåŠŸã—ã€ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãŒå‰Šé™¤ã•ã‚Œã‚‹ã“ã¨<br>
+     * @throws Exception ä¾‹å¤– */
     public void testRmdirs01() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         File dir = new File(TMP_TEST_DIR + "rmdirs1");
 
-        // –‘O€”õ
-        // íœ‚·‚éƒfƒBƒŒƒNƒgƒŠ‚ª‘¶İ‚µ‚È‚¢ê‡Aì¬
+        // äº‹å‰æº–å‚™
+        // å‰Šé™¤ã™ã‚‹ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãŒå­˜åœ¨ã—ãªã„å ´åˆã€ä½œæˆ
         if (!dir.exists()) {
             dir.mkdirs();
         }
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         boolean result = FileUtil.rmdirs(dir);
 
-        // Œ‹‰Ê‚ÌŠm”F
+        // çµæœã®ç¢ºèª
         assertTrue(result);
-        // ƒfƒBƒŒƒNƒgƒŠ‚ªíœ‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ÌŠm”F
+        // ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãŒå‰Šé™¤ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã®ç¢ºèª
         if (dir.exists()) {
             fail();
         }
@@ -396,28 +396,28 @@ public class FileUtilTest extends PropertyTestCase {
     /**
      * rmdirs(2)
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_F<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼š<br>
      * 
-     * “ü—Í’lF‘¶İ‚µ‚È‚¢ƒfƒBƒŒƒNƒgƒŠ<br>
-     * Šú‘Ò’lFƒeƒXƒg‘ÎÛ‚ÌÀs‚ª¸”s‚µAƒfƒBƒŒƒNƒgƒŠ‚ª‘¶İ‚µ‚È‚¢‚±‚Æ<br>
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ï¼šå­˜åœ¨ã—ãªã„ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª<br>
+     * æœŸå¾…å€¤ï¼šãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡ŒãŒå¤±æ•—ã—ã€ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãŒå­˜åœ¨ã—ãªã„ã“ã¨<br>
+     * @throws Exception ä¾‹å¤– */
     public void testRmdirs02() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         File dir = new File(TMP_TEST_DIR + "rmdirs2");
 
-        // –‘O€”õ
-        // ƒfƒBƒŒƒNƒgƒŠ‚ª‘¶İ‚·‚éê‡Aíœ
+        // äº‹å‰æº–å‚™
+        // ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãŒå­˜åœ¨ã™ã‚‹å ´åˆã€å‰Šé™¤
         if (dir.exists()) {
             dir.delete();
         }
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         boolean result = FileUtil.rmdirs(dir);
 
-        // Œ‹‰Ê‚ÌŠm”F
+        // çµæœã®ç¢ºèª
         assertFalse(result);
-        // ƒfƒBƒŒƒNƒgƒŠ‚ª‘¶İ‚µ‚È‚¢‚±‚Æ‚ÌŠm”F
+        // ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãŒå­˜åœ¨ã—ãªã„ã“ã¨ã®ç¢ºèª
         if (dir.exists()) {
             fail();
         }
@@ -426,21 +426,21 @@ public class FileUtilTest extends PropertyTestCase {
     /**
      * rmdirs(3)
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_F<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼š<br>
      * 
-     * “ü—Í’lF”CˆÓ‚ÌƒfƒBƒŒƒNƒgƒŠiƒTƒuƒfƒBƒŒƒNƒgƒŠAƒtƒ@ƒCƒ‹‚ ‚èj<br>
-     * Šú‘Ò’lFƒeƒXƒg‘ÎÛ‚ÌÀs‚ª¬Œ÷‚µAƒfƒBƒŒƒNƒgƒŠ‚ªíœ‚³‚ê‚é‚±‚Æ<br>
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ï¼šä»»æ„ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªï¼ˆã‚µãƒ–ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã€ãƒ•ã‚¡ã‚¤ãƒ«ã‚ã‚Šï¼‰<br>
+     * æœŸå¾…å€¤ï¼šãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡ŒãŒæˆåŠŸã—ã€ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãŒå‰Šé™¤ã•ã‚Œã‚‹ã“ã¨<br>
+     * @throws Exception ä¾‹å¤– */
     public void testRmdirs03() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         File dir = new File(TMP_TEST_DIR + "rmdirs3");
 
-        // –‘O€”õ
-        // ƒTƒuƒfƒBƒŒƒNƒgƒŠAƒtƒ@ƒCƒ‹‚Ìİ’è
+        // äº‹å‰æº–å‚™
+        // ã‚µãƒ–ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã€ãƒ•ã‚¡ã‚¤ãƒ«ã®è¨­å®š
         File subdir = new File(TMP_TEST_DIR + "rmdirs3/tmp");
         File file = new File(TMP_TEST_DIR + "rmdirs3/tmp.txt");
-        // íœ‚·‚éƒfƒBƒŒƒNƒgƒŠAƒtƒ@ƒCƒ‹‚ª‘¶İ‚µ‚È‚¢ê‡Aì¬
+        // å‰Šé™¤ã™ã‚‹ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã€ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã—ãªã„å ´åˆã€ä½œæˆ
         if (!dir.exists()) {
             dir.mkdirs();
         }
@@ -451,12 +451,12 @@ public class FileUtilTest extends PropertyTestCase {
             file.createNewFile();
         }
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         boolean result = FileUtil.rmdirs(dir);
 
-        // Œ‹‰Ê‚ÌŠm”F
+        // çµæœã®ç¢ºèª
         assertTrue(result);
-        // eƒfƒBƒŒƒNƒgƒŠ‚ª‘¶İ‚µ‚È‚¢‚±‚Æ‚ÌŠm”F
+        // è¦ªãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãŒå­˜åœ¨ã—ãªã„ã“ã¨ã®ç¢ºèª
         if (dir.exists()) {
             fail();
         }
@@ -465,70 +465,70 @@ public class FileUtilTest extends PropertyTestCase {
     /**
      * rmdirs(4)
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_F<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼š<br>
      * 
-     * “ü—Í’lFnull<br>
-     * Šú‘Ò’lFfalse<br>
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ï¼šnull<br>
+     * æœŸå¾…å€¤ï¼šfalse<br>
+     * @throws Exception ä¾‹å¤– */
     public void testRmdirs04() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         File dir = null;
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         boolean result = FileUtil.rmdirs(dir);
 
-        // Œ‹‰Ê‚ÌŠm”F
+        // çµæœã®ç¢ºèª
         assertFalse(result);
     }
 
     /**
      * rmdirs(5)
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_F<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼š<br>
      * 
-     * “ü—Í’lF""(‹ó•¶š)‚ÌƒpƒX‚ÌFileƒIƒuƒWƒFƒNƒg<br>
-     * Šú‘Ò’lFfalse<br>
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ï¼š""(ç©ºæ–‡å­—)ã®ãƒ‘ã‚¹ã®Fileã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
+     * æœŸå¾…å€¤ï¼šfalse<br>
+     * @throws Exception ä¾‹å¤– */
     public void testRmdirs05() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         File dir = new File("");
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         boolean result = FileUtil.rmdirs(dir);
 
-        // Œ‹‰Ê‚ÌŠm”F
+        // çµæœã®ç¢ºèª
         assertFalse(result);
     }
 
     /**
      * rmdirs(6)
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_F<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼š<br>
      * 
-     * “ü—Í’lF“Ç‚İæ‚èê—p‚ÌƒfƒBƒŒƒNƒgƒŠiƒTƒuƒfƒBƒŒƒNƒgƒŠAƒtƒ@ƒCƒ‹‚È‚µj<br>
-     * Šú‘Ò’lFƒeƒXƒg‘ÎÛ‚ÌÀs‚ª¬Œ÷‚µAƒfƒBƒŒƒNƒgƒŠ‚ªíœ‚³‚ê‚é‚±‚Æ<br>
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ï¼šèª­ã¿å–ã‚Šå°‚ç”¨ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªï¼ˆã‚µãƒ–ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã€ãƒ•ã‚¡ã‚¤ãƒ«ãªã—ï¼‰<br>
+     * æœŸå¾…å€¤ï¼šãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡ŒãŒæˆåŠŸã—ã€ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãŒå‰Šé™¤ã•ã‚Œã‚‹ã“ã¨<br>
+     * @throws Exception ä¾‹å¤– */
     public void testRmdirs06() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         File dir = new File(TMP_TEST_DIR + "rmdirs6");
 
-        // –‘O€”õ
-        // ƒfƒBƒŒƒNƒgƒŠ‚Íì¬‚µ‚Ä‚¨‚­
-        // “Ç‚İæ‚èê—p‘®«‚à‚»‚±‚Åİ’è‚·‚é
+        // äº‹å‰æº–å‚™
+        // ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã¯ä½œæˆã—ã¦ãŠã
+        // èª­ã¿å–ã‚Šå°‚ç”¨å±æ€§ã‚‚ãã“ã§è¨­å®šã™ã‚‹
         if(!dir.exists()){
             dir.mkdir();
             dir.setReadOnly();
         }
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         boolean result = FileUtil.rmdirs(dir);
 
-        // Œ‹‰Ê‚ÌŠm”F
+        // çµæœã®ç¢ºèª
         assertTrue(result);
-        // ƒfƒBƒŒƒNƒgƒŠ‚ªíœ‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ÌŠm”F
+        // ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãŒå‰Šé™¤ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã®ç¢ºèª
         if (dir.exists()) {
             fail();
         }
@@ -537,75 +537,75 @@ public class FileUtilTest extends PropertyTestCase {
     /**
      * removeSessionDirectory01()
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      * 
-     * “ü—Í’lFsessionID="01234567abcdefgh"<br>
-     * Šú‘Ò’lFtrue<br>
+     * å…¥åŠ›å€¤ï¼šsessionID="01234567abcdefgh"<br>
+     * æœŸå¾…å€¤ï¼štrue<br>
      * 
-     * ƒZƒbƒVƒ‡ƒ“ID‚É‘Î‰‚·‚éƒfƒBƒŒƒNƒgƒŠ‚ª‘¶İ‚µAƒfƒBƒŒƒNƒgƒŠ‚Ìíœ‚É¬Œ÷‚µ‚½A
-     * true‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * ã‚»ãƒƒã‚·ãƒ§ãƒ³IDã«å¯¾å¿œã™ã‚‹ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãŒå­˜åœ¨ã—ã€ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®å‰Šé™¤ã«æˆåŠŸã—ãŸæ™‚ã€
+     * trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * 
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testRemoveSessionDirectory01() throws Exception {
-        // ‰Šúİ’è
+        // åˆæœŸè¨­å®š
         String input = "01234567abcdefgh";
         UTUtil.invokePrivate(
             FileUtil.class,
             "makeSessionDirectory",
             String.class,
             input);
-        // ƒeƒXƒgÀs
-        // Œ‹‰ÊŠm”F
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
+        // çµæœç¢ºèª
         assertTrue(FileUtil.removeSessionDirectory(input));
     }
 
     /**
      * removeSessionDirectory02()
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      * 
-     * “ü—Í’lFsessionID="01234567abcdefgh"<br>
-     * Šú‘Ò’lFfalse<br>
+     * å…¥åŠ›å€¤ï¼šsessionID="01234567abcdefgh"<br>
+     * æœŸå¾…å€¤ï¼šfalse<br>
      * 
-     * ƒZƒbƒVƒ‡ƒ“ID‚É‘Î‰‚·‚éƒfƒBƒŒƒNƒgƒŠ‚ª‘¶İ‚µ‚È‚¢‚Æ‚«A
-     * ƒfƒBƒŒƒNƒgƒŠ‚Ìíœ‚É¸”s‚µfalse‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * ã‚»ãƒƒã‚·ãƒ§ãƒ³IDã«å¯¾å¿œã™ã‚‹ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãŒå­˜åœ¨ã—ãªã„ã¨ãã€
+     * ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®å‰Šé™¤ã«å¤±æ•—ã—falseãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * 
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testRemoveSessionDirectory02() throws Exception {
-        // ‰Šúİ’è
+        // åˆæœŸè¨­å®š
         String input = "01234567abcdefgh";
         File dir = (File) UTUtil.invokePrivate(FileUtil.class,
                 "getSessionDirectory", String.class, input);
         dir.delete();
 
-        // ƒeƒXƒgÀs
-        // Œ‹‰ÊŠm”F
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
+        // çµæœç¢ºèª
         assertFalse(FileUtil.removeSessionDirectory(input));
     }
 
     /**
      * removeSessionDirectory03()
      * 
-     * (ˆÙíŒn)<br>
-     * ŠÏ“_FC,G<br>
+     * (ç•°å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šC,G<br>
      * 
-     * “ü—Í’lFsessionID=null<br>
-     * Šú‘Ò’lFNullPOinterException<br>
+     * å…¥åŠ›å€¤ï¼šsessionID=null<br>
+     * æœŸå¾…å€¤ï¼šNullPOinterException<br>
      * 
-     * ƒZƒbƒVƒ‡ƒ“ID‚ªnull‚ÌANullPointerException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * ã‚»ãƒƒã‚·ãƒ§ãƒ³IDãŒnullã®æ™‚ã€NullPointerExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * 
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testRemoveSessionDirectory03() throws Exception {
         try {
-            // ƒeƒXƒg‘ÎÛ‚ÌÀs
+            // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
             FileUtil.removeSessionDirectory(null);
             fail();
         } catch (NullPointerException e) {
             return;
         }
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         fail();
     }
 }

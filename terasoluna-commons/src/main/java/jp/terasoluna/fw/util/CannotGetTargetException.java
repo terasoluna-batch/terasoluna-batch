@@ -17,21 +17,21 @@
 package jp.terasoluna.fw.util;
 
 /**
- * ProxyUtil‚Åƒ^[ƒQƒbƒgƒNƒ‰ƒX‚ª‘¶İ‚µ‚È‚©‚Á‚½ê‡‚ÉA
- * ƒXƒ[‚³‚ê‚éƒNƒ‰ƒXB
+ * ProxyUtilã§ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã‚¯ãƒ©ã‚¹ãŒå­˜åœ¨ã—ãªã‹ã£ãŸå ´åˆã«ã€
+ * ã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã‚¯ãƒ©ã‚¹ã€‚
  * 
  */
 public class CannotGetTargetException extends RuntimeException {
 
     /**
-     * ƒVƒŠƒAƒ‹ƒo[ƒWƒ‡ƒ“IDB
+     * ã‚·ãƒªã‚¢ãƒ«ãƒãƒ¼ã‚¸ãƒ§ãƒ³IDã€‚
      */
     private static final long serialVersionUID = -4968143958715127949L;
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      *
-     * @param cause Œ´ˆö‚Æ‚È‚Á‚½—áŠO
+     * @param cause åŸå› ã¨ãªã£ãŸä¾‹å¤–
      */
     public CannotGetTargetException(Throwable cause) {
         super(cause);

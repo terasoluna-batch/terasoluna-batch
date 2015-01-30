@@ -64,7 +64,7 @@ public class TLoggerTest {
         LOGGER.log(LogId.FAT001);
         assertEquals(
                 "[ERROR][TLoggerTest] " + LOGGER.getLogMessage(LogId.FAT001),
-                logReader.readLine()); // FATALƒƒO‚ÍERRORƒŒƒxƒ‹‚Åo—Í‚³‚ê‚éB
+                logReader.readLine()); // FATALãƒ­ã‚°ã¯ERRORãƒ¬ãƒ™ãƒ«ã§å‡ºåŠ›ã•ã‚Œã‚‹ã€‚
         LOGGER.log("HOGE");
         assertEquals("[DEBUG][TLoggerTest] [HOGE] ", logReader.readLine());
     }
@@ -115,7 +115,7 @@ public class TLoggerTest {
         LOGGER.log(LogId.FAT001, e);
         assertEquals(
                 "[ERROR][TLoggerTest] " + LOGGER.getLogMessage(LogId.FAT001),
-                logReader.readLine()); // FATALƒƒO‚ÍERRORƒŒƒxƒ‹‚Æ‚µ‚Äo—Í‚³‚ê‚éB
+                logReader.readLine()); // FATALãƒ­ã‚°ã¯ERRORãƒ¬ãƒ™ãƒ«ã¨ã—ã¦å‡ºåŠ›ã•ã‚Œã‚‹ã€‚
         assertEquals("java.lang.Exception: hoge", logReader.readLine());
         while (logReader.readLine() != null)
             ;
@@ -184,7 +184,7 @@ public class TLoggerTest {
     public void testError07() throws Exception {
         TLogger logger = TLogger.getLogger("FATAL_TEST");
         logger.error(false, "{0} is {1}", new Exception("hoge"), "a", "b");
-        assertEquals("[ERROR][FATAL_TEST] a is b", logReader.readLine()); // FATALw’è‚Ìlogger‚ÍDEBUGƒŒƒxƒ‹‚Æ‚µ‚Äo—Í‚³‚ê‚éB
+        assertEquals("[ERROR][FATAL_TEST] a is b", logReader.readLine()); // FATALæŒ‡å®šã®loggerã¯DEBUGãƒ¬ãƒ™ãƒ«ã¨ã—ã¦å‡ºåŠ›ã•ã‚Œã‚‹ã€‚
         assertEquals("java.lang.Exception: hoge", logReader.readLine());
     }
 
@@ -261,7 +261,7 @@ public class TLoggerTest {
         {
             TLogger logger = TLogger.getLogger("FATAL_TEST");
             logger.warn(LogId.WAR010);
-            assertEquals("[WARN][FATAL_TEST] [WAR010] ƒ[ƒ“ƒƒbƒZ[ƒW10", logReader.readLine()); // FATAL w’è‚Ìlogger‚ÍDEBUGƒŒƒxƒ‹‚Æ‚µ‚Ä‰ğß‚³‚ê‚é‚½‚ßAFATAL_TESTƒJƒeƒSƒŠ‚Å‚ào—Í‚³‚ê‚éB
+            assertEquals("[WARN][FATAL_TEST] [WAR010] ãƒ¯ãƒ¼ãƒ³ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸10", logReader.readLine()); // FATAL æŒ‡å®šã®loggerã¯DEBUGãƒ¬ãƒ™ãƒ«ã¨ã—ã¦è§£é‡ˆã•ã‚Œã‚‹ãŸã‚ã€FATAL_TESTã‚«ãƒ†ã‚´ãƒªã§ã‚‚å‡ºåŠ›ã•ã‚Œã‚‹ã€‚
         }
     }
 
@@ -314,7 +314,7 @@ public class TLoggerTest {
         {
                 TLogger logger = TLogger.getLogger("WARN_TEST");
                 logger.info(LogId.INF010);
-                assertNull(logReader.readLine()); // o—Í‚³‚ê‚È‚¢
+                assertNull(logReader.readLine()); // å‡ºåŠ›ã•ã‚Œãªã„
         }
     }
 
@@ -368,7 +368,7 @@ public class TLoggerTest {
         {
             TLogger logger = TLogger.getLogger("INFO_TEST");
             logger.debug(LogId.DEB010);
-            assertNull(logReader.readLine()); // o—Í‚³‚ê‚È‚¢
+            assertNull(logReader.readLine()); // å‡ºåŠ›ã•ã‚Œãªã„
         }
     }
 
@@ -422,7 +422,7 @@ public class TLoggerTest {
         {
             TLogger logger = TLogger.getLogger("DEBUG_TEST");
             logger.trace(LogId.TRA010);
-            assertNull(logReader.readLine()); // o—Í‚³‚ê‚È‚¢
+            assertNull(logReader.readLine()); // å‡ºåŠ›ã•ã‚Œãªã„
         }
     }
 
@@ -471,13 +471,13 @@ public class TLoggerTest {
         assertEquals("[ERR001] error1",
                 LOGGER.createMessage(true, LogId.ERR001));
         TLogger.setLocale(Locale.getDefault());
-        assertEquals("[ERR001] ƒGƒ‰[ƒƒbƒZ[ƒW1",
+        assertEquals("[ERR001] ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸1",
                 LOGGER.createMessage(true, LogId.ERR001));
     }
 
     @Test
     public void testGetLogMessage01() {
-        assertEquals("[ERR001] ƒGƒ‰[ƒƒbƒZ[ƒW1", LOGGER.getLogMessage(LogId.ERR001));
+        assertEquals("[ERR001] ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸1", LOGGER.getLogMessage(LogId.ERR001));
         TLogger.setLocale(Locale.ENGLISH);
         assertEquals("[ERR001] error1", LOGGER.getLogMessage(LogId.ERR001));
         TLogger.setLocale(Locale.getDefault());

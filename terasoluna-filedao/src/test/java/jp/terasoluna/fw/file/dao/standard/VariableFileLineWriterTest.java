@@ -30,13 +30,13 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * {@link jp.terasoluna.fw.file.dao.standard.VariableFileLineWriter} ƒNƒ‰ƒX‚ÌƒeƒXƒgB
+ * {@link jp.terasoluna.fw.file.dao.standard.VariableFileLineWriter} ã‚¯ãƒ©ã‚¹ã®ãƒ†ã‚¹ãƒˆã€‚
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4> ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚©‚çƒf[ƒ^‚ğ“Ç‚İ‚İA1s•ª‚Ìƒf[ƒ^‚ğ‰Â•Ï’·Œ`®‚Å ƒtƒ@ƒCƒ‹‚É‘‚«‚ŞB<br>
- * AbstractFileLineWriter‚ÌƒTƒuƒNƒ‰ƒXB
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4> ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã‚‰ãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿è¾¼ã¿ã€1è¡Œåˆ†ã®ãƒ‡ãƒ¼ã‚¿ã‚’å¯å¤‰é•·å½¢å¼ã§ ãƒ•ã‚¡ã‚¤ãƒ«ã«æ›¸ãè¾¼ã‚€ã€‚<br>
+ * AbstractFileLineWriterã®ã‚µãƒ–ã‚¯ãƒ©ã‚¹ã€‚
  * <p>
- * @author ‰œ“c“Ni
- * @author æâ•î“O
+ * @author å¥¥ç”°å“²å¸
+ * @author è¶™ä¿¸å¾¹
  * @see jp.terasoluna.fw.file.dao.standard.VariableFileLineWriter
  */
 public class VariableFileLineWriterTest {
@@ -45,8 +45,8 @@ public class VariableFileLineWriterTest {
             .getResource("VariableFileLineWriterTest_tmp.txt").getPath();
 
     /**
-     * ‚±‚ÌƒeƒXƒgƒP[ƒX‚ğÀs‚·‚éˆ×‚Ì GUI ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‹N“®‚·‚éB
-     * @param args java ƒRƒ}ƒ“ƒh‚Éİ’è‚³‚ê‚½ƒpƒ‰ƒ[ƒ^
+     * ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã‚’å®Ÿè¡Œã™ã‚‹ç‚ºã® GUI ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’èµ·å‹•ã™ã‚‹ã€‚
+     * @param args java ã‚³ãƒãƒ³ãƒ‰ã«è¨­å®šã•ã‚ŒãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public static void main(String[] args) {
         // junit.swingui.TestRunner.run(VariableFileLineWriterTest.class);
@@ -55,7 +55,7 @@ public class VariableFileLineWriterTest {
     @Before
     public void setUp() throws Exception {
         VMOUTUtil.initialize();
-        // ƒtƒ@ƒCƒ‹‚Ì‰Šú‰»
+        // ãƒ•ã‚¡ã‚¤ãƒ«ã®åˆæœŸåŒ–
         File file = new File(TEMP_FILE_NAME);
         file.delete();
         file.createNewFile();
@@ -63,7 +63,7 @@ public class VariableFileLineWriterTest {
 
     @AfterClass
     public static void afterClass() throws Exception {
-        // ƒtƒ@ƒCƒ‹‚Ì‰Šú‰»
+        // ãƒ•ã‚¡ã‚¤ãƒ«ã®åˆæœŸåŒ–
         File file = new File(TEMP_FILE_NAME);
         file.delete();
         file.createNewFile();
@@ -72,49 +72,49 @@ public class VariableFileLineWriterTest {
     /**
      * testVariableFileLineWriter01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE, F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE, F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileName:"(ƒpƒX)VariableFileLineWriter_testVariableFileLineWriter01.txt"<br>
-     * (ˆø”) clazz:FileFormatƒAƒmƒe[ƒVƒ‡ƒ“‚ğ‚¿AdelimiterAencloseChar‚ª‰Šú’l<br>
-     * (ˆø”) columnFormatterMap:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂMap<String, ColumnFormatter>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"java.lang.String"=NullColumnFormatter.java<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileName:"(ãƒ‘ã‚¹)VariableFileLineWriter_testVariableFileLineWriter01.txt"<br>
+     * (å¼•æ•°) clazz:FileFormatã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã‚’æŒã¡ã€delimiterã€encloseCharãŒåˆæœŸå€¤<br>
+     * (å¼•æ•°) columnFormatterMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤Map<String, ColumnFormatter>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"java.lang.String"=NullColumnFormatter.java<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») AbstractFileLineWriter#init():1‰ñŒÄ‚Î‚ê‚é‚±‚Æ<br>
-     * (ó‘Ô•Ï‰») AbstractFileLineWriter#AbstractFileLineWriter():1‰ñŒÄ‚Î‚ê‚é‚±‚ÆB<br>
-     * ˆø”‚ª“n‚Á‚Ä‚­‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * (ó‘Ô•Ï‰») this.encloseChar:parameterClass‚ÌƒAƒmƒe[ƒVƒ‡ƒ“FileFormat‚ÌencloseChar()‚Ì’lB<br>
-     * (ó‘Ô•Ï‰») this.delimiter:parameterClass‚ÌƒAƒmƒe[ƒVƒ‡ƒ“FileFormat‚Ìdelimiter()‚Ì’lB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) AbstractFileLineWriter#init():1å›å‘¼ã°ã‚Œã‚‹ã“ã¨<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) AbstractFileLineWriter#AbstractFileLineWriter():1å›å‘¼ã°ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * å¼•æ•°ãŒæ¸¡ã£ã¦ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.encloseChar:parameterClassã®ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³FileFormatã®encloseChar()ã®å€¤ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.delimiter:parameterClassã®ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³FileFormatã®delimiter()ã®å€¤ã€‚<br>
      * <br>
-     * ³íƒpƒ^[ƒ“<br>
-     * @FileFormat‚ª‚·‚×‚ÄƒfƒtƒHƒ‹ƒg’l‚Ìê‡‚ÉAƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌŒÄo‚ª³í‚És‚í‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ãƒ‘ã‚¿ãƒ¼ãƒ³<br>
+     * @FileFormatãŒã™ã¹ã¦ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ã®å ´åˆã«ã€ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å‘¼å‡ºãŒæ­£å¸¸ã«è¡Œã‚ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     @Test
     public void testVariableFileLineWriter01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
-        // ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚È‚Ì‚Å•s—v
-        // ˆø”‚Ìİ’è
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
+        // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãªã®ã§ä¸è¦
+        // å¼•æ•°ã®è¨­å®š
         String fileName = TEMP_FILE_NAME;
 
         Class<VariableFileLineWriter_Stub01> clazz = VariableFileLineWriter_Stub01.class;
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ‚È‚µ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         VariableFileLineWriter<VariableFileLineWriter_Stub01> result = null;
         try {
             result = new VariableFileLineWriter<VariableFileLineWriter_Stub01>(
                     fileName, clazz, columnFormatterMap);
 
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(1, VMOUTUtil.getCallCount(
                     AbstractFileLineWriter.class, "init"));
             assertEquals(1, VMOUTUtil.getCallCount(
@@ -129,7 +129,7 @@ public class VariableFileLineWriterTest {
                     "encloseChar"));
             assertEquals(',', UTUtil.getPrivateField(result, "delimiter"));
         } finally {
-            // ƒeƒXƒg‘ÎÛ‚ÌƒNƒ[ƒYˆ—
+            // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¯ãƒ­ãƒ¼ã‚ºå‡¦ç†
             if (result != null) {
                 result.closeFile();
             }
@@ -139,49 +139,49 @@ public class VariableFileLineWriterTest {
     /**
      * testVariableFileLineWriter02() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileName:"(ƒpƒX)VariableFileLineWriter_testVariableFileLineWriter02.txt"<br>
-     * (ˆø”) clazz:FileFormatƒAƒmƒe[ƒVƒ‡ƒ“‚ğ‚¿Adelimiter‚ª'\u0000'AencloseChar‚ª'\"'<br>
-     * (ˆø”) columnFormatterMap:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂMap<String, ColumnFormatter>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"java.lang.String"=NullColumnFormatter.java<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileName:"(ãƒ‘ã‚¹)VariableFileLineWriter_testVariableFileLineWriter02.txt"<br>
+     * (å¼•æ•°) clazz:FileFormatã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã‚’æŒã¡ã€delimiterãŒ'\u0000'ã€encloseCharãŒ'\"'<br>
+     * (å¼•æ•°) columnFormatterMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤Map<String, ColumnFormatter>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"java.lang.String"=NullColumnFormatter.java<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») AbstractFileLineWriter#init():ŒÄ‚Î‚ê‚È‚¢‚±‚ÆB<br>
-     * (ó‘Ô•Ï‰») AbstractFileLineWriter#AbstractFileLineWriter():1‰ñŒÄ‚Î‚ê‚é‚±‚ÆB<br>
-     * ˆø”‚ª“n‚Á‚Ä‚­‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * (ó‘Ô•Ï‰») —áŠO:"Delimiter can not use '\u0000'."‚ÌƒƒbƒZ[ƒWAIllegalStateExceptionAƒtƒ@ƒCƒ‹–¼‚ğ‚ÂFileException‚ª”­¶‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) AbstractFileLineWriter#init():å‘¼ã°ã‚Œãªã„ã“ã¨ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) AbstractFileLineWriter#AbstractFileLineWriter():1å›å‘¼ã°ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * å¼•æ•°ãŒæ¸¡ã£ã¦ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:"Delimiter can not use '\u0000'."ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã€IllegalStateExceptionã€ãƒ•ã‚¡ã‚¤ãƒ«åã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
      * <br>
-     * —áŠOB@FileFormat‚Ìdelimiter‚É'\u0000'‚ğİ’è‚µ‚½ê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * ƒtƒ@ƒCƒ‹–¼‚ª“ü—Í’l‚ÌfileName‚Éˆê’v‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ä¾‹å¤–ã€‚@FileFormatã®delimiterã«'\u0000'ã‚’è¨­å®šã—ãŸå ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * ãƒ•ã‚¡ã‚¤ãƒ«åãŒå…¥åŠ›å€¤ã®fileNameã«ä¸€è‡´ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     @Test
     public void testVariableFileLineWriter02() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
-        // ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚È‚Ì‚Å•s—v
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
+        // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãªã®ã§ä¸è¦
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String fileName = TEMP_FILE_NAME;
 
         Class<VariableFileLineWriter_Stub04> clazz = VariableFileLineWriter_Stub04.class;
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ‚È‚µ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãªã—
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             new VariableFileLineWriter<VariableFileLineWriter_Stub04>(fileName,
                     clazz, columnFormatterMap);
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (FileException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(0, VMOUTUtil.getCallCount(
                     AbstractFileLineWriter.class, "init"));
             assertEquals(1, VMOUTUtil.getCallCount(
@@ -203,49 +203,49 @@ public class VariableFileLineWriterTest {
     /**
      * testVariableFileLineWriter03() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE, F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE, F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileName:"(ƒpƒX)VariableFileLineWriter_testVariableFileLineWriter03.txt"<br>
-     * (ˆø”) clazz:FileFormatƒAƒmƒe[ƒVƒ‡ƒ“‚ğ‚¿Adelimiter‚ª'#'<br>
-     * (ˆø”) columnFormatterMap:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂMap<String, ColumnFormatter>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"java.lang.String"=NullColumnFormatter.java<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileName:"(ãƒ‘ã‚¹)VariableFileLineWriter_testVariableFileLineWriter03.txt"<br>
+     * (å¼•æ•°) clazz:FileFormatã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã‚’æŒã¡ã€delimiterãŒ'#'<br>
+     * (å¼•æ•°) columnFormatterMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤Map<String, ColumnFormatter>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"java.lang.String"=NullColumnFormatter.java<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») AbstractFileLineWriter#init():ŒÄ‚Î‚ê‚é‚±‚Æ<br>
-     * (ó‘Ô•Ï‰») AbstractFileLineWriter#AbstractFileLineWriter():1‰ñŒÄ‚Î‚ê‚é‚±‚ÆB<br>
-     * ˆø”‚ª“n‚Á‚Ä‚­‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * (ó‘Ô•Ï‰») this.encloseChar:parameterClass‚ÌƒAƒmƒe[ƒVƒ‡ƒ“FileFormat‚ÌencloseChar()‚Ì’lB<br>
-     * (ó‘Ô•Ï‰») this.delimiter:parameterClass‚ÌƒAƒmƒe[ƒVƒ‡ƒ“FileFormat‚Ìdelimiter()‚Ì’lB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) AbstractFileLineWriter#init():å‘¼ã°ã‚Œã‚‹ã“ã¨<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) AbstractFileLineWriter#AbstractFileLineWriter():1å›å‘¼ã°ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * å¼•æ•°ãŒæ¸¡ã£ã¦ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.encloseChar:parameterClassã®ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³FileFormatã®encloseChar()ã®å€¤ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.delimiter:parameterClassã®ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³FileFormatã®delimiter()ã®å€¤ã€‚<br>
      * <br>
-     * @FileFormat‚Ìdelimiter‚É'#'‚ğİ’èAencloseChar‚É'"'‚ğİ’è‚µ‚½ê‡AƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌŒÄo‚ª³í‚És‚í‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @FileFormatã®delimiterã«'#'ã‚’è¨­å®šã€encloseCharã«'"'ã‚’è¨­å®šã—ãŸå ´åˆã€ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å‘¼å‡ºãŒæ­£å¸¸ã«è¡Œã‚ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     @Test
     public void testVariableFileLineWriter03() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
-        // ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚È‚Ì‚Å•s—v
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
+        // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãªã®ã§ä¸è¦
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String fileName = TEMP_FILE_NAME;
 
         Class<VariableFileLineWriter_Stub07> clazz = VariableFileLineWriter_Stub07.class;
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ‚È‚µ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãªã—
 
         VariableFileLineWriter<VariableFileLineWriter_Stub07> result = null;
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             result = new VariableFileLineWriter<VariableFileLineWriter_Stub07>(
                     fileName, clazz, columnFormatterMap);
 
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(1, VMOUTUtil.getCallCount(
                     AbstractFileLineWriter.class, "init"));
             assertEquals(1, VMOUTUtil.getCallCount(
@@ -259,7 +259,7 @@ public class VariableFileLineWriterTest {
             assertEquals('"', UTUtil.getPrivateField(result, "encloseChar"));
             assertEquals('#', UTUtil.getPrivateField(result, "delimiter"));
         } finally {
-            // ƒeƒXƒg‘ÎÛ‚ÌƒNƒ[ƒYˆ—
+            // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¯ãƒ­ãƒ¼ã‚ºå‡¦ç†
             if (result != null) {
                 result.closeFile();
             }
@@ -267,18 +267,18 @@ public class VariableFileLineWriterTest {
     }
 
     /**
-     * ˆÙíŒn<br>
-     * ‰üs•¶š‚É‹æØ‚è•¶š‚ªŠÜ‚Ü‚ê‚é
+     * ç•°å¸¸ç³»<br>
+     * æ”¹è¡Œæ–‡å­—ã«åŒºåˆ‡ã‚Šæ–‡å­—ãŒå«ã¾ã‚Œã‚‹
      */
     @Test
     public void testVariableFileLineWriter04() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String fileName = TEMP_FILE_NAME;
 
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             new VariableFileLineWriter<VariableFileLine_Stub01>(fileName,
                     VariableFileLine_Stub01.class, columnFormatterMap);
@@ -293,18 +293,18 @@ public class VariableFileLineWriterTest {
     }
 
     /**
-     * ˆÙíŒn<br>
-     * ‰üs•¶š‚Æ‹æØ‚è•¶š‚ª“¯ˆê
+     * ç•°å¸¸ç³»<br>
+     * æ”¹è¡Œæ–‡å­—ã¨åŒºåˆ‡ã‚Šæ–‡å­—ãŒåŒä¸€
      */
     @Test
     public void testVariableFileLineWriter05() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String fileName = TEMP_FILE_NAME;
 
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             new VariableFileLineWriter<VariableFileLine_Stub02>(fileName,
                     VariableFileLine_Stub02.class, columnFormatterMap);
@@ -319,27 +319,27 @@ public class VariableFileLineWriterTest {
     }
 
     /**
-     * ˆÙíŒn<br>
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÉOutputFileColumnƒAƒmƒe[ƒVƒ‡ƒ“‚ª–³‚µ
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ç³»<br>
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«OutputFileColumnã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ãŒç„¡ã—
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testVariableFileLineWriter06() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String fileName = TEMP_FILE_NAME;
         Class<FileLineObject_Empty> clazz = FileLineObject_Empty.class;
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             new VariableFileLineWriter<FileLineObject_Empty>(fileName, clazz,
                     columnFormatterMap);
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (FileException e) {
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals("OutputFileColumn is not found.", e.getMessage());
             assertEquals(fileName, e.getFileName());
             assertEquals(IllegalStateException.class, e.getCause().getClass());
@@ -349,25 +349,25 @@ public class VariableFileLineWriterTest {
     /**
      * testGetColumn01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE, F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE, F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) t:ˆÈ‰º‚ÌƒJƒ‰ƒ€‚ğˆê‚Â‚ÂVariableFileLineWriterƒXƒ^ƒu<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) t:ä»¥ä¸‹ã®ã‚«ãƒ©ãƒ ã‚’ä¸€ã¤æŒã¤VariableFileLineWriterã‚¹ã‚¿ãƒ–<br>
      * "abcdef"<br>
-     * (ˆø”) index:0<br>
-     * (ó‘Ô) this.encloseChar:Charcator.MIN_VALUE<br>
+     * (å¼•æ•°) index:0<br>
+     * (çŠ¶æ…‹) this.encloseChar:Charcator.MIN_VALUE<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:abcdef<br>
-     * (ó‘Ô•Ï‰») AbstractFileLineWriter#getColumn():1‰ñŒÄ‚Ño‚³‚ê‚é‚±‚Æ<br>
-     * ˆø”‚ª“n‚³‚ê‚é‚±‚Æ<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:abcdef<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) AbstractFileLineWriter#getColumn():1å›å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨<br>
+     * å¼•æ•°ãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨<br>
      * <br>
-     * ³‚µ‚­’l‚ğæ“¾‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£ã—ãå€¤ã‚’å–å¾—ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     @Test
     public void testGetColumn01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         String fileName = TEMP_FILE_NAME;
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
@@ -375,21 +375,21 @@ public class VariableFileLineWriterTest {
                 fileName, VariableFileLineWriter_Stub05.class,
                 columnFormatterMap);
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         VariableFileLineWriter_Stub05 t = new VariableFileLineWriter_Stub05();
         t.setColumn01("abcdef");
         int index = 0;
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Éİ’è‚³‚ê‚Ä‚¢‚éB
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–æ™‚ã«è¨­å®šã•ã‚Œã¦ã„ã‚‹ã€‚
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             String result = lineWriter.getColumn(t, index);
-            // •Ô‹p’l‚ÌŠm”F
+            // è¿”å´å€¤ã®ç¢ºèª
             assertEquals("abcdef", result);
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(1, VMOUTUtil.getCallCount(
                     AbstractFileLineWriter.class, "getColumn"));
             List arguments = VMOUTUtil.getArguments(
@@ -397,7 +397,7 @@ public class VariableFileLineWriterTest {
             assertSame(t, arguments.get(0));
             assertEquals(index, arguments.get(1));
         } finally {
-            // ƒeƒXƒg‘ÎÛ‚ÌƒNƒ[ƒYˆ—
+            // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¯ãƒ­ãƒ¼ã‚ºå‡¦ç†
             lineWriter.closeFile();
         }
     }
@@ -405,26 +405,26 @@ public class VariableFileLineWriterTest {
     /**
      * testGetColumn02() <br>
      * <br>
-     * (³íŒn <br>
-     * ŠÏ“_FE, F <br>
+     * (æ­£å¸¸ç³» <br>
+     * è¦³ç‚¹ï¼šE, F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) t:ˆÈ‰º‚ÌƒJƒ‰ƒ€‚ğˆê‚Â‚ÂVariableFileLineWriterƒXƒ^ƒu<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) t:ä»¥ä¸‹ã®ã‚«ãƒ©ãƒ ã‚’ä¸€ã¤æŒã¤VariableFileLineWriterã‚¹ã‚¿ãƒ–<br>
      * "abcdef"<br>
-     * (ˆø”) index:0<br>
-     * (ó‘Ô) this.encloseChar:'\"'<br>
+     * (å¼•æ•°) index:0<br>
+     * (çŠ¶æ…‹) this.encloseChar:'\"'<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:abcdef<br>
-     * (ó‘Ô•Ï‰») AbstractFileLineWriter#getColumn():1‰ñŒÄ‚Ño‚³‚ê‚é‚±‚Æ<br>
-     * ˆø”‚ª“n‚³‚ê‚é‚±‚Æ<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:abcdef<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) AbstractFileLineWriter#getColumn():1å›å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨<br>
+     * å¼•æ•°ãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨<br>
      * <br>
-     * ³‚µ‚­’l‚ğæ“¾‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * o—Í‘ÎÛ‚ÉƒGƒXƒP[ƒv‘ÎÛ‚Ì•¶šiˆÍ‚İ•¶šj‚ª–³‚¢ê‡‚Í’Êí‚Ì•¶š <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£ã—ãå€¤ã‚’å–å¾—ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * å‡ºåŠ›å¯¾è±¡ã«ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—å¯¾è±¡ã®æ–‡å­—ï¼ˆå›²ã¿æ–‡å­—ï¼‰ãŒç„¡ã„å ´åˆã¯é€šå¸¸ã®æ–‡å­— <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     @Test
     public void testGetColumn02() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         String fileName = TEMP_FILE_NAME;
 
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
@@ -433,22 +433,22 @@ public class VariableFileLineWriterTest {
                 fileName, VariableFileLineWriter_Stub06.class,
                 columnFormatterMap);
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         VariableFileLineWriter_Stub06 t = new VariableFileLineWriter_Stub06();
         t.setColumn01("abcdef");
         int index = 0;
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Éİ’è‚³‚ê‚Ä‚¢‚éB
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–æ™‚ã«è¨­å®šã•ã‚Œã¦ã„ã‚‹ã€‚
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             String result = lineWriter.getColumn(t, index);
 
-            // •Ô‹p’l‚ÌŠm”F
+            // è¿”å´å€¤ã®ç¢ºèª
             assertEquals("abcdef", result);
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(1, VMOUTUtil.getCallCount(
                     AbstractFileLineWriter.class, "getColumn"));
             List arguments = VMOUTUtil.getArguments(
@@ -456,7 +456,7 @@ public class VariableFileLineWriterTest {
             assertSame(t, arguments.get(0));
             assertEquals(index, arguments.get(1));
         } finally {
-            // ƒeƒXƒg‘ÎÛ‚ÌƒNƒ[ƒYˆ—
+            // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¯ãƒ­ãƒ¼ã‚ºå‡¦ç†
             lineWriter.closeFile();
         }
     }
@@ -464,26 +464,26 @@ public class VariableFileLineWriterTest {
     /**
      * testGetColumn03() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE, F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE, F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) t:ˆÈ‰º‚ÌƒJƒ‰ƒ€‚ğˆê‚Â‚ÂVariableFileLineWriterƒXƒ^ƒu<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) t:ä»¥ä¸‹ã®ã‚«ãƒ©ãƒ ã‚’ä¸€ã¤æŒã¤VariableFileLineWriterã‚¹ã‚¿ãƒ–<br>
      * "ab\"cdef"<br>
-     * (ˆø”) index:0<br>
-     * (ó‘Ô) this.encloseChar:'\"'<br>
+     * (å¼•æ•°) index:0<br>
+     * (çŠ¶æ…‹) this.encloseChar:'\"'<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:"ab\"\"cdef"<br>
-     * (ó‘Ô•Ï‰») AbstractFileLineWriter#getColumn():1‰ñŒÄ‚Ño‚³‚ê‚é‚±‚Æ<br>
-     * ˆø”‚ª“n‚³‚ê‚é‚±‚Æ<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:"ab\"\"cdef"<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) AbstractFileLineWriter#getColumn():1å›å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨<br>
+     * å¼•æ•°ãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨<br>
      * <br>
-     * ³‚µ‚­’l‚ğæ“¾‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * o—Í‘ÎÛ‚ÉƒGƒXƒP[ƒv‘ÎÛ‚Ì•¶šiˆÍ‚İ•¶šj‚ª‚ ‚éê‡‚ÉAƒGƒXƒP[ƒv‚³‚ê‚é <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£ã—ãå€¤ã‚’å–å¾—ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * å‡ºåŠ›å¯¾è±¡ã«ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—å¯¾è±¡ã®æ–‡å­—ï¼ˆå›²ã¿æ–‡å­—ï¼‰ãŒã‚ã‚‹å ´åˆã«ã€ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—ã•ã‚Œã‚‹ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     @Test
     public void testGetColumn03() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         String fileName = TEMP_FILE_NAME;
 
         Map<String, ColumnFormatter> textGetterMap = new HashMap<String, ColumnFormatter>();
@@ -491,22 +491,22 @@ public class VariableFileLineWriterTest {
         VariableFileLineWriter<VariableFileLineWriter_Stub06> lineWriter = new VariableFileLineWriter<VariableFileLineWriter_Stub06>(
                 fileName, VariableFileLineWriter_Stub06.class, textGetterMap);
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         VariableFileLineWriter_Stub06 t = new VariableFileLineWriter_Stub06();
         t.setColumn01("ab\"cdef");
         int index = 0;
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Éİ’è‚³‚ê‚Ä‚¢‚éB
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–æ™‚ã«è¨­å®šã•ã‚Œã¦ã„ã‚‹ã€‚
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             String result = lineWriter.getColumn(t, index);
 
-            // •Ô‹p’l‚ÌŠm”F
+            // è¿”å´å€¤ã®ç¢ºèª
             assertEquals("ab\"\"cdef", result);
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(1, VMOUTUtil.getCallCount(
                     AbstractFileLineWriter.class, "getColumn"));
             List arguments = VMOUTUtil.getArguments(
@@ -514,7 +514,7 @@ public class VariableFileLineWriterTest {
             assertSame(t, arguments.get(0));
             assertEquals(index, arguments.get(1));
         } finally {
-            // ƒeƒXƒg‘ÎÛ‚ÌƒNƒ[ƒYˆ—
+            // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¯ãƒ­ãƒ¼ã‚ºå‡¦ç†
             lineWriter.closeFile();
         }
     }
@@ -522,21 +522,21 @@ public class VariableFileLineWriterTest {
     /**
      * testGetColumn04() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FG <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) t:null<br>
-     * (ˆø”) index:0<br>
-     * (ó‘Ô) this.encloseChar:'\"'<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) t:null<br>
+     * (å¼•æ•°) index:0<br>
+     * (çŠ¶æ…‹) this.encloseChar:'\"'<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:NullPointerException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:NullPointerException<br>
      * <br>
-     * ˆø”t‚ğnull‚É‚·‚é‚ÆANullPointerException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * å¼•æ•°tã‚’nullã«ã™ã‚‹ã¨ã€NullPointerExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testGetColumn04() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         String fileName = TEMP_FILE_NAME;
 
         Map<String, ColumnFormatter> textGetterMap = new HashMap<String, ColumnFormatter>();
@@ -544,21 +544,21 @@ public class VariableFileLineWriterTest {
         VariableFileLineWriter<VariableFileLineWriter_Stub06> lineWriter = new VariableFileLineWriter<VariableFileLineWriter_Stub06>(
                 fileName, VariableFileLineWriter_Stub06.class, textGetterMap);
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         VariableFileLineWriter_Stub06 t = null;
         int index = 0;
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Éİ’è‚³‚ê‚Ä‚¢‚éB
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–æ™‚ã«è¨­å®šã•ã‚Œã¦ã„ã‚‹ã€‚
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             lineWriter.getColumn(t, index);
-            fail("NullPointerException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("NullPointerExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (NullPointerException e) {
             assertEquals(NullPointerException.class, e.getClass());
         } finally {
-            // ƒeƒXƒg‘ÎÛ‚ÌƒNƒ[ƒYˆ—
+            // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¯ãƒ­ãƒ¼ã‚ºå‡¦ç†
             lineWriter.closeFile();
         }
     }
@@ -566,26 +566,26 @@ public class VariableFileLineWriterTest {
     /**
      * testGetColumn05() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE, F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE, F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) t:ˆÈ‰º‚ÌƒJƒ‰ƒ€‚ğ‚ÂVariableFileLineWriterƒXƒ^ƒu<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) t:ä»¥ä¸‹ã®ã‚«ãƒ©ãƒ ã‚’æŒã¤VariableFileLineWriterã‚¹ã‚¿ãƒ–<br>
      * "abcdef"<br>
      * "aaabbb"<br>
-     * (ˆø”) index:1<br>
-     * (ó‘Ô) this.encloseChar:'\"'<br>
+     * (å¼•æ•°) index:1<br>
+     * (çŠ¶æ…‹) this.encloseChar:'\"'<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:aaabbb<br>
-     * (ó‘Ô•Ï‰») AbstractFileLineWriter#getColumn():1‰ñŒÄ‚Ño‚³‚ê‚é‚±‚Æ<br>
-     * ˆø”‚ª“n‚³‚ê‚é‚±‚Æ<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:aaabbb<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) AbstractFileLineWriter#getColumn():1å›å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨<br>
+     * å¼•æ•°ãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨<br>
      * <br>
-     * index‚Ì’l‚É•R‚Ã‚­ƒJƒ‰ƒ€‚Ì’liˆÍ‚İ•¶š‚È‚µ‚Ìê‡j‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * indexã®å€¤ã«ç´ã¥ãã‚«ãƒ©ãƒ ã®å€¤ï¼ˆå›²ã¿æ–‡å­—ãªã—ã®å ´åˆï¼‰ãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     @Test
     public void testGetColumn05() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         String fileName = TEMP_FILE_NAME;
 
         Map<String, ColumnFormatter> textGetterMap = new HashMap<String, ColumnFormatter>();
@@ -593,23 +593,23 @@ public class VariableFileLineWriterTest {
         VariableFileLineWriter<VariableFileLineWriter_Stub08> lineWriter = new VariableFileLineWriter<VariableFileLineWriter_Stub08>(
                 fileName, VariableFileLineWriter_Stub08.class, textGetterMap);
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         VariableFileLineWriter_Stub08 t = new VariableFileLineWriter_Stub08();
         t.setColumn01("abcdef");
         t.setColumn02("aaabbb");
         int index = 1;
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Éİ’è‚³‚ê‚Ä‚¢‚éB
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–æ™‚ã«è¨­å®šã•ã‚Œã¦ã„ã‚‹ã€‚
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             String result = lineWriter.getColumn(t, index);
 
-            // •Ô‹p’l‚ÌŠm”F
+            // è¿”å´å€¤ã®ç¢ºèª
             assertEquals("aaabbb", result);
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(1, VMOUTUtil.getCallCount(
                     AbstractFileLineWriter.class, "getColumn"));
             List arguments = VMOUTUtil.getArguments(
@@ -617,7 +617,7 @@ public class VariableFileLineWriterTest {
             assertSame(t, arguments.get(0));
             assertEquals(index, arguments.get(1));
         } finally {
-            // ƒeƒXƒg‘ÎÛ‚ÌƒNƒ[ƒYˆ—
+            // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¯ãƒ­ãƒ¼ã‚ºå‡¦ç†
             lineWriter.closeFile();
         }
     }
@@ -625,21 +625,21 @@ public class VariableFileLineWriterTest {
     /**
      * testGetDelimiter01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FF <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šF <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) this.delimiter:not null<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) this.delimiter:not null<br>
      * ','<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) delimiter:not null<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) delimiter:not null<br>
      * ','<br>
      * <br>
-     * delimiter‚Ìgetterƒƒ\ƒbƒh‚ª³‚µ‚­’l‚ğæ“¾‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * delimiterã®getterãƒ¡ã‚½ãƒƒãƒ‰ãŒæ­£ã—ãå€¤ã‚’å–å¾—ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testGetDelimiter01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         String fileName = TEMP_FILE_NAME;
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
@@ -647,22 +647,22 @@ public class VariableFileLineWriterTest {
                 fileName, VariableFileLineWriter_Stub01.class,
                 columnFormatterMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(lineWriter, "delimiter", ',');
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             char result = lineWriter.getDelimiter();
 
-            // •Ô‹p’l‚ÌŠm”F
+            // è¿”å´å€¤ã®ç¢ºèª
             assertEquals(',', result);
-            // ó‘Ô•Ï‰»‚ÌŠm”F
-            // ‚È‚µ
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
+            // ãªã—
         } finally {
-            // ƒeƒXƒg‘ÎÛ‚ÌƒNƒ[ƒYˆ—
+            // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¯ãƒ­ãƒ¼ã‚ºå‡¦ç†
             lineWriter.closeFile();
         }
     }
@@ -670,21 +670,21 @@ public class VariableFileLineWriterTest {
     /**
      * testGetEncloseChar01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FF <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šF <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) this.encloseChar:not null<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) this.encloseChar:not null<br>
      * '\u0000'<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) encloseChar:not null<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) encloseChar:not null<br>
      * '\u0000'<br>
      * <br>
-     * encloseChar‚Ìgetterƒƒ\ƒbƒh‚ª³‚µ‚­’l‚ğæ“¾‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * encloseCharã®getterãƒ¡ã‚½ãƒƒãƒ‰ãŒæ­£ã—ãå€¤ã‚’å–å¾—ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testGetEncloseChar01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         String fileName = TEMP_FILE_NAME;
 
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
@@ -693,38 +693,38 @@ public class VariableFileLineWriterTest {
                 fileName, VariableFileLineWriter_Stub01.class,
                 columnFormatterMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(lineWriter, "encloseChar", '\u0000');
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             char result = lineWriter.getEncloseChar();
 
-            // •Ô‹p’l‚ÌŠm”F
+            // è¿”å´å€¤ã®ç¢ºèª
             assertEquals('\u0000', result);
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
-            // ‚È‚µ
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
+            // ãªã—
         } finally {
-            // ƒeƒXƒg‘ÎÛ‚ÌƒNƒ[ƒYˆ—
+            // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¯ãƒ­ãƒ¼ã‚ºå‡¦ç†
             lineWriter.closeFile();
         }
     }
 
     /**
-     * ³íŒn<br>
-     * FileFormat‚ÌencloseChar‚ÆOutputFileColumn‚ÌcolumnEncloseChar‚É‚æ‚Á‚ÄAŒÂX‚ÌƒJƒ‰ƒ€‚ÉˆÍ‚İ•¶š‚ğİ’è
+     * æ­£å¸¸ç³»<br>
+     * FileFormatã®encloseCharã¨OutputFileColumnã®columnEncloseCharã«ã‚ˆã£ã¦ã€å€‹ã€…ã®ã‚«ãƒ©ãƒ ã«å›²ã¿æ–‡å­—ã‚’è¨­å®š
      * @throws Exception
      */
     @Test
     public void testPrintDataLine01() throws Exception {
-        // ‘Oˆ—(ƒtƒ@ƒCƒ‹)
+        // å‰å‡¦ç†(ãƒ•ã‚¡ã‚¤ãƒ«)
         String fileName = TEMP_FILE_NAME;
 
-        // ‘Oˆ—(Œ±‘ÎÛ)
+        // å‰å‡¦ç†(è©¦é¨“å¯¾è±¡)
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
@@ -732,7 +732,7 @@ public class VariableFileLineWriterTest {
         VariableFileLineWriter<CSVFileLine_Stub01> fileLineWriter = new VariableFileLineWriter<CSVFileLine_Stub01>(
                 fileName, CSVFileLine_Stub01.class, columnFormatterMap);
 
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         CSVFileLine_Stub01 t1 = new CSVFileLine_Stub01();
         CSVFileLine_Stub01 t2 = new CSVFileLine_Stub01();
         CSVFileLine_Stub01 t3 = new CSVFileLine_Stub01();
@@ -750,7 +750,7 @@ public class VariableFileLineWriterTest {
         t3.setColumn3("BBB");
         t3.setColumn4("CCCC");
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         fileLineWriter.printDataLine(t1);
         fileLineWriter.printDataLine(t2);
         fileLineWriter.printDataLine(t3);
@@ -772,16 +772,16 @@ public class VariableFileLineWriterTest {
     }
 
     /**
-     * ³íŒn<br>
-     * FileFormat‚ÌencloseChar‚ÆOutputFileColumn‚ÌcolumnEncloseChar‚É‚æ‚Á‚ÄAŒÂX‚ÌƒJƒ‰ƒ€‚ÉˆÍ‚İ•¶š‚ğİ’è
+     * æ­£å¸¸ç³»<br>
+     * FileFormatã®encloseCharã¨OutputFileColumnã®columnEncloseCharã«ã‚ˆã£ã¦ã€å€‹ã€…ã®ã‚«ãƒ©ãƒ ã«å›²ã¿æ–‡å­—ã‚’è¨­å®š
      * @throws Exception
      */
     @Test
     public void testPrintDataLine02() throws Exception {
-        // ‘Oˆ—(ƒtƒ@ƒCƒ‹)
+        // å‰å‡¦ç†(ãƒ•ã‚¡ã‚¤ãƒ«)
         String fileName = TEMP_FILE_NAME;
 
-        // ‘Oˆ—(Œ±‘ÎÛ)
+        // å‰å‡¦ç†(è©¦é¨“å¯¾è±¡)
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
@@ -789,7 +789,7 @@ public class VariableFileLineWriterTest {
         VariableFileLineWriter<CSVFileLine_Stub02> fileLineWriter = new VariableFileLineWriter<CSVFileLine_Stub02>(
                 fileName, CSVFileLine_Stub02.class, columnFormatterMap);
 
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         CSVFileLine_Stub02 t1 = new CSVFileLine_Stub02();
         CSVFileLine_Stub02 t2 = new CSVFileLine_Stub02();
         CSVFileLine_Stub02 t3 = new CSVFileLine_Stub02();
@@ -807,7 +807,7 @@ public class VariableFileLineWriterTest {
         t3.setColumn3("BBB");
         t3.setColumn4("CCCC");
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         fileLineWriter.printDataLine(t1);
         fileLineWriter.printDataLine(t2);
         fileLineWriter.printDataLine(t3);
@@ -829,23 +829,23 @@ public class VariableFileLineWriterTest {
     }
 
     /**
-     * ³íŒn<br>
-     * ƒLƒƒƒbƒVƒ…‚µ‚Ä‚¢‚éƒAƒmƒe[ƒVƒ‡ƒ“‚Ìî•ñ‚ğ—˜—p‚µ‚Ä‚¢‚é–‚ğŠm”F‚·‚éB<br>
+     * æ­£å¸¸ç³»<br>
+     * ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã—ã¦ã„ã‚‹ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã®æƒ…å ±ã‚’åˆ©ç”¨ã—ã¦ã„ã‚‹äº‹ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * @throws Exception
      */
     @Test
     public void testPrintDataLine03() throws Exception {
-        // ‘Oˆ—(ƒtƒ@ƒCƒ‹)
+        // å‰å‡¦ç†(ãƒ•ã‚¡ã‚¤ãƒ«)
         String fileName = TEMP_FILE_NAME;
 
-        // ‘Oˆ—(Œ±‘ÎÛ)
+        // å‰å‡¦ç†(è©¦é¨“å¯¾è±¡)
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
         VariableFileLineWriter<CSVFileLine_Stub03> fileLineWriter = new VariableFileLineWriter<CSVFileLine_Stub03>(
                 fileName, CSVFileLine_Stub03.class, columnFormatterMap);
 
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         CSVFileLine_Stub03 t1 = new CSVFileLine_Stub03();
 
         t1.setColumn1("1");
@@ -853,11 +853,11 @@ public class VariableFileLineWriterTest {
         t1.setColumn3("333");
         t1.setColumn4("4444");
 
-        // ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚Éİ’è‚µ‚Ä‚ ‚Á‚½’l‚ğ‘S‚Äã‘‚«
-        // ˆÈ‰º‚Ìİ’è‚ª“K—p‚³‚ê‚ê‚ÎAƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚Ì
-        // ƒAƒmƒe[ƒVƒ‡ƒ“‚ÉƒAƒNƒZƒX‚µ‚Ä‚¢‚È‚¢‚±‚Æ‚É‚È‚éB
+        // ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«è¨­å®šã—ã¦ã‚ã£ãŸå€¤ã‚’å…¨ã¦ä¸Šæ›¸ã
+        // ä»¥ä¸‹ã®è¨­å®šãŒé©ç”¨ã•ã‚Œã‚Œã°ã€ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®
+        // ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã«ã‚¢ã‚¯ã‚»ã‚¹ã—ã¦ã„ãªã„ã“ã¨ã«ãªã‚‹ã€‚
         char[] charArray = new char[] { 0, 0, 0, 0 };
-        // ‘O’ñğŒ
+        // å‰ææ¡ä»¶
         UTUtil.setPrivateField(fileLineWriter, "lineFeedChar", "\r\n");
         UTUtil.setPrivateField(fileLineWriter, "delimiter", '_');
         UTUtil.setPrivateField(fileLineWriter, "outputFileColumns", null);
@@ -877,7 +877,7 @@ public class VariableFileLineWriterTest {
                         new NullStringConverter(), new NullStringConverter(),
                         new NullStringConverter() });
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         fileLineWriter.printDataLine(t1);
 
         fileLineWriter.closeFile();

@@ -48,7 +48,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 /**
- * AbstractCollector’ŠÛƒNƒ‰ƒX
+ * AbstractCollectoræŠ½è±¡ã‚¯ãƒ©ã‚¹
  * @param &lt;P&gt;
  */
 public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
@@ -59,43 +59,43 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
     private static final TLogger LOGGER = TLogger
             .getLogger(AbstractCollector.class);
 
-    /** ƒfƒtƒHƒ‹ƒg‚ÌƒLƒ…[ƒTƒCƒY */
+    /** ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ã‚­ãƒ¥ãƒ¼ã‚µã‚¤ã‚º */
     public static final int DEFAULT_QUEUE_SIZE = 20;
 
-    /** ƒfƒtƒHƒ‹ƒgƒXƒŠ[ƒvŠÔ(msec) */
+    /** ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã‚¹ãƒªãƒ¼ãƒ—æ™‚é–“(msec) */
     protected static final int DEFAULT_SLEEP_WAIT = 1;
 
-    /** Œ»İƒLƒ…[•Û”ƒ`ƒFƒbƒNƒTƒCƒY */
+    /** ç¾åœ¨ã‚­ãƒ¥ãƒ¼ä¿æŒæ•°ãƒã‚§ãƒƒã‚¯ã‚µã‚¤ã‚º */
     protected static final int CURRENT_QUEUE_CHECK_SIZE = 1;
 
-    /** Œã•ûƒLƒ…[•Û”ƒ`ƒFƒbƒNƒTƒCƒY */
+    /** å¾Œæ–¹ã‚­ãƒ¥ãƒ¼ä¿æŒæ•°ãƒã‚§ãƒƒã‚¯ã‚µã‚¤ã‚º */
     protected static final int PREVIOUS_QUEUE_CHECK_SIZE = 2;
 
-    /** ç’·ƒƒOo—Íƒtƒ‰ƒO. */
+    /** å†—é•·ãƒ­ã‚°å‡ºåŠ›ãƒ•ãƒ©ã‚°. */
     protected static AtomicBoolean verboseLog = new AtomicBoolean(false);
 
-    /** ƒLƒ…[ƒTƒCƒY */
+    /** ã‚­ãƒ¥ãƒ¼ã‚µã‚¤ã‚º */
     protected int queueSize = DEFAULT_QUEUE_SIZE;
 
-    /** ƒXƒŠ[ƒvŠÔ(msec) */
+    /** ã‚¹ãƒªãƒ¼ãƒ—æ™‚é–“(msec) */
     protected int sleepWait = DEFAULT_SLEEP_WAIT;
 
-    /** ƒLƒ…[ */
+    /** ã‚­ãƒ¥ãƒ¼ */
     protected BlockingQueue<DataValueObject> queue = null;
 
-    /** Œ»İƒLƒ…[ */
+    /** ç¾åœ¨ã‚­ãƒ¥ãƒ¼ */
     protected Queue<DataValueObject> currentQueue = null;
 
-    /** Œã•ûƒLƒ…[ */
+    /** å¾Œæ–¹ã‚­ãƒ¥ãƒ¼ */
     protected Queue<DataValueObject> previousQueue = null;
 
-    /** ”ñ“¯Šúˆ—‚ÌŒ‹‰Ê‚ğæ“¾‚·‚é‚½‚ß‚ÌƒNƒ‰ƒX */
+    /** éåŒæœŸå‡¦ç†ã®çµæœã‚’å–å¾—ã™ã‚‹ãŸã‚ã®ã‚¯ãƒ©ã‚¹ */
     protected volatile Future<?> fo = null;
 
-    /** I—¹ƒtƒ‰ƒO */
+    /** çµ‚äº†ãƒ•ãƒ©ã‚° */
     protected volatile boolean finish = false;
 
-    /** ÀsŠJnƒtƒ‰ƒO */
+    /** å®Ÿè¡Œé–‹å§‹ãƒ•ãƒ©ã‚° */
     protected volatile boolean beginning = false;
 
     /** Validator */
@@ -107,11 +107,11 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
     /** CollectorExceptionHandler */
     protected CollectorExceptionHandler exceptionHandler = null;
 
-    /** qƒXƒŒƒbƒh‘¤ƒCƒ“ƒXƒ^ƒ“ƒX */
+    /** å­ã‚¹ãƒ¬ãƒƒãƒ‰å´ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ */
     protected AbstractCollector<?> child = null;
 
     /**
-     * AbstractCollector‚ğÀs‚·‚éB
+     * AbstractCollectorã‚’å®Ÿè¡Œã™ã‚‹ã€‚
      */
     @SuppressWarnings("unchecked")
     protected void execute() {
@@ -121,16 +121,16 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
         synchronized (this) {
             if (!this.beginning) {
                 try {
-                    // Às‘Oˆ—
+                    // å®Ÿè¡Œå‰å‡¦ç†
                     beforeExecute();
 
                     if (this.queue == null) {
-                        // ƒLƒ…[¶¬
+                        // ã‚­ãƒ¥ãƒ¼ç”Ÿæˆ
                         this.queue = createQueue();
                     }
 
                     if (this.fo == null) {
-                        // ©•ª©g‚ÌƒNƒ[ƒ“‚ğì¬
+                        // è‡ªåˆ†è‡ªèº«ã®ã‚¯ãƒ­ãƒ¼ãƒ³ã‚’ä½œæˆ
                         Callable<Integer> callable = null;
                         try {
                             callable = (Callable<Integer>) this.clone();
@@ -144,11 +144,11 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
                             this.child = (AbstractCollector<P>) callable;
                         }
 
-                        // ExecutorServiceæ“¾
+                        // ExecutorServiceå–å¾—
                         ExecutorService ex = getExecutor();
 
                         try {
-                            // •ÊƒXƒŒƒbƒh‚ÅÀs
+                            // åˆ¥ã‚¹ãƒ¬ãƒƒãƒ‰ã§å®Ÿè¡Œ
                             this.fo = ex.submit(callable);
                         } catch (Throwable e) {
                             SystemException exception = new SystemException(e);
@@ -160,39 +160,39 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
                         }
                     }
                 } finally {
-                    // ÀsŒãˆ—
+                    // å®Ÿè¡Œå¾Œå‡¦ç†
                     afterExecute();
                 }
 
-                // ÀsŠJnƒtƒ‰ƒO‚ğ—§‚Ä‚é
+                // å®Ÿè¡Œé–‹å§‹ãƒ•ãƒ©ã‚°ã‚’ç«‹ã¦ã‚‹
                 this.beginning = true;
             }
         }
     }
 
     /**
-     * Às‘Oˆ—B<br>
-     * qƒXƒŒƒbƒh(ƒRƒŒƒNƒ^ƒXƒŒƒbƒh)‚ğ‹N“®‚·‚é‘O‚ÉÀs‚³‚ê‚éB
+     * å®Ÿè¡Œå‰å‡¦ç†ã€‚<br>
+     * å­ã‚¹ãƒ¬ãƒƒãƒ‰(ã‚³ãƒ¬ã‚¯ã‚¿ã‚¹ãƒ¬ãƒƒãƒ‰)ã‚’èµ·å‹•ã™ã‚‹å‰ã«å®Ÿè¡Œã•ã‚Œã‚‹ã€‚
      */
     protected void beforeExecute() {
     }
 
     /**
-     * ÀsŒãˆ—B<br>
-     * qƒXƒŒƒbƒh(ƒRƒŒƒNƒ^ƒXƒŒƒbƒh)‚ğ‹N“®‚µ‚½Œã‚ÉÀs‚³‚ê‚éB
-     * qƒXƒŒƒbƒh‚ÌI—¹‚Í‘Ò‚½‚¸AqƒXƒŒƒbƒh‚Ì‹N“®‚ªŠ®—¹‚µ‚½Œã‚ÉÀs‚³‚ê‚éB
-     * qƒXƒŒƒbƒh‚Ì‹N“®‚É¸”s‚µ‚½ê‡‚àAÀs‚³‚ê‚éB
+     * å®Ÿè¡Œå¾Œå‡¦ç†ã€‚<br>
+     * å­ã‚¹ãƒ¬ãƒƒãƒ‰(ã‚³ãƒ¬ã‚¯ã‚¿ã‚¹ãƒ¬ãƒƒãƒ‰)ã‚’èµ·å‹•ã—ãŸå¾Œã«å®Ÿè¡Œã•ã‚Œã‚‹ã€‚
+     * å­ã‚¹ãƒ¬ãƒƒãƒ‰ã®çµ‚äº†ã¯å¾…ãŸãšã€å­ã‚¹ãƒ¬ãƒƒãƒ‰ã®èµ·å‹•ãŒå®Œäº†ã—ãŸå¾Œã«å®Ÿè¡Œã•ã‚Œã‚‹ã€‚
+     * å­ã‚¹ãƒ¬ãƒƒãƒ‰ã®èµ·å‹•ã«å¤±æ•—ã—ãŸå ´åˆã‚‚ã€å®Ÿè¡Œã•ã‚Œã‚‹ã€‚
      */
     protected void afterExecute() {
     }
 
     /**
-     * ŒJ‚è•Ô‚µˆ—‚Å‚³‚ç‚É—v‘f‚ª‚ ‚éê‡‚É true ‚ğ•Ô‚µ‚Ü‚·B<br>
-     * ‚Â‚Ü‚èAnext ‚ÌŒÄ‚Ño‚µ‚ª—áŠO‚ğƒXƒ[‚·‚é‚±‚Æ‚È‚­—v‘f‚ğ•Ô‚·ê‡‚ÍAtrue ‚ğ•Ô‚µ‚Ü‚·B
+     * ç¹°ã‚Šè¿”ã—å‡¦ç†ã§ã•ã‚‰ã«è¦ç´ ãŒã‚ã‚‹å ´åˆã« true ã‚’è¿”ã—ã¾ã™ã€‚<br>
+     * ã¤ã¾ã‚Šã€next ã®å‘¼ã³å‡ºã—ãŒä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã“ã¨ãªãè¦ç´ ã‚’è¿”ã™å ´åˆã¯ã€true ã‚’è¿”ã—ã¾ã™ã€‚
      * <p>
-     * <b>¦–{ƒƒ\ƒbƒh‚Íƒ}ƒ‹ƒ`ƒXƒŒƒbƒhƒZ[ƒt‚Å‚ ‚è‚Ü‚¹‚ñB</b>
+     * <b>â€»æœ¬ãƒ¡ã‚½ãƒƒãƒ‰ã¯ãƒãƒ«ãƒã‚¹ãƒ¬ãƒƒãƒ‰ã‚»ãƒ¼ãƒ•ã§ã‚ã‚Šã¾ã›ã‚“ã€‚</b>
      * </p>
-     * @return ”½•œq‚ª‚³‚ç‚É—v‘f‚ğ‚Âê‡‚Í true
+     * @return åå¾©å­ãŒã•ã‚‰ã«è¦ç´ ã‚’æŒã¤å ´åˆã¯ true
      * @see java.util.Iterator#hasNext()
      */
     public boolean hasNext() {
@@ -200,17 +200,17 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
     }
 
     /**
-     * ŒJ‚è•Ô‚µˆ—‚ÅŸ‚Ì—v‘f‚ğ•Ô‚µ‚Ü‚·B
+     * ç¹°ã‚Šè¿”ã—å‡¦ç†ã§æ¬¡ã®è¦ç´ ã‚’è¿”ã—ã¾ã™ã€‚
      * <p>
-     * <b>¦–{ƒƒ\ƒbƒh‚Íƒ}ƒ‹ƒ`ƒXƒŒƒbƒhƒZ[ƒt‚Å‚ ‚è‚Ü‚¹‚ñB</b>
+     * <b>â€»æœ¬ãƒ¡ã‚½ãƒƒãƒ‰ã¯ãƒãƒ«ãƒã‚¹ãƒ¬ãƒƒãƒ‰ã‚»ãƒ¼ãƒ•ã§ã‚ã‚Šã¾ã›ã‚“ã€‚</b>
      * </p>
-     * @return ŒJ‚è•Ô‚µˆ—‚ÅŸ‚Ì—v‘f
-     * @throws NoSuchElementException ŒJ‚è•Ô‚µˆ—‚Å‚»‚êˆÈã—v‘f‚ª‚È‚¢ê‡
+     * @return ç¹°ã‚Šè¿”ã—å‡¦ç†ã§æ¬¡ã®è¦ç´ 
+     * @throws NoSuchElementException ç¹°ã‚Šè¿”ã—å‡¦ç†ã§ãã‚Œä»¥ä¸Šè¦ç´ ãŒãªã„å ´åˆ
      * @see java.util.Iterator#next()
      */
     @SuppressWarnings("unchecked")
     public P next() {
-        // ÀsŠJni‰‰ñ‚Ì‚İj
+        // å®Ÿè¡Œé–‹å§‹ï¼ˆåˆå›ã®ã¿ï¼‰
         execute();
 
         DataValueObject nextValue = getNextObject();
@@ -236,7 +236,7 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
             throw new NoSuchElementException();
         }
 
-        // ƒLƒ…[‚©‚ç1Œƒf[ƒ^‚ğæ“¾‚·‚é
+        // ã‚­ãƒ¥ãƒ¼ã‹ã‚‰1ä»¶ãƒ‡ãƒ¼ã‚¿ã‚’å–å¾—ã™ã‚‹
         try {
             this.queue.poll(this.sleepWait, TimeUnit.MILLISECONDS);
         } catch (InterruptedException e) {
@@ -245,7 +245,7 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
 
         if (nextValue.getThrowable() != null) {
             Throwable throwable = nextValue.getThrowable();
-            // —áŠO‚ğƒXƒ[‚·‚é
+            // ä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹
             if (throwable instanceof RuntimeException) {
                 throw (RuntimeException) throwable;
             } else {
@@ -256,22 +256,22 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
     }
 
     /**
-     * ƒ|ƒCƒ“ƒ^‚ğŸ‚Ì—v‘f‚ÉˆÚ‚³‚¸‚ÉŸ‚Ì—v‘f‚ğ•Ô‚µ‚Ü‚·B<br>
+     * ãƒã‚¤ãƒ³ã‚¿ã‚’æ¬¡ã®è¦ç´ ã«ç§»ã•ãšã«æ¬¡ã®è¦ç´ ã‚’è¿”ã—ã¾ã™ã€‚<br>
      * <p>
-     * null‚Ìê‡‚ÍŸ‚Ì—v‘f‚ª‘¶İ‚µ‚È‚¢‚±‚Æ‚ğ¦‚µ‚Ü‚·B<br>
-     * ƒ|ƒCƒ“ƒ^‚ÍˆÚ“®‚µ‚Ü‚¹‚ñB
+     * nullã®å ´åˆã¯æ¬¡ã®è¦ç´ ãŒå­˜åœ¨ã—ãªã„ã“ã¨ã‚’ç¤ºã—ã¾ã™ã€‚<br>
+     * ãƒã‚¤ãƒ³ã‚¿ã¯ç§»å‹•ã—ã¾ã›ã‚“ã€‚
      * </p>
      * <p>
-     * ŠY“–ƒf[ƒ^‚Ìæ“¾‚É—áŠO‚ª”­¶‚µ‚½ê‡AˆÈ‰ºğŒ‚É‚æ‚èˆÙ‚È‚é—áŠO‚ªƒXƒ[‚³‚ê‚Ü‚·B
+     * è©²å½“ãƒ‡ãƒ¼ã‚¿ã®å–å¾—æ™‚ã«ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€ä»¥ä¸‹æ¡ä»¶ã«ã‚ˆã‚Šç•°ãªã‚‹ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã™ã€‚
      * <ul>
-     * <li>ƒ‰ƒ“ƒ^ƒCƒ€—áŠO”­¶FRuntimeException‚ğ‚»‚Ì‚Ü‚ÜƒXƒ[‚·‚é</li>
-     * <li>‚»‚Ì‘¼—áŠO”­¶FSystemException‚Åƒ‰ƒbƒv‚µ‚ÄƒXƒ[‚·‚é</li>
+     * <li>ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ä¾‹å¤–ç™ºç”Ÿæ™‚ï¼šRuntimeExceptionã‚’ãã®ã¾ã¾ã‚¹ãƒ­ãƒ¼ã™ã‚‹</li>
+     * <li>ãã®ä»–ä¾‹å¤–ç™ºç”Ÿæ™‚ï¼šSystemExceptionã§ãƒ©ãƒƒãƒ—ã—ã¦ã‚¹ãƒ­ãƒ¼ã™ã‚‹</li>
      * </ul>
      * </p>
-     * <p>“ü—Íƒ`ƒFƒbƒN‚É¸”s‚µ‚½ê‡‚Énext()ƒƒ\ƒbƒh‚ÅŠY“–ƒf[ƒ^‚ÉƒAƒNƒZƒX‚·‚é‚Æ
-     * —áŠO‚ª”­¶‚·‚éƒP[ƒX‚Å‚àA–{ƒƒ\ƒbƒh‚Å‚ÍŠY“–ƒf[ƒ^‚ªæ“¾‚Å‚«‚Ü‚·B</p>
+     * <p>å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã«å¤±æ•—ã—ãŸå ´åˆã«next()ãƒ¡ã‚½ãƒƒãƒ‰ã§è©²å½“ãƒ‡ãƒ¼ã‚¿ã«ã‚¢ã‚¯ã‚»ã‚¹ã™ã‚‹ã¨
+     * ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã‚±ãƒ¼ã‚¹ã§ã‚‚ã€æœ¬ãƒ¡ã‚½ãƒƒãƒ‰ã§ã¯è©²å½“ãƒ‡ãƒ¼ã‚¿ãŒå–å¾—ã§ãã¾ã™ã€‚</p>
      * </p>
-     * <b>¦–{ƒƒ\ƒbƒh‚Íƒ}ƒ‹ƒ`ƒXƒŒƒbƒhƒZ[ƒt‚Å‚ ‚è‚Ü‚¹‚ñB</b>
+     * <b>â€»æœ¬ãƒ¡ã‚½ãƒƒãƒ‰ã¯ãƒãƒ«ãƒã‚¹ãƒ¬ãƒƒãƒ‰ã‚»ãƒ¼ãƒ•ã§ã‚ã‚Šã¾ã›ã‚“ã€‚</b>
      * </p>
      * @return &lt;P&gt;
      * @see jp.terasoluna.fw.collector.Collector#getNext()
@@ -283,7 +283,7 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
         if (value == null) {
             return null;
         } else if (value.getValue() == null) {
-            // —áŠO”­¶‚ÍƒXƒ[‚·‚é
+            // ä¾‹å¤–ç™ºç”Ÿæ™‚ã¯ã‚¹ãƒ­ãƒ¼ã™ã‚‹
             if (value.getThrowable() != null) {
                 Throwable throwable = value.getThrowable();
                 if (throwable instanceof RuntimeException) {
@@ -299,50 +299,50 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
     }
 
     /**
-     * ƒ|ƒCƒ“ƒ^‚ğŸ‚Ì—v‘f‚ÉˆÚ‚³‚¸‚ÉŸ‚ÌQueue—v‘f‚ğ•Ô‚µ‚Ü‚·B<br>
+     * ãƒã‚¤ãƒ³ã‚¿ã‚’æ¬¡ã®è¦ç´ ã«ç§»ã•ãšã«æ¬¡ã®Queueè¦ç´ ã‚’è¿”ã—ã¾ã™ã€‚<br>
      * <p>
-     * null‚Ìê‡‚ÍŸ‚Ì—v‘f‚ª‘¶İ‚µ‚È‚¢‚±‚Æ‚ğ¦‚µ‚Ü‚·B<br>
-     * ƒ|ƒCƒ“ƒ^‚ÍˆÚ“®‚µ‚Ü‚¹‚ñB
+     * nullã®å ´åˆã¯æ¬¡ã®è¦ç´ ãŒå­˜åœ¨ã—ãªã„ã“ã¨ã‚’ç¤ºã—ã¾ã™ã€‚<br>
+     * ãƒã‚¤ãƒ³ã‚¿ã¯ç§»å‹•ã—ã¾ã›ã‚“ã€‚
      * </p>
-     * <p>“–ŠYƒf[ƒ^æ“¾‚É‚æ‚éƒXƒe[ƒ^ƒX‚ª•Ô‹p‚³‚ê‚½ê‡‚ÉˆÈ‰º‚Ì‹““®‚Æ‚È‚è‚Ü‚·B
+     * <p>å½“è©²ãƒ‡ãƒ¼ã‚¿å–å¾—ã«ã‚ˆã‚‹ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãŒè¿”å´ã•ã‚ŒãŸå ´åˆã«ä»¥ä¸‹ã®æŒ™å‹•ã¨ãªã‚Šã¾ã™ã€‚
      * <table border="1">
-     * <tr><th>“–ŠYƒf[ƒ^æ“¾‚É‚æ‚éƒXƒe[ƒ^ƒX</th><th>getNextObject()‚Ì‹““®</th></tr>
+     * <tr><th>å½“è©²ãƒ‡ãƒ¼ã‚¿å–å¾—ã«ã‚ˆã‚‹ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹</th><th>getNextObject()ã®æŒ™å‹•</th></tr>
      * <tr>
-     * <td>CollectorExceptionHandlerStatus.SKIP</td><td>“–ŠYƒf[ƒ^‚ÍˆêŒ“Ç‚İÌ‚Ä‚ç‚êAŸ‚Ìƒf[ƒ^‚ğæ“¾‚·‚éB</td>
+     * <td>CollectorExceptionHandlerStatus.SKIP</td><td>å½“è©²ãƒ‡ãƒ¼ã‚¿ã¯ä¸€ä»¶èª­ã¿æ¨ã¦ã‚‰ã‚Œã€æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ã‚’å–å¾—ã™ã‚‹ã€‚</td>
      * </tr>
      * <tr>
-     * <td>ValidateErrorStatus.END</td><td>ƒf[ƒ^I’[‚Æ‚µ‚Änull‚ğ•Ô‹p‚·‚éB</td>
+     * <td>ValidateErrorStatus.END</td><td>ãƒ‡ãƒ¼ã‚¿çµ‚ç«¯ã¨ã—ã¦nullã‚’è¿”å´ã™ã‚‹ã€‚</td>
      * </tr>
      * <tr>
-     * <td>CollectorExceptionHandlerStatus.END</td><td>ƒf[ƒ^I’[‚Æ‚µ‚Änull‚ğ•Ô‹p‚·‚éB</td>
+     * <td>CollectorExceptionHandlerStatus.END</td><td>ãƒ‡ãƒ¼ã‚¿çµ‚ç«¯ã¨ã—ã¦nullã‚’è¿”å´ã™ã‚‹ã€‚</td>
      * </tr>
      * <tr>
-     * <td>CollectorStatus.END</td><td>ƒf[ƒ^I’[‚Æ‚µ‚Änull‚ğ•Ô‹p‚·‚éB</td>
+     * <td>CollectorStatus.END</td><td>ãƒ‡ãƒ¼ã‚¿çµ‚ç«¯ã¨ã—ã¦nullã‚’è¿”å´ã™ã‚‹ã€‚</td>
      * </tr>
      * </table>
      * </p>
      * <p>
-     * æ“¾‚³‚ê‚½“–ŠYƒf[ƒ^‚ÌgetThrowable()‚ªnull‚Å‚Í‚È‚¢ê‡A—áŠOƒnƒ“ƒhƒ‰‚ğÀs‚µã‹LƒXƒe[ƒ^ƒX‚Ì”»’è‚ğs‚Á‚Ä‚¢‚éB
-     * ‚æ‚Á‚ÄA–{ƒƒ\ƒbƒh‚©‚ç•Ô‹p‚³‚ê‚½ƒIƒuƒWƒFƒNƒg‚ÌgetThrowable()‚ªnull‚Å‚Í‚È‚¢ê‡A—áŠOƒnƒ“ƒhƒ‰‚ÌŒ‹‰Ê‚Ínull
-     * ‚ ‚é‚¢‚ÍCollectorExceptionHandlerStatus.THROW‚Æ‚È‚éB
+     * å–å¾—ã•ã‚ŒãŸå½“è©²ãƒ‡ãƒ¼ã‚¿ã®getThrowable()ãŒnullã§ã¯ãªã„å ´åˆã€ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©ã‚’å®Ÿè¡Œã—ä¸Šè¨˜ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã®åˆ¤å®šã‚’è¡Œã£ã¦ã„ã‚‹ã€‚
+     * ã‚ˆã£ã¦ã€æœ¬ãƒ¡ã‚½ãƒƒãƒ‰ã‹ã‚‰è¿”å´ã•ã‚ŒãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®getThrowable()ãŒnullã§ã¯ãªã„å ´åˆã€ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©ã®çµæœã¯null
+     * ã‚ã‚‹ã„ã¯CollectorExceptionHandlerStatus.THROWã¨ãªã‚‹ã€‚
      * </p>
      * <p>
-     * <b>¦–{ƒƒ\ƒbƒh‚Íƒ}ƒ‹ƒ`ƒXƒŒƒbƒhƒZ[ƒt‚Å‚ ‚è‚Ü‚¹‚ñB</b>
+     * <b>â€»æœ¬ãƒ¡ã‚½ãƒƒãƒ‰ã¯ãƒãƒ«ãƒã‚¹ãƒ¬ãƒƒãƒ‰ã‚»ãƒ¼ãƒ•ã§ã‚ã‚Šã¾ã›ã‚“ã€‚</b>
      * </p>
-     * @return Ÿ‚Éæ“¾‚³‚ê‚éƒf[ƒ^‚ÌDataValueObjectiŸ‚ª‚È‚¢ê‡‚Ínull‚ª•Ô‹p‚³‚ê‚éj
+     * @return æ¬¡ã«å–å¾—ã•ã‚Œã‚‹ãƒ‡ãƒ¼ã‚¿ã®DataValueObjectï¼ˆæ¬¡ãŒãªã„å ´åˆã¯nullãŒè¿”å´ã•ã‚Œã‚‹ï¼‰
      */
     protected DataValueObject getNextObject() {
-        // ÀsŠJni‰‰ñ‚Ì‚İj
+        // å®Ÿè¡Œé–‹å§‹ï¼ˆåˆå›ã®ã¿ï¼‰
         execute();
 
         DataValueObject value = null;
         do {
-            // ƒLƒ…[‚©‚ç1Œƒf[ƒ^‚ğæ“¾‚·‚éiíœ‚µ‚È‚¢j
+            // ã‚­ãƒ¥ãƒ¼ã‹ã‚‰1ä»¶ãƒ‡ãƒ¼ã‚¿ã‚’å–å¾—ã™ã‚‹ï¼ˆå‰Šé™¤ã—ãªã„ï¼‰
             if (this.queue != null) {
                 value = this.queue.peek();
             }
 
-            // I—¹ƒtƒ‰ƒO‚ğŒŸ¸
+            // çµ‚äº†ãƒ•ãƒ©ã‚°ã‚’æ¤œæŸ»
             if (isFinish() && this.queue.isEmpty()) {
                 if (verboseLog.get() && LOGGER.isTraceEnabled()) {
                     LOGGER.trace(LogId.TAL041014);
@@ -362,21 +362,21 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
 
             if (value != null && value.getThrowable() != null) {
                 try {
-                    // —áŠOƒnƒ“ƒhƒ‰‚ğÀs‚·‚é
+                    // ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©ã‚’å®Ÿè¡Œã™ã‚‹
                     es = handleException(value);
                 } catch (Throwable e) {
                     LOGGER.warn(LogId.WAL041004, e);
-                    // ‚±‚±‚Å‚Ì—áŠO‚ÍƒƒO‚Éc‚·‚Ì‚İ‚Å‰½‚à‚µ‚È‚¢
+                    // ã“ã“ã§ã®ä¾‹å¤–ã¯ãƒ­ã‚°ã«æ®‹ã™ã®ã¿ã§ä½•ã‚‚ã—ãªã„
                 }
                 if (es == null || CollectorExceptionHandlerStatus.THROW.equals(es)) {
                     break;
                 } else if (CollectorExceptionHandlerStatus.SKIP.equals(es)) {
-                    // ƒXƒe[ƒ^ƒX‚ªSKIP‚Ìê‡AƒLƒ…[‚©‚ç1Œ“Ç‚İÌ‚Ä‚Äƒ‹[ƒv‚ğŒp‘±‚³‚¹‚éB
+                    // ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãŒSKIPã®å ´åˆã€ã‚­ãƒ¥ãƒ¼ã‹ã‚‰1ä»¶èª­ã¿æ¨ã¦ã¦ãƒ«ãƒ¼ãƒ—ã‚’ç¶™ç¶šã•ã›ã‚‹ã€‚
                     this.queue.poll();
                     value = null;
                     continue;
                 } else if (CollectorExceptionHandlerStatus.END.equals(es)) {
-                    // ƒ‹[ƒv‚ğ”²‚¯‚Änull‚ğ•Ô‹p‚·‚éB
+                    // ãƒ«ãƒ¼ãƒ—ã‚’æŠœã‘ã¦nullã‚’è¿”å´ã™ã‚‹ã€‚
                     return null;
                 }
             }
@@ -386,13 +386,13 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
                 return null;
             }
 
-            // null‚Ìê‡‚ÍƒXƒŠ[ƒv‚·‚é
+            // nullã®å ´åˆã¯ã‚¹ãƒªãƒ¼ãƒ—ã™ã‚‹
             if (value == null) {
                 try {
                     if (verboseLog.get() && LOGGER.isTraceEnabled()) {
                         LOGGER.trace(LogId.TAL041019, this.sleepWait);
                     }
-                    // sleepWait ms‘Ò‚Â
+                    // sleepWait mså¾…ã¤
                     Thread.sleep(this.sleepWait);
 
                 } catch (InterruptedException e) {
@@ -409,23 +409,23 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
     }
 
     /**
-     * 1Œ‘O‚Ì—v‘f‚ğ•Ô‚µ‚Ü‚·B<br>
+     * 1ä»¶å‰ã®è¦ç´ ã‚’è¿”ã—ã¾ã™ã€‚<br>
      * <p>
-     * 1Œ–Ú‚Ìê‡‚Ínull‚ª•Ô‚è‚Ü‚·B<br>
-     * ƒ|ƒCƒ“ƒ^‚ÍˆÚ“®‚µ‚Ü‚¹‚ñB
+     * 1ä»¶ç›®ã®å ´åˆã¯nullãŒè¿”ã‚Šã¾ã™ã€‚<br>
+     * ãƒã‚¤ãƒ³ã‚¿ã¯ç§»å‹•ã—ã¾ã›ã‚“ã€‚
      * </p>
      * <p>
-     * ŠY“–ƒf[ƒ^‚Ìæ“¾‚É—áŠO‚ª”­¶‚µ‚½ê‡AˆÈ‰ºğŒ‚É‚æ‚èˆÙ‚È‚é—áŠO‚ªƒXƒ[‚³‚ê‚Ü‚·B
+     * è©²å½“ãƒ‡ãƒ¼ã‚¿ã®å–å¾—æ™‚ã«ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€ä»¥ä¸‹æ¡ä»¶ã«ã‚ˆã‚Šç•°ãªã‚‹ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã™ã€‚
      * <ul>
-     * <li>ƒ‰ƒ“ƒ^ƒCƒ€—áŠO”­¶FRuntimeException‚ğ‚»‚Ì‚Ü‚ÜƒXƒ[‚·‚é</li>
-     * <li>‚»‚Ì‘¼—áŠO”­¶FSystemException‚Åƒ‰ƒbƒv‚µ‚ÄƒXƒ[‚·‚é</li>
+     * <li>ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ä¾‹å¤–ç™ºç”Ÿæ™‚ï¼šRuntimeExceptionã‚’ãã®ã¾ã¾ã‚¹ãƒ­ãƒ¼ã™ã‚‹</li>
+     * <li>ãã®ä»–ä¾‹å¤–ç™ºç”Ÿæ™‚ï¼šSystemExceptionã§ãƒ©ãƒƒãƒ—ã—ã¦ã‚¹ãƒ­ãƒ¼ã™ã‚‹</li>
      * </ul>
      * </p>
-     * <p>“ü—Íƒ`ƒFƒbƒN‚É¸”s‚µ‚½ê‡‚Énext()ƒƒ\ƒbƒh‚ÅŠY“–ƒf[ƒ^‚ÉƒAƒNƒZƒX‚·‚é‚Æ
-     * —áŠO‚ª”­¶‚·‚éƒP[ƒX‚Å‚àA–{ƒƒ\ƒbƒh‚Å‚ÍŠY“–ƒf[ƒ^‚ªæ“¾‚Å‚«‚Ü‚·B</p>
+     * <p>å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã«å¤±æ•—ã—ãŸå ´åˆã«next()ãƒ¡ã‚½ãƒƒãƒ‰ã§è©²å½“ãƒ‡ãƒ¼ã‚¿ã«ã‚¢ã‚¯ã‚»ã‚¹ã™ã‚‹ã¨
+     * ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã‚±ãƒ¼ã‚¹ã§ã‚‚ã€æœ¬ãƒ¡ã‚½ãƒƒãƒ‰ã§ã¯è©²å½“ãƒ‡ãƒ¼ã‚¿ãŒå–å¾—ã§ãã¾ã™ã€‚</p>
      * </p>
      * <p>
-     * <b>¦–{ƒƒ\ƒbƒh‚Íƒ}ƒ‹ƒ`ƒXƒŒƒbƒhƒZ[ƒt‚Å‚ ‚è‚Ü‚¹‚ñB</b>
+     * <b>â€»æœ¬ãƒ¡ã‚½ãƒƒãƒ‰ã¯ãƒãƒ«ãƒã‚¹ãƒ¬ãƒƒãƒ‰ã‚»ãƒ¼ãƒ•ã§ã‚ã‚Šã¾ã›ã‚“ã€‚</b>
      * </p>
      * @return &lt;P&gt;
      * @see jp.terasoluna.fw.collector.Collector#getPrevious()
@@ -437,7 +437,7 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
         if (value == null) {
             return null;
         } else if (value.getValue() == null) {
-            // —áŠO”­¶‚ÍƒXƒ[‚·‚é
+            // ä¾‹å¤–ç™ºç”Ÿæ™‚ã¯ã‚¹ãƒ­ãƒ¼ã™ã‚‹
             if (value.getThrowable() != null) {
                 Throwable throwable = value.getThrowable();
                 if (throwable instanceof RuntimeException) {
@@ -453,18 +453,18 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
     }
 
     /**
-     * 1Œ‘O‚ÌQueue—v‘f‚ğ•Ô‚µ‚Ü‚·B<br>
+     * 1ä»¶å‰ã®Queueè¦ç´ ã‚’è¿”ã—ã¾ã™ã€‚<br>
      * <p>
-     * 1Œ–Ú‚Ìê‡‚Ínull‚ª•Ô‚è‚Ü‚·B<br>
-     * ƒ|ƒCƒ“ƒ^‚ÍˆÚ“®‚µ‚Ü‚¹‚ñB
+     * 1ä»¶ç›®ã®å ´åˆã¯nullãŒè¿”ã‚Šã¾ã™ã€‚<br>
+     * ãƒã‚¤ãƒ³ã‚¿ã¯ç§»å‹•ã—ã¾ã›ã‚“ã€‚
      * </p>
      * <p>
-     * <b>¦–{ƒƒ\ƒbƒh‚Íƒ}ƒ‹ƒ`ƒXƒŒƒbƒhƒZ[ƒt‚Å‚ ‚è‚Ü‚¹‚ñB</b>
+     * <b>â€»æœ¬ãƒ¡ã‚½ãƒƒãƒ‰ã¯ãƒãƒ«ãƒã‚¹ãƒ¬ãƒƒãƒ‰ã‚»ãƒ¼ãƒ•ã§ã‚ã‚Šã¾ã›ã‚“ã€‚</b>
      * </p>
-     * @return next()‚É‚æ‚èæ“¾‚³‚ê‚½ƒf[ƒ^‚Ì‚Ğ‚Æ‚Â‘O‚Ìƒf[ƒ^‚ÌDataValueObject
+     * @return next()ã«ã‚ˆã‚Šå–å¾—ã•ã‚ŒãŸãƒ‡ãƒ¼ã‚¿ã®ã²ã¨ã¤å‰ã®ãƒ‡ãƒ¼ã‚¿ã®DataValueObject
      */
     protected DataValueObject getPreviousObject() {
-        // ÀsŠJni‰‰ñ‚Ì‚İj
+        // å®Ÿè¡Œé–‹å§‹ï¼ˆåˆå›ã®ã¿ï¼‰
         execute();
 
         DataValueObject value = null;
@@ -480,30 +480,30 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
     }
 
     /**
-     * Œ»İ‚Ì—v‘f‚ğ•Ô‚µ‚Ü‚·B<br>
+     * ç¾åœ¨ã®è¦ç´ ã‚’è¿”ã—ã¾ã™ã€‚<br>
      * <p>
-     * null‚Ìê‡‚ÍŒ»İ‚Ì—v‘f‚ª‘¶İ‚µ‚È‚¢‚±‚Æ‚ğ¦‚µ‚Ü‚·B<br>
-     * ƒ|ƒCƒ“ƒ^‚ÍˆÚ“®‚µ‚Ü‚¹‚ñB
+     * nullã®å ´åˆã¯ç¾åœ¨ã®è¦ç´ ãŒå­˜åœ¨ã—ãªã„ã“ã¨ã‚’ç¤ºã—ã¾ã™ã€‚<br>
+     * ãƒã‚¤ãƒ³ã‚¿ã¯ç§»å‹•ã—ã¾ã›ã‚“ã€‚
      * </p>
      * <p>
-     * ŠY“–ƒf[ƒ^‚Ìæ“¾‚É—áŠO‚ª”­¶‚µ‚½ê‡AˆÈ‰ºğŒ‚É‚æ‚èˆÙ‚È‚é—áŠO‚ªƒXƒ[‚³‚ê‚Ü‚·B
+     * è©²å½“ãƒ‡ãƒ¼ã‚¿ã®å–å¾—æ™‚ã«ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€ä»¥ä¸‹æ¡ä»¶ã«ã‚ˆã‚Šç•°ãªã‚‹ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã™ã€‚
      * <ul>
-     * <li>ƒ‰ƒ“ƒ^ƒCƒ€—áŠO”­¶FRuntimeException‚ğ‚»‚Ì‚Ü‚ÜƒXƒ[‚·‚é</li>
-     * <li>‚»‚Ì‘¼—áŠO”­¶FSystemException‚Åƒ‰ƒbƒv‚µ‚ÄƒXƒ[‚·‚é</li>
+     * <li>ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ä¾‹å¤–ç™ºç”Ÿæ™‚ï¼šRuntimeExceptionã‚’ãã®ã¾ã¾ã‚¹ãƒ­ãƒ¼ã™ã‚‹</li>
+     * <li>ãã®ä»–ä¾‹å¤–ç™ºç”Ÿæ™‚ï¼šSystemExceptionã§ãƒ©ãƒƒãƒ—ã—ã¦ã‚¹ãƒ­ãƒ¼ã™ã‚‹</li>
      * </ul>
      * </p>
-     * <p>“ü—Íƒ`ƒFƒbƒN‚É¸”s‚µ‚½ê‡‚Énext()ƒƒ\ƒbƒh‚ÅŠY“–ƒf[ƒ^‚ÉƒAƒNƒZƒX‚·‚é‚Æ
-     * —áŠO‚ª”­¶‚·‚éƒP[ƒX‚Å‚àA–{ƒƒ\ƒbƒh‚Å‚ÍŠY“–ƒf[ƒ^‚ªæ“¾‚Å‚«‚Ü‚·B</p>
+     * <p>å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã«å¤±æ•—ã—ãŸå ´åˆã«next()ãƒ¡ã‚½ãƒƒãƒ‰ã§è©²å½“ãƒ‡ãƒ¼ã‚¿ã«ã‚¢ã‚¯ã‚»ã‚¹ã™ã‚‹ã¨
+     * ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã‚±ãƒ¼ã‚¹ã§ã‚‚ã€æœ¬ãƒ¡ã‚½ãƒƒãƒ‰ã§ã¯è©²å½“ãƒ‡ãƒ¼ã‚¿ãŒå–å¾—ã§ãã¾ã™ã€‚</p>
      * </p>
      * <p>
-     * <b>¦–{ƒƒ\ƒbƒh‚Íƒ}ƒ‹ƒ`ƒXƒŒƒbƒhƒZ[ƒt‚Å‚ ‚è‚Ü‚¹‚ñB</b>
+     * <b>â€»æœ¬ãƒ¡ã‚½ãƒƒãƒ‰ã¯ãƒãƒ«ãƒã‚¹ãƒ¬ãƒƒãƒ‰ã‚»ãƒ¼ãƒ•ã§ã‚ã‚Šã¾ã›ã‚“ã€‚</b>
      * </p>
      * @return &lt;P&gt;
      * @see jp.terasoluna.fw.collector.Collector#getCurrent()
      */
     @SuppressWarnings("unchecked")
     public P getCurrent() {
-        // ÀsŠJni‰‰ñ‚Ì‚İj
+        // å®Ÿè¡Œé–‹å§‹ï¼ˆåˆå›ã®ã¿ï¼‰
         execute();
 
         DataValueObject value = getCurrentObject();
@@ -511,7 +511,7 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
         if (value == null) {
             return null;
         } else if (value.getValue() == null) {
-            // —áŠO”­¶‚ÍƒXƒ[‚·‚é
+            // ä¾‹å¤–ç™ºç”Ÿæ™‚ã¯ã‚¹ãƒ­ãƒ¼ã™ã‚‹
             if (value.getThrowable() != null) {
                 Throwable throwable = value.getThrowable();
                 if (throwable instanceof RuntimeException) {
@@ -527,18 +527,18 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
     }
 
     /**
-     * Œ»İ‚ÌQueue—v‘f‚ğ•Ô‚µ‚Ü‚·B<br>
+     * ç¾åœ¨ã®Queueè¦ç´ ã‚’è¿”ã—ã¾ã™ã€‚<br>
      * <p>
-     * null‚Ìê‡‚ÍŒ»İ‚Ì—v‘f‚ª‘¶İ‚µ‚È‚¢‚±‚Æ‚ğ¦‚µ‚Ü‚·B<br>
-     * ƒ|ƒCƒ“ƒ^‚ÍˆÚ“®‚µ‚Ü‚¹‚ñB
+     * nullã®å ´åˆã¯ç¾åœ¨ã®è¦ç´ ãŒå­˜åœ¨ã—ãªã„ã“ã¨ã‚’ç¤ºã—ã¾ã™ã€‚<br>
+     * ãƒã‚¤ãƒ³ã‚¿ã¯ç§»å‹•ã—ã¾ã›ã‚“ã€‚
      * </p>
      * <p>
-     * <b>¦–{ƒƒ\ƒbƒh‚Íƒ}ƒ‹ƒ`ƒXƒŒƒbƒhƒZ[ƒt‚Å‚ ‚è‚Ü‚¹‚ñB</b>
+     * <b>â€»æœ¬ãƒ¡ã‚½ãƒƒãƒ‰ã¯ãƒãƒ«ãƒã‚¹ãƒ¬ãƒƒãƒ‰ã‚»ãƒ¼ãƒ•ã§ã‚ã‚Šã¾ã›ã‚“ã€‚</b>
      * </p>
-     * @return next()‚É‚æ‚è’¼‹ß‚Åæ“¾‚³‚ê‚½ƒf[ƒ^‚ÌDataValueObject
+     * @return next()ã«ã‚ˆã‚Šç›´è¿‘ã§å–å¾—ã•ã‚ŒãŸãƒ‡ãƒ¼ã‚¿ã®DataValueObject
      */
     protected DataValueObject getCurrentObject() {
-        // ÀsŠJni‰‰ñ‚Ì‚İj
+        // å®Ÿè¡Œé–‹å§‹ï¼ˆåˆå›ã®ã¿ï¼‰
         execute();
 
         DataValueObject value = null;
@@ -554,10 +554,10 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
     }
 
     /**
-     * ‚±‚ÌƒXƒgƒŠ[ƒ€‚ğ•Â‚¶‚ÄA‚»‚ê‚ÉŠÖ˜A‚·‚é‚·‚×‚Ä‚ÌƒVƒXƒeƒ€ƒŠƒ\[ƒX‚ğ‰ğ•ú‚µ‚Ü‚·B<br>
-     * ƒXƒgƒŠ[ƒ€‚ª‚·‚Å‚É•Â‚¶‚ç‚ê‚Ä‚¢‚éê‡‚ÍA‚±‚Ìƒƒ\ƒbƒh‚ğŒÄ‚Ño‚µ‚Ä‚à‰½‚ÌŒø‰Ê‚à‚ ‚è‚Ü‚¹‚ñB
+     * ã“ã®ã‚¹ãƒˆãƒªãƒ¼ãƒ ã‚’é–‰ã˜ã¦ã€ãã‚Œã«é–¢é€£ã™ã‚‹ã™ã¹ã¦ã®ã‚·ã‚¹ãƒ†ãƒ ãƒªã‚½ãƒ¼ã‚¹ã‚’è§£æ”¾ã—ã¾ã™ã€‚<br>
+     * ã‚¹ãƒˆãƒªãƒ¼ãƒ ãŒã™ã§ã«é–‰ã˜ã‚‰ã‚Œã¦ã„ã‚‹å ´åˆã¯ã€ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã—ã¦ã‚‚ä½•ã®åŠ¹æœã‚‚ã‚ã‚Šã¾ã›ã‚“ã€‚
      * <p>
-     * <b>¦–{ƒƒ\ƒbƒh‚Íƒ}ƒ‹ƒ`ƒXƒŒƒbƒhƒZ[ƒt‚Å‚ ‚è‚Ü‚¹‚ñB</b>
+     * <b>â€»æœ¬ãƒ¡ã‚½ãƒƒãƒ‰ã¯ãƒãƒ«ãƒã‚¹ãƒ¬ãƒƒãƒ‰ã‚»ãƒ¼ãƒ•ã§ã‚ã‚Šã¾ã›ã‚“ã€‚</b>
      * </p>
      * @see java.io.Closeable#close()
      */
@@ -570,14 +570,14 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
     }
 
     /**
-     * Šî‚É‚È‚éƒRƒŒƒNƒVƒ‡ƒ“‚©‚çA”½•œq‚É‚æ‚Á‚ÄÅŒã‚É•Ô‚³‚ê‚½—v‘f‚ğíœ‚µ‚Ü‚· (”CˆÓ‚ÌƒIƒyƒŒ[ƒVƒ‡ƒ“)B<br>
-     * ‚±‚Ìƒƒ\ƒbƒh‚ÍAnext ‚ÌŒÄ‚Ño‚µ‚²‚Æ‚É 1 ‰ñ‚¾‚¯ŒÄ‚Ño‚·‚±‚Æ‚ª‚Å‚«‚Ü‚·B”½•œq‚Ì“®ì‚ÍA<br>
-     * ŒJ‚è•Ô‚µˆ—‚ª‚±‚Ìƒƒ\ƒbƒh‚ÌŒÄ‚Ño‚µˆÈŠO‚Ì•û–@‚ÅÀs‚³‚ê‚Ä‚¢‚é‚Æ‚«‚ÉŠî‚É‚È‚éƒRƒŒƒNƒVƒ‡ƒ“‚ª•ÏX‚³‚ê‚½ê‡‚Í•ÛØ‚³‚ê‚Ü‚¹‚ñB
+     * åŸºã«ãªã‚‹ã‚³ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³ã‹ã‚‰ã€åå¾©å­ã«ã‚ˆã£ã¦æœ€å¾Œã«è¿”ã•ã‚ŒãŸè¦ç´ ã‚’å‰Šé™¤ã—ã¾ã™ (ä»»æ„ã®ã‚ªãƒšãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³)ã€‚<br>
+     * ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã¯ã€next ã®å‘¼ã³å‡ºã—ã”ã¨ã« 1 å›ã ã‘å‘¼ã³å‡ºã™ã“ã¨ãŒã§ãã¾ã™ã€‚åå¾©å­ã®å‹•ä½œã¯ã€<br>
+     * ç¹°ã‚Šè¿”ã—å‡¦ç†ãŒã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã®å‘¼ã³å‡ºã—ä»¥å¤–ã®æ–¹æ³•ã§å®Ÿè¡Œã•ã‚Œã¦ã„ã‚‹ã¨ãã«åŸºã«ãªã‚‹ã‚³ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³ãŒå¤‰æ›´ã•ã‚ŒãŸå ´åˆã¯ä¿è¨¼ã•ã‚Œã¾ã›ã‚“ã€‚
      * <p>
-     * <b>¦–{ƒƒ\ƒbƒh‚ÍƒTƒ|[ƒg‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB</b>
+     * <b>â€»æœ¬ãƒ¡ã‚½ãƒƒãƒ‰ã¯ã‚µãƒãƒ¼ãƒˆã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚</b>
      * </p>
-     * @throws UnsupportedOperationException Iterator ‚ª remove ƒIƒyƒŒ[ƒVƒ‡ƒ“‚ğƒTƒ|[ƒg‚µ‚È‚¢ê‡
-     * @throws IllegalStateException next ƒƒ\ƒbƒh‚ª‚Ü‚¾ŒÄ‚Ño‚³‚ê‚Ä‚È‚¢ê‡A‚Ü‚½‚Í next ƒƒ\ƒbƒh‚ÌÅŒã‚ÌŒÄ‚Ño‚µ‚Ì‚ ‚Æ‚É remove ƒƒ\ƒbƒh‚ª‚·‚Å‚ÉŒÄ‚Ño‚³‚ê‚Ä‚¢‚éê‡
+     * @throws UnsupportedOperationException Iterator ãŒ remove ã‚ªãƒšãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã‚’ã‚µãƒãƒ¼ãƒˆã—ãªã„å ´åˆ
+     * @throws IllegalStateException next ãƒ¡ã‚½ãƒƒãƒ‰ãŒã¾ã å‘¼ã³å‡ºã•ã‚Œã¦ãªã„å ´åˆã€ã¾ãŸã¯ next ãƒ¡ã‚½ãƒƒãƒ‰ã®æœ€å¾Œã®å‘¼ã³å‡ºã—ã®ã‚ã¨ã« remove ãƒ¡ã‚½ãƒƒãƒ‰ãŒã™ã§ã«å‘¼ã³å‡ºã•ã‚Œã¦ã„ã‚‹å ´åˆ
      * @see java.util.Iterator#remove()
      */
     public void remove() {
@@ -600,7 +600,7 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
         }
         super.finalize();
 
-        // ƒƒbƒN‚·‚éŠëŒ¯‚Ì‚ ‚éclose()‚ÌŒÄ‚Ño‚µ‚ğ‚â‚ß‚é
+        // ãƒ­ãƒƒã‚¯ã™ã‚‹å±é™ºã®ã‚ã‚‹close()ã®å‘¼ã³å‡ºã—ã‚’ã‚„ã‚ã‚‹
     }
 
     /*
@@ -612,40 +612,40 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
     }
 
     /**
-     * getExecutorƒƒ\ƒbƒh.
+     * getExecutorãƒ¡ã‚½ãƒƒãƒ‰.
      * @return ExecutorService
      */
     protected ExecutorService getExecutor() {
-        // V‚µ‚¢ƒGƒOƒ[ƒLƒ…[ƒ^‚ğ•Ô‹p
+        // æ–°ã—ã„ã‚¨ã‚°ã‚¼ã‚­ãƒ¥ãƒ¼ã‚¿ã‚’è¿”å´
         return Executors.newSingleThreadExecutor(createThreadFactory());
     }
 
     /**
-     * ƒXƒŒƒbƒhƒtƒ@ƒNƒgƒŠ‚ğ¶¬‚·‚é.
-     * @return ƒXƒŒƒbƒhƒtƒ@ƒNƒgƒŠ
+     * ã‚¹ãƒ¬ãƒƒãƒ‰ãƒ•ã‚¡ã‚¯ãƒˆãƒªã‚’ç”Ÿæˆã™ã‚‹.
+     * @return ã‚¹ãƒ¬ãƒƒãƒ‰ãƒ•ã‚¡ã‚¯ãƒˆãƒª
      */
     protected ThreadFactory createThreadFactory() {
         return new CollectorThreadFactory();
     }
 
     /**
-     * ƒLƒ…[‚ğì¬‚·‚é
+     * ã‚­ãƒ¥ãƒ¼ã‚’ä½œæˆã™ã‚‹
      * @return
      */
     protected BlockingQueue<DataValueObject> createQueue() {
         if (this.currentQueue == null) {
-            // currentƒLƒ…[¶¬
+            // currentã‚­ãƒ¥ãƒ¼ç”Ÿæˆ
             this.currentQueue = createCurrentQueue();
         }
         if (this.previousQueue == null) {
-            // previousƒLƒ…[¶¬
+            // previousã‚­ãƒ¥ãƒ¼ç”Ÿæˆ
             this.previousQueue = createPreviousQueue();
         }
         return new ArrayBlockingQueueEx<DataValueObject>(this.queueSize);
     }
 
     /**
-     * currentƒLƒ…[‚ğì¬‚·‚é
+     * currentã‚­ãƒ¥ãƒ¼ã‚’ä½œæˆã™ã‚‹
      * @return Queue&lt;DataValueObject&gt;
      */
     protected Queue<DataValueObject> createCurrentQueue() {
@@ -653,7 +653,7 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
     }
 
     /**
-     * previousƒLƒ…[‚ğì¬‚·‚é
+     * previousã‚­ãƒ¥ãƒ¼ã‚’ä½œæˆã™ã‚‹
      * @return Queue&lt;DataValueObject&gt;
      */
     protected Queue<DataValueObject> createPreviousQueue() {
@@ -661,7 +661,7 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
     }
 
     /**
-     * ƒLƒ…[‚ğæ“¾‚·‚éB
+     * ã‚­ãƒ¥ãƒ¼ã‚’å–å¾—ã™ã‚‹ã€‚
      * @return Queue&lt;DataValueObject&gt;
      */
     protected Queue<DataValueObject> getQueue() {
@@ -669,7 +669,7 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
     }
 
     /**
-     * ƒLƒ…[ƒTƒCƒY‚ğw’è‚·‚éB<br>
+     * ã‚­ãƒ¥ãƒ¼ã‚µã‚¤ã‚ºã‚’æŒ‡å®šã™ã‚‹ã€‚<br>
      * @param queueSize int
      */
     protected void setQueueSize(int queueSize) {
@@ -677,23 +677,23 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
     }
 
     /**
-     * ƒXƒŠ[ƒvŠÔ(msec)‚ğæ“¾‚·‚é<br>
-     * @return ƒXƒŠ[ƒvŠÔ(msec)
+     * ã‚¹ãƒªãƒ¼ãƒ—æ™‚é–“(msec)ã‚’å–å¾—ã™ã‚‹<br>
+     * @return ã‚¹ãƒªãƒ¼ãƒ—æ™‚é–“(msec)
      */
     protected int getSleepWait() {
         return sleepWait;
     }
 
     /**
-     * ƒXƒŠ[ƒvŠÔ(msec)‚ğİ’è‚·‚é<br>
-     * @param sleepWait ƒXƒŠ[ƒvŠÔ(msec)
+     * ã‚¹ãƒªãƒ¼ãƒ—æ™‚é–“(msec)ã‚’è¨­å®šã™ã‚‹<br>
+     * @param sleepWait ã‚¹ãƒªãƒ¼ãƒ—æ™‚é–“(msec)
      */
     protected void setSleepWait(int sleepWait) {
         this.sleepWait = sleepWait;
     }
 
     /**
-     * ƒLƒ…[‚Éƒf[ƒ^‚ğ’Ç‰Á‚·‚éB
+     * ã‚­ãƒ¥ãƒ¼ã«ãƒ‡ãƒ¼ã‚¿ã‚’è¿½åŠ ã™ã‚‹ã€‚
      * @param dataValueObject DataValueObject
      * @throws InterruptedException
      */
@@ -703,9 +703,9 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
     }
 
     /**
-     * ƒLƒ…[‚Éƒf[ƒ^‚ğ’Ç‰Á‚·‚éB
+     * ã‚­ãƒ¥ãƒ¼ã«ãƒ‡ãƒ¼ã‚¿ã‚’è¿½åŠ ã™ã‚‹ã€‚
      * @param dataValueObject DataValueObject
-     * @param force boolean ‹­§ƒLƒ…[ƒCƒ“ƒOƒtƒ‰ƒO
+     * @param force boolean å¼·åˆ¶ã‚­ãƒ¥ãƒ¼ã‚¤ãƒ³ã‚°ãƒ•ãƒ©ã‚°
      * @throws InterruptedException
      */
     protected void addQueue(DataValueObject dataValueObject, boolean force)
@@ -718,13 +718,13 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
         boolean finish = isFinish();
 
         if (!finish) {
-            // “ü—Íƒ`ƒFƒbƒN
+            // å…¥åŠ›ãƒã‚§ãƒƒã‚¯
             ValidateErrorStatus vs = null;
             if (this.validator != null) {
                 try {
                     vs = validate(dataValueObject);
                 } catch (Throwable e) {
-                    // æ“¾‚µ‚½ƒf[ƒ^‚É”­¶‚µ‚½—áŠO‚ğİ’è‚µ1ŒƒLƒ…[‚É‚Â‚ß‚é
+                    // å–å¾—ã—ãŸãƒ‡ãƒ¼ã‚¿ã«ç™ºç”Ÿã—ãŸä¾‹å¤–ã‚’è¨­å®šã—1ä»¶ã‚­ãƒ¥ãƒ¼ã«ã¤ã‚ã‚‹
                     if (dataValueObject == null) {
                         this.queue.put(new DataValueObject(e));
                     } else {
@@ -736,15 +736,15 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
             }
 
             if (vs == null || ValidateErrorStatus.CONTINUE.equals(vs)) {
-                // æ“¾‚µ‚½ƒf[ƒ^‚ğ1ŒƒLƒ…[‚É‚Â‚ß‚é
+                // å–å¾—ã—ãŸãƒ‡ãƒ¼ã‚¿ã‚’1ä»¶ã‚­ãƒ¥ãƒ¼ã«ã¤ã‚ã‚‹
                 this.queue.put(dataValueObject);
             } else if (ValidateErrorStatus.END.equals(vs)) {
                 DataValueObject errorStop = new DataValueObject(vs);
                 this.queue.put(errorStop);
-                // ‹­§’â~iˆÈ~‚ÌƒLƒ…[ƒCƒ“ƒO‚ğ‹­§’â~j
+                // å¼·åˆ¶åœæ­¢ï¼ˆä»¥é™ã®ã‚­ãƒ¥ãƒ¼ã‚¤ãƒ³ã‚°ã‚’å¼·åˆ¶åœæ­¢ï¼‰
                 setFinish(true);
             } else if (ValidateErrorStatus.SKIP.equals(vs)) {
-            	// ƒXƒLƒbƒv‚ÍƒLƒ…[‚É‚Â‚ß‚È‚¢
+            	// ã‚¹ã‚­ãƒƒãƒ—ã¯ã‚­ãƒ¥ãƒ¼ã«ã¤ã‚ãªã„
             }
         } else {
             if (LOGGER.isTraceEnabled()) {
@@ -760,7 +760,7 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
     }
 
     /**
-     * “ü—Íƒ`ƒFƒbƒN‚ğs‚¤.<br>
+     * å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†.<br>
      * @param dataValueObject DataValueObject
      * @return ValidateStatus
      */
@@ -772,7 +772,7 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
             String objectName = null;
             Errors errors = null;
 
-            // “ü—ÍƒIƒuƒWƒFƒNƒg‚ÌƒNƒ‰ƒXŒ^‚ğæ“¾
+            // å…¥åŠ›ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¯ãƒ©ã‚¹å‹ã‚’å–å¾—
             if (dataValueObject != null && dataValueObject.getValue() != null) {
                 clazz = dataValueObject.getValue().getClass();
 
@@ -780,7 +780,7 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
                     objectName = clazz.getSimpleName();
                     if (objectName != null) {
                         objectName = Introspector.decapitalize(objectName);
-                        // ErrorsƒIƒuƒWƒFƒNƒg¶¬
+                        // Errorsã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç”Ÿæˆ
                         errors = new BindException(dataValueObject.getValue(),
                                 objectName);
                     }
@@ -789,7 +789,7 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
 
             if (clazz != null && errors != null
                     && this.validator.supports(clazz)) {
-                // “ü—Íƒ`ƒFƒbƒN
+                // å…¥åŠ›ãƒã‚§ãƒƒã‚¯
                 this.validator.validate(dataValueObject.getValue(), errors);
 
                 if (errors.hasErrors()) {
@@ -802,7 +802,7 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
     }
 
     /**
-     * “ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚Ìˆ—.<br>
+     * å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼æ™‚ã®å‡¦ç†.<br>
      * @param dataValueObject DataValueObject
      * @param errors Errors
      * @return ValidateErrorStatus
@@ -819,14 +819,14 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
     }
 
     /**
-     * —áŠO”­¶‚Ìˆ—
+     * ä¾‹å¤–ç™ºç”Ÿæ™‚ã®å‡¦ç†
      * @param dataValueObject DataValueObject
      * @return CollectorExceptionHandlerStatus
      */
     protected CollectorExceptionHandlerStatus handleException(
             DataValueObject dataValueObject) {
         CollectorExceptionHandlerStatus result = dataValueObject.getExceptionHandlerStatus();
-        // Šù‚É”»’èÏ‚İ‚È‚ç‚Î‚»‚Ì‚Æ‚«‚ÌŒ‹‰Ê‚ğ•Ô‚·B
+        // æ—¢ã«åˆ¤å®šæ¸ˆã¿ãªã‚‰ã°ãã®ã¨ãã®çµæœã‚’è¿”ã™ã€‚
         if (result != null) {
             return result;
         }
@@ -839,7 +839,7 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
     }
 
     /**
-     * I—¹ƒtƒ‰ƒO‚Ìó‘Ô‚ğŠm”F‚·‚éB
+     * çµ‚äº†ãƒ•ãƒ©ã‚°ã®çŠ¶æ…‹ã‚’ç¢ºèªã™ã‚‹ã€‚
      * @return boolean
      */
     protected boolean isFinish() {
@@ -851,7 +851,7 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
             boolean done = future.isDone();
 
             if (localChild != null) {
-                // qƒXƒŒƒbƒh‘¤‚ÌI—¹ƒtƒ‰ƒO‚ğQÆ‚·‚é
+                // å­ã‚¹ãƒ¬ãƒƒãƒ‰å´ã®çµ‚äº†ãƒ•ãƒ©ã‚°ã‚’å‚ç…§ã™ã‚‹
                 if (localChild.isFinish()) {
                     finish = localChild.isFinish();
                 }
@@ -860,7 +860,7 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
         }
 
         if (localChild != null) {
-            // qƒXƒŒƒbƒh‘¤‚ÌI—¹ƒtƒ‰ƒO‚ğQÆ‚·‚é
+            // å­ã‚¹ãƒ¬ãƒƒãƒ‰å´ã®çµ‚äº†ãƒ•ãƒ©ã‚°ã‚’å‚ç…§ã™ã‚‹
             if (localChild.isFinish()) {
                 finish = localChild.isFinish();
             }
@@ -869,7 +869,7 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
     }
 
     /**
-     * I—¹ƒtƒ‰ƒO‚ğİ’è‚·‚éB
+     * çµ‚äº†ãƒ•ãƒ©ã‚°ã‚’è¨­å®šã™ã‚‹ã€‚
      */
     protected void setFinish() {
         if (verboseLog.get() && LOGGER.isTraceEnabled()) {
@@ -877,7 +877,7 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
         }
         setFinish(true);
 
-        // I—¹ƒtƒ‰ƒO‚ğƒLƒ…[‚É‚Â‚ß‚é
+        // çµ‚äº†ãƒ•ãƒ©ã‚°ã‚’ã‚­ãƒ¥ãƒ¼ã«ã¤ã‚ã‚‹
         try {
             addQueue(new DataValueObject(CollectorStatus.END), true);
         } catch (InterruptedException ie) {
@@ -887,7 +887,7 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
             }
         }
 
-        // ƒLƒ…[‚É‘Î‚µƒLƒ…[ƒCƒ“ƒO‚ÌI—¹‚ğ’Ê’m‚·‚éB
+        // ã‚­ãƒ¥ãƒ¼ã«å¯¾ã—ã‚­ãƒ¥ãƒ¼ã‚¤ãƒ³ã‚°ã®çµ‚äº†ã‚’é€šçŸ¥ã™ã‚‹ã€‚
         if (queue instanceof NotificationBlockingQueue) {
             ((NotificationBlockingQueue<DataValueObject>) queue)
                     .finishQueueing();
@@ -895,7 +895,7 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
     }
 
     /**
-     * I—¹ƒtƒ‰ƒO‚ğİ’è‚·‚éB
+     * çµ‚äº†ãƒ•ãƒ©ã‚°ã‚’è¨­å®šã™ã‚‹ã€‚
      * @param finish
      */
     protected void setFinish(boolean finish) {
@@ -903,10 +903,10 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
     }
 
     /**
-     * Collector‚ğƒNƒ[ƒY‚·‚éB<br>
+     * Collectorã‚’ã‚¯ãƒ­ãƒ¼ã‚ºã™ã‚‹ã€‚<br>
      * <p>
-     * ˆø”‚É“n‚³‚ê‚½collector‚ªnull‚Å‚È‚¯‚ê‚ÎƒNƒ[ƒY‚·‚éB<br>
-     * ‚Ü‚½AƒNƒ[ƒY‚·‚éÛ‚ÉIO—áŠO‚ª”­¶‚µ‚½ê‡‚Í–³‹‚·‚éB<br>
+     * å¼•æ•°ã«æ¸¡ã•ã‚ŒãŸcollectorãŒnullã§ãªã‘ã‚Œã°ã‚¯ãƒ­ãƒ¼ã‚ºã™ã‚‹ã€‚<br>
+     * ã¾ãŸã€ã‚¯ãƒ­ãƒ¼ã‚ºã™ã‚‹éš›ã«IOä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã¯ç„¡è¦–ã™ã‚‹ã€‚<br>
      * </p>
      * @param collector Collector
      */
@@ -916,13 +916,13 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
                 collector.close();
             }
         } catch (IOException e) {
-            // ‚È‚É‚à‚µ‚È‚¢
+            // ãªã«ã‚‚ã—ãªã„
         }
     }
 
     /**
-     * ç’·ƒƒOo—Íƒtƒ‰ƒO‚ğİ’è‚·‚éB
-     * @param verbose ç’·ƒƒOo—Íƒtƒ‰ƒO
+     * å†—é•·ãƒ­ã‚°å‡ºåŠ›ãƒ•ãƒ©ã‚°ã‚’è¨­å®šã™ã‚‹ã€‚
+     * @param verbose å†—é•·ãƒ­ã‚°å‡ºåŠ›ãƒ•ãƒ©ã‚°
      */
     public static void setVerbose(boolean verbose) {
         verboseLog.set(verbose);

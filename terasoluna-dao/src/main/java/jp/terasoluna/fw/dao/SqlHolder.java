@@ -17,8 +17,8 @@
 package jp.terasoluna.fw.dao;
 
 /**
- * SQL‚ğ•Û‚·‚éƒNƒ‰ƒXB<br/>
- * <@link UpdateDAO#executeBatch(List)>‚Ìˆø”‚Æ‚µ‚Äg—p‚·‚éB
+ * SQLã‚’ä¿æŒã™ã‚‹ã‚¯ãƒ©ã‚¹ã€‚<br/>
+ * <@link UpdateDAO#executeBatch(List)>ã®å¼•æ•°ã¨ã—ã¦ä½¿ç”¨ã™ã‚‹ã€‚
  * 
  */
 public class SqlHolder {
@@ -29,14 +29,14 @@ public class SqlHolder {
     protected String sqlID = null;
     
     /**
-     * SQL‚Ìˆø”
+     * SQLã®å¼•æ•°
      */
     protected Object bindParams = null;
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      * @param sqlID SQLID
-     * @param bindParams SQL‚Ìˆø”
+     * @param bindParams SQLã®å¼•æ•°
      */
     public SqlHolder(String sqlID, Object bindParams) {
         this.sqlID = sqlID;
@@ -44,7 +44,7 @@ public class SqlHolder {
     }
     
     /**
-     * SQLID‚ğæ“¾‚·‚éB
+     * SQLIDã‚’å–å¾—ã™ã‚‹ã€‚
      * @return SQLID
      */
     public String getSqlID() {
@@ -52,8 +52,8 @@ public class SqlHolder {
     }
     
     /**
-     * SQL‚Ìˆø”‚ğæ“¾‚·‚éB
-     * @return SQL‚Ìˆø”
+     * SQLã®å¼•æ•°ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return SQLã®å¼•æ•°
      */
     public Object getBindParams() {
         return bindParams;

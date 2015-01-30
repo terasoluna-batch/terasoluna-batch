@@ -24,29 +24,29 @@ import jp.terasoluna.fw.batch.constants.LogId;
 import jp.terasoluna.fw.logger.TLogger;
 
 /**
- * —áŠOƒnƒ“ƒhƒ‰‚ÌƒfƒtƒHƒ‹ƒgÀ‘•.
+ * ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå®Ÿè£….
  */
 public class DefaultExceptionHandler implements ExceptionHandler {
     /**
-     * ƒƒK[B
+     * ãƒ­ã‚¬ãƒ¼ã€‚
      */
     private static final TLogger LOGGER = TLogger
             .getLogger(DefaultExceptionHandler.class);
 
     /**
-     * ƒfƒtƒHƒ‹ƒg—áŠOƒnƒ“ƒhƒ‰‚ÌƒŠƒ^[ƒ“ƒR[ƒh.
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©ã®ãƒªã‚¿ãƒ¼ãƒ³ã‚³ãƒ¼ãƒ‰.
      */
     protected static final int DEFAULT_EXCEPTION_HANDLER_STATUS = 255;
 
     /**
-     * —áŠOƒNƒ‰ƒX‚Æ•Ô‹p‚·‚éƒXƒe[ƒ^ƒX’l‚Ìƒ}ƒbƒv<br>
+     * ä¾‹å¤–ã‚¯ãƒ©ã‚¹ã¨è¿”å´ã™ã‚‹ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹å€¤ã®ãƒãƒƒãƒ—<br>
      * <p>
-     * Bean’è‹`‚É—áŠO‚ÌŒ^‚Æ‘Î‰‚·‚éƒXƒe[ƒ^ƒX’l‚Æ‚Ìƒ}ƒbƒsƒ“ƒO‚ğ’è‹`‚·‚é‚±‚Æ‚ÅA—áŠO‚²‚Æ‚É•Ô‹p‚·‚éƒXƒe[ƒ^ƒX’l‚ğ•Ï‚¦‚é‚±‚Æ‚ª‚Å‚«‚éB<br>
-     * ƒ}ƒbƒsƒ“ƒOİ’è‚ğÈ—ª‚µ‚½ê‡‚ÍA‚·‚×‚Ä‚Ì—áŠO‚É‘Î‚µ‚ÄƒXƒe[ƒ^ƒX’l255‚ğ•Ô‹p‚·‚éB<br>
+     * Beanå®šç¾©ã«ä¾‹å¤–ã®å‹ã¨å¯¾å¿œã™ã‚‹ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹å€¤ã¨ã®ãƒãƒƒãƒ”ãƒ³ã‚°ã‚’å®šç¾©ã™ã‚‹ã“ã¨ã§ã€ä¾‹å¤–ã”ã¨ã«è¿”å´ã™ã‚‹ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹å€¤ã‚’å¤‰ãˆã‚‹ã“ã¨ãŒã§ãã‚‹ã€‚<br>
+     * ãƒãƒƒãƒ”ãƒ³ã‚°è¨­å®šã‚’çœç•¥ã—ãŸå ´åˆã¯ã€ã™ã¹ã¦ã®ä¾‹å¤–ã«å¯¾ã—ã¦ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹å€¤255ã‚’è¿”å´ã™ã‚‹ã€‚<br>
      * </p>
      * <p>
      * <fieldset style="border:1pt solid black;padding:10px;width:100%;"><br>
-     * <legend>Bean’è‹`‹Lq—á</legend>
+     * <legend>Beanå®šç¾©è¨˜è¿°ä¾‹</legend>
      *
      * <pre>
      * &lt;property name=&quot;exceptionToStatusMap&quot;&gt;
@@ -63,7 +63,7 @@ public class DefaultExceptionHandler implements ExceptionHandler {
     protected Map<Class<? extends Throwable>, Integer> exceptionToStatusMap = null;
 
     /**
-     * —áŠOƒNƒ‰ƒX‚Æ•Ô‹p‚·‚éƒXƒe[ƒ^ƒX’l‚Ìƒ}ƒbƒv‚ğİ’è‚·‚éB
+     * ä¾‹å¤–ã‚¯ãƒ©ã‚¹ã¨è¿”å´ã™ã‚‹ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹å€¤ã®ãƒãƒƒãƒ—ã‚’è¨­å®šã™ã‚‹ã€‚
      * @param exceptionToStatusMap Map&lt;Class&lt;? extends Throwable&gt;, Integer&gt;
      */
     public void setExceptionToStatusMap(
@@ -76,10 +76,10 @@ public class DefaultExceptionHandler implements ExceptionHandler {
      * @see jp.terasoluna.fw.batch.exception.handler.ExceptionHandler#handleThrowableException(java.lang.Throwable)
      */
     public int handleThrowableException(Throwable e) {
-        // WARNƒƒO‚ğo—Í‚·‚é
+        // WARNãƒ­ã‚°ã‚’å‡ºåŠ›ã™ã‚‹
         LOGGER.warn(LogId.WAL025007,e);
 
-        // —áŠOƒNƒ‰ƒX‚Æ•Ô‹p‚·‚éƒXƒe[ƒ^ƒX’l‚Ìƒ}ƒbƒv‚ªİ’è‚³‚ê‚Ä‚¢‚½ê‡‚Í‚»‚ê‚É]‚¤
+        // ä¾‹å¤–ã‚¯ãƒ©ã‚¹ã¨è¿”å´ã™ã‚‹ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹å€¤ã®ãƒãƒƒãƒ—ãŒè¨­å®šã•ã‚Œã¦ã„ãŸå ´åˆã¯ãã‚Œã«å¾“ã†
         if (this.exceptionToStatusMap != null && e != null) {
             Class<? extends Throwable> exClass = e.getClass();
 
@@ -102,7 +102,7 @@ public class DefaultExceptionHandler implements ExceptionHandler {
             }
         }
 
-        // ƒfƒtƒHƒ‹ƒg‚ÌƒXƒe[ƒ^ƒX’l‚ğ•Ô‚·B
+        // ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹å€¤ã‚’è¿”ã™ã€‚
         return DEFAULT_EXCEPTION_HANDLER_STATUS;
     }
 }

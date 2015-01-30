@@ -14,26 +14,26 @@ import jp.co.dgic.testing.common.virtualmock.InternalMockObjectManager;
 import jp.co.dgic.testing.common.virtualmock.MockObjectManager;
 
 /**
- * djUnit‚ÌVirtual Mock Object‹@”\‚ğ—˜—p‚·‚é‚½‚ß‚Ìƒ†[ƒeƒBƒŠƒeƒBƒNƒ‰ƒXB JUnit‚ÌƒeƒXƒgƒP[ƒX‚©‚ç—˜—p‚·‚éê‡‚ÍAsetUpƒƒ\ƒbƒh‚É‚¨‚¢‚Ä {@link VMOUTUtil#initialize()}
- * ƒƒ\ƒbƒh‚ğŒÄ‚Ño‚·•K—v‚ª‚ ‚éB
- * @author ’r“c@‹M”V
+ * djUnitã®Virtual Mock Objectæ©Ÿèƒ½ã‚’åˆ©ç”¨ã™ã‚‹ãŸã‚ã®ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ã‚¯ãƒ©ã‚¹ã€‚ JUnitã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã‹ã‚‰åˆ©ç”¨ã™ã‚‹å ´åˆã¯ã€setUpãƒ¡ã‚½ãƒƒãƒ‰ã«ãŠã„ã¦ {@link VMOUTUtil#initialize()}
+ * ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã™å¿…è¦ãŒã‚ã‚‹ã€‚
+ * @author æ± ç”°ã€€è²´ä¹‹
  * @see jp.co.dgic.testing.common.virtualmock.MockObjectManager
  */
 public class VMOUTUtil {
 
     /**
-     * VMO‚Ì‰Šú‰»‚ğs‚¤B <code>JUnit</code>‚ÌƒeƒXƒgƒP[ƒX‚©‚ç—˜—p‚·‚éê‡‚ÍA <code>setUp</code>ƒƒ\ƒbƒh“à•”‚Å•K‚¸‚±‚Ìƒƒ\ƒbƒh‚ğŒÄ‚Ño‚³‚È‚¯‚ê‚Î‚È‚ç‚È‚¢B
+     * VMOã®åˆæœŸåŒ–ã‚’è¡Œã†ã€‚ <code>JUnit</code>ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã‹ã‚‰åˆ©ç”¨ã™ã‚‹å ´åˆã¯ã€ <code>setUp</code>ãƒ¡ã‚½ãƒƒãƒ‰å†…éƒ¨ã§å¿…ãšã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã•ãªã‘ã‚Œã°ãªã‚‰ãªã„ã€‚
      */
     public static void initialize() {
         MockObjectManager.initialize();
     }
 
     /**
-     * w’è‚µ‚½ƒƒ\ƒbƒh‚Ì<code>index</code>‰ñ–Ú‚ÌŒÄ‚Ño‚µ‚ğƒLƒƒƒ“ƒZƒ‹‚µA w’è‚µ‚½ƒIƒuƒWƒFƒNƒg‚ğ•Ô‹p‚·‚éB
-     * @param cls ‘‚«Š·‚¦‚½‚¢ƒNƒ‰ƒXB
-     * @param methodname ‘‚«Š·‚¦‚½‚¢ƒƒ\ƒbƒh–¼B
-     * @param index ‰½‰ñ–Ú‚ÌŒÄ‚Ño‚µ‚ğ‘‚«Š·‚¦‚½‚¢‚©BƒIƒtƒZƒbƒg‚Íƒ[ƒB
-     * @param returnValue •Ô‹p‚µ‚½‚¢ƒIƒuƒWƒFƒNƒgBƒvƒŠƒ~ƒeƒBƒuŒ^‚ğ•Ô‚·ê‡‚Íƒ‰ƒbƒp[ƒIƒuƒWƒFƒNƒg‚ğw’è‚·‚éB <code>null</code>‚àw’è‰Â”\B
+     * æŒ‡å®šã—ãŸãƒ¡ã‚½ãƒƒãƒ‰ã®<code>index</code>å›ç›®ã®å‘¼ã³å‡ºã—ã‚’ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã—ã€ æŒ‡å®šã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’è¿”å´ã™ã‚‹ã€‚
+     * @param cls æ›¸ãæ›ãˆãŸã„ã‚¯ãƒ©ã‚¹ã€‚
+     * @param methodname æ›¸ãæ›ãˆãŸã„ãƒ¡ã‚½ãƒƒãƒ‰åã€‚
+     * @param index ä½•å›ç›®ã®å‘¼ã³å‡ºã—ã‚’æ›¸ãæ›ãˆãŸã„ã‹ã€‚ã‚ªãƒ•ã‚»ãƒƒãƒˆã¯ã‚¼ãƒ­ã€‚
+     * @param returnValue è¿”å´ã—ãŸã„ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚ãƒ—ãƒªãƒŸãƒ†ã‚£ãƒ–å‹ã‚’è¿”ã™å ´åˆã¯ãƒ©ãƒƒãƒ‘ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’æŒ‡å®šã™ã‚‹ã€‚ <code>null</code>ã‚‚æŒ‡å®šå¯èƒ½ã€‚
      */
     @SuppressWarnings("unchecked")
     public static void setReturnValueAt(Class cls, String methodname,
@@ -47,10 +47,10 @@ public class VMOUTUtil {
     }
 
     /**
-     * w’è‚µ‚½ƒƒ\ƒbƒh‚Ì–ˆ‰ñ‚ÌŒÄ‚Ño‚µ‚ğƒLƒƒƒ“ƒZƒ‹‚µAw’è‚µ‚½ƒIƒuƒWƒFƒNƒg‚ğ•Ô‹p‚·‚éB
-     * @param cls ‘‚«Š·‚¦‚½‚¢ƒNƒ‰ƒXB
-     * @param methodname ‘‚«Š·‚¦‚½‚¢ƒƒ\ƒbƒh–¼B
-     * @param returnValue •Ô‹p‚µ‚½‚¢ƒIƒuƒWƒFƒNƒgBƒvƒŠƒ~ƒeƒBƒuŒ^‚ğ•Ô‚·ê‡‚Íƒ‰ƒbƒp[ƒIƒuƒWƒFƒNƒg‚ğw’è‚·‚éB <code>null</code>‚àw’è‰Â”\B
+     * æŒ‡å®šã—ãŸãƒ¡ã‚½ãƒƒãƒ‰ã®æ¯å›ã®å‘¼ã³å‡ºã—ã‚’ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã—ã€æŒ‡å®šã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’è¿”å´ã™ã‚‹ã€‚
+     * @param cls æ›¸ãæ›ãˆãŸã„ã‚¯ãƒ©ã‚¹ã€‚
+     * @param methodname æ›¸ãæ›ãˆãŸã„ãƒ¡ã‚½ãƒƒãƒ‰åã€‚
+     * @param returnValue è¿”å´ã—ãŸã„ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚ãƒ—ãƒªãƒŸãƒ†ã‚£ãƒ–å‹ã‚’è¿”ã™å ´åˆã¯ãƒ©ãƒƒãƒ‘ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’æŒ‡å®šã™ã‚‹ã€‚ <code>null</code>ã‚‚æŒ‡å®šå¯èƒ½ã€‚
      */
     @SuppressWarnings("unchecked")
     public static void setReturnValueAtAllTimes(Class cls, String methodname,
@@ -65,11 +65,11 @@ public class VMOUTUtil {
     }
 
     /**
-     * w’è‚µ‚½ƒƒ\ƒbƒh‚Ì<code>index</code>‰ñ–Ú‚ÌŒÄ‚Ño‚µ‚ğƒLƒƒƒ“ƒZƒ‹‚µAw’è‚µ‚½—áŠO‚ğ•Ô‹p‚·‚éB
-     * @param cls ‘‚«Š·‚¦‚½‚¢ƒNƒ‰ƒXB
-     * @param methodname ‘‚«Š·‚¦‚½‚¢ƒƒ\ƒbƒh–¼B
-     * @param index ‰½‰ñ–Ú‚ÌŒÄ‚Ño‚µ‚ğ‘‚«Š·‚¦‚½‚¢‚©BƒIƒtƒZƒbƒg‚Íƒ[ƒB
-     * @param exception •Ô‹p‚µ‚½‚¢—áŠOB
+     * æŒ‡å®šã—ãŸãƒ¡ã‚½ãƒƒãƒ‰ã®<code>index</code>å›ç›®ã®å‘¼ã³å‡ºã—ã‚’ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã—ã€æŒ‡å®šã—ãŸä¾‹å¤–ã‚’è¿”å´ã™ã‚‹ã€‚
+     * @param cls æ›¸ãæ›ãˆãŸã„ã‚¯ãƒ©ã‚¹ã€‚
+     * @param methodname æ›¸ãæ›ãˆãŸã„ãƒ¡ã‚½ãƒƒãƒ‰åã€‚
+     * @param index ä½•å›ç›®ã®å‘¼ã³å‡ºã—ã‚’æ›¸ãæ›ãˆãŸã„ã‹ã€‚ã‚ªãƒ•ã‚»ãƒƒãƒˆã¯ã‚¼ãƒ­ã€‚
+     * @param exception è¿”å´ã—ãŸã„ä¾‹å¤–ã€‚
      */
     @SuppressWarnings("unchecked")
     public static void setExceptionAt(Class cls, String methodname, int index,
@@ -79,10 +79,10 @@ public class VMOUTUtil {
     }
 
     /**
-     * w’è‚µ‚½ƒƒ\ƒbƒh‚Ì–ˆ‰ñ‚ÌŒÄ‚Ño‚µ‚ğƒLƒƒƒ“ƒZƒ‹‚µAw’è‚µ‚½—áŠO‚ğ•Ô‹p‚·‚éB
-     * @param cls ‘‚«Š·‚¦‚½‚¢ƒNƒ‰ƒXB
-     * @param methodname ‘‚«Š·‚¦‚½‚¢ƒƒ\ƒbƒh–¼B
-     * @param exception •Ô‹p‚µ‚½‚¢—áŠOB
+     * æŒ‡å®šã—ãŸãƒ¡ã‚½ãƒƒãƒ‰ã®æ¯å›ã®å‘¼ã³å‡ºã—ã‚’ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã—ã€æŒ‡å®šã—ãŸä¾‹å¤–ã‚’è¿”å´ã™ã‚‹ã€‚
+     * @param cls æ›¸ãæ›ãˆãŸã„ã‚¯ãƒ©ã‚¹ã€‚
+     * @param methodname æ›¸ãæ›ãˆãŸã„ãƒ¡ã‚½ãƒƒãƒ‰åã€‚
+     * @param exception è¿”å´ã—ãŸã„ä¾‹å¤–ã€‚
      */
     @SuppressWarnings("unchecked")
     public static void setExceptionAtAllTimes(Class cls, String methodname,
@@ -92,10 +92,10 @@ public class VMOUTUtil {
     }
 
     /**
-     * w’è‚µ‚½ƒƒ\ƒbƒh‚Ì<code>index</code>‰ñ–Ú‚ÌŒÄ‚Ño‚µ‚ğƒLƒƒƒ“ƒZƒ‹‚·‚éB <code>void</code>Œ^‚Ìƒƒ\ƒbƒh‚Ì‚İ‚Å—˜—p‰Â”\B
-     * @param cls ‘‚«Š·‚¦‚½‚¢ƒNƒ‰ƒXB
-     * @param methodname ‘‚«Š·‚¦‚½‚¢ƒƒ\ƒbƒh–¼B
-     * @param index ‰½‰ñ–Ú‚ÌŒÄ‚Ño‚µ‚ğ‘‚«Š·‚¦‚½‚¢‚©BƒIƒtƒZƒbƒg‚Íƒ[ƒB
+     * æŒ‡å®šã—ãŸãƒ¡ã‚½ãƒƒãƒ‰ã®<code>index</code>å›ç›®ã®å‘¼ã³å‡ºã—ã‚’ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã™ã‚‹ã€‚ <code>void</code>å‹ã®ãƒ¡ã‚½ãƒƒãƒ‰ã®ã¿ã§åˆ©ç”¨å¯èƒ½ã€‚
+     * @param cls æ›¸ãæ›ãˆãŸã„ã‚¯ãƒ©ã‚¹ã€‚
+     * @param methodname æ›¸ãæ›ãˆãŸã„ãƒ¡ã‚½ãƒƒãƒ‰åã€‚
+     * @param index ä½•å›ç›®ã®å‘¼ã³å‡ºã—ã‚’æ›¸ãæ›ãˆãŸã„ã‹ã€‚ã‚ªãƒ•ã‚»ãƒƒãƒˆã¯ã‚¼ãƒ­ã€‚
      */
     @SuppressWarnings("unchecked")
     public static void cancelMethodAt(Class cls, String methodname, int index) {
@@ -103,9 +103,9 @@ public class VMOUTUtil {
     }
 
     /**
-     * w’è‚µ‚½ƒƒ\ƒbƒh‚Ì–ˆ‰ñ‚ÌŒÄ‚Ño‚µ‚ğƒLƒƒƒ“ƒZƒ‹‚·‚éB<code>void</code>Œ^‚Ìƒƒ\ƒbƒh‚Ì‚İ‚Å—˜—p‰Â”\B
-     * @param cls ‘‚«Š·‚¦‚½‚¢ƒNƒ‰ƒXB
-     * @param methodname ‘‚«Š·‚¦‚½‚¢ƒƒ\ƒbƒh–¼B
+     * æŒ‡å®šã—ãŸãƒ¡ã‚½ãƒƒãƒ‰ã®æ¯å›ã®å‘¼ã³å‡ºã—ã‚’ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã™ã‚‹ã€‚<code>void</code>å‹ã®ãƒ¡ã‚½ãƒƒãƒ‰ã®ã¿ã§åˆ©ç”¨å¯èƒ½ã€‚
+     * @param cls æ›¸ãæ›ãˆãŸã„ã‚¯ãƒ©ã‚¹ã€‚
+     * @param methodname æ›¸ãæ›ãˆãŸã„ãƒ¡ã‚½ãƒƒãƒ‰åã€‚
      */
     @SuppressWarnings("unchecked")
     public static void cancelMethodAtAllTimes(Class cls, String methodname) {
@@ -113,10 +113,10 @@ public class VMOUTUtil {
     }
 
     /**
-     * w’è‚µ‚½ƒƒ\ƒbƒh‚ªŒÄ‚Ño‚³‚ê‚½‚©‚Ç‚¤‚©‚ğŠm”F‚·‚éB
-     * @param cls Šm”F‚µ‚½‚¢ƒNƒ‰ƒXB
-     * @param methodname Šm”F‚µ‚½‚¢ƒƒ\ƒbƒh–¼B
-     * @return ŒÄ‚Ño‚³‚ê‚Ä‚¢‚ê‚ÎtrueB
+     * æŒ‡å®šã—ãŸãƒ¡ã‚½ãƒƒãƒ‰ãŒå‘¼ã³å‡ºã•ã‚ŒãŸã‹ã©ã†ã‹ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @param cls ç¢ºèªã—ãŸã„ã‚¯ãƒ©ã‚¹ã€‚
+     * @param methodname ç¢ºèªã—ãŸã„ãƒ¡ã‚½ãƒƒãƒ‰åã€‚
+     * @return å‘¼ã³å‡ºã•ã‚Œã¦ã„ã‚Œã°trueã€‚
      */
     @SuppressWarnings("unchecked")
     public static boolean isCalled(Class cls, String methodname) {
@@ -124,10 +124,10 @@ public class VMOUTUtil {
     }
 
     /**
-     * w’è‚µ‚½ƒƒ\ƒbƒh‚ªŒÄ‚Ño‚³‚ê‚½‰ñ”‚ğæ“¾‚·‚éB
-     * @param cls Šm”F‚µ‚½‚¢ƒNƒ‰ƒXB
-     * @param methodname Šm”F‚µ‚½‚¢ƒƒ\ƒbƒh–¼B
-     * @return ŒÄ‚Ño‚³‚ê‚½‰ñ”B
+     * æŒ‡å®šã—ãŸãƒ¡ã‚½ãƒƒãƒ‰ãŒå‘¼ã³å‡ºã•ã‚ŒãŸå›æ•°ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @param cls ç¢ºèªã—ãŸã„ã‚¯ãƒ©ã‚¹ã€‚
+     * @param methodname ç¢ºèªã—ãŸã„ãƒ¡ã‚½ãƒƒãƒ‰åã€‚
+     * @return å‘¼ã³å‡ºã•ã‚ŒãŸå›æ•°ã€‚
      */
     @SuppressWarnings("unchecked")
     public static int getCallCount(Class cls, String methodname) {
@@ -135,12 +135,12 @@ public class VMOUTUtil {
     }
 
     /**
-     * w’è‚³‚ê‚½ƒƒ\ƒbƒh‚Ì<code>methodindex</code>‰ñ–Ú‚ÌŒÄ‚Ño‚µ‚É‚¨‚¢‚ÄA <code>argumentindex</code>ŒÂ–Ú‚Ìˆø”‚ª‚Æ‚é’l‚ğæ“¾‚·‚éB
-     * @param cls Šm”F‚µ‚½‚¢ƒNƒ‰ƒXB
-     * @param methodname Šm”F‚µ‚½‚¢ƒƒ\ƒbƒh–¼B
-     * @param methodindex ‰½‰ñ–Ú‚ÌŒÄ‚Ño‚µ‚ğŠm”F‚µ‚½‚¢‚©BƒIƒtƒZƒbƒg‚Íƒ[ƒB
-     * @param argumentindex ‰½ŒÂ–Ú‚Ìˆø”‚ğæ“¾‚µ‚½‚¢‚©BƒIƒtƒZƒbƒg‚Íƒ[ƒB
-     * @return æ“¾‚µ‚½ˆø”‚Ì’lB
+     * æŒ‡å®šã•ã‚ŒãŸãƒ¡ã‚½ãƒƒãƒ‰ã®<code>methodindex</code>å›ç›®ã®å‘¼ã³å‡ºã—ã«ãŠã„ã¦ã€ <code>argumentindex</code>å€‹ç›®ã®å¼•æ•°ãŒã¨ã‚‹å€¤ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @param cls ç¢ºèªã—ãŸã„ã‚¯ãƒ©ã‚¹ã€‚
+     * @param methodname ç¢ºèªã—ãŸã„ãƒ¡ã‚½ãƒƒãƒ‰åã€‚
+     * @param methodindex ä½•å›ç›®ã®å‘¼ã³å‡ºã—ã‚’ç¢ºèªã—ãŸã„ã‹ã€‚ã‚ªãƒ•ã‚»ãƒƒãƒˆã¯ã‚¼ãƒ­ã€‚
+     * @param argumentindex ä½•å€‹ç›®ã®å¼•æ•°ã‚’å–å¾—ã—ãŸã„ã‹ã€‚ã‚ªãƒ•ã‚»ãƒƒãƒˆã¯ã‚¼ãƒ­ã€‚
+     * @return å–å¾—ã—ãŸå¼•æ•°ã®å€¤ã€‚
      */
     @SuppressWarnings("unchecked")
     public static Object getArgument(Class cls, String methodname,
@@ -150,11 +150,11 @@ public class VMOUTUtil {
     }
 
     /**
-     * w’è‚³‚ê‚½ƒƒ\ƒbƒh‚Ì<code>methodindex</code>‰ñ–Ú‚ÌŒÄ‚Ño‚µ‚Ì‚·‚×‚Ä‚Ìˆø”‚ğæ“¾‚·‚éB
-     * @param cls Šm”F‚µ‚½‚¢ƒNƒ‰ƒXB
-     * @param methodname Šm”F‚µ‚½‚¢ƒƒ\ƒbƒh–¼B
-     * @param methodindex ‰½‰ñ–Ú‚ÌŒÄ‚Ño‚µ‚ğŠm”F‚µ‚½‚¢‚©BƒIƒtƒZƒbƒg‚Íƒ[ƒB
-     * @return æ“¾‚µ‚½ˆø”‚Ì’l‚ÌListB
+     * æŒ‡å®šã•ã‚ŒãŸãƒ¡ã‚½ãƒƒãƒ‰ã®<code>methodindex</code>å›ç›®ã®å‘¼ã³å‡ºã—ã®ã™ã¹ã¦ã®å¼•æ•°ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @param cls ç¢ºèªã—ãŸã„ã‚¯ãƒ©ã‚¹ã€‚
+     * @param methodname ç¢ºèªã—ãŸã„ãƒ¡ã‚½ãƒƒãƒ‰åã€‚
+     * @param methodindex ä½•å›ç›®ã®å‘¼ã³å‡ºã—ã‚’ç¢ºèªã—ãŸã„ã‹ã€‚ã‚ªãƒ•ã‚»ãƒƒãƒˆã¯ã‚¼ãƒ­ã€‚
+     * @return å–å¾—ã—ãŸå¼•æ•°ã®å€¤ã®Listã€‚
      */
     @SuppressWarnings("unchecked")
     public static List getArguments(Class cls, String methodname,

@@ -29,52 +29,52 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import jp.terasoluna.fw.message.execption.MessageRuntimeException;
 
 /**
- * ƒƒbƒZ[ƒWŠÇ—ƒNƒ‰ƒX
+ * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ç®¡ç†ã‚¯ãƒ©ã‚¹
  * 
  */
 public class MessageManager {
     /**
-     * ƒƒbƒZ[ƒWƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚Ìƒx[ƒXƒl[ƒ€ƒŠƒXƒg
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ™ãƒ¼ã‚¹ãƒãƒ¼ãƒ ãƒªã‚¹ãƒˆ
      */
     protected final List<String> basenames = new CopyOnWriteArrayList<String>();
     /**
-     * ƒƒbƒZ[ƒWID‚ÌƒtƒH[ƒ}ƒbƒg
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸IDã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆ
      */
     protected String messageIdFormat = "[%s] ";
     /**
-     * ƒƒbƒZ[ƒWID‚ªŒ©‚Â‚©‚ç‚È‚©‚Á‚½ê‡‚É—áŠO‚ğƒXƒ[‚·‚é‚©”Û‚©
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸IDãŒè¦‹ã¤ã‹ã‚‰ãªã‹ã£ãŸå ´åˆã«ä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã‹å¦ã‹
      */
     protected boolean throwIfResourceNotFound = false;
     /**
-     * ƒƒbƒZ[ƒWƒtƒH[ƒ}ƒbƒ^
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ•ã‚©ãƒ¼ãƒãƒƒã‚¿
      */
     protected final MessageFormatter messageFormatter;
     /**
-     * ƒƒbƒZ[ƒWID‚ÌƒtƒH[ƒ}ƒbƒg‚ÌƒL[‚ÌƒfƒtƒHƒ‹ƒg’l
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸IDã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã®ã‚­ãƒ¼ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤
      */
     protected static final String DEFAULT_MESSAGE_ID_FORMAT_KEY = "message.id.format";
     /**
-     * ƒƒbƒZ[ƒWƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹ƒx[ƒXƒl[ƒ€‚ÌƒL[‚ÌƒfƒtƒHƒ‹ƒg’l
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ãƒ™ãƒ¼ã‚¹ãƒãƒ¼ãƒ ã®ã‚­ãƒ¼ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤
      */
     protected static final String DEFAULT_MESSAGE_BASE_NAME_KEY = "message.basename";
     /**
-     * ƒƒbƒZ[ƒWID‚ªŒ©‚Â‚©‚ç‚È‚©‚Á‚½ê‡‚É—áŠO‚ğƒXƒ[‚·‚é‚©”Û‚©‚ÌƒL[‚ÌƒfƒtƒHƒ‹ƒg’l
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸IDãŒè¦‹ã¤ã‹ã‚‰ãªã‹ã£ãŸå ´åˆã«ä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã‹å¦ã‹ã®ã‚­ãƒ¼ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤
      */
     protected static final String DEFAULT_THROW_IF_RESOURCE_NOT_FOUND_KEY = "throw.if.resource.not.found";
     /**
-     * ƒƒbƒZ[ƒWƒtƒH[ƒ}ƒbƒ^‚ÌFQCN‚ğw’è‚·‚éƒL[‚ÌƒfƒtƒHƒ‹ƒg’l
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ•ã‚©ãƒ¼ãƒãƒƒã‚¿ã®FQCNã‚’æŒ‡å®šã™ã‚‹ã‚­ãƒ¼ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤
      */
     protected static final String DEFAULT_MESSAGE_FORMATTER_FQCN_KEY = "message.formatter.fqcn";
 
     /**
-     * ƒNƒ‰ƒXƒ[ƒ_‚ğ•Ô‹p‚µ‚Ü‚·B
+     * ã‚¯ãƒ©ã‚¹ãƒ­ãƒ¼ãƒ€ã‚’è¿”å´ã—ã¾ã™ã€‚
      * 
      * <p>
-     * ŒÄ‚Ño‚³‚ê‚½ƒXƒŒƒbƒh‚ÉƒRƒ“ƒeƒLƒXƒgEƒNƒ‰ƒXƒ[ƒ_‚ªİ’è‚³‚ê‚Ä‚¢‚éê‡‚Í‚»‚ÌƒRƒ“ƒeƒLƒXƒgEƒNƒ‰ƒXƒ[ƒ_‚ğ•Ô‹p‚µ‚Ü‚·B<br>
-     * ‚»‚¤‚Å‚È‚¢ê‡‚Í‚±‚ÌƒNƒ‰ƒX‚ğƒ[ƒh‚µ‚½ƒNƒ‰ƒXƒ[ƒ_‚ğ•Ô‹p‚µ‚Ü‚·B
+     * å‘¼ã³å‡ºã•ã‚ŒãŸã‚¹ãƒ¬ãƒƒãƒ‰ã«ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆãƒ»ã‚¯ãƒ©ã‚¹ãƒ­ãƒ¼ãƒ€ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã¯ãã®ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆãƒ»ã‚¯ãƒ©ã‚¹ãƒ­ãƒ¼ãƒ€ã‚’è¿”å´ã—ã¾ã™ã€‚<br>
+     * ãã†ã§ãªã„å ´åˆã¯ã“ã®ã‚¯ãƒ©ã‚¹ã‚’ãƒ­ãƒ¼ãƒ‰ã—ãŸã‚¯ãƒ©ã‚¹ãƒ­ãƒ¼ãƒ€ã‚’è¿”å´ã—ã¾ã™ã€‚
      * </p>
      * 
-     * @return ƒNƒ‰ƒXƒ[ƒ_
+     * @return ã‚¯ãƒ©ã‚¹ãƒ­ãƒ¼ãƒ€
      */
     protected static ClassLoader getClassLoader() {
         ClassLoader contextClassLoader = Thread.currentThread()
@@ -87,14 +87,14 @@ public class MessageManager {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      * <p>
-     * ƒƒbƒZ[ƒWID‚ÌƒtƒH[ƒ}ƒbƒg‚ÌƒL[AƒƒbƒZ[ƒWƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹ƒx[ƒXƒl[ƒ€‚ÌƒL[A ƒƒbƒZ[ƒWID‚ªŒ©‚Â‚©‚ç‚È‚©‚Á‚½ê‡‚É—áŠO‚ğƒXƒ[‚·‚é‚©”Û‚©‚ÌƒL[AƒƒbƒZ[ƒWƒtƒH[ƒ}ƒbƒ^‚ÌFQCN‚ğw’è‚·‚éƒL[‚ÍƒfƒtƒHƒ‹ƒg’l‚ğİ’è‚µA {@link MessageManager#MessageManager(String, String, String, String, String)}
-     * ‚ğŒÄ‚Ño‚µ‚Ü‚·B
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸IDã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã®ã‚­ãƒ¼ã€ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ãƒ™ãƒ¼ã‚¹ãƒãƒ¼ãƒ ã®ã‚­ãƒ¼ã€ ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸IDãŒè¦‹ã¤ã‹ã‚‰ãªã‹ã£ãŸå ´åˆã«ä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã‹å¦ã‹ã®ã‚­ãƒ¼ã€ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ•ã‚©ãƒ¼ãƒãƒƒã‚¿ã®FQCNã‚’æŒ‡å®šã™ã‚‹ã‚­ãƒ¼ã¯ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ã‚’è¨­å®šã—ã€ {@link MessageManager#MessageManager(String, String, String, String, String)}
+     * ã‚’å‘¼ã³å‡ºã—ã¾ã™ã€‚
      * </p>
      * 
      * @see MessageManager#MessageManager(String, String, String, String)
-     * @param configFile İ’èƒtƒ@ƒCƒ‹ƒpƒX(ƒNƒ‰ƒXƒ[ƒ_‘Š‘Î)
+     * @param configFile è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹(ã‚¯ãƒ©ã‚¹ãƒ­ãƒ¼ãƒ€ç›¸å¯¾)
      */
     public MessageManager(String configFile) {
         this(configFile, DEFAULT_MESSAGE_ID_FORMAT_KEY,
@@ -104,28 +104,28 @@ public class MessageManager {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      * 
-     * ƒNƒ‰ƒXƒ[ƒ_‚©‚çƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚ğæ“¾‚µAV‚µ‚¢ƒƒbƒZ[ƒWƒ}ƒl[ƒWƒƒ[‚ğ\’z‚µ‚Ü‚·B
+     * ã‚¯ãƒ©ã‚¹ãƒ­ãƒ¼ãƒ€ã‹ã‚‰ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å–å¾—ã—ã€æ–°ã—ã„ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒãƒãƒ¼ã‚¸ãƒ£ãƒ¼ã‚’æ§‹ç¯‰ã—ã¾ã™ã€‚
      * 
      * <p>
-     * ˆø”‚Åæ“¾‚µ‚½İ’èƒtƒ@ƒCƒ‹ƒpƒX‚ÉŠY“–‚·‚éƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚ğæ“¾‚µ‚Ü‚·B<br>
-     * ƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹æ“¾‚ÌÛ‚ÍˆÈ‰º‚Ì€–Ú‚ğ‡‚í‚¹‚Äİ’è‚µ‚Ü‚·B<br>
-     * iİ’è’l‚ª‚È‚¢ê‡‚ÍAƒfƒtƒHƒ‹ƒg’l‚ğg—p‚µ‚Ü‚·Bj<br>
-     * EƒƒbƒZ[ƒWID‚ÌƒtƒH[ƒ}ƒbƒg‚ÌƒL[<br>
-     * EƒƒbƒZ[ƒWƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚Ìƒx[ƒXƒl[ƒ€‚ÌƒL[<br>
-     * EƒƒbƒZ[ƒWID•s–¾‚Ì—áŠOƒXƒ[—L–³<br>
-     * EƒƒbƒZ[ƒWƒtƒH[ƒ}ƒbƒ^‚ÌFQCN<br>
+     * å¼•æ•°ã§å–å¾—ã—ãŸè¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ã«è©²å½“ã™ã‚‹ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å–å¾—ã—ã¾ã™ã€‚<br>
+     * ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«å–å¾—ã®éš›ã¯ä»¥ä¸‹ã®é …ç›®ã‚’åˆã‚ã›ã¦è¨­å®šã—ã¾ã™ã€‚<br>
+     * ï¼ˆè¨­å®šå€¤ãŒãªã„å ´åˆã¯ã€ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ã‚’ä½¿ç”¨ã—ã¾ã™ã€‚ï¼‰<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸IDã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã®ã‚­ãƒ¼<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ™ãƒ¼ã‚¹ãƒãƒ¼ãƒ ã®ã‚­ãƒ¼<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸IDä¸æ˜æ™‚ã®ä¾‹å¤–ã‚¹ãƒ­ãƒ¼æœ‰ç„¡<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ•ã‚©ãƒ¼ãƒãƒƒã‚¿ã®FQCN<br>
      * 
-     * ƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚©‚ç“¾‚½ƒƒbƒZ[ƒWID‚ÌƒtƒH[ƒ}ƒbƒgA—áŠOƒXƒ[ƒtƒ‰ƒO‚Íƒƒ“ƒo•Ï”‚ÉŠi”[‚µ‚Ü‚·B<br>
-     * ƒƒbƒZ[ƒWƒx[ƒXƒl[ƒ€‚ÍƒNƒ‰ƒXƒ[ƒ_‚©‚çæ“¾‚Å‚«‚é‚à‚Ì‚ğ‘S‚Ä’Ç‰Á‚µA•¶š—ñ‚ÌƒŠƒXƒg‚Ìƒƒ“ƒo•Ï”‚ÉŠi”[‚µ‚Ü‚·B
+     * ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰å¾—ãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸IDã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã€ä¾‹å¤–ã‚¹ãƒ­ãƒ¼ãƒ•ãƒ©ã‚°ã¯ãƒ¡ãƒ³ãƒå¤‰æ•°ã«æ ¼ç´ã—ã¾ã™ã€‚<br>
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ™ãƒ¼ã‚¹ãƒãƒ¼ãƒ ã¯ã‚¯ãƒ©ã‚¹ãƒ­ãƒ¼ãƒ€ã‹ã‚‰å–å¾—ã§ãã‚‹ã‚‚ã®ã‚’å…¨ã¦è¿½åŠ ã—ã€æ–‡å­—åˆ—ã®ãƒªã‚¹ãƒˆã®ãƒ¡ãƒ³ãƒå¤‰æ•°ã«æ ¼ç´ã—ã¾ã™ã€‚
      * </p>
      * 
-     * @param configFile İ’èƒtƒ@ƒCƒ‹ƒpƒX(ƒNƒ‰ƒXƒ[ƒ_‘Š‘Î)
-     * @param messageIdFormatKey ƒƒbƒZ[ƒWID‚ÌƒtƒH[ƒ}ƒbƒg‚ÌƒL[
-     * @param messageBaseNameKey ƒƒbƒZ[ƒWƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹ƒx[ƒXƒl[ƒ€‚ÌƒL[
-     * @param throwIfResourceNotFoundKey ƒƒbƒZ[ƒWID‚ªŒ©‚Â‚©‚ç‚È‚©‚Á‚½ê‡‚É—áŠO‚ğƒXƒ[‚·‚é‚©”Û‚©‚ÌƒL[
-     * @param messageFormatterFqcnKey ƒƒbƒZ[ƒWƒtƒH[ƒ}ƒbƒ^‚ÌFQCN‚ğw’è‚·‚éƒL[
+     * @param configFile è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹(ã‚¯ãƒ©ã‚¹ãƒ­ãƒ¼ãƒ€ç›¸å¯¾)
+     * @param messageIdFormatKey ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸IDã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã®ã‚­ãƒ¼
+     * @param messageBaseNameKey ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ãƒ™ãƒ¼ã‚¹ãƒãƒ¼ãƒ ã®ã‚­ãƒ¼
+     * @param throwIfResourceNotFoundKey ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸IDãŒè¦‹ã¤ã‹ã‚‰ãªã‹ã£ãŸå ´åˆã«ä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã‹å¦ã‹ã®ã‚­ãƒ¼
+     * @param messageFormatterFqcnKey ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ•ã‚©ãƒ¼ãƒãƒƒã‚¿ã®FQCNã‚’æŒ‡å®šã™ã‚‹ã‚­ãƒ¼
      */
     public MessageManager(String configFile, String messageIdFormatKey,
                           String messageBaseNameKey,
@@ -137,7 +137,7 @@ public class MessageManager {
                 String format = null;
                 String throwIfNotFound = null;
                 String messageFormatterFqcn = null;
-                // messageIdFormat,throwIfResourceNotFound,messageFormatterFqcn‚ÍƒNƒ‰ƒXƒ[ƒ_‚Å—Dæ“x‚Ì‚‚¢‚à‚Ì
+                // messageIdFormat,throwIfResourceNotFound,messageFormatterFqcnã¯ã‚¯ãƒ©ã‚¹ãƒ­ãƒ¼ãƒ€ã§å„ªå…ˆåº¦ã®é«˜ã„ã‚‚ã®
                 InputStream strm = cl.getResourceAsStream(configFile);
                 if (strm != null) {
                     Properties p = new Properties();
@@ -178,7 +178,7 @@ public class MessageManager {
                     Properties p = new Properties();
                     InputStream strm = url.openStream();
                     p.load(strm);
-                    // messageBasename‚ÍƒNƒ‰ƒXƒ[ƒ_‚©‚ç“Ç‚İ‚ß‚é‚à‚Ì‚Í‘S‚Ä’Ç‰Á‚·‚é
+                    // messageBasenameã¯ã‚¯ãƒ©ã‚¹ãƒ­ãƒ¼ãƒ€ã‹ã‚‰èª­ã¿è¾¼ã‚ã‚‹ã‚‚ã®ã¯å…¨ã¦è¿½åŠ ã™ã‚‹
                     if (p.containsKey(messageBaseNameKey)) {
                         String[] basenameArray = p.getProperty(
                                 messageBaseNameKey).split(",");
@@ -199,13 +199,13 @@ public class MessageManager {
     }
 
     /**
-     * ƒƒbƒZ[ƒWƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹“à‚Ìƒx[ƒXƒl[ƒ€‚É‘Î‰‚µ‚½ƒŠƒ\[ƒXƒoƒ“ƒhƒ‹‚ğ•Ô‹p‚µ‚Ü‚·B
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«å†…ã®ãƒ™ãƒ¼ã‚¹ãƒãƒ¼ãƒ ã«å¯¾å¿œã—ãŸãƒªã‚½ãƒ¼ã‚¹ãƒãƒ³ãƒ‰ãƒ«ã‚’è¿”å´ã—ã¾ã™ã€‚
      * 
-     * ˆø”‚ÌƒƒP[ƒ‹‚ªnull‚Ìê‡‚ÍAƒfƒtƒHƒ‹ƒg‚ÌƒƒP[ƒX‚ğg—p‚µ‚Ü‚·B ˆø”‚Ìƒx[ƒXƒl[ƒ€‚É‘Î‰‚·‚éƒŠƒ\[ƒX‚ª‘¶İ‚µ‚È‚¢ê‡‚ÍA—áŠOƒXƒ[ƒtƒ‰ƒO‚ª³‚Ìê‡‚ÉŒÀ‚èAƒx[ƒXƒl[ƒ€‚ğ•¶šo—Í‚µ‚Ü‚·B ƒx[ƒXƒl[ƒ€‚Ì•¶šo—Í‚Æ“¯‚É{@link MessageRuntimeException}‚ğƒXƒ[‚µ‚Ü‚·B —áŠOƒXƒ[ƒtƒ‰ƒO‚ª•‰‚Ìê‡‚ÍAnull’l‚ğİ’è‚µ‚½ƒŠƒ\[ƒXƒoƒ“ƒhƒ‹‚ğ•Ô‹p‚µ‚Ü‚·B
+     * å¼•æ•°ã®ãƒ­ã‚±ãƒ¼ãƒ«ãŒnullã®å ´åˆã¯ã€ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ãƒ­ã‚±ãƒ¼ã‚¹ã‚’ä½¿ç”¨ã—ã¾ã™ã€‚ å¼•æ•°ã®ãƒ™ãƒ¼ã‚¹ãƒãƒ¼ãƒ ã«å¯¾å¿œã™ã‚‹ãƒªã‚½ãƒ¼ã‚¹ãŒå­˜åœ¨ã—ãªã„å ´åˆã¯ã€ä¾‹å¤–ã‚¹ãƒ­ãƒ¼ãƒ•ãƒ©ã‚°ãŒæ­£ã®å ´åˆã«é™ã‚Šã€ãƒ™ãƒ¼ã‚¹ãƒãƒ¼ãƒ ã‚’æ–‡å­—å‡ºåŠ›ã—ã¾ã™ã€‚ ãƒ™ãƒ¼ã‚¹ãƒãƒ¼ãƒ ã®æ–‡å­—å‡ºåŠ›ã¨åŒæ™‚ã«{@link MessageRuntimeException}ã‚’ã‚¹ãƒ­ãƒ¼ã—ã¾ã™ã€‚ ä¾‹å¤–ã‚¹ãƒ­ãƒ¼ãƒ•ãƒ©ã‚°ãŒè² ã®å ´åˆã¯ã€nullå€¤ã‚’è¨­å®šã—ãŸãƒªã‚½ãƒ¼ã‚¹ãƒãƒ³ãƒ‰ãƒ«ã‚’è¿”å´ã—ã¾ã™ã€‚
      * 
-     * @param basename ƒƒbƒZ[ƒWƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚Ìƒx[ƒXƒl[ƒ€
-     * @param locale ƒƒP[ƒ‹
-     * @return ƒŠƒ\[ƒXƒoƒ“ƒhƒ‹
+     * @param basename ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ™ãƒ¼ã‚¹ãƒãƒ¼ãƒ 
+     * @param locale ãƒ­ã‚±ãƒ¼ãƒ«
+     * @return ãƒªã‚½ãƒ¼ã‚¹ãƒãƒ³ãƒ‰ãƒ«
      */
     protected ResourceBundle getResourceBundle(String basename, Locale locale) {
         if (locale == null) {
@@ -226,25 +226,25 @@ public class MessageManager {
     }
 
     /**
-     * ƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚É‘¶İ‚·‚éAƒƒbƒZ[ƒWID‚É‘Î‰‚µ‚½ƒƒbƒZ[ƒW‚ğ•Ô‹p‚µ‚Ü‚·B
+     * ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ã«å­˜åœ¨ã™ã‚‹ã€ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸IDã«å¯¾å¿œã—ãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’è¿”å´ã—ã¾ã™ã€‚
      * 
      * <dl>
-     * <dt><code>bundle</code>‚ª<code>false</code>‚Ìê‡</dt>
+     * <dt><code>bundle</code>ãŒ<code>false</code>ã®å ´åˆ</dt>
      * <dd>
-     * null’l‚ğ•Ô‹p‚µ‚Ü‚·B
+     * nullå€¤ã‚’è¿”å´ã—ã¾ã™ã€‚
      * 
-     * <dt><code>key</code>‚ª<code>false</code>‚Ìê‡</dt> null’l‚ğ•Ô‹p‚µ‚Ü‚·B
+     * <dt><code>key</code>ãŒ<code>false</code>ã®å ´åˆ</dt> nullå€¤ã‚’è¿”å´ã—ã¾ã™ã€‚
      * 
      * </dl>
      * 
      * <p>
-     * ˆø”‚ÌƒŠƒ\[ƒXƒoƒ“ƒhƒ‹‚É‘Î‚µ‚ÄAˆø”‚ÌƒƒbƒZ[ƒWID‚É‘Î‰‚·‚éƒƒbƒZ[ƒW‚ğæ“¾‚µ‚Ü‚·B ƒƒbƒZ[ƒWID‚É‘Î‰‚·‚éƒƒbƒZ[ƒW‚ª‘¶İ‚µ‚È‚¢ê‡‚ÍA—áŠOƒXƒ[ƒtƒ‰ƒO‚ª³‚Ìê‡‚ÉŒÀ‚èAæ“¾‚Å‚«‚È‚©‚Á‚½ƒƒbƒZ[ƒWID–¼‚ğ•¶šo—Í‚µ‚Ü‚·B ƒƒbƒZ[ƒWID–¼‚Ì•¶šo—Í‚Æ“¯‚É{@link MessageRuntimeException}‚ğƒXƒ[‚µ‚Ü‚·B
-     * —áŠOƒXƒ[ƒtƒ‰ƒO‚ª•‰‚Ìê‡‚ÍAnull’l‚ğ•Ô‹p‚µ‚Ü‚·B
+     * å¼•æ•°ã®ãƒªã‚½ãƒ¼ã‚¹ãƒãƒ³ãƒ‰ãƒ«ã«å¯¾ã—ã¦ã€å¼•æ•°ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸IDã«å¯¾å¿œã™ã‚‹ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å–å¾—ã—ã¾ã™ã€‚ ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸IDã«å¯¾å¿œã™ã‚‹ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒå­˜åœ¨ã—ãªã„å ´åˆã¯ã€ä¾‹å¤–ã‚¹ãƒ­ãƒ¼ãƒ•ãƒ©ã‚°ãŒæ­£ã®å ´åˆã«é™ã‚Šã€å–å¾—ã§ããªã‹ã£ãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸IDåã‚’æ–‡å­—å‡ºåŠ›ã—ã¾ã™ã€‚ ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸IDåã®æ–‡å­—å‡ºåŠ›ã¨åŒæ™‚ã«{@link MessageRuntimeException}ã‚’ã‚¹ãƒ­ãƒ¼ã—ã¾ã™ã€‚
+     * ä¾‹å¤–ã‚¹ãƒ­ãƒ¼ãƒ•ãƒ©ã‚°ãŒè² ã®å ´åˆã¯ã€nullå€¤ã‚’è¿”å´ã—ã¾ã™ã€‚
      * </p>
      * 
-     * @param bundle ƒŠƒ\[ƒXƒoƒ“ƒhƒ‹
-     * @param key ƒƒbƒZ[ƒWID
-     * @return ƒƒbƒZ[ƒWID‚É‚æ‚èæ“¾‚·‚éƒƒbƒZ[ƒW
+     * @param bundle ãƒªã‚½ãƒ¼ã‚¹ãƒãƒ³ãƒ‰ãƒ«
+     * @param key ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ID
+     * @return ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸IDã«ã‚ˆã‚Šå–å¾—ã™ã‚‹ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
      */
     protected String getStringOrNull(ResourceBundle bundle, String key) {
         if (bundle == null) {
@@ -265,11 +265,11 @@ public class MessageManager {
     }
 
     /**
-     * ƒƒbƒZ[ƒWƒpƒ^[ƒ“‚ğ•Ô‹p‚µ‚Ü‚·B
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’è¿”å´ã—ã¾ã™ã€‚
      * 
-     * @param messageId ƒƒbƒZ[ƒWID
-     * @param locale ƒƒbƒZ[ƒW‚ÌƒƒP[ƒ‹
-     * @return ƒƒbƒZ[ƒWID‚É‘Î‚·‚éƒƒbƒZ[ƒWƒpƒ^[ƒ“
+     * @param messageId ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ID
+     * @param locale ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®ãƒ­ã‚±ãƒ¼ãƒ«
+     * @return ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸IDã«å¯¾ã™ã‚‹ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ‘ã‚¿ãƒ¼ãƒ³
      */
     protected String getMessagePattern(String messageId, Locale locale) {
         String message = null;
@@ -289,15 +289,15 @@ public class MessageManager {
     }
 
     /**
-     * ƒƒbƒZ[ƒW‚ğ•Ô‹p‚µ‚Ü‚·B
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’è¿”å´ã—ã¾ã™ã€‚
      * 
-     * ƒƒP[ƒ‹‚Énull’l‚ğİ’è‚µA {@link MessageManager#getMessage(boolean, String, Locale, Object...)} ‚ğŒÄ‚Ño‚µ‚Ü‚·B ƒƒP[ƒ‹‚É‚ÍƒfƒtƒHƒ‹ƒg’l‚ªg—p‚³‚ê‚Ü‚·B
+     * ãƒ­ã‚±ãƒ¼ãƒ«ã«nullå€¤ã‚’è¨­å®šã—ã€ {@link MessageManager#getMessage(boolean, String, Locale, Object...)} ã‚’å‘¼ã³å‡ºã—ã¾ã™ã€‚ ãƒ­ã‚±ãƒ¼ãƒ«ã«ã¯ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ãŒä½¿ç”¨ã•ã‚Œã¾ã™ã€‚
      * 
-     * @param resource ƒŠƒ\[ƒX‚Ì—L–³
-     * @param messageIdOrPattern ƒƒbƒZ[ƒWIDiƒŠƒ\[ƒX—L‚Ìê‡j / ƒƒbƒZ[ƒWƒpƒ^[ƒ“(ƒŠƒ\[ƒX–³‚Ìê‡)
-     * @param args ’uŠ·ƒpƒ‰ƒ[ƒ^
-     * @return ƒƒbƒZ[ƒW
-     * @throws MessageRuntimeException •s³‚Èƒpƒ^[ƒ“‚ğw’è‚µ‚½ê‡
+     * @param resource ãƒªã‚½ãƒ¼ã‚¹ã®æœ‰ç„¡
+     * @param messageIdOrPattern ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸IDï¼ˆãƒªã‚½ãƒ¼ã‚¹æœ‰ã®å ´åˆï¼‰ / ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ‘ã‚¿ãƒ¼ãƒ³(ãƒªã‚½ãƒ¼ã‚¹ç„¡ã®å ´åˆ)
+     * @param args ç½®æ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
+     * @return ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
+     * @throws MessageRuntimeException ä¸æ­£ãªãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’æŒ‡å®šã—ãŸå ´åˆ
      */
     public String getMessage(boolean resource, String messageIdOrPattern,
             Object... args) throws MessageRuntimeException {
@@ -305,26 +305,26 @@ public class MessageManager {
     }
 
     /**
-     * ƒƒbƒZ[ƒW‚ğ•Ô‹p‚µ‚Ü‚·B
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’è¿”å´ã—ã¾ã™ã€‚
      * 
      * <dl>
-     * <dt><code>resource</code>‚ª<code>true</code>‚Ìê‡</dt>
+     * <dt><code>resource</code>ãŒ<code>true</code>ã®å ´åˆ</dt>
      * <dd>
-     * ƒƒbƒZ[ƒWID‚É‘Î‚·‚éƒƒbƒZ[ƒWƒpƒ^[ƒ“‚ğƒƒbƒZ[ƒWƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹ƒx[ƒXƒl[ƒ€ƒŠƒXƒg‘Î‰‚·‚éŠeƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚©‚ç’Tõ‚µ‚Ü‚·B<br>
-     * Å‰‚ÉŒ©‚Â‚©‚Á‚½ƒƒbƒZ[ƒWƒpƒ^[ƒ“‚É’uŠ·ƒpƒ‰ƒ[ƒ^‚ğ–„‚ß‚ñ‚¾ƒƒbƒZ[ƒW‚ğ•Ô‹p‚µ‚Ü‚·Bƒpƒ^[ƒ“‚Í {@link MessageFormat} ‚ÌŒ`®‚É‚µ‚Ä‚­‚¾‚³‚¢B•s³‚Èƒpƒ^[ƒ“‚ğw’è‚µ‚½ê‡A{@link MessageRuntimeException}‚ğƒXƒ[‚µ‚Ü‚·<br>
-     * ƒx[ƒXƒl[ƒ€‚É‘Î‰‚µ‚½ƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚Íw’è‚µ‚½ƒƒP[ƒ‹‚Åæ“¾‚µ‚Ü‚·BƒƒP[ƒ‹‚Énull‚ğİ’è‚µ‚½ê‡‚Í {@link Locale#getDefault()}‚ªg—p‚³‚ê‚Ü‚·B</dd>
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸IDã«å¯¾ã™ã‚‹ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ãƒ™ãƒ¼ã‚¹ãƒãƒ¼ãƒ ãƒªã‚¹ãƒˆå¯¾å¿œã™ã‚‹å„ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰æ¢ç´¢ã—ã¾ã™ã€‚<br>
+     * æœ€åˆã«è¦‹ã¤ã‹ã£ãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ‘ã‚¿ãƒ¼ãƒ³ã«ç½®æ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’åŸ‹ã‚è¾¼ã‚“ã ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’è¿”å´ã—ã¾ã™ã€‚ãƒ‘ã‚¿ãƒ¼ãƒ³ã¯ {@link MessageFormat} ã®å½¢å¼ã«ã—ã¦ãã ã•ã„ã€‚ä¸æ­£ãªãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’æŒ‡å®šã—ãŸå ´åˆã€{@link MessageRuntimeException}ã‚’ã‚¹ãƒ­ãƒ¼ã—ã¾ã™<br>
+     * ãƒ™ãƒ¼ã‚¹ãƒãƒ¼ãƒ ã«å¯¾å¿œã—ãŸãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ã¯æŒ‡å®šã—ãŸãƒ­ã‚±ãƒ¼ãƒ«ã§å–å¾—ã—ã¾ã™ã€‚ãƒ­ã‚±ãƒ¼ãƒ«ã«nullã‚’è¨­å®šã—ãŸå ´åˆã¯ {@link Locale#getDefault()}ãŒä½¿ç”¨ã•ã‚Œã¾ã™ã€‚</dd>
      * 
-     * <dt><code>resource</code>‚ª<code>false</code>‚Ìê‡</dt>
+     * <dt><code>resource</code>ãŒ<code>false</code>ã®å ´åˆ</dt>
      * <dd>
-     * ƒƒbƒZ[ƒWƒpƒ^[ƒ“(<code>messageIdOrPattern</code>)‚É’uŠ·ƒpƒ‰ƒ[ƒ^‚ğ–„‚ß‚ñ‚¾ƒƒbƒZ[ƒW‚ğ•Ô‹p‚µ‚Ü‚·Bƒpƒ^[ƒ“‚Í {@link MessageFormat}‚ÌŒ`®‚É‚µ‚Ä‚­‚¾‚³‚¢B•s³‚Èƒpƒ^[ƒ“‚ğw’è‚µ‚½ê‡A {@link MessageRuntimeException}‚ğƒXƒ[‚µ‚Ü‚·B</dd>
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ‘ã‚¿ãƒ¼ãƒ³(<code>messageIdOrPattern</code>)ã«ç½®æ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’åŸ‹ã‚è¾¼ã‚“ã ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’è¿”å´ã—ã¾ã™ã€‚ãƒ‘ã‚¿ãƒ¼ãƒ³ã¯ {@link MessageFormat}ã®å½¢å¼ã«ã—ã¦ãã ã•ã„ã€‚ä¸æ­£ãªãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’æŒ‡å®šã—ãŸå ´åˆã€ {@link MessageRuntimeException}ã‚’ã‚¹ãƒ­ãƒ¼ã—ã¾ã™ã€‚</dd>
      * </dl>
      * 
-     * @param resource ƒŠƒ\[ƒX‚Ì—L–³
-     * @param messageIdOrPattern ƒƒbƒZ[ƒWIDiƒŠƒ\[ƒX—L‚Ìê‡j / ƒƒbƒZ[ƒWƒpƒ^[ƒ“(ƒŠƒ\[ƒX–³‚Ìê‡)
-     * @param locale ƒƒP[ƒ‹
-     * @param args ’uŠ·ƒpƒ‰ƒ[ƒ^
-     * @return ƒƒbƒZ[ƒW
-     * @throws MessageRuntimeException •s³‚Èƒpƒ^[ƒ“‚ğw’è‚µ‚½ê‡
+     * @param resource ãƒªã‚½ãƒ¼ã‚¹ã®æœ‰ç„¡
+     * @param messageIdOrPattern ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸IDï¼ˆãƒªã‚½ãƒ¼ã‚¹æœ‰ã®å ´åˆï¼‰ / ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ‘ã‚¿ãƒ¼ãƒ³(ãƒªã‚½ãƒ¼ã‚¹ç„¡ã®å ´åˆ)
+     * @param locale ãƒ­ã‚±ãƒ¼ãƒ«
+     * @param args ç½®æ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
+     * @return ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
+     * @throws MessageRuntimeException ä¸æ­£ãªãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’æŒ‡å®šã—ãŸå ´åˆ
      */
     public String getMessage(boolean resource, String messageIdOrPattern,
             Locale locale, Object... args) throws MessageRuntimeException {

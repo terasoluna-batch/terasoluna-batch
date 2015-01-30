@@ -20,20 +20,20 @@ import org.apache.commons.validator.Field;
 import org.apache.commons.validator.ValidatorAction;
 
 /**
- * Terasoluna‹¤’Ê‚ÌƒoƒŠƒf[ƒVƒ‡ƒ“‚Åg—p‚³‚ê‚é‹¤’ÊƒGƒ‰[ƒCƒ“ƒ^ƒtƒF[ƒXB
+ * Terasolunaå…±é€šã®ãƒãƒªãƒ‡ãƒ¼ã‚·ãƒ§ãƒ³ã§ä½¿ç”¨ã•ã‚Œã‚‹å…±é€šã‚¨ãƒ©ãƒ¼ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã€‚
  * 
  */
 public interface ValidationErrors {
 
     /**
-     * ƒGƒ‰[î•ñ‚ğ’Ç‰Á‚·‚éB
+     * ã‚¨ãƒ©ãƒ¼æƒ…å ±ã‚’è¿½åŠ ã™ã‚‹ã€‚
      * 
-     * ŠeƒtƒŒ[ƒ€ƒ[ƒN‚ÌƒGƒ‰[ƒIƒuƒWƒFƒNƒg‚ÉA
-     * ƒGƒ‰[î•ñ‚ğ’Ç‰Á‚·‚éˆ—‚ğÀ‘•‚·‚éB
+     * å„ãƒ•ãƒ¬ãƒ¼ãƒ ãƒ¯ãƒ¼ã‚¯ã®ã‚¨ãƒ©ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«ã€
+     * ã‚¨ãƒ©ãƒ¼æƒ…å ±ã‚’è¿½åŠ ã™ã‚‹å‡¦ç†ã‚’å®Ÿè£…ã™ã‚‹ã€‚
      * 
-     * @param bean ŒŸ¸‘ÎÛ‚ÌJavaBeanƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param field ƒtƒB[ƒ‹ƒhƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param va Validator‚É‚æ‚è—pˆÓ‚³‚ê‚½ValidatorAction
+     * @param bean æ¤œæŸ»å¯¾è±¡ã®JavaBeanã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param field ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param va Validatorã«ã‚ˆã‚Šç”¨æ„ã•ã‚ŒãŸValidatorAction
      */
     void addError(Object bean, Field field, ValidatorAction va);
 }

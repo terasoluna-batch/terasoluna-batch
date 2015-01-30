@@ -25,33 +25,33 @@ import org.springframework.jdbc.support.lob.LobCreator;
 import org.springframework.jdbc.support.lob.LobHandler;
 
 /**
- * LobHandlerÀ‘•ƒNƒ‰ƒXB
+ * LobHandlerå®Ÿè£…ã‚¯ãƒ©ã‚¹ã€‚
  * 
  */
 public class LobHandlerImpl01 implements LobHandler {
 
     /**
-     * getBlobAsBinaryStreamŒÄ‚Ño‚µŠm”Fƒtƒ‰ƒO
+     * getBlobAsBinaryStreamå‘¼ã³å‡ºã—ç¢ºèªãƒ•ãƒ©ã‚°
      */
     public boolean isGetBlobAsBinaryStream = false;
     
     /**
-     * getBlobAsBinaryStream‚ÌƒŠƒ^[ƒ“’l
+     * getBlobAsBinaryStreamã®ãƒªã‚¿ãƒ¼ãƒ³å€¤
      */
     public InputStream is = null;
     
     /**
-     * getClobAsCharacterStream‚ÌŒÄ‚Ño‚µŠm”Fƒtƒ‰ƒO
+     * getClobAsCharacterStreamã®å‘¼ã³å‡ºã—ç¢ºèªãƒ•ãƒ©ã‚°
      */
     public boolean isGetClobAsCharacterStream = false;
     
     /**
-     * getClobAsCharacterStream‚ÌƒŠƒ^[ƒ“’l
+     * getClobAsCharacterStreamã®ãƒªã‚¿ãƒ¼ãƒ³å€¤
      */
     public Reader r = null;
     
     /**
-     * ByteArrayInputStream‚ğƒŠƒ^[ƒ“‚·‚éB
+     * ByteArrayInputStreamã‚’ãƒªã‚¿ãƒ¼ãƒ³ã™ã‚‹ã€‚
      */
     public InputStream getBlobAsBinaryStream(ResultSet arg0, int arg1)
             throws SQLException {
@@ -60,7 +60,7 @@ public class LobHandlerImpl01 implements LobHandler {
     }
     
     /**
-     * CharArrayReader‚ğƒŠƒ^[ƒ“‚·‚éB
+     * CharArrayReaderã‚’ãƒªã‚¿ãƒ¼ãƒ³ã™ã‚‹ã€‚
      */
     public Reader getClobAsCharacterStream(ResultSet arg0, int arg1)
             throws SQLException {

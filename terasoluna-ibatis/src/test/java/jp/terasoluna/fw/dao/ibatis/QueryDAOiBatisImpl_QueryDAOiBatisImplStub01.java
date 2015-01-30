@@ -22,16 +22,16 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * {@link QueryDAOiBatisImpl}�̎����̂��߂Ɏg�p�����X�^�u�B
+ * {@link QueryDAOiBatisImpl}の試験のために使用されるスタブ。
  * 
- * {@link QueryDAOiBatisImpl}����̌Ăяo���m�F�p�Ɏg�p�����B
+ * {@link QueryDAOiBatisImpl}からの呼び出し確認用に使用される。
  * 
  */
 @SuppressWarnings("unchecked")
 public class QueryDAOiBatisImpl_QueryDAOiBatisImplStub01 extends QueryDAOiBatisImpl {
 
     /**
-     * �e�X�g�pexecuteForObjectArray���\�b�h
+     * テスト用executeForObjectArrayメソッド
      */
     @Override
     public <E> E[] executeForObjectArray(String sqlID, Object bindParams, Class clazz) {
@@ -46,7 +46,7 @@ public class QueryDAOiBatisImpl_QueryDAOiBatisImplStub01 extends QueryDAOiBatisI
 
     
     /**
-     * �e�X�g�pexecuteForObjectList���\�b�h
+     * テスト用executeForObjectListメソッド
      */
     @Override
     public <E> List<E> executeForObjectList(String sqlID, Object bindParams) {
@@ -63,7 +63,7 @@ public class QueryDAOiBatisImpl_QueryDAOiBatisImplStub01 extends QueryDAOiBatisI
     
     
     /**
-     * �e�X�g�pexecuteForObjectArray���\�b�h
+     * テスト用executeForObjectArrayメソッド
      */
     @Override
     public <E> E[] executeForObjectArray(String sqlID, Object bindParams, Class clazz, int beginIndex, int maxCount) {
@@ -80,7 +80,7 @@ public class QueryDAOiBatisImpl_QueryDAOiBatisImplStub01 extends QueryDAOiBatisI
     
     
     /**
-     * �e�X�g�pexecuteForObjectList���\�b�h
+     * テスト用executeForObjectListメソッド
      */
     @Override
     public <E> List<E> executeForObjectList(String sqlID, Object bindParams, int beginIndex, int maxCount) {
@@ -98,7 +98,7 @@ public class QueryDAOiBatisImpl_QueryDAOiBatisImplStub01 extends QueryDAOiBatisI
     
 
     /*
-     * �Ăяo���m�F�p�ϐ�
+     * 呼び出し確認用変数
      */
     private boolean called = false;
     private String sqlID = null;

@@ -17,36 +17,36 @@
 package jp.terasoluna.fw.batch.executor.vo;
 
 /**
- * �W���u���X�g�擾�pDAO�̏o�̓p�����[�^�B<br>
+ * ジョブリスト取得用DAOの出力パラメータ。<br>
  */
 public class BatchJobListResult {
     /**
-     * �t�B�[���h [jobSequenceId] ���ڂ̌^ [java.lang.String]<br>
-     * �W���u�V�[�P���X�R�[�h
+     * フィールド [jobSequenceId] 項目の型 [java.lang.String]<br>
+     * ジョブシーケンスコード
      */
     private String jobSequenceId;
 
     /**
-     * �t�B�[���h [jobSequenceId]�̃Z�b�^�[���\�b�h ���ڂ̌^ [java.lang.String]<br>
-     * �W���u�V�[�P���X�R�[�h
-     * @param jobSequenceId �t�B�[���h[jobSequenceId]�Ɋi�[�������l
+     * フィールド [jobSequenceId]のセッターメソッド 項目の型 [java.lang.String]<br>
+     * ジョブシーケンスコード
+     * @param jobSequenceId フィールド[jobSequenceId]に格納したい値
      */
     public void setJobSequenceId(final String jobSequenceId) {
         this.jobSequenceId = jobSequenceId;
     }
 
     /**
-     * �t�B�[���h[jobSequenceId]�̃Q�b�^�[���\�b�h ���ڂ̌^ [java.lang.String]<br>
-     * �W���u�V�[�P���X�R�[�h
-     * @return �t�B�[���h[jobSequenceId]�Ɋi�[����Ă���l
+     * フィールド[jobSequenceId]のゲッターメソッド 項目の型 [java.lang.String]<br>
+     * ジョブシーケンスコード
+     * @return フィールド[jobSequenceId]に格納されている値
      */
     public String getJobSequenceId() {
         return jobSequenceId;
     }
 
     /**
-     * ���̃o�����[�I�u�W�F�N�g�̕�����\�����擾���܂��B �I�u�W�F�N�g�̃V�����[�͈͂ł���toString����Ȃ��_�ɒ��ӂ��ė��p���Ă��������B
-     * @return �o�����[�I�u�W�F�N�g�̕�����\���B
+     * このバリューオブジェクトの文字列表現を取得します。 オブジェクトのシャロー範囲でしかtoStringされない点に注意して利用してください。
+     * @return バリューオブジェクトの文字列表現。
      */
     public String toString() {
         final StringBuffer buf = new StringBuffer();

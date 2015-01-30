@@ -28,11 +28,11 @@ import org.springframework.jdbc.support.lob.LobHandler;
 
 /**
  * {@link jp.terasoluna.fw.orm.ibatis.support.BlobInputStreamTypeHandler}
- * ƒNƒ‰ƒX‚Ìƒuƒ‰ƒbƒNƒ{ƒbƒNƒXƒeƒXƒgB
+ * ã‚¯ãƒ©ã‚¹ã®ãƒ–ãƒ©ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ†ã‚¹ãƒˆã€‚
  * 
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4>
- * iBATIS‚©‚ç—˜—p‚³‚ê‚éBLOB‚ÆƒXƒgƒŠ[ƒ€‚ğƒ}ƒbƒsƒ“ƒO‚·‚éÀ‘•‚ÌiBATIS‚Ìƒ^ƒCƒvƒnƒ“ƒhƒ‰B
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4>
+ * iBATISã‹ã‚‰åˆ©ç”¨ã•ã‚Œã‚‹BLOBã¨ã‚¹ãƒˆãƒªãƒ¼ãƒ ã‚’ãƒãƒƒãƒ”ãƒ³ã‚°ã™ã‚‹å®Ÿè£…ã®iBATISã®ã‚¿ã‚¤ãƒ—ãƒãƒ³ãƒ‰ãƒ©ã€‚
  * <p>
  * 
  * @see jp.terasoluna.fw.orm.ibatis.support.BlobInputStreamTypeHandler
@@ -41,19 +41,19 @@ import org.springframework.jdbc.support.lob.LobHandler;
 public class BlobInputStreamTypeHandlerTest extends TestCase {
 
     /**
-     * ‚±‚ÌƒeƒXƒgƒP[ƒX‚ğÀs‚·‚éˆ×‚Ì
-     * GUI ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‹N“®‚·‚éB
+     * ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã‚’å®Ÿè¡Œã™ã‚‹ç‚ºã®
+     * GUI ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’èµ·å‹•ã™ã‚‹ã€‚
      * 
-     * @param args java ƒRƒ}ƒ“ƒh‚Éİ’è‚³‚ê‚½ƒpƒ‰ƒ[ƒ^
+     * @param args java ã‚³ãƒãƒ³ãƒ‰ã«è¨­å®šã•ã‚ŒãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public static void main(String[] args) {
         junit.swingui.TestRunner.run(BlobInputStreamTypeHandlerTest.class);
     }
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -62,9 +62,9 @@ public class BlobInputStreamTypeHandlerTest extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -73,9 +73,9 @@ public class BlobInputStreamTypeHandlerTest extends TestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      * 
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public BlobInputStreamTypeHandlerTest(String name) {
         super(name);
@@ -85,30 +85,30 @@ public class BlobInputStreamTypeHandlerTest extends TestCase {
      * testBlobInputStreamTypeHandler01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) lobHandler:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) lobHandler:not null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») lobHandler:ˆø‚«”lobHandler‚Æ“¯ˆê‚ÌlobHandler<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) lobHandler:å¼•ãæ•°lobHandlerã¨åŒä¸€ã®lobHandler<br>
      *         
      * <br>
-     * ˆø‚«”‚ªnot null‚Ìê‡A‘®«‚Éİ’è‚·‚é‚±‚Æ‚ÌƒeƒXƒg
+     * å¼•ãæ•°ãŒnot nullã®å ´åˆã€å±æ€§ã«è¨­å®šã™ã‚‹ã“ã¨ã®ãƒ†ã‚¹ãƒˆ
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testBlobInputStreamTypeHandler01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         LobHandler lob = new LobHandlerImpl01();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         BlobInputStreamTypeHandler handler =
             new BlobInputStreamTypeHandler(lob);
 
-        // ”»’è
+        // åˆ¤å®š
         assertSame(lob, UTUtil.getPrivateField(handler, "lobHandler"));
     }
 
@@ -116,32 +116,32 @@ public class BlobInputStreamTypeHandlerTest extends TestCase {
      * testBlobInputStreamTypeHandler02()
      * <br><br>
      * 
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) lobHandler:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) lobHandler:null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalStateException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalStateException<br>
      *         
      * <br>
-     * ˆø”‚ªnull‚Ìê‡AIllegalStateException‚ªƒXƒ[‚ğ‚·‚é‚±‚Æ‚ÌƒeƒXƒg
+     * å¼•æ•°ãŒnullã®å ´åˆã€IllegalStateExceptionãŒã‚¹ãƒ­ãƒ¼ã‚’ã™ã‚‹ã“ã¨ã®ãƒ†ã‚¹ãƒˆ
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testBlobInputStreamTypeHandler02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         LobHandler lob = null;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             BlobInputStreamTypeHandler handler =
                 new BlobInputStreamTypeHandler(lob);
             fail();
         } catch (IllegalStateException e) {
-            // ”»’è            
+            // åˆ¤å®š            
         }
     }
 
@@ -149,25 +149,25 @@ public class BlobInputStreamTypeHandlerTest extends TestCase {
      * testSetParameterInternal01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:InputStreamƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *         (ó‘Ô) lobCreator.setBlobAsBinaryStream():³í<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:InputStreamã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *         (çŠ¶æ…‹) lobCreator.setBlobAsBinaryStream():æ­£å¸¸<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) void:³í<br>
-     *         (ó‘Ô•Ï‰») lobCreator.setBlobAsBinaryStream():ŒÄ‚Ño‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) void:æ­£å¸¸<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) lobCreator.setBlobAsBinaryStream():å‘¼ã³å‡ºã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèª<br>
      *         
      * <br>
-     * lobCreator.setBlobAsBinaryStream()‚ªÀs‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ÌƒeƒXƒgB
+     * lobCreator.setBlobAsBinaryStream()ãŒå®Ÿè¡Œã•ã‚Œã¦ã„ã‚‹ã“ã¨ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testSetParameterInternal01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         LobHandler lob = new LobHandlerImpl01();
         
         PreparedStatement ps = null;
@@ -175,16 +175,16 @@ public class BlobInputStreamTypeHandlerTest extends TestCase {
         // value : InputStream
         ByteArrayInputStream value = new ByteArrayInputStream("".getBytes());
         String jdbcType = null;
-        // LobCreatorÀ‘•ƒNƒ‰ƒX : ŒÄ‚Ño‚µŠm”F
+        // LobCreatorå®Ÿè£…ã‚¯ãƒ©ã‚¹ : å‘¼ã³å‡ºã—ç¢ºèª
         LobCreatorImpl01 lobCreator = new LobCreatorImpl01();
         
         BlobInputStreamTypeHandler handler =
             new BlobInputStreamTypeHandler(lob);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         handler.setParameterInternal(ps, index, value, jdbcType, lobCreator);
 
-        // ”»’è
+        // åˆ¤å®š
         boolean b = ((Boolean) lobCreator.isSetBlobAsBinaryStream).booleanValue();
         assertTrue(b);
         
@@ -195,42 +195,42 @@ public class BlobInputStreamTypeHandlerTest extends TestCase {
      * testSetParameterInternal02()
      * <br><br>
      * 
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:InputStreamˆÈŠO‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:InputStreamä»¥å¤–ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:ClassCastExceptinon<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ClassCastExceptinon<br>
      *         
      * <br>
-     * ClassCastException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ÌƒeƒXƒgB
+     * ClassCastExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testSetParameterInternal02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         LobHandler lob = new LobHandlerImpl01();
         
         PreparedStatement ps = null;
         int index = 0;
-        // value : InputStreamˆÈŠO
+        // value : InputStreamä»¥å¤–
         String value = "";
         String jdbcType = null;
-        // LobCreatorÀ‘•ƒNƒ‰ƒX
+        // LobCreatorå®Ÿè£…ã‚¯ãƒ©ã‚¹
         LobCreatorImpl01 lobCreator = new LobCreatorImpl01();
         
         BlobInputStreamTypeHandler handler =
             new BlobInputStreamTypeHandler(lob);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             handler.setParameterInternal(ps, index, value, jdbcType, lobCreator);
             fail();
         } catch (ClassCastException e) {
-            // ”»’è
+            // åˆ¤å®š
         }
     }
 
@@ -238,23 +238,23 @@ public class BlobInputStreamTypeHandlerTest extends TestCase {
      * testSetParameterInternal03()
      * <br><br>
      * 
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ó‘Ô) lobCreator.setBlobAsBinaryStream():SQLException<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) lobCreator.setBlobAsBinaryStream():SQLException<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:SQLException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:SQLException<br>
      *         
      * <br>
-     * SQLException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ÌƒeƒXƒgB
+     * SQLExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testSetParameterInternal03() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         LobHandler lob = new LobHandlerImpl01();
         
         PreparedStatement ps = null;
@@ -262,18 +262,18 @@ public class BlobInputStreamTypeHandlerTest extends TestCase {
         // value : -
         Object value = null;
         String jdbcType = null;
-        // LobCreatorÀ‘•ƒNƒ‰ƒX : SQLException
+        // LobCreatorå®Ÿè£…ã‚¯ãƒ©ã‚¹ : SQLException
         LobCreatorImpl02 lobCreator = new LobCreatorImpl02();
         
         BlobInputStreamTypeHandler handler =
             new BlobInputStreamTypeHandler(lob);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             handler.setParameterInternal(ps, index, value, jdbcType, lobCreator);
             fail();
         } catch (SQLException e) {
-            // ”»’è
+            // åˆ¤å®š
         }
     }
 
@@ -281,42 +281,42 @@ public class BlobInputStreamTypeHandlerTest extends TestCase {
      * testGetResultInternal01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ó‘Ô) lobHandler.getBlobAsBinaryStream():not null<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) lobHandler.getBlobAsBinaryStream():not null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:lobHandler.getBlobAsBinaryStream()‚Ì–ß‚è’l‚Æ“¯ˆêƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *         (ó‘Ô•Ï‰») lobHandler.getBlobAsBinaryStream():ŒÄ‚Ño‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:lobHandler.getBlobAsBinaryStream()ã®æˆ»ã‚Šå€¤ã¨åŒä¸€ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) lobHandler.getBlobAsBinaryStream():å‘¼ã³å‡ºã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèª<br>
      *         
      * <br>
-     * lobHandler.getBlobAsBinaryStream()‚Ì–ß‚è’l‚Æ“¯ˆêƒCƒ“ƒXƒ^ƒ“ƒX‚ğ•Ô‹p‚·‚é‚±‚Æ‚ÌƒeƒXƒgB
+     * lobHandler.getBlobAsBinaryStream()ã®æˆ»ã‚Šå€¤ã¨åŒä¸€ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’è¿”å´ã™ã‚‹ã“ã¨ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetResultInternal01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         LobHandlerImpl01 lob = new LobHandlerImpl01();
         
         ResultSet ps = null;
         int index = 0;
         
-        // LobHandlerÀ‘•ƒNƒ‰ƒX‚ÌgetBlobAsBinaryStream‚ÌƒŠƒ^[ƒ“’l : 
-        // ByteArrayInputStreamƒCƒ“ƒXƒ^ƒ“ƒX
+        // LobHandlerå®Ÿè£…ã‚¯ãƒ©ã‚¹ã®getBlobAsBinaryStreamã®ãƒªã‚¿ãƒ¼ãƒ³å€¤ : 
+        // ByteArrayInputStreamã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
         ByteArrayInputStream bais = new ByteArrayInputStream("".getBytes());
         UTUtil.setPrivateField(lob, "is", bais);
         
         BlobInputStreamTypeHandler handler =
             new BlobInputStreamTypeHandler(lob);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         ByteArrayInputStream input =
             (ByteArrayInputStream) handler.getResultInternal(ps, index, lob);
 
-        // ”»’è
+        // åˆ¤å®š
         boolean b = ((Boolean) lob.isGetBlobAsBinaryStream).booleanValue();
         assertTrue(b);
         assertSame(bais, input);
@@ -328,41 +328,41 @@ public class BlobInputStreamTypeHandlerTest extends TestCase {
      * testGetResultInternal02()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ó‘Ô) lobHandler.getBlobAsBinaryStream():null<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) lobHandler.getBlobAsBinaryStream():null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:null<br>
-     *         (ó‘Ô•Ï‰») lobHandler.getBlobAsBinaryStream():ŒÄ‚Ño‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:null<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) lobHandler.getBlobAsBinaryStream():å‘¼ã³å‡ºã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèª<br>
      *         
      * <br>
-     * null‚ğ•Ô‹p‚·‚é‚±‚Æ‚ÌƒeƒXƒgB
+     * nullã‚’è¿”å´ã™ã‚‹ã“ã¨ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetResultInternal02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         LobHandlerImpl01 lob = new LobHandlerImpl01();
         
         ResultSet ps = null;
         int index = 0;
         
-        // LobHandlerÀ‘•ƒNƒ‰ƒX‚ÌgetBlobAsBinaryStream‚ÌƒŠƒ^[ƒ“’l : null
+        // LobHandlerå®Ÿè£…ã‚¯ãƒ©ã‚¹ã®getBlobAsBinaryStreamã®ãƒªã‚¿ãƒ¼ãƒ³å€¤ : null
         ByteArrayInputStream bais = null;
         UTUtil.setPrivateField(lob, "is", bais);
         
         BlobInputStreamTypeHandler handler =
             new BlobInputStreamTypeHandler(lob);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         ByteArrayInputStream input =
             (ByteArrayInputStream) handler.getResultInternal(ps, index, lob);
 
-        // ”»’è
+        // åˆ¤å®š
         boolean b = ((Boolean) lob.isGetBlobAsBinaryStream).booleanValue();
         assertTrue(b);
         assertNull(input);
@@ -372,23 +372,23 @@ public class BlobInputStreamTypeHandlerTest extends TestCase {
      * testGetResultInternal03()
      * <br><br>
      * 
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ó‘Ô) lobHandler.getBlobAsBinaryStream():SQLException<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) lobHandler.getBlobAsBinaryStream():SQLException<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:SQLException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:SQLException<br>
      *         
      * <br>
-     * SQLException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ÌƒeƒXƒgB
+     * SQLExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetResultInternal03() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         // getBlobAsBinaryStream : SQLException
         LobHandlerImpl02 lob = new LobHandlerImpl02();
         
@@ -398,13 +398,13 @@ public class BlobInputStreamTypeHandlerTest extends TestCase {
         BlobInputStreamTypeHandler handler =
             new BlobInputStreamTypeHandler(lob);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             ByteArrayInputStream input =
                 (ByteArrayInputStream) handler.getResultInternal(ps, index, lob);
             fail();
         } catch (SQLException e) {
-            // ”»’è
+            // åˆ¤å®š
         }
     }
 
@@ -412,23 +412,23 @@ public class BlobInputStreamTypeHandlerTest extends TestCase {
      * testValueOf01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) s:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) s:null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:null<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:null<br>
      *         
      * <br>
-     * null‚ğ•Ô‹p‚·‚é‚±‚Æ‚ÌƒeƒXƒgB
+     * nullã‚’è¿”å´ã™ã‚‹ã“ã¨ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValueOf01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         LobHandlerImpl01 lob = new LobHandlerImpl01();
         
         BlobInputStreamTypeHandler handler =
@@ -436,10 +436,10 @@ public class BlobInputStreamTypeHandlerTest extends TestCase {
         
         String s = null;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object obj = handler.valueOf(s);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNull(obj);
     }
 
@@ -447,23 +447,23 @@ public class BlobInputStreamTypeHandlerTest extends TestCase {
      * testValueOf02()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) s:""<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) s:""<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:new ByteArrayInputStream("".getBytes())<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:new ByteArrayInputStream("".getBytes())<br>
      *         
      * <br>
-     * ""‚ğƒXƒgƒŠ[ƒ€‰»‚µ‚½‚à‚Ì‚ğ•Ô‹p‚·‚é‚±‚Æ‚ÌƒeƒXƒg
+     * ""ã‚’ã‚¹ãƒˆãƒªãƒ¼ãƒ åŒ–ã—ãŸã‚‚ã®ã‚’è¿”å´ã™ã‚‹ã“ã¨ã®ãƒ†ã‚¹ãƒˆ
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValueOf02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         LobHandlerImpl01 lob = new LobHandlerImpl01();
         
         BlobInputStreamTypeHandler handler =
@@ -471,10 +471,10 @@ public class BlobInputStreamTypeHandlerTest extends TestCase {
         
         String s = "";
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object obj = handler.valueOf(s);
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(ByteArrayInputStream.class.getName(),
                 obj.getClass().getName());
         
@@ -489,23 +489,23 @@ public class BlobInputStreamTypeHandlerTest extends TestCase {
      * testValueOf03()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) s:"ABC"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) s:"ABC"<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:new ByteArrayInputStream("ABC".getBytes())<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:new ByteArrayInputStream("ABC".getBytes())<br>
      *         
      * <br>
-     * "ABC"‚ğƒXƒgƒŠ[ƒ€‰»‚µ‚½‚à‚Ì‚ğ•Ô‹p‚·‚ébs‚±‚Æ‚ÌƒeƒXƒg
+     * "ABC"ã‚’ã‚¹ãƒˆãƒªãƒ¼ãƒ åŒ–ã—ãŸã‚‚ã®ã‚’è¿”å´ã™ã‚‹bsã“ã¨ã®ãƒ†ã‚¹ãƒˆ
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValueOf03() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         LobHandler lob = new LobHandlerImpl01();
         
         BlobInputStreamTypeHandler handler =
@@ -513,10 +513,10 @@ public class BlobInputStreamTypeHandlerTest extends TestCase {
         
         String s = "ABC";
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object obj = handler.valueOf(s);
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(ByteArrayInputStream.class.getName(),
                 obj.getClass().getName());
         

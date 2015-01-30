@@ -25,26 +25,26 @@ import org.apache.commons.jxpath.ri.model.beans.PropertyPointer;
 import org.apache.commons.jxpath.ri.model.dynamic.DynamicPointer;
 
 /**
- * DynamicPointer‚ÌŠg’£ƒNƒ‰ƒXB
+ * DynamicPointerã®æ‹¡å¼µã‚¯ãƒ©ã‚¹ã€‚
  */
 public class DynamicPointerEx extends DynamicPointer {
 
     /**
-     * ƒVƒŠƒAƒ‹ƒo[ƒWƒ‡ƒ“IDB
+     * ã‚·ãƒªã‚¢ãƒ«ãƒãƒ¼ã‚¸ãƒ§ãƒ³IDã€‚
      */
     private static final long serialVersionUID = 5068434119249899985L;
     
     /**
-     * ƒvƒƒpƒeƒBƒnƒ“ƒhƒ‰B
+     * ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒãƒ³ãƒ‰ãƒ©ã€‚
      */
     private DynamicPropertyHandler handler;
     
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      * @param name QName
-     * @param bean ƒ^[ƒQƒbƒg‚ÌMap
-     * @param handler ƒvƒƒpƒeƒBƒnƒ“ƒhƒ‰
-     * @param locale ƒƒP[ƒ‹
+     * @param bean ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã®Map
+     * @param handler ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒãƒ³ãƒ‰ãƒ©
+     * @param locale ãƒ­ã‚±ãƒ¼ãƒ«
      */
     public DynamicPointerEx(QName name, Object bean,
             DynamicPropertyHandler handler, Locale locale) {
@@ -53,11 +53,11 @@ public class DynamicPointerEx extends DynamicPointer {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-     * @param parent e‚ÌMapƒ|ƒCƒ“ƒ^
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * @param parent è¦ªã®Mapãƒã‚¤ãƒ³ã‚¿
      * @param name QName
-     * @param bean ƒ^[ƒQƒbƒg‚ÌMap
-     * @param handler ƒvƒƒpƒeƒBƒnƒ“ƒhƒ‰
+     * @param bean ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã®Map
+     * @param handler ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒãƒ³ãƒ‰ãƒ©
      */
     public DynamicPointerEx(NodePointer parent, QName name, Object bean,
             DynamicPropertyHandler handler) {
@@ -66,8 +66,8 @@ public class DynamicPointerEx extends DynamicPointer {
     }
     
     /**
-     * ƒvƒƒpƒeƒBƒ|ƒCƒ“ƒ^‚ğæ“¾‚·‚éB
-     * @return Map—pƒvƒƒpƒeƒBƒ|ƒCƒ“ƒ^
+     * ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒã‚¤ãƒ³ã‚¿ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return Mapç”¨ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒã‚¤ãƒ³ã‚¿
      */
     @Override
     public PropertyPointer getPropertyPointer() {

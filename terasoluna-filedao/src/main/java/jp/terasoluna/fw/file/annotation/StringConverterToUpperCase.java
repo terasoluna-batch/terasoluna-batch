@@ -19,17 +19,17 @@ package jp.terasoluna.fw.file.annotation;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * ‘å•¶š•ÏŠ·ˆ—ƒNƒ‰ƒXB
+ * å¤§æ–‡å­—å¤‰æ›å‡¦ç†ã‚¯ãƒ©ã‚¹ã€‚
  * <p>
- * StringŒ^‚ÌƒJƒ‰ƒ€‚É‚Â‚¢‚Ä‘å•¶š•ÏŠ·‚ğs‚¤B<br>
+ * Stringå‹ã®ã‚«ãƒ©ãƒ ã«ã¤ã„ã¦å¤§æ–‡å­—å¤‰æ›ã‚’è¡Œã†ã€‚<br>
  * </p>
  */
 public class StringConverterToUpperCase implements StringConverter {
 
     /**
-     * ‘å•¶š•ÏŠ·‚ğs‚¤B
-     * @param column •ÏŠ·‘O‚Ì•¶š—ñ
-     * @return ‘å•¶š‚É•ÏŠ·‚³‚ê‚½•¶š—ñ
+     * å¤§æ–‡å­—å¤‰æ›ã‚’è¡Œã†ã€‚
+     * @param column å¤‰æ›å‰ã®æ–‡å­—åˆ—
+     * @return å¤§æ–‡å­—ã«å¤‰æ›ã•ã‚ŒãŸæ–‡å­—åˆ—
      */
     public String convert(String column) {
         return StringUtils.upperCase(column);

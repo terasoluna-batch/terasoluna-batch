@@ -19,18 +19,18 @@ package jp.terasoluna.fw.collector.db;
 import org.apache.ibatis.session.ResultHandler;
 
 /**
- * QueueingResultHandlerƒCƒ“ƒ^ƒtƒF[ƒX<br>
- * ResultHandler‚ÌŠg’£ƒCƒ“ƒ^ƒtƒF[ƒXB
+ * QueueingResultHandlerã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹<br>
+ * ResultHandlerã®æ‹¡å¼µã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã€‚
  */
 public interface QueueingResultHandler extends ResultHandler {
 
     /**
-     * ‘O‰ñhandleResultƒƒ\ƒbƒh‚É“n‚³‚ê‚½<code>Row</code>ƒf[ƒ^‚ğƒLƒ…[‚ÉŠi”[‚·‚éB
+     * å‰å›handleResultãƒ¡ã‚½ãƒƒãƒ‰ã«æ¸¡ã•ã‚ŒãŸ<code>Row</code>ãƒ‡ãƒ¼ã‚¿ã‚’ã‚­ãƒ¥ãƒ¼ã«æ ¼ç´ã™ã‚‹ã€‚
      */
     void delayCollect();
 
     /**
-     * DaoCollector‚ğİ’è‚·‚éB<br>
+     * DaoCollectorã‚’è¨­å®šã™ã‚‹ã€‚<br>
      * @param daoCollector daoCollector&lt;?&gt;
      */
     void setDaoCollector(DaoCollector<?> daoCollector);

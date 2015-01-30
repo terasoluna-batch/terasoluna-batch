@@ -14,7 +14,7 @@ import jp.terasoluna.fw.collector.vo.DataValueObject;
 
 public class AbstractCollectorStub11<P> extends AbstractCollector<P> {
 
-    /** 冗長ログ出力フラグ. */
+    /** 蜀鈴聞繝ｭ繧ｰ蜃ｺ蜉帙ヵ繝ｩ繧ｰ. */
     protected static AtomicBoolean verboseLog = new AtomicBoolean(true);
 
     private static AtomicInteger foCount = new AtomicInteger(0);

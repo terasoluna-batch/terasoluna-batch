@@ -6,21 +6,21 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
- * {@link QueryRowHandleDAOiBatisImpl}‚ÌŽŽŒ±‚Ì‚½‚ß‚ÉŽg—p‚³‚ê‚éB
+ * {@link QueryRowHandleDAOiBatisImpl}ã®è©¦é¨“ã®ãŸã‚ã«ä½¿ç”¨ã•ã‚Œã‚‹ã€‚
  * 
- * {@link QueryRowHandleDAOiBatisImpl}‚©‚çŽg—p‚³‚ê‚éB
+ * {@link QueryRowHandleDAOiBatisImpl}ã‹ã‚‰ä½¿ç”¨ã•ã‚Œã‚‹ã€‚
  * 
  */
 public class QueryRowHandleDAOiBatisImpl_DataRowHandlerImpl implements DataRowHandler {
 
     /**
-     * ƒƒOƒCƒ“ƒXƒ^ƒ“ƒX 
+     * ãƒ­ã‚°ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ 
      */
     private static Log log = LogFactory.
             getLog(QueryRowHandleDAOiBatisImpl_DataRowHandlerImpl.class);
     
     public void handleRow(Object param) {
-        // ˆø”Šm”F—p
+        // å¼•æ•°ç¢ºèªç”¨
         if (param != null) {
             log.info("param=" + param);
         } else {

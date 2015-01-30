@@ -17,7 +17,7 @@ public class DefaultExceptionHandlerTest extends TestCase {
 
         Map<Class<? extends Throwable>, Integer> exceptionToStatusMap = new HashMap<Class<? extends Throwable>, Integer>();
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         handler.setExceptionToStatusMap(exceptionToStatusMap);
 
         Object result;
@@ -43,7 +43,7 @@ public class DefaultExceptionHandlerTest extends TestCase {
         exceptionToStatusMap.put(BatchException.class, 3);
         handler.setExceptionToStatusMap(exceptionToStatusMap);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         int result = handler.handleThrowableException(new BatchException());
 
         assertEquals(3, result);
@@ -59,7 +59,7 @@ public class DefaultExceptionHandlerTest extends TestCase {
         exceptionToStatusMap.put(IllegalArgumentException.class, 3);
         handler.setExceptionToStatusMap(exceptionToStatusMap);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         int result = handler.handleThrowableException(new BatchException());
 
         assertEquals(255, result);
@@ -74,7 +74,7 @@ public class DefaultExceptionHandlerTest extends TestCase {
         Map<Class<? extends Throwable>, Integer> exceptionToStatusMap = null;
         handler.setExceptionToStatusMap(exceptionToStatusMap);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         int result = handler.handleThrowableException(new BatchException());
 
         assertEquals(255, result);

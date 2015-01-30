@@ -68,12 +68,12 @@ public class DaoCollector002Test extends DaoTestCase {
 
     /**
      * {@link jp.terasoluna.fw.collector.db.DaoCollector#DaoCollector(java.lang.Object, java.lang.String, java.lang.Object)}
-     * ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     public void testDaoCollectorObjectStringObject001()
                                                                      throws Exception {
         if (this.userListQueryResultHandleDao == null) {
-            fail("userListQueryResultHandleDao‚ªnull‚Å‚·B");
+            fail("userListQueryResultHandleDaoãŒnullã§ã™ã€‚");
         }
 
         int count_first = 0;
@@ -98,12 +98,12 @@ public class DaoCollector002Test extends DaoTestCase {
                     logger.info("SQLState:" + sqle.getSQLState());
                     logger.info("ErrorCode:" + sqle.getErrorCode());
                     logger.info("", e);
-                    // Oracle‚Ìê‡‚ÍORA-00054
+                    // Oracleã®å ´åˆã¯ORA-00054
                     if (sqle.getErrorCode() == 54) {
-                        // ƒŠƒgƒ‰ƒCƒtƒ‰ƒO‚ğ—§‚Ä‚é
+                        // ãƒªãƒˆãƒ©ã‚¤ãƒ•ãƒ©ã‚°ã‚’ç«‹ã¦ã‚‹
                         retryFlg = true;
                         retryCount--;
-                        // ƒEƒFƒCƒg
+                        // ã‚¦ã‚§ã‚¤ãƒˆ
                         Thread.sleep(1000);
                         continue;
                     }
@@ -115,12 +115,12 @@ public class DaoCollector002Test extends DaoTestCase {
 
         } while (retryFlg && retryCount > 0);
 
-        // ƒRƒŒƒNƒ^ƒXƒŒƒbƒh”ƒ`ƒFƒbƒN
+        // ã‚³ãƒ¬ã‚¯ã‚¿ã‚¹ãƒ¬ãƒƒãƒ‰æ•°ãƒã‚§ãƒƒã‚¯
         assertTrue(CollectorTestUtil
                 .lessThanCollectorThreadCount(0 + this.previousThreadCount));
 
         if (retryFlg && retryCount == 0) {
-            logger.info("ƒŠƒgƒ‰ƒCƒJƒEƒ“ƒgƒI[ƒo[");
+            logger.info("ãƒªãƒˆãƒ©ã‚¤ã‚«ã‚¦ãƒ³ãƒˆã‚ªãƒ¼ãƒãƒ¼");
             fail();
             return;
         }
@@ -140,7 +140,7 @@ public class DaoCollector002Test extends DaoTestCase {
                 DaoCollector.closeQuietly(col2);
             }
 
-            // ƒRƒŒƒNƒ^ƒXƒŒƒbƒh”ƒ`ƒFƒbƒN
+            // ã‚³ãƒ¬ã‚¯ã‚¿ã‚¹ãƒ¬ãƒƒãƒ‰æ•°ãƒã‚§ãƒƒã‚¯
             assertTrue(CollectorTestUtil
                     .lessThanCollectorThreadCount(0 + this.previousThreadCount));
 
@@ -151,12 +151,12 @@ public class DaoCollector002Test extends DaoTestCase {
 
     /**
      * {@link jp.terasoluna.fw.collector.db.DaoCollector#DaoCollector(java.lang.Object, java.lang.String, java.lang.Object)}
-     * ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     public void testDaoCollectorObjectStringObject002()
                                                                      throws Exception {
         if (this.userListQueryResultHandleDao == null) {
-            fail("userListQueryResultHandleDao‚ªnull‚Å‚·B");
+            fail("userListQueryResultHandleDaoãŒnullã§ã™ã€‚");
         }
 
         int count_first = 0;
@@ -174,7 +174,7 @@ public class DaoCollector002Test extends DaoTestCase {
             DaoCollector.closeQuietly(col);
         }
 
-        // ƒRƒŒƒNƒ^ƒXƒŒƒbƒh”ƒ`ƒFƒbƒN
+        // ã‚³ãƒ¬ã‚¯ã‚¿ã‚¹ãƒ¬ãƒƒãƒ‰æ•°ãƒã‚§ãƒƒã‚¯
         assertTrue(CollectorTestUtil
                 .lessThanCollectorThreadCount(0 + this.previousThreadCount));
 
@@ -193,7 +193,7 @@ public class DaoCollector002Test extends DaoTestCase {
                 DaoCollector.closeQuietly(col2);
             }
 
-            // ƒRƒŒƒNƒ^ƒXƒŒƒbƒh”ƒ`ƒFƒbƒN
+            // ã‚³ãƒ¬ã‚¯ã‚¿ã‚¹ãƒ¬ãƒƒãƒ‰æ•°ãƒã‚§ãƒƒã‚¯
             assertTrue(CollectorTestUtil
                     .lessThanCollectorThreadCount(0 + this.previousThreadCount));
 
@@ -203,12 +203,12 @@ public class DaoCollector002Test extends DaoTestCase {
 
     /**
      * {@link jp.terasoluna.fw.collector.db.DaoCollector#DaoCollector(java.lang.Object, java.lang.String, java.lang.Object)}
-     * ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     public void testDaoCollectorObjectStringObject003()
                                                                      throws Exception {
         if (this.userListQueryResultHandleDao == null) {
-            fail("userListQueryResultHandleDao‚ªnull‚Å‚·B");
+            fail("userListQueryResultHandleDaoãŒnullã§ã™ã€‚");
         }
 
         int count_first = 0;
@@ -229,7 +229,7 @@ public class DaoCollector002Test extends DaoTestCase {
             DaoCollector.closeQuietly(col);
         }
 
-        // ƒRƒŒƒNƒ^ƒXƒŒƒbƒh”ƒ`ƒFƒbƒN
+        // ã‚³ãƒ¬ã‚¯ã‚¿ã‚¹ãƒ¬ãƒƒãƒ‰æ•°ãƒã‚§ãƒƒã‚¯
         assertTrue(CollectorTestUtil
                 .lessThanCollectorThreadCount(0 + this.previousThreadCount));
 
@@ -239,12 +239,12 @@ public class DaoCollector002Test extends DaoTestCase {
 
     /**
      * {@link jp.terasoluna.fw.collector.db.DaoCollector#DaoCollector(java.lang.Object, java.lang.String, java.lang.Object)}
-     * ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     public void testDaoCollectorObjectStringObject004()
                                                                      throws Exception {
         if (this.userListQueryResultHandleDao == null) {
-            fail("userListQueryResultHandleDao‚ªnull‚Å‚·B");
+            fail("userListQueryResultHandleDaoãŒnullã§ã™ã€‚");
         }
 
         int count_first = 0;
@@ -265,7 +265,7 @@ public class DaoCollector002Test extends DaoTestCase {
             DaoCollector.closeQuietly(col);
         }
 
-        // ƒRƒŒƒNƒ^ƒXƒŒƒbƒh”ƒ`ƒFƒbƒN
+        // ã‚³ãƒ¬ã‚¯ã‚¿ã‚¹ãƒ¬ãƒƒãƒ‰æ•°ãƒã‚§ãƒƒã‚¯
         assertTrue(CollectorTestUtil
                 .lessThanCollectorThreadCount(0 + this.previousThreadCount));
 
@@ -275,12 +275,12 @@ public class DaoCollector002Test extends DaoTestCase {
 
     /**
      * {@link jp.terasoluna.fw.collector.db.DaoCollector#DaoCollector(java.lang.Object, java.lang.String, java.lang.Object)}
-     * ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     public void testDaoCollectorObjectStringObject005()
                                                                      throws Exception {
         if (this.userListQueryResultHandleDao == null) {
-            fail("userListQueryResultHandleDao‚ªnull‚Å‚·B");
+            fail("userListQueryResultHandleDaoãŒnullã§ã™ã€‚");
         }
 
         int count_first = 0;
@@ -304,7 +304,7 @@ public class DaoCollector002Test extends DaoTestCase {
             DaoCollector.closeQuietly(col);
         }
 
-        // ƒRƒŒƒNƒ^ƒXƒŒƒbƒh”ƒ`ƒFƒbƒN
+        // ã‚³ãƒ¬ã‚¯ã‚¿ã‚¹ãƒ¬ãƒƒãƒ‰æ•°ãƒã‚§ãƒƒã‚¯
         assertTrue(CollectorTestUtil
                 .lessThanCollectorThreadCount(0 + this.previousThreadCount));
 
@@ -314,12 +314,12 @@ public class DaoCollector002Test extends DaoTestCase {
 
     /**
      * {@link jp.terasoluna.fw.collector.db.DaoCollector#DaoCollector(java.lang.Object, java.lang.String, java.lang.Object)}
-     * ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     public void testDaoCollectorObjectStringObject006()
                                                                      throws Exception {
         if (this.userListQueryResultHandleDao == null) {
-            fail("userListQueryResultHandleDao‚ªnull‚Å‚·B");
+            fail("userListQueryResultHandleDaoãŒnullã§ã™ã€‚");
         }
 
         int count_first = 0;
@@ -340,7 +340,7 @@ public class DaoCollector002Test extends DaoTestCase {
             DaoCollector.closeQuietly(col);
         }
 
-        // ƒRƒŒƒNƒ^ƒXƒŒƒbƒh”ƒ`ƒFƒbƒN
+        // ã‚³ãƒ¬ã‚¯ã‚¿ã‚¹ãƒ¬ãƒƒãƒ‰æ•°ãƒã‚§ãƒƒã‚¯
         assertTrue(CollectorTestUtil
                 .lessThanCollectorThreadCount(0 + this.previousThreadCount));
 
@@ -350,12 +350,12 @@ public class DaoCollector002Test extends DaoTestCase {
 
     /**
      * {@link jp.terasoluna.fw.collector.db.DaoCollector#DaoCollector(java.lang.Object, java.lang.String, java.lang.Object)}
-     * ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     public void testDaoCollectorObjectStringObject007()
                                                                      throws Exception {
         if (this.userListQueryResultHandleDao == null) {
-            fail("userListQueryResultHandleDao‚ªnull‚Å‚·B");
+            fail("userListQueryResultHandleDaoãŒnullã§ã™ã€‚");
         }
 
         int count_first = 0;
@@ -379,7 +379,7 @@ public class DaoCollector002Test extends DaoTestCase {
             DaoCollector.closeQuietly(col);
         }
 
-        // ƒRƒŒƒNƒ^ƒXƒŒƒbƒh”ƒ`ƒFƒbƒN
+        // ã‚³ãƒ¬ã‚¯ã‚¿ã‚¹ãƒ¬ãƒƒãƒ‰æ•°ãƒã‚§ãƒƒã‚¯
         assertTrue(CollectorTestUtil
                 .lessThanCollectorThreadCount(0 + this.previousThreadCount));
 
@@ -389,12 +389,12 @@ public class DaoCollector002Test extends DaoTestCase {
 
     /**
      * {@link jp.terasoluna.fw.collector.db.DaoCollector#DaoCollector(java.lang.Object, java.lang.String, java.lang.Object)}
-     * ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     public void testDaoCollectorObjectStringObject008()
                                                                      throws Exception {
         if (this.userListQueryResultHandleDao == null) {
-            fail("userListQueryResultHandleDao‚ªnull‚Å‚·B");
+            fail("userListQueryResultHandleDaoãŒnullã§ã™ã€‚");
         }
 
         int count_first = 0;
@@ -421,7 +421,7 @@ public class DaoCollector002Test extends DaoTestCase {
             DaoCollector.closeQuietly(col);
         }
 
-        // ƒRƒŒƒNƒ^ƒXƒŒƒbƒh”ƒ`ƒFƒbƒN
+        // ã‚³ãƒ¬ã‚¯ã‚¿ã‚¹ãƒ¬ãƒƒãƒ‰æ•°ãƒã‚§ãƒƒã‚¯
         assertTrue(CollectorTestUtil
                 .lessThanCollectorThreadCount(0 + this.previousThreadCount));
 

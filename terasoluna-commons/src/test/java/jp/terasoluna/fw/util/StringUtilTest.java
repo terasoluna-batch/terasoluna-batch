@@ -25,36 +25,36 @@ import junit.framework.TestCase;
 
 /**
  * 
- * StringUtil ƒuƒ‰ƒbƒNƒ{ƒbƒNƒXƒeƒXƒgB<br>
+ * StringUtil ãƒ–ãƒ©ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ†ã‚¹ãƒˆã€‚<br>
  * 
- * (‘O’ñğŒ)<br>
- * @EƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚ÉAˆÈ‰º‚ÌƒL[‚Æ’l‚ª³í‚É‹Lq‚³‚ê‚Ä‚¢‚é‚±‚Æ<br>
- * @@@ƒƒOo—ÍƒfƒBƒŒƒNƒgƒŠ(log4j.file.dir)<br> 
- * @@@ƒƒOƒtƒ@ƒCƒ‹–¼(log4j.file.name)<br>
+ * (å‰ææ¡ä»¶)<br>
+ * ã€€ãƒ»ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ã«ã€ä»¥ä¸‹ã®ã‚­ãƒ¼ã¨å€¤ãŒæ­£å¸¸ã«è¨˜è¿°ã•ã‚Œã¦ã„ã‚‹ã“ã¨<br>
+ * ã€€ã€€ã€€ãƒ­ã‚°å‡ºåŠ›ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª(log4j.file.dir)<br> 
+ * ã€€ã€€ã€€ãƒ­ã‚°ãƒ•ã‚¡ã‚¤ãƒ«å(log4j.file.name)<br>
  *
  */
 @SuppressWarnings("unused")
 public class StringUtilTest extends TestCase {
 
     /**
-     * ƒtƒ@ƒCƒ‹ƒƒOo—Íæ‚ÌƒfƒBƒŒƒNƒgƒŠ–¼‚ğƒvƒƒpƒeƒB‚©‚çæ“¾‚·‚éƒL[’lB
+     * ãƒ•ã‚¡ã‚¤ãƒ«ãƒ­ã‚°å‡ºåŠ›å…ˆã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªåã‚’ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‹ã‚‰å–å¾—ã™ã‚‹ã‚­ãƒ¼å€¤ã€‚
      */
     public static final String FILE_DIR = "log4j.file.dir";
 
     /**
-     * ƒtƒ@ƒCƒ‹ƒƒOo—Íæ‚Ìƒtƒ@ƒCƒ‹–¼‚ğƒvƒƒpƒeƒB‚©‚çæ“¾‚·‚éƒL[’lB
+     * ãƒ•ã‚¡ã‚¤ãƒ«ãƒ­ã‚°å‡ºåŠ›å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«åã‚’ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‹ã‚‰å–å¾—ã™ã‚‹ã‚­ãƒ¼å€¤ã€‚
      *
      */
     private static final String FILE_NAME = "log4j.file.name";
 
     /**
-     * ÀsŠÂ‹«‚ÌOS‚Å—p‚¢‚ç‚ê‚é‰üsƒR[ƒh‚ğæ“¾‚·‚éƒL[’l
+     * å®Ÿè¡Œç’°å¢ƒã®OSã§ç”¨ã„ã‚‰ã‚Œã‚‹æ”¹è¡Œã‚³ãƒ¼ãƒ‰ã‚’å–å¾—ã™ã‚‹ã‚­ãƒ¼å€¤
      * 
      */
     private static final String LINE_SEP = System.getProperty("line.separator");
 
     /**
-     * ƒtƒ@ƒCƒ‹ƒƒOo—Íæ‚Ìâ‘ÎƒpƒXB
+     * ãƒ•ã‚¡ã‚¤ãƒ«ãƒ­ã‚°å‡ºåŠ›å…ˆã®çµ¶å¯¾ãƒ‘ã‚¹ã€‚
      *
      */
     String LOG_FILE_NAME = PropertyUtil.getProperty(FILE_DIR) + "/"
@@ -70,7 +70,7 @@ public class StringUtilTest extends TestCase {
 
     /*
      * @see TestCase#setUp()
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     @Override
     protected void setUp() throws Exception {
         super.setUp();
@@ -78,7 +78,7 @@ public class StringUtilTest extends TestCase {
 
     /*
      * @see TestCase#tearDown()
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     @Override
     protected void tearDown() throws Exception {
         super.tearDown();
@@ -87,354 +87,354 @@ public class StringUtilTest extends TestCase {
     /**
      * testIsWhitespace01()
      * 
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      * 
-     * ŠÏ“_FA<br>
+     * è¦³ç‚¹ï¼šA<br>
      * 
-     * “ü—Í’lF”¼ŠpƒXƒy[ƒX<br>
+     * å…¥åŠ›å€¤ï¼šåŠè§’ã‚¹ãƒšãƒ¼ã‚¹<br>
      * 
-     * Šú‘Ò’lFtrue<br>
+     * æœŸå¾…å€¤ï¼štrue<br>
      * 
-     * ”¼ŠpƒXƒy[ƒXƒLƒƒƒ‰ƒNƒ^‚ğ“ü—Í‚µ‚½Atrue‚ª<br>
-     * •Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * åŠè§’ã‚¹ãƒšãƒ¼ã‚¹ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ã‚’å…¥åŠ›ã—ãŸæ™‚ã€trueãŒ<br>
+     * è¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * 
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testIsWhitespace01() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         char input = ' ';
 
-        // ƒeƒXƒgÀs‚ÆŒ‹‰ÊŠm”F
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œã¨çµæœç¢ºèª
         assertTrue(StringUtil.isWhitespace(input));
     }
 
     /**
      * testIsWhitespace02()
      * 
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      * 
-     * ŠÏ“_FA<br>
+     * è¦³ç‚¹ï¼šA<br>
      * 
-     * “ü—Í’lF”¼Šp•¶š—ñ<br>
+     * å…¥åŠ›å€¤ï¼šåŠè§’æ–‡å­—åˆ—<br>
      * 
-     * Šú‘Ò’lFfalse<br>
+     * æœŸå¾…å€¤ï¼šfalse<br>
      * 
-     * ”¼Šp‰pšƒLƒƒƒ‰ƒNƒ^‚ğ“ü—Í‚µ‚½Afalse‚ª<br>
-     * •Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * åŠè§’è‹±å­—ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ã‚’å…¥åŠ›ã—ãŸæ™‚ã€falseãŒ<br>
+     * è¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * 
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testIsWhitespace02() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         char input = 'a';
 
-        // ƒeƒXƒgÀs‚ÆŒ‹‰ÊŠm”F
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œã¨çµæœç¢ºèª
         assertFalse(StringUtil.isWhitespace(input));
     }
 
     /**
      * testIsWhitespace03()
      * 
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      * 
-     * ŠÏ“_FA<br>
+     * è¦³ç‚¹ï¼šA<br>
      * 
-     * “ü—Í’lF0<br>
+     * å…¥åŠ›å€¤ï¼š0<br>
      * 
-     * Šú‘Ò’lFfalse<br>
+     * æœŸå¾…å€¤ï¼šfalse<br>
      * 
-     * 0ƒLƒƒƒ‰ƒNƒ^‚ğİ’è‚µ‚½Afalse‚ª•Ô‹p‚³‚ê‚é‚±‚Æ<br>
+     * 0ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ã‚’è¨­å®šã—ãŸæ™‚ã€falseãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨<br>
      * 
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testIsWhitespace03() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         //char input = '\u0000';
         char input = 0;
 
-        // ƒeƒXƒgÀs‚ÆŒ‹‰ÊŠm”F
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œã¨çµæœç¢ºèª
         assertFalse(StringUtil.isWhitespace(input));
     }
 
     /**
      * testRtrim01()
      * 
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      * 
-     * ŠÏ“_FA<br>
+     * è¦³ç‚¹ï¼šA<br>
      * 
-     * “ü—Í’lF—¼‘¤‚É”¼ŠpƒXƒy[ƒX1‚Â‚¸‚Â‚ ‚é•¶š—ñ<br>
+     * å…¥åŠ›å€¤ï¼šä¸¡å´ã«åŠè§’ã‚¹ãƒšãƒ¼ã‚¹1ã¤ãšã¤ã‚ã‚‹æ–‡å­—åˆ—<br>
      * 
-     * Šú‘Ò’lF‰E‘¤‚Ì”¼ŠpƒXƒy[ƒX1‚Â‚Ì‚İœ‚©‚ê‚é<br>
+     * æœŸå¾…å€¤ï¼šå³å´ã®åŠè§’ã‚¹ãƒšãƒ¼ã‚¹1ã¤ã®ã¿é™¤ã‹ã‚Œã‚‹<br>
      * 
-     * ¶‰E—¼‘¤‚ÉƒXƒy[ƒX‚ª‘¶İ‚·‚é•¶š—ñ‚ğ“ü—Í‚µ‚½A<br>
-     * ‰EƒXƒy[ƒX‚Ì‚İœ‹‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”FB
+     * å·¦å³ä¸¡å´ã«ã‚¹ãƒšãƒ¼ã‚¹ãŒå­˜åœ¨ã™ã‚‹æ–‡å­—åˆ—ã‚’å…¥åŠ›ã—ãŸæ™‚ã€<br>
+     * å³ã‚¹ãƒšãƒ¼ã‚¹ã®ã¿é™¤å»ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã€‚
      * 
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testRtrim01() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = " TERASOLUNA ";
 
-        // ƒeƒXƒgÀs        
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ        
         String result = StringUtil.rtrim(input);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals(" TERASOLUNA", result);
     }
 
     /**
      * testRtrim02()
      * 
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      * 
-     * ŠÏ“_FB<br>
+     * è¦³ç‚¹ï¼šB<br>
      * 
-     * “ü—Í’lF—¼‘¤‚É”¼ŠpƒXƒy[ƒX‚ª•¡”‚ ‚é•¶š—ñ<br>
+     * å…¥åŠ›å€¤ï¼šä¸¡å´ã«åŠè§’ã‚¹ãƒšãƒ¼ã‚¹ãŒè¤‡æ•°ã‚ã‚‹æ–‡å­—åˆ—<br>
      * 
-     * Šú‘Ò’lF‰E‘¤‚Ì”¼ŠpƒXƒy[ƒX‚ª‚·‚×‚Äœ‚©‚ê‚é<br>
+     * æœŸå¾…å€¤ï¼šå³å´ã®åŠè§’ã‚¹ãƒšãƒ¼ã‚¹ãŒã™ã¹ã¦é™¤ã‹ã‚Œã‚‹<br>
      * 
-     * •¶š—ñ‰E’[‚É”¼ŠpƒXƒy[ƒX‚ª•¡”‘¶İ‚·‚é‚Æ‚«A
-     * ˜A‘±‚µ‚½‰E’[ƒXƒy[ƒX‚ªœ‹‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”FB
+     * æ–‡å­—åˆ—å³ç«¯ã«åŠè§’ã‚¹ãƒšãƒ¼ã‚¹ãŒè¤‡æ•°å­˜åœ¨ã™ã‚‹ã¨ãã€
+     * é€£ç¶šã—ãŸå³ç«¯ã‚¹ãƒšãƒ¼ã‚¹ãŒé™¤å»ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã€‚
      * 
      * 
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testRtrim02() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = "   TERASOLUNA   ";
 
-        // ƒeƒXƒgÀs        
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ        
         String result = StringUtil.rtrim(input);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("   TERASOLUNA", result);
     }
 
     /**
      * testRtrim03()
      * 
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      * 
-     * ŠÏ“_FA<br>
+     * è¦³ç‚¹ï¼šA<br>
      * 
-     * “ü—Í’lF‰E‘¤‚É”¼ŠpƒXƒy[ƒX‚ª‚È‚¢•¶š—ñ<br>
+     * å…¥åŠ›å€¤ï¼šå³å´ã«åŠè§’ã‚¹ãƒšãƒ¼ã‚¹ãŒãªã„æ–‡å­—åˆ—<br>
      * 
-     * Šú‘Ò’lF“ü—Í‚Æ“¯‚¶<br>
+     * æœŸå¾…å€¤ï¼šå…¥åŠ›ã¨åŒã˜<br>
      * 
-     * ‰E’[‚ÉƒXƒy[ƒX‚ª‚È‚¢‚Æ‚«A“ü—Í’l‚Æ“¯‚¶•¶š—ñ‚ª<br>
-     * •Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å³ç«¯ã«ã‚¹ãƒšãƒ¼ã‚¹ãŒãªã„ã¨ãã€å…¥åŠ›å€¤ã¨åŒã˜æ–‡å­—åˆ—ãŒ<br>
+     * è¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * 
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testRtrim03() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = " TERASOLUNA";
 
-        // ƒeƒXƒgÀs        
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ        
         String result = StringUtil.rtrim(input);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals(" TERASOLUNA", result);
     }
 
     /**
      * testRtrim04()
      * 
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      * 
-     * ŠÏ“_FC<br>
+     * è¦³ç‚¹ï¼šC<br>
      * 
-     * “ü—Í’lFnull<br>
+     * å…¥åŠ›å€¤ï¼šnull<br>
      * 
-     * Šú‘Ò’lFnull<br>
+     * æœŸå¾…å€¤ï¼šnull<br>
      * 
-     * null‚ª“ü—Í’l‚Éİ’è‚³‚ê‚½A‚»‚Ì‚Ü‚Ünull‚Å<br>
-     * •Ô‹p‚³‚ê‚é‚±‚ÆB
+     * nullãŒå…¥åŠ›å€¤ã«è¨­å®šã•ã‚ŒãŸæ™‚ã€ãã®ã¾ã¾nullã§<br>
+     * è¿”å´ã•ã‚Œã‚‹ã“ã¨ã€‚
      * 
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testRtrim04() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = null;
 
-        // ƒeƒXƒgÀs        
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ        
         String result = StringUtil.rtrim(input);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertNull(result);
     }
 
     /**
      * testRtrim05()
      * 
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      * 
-     * ŠÏ“_FA<br>
+     * è¦³ç‚¹ï¼šA<br>
      * 
-     * “ü—Í’lF""(‹ó•¶š)<br>
+     * å…¥åŠ›å€¤ï¼š""(ç©ºæ–‡å­—)<br>
      * 
-     * Šú‘Ò’lF""(‹ó•¶š)<br>
+     * æœŸå¾…å€¤ï¼š""(ç©ºæ–‡å­—)<br>
      * 
-     * ‹ó•¶š‚ª“ü—Í’l‚Éİ’è‚³‚ê‚½A‚»‚Ì‚Ü‚Ü‹ó•¶š‚ª•Ô‹p‚³‚ê‚é‚±‚Æ
+     * ç©ºæ–‡å­—ãŒå…¥åŠ›å€¤ã«è¨­å®šã•ã‚ŒãŸæ™‚ã€ãã®ã¾ã¾ç©ºæ–‡å­—ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨
      * 
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testRtrim05() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = "";
 
-        // ƒeƒXƒgÀs        
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ        
         String result = StringUtil.rtrim(input);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("", result);
     }
 
     /**
      * testLtrim01()
      * 
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      * 
-     * ŠÏ“_FA<br>
+     * è¦³ç‚¹ï¼šA<br>
      * 
-     * “ü—Í’lF—¼‘¤‚É”¼ŠpƒXƒy[ƒX‚ª1‚Â‚¸‚Â‚ ‚é•¶š—ñ<br>
+     * å…¥åŠ›å€¤ï¼šä¸¡å´ã«åŠè§’ã‚¹ãƒšãƒ¼ã‚¹ãŒ1ã¤ãšã¤ã‚ã‚‹æ–‡å­—åˆ—<br>
      * 
-     * Šú‘Ò’lF¶‘¤‚Ì”¼ŠpƒXƒy[ƒX‚Ì‚İœ‚©‚ê‚½•¶š—ñ<br>
+     * æœŸå¾…å€¤ï¼šå·¦å´ã®åŠè§’ã‚¹ãƒšãƒ¼ã‚¹ã®ã¿é™¤ã‹ã‚ŒãŸæ–‡å­—åˆ—<br>
      * 
-     * ¶‰E—¼‘¤‚ÉƒXƒy[ƒX‚ª‘¶İ‚·‚é•¶š—ñ‚ğ“ü—Í‚µ‚½A<br>
-     * ¶ƒXƒy[ƒX‚Ì‚İœ‹‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”FB 
-     * @throws Exception —áŠO */
+     * å·¦å³ä¸¡å´ã«ã‚¹ãƒšãƒ¼ã‚¹ãŒå­˜åœ¨ã™ã‚‹æ–‡å­—åˆ—ã‚’å…¥åŠ›ã—ãŸæ™‚ã€<br>
+     * å·¦ã‚¹ãƒšãƒ¼ã‚¹ã®ã¿é™¤å»ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã€‚ 
+     * @throws Exception ä¾‹å¤– */
     public void testLtrim01() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = " TERASOLUNA ";
 
-        // ƒeƒXƒgÀs        
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ        
         String result = StringUtil.ltrim(input);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("TERASOLUNA ", result);
     }
 
     /**
      * testLtrim02()
      * 
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      * 
-     * ŠÏ“_FB<br>
+     * è¦³ç‚¹ï¼šB<br>
      * 
-     * “ü—Í’lF—¼‘¤‚É”¼ŠpƒXƒy[ƒX‚ª•¡”‚ ‚é•¶š—ñ<br>
+     * å…¥åŠ›å€¤ï¼šä¸¡å´ã«åŠè§’ã‚¹ãƒšãƒ¼ã‚¹ãŒè¤‡æ•°ã‚ã‚‹æ–‡å­—åˆ—<br>
      * 
-     * Šú‘Ò’lF¶‘¤‚Ì”¼ŠpƒXƒy[ƒX‚ª‚·‚×‚Äœ‚©‚ê‚½•¶š—ñ<br>
+     * æœŸå¾…å€¤ï¼šå·¦å´ã®åŠè§’ã‚¹ãƒšãƒ¼ã‚¹ãŒã™ã¹ã¦é™¤ã‹ã‚ŒãŸæ–‡å­—åˆ—<br>
      * 
-     * •¶š—ñ¶’[‚É”¼ŠpƒXƒy[ƒX‚ª•¡”‘¶İ‚·‚é‚Æ‚«A
-     * ˜A‘±‚µ‚½¶’[ƒXƒy[ƒX‚ªœ‹‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”FB
+     * æ–‡å­—åˆ—å·¦ç«¯ã«åŠè§’ã‚¹ãƒšãƒ¼ã‚¹ãŒè¤‡æ•°å­˜åœ¨ã™ã‚‹ã¨ãã€
+     * é€£ç¶šã—ãŸå·¦ç«¯ã‚¹ãƒšãƒ¼ã‚¹ãŒé™¤å»ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã€‚
      * 
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testLtrim02() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = "   TERASOLUNA   ";
 
-        // ƒeƒXƒgÀs        
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ        
         String result = StringUtil.ltrim(input);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("TERASOLUNA   ", result);
     }
 
     /**
      * testLtrim03()
      * 
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      * 
-     * ŠÏ“_FA<br>
+     * è¦³ç‚¹ï¼šA<br>
      * 
-     * “ü—Í’lF¶‘¤‚É”¼ŠpƒXƒy[ƒX‚ª‚È‚¢•¶š—ñ<br>
+     * å…¥åŠ›å€¤ï¼šå·¦å´ã«åŠè§’ã‚¹ãƒšãƒ¼ã‚¹ãŒãªã„æ–‡å­—åˆ—<br>
      * 
-     * Šú‘Ò’lF“ü—Í‚Æ“¯‚¶<br>
+     * æœŸå¾…å€¤ï¼šå…¥åŠ›ã¨åŒã˜<br>
      * 
-     * ¶’[‚ÉƒXƒy[ƒX‚ª‚È‚¢‚Æ‚«A“ü—Í’l‚Æ“¯‚¶•¶š—ñ‚ª<br>
-     * •Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å·¦ç«¯ã«ã‚¹ãƒšãƒ¼ã‚¹ãŒãªã„ã¨ãã€å…¥åŠ›å€¤ã¨åŒã˜æ–‡å­—åˆ—ãŒ<br>
+     * è¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * 
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testLtrim03() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = "TERASOLUNA ";
 
-        // ƒeƒXƒgÀs        
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ        
         String result = StringUtil.ltrim(input);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("TERASOLUNA ", result);
     }
 
     /**
      * testLtrim04()
      * 
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      * 
-     * ŠÏ“_FC<br>
+     * è¦³ç‚¹ï¼šC<br>
      * 
-     * “ü—Í’lFnull<br>
+     * å…¥åŠ›å€¤ï¼šnull<br>
      * 
-     * Šú‘Ò’lFnull<br>
+     * æœŸå¾…å€¤ï¼šnull<br>
      * 
-     * null‚ª“ü—Í’l‚Éİ’è‚³‚ê‚½A‚»‚Ì‚Ü‚Ünull‚Å<br>
-     * •Ô‹p‚³‚ê‚é‚±‚ÆB
+     * nullãŒå…¥åŠ›å€¤ã«è¨­å®šã•ã‚ŒãŸæ™‚ã€ãã®ã¾ã¾nullã§<br>
+     * è¿”å´ã•ã‚Œã‚‹ã“ã¨ã€‚
      *  
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testLtrim04() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = null;
 
-        // ƒeƒXƒgÀs        
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ        
         String result = StringUtil.ltrim(input);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertNull(result);
     }
 
     /**
      * testLtrim05()
      * 
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      * 
-     * ŠÏ“_FA<br>
+     * è¦³ç‚¹ï¼šA<br>
      * 
-     * “ü—Í’lF""(‹ó•¶š)<br>
+     * å…¥åŠ›å€¤ï¼š""(ç©ºæ–‡å­—)<br>
      * 
-     * Šú‘Ò’lF""(‹ó•¶š)<br>
+     * æœŸå¾…å€¤ï¼š""(ç©ºæ–‡å­—)<br>
      * 
-     * ‹ó•¶š‚ª“ü—Í’l‚Éİ’è‚³‚ê‚½A‚»‚Ì‚Ü‚Ü‹ó•¶š‚ª•Ô‹p‚³‚ê‚é‚±‚Æ
+     * ç©ºæ–‡å­—ãŒå…¥åŠ›å€¤ã«è¨­å®šã•ã‚ŒãŸæ™‚ã€ãã®ã¾ã¾ç©ºæ–‡å­—ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨
      * 
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testLtrim05() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = "";
 
-        // ƒeƒXƒgÀs        
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ        
         String result = StringUtil.ltrim(input);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("", result);
     }
 
     /**
      * testTrim01()
      * 
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      * 
-     * ŠÏ“_FA<br>
+     * è¦³ç‚¹ï¼šA<br>
      * 
-     * “ü—Í’lF—¼‘¤‚É”¼ŠpƒXƒy[ƒX‚ª1‚Â‚¸‚Â‚ ‚é•¶š—ñ<br>
+     * å…¥åŠ›å€¤ï¼šä¸¡å´ã«åŠè§’ã‚¹ãƒšãƒ¼ã‚¹ãŒ1ã¤ãšã¤ã‚ã‚‹æ–‡å­—åˆ—<br>
      * 
-     * Šú‘Ò’lF—¼‘¤‚Ì”¼ŠpƒXƒy[ƒX‚ªœ‚©‚ê‚½•¶š—ñ<br>
+     * æœŸå¾…å€¤ï¼šä¸¡å´ã®åŠè§’ã‚¹ãƒšãƒ¼ã‚¹ãŒé™¤ã‹ã‚ŒãŸæ–‡å­—åˆ—<br>
      * 
-     * —¼‘¤‚É”¼ŠpƒXƒy[ƒX‚ª‚P‚Â‚ ‚é•¶š—ñ‚ª“ü—Í‚³‚ê‚½A<br>
-     * ƒXƒy[ƒX‚ªœ‹‚³‚ê‚½•¶š—ñ‚ª•Ô‹p‚³‚ê‚é‚±‚ÆB
-     * StringUtils.trim()‚ÌŒÄ‚Ño‚µŠm”F‚Ì‚½‚ß‚ÉA‚PƒP[ƒX‚Ì‚İ‚Æ‚·‚éB
+     * ä¸¡å´ã«åŠè§’ã‚¹ãƒšãƒ¼ã‚¹ãŒï¼‘ã¤ã‚ã‚‹æ–‡å­—åˆ—ãŒå…¥åŠ›ã•ã‚ŒãŸæ™‚ã€<br>
+     * ã‚¹ãƒšãƒ¼ã‚¹ãŒé™¤å»ã•ã‚ŒãŸæ–‡å­—åˆ—ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã€‚
+     * StringUtils.trim()ã®å‘¼ã³å‡ºã—ç¢ºèªã®ãŸã‚ã«ã€ï¼‘ã‚±ãƒ¼ã‚¹ã®ã¿ã¨ã™ã‚‹ã€‚
      * 
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testTrim01() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = " TERASOLUNA ";
 
-        // ƒeƒXƒgÀs        
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ        
         String result = StringUtil.trim(input);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("TERASOLUNA", result);
     }
 
@@ -442,26 +442,26 @@ public class StringUtilTest extends TestCase {
      * testIsZenHankakuSpace01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) c:"@"(‘SŠpƒXƒy[ƒXj<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) c:"ã€€"(å…¨è§’ã‚¹ãƒšãƒ¼ã‚¹ï¼‰<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *         
      * <br>
-     * ‘SŠpƒXƒy[ƒXƒLƒƒƒ‰ƒNƒ^‚ğ“ü—Í‚µ‚½Atrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å…¨è§’ã‚¹ãƒšãƒ¼ã‚¹ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ã‚’å…¥åŠ›ã—ãŸæ™‚ã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsZenHankakuSpace01() throws Exception {
-        // “ü—Í’l‚Ìİ’è
-        char input = '@';
+        // å…¥åŠ›å€¤ã®è¨­å®š
+        char input = 'ã€€';
 
-        // ƒeƒXƒgÀs‚ÆŒ‹‰ÊŠm”F
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œã¨çµæœç¢ºèª
         assertTrue(StringUtil.isZenHankakuSpace(input));
     }
 
@@ -469,26 +469,26 @@ public class StringUtilTest extends TestCase {
      * testIsZenHankakuSpace02()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) c:"a"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) c:"a"<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
      *         
      * <br>
-     * ”¼Šp‰pšƒLƒƒƒ‰ƒNƒ^‚ğ“ü—Í‚µ‚½Afalse‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * åŠè§’è‹±å­—ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ã‚’å…¥åŠ›ã—ãŸæ™‚ã€falseãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsZenHankakuSpace02() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         char input = 'a';
 
-        // ƒeƒXƒgÀs‚ÆŒ‹‰ÊŠm”F
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œã¨çµæœç¢ºèª
         assertFalse(StringUtil.isZenHankakuSpace(input));
     }
 
@@ -496,26 +496,26 @@ public class StringUtilTest extends TestCase {
      * testIsZenHankakuSpace03()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) c:0<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) c:0<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
      *         
      * <br>
-     * 0ƒLƒƒƒ‰ƒNƒ^‚ğİ’è‚µ‚½Afalse‚ª•Ô‹p‚³‚ê‚é‚±‚Æ
+     * 0ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ã‚’è¨­å®šã—ãŸæ™‚ã€falseãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsZenHankakuSpace03() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         char input = 0;
 
-        // ƒeƒXƒgÀs‚ÆŒ‹‰ÊŠm”F
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œã¨çµæœç¢ºèª
         assertFalse(StringUtil.isZenHankakuSpace(input));
     }
 
@@ -523,119 +523,119 @@ public class StringUtilTest extends TestCase {
      * testRtrimZ01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) str:" @ TERASOLUNA @ "<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) str:" ã€€ TERASOLUNA ã€€ "<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:" @ TERASOLUNA"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:" ã€€ TERASOLUNA"<br>
      *         
      * <br>
-     * ¶‰E—¼‘¤‚ÉƒXƒy[ƒX‚ª‘¶İ‚·‚é•¶š—ñ‚ğ“ü—Í‚µ‚½A‰EƒXƒy[ƒX‚Ì‚İœ‹‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”FB
+     * å·¦å³ä¸¡å´ã«ã‚¹ãƒšãƒ¼ã‚¹ãŒå­˜åœ¨ã™ã‚‹æ–‡å­—åˆ—ã‚’å…¥åŠ›ã—ãŸæ™‚ã€å³ã‚¹ãƒšãƒ¼ã‚¹ã®ã¿é™¤å»ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testRtrimZ01() throws Exception {
-        // “ü—Í’l‚Ìİ’è
-        String input = " @ TERASOLUNA @ ";
+        // å…¥åŠ›å€¤ã®è¨­å®š
+        String input = " ã€€ TERASOLUNA ã€€ ";
 
-        // ƒeƒXƒgÀs        
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ        
         String result = StringUtil.rtrimZ(input);
 
-        // Œ‹‰ÊŠm”F
-        assertEquals(" @ TERASOLUNA", result);
+        // çµæœç¢ºèª
+        assertEquals(" ã€€ TERASOLUNA", result);
     }
 
     /**
      * testRtrimZ02()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) str:" @  @TERASOLUNA @ @ "<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) str:" ã€€  ã€€TERASOLUNA ã€€ ã€€ "<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:" @  @TERASOLUNA"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:" ã€€  ã€€TERASOLUNA"<br>
      *         
      * <br>
-     * •¶š—ñ‰E’[‚É‘S”¼ŠpƒXƒy[ƒX‚ª•¡”‘¶İ‚·‚é‚Æ‚«A˜A‘±‚µ‚½‰E’[ƒXƒy[ƒX‚ªœ‹‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”FB
+     * æ–‡å­—åˆ—å³ç«¯ã«å…¨åŠè§’ã‚¹ãƒšãƒ¼ã‚¹ãŒè¤‡æ•°å­˜åœ¨ã™ã‚‹ã¨ãã€é€£ç¶šã—ãŸå³ç«¯ã‚¹ãƒšãƒ¼ã‚¹ãŒé™¤å»ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testRtrimZ02() throws Exception {
-        // “ü—Í’l‚Ìİ’è
-        String input = " @  @TERASOLUNA @ @ ";
+        // å…¥åŠ›å€¤ã®è¨­å®š
+        String input = " ã€€  ã€€TERASOLUNA ã€€ ã€€ ";
 
-        // ƒeƒXƒgÀs        
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ        
         String result = StringUtil.rtrimZ(input);
 
-        // Œ‹‰ÊŠm”F
-        assertEquals(" @  @TERASOLUNA", result);
+        // çµæœç¢ºèª
+        assertEquals(" ã€€  ã€€TERASOLUNA", result);
     }
 
     /**
      * testRtrimZ03()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) str:"@ TERASOLUNA"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) str:"ã€€ TERASOLUNA"<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:"@ TERASOLUNA"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:"ã€€ TERASOLUNA"<br>
      *         
      * <br>
-     * ‰E’[‚ÉƒXƒy[ƒX‚ª‚È‚¢‚Æ‚«A“ü—Í’l‚Æ“¯‚¶•¶š—ñ‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å³ç«¯ã«ã‚¹ãƒšãƒ¼ã‚¹ãŒãªã„ã¨ãã€å…¥åŠ›å€¤ã¨åŒã˜æ–‡å­—åˆ—ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testRtrimZ03() throws Exception {
-        // “ü—Í’l‚Ìİ’è
-        String input = "@ TERASOLUNA";
+        // å…¥åŠ›å€¤ã®è¨­å®š
+        String input = "ã€€ TERASOLUNA";
 
-        // ƒeƒXƒgÀs        
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ        
         String result = StringUtil.rtrimZ(input);
 
-        // Œ‹‰ÊŠm”F
-        assertEquals("@ TERASOLUNA", result);
+        // çµæœç¢ºèª
+        assertEquals("ã€€ TERASOLUNA", result);
     }
 
     /**
      * testRtrimZ04()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) str:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) str:null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:null<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:null<br>
      *         
      * <br>
-     * null‚ª“ü—Í’l‚Éİ’è‚³‚ê‚½A‚»‚Ì‚Ü‚Ünull‚Å•Ô‹p‚³‚ê‚é‚±‚ÆB
+     * nullãŒå…¥åŠ›å€¤ã«è¨­å®šã•ã‚ŒãŸæ™‚ã€ãã®ã¾ã¾nullã§è¿”å´ã•ã‚Œã‚‹ã“ã¨ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testRtrimZ04() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = null;
 
-        // ƒeƒXƒgÀs        
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ        
         String result = StringUtil.rtrimZ(input);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertNull(result);
     }
 
@@ -643,29 +643,29 @@ public class StringUtilTest extends TestCase {
      * testRtrimZ05()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) str:""<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) str:""<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:""<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:""<br>
      *         
      * <br>
-     * ‹ó•¶š‚ª“ü—Í’l‚Éİ’è‚³‚ê‚½A‚»‚Ì‚Ü‚Ü‹ó•¶š‚ª•Ô‹p‚³‚ê‚é‚±‚Æ
+     * ç©ºæ–‡å­—ãŒå…¥åŠ›å€¤ã«è¨­å®šã•ã‚ŒãŸæ™‚ã€ãã®ã¾ã¾ç©ºæ–‡å­—ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testRtrimZ05() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = "";
 
-        // ƒeƒXƒgÀs        
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ        
         String result = StringUtil.rtrimZ(input);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("", result);
     }
 
@@ -673,119 +673,119 @@ public class StringUtilTest extends TestCase {
      * testLtrimZ01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) str:"@  TERASOLUNA @ "<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) str:"ã€€  TERASOLUNA ã€€ "<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:"TERASOLUNA @ "<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:"TERASOLUNA ã€€ "<br>
      *         
      * <br>
-     * ¶‰E—¼‘¤‚ÉƒXƒy[ƒX‚ª‘¶İ‚·‚é•¶š—ñ‚ğ“ü—Í‚µ‚½A¶ƒXƒy[ƒX‚Ì‚İœ‹‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”FB
+     * å·¦å³ä¸¡å´ã«ã‚¹ãƒšãƒ¼ã‚¹ãŒå­˜åœ¨ã™ã‚‹æ–‡å­—åˆ—ã‚’å…¥åŠ›ã—ãŸæ™‚ã€å·¦ã‚¹ãƒšãƒ¼ã‚¹ã®ã¿é™¤å»ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testLtrimZ01() throws Exception {
-        // “ü—Í’l‚Ìİ’è
-        String input = "@  TERASOLUNA @ ";
+        // å…¥åŠ›å€¤ã®è¨­å®š
+        String input = "ã€€  TERASOLUNA ã€€ ";
 
-        // ƒeƒXƒgÀs        
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ        
         String result = StringUtil.ltrimZ(input);
 
-        // Œ‹‰ÊŠm”F
-        assertEquals("TERASOLUNA @ ", result);
+        // çµæœç¢ºèª
+        assertEquals("TERASOLUNA ã€€ ", result);
     }
 
     /**
      * testLtrimZ02()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) str:" @  @TERASOLUNA @ @ "<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) str:" ã€€  ã€€TERASOLUNA ã€€ ã€€ "<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:"TERASOLUNA @ @ "<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:"TERASOLUNA ã€€ ã€€ "<br>
      *         
      * <br>
-     * •¶š—ñ¶’[‚É‘S”¼ŠpƒXƒy[ƒX‚ª•¡”‘¶İ‚·‚é‚Æ‚«A˜A‘±‚µ‚½¶’[ƒXƒy[ƒX‚ªœ‹‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”FB
+     * æ–‡å­—åˆ—å·¦ç«¯ã«å…¨åŠè§’ã‚¹ãƒšãƒ¼ã‚¹ãŒè¤‡æ•°å­˜åœ¨ã™ã‚‹ã¨ãã€é€£ç¶šã—ãŸå·¦ç«¯ã‚¹ãƒšãƒ¼ã‚¹ãŒé™¤å»ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testLtrimZ02() throws Exception {
-        // “ü—Í’l‚Ìİ’è
-        String input = " @  @TERASOLUNA @ @ ";
+        // å…¥åŠ›å€¤ã®è¨­å®š
+        String input = " ã€€  ã€€TERASOLUNA ã€€ ã€€ ";
 
-        // ƒeƒXƒgÀs        
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ        
         String result = StringUtil.ltrimZ(input);
 
-        // Œ‹‰ÊŠm”F
-        assertEquals("TERASOLUNA @ @ ", result);
+        // çµæœç¢ºèª
+        assertEquals("TERASOLUNA ã€€ ã€€ ", result);
     }
 
     /**
      * testLtrimZ03()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) str:"TERASOLUNA @"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) str:"TERASOLUNA ã€€"<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:"TERASOLUNA @"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:"TERASOLUNA ã€€"<br>
      *         
      * <br>
-     * ¶’[‚ÉƒXƒy[ƒX‚ª‚È‚¢‚Æ‚«A“ü—Í’l‚Æ“¯‚¶•¶š—ñ‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å·¦ç«¯ã«ã‚¹ãƒšãƒ¼ã‚¹ãŒãªã„ã¨ãã€å…¥åŠ›å€¤ã¨åŒã˜æ–‡å­—åˆ—ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testLtrimZ03() throws Exception {
-        // “ü—Í’l‚Ìİ’è
-        String input = "TERASOLUNA @";
+        // å…¥åŠ›å€¤ã®è¨­å®š
+        String input = "TERASOLUNA ã€€";
 
-        // ƒeƒXƒgÀs        
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ        
         String result = StringUtil.ltrimZ(input);
 
-        // Œ‹‰ÊŠm”F
-        assertEquals("TERASOLUNA @", result);
+        // çµæœç¢ºèª
+        assertEquals("TERASOLUNA ã€€", result);
     }
 
     /**
      * testLtrimZ04()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) str:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) str:null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:null<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:null<br>
      *         
      * <br>
-     * null‚ª“ü—Í’l‚Éİ’è‚³‚ê‚½A‚»‚Ì‚Ü‚Ünull‚Å•Ô‹p‚³‚ê‚é‚±‚ÆB
+     * nullãŒå…¥åŠ›å€¤ã«è¨­å®šã•ã‚ŒãŸæ™‚ã€ãã®ã¾ã¾nullã§è¿”å´ã•ã‚Œã‚‹ã“ã¨ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testLtrimZ04() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = null;
 
-        // ƒeƒXƒgÀs        
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ        
         String result = StringUtil.ltrimZ(input);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertNull(result);
     }
 
@@ -793,29 +793,29 @@ public class StringUtilTest extends TestCase {
      * testLtrimZ05()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) str:""<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) str:""<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:""<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:""<br>
      *         
      * <br>
-     * ‹ó•¶š‚ª“ü—Í’l‚Éİ’è‚³‚ê‚½A‚»‚Ì‚Ü‚Ü‹ó•¶š‚ª•Ô‹p‚³‚ê‚é‚±‚Æ
+     * ç©ºæ–‡å­—ãŒå…¥åŠ›å€¤ã«è¨­å®šã•ã‚ŒãŸæ™‚ã€ãã®ã¾ã¾ç©ºæ–‡å­—ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testLtrimZ05() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = "";
 
-        // ƒeƒXƒgÀs        
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ        
         String result = StringUtil.ltrimZ(input);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("", result);
     }
 
@@ -823,361 +823,361 @@ public class StringUtilTest extends TestCase {
      * testTrim01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) str:" @ TERASOLUNA @ "<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) str:" ã€€ TERASOLUNA ã€€ "<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:"TERASOLUNA"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:"TERASOLUNA"<br>
      *         
      * <br>
-     * —¼‘¤‚É‘SŠp”¼ŠpƒXƒy[ƒX‚ª‚PˆÈã‚ ‚é•¶š—ñ‚ª“ü—Í‚³‚ê‚½AƒXƒy[ƒX‚ªœ‹‚³‚ê‚½•¶š—ñ‚ª•Ô‹p‚³‚ê‚é‚±‚ÆB<br>
-     * StringUtil.rtrimZ()‚ÆStringUtil.ltrimZ()‚ÌŒÄ‚Ño‚µŠm”F‚Ì‚½‚ß‚ÉA‚PƒP[ƒX‚Ì‚İ‚Æ‚·‚éB
+     * ä¸¡å´ã«å…¨è§’åŠè§’ã‚¹ãƒšãƒ¼ã‚¹ãŒï¼‘ä»¥ä¸Šã‚ã‚‹æ–‡å­—åˆ—ãŒå…¥åŠ›ã•ã‚ŒãŸæ™‚ã€ã‚¹ãƒšãƒ¼ã‚¹ãŒé™¤å»ã•ã‚ŒãŸæ–‡å­—åˆ—ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * StringUtil.rtrimZ()ã¨StringUtil.ltrimZ()ã®å‘¼ã³å‡ºã—ç¢ºèªã®ãŸã‚ã«ã€ï¼‘ã‚±ãƒ¼ã‚¹ã®ã¿ã¨ã™ã‚‹ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testTrimZ01() throws Exception {
-        // “ü—Í’l‚Ìİ’è
-        String input = " @ TERASOLUNA @ ";
+        // å…¥åŠ›å€¤ã®è¨­å®š
+        String input = " ã€€ TERASOLUNA ã€€ ";
 
-        // ƒeƒXƒgÀs        
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ        
         String result = StringUtil.trimZ(input);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("TERASOLUNA", result);
     }
 
     /**
      * testToShortClassName01()
      * 
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      * 
-     * ŠÏ“_FA<br>
+     * è¦³ç‚¹ï¼šA<br>
      * 
-     * “ü—Í’lFƒpƒbƒP[ƒWCü‚Â‚«‚ÌƒNƒ‰ƒX–¼<br>
+     * å…¥åŠ›å€¤ï¼šãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ä¿®é£¾ã¤ãã®ã‚¯ãƒ©ã‚¹å<br>
      * 
-     * Šú‘Ò’lFƒpƒbƒP[ƒWCü‚Ì‚È‚¢ƒNƒ‰ƒX–¼<br>
+     * æœŸå¾…å€¤ï¼šãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ä¿®é£¾ã®ãªã„ã‚¯ãƒ©ã‚¹å<br>
      * 
-     * ƒpƒbƒP[ƒW–¼{ƒsƒŠƒIƒh{ƒNƒ‰ƒX–¼‚ªİ’è‚³‚ê‚½A<br>
-     * ƒNƒ‰ƒX–¼‚ª•Ô‹p‚³‚ê‚é‚±‚Æ
-     * ClassUtils.getShortClassName()‚ÌŒÄ‚Ño‚µŠm”F‚Ì‚½‚ß‚ÉA‚PƒP[ƒX‚Ì‚İ‚Æ‚·‚éB
+     * ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸åï¼‹ãƒ”ãƒªã‚ªãƒ‰ï¼‹ã‚¯ãƒ©ã‚¹åãŒè¨­å®šã•ã‚ŒãŸæ™‚ã€<br>
+     * ã‚¯ãƒ©ã‚¹åãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨
+     * ClassUtils.getShortClassName()ã®å‘¼ã³å‡ºã—ç¢ºèªã®ãŸã‚ã«ã€ï¼‘ã‚±ãƒ¼ã‚¹ã®ã¿ã¨ã™ã‚‹ã€‚
      * 
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testToShortClassName01() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = "jp.terasoluna.util.StringUtil";
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.toShortClassName(input);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("StringUtil", result);
     }
 
     /**
      * testGetExtention01()
      * 
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      * 
-     * ŠÏ“_FA<br>
+     * è¦³ç‚¹ï¼šA<br>
      * 
-     * “ü—Í’lFŠg’£q‚Â‚«‚Ìƒtƒ@ƒCƒ‹–¼<br>
+     * å…¥åŠ›å€¤ï¼šæ‹¡å¼µå­ã¤ãã®ãƒ•ã‚¡ã‚¤ãƒ«å<br>
      * 
-     * Šú‘Ò’lFŠg’£q<br>
+     * æœŸå¾…å€¤ï¼šæ‹¡å¼µå­<br>
      * 
-     * ƒtƒ@ƒCƒ‹–¼{ƒsƒŠƒIƒh{Šg’£q‚ªİ’è‚³‚ê‚½A<br>
-     * ƒsƒŠƒIƒh{Šg’£q‚ª•Ô‹p‚³‚ê‚é‚±‚ÆB
+     * ãƒ•ã‚¡ã‚¤ãƒ«åï¼‹ãƒ”ãƒªã‚ªãƒ‰ï¼‹æ‹¡å¼µå­ãŒè¨­å®šã•ã‚ŒãŸæ™‚ã€<br>
+     * ãƒ”ãƒªã‚ªãƒ‰ï¼‹æ‹¡å¼µå­ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã€‚
      * 
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testGetExtention01() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = "sample.txt";
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.getExtension(input);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals(".txt", result);
     }
 
     /**
      * testGetExtention02()
      * 
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      * 
-     * ŠÏ“_FA<br>
+     * è¦³ç‚¹ï¼šA<br>
      * 
-     * “ü—Í’lFŠg’£q‚Ì‚È‚¢ƒtƒ@ƒCƒ‹–¼<br>
+     * å…¥åŠ›å€¤ï¼šæ‹¡å¼µå­ã®ãªã„ãƒ•ã‚¡ã‚¤ãƒ«å<br>
      * 
-     * Šú‘Ò’lF‹ó•¶š—ñ<br>
+     * æœŸå¾…å€¤ï¼šç©ºæ–‡å­—åˆ—<br>
      * 
-     * ƒsƒŠƒIƒh{Šg’£q‚ª‘¶İ‚µ‚È‚¢ê‡A<br>
-     * “ü—Í’l‚Íƒtƒ@ƒCƒ‹–¼‚Ì‚İ‚Æ‰ğß‚³‚êA‹ó•¶š‚ª•Ô‹p‚³‚ê‚é‚±‚ÆB
+     * ãƒ”ãƒªã‚ªãƒ‰ï¼‹æ‹¡å¼µå­ãŒå­˜åœ¨ã—ãªã„å ´åˆã€<br>
+     * å…¥åŠ›å€¤ã¯ãƒ•ã‚¡ã‚¤ãƒ«åã®ã¿ã¨è§£é‡ˆã•ã‚Œã€ç©ºæ–‡å­—ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã€‚
      * 
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testGetExtention02() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = "sample";
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.getExtension(input);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("", result);
     }
 
     /**
      * testGetExtention03()
      * 
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      * 
-     * ŠÏ“_FA<br>
+     * è¦³ç‚¹ï¼šA<br>
      * 
-     * “ü—Í’lFŠg’£q‚Â‚«‚Ìƒtƒ@ƒCƒ‹–¼(Šg’£qˆÈŠO‚É"."‚ª‚ ‚é)<br>
+     * å…¥åŠ›å€¤ï¼šæ‹¡å¼µå­ã¤ãã®ãƒ•ã‚¡ã‚¤ãƒ«å(æ‹¡å¼µå­ä»¥å¤–ã«"."ãŒã‚ã‚‹)<br>
      * 
-     * Šú‘Ò’lFŠg’£q<br>
+     * æœŸå¾…å€¤ï¼šæ‹¡å¼µå­<br>
      * 
-     * ¶’[‚ÌƒsƒŠƒIƒh{Šg’£q‚ª•Ô‹p‚³‚ê‚é‚±‚Æ
+     * å·¦ç«¯ã®ãƒ”ãƒªã‚ªãƒ‰ï¼‹æ‹¡å¼µå­ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨
      * 
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testGetExtention03() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = "sample.txt.bak";
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.getExtension(input);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals(".bak", result);
     }
 
     /**
      * testGetExtention04()
      * 
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      * 
-     * ŠÏ“_FC<br>
+     * è¦³ç‚¹ï¼šC<br>
      * 
-     * “ü—Í’lFnull<br>
+     * å…¥åŠ›å€¤ï¼šnull<br>
      * 
-     * Šú‘Ò’lFnull<br>
+     * æœŸå¾…å€¤ï¼šnull<br>
      * 
-     * ˆø”‚ğnull‚Åİ’è‚µ‚½Anull‚ª•Ô‹p‚³‚ê‚é‚±‚ÆB
+     * å¼•æ•°ã‚’nullã§è¨­å®šã—ãŸæ™‚ã€nullãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã€‚
      * 
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testGetExtention04() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = null;
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.getExtension(input);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertNull(result);
     }
 
     /**
      * testGetExtention05()
      * 
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      * 
-     * ŠÏ“_FA<br>
+     * è¦³ç‚¹ï¼šA<br>
      * 
-     * “ü—Í’lF‹ó•¶š—ñ<br>
+     * å…¥åŠ›å€¤ï¼šç©ºæ–‡å­—åˆ—<br>
      * 
-     * Šú‘Ò’lF‹ó•¶š—ñ<br>
+     * æœŸå¾…å€¤ï¼šç©ºæ–‡å­—åˆ—<br>
      * 
-     * ‹ó•¶š—ñ‚ªİ’è‚³‚ê‚½A‚»‚Ì‚Ü‚Ü‹ó•¶š‚ª•Ô‹p‚³‚ê‚é‚±‚ÆB
+     * ç©ºæ–‡å­—åˆ—ãŒè¨­å®šã•ã‚ŒãŸæ™‚ã€ãã®ã¾ã¾ç©ºæ–‡å­—ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã€‚
      * 
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testGetExtention05() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = "";
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.getExtension(input);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("", result);
     }
 
     /**
      * testGetExtention06()
      * 
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      * 
-     * ŠÏ“_FA<br>
+     * è¦³ç‚¹ï¼šA<br>
      * 
-     * “ü—Í’lF––”ö‚ÉƒsƒŠƒIƒh‚ª‚Â‚¢‚½ƒtƒ@ƒCƒ‹–¼<br>
+     * å…¥åŠ›å€¤ï¼šæœ«å°¾ã«ãƒ”ãƒªã‚ªãƒ‰ãŒã¤ã„ãŸãƒ•ã‚¡ã‚¤ãƒ«å<br>
      * 
-     * Šú‘Ò’lFƒsƒŠƒIƒh‚Ì‚İ‚Ì•¶š—ñ<br>
+     * æœŸå¾…å€¤ï¼šãƒ”ãƒªã‚ªãƒ‰ã®ã¿ã®æ–‡å­—åˆ—<br>
      * 
-     * ––”ö‚ªƒsƒŠƒIƒh‚Ì‚Æ‚«AƒsƒŠƒIƒh‚Ì‚İ•Ô‹p‚³‚ê‚é‚±‚ÆB
+     * æœ«å°¾ãŒãƒ”ãƒªã‚ªãƒ‰ã®ã¨ãã€ãƒ”ãƒªã‚ªãƒ‰ã®ã¿è¿”å´ã•ã‚Œã‚‹ã“ã¨ã€‚
      * 
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testGetExtention06() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = "sample.txt.";
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.getExtension(input);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals(".", result);
     }
 
     /**
      * testToHexString01()
      * 
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      * 
-     * ŠÏ“_FA<br>
+     * è¦³ç‚¹ï¼šA<br>
      * 
-     * “ü—Í’lF—v‘f”1‚ÌƒoƒCƒg”z—ñ<br>
+     * å…¥åŠ›å€¤ï¼šè¦ç´ æ•°1ã®ãƒã‚¤ãƒˆé…åˆ—<br>
      * 
-     * Šú‘Ò’lF“ü—Í—v‘f‚Ì16i•ÏŠ·<br>
+     * æœŸå¾…å€¤ï¼šå…¥åŠ›è¦ç´ ã®16é€²å¤‰æ›<br>
      * 
-     * “ü—Í’l‚Ì16i”2Œ…‚É•ÏŠ·‚³‚ê‚Ä‚¢‚é‚±‚ÆB
+     * å…¥åŠ›å€¤ã®16é€²æ•°2æ¡ã«å¤‰æ›ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã€‚
      * 
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testToHexString01() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         byte[] byteArray = { 0 };
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.toHexString(byteArray, "-");
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("00", result);
     }
 
     /**
      * testToHexString02()
      * 
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      * 
-     * ŠÏ“_FC<br>
+     * è¦³ç‚¹ï¼šC<br>
      * 
-     * “ü—Í’lF—v‘f”0‚ÌƒoƒCƒg”z—ñ<br>
+     * å…¥åŠ›å€¤ï¼šè¦ç´ æ•°0ã®ãƒã‚¤ãƒˆé…åˆ—<br>
      * 
-     * Šú‘Ò’lF‹ó•¶š—ñ<br>
+     * æœŸå¾…å€¤ï¼šç©ºæ–‡å­—åˆ—<br>
      * 
-     * ‹ó•¶š—ñ‚ªİ’è‚³‚ê‚½A‹ó•¶š‚ª‚»‚Ì‚Ü‚Ü•Ô‹p‚³‚ê‚é‚±‚ÆB
+     * ç©ºæ–‡å­—åˆ—ãŒè¨­å®šã•ã‚ŒãŸæ™‚ã€ç©ºæ–‡å­—ãŒãã®ã¾ã¾è¿”å´ã•ã‚Œã‚‹ã“ã¨ã€‚
      * 
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testToHexString02() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         byte[] byteArray = {};
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.toHexString(byteArray, "-");
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("", result);
     }
 
     /**
      * testToHexString03()
      * 
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      * 
-     * ŠÏ“_FB<br>
+     * è¦³ç‚¹ï¼šB<br>
      * 
-     * “ü—Í’lF—v‘f”3‚ÌƒoƒCƒg”z—ñ<br>
+     * å…¥åŠ›å€¤ï¼šè¦ç´ æ•°3ã®ãƒã‚¤ãƒˆé…åˆ—<br>
      * 
-     * Šú‘Ò’lF“ü—Í—v‘f‚ğ16i•ÏŠ·‚µAƒfƒŠƒ~ƒ^‚ÅŒ‹‡‚µ‚½•¶š—ñ<br>
+     * æœŸå¾…å€¤ï¼šå…¥åŠ›è¦ç´ ã‚’16é€²å¤‰æ›ã—ã€ãƒ‡ãƒªãƒŸã‚¿ã§çµåˆã—ãŸæ–‡å­—åˆ—<br>
      * 
-     * ‚R‚Â‚Ì—v‘f‚ğ16i”‚É•ÏŠ·‚µA—v‘fŠÔ‚ğƒfƒŠƒ~ƒ^‚Å‹æØ‚ç‚ê‚½<br>
-     * •¶š—ñ‚ªA•Ô‹p‚³‚ê‚é‚±‚ÆB
+     * ï¼“ã¤ã®è¦ç´ ã‚’16é€²æ•°ã«å¤‰æ›ã—ã€è¦ç´ é–“ã‚’ãƒ‡ãƒªãƒŸã‚¿ã§åŒºåˆ‡ã‚‰ã‚ŒãŸ<br>
+     * æ–‡å­—åˆ—ãŒã€è¿”å´ã•ã‚Œã‚‹ã“ã¨ã€‚
      * 
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testToHexString03() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         byte[] byteArray = { 0, 10, 100 };
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.toHexString(byteArray, "/");
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("00/0A/64", result);
     }
 
     /**
      * testToHexString04()
      * 
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      * 
-     * ŠÏ“_FC<br>
+     * è¦³ç‚¹ï¼šC<br>
      * 
-     * “ü—Í’lF—v‘f”3‚ÌƒoƒCƒg”z—ñAƒfƒŠƒ~ƒ^‚ª‹ó•¶š—ñ<br>
+     * å…¥åŠ›å€¤ï¼šè¦ç´ æ•°3ã®ãƒã‚¤ãƒˆé…åˆ—ã€ãƒ‡ãƒªãƒŸã‚¿ãŒç©ºæ–‡å­—åˆ—<br>
      * 
-     * Šú‘Ò’lF“ü—Í—v‘f‚ğ16i•ÏŠ·‚µAŒ‹‡‚µ‚½•¶š—ñ<br>
+     * æœŸå¾…å€¤ï¼šå…¥åŠ›è¦ç´ ã‚’16é€²å¤‰æ›ã—ã€çµåˆã—ãŸæ–‡å­—åˆ—<br>
      * 
-     * ƒfƒŠƒ~ƒ^‚ª‹ó•¶š‚ÌA“ü—Í—v‘f‚ª16i•ÏŠ·‚³‚êA‚»‚Ì‚Ü‚Ü
-     * Œ‹‡‚³‚ê‚Ä‚¢‚é‚±‚ÆB
+     * ãƒ‡ãƒªãƒŸã‚¿ãŒç©ºæ–‡å­—ã®æ™‚ã€å…¥åŠ›è¦ç´ ãŒ16é€²å¤‰æ›ã•ã‚Œã€ãã®ã¾ã¾
+     * çµåˆã•ã‚Œã¦ã„ã‚‹ã“ã¨ã€‚
      * 
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testToHexString04() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         byte[] byteArray = { 0, 10, 100 };
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.toHexString(byteArray, "");
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("000A64", result);
     }
 
     /**
      * testToHexString05()
      * 
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      * 
-     * ŠÏ“_FC<br>
+     * è¦³ç‚¹ï¼šC<br>
      * 
-     * “ü—Í’lF—v‘f”3‚ÌƒoƒCƒg”z—ñAƒfƒŠƒ~ƒ^‚ªnull<br>
+     * å…¥åŠ›å€¤ï¼šè¦ç´ æ•°3ã®ãƒã‚¤ãƒˆé…åˆ—ã€ãƒ‡ãƒªãƒŸã‚¿ãŒnull<br>
      * 
-     * Šú‘Ò’lF“ü—Í—v‘f‚ğ16i•ÏŠ·‚µAŒ‹‡‚µ‚½•¶š—ñ<br>
+     * æœŸå¾…å€¤ï¼šå…¥åŠ›è¦ç´ ã‚’16é€²å¤‰æ›ã—ã€çµåˆã—ãŸæ–‡å­—åˆ—<br>
      * 
-     * ƒfƒŠƒ~ƒ^‚ªnull‚ÌA“ü—Í—v‘f‚ª16i•ÏŠ·‚³‚êA‚»‚Ì‚Ü‚Ü
-     * Œ‹‡‚³‚ê‚Ä‚¢‚é‚±‚ÆB
+     * ãƒ‡ãƒªãƒŸã‚¿ãŒnullã®æ™‚ã€å…¥åŠ›è¦ç´ ãŒ16é€²å¤‰æ›ã•ã‚Œã€ãã®ã¾ã¾
+     * çµåˆã•ã‚Œã¦ã„ã‚‹ã“ã¨ã€‚
      * 
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testToHexString05() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         byte[] byteArray = { 0, 10, 100 };
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.toHexString(byteArray, null);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("000A64", result);
     }
 
     /**
      * testToHexString06()
      * 
-     * (ˆÙíŒn)<br>
+     * (ç•°å¸¸ç³»)<br>
      * 
-     * ŠÏ“_FC<br>
+     * è¦³ç‚¹ï¼šC<br>
      * 
-     * “ü—Í’lF”z—ñ‚ªnullAƒfƒŠƒ~ƒ^‚ª"/"<br>
+     * å…¥åŠ›å€¤ï¼šé…åˆ—ãŒnullã€ãƒ‡ãƒªãƒŸã‚¿ãŒ"/"<br>
      * 
-     * Šú‘Ò’lFNullPointerException”­¶<br>
+     * æœŸå¾…å€¤ï¼šNullPointerExceptionç™ºç”Ÿ<br>
      * 
-     * ”z—ñ‚ªnull‚ÌA<br>
-     * NullPointerExcepti‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F
+     * é…åˆ—ãŒnullã®æ™‚ã€<br>
+     * NullPointerExceptiãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèª
      * 
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testToHexString06() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         byte[] byteArray = null;
 
         try {
-            // ƒeƒXƒgÀs
+            // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
             String result = StringUtil.toHexString(byteArray, "/");
             fail();
         } catch (NullPointerException e) {
@@ -1189,27 +1189,27 @@ public class StringUtilTest extends TestCase {
     /**
      * testParseCSVString01()
      * 
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      * 
-     * ŠÏ“_FA<br>
+     * è¦³ç‚¹ï¼šA<br>
      * 
-     * “ü—Í’lF1’PŒê(ƒJƒ“ƒ}‚È‚µ)<br>
+     * å…¥åŠ›å€¤ï¼š1å˜èª(ã‚«ãƒ³ãƒãªã—)<br>
      * 
-     * Šú‘Ò’lF“ü—Í•¶š‚ğ1‚Â‚Ì—v‘f‚Æ‚·‚é•¶š—ñ”z—ñ<br>
+     * æœŸå¾…å€¤ï¼šå…¥åŠ›æ–‡å­—ã‚’1ã¤ã®è¦ç´ ã¨ã™ã‚‹æ–‡å­—åˆ—é…åˆ—<br>
      * 
-     * ”z—ñ—v‘f‚Ì‚¤‚¿A•ªŠ„‚³‚ê‚¸‚ÉString”z—ñ‚Ì—v‘f‚Æ‚µ‚ÄA
-     * ‚»‚Ì‚Ü‚Üİ’è‚³‚ê‚Ä‚¢‚é‚±‚ÆB
+     * é…åˆ—è¦ç´ ã®ã†ã¡ã€åˆ†å‰²ã•ã‚Œãšã«Stringé…åˆ—ã®è¦ç´ ã¨ã—ã¦ã€
+     * ãã®ã¾ã¾è¨­å®šã•ã‚Œã¦ã„ã‚‹ã“ã¨ã€‚
      * 
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testParseCSVString01() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = "abcde";
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String[] result = StringUtil.parseCSV(input);
 
-        // Œ‹‰ÊŠm”F
-        // Šú‘Ò’l
+        // çµæœç¢ºèª
+        // æœŸå¾…å€¤
         String[] hope = { "abcde" };
         assertEquals(hope.length, result.length);
         assertEquals(hope[0], result[0]);
@@ -1218,52 +1218,52 @@ public class StringUtilTest extends TestCase {
     /**
      * testParseCSVString02()
      * 
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      * 
-     * ŠÏ“_FC<br>
+     * è¦³ç‚¹ï¼šC<br>
      * 
-     * “ü—Í’lFnull<br>
+     * å…¥åŠ›å€¤ï¼šnull<br>
      * 
-     * Šú‘Ò’lF—v‘f”0‚Ì•¶š—ñ”z—ñ<br>
+     * æœŸå¾…å€¤ï¼šè¦ç´ æ•°0ã®æ–‡å­—åˆ—é…åˆ—<br>
      * 
-     * “ü—Í’l‚ªnull‚Ì‚Æ‚«A•¶š—ñ’·0‚Ì•¶š—ñ‚ª•Ô‹p‚³‚ê‚é‚±‚ÆB
+     * å…¥åŠ›å€¤ãŒnullã®ã¨ãã€æ–‡å­—åˆ—é•·0ã®æ–‡å­—åˆ—ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã€‚
      * 
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testParseCSVString02() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = null;
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String[] result = StringUtil.parseCSV(input);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals(0, result.length);
     }
 
     /**
      * testParseCSVString03()
      * 
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      * 
-     * ŠÏ“_FB<br>
+     * è¦³ç‚¹ï¼šB<br>
      * 
-     * “ü—Í’lF5’PŒêƒJƒ“ƒ}‹æØ‚è(‹ó•¶š—ñ‚ğæ“ª‚Æ––”ö‚¨‚æ‚Ñ“r’†‚ÉŠÜ‚Ş)<br>
+     * å…¥åŠ›å€¤ï¼š5å˜èªã‚«ãƒ³ãƒåŒºåˆ‡ã‚Š(ç©ºæ–‡å­—åˆ—ã‚’å…ˆé ­ã¨æœ«å°¾ãŠã‚ˆã³é€”ä¸­ã«å«ã‚€)<br>
      * 
-     * Šú‘Ò’lFƒJƒ“ƒ}ŠÔ‚Ì5‚Â‚Ì•¶š—ñ‚ğ—v‘f‚Æ‚·‚é•¶š—ñ”z—ñ<br>
+     * æœŸå¾…å€¤ï¼šã‚«ãƒ³ãƒé–“ã®5ã¤ã®æ–‡å­—åˆ—ã‚’è¦ç´ ã¨ã™ã‚‹æ–‡å­—åˆ—é…åˆ—<br>
      * 
-     * String[]”z—ñ‚ªƒJƒ“ƒ}–ˆ‚Å‹æØ‚ç‚êA”z—ñ‰»‚³‚ê‚Ä‚¢‚é‚±‚ÆB
+     * String[]é…åˆ—ãŒã‚«ãƒ³ãƒæ¯ã§åŒºåˆ‡ã‚‰ã‚Œã€é…åˆ—åŒ–ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã€‚
      * 
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testParseCSVString03() throws Exception {
-        // “ü—Í’l‚Ìİ’è
-        String input = ",abcde,,‚ ‚¢‚¤‚¦‚¨,";
+        // å…¥åŠ›å€¤ã®è¨­å®š
+        String input = ",abcde,,ã‚ã„ã†ãˆãŠ,";
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String[] result = StringUtil.parseCSV(input);
 
-        // Œ‹‰ÊŠm”F
-        // Šú‘Ò’l
-        String[] hope = { "", "abcde", "", "‚ ‚¢‚¤‚¦‚¨", "" };
+        // çµæœç¢ºèª
+        // æœŸå¾…å€¤
+        String[] hope = { "", "abcde", "", "ã‚ã„ã†ãˆãŠ", "" };
         assertEquals(hope.length, result.length);
         for (int i = 0; i < hope.length; i++) {
             assertEquals(hope[i], result[i]);
@@ -1273,26 +1273,26 @@ public class StringUtilTest extends TestCase {
     /**
      * testParseCSVString04()
      * 
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      * 
-     * ŠÏ“_FB<br>
+     * è¦³ç‚¹ï¼šB<br>
      * 
-     * “ü—Í’lF‹ó•¶š<br>
+     * å…¥åŠ›å€¤ï¼šç©ºæ–‡å­—<br>
      * 
-     * Šú‘Ò’lF‹ó‚Ì”z—ñ<br>
+     * æœŸå¾…å€¤ï¼šç©ºã®é…åˆ—<br>
      * 
-     * “ü—Í’l‚ª‹ó•¶š‚Ì‚Æ‚«A‹ó‚Ì”z—ñ‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ÆB
+     * å…¥åŠ›å€¤ãŒç©ºæ–‡å­—ã®ã¨ãã€ç©ºã®é…åˆ—ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã¨ã€‚
      * 
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testParseCSVString04() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = "";
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String[] result = StringUtil.parseCSV(input);
 
-        // Œ‹‰ÊŠm”F
-        // Šú‘Ò’l
+        // çµæœç¢ºèª
+        // æœŸå¾…å€¤
         String[] hope = { "" };
         assertEquals(hope.length, result.length);
         assertEquals(hope[0], result[0]);
@@ -1301,24 +1301,24 @@ public class StringUtilTest extends TestCase {
     /**
      * testParseCSVStringString01()
      * 
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      * 
-     * ŠÏ“_FC<br>
+     * è¦³ç‚¹ï¼šC<br>
      * 
-     * “ü—Í’lF“ü—Í•¶š=""<br>
-     * ƒGƒXƒP[ƒv•¶š="\\"
+     * å…¥åŠ›å€¤ï¼šå…¥åŠ›æ–‡å­—=""<br>
+     * ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—æ–‡å­—="\\"
      * 
-     * Šú‘Ò’lF‹ó‚Ì”z—ñ<br>
+     * æœŸå¾…å€¤ï¼šç©ºã®é…åˆ—<br>
      * 
-     * “ü—Í’l‚ª‹ó•¶š‚Ì‚Æ‚«A‘æˆê—v‘f‚ª‹ó•¶š‚Ì•¶š”z—ñ‚ª•Ô‹p‚³‚ê‚é‚±‚ÆB
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ãŒç©ºæ–‡å­—ã®ã¨ãã€ç¬¬ä¸€è¦ç´ ãŒç©ºæ–‡å­—ã®æ–‡å­—é…åˆ—ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testParseCSVStringString01() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String[] result = StringUtil.parseCSV("", "\\");
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals(1, result.length);
         assertEquals("", result[0]);
     }
@@ -1326,49 +1326,49 @@ public class StringUtilTest extends TestCase {
     /**
      * testParseCSVStringString02()
      * 
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      * 
-     * ŠÏ“_FC<br>
+     * è¦³ç‚¹ï¼šC<br>
      * 
-     * “ü—Í’lF“ü—Í•¶š=null<br>
-     * ƒGƒXƒP[ƒv•¶š="\\"
+     * å…¥åŠ›å€¤ï¼šå…¥åŠ›æ–‡å­—=null<br>
+     * ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—æ–‡å­—="\\"
      * 
-     * Šú‘Ò’lF‹ó‚Ì”z—ñ<br>
+     * æœŸå¾…å€¤ï¼šç©ºã®é…åˆ—<br>
      * 
-     * “ü—Í’l‚ªnull‚Ì‚Æ‚«A—v‘f”0‚Ì‹ó‚Ì”z—ñ‚ª•Ô‹p‚³‚ê‚é‚±‚ÆB
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ãŒnullã®ã¨ãã€è¦ç´ æ•°0ã®ç©ºã®é…åˆ—ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testParseCSVStringString02() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String[] result = StringUtil.parseCSV(null, "\\");
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals(0, result.length);
     }
 
     /**
      * testParseCSVStringString03()
      * 
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      * 
-     * ŠÏ“_FC<br>
+     * è¦³ç‚¹ï¼šC<br>
      * 
-     * “ü—Í’lF“ü—Í•¶š="a,b"<br>
-     * ƒGƒXƒP[ƒv•¶š="\\"
+     * å…¥åŠ›å€¤ï¼šå…¥åŠ›æ–‡å­—="a,b"<br>
+     * ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—æ–‡å­—="\\"
      * 
-     * Šú‘Ò’lFString[]{"a", "b"}<br>
+     * æœŸå¾…å€¤ï¼šString[]{"a", "b"}<br>
      * 
-     * ƒGƒXƒP[ƒv•¶š‚ªƒJƒ“ƒ}‚Ì‘O‚É‘¶İ‚µ‚È‚¢ê‡A
-     * ƒJƒ“ƒ}‹æØ‚è‚Ì”z—ñ‚ª•Ô‹p‚³‚ê‚é‚±‚ÆB
-     * @throws Exception —áŠO */
+     * ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—æ–‡å­—ãŒã‚«ãƒ³ãƒã®å‰ã«å­˜åœ¨ã—ãªã„å ´åˆã€
+     * ã‚«ãƒ³ãƒåŒºåˆ‡ã‚Šã®é…åˆ—ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testParseCSVStringString03() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String[] result = StringUtil.parseCSV("a,b", "\\");
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals(2, result.length);
         String[] hope = new String[] { "a", "b" };
         for (int i = 0; i < result.length; i++) {
@@ -1379,25 +1379,25 @@ public class StringUtilTest extends TestCase {
     /**
      * testParseCSVStringString04()
      * 
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      * 
-     * ŠÏ“_FC<br>
+     * è¦³ç‚¹ï¼šC<br>
      * 
-     * “ü—Í’lF“ü—Í•¶š=",a,b"<br>
-     * ƒGƒXƒP[ƒv•¶š="\\"
+     * å…¥åŠ›å€¤ï¼šå…¥åŠ›æ–‡å­—=",a,b"<br>
+     * ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—æ–‡å­—="\\"
      * 
-     * Šú‘Ò’lFString[]{"", "a", "b"}<br>
+     * æœŸå¾…å€¤ï¼šString[]{"", "a", "b"}<br>
      * 
-     * “ü—Í•¶š‚Ìæ“ª‚ªƒJƒ“ƒ}‚Å‚ ‚é‚Æ‚«A‘æˆê—v‘f‚ª‹ó•¶š‚Å‚ ‚é‚±‚ÆB
-     * ƒJƒ“ƒ}‹æØ‚è‚Ì”z—ñ‚ª•Ô‹p‚³‚ê‚é‚±‚ÆB
-     * @throws Exception —áŠO */
+     * å…¥åŠ›æ–‡å­—ã®å…ˆé ­ãŒã‚«ãƒ³ãƒã§ã‚ã‚‹ã¨ãã€ç¬¬ä¸€è¦ç´ ãŒç©ºæ–‡å­—ã§ã‚ã‚‹ã“ã¨ã€‚
+     * ã‚«ãƒ³ãƒåŒºåˆ‡ã‚Šã®é…åˆ—ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testParseCSVStringString04() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String[] result = StringUtil.parseCSV(",a,b", "\\");
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals(3, result.length);
         String[] hope = new String[] { "", "a", "b" };
         for (int i = 0; i < hope.length; i++) {
@@ -1408,25 +1408,25 @@ public class StringUtilTest extends TestCase {
     /**
      * testParseCSVStringString05()
      * 
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      * 
-     * ŠÏ“_FC<br>
+     * è¦³ç‚¹ï¼šC<br>
      * 
-     * “ü—Í’lF“ü—Í•¶š="a,b,"<br>
-     * ƒGƒXƒP[ƒv•¶š="\\"
+     * å…¥åŠ›å€¤ï¼šå…¥åŠ›æ–‡å­—="a,b,"<br>
+     * ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—æ–‡å­—="\\"
      * 
-     * Šú‘Ò’lFString[]{"a", "b", ""}<br>
+     * æœŸå¾…å€¤ï¼šString[]{"a", "b", ""}<br>
      * 
-     * “ü—Í•¶š‚Ì––”ö‚ªƒJƒ“ƒ}‚Å‚ ‚é‚Æ‚«AÅI—v‘f‚ª‹ó•¶š‚Å‚ ‚é‚±‚ÆB
-     * ƒJƒ“ƒ}‹æØ‚è‚Ì”z—ñ‚ª•Ô‹p‚³‚ê‚é‚±‚ÆB
-     * @throws Exception —áŠO */
+     * å…¥åŠ›æ–‡å­—ã®æœ«å°¾ãŒã‚«ãƒ³ãƒã§ã‚ã‚‹ã¨ãã€æœ€çµ‚è¦ç´ ãŒç©ºæ–‡å­—ã§ã‚ã‚‹ã“ã¨ã€‚
+     * ã‚«ãƒ³ãƒåŒºåˆ‡ã‚Šã®é…åˆ—ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testParseCSVStringString05() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String[] result = StringUtil.parseCSV("a,b,", "\\");
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals(3, result.length);
         String[] hope = new String[] { "a", "b", "" };
         for (int i = 0; i < hope.length; i++) {
@@ -1437,26 +1437,26 @@ public class StringUtilTest extends TestCase {
     /**
      * testParseCSVStringString06()
      * 
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      * 
-     * ŠÏ“_FC<br>
+     * è¦³ç‚¹ï¼šC<br>
      * 
-     * “ü—Í’lF“ü—Í•¶š="a\\,b,c"<br>
-     * ƒGƒXƒP[ƒv•¶š="\\"
+     * å…¥åŠ›å€¤ï¼šå…¥åŠ›æ–‡å­—="a\\,b,c"<br>
+     * ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—æ–‡å­—="\\"
      * 
-     * Šú‘Ò’lFString[]{"a,b", "c"}<br>
+     * æœŸå¾…å€¤ï¼šString[]{"a,b", "c"}<br>
      * 
-     * “ü—Í•¶š‚Ì’†‚ÉƒGƒXƒP[ƒv•¶š{ƒJƒ“ƒ}‚ª‚ ‚é‚Æ‚«A
-     * •¶š‹æØ‚è‚ªs‚È‚í‚ê‚È‚¢‚±‚ÆB
-     * ‚»‚êˆÈŠO‚ÌƒJƒ“ƒ}‚Í‹æØ‚ç‚ê‚é‚±‚ÆB
-     * @throws Exception —áŠO */
+     * å…¥åŠ›æ–‡å­—ã®ä¸­ã«ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—æ–‡å­—ï¼‹ã‚«ãƒ³ãƒãŒã‚ã‚‹ã¨ãã€
+     * æ–‡å­—åŒºåˆ‡ã‚ŠãŒè¡Œãªã‚ã‚Œãªã„ã“ã¨ã€‚
+     * ãã‚Œä»¥å¤–ã®ã‚«ãƒ³ãƒã¯åŒºåˆ‡ã‚‰ã‚Œã‚‹ã“ã¨ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testParseCSVStringString06() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String[] result = StringUtil.parseCSV("a\\,b,c", "\\");
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals(2, result.length);
         String[] hope = new String[] { "a,b", "c" };
         for (int i = 0; i < hope.length; i++) {
@@ -1467,25 +1467,25 @@ public class StringUtilTest extends TestCase {
     /**
      * testParseCSVStringString07()
      * 
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      * 
-     * ŠÏ“_FC<br>
+     * è¦³ç‚¹ï¼šC<br>
      * 
-     * “ü—Í’lF“ü—Í•¶š="a\\b,c"<br>
-     * ƒGƒXƒP[ƒv•¶š="\\"
+     * å…¥åŠ›å€¤ï¼šå…¥åŠ›æ–‡å­—="a\\b,c"<br>
+     * ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—æ–‡å­—="\\"
      * 
-     * Šú‘Ò’lFString[]{"ab", "c"}<br>
+     * æœŸå¾…å€¤ï¼šString[]{"ab", "c"}<br>
      * 
-     * “ü—Í•¶š‚Ì’†‚ÉƒGƒXƒP[ƒv•¶š{ƒJƒ“ƒ}ˆÈŠO‚Ì•¶š‚ª‚ ‚é‚Æ‚«A
-     * •¶š‹æØ‚è‚ªs‚È‚í‚ê‚¸A•Ô‹p•¶š—ñ‚ÉƒGƒXƒP[ƒv•¶š‚ª¬“ü‚µ‚Ä‚¢‚È‚¢‚±‚ÆB
-     * @throws Exception —áŠO */
+     * å…¥åŠ›æ–‡å­—ã®ä¸­ã«ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—æ–‡å­—ï¼‹ã‚«ãƒ³ãƒä»¥å¤–ã®æ–‡å­—ãŒã‚ã‚‹ã¨ãã€
+     * æ–‡å­—åŒºåˆ‡ã‚ŠãŒè¡Œãªã‚ã‚Œãšã€è¿”å´æ–‡å­—åˆ—ã«ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—æ–‡å­—ãŒæ··å…¥ã—ã¦ã„ãªã„ã“ã¨ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testParseCSVStringString07() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String[] result = StringUtil.parseCSV("a\\b,c", "\\");
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals(2, result.length);
         String[] hope = new String[] { "ab", "c" };
         for (int i = 0; i < hope.length; i++) {
@@ -1496,25 +1496,25 @@ public class StringUtilTest extends TestCase {
     /**
      * testParseCSVStringString08()
      * 
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      * 
-     * ŠÏ“_FC<br>
+     * è¦³ç‚¹ï¼šC<br>
      * 
-     * “ü—Í’lF“ü—Í•¶š="\\,ab,c"<br>
-     * ƒGƒXƒP[ƒv•¶š="\\"
+     * å…¥åŠ›å€¤ï¼šå…¥åŠ›æ–‡å­—="\\,ab,c"<br>
+     * ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—æ–‡å­—="\\"
      * 
-     * Šú‘Ò’lFString[]{",ab", "c"}<br>
+     * æœŸå¾…å€¤ï¼šString[]{",ab", "c"}<br>
      * 
-     * æ“ª‚ªƒGƒXƒP[ƒv•¶š{ƒJƒ“ƒ}•¶š‚Å‚ ‚é‚Æ‚«A
-     * •Ô‹p‚³‚ê‚éæ“ª‚Ì—v‘f‚Ì‘æˆê•¶š‚ªƒJƒ“ƒ}‚Å‚ ‚é‚±‚ÆB
-     * @throws Exception —áŠO */
+     * å…ˆé ­ãŒã‚¨ã‚¹ã‚±ãƒ¼ãƒ—æ–‡å­—ï¼‹ã‚«ãƒ³ãƒæ–‡å­—ã§ã‚ã‚‹ã¨ãã€
+     * è¿”å´ã•ã‚Œã‚‹å…ˆé ­ã®è¦ç´ ã®ç¬¬ä¸€æ–‡å­—ãŒã‚«ãƒ³ãƒã§ã‚ã‚‹ã“ã¨ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testParseCSVStringString08() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String[] result = StringUtil.parseCSV("\\,ab,c", "\\");
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals(2, result.length);
         String[] hope = new String[] { ",ab", "c" };
         for (int i = 0; i < hope.length; i++) {
@@ -1525,25 +1525,25 @@ public class StringUtilTest extends TestCase {
     /**
      * testParseCSVStringString09()
      * 
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      * 
-     * ŠÏ“_FC<br>
+     * è¦³ç‚¹ï¼šC<br>
      * 
-     * “ü—Í’lF“ü—Í•¶š="ab,c\\,"<br>
-     * ƒGƒXƒP[ƒv•¶š="\\"
+     * å…¥åŠ›å€¤ï¼šå…¥åŠ›æ–‡å­—="ab,c\\,"<br>
+     * ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—æ–‡å­—="\\"
      * 
-     * Šú‘Ò’lFString[]{"ab", "c,"}<br>
+     * æœŸå¾…å€¤ï¼šString[]{"ab", "c,"}<br>
      * 
-     * I’[‚ªƒGƒXƒP[ƒv•¶š{ƒJƒ“ƒ}•¶š‚Å‚ ‚é‚Æ‚«A
-     * •Ô‹p‚³‚ê‚éI’[‚Ì—v‘f‚ÌÅI•¶š‚ªƒJƒ“ƒ}‚Å‚ ‚é‚±‚ÆB
-     * @throws Exception —áŠO */
+     * çµ‚ç«¯ãŒã‚¨ã‚¹ã‚±ãƒ¼ãƒ—æ–‡å­—ï¼‹ã‚«ãƒ³ãƒæ–‡å­—ã§ã‚ã‚‹ã¨ãã€
+     * è¿”å´ã•ã‚Œã‚‹çµ‚ç«¯ã®è¦ç´ ã®æœ€çµ‚æ–‡å­—ãŒã‚«ãƒ³ãƒã§ã‚ã‚‹ã“ã¨ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testParseCSVStringString09() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String[] result = StringUtil.parseCSV("ab,c\\,", "\\");
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals(2, result.length);
         String[] hope = new String[] { "ab", "c," };
         for (int i = 0; i < hope.length; i++) {
@@ -1554,25 +1554,25 @@ public class StringUtilTest extends TestCase {
     /**
      * testParseCSVStringString10()
      * 
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      * 
-     * ŠÏ“_FC<br>
+     * è¦³ç‚¹ï¼šC<br>
      * 
-     * “ü—Í’lF“ü—Í•¶š="ab,,,c"<br>
-     * ƒGƒXƒP[ƒv•¶š="\\"
+     * å…¥åŠ›å€¤ï¼šå…¥åŠ›æ–‡å­—="ab,,,c"<br>
+     * ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—æ–‡å­—="\\"
      * 
-     * Šú‘Ò’lFString[]{"ab", "", "", "c"}<br>
+     * æœŸå¾…å€¤ï¼šString[]{"ab", "", "", "c"}<br>
      * 
-     * ƒJƒ“ƒ}‚ª•¡”ŒÂ˜A‘±‚Å“ü—Í‚³‚ê‚½AƒJƒ“ƒ}‹æØ‚è”•ª‚Ì
-     * ‹ó•¶š—v‘f‚ª•Ô‹p‚³‚ê‚é‚±‚ÆB
-     * @throws Exception —áŠO */
+     * ã‚«ãƒ³ãƒãŒè¤‡æ•°å€‹é€£ç¶šã§å…¥åŠ›ã•ã‚ŒãŸæ™‚ã€ã‚«ãƒ³ãƒåŒºåˆ‡ã‚Šæ•°åˆ†ã®
+     * ç©ºæ–‡å­—è¦ç´ ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testParseCSVStringString10() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String[] result = StringUtil.parseCSV("ab,,,c", "\\");
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals(4, result.length);
         String[] hope = new String[] { "ab", "", "", "c" };
         for (int i = 0; i < hope.length; i++) {
@@ -1583,25 +1583,25 @@ public class StringUtilTest extends TestCase {
     /**
      * testParseCSVStringString11()
      * 
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      * 
-     * ŠÏ“_FC<br>
+     * è¦³ç‚¹ï¼šC<br>
      * 
-     * “ü—Í’lF“ü—Í•¶š="ab!,#,,c"<br>
-     * ƒGƒXƒP[ƒv•¶š="#!"
+     * å…¥åŠ›å€¤ï¼šå…¥åŠ›æ–‡å­—="ab!,#,,c"<br>
+     * ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—æ–‡å­—="#!"
      * 
-     * Šú‘Ò’lFString[]{"ab,,", "c"}<br>
+     * æœŸå¾…å€¤ï¼šString[]{"ab,,", "c"}<br>
      * 
-     * ƒGƒXƒP[ƒv•¶š‚ÆƒJƒ“ƒ}‚ª•¡”ŒÂ˜A‘±‚Å“ü—Í‚³‚ê‚½A
-     * ƒJƒ“ƒ}‚Ì‚İ˜A‘±‚µ‚Ä”z—ñ—v‘f‚Éİ’è‚³‚ê‚é‚±‚ÆB
-     * @throws Exception —áŠO */
+     * ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—æ–‡å­—ã¨ã‚«ãƒ³ãƒãŒè¤‡æ•°å€‹é€£ç¶šã§å…¥åŠ›ã•ã‚ŒãŸæ™‚ã€
+     * ã‚«ãƒ³ãƒã®ã¿é€£ç¶šã—ã¦é…åˆ—è¦ç´ ã«è¨­å®šã•ã‚Œã‚‹ã“ã¨ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testParseCSVStringString11() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String[] result = StringUtil.parseCSV("ab!,#,,c", "#!");
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals(2, result.length);
         String[] hope = new String[] { "ab,,", "c" };
         for (int i = 0; i < hope.length; i++) {
@@ -1612,30 +1612,30 @@ public class StringUtilTest extends TestCase {
     /**
      * testParseCSVStringString12()
      * 
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      * 
-     * ŠÏ“_FC<br>
+     * è¦³ç‚¹ï¼šC<br>
      * 
-     * “ü—Í’lF“ü—Í•¶š="ab#!@,c"<br>
-     * ƒGƒXƒP[ƒv•¶š="!@#"
+     * å…¥åŠ›å€¤ï¼šå…¥åŠ›æ–‡å­—="ab#!@,c"<br>
+     * ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—æ–‡å­—="!@#"
      * 
-     * Šú‘Ò’lFString[]{"ab!@,", "c"}<br>
+     * æœŸå¾…å€¤ï¼šString[]{"ab!@,", "c"}<br>
      * 
-     * ƒGƒXƒP[ƒv•¶š—ñ‚ª•¡”ŒÂ˜A‘±‚µ‚Ä“ü—Í‚³‚ê‚½ê‡
+     * ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—æ–‡å­—åˆ—ãŒè¤‡æ•°å€‹é€£ç¶šã—ã¦å…¥åŠ›ã•ã‚ŒãŸå ´åˆ
      * <ol>
-     *  <li>ƒGƒXƒP[ƒv•¶š‚Ì’¼Œã‚ÌƒGƒXƒP[ƒv•¶š‚ª’Êí•¶š‚Æ‚µ‚Ä
-     *      o—Í‚³‚ê‚é‚±‚ÆB</li>
-     *  <li>‚³‚ç‚É‘±‚¢‚ÄƒGƒXƒP[ƒv•¶š‚ª‘¶İ‚·‚éA
-     *      ƒGƒXƒP[ƒv•¶š—ñ‚Æ‚µ‚Äì—p‚·‚é‚±‚ÆB</li>
+     *  <li>ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—æ–‡å­—ã®ç›´å¾Œã®ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—æ–‡å­—ãŒé€šå¸¸æ–‡å­—ã¨ã—ã¦
+     *      å‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨ã€‚</li>
+     *  <li>ã•ã‚‰ã«ç¶šã„ã¦ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—æ–‡å­—ãŒå­˜åœ¨ã™ã‚‹æ™‚ã€
+     *      ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—æ–‡å­—åˆ—ã¨ã—ã¦ä½œç”¨ã™ã‚‹ã“ã¨ã€‚</li>
      * </ol>
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testParseCSVStringString12() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String[] result = StringUtil.parseCSV("ab#!@,c", "!@#");
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals(1, result.length);
         String[] hope = new String[] { "ab!,c" };
         for (int i = 0; i < hope.length; i++) {
@@ -1646,25 +1646,25 @@ public class StringUtilTest extends TestCase {
     /**
      * testParseCSVStringString13()
      * 
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      * 
-     * ŠÏ“_FC<br>
+     * è¦³ç‚¹ï¼šC<br>
      * 
-     * “ü—Í’lF“ü—Í•¶š="ab,c"<br>
-     * ƒGƒXƒP[ƒv•¶š=""
+     * å…¥åŠ›å€¤ï¼šå…¥åŠ›æ–‡å­—="ab,c"<br>
+     * ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—æ–‡å­—=""
      * 
-     * Šú‘Ò’lFString[]{"ab", "c"}<br>
+     * æœŸå¾…å€¤ï¼šString[]{"ab", "c"}<br>
      * 
-     * ƒGƒXƒP[ƒv•¶š—ñ‚ª‹ó•¶š‚ÌAƒGƒXƒP[ƒv‚ªs‚È‚í‚ê‚¸
-     * ƒJƒ“ƒ}‹æØ‚è•¶š—ñ‚ª”z—ñ‚É•ÏŠ·‚³‚êA•Ô‹p‚³‚ê‚é‚±‚ÆB
-     * @throws Exception —áŠO */
+     * ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—æ–‡å­—åˆ—ãŒç©ºæ–‡å­—ã®æ™‚ã€ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—ãŒè¡Œãªã‚ã‚Œãš
+     * ã‚«ãƒ³ãƒåŒºåˆ‡ã‚Šæ–‡å­—åˆ—ãŒé…åˆ—ã«å¤‰æ›ã•ã‚Œã€è¿”å´ã•ã‚Œã‚‹ã“ã¨ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testParseCSVStringString13() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String[] result = StringUtil.parseCSV("ab,c", "");
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals(2, result.length);
         String[] hope = new String[] { "ab", "c" };
         for (int i = 0; i < hope.length; i++) {
@@ -1675,25 +1675,25 @@ public class StringUtilTest extends TestCase {
     /**
      * testParseCSVStringString14()
      * 
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      * 
-     * ŠÏ“_FC<br>
+     * è¦³ç‚¹ï¼šC<br>
      * 
-     * “ü—Í’lF“ü—Í•¶š="ab,c"<br>
-     * ƒGƒXƒP[ƒv•¶š=null
+     * å…¥åŠ›å€¤ï¼šå…¥åŠ›æ–‡å­—="ab,c"<br>
+     * ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—æ–‡å­—=null
      * 
-     * Šú‘Ò’lFString[]{"ab", "c"}<br>
+     * æœŸå¾…å€¤ï¼šString[]{"ab", "c"}<br>
      * 
-     * ƒGƒXƒP[ƒv•¶š—ñ‚ªnull‚ÌAƒGƒXƒP[ƒv‚ªs‚È‚í‚ê‚¸
-     * ƒJƒ“ƒ}‹æØ‚è•¶š—ñ‚ª”z—ñ‚É•ÏŠ·‚³‚êA•Ô‹p‚³‚ê‚é‚±‚ÆB
-     * @throws Exception —áŠO */
+     * ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—æ–‡å­—åˆ—ãŒnullã®æ™‚ã€ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—ãŒè¡Œãªã‚ã‚Œãš
+     * ã‚«ãƒ³ãƒåŒºåˆ‡ã‚Šæ–‡å­—åˆ—ãŒé…åˆ—ã«å¤‰æ›ã•ã‚Œã€è¿”å´ã•ã‚Œã‚‹ã“ã¨ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testParseCSVStringString14() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String[] result = StringUtil.parseCSV("ab,c", null);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals(2, result.length);
         String[] hope = new String[] { "ab", "c" };
         for (int i = 0; i < hope.length; i++) {
@@ -1702,233 +1702,233 @@ public class StringUtilTest extends TestCase {
     }
 
     /**
-     * testDump01B<br>
+     * testDump01ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA<br>
      * <br>
-     * “ü—Í’l :String(—v‘f‚ª‚P‚Â)<br>
-     * Šú‘Ò’l :ƒ_ƒ“ƒv‘ÎÛ•¶š—ñ<br>
+     * å…¥åŠ›å€¤ :String(è¦ç´ ãŒï¼‘ã¤)<br>
+     * æœŸå¾…å€¤ :ãƒ€ãƒ³ãƒ—å¯¾è±¡æ–‡å­—åˆ—<br>
      * 
-     * à–¾Fƒ_ƒ“ƒv‘ÎÛ•¶š—ñ‚É•ÏŠ·‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šãƒ€ãƒ³ãƒ—å¯¾è±¡æ–‡å­—åˆ—ã«å¤‰æ›ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testDump01() throws Exception {
-        //“ü—Í’l‚Ìİ’è
+        //å…¥åŠ›å€¤ã®è¨­å®š
         final String num = "1";
-        final String area = "“Œ‹";
+        final String area = "æ±äº¬";
 
         Map<String, String> map = new LinkedHashMap<String, String>();
         map.put(num, area);
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.dump(map);
 
-        //Œ‹‰Ê
+        //çµæœ
         StringBuffer sb = new StringBuffer();
         sb.append(LINE_SEP);
         sb.append("Map{");
         sb.append(LINE_SEP);
-        sb.append("1=“Œ‹");
+        sb.append("1=æ±äº¬");
         sb.append(LINE_SEP);
         sb.append("}");
 
-        //Œ‹‰ÊŠm”F
+        //çµæœç¢ºèª
         assertEquals(sb.toString(), result);
     }
 
     /**
-     * testDump02B<br>
+     * testDump02ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA<br>
      * <br>
-     * “ü—Í’l :String(—v‘f‚ª•¡”)<br>
-     * Šú‘Ò’l :ƒ_ƒ“ƒv‘ÎÛ•¶š—ñ<br>
+     * å…¥åŠ›å€¤ :String(è¦ç´ ãŒè¤‡æ•°)<br>
+     * æœŸå¾…å€¤ :ãƒ€ãƒ³ãƒ—å¯¾è±¡æ–‡å­—åˆ—<br>
      * 
-     * à–¾Fƒ_ƒ“ƒv‘ÎÛ•¶š—ñ‚É•¡”A•ÏŠ·‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šãƒ€ãƒ³ãƒ—å¯¾è±¡æ–‡å­—åˆ—ã«è¤‡æ•°ã€å¤‰æ›ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testDump02() throws Exception {
-        //“ü—Í’l‚Ìİ’è
+        //å…¥åŠ›å€¤ã®è¨­å®š
         final String[] num = { "1", "2", "3" };
-        final String[] area = { "“Œ‹", "‹“s", "•ºŒÉ" };
+        final String[] area = { "æ±äº¬", "äº¬éƒ½", "å…µåº«" };
 
         Map<String, String> map = new LinkedHashMap<String, String>();
         for (int i = 0; i < num.length; i++) {
             map.put(num[i], area[i]);
         }
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.dump(map);
 
-        //Œ‹‰Ê
+        //çµæœ
         StringBuffer sb = new StringBuffer();
         sb.append(LINE_SEP);
         sb.append("Map{");
         sb.append(LINE_SEP);
-        sb.append("1=“Œ‹");
+        sb.append("1=æ±äº¬");
         sb.append(LINE_SEP);
-        sb.append("2=‹“s");
+        sb.append("2=äº¬éƒ½");
         sb.append(LINE_SEP);
-        sb.append("3=•ºŒÉ");
+        sb.append("3=å…µåº«");
         sb.append(LINE_SEP);
         sb.append("}");
 
-        //Œ‹‰ÊŠm”F
+        //çµæœç¢ºèª
         assertEquals(sb.toString(), result);
     }
 
     /**
-     * testDump03B<br>
+     * testDump03ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FC<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šC<br>
      * <br>
-     * “ü—Í’l :‹ó<br>
-     * Šú‘Ò’l :ƒ_ƒ“ƒv‘ÎÛ•¶š—ñ<br>
+     * å…¥åŠ›å€¤ :ç©º<br>
+     * æœŸå¾…å€¤ :ãƒ€ãƒ³ãƒ—å¯¾è±¡æ–‡å­—åˆ—<br>
      * 
-     * à–¾F”z—ñƒ_ƒ“ƒv‘ÎÛ•¶š—ñ‚É•ÏŠ·‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šé…åˆ—ãƒ€ãƒ³ãƒ—å¯¾è±¡æ–‡å­—åˆ—ã«å¤‰æ›ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testDump03() throws Exception {
-        //“ü—Í’l‚Ìİ’è
+        //å…¥åŠ›å€¤ã®è¨­å®š
         Map map = new LinkedHashMap();
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.dump(map);
 
-        //Œ‹‰Ê
+        //çµæœ
         StringBuffer sb = new StringBuffer();
         sb.append(LINE_SEP);
         sb.append("Map{");
         sb.append(LINE_SEP);
         sb.append("}");
 
-        //Œ‹‰ÊŠm”F
+        //çµæœç¢ºèª
         assertEquals(sb.toString(), result);
     }
 
     /**
-     * testDump04B<br>
+     * testDump04ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FC<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šC<br>
      * <br>
-     * “ü—Í’l :”z—ñ’†‚Énull<br>
-     * Šú‘Ò’l :null‚Æ‚¢‚¤•¶š—ñ‚Åo—Í‚³‚ê‚éB<br>
+     * å…¥åŠ›å€¤ :é…åˆ—ä¸­ã«null<br>
+     * æœŸå¾…å€¤ :nullã¨ã„ã†æ–‡å­—åˆ—ã§å‡ºåŠ›ã•ã‚Œã‚‹ã€‚<br>
      * 
-     * à–¾F”z—ñ—v‘f’†‚Énull‚ªŒŸo‚³‚ê‚½ê‡A<br>
-     * "null"‚Æ‚¢‚¤•¶š—ñ‚ªo—Í‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šé…åˆ—è¦ç´ ä¸­ã«nullãŒæ¤œå‡ºã•ã‚ŒãŸå ´åˆã€<br>
+     * "null"ã¨ã„ã†æ–‡å­—åˆ—ãŒå‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testDump04() throws Exception {
-        //“ü—Í’l‚Ìİ’è
+        //å…¥åŠ›å€¤ã®è¨­å®š
         final String[] num = { "1", "2", "3" };
-        final String[] area = { "“Œ‹", null, "•ºŒÉ" };
+        final String[] area = { "æ±äº¬", null, "å…µåº«" };
 
         Map<String, String> map = new LinkedHashMap<String, String>();
         for (int i = 0; i < num.length; i++) {
             map.put(num[i], area[i]);
         }
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.dump(map);
 
-        //Œ‹‰Ê
+        //çµæœ
         StringBuffer sb = new StringBuffer();
         sb.append(LINE_SEP);
         sb.append("Map{");
         sb.append(LINE_SEP);
-        sb.append("1=“Œ‹");
+        sb.append("1=æ±äº¬");
         sb.append(LINE_SEP);
         sb.append("2=null");
         sb.append(LINE_SEP);
-        sb.append("3=•ºŒÉ");
+        sb.append("3=å…µåº«");
         sb.append(LINE_SEP);
         sb.append("}");
 
-        //Œ‹‰ÊŠm”F
+        //çµæœç¢ºèª
         assertEquals(sb.toString(), result);
     }
 
     /**
-     * testDump05B<br>
+     * testDump05ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FC<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šC<br>
      * <br>
-     * “ü—Í’l :ƒL[‚ªnull<br>
-     * Šú‘Ò’l :"null"‚ª•\¦‚³‚ê‚é‚±‚Æ<br>
+     * å…¥åŠ›å€¤ :ã‚­ãƒ¼ãŒnull<br>
+     * æœŸå¾…å€¤ :"null"ãŒè¡¨ç¤ºã•ã‚Œã‚‹ã“ã¨<br>
      * 
-     * à–¾FƒL[‚ªnull‚Ìê‡A<br>
-     * "null"‚ª•\¦‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šã‚­ãƒ¼ãŒnullã®å ´åˆã€<br>
+     * "null"ãŒè¡¨ç¤ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testDump05() throws Exception {
-        //“ü—Í’l‚Ìİ’è
+        //å…¥åŠ›å€¤ã®è¨­å®š
         final String num = null;
-        final String area = "“Œ‹";
+        final String area = "æ±äº¬";
 
         Map<String, String> map = new LinkedHashMap<String, String>();
 
         map.put(num, area);
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.dump(map);
-        //Œ‹‰Ê
+        //çµæœ
         StringBuffer sb = new StringBuffer();
         sb.append(LINE_SEP);
         sb.append("Map{");
         sb.append(LINE_SEP);
-        sb.append("null=“Œ‹");
+        sb.append("null=æ±äº¬");
         sb.append(LINE_SEP);
         sb.append("}");
-        //Œ‹‰ÊŠm”F
+        //çµæœç¢ºèª
         assertEquals(sb.toString(), result);
     }
 
     /**
-     * testDump06B<br>
+     * testDump06ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA<br>
      * <br>
-     * “ü—Í’l :”z—ñ(ƒL[‚ª‚P‚Â)<br>
-     * Šú‘Ò’l :”z—ñƒ_ƒ“ƒv‘ÎÛ•¶š—ñ<br>
+     * å…¥åŠ›å€¤ :é…åˆ—(ã‚­ãƒ¼ãŒï¼‘ã¤)<br>
+     * æœŸå¾…å€¤ :é…åˆ—ãƒ€ãƒ³ãƒ—å¯¾è±¡æ–‡å­—åˆ—<br>
      * 
-     * à–¾F”z—ñƒ_ƒ“ƒv‘ÎÛ•¶š—ñ‚É•ÏŠ·‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šé…åˆ—ãƒ€ãƒ³ãƒ—å¯¾è±¡æ–‡å­—åˆ—ã«å¤‰æ›ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testDump06() throws Exception {
-        //“ü—Í’l‚Ìİ’è
+        //å…¥åŠ›å€¤ã®è¨­å®š
         final String num = "1";
         final Vector<String> area = new Vector<String>();
-        area.add(0, "“Œ‹");
-        area.add(1, "‘åã");
+        area.add(0, "æ±äº¬");
+        area.add(1, "å¤§é˜ª");
 
         Map<String, Vector> map = new LinkedHashMap<String, Vector>();
         map.put(num, area);
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.dump(map);
 
-        //Œ‹‰ÊŠm”F
-        assertEquals(LINE_SEP + "Map{" + LINE_SEP + "1=[“Œ‹, ‘åã]" + LINE_SEP
+        //çµæœç¢ºèª
+        assertEquals(LINE_SEP + "Map{" + LINE_SEP + "1=[æ±äº¬, å¤§é˜ª]" + LINE_SEP
                 + "}", result);
     }
 
     /**
-     * testDump07B<br>
+     * testDump07ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA<br>
      * <br>
-     * “ü—Í’l :”z—ñ(ƒL[‚ª•¡”)<br>
-     * Šú‘Ò’l :”z—ñƒ_ƒ“ƒv‘ÎÛ•¶š—ñ<br>
+     * å…¥åŠ›å€¤ :é…åˆ—(ã‚­ãƒ¼ãŒè¤‡æ•°)<br>
+     * æœŸå¾…å€¤ :é…åˆ—ãƒ€ãƒ³ãƒ—å¯¾è±¡æ–‡å­—åˆ—<br>
      * 
-     * à–¾F”z—ñƒ_ƒ“ƒv‘ÎÛ•¶š—ñ‚É•ÏŠ·‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šé…åˆ—ãƒ€ãƒ³ãƒ—å¯¾è±¡æ–‡å­—åˆ—ã«å¤‰æ›ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testDump07() throws Exception {
-        //“ü—Í’l‚Ìİ’è
+        //å…¥åŠ›å€¤ã®è¨­å®š
         final String num1 = "1";
         final String num2 = "2";
         Vector<String> area = new Vector<String>();
         Vector<String> tel = new Vector<String>();
 
-        area.add(0, "“Œ‹");
-        area.add(1, "‘åã");
+        area.add(0, "æ±äº¬");
+        area.add(1, "å¤§é˜ª");
         tel.add(0, "03");
         tel.add(1, "06");
 
@@ -1936,1506 +1936,1506 @@ public class StringUtilTest extends TestCase {
         map.put(num1, area);
         map.put(num2, tel);
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.dump(map);
 
-        //Œ‹‰Ê
+        //çµæœ
         StringBuffer sb = new StringBuffer();
         sb.append(LINE_SEP);
         sb.append("Map{");
         sb.append(LINE_SEP);
-        sb.append("1=[“Œ‹, ‘åã]");
+        sb.append("1=[æ±äº¬, å¤§é˜ª]");
         sb.append(LINE_SEP);
         sb.append("2=[03, 06]");
         sb.append(LINE_SEP);
         sb.append("}");
 
-        //Œ‹‰ÊŠm”F
+        //çµæœç¢ºèª
         assertEquals(sb.toString(), result);
     }
 
     /**
-     * testDump08B<br>
+     * testDump08ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FC<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šC<br>
      * <br>
-     * “ü—Í’l :map‚ªnull<br>
-     * Šú‘Ò’l :null<br>
+     * å…¥åŠ›å€¤ :mapãŒnull<br>
+     * æœŸå¾…å€¤ :null<br>
      * 
-     * à–¾Fmap‚ªnull‚Ìê‡A<br>
-     * null‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šmapãŒnullã®å ´åˆã€<br>
+     * nullãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testDump08() throws Exception {
-        //“ü—Í’l‚Ìİ’è        
+        //å…¥åŠ›å€¤ã®è¨­å®š        
         Map map = null;
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.dump(map);
 
-        //Œ‹‰ÊŠm”F
+        //çµæœç¢ºèª
         assertNull(result);
     }
 
     /**
-     * testDump9B<br>
+     * testDump9ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA<br>
      * <br>
-     * “ü—Í’l :ƒL[‚ª•¡”i’†g‚ª”z—ñj<br>
-     * Šú‘Ò’l :”z—ñƒ_ƒ“ƒv‘ÎÛ•¶š—ñ<br>
+     * å…¥åŠ›å€¤ :ã‚­ãƒ¼ãŒè¤‡æ•°ï¼ˆä¸­èº«ãŒé…åˆ—ï¼‰<br>
+     * æœŸå¾…å€¤ :é…åˆ—ãƒ€ãƒ³ãƒ—å¯¾è±¡æ–‡å­—åˆ—<br>
      * 
-     * à–¾F”z—ñƒ_ƒ“ƒv‘ÎÛ•¶š—ñ‚É•ÏŠ·‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šé…åˆ—ãƒ€ãƒ³ãƒ—å¯¾è±¡æ–‡å­—åˆ—ã«å¤‰æ›ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testDump9() throws Exception {
-        //“ü—Í’l‚Ìİ’è
+        //å…¥åŠ›å€¤ã®è¨­å®š
         final String num1 = "1";
         final String num2 = "2";
         Vector<String> area = new Vector<String>();
         String tel[] = { "03", "06" };
 
-        area.add(0, "“Œ‹");
-        area.add(1, "‘åã");
+        area.add(0, "æ±äº¬");
+        area.add(1, "å¤§é˜ª");
 
         Map<String, Object> map = new LinkedHashMap<String, Object>();
         map.put(num1, area);
         map.put(num2, tel);
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.dump(map);
 
-        //Œ‹‰Ê
+        //çµæœ
         StringBuffer sb = new StringBuffer();
         sb.append(LINE_SEP);
         sb.append("Map{");
         sb.append(LINE_SEP);
-        sb.append("1=[“Œ‹, ‘åã]");
+        sb.append("1=[æ±äº¬, å¤§é˜ª]");
         sb.append(LINE_SEP);
         sb.append("2={03,06}");
         sb.append(LINE_SEP);
         sb.append("}");
 
-        //Œ‹‰ÊŠm”F
+        //çµæœç¢ºèª
         assertEquals(sb.toString(), result);
     }
 
     /**
-     * testGetArraysStr01B<br>
+     * testGetArraysStr01ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA<br>
      * <br>
-     * “ü—Í’l :String”z—ñ<br>
-     * Šú‘Ò’l :”z—ñƒ_ƒ“ƒv‘ÎÛ•¶š—ñ<br>
+     * å…¥åŠ›å€¤ :Stringé…åˆ—<br>
+     * æœŸå¾…å€¤ :é…åˆ—ãƒ€ãƒ³ãƒ—å¯¾è±¡æ–‡å­—åˆ—<br>
      * 
-     * à–¾F”z—ñƒ_ƒ“ƒv‘ÎÛ•¶š—ñ‚É•ÏŠ·‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * ArrayUtils.toString()‚ÌŒÄ‚Ño‚µŠm”F‚Ì‚½‚ß‚ÉA‚PƒP[ƒX‚Ì‚İ‚Æ‚·‚éB
+     * èª¬æ˜ï¼šé…åˆ—ãƒ€ãƒ³ãƒ—å¯¾è±¡æ–‡å­—åˆ—ã«å¤‰æ›ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * ArrayUtils.toString()ã®å‘¼ã³å‡ºã—ç¢ºèªã®ãŸã‚ã«ã€ï¼‘ã‚±ãƒ¼ã‚¹ã®ã¿ã¨ã™ã‚‹ã€‚
      * 
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testGetArraysStr01() throws Exception {
-        //“ü—Í’l‚Ìİ’è
+        //å…¥åŠ›å€¤ã®è¨­å®š
         final String[] str = { "1", "2", "3", "4", "5" };
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.getArraysStr(str);
 
-        //Œ‹‰ÊŠm”F
+        //çµæœç¢ºèª
         assertEquals("{1,2,3,4,5}", result);
     }
 
     /**
-     * testHankakuToZenkaku01B<br>
+     * testHankakuToZenkaku01ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA<br>
      * <br>
-     * “ü—Í’lF”¼Šp•¶š(ˆê•¶š)<br>
-     * Šú‘Ò’lF‘SŠp•¶š
+     * å…¥åŠ›å€¤ï¼šåŠè§’æ–‡å­—(ä¸€æ–‡å­—)<br>
+     * æœŸå¾…å€¤ï¼šå…¨è§’æ–‡å­—
      * 
-     * à–¾F”¼Šp•’Ê‰p”šˆê•¶š‚ª‘SŠp•’Ê‰p”š‚É•ÏŠ·‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šåŠè§’æ™®é€šè‹±æ•°å­—ä¸€æ–‡å­—ãŒå…¨è§’æ™®é€šè‹±æ•°å­—ã«å¤‰æ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testHankakuToZenkaku01() throws Exception {
-        //“ü—Í’l‚Ìİ’è
+        //å…¥åŠ›å€¤ã®è¨­å®š
         String input = "A";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.hankakuToZenkaku(input);
 
-        //Œ‹‰ÊŠm”F
-        assertEquals("‚`", result);
+        //çµæœç¢ºèª
+        assertEquals("ï¼¡", result);
     }
 
     /**
-     * testHankakuToZenkaku02B<br>
+     * testHankakuToZenkaku02ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA<br>
      * <br>
-     * “ü—Í’lF”¼Šp•¶š(•¡”•¶š)<br>
-     * Šú‘Ò’lF‘SŠp•¶š
+     * å…¥åŠ›å€¤ï¼šåŠè§’æ–‡å­—(è¤‡æ•°æ–‡å­—)<br>
+     * æœŸå¾…å€¤ï¼šå…¨è§’æ–‡å­—
      * 
-     * à–¾F”¼Šp•’Ê•¶š‚ª•¡”A‘SŠp•’Ê•¶š‚É•ÏŠ·‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šåŠè§’æ™®é€šæ–‡å­—ãŒè¤‡æ•°ã€å…¨è§’æ™®é€šæ–‡å­—ã«å¤‰æ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testHankakuToZenkaku02() throws Exception {
-        //“ü—Í’l‚Ìİ’è
-        String input = "±Ş!A8";
+        //å…¥åŠ›å€¤ã®è¨­å®š
+        String input = "ï½±ï¾!A8";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.hankakuToZenkaku(input);
 
-        //Œ‹‰ÊŠm”F
-        assertEquals("ƒAJI‚`‚W", result);
+        //çµæœç¢ºèª
+        assertEquals("ã‚¢ã‚›ï¼ï¼¡ï¼˜", result);
     }
 
     /**
-     * testHankakuToZenkaku03B<br>
+     * testHankakuToZenkaku03ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA<br>
      * <br>
-     * “ü—Í’lF”¼ŠpƒT(ˆê•¶š)<br>
-     * Šú‘Ò’lF‘SŠpƒT
+     * å…¥åŠ›å€¤ï¼šåŠè§’ã‚µ(ä¸€æ–‡å­—)<br>
+     * æœŸå¾…å€¤ï¼šå…¨è§’ã‚µ
      * 
-     * à–¾F”¼ŠpƒTˆê•¶š‚ª‘SŠpƒT‚É•ÏŠ·‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šåŠè§’ã‚µä¸€æ–‡å­—ãŒå…¨è§’ã‚µã«å¤‰æ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testHankakuToZenkaku03() throws Exception {
-        //“ü—Í’l‚Ìİ’è
-        String input = "»";
+        //å…¥åŠ›å€¤ã®è¨­å®š
+        String input = "ï½»";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.hankakuToZenkaku(input);
 
-        //Œ‹‰ÊŠm”F
-        assertEquals("ƒT", result);
+        //çµæœç¢ºèª
+        assertEquals("ã‚µ", result);
     }
 
     /**
-     * testHankakuToZenkaku04B<br>
+     * testHankakuToZenkaku04ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA<br>
      * <br>
-     * “ü—Í’lF”¼ŠpƒJƒTƒ^ƒnƒE(•¡”•¶š)<br>
-     * Šú‘Ò’lF‘SŠpƒJƒTƒ^ƒnƒE
+     * å…¥åŠ›å€¤ï¼šåŠè§’ã‚«ã‚µã‚¿ãƒã‚¦(è¤‡æ•°æ–‡å­—)<br>
+     * æœŸå¾…å€¤ï¼šå…¨è§’ã‚«ã‚µã‚¿ãƒã‚¦
      * 
-     * à–¾F”¼ŠpƒJƒTƒ^ƒnƒE‚ª•¡”A‘SŠpƒJƒTƒ^ƒnƒE‚É•ÏŠ·‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šåŠè§’ã‚«ã‚µã‚¿ãƒã‚¦ãŒè¤‡æ•°ã€å…¨è§’ã‚«ã‚µã‚¿ãƒã‚¦ã«å¤‰æ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testHankakuToZenkaku04() throws Exception {
-        //“ü—Í’l‚Ìİ’è
-        String input = "¶»ÀÊ³";
+        //å…¥åŠ›å€¤ã®è¨­å®š
+        String input = "ï½¶ï½»ï¾€ï¾Šï½³";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.hankakuToZenkaku(input);
 
-        //Œ‹‰ÊŠm”F
-        assertEquals("ƒJƒTƒ^ƒnƒE", result);
+        //çµæœç¢ºèª
+        assertEquals("ã‚«ã‚µã‚¿ãƒã‚¦", result);
     }
 
     /**
-     * testHankakuToZenkaku05B<br>
+     * testHankakuToZenkaku05ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA<br>
      * <br>
-     * “ü—Í’lF”¼Šp‘÷“_¶Ş(ˆê•¶š)<br>
-     * Šú‘Ò’lF‘SŠp‘÷“_ƒK
+     * å…¥åŠ›å€¤ï¼šåŠè§’æ¿ç‚¹ï½¶ï¾(ä¸€æ–‡å­—)<br>
+     * æœŸå¾…å€¤ï¼šå…¨è§’æ¿ç‚¹ã‚¬
      * 
-     * à–¾F”¼Šp‘÷“_ˆê•¶š‚ª‘SŠp‘÷“_‚É•ÏŠ·‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šåŠè§’æ¿ç‚¹ä¸€æ–‡å­—ãŒå…¨è§’æ¿ç‚¹ã«å¤‰æ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testHankakuToZenkaku05() throws Exception {
-        //“ü—Í’l‚Ìİ’è
-        String input = "¶Ş";
+        //å…¥åŠ›å€¤ã®è¨­å®š
+        String input = "ï½¶ï¾";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.hankakuToZenkaku(input);
 
-        //Œ‹‰ÊŠm”F
-        assertEquals("ƒK", result);
+        //çµæœç¢ºèª
+        assertEquals("ã‚¬", result);
     }
 
     /**
-     * testHankakuToZenkaku06B<br>
+     * testHankakuToZenkaku06ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA<br>
      * <br>
-     * “ü—Í’lF”¼Šp‘÷“_¶Ş»ŞÀŞÊŞ³Ş(•¡”•¶š)<br>
-     * Šú‘Ò’lF‘SŠp‘÷“_ƒKƒUƒ_ƒoƒ”
+     * å…¥åŠ›å€¤ï¼šåŠè§’æ¿ç‚¹ï½¶ï¾ï½»ï¾ï¾€ï¾ï¾Šï¾ï½³ï¾(è¤‡æ•°æ–‡å­—)<br>
+     * æœŸå¾…å€¤ï¼šå…¨è§’æ¿ç‚¹ã‚¬ã‚¶ãƒ€ãƒãƒ´
      * 
-     * à–¾F”¼Šp‘÷“_‚ª•¡”•¶šA‘SŠp‘÷“_‚É•ÏŠ·‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šåŠè§’æ¿ç‚¹ãŒè¤‡æ•°æ–‡å­—ã€å…¨è§’æ¿ç‚¹ã«å¤‰æ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testHankakuToZenkaku06() throws Exception {
-        //“ü—Í’l‚Ìİ’è
-        String input = "¶Ş»ŞÀŞÊŞ³Ş";
+        //å…¥åŠ›å€¤ã®è¨­å®š
+        String input = "ï½¶ï¾ï½»ï¾ï¾€ï¾ï¾Šï¾ï½³ï¾";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.hankakuToZenkaku(input);
 
-        //Œ‹‰ÊŠm”F
-        assertEquals("ƒKƒUƒ_ƒoƒ”", result);
+        //çµæœç¢ºèª
+        assertEquals("ã‚¬ã‚¶ãƒ€ãƒãƒ´", result);
     }
 
     /**
-     * testHankakuToZenkaku07B<br>
+     * testHankakuToZenkaku07ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA<br>
      * <br>
-     * “ü—Í’lF”¼Šp”¼‘÷“_Êßs(ˆê•¶š)<br>
-     * Šú‘Ò’lF‘SŠp”¼‘÷“_ƒps
+     * å…¥åŠ›å€¤ï¼šåŠè§’åŠæ¿ç‚¹ï¾Šï¾Ÿè¡Œ(ä¸€æ–‡å­—)<br>
+     * æœŸå¾…å€¤ï¼šå…¨è§’åŠæ¿ç‚¹ãƒ‘è¡Œ
      * 
-     * à–¾F”¼Šp”¼‘÷“_(ˆê•¶š)‚ª‘SŠp”¼‘÷“_‚É•ÏŠ·‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šåŠè§’åŠæ¿ç‚¹(ä¸€æ–‡å­—)ãŒå…¨è§’åŠæ¿ç‚¹ã«å¤‰æ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testHankakuToZenkaku07() throws Exception {
-        //“ü—Í’l‚Ìİ’è
-        String input = "Îß";
+        //å…¥åŠ›å€¤ã®è¨­å®š
+        String input = "ï¾ï¾Ÿ";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.hankakuToZenkaku(input);
 
-        //Œ‹‰ÊŠm”F
-        assertEquals("ƒ|", result);
+        //çµæœç¢ºèª
+        assertEquals("ãƒ", result);
     }
 
     /**
-     * testHankakuToZenkaku08B<br>
+     * testHankakuToZenkaku08ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA<br>
      * <br>
-     * “ü—Í’lF”¼Šp”¼‘÷“_Êßs(•¡”•¶š)<br>
-     * Šú‘Ò’lF‘SŠp”¼‘÷“_ƒps
+     * å…¥åŠ›å€¤ï¼šåŠè§’åŠæ¿ç‚¹ï¾Šï¾Ÿè¡Œ(è¤‡æ•°æ–‡å­—)<br>
+     * æœŸå¾…å€¤ï¼šå…¨è§’åŠæ¿ç‚¹ãƒ‘è¡Œ
      * 
-     * à–¾F”¼Šp”¼‘÷“_‚ª•¡”•¶šA‘SŠp”¼‘÷“_‚É•ÏŠ·‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šåŠè§’åŠæ¿ç‚¹ãŒè¤‡æ•°æ–‡å­—ã€å…¨è§’åŠæ¿ç‚¹ã«å¤‰æ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testHankakuToZenkaku08() throws Exception {
-        //“ü—Í’l‚Ìİ’è
-        String input = "ÊßËßÌßÍßÎß";
+        //å…¥åŠ›å€¤ã®è¨­å®š
+        String input = "ï¾Šï¾Ÿï¾‹ï¾Ÿï¾Œï¾Ÿï¾ï¾Ÿï¾ï¾Ÿ";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.hankakuToZenkaku(input);
 
-        //Œ‹‰ÊŠm”F
-        assertEquals("ƒpƒsƒvƒyƒ|", result);
+        //çµæœç¢ºèª
+        assertEquals("ãƒ‘ãƒ”ãƒ—ãƒšãƒ", result);
     }
 
     /**
-     * testHankakuToZenkaku09B<br>
+     * testHankakuToZenkaku09ã€‚<br>
      * 
-     * i³íŒnjA<br>
-     * ŠÏ“_F<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰A<br>
+     * è¦³ç‚¹ï¼š<br>
      * <br>
-     * “ü—Í’lF”¼ŠpÜ<br>
-     * Šú‘Ò’lF‘SŠpƒ
+     * å…¥åŠ›å€¤ï¼šåŠè§’ï¾œ<br>
+     * æœŸå¾…å€¤ï¼šå…¨è§’ãƒ¯
      * 
-     * à–¾F”¼Špƒ‚ª‘SŠpƒ‚É•ÏŠ·‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šåŠè§’ãƒ¯ãŒå…¨è§’ãƒ¯ã«å¤‰æ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testHankakuToZenkaku09() throws Exception {
-        //“ü—Í’l‚Ìİ’è
-        String input = "Ü";
+        //å…¥åŠ›å€¤ã®è¨­å®š
+        String input = "ï¾œ";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.hankakuToZenkaku(input);
 
-        //Œ‹‰ÊŠm”F
-        assertEquals("ƒ", result);
+        //çµæœç¢ºèª
+        assertEquals("ãƒ¯", result);
     }
 
     /**
-     * testHankakuToZenkaku10B<br>
+     * testHankakuToZenkaku10ã€‚<br>
      * 
-     * i³íŒnjA<br>
-     * ŠÏ“_F<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰A<br>
+     * è¦³ç‚¹ï¼š<br>
      * <br>
-     * “ü—Í’lF”¼Šp¦<br>
-     * Šú‘Ò’lF‘SŠpƒ’
+     * å…¥åŠ›å€¤ï¼šåŠè§’ï½¦<br>
+     * æœŸå¾…å€¤ï¼šå…¨è§’ãƒ²
      * 
-     * à–¾F”¼Špƒ’‚ª‘SŠpƒ’‚É•ÏŠ·‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šåŠè§’ãƒ²ãŒå…¨è§’ãƒ²ã«å¤‰æ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testHankakuToZenkaku10() throws Exception {
-        //“ü—Í’l‚Ìİ’è
-        String input = "¦";
+        //å…¥åŠ›å€¤ã®è¨­å®š
+        String input = "ï½¦";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.hankakuToZenkaku(input);
 
-        //Œ‹‰ÊŠm”F
-        assertEquals("ƒ’", result);
+        //çµæœç¢ºèª
+        assertEquals("ãƒ²", result);
     }
 
     /**
-     * testHankakuToZenkaku11B<br>
+     * testHankakuToZenkaku11ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA<br>
      * <br>
-     * “ü—Í’lF”¼ŠpÜ"<br>
-     * Šú‘Ò’lF‘SŠpƒh
+     * å…¥åŠ›å€¤ï¼šåŠè§’ï¾œ"<br>
+     * æœŸå¾…å€¤ï¼šå…¨è§’ãƒ¯â€
      * 
-     * à–¾F”¼Šp‘÷“_ƒ‚ª‘SŠp‘÷“_ƒ‚É•ÏŠ·‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šåŠè§’æ¿ç‚¹ãƒ¯ãŒå…¨è§’æ¿ç‚¹ãƒ¯ã«å¤‰æ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testHankakuToZenkaku11() throws Exception {
-        //“ü—Í’l‚Ìİ’è
-        String input = "ÜŞ";
+        //å…¥åŠ›å€¤ã®è¨­å®š
+        String input = "ï¾œï¾";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.hankakuToZenkaku(input);
 
-        //Œ‹‰ÊŠm”F
+        //çµæœç¢ºèª
         assertEquals("\u30f7", result);
     }
 
     /**
-     * testHankakuToZenkaku12B<br>
+     * testHankakuToZenkaku12ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA<br>
      * <br>
-     * “ü—Í’lF”¼Šp¦"<br>
-     * Šú‘Ò’lF‘SŠpƒ’h
+     * å…¥åŠ›å€¤ï¼šåŠè§’ï½¦"<br>
+     * æœŸå¾…å€¤ï¼šå…¨è§’ãƒ²â€
      * 
-     * à–¾F”¼Šp‘÷“_ƒ’‚ª‘SŠp‘÷“_ƒ’‚É•ÏŠ·‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šåŠè§’æ¿ç‚¹ãƒ²ãŒå…¨è§’æ¿ç‚¹ãƒ²ã«å¤‰æ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testHankakuToZenkaku12() throws Exception {
-        //“ü—Í’l‚Ìİ’è
-        String input = "¦Ş";
+        //å…¥åŠ›å€¤ã®è¨­å®š
+        String input = "ï½¦ï¾";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.hankakuToZenkaku(input);
 
-        //Œ‹‰ÊŠm”F
+        //çµæœç¢ºèª
         assertEquals("\u30fa", result);
     }
 
     /**
-     * testHankakuToZenkaku13B<br>
+     * testHankakuToZenkaku13ã€‚<br>
      * 
-     * i³íŒnjA<br>
-     * ŠÏ“_F<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰A<br>
+     * è¦³ç‚¹ï¼š<br>
      * <br>
-     * “ü—Í’lF”¼ŠpÜ<br>
-     * Šú‘Ò’lF‘SŠpƒ
+     * å…¥åŠ›å€¤ï¼šåŠè§’ï¾œ<br>
+     * æœŸå¾…å€¤ï¼šå…¨è§’ãƒ¯
      * 
-     * à–¾F”¼Špƒ‚ª•¶š—ñ‚Ì“r’†‚É‚ ‚éA‘SŠpƒ‚É•ÏŠ·‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šåŠè§’ãƒ¯ãŒæ–‡å­—åˆ—ã®é€”ä¸­ã«ã‚ã‚‹æ™‚ã€å…¨è§’ãƒ¯ã«å¤‰æ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testHankakuToZenkaku13() throws Exception {
-        //“ü—Í’l‚Ìİ’è
-        String input = "AÜ1";
+        //å…¥åŠ›å€¤ã®è¨­å®š
+        String input = "Aï¾œ1";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.hankakuToZenkaku(input);
 
-        //Œ‹‰ÊŠm”F
-        assertEquals("‚`ƒ‚P", result);
+        //çµæœç¢ºèª
+        assertEquals("ï¼¡ãƒ¯ï¼‘", result);
     }
 
     /**
-     * testHankakuToZenkaku14B<br>
+     * testHankakuToZenkaku14ã€‚<br>
      * 
-     * i³íŒnjA<br>
-     * ŠÏ“_F<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰A<br>
+     * è¦³ç‚¹ï¼š<br>
      * <br>
-     * “ü—Í’lF”¼Šp¦<br>
-     * Šú‘Ò’lF‘SŠpƒ’
+     * å…¥åŠ›å€¤ï¼šåŠè§’ï½¦<br>
+     * æœŸå¾…å€¤ï¼šå…¨è§’ãƒ²
      * 
-     * à–¾F”¼Špƒ’‚ª•¶š—ñ‚Ì“r’†‚É‚ ‚éA‘SŠpƒ’‚É•ÏŠ·‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šåŠè§’ãƒ²ãŒæ–‡å­—åˆ—ã®é€”ä¸­ã«ã‚ã‚‹æ™‚ã€å…¨è§’ãƒ²ã«å¤‰æ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testHankakuToZenkaku14() throws Exception {
-        //“ü—Í’l‚Ìİ’è
-        String input = "B¦8";
+        //å…¥åŠ›å€¤ã®è¨­å®š
+        String input = "Bï½¦8";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.hankakuToZenkaku(input);
 
-        //Œ‹‰ÊŠm”F
-        assertEquals("‚aƒ’‚W", result);
+        //çµæœç¢ºèª
+        assertEquals("ï¼¢ãƒ²ï¼˜", result);
     }
 
     /**
-     * testHankakuToZenkaku15B<br>
+     * testHankakuToZenkaku15ã€‚<br>
      * 
-     * i³íŒnjA<br>
-     * ŠÏ“_F<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰A<br>
+     * è¦³ç‚¹ï¼š<br>
      * <br>
-     * “ü—Í’lF”¼ŠpÜŞ<br>
-     * Šú‘Ò’lF‘SŠpÜŞ
+     * å…¥åŠ›å€¤ï¼šåŠè§’ï¾œï¾<br>
+     * æœŸå¾…å€¤ï¼šå…¨è§’ï¾œï¾
      * 
-     * à–¾F”¼Šp‘÷“_ƒ‚ª•¶š—ñ‚Ì“r’†‚É‚ ‚éA‘SŠp‘÷“_ƒ‚É•ÏŠ·‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šåŠè§’æ¿ç‚¹ãƒ¯ãŒæ–‡å­—åˆ—ã®é€”ä¸­ã«ã‚ã‚‹æ™‚ã€å…¨è§’æ¿ç‚¹ãƒ¯ã«å¤‰æ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testHankakuToZenkaku15() throws Exception {
-        //“ü—Í’l‚Ìİ’è
-        String input = "BÜŞ8";
+        //å…¥åŠ›å€¤ã®è¨­å®š
+        String input = "Bï¾œï¾8";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.hankakuToZenkaku(input);
 
-        //Œ‹‰ÊŠm”F
-        assertEquals("‚a\u30f7‚W", result);
+        //çµæœç¢ºèª
+        assertEquals("ï¼¢\u30f7ï¼˜", result);
     }
 
     /**
-     * testHankakuToZenkaku16B<br>
+     * testHankakuToZenkaku16ã€‚<br>
      * 
-     * i³íŒnjA<br>
-     * ŠÏ“_F<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰A<br>
+     * è¦³ç‚¹ï¼š<br>
      * <br>
-     * “ü—Í’lF”¼Šp¦Ş<br>
-     * Šú‘Ò’lF‘SŠp¦Ş
+     * å…¥åŠ›å€¤ï¼šåŠè§’ï½¦ï¾<br>
+     * æœŸå¾…å€¤ï¼šå…¨è§’ï½¦ï¾
      * 
-     * à–¾F”¼Šp‘÷“_ƒ‚ª•¶š—ñ‚Ì“r’†‚É‚ ‚éA‘SŠp‘÷“_ƒ‚É•ÏŠ·‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šåŠè§’æ¿ç‚¹ãƒ¯ãŒæ–‡å­—åˆ—ã®é€”ä¸­ã«ã‚ã‚‹æ™‚ã€å…¨è§’æ¿ç‚¹ãƒ¯ã«å¤‰æ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testHankakuToZenkaku16() throws Exception {
-        //“ü—Í’l‚Ìİ’è
-        String input = "B¦Ş8";
+        //å…¥åŠ›å€¤ã®è¨­å®š
+        String input = "Bï½¦ï¾8";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.hankakuToZenkaku(input);
 
-        //Œ‹‰ÊŠm”F
-        assertEquals("‚a\u30fa‚W", result);
+        //çµæœç¢ºèª
+        assertEquals("ï¼¢\u30faï¼˜", result);
     }
 
     /**
-     * testHankakuToZenkaku17B<br>
+     * testHankakuToZenkaku17ã€‚<br>
      * 
-     * i³íŒnjA<br>
-     * ŠÏ“_F<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰A<br>
+     * è¦³ç‚¹ï¼š<br>
      * <br>
-     * “ü—Í’lF”¼ŠpÜ<br>
-     * Šú‘Ò’lF‘SŠpƒ
+     * å…¥åŠ›å€¤ï¼šåŠè§’ï¾œ<br>
+     * æœŸå¾…å€¤ï¼šå…¨è§’ãƒ¯
      * 
-     * à–¾F”¼Špƒ‚ª•¶š—ñ‚Ì––”ö‚É‚ ‚éA‘SŠpƒ‚É•ÏŠ·‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šåŠè§’ãƒ¯ãŒæ–‡å­—åˆ—ã®æœ«å°¾ã«ã‚ã‚‹æ™‚ã€å…¨è§’ãƒ¯ã«å¤‰æ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testHankakuToZenkaku17() throws Exception {
-        //“ü—Í’l‚Ìİ’è
-        String input = "±AÜ";
+        //å…¥åŠ›å€¤ã®è¨­å®š
+        String input = "ï½±Aï¾œ";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.hankakuToZenkaku(input);
 
-        //Œ‹‰ÊŠm”F
-        assertEquals("ƒA‚`ƒ", result);
+        //çµæœç¢ºèª
+        assertEquals("ã‚¢ï¼¡ãƒ¯", result);
     }
 
     /**
-     * testHankakuToZenkaku18B<br>
+     * testHankakuToZenkaku18ã€‚<br>
      * 
-     * i³íŒnjA<br>
-     * ŠÏ“_F<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰A<br>
+     * è¦³ç‚¹ï¼š<br>
      * <br>
-     * “ü—Í’lF”¼Šp¦<br>
-     * Šú‘Ò’lF‘SŠpƒ’
+     * å…¥åŠ›å€¤ï¼šåŠè§’ï½¦<br>
+     * æœŸå¾…å€¤ï¼šå…¨è§’ãƒ²
      * 
-     * à–¾F”¼Špƒ’‚ª•¶š—ñ‚Ì––”ö‚É‚ ‚éA‘SŠpƒ’‚É•ÏŠ·‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šåŠè§’ãƒ²ãŒæ–‡å­—åˆ—ã®æœ«å°¾ã«ã‚ã‚‹æ™‚ã€å…¨è§’ãƒ²ã«å¤‰æ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testHankakuToZenkaku18() throws Exception {
-        //“ü—Í’l‚Ìİ’è
-        String input = "tB¦";
+        //å…¥åŠ›å€¤ã®è¨­å®š
+        String input = "tBï½¦";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.hankakuToZenkaku(input);
 
-        //Œ‹‰ÊŠm”F
-        assertEquals("‚”‚aƒ’", result);
+        //çµæœç¢ºèª
+        assertEquals("ï½”ï¼¢ãƒ²", result);
     }
 
     /**
-     * testHankakuToZenkaku19B<br>
+     * testHankakuToZenkaku19ã€‚<br>
      * 
-     * i³íŒnjA<br>
-     * ŠÏ“_F<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰A<br>
+     * è¦³ç‚¹ï¼š<br>
      * <br>
-     * “ü—Í’lF”¼ŠpÜŞ<br>
-     * Šú‘Ò’lF‘SŠpÜŞ
+     * å…¥åŠ›å€¤ï¼šåŠè§’ï¾œï¾<br>
+     * æœŸå¾…å€¤ï¼šå…¨è§’ï¾œï¾
      * 
-     * à–¾F”¼Šp‘÷“_ƒ‚ª•¶š—ñ‚Ì––”ö‚É‚ ‚éA‘SŠp‘÷“_ƒ‚É•ÏŠ·‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šåŠè§’æ¿ç‚¹ãƒ¯ãŒæ–‡å­—åˆ—ã®æœ«å°¾ã«ã‚ã‚‹æ™‚ã€å…¨è§’æ¿ç‚¹ãƒ¯ã«å¤‰æ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testHankakuToZenkaku19() throws Exception {
-        //“ü—Í’l‚Ìİ’è
-        String input = "»BÜŞ";
+        //å…¥åŠ›å€¤ã®è¨­å®š
+        String input = "ï½»Bï¾œï¾";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.hankakuToZenkaku(input);
 
-        //Œ‹‰ÊŠm”F
-        assertEquals("ƒT‚a\u30f7", result);
+        //çµæœç¢ºèª
+        assertEquals("ã‚µï¼¢\u30f7", result);
     }
 
     /**
-     * testHankakuToZenkaku20B<br>
+     * testHankakuToZenkaku20ã€‚<br>
      * 
-     * i³íŒnjA<br>
-     * ŠÏ“_F<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰A<br>
+     * è¦³ç‚¹ï¼š<br>
      * <br>
-     * “ü—Í’lF”¼Šp¦Ş<br>
-     * Šú‘Ò’lF‘SŠp¦Ş
+     * å…¥åŠ›å€¤ï¼šåŠè§’ï½¦ï¾<br>
+     * æœŸå¾…å€¤ï¼šå…¨è§’ï½¦ï¾
      * 
-     * à–¾F”¼Šp‘÷“_ƒ’‚ª•¶š—ñ‚Ì––”ö‚É‚ ‚éA‘SŠp‘÷“_ƒ’‚É•ÏŠ·‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šåŠè§’æ¿ç‚¹ãƒ²ãŒæ–‡å­—åˆ—ã®æœ«å°¾ã«ã‚ã‚‹æ™‚ã€å…¨è§’æ¿ç‚¹ãƒ²ã«å¤‰æ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testHankakuToZenkaku20() throws Exception {
-        //“ü—Í’l‚Ìİ’è
-        String input = "±B¦Ş";
+        //å…¥åŠ›å€¤ã®è¨­å®š
+        String input = "ï½±Bï½¦ï¾";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.hankakuToZenkaku(input);
 
-        //Œ‹‰ÊŠm”F
-        assertEquals("ƒA‚a\u30fa", result);
+        //çµæœç¢ºèª
+        assertEquals("ã‚¢ï¼¢\u30fa", result);
     }
 
     /**
-     * testHankakuToZenkaku21B<br>
+     * testHankakuToZenkaku21ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA<br>
      * <br>
-     * “ü—Í’lF”¼Šp‘SŠp¬‡•¶š"<br>
-     * Šú‘Ò’lF‘SŠp•¶š
+     * å…¥åŠ›å€¤ï¼šåŠè§’å…¨è§’æ··åˆæ–‡å­—"<br>
+     * æœŸå¾…å€¤ï¼šå…¨è§’æ–‡å­—
      * 
-     * à–¾F“ü—Í’l‚É‘SŠp•¶š‚Æ”¼Šp•¶š‚ğ¬‡‚³‚¹‚½‚à‚Ì‚ğİ’è‚µA<br>
-     * ‘S‚Ä‘SŠp•¶š‚É•ÏŠ·‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šå…¥åŠ›å€¤ã«å…¨è§’æ–‡å­—ã¨åŠè§’æ–‡å­—ã‚’æ··åˆã•ã›ãŸã‚‚ã®ã‚’è¨­å®šã—ã€<br>
+     * å…¨ã¦å…¨è§’æ–‡å­—ã«å¤‰æ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testHankakuToZenkaku21() throws Exception {
-        //“ü—Í’l‚Ìİ’è
-        String input = "ƒT¼ƒY¾Şƒ\";
+        //å…¥åŠ›å€¤ã®è¨­å®š
+        String input = "ã‚µï½¼ã‚ºï½¾ï¾ã‚½";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.hankakuToZenkaku(input);
 
-        //Œ‹‰ÊŠm”F
-        assertEquals("ƒTƒVƒYƒ[ƒ\", result);
+        //çµæœç¢ºèª
+        assertEquals("ã‚µã‚·ã‚ºã‚¼ã‚½", result);
     }
 
     /**
-     * testHankakuToZenkaku22B<br>
+     * testHankakuToZenkaku22ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FC<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šC<br>
      * <br>
-     * “ü—Í’lFnull<br>
-     * Šú‘Ò’lFnull
-     * à–¾F’uŠ·‘ÎÛ•¶š—ñ‚ªnull‚ÌAnull‚ğ–ß‚è’l‚Æ‚µˆ—‚ğI—¹‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ï¼šnull<br>
+     * æœŸå¾…å€¤ï¼šnull
+     * èª¬æ˜ï¼šç½®æ›å¯¾è±¡æ–‡å­—åˆ—ãŒnullã®æ™‚ã€nullã‚’æˆ»ã‚Šå€¤ã¨ã—å‡¦ç†ã‚’çµ‚äº†ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testHankakuToZenkaku22() throws Exception {
-        //“ü—Í’l‚Ìİ’è
+        //å…¥åŠ›å€¤ã®è¨­å®š
         String input = null;
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.hankakuToZenkaku(input);
 
-        //Œ‹‰ÊŠm”F
+        //çµæœç¢ºèª
         assertNull(result);
     }
 
     /**
-     * testHankakuToZenkaku23B<br>
+     * testHankakuToZenkaku23ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FC<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šC<br>
      * <br>
-     * “ü—Í’lF‹ó•¶š<br>
-     * Šú‘Ò’lF‹ó•¶š
+     * å…¥åŠ›å€¤ï¼šç©ºæ–‡å­—<br>
+     * æœŸå¾…å€¤ï¼šç©ºæ–‡å­—
      * 
-     * à–¾F’uŠ·‘ÎÛ•¶š—ñ‚ª‹ó•¶š‚ÌA‹ó•¶š‚ğ–ß‚è’l‚Æ‚µˆ—‚ğI—¹‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šç½®æ›å¯¾è±¡æ–‡å­—åˆ—ãŒç©ºæ–‡å­—ã®æ™‚ã€ç©ºæ–‡å­—ã‚’æˆ»ã‚Šå€¤ã¨ã—å‡¦ç†ã‚’çµ‚äº†ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testHankakuToZenkaku23() throws Exception {
-        //“ü—Í’l‚Ìİ’è
+        //å…¥åŠ›å€¤ã®è¨­å®š
         String input = "";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.hankakuToZenkaku(input);
 
-        //Œ‹‰ÊŠm”F
+        //çµæœç¢ºèª
         assertEquals("", result);
     }
 
     /**
-     * testHankakuToZenkaku24B<br>
+     * testHankakuToZenkaku24ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA<br>
      * <br>
-     * “ü—Í’lF”¼Šp”¼‘÷“_•¶š¶ß·ß<br>
-     * Šú‘Ò’lF‘SŠp”¼‘÷“_•¶šƒJKƒLK
+     * å…¥åŠ›å€¤ï¼šåŠè§’åŠæ¿ç‚¹æ–‡å­—ï½¶ï¾Ÿï½·ï¾Ÿ<br>
+     * æœŸå¾…å€¤ï¼šå…¨è§’åŠæ¿ç‚¹æ–‡å­—ã‚«ã‚œã‚­ã‚œ
      * 
-     * à–¾F”¼Šp”¼‘÷“_•¶š‚ª‘SŠp”¼‘÷“_•¶š‚É•ÏŠ·‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šåŠè§’åŠæ¿ç‚¹æ–‡å­—ãŒå…¨è§’åŠæ¿ç‚¹æ–‡å­—ã«å¤‰æ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testHankakuToZenkaku24() throws Exception {
-        //“ü—Í’l‚Ìİ’è
-        String input = "¶ß·ß";
+        //å…¥åŠ›å€¤ã®è¨­å®š
+        String input = "ï½¶ï¾Ÿï½·ï¾Ÿ";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.hankakuToZenkaku(input);
 
-        //Œ‹‰ÊŠm”F
-        assertEquals("ƒJKƒLK", result);
+        //çµæœç¢ºèª
+        assertEquals("ã‚«ã‚œã‚­ã‚œ", result);
     }
 
     /**
-     * testZenkakuToHankaku01B<br>
+     * testZenkakuToHankaku01ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA<br>
      * <br>
-     * “ü—Í’lF‘SŠp•¶š<br>
-     * Šú‘Ò’lF”¼Šp•¶ši•¡”•¶š•ÏŠ·j<br>
+     * å…¥åŠ›å€¤ï¼šå…¨è§’æ–‡å­—<br>
+     * æœŸå¾…å€¤ï¼šåŠè§’æ–‡å­—ï¼ˆè¤‡æ•°æ–‡å­—å¤‰æ›ï¼‰<br>
      * 
-     * à–¾F‘SŠp•¶š‚ª”¼Šp•¶š‚É•¡”•¶š•ÏŠ·‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šå…¨è§’æ–‡å­—ãŒåŠè§’æ–‡å­—ã«è¤‡æ•°æ–‡å­—å¤‰æ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testZenkakuToHankaku01() throws Exception {
-        //“ü—Í’l‚Ìİ’è
-        String input = "‚`IƒA";
+        //å…¥åŠ›å€¤ã®è¨­å®š
+        String input = "ï¼¡ï¼ã‚¢";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.zenkakuToHankaku(input);
 
-        //Œ‹‰ÊŠm”F
-        assertEquals("A!±", result);
+        //çµæœç¢ºèª
+        assertEquals("A!ï½±", result);
     }
 
     /**
-     * testZenkakuToHankaku02B<br>
+     * testZenkakuToHankaku02ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA<br>
      * <br>
-     * “ü—Í’lF‘SŠp•¶š<br>
-     * Šú‘Ò’lF”¼Šp•¶šiˆê•¶š•ÏŠ·j<br>
+     * å…¥åŠ›å€¤ï¼šå…¨è§’æ–‡å­—<br>
+     * æœŸå¾…å€¤ï¼šåŠè§’æ–‡å­—ï¼ˆä¸€æ–‡å­—å¤‰æ›ï¼‰<br>
      * 
-     * à–¾F‘SŠp•¶š‚É‘Î‚µ‚Ä”¼Šp•¶š‚Éˆê•¶š•ÏŠ·‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šå…¨è§’æ–‡å­—ã«å¯¾ã—ã¦åŠè§’æ–‡å­—ã«ä¸€æ–‡å­—å¤‰æ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testZenkakuToHankaku02() throws Exception {
-        //“ü—Í’l‚Ìİ’è
-        String input = "‚`";
+        //å…¥åŠ›å€¤ã®è¨­å®š
+        String input = "ï¼¡";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.zenkakuToHankaku(input);
 
-        //Œ‹‰ÊŠm”F
+        //çµæœç¢ºèª
         assertEquals("A", result);
     }
 
     /**
-     * testZenkakuToHankaku02B<br>
+     * testZenkakuToHankaku02ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA<br>
      * <br>
-     * “ü—Í’lF‘SŠpƒJƒTƒ^ƒn<br>
-     * Šú‘Ò’lF”¼ŠpƒJƒTƒ^ƒnj<br>
+     * å…¥åŠ›å€¤ï¼šå…¨è§’ã‚«ã‚µã‚¿ãƒ<br>
+     * æœŸå¾…å€¤ï¼šåŠè§’ã‚«ã‚µã‚¿ãƒï¼‰<br>
      * 
-     * à–¾F‘SŠpƒJƒTƒ^ƒn‚ª”¼ŠpƒJƒTƒ^ƒn‚É•ÏŠ·‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šå…¨è§’ã‚«ã‚µã‚¿ãƒãŒåŠè§’ã‚«ã‚µã‚¿ãƒã«å¤‰æ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testZenkakuToHankaku03() throws Exception {
-        //“ü—Í’l‚Ìİ’è
-        String input = "ƒJƒTƒ^ƒn";
+        //å…¥åŠ›å€¤ã®è¨­å®š
+        String input = "ã‚«ã‚µã‚¿ãƒ";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.zenkakuToHankaku(input);
 
-        //Œ‹‰ÊŠm”F
-        assertEquals("¶»ÀÊ", result);
+        //çµæœç¢ºèª
+        assertEquals("ï½¶ï½»ï¾€ï¾Š", result);
     }
 
     /**
-     * testZenkakuToHankaku04B<br>
+     * testZenkakuToHankaku04ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA<br>
      * <br>
-     * “ü—Í’lF‘SŠp‘÷“_<br>
-     * Šú‘Ò’lF”¼Šp‘÷“_<br>
+     * å…¥åŠ›å€¤ï¼šå…¨è§’æ¿ç‚¹<br>
+     * æœŸå¾…å€¤ï¼šåŠè§’æ¿ç‚¹<br>
      * 
-     * à–¾F‘SŠp‘÷“_•¶š‚ª“ñ•¶š‚É•ª‰ğ‚³‚ê‚Ä•\¦‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šå…¨è§’æ¿ç‚¹æ–‡å­—ãŒäºŒæ–‡å­—ã«åˆ†è§£ã•ã‚Œã¦è¡¨ç¤ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testZenkakuToHankaku04() throws Exception {
-        //“ü—Í’l‚Ìİ’è
-        String input = "ƒKƒUƒ_";
+        //å…¥åŠ›å€¤ã®è¨­å®š
+        String input = "ã‚¬ã‚¶ãƒ€";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.zenkakuToHankaku(input);
 
-        //Œ‹‰ÊŠm”F
-        assertEquals("¶Ş»ŞÀŞ", result);
+        //çµæœç¢ºèª
+        assertEquals("ï½¶ï¾ï½»ï¾ï¾€ï¾", result);
     }
 
     /**
-     * testZenkakuToHankaku05B<br>
+     * testZenkakuToHankaku05ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA<br>
      * <br>
-     * “ü—Í’lF‘SŠp”¼‘÷“_•¶š<br>
-     * Šú‘Ò’lF”¼Šp”¼‘÷“_•¶š<br>
+     * å…¥åŠ›å€¤ï¼šå…¨è§’åŠæ¿ç‚¹æ–‡å­—<br>
+     * æœŸå¾…å€¤ï¼šåŠè§’åŠæ¿ç‚¹æ–‡å­—<br>
      * 
-     * à–¾F‘SŠp‘÷“_E”¼‘÷“_•¶š‚ª“ñ•¶š‚É•ª‰ğ‚³‚ê‚Ä•\¦‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šå…¨è§’æ¿ç‚¹ãƒ»åŠæ¿ç‚¹æ–‡å­—ãŒäºŒæ–‡å­—ã«åˆ†è§£ã•ã‚Œã¦è¡¨ç¤ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testZenkakuToHankaku05() throws Exception {
-        //“ü—Í’l‚Ìİ’è
-        String input = "ƒpƒ|";
+        //å…¥åŠ›å€¤ã®è¨­å®š
+        String input = "ãƒ‘ãƒ";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.zenkakuToHankaku(input);
 
-        //Œ‹‰ÊŠm”F
-        assertEquals("ÊßÎß", result);
+        //çµæœç¢ºèª
+        assertEquals("ï¾Šï¾Ÿï¾ï¾Ÿ", result);
     }
 
     /**
-     * testZenkakuToHankaku06B<br>
+     * testZenkakuToHankaku06ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA<br>
      * <br>
-     * “ü—Í’lF‘SŠpƒ<br>
-     * Šú‘Ò’lF”¼Špƒ<br>
+     * å…¥åŠ›å€¤ï¼šå…¨è§’ãƒ¯<br>
+     * æœŸå¾…å€¤ï¼šåŠè§’ãƒ¯<br>
      * 
-     * à–¾F‘SŠpƒ‚ª”¼Špƒ‚É•ÏŠ·‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šå…¨è§’ãƒ¯ãŒåŠè§’ãƒ¯ã«å¤‰æ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testZenkakuToHankaku06() throws Exception {
-        //“ü—Í’l‚Ìİ’è
-        String input = "‚`ƒ";
+        //å…¥åŠ›å€¤ã®è¨­å®š
+        String input = "ï¼¡ãƒ¯";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.zenkakuToHankaku(input);
 
-        //Œ‹‰ÊŠm”F
-        assertEquals("AÜ", result);
+        //çµæœç¢ºèª
+        assertEquals("Aï¾œ", result);
     }
 
     /**
-     * testZenkakuToHankaku07B<br>
+     * testZenkakuToHankaku07ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA<br>
      * <br>
-     * “ü—Í’lF‘SŠpƒ’<br>
-     * Šú‘Ò’lF”¼Špƒ’<br>
+     * å…¥åŠ›å€¤ï¼šå…¨è§’ãƒ²<br>
+     * æœŸå¾…å€¤ï¼šåŠè§’ãƒ²<br>
      * 
-     * à–¾F‘SŠpƒ’‚ª”¼Špƒ’‚É•ÏŠ·‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šå…¨è§’ãƒ²ãŒåŠè§’ãƒ²ã«å¤‰æ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testZenkakuToHankaku07() throws Exception {
-        //“ü—Í’l‚Ìİ’è
-        String input = "‚`ƒ’";
+        //å…¥åŠ›å€¤ã®è¨­å®š
+        String input = "ï¼¡ãƒ²";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.zenkakuToHankaku(input);
 
-        //Œ‹‰ÊŠm”F
-        assertEquals("A¦", result);
+        //çµæœç¢ºèª
+        assertEquals("Aï½¦", result);
     }
 
     /**
-     * testZenkakuToHankaku08B<br>
+     * testZenkakuToHankaku08ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA<br>
      * <br>
-     * “ü—Í’lF‘SŠp‘÷“_ƒ<br>
-     * Šú‘Ò’lF”¼Šp‘÷“_ƒ<br>
+     * å…¥åŠ›å€¤ï¼šå…¨è§’æ¿ç‚¹ãƒ¯<br>
+     * æœŸå¾…å€¤ï¼šåŠè§’æ¿ç‚¹ãƒ¯<br>
      * 
-     * à–¾F‘SŠp‘÷“_ƒ‚ª”¼Šp‘÷“_Ü‚É•ÏŠ·‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šå…¨è§’æ¿ç‚¹ãƒ¯ãŒåŠè§’æ¿ç‚¹ï¾œã«å¤‰æ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testZenkakuToHankaku08() throws Exception {
-        //“ü—Í’l‚Ìİ’è
-        String input = "ƒA\u30f7";
+        //å…¥åŠ›å€¤ã®è¨­å®š
+        String input = "ã‚¢\u30f7";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.zenkakuToHankaku(input);
 
-        //Œ‹‰ÊŠm”F
-        assertEquals("±ÜŞ", result);
+        //çµæœç¢ºèª
+        assertEquals("ï½±ï¾œï¾", result);
     }
 
     /**
-     * testZenkakuToHankaku09B<br>
+     * testZenkakuToHankaku09ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA<br>
      * <br>
-     * “ü—Í’lF‘SŠp‘÷“_ƒ’<br>
-     * Šú‘Ò’lF”¼Šp‘÷“_ƒ’<br>
+     * å…¥åŠ›å€¤ï¼šå…¨è§’æ¿ç‚¹ãƒ²<br>
+     * æœŸå¾…å€¤ï¼šåŠè§’æ¿ç‚¹ãƒ²<br>
      * 
-     * à–¾F‘SŠp‘÷“_ƒ’‚ª”¼Šp‘÷“_¦‚É•ÏŠ·‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šå…¨è§’æ¿ç‚¹ãƒ²ãŒåŠè§’æ¿ç‚¹ï½¦ã«å¤‰æ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testZenkakuToHankaku09() throws Exception {
-        //“ü—Í’l‚Ìİ’è
-        String input = "\u30faƒ”";
+        //å…¥åŠ›å€¤ã®è¨­å®š
+        String input = "\u30faãƒ´";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.zenkakuToHankaku(input);
 
-        //Œ‹‰ÊŠm”F
-        assertEquals("¦Ş³Ş", result);
+        //çµæœç¢ºèª
+        assertEquals("ï½¦ï¾ï½³ï¾", result);
     }
 
     /**
-     * testZenkakuToHankaku10B<br>
+     * testZenkakuToHankaku10ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA<br>
      * <br>
-     * “ü—Í’lF”¼ŠpE‘SŠp¬‡•¶š<br>
-     * Šú‘Ò’lF”¼Šp•¶š‚É‘S‚Ä•ÏŠ·‚³‚ê‚é‚±‚Æ<br>
+     * å…¥åŠ›å€¤ï¼šåŠè§’ãƒ»å…¨è§’æ··åˆæ–‡å­—<br>
+     * æœŸå¾…å€¤ï¼šåŠè§’æ–‡å­—ã«å…¨ã¦å¤‰æ›ã•ã‚Œã‚‹ã“ã¨<br>
      * 
-     * à–¾F”¼ŠpE‘SŠp¬‡•¶š‚ª‘S‚Ä”¼Šp‚É•ÏŠ·‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šåŠè§’ãƒ»å…¨è§’æ··åˆæ–‡å­—ãŒå…¨ã¦åŠè§’ã«å¤‰æ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testZenkakuToHankaku10() throws Exception {
-        //“ü—Í’l‚Ìİ’è
-        String input = "ƒT\u30fa²Aƒs";
+        //å…¥åŠ›å€¤ã®è¨­å®š
+        String input = "ã‚µ\u30faï½²Aãƒ”";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.zenkakuToHankaku(input);
 
-        //Œ‹‰ÊŠm”F
-        assertEquals("»¦Ş²AËß", result);
+        //çµæœç¢ºèª
+        assertEquals("ï½»ï½¦ï¾ï½²Aï¾‹ï¾Ÿ", result);
     }
 
     /**
-     * testZenkakuToHankaku11B<br>
+     * testZenkakuToHankaku11ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FC<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šC<br>
      * <br>
-     * “ü—Í’lF‹ó•¶š<br>
-     * Šú‘Ò’lF‹ó•¶š<br>
+     * å…¥åŠ›å€¤ï¼šç©ºæ–‡å­—<br>
+     * æœŸå¾…å€¤ï¼šç©ºæ–‡å­—<br>
      * 
-     * à–¾F’uŠ·‘ÎÛ•¶š—ñ‚ª‹ó•¶š‚ÌA‹ó•¶š‚ğ–ß‚è’l‚Æ‚µˆ—‚ğI—¹‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šç½®æ›å¯¾è±¡æ–‡å­—åˆ—ãŒç©ºæ–‡å­—ã®æ™‚ã€ç©ºæ–‡å­—ã‚’æˆ»ã‚Šå€¤ã¨ã—å‡¦ç†ã‚’çµ‚äº†ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testZenkakuToHankaku11() throws Exception {
-        //“ü—Í’l‚Ìİ’è
+        //å…¥åŠ›å€¤ã®è¨­å®š
         String input = "";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.zenkakuToHankaku(input);
 
-        //Œ‹‰ÊŠm”F
+        //çµæœç¢ºèª
         assertEquals("", result);
     }
 
     /**
-     * testZenkakuToHankakuu12B<br>
+     * testZenkakuToHankakuu12ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FC<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šC<br>
      * <br>
-     * “ü—Í’lFnull<br>
-     * Šú‘Ò’lFnull<br>
+     * å…¥åŠ›å€¤ï¼šnull<br>
+     * æœŸå¾…å€¤ï¼šnull<br>
      * 
-     * à–¾F’uŠ·‘ÎÛ•¶š—ñ‚ªnull‚ÌAnull‚ğ–ß‚è’l‚Æ‚µˆ—‚ğI—¹‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šç½®æ›å¯¾è±¡æ–‡å­—åˆ—ãŒnullã®æ™‚ã€nullã‚’æˆ»ã‚Šå€¤ã¨ã—å‡¦ç†ã‚’çµ‚äº†ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testZenkakuToHankaku12() throws Exception {
-        //“ü—Í’l‚Ìİ’è
+        //å…¥åŠ›å€¤ã®è¨­å®š
         String input = null;
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.zenkakuToHankaku(input);
 
-        //Œ‹‰ÊŠm”F
+        //çµæœç¢ºèª
         assertEquals(null, result);
     }
 
     /**
-     * testZenkakuToHankakuu13B<br>
+     * testZenkakuToHankakuu13ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA<br>
      * <br>
-     * “ü—Í’lF”¼Šp‰»•s‰Â”\‚È•¶š<br>
-     * Šú‘Ò’lF‘SŠp•¶š<br>
+     * å…¥åŠ›å€¤ï¼šåŠè§’åŒ–ä¸å¯èƒ½ãªæ–‡å­—<br>
+     * æœŸå¾…å€¤ï¼šå…¨è§’æ–‡å­—<br>
      * 
-     * à–¾F”¼Šp‰»•s‰Â”\‚È•¶š—ñ‚ª‚»‚Ì‚Ü‚Ü‘SŠp•¶š—ñ‚Åo—Í‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šåŠè§’åŒ–ä¸å¯èƒ½ãªæ–‡å­—åˆ—ãŒãã®ã¾ã¾å…¨è§’æ–‡å­—åˆ—ã§å‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testZenkakuToHankaku13() throws Exception {
-        //“ü—Í’l‚Ìİ’è
-        String input = "“ü—Í’l";
+        //å…¥åŠ›å€¤ã®è¨­å®š
+        String input = "å…¥åŠ›å€¤";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.zenkakuToHankaku(input);
 
-        //Œ‹‰ÊŠm”F
-        assertEquals("“ü—Í’l", result);
+        //çµæœç¢ºèª
+        assertEquals("å…¥åŠ›å€¤", result);
     }
 
     /**
-     * testFilter01B<br>
+     * testFilter01ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA<br>
      * <br>
-     * “ü—Í’lF•¡”•¶š—ñiHTML’†‚É‚»‚Ì‚Ü‚Üo—Í‚·‚é‚Æ–â‘è‚ª‚ ‚é•¶š‚ğˆê•”ŠÜ‚Şj<br>
-     * Šú‘Ò’lFHTMLƒƒ^•¶š<br>
+     * å…¥åŠ›å€¤ï¼šè¤‡æ•°æ–‡å­—åˆ—ï¼ˆHTMLä¸­ã«ãã®ã¾ã¾å‡ºåŠ›ã™ã‚‹ã¨å•é¡ŒãŒã‚ã‚‹æ–‡å­—ã‚’ä¸€éƒ¨å«ã‚€ï¼‰<br>
+     * æœŸå¾…å€¤ï¼šHTMLãƒ¡ã‚¿æ–‡å­—<br>
      * 
-     * à–¾F“ñ•¶šˆÈã‚Ì•¶š—ñ’†Aˆê•”‚ªHTMLƒƒ^•¶š‚É•ÏŠ·‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šäºŒæ–‡å­—ä»¥ä¸Šã®æ–‡å­—åˆ—ä¸­ã€ä¸€éƒ¨ãŒHTMLãƒ¡ã‚¿æ–‡å­—ã«å¤‰æ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testFilter01() throws Exception {
-        //“ü—Í’l‚Ìİ’è
+        //å…¥åŠ›å€¤ã®è¨­å®š
         String input = "a & b";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.filter(input);
 
-        //Œ‹‰ÊŠm”F
+        //çµæœç¢ºèª
         assertEquals("a &amp; b", result);
     }
 
     /**
-     * testFilter02B<br>
+     * testFilter02ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA<br>
      * <br>
-     * “ü—Í’lF•¡”•¶š—ñiHTML’†‚É‚»‚Ì‚Ü‚Üo—Í‚·‚é‚Æ–â‘è‚ª‚ ‚é•¶š‚ğŠÜ‚Ü‚È‚¢j<br>
-     * Šú‘Ò’lF‚»‚Ì‚Ü‚Üo—Í‚³‚ê‚é<br>
+     * å…¥åŠ›å€¤ï¼šè¤‡æ•°æ–‡å­—åˆ—ï¼ˆHTMLä¸­ã«ãã®ã¾ã¾å‡ºåŠ›ã™ã‚‹ã¨å•é¡ŒãŒã‚ã‚‹æ–‡å­—ã‚’å«ã¾ãªã„ï¼‰<br>
+     * æœŸå¾…å€¤ï¼šãã®ã¾ã¾å‡ºåŠ›ã•ã‚Œã‚‹<br>
      * 
-     * à–¾FHTMLƒƒ^•¶š‚É•ÏŠ·‚³‚ê‚é‚±‚Æ‚È‚­‚»‚Ì‚Ü‚Üo—Í‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šHTMLãƒ¡ã‚¿æ–‡å­—ã«å¤‰æ›ã•ã‚Œã‚‹ã“ã¨ãªããã®ã¾ã¾å‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testFilter02() throws Exception {
-        //“ü—Í’l‚Ìİ’è
+        //å…¥åŠ›å€¤ã®è¨­å®š
         String input = "abc";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.filter(input);
 
-        //Œ‹‰ÊŠm”F
+        //çµæœç¢ºèª
         assertEquals("abc", result);
     }
 
     /**
-     * testFilter03B<br>
+     * testFilter03ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA<br>
      * <br>
-     * “ü—Í’lFHTML’†‚É‚»‚Ì‚Ü‚Üo—Í‚·‚é‚Æ–â‘è‚ª‚ ‚é•¶ši•¡”•¶šj<br>
-     * Šú‘Ò’lFHTMLƒƒ^•¶š<br>
+     * å…¥åŠ›å€¤ï¼šHTMLä¸­ã«ãã®ã¾ã¾å‡ºåŠ›ã™ã‚‹ã¨å•é¡ŒãŒã‚ã‚‹æ–‡å­—ï¼ˆè¤‡æ•°æ–‡å­—ï¼‰<br>
+     * æœŸå¾…å€¤ï¼šHTMLãƒ¡ã‚¿æ–‡å­—<br>
      * 
-     * à–¾FHTMLƒƒ^•¶š‚É‘S‚Ä‚ª•ÏŠ·‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šHTMLãƒ¡ã‚¿æ–‡å­—ã«å…¨ã¦ãŒå¤‰æ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testFilter03() throws Exception {
-        //“ü—Í’l‚Ìİ’è
+        //å…¥åŠ›å€¤ã®è¨­å®š
         String input = "< & > \" '";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.filter(input);
 
-        //Œ‹‰ÊŠm”F
+        //çµæœç¢ºèª
         assertEquals("&lt; &amp; &gt; &quot; &#39;", result);
     }
 
     /**
-     * testFilter04B<br>
+     * testFilter04ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA<br>
      * <br>
-     * “ü—Í’lFHTML’†‚É‚»‚Ì‚Ü‚Üo—Í‚·‚é‚Æ–â‘è‚ª‚ ‚é•¶šiˆê•¶š•ÏŠ·j<br>
-     * Šú‘Ò’lFHTMLƒƒ^•¶š<br>
+     * å…¥åŠ›å€¤ï¼šHTMLä¸­ã«ãã®ã¾ã¾å‡ºåŠ›ã™ã‚‹ã¨å•é¡ŒãŒã‚ã‚‹æ–‡å­—ï¼ˆä¸€æ–‡å­—å¤‰æ›ï¼‰<br>
+     * æœŸå¾…å€¤ï¼šHTMLãƒ¡ã‚¿æ–‡å­—<br>
      * 
-     * à–¾FHTMLƒƒ^•¶š‚Éˆê•¶š•ÏŠ·‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šHTMLãƒ¡ã‚¿æ–‡å­—ã«ä¸€æ–‡å­—å¤‰æ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testFilter04() throws Exception {
-        //“ü—Í’l‚Ìİ’è
+        //å…¥åŠ›å€¤ã®è¨­å®š
         String input = "<";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.filter(input);
 
-        //Œ‹‰ÊŠm”F
+        //çµæœç¢ºèª
         assertEquals("&lt;", result);
     }
 
     /**
-     * testFilter05B<br>
+     * testFilter05ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA<br>
      * <br>
-     * “ü—Í’lFHTML’†‚É‚»‚Ì‚Ü‚Üo—Í‚µ‚Ä‚à–â‘è‚Ì‚È‚¢•¶šiˆê•¶š•ÏŠ·j<br>
-     * Šú‘Ò’lF‚»‚Ì‚Ü‚Üo—Í‚³‚ê‚é‚±‚Æ<br>
+     * å…¥åŠ›å€¤ï¼šHTMLä¸­ã«ãã®ã¾ã¾å‡ºåŠ›ã—ã¦ã‚‚å•é¡Œã®ãªã„æ–‡å­—ï¼ˆä¸€æ–‡å­—å¤‰æ›ï¼‰<br>
+     * æœŸå¾…å€¤ï¼šãã®ã¾ã¾å‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨<br>
      * 
-     * à–¾FHTMLƒƒ^•¶š‚É•ÏŠ·‚³‚ê‚é‚±‚Æ‚È‚­A‚»‚Ì‚Ü‚Üo—Í‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šHTMLãƒ¡ã‚¿æ–‡å­—ã«å¤‰æ›ã•ã‚Œã‚‹ã“ã¨ãªãã€ãã®ã¾ã¾å‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testFilter05() throws Exception {
-        //“ü—Í’l‚Ìİ’è
-        String input = "ƒA";
+        //å…¥åŠ›å€¤ã®è¨­å®š
+        String input = "ã‚¢";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.filter(input);
 
-        //Œ‹‰ÊŠm”F
-        assertEquals("ƒA", result);
+        //çµæœç¢ºèª
+        assertEquals("ã‚¢", result);
     }
 
     /**
-     * testFilter06B<br>
+     * testFilter06ã€‚<br>
      * 
-     * iˆÙíŒnj<br>
-     * ŠÏ“_FC<br>
+     * ï¼ˆç•°å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šC<br>
      * <br>
-     * “ü—Í’lFnull<br>
-     * Šú‘Ò’lFnull<br>
+     * å…¥åŠ›å€¤ï¼šnull<br>
+     * æœŸå¾…å€¤ï¼šnull<br>
      * 
-     * à–¾F’uŠ·‘ÎÛ•¶š—ñ‚ªnull‚Ì‚Æ‚«Anull‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šç½®æ›å¯¾è±¡æ–‡å­—åˆ—ãŒnullã®ã¨ãã€nullãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * @throws Exception ä¾‹å¤– */
     public void testFilter06() throws Exception {
-        //“ü—Í’l‚Ìİ’è
+        //å…¥åŠ›å€¤ã®è¨­å®š
         String input = null;
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.filter(input);
 
-        //Œ‹‰ÊŠm”F
+        //çµæœç¢ºèª
         assertNull(result);
     }
 
     /**
-     * testFilter07B<br>
+     * testFilter07ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FC<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šC<br>
      * <br>
-     * “ü—Í’lF‹ó•¶š<br>
-     * Šú‘Ò’lF‹ó•¶š<br>
+     * å…¥åŠ›å€¤ï¼šç©ºæ–‡å­—<br>
+     * æœŸå¾…å€¤ï¼šç©ºæ–‡å­—<br>
      * 
-     * à–¾FHTMLƒƒ^•¶š‚É•ÏŠ·‚³‚ê‚é‚±‚Æ‚È‚­A‹ó•¶š‚ª‚»‚Ì‚Ü‚Üo—Í‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šHTMLãƒ¡ã‚¿æ–‡å­—ã«å¤‰æ›ã•ã‚Œã‚‹ã“ã¨ãªãã€ç©ºæ–‡å­—ãŒãã®ã¾ã¾å‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testFilter07() throws Exception {
-        //“ü—Í’l‚Ìİ’è
+        //å…¥åŠ›å€¤ã®è¨­å®š
         String input = "";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.filter(input);
 
-        //Œ‹‰ÊŠm”F
+        //çµæœç¢ºèª
         assertEquals("", result);
     }
 
     /**
-     * testToLikeCondition01B<br>
+     * testToLikeCondition01ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA<br>
      * <br>
-     * “ü—Í’lFŒŸõğŒ•¶š—ñ<br>
-     * Šú‘Ò’lFLIKEqŒê‚Ìƒpƒ^[ƒ“•¶š—ñ(ˆê•¶š•ÏŠ·j<br>
+     * å…¥åŠ›å€¤ï¼šæ¤œç´¢æ¡ä»¶æ–‡å­—åˆ—<br>
+     * æœŸå¾…å€¤ï¼šLIKEè¿°èªã®ãƒ‘ã‚¿ãƒ¼ãƒ³æ–‡å­—åˆ—(ä¸€æ–‡å­—å¤‰æ›ï¼‰<br>
      * 
-     * à–¾FŒŸõğŒ•¶š—ñ‚ªˆê•¶šLIKEqŒê‚Ìƒpƒ^[ƒ“•¶š—ñ‚É•ÏŠ·‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šæ¤œç´¢æ¡ä»¶æ–‡å­—åˆ—ãŒä¸€æ–‡å­—LIKEè¿°èªã®ãƒ‘ã‚¿ãƒ¼ãƒ³æ–‡å­—åˆ—ã«å¤‰æ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testToLikeCondition01() throws Exception {
-        //“ü—Í’l‚Ìİ’è
+        //å…¥åŠ›å€¤ã®è¨­å®š
         String input = "a%";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.toLikeCondition(input);
 
-        //Œ‹‰ÊŠm”F
+        //çµæœç¢ºèª
         assertEquals("a~%%", result);
     }
 
     /**
-     * testToLikeCondition02B<br>
+     * testToLikeCondition02ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA<br>
      * <br>
-     * “ü—Í’lFƒGƒXƒP[ƒv•¶š<br>
-     * Šú‘Ò’lFƒGƒXƒP[ƒv<br>
+     * å…¥åŠ›å€¤ï¼šã‚¨ã‚¹ã‚±ãƒ¼ãƒ—æ–‡å­—<br>
+     * æœŸå¾…å€¤ï¼šã‚¨ã‚¹ã‚±ãƒ¼ãƒ—<br>
      * 
-     * à–¾FLIKEqŒê‚Ìƒpƒ^[ƒ“•¶š—ñ‚Å—p‚¢‚éƒGƒXƒP[ƒv•¶š‚ª<br>
-     * ƒGƒXƒP[ƒv•¶š‚ÅƒGƒXƒP[ƒv‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šLIKEè¿°èªã®ãƒ‘ã‚¿ãƒ¼ãƒ³æ–‡å­—åˆ—ã§ç”¨ã„ã‚‹ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—æ–‡å­—ãŒ<br>
+     * ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—æ–‡å­—ã§ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testToLikeCondition02() throws Exception {
-        //“ü—Í’l‚Ìİ’è
+        //å…¥åŠ›å€¤ã®è¨­å®š
         String input = "~";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.toLikeCondition(input);
 
-        //Œ‹‰ÊŠm”F
+        //çµæœç¢ºèª
         assertEquals("~~%", result);
     }
 
     /**
-     * testToLikeCondition03B<br>
+     * testToLikeCondition03ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA<br>
      * <br>
-     * “ü—Í’lFŒŸõğŒ•¶š—ñ<br>
-     * Šú‘Ò’lFLIKEqŒê‚Ìƒpƒ^[ƒ“•¶š—ñi•¡”•¶š•ÏŠ·j<br>
+     * å…¥åŠ›å€¤ï¼šæ¤œç´¢æ¡ä»¶æ–‡å­—åˆ—<br>
+     * æœŸå¾…å€¤ï¼šLIKEè¿°èªã®ãƒ‘ã‚¿ãƒ¼ãƒ³æ–‡å­—åˆ—ï¼ˆè¤‡æ•°æ–‡å­—å¤‰æ›ï¼‰<br>
      * 
-     * à–¾FŒŸõğŒ•¶š—ñ‚ª•¡”•¶š•¶šLIKEqŒê‚Ìƒpƒ^[ƒ“•¶š—ñ‚É•ÏŠ·‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šæ¤œç´¢æ¡ä»¶æ–‡å­—åˆ—ãŒè¤‡æ•°æ–‡å­—æ–‡å­—LIKEè¿°èªã®ãƒ‘ã‚¿ãƒ¼ãƒ³æ–‡å­—åˆ—ã«å¤‰æ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testToLikeCondition03() throws Exception {
-        //“ü—Í’l‚Ìİ’è
+        //å…¥åŠ›å€¤ã®è¨­å®š
         String input = "_a%";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.toLikeCondition(input);
 
-        //Œ‹‰ÊŠm”F
+        //çµæœç¢ºèª
         assertEquals("~_a~%%", result);
     }
 
     /**
-     * testToLikeCondition04B<br>
+     * testToLikeCondition04ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA<br>
      * <br>
-     * “ü—Í’lFŒŸõğŒ•¶š—ñˆÈŠO‚Ì•¶š—ñ<br>
-     * Šú‘Ò’lF‚»‚Ì‚Ü‚Üo—Í‚³‚ê‚é‚±‚Æ<br>
+     * å…¥åŠ›å€¤ï¼šæ¤œç´¢æ¡ä»¶æ–‡å­—åˆ—ä»¥å¤–ã®æ–‡å­—åˆ—<br>
+     * æœŸå¾…å€¤ï¼šãã®ã¾ã¾å‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨<br>
      * 
-     * à–¾FŒŸõğŒ•¶š—ñˆÈŠO‚Ì•¶š—ñ‚Í•ÏŠ·‚³‚ê‚é‚±‚Æ‚È‚­A‚»‚Ì‚Ü‚Üo—Í‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šæ¤œç´¢æ¡ä»¶æ–‡å­—åˆ—ä»¥å¤–ã®æ–‡å­—åˆ—ã¯å¤‰æ›ã•ã‚Œã‚‹ã“ã¨ãªãã€ãã®ã¾ã¾å‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testToLikeCondition04() throws Exception {
-        //“ü—Í’l‚Ìİ’è
+        //å…¥åŠ›å€¤ã®è¨­å®š
         String input = "aa";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.toLikeCondition(input);
 
-        //Œ‹‰ÊŠm”F
+        //çµæœç¢ºèª
         assertEquals("aa%", result);
     }
 
     /**
-     * testToLikeCondition05B<br>
+     * testToLikeCondition05ã€‚<br>
      * 
-     * iˆÙíŒnj<br>
-     * ŠÏ“_FC<br>
+     * ï¼ˆç•°å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šC<br>
      * <br>
-     * “ü—Í’lFnullj<br>
-     * Šú‘Ò’lFnull<br>
+     * å…¥åŠ›å€¤ï¼šnullï¼‰<br>
+     * æœŸå¾…å€¤ï¼šnull<br>
      * 
-     * à–¾F’uŠ·‘ÎÛ•¶š—ñ‚ªnull‚Ì‚Æ‚«Anull‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šç½®æ›å¯¾è±¡æ–‡å­—åˆ—ãŒnullã®ã¨ãã€nullãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * @throws Exception ä¾‹å¤– */
     public void testToLikeCondition05() throws Exception {
-        //“ü—Í’l‚Ìİ’è
+        //å…¥åŠ›å€¤ã®è¨­å®š
         String input = null;
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.toLikeCondition(input);
 
-        //Œ‹‰ÊŠm”F
+        //çµæœç¢ºèª
         assertNull(result);
     }
 
     /**
-     * testToLikeCondition06B<br>
+     * testToLikeCondition06ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FC<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šC<br>
      * <br>
-     * “ü—Í’lF‹ó•¶š<br>
-     * Šú‘Ò’lF%<br>
+     * å…¥åŠ›å€¤ï¼šç©ºæ–‡å­—<br>
+     * æœŸå¾…å€¤ï¼š%<br>
      * 
-     * à–¾F’uŠ·‘ÎÛ•¶š—ñ‚ª‹ó•¶š‚Ì‚Æ‚«A"%"‚ªo—Í‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šç½®æ›å¯¾è±¡æ–‡å­—åˆ—ãŒç©ºæ–‡å­—ã®ã¨ãã€"%"ãŒå‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testToLikeCondition06() throws Exception {
-        //“ü—Í’l‚Ìİ’è
+        //å…¥åŠ›å€¤ã®è¨­å®š
         String input = "";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.toLikeCondition(input);
 
-        //Œ‹‰ÊŠm”F
+        //çµæœç¢ºèª
         assertEquals("%", result);
     }
 
     /**
-     * testToLikeCondition07B<br>
+     * testToLikeCondition07ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FC<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šC<br>
      * <br>
-     * “ü—Í’lF“<br>
-     * Šú‘Ò’lF~“%<br>
+     * å…¥åŠ›å€¤ï¼šï¼…<br>
+     * æœŸå¾…å€¤ï¼š~ï¼…%<br>
      * 
-     * à–¾F’uŠ·‘ÎÛ•¶š—ñ‚ª"“"‚Ì‚Æ‚«A"~“%"‚ªo—Í‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šç½®æ›å¯¾è±¡æ–‡å­—åˆ—ãŒ"ï¼…"ã®ã¨ãã€"~ï¼…%"ãŒå‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testToLikeCondition07() throws Exception {
-        //“ü—Í’l‚Ìİ’è
-        String input = "“";
+        //å…¥åŠ›å€¤ã®è¨­å®š
+        String input = "ï¼…";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.toLikeCondition(input);
 
-        //Œ‹‰ÊŠm”F
-        assertEquals("~“%", result);
+        //çµæœç¢ºèª
+        assertEquals("~ï¼…%", result);
     }
 
     /**
-     * testToLikeCondition08B<br>
+     * testToLikeCondition08ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FC<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šC<br>
      * <br>
-     * “ü—Í’lFQ<br>
-     * Šú‘Ò’lF~Q%<br>
+     * å…¥åŠ›å€¤ï¼šï¼¿<br>
+     * æœŸå¾…å€¤ï¼š~ï¼¿%<br>
      * 
-     * à–¾F’uŠ·‘ÎÛ•¶š—ñ‚ª"Q"‚Ì‚Æ‚«A"~Q%"‚ªo—Í‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šç½®æ›å¯¾è±¡æ–‡å­—åˆ—ãŒ"ï¼¿"ã®ã¨ãã€"~ï¼¿%"ãŒå‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testToLikeCondition08() throws Exception {
-        //“ü—Í’l‚Ìİ’è
-        String input = "Q";
+        //å…¥åŠ›å€¤ã®è¨­å®š
+        String input = "ï¼¿";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.toLikeCondition(input);
 
-        //Œ‹‰ÊŠm”F
-        assertEquals("~Q%", result);
+        //çµæœç¢ºèª
+        assertEquals("~ï¼¿%", result);
     }
 
     /**
-     * testCapitalizeInitial01B<br>
+     * testCapitalizeInitial01ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FC<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šC<br>
      * <br>
-     * “ü—Í’lF"abc"<br>
-     * Šú‘Ò’lF"Abc"<br>
+     * å…¥åŠ›å€¤ï¼š"abc"<br>
+     * æœŸå¾…å€¤ï¼š"Abc"<br>
      * 
-     * à–¾Fˆê•¶š–Ú‚ª³í‚É‘å•¶š‚É•ÏŠ·‚Å‚«‚éê‡
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šä¸€æ–‡å­—ç›®ãŒæ­£å¸¸ã«å¤§æ–‡å­—ã«å¤‰æ›ã§ãã‚‹å ´åˆ
+     * @throws Exception ä¾‹å¤– */
     public void testCapitalizeInitial01() throws Exception {
-        //“ü—Í’l‚Ìİ’è
+        //å…¥åŠ›å€¤ã®è¨­å®š
         String input = "abc";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.capitalizeInitial(input);
 
-        //Œ‹‰ÊŠm”F
+        //çµæœç¢ºèª
         assertEquals("Abc", result);
     }
 
     /**
-     * testCapitalizeInitial02B<br>
+     * testCapitalizeInitial02ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FC<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šC<br>
      * <br>
-     * “ü—Í’lF"Abc"<br>
-     * Šú‘Ò’lF"Abc"<br>
+     * å…¥åŠ›å€¤ï¼š"Abc"<br>
+     * æœŸå¾…å€¤ï¼š"Abc"<br>
      * 
-     * à–¾Fˆê•¶š–Ú‚ªÅ‰‚©‚ç‘å•¶š‚Ìê‡
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šä¸€æ–‡å­—ç›®ãŒæœ€åˆã‹ã‚‰å¤§æ–‡å­—ã®å ´åˆ
+     * @throws Exception ä¾‹å¤– */
     public void testCapitalizeInitial02() throws Exception {
-        //“ü—Í’l‚Ìİ’è
+        //å…¥åŠ›å€¤ã®è¨­å®š
         String input = "Abc";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.capitalizeInitial(input);
 
-        //Œ‹‰ÊŠm”F
+        //çµæœç¢ºèª
         assertEquals("Abc", result);
     }
 
     /**
-     * testCapitalizeInitial03B<br>
+     * testCapitalizeInitial03ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FC<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šC<br>
      * <br>
-     * “ü—Í’lF"123"<br>
-     * Šú‘Ò’lF"123"<br>
+     * å…¥åŠ›å€¤ï¼š"123"<br>
+     * æœŸå¾…å€¤ï¼š"123"<br>
      * 
-     * à–¾Fˆê•¶š–Ú‚ª‘å•¶š‚É•ÏŠ·‚Å‚«‚È‚¢•¶š‚Ìê‡
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šä¸€æ–‡å­—ç›®ãŒå¤§æ–‡å­—ã«å¤‰æ›ã§ããªã„æ–‡å­—ã®å ´åˆ
+     * @throws Exception ä¾‹å¤– */
     public void testCapitalizeInitial03() throws Exception {
-        //“ü—Í’l‚Ìİ’è
+        //å…¥åŠ›å€¤ã®è¨­å®š
         String input = "123";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.capitalizeInitial(input);
 
-        //Œ‹‰ÊŠm”F
+        //çµæœç¢ºèª
         assertEquals("123", result);
     }
 
     /**
-     * testCapitalizeInitial04B<br>
+     * testCapitalizeInitial04ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FC<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šC<br>
      * <br>
-     * “ü—Í’lF""<br>
-     * Šú‘Ò’lF""<br>
+     * å…¥åŠ›å€¤ï¼š""<br>
+     * æœŸå¾…å€¤ï¼š""<br>
      * 
-     * à–¾F‹ó”’‚Ìê‡
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šç©ºç™½ã®å ´åˆ
+     * @throws Exception ä¾‹å¤– */
     public void testCapitalizeInitial04() throws Exception {
-        //“ü—Í’l‚Ìİ’è
+        //å…¥åŠ›å€¤ã®è¨­å®š
         String input = "";
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.capitalizeInitial(input);
 
-        //Œ‹‰ÊŠm”F
+        //çµæœç¢ºèª
         assertEquals("", result);
     }
 
     /**
-     * testCapitalizeInitial05B<br>
+     * testCapitalizeInitial05ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FC<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šC<br>
      * <br>
-     * “ü—Í’lF<br>
-     * Šú‘Ò’lFnull<br>
+     * å…¥åŠ›å€¤ï¼š<br>
+     * æœŸå¾…å€¤ï¼šnull<br>
      * 
-     * à–¾Fnull‚Ìê‡
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šnullã®å ´åˆ
+     * @throws Exception ä¾‹å¤– */
     public void testCapitalizeInitial05() throws Exception {
-        //“ü—Í’l‚Ìİ’è
+        //å…¥åŠ›å€¤ã®è¨­å®š
         String input = null;
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = StringUtil.capitalizeInitial(input);
 
-        //Œ‹‰ÊŠm”F
+        //çµæœç¢ºèª
         assertEquals(null, result);
     }
 
     /**
      * testGetByteLength01<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FC<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šC<br>
      * <br>
-     * “ü—Í’lFvalue=null<br>
-     * Šú‘Ò’lF0<br>
+     * å…¥åŠ›å€¤ï¼švalue=null<br>
+     * æœŸå¾…å€¤ï¼š0<br>
      * 
-     * à–¾Fˆø”value‚ªnull‚Ìê‡<br>
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šå¼•æ•°valueãŒnullã®å ´åˆ<br>
+     * @throws Exception ä¾‹å¤– */
     public void testGetByteLength01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         String value = null;
         String encoding = null;
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         int i = StringUtil.getByteLength(value, encoding);
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(0, i);
     }
 
     /**
      * testGetByteLength02<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FC<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šC<br>
      * <br>
-     * “ü—Í’lFvalue=‹ó•¶š<br>
-     * Šú‘Ò’lF0<br>
+     * å…¥åŠ›å€¤ï¼švalue=ç©ºæ–‡å­—<br>
+     * æœŸå¾…å€¤ï¼š0<br>
      * 
-     * à–¾Fˆø”value‚ª‹ó•¶š‚Ìê‡<br>
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šå¼•æ•°valueãŒç©ºæ–‡å­—ã®å ´åˆ<br>
+     * @throws Exception ä¾‹å¤– */
     public void testGetByteLength02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         String value = "";
         String encoding = null;
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         int i = StringUtil.getByteLength(value, encoding);
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(0, i);
     }
 
     /**
      * testGetByteLength03<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FC<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šC<br>
      * <br>
-     * “ü—Í’lFvalue="aaa", encoding=null<br>
-     * Šú‘Ò’lF3<br>
+     * å…¥åŠ›å€¤ï¼švalue="aaa", encoding=null<br>
+     * æœŸå¾…å€¤ï¼š3<br>
      * 
-     * à–¾Fˆø”encoding‚ªnull‚Ìê‡<br>
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šå¼•æ•°encodingãŒnullã®å ´åˆ<br>
+     * @throws Exception ä¾‹å¤– */
     public void testGetByteLength03() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         String value = "aaa";
         String encoding = null;
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         int i = StringUtil.getByteLength(value, encoding);
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(3, i);
     }
 
     /**
      * testGetByteLength04<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FC<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šC<br>
      * <br>
-     * “ü—Í’lFvalue="aaa", encoding=‹ó•¶š<br>
-     * Šú‘Ò’lF3<br>
+     * å…¥åŠ›å€¤ï¼švalue="aaa", encoding=ç©ºæ–‡å­—<br>
+     * æœŸå¾…å€¤ï¼š3<br>
      * 
-     * à–¾Fˆø”encoding‚ª‹ó•¶š‚Ìê‡<br>
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šå¼•æ•°encodingãŒç©ºæ–‡å­—ã®å ´åˆ<br>
+     * @throws Exception ä¾‹å¤– */
     public void testGetByteLength04() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         String value = "aaa";
         String encoding = "";
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         int i = StringUtil.getByteLength(value, encoding);
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(3, i);
     }
 
     /**
      * testGetByteLength05<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FC<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šC<br>
      * <br>
-     * “ü—Í’lFvalue="‚ ‚ ‚ ", encoding="UTF-8"<br>
-     * Šú‘Ò’lF9<br>
+     * å…¥åŠ›å€¤ï¼švalue="ã‚ã‚ã‚", encoding="UTF-8"<br>
+     * æœŸå¾…å€¤ï¼š9<br>
      * 
-     * à–¾Fˆø”encoding‚ª³‚µ‚¢•¶šƒGƒ“ƒR[ƒfƒBƒ“ƒO‚Ìê‡<br>
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šå¼•æ•°encodingãŒæ­£ã—ã„æ–‡å­—ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ã®å ´åˆ<br>
+     * @throws Exception ä¾‹å¤– */
     public void testGetByteLength05() throws Exception {
-        // ‘Oˆ—
-        String value = "‚ ‚ ‚ ";
+        // å‰å‡¦ç†
+        String value = "ã‚ã‚ã‚";
         String encoding = "UTF-8";
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         int i = StringUtil.getByteLength(value, encoding);
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(9, i);
     }
 
     /**
      * testGetByteLength06<br>
      * 
-     * iˆÙíŒnj<br>
-     * ŠÏ“_FG<br>
+     * ï¼ˆç•°å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šG<br>
      * <br>
-     * “ü—Í’lFvalue="aaa", encoding="aaa"<br>
-     * Šú‘Ò’lF—áŠOFUnsupportedEncodingException<br>
+     * å…¥åŠ›å€¤ï¼švalue="aaa", encoding="aaa"<br>
+     * æœŸå¾…å€¤ï¼šä¾‹å¤–ï¼šUnsupportedEncodingException<br>
      * 
-     * à–¾Fˆø”encoding‚ª•s³‚È•¶šƒGƒ“ƒR[ƒfƒBƒ“ƒO‚Ìê‡<br>
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šå¼•æ•°encodingãŒä¸æ­£ãªæ–‡å­—ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ã®å ´åˆ<br>
+     * @throws Exception ä¾‹å¤– */
     public void testGetByteLength06() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         String value = "aaa";
         String encoding = "aaa";
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         try {
             int i = StringUtil.getByteLength(value, encoding);
             fail();
         } catch (UnsupportedEncodingException e) {
-            // ”»’è
+            // åˆ¤å®š
             return;
         }
     }

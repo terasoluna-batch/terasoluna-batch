@@ -5,10 +5,10 @@ import java.io.IOException;
 import java.io.Reader;
 
 /**
- * LineFeed1LineReade‚ÌŒ±‚Å—˜—p‚·‚éƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgƒNƒ‰ƒXB<br>
- * ‹óÀ‘•<br>
- * “ü—Í‚³‚ê‚½•¶š—ñ‚ğread()‚·‚é‚±‚Æ‚Åˆê•¶š‚Ã‚Â•Ô‚·B
- * @author ›I‰¶”ü
+ * LineFeed1LineReadeã®è©¦é¨“ã§åˆ©ç”¨ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¯ãƒ©ã‚¹ã€‚<br>
+ * ç©ºå®Ÿè£…<br>
+ * å…¥åŠ›ã•ã‚ŒãŸæ–‡å­—åˆ—ã‚’read()ã™ã‚‹ã“ã¨ã§ä¸€æ–‡å­—ã¥ã¤è¿”ã™ã€‚
+ * @author å§œæ©ç¾
  */
 public class LineFeed1LineReader_ReaderStub01 extends Reader {
 
