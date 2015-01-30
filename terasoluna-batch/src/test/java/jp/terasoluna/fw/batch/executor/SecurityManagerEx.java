@@ -9,6 +9,13 @@ public class SecurityManagerEx extends SecurityManager {
         }
     }
 
+    public void checkPermission(Permission perm, Object context) {
+        if (!("javax.management.MBeanTrustPermission".equals(perm.getClass().getName())
+                && "register".equals(perm.getName()))) {
+            super.checkPermission(perm, context);
+        }
+    }
+
     public void checkExit(int status) {
         throw new ExitException(status);
     }

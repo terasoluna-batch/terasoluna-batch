@@ -1065,7 +1065,7 @@ public class ConvertUtilTest extends TestCase {
      * testConvertObjectClass04()
      * <br><br>
      * 
-     * (正常系)
+     * (異常系)
      * <br>
      * 観点：E
      * <br><br>
@@ -1073,10 +1073,10 @@ public class ConvertUtilTest extends TestCase {
      *         (引数) clazz:AlgorithmParameterGenerator.class<br>
      *         
      * <br>
-     * 期待値：(戻り値) <T>:Threadインスタンスの文字列表現<br>
+     * 期待値：(戻り値) <T>:IllegalArgumentExceptionがスローされる。<br>
      *         
      * <br>
-     * 引数objの型がclazzの型と互換性がない場合、objの文字列表現が返却されることを確認するテスト。
+     * 引数objの型がclazzの型と互換性がない場合、IllegalArgumentExceptionがスローされることを確認するテスト。
      * <br>
      * 
      * @throws Exception このメソッドで発生した例外
@@ -1086,12 +1086,12 @@ public class ConvertUtilTest extends TestCase {
         Thread thread = new Thread();
 
         // テスト実施
-        Object result = ConvertUtil.convert(thread,
-                AlgorithmParameterGenerator.class);
-
-        // 判定
-        assertTrue(result instanceof String);
-        assertEquals(thread.toString(), result);
+        try {
+           ConvertUtil.convert(thread,
+                    AlgorithmParameterGenerator.class);
+            fail();
+        } catch (IllegalArgumentException e) {
+        }
     }
 
     /**
@@ -1220,10 +1220,10 @@ public class ConvertUtilTest extends TestCase {
      *         (引数) clazz:AlgorithmParameterGenerator.class<br>
      *         
      * <br>
-     * 期待値：(戻り値) <T>:Threadインスタンスの文字列表現<br>
+     * 期待値：(戻り値) IllegalArgumentExceptionがスローされること。<br>
      *         
      * <br>
-     * 引数objの型がclazzの型と互換性がない場合、objの文字列表現が返却されることを確認するテスト。
+     * 引数objの型がclazzの型と互換性がない場合、IllegalArgumentExceptionがスローされることを確認するテスト。
      * <br>
      * 
      * @throws Exception このメソッドで発生した例外
@@ -1233,12 +1233,13 @@ public class ConvertUtilTest extends TestCase {
         Thread thread = new Thread();
 
         // テスト実施
-        Object result = ConvertUtil.convert(thread,
-                AlgorithmParameterGenerator.class);
-
-        // 判定
-        assertTrue(result instanceof String);
-        assertEquals(thread.toString(), result);
+        try {
+            ConvertUtil.convert(thread,
+                    AlgorithmParameterGenerator.class);
+            fail();
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -1423,7 +1424,7 @@ public class ConvertUtilTest extends TestCase {
      * testConvertObjectClassboolean06()
      * <br><br>
      * 
-     * (正常系)
+     * (異常系)
      * <br>
      * 観点：E
      * <br><br>
@@ -1432,10 +1433,10 @@ public class ConvertUtilTest extends TestCase {
      *         (引数) allowsNull:true<br>
      *         
      * <br>
-     * 期待値：(戻り値) <T>:Threadインスタンスの文字列表現<br>
+     * 期待値：(戻り値) <T>:IllegalArgumentExceptionがスローされること。<br>
      *         
      * <br>
-     * 引数clazzの型がobjの型と互換性がなかった場合、objの文字列表現が返却されることを確認するテスト。
+     * 引数clazzの型がobjの型と互換性がなかった場合、IllegalArgumentExceptionがスローされることを確認するテスト。
      * <br>
      * 
      * @throws Exception このメソッドで発生した例外
@@ -1445,13 +1446,13 @@ public class ConvertUtilTest extends TestCase {
         Thread thread = new Thread();
         
         // テスト実施
-        Object result = ConvertUtil.convert(thread,
-                AlgorithmParameterGenerator.class,
-                true);
-
-        // 判定
-        assertTrue(result instanceof String);
-        assertEquals(thread.toString(), result);
+        try {
+            ConvertUtil.convert(thread,
+                    AlgorithmParameterGenerator.class,
+                    true);
+            fail();
+        } catch (IllegalArgumentException e) {
+        }
     }
 
     /**

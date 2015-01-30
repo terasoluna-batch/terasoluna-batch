@@ -112,99 +112,72 @@
         <dependency>
             <groupId>jp.terasoluna.fw</groupId>
             <artifactId>terasoluna-commons</artifactId>
-            <version>${terasoluna.fw.version}</version>
         </dependency>
         <dependency>
             <groupId>jp.terasoluna.fw</groupId>
             <artifactId>terasoluna-filedao</artifactId>
-            <version>${terasoluna.filedao.version}</version>
         </dependency>
 
         <dependency>
             <groupId>jp.terasoluna.fw</groupId>
             <artifactId>terasoluna-logger</artifactId>
-            <version>${terasoluna.logger.version}</version>
         </dependency>
 
         <!-- その他OSSの依存ライブラリ -->
         <dependency>
-            <groupId>commons-dbcp</groupId>
-            <artifactId>commons-dbcp</artifactId>
-            <version>${commons.dbcp.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>commons-pool</groupId>
-                    <artifactId>commons-pool</artifactId>
-                </exclusion>
-            </exclusions>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>commons-pool</groupId>
-            <artifactId>commons-pool</artifactId>
-            <version>${commons.pool.version}</version>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-dbcp2</artifactId>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>${commons.lang3.version}</version>
         </dependency>
 
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-core</artifactId>
-            <version>${logback.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <version>${logback.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>${slf4j.version}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>jcl-over-slf4j</artifactId>
-            <version>${slf4j.version}</version>
         </dependency>
 
         <!-- Spring -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
-            <version>${spring.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
-            <version>${spring.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-orm</artifactId>
-            <version>${spring.version}</version>
             <scope>test</scope>
         </dependency>        
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-tx</artifactId>
-            <version>${spring.version}</version>
             <scope>test</scope>
         </dependency>
 
@@ -212,18 +185,14 @@
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
-            <version>${mybatis.version}</version>
         </dependency>
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis-spring</artifactId>
-            <version>${mybatis-spring.version}</version>
         </dependency>
-
         <dependency>
             <groupId>com.oracle</groupId>
-            <artifactId>ojdbc5</artifactId>
-            <version>${oracle.jdbc.version}</version>
+            <artifactId>ojdbc6</artifactId>
             <scope>provided</scope>
         </dependency>
 
@@ -231,13 +200,6 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>${junit4.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>junit-addons</groupId>
-            <artifactId>junit-addons</artifactId>
-            <version>${junit.addons.version}</version>
             <scope>test</scope>
         </dependency>
 
@@ -245,13 +207,18 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
-            <version>${spring.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-core</artifactId>
+                </exclusion>
+            </exclusions>
+            <version>${spring.test3.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>jp.terasoluna.fw.lib</groupId>
             <artifactId>terasoluna-unit</artifactId>
-            <version>${terasoluna.unit.version}</version>
             <scope>test</scope>
             <exclusions>
                 <exclusion>
@@ -264,22 +231,5 @@
                 </exclusion>
             </exclusions>
         </dependency>
-
-        <!-- dJUnit -->
-        <dependency>
-            <groupId>jp.co.dgic</groupId>
-            <artifactId>djunit</artifactId>
-            <version>${djunit.version}</version>
-            <scope>test</scope>
-        </dependency>
-
-        <!-- mockrunner -->
-        <dependency>
-            <groupId>com.mockrunner</groupId>
-            <artifactId>mockrunner</artifactId>
-            <version>${mockrunner.version}</version>
-            <scope>test</scope>
-        </dependency>
-
     </dependencies>
 </project>
