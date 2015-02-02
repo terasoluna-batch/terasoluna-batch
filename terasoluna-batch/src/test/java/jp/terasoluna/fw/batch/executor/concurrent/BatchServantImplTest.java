@@ -19,12 +19,12 @@ package jp.terasoluna.fw.batch.executor.concurrent;
 import jp.terasoluna.fw.ex.unit.testcase.DaoTestCase;
 
 /**
- * Ž–‘OðŒ<br>
+ * äº‹å‰æ¡ä»¶<br>
  * <br>
  * 
- * EƒWƒ‡ƒuŠÇ—ƒe[ƒuƒ‹‚ÉƒWƒ‡ƒu‚ª“o˜^‚³‚ê‚Ä‚¢‚é‚±‚ÆB<br>
- * EbeanDefƒtƒHƒ‹ƒ_‚ÉƒWƒ‡ƒuBean’è‹`ƒtƒ@ƒCƒ‹‚ª‘¶Ý‚·‚é‚±‚ÆB<br>
- * EBean’è‹`ƒtƒ@ƒCƒ‹‚ÉÝ’è‚³‚ê‚½ƒrƒWƒlƒXƒƒWƒbƒN‚ª‘¶Ý‚·‚é‚±‚Æ<br>
+ * ãƒ»ã‚¸ãƒ§ãƒ–ç®¡ç†ãƒ†ãƒ¼ãƒ–ãƒ«ã«ã‚¸ãƒ§ãƒ–ãŒç™»éŒ²ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã€‚<br>
+ * ãƒ»beanDefãƒ•ã‚©ãƒ«ãƒ€ã«ã‚¸ãƒ§ãƒ–Beanå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚‹ã“ã¨ã€‚<br>
+ * ãƒ»Beanå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ã«è¨­å®šã•ã‚ŒãŸãƒ“ã‚¸ãƒã‚¹ãƒ­ã‚¸ãƒƒã‚¯ãŒå­˜åœ¨ã™ã‚‹ã“ã¨<br>
  * 
  */
 public class BatchServantImplTest extends DaoTestCase {
@@ -41,13 +41,13 @@ public class BatchServantImplTest extends DaoTestCase {
 	/**
 	 * testRun01()<br>
 	 * <br>
-	 * Ž–‘Oó‘ÔFƒWƒ‡ƒuŠÇ—ƒe[ƒuƒ‹‚ÌƒWƒ‡ƒuƒV[ƒPƒ“ƒXƒR[ƒh‚É0000000001‚ª“o˜^‚³‚ê‚Ä‚¢‚é‚±‚Æ<br>
-	 * Ž–‘Oó‘ÔFƒWƒ‡ƒuŠÇ—ƒe[ƒuƒ‹‚ÌƒWƒ‡ƒu‹Æ–±ƒR[ƒh‚ÉB000001‚ª“o˜^‚³‚ê‚Ä‚¢‚é‚±‚Æ<br>
+	 * äº‹å‰çŠ¶æ…‹ï¼šã‚¸ãƒ§ãƒ–ç®¡ç†ãƒ†ãƒ¼ãƒ–ãƒ«ã®ã‚¸ãƒ§ãƒ–ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã‚³ãƒ¼ãƒ‰ã«0000000001ãŒç™»éŒ²ã•ã‚Œã¦ã„ã‚‹ã“ã¨<br>
+	 * äº‹å‰çŠ¶æ…‹ï¼šã‚¸ãƒ§ãƒ–ç®¡ç†ãƒ†ãƒ¼ãƒ–ãƒ«ã®ã‚¸ãƒ§ãƒ–æ¥­å‹™ã‚³ãƒ¼ãƒ‰ã«B000001ãŒç™»éŒ²ã•ã‚Œã¦ã„ã‚‹ã“ã¨<br>
 	 * <br>
-	 * ƒeƒXƒgŠT—vF³í‚ÉƒWƒ‡ƒu‚ªŽÀs‚³‚ê‚é‚±‚Æ‚ðŠm”F‚·‚é<br>
+	 * ãƒ†ã‚¹ãƒˆæ¦‚è¦ï¼šæ­£å¸¸ã«ã‚¸ãƒ§ãƒ–ãŒå®Ÿè¡Œã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹<br>
 	 * <br>
-	 * Šm”F€–ÚFƒWƒ‡ƒuƒV[ƒPƒ“ƒXƒR[ƒh‚ª³‚µ‚¢‚±‚Æ<br>
-	 * Šm”F€–ÚFƒrƒWƒlƒXƒƒWƒbƒNŒ‹‰Ê‚ª³‚µ‚¢‚±‚Æ<br>
+	 * ç¢ºèªé …ç›®ï¼šã‚¸ãƒ§ãƒ–ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã‚³ãƒ¼ãƒ‰ãŒæ­£ã—ã„ã“ã¨<br>
+	 * ç¢ºèªé …ç›®ï¼šãƒ“ã‚¸ãƒã‚¹ãƒ­ã‚¸ãƒƒã‚¯çµæžœãŒæ­£ã—ã„ã“ã¨<br>
 	 * <br>
 	 * 
 	 * @throws Exception
@@ -68,11 +68,11 @@ public class BatchServantImplTest extends DaoTestCase {
 	/**
 	 * testRun02()<br>
 	 * <br>
-	 * Ž–‘Oó‘ÔFƒWƒ‡ƒuŠÇ—ƒe[ƒuƒ‹‚ÌƒWƒ‡ƒuƒV[ƒPƒ“ƒXƒR[ƒh‚É0000000000‚ª“o˜^‚³‚ê‚Ä‚¢‚È‚¢‚±‚Æ<br>
+	 * äº‹å‰çŠ¶æ…‹ï¼šã‚¸ãƒ§ãƒ–ç®¡ç†ãƒ†ãƒ¼ãƒ–ãƒ«ã®ã‚¸ãƒ§ãƒ–ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã‚³ãƒ¼ãƒ‰ã«0000000000ãŒç™»éŒ²ã•ã‚Œã¦ã„ãªã„ã“ã¨<br>
 	 * <br>
-	 * ƒeƒXƒgŠT—vF³í‚ÉƒWƒ‡ƒu‚ªŽÀs‚³‚ê‚é‚±‚Æ‚ðŠm”F‚·‚é<br>
+	 * ãƒ†ã‚¹ãƒˆæ¦‚è¦ï¼šæ­£å¸¸ã«ã‚¸ãƒ§ãƒ–ãŒå®Ÿè¡Œã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹<br>
 	 * <br>
-	 * Šm”F€–ÚFƒrƒWƒlƒXƒƒWƒbƒNŒ‹‰Ê‚ª³‚µ‚¢‚±‚Æ<br>
+	 * ç¢ºèªé …ç›®ï¼šãƒ“ã‚¸ãƒã‚¹ãƒ­ã‚¸ãƒƒã‚¯çµæžœãŒæ­£ã—ã„ã“ã¨<br>
 	 * <br>
 	 * 
 	 * @throws Exception
@@ -91,12 +91,12 @@ public class BatchServantImplTest extends DaoTestCase {
 	/**
 	 * testRun03()<br>
 	 * <br>
-	 * Ž–‘Oó‘ÔFƒWƒ‡ƒuŠÇ—ƒe[ƒuƒ‹‚ÌƒWƒ‡ƒuƒV[ƒPƒ“ƒXƒR[ƒh‚É0000000002‚ª“o˜^‚³‚ê‚Ä‚¢‚é‚±‚Æ<br>
-	 * Ž–‘Oó‘ÔFƒWƒ‡ƒuŠÇ—ƒe[ƒuƒ‹‚ÌƒWƒ‡ƒu‹Æ–±ƒR[ƒh‚ÉB000002‚ª“o˜^‚³‚ê‚Ä‚¢‚é‚±‚Æ<br>
+	 * äº‹å‰çŠ¶æ…‹ï¼šã‚¸ãƒ§ãƒ–ç®¡ç†ãƒ†ãƒ¼ãƒ–ãƒ«ã®ã‚¸ãƒ§ãƒ–ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã‚³ãƒ¼ãƒ‰ã«0000000002ãŒç™»éŒ²ã•ã‚Œã¦ã„ã‚‹ã“ã¨<br>
+	 * äº‹å‰çŠ¶æ…‹ï¼šã‚¸ãƒ§ãƒ–ç®¡ç†ãƒ†ãƒ¼ãƒ–ãƒ«ã®ã‚¸ãƒ§ãƒ–æ¥­å‹™ã‚³ãƒ¼ãƒ‰ã«B000002ãŒç™»éŒ²ã•ã‚Œã¦ã„ã‚‹ã“ã¨<br>
 	 * <br>
-	 * ƒeƒXƒgŠT—vF³í‚ÉƒWƒ‡ƒu‚ªŽÀs‚³‚ê‚é‚±‚Æ‚ðŠm”F‚·‚é<br>
+	 * ãƒ†ã‚¹ãƒˆæ¦‚è¦ï¼šæ­£å¸¸ã«ã‚¸ãƒ§ãƒ–ãŒå®Ÿè¡Œã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹<br>
 	 * <br>
-	 * Šm”F€–ÚFƒrƒWƒlƒXƒƒWƒbƒNŒ‹‰Ê‚ª³‚µ‚¢‚±‚Æ<br>
+	 * ç¢ºèªé …ç›®ï¼šãƒ“ã‚¸ãƒã‚¹ãƒ­ã‚¸ãƒƒã‚¯çµæžœãŒæ­£ã—ã„ã“ã¨<br>
 	 * <br>
 	 * 
 	 * @throws Exception

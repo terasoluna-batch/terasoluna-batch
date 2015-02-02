@@ -26,7 +26,7 @@ import jp.terasoluna.fw.logger.TLogger;
 
 /**
  * FileCollector.<br>
- * “Æ—§‚µ‚½•ÊƒXƒŒƒbƒh‚ğ‹N“®‚µAFileQueryDAO‚ğ”ñ“¯Šú‚ÅÀs‚·‚éB
+ * ç‹¬ç«‹ã—ãŸåˆ¥ã‚¹ãƒ¬ãƒƒãƒ‰ã‚’èµ·å‹•ã—ã€FileQueryDAOã‚’éåŒæœŸã§å®Ÿè¡Œã™ã‚‹ã€‚
  * @param &ltP&gt
  */
 public class FileCollector<P> extends AbstractCollector<P> {
@@ -39,23 +39,23 @@ public class FileCollector<P> extends AbstractCollector<P> {
     /** FileQueryDAO */
     protected FileQueryDAO fileQueryDAO = null;
 
-    /** ƒtƒ@ƒCƒ‹–¼iâ‘ÎƒpƒX‚Ü‚½‚Í‘Š‘ÎƒpƒX‚Ì‚Ç‚¿‚ç‚©j */
+    /** ãƒ•ã‚¡ã‚¤ãƒ«åï¼ˆçµ¶å¯¾ãƒ‘ã‚¹ã¾ãŸã¯ç›¸å¯¾ãƒ‘ã‚¹ã®ã©ã¡ã‚‰ã‹ï¼‰ */
     protected String fileName = null;
 
-    /** 1s•ª‚Ì•¶š—ñ‚ğŠi”[‚·‚éƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgƒNƒ‰ƒX */
+    /** 1è¡Œåˆ†ã®æ–‡å­—åˆ—ã‚’æ ¼ç´ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¯ãƒ©ã‚¹ */
     protected Class<P> clazz = null;
 
     /**
-     * FileCollectorƒRƒ“ƒXƒgƒ‰ƒNƒ^.<br>
+     * FileCollectorã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿.<br>
      */
     protected FileCollector() {
     }
 
     /**
-     * FileCollectorƒRƒ“ƒXƒgƒ‰ƒNƒ^.<br>
-     * @param fileQueryDAO FileQueryDAOƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param fileName ƒtƒ@ƒCƒ‹–¼iâ‘ÎƒpƒX‚Ü‚½‚Í‘Š‘ÎƒpƒX‚Ì‚Ç‚¿‚ç‚©j
-     * @param clazz 1s•ª‚Ì•¶š—ñ‚ğŠi”[‚·‚éƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgƒNƒ‰ƒX
+     * FileCollectorã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿.<br>
+     * @param fileQueryDAO FileQueryDAOã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param fileName ãƒ•ã‚¡ã‚¤ãƒ«åï¼ˆçµ¶å¯¾ãƒ‘ã‚¹ã¾ãŸã¯ç›¸å¯¾ãƒ‘ã‚¹ã®ã©ã¡ã‚‰ã‹ï¼‰
+     * @param clazz 1è¡Œåˆ†ã®æ–‡å­—åˆ—ã‚’æ ¼ç´ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¯ãƒ©ã‚¹
      */
     public FileCollector(FileQueryDAO fileQueryDAO, String fileName,
             Class<P> clazz) {
@@ -63,11 +63,11 @@ public class FileCollector<P> extends AbstractCollector<P> {
     }
 
     /**
-     * FileCollectorƒRƒ“ƒXƒgƒ‰ƒNƒ^.<br>
-     * @param fileQueryDAO FileQueryDAOƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param fileName ƒtƒ@ƒCƒ‹–¼iâ‘ÎƒpƒX‚Ü‚½‚Í‘Š‘ÎƒpƒX‚Ì‚Ç‚¿‚ç‚©j
-     * @param clazz 1s•ª‚Ì•¶š—ñ‚ğŠi”[‚·‚éƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgƒNƒ‰ƒX
-     * @param exceptionHandler —áŠOƒnƒ“ƒhƒ‰
+     * FileCollectorã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿.<br>
+     * @param fileQueryDAO FileQueryDAOã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param fileName ãƒ•ã‚¡ã‚¤ãƒ«åï¼ˆçµ¶å¯¾ãƒ‘ã‚¹ã¾ãŸã¯ç›¸å¯¾ãƒ‘ã‚¹ã®ã©ã¡ã‚‰ã‹ï¼‰
+     * @param clazz 1è¡Œåˆ†ã®æ–‡å­—åˆ—ã‚’æ ¼ç´ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¯ãƒ©ã‚¹
+     * @param exceptionHandler ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©
      */
     public FileCollector(FileQueryDAO fileQueryDAO, String fileName,
             Class<P> clazz, CollectorExceptionHandler exceptionHandler) {
@@ -76,12 +76,12 @@ public class FileCollector<P> extends AbstractCollector<P> {
     }
 
     /**
-     * FileCollectorƒRƒ“ƒXƒgƒ‰ƒNƒ^.<br>
-     * @param fileQueryDAO FileQueryDAOƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param fileName ƒtƒ@ƒCƒ‹–¼iâ‘ÎƒpƒX‚Ü‚½‚Í‘Š‘ÎƒpƒX‚Ì‚Ç‚¿‚ç‚©j
-     * @param clazz 1s•ª‚Ì•¶š—ñ‚ğŠi”[‚·‚éƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgƒNƒ‰ƒX
-     * @param queueSize ƒLƒ…[‚ÌƒTƒCƒYi1ˆÈã‚ğİ’è‚·‚é‚±‚Æj
-     * @param exceptionHandler —áŠOƒnƒ“ƒhƒ‰
+     * FileCollectorã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿.<br>
+     * @param fileQueryDAO FileQueryDAOã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param fileName ãƒ•ã‚¡ã‚¤ãƒ«åï¼ˆçµ¶å¯¾ãƒ‘ã‚¹ã¾ãŸã¯ç›¸å¯¾ãƒ‘ã‚¹ã®ã©ã¡ã‚‰ã‹ï¼‰
+     * @param clazz 1è¡Œåˆ†ã®æ–‡å­—åˆ—ã‚’æ ¼ç´ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¯ãƒ©ã‚¹
+     * @param queueSize ã‚­ãƒ¥ãƒ¼ã®ã‚µã‚¤ã‚ºï¼ˆ1ä»¥ä¸Šã‚’è¨­å®šã™ã‚‹ã“ã¨ï¼‰
+     * @param exceptionHandler ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©
      */
     public FileCollector(FileQueryDAO fileQueryDAO, String fileName,
             Class<P> clazz, int queueSize,
@@ -91,8 +91,8 @@ public class FileCollector<P> extends AbstractCollector<P> {
     }
 
     /**
-     * FileCollectorƒRƒ“ƒXƒgƒ‰ƒNƒ^.<br>
-     * @param config FileCollectorConfig FileCollectorİ’è€–Ú
+     * FileCollectorã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿.<br>
+     * @param config FileCollectorConfig FileCollectorè¨­å®šé …ç›®
      */
     public FileCollector(FileCollectorConfig<P> config) {
         if (config == null) {
@@ -108,7 +108,7 @@ public class FileCollector<P> extends AbstractCollector<P> {
         this.exceptionHandler = config.getExceptionHandler();
 
         if (config.isExecuteByConstructor()) {
-            // ÀsŠJn
+            // å®Ÿè¡Œé–‹å§‹
             execute();
         }
     }
@@ -121,7 +121,7 @@ public class FileCollector<P> extends AbstractCollector<P> {
         FileLineIterator<P> fli = null;
         long dataCount = 0;
         try {
-            // FileQueryDAOÀs
+            // FileQueryDAOå®Ÿè¡Œ
             fli = this.fileQueryDAO.execute(this.fileName, this.clazz);
 
             if (fli != null) {
@@ -130,7 +130,7 @@ public class FileCollector<P> extends AbstractCollector<P> {
                     try {
                         Object value = fli.next();
 
-                        // æ“¾‚µ‚½ƒf[ƒ^‚ğ1ŒƒLƒ…[‚É‚Â‚ß‚é
+                        // å–å¾—ã—ãŸãƒ‡ãƒ¼ã‚¿ã‚’1ä»¶ã‚­ãƒ¥ãƒ¼ã«ã¤ã‚ã‚‹
                         addQueue(new DataValueObject(value, dataCount));
                     } catch (InterruptedException e) {
                         if (LOGGER.isTraceEnabled()) {
@@ -139,7 +139,7 @@ public class FileCollector<P> extends AbstractCollector<P> {
                         }
                         break;
                     } catch (Throwable e) {
-                        // ”­¶‚µ‚½—áŠO‚ğƒLƒ…[‚É‚Â‚ß‚é
+                        // ç™ºç”Ÿã—ãŸä¾‹å¤–ã‚’ã‚­ãƒ¥ãƒ¼ã«ã¤ã‚ã‚‹
                         try {
                             addQueue(new DataValueObject(e, dataCount));
                         } catch (InterruptedException ie) {
@@ -147,14 +147,14 @@ public class FileCollector<P> extends AbstractCollector<P> {
                             LOGGER.warn(LogId.WAL041003, ie);
                             break;
                         }
-                        // Ÿ‚Ìs‚ğ“Ç‚Ş‚½‚ßAƒ‹[ƒv‚ÍŒp‘±‚·‚é
+                        // æ¬¡ã®è¡Œã‚’èª­ã‚€ãŸã‚ã€ãƒ«ãƒ¼ãƒ—ã¯ç¶™ç¶šã™ã‚‹
                     }
                 }
             }
         } catch (Throwable e) {
-            // ƒVƒƒƒbƒgƒ_ƒEƒ“’†‚Í”­¶‚µ‚½—áŠO‚ğƒLƒ…[‚É‹l‚ß‚È‚¢
+            // ã‚·ãƒ£ãƒƒãƒˆãƒ€ã‚¦ãƒ³ä¸­ã¯ç™ºç”Ÿã—ãŸä¾‹å¤–ã‚’ã‚­ãƒ¥ãƒ¼ã«è©°ã‚ãªã„
             if (!isFinish()) {
-                // ”­¶‚µ‚½—áŠO‚ğƒLƒ…[‚É‚Â‚ß‚é
+                // ç™ºç”Ÿã—ãŸä¾‹å¤–ã‚’ã‚­ãƒ¥ãƒ¼ã«ã¤ã‚ã‚‹
                 try {
                     addQueue(new DataValueObject(e, dataCount));
                 } catch (InterruptedException ie) {
@@ -166,14 +166,14 @@ public class FileCollector<P> extends AbstractCollector<P> {
             return Integer.valueOf(-1);
         } finally {
             try {
-                // ƒtƒ@ƒCƒ‹ƒNƒ[ƒY
+                // ãƒ•ã‚¡ã‚¤ãƒ«ã‚¯ãƒ­ãƒ¼ã‚º
                 if (fli != null) {
                     fli.closeFile();
                 }
             } catch (Throwable e) {
-                // ‰½‚à‚µ‚È‚¢
+                // ä½•ã‚‚ã—ãªã„
             } finally {
-                // I—¹ƒtƒ‰ƒO‚ğ—§‚Ä‚é
+                // çµ‚äº†ãƒ•ãƒ©ã‚°ã‚’ç«‹ã¦ã‚‹
                 setFinish();
                 if (verboseLog.get() && LOGGER.isTraceEnabled()) {
                     LOGGER.trace(LogId.TAL041018, dataCount);

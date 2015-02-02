@@ -3,19 +3,19 @@ package jp.terasoluna.fw.file.dao.standard;
 import jp.terasoluna.fw.file.annotation.FileFormat;
 
 /**
- * AbstractFileLineWriter‚ÌŒ±‚Å—˜—p‚·‚éƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌƒXƒ^ƒuƒNƒ‰ƒXB<br>
+ * AbstractFileLineWriterã®è©¦é¨“ã§åˆ©ç”¨ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¹ã‚¿ãƒ–ã‚¯ãƒ©ã‚¹ã€‚<br>
  * <br>
- * ˆÈ‰º‚Ì@FileFormat‚Ìİ’è‚ğ‚Â<br>
+ * ä»¥ä¸‹ã®@FileFormatã®è¨­å®šã‚’æŒã¤<br>
  * <ul>
- * <li>‘S€–ÚFƒfƒtƒHƒ‹ƒg’l</li>
+ * <li>å…¨é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤</li>
  * </ul>
  * <br>
- * eƒNƒ‰ƒX‚ğŠÜ‚ß‚ÄƒtƒB[ƒ‹ƒh‚ğ‚½‚È‚¢<br>
- * eƒNƒ‰ƒX‚ÍˆÈ‰º‚Ì@FileFormat‚Ìİ’è‚ğ‚Â<br>
+ * è¦ªã‚¯ãƒ©ã‚¹ã‚’å«ã‚ã¦ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒãŸãªã„<br>
+ * è¦ªã‚¯ãƒ©ã‚¹ã¯ä»¥ä¸‹ã®@FileFormatã®è¨­å®šã‚’æŒã¤<br>
  * <ul>
- * <li>‘S€–ÚFƒfƒtƒHƒ‹ƒg’lˆÈŠO</li>
+ * <li>å…¨é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–</li>
  * </ul>
- * @author æâ•î“O
+ * @author è¶™ä¿¸å¾¹
  */
 @FileFormat()
 public class AbstractFileLineWriter_Stub39 extends

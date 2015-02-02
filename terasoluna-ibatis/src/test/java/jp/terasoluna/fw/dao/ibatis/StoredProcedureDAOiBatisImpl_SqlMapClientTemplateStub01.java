@@ -24,29 +24,29 @@ import org.springframework.orm.ibatis.SqlMapClientTemplate;
 import com.ibatis.sqlmap.client.SqlMapClient;
 
 /**
- * {@link StoredProcedureDAOiBatisImpl}‚ÌŒ±‚Ì‚½‚ß‚Ég—p‚³‚ê‚éƒXƒ^ƒuB
+ * {@link StoredProcedureDAOiBatisImpl}ã®è©¦é¨“ã®ãŸã‚ã«ä½¿ç”¨ã•ã‚Œã‚‹ã‚¹ã‚¿ãƒ–ã€‚
  * 
- * {@link StoredProcedureDAOiBatisImpl}‚©‚ç‚ÌŒÄ‚Ño‚µŠm”F—p‚Ég—p‚³‚ê‚éB
+ * {@link StoredProcedureDAOiBatisImpl}ã‹ã‚‰ã®å‘¼ã³å‡ºã—ç¢ºèªç”¨ã«ä½¿ç”¨ã•ã‚Œã‚‹ã€‚
  * 
  */
 public class StoredProcedureDAOiBatisImpl_SqlMapClientTemplateStub01 extends SqlMapClientTemplate {
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      */
     public StoredProcedureDAOiBatisImpl_SqlMapClientTemplateStub01() {
 
-        //SqlMapClient‚Ìİ’è
+        //SqlMapClientã®è¨­å®š
         SqlMapClient sqlMapClient = new StoredProcedureDAOiBatisImpl_SqlMapClientStub01();
         setSqlMapClient(sqlMapClient);
 
-        //ƒf[ƒ^ƒ\[ƒX‚Ìİ’è
+        //ãƒ‡ãƒ¼ã‚¿ã‚½ãƒ¼ã‚¹ã®è¨­å®š
         DataSource dataSource = new StoredProcedureDAOiBatisImpl_DataSourceStub01();
         setDataSource(dataSource);
     }
 
     /**
-     * QueryDAOiBatisImplƒeƒXƒg—pqueryForObjectƒƒ\ƒbƒh
+     * QueryDAOiBatisImplãƒ†ã‚¹ãƒˆç”¨queryForObjectãƒ¡ã‚½ãƒƒãƒ‰
      */
     @Override
     public Object queryForObject(String statementName, Object parameterObject) throws DataAccessException {
@@ -57,7 +57,7 @@ public class StoredProcedureDAOiBatisImpl_SqlMapClientTemplateStub01 extends Sql
     }
 
     /*
-     * ŒÄ‚Ño‚µŠm”F—p•Ï”
+     * å‘¼ã³å‡ºã—ç¢ºèªç”¨å¤‰æ•°
      */
     private boolean called = false;
     private String statementName = null;

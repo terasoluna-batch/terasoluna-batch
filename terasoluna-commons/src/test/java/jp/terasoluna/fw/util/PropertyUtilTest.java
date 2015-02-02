@@ -31,10 +31,10 @@ import jp.terasoluna.utlib.UTUtil;
 
 /**
  * 
- * PropertyUtil ƒuƒ‰ƒbƒNƒ{ƒbƒNƒXƒeƒXƒgB<br>
+ * PropertyUtil ãƒ–ãƒ©ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ†ã‚¹ãƒˆã€‚<br>
  *
- * (‘O’ñğŒ)<br>
- *@EƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚ÉˆÈ‰º‚Ì‚æ‚¤‚Èİ’è‚ğ‚µ‚Ä‚¨‚­<br>
+ * (å‰ææ¡ä»¶)<br>
+ *ã€€ãƒ»ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ã«ä»¥ä¸‹ã®ã‚ˆã†ãªè¨­å®šã‚’ã—ã¦ãŠã<br>
  *         property.test001.id.0 = test<br>
  *         property.test002.id.0 = test0<br>
  *         property.test002.id.1 = test1<br>
@@ -44,11 +44,11 @@ import jp.terasoluna.utlib.UTUtil;
  *         property.test004.id.0 = testB<br>
  *         property.test004.id.1 = testA<br>
  *         fileutiltest.dir.base = /tmp/test<br>
- *         codelist.gengo1.define.1 = ]ŒË<br>
- *         codelist.gengo1.define.2 = –¾¡<br>
- *         codelist.gengo1.define.3 = ‘å³<br>
- *         codelist.gengo2.define.1 = º˜a<br>
- *         codelist.gengo2.define.2 = •½¬<br>
+ *         codelist.gengo1.define.1 = æ±Ÿæˆ¸<br>
+ *         codelist.gengo1.define.2 = æ˜æ²»<br>
+ *         codelist.gengo1.define.3 = å¤§æ­£<br>
+ *         codelist.gengo2.define.1 = æ˜­å’Œ<br>
+ *         codelist.gengo2.define.2 = å¹³æˆ<br>
  *         codelist.sql1.sql.0=select values01,values01,values01 from table_kamoTest where Key1 between ? and ?<br>
  *         @property.test0 = testtest<br>
  *         property.test100.id.0 = @property.test100.id.0<br>
@@ -87,11 +87,11 @@ public class PropertyUtilTest extends PropertyTestCase {
         addProperty("property.test007.id.0", "@@test007");
         addProperty("property.test008.id.0", "@@");
         addProperty("property.test009.id.0", "@");
-        addProperty("codelist.gengo1.define.1", "]ŒË");
-        addProperty("codelist.gengo1.define.2", "–¾¡");
-        addProperty("codelist.gengo1.define.3", "‘å³");
-        addProperty("codelist.gengo2.define.1", "º˜a");
-        addProperty("codelist.gengo2.define.2", "•½¬");
+        addProperty("codelist.gengo1.define.1", "æ±Ÿæˆ¸");
+        addProperty("codelist.gengo1.define.2", "æ˜æ²»");
+        addProperty("codelist.gengo1.define.3", "å¤§æ­£");
+        addProperty("codelist.gengo2.define.1", "æ˜­å’Œ");
+        addProperty("codelist.gengo2.define.2", "å¹³æˆ");
         addProperty("codelist.sql1.sql.0", "select values01,values01,values01 from table_kamoTest where Key1 between ? and ?");
     }
 
@@ -101,85 +101,85 @@ public class PropertyUtilTest extends PropertyTestCase {
     }
 
     /**
-     * testAddPropertyFile01()B<br>
+     * testAddPropertyFile01()ã€‚<br>
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_FF<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šF<br>
      * 
-     * “ü—Í’lF‘¶İ‚·‚éƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹(.properties‚È‚µ)<br>
-     * Šú‘Ò’lFPropertyUtilƒNƒ‰ƒX‚ÌfilesƒtƒB[ƒ‹ƒh‚Éƒtƒ@ƒCƒ‹–¼‚ªŠÜ‚Ü‚ê‚Ä‚¢‚é‚±‚Æ<br>
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ï¼šå­˜åœ¨ã™ã‚‹ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«(.propertiesãªã—)<br>
+     * æœŸå¾…å€¤ï¼šPropertyUtilã‚¯ãƒ©ã‚¹ã®filesãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«ãƒ•ã‚¡ã‚¤ãƒ«åãŒå«ã¾ã‚Œã¦ã„ã‚‹ã“ã¨<br>
+     * @throws Exception ä¾‹å¤– */
     public void testAddPropertyFile01() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = "system";
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         PropertyUtil.addPropertyFile(input);
 
-        // Œ‹‰ÊŠm”F
-        // PropertyUtilƒNƒ‰ƒX‚ÌfilesƒtƒB[ƒ‹ƒh‚Éƒtƒ@ƒCƒ‹–¼‚ªŠÜ‚Ü‚ê‚Ä‚¢‚é‚±‚Æ
+        // çµæœç¢ºèª
+        // PropertyUtilã‚¯ãƒ©ã‚¹ã®filesãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«ãƒ•ã‚¡ã‚¤ãƒ«åãŒå«ã¾ã‚Œã¦ã„ã‚‹ã“ã¨
         Set st = (Set) UTUtil.getPrivateField(PropertyUtil.class, "files");
         assertTrue(st.contains("system.properties"));
     }
 
     /**
-     * testAddPropertyFile02()B<br>
+     * testAddPropertyFile02()ã€‚<br>
      *
-     * (³íŒn)<br>
-     * ŠÏ“_FF<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šF<br>
      * 
-     * “ü—Í’lF‘¶İ‚·‚éƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹(.properties‚ ‚è)<br>
-     * Šú‘Ò’lFPropertyUtilƒNƒ‰ƒX‚ÌfilesƒtƒB[ƒ‹ƒh‚Éƒtƒ@ƒCƒ‹–¼‚ªŠÜ‚Ü‚ê‚Ä‚¢‚é‚±‚Æ<br>
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ï¼šå­˜åœ¨ã™ã‚‹ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«(.propertiesã‚ã‚Š)<br>
+     * æœŸå¾…å€¤ï¼šPropertyUtilã‚¯ãƒ©ã‚¹ã®filesãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«ãƒ•ã‚¡ã‚¤ãƒ«åãŒå«ã¾ã‚Œã¦ã„ã‚‹ã“ã¨<br>
+     * @throws Exception ä¾‹å¤– */
     public void testAddPropertyFile02() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = "system.properties";
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         PropertyUtil.addPropertyFile(input);
 
-        // Œ‹‰ÊŠm”F
-        // PropertyUtilƒNƒ‰ƒX‚ÌfilesƒtƒB[ƒ‹ƒh‚Éƒtƒ@ƒCƒ‹–¼‚ªŠÜ‚Ü‚ê‚Ä‚¢‚é‚±‚Æ
+        // çµæœç¢ºèª
+        // PropertyUtilã‚¯ãƒ©ã‚¹ã®filesãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«ãƒ•ã‚¡ã‚¤ãƒ«åãŒå«ã¾ã‚Œã¦ã„ã‚‹ã“ã¨
         Set st = (Set) UTUtil.getPrivateField(PropertyUtil.class, "files");
         assertTrue(st.contains("system.properties"));
     }
 
     /**
-     * testAddPropertyFile03()B<br>
+     * testAddPropertyFile03()ã€‚<br>
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_FC,F<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šC,F<br>
      * 
-     * “ü—Í’lF‘¶İ‚µ‚È‚¢ƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹<br>
-     * Šú‘Ò’lFPropertyUtilƒNƒ‰ƒX‚ÌfilesƒtƒB[ƒ‹ƒh‚Éƒtƒ@ƒCƒ‹–¼‚ªŠÜ‚Ü‚ê‚Ä‚¢‚È‚¢‚±‚Æ<br>
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ï¼šå­˜åœ¨ã—ãªã„ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«<br>
+     * æœŸå¾…å€¤ï¼šPropertyUtilã‚¯ãƒ©ã‚¹ã®filesãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«ãƒ•ã‚¡ã‚¤ãƒ«åãŒå«ã¾ã‚Œã¦ã„ãªã„ã“ã¨<br>
+     * @throws Exception ä¾‹å¤– */
     public void testAddPropertyFile03() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = "xxxxx";
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         PropertyUtil.addPropertyFile(input);
 
-        // Œ‹‰Ê‚ÌŠm”F
-        // PropertyUtilƒNƒ‰ƒX‚ÌfilesƒtƒB[ƒ‹ƒh‚Éƒtƒ@ƒCƒ‹–¼‚ªŠÜ‚Ü‚ê‚Ä‚¢‚È‚¢‚±‚Æ
+        // çµæœã®ç¢ºèª
+        // PropertyUtilã‚¯ãƒ©ã‚¹ã®filesãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«ãƒ•ã‚¡ã‚¤ãƒ«åãŒå«ã¾ã‚Œã¦ã„ãªã„ã“ã¨
         Set st = (Set) UTUtil.getPrivateField(PropertyUtil.class, "files");
         assertFalse(st.contains("xxxxx.properties"));
     }
 
     /**
-     * testAddPropertyFile04()B<br>
+     * testAddPropertyFile04()ã€‚<br>
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_FC,G<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šC,G<br>
      * 
-     * “ü—Í’lFnull<br>
-     * Šú‘Ò’lFNullPointerException<br>
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ï¼šnull<br>
+     * æœŸå¾…å€¤ï¼šNullPointerException<br>
+     * @throws Exception ä¾‹å¤– */
     public void testAddPropertyFile04() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = null;
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         try {
             PropertyUtil.addPropertyFile(input);
             fail();
@@ -189,104 +189,104 @@ public class PropertyUtilTest extends PropertyTestCase {
     }
 
     /**
-     * testAddPropertyFile05()B<br>
+     * testAddPropertyFile05()ã€‚<br>
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_FC,F<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šC,F<br>
      * 
-     * “ü—Í’lF""(‹ó•¶š)<br>
-     * Šú‘Ò’lF<br>
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ï¼š""(ç©ºæ–‡å­—)<br>
+     * æœŸå¾…å€¤ï¼š<br>
+     * @throws Exception ä¾‹å¤– */
     public void testAddPropertyFile05() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = "";
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         PropertyUtil.addPropertyFile(input);
 
-        // Œ‹‰Ê‚ÌŠm”F
-        // PropertyUtilƒNƒ‰ƒX‚ÌfilesƒtƒB[ƒ‹ƒh‚Éƒtƒ@ƒCƒ‹–¼‚ªŠÜ‚Ü‚ê‚Ä‚¢‚È‚¢‚±‚Æ
+        // çµæœã®ç¢ºèª
+        // PropertyUtilã‚¯ãƒ©ã‚¹ã®filesãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«ãƒ•ã‚¡ã‚¤ãƒ«åãŒå«ã¾ã‚Œã¦ã„ãªã„ã“ã¨
         Set st = (Set) UTUtil.getPrivateField(PropertyUtil.class, "files");
         assertFalse(st.contains(".properties"));
     }
 
     /**
-     * testAddPropertyFile06()B<br>
+     * testAddPropertyFile06()ã€‚<br>
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_FF<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šF<br>
      * 
-     * “ü—Í’lF‘¶İ‚·‚éƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹A•¡”‰ñ“Ç‚İ‚Ş<br>
-     * Šú‘Ò’lFˆê“x‚µ‚©“Ç‚İ‚Ü‚ê‚È‚¢‚±‚Æ‚ğ<br>
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ï¼šå­˜åœ¨ã™ã‚‹ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ã€è¤‡æ•°å›èª­ã¿è¾¼ã‚€<br>
+     * æœŸå¾…å€¤ï¼šä¸€åº¦ã—ã‹èª­ã¿è¾¼ã¾ã‚Œãªã„ã“ã¨ã‚’<br>
+     * @throws Exception ä¾‹å¤– */
     public void testAddPropertyFile06() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = "system";
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         PropertyUtil.addPropertyFile(input);
         PropertyUtil.addPropertyFile(input);
-        // Œ‹‰ÊŠm”F
-        // PropertyUtilƒNƒ‰ƒX‚ÌfilesƒtƒB[ƒ‹ƒh‚Éƒtƒ@ƒCƒ‹–¼‚ªŠÜ‚Ü‚ê‚Ä‚¢‚é‚±‚Æ
+        // çµæœç¢ºèª
+        // PropertyUtilã‚¯ãƒ©ã‚¹ã®filesãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«ãƒ•ã‚¡ã‚¤ãƒ«åãŒå«ã¾ã‚Œã¦ã„ã‚‹ã“ã¨
         Set st = (Set) UTUtil.getPrivateField(PropertyUtil.class, "files");
         assertTrue(st.contains("system.properties"));
         assertTrue(st.size() == 1);
     }
 
     /**
-     * testGetProperty01(String)B<br> 
+     * testGetProperty01(String)ã€‚<br> 
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_FF<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šF<br>
      * 
-     * “ü—Í’lF‘¶İ‚·‚éƒL[<br>
-     * Šú‘Ò’lFƒL[‚ÌƒvƒƒpƒeƒB’l<br>
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ï¼šå­˜åœ¨ã™ã‚‹ã‚­ãƒ¼<br>
+     * æœŸå¾…å€¤ï¼šã‚­ãƒ¼ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£å€¤<br>
+     * @throws Exception ä¾‹å¤– */
     public void testGetPropertyString01() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = "property.test001.id.0";
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = PropertyUtil.getProperty(input);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("test", str);
     }
 
     /**
-     * testGetProperty02(String)B<br>
+     * testGetProperty02(String)ã€‚<br>
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_FC,F<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šC,F<br>
      * 
-     * “ü—Í’lF‘¶İ‚µ‚È‚¢ƒL[<br>
-     * Šú‘Ò’lFNull’l<br>
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ï¼šå­˜åœ¨ã—ãªã„ã‚­ãƒ¼<br>
+     * æœŸå¾…å€¤ï¼šNullå€¤<br>
+     * @throws Exception ä¾‹å¤– */
     public void testGetPropertyString02() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = "property.test001.id.1";
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = PropertyUtil.getProperty(input);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertNull(str);
     }
 
     /**
-     * testGetProperty03(String) B<br>
+     * testGetProperty03(String) ã€‚<br>
      * 
-     * (ˆÙíŒn)<br>
-     * ŠÏ“_FG<br>
+     * (ç•°å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šG<br>
      * 
-     * “ü—Í’lFnull<br>
-     * Šú‘Ò’lFNullPointerException<br>
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ï¼šnull<br>
+     * æœŸå¾…å€¤ï¼šNullPointerException<br>
+     * @throws Exception ä¾‹å¤– */
     public void testGetPropertyString03() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = null;
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         try {
             String str = PropertyUtil.getProperty(input);
             fail();
@@ -296,251 +296,251 @@ public class PropertyUtilTest extends PropertyTestCase {
     }
 
     /**
-     * testGetProperty04(String)B<br>
+     * testGetProperty04(String)ã€‚<br>
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_FC<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šC<br>
      * 
-     * “ü—Í’lF""(‹ó•¶š)<br>
-     * Šú‘Ò’lFNull’l<br>
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ï¼š""(ç©ºæ–‡å­—)<br>
+     * æœŸå¾…å€¤ï¼šNullå€¤<br>
+     * @throws Exception ä¾‹å¤– */
     public void testGetPropertyString04() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = "";
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = PropertyUtil.getProperty(input);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertNull(str);
     }
 
     /**
-     * testGetProperty05(String) B<br>
+     * testGetProperty05(String) ã€‚<br>
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_FC,F<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šC,F<br>
      * 
-     * “ü—Í’lFƒvƒƒpƒeƒB’l‚ª‹ó•¶š‚ÌƒL[<br>
-     * Šú‘Ò’lF‹ó•¶š<br>
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ï¼šãƒ—ãƒ­ãƒ‘ãƒ†ã‚£å€¤ãŒç©ºæ–‡å­—ã®ã‚­ãƒ¼<br>
+     * æœŸå¾…å€¤ï¼šç©ºæ–‡å­—<br>
+     * @throws Exception ä¾‹å¤– */
     public void testGetPropertyString05() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = "property.test003.id.0";
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = PropertyUtil.getProperty(input);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("", str);
     }
 
     /**
-     * testGetProperty06(String)B<br>
+     * testGetProperty06(String)ã€‚<br>
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_FF<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šF<br>
      * 
-     * “ü—Í’lF•¡”‘¶İ‚·‚éƒL[<br>
-     * Šú‘Ò’lFŒã‚Éİ’è‚³‚ê‚½ƒL[‚ÌƒvƒƒpƒeƒB’l<br>
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ï¼šè¤‡æ•°å­˜åœ¨ã™ã‚‹ã‚­ãƒ¼<br>
+     * æœŸå¾…å€¤ï¼šå¾Œã«è¨­å®šã•ã‚ŒãŸã‚­ãƒ¼ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£å€¤<br>
+     * @throws Exception ä¾‹å¤– */
     public void testGetPropertyString06() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = "property.test004.id.0";
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = PropertyUtil.getProperty(input);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("testB", str);
     }
 
     /**
-     * testGetProperty07(String) B<br>
+     * testGetProperty07(String) ã€‚<br>
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_FF<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šF<br>
      * 
-     * “ü—Í’lF<code>@key</code><br>
-     * Šú‘Ò’lFŒã‚Éİ’è‚³‚ê‚½ƒL[‚ÌƒvƒƒpƒeƒB’l<br>
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ï¼š<code>@key</code><br>
+     * æœŸå¾…å€¤ï¼šå¾Œã«è¨­å®šã•ã‚ŒãŸã‚­ãƒ¼ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£å€¤<br>
+     * @throws Exception ä¾‹å¤– */
     public void testGetPropertyString07() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = "@property.test0";
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = PropertyUtil.getProperty(input);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("testtest", str);
     }
 
     /**
-     * testGetProperty08(String)B<br> 
+     * testGetProperty08(String)ã€‚<br> 
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_FA,F<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA,F<br>
      * 
-     * “ü—Í’lF<code>key=@key</code><br>
-     * Šú‘Ò’lFŒã‚Éİ’è‚³‚ê‚½ƒL[‚ÌƒvƒƒpƒeƒB’l<br>
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ï¼š<code>key=@key</code><br>
+     * æœŸå¾…å€¤ï¼šå¾Œã«è¨­å®šã•ã‚ŒãŸã‚­ãƒ¼ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£å€¤<br>
+     * @throws Exception ä¾‹å¤– */
     public void testGetPropertyString08() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = "property.test100.id.0";
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = PropertyUtil.getProperty(input);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("@property.test100.id.0", str);
     }
 
     /**
-     * testGetProperty09(String)B<br> 
+     * testGetProperty09(String)ã€‚<br> 
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_FA,F<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA,F<br>
      * 
-     * “ü—Í’lF<code>key=@value</code><br>
-     * Šú‘Ò’lF<code>@</code>‚ğŠO‚µ‚½ƒvƒƒpƒeƒB’l<br>
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ï¼š<code>key=@value</code><br>
+     * æœŸå¾…å€¤ï¼š<code>@</code>ã‚’å¤–ã—ãŸãƒ—ãƒ­ãƒ‘ãƒ†ã‚£å€¤<br>
+     * @throws Exception ä¾‹å¤– */
     public void testGetPropertyString09() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = "property.test005";
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = PropertyUtil.getProperty(input);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("test", str);
     }
 
     /**
-     * testGetProperty10(String)B<br> 
+     * testGetProperty10(String)ã€‚<br> 
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_FA,F<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA,F<br>
      * 
-     * “ü—Í’lF<code>key=@@value</code><br>
-     * Šú‘Ò’lF@value<br>
-     * property.test007.id.0=@@test007‚ÆƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚Éİ’è‚µA
-     * @test007‚ª“¾‚ç‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ï¼š<code>key=@@value</code><br>
+     * æœŸå¾…å€¤ï¼š@value<br>
+     * property.test007.id.0=@@test007ã¨ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ã«è¨­å®šã—ã€
+     * @test007ãŒå¾—ã‚‰ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testGetPropertyString10() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = "property.test007.id.0";
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = PropertyUtil.getProperty(input);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("@test007", str);
     }
     
     /**
-     * testGetProperty12(String)B<br> 
+     * testGetProperty12(String)ã€‚<br> 
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_FA,F<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA,F<br>
      * 
-     * “ü—Í’lF<code>key=@@</code><br>
-     * Šú‘Ò’lF@<br>
-     * property.test008.id.0=@@‚ÆƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚Éİ’è‚µA
-     * @‚ª“¾‚ç‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ï¼š<code>key=@@</code><br>
+     * æœŸå¾…å€¤ï¼š@<br>
+     * property.test008.id.0=@@ã¨ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ã«è¨­å®šã—ã€
+     * @ãŒå¾—ã‚‰ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testGetPropertyString11() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = "property.test008.id.0";
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = PropertyUtil.getProperty(input);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("@", str);
     }
     
     /**
-     * testGetProperty13(String)B<br> 
+     * testGetProperty13(String)ã€‚<br> 
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_FA,F<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA,F<br>
      * 
-     * “ü—Í’lF<code>key=@</code><br>
-     * Šú‘Ò’lF@<br>
-     * property.test009.id.0=@‚ÆƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚Éİ’è‚µA
-     * Null‚ª•Ô‚Á‚Ä—ˆ‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ï¼š<code>key=@</code><br>
+     * æœŸå¾…å€¤ï¼š@<br>
+     * property.test009.id.0=@ã¨ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ã«è¨­å®šã—ã€
+     * NullãŒè¿”ã£ã¦æ¥ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testGetPropertyString12() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = "property.test009.id.0";
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = PropertyUtil.getProperty(input);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertNull(str);
     }
     
     /**
-     * testGetProperty01(String, String)B<br>
+     * testGetProperty01(String, String)ã€‚<br>
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_FF<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šF<br>
      * 
-     * “ü—Í’lFkey=‘¶İ‚·‚éƒL[<br>
-     * @@@@default=ƒfƒtƒHƒ‹ƒg’l<br>
-     * Šú‘Ò’lFƒL[‚ÌƒvƒƒpƒeƒB’l<br>
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ï¼škey=å­˜åœ¨ã™ã‚‹ã‚­ãƒ¼<br>
+     * ã€€ã€€ã€€ã€€default=ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * æœŸå¾…å€¤ï¼šã‚­ãƒ¼ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£å€¤<br>
+     * @throws Exception ä¾‹å¤– */
     public void testGetPropertyStringString01() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input1 = "property.test001.id.0";
         String input2 = "default";
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = PropertyUtil.getProperty(input1, input2);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("test", str);
     }
 
     /**
-     * testGetProperty02(String, String)B<br>
+     * testGetProperty02(String, String)ã€‚<br>
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_FF<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šF<br>
      * 
-     * “ü—Í’lFkey=‘¶İ‚µ‚È‚¢ƒL[<br>
-     * @@@@default=ƒfƒtƒHƒ‹ƒg’l<br>
-     * Šú‘Ò’lFƒfƒtƒHƒ‹ƒg’l<br>
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ï¼škey=å­˜åœ¨ã—ãªã„ã‚­ãƒ¼<br>
+     * ã€€ã€€ã€€ã€€default=ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * æœŸå¾…å€¤ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * @throws Exception ä¾‹å¤– */
     public void testGetPropertyStringString02() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input1 = "property.test001.id.1";
         String input2 = "default";
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = PropertyUtil.getProperty(input1, input2);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("default", str);
     }
 
     /**
-     * testGetProperty03(String, String)B<br>
+     * testGetProperty03(String, String)ã€‚<br>
      * 
-     * (ˆÙíŒn)<br>
-     * ŠÏ“_FC,F<br>
+     * (ç•°å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šC,F<br>
      * 
-     * “ü—Í’lFkey=null<br>
-     * @@@@default=ƒfƒtƒHƒ‹ƒg’l<br>
-     * Šú‘Ò’lFNullPointerException<br>
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ï¼škey=null<br>
+     * ã€€ã€€ã€€ã€€default=ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * æœŸå¾…å€¤ï¼šNullPointerException<br>
+     * @throws Exception ä¾‹å¤– */
     public void testGetPropertyStringString03() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input1 = null;
         String input2 = "default";
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         try {
             String str = PropertyUtil.getProperty(input1, input2);
             fail();
@@ -550,180 +550,180 @@ public class PropertyUtilTest extends PropertyTestCase {
     }
 
     /**
-     * testGetProperty04(String, String)B<br>
+     * testGetProperty04(String, String)ã€‚<br>
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_FC,F<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šC,F<br>
      * 
-     * “ü—Í’lFkey=‘¶İ‚·‚éƒL[<br>
-     * @@@@default=null<br>
-     * Šú‘Ò’lFƒL[‚ÌƒvƒƒpƒeƒB’l<br>
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ï¼škey=å­˜åœ¨ã™ã‚‹ã‚­ãƒ¼<br>
+     * ã€€ã€€ã€€ã€€default=null<br>
+     * æœŸå¾…å€¤ï¼šã‚­ãƒ¼ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£å€¤<br>
+     * @throws Exception ä¾‹å¤– */
     public void testGetPropertyStringString04() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input1 = "property.test001.id.0";
         String input2 = null;
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = PropertyUtil.getProperty(input1, input2);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("test", str);
     }
 
     /**
-     * testGetProperty05(String, String)B<br>
+     * testGetProperty05(String, String)ã€‚<br>
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_FC<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šC<br>
      * 
-     * “ü—Í’lFkey=‘¶İ‚µ‚È‚¢ƒL[<br>
-     * @@@@default=null<br>
-     * Šú‘Ò’lFnull(ƒfƒtƒHƒ‹ƒg)<br>
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ï¼škey=å­˜åœ¨ã—ãªã„ã‚­ãƒ¼<br>
+     * ã€€ã€€ã€€ã€€default=null<br>
+     * æœŸå¾…å€¤ï¼šnull(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ)<br>
+     * @throws Exception ä¾‹å¤– */
     public void testGetPropertyStringString05() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input1 = "property.test001.id.1";
         String input2 = null;
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = PropertyUtil.getProperty(input1, input2);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertNull(str);
     }
 
     /**
-     * testGetProperty06(String, String) B<br>
+     * testGetProperty06(String, String) ã€‚<br>
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_FC,F<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šC,F<br>
      * 
-     * “ü—Í’lFkey=""(‹ó•¶š)<br>
-     * @@@@default=ƒfƒtƒHƒ‹ƒg’l<br>
-     * Šú‘Ò’lFƒfƒtƒHƒ‹ƒg’l<br>
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ï¼škey=""(ç©ºæ–‡å­—)<br>
+     * ã€€ã€€ã€€ã€€default=ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * æœŸå¾…å€¤ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * @throws Exception ä¾‹å¤– */
     public void testGetPropertyStringString06() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input1 = "";
         String input2 = "default";
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = PropertyUtil.getProperty(input1, input2);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("default", str);
     }
 
     /**
-     * testGetProperty07(String, String)B<br>
+     * testGetProperty07(String, String)ã€‚<br>
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_FC,F<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šC,F<br>
      * 
-     * “ü—Í’lFkey=‘¶İ‚·‚éƒL[<br>
-     * @@@@default=""(‹ó•¶š)<br>
-     * Šú‘Ò’lFƒL[‚ÌƒvƒƒpƒeƒB’l<br>
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ï¼škey=å­˜åœ¨ã™ã‚‹ã‚­ãƒ¼<br>
+     * ã€€ã€€ã€€ã€€default=""(ç©ºæ–‡å­—)<br>
+     * æœŸå¾…å€¤ï¼šã‚­ãƒ¼ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£å€¤<br>
+     * @throws Exception ä¾‹å¤– */
     public void testGetPropertyStringString07() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input1 = "property.test001.id.0";
         String input2 = "";
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = PropertyUtil.getProperty(input1, input2);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("test", str);
     }
 
     /**
-     * testGetProperty08(String, String)B<br>
+     * testGetProperty08(String, String)ã€‚<br>
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_FC,F<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šC,F<br>
      * 
-     * “ü—Í’lFkey=‘¶İ‚µ‚È‚¢ƒL[<br>
-     * @@@@default=""(‹ó•¶š)<br>
-     * Šú‘Ò’lF""(ƒfƒtƒHƒ‹ƒg)<br>
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ï¼škey=å­˜åœ¨ã—ãªã„ã‚­ãƒ¼<br>
+     * ã€€ã€€ã€€ã€€default=""(ç©ºæ–‡å­—)<br>
+     * æœŸå¾…å€¤ï¼š""(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ)<br>
+     * @throws Exception ä¾‹å¤– */
     public void testGetPropertyStringString08() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input1 = "property.test001.id.1";
         String input2 = "";
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = PropertyUtil.getProperty(input1, input2);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("", str);
     }
 
     /**
-     * testGetProperty09(String, String)B<br>
+     * testGetProperty09(String, String)ã€‚<br>
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_FC,F<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šC,F<br>
      * 
-     * “ü—Í’lFkey=ƒvƒƒpƒeƒB’l‚ª""(‹ó•¶š)‚ÌƒL[<br>
-     * @@@@default=ƒfƒtƒHƒ‹ƒg’l<br>
-     * Šú‘Ò’lF‹ó•¶š<br>
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ï¼škey=ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£å€¤ãŒ""(ç©ºæ–‡å­—)ã®ã‚­ãƒ¼<br>
+     * ã€€ã€€ã€€ã€€default=ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * æœŸå¾…å€¤ï¼šç©ºæ–‡å­—<br>
+     * @throws Exception ä¾‹å¤– */
     public void testGetPropertyStringString09() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input1 = "property.test003.id.0";
         String input2 = "default";
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = PropertyUtil.getProperty(input1, input2);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("", str);
     }
 
     /**
-     * testGetProperty10(String, String)B<br>
+     * testGetProperty10(String, String)ã€‚<br>
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_FF<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šF<br>
      * 
-     * “ü—Í’lFkey=•¡”‘¶İ‚·‚éƒL[<br>
-     * @@@@default=ƒfƒtƒHƒ‹ƒg’l<br>
-     * Šú‘Ò’lFƒL[‚ÌƒvƒƒpƒeƒB’l<br>
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ï¼škey=è¤‡æ•°å­˜åœ¨ã™ã‚‹ã‚­ãƒ¼<br>
+     * ã€€ã€€ã€€ã€€default=ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤<br>
+     * æœŸå¾…å€¤ï¼šã‚­ãƒ¼ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£å€¤<br>
+     * @throws Exception ä¾‹å¤– */
     public void testGetPropertyStringString10() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input1 = "property.test004.id.0";
         String input2 = "default";
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = PropertyUtil.getProperty(input1, input2);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("testB", str);
     }
 
     /**
-     * testGetPropertyNames01()B<br>
+     * testGetPropertyNames01()ã€‚<br>
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_FF<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šF<br>
      * 
-     * “ü—Í’lF‚È‚µ<br>
-     * Šú‘Ò’lF‚·‚×‚Ä‚ÌƒL[<br>
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ï¼šãªã—<br>
+     * æœŸå¾…å€¤ï¼šã™ã¹ã¦ã®ã‚­ãƒ¼<br>
+     * @throws Exception ä¾‹å¤– */
     public void testGetPropertyNames01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         Enumeration en = PropertyUtil.getPropertyNames();
 
-        // Œ‹‰Ê‚ÌŠm”F
-        // Enumeration‚©‚ç—v‘f‚ğæ‚èo‚µAVector”z—ñ‚É’Ç‰Á‚·‚é
+        // çµæœã®ç¢ºèª
+        // Enumerationã‹ã‚‰è¦ç´ ã‚’å–ã‚Šå‡ºã—ã€Vectoré…åˆ—ã«è¿½åŠ ã™ã‚‹
         Vector<String> v = new Vector<String>();
         while (en.hasMoreElements()) {
             String key = (String) en.nextElement();
             v.add(key);
         }
-        // ƒL[‚Ì‘¶İŠm”F
+        // ã‚­ãƒ¼ã®å­˜åœ¨ç¢ºèª
         assertTrue(v.contains("system.name"));
         assertTrue(v.contains("property.test001.id.0"));
         assertTrue(v.contains("property.test002.id.0"));
@@ -749,63 +749,63 @@ public class PropertyUtilTest extends PropertyTestCase {
     }
 
     /**
-     * testGetPropertyNames01(String) B<br>
+     * testGetPropertyNames01(String) ã€‚<br>
      *  
-     * (³íŒn)<br>
-     * ŠÏ“_FF<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šF<br>
      * 
-     * “ü—Í’lFkey=‘¶İ‚·‚éƒvƒŠƒtƒBƒbƒNƒX<br>
-     * Šú‘Ò’lFƒL[ƒŠƒXƒg(1Œ)<br>
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ï¼škey=å­˜åœ¨ã™ã‚‹ãƒ—ãƒªãƒ•ã‚£ãƒƒã‚¯ã‚¹<br>
+     * æœŸå¾…å€¤ï¼šã‚­ãƒ¼ãƒªã‚¹ãƒˆ(1ä»¶)<br>
+     * @throws Exception ä¾‹å¤– */
     public void testGetPropertyNamesString01() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input1 = "property.test001.id";
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         Enumeration enume = PropertyUtil.getPropertyNames(input1);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("property.test001.id.0", enume.nextElement());
         assertFalse(enume.hasMoreElements());
     }
 
     /**
-     * testGetPropertyNames02(String)B<br>
+     * testGetPropertyNames02(String)ã€‚<br>
      *  
-     * (³íŒn)<br>
-     * ŠÏ“_FC,F<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šC,F<br>
      * 
-     * “ü—Í’lFkey=‘¶İ‚µ‚È‚¢ƒvƒŠƒtƒBƒbƒNƒX<br>
-     * Šú‘Ò’lFƒL[ƒŠƒXƒg(0Œ)<br>
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ï¼škey=å­˜åœ¨ã—ãªã„ãƒ—ãƒªãƒ•ã‚£ãƒƒã‚¯ã‚¹<br>
+     * æœŸå¾…å€¤ï¼šã‚­ãƒ¼ãƒªã‚¹ãƒˆ(0ä»¶)<br>
+     * @throws Exception ä¾‹å¤– */
     public void testGetPropertyNamesString02() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input1 = "property.test999.id";
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         Enumeration enume = PropertyUtil.getPropertyNames(input1);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertFalse(enume.hasMoreElements());
     }
 
     /**
-     * testGetPropertyNames03(String)B<br>
+     * testGetPropertyNames03(String)ã€‚<br>
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_FF<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šF<br>
      * 
-     * “ü—Í’lFkey=‘¶İ‚·‚éƒvƒŠƒtƒBƒbƒNƒX<br>
-     * Šú‘Ò’lFƒL[ƒŠƒXƒg(3Œ)<br>
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ï¼škey=å­˜åœ¨ã™ã‚‹ãƒ—ãƒªãƒ•ã‚£ãƒƒã‚¯ã‚¹<br>
+     * æœŸå¾…å€¤ï¼šã‚­ãƒ¼ãƒªã‚¹ãƒˆ(3ä»¶)<br>
+     * @throws Exception ä¾‹å¤– */
     public void testGetPropertyNamesString03() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input1 = "property.test002.id";
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         Enumeration enume = PropertyUtil.getPropertyNames(input1);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("property.test002.id.0", enume.nextElement());
         assertEquals("property.test002.id.1", enume.nextElement());
         assertEquals("property.test002.id.2", enume.nextElement());
@@ -813,19 +813,19 @@ public class PropertyUtilTest extends PropertyTestCase {
     }
 
     /**
-     * testGetPropertyNames04(String) B<br>
+     * testGetPropertyNames04(String) ã€‚<br>
      * 
-     * (ˆÙíŒn)<br>
-     * ŠÏ“_FC,G<br>
+     * (ç•°å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šC,G<br>
      * 
-     * “ü—Í’lFkey=null<br>
-     * Šú‘Ò’lFNullPointerException<br>
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ï¼škey=null<br>
+     * æœŸå¾…å€¤ï¼šNullPointerException<br>
+     * @throws Exception ä¾‹å¤– */
     public void testGetPropertyNamesString04() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input1 = null;
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         try {
             Enumeration enume = PropertyUtil.getPropertyNames(input1);
             fail();
@@ -835,23 +835,23 @@ public class PropertyUtilTest extends PropertyTestCase {
     }
 
     /**
-     * testGetPropertyNames05(String)B<br>
+     * testGetPropertyNames05(String)ã€‚<br>
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_FC,F<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šC,F<br>
      * 
-     * “ü—Í’lFkey=""<br>
-     * Šú‘Ò’lFƒL[ƒŠƒXƒg(‘SŒ)<br>
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ï¼škey=""<br>
+     * æœŸå¾…å€¤ï¼šã‚­ãƒ¼ãƒªã‚¹ãƒˆ(å…¨ä»¶)<br>
+     * @throws Exception ä¾‹å¤– */
     @SuppressWarnings("unchecked")
     public void testGetPropertyNamesString05() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input1 = "";
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         Enumeration actualEnum = PropertyUtil.getPropertyNames(input1);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         Map expectedProps =
             (Map) UTUtil.getPrivateField(PropertyUtil.class, "props");
         Enumeration expectedEnum = Collections.enumeration(expectedProps.keySet());
@@ -863,75 +863,75 @@ public class PropertyUtilTest extends PropertyTestCase {
     }
 
     /**
-     * testGetPropertyNames06(String)B<br>
+     * testGetPropertyNames06(String)ã€‚<br>
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_FF<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šF<br>
      * 
-     * “ü—Í’lFkey=•¡”‘¶İ‚·‚éƒL[‚ÌƒvƒŠƒtƒBƒbƒNƒX<br>
-     * Šú‘Ò’lFƒL[ƒŠƒXƒg(1Œ)<br>
-     * @throws Exception —áŠO */
+     * å…¥åŠ›å€¤ï¼škey=è¤‡æ•°å­˜åœ¨ã™ã‚‹ã‚­ãƒ¼ã®ãƒ—ãƒªãƒ•ã‚£ãƒƒã‚¯ã‚¹<br>
+     * æœŸå¾…å€¤ï¼šã‚­ãƒ¼ãƒªã‚¹ãƒˆ(1ä»¶)<br>
+     * @throws Exception ä¾‹å¤– */
     public void testGetPropertyNamesString06() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input1 = "property.test004.id";
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         Enumeration enume = PropertyUtil.getPropertyNames(input1);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("property.test004.id.0", enume.nextElement());
         assertFalse(enume.hasMoreElements());
     }
 
     /**
-     * testGetPropertiesValues01(String, String)B<br>
+     * testGetPropertiesValues01(String, String)ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FF<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šF<br>
      * <br>
-     * “ü—Í’l :ƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹–¼,•”•ªƒL[•¶š—ñ<br>
-     * Šú‘Ò’l :’lƒZƒbƒgi’†g‚ª‚P‚Âj<br>
+     * å…¥åŠ›å€¤ :ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«å,éƒ¨åˆ†ã‚­ãƒ¼æ–‡å­—åˆ—<br>
+     * æœŸå¾…å€¤ :å€¤ã‚»ãƒƒãƒˆï¼ˆä¸­èº«ãŒï¼‘ã¤ï¼‰<br>
      *
-     * à–¾F•”•ªƒL[•¶š—ñ‚ÉŠY“–‚·‚é’l‚ª‚P‚Â‚ÌA
-     * w’è‚³‚ê‚½ƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚©‚ç’l‚ªæ“¾‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * èª¬æ˜ï¼šéƒ¨åˆ†ã‚­ãƒ¼æ–‡å­—åˆ—ã«è©²å½“ã™ã‚‹å€¤ãŒï¼‘ã¤ã®æ™‚ã€
+     * æŒ‡å®šã•ã‚ŒãŸãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰å€¤ãŒå–å¾—ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      *
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testGetPropertiesValuesString01() throws Exception {
-        // “ü—Í’l‚Ìİ’è
-        //ƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹–¼
+        // å…¥åŠ›å€¤ã®è¨­å®š
+        //ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«å
         String input = "test";
-        //•”•ªƒL[•¶š—ñ
+        //éƒ¨åˆ†ã‚­ãƒ¼æ–‡å­—åˆ—
         String key = "file";
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         Set result = PropertyUtil.getPropertiesValues(input, key);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertTrue(result.contains("/tmp/test"));
     }
 
     /**
-     * testGetPropertiesValues02(String, String)B<br>
+     * testGetPropertiesValues02(String, String)ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA,F<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA,F<br>
      * <br>
-     * “ü—Í’l :ƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹–¼,•”•ªƒL[•¶š—ñ<br>
-     * Šú‘Ò’l :’lƒZƒbƒgi’†g‚ª•¡”j<br>
+     * å…¥åŠ›å€¤ :ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«å,éƒ¨åˆ†ã‚­ãƒ¼æ–‡å­—åˆ—<br>
+     * æœŸå¾…å€¤ :å€¤ã‚»ãƒƒãƒˆï¼ˆä¸­èº«ãŒè¤‡æ•°ï¼‰<br>
      *
-     * à–¾F•”•ªƒL[•¶š—ñ‚ÉŠY“–‚·‚é’l‚ª•¡”‚ÌA
-     * w’è‚³‚ê‚½ƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚©‚ç’lƒZƒbƒg‚ªæ“¾‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * èª¬æ˜ï¼šéƒ¨åˆ†ã‚­ãƒ¼æ–‡å­—åˆ—ã«è©²å½“ã™ã‚‹å€¤ãŒè¤‡æ•°ã®æ™‚ã€
+     * æŒ‡å®šã•ã‚ŒãŸãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰å€¤ã‚»ãƒƒãƒˆãŒå–å¾—ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      *
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testGetPropertiesValuesString02() throws Exception {
-        // “ü—Í’l‚Ìİ’è
-        //ƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹–¼
+        // å…¥åŠ›å€¤ã®è¨­å®š
+        //ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«å
         String input = "test";
-        //•”•ªƒL[•¶š—ñ
+        //éƒ¨åˆ†ã‚­ãƒ¼æ–‡å­—åˆ—
         String key = "code";
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         Set result = PropertyUtil.getPropertiesValues(input, key);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertTrue(
             result.contains(
                 "select values01,values01,values01 "
@@ -944,181 +944,181 @@ public class PropertyUtilTest extends PropertyTestCase {
     }
 
     /**
-     * testGetPropertiesValues03(String, String)B<br>
+     * testGetPropertiesValues03(String, String)ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FC<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šC<br>
      * <br>
-     * “ü—Í’l :ƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹–¼,•”•ªƒL[•¶š—ñ‚ªnull<br>
-     * Šú‘Ò’l :null<br>
+     * å…¥åŠ›å€¤ :ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«å,éƒ¨åˆ†ã‚­ãƒ¼æ–‡å­—åˆ—ãŒnull<br>
+     * æœŸå¾…å€¤ :null<br>
      *
-     * à–¾F•”•ªƒL[•¶š—ñ‚ªNull‚ÌAnull‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * èª¬æ˜ï¼šéƒ¨åˆ†ã‚­ãƒ¼æ–‡å­—åˆ—ãŒNullã®æ™‚ã€nullãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * 
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testGetPropertiesValuesString03() throws Exception {
-        // “ü—Í’l‚Ìİ’è
-        //ƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹–¼
+        // å…¥åŠ›å€¤ã®è¨­å®š
+        //ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«å
         String input = "test";
-        //•”•ªƒL[•¶š—ñ
+        //éƒ¨åˆ†ã‚­ãƒ¼æ–‡å­—åˆ—
         String key = null;
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         Set result = PropertyUtil.getPropertiesValues(input, key);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertNull(result);
     }
 
     /**
-     * testGetPropertiesValues04(String, String)B<br>
+     * testGetPropertiesValues04(String, String)ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FC<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šC<br>
      * <br>
-     * “ü—Í’l :ƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹–¼null,•”•ªƒL[•¶š—ñ<br>
-     * Šú‘Ò’l :null<br>
+     * å…¥åŠ›å€¤ :ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ånull,éƒ¨åˆ†ã‚­ãƒ¼æ–‡å­—åˆ—<br>
+     * æœŸå¾…å€¤ :null<br>
      *
-     * à–¾FƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹–¼‚ªNull‚ÌA
-     * Null‚ğ–ß‚è’l‚Æ‚µ‚Äˆ—‚ğI—¹‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * èª¬æ˜ï¼šãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«åãŒNullã®æ™‚ã€
+     * Nullã‚’æˆ»ã‚Šå€¤ã¨ã—ã¦å‡¦ç†ã‚’çµ‚äº†ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      *
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testGetPropertiesValuesString04() throws Exception {
-        // “ü—Í’l‚Ìİ’è
-        //ƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹–¼
+        // å…¥åŠ›å€¤ã®è¨­å®š
+        //ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«å
         String input = null;
-        //•”•ªƒL[•¶š—ñ
+        //éƒ¨åˆ†ã‚­ãƒ¼æ–‡å­—åˆ—
         String key = "file";
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         Set result = PropertyUtil.getPropertiesValues(input, key);
 
-        //Œ‹‰ÊŠm”F
+        //çµæœç¢ºèª
         assertNull(result);
     }
 
     /**
-     * testGetPropertiesValues05(String, String)B<br>
+     * testGetPropertiesValues05(String, String)ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA,F<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA,F<br>
      * <br>
-     * “ü—Í’l :ƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹–¼,ŠY“–‚·‚éƒL[‚ª‚È‚¢•”•ªƒL[•¶š—ñ<br>
-     * Šú‘Ò’l :’lƒZƒbƒgi’†g‚ª‹ój<br>
+     * å…¥åŠ›å€¤ :ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«å,è©²å½“ã™ã‚‹ã‚­ãƒ¼ãŒãªã„éƒ¨åˆ†ã‚­ãƒ¼æ–‡å­—åˆ—<br>
+     * æœŸå¾…å€¤ :å€¤ã‚»ãƒƒãƒˆï¼ˆä¸­èº«ãŒç©ºï¼‰<br>
      *
-     * à–¾F•”•ªƒL[•¶š—ñ‚ÉŠY“–‚·‚é’l‚ª‚È‚¢ê‡A
-     * ‹ó‚Ì"Enumeration"‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * èª¬æ˜ï¼šéƒ¨åˆ†ã‚­ãƒ¼æ–‡å­—åˆ—ã«è©²å½“ã™ã‚‹å€¤ãŒãªã„å ´åˆã€
+     * ç©ºã®"Enumeration"ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      *
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testGetPropertiesValuesString05() throws Exception {
-        // “ü—Í’l‚Ìİ’è
-        //ƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹–¼
+        // å…¥åŠ›å€¤ã®è¨­å®š
+        //ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«å
         String input = "test_message_01";
-        //•”•ªƒL[•¶š—ñ
+        //éƒ¨åˆ†ã‚­ãƒ¼æ–‡å­—åˆ—
         String key = "file";
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         Set result = PropertyUtil.getPropertiesValues(input, key);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertTrue(result.isEmpty());
     }
 
     /**
-     * testGetPropertiesValues06(String, String)B<br>
+     * testGetPropertiesValues06(String, String)ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FC<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šC<br>
      * <br>
-     * “ü—Í’l :ƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹–¼‹ó•¶š,•”•ªƒL[•¶š—ñ<br>
-     * Šú‘Ò’l :null<br>
+     * å…¥åŠ›å€¤ :ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«åç©ºæ–‡å­—,éƒ¨åˆ†ã‚­ãƒ¼æ–‡å­—åˆ—<br>
+     * æœŸå¾…å€¤ :null<br>
      *
-     * à–¾FƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹–¼‚ª‹ó•¶š‚ÌA
-     * Null‚ğ–ß‚è’l‚Æ‚µ‚Äˆ—‚ğI—¹‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * èª¬æ˜ï¼šãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«åãŒç©ºæ–‡å­—ã®æ™‚ã€
+     * Nullã‚’æˆ»ã‚Šå€¤ã¨ã—ã¦å‡¦ç†ã‚’çµ‚äº†ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      *
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testGetPropertiesValuesString06() throws Exception {
-        // “ü—Í’l‚Ìİ’è
-        //ƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹–¼
+        // å…¥åŠ›å€¤ã®è¨­å®š
+        //ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«å
         String input = "";
-        //•”•ªƒL[•¶š—ñ
+        //éƒ¨åˆ†ã‚­ãƒ¼æ–‡å­—åˆ—
         String key = "file";
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         Set result = PropertyUtil.getPropertiesValues(input, key);
 
-        //Œ‹‰ÊŠm”F
+        //çµæœç¢ºèª
         assertNull(result);
     }
 
     /**
-     * testGetPropertiesValues07(String, String)B<br>
+     * testGetPropertiesValues07(String, String)ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA,F<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA,F<br>
      * <br>
-     * “ü—Í’l :ƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹–¼,•”•ªƒL[•¶š—ñ‚Í‹ó•¶š<br>
-     * Šú‘Ò’l :’lƒZƒbƒgi‘S‚Ä‘I‘ğ‚³‚ê‚éj<br>
+     * å…¥åŠ›å€¤ :ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«å,éƒ¨åˆ†ã‚­ãƒ¼æ–‡å­—åˆ—ã¯ç©ºæ–‡å­—<br>
+     * æœŸå¾…å€¤ :å€¤ã‚»ãƒƒãƒˆï¼ˆå…¨ã¦é¸æŠã•ã‚Œã‚‹ï¼‰<br>
      *
-     * à–¾F•”•ªƒL[•¶š—ñ‚ª‹ó•¶š‚Ìê‡A
-     * ‘I‘ğ‚³‚ê‚½ƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚Ì‘S‚Ä’l‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * èª¬æ˜ï¼šéƒ¨åˆ†ã‚­ãƒ¼æ–‡å­—åˆ—ãŒç©ºæ–‡å­—ã®å ´åˆã€
+     * é¸æŠã•ã‚ŒãŸãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ã®å…¨ã¦å€¤ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      *
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testGetPropertiesValuesString07() throws Exception {
-        // “ü—Í’l‚Ìİ’è
-        //ƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹–¼
+        // å…¥åŠ›å€¤ã®è¨­å®š
+        //ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«å
         String input = "test_message_01";
-        //•”•ªƒL[•¶š—ñ
+        //éƒ¨åˆ†ã‚­ãƒ¼æ–‡å­—åˆ—
         String key = "";
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         Set result = PropertyUtil.getPropertiesValues(input, key);
 
-        // Œ‹‰ÊŠm”F
-        assertTrue(result.contains("{0}ƒfƒtƒHƒ‹ƒgƒƒbƒZ[ƒW"));
-        assertTrue(result.contains("—áŠOƒƒbƒZ[ƒW"));
+        // çµæœç¢ºèª
+        assertTrue(result.contains("{0}ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸"));
+        assertTrue(result.contains("ä¾‹å¤–ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸"));
         assertTrue(result.contains(""));
     }
 
     /**
-     * testGetPropertiesValues08(String, String)B<br>
+     * testGetPropertiesValues08(String, String)ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA,F<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA,F<br>
      * <br>
-     * “ü—Í’l :ƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹–¼,•”•ªƒL[•¶š—ñ(•¡”‘¶İ‚·‚éƒL[‚ğŠÜ‚Ş)<br>
-     * Šú‘Ò’l :’lƒZƒbƒgi’†g‚ª•¡”j<br>
+     * å…¥åŠ›å€¤ :ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«å,éƒ¨åˆ†ã‚­ãƒ¼æ–‡å­—åˆ—(è¤‡æ•°å­˜åœ¨ã™ã‚‹ã‚­ãƒ¼ã‚’å«ã‚€)<br>
+     * æœŸå¾…å€¤ :å€¤ã‚»ãƒƒãƒˆï¼ˆä¸­èº«ãŒè¤‡æ•°ï¼‰<br>
      *
-     * à–¾F•”•ªƒL[•¶š—ñ‚É•¡”‘¶İ‚·‚éƒL[‚ğŠÜ‚ß‚½A
-     * ’lƒZƒbƒg‚ª1‚Âæ“¾‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * èª¬æ˜ï¼šéƒ¨åˆ†ã‚­ãƒ¼æ–‡å­—åˆ—ã«è¤‡æ•°å­˜åœ¨ã™ã‚‹ã‚­ãƒ¼ã‚’å«ã‚ãŸæ™‚ã€
+     * å€¤ã‚»ãƒƒãƒˆãŒ1ã¤å–å¾—ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      *
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testGetPropertiesValuesString08() throws Exception {
-        // “ü—Í’l‚Ìİ’è
-        //ƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹–¼
+        // å…¥åŠ›å€¤ã®è¨­å®š
+        //ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«å
         String input = "test";
-        //•”•ªƒL[•¶š—ñ
+        //éƒ¨åˆ†ã‚­ãƒ¼æ–‡å­—åˆ—
         String key = "property.test004";
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         Set result = PropertyUtil.getPropertiesValues(input, key);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertTrue(result.contains("testB"));
         assertFalse(result.contains("testA"));
     }
 
     /**
-     * testGetPropertyNames01(Properties, String)B<br>
+     * testGetPropertyNames01(Properties, String)ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA,F<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA,F<br>
      * <br>
-     * “ü—Í’l :ƒvƒƒpƒeƒBi1‚ÂjA•”•ªƒL[ƒvƒŠƒtƒBƒbƒNƒX<br>
-     * Šú‘Ò’l :‘Î‰‚·‚éƒL[ˆê——i1‚Âj<br>
+     * å…¥åŠ›å€¤ :ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ï¼ˆ1ã¤ï¼‰ã€éƒ¨åˆ†ã‚­ãƒ¼ãƒ—ãƒªãƒ•ã‚£ãƒƒã‚¯ã‚¹<br>
+     * æœŸå¾…å€¤ :å¯¾å¿œã™ã‚‹ã‚­ãƒ¼ä¸€è¦§ï¼ˆ1ã¤ï¼‰<br>
      *
-     * à–¾FƒvƒƒpƒeƒBƒIƒuƒWƒFƒNƒg‚Ì’†g‚ª‚P‚Â‚ÌA
-     * ‘Î‰‚·‚éƒL[‚ª1‚Âæ“¾‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * èª¬æ˜ï¼šãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ä¸­èº«ãŒï¼‘ã¤ã®æ™‚ã€
+     * å¯¾å¿œã™ã‚‹ã‚­ãƒ¼ãŒ1ã¤å–å¾—ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      *
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     @SuppressWarnings("unchecked")
     public void testGetPropertyNamesPropertiesString01() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String key1 = "SystemExceptionHandlerTest.key";
         String value1 = "{0}message";
 
@@ -1127,10 +1127,10 @@ public class PropertyUtilTest extends PropertyTestCase {
 
         String keyprefix = "System";
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         Enumeration result = PropertyUtil.getPropertyNames(input, keyprefix);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         Set set = new HashSet();
         set.add("SystemExceptionHandlerTest.key");
         assertTrue(set.contains(result.nextElement()));
@@ -1138,21 +1138,21 @@ public class PropertyUtilTest extends PropertyTestCase {
     }
 
     /**
-     * testGetPropertyNames02(Properties, String)B<br>
+     * testGetPropertyNames02(Properties, String)ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA,F<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA,F<br>
      * <br>
-     * “ü—Í’l :ƒvƒƒpƒeƒBi•¡”jA•”•ªƒL[ƒvƒŠƒtƒBƒbƒNƒX<br>
-     * Šú‘Ò’l :‘Î‰‚·‚éƒL[ˆê——i1‚Âj<br>
+     * å…¥åŠ›å€¤ :ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ï¼ˆè¤‡æ•°ï¼‰ã€éƒ¨åˆ†ã‚­ãƒ¼ãƒ—ãƒªãƒ•ã‚£ãƒƒã‚¯ã‚¹<br>
+     * æœŸå¾…å€¤ :å¯¾å¿œã™ã‚‹ã‚­ãƒ¼ä¸€è¦§ï¼ˆ1ã¤ï¼‰<br>
      *
-     * à–¾FƒvƒƒpƒeƒBƒIƒuƒWƒFƒNƒg‚Ì’†g‚ª•¡”‚ÌA
-     * ‘Î‰‚·‚éƒL[‚ª1‚Âæ“¾‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * èª¬æ˜ï¼šãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ä¸­èº«ãŒè¤‡æ•°ã®æ™‚ã€
+     * å¯¾å¿œã™ã‚‹ã‚­ãƒ¼ãŒ1ã¤å–å¾—ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      *
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     @SuppressWarnings("unchecked")
     public void testGetPropertyNamesPropertiesString02() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String key1 = "SystemExceptionHandlerTest.key";
         String value1 = "{0}message";
 
@@ -1165,10 +1165,10 @@ public class PropertyUtilTest extends PropertyTestCase {
 
         String keyprefix = "System";
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         Enumeration result = PropertyUtil.getPropertyNames(input, keyprefix);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         Set set = new HashSet();
         set.add("SystemExceptionHandlerTest.key");
         assertTrue(set.contains(result.nextElement()));
@@ -1176,21 +1176,21 @@ public class PropertyUtilTest extends PropertyTestCase {
     }
 
     /**
-     * testGetPropertyNames03(Properties, String)B<br>
+     * testGetPropertyNames03(Properties, String)ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA,F<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA,F<br>
      * <br>
-     * “ü—Í’l :ƒvƒƒpƒeƒBi•¡”jA•”•ªƒL[ƒvƒŠƒtƒBƒbƒNƒX<br>
-     * Šú‘Ò’l :‘Î‰‚·‚éƒL[ˆê——i•¡”j<br>
+     * å…¥åŠ›å€¤ :ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ï¼ˆè¤‡æ•°ï¼‰ã€éƒ¨åˆ†ã‚­ãƒ¼ãƒ—ãƒªãƒ•ã‚£ãƒƒã‚¯ã‚¹<br>
+     * æœŸå¾…å€¤ :å¯¾å¿œã™ã‚‹ã‚­ãƒ¼ä¸€è¦§ï¼ˆè¤‡æ•°ï¼‰<br>
      *
-     * à–¾FƒvƒƒpƒeƒBƒIƒuƒWƒFƒNƒg‚Ì’†g‚ª•¡”‚ÌA
-     * ‘Î‰‚·‚éƒL[‚ª•¡”æ“¾‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * èª¬æ˜ï¼šãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ä¸­èº«ãŒè¤‡æ•°ã®æ™‚ã€
+     * å¯¾å¿œã™ã‚‹ã‚­ãƒ¼ãŒè¤‡æ•°å–å¾—ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      *
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     @SuppressWarnings("unchecked")
     public void testGetPropertyNamesPropertiesString03() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String key1 = "SystemExceptionHandlerTest.key";
         String value1 = "{0}message";
 
@@ -1207,11 +1207,11 @@ public class PropertyUtilTest extends PropertyTestCase {
 
         String keyprefix = "property";
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         Enumeration result = PropertyUtil.getPropertyNames(input, keyprefix);
 
-        // Œ‹‰ÊŠm”F
-        //¶¬‚³‚ê‚½Enumuration‚É“ü‚Á‚Ä‚é‚±‚Æ‚ÌŠm”F
+        // çµæœç¢ºèª
+        //ç”Ÿæˆã•ã‚ŒãŸEnumurationã«å…¥ã£ã¦ã‚‹ã“ã¨ã®ç¢ºèª
         Set set = new HashSet();
         set.add("property.test002.id.2");
         set.add("property.test004.id.0");
@@ -1221,20 +1221,20 @@ public class PropertyUtilTest extends PropertyTestCase {
     }
 
     /**
-     * testGetPropertyNames04(Properties, String)B<br>
+     * testGetPropertyNames04(Properties, String)ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA,F<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA,F<br>
      * <br>
-     * “ü—Í’l :ƒvƒƒpƒeƒBi•¡”jA•”•ªƒL[ƒvƒŠƒtƒBƒbƒNƒX<br>
-     * Šú‘Ò’l :‹ó‚ÌEnumeration<br>
+     * å…¥åŠ›å€¤ :ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ï¼ˆè¤‡æ•°ï¼‰ã€éƒ¨åˆ†ã‚­ãƒ¼ãƒ—ãƒªãƒ•ã‚£ãƒƒã‚¯ã‚¹<br>
+     * æœŸå¾…å€¤ :ç©ºã®Enumeration<br>
      *
-     * à–¾FƒvƒƒpƒeƒBƒIƒuƒWƒFƒNƒg‚É‘Î‰‚·‚é•”•ªƒL[ƒvƒŠƒtƒBƒbƒNƒX‚ª‚È‚¢ê‡A
-     * ‹ó‚ÌEnumeration‚ª•Ô‹p‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * èª¬æ˜ï¼šãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«å¯¾å¿œã™ã‚‹éƒ¨åˆ†ã‚­ãƒ¼ãƒ—ãƒªãƒ•ã‚£ãƒƒã‚¯ã‚¹ãŒãªã„å ´åˆã€
+     * ç©ºã®EnumerationãŒè¿”å´ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      *
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testGetPropertyNamesPropertiesString04() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String key1 = "SystemExceptionHandlerTest.key";
         String value1 = "{0}message";
 
@@ -1251,54 +1251,54 @@ public class PropertyUtilTest extends PropertyTestCase {
 
         String keyprefix = "a";
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         Enumeration result = PropertyUtil.getPropertyNames(input, keyprefix);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertFalse(result.hasMoreElements());
     }
 
     /**
-     * testGetPropertyNames05(Properties, String)B<br>
+     * testGetPropertyNames05(Properties, String)ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FC<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šC<br>
      * <br>
-     * “ü—Í’l :ƒvƒƒpƒeƒBiNulljA•”•ªƒL[ƒvƒŠƒtƒBƒbƒNƒX<br>
-     * Šú‘Ò’l :null<br>
+     * å…¥åŠ›å€¤ :ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ï¼ˆNullï¼‰ã€éƒ¨åˆ†ã‚­ãƒ¼ãƒ—ãƒªãƒ•ã‚£ãƒƒã‚¯ã‚¹<br>
+     * æœŸå¾…å€¤ :null<br>
      *
-     * à–¾FƒvƒƒpƒeƒBƒIƒuƒWƒFƒNƒg‚ªnull‚Ìê‡A
-     * null‚ğ–ß‚è’l‚Æ‚µ‚Äˆ—‚ğI—¹‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * èª¬æ˜ï¼šãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒnullã®å ´åˆã€
+     * nullã‚’æˆ»ã‚Šå€¤ã¨ã—ã¦å‡¦ç†ã‚’çµ‚äº†ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      *
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testGetPropertyNamesPropertiesString05() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         Properties input = null;
 
         String keyprefix = "properties";
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         Enumeration result = PropertyUtil.getPropertyNames(input, keyprefix);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertNull(result);
     }
 
     /**
-     * testGetPropertyNames06(Properties, String)B<br>
+     * testGetPropertyNames06(Properties, String)ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FC,F<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šC,F<br>
      * <br>
-     * “ü—Í’l :ƒvƒƒpƒeƒBA•”•ªƒL[ƒvƒŠƒtƒBƒbƒNƒX(null)<br>
-     * Šú‘Ò’l :null<br>
+     * å…¥åŠ›å€¤ :ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã€éƒ¨åˆ†ã‚­ãƒ¼ãƒ—ãƒªãƒ•ã‚£ãƒƒã‚¯ã‚¹(null)<br>
+     * æœŸå¾…å€¤ :null<br>
      *
-     * à–¾F•”•ªƒL[ƒvƒŠƒtƒBƒbƒNƒX‚ªnull‚Ìê‡A
-     * null‚ğ–ß‚è’l‚Æ‚µ‚Äˆ—‚ğI—¹‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * èª¬æ˜ï¼šéƒ¨åˆ†ã‚­ãƒ¼ãƒ—ãƒªãƒ•ã‚£ãƒƒã‚¯ã‚¹ãŒnullã®å ´åˆã€
+     * nullã‚’æˆ»ã‚Šå€¤ã¨ã—ã¦å‡¦ç†ã‚’çµ‚äº†ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      *
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testGetPropertyNamesPropertiesString06() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         Properties input = new Properties();
         String key1 = "SystemExceptionHandlerTest.key";
         String value1 = "{0}message";
@@ -1306,55 +1306,55 @@ public class PropertyUtilTest extends PropertyTestCase {
 
         String keyprefix = null;
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         Enumeration result = PropertyUtil.getPropertyNames(input, keyprefix);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertNull(result);
     }
 
     /**
-     * testGetPropertyNames07(Properties, String)B<br>
+     * testGetPropertyNames07(Properties, String)ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FC,F<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šC,F<br>
      * <br>
-     * “ü—Í’l :ƒvƒƒpƒeƒBi‹ójA•”•ªƒL[ƒvƒŠƒtƒBƒbƒNƒX<br>
-     * Šú‘Ò’l :‹ó‚ÌEnumeration<br>
+     * å…¥åŠ›å€¤ :ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ï¼ˆç©ºï¼‰ã€éƒ¨åˆ†ã‚­ãƒ¼ãƒ—ãƒªãƒ•ã‚£ãƒƒã‚¯ã‚¹<br>
+     * æœŸå¾…å€¤ :ç©ºã®Enumeration<br>
      *
-     * à–¾FƒvƒƒpƒeƒBƒIƒuƒWƒFƒNƒg‚ª‹ó‚Ìê‡A
-     * ‹ó‚ÌEnumeration‚ª•Ô‹p‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * èª¬æ˜ï¼šãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒç©ºã®å ´åˆã€
+     * ç©ºã®EnumerationãŒè¿”å´ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      *
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testGetPropertyNamesPropertiesString07() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         Properties input = new Properties();
 
         String keyprefix = "properties";
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         Enumeration result = PropertyUtil.getPropertyNames(input, keyprefix);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertFalse(result.hasMoreElements());
     }
 
     /**
-     * testGetPropertyNames08(Properties, String)B<br>
+     * testGetPropertyNames08(Properties, String)ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FC,F<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šC,F<br>
      * <br>
-     * “ü—Í’l :ƒvƒƒpƒeƒBA•”•ªƒL[ƒvƒŠƒtƒBƒbƒNƒX(‹ó•¶š)<br>
-     * Šú‘Ò’l :‘Î‰‚·‚é‘S‚Ä‚ÌƒL[ˆê——<br>
+     * å…¥åŠ›å€¤ :ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã€éƒ¨åˆ†ã‚­ãƒ¼ãƒ—ãƒªãƒ•ã‚£ãƒƒã‚¯ã‚¹(ç©ºæ–‡å­—)<br>
+     * æœŸå¾…å€¤ :å¯¾å¿œã™ã‚‹å…¨ã¦ã®ã‚­ãƒ¼ä¸€è¦§<br>
      *
-     * à–¾F•”•ªƒL[ƒvƒŠƒtƒBƒbƒNƒX‚ª‹ó•¶š‚Ìê‡A
-     * ‘Î‰‚·‚é‘S‚Ä‚ÌƒL[ˆê——‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * èª¬æ˜ï¼šéƒ¨åˆ†ã‚­ãƒ¼ãƒ—ãƒªãƒ•ã‚£ãƒƒã‚¯ã‚¹ãŒç©ºæ–‡å­—ã®å ´åˆã€
+     * å¯¾å¿œã™ã‚‹å…¨ã¦ã®ã‚­ãƒ¼ä¸€è¦§ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      *
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     @SuppressWarnings("unchecked")
     public void testGetPropertyNamesPropertiesString08() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         Properties input = new Properties();
 
         String key1 = "property.test002.id.2";
@@ -1372,10 +1372,10 @@ public class PropertyUtilTest extends PropertyTestCase {
 
         String keyprefix = "";
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         Enumeration result = PropertyUtil.getPropertyNames(input, keyprefix);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         Set set = new HashSet();
         set.add("property.test002.id.2");
         set.add("property.test004.id.0");
@@ -1387,21 +1387,21 @@ public class PropertyUtilTest extends PropertyTestCase {
     }
 
     /**
-     * testGetPropertyNames09(Properties, String)B<br>
+     * testGetPropertyNames09(Properties, String)ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA,F<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA,F<br>
      * <br>
-     * “ü—Í’l :ƒL[‚ª•¡”‘¶İ‚·‚éƒvƒƒpƒeƒBƒIƒuƒWƒFƒNƒg<br>
-     * Šú‘Ò’l :‘Î‰‚·‚é‘S‚Ä‚ÌƒL[ˆê——<br>
+     * å…¥åŠ›å€¤ :ã‚­ãƒ¼ãŒè¤‡æ•°å­˜åœ¨ã™ã‚‹ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
+     * æœŸå¾…å€¤ :å¯¾å¿œã™ã‚‹å…¨ã¦ã®ã‚­ãƒ¼ä¸€è¦§<br>
      *
-     * à–¾FƒL[‚ª•¡”‘¶İ‚·‚éƒvƒƒpƒeƒBƒIƒuƒWƒFƒNƒg‚Ìê‡
-     * •¡”‚Ì‚¤‚¿1‚Â•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * èª¬æ˜ï¼šã‚­ãƒ¼ãŒè¤‡æ•°å­˜åœ¨ã™ã‚‹ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å ´åˆ
+     * è¤‡æ•°ã®ã†ã¡1ã¤è¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      *
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     @SuppressWarnings("unchecked")
     public void testGetPropertyNamesPropertiesString09() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String key1 = "SystemExceptionHandlerTest.key";
         String value1 = "{0}message";
 
@@ -1422,11 +1422,11 @@ public class PropertyUtilTest extends PropertyTestCase {
 
         String keyprefix = "pro";
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         Enumeration result = PropertyUtil.getPropertyNames(input, keyprefix);
 
-        // Œ‹‰ÊŠm”F
-        //¶¬‚³‚ê‚½Enumuration‚É“ü‚Á‚Ä‚é‚±‚Æ‚ÌŠm”F
+        // çµæœç¢ºèª
+        //ç”Ÿæˆã•ã‚ŒãŸEnumurationã«å…¥ã£ã¦ã‚‹ã“ã¨ã®ç¢ºèª
         Set set = new HashSet();
         set.add("property.test002.id.2");
         set.add("property.test004.id.0");
@@ -1435,21 +1435,21 @@ public class PropertyUtilTest extends PropertyTestCase {
         assertFalse(result.hasMoreElements());
     }
     /**
-     * testGetPropertiesValues01(Properties, Enumeration)B<br>
+     * testGetPropertiesValues01(Properties, Enumeration)ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA,F<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA,F<br>
      * <br>
-     * “ü—Í’l :ƒvƒƒpƒeƒBi1‚ÂjAƒL[‚Ìˆê——i1‚Âj<br>
-     * Šú‘Ò’l :’lƒZƒbƒgi1‚Âj<br>
+     * å…¥åŠ›å€¤ :ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ï¼ˆ1ã¤ï¼‰ã€ã‚­ãƒ¼ã®ä¸€è¦§ï¼ˆ1ã¤ï¼‰<br>
+     * æœŸå¾…å€¤ :å€¤ã‚»ãƒƒãƒˆï¼ˆ1ã¤ï¼‰<br>
      *
-     * à–¾FƒvƒƒpƒeƒBƒIƒuƒWƒFƒNƒg‚Ì’†g‚ª‚P‚Â‚ÅAƒL[ˆê——‚Ì’†g‚à‚P‚Â‚ÌA
-     * w’è‚³‚ê‚½ƒvƒƒpƒeƒB‚©‚ç’l1‚Âæ“¾‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * èª¬æ˜ï¼šãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ä¸­èº«ãŒï¼‘ã¤ã§ã€ã‚­ãƒ¼ä¸€è¦§ã®ä¸­èº«ã‚‚ï¼‘ã¤ã®æ™‚ã€
+     * æŒ‡å®šã•ã‚ŒãŸãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‹ã‚‰å€¤1ã¤å–å¾—ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      *
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     @SuppressWarnings("unchecked")
     public void testGetPropertiesValues01() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String key1 = "SystemExceptionHandlerTest.key";
         String value1 = "{0}message";
 
@@ -1457,29 +1457,29 @@ public class PropertyUtilTest extends PropertyTestCase {
         input.setProperty(key1, value1);
 
         Enumeration em = new StringTokenizer("SystemExceptionHandlerTest.key");
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         Set result = PropertyUtil.getPropertiesValues(input, em);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertTrue(result.contains("{0}message"));
     }
 
     /**
-     * testGetPropertiesValues02(Properties, Enumeration)B<br>
+     * testGetPropertiesValues02(Properties, Enumeration)ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA,F<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA,F<br>
      * <br>
-     * “ü—Í’l :ƒvƒƒpƒeƒBi•¡”jAƒL[‚Ìˆê——i•¡”j<br>
-     * Šú‘Ò’l :’lƒZƒbƒgi•¡”j<br>
+     * å…¥åŠ›å€¤ :ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ï¼ˆè¤‡æ•°ï¼‰ã€ã‚­ãƒ¼ã®ä¸€è¦§ï¼ˆè¤‡æ•°ï¼‰<br>
+     * æœŸå¾…å€¤ :å€¤ã‚»ãƒƒãƒˆï¼ˆè¤‡æ•°ï¼‰<br>
      *
-     * à–¾FƒvƒƒpƒeƒBƒIƒuƒWƒFƒNƒg‚Ì’†g‚ª•¡”‚ÌA
-     * w’è‚³‚ê‚½ƒvƒƒpƒeƒB‚©‚ç’l‚ª•¡”æ“¾‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * èª¬æ˜ï¼šãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ä¸­èº«ãŒè¤‡æ•°ã®æ™‚ã€
+     * æŒ‡å®šã•ã‚ŒãŸãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‹ã‚‰å€¤ãŒè¤‡æ•°å–å¾—ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      *
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     @SuppressWarnings("unchecked")
     public void testGetPropertiesValues02() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String key1 = "property.test001.id.0";
         String value1 = "test";
 
@@ -1497,31 +1497,31 @@ public class PropertyUtilTest extends PropertyTestCase {
         Enumeration em =
             new StringTokenizer("property.test001.id.0 property.test002.id.0 property.test002.id.1");
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         Set result = PropertyUtil.getPropertiesValues(input, em);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertTrue(result.contains("test0"));
         assertTrue(result.contains("test1"));
         assertTrue(result.contains("test"));
     }
 
     /**
-     * testGetPropertiesValues03(Properties, Enumeration)B<br>
+     * testGetPropertiesValues03(Properties, Enumeration)ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA,F<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA,F<br>
      * <br>
-     * “ü—Í’l :ƒvƒƒpƒeƒBi’l‚É‹ó‚ª‚ ‚é‚à‚Ì‚ğŠÜ‚ŞjAƒL[‚Ìˆê——i•¡”j<br>
-     * Šú‘Ò’l :’lƒZƒbƒgi’l‚ª‹ó‚Ì‚à‚Ì‚É‚Â‚¢‚Ä‚ÍA‹ó‚Æ•\¦‚³‚ê‚éj<br>
+     * å…¥åŠ›å€¤ :ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ï¼ˆå€¤ã«ç©ºãŒã‚ã‚‹ã‚‚ã®ã‚’å«ã‚€ï¼‰ã€ã‚­ãƒ¼ã®ä¸€è¦§ï¼ˆè¤‡æ•°ï¼‰<br>
+     * æœŸå¾…å€¤ :å€¤ã‚»ãƒƒãƒˆï¼ˆå€¤ãŒç©ºã®ã‚‚ã®ã«ã¤ã„ã¦ã¯ã€ç©ºã¨è¡¨ç¤ºã•ã‚Œã‚‹ï¼‰<br>
      *
-     * à–¾FƒvƒƒpƒeƒBƒIƒuƒWƒFƒNƒg‚Ì’†‚ÉAƒL[‚É‘Î‚·‚é’l‚ª‹ó‚È‚à‚Ì‚ªŠÜ‚Ü‚ê‚éê‡
-     * " "‚Åæ“¾‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * èª¬æ˜ï¼šãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ä¸­ã«ã€ã‚­ãƒ¼ã«å¯¾ã™ã‚‹å€¤ãŒç©ºãªã‚‚ã®ãŒå«ã¾ã‚Œã‚‹å ´åˆ
+     * " "ã§å–å¾—ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      *
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     @SuppressWarnings("unchecked")
     public void testGetPropertiesValues03() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String key1 = "property.test001.id.0";
         String value1 = "test";
 
@@ -1539,108 +1539,108 @@ public class PropertyUtilTest extends PropertyTestCase {
         Enumeration em =
             new StringTokenizer("property.test001.id.0 property.test002.id.0 property.test003.id.0");
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         Set result = PropertyUtil.getPropertiesValues(input, em);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertTrue(result.contains("test0"));
         assertTrue(result.contains("test"));
         assertTrue(result.contains(""));
     }
 
     /**
-     * testGetPropertiesValues04(Properties, Enumeration)B<br>
+     * testGetPropertiesValues04(Properties, Enumeration)ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FC,F<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šC,F<br>
      * <br>
-     * “ü—Í’l :ƒvƒƒpƒeƒB‚ªnullAƒL[‚Ìˆê——<br>
-     * Šú‘Ò’l :null<br>
+     * å…¥åŠ›å€¤ :ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãŒnullã€ã‚­ãƒ¼ã®ä¸€è¦§<br>
+     * æœŸå¾…å€¤ :null<br>
      *
-     * à–¾FƒvƒƒpƒeƒB‚ªnull‚ÌAnull‚ğ–ß‚è’l‚Æ‚µ‚Äˆ—‚ğI—¹‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * èª¬æ˜ï¼šãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãŒnullã®æ™‚ã€nullã‚’æˆ»ã‚Šå€¤ã¨ã—ã¦å‡¦ç†ã‚’çµ‚äº†ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      *
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     @SuppressWarnings("unchecked")
     public void testGetPropertiesValues04() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         Properties input = null;
 
         Enumeration em = new StringTokenizer("property.test001.id.0");
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         Set result = PropertyUtil.getPropertiesValues(input, em);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertNull(result);
     }
 
     /**
-     * testGetPropertiesValues05(Properties, Enumeration)B<br>
+     * testGetPropertiesValues05(Properties, Enumeration)ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA,F<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA,F<br>
      * <br>
-     * “ü—Í’l :ƒvƒƒpƒeƒBAƒL[‚Ìˆê——‚ªnull<br>
-     * Šú‘Ò’l :null<br>
+     * å…¥åŠ›å€¤ :ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã€ã‚­ãƒ¼ã®ä¸€è¦§ãŒnull<br>
+     * æœŸå¾…å€¤ :null<br>
      *
-     * à–¾FƒL[‚Ìˆê——‚ªnull‚ÌAnull‚ğ–ß‚è’l‚Æ‚µ‚Äˆ—‚ğI—¹‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * èª¬æ˜ï¼šã‚­ãƒ¼ã®ä¸€è¦§ãŒnullã®æ™‚ã€nullã‚’æˆ»ã‚Šå€¤ã¨ã—ã¦å‡¦ç†ã‚’çµ‚äº†ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      *
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     @SuppressWarnings("unchecked")
     public void testGetPropertiesValues05() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         Properties input = new Properties();
         String key1 = "property.test001.id.0";
         String value1 = "test";
         input.setProperty(key1, value1);
 
         Enumeration em = null;
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         Set result = PropertyUtil.getPropertiesValues(input, em);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertNull(result);
     }
 
     /**
-     * testGetPropertiesValues06(Properties, Enumeration)B<br>
+     * testGetPropertiesValues06(Properties, Enumeration)ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FC,F<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šC,F<br>
      * <br>
-     * “ü—Í’l :ƒvƒƒpƒeƒB‚ª‹óAƒL[‚Ìˆê——<br>
-     * Šú‘Ò’l :"null"<br>
+     * å…¥åŠ›å€¤ :ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãŒç©ºã€ã‚­ãƒ¼ã®ä¸€è¦§<br>
+     * æœŸå¾…å€¤ :"null"<br>
      *
-     * à–¾FƒvƒƒpƒeƒB‚ª‹ó‚ÌA"null"‚Åæ“¾‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * èª¬æ˜ï¼šãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãŒç©ºã®æ™‚ã€"null"ã§å–å¾—ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      *
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     @SuppressWarnings("unchecked")
     public void testGetPropertiesValues06() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         Properties input = new Properties();
 
         Enumeration em = new StringTokenizer("property.test001.id.0");
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         Set result = PropertyUtil.getPropertiesValues(input, em);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertTrue(result.contains(null));
     }
 
     /**
-     * testGetPropertiesValues07(Properties, Enumeration)B<br>
+     * testGetPropertiesValues07(Properties, Enumeration)ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA,F<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA,F<br>
      * <br>
-     * “ü—Í’l :ƒvƒƒpƒeƒBAƒL[‚Ìˆê——‚ª‹ó<br>
-     * Šú‘Ò’l :‹ó<br>
+     * å…¥åŠ›å€¤ :ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã€ã‚­ãƒ¼ã®ä¸€è¦§ãŒç©º<br>
+     * æœŸå¾…å€¤ :ç©º<br>
      *
-     * à–¾FƒL[‚Ìˆê——‚ª‹ó‚ÌA‹ó‚ªæ“¾‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * èª¬æ˜ï¼šã‚­ãƒ¼ã®ä¸€è¦§ãŒç©ºã®æ™‚ã€ç©ºãŒå–å¾—ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      *
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     @SuppressWarnings("unchecked")
     public void testGetPropertiesValues07() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         Properties input = new Properties();
         String key1 = "property.test001.id.0";
         String value1 = "test";
@@ -1648,29 +1648,29 @@ public class PropertyUtilTest extends PropertyTestCase {
 
         Enumeration em = new StringTokenizer("");
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         Set result = PropertyUtil.getPropertiesValues(input, em);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertTrue(result.isEmpty());
     }
 
     /**
-     * testGetPropertiesValues08(Properties, Enumeration)B<br>
+     * testGetPropertiesValues08(Properties, Enumeration)ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA,F<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA,F<br>
      * <br>
-     * “ü—Í’l :ƒL[‚ª•¡”‘¶İ‚·‚éƒvƒƒpƒeƒBƒIƒuƒWƒFƒNƒg<br>
-     * Šú‘Ò’l :’lƒZƒbƒg<br>
+     * å…¥åŠ›å€¤ :ã‚­ãƒ¼ãŒè¤‡æ•°å­˜åœ¨ã™ã‚‹ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
+     * æœŸå¾…å€¤ :å€¤ã‚»ãƒƒãƒˆ<br>
      *
-     * à–¾FƒL[‚ª•¡”‘¶İ‚·‚éƒvƒƒpƒeƒBƒIƒuƒWƒFƒNƒg‚Ìê‡
-     * •¡”‚Ì‚¤‚¿1‚Â‚Ì’l‚ªæ“¾‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * èª¬æ˜ï¼šã‚­ãƒ¼ãŒè¤‡æ•°å­˜åœ¨ã™ã‚‹ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å ´åˆ
+     * è¤‡æ•°ã®ã†ã¡1ã¤ã®å€¤ãŒå–å¾—ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * 
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     @SuppressWarnings("unchecked")
     public void testGetPropertiesValues08() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         Properties input = new Properties();
         String key1 = "property.test004.id.0";
         String value1 = "testA";
@@ -1683,29 +1683,29 @@ public class PropertyUtilTest extends PropertyTestCase {
 
         Enumeration em = new StringTokenizer("property.test004.id.0");
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         Set result = PropertyUtil.getPropertiesValues(input, em);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertTrue(result.contains("testB"));
         assertFalse(result.contains("testA"));
     }
 
     /**
-     * testGetPropertiesValues09(Properties, Enumeration)B<br>
+     * testGetPropertiesValues09(Properties, Enumeration)ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA,F<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA,F<br>
      * <br>
-     * “ü—Í’l :ƒL[ˆê——‚É‘¶İ‚µ‚È‚¢ƒvƒƒpƒeƒBƒL[<br>
-     * Šú‘Ò’l :"null"<br>
+     * å…¥åŠ›å€¤ :ã‚­ãƒ¼ä¸€è¦§ã«å­˜åœ¨ã—ãªã„ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚­ãƒ¼<br>
+     * æœŸå¾…å€¤ :"null"<br>
      *
-     * à–¾FƒvƒƒpƒeƒB‚ÌƒL[‚ªƒL[ˆê——‚É‘¶İ‚µ‚È‚¢ê‡A"null"‚Åæ“¾‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * èª¬æ˜ï¼šãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã®ã‚­ãƒ¼ãŒã‚­ãƒ¼ä¸€è¦§ã«å­˜åœ¨ã—ãªã„å ´åˆã€"null"ã§å–å¾—ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * 
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     @SuppressWarnings("unchecked")
     public void testGetPropertiesValues09() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         Properties input = new Properties();
         String key1 = "property.test001.id.0";
         String value1 = "test";
@@ -1714,60 +1714,60 @@ public class PropertyUtilTest extends PropertyTestCase {
 
         Enumeration em = new StringTokenizer("property.test004.id.0");
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         Set result = PropertyUtil.getPropertiesValues(input, em);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertTrue(result.contains(null));
         assertFalse(result.contains("test"));
     }
 
     /**
-     * testLoadProperties01(String)B<br>
+     * testLoadProperties01(String)ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA,F<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA,F<br>
      * <br>
-     * “ü—Í’l :ƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹–¼<br>
-     * Šú‘Ò’l :ƒvƒƒpƒeƒBƒIƒuƒWƒFƒNƒgi’†g‚ª‚P‚Âj<br>
+     * å…¥åŠ›å€¤ :ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«å<br>
+     * æœŸå¾…å€¤ :ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆï¼ˆä¸­èº«ãŒï¼‘ã¤ï¼‰<br>
      *
-     * à–¾FƒvƒƒpƒeƒBƒIƒuƒWƒFƒNƒg‚Ì’†g‚ª‚P‚Â‚ÌA
-     * w’è‚³‚ê‚½ƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚ªƒ[ƒh‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * èª¬æ˜ï¼šãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ä¸­èº«ãŒï¼‘ã¤ã®æ™‚ã€
+     * æŒ‡å®šã•ã‚ŒãŸãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ãŒãƒ­ãƒ¼ãƒ‰ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      *
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     @SuppressWarnings("unchecked")
     public void testLoadProperties01() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = "test_message_01_en_US";
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         Properties result = PropertyUtil.loadProperties(input);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertTrue(result.containsKey("SystemExceptionHandlerTest.key"));
         assertTrue(result.containsValue("{0}message"));
     }
 
     /**
-     * testLoadProperties02(String)B<br>
+     * testLoadProperties02(String)ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA,F<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA,F<br>
      * <br>
-     * “ü—Í’l :ƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹–¼<br>
-     * Šú‘Ò’l :ƒvƒƒpƒeƒBƒIƒuƒWƒFƒNƒgi’†g‚ª•¡”j<br>
+     * å…¥åŠ›å€¤ :ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«å<br>
+     * æœŸå¾…å€¤ :ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆï¼ˆä¸­èº«ãŒè¤‡æ•°ï¼‰<br>
      *
-     * à–¾Fw’è‚³‚ê‚½ƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚Ì’†g‚ÌŒÂ”•ªƒ[ƒh‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * èª¬æ˜ï¼šæŒ‡å®šã•ã‚ŒãŸãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ã®ä¸­èº«ã®å€‹æ•°åˆ†ãƒ­ãƒ¼ãƒ‰ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      *
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testLoadProperties02() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = "test_message_01";
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         Properties result = PropertyUtil.loadProperties(input);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertTrue(
             result.containsKey("SystemExceptionHandlerTest.error.message"));
         assertTrue(
@@ -1783,256 +1783,256 @@ public class PropertyUtilTest extends PropertyTestCase {
     }
 
     /**
-     * testLoadProperties03(String)B<br>
+     * testLoadProperties03(String)ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FC,F<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šC,F<br>
      * <br>
-     * “ü—Í’l :null<br>
-     * Šú‘Ò’l :null<br>
+     * å…¥åŠ›å€¤ :null<br>
+     * æœŸå¾…å€¤ :null<br>
      *
-     * à–¾FƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹–¼‚ª‘¶İ‚µ‚È‚¢ê‡Null‚ğ–ß‚è’l‚Æ‚µ‚Äˆ—‚ğI‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO */
+     * èª¬æ˜ï¼šãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«åãŒå­˜åœ¨ã—ãªã„å ´åˆNullã‚’æˆ»ã‚Šå€¤ã¨ã—ã¦å‡¦ç†ã‚’çµ‚ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤– */
     public void testLoadProperties03() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = null;
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         Properties result = PropertyUtil.loadProperties(input);
 
-        //Œ‹‰ÊŠm”F
+        //çµæœç¢ºèª
         assertNull(result);
     }
 
     /**
-     * testLoadProperties04(String)B<br>
+     * testLoadProperties04(String)ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FC,F<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šC,F<br>
      * <br>
-     * “ü—Í’l :""(‹ó•¶š)<br>
-     * Šú‘Ò’l :null<br>
+     * å…¥åŠ›å€¤ :""(ç©ºæ–‡å­—)<br>
+     * æœŸå¾…å€¤ :null<br>
      *
-     * à–¾FƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹–¼‚ª‘¶İ‚µ‚È‚¢ê‡Null‚ğ–ß‚è’l‚Æ‚µ‚Äˆ—‚ğI—¹‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * èª¬æ˜ï¼šãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«åãŒå­˜åœ¨ã—ãªã„å ´åˆNullã‚’æˆ»ã‚Šå€¤ã¨ã—ã¦å‡¦ç†ã‚’çµ‚äº†ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      *
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testLoadProperties04() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = "";
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         Properties result = PropertyUtil.loadProperties(input);
 
-        //Œ‹‰ÊŠm”F
+        //çµæœç¢ºèª
         assertNull(result);
     }
 
     /**
-     * testLoadProperties05(String)B<br>
+     * testLoadProperties05(String)ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA,F<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA,F<br>
      * <br>
-     * “ü—Í’l :’†g‚É‰½‚à“ü‚Á‚Ä‚¢‚È‚¢ƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹–¼<br>
-     * Šú‘Ò’l :‹ó‚ÌƒvƒƒpƒeƒBƒIƒuƒWƒFƒNƒg<br>
+     * å…¥åŠ›å€¤ :ä¸­èº«ã«ä½•ã‚‚å…¥ã£ã¦ã„ãªã„ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«å<br>
+     * æœŸå¾…å€¤ :ç©ºã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
      *
-     * à–¾Fw’è‚³‚ê‚½ƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚Ì’†g‚ª‹ó‚ÌA
-     * ‹ó‚ÌƒvƒƒpƒeƒBƒIƒuƒWƒFƒNƒg‚ªæ‚èo‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * èª¬æ˜ï¼šæŒ‡å®šã•ã‚ŒãŸãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ã®ä¸­èº«ãŒç©ºã®æ™‚ã€
+     * ç©ºã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒå–ã‚Šå‡ºã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      *
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testLoadProperties05() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = "test_message_10";
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         Properties result = PropertyUtil.loadProperties(input);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertTrue(result.isEmpty());
     }
 
     /**
-     * testLoadProperties06(String)B<br>
+     * testLoadProperties06(String)ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FF<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šF<br>
      * <br>
-     * “ü—Í’l :‘¶İ‚µ‚È‚¢ƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹–¼<br>
-     * Šú‘Ò’l :null<br>
-     * ƒƒOF"*** Can not find property-file [test_me.properties] ***"
+     * å…¥åŠ›å€¤ :å­˜åœ¨ã—ãªã„ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«å<br>
+     * æœŸå¾…å€¤ :null<br>
+     * ãƒ­ã‚°ï¼š"*** Can not find property-file [test_me.properties] ***"
      *
-     * à–¾F‘¶İ‚µ‚È‚¢ƒtƒ@ƒCƒ‹–¼‚ªw’è‚³‚ê‚½A
-     * null‚ğ–ß‚è’l‚Æ‚µ‚Äˆ—‚ğI—¹‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * èª¬æ˜ï¼šå­˜åœ¨ã—ãªã„ãƒ•ã‚¡ã‚¤ãƒ«åãŒæŒ‡å®šã•ã‚ŒãŸæ™‚ã€
+     * nullã‚’æˆ»ã‚Šå€¤ã¨ã—ã¦å‡¦ç†ã‚’çµ‚äº†ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      *
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testLoadProperties06() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = "test_me";
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         Properties result = PropertyUtil.loadProperties(input);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         LogUTUtil.checkWarn("*** Can not find property-file" +
                 " [test_me.properties] ***");
         assertNull(result);
     }
 
     /**
-     * testLoadProperties07(String)B<br>
+     * testLoadProperties07(String)ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA,F<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA,F<br>
      * <br>
-     * “ü—Í’l :Šg’£q‚ğŠÜ‚ŞƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹–¼<br>
-     * Šú‘Ò’l :ƒvƒƒpƒeƒBƒIƒuƒWƒFƒNƒg<br>
+     * å…¥åŠ›å€¤ :æ‹¡å¼µå­ã‚’å«ã‚€ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«å<br>
+     * æœŸå¾…å€¤ :ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
      *
-     * à–¾Fˆø”‚ÌƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹–¼‚É‚·‚Å‚ÉŠg’£q‚ªŠÜ‚Ü‚ê‚Ä‚¢‚éê‡A
-     * w’è‚³‚ê‚½ƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚ªƒ[ƒh‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * èª¬æ˜ï¼šå¼•æ•°ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«åã«ã™ã§ã«æ‹¡å¼µå­ãŒå«ã¾ã‚Œã¦ã„ã‚‹å ´åˆã€
+     * æŒ‡å®šã•ã‚ŒãŸãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ãŒãƒ­ãƒ¼ãƒ‰ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      *
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     @SuppressWarnings("unchecked")
     public void testLoadProperties07() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String input = "test_message_01_en_US.properties";
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         Properties result = PropertyUtil.loadProperties(input);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertTrue(result.containsKey("SystemExceptionHandlerTest.key"));
         assertTrue(result.containsValue("{0}message"));
     }
     
     /**
-     * testGetPropertiesPathStringString01()B<br>
+     * testGetPropertiesPathStringString01()ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA<br>
      * <br>
-     * “ü—Í’l :ƒfƒBƒŒƒNƒgƒŠ•t‚«ƒtƒ@ƒCƒ‹–¼=
+     * å…¥åŠ›å€¤ :ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªä»˜ããƒ•ã‚¡ã‚¤ãƒ«å=
      * subDir/PropertyUtil.class<br>
-     * Œ‹‡‘ÎÛ‚Ìƒtƒ@ƒCƒ‹–¼=hoge.txt
-     * Šú‘Ò’l :subDir"ƒtƒ@ƒCƒ‹ƒZƒpƒŒ[ƒ^(OS‚É‚æ‚èˆÙ‚È‚é)"hoge.txt<br>
+     * çµåˆå¯¾è±¡ã®ãƒ•ã‚¡ã‚¤ãƒ«å=hoge.txt
+     * æœŸå¾…å€¤ :subDir"ãƒ•ã‚¡ã‚¤ãƒ«ã‚»ãƒ‘ãƒ¬ãƒ¼ã‚¿(OSã«ã‚ˆã‚Šç•°ãªã‚‹)"hoge.txt<br>
      *
-     * ‘æˆêˆø”‚Ìƒtƒ‹ƒpƒXƒtƒ@ƒCƒ‹–¼‚©‚çAƒfƒBƒŒƒNƒgƒŠ{‘æ“ñˆø”ƒtƒ@ƒCƒ‹–¼
-     * ‚ªo—Í‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * ç¬¬ä¸€å¼•æ•°ã®ãƒ•ãƒ«ãƒ‘ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«åã‹ã‚‰ã€ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªï¼‹ç¬¬äºŒå¼•æ•°ãƒ•ã‚¡ã‚¤ãƒ«å
+     * ãŒå‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * 
      * @throws Exception
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testGetPropertiesPathStringString01() throws Exception {
-        // ƒeƒXƒgİ’è
-        // getPropertiesPath‚Ìˆø”ƒNƒ‰ƒX—v‘f
+        // ãƒ†ã‚¹ãƒˆè¨­å®š
+        // getPropertiesPathã®å¼•æ•°ã‚¯ãƒ©ã‚¹è¦ç´ 
         Class[] clz = new Class[]{String.class, String.class};
-        // getPropertiesPath‚Ìˆø”ƒIƒuƒWƒFƒNƒg—v‘f
+        // getPropertiesPathã®å¼•æ•°ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆè¦ç´ 
         Object[] obj = new Object[]{"subDir/PropertyUtil.class", "hoge.txt"};
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         Object retObj = UTUtil.invokePrivate(PropertyUtil.class,
             "getPropertiesPath", clz, obj);
         
-        // ƒeƒXƒgŒ‹‰Ê
+        // ãƒ†ã‚¹ãƒˆçµæœ
         assertEquals("subDir" + System.getProperty("file.separator")
             + "hoge.txt", retObj);
     }
 
     /**
-     * testGetPropertiesPathStringString02()B<br>
+     * testGetPropertiesPathStringString02()ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA<br>
      * <br>
-     * “ü—Í’l :
-     * (ˆø”)resourceFnull<br>
-     * (ˆø”)addFileF"/hoge.txt"<br>
-     * Šú‘Ò’l :
-     * (–ß‚è’l)StringF-<br>
-     * (—áŠO)FNullPointerException
+     * å…¥åŠ›å€¤ :
+     * (å¼•æ•°)resourceï¼šnull<br>
+     * (å¼•æ•°)addFileï¼š"/hoge.txt"<br>
+     * æœŸå¾…å€¤ :
+     * (æˆ»ã‚Šå€¤)Stringï¼š-<br>
+     * (ä¾‹å¤–)ï¼šNullPointerException
      *
-     * ˆø”resource‚ªnull‚Ìê‡
+     * å¼•æ•°resourceãŒnullã®å ´åˆ
      * 
      * @throws Exception
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testGetPropertiesPathStringString02() throws Exception {
-        // ƒeƒXƒgİ’è
-        // getPropertiesPath‚Ìˆø”ƒNƒ‰ƒX—v‘f
+        // ãƒ†ã‚¹ãƒˆè¨­å®š
+        // getPropertiesPathã®å¼•æ•°ã‚¯ãƒ©ã‚¹è¦ç´ 
         Class[] clz = new Class[]{String.class, String.class};
-        // getPropertiesPath‚Ìˆø”ƒIƒuƒWƒFƒNƒg—v‘f
+        // getPropertiesPathã®å¼•æ•°ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆè¦ç´ 
         Object[] obj = new Object[]{null, "hoge.txt"};
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         try {
             UTUtil.invokePrivate(PropertyUtil.class,
                     "getPropertiesPath", clz, obj);
             fail();
         } catch (NullPointerException e) {
-            // ƒeƒXƒgŒ‹‰Ê
+            // ãƒ†ã‚¹ãƒˆçµæœ
         	return;
         }
     }
 
     /**
-     * testGetPropertiesPathStringString03()B<br>
+     * testGetPropertiesPathStringString03()ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA<br>
      * <br>
-     * “ü—Í’l :
-     * (ˆø”)resourceF"subDir/PropertyUtil.class"<br>
-     * (ˆø”)addFileFnull<br>
-     * Šú‘Ò’l :
-     * (–ß‚è’l)StringF"subDir/null"<br>
-     * (—áŠO)F-
+     * å…¥åŠ›å€¤ :
+     * (å¼•æ•°)resourceï¼š"subDir/PropertyUtil.class"<br>
+     * (å¼•æ•°)addFileï¼šnull<br>
+     * æœŸå¾…å€¤ :
+     * (æˆ»ã‚Šå€¤)Stringï¼š"subDir/null"<br>
+     * (ä¾‹å¤–)ï¼š-
      *
-     * ˆø”addFile‚ªnull‚Ìê‡
+     * å¼•æ•°addFileãŒnullã®å ´åˆ
      * 
      * @throws Exception
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testGetPropertiesPathStringString03() throws Exception {
-        // ƒeƒXƒgİ’è
-        // getPropertiesPath‚Ìˆø”ƒNƒ‰ƒX—v‘f
+        // ãƒ†ã‚¹ãƒˆè¨­å®š
+        // getPropertiesPathã®å¼•æ•°ã‚¯ãƒ©ã‚¹è¦ç´ 
         Class[] clz = new Class[]{String.class, String.class};
-        // getPropertiesPath‚Ìˆø”ƒIƒuƒWƒFƒNƒg—v‘f
+        // getPropertiesPathã®å¼•æ•°ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆè¦ç´ 
         Object[] obj = new Object[]{"subDir/PropertyUtil.class", null};
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         Object retObj = UTUtil.invokePrivate(PropertyUtil.class,
             "getPropertiesPath", clz, obj);
         
-        // ƒeƒXƒgŒ‹‰Ê
+        // ãƒ†ã‚¹ãƒˆçµæœ
         assertEquals("subDir" + System.getProperty("file.separator")
             + "null", retObj);
     }
 
     /**
-     * testGetPropertiesPathStringString04()B<br>
+     * testGetPropertiesPathStringString04()ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA<br>
      * <br>
-     * “ü—Í’l :
-     * (ˆø”)resourceF""<br>
-     * (ˆø”)addFileF""<br>
-     * Šú‘Ò’l :
-     * (–ß‚è’l)StringF""<br>
-     * (—áŠO)F-
+     * å…¥åŠ›å€¤ :
+     * (å¼•æ•°)resourceï¼š""<br>
+     * (å¼•æ•°)addFileï¼š""<br>
+     * æœŸå¾…å€¤ :
+     * (æˆ»ã‚Šå€¤)Stringï¼š""<br>
+     * (ä¾‹å¤–)ï¼š-
      *
-     * ˆø”‚ª‹ó”’‚Ìê‡
+     * å¼•æ•°ãŒç©ºç™½ã®å ´åˆ
      * 
      * @throws Exception
-     * @throws Exception —áŠO */
+     * @throws Exception ä¾‹å¤– */
     public void testGetPropertiesPathStringString04() throws Exception {
-        // ƒeƒXƒgİ’è
-        // getPropertiesPath‚Ìˆø”ƒNƒ‰ƒX—v‘f
+        // ãƒ†ã‚¹ãƒˆè¨­å®š
+        // getPropertiesPathã®å¼•æ•°ã‚¯ãƒ©ã‚¹è¦ç´ 
         Class[] clz = new Class[]{String.class, String.class};
-        // getPropertiesPath‚Ìˆø”ƒIƒuƒWƒFƒNƒg—v‘f
+        // getPropertiesPathã®å¼•æ•°ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆè¦ç´ 
         Object[] obj = new Object[]{"", ""};
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         Object retObj = UTUtil.invokePrivate(PropertyUtil.class,
             "getPropertiesPath", clz, obj);
         
-        // ƒeƒXƒgŒ‹‰Ê
+        // ãƒ†ã‚¹ãƒˆçµæœ
         assertEquals("", retObj);
     }
 

@@ -23,183 +23,183 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * IndexedBeanWrapperImplTest‚Åg—p‚·‚éƒXƒ^ƒuƒNƒ‰ƒXB
+ * IndexedBeanWrapperImplTestã§ä½¿ç”¨ã™ã‚‹ã‚¹ã‚¿ãƒ–ã‚¯ãƒ©ã‚¹ã€‚
  */
 public class JXPathIndexedBeanWrapperImpl_JavaBeanStub01 {
 
     /**
-     * ƒeƒXƒg—pƒvƒƒpƒeƒBB
+     * ãƒ†ã‚¹ãƒˆç”¨ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã€‚
      */
     private Object property = null;
 
     /**
-     * ƒeƒXƒg—pƒvƒƒpƒeƒBB
+     * ãƒ†ã‚¹ãƒˆç”¨ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã€‚
      */
     private String property2 = null;
     
     /**
-     * ƒeƒXƒg—pƒvƒƒpƒeƒBB
+     * ãƒ†ã‚¹ãƒˆç”¨ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã€‚
      */
     private Date property3 = null;
 
     /**
-     * ƒeƒXƒg—pƒvƒƒpƒeƒBB
+     * ãƒ†ã‚¹ãƒˆç”¨ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã€‚
      */
     private List property4 = null;
     
     /**
-     * ƒeƒXƒg—pƒvƒƒpƒeƒBB
+     * ãƒ†ã‚¹ãƒˆç”¨ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã€‚
      */
     private int[] property5 = null;
     
     /**
-     * ƒeƒXƒg—pƒvƒƒpƒeƒBB
+     * ãƒ†ã‚¹ãƒˆç”¨ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã€‚
      */
     private boolean boolProperty = false;
     
     /**
-     * ƒeƒXƒg—pƒvƒƒpƒeƒBB
+     * ãƒ†ã‚¹ãƒˆç”¨ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã€‚
      */
     private Map map = new HashMap();
     
     /**
-     * ƒeƒXƒg—pƒvƒƒpƒeƒBB
+     * ãƒ†ã‚¹ãƒˆç”¨ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã€‚
      */
     private List list = new ArrayList();
     
     /**
-    * ƒeƒXƒg—pƒvƒƒpƒeƒBB
+    * ãƒ†ã‚¹ãƒˆç”¨ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã€‚
     */
     private Object[] objectArray = null;
 
     /**
-     * @return property2 ‚ğ–ß‚µ‚Ü‚·B
+     * @return property2 ã‚’æˆ»ã—ã¾ã™ã€‚
      */
     public String getProperty2() {
         return this.property2;
     }
 
     /**
-     * @param property2 İ’è‚·‚é property2B
+     * @param property2 è¨­å®šã™ã‚‹ property2ã€‚
      */
     public void setProperty2(String property2) {
         this.property2 = property2;
     }
 
     /**
-     * boolProperty‚ğæ“¾‚·‚éB
-     * @return boolPropertyB
+     * boolPropertyã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return boolPropertyã€‚
      */
     public boolean isBoolProperty() {
         return boolProperty;
     }
 
     /**
-     * boolProperty‚ğİ’è‚·‚é
-     * @param boolProperty boolPropertyB
+     * boolPropertyã‚’è¨­å®šã™ã‚‹
+     * @param boolProperty boolPropertyã€‚
      */
     public void setBoolProperty(boolean boolProperty) {
         this.boolProperty = boolProperty;
     }
 
     /**
-     * map‚ğæ“¾‚·‚éB
-     * @return mapB
+     * mapã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return mapã€‚
      */
     public Map getMap() {
         return map;
     }
 
     /**
-     * map‚ğİ’è‚·‚é
-     * @param map mapB
+     * mapã‚’è¨­å®šã™ã‚‹
+     * @param map mapã€‚
      */
     public void setMap(Map map) {
         this.map = map;
     }
 
     /**
-     * property‚ğæ“¾‚·‚éB
-     * @return propertyB
+     * propertyã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return propertyã€‚
      */
     public Object getProperty() {
         return property;
     }
 
     /**
-     * property‚ğİ’è‚·‚é
-     * @param property propertyB
+     * propertyã‚’è¨­å®šã™ã‚‹
+     * @param property propertyã€‚
      */
     public void setProperty(Object property) {
         this.property = property;
     }
 
     /**
-     * list‚ğæ“¾‚·‚éB
-     * @return listB
+     * listã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return listã€‚
      */
     public List getList() {
         return list;
     }
 
     /**
-     * list‚ğİ’è‚·‚é
-     * @param list listB
+     * listã‚’è¨­å®šã™ã‚‹
+     * @param list listã€‚
      */
     public void setList(List list) {
         this.list = list;
     }
 
     /**
-     * property3‚ğæ“¾‚·‚éB
-     * @return property3B
+     * property3ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return property3ã€‚
      */
     public Date getProperty3() {
         return property3;
     }
 
     /**
-     * property3‚ğİ’è‚·‚é
-     * @param property3 property3B
+     * property3ã‚’è¨­å®šã™ã‚‹
+     * @param property3 property3ã€‚
      */
     public void setProperty3(Date property3) {
         this.property3 = property3;
     }
 
     /**
-     * property4‚ğæ“¾‚·‚éB
-     * @return property4B
+     * property4ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return property4ã€‚
      */
     public List getProperty4() {
         return property4;
     }
 
     /**
-     * property4‚ğİ’è‚·‚é
-     * @param property4 property4B
+     * property4ã‚’è¨­å®šã™ã‚‹
+     * @param property4 property4ã€‚
      */
     public void setProperty4(List property4) {
         this.property4 = property4;
     }
 
     /**
-     * property5‚ğæ“¾‚·‚éB
-     * @return property5B
+     * property5ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return property5ã€‚
      */
     public int[] getProperty5() {
         return property5;
     }
 
     /**
-     * property5‚ğİ’è‚·‚é
-     * @param property5 property5B
+     * property5ã‚’è¨­å®šã™ã‚‹
+     * @param property5 property5ã€‚
      */
     public void setProperty5(int[] property5) {
         this.property5 = property5;
     }
 
     /**
-     * objectArray‚ğæ“¾‚·‚éB
+     * objectArrayã‚’å–å¾—ã™ã‚‹ã€‚
      * @return objectArray objectArray
      */
     public Object[] getObjectArray() {
@@ -208,7 +208,7 @@ public class JXPathIndexedBeanWrapperImpl_JavaBeanStub01 {
 
     
     /**
-     * objectArray‚ğİ’è‚·‚éB
+     * objectArrayã‚’è¨­å®šã™ã‚‹ã€‚
      * @param objectArray
      */
     public void setObjectArray(Object[] objectArray) {

@@ -24,23 +24,23 @@ import jp.terasoluna.fw.file.dao.FileQueryDAO;
 import org.springframework.validation.Validator;
 
 /**
- * FileCollectorİ’è€–Ú
+ * FileCollectorè¨­å®šé …ç›®
  */
 public class FileCollectorConfig<P> extends AbstractCollectorConfig {
     /** FileQueryDAO */
     protected FileQueryDAO fileQueryDAO = null;
 
-    /** ƒtƒ@ƒCƒ‹–¼iâ‘ÎƒpƒX‚Ü‚½‚Í‘Š‘ÎƒpƒX‚Ì‚Ç‚¿‚ç‚©j */
+    /** ãƒ•ã‚¡ã‚¤ãƒ«åï¼ˆçµ¶å¯¾ãƒ‘ã‚¹ã¾ãŸã¯ç›¸å¯¾ãƒ‘ã‚¹ã®ã©ã¡ã‚‰ã‹ï¼‰ */
     protected String fileName = null;
 
-    /** 1s•ª‚Ì•¶š—ñ‚ğŠi”[‚·‚éƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgƒNƒ‰ƒX */
+    /** 1è¡Œåˆ†ã®æ–‡å­—åˆ—ã‚’æ ¼ç´ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¯ãƒ©ã‚¹ */
     protected Class<P> clazz = null;
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-     * @param fileQueryDAO FileQueryDAOƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param fileName ƒtƒ@ƒCƒ‹–¼iâ‘ÎƒpƒX‚Ü‚½‚Í‘Š‘ÎƒpƒX‚Ì‚Ç‚¿‚ç‚©j
-     * @param clazz 1s•ª‚Ì•¶š—ñ‚ğŠi”[‚·‚éƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgƒNƒ‰ƒX
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+     * @param fileQueryDAO FileQueryDAOã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param fileName ãƒ•ã‚¡ã‚¤ãƒ«åï¼ˆçµ¶å¯¾ãƒ‘ã‚¹ã¾ãŸã¯ç›¸å¯¾ãƒ‘ã‚¹ã®ã©ã¡ã‚‰ã‹ï¼‰
+     * @param clazz 1è¡Œåˆ†ã®æ–‡å­—åˆ—ã‚’æ ¼ç´ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¯ãƒ©ã‚¹
      */
     public FileCollectorConfig(FileQueryDAO fileQueryDAO, String fileName,
             Class<P> clazz) {
@@ -50,8 +50,8 @@ public class FileCollectorConfig<P> extends AbstractCollectorConfig {
     }
 
     /**
-     * ƒLƒ…[ƒTƒCƒY‚ğİ’è‚·‚é
-     * @param queueSize ƒLƒ…[ƒTƒCƒY
+     * ã‚­ãƒ¥ãƒ¼ã‚µã‚¤ã‚ºã‚’è¨­å®šã™ã‚‹
+     * @param queueSize ã‚­ãƒ¥ãƒ¼ã‚µã‚¤ã‚º
      * @return FileCollectorConfig&lt;P&gt;
      */
     public FileCollectorConfig<P> addQueueSize(int queueSize) {
@@ -60,7 +60,7 @@ public class FileCollectorConfig<P> extends AbstractCollectorConfig {
     }
 
     /**
-     * CollectorExceptionHandler‚ğİ’è‚·‚é
+     * CollectorExceptionHandlerã‚’è¨­å®šã™ã‚‹
      * @param exceptionHandler CollectorExceptionHandler
      * @return FileCollectorConfig&lt;P&gt;
      */
@@ -71,7 +71,7 @@ public class FileCollectorConfig<P> extends AbstractCollectorConfig {
     }
 
     /**
-     * Validator‚ğİ’è‚·‚é
+     * Validatorã‚’è¨­å®šã™ã‚‹
      * @param validator Validator
      * @return FileCollectorConfig&lt;P&gt;
      */
@@ -81,7 +81,7 @@ public class FileCollectorConfig<P> extends AbstractCollectorConfig {
     }
 
     /**
-     * ValidationErrorHandler‚ğİ’è‚·‚é
+     * ValidationErrorHandlerã‚’è¨­å®šã™ã‚‹
      * @param validationErrorHandler ValidationErrorHandler
      * @return FileCollectorConfig&lt;P&gt;
      */
@@ -92,8 +92,8 @@ public class FileCollectorConfig<P> extends AbstractCollectorConfig {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Åˆ—‚ğÀs‚·‚éƒtƒ‰ƒO‚ğİ’è‚·‚é
-     * @param executeByConstructor ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Åˆ—‚ğÀs‚·‚éƒtƒ‰ƒO
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§å‡¦ç†ã‚’å®Ÿè¡Œã™ã‚‹ãƒ•ãƒ©ã‚°ã‚’è¨­å®šã™ã‚‹
+     * @param executeByConstructor ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§å‡¦ç†ã‚’å®Ÿè¡Œã™ã‚‹ãƒ•ãƒ©ã‚°
      * @return FileCollectorConfig&lt;P&gt;
      */
     public FileCollectorConfig<P> addExecuteByConstructor(
@@ -119,32 +119,32 @@ public class FileCollectorConfig<P> extends AbstractCollectorConfig {
     }
 
     /**
-     * ƒtƒ@ƒCƒ‹–¼iâ‘ÎƒpƒX‚Ü‚½‚Í‘Š‘ÎƒpƒX‚Ì‚Ç‚¿‚ç‚©j
-     * @return ƒtƒ@ƒCƒ‹–¼iâ‘ÎƒpƒX‚Ü‚½‚Í‘Š‘ÎƒpƒX‚Ì‚Ç‚¿‚ç‚©j
+     * ãƒ•ã‚¡ã‚¤ãƒ«åï¼ˆçµ¶å¯¾ãƒ‘ã‚¹ã¾ãŸã¯ç›¸å¯¾ãƒ‘ã‚¹ã®ã©ã¡ã‚‰ã‹ï¼‰
+     * @return ãƒ•ã‚¡ã‚¤ãƒ«åï¼ˆçµ¶å¯¾ãƒ‘ã‚¹ã¾ãŸã¯ç›¸å¯¾ãƒ‘ã‚¹ã®ã©ã¡ã‚‰ã‹ï¼‰
      */
     public String getFileName() {
         return fileName;
     }
 
     /**
-     * ƒtƒ@ƒCƒ‹–¼iâ‘ÎƒpƒX‚Ü‚½‚Í‘Š‘ÎƒpƒX‚Ì‚Ç‚¿‚ç‚©j
-     * @param fileName ƒtƒ@ƒCƒ‹–¼iâ‘ÎƒpƒX‚Ü‚½‚Í‘Š‘ÎƒpƒX‚Ì‚Ç‚¿‚ç‚©j
+     * ãƒ•ã‚¡ã‚¤ãƒ«åï¼ˆçµ¶å¯¾ãƒ‘ã‚¹ã¾ãŸã¯ç›¸å¯¾ãƒ‘ã‚¹ã®ã©ã¡ã‚‰ã‹ï¼‰
+     * @param fileName ãƒ•ã‚¡ã‚¤ãƒ«åï¼ˆçµ¶å¯¾ãƒ‘ã‚¹ã¾ãŸã¯ç›¸å¯¾ãƒ‘ã‚¹ã®ã©ã¡ã‚‰ã‹ï¼‰
      */
     public void setFileName(String fileName) {
         this.fileName = fileName;
     }
 
     /**
-     * 1s•ª‚Ì•¶š—ñ‚ğŠi”[‚·‚éƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgƒNƒ‰ƒX
-     * @return 1s•ª‚Ì•¶š—ñ‚ğŠi”[‚·‚éƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgƒNƒ‰ƒX
+     * 1è¡Œåˆ†ã®æ–‡å­—åˆ—ã‚’æ ¼ç´ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¯ãƒ©ã‚¹
+     * @return 1è¡Œåˆ†ã®æ–‡å­—åˆ—ã‚’æ ¼ç´ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¯ãƒ©ã‚¹
      */
     public Class<P> getClazz() {
         return clazz;
     }
 
     /**
-     * 1s•ª‚Ì•¶š—ñ‚ğŠi”[‚·‚éƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgƒNƒ‰ƒX
-     * @param clazz 1s•ª‚Ì•¶š—ñ‚ğŠi”[‚·‚éƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgƒNƒ‰ƒX
+     * 1è¡Œåˆ†ã®æ–‡å­—åˆ—ã‚’æ ¼ç´ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¯ãƒ©ã‚¹
+     * @param clazz 1è¡Œåˆ†ã®æ–‡å­—åˆ—ã‚’æ ¼ç´ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¯ãƒ©ã‚¹
      */
     public void setClazz(Class<P> clazz) {
         this.clazz = clazz;

@@ -19,9 +19,9 @@ package jp.terasoluna.fw.message;
 import java.io.Serializable;
 
 /**
- * ƒƒbƒZ[ƒWƒŠƒ\[ƒX‚ğ•Û‚·‚éƒNƒ‰ƒXB<br>
- * ƒƒbƒZ[ƒWƒŠƒ\[ƒX‚É‚ÍƒƒbƒZ[ƒWƒR[ƒhAŒ¾ŒêƒR[ƒhA‘ƒR[ƒhA
- * ƒoƒŠƒAƒ“ƒgƒR[ƒhAƒƒbƒZ[ƒW–{‘Ì‚ªŠi”[‚³‚ê‚éB
+ * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒªã‚½ãƒ¼ã‚¹ã‚’ä¿æŒã™ã‚‹ã‚¯ãƒ©ã‚¹ã€‚<br>
+ * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒªã‚½ãƒ¼ã‚¹ã«ã¯ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚³ãƒ¼ãƒ‰ã€è¨€èªã‚³ãƒ¼ãƒ‰ã€å›½ã‚³ãƒ¼ãƒ‰ã€
+ * ãƒãƒªã‚¢ãƒ³ãƒˆã‚³ãƒ¼ãƒ‰ã€ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸æœ¬ä½“ãŒæ ¼ç´ã•ã‚Œã‚‹ã€‚
  * 
  * @see jp.terasoluna.fw.message.DataSourceMessageSource
  * @see jp.terasoluna.fw.message.DBMessageQuery
@@ -32,44 +32,44 @@ import java.io.Serializable;
 public class DBMessage implements Serializable {
 
     /**
-     * ƒVƒŠƒAƒ‹ƒo[ƒWƒ‡ƒ“IDB
+     * ã‚·ãƒªã‚¢ãƒ«ãƒãƒ¼ã‚¸ãƒ§ãƒ³IDã€‚
      */
     private static final long serialVersionUID = 299442236623116335L;
 
     /**
-     * ƒƒbƒZ[ƒWƒR[ƒhB
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚³ãƒ¼ãƒ‰ã€‚
      */
     protected String code = null;
 
     /**
-     * ƒƒbƒZ[ƒW‚ÌŒ¾ŒêƒR[ƒhB
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®è¨€èªã‚³ãƒ¼ãƒ‰ã€‚
      */
     protected String language = null;
 
     /**
-     * ƒƒbƒZ[ƒW‚Ì‘ƒR[ƒhB
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®å›½ã‚³ãƒ¼ãƒ‰ã€‚
      */
     protected String country = null;
 
     /**
-     * ƒƒbƒZ[ƒW‚ÌƒoƒŠƒAƒ“ƒgƒR[ƒhB
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®ãƒãƒªã‚¢ãƒ³ãƒˆã‚³ãƒ¼ãƒ‰ã€‚
      */
     protected String variant = null;
 
     /**
-     * ƒƒbƒZ[ƒW–{‘ÌB
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸æœ¬ä½“ã€‚
      */
     protected String message = null;
 
     /**
-     * DBMessage‚ÉƒƒbƒZ[ƒWƒR[ƒhAŒ¾ŒêƒR[ƒhA‘ƒR[ƒhAƒoƒŠƒAƒ“ƒgƒR[ƒhA
-     * ƒƒbƒZ[ƒW–{‘Ì‚ğŠi”[‚·‚éB
+     * DBMessageã«ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚³ãƒ¼ãƒ‰ã€è¨€èªã‚³ãƒ¼ãƒ‰ã€å›½ã‚³ãƒ¼ãƒ‰ã€ãƒãƒªã‚¢ãƒ³ãƒˆã‚³ãƒ¼ãƒ‰ã€
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸æœ¬ä½“ã‚’æ ¼ç´ã™ã‚‹ã€‚
      * 
-     * @param code ƒƒbƒZ[ƒWƒR[ƒhB
-     * @param language ƒƒbƒZ[ƒW‚ÌŒ¾ŒêƒR[ƒhB
-     * @param country ƒƒbƒZ[ƒW‚Ì‘ƒR[ƒhB
-     * @param variant ƒƒbƒZ[ƒW‚ÌƒoƒŠƒAƒ“ƒgƒR[ƒhB
-     * @param message ƒƒbƒZ[ƒW–{‘ÌB
+     * @param code ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚³ãƒ¼ãƒ‰ã€‚
+     * @param language ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®è¨€èªã‚³ãƒ¼ãƒ‰ã€‚
+     * @param country ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®å›½ã‚³ãƒ¼ãƒ‰ã€‚
+     * @param variant ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®ãƒãƒªã‚¢ãƒ³ãƒˆã‚³ãƒ¼ãƒ‰ã€‚
+     * @param message ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸æœ¬ä½“ã€‚
      */
     public DBMessage(String code, String language, String country,
             String variant, String message) {
@@ -81,45 +81,45 @@ public class DBMessage implements Serializable {
     }
 
     /**
-     * DBMessageƒIƒuƒWƒFƒNƒg‚©‚çƒƒbƒZ[ƒWƒR[ƒh‚ğæ“¾‚·‚éB
+     * DBMessageã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã‚‰ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚³ãƒ¼ãƒ‰ã‚’å–å¾—ã™ã‚‹ã€‚
      * 
-     * @return ƒƒbƒZ[ƒWƒR[ƒhB
+     * @return ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚³ãƒ¼ãƒ‰ã€‚
      */
     public String getCode() {
         return code;
     }
 
     /**
-     * DBMessageƒIƒuƒWƒFƒNƒg‚©‚çƒƒbƒZ[ƒW‚ÌŒ¾ŒêƒR[ƒh‚ğæ“¾‚·‚éB
+     * DBMessageã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã‚‰ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®è¨€èªã‚³ãƒ¼ãƒ‰ã‚’å–å¾—ã™ã‚‹ã€‚
      * 
-     * @return ƒƒbƒZ[ƒW‚ÌŒ¾ŒêƒR[ƒhB
+     * @return ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®è¨€èªã‚³ãƒ¼ãƒ‰ã€‚
      */
     public String getLanguage() {
         return language;
     }
 
     /**
-     * DBMessageƒIƒuƒWƒFƒNƒg‚©‚çƒƒbƒZ[ƒW‚Ì‘ƒR[ƒh‚ğæ“¾‚·‚éB
+     * DBMessageã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã‚‰ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®å›½ã‚³ãƒ¼ãƒ‰ã‚’å–å¾—ã™ã‚‹ã€‚
      * 
-     * @return ƒƒbƒZ[ƒW‚Ì‘ƒR[ƒhB
+     * @return ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®å›½ã‚³ãƒ¼ãƒ‰ã€‚
      */
     public String getCountry() {
         return country;
     }
 
     /**
-     * DBMessageƒIƒuƒWƒFƒNƒg‚©‚çƒƒbƒZ[ƒW‚ÌƒoƒŠƒAƒ“ƒgƒR[ƒh‚ğæ“¾‚·‚éB
+     * DBMessageã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã‚‰ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®ãƒãƒªã‚¢ãƒ³ãƒˆã‚³ãƒ¼ãƒ‰ã‚’å–å¾—ã™ã‚‹ã€‚
      * 
-     * @return ƒƒbƒZ[ƒW‚ÌƒoƒŠƒAƒ“ƒgƒR[ƒhB
+     * @return ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®ãƒãƒªã‚¢ãƒ³ãƒˆã‚³ãƒ¼ãƒ‰ã€‚
      */
     public String getVariant() {
         return variant;
     }
     
     /**
-     * DBMessageƒIƒuƒWƒFƒNƒg‚©‚çƒƒbƒZ[ƒW–{‘Ì‚ğæ“¾‚·‚éB
+     * DBMessageã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã‚‰ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸æœ¬ä½“ã‚’å–å¾—ã™ã‚‹ã€‚
      * 
-     * @return ƒƒbƒZ[ƒW–{‘ÌB
+     * @return ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸æœ¬ä½“ã€‚
      */
     public String getMessage() {
         return message;

@@ -68,7 +68,7 @@ public class FileValidateCollector004Test extends DaoTestCase {
      */
     public void testFileCollector004() throws Exception {
         if (this.csvFileQueryDAO == null) {
-            fail("csvFileQueryDAOÇ™nullÇ≈Ç∑ÅB");
+            fail("csvFileQueryDAO„Åånull„Åß„Åô„ÄÇ");
         }
 
         URL url = getClass().getClassLoader().getResource("USER_TEST.csv");
@@ -81,7 +81,7 @@ public class FileValidateCollector004Test extends DaoTestCase {
         }
 
         if (url == null) {
-            fail("urlÇ™nullÇ≈Ç∑ÅB");
+            fail("url„Åånull„Åß„Åô„ÄÇ");
         }
 
         // int count_first = 0;
@@ -108,7 +108,7 @@ public class FileValidateCollector004Test extends DaoTestCase {
         FileValidateCollector<UserBean> dbc = null;
         try {
             dbc = new FileValidateCollector<UserBean>(config);
-            fail("é∏îs");
+            fail("Â§±Êïó");
         } catch (IllegalArgumentException e) {
             assertNotNull(e);
             assertEquals("The parameter is null.", e.getMessage());
@@ -121,7 +121,7 @@ public class FileValidateCollector004Test extends DaoTestCase {
      */
     public void testFileCollector006() throws Exception {
         if (this.csvFileQueryDAO == null) {
-            fail("csvFileQueryDAOÇ™nullÇ≈Ç∑ÅB");
+            fail("csvFileQueryDAO„Åånull„Åß„Åô„ÄÇ");
         }
 
         URL url = getClass().getClassLoader().getResource("USER_TEST.csv");
@@ -134,7 +134,7 @@ public class FileValidateCollector004Test extends DaoTestCase {
         }
 
         if (url == null) {
-            fail("urlÇ™nullÇ≈Ç∑ÅB");
+            fail("url„Åånull„Åß„Åô„ÄÇ");
         }
 
         // int count_first = 0;

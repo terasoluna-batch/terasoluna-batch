@@ -27,57 +27,57 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.jndi.JndiLocatorSupport;
 
 /**
- * <p>TERASOLUNA‚ª’ñ‹Ÿ‚·‚éJNDIŠÖ˜A‚Ìƒ†[ƒeƒBƒŠƒeƒBƒfƒtƒHƒ‹ƒgÀ‘•ƒNƒ‰ƒXB</p>
+ * <p>TERASOLUNAãŒæä¾›ã™ã‚‹JNDIé–¢é€£ã®ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå®Ÿè£…ã‚¯ãƒ©ã‚¹ã€‚</p>
  *
  * <p>
- * WebAPƒRƒ“ƒeƒi‚ÌJNDIƒŠƒ\[ƒX‚ğˆµ‚¤ƒ†[ƒeƒBƒŠƒeƒB‚Å‚ ‚éB<br>
- * JNDI‚Ì”FØî•ñ‚ª•K—v‚Èê‡‚ÍABean’è‹`ƒtƒ@ƒCƒ‹‚É•K—v‚ÈƒvƒƒpƒeƒB‚ğ
- * ˆÈ‰º‚Ì‚æ‚¤‚Éİ’è‚µAinitializeƒƒ\ƒbƒh‚ğÀs‚·‚é‚±‚ÆB
- * Bean’è‹`ƒtƒ@ƒCƒ‹Œo—R‚Å‚±‚ÌƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğ¶¬‚·‚éê‡‚Í
- * init-method‘®«‚Åinitializeƒƒ\ƒbƒh‚ğw’è‚·‚é‚±‚ÆB
+ * WebAPã‚³ãƒ³ãƒ†ãƒŠã®JNDIãƒªã‚½ãƒ¼ã‚¹ã‚’æ‰±ã†ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ã§ã‚ã‚‹ã€‚<br>
+ * JNDIã®èªè¨¼æƒ…å ±ãŒå¿…è¦ãªå ´åˆã¯ã€Beanå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ã«å¿…è¦ãªãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚’
+ * ä»¥ä¸‹ã®ã‚ˆã†ã«è¨­å®šã—ã€initializeãƒ¡ã‚½ãƒƒãƒ‰ã‚’å®Ÿè¡Œã™ã‚‹ã“ã¨ã€‚
+ * Beanå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«çµŒç”±ã§ã“ã®ã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã™ã‚‹å ´åˆã¯
+ * init-methodå±æ€§ã§initializeãƒ¡ã‚½ãƒƒãƒ‰ã‚’æŒ‡å®šã™ã‚‹ã“ã¨ã€‚
  * <br>
  * <table border="1">
- * <caption><strong>Bean’è‹`ƒtƒ@ƒCƒ‹‚Ìİ’è</strong></caption>
+ * <caption><strong>Beanå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ã®è¨­å®š</strong></caption>
  * <tr>
- *   <td><center><strong>”FØî•ñ–¼</strong></center></td>
- *   <td><center><strong>à–¾</strong></center></td>
- *   <td><center><strong>—á</strong></center></td>
+ *   <td><center><strong>èªè¨¼æƒ…å ±å</strong></center></td>
+ *   <td><center><strong>èª¬æ˜</strong></center></td>
+ *   <td><center><strong>ä¾‹</strong></center></td>
  * </tr>
  * <tr>
  *   <td>factory</td>
- *   <td>JNDIƒtƒ@ƒNƒgƒŠƒNƒ‰ƒX–¼‚ğw’è‚·‚éB</td>
+ *   <td>JNDIãƒ•ã‚¡ã‚¯ãƒˆãƒªã‚¯ãƒ©ã‚¹åã‚’æŒ‡å®šã™ã‚‹ã€‚</td>
  *   <td>weblogic.jndi.WLInitialContextFactory</td>
  * </tr>
  * <tr>
  *   <td>url</td>
- *   <td>JNDIƒvƒƒoƒCƒ_‚ª‚¨‚©‚ê‚Ä‚¢‚éURI‚ğw’è‚·‚éB</td>
+ *   <td>JNDIãƒ—ãƒ­ãƒã‚¤ãƒ€ãŒãŠã‹ã‚Œã¦ã„ã‚‹URIã‚’æŒ‡å®šã™ã‚‹ã€‚</td>
  *   <td>t3://localhost:7001</td>
  * </tr>
  * <tr>
  *   <td>username</td>
- *   <td>JNDIƒT[ƒo‚Ìƒ†[ƒU–¼‚ğw’è‚·‚éB</td>
+ *   <td>JNDIã‚µãƒ¼ãƒã®ãƒ¦ãƒ¼ã‚¶åã‚’æŒ‡å®šã™ã‚‹ã€‚</td>
  *   <td>weblogic</td>
  * </tr>
  * <tr>
  *   <td>password</td>
- *   <td>JNDIƒT[ƒo‚ÌƒpƒXƒ[ƒh‚ğw’è‚·‚éB</td>
+ *   <td>JNDIã‚µãƒ¼ãƒã®ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã‚’æŒ‡å®šã™ã‚‹ã€‚</td>
  *   <td>password</td>
  * </tr>
  * </table>
  * </p>
  * <br>
  *
- * WebLogic‚Ì‚æ‚¤‚ÉJNDIƒŠƒ\[ƒX–¼‚ÉƒvƒŠƒtƒBƒbƒNƒXujava:comp/env/v‚ğ•t‚¯‚Ä‚Í
- * ‚¢‚¯‚È‚¢ê‡AƒvƒƒpƒeƒBujndiPrefixv‚ğfalse‚Éİ’è‚·‚éB<br>
- * ƒfƒtƒHƒ‹ƒg‚Ífalse‚Å‚ ‚éB<br>
+ * WebLogicã®ã‚ˆã†ã«JNDIãƒªã‚½ãƒ¼ã‚¹åã«ãƒ—ãƒªãƒ•ã‚£ãƒƒã‚¯ã‚¹ã€Œjava:comp/env/ã€ã‚’ä»˜ã‘ã¦ã¯
+ * ã„ã‘ãªã„å ´åˆã€ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã€ŒjndiPrefixã€ã‚’falseã«è¨­å®šã™ã‚‹ã€‚<br>
+ * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã¯falseã§ã‚ã‚‹ã€‚<br>
  * <br>
  *
- * <strong>WebLogic‚ÌBean’è‹`ƒtƒ@ƒCƒ‹İ’è—á</strong>
+ * <strong>WebLogicã®Beanå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«è¨­å®šä¾‹</strong>
  * <code><pre>
  * &lt;bean id=&quot;jndiSupport&quot; scope="singleton"
  *       class=&quot;jp.terasoluna.fw.web.jndi.DefaultJndiSupport&quot;&gt;
  *       init-method="initialize"&gt;
- *   &lt;!-- ƒZƒbƒ^ƒCƒ“ƒWƒFƒNƒVƒ‡ƒ“‚Å”FØî•ñİ’è --&gt;
+ *   &lt;!-- ã‚»ãƒƒã‚¿ã‚¤ãƒ³ã‚¸ã‚§ã‚¯ã‚·ãƒ§ãƒ³ã§èªè¨¼æƒ…å ±è¨­å®š --&gt;
  *   &lt;property name="jndiEnvironmentMap"&gt;
  *     &lt;map&gt;
  *       &lt;entry key="factory"&gt;
@@ -94,23 +94,23 @@ import org.springframework.jndi.JndiLocatorSupport;
  *       &lt;/entry&gt;
  *     &lt;/map&gt;
  *   &lt;/property&gt;
- *   &lt;!-- ƒvƒƒpƒeƒBjndiPrefix‚Ìİ’è --&gt;
+ *   &lt;!-- ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£jndiPrefixã®è¨­å®š --&gt;
  *   &lt;property name="jndiPrefix"&gt;&lt;value&gt;<strong>false</strong>&lt;/value&gt;&lt;/property&gt;
  * &lt;/bean&gt;
  * </pre></code>
  * </p>
- * <strong>Tomcat‚ÌBean’è‹`ƒtƒ@ƒCƒ‹İ’è—á</strong>
+ * <strong>Tomcatã®Beanå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«è¨­å®šä¾‹</strong>
  * <code><pre>
  * &lt;bean id=&quot;jndiSupport&quot; scope="singleton"
  *       class=&quot;jp.terasoluna.fw.web.jndi.DefaultJndiSupport&quot; &gt;<br>
- *   &lt;!-- ƒvƒƒpƒeƒBjndiPrefix‚Ìİ’èiƒfƒtƒHƒ‹ƒg’l‚Ífalsej --&gt;
+ *   &lt;!-- ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£jndiPrefixã®è¨­å®šï¼ˆãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ã¯falseï¼‰ --&gt;
  *   &lt;property name="jndiPrefix"&gt;&lt;value&gt;<strong>false</strong>&lt;/value&gt;&lt;/property&gt;
  * &lt;/bean&gt;
  * </pre></code>
  * </p>
- * <strong>g—p•û–@</strong>
+ * <strong>ä½¿ç”¨æ–¹æ³•</strong>
  * <p>
- * Bean’è‹`ƒtƒ@ƒCƒ‹‚ÉƒT[ƒrƒXƒƒWƒbƒN‚Ìİ’è‚ğˆÈ‰º‚Ì‚æ‚¤‚És‚¤B
+ * Beanå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ã«ã‚µãƒ¼ãƒ“ã‚¹ãƒ­ã‚¸ãƒƒã‚¯ã®è¨­å®šã‚’ä»¥ä¸‹ã®ã‚ˆã†ã«è¡Œã†ã€‚
  * <code><pre>
  * &lt;bean id="jndiLogic" scope="singleton"
  *   class="jp.sample.JndiLogic"&gt;
@@ -118,12 +118,12 @@ import org.springframework.jndi.JndiLocatorSupport;
  *     &lt;ref bean=<strong>"jndiSupport"</strong> /&gt;
  *   &lt;/property&gt;
  * &lt;/bean&gt;<br>
- * &lt;!-- JndiSupportİ’è --&gt;
+ * &lt;!-- JndiSupportè¨­å®š --&gt;
  * &lt;bean id=<strong>"jndiSupport"</strong>  scope="singleton"
  *   class="jp.terasoluna.fw.web.jndi.DefaultJndiSupport" /&gt;
  * </code></pre>
  *
- * ƒT[ƒrƒXƒƒWƒbƒN‚ÅˆÈ‰º‚Ì‚æ‚¤‚É{@link DefaultJndiSupport}‚ğæ“¾‚·‚éB<br>
+ * ã‚µãƒ¼ãƒ“ã‚¹ãƒ­ã‚¸ãƒƒã‚¯ã§ä»¥ä¸‹ã®ã‚ˆã†ã«{@link DefaultJndiSupport}ã‚’å–å¾—ã™ã‚‹ã€‚<br>
  *
  * <code><pre>
  * public class JndiLogic {
@@ -145,88 +145,88 @@ public class DefaultJndiSupport extends JndiLocatorSupport implements
         JndiSupport {
 
     /**
-     * ƒƒOƒNƒ‰ƒXB
+     * ãƒ­ã‚°ã‚¯ãƒ©ã‚¹ã€‚
      */
     private static Log log = LogFactory.getLog(DefaultJndiSupport.class);
 
     /**
-     * JNDIƒtƒ@ƒNƒgƒŠƒNƒ‰ƒX–¼‚ğjndiEnvironmentMap‚©‚ç‚©‚çæ“¾‚·‚é‚Æ‚«‚ÌƒL[B
+     * JNDIãƒ•ã‚¡ã‚¯ãƒˆãƒªã‚¯ãƒ©ã‚¹åã‚’jndiEnvironmentMapã‹ã‚‰ã‹ã‚‰å–å¾—ã™ã‚‹ã¨ãã®ã‚­ãƒ¼ã€‚
      */
     private static final String JNDI_FACTORY_KEY = "factory";
 
     /**
-     * JNDIƒvƒƒoƒCƒ_‚ÌURL‚ğjndiEnvironmentMap‚©‚ç‚©‚çæ“¾‚·‚é‚Æ‚«‚ÌƒL[B
+     * JNDIãƒ—ãƒ­ãƒã‚¤ãƒ€ã®URLã‚’jndiEnvironmentMapã‹ã‚‰ã‹ã‚‰å–å¾—ã™ã‚‹ã¨ãã®ã‚­ãƒ¼ã€‚
      */
     private static final String JNDI_URL_KEY = "url";
 
     /**
-     * JNDIƒ†[ƒU–¼‚ğjndiEnvironmentMap‚©‚ç‚©‚çæ“¾‚·‚é‚Æ‚«‚ÌƒL[B
+     * JNDIãƒ¦ãƒ¼ã‚¶åã‚’jndiEnvironmentMapã‹ã‚‰ã‹ã‚‰å–å¾—ã™ã‚‹ã¨ãã®ã‚­ãƒ¼ã€‚
      */
     private static final String JNDI_USERNAME_KEY = "username";
 
     /**
-     * JNDIƒpƒXƒ[ƒh–¼‚ğjndiEnvironmentMap‚©‚ç‚©‚çæ“¾‚·‚é‚Æ‚«‚ÌƒL[B
+     * JNDIãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰åã‚’jndiEnvironmentMapã‹ã‚‰ã‹ã‚‰å–å¾—ã™ã‚‹ã¨ãã®ã‚­ãƒ¼ã€‚
      */
     private static final String JNDI_PASSWORD_KEY = "password";
 
     /**
-     * JNDI”FØî•ñ‚ğŠi”[‚·‚é<code>Map</code>B
+     * JNDIèªè¨¼æƒ…å ±ã‚’æ ¼ç´ã™ã‚‹<code>Map</code>ã€‚
      */
     private Map<String, String> jndiEnvironmentMap = null;
 
     /**
-     * ƒŠƒ\[ƒX–¼‚ÌƒvƒŠƒtƒBƒbƒNƒX‚ÌƒZƒbƒ^[B
-     * ƒX[ƒp[ƒNƒ‰ƒX‚ÌresourceRef‚Ì’l‚ğİ’è‚·‚éB
-     * ‚±‚Ì‘®«‚ªtrue‚Ìê‡AƒvƒŠƒtƒBƒbƒNƒX"java:comp/env/"‚ğƒŠƒ\[ƒX–¼‚É‚Â‚¯‚éB
+     * ãƒªã‚½ãƒ¼ã‚¹åã®ãƒ—ãƒªãƒ•ã‚£ãƒƒã‚¯ã‚¹ã®ã‚»ãƒƒã‚¿ãƒ¼ã€‚
+     * ã‚¹ãƒ¼ãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã®resourceRefã®å€¤ã‚’è¨­å®šã™ã‚‹ã€‚
+     * ã“ã®å±æ€§ãŒtrueã®å ´åˆã€ãƒ—ãƒªãƒ•ã‚£ãƒƒã‚¯ã‚¹"java:comp/env/"ã‚’ãƒªã‚½ãƒ¼ã‚¹åã«ã¤ã‘ã‚‹ã€‚
      *
-     * @param jndiPrefix ƒŠƒ\[ƒX–¼‚ÌƒvƒŠƒtƒBƒbƒNƒX•t‰Áƒtƒ‰ƒO
+     * @param jndiPrefix ãƒªã‚½ãƒ¼ã‚¹åã®ãƒ—ãƒªãƒ•ã‚£ãƒƒã‚¯ã‚¹ä»˜åŠ ãƒ•ãƒ©ã‚°
      */
     public void setJndiPrefix(boolean jndiPrefix) {
         super.setResourceRef(jndiPrefix);
     }
 
     /**
-     * ƒŠƒ\[ƒX–¼‚ÌƒvƒŠƒtƒBƒbƒNƒX‚ÌƒQƒbƒ^[B
-     * ƒX[ƒp[ƒNƒ‰ƒX‚ÌresourceRef‚Ì’l‚ğæ“¾‚·‚éB
-     * ‚±‚Ì‘®«‚ªtrue‚Ìê‡AƒvƒŠƒtƒBƒbƒNƒX"java:comp/env/"‚ğƒŠƒ\[ƒX–¼‚É‚Â‚¯‚éB
+     * ãƒªã‚½ãƒ¼ã‚¹åã®ãƒ—ãƒªãƒ•ã‚£ãƒƒã‚¯ã‚¹ã®ã‚²ãƒƒã‚¿ãƒ¼ã€‚
+     * ã‚¹ãƒ¼ãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã®resourceRefã®å€¤ã‚’å–å¾—ã™ã‚‹ã€‚
+     * ã“ã®å±æ€§ãŒtrueã®å ´åˆã€ãƒ—ãƒªãƒ•ã‚£ãƒƒã‚¯ã‚¹"java:comp/env/"ã‚’ãƒªã‚½ãƒ¼ã‚¹åã«ã¤ã‘ã‚‹ã€‚
      *
-     * @return jndiPrefix ƒŠƒ\[ƒX–¼‚ÌƒvƒŠƒtƒBƒbƒNƒX•t‰Áƒtƒ‰ƒO
+     * @return jndiPrefix ãƒªã‚½ãƒ¼ã‚¹åã®ãƒ—ãƒªãƒ•ã‚£ãƒƒã‚¯ã‚¹ä»˜åŠ ãƒ•ãƒ©ã‚°
      */
     public boolean isJndiPrefix() {
         return super.isResourceRef();
     }
 
     /**
-     * jndiEnvironmentMap‚ğæ“¾‚·‚éB
-     * @return JNDI”FØî•ñ‚ğŠi”[‚·‚é<code>Map</code>B
+     * jndiEnvironmentMapã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return JNDIèªè¨¼æƒ…å ±ã‚’æ ¼ç´ã™ã‚‹<code>Map</code>ã€‚
      */
     public Map<String, String> getJndiEnvironmentMap() {
         return jndiEnvironmentMap;
     }
 
     /**
-     * jndiEnvironmentMap‚ğİ’è‚·‚éB
-     * @param jndiEnvironmentMap JNDI”FØî•ñ‚ğŠi”[‚·‚é<code>Map</code>B
+     * jndiEnvironmentMapã‚’è¨­å®šã™ã‚‹ã€‚
+     * @param jndiEnvironmentMap JNDIèªè¨¼æƒ…å ±ã‚’æ ¼ç´ã™ã‚‹<code>Map</code>ã€‚
      */
     public void setJndiEnvironmentMap(Map<String, String> jndiEnvironmentMap) {
         this.jndiEnvironmentMap = jndiEnvironmentMap;
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      */
     public DefaultJndiSupport() {
     }
 
     /**
-     * JndiTemplate‚ÌŠÂ‹«İ’è‚ğs‚¤B
+     * JndiTemplateã®ç’°å¢ƒè¨­å®šã‚’è¡Œã†ã€‚
      */
     public void initialize() {
 
-        // JNDIŠÂ‹«İ’è‚ª‚³‚ê‚Ä‚¢‚éê‡‚Ì‚İiWeblogic‚Ìê‡j
+        // JNDIç’°å¢ƒè¨­å®šãŒã•ã‚Œã¦ã„ã‚‹å ´åˆã®ã¿ï¼ˆWeblogicã®å ´åˆï¼‰
         if (jndiEnvironmentMap != null) {
 
-            // jndiEnvironmentMap‚©‚ç”FØî•ñ‚ğæ“¾
+            // jndiEnvironmentMapã‹ã‚‰èªè¨¼æƒ…å ±ã‚’å–å¾—
             String factory = jndiEnvironmentMap.get(JNDI_FACTORY_KEY);
             String url = jndiEnvironmentMap.get(JNDI_URL_KEY);
             String username = jndiEnvironmentMap.get(JNDI_USERNAME_KEY);
@@ -244,10 +244,10 @@ public class DefaultJndiSupport extends JndiLocatorSupport implements
                 environment.put(Context.SECURITY_CREDENTIALS, password);
             }
 
-            // ”FØî•ñƒvƒƒpƒeƒB‚Ìİ’è
+            // èªè¨¼æƒ…å ±ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã®è¨­å®š
             getJndiTemplate().setEnvironment(environment);
 
-            // ƒƒOo—Í
+            // ãƒ­ã‚°å‡ºåŠ›
             if (log.isInfoEnabled()) {
                 log.info("Initialize Weblogic JNDI Resource");
                 log.info(Context.INITIAL_CONTEXT_FACTORY + " = " + factory);
@@ -259,11 +259,11 @@ public class DefaultJndiSupport extends JndiLocatorSupport implements
     }
 
     /**
-     * –¼‘O‚ğƒIƒuƒWƒFƒNƒg‚ÉƒoƒCƒ“ƒh‚µ‚ÄA
-     * Šù‘¶‚ÌƒoƒCƒ“ƒfƒBƒ“ƒO‚ğã‘‚«‚·‚éB
+     * åå‰ã‚’ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«ãƒã‚¤ãƒ³ãƒ‰ã—ã¦ã€
+     * æ—¢å­˜ã®ãƒã‚¤ãƒ³ãƒ‡ã‚£ãƒ³ã‚°ã‚’ä¸Šæ›¸ãã™ã‚‹ã€‚
      *
-     * @param name ƒIƒuƒWƒFƒNƒg–¼
-     * @param obj ƒoƒCƒ“ƒh‚³‚ê‚éƒIƒuƒWƒFƒNƒg
+     * @param name ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆå
+     * @param obj ãƒã‚¤ãƒ³ãƒ‰ã•ã‚Œã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      */
     public void rebind(String name, Object obj) {
         if (name == null || obj == null) {
@@ -271,7 +271,7 @@ public class DefaultJndiSupport extends JndiLocatorSupport implements
                     + name + ", obj=" + obj);
             throw new IllegalArgumentException();
         }
-        // ƒŠƒ\[ƒX–¼‚ÌƒvƒŠƒtƒBƒbƒNƒXİ’è
+        // ãƒªã‚½ãƒ¼ã‚¹åã®ãƒ—ãƒªãƒ•ã‚£ãƒƒã‚¯ã‚¹è¨­å®š
         String jndiNameToUse = convertJndiName(name);
         try {
             getJndiTemplate().rebind(jndiNameToUse, obj);
@@ -282,16 +282,16 @@ public class DefaultJndiSupport extends JndiLocatorSupport implements
     }
 
     /**
-     * w’è‚³‚ê‚½ƒIƒuƒWƒFƒNƒg‚ğƒAƒ“ƒoƒCƒ“ƒh‚·‚éB
+     * æŒ‡å®šã•ã‚ŒãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ã‚¢ãƒ³ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹ã€‚
      *
-     * @param name ƒIƒuƒWƒFƒNƒg–¼
+     * @param name ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆå
      */
     public void unbind(String name) {
         if (name == null) {
             log.error("Illegal arguments error : name=" + name);
             throw new IllegalArgumentException();
         }
-        // ƒŠƒ\[ƒX–¼‚ÌƒvƒŠƒtƒBƒbƒNƒXİ’è
+        // ãƒªã‚½ãƒ¼ã‚¹åã®ãƒ—ãƒªãƒ•ã‚£ãƒƒã‚¯ã‚¹è¨­å®š
         String jndiNameToUse = convertJndiName(name);
         try {
             getJndiTemplate().unbind(jndiNameToUse);
@@ -302,10 +302,10 @@ public class DefaultJndiSupport extends JndiLocatorSupport implements
     }
 
     /**
-     * w’è‚³‚ê‚½ƒIƒuƒWƒFƒNƒg‚ğæ“¾‚·‚éB
+     * æŒ‡å®šã•ã‚ŒãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å–å¾—ã™ã‚‹ã€‚
      *
-     * @param name ƒIƒuƒWƒFƒNƒg–¼
-     * @return ƒIƒuƒWƒFƒNƒg
+     * @param name ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆå
+     * @return ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      */
     @Override
     public Object lookup(String name) {
@@ -313,7 +313,7 @@ public class DefaultJndiSupport extends JndiLocatorSupport implements
             log.error("Illegal arguments error : name=" + name);
             throw new IllegalArgumentException();
         }
-        // ƒŠƒ\[ƒX–¼‚ÌƒvƒŠƒtƒBƒbƒNƒXİ’è
+        // ãƒªã‚½ãƒ¼ã‚¹åã®ãƒ—ãƒªãƒ•ã‚£ãƒƒã‚¯ã‚¹è¨­å®š
         String jndiNameToUse = convertJndiName(name);
         try {
             return getJndiTemplate().lookup(jndiNameToUse);

@@ -19,14 +19,14 @@ package jp.terasoluna.fw.collector;
 import junit.framework.TestCase;
 
 /**
- * CollectorThreadFactory‚ÌƒeƒXƒgƒP[ƒXB
+ * CollectorThreadFactoryã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã€‚
  */
 public class CollectorThreadFactoryTest extends TestCase {
 
     /**
-     * ˆø”ƒXƒŒƒbƒh‚ªƒf[ƒ‚ƒ“ƒXƒŒƒbƒh‚Ìê‡A”ñƒf[ƒ‚ƒ“ƒXƒŒƒbƒh‚ªæ“¾‚Å‚«‚é‚±‚ÆB
+     * å¼•æ•°ã‚¹ãƒ¬ãƒƒãƒ‰ãŒãƒ‡ãƒ¼ãƒ¢ãƒ³ã‚¹ãƒ¬ãƒƒãƒ‰ã®å ´åˆã€éãƒ‡ãƒ¼ãƒ¢ãƒ³ã‚¹ãƒ¬ãƒƒãƒ‰ãŒå–å¾—ã§ãã‚‹ã“ã¨ã€‚
      *
-     * @throws Exception —\Šú‚µ‚È‚¢—áŠO
+     * @throws Exception äºˆæœŸã—ãªã„ä¾‹å¤–
      */
     public void testNewThread01() throws Exception {
         Thread ownThread = new Thread();
@@ -37,9 +37,9 @@ public class CollectorThreadFactoryTest extends TestCase {
     }
 
     /**
-     * ˆø”ƒXƒŒƒbƒh‚ª‚—Dæ“x‚Ìê‡Aƒm[ƒ}ƒ‹‚Ì—Dæ“xƒXƒŒƒbƒh‚ªæ“¾‚Å‚«‚é‚±‚ÆB
+     * å¼•æ•°ã‚¹ãƒ¬ãƒƒãƒ‰ãŒé«˜å„ªå…ˆåº¦ã®å ´åˆã€ãƒãƒ¼ãƒãƒ«ã®å„ªå…ˆåº¦ã‚¹ãƒ¬ãƒƒãƒ‰ãŒå–å¾—ã§ãã‚‹ã“ã¨ã€‚
      *
-     * @throws Exception —\Šú‚µ‚È‚¢—áŠO
+     * @throws Exception äºˆæœŸã—ãªã„ä¾‹å¤–
      */
     public void testNewThread02() throws Exception {
         Thread ownThread = new Thread();

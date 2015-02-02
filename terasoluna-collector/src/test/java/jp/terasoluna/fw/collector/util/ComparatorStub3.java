@@ -14,7 +14,7 @@ public class ComparatorStub3 implements Comparator<String> {
                 "The second object provided is not Comparable");
 		
 		if(o1 != null && o2 != null){
-			// •¶š—ñ‚ÌŒã‚ë2•¶š‚ğ”äŠr‚·‚é
+			// æ–‡å­—åˆ—ã®å¾Œã‚2æ–‡å­—ã‚’æ¯”è¼ƒã™ã‚‹
 			String substr1 = o1.substring(o1.length()-2);
 			String substr2 = o2.substring(o2.length()-2);
 			

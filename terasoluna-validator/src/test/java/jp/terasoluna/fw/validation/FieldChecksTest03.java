@@ -26,11 +26,11 @@ import org.apache.commons.validator.Var;
 
 /**
  * {@link jp.terasoluna.fw.validation.FieldChecks}
- * ƒNƒ‰ƒX‚Ìƒuƒ‰ƒbƒNƒ{ƒbƒNƒXƒeƒXƒgB
+ * ã‚¯ãƒ©ã‚¹ã®ãƒ–ãƒ©ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ†ã‚¹ãƒˆã€‚
  *
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4>
- * TERASOLUNA‚Ì“ü—Íƒ`ƒFƒbƒN‹@”\‚Å‹¤’Ê‚Ég—p‚³‚ê‚éŒŸØƒ‹[ƒ‹ƒNƒ‰ƒXB
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4>
+ * TERASOLUNAã®å…¥åŠ›ãƒã‚§ãƒƒã‚¯æ©Ÿèƒ½ã§å…±é€šã«ä½¿ç”¨ã•ã‚Œã‚‹æ¤œè¨¼ãƒ«ãƒ¼ãƒ«ã‚¯ãƒ©ã‚¹ã€‚
  * <p>
  *
  * @see jp.terasoluna.fw.validation.FieldChecks
@@ -38,34 +38,34 @@ import org.apache.commons.validator.Var;
 public class FieldChecksTest03 extends TestCase {
 
     /**
-     * ƒeƒXƒg—pƒCƒ“ƒXƒ^ƒ“ƒXB
+     * ãƒ†ã‚¹ãƒˆç”¨ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
      */
     private ValidatorAction va = null;
 
     /**
-     * ƒeƒXƒg—pƒCƒ“ƒXƒ^ƒ“ƒXB
+     * ãƒ†ã‚¹ãƒˆç”¨ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
      */
     private Field field = null;
 
     /**
-     * ƒeƒXƒg—pƒCƒ“ƒXƒ^ƒ“ƒXB
+     * ãƒ†ã‚¹ãƒˆç”¨ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
      */
     private FieldChecks_ValidationErrorsImpl01 errors = null;
 
     /**
-     * ‚±‚ÌƒeƒXƒgƒP[ƒX‚ğÀs‚·‚éˆ×‚Ì
-     * GUI ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‹N“®‚·‚éB
+     * ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã‚’å®Ÿè¡Œã™ã‚‹ç‚ºã®
+     * GUI ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’èµ·å‹•ã™ã‚‹ã€‚
      *
-     * @param args java ƒRƒ}ƒ“ƒh‚Éİ’è‚³‚ê‚½ƒpƒ‰ƒ[ƒ^
+     * @param args java ã‚³ãƒãƒ³ãƒ‰ã«è¨­å®šã•ã‚ŒãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public static void main(String[] args) {
         junit.swingui.TestRunner.run(FieldChecksTest03.class);
     }
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -77,9 +77,9 @@ public class FieldChecksTest03 extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -88,9 +88,9 @@ public class FieldChecksTest03 extends TestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      *
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public FieldChecksTest03(String name) {
         super(name);
@@ -100,31 +100,31 @@ public class FieldChecksTest03 extends TestCase {
      * testValidateLong01()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC,F
+     * è¦³ç‚¹ï¼šC,F
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:null<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:null<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚ªnull‚Ìê‡Atrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanãŒnullã®å ´åˆã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateLong01() throws Exception {
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertTrue(new FieldChecks().validateLong(null, va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(0, errors.addErrorCount);
     }
 
@@ -132,31 +132,31 @@ public class FieldChecksTest03 extends TestCase {
      * testValidateLong02()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC,F
+     * è¦³ç‚¹ï¼šC,F
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:""<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:""<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚ª‹ó•¶š‚Ìê‡Atrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanãŒç©ºæ–‡å­—ã®å ´åˆã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateLong02() throws Exception {
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertTrue(new FieldChecks().validateLong("", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(0, errors.addErrorCount);
     }
 
@@ -164,33 +164,33 @@ public class FieldChecksTest03 extends TestCase {
      * testValidateLong03()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"-9223372036854775808"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"-9223372036854775808"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚Ì’l‚ªAlong‚É•ÏŠ·‚Å‚«‚éê‡Atrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanã®å€¤ãŒã€longã«å¤‰æ›ã§ãã‚‹å ´åˆã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateLong03() throws Exception {
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertTrue(
             new FieldChecks().validateLong(
                 "-9223372036854775808", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(0, errors.addErrorCount);
     }
 
@@ -198,35 +198,35 @@ public class FieldChecksTest03 extends TestCase {
      * testValidateLong04()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"‚ "<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"ã‚"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
-     *         (ó‘Ô•Ï‰») errors:bean,field,va‚ğˆø”‚Æ‚µ‚Ä
-     *                           addErrors‚ªŒÄ‚Ño‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:bean,field,vaã‚’å¼•æ•°ã¨ã—ã¦
+     *                           addErrorsãŒå‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚Ì’l‚ªAlong‚É•ÏŠ·‚Å‚«‚È‚¢ê‡AƒGƒ‰[‚ğ’Ç‰Á‚µ‚ÄA
-     * false‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanã®å€¤ãŒã€longã«å¤‰æ›ã§ããªã„å ´åˆã€ã‚¨ãƒ©ãƒ¼ã‚’è¿½åŠ ã—ã¦ã€
+     * falseãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateLong04() throws Exception {
-        // ƒeƒXƒgÀ{
-        // ”»’è
-        assertFalse(new FieldChecks().validateLong("‚ ", va, field, errors));
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
+        assertFalse(new FieldChecks().validateLong("ã‚", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(1, errors.addErrorCount);
-        assertEquals("‚ ", errors.beanList.get(0));
+        assertEquals("ã‚", errors.beanList.get(0));
         assertSame(va, errors.vaList.get(0));
         assertSame(field, errors.fieldList.get(0));
     }
@@ -235,31 +235,31 @@ public class FieldChecksTest03 extends TestCase {
      * testValidateFloat01()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF,G
+     * è¦³ç‚¹ï¼šF,G
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:null<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:null<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚ªnull‚Ìê‡Atrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanãŒnullã®å ´åˆã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateFloat01() throws Exception {
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertTrue(new FieldChecks().validateFloat(null, va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(0, errors.addErrorCount);
     }
 
@@ -267,31 +267,31 @@ public class FieldChecksTest03 extends TestCase {
      * testValidateFloat02()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC,F
+     * è¦³ç‚¹ï¼šC,F
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:""<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:""<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚ª‹ó•¶š‚Ìê‡Atrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanãŒç©ºæ–‡å­—ã®å ´åˆã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateFloat02() throws Exception {
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertTrue(new FieldChecks().validateFloat("", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(0, errors.addErrorCount);
     }
 
@@ -299,31 +299,31 @@ public class FieldChecksTest03 extends TestCase {
      * testValidateFloat03()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"1.4E-45"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"1.4E-45"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚Ì’l‚ªAfloat‚É•ÏŠ·‚Å‚«‚éê‡Atrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanã®å€¤ãŒã€floatã«å¤‰æ›ã§ãã‚‹å ´åˆã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateFloat03() throws Exception {
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertTrue(new FieldChecks().validateFloat("1.4E-45", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(0, errors.addErrorCount);
     }
 
@@ -331,33 +331,33 @@ public class FieldChecksTest03 extends TestCase {
      * testValidateFloat04()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"‚ "<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"ã‚"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
-     *         (ó‘Ô•Ï‰») errors:bean,field,va‚ğˆø”‚Æ‚µ‚ÄaddErrors‚ªŒÄ‚Ño‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:bean,field,vaã‚’å¼•æ•°ã¨ã—ã¦addErrorsãŒå‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚Ì’l‚ªAfloat‚É•ÏŠ·‚Å‚«‚È‚¢ê‡AƒGƒ‰[‚ğ’Ç‰Á‚µ‚ÄAfalse‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanã®å€¤ãŒã€floatã«å¤‰æ›ã§ããªã„å ´åˆã€ã‚¨ãƒ©ãƒ¼ã‚’è¿½åŠ ã—ã¦ã€falseãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateFloat04() throws Exception {
-        // ƒeƒXƒgÀ{
-        // ”»’è
-        assertFalse(new FieldChecks().validateFloat("‚ ", va, field, errors));
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
+        assertFalse(new FieldChecks().validateFloat("ã‚", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(1, errors.addErrorCount);
-        assertEquals("‚ ", errors.beanList.get(0));
+        assertEquals("ã‚", errors.beanList.get(0));
         assertSame(va, errors.vaList.get(0));
         assertSame(field, errors.fieldList.get(0));
     }
@@ -366,31 +366,31 @@ public class FieldChecksTest03 extends TestCase {
      * testValidateDouble01()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC,F
+     * è¦³ç‚¹ï¼šC,F
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:null<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:null<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚ªnull‚Ìê‡Atrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanãŒnullã®å ´åˆã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateDouble01() throws Exception {
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertTrue(new FieldChecks().validateDouble(null, va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(0, errors.addErrorCount);
     }
 
@@ -398,31 +398,31 @@ public class FieldChecksTest03 extends TestCase {
      * testValidateDouble02()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC,F
+     * è¦³ç‚¹ï¼šC,F
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:""<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:""<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚ª‹ó•¶š‚Ìê‡Atrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanãŒç©ºæ–‡å­—ã®å ´åˆã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateDouble02() throws Exception {
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertTrue(new FieldChecks().validateDouble("", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(0, errors.addErrorCount);
     }
 
@@ -430,31 +430,31 @@ public class FieldChecksTest03 extends TestCase {
      * testValidateDouble03()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"4.9E-324"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"4.9E-324"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚Ì’l‚ªAdouble‚É•ÏŠ·‚Å‚«‚éê‡Atrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanã®å€¤ãŒã€doubleã«å¤‰æ›ã§ãã‚‹å ´åˆã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateDouble03() throws Exception {
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertTrue(new FieldChecks().validateDouble("4.9E-324", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(0, errors.addErrorCount);
     }
 
@@ -462,33 +462,33 @@ public class FieldChecksTest03 extends TestCase {
      * testValidateDouble04()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"‚ "<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"ã‚"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
-     *         (ó‘Ô•Ï‰») errors:bean,field,va‚ğˆø”‚Æ‚µ‚ÄaddErrors‚ªŒÄ‚Ño‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:bean,field,vaã‚’å¼•æ•°ã¨ã—ã¦addErrorsãŒå‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚Ì’l‚ªAdouble‚É•ÏŠ·‚Å‚«‚È‚¢ê‡AƒGƒ‰[‚ğ’Ç‰Á‚µ‚ÄAfalse‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanã®å€¤ãŒã€doubleã«å¤‰æ›ã§ããªã„å ´åˆã€ã‚¨ãƒ©ãƒ¼ã‚’è¿½åŠ ã—ã¦ã€falseãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateDouble04() throws Exception {
-        // ƒeƒXƒgÀ{
-        // ”»’è
-        assertFalse(new FieldChecks().validateDouble("‚ ", va, field, errors));
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
+        assertFalse(new FieldChecks().validateDouble("ã‚", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(1, errors.addErrorCount);
-        assertEquals("‚ ", errors.beanList.get(0));
+        assertEquals("ã‚", errors.beanList.get(0));
         assertSame(va, errors.vaList.get(0));
         assertSame(field, errors.fieldList.get(0));
     }
@@ -497,31 +497,31 @@ public class FieldChecksTest03 extends TestCase {
      * testValidateDate01()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC,F
+     * è¦³ç‚¹ï¼šC,F
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:null<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:null<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚ªnull‚Ìê‡Atrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanãŒnullã®å ´åˆã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateDate01() throws Exception {
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertTrue(new FieldChecks().validateDate(null, va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(0, errors.addErrorCount);
     }
 
@@ -529,31 +529,31 @@ public class FieldChecksTest03 extends TestCase {
      * testValidateDate02()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC,F
+     * è¦³ç‚¹ï¼šC,F
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:""<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:""<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚ª‹ó•¶š‚Ìê‡Atrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanãŒç©ºæ–‡å­—ã®å ´åˆã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateDate02() throws Exception {
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertTrue(new FieldChecks().validateDate("", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(0, errors.addErrorCount);
     }
 
@@ -561,37 +561,37 @@ public class FieldChecksTest03 extends TestCase {
      * testValidateDate03()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF,G
+     * è¦³ç‚¹ï¼šF,G
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"2005/11/17"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"2005/11/17"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                datePattern=null<br>
      *                datePatternStrict=null<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:ValidatorException<br>
-     *                    ƒƒbƒZ[ƒWF"Mistake on validation definition file.
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ValidatorException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Mistake on validation definition file.
      *                     - datePattern or datePatternStrict is invalid.
      *                     You'll have to check it over. "<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:ƒƒOƒŒƒxƒ‹FƒGƒ‰[<br>
-     *                    ƒƒbƒZ[ƒWF"Mistake on validation definition file.
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ï¼šã‚¨ãƒ©ãƒ¼<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Mistake on validation definition file.
      *                     - datePattern or datePatternStrict is invalid.
      *                      You'll have to check it over. ", new IllegalArgumentException()<br>
      *
      * <br>
-     * datePatternAdatePatternStrict‚ª—¼•û‚Æ‚ànull‚Ìê‡A
-     * ValidatorException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * datePatternã€datePatternStrictãŒä¸¡æ–¹ã¨ã‚‚nullã®å ´åˆã€
+     * ValidatorExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateDate03() throws Exception {
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         try {
             new FieldChecks().validateDate("2005/11/17", va, field, errors);
             fail();
@@ -608,36 +608,36 @@ public class FieldChecksTest03 extends TestCase {
      * testValidateDate04()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF,G
+     * è¦³ç‚¹ï¼šF,G
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"2005/11/17"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"2005/11/17"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                datePattern=""<br>
      *                datePatternStrict=""<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:ValidatorException<br>
-     *                    ƒƒbƒZ[ƒWF"Mistake on validation definition file.
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ValidatorException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Mistake on validation definition file.
      *                     - datePattern or datePatternStrict is invalid.
      *                     You'll have to check it over. "<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:ƒƒOƒŒƒxƒ‹FƒGƒ‰[<br>
-     *                    ƒƒbƒZ[ƒWF"Mistake on validation definition file.
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ï¼šã‚¨ãƒ©ãƒ¼<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Mistake on validation definition file.
      *                     - datePattern or datePatternStrict is invalid.
      *                      You'll have to check it over. ", new IllegalArgumentException()<br>
      *
      * <br>
-     * datePatternAdatePatternStrict‚ª—¼•û‚Æ‚ànull‚Ìê‡A
-     * ValidatorException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * datePatternã€datePatternStrictãŒä¸¡æ–¹ã¨ã‚‚nullã®å ´åˆã€
+     * ValidatorExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateDate04() throws Exception {
-        // ‘O€”õ
+        // å‰æº–å‚™
         Var var1 = new Var();
         var1.setName("datePattern");
         var1.setValue("");
@@ -647,8 +647,8 @@ public class FieldChecksTest03 extends TestCase {
         var2.setValue("");
         field.addVar(var2);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         try {
             new FieldChecks().validateDate("2005/11/17", va, field, errors);
             fail();
@@ -665,36 +665,36 @@ public class FieldChecksTest03 extends TestCase {
      * testValidateDate05()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF,G
+     * è¦³ç‚¹ï¼šF,G
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"2005/11/17"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"2005/11/17"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                datePattern="abc"<br>
      *                datePatternStrict=""<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:ValidatorException<br>
-     *                    ƒƒbƒZ[ƒWF"Mistake on validation definition file.
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ValidatorException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Mistake on validation definition file.
      *                     - datePattern or datePatternStrict is invalid.
      *                     You'll have to check it over. "<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:ƒƒOƒŒƒxƒ‹FƒGƒ‰[<br>
-     *                    ƒƒbƒZ[ƒWF"Mistake on validation definition file.
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ï¼šã‚¨ãƒ©ãƒ¼<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Mistake on validation definition file.
      *                     - datePattern or datePatternStrict is invalid.
      *                      You'll have to check it over. ", new IllegalArgumentException()<br>
      *
      * <br>
-     * datePattern‚É“ú•tŒ`®‚Æ‚µ‚Ä‰ğß‚Å‚«‚È‚¢•¶š‚ªŠÜ‚Ü‚ê‚éê‡A
-     * ValidatorException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * datePatternã«æ—¥ä»˜å½¢å¼ã¨ã—ã¦è§£é‡ˆã§ããªã„æ–‡å­—ãŒå«ã¾ã‚Œã‚‹å ´åˆã€
+     * ValidatorExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateDate05() throws Exception {
-        // ‘O€”õ
+        // å‰æº–å‚™
         Var var1 = new Var();
         var1.setName("datePattern");
         var1.setValue("abc");
@@ -705,8 +705,8 @@ public class FieldChecksTest03 extends TestCase {
         var2.setValue("");
         field.addVar(var2);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         try {
             new FieldChecks().validateDate("2005/11/17", va, field, errors);
             fail();
@@ -723,43 +723,43 @@ public class FieldChecksTest03 extends TestCase {
      * testValidateDate06()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF,G
+     * è¦³ç‚¹ï¼šF,G
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"2005/11/17"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"2005/11/17"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                datePattern=null<br>
      *                datePatternStrict="abc"<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:ValidatorException<br>
-     *                    ƒƒbƒZ[ƒWF"Mistake on validation definition file.
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ValidatorException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Mistake on validation definition file.
      *                     - datePattern or datePatternStrict is invalid.
      *                     You'll have to check it over. "<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:ƒƒOƒŒƒxƒ‹FƒGƒ‰[<br>
-     *                    ƒƒbƒZ[ƒWF"Mistake on validation definition file.
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ï¼šã‚¨ãƒ©ãƒ¼<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Mistake on validation definition file.
      *                     - datePattern or datePatternStrict is invalid.
      *                      You'll have to check it over. ", new IllegalArgumentException()<br>
      *
      * <br>
-     * datePatternStrict‚É“ú•tŒ`®‚Æ‚µ‚Ä‰ğß‚Å‚«‚È‚¢•¶š‚ªŠÜ‚Ü‚ê‚éê‡A
-     * ValidatorException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * datePatternStrictã«æ—¥ä»˜å½¢å¼ã¨ã—ã¦è§£é‡ˆã§ããªã„æ–‡å­—ãŒå«ã¾ã‚Œã‚‹å ´åˆã€
+     * ValidatorExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateDate06() throws Exception {
-        // ‘O€”õ
+        // å‰æº–å‚™
         Var var = new Var();
         var.setName("datePatternStrict");
         var.setValue("abc");
         field.addVar(var);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         try {
             new FieldChecks().validateDate("2005/11/17", va, field, errors);
             fail();
@@ -776,30 +776,30 @@ public class FieldChecksTest03 extends TestCase {
      * testValidateDate07()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"2005/1/1"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"2005/1/1"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                datePattern="yyyy/MM/dd"<br>
      *                datePatternStrict="yyyy.MM.dd"<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * datePatternAdatePatternStrict‚Ì—¼•û‚É³‚µ‚¢“ú•tŒ`®‚ªw’è‚³‚ê‚éê‡A
-     * datePattern‚ÌŒ`®‚Å“ü—Í’l‚Ì‰ğß‚ªs‚í‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * datePatternã€datePatternStrictã®ä¸¡æ–¹ã«æ­£ã—ã„æ—¥ä»˜å½¢å¼ãŒæŒ‡å®šã•ã‚Œã‚‹å ´åˆã€
+     * datePatternã®å½¢å¼ã§å…¥åŠ›å€¤ã®è§£é‡ˆãŒè¡Œã‚ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateDate07() throws Exception {
-        // ‘O€”õ
+        // å‰æº–å‚™
         Var var1 = new Var();
         var1.setName("datePattern");
         var1.setValue("yyyy/MM/dd");
@@ -810,11 +810,11 @@ public class FieldChecksTest03 extends TestCase {
         var2.setValue("yyyy.MM.dd");
         field.addVar(var2);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertTrue(new FieldChecks().validateDate("2005/1/1", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(0, errors.addErrorCount);
     }
 
@@ -822,38 +822,38 @@ public class FieldChecksTest03 extends TestCase {
      * testValidateDate08()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"2005/1/1"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"2005/1/1"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                datePatternStrict="yyyy/MM/dd"<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
-     *         (ó‘Ô•Ï‰») errors:bean,field,va‚ğˆø”‚Æ‚µ‚ÄaddErrors‚ªŒÄ‚Ño‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:bean,field,vaã‚’å¼•æ•°ã¨ã—ã¦addErrorsãŒå‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
      *
      * <br>
-     * datePatternStrict‚É“ú•tŒ`®‚ªw’è‚³‚ê‚Ä‚¨‚èAŒ`®‚ªŠ®‘S‚Éˆê’v‚µ‚È‚¢ê‡AƒGƒ‰[‚ğ’Ç‰Á‚µ‚Äfalse‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * datePatternStrictã«æ—¥ä»˜å½¢å¼ãŒæŒ‡å®šã•ã‚Œã¦ãŠã‚Šã€å½¢å¼ãŒå®Œå…¨ã«ä¸€è‡´ã—ãªã„å ´åˆã€ã‚¨ãƒ©ãƒ¼ã‚’è¿½åŠ ã—ã¦falseãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateDate08() throws Exception {
-        // ‘O€”õ
+        // å‰æº–å‚™
         Var var = new Var();
         var.setName("datePatternStrict");
         var.setValue("yyyy/MM/dd");
         field.addVar(var);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertFalse(new FieldChecks().validateDate("2005/1/1", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(1, errors.addErrorCount);
         assertEquals("2005/1/1", errors.beanList.get(0));
         assertSame(va, errors.vaList.get(0));
@@ -864,38 +864,38 @@ public class FieldChecksTest03 extends TestCase {
      * testValidateDate09()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"2005/2/29"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"2005/2/29"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                datePattern="yyyy/MM/dd"<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
-     *         (ó‘Ô•Ï‰») errors:bean,field,va‚ğˆø”‚Æ‚µ‚ÄaddErrors‚ªŒÄ‚Ño‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:bean,field,vaã‚’å¼•æ•°ã¨ã—ã¦addErrorsãŒå‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
      *
      * <br>
-     * ‘¶İ‚µ‚È‚¢“ú•t‚ª“ü—Í‚³‚ê‚½ê‡AƒGƒ‰[‚ğ’Ç‰Á‚µ‚Äfalse‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å­˜åœ¨ã—ãªã„æ—¥ä»˜ãŒå…¥åŠ›ã•ã‚ŒãŸå ´åˆã€ã‚¨ãƒ©ãƒ¼ã‚’è¿½åŠ ã—ã¦falseãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateDate09() throws Exception {
-        // ‘O€”õ
+        // å‰æº–å‚™
         Var var = new Var();
         var.setName("datePattern");
         var.setValue("yyyy/MM/dd");
         field.addVar(var);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertFalse(new FieldChecks().validateDate("2005/2/29", va, field, errors));
 
-        // addErrorsŠm”F
+        // addErrorsç¢ºèª
         assertEquals(1, errors.addErrorCount);
         assertEquals("2005/2/29", errors.beanList.get(0));
         assertSame(va, errors.vaList.get(0));

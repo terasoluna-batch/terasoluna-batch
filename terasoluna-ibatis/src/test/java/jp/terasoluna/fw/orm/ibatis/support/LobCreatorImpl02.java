@@ -24,7 +24,7 @@ import java.sql.SQLException;
 import org.springframework.jdbc.support.lob.LobCreator;
 
 /**
- * LobCreatorÀ‘•ƒNƒ‰ƒXB
+ * LobCreatorå®Ÿè£…ã‚¯ãƒ©ã‚¹ã€‚
  * 
  */
 public class LobCreatorImpl02 implements LobCreator {
@@ -35,8 +35,8 @@ public class LobCreatorImpl02 implements LobCreator {
     public SQLException e = new SQLException();
 
     /**
-     * BlobInputStreamTypeHandler#setParameterInternalƒeƒXƒg
-     * SQLException‚ğ‹N‚±‚·B
+     * BlobInputStreamTypeHandler#setParameterInternalãƒ†ã‚¹ãƒˆ
+     * SQLExceptionã‚’èµ·ã“ã™ã€‚
      */
     public void setBlobAsBinaryStream(PreparedStatement arg0, int arg1,
             InputStream arg2, int arg3) throws SQLException {
@@ -44,8 +44,8 @@ public class LobCreatorImpl02 implements LobCreator {
     }
     
     /**
-     * ClobReaderTypeHandler#setParameterInternalƒeƒXƒg
-     * SQLException‚ğ‹N‚±‚·B
+     * ClobReaderTypeHandler#setParameterInternalãƒ†ã‚¹ãƒˆ
+     * SQLExceptionã‚’èµ·ã“ã™ã€‚
      */
     public void setClobAsCharacterStream(PreparedStatement arg0, int arg1,
             Reader arg2, int arg3) throws SQLException {

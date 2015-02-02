@@ -19,26 +19,26 @@ import jp.terasoluna.utlib.UTUtil;
 import junit.framework.TestCase;
 
 /**
- * {@link jp.terasoluna.fw.file.dao.standard.DateColumnFormatter} ƒNƒ‰ƒX‚ÌƒeƒXƒgB
+ * {@link jp.terasoluna.fw.file.dao.standard.DateColumnFormatter} ã‚¯ãƒ©ã‚¹ã®ãƒ†ã‚¹ãƒˆã€‚
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4> ƒAƒmƒe[ƒVƒ‡ƒ“columnFormat‚Ì‹Lq‚É]‚¢A•¶š—ñ‚Ì•ÏŠ·ˆ—‚ğs‚¤B
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4> ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³columnFormatã®è¨˜è¿°ã«å¾“ã„ã€æ–‡å­—åˆ—ã®å¤‰æ›å‡¦ç†ã‚’è¡Œã†ã€‚
  * <p>
- * @author ‰œ“c“Ni
+ * @author å¥¥ç”°å“²å¸
  * @see jp.terasoluna.fw.file.dao.standard.DateColumnFormatter
  */
 public class DateColumnFormatterTest extends TestCase {
 
     /**
-     * ‚±‚ÌƒeƒXƒgƒP[ƒX‚ğÀs‚·‚éˆ×‚Ì GUI ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‹N“®‚·‚éB
-     * @param args java ƒRƒ}ƒ“ƒh‚Éİ’è‚³‚ê‚½ƒpƒ‰ƒ[ƒ^
+     * ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã‚’å®Ÿè¡Œã™ã‚‹ç‚ºã® GUI ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’èµ·å‹•ã™ã‚‹ã€‚
+     * @param args java ã‚³ãƒãƒ³ãƒ‰ã«è¨­å®šã•ã‚ŒãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public static void main(String[] args) {
         // junit.swingui.TestRunner.run(DateColumnFormatterTest.class);
     }
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -48,8 +48,8 @@ public class DateColumnFormatterTest extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -58,8 +58,8 @@ public class DateColumnFormatterTest extends TestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public DateColumnFormatterTest(String name) {
         super(name);
@@ -68,52 +68,52 @@ public class DateColumnFormatterTest extends TestCase {
     /**
      * testFormat01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC <br>
      * <br>
-     * “ü—Í’lF(ˆø”) ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg<br>
-     * ‚”:not null<br>
-     * DateŒ^ƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * @’lFnew Date(0)<br>
-     * (ˆø”) ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg(t)‚É‚ ‚éDateŒ^‘®«‚Ìgetterƒƒ\ƒbƒh<br>
-     * method:ˆÈ‰º‚Ìİ’è‚ğ‚à‚ÂMethodƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * @‰Â‹«Fpublic<br>
-     * @ˆø”F‚È‚µ<br>
-     * (ˆø”) ƒtƒH[ƒ}ƒbƒg—p‚Ì•¶š—ñ<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
+     * ï½”:not null<br>
+     * Dateå‹ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * ã€€å€¤ï¼šnew Date(0)<br>
+     * (å¼•æ•°) ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ(t)ã«ã‚ã‚‹Dateå‹å±æ€§ã®getterãƒ¡ã‚½ãƒƒãƒ‰<br>
+     * method:ä»¥ä¸‹ã®è¨­å®šã‚’ã‚‚ã¤Methodã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ã€€å¯è¦–æ€§ï¼špublic<br>
+     * ã€€å¼•æ•°ï¼šãªã—<br>
+     * (å¼•æ•°) ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆç”¨ã®æ–‡å­—åˆ—<br>
      * columnFormat:null<br>
-     * (ó‘Ô) map:—v‘f‚È‚µ<br>
+     * (çŠ¶æ…‹) map:è¦ç´ ãªã—<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:ˆø”‚Ìmethod‚ÌDateŒ^‘®«‚ÉŠi”[‚³‚ê‚Ä‚¢‚é’l‚ªyyyyMMddƒtƒH[ƒ}ƒbƒg‚Ì•¶š—ñ‚Åo—Í‚³‚ê‚é<br>
-     * (ó‘Ô•Ï‰») Map.get():ƒƒ\ƒbƒh‚ª1‰ñŒÄ‚Î‚ê‚éB<br>
-     * (ó‘Ô•Ï‰») Map.put():ƒƒ\ƒbƒh‚ª1‰ñŒÄ‚Î‚ê‚éB<br>
-     * (ó‘Ô•Ï‰») DateFormatLocalƒRƒ“ƒXƒgƒ‰ƒNƒ^:ƒƒ\ƒbƒh‚ª1‰ñŒÄ‚Î‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:å¼•æ•°ã®methodã®Dateå‹å±æ€§ã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹å€¤ãŒyyyyMMddãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã®æ–‡å­—åˆ—ã§å‡ºåŠ›ã•ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) Map.get():ãƒ¡ã‚½ãƒƒãƒ‰ãŒ1å›å‘¼ã°ã‚Œã‚‹ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) Map.put():ãƒ¡ã‚½ãƒƒãƒ‰ãŒ1å›å‘¼ã°ã‚Œã‚‹ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) DateFormatLocalã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿:ãƒ¡ã‚½ãƒƒãƒ‰ãŒ1å›å‘¼ã°ã‚Œã‚‹ã€‚<br>
      * <br>
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚©‚çDateŒ^‘®«‚ÉŠi”[‚³‚ê‚Ä‚¢‚éƒIƒuƒWƒFƒNƒg‚Ì•¶š—ñ‚ğæ“¾‚·‚é‚±‚Æ‚ª‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éBƒtƒH[ƒ}ƒbƒg—p‚Ì•¶š—ñ‚ªnull‚à‚µ‚­‚Í‹ó•¶š‚Ìê‡‚ÍƒtƒH[ƒ}ƒbƒgˆ—‚ğs‚í‚¸("yyyyMMdd")‚Éo—Í‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚é
-     * Bƒ}ƒbƒv‚ÉƒtƒH[ƒ}ƒbƒg—p‚Ì•¶š—ñ‚ğƒLƒƒƒbƒVƒ…‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã‚‰Dateå‹å±æ€§ã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®æ–‡å­—åˆ—ã‚’å–å¾—ã™ã‚‹ã“ã¨ãŒã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆç”¨ã®æ–‡å­—åˆ—ãŒnullã‚‚ã—ãã¯ç©ºæ–‡å­—ã®å ´åˆã¯ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆå‡¦ç†ã‚’è¡Œã‚ãš("yyyyMMdd")ã«å‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹
+     * ã€‚ãƒãƒƒãƒ—ã«ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆç”¨ã®æ–‡å­—åˆ—ã‚’ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testFormat01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         ColumnFormatter columnFormatter = new DateColumnFormatter();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         DateColumnFormatter_Stub01 stub = new DateColumnFormatter_Stub01();
         UTUtil.setPrivateField(stub, "date", new Date(0));
         Method method = stub.getClass().getMethod("getDate");
         String columnFormat = null;
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         Map<String, DateFormatLocal> map = new ConcurrentHashMap<String, DateFormatLocal>();
         UTUtil.setPrivateField(columnFormatter, "map", map);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String testResult = columnFormatter.format(stub, method, columnFormat);
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals("19700101", testResult);
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(1, VMOUTUtil.getCallCount(Map.class, "get"));
         assertEquals("yyyyMMdd", VMOUTUtil.getArgument(Map.class, "get", 0, 0));
         assertEquals(1, VMOUTUtil.getCallCount(Map.class, "put"));
@@ -130,54 +130,54 @@ public class DateColumnFormatterTest extends TestCase {
     /**
      * testFormat02() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC <br>
      * <br>
-     * “ü—Í’lF(ˆø”) ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg<br>
-     * ‚”:not null<br>
-     * DateŒ^ƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * @’lFnew Date(0)<br>
-     * (ˆø”) ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg(t)‚É‚ ‚éDateŒ^‘®«‚Ìgetterƒƒ\ƒbƒh<br>
-     * method:ˆÈ‰º‚Ìİ’è‚ğ‚à‚ÂMethodƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * @‰Â‹«Fpublic<br>
-     * @ˆø”F‚È‚µ<br>
-     * (ˆø”) ƒtƒH[ƒ}ƒbƒg—p‚Ì•¶š—ñ<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
+     * ï½”:not null<br>
+     * Dateå‹ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * ã€€å€¤ï¼šnew Date(0)<br>
+     * (å¼•æ•°) ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ(t)ã«ã‚ã‚‹Dateå‹å±æ€§ã®getterãƒ¡ã‚½ãƒƒãƒ‰<br>
+     * method:ä»¥ä¸‹ã®è¨­å®šã‚’ã‚‚ã¤Methodã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ã€€å¯è¦–æ€§ï¼špublic<br>
+     * ã€€å¼•æ•°ï¼šãªã—<br>
+     * (å¼•æ•°) ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆç”¨ã®æ–‡å­—åˆ—<br>
      * columnFormat:""<br>
-     * (ó‘Ô) map:key:"yyyyMMdd"<br>
+     * (çŠ¶æ…‹) map:key:"yyyyMMdd"<br>
      * value:new DateFormatLocal("yyyyMMdd")<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:ˆø”‚Ìmethod‚ÌDateŒ^‘®«‚ÉŠi”[‚³‚ê‚Ä‚¢‚é’l‚ªyyyyMMddƒtƒH[ƒ}ƒbƒg‚Ì•¶š—ñ‚Åo—Í‚³‚ê‚é<br>
-     * (ó‘Ô•Ï‰») Map.get():ƒƒ\ƒbƒh‚ª1‰ñŒÄ‚Î‚ê‚éB<br>
-     * (ó‘Ô•Ï‰») Map.put():ƒƒ\ƒbƒh‚ªŒÄ‚Î‚ê‚È‚¢B<br>
-     * (ó‘Ô•Ï‰») DateFormatLocalƒRƒ“ƒXƒgƒ‰ƒNƒ^:ƒƒ\ƒbƒh‚ªŒÄ‚Î‚ê‚È‚¢B<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:å¼•æ•°ã®methodã®Dateå‹å±æ€§ã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹å€¤ãŒyyyyMMddãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã®æ–‡å­—åˆ—ã§å‡ºåŠ›ã•ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) Map.get():ãƒ¡ã‚½ãƒƒãƒ‰ãŒ1å›å‘¼ã°ã‚Œã‚‹ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) Map.put():ãƒ¡ã‚½ãƒƒãƒ‰ãŒå‘¼ã°ã‚Œãªã„ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) DateFormatLocalã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿:ãƒ¡ã‚½ãƒƒãƒ‰ãŒå‘¼ã°ã‚Œãªã„ã€‚<br>
      * <br>
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚©‚çDateŒ^‘®«‚ÉŠi”[‚³‚ê‚Ä‚¢‚éƒIƒuƒWƒFƒNƒg‚Ì•¶š—ñ‚ğæ“¾‚·‚é‚±‚Æ‚ª‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éBƒ}ƒbƒv‚©‚çæ“¾‚µ‚½ƒtƒH[ƒ}ƒbƒg—p‚Ì•¶š—ñ‚Åİ’è‚³‚ê‚½‚Æ‚¨‚è‚Éo—Í‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã‚‰Dateå‹å±æ€§ã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®æ–‡å­—åˆ—ã‚’å–å¾—ã™ã‚‹ã“ã¨ãŒã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ãƒãƒƒãƒ—ã‹ã‚‰å–å¾—ã—ãŸãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆç”¨ã®æ–‡å­—åˆ—ã§è¨­å®šã•ã‚ŒãŸã¨ãŠã‚Šã«å‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testFormat02() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         ColumnFormatter columnFormatter = new DateColumnFormatter();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         DateColumnFormatter_Stub01 stub = new DateColumnFormatter_Stub01();
         UTUtil.setPrivateField(stub, "date", new Date(0));
         Method method = stub.getClass().getMethod("getDate");
         String columnFormat = "";
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         Map<String, DateFormatLocal> map = new ConcurrentHashMap<String, DateFormatLocal>();
         map.put("yyyyMMdd", new DateFormatLocal("yyyyMMdd"));
         UTUtil.setPrivateField(columnFormatter, "map", map);
 
         VMOUTUtil.initialize();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String testResult = columnFormatter.format(stub, method, columnFormat);
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals("19700101", testResult);
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(1, VMOUTUtil.getCallCount(Map.class, "get"));
         assertEquals("yyyyMMdd", VMOUTUtil.getArgument(Map.class, "get", 0, 0));
         assertFalse(VMOUTUtil.isCalled(Map.class, "put"));
@@ -187,57 +187,57 @@ public class DateColumnFormatterTest extends TestCase {
     /**
      * testFormat03() <br>
      * <br>
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      * <br>
-     * ŠÏ“_FC <br>
+     * è¦³ç‚¹ï¼šC <br>
      * <br>
-     * “ü—Í’lF(ˆø”) ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg<br>
-     * ‚”:not null<br>
-     * DateŒ^ƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * @’lFnew Date(0)<br>
-     * (ˆø”) ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg(t)‚É‚ ‚éDateŒ^‘®«‚Ìgetterƒƒ\ƒbƒh<br>
-     * method:ˆÈ‰º‚Ìİ’è‚ğ‚à‚ÂMethodƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * @‰Â‹«Fpublic<br>
-     * @ˆø”F‚È‚µ<br>
-     * (ˆø”) ƒtƒH[ƒ}ƒbƒg—p‚Ì•¶š—ñ<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
+     * ï½”:not null<br>
+     * Dateå‹ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * ã€€å€¤ï¼šnew Date(0)<br>
+     * (å¼•æ•°) ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ(t)ã«ã‚ã‚‹Dateå‹å±æ€§ã®getterãƒ¡ã‚½ãƒƒãƒ‰<br>
+     * method:ä»¥ä¸‹ã®è¨­å®šã‚’ã‚‚ã¤Methodã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ã€€å¯è¦–æ€§ï¼špublic<br>
+     * ã€€å¼•æ•°ï¼šãªã—<br>
+     * (å¼•æ•°) ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆç”¨ã®æ–‡å­—åˆ—<br>
      * columnFormat:""<br>
-     * (ó‘Ô) map:key:"yyyy-MM-dd"<br>
+     * (çŠ¶æ…‹) map:key:"yyyy-MM-dd"<br>
      * value:new DateFormatLocal("yyyy-MM-dd")<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:ˆø”‚Ìmethod‚ÌDateŒ^‘®«‚ÉŠi”[‚³‚ê‚Ä‚¢‚é’l‚ªyyyyMMddƒtƒH[ƒ}ƒbƒg‚Ì•¶š—ñ‚Åo—Í‚³‚ê‚é<br>
-     * (ó‘Ô•Ï‰») Map.get():ƒƒ\ƒbƒh‚ª1‰ñŒÄ‚Î‚ê‚éB<br>
-     * (ó‘Ô•Ï‰») Map.put():ƒƒ\ƒbƒh‚ª1‰ñŒÄ‚Î‚ê‚éB<br>
-     * (ó‘Ô•Ï‰») DateFormatLocalƒRƒ“ƒXƒgƒ‰ƒNƒ^:ƒƒ\ƒbƒh‚ª1‰ñŒÄ‚Î‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:å¼•æ•°ã®methodã®Dateå‹å±æ€§ã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹å€¤ãŒyyyyMMddãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã®æ–‡å­—åˆ—ã§å‡ºåŠ›ã•ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) Map.get():ãƒ¡ã‚½ãƒƒãƒ‰ãŒ1å›å‘¼ã°ã‚Œã‚‹ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) Map.put():ãƒ¡ã‚½ãƒƒãƒ‰ãŒ1å›å‘¼ã°ã‚Œã‚‹ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) DateFormatLocalã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿:ãƒ¡ã‚½ãƒƒãƒ‰ãŒ1å›å‘¼ã°ã‚Œã‚‹ã€‚<br>
      * <br>
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚©‚çDateŒ^‘®«‚ÉŠi”[‚³‚ê‚Ä‚¢‚éƒIƒuƒWƒFƒNƒg‚Ì•¶š—ñ‚ğæ“¾‚·‚é‚±‚Æ‚ª‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éBƒtƒH[ƒ}ƒbƒg—p‚Ì•¶š—ñ‚ªnull‚à‚µ‚­‚Í‹ó•¶š‚Ìê‡‚ÍƒtƒH[ƒ}ƒbƒgˆ—‚ğs‚í‚¸("yyyyMMdd")‚Éo—Í‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚é
-     * Bƒ}ƒbƒv‚ÉƒtƒH[ƒ}ƒbƒg—p‚Ì•¶š—ñ‚ğƒLƒƒƒbƒVƒ…‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã‚‰Dateå‹å±æ€§ã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®æ–‡å­—åˆ—ã‚’å–å¾—ã™ã‚‹ã“ã¨ãŒã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆç”¨ã®æ–‡å­—åˆ—ãŒnullã‚‚ã—ãã¯ç©ºæ–‡å­—ã®å ´åˆã¯ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆå‡¦ç†ã‚’è¡Œã‚ãš("yyyyMMdd")ã«å‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹
+     * ã€‚ãƒãƒƒãƒ—ã«ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆç”¨ã®æ–‡å­—åˆ—ã‚’ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testFormat03() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         ColumnFormatter columnFormatter = new DateColumnFormatter();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         DateColumnFormatter_Stub01 stub = new DateColumnFormatter_Stub01();
         UTUtil.setPrivateField(stub, "date", new Date(0));
         Method method = stub.getClass().getMethod("getDate");
         String columnFormat = "";
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         Map<String, DateFormatLocal> map = new ConcurrentHashMap<String, DateFormatLocal>();
         map.put("yyyy-MM-dd", new DateFormatLocal("yyyy-MM-dd"));
         UTUtil.setPrivateField(columnFormatter, "map", map);
 
         VMOUTUtil.initialize();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String testResult = columnFormatter.format(stub, method, columnFormat);
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals("19700101", testResult);
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(1, VMOUTUtil.getCallCount(Map.class, "get"));
         assertEquals("yyyyMMdd", VMOUTUtil.getArgument(Map.class, "get", 0, 0));
         assertEquals(1, VMOUTUtil.getCallCount(Map.class, "put"));
@@ -254,51 +254,51 @@ public class DateColumnFormatterTest extends TestCase {
     /**
      * testFormat04() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE, F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE, F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg<br>
-     * ‚”:not null<br>
-     * DateŒ^ƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * @’lFnew Date(0)<br>
-     * (ˆø”) ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg(t)‚É‚ ‚éDateŒ^‘®«‚Ìgetterƒƒ\ƒbƒh<br>
-     * method:ˆÈ‰º‚Ìİ’è‚ğ‚à‚ÂMethodƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * @‰Â‹«Fpublic<br>
-     * @ˆø”F‚È‚µ<br>
-     * (ˆø”) ƒtƒH[ƒ}ƒbƒg—p‚Ì•¶š—ñ<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
+     * ï½”:not null<br>
+     * Dateå‹ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * ã€€å€¤ï¼šnew Date(0)<br>
+     * (å¼•æ•°) ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ(t)ã«ã‚ã‚‹Dateå‹å±æ€§ã®getterãƒ¡ã‚½ãƒƒãƒ‰<br>
+     * method:ä»¥ä¸‹ã®è¨­å®šã‚’ã‚‚ã¤Methodã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ã€€å¯è¦–æ€§ï¼špublic<br>
+     * ã€€å¼•æ•°ï¼šãªã—<br>
+     * (å¼•æ•°) ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆç”¨ã®æ–‡å­—åˆ—<br>
      * columnFormat:"yyyy/MM/dd"<br>
-     * (ó‘Ô) map:—v‘f‚È‚µ<br>
+     * (çŠ¶æ…‹) map:è¦ç´ ãªã—<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:ˆø”‚Ìmethod‚ÌDateŒ^‘®«‚ÉŠi”[‚³‚ê‚Ä‚¢‚é’l‚Ì•¶š—ñBcolumnFormat‚Å’è‹`‚µ‚½ƒtƒH[ƒ}ƒbƒg‚Åo—Í‚³‚ê‚éB<br>
-     * (ó‘Ô•Ï‰») Map.get():ƒƒ\ƒbƒh‚ª1‰ñŒÄ‚Î‚ê‚éB<br>
-     * (ó‘Ô•Ï‰») Map.put():ƒƒ\ƒbƒh‚ª1‰ñŒÄ‚Î‚ê‚éB<br>
-     * (ó‘Ô•Ï‰») DateFormatLocalƒRƒ“ƒXƒgƒ‰ƒNƒ^:ƒƒ\ƒbƒh‚ª1‰ñŒÄ‚Î‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:å¼•æ•°ã®methodã®Dateå‹å±æ€§ã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹å€¤ã®æ–‡å­—åˆ—ã€‚columnFormatã§å®šç¾©ã—ãŸãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã§å‡ºåŠ›ã•ã‚Œã‚‹ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) Map.get():ãƒ¡ã‚½ãƒƒãƒ‰ãŒ1å›å‘¼ã°ã‚Œã‚‹ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) Map.put():ãƒ¡ã‚½ãƒƒãƒ‰ãŒ1å›å‘¼ã°ã‚Œã‚‹ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) DateFormatLocalã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿:ãƒ¡ã‚½ãƒƒãƒ‰ãŒ1å›å‘¼ã°ã‚Œã‚‹ã€‚<br>
      * <br>
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚©‚çDateŒ^‘®«‚ÉŠi”[‚³‚ê‚Ä‚¢‚éƒIƒuƒWƒFƒNƒg‚Ì•¶š—ñ‚ğæ“¾‚·‚é‚±‚Æ‚ª‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éBƒtƒH[ƒ}ƒbƒg—p‚Ì•¶š—ñ‚Åİ’è‚³‚ê‚½‚Æ‚¨‚è‚Éo—Í‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éBƒ}ƒbƒv‚ÉƒtƒH[ƒ}ƒbƒg—p‚Ì•¶š—ñ‚ğƒLƒƒƒbƒVƒ…‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã‚‰Dateå‹å±æ€§ã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®æ–‡å­—åˆ—ã‚’å–å¾—ã™ã‚‹ã“ã¨ãŒã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆç”¨ã®æ–‡å­—åˆ—ã§è¨­å®šã•ã‚ŒãŸã¨ãŠã‚Šã«å‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ãƒãƒƒãƒ—ã«ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆç”¨ã®æ–‡å­—åˆ—ã‚’ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testFormat04() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         ColumnFormatter columnFormatter = new DateColumnFormatter();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         DateColumnFormatter_Stub01 stub = new DateColumnFormatter_Stub01();
         UTUtil.setPrivateField(stub, "date", new Date(0));
         Method method = stub.getClass().getMethod("getDate");
         String columnFormat = "yyyy/MM/dd";
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         Map<String, DateFormatLocal> map = new ConcurrentHashMap<String, DateFormatLocal>();
         UTUtil.setPrivateField(columnFormatter, "map", map);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String testResult = columnFormatter.format(stub, method, columnFormat);
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals("1970/01/01", testResult);
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(1, VMOUTUtil.getCallCount(Map.class, "get"));
         assertEquals(columnFormat, VMOUTUtil
                 .getArgument(Map.class, "get", 0, 0));
@@ -316,55 +316,55 @@ public class DateColumnFormatterTest extends TestCase {
     /**
      * testFormat05() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE, F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE, F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg<br>
-     * ‚”:not null<br>
-     * DateŒ^ƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * @’lFnew Date(0)<br>
-     * (ˆø”) ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg(t)‚É‚ ‚éDateŒ^‘®«‚Ìgetterƒƒ\ƒbƒh<br>
-     * method:ˆÈ‰º‚Ìİ’è‚ğ‚à‚ÂMethodƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * @‰Â‹«Fpublic<br>
-     * @ˆø”F‚È‚µ<br>
-     * (ˆø”) ƒtƒH[ƒ}ƒbƒg—p‚Ì•¶š—ñ<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
+     * ï½”:not null<br>
+     * Dateå‹ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * ã€€å€¤ï¼šnew Date(0)<br>
+     * (å¼•æ•°) ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ(t)ã«ã‚ã‚‹Dateå‹å±æ€§ã®getterãƒ¡ã‚½ãƒƒãƒ‰<br>
+     * method:ä»¥ä¸‹ã®è¨­å®šã‚’ã‚‚ã¤Methodã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ã€€å¯è¦–æ€§ï¼špublic<br>
+     * ã€€å¼•æ•°ï¼šãªã—<br>
+     * (å¼•æ•°) ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆç”¨ã®æ–‡å­—åˆ—<br>
      * columnFormat:"yyyy/MM/dd"<br>
-     * (ó‘Ô) map:key:"yyyy/MM/dd"<br>
+     * (çŠ¶æ…‹) map:key:"yyyy/MM/dd"<br>
      * value:new DateFormatLocal("yyyy/MM/dd")<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:ˆø”‚Ìmethod‚ÌDateŒ^‘®«‚ÉŠi”[‚³‚ê‚Ä‚¢‚é’l‚Ì•¶š—ñBcolumnFormat‚Å’è‹`‚µ‚½ƒtƒH[ƒ}ƒbƒg‚Åo—Í‚³‚ê‚éB<br>
-     * (ó‘Ô•Ï‰») Map.get():ƒƒ\ƒbƒh‚ª1‰ñŒÄ‚Î‚ê‚éB<br>
-     * (ó‘Ô•Ï‰») Map.put():ƒƒ\ƒbƒh‚ªŒÄ‚Î‚ê‚È‚¢B<br>
-     * (ó‘Ô•Ï‰») DateFormatLocalƒRƒ“ƒXƒgƒ‰ƒNƒ^:ƒƒ\ƒbƒh‚ªŒÄ‚Î‚ê‚È‚¢B<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:å¼•æ•°ã®methodã®Dateå‹å±æ€§ã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹å€¤ã®æ–‡å­—åˆ—ã€‚columnFormatã§å®šç¾©ã—ãŸãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã§å‡ºåŠ›ã•ã‚Œã‚‹ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) Map.get():ãƒ¡ã‚½ãƒƒãƒ‰ãŒ1å›å‘¼ã°ã‚Œã‚‹ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) Map.put():ãƒ¡ã‚½ãƒƒãƒ‰ãŒå‘¼ã°ã‚Œãªã„ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) DateFormatLocalã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿:ãƒ¡ã‚½ãƒƒãƒ‰ãŒå‘¼ã°ã‚Œãªã„ã€‚<br>
      * <br>
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚©‚çDateŒ^‘®«‚ÉŠi”[‚³‚ê‚Ä‚¢‚éƒIƒuƒWƒFƒNƒg‚Ì•¶š—ñ‚ğæ“¾‚·‚é‚±‚Æ‚ª‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éBƒ}ƒbƒv‚©‚çæ“¾‚µ‚½ƒtƒH[ƒ}ƒbƒg—p‚Ì•¶š—ñ‚Åİ’è‚³‚ê‚½‚Æ‚¨‚è‚Éo—Í‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã‚‰Dateå‹å±æ€§ã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®æ–‡å­—åˆ—ã‚’å–å¾—ã™ã‚‹ã“ã¨ãŒã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ãƒãƒƒãƒ—ã‹ã‚‰å–å¾—ã—ãŸãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆç”¨ã®æ–‡å­—åˆ—ã§è¨­å®šã•ã‚ŒãŸã¨ãŠã‚Šã«å‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
 
     public void testFormat05() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         ColumnFormatter columnFormatter = new DateColumnFormatter();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         DateColumnFormatter_Stub01 stub = new DateColumnFormatter_Stub01();
         UTUtil.setPrivateField(stub, "date", new Date(0));
         Method method = stub.getClass().getMethod("getDate");
         String columnFormat = "yyyy/MM/dd";
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         Map<String, DateFormatLocal> map = new ConcurrentHashMap<String, DateFormatLocal>();
         map.put(columnFormat, new DateFormatLocal(columnFormat));
         UTUtil.setPrivateField(columnFormatter, "map", map);
 
         VMOUTUtil.initialize();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String testResult = columnFormatter.format(stub, method, columnFormat);
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals("1970/01/01", testResult);
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(1, VMOUTUtil.getCallCount(Map.class, "get"));
         assertEquals(columnFormat, VMOUTUtil
                 .getArgument(Map.class, "get", 0, 0));
@@ -375,55 +375,55 @@ public class DateColumnFormatterTest extends TestCase {
     /**
      * testFormat06() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE, F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE, F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg<br>
-     * ‚”:not null<br>
-     * DateŒ^ƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * @’lFnew Date(0)<br>
-     * (ˆø”) ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg(t)‚É‚ ‚éDateŒ^‘®«‚Ìgetterƒƒ\ƒbƒh<br>
-     * method:ˆÈ‰º‚Ìİ’è‚ğ‚à‚ÂMethodƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * @‰Â‹«Fpublic<br>
-     * @ˆø”F‚È‚µ<br>
-     * (ˆø”) ƒtƒH[ƒ}ƒbƒg—p‚Ì•¶š—ñ<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
+     * ï½”:not null<br>
+     * Dateå‹ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * ã€€å€¤ï¼šnew Date(0)<br>
+     * (å¼•æ•°) ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ(t)ã«ã‚ã‚‹Dateå‹å±æ€§ã®getterãƒ¡ã‚½ãƒƒãƒ‰<br>
+     * method:ä»¥ä¸‹ã®è¨­å®šã‚’ã‚‚ã¤Methodã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ã€€å¯è¦–æ€§ï¼špublic<br>
+     * ã€€å¼•æ•°ï¼šãªã—<br>
+     * (å¼•æ•°) ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆç”¨ã®æ–‡å­—åˆ—<br>
      * columnFormat:"yyyy/MM/dd"<br>
-     * (ó‘Ô) map:key:"yyyy-MM-dd"<br>
+     * (çŠ¶æ…‹) map:key:"yyyy-MM-dd"<br>
      * value:new DateFormatLocal("yyyy-MM-dd")<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:ˆø”‚Ìmethod‚ÌDateŒ^‘®«‚ÉŠi”[‚³‚ê‚Ä‚¢‚é’l‚Ì•¶š—ñBcolumnFormat‚Å’è‹`‚µ‚½ƒtƒH[ƒ}ƒbƒg‚Åo—Í‚³‚ê‚éB<br>
-     * (ó‘Ô•Ï‰») Map.get():ƒƒ\ƒbƒh‚ª1‰ñŒÄ‚Î‚ê‚éB<br>
-     * (ó‘Ô•Ï‰») Map.put():ƒƒ\ƒbƒh‚ª1‰ñŒÄ‚Î‚ê‚éB<br>
-     * (ó‘Ô•Ï‰») DateFormatLocalƒRƒ“ƒXƒgƒ‰ƒNƒ^:ƒƒ\ƒbƒh‚ª1‰ñŒÄ‚Î‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:å¼•æ•°ã®methodã®Dateå‹å±æ€§ã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹å€¤ã®æ–‡å­—åˆ—ã€‚columnFormatã§å®šç¾©ã—ãŸãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã§å‡ºåŠ›ã•ã‚Œã‚‹ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) Map.get():ãƒ¡ã‚½ãƒƒãƒ‰ãŒ1å›å‘¼ã°ã‚Œã‚‹ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) Map.put():ãƒ¡ã‚½ãƒƒãƒ‰ãŒ1å›å‘¼ã°ã‚Œã‚‹ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) DateFormatLocalã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿:ãƒ¡ã‚½ãƒƒãƒ‰ãŒ1å›å‘¼ã°ã‚Œã‚‹ã€‚<br>
      * <br>
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚©‚çDateŒ^‘®«‚ÉŠi”[‚³‚ê‚Ä‚¢‚éƒIƒuƒWƒFƒNƒg‚Ì•¶š—ñ‚ğæ“¾‚·‚é‚±‚Æ‚ª‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éBƒtƒH[ƒ}ƒbƒg—p‚Ì•¶š—ñ‚Åİ’è‚³‚ê‚½‚Æ‚¨‚è‚Éo—Í‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éBƒ}ƒbƒv‚ÉƒtƒH[ƒ}ƒbƒg—p‚Ì•¶š—ñ‚ğƒLƒƒƒbƒVƒ…‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã‚‰Dateå‹å±æ€§ã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®æ–‡å­—åˆ—ã‚’å–å¾—ã™ã‚‹ã“ã¨ãŒã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆç”¨ã®æ–‡å­—åˆ—ã§è¨­å®šã•ã‚ŒãŸã¨ãŠã‚Šã«å‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ãƒãƒƒãƒ—ã«ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆç”¨ã®æ–‡å­—åˆ—ã‚’ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testFormat06() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         ColumnFormatter columnFormatter = new DateColumnFormatter();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         DateColumnFormatter_Stub01 stub = new DateColumnFormatter_Stub01();
         UTUtil.setPrivateField(stub, "date", new Date(0));
         Method method = stub.getClass().getMethod("getDate");
         String columnFormat = "yyyy/MM/dd";
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         Map<String, DateFormatLocal> map = new ConcurrentHashMap<String, DateFormatLocal>();
         map.put("yyyy-MM-dd", new DateFormatLocal("yyyy-MM-dd"));
         UTUtil.setPrivateField(columnFormatter, "map", map);
 
         VMOUTUtil.initialize();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String testResult = columnFormatter.format(stub, method, columnFormat);
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals("1970/01/01", testResult);
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(1, VMOUTUtil.getCallCount(Map.class, "get"));
         assertEquals(columnFormat, VMOUTUtil
                 .getArgument(Map.class, "get", 0, 0));
@@ -441,46 +441,46 @@ public class DateColumnFormatterTest extends TestCase {
     /**
      * testFormat07() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg<br>
-     * ‚”:not null<br>
-     * DateŒ^ƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * @’lFnew Date(0)<br>
-     * (ˆø”) ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg(t)‚É‚ ‚éDateŒ^‘®«‚Ìgetterƒƒ\ƒbƒh<br>
-     * method:ˆÈ‰º‚Ìİ’è‚ğ‚à‚ÂMethodƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * @‰Â‹«Fprivate<br>
-     * @ˆø”F‚È‚µ<br>
-     * (ˆø”) ƒtƒH[ƒ}ƒbƒg—p‚Ì•¶š—ñ<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
+     * ï½”:not null<br>
+     * Dateå‹ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * ã€€å€¤ï¼šnew Date(0)<br>
+     * (å¼•æ•°) ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ(t)ã«ã‚ã‚‹Dateå‹å±æ€§ã®getterãƒ¡ã‚½ãƒƒãƒ‰<br>
+     * method:ä»¥ä¸‹ã®è¨­å®šã‚’ã‚‚ã¤Methodã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ã€€å¯è¦–æ€§ï¼šprivate<br>
+     * ã€€å¼•æ•°ï¼šãªã—<br>
+     * (å¼•æ•°) ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆç”¨ã®æ–‡å­—åˆ—<br>
      * columnFormat:"yyyy/MM/dd"<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalAccessException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalAccessExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌDateŒ^‘®«‚Ìgetterƒƒ\ƒbƒh‚ÉƒAƒNƒZƒX‚Å‚«‚È‚¢ê‡AIllegalAccessException‚ğƒXƒ[‚·‚é‚±‚Æ‚ğŠm”F‚·‚é <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®Dateå‹å±æ€§ã®getterãƒ¡ã‚½ãƒƒãƒ‰ã«ã‚¢ã‚¯ã‚»ã‚¹ã§ããªã„å ´åˆã€IllegalAccessExceptionã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
 
     public void testFormat07() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         ColumnFormatter columnFormatter = new DateColumnFormatter();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         DateColumnFormatter_Stub02 stub = new DateColumnFormatter_Stub02();
         UTUtil.setPrivateField(stub, "date", new Date(0));
         Method method = stub.getClass().getDeclaredMethod("getDate");
         String columnFormat = "yyyy/MM/dd";
 
-        // ‘O’ñğŒ‚È‚µ
+        // å‰ææ¡ä»¶ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             columnFormatter.format(stub, method, columnFormat);
-            fail("IllegalAccessException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B¸”s‚Å‚·B");
+            fail("IllegalAccessExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚å¤±æ•—ã§ã™ã€‚");
         } catch (Exception e) {
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(IllegalAccessException.class, e.getClass());
         }
     }
@@ -488,44 +488,44 @@ public class DateColumnFormatterTest extends TestCase {
     /**
      * testFormat08() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg<br>
-     * ‚”:not null<br>
-     * DateŒ^ƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * @’lF—áŠO‚ğƒXƒ[‚·‚é<br>
-     * (ˆø”) ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg(t)‚É‚ ‚éDateŒ^‘®«‚Ìgetterƒƒ\ƒbƒh<br>
-     * method:ˆÈ‰º‚Ìİ’è‚ğ‚à‚ÂMethodƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * @‰Â‹«Fpublic<br>
-     * @ˆø”F‚È‚µ<br>
-     * (ˆø”) ƒtƒH[ƒ}ƒbƒg—p‚Ì•¶š—ñ<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
+     * ï½”:not null<br>
+     * Dateå‹ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * ã€€å€¤ï¼šä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹<br>
+     * (å¼•æ•°) ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ(t)ã«ã‚ã‚‹Dateå‹å±æ€§ã®getterãƒ¡ã‚½ãƒƒãƒ‰<br>
+     * method:ä»¥ä¸‹ã®è¨­å®šã‚’ã‚‚ã¤Methodã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ã€€å¯è¦–æ€§ï¼špublic<br>
+     * ã€€å¼•æ•°ï¼šãªã—<br>
+     * (å¼•æ•°) ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆç”¨ã®æ–‡å­—åˆ—<br>
      * columnFormat:"yyyy/MM/dd"<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:InvocationTargetException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:InvocationTargetExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌDateŒ^‘®«‚Ìgetterƒƒ\ƒbƒh‚ª—áŠO‚ğƒXƒ[‚·‚éê‡Agetterƒƒ\ƒbƒh‚ªƒXƒ[‚µ‚½—áŠO‚ğƒ‰ƒbƒv‚·‚éInvocationTargetException‚ğƒXƒ[‚·‚é‚±‚Æ‚ğŠm”F‚·‚é <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®Dateå‹å±æ€§ã®getterãƒ¡ã‚½ãƒƒãƒ‰ãŒä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹å ´åˆã€getterãƒ¡ã‚½ãƒƒãƒ‰ãŒã‚¹ãƒ­ãƒ¼ã—ãŸä¾‹å¤–ã‚’ãƒ©ãƒƒãƒ—ã™ã‚‹InvocationTargetExceptionã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
 
     public void testFormat08() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         ColumnFormatter columnFormatter = new DateColumnFormatter();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         DateColumnFormatter_Stub03 stub = new DateColumnFormatter_Stub03();
         UTUtil.setPrivateField(stub, "date", new Date(0));
         Method method = stub.getClass().getMethod("getDate");
         String columnFormat = "yyyy/MM/dd";
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             columnFormatter.format(stub, method, columnFormat);
-            fail("InvocationTargetException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B¸”s‚Å‚·B");
+            fail("InvocationTargetExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚å¤±æ•—ã§ã™ã€‚");
         } catch (Exception e) {
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(InvocationTargetException.class, e.getClass());
         }
     }
@@ -533,46 +533,46 @@ public class DateColumnFormatterTest extends TestCase {
     /**
      * testFormat09() <br>
      * <br>
-     * (ˆÙíŒn) <br>
+     * (ç•°å¸¸ç³») <br>
      * <br>
-     * ŠÏ“_FG <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg<br>
-     * ‚”:not null<br>
-     * DateŒ^ƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * @’lFnew Date(0)<br>
-     * (ˆø”) ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg(t)‚É‚ ‚éDateŒ^‘®«‚Ìgetterƒƒ\ƒbƒh<br>
-     * method:ˆÈ‰º‚Ìİ’è‚ğ‚à‚ÂMethodƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * @‰Â‹«Fpublic<br>
-     * @ˆø”F•¡”<br>
-     * (ˆø”) ƒtƒH[ƒ}ƒbƒg—p‚Ì•¶š—ñ<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
+     * ï½”:not null<br>
+     * Dateå‹ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * ã€€å€¤ï¼šnew Date(0)<br>
+     * (å¼•æ•°) ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ(t)ã«ã‚ã‚‹Dateå‹å±æ€§ã®getterãƒ¡ã‚½ãƒƒãƒ‰<br>
+     * method:ä»¥ä¸‹ã®è¨­å®šã‚’ã‚‚ã¤Methodã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ã€€å¯è¦–æ€§ï¼špublic<br>
+     * ã€€å¼•æ•°ï¼šè¤‡æ•°<br>
+     * (å¼•æ•°) ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆç”¨ã®æ–‡å­—åˆ—<br>
      * columnFormat:"yyyy/MM/dd"<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌDateŒ^‘®«‚Ìgetterƒƒ\ƒbƒh‚ª‘½”‚Ìˆø”‚ğ‚Âê‡AIllegalArgumentException‚ğƒXƒ[‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®Dateå‹å±æ€§ã®getterãƒ¡ã‚½ãƒƒãƒ‰ãŒå¤šæ•°ã®å¼•æ•°ã‚’æŒã¤å ´åˆã€IllegalArgumentExceptionã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
 
     public void testFormat09() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         ColumnFormatter columnFormatter = new DateColumnFormatter();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         DateColumnFormatter_Stub04 stub = new DateColumnFormatter_Stub04();
         UTUtil.setPrivateField(stub, "date", new Date(0));
         Method method = stub.getClass().getMethod("getDate",
                 new Class[] { Date.class });
         String columnFormat = "yyyy/MM/dd";
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             columnFormatter.format(stub, method, columnFormat);
-            fail("IllegalArgumentException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B¸”s‚Å‚·B");
+            fail("IllegalArgumentExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚å¤±æ•—ã§ã™ã€‚");
         } catch (Exception e) {
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(IllegalArgumentException.class, e.getClass());
         }
     }
@@ -580,49 +580,49 @@ public class DateColumnFormatterTest extends TestCase {
     /**
      * testFormat10() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FG <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg<br>
-     * ‚”:not null<br>
-     * DateŒ^ƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * @’lFnew Date(0)<br>
-     * (ˆø”) ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg(t)‚É‚ ‚éDateŒ^‘®«‚Ìgetterƒƒ\ƒbƒh<br>
-     * method:ˆÈ‰º‚Ìİ’è‚ğ‚à‚ÂMethodƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * @‰Â‹«Fpublic<br>
-     * @ˆø”F‚È‚µ<br>
-     * (ˆø”) ƒtƒH[ƒ}ƒbƒg—p‚Ì•¶š—ñ<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
+     * ï½”:not null<br>
+     * Dateå‹ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * ã€€å€¤ï¼šnew Date(0)<br>
+     * (å¼•æ•°) ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ(t)ã«ã‚ã‚‹Dateå‹å±æ€§ã®getterãƒ¡ã‚½ãƒƒãƒ‰<br>
+     * method:ä»¥ä¸‹ã®è¨­å®šã‚’ã‚‚ã¤Methodã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ã€€å¯è¦–æ€§ï¼špublic<br>
+     * ã€€å¼•æ•°ï¼šãªã—<br>
+     * (å¼•æ•°) ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆç”¨ã®æ–‡å­—åˆ—<br>
      * columnFormat:"AAA"<br>
-     * (ó‘Ô) map:—v‘f‚È‚µ<br>
+     * (çŠ¶æ…‹) map:è¦ç´ ãªã—<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * columnFormat‚É³‚µ‚­‚È‚¢“ú•tƒpƒ^[ƒ“‚ğ“ü‚ê‚½ê‡‚ÍAIllegalArgumentException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * columnFormatã«æ­£ã—ããªã„æ—¥ä»˜ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’å…¥ã‚ŒãŸå ´åˆã¯ã€IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
 
     public void testFormat10() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         ColumnFormatter columnFormatter = new DateColumnFormatter();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         DateColumnFormatter_Stub01 stub = new DateColumnFormatter_Stub01();
         UTUtil.setPrivateField(stub, "date", new Date(0));
         Method method = stub.getClass().getMethod("getDate");
         String columnFormat = "AAA";
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         Map<String, DateFormatLocal> map = new ConcurrentHashMap<String, DateFormatLocal>();
         UTUtil.setPrivateField(columnFormatter, "map", map);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             columnFormatter.format(stub, method, columnFormat);
-            fail("IllegalArgumentException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B¸”s‚Å‚·B");
+            fail("IllegalArgumentExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚å¤±æ•—ã§ã™ã€‚");
         } catch (Exception e) {
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(IllegalArgumentException.class, e.getClass());
         }
     }
@@ -630,50 +630,50 @@ public class DateColumnFormatterTest extends TestCase {
     /**
      * testFormat11() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE, F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE, F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg<br>
-     * ‚”:not null<br>
-     * DateŒ^ƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
-     * @’lFnull<br>
-     * (ˆø”) ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg(t)‚É‚ ‚éDateŒ^‘®«‚Ìgetterƒƒ\ƒbƒh<br>
-     * method:ˆÈ‰º‚Ìİ’è‚ğ‚à‚ÂMethodƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * @‰Â‹«Fpublic<br>
-     * @ˆø”F‚È‚µ<br>
-     * (ˆø”) ƒtƒH[ƒ}ƒbƒg—p‚Ì•¶š—ñ<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
+     * ï½”:not null<br>
+     * Dateå‹ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
+     * ã€€å€¤ï¼šnull<br>
+     * (å¼•æ•°) ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ(t)ã«ã‚ã‚‹Dateå‹å±æ€§ã®getterãƒ¡ã‚½ãƒƒãƒ‰<br>
+     * method:ä»¥ä¸‹ã®è¨­å®šã‚’ã‚‚ã¤Methodã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ã€€å¯è¦–æ€§ï¼špublic<br>
+     * ã€€å¼•æ•°ï¼šãªã—<br>
+     * (å¼•æ•°) ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆç”¨ã®æ–‡å­—åˆ—<br>
      * columnFormat:"yyyy/MM/dd"<br>
-     * (ó‘Ô) map:—v‘f‚È‚µ<br>
+     * (çŠ¶æ…‹) map:è¦ç´ ãªã—<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:‹ó•¶š<br>
-     * (ó‘Ô•Ï‰») Map.get():ƒƒ\ƒbƒh‚ªŒÄ‚Î‚ê‚È‚¢B<br>
-     * (ó‘Ô•Ï‰») Map.put():ƒƒ\ƒbƒh‚ªŒÄ‚Î‚ê‚È‚¢B<br>
-     * (ó‘Ô•Ï‰») DateFormatLocalƒRƒ“ƒXƒgƒ‰ƒNƒ^:ƒƒ\ƒbƒh‚ªŒÄ‚Î‚ê‚È‚¢B<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:ç©ºæ–‡å­—<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) Map.get():ãƒ¡ã‚½ãƒƒãƒ‰ãŒå‘¼ã°ã‚Œãªã„ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) Map.put():ãƒ¡ã‚½ãƒƒãƒ‰ãŒå‘¼ã°ã‚Œãªã„ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) DateFormatLocalã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿:ãƒ¡ã‚½ãƒƒãƒ‰ãŒå‘¼ã°ã‚Œãªã„ã€‚<br>
      * <br>
-     * ˆø”t‚ÌDateŒ^ƒtƒB[ƒ‹ƒh‚Énull‚ªİ’è‚³‚ê‚Ä‚¢‚½ê‡‚ÍA‹ó•¶š‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * å¼•æ•°tã®Dateå‹ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«nullãŒè¨­å®šã•ã‚Œã¦ã„ãŸå ´åˆã¯ã€ç©ºæ–‡å­—ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
 
     public void testFormat11() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         ColumnFormatter columnFormatter = new DateColumnFormatter();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         DateColumnFormatter_Stub01 stub = new DateColumnFormatter_Stub01();
         Method method = stub.getClass().getMethod("getDate");
         String columnFormat = "yyyy/MM/dd";
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         Map<String, DateFormatLocal> map = new ConcurrentHashMap<String, DateFormatLocal>();
         UTUtil.setPrivateField(columnFormatter, "map", map);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String testResult = columnFormatter.format(stub, method, columnFormat);
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals("", testResult);
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertFalse(VMOUTUtil.isCalled(Map.class, "get"));
         assertFalse(VMOUTUtil.isCalled(Map.class, "put"));
         assertFalse(VMOUTUtil.isCalled(DateFormatLocal.class, "<init>"));
@@ -682,47 +682,47 @@ public class DateColumnFormatterTest extends TestCase {
     /**
      * testFormat12() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg<br>
-     * ‚”:null<br>
-     * (ˆø”) ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg(t)‚É‚ ‚éDateŒ^‘®«‚Ìgetterƒƒ\ƒbƒh<br>
-     * method:ˆÈ‰º‚Ìİ’è‚ğ‚à‚ÂMethodƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * @‰Â‹«Fpublic<br>
-     * @ˆø”F‚È‚µ<br>
-     * (ˆø”) ƒtƒH[ƒ}ƒbƒg—p‚Ì•¶š—ñ<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
+     * ï½”:null<br>
+     * (å¼•æ•°) ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ(t)ã«ã‚ã‚‹Dateå‹å±æ€§ã®getterãƒ¡ã‚½ãƒƒãƒ‰<br>
+     * method:ä»¥ä¸‹ã®è¨­å®šã‚’ã‚‚ã¤Methodã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ã€€å¯è¦–æ€§ï¼špublic<br>
+     * ã€€å¼•æ•°ï¼šãªã—<br>
+     * (å¼•æ•°) ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆç”¨ã®æ–‡å­—åˆ—<br>
      * columnFormat:"yyyy/MM/dd"<br>
-     * (ó‘Ô) map:—v‘f‚È‚µ<br>
+     * (çŠ¶æ…‹) map:è¦ç´ ãªã—<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:NullPointerException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:NullPointerExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * ˆø”t‚ªnull‚¾‚Á‚½ê‡‚ÍANullPointerException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * å¼•æ•°tãŒnullã ã£ãŸå ´åˆã¯ã€NullPointerExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
 
     public void testFormat12() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         ColumnFormatter columnFormatter = new DateColumnFormatter();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         DateColumnFormatter_Stub01 stub = new DateColumnFormatter_Stub01();
         UTUtil.setPrivateField(stub, "date", new Date(0));
         Method method = stub.getClass().getMethod("getDate");
         String columnFormat = "yyyy/MM/dd";
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         Map<String, DateFormatLocal> map = new ConcurrentHashMap<String, DateFormatLocal>();
         UTUtil.setPrivateField(columnFormatter, "map", map);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             columnFormatter.format(null, method, columnFormat);
-            fail("NullPointerException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B¸”s‚Å‚·B");
+            fail("NullPointerExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚å¤±æ•—ã§ã™ã€‚");
         } catch (Exception e) {
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(NullPointerException.class, e.getClass());
         }
     }

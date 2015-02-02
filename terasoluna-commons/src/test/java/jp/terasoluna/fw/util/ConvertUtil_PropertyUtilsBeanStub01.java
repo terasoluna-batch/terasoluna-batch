@@ -22,7 +22,7 @@ import java.util.Map;
 import org.apache.commons.beanutils.PropertyUtilsBean;
 
 /**
- * {@link ConvertUtil}‚ğƒeƒXƒg‚·‚é‚½‚ß‚Ì{@link PropertyUtilsBean}À‘•ƒNƒ‰ƒXB
+ * {@link ConvertUtil}ã‚’ãƒ†ã‚¹ãƒˆã™ã‚‹ãŸã‚ã®{@link PropertyUtilsBean}å®Ÿè£…ã‚¯ãƒ©ã‚¹ã€‚
  * 
  * @see org.apache.commons.beanutils.PropertyUtilsBean
  * @see jp.terasoluna.fw.util.ConvertUtilTest
@@ -30,7 +30,7 @@ import org.apache.commons.beanutils.PropertyUtilsBean;
 public class ConvertUtil_PropertyUtilsBeanStub01 extends PropertyUtilsBean {
 
     /**
-     * Às‚ÉIllegalAccessException‚ğƒXƒ[‚·‚é
+     * å®Ÿè¡Œæ™‚ã«IllegalAccessExceptionã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹
      * @param bean Bean whose properties are to be extracted
      */
     @Override

@@ -24,15 +24,15 @@ public class GenericBeanFactoryAccessorExTest extends TestCase {
     }
 
     /**
-     * getBeansWithAnnotationƒƒ\ƒbƒh<br>
+     * getBeansWithAnnotationãƒ¡ã‚½ãƒƒãƒ‰<br>
      * <p>
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * </p>
      * <p>
-     * ŠÏ“_F
+     * è¦³ç‚¹ï¼š
      * </p>
      * <p>
-     * “ü—Í’lF<br>
+     * å…¥åŠ›å€¤ï¼š<br>
      * <li>beanName : "hoge"</li>
      * <li>bean : new AnnotationTestBLogic()</li>
      * <li>beanNames : { beanName }</li>
@@ -43,12 +43,12 @@ public class GenericBeanFactoryAccessorExTest extends TestCase {
      * </p>
      * <br>
      * <p>
-     * Šú‘Ò’lF<br>
+     * æœŸå¾…å€¤ï¼š<br>
      * <li>return : not null</li>
      * </p>
      */
     public void testGetBeansWithAnnotationClassOfQextendsAnnotation001() {
-        // ƒpƒ‰ƒ[ƒ^
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
         MockApplicationContext ac = new MockApplicationContext();
         String beanName = "hoge";
         Object bean = new AnnotationTestBLogic();
@@ -63,29 +63,29 @@ public class GenericBeanFactoryAccessorExTest extends TestCase {
         beanDefinition.setBeanClassName(bean.getClass().getName());
         bf.registerBeanDefinition(beanName, beanDefinition);
 
-        // ¶¬
+        // ç”Ÿæˆ
         GenericBeanFactoryAccessorEx ax = new GenericBeanFactoryAccessorEx(ac);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         Map<String, Object> result = ax
                 .getBeansWithAnnotation(JobComponent.class);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertNotNull(result);
         assertNotNull(result.get(beanName));
         assertEquals(bean, result.get(beanName));
     }
 
     /**
-     * findAnnotationOnBeanƒƒ\ƒbƒh<br>
+     * findAnnotationOnBeanãƒ¡ã‚½ãƒƒãƒ‰<br>
      * <p>
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * </p>
      * <p>
-     * ŠÏ“_F
+     * è¦³ç‚¹ï¼š
      * </p>
      * <p>
-     * “ü—Í’lF<br>
+     * å…¥åŠ›å€¤ï¼š<br>
      * <li>beanName : "hoge"</li>
      * <li>bean : new AnnotationTestBLogic()</li>
      * <li>beanNames : { beanName }</li>
@@ -96,12 +96,12 @@ public class GenericBeanFactoryAccessorExTest extends TestCase {
      * </p>
      * <br>
      * <p>
-     * Šú‘Ò’lF<br>
+     * æœŸå¾…å€¤ï¼š<br>
      * <li>return : not null</li>
      * </p>
      */
     public void testFindAnnotationOnBeanStringClassOfA001() {
-        // ƒpƒ‰ƒ[ƒ^
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
         MockApplicationContext ac = new MockApplicationContext();
         String beanName = "hoge";
         Object bean = new AnnotationTestBLogic();
@@ -116,29 +116,29 @@ public class GenericBeanFactoryAccessorExTest extends TestCase {
         beanDefinition.setBeanClassName(bean.getClass().getName());
         bf.registerBeanDefinition(beanName, beanDefinition);
 
-        // ¶¬
+        // ç”Ÿæˆ
         GenericBeanFactoryAccessorEx ax = new GenericBeanFactoryAccessorEx(ac);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         JobComponent result = ax.findAnnotationOnBean(beanName,
                 JobComponent.class);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertNotNull(result);
     }
 
     /**
-     * findAnnotationOnBeanƒƒ\ƒbƒh<br>
+     * findAnnotationOnBeanãƒ¡ã‚½ãƒƒãƒ‰<br>
      * <p>
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * </p>
      * <p>
-     * ŠÏ“_F
+     * è¦³ç‚¹ï¼š
      * </p>
      * <p>
-     * “ü—Í’lF<br>
+     * å…¥åŠ›å€¤ï¼š<br>
      * <li>beanName : "hoge"</li>
-     * <li>bean : new AnnotationTestBLogic() ¦AOPƒvƒƒLƒV‚Åƒ‰ƒbƒv‚µ‚½‚à‚Ì</li>
+     * <li>bean : new AnnotationTestBLogic() â€»AOPãƒ—ãƒ­ã‚­ã‚·ã§ãƒ©ãƒƒãƒ—ã—ãŸã‚‚ã®</li>
      * <li>beanNames : { beanName }</li>
      * <li>applicationContext : MockApplicationContext( getBeanNamesForType(Object.class) : beanNames, <br>
      * containsBean(beanName) : Boolean.TRUE, <br>
@@ -147,13 +147,13 @@ public class GenericBeanFactoryAccessorExTest extends TestCase {
      * </p>
      * <br>
      * <p>
-     * Šú‘Ò’lF<br>
+     * æœŸå¾…å€¤ï¼š<br>
      * <li>return : not null</li>
      * </p>
      */
     @SuppressWarnings("unchecked")
     public void testFindAnnotationOnBeanStringClassOfA002() {
-        // ƒpƒ‰ƒ[ƒ^
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
         MockApplicationContext ac = new MockApplicationContext();
         String beanName = "hoge";
 
@@ -167,7 +167,7 @@ public class GenericBeanFactoryAccessorExTest extends TestCase {
                 return AnnotationTestBLogic.class;
             }
         };
-        // ƒvƒƒLƒVƒIƒuƒWƒFƒNƒg¶¬
+        // ãƒ—ãƒ­ã‚­ã‚·ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç”Ÿæˆ
         bean = Proxy.newProxyInstance(ClassUtils.getDefaultClassLoader(),
                 proxiedInterfaces, handler);
 
@@ -182,43 +182,43 @@ public class GenericBeanFactoryAccessorExTest extends TestCase {
         beanDefinition.setBeanClassName(AnnotationTestBLogic.class.getName());
         bf.registerBeanDefinition(beanName, beanDefinition);
 
-        // ¶¬
+        // ç”Ÿæˆ
         GenericBeanFactoryAccessorEx ax = new GenericBeanFactoryAccessorEx(ac);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         JobComponent result = ax.findAnnotationOnBean(beanName,
                 JobComponent.class);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertNotNull(result);
     }
 
     /**
-     * findAnnotationOnBeanƒƒ\ƒbƒh<br>
+     * findAnnotationOnBeanãƒ¡ã‚½ãƒƒãƒ‰<br>
      * <p>
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * </p>
      * <p>
-     * ŠÏ“_F
+     * è¦³ç‚¹ï¼š
      * </p>
      * <p>
-     * “ü—Í’lF<br>
+     * å…¥åŠ›å€¤ï¼š<br>
      * <li>beanName : "hoge"</li>
      * <li>bean : new AnnotationTestBLogic()</li>
      * <li>beanNames : { beanName }</li>
-     * <li>applicationContext : ŠK‘w‰»‚³‚ê‚½ MockApplicationContext( getBeanNamesForType(Object.class) : beanNames, <br>
+     * <li>applicationContext : éšå±¤åŒ–ã•ã‚ŒãŸ MockApplicationContext( getBeanNamesForType(Object.class) : beanNames, <br>
      * containsBean(beanName) : Boolean.TRUE, <br>
      * getBean(beanName) : bean, <br>
      * )</li>
      * </p>
      * <br>
      * <p>
-     * Šú‘Ò’lF<br>
+     * æœŸå¾…å€¤ï¼š<br>
      * <li>return : not null</li>
      * </p>
      */
     public void testFindAnnotationOnBeanStringClassOfA003() {
-        // ƒpƒ‰ƒ[ƒ^
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
         MockApplicationContext ac1 = new MockApplicationContext();
         MockApplicationContext ac = new MockApplicationContext();
 
@@ -246,14 +246,14 @@ public class GenericBeanFactoryAccessorExTest extends TestCase {
         beanDefinition.setBeanClassName(bean.getClass().getName());
         bf.registerBeanDefinition(beanName, beanDefinition);
 
-        // ¶¬
+        // ç”Ÿæˆ
         GenericBeanFactoryAccessorEx ax = new GenericBeanFactoryAccessorEx(ac1);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         JobComponent result = ax.findAnnotationOnBean(beanName,
                 JobComponent.class);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertNotNull(result);
     }
 

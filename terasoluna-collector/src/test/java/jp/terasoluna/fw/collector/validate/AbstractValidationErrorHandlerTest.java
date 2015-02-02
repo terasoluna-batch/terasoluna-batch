@@ -113,7 +113,7 @@ public class AbstractValidationErrorHandlerTest {
         Errors errors = new BindException(value, objectName);
         ValidationUtils.rejectIfEmpty(errors, "hoge", "error.hoge");
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         ValidateErrorStatus status = handler.handleValidationError(
                 dataValueObject, errors);
 
@@ -143,7 +143,7 @@ public class AbstractValidationErrorHandlerTest {
         Errors errors = new BindException(value, objectName);
         ValidationUtils.rejectIfEmpty(errors, "hoge", "error.hoge");
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         ValidateErrorStatus status = handler.handleValidationError(
                 dataValueObject, errors);
 
@@ -173,7 +173,7 @@ public class AbstractValidationErrorHandlerTest {
         Errors errors = new BindException(value, objectName);
         ValidationUtils.rejectIfEmpty(errors, "hoge", "error.hoge");
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         ValidateErrorStatus status = handler.handleValidationError(
                 dataValueObject, errors);
 
@@ -203,7 +203,7 @@ public class AbstractValidationErrorHandlerTest {
         Errors errors = new BindException(value, objectName);
         ValidationUtils.rejectIfEmpty(errors, "hoge", "error.hoge");
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         ValidateErrorStatus status = handler.handleValidationError(
                 dataValueObject, errors);
 
@@ -233,7 +233,7 @@ public class AbstractValidationErrorHandlerTest {
         Errors errors = new BindException(value, objectName);
         ValidationUtils.rejectIfEmpty(errors, "hoge", "error.hoge");
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         ValidateErrorStatus status = handler.handleValidationError(
                 dataValueObject, errors);
 
@@ -263,7 +263,7 @@ public class AbstractValidationErrorHandlerTest {
         Errors errors = new BindException(value, objectName);
         ValidationUtils.rejectIfEmpty(errors, "hoge", "error.hoge");
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         ValidateErrorStatus status = handler.handleValidationError(
                 dataValueObject, errors);
 
@@ -293,7 +293,7 @@ public class AbstractValidationErrorHandlerTest {
         Errors errors = new BindException(value, objectName);
         ValidationUtils.rejectIfEmpty(errors, "hoge", "error.hoge");
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         ValidateErrorStatus status = handler.handleValidationError(
                 dataValueObject, errors);
 
@@ -324,7 +324,7 @@ public class AbstractValidationErrorHandlerTest {
         ValidateErrorStatus status = handler.handleValidationError(
                 dataValueObject, errors);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         int count = handler.getErrorFieldCount();
 
         assertNotNull(handler);
@@ -356,7 +356,7 @@ public class AbstractValidationErrorHandlerTest {
         ValidateErrorStatus status = handler.handleValidationError(
                 dataValueObject, errors);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         Errors[] result = handler.getErrors();
 
         assertNotNull(handler);
@@ -386,7 +386,7 @@ public class AbstractValidationErrorHandlerTest {
         Errors errors = new BindException(value, objectName);
         ValidationUtils.rejectIfEmpty(errors, "hoge", "error.hoge");
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         handler.setLogLevel(ValidationErrorLoglevel.ERROR);
 
         ValidateErrorStatus status = handler.handleValidationError(

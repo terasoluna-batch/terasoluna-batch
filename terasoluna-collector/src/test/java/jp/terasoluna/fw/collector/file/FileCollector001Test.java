@@ -69,7 +69,7 @@ public class FileCollector001Test extends DaoTestCase {
      */
     public void testFileCollector001() throws Exception {
         if (this.csvFileQueryDAO == null) {
-            fail("csvFileQueryDAO‚ªnull‚Å‚·B");
+            fail("csvFileQueryDAOãŒnullã§ã™ã€‚");
         }
 
         URL url = getClass().getClassLoader().getResource("USER_TEST.csv");
@@ -82,7 +82,7 @@ public class FileCollector001Test extends DaoTestCase {
         }
 
         if (url == null) {
-            fail("url‚ªnull‚Å‚·B");
+            fail("urlãŒnullã§ã™ã€‚");
         }
 
         // int count_first = 0;
@@ -107,7 +107,7 @@ public class FileCollector001Test extends DaoTestCase {
         FileCollector<UserBean> dbc = null;
         try {
             dbc = new FileCollector<UserBean>(config);
-            fail("¸”s");
+            fail("å¤±æ•—");
         } catch (IllegalArgumentException e) {
             assertNotNull(e);
             assertEquals("The parameter is null.", e.getMessage());
@@ -120,7 +120,7 @@ public class FileCollector001Test extends DaoTestCase {
      */
     public void testCall001() throws Exception {
         if (this.csvFileQueryDAO == null) {
-            fail("csvFileQueryDAO‚ªnull‚Å‚·B");
+            fail("csvFileQueryDAOãŒnullã§ã™ã€‚");
         }
 
         URL url = getClass().getClassLoader().getResource("USER_TEST.csv");
@@ -133,7 +133,7 @@ public class FileCollector001Test extends DaoTestCase {
         }
 
         if (url == null) {
-            fail("url‚ªnull‚Å‚·B");
+            fail("urlãŒnullã§ã™ã€‚");
         }
 
         // int count_first = 0;
@@ -196,7 +196,7 @@ public class FileCollector001Test extends DaoTestCase {
      */
     public void testCall002() throws Exception {
         if (this.csvFileQueryDAO == null) {
-            fail("csvFileQueryDAO‚ªnull‚Å‚·B");
+            fail("csvFileQueryDAOãŒnullã§ã™ã€‚");
         }
 
         URL url = getClass().getClassLoader().getResource("USER_TEST.csv");
@@ -209,7 +209,7 @@ public class FileCollector001Test extends DaoTestCase {
         }
 
         if (url == null) {
-            fail("url‚ªnull‚Å‚·B");
+            fail("urlãŒnullã§ã™ã€‚");
         }
 
         // int count_first = 0;
@@ -284,7 +284,7 @@ public class FileCollector001Test extends DaoTestCase {
         }
 
         if (url == null) {
-            fail("url‚ªnull‚Å‚·B");
+            fail("urlãŒnullã§ã™ã€‚");
         }
 
         // int count_first = 0;

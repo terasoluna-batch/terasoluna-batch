@@ -17,22 +17,22 @@
 package jp.terasoluna.fw.collector.db;
 
 /**
- * DaoCollector‚ÌSQLŽÀsŽž‚Ì‘OŒãˆ—ƒCƒ“ƒ^ƒtƒF[ƒX
+ * DaoCollectorã®SQLå®Ÿè¡Œæ™‚ã®å‰å¾Œå‡¦ç†ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹
  */
 public interface DaoCollectorPrePostProcess {
     /**
-     * SQLŽÀsŠJŽn‘O‚ÉŽÀs‚³‚ê‚éƒƒ\ƒbƒh.
+     * SQLå®Ÿè¡Œé–‹å§‹å‰ã«å®Ÿè¡Œã•ã‚Œã‚‹ãƒ¡ã‚½ãƒƒãƒ‰.
      */
     <P> void preprocess(DaoCollector<P> collector);
 
     /**
-     * SQLŽÀsI—¹Žž‚ÉŽÀs‚³‚ê‚éƒƒ\ƒbƒh.<br>
-     * SQLŽÀsŽž‚É—áŠO‚ª”­¶‚µ‚½ê‡‚ÍApostprocessExceptionƒƒ\ƒbƒh‚ÌŽŸ‚ÉA‚±‚Ìƒƒ\ƒbƒh‚ªŽÀs‚³‚ê‚éB
+     * SQLå®Ÿè¡Œçµ‚äº†æ™‚ã«å®Ÿè¡Œã•ã‚Œã‚‹ãƒ¡ã‚½ãƒƒãƒ‰.<br>
+     * SQLå®Ÿè¡Œæ™‚ã«ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã¯ã€postprocessExceptionãƒ¡ã‚½ãƒƒãƒ‰ã®æ¬¡ã«ã€ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ãŒå®Ÿè¡Œã•ã‚Œã‚‹ã€‚
      */
     <P> void postprocessComplete(DaoCollector<P> collector);
 
     /**
-     * SQLŽÀsI—¹Žži—áŠOj‚ÉŽÀs‚³‚ê‚éƒƒ\ƒbƒh.
+     * SQLå®Ÿè¡Œçµ‚äº†æ™‚ï¼ˆä¾‹å¤–ï¼‰ã«å®Ÿè¡Œã•ã‚Œã‚‹ãƒ¡ã‚½ãƒƒãƒ‰.
      */
     <P> DaoCollectorPrePostProcessStatus postprocessException(
             DaoCollector<P> collector, Throwable throwable);

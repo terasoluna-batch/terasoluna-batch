@@ -3,9 +3,9 @@ package jp.terasoluna.fw.file.dao.standard;
 import java.math.BigDecimal;
 
 /**
- * DecimalColumnFormatter‚ÌŒ±‚Å—˜—p‚·‚éƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgƒNƒ‰ƒXB<br>
- * ŠeŒ±•Ê‚ÉƒtƒB[ƒ‹ƒh‚ğ•ª‚¯‚Ä‚¢‚éB
- * @author ›I‰¶”ü
+ * DecimalColumnFormatterã®è©¦é¨“ã§åˆ©ç”¨ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¯ãƒ©ã‚¹ã€‚<br>
+ * å„è©¦é¨“åˆ¥ã«ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’åˆ†ã‘ã¦ã„ã‚‹ã€‚
+ * @author å§œæ©ç¾
  */
 public class DecimalColumnFormatter_FileLineObjectStub01 {
 
@@ -30,87 +30,87 @@ public class DecimalColumnFormatter_FileLineObjectStub01 {
     private BigDecimal decimal09 = null;
 
     /**
-     * @param decimal01 İ’è‚·‚é decimal01
+     * @param decimal01 è¨­å®šã™ã‚‹ decimal01
      */
     public void setDecimal01(BigDecimal decimal01) {
         this.decimal01 = decimal01;
     }
 
     /**
-     * @param decimal02 İ’è‚·‚é decimal02
+     * @param decimal02 è¨­å®šã™ã‚‹ decimal02
      */
     public void setDecimal02(BigDecimal decimal02) {
         this.decimal02 = decimal02;
     }
 
     /**
-     * @param decimal03 İ’è‚·‚é decimal03
+     * @param decimal03 è¨­å®šã™ã‚‹ decimal03
      */
     public void setDecimal03(BigDecimal decimal03) {
         this.decimal03 = decimal03;
     }
 
     /**
-     * @param decimal04 İ’è‚·‚é decimal04
+     * @param decimal04 è¨­å®šã™ã‚‹ decimal04
      */
     public void setDecimal04(BigDecimal decimal04) {
         this.decimal04 = decimal04;
     }
 
     /**
-     * @param decimal05 İ’è‚·‚é decimal05
+     * @param decimal05 è¨­å®šã™ã‚‹ decimal05
      */
     public void setDecimal05(BigDecimal decimal05) {
         this.decimal05 = decimal05;
     }
 
     /**
-     * @param decimal06 İ’è‚·‚é decimal06
+     * @param decimal06 è¨­å®šã™ã‚‹ decimal06
      */
     public void setDecimal06(BigDecimal decimal06) {
         this.decimal06 = decimal06;
     }
 
     /**
-     * @param decimal07 İ’è‚·‚é decimal07
+     * @param decimal07 è¨­å®šã™ã‚‹ decimal07
      */
     public void setDecimal07(BigDecimal decimal07) {
         this.decimal07 = decimal07;
     }
 
     /**
-     * @param decimal08 İ’è‚·‚é decimal08
+     * @param decimal08 è¨­å®šã™ã‚‹ decimal08
      */
     public void setDecimal08(BigDecimal decimal08) {
         this.decimal08 = decimal08;
     }
 
     /**
-     * @param decimal09 İ’è‚·‚é decimal09
+     * @param decimal09 è¨­å®šã™ã‚‹ decimal09
      */
     public void setDecimal09(BigDecimal decimal09) {
         this.decimal09 = decimal09;
     }
 
     /**
-     * public‚Åˆø”‚È‚µ‚Ì³í‚Ìgetterƒƒ\ƒbƒhB
-     * @return decimal01 İ’è’l
+     * publicã§å¼•æ•°ãªã—ã®æ­£å¸¸ã®getterãƒ¡ã‚½ãƒƒãƒ‰ã€‚
+     * @return decimal01 è¨­å®šå€¤
      */
     public BigDecimal getDecimal01() {
         return decimal01;
     }
 
     /**
-     * public‚Åˆø”‚È‚µ‚Ì³í‚Ìgetterƒƒ\ƒbƒhB
-     * @return decimal02 İ’è’l
+     * publicã§å¼•æ•°ãªã—ã®æ­£å¸¸ã®getterãƒ¡ã‚½ãƒƒãƒ‰ã€‚
+     * @return decimal02 è¨­å®šå€¤
      */
     public BigDecimal getDecimal02() {
         return decimal02;
     }
 
     /**
-     * private‚Åˆø”‚È‚µ‚ÌˆÙí‚Ìgetterƒƒ\ƒbƒhB
-     * @return decimal03 İ’è’l
+     * privateã§å¼•æ•°ãªã—ã®ç•°å¸¸ã®getterãƒ¡ã‚½ãƒƒãƒ‰ã€‚
+     * @return decimal03 è¨­å®šå€¤
      */
     @SuppressWarnings("unused")
     private BigDecimal getDecimal03() {
@@ -118,39 +118,39 @@ public class DecimalColumnFormatter_FileLineObjectStub01 {
     }
 
     /**
-     * public‚Åˆø”‚È‚µ‚ÌˆÙí‚Ìgetterƒƒ\ƒbƒhB
-     * @return decimal04 İ’è’l
+     * publicã§å¼•æ•°ãªã—ã®ç•°å¸¸ã®getterãƒ¡ã‚½ãƒƒãƒ‰ã€‚
+     * @return decimal04 è¨­å®šå€¤
      */
     public BigDecimal getDecimal04() {
-        throw new RuntimeException("getDecimal04‚Ìƒƒbƒ\ƒh‚Ì—áŠO”­¶");
+        throw new RuntimeException("getDecimal04ã®ãƒ¡ãƒƒã‚½ãƒ‰ã®ä¾‹å¤–ç™ºç”Ÿ");
     }
 
     /**
-     * public‚Åˆø”‚ ‚è‚ÌˆÙí‚Ìgetterƒƒ\ƒbƒhB
-     * @return decimal05 İ’è’l
+     * publicã§å¼•æ•°ã‚ã‚Šã®ç•°å¸¸ã®getterãƒ¡ã‚½ãƒƒãƒ‰ã€‚
+     * @return decimal05 è¨­å®šå€¤
      */
     public BigDecimal getDecimal05(BigDecimal decimal05) {
         return decimal05;
     }
 
     /**
-     * public‚Åˆø”‚È‚µ‚Ì³í‚Ìgetterƒƒ\ƒbƒhB
-     * @return decimal06 İ’è’l
+     * publicã§å¼•æ•°ãªã—ã®æ­£å¸¸ã®getterãƒ¡ã‚½ãƒƒãƒ‰ã€‚
+     * @return decimal06 è¨­å®šå€¤
      */
     public BigDecimal getDecimal06() {
         return decimal06;
     }
 
     /**
-     * public‚Åˆø”‚È‚µ‚Ì³í‚Ìgetterƒƒ\ƒbƒhB
-     * @return decimal07 İ’è’l
+     * publicã§å¼•æ•°ãªã—ã®æ­£å¸¸ã®getterãƒ¡ã‚½ãƒƒãƒ‰ã€‚
+     * @return decimal07 è¨­å®šå€¤
      */
     public BigDecimal getDecimal07() {
         return decimal07;
     }
 
     /**
-     * public‚Åˆø”‚È‚µ‚Ì³í‚Ìgetterƒƒ\ƒbƒhB
+     * publicã§å¼•æ•°ãªã—ã®æ­£å¸¸ã®getterãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      * @return decimal08
      */
     public BigDecimal getDecimal08() {
@@ -158,7 +158,7 @@ public class DecimalColumnFormatter_FileLineObjectStub01 {
     }
 
     /**
-     * public‚Åˆø”‚È‚µ‚Ì³í‚Ìgetterƒƒ\ƒbƒhB
+     * publicã§å¼•æ•°ãªã—ã®æ­£å¸¸ã®getterãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      * @return decimal09
      */
     public BigDecimal getDecimal09() {

@@ -29,10 +29,10 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.FieldError;
 
 /**
- * “ü—Íƒ`ƒFƒbƒNƒGƒ‰[ƒnƒ“ƒhƒ‰‚Ì’ŠÛƒNƒ‰ƒX.<br>
+ * å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãƒãƒ³ãƒ‰ãƒ©ã®æŠ½è±¡ã‚¯ãƒ©ã‚¹.<br>
  * <p>
- * “ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚ª‚ ‚Á‚½ê‡‚ÍAINFOƒƒO‚ÉƒGƒ‰[ƒR[ƒh‚ğo—Í‚·‚éB<br>
- * –ß‚è’l‚Í•K‚¸ValidateStatus.SKIP‚ğ•Ô‚·B
+ * å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãŒã‚ã£ãŸå ´åˆã¯ã€INFOãƒ­ã‚°ã«ã‚¨ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰ã‚’å‡ºåŠ›ã™ã‚‹ã€‚<br>
+ * æˆ»ã‚Šå€¤ã¯å¿…ãšValidateStatus.SKIPã‚’è¿”ã™ã€‚
  * </p>
  */
 public abstract class AbstractValidationErrorHandler implements
@@ -44,30 +44,30 @@ public abstract class AbstractValidationErrorHandler implements
             .getLogger(AbstractValidationErrorHandler.class);
 
     /**
-     * “ü—Íƒ`ƒFƒbƒNƒGƒ‰[Œ”.<br>
+     * å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ä»¶æ•°.<br>
      */
     protected int errorFieldCount = 0;
 
     /**
-     * ƒGƒ‰[ƒLƒ…[.<br>
+     * ã‚¨ãƒ©ãƒ¼ã‚­ãƒ¥ãƒ¼.<br>
      */
     protected Queue<Errors> errorsQueue = new ConcurrentLinkedQueue<Errors>();
 
     /**
-     * ƒƒOƒŒƒxƒ‹.<br>
+     * ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«.<br>
      */
     protected ValidationErrorLoglevel logLevel = ValidationErrorLoglevel.INFO;
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^.<br>
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿.<br>
      */
     public AbstractValidationErrorHandler() {
         super();
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^.<br>
-     * @param logLevel String ƒƒOƒŒƒxƒ‹
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿.<br>
+     * @param logLevel String ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«
      */
     public AbstractValidationErrorHandler(ValidationErrorLoglevel logLevel) {
         this();
@@ -86,15 +86,15 @@ public abstract class AbstractValidationErrorHandler implements
             errorsQueue.add(errors);
         }
 
-        // ƒƒOo—Í
+        // ãƒ­ã‚°å‡ºåŠ›
         outputLog(dataValueObject, errors);
 
-        // ValidateStatus‚ğ•Ô‚·
+        // ValidateStatusã‚’è¿”ã™
         return getValidateStatus(dataValueObject, errors);
     }
 
     /**
-     * ƒƒOo—Í
+     * ãƒ­ã‚°å‡ºåŠ›
      * @param dataValueObject DataValueObject
      * @param errors Errors
      */
@@ -123,10 +123,10 @@ public abstract class AbstractValidationErrorHandler implements
     }
 
     /**
-     * ƒƒO•ÒW.<br>
+     * ãƒ­ã‚°ç·¨é›†.<br>
      * @param dataValueObject DataValueObject
      * @param errors Errors
-     * @return ƒƒO
+     * @return ãƒ­ã‚°
      */
     protected String logEdit(DataValueObject dataValueObject, Errors errors) {
         StringBuilder sb = new StringBuilder();
@@ -157,7 +157,7 @@ public abstract class AbstractValidationErrorHandler implements
     }
 
     /**
-     * ValidateStatus‚ğ•Ô‚·B
+     * ValidateStatusã‚’è¿”ã™ã€‚
      * @param dataValueObject DataValueObject
      * @param errors Errors
      * @return ValidateStatus
@@ -166,7 +166,7 @@ public abstract class AbstractValidationErrorHandler implements
             DataValueObject dataValueObject, Errors errors);
 
     /**
-     * Errors‚©‚çFieldError‚ÌƒŠƒXƒg‚ğæ“¾‚·‚é
+     * Errorsã‹ã‚‰FieldErrorã®ãƒªã‚¹ãƒˆã‚’å–å¾—ã™ã‚‹
      * @param errors Errors
      * @return List<FieldError>
      */
@@ -187,23 +187,23 @@ public abstract class AbstractValidationErrorHandler implements
     }
 
     /**
-     * “ü—Íƒ`ƒFƒbƒNƒGƒ‰[Œ”‚ğæ“¾‚·‚é
-     * @return int “ü—Íƒ`ƒFƒbƒNƒGƒ‰[Œ”
+     * å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ä»¶æ•°ã‚’å–å¾—ã™ã‚‹
+     * @return int å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ä»¶æ•°
      */
     public int getErrorFieldCount() {
         return errorFieldCount;
     }
 
     /**
-     * “ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚Ì”z—ñ‚ğæ“¾‚·‚é
-     * @return Errors[] “ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚Ì”z—ñ
+     * å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ã®é…åˆ—ã‚’å–å¾—ã™ã‚‹
+     * @return Errors[] å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ã®é…åˆ—
      */
     public Errors[] getErrors() {
         return errorsQueue.toArray(new Errors[0]);
     }
 
     /**
-     * ƒƒOƒŒƒxƒ‹‚ğİ’è‚·‚é.<br>
+     * ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ã‚’è¨­å®šã™ã‚‹.<br>
      * <p>
      * <li>ValidationErrorLoglevel.TRACE</li>
      * <li>ValidationErrorLoglevel.DEBUG</li>
@@ -212,7 +212,7 @@ public abstract class AbstractValidationErrorHandler implements
      * <li>ValidationErrorLoglevel.ERROR</li>
      * <li>ValidationErrorLoglevel.FATAL</li>
      * </p>
-     * @param logLevel ƒƒOƒŒƒxƒ‹
+     * @param logLevel ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«
      */
     public void setLogLevel(ValidationErrorLoglevel logLevel) {
         this.logLevel = logLevel;

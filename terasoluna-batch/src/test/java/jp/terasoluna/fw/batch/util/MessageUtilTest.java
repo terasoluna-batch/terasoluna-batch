@@ -25,39 +25,39 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
- * –‘OğŒ<br>
+ * äº‹å‰æ¡ä»¶<br>
  * <br>
- * Esrc/test/resourcesƒtƒHƒ‹ƒ_”z‰º‚ÉAppricationResources.properties‚ª‘¶İ‚·‚é‚±‚ÆB<br>
+ * ãƒ»src/test/resourcesãƒ•ã‚©ãƒ«ãƒ€é…ä¸‹ã«AppricationResources.propertiesãŒå­˜åœ¨ã™ã‚‹ã“ã¨ã€‚<br>
  * <br>
- * EƒvƒƒpƒeƒBMessageAccessor.default‚Ì’l‚ªİ’è‚³‚ê‚Ä‚¢‚é‚±‚ÆB<br>
- * <fieldset><legend>batch.propertiesİ’è—á</legend> #ƒƒbƒZ[ƒWƒ\[ƒXƒAƒNƒZƒT‚ÌBean–¼<br>
+ * ãƒ»ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£MessageAccessor.defaultã®å€¤ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹ã“ã¨ã€‚<br>
+ * <fieldset><legend>batch.propertiesè¨­å®šä¾‹</legend> #ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚½ãƒ¼ã‚¹ã‚¢ã‚¯ã‚»ã‚µã®Beanå<br>
  * MessageAccessor.default=msgAcc </fieldset> <br>
- * EBean’è‹`ƒtƒ@ƒCƒ‹‚ÉƒvƒƒpƒeƒB‚Åİ’è‚³‚ê‚½‚Ì’l‚ÌBean–¼‚ªİ’è‚³‚ê‚Ä‚¢‚é‚±‚ÆB<br>
- * <fieldset><legend>AdminContext.xmlİ’è—á</legend> &lt;!-- ƒƒbƒZ[ƒWƒAƒNƒZƒT --&gt;<br>
+ * ãƒ»Beanå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ã«ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã§è¨­å®šã•ã‚ŒãŸã®å€¤ã®BeanåãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹ã“ã¨ã€‚<br>
+ * <fieldset><legend>AdminContext.xmlè¨­å®šä¾‹</legend> &lt;!-- ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚¢ã‚¯ã‚»ã‚µ --&gt;<br>
  * &lt;bean id=&quot;msgAcc&quot; class=&quot;jp.terasoluna.fw.batch.message.MessageAccessorImpl&quot; /&gt; </fieldset> <br>
- * Emessages.propertiesƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚é‚±‚Æ<br>
+ * ãƒ»messages.propertiesãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚‹ã“ã¨<br>
  */
 public class MessageUtilTest extends TestCase {
 
     /**
-     * ƒvƒƒpƒeƒB’læ“¾’l
+     * ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£å€¤å–å¾—å€¤
      */
     private String value = null;
 
     /**
-     * ƒRƒ“ƒeƒi—p‚ÌƒtƒB[ƒ‹ƒh
+     * ã‚³ãƒ³ãƒ†ãƒŠç”¨ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰
      */
     private ApplicationContext context;
 
     /**
-     * MessageAccessorƒNƒ‰ƒX‚ÌƒtƒB[ƒ‹ƒh
+     * MessageAccessorã‚¯ãƒ©ã‚¹ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰
      */
     private MessageAccessor messageAccessor;
 
     @Override
     protected void setUp() throws Exception {
 
-        // ƒƒbƒZ[ƒWƒ\[ƒXƒAƒNƒZƒT‚ÌBean–¼æ“¾
+        // ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚½ãƒ¼ã‚¹ã‚¢ã‚¯ã‚»ã‚µã®Beanåå–å¾—
         context = new ClassPathXmlApplicationContext(
                 "beansDef/AdminContext.xml");
         value = PropertyUtil.getProperty("messageAccessor.default");
@@ -69,11 +69,11 @@ public class MessageUtilTest extends TestCase {
     /**
      * testGetMessage01()<br>
      * <br>
-     * –‘Oó‘ÔFmessages.properties‚Éerrors.alphaNumericString‚ªİ’è‚³‚ê‚Ä‚¢‚é‚±‚Æ<br>
+     * äº‹å‰çŠ¶æ…‹ï¼šmessages.propertiesã«errors.alphaNumericStringãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹ã“ã¨<br>
      * <br>
-     * ƒeƒXƒgŠT—vFƒƒbƒZ[ƒWƒL[‚ÉŠY“–‚·‚éƒƒbƒZ[ƒW‚ğ³í‚Éæ“¾‚·‚é‚±‚Æ‚ª‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚é<br>
+     * ãƒ†ã‚¹ãƒˆæ¦‚è¦ï¼šãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚­ãƒ¼ã«è©²å½“ã™ã‚‹ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’æ­£å¸¸ã«å–å¾—ã™ã‚‹ã“ã¨ãŒã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹<br>
      * <br>
-     * Šm”F€–ÚFƒvƒƒpƒeƒB‚Éİ’è‚µ‚½ƒƒbƒZ[ƒW‚ªæ“¾‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚é<br>
+     * ç¢ºèªé …ç›®ï¼šãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã«è¨­å®šã—ãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒå–å¾—ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹<br>
      * <br>
      * @throws Exception
      */
@@ -81,17 +81,17 @@ public class MessageUtilTest extends TestCase {
 
         String result = MessageUtil.getMessage("errors.alphaNumericString");
 
-        assertEquals("{0}‚É‚Í”¼Šp‰p”š‚Å“ü—Í‚µ‚Ä‚­‚¾‚³‚¢.", result);
+        assertEquals("{0}ã«ã¯åŠè§’è‹±æ•°å­—ã§å…¥åŠ›ã—ã¦ãã ã•ã„.", result);
     }
 
     /**
      * testGetMessage02()<br>
      * <br>
-     * –‘Oó‘ÔFerrors.alphaNumericString‚ªİ’è‚³‚ê‚Ä‚¢‚é‚±‚Æ<br>
+     * äº‹å‰çŠ¶æ…‹ï¼šerrors.alphaNumericStringãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹ã“ã¨<br>
      * <br>
-     * ƒeƒXƒgŠT—vFƒpƒ‰ƒ[ƒ^‚ğ1‚Â‚ÂƒƒbƒZ[ƒWƒL[‚ÉŠY“–‚·‚éƒƒbƒZ[ƒW‚ğ³í‚Éæ“¾‚·‚é‚±‚Æ‚ª‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚é<br>
+     * ãƒ†ã‚¹ãƒˆæ¦‚è¦ï¼šãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’1ã¤æŒã¤ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚­ãƒ¼ã«è©²å½“ã™ã‚‹ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’æ­£å¸¸ã«å–å¾—ã™ã‚‹ã“ã¨ãŒã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹<br>
      * <br>
-     * Šm”F€–ÚFƒvƒƒpƒeƒB‚Éİ’è‚µ‚½ƒƒbƒZ[ƒW‚ªæ“¾‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚é<br>
+     * ç¢ºèªé …ç›®ï¼šãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã«è¨­å®šã—ãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒå–å¾—ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹<br>
      * <br>
      * @throws Exception
      */
@@ -101,17 +101,17 @@ public class MessageUtilTest extends TestCase {
         String result = MessageUtil.getMessage("errors.alphaNumericString",
                 args);
 
-        assertEquals("test1‚É‚Í”¼Šp‰p”š‚Å“ü—Í‚µ‚Ä‚­‚¾‚³‚¢.", result);
+        assertEquals("test1ã«ã¯åŠè§’è‹±æ•°å­—ã§å…¥åŠ›ã—ã¦ãã ã•ã„.", result);
     }
 
     /**
      * testGetMessage03()<br>
      * <br>
-     * –‘Oó‘ÔFerrors.range‚ªİ’è‚³‚ê‚Ä‚¢‚é‚±‚Æ<br>
+     * äº‹å‰çŠ¶æ…‹ï¼šerrors.rangeãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹ã“ã¨<br>
      * <br>
-     * ƒeƒXƒgŠT—vFƒpƒ‰ƒ[ƒ^‚ğ‚R‚Â‚ÂƒƒbƒZ[ƒWƒL[‚ÉŠY“–‚·‚éƒƒbƒZ[ƒW‚ğ³í‚Éæ“¾‚·‚é‚±‚Æ‚ª‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚é<br>
+     * ãƒ†ã‚¹ãƒˆæ¦‚è¦ï¼šãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’ï¼“ã¤æŒã¤ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚­ãƒ¼ã«è©²å½“ã™ã‚‹ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’æ­£å¸¸ã«å–å¾—ã™ã‚‹ã“ã¨ãŒã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹<br>
      * <br>
-     * Šm”F€–ÚFƒvƒƒpƒeƒB‚Éİ’è‚µ‚½ƒƒbƒZ[ƒW‚ªæ“¾‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚é<br>
+     * ç¢ºèªé …ç›®ï¼šãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã«è¨­å®šã—ãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒå–å¾—ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹<br>
      * <br>
      * @throws Exception
      */
@@ -120,17 +120,17 @@ public class MessageUtilTest extends TestCase {
         Object[] args = { "test1", 10, 20 };
         String result = MessageUtil.getMessage("errors.range", args);
 
-        assertEquals("test1‚É‚Í10‚©‚ç20‚Ü‚Å‚Ì”ÍˆÍ‚Å“ü—Í‚µ‚Ä‚­‚¾‚³‚¢.", result);
+        assertEquals("test1ã«ã¯10ã‹ã‚‰20ã¾ã§ã®ç¯„å›²ã§å…¥åŠ›ã—ã¦ãã ã•ã„.", result);
     }
 
     /**
      * testGetMessage04()<br>
      * <br>
-     * –‘Oó‘ÔFtest‚Æ‚¢‚¤ƒƒbƒZ[ƒWƒL[‚ªİ’è‚³‚ê‚Ä‚¢‚È‚¢‚±‚Æ<br>
+     * äº‹å‰çŠ¶æ…‹ï¼štestã¨ã„ã†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚­ãƒ¼ãŒè¨­å®šã•ã‚Œã¦ã„ãªã„ã“ã¨<br>
      * <br>
-     * ƒeƒXƒgŠT—vFƒƒbƒZ[ƒWƒL[‚ÉŠY“–‚·‚éƒƒbƒZ[ƒW‚ªæ“¾‚·‚é‚±‚Æ‚ª‚Å‚«‚È‚¢‚±‚Æ‚ğŠm”F‚·‚é<br>
+     * ãƒ†ã‚¹ãƒˆæ¦‚è¦ï¼šãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚­ãƒ¼ã«è©²å½“ã™ã‚‹ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒå–å¾—ã™ã‚‹ã“ã¨ãŒã§ããªã„ã“ã¨ã‚’ç¢ºèªã™ã‚‹<br>
      * <br>
-     * Šm”F€–ÚFƒGƒ‰[ƒƒbƒZ[ƒW‚ªæ“¾‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚é<br>
+     * ç¢ºèªé …ç›®ï¼šã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒå–å¾—ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹<br>
      * <br>
      * @throws Exception
      */
@@ -146,9 +146,9 @@ public class MessageUtilTest extends TestCase {
     /**
      * testGetMessage04()<br>
      * <br>
-     * ƒeƒXƒgŠT—vFnull‚ğİ’è‚µ‚½ê‡‚ÉŠY“–‚·‚éƒƒbƒZ[ƒW‚ªæ“¾‚·‚é‚±‚Æ‚ª‚Å‚«‚È‚¢‚±‚Æ‚ğŠm”F‚·‚é<br>
+     * ãƒ†ã‚¹ãƒˆæ¦‚è¦ï¼šnullã‚’è¨­å®šã—ãŸå ´åˆã«è©²å½“ã™ã‚‹ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒå–å¾—ã™ã‚‹ã“ã¨ãŒã§ããªã„ã“ã¨ã‚’ç¢ºèªã™ã‚‹<br>
      * <br>
-     * Šm”F€–ÚFƒGƒ‰[ƒƒbƒZ[ƒW‚ªæ“¾‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚é<br>
+     * ç¢ºèªé …ç›®ï¼šã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒå–å¾—ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹<br>
      * <br>
      * @throws Exception
      */

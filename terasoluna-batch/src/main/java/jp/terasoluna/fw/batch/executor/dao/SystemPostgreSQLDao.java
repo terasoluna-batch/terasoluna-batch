@@ -17,7 +17,7 @@
 package jp.terasoluna.fw.batch.executor.dao;
 
 /**
- * ƒtƒŒ[ƒ€ƒ[ƒN‚©‚çg—p‚³‚ê‚éDAOBiPostgreSQL—pj
+ * ãƒ•ãƒ¬ãƒ¼ãƒ ãƒ¯ãƒ¼ã‚¯ã‹ã‚‰ä½¿ç”¨ã•ã‚Œã‚‹DAOã€‚ï¼ˆPostgreSQLç”¨ï¼‰
  */
 public interface SystemPostgreSQLDao extends SystemDao {
 }

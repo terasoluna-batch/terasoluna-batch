@@ -20,22 +20,22 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 /**
- * ƒJƒ‰ƒ€ƒtƒH[ƒ}ƒbƒg(ƒtƒ@ƒCƒ‹‘žj‚ðs‚¤ƒNƒ‰ƒXB
+ * ã‚«ãƒ©ãƒ ãƒ•ã‚©ãƒ¼ãƒžãƒƒãƒˆ(ãƒ•ã‚¡ã‚¤ãƒ«æ›¸è¾¼ï¼‰ã‚’è¡Œã†ã‚¯ãƒ©ã‚¹ã€‚
  * <p>
- * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚©‚çƒf[ƒ^‚ðŽæ“¾‚µA•¶Žš—ñ‚ðFileUpdateDAO‚É•Ô‹p‚·‚éB
+ * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã‚‰ãƒ‡ãƒ¼ã‚¿ã‚’å–å¾—ã—ã€æ–‡å­—åˆ—ã‚’FileUpdateDAOã«è¿”å´ã™ã‚‹ã€‚
  * </p>
  */
 public class NullColumnFormatter implements ColumnFormatter {
 
     /**
-     * StringŒ^‚ÌƒtƒH[ƒ}ƒbƒgˆ—‚ðs‚¢A•¶Žš—ñ‚ð•Ô‹p‚·‚éB
-     * @param t ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg
-     * @param method ƒJƒ‰ƒ€ƒtƒH[ƒ}ƒbƒg‚ðs‚¤‘®«‚ÌƒQƒbƒ^ƒƒ\ƒbƒh
-     * @param columnFormat ƒJƒ‰ƒ€ƒtƒH[ƒ}ƒbƒg—p‚Ì•¶Žš—ñB‚±‚ÌƒNƒ‰ƒX‚Å‚Í’P‚É–³Ž‹‚³‚ê‚éB
-     * @return •¶Žš—ñ
-     * @throws IllegalArgumentException ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚Ìgetterƒƒ\ƒbƒh‚ÌƒAƒNƒZƒX‚ÉŽ¸”s‚µ‚½‚Æ‚«
-     * @throws IllegalAccessException ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚Ö‚ÌÝ’è‚ªŽ¸”s‚µ‚½‚Æ‚«
-     * @throws InvocationTargetException ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚Ìƒƒ\ƒbƒh‚ª—áŠO‚ðƒXƒ[‚µ‚½‚Æ‚«
+     * Stringåž‹ã®ãƒ•ã‚©ãƒ¼ãƒžãƒƒãƒˆå‡¦ç†ã‚’è¡Œã„ã€æ–‡å­—åˆ—ã‚’è¿”å´ã™ã‚‹ã€‚
+     * @param t ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param method ã‚«ãƒ©ãƒ ãƒ•ã‚©ãƒ¼ãƒžãƒƒãƒˆã‚’è¡Œã†å±žæ€§ã®ã‚²ãƒƒã‚¿ãƒ¡ã‚½ãƒƒãƒ‰
+     * @param columnFormat ã‚«ãƒ©ãƒ ãƒ•ã‚©ãƒ¼ãƒžãƒƒãƒˆç”¨ã®æ–‡å­—åˆ—ã€‚ã“ã®ã‚¯ãƒ©ã‚¹ã§ã¯å˜ã«ç„¡è¦–ã•ã‚Œã‚‹ã€‚
+     * @return æ–‡å­—åˆ—
+     * @throws IllegalArgumentException ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®getterãƒ¡ã‚½ãƒƒãƒ‰ã®ã‚¢ã‚¯ã‚»ã‚¹ã«å¤±æ•—ã—ãŸã¨ã
+     * @throws IllegalAccessException ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¸ã®è¨­å®šãŒå¤±æ•—ã—ãŸã¨ã
+     * @throws InvocationTargetException ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ãƒ¡ã‚½ãƒƒãƒ‰ãŒä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã—ãŸã¨ã
      */
     public String format(Object t, Method method, String columnFormat)
                                                                       throws IllegalArgumentException,

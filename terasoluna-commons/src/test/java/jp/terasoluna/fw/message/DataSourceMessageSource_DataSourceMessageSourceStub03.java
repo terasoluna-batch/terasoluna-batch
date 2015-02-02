@@ -20,7 +20,7 @@ import java.util.Locale;
 import java.util.Properties;
 
 /**
- * DataSourceMessageSourceƒNƒ‰ƒX‚Å—˜—p‚·‚éƒXƒ^ƒu
+ * DataSourceMessageSourceã‚¯ãƒ©ã‚¹ã§åˆ©ç”¨ã™ã‚‹ã‚¹ã‚¿ãƒ–
  *
  */
 public class DataSourceMessageSource_DataSourceMessageSourceStub03 extends
@@ -31,17 +31,17 @@ public class DataSourceMessageSource_DataSourceMessageSourceStub03 extends
     Properties messages = null;
         
     /**
-     * ˆø”message‚ğŠi”[
+     * å¼•æ•°messageã‚’æ ¼ç´
      */
     protected DBMessage dbm = null;
     
     /**
-     * •Ô‹p’llocale
+     * è¿”å´å€¤locale
      */
     protected Locale locale = null; 
     
     /**
-     * ˆø”locale‚ğŠi”[
+     * å¼•æ•°localeã‚’æ ¼ç´
      */
     protected Locale locale2 = null;
     

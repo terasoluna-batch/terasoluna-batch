@@ -17,10 +17,10 @@
 package jp.terasoluna.fw.util;
 
 /**
- *  BeanUtilƒNƒ‰ƒX‚Å”­¶‚µ‚½—\Šú‚³‚ê‚½—áŠO‚ğƒ‰ƒbƒv‚µ‚Ü‚·B
+ *  BeanUtilã‚¯ãƒ©ã‚¹ã§ç™ºç”Ÿã—ãŸäºˆæœŸã•ã‚ŒãŸä¾‹å¤–ã‚’ãƒ©ãƒƒãƒ—ã—ã¾ã™ã€‚
  * 
  * <p>
- *  ÀÛ‚É”­¶‚µ‚½—áŠO‚É‚Â‚¢‚Ä‚ÍA getCause() ƒƒ\ƒbƒh‚©‚çæ“¾‚·‚éB
+ *  å®Ÿéš›ã«ç™ºç”Ÿã—ãŸä¾‹å¤–ã«ã¤ã„ã¦ã¯ã€ getCause() ãƒ¡ã‚½ãƒƒãƒ‰ã‹ã‚‰å–å¾—ã™ã‚‹ã€‚
  * </p>
  * 
  * @see jp.terasoluna.fw.util.BeanUtil
@@ -29,14 +29,14 @@ package jp.terasoluna.fw.util;
 public class PropertyAccessException extends Exception {
 
     /**
-     * ƒVƒŠƒAƒ‹ƒo[ƒWƒ‡ƒ“IDB
+     * ã‚·ãƒªã‚¢ãƒ«ãƒãƒ¼ã‚¸ãƒ§ãƒ³IDã€‚
      */
     private static final long serialVersionUID = 8897187203080288449L;
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      * 
-     * @param cause ƒ‰ƒbƒv‚·‚é—áŠO
+     * @param cause ãƒ©ãƒƒãƒ—ã™ã‚‹ä¾‹å¤–
      */
     public PropertyAccessException(Throwable cause) {
         super(cause);

@@ -20,11 +20,11 @@ import jp.terasoluna.utlib.PropertyTestCase;
 import jp.terasoluna.utlib.UTUtil;
 
 /**
- * {@link jp.terasoluna.fw.validation.ValidationUtil} ƒNƒ‰ƒX‚Ìƒuƒ‰ƒbƒNƒ{ƒbƒNƒXƒeƒXƒgB
+ * {@link jp.terasoluna.fw.validation.ValidationUtil} ã‚¯ãƒ©ã‚¹ã®ãƒ–ãƒ©ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ†ã‚¹ãƒˆã€‚
  *
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4>
- * ŒŸØƒƒWƒbƒN‚Ìƒ†[ƒeƒBƒŠƒeƒBƒNƒ‰ƒXB
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4>
+ * æ¤œè¨¼ãƒ­ã‚¸ãƒƒã‚¯ã®ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ã‚¯ãƒ©ã‚¹ã€‚
  * <p>
  *
  * @see jp.terasoluna.fw.validation.ValidationUtil
@@ -32,36 +32,36 @@ import jp.terasoluna.utlib.UTUtil;
 public class ValidationUtilTest03 extends PropertyTestCase {
 
     /**
-     * ‚±‚ÌƒeƒXƒgƒP[ƒX‚ğÀs‚·‚éˆ×‚Ì
-     * GUI ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‹N“®‚·‚éB
+     * ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã‚’å®Ÿè¡Œã™ã‚‹ç‚ºã®
+     * GUI ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’èµ·å‹•ã™ã‚‹ã€‚
      *
-     * @param args java ƒRƒ}ƒ“ƒh‚Éİ’è‚³‚ê‚½ƒpƒ‰ƒ[ƒ^
+     * @param args java ã‚³ãƒãƒ³ãƒ‰ã«è¨­å®šã•ã‚ŒãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public static void main(String[] args) {
         junit.swingui.TestRunner.run(ValidationUtilTest03.class);
     }
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see jp.terasoluna.utlib.spring.PropertyTestCase#setUpData()
      */
     @Override
     protected void setUpData() throws Exception {
         UTUtil.setPrivateField(ValidationUtil.class, "hankakuKanaList",
-            "±²³´µ§¨©ª«¶·¸¹º»¼½¾¿ÀÁÂ¯ÃÄÅÆÇÈÉÊËÌÍÎÏĞÑÒÓÔÕÖ¬­®×ØÙÚÛÜ¦İßŞ°¥¤¡¢£");
+            "ï½±ï½²ï½³ï½´ï½µï½§ï½¨ï½©ï½ªï½«ï½¶ï½·ï½¸ï½¹ï½ºï½»ï½¼ï½½ï½¾ï½¿ï¾€ï¾ï¾‚ï½¯ï¾ƒï¾„ï¾…ï¾†ï¾‡ï¾ˆï¾‰ï¾Šï¾‹ï¾Œï¾ï¾ï¾ï¾ï¾‘ï¾’ï¾“ï¾”ï¾•ï¾–ï½¬ï½­ï½®ï¾—ï¾˜ï¾™ï¾šï¾›ï¾œï½¦ï¾ï¾Ÿï¾ï½°ï½¥ï½¤ï½¡ï½¢ï½£");
         UTUtil.setPrivateField(ValidationUtil.class, "zenkakuKanaList",
-            "ƒAƒCƒEƒ”ƒGƒIƒ@ƒBƒDƒFƒHƒJƒLƒNƒPƒRƒ•ƒ–ƒKƒMƒOƒQƒSƒTƒVƒXƒZƒ\" +
-            "ƒUƒWƒYƒ[ƒ]ƒ^ƒ`ƒcƒeƒgƒ_ƒaƒdƒfƒhƒiƒjƒkƒlƒmƒnƒqƒtƒwƒz" +
-            "ƒoƒrƒuƒxƒ{ƒpƒsƒvƒyƒ|ƒ}ƒ~ƒ€ƒƒ‚ƒ„ƒ†ƒˆƒƒƒ…ƒ‡ƒ‰ƒŠƒ‹ƒŒƒ" +
-            "ƒƒƒƒ‘ƒ’ƒbƒ“[");
+            "ã‚¢ã‚¤ã‚¦ãƒ´ã‚¨ã‚ªã‚¡ã‚£ã‚¥ã‚§ã‚©ã‚«ã‚­ã‚¯ã‚±ã‚³ãƒµãƒ¶ã‚¬ã‚®ã‚°ã‚²ã‚´ã‚µã‚·ã‚¹ã‚»ã‚½" +
+            "ã‚¶ã‚¸ã‚ºã‚¼ã‚¾ã‚¿ãƒãƒ„ãƒ†ãƒˆãƒ€ãƒ‚ãƒ…ãƒ‡ãƒ‰ãƒŠãƒ‹ãƒŒãƒãƒãƒãƒ’ãƒ•ãƒ˜ãƒ›" +
+            "ãƒãƒ“ãƒ–ãƒ™ãƒœãƒ‘ãƒ”ãƒ—ãƒšãƒãƒãƒŸãƒ ãƒ¡ãƒ¢ãƒ¤ãƒ¦ãƒ¨ãƒ£ãƒ¥ãƒ§ãƒ©ãƒªãƒ«ãƒ¬ãƒ­" +
+            "ãƒ¯ãƒ®ãƒ°ãƒ±ãƒ²ãƒƒãƒ³ãƒ¼");
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see jp.terasoluna.utlib.spring.PropertyTestCase#cleanUpData()
      */
     @Override
@@ -69,9 +69,9 @@ public class ValidationUtilTest03 extends PropertyTestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      *
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public ValidationUtilTest03(String name) {
         super(name);
@@ -81,24 +81,24 @@ public class ValidationUtilTest03 extends PropertyTestCase {
      * testCheckNumberFigures01()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) length:3<br>
-     *         (ˆø”) checkLength:0<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) length:3<br>
+     *         (å¼•æ•°) checkLength:0<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
      *
      * <br>
-     * length‚ªcheckLength‚æ‚è‘å‚«‚¢ê‡Afalse‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * lengthãŒcheckLengthã‚ˆã‚Šå¤§ãã„å ´åˆã€falseãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testCheckNumberFigures01() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertFalse(ValidationUtil.checkNumberFigures(3, 0, false));
     }
 
@@ -106,25 +106,25 @@ public class ValidationUtilTest03 extends PropertyTestCase {
      * testCheckNumberFigures02()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) length:0<br>
-     *         (ˆø”) checkLength:3<br>
-     *         (ˆø”) isAccorded:false<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) length:0<br>
+     *         (å¼•æ•°) checkLength:3<br>
+     *         (å¼•æ•°) isAccorded:false<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * isAccorded‚ªfalse‚Ìê‡Alength‚ªcheckLengthˆÈ‰º‚Å‚ ‚ê‚ÎAtrue‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * isAccordedãŒfalseã®å ´åˆã€lengthãŒcheckLengthä»¥ä¸‹ã§ã‚ã‚Œã°ã€trueãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testCheckNumberFigures02() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertTrue(ValidationUtil.checkNumberFigures(0, 3, false));
     }
 
@@ -132,25 +132,25 @@ public class ValidationUtilTest03 extends PropertyTestCase {
      * testCheckNumberFigures03()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) length:3<br>
-     *         (ˆø”) checkLength:3<br>
-     *         (ˆø”) isAccorded:false<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) length:3<br>
+     *         (å¼•æ•°) checkLength:3<br>
+     *         (å¼•æ•°) isAccorded:false<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * isAccorded‚ªfalse‚Ìê‡Alength‚ªcheckLengthˆÈ‰º‚Å‚ ‚ê‚ÎAtrue‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * isAccordedãŒfalseã®å ´åˆã€lengthãŒcheckLengthä»¥ä¸‹ã§ã‚ã‚Œã°ã€trueãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testCheckNumberFigures03() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertTrue(ValidationUtil.checkNumberFigures(3, 3, false));
     }
 
@@ -158,25 +158,25 @@ public class ValidationUtilTest03 extends PropertyTestCase {
      * testCheckNumberFigures04()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) length:3<br>
-     *         (ˆø”) checkLength:3<br>
-     *         (ˆø”) isAccorded:true<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) length:3<br>
+     *         (å¼•æ•°) checkLength:3<br>
+     *         (å¼•æ•°) isAccorded:true<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * isAccorded‚ªtrue‚Ìê‡Alength‚ªcheckLength‚Æ“™‚µ‚¯‚ê‚ÎAtrue‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * isAccordedãŒtrueã®å ´åˆã€lengthãŒcheckLengthã¨ç­‰ã—ã‘ã‚Œã°ã€trueãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testCheckNumberFigures04() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertTrue(ValidationUtil.checkNumberFigures(3, 3, true));
     }
 
@@ -184,25 +184,25 @@ public class ValidationUtilTest03 extends PropertyTestCase {
      * testCheckNumberFigures05()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) length:0<br>
-     *         (ˆø”) checkLength:3<br>
-     *         (ˆø”) isAccorded:true<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) length:0<br>
+     *         (å¼•æ•°) checkLength:3<br>
+     *         (å¼•æ•°) isAccorded:true<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
      *
      * <br>
-     * isAccorded‚ªtrue‚Ìê‡Alength‚ªcheckLength‚Æ“™‚µ‚­‚È‚¯‚ê‚ÎAfalse‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * isAccordedãŒtrueã®å ´åˆã€lengthãŒcheckLengthã¨ç­‰ã—ããªã‘ã‚Œã°ã€falseãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testCheckNumberFigures05() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertFalse(ValidationUtil.checkNumberFigures(0, 3, true));
     }
 
@@ -210,23 +210,23 @@ public class ValidationUtilTest03 extends PropertyTestCase {
      * testIsHankakuKanaString01()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”value‚ªnull‚Ìê‡Atrue‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°valueãŒnullã®å ´åˆã€trueãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsHankakuKanaString01() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertTrue(ValidationUtil.isHankakuKanaString(null));
     }
 
@@ -234,23 +234,23 @@ public class ValidationUtilTest03 extends PropertyTestCase {
      * testIsHankakuKanaString02()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:""<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:""<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”value‚ª‹ó•¶š‚Ìê‡Atrue‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°valueãŒç©ºæ–‡å­—ã®å ´åˆã€trueãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsHankakuKanaString02() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertTrue(ValidationUtil.isHankakuKanaString(""));
     }
 
@@ -258,123 +258,123 @@ public class ValidationUtilTest03 extends PropertyTestCase {
      * testIsHankakuKanaString03()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"ƒA"<br>
-     *         (ó‘Ô) hankakuKanaList:±²³´µ§¨©ª«¶·¸¹º»¼½¾¿ÀÁÂ¯ÃÄÅÆÇÈÉÊËÌÍÎÏĞÑÒÓÔÕÖ¬­®×ØÙÚÛÜ¦İßŞ°¥¤¡¢£<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"ã‚¢"<br>
+     *         (çŠ¶æ…‹) hankakuKanaList:ï½±ï½²ï½³ï½´ï½µï½§ï½¨ï½©ï½ªï½«ï½¶ï½·ï½¸ï½¹ï½ºï½»ï½¼ï½½ï½¾ï½¿ï¾€ï¾ï¾‚ï½¯ï¾ƒï¾„ï¾…ï¾†ï¾‡ï¾ˆï¾‰ï¾Šï¾‹ï¾Œï¾ï¾ï¾ï¾ï¾‘ï¾’ï¾“ï¾”ï¾•ï¾–ï½¬ï½­ï½®ï¾—ï¾˜ï¾™ï¾šï¾›ï¾œï½¦ï¾ï¾Ÿï¾ï½°ï½¥ï½¤ï½¡ï½¢ï½£<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
      *
      * <br>
-     * ˆø”value‚ª”¼ŠpƒJƒi•¶š‚Å‚È‚¢ê‡Afalse‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°valueãŒåŠè§’ã‚«ãƒŠæ–‡å­—ã§ãªã„å ´åˆã€falseãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsHankakuKanaString03() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
-        assertFalse(ValidationUtil.isHankakuKanaString("ƒA"));
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
+        assertFalse(ValidationUtil.isHankakuKanaString("ã‚¢"));
     }
 
     /**
      * testIsHankakuKanaString04()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"±"<br>
-     *         (ó‘Ô) hankakuKanaList:±²³´µ§¨©ª«¶·¸¹º»¼½¾¿ÀÁÂ¯ÃÄÅÆÇÈÉÊËÌÍÎÏĞÑÒÓÔÕÖ¬­®×ØÙÚÛÜ¦İßŞ°¥¤¡¢£<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"ï½±"<br>
+     *         (çŠ¶æ…‹) hankakuKanaList:ï½±ï½²ï½³ï½´ï½µï½§ï½¨ï½©ï½ªï½«ï½¶ï½·ï½¸ï½¹ï½ºï½»ï½¼ï½½ï½¾ï½¿ï¾€ï¾ï¾‚ï½¯ï¾ƒï¾„ï¾…ï¾†ï¾‡ï¾ˆï¾‰ï¾Šï¾‹ï¾Œï¾ï¾ï¾ï¾ï¾‘ï¾’ï¾“ï¾”ï¾•ï¾–ï½¬ï½­ï½®ï¾—ï¾˜ï¾™ï¾šï¾›ï¾œï½¦ï¾ï¾Ÿï¾ï½°ï½¥ï½¤ï½¡ï½¢ï½£<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”value‚ª”¼ŠpƒJƒi•¶š‚Ìê‡Atrue‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°valueãŒåŠè§’ã‚«ãƒŠæ–‡å­—ã®å ´åˆã€trueãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsHankakuKanaString04() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
-        assertTrue(ValidationUtil.isHankakuKanaString("±"));
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
+        assertTrue(ValidationUtil.isHankakuKanaString("ï½±"));
     }
 
     /**
      * testIsHankakuKanaString05()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"±²A"<br>
-     *         (ó‘Ô) hankakuKanaList:±²³´µ§¨©ª«¶·¸¹º»¼½¾¿ÀÁÂ¯ÃÄÅÆÇÈÉÊËÌÍÎÏĞÑÒÓÔÕÖ¬­®×ØÙÚÛÜ¦İßŞ°¥¤¡¢£<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"ï½±ï½²A"<br>
+     *         (çŠ¶æ…‹) hankakuKanaList:ï½±ï½²ï½³ï½´ï½µï½§ï½¨ï½©ï½ªï½«ï½¶ï½·ï½¸ï½¹ï½ºï½»ï½¼ï½½ï½¾ï½¿ï¾€ï¾ï¾‚ï½¯ï¾ƒï¾„ï¾…ï¾†ï¾‡ï¾ˆï¾‰ï¾Šï¾‹ï¾Œï¾ï¾ï¾ï¾ï¾‘ï¾’ï¾“ï¾”ï¾•ï¾–ï½¬ï½­ï½®ï¾—ï¾˜ï¾™ï¾šï¾›ï¾œï½¦ï¾ï¾Ÿï¾ï½°ï½¥ï½¤ï½¡ï½¢ï½£<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
      *
      * <br>
-     * ˆø”value‚ª•¡”•¶š‚Å”¼ŠpƒJƒi•¶šˆÈŠO‚ªŠÜ‚Ü‚ê‚éê‡Afalse‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°valueãŒè¤‡æ•°æ–‡å­—ã§åŠè§’ã‚«ãƒŠæ–‡å­—ä»¥å¤–ãŒå«ã¾ã‚Œã‚‹å ´åˆã€falseãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsHankakuKanaString05() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
-        assertFalse(ValidationUtil.isHankakuKanaString("±²A"));
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
+        assertFalse(ValidationUtil.isHankakuKanaString("ï½±ï½²A"));
     }
 
     /**
      * testIsHankakuKanaString06()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"±²³"<br>
-     *         (ó‘Ô) hankakuKanaList:±²³´µ§¨©ª«¶·¸¹º»¼½¾¿ÀÁÂ¯ÃÄÅÆÇÈÉÊËÌÍÎÏĞÑÒÓÔÕÖ¬­®×ØÙÚÛÜ¦İßŞ°¥¤¡¢£<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"ï½±ï½²ï½³"<br>
+     *         (çŠ¶æ…‹) hankakuKanaList:ï½±ï½²ï½³ï½´ï½µï½§ï½¨ï½©ï½ªï½«ï½¶ï½·ï½¸ï½¹ï½ºï½»ï½¼ï½½ï½¾ï½¿ï¾€ï¾ï¾‚ï½¯ï¾ƒï¾„ï¾…ï¾†ï¾‡ï¾ˆï¾‰ï¾Šï¾‹ï¾Œï¾ï¾ï¾ï¾ï¾‘ï¾’ï¾“ï¾”ï¾•ï¾–ï½¬ï½­ï½®ï¾—ï¾˜ï¾™ï¾šï¾›ï¾œï½¦ï¾ï¾Ÿï¾ï½°ï½¥ï½¤ï½¡ï½¢ï½£<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”value‚ª•¡”•¶š‚Å”¼ŠpƒJƒi•¶š‚Ì‚İ‚Å\¬‚³‚ê‚Ä‚¢‚éê‡Atrue‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°valueãŒè¤‡æ•°æ–‡å­—ã§åŠè§’ã‚«ãƒŠæ–‡å­—ã®ã¿ã§æ§‹æˆã•ã‚Œã¦ã„ã‚‹å ´åˆã€trueãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsHankakuKanaString06() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
-        assertTrue(ValidationUtil.isHankakuKanaString("±²³"));
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
+        assertTrue(ValidationUtil.isHankakuKanaString("ï½±ï½²ï½³"));
     }
 
     /**
      * testIsHankakuString01()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”value‚ªnull‚Ìê‡Atrue‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°valueãŒnullã®å ´åˆã€trueãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsHankakuString01() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertTrue(ValidationUtil.isHankakuString(null));
     }
 
@@ -382,23 +382,23 @@ public class ValidationUtilTest03 extends PropertyTestCase {
      * testIsHankakuString02()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:""<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:""<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”value‚ª‹ó•¶š‚Ìê‡Atrue‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°valueãŒç©ºæ–‡å­—ã®å ´åˆã€trueãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsHankakuString02() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertTrue(ValidationUtil.isHankakuString(""));
     }
 
@@ -406,49 +406,49 @@ public class ValidationUtilTest03 extends PropertyTestCase {
      * testIsHankakuString03()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"‚ "<br>
-     *         (ó‘Ô) hankakuKanaList:±²³´µ§¨©ª«¶·¸¹º»¼½¾¿ÀÁÂ¯ÃÄÅÆÇÈÉÊËÌÍÎÏĞÑÒÓÔÕÖ¬­®×ØÙÚÛÜ¦İßŞ°¥¤¡¢£<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"ã‚"<br>
+     *         (çŠ¶æ…‹) hankakuKanaList:ï½±ï½²ï½³ï½´ï½µï½§ï½¨ï½©ï½ªï½«ï½¶ï½·ï½¸ï½¹ï½ºï½»ï½¼ï½½ï½¾ï½¿ï¾€ï¾ï¾‚ï½¯ï¾ƒï¾„ï¾…ï¾†ï¾‡ï¾ˆï¾‰ï¾Šï¾‹ï¾Œï¾ï¾ï¾ï¾ï¾‘ï¾’ï¾“ï¾”ï¾•ï¾–ï½¬ï½­ï½®ï¾—ï¾˜ï¾™ï¾šï¾›ï¾œï½¦ï¾ï¾Ÿï¾ï½°ï½¥ï½¤ï½¡ï½¢ï½£<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
      *
      * <br>
-     * ˆø”value‚ª”¼Šp•¶š‚Å‚È‚¢ê‡Afalse‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°valueãŒåŠè§’æ–‡å­—ã§ãªã„å ´åˆã€falseãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsHankakuString03() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
-        assertFalse(ValidationUtil.isHankakuString("‚ "));
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
+        assertFalse(ValidationUtil.isHankakuString("ã‚"));
     }
 
     /**
      * testIsHankakuString04()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"a"<br>
-     *         (ó‘Ô) hankakuKanaList:±²³´µ§¨©ª«¶·¸¹º»¼½¾¿ÀÁÂ¯ÃÄÅÆÇÈÉÊËÌÍÎÏĞÑÒÓÔÕÖ¬­®×ØÙÚÛÜ¦İßŞ°¥¤¡¢£<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"a"<br>
+     *         (çŠ¶æ…‹) hankakuKanaList:ï½±ï½²ï½³ï½´ï½µï½§ï½¨ï½©ï½ªï½«ï½¶ï½·ï½¸ï½¹ï½ºï½»ï½¼ï½½ï½¾ï½¿ï¾€ï¾ï¾‚ï½¯ï¾ƒï¾„ï¾…ï¾†ï¾‡ï¾ˆï¾‰ï¾Šï¾‹ï¾Œï¾ï¾ï¾ï¾ï¾‘ï¾’ï¾“ï¾”ï¾•ï¾–ï½¬ï½­ï½®ï¾—ï¾˜ï¾™ï¾šï¾›ï¾œï½¦ï¾ï¾Ÿï¾ï½°ï½¥ï½¤ï½¡ï½¢ï½£<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”value‚ª”¼Šp•¶š‚Ìê‡Atrue‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°valueãŒåŠè§’æ–‡å­—ã®å ´åˆã€trueãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsHankakuString04() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertTrue(ValidationUtil.isHankakuString("a"));
     }
 
@@ -456,73 +456,73 @@ public class ValidationUtilTest03 extends PropertyTestCase {
      * testIsHankakuString05()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"ab‚ "<br>
-     *         (ó‘Ô) hankakuKanaList:±²³´µ§¨©ª«¶·¸¹º»¼½¾¿ÀÁÂ¯ÃÄÅÆÇÈÉÊËÌÍÎÏĞÑÒÓÔÕÖ¬­®×ØÙÚÛÜ¦İßŞ°¥¤¡¢£<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"abã‚"<br>
+     *         (çŠ¶æ…‹) hankakuKanaList:ï½±ï½²ï½³ï½´ï½µï½§ï½¨ï½©ï½ªï½«ï½¶ï½·ï½¸ï½¹ï½ºï½»ï½¼ï½½ï½¾ï½¿ï¾€ï¾ï¾‚ï½¯ï¾ƒï¾„ï¾…ï¾†ï¾‡ï¾ˆï¾‰ï¾Šï¾‹ï¾Œï¾ï¾ï¾ï¾ï¾‘ï¾’ï¾“ï¾”ï¾•ï¾–ï½¬ï½­ï½®ï¾—ï¾˜ï¾™ï¾šï¾›ï¾œï½¦ï¾ï¾Ÿï¾ï½°ï½¥ï½¤ï½¡ï½¢ï½£<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
      *
      * <br>
-     * ˆø”value‚ª•¡”•¶š‚Å”¼Šp•¶šˆÈŠO‚ªŠÜ‚Ü‚ê‚éê‡Afalse‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°valueãŒè¤‡æ•°æ–‡å­—ã§åŠè§’æ–‡å­—ä»¥å¤–ãŒå«ã¾ã‚Œã‚‹å ´åˆã€falseãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsHankakuString05() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
-        assertFalse(ValidationUtil.isHankakuString("ab‚ "));
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
+        assertFalse(ValidationUtil.isHankakuString("abã‚"));
     }
 
     /**
      * testIsHankakuString06()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"1a±"<br>
-     *         (ó‘Ô) hankakuKanaList:±²³´µ§¨©ª«¶·¸¹º»¼½¾¿ÀÁÂ¯ÃÄÅÆÇÈÉÊËÌÍÎÏĞÑÒÓÔÕÖ¬­®×ØÙÚÛÜ¦İßŞ°¥¤¡¢£<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"1aï½±"<br>
+     *         (çŠ¶æ…‹) hankakuKanaList:ï½±ï½²ï½³ï½´ï½µï½§ï½¨ï½©ï½ªï½«ï½¶ï½·ï½¸ï½¹ï½ºï½»ï½¼ï½½ï½¾ï½¿ï¾€ï¾ï¾‚ï½¯ï¾ƒï¾„ï¾…ï¾†ï¾‡ï¾ˆï¾‰ï¾Šï¾‹ï¾Œï¾ï¾ï¾ï¾ï¾‘ï¾’ï¾“ï¾”ï¾•ï¾–ï½¬ï½­ï½®ï¾—ï¾˜ï¾™ï¾šï¾›ï¾œï½¦ï¾ï¾Ÿï¾ï½°ï½¥ï½¤ï½¡ï½¢ï½£<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”value‚ª•¡”•¶š‚Å”¼Šp•¶š‚Ì‚İ‚Å\¬‚³‚ê‚Ä‚¢‚éê‡Atrue‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°valueãŒè¤‡æ•°æ–‡å­—ã§åŠè§’æ–‡å­—ã®ã¿ã§æ§‹æˆã•ã‚Œã¦ã„ã‚‹å ´åˆã€trueãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsHankakuString06() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
-        assertTrue(ValidationUtil.isHankakuString("1a±"));
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
+        assertTrue(ValidationUtil.isHankakuString("1aï½±"));
     }
 
     /**
      * testIsZenkakuString01()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”value‚ªnull‚Ìê‡Atrue‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°valueãŒnullã®å ´åˆã€trueãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsZenkakuString01() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertTrue(ValidationUtil.isZenkakuString(null));
     }
 
@@ -530,23 +530,23 @@ public class ValidationUtilTest03 extends PropertyTestCase {
      * testIsZenkakuString02()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:""<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:""<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”value‚ª‹ó•¶š‚Ìê‡Atrue‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°valueãŒç©ºæ–‡å­—ã®å ´åˆã€trueãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsZenkakuString02() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertTrue(ValidationUtil.isZenkakuString(""));
     }
 
@@ -554,24 +554,24 @@ public class ValidationUtilTest03 extends PropertyTestCase {
      * testIsZenkakuString03()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"a"<br>
-     *         (ó‘Ô) zenkakuKanaList:ƒAƒCƒEƒ”ƒGƒIƒ@ƒBƒDƒFƒHƒJƒLƒNƒPƒRƒ•ƒ–ƒKƒMƒOƒQƒSƒTƒVƒXƒZƒ\ƒUƒWƒYƒ[ƒ]ƒ^ƒ`ƒcƒeƒgƒ_ƒaƒdƒfƒhƒiƒjƒkƒlƒmƒnƒqƒtƒwƒzƒoƒrƒuƒxƒ{ƒpƒsƒvƒyƒ|ƒ}ƒ~ƒ€ƒƒ‚ƒ„ƒ†ƒˆƒƒƒ…ƒ‡ƒ‰ƒŠƒ‹ƒŒƒƒƒƒƒ‘ƒ’ƒbƒ“[<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"a"<br>
+     *         (çŠ¶æ…‹) zenkakuKanaList:ã‚¢ã‚¤ã‚¦ãƒ´ã‚¨ã‚ªã‚¡ã‚£ã‚¥ã‚§ã‚©ã‚«ã‚­ã‚¯ã‚±ã‚³ãƒµãƒ¶ã‚¬ã‚®ã‚°ã‚²ã‚´ã‚µã‚·ã‚¹ã‚»ã‚½ã‚¶ã‚¸ã‚ºã‚¼ã‚¾ã‚¿ãƒãƒ„ãƒ†ãƒˆãƒ€ãƒ‚ãƒ…ãƒ‡ãƒ‰ãƒŠãƒ‹ãƒŒãƒãƒãƒãƒ’ãƒ•ãƒ˜ãƒ›ãƒãƒ“ãƒ–ãƒ™ãƒœãƒ‘ãƒ”ãƒ—ãƒšãƒãƒãƒŸãƒ ãƒ¡ãƒ¢ãƒ¤ãƒ¦ãƒ¨ãƒ£ãƒ¥ãƒ§ãƒ©ãƒªãƒ«ãƒ¬ãƒ­ãƒ¯ãƒ®ãƒ°ãƒ±ãƒ²ãƒƒãƒ³ãƒ¼<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
      *
      * <br>
-     * ˆø”value‚ª‘SŠp•¶š‚Å‚È‚¢ê‡Afalse‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°valueãŒå…¨è§’æ–‡å­—ã§ãªã„å ´åˆã€falseãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsZenkakuString03() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertFalse(ValidationUtil.isZenkakuString("a"));
     }
 
@@ -579,98 +579,98 @@ public class ValidationUtilTest03 extends PropertyTestCase {
      * testIsZenkakuString04()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"‚ "<br>
-     *         (ó‘Ô) zenkakuKanaList:ƒAƒCƒEƒ”ƒGƒIƒ@ƒBƒDƒFƒHƒJƒLƒNƒPƒRƒ•ƒ–ƒKƒMƒOƒQƒSƒTƒVƒXƒZƒ\ƒUƒWƒYƒ[ƒ]ƒ^ƒ`ƒcƒeƒgƒ_ƒaƒdƒfƒhƒiƒjƒkƒlƒmƒnƒqƒtƒwƒzƒoƒrƒuƒxƒ{ƒpƒsƒvƒyƒ|ƒ}ƒ~ƒ€ƒƒ‚ƒ„ƒ†ƒˆƒƒƒ…ƒ‡ƒ‰ƒŠƒ‹ƒŒƒƒƒƒƒ‘ƒ’ƒbƒ“[<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"ã‚"<br>
+     *         (çŠ¶æ…‹) zenkakuKanaList:ã‚¢ã‚¤ã‚¦ãƒ´ã‚¨ã‚ªã‚¡ã‚£ã‚¥ã‚§ã‚©ã‚«ã‚­ã‚¯ã‚±ã‚³ãƒµãƒ¶ã‚¬ã‚®ã‚°ã‚²ã‚´ã‚µã‚·ã‚¹ã‚»ã‚½ã‚¶ã‚¸ã‚ºã‚¼ã‚¾ã‚¿ãƒãƒ„ãƒ†ãƒˆãƒ€ãƒ‚ãƒ…ãƒ‡ãƒ‰ãƒŠãƒ‹ãƒŒãƒãƒãƒãƒ’ãƒ•ãƒ˜ãƒ›ãƒãƒ“ãƒ–ãƒ™ãƒœãƒ‘ãƒ”ãƒ—ãƒšãƒãƒãƒŸãƒ ãƒ¡ãƒ¢ãƒ¤ãƒ¦ãƒ¨ãƒ£ãƒ¥ãƒ§ãƒ©ãƒªãƒ«ãƒ¬ãƒ­ãƒ¯ãƒ®ãƒ°ãƒ±ãƒ²ãƒƒãƒ³ãƒ¼<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”value‚ª‘SŠp•¶š‚Ìê‡Atrue‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°valueãŒå…¨è§’æ–‡å­—ã®å ´åˆã€trueãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsZenkakuString04() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
-        assertTrue(ValidationUtil.isZenkakuString("‚ "));
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
+        assertTrue(ValidationUtil.isZenkakuString("ã‚"));
     }
 
     /**
      * testIsZenkakuString05()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"‚`‚ ²"<br>
-     *         (ó‘Ô) zenkakuKanaList:ƒAƒCƒEƒ”ƒGƒIƒ@ƒBƒDƒFƒHƒJƒLƒNƒPƒRƒ•ƒ–ƒKƒMƒOƒQƒSƒTƒVƒXƒZƒ\ƒUƒWƒYƒ[ƒ]ƒ^ƒ`ƒcƒeƒgƒ_ƒaƒdƒfƒhƒiƒjƒkƒlƒmƒnƒqƒtƒwƒzƒoƒrƒuƒxƒ{ƒpƒsƒvƒyƒ|ƒ}ƒ~ƒ€ƒƒ‚ƒ„ƒ†ƒˆƒƒƒ…ƒ‡ƒ‰ƒŠƒ‹ƒŒƒƒƒƒƒ‘ƒ’ƒbƒ“[<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"ï¼¡ã‚ï½²"<br>
+     *         (çŠ¶æ…‹) zenkakuKanaList:ã‚¢ã‚¤ã‚¦ãƒ´ã‚¨ã‚ªã‚¡ã‚£ã‚¥ã‚§ã‚©ã‚«ã‚­ã‚¯ã‚±ã‚³ãƒµãƒ¶ã‚¬ã‚®ã‚°ã‚²ã‚´ã‚µã‚·ã‚¹ã‚»ã‚½ã‚¶ã‚¸ã‚ºã‚¼ã‚¾ã‚¿ãƒãƒ„ãƒ†ãƒˆãƒ€ãƒ‚ãƒ…ãƒ‡ãƒ‰ãƒŠãƒ‹ãƒŒãƒãƒãƒãƒ’ãƒ•ãƒ˜ãƒ›ãƒãƒ“ãƒ–ãƒ™ãƒœãƒ‘ãƒ”ãƒ—ãƒšãƒãƒãƒŸãƒ ãƒ¡ãƒ¢ãƒ¤ãƒ¦ãƒ¨ãƒ£ãƒ¥ãƒ§ãƒ©ãƒªãƒ«ãƒ¬ãƒ­ãƒ¯ãƒ®ãƒ°ãƒ±ãƒ²ãƒƒãƒ³ãƒ¼<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
      *
      * <br>
-     * ˆø”value‚ª•¡”•¶š‚Å‘SŠp•¶šˆÈŠO‚ªŠÜ‚Ü‚ê‚éê‡Afalse‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°valueãŒè¤‡æ•°æ–‡å­—ã§å…¨è§’æ–‡å­—ä»¥å¤–ãŒå«ã¾ã‚Œã‚‹å ´åˆã€falseãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsZenkakuString05() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
-        assertFalse(ValidationUtil.isZenkakuString("‚`‚ ²"));
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
+        assertFalse(ValidationUtil.isZenkakuString("ï¼¡ã‚ï½²"));
     }
 
     /**
      * testIsZenkakuString06()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"‚`‚ ‘SŠp"<br>
-     *         (ó‘Ô) zenkakuKanaList:ƒAƒCƒEƒ”ƒGƒIƒ@ƒBƒDƒFƒHƒJƒLƒNƒPƒRƒ•ƒ–ƒKƒMƒOƒQƒSƒTƒVƒXƒZƒ\ƒUƒWƒYƒ[ƒ]ƒ^ƒ`ƒcƒeƒgƒ_ƒaƒdƒfƒhƒiƒjƒkƒlƒmƒnƒqƒtƒwƒzƒoƒrƒuƒxƒ{ƒpƒsƒvƒyƒ|ƒ}ƒ~ƒ€ƒƒ‚ƒ„ƒ†ƒˆƒƒƒ…ƒ‡ƒ‰ƒŠƒ‹ƒŒƒƒƒƒƒ‘ƒ’ƒbƒ“[<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"ï¼¡ã‚å…¨è§’"<br>
+     *         (çŠ¶æ…‹) zenkakuKanaList:ã‚¢ã‚¤ã‚¦ãƒ´ã‚¨ã‚ªã‚¡ã‚£ã‚¥ã‚§ã‚©ã‚«ã‚­ã‚¯ã‚±ã‚³ãƒµãƒ¶ã‚¬ã‚®ã‚°ã‚²ã‚´ã‚µã‚·ã‚¹ã‚»ã‚½ã‚¶ã‚¸ã‚ºã‚¼ã‚¾ã‚¿ãƒãƒ„ãƒ†ãƒˆãƒ€ãƒ‚ãƒ…ãƒ‡ãƒ‰ãƒŠãƒ‹ãƒŒãƒãƒãƒãƒ’ãƒ•ãƒ˜ãƒ›ãƒãƒ“ãƒ–ãƒ™ãƒœãƒ‘ãƒ”ãƒ—ãƒšãƒãƒãƒŸãƒ ãƒ¡ãƒ¢ãƒ¤ãƒ¦ãƒ¨ãƒ£ãƒ¥ãƒ§ãƒ©ãƒªãƒ«ãƒ¬ãƒ­ãƒ¯ãƒ®ãƒ°ãƒ±ãƒ²ãƒƒãƒ³ãƒ¼<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”value‚ª•¡”•¶š‚Å‘SŠp•¶š‚Ì‚İ‚Å\¬‚³‚ê‚Ä‚¢‚éê‡Atrue‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°valueãŒè¤‡æ•°æ–‡å­—ã§å…¨è§’æ–‡å­—ã®ã¿ã§æ§‹æˆã•ã‚Œã¦ã„ã‚‹å ´åˆã€trueãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsZenkakuString06() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
-        assertTrue(ValidationUtil.isZenkakuString("‚`‚ ‘SŠp"));
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
+        assertTrue(ValidationUtil.isZenkakuString("ï¼¡ã‚å…¨è§’"));
     }
 
     /**
      * testIsZenkakuKanaString01()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”value‚ªnull‚Ìê‡Atrue‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°valueãŒnullã®å ´åˆã€trueãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsZenkakuKanaString01() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertTrue(ValidationUtil.isZenkakuKanaString(null));
     }
 
@@ -678,23 +678,23 @@ public class ValidationUtilTest03 extends PropertyTestCase {
      * testIsZenkakuKanaString02()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:""<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:""<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”value‚ª‹ó•¶š‚Ìê‡Atrue‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°valueãŒç©ºæ–‡å­—ã®å ´åˆã€trueãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsZenkakuKanaString02() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertTrue(ValidationUtil.isZenkakuKanaString(""));
     }
 
@@ -702,24 +702,24 @@ public class ValidationUtilTest03 extends PropertyTestCase {
      * testIsZenkakuKanaString03()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"A"<br>
-     *         (ó‘Ô) isZenkakuKanaChar(char):ƒAƒCƒEƒ”ƒGƒIƒ@ƒBƒDƒFƒHƒJƒLƒNƒPƒRƒ•ƒ–ƒKƒMƒOƒQƒSƒTƒVƒXƒZƒ\ƒUƒWƒYƒ[ƒ]ƒ^ƒ`ƒcƒeƒgƒ_ƒaƒdƒfƒhƒiƒjƒkƒlƒmƒnƒqƒtƒwƒzƒoƒrƒuƒxƒ{ƒpƒsƒvƒyƒ|ƒ}ƒ~ƒ€ƒƒ‚ƒ„ƒ†ƒˆƒƒƒ…ƒ‡ƒ‰ƒŠƒ‹ƒŒƒƒƒƒƒ‘ƒ’ƒbƒ“[<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"A"<br>
+     *         (çŠ¶æ…‹) isZenkakuKanaChar(char):ã‚¢ã‚¤ã‚¦ãƒ´ã‚¨ã‚ªã‚¡ã‚£ã‚¥ã‚§ã‚©ã‚«ã‚­ã‚¯ã‚±ã‚³ãƒµãƒ¶ã‚¬ã‚®ã‚°ã‚²ã‚´ã‚µã‚·ã‚¹ã‚»ã‚½ã‚¶ã‚¸ã‚ºã‚¼ã‚¾ã‚¿ãƒãƒ„ãƒ†ãƒˆãƒ€ãƒ‚ãƒ…ãƒ‡ãƒ‰ãƒŠãƒ‹ãƒŒãƒãƒãƒãƒ’ãƒ•ãƒ˜ãƒ›ãƒãƒ“ãƒ–ãƒ™ãƒœãƒ‘ãƒ”ãƒ—ãƒšãƒãƒãƒŸãƒ ãƒ¡ãƒ¢ãƒ¤ãƒ¦ãƒ¨ãƒ£ãƒ¥ãƒ§ãƒ©ãƒªãƒ«ãƒ¬ãƒ­ãƒ¯ãƒ®ãƒ°ãƒ±ãƒ²ãƒƒãƒ³ãƒ¼<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
      *
      * <br>
-     * ˆø”value‚ª‘SŠpƒJƒi•¶š‚Å‚È‚¢ê‡Afalse‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°valueãŒå…¨è§’ã‚«ãƒŠæ–‡å­—ã§ãªã„å ´åˆã€falseãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsZenkakuKanaString03() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
         assertFalse(ValidationUtil.isZenkakuKanaString("A"));
     }
 
@@ -727,75 +727,75 @@ public class ValidationUtilTest03 extends PropertyTestCase {
      * testIsZenkakuKanaString04()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"ƒA"<br>
-     *         (ó‘Ô) isZenkakuKanaChar(char):ƒAƒCƒEƒ”ƒGƒIƒ@ƒBƒDƒFƒHƒJƒLƒNƒPƒRƒ•ƒ–ƒKƒMƒOƒQƒSƒTƒVƒXƒZƒ\ƒUƒWƒYƒ[ƒ]ƒ^ƒ`ƒcƒeƒgƒ_ƒaƒdƒfƒhƒiƒjƒkƒlƒmƒnƒqƒtƒwƒzƒoƒrƒuƒxƒ{ƒpƒsƒvƒyƒ|ƒ}ƒ~ƒ€ƒƒ‚ƒ„ƒ†ƒˆƒƒƒ…ƒ‡ƒ‰ƒŠƒ‹ƒŒƒƒƒƒƒ‘ƒ’ƒbƒ“[<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"ã‚¢"<br>
+     *         (çŠ¶æ…‹) isZenkakuKanaChar(char):ã‚¢ã‚¤ã‚¦ãƒ´ã‚¨ã‚ªã‚¡ã‚£ã‚¥ã‚§ã‚©ã‚«ã‚­ã‚¯ã‚±ã‚³ãƒµãƒ¶ã‚¬ã‚®ã‚°ã‚²ã‚´ã‚µã‚·ã‚¹ã‚»ã‚½ã‚¶ã‚¸ã‚ºã‚¼ã‚¾ã‚¿ãƒãƒ„ãƒ†ãƒˆãƒ€ãƒ‚ãƒ…ãƒ‡ãƒ‰ãƒŠãƒ‹ãƒŒãƒãƒãƒãƒ’ãƒ•ãƒ˜ãƒ›ãƒãƒ“ãƒ–ãƒ™ãƒœãƒ‘ãƒ”ãƒ—ãƒšãƒãƒãƒŸãƒ ãƒ¡ãƒ¢ãƒ¤ãƒ¦ãƒ¨ãƒ£ãƒ¥ãƒ§ãƒ©ãƒªãƒ«ãƒ¬ãƒ­ãƒ¯ãƒ®ãƒ°ãƒ±ãƒ²ãƒƒãƒ³ãƒ¼<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”value‚ª‘SŠpƒJƒi•¶š‚Ìê‡Atrue‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°valueãŒå…¨è§’ã‚«ãƒŠæ–‡å­—ã®å ´åˆã€trueãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsZenkakuKanaString04() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
-        assertTrue(ValidationUtil.isZenkakuKanaString("ƒA"));
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
+        assertTrue(ValidationUtil.isZenkakuKanaString("ã‚¢"));
     }
 
     /**
      * testIsZenkakuKanaString05()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"ƒAƒC³"<br>
-     *         (ó‘Ô) isZenkakuKanaChar(char):ƒAƒCƒEƒ”ƒGƒIƒ@ƒBƒDƒFƒHƒJƒLƒNƒPƒRƒ•ƒ–ƒKƒMƒOƒQƒSƒTƒVƒXƒZƒ\ƒUƒWƒYƒ[ƒ]ƒ^ƒ`ƒcƒeƒgƒ_ƒaƒdƒfƒhƒiƒjƒkƒlƒmƒnƒqƒtƒwƒzƒoƒrƒuƒxƒ{ƒpƒsƒvƒyƒ|ƒ}ƒ~ƒ€ƒƒ‚ƒ„ƒ†ƒˆƒƒƒ…ƒ‡ƒ‰ƒŠƒ‹ƒŒƒƒƒƒƒ‘ƒ’ƒbƒ“[<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"ã‚¢ã‚¤ï½³"<br>
+     *         (çŠ¶æ…‹) isZenkakuKanaChar(char):ã‚¢ã‚¤ã‚¦ãƒ´ã‚¨ã‚ªã‚¡ã‚£ã‚¥ã‚§ã‚©ã‚«ã‚­ã‚¯ã‚±ã‚³ãƒµãƒ¶ã‚¬ã‚®ã‚°ã‚²ã‚´ã‚µã‚·ã‚¹ã‚»ã‚½ã‚¶ã‚¸ã‚ºã‚¼ã‚¾ã‚¿ãƒãƒ„ãƒ†ãƒˆãƒ€ãƒ‚ãƒ…ãƒ‡ãƒ‰ãƒŠãƒ‹ãƒŒãƒãƒãƒãƒ’ãƒ•ãƒ˜ãƒ›ãƒãƒ“ãƒ–ãƒ™ãƒœãƒ‘ãƒ”ãƒ—ãƒšãƒãƒãƒŸãƒ ãƒ¡ãƒ¢ãƒ¤ãƒ¦ãƒ¨ãƒ£ãƒ¥ãƒ§ãƒ©ãƒªãƒ«ãƒ¬ãƒ­ãƒ¯ãƒ®ãƒ°ãƒ±ãƒ²ãƒƒãƒ³ãƒ¼<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
      *
      * <br>
-     * ˆø”value‚ª•¡”•¶š‚Å‘SŠpƒJƒi•¶šˆÈŠO‚ªŠÜ‚Ü‚ê‚éê‡Afalse‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°valueãŒè¤‡æ•°æ–‡å­—ã§å…¨è§’ã‚«ãƒŠæ–‡å­—ä»¥å¤–ãŒå«ã¾ã‚Œã‚‹å ´åˆã€falseãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsZenkakuKanaString05() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
-        assertFalse(ValidationUtil.isZenkakuKanaString("ƒAƒC³"));
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
+        assertFalse(ValidationUtil.isZenkakuKanaString("ã‚¢ã‚¤ï½³"));
     }
 
     /**
      * testIsZenkakuKanaString06()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"ƒAƒCƒE"<br>
-     *         (ó‘Ô) isZenkakuKanaChar(char):ƒAƒCƒEƒ”ƒGƒIƒ@ƒBƒDƒFƒHƒJƒLƒNƒPƒRƒ•ƒ–ƒKƒMƒOƒQƒSƒTƒVƒXƒZƒ\ƒUƒWƒYƒ[ƒ]ƒ^ƒ`ƒcƒeƒgƒ_ƒaƒdƒfƒhƒiƒjƒkƒlƒmƒnƒqƒtƒwƒzƒoƒrƒuƒxƒ{ƒpƒsƒvƒyƒ|ƒ}ƒ~ƒ€ƒƒ‚ƒ„ƒ†ƒˆƒƒƒ…ƒ‡ƒ‰ƒŠƒ‹ƒŒƒƒƒƒƒ‘ƒ’ƒbƒ“[<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"ã‚¢ã‚¤ã‚¦"<br>
+     *         (çŠ¶æ…‹) isZenkakuKanaChar(char):ã‚¢ã‚¤ã‚¦ãƒ´ã‚¨ã‚ªã‚¡ã‚£ã‚¥ã‚§ã‚©ã‚«ã‚­ã‚¯ã‚±ã‚³ãƒµãƒ¶ã‚¬ã‚®ã‚°ã‚²ã‚´ã‚µã‚·ã‚¹ã‚»ã‚½ã‚¶ã‚¸ã‚ºã‚¼ã‚¾ã‚¿ãƒãƒ„ãƒ†ãƒˆãƒ€ãƒ‚ãƒ…ãƒ‡ãƒ‰ãƒŠãƒ‹ãƒŒãƒãƒãƒãƒ’ãƒ•ãƒ˜ãƒ›ãƒãƒ“ãƒ–ãƒ™ãƒœãƒ‘ãƒ”ãƒ—ãƒšãƒãƒãƒŸãƒ ãƒ¡ãƒ¢ãƒ¤ãƒ¦ãƒ¨ãƒ£ãƒ¥ãƒ§ãƒ©ãƒªãƒ«ãƒ¬ãƒ­ãƒ¯ãƒ®ãƒ°ãƒ±ãƒ²ãƒƒãƒ³ãƒ¼<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”value‚ª•¡”•¶š‚Å‘SŠpƒJƒi•¶š‚Ì‚İ‚Å\¬‚³‚ê‚Ä‚¢‚éê‡Atrue‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°valueãŒè¤‡æ•°æ–‡å­—ã§å…¨è§’ã‚«ãƒŠæ–‡å­—ã®ã¿ã§æ§‹æˆã•ã‚Œã¦ã„ã‚‹å ´åˆã€trueãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsZenkakuKanaString06() throws Exception {
-        // ƒeƒXƒgÀ{E”»’è
-        assertTrue(ValidationUtil.isZenkakuKanaString("ƒAƒCƒE"));
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ãƒ»åˆ¤å®š
+        assertTrue(ValidationUtil.isZenkakuKanaString("ã‚¢ã‚¤ã‚¦"));
     }
 
 }

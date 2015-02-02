@@ -6,11 +6,11 @@ import jp.terasoluna.fw.file.dao.standard.AbstractFileLineIterator;
 import jp.terasoluna.fw.file.dao.standard.ColumnParser;
 
 /**
- * AbstractFileLineIterator‚ÌÀ‘•ƒNƒ‰ƒXB
+ * AbstractFileLineIteratorã®å®Ÿè£…ã‚¯ãƒ©ã‚¹ã€‚
  * <p>
- * AbstractFileLineIterator‚ÌƒeƒXƒg‚Ì‚½‚ß‚É—˜—p‚·‚éB<br>
- * “Ç‚İæ‚Á‚½ƒf[ƒ^1s•ª‚ğƒJƒ“ƒ}i,j‚Å‹æØ‚Á‚ÄAƒJƒ‰ƒ€‚Æ‚µ‚Ä•Ô‚·B
- * @param <T> ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgB
+ * AbstractFileLineIteratorã®ãƒ†ã‚¹ãƒˆã®ãŸã‚ã«åˆ©ç”¨ã™ã‚‹ã€‚<br>
+ * èª­ã¿å–ã£ãŸãƒ‡ãƒ¼ã‚¿1è¡Œåˆ†ã‚’ã‚«ãƒ³ãƒï¼ˆ,ï¼‰ã§åŒºåˆ‡ã£ã¦ã€ã‚«ãƒ©ãƒ ã¨ã—ã¦è¿”ã™ã€‚
+ * @param <T> ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
  */
 public class AbstractFileLineIteratorImpl01<T> extends
                                                AbstractFileLineIterator<T> {

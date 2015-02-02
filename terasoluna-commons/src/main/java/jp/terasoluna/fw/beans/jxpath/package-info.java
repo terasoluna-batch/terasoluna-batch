@@ -1,4 +1,4 @@
 /**
- * Apache Commons JXPath‚ÌŠg’£ƒNƒ‰ƒX
+ * Apache Commons JXPathã®æ‹¡å¼µã‚¯ãƒ©ã‚¹
  */
 package jp.terasoluna.fw.beans.jxpath;

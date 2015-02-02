@@ -3,18 +3,18 @@ package jp.terasoluna.fw.file.dao.standard;
 import jp.terasoluna.fw.file.annotation.FileFormat;
 
 /**
- * FileFormatƒAƒmƒe[ƒVƒ‡ƒ“‚ğ‚¿A‘®«‚ğ‚½‚È‚¢ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgƒXƒ^ƒu
+ * FileFormatã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã‚’æŒã¡ã€å±æ€§ã‚’æŒãŸãªã„ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¹ã‚¿ãƒ–
  * <p>
- * ˆÈ‰º‚Ìİ’è‚ğ‚Â<br>
+ * ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤<br>
  * <ul>
- * <li>@FileFormat(delimiter = 'A')
- * <li>‘®«
+ * <li>@FileFormat(delimiter = 'ã€')
+ * <li>å±æ€§
  * <ul>
- * <li>‚È‚µ<br>
+ * <li>ãªã—<br>
  * </ul>
  * </ul>
  */
-@FileFormat(delimiter = 'A')
+@FileFormat(delimiter = 'ã€')
 public class FixedFileLineWriter_Stub02 {
 
 }

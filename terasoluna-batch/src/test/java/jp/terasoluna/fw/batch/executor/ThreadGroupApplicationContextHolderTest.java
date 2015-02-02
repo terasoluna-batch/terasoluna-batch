@@ -18,7 +18,7 @@ public class ThreadGroupApplicationContextHolderTest extends TestCase {
      * @see junit.framework.TestCase#setUp()
      */
     protected void setUp() throws Exception {
-        // Ç¢Ç¡ÇΩÇÒÉNÉäÉA
+        // „ÅÑ„Å£„Åü„Çì„ÇØ„É™„Ç¢
         ((Map<?, ?>) ReflectionUtils.getField(
                 ThreadGroupApplicationContextHolder.class, "tga")).clear();
         super.setUp();

@@ -10,7 +10,7 @@ import jp.terasoluna.fw.collector.vo.DataValueObject;
 
 public class AbstractCollectorStubHasNext5<P> extends AbstractCollector<P> {
 
-	// ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	AbstractCollectorStubHasNext5(int size) {
 		this.queue = new ArrayBlockingQueue<DataValueObject>(size);
 	}
@@ -23,11 +23,11 @@ public class AbstractCollectorStubHasNext5<P> extends AbstractCollector<P> {
     @Override
     protected BlockingQueue<DataValueObject> createQueue() {
         if (this.currentQueue == null) {
-            // currentƒLƒ…[¶¬
+            // currentã‚­ãƒ¥ãƒ¼ç”Ÿæˆ
             this.currentQueue = createCurrentQueue();
         }
         if (this.previousQueue == null) {
-            // previousƒLƒ…[¶¬
+            // previousã‚­ãƒ¥ãƒ¼ç”Ÿæˆ
             this.previousQueue = createPreviousQueue();
         }
         return new LinkedBlockingQueue<DataValueObject>();

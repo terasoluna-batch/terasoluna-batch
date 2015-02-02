@@ -3,16 +3,16 @@ package jp.terasoluna.fw.file.dao.standard;
 import jp.terasoluna.fw.file.annotation.FileFormat;
 
 /**
- * FileFormatƒAƒmƒe[ƒVƒ‡ƒ“‚Ìİ’è‚ğ‚ÂAƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgƒXƒ^ƒu
+ * FileFormatã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã®è¨­å®šã‚’æŒã¤ã€ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¹ã‚¿ãƒ–
  * <p>
- * ƒfƒtƒHƒ‹ƒgƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ªuprivatev‚ÅéŒ¾‚³‚ê‚Ä‚¢‚é
+ * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãŒã€Œprivateã€ã§å®£è¨€ã•ã‚Œã¦ã„ã‚‹
  * <p>
- * ˆÈ‰º‚Ìİ’è‚ğ‚Â<br>
+ * ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤<br>
  * <ul>
  * <li>@FileFormat(delimiter='|', encloseChar='\"', headerLineCount=1, trailerLineCount=1)
- * <li>‘®«
+ * <li>å±æ€§
  * <ul>
- * <li>‚È‚µ
+ * <li>ãªã—
  * </ul>
  * </ul>
  */

@@ -18,17 +18,17 @@ package jp.terasoluna.fw.collector.validate;
 
 public enum ValidateErrorStatus {
     /**
-     * Œp‘±‚·‚éiƒGƒ‰[ƒf[ƒ^‚ÌƒLƒ…[ƒCƒ“ƒO‚ðs‚¤j
+     * ç¶™ç¶šã™ã‚‹ï¼ˆã‚¨ãƒ©ãƒ¼ãƒ‡ãƒ¼ã‚¿ã®ã‚­ãƒ¥ãƒ¼ã‚¤ãƒ³ã‚°ã‚’è¡Œã†ï¼‰
      */
     CONTINUE,
 
     /**
-     * ƒXƒLƒbƒv‚·‚éiƒGƒ‰[ƒf[ƒ^‚ÌƒLƒ…[ƒCƒ“ƒO‚ðs‚í‚È‚¢j
+     * ã‚¹ã‚­ãƒƒãƒ—ã™ã‚‹ï¼ˆã‚¨ãƒ©ãƒ¼ãƒ‡ãƒ¼ã‚¿ã®ã‚­ãƒ¥ãƒ¼ã‚¤ãƒ³ã‚°ã‚’è¡Œã‚ãªã„ï¼‰
      */
     SKIP,
 
     /**
-     * I—¹‚·‚éiƒGƒ‰[ƒf[ƒ^‚ÌƒLƒ…[ƒCƒ“ƒO‚ðs‚í‚È‚¢j
+     * çµ‚äº†ã™ã‚‹ï¼ˆã‚¨ãƒ©ãƒ¼ãƒ‡ãƒ¼ã‚¿ã®ã‚­ãƒ¥ãƒ¼ã‚¤ãƒ³ã‚°ã‚’è¡Œã‚ãªã„ï¼‰
      */
     END
 }

@@ -29,11 +29,11 @@ import jp.terasoluna.utlib.UTUtil;
 import junit.framework.TestCase;
 /**
  * {@link jp.terasoluna.fw.web.jndi.DefaultJndiSupport}
- * ƒNƒ‰ƒX‚Ìƒuƒ‰ƒbƒNƒ{ƒbƒNƒXƒeƒXƒgB
+ * ã‚¯ãƒ©ã‚¹ã®ãƒ–ãƒ©ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ†ã‚¹ãƒˆã€‚
  *
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4>
- * TERASOLUNA‚ª’ñ‹Ÿ‚·‚éJNDIŠÖ˜A‚Ìƒ†[ƒeƒBƒŠƒeƒBƒfƒtƒHƒ‹ƒgÀ‘•ƒNƒ‰ƒXB
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4>
+ * TERASOLUNAãŒæä¾›ã™ã‚‹JNDIé–¢é€£ã®ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå®Ÿè£…ã‚¯ãƒ©ã‚¹ã€‚
  * <p>
  *
  * @see jp.terasoluna.fw.web.jndi.DefaultJndiSupport
@@ -57,32 +57,32 @@ public class DefaultJndiSupportTest extends TestCase {
      * testSetJndiPrefix01()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) super.resourceRef:true<br>
-     *         (ó‘Ô) super.resourceRef:false<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) super.resourceRef:true<br>
+     *         (çŠ¶æ…‹) super.resourceRef:false<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») super.resourceRef:true<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) super.resourceRef:true<br>
      *
      * <br>
-     * ˆø”‚Éw’è‚µ‚½’l‚ªƒX[ƒp[ƒNƒ‰ƒX‚ÌresourceRef‚É³í‚ÉŠi”[‚³‚ê‚é‚±‚Æ‚ğŠm”F
+     * å¼•æ•°ã«æŒ‡å®šã—ãŸå€¤ãŒã‚¹ãƒ¼ãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã®resourceRefã«æ­£å¸¸ã«æ ¼ç´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèª
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testSetJndiPrefix01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DefaultJndiSupport support = new DefaultJndiSupport();
         support.setResourceRef(false);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         support.setJndiPrefix(true);
 
-        // ”»’è
-        // ƒX[ƒp[ƒNƒ‰ƒX‚Ìƒƒ\ƒbƒhŒÄ‚Ño‚µ
+        // åˆ¤å®š
+        // ã‚¹ãƒ¼ãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã®ãƒ¡ã‚½ãƒƒãƒ‰å‘¼ã³å‡ºã—
         boolean b = support.isResourceRef();
         assertTrue(b);
     }
@@ -91,32 +91,32 @@ public class DefaultJndiSupportTest extends TestCase {
      * testIsJndiPrefix01()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ó‘Ô) super.resourceRef:true<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) super.resourceRef:true<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) super.resourceRef:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) super.resourceRef:true<br>
      *
      * <br>
-     * DefaultJndiSupport‚ÉŠi”[‚³‚ê‚Ä‚¢‚ésuper.resourceRef‚ğ³í‚Éæ“¾‚·‚é
-     * ‚±‚Æ‚ğŠm”F
+     * DefaultJndiSupportã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹super.resourceRefã‚’æ­£å¸¸ã«å–å¾—ã™ã‚‹
+     * ã“ã¨ã‚’ç¢ºèª
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsJndiPrefix01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DefaultJndiSupport support = new DefaultJndiSupport();
-        // ƒX[ƒp[ƒNƒ‰ƒX‚Ìƒƒ\ƒbƒh‚Å‘O’ñğŒİ’è
+        // ã‚¹ãƒ¼ãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§å‰ææ¡ä»¶è¨­å®š
         support.setResourceRef(true);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean b = support.isJndiPrefix();
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(b);
     }
     
@@ -124,34 +124,34 @@ public class DefaultJndiSupportTest extends TestCase {
      * testGetJndiEnvironmentMap01()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ó‘Ô) jndiEnvironmentMap:not null<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) jndiEnvironmentMap:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Map:ƒCƒ“ƒXƒ^ƒ“ƒX•Ï”‚ÌjndiEnvironmentMap<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Map:ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹å¤‰æ•°ã®jndiEnvironmentMap<br>
      *
      * <br>
-     * ƒCƒ“ƒXƒ^ƒ“ƒX•Ï”‚ÌjndiEnvironmentMap‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * ¦³íŒn1Œ‚Ì‚İŠm”FB
+     * ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹å¤‰æ•°ã®jndiEnvironmentMapãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * â€»æ­£å¸¸ç³»1ä»¶ã®ã¿ç¢ºèªã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetJndiEnvironmentMap01() throws Exception {
         
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DefaultJndiSupport support = new DefaultJndiSupport();
         Map map = new HashMap();
         
         UTUtil.setPrivateField(support, "jndiEnvironmentMap", map);
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object result = support.getJndiEnvironmentMap();
 
-        // ”»’è”»’è
+        // åˆ¤å®šåˆ¤å®š
         assertSame(map, result);
     }
     
@@ -159,33 +159,33 @@ public class DefaultJndiSupportTest extends TestCase {
      * testSetJndiEnvironmentMap01()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) jndiEnvironmentMap:not null<br>
-     *         (ó‘Ô) jndiEnvironmentMap:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) jndiEnvironmentMap:not null<br>
+     *         (çŠ¶æ…‹) jndiEnvironmentMap:null<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») jndiEnvironmentMap:not nulliˆø”‚Éw’è‚µ‚½Mapj<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) jndiEnvironmentMap:not nullï¼ˆå¼•æ•°ã«æŒ‡å®šã—ãŸMapï¼‰<br>
      *
      * <br>
-     * ˆø”‚Éw’è‚µ‚½Map‚ªƒCƒ“ƒXƒ^ƒ“ƒX•Ï”jndiEnvironmentMap‚Éİ’è‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * ¦³íŒn1Œ‚Ì‚İŠm”FB
+     * å¼•æ•°ã«æŒ‡å®šã—ãŸMapãŒã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹å¤‰æ•°jndiEnvironmentMapã«è¨­å®šã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * â€»æ­£å¸¸ç³»1ä»¶ã®ã¿ç¢ºèªã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testSetJndiEnvironmentMap01() throws Exception {
         
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DefaultJndiSupport support = new DefaultJndiSupport();
         Map<String, String> map = new HashMap<String, String>();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         support.setJndiEnvironmentMap(map);
         
-        // ”»’è”»’è
+        // åˆ¤å®šåˆ¤å®š
         Object result = UTUtil.getPrivateField(support, "jndiEnvironmentMap");
         assertSame(map, result);
     }
@@ -194,30 +194,30 @@ public class DefaultJndiSupportTest extends TestCase {
      * testInitialize01()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ó‘Ô) jndiEnvironmentMap:null<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) jndiEnvironmentMap:null<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») jndiEnvironmentMap:null<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) jndiEnvironmentMap:null<br>
      * <br>
-     * jndiEnvironmentMap‚ªnull‚¾‚Á‚½ê‡AJndiTemplate‚ÌŠÂ‹«ƒvƒƒpƒeƒB‚Íİ’è‚³‚ê‚È‚¢‚±‚Æ‚ğŠm”F
+     * jndiEnvironmentMapãŒnullã ã£ãŸå ´åˆã€JndiTemplateã®ç’°å¢ƒãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã¯è¨­å®šã•ã‚Œãªã„ã“ã¨ã‚’ç¢ºèª
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testInitialize01() throws Exception {
 
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DefaultJndiSupport support = new DefaultJndiSupport();
         UTUtil.setPrivateField(support, "jndiEnvironmentMap", null);
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         support.initialize();
         
-        // ”»’è
+        // åˆ¤å®š
         Object result = UTUtil.getPrivateField(support, "jndiEnvironmentMap");
         assertNull(result);
     }
@@ -226,40 +226,40 @@ public class DefaultJndiSupportTest extends TestCase {
      * testInitialize02()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FD
+     * è¦³ç‚¹ï¼šD
      * <br><br>
-     * “ü—Í’lF(ó‘Ô) jndiEnvironmentMap.get("factory")F"factory"<br>
-     *         (ó‘Ô) jndiEnvironmentMap.get("url")F"url"<br>
-     *         (ó‘Ô) jndiEnvironmentMap.get("username")Fnull<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) jndiEnvironmentMap.get("factory")ï¼š"factory"<br>
+     *         (çŠ¶æ…‹) jndiEnvironmentMap.get("url")ï¼š"url"<br>
+     *         (çŠ¶æ…‹) jndiEnvironmentMap.get("username")ï¼šnull<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») jndiEnvironmentMap:not null<br>
-     *         (ó‘Ô•Ï‰») getJndiTemplate().get(<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) jndiEnvironmentMap:not null<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) getJndiTemplate().get(<br>
      *                    Context.INITIAL_CONTEXT_FACTORY):"factory"<br>
-     *         (ó‘Ô•Ï‰») getJndiTemplate().get(<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) getJndiTemplate().get(<br>
      *                    Context.PROVIDER_URL):"url"<br>
-     *         (ó‘Ô•Ï‰») getJndiTemplate().get(<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) getJndiTemplate().get(<br>
      *                    Context.SECURITY_PRINCIPAL):null<br>
-     *         (ó‘Ô•Ï‰») getJndiTemplate().get(<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) getJndiTemplate().get(<br>
      *                    Context.SECURITY_CREDENTIALS):null<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:ƒƒƒO„<br>
-     *                    ƒCƒ“ƒtƒHƒƒOF<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ï¼œãƒ­ã‚°ï¼<br>
+     *                    ã‚¤ãƒ³ãƒ•ã‚©ãƒ­ã‚°ï¼š<br>
      *                    "java.naming.factory.initial = factory"<br>
      *                    "java.naming.provider.url = url"<br>
      *                    "java.naming.security.principal = null"<br>
      *                    "java.naming.security.credentials = null"<br>
      *
      * <br>
-     * jndiEnvironmentMap.get("username")‚ªnull‚¾‚Á‚½ê‡A
-     * JndiTemplate‚ÌŠÂ‹«ƒvƒƒpƒeƒB‚ÉjndiFactory‚ÆjndiUrl‚¾‚¯‚ªİ’è‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F
+     * jndiEnvironmentMap.get("username")ãŒnullã ã£ãŸå ´åˆã€
+     * JndiTemplateã®ç’°å¢ƒãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã«jndiFactoryã¨jndiUrlã ã‘ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèª
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testInitialize02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Map<String, String> map = new HashMap<String, String>();
         map.put("factory", "factory");
         map.put("url", "url");
@@ -267,10 +267,10 @@ public class DefaultJndiSupportTest extends TestCase {
         DefaultJndiSupport support = new DefaultJndiSupport();
         UTUtil.setPrivateField(support, "jndiEnvironmentMap", map);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         support.initialize();
         
-        // ”»’è
+        // åˆ¤å®š
         Object result = UTUtil.getPrivateField(support, "jndiEnvironmentMap");
         assertSame(map, result);
         
@@ -293,41 +293,41 @@ public class DefaultJndiSupportTest extends TestCase {
      * testInitialize03()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FD
+     * è¦³ç‚¹ï¼šD
      * <br><br>
-     * “ü—Í’lF(ó‘Ô) jndiEnvironmentMap.get("factory")F"factory"<br>
-     *         (ó‘Ô) jndiEnvironmentMap.get("url")F"url"<br>
-     *         (ó‘Ô) jndiEnvironmentMap.get("username")F""<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) jndiEnvironmentMap.get("factory")ï¼š"factory"<br>
+     *         (çŠ¶æ…‹) jndiEnvironmentMap.get("url")ï¼š"url"<br>
+     *         (çŠ¶æ…‹) jndiEnvironmentMap.get("username")ï¼š""<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») jndiEnvironmentMap:not null<br>
-     *         (ó‘Ô•Ï‰») getJndiTemplate().get(<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) jndiEnvironmentMap:not null<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) getJndiTemplate().get(<br>
      *                    Context.INITIAL_CONTEXT_FACTORY):"factory"<br>
-     *         (ó‘Ô•Ï‰») getJndiTemplate().get(<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) getJndiTemplate().get(<br>
      *                    Context.PROVIDER_URL):"url"<br>
-     *         (ó‘Ô•Ï‰») getJndiTemplate().get(<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) getJndiTemplate().get(<br>
      *                    Context.SECURITY_PRINCIPAL):null<br>
-     *         (ó‘Ô•Ï‰») getJndiTemplate().get(<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) getJndiTemplate().get(<br>
      *                    Context.SECURITY_CREDENTIALS):null<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:ƒƒƒO„<br>
-     *                    ƒCƒ“ƒtƒHƒƒOF<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ï¼œãƒ­ã‚°ï¼<br>
+     *                    ã‚¤ãƒ³ãƒ•ã‚©ãƒ­ã‚°ï¼š<br>
      *                    "java.naming.factory.initial = factory"<br>
      *                    "java.naming.provider.url = url"<br>
      *                    "java.naming.security.principal = "<br>
      *                    "java.naming.security.credentials = null"<br>
      *
      * <br>
-     * jndiEnvironmentMap.get("username")‚ª‹ó•¶š‚¾‚Á‚½ê‡AJndiTemplate‚ÌŠÂ‹«
-     * ƒvƒƒpƒeƒB‚ÉjndiFactory‚ÆjndiUrl‚¾‚¯‚ªİ’è‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F
+     * jndiEnvironmentMap.get("username")ãŒç©ºæ–‡å­—ã ã£ãŸå ´åˆã€JndiTemplateã®ç’°å¢ƒ
+     * ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã«jndiFactoryã¨jndiUrlã ã‘ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèª
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testInitialize03() throws Exception {
         
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Map<String, String> map = new HashMap<String, String>();
         map.put("factory", "factory");
         map.put("url", "url");
@@ -336,10 +336,10 @@ public class DefaultJndiSupportTest extends TestCase {
         DefaultJndiSupport support = new DefaultJndiSupport();
         UTUtil.setPrivateField(support, "jndiEnvironmentMap", map);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         support.initialize();
         
-        // ”»’è
+        // åˆ¤å®š
         Object result = UTUtil.getPrivateField(support, "jndiEnvironmentMap");
         assertSame(map, result);
         
@@ -360,41 +360,41 @@ public class DefaultJndiSupportTest extends TestCase {
      * testInitialize04()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FD
+     * è¦³ç‚¹ï¼šD
      * <br><br>
-     * “ü—Í’lF(ó‘Ô) jndiEnvironmentMap.get("factory")F"factory"<br>
-     *         (ó‘Ô) jndiEnvironmentMap.get("url")F"url"<br>
-     *         (ó‘Ô) jndiEnvironmentMap.get("username")F"username"<br>
-     *         (ó‘Ô) jndiEnvironmentMap.get("password")Fnull<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) jndiEnvironmentMap.get("factory")ï¼š"factory"<br>
+     *         (çŠ¶æ…‹) jndiEnvironmentMap.get("url")ï¼š"url"<br>
+     *         (çŠ¶æ…‹) jndiEnvironmentMap.get("username")ï¼š"username"<br>
+     *         (çŠ¶æ…‹) jndiEnvironmentMap.get("password")ï¼šnull<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») jndiEnvironmentMap:not null<br>
-     *         (ó‘Ô•Ï‰») getJndiTemplate().get(<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) jndiEnvironmentMap:not null<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) getJndiTemplate().get(<br>
      *                    Context.INITIAL_CONTEXT_FACTORY):"factory"<br>
-     *         (ó‘Ô•Ï‰») getJndiTemplate().get(<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) getJndiTemplate().get(<br>
      *                    Context.PROVIDER_URL):"url"<br>
-     *         (ó‘Ô•Ï‰») getJndiTemplate().get(<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) getJndiTemplate().get(<br>
      *                    Context.SECURITY_PRINCIPAL):"username"<br>
-     *         (ó‘Ô•Ï‰») getJndiTemplate().get(<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) getJndiTemplate().get(<br>
      *                    Context.SECURITY_CREDENTIALS):""<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:ƒƒƒO„<br>
-     *                    ƒCƒ“ƒtƒHƒƒOF<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ï¼œãƒ­ã‚°ï¼<br>
+     *                    ã‚¤ãƒ³ãƒ•ã‚©ãƒ­ã‚°ï¼š<br>
      *                    "java.naming.factory.initial = factory"<br>
      *                    "java.naming.provider.url = url"<br>
      *                    "java.naming.security.principal = username"<br>
      *                    "java.naming.security.credentials = "<br>
      *
      * <br>
-     * jndiEnvironmentMap.get("password")‚ªnull‚¾‚Á‚½ê‡AJndiTemplate‚ÌŠÂ‹«
-     * ƒvƒƒpƒeƒB‚ÉjndiFactory‚ÆjndiUrl‚ÆjndiUsername‚Æ‹ó•¶š‚ÌjndiPassword‚ªİ’è‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F
+     * jndiEnvironmentMap.get("password")ãŒnullã ã£ãŸå ´åˆã€JndiTemplateã®ç’°å¢ƒ
+     * ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã«jndiFactoryã¨jndiUrlã¨jndiUsernameã¨ç©ºæ–‡å­—ã®jndiPasswordãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèª
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testInitialize04() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Map<String, String> map = new HashMap<String, String>();
         map.put("factory", "factory");
         map.put("url", "url");
@@ -403,10 +403,10 @@ public class DefaultJndiSupportTest extends TestCase {
         DefaultJndiSupport support = new DefaultJndiSupport();
         UTUtil.setPrivateField(support, "jndiEnvironmentMap", map);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         support.initialize();
         
-        // ”»’è
+        // åˆ¤å®š
         Object result = UTUtil.getPrivateField(support, "jndiEnvironmentMap");
         assertSame(map, result);
         
@@ -428,41 +428,41 @@ public class DefaultJndiSupportTest extends TestCase {
      * testInitialize05()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FD
+     * è¦³ç‚¹ï¼šD
      * <br><br>
-     * “ü—Í’lF(ó‘Ô) jndiEnvironmentMap.get("factory")F"factory"<br>
-     *         (ó‘Ô) jndiEnvironmentMap.get("url")F"url"<br>
-     *         (ó‘Ô) jndiEnvironmentMap.get("username")F"username"<br>
-     *         (ó‘Ô) jndiEnvironmentMap.get("password")F""<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) jndiEnvironmentMap.get("factory")ï¼š"factory"<br>
+     *         (çŠ¶æ…‹) jndiEnvironmentMap.get("url")ï¼š"url"<br>
+     *         (çŠ¶æ…‹) jndiEnvironmentMap.get("username")ï¼š"username"<br>
+     *         (çŠ¶æ…‹) jndiEnvironmentMap.get("password")ï¼š""<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») jndiEnvironmentMap:not null<br>
-     *         (ó‘Ô•Ï‰») getJndiTemplate().get(<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) jndiEnvironmentMap:not null<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) getJndiTemplate().get(<br>
      *                    Context.INITIAL_CONTEXT_FACTORY):"factory"<br>
-     *         (ó‘Ô•Ï‰») getJndiTemplate().get(<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) getJndiTemplate().get(<br>
      *                    Context.PROVIDER_URL):"url"<br>
-     *         (ó‘Ô•Ï‰») getJndiTemplate().get(<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) getJndiTemplate().get(<br>
      *                    Context.SECURITY_PRINCIPAL):"username"<br>
-     *         (ó‘Ô•Ï‰») getJndiTemplate().get(<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) getJndiTemplate().get(<br>
      *                    Context.SECURITY_CREDENTIALS):""<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:ƒƒƒO„<br>
-     *                    ƒCƒ“ƒtƒHƒƒOF<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ï¼œãƒ­ã‚°ï¼<br>
+     *                    ã‚¤ãƒ³ãƒ•ã‚©ãƒ­ã‚°ï¼š<br>
      *                    "java.naming.factory.initial = factory"<br>
      *                    "java.naming.provider.url = url"<br>
      *                    "java.naming.security.principal = username"<br>
      *                    "java.naming.security.credentials = "<br>
      *
      * <br>
-     * jndiEnvironmentMap.get("password")‚ª‹ó•¶š‚¾‚Á‚½ê‡AJndiTemplate‚ÌŠÂ‹«
-     * ƒvƒƒpƒeƒB‚ÉjndiFactory‚ÆjndiUrl‚ÆjndiUsername‚ÆjndiPassword‚ªİ’è‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F
+     * jndiEnvironmentMap.get("password")ãŒç©ºæ–‡å­—ã ã£ãŸå ´åˆã€JndiTemplateã®ç’°å¢ƒ
+     * ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã«jndiFactoryã¨jndiUrlã¨jndiUsernameã¨jndiPasswordãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèª
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testInitialize05() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Map<String, String> map = new HashMap<String, String>();
         map.put("factory", "factory");
         map.put("url", "url");
@@ -472,10 +472,10 @@ public class DefaultJndiSupportTest extends TestCase {
         DefaultJndiSupport support = new DefaultJndiSupport();
         UTUtil.setPrivateField(support, "jndiEnvironmentMap", map);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         support.initialize();
         
-        // ”»’è
+        // åˆ¤å®š
         Object result = UTUtil.getPrivateField(support, "jndiEnvironmentMap");
         assertSame(map, result);
         
@@ -497,42 +497,42 @@ public class DefaultJndiSupportTest extends TestCase {
      * testInitialize06()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FD
+     * è¦³ç‚¹ï¼šD
      * <br><br>
-     * “ü—Í’lF(ó‘Ô) jndiEnvironmentMap.get("factory")F"factory"<br>
-     *         (ó‘Ô) jndiEnvironmentMap.get("url")F"url"<br>
-     *         (ó‘Ô) jndiEnvironmentMap.get("username")F"username"<br>
-     *         (ó‘Ô) jndiEnvironmentMap.get("password")F"password"<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) jndiEnvironmentMap.get("factory")ï¼š"factory"<br>
+     *         (çŠ¶æ…‹) jndiEnvironmentMap.get("url")ï¼š"url"<br>
+     *         (çŠ¶æ…‹) jndiEnvironmentMap.get("username")ï¼š"username"<br>
+     *         (çŠ¶æ…‹) jndiEnvironmentMap.get("password")ï¼š"password"<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») jndiEnvironmentMap:not null<br>
-     *         (ó‘Ô•Ï‰») getJndiTemplate().get(<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) jndiEnvironmentMap:not null<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) getJndiTemplate().get(<br>
      *                    Context.INITIAL_CONTEXT_FACTORY):"factory"<br>
-     *         (ó‘Ô•Ï‰») getJndiTemplate().get(<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) getJndiTemplate().get(<br>
      *                    Context.PROVIDER_URL):"url"<br>
-     *         (ó‘Ô•Ï‰») getJndiTemplate().get(<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) getJndiTemplate().get(<br>
      *                    Context.SECURITY_PRINCIPAL):"username"<br>
-     *         (ó‘Ô•Ï‰») getJndiTemplate().get(<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) getJndiTemplate().get(<br>
      *                    Context.SECURITY_CREDENTIALS):"password"<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:ƒƒƒO„<br>
-     *                    ƒCƒ“ƒtƒHƒƒOF<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ï¼œãƒ­ã‚°ï¼<br>
+     *                    ã‚¤ãƒ³ãƒ•ã‚©ãƒ­ã‚°ï¼š<br>
      *                    "java.naming.factory.initial = factory"<br>
      *                    "java.naming.provider.url = url"<br>
      *                    "java.naming.security.principal = username"<br>
      *                    "java.naming.security.credentials = password"<br>
      *
      * <br>
-     * jndiEnvironmentMap‚ÉŠi”[‚³‚ê‚Ä‚¢‚é"factory", "url", "username", 
-     * "password"‚ªnull‚Å‚à‹ó•¶š‚Å‚à‚È‚©‚Á‚½ê‡AJndiTemplate‚ÌŠÂ‹«
-     * ƒvƒƒpƒeƒB‚ÉjndiFactoryAjndiUrlAjndiUsernameAjndiPassword‚ªİ’è‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F
+     * jndiEnvironmentMapã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹"factory", "url", "username", 
+     * "password"ãŒnullã§ã‚‚ç©ºæ–‡å­—ã§ã‚‚ãªã‹ã£ãŸå ´åˆã€JndiTemplateã®ç’°å¢ƒ
+     * ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã«jndiFactoryã€jndiUrlã€jndiUsernameã€jndiPasswordãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèª
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testInitialize06() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Map<String, String> map = new HashMap<String, String>();
         map.put("factory", "factory");
         map.put("url", "url");
@@ -542,10 +542,10 @@ public class DefaultJndiSupportTest extends TestCase {
         DefaultJndiSupport support = new DefaultJndiSupport();
         UTUtil.setPrivateField(support, "jndiEnvironmentMap", map);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         support.initialize();
         
-        // ”»’è
+        // åˆ¤å®š
         Object result = UTUtil.getPrivateField(support, "jndiEnvironmentMap");
         assertSame(map, result);
         
@@ -567,38 +567,38 @@ public class DefaultJndiSupportTest extends TestCase {
      * testRebind01()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) name:null<br>
-     *         (ˆø”) obj:"abc"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) name:null<br>
+     *         (å¼•æ•°) obj:"abc"<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:ƒƒƒO„<br>
-     *                    ƒGƒ‰[ƒƒOF<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ï¼œãƒ­ã‚°ï¼<br>
+     *                    ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°ï¼š<br>
      *                    "Illegal arguments error : name=" + name + ", obj=" + obj<br>
      *
      * <br>
-     * ˆø”name‚ªnull‚Ìê‡A—áŠO‚ğ‹N‚±‚·‚±‚Æ‚ğŠm”F‚·‚é
+     * å¼•æ•°nameãŒnullã®å ´åˆã€ä¾‹å¤–ã‚’èµ·ã“ã™ã“ã¨ã‚’ç¢ºèªã™ã‚‹
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testRebind01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DefaultJndiSupport support = new DefaultJndiSupport();
 
         String name = null;
         Object obj = "abc";
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             support.rebind(name, obj);
             fail();
         } catch (IllegalArgumentException e) {
-            // ”»’è
+            // åˆ¤å®š
             assertTrue(LogUTUtil.checkError(
                     "Illegal arguments error : name=null, obj=abc"));
         }
@@ -608,45 +608,45 @@ public class DefaultJndiSupportTest extends TestCase {
      * testRebind02()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) name:""<br>
-     *         (ˆø”) obj:"abc"<br>
-     *         (ó‘Ô) JndiTemplate:DefaultJndiSupport_JndiTemplate_Stub01<br>
-     *         (ó‘Ô) super.<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) name:""<br>
+     *         (å¼•æ•°) obj:"abc"<br>
+     *         (çŠ¶æ…‹) JndiTemplate:DefaultJndiSupport_JndiTemplate_Stub01<br>
+     *         (çŠ¶æ…‹) super.<br>
      *                resourceRef:false<br>
-     *         (ó‘Ô) DefaultJndiSupport_JndiTemplate_Stub01.<br>
+     *         (çŠ¶æ…‹) DefaultJndiSupport_JndiTemplate_Stub01.<br>
      *                isCallRebind:false<br>
-     *         (ó‘Ô) DefaultJndiSupport_JndiTemplate_Stub01.<br>
+     *         (çŠ¶æ…‹) DefaultJndiSupport_JndiTemplate_Stub01.<br>
      *                jndiNameToUse:null<br>
-     *         (ó‘Ô) DefaultJndiSupport_JndiTemplate_Stub01.<br>
+     *         (çŠ¶æ…‹) DefaultJndiSupport_JndiTemplate_Stub01.<br>
      *                obj:null<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») DefaultJndiSupport_JndiTemplate_Stub01.<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) DefaultJndiSupport_JndiTemplate_Stub01.<br>
      *                    isCallRebind:true<br>
-     *         (ó‘Ô•Ï‰») DefaultJndiSupport_JndiTemplate_Stub01.<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) DefaultJndiSupport_JndiTemplate_Stub01.<br>
      *                    jndiNameToUse:""<br>
-     *         (ó‘Ô•Ï‰») DefaultJndiSupport_JndiTemplate_Stub01.<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) DefaultJndiSupport_JndiTemplate_Stub01.<br>
      *                    obj:"abc"<br>
      *
      * <br>
-     * ˆø”name‚ª‹ó•¶š‚Å‚ ‚èAˆø”obj‚ªnot null‚Ìê‡AJndiTemplate.rebind()‚ÌŒÄ‚Ño‚µŠm”F‚ğs‚¤
+     * å¼•æ•°nameãŒç©ºæ–‡å­—ã§ã‚ã‚Šã€å¼•æ•°objãŒnot nullã®å ´åˆã€JndiTemplate.rebind()ã®å‘¼ã³å‡ºã—ç¢ºèªã‚’è¡Œã†
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testRebind02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DefaultJndiSupport support = new DefaultJndiSupport();
 
         String name = "";
         Object obj = "abc";
 
 
-        // JndiTemplateæ“¾
+        // JndiTemplateå–å¾—
         DefaultJndiSupport_JndiTemplateStub01 template =
             new DefaultJndiSupport_JndiTemplateStub01();
         template.setCallRebind(false);
@@ -657,10 +657,10 @@ public class DefaultJndiSupportTest extends TestCase {
         // super.resourceRef = false;
         support.setResourceRef(false);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         support.rebind(name, obj);
 
-        // ”»’è
+        // åˆ¤å®š
         boolean b = template.isCallRebind();
         assertTrue(b);
         assertEquals("", template.getJndiNameToUse());
@@ -671,38 +671,38 @@ public class DefaultJndiSupportTest extends TestCase {
      * testRebind03()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) name:"abc"<br>
-     *         (ˆø”) obj:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) name:"abc"<br>
+     *         (å¼•æ•°) obj:null<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:ƒƒƒO„<br>
-     *                    ƒGƒ‰[ƒƒOF<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ï¼œãƒ­ã‚°ï¼<br>
+     *                    ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°ï¼š<br>
      *                    "Illegal arguments error : name=" + name + ", obj=" + obj<br>
      *
      * <br>
-     * ˆø”obj‚ªnull‚Ìê‡A—áŠO‚ğ‹N‚±‚·‚±‚Æ‚ğŠm”F‚·‚é
+     * å¼•æ•°objãŒnullã®å ´åˆã€ä¾‹å¤–ã‚’èµ·ã“ã™ã“ã¨ã‚’ç¢ºèªã™ã‚‹
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testRebind03() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DefaultJndiSupport support = new DefaultJndiSupport();
 
         String name = "abc";
         Object obj = null;
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             support.rebind(name, obj);
             fail();
         } catch (IllegalArgumentException e) {
-            // ”»’è
+            // åˆ¤å®š
             assertTrue(LogUTUtil.checkError(
                     "Illegal arguments error : name=abc, obj=null"));
         }
@@ -712,46 +712,46 @@ public class DefaultJndiSupportTest extends TestCase {
      * testRebind04()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) name:"abc"<br>
-     *         (ˆø”) obj:"abc"<br>
-     *         (ó‘Ô) JndiTemplate:DefaultJndiSupport_JndiTemplate_Stub01<br>
-     *         (ó‘Ô) super.<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) name:"abc"<br>
+     *         (å¼•æ•°) obj:"abc"<br>
+     *         (çŠ¶æ…‹) JndiTemplate:DefaultJndiSupport_JndiTemplate_Stub01<br>
+     *         (çŠ¶æ…‹) super.<br>
      *                resourceRef:true<br>
-     *         (ó‘Ô) DefaultJndiSupport_JndiTemplate_Stub01.<br>
+     *         (çŠ¶æ…‹) DefaultJndiSupport_JndiTemplate_Stub01.<br>
      *                isCallRebind:false<br>
-     *         (ó‘Ô) DefaultJndiSupport_JndiTemplate_Stub01.<br>
+     *         (çŠ¶æ…‹) DefaultJndiSupport_JndiTemplate_Stub01.<br>
      *                jndiNameToUse:null<br>
-     *         (ó‘Ô) DefaultJndiSupport_JndiTemplate_Stub01.<br>
+     *         (çŠ¶æ…‹) DefaultJndiSupport_JndiTemplate_Stub01.<br>
      *                obj:null<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») DefaultJndiSupport_JndiTemplate_Stub01.<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) DefaultJndiSupport_JndiTemplate_Stub01.<br>
      *                    isCallRebind:true<br>
-     *         (ó‘Ô•Ï‰») DefaultJndiSupport_JndiTemplate_Stub01.<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) DefaultJndiSupport_JndiTemplate_Stub01.<br>
      *                    jndiNameToUse:"java:comp/env/abc"<br>
-     *         (ó‘Ô•Ï‰») DefaultJndiSupport_JndiTemplate_Stub01.<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) DefaultJndiSupport_JndiTemplate_Stub01.<br>
      *                    obj:"abc"<br>
      *
      * <br>
-     * jndiPrefix‚ªtrue‚Å‚ ‚èAˆø”name‚ª"java:comp/env/"‚Ån‚Ü‚ç‚È‚©‚Á‚½ê‡A
-     * "java:comp/env/"‚ğˆø”name‚É‰Á‚¦‚ÄJndiTemplate.rebind()‚ÌŒÄ‚Ño‚µ‚ğ
-     * s‚Á‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚ğs‚¤
+     * jndiPrefixãŒtrueã§ã‚ã‚Šã€å¼•æ•°nameãŒ"java:comp/env/"ã§å§‹ã¾ã‚‰ãªã‹ã£ãŸå ´åˆã€
+     * "java:comp/env/"ã‚’å¼•æ•°nameã«åŠ ãˆã¦JndiTemplate.rebind()ã®å‘¼ã³å‡ºã—ã‚’
+     * è¡Œã£ã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã‚’è¡Œã†
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testRebind04() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DefaultJndiSupport support = new DefaultJndiSupport();
 
         String name = "abc";
         Object obj = "abc";
 
-        // JndiTemplateæ“¾
+        // JndiTemplateå–å¾—
         DefaultJndiSupport_JndiTemplateStub01 template =
             new DefaultJndiSupport_JndiTemplateStub01();
         template.setCallRebind(false);
@@ -762,10 +762,10 @@ public class DefaultJndiSupportTest extends TestCase {
         // super.resourceRef = true;
         support.setResourceRef(true);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         support.rebind(name, obj);
 
-        // ”»’è
+        // åˆ¤å®š
         boolean b = template.isCallRebind();
         assertTrue(b);
         assertEquals("java:comp/env/abc", template.getJndiNameToUse());
@@ -776,51 +776,51 @@ public class DefaultJndiSupportTest extends TestCase {
      * testRebind05()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) name:"java:comp/env/abc"<br>
-     *         (ˆø”) obj:"abc"<br>
-     *         (ó‘Ô) JndiTemplate:DefaultJndiSupport_JndiTemplate_Stub02<br>
-     *         (ó‘Ô) super.<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) name:"java:comp/env/abc"<br>
+     *         (å¼•æ•°) obj:"abc"<br>
+     *         (çŠ¶æ…‹) JndiTemplate:DefaultJndiSupport_JndiTemplate_Stub02<br>
+     *         (çŠ¶æ…‹) super.<br>
      *                resourceRef:false<br>
-     *         (ó‘Ô) DefaultJndiSupport_JndiTemplate_Stub01.<br>
+     *         (çŠ¶æ…‹) DefaultJndiSupport_JndiTemplate_Stub01.<br>
      *                isCallRebind:false<br>
-     *         (ó‘Ô) DefaultJndiSupport_JndiTemplate_Stub01.<br>
+     *         (çŠ¶æ…‹) DefaultJndiSupport_JndiTemplate_Stub01.<br>
      *                jndiNameToUse:null<br>
-     *         (ó‘Ô) DefaultJndiSupport_JndiTemplate_Stub01.<br>
+     *         (çŠ¶æ…‹) DefaultJndiSupport_JndiTemplate_Stub01.<br>
      *                obj:null<br>
-     *         (ó‘Ô) NamingException:”­¶<br>
+     *         (çŠ¶æ…‹) NamingException:ç™ºç”Ÿ<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») DefaultJndiSupport_JndiTemplate_Stub01.<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) DefaultJndiSupport_JndiTemplate_Stub01.<br>
      *                    isCallRebind:true<br>
-     *         (ó‘Ô•Ï‰») DefaultJndiSupport_JndiTemplate_Stub01.<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) DefaultJndiSupport_JndiTemplate_Stub01.<br>
      *                    jndiNameToUse:"java:comp/env/abc"<br>
-     *         (ó‘Ô•Ï‰») DefaultJndiSupport_JndiTemplate_Stub01.<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) DefaultJndiSupport_JndiTemplate_Stub01.<br>
      *                    obj:"abc"<br>
-     *         (ó‘Ô•Ï‰») —áŠO:JndiExceptionF<br>
-     *                    ƒ‰ƒbƒv‚µ‚½—áŠOFNamingException<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:ƒƒƒO„<br>
-     *                    ƒGƒ‰[ƒƒOF<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:JndiExceptionï¼š<br>
+     *                    ãƒ©ãƒƒãƒ—ã—ãŸä¾‹å¤–ï¼šNamingException<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ï¼œãƒ­ã‚°ï¼<br>
+     *                    ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°ï¼š<br>
      *                    "Illegal JNDI context name."<br>
      *
      * <br>
-     * JndiTemplate.rebind()‚ÅNamingException‚ª”­¶‚µ‚½ê‡AJndiException‚ğ
-     * ‹N‚±‚·‚±‚Æ‚ğŠm”F‚·‚é
+     * JndiTemplate.rebind()ã§NamingExceptionãŒç™ºç”Ÿã—ãŸå ´åˆã€JndiExceptionã‚’
+     * èµ·ã“ã™ã“ã¨ã‚’ç¢ºèªã™ã‚‹
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testRebind05() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DefaultJndiSupport support = new DefaultJndiSupport();
 
         String name = "java:comp/env/abc";
         Object obj = "abc";
 
-        // JndiTemplateæ“¾
+        // JndiTemplateå–å¾—
         DefaultJndiSupport_JndiTemplateStub02 template =
             new DefaultJndiSupport_JndiTemplateStub02();
         template.setCallRebind(false);
@@ -832,7 +832,7 @@ public class DefaultJndiSupportTest extends TestCase {
         support.setResourceRef(false);
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             support.rebind(name, obj);
             fail();
         } catch (JndiException e) {
@@ -841,7 +841,7 @@ public class DefaultJndiSupportTest extends TestCase {
             assertEquals("java:comp/env/abc", template.getJndiNameToUse());
             assertEquals("abc", template.getObj());
 
-            // ”»’è
+            // åˆ¤å®š
             assertEquals(NamingException.class.getName(),
                     e.getCause().getClass().getName());
             assertTrue(LogUTUtil.checkError("Illegal JNDI context name."));
@@ -852,36 +852,36 @@ public class DefaultJndiSupportTest extends TestCase {
      * testUnbind01()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) name:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) name:null<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:ƒƒƒO„<br>
-     *                    ƒGƒ‰[ƒƒOF<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ï¼œãƒ­ã‚°ï¼<br>
+     *                    ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°ï¼š<br>
      *                    "Illegal arguments error : name=" + name<br>
      *
      * <br>
-     * ˆø”name‚ªnull‚Ìê‡A—áŠO‚ğ‹N‚±‚·‚±‚Æ‚ğŠm”F‚·‚é
+     * å¼•æ•°nameãŒnullã®å ´åˆã€ä¾‹å¤–ã‚’èµ·ã“ã™ã“ã¨ã‚’ç¢ºèªã™ã‚‹
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testUnbind01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DefaultJndiSupport support = new DefaultJndiSupport();
 
         String name = null;
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             support.unbind(name);
             fail();
         } catch (IllegalArgumentException e) {
-            // ”»’è
+            // åˆ¤å®š
             assertTrue(LogUTUtil.checkError(
                     "Illegal arguments error : name=null"));
         }
@@ -891,38 +891,38 @@ public class DefaultJndiSupportTest extends TestCase {
      * testUnbind02()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) name:""<br>
-     *         (ó‘Ô) JndiTemplate:DefaultJndiSupport_JndiTemplate_Stub01<br>
-     *         (ó‘Ô) super.<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) name:""<br>
+     *         (çŠ¶æ…‹) JndiTemplate:DefaultJndiSupport_JndiTemplate_Stub01<br>
+     *         (çŠ¶æ…‹) super.<br>
      *                resourceRef:false<br>
-     *         (ó‘Ô) DefaultJndiSupport_JndiTemplate_Stub01.<br>
+     *         (çŠ¶æ…‹) DefaultJndiSupport_JndiTemplate_Stub01.<br>
      *                isCallUnbind:false<br>
-     *         (ó‘Ô) DefaultJndiSupport_JndiTemplate_Stub01.<br>
+     *         (çŠ¶æ…‹) DefaultJndiSupport_JndiTemplate_Stub01.<br>
      *                jndiNameToUse:null<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») DefaultJndiSupport_JndiTemplate_Stub01.<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) DefaultJndiSupport_JndiTemplate_Stub01.<br>
      *                    isCallUnbind:true<br>
-     *         (ó‘Ô•Ï‰») DefaultJndiSupport_JndiTemplate_Stub01.<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) DefaultJndiSupport_JndiTemplate_Stub01.<br>
      *                    jndiNameToUse:""<br>
      *
      * <br>
-     * ˆø”name‚ª‹ó•¶š‚Ìê‡AJndiTemplate.unbind()‚ÌŒÄ‚Ño‚µŠm”F‚ğs‚¤
+     * å¼•æ•°nameãŒç©ºæ–‡å­—ã®å ´åˆã€JndiTemplate.unbind()ã®å‘¼ã³å‡ºã—ç¢ºèªã‚’è¡Œã†
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testUnbind02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DefaultJndiSupport support = new DefaultJndiSupport();
 
         String name = "";
 
-        // JndiTemplateæ“¾
+        // JndiTemplateå–å¾—
         DefaultJndiSupport_JndiTemplateStub01 template =
             new DefaultJndiSupport_JndiTemplateStub01();
         template.setCallUnbind(false);
@@ -933,10 +933,10 @@ public class DefaultJndiSupportTest extends TestCase {
         // super.resourceRef = false;
         support.setResourceRef(false);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         support.unbind(name);
 
-        // ”»’è
+        // åˆ¤å®š
         boolean b = template.isCallUnbind();
         assertTrue(b);
         assertEquals("", template.getJndiNameToUse());
@@ -946,40 +946,40 @@ public class DefaultJndiSupportTest extends TestCase {
      * testUnbind03()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) name:"abc"<br>
-     *         (ó‘Ô) JndiTemplate:DefaultJndiSupport_JndiTemplate_Stub01<br>
-     *         (ó‘Ô) super.<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) name:"abc"<br>
+     *         (çŠ¶æ…‹) JndiTemplate:DefaultJndiSupport_JndiTemplate_Stub01<br>
+     *         (çŠ¶æ…‹) super.<br>
      *                resourceRef:true<br>
-     *         (ó‘Ô) DefaultJndiSupport_JndiTemplate_Stub01.<br>
+     *         (çŠ¶æ…‹) DefaultJndiSupport_JndiTemplate_Stub01.<br>
      *                isCallUnbind:false<br>
-     *         (ó‘Ô) DefaultJndiSupport_JndiTemplate_Stub01.<br>
+     *         (çŠ¶æ…‹) DefaultJndiSupport_JndiTemplate_Stub01.<br>
      *                jndiNameToUse:null<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») DefaultJndiSupport_JndiTemplate_Stub01.<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) DefaultJndiSupport_JndiTemplate_Stub01.<br>
      *                    isCallUnbind:true<br>
-     *         (ó‘Ô•Ï‰») DefaultJndiSupport_JndiTemplate_Stub01.<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) DefaultJndiSupport_JndiTemplate_Stub01.<br>
      *                    jndiNameToUse:"java:comp/env/abc"<br>
      *
      * <br>
-     * super.resourceRef‚ªtrue‚Å‚ ‚èAˆø”name‚ª"java:comp/env/"‚Å
-     * n‚Ü‚ç‚È‚©‚Á‚½ê‡A"java:comp/env/"‚ğˆø”name‚É‰Á‚¦‚Ä
-     * JndiTemplate.unbind()‚ÌŒÄ‚Ño‚µ‚ğs‚Á‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚ğs‚¤
+     * super.resourceRefãŒtrueã§ã‚ã‚Šã€å¼•æ•°nameãŒ"java:comp/env/"ã§
+     * å§‹ã¾ã‚‰ãªã‹ã£ãŸå ´åˆã€"java:comp/env/"ã‚’å¼•æ•°nameã«åŠ ãˆã¦
+     * JndiTemplate.unbind()ã®å‘¼ã³å‡ºã—ã‚’è¡Œã£ã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã‚’è¡Œã†
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testUnbind03() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DefaultJndiSupport support = new DefaultJndiSupport();
 
         String name = "abc";
 
-        // JndiTemplateæ“¾
+        // JndiTemplateå–å¾—
         DefaultJndiSupport_JndiTemplateStub01 template =
             new DefaultJndiSupport_JndiTemplateStub01();
         template.setCallRebind(false);
@@ -990,10 +990,10 @@ public class DefaultJndiSupportTest extends TestCase {
         // super.resourceRef = true;
         support.setResourceRef(true);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         support.unbind(name);
 
-        // ”»’è
+        // åˆ¤å®š
         boolean b = template.isCallUnbind();
         assertTrue(b);
         assertEquals("java:comp/env/abc", template.getJndiNameToUse());
@@ -1003,45 +1003,45 @@ public class DefaultJndiSupportTest extends TestCase {
      * testUnbind04()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) name:"java:comp/env/abc"<br>
-     *         (ó‘Ô) JndiTemplate:DefaultJndiSupport_JndiTemplate_Stub02<br>
-     *         (ó‘Ô) super.<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) name:"java:comp/env/abc"<br>
+     *         (çŠ¶æ…‹) JndiTemplate:DefaultJndiSupport_JndiTemplate_Stub02<br>
+     *         (çŠ¶æ…‹) super.<br>
      *                resourceRef:false<br>
-     *         (ó‘Ô) DefaultJndiSupport_JndiTemplate_Stub01.<br>
+     *         (çŠ¶æ…‹) DefaultJndiSupport_JndiTemplate_Stub01.<br>
      *                isCallUnbind:false<br>
-     *         (ó‘Ô) DefaultJndiSupport_JndiTemplate_Stub01.<br>
+     *         (çŠ¶æ…‹) DefaultJndiSupport_JndiTemplate_Stub01.<br>
      *                jndiNameToUse:null<br>
-     *         (ó‘Ô) NamingException:”­¶<br>
+     *         (çŠ¶æ…‹) NamingException:ç™ºç”Ÿ<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») DefaultJndiSupport_JndiTemplate_Stub01.<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) DefaultJndiSupport_JndiTemplate_Stub01.<br>
      *                    isCallUnbind:true<br>
-     *         (ó‘Ô•Ï‰») DefaultJndiSupport_JndiTemplate_Stub01.<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) DefaultJndiSupport_JndiTemplate_Stub01.<br>
      *                    jndiNameToUse:"java:comp/env/abc"<br>
-     *         (ó‘Ô•Ï‰») —áŠO:JndiExceptionF<br>
-     *                    ƒ‰ƒbƒv‚µ‚½—áŠOFNamingException<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:ƒƒƒO„<br>
-     *                    ƒGƒ‰[ƒƒOF<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:JndiExceptionï¼š<br>
+     *                    ãƒ©ãƒƒãƒ—ã—ãŸä¾‹å¤–ï¼šNamingException<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ï¼œãƒ­ã‚°ï¼<br>
+     *                    ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°ï¼š<br>
      *                    "Illegal JNDI context name."<br>
      *
      * <br>
-     * JndiTemplate.unbind()‚ÅNamingException‚ª”­¶‚µ‚½ê‡AJndiException‚ğ
-     * ‹N‚±‚·‚±‚Æ‚ğŠm”F‚·‚é
+     * JndiTemplate.unbind()ã§NamingExceptionãŒç™ºç”Ÿã—ãŸå ´åˆã€JndiExceptionã‚’
+     * èµ·ã“ã™ã“ã¨ã‚’ç¢ºèªã™ã‚‹
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testUnbind04() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DefaultJndiSupport support = new DefaultJndiSupport();
 
         String name = "java:comp/env/abc";
 
-        // JndiTemplateæ“¾
+        // JndiTemplateå–å¾—
         DefaultJndiSupport_JndiTemplateStub02 template =
             new DefaultJndiSupport_JndiTemplateStub02();
         template.setCallRebind(false);
@@ -1053,7 +1053,7 @@ public class DefaultJndiSupportTest extends TestCase {
         support.setResourceRef(false);
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             support.unbind(name);
             fail();
         } catch (JndiException e) {
@@ -1061,7 +1061,7 @@ public class DefaultJndiSupportTest extends TestCase {
             assertTrue(b);
             assertEquals("java:comp/env/abc", template.getJndiNameToUse());
 
-            // ”»’è
+            // åˆ¤å®š
             assertTrue(LogUTUtil.checkError("Illegal JNDI context name."));
             assertEquals(NamingException.class.getName(),
                     e.getCause().getClass().getName());
@@ -1072,36 +1072,36 @@ public class DefaultJndiSupportTest extends TestCase {
      * testLookup01()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) name:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) name:null<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:ƒƒƒO„<br>
-     *                    ƒGƒ‰[ƒƒOF<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ï¼œãƒ­ã‚°ï¼<br>
+     *                    ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°ï¼š<br>
      *                    "Illegal arguments error : name=" + name<br>
      *
      * <br>
-     * ˆø”name‚ªnull‚Ìê‡A—áŠO‚ğ‹N‚±‚·‚±‚Æ‚ğŠm”F‚·‚é
+     * å¼•æ•°nameãŒnullã®å ´åˆã€ä¾‹å¤–ã‚’èµ·ã“ã™ã“ã¨ã‚’ç¢ºèªã™ã‚‹
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testLookup01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DefaultJndiSupport support = new DefaultJndiSupport();
 
         String name = null;
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             support.lookup(name);
             fail();
         } catch (IllegalArgumentException e) {
-            // ”»’è
+            // åˆ¤å®š
             assertTrue(LogUTUtil.checkError(
                     "Illegal arguments error : name=null"));
         }
@@ -1111,41 +1111,41 @@ public class DefaultJndiSupportTest extends TestCase {
      * testLookup02()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) name:""<br>
-     *         (ó‘Ô) JndiTemplate:DefaultJndiSupport_JndiTemplate_Stub01<br>
-     *         (ó‘Ô) super.<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) name:""<br>
+     *         (çŠ¶æ…‹) JndiTemplate:DefaultJndiSupport_JndiTemplate_Stub01<br>
+     *         (çŠ¶æ…‹) super.<br>
      *                resourceRef:false<br>
-     *         (ó‘Ô) DefaultJndiSupport_JndiTemplate_Stub01.<br>
+     *         (çŠ¶æ…‹) DefaultJndiSupport_JndiTemplate_Stub01.<br>
      *                isCallLookup:false<br>
-     *         (ó‘Ô) DefaultJndiSupport_JndiTemplate_Stub01.<br>
+     *         (çŠ¶æ…‹) DefaultJndiSupport_JndiTemplate_Stub01.<br>
      *                jndiNameToUse:null<br>
-     *         (ó‘Ô) DefaultJndiSupport_JndiTemplate_Stub01.<br>
-     *                lookup()–ß‚è’l:"return"<br>
+     *         (çŠ¶æ…‹) DefaultJndiSupport_JndiTemplate_Stub01.<br>
+     *                lookup()æˆ»ã‚Šå€¤:"return"<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:"return"<br>
-     *         (ó‘Ô•Ï‰») DefaultJndiSupport_JndiTemplate_Stub01.<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:"return"<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) DefaultJndiSupport_JndiTemplate_Stub01.<br>
      *                    isCallLookup:true<br>
-     *         (ó‘Ô•Ï‰») DefaultJndiSupport_JndiTemplate_Stub01.<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) DefaultJndiSupport_JndiTemplate_Stub01.<br>
      *                    jndiNameToUse:""<br>
      *
      * <br>
-     * ˆø”name‚ª‹ó•¶š‚Ìê‡AJndiTemplate.lookup()‚ÌŒÄ‚Ño‚µŠm”F‚ğs‚¤
+     * å¼•æ•°nameãŒç©ºæ–‡å­—ã®å ´åˆã€JndiTemplate.lookup()ã®å‘¼ã³å‡ºã—ç¢ºèªã‚’è¡Œã†
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testLookup02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DefaultJndiSupport support = new DefaultJndiSupport();
 
         String name = "";
 
-        // JndiTemplateæ“¾
+        // JndiTemplateå–å¾—
         DefaultJndiSupport_JndiTemplateStub01 template =
             new DefaultJndiSupport_JndiTemplateStub01();
         template.setCallLookup(false);
@@ -1156,10 +1156,10 @@ public class DefaultJndiSupportTest extends TestCase {
         // super.resourceRef = false;
         support.setResourceRef(false);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object result = support.lookup(name);
 
-        // ”»’è
+        // åˆ¤å®š
         boolean b = template.isCallLookup();
         assertTrue(b);
         assertEquals("", template.getJndiNameToUse());
@@ -1170,43 +1170,43 @@ public class DefaultJndiSupportTest extends TestCase {
      * testLookup03()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) name:"abc"<br>
-     *         (ó‘Ô) JndiTemplate:DefaultJndiSupport_JndiTemplate_Stub01<br>
-     *         (ó‘Ô) super.<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) name:"abc"<br>
+     *         (çŠ¶æ…‹) JndiTemplate:DefaultJndiSupport_JndiTemplate_Stub01<br>
+     *         (çŠ¶æ…‹) super.<br>
      *                resourceRef:true<br>
-     *         (ó‘Ô) DefaultJndiSupport_JndiTemplate_Stub01.<br>
+     *         (çŠ¶æ…‹) DefaultJndiSupport_JndiTemplate_Stub01.<br>
      *                isCallLookup:false<br>
-     *         (ó‘Ô) DefaultJndiSupport_JndiTemplate_Stub01.<br>
+     *         (çŠ¶æ…‹) DefaultJndiSupport_JndiTemplate_Stub01.<br>
      *                jndiNameToUse:null<br>
-     *         (ó‘Ô) DefaultJndiSupport_JndiTemplate_Stub01.<br>
-     *                lookup()–ß‚è’l:"return"<br>
+     *         (çŠ¶æ…‹) DefaultJndiSupport_JndiTemplate_Stub01.<br>
+     *                lookup()æˆ»ã‚Šå€¤:"return"<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Object:"return"<br>
-     *         (ó‘Ô•Ï‰») DefaultJndiSupport_JndiTemplate_Stub01.<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Object:"return"<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) DefaultJndiSupport_JndiTemplate_Stub01.<br>
      *                    isCallLookup:true<br>
-     *         (ó‘Ô•Ï‰») DefaultJndiSupport_JndiTemplate_Stub01.<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) DefaultJndiSupport_JndiTemplate_Stub01.<br>
      *                    jndiNameToUse:"java:comp/env/abc"<br>
      *
      * <br>
-     * jndiPrefix‚ªtrue‚Å‚ ‚èAˆø”name‚ª"java:comp/env/"‚Ån‚Ü‚ç‚È‚©‚Á‚½ê‡A
-     * "java:comp/env/"‚ğˆø”name‚É‰Á‚¦‚ÄJndiTemplate.lookup()‚ÌŒÄ‚Ño‚µ‚ª
-     * s‚í‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚ğs‚¤
+     * jndiPrefixãŒtrueã§ã‚ã‚Šã€å¼•æ•°nameãŒ"java:comp/env/"ã§å§‹ã¾ã‚‰ãªã‹ã£ãŸå ´åˆã€
+     * "java:comp/env/"ã‚’å¼•æ•°nameã«åŠ ãˆã¦JndiTemplate.lookup()ã®å‘¼ã³å‡ºã—ãŒ
+     * è¡Œã‚ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã‚’è¡Œã†
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testLookup03() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DefaultJndiSupport support = new DefaultJndiSupport();
 
         String name = "abc";
 
-        // JndiTemplateæ“¾
+        // JndiTemplateå–å¾—
         DefaultJndiSupport_JndiTemplateStub01 template =
             new DefaultJndiSupport_JndiTemplateStub01();
         template.setCallLookup(false);
@@ -1217,10 +1217,10 @@ public class DefaultJndiSupportTest extends TestCase {
         // super.resourceRef = true;
         support.setResourceRef(true);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object result = support.lookup(name);
 
-        // ”»’è
+        // åˆ¤å®š
         boolean b = template.isCallLookup();
         assertTrue(b);
         assertEquals("java:comp/env/abc", template.getJndiNameToUse());
@@ -1231,47 +1231,47 @@ public class DefaultJndiSupportTest extends TestCase {
      * testLookup04()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) name:"java:comp/env/abc"<br>
-     *         (ó‘Ô) JndiTemplate:DefaultJndiSupport_JndiTemplate_Stub02<br>
-     *         (ó‘Ô) super.<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) name:"java:comp/env/abc"<br>
+     *         (çŠ¶æ…‹) JndiTemplate:DefaultJndiSupport_JndiTemplate_Stub02<br>
+     *         (çŠ¶æ…‹) super.<br>
      *                resourceRef:false<br>
-     *         (ó‘Ô) DefaultJndiSupport_JndiTemplate_Stub01.<br>
+     *         (çŠ¶æ…‹) DefaultJndiSupport_JndiTemplate_Stub01.<br>
      *                isCallLookup:false<br>
-     *         (ó‘Ô) DefaultJndiSupport_JndiTemplate_Stub01.<br>
+     *         (çŠ¶æ…‹) DefaultJndiSupport_JndiTemplate_Stub01.<br>
      *                jndiNameToUse:null<br>
-     *         (ó‘Ô) DefaultJndiSupport_JndiTemplate_Stub01.<br>
-     *                lookup()–ß‚è’l:"return"<br>
-     *         (ó‘Ô) NamingException:”­¶<br>
+     *         (çŠ¶æ…‹) DefaultJndiSupport_JndiTemplate_Stub01.<br>
+     *                lookup()æˆ»ã‚Šå€¤:"return"<br>
+     *         (çŠ¶æ…‹) NamingException:ç™ºç”Ÿ<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») DefaultJndiSupport_JndiTemplate_Stub01.<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) DefaultJndiSupport_JndiTemplate_Stub01.<br>
      *                    isCallLookup:true<br>
-     *         (ó‘Ô•Ï‰») DefaultJndiSupport_JndiTemplate_Stub01.<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) DefaultJndiSupport_JndiTemplate_Stub01.<br>
      *                    jndiNameToUse:"java:comp/env/abc"<br>
-     *         (ó‘Ô•Ï‰») —áŠO:JndiExceptionF<br>
-     *                    ƒ‰ƒbƒv‚µ‚½—áŠOFNamingException<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:ƒƒƒO„<br>
-     *                    ƒGƒ‰[ƒƒOF<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:JndiExceptionï¼š<br>
+     *                    ãƒ©ãƒƒãƒ—ã—ãŸä¾‹å¤–ï¼šNamingException<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ï¼œãƒ­ã‚°ï¼<br>
+     *                    ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°ï¼š<br>
      *                    "Illegal JNDI context name."<br>
      *
      * <br>
-     * JndiTemplate.lookup()‚ÅNamingException‚ª”­¶‚µ‚½ê‡A
-     * JndiException‚ğ‹N‚±‚·‚±‚Æ‚ğŠm”F‚·‚é
+     * JndiTemplate.lookup()ã§NamingExceptionãŒç™ºç”Ÿã—ãŸå ´åˆã€
+     * JndiExceptionã‚’èµ·ã“ã™ã“ã¨ã‚’ç¢ºèªã™ã‚‹
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testLookup04() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DefaultJndiSupport support = new DefaultJndiSupport();
 
         String name = "java:comp/env/abc";
 
-        // JndiTemplateæ“¾
+        // JndiTemplateå–å¾—
         DefaultJndiSupport_JndiTemplateStub02 template =
             new DefaultJndiSupport_JndiTemplateStub02();
         template.setCallLookup(false);
@@ -1283,7 +1283,7 @@ public class DefaultJndiSupportTest extends TestCase {
         support.setResourceRef(false);
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             support.lookup(name);
             fail();
         } catch (JndiException e) {
@@ -1291,7 +1291,7 @@ public class DefaultJndiSupportTest extends TestCase {
             assertTrue(b);
             assertEquals("java:comp/env/abc", template.getJndiNameToUse());
 
-            // ”»’è
+            // åˆ¤å®š
             assertTrue(LogUTUtil.checkError("Illegal JNDI context name."));
             assertEquals(NamingException.class.getName(),
                     e.getCause().getClass().getName());

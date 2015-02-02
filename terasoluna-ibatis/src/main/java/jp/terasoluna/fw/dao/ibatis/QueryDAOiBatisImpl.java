@@ -29,13 +29,13 @@ import org.springframework.orm.ibatis.SqlMapClientTemplate;
 import org.springframework.orm.ibatis.support.SqlMapClientDaoSupport;
 
 /**
- * QueryDAOƒCƒ“ƒ^ƒtƒF[ƒX‚ÌiBATIS—pÀ‘•ƒNƒ‰ƒXB
+ * QueryDAOã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã®iBATISç”¨å®Ÿè£…ã‚¯ãƒ©ã‚¹ã€‚
  * <p/>
- * ‚±‚ÌƒNƒ‰ƒX‚ÍABean’è‹`ƒtƒ@ƒCƒ‹‚ÉBean’è‹`‚ğs‚¢ƒT[ƒrƒX‘w‚É
- * ƒCƒ“ƒWƒFƒNƒVƒ‡ƒ“‚µ‚Äg—p‚·‚éBˆÈ‰º‚Éİ’è—á‚¨‚æ‚ÑÀ‘•—á‚ğ¦‚·B<br/>
+ * ã“ã®ã‚¯ãƒ©ã‚¹ã¯ã€Beanå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ã«Beanå®šç¾©ã‚’è¡Œã„ã‚µãƒ¼ãƒ“ã‚¹å±¤ã«
+ * ã‚¤ãƒ³ã‚¸ã‚§ã‚¯ã‚·ãƒ§ãƒ³ã—ã¦ä½¿ç”¨ã™ã‚‹ã€‚ä»¥ä¸‹ã«è¨­å®šä¾‹ãŠã‚ˆã³å®Ÿè£…ä¾‹ã‚’ç¤ºã™ã€‚<br/>
  * 
  * <br/> <fieldset style="border:1pt solid black;padding:10px;width:100%;">
- * <legend> Bean’è‹`ƒtƒ@ƒCƒ‹‚Ì—á </legend> <p/> <code>
+ * <legend> Beanå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ã®ä¾‹ </legend> <p/> <code>
  * &lt;bean id="listBLogic"
  * class="jp.strutspring.blogic.ListBLogic"&gt;<br/>
  * &nbsp;&nbsp;&lt;property name="dao"&gt;&lt;ref
@@ -59,7 +59,7 @@ import org.springframework.orm.ibatis.support.SqlMapClientDaoSupport;
  * </code>
  * </fieldset> <p/> <fieldset style="border:1pt solid
  * black;padding:10px;width:100%;">
- * <legend> ƒT[ƒrƒX‘w‚Å‚Ìg—p•û–@Fæ“¾ƒf[ƒ^‚ª1Œ‚Ìê‡ </legend>
+ * <legend> ã‚µãƒ¼ãƒ“ã‚¹å±¤ã§ã®ä½¿ç”¨æ–¹æ³•ï¼šå–å¾—ãƒ‡ãƒ¼ã‚¿ãŒ1ä»¶ã®å ´åˆ </legend>
  * <p/> <code>
  * public&nbsp;class&nbsp;ListBLogic{<br/>
  * &nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;QueryDAO&nbsp;dao&nbsp;=&nbsp;null;<br/>
@@ -85,7 +85,7 @@ import org.springframework.orm.ibatis.support.SqlMapClientDaoSupport;
  * </fieldset> <p/> 
  * <fieldset style="border:1pt solid
  * black;padding:10px;width:100%;">
- * <legend> ƒT[ƒrƒX‘w‚Å‚Ìg—p•û–@Fæ“¾ƒf[ƒ^‚ª•¡”Œ‚Ìê‡(‘SŒæ“¾)List”Å</legend>
+ * <legend> ã‚µãƒ¼ãƒ“ã‚¹å±¤ã§ã®ä½¿ç”¨æ–¹æ³•ï¼šå–å¾—ãƒ‡ãƒ¼ã‚¿ãŒè¤‡æ•°ä»¶ã®å ´åˆ(å…¨ä»¶å–å¾—)Listç‰ˆ</legend>
  * <p/>
  * <code>
  * public&nbsp;String&nbsp;execute(ActionForm&nbsp;form)&nbsp;{</br>
@@ -100,7 +100,7 @@ import org.springframework.orm.ibatis.support.SqlMapClientDaoSupport;
  * <p/>
  * <fieldset style="border:1pt solid
  * black;padding:10px;width:100%;">
- * <legend> ƒT[ƒrƒX‘w‚Å‚Ìg—p•û–@Fæ“¾ƒf[ƒ^‚ª•¡”Œ‚Ìê‡(‘SŒæ“¾)”z—ñ”Å</legend>
+ * <legend> ã‚µãƒ¼ãƒ“ã‚¹å±¤ã§ã®ä½¿ç”¨æ–¹æ³•ï¼šå–å¾—ãƒ‡ãƒ¼ã‚¿ãŒè¤‡æ•°ä»¶ã®å ´åˆ(å…¨ä»¶å–å¾—)é…åˆ—ç‰ˆ</legend>
  * <p/> 
  * <code>
  * public&nbsp;String&nbsp;execute(ActionForm&nbsp;form)&nbsp;{</br>
@@ -113,12 +113,12 @@ import org.springframework.orm.ibatis.support.SqlMapClientDaoSupport;
  * </code>
  * </fieldset> <p/> <fieldset style="border:1pt solid
  * black;padding:10px;width:100%;">
- * <legend> ƒT[ƒrƒX‘w‚Å‚Ìg—p•û–@Fæ“¾ƒf[ƒ^‚ª•¡”Œ‚Ìê‡
- * (w’èƒCƒ“ƒfƒbƒNƒX‚©‚ç‚Ìw’èŒ”•ª‚ğæ“¾)List”Å
+ * <legend> ã‚µãƒ¼ãƒ“ã‚¹å±¤ã§ã®ä½¿ç”¨æ–¹æ³•ï¼šå–å¾—ãƒ‡ãƒ¼ã‚¿ãŒè¤‡æ•°ä»¶ã®å ´åˆ
+ * (æŒ‡å®šã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‹ã‚‰ã®æŒ‡å®šä»¶æ•°åˆ†ã‚’å–å¾—)Listç‰ˆ
  * </legend>
  * <br>
- * &nbsp;&nbsp;ˆø”‚Éæ“¾ŠJnƒCƒ“ƒfƒbƒNƒX‚¨‚æ‚ÑŒ”‚Ìw’è‚ğs‚¤B
- * ˆÈ‰º‚Ì—á‚Å‚ÍA21Œ–Ú‚©‚ç10Œ‚ğæ“¾‚·‚éB <p/> 
+ * &nbsp;&nbsp;å¼•æ•°ã«å–å¾—é–‹å§‹ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ãŠã‚ˆã³ä»¶æ•°ã®æŒ‡å®šã‚’è¡Œã†ã€‚
+ * ä»¥ä¸‹ã®ä¾‹ã§ã¯ã€21ä»¶ç›®ã‹ã‚‰10ä»¶ã‚’å–å¾—ã™ã‚‹ã€‚ <p/> 
  * <code>
  * public&nbsp;String&nbsp;execute(ActionForm&nbsp;form)&nbsp;{</br>
  * &nbsp;&nbsp;&nbsp;&nbsp;List<UserBean>&nbsp;bean</br>
@@ -131,12 +131,12 @@ import org.springframework.orm.ibatis.support.SqlMapClientDaoSupport;
  * </code>
  * </fieldset> <p/> <fieldset style="border:1pt solid
  * black;padding:10px;width:100%;">
- * <legend> ƒT[ƒrƒX‘w‚Å‚Ìg—p•û–@Fæ“¾ƒf[ƒ^‚ª•¡”Œ‚Ìê‡
- * (w’èƒCƒ“ƒfƒbƒNƒX‚©‚ç‚Ìw’èŒ”•ª‚ğæ“¾)”z—ñ”Å
+ * <legend> ã‚µãƒ¼ãƒ“ã‚¹å±¤ã§ã®ä½¿ç”¨æ–¹æ³•ï¼šå–å¾—ãƒ‡ãƒ¼ã‚¿ãŒè¤‡æ•°ä»¶ã®å ´åˆ
+ * (æŒ‡å®šã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‹ã‚‰ã®æŒ‡å®šä»¶æ•°åˆ†ã‚’å–å¾—)é…åˆ—ç‰ˆ
  * </legend>
  * <br>
- * &nbsp;&nbsp;ˆø”‚Éæ“¾ŠJnƒCƒ“ƒfƒbƒNƒX‚¨‚æ‚ÑŒ”‚Ìw’è‚ğs‚¤B
- * ˆÈ‰º‚Ì—á‚Å‚ÍA21Œ–Ú‚©‚ç10Œ‚ğæ“¾‚·‚éB <p/>
+ * &nbsp;&nbsp;å¼•æ•°ã«å–å¾—é–‹å§‹ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ãŠã‚ˆã³ä»¶æ•°ã®æŒ‡å®šã‚’è¡Œã†ã€‚
+ * ä»¥ä¸‹ã®ä¾‹ã§ã¯ã€21ä»¶ç›®ã‹ã‚‰10ä»¶ã‚’å–å¾—ã™ã‚‹ã€‚ <p/>
  * <code>
  * public&nbsp;String&nbsp;execute(ActionForm&nbsp;form)&nbsp;{</br>
  * &nbsp;&nbsp;&nbsp;&nbsp;UserBean[]&nbsp;bean</br>
@@ -154,23 +154,23 @@ public class QueryDAOiBatisImpl extends SqlMapClientDaoSupport implements
         QueryDAO {
 
     /**
-     * ƒƒOƒCƒ“ƒXƒ^ƒ“ƒX
+     * ãƒ­ã‚°ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
      */
     private static Log log = LogFactory.getLog(QueryDAOiBatisImpl.class);
 
     /**
-     * QÆŒnSQL‚ğÀs‚µAŒ‹‰Ê‚ğw’è‚³‚ê‚½ƒIƒuƒWƒFƒNƒg‚Æ‚µ‚Ä•Ô‹p‚·‚éB
-     * SQL‚ÌŒ‹‰ÊƒIƒuƒWƒFƒNƒg‚ÆAw’è‚³‚ê‚½Œ^‚ªˆá‚Á‚½ê‡‚ÍA—áŠO‚ğ”­¶‚³‚¹‚éB
+     * å‚ç…§ç³»SQLã‚’å®Ÿè¡Œã—ã€çµæœã‚’æŒ‡å®šã•ã‚ŒãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¨ã—ã¦è¿”å´ã™ã‚‹ã€‚
+     * SQLã®çµæœã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¨ã€æŒ‡å®šã•ã‚ŒãŸå‹ãŒé•ã£ãŸå ´åˆã¯ã€ä¾‹å¤–ã‚’ç™ºç”Ÿã•ã›ã‚‹ã€‚
      * 
      * @param <E>
-     *            •Ô‹p’l‚ÌŒ^
+     *            è¿”å´å€¤ã®å‹
      * @param sqlID
-     *            Às‚·‚éSQL‚ÌID
+     *            å®Ÿè¡Œã™ã‚‹SQLã®ID
      * @param bindParams
-     *            SQL‚ÉƒoƒCƒ“ƒh‚·‚é’l‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg
+     *            SQLã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹å€¤ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      * @param clazz
-     *            •Ô‹p’l‚ÌƒNƒ‰ƒX
-     * @return SQL‚ÌÀsŒ‹‰Ê
+     *            è¿”å´å€¤ã®ã‚¯ãƒ©ã‚¹
+     * @return SQLã®å®Ÿè¡Œçµæœ
      */
     @SuppressWarnings("unchecked")
     public <E> E executeForObject(String sqlID,
@@ -181,10 +181,10 @@ public class QueryDAOiBatisImpl extends SqlMapClientDaoSupport implements
             log.debug("executeForObject Start.");
         }
 
-        // SqlMapClientTemplate‚Ìæ“¾
+        // SqlMapClientTemplateã®å–å¾—
         SqlMapClientTemplate sqlMapTemp = getSqlMapClientTemplate();
 
-        // SQL‚ÌÀsF’l‚Ìæ“¾
+        // SQLã®å®Ÿè¡Œï¼šå€¤ã®å–å¾—
         Object obj = sqlMapTemp.queryForObject(sqlID, bindParams);
         if (log.isDebugEnabled() && obj != null) {
             log.debug("Return type:" + obj.getClass().getName());
@@ -208,13 +208,13 @@ public class QueryDAOiBatisImpl extends SqlMapClientDaoSupport implements
     }
 
     /**
-     * QÆŒnSQL‚ğÀs‚µAMap‚Æ‚µ‚Ä•Ô‹p‚·‚éB
+     * å‚ç…§ç³»SQLã‚’å®Ÿè¡Œã—ã€Mapã¨ã—ã¦è¿”å´ã™ã‚‹ã€‚
      * 
      * @param sqlID
-     *            Às‚·‚éSQL‚ÌID
+     *            å®Ÿè¡Œã™ã‚‹SQLã®ID
      * @param bindParams
-     *            SQL‚ÉƒoƒCƒ“ƒh‚·‚é’l‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg
-     * @return SQL‚ÌÀsŒ‹‰Ê
+     *            SQLã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹å€¤ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @return SQLã®å®Ÿè¡Œçµæœ
      */
     @SuppressWarnings("unchecked")
     public Map<String, Object> executeForMap(String sqlID, Object bindParams) {
@@ -234,18 +234,18 @@ public class QueryDAOiBatisImpl extends SqlMapClientDaoSupport implements
     }
 
     /**
-     * QÆŒnSQL‚ğÀs‚µAŒ‹‰Ê‚ğw’è‚³‚ê‚½ƒIƒuƒWƒFƒNƒg‚Ì”z—ñ‚Æ‚µ‚Ä•Ô‹p‚·‚éB
-     * SQL‚ÌŒ‹‰ÊƒIƒuƒWƒFƒNƒg‚ÆAw’è‚³‚ê‚½Œ^‚ªˆá‚Á‚½ê‡‚ÍA—áŠO‚ğ”­¶‚³‚¹‚éB
-     * Œ‹‰Ê0Œ‚Í‹ó”z—ñ‚ª•Ô‹p‚³‚ê‚éB
+     * å‚ç…§ç³»SQLã‚’å®Ÿè¡Œã—ã€çµæœã‚’æŒ‡å®šã•ã‚ŒãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®é…åˆ—ã¨ã—ã¦è¿”å´ã™ã‚‹ã€‚
+     * SQLã®çµæœã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¨ã€æŒ‡å®šã•ã‚ŒãŸå‹ãŒé•ã£ãŸå ´åˆã¯ã€ä¾‹å¤–ã‚’ç™ºç”Ÿã•ã›ã‚‹ã€‚
+     * çµæœ0ä»¶æ™‚ã¯ç©ºé…åˆ—ãŒè¿”å´ã•ã‚Œã‚‹ã€‚
      * @param <E>
-     *            •Ô‹p’l‚ÌŒ^
+     *            è¿”å´å€¤ã®å‹
      * @param sqlID
-     *            Às‚·‚éSQL‚ÌID
+     *            å®Ÿè¡Œã™ã‚‹SQLã®ID
      * @param bindParams
-     *            SQL‚ÉƒoƒCƒ“ƒh‚·‚é’l‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg
+     *            SQLã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹å€¤ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      * @param clazz
-     *            •Ô‹p’l‚ÌƒNƒ‰ƒX
-     * @return SQL‚ÌÀsŒ‹‰Ê
+     *            è¿”å´å€¤ã®ã‚¯ãƒ©ã‚¹
+     * @return SQLã®å®Ÿè¡Œçµæœ
      */
     @SuppressWarnings("unchecked")
     public <E> E[] executeForObjectArray(String sqlID, Object bindParams,
@@ -260,13 +260,13 @@ public class QueryDAOiBatisImpl extends SqlMapClientDaoSupport implements
             throw new IllegalClassTypeException();
         }
 
-        // SqlMapClient‚Ìæ“¾
+        // SqlMapClientã®å–å¾—
         SqlMapClientTemplate sqlMapTemp = getSqlMapClientTemplate();
 
-        // SQL‚ÌÀsF’l‚Ìæ“¾
+        // SQLã®å®Ÿè¡Œï¼šå€¤ã®å–å¾—
         List<E> list = sqlMapTemp.queryForList(sqlID, bindParams);
 
-        // ”z—ñ‚É•ÏŠ·
+        // é…åˆ—ã«å¤‰æ›
         E[] retArray = (E[]) Array.newInstance(clazz, list.size());
         try {
             list.toArray(retArray);
@@ -283,14 +283,14 @@ public class QueryDAOiBatisImpl extends SqlMapClientDaoSupport implements
     }
 
     /**
-     * QÆŒnSQL‚ğÀs‚µAMap‚Ì”z—ñ‚Æ‚µ‚Ä•Ô‹p‚·‚éB
-     * Map”z—ñ‚Ì•ÏŠ·‚É¸”s‚µ‚½ê‡‚ÍA—áŠO‚ğ”­¶‚³‚¹‚éB
-     * Œ‹‰Ê0Œ‚Í‹ó”z—ñ‚ª•Ô‹p‚³‚ê‚éB
+     * å‚ç…§ç³»SQLã‚’å®Ÿè¡Œã—ã€Mapã®é…åˆ—ã¨ã—ã¦è¿”å´ã™ã‚‹ã€‚
+     * Mapé…åˆ—ã®å¤‰æ›ã«å¤±æ•—ã—ãŸå ´åˆã¯ã€ä¾‹å¤–ã‚’ç™ºç”Ÿã•ã›ã‚‹ã€‚
+     * çµæœ0ä»¶æ™‚ã¯ç©ºé…åˆ—ãŒè¿”å´ã•ã‚Œã‚‹ã€‚
      * @param sqlID
-     *            Às‚·‚éSQL‚ÌID
+     *            å®Ÿè¡Œã™ã‚‹SQLã®ID
      * @param bindParams
-     *            SQL‚ÉƒoƒCƒ“ƒh‚·‚é’l‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg
-     * @return SQL‚ÌÀsŒ‹‰Ê
+     *            SQLã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹å€¤ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @return SQLã®å®Ÿè¡Œçµæœ
      */
     public Map<String, Object>[] executeForMapArray(String sqlID,
             Object bindParams) {
@@ -310,23 +310,23 @@ public class QueryDAOiBatisImpl extends SqlMapClientDaoSupport implements
     }
 
     /**
-     * QÆŒnSQL‚ğÀs‚µAŒ‹‰Ê‚ğw’è‚³‚ê‚½ƒIƒuƒWƒFƒNƒg‚Ì”z—ñ‚Æ‚µ‚Ä•Ô‹p‚·‚éB
-     * •Ô‹p‚³‚ê‚éŒ‹‰Ê‚ÍAˆø”‚É‚Äw’è‚³‚ê‚½ƒCƒ“ƒfƒbƒNƒX‚©‚çw’è‚³‚ê‚½Œ”‚Å‚ ‚éB
-     * SQL‚ÌŒ‹‰ÊƒIƒuƒWƒFƒNƒg‚ÆAw’è‚³‚ê‚½Œ^‚ªˆá‚Á‚½ê‡‚ÍA—áŠO‚ğ”­¶‚³‚¹‚éB
-     * Œ‹‰Ê0Œ‚Í‹ó”z—ñ‚ª•Ô‹p‚³‚ê‚éB
+     * å‚ç…§ç³»SQLã‚’å®Ÿè¡Œã—ã€çµæœã‚’æŒ‡å®šã•ã‚ŒãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®é…åˆ—ã¨ã—ã¦è¿”å´ã™ã‚‹ã€‚
+     * è¿”å´ã•ã‚Œã‚‹çµæœã¯ã€å¼•æ•°ã«ã¦æŒ‡å®šã•ã‚ŒãŸã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‹ã‚‰æŒ‡å®šã•ã‚ŒãŸä»¶æ•°ã§ã‚ã‚‹ã€‚
+     * SQLã®çµæœã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¨ã€æŒ‡å®šã•ã‚ŒãŸå‹ãŒé•ã£ãŸå ´åˆã¯ã€ä¾‹å¤–ã‚’ç™ºç”Ÿã•ã›ã‚‹ã€‚
+     * çµæœ0ä»¶æ™‚ã¯ç©ºé…åˆ—ãŒè¿”å´ã•ã‚Œã‚‹ã€‚
      * @param <E>
-     *            •Ô‹p’l‚ÌŒ^
+     *            è¿”å´å€¤ã®å‹
      * @param sqlID
-     *            Às‚·‚éSQL‚ÌID
+     *            å®Ÿè¡Œã™ã‚‹SQLã®ID
      * @param bindParams
-     *            SQL‚ÉƒoƒCƒ“ƒh‚·‚é’l‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg
+     *            SQLã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹å€¤ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      * @param clazz
-     *            •Ô‹p’l‚ÌƒNƒ‰ƒX
+     *            è¿”å´å€¤ã®ã‚¯ãƒ©ã‚¹
      * @param beginIndex
-     *            æ“¾‚·‚éŠJnƒCƒ“ƒfƒbƒNƒX
+     *            å–å¾—ã™ã‚‹é–‹å§‹ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
      * @param maxCount
-     *            æ“¾‚·‚éŒ”
-     * @return SQL‚ÌÀsŒ‹‰Ê
+     *            å–å¾—ã™ã‚‹ä»¶æ•°
+     * @return SQLã®å®Ÿè¡Œçµæœ
      */
     @SuppressWarnings("unchecked")
     public <E> E[] executeForObjectArray(String sqlID, Object bindParams,
@@ -341,14 +341,14 @@ public class QueryDAOiBatisImpl extends SqlMapClientDaoSupport implements
             throw new IllegalClassTypeException();
         }
 
-        // SqlMapClient‚Ìæ“¾
+        // SqlMapClientã®å–å¾—
         SqlMapClientTemplate sqlMapTemp = getSqlMapClientTemplate();
 
-        // SQL‚ÌÀsF’l‚Ìæ“¾
+        // SQLã®å®Ÿè¡Œï¼šå€¤ã®å–å¾—
         List<E> list = sqlMapTemp.queryForList(sqlID, bindParams, beginIndex,
                 maxCount);
 
-        // ”z—ñ‚É•ÏŠ·
+        // é…åˆ—ã«å¤‰æ›
         E[] retArray = (E[]) Array.newInstance(clazz, list.size());
         try {
             list.toArray(retArray);
@@ -365,19 +365,19 @@ public class QueryDAOiBatisImpl extends SqlMapClientDaoSupport implements
     }
 
     /**
-     * QÆŒnSQL‚ğÀs‚µAMap‚Ì”z—ñ‚Æ‚µ‚Ä•Ô‹p‚·‚éB
-     * •Ô‹p‚³‚ê‚éŒ‹‰Ê‚ÍAˆø”‚É‚Äw’è‚³‚ê‚½ƒCƒ“ƒfƒbƒNƒX‚©‚çw’è‚³‚ê‚½Œ”‚Å‚ ‚éB
-     * Map”z—ñ‚Ì•ÏŠ·‚É¸”s‚µ‚½ê‡‚ÍA—áŠO‚ğ”­¶‚³‚¹‚éB
-     * Œ‹‰Ê0Œ‚Í‹ó”z—ñ‚ª•Ô‹p‚³‚ê‚éB
+     * å‚ç…§ç³»SQLã‚’å®Ÿè¡Œã—ã€Mapã®é…åˆ—ã¨ã—ã¦è¿”å´ã™ã‚‹ã€‚
+     * è¿”å´ã•ã‚Œã‚‹çµæœã¯ã€å¼•æ•°ã«ã¦æŒ‡å®šã•ã‚ŒãŸã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‹ã‚‰æŒ‡å®šã•ã‚ŒãŸä»¶æ•°ã§ã‚ã‚‹ã€‚
+     * Mapé…åˆ—ã®å¤‰æ›ã«å¤±æ•—ã—ãŸå ´åˆã¯ã€ä¾‹å¤–ã‚’ç™ºç”Ÿã•ã›ã‚‹ã€‚
+     * çµæœ0ä»¶æ™‚ã¯ç©ºé…åˆ—ãŒè¿”å´ã•ã‚Œã‚‹ã€‚
      * @param sqlID
-     *            Às‚·‚éSQL‚ÌID
+     *            å®Ÿè¡Œã™ã‚‹SQLã®ID
      * @param bindParams
-     *            SQL‚ÉƒoƒCƒ“ƒh‚·‚é’l‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg
+     *            SQLã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹å€¤ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      * @param beginIndex
-     *            æ“¾‚·‚éŠJnƒCƒ“ƒfƒbƒNƒX
+     *            å–å¾—ã™ã‚‹é–‹å§‹ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
      * @param maxCount
-     *            æ“¾‚·‚éŒ”
-     * @return SQL‚ÌÀsŒ‹‰Ê
+     *            å–å¾—ã™ã‚‹ä»¶æ•°
+     * @return SQLã®å®Ÿè¡Œçµæœ
      */
     public Map<String, Object>[] executeForMapArray(String sqlID,
             Object bindParams, int beginIndex, int maxCount) {
@@ -397,15 +397,15 @@ public class QueryDAOiBatisImpl extends SqlMapClientDaoSupport implements
     }
 
     /**
-     * QÆŒnSQL‚ğÀs‚µAŒ‹‰Ê‚ğw’è‚³‚ê‚½ƒIƒuƒWƒFƒNƒg‚ÌList‚Æ‚µ‚Ä•Ô‹p‚·‚éB
-     * Œ‹‰Ê0Œ‚Í‹óƒŠƒXƒg‚ª•Ô‹p‚³‚ê‚éB
+     * å‚ç…§ç³»SQLã‚’å®Ÿè¡Œã—ã€çµæœã‚’æŒ‡å®šã•ã‚ŒãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®Listã¨ã—ã¦è¿”å´ã™ã‚‹ã€‚
+     * çµæœ0ä»¶æ™‚ã¯ç©ºãƒªã‚¹ãƒˆãŒè¿”å´ã•ã‚Œã‚‹ã€‚
      * @param <E>
-     *            •Ô‹p’l‚ÌŒ^
+     *            è¿”å´å€¤ã®å‹
      * @param sqlID
-     *            Às‚·‚éSQL‚ÌID
+     *            å®Ÿè¡Œã™ã‚‹SQLã®ID
      * @param bindParams
-     *            SQL‚ÉƒoƒCƒ“ƒh‚·‚é’l‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg
-     * @return SQL‚ÌÀsŒ‹‰ÊƒŠƒXƒg
+     *            SQLã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹å€¤ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @return SQLã®å®Ÿè¡Œçµæœãƒªã‚¹ãƒˆ
      */
     @SuppressWarnings("unchecked")
     public <E> List<E> executeForObjectList(String sqlID, Object bindParams) {
@@ -414,10 +414,10 @@ public class QueryDAOiBatisImpl extends SqlMapClientDaoSupport implements
             log.debug("executeForObjectList Start.");
         }
 
-        // SqlMapClient‚Ìæ“¾
+        // SqlMapClientã®å–å¾—
         SqlMapClientTemplate sqlMapTemp = getSqlMapClientTemplate();
 
-        // SQL‚ÌÀsF’l‚Ìæ“¾
+        // SQLã®å®Ÿè¡Œï¼šå€¤ã®å–å¾—
         List<E> list = sqlMapTemp.queryForList(sqlID, bindParams);
         
         if (log.isDebugEnabled()) {
@@ -428,13 +428,13 @@ public class QueryDAOiBatisImpl extends SqlMapClientDaoSupport implements
     }
     
     /**
-     * QÆŒnSQL‚ğÀs‚µAMap‚ÌList‚Æ‚µ‚Ä•Ô‹p‚·‚éB
-     * Œ‹‰Ê0Œ‚Í‹óƒŠƒXƒg‚ª•Ô‹p‚³‚ê‚éB
+     * å‚ç…§ç³»SQLã‚’å®Ÿè¡Œã—ã€Mapã®Listã¨ã—ã¦è¿”å´ã™ã‚‹ã€‚
+     * çµæœ0ä»¶æ™‚ã¯ç©ºãƒªã‚¹ãƒˆãŒè¿”å´ã•ã‚Œã‚‹ã€‚
      * @param sqlID
-     *            Às‚·‚éSQL‚ÌID
+     *            å®Ÿè¡Œã™ã‚‹SQLã®ID
      * @param bindParams
-     *            SQL‚ÉƒoƒCƒ“ƒh‚·‚é’l‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg
-     * @return SQL‚ÌÀsŒ‹‰Ê
+     *            SQLã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹å€¤ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @return SQLã®å®Ÿè¡Œçµæœ
      */
     public List<Map<String, Object>> executeForMapList(String sqlID,
             Object bindParams) {
@@ -453,20 +453,20 @@ public class QueryDAOiBatisImpl extends SqlMapClientDaoSupport implements
     }    
 
     /**
-     * QÆŒnSQL‚ğÀs‚µAŒ‹‰Ê‚ğw’è‚³‚ê‚½ƒIƒuƒWƒFƒNƒg‚ÌList‚Æ‚µ‚Ä•Ô‹p‚·‚éB
-     * •Ô‹p‚³‚ê‚éŒ‹‰Ê‚ÍAˆø”‚É‚Äw’è‚³‚ê‚½ƒCƒ“ƒfƒbƒNƒX‚©‚çw’è‚³‚ê‚½Œ”‚Å‚ ‚éB
-     * Œ‹‰Ê0Œ‚Í‹óƒŠƒXƒg‚ª•Ô‹p‚³‚ê‚éB
+     * å‚ç…§ç³»SQLã‚’å®Ÿè¡Œã—ã€çµæœã‚’æŒ‡å®šã•ã‚ŒãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®Listã¨ã—ã¦è¿”å´ã™ã‚‹ã€‚
+     * è¿”å´ã•ã‚Œã‚‹çµæœã¯ã€å¼•æ•°ã«ã¦æŒ‡å®šã•ã‚ŒãŸã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‹ã‚‰æŒ‡å®šã•ã‚ŒãŸä»¶æ•°ã§ã‚ã‚‹ã€‚
+     * çµæœ0ä»¶æ™‚ã¯ç©ºãƒªã‚¹ãƒˆãŒè¿”å´ã•ã‚Œã‚‹ã€‚
      * @param <E>
-     *            •Ô‹p’l‚ÌŒ^
+     *            è¿”å´å€¤ã®å‹
      * @param sqlID
-     *            Às‚·‚éSQL‚ÌID
+     *            å®Ÿè¡Œã™ã‚‹SQLã®ID
      * @param bindParams
-     *            SQL‚ÉƒoƒCƒ“ƒh‚·‚é’l‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg
+     *            SQLã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹å€¤ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      * @param beginIndex
-     *            æ“¾‚·‚éŠJnƒCƒ“ƒfƒbƒNƒX
+     *            å–å¾—ã™ã‚‹é–‹å§‹ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
      * @param maxCount
-     *            æ“¾‚·‚éŒ”
-     * @return SQL‚ÌÀsŒ‹‰Ê
+     *            å–å¾—ã™ã‚‹ä»¶æ•°
+     * @return SQLã®å®Ÿè¡Œçµæœ
      */
     @SuppressWarnings("unchecked")
     public <E> List<E> executeForObjectList(String sqlID, Object bindParams,
@@ -476,10 +476,10 @@ public class QueryDAOiBatisImpl extends SqlMapClientDaoSupport implements
             log.debug("executeForObjectList Start.");
         }
 
-        // SqlMapClient‚Ìæ“¾
+        // SqlMapClientã®å–å¾—
         SqlMapClientTemplate sqlMapTemp = getSqlMapClientTemplate();
 
-        // SQL‚ÌÀsF’l‚Ìæ“¾
+        // SQLã®å®Ÿè¡Œï¼šå€¤ã®å–å¾—
         List<E> list = sqlMapTemp.queryForList(sqlID, bindParams, beginIndex,
                 maxCount);
         
@@ -491,18 +491,18 @@ public class QueryDAOiBatisImpl extends SqlMapClientDaoSupport implements
     }    
     
     /**
-     * QÆŒnSQL‚ğÀs‚µAMap‚ÌList‚Æ‚µ‚Ä•Ô‹p‚·‚éB
-     * •Ô‹p‚³‚ê‚éŒ‹‰Ê‚ÍAˆø”‚É‚Äw’è‚³‚ê‚½ƒCƒ“ƒfƒbƒNƒX‚©‚çw’è‚³‚ê‚½Œ”‚Å‚ ‚éB
-     * Œ‹‰Ê0Œ‚Í‹óƒŠƒXƒg‚ª•Ô‹p‚³‚ê‚éB
+     * å‚ç…§ç³»SQLã‚’å®Ÿè¡Œã—ã€Mapã®Listã¨ã—ã¦è¿”å´ã™ã‚‹ã€‚
+     * è¿”å´ã•ã‚Œã‚‹çµæœã¯ã€å¼•æ•°ã«ã¦æŒ‡å®šã•ã‚ŒãŸã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‹ã‚‰æŒ‡å®šã•ã‚ŒãŸä»¶æ•°ã§ã‚ã‚‹ã€‚
+     * çµæœ0ä»¶æ™‚ã¯ç©ºãƒªã‚¹ãƒˆãŒè¿”å´ã•ã‚Œã‚‹ã€‚
      * @param sqlID
-     *            Às‚·‚éSQL‚ÌID
+     *            å®Ÿè¡Œã™ã‚‹SQLã®ID
      * @param bindParams
-     *            SQL‚ÉƒoƒCƒ“ƒh‚·‚é’l‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg
+     *            SQLã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹å€¤ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      * @param beginIndex
-     *            æ“¾‚·‚éŠJnƒCƒ“ƒfƒbƒNƒX
+     *            å–å¾—ã™ã‚‹é–‹å§‹ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
      * @param maxCount
-     *            æ“¾‚·‚éŒ”
-     * @return SQL‚ÌÀsŒ‹‰Ê
+     *            å–å¾—ã™ã‚‹ä»¶æ•°
+     * @return SQLã®å®Ÿè¡Œçµæœ
      */
     public List<Map<String, Object>> executeForMapList(String sqlID,
             Object bindParams, int beginIndex, int maxCount) {

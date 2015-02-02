@@ -28,12 +28,12 @@ import org.springframework.validation.Errors;
 
 /**
  * {@link jp.terasoluna.fw.validation.springmodules.DefaultValidatorFactoryEx}
- * ƒNƒ‰ƒX‚Ìƒuƒ‰ƒbƒNƒ{ƒbƒNƒXƒeƒXƒgB
+ * ã‚¯ãƒ©ã‚¹ã®ãƒ–ãƒ©ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ†ã‚¹ãƒˆã€‚
  * 
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4>
- * FieldChecksƒNƒ‰ƒX‚É‚Äg—p‚³‚ê‚éƒGƒ‰[ƒCƒ“ƒ^ƒtƒF[ƒX‚ÌÀ‘•‚É
- * SpringƒtƒŒ[ƒ€ƒ[ƒN‚ÌErrorsƒNƒ‰ƒX‚ğˆµ‚¤‚½‚ß‚ÌƒNƒ‰ƒXB
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4>
+ * FieldChecksã‚¯ãƒ©ã‚¹ã«ã¦ä½¿ç”¨ã•ã‚Œã‚‹ã‚¨ãƒ©ãƒ¼ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã®å®Ÿè£…ã«
+ * Springãƒ•ãƒ¬ãƒ¼ãƒ ãƒ¯ãƒ¼ã‚¯ã®Errorsã‚¯ãƒ©ã‚¹ã‚’æ‰±ã†ãŸã‚ã®ã‚¯ãƒ©ã‚¹ã€‚
  * <p>
  * 
  * @see jp.terasoluna.fw.validation.springmodules.DefaultValidatorFactoryEx
@@ -41,19 +41,19 @@ import org.springframework.validation.Errors;
 public class DefaultValidatorFactoryExTest extends TestCase {
 
     /**
-     * ‚±‚ÌƒeƒXƒgƒP[ƒX‚ğÀs‚·‚éˆ×‚Ì
-     * GUI ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‹N“®‚·‚éB
+     * ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã‚’å®Ÿè¡Œã™ã‚‹ç‚ºã®
+     * GUI ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’èµ·å‹•ã™ã‚‹ã€‚
      * 
-     * @param args java ƒRƒ}ƒ“ƒh‚Éİ’è‚³‚ê‚½ƒpƒ‰ƒ[ƒ^
+     * @param args java ã‚³ãƒãƒ³ãƒ‰ã«è¨­å®šã•ã‚ŒãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public static void main(String[] args) {
         junit.swingui.TestRunner.run(DefaultValidatorFactoryExTest.class);
     }
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -62,9 +62,9 @@ public class DefaultValidatorFactoryExTest extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -73,9 +73,9 @@ public class DefaultValidatorFactoryExTest extends TestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      * 
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public DefaultValidatorFactoryExTest(String name) {
         super(name);
@@ -85,29 +85,29 @@ public class DefaultValidatorFactoryExTest extends TestCase {
      * testGetValidator01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC, D
+     * è¦³ç‚¹ï¼šC, D
      * <br><br>
-     * “ü—Í’lF(ˆø”) beanName:null<br>
-     *         (ˆø”) bean:null<br>
-     *         (ˆø”) errors:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) beanName:null<br>
+     *         (å¼•æ•°) bean:null<br>
+     *         (å¼•æ•°) errors:null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Validator:ValidatorƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Validator:Validatorã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                  validator.getParameterValue("jp.terasoluna.fw.validation.ValidationErrors")=<br>
-     *                  SpringValidatorErrors.getErrors()Fnull<br>
+     *                  SpringValidatorErrors.getErrors()ï¼šnull<br>
      *                  validator.getParameterValue("java.lang.Object")=null<br>
      *                  validator.getFormName()=null<br>
      *         
      * <br>
-     * ˆø”‚ªnull‚Ìê‡
+     * å¼•æ•°ãŒnullã®å ´åˆ
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetValidator01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         // beanName : null
         String beanName = null;
         
@@ -119,16 +119,16 @@ public class DefaultValidatorFactoryExTest extends TestCase {
 
         DefaultValidatorFactoryEx factory = new DefaultValidatorFactoryEx();
         
-        // DefaultValidatorFactory‚ÌvalidatorResources‚ğİ’è‚·‚éB
+        // DefaultValidatorFactoryã®validatorResourcesã‚’è¨­å®šã™ã‚‹ã€‚
         ValidatorResources resources = new ValidatorResources();
         UTUtil.setPrivateField(factory, "validatorResources", resources);
         
         Validator validator = null;
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         validator = factory.getValidator(beanName, bean, errors);
 
-        // ”»’è
+        // åˆ¤å®š
         // errors : null
         SpringValidationErrors resultErorrs = 
             (SpringValidationErrors) validator.getParameterValue(
@@ -146,52 +146,52 @@ public class DefaultValidatorFactoryExTest extends TestCase {
      * testGetValidator02()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC, D
+     * è¦³ç‚¹ï¼šC, D
      * <br><br>
-     * “ü—Í’lF(ˆø”) beanName:""<br>
-     *         (ˆø”) bean:String("bean")<br>
-     *         (ˆø”) errors:‹ó‚ÌErrorsƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) beanName:""<br>
+     *         (å¼•æ•°) bean:String("bean")<br>
+     *         (å¼•æ•°) errors:ç©ºã®Errorsã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Validator:ValidatorƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Validator:Validatorã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                  validator.getParameterValue
      *                  ("jp.terasoluna.fw.validation.ValidationErrors")=<br>
-     *                  SpringValidatorErrors.getErrors()F‹ó‚ÌErrorsƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     *                  SpringValidatorErrors.getErrors()ï¼šç©ºã®Errorsã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                  validator.getParameterValue("java.lang.Object")=String("bean")<br>
      *                  validator.getFormName()=""<br>
      *         
      * <br>
-     * ˆø”beanName‚ª‹ó•¶š‚Å‚ ‚èAbean‚ªnot null‚Å‚ ‚èAerrors‚ª‹ó‚ÌErrorsƒCƒ“ƒXƒ^ƒ“ƒX‚Ìê‡
+     * å¼•æ•°beanNameãŒç©ºæ–‡å­—ã§ã‚ã‚Šã€beanãŒnot nullã§ã‚ã‚Šã€errorsãŒç©ºã®Errorsã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã®å ´åˆ
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetValidator02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         // beanName : ""
         String beanName = "";
         
         // bean : String("bean")
         Object bean = "bean";
         
-        // errors : ‹ó‚ÌErrorsƒCƒ“ƒXƒ^ƒ“ƒX
+        // errors : ç©ºã®Errorsã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
         Errors errors = new ErrorsImpl01();
 
         DefaultValidatorFactoryEx factory = new DefaultValidatorFactoryEx();
         
-        // DefaultValidatorFactory‚ÌvalidatorResources‚ğİ’è‚·‚éB
+        // DefaultValidatorFactoryã®validatorResourcesã‚’è¨­å®šã™ã‚‹ã€‚
         ValidatorResources resources = new ValidatorResources();
         UTUtil.setPrivateField(factory, "validatorResources", resources);
         
         Validator validator = null;
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         validator = factory.getValidator(beanName, bean, errors);
 
-        // ”»’è
-        // errors : “¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒX
+        // åˆ¤å®š
+        // errors : åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
         SpringValidationErrors resultErorrs = 
             (SpringValidationErrors) validator.getParameterValue(
                     "jp.terasoluna.fw.validation.ValidationErrors");
@@ -208,39 +208,39 @@ public class DefaultValidatorFactoryExTest extends TestCase {
      * testGetValidator03()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC, D
+     * è¦³ç‚¹ï¼šC, D
      * <br><br>
-     * “ü—Í’lF(ˆø”) beanName:"beanName"<br>
-     *         (ˆø”) bean:String("bean")<br>
-     *         (ˆø”) errors:—v‘f1‚ÌErrorsƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) beanName:"beanName"<br>
+     *         (å¼•æ•°) bean:String("bean")<br>
+     *         (å¼•æ•°) errors:è¦ç´ 1ã®Errorsã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                {Object[0]=new Object}<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Validator:ValidatorƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Validator:Validatorã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                  validator.getParameterValue
      *                  ("jp.terasoluna.fw.validation.ValidationErrors")=<br>
-     *                  SpringValidatorErrors.getErrors()F<br>
-     *                  —v‘f1‚ÌErrorsƒCƒ“ƒXƒ^ƒ“ƒX{Object[0]=new Object}<br>
+     *                  SpringValidatorErrors.getErrors()ï¼š<br>
+     *                  è¦ç´ 1ã®Errorsã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹{Object[0]=new Object}<br>
      *                  validator.getParameterValue("java.lang.Object")=String("bean")<br>
      *                  validator.getFormName()="beanName"<br>
      *         
      * <br>
-     * ˆø”beanName‚ª•¶š—ñ‚Å‚ ‚èAbean‚ªnot null‚Å‚ ‚èAerrors‚ª—v‘f”1‚ÌErrorsƒCƒ“ƒXƒ^ƒ“ƒX‚Ìê‡
+     * å¼•æ•°beanNameãŒæ–‡å­—åˆ—ã§ã‚ã‚Šã€beanãŒnot nullã§ã‚ã‚Šã€errorsãŒè¦ç´ æ•°1ã®Errorsã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã®å ´åˆ
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetValidator03() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         // beanName : "beanName"
         String beanName = "beanName";
         
         // bean : String("bean")
         Object bean = "bean";
         
-        // errors : —v‘f1‚ÌErrorsƒCƒ“ƒXƒ^ƒ“ƒX
+        // errors : è¦ç´ 1ã®Errorsã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
         Errors errors = new ErrorsImpl01();
         List<Object> list = new ArrayList<Object>();
         list.add(0, new Object());
@@ -248,17 +248,17 @@ public class DefaultValidatorFactoryExTest extends TestCase {
 
         DefaultValidatorFactoryEx factory = new DefaultValidatorFactoryEx();
         
-        // DefaultValidatorFactory‚ÌvalidatorResources‚ğİ’è‚·‚éB
+        // DefaultValidatorFactoryã®validatorResourcesã‚’è¨­å®šã™ã‚‹ã€‚
         ValidatorResources resources = new ValidatorResources();
         UTUtil.setPrivateField(factory, "validatorResources", resources);
         
         Validator validator = null;
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         validator = factory.getValidator(beanName, bean, errors);
 
-        // ”»’è
-        // errors : “¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒX
+        // åˆ¤å®š
+        // errors : åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
         SpringValidationErrors resultErorrs = 
             (SpringValidationErrors) validator.getParameterValue(
                     "jp.terasoluna.fw.validation.ValidationErrors");
@@ -275,41 +275,41 @@ public class DefaultValidatorFactoryExTest extends TestCase {
      * testGetValidator04()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC, D
+     * è¦³ç‚¹ï¼šC, D
      * <br><br>
-     * “ü—Í’lF(ˆø”) beanName:"beanName"<br>
-     *         (ˆø”) bean:String("bean")<br>
-     *         (ˆø”) errors:—v‘f3‚ÌErrorsƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) beanName:"beanName"<br>
+     *         (å¼•æ•°) bean:String("bean")<br>
+     *         (å¼•æ•°) errors:è¦ç´ 3ã®Errorsã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                {Object[0]=new Object,<br>
      *                Object[1]=new Object,<br>
      *                Object[2]=new Object}<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Validator:ValidatorƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Validator:Validatorã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                  validator.getParameterValue
      *                  ("jp.terasoluna.fw.validation.ValidationErrors")=<br>
-     *                  SpringValidatorErrors.getErrors()F—v‘f1‚ÌErrorsƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     *                  SpringValidatorErrors.getErrors()ï¼šè¦ç´ 1ã®Errorsã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                  {Object[0]=new Object,Object[1]=new Object,Object[2]=new Object}<br>
      *                  validator.getParameterValue("java.lang.Object")=String("bean")<br>
      *                  validator.getFormName()="beanName"<br>
      *         
      * <br>
-     * ˆø”beanName‚ª•¶š—ñ‚Å‚ ‚èAbean‚ªnot null‚Å‚ ‚èAerrors‚ª—v‘f”3‚ÌErrorsƒCƒ“ƒXƒ^ƒ“ƒX‚Ìê‡
+     * å¼•æ•°beanNameãŒæ–‡å­—åˆ—ã§ã‚ã‚Šã€beanãŒnot nullã§ã‚ã‚Šã€errorsãŒè¦ç´ æ•°3ã®Errorsã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã®å ´åˆ
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetValidator04() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         // beanName : "beanName"
         String beanName = "beanName";
         
         // bean : String("bean")
         Object bean = "bean";
         
-        // errors : —v‘f3‚ÌErrorsƒCƒ“ƒXƒ^ƒ“ƒX
+        // errors : è¦ç´ 3ã®Errorsã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
         Errors errors = new ErrorsImpl01();
         List<Object> list = new ArrayList<Object>();
         list.add(0, new Object());
@@ -320,17 +320,17 @@ public class DefaultValidatorFactoryExTest extends TestCase {
 
         DefaultValidatorFactoryEx factory = new DefaultValidatorFactoryEx();
         
-        // DefaultValidatorFactory‚ÌvalidatorResources‚ğİ’è‚·‚éB
+        // DefaultValidatorFactoryã®validatorResourcesã‚’è¨­å®šã™ã‚‹ã€‚
         ValidatorResources resources = new ValidatorResources();
         UTUtil.setPrivateField(factory, "validatorResources", resources);
         
         Validator validator = null;
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         validator = factory.getValidator(beanName, bean, errors);
 
-        // ”»’è
-        // errors : “¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒX
+        // åˆ¤å®š
+        // errors : åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
         SpringValidationErrors resultErorrs = 
             (SpringValidationErrors) validator.getParameterValue(
                     "jp.terasoluna.fw.validation.ValidationErrors");

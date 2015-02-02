@@ -33,11 +33,11 @@ import java.util.concurrent.FutureTask;
 import junit.framework.TestCase;
 
 /**
- * {@link jp.terasoluna.fw.util.GenericsUtil} ƒNƒ‰ƒX‚ÌƒeƒXƒgB
+ * {@link jp.terasoluna.fw.util.GenericsUtil} ã‚¯ãƒ©ã‚¹ã®ãƒ†ã‚¹ãƒˆã€‚
  *
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4>
- * <code>Generics</code>‚ğˆµ‚¤‚½‚ß‚Ìƒ†[ƒeƒBƒŠƒeƒBƒNƒ‰ƒXB
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4>
+ * <code>Generics</code>ã‚’æ‰±ã†ãŸã‚ã®ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ã‚¯ãƒ©ã‚¹ã€‚
  * <p>
  *
  * @see jp.terasoluna.fw.client.util.GenericsUtil
@@ -46,9 +46,9 @@ public class GenericsUtilTest extends TestCase {
 
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -57,9 +57,9 @@ public class GenericsUtilTest extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -68,9 +68,9 @@ public class GenericsUtilTest extends TestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      *
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public GenericsUtilTest(String name) {
         super(name);
@@ -80,32 +80,32 @@ public class GenericsUtilTest extends TestCase {
      * testResolveParameterizedClassClassClass01()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) genericClass:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) genericClass:null<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    ƒƒbƒZ[ƒWF"Argument 'genericsClass' ("<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Argument 'genericsClass' ("<br>
      *                    + Class.class.getName() + ") is null"<br>
      *
      * <br>
-     * ˆø”genericClass‚ªnull‚Ìê‡‚ÉIllegalArgumentException‚ª
-     * ƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°genericClassãŒnullã®å ´åˆã«IllegalArgumentExceptionãŒ
+     * ã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testResolveParameterizedClassClassClass01() throws Exception {
 
         try {
-            //  ƒeƒXƒgÀ{
+            //  ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             GenericsUtil.resolveParameterizedClass(null, null);
-            fail("—áŠO‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalArgumentException e) {
-            //  ”»’è
+            //  åˆ¤å®š
             assertEquals("Argument 'genericsClass' ("
                     + Class.class.getName() + ") is null",
                     e.getMessage());
@@ -118,32 +118,32 @@ public class GenericsUtilTest extends TestCase {
      * testResolveParameterizedClassClassClass02()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) genericClass:Object‚ÌClassƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *         (ˆø”) descendantClass:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) genericClass:Objectã®Classã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *         (å¼•æ•°) descendantClass:null<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    ƒƒbƒZ[ƒWF"Argument 'descendantClass'("<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Argument 'descendantClass'("<br>
      *                    + Class.class.getName() + ") is null"<br>
      *
      * <br>
-     * ˆø”descendantClass‚ªnull‚Ìê‡‚ÉIllegalArgumentException‚ª
-     * ƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°descendantClassãŒnullã®å ´åˆã«IllegalArgumentExceptionãŒ
+     * ã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testResolveParameterizedClassClassClass02() throws Exception {
         try {
-            //  ƒeƒXƒgÀ{
+            //  ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             GenericsUtil.resolveParameterizedClass(Object.class, null);
-            fail("—áŠO‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalArgumentException e) {
-            //  ”»’è
+            //  åˆ¤å®š
             assertEquals("Argument 'descendantClass'("
                     + Class.class.getName() + ") is null",
                     e.getMessage());
@@ -156,30 +156,30 @@ public class GenericsUtilTest extends TestCase {
      * testResolveParameterizedClassClassClass03()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) genericClass:Œ^ƒpƒ‰ƒ[ƒ^éŒ¾‚ğ‚½‚È‚¢eƒNƒ‰ƒX<br>
-     *         (ˆø”) descendantClass:genericClass‚ÌqƒNƒ‰ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) genericClass:å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å®£è¨€ã‚’æŒãŸãªã„è¦ªã‚¯ãƒ©ã‚¹<br>
+     *         (å¼•æ•°) descendantClass:genericClassã®å­ã‚¯ãƒ©ã‚¹<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalStateException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalStateException<br>
      *
      * <br>
-     * ˆø”genericClassŒ^ƒpƒ‰ƒ[ƒ^éŒ¾‚ğ‚½‚È‚¢eƒNƒ‰ƒX‚Å‚ ‚éê‡‚ÉA
-     * IllegalStateException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°genericClasså‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å®£è¨€ã‚’æŒãŸãªã„è¦ªã‚¯ãƒ©ã‚¹ã§ã‚ã‚‹å ´åˆã«ã€
+     * IllegalStateExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testResolveParameterizedClassClassClass03() throws Exception {
         try {
-            //  ƒeƒXƒgÀ{
+            //  ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             GenericsUtil.resolveParameterizedClass(Object.class, String.class);
-            fail("—áŠO‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalStateException e) {
-            //  ”»’è
+            //  åˆ¤å®š
             assertEquals(IllegalStateException.class.getName(),
                     e.getClass().getName());
 
@@ -190,32 +190,32 @@ public class GenericsUtilTest extends TestCase {
      * testResolveParameterizedClassClassClass04()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) genericClass:Œ^ƒpƒ‰ƒ[ƒ^éŒ¾‚ğ1‚Â‚ÂeƒNƒ‰ƒX<br>
-     *         (ˆø”) descendantClass:genericClass‚ÌqƒNƒ‰ƒX
-     *                  (Œ^ƒpƒ‰ƒ[ƒ^‚Ì‹ï‘ÌƒNƒ‰ƒX‚ğw’è‚µ‚Ä‚¢‚È‚¢)<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) genericClass:å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å®£è¨€ã‚’1ã¤æŒã¤è¦ªã‚¯ãƒ©ã‚¹<br>
+     *         (å¼•æ•°) descendantClass:genericClassã®å­ã‚¯ãƒ©ã‚¹
+     *                  (å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å…·ä½“ã‚¯ãƒ©ã‚¹ã‚’æŒ‡å®šã—ã¦ã„ãªã„)<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalStateException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalStateException<br>
      *
      * <br>
-     * Œ^ƒpƒ‰ƒ[ƒ^‚É‹ï‘ÌƒNƒ‰ƒX‚ªw’è‚³‚ê‚Ä‚¢‚È‚¢ê‡‚ÉA
-     * IllegalStateException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã«å…·ä½“ã‚¯ãƒ©ã‚¹ãŒæŒ‡å®šã•ã‚Œã¦ã„ãªã„å ´åˆã«ã€
+     * IllegalStateExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testResolveParameterizedClassClassClass04() throws Exception {
         try {
-            //  ƒeƒXƒgÀ{
+            //  ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             GenericsUtil.resolveParameterizedClass(
                     FutureTask.class, GenericsUtil_FutureTaskStub01.class);
-            fail("—áŠO‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalStateException e) {
-            //  ”»’è
+            //  åˆ¤å®š
             assertEquals(IllegalStateException.class.getName(),
                     e.getClass().getName());
         }
@@ -225,31 +225,31 @@ public class GenericsUtilTest extends TestCase {
      * testResolveParameterizedClassClassClass05()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FE
+     * è¦³ç‚¹ï¼šE
      * <br><br>
-     * “ü—Í’lF(ˆø”) genericClass:Œ^ƒpƒ‰ƒ[ƒ^éŒ¾‚ğ1‚Â‚ÂeƒNƒ‰ƒX<br>
-     *         (ˆø”) descendantClass:genericClass‚ÌqƒNƒ‰ƒX
-     *                  (Œ^ƒpƒ‰ƒ[ƒ^‚Ì‹ï‘ÌƒNƒ‰ƒX‚ÉString‚ğw’è)<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) genericClass:å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å®£è¨€ã‚’1ã¤æŒã¤è¦ªã‚¯ãƒ©ã‚¹<br>
+     *         (å¼•æ•°) descendantClass:genericClassã®å­ã‚¯ãƒ©ã‚¹
+     *                  (å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å…·ä½“ã‚¯ãƒ©ã‚¹ã«Stringã‚’æŒ‡å®š)<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Class[]:—v‘f0 = String.class<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Class[]:è¦ç´ 0 = String.class<br>
      *
      * <br>
-     * descendantClass‚ªqƒNƒ‰ƒX‚Å‚ ‚éê‡‚ÉA
-     * Œ^ƒpƒ‰ƒ[ƒ^‚Ì‹ï‘ÌƒNƒ‰ƒX‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * descendantClassãŒå­ã‚¯ãƒ©ã‚¹ã§ã‚ã‚‹å ´åˆã«ã€
+     * å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å…·ä½“ã‚¯ãƒ©ã‚¹ãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testResolveParameterizedClassClassClass05() throws Exception {
-        //  ƒeƒXƒgÀ{
+        //  ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Class[] result = GenericsUtil.resolveParameterizedClass(
                 FutureTask.class, GenericsUtil_FutureTaskStub02.class);
 
-        //  ”»’è
+        //  åˆ¤å®š
         assertNotNull(result);
         assertEquals(1, result.length);
         assertEquals(String.class, result[0]);
@@ -259,31 +259,31 @@ public class GenericsUtilTest extends TestCase {
      * testResolveParameterizedClassClassClass06()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FE
+     * è¦³ç‚¹ï¼šE
      * <br><br>
-     * “ü—Í’lF(ˆø”) genericClass:Œ^ƒpƒ‰ƒ[ƒ^éŒ¾‚ğ1‚Â‚ÂeƒNƒ‰ƒX<br>
-     *         (ˆø”) descendantClass:genericClass‚Ì‘·ƒNƒ‰ƒX
-     *                  (Œ^ƒpƒ‰ƒ[ƒ^‚Ì‹ï‘ÌƒNƒ‰ƒX‚ÉMap<String, Object>‚ğw’è)<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) genericClass:å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å®£è¨€ã‚’1ã¤æŒã¤è¦ªã‚¯ãƒ©ã‚¹<br>
+     *         (å¼•æ•°) descendantClass:genericClassã®å­«ã‚¯ãƒ©ã‚¹
+     *                  (å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å…·ä½“ã‚¯ãƒ©ã‚¹ã«Map<String, Object>ã‚’æŒ‡å®š)<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Class[]:—v‘f0 = Map.class<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Class[]:è¦ç´ 0 = Map.class<br>
      *
      * <br>
-     * descendantClass‚ª‘·ƒNƒ‰ƒX‚Å‚ ‚éê‡‚ÉAŒ^ƒpƒ‰ƒ[ƒ^‚Ì‹ï‘ÌƒNƒ‰ƒX‚ª
-     * æ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * descendantClassãŒå­«ã‚¯ãƒ©ã‚¹ã§ã‚ã‚‹å ´åˆã«ã€å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å…·ä½“ã‚¯ãƒ©ã‚¹ãŒ
+     * å–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testResolveParameterizedClassClassClass06() throws Exception {
-        //  ƒeƒXƒgÀ{
+        //  ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Class[] result = GenericsUtil.resolveParameterizedClass(
                 FutureTask.class, GenericsUtil_FutureTaskStub03.class);
 
-        //  ”»’è
+        //  åˆ¤å®š
         assertNotNull(result);
         assertEquals(1, result.length);
         assertEquals(Map.class, result[0]);
@@ -293,32 +293,32 @@ public class GenericsUtilTest extends TestCase {
      * testResolveParameterizedClassClassClass07()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FE
+     * è¦³ç‚¹ï¼šE
      * <br><br>
-     * “ü—Í’lF(ˆø”) genericClass:Œ^ƒpƒ‰ƒ[ƒ^éŒ¾‚ğ3‚Â‚ÂeƒNƒ‰ƒX<br>
-     *         (ˆø”) descendantClass:genericClass‚ÌqƒNƒ‰ƒX
-     *                  (Œ^ƒpƒ‰ƒ[ƒ^‚Ì‹ï‘ÌƒNƒ‰ƒX‚ÉString[], Integer, Boolean‚ğw’è)<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) genericClass:å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å®£è¨€ã‚’3ã¤æŒã¤è¦ªã‚¯ãƒ©ã‚¹<br>
+     *         (å¼•æ•°) descendantClass:genericClassã®å­ã‚¯ãƒ©ã‚¹
+     *                  (å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å…·ä½“ã‚¯ãƒ©ã‚¹ã«String[], Integer, Booleanã‚’æŒ‡å®š)<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Class[]:—v‘f0 = String[].class<br>
-     *                  —v‘f1 = Integer.class<br>
-     *                  —v‘f2 = Boolean.class<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Class[]:è¦ç´ 0 = String[].class<br>
+     *                  è¦ç´ 1 = Integer.class<br>
+     *                  è¦ç´ 2 = Boolean.class<br>
      *
      * <br>
-     * Œ^ƒpƒ‰ƒ[ƒ^‚ª•¡”‚Ìê‡‚ÉAŒ^ƒpƒ‰ƒ[ƒ^‚Ì‹ï‘ÌƒNƒ‰ƒX‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãŒè¤‡æ•°ã®å ´åˆã«ã€å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å…·ä½“ã‚¯ãƒ©ã‚¹ãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testResolveParameterizedClassClassClass07() throws Exception {
-        //  ƒeƒXƒgÀ{
+        //  ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Class[] result = GenericsUtil.resolveParameterizedClass(
                 GenericsUtil_Stub01.class, GenericsUtil_Stub02.class);
 
-        //  ”»’è
+        //  åˆ¤å®š
         assertNotNull(result);
         assertEquals(3, result.length);
         assertEquals(String[].class, result[0]);
@@ -330,32 +330,32 @@ public class GenericsUtilTest extends TestCase {
      * testResolveParameterizedClassClassClass08()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FE
+     * è¦³ç‚¹ï¼šE
      * <br><br>
-     * “ü—Í’lF(ˆø”) genericClass:Œ^ƒpƒ‰ƒ[ƒ^éŒ¾‚ğ3‚Â‚ÂeƒCƒ“ƒ^ƒtƒF[ƒX<br>
-     *         (ˆø”) descendantClass:genericClass‚ÌÀ‘•ƒNƒ‰ƒX
-     *              (Œ^ƒpƒ‰ƒ[ƒ^‚Ì‹ï‘ÌƒNƒ‰ƒX‚ÉString[], Integer, Boolean‚ğw’è)<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) genericClass:å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å®£è¨€ã‚’3ã¤æŒã¤è¦ªã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹<br>
+     *         (å¼•æ•°) descendantClass:genericClassã®å®Ÿè£…ã‚¯ãƒ©ã‚¹
+     *              (å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å…·ä½“ã‚¯ãƒ©ã‚¹ã«String[], Integer, Booleanã‚’æŒ‡å®š)<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Class[]:—v‘f0 = String[].class<br>
-     *                  —v‘f1 = Integer.class<br>
-     *                  —v‘f2 = Boolean.class<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Class[]:è¦ç´ 0 = String[].class<br>
+     *                  è¦ç´ 1 = Integer.class<br>
+     *                  è¦ç´ 2 = Boolean.class<br>
      *
      * <br>
-     * Œ^ƒpƒ‰ƒ[ƒ^éŒ¾‚ªƒCƒ“ƒ^ƒtƒF[ƒX‚Ås‚í‚ê‚Ä‚¢‚éê‡‚ÉAŒ^ƒpƒ‰ƒ[ƒ^‚Ì‹ï‘ÌƒNƒ‰ƒX‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å®£è¨€ãŒã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã§è¡Œã‚ã‚Œã¦ã„ã‚‹å ´åˆã«ã€å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å…·ä½“ã‚¯ãƒ©ã‚¹ãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testResolveParameterizedClassClassClass08() throws Exception {
-        //  ƒeƒXƒgÀ{
+        //  ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Class[] result = GenericsUtil.resolveParameterizedClass(
                 GenericsUtil_Stub03.class, GenericsUtil_Stub04.class);
 
-        //  ”»’è
+        //  åˆ¤å®š
         assertNotNull(result);
         assertEquals(3, result.length);
         assertEquals(String[].class, result[0]);
@@ -367,33 +367,33 @@ public class GenericsUtilTest extends TestCase {
      * testResolveParameterizedClassClassClass09()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FE
+     * è¦³ç‚¹ï¼šE
      * <br><br>
-     * “ü—Í’lF(ˆø”) genericClass:Œ^ƒpƒ‰ƒ[ƒ^éŒ¾‚ğ3‚Â‚ÂeƒCƒ“ƒ^ƒtƒF[ƒX<br>
-     *         (ˆø”) descendantClass:genericClass‚ÌŒp³ƒCƒ“ƒ^ƒtƒF[ƒX‚ÌÀ‘•ƒNƒ‰ƒX
-     *              (Œ^ƒpƒ‰ƒ[ƒ^‚Ì‹ï‘ÌƒNƒ‰ƒX‚ÉString[], Integer, Boolean‚ğw’è)<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) genericClass:å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å®£è¨€ã‚’3ã¤æŒã¤è¦ªã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹<br>
+     *         (å¼•æ•°) descendantClass:genericClassã®ç¶™æ‰¿ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã®å®Ÿè£…ã‚¯ãƒ©ã‚¹
+     *              (å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å…·ä½“ã‚¯ãƒ©ã‚¹ã«String[], Integer, Booleanã‚’æŒ‡å®š)<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Class[]:—v‘f0 = String[].class<br>
-     *                  —v‘f1 = Integer.class<br>
-     *                  —v‘f2 = Boolean.class<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Class[]:è¦ç´ 0 = String[].class<br>
+     *                  è¦ç´ 1 = Integer.class<br>
+     *                  è¦ç´ 2 = Boolean.class<br>
      *
      * <br>
-     * Œ^ƒpƒ‰ƒ[ƒ^éŒ¾‚ªƒCƒ“ƒ^ƒtƒF[ƒX‚Ås‚í‚ê‚Ä‚¨‚èAƒCƒ“ƒ^ƒtƒF[ƒX‚ªŒp³‚³‚ê‚Ä‚¢‚éê‡‚ÉA
-     * Œ^ƒpƒ‰ƒ[ƒ^‚Ì‹ï‘ÌƒNƒ‰ƒX‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å®£è¨€ãŒã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã§è¡Œã‚ã‚Œã¦ãŠã‚Šã€ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ãŒç¶™æ‰¿ã•ã‚Œã¦ã„ã‚‹å ´åˆã«ã€
+     * å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å…·ä½“ã‚¯ãƒ©ã‚¹ãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testResolveParameterizedClassClassClass09() throws Exception {
-        //  ƒeƒXƒgÀ{
+        //  ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Class[] result = GenericsUtil.resolveParameterizedClass(
                 GenericsUtil_Stub03.class, GenericsUtil_Stub06.class);
 
-        //  ”»’è
+        //  åˆ¤å®š
         assertNotNull(result);
         assertEquals(3, result.length);
         assertEquals(String[].class, result[0]);
@@ -405,35 +405,35 @@ public class GenericsUtilTest extends TestCase {
      * testResolveParameterizedClassClassClass10()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FE
+     * è¦³ç‚¹ï¼šE
      * <br><br>
-     * “ü—Í’lF(ˆø”) genericClass:Œ^ƒpƒ‰ƒ[ƒ^éŒ¾‚ğ3‚Â‚ÂeƒCƒ“ƒ^ƒtƒF[ƒX<br>
-     *         (ˆø”) descendantClass:genericClass‚ÌŒp³ƒCƒ“ƒ^ƒtƒF[ƒX‚ÌÀ‘•ƒNƒ‰ƒX‚ÌƒTƒuƒNƒ‰ƒX
-     *              (Œ^ƒpƒ‰ƒ[ƒ^‚ÍÀ‘•ƒNƒ‰ƒX‚Åw’è)
-     *              (Œ^ƒpƒ‰ƒ[ƒ^‚Ì‹ï‘ÌƒNƒ‰ƒX‚ÉString[], Integer, Boolean‚ğw’è)<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) genericClass:å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å®£è¨€ã‚’3ã¤æŒã¤è¦ªã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹<br>
+     *         (å¼•æ•°) descendantClass:genericClassã®ç¶™æ‰¿ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã®å®Ÿè£…ã‚¯ãƒ©ã‚¹ã®ã‚µãƒ–ã‚¯ãƒ©ã‚¹
+     *              (å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã¯å®Ÿè£…ã‚¯ãƒ©ã‚¹ã§æŒ‡å®š)
+     *              (å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å…·ä½“ã‚¯ãƒ©ã‚¹ã«String[], Integer, Booleanã‚’æŒ‡å®š)<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Class[]:—v‘f0 = String[].class<br>
-     *                  —v‘f1 = Integer.class<br>
-     *                  —v‘f2 = Boolean.class<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Class[]:è¦ç´ 0 = String[].class<br>
+     *                  è¦ç´ 1 = Integer.class<br>
+     *                  è¦ç´ 2 = Boolean.class<br>
      *
      * <br>
-     * Œ^ƒpƒ‰ƒ[ƒ^éŒ¾‚ªƒCƒ“ƒ^ƒtƒF[ƒX‚Ås‚í‚ê‚Ä‚¨‚èAƒCƒ“ƒ^ƒtƒF[ƒX‚ªŒp³‚³‚êA
-     * ‚©‚ÂAÀ‘•ƒNƒ‰ƒX‚ªŒp³‚³‚ê‚Ä‚¢‚éê‡‚ÉA
-     * Œ^ƒpƒ‰ƒ[ƒ^‚Ì‹ï‘ÌƒNƒ‰ƒX‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å®£è¨€ãŒã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã§è¡Œã‚ã‚Œã¦ãŠã‚Šã€ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ãŒç¶™æ‰¿ã•ã‚Œã€
+     * ã‹ã¤ã€å®Ÿè£…ã‚¯ãƒ©ã‚¹ãŒç¶™æ‰¿ã•ã‚Œã¦ã„ã‚‹å ´åˆã«ã€
+     * å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å…·ä½“ã‚¯ãƒ©ã‚¹ãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testResolveParameterizedClassClassClass10() throws Exception {
-        //  ƒeƒXƒgÀ{
+        //  ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Class[] result = GenericsUtil.resolveParameterizedClass(
                 GenericsUtil_Stub03.class, GenericsUtil_Stub07.class);
 
-        //  ”»’è
+        //  åˆ¤å®š
         assertNotNull(result);
         assertEquals(3, result.length);
         assertEquals(String[].class, result[0]);
@@ -445,38 +445,38 @@ public class GenericsUtilTest extends TestCase {
      * testResolveParameterizedClassClassClass11()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FE
+     * è¦³ç‚¹ï¼šE
      * <br><br>
-     * “ü—Í’lF(ˆø”) genericClass:Œ^ƒpƒ‰ƒ[ƒ^éŒ¾‚ğ3‚Â‚ÂeƒCƒ“ƒ^ƒtƒF[ƒX<br>
-     *         (ˆø”) descendantClass:genericClass‚ÌŒp³ƒCƒ“ƒ^ƒtƒF[ƒX‚ÌÀ‘•ƒNƒ‰ƒX‚ÌƒTƒuƒNƒ‰ƒX
-     *              (Œ^ƒpƒ‰ƒ[ƒ^‚ÍƒTƒuƒNƒ‰ƒX‚Åw’è)
-     *              (Œ^ƒpƒ‰ƒ[ƒ^‚Ì‹ï‘ÌƒNƒ‰ƒX‚ÉString[], Integer, Boolean‚ğw’è)<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) genericClass:å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å®£è¨€ã‚’3ã¤æŒã¤è¦ªã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹<br>
+     *         (å¼•æ•°) descendantClass:genericClassã®ç¶™æ‰¿ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã®å®Ÿè£…ã‚¯ãƒ©ã‚¹ã®ã‚µãƒ–ã‚¯ãƒ©ã‚¹
+     *              (å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã¯ã‚µãƒ–ã‚¯ãƒ©ã‚¹ã§æŒ‡å®š)
+     *              (å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å…·ä½“ã‚¯ãƒ©ã‚¹ã«String[], Integer, Booleanã‚’æŒ‡å®š)<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Class[]:
-     *                  —v‘f0 = Boolean.class<br>
-     *                  —v‘f1 = String[].class<br>
-     *                  —v‘f2 = Integer.class<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Class[]:
+     *                  è¦ç´ 0 = Boolean.class<br>
+     *                  è¦ç´ 1 = String[].class<br>
+     *                  è¦ç´ 2 = Integer.class<br>
      *
      * <br>
-     * Œ^ƒpƒ‰ƒ[ƒ^éŒ¾‚ªƒCƒ“ƒ^ƒtƒF[ƒX‚Ås‚í‚ê‚Ä‚¨‚èAƒCƒ“ƒ^ƒtƒF[ƒX‚ªŒp³‚³‚êA
-     * ‚©‚ÂAÀ‘•ƒNƒ‰ƒX‚ªŒp³‚³‚ê‚Ä‚¢‚éê‡‚ÉA
-     * Œ^ƒpƒ‰ƒ[ƒ^‚Ì‹ï‘ÌƒNƒ‰ƒX‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
-     * Œ^ƒpƒ‰ƒ[ƒ^‚ÌéŒ¾‡‚ª“ü‚ê‘Ö‚¦‚ç‚ê‚Ä‚¢‚½ê‡‚Å‚à³‚µ‚­æ“¾‚Å‚«‚é‚±‚Æ‚Ì
-     * ƒeƒXƒg‚ğ•ïŠÜ‚·‚éB
+     * å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å®£è¨€ãŒã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã§è¡Œã‚ã‚Œã¦ãŠã‚Šã€ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ãŒç¶™æ‰¿ã•ã‚Œã€
+     * ã‹ã¤ã€å®Ÿè£…ã‚¯ãƒ©ã‚¹ãŒç¶™æ‰¿ã•ã‚Œã¦ã„ã‚‹å ´åˆã«ã€
+     * å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å…·ä½“ã‚¯ãƒ©ã‚¹ãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
+     * å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å®£è¨€é †ãŒå…¥ã‚Œæ›¿ãˆã‚‰ã‚Œã¦ã„ãŸå ´åˆã§ã‚‚æ­£ã—ãå–å¾—ã§ãã‚‹ã“ã¨ã®
+     * ãƒ†ã‚¹ãƒˆã‚’åŒ…å«ã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testResolveParameterizedClassClassClass11() throws Exception {
-        //  ƒeƒXƒgÀ{
+        //  ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Class[] result = GenericsUtil.resolveParameterizedClass(
                 GenericsUtil_Stub03.class, GenericsUtil_Stub09.class);
 
-        //  ”»’è
+        //  åˆ¤å®š
         assertNotNull(result);
         assertEquals(3, result.length);
         assertEquals(Boolean.class, result[0]);
@@ -488,34 +488,34 @@ public class GenericsUtilTest extends TestCase {
      * testResolveParameterizedClassClassClassint01()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) genericClass:null<br>
-     *         (ˆø”) descendantClass:null<br>
-     *         (ˆø”) index:0<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) genericClass:null<br>
+     *         (å¼•æ•°) descendantClass:null<br>
+     *         (å¼•æ•°) index:0<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    ƒƒbƒZ[ƒWF"Argument 'genericsClass' ("<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Argument 'genericsClass' ("<br>
      *                    + Class.class.getName() + ") is null"<br>
      *
      * <br>
-     * ˆø”genericClass‚ªnull‚Ìê‡‚ÉIllegalArgumentException‚ª
-     * ƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°genericClassãŒnullã®å ´åˆã«IllegalArgumentExceptionãŒ
+     * ã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testResolveParameterizedClassClassClassint01() throws Exception {
 
         try {
-            //  ƒeƒXƒgÀ{
+            //  ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             GenericsUtil.resolveParameterizedClass(null, null, 0);
-            fail("—áŠO‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalArgumentException e) {
-            //  ”»’è
+            //  åˆ¤å®š
             assertEquals("Argument 'genericsClass' ("
                     + Class.class.getName() + ") is null",
                     e.getMessage());
@@ -528,33 +528,33 @@ public class GenericsUtilTest extends TestCase {
      * testResolveParameterizedClassClassClassint02()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) genericClass:Object‚ÌClassƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *         (ˆø”) descendantClass:null<br>
-     *         (ˆø”) index:0<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) genericClass:Objectã®Classã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *         (å¼•æ•°) descendantClass:null<br>
+     *         (å¼•æ•°) index:0<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    ƒƒbƒZ[ƒWF"Argument 'descendantClass'("<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Argument 'descendantClass'("<br>
      *                    + Class.class.getName() + ") is null"<br>
      *
      * <br>
-     * ˆø”descendantClass‚ªnull‚Ìê‡‚ÉIllegalArgumentException‚ª
-     * ƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°descendantClassãŒnullã®å ´åˆã«IllegalArgumentExceptionãŒ
+     * ã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testResolveParameterizedClassClassClassint02() throws Exception {
         try {
-            //  ƒeƒXƒgÀ{
+            //  ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             GenericsUtil.resolveParameterizedClass(Object.class, null, 0);
-            fail("—áŠO‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalArgumentException e) {
-            //  ”»’è
+            //  åˆ¤å®š
             assertEquals("Argument 'descendantClass'("
                     + Class.class.getName() + ") is null",
                     e.getMessage());
@@ -567,31 +567,31 @@ public class GenericsUtilTest extends TestCase {
      * testResolveParameterizedClassClassClassint03()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) genericClass:Œ^ƒpƒ‰ƒ[ƒ^éŒ¾‚ğ‚½‚È‚¢eƒNƒ‰ƒX<br>
-     *         (ˆø”) descendantClass:genericClass‚ÌqƒNƒ‰ƒX<br>
-     *         (ˆø”) index:0<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) genericClass:å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å®£è¨€ã‚’æŒãŸãªã„è¦ªã‚¯ãƒ©ã‚¹<br>
+     *         (å¼•æ•°) descendantClass:genericClassã®å­ã‚¯ãƒ©ã‚¹<br>
+     *         (å¼•æ•°) index:0<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalStateException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalStateException<br>
      *
      * <br>
-     * ˆø”genericClassŒ^ƒpƒ‰ƒ[ƒ^éŒ¾‚ğ‚½‚È‚¢eƒNƒ‰ƒX‚Å‚ ‚éê‡‚ÉA
-     * IllegalStateException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°genericClasså‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å®£è¨€ã‚’æŒãŸãªã„è¦ªã‚¯ãƒ©ã‚¹ã§ã‚ã‚‹å ´åˆã«ã€
+     * IllegalStateExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testResolveParameterizedClassClassClassint03() throws Exception {
         try {
-            //  ƒeƒXƒgÀ{
+            //  ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             GenericsUtil.resolveParameterizedClass(Object.class, String.class, 0);
-            fail("—áŠO‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalStateException e) {
-            //  ”»’è
+            //  åˆ¤å®š
             assertEquals(IllegalStateException.class.getName(),
                     e.getClass().getName());
         }
@@ -601,33 +601,33 @@ public class GenericsUtilTest extends TestCase {
      * testResolveParameterizedClassClassClassint04()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) genericClass:Œ^ƒpƒ‰ƒ[ƒ^éŒ¾‚ğ1‚Â‚ÂeƒNƒ‰ƒX<br>
-     *         (ˆø”) descendantClass:genericClass‚ÌqƒNƒ‰ƒX
-     *                  (Œ^ƒpƒ‰ƒ[ƒ^‚Ì‹ï‘ÌƒNƒ‰ƒX‚ğw’è‚µ‚Ä‚¢‚È‚¢)<br>
-     *         (ˆø”) index:0<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) genericClass:å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å®£è¨€ã‚’1ã¤æŒã¤è¦ªã‚¯ãƒ©ã‚¹<br>
+     *         (å¼•æ•°) descendantClass:genericClassã®å­ã‚¯ãƒ©ã‚¹
+     *                  (å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å…·ä½“ã‚¯ãƒ©ã‚¹ã‚’æŒ‡å®šã—ã¦ã„ãªã„)<br>
+     *         (å¼•æ•°) index:0<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalStateException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalStateException<br>
      *
      * <br>
-     * Œ^ƒpƒ‰ƒ[ƒ^‚É‹ï‘ÌƒNƒ‰ƒX‚ªw’è‚³‚ê‚Ä‚¢‚È‚¢ê‡‚ÉA
-     * IllegalStateException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã«å…·ä½“ã‚¯ãƒ©ã‚¹ãŒæŒ‡å®šã•ã‚Œã¦ã„ãªã„å ´åˆã«ã€
+     * IllegalStateExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testResolveParameterizedClassClassClassint04() throws Exception {
         try {
-            //  ƒeƒXƒgÀ{
+            //  ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             GenericsUtil.resolveParameterizedClass(
                     FutureTask.class, GenericsUtil_FutureTaskStub01.class, 0);
-            fail("—áŠO‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalStateException e) {
-            //  ”»’è
+            //  åˆ¤å®š
             assertEquals(IllegalStateException.class.getName(),
                     e.getClass().getName());
         }
@@ -637,32 +637,32 @@ public class GenericsUtilTest extends TestCase {
      * testResolveParameterizedClassClassClassint05()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FE
+     * è¦³ç‚¹ï¼šE
      * <br><br>
-     * “ü—Í’lF(ˆø”) genericClass:Œ^ƒpƒ‰ƒ[ƒ^éŒ¾‚ğ1‚Â‚ÂeƒNƒ‰ƒX<br>
-     *         (ˆø”) descendantClass:genericClass‚ÌqƒNƒ‰ƒX
-     *                  (Œ^ƒpƒ‰ƒ[ƒ^‚Ì‹ï‘ÌƒNƒ‰ƒX‚ÉString‚ğw’è)<br>
-     *         (ˆø”) index:0<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) genericClass:å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å®£è¨€ã‚’1ã¤æŒã¤è¦ªã‚¯ãƒ©ã‚¹<br>
+     *         (å¼•æ•°) descendantClass:genericClassã®å­ã‚¯ãƒ©ã‚¹
+     *                  (å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å…·ä½“ã‚¯ãƒ©ã‚¹ã«Stringã‚’æŒ‡å®š)<br>
+     *         (å¼•æ•°) index:0<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Class:String.class<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Class:String.class<br>
      *
      * <br>
-     * descendantClass‚ªqƒNƒ‰ƒX‚Å‚ ‚éê‡‚ÉA
-     * Œ^ƒpƒ‰ƒ[ƒ^‚Ì‹ï‘ÌƒNƒ‰ƒX‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * descendantClassãŒå­ã‚¯ãƒ©ã‚¹ã§ã‚ã‚‹å ´åˆã«ã€
+     * å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å…·ä½“ã‚¯ãƒ©ã‚¹ãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testResolveParameterizedClassClassClassint05() throws Exception {
-        //  ƒeƒXƒgÀ{
+        //  ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Class result = GenericsUtil.resolveParameterizedClass(
                 FutureTask.class, GenericsUtil_FutureTaskStub02.class, 0);
 
-        //  ”»’è
+        //  åˆ¤å®š
         assertEquals(String.class, result);
     }
 
@@ -670,32 +670,32 @@ public class GenericsUtilTest extends TestCase {
      * testResolveParameterizedClassClassClassint06()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FE
+     * è¦³ç‚¹ï¼šE
      * <br><br>
-     * “ü—Í’lF(ˆø”) genericClass:Œ^ƒpƒ‰ƒ[ƒ^éŒ¾‚ğ1‚Â‚ÂeƒNƒ‰ƒX<br>
-     *         (ˆø”) descendantClass:genericClass‚Ì‘·ƒNƒ‰ƒX
-     *                  (Œ^ƒpƒ‰ƒ[ƒ^‚Ì‹ï‘ÌƒNƒ‰ƒX‚ÉMap<String, Object>‚ğw’è)<br>
-     *         (ˆø”) index:0<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) genericClass:å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å®£è¨€ã‚’1ã¤æŒã¤è¦ªã‚¯ãƒ©ã‚¹<br>
+     *         (å¼•æ•°) descendantClass:genericClassã®å­«ã‚¯ãƒ©ã‚¹
+     *                  (å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å…·ä½“ã‚¯ãƒ©ã‚¹ã«Map<String, Object>ã‚’æŒ‡å®š)<br>
+     *         (å¼•æ•°) index:0<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Class:Map.class<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Class:Map.class<br>
      *
      * <br>
-     * descendantClass‚ª‘·ƒNƒ‰ƒX‚Å‚ ‚éê‡‚ÉAŒ^ƒpƒ‰ƒ[ƒ^‚Ì‹ï‘ÌƒNƒ‰ƒX‚ª
-     * æ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * descendantClassãŒå­«ã‚¯ãƒ©ã‚¹ã§ã‚ã‚‹å ´åˆã«ã€å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å…·ä½“ã‚¯ãƒ©ã‚¹ãŒ
+     * å–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testResolveParameterizedClassClassClassint06() throws Exception {
-        //  ƒeƒXƒgÀ{
+        //  ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Class result = GenericsUtil.resolveParameterizedClass(
                 FutureTask.class, GenericsUtil_FutureTaskStub03.class, 0);
 
-        //  ”»’è
+        //  åˆ¤å®š
         assertEquals(Map.class, result);
     }
 
@@ -703,33 +703,33 @@ public class GenericsUtilTest extends TestCase {
      * testResolveParameterizedClassClassClassint07()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) genericClass:Œ^ƒpƒ‰ƒ[ƒ^éŒ¾‚ğ1‚Â‚ÂeƒNƒ‰ƒX<br>
-     *         (ˆø”) descendantClass:genericClass‚ÌqƒNƒ‰ƒX
-     *                  (Œ^ƒpƒ‰ƒ[ƒ^‚Ì‹ï‘ÌƒNƒ‰ƒX‚ÉString‚ğw’è)<br>
-     *         (ˆø”) index:-1<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) genericClass:å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å®£è¨€ã‚’1ã¤æŒã¤è¦ªã‚¯ãƒ©ã‚¹<br>
+     *         (å¼•æ•°) descendantClass:genericClassã®å­ã‚¯ãƒ©ã‚¹
+     *                  (å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å…·ä½“ã‚¯ãƒ©ã‚¹ã«Stringã‚’æŒ‡å®š)<br>
+     *         (å¼•æ•°) index:-1<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    ƒƒbƒZ[ƒWF"Argument 'index'(-1) is out of
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Argument 'index'(-1) is out of
      *                    bounds of generics parameters"<br>
      * <br>
-     * ˆø”index‚ª•‰‚Ì”‚Å‚ ‚éê‡‚ÉAIllegalArgumentException‚ª
-     * ƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°indexãŒè² ã®æ•°ã§ã‚ã‚‹å ´åˆã«ã€IllegalArgumentExceptionãŒ
+     * ã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testResolveParameterizedClassClassClassint07() throws Exception {
         try {
-            //  ƒeƒXƒgÀ{
+            //  ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             GenericsUtil.resolveParameterizedClass(
                     FutureTask.class, GenericsUtil_FutureTaskStub02.class, -1);
         } catch (IllegalArgumentException e) {
-            //  ”»’è
+            //  åˆ¤å®š
             assertEquals("Argument 'index'(-1) is out of bounds of " +
                     "generics parameters",
                     e.getMessage());
@@ -742,34 +742,34 @@ public class GenericsUtilTest extends TestCase {
      * testResolveParameterizedClassClassClassint08()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) genericClass:Œ^ƒpƒ‰ƒ[ƒ^éŒ¾‚ğ1‚Â‚ÂeƒNƒ‰ƒX<br>
-     *         (ˆø”) descendantClass:genericClass‚Ì‘·ƒNƒ‰ƒX
-     *                  (Œ^ƒpƒ‰ƒ[ƒ^‚Ì‹ï‘ÌƒNƒ‰ƒX‚ÉInteger‚ğw’è)<br>
-     *         (ˆø”) index:1<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) genericClass:å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å®£è¨€ã‚’1ã¤æŒã¤è¦ªã‚¯ãƒ©ã‚¹<br>
+     *         (å¼•æ•°) descendantClass:genericClassã®å­«ã‚¯ãƒ©ã‚¹
+     *                  (å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å…·ä½“ã‚¯ãƒ©ã‚¹ã«Integerã‚’æŒ‡å®š)<br>
+     *         (å¼•æ•°) index:1<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    ƒƒbƒZ[ƒWF"Argument 'index'(1) is out of
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Argument 'index'(1) is out of
      *                    bounds of generics parameters"<br>
      *
      * <br>
-     * ˆø”index‚ªƒpƒ‰ƒ[ƒ^”‚æ‚è‘½‚¢ê‡‚ÉAIllegalArgumentException‚ª
-     * ƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°indexãŒãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿æ•°ã‚ˆã‚Šå¤šã„å ´åˆã«ã€IllegalArgumentExceptionãŒ
+     * ã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testResolveParameterizedClassClassClassint08() throws Exception {
         try {
-            //  ƒeƒXƒgÀ{
+            //  ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             GenericsUtil.resolveParameterizedClass(
                     FutureTask.class, GenericsUtil_FutureTaskStub03.class, 1);
         } catch (IllegalArgumentException e) {
-            //  ”»’è
+            //  åˆ¤å®š
             assertEquals("Argument 'index'(1) is out of bounds of " +
                     "generics parameters",
                     e.getMessage());
@@ -782,31 +782,31 @@ public class GenericsUtilTest extends TestCase {
      * testResolveParameterizedClassClassClassint09()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FE
+     * è¦³ç‚¹ï¼šE
      * <br><br>
-     * “ü—Í’lF(ˆø”) genericClass:Œ^ƒpƒ‰ƒ[ƒ^éŒ¾‚ğ3‚Â‚ÂeƒNƒ‰ƒX<br>
-     *         (ˆø”) descendantClass:genericClass‚ÌqƒNƒ‰ƒX
-     *                  (Œ^ƒpƒ‰ƒ[ƒ^‚Ì‹ï‘ÌƒNƒ‰ƒX‚ÉString[], Integer, Boolean‚ğw’è)<br>
-     *         (ˆø”) index:0<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) genericClass:å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å®£è¨€ã‚’3ã¤æŒã¤è¦ªã‚¯ãƒ©ã‚¹<br>
+     *         (å¼•æ•°) descendantClass:genericClassã®å­ã‚¯ãƒ©ã‚¹
+     *                  (å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å…·ä½“ã‚¯ãƒ©ã‚¹ã«String[], Integer, Booleanã‚’æŒ‡å®š)<br>
+     *         (å¼•æ•°) index:0<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Class:String[].class<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Class:String[].class<br>
      *
      * <br>
-     * Œ^ƒpƒ‰ƒ[ƒ^‚ª•¡”‚Ìê‡‚ÉAŒ^ƒpƒ‰ƒ[ƒ^‚Ì‹ï‘ÌƒNƒ‰ƒX‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãŒè¤‡æ•°ã®å ´åˆã«ã€å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å…·ä½“ã‚¯ãƒ©ã‚¹ãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testResolveParameterizedClassClassClassint09() throws Exception {
-        //  ƒeƒXƒgÀ{
+        //  ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Class result = GenericsUtil.resolveParameterizedClass(
                 GenericsUtil_Stub01.class, GenericsUtil_Stub02.class, 0);
 
-        //  ”»’è
+        //  åˆ¤å®š
         assertEquals(String[].class, result);
     }
 
@@ -814,31 +814,31 @@ public class GenericsUtilTest extends TestCase {
      * testResolveParameterizedClassClassClassint10()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FE
+     * è¦³ç‚¹ï¼šE
      * <br><br>
-     * “ü—Í’lF(ˆø”) genericClass:Œ^ƒpƒ‰ƒ[ƒ^éŒ¾‚ğ3‚Â‚ÂeƒCƒ“ƒ^ƒtƒF[ƒX<br>
-     *         (ˆø”) descendantClass:genericClass‚ÌÀ‘•ƒNƒ‰ƒX
-     *              (Œ^ƒpƒ‰ƒ[ƒ^‚Ì‹ï‘ÌƒNƒ‰ƒX‚ÉString[], Integer, Boolean‚ğw’è)<br>
-     *         (ˆø”) index:2<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) genericClass:å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å®£è¨€ã‚’3ã¤æŒã¤è¦ªã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹<br>
+     *         (å¼•æ•°) descendantClass:genericClassã®å®Ÿè£…ã‚¯ãƒ©ã‚¹
+     *              (å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å…·ä½“ã‚¯ãƒ©ã‚¹ã«String[], Integer, Booleanã‚’æŒ‡å®š)<br>
+     *         (å¼•æ•°) index:2<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Class:Boolean.class<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Class:Boolean.class<br>
      *
      * <br>
-     * Œ^ƒpƒ‰ƒ[ƒ^éŒ¾‚ªƒCƒ“ƒ^ƒtƒF[ƒX‚Ås‚í‚ê‚Ä‚¢‚éê‡‚ÉAŒ^ƒpƒ‰ƒ[ƒ^‚Ì‹ï‘ÌƒNƒ‰ƒX‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å®£è¨€ãŒã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã§è¡Œã‚ã‚Œã¦ã„ã‚‹å ´åˆã«ã€å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å…·ä½“ã‚¯ãƒ©ã‚¹ãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testResolveParameterizedClassClassClassint10() throws Exception {
-        //  ƒeƒXƒgÀ{
+        //  ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Class result = GenericsUtil.resolveParameterizedClass(
                 GenericsUtil_Stub03.class, GenericsUtil_Stub04.class, 2);
 
-        //  ”»’è
+        //  åˆ¤å®š
         assertEquals(Boolean.class, result);
     }
 
@@ -847,32 +847,32 @@ public class GenericsUtilTest extends TestCase {
      * testResolveParameterizedClassClassClassint11()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FE
+     * è¦³ç‚¹ï¼šE
      * <br><br>
-     * “ü—Í’lF(ˆø”) genericClass:Œ^ƒpƒ‰ƒ[ƒ^éŒ¾‚ğ3‚Â‚ÂeƒCƒ“ƒ^ƒtƒF[ƒX<br>
-     *         (ˆø”) descendantClass:genericClass‚ÌŒp³ƒCƒ“ƒ^ƒtƒF[ƒX‚ÌÀ‘•ƒNƒ‰ƒX
-     *              (Œ^ƒpƒ‰ƒ[ƒ^‚Ì‹ï‘ÌƒNƒ‰ƒX‚ÉString[], Integer, Boolean‚ğw’è)<br>
-     *         (ˆø”) index:1<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) genericClass:å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å®£è¨€ã‚’3ã¤æŒã¤è¦ªã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹<br>
+     *         (å¼•æ•°) descendantClass:genericClassã®ç¶™æ‰¿ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã®å®Ÿè£…ã‚¯ãƒ©ã‚¹
+     *              (å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å…·ä½“ã‚¯ãƒ©ã‚¹ã«String[], Integer, Booleanã‚’æŒ‡å®š)<br>
+     *         (å¼•æ•°) index:1<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Class:Integer.class<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Class:Integer.class<br>
      *
      * <br>
-     * Œ^ƒpƒ‰ƒ[ƒ^éŒ¾‚ªƒCƒ“ƒ^ƒtƒF[ƒX‚Ås‚í‚ê‚Ä‚¨‚èAƒCƒ“ƒ^ƒtƒF[ƒX‚ªŒp³‚³‚ê‚Ä‚¢‚éê‡‚ÉA
-     * Œ^ƒpƒ‰ƒ[ƒ^‚Ì‹ï‘ÌƒNƒ‰ƒX‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å®£è¨€ãŒã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã§è¡Œã‚ã‚Œã¦ãŠã‚Šã€ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ãŒç¶™æ‰¿ã•ã‚Œã¦ã„ã‚‹å ´åˆã«ã€
+     * å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å…·ä½“ã‚¯ãƒ©ã‚¹ãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testResolveParameterizedClassClassClassint11() throws Exception {
-        //  ƒeƒXƒgÀ{
+        //  ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Class result = GenericsUtil.resolveParameterizedClass(
                 GenericsUtil_Stub03.class, GenericsUtil_Stub06.class, 1);
 
-        //  ”»’è
+        //  åˆ¤å®š
         assertEquals(Integer.class, result);
     }
 
@@ -880,66 +880,66 @@ public class GenericsUtilTest extends TestCase {
      * testResolveParameterizedClassClassClassint12()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FE
+     * è¦³ç‚¹ï¼šE
      * <br><br>
-     * “ü—Í’lF(ˆø”) genericClass:Œ^ƒpƒ‰ƒ[ƒ^éŒ¾‚ğ3‚Â‚ÂeƒCƒ“ƒ^ƒtƒF[ƒX<br>
-     *         (ˆø”) descendantClass:genericClass‚ÌŒp³ƒCƒ“ƒ^ƒtƒF[ƒX‚ÌÀ‘•ƒNƒ‰ƒX‚ÌƒTƒuƒNƒ‰ƒX
-     *              (Œ^ƒpƒ‰ƒ[ƒ^‚Ì‹ï‘ÌƒNƒ‰ƒX‚ÉString[], Integer, Boolean‚ğw’è)<br>
-     *         (ˆø”) index:1<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) genericClass:å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å®£è¨€ã‚’3ã¤æŒã¤è¦ªã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹<br>
+     *         (å¼•æ•°) descendantClass:genericClassã®ç¶™æ‰¿ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã®å®Ÿè£…ã‚¯ãƒ©ã‚¹ã®ã‚µãƒ–ã‚¯ãƒ©ã‚¹
+     *              (å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å…·ä½“ã‚¯ãƒ©ã‚¹ã«String[], Integer, Booleanã‚’æŒ‡å®š)<br>
+     *         (å¼•æ•°) index:1<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Class:Integer.class<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Class:Integer.class<br>
      *
      * <br>
-     * Œ^ƒpƒ‰ƒ[ƒ^éŒ¾‚ªƒCƒ“ƒ^ƒtƒF[ƒX‚Ås‚í‚ê‚Ä‚¨‚èAƒCƒ“ƒ^ƒtƒF[ƒX‚ªŒp³‚³‚êA
-     * ‚©‚ÂAÀ‘•ƒNƒ‰ƒX‚ªŒp³‚³‚ê‚Ä‚¢‚éê‡‚ÉA
-     * Œ^ƒpƒ‰ƒ[ƒ^‚Ì‹ï‘ÌƒNƒ‰ƒX‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å®£è¨€ãŒã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã§è¡Œã‚ã‚Œã¦ãŠã‚Šã€ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ãŒç¶™æ‰¿ã•ã‚Œã€
+     * ã‹ã¤ã€å®Ÿè£…ã‚¯ãƒ©ã‚¹ãŒç¶™æ‰¿ã•ã‚Œã¦ã„ã‚‹å ´åˆã«ã€
+     * å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å…·ä½“ã‚¯ãƒ©ã‚¹ãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testResolveParameterizedClassClassClassint12() throws Exception {
-        //  ƒeƒXƒgÀ{
+        //  ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Class result = GenericsUtil.resolveParameterizedClass(
                 GenericsUtil_Stub03.class, GenericsUtil_Stub07.class, 1);
 
-        //  ”»’è
+        //  åˆ¤å®š
         assertEquals(Integer.class, result);
     }
     /**
      * testGetAncestorTypeList01()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) genericClass:Œ^ƒpƒ‰ƒ[ƒ^éŒ¾‚ğ‚½‚È‚¢eƒNƒ‰ƒX<br>
-     *         (ˆø”) descendantClass:genericClass‚ÌqƒNƒ‰ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) genericClass:å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å®£è¨€ã‚’æŒãŸãªã„è¦ªã‚¯ãƒ©ã‚¹<br>
+     *         (å¼•æ•°) descendantClass:genericClassã®å­ã‚¯ãƒ©ã‚¹<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalStateException<br>
-     *                    ƒƒbƒZ[ƒWF"Argument 'genericClass'("<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalStateException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Argument 'genericClass'("<br>
      *                    + genericClass.getName()<br>
      *                    + ") does not declare type parameter"<br>
      *
      * <br>
-     * ˆø”genericClassŒ^ƒpƒ‰ƒ[ƒ^éŒ¾‚ğ‚½‚È‚¢eƒNƒ‰ƒX‚Å‚ ‚éê‡‚ÉA
-     * IllegalStateException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°genericClasså‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å®£è¨€ã‚’æŒãŸãªã„è¦ªã‚¯ãƒ©ã‚¹ã§ã‚ã‚‹å ´åˆã«ã€
+     * IllegalStateExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetAncestorTypeList01() throws Exception {
         try {
-            //  ƒeƒXƒgÀ{
+            //  ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             GenericsUtil.getAncestorTypeList(Object.class, String.class);
-            fail("—áŠO‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalStateException e) {
-            //  ”»’è
+            //  åˆ¤å®š
             assertEquals("Argument 'genericClass'("
                         + Object.class.getName()
                         + ") does not declare type parameter",
@@ -953,30 +953,30 @@ public class GenericsUtilTest extends TestCase {
      * testGetAncestorTypeList02()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FE
+     * è¦³ç‚¹ï¼šE
      * <br><br>
-     * “ü—Í’lF(ˆø”) genericClass:Œ^ƒpƒ‰ƒ[ƒ^éŒ¾‚ğ1‚Â‚ÂeƒNƒ‰ƒX<br>
-     *         (ˆø”) descendantClass:genericClass‚ÌqƒNƒ‰ƒX
-     *              (Œ^ƒpƒ‰ƒ[ƒ^‚Ì‹ï‘ÌƒNƒ‰ƒX‚ÉString‚ğw’è)<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) genericClass:å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å®£è¨€ã‚’1ã¤æŒã¤è¦ªã‚¯ãƒ©ã‚¹<br>
+     *         (å¼•æ•°) descendantClass:genericClassã®å­ã‚¯ãƒ©ã‚¹
+     *              (å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å…·ä½“ã‚¯ãƒ©ã‚¹ã«Stringã‚’æŒ‡å®š)<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) List<ParameterizedType>:—v‘f0 = genericClass‚Ì<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) List<ParameterizedType>:è¦ç´ 0 = genericClassã®<br>
      *                  ParameterizedType<br>
      *
      * <br>
-     * 1¢‘ãŒp³‚µ‚Ä‚¢‚éê‡‚ÉAParameterizedType‚ÌƒŠƒXƒg‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * 1ä¸–ä»£ç¶™æ‰¿ã—ã¦ã„ã‚‹å ´åˆã«ã€ParameterizedTypeã®ãƒªã‚¹ãƒˆãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetAncestorTypeList02() throws Exception {
-        //  ƒeƒXƒgÀ{
+        //  ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         List<ParameterizedType> result = GenericsUtil.getAncestorTypeList(
                 FutureTask.class, GenericsUtil_FutureTaskStub02.class);
 
-        //  ”»’è
+        //  åˆ¤å®š
         assertNotNull(result);
         assertEquals(1, result.size());
         assertEquals(GenericsUtil_FutureTaskStub02.class.getGenericSuperclass(),
@@ -987,33 +987,33 @@ public class GenericsUtilTest extends TestCase {
      * testGetAncestorTypeList03()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FE
+     * è¦³ç‚¹ï¼šE
      * <br><br>
-     * “ü—Í’lF(ˆø”) genericClass:Œ^ƒpƒ‰ƒ[ƒ^éŒ¾‚ğ1‚Â‚ÂeƒNƒ‰ƒX<br>
-     *         (ˆø”) descendantClass:genericClass‚Ì‘·ƒNƒ‰ƒX
-     *                  (Œ^ƒpƒ‰ƒ[ƒ^‚Ì‹ï‘ÌƒNƒ‰ƒX‚ÉInteger‚ğw’è)<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) genericClass:å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å®£è¨€ã‚’1ã¤æŒã¤è¦ªã‚¯ãƒ©ã‚¹<br>
+     *         (å¼•æ•°) descendantClass:genericClassã®å­«ã‚¯ãƒ©ã‚¹
+     *                  (å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å…·ä½“ã‚¯ãƒ©ã‚¹ã«Integerã‚’æŒ‡å®š)<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) List<ParameterizedType>:—v‘f0 = genericClass‚Ì<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) List<ParameterizedType>:è¦ç´ 0 = genericClassã®<br>
      *                  ParameterizedType<br>
-     *                  —v‘f1 = genericClass‚ÌqƒNƒ‰ƒX‚Ì<br>
+     *                  è¦ç´ 1 = genericClassã®å­ã‚¯ãƒ©ã‚¹ã®<br>
      *                  ParameterizedType<br>
      *
      * <br>
-     * •¡”¢‘ãŒp³‚µ‚Ä‚¢‚éê‡‚ÉAParameterizedType‚ÌƒŠƒXƒg‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğ
-     * Šm”F‚·‚éƒeƒXƒgB
+     * è¤‡æ•°ä¸–ä»£ç¶™æ‰¿ã—ã¦ã„ã‚‹å ´åˆã«ã€ParameterizedTypeã®ãƒªã‚¹ãƒˆãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’
+     * ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetAncestorTypeList03() throws Exception {
-        //  ƒeƒXƒgÀ{
+        //  ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         List<ParameterizedType> result = GenericsUtil.getAncestorTypeList(
                 FutureTask.class, GenericsUtil_FutureTaskStub03.class);
 
-        //  ”»’è
+        //  åˆ¤å®š
         assertNotNull(result);
         assertEquals(2, result.size());
         assertEquals(
@@ -1026,31 +1026,31 @@ public class GenericsUtilTest extends TestCase {
      * testGetAncestorTypeList04()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FE
+     * è¦³ç‚¹ï¼šE
      * <br><br>
-     * “ü—Í’lF(ˆø”) genericClass:Œ^ƒpƒ‰ƒ[ƒ^éŒ¾‚ğ1‚Â‚ÂƒCƒ“ƒ^ƒtƒF[ƒX<br>
-     *         (ˆø”) descendantClass:genericClass‚ÌÀ‘•ƒNƒ‰ƒX
-     *                  (Œ^ƒpƒ‰ƒ[ƒ^‚Ì‹ï‘ÌƒNƒ‰ƒX‚ÉInteger‚ğw’è)<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) genericClass:å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å®£è¨€ã‚’1ã¤æŒã¤ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹<br>
+     *         (å¼•æ•°) descendantClass:genericClassã®å®Ÿè£…ã‚¯ãƒ©ã‚¹
+     *                  (å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å…·ä½“ã‚¯ãƒ©ã‚¹ã«Integerã‚’æŒ‡å®š)<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) List<ParameterizedType>:—v‘f0 = genericClass‚Ì<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) List<ParameterizedType>:è¦ç´ 0 = genericClassã®<br>
      *                  ParameterizedType<br>
      *
      * <br>
-     * ƒCƒ“ƒ^ƒtƒF[ƒX‚ğ‚P‚ÂÀ‘•‚µ‚Ä‚¢‚éê‡‚ÉAParameterizedType‚ÌƒŠƒXƒg‚ª
-     * æ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã‚’ï¼‘ã¤å®Ÿè£…ã—ã¦ã„ã‚‹å ´åˆã«ã€ParameterizedTypeã®ãƒªã‚¹ãƒˆãŒ
+     * å–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetAncestorTypeList04() throws Exception {
-        //  ƒeƒXƒgÀ{
+        //  ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         List<ParameterizedType> result = GenericsUtil.getAncestorTypeList(
                 Callable.class, GenericsUtil_CallableStub01.class);
 
-        //  ”»’è
+        //  åˆ¤å®š
         assertNotNull(result);
         assertEquals(1, result.size());
         assertEquals(
@@ -1062,32 +1062,32 @@ public class GenericsUtilTest extends TestCase {
      * testGetAncestorTypeList05()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FE
+     * è¦³ç‚¹ï¼šE
      * <br><br>
-     * “ü—Í’lF(ˆø”) genericClass:Œ^ƒpƒ‰ƒ[ƒ^éŒ¾‚ğ1‚Â‚ÂƒCƒ“ƒ^ƒtƒF[ƒX<br>
-     *         (ˆø”) descendantClass:genericClass‚ÌÀ‘•ƒNƒ‰ƒX‚ÌqƒNƒ‰ƒX
-     *              (Œ^ƒpƒ‰ƒ[ƒ^‚Ì‹ï‘ÌƒNƒ‰ƒX‚ÉInteger‚ğw’èA
-     *              ‚Ü‚½AComparable<T>, Comparator<T>‚ğÀ‘•)<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) genericClass:å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å®£è¨€ã‚’1ã¤æŒã¤ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹<br>
+     *         (å¼•æ•°) descendantClass:genericClassã®å®Ÿè£…ã‚¯ãƒ©ã‚¹ã®å­ã‚¯ãƒ©ã‚¹
+     *              (å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å…·ä½“ã‚¯ãƒ©ã‚¹ã«Integerã‚’æŒ‡å®šã€
+     *              ã¾ãŸã€Comparable<T>, Comparator<T>ã‚’å®Ÿè£…)<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) List<ParameterizedType>:—v‘f0 = genericClass‚Ì<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) List<ParameterizedType>:è¦ç´ 0 = genericClassã®<br>
      *                  ParameterizedType<br>
      *
      * <br>
-     * ƒCƒ“ƒ^ƒtƒF[ƒX‚ğ•¡”À‘•‚µ‚Ä‚¢‚éê‡‚ÉAParameterizedType‚ÌƒŠƒXƒg‚ª
-     * æ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã‚’è¤‡æ•°å®Ÿè£…ã—ã¦ã„ã‚‹å ´åˆã«ã€ParameterizedTypeã®ãƒªã‚¹ãƒˆãŒ
+     * å–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetAncestorTypeList05() throws Exception {
-        //  ƒeƒXƒgÀ{
+        //  ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         List<ParameterizedType> result = GenericsUtil.getAncestorTypeList(
                 Callable.class, GenericsUtil_CallableStub02.class);
 
-        //  ”»’è
+        //  åˆ¤å®š
         assertNotNull(result);
         assertEquals(1, result.size());
         assertEquals(
@@ -1099,34 +1099,34 @@ public class GenericsUtilTest extends TestCase {
      * testGetAncestorTypeList06()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FE
+     * è¦³ç‚¹ï¼šE
      * <br><br>
-     * “ü—Í’lF(ˆø”) genericClass:Comparable.class<br>
-     *         (ˆø”) descendantClass:Callable‚ÌÀ‘•ƒNƒ‰ƒX‚ÌqƒNƒ‰ƒX
-     *                  (Œ^ƒpƒ‰ƒ[ƒ^‚Ì‹ï‘ÌƒNƒ‰ƒX‚ÉInteger‚ğw’èA
-     *                  ‚Ü‚½AComparable<T>, Comparator<T>‚ğÀ‘•)<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) genericClass:Comparable.class<br>
+     *         (å¼•æ•°) descendantClass:Callableã®å®Ÿè£…ã‚¯ãƒ©ã‚¹ã®å­ã‚¯ãƒ©ã‚¹
+     *                  (å‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å…·ä½“ã‚¯ãƒ©ã‚¹ã«Integerã‚’æŒ‡å®šã€
+     *                  ã¾ãŸã€Comparable<T>, Comparator<T>ã‚’å®Ÿè£…)<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) List<ParameterizedType>:—v‘f0 = Comparable‚Ì<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) List<ParameterizedType>:è¦ç´ 0 = Comparableã®<br>
      *                  ParameterizedType<br>
-     *                  —v‘f1 = Comparator‚Ì<br>
+     *                  è¦ç´ 1 = Comparatorã®<br>
      *                  ParameterizedType<br>
      *
      * <br>
-     * ƒCƒ“ƒ^ƒtƒF[ƒX‚ğ•¡”À‘•‚µ‚Ä‚¨‚èA‚©‚ÂA•¡”¢‘ã‚ÅÀ‘•‚³‚ê‚Ä‚¢‚éê‡‚ÉA
-     * ParameterizedType‚ÌƒŠƒXƒg‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã‚’è¤‡æ•°å®Ÿè£…ã—ã¦ãŠã‚Šã€ã‹ã¤ã€è¤‡æ•°ä¸–ä»£ã§å®Ÿè£…ã•ã‚Œã¦ã„ã‚‹å ´åˆã«ã€
+     * ParameterizedTypeã®ãƒªã‚¹ãƒˆãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetAncestorTypeList06() throws Exception {
-        //  ƒeƒXƒgÀ{
+        //  ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         List<ParameterizedType> result = GenericsUtil.getAncestorTypeList(
                 Callable.class, GenericsUtil_CallableStub03.class);
 
-        //  ”»’è
+        //  åˆ¤å®š
         assertNotNull(result);
         assertEquals(1, result.size());
         assertEquals(
@@ -1138,34 +1138,34 @@ public class GenericsUtilTest extends TestCase {
      * testCheckParameterizedType01()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) type:String.class<br>
-     *         (ˆø”) genericClass:ArrayList.class<br>
-     *         (ˆø”) ancestorTypeList:‹ó‚ÌArrayList<ParameterizedType><br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) type:String.class<br>
+     *         (å¼•æ•°) genericClass:ArrayList.class<br>
+     *         (å¼•æ•°) ancestorTypeList:ç©ºã®ArrayList<ParameterizedType><br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
-     *         (ó‘Ô•Ï‰») ancestorTypeList:•Ï‰»‚È‚µ<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ancestorTypeList:å¤‰åŒ–ãªã—<br>
      *
      * <br>
-     * type‚ªParameterizedType‚Å‚Í‚È‚¢ê‡‚ÉAƒŠƒXƒg‚É‰½‚à’Ç‰Á‚³‚ê‚¸
-     * false‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ÌƒeƒXƒgB
+     * typeãŒParameterizedTypeã§ã¯ãªã„å ´åˆã«ã€ãƒªã‚¹ãƒˆã«ä½•ã‚‚è¿½åŠ ã•ã‚Œãš
+     * falseãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testCheckParameterizedType01() throws Exception {
-        //  ‘Oˆ—
+        //  å‰å‡¦ç†
         List<ParameterizedType> list = new ArrayList<ParameterizedType>();
 
-        //  ƒeƒXƒgÀ{
+        //  ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean result = GenericsUtil.checkParameterizedType(
                 ArrayList.class, List.class, list);
 
-        //  ”»’è
+        //  åˆ¤å®š
         assertFalse(result);
         assertTrue(list.isEmpty());
     }
@@ -1174,35 +1174,35 @@ public class GenericsUtilTest extends TestCase {
      * testCheckParameterizedType02()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) type:ArrayListŒp³ƒNƒ‰ƒX‚É‚Â‚¢‚ÄA
-     *              ArrayList<E>‚ÌgetParameterizedType()<br>
-     *         (ˆø”) genericClass:Map.class<br>
-     *         (ˆø”) ancestorTypeList:‹ó‚ÌArrayList<ParameterizedType><br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) type:ArrayListç¶™æ‰¿ã‚¯ãƒ©ã‚¹ã«ã¤ã„ã¦ã€
+     *              ArrayList<E>ã®getParameterizedType()<br>
+     *         (å¼•æ•°) genericClass:Map.class<br>
+     *         (å¼•æ•°) ancestorTypeList:ç©ºã®ArrayList<ParameterizedType><br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
-     *         (ó‘Ô•Ï‰») ancestorTypeList:•Ï‰»‚È‚µ<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ancestorTypeList:å¤‰åŒ–ãªã—<br>
      *
      * <br>
-     * type‚ªgenericClass‚ÌqƒNƒ‰ƒX‚Å‚Í‚È‚¢ê‡‚ÉA
-     * ƒŠƒXƒg‚É‰½‚à’Ç‰Á‚³‚ê‚¸false‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ÌƒeƒXƒgB
+     * typeãŒgenericClassã®å­ã‚¯ãƒ©ã‚¹ã§ã¯ãªã„å ´åˆã«ã€
+     * ãƒªã‚¹ãƒˆã«ä½•ã‚‚è¿½åŠ ã•ã‚ŒãšfalseãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testCheckParameterizedType02() throws Exception {
-        //  ‘Oˆ—
+        //  å‰å‡¦ç†
         List<ParameterizedType> list = new ArrayList<ParameterizedType>();
 
-        //  ƒeƒXƒgÀ{
+        //  ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean result = GenericsUtil.checkParameterizedType(
                 GenericsUtil_ArrayListStub01.class, Map.class, list);
 
-        //  ”»’è
+        //  åˆ¤å®š
         assertFalse(result);
         assertTrue(list.isEmpty());
     }
@@ -1211,37 +1211,37 @@ public class GenericsUtilTest extends TestCase {
      * testCheckParameterizedType03()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC, E
+     * è¦³ç‚¹ï¼šC, E
      * <br><br>
-     * “ü—Í’lF(ˆø”) type:ArrayListŒp³ƒNƒ‰ƒX‚É‚Â‚¢‚ÄA
-     *                  ArrayList<E>‚ÌgetParameterizedType()<br>
-     *         (ˆø”) genericClass:List.class<br>
-     *         (ˆø”) ancestorTypeList:‹ó‚ÌArrayList<ParameterizedType><br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) type:ArrayListç¶™æ‰¿ã‚¯ãƒ©ã‚¹ã«ã¤ã„ã¦ã€
+     *                  ArrayList<E>ã®getParameterizedType()<br>
+     *         (å¼•æ•°) genericClass:List.class<br>
+     *         (å¼•æ•°) ancestorTypeList:ç©ºã®ArrayList<ParameterizedType><br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
-     *         (ó‘Ô•Ï‰») ancestorTypeList:
-     *              —v‘f0 = ArrayList<E>‚ÌgetParameterizedType()<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ancestorTypeList:
+     *              è¦ç´ 0 = ArrayList<E>ã®getParameterizedType()<br>
      *
      * <br>
-     * type‚ÌÀÛ‚ÌƒNƒ‰ƒX‚ªgenericClass‚Æ“¯ˆê‚Å‚Í‚È‚¢ê‡‚ÉAƒŠƒXƒg‚É’Ç‰Á‚³‚êA
-     * false‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ÌƒeƒXƒgB
+     * typeã®å®Ÿéš›ã®ã‚¯ãƒ©ã‚¹ãŒgenericClassã¨åŒä¸€ã§ã¯ãªã„å ´åˆã«ã€ãƒªã‚¹ãƒˆã«è¿½åŠ ã•ã‚Œã€
+     * falseãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testCheckParameterizedType03() throws Exception {
-        //  ‘Oˆ—
+        //  å‰å‡¦ç†
         List<ParameterizedType> list = new ArrayList<ParameterizedType>();
 
-        //  ƒeƒXƒgÀ{
+        //  ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean result = GenericsUtil.checkParameterizedType(
                 GenericsUtil_ArrayListStub01.class.getGenericSuperclass(),
                 List.class, list);
 
-        //  ”»’è
+        //  åˆ¤å®š
         assertFalse(result);
         assertEquals(1, list.size());
         assertEquals(
@@ -1253,45 +1253,45 @@ public class GenericsUtilTest extends TestCase {
      * testCheckParameterizedType04()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC, E
+     * è¦³ç‚¹ï¼šC, E
      * <br><br>
-     * “ü—Í’lF(ˆø”) type:ArrayListŒp³ƒNƒ‰ƒX‚É‚Â‚¢‚ÄA
-     *                  List<E>‚ÌgetParameterizedType()<br>
-     *         (ˆø”) genericClass:List.class<br>
-     *         (ˆø”) ancestorTypeList:‹ó‚ÌArrayList<ParameterizedType><br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) type:ArrayListç¶™æ‰¿ã‚¯ãƒ©ã‚¹ã«ã¤ã„ã¦ã€
+     *                  List<E>ã®getParameterizedType()<br>
+     *         (å¼•æ•°) genericClass:List.class<br>
+     *         (å¼•æ•°) ancestorTypeList:ç©ºã®ArrayList<ParameterizedType><br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») ancestorTypeList:—v‘f0 = List<E>‚ÌgetParameterizedType()<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ancestorTypeList:è¦ç´ 0 = List<E>ã®getParameterizedType()<br>
      *
      * <br>
-     * type‚ÌÀÛ‚ÌƒNƒ‰ƒX‚ªgenericClass‚Æ“¯ˆê‚Å‚ ‚éê‡‚ÉAƒŠƒXƒg‚É’Ç‰Á‚³‚êA
-     * true‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ÌƒeƒXƒgB
+     * typeã®å®Ÿéš›ã®ã‚¯ãƒ©ã‚¹ãŒgenericClassã¨åŒä¸€ã§ã‚ã‚‹å ´åˆã«ã€ãƒªã‚¹ãƒˆã«è¿½åŠ ã•ã‚Œã€
+     * trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings({ "null", "unchecked" })
     public void testCheckParameterizedType04() throws Exception {
-        //  ‘Oˆ—
+        //  å‰å‡¦ç†
         Class listClass = GenericsUtil_ArrayListStub01.class;
         while (listClass != null && !listClass.equals(AbstractList.class)) {
             listClass = listClass.getSuperclass();
         }
         if (listClass == null) {
-            fail(AbstractList.class.getName() + "‚ªæ“¾‚Å‚«‚Ü‚¹‚ñB");
+            fail(AbstractList.class.getName() + "ãŒå–å¾—ã§ãã¾ã›ã‚“ã€‚");
         }
         Type type = listClass.getGenericInterfaces()[0];
 
         List<ParameterizedType> list = new ArrayList<ParameterizedType>();
 
-        //  ƒeƒXƒgÀ{
+        //  ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean result = GenericsUtil.checkParameterizedType(
                 type, List.class, list);
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(result);
         assertEquals(1, list.size());
         assertEquals(type, list.get(0));
@@ -1301,32 +1301,32 @@ public class GenericsUtilTest extends TestCase {
      * testResolveTypeVariable01()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) type:String.class<br>
-     *         (ˆø”) ancestorTypeList:‹ó‚ÌArrayList<ParameterizedType><br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) type:String.class<br>
+     *         (å¼•æ•°) ancestorTypeList:ç©ºã®ArrayList<ParameterizedType><br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Class:String.class<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Class:String.class<br>
      *
      * <br>
-     * type‚ªClassŒ^‚Å‚ ‚éê‡‚ÉAtype‚ª‚»‚Ì‚Ü‚Ü•Ô‹p‚³‚ê‚é‚±‚Æ‚ÌƒeƒXƒgB
+     * typeãŒClasså‹ã§ã‚ã‚‹å ´åˆã«ã€typeãŒãã®ã¾ã¾è¿”å´ã•ã‚Œã‚‹ã“ã¨ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testResolveTypeVariable01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Class stringClass = String.class;
 
-        //  ƒeƒXƒgÀ{
+        //  ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Class result = GenericsUtil.resolveTypeVariable(
                 stringClass, new ArrayList<ParameterizedType>());
 
-        //  ”»’è
+        //  åˆ¤å®š
         assertSame(stringClass, result);
     }
 
@@ -1334,39 +1334,39 @@ public class GenericsUtilTest extends TestCase {
      * testResolveTypeVariable02()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC, G
+     * è¦³ç‚¹ï¼šC, G
      * <br><br>
-     * “ü—Í’lF(ˆø”) type:ArrayListŒp³ƒNƒ‰ƒX<String>‚ÌList<E>‚É‚Â‚¢‚ÄŒ^•Ï”E<br>
-     *         (ˆø”) ancestorTypeList:‹ó‚ÌArrayList<ParameterizedType><br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) type:ArrayListç¶™æ‰¿ã‚¯ãƒ©ã‚¹<String>ã®List<E>ã«ã¤ã„ã¦å‹å¤‰æ•°E<br>
+     *         (å¼•æ•°) ancestorTypeList:ç©ºã®ArrayList<ParameterizedType><br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalStateException<br>
-     *                    ƒƒbƒZ[ƒWF"Concrete type of Type(E) was not
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalStateException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Concrete type of Type(E) was not
      *                    found in ancestorList("<br>
      *                    + ancestorTypeList + ")"<br>
      *
      * <br>
-     * ancestorTypeList’†‚Étype‚ÉŠÖ˜A‚·‚ée‚ª‚È‚¢ê‡A
-     * IllegalStateException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * ancestorTypeListä¸­ã«typeã«é–¢é€£ã™ã‚‹è¦ªãŒãªã„å ´åˆã€
+     * IllegalStateExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testResolveTypeVariable02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Type type = getTypeVariable(
                 AbstractList.class, GenericsUtil_ArrayListStub01.class, 0);
 
         List<ParameterizedType> list = new ArrayList<ParameterizedType>();
         try {
-            //  ƒeƒXƒgÀ{
+            //  ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             GenericsUtil.resolveTypeVariable(
                     type, list);
-            fail("—áŠO‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("ä¾‹å¤–ãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalStateException e) {
-            //  ”»’è
+            //  åˆ¤å®š
             assertEquals(
                     "Concrete type of Type(" + type
                     + ") was not found in ancestorList("
@@ -1381,31 +1381,31 @@ public class GenericsUtilTest extends TestCase {
      * testResolveTypeVariable03()
      * <br><br>
      *
-     *  (ˆÙíŒn)
+     *  (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC, G
+     * è¦³ç‚¹ï¼šC, G
      * <br><br>
-     * “ü—Í’lF(ˆø”) type:GenericArrayTypeƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *         (ˆø”) ancestorTypeList:‹ó‚ÌArrayList<ParameterizedType><br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) type:GenericArrayTypeã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *         (å¼•æ•°) ancestorTypeList:ç©ºã®ArrayList<ParameterizedType><br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalStateException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalStateException<br>
      *
      * <br>
-     * isClassOrTypeVariable‚ÅIllegalStateException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * isClassOrTypeVariableã§IllegalStateExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testResolveTypeVariable03() throws Exception {
         try {
-            //  ƒeƒXƒgÀ{
+            //  ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             GenericsUtil.resolveTypeVariable(
                     new GenericsUtil_GenericArrayTypeStub03(),
                     new ArrayList<ParameterizedType>());
-            fail("—áŠO‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("ä¾‹å¤–ãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalStateException e) {
-            //  ”»’è
+            //  åˆ¤å®š
             assertNotNull(e);
             assertEquals(IllegalStateException.class.getName(),
                     e.getClass().getName());
@@ -1416,32 +1416,32 @@ public class GenericsUtilTest extends TestCase {
      * testResolveTypeVariable04()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC, G
+     * è¦³ç‚¹ï¼šC, G
      * <br><br>
-     * “ü—Í’lF(ˆø”) type:Method‚ÅéŒ¾‚³‚ê‚½Œ^•Ï”<br>
-     *         (ˆø”) ancestorTypeList:ArrayList<ParameterizedType><br>
-     *                “à—e‚ÍAArrayListŒp³ƒNƒ‰ƒX<String>‚Ì
-     *                eƒNƒ‰ƒX‚ÌParameterizedType‚Ì‘S‚Ä<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) type:Methodã§å®£è¨€ã•ã‚ŒãŸå‹å¤‰æ•°<br>
+     *         (å¼•æ•°) ancestorTypeList:ArrayList<ParameterizedType><br>
+     *                å†…å®¹ã¯ã€ArrayListç¶™æ‰¿ã‚¯ãƒ©ã‚¹<String>ã®
+     *                è¦ªã‚¯ãƒ©ã‚¹ã®ParameterizedTypeã®å…¨ã¦<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalStateException<br>
-     *                    ƒƒbƒZ[ƒWF"TypeVariable("<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalStateException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"TypeVariable("<br>
      *                    + targetType.getName()
      *                    + " is not declared at Class "<br>
      *                    + "(ie. is declared at Method or Constructor)")<br>
      *
      * <br>
-     * type‚ªƒNƒ‰ƒX‚ÅéŒ¾‚³‚ê‚Ä‚¢‚È‚¢ê‡AIllegalStateException‚ª
-     * ƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * typeãŒã‚¯ãƒ©ã‚¹ã§å®£è¨€ã•ã‚Œã¦ã„ãªã„å ´åˆã€IllegalStateExceptionãŒ
+     * ã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testResolveTypeVariable04() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Method emptyListMethod =
             Collections.class.getMethod("emptyList", new Class[0]);
         TypeVariable type = emptyListMethod.getTypeParameters()[0];
@@ -1450,11 +1450,11 @@ public class GenericsUtilTest extends TestCase {
                 List.class, GenericsUtil_ArrayListStub01.class);
 
         try {
-            //  ƒeƒXƒgÀ{
+            //  ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             GenericsUtil.resolveTypeVariable(type, list);
-            fail("—áŠO‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("ä¾‹å¤–ãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalStateException e) {
-            //  ”»’è
+            //  åˆ¤å®š
             assertEquals("TypeVariable("
                     + type.getName()
                     + " is not declared at Class "
@@ -1469,28 +1469,28 @@ public class GenericsUtilTest extends TestCase {
      * testResolveTypeVariable05()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) type:ArrayListŒp³ƒNƒ‰ƒX<String>‚ÌList<E>‚É‚Â‚¢‚ÄŒ^•Ï”E<br>
-     *         (ˆø”) ancestorTypeList:ArrayList<ParameterizedType><br>
-     *                “à—e‚ÍAArrayListŒp³ƒNƒ‰ƒX<String>‚ÌeƒNƒ‰ƒX‚Ì
-     *                ParameterizedType‚Ì‘S‚Ä‚É‰Á‚¦A
-     *                Comparator‚ÌParameterizedType<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) type:ArrayListç¶™æ‰¿ã‚¯ãƒ©ã‚¹<String>ã®List<E>ã«ã¤ã„ã¦å‹å¤‰æ•°E<br>
+     *         (å¼•æ•°) ancestorTypeList:ArrayList<ParameterizedType><br>
+     *                å†…å®¹ã¯ã€ArrayListç¶™æ‰¿ã‚¯ãƒ©ã‚¹<String>ã®è¦ªã‚¯ãƒ©ã‚¹ã®
+     *                ParameterizedTypeã®å…¨ã¦ã«åŠ ãˆã€
+     *                Comparatorã®ParameterizedType<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Class:Map.class<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Class:Map.class<br>
      *
      * <br>
-     * Œ^•Ï”éŒ¾‚ª1‚Â‚Ìê‡Aw’è‚µ‚½Œ^•Ï”‚ÌÀÛ‚ÌŒ^‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ÌƒeƒXƒgB
+     * å‹å¤‰æ•°å®£è¨€ãŒ1ã¤ã®å ´åˆã€æŒ‡å®šã—ãŸå‹å¤‰æ•°ã®å®Ÿéš›ã®å‹ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testResolveTypeVariable05() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Type type = getTypeVariable(
                 AbstractList.class, GenericsUtil_ArrayListStub01.class, 0);
 
@@ -1498,10 +1498,10 @@ public class GenericsUtilTest extends TestCase {
                 List.class, GenericsUtil_ArrayListStub01.class);
         list.add((ParameterizedType) Integer.class.getGenericInterfaces()[0]);
 
-        //  ƒeƒXƒgÀ{
+        //  ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Class result = GenericsUtil.resolveTypeVariable(type, list);
 
-        //  ”»’è
+        //  åˆ¤å®š
         assertEquals(Map.class, result);
     }
 
@@ -1509,39 +1509,39 @@ public class GenericsUtilTest extends TestCase {
      * testResolveTypeVariable06()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) type:HashMapŒp³ƒNƒ‰ƒX<String, Integer>(
-     *              K‚ÆV‚Ì‡”Ô‚ğ“ü‚ê‘Ö‚¦‚é‚±‚Æ)‚Ì
-     *              Map<K, V>‚É‚Â‚¢‚ÄŒ^•Ï”V<br>
-     *         (ˆø”) ancestorTypeList:ArrayList<ParameterizedType><br>
-     *                “à—e‚ÍAHashMapŒp³ƒNƒ‰ƒX<String, Integer>‚Ì
-     *                eƒNƒ‰ƒX‚ÌParameterizedType‚Ì‘S‚ÄB<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) type:HashMapç¶™æ‰¿ã‚¯ãƒ©ã‚¹<String, Integer>(
+     *              Kã¨Vã®é †ç•ªã‚’å…¥ã‚Œæ›¿ãˆã‚‹ã“ã¨)ã®
+     *              Map<K, V>ã«ã¤ã„ã¦å‹å¤‰æ•°V<br>
+     *         (å¼•æ•°) ancestorTypeList:ArrayList<ParameterizedType><br>
+     *                å†…å®¹ã¯ã€HashMapç¶™æ‰¿ã‚¯ãƒ©ã‚¹<String, Integer>ã®
+     *                è¦ªã‚¯ãƒ©ã‚¹ã®ParameterizedTypeã®å…¨ã¦ã€‚<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Class:Integer.class<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Class:Integer.class<br>
      *
      * <br>
-     * Œ^•Ï”éŒ¾‚ª•¡”‚Ìê‡Aw’è‚µ‚½Œ^•Ï”‚ÌÀÛ‚ÌŒ^‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ÌƒeƒXƒgB
+     * å‹å¤‰æ•°å®£è¨€ãŒè¤‡æ•°ã®å ´åˆã€æŒ‡å®šã—ãŸå‹å¤‰æ•°ã®å®Ÿéš›ã®å‹ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testResolveTypeVariable06() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Type type = getTypeVariable(
                 HashMap.class, GenericsUtil_HashMapStub02.class, 1);
 
         List<ParameterizedType> list = getParameterizedClassList(
                 Map.class, GenericsUtil_HashMapStub02.class);
 
-        //  ƒeƒXƒgÀ{
+        //  ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Class result = GenericsUtil.resolveTypeVariable(type, list);
 
-        //  ”»’è
+        //  åˆ¤å®š
         assertEquals(Integer.class, result);
     }
 
@@ -1549,26 +1549,26 @@ public class GenericsUtilTest extends TestCase {
      * testisNotTypeVariable01()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) type:String.class<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) type:String.class<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * type‚ªClass‚Å‚ ‚éê‡‚ÉAtrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * typeãŒClassã§ã‚ã‚‹å ´åˆã«ã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testsNotTypeVariable01() throws Exception {
-        //  ƒeƒXƒgÀ{
+        //  ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean result = GenericsUtil.isNotTypeVariable(String.class);
 
-        //  ”»’è
+        //  åˆ¤å®š
         assertTrue(result);
     }
 
@@ -1576,31 +1576,31 @@ public class GenericsUtilTest extends TestCase {
      * testIsNotTypeVariable02()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) type:ArrayListŒp³ƒNƒ‰ƒX‚É‚Â‚¢‚ÄA
-     * ArrayList<E>‚ÌE<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) type:ArrayListç¶™æ‰¿ã‚¯ãƒ©ã‚¹ã«ã¤ã„ã¦ã€
+     * ArrayList<E>ã®E<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
      *
      * <br>
-     * type‚ªTypeValiable‚Å‚ ‚éê‡‚ÉAfalse‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * typeãŒTypeValiableã§ã‚ã‚‹å ´åˆã«ã€falseãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsNotTypeVariable02() throws Exception {
-        //  ‘Oˆ—
+        //  å‰å‡¦ç†
         Type type = getTypeVariable(
                 AbstractList.class, GenericsUtil_ArrayListStub01.class, 0);
 
-        //  ƒeƒXƒgÀ{
+        //  ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean result = GenericsUtil.isNotTypeVariable(type);
 
-        //  ”»’è
+        //  åˆ¤å®š
         assertFalse(result);
     }
 
@@ -1608,37 +1608,37 @@ public class GenericsUtilTest extends TestCase {
      * testIsNotTypeVariable03()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC, G
+     * è¦³ç‚¹ï¼šC, G
      * <br><br>
-     * “ü—Í’lF(ˆø”) type:WildCardTypeƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) type:WildCardTypeã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalStateException<br>
-     *                    ƒƒbƒZ[ƒWF"Type("<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalStateException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Type("<br>
      *                    + type + ") is not instance of "<br>
      *                    + TypeVariable.class.getName() + " nor "<br>
      *                    + Class.class.getName()<br>
      *
      * <br>
-     * type‚ªClass‚Å‚àTypeValiable‚Å‚à‚È‚¢ê‡AIllegalStateException‚ª
-     * ƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * typeãŒClassã§ã‚‚TypeValiableã§ã‚‚ãªã„å ´åˆã€IllegalStateExceptionãŒ
+     * ã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsNotTypeVariable03() throws Exception {
 
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Type type = new GenericsUtil_WildCardTypeStub01();
 
         try {
-            //  ƒeƒXƒgÀ{
+            //  ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             GenericsUtil.isNotTypeVariable(type);
-            fail("—áŠO‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalStateException e) {
-            //  ”»’è
+            //  åˆ¤å®š
             assertEquals("Type("
                     + type + ") is not instance of "
                     + TypeVariable.class.getName() + ", "
@@ -1655,30 +1655,30 @@ public class GenericsUtilTest extends TestCase {
      * testIsNotTypeVariable04()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) type:ArrayListŒp³ƒNƒ‰ƒX‚É‚Â‚¢‚ÄA
-     * ArrayList<E>‚ÌParameterizedType()<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) type:ArrayListç¶™æ‰¿ã‚¯ãƒ©ã‚¹ã«ã¤ã„ã¦ã€
+     * ArrayList<E>ã®ParameterizedType()<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * type‚ªParameterizedType‚Å‚ ‚éê‡‚ÉAtrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * typeãŒParameterizedTypeã§ã‚ã‚‹å ´åˆã«ã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsNotTypeVariable04() throws Exception {
-        //  ‘Oˆ—
+        //  å‰å‡¦ç†
         Type type = GenericsUtil_ArrayListStub01.class.getGenericSuperclass();
 
-        //  ƒeƒXƒgÀ{
+        //  ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean result = GenericsUtil.isNotTypeVariable(type);
 
-        //  ”»’è
+        //  åˆ¤å®š
         assertTrue(result);
     }
 
@@ -1686,41 +1686,41 @@ public class GenericsUtilTest extends TestCase {
      * testIsNotTypeVariable05()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) type: GenericArrayTypeƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) type: GenericArrayTypeã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * type‚ªGenericArrayType‚Å‚ ‚éê‡‚ÉAtrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * typeãŒGenericArrayTypeã§ã‚ã‚‹å ´åˆã«ã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsNotTypeVariable05() throws Exception {
-        //  ‘Oˆ—
+        //  å‰å‡¦ç†
         Type type = new GenericsUtil_GenericArrayTypeStub01();
 
-        //  ƒeƒXƒgÀ{
+        //  ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean result = GenericsUtil.isNotTypeVariable(type);
 
-        //  ”»’è
+        //  åˆ¤å®š
         assertTrue(result);
     }
 
     /**
-     * <code>startClass</code>‚©‚ç<code>endClass</code>‚Ü‚Å‚Ì
-     * Œp³ŠÖŒW‚É‚ ‚éA<code>ParameterizedType</code>‚ğƒŠƒXƒg‚É‚µ‚Ä
-     * •Ô‹p‚·‚éB
+     * <code>startClass</code>ã‹ã‚‰<code>endClass</code>ã¾ã§ã®
+     * ç¶™æ‰¿é–¢ä¿‚ã«ã‚ã‚‹ã€<code>ParameterizedType</code>ã‚’ãƒªã‚¹ãƒˆã«ã—ã¦
+     * è¿”å´ã™ã‚‹ã€‚
      *
-     * @param <T> ƒNƒ‰ƒXB
-     * @param endClass I’[ƒNƒ‰ƒXB
-     * @param startClass ŠJnƒNƒ‰ƒXB
-     * @return <code>ParameterizedType</code>‚ÌƒŠƒXƒgB
+     * @param <T> ã‚¯ãƒ©ã‚¹ã€‚
+     * @param endClass çµ‚ç«¯ã‚¯ãƒ©ã‚¹ã€‚
+     * @param startClass é–‹å§‹ã‚¯ãƒ©ã‚¹ã€‚
+     * @return <code>ParameterizedType</code>ã®ãƒªã‚¹ãƒˆã€‚
      */
     @SuppressWarnings("unchecked")
     private <T> List<ParameterizedType> getParameterizedClassList(
@@ -1742,13 +1742,13 @@ public class GenericsUtilTest extends TestCase {
     }
 
     /**
-     * ƒCƒ“ƒ^ƒtƒF[ƒXƒNƒ‰ƒX‚ÌŒ^•Ï”‚ğæ“¾‚·‚éB
+     * ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã‚¯ãƒ©ã‚¹ã®å‹å¤‰æ•°ã‚’å–å¾—ã™ã‚‹ã€‚
      *
-     * @param <T> ƒNƒ‰ƒXB
-     * @param firstImplementation ƒCƒ“ƒ^ƒtƒF[ƒX‚ğÅ‰‚ÉÀ‘•‚µ‚½ƒNƒ‰ƒXB
-     * @param implementClass æ“¾‚à‚Æ‚ÌÀ‘•ƒNƒ‰ƒXB
-     * @param index ‰½”Ô–Ú‚ÉŒ^•Ï”‚ªéŒ¾‚³‚ê‚½‚©B
-     * @return Œ^•Ï”B
+     * @param <T> ã‚¯ãƒ©ã‚¹ã€‚
+     * @param firstImplementation ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã‚’æœ€åˆã«å®Ÿè£…ã—ãŸã‚¯ãƒ©ã‚¹ã€‚
+     * @param implementClass å–å¾—ã‚‚ã¨ã®å®Ÿè£…ã‚¯ãƒ©ã‚¹ã€‚
+     * @param index ä½•ç•ªç›®ã«å‹å¤‰æ•°ãŒå®£è¨€ã•ã‚ŒãŸã‹ã€‚
+     * @return å‹å¤‰æ•°ã€‚
      */
     @SuppressWarnings({ "null", "unchecked" })
     private <T> Type getTypeVariable(Class<T> firstImplementation,
@@ -1758,7 +1758,7 @@ public class GenericsUtilTest extends TestCase {
             clazz = clazz.getSuperclass();
         }
         if (clazz == null) {
-            fail(firstImplementation.getName() + "‚ªæ“¾‚Å‚«‚Ü‚¹‚ñB");
+            fail(firstImplementation.getName() + "ãŒå–å¾—ã§ãã¾ã›ã‚“ã€‚");
         }
         ParameterizedType parameterizedClass =
             (ParameterizedType) clazz.getGenericInterfaces()[0];
@@ -1767,16 +1767,16 @@ public class GenericsUtilTest extends TestCase {
     }
 
     /**
-     * Œ^•Ï”‚ğæ“¾‚·‚éB
-     * @param clazz æ“¾‚à‚Æ‚ÌÀ‘•ƒNƒ‰ƒXB
-     * @param index ‰½”Ô–Ú‚ÉŒ^•Ï”‚ªéŒ¾‚³‚ê‚½‚©B
+     * å‹å¤‰æ•°ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @param clazz å–å¾—ã‚‚ã¨ã®å®Ÿè£…ã‚¯ãƒ©ã‚¹ã€‚
+     * @param index ä½•ç•ªç›®ã«å‹å¤‰æ•°ãŒå®£è¨€ã•ã‚ŒãŸã‹ã€‚
      *
-     * @return Œ^•Ï”B
+     * @return å‹å¤‰æ•°ã€‚
      */
     private <T> Type getTypeArgument(Class<T> clazz, int index) {
         Type type = clazz.getGenericSuperclass();
         if (!(type instanceof ParameterizedType)) {
-            fail("ParameterizedType‚ğæ“¾‚Å‚«‚Ü‚¹‚ñB");
+            fail("ParameterizedTypeã‚’å–å¾—ã§ãã¾ã›ã‚“ã€‚");
         }
         Type argument = ((ParameterizedType) type).getActualTypeArguments()[index];
         return argument;
@@ -1786,30 +1786,30 @@ public class GenericsUtilTest extends TestCase {
      * testGetRawClass01()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) type:String.class<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) type:String.class<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Class:String.class<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Class:String.class<br>
      *
      * <br>
-     * type‚ªClass‚Å‚ ‚éê‡‚ÉA‚»‚Ì‚Ü‚Ü•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * typeãŒClassã§ã‚ã‚‹å ´åˆã«ã€ãã®ã¾ã¾è¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testGetRawClass01() throws Exception {
-        //  ‘Oˆ—
+        //  å‰å‡¦ç†
         Type type = String.class;
 
-        //  ƒeƒXƒgÀ{
+        //  ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Class result = GenericsUtil.getRawClass(type);
 
-        //  ”»’è
+        //  åˆ¤å®š
         assertEquals(String.class, result);
     }
 
@@ -1817,32 +1817,32 @@ public class GenericsUtilTest extends TestCase {
      * testGetRawClass02()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) type:ArrayListŒp³ƒNƒ‰ƒX‚É‚Â‚¢‚ÄAArrayList<E>‚ÌE<br>
-     *                (E‚ÍMap<String, Object>‚ğ•\‚·ParameterizedType)<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) type:ArrayListç¶™æ‰¿ã‚¯ãƒ©ã‚¹ã«ã¤ã„ã¦ã€ArrayList<E>ã®E<br>
+     *                (Eã¯Map<String, Object>ã‚’è¡¨ã™ParameterizedType)<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Class:Map.class<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Class:Map.class<br>
      *
      * <br>
-     * type‚ªParameterizedType‚Å‚ ‚éê‡‚ÉA‚»‚ÌŒ³‚Æ‚È‚éƒNƒ‰ƒX‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * typeãŒParameterizedTypeã§ã‚ã‚‹å ´åˆã«ã€ãã®å…ƒã¨ãªã‚‹ã‚¯ãƒ©ã‚¹ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testGetRawClass02() throws Exception {
-        //  ‘Oˆ—
+        //  å‰å‡¦ç†
         Type type = getTypeArgument(
                 GenericsUtil_ArrayListStub01.class, 0);
 
-        //  ƒeƒXƒgÀ{
+        //  ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Class result = GenericsUtil.getRawClass(type);
 
-        //  ”»’è
+        //  åˆ¤å®š
         assertEquals(Map.class, result);
     }
 
@@ -1850,32 +1850,32 @@ public class GenericsUtilTest extends TestCase {
      * testGetRawClass03()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) type:ArrayListŒp³ƒNƒ‰ƒX‚É‚Â‚¢‚ÄAArrayList<E>‚ÌE<br>
-     *                (E‚ÍString[]‚ğ•\‚·GenericArrayType)<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) type:ArrayListç¶™æ‰¿ã‚¯ãƒ©ã‚¹ã«ã¤ã„ã¦ã€ArrayList<E>ã®E<br>
+     *                (Eã¯String[]ã‚’è¡¨ã™GenericArrayType)<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Class:String[].class<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Class:String[].class<br>
      *
      * <br>
-     * type‚ªGenericArrayType‚Å‚ ‚éê‡‚ÉA‚»‚ÌŒ³‚Æ‚È‚é”z—ñƒNƒ‰ƒX‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * typeãŒGenericArrayTypeã§ã‚ã‚‹å ´åˆã«ã€ãã®å…ƒã¨ãªã‚‹é…åˆ—ã‚¯ãƒ©ã‚¹ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testGetRawClass03() throws Exception {
-        //  ‘Oˆ—
+        //  å‰å‡¦ç†
         Type type = getTypeArgument(
                 GenericsUtil_ArrayListStub02.class, 0);
 
-        //  ƒeƒXƒgÀ{
+        //  ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Class result = GenericsUtil.getRawClass(type);
 
-        //  ”»’è
+        //  åˆ¤å®š
         assertEquals(String[].class, result);
     }
 
@@ -1883,36 +1883,36 @@ public class GenericsUtilTest extends TestCase {
      * testGetRawClass04()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC, G
+     * è¦³ç‚¹ï¼šC, G
      * <br><br>
-     * “ü—Í’lF(ˆø”) type:WildCardTypeƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) type:WildCardTypeã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalStateException<br>
-     *                    ƒƒbƒZ[ƒWF"Type("<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalStateException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Type("<br>
      *                    + type + ") is not instance of "<br>
      *                    + ParameterizedType.class.getName() + ", "<br>
      *                    + GenericArrayType.class.getName() + " nor "<br>
      *                    + Class.class.getName()<br>
      *
      * <br>
-     * type‚ªClass‚Å‚àTypeValiable‚Å‚à‚È‚¢ê‡AIllegalStateException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * typeãŒClassã§ã‚‚TypeValiableã§ã‚‚ãªã„å ´åˆã€IllegalStateExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetRawClass04() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Type type = new GenericsUtil_WildCardTypeStub01();
 
         try {
-            //  ƒeƒXƒgÀ{
+            //  ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             GenericsUtil.getRawClass(type);
-            fail("—áŠO‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalStateException e) {
-            //  ”»’è
+            //  åˆ¤å®š
             assertEquals("Type("
                     + type + ") is not instance of "
                     + ParameterizedType.class.getName() + ", "
@@ -1928,35 +1928,35 @@ public class GenericsUtilTest extends TestCase {
      * testGetRawClass05()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) type:GenericArrayTypeƒCƒ“ƒXƒ^ƒ“ƒX
-     *        igetGenericComponentType‚Ì–ß‚è’l:GenericArrayTypeƒCƒ“ƒXƒ^ƒ“ƒX
-     *            (getGenericComponentType‚Ì–ß‚è’l:String.class)j<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) type:GenericArrayTypeã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     *        ï¼ˆgetGenericComponentTypeã®æˆ»ã‚Šå€¤:GenericArrayTypeã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     *            (getGenericComponentTypeã®æˆ»ã‚Šå€¤:String.class)ï¼‰<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Class:String[].class<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Class:String[].class<br>
      *
      * <br>
-     * type‚ªGenericArrayType‚Å‚©‚ÂAgetGenericComponentClass‚Ì–ß‚è’l‚ª
-     * GenericArrayType‚Å‚ ‚éê‡‚ÉA³í‚É“®ì‚µ‚È‚¢‚±‚Æ
-     * i‚»‚ÌgetGenericComponentClass‚Ì2Œ³”z—ñ‚ªæ“¾‚³‚ê‚éj‚ğŠm”F‚·‚éƒeƒXƒgB
-     * ¦Œ»ó‚ÌJDK‚Å‚ÍA‚±‚Ì‚æ‚¤‚È–‘Ô‚Í”­¶‚µ‚È‚¢B
+     * typeãŒGenericArrayTypeã§ã‹ã¤ã€getGenericComponentClassã®æˆ»ã‚Šå€¤ãŒ
+     * GenericArrayTypeã§ã‚ã‚‹å ´åˆã«ã€æ­£å¸¸ã«å‹•ä½œã—ãªã„ã“ã¨
+     * ï¼ˆãã®getGenericComponentClassã®2å…ƒé…åˆ—ãŒå–å¾—ã•ã‚Œã‚‹ï¼‰ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
+     * â€»ç¾çŠ¶ã®JDKã§ã¯ã€ã“ã®ã‚ˆã†ãªäº‹æ…‹ã¯ç™ºç”Ÿã—ãªã„ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testGetRawClass05() throws Exception {
-        //  ‘Oˆ—
+        //  å‰å‡¦ç†
         Type type = new GenericsUtil_GenericArrayTypeStub01();
 
-        //  ƒeƒXƒgÀ{
+        //  ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Class result = GenericsUtil.getRawClass(type);
 
-        //  ”»’è
+        //  åˆ¤å®š
         assertEquals(String[][].class, result);
     }
 }

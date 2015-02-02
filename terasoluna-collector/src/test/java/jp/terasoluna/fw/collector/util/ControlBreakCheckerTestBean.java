@@ -1,7 +1,7 @@
 package jp.terasoluna.fw.collector.util;
 
 /**
- * ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒN‚ÆƒRƒŒƒNƒ^‚ÌŒ‹‡Œ±—p‚ÌJavaBean
+ * ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯ã¨ã‚³ãƒ¬ã‚¯ã‚¿ã®çµåˆè©¦é¨“ç”¨ã®JavaBean
  *
  */
 public class ControlBreakCheckerTestBean {
@@ -16,18 +16,18 @@ public class ControlBreakCheckerTestBean {
     }
 
     /**
-     * ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒNƒL[
+     * ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯ã‚­ãƒ¼
      */
     private String column1 = null;
 
     /**
-     * ˜A”ÔB
+     * é€£ç•ªã€‚
      */
     private String column2 = null;
 
     /**
-     * “ü—ÍƒGƒ‰[‘ÎÛB
-     * "Exception"‚Ì“ü—ÍƒGƒ‰[‚É‚È‚èA"validateError"‚Ì‚Æ‚«“ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚É‚È‚é
+     * å…¥åŠ›ã‚¨ãƒ©ãƒ¼å¯¾è±¡ã€‚
+     * "Exception"ã®æ™‚å…¥åŠ›ã‚¨ãƒ©ãƒ¼ã«ãªã‚Šã€"validateError"ã®ã¨ãå…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ã«ãªã‚‹
      */
     private String column3 = null;
 

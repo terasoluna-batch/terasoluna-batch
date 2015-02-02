@@ -3,16 +3,16 @@ package jp.terasoluna.fw.file.dao.standard;
 import jp.terasoluna.fw.file.annotation.FileFormat;
 
 /**
- * FileFormat�A�m�e�[�V�����̐ݒ�����A�t�@�C���s�I�u�W�F�N�g�X�^�u
+ * FileFormatアノテーションの設定を持つ、ファイル行オブジェクトスタブ
  * <p>
- * �C���X�^���X���ł��Ȃ����ۃN���X�ł���B
+ * インスタンス化できない抽象クラスである。
  * <p>
- * �ȉ��̐ݒ������<br>
+ * 以下の設定を持つ<br>
  * <ul>
  * <li>@FileFormat()
- * <li>����
+ * <li>属性
  * <ul>
- * <li>�Ȃ�
+ * <li>なし
  * </ul>
  * </ul>
  */

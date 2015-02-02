@@ -20,127 +20,127 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * QueryDAOƒCƒ“ƒ^ƒtƒF[ƒXB
+ * QueryDAOã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã€‚
  * 
- * QÆŒnSQL‚ğÀs‚·‚é‚½‚ß‚ÌDAOƒCƒ“ƒ^ƒtƒF[ƒX‚Å‚ ‚éB
+ * å‚ç…§ç³»SQLã‚’å®Ÿè¡Œã™ã‚‹ãŸã‚ã®DAOã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã§ã‚ã‚‹ã€‚
  *
  */
 public interface QueryDAO {
 
     /**
-     * SQL‚ÌÀsŒ‹‰Ê‚ğw’è‚³‚ê‚½Œ^‚É‚µ‚Ä•Ô‹p‚·‚éB
+     * SQLã®å®Ÿè¡Œçµæœã‚’æŒ‡å®šã•ã‚ŒãŸå‹ã«ã—ã¦è¿”å´ã™ã‚‹ã€‚
      * 
-     * @param <E> •Ô‹p’l‚ÌŒ^
-     * @param sqlID Às‚·‚éSQL‚ÌID
-     * @param bindParams SQL‚ÉƒoƒCƒ“ƒh‚·‚é’l‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg
-     * @param clazz •Ô‹p’l‚ÌƒNƒ‰ƒX
-     * @return SQL‚ÌÀsŒ‹‰Ê
+     * @param <E> è¿”å´å€¤ã®å‹
+     * @param sqlID å®Ÿè¡Œã™ã‚‹SQLã®ID
+     * @param bindParams SQLã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹å€¤ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param clazz è¿”å´å€¤ã®ã‚¯ãƒ©ã‚¹
+     * @return SQLã®å®Ÿè¡Œçµæœ
      */
     <E> E executeForObject(String sqlID, Object bindParams, Class clazz);
 
     /**
-     * SQL‚ÌÀsŒ‹‰Ê‚ğMap‚ÉŠi”[‚µ‚Ä•Ô‹p‚·‚éB
+     * SQLã®å®Ÿè¡Œçµæœã‚’Mapã«æ ¼ç´ã—ã¦è¿”å´ã™ã‚‹ã€‚
      * 
-     * @param sqlID Às‚·‚éSQL‚ÌID
-     * @param bindParams SQL‚ÉƒoƒCƒ“ƒh‚·‚é’l‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg
-     * @return SQL‚ÌÀsŒ‹‰Ê
+     * @param sqlID å®Ÿè¡Œã™ã‚‹SQLã®ID
+     * @param bindParams SQLã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹å€¤ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @return SQLã®å®Ÿè¡Œçµæœ
      */
     Map<String, Object> executeForMap(String sqlID, Object bindParams);
 
     /**
-     * SQL‚ÌÀsŒ‹‰Ê‚ğw’è‚³‚ê‚½Œ^‚Ì”z—ñ‚É‚µ‚Ä•Ô‹p‚·‚éB
-     * Œ‹‰Ê0Œ‚Í‹ó”z—ñ‚ª•Ô‹p‚³‚ê‚éB
-     * @param <E> •Ô‹p’l‚ÌŒ^
-     * @param sqlID Às‚·‚éSQL‚ÌID
-     * @param bindParams SQL‚ÉƒoƒCƒ“ƒh‚·‚é’l‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg
-     * @param clazz •Ô‹p’l‚ÌƒNƒ‰ƒX
-     * @return SQL‚ÌÀsŒ‹‰Ê
+     * SQLã®å®Ÿè¡Œçµæœã‚’æŒ‡å®šã•ã‚ŒãŸå‹ã®é…åˆ—ã«ã—ã¦è¿”å´ã™ã‚‹ã€‚
+     * çµæœ0ä»¶æ™‚ã¯ç©ºé…åˆ—ãŒè¿”å´ã•ã‚Œã‚‹ã€‚
+     * @param <E> è¿”å´å€¤ã®å‹
+     * @param sqlID å®Ÿè¡Œã™ã‚‹SQLã®ID
+     * @param bindParams SQLã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹å€¤ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param clazz è¿”å´å€¤ã®ã‚¯ãƒ©ã‚¹
+     * @return SQLã®å®Ÿè¡Œçµæœ
      */
     <E> E[] executeForObjectArray(String sqlID,
             Object bindParams, Class clazz);
 
     /**
-     * SQL‚ÌÀsŒ‹‰Ê‚ğMap‚Ì”z—ñ‚ÉŠi”[‚µ‚Ä•Ô‹p‚·‚éB
-     * Œ‹‰Ê0Œ‚Í‹ó”z—ñ‚ª•Ô‹p‚³‚ê‚éB
-     * @param sqlID Às‚·‚éSQL‚ÌID
-     * @param bindParams SQL‚ÉƒoƒCƒ“ƒh‚·‚é’l‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg
-     * @return SQL‚ÌÀsŒ‹‰Ê
+     * SQLã®å®Ÿè¡Œçµæœã‚’Mapã®é…åˆ—ã«æ ¼ç´ã—ã¦è¿”å´ã™ã‚‹ã€‚
+     * çµæœ0ä»¶æ™‚ã¯ç©ºé…åˆ—ãŒè¿”å´ã•ã‚Œã‚‹ã€‚
+     * @param sqlID å®Ÿè¡Œã™ã‚‹SQLã®ID
+     * @param bindParams SQLã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹å€¤ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @return SQLã®å®Ÿè¡Œçµæœ
      */
     Map<String, Object>[] executeForMapArray(String sqlID,
             Object bindParams);
 
     /**
-     * SQL‚ÌÀsŒ‹‰Ê‚ğw’è‚³‚ê‚½ƒCƒ“ƒfƒbƒNƒX‚©‚çw’è‚³‚ê‚½s”•ªA
-     * w’è‚³‚ê‚½Œ^‚Ì”z—ñ‚É‚µ‚Ä•Ô‹p‚·‚éB
-     * Œ‹‰Ê0Œ‚Í‹ó”z—ñ‚ª•Ô‹p‚³‚ê‚éB
-     * @param <E> •Ô‹p’l‚ÌŒ^
-     * @param sqlID Às‚·‚éSQL‚ÌID
-     * @param bindParams SQL‚ÉƒoƒCƒ“ƒh‚·‚é’l‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg
-     * @param clazz •Ô‹p’l‚ÌƒNƒ‰ƒX
-     * @param beginIndex æ“¾‚·‚éŠJnƒCƒ“ƒfƒbƒNƒX
-     * @param maxCount æ“¾‚·‚éŒ”
-     * @return SQL‚ÌÀsŒ‹‰Ê
+     * SQLã®å®Ÿè¡Œçµæœã‚’æŒ‡å®šã•ã‚ŒãŸã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‹ã‚‰æŒ‡å®šã•ã‚ŒãŸè¡Œæ•°åˆ†ã€
+     * æŒ‡å®šã•ã‚ŒãŸå‹ã®é…åˆ—ã«ã—ã¦è¿”å´ã™ã‚‹ã€‚
+     * çµæœ0ä»¶æ™‚ã¯ç©ºé…åˆ—ãŒè¿”å´ã•ã‚Œã‚‹ã€‚
+     * @param <E> è¿”å´å€¤ã®å‹
+     * @param sqlID å®Ÿè¡Œã™ã‚‹SQLã®ID
+     * @param bindParams SQLã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹å€¤ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param clazz è¿”å´å€¤ã®ã‚¯ãƒ©ã‚¹
+     * @param beginIndex å–å¾—ã™ã‚‹é–‹å§‹ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+     * @param maxCount å–å¾—ã™ã‚‹ä»¶æ•°
+     * @return SQLã®å®Ÿè¡Œçµæœ
      */
     <E> E[] executeForObjectArray(String sqlID,
             Object bindParams, Class clazz, int beginIndex, int maxCount);
 
     /**
-     * SQL‚ÌÀsŒ‹‰Ê‚ğw’è‚³‚ê‚½ƒCƒ“ƒfƒbƒNƒX‚©‚çw’è‚³‚ê‚½s”•ªA
-     * Map‚Ì”z—ñ‚É‚µ‚Ä•Ô‹p‚·‚éB
-     * Œ‹‰Ê0Œ‚Í‹ó”z—ñ‚ª•Ô‹p‚³‚ê‚éB
-     * @param sqlID Às‚·‚éSQL‚ÌID
-     * @param bindParams SQL‚ÉƒoƒCƒ“ƒh‚·‚é’l‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg
-     * @param beginIndex æ“¾‚·‚éŠJnƒCƒ“ƒfƒbƒNƒX
-     * @param maxCount æ“¾‚·‚éŒ”
-     * @return SQL‚ÌÀsŒ‹‰Ê
+     * SQLã®å®Ÿè¡Œçµæœã‚’æŒ‡å®šã•ã‚ŒãŸã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‹ã‚‰æŒ‡å®šã•ã‚ŒãŸè¡Œæ•°åˆ†ã€
+     * Mapã®é…åˆ—ã«ã—ã¦è¿”å´ã™ã‚‹ã€‚
+     * çµæœ0ä»¶æ™‚ã¯ç©ºé…åˆ—ãŒè¿”å´ã•ã‚Œã‚‹ã€‚
+     * @param sqlID å®Ÿè¡Œã™ã‚‹SQLã®ID
+     * @param bindParams SQLã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹å€¤ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param beginIndex å–å¾—ã™ã‚‹é–‹å§‹ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+     * @param maxCount å–å¾—ã™ã‚‹ä»¶æ•°
+     * @return SQLã®å®Ÿè¡Œçµæœ
      */
     Map<String, Object>[] executeForMapArray(String sqlID,
             Object bindParams, int beginIndex, int maxCount);
 
     /**
-     * SQL‚ÌÀsŒ‹‰Ê‚ğw’è‚³‚ê‚½Œ^‚ÌList‚Å•Ô‹p‚·‚éB
-     * Œ‹‰Ê0Œ‚Í‹óƒŠƒXƒg‚ª•Ô‹p‚³‚ê‚éB
-     * @param <E> •Ô‹p’l‚ÌŒ^
-     * @param sqlID Às‚·‚éSQL‚ÌID
-     * @param bindParams SQL‚ÉƒoƒCƒ“ƒh‚·‚é’l‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg
-     * @return SQL‚ÌÀsŒ‹‰Ê
+     * SQLã®å®Ÿè¡Œçµæœã‚’æŒ‡å®šã•ã‚ŒãŸå‹ã®Listã§è¿”å´ã™ã‚‹ã€‚
+     * çµæœ0ä»¶æ™‚ã¯ç©ºãƒªã‚¹ãƒˆãŒè¿”å´ã•ã‚Œã‚‹ã€‚
+     * @param <E> è¿”å´å€¤ã®å‹
+     * @param sqlID å®Ÿè¡Œã™ã‚‹SQLã®ID
+     * @param bindParams SQLã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹å€¤ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @return SQLã®å®Ÿè¡Œçµæœ
      */
     <E> List<E> executeForObjectList(String sqlID,
             Object bindParams);
 
     /**
-     * SQL‚ÌÀsŒ‹‰Ê‚ğMap‚ÌList‚ÉŠi”[‚µ‚Ä•Ô‹p‚·‚éB
-     * Œ‹‰Ê0Œ‚Í‹óƒŠƒXƒg‚ª•Ô‹p‚³‚ê‚éB
-     * @param sqlID Às‚·‚éSQL‚ÌID
-     * @param bindParams SQL‚ÉƒoƒCƒ“ƒh‚·‚é’l‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg
-     * @return SQL‚ÌÀsŒ‹‰Ê
+     * SQLã®å®Ÿè¡Œçµæœã‚’Mapã®Listã«æ ¼ç´ã—ã¦è¿”å´ã™ã‚‹ã€‚
+     * çµæœ0ä»¶æ™‚ã¯ç©ºãƒªã‚¹ãƒˆãŒè¿”å´ã•ã‚Œã‚‹ã€‚
+     * @param sqlID å®Ÿè¡Œã™ã‚‹SQLã®ID
+     * @param bindParams SQLã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹å€¤ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @return SQLã®å®Ÿè¡Œçµæœ
      */
     List<Map<String, Object>> executeForMapList(String sqlID,
             Object bindParams);
 
     /**
-     * SQL‚ÌÀsŒ‹‰Ê‚ğw’è‚³‚ê‚½ƒCƒ“ƒfƒbƒNƒX‚©‚çw’è‚³‚ê‚½s”•ªA
-     * w’è‚³‚ê‚½Œ^‚ÌList‚Å•Ô‹p‚·‚éB
-     * Œ‹‰Ê0Œ‚Í‹óƒŠƒXƒg‚ª•Ô‹p‚³‚ê‚éB
-     * @param <E> •Ô‹p’l‚ÌŒ^
-     * @param sqlID Às‚·‚éSQL‚ÌID
-     * @param bindParams SQL‚ÉƒoƒCƒ“ƒh‚·‚é’l‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg
-     * @param beginIndex æ“¾‚·‚éŠJnƒCƒ“ƒfƒbƒNƒX
-     * @param maxCount æ“¾‚·‚éŒ”
-     * @return SQL‚ÌÀsŒ‹‰Ê
+     * SQLã®å®Ÿè¡Œçµæœã‚’æŒ‡å®šã•ã‚ŒãŸã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‹ã‚‰æŒ‡å®šã•ã‚ŒãŸè¡Œæ•°åˆ†ã€
+     * æŒ‡å®šã•ã‚ŒãŸå‹ã®Listã§è¿”å´ã™ã‚‹ã€‚
+     * çµæœ0ä»¶æ™‚ã¯ç©ºãƒªã‚¹ãƒˆãŒè¿”å´ã•ã‚Œã‚‹ã€‚
+     * @param <E> è¿”å´å€¤ã®å‹
+     * @param sqlID å®Ÿè¡Œã™ã‚‹SQLã®ID
+     * @param bindParams SQLã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹å€¤ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param beginIndex å–å¾—ã™ã‚‹é–‹å§‹ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+     * @param maxCount å–å¾—ã™ã‚‹ä»¶æ•°
+     * @return SQLã®å®Ÿè¡Œçµæœ
      */
     <E> List<E> executeForObjectList(String sqlID,
             Object bindParams, int beginIndex, int maxCount);
 
     /**
-     * SQL‚ÌÀsŒ‹‰Ê‚ğw’è‚³‚ê‚½ƒCƒ“ƒfƒbƒNƒX‚©‚çw’è‚³‚ê‚½s”•ªA
-     * Map‚ÌList‚É‚µ‚Ä•Ô‹p‚·‚éB
-     * Œ‹‰Ê0Œ‚Í‹óƒŠƒXƒg‚ª•Ô‹p‚³‚ê‚éB
-     * @param sqlID Às‚·‚éSQL‚ÌID
-     * @param bindParams SQL‚ÉƒoƒCƒ“ƒh‚·‚é’l‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg
-     * @param beginIndex æ“¾‚·‚éŠJnƒCƒ“ƒfƒbƒNƒX
-     * @param maxCount æ“¾‚·‚éŒ”
-     * @return SQL‚ÌÀsŒ‹‰Ê
+     * SQLã®å®Ÿè¡Œçµæœã‚’æŒ‡å®šã•ã‚ŒãŸã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‹ã‚‰æŒ‡å®šã•ã‚ŒãŸè¡Œæ•°åˆ†ã€
+     * Mapã®Listã«ã—ã¦è¿”å´ã™ã‚‹ã€‚
+     * çµæœ0ä»¶æ™‚ã¯ç©ºãƒªã‚¹ãƒˆãŒè¿”å´ã•ã‚Œã‚‹ã€‚
+     * @param sqlID å®Ÿè¡Œã™ã‚‹SQLã®ID
+     * @param bindParams SQLã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹å€¤ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param beginIndex å–å¾—ã™ã‚‹é–‹å§‹ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+     * @param maxCount å–å¾—ã™ã‚‹ä»¶æ•°
+     * @return SQLã®å®Ÿè¡Œçµæœ
      */
     List<Map<String, Object>> executeForMapList(String sqlID,
             Object bindParams, int beginIndex, int maxCount);

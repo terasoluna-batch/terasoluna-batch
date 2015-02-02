@@ -17,27 +17,27 @@
 package jp.terasoluna.fw.batch.constants;
 
 /**
- * ƒWƒ‡ƒuƒXƒe[ƒ^ƒX—p’è”’è‹`ƒNƒ‰ƒXB
+ * ã‚¸ãƒ§ãƒ–ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ç”¨å®šæ•°å®šç¾©ã‚¯ãƒ©ã‚¹ã€‚
  */
 public class JobStatusConstants {
 
     /**
-     * ƒWƒ‡ƒuƒXƒe[ƒ^ƒXF–¢À{.
+     * ã‚¸ãƒ§ãƒ–ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ï¼šæœªå®Ÿæ–½.
      */
     public static final String JOB_STATUS_UNEXECUTION = "0";
 
     /**
-     * ƒWƒ‡ƒuƒXƒe[ƒ^ƒXFÀs’†.
+     * ã‚¸ãƒ§ãƒ–ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ï¼šå®Ÿè¡Œä¸­.
      */
     public static final String JOB_STATUS_EXECUTING = "1";
 
     /**
-     * ƒWƒ‡ƒuƒXƒe[ƒ^ƒXFˆ—Ï.
+     * ã‚¸ãƒ§ãƒ–ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ï¼šå‡¦ç†æ¸ˆ.
      */
     public static final String JOB_STATUS_PROCESSED = "2";
 
     /**
-     * ƒWƒ‡ƒuƒXƒe[ƒ^ƒXF¸”s.
+     * ã‚¸ãƒ§ãƒ–ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ï¼šå¤±æ•—.
      */
     public static final String JOB_STATUS_FAILURE = "3";
 

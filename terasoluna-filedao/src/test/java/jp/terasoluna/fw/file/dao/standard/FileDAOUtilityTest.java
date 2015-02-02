@@ -27,11 +27,11 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * {@link jp.terasoluna.fw.file.dao.standard.FileDAOUtility} ƒNƒ‰ƒX‚ÌƒeƒXƒgB
+ * {@link jp.terasoluna.fw.file.dao.standard.FileDAOUtility} ã‚¯ãƒ©ã‚¹ã®ãƒ†ã‚¹ãƒˆã€‚
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4> ƒpƒfƒBƒ“ƒOAƒgƒŠƒ€ˆ—‚ğ’ñ‹Ÿ‚·‚éB
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4> ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°ã€ãƒˆãƒªãƒ å‡¦ç†ã‚’æä¾›ã™ã‚‹ã€‚
  * <p>
- * @author ‰œ“c“Ni
+ * @author å¥¥ç”°å“²å¸
  * @see jp.terasoluna.fw.file.dao.standard.FileDAOUtility
  */
 public class FileDAOUtilityTest {
@@ -44,36 +44,36 @@ public class FileDAOUtilityTest {
     /**
      * testPadding01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC, D, E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC, D, E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) columnString:"1"<br>
-     * (ˆø”) fileEncoding:Shift_JIS<br>
-     * (ˆø”) columnBytes:0<br>
-     * (ˆø”) paddingChar:' '(”¼Šp‹ó”’•¶š)<br>
-     * (ˆø”) paddingType:PaddingType.LEFT<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) columnString:"1"<br>
+     * (å¼•æ•°) fileEncoding:Shift_JIS<br>
+     * (å¼•æ•°) columnBytes:0<br>
+     * (å¼•æ•°) paddingChar:' '(åŠè§’ç©ºç™½æ–‡å­—)<br>
+     * (å¼•æ•°) paddingType:PaddingType.LEFT<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) •¶š—ñ:"1"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) æ–‡å­—åˆ—:"1"<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * (¶ƒpƒfƒBƒ“ƒO)<br>
-     * ˆø”columnBytes‚ªcolumnString‚æ‚è¬‚³‚¢ê‡Aˆ—‚ªs‚í‚ê‚È‚¢‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (å·¦ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°)<br>
+     * å¼•æ•°columnBytesãŒcolumnStringã‚ˆã‚Šå°ã•ã„å ´åˆã€å‡¦ç†ãŒè¡Œã‚ã‚Œãªã„ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testPadding01() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String columnString = "1";
         String fileEncoding = "Shift_JIS";
         int columnBytes = 0;
         char paddingChar = ' ';
         PaddingType paddingType = PaddingType.LEFT;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = FileDAOUtility.padding(columnString, fileEncoding,
                 columnBytes, paddingChar, paddingType);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertEquals("1", result);
     }
@@ -81,36 +81,36 @@ public class FileDAOUtilityTest {
     /**
      * testPadding02() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC, D, E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC, D, E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) columnString:"1"<br>
-     * (ˆø”) fileEncoding:Shift_JIS<br>
-     * (ˆø”) columnBytes:1<br>
-     * (ˆø”) paddingChar:' '(”¼Šp‹ó”’•¶š)<br>
-     * (ˆø”) paddingType:PaddingType.LEFT<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) columnString:"1"<br>
+     * (å¼•æ•°) fileEncoding:Shift_JIS<br>
+     * (å¼•æ•°) columnBytes:1<br>
+     * (å¼•æ•°) paddingChar:' '(åŠè§’ç©ºç™½æ–‡å­—)<br>
+     * (å¼•æ•°) paddingType:PaddingType.LEFT<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) •¶š—ñ:"1"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) æ–‡å­—åˆ—:"1"<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * (¶ƒpƒfƒBƒ“ƒO)<br>
-     * ˆø”columnBytes‚ªcolumnString‚ÌƒoƒCƒg”‚Æ“¯‚¶ê‡Aˆ—‚ªs‚í‚ê‚È‚¢‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (å·¦ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°)<br>
+     * å¼•æ•°columnBytesãŒcolumnStringã®ãƒã‚¤ãƒˆæ•°ã¨åŒã˜å ´åˆã€å‡¦ç†ãŒè¡Œã‚ã‚Œãªã„ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testPadding02() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String columnString = "1";
         String fileEncoding = "Shift_JIS";
         int columnBytes = 1;
         char paddingChar = ' ';
         PaddingType paddingType = PaddingType.LEFT;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = FileDAOUtility.padding(columnString, fileEncoding,
                 columnBytes, paddingChar, paddingType);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertEquals("1", result);
     }
@@ -118,36 +118,36 @@ public class FileDAOUtilityTest {
     /**
      * testPadding03() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC, D, E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC, D, E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) columnString:"1"<br>
-     * (ˆø”) fileEncoding:Shift_JIS<br>
-     * (ˆø”) columnBytes:3<br>
-     * (ˆø”) paddingChar:' '(”¼Šp‹ó”’•¶š)<br>
-     * (ˆø”) paddingType:PaddingType.LEFT<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) columnString:"1"<br>
+     * (å¼•æ•°) fileEncoding:Shift_JIS<br>
+     * (å¼•æ•°) columnBytes:3<br>
+     * (å¼•æ•°) paddingChar:' '(åŠè§’ç©ºç™½æ–‡å­—)<br>
+     * (å¼•æ•°) paddingType:PaddingType.LEFT<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) •¶š—ñ:"  1"(1‚Ì¶‚É”¼ŠpƒXƒy[ƒX2•¶š)<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) æ–‡å­—åˆ—:"  1"(1ã®å·¦ã«åŠè§’ã‚¹ãƒšãƒ¼ã‚¹2æ–‡å­—)<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * (¶ƒpƒfƒBƒ“ƒO)<br>
-     * ˆø”columnString‚É•s‘«‚µ‚½’·‚³•ª‚ğŒ³ƒf[ƒ^‚Ì¶‚ÉpaddingChar‚Å–„‚ß‚Ä•¶š—ñ‚ªæ“¾‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (å·¦ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°)<br>
+     * å¼•æ•°columnStringã«ä¸è¶³ã—ãŸé•·ã•åˆ†ã‚’å…ƒãƒ‡ãƒ¼ã‚¿ã®å·¦ã«paddingCharã§åŸ‹ã‚ã¦æ–‡å­—åˆ—ãŒå–å¾—ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testPadding03() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String columnString = "1";
         String fileEncoding = "Shift_JIS";
         int columnBytes = 3;
         char paddingChar = ' ';
         PaddingType paddingType = PaddingType.LEFT;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = FileDAOUtility.padding(columnString, fileEncoding,
                 columnBytes, paddingChar, paddingType);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertEquals("  1", result);
     }
@@ -155,36 +155,36 @@ public class FileDAOUtilityTest {
     /**
      * testPadding04() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC, D, E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC, D, E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) columnString:"1"<br>
-     * (ˆø”) fileEncoding:Shift_JIS<br>
-     * (ˆø”) columnBytes:0<br>
-     * (ˆø”) paddingChar:' '(”¼Šp‹ó”’•¶š)<br>
-     * (ˆø”) paddingType:PaddingType.RIGHT<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) columnString:"1"<br>
+     * (å¼•æ•°) fileEncoding:Shift_JIS<br>
+     * (å¼•æ•°) columnBytes:0<br>
+     * (å¼•æ•°) paddingChar:' '(åŠè§’ç©ºç™½æ–‡å­—)<br>
+     * (å¼•æ•°) paddingType:PaddingType.RIGHT<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) •¶š—ñ:"1"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) æ–‡å­—åˆ—:"1"<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * (‰EƒpƒfƒBƒ“ƒO)<br>
-     * ˆø”columnBytes‚ªcolumnString‚æ‚è¬‚³‚¢ê‡Aˆ—‚ªs‚í‚ê‚È‚¢‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (å³ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°)<br>
+     * å¼•æ•°columnBytesãŒcolumnStringã‚ˆã‚Šå°ã•ã„å ´åˆã€å‡¦ç†ãŒè¡Œã‚ã‚Œãªã„ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testPadding04() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String columnString = "1";
         String fileEncoding = "Shift_JIS";
         int columnBytes = 0;
         char paddingChar = ' ';
         PaddingType paddingType = PaddingType.RIGHT;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = FileDAOUtility.padding(columnString, fileEncoding,
                 columnBytes, paddingChar, paddingType);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertEquals("1", result);
     }
@@ -192,36 +192,36 @@ public class FileDAOUtilityTest {
     /**
      * testPadding05() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC, D, E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC, D, E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) columnString:"1"<br>
-     * (ˆø”) fileEncoding:Shift_JIS<br>
-     * (ˆø”) columnBytes:1<br>
-     * (ˆø”) paddingChar:' '(”¼Šp‹ó”’•¶š)<br>
-     * (ˆø”) paddingType:PaddingType.RIGHT<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) columnString:"1"<br>
+     * (å¼•æ•°) fileEncoding:Shift_JIS<br>
+     * (å¼•æ•°) columnBytes:1<br>
+     * (å¼•æ•°) paddingChar:' '(åŠè§’ç©ºç™½æ–‡å­—)<br>
+     * (å¼•æ•°) paddingType:PaddingType.RIGHT<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) •¶š—ñ:"1"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) æ–‡å­—åˆ—:"1"<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * (‰EƒpƒfƒBƒ“ƒO)<br>
-     * ˆø”columnBytes‚ªcolumnString‚ÌƒoƒCƒg”‚Æ“¯‚¶ê‡Aˆ—‚ªs‚í‚ê‚È‚¢‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (å³ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°)<br>
+     * å¼•æ•°columnBytesãŒcolumnStringã®ãƒã‚¤ãƒˆæ•°ã¨åŒã˜å ´åˆã€å‡¦ç†ãŒè¡Œã‚ã‚Œãªã„ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testPadding05() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String columnString = "1";
         String fileEncoding = "Shift_JIS";
         int columnBytes = 1;
         char paddingChar = ' ';
         PaddingType paddingType = PaddingType.RIGHT;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = FileDAOUtility.padding(columnString, fileEncoding,
                 columnBytes, paddingChar, paddingType);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertEquals("1", result);
     }
@@ -229,36 +229,36 @@ public class FileDAOUtilityTest {
     /**
      * testPadding06() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC, D, E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC, D, E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) columnString:"1"<br>
-     * (ˆø”) fileEncoding:Shift_JIS<br>
-     * (ˆø”) columnBytes:3<br>
-     * (ˆø”) paddingChar:' '(”¼Šp‹ó”’•¶š)<br>
-     * (ˆø”) paddingType:PaddingType.RIGHT<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) columnString:"1"<br>
+     * (å¼•æ•°) fileEncoding:Shift_JIS<br>
+     * (å¼•æ•°) columnBytes:3<br>
+     * (å¼•æ•°) paddingChar:' '(åŠè§’ç©ºç™½æ–‡å­—)<br>
+     * (å¼•æ•°) paddingType:PaddingType.RIGHT<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) •¶š—ñ:"1  "(1‚Ì‰E‚É”¼ŠpƒXƒy[ƒX2•¶š)<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) æ–‡å­—åˆ—:"1  "(1ã®å³ã«åŠè§’ã‚¹ãƒšãƒ¼ã‚¹2æ–‡å­—)<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * (‰EƒpƒfƒBƒ“ƒO)<br>
-     * ˆø”columnString‚É•s‘«‚µ‚½’·‚³•ª‚ğŒ³ƒf[ƒ^‚Ì‰E‚ÉpaddingChar‚Å–„‚ß‚Ä•¶š—ñ‚ªæ“¾‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (å³ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°)<br>
+     * å¼•æ•°columnStringã«ä¸è¶³ã—ãŸé•·ã•åˆ†ã‚’å…ƒãƒ‡ãƒ¼ã‚¿ã®å³ã«paddingCharã§åŸ‹ã‚ã¦æ–‡å­—åˆ—ãŒå–å¾—ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testPadding06() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String columnString = "1";
         String fileEncoding = "Shift_JIS";
         int columnBytes = 3;
         char paddingChar = ' ';
         PaddingType paddingType = PaddingType.RIGHT;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = FileDAOUtility.padding(columnString, fileEncoding,
                 columnBytes, paddingChar, paddingType);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertEquals("1  ", result);
     }
@@ -266,36 +266,36 @@ public class FileDAOUtilityTest {
     /**
      * testPadding07() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC, D, E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC, D, E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) columnString:"1"<br>
-     * (ˆø”) fileEncoding:Shift_JIS<br>
-     * (ˆø”) columnBytes:3<br>
-     * (ˆø”) paddingChar:' '(”¼Šp‹ó”’•¶š)<br>
-     * (ˆø”) paddingType:PaddingType.NONE<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) columnString:"1"<br>
+     * (å¼•æ•°) fileEncoding:Shift_JIS<br>
+     * (å¼•æ•°) columnBytes:3<br>
+     * (å¼•æ•°) paddingChar:' '(åŠè§’ç©ºç™½æ–‡å­—)<br>
+     * (å¼•æ•°) paddingType:PaddingType.NONE<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) •¶š—ñ:"1"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) æ–‡å­—åˆ—:"1"<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * (ƒpƒfƒBƒ“ƒO‚È‚µ)<br>
-     * columnString‚ª‚»‚Ì‚Ü‚Üæ“¾‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°ãªã—)<br>
+     * columnStringãŒãã®ã¾ã¾å–å¾—ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testPadding07() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String columnString = "1";
         String fileEncoding = "Shift_JIS";
         int columnBytes = 3;
         char paddingChar = ' ';
         PaddingType paddingType = PaddingType.NONE;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = FileDAOUtility.padding(columnString, fileEncoding,
                 columnBytes, paddingChar, paddingType);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertEquals("1", result);
     }
@@ -303,39 +303,39 @@ public class FileDAOUtilityTest {
     /**
      * testPadding08() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) columnString:"1"<br>
-     * (ˆø”) fileEncoding:Shift_JIS<br>
-     * (ˆø”) columnBytes:3<br>
-     * (ˆø”) paddingChar:'@'(‘SŠp‹ó”’•¶š)<br>
-     * (ˆø”) paddingType:PaddingType.LEFT<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) columnString:"1"<br>
+     * (å¼•æ•°) fileEncoding:Shift_JIS<br>
+     * (å¼•æ•°) columnBytes:3<br>
+     * (å¼•æ•°) paddingChar:'ã€€'(å…¨è§’ç©ºç™½æ–‡å­—)<br>
+     * (å¼•æ•°) paddingType:PaddingType.LEFT<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») -:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"Padding char is not half-width character."<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) -:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Padding char is not half-width character."<br>
      * <br>
-     * ˆÙíƒP[ƒX<br>
-     * (ƒpƒfƒBƒ“ƒO‚ ‚è)<br>
-     * ƒpƒfƒBƒ“ƒO•¶š‚Í”¼Šp•¶š‚Å‚Í‚È‚¢ê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°ã‚ã‚Š)<br>
+     * ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°æ–‡å­—ã¯åŠè§’æ–‡å­—ã§ã¯ãªã„å ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testPadding08() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String columnString = "1";
         String fileEncoding = "Shift_JIS";
         int columnBytes = 3;
-        char paddingChar = '@';
+        char paddingChar = 'ã€€';
         PaddingType paddingType = PaddingType.LEFT;
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             FileDAOUtility.padding(columnString, fileEncoding, columnBytes,
                     paddingChar, paddingType);
-            fail("FileException—áŠO‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("FileExceptionä¾‹å¤–ãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (FileException e) {
-            // ”»’è
+            // åˆ¤å®š
             assertEquals("Padding char is not half-width character.", e
                     .getMessage());
         }
@@ -344,28 +344,28 @@ public class FileDAOUtilityTest {
     /**
      * testPadding09() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) columnString:"1"<br>
-     * (ˆø”) fileEncoding:"XXX"<br>
-     * ¦‘¶İ‚µ‚È‚¢ƒGƒ“ƒR[ƒfƒBƒ“ƒO<br>
-     * (ˆø”) columnBytes:3<br>
-     * (ˆø”) paddingChar:' '(”¼Šp‹ó”’•¶š)<br>
-     * (ˆø”) paddingType:PaddingType.LEFT<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) columnString:"1"<br>
+     * (å¼•æ•°) fileEncoding:"XXX"<br>
+     * â€»å­˜åœ¨ã—ãªã„ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°<br>
+     * (å¼•æ•°) columnBytes:3<br>
+     * (å¼•æ•°) paddingChar:' '(åŠè§’ç©ºç™½æ–‡å­—)<br>
+     * (å¼•æ•°) paddingType:PaddingType.LEFT<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») -:ˆÈ‰º‚Ìİ’è‚ğ‚ÂFileException‚ª”­¶‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"Specified Encoding : XXX is not supported"<br>
-     * EŒ´ˆö—áŠOFUnsupportedEncodingException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) -:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Specified Encoding : XXX is not supported"<br>
+     * ãƒ»åŸå› ä¾‹å¤–ï¼šUnsupportedEncodingException<br>
      * <br>
-     * ˆÙíƒP[ƒX<br>
-     * (ƒpƒfƒBƒ“ƒO‚ ‚è)<br>
-     * ‘¶İ‚µ‚È‚¢ƒGƒ“ƒR[ƒfƒBƒ“ƒO‚ªw’è‚³‚ê‚½ê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚é <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°ã‚ã‚Š)<br>
+     * å­˜åœ¨ã—ãªã„ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ãŒæŒ‡å®šã•ã‚ŒãŸå ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testPadding09() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String columnString = "1";
         String fileEncoding = "XXX";
         int columnBytes = 3;
@@ -373,12 +373,12 @@ public class FileDAOUtilityTest {
         PaddingType paddingType = PaddingType.LEFT;
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             FileDAOUtility.padding(columnString, fileEncoding, columnBytes,
                     paddingChar, paddingType);
-            fail("FileException—áŠO‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("FileExceptionä¾‹å¤–ãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (FileException e) {
-            // ”»’è
+            // åˆ¤å®š
             assertEquals("Specified Encoding : XXX is not supported", e
                     .getMessage());
             assertTrue(e.getCause() instanceof UnsupportedEncodingException);
@@ -388,37 +388,37 @@ public class FileDAOUtilityTest {
     /**
      * testPadding10() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC, D, E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC, D, E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) columnString:"1"<br>
-     * (ˆø”) fileEncoding:"XXX"<br>
-     * ¦‘¶İ‚µ‚È‚¢ƒGƒ“ƒR[ƒfƒBƒ“ƒO<br>
-     * (ˆø”) columnBytes:3<br>
-     * (ˆø”) paddingChar:'@'(‘SŠp‹ó”’•¶š)<br>
-     * (ˆø”) paddingType:PaddingType.NONE<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) columnString:"1"<br>
+     * (å¼•æ•°) fileEncoding:"XXX"<br>
+     * â€»å­˜åœ¨ã—ãªã„ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°<br>
+     * (å¼•æ•°) columnBytes:3<br>
+     * (å¼•æ•°) paddingChar:'ã€€'(å…¨è§’ç©ºç™½æ–‡å­—)<br>
+     * (å¼•æ•°) paddingType:PaddingType.NONE<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) •¶š—ñ:"1"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) æ–‡å­—åˆ—:"1"<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * (ƒpƒfƒBƒ“ƒO‚È‚µ)<br>
-     * ‘¼ˆø”‚Ìó‘Ô‚ÆŠÖŒW‚È‚­columnString‚ª‚»‚Ì‚Ü‚Üæ“¾‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°ãªã—)<br>
+     * ä»–å¼•æ•°ã®çŠ¶æ…‹ã¨é–¢ä¿‚ãªãcolumnStringãŒãã®ã¾ã¾å–å¾—ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testPadding10() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String columnString = "1";
         String fileEncoding = "XXX";
         int columnBytes = 3;
-        char paddingChar = '@';
+        char paddingChar = 'ã€€';
         PaddingType paddingType = PaddingType.NONE;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = FileDAOUtility.padding(columnString, fileEncoding,
                 columnBytes, paddingChar, paddingType);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertEquals("1", result);
     }
@@ -426,36 +426,36 @@ public class FileDAOUtilityTest {
     /**
      * testPadding11() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC, D, E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC, D, E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) columnString:""<br>
-     * (ˆø”) fileEncoding:Shift_JIS<br>
-     * (ˆø”) columnBytes:0<br>
-     * (ˆø”) paddingChar:'!'(”¼Šp•¶š)<br>
-     * (ˆø”) paddingType:PaddingType.LEFT<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) columnString:""<br>
+     * (å¼•æ•°) fileEncoding:Shift_JIS<br>
+     * (å¼•æ•°) columnBytes:0<br>
+     * (å¼•æ•°) paddingChar:'!'(åŠè§’æ–‡å­—)<br>
+     * (å¼•æ•°) paddingType:PaddingType.LEFT<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) •¶š—ñ:""<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) æ–‡å­—åˆ—:""<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * (¶ƒpƒfƒBƒ“ƒOA‘ÎÛƒf[ƒ^‚ª‹ó•¶š)<br>
-     * ˆø”columnBytes‚ªcolumnString‚æ‚è¬‚³‚¢ê‡Aˆ—‚ªs‚í‚ê‚È‚¢‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (å·¦ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°ã€å¯¾è±¡ãƒ‡ãƒ¼ã‚¿ãŒç©ºæ–‡å­—)<br>
+     * å¼•æ•°columnBytesãŒcolumnStringã‚ˆã‚Šå°ã•ã„å ´åˆã€å‡¦ç†ãŒè¡Œã‚ã‚Œãªã„ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testPadding11() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String columnString = "";
         String fileEncoding = "Shift_JIS";
         int columnBytes = 0;
         char paddingChar = '!';
         PaddingType paddingType = PaddingType.LEFT;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = FileDAOUtility.padding(columnString, fileEncoding,
                 columnBytes, paddingChar, paddingType);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertEquals("", result);
     }
@@ -463,36 +463,36 @@ public class FileDAOUtilityTest {
     /**
      * testPadding12() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC, D, E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC, D, E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) columnString:""<br>
-     * (ˆø”) fileEncoding:Shift_JIS<br>
-     * (ˆø”) columnBytes:0<br>
-     * (ˆø”) paddingChar:'!'(”¼Šp•¶š)<br>
-     * (ˆø”) paddingType:PaddingType.LEFT<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) columnString:""<br>
+     * (å¼•æ•°) fileEncoding:Shift_JIS<br>
+     * (å¼•æ•°) columnBytes:0<br>
+     * (å¼•æ•°) paddingChar:'!'(åŠè§’æ–‡å­—)<br>
+     * (å¼•æ•°) paddingType:PaddingType.LEFT<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) •¶š—ñ:""<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) æ–‡å­—åˆ—:""<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * (¶ƒpƒfƒBƒ“ƒOA‘ÎÛƒf[ƒ^‚ª‹ó•¶š)<br>
-     * ˆø”columnBytes‚ªcolumnString‚ÌƒoƒCƒg”‚Æ“¯‚¶ê‡Aˆ—‚ªs‚í‚ê‚È‚¢‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (å·¦ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°ã€å¯¾è±¡ãƒ‡ãƒ¼ã‚¿ãŒç©ºæ–‡å­—)<br>
+     * å¼•æ•°columnBytesãŒcolumnStringã®ãƒã‚¤ãƒˆæ•°ã¨åŒã˜å ´åˆã€å‡¦ç†ãŒè¡Œã‚ã‚Œãªã„ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testPadding12() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String columnString = "";
         String fileEncoding = "Shift_JIS";
         int columnBytes = 0;
         char paddingChar = '!';
         PaddingType paddingType = PaddingType.LEFT;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = FileDAOUtility.padding(columnString, fileEncoding,
                 columnBytes, paddingChar, paddingType);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertEquals("", result);
     }
@@ -500,36 +500,36 @@ public class FileDAOUtilityTest {
     /**
      * testPadding13() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC, D, E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC, D, E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) columnString:""<br>
-     * (ˆø”) fileEncoding:Shift_JIS<br>
-     * (ˆø”) columnBytes:3<br>
-     * (ˆø”) paddingChar:'!'(”¼Šp•¶š)<br>
-     * (ˆø”) paddingType:PaddingType.LEFT<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) columnString:""<br>
+     * (å¼•æ•°) fileEncoding:Shift_JIS<br>
+     * (å¼•æ•°) columnBytes:3<br>
+     * (å¼•æ•°) paddingChar:'!'(åŠè§’æ–‡å­—)<br>
+     * (å¼•æ•°) paddingType:PaddingType.LEFT<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) •¶š—ñ:"!!!"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) æ–‡å­—åˆ—:"!!!"<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * (¶ƒpƒfƒBƒ“ƒOA‘ÎÛƒf[ƒ^‚ª‹ó•¶š)<br>
-     * ˆø”columnString‚É•s‘«‚µ‚½’·‚³•ª‚ğŒ³ƒf[ƒ^‚Ì¶‚ÉpaddingChar‚Å–„‚ß‚Ä•¶š—ñ‚ª æ“¾‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (å·¦ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°ã€å¯¾è±¡ãƒ‡ãƒ¼ã‚¿ãŒç©ºæ–‡å­—)<br>
+     * å¼•æ•°columnStringã«ä¸è¶³ã—ãŸé•·ã•åˆ†ã‚’å…ƒãƒ‡ãƒ¼ã‚¿ã®å·¦ã«paddingCharã§åŸ‹ã‚ã¦æ–‡å­—åˆ—ãŒ å–å¾—ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testPadding13() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String columnString = "";
         String fileEncoding = "Shift_JIS";
         int columnBytes = 3;
         char paddingChar = '!';
         PaddingType paddingType = PaddingType.LEFT;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = FileDAOUtility.padding(columnString, fileEncoding,
                 columnBytes, paddingChar, paddingType);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertEquals("!!!", result);
     }
@@ -537,36 +537,36 @@ public class FileDAOUtilityTest {
     /**
      * testPadding14() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC, D, E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC, D, E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) columnString:""<br>
-     * (ˆø”) fileEncoding:Shift_JIS<br>
-     * (ˆø”) columnBytes:0<br>
-     * (ˆø”) paddingChar:'!'(”¼Šp•¶š)<br>
-     * (ˆø”) paddingType:PaddingType.RIGHT<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) columnString:""<br>
+     * (å¼•æ•°) fileEncoding:Shift_JIS<br>
+     * (å¼•æ•°) columnBytes:0<br>
+     * (å¼•æ•°) paddingChar:'!'(åŠè§’æ–‡å­—)<br>
+     * (å¼•æ•°) paddingType:PaddingType.RIGHT<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) •¶š—ñ:""<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) æ–‡å­—åˆ—:""<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * (‰EƒpƒfƒBƒ“ƒOA‘ÎÛƒf[ƒ^‚ª‹ó•¶š)<br>
-     * ˆø”columnBytes‚ªcolumnString‚æ‚è¬‚³‚¢ê‡Aˆ—‚ªs‚í‚ê‚È‚¢‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (å³ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°ã€å¯¾è±¡ãƒ‡ãƒ¼ã‚¿ãŒç©ºæ–‡å­—)<br>
+     * å¼•æ•°columnBytesãŒcolumnStringã‚ˆã‚Šå°ã•ã„å ´åˆã€å‡¦ç†ãŒè¡Œã‚ã‚Œãªã„ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testPadding14() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String columnString = "";
         String fileEncoding = "Shift_JIS";
         int columnBytes = 0;
         char paddingChar = '!';
         PaddingType paddingType = PaddingType.RIGHT;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = FileDAOUtility.padding(columnString, fileEncoding,
                 columnBytes, paddingChar, paddingType);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertEquals("", result);
     }
@@ -574,36 +574,36 @@ public class FileDAOUtilityTest {
     /**
      * testPadding15() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC, D, E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC, D, E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) columnString:""<br>
-     * (ˆø”) fileEncoding:Shift_JIS<br>
-     * (ˆø”) columnBytes:0<br>
-     * (ˆø”) paddingChar:'!'(”¼Šp•¶š)<br>
-     * (ˆø”) paddingType:PaddingType.RIGHT<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) columnString:""<br>
+     * (å¼•æ•°) fileEncoding:Shift_JIS<br>
+     * (å¼•æ•°) columnBytes:0<br>
+     * (å¼•æ•°) paddingChar:'!'(åŠè§’æ–‡å­—)<br>
+     * (å¼•æ•°) paddingType:PaddingType.RIGHT<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) •¶š—ñ:""<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) æ–‡å­—åˆ—:""<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * (‰EƒpƒfƒBƒ“ƒOA‘ÎÛƒf[ƒ^‚ª‹ó•¶š)<br>
-     * ˆø”columnBytes‚ªcolumnString‚ÌƒoƒCƒg”‚Æ“¯‚¶ê‡Aˆ—‚ªs‚í‚ê‚È‚¢‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (å³ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°ã€å¯¾è±¡ãƒ‡ãƒ¼ã‚¿ãŒç©ºæ–‡å­—)<br>
+     * å¼•æ•°columnBytesãŒcolumnStringã®ãƒã‚¤ãƒˆæ•°ã¨åŒã˜å ´åˆã€å‡¦ç†ãŒè¡Œã‚ã‚Œãªã„ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testPadding15() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String columnString = "";
         String fileEncoding = "Shift_JIS";
         int columnBytes = 0;
         char paddingChar = '!';
         PaddingType paddingType = PaddingType.RIGHT;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = FileDAOUtility.padding(columnString, fileEncoding,
                 columnBytes, paddingChar, paddingType);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertEquals("", result);
     }
@@ -611,36 +611,36 @@ public class FileDAOUtilityTest {
     /**
      * testPadding16() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC, D, E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC, D, E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) columnString:""<br>
-     * (ˆø”) fileEncoding:Shift_JIS<br>
-     * (ˆø”) columnBytes:3<br>
-     * (ˆø”) paddingChar:'!'(”¼Šp•¶š)<br>
-     * (ˆø”) paddingType:PaddingType.RIGHT<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) columnString:""<br>
+     * (å¼•æ•°) fileEncoding:Shift_JIS<br>
+     * (å¼•æ•°) columnBytes:3<br>
+     * (å¼•æ•°) paddingChar:'!'(åŠè§’æ–‡å­—)<br>
+     * (å¼•æ•°) paddingType:PaddingType.RIGHT<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) •¶š—ñ:"!!!"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) æ–‡å­—åˆ—:"!!!"<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * (‰EƒpƒfƒBƒ“ƒOA‘ÎÛƒf[ƒ^‚ª‹ó•¶š)<br>
-     * ˆø”columnString‚É•s‘«‚µ‚½’·‚³•ª‚ğŒ³ƒf[ƒ^‚Ì‰E‚ÉpaddingChar‚Å–„‚ß‚Ä•¶š—ñ‚ª æ“¾‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (å³ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°ã€å¯¾è±¡ãƒ‡ãƒ¼ã‚¿ãŒç©ºæ–‡å­—)<br>
+     * å¼•æ•°columnStringã«ä¸è¶³ã—ãŸé•·ã•åˆ†ã‚’å…ƒãƒ‡ãƒ¼ã‚¿ã®å³ã«paddingCharã§åŸ‹ã‚ã¦æ–‡å­—åˆ—ãŒ å–å¾—ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testPadding16() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String columnString = "";
         String fileEncoding = "Shift_JIS";
         int columnBytes = 3;
         char paddingChar = '!';
         PaddingType paddingType = PaddingType.RIGHT;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = FileDAOUtility.padding(columnString, fileEncoding,
                 columnBytes, paddingChar, paddingType);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertEquals("!!!", result);
     }
@@ -648,36 +648,36 @@ public class FileDAOUtilityTest {
     /**
      * testPadding17() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC, D, E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC, D, E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) columnString:""<br>
-     * (ˆø”) fileEncoding:Shift_JIS<br>
-     * (ˆø”) columnBytes:3<br>
-     * (ˆø”) paddingChar:'!'(”¼Šp•¶š)<br>
-     * (ˆø”) paddingType:PaddingType.NONE<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) columnString:""<br>
+     * (å¼•æ•°) fileEncoding:Shift_JIS<br>
+     * (å¼•æ•°) columnBytes:3<br>
+     * (å¼•æ•°) paddingChar:'!'(åŠè§’æ–‡å­—)<br>
+     * (å¼•æ•°) paddingType:PaddingType.NONE<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) •¶š—ñ:""<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) æ–‡å­—åˆ—:""<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * (ƒpƒfƒBƒ“ƒO‚È‚µA‘ÎÛƒf[ƒ^‚ª‹ó•¶š)<br>
-     * columnString‚ª‚»‚Ì‚Ü‚Üæ“¾‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°ãªã—ã€å¯¾è±¡ãƒ‡ãƒ¼ã‚¿ãŒç©ºæ–‡å­—)<br>
+     * columnStringãŒãã®ã¾ã¾å–å¾—ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testPadding17() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String columnString = "";
         String fileEncoding = "Shift_JIS";
         int columnBytes = 3;
         char paddingChar = '!';
         PaddingType paddingType = PaddingType.NONE;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = FileDAOUtility.padding(columnString, fileEncoding,
                 columnBytes, paddingChar, paddingType);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertEquals("", result);
     }
@@ -685,24 +685,24 @@ public class FileDAOUtilityTest {
     /**
      * testPadding18() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) columnString:null<br>
-     * (ˆø”) fileEncoding:Shift_JIS<br>
-     * (ˆø”) columnBytes:3<br>
-     * (ˆø”) paddingChar:' '(”¼Šp‹ó”’•¶š)<br>
-     * (ˆø”) paddingType:PaddingType.LEFT<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) columnString:null<br>
+     * (å¼•æ•°) fileEncoding:Shift_JIS<br>
+     * (å¼•æ•°) columnBytes:3<br>
+     * (å¼•æ•°) paddingChar:' '(åŠè§’ç©ºç™½æ–‡å­—)<br>
+     * (å¼•æ•°) paddingType:PaddingType.LEFT<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») -:NullPointerException‚ª”­¶‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) -:NullPointerExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
      * <br>
-     * ˆÙíƒP[ƒX<br>
-     * ˆø”columnString‚Énull‚Ìê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * å¼•æ•°columnStringã«nullã®å ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testPadding18() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String columnString = null;
         String fileEncoding = "Shift_JIS";
         int columnBytes = 3;
@@ -710,12 +710,12 @@ public class FileDAOUtilityTest {
         PaddingType paddingType = PaddingType.LEFT;
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             FileDAOUtility.padding(columnString, fileEncoding, columnBytes,
                     paddingChar, paddingType);
-            fail("NullPointerException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("NullPointerExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (NullPointerException e) {
-            // ”»’è
+            // åˆ¤å®š
             assertTrue(e instanceof NullPointerException);
         }
     }
@@ -723,24 +723,24 @@ public class FileDAOUtilityTest {
     /**
      * testPadding19() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) columnString:"1"<br>
-     * (ˆø”) fileEncoding:null<br>
-     * (ˆø”) columnBytes:3<br>
-     * (ˆø”) paddingChar:' '(”¼Šp‹ó”’•¶š)<br>
-     * (ˆø”) paddingType:PaddingType.LEFT<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) columnString:"1"<br>
+     * (å¼•æ•°) fileEncoding:null<br>
+     * (å¼•æ•°) columnBytes:3<br>
+     * (å¼•æ•°) paddingChar:' '(åŠè§’ç©ºç™½æ–‡å­—)<br>
+     * (å¼•æ•°) paddingType:PaddingType.LEFT<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») -:NullPointerException‚ª”­¶‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) -:NullPointerExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
      * <br>
-     * ˆÙíƒP[ƒX<br>
-     * ˆø”fileEncoding‚Énull‚Ìê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * å¼•æ•°fileEncodingã«nullã®å ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testPadding19() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String columnString = "1";
         String fileEncoding = null;
         int columnBytes = 3;
@@ -748,12 +748,12 @@ public class FileDAOUtilityTest {
         PaddingType paddingType = PaddingType.LEFT;
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             FileDAOUtility.padding(columnString, fileEncoding, columnBytes,
                     paddingChar, paddingType);
-            fail("NullPointerException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("NullPointerExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (NullPointerException e) {
-            // ”»’è
+            // åˆ¤å®š
             assertTrue(e instanceof NullPointerException);
         }
     }
@@ -761,36 +761,36 @@ public class FileDAOUtilityTest {
     /**
      * testPadding20() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC, D, E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC, D, E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) columnString:"1"<br>
-     * (ˆø”) fileEncoding:Shift_JIS<br>
-     * (ˆø”) columnBytes:-3<br>
-     * (ˆø”) paddingChar:' '(”¼Šp‹ó”’•¶š)<br>
-     * (ˆø”) paddingType:PaddingType.LEFT<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) columnString:"1"<br>
+     * (å¼•æ•°) fileEncoding:Shift_JIS<br>
+     * (å¼•æ•°) columnBytes:-3<br>
+     * (å¼•æ•°) paddingChar:' '(åŠè§’ç©ºç™½æ–‡å­—)<br>
+     * (å¼•æ•°) paddingType:PaddingType.LEFT<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) •¶š—ñ:"1"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) æ–‡å­—åˆ—:"1"<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * (¶ƒpƒfƒBƒ“ƒO)<br>
-     * ˆø”columnBytes‚ª0‚æ‚è¬‚³‚¢ê‡Aˆ—‚ªs‚í‚ê‚È‚¢‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (å·¦ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°)<br>
+     * å¼•æ•°columnBytesãŒ0ã‚ˆã‚Šå°ã•ã„å ´åˆã€å‡¦ç†ãŒè¡Œã‚ã‚Œãªã„ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testPadding20() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String columnString = "1";
         String fileEncoding = "Shift_JIS";
         int columnBytes = -3;
         char paddingChar = ' ';
         PaddingType paddingType = PaddingType.LEFT;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = FileDAOUtility.padding(columnString, fileEncoding,
                 columnBytes, paddingChar, paddingType);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertEquals("1", result);
     }
@@ -798,35 +798,35 @@ public class FileDAOUtilityTest {
     /**
      * testPadding21() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC, D, E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC, D, E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) columnString:"1"<br>
-     * (ˆø”) fileEncoding:Shift_JIS<br>
-     * (ˆø”) columnBytes:3<br>
-     * (ˆø”) paddingChar:' '(”¼Šp‹ó”’•¶š)<br>
-     * (ˆø”) paddingType:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) columnString:"1"<br>
+     * (å¼•æ•°) fileEncoding:Shift_JIS<br>
+     * (å¼•æ•°) columnBytes:3<br>
+     * (å¼•æ•°) paddingChar:' '(åŠè§’ç©ºç™½æ–‡å­—)<br>
+     * (å¼•æ•°) paddingType:null<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) •¶š—ñ:"1"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) æ–‡å­—åˆ—:"1"<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * ˆø”paddingType‚ªnull‚Ìê‡Aˆ—‚ğs‚í‚È‚¢‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * å¼•æ•°paddingTypeãŒnullã®å ´åˆã€å‡¦ç†ã‚’è¡Œã‚ãªã„ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testPadding21() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String columnString = "1";
         String fileEncoding = "Shift_JIS";
         int columnBytes = 3;
         char paddingChar = ' ';
         PaddingType paddingType = null;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = FileDAOUtility.padding(columnString, fileEncoding,
                 columnBytes, paddingChar, paddingType);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertEquals("1", result);
     }
@@ -834,145 +834,145 @@ public class FileDAOUtilityTest {
     /**
      * testPadding22() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC, D, E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC, D, E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) columnString:"‚P"(‘SŠp•¶š)<br>
-     * (ˆø”) fileEncoding:Shift_JIS<br>
-     * (ˆø”) columnBytes:3<br>
-     * (ˆø”) paddingChar:' '(”¼Šp‹ó”’•¶š)<br>
-     * (ˆø”) paddingType:PaddingType.LEFT<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) columnString:"ï¼‘"(å…¨è§’æ–‡å­—)<br>
+     * (å¼•æ•°) fileEncoding:Shift_JIS<br>
+     * (å¼•æ•°) columnBytes:3<br>
+     * (å¼•æ•°) paddingChar:' '(åŠè§’ç©ºç™½æ–‡å­—)<br>
+     * (å¼•æ•°) paddingType:PaddingType.LEFT<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) •¶š—ñ:" 1"(1‚Ì¶‚É”¼ŠpƒXƒy[ƒX1•¶š)<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) æ–‡å­—åˆ—:" 1"(1ã®å·¦ã«åŠè§’ã‚¹ãƒšãƒ¼ã‚¹1æ–‡å­—)<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * (¶ƒpƒfƒBƒ“ƒOA‘SŠp•¶š)<br>
-     * ˆø”columnString‚É•s‘«‚µ‚½’·‚³•ª‚ğŒ³ƒf[ƒ^‚Ì¶‚ÉpaddingChar‚Å –„‚ß‚Ä•¶š—ñ‚ªæ“¾‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (å·¦ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°ã€å…¨è§’æ–‡å­—)<br>
+     * å¼•æ•°columnStringã«ä¸è¶³ã—ãŸé•·ã•åˆ†ã‚’å…ƒãƒ‡ãƒ¼ã‚¿ã®å·¦ã«paddingCharã§ åŸ‹ã‚ã¦æ–‡å­—åˆ—ãŒå–å¾—ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testPadding22() throws Exception {
-        // ‘Oˆ—(ˆø”)
-        String columnString = "‚P";
+        // å‰å‡¦ç†(å¼•æ•°)
+        String columnString = "ï¼‘";
         String fileEncoding = "Shift_JIS";
         int columnBytes = 3;
         char paddingChar = ' ';
         PaddingType paddingType = PaddingType.LEFT;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = FileDAOUtility.padding(columnString, fileEncoding,
                 columnBytes, paddingChar, paddingType);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
-        assertEquals(" ‚P", result);
+        assertEquals(" ï¼‘", result);
     }
 
     /**
      * testPadding23() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC, D, E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC, D, E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) columnString:"‚P"(‘SŠp•¶š)<br>
-     * (ˆø”) fileEncoding:Shift_JIS<br>
-     * (ˆø”) columnBytes:3<br>
-     * (ˆø”) paddingChar:' '(”¼Šp‹ó”’•¶š)<br>
-     * (ˆø”) paddingType:PaddingType.RIGHT<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) columnString:"ï¼‘"(å…¨è§’æ–‡å­—)<br>
+     * (å¼•æ•°) fileEncoding:Shift_JIS<br>
+     * (å¼•æ•°) columnBytes:3<br>
+     * (å¼•æ•°) paddingChar:' '(åŠè§’ç©ºç™½æ–‡å­—)<br>
+     * (å¼•æ•°) paddingType:PaddingType.RIGHT<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) •¶š—ñ:"1 "(1‚Ì‰E‚É”¼ŠpƒXƒy[ƒX1•¶š)<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) æ–‡å­—åˆ—:"1 "(1ã®å³ã«åŠè§’ã‚¹ãƒšãƒ¼ã‚¹1æ–‡å­—)<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * (‰EƒpƒfƒBƒ“ƒOA‘SŠp•¶š)<br>
-     * ˆø”columnString‚É•s‘«‚µ‚½’·‚³•ª‚ğŒ³ƒf[ƒ^‚Ì‰E‚ÉpaddingChar‚Å–„‚ß‚Ä•¶š—ñ‚ªæ“¾‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (å³ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°ã€å…¨è§’æ–‡å­—)<br>
+     * å¼•æ•°columnStringã«ä¸è¶³ã—ãŸé•·ã•åˆ†ã‚’å…ƒãƒ‡ãƒ¼ã‚¿ã®å³ã«paddingCharã§åŸ‹ã‚ã¦æ–‡å­—åˆ—ãŒå–å¾—ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testPadding23() throws Exception {
-        // ‘Oˆ—(ˆø”)
-        String columnString = "‚P";
+        // å‰å‡¦ç†(å¼•æ•°)
+        String columnString = "ï¼‘";
         String fileEncoding = "Shift_JIS";
         int columnBytes = 3;
         char paddingChar = ' ';
         PaddingType paddingType = PaddingType.RIGHT;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = FileDAOUtility.padding(columnString, fileEncoding,
                 columnBytes, paddingChar, paddingType);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
-        assertEquals("‚P ", result);
+        assertEquals("ï¼‘ ", result);
     }
 
     /**
      * testPadding24() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC, D, E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC, D, E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) columnString:"‚P"(‘SŠp•¶š)<br>
-     * (ˆø”) fileEncoding:Shift_JIS<br>
-     * (ˆø”) columnBytes:3<br>
-     * (ˆø”) paddingChar:' '(”¼Šp‹ó”’•¶š)<br>
-     * (ˆø”) paddingType:PaddingType.NONE<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) columnString:"ï¼‘"(å…¨è§’æ–‡å­—)<br>
+     * (å¼•æ•°) fileEncoding:Shift_JIS<br>
+     * (å¼•æ•°) columnBytes:3<br>
+     * (å¼•æ•°) paddingChar:' '(åŠè§’ç©ºç™½æ–‡å­—)<br>
+     * (å¼•æ•°) paddingType:PaddingType.NONE<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) •¶š—ñ:"1"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) æ–‡å­—åˆ—:"1"<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * (ƒpƒfƒBƒ“ƒO‚È‚µA‘SŠp•¶š)<br>
-     * columnString‚ª‚»‚Ì‚Ü‚Üæ“¾‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°ãªã—ã€å…¨è§’æ–‡å­—)<br>
+     * columnStringãŒãã®ã¾ã¾å–å¾—ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testPadding24() throws Exception {
-        // ‘Oˆ—(ˆø”)
-        String columnString = "‚P";
+        // å‰å‡¦ç†(å¼•æ•°)
+        String columnString = "ï¼‘";
         String fileEncoding = "Shift_JIS";
         int columnBytes = 3;
         char paddingChar = ' ';
         PaddingType paddingType = PaddingType.NONE;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = FileDAOUtility.padding(columnString, fileEncoding,
                 columnBytes, paddingChar, paddingType);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
-        assertEquals("‚P", result);
+        assertEquals("ï¼‘", result);
     }
 
     /**
      * testTrim01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC, D, E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC, D, E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) columnString:"1"<br>
-     * (ˆø”) fileEncoding:Shift_JIS<br>
-     * (ˆø”) trimChar:'a'<br>
-     * (ˆø”) trimType:TrimType.LEFT<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) columnString:"1"<br>
+     * (å¼•æ•°) fileEncoding:Shift_JIS<br>
+     * (å¼•æ•°) trimChar:'a'<br>
+     * (å¼•æ•°) trimType:TrimType.LEFT<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) •¶š—ñ:"1"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) æ–‡å­—åˆ—:"1"<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * (¶ƒgƒŠƒ€)<br>
-     * trimChar‚Åİ’è‚µ‚½•¶š‚ªcolumnString‚É‚È‚¢ê‡Aˆ—‚ªs‚í‚ê‚È‚¢‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (å·¦ãƒˆãƒªãƒ )<br>
+     * trimCharã§è¨­å®šã—ãŸæ–‡å­—ãŒcolumnStringã«ãªã„å ´åˆã€å‡¦ç†ãŒè¡Œã‚ã‚Œãªã„ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testTrim01() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String columnString = "1";
         String fileEncoding = "Shift_JIS";
         char trimChar = 'a';
         TrimType trimType = TrimType.LEFT;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = FileDAOUtility.trim(columnString, fileEncoding,
                 trimChar, trimType);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertEquals("1", result);
     }
@@ -980,34 +980,34 @@ public class FileDAOUtilityTest {
     /**
      * testTrim02() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC, D, E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC, D, E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) columnString:"1aaa"<br>
-     * (ˆø”) fileEncoding:Shift_JIS<br>
-     * (ˆø”) trimChar:'a'<br>
-     * (ˆø”) trimType:TrimType.LEFT<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) columnString:"1aaa"<br>
+     * (å¼•æ•°) fileEncoding:Shift_JIS<br>
+     * (å¼•æ•°) trimChar:'a'<br>
+     * (å¼•æ•°) trimType:TrimType.LEFT<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) •¶š—ñ:"1aaa"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) æ–‡å­—åˆ—:"1aaa"<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * (¶ƒgƒŠƒ€)<br>
-     * •¶š—ñ‚Ì¶‘¤‚ÉtrimChar‚Åİ’è‚µ‚½•¶š‚ª‚È‚¢ê‡Aˆ—‚ªs‚í‚ê‚È‚¢‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (å·¦ãƒˆãƒªãƒ )<br>
+     * æ–‡å­—åˆ—ã®å·¦å´ã«trimCharã§è¨­å®šã—ãŸæ–‡å­—ãŒãªã„å ´åˆã€å‡¦ç†ãŒè¡Œã‚ã‚Œãªã„ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testTrim02() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String columnString = "1aaa";
         String fileEncoding = "Shift_JIS";
         char trimChar = 'a';
         TrimType trimType = TrimType.LEFT;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = FileDAOUtility.trim(columnString, fileEncoding,
                 trimChar, trimType);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertEquals("1aaa", result);
     }
@@ -1015,34 +1015,34 @@ public class FileDAOUtilityTest {
     /**
      * testTrim03() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC, D, E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC, D, E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) columnString:"aaa1aaa"<br>
-     * (ˆø”) fileEncoding:Shift_JIS<br>
-     * (ˆø”) trimChar:'a'<br>
-     * (ˆø”) trimType:TrimType.LEFT<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) columnString:"aaa1aaa"<br>
+     * (å¼•æ•°) fileEncoding:Shift_JIS<br>
+     * (å¼•æ•°) trimChar:'a'<br>
+     * (å¼•æ•°) trimType:TrimType.LEFT<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) •¶š—ñ:"1aaa"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) æ–‡å­—åˆ—:"1aaa"<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * (¶ƒgƒŠƒ€)<br>
-     * colum‚Ì•¶š—ñ‚Ìæ“ª‚©‚ç‡‚ÉtrimChar‚Åİ’è‚µ‚½•¶š‚ğíœ‚·‚éB trimChar‚ÆˆÙ‚È‚é•¶š‚ªŒ»‚ê‚½“_‚Åˆ—‚ªI‚í‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (å·¦ãƒˆãƒªãƒ )<br>
+     * columã®æ–‡å­—åˆ—ã®å…ˆé ­ã‹ã‚‰é †ã«trimCharã§è¨­å®šã—ãŸæ–‡å­—ã‚’å‰Šé™¤ã™ã‚‹ã€‚ trimCharã¨ç•°ãªã‚‹æ–‡å­—ãŒç¾ã‚ŒãŸæ™‚ç‚¹ã§å‡¦ç†ãŒçµ‚ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testTrim03() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String columnString = "aaa1aaa";
         String fileEncoding = "Shift_JIS";
         char trimChar = 'a';
         TrimType trimType = TrimType.LEFT;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = FileDAOUtility.trim(columnString, fileEncoding,
                 trimChar, trimType);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertEquals("1aaa", result);
     }
@@ -1050,34 +1050,34 @@ public class FileDAOUtilityTest {
     /**
      * testTrim04() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC, D, E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC, D, E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) columnString:"1"<br>
-     * (ˆø”) fileEncoding:Shift_JIS<br>
-     * (ˆø”) trimChar:'a'<br>
-     * (ˆø”) trimType:TrimType.RIGHT<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) columnString:"1"<br>
+     * (å¼•æ•°) fileEncoding:Shift_JIS<br>
+     * (å¼•æ•°) trimChar:'a'<br>
+     * (å¼•æ•°) trimType:TrimType.RIGHT<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) •¶š—ñ:"1"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) æ–‡å­—åˆ—:"1"<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * (‰EƒgƒŠƒ€)<br>
-     * trimChar‚Åİ’è‚µ‚½•¶š‚ª‚È‚¢ê‡Aˆ—‚ªs‚í‚ê‚È‚¢‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (å³ãƒˆãƒªãƒ )<br>
+     * trimCharã§è¨­å®šã—ãŸæ–‡å­—ãŒãªã„å ´åˆã€å‡¦ç†ãŒè¡Œã‚ã‚Œãªã„ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testTrim04() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String columnString = "1";
         String fileEncoding = "Shift_JIS";
         char trimChar = 'a';
         TrimType trimType = TrimType.RIGHT;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = FileDAOUtility.trim(columnString, fileEncoding,
                 trimChar, trimType);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertEquals("1", result);
     }
@@ -1085,34 +1085,34 @@ public class FileDAOUtilityTest {
     /**
      * testTrim05() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC, D, E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC, D, E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) columnString:"aaa1"<br>
-     * (ˆø”) fileEncoding:Shift_JIS<br>
-     * (ˆø”) trimChar:'a'<br>
-     * (ˆø”) trimType:TrimType.RIGHT<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) columnString:"aaa1"<br>
+     * (å¼•æ•°) fileEncoding:Shift_JIS<br>
+     * (å¼•æ•°) trimChar:'a'<br>
+     * (å¼•æ•°) trimType:TrimType.RIGHT<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) •¶š—ñ:"aaa1"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) æ–‡å­—åˆ—:"aaa1"<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * (‰EƒgƒŠƒ€)<br>
-     * •¶š—ñ‚Ì‰E‘¤‚ÉtrimChar‚Åİ’è‚µ‚½•¶š‚ª‚È‚¢ê‡Aˆ—‚ªs‚í‚ê‚È‚¢‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (å³ãƒˆãƒªãƒ )<br>
+     * æ–‡å­—åˆ—ã®å³å´ã«trimCharã§è¨­å®šã—ãŸæ–‡å­—ãŒãªã„å ´åˆã€å‡¦ç†ãŒè¡Œã‚ã‚Œãªã„ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testTrim05() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String columnString = "aaa1";
         String fileEncoding = "Shift_JIS";
         char trimChar = 'a';
         TrimType trimType = TrimType.RIGHT;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = FileDAOUtility.trim(columnString, fileEncoding,
                 trimChar, trimType);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertEquals("aaa1", result);
     }
@@ -1120,34 +1120,34 @@ public class FileDAOUtilityTest {
     /**
      * testTrim06() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC, D, E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC, D, E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) columnString:"aaa1aaa"<br>
-     * (ˆø”) fileEncoding:Shift_JIS<br>
-     * (ˆø”) trimChar:'a'<br>
-     * (ˆø”) trimType:TrimType.RIGHT<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) columnString:"aaa1aaa"<br>
+     * (å¼•æ•°) fileEncoding:Shift_JIS<br>
+     * (å¼•æ•°) trimChar:'a'<br>
+     * (å¼•æ•°) trimType:TrimType.RIGHT<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) •¶š—ñ:"aaa1"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) æ–‡å­—åˆ—:"aaa1"<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * (‰EƒgƒŠƒ€)<br>
-     * colum‚Ì•¶š—ñ‚ÌŒã‚ë‚©‚ç‡‚ÉtrimChar‚Åİ’è‚µ‚½•¶š‚ğíœ‚·‚éBtrimChar‚ÆˆÙ‚È‚é•¶š‚ªŒ»‚ê‚½“_‚Åˆ—‚ªI‚í‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (å³ãƒˆãƒªãƒ )<br>
+     * columã®æ–‡å­—åˆ—ã®å¾Œã‚ã‹ã‚‰é †ã«trimCharã§è¨­å®šã—ãŸæ–‡å­—ã‚’å‰Šé™¤ã™ã‚‹ã€‚trimCharã¨ç•°ãªã‚‹æ–‡å­—ãŒç¾ã‚ŒãŸæ™‚ç‚¹ã§å‡¦ç†ãŒçµ‚ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testTrim06() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String columnString = "aaa1aaa";
         String fileEncoding = "Shift_JIS";
         char trimChar = 'a';
         TrimType trimType = TrimType.RIGHT;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = FileDAOUtility.trim(columnString, fileEncoding,
                 trimChar, trimType);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertEquals("aaa1", result);
     }
@@ -1155,35 +1155,35 @@ public class FileDAOUtilityTest {
     /**
      * testTrim07() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC, D, E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC, D, E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) columnString:"aaa"<br>
-     * (ˆø”) fileEncoding:Shift_JIS<br>
-     * (ˆø”) trimChar:'a'<br>
-     * (ˆø”) trimType:TrimType.NONE<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) columnString:"aaa"<br>
+     * (å¼•æ•°) fileEncoding:Shift_JIS<br>
+     * (å¼•æ•°) trimChar:'a'<br>
+     * (å¼•æ•°) trimType:TrimType.NONE<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) •¶š—ñ:"aaa"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) æ–‡å­—åˆ—:"aaa"<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * (ƒgƒŠƒ€‚È‚µ)<br>
-     * ³íƒpƒ^[ƒ“B<br>
-     * column‚ª‚»‚Ì‚Ü‚Ü•Ô‹p‚³‚ê‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (ãƒˆãƒªãƒ ãªã—)<br>
+     * æ­£å¸¸ãƒ‘ã‚¿ãƒ¼ãƒ³ã€‚<br>
+     * columnãŒãã®ã¾ã¾è¿”å´ã•ã‚Œã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testTrim07() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String columnString = "aaa";
         String fileEncoding = "Shift_JIS";
         char trimChar = 'a';
         TrimType trimType = TrimType.NONE;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = FileDAOUtility.trim(columnString, fileEncoding,
                 trimChar, trimType);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertEquals("aaa", result);
     }
@@ -1191,36 +1191,36 @@ public class FileDAOUtilityTest {
     /**
      * testTrim08() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) columnString:"aaa"<br>
-     * (ˆø”) fileEncoding:Shift_JIS<br>
-     * (ˆø”) trimChar:'‚ '<br>
-     * (ˆø”) trimType:TrimType.LEFT<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) columnString:"aaa"<br>
+     * (å¼•æ•°) fileEncoding:Shift_JIS<br>
+     * (å¼•æ•°) trimChar:'ã‚'<br>
+     * (å¼•æ•°) trimType:TrimType.LEFT<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») -:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"Trim char is not half-width character."<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) -:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Trim char is not half-width character."<br>
      * <br>
-     * ˆÙíƒP[ƒX<br>
-     * (ƒgƒŠƒ€‚ ‚è)<br>
-     * ƒpƒfƒBƒ“ƒO•¶š‚Í”¼Šp•¶š‚Å‚Í‚È‚¢ê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (ãƒˆãƒªãƒ ã‚ã‚Š)<br>
+     * ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°æ–‡å­—ã¯åŠè§’æ–‡å­—ã§ã¯ãªã„å ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testTrim08() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String columnString = "aaa";
         String fileEncoding = "Shift_JIS";
-        char trimChar = '‚ ';
+        char trimChar = 'ã‚';
         TrimType trimType = TrimType.LEFT;
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             FileDAOUtility.trim(columnString, fileEncoding, trimChar, trimType);
-            fail("FileException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("FileExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (FileException e) {
-            // ”»’è
+            // åˆ¤å®š
             assertEquals("Trim char is not half-width character.", e
                     .getMessage());
         }
@@ -1229,38 +1229,38 @@ public class FileDAOUtilityTest {
     /**
      * testTrim09() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) columnString:"aaa"<br>
-     * (ˆø”) fileEncoding:"XXX"<br>
-     * ¦‘¶İ‚µ‚È‚¢ƒGƒ“ƒR[ƒfƒBƒ“ƒO<br>
-     * (ˆø”) trimChar:'a'<br>
-     * (ˆø”) trimType:TrimType.LEFT<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) columnString:"aaa"<br>
+     * (å¼•æ•°) fileEncoding:"XXX"<br>
+     * â€»å­˜åœ¨ã—ãªã„ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°<br>
+     * (å¼•æ•°) trimChar:'a'<br>
+     * (å¼•æ•°) trimType:TrimType.LEFT<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») -:ˆÈ‰º‚Ìİ’è‚ğ‚ÂFileException‚ª”­¶‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"Specified Encoding : XXX is not supported"<br>
-     * EŒ´ˆö—áŠOFUnsupportedEncodingException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) -:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Specified Encoding : XXX is not supported"<br>
+     * ãƒ»åŸå› ä¾‹å¤–ï¼šUnsupportedEncodingException<br>
      * <br>
-     * ˆÙíƒP[ƒX<br>
-     * (ƒgƒŠƒ€‚ ‚è)<br>
-     * ‘¶İ‚µ‚È‚¢ƒGƒ“ƒR[ƒfƒBƒ“ƒO‚ªw’è‚³‚ê‚½ê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚é <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (ãƒˆãƒªãƒ ã‚ã‚Š)<br>
+     * å­˜åœ¨ã—ãªã„ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ãŒæŒ‡å®šã•ã‚ŒãŸå ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testTrim09() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String columnString = "aaa";
         String fileEncoding = "XXX";
         char trimChar = 'a';
         TrimType trimType = TrimType.LEFT;
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             FileDAOUtility.trim(columnString, fileEncoding, trimChar, trimType);
-            fail("FileException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("FileExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (FileException e) {
-            // ”»’è
+            // åˆ¤å®š
             assertEquals("Specified Encoding : XXX is not supported", e
                     .getMessage());
             assertTrue(e.getCause() instanceof UnsupportedEncodingException);
@@ -1270,35 +1270,35 @@ public class FileDAOUtilityTest {
     /**
      * testTrim10() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC, D, E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC, D, E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) columnString:"aaa"<br>
-     * (ˆø”) fileEncoding:"XXX"<br>
-     * ¦‘¶İ‚µ‚È‚¢ƒGƒ“ƒR[ƒfƒBƒ“ƒO<br>
-     * (ˆø”) trimChar:'‚ '<br>
-     * (ˆø”) trimType:TrimType.NONE<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) columnString:"aaa"<br>
+     * (å¼•æ•°) fileEncoding:"XXX"<br>
+     * â€»å­˜åœ¨ã—ãªã„ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°<br>
+     * (å¼•æ•°) trimChar:'ã‚'<br>
+     * (å¼•æ•°) trimType:TrimType.NONE<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) •¶š—ñ:"aaa"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) æ–‡å­—åˆ—:"aaa"<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * (ƒgƒŠƒ€‚È‚µ)<br>
-     * ‘¼ˆø”‚Ìó‘Ô‚ÆŠÖŒW‚È‚­columnString‚ª‚»‚Ì‚Ü‚Üæ“¾‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (ãƒˆãƒªãƒ ãªã—)<br>
+     * ä»–å¼•æ•°ã®çŠ¶æ…‹ã¨é–¢ä¿‚ãªãcolumnStringãŒãã®ã¾ã¾å–å¾—ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testTrim10() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String columnString = "aaa";
         String fileEncoding = "XXX";
-        char trimChar = '‚ ';
+        char trimChar = 'ã‚';
         TrimType trimType = TrimType.NONE;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = FileDAOUtility.trim(columnString, fileEncoding,
                 trimChar, trimType);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertEquals("aaa", result);
     }
@@ -1306,34 +1306,34 @@ public class FileDAOUtilityTest {
     /**
      * testTrim11() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC, D, E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC, D, E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) columnString:""<br>
-     * (ˆø”) fileEncoding:Shift_JIS<br>
-     * (ˆø”) trimChar:' '<br>
-     * (ˆø”) trimType:TrimType.LEFT<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) columnString:""<br>
+     * (å¼•æ•°) fileEncoding:Shift_JIS<br>
+     * (å¼•æ•°) trimChar:' '<br>
+     * (å¼•æ•°) trimType:TrimType.LEFT<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) •¶š—ñ:""<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) æ–‡å­—åˆ—:""<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * (¶ƒgƒŠƒ€A‘ÎÛƒf[ƒ^‚ª‹ó•¶š)<br>
-     * trimChar‚Åİ’è‚µ‚½•¶š‚ªcolumnString‚É‚È‚¢ê‡Aˆ—‚ªs‚í‚ê‚È‚¢‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (å·¦ãƒˆãƒªãƒ ã€å¯¾è±¡ãƒ‡ãƒ¼ã‚¿ãŒç©ºæ–‡å­—)<br>
+     * trimCharã§è¨­å®šã—ãŸæ–‡å­—ãŒcolumnStringã«ãªã„å ´åˆã€å‡¦ç†ãŒè¡Œã‚ã‚Œãªã„ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testTrim11() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String columnString = "";
         String fileEncoding = "Shift_JIS";
         char trimChar = 'a';
         TrimType trimType = TrimType.LEFT;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = FileDAOUtility.trim(columnString, fileEncoding,
                 trimChar, trimType);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertEquals("", result);
     }
@@ -1341,34 +1341,34 @@ public class FileDAOUtilityTest {
     /**
      * testTrim12() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC, D, E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC, D, E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) columnString:""<br>
-     * (ˆø”) fileEncoding:Shift_JIS<br>
-     * (ˆø”) trimChar:'a'<br>
-     * (ˆø”) trimType:TrimType.RIGHT<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) columnString:""<br>
+     * (å¼•æ•°) fileEncoding:Shift_JIS<br>
+     * (å¼•æ•°) trimChar:'a'<br>
+     * (å¼•æ•°) trimType:TrimType.RIGHT<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) •¶š—ñ:""<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) æ–‡å­—åˆ—:""<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * (‰EƒgƒŠƒ€A‘ÎÛƒf[ƒ^‚ª‹ó•¶š)<br>
-     * trimChar‚Åİ’è‚µ‚½•¶š‚ª‚È‚¢ê‡Aˆ—‚ªs‚í‚ê‚È‚¢‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (å³ãƒˆãƒªãƒ ã€å¯¾è±¡ãƒ‡ãƒ¼ã‚¿ãŒç©ºæ–‡å­—)<br>
+     * trimCharã§è¨­å®šã—ãŸæ–‡å­—ãŒãªã„å ´åˆã€å‡¦ç†ãŒè¡Œã‚ã‚Œãªã„ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testTrim12() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String columnString = "";
         String fileEncoding = "Shift_JIS";
         char trimChar = 'a';
         TrimType trimType = TrimType.RIGHT;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = FileDAOUtility.trim(columnString, fileEncoding,
                 trimChar, trimType);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertEquals("", result);
     }
@@ -1376,35 +1376,35 @@ public class FileDAOUtilityTest {
     /**
      * testTrim13() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC, D, E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC, D, E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) columnString:""<br>
-     * (ˆø”) fileEncoding:Shift_JIS<br>
-     * (ˆø”) trimChar:'a'<br>
-     * (ˆø”) trimType:TrimType.NONE<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) columnString:""<br>
+     * (å¼•æ•°) fileEncoding:Shift_JIS<br>
+     * (å¼•æ•°) trimChar:'a'<br>
+     * (å¼•æ•°) trimType:TrimType.NONE<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) •¶š—ñ:""<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) æ–‡å­—åˆ—:""<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * (ƒgƒŠƒ€‚È‚µA‘ÎÛƒf[ƒ^‚ª‹ó•¶š)<br>
-     * ³íƒpƒ^[ƒ“B<br>
-     * column‚ª‚»‚Ì‚Ü‚Ü•Ô‹p‚³‚ê‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (ãƒˆãƒªãƒ ãªã—ã€å¯¾è±¡ãƒ‡ãƒ¼ã‚¿ãŒç©ºæ–‡å­—)<br>
+     * æ­£å¸¸ãƒ‘ã‚¿ãƒ¼ãƒ³ã€‚<br>
+     * columnãŒãã®ã¾ã¾è¿”å´ã•ã‚Œã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testTrim13() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String columnString = "";
         String fileEncoding = "Shift_JIS";
         char trimChar = 'a';
         TrimType trimType = TrimType.NONE;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = FileDAOUtility.trim(columnString, fileEncoding,
                 trimChar, trimType);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertEquals("", result);
     }
@@ -1412,34 +1412,34 @@ public class FileDAOUtilityTest {
     /**
      * testTrim14() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC, D, E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC, D, E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) columnString:"aaa1aaa"<br>
-     * (ˆø”) fileEncoding:Shift_JIS<br>
-     * (ˆø”) trimChar:'a'<br>
-     * (ˆø”) trimType:TrimType.BOTH<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) columnString:"aaa1aaa"<br>
+     * (å¼•æ•°) fileEncoding:Shift_JIS<br>
+     * (å¼•æ•°) trimChar:'a'<br>
+     * (å¼•æ•°) trimType:TrimType.BOTH<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) •¶š—ñ:"1"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) æ–‡å­—åˆ—:"1"<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * (—¼ƒgƒŠƒ€)<br>
-     * colum‚Ì•¶š—ñ‚Ìæ“ª‚©‚ç‡‚ÉtrimChar‚Åİ’è‚µ‚½•¶š‚ğíœ‚·‚éBtrimChar‚ÆˆÙ‚È‚é•¶š‚ªŒ»‚ê‚½“_‚Åˆ—‚ªI‚í‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (ä¸¡ãƒˆãƒªãƒ )<br>
+     * columã®æ–‡å­—åˆ—ã®å…ˆé ­ã‹ã‚‰é †ã«trimCharã§è¨­å®šã—ãŸæ–‡å­—ã‚’å‰Šé™¤ã™ã‚‹ã€‚trimCharã¨ç•°ãªã‚‹æ–‡å­—ãŒç¾ã‚ŒãŸæ™‚ç‚¹ã§å‡¦ç†ãŒçµ‚ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testTrim14() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String columnString = "aaa1aaa";
         String fileEncoding = "Shift_JIS";
         char trimChar = 'a';
         TrimType trimType = TrimType.BOTH;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = FileDAOUtility.trim(columnString, fileEncoding,
                 trimChar, trimType);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertEquals("1", result);
     }
@@ -1447,34 +1447,34 @@ public class FileDAOUtilityTest {
     /**
      * testTrim15() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC, D, E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC, D, E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) columnString:""<br>
-     * (ˆø”) fileEncoding:Shift_JIS<br>
-     * (ˆø”) trimChar:'a'<br>
-     * (ˆø”) trimType:TrimType.BOTH<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) columnString:""<br>
+     * (å¼•æ•°) fileEncoding:Shift_JIS<br>
+     * (å¼•æ•°) trimChar:'a'<br>
+     * (å¼•æ•°) trimType:TrimType.BOTH<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) •¶š—ñ:"1"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) æ–‡å­—åˆ—:"1"<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * (—¼ƒgƒŠƒ€A‘ÎÛƒf[ƒ^‚ª‹ó•¶š)<br>
-     * ‘ÎÛƒf[ƒ^‚ª‚»‚Ì‚Ü‚Üæ“¾‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (ä¸¡ãƒˆãƒªãƒ ã€å¯¾è±¡ãƒ‡ãƒ¼ã‚¿ãŒç©ºæ–‡å­—)<br>
+     * å¯¾è±¡ãƒ‡ãƒ¼ã‚¿ãŒãã®ã¾ã¾å–å¾—ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testTrim15() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String columnString = "";
         String fileEncoding = "Shift_JIS";
         char trimChar = 'a';
         TrimType trimType = TrimType.BOTH;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = FileDAOUtility.trim(columnString, fileEncoding,
                 trimChar, trimType);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertEquals("", result);
     }
@@ -1482,34 +1482,34 @@ public class FileDAOUtilityTest {
     /**
      * testTrim16() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FC, D, E, G <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC, D, E, G <br>
      * <br>
-     * “ü—Í’lF(ˆø”) columnString:null<br>
-     * (ˆø”) fileEncoding:Shift_JIS<br>
-     * (ˆø”) trimChar:'a'<br>
-     * (ˆø”) trimType:TrimType.LEFT<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) columnString:null<br>
+     * (å¼•æ•°) fileEncoding:Shift_JIS<br>
+     * (å¼•æ•°) trimChar:'a'<br>
+     * (å¼•æ•°) trimType:TrimType.LEFT<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») -:NullPointerException‚ª”­¶‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) -:NullPointerExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
      * <br>
-     * ˆÙíƒP[ƒX<br>
-     * ˆø”columnString‚ªnull‚Ìê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * å¼•æ•°columnStringãŒnullã®å ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testTrim16() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String columnString = null;
         String fileEncoding = "Shift_JIS";
         char trimChar = 'a';
         TrimType trimType = TrimType.LEFT;
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             FileDAOUtility.trim(columnString, fileEncoding, trimChar, trimType);
-            fail("NullPointerException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("NullPointerExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (NullPointerException e) {
-            // ”»’è
+            // åˆ¤å®š
             assertTrue(e instanceof NullPointerException);
         }
     }
@@ -1517,34 +1517,34 @@ public class FileDAOUtilityTest {
     /**
      * testTrim17() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FC, D, E, G <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC, D, E, G <br>
      * <br>
-     * “ü—Í’lF(ˆø”) columnString:"aaa1aaa"<br>
-     * (ˆø”) fileEncoding:null<br>
-     * (ˆø”) trimChar:'a'<br>
-     * (ˆø”) trimType:TrimType.LEFT<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) columnString:"aaa1aaa"<br>
+     * (å¼•æ•°) fileEncoding:null<br>
+     * (å¼•æ•°) trimChar:'a'<br>
+     * (å¼•æ•°) trimType:TrimType.LEFT<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») -:NullPointerException‚ª”­¶‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) -:NullPointerExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
      * <br>
-     * ˆÙíƒP[ƒX<br>
-     * ˆø”fileEncoding‚ªnull‚Ìê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * å¼•æ•°fileEncodingãŒnullã®å ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testTrim17() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String columnString = "aaa1aaa";
         String fileEncoding = null;
         char trimChar = 'a';
         TrimType trimType = TrimType.LEFT;
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             FileDAOUtility.trim(columnString, fileEncoding, trimChar, trimType);
-            fail("NullPointerException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("NullPointerExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (NullPointerException e) {
-            // ”»’è
+            // åˆ¤å®š
             assertTrue(e instanceof NullPointerException);
         }
     }
@@ -1552,33 +1552,33 @@ public class FileDAOUtilityTest {
     /**
      * testTrim18() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC, D, E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC, D, E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) columnString:"aaa1aaa"<br>
-     * (ˆø”) fileEncoding:Shift_JIS<br>
-     * (ˆø”) trimChar:'a'<br>
-     * (ˆø”) trimType:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) columnString:"aaa1aaa"<br>
+     * (å¼•æ•°) fileEncoding:Shift_JIS<br>
+     * (å¼•æ•°) trimChar:'a'<br>
+     * (å¼•æ•°) trimType:null<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) •¶š—ñ:"aaa1aaa"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) æ–‡å­—åˆ—:"aaa1aaa"<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * ˆø”trimType‚ªnull‚Ìê‡Aˆ—‚ğs‚í‚È‚¢‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * å¼•æ•°trimTypeãŒnullã®å ´åˆã€å‡¦ç†ã‚’è¡Œã‚ãªã„ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testTrim18() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String columnString = "aaa1aaa";
         String fileEncoding = "Shift_JIS";
         char trimChar = 'a';
         TrimType trimType = null;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = FileDAOUtility.trim(columnString, fileEncoding,
                 trimChar, trimType);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertEquals("aaa1aaa", result);
     }
@@ -1586,34 +1586,34 @@ public class FileDAOUtilityTest {
     /**
      * testTrim19() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC, D, E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC, D, E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) columnString:"aaaaaa"<br>
-     * (ˆø”) fileEncoding:Shift_JIS<br>
-     * (ˆø”) trimChar:'a'<br>
-     * (ˆø”) trimType:TrimType.BOTH<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) columnString:"aaaaaa"<br>
+     * (å¼•æ•°) fileEncoding:Shift_JIS<br>
+     * (å¼•æ•°) trimChar:'a'<br>
+     * (å¼•æ•°) trimType:TrimType.BOTH<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) •¶š—ñ:""<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) æ–‡å­—åˆ—:""<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * (—¼ƒgƒŠƒ€)<br>
-     * ‘S•¶š‚ªƒgƒŠƒ€‘ÎÛ•¶š‚Ìê‡A‹ó•¶š‚É‚È‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (ä¸¡ãƒˆãƒªãƒ )<br>
+     * å…¨æ–‡å­—ãŒãƒˆãƒªãƒ å¯¾è±¡æ–‡å­—ã®å ´åˆã€ç©ºæ–‡å­—ã«ãªã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testTrim19() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String columnString = "aaaaaa";
         String fileEncoding = "Shift_JIS";
         char trimChar = 'a';
         TrimType trimType = TrimType.BOTH;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = FileDAOUtility.trim(columnString, fileEncoding,
                 trimChar, trimType);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertEquals("", result);
     }
@@ -1621,185 +1621,185 @@ public class FileDAOUtilityTest {
     /**
      * testTrim20() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC, D, E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC, D, E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) columnString:"aaa‚Paaa"i‘SŠp•¶šj<br>
-     * (ˆø”) fileEncoding:Shift_JIS<br>
-     * (ˆø”) trimChar:'a'<br>
-     * (ˆø”) trimType:TrimType.LEFT<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) columnString:"aaaï¼‘aaa"ï¼ˆå…¨è§’æ–‡å­—ï¼‰<br>
+     * (å¼•æ•°) fileEncoding:Shift_JIS<br>
+     * (å¼•æ•°) trimChar:'a'<br>
+     * (å¼•æ•°) trimType:TrimType.LEFT<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) •¶š—ñ:"‚Paaa"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) æ–‡å­—åˆ—:"ï¼‘aaa"<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * (¶ƒgƒŠƒ€A‘SŠp•¶š)<br>
-     * colum‚Ì•¶š—ñ‚Ìæ“ª‚©‚ç‡‚ÉtrimChar‚Åİ’è‚µ‚½•¶š‚ğíœ‚·‚éB trimChar‚ÆˆÙ‚È‚é•¶š‚ªŒ»‚ê‚½“_‚Åˆ—‚ªI‚í‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (å·¦ãƒˆãƒªãƒ ã€å…¨è§’æ–‡å­—)<br>
+     * columã®æ–‡å­—åˆ—ã®å…ˆé ­ã‹ã‚‰é †ã«trimCharã§è¨­å®šã—ãŸæ–‡å­—ã‚’å‰Šé™¤ã™ã‚‹ã€‚ trimCharã¨ç•°ãªã‚‹æ–‡å­—ãŒç¾ã‚ŒãŸæ™‚ç‚¹ã§å‡¦ç†ãŒçµ‚ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testTrim20() throws Exception {
-        // ‘Oˆ—(ˆø”)
-        String columnString = "aaa‚Paaa";
+        // å‰å‡¦ç†(å¼•æ•°)
+        String columnString = "aaaï¼‘aaa";
         String fileEncoding = "Shift_JIS";
         char trimChar = 'a';
         TrimType trimType = TrimType.LEFT;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = FileDAOUtility.trim(columnString, fileEncoding,
                 trimChar, trimType);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
-        assertEquals("‚Paaa", result);
+        assertEquals("ï¼‘aaa", result);
     }
 
     /**
      * testTrim21() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC, D, E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC, D, E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) columnString:"aaa‚Paaa"i‘SŠp•¶šj<br>
-     * (ˆø”) fileEncoding:Shift_JIS<br>
-     * (ˆø”) trimChar:'a'<br>
-     * (ˆø”) trimType:TrimType.RIGHT<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) columnString:"aaaï¼‘aaa"ï¼ˆå…¨è§’æ–‡å­—ï¼‰<br>
+     * (å¼•æ•°) fileEncoding:Shift_JIS<br>
+     * (å¼•æ•°) trimChar:'a'<br>
+     * (å¼•æ•°) trimType:TrimType.RIGHT<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) •¶š—ñ:"aaa‚P"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) æ–‡å­—åˆ—:"aaaï¼‘"<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * (‰EƒgƒŠƒ€A‘SŠp•¶š)<br>
-     * colum‚Ì•¶š—ñ‚ÌŒã‚ë‚©‚ç‡‚ÉtrimChar‚Åİ’è‚µ‚½•¶š‚ğíœ‚·‚éB trimChar‚ÆˆÙ‚È‚é•¶š‚ªŒ»‚ê‚½“_‚Åˆ—‚ªI‚í‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (å³ãƒˆãƒªãƒ ã€å…¨è§’æ–‡å­—)<br>
+     * columã®æ–‡å­—åˆ—ã®å¾Œã‚ã‹ã‚‰é †ã«trimCharã§è¨­å®šã—ãŸæ–‡å­—ã‚’å‰Šé™¤ã™ã‚‹ã€‚ trimCharã¨ç•°ãªã‚‹æ–‡å­—ãŒç¾ã‚ŒãŸæ™‚ç‚¹ã§å‡¦ç†ãŒçµ‚ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testTrim21() throws Exception {
-        // ‘Oˆ—(ˆø”)
-        String columnString = "aaa‚Paaa";
+        // å‰å‡¦ç†(å¼•æ•°)
+        String columnString = "aaaï¼‘aaa";
         String fileEncoding = "Shift_JIS";
         char trimChar = 'a';
         TrimType trimType = TrimType.RIGHT;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = FileDAOUtility.trim(columnString, fileEncoding,
                 trimChar, trimType);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
-        assertEquals("aaa‚P", result);
+        assertEquals("aaaï¼‘", result);
     }
 
     /**
      * testTrim22() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC, D, E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC, D, E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) columnString:"aaa‚Paaa"i‘SŠp•¶šj<br>
-     * (ˆø”) fileEncoding:Shift_JIS<br>
-     * (ˆø”) trimChar:'a'<br>
-     * (ˆø”) trimType:TrimType.NONE<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) columnString:"aaaï¼‘aaa"ï¼ˆå…¨è§’æ–‡å­—ï¼‰<br>
+     * (å¼•æ•°) fileEncoding:Shift_JIS<br>
+     * (å¼•æ•°) trimChar:'a'<br>
+     * (å¼•æ•°) trimType:TrimType.NONE<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) •¶š—ñ:"aaa‚Paaa"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) æ–‡å­—åˆ—:"aaaï¼‘aaa"<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * (ƒgƒŠƒ€‚È‚µA‘SŠp•¶š)<br>
-     * ³íƒpƒ^[ƒ“B<br>
-     * column‚ª‚»‚Ì‚Ü‚Ü•Ô‹p‚³‚ê‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (ãƒˆãƒªãƒ ãªã—ã€å…¨è§’æ–‡å­—)<br>
+     * æ­£å¸¸ãƒ‘ã‚¿ãƒ¼ãƒ³ã€‚<br>
+     * columnãŒãã®ã¾ã¾è¿”å´ã•ã‚Œã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testTrim22() throws Exception {
-        // ‘Oˆ—(ˆø”)
-        String columnString = "aaa‚Paaa";
+        // å‰å‡¦ç†(å¼•æ•°)
+        String columnString = "aaaï¼‘aaa";
         String fileEncoding = "Shift_JIS";
         char trimChar = 'a';
         TrimType trimType = TrimType.NONE;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = FileDAOUtility.trim(columnString, fileEncoding,
                 trimChar, trimType);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
-        assertEquals("aaa‚Paaa", result);
+        assertEquals("aaaï¼‘aaa", result);
     }
 
     /**
      * testTrim23() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC, D, E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC, D, E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) columnString:"aaa‚Paaa"(‘SŠp•¶šj<br>
-     * (ˆø”) fileEncoding:Shift_JIS<br>
-     * (ˆø”) trimChar:'a'<br>
-     * (ˆø”) trimType:TrimType.BOTH<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) columnString:"aaaï¼‘aaa"(å…¨è§’æ–‡å­—ï¼‰<br>
+     * (å¼•æ•°) fileEncoding:Shift_JIS<br>
+     * (å¼•æ•°) trimChar:'a'<br>
+     * (å¼•æ•°) trimType:TrimType.BOTH<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) •¶š—ñ:"‚P"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) æ–‡å­—åˆ—:"ï¼‘"<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * (—¼ƒgƒŠƒ€A‘SŠp•¶š)<br>
-     * colum‚Ì•¶š—ñ‚Ìæ“ª‚©‚ç‡‚ÉtrimChar‚Åİ’è‚µ‚½•¶š‚ğíœ‚·‚éB trimChar‚ÆˆÙ‚È‚é•¶š‚ªŒ»‚ê‚½“_‚Åˆ—‚ªI‚í‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (ä¸¡ãƒˆãƒªãƒ ã€å…¨è§’æ–‡å­—)<br>
+     * columã®æ–‡å­—åˆ—ã®å…ˆé ­ã‹ã‚‰é †ã«trimCharã§è¨­å®šã—ãŸæ–‡å­—ã‚’å‰Šé™¤ã™ã‚‹ã€‚ trimCharã¨ç•°ãªã‚‹æ–‡å­—ãŒç¾ã‚ŒãŸæ™‚ç‚¹ã§å‡¦ç†ãŒçµ‚ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testTrim23() throws Exception {
-        // ‘Oˆ—(ˆø”)
-        String columnString = "aaa‚Paaa";
+        // å‰å‡¦ç†(å¼•æ•°)
+        String columnString = "aaaï¼‘aaa";
         String fileEncoding = "Shift_JIS";
         char trimChar = 'a';
         TrimType trimType = TrimType.BOTH;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = FileDAOUtility.trim(columnString, fileEncoding,
                 trimChar, trimType);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
-        assertEquals("‚P", result);
+        assertEquals("ï¼‘", result);
     }
 
     /**
      * testIsHalfWidthChar01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC, D, E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC, D, E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileEncoding:"Shift_JIS"<br>
-     * (ˆø”) checkChar:','<br>
-     * (ó‘Ô) encodingCache:—v‘f‚ğ‚½‚È‚¢ConcurrentHashMapƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileEncoding:"Shift_JIS"<br>
+     * (å¼•æ•°) checkChar:','<br>
+     * (çŠ¶æ…‹) encodingCache:è¦ç´ ã‚’æŒãŸãªã„ConcurrentHashMapã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     * (ó‘Ô•Ï‰») encodingCache:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂConcurrentHashMapƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * EkeyF"Shift_JIS"<br>
-     * valueFˆÈ‰º‚Ì—v‘f‚ğ‚ÂConcurrentHashMapƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * - keyF',' | valueFTRUE<br>
-     * (ó‘Ô•Ï‰») Map#put():2‰ñŒÄ‚Î‚ê‚é<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) encodingCache:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤ConcurrentHashMapã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»keyï¼š"Shift_JIS"<br>
+     * valueï¼šä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤ConcurrentHashMapã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * - keyï¼š',' | valueï¼šTRUE<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) Map#put():2å›å‘¼ã°ã‚Œã‚‹<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * (ƒLƒƒƒbƒVƒ…‚È‚µ)<br>
-     * ƒGƒ“ƒR[ƒfƒBƒ“ƒO‚É‡‚¤”¼Šp•¶š‚ª“ü—Í‚³‚ê‚½ê‡ATRUE‚ª•Ô‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * ‚Ü‚½A‚»‚Ìî•ñ‚ªƒLƒƒƒbƒVƒ…‚Éc‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (ã‚­ãƒ£ãƒƒã‚·ãƒ¥ãªã—)<br>
+     * ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ã«åˆã†åŠè§’æ–‡å­—ãŒå…¥åŠ›ã•ã‚ŒãŸå ´åˆã€TRUEãŒè¿”ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * ã¾ãŸã€ãã®æƒ…å ±ãŒã‚­ãƒ£ãƒƒã‚·ãƒ¥ã«æ®‹ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     @Test
     public void testIsHalfWidthChar01() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String fileEncoding = "Shift_JIS";
         char checkChar = ',';
 
-        // ‘Oˆ—(ó‘Ô)
+        // å‰å‡¦ç†(çŠ¶æ…‹)
         Map<String, Map<Character, Boolean>> encodingCache = (Map<String, Map<Character, Boolean>>) UTUtil
                 .getPrivateField(FileDAOUtility.class, "encodingCache");
         encodingCache.clear();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object result = UTUtil.invokePrivate(FileDAOUtility.class,
                 "isHalfWidthChar", new Class[] { String.class, char.class },
                 new Object[] { fileEncoding, checkChar });
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(Boolean.class.cast(result));
 
         assertEquals(1, encodingCache.size());
@@ -1813,48 +1813,48 @@ public class FileDAOUtilityTest {
 
         assertEquals(2, VMOUTUtil.getCallCount(Map.class, "put"));
 
-        // Œ±‘ÎÛ‰Šú‰»
+        // è©¦é¨“å¯¾è±¡åˆæœŸåŒ–
         encodingCache.clear();
     }
 
     /**
      * testIsHalfWidthChar02() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC, D, E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC, D, E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileEncoding:"Shift_JIS"<br>
-     * (ˆø”) checkChar:','<br>
-     * (ó‘Ô) encodingCache:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂConcurrentHashMapƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * EkeyF"UTF-8"<br>
-     * valueFˆÈ‰º‚Ì—v‘f‚ğ‚ÂConcurrentHashMapƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * - keyF',' | valueFTRUE<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileEncoding:"Shift_JIS"<br>
+     * (å¼•æ•°) checkChar:','<br>
+     * (çŠ¶æ…‹) encodingCache:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤ConcurrentHashMapã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»keyï¼š"UTF-8"<br>
+     * valueï¼šä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤ConcurrentHashMapã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * - keyï¼š',' | valueï¼šTRUE<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     * (ó‘Ô•Ï‰») encodingCache:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂConcurrentHashMapƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * EkeyF"UTF-8"<br>
-     * valueFˆÈ‰º‚Ì—v‘f‚ğ‚ÂConcurrentHashMapƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * - keyF',' | valueFTRUE<br>
-     * ˆÈ‰º‚Ì—v‘f‚ğ‚ÂConcurrentHashMapƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * EkeyF"Shift_JIS"<br>
-     * valueFˆÈ‰º‚Ì—v‘f‚ğ‚ÂConcurrentHashMapƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * - keyF',' | valueFTRUE<br>
-     * (ó‘Ô•Ï‰») Map#put():2‰ñŒÄ‚Î‚ê‚é<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) encodingCache:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤ConcurrentHashMapã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»keyï¼š"UTF-8"<br>
+     * valueï¼šä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤ConcurrentHashMapã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * - keyï¼š',' | valueï¼šTRUE<br>
+     * ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤ConcurrentHashMapã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»keyï¼š"Shift_JIS"<br>
+     * valueï¼šä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤ConcurrentHashMapã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * - keyï¼š',' | valueï¼šTRUE<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) Map#put():2å›å‘¼ã°ã‚Œã‚‹<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * (ƒLƒƒƒbƒVƒ…‚ ‚èAƒGƒ“ƒR[ƒfƒBƒ“ƒO‚É‘Î‚·‚éƒLƒƒƒbƒVƒ…‚È‚µ)<br>
-     * ƒGƒ“ƒR[ƒfƒBƒ“ƒO‚É‡‚¤”¼Šp•¶š‚ª“ü—Í‚³‚ê‚½ê‡ATRUE‚ª•Ô‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * ‚Ü‚½A‚»‚Ìî•ñ‚ªƒLƒƒƒbƒVƒ…‚Éc‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã‚ã‚Šã€ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ã«å¯¾ã™ã‚‹ã‚­ãƒ£ãƒƒã‚·ãƒ¥ãªã—)<br>
+     * ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ã«åˆã†åŠè§’æ–‡å­—ãŒå…¥åŠ›ã•ã‚ŒãŸå ´åˆã€TRUEãŒè¿”ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * ã¾ãŸã€ãã®æƒ…å ±ãŒã‚­ãƒ£ãƒƒã‚·ãƒ¥ã«æ®‹ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     @Test
     public void testIsHalfWidthChar02() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String fileEncoding = "Shift_JIS";
         char checkChar = ',';
 
-        // ‘Oˆ—(ó‘Ô)
+        // å‰å‡¦ç†(çŠ¶æ…‹)
         Map<String, Map<Character, Boolean>> encodingCache = (Map<String, Map<Character, Boolean>>) UTUtil
                 .getPrivateField(FileDAOUtility.class, "encodingCache");
         encodingCache.clear();
@@ -1866,25 +1866,25 @@ public class FileDAOUtilityTest {
 
         VMOUTUtil.initialize();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object result = UTUtil.invokePrivate(FileDAOUtility.class,
                 "isHalfWidthChar", new Class[] { String.class, char.class },
                 new Object[] { fileEncoding, checkChar });
 
-        // ”»’è(–ß‚è’l)
+        // åˆ¤å®š(æˆ»ã‚Šå€¤)
         assertTrue(Boolean.class.cast(result));
 
-        // ”»’è(encodingCache)
+        // åˆ¤å®š(encodingCache)
         assertEquals(2, encodingCache.size());
 
-        // ”»’è(UTF-8)
+        // åˆ¤å®š(UTF-8)
         assertTrue(encodingCache.containsKey("UTF-8"));
         Map<Character, Boolean> uTF8CacheMap = encodingCache.get("UTF-8");
         assertEquals(1, uTF8CacheMap.size());
         assertTrue(uTF8CacheMap.containsKey(checkChar));
         assertTrue(Boolean.class.cast(uTF8CacheMap.get(checkChar)));
 
-        // ”»’è(Shif_JIS)
+        // åˆ¤å®š(Shif_JIS)
         assertTrue(encodingCache.containsKey(fileEncoding));
         Map<Character, Boolean> shiftJISCacheMap = encodingCache
                 .get(fileEncoding);
@@ -1898,37 +1898,37 @@ public class FileDAOUtilityTest {
     /**
      * testIsHalfWidthChar03() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC, D, E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC, D, E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileEncoding:"Shift_JIS"<br>
-     * (ˆø”) checkChar:','<br>
-     * (ó‘Ô) encodingCache:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂConcurrentHashMapƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * EkeyF"Shift_JIS"<br>
-     * valueFˆÈ‰º‚Ì—v‘f‚ğ‚ÂConcurrentHashMapƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * - keyF',' | valueFTRUE<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileEncoding:"Shift_JIS"<br>
+     * (å¼•æ•°) checkChar:','<br>
+     * (çŠ¶æ…‹) encodingCache:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤ConcurrentHashMapã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»keyï¼š"Shift_JIS"<br>
+     * valueï¼šä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤ConcurrentHashMapã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * - keyï¼š',' | valueï¼šTRUE<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     * (ó‘Ô•Ï‰») encodingCache:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂConcurrentHashMapƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * EkeyF"Shift_JIS"<br>
-     * valueFˆÈ‰º‚Ì—v‘f‚ğ‚ÂConcurrentHashMapƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * - keyF',' | valueFTRUE<br>
-     * (ó‘Ô•Ï‰») Map#put():ŒÄ‚Î‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) encodingCache:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤ConcurrentHashMapã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»keyï¼š"Shift_JIS"<br>
+     * valueï¼šä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤ConcurrentHashMapã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * - keyï¼š',' | valueï¼šTRUE<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) Map#put():å‘¼ã°ã‚Œãªã„<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * (ƒLƒƒƒbƒVƒ…‚ ‚èAƒGƒ“ƒR[ƒfƒBƒ“ƒOEƒ`ƒFƒbƒN•¶š‚É‘Î‚·‚éƒLƒƒƒbƒVƒ…‚ ‚è)<br>
-     * ƒGƒ“ƒR[ƒfƒBƒ“ƒO‚É‡‚¤”¼Šp•¶š‚ª“ü—Í‚³‚ê‚½ê‡ATRUE‚ª•Ô‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * ‚Ü‚½A‚»‚Ìî•ñ‚ªƒLƒƒƒbƒVƒ…‚©‚çæ“¾‚³‚ê‚½‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã‚ã‚Šã€ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ãƒ»ãƒã‚§ãƒƒã‚¯æ–‡å­—ã«å¯¾ã™ã‚‹ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã‚ã‚Š)<br>
+     * ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ã«åˆã†åŠè§’æ–‡å­—ãŒå…¥åŠ›ã•ã‚ŒãŸå ´åˆã€TRUEãŒè¿”ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * ã¾ãŸã€ãã®æƒ…å ±ãŒã‚­ãƒ£ãƒƒã‚·ãƒ¥ã‹ã‚‰å–å¾—ã•ã‚ŒãŸã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     @Test
     public void testIsHalfWidthChar03() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String fileEncoding = "Shift_JIS";
         char checkChar = ',';
 
-        // ‘Oˆ—(ó‘Ô)
+        // å‰å‡¦ç†(çŠ¶æ…‹)
         Map<String, Map<Character, Boolean>> encodingCache = (Map<String, Map<Character, Boolean>>) UTUtil
                 .getPrivateField(FileDAOUtility.class, "encodingCache");
         encodingCache.clear();
@@ -1939,15 +1939,15 @@ public class FileDAOUtilityTest {
         encodingCache.put("Shift_JIS", inputEncodingCache);
 
         VMOUTUtil.initialize();
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object result = UTUtil.invokePrivate(FileDAOUtility.class,
                 "isHalfWidthChar", new Class[] { String.class, char.class },
                 new Object[] { fileEncoding, checkChar });
 
-        // ”»’è(–ß‚è’l)
+        // åˆ¤å®š(æˆ»ã‚Šå€¤)
         assertTrue(Boolean.class.cast(result));
 
-        // ”»’è(encodingCache)
+        // åˆ¤å®š(encodingCache)
         assertEquals(1, encodingCache.size());
 
         assertTrue(encodingCache.containsKey(fileEncoding));
@@ -1962,57 +1962,57 @@ public class FileDAOUtilityTest {
     /**
      * testIsHalfWidthChar04() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC, D, E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC, D, E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileEncoding:"Shift_JIS"<br>
-     * (ˆø”) checkChar:','<br>
-     * (ó‘Ô) encodingCache:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂConcurrentHashMapƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * EkeyF"Shift_JIS"<br>
-     * valueFˆÈ‰º‚Ì—v‘f‚ğ‚ÂConcurrentHashMapƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * - keyF'A' | valueFFALSE<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileEncoding:"Shift_JIS"<br>
+     * (å¼•æ•°) checkChar:','<br>
+     * (çŠ¶æ…‹) encodingCache:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤ConcurrentHashMapã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»keyï¼š"Shift_JIS"<br>
+     * valueï¼šä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤ConcurrentHashMapã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * - keyï¼š'ã€' | valueï¼šFALSE<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     * (ó‘Ô•Ï‰») encodingCache:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂConcurrentHashMapƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * EkeyF"Shift_JIS"<br>
-     * valueFˆÈ‰º‚Ì—v‘f‚ğ‚ÂConcurrentHashMapƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * - keyF'A' | valueFFALSE<br>
-     * - keyF',' | valueFTRUE<br>
-     * (ó‘Ô•Ï‰») Map#put():1‰ñŒÄ‚Î‚ê‚é<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) encodingCache:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤ConcurrentHashMapã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»keyï¼š"Shift_JIS"<br>
+     * valueï¼šä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤ConcurrentHashMapã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * - keyï¼š'ã€' | valueï¼šFALSE<br>
+     * - keyï¼š',' | valueï¼šTRUE<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) Map#put():1å›å‘¼ã°ã‚Œã‚‹<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * (ƒLƒƒƒbƒVƒ…‚ ‚èAƒGƒ“ƒR[ƒfƒBƒ“ƒO‚É‘Î‚·‚éƒLƒƒƒbƒVƒ…‚Í‚ ‚é‚ªA ƒ`ƒFƒbƒN•¶š‚É‘Î‚·‚éƒLƒƒƒbƒVƒ…‚Å‚Í‚È‚¢B)<br>
-     * ƒGƒ“ƒR[ƒfƒBƒ“ƒO‚É‡‚¤”¼Šp•¶š‚ª“ü—Í‚³‚ê‚½ê‡ATRUE‚ª•Ô‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * ‚Ü‚½A‚»‚Ìî•ñ‚ªƒLƒƒƒbƒVƒ…‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã‚ã‚Šã€ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ã«å¯¾ã™ã‚‹ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã¯ã‚ã‚‹ãŒã€ ãƒã‚§ãƒƒã‚¯æ–‡å­—ã«å¯¾ã™ã‚‹ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã§ã¯ãªã„ã€‚)<br>
+     * ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ã«åˆã†åŠè§’æ–‡å­—ãŒå…¥åŠ›ã•ã‚ŒãŸå ´åˆã€TRUEãŒè¿”ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * ã¾ãŸã€ãã®æƒ…å ±ãŒã‚­ãƒ£ãƒƒã‚·ãƒ¥ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     @Test
     public void testIsHalfWidthChar04() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String fileEncoding = "Shift_JIS";
         char checkChar = ',';
 
-        // ‘Oˆ—(ó‘Ô)
+        // å‰å‡¦ç†(çŠ¶æ…‹)
         Map<String, Map<Character, Boolean>> encodingCache = (Map<String, Map<Character, Boolean>>) UTUtil
                 .getPrivateField(FileDAOUtility.class, "encodingCache");
         encodingCache.clear();
 
         Map<Character, Boolean> inputEncodingCache = new ConcurrentHashMap<Character, Boolean>();
-        inputEncodingCache.put('A', Boolean.FALSE);
+        inputEncodingCache.put('ã€', Boolean.FALSE);
         encodingCache.put("Shift_JIS", inputEncodingCache);
 
         VMOUTUtil.initialize();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object result = UTUtil.invokePrivate(FileDAOUtility.class,
                 "isHalfWidthChar", new Class[] { String.class, char.class },
                 new Object[] { fileEncoding, checkChar });
 
-        // ”»’è(–ß‚è’l)
+        // åˆ¤å®š(æˆ»ã‚Šå€¤)
         assertTrue(Boolean.class.cast(result));
 
-        // ”»’è(encodingCache)
+        // åˆ¤å®š(encodingCache)
         assertEquals(1, encodingCache.size());
         assertTrue(encodingCache.containsKey(fileEncoding));
 
@@ -2020,7 +2020,7 @@ public class FileDAOUtilityTest {
                 .get(fileEncoding);
         assertEquals(2, shiftJISCacheMap.size());
         assertTrue(shiftJISCacheMap.containsKey(checkChar));
-        assertFalse(Boolean.class.cast(shiftJISCacheMap.get('A')));
+        assertFalse(Boolean.class.cast(shiftJISCacheMap.get('ã€')));
         assertTrue(Boolean.class.cast(shiftJISCacheMap.get(checkChar)));
 
         assertEquals(1, VMOUTUtil.getCallCount(Map.class, "put"));
@@ -2029,47 +2029,47 @@ public class FileDAOUtilityTest {
     /**
      * testIsHalfWidthChar05() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC, D, E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC, D, E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileEncoding:"Shift_JIS"<br>
-     * (ˆø”) checkChar:'A'<br>
-     * (ó‘Ô) encodingCache:—v‘f‚ğ‚½‚È‚¢ConcurrentHashMapƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileEncoding:"Shift_JIS"<br>
+     * (å¼•æ•°) checkChar:'ã€'<br>
+     * (çŠ¶æ…‹) encodingCache:è¦ç´ ã‚’æŒãŸãªã„ConcurrentHashMapã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
-     * (ó‘Ô•Ï‰») encodingCache:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂConcurrentHashMapƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * EkeyF"Shift_JIS"<br>
-     * valueFˆÈ‰º‚Ì—v‘f‚ğ‚ÂConcurrentHashMapƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * - keyF'A' | valueFFALSE<br>
-     * (ó‘Ô•Ï‰») Map#put():2‰ñŒÄ‚Î‚ê‚é<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) encodingCache:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤ConcurrentHashMapã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»keyï¼š"Shift_JIS"<br>
+     * valueï¼šä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤ConcurrentHashMapã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * - keyï¼š'ã€' | valueï¼šFALSE<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) Map#put():2å›å‘¼ã°ã‚Œã‚‹<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * (ƒLƒƒƒbƒVƒ…‚È‚µ)<br>
-     * ƒGƒ“ƒR[ƒfƒBƒ“ƒO‚É‡‚¤‘SŠp•¶š‚ª“ü—Í‚³‚ê‚½ê‡AFALSE‚ª•Ô‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * ‚Ü‚½A‚»‚Ìî•ñ‚ªƒLƒƒƒbƒVƒ…‚Éc‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (ã‚­ãƒ£ãƒƒã‚·ãƒ¥ãªã—)<br>
+     * ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ã«åˆã†å…¨è§’æ–‡å­—ãŒå…¥åŠ›ã•ã‚ŒãŸå ´åˆã€FALSEãŒè¿”ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * ã¾ãŸã€ãã®æƒ…å ±ãŒã‚­ãƒ£ãƒƒã‚·ãƒ¥ã«æ®‹ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     @Test
     public void testIsHalfWidthChar05() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String fileEncoding = "Shift_JIS";
-        char checkChar = 'A';
+        char checkChar = 'ã€';
 
-        // ‘Oˆ—(ó‘Ô)
+        // å‰å‡¦ç†(çŠ¶æ…‹)
         Map<String, Map<Character, Boolean>> encodingCache = (Map<String, Map<Character, Boolean>>) UTUtil
                 .getPrivateField(FileDAOUtility.class, "encodingCache");
         encodingCache.clear();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Object result = UTUtil.invokePrivate(FileDAOUtility.class,
                 "isHalfWidthChar", new Class[] { String.class, char.class },
                 new Object[] { fileEncoding, checkChar });
 
-        // ”»’è(–ß‚è’l)
+        // åˆ¤å®š(æˆ»ã‚Šå€¤)
         assertFalse(Boolean.class.cast(result));
 
-        // ”»’è(encodingCache)
+        // åˆ¤å®š(encodingCache)
         assertEquals(1, encodingCache.size());
         assertTrue(encodingCache.containsKey(fileEncoding));
 
@@ -2081,59 +2081,59 @@ public class FileDAOUtilityTest {
 
         assertEquals(2, VMOUTUtil.getCallCount(Map.class, "put"));
 
-        // Œ±‘ÎÛ‰Šú‰»
+        // è©¦é¨“å¯¾è±¡åˆæœŸåŒ–
         encodingCache.clear();
     }
 
     /**
      * testIsHalfWidthChar06() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileEncoding:"XXX"<br>
-     * (ˆø”) checkChar:','<br>
-     * (ó‘Ô) encodingCache:—v‘f‚ğ‚½‚È‚¢ConcurrentHashMapƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileEncoding:"XXX"<br>
+     * (å¼•æ•°) checkChar:','<br>
+     * (çŠ¶æ…‹) encodingCache:è¦ç´ ã‚’æŒãŸãªã„ConcurrentHashMapã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») encodingCache:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂConcurrentHashMapƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * EkeyF"Shift_JIS"<br>
-     * valueF—v‘f‚ğ‚½‚È‚¢ConcurrentHashMapƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô•Ï‰») Map#put():1‰ñŒÄ‚Î‚ê‚é<br>
-     * (ó‘Ô•Ï‰») -:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"Specified Encoding : XXX is not supported"<br>
-     * EŒ´ˆö—áŠOFUnsupportedEncodingException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) encodingCache:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤ConcurrentHashMapã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»keyï¼š"Shift_JIS"<br>
+     * valueï¼šè¦ç´ ã‚’æŒãŸãªã„ConcurrentHashMapã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) Map#put():1å›å‘¼ã°ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) -:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Specified Encoding : XXX is not supported"<br>
+     * ãƒ»åŸå› ä¾‹å¤–ï¼šUnsupportedEncodingException<br>
      * <br>
-     * ˆÙíƒP[ƒX<br>
-     * (ƒLƒƒƒbƒVƒ…‚È‚µ)<br>
-     * ‘¶İ‚µ‚È‚¢ƒGƒ“ƒR[ƒfƒBƒ“ƒO‚ª“ü—Í‚³‚ê‚½ê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (ã‚­ãƒ£ãƒƒã‚·ãƒ¥ãªã—)<br>
+     * å­˜åœ¨ã—ãªã„ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ãŒå…¥åŠ›ã•ã‚ŒãŸå ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     @Test
     public void testIsHalfWidthChar06() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String fileEncoding = "XXX";
         char checkChar = ',';
 
-        // ‘Oˆ—(ó‘Ô)
+        // å‰å‡¦ç†(çŠ¶æ…‹)
         Map<String, Map<Character, Boolean>> encodingCache = (Map<String, Map<Character, Boolean>>) UTUtil
                 .getPrivateField(FileDAOUtility.class, "encodingCache");
         encodingCache.clear();
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             UTUtil.invokePrivate(FileDAOUtility.class, "isHalfWidthChar",
                     new Class[] { String.class, char.class }, new Object[] {
                             fileEncoding, checkChar });
-            fail("FileException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("FileExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (FileException e) {
-            // ”»’è(—áŠO)
+            // åˆ¤å®š(ä¾‹å¤–)
             assertTrue(e instanceof FileException);
             assertEquals("Specified Encoding : XXX is not supported", e
                     .getMessage());
             assertTrue(e.getCause() instanceof UnsupportedEncodingException);
 
-            // ”»’è(encodingCache)
+            // åˆ¤å®š(encodingCache)
             assertEquals(1, encodingCache.size());
 
             assertTrue(encodingCache.containsKey(fileEncoding));
@@ -2143,49 +2143,49 @@ public class FileDAOUtilityTest {
             assertEquals(1, VMOUTUtil.getCallCount(Map.class, "put"));
         }
 
-        // Œ±‘ÎÛ‰Šú‰»
+        // è©¦é¨“å¯¾è±¡åˆæœŸåŒ–
         encodingCache.clear();
     }
 
     /**
      * testIsHalfWidthChar07() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileEncoding:null<br>
-     * (ˆø”) checkChar:','<br>
-     * (ó‘Ô) encodingCache:—v‘f‚ğ‚½‚È‚¢ConcurrentHashMapƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileEncoding:null<br>
+     * (å¼•æ•°) checkChar:','<br>
+     * (çŠ¶æ…‹) encodingCache:è¦ç´ ã‚’æŒãŸãªã„ConcurrentHashMapã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») encodingCache:—v‘f‚ğ‚½‚È‚¢ConcurrentHashMapƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô•Ï‰») Map#put():ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») -:NullPointerException‚ª”­¶‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) encodingCache:è¦ç´ ã‚’æŒãŸãªã„ConcurrentHashMapã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) Map#put():å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) -:NullPointerExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
      * <br>
-     * ˆÙíƒP[ƒX<br>
-     * (ƒLƒƒƒbƒVƒ…‚È‚µ)<br>
-     * ƒGƒ“ƒR[ƒfƒBƒ“ƒO‚ªnull‚Ìê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (ã‚­ãƒ£ãƒƒã‚·ãƒ¥ãªã—)<br>
+     * ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ãŒnullã®å ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     @Test
     public void testIsHalfWidthChar07() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         String fileEncoding = null;
         char checkChar = ',';
 
-        // ‘Oˆ—(ó‘Ô)
+        // å‰å‡¦ç†(çŠ¶æ…‹)
         Map<String, Map<Character, Boolean>> encodingCache = (Map<String, Map<Character, Boolean>>) UTUtil
                 .getPrivateField(FileDAOUtility.class, "encodingCache");
         encodingCache.clear();
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             UTUtil.invokePrivate(FileDAOUtility.class, "isHalfWidthChar",
                     new Class[] { String.class, char.class }, new Object[] {
                             fileEncoding, checkChar });
-            fail("NullPointerException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("NullPointerExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (NullPointerException e) {
-            // ”»’è(—áŠO)
+            // åˆ¤å®š(ä¾‹å¤–)
             assertTrue(e instanceof NullPointerException);
             assertEquals(0, encodingCache.size());
             assertFalse(VMOUTUtil.isCalled(Map.class, "put"));

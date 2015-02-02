@@ -1,7 +1,7 @@
 package jp.terasoluna.fw.file.dao.standard;
 
 /**
- * FileFormatアノテーションの設定を持たないファイル行オブジェクトスタブクラス
+ * FileFormat繧｢繝弱ユ繝ｼ繧ｷ繝ｧ繝ｳ縺ｮ險ｭ螳壹ｒ謖√◆縺ｪ縺�繝輔ぃ繧､繝ｫ陦後が繝悶ず繧ｧ繧ｯ繝医せ繧ｿ繝悶け繝ｩ繧ｹ
  */
 public class FixedFileLineWriter_Stub04 {
 

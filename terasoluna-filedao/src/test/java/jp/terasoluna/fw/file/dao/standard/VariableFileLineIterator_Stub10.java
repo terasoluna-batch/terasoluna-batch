@@ -5,14 +5,14 @@ import jp.terasoluna.fw.file.annotation.InputFileColumn;
 import jp.terasoluna.fw.file.annotation.OutputFileColumn;
 
 /**
- * FileFormatƒAƒmƒe[ƒVƒ‡ƒ“‚Ìİ’è‚ğ‚ÂAƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgƒXƒ^ƒuƒNƒ‰ƒX
+ * FileFormatã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã®è¨­å®šã‚’æŒã¤ã€ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¹ã‚¿ãƒ–ã‚¯ãƒ©ã‚¹
  * <p>
- * ˆÈ‰º‚Ìİ’è‚ğ‚Â<br>
+ * ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤<br>
  * <ul>
  * <li>@FileFormat(delimiter=',', encloseChar=Character.MIN_VALUE)
- * <li>‘®«
+ * <li>å±æ€§
  * <ul>
- * <li>‚È‚µ
+ * <li>ãªã—
  * </ul>
  * </ul>
  */

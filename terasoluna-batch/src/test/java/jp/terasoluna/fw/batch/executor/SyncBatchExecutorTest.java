@@ -28,58 +28,58 @@ public class SyncBatchExecutorTest extends TestCase {
     }
 
     /**
-     * mainƒeƒXƒg01yˆÙíŒnz
+     * mainãƒ†ã‚¹ãƒˆ01ã€ç•°å¸¸ç³»ã€‘
      * 
      * <pre>
-     * –‘OğŒ
-     * ESyncBatchExecutor‚Ì‹N“®ˆø”‚Éfoo‚ğ“n‚·
-     * EbeansDef/foo.xml‚ª‘¶İ‚µ‚È‚¢
-     * Šm”F–€
-     * EI—¹ƒR[ƒh‚ª-1‚Å‚ ‚é‚±‚Æ
-     * EID‚ªWAL025002‚ÌWARNƒƒO‚ªo—Í‚³‚ê‚é‚±‚Æ
+     * äº‹å‰æ¡ä»¶
+     * ãƒ»SyncBatchExecutorã®èµ·å‹•å¼•æ•°ã«fooã‚’æ¸¡ã™
+     * ãƒ»beansDef/foo.xmlãŒå­˜åœ¨ã—ãªã„
+     * ç¢ºèªäº‹é …
+     * ãƒ»çµ‚äº†ã‚³ãƒ¼ãƒ‰ãŒ-1ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»IDãŒWAL025002ã®WARNãƒ­ã‚°ãŒå‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨
      * </pre>
      * @throws Exception
      */
     public void testMain01() throws Exception {
         try {
             SyncBatchExecutor.main(new String[] { "foo" });
-            fail("ˆÙí‚Å‚·");
+            fail("ç•°å¸¸ã§ã™");
         } catch (ExitException e) {
             assertEquals(-1, e.state);
         }
     }
 
     /**
-     * mainƒeƒXƒg02y³íŒnz
+     * mainãƒ†ã‚¹ãƒˆ02ã€æ­£å¸¸ç³»ã€‘
      * 
      * <pre>
-     * –‘OğŒ
-     * ESyncBatchExecutor‚Ì‹N“®ˆø”‚ÉTestSyncBatchExecutor01‚ğ“n‚·
-     * EbeansDef/TestSyncBatchExecutor01.xml‚ª‘¶İ‚·‚é
-     * EbeanName‚ªTestSyncBatchExecutor01‚ÌBean‚ªƒ[ƒh‚³‚ê‚é
-     * Šm”F–€
-     * EI—¹ƒR[ƒh‚ª100‚Å‚ ‚é‚±‚Æ
+     * äº‹å‰æ¡ä»¶
+     * ãƒ»SyncBatchExecutorã®èµ·å‹•å¼•æ•°ã«TestSyncBatchExecutor01ã‚’æ¸¡ã™
+     * ãƒ»beansDef/TestSyncBatchExecutor01.xmlãŒå­˜åœ¨ã™ã‚‹
+     * ãƒ»beanNameãŒTestSyncBatchExecutor01ã®BeanãŒãƒ­ãƒ¼ãƒ‰ã•ã‚Œã‚‹
+     * ç¢ºèªäº‹é …
+     * ãƒ»çµ‚äº†ã‚³ãƒ¼ãƒ‰ãŒ100ã§ã‚ã‚‹ã“ã¨
      * </pre>
      * @throws Exception
      */
     public void testMain02() throws Exception {
         try {
             SyncBatchExecutor.main(new String[] { "TestSyncBatchExecutor01" });
-            fail("ˆÙí‚Å‚·");
+            fail("ç•°å¸¸ã§ã™");
         } catch (ExitException e) {
             assertEquals(100, e.state);
         }
     }
 
     /**
-     * mainƒeƒXƒg03yˆÙíŒnz
+     * mainãƒ†ã‚¹ãƒˆ03ã€ç•°å¸¸ç³»ã€‘
      * 
      * <pre>
-     * –‘OğŒ
-     * ESyncBatchExecutor‚Ì‹N“®ˆø”‚É‰½‚à“n‚³‚È‚¢
-     * EŠÂ‹«•Ï”JOB_APP_CD‚ª–¢İ’è
-     * Šm”F–€
-     * EI—¹ƒR[ƒh‚ª-1‚Å‚ ‚é‚±‚Æ
+     * äº‹å‰æ¡ä»¶
+     * ãƒ»SyncBatchExecutorã®èµ·å‹•å¼•æ•°ã«ä½•ã‚‚æ¸¡ã•ãªã„
+     * ãƒ»ç’°å¢ƒå¤‰æ•°JOB_APP_CDãŒæœªè¨­å®š
+     * ç¢ºèªäº‹é …
+     * ãƒ»çµ‚äº†ã‚³ãƒ¼ãƒ‰ãŒ-1ã§ã‚ã‚‹ã“ã¨
      * </pre>
      * @throws Exception
      */
@@ -87,23 +87,23 @@ public class SyncBatchExecutorTest extends TestCase {
         try {
             SystemEnvUtils.removeEnv(SyncBatchExecutor.ENV_JOB_APP_CD);
             SyncBatchExecutor.main(new String[] {});
-            fail("ˆÙí‚Å‚·");
+            fail("ç•°å¸¸ã§ã™");
         } catch (ExitException e) {
             assertEquals(-1, e.state);
         }
     }
 
     /**
-     * mainƒeƒXƒg04yˆÙíŒnz
+     * mainãƒ†ã‚¹ãƒˆ04ã€ç•°å¸¸ç³»ã€‘
      * 
      * <pre>
-     * –‘OğŒ
-     * ESyncBatchExecutor‚Ì‹N“®ˆø”‚É‰½‚à“n‚³‚È‚¢
-     * EŠÂ‹«•Ï”JOB_APP_CD‚ÉTestSyncBatchExecutor01‚ğ“n‚·
-     * EbeansDef/TestSyncBatchExecutor01.xml‚ª‘¶İ‚·‚é
-     * EbeanName‚ªTestSyncBatchExecutor01‚ÌBean‚ªƒ[ƒh‚³‚ê‚é
-     * Šm”F–€
-     * EI—¹ƒR[ƒh‚ª100‚Å‚ ‚é‚±‚Æ
+     * äº‹å‰æ¡ä»¶
+     * ãƒ»SyncBatchExecutorã®èµ·å‹•å¼•æ•°ã«ä½•ã‚‚æ¸¡ã•ãªã„
+     * ãƒ»ç’°å¢ƒå¤‰æ•°JOB_APP_CDã«TestSyncBatchExecutor01ã‚’æ¸¡ã™
+     * ãƒ»beansDef/TestSyncBatchExecutor01.xmlãŒå­˜åœ¨ã™ã‚‹
+     * ãƒ»beanNameãŒTestSyncBatchExecutor01ã®BeanãŒãƒ­ãƒ¼ãƒ‰ã•ã‚Œã‚‹
+     * ç¢ºèªäº‹é …
+     * ãƒ»çµ‚äº†ã‚³ãƒ¼ãƒ‰ãŒ100ã§ã‚ã‚‹ã“ã¨
      * </pre>
      * @throws Exception
      */
@@ -112,23 +112,23 @@ public class SyncBatchExecutorTest extends TestCase {
             SystemEnvUtils.setEnv(SyncBatchExecutor.ENV_JOB_APP_CD,
                     "TestSyncBatchExecutor01");
             SyncBatchExecutor.main(new String[] {});
-            fail("ˆÙí‚Å‚·");
+            fail("ç•°å¸¸ã§ã™");
         } catch (ExitException e) {
             assertEquals(100, e.state);
         }
     }
 
     /**
-     * mainƒeƒXƒg05y³íŒnz
+     * mainãƒ†ã‚¹ãƒˆ05ã€æ­£å¸¸ç³»ã€‘
      * 
      * <pre>
-     * –‘OğŒ
-     * ESyncBatchExecutor‚Ì‹N“®ˆø”‚ÉTestSyncBatchExecutor01 param1 param2 param3 param4 param5 param6 param7 param8 param9 param10 param11 param12 param13 param14 param15 param16 param17 param18 param19 param20 ‚ğ“n‚·
-     * EbeansDef/TestSyncBatchExecutor01.xml‚ª‘¶İ‚·‚é
-     * EbeanName‚ªTestSyncBatchExecutor01‚ÌBean‚ªƒ[ƒh‚³‚ê‚é
-     * Šm”F–€
-     * Eparam1`20‚Ü‚ÅID:DAL025044‚ÌƒƒO‚Éo—Í‚³‚ê‚é‚±‚Æ
-     * EI—¹ƒR[ƒh‚ª100‚Å‚ ‚é‚±‚Æ
+     * äº‹å‰æ¡ä»¶
+     * ãƒ»SyncBatchExecutorã®èµ·å‹•å¼•æ•°ã«TestSyncBatchExecutor01 param1 param2 param3 param4 param5 param6 param7 param8 param9 param10 param11 param12 param13 param14 param15 param16 param17 param18 param19 param20 ã‚’æ¸¡ã™
+     * ãƒ»beansDef/TestSyncBatchExecutor01.xmlãŒå­˜åœ¨ã™ã‚‹
+     * ãƒ»beanNameãŒTestSyncBatchExecutor01ã®BeanãŒãƒ­ãƒ¼ãƒ‰ã•ã‚Œã‚‹
+     * ç¢ºèªäº‹é …
+     * ãƒ»param1ï½20ã¾ã§ID:DAL025044ã®ãƒ­ã‚°ã«å‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»çµ‚äº†ã‚³ãƒ¼ãƒ‰ãŒ100ã§ã‚ã‚‹ã“ã¨
      * </pre>
      * @throws Exception
      */
@@ -139,23 +139,23 @@ public class SyncBatchExecutorTest extends TestCase {
                     "param7", "param8", "param9", "param10", "param11",
                     "param12", "param13", "param14", "param15", "param16",
                     "param17", "param18", "param19", "param20" });
-            fail("ˆÙí‚Å‚·");
+            fail("ç•°å¸¸ã§ã™");
         } catch (ExitException e) {
             assertEquals(100, e.state);
         }
     }
 
     /**
-     * mainƒeƒXƒg06y³íŒnz
+     * mainãƒ†ã‚¹ãƒˆ06ã€æ­£å¸¸ç³»ã€‘
      * 
      * <pre>
-     * –‘OğŒ
-     * ESyncBatchExecutor‚Ì‹N“®ˆø”‚ÉTestSyncBatchExecutor01 param1 param2 param3 param4 param5 param6 param7 param8 param9 param10 param11 param12 param13 param14 param15 param16 param17 param18 param19 param20 param21‚ğ“n‚·
-     * EbeansDef/TestSyncBatchExecutor01.xml‚ª‘¶İ‚·‚é
-     * EbeanName‚ªTestSyncBatchExecutor01‚ÌBean‚ªƒ[ƒh‚³‚ê‚é
-     * Šm”F–€
-     * Eparam1`20‚Ü‚ÅID:DAL025044‚ÌƒƒO‚Éo—Í‚³‚ê‚é‚±‚Æ
-     * EI—¹ƒR[ƒh‚ª100‚Å‚ ‚é‚±‚Æ
+     * äº‹å‰æ¡ä»¶
+     * ãƒ»SyncBatchExecutorã®èµ·å‹•å¼•æ•°ã«TestSyncBatchExecutor01 param1 param2 param3 param4 param5 param6 param7 param8 param9 param10 param11 param12 param13 param14 param15 param16 param17 param18 param19 param20 param21ã‚’æ¸¡ã™
+     * ãƒ»beansDef/TestSyncBatchExecutor01.xmlãŒå­˜åœ¨ã™ã‚‹
+     * ãƒ»beanNameãŒTestSyncBatchExecutor01ã®BeanãŒãƒ­ãƒ¼ãƒ‰ã•ã‚Œã‚‹
+     * ç¢ºèªäº‹é …
+     * ãƒ»param1ï½20ã¾ã§ID:DAL025044ã®ãƒ­ã‚°ã«å‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»çµ‚äº†ã‚³ãƒ¼ãƒ‰ãŒ100ã§ã‚ã‚‹ã“ã¨
      * </pre>
      * @throws Exception
      */
@@ -166,24 +166,24 @@ public class SyncBatchExecutorTest extends TestCase {
                     "param7", "param8", "param9", "param10", "param11",
                     "param12", "param13", "param14", "param15", "param16",
                     "param17", "param18", "param19", "param20", "param21" });
-            fail("ˆÙí‚Å‚·");
+            fail("ç•°å¸¸ã§ã™");
         } catch (ExitException e) {
             assertEquals(100, e.state);
         }
     }
 
     /**
-     * mainƒeƒXƒg07y³íŒnz
+     * mainãƒ†ã‚¹ãƒˆ07ã€æ­£å¸¸ç³»ã€‘
      * 
      * <pre>
-     * –‘OğŒ
-     * ESyncBatchExecutor‚Ì‹N“®ˆø”‚ÉTestSyncBatchExecutor01‚ğ“n‚·
-     * EbeansDef/TestSyncBatchExecutor01.xml‚ª‘¶İ‚·‚é
-     * EbeanName‚ªTestSyncBatchExecutor01‚ÌBean‚ªƒ[ƒh‚³‚ê‚é
-     * EŠÂ‹«•Ï”JOB_SEQ_ID‚Éseq01‚ªİ’è‚³‚ê‚Ä‚¢‚é
-     * Šm”F–€
-     * EI—¹ƒR[ƒh‚ª100‚Å‚ ‚é‚±‚Æ
-     * EID:DAL025044‚ÌDEBUGƒƒO‚ÉjobSequenceId=seq01‚ª‚Ó‚­‚Ü‚ê‚é‚±‚Æ
+     * äº‹å‰æ¡ä»¶
+     * ãƒ»SyncBatchExecutorã®èµ·å‹•å¼•æ•°ã«TestSyncBatchExecutor01ã‚’æ¸¡ã™
+     * ãƒ»beansDef/TestSyncBatchExecutor01.xmlãŒå­˜åœ¨ã™ã‚‹
+     * ãƒ»beanNameãŒTestSyncBatchExecutor01ã®BeanãŒãƒ­ãƒ¼ãƒ‰ã•ã‚Œã‚‹
+     * ãƒ»ç’°å¢ƒå¤‰æ•°JOB_SEQ_IDã«seq01ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹
+     * ç¢ºèªäº‹é …
+     * ãƒ»çµ‚äº†ã‚³ãƒ¼ãƒ‰ãŒ100ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»ID:DAL025044ã®DEBUGãƒ­ã‚°ã«jobSequenceId=seq01ãŒãµãã¾ã‚Œã‚‹ã“ã¨
      * </pre>
      * @throws Exception
      */
@@ -191,24 +191,24 @@ public class SyncBatchExecutorTest extends TestCase {
         try {
             SystemEnvUtils.setEnv(SyncBatchExecutor.ENV_JOB_SEQ_ID, "seq01");
             SyncBatchExecutor.main(new String[] { "TestSyncBatchExecutor01" });
-            fail("ˆÙí‚Å‚·");
+            fail("ç•°å¸¸ã§ã™");
         } catch (ExitException e) {
             assertEquals(100, e.state);
         }
     }
 
     /**
-     * mainƒeƒXƒg08y³íŒnz
+     * mainãƒ†ã‚¹ãƒˆ08ã€æ­£å¸¸ç³»ã€‘
      * 
      * <pre>
-     * –‘OğŒ
-     * ESyncBatchExecutor‚Ì‹N“®ˆø”‚ÉTestSyncBatchExecutor01‚ªİ’è‚³‚ê‚Ä‚¢‚é
-     * EŠÂ‹«•Ï”JOB_ARG_NM1`20‚É‚»‚ê‚¼‚êparam1 param2 param3 param4 param5 param6 param7 param8 param9 param10 param11 param12 param13 param14 param15 param16 param17 param18 param19 param20‚ªİ’è‚³‚ê‚Ä‚¢‚é
-     * EbeansDef/TestSyncBatchExecutor01.xml‚ª‘¶İ‚·‚é
-     * EbeanName‚ªTestSyncBatchExecutor01‚ÌBean‚ªƒ[ƒh‚³‚ê‚é
-     * Šm”F–€
-     * Eparam1`20‚Ü‚ÅID:DAL025044‚ÌƒƒO‚Éo—Í‚³‚ê‚é‚±‚Æ
-     * EI—¹ƒR[ƒh‚ª100‚Å‚ ‚é‚±‚Æ
+     * äº‹å‰æ¡ä»¶
+     * ãƒ»SyncBatchExecutorã®èµ·å‹•å¼•æ•°ã«TestSyncBatchExecutor01ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹
+     * ãƒ»ç’°å¢ƒå¤‰æ•°JOB_ARG_NM1ï½20ã«ãã‚Œãã‚Œparam1 param2 param3 param4 param5 param6 param7 param8 param9 param10 param11 param12 param13 param14 param15 param16 param17 param18 param19 param20ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹
+     * ãƒ»beansDef/TestSyncBatchExecutor01.xmlãŒå­˜åœ¨ã™ã‚‹
+     * ãƒ»beanNameãŒTestSyncBatchExecutor01ã®BeanãŒãƒ­ãƒ¼ãƒ‰ã•ã‚Œã‚‹
+     * ç¢ºèªäº‹é …
+     * ãƒ»param1ï½20ã¾ã§ID:DAL025044ã®ãƒ­ã‚°ã«å‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»çµ‚äº†ã‚³ãƒ¼ãƒ‰ãŒ100ã§ã‚ã‚‹ã“ã¨
      * </pre>
      * @throws Exception
      */
@@ -218,24 +218,24 @@ public class SyncBatchExecutorTest extends TestCase {
                 SystemEnvUtils.setEnv("JOB_ARG_NM" + i, "param" + i);
             }
             SyncBatchExecutor.main(new String[] { "TestSyncBatchExecutor01" });
-            fail("ˆÙí‚Å‚·");
+            fail("ç•°å¸¸ã§ã™");
         } catch (ExitException e) {
             assertEquals(100, e.state);
         }
     }
 
     /**
-     * mainƒeƒXƒg09y³íŒnz
+     * mainãƒ†ã‚¹ãƒˆ09ã€æ­£å¸¸ç³»ã€‘
      * 
      * <pre>
-     * –‘OğŒ
-     * ESyncBatchExecutor‚Ì‹N“®ˆø”‚ÉTestSyncBatchExecutor01‚ªİ’è‚³‚ê‚Ä‚¢‚é
-     * EŠÂ‹«•Ï”JOB_ARG_NM1`20‚É‚»‚ê‚¼‚êparam1 param2 param3 param4 param5 param6 param7 param8 param9 param10 param11 param12 param13 param14 param15 param16 param17 param18 param19 param20 param21‚ªİ’è‚³‚ê‚Ä‚¢‚é
-     * EbeansDef/TestSyncBatchExecutor01.xml‚ª‘¶İ‚·‚é
-     * EbeanName‚ªTestSyncBatchExecutor01‚ÌBean‚ªƒ[ƒh‚³‚ê‚é
-     * Šm”F–€
-     * Eparam1`20‚Ü‚ÅID:DAL025044‚ÌƒƒO‚Éo—Í‚³‚ê‚é‚±‚Æ
-     * EI—¹ƒR[ƒh‚ª100‚Å‚ ‚é‚±‚Æ
+     * äº‹å‰æ¡ä»¶
+     * ãƒ»SyncBatchExecutorã®èµ·å‹•å¼•æ•°ã«TestSyncBatchExecutor01ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹
+     * ãƒ»ç’°å¢ƒå¤‰æ•°JOB_ARG_NM1ï½20ã«ãã‚Œãã‚Œparam1 param2 param3 param4 param5 param6 param7 param8 param9 param10 param11 param12 param13 param14 param15 param16 param17 param18 param19 param20 param21ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹
+     * ãƒ»beansDef/TestSyncBatchExecutor01.xmlãŒå­˜åœ¨ã™ã‚‹
+     * ãƒ»beanNameãŒTestSyncBatchExecutor01ã®BeanãŒãƒ­ãƒ¼ãƒ‰ã•ã‚Œã‚‹
+     * ç¢ºèªäº‹é …
+     * ãƒ»param1ï½20ã¾ã§ID:DAL025044ã®ãƒ­ã‚°ã«å‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»çµ‚äº†ã‚³ãƒ¼ãƒ‰ãŒ100ã§ã‚ã‚‹ã“ã¨
      * </pre>
      * @throws Exception
      */
@@ -245,20 +245,20 @@ public class SyncBatchExecutorTest extends TestCase {
                 SystemEnvUtils.setEnv("JOB_ARG_NM" + i, "param" + i);
             }
             SyncBatchExecutor.main(new String[] { "TestSyncBatchExecutor01" });
-            fail("ˆÙí‚Å‚·");
+            fail("ç•°å¸¸ã§ã™");
         } catch (ExitException e) {
             assertEquals(100, e.state);
         }
     }
 
     /**
-     * getParamƒeƒXƒg01
+     * getParamãƒ†ã‚¹ãƒˆ01
      * 
      * <pre>
-     * –‘OğŒF
-     * getParam‚Ìget+‘æ“ñˆø”+‘æOˆø”‚Ìƒƒ\ƒbƒh‚ª‘¶İ‚·‚é
-     * Šm”F€–ÚF
-     * Eget+‘æ“ñˆø”+‘æOˆø”‚Ìƒƒ\ƒbƒh‚ÌŒ‹‰Ê‚ª•Ô‹p‚³‚ê‚é‚±‚Æ
+     * äº‹å‰æ¡ä»¶ï¼š
+     * getParamã®get+ç¬¬äºŒå¼•æ•°+ç¬¬ä¸‰å¼•æ•°ã®ãƒ¡ã‚½ãƒƒãƒ‰ãŒå­˜åœ¨ã™ã‚‹
+     * ç¢ºèªé …ç›®ï¼š
+     * ãƒ»get+ç¬¬äºŒå¼•æ•°+ç¬¬ä¸‰å¼•æ•°ã®ãƒ¡ã‚½ãƒƒãƒ‰ã®çµæœãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨
      * </pre>
      * @throws Exception
      */
@@ -271,29 +271,29 @@ public class SyncBatchExecutorTest extends TestCase {
     }
 
     /**
-     * getParamƒeƒXƒg02
+     * getParamãƒ†ã‚¹ãƒˆ02
      * 
      * <pre>
-     * –‘OğŒF
+     * äº‹å‰æ¡ä»¶ï¼š
      * 
-     * Šm”F€–ÚF
-     * Enull‚ª•Ô‹p‚³‚ê‚é‚±‚Æ
-     * EƒXƒ^ƒbƒNƒgƒŒ[ƒX‚Éjava.lang.SecurityException‚ªo—Í‚³‚ê‚é‚±‚Æ
+     * ç¢ºèªé …ç›®ï¼š
+     * ãƒ»nullãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»ã‚¹ã‚¿ãƒƒã‚¯ãƒˆãƒ¬ãƒ¼ã‚¹ã«java.lang.SecurityExceptionãŒå‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨
      * </pre>
      * @throws Exception
      */
     // public void testGetParam02() throws Exception {
-    // ”­¶•s‰Â”\
+    // ç™ºç”Ÿä¸å¯èƒ½
     // }
     /**
-     * getParamƒeƒXƒg03
+     * getParamãƒ†ã‚¹ãƒˆ03
      * 
      * <pre>
-     * –‘OğŒF
-     * get+‘æ“ñˆø”+‘æOˆø”‚Ìƒƒ\ƒbƒh‚ª‘¶İ‚µ‚È‚¢
-     * Šm”F€–ÚF
-     * Enull‚ª•Ô‹p‚³‚ê‚é‚±‚Æ
-     * EƒXƒ^ƒbƒNƒgƒŒ[ƒX‚Éjava.lang.NoSuchMethodException‚ªo—Í‚³‚ê‚é‚±‚Æ
+     * äº‹å‰æ¡ä»¶ï¼š
+     * get+ç¬¬äºŒå¼•æ•°+ç¬¬ä¸‰å¼•æ•°ã®ãƒ¡ã‚½ãƒƒãƒ‰ãŒå­˜åœ¨ã—ãªã„
+     * ç¢ºèªé …ç›®ï¼š
+     * ãƒ»nullãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»ã‚¹ã‚¿ãƒƒã‚¯ãƒˆãƒ¬ãƒ¼ã‚¹ã«java.lang.NoSuchMethodExceptionãŒå‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨
      * </pre>
      * @throws Exception
      */
@@ -306,44 +306,44 @@ public class SyncBatchExecutorTest extends TestCase {
     }
 
     /**
-     * getParamƒeƒXƒg04
+     * getParamãƒ†ã‚¹ãƒˆ04
      * 
      * <pre>
-     * –‘OğŒF
+     * äº‹å‰æ¡ä»¶ï¼š
      * 
-     * Šm”F€–ÚF
-     * Enull‚ª•Ô‹p‚³‚ê‚é‚±‚Æ
-     * EƒXƒ^ƒbƒNƒgƒŒ[ƒX‚ÉIllegalArgumentException‚ªo—Í‚³‚ê‚é‚±‚Æ
+     * ç¢ºèªé …ç›®ï¼š
+     * ãƒ»nullãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»ã‚¹ã‚¿ãƒƒã‚¯ãƒˆãƒ¬ãƒ¼ã‚¹ã«IllegalArgumentExceptionãŒå‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨
      * </pre>
      * @throws Exception
      */
     // public void testGetParam04() throws Exception {
-    // ”­¶•s‰Â”\
+    // ç™ºç”Ÿä¸å¯èƒ½
     // }
     /**
-     * getParamƒeƒXƒg05
+     * getParamãƒ†ã‚¹ãƒˆ05
      * 
      * <pre>
-     * –‘OğŒF
+     * äº‹å‰æ¡ä»¶ï¼š
      * 
-     * Šm”F€–ÚF
-     * Enull‚ª•Ô‹p‚³‚ê‚é‚±‚Æ
-     * EƒXƒ^ƒbƒNƒgƒŒ[ƒX‚ÉIllegalAccessException‚ªo—Í‚³‚ê‚é‚±‚Æ
+     * ç¢ºèªé …ç›®ï¼š
+     * ãƒ»nullãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»ã‚¹ã‚¿ãƒƒã‚¯ãƒˆãƒ¬ãƒ¼ã‚¹ã«IllegalAccessExceptionãŒå‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨
      * </pre>
      * @throws Exception
      */
     // public void testGetParam05() throws Exception {
-    // ”­¶•s‰Â”\
+    // ç™ºç”Ÿä¸å¯èƒ½
     // }
     /**
-     * getParamƒeƒXƒg06
+     * getParamãƒ†ã‚¹ãƒˆ06
      * 
      * <pre>
-     * –‘OğŒF
+     * äº‹å‰æ¡ä»¶ï¼š
      * 
-     * Šm”F€–ÚF
-     * Enull‚ª•Ô‹p‚³‚ê‚é‚±‚Æ
-     * EƒXƒ^ƒbƒNƒgƒŒ[ƒX‚Éjava.lang.reflect.InvocationTargetException‚ªo—Í‚³‚ê‚é‚±‚Æ
+     * ç¢ºèªé …ç›®ï¼š
+     * ãƒ»nullãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»ã‚¹ã‚¿ãƒƒã‚¯ãƒˆãƒ¬ãƒ¼ã‚¹ã«java.lang.reflect.InvocationTargetExceptionãŒå‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨
      * </pre>
      * @throws Exception
      */
@@ -382,14 +382,14 @@ public class SyncBatchExecutorTest extends TestCase {
         assertEquals("hoge", bean.getFoo1());
     }
 
-    // SecurityException‚ÌƒXƒ^ƒbƒNƒgƒŒ[ƒX‚ªo—Í‚³‚ê‚é‚±‚Æ
+    // SecurityExceptionã®ã‚¹ã‚¿ãƒƒã‚¯ãƒˆãƒ¬ãƒ¼ã‚¹ãŒå‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨
     // public void testSetParam02() {
-    // ”­¶‚Å‚«‚¸
+    // ç™ºç”Ÿã§ããš
     // }
 
     /**
      * testSetParam03<br>
-     * NoSuchMethodException‚ÌƒXƒ^ƒbƒNƒgƒŒ[ƒX‚ªo—Í‚³‚ê‚é‚±‚Æ
+     * NoSuchMethodExceptionã®ã‚¹ã‚¿ãƒƒã‚¯ãƒˆãƒ¬ãƒ¼ã‚¹ãŒå‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨
      */
     public void testSetParam03() {
         SetParamBean bean = new SetParamBean();
@@ -400,19 +400,19 @@ public class SyncBatchExecutorTest extends TestCase {
         assertEquals(null, bean.getFoo1());
     }
 
-    // IllegalArgumentException‚ÌƒXƒ^ƒbƒNƒgƒŒ[ƒX‚ªo—Í‚³‚ê‚é‚±‚Æ
+    // IllegalArgumentExceptionã®ã‚¹ã‚¿ãƒƒã‚¯ãƒˆãƒ¬ãƒ¼ã‚¹ãŒå‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨
     // public void testSetParam04() {
-    // ”­¶‚Å‚«‚¸
+    // ç™ºç”Ÿã§ããš
     // }
 
-    // IllegalAccessException‚ÌƒXƒ^ƒbƒNƒgƒŒ[ƒX‚ªo—Í‚³‚ê‚é‚±‚Æ
+    // IllegalAccessExceptionã®ã‚¹ã‚¿ãƒƒã‚¯ãƒˆãƒ¬ãƒ¼ã‚¹ãŒå‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨
     // public void testSetParam05() {
-    // ”­¶‚Å‚«‚¸
+    // ç™ºç”Ÿã§ããš
     // }
 
     /**
      * testSetParam06<br>
-     * InvocationTargetException‚ÌƒXƒ^ƒbƒNƒgƒŒ[ƒX‚ªo—Í‚³‚ê‚é‚±‚Æ
+     * InvocationTargetExceptionã®ã‚¹ã‚¿ãƒƒã‚¯ãƒˆãƒ¬ãƒ¼ã‚¹ãŒå‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨
      */
     public void testSetParam06() {
         SetParamBean bean = new SetParamBean();

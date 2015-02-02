@@ -16,35 +16,35 @@
 package jp.terasoluna.fw.message.execption;
 
 /**
- * ƒƒbƒZ[ƒWÀs—áŠOƒNƒ‰ƒXi“à•”ƒNƒ‰ƒXj
+ * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸å®Ÿè¡Œæ™‚ä¾‹å¤–ã‚¯ãƒ©ã‚¹ï¼ˆå†…éƒ¨ã‚¯ãƒ©ã‚¹ï¼‰
  *
  */
 @SuppressWarnings("serial")
 public class MessageRuntimeException extends RuntimeException {
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      * 
-     * @param message ƒƒbƒZ[ƒW
+     * @param message ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
      */
     public MessageRuntimeException(String message) {
         super(message);
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      * 
-     * @param cause ‹Nˆö—áŠO
+     * @param cause èµ·å› ä¾‹å¤–
      */
     public MessageRuntimeException(Throwable cause) {
         super(cause);
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      * 
-     * @param message ƒƒbƒZ[ƒW
-     * @param cause ‹Nˆö—áŠO
+     * @param message ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
+     * @param cause èµ·å› ä¾‹å¤–
      */
     public MessageRuntimeException(String message, Throwable cause) {
         super(message, cause);

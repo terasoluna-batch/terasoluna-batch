@@ -19,13 +19,13 @@ package jp.terasoluna.fw.collector.concurrent;
 import java.util.concurrent.BlockingQueue;
 
 /**
- * ƒLƒ…[ƒCƒ“ƒO‚ÌI—¹‚ð’Ê’m‚·‚éBlockingQueueƒCƒ“ƒ^ƒtƒF[ƒX
+ * ã‚­ãƒ¥ãƒ¼ã‚¤ãƒ³ã‚°ã®çµ‚äº†ã‚’é€šçŸ¥ã™ã‚‹BlockingQueueã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹
  */
 public interface NotificationBlockingQueue<E> extends BlockingQueue<E> {
     /**
-     * ƒLƒ…[ƒCƒ“ƒO‚ÌI—¹‚ð’Ê’m‚·‚éB
+     * ã‚­ãƒ¥ãƒ¼ã‚¤ãƒ³ã‚°ã®çµ‚äº†ã‚’é€šçŸ¥ã™ã‚‹ã€‚
      * <p>
-     * ƒLƒ…[‚É—v‘f‚ª“ü‚é‚Ì‚ð‘Ò‚Á‚Ä‚¢‚éƒXƒŒƒbƒh‚ª‚¢‚éê‡A‚»‚ÌƒuƒƒbƒN‚ð‰ðœ‚·‚éB ƒLƒ…[‚É—v‘f‚ð‹l‚ß‚éƒXƒŒƒbƒh‚ÍAƒLƒ…[ƒCƒ“ƒO‚ªŠ®—¹‚µ‚½‚ ‚Æ‚ÅA•K‚¸‚±‚Ìƒƒ\ƒbƒh‚ðŽÀs‚·‚é‚±‚ÆB
+     * ã‚­ãƒ¥ãƒ¼ã«è¦ç´ ãŒå…¥ã‚‹ã®ã‚’å¾…ã£ã¦ã„ã‚‹ã‚¹ãƒ¬ãƒƒãƒ‰ãŒã„ã‚‹å ´åˆã€ãã®ãƒ–ãƒ­ãƒƒã‚¯ã‚’è§£é™¤ã™ã‚‹ã€‚ ã‚­ãƒ¥ãƒ¼ã«è¦ç´ ã‚’è©°ã‚ã‚‹ã‚¹ãƒ¬ãƒƒãƒ‰ã¯ã€ã‚­ãƒ¥ãƒ¼ã‚¤ãƒ³ã‚°ãŒå®Œäº†ã—ãŸã‚ã¨ã§ã€å¿…ãšã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å®Ÿè¡Œã™ã‚‹ã“ã¨ã€‚
      * </p>
      */
     void finishQueueing();

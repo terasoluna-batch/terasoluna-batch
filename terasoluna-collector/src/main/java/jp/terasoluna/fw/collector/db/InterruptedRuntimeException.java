@@ -17,7 +17,7 @@
 package jp.terasoluna.fw.collector.db;
 
 /**
- * DBコレクタのクローズにより、キュー追加スレッドに割り込みが発生した際にスローされる例外。
+ * DB繧ｳ繝ｬ繧ｯ繧ｿ縺ｮ繧ｯ繝ｭ繝ｼ繧ｺ縺ｫ繧医ｊ縲√く繝･繝ｼ霑ｽ蜉繧ｹ繝ｬ繝�繝峨↓蜑ｲ繧願ｾｼ縺ｿ縺檎匱逕溘＠縺滄圀縺ｫ繧ｹ繝ｭ繝ｼ縺輔ｌ繧倶ｾ句､悶�
  */
 public class InterruptedRuntimeException extends RuntimeException {
 
@@ -27,14 +27,14 @@ public class InterruptedRuntimeException extends RuntimeException {
     private static final long serialVersionUID = 5607621359208001676L;
 
     /**
-     * コンストラクタ.
+     * 繧ｳ繝ｳ繧ｹ繝医Λ繧ｯ繧ｿ.
      */
     public InterruptedRuntimeException() {
         super();
     }
 
     /**
-     * コンストラクタ.
+     * 繧ｳ繝ｳ繧ｹ繝医Λ繧ｯ繧ｿ.
      *
      * @param cause Throwable
      */

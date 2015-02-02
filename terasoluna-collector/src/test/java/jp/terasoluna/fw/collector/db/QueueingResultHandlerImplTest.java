@@ -126,7 +126,7 @@ public class QueueingResultHandlerImplTest {
             @Override
             public void doRun() {
                 Thread.currentThread().interrupt();
-                // Š„‚è‚İ”­¶‚ÍhandleResult‚Íˆ—‚³‚ê‚¸AƒXƒŒƒbƒh‚ªŠ„‚è‚İó‘Ô‚Ì‚Ü‚Ü‚Å‚ ‚é‚±‚ÆB
+                // å‰²ã‚Šè¾¼ã¿ç™ºç”Ÿæ™‚ã¯handleResultã¯å‡¦ç†ã•ã‚Œãšã€ã‚¹ãƒ¬ãƒƒãƒ‰ãŒå‰²ã‚Šè¾¼ã¿çŠ¶æ…‹ã®ã¾ã¾ã§ã‚ã‚‹ã“ã¨ã€‚
                 DummyResultContext context = new DummyResultContext();
                 context.setResultObject("hoge1");
                 drh.handleResult(context);
@@ -172,7 +172,7 @@ public class QueueingResultHandlerImplTest {
             @Override
             public void doRun() throws Exception {
                 Thread.currentThread().interrupt();
-                // Š„‚è‚İ”­¶‚ÍdelayCollect‚Íˆ—‚³‚ê‚¸AƒXƒŒƒbƒh‚ªŠ„‚è‚İó‘Ô‚Ì‚Ü‚Ü‚Å‚ ‚é‚±‚ÆB
+                // å‰²ã‚Šè¾¼ã¿ç™ºç”Ÿæ™‚ã¯delayCollectã¯å‡¦ç†ã•ã‚Œãšã€ã‚¹ãƒ¬ãƒƒãƒ‰ãŒå‰²ã‚Šè¾¼ã¿çŠ¶æ…‹ã®ã¾ã¾ã§ã‚ã‚‹ã“ã¨ã€‚
                 drh.delayCollect();
                 assertTrue(Thread.currentThread().isInterrupted());
             }
@@ -180,7 +180,7 @@ public class QueueingResultHandlerImplTest {
         service.submit(runnable);
         runnable.throwErrorOrExceptionIfThrown();
 
-        // Š„‚è‚İ—áŠO‚É‚æ‚èƒLƒ…[ƒCƒ“ƒO‚³‚ê‚Ä‚¢‚È‚¢‚±‚ÆB
+        // å‰²ã‚Šè¾¼ã¿ä¾‹å¤–ã«ã‚ˆã‚Šã‚­ãƒ¥ãƒ¼ã‚¤ãƒ³ã‚°ã•ã‚Œã¦ã„ãªã„ã“ã¨ã€‚
         assertEquals(0, daoCollector.getQueue().size());
     }
 
@@ -201,7 +201,7 @@ public class QueueingResultHandlerImplTest {
         Future<?> future = service.submit(runnable);
         while (true) {
             try {
-                // ƒRƒŒƒNƒ^‚ÌƒLƒ…[‘}“üƒXƒŒƒbƒh‚ªƒuƒƒbƒN‚³‚ê‚é‚Ü‚Å­‚µ‘Ò‚Â
+                // ã‚³ãƒ¬ã‚¯ã‚¿ã®ã‚­ãƒ¥ãƒ¼æŒ¿å…¥ã‚¹ãƒ¬ãƒƒãƒ‰ãŒãƒ–ãƒ­ãƒƒã‚¯ã•ã‚Œã‚‹ã¾ã§å°‘ã—å¾…ã¤
                 Thread.sleep(100);
             } catch (InterruptedException e) {
             }
@@ -209,16 +209,16 @@ public class QueueingResultHandlerImplTest {
                 break;
             }
         }
-        // ƒ^ƒXƒNƒLƒƒƒ“ƒZƒ‹‚ğÀsB
+        // ã‚¿ã‚¹ã‚¯ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã‚’å®Ÿè¡Œã€‚
         future.cancel(true);
         runnable.throwErrorOrExceptionIfThrown();
     }
 
     /**
-     * ƒGƒ‰[‚ğƒtƒB[ƒhƒoƒbƒN‚Å‚«‚éRunnableÀ‘•B
-     * •ÊƒXƒŒƒbƒh‚ÅÀ{‚µ‚½‚¢“à—e‚ğ doRun() throws Exception ‚ÉÀ‘•‚·‚éB
-     * Œ±I—¹AthrowErrorOrExceptionIfThrownƒƒ\ƒbƒh‚ğÀs‚·‚é‚ÆA
-     * doRunƒƒ\ƒbƒh‚É‚Ä‘z’èŠO‚ÌƒGƒ‰[‚ª”­¶‚µ‚½ê‡‚ÉA‚»‚ÌƒGƒ‰[‚ªƒXƒ[‚³‚ê‚éB
+     * ã‚¨ãƒ©ãƒ¼ã‚’ãƒ•ã‚£ãƒ¼ãƒ‰ãƒãƒƒã‚¯ã§ãã‚‹Runnableå®Ÿè£…ã€‚
+     * åˆ¥ã‚¹ãƒ¬ãƒƒãƒ‰ã§å®Ÿæ–½ã—ãŸã„å†…å®¹ã‚’ doRun() throws Exception ã«å®Ÿè£…ã™ã‚‹ã€‚
+     * è©¦é¨“çµ‚äº†æ™‚ã€throwErrorOrExceptionIfThrownãƒ¡ã‚½ãƒƒãƒ‰ã‚’å®Ÿè¡Œã™ã‚‹ã¨ã€
+     * doRunãƒ¡ã‚½ãƒƒãƒ‰ã«ã¦æƒ³å®šå¤–ã®ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´åˆã«ã€ãã®ã‚¨ãƒ©ãƒ¼ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã€‚
      */
     abstract class ErrorFeedBackRunnable implements Runnable {
         private Exception exception;

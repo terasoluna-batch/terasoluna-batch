@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * {@link GenericPropertyUtil}‚ÌƒeƒXƒg‚Ì‚½‚ß‚ÌƒXƒ^ƒuƒNƒ‰ƒXB
+ * {@link GenericPropertyUtil}ã®ãƒ†ã‚¹ãƒˆã®ãŸã‚ã®ã‚¹ã‚¿ãƒ–ã‚¯ãƒ©ã‚¹ã€‚
  *
  */
 public class GenericPropertyUtil_Stub01 {
@@ -43,7 +43,7 @@ public class GenericPropertyUtil_Stub01 {
     private Object object;
 
     /**
-     * list1‚ğæ“¾‚·‚éB
+     * list1ã‚’å–å¾—ã™ã‚‹ã€‚
      *
      * @return list1
      */
@@ -52,7 +52,7 @@ public class GenericPropertyUtil_Stub01 {
     }
 
     /**
-     * list2‚ğæ“¾‚·‚éB
+     * list2ã‚’å–å¾—ã™ã‚‹ã€‚
      *
      * @return list2
      */
@@ -61,7 +61,7 @@ public class GenericPropertyUtil_Stub01 {
     }
 
     /**
-     * list3‚ğæ“¾‚·‚éB
+     * list3ã‚’å–å¾—ã™ã‚‹ã€‚
      *
      * @return list3
      */
@@ -70,7 +70,7 @@ public class GenericPropertyUtil_Stub01 {
     }
 
     /**
-     * map1‚ğæ“¾‚·‚éB
+     * map1ã‚’å–å¾—ã™ã‚‹ã€‚
      *
      * @return map1
      */
@@ -79,7 +79,7 @@ public class GenericPropertyUtil_Stub01 {
     }
 
     /**
-     * map2‚ğæ“¾‚·‚éB
+     * map2ã‚’å–å¾—ã™ã‚‹ã€‚
      *
      * @return map2
      */
@@ -88,7 +88,7 @@ public class GenericPropertyUtil_Stub01 {
     }
 
     /**
-     * map3‚ğæ“¾‚·‚éB
+     * map3ã‚’å–å¾—ã™ã‚‹ã€‚
      *
      * @return map3
      */
@@ -97,7 +97,7 @@ public class GenericPropertyUtil_Stub01 {
     }
 
     /**
-     * list4‚ğæ“¾‚·‚éB
+     * list4ã‚’å–å¾—ã™ã‚‹ã€‚
      *
      * @return list4
      */
@@ -107,7 +107,7 @@ public class GenericPropertyUtil_Stub01 {
     }
 
     /**
-     * list5‚ğæ“¾‚·‚éB
+     * list5ã‚’å–å¾—ã™ã‚‹ã€‚
      *
      * @return list5
      */
@@ -116,7 +116,7 @@ public class GenericPropertyUtil_Stub01 {
     }
 
     /**
-     * integer‚ğæ“¾‚·‚éB
+     * integerã‚’å–å¾—ã™ã‚‹ã€‚
      *
      * @return integer
      */
@@ -125,7 +125,7 @@ public class GenericPropertyUtil_Stub01 {
     }
 
     /**
-     * object‚ğæ“¾‚·‚éB
+     * objectã‚’å–å¾—ã™ã‚‹ã€‚
      *
      * @return object
      */

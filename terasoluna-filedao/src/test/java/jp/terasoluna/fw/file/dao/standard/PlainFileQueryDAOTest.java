@@ -18,26 +18,26 @@ import jp.terasoluna.utlib.UTUtil;
 import junit.framework.TestCase;
 
 /**
- * {@link jp.terasoluna.fw.file.dao.standard.PlainFileQueryDAO} ƒNƒ‰ƒX‚ÌƒeƒXƒgB
+ * {@link jp.terasoluna.fw.file.dao.standard.PlainFileQueryDAO} ã‚¯ãƒ©ã‚¹ã®ãƒ†ã‚¹ãƒˆã€‚
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4> ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ğg—p‚µ‚È‚¢‚Ìƒf[ƒ^æ“¾—p‚ÌFileLineIterator¶¬ƒNƒ‰ƒXB
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4> ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ä½¿ç”¨ã—ãªã„ã®ãƒ‡ãƒ¼ã‚¿å–å¾—ç”¨ã®FileLineIteratorç”Ÿæˆã‚¯ãƒ©ã‚¹ã€‚
  * <p>
- * @author ‰œ“c“Ni
+ * @author å¥¥ç”°å“²å¸
  * @see jp.terasoluna.fw.file.dao.standard.PlainFileQueryDAO
  */
 public class PlainFileQueryDAOTest extends TestCase {
 
     /**
-     * ‚±‚ÌƒeƒXƒgƒP[ƒX‚ğÀs‚·‚éˆ×‚Ì GUI ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‹N“®‚·‚éB
-     * @param args java ƒRƒ}ƒ“ƒh‚Éİ’è‚³‚ê‚½ƒpƒ‰ƒ[ƒ^
+     * ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã‚’å®Ÿè¡Œã™ã‚‹ç‚ºã® GUI ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’èµ·å‹•ã™ã‚‹ã€‚
+     * @param args java ã‚³ãƒãƒ³ãƒ‰ã«è¨­å®šã•ã‚ŒãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public static void main(String[] args) {
         // junit.swingui.TestRunner.run(PlainFileQueryDAOTest.class);
     }
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -46,8 +46,8 @@ public class PlainFileQueryDAOTest extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -56,8 +56,8 @@ public class PlainFileQueryDAOTest extends TestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public PlainFileQueryDAOTest(String name) {
         super(name);
@@ -66,46 +66,46 @@ public class PlainFileQueryDAOTest extends TestCase {
     /**
      * testExcecute01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileName:PlainFleQueryDAO01.txt<br>
-     * @ƒf[ƒ^‚ğ‚½‚È‚¢ƒtƒ@ƒCƒ‹‚ÌƒpƒX<br>
-     * (ˆø”) clazz:PlainFileQueryDAO_Stub01<br>
-     * @‹óÀ‘•<br>
-     * (ó‘Ô) AbstractFileQueryDAO.columnParserMap:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂMap<String, ColumnParser>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"java.lang.String"=NullColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileName:PlainFleQueryDAO01.txt<br>
+     * ã€€ãƒ‡ãƒ¼ã‚¿ã‚’æŒãŸãªã„ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹<br>
+     * (å¼•æ•°) clazz:PlainFileQueryDAO_Stub01<br>
+     * ã€€ç©ºå®Ÿè£…<br>
+     * (çŠ¶æ…‹) AbstractFileQueryDAO.columnParserMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤Map<String, ColumnParser>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"java.lang.String"=NullColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) FileLineIterator:PlainFileLineIterator‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô•Ï‰») PlainFileLineIterator#PlainFileLineIterator():1‰ñŒÄ‚Î‚ê‚é‚±‚ÆB<br>
-     * ˆø”‚ª“n‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) FileLineIterator:PlainFileLineIteratorã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) PlainFileLineIterator#PlainFileLineIterator():1å›å‘¼ã°ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * å¼•æ•°ãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * PlainFileLineIteratorƒCƒ“ƒXƒ^ƒ“ƒX‚ª¶¬‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚é <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * PlainFileLineIteratorã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ãŒç”Ÿæˆã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testExcecute01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         PlainFileQueryDAO plainFileQueryDAO = new PlainFileQueryDAO();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         URL url = this.getClass().getResource("File_Empty.txt");
         String fileName = url.getPath();
         Class<PlainFileQueryDAO_Stub01> clazz = PlainFileQueryDAO_Stub01.class;
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
         UTUtil.setPrivateField(plainFileQueryDAO, "columnParserMap",
                 columnParserMap);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         FileLineIterator result = plainFileQueryDAO.execute(fileName, clazz);
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals(PlainFileLineIterator.class, result.getClass());
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(1, VMOUTUtil.getCallCount(PlainFileLineIterator.class,
                 "<init>"));
         List arguments = VMOUTUtil.getArguments(PlainFileLineIterator.class,

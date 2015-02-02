@@ -17,23 +17,23 @@
 package jp.terasoluna.fw.file.annotation;
 
 /**
- * ƒpƒfƒBƒ“ƒOŽí•ÊB<br>
+ * ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°ç¨®åˆ¥ã€‚<br>
  * <br>
- * ƒpƒfƒBƒ“ƒO‚ÌŽí•Ê(‰E‹l/¶‹l/ƒpƒfƒBƒ“ƒO‚È‚µ[LEFT/RIGHT/NONE])‚ðŽ¦‚·B
+ * ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°ã®ç¨®åˆ¥(å³è©°/å·¦è©°/ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°ãªã—[LEFT/RIGHT/NONE])ã‚’ç¤ºã™ã€‚
  */
 public enum PaddingType {
     /**
-     * ‰E‹l
+     * å³è©°
      */
     RIGHT,
 
     /**
-     * ¶‹l
+     * å·¦è©°
      */
     LEFT,
 
     /**
-     * ƒpƒfƒBƒ“ƒO‚È‚µ
+     * ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°ãªã—
      */
     NONE
 }

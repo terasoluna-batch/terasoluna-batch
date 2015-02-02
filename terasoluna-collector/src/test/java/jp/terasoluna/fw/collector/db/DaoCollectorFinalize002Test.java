@@ -79,11 +79,11 @@ public class DaoCollectorFinalize002Test extends DaoTestCase {
 
     /**
      * {@link DaoCollector#finalize()} 
-     * ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     public void testDaoCollectorFinalize002() throws Exception {
         if (this.userListQueryResultHandleDao == null) {
-            fail("userListQueryResultHandleDao‚ªnull‚Å‚·B");
+            fail("userListQueryResultHandleDaoãŒnullã§ã™ã€‚");
         }
 
         {
@@ -91,18 +91,18 @@ public class DaoCollectorFinalize002Test extends DaoTestCase {
                     this.userListQueryResultHandleDao, "collect", null);
             try {
                 for (UserBean user : col) {
-                    // ‚ ‚¦‚Ä“r’†‚Å”²‚¯‚é
+                    // ã‚ãˆã¦é€”ä¸­ã§æŠœã‘ã‚‹
                     break;
                 }
             } catch (Throwable e) {
                 throw new SystemException(e);
             } finally {
-                // ƒNƒ[ƒY
+                // ã‚¯ãƒ­ãƒ¼ã‚º
                 DaoCollector.closeQuietly(col);
             }
         }
 
-        // ƒRƒŒƒNƒ^ƒXƒŒƒbƒh”ƒ`ƒFƒbƒN
+        // ã‚³ãƒ¬ã‚¯ã‚¿ã‚¹ãƒ¬ãƒƒãƒ‰æ•°ãƒã‚§ãƒƒã‚¯
         assertTrue(CollectorTestUtil
                 .lessThanCollectorThreadCount(0 + this.previousThreadCount));
 

@@ -1,4 +1,4 @@
 /**
- * 入力チェック関連のSpringModules拡張クラス
+ * 蜈･蜉帙メ繧ｧ繝�繧ｯ髢｢騾｣縺ｮSpringModules諡｡蠑ｵ繧ｯ繝ｩ繧ｹ
  */
 package jp.terasoluna.fw.validation.springmodules;

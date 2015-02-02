@@ -10,27 +10,27 @@ package jp.terasoluna.fw.file.annotation;
 import junit.framework.TestCase;
 
 /**
- * {@link jp.terasoluna.fw.file.annotation.StringConverterToUpperCase} ƒNƒ‰ƒX‚ÌƒeƒXƒgB
+ * {@link jp.terasoluna.fw.file.annotation.StringConverterToUpperCase} ã‚¯ãƒ©ã‚¹ã®ãƒ†ã‚¹ãƒˆã€‚
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4> ƒAƒmƒe[ƒVƒ‡ƒ“StringConverter‚Ì‹Lq‚É]‚¢A•¶š—ñ‚Ì•ÏŠ·ˆ—‚ğs‚¤B<br>
- * StringConverterToUpperCase‚Í“ü—Í‚³‚ê‚½•¶š—ñiƒAƒ‹ƒtƒ@ƒxƒbƒgj •¶š—ñ‚ğ‘S‚Ä‘å•¶š‚É‚µ‚Ä•Ô‹p‚·‚éB
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4> ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³StringConverterã®è¨˜è¿°ã«å¾“ã„ã€æ–‡å­—åˆ—ã®å¤‰æ›å‡¦ç†ã‚’è¡Œã†ã€‚<br>
+ * StringConverterToUpperCaseã¯å…¥åŠ›ã•ã‚ŒãŸæ–‡å­—åˆ—ï¼ˆã‚¢ãƒ«ãƒ•ã‚¡ãƒ™ãƒƒãƒˆï¼‰ æ–‡å­—åˆ—ã‚’å…¨ã¦å¤§æ–‡å­—ã«ã—ã¦è¿”å´ã™ã‚‹ã€‚
  * <p>
- * @author ‰œ“c“Ni
+ * @author å¥¥ç”°å“²å¸
  * @see jp.terasoluna.fw.file.annotation.StringConverterToUpperCase
  */
 public class StringConverterToUpperCaseTest extends TestCase {
 
     /**
-     * ‚±‚ÌƒeƒXƒgƒP[ƒX‚ğÀs‚·‚éˆ×‚Ì GUI ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‹N“®‚·‚éB
-     * @param args java ƒRƒ}ƒ“ƒh‚Éİ’è‚³‚ê‚½ƒpƒ‰ƒ[ƒ^
+     * ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã‚’å®Ÿè¡Œã™ã‚‹ç‚ºã® GUI ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’èµ·å‹•ã™ã‚‹ã€‚
+     * @param args java ã‚³ãƒãƒ³ãƒ‰ã«è¨­å®šã•ã‚ŒãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public static void main(String[] args) {
         // junit.swingui.TestRunner.run(StringConverterToUpperCaseTest.class);
     }
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -39,8 +39,8 @@ public class StringConverterToUpperCaseTest extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -49,8 +49,8 @@ public class StringConverterToUpperCaseTest extends TestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public StringConverterToUpperCaseTest(String name) {
         super(name);
@@ -59,54 +59,54 @@ public class StringConverterToUpperCaseTest extends TestCase {
     /**
      * testConvert01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC <br>
      * <br>
-     * “ü—Í’lF(ˆø”) string:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) string:null<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) resultString:null<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) resultString:null<br>
      * <br>
-     * ˆø”‚ÉNull‚ª“ü‚Á‚½ê‡‚Ìˆ—B<br>
-     * null‚ğ•Ô‹p‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * å¼•æ•°ã«NullãŒå…¥ã£ãŸå ´åˆã®å‡¦ç†ã€‚<br>
+     * nullã‚’è¿”å´ã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testConvert01() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         StringConverter stringTransformer = new StringConverterToUpperCase();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String resultString = stringTransformer.convert(null);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNull(resultString);
     }
 
     /**
      * testConvert02() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE <br>
      * <br>
-     * “ü—Í’lF(ˆø”) string:not null<br>
-     * ˆÈ‰º‚ÌStringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) string:not null<br>
+     * ä»¥ä¸‹ã®Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "abcdefghijklmnopqrstuvwxyz_ABCDEFGHIJKLMNOPQRSTUVWXYZ"<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) resultString:ˆÈ‰º‚ÌStringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) resultString:ä»¥ä¸‹ã®Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "ABCDEFGHIJKLMNOPQRSTUVWXYZ_ABCDEFGHIJKLMNOPQRSTUVWXYZ"<br>
      * <br>
-     * •¶š•ÏŠ·ˆ—‚ğÀ{B<br>
-     * ‚±‚Ìê‡A‘å•¶š•ÏŠ·ˆ—‚È‚Ì‚ÅA“ü—Í‚µ‚½•¶š—ñ‚ğ‘S‚Ä‘å•¶š‚É•ÏŠ·‚µ‚Ä•Ô‹p‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ–‡å­—å¤‰æ›å‡¦ç†ã‚’å®Ÿæ–½ã€‚<br>
+     * ã“ã®å ´åˆã€å¤§æ–‡å­—å¤‰æ›å‡¦ç†ãªã®ã§ã€å…¥åŠ›ã—ãŸæ–‡å­—åˆ—ã‚’å…¨ã¦å¤§æ–‡å­—ã«å¤‰æ›ã—ã¦è¿”å´ã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testConvert02() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         StringConverter stringTransformer = new StringConverterToUpperCase();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String resultString = stringTransformer
                 .convert("abcdefghijklmnopqrstuvwxyz_ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals("ABCDEFGHIJKLMNOPQRSTUVWXYZ_ABCDEFGHIJKLMNOPQRSTUVWXYZ",
                 resultString);
     }
@@ -114,54 +114,54 @@ public class StringConverterToUpperCaseTest extends TestCase {
     /**
      * testConvert03() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE <br>
      * <br>
-     * “ü—Í’lF(ˆø”) string:not null<br>
-     * ˆÈ‰º‚ÌStringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "‚ ‚¢‚¤ƒJƒLƒNŠ¿š"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) string:not null<br>
+     * ä»¥ä¸‹ã®Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "ã‚ã„ã†ã‚«ã‚­ã‚¯æ¼¢å­—"<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) resultString:ˆÈ‰º‚ÌStringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "‚ ‚¢‚¤ƒJƒLƒNŠ¿š"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) resultString:ä»¥ä¸‹ã®Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "ã‚ã„ã†ã‚«ã‚­ã‚¯æ¼¢å­—"<br>
      * <br>
-     * •¶š•ÏŠ·ˆ—‚ğÀ{B<br>
-     * ‚Ğ‚ç‚ª‚ÈAƒJƒ^ƒJƒiAŠ¿š‚ª‚ ‚éê‡‚ÍA‚»‚Ì‚Ü‚Üo—Í‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ–‡å­—å¤‰æ›å‡¦ç†ã‚’å®Ÿæ–½ã€‚<br>
+     * ã²ã‚‰ãŒãªã€ã‚«ã‚¿ã‚«ãƒŠã€æ¼¢å­—ãŒã‚ã‚‹å ´åˆã¯ã€ãã®ã¾ã¾å‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testConvert03() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         StringConverter stringTransformer = new StringConverterToLowerCase();
 
-        // ƒeƒXƒgÀ{
-        String resultString = stringTransformer.convert("‚ ‚¢‚¤ƒJƒLƒNŠ¿š");
-        // ”»’è
-        assertEquals("‚ ‚¢‚¤ƒJƒLƒNŠ¿š", resultString);
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        String resultString = stringTransformer.convert("ã‚ã„ã†ã‚«ã‚­ã‚¯æ¼¢å­—");
+        // åˆ¤å®š
+        assertEquals("ã‚ã„ã†ã‚«ã‚­ã‚¯æ¼¢å­—", resultString);
     }
 
     /**
      * testConvert04() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE <br>
      * <br>
-     * “ü—Í’lF(ˆø”) string:ˆÈ‰º‚ÌStringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * " "(‹ó•¶šj<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) string:ä»¥ä¸‹ã®Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * " "(ç©ºæ–‡å­—ï¼‰<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) resultString:ˆÈ‰º‚ÌStringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * " "(‹ó•¶šj<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) resultString:ä»¥ä¸‹ã®Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * " "(ç©ºæ–‡å­—ï¼‰<br>
      * <br>
-     * •¶š•ÏŠ·ˆ—‚ğÀ{B<br>
-     * ""(‹ó•¶šj‚Ìê‡‚ÍA‚»‚Ì‚Ü‚Ü•ÏŠ·‚³‚ê‚¸‚Éo—Í‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ–‡å­—å¤‰æ›å‡¦ç†ã‚’å®Ÿæ–½ã€‚<br>
+     * ""(ç©ºæ–‡å­—ï¼‰ã®å ´åˆã¯ã€ãã®ã¾ã¾å¤‰æ›ã•ã‚Œãšã«å‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testConvert04() throws Exception {
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         StringConverter stringTransformer = new StringConverterToLowerCase();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String resultString = stringTransformer.convert("");
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals("", resultString);
     }
 

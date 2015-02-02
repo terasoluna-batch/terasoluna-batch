@@ -24,43 +24,43 @@ import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
 
 /**
- * ErrorsÀ‘•ƒNƒ‰ƒX
+ * Errorså®Ÿè£…ã‚¯ãƒ©ã‚¹
  * 
  */
 public class ErrorsImpl01 implements Errors {
 
     /**
-     * errorsƒŠƒXƒg
+     * errorsãƒªã‚¹ãƒˆ
      */
     private List<Object> errors = new ArrayList<Object>();
     
     /**
-     * rejectValueŒÄ‚Ño‚µŠm”Fƒtƒ‰ƒO
+     * rejectValueå‘¼ã³å‡ºã—ç¢ºèªãƒ•ãƒ©ã‚°
      */
     public boolean isRejectValue = false;
     
     /**
-     * rejectValue‚Ìˆø”field‚ÌŒÄoŠm”F
+     * rejectValueã®å¼•æ•°fieldã®å‘¼å‡ºç¢ºèª
      */
     public String field = null;
     
     /**
-     * rejectValue‚Ìˆø”errorCode‚ÌŒÄoŠm”F
+     * rejectValueã®å¼•æ•°errorCodeã®å‘¼å‡ºç¢ºèª
      */
     public String errorCode = null;
     
     /**
-     * rejectValue‚Ìˆø”errorArgs‚ÌŒÄoŠm”F
+     * rejectValueã®å¼•æ•°errorArgsã®å‘¼å‡ºç¢ºèª
      */
     public Object[] errorArgs = null;
     
     /**
-     * rejectValue‚Ìˆø”defaultMessage‚ÌŒÄoŠm”F
+     * rejectValueã®å¼•æ•°defaultMessageã®å‘¼å‡ºç¢ºèª
      */
     public String defaultMessage = null;
     
     /**
-     * ŒÄ‚Ño‚µŠm”FÀ‘•
+     * å‘¼ã³å‡ºã—ç¢ºèªå®Ÿè£…
      */
     public void rejectValue(@SuppressWarnings("hiding") String field, 
             @SuppressWarnings("hiding") String errorCode, 
@@ -75,14 +75,14 @@ public class ErrorsImpl01 implements Errors {
     }
     
     /**
-     * errorsƒTƒCƒY‚ğ•Ô‚·
+     * errorsã‚µã‚¤ã‚ºã‚’è¿”ã™
      */
     public int getErrorCount() {
         return errors.size();
     }
 
     /**
-     * errors‚ğ•Ô‚·
+     * errorsã‚’è¿”ã™
      */
     public List getAllErrors() {
         return errors;

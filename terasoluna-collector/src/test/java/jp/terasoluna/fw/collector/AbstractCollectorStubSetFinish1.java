@@ -15,16 +15,16 @@ public class AbstractCollectorStubSetFinish1<P> extends AbstractCollector<P> {
     }
 
     /**
-     * ArrayBlockingQueueExŒ^‚ÌƒLƒ…[‚ðì¬‚·‚é
+     * ArrayBlockingQueueExåž‹ã®ã‚­ãƒ¥ãƒ¼ã‚’ä½œæˆã™ã‚‹
      * @return
      */
     protected BlockingQueue<DataValueObject> createQueue() {
         if (this.currentQueue == null) {
-            // currentƒLƒ…[¶¬
+            // currentã‚­ãƒ¥ãƒ¼ç”Ÿæˆ
             this.currentQueue = createCurrentQueue();
         }
         if (this.previousQueue == null) {
-            // previousƒLƒ…[¶¬
+            // previousã‚­ãƒ¥ãƒ¼ç”Ÿæˆ
             this.previousQueue = createPreviousQueue();
         }
         return new ArrayBlockingQueueEx<DataValueObject>(this.queueSize);

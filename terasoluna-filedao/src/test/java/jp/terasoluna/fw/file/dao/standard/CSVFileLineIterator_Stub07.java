@@ -10,10 +10,10 @@ import jp.terasoluna.fw.file.annotation.FileFormat;
 import jp.terasoluna.fw.file.annotation.InputFileColumn;
 
 /**
- * FileFormatƒAƒmƒe[ƒVƒ‡ƒ“‚Ìİ’è‚ğ‚ÂAƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgƒXƒ^ƒuƒNƒ‰ƒX
+ * FileFormatã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã®è¨­å®šã‚’æŒã¤ã€ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¹ã‚¿ãƒ–ã‚¯ãƒ©ã‚¹
  * <ul>
  * <li>@FileFormat(encloseChar = '"')
- * <li>‘®«
+ * <li>å±æ€§
  * <ul>
  * <li>@InputFileColumn(columnIndex = 0)<br>
  * String column01
@@ -48,7 +48,7 @@ public class CSVFileLineIterator_Stub07 {
     }
 
     /**
-     * @param column1 İ’è‚·‚é column1
+     * @param column1 è¨­å®šã™ã‚‹ column1
      */
     public void setColumn1(String column1) {
         this.column1 = column1;
@@ -62,7 +62,7 @@ public class CSVFileLineIterator_Stub07 {
     }
 
     /**
-     * @param column2 İ’è‚·‚é column2
+     * @param column2 è¨­å®šã™ã‚‹ column2
      */
     public void setColumn2(String column2) {
         this.column2 = column2;
@@ -76,7 +76,7 @@ public class CSVFileLineIterator_Stub07 {
     }
 
     /**
-     * @param column3 İ’è‚·‚é column3
+     * @param column3 è¨­å®šã™ã‚‹ column3
      */
     public void setColumn3(String column3) {
         this.column3 = column3;

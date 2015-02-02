@@ -28,7 +28,7 @@ import java.lang.reflect.Method;
 
 /**
  * DaoCollector<br>
- * “Æ—§‚µ‚½•ÊƒXƒŒƒbƒh‚ğ‹N“®‚µAQueryResultHandleDao‚ğ”ñ“¯Šú‚ÅÀs‚·‚éB
+ * ç‹¬ç«‹ã—ãŸåˆ¥ã‚¹ãƒ¬ãƒƒãƒ‰ã‚’èµ·å‹•ã—ã€QueryResultHandleDaoã‚’éåŒæœŸã§å®Ÿè¡Œã™ã‚‹ã€‚
  * @param &ltP&gt
  */
 public class DaoCollector<P> extends AbstractCollector<P> {
@@ -41,32 +41,32 @@ public class DaoCollector<P> extends AbstractCollector<P> {
     /** queryResultHandleDao */
     protected Object queryResultHandleDao = null;
 
-    /** SQL‚ÉƒoƒCƒ“ƒh‚·‚é’l‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg */
+    /** SQLã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹å€¤ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ */
     protected Object bindParams = null;
 
-    /** s’PˆÊƒf[ƒ^ƒAƒNƒZƒX‚ÌŒÄ‚Ño‚µ‚Åg—p‚³‚ê‚éDao‚Ìƒƒ\ƒbƒh–¼ */
+    /** è¡Œå˜ä½ãƒ‡ãƒ¼ã‚¿ã‚¢ã‚¯ã‚»ã‚¹ã®å‘¼ã³å‡ºã—ã§ä½¿ç”¨ã•ã‚Œã‚‹Daoã®ãƒ¡ã‚½ãƒƒãƒ‰å */
     protected String methodName = null;
 
-    /** QueueingResultHandlerƒCƒ“ƒXƒ^ƒ“ƒX */
+    /** QueueingResultHandlerã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ */
     protected QueueingResultHandler resultHandler = null;
 
-    /** QueueingResultHandler‚ÌƒNƒ‰ƒXŒ^ */
+    /** QueueingResultHandlerã®ã‚¯ãƒ©ã‚¹å‹ */
     protected Class<? extends QueueingResultHandler> queueingResultHandlerClass = QueueingResultHandlerImpl.class;
 
-    /** DaoCollector‘OŒãˆ— */
+    /** DaoCollectorå‰å¾Œå‡¦ç† */
     protected DaoCollectorPrePostProcess daoCollectorPrePostProcess = null;
 
     /**
-     * DaoCollectorƒRƒ“ƒXƒgƒ‰ƒNƒ^<br>
+     * DaoCollectorã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿<br>
      */
     protected DaoCollector() {
     }
 
     /**
-     * DaoCollectorƒRƒ“ƒXƒgƒ‰ƒNƒ^<br>
-     * @param queryResultHandleDao QueryResultHandleDaoƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param methodName Às‚·‚éDao‚Ìƒƒ\ƒbƒh–¼
-     * @param bindParams SQL‚ÉƒoƒCƒ“ƒh‚·‚é’l‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg
+     * DaoCollectorã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿<br>
+     * @param queryResultHandleDao QueryResultHandleDaoã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param methodName å®Ÿè¡Œã™ã‚‹Daoã®ãƒ¡ã‚½ãƒƒãƒ‰å
+     * @param bindParams SQLã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹å€¤ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      */
     public DaoCollector(Object queryResultHandleDao, String methodName,
             Object bindParams) {
@@ -74,11 +74,11 @@ public class DaoCollector<P> extends AbstractCollector<P> {
     }
 
     /**
-     * DaoCollectorƒRƒ“ƒXƒgƒ‰ƒNƒ^<br>
-     * @param queryResultHandleDao QueryResultHandleDaoƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param methodName Às‚·‚éDao‚Ìƒƒ\ƒbƒh–¼
-     * @param bindParams SQL‚ÉƒoƒCƒ“ƒh‚·‚é’l‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg
-     * @param relation1n 1:Nƒ}ƒbƒsƒ“ƒOg—p‚Ítrue
+     * DaoCollectorã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿<br>
+     * @param queryResultHandleDao QueryResultHandleDaoã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param methodName å®Ÿè¡Œã™ã‚‹Daoã®ãƒ¡ã‚½ãƒƒãƒ‰å
+     * @param bindParams SQLã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹å€¤ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param relation1n 1:Nãƒãƒƒãƒ”ãƒ³ã‚°ä½¿ç”¨æ™‚ã¯true
      */
     public DaoCollector(Object queryResultHandleDao, String methodName,
             Object bindParams, boolean relation1n) {
@@ -88,11 +88,11 @@ public class DaoCollector<P> extends AbstractCollector<P> {
     }
 
     /**
-     * DaoCollectorƒRƒ“ƒXƒgƒ‰ƒNƒ^<br>
-     * @param queryResultHandleDao QueryResultHandleDaoƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param methodName Às‚·‚éDao‚Ìƒƒ\ƒbƒh–¼
-     * @param bindParams SQL‚ÉƒoƒCƒ“ƒh‚·‚é’l‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg
-     * @param queueSize ƒLƒ…[‚ÌƒTƒCƒYi1ˆÈã‚ğİ’è‚·‚é‚±‚ÆB0ˆÈ‰º‚Í–³‹j
+     * DaoCollectorã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿<br>
+     * @param queryResultHandleDao QueryResultHandleDaoã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param methodName å®Ÿè¡Œã™ã‚‹Daoã®ãƒ¡ã‚½ãƒƒãƒ‰å
+     * @param bindParams SQLã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹å€¤ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param queueSize ã‚­ãƒ¥ãƒ¼ã®ã‚µã‚¤ã‚ºï¼ˆ1ä»¥ä¸Šã‚’è¨­å®šã™ã‚‹ã“ã¨ã€‚0ä»¥ä¸‹ã¯ç„¡è¦–ï¼‰
      */
     public DaoCollector(Object queryResultHandleDao, String methodName,
             Object bindParams, int queueSize) {
@@ -101,11 +101,11 @@ public class DaoCollector<P> extends AbstractCollector<P> {
     }
 
     /**
-     * DaoCollectorƒRƒ“ƒXƒgƒ‰ƒNƒ^<br>
-     * @param queryResultHandleDao QueryResultHandleDaoƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param methodName Às‚·‚éDao‚Ìƒƒ\ƒbƒh–¼
-     * @param bindParams SQL‚ÉƒoƒCƒ“ƒh‚·‚é’l‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg
-     * @param exceptionHandler —áŠOƒnƒ“ƒhƒ‰
+     * DaoCollectorã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿<br>
+     * @param queryResultHandleDao QueryResultHandleDaoã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param methodName å®Ÿè¡Œã™ã‚‹Daoã®ãƒ¡ã‚½ãƒƒãƒ‰å
+     * @param bindParams SQLã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹å€¤ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param exceptionHandler ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©
      */
     public DaoCollector(Object queryResultHandleDao, String methodName,
             Object bindParams, CollectorExceptionHandler exceptionHandler) {
@@ -114,14 +114,14 @@ public class DaoCollector<P> extends AbstractCollector<P> {
     }
 
     /**
-     * DaoCollectorƒRƒ“ƒXƒgƒ‰ƒNƒ^<br>
-     * @param queryResultHandleDao QueryResultHandleDaoƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param methodName Às‚·‚éDao‚Ìƒƒ\ƒbƒh–¼
-     * @param bindParams SQL‚ÉƒoƒCƒ“ƒh‚·‚é’l‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg
-     * @param queueSize ƒLƒ…[‚ÌƒTƒCƒYi1ˆÈã‚ğİ’è‚·‚é‚±‚ÆB0ˆÈ‰º‚Í–³‹j
-     * @param relation1n 1:Nƒ}ƒbƒsƒ“ƒOg—p‚Ítrue
-     * @param exceptionHandler —áŠOƒnƒ“ƒhƒ‰
-     * @param daoCollectorPrePostProcess DaoCollector‘OŒãˆ—
+     * DaoCollectorã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿<br>
+     * @param queryResultHandleDao QueryResultHandleDaoã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param methodName å®Ÿè¡Œã™ã‚‹Daoã®ãƒ¡ã‚½ãƒƒãƒ‰å
+     * @param bindParams SQLã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹å€¤ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param queueSize ã‚­ãƒ¥ãƒ¼ã®ã‚µã‚¤ã‚ºï¼ˆ1ä»¥ä¸Šã‚’è¨­å®šã™ã‚‹ã“ã¨ã€‚0ä»¥ä¸‹ã¯ç„¡è¦–ï¼‰
+     * @param relation1n 1:Nãƒãƒƒãƒ”ãƒ³ã‚°ä½¿ç”¨æ™‚ã¯true
+     * @param exceptionHandler ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©
+     * @param daoCollectorPrePostProcess DaoCollectorå‰å¾Œå‡¦ç†
      */
     public DaoCollector(Object queryResultHandleDao, String methodName,
             Object bindParams, int queueSize, boolean relation1n,
@@ -134,8 +134,8 @@ public class DaoCollector<P> extends AbstractCollector<P> {
     }
 
     /**
-     * DaoCollectorƒRƒ“ƒXƒgƒ‰ƒNƒ^<br>
-     * @param config DaoCollectorConfig DaoCollectorİ’è€–Ú
+     * DaoCollectorã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿<br>
+     * @param config DaoCollectorConfig DaoCollectorè¨­å®šé …ç›®
      */
     public DaoCollector(DaoCollectorConfig config) {
         if (config == null) {
@@ -155,7 +155,7 @@ public class DaoCollector<P> extends AbstractCollector<P> {
         this.daoCollectorPrePostProcess = config.getDaoCollectorPrePostProcess();
 
         if (config.isExecuteByConstructor()) {
-            // ÀsŠJn
+            // å®Ÿè¡Œé–‹å§‹
             execute();
         }
     }
@@ -169,45 +169,45 @@ public class DaoCollector<P> extends AbstractCollector<P> {
             DaoCollectorPrePostProcessStatus expStatus = null;
             do {
                 try {
-                    // SQLÀs‘Oˆ—
+                    // SQLå®Ÿè¡Œå‰å‡¦ç†
                     preprocess();
 
                     Class<?> queryResultHandleDaoClazz = this.queryResultHandleDao.getClass();
                     Method collectMethod = queryResultHandleDaoClazz.getMethod(this.methodName,
                             Object.class, ResultHandler.class);
 
-                    // QueryResultHandleDAO Às
+                    // QueryResultHandleDAO å®Ÿè¡Œ
                     collectMethod.invoke(this.queryResultHandleDao, this.bindParams, this.resultHandler);
 
                     this.resultHandler.delayCollect();
 
                 } catch (Throwable th) {
-                    // SQLÀsŒãˆ—i—áŠOj
+                    // SQLå®Ÿè¡Œå¾Œå‡¦ç†ï¼ˆä¾‹å¤–ï¼‰
                     expStatus = postprocessException(th);
 
-                    // ƒXƒe[ƒ^ƒX”»’è
+                    // ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹åˆ¤å®š
                     if (expStatus == null
                             || DaoCollectorPrePostProcessStatus.THROW
                                     .equals(expStatus)) {
-                        // —áŠO‚ğƒXƒ[
+                        // ä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼
                         throw th;
                     } else if (DaoCollectorPrePostProcessStatus.END
                                     .equals(expStatus)) {
-                        // —áŠO‚ğƒXƒ[‚¹‚¸‚ÉI—¹
+                        // ä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã›ãšã«çµ‚äº†
                         break;
                     }
                 } finally {
-                    // SQLÀsŒãˆ—
+                    // SQLå®Ÿè¡Œå¾Œå‡¦ç†
                     postprocessComplete();
                 }
 
-                // ƒXƒe[ƒ^ƒX‚ªƒŠƒgƒ‰ƒC‚È‚çÄ“xSQL‚ğÀs‚·‚é
+                // ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãŒãƒªãƒˆãƒ©ã‚¤ãªã‚‰å†åº¦SQLã‚’å®Ÿè¡Œã™ã‚‹
             } while (expStatus != null
                     && DaoCollectorPrePostProcessStatus.RETRY.equals(expStatus));
         } catch (Throwable e) {
-            // ƒVƒƒƒbƒgƒ_ƒEƒ“’†‚Í”­¶‚µ‚½—áŠO‚ğƒLƒ…[‚É‹l‚ß‚È‚¢
+            // ã‚·ãƒ£ãƒƒãƒˆãƒ€ã‚¦ãƒ³ä¸­ã¯ç™ºç”Ÿã—ãŸä¾‹å¤–ã‚’ã‚­ãƒ¥ãƒ¼ã«è©°ã‚ãªã„
             if (!isFinish()) {
-                // ”­¶‚µ‚½—áŠO‚ğƒLƒ…[‚É‚Â‚ß‚é
+                // ç™ºç”Ÿã—ãŸä¾‹å¤–ã‚’ã‚­ãƒ¥ãƒ¼ã«ã¤ã‚ã‚‹
                 try {
                     addQueue(new DataValueObject(e));
                 } catch (InterruptedException ie) {
@@ -230,7 +230,7 @@ public class DaoCollector<P> extends AbstractCollector<P> {
     }
 
     /**
-     * SQLÀs‘Oˆ—
+     * SQLå®Ÿè¡Œå‰å‡¦ç†
      */
     protected void preprocess() {
         if (this.daoCollectorPrePostProcess != null) {
@@ -239,7 +239,7 @@ public class DaoCollector<P> extends AbstractCollector<P> {
     }
 
     /**
-     * SQLÀsŒãˆ—i—áŠOj
+     * SQLå®Ÿè¡Œå¾Œå‡¦ç†ï¼ˆä¾‹å¤–ï¼‰
      * @param th Throwable
      * @return DaoCollectorPrePostProcessStatus
      */
@@ -253,7 +253,7 @@ public class DaoCollector<P> extends AbstractCollector<P> {
     }
 
     /**
-     * SQLÀsŒãˆ—
+     * SQLå®Ÿè¡Œå¾Œå‡¦ç†
      */
     protected void postprocessComplete() {
         if (this.daoCollectorPrePostProcess != null) {
@@ -262,7 +262,7 @@ public class DaoCollector<P> extends AbstractCollector<P> {
     }
 
     /**
-     * getResultHandlerƒƒ\ƒbƒh.
+     * getResultHandlerãƒ¡ã‚½ãƒƒãƒ‰.
      * @return QueueingResultHandler
      */
     protected QueueingResultHandler getResultHandler() {

@@ -25,35 +25,35 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * ”’l•¶Žš—ñ‚Ì‚½‚ß‚ÌƒJƒ‰ƒ€ƒp[ƒT[ƒNƒ‰ƒXB
+ * æ•°å€¤æ–‡å­—åˆ—ã®ãŸã‚ã®ã‚«ãƒ©ãƒ ãƒ‘ãƒ¼ã‚µãƒ¼ã‚¯ãƒ©ã‚¹ã€‚
  * <p>
- * Žw’è‚³‚ê‚½•¶Žš—ñ‚ðƒp[ƒX‚µABigDecimalŒ^‚É•ÏŠ·‚·‚éB •ÏŠ·Œ‹‰Ê‚ðƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌBigDecimalŒ^‚Ì‘®«‚É’l‚ðŠi”[‚·‚éB
+ * æŒ‡å®šã•ã‚ŒãŸæ–‡å­—åˆ—ã‚’ãƒ‘ãƒ¼ã‚¹ã—ã€BigDecimalåž‹ã«å¤‰æ›ã™ã‚‹ã€‚ å¤‰æ›çµæžœã‚’ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®BigDecimalåž‹ã®å±žæ€§ã«å€¤ã‚’æ ¼ç´ã™ã‚‹ã€‚
  * </p>
  */
 public class DecimalColumnParser implements ColumnParser {
 
     /**
-     * ”’lƒtƒH[ƒ}ƒbƒg‚É‘Î‰ž‚·‚é<code>DecimalFormat</code>‚ð•ÛŽ‚·‚éƒ}ƒbƒvB
+     * æ•°å€¤ãƒ•ã‚©ãƒ¼ãƒžãƒƒãƒˆã«å¯¾å¿œã™ã‚‹<code>DecimalFormat</code>ã‚’ä¿æŒã™ã‚‹ãƒžãƒƒãƒ—ã€‚
      */
     private Map<String, DecimalFormatLocal> dfMap = new ConcurrentHashMap<String, DecimalFormatLocal>();
 
     /**
-     * Žw’è‚³‚ê‚½•¶Žš—ñ‚ðƒp[ƒX‚µABigDecimalŒ^‚É•ÏŠ·‚·‚éB•ÏŠ·Œ‹‰Ê‚ðƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÉŠi”[‚·‚éB
-     * @param column ƒJƒ‰ƒ€‚Ì•¶Žš—ñ
-     * @param t ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg
-     * @param method ƒJƒ‰ƒ€‚Ì•¶Žš—ñ‚ðƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÉŠi”[‚·‚éƒƒ\ƒbƒh
-     * @param columnFormat ƒp[ƒX‚·‚éÛ‚ÌƒtƒH[ƒ}ƒbƒg•¶Žš—ñ
-     * @throws IllegalArgumentException ƒtƒH[ƒ}ƒbƒg•¶Žš—ñ‚ªƒtƒH[ƒ}ƒbƒg‚Æ‚µ‚Ä•s³‚Å‚ ‚é‚Æ‚«
-     * @throws IllegalAccessException ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚Ö‚ÌÝ’è‚ªŽ¸”s‚µ‚½‚Æ‚«
-     * @throws InvocationTargetException ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚Ìƒƒ\ƒbƒh‚ª—áŠO‚ðƒXƒ[‚µ‚½‚Æ‚«
-     * @throws ParseException ƒp[ƒXˆ—‚ªŽ¸”s‚µ‚½‚Æ‚«
+     * æŒ‡å®šã•ã‚ŒãŸæ–‡å­—åˆ—ã‚’ãƒ‘ãƒ¼ã‚¹ã—ã€BigDecimalåž‹ã«å¤‰æ›ã™ã‚‹ã€‚å¤‰æ›çµæžœã‚’ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«æ ¼ç´ã™ã‚‹ã€‚
+     * @param column ã‚«ãƒ©ãƒ ã®æ–‡å­—åˆ—
+     * @param t ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param method ã‚«ãƒ©ãƒ ã®æ–‡å­—åˆ—ã‚’ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«æ ¼ç´ã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰
+     * @param columnFormat ãƒ‘ãƒ¼ã‚¹ã™ã‚‹éš›ã®ãƒ•ã‚©ãƒ¼ãƒžãƒƒãƒˆæ–‡å­—åˆ—
+     * @throws IllegalArgumentException ãƒ•ã‚©ãƒ¼ãƒžãƒƒãƒˆæ–‡å­—åˆ—ãŒãƒ•ã‚©ãƒ¼ãƒžãƒƒãƒˆã¨ã—ã¦ä¸æ­£ã§ã‚ã‚‹ã¨ã
+     * @throws IllegalAccessException ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¸ã®è¨­å®šãŒå¤±æ•—ã—ãŸã¨ã
+     * @throws InvocationTargetException ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ãƒ¡ã‚½ãƒƒãƒ‰ãŒä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã—ãŸã¨ã
+     * @throws ParseException ãƒ‘ãƒ¼ã‚¹å‡¦ç†ãŒå¤±æ•—ã—ãŸã¨ã
      */
     public void parse(String column, Object t, Method method,
             String columnFormat) throws IllegalArgumentException,
                                 IllegalAccessException,
                                 InvocationTargetException, ParseException {
 
-        // ”’l‚Ìƒp[ƒX
+        // æ•°å€¤ã®ãƒ‘ãƒ¼ã‚¹
         if (columnFormat != null && !"".equals(columnFormat)) {
             DecimalFormatLocal dfLocal = dfMap.get(columnFormat);
             if (dfLocal == null) {

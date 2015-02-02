@@ -1,10 +1,10 @@
 package jp.terasoluna.fw.file.dao.standard;
 
 /**
- * AbstractFileLineWriter‚ÌŒ±‚Å—˜—p‚·‚éƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌeƒXƒ^ƒuƒNƒ‰ƒXB<br>
+ * AbstractFileLineWriterã®è©¦é¨“ã§åˆ©ç”¨ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®è¦ªã‚¹ã‚¿ãƒ–ã‚¯ãƒ©ã‚¹ã€‚<br>
  * <br>
- * @FileFormat‚ğ‚½‚È‚¢B<br> ƒtƒB[ƒ‹ƒh‚ğ‚½‚È‚¢B
- * @author æâ•î“O
+ * @FileFormatã‚’æŒãŸãªã„ã€‚<br> ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒãŸãªã„ã€‚
+ * @author è¶™ä¿¸å¾¹
  */
 public class AbstractFileLineWriter_ParentStub38 {
 

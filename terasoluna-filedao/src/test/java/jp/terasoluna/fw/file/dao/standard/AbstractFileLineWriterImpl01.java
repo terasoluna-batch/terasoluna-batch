@@ -7,31 +7,31 @@ import jp.terasoluna.fw.file.dao.standard.AbstractFileLineWriter;
 import jp.terasoluna.fw.file.dao.standard.ColumnFormatter;
 
 /**
- * AbstractFileLineWriter‚ÌImplƒNƒ‰ƒXB<br>
- * ‹óÀ‘•<br>
- * u‹æØ‚è•¶šv‚ÆuˆÍ‚İ•¶šv‚ğİ’è‚Å‚«‚éB<br>
- * ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Åinit()‚ğÀs‚µ‚Ä‚¢‚È‚¢‚½‚ßAƒRƒ“ƒXƒgƒ‰ƒNƒ^ˆÈŠO‚ÌŒ±‚Å‚Í<br>
- * ƒCƒ“ƒXƒ^ƒ“ƒX¶¬ŒãA•K‚¸init()‚ğÀs‚µ‚Ä‚©‚ç—˜—p‚·‚é‚±‚ÆB
- * @author æâ•î“O
- * @param <T> ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg
+ * AbstractFileLineWriterã®Implã‚¯ãƒ©ã‚¹ã€‚<br>
+ * ç©ºå®Ÿè£…<br>
+ * ã€ŒåŒºåˆ‡ã‚Šæ–‡å­—ã€ã¨ã€Œå›²ã¿æ–‡å­—ã€ã‚’è¨­å®šã§ãã‚‹ã€‚<br>
+ * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§init()ã‚’å®Ÿè¡Œã—ã¦ã„ãªã„ãŸã‚ã€ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ä»¥å¤–ã®è©¦é¨“ã§ã¯<br>
+ * ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ç”Ÿæˆå¾Œã€å¿…ãšinit()ã‚’å®Ÿè¡Œã—ã¦ã‹ã‚‰åˆ©ç”¨ã™ã‚‹ã“ã¨ã€‚
+ * @author è¶™ä¿¸å¾¹
+ * @param <T> ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
  */
 public class AbstractFileLineWriterImpl01<T> extends AbstractFileLineWriter<T> {
 
     /**
-     * ‹æØ‚è•¶š
+     * åŒºåˆ‡ã‚Šæ–‡å­—
      */
     private char delimiter = Character.MIN_VALUE;
 
     /**
-     * ˆÍ‚İ•¶š
+     * å›²ã¿æ–‡å­—
      */
     private char encloseChar = Character.MIN_VALUE;
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-     * @param fileName ƒtƒ@ƒCƒ‹–¼
-     * @param clazz ƒpƒ‰ƒ[ƒ^ƒNƒ‰ƒX
-     * @param columnFormatterMap ƒeƒLƒXƒgæ“¾ƒ‹[ƒ‹
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * @param fileName ãƒ•ã‚¡ã‚¤ãƒ«å
+     * @param clazz ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚¯ãƒ©ã‚¹
+     * @param columnFormatterMap ãƒ†ã‚­ã‚¹ãƒˆå–å¾—ãƒ«ãƒ¼ãƒ«
      */
     public AbstractFileLineWriterImpl01(String fileName, Class<T> clazz,
             Map<String, ColumnFormatter> columnFormatterMap) {
@@ -43,8 +43,8 @@ public class AbstractFileLineWriterImpl01<T> extends AbstractFileLineWriter<T> {
     }
 
     /**
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÉƒAƒmƒe[ƒVƒ‡ƒ“‚ªİ’è‚³‚ê‚Ä‚¢‚é–‚ğƒ`ƒFƒbƒN‚·‚é‚©‚Ç‚¤‚©‚ğ•Ô‚·B
-     * @return ƒ`ƒFƒbƒN‚ğs‚¤ê‡‚ÍtrueB
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹äº‹ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã‹ã©ã†ã‹ã‚’è¿”ã™ã€‚
+     * @return ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†å ´åˆã¯trueã€‚
      */
     @Override
     protected boolean isCheckColumnAnnotationCount() {
@@ -52,7 +52,7 @@ public class AbstractFileLineWriterImpl01<T> extends AbstractFileLineWriter<T> {
     }
 
     /**
-     * delimiter‚ğæ“¾‚·‚éB
+     * delimiterã‚’å–å¾—ã™ã‚‹ã€‚
      * @return delimiter
      */
     public char getDelimiter() {
@@ -60,7 +60,7 @@ public class AbstractFileLineWriterImpl01<T> extends AbstractFileLineWriter<T> {
     }
 
     /**
-     * delimiter‚ğİ’è‚·‚éB
+     * delimiterã‚’è¨­å®šã™ã‚‹ã€‚
      * @param delimiter delimiter
      */
     public void setDelimiter(char delimiter) {
@@ -68,7 +68,7 @@ public class AbstractFileLineWriterImpl01<T> extends AbstractFileLineWriter<T> {
     }
 
     /**
-     * encloseChar‚ğæ“¾‚·‚éB
+     * encloseCharã‚’å–å¾—ã™ã‚‹ã€‚
      * @return encloseChar
      */
     public char getEncloseChar() {
@@ -76,7 +76,7 @@ public class AbstractFileLineWriterImpl01<T> extends AbstractFileLineWriter<T> {
     }
 
     /**
-     * encloseChar‚ğİ’è‚·‚éB
+     * encloseCharã‚’è¨­å®šã™ã‚‹ã€‚
      * @param encloseChar encloseChar
      */
     public void setEncloseChar(char encloseChar) {

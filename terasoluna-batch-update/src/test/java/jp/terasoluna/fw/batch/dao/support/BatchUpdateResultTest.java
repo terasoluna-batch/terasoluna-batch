@@ -49,10 +49,10 @@ public class BatchUpdateResultTest {
      */
     @Test
     public void testBatchUpdateResult001() {
-        // ÉpÉâÉÅÅ[É^
+        // „Éë„É©„É°„Éº„Çø
         BatchUpdateResult bur = null;
 
-        // ÉeÉXÉg
+        // „ÉÜ„Çπ„Éà
         try {
             bur = new BatchUpdateResult();
         } catch (Exception e) {
@@ -60,7 +60,7 @@ public class BatchUpdateResultTest {
             fail();
         }
 
-        // åüèÿ
+        // Ê§úË®º
         assertNotNull(bur);
     }
 
@@ -69,13 +69,13 @@ public class BatchUpdateResultTest {
      */
     @Test
     public void testBatchUpdateResultBatchUpdateSupportInteger001() {
-        // ÉpÉâÉÅÅ[É^
+        // „Éë„É©„É°„Éº„Çø
         BatchUpdateResult bur = null;
 
         BatchUpdateSupport executeBatchUpdateSupport = null;
         Integer executeBatchResult = null;
 
-        // ÉeÉXÉg
+        // „ÉÜ„Çπ„Éà
         try {
             bur = new BatchUpdateResult(executeBatchUpdateSupport,
                     executeBatchResult);
@@ -84,7 +84,7 @@ public class BatchUpdateResultTest {
             fail();
         }
 
-        // åüèÿ
+        // Ê§úË®º
         assertNotNull(bur);
         Object executeBatchExceptionField = null;
         Object executeBatchUpdateSupportField = null;
@@ -110,13 +110,13 @@ public class BatchUpdateResultTest {
      */
     @Test
     public void testBatchUpdateResultBatchUpdateSupportInteger002() {
-        // ÉpÉâÉÅÅ[É^
+        // „Éë„É©„É°„Éº„Çø
         BatchUpdateResult bur = null;
 
         BatchUpdateSupport executeBatchUpdateSupport = new BatchUpdateSupportImpl();
         Integer executeBatchResult = Integer.valueOf(0);
 
-        // ÉeÉXÉg
+        // „ÉÜ„Çπ„Éà
         try {
             bur = new BatchUpdateResult(executeBatchUpdateSupport,
                     executeBatchResult);
@@ -125,7 +125,7 @@ public class BatchUpdateResultTest {
             fail();
         }
 
-        // åüèÿ
+        // Ê§úË®º
         assertNotNull(bur);
         Object executeBatchExceptionField = null;
         Object executeBatchUpdateSupportField = null;
@@ -151,13 +151,13 @@ public class BatchUpdateResultTest {
      */
     @Test
     public void testBatchUpdateResultThrowable001() {
-        // ÉpÉâÉÅÅ[É^
+        // „Éë„É©„É°„Éº„Çø
         BatchUpdateResult bur = null;
 
         BatchUpdateSupport executeBatchUpdateSupport = null;
         Throwable executeBatchException = null;
 
-        // ÉeÉXÉg
+        // „ÉÜ„Çπ„Éà
         try {
             bur = new BatchUpdateResult(executeBatchUpdateSupport,
                     executeBatchException);
@@ -166,7 +166,7 @@ public class BatchUpdateResultTest {
             fail();
         }
 
-        // åüèÿ
+        // Ê§úË®º
         assertNotNull(bur);
         Object executeBatchExceptionField = null;
         Object executeBatchUpdateSupportField = null;
@@ -192,13 +192,13 @@ public class BatchUpdateResultTest {
      */
     @Test
     public void testBatchUpdateResultThrowable002() {
-        // ÉpÉâÉÅÅ[É^
+        // „Éë„É©„É°„Éº„Çø
         BatchUpdateResult bur = null;
 
         BatchUpdateSupport executeBatchUpdateSupport = new BatchUpdateSupportImpl();
         Throwable executeBatchException = new BatchException();
 
-        // ÉeÉXÉg
+        // „ÉÜ„Çπ„Éà
         try {
             bur = new BatchUpdateResult(executeBatchUpdateSupport,
                     executeBatchException);
@@ -207,7 +207,7 @@ public class BatchUpdateResultTest {
             fail();
         }
 
-        // åüèÿ
+        // Ê§úË®º
         assertNotNull(bur);
         Object executeBatchExceptionField = null;
         Object executeBatchUpdateSupportField = null;
@@ -233,7 +233,7 @@ public class BatchUpdateResultTest {
      */
     @Test
     public void testGetExecuteBatchUpdateSupport001() {
-        // ÉpÉâÉÅÅ[É^
+        // „Éë„É©„É°„Éº„Çø
         BatchUpdateResult bur = null;
 
         try {
@@ -243,10 +243,10 @@ public class BatchUpdateResultTest {
             fail();
         }
 
-        // ÉeÉXÉg
+        // „ÉÜ„Çπ„Éà
         BatchUpdateSupport ebus = bur.getExecuteBatchUpdateSupport();
 
-        // åüèÿ
+        // Ê§úË®º
         assertNotNull(bur);
         Object executeBatchExceptionField = null;
         Object executeBatchUpdateSupportField = null;
@@ -273,7 +273,7 @@ public class BatchUpdateResultTest {
      */
     @Test
     public void testGetExecuteBatchUpdateSupport002() {
-        // ÉpÉâÉÅÅ[É^
+        // „Éë„É©„É°„Éº„Çø
         BatchUpdateResult bur = null;
 
         BatchUpdateSupport executeBatchUpdateSupport = new BatchUpdateSupportImpl();
@@ -296,10 +296,10 @@ public class BatchUpdateResultTest {
             fail();
         }
 
-        // ÉeÉXÉg
+        // „ÉÜ„Çπ„Éà
         BatchUpdateSupport ebus = bur.getExecuteBatchUpdateSupport();
 
-        // åüèÿ
+        // Ê§úË®º
         assertNotNull(bur);
         Object executeBatchExceptionField = null;
         Object executeBatchUpdateSupportField = null;
@@ -326,7 +326,7 @@ public class BatchUpdateResultTest {
      */
     @Test
     public void testSetExecuteBatchUpdateSupport001() {
-        // ÉpÉâÉÅÅ[É^
+        // „Éë„É©„É°„Éº„Çø
         BatchUpdateResult bur = null;
 
         BatchUpdateSupport executeBatchUpdateSupport = new BatchUpdateSupportImpl();
@@ -338,10 +338,10 @@ public class BatchUpdateResultTest {
             fail();
         }
 
-        // ÉeÉXÉg
+        // „ÉÜ„Çπ„Éà
         bur.setExecuteBatchUpdateSupport(executeBatchUpdateSupport);
 
-        // åüèÿ
+        // Ê§úË®º
         assertNotNull(bur);
         Object executeBatchExceptionField = null;
         Object executeBatchUpdateSupportField = null;
@@ -369,7 +369,7 @@ public class BatchUpdateResultTest {
      */
     @Test
     public void testSetExecuteBatchUpdateSupport002() {
-        // ÉpÉâÉÅÅ[É^
+        // „Éë„É©„É°„Éº„Çø
         BatchUpdateResult bur = null;
 
         BatchUpdateSupport executeBatchUpdateSupport = null;
@@ -381,10 +381,10 @@ public class BatchUpdateResultTest {
             fail();
         }
 
-        // ÉeÉXÉg
+        // „ÉÜ„Çπ„Éà
         bur.setExecuteBatchUpdateSupport(executeBatchUpdateSupport);
 
-        // åüèÿ
+        // Ê§úË®º
         assertNotNull(bur);
         Object executeBatchExceptionField = null;
         Object executeBatchUpdateSupportField = null;
@@ -412,7 +412,7 @@ public class BatchUpdateResultTest {
      */
     @Test
     public void testGetExecuteBatchResult001() {
-        // ÉpÉâÉÅÅ[É^
+        // „Éë„É©„É°„Éº„Çø
         BatchUpdateResult bur = null;
 
         BatchUpdateSupport executeBatchUpdateSupport = null;
@@ -435,10 +435,10 @@ public class BatchUpdateResultTest {
             fail();
         }
 
-        // ÉeÉXÉg
+        // „ÉÜ„Çπ„Éà
         Integer ebr = bur.getExecuteBatchResult();
 
-        // åüèÿ
+        // Ê§úË®º
         assertNotNull(bur);
         Object executeBatchExceptionField = null;
         Object executeBatchUpdateSupportField = null;
@@ -466,7 +466,7 @@ public class BatchUpdateResultTest {
      */
     @Test
     public void testGetExecuteBatchResult002() {
-        // ÉpÉâÉÅÅ[É^
+        // „Éë„É©„É°„Éº„Çø
         BatchUpdateResult bur = null;
 
         BatchUpdateSupport executeBatchUpdateSupport = new BatchUpdateSupportImpl();
@@ -489,10 +489,10 @@ public class BatchUpdateResultTest {
             fail();
         }
 
-        // ÉeÉXÉg
+        // „ÉÜ„Çπ„Éà
         Integer ebr = bur.getExecuteBatchResult();
 
-        // åüèÿ
+        // Ê§úË®º
         assertNotNull(bur);
         Object executeBatchExceptionField = null;
         Object executeBatchUpdateSupportField = null;
@@ -520,7 +520,7 @@ public class BatchUpdateResultTest {
      */
     @Test
     public void testSetExecuteBatchResult001() {
-        // ÉpÉâÉÅÅ[É^
+        // „Éë„É©„É°„Éº„Çø
         BatchUpdateResult bur = null;
 
         Integer executeBatchResult = null;
@@ -532,10 +532,10 @@ public class BatchUpdateResultTest {
             fail();
         }
 
-        // ÉeÉXÉg
+        // „ÉÜ„Çπ„Éà
         bur.setExecuteBatchResult(executeBatchResult);
 
-        // åüèÿ
+        // Ê§úË®º
         assertNotNull(bur);
         Object executeBatchExceptionField = null;
         Object executeBatchUpdateSupportField = null;
@@ -563,7 +563,7 @@ public class BatchUpdateResultTest {
      */
     @Test
     public void testSetExecuteBatchResult002() {
-        // ÉpÉâÉÅÅ[É^
+        // „Éë„É©„É°„Éº„Çø
         BatchUpdateResult bur = null;
 
         Integer executeBatchResult = Integer.valueOf(0);
@@ -575,10 +575,10 @@ public class BatchUpdateResultTest {
             fail();
         }
 
-        // ÉeÉXÉg
+        // „ÉÜ„Çπ„Éà
         bur.setExecuteBatchResult(executeBatchResult);
 
-        // åüèÿ
+        // Ê§úË®º
         assertNotNull(bur);
         Object executeBatchExceptionField = null;
         Object executeBatchUpdateSupportField = null;
@@ -606,7 +606,7 @@ public class BatchUpdateResultTest {
      */
     @Test
     public void testGetExecuteBatchException001() {
-        // ÉpÉâÉÅÅ[É^
+        // „Éë„É©„É°„Éº„Çø
         BatchUpdateResult bur = null;
 
         Throwable executeBatchException = null;
@@ -626,10 +626,10 @@ public class BatchUpdateResultTest {
             fail();
         }
 
-        // ÉeÉXÉg
+        // „ÉÜ„Çπ„Éà
         Throwable ebe = bur.getExecuteBatchException();
 
-        // åüèÿ
+        // Ê§úË®º
         assertNotNull(bur);
         Object executeBatchExceptionField = null;
         Object executeBatchUpdateSupportField = null;
@@ -657,7 +657,7 @@ public class BatchUpdateResultTest {
      */
     @Test
     public void testGetExecuteBatchException002() {
-        // ÉpÉâÉÅÅ[É^
+        // „Éë„É©„É°„Éº„Çø
         BatchUpdateResult bur = null;
 
         Throwable executeBatchException = new BatchException();
@@ -677,10 +677,10 @@ public class BatchUpdateResultTest {
             fail();
         }
 
-        // ÉeÉXÉg
+        // „ÉÜ„Çπ„Éà
         Throwable ebe = bur.getExecuteBatchException();
 
-        // åüèÿ
+        // Ê§úË®º
         assertNotNull(bur);
         Object executeBatchExceptionField = null;
         Object executeBatchUpdateSupportField = null;
@@ -708,7 +708,7 @@ public class BatchUpdateResultTest {
      */
     @Test
     public void testSetExecuteBatchException001() {
-        // ÉpÉâÉÅÅ[É^
+        // „Éë„É©„É°„Éº„Çø
         BatchUpdateResult bur = null;
 
         Throwable executeBatchException = null;
@@ -720,10 +720,10 @@ public class BatchUpdateResultTest {
             fail();
         }
 
-        // ÉeÉXÉg
+        // „ÉÜ„Çπ„Éà
         bur.setExecuteBatchException(executeBatchException);
 
-        // åüèÿ
+        // Ê§úË®º
         assertNotNull(bur);
         Object executeBatchExceptionField = null;
         Object executeBatchUpdateSupportField = null;
@@ -750,7 +750,7 @@ public class BatchUpdateResultTest {
      */
     @Test
     public void testSetExecuteBatchException002() {
-        // ÉpÉâÉÅÅ[É^
+        // „Éë„É©„É°„Éº„Çø
         BatchUpdateResult bur = null;
 
         Throwable executeBatchException = new BatchException();
@@ -762,10 +762,10 @@ public class BatchUpdateResultTest {
             fail();
         }
 
-        // ÉeÉXÉg
+        // „ÉÜ„Çπ„Éà
         bur.setExecuteBatchException(executeBatchException);
 
-        // åüèÿ
+        // Ê§úË®º
         assertNotNull(bur);
         Object executeBatchExceptionField = null;
         Object executeBatchUpdateSupportField = null;

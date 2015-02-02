@@ -5,19 +5,19 @@ import jp.terasoluna.fw.file.annotation.InputFileColumn;
 import jp.terasoluna.fw.file.annotation.OutputFileColumn;
 
 /**
- * AbstractFileLineWriter‚ÌŒ±‚Å—˜—p‚·‚éƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌƒXƒ^ƒuƒNƒ‰ƒXB<br>
+ * AbstractFileLineWriterã®è©¦é¨“ã§åˆ©ç”¨ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¹ã‚¿ãƒ–ã‚¯ãƒ©ã‚¹ã€‚<br>
  * <br>
- * ˆÈ‰º‚Ì@FileFormat‚Ìİ’è‚ğ‚Â<br>
+ * ä»¥ä¸‹ã®@FileFormatã®è¨­å®šã‚’æŒã¤<br>
  * <ul>
- * <li>delimiterF"|"(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)</li>
- * <li>encloseCharF"\""(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)</li>
- * <li>lineFeedCharF"\r"(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)</li>
- * <li>fileEncodingF"UTF-X"(‘¶İ‚µ‚È‚¢ƒGƒ“ƒR[ƒfƒBƒ“ƒO)</li>
- * <li>overWriteFlgFfalse(ƒfƒtƒHƒ‹ƒg’l)</li>
+ * <li>delimiterï¼š"|"(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)</li>
+ * <li>encloseCharï¼š"\""(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)</li>
+ * <li>lineFeedCharï¼š"\r"(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)</li>
+ * <li>fileEncodingï¼š"UTF-X"(å­˜åœ¨ã—ãªã„ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°)</li>
+ * <li>overWriteFlgï¼šfalse(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤)</li>
  * </ul>
  * <br>
- * ƒtƒB[ƒ‹ƒh‚Í‚½‚È‚¢<br>
- * @author æâ•î“O
+ * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã¯æŒãŸãªã„<br>
+ * @author è¶™ä¿¸å¾¹
  */
 @FileFormat(delimiter = '|', encloseChar = '\"', lineFeedChar = "\r", fileEncoding = "UTF-X", overWriteFlg = false)
 public class AbstractFileLineWriter_Stub07 {

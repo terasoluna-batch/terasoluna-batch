@@ -26,21 +26,21 @@ import org.apache.commons.jxpath.ri.model.beans.BeanPointerFactory;
 import org.apache.commons.jxpath.ri.model.beans.NullPointer;
 
 /**
- * Beanƒ|ƒCƒ“ƒ^ƒtƒ@ƒNƒgƒŠ‚ÌŠg’£ƒNƒ‰ƒXB
- * {@link #getOrder()}‚É‚ÄBeanPointerFactory‚æ‚èæ‚Éƒ[ƒh‚³‚ê‚é
- * •K—v‚ª‚ ‚éB
+ * Beanãƒã‚¤ãƒ³ã‚¿ãƒ•ã‚¡ã‚¯ãƒˆãƒªã®æ‹¡å¼µã‚¯ãƒ©ã‚¹ã€‚
+ * {@link #getOrder()}ã«ã¦BeanPointerFactoryã‚ˆã‚Šå…ˆã«ãƒ­ãƒ¼ãƒ‰ã•ã‚Œã‚‹
+ * å¿…è¦ãŒã‚ã‚‹ã€‚
  *
  */
 public class BeanPointerFactoryEx extends BeanPointerFactory {
 
     /**
-     * Beanƒ|ƒCƒ“ƒ^ƒtƒ@ƒNƒgƒŠ‚ªƒ\[ƒg‚³‚ê‚é‡”ÔB
+     * Beanãƒã‚¤ãƒ³ã‚¿ãƒ•ã‚¡ã‚¯ãƒˆãƒªãŒã‚½ãƒ¼ãƒˆã•ã‚Œã‚‹é †ç•ªã€‚
      */
     public static final int BEAN_POINTER_FACTORY_EX_ORDER = 850;
     
     /**
-     * ƒ\[ƒg‡‚ğæ“¾‚·‚éB
-     * @return ƒ\[ƒg‡
+     * ã‚½ãƒ¼ãƒˆé †ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return ã‚½ãƒ¼ãƒˆé †
      */
     @Override
     public int getOrder() {
@@ -48,11 +48,11 @@ public class BeanPointerFactoryEx extends BeanPointerFactory {
     }
     
     /**
-     * ƒm[ƒhƒ|ƒCƒ“ƒ^‚ğ¶¬‚·‚éB
+     * ãƒãƒ¼ãƒ‰ãƒã‚¤ãƒ³ã‚¿ã‚’ç”Ÿæˆã™ã‚‹ã€‚
      * @param name QName
-     * @param bean ƒ^[ƒQƒbƒg‚Æ‚È‚éBean
-     * @param locale ƒƒP[ƒ‹
-     * @return Beanƒ|ƒCƒ“ƒ^
+     * @param bean ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã¨ãªã‚‹Bean
+     * @param locale ãƒ­ã‚±ãƒ¼ãƒ«
+     * @return Beanãƒã‚¤ãƒ³ã‚¿
      */
     @Override
     public NodePointer createNodePointer(
@@ -62,11 +62,11 @@ public class BeanPointerFactoryEx extends BeanPointerFactory {
     }
 
     /**
-     * ƒm[ƒhƒ|ƒCƒ“ƒ^‚ğ¶¬‚·‚éB
-     * @param parent e‚Ìƒ|ƒCƒ“ƒ^
+     * ãƒãƒ¼ãƒ‰ãƒã‚¤ãƒ³ã‚¿ã‚’ç”Ÿæˆã™ã‚‹ã€‚
+     * @param parent è¦ªã®ãƒã‚¤ãƒ³ã‚¿
      * @param name QName
-     * @param bean ƒ^[ƒQƒbƒg‚Æ‚È‚éBean
-     * @return Beanƒ|ƒCƒ“ƒ^
+     * @param bean ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã¨ãªã‚‹Bean
+     * @return Beanãƒã‚¤ãƒ³ã‚¿
      */
     @Override
     public NodePointer createNodePointer(

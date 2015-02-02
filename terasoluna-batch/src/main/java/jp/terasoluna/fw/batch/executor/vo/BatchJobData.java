@@ -19,636 +19,636 @@ package jp.terasoluna.fw.batch.executor.vo;
 import java.sql.Timestamp;
 
 /**
- * ƒWƒ‡ƒuÀs‚Ìƒpƒ‰ƒ[ƒ^B<br>
+ * ã‚¸ãƒ§ãƒ–å®Ÿè¡Œæ™‚ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã€‚<br>
  */
 public class BatchJobData {
     /**
-     * ƒtƒB[ƒ‹ƒh [jobSequenceId] €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ƒWƒ‡ƒuƒV[ƒPƒ“ƒXƒR[ƒh
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [jobSequenceId] é …ç›®ã®å‹ [java.lang.String]<br>
+     * ã‚¸ãƒ§ãƒ–ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã‚³ãƒ¼ãƒ‰
      */
     private String jobSequenceId;
 
     /**
-     * ƒtƒB[ƒ‹ƒh [jobAppCd] €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ƒWƒ‡ƒu‹Æ–±ƒR[ƒh
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [jobAppCd] é …ç›®ã®å‹ [java.lang.String]<br>
+     * ã‚¸ãƒ§ãƒ–æ¥­å‹™ã‚³ãƒ¼ãƒ‰
      */
     private String fJobAppCd;
 
     /**
-     * ƒtƒB[ƒ‹ƒh [jobArgNm1] €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”1
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [jobArgNm1] é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°1
      */
     private String fJobArgNm1;
 
     /**
-     * ƒtƒB[ƒ‹ƒh [jobArgNm2] €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”2
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [jobArgNm2] é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°2
      */
     private String fJobArgNm2;
 
     /**
-     * ƒtƒB[ƒ‹ƒh [jobArgNm3] €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”3
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [jobArgNm3] é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°3
      */
     private String fJobArgNm3;
 
     /**
-     * ƒtƒB[ƒ‹ƒh [jobArgNm4] €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”4
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [jobArgNm4] é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°4
      */
     private String fJobArgNm4;
 
     /**
-     * ƒtƒB[ƒ‹ƒh [jobArgNm5] €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”5
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [jobArgNm5] é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°5
      */
     private String fJobArgNm5;
 
     /**
-     * ƒtƒB[ƒ‹ƒh [jobArgNm6] €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”6
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [jobArgNm6] é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°6
      */
     private String fJobArgNm6;
 
     /**
-     * ƒtƒB[ƒ‹ƒh [jobArgNm7] €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”7
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [jobArgNm7] é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°7
      */
     private String fJobArgNm7;
 
     /**
-     * ƒtƒB[ƒ‹ƒh [jobArgNm8] €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”8
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [jobArgNm8] é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°8
      */
     private String fJobArgNm8;
 
     /**
-     * ƒtƒB[ƒ‹ƒh [jobArgNm9] €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”9
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [jobArgNm9] é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°9
      */
     private String fJobArgNm9;
 
     /**
-     * ƒtƒB[ƒ‹ƒh [jobArgNm10] €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”10
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [jobArgNm10] é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°10
      */
     private String fJobArgNm10;
 
     /**
-     * ƒtƒB[ƒ‹ƒh [jobArgNm11] €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”11
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [jobArgNm11] é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°11
      */
     private String fJobArgNm11;
 
     /**
-     * ƒtƒB[ƒ‹ƒh [jobArgNm12] €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”12
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [jobArgNm12] é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°12
      */
     private String fJobArgNm12;
 
     /**
-     * ƒtƒB[ƒ‹ƒh [jobArgNm13] €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”13
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [jobArgNm13] é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°13
      */
     private String fJobArgNm13;
 
     /**
-     * ƒtƒB[ƒ‹ƒh [jobArgNm14] €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”14
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [jobArgNm14] é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°14
      */
     private String fJobArgNm14;
 
     /**
-     * ƒtƒB[ƒ‹ƒh [jobArgNm15] €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”15
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [jobArgNm15] é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°15
      */
     private String fJobArgNm15;
 
     /**
-     * ƒtƒB[ƒ‹ƒh [jobArgNm16] €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”16
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [jobArgNm16] é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°16
      */
     private String fJobArgNm16;
 
     /**
-     * ƒtƒB[ƒ‹ƒh [jobArgNm17] €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”17
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [jobArgNm17] é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°17
      */
     private String fJobArgNm17;
 
     /**
-     * ƒtƒB[ƒ‹ƒh [jobArgNm18] €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”18
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [jobArgNm18] é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°18
      */
     private String fJobArgNm18;
 
     /**
-     * ƒtƒB[ƒ‹ƒh [jobArgNm19] €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”19
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [jobArgNm19] é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°19
      */
     private String fJobArgNm19;
 
     /**
-     * ƒtƒB[ƒ‹ƒh [jobArgNm20] €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”20
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [jobArgNm20] é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°20
      */
     private String fJobArgNm20;
 
     /**
-     * ƒtƒB[ƒ‹ƒh [blogicAppStatus] €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * BLogicƒXƒe[ƒ^ƒX
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [blogicAppStatus] é …ç›®ã®å‹ [java.lang.String]<br>
+     * BLogicã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹
      */
     private String fBLogicAppStatus;
 
     /**
-     * ƒtƒB[ƒ‹ƒh [curAppStatus] €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ƒXƒe[ƒ^ƒX
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [curAppStatus] é …ç›®ã®å‹ [java.lang.String]<br>
+     * ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹
      */
     private String fCurAppStatus;
 
     /**
-     * ƒtƒB[ƒ‹ƒh [addDateTime] €–Ú‚ÌŒ^ [java.sql.Timestamp]<br>
-     * “o˜^“úiƒ~ƒŠ•bj
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [addDateTime] é …ç›®ã®å‹ [java.sql.Timestamp]<br>
+     * ç™»éŒ²æ—¥æ™‚ï¼ˆãƒŸãƒªç§’ï¼‰
      */
     private Timestamp fAddDateTime;
 
     /**
-     * ƒtƒB[ƒ‹ƒh [updDateTime] €–Ú‚ÌŒ^ [java.sql.Timestamp]<br>
-     * XV“úiƒ~ƒŠ•bj
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [updDateTime] é …ç›®ã®å‹ [java.sql.Timestamp]<br>
+     * æ›´æ–°æ—¥æ™‚ï¼ˆãƒŸãƒªç§’ï¼‰
      */
     private Timestamp fUpdDateTime;
 
     /**
-     * ƒtƒB[ƒ‹ƒh [jobSequenceId]‚ÌƒZƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ƒWƒ‡ƒuƒV[ƒPƒ“ƒXƒR[ƒh
-     * @param jobSequenceId ƒtƒB[ƒ‹ƒh[jobSequenceId]‚ÉŠi”[‚µ‚½‚¢’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [jobSequenceId]ã®ã‚»ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * ã‚¸ãƒ§ãƒ–ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã‚³ãƒ¼ãƒ‰
+     * @param jobSequenceId ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobSequenceId]ã«æ ¼ç´ã—ãŸã„å€¤
      */
     public void setJobSequenceId(final String jobSequenceId) {
         this.jobSequenceId = jobSequenceId;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh[jobSequenceId]‚ÌƒQƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ƒWƒ‡ƒuƒV[ƒPƒ“ƒXƒR[ƒh
-     * @return ƒtƒB[ƒ‹ƒh[jobSequenceId]‚ÉŠi”[‚³‚ê‚Ä‚¢‚é’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobSequenceId]ã®ã‚²ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * ã‚¸ãƒ§ãƒ–ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã‚³ãƒ¼ãƒ‰
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobSequenceId]ã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹å€¤
      */
     public String getJobSequenceId() {
         return jobSequenceId;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [jobAppCd]‚ÌƒZƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ƒWƒ‡ƒu‹Æ–±ƒR[ƒh
-     * @param argJobAppCd ƒtƒB[ƒ‹ƒh[jobAppCd]‚ÉŠi”[‚µ‚½‚¢’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [jobAppCd]ã®ã‚»ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * ã‚¸ãƒ§ãƒ–æ¥­å‹™ã‚³ãƒ¼ãƒ‰
+     * @param argJobAppCd ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobAppCd]ã«æ ¼ç´ã—ãŸã„å€¤
      */
     public void setJobAppCd(final String argJobAppCd) {
         fJobAppCd = argJobAppCd;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh[jobAppCd]‚ÌƒQƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ƒWƒ‡ƒu‹Æ–±ƒR[ƒh
-     * @return ƒtƒB[ƒ‹ƒh[jobAppCd]‚ÉŠi”[‚³‚ê‚Ä‚¢‚é’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobAppCd]ã®ã‚²ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * ã‚¸ãƒ§ãƒ–æ¥­å‹™ã‚³ãƒ¼ãƒ‰
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobAppCd]ã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹å€¤
      */
     public String getJobAppCd() {
         return fJobAppCd;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [jobArgNm1]‚ÌƒZƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”1
-     * @param argJobArgNm1 ƒtƒB[ƒ‹ƒh[jobArgNm1]‚ÉŠi”[‚µ‚½‚¢’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [jobArgNm1]ã®ã‚»ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°1
+     * @param argJobArgNm1 ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm1]ã«æ ¼ç´ã—ãŸã„å€¤
      */
     public void setJobArgNm1(final String argJobArgNm1) {
         fJobArgNm1 = argJobArgNm1;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh[jobArgNm1]‚ÌƒQƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”1
-     * @return ƒtƒB[ƒ‹ƒh[jobArgNm1]‚ÉŠi”[‚³‚ê‚Ä‚¢‚é’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm1]ã®ã‚²ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°1
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm1]ã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹å€¤
      */
     public String getJobArgNm1() {
         return fJobArgNm1;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [jobArgNm2]‚ÌƒZƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”2
-     * @param argJobArgNm2 ƒtƒB[ƒ‹ƒh[jobArgNm2]‚ÉŠi”[‚µ‚½‚¢’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [jobArgNm2]ã®ã‚»ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°2
+     * @param argJobArgNm2 ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm2]ã«æ ¼ç´ã—ãŸã„å€¤
      */
     public void setJobArgNm2(final String argJobArgNm2) {
         fJobArgNm2 = argJobArgNm2;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh[jobArgNm2]‚ÌƒQƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”2
-     * @return ƒtƒB[ƒ‹ƒh[jobArgNm2]‚ÉŠi”[‚³‚ê‚Ä‚¢‚é’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm2]ã®ã‚²ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°2
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm2]ã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹å€¤
      */
     public String getJobArgNm2() {
         return fJobArgNm2;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [jobArgNm3]‚ÌƒZƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”3
-     * @param argJobArgNm3 ƒtƒB[ƒ‹ƒh[jobArgNm3]‚ÉŠi”[‚µ‚½‚¢’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [jobArgNm3]ã®ã‚»ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°3
+     * @param argJobArgNm3 ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm3]ã«æ ¼ç´ã—ãŸã„å€¤
      */
     public void setJobArgNm3(final String argJobArgNm3) {
         fJobArgNm3 = argJobArgNm3;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh[jobArgNm3]‚ÌƒQƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”3
-     * @return ƒtƒB[ƒ‹ƒh[jobArgNm3]‚ÉŠi”[‚³‚ê‚Ä‚¢‚é’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm3]ã®ã‚²ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°3
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm3]ã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹å€¤
      */
     public String getJobArgNm3() {
         return fJobArgNm3;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [jobArgNm4]‚ÌƒZƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”4
-     * @param argJobArgNm4 ƒtƒB[ƒ‹ƒh[jobArgNm4]‚ÉŠi”[‚µ‚½‚¢’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [jobArgNm4]ã®ã‚»ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°4
+     * @param argJobArgNm4 ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm4]ã«æ ¼ç´ã—ãŸã„å€¤
      */
     public void setJobArgNm4(final String argJobArgNm4) {
         fJobArgNm4 = argJobArgNm4;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh[jobArgNm4]‚ÌƒQƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”4
-     * @return ƒtƒB[ƒ‹ƒh[jobArgNm4]‚ÉŠi”[‚³‚ê‚Ä‚¢‚é’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm4]ã®ã‚²ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°4
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm4]ã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹å€¤
      */
     public String getJobArgNm4() {
         return fJobArgNm4;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [jobArgNm5]‚ÌƒZƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”5
-     * @param argJobArgNm5 ƒtƒB[ƒ‹ƒh[jobArgNm5]‚ÉŠi”[‚µ‚½‚¢’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [jobArgNm5]ã®ã‚»ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°5
+     * @param argJobArgNm5 ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm5]ã«æ ¼ç´ã—ãŸã„å€¤
      */
     public void setJobArgNm5(final String argJobArgNm5) {
         fJobArgNm5 = argJobArgNm5;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh[jobArgNm5]‚ÌƒQƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”5
-     * @return ƒtƒB[ƒ‹ƒh[jobArgNm5]‚ÉŠi”[‚³‚ê‚Ä‚¢‚é’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm5]ã®ã‚²ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°5
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm5]ã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹å€¤
      */
     public String getJobArgNm5() {
         return fJobArgNm5;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [jobArgNm6]‚ÌƒZƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”6
-     * @param argJobArgNm6 ƒtƒB[ƒ‹ƒh[jobArgNm6]‚ÉŠi”[‚µ‚½‚¢’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [jobArgNm6]ã®ã‚»ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°6
+     * @param argJobArgNm6 ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm6]ã«æ ¼ç´ã—ãŸã„å€¤
      */
     public void setJobArgNm6(final String argJobArgNm6) {
         fJobArgNm6 = argJobArgNm6;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh[jobArgNm6]‚ÌƒQƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”6
-     * @return ƒtƒB[ƒ‹ƒh[jobArgNm6]‚ÉŠi”[‚³‚ê‚Ä‚¢‚é’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm6]ã®ã‚²ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°6
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm6]ã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹å€¤
      */
     public String getJobArgNm6() {
         return fJobArgNm6;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [jobArgNm7]‚ÌƒZƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”7
-     * @param argJobArgNm7 ƒtƒB[ƒ‹ƒh[jobArgNm7]‚ÉŠi”[‚µ‚½‚¢’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [jobArgNm7]ã®ã‚»ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°7
+     * @param argJobArgNm7 ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm7]ã«æ ¼ç´ã—ãŸã„å€¤
      */
     public void setJobArgNm7(final String argJobArgNm7) {
         fJobArgNm7 = argJobArgNm7;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh[jobArgNm7]‚ÌƒQƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”7
-     * @return ƒtƒB[ƒ‹ƒh[jobArgNm7]‚ÉŠi”[‚³‚ê‚Ä‚¢‚é’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm7]ã®ã‚²ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°7
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm7]ã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹å€¤
      */
     public String getJobArgNm7() {
         return fJobArgNm7;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [jobArgNm8]‚ÌƒZƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”8
-     * @param argJobArgNm8 ƒtƒB[ƒ‹ƒh[jobArgNm8]‚ÉŠi”[‚µ‚½‚¢’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [jobArgNm8]ã®ã‚»ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°8
+     * @param argJobArgNm8 ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm8]ã«æ ¼ç´ã—ãŸã„å€¤
      */
     public void setJobArgNm8(final String argJobArgNm8) {
         fJobArgNm8 = argJobArgNm8;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh[jobArgNm8]‚ÌƒQƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”8
-     * @return ƒtƒB[ƒ‹ƒh[jobArgNm8]‚ÉŠi”[‚³‚ê‚Ä‚¢‚é’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm8]ã®ã‚²ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°8
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm8]ã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹å€¤
      */
     public String getJobArgNm8() {
         return fJobArgNm8;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [jobArgNm9]‚ÌƒZƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”9
-     * @param argJobArgNm9 ƒtƒB[ƒ‹ƒh[jobArgNm9]‚ÉŠi”[‚µ‚½‚¢’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [jobArgNm9]ã®ã‚»ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°9
+     * @param argJobArgNm9 ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm9]ã«æ ¼ç´ã—ãŸã„å€¤
      */
     public void setJobArgNm9(final String argJobArgNm9) {
         fJobArgNm9 = argJobArgNm9;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh[jobArgNm9]‚ÌƒQƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”9
-     * @return ƒtƒB[ƒ‹ƒh[jobArgNm9]‚ÉŠi”[‚³‚ê‚Ä‚¢‚é’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm9]ã®ã‚²ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°9
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm9]ã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹å€¤
      */
     public String getJobArgNm9() {
         return fJobArgNm9;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [jobArgNm10]‚ÌƒZƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”10
-     * @param argJobArgNm10 ƒtƒB[ƒ‹ƒh[jobArgNm10]‚ÉŠi”[‚µ‚½‚¢’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [jobArgNm10]ã®ã‚»ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°10
+     * @param argJobArgNm10 ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm10]ã«æ ¼ç´ã—ãŸã„å€¤
      */
     public void setJobArgNm10(final String argJobArgNm10) {
         fJobArgNm10 = argJobArgNm10;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh[jobArgNm10]‚ÌƒQƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”10
-     * @return ƒtƒB[ƒ‹ƒh[jobArgNm10]‚ÉŠi”[‚³‚ê‚Ä‚¢‚é’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm10]ã®ã‚²ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°10
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm10]ã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹å€¤
      */
     public String getJobArgNm10() {
         return fJobArgNm10;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [jobArgNm11]‚ÌƒZƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”11
-     * @param argJobArgNm11 ƒtƒB[ƒ‹ƒh[jobArgNm11]‚ÉŠi”[‚µ‚½‚¢’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [jobArgNm11]ã®ã‚»ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°11
+     * @param argJobArgNm11 ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm11]ã«æ ¼ç´ã—ãŸã„å€¤
      */
     public void setJobArgNm11(final String argJobArgNm11) {
         fJobArgNm11 = argJobArgNm11;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh[jobArgNm11]‚ÌƒQƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”11
-     * @return ƒtƒB[ƒ‹ƒh[jobArgNm11]‚ÉŠi”[‚³‚ê‚Ä‚¢‚é’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm11]ã®ã‚²ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°11
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm11]ã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹å€¤
      */
     public String getJobArgNm11() {
         return fJobArgNm11;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [jobArgNm12]‚ÌƒZƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”12
-     * @param argJobArgNm12 ƒtƒB[ƒ‹ƒh[jobArgNm12]‚ÉŠi”[‚µ‚½‚¢’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [jobArgNm12]ã®ã‚»ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°12
+     * @param argJobArgNm12 ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm12]ã«æ ¼ç´ã—ãŸã„å€¤
      */
     public void setJobArgNm12(final String argJobArgNm12) {
         fJobArgNm12 = argJobArgNm12;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh[jobArgNm12]‚ÌƒQƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”12
-     * @return ƒtƒB[ƒ‹ƒh[jobArgNm12]‚ÉŠi”[‚³‚ê‚Ä‚¢‚é’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm12]ã®ã‚²ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°12
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm12]ã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹å€¤
      */
     public String getJobArgNm12() {
         return fJobArgNm12;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [jobArgNm13]‚ÌƒZƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”13
-     * @param argJobArgNm13 ƒtƒB[ƒ‹ƒh[jobArgNm13]‚ÉŠi”[‚µ‚½‚¢’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [jobArgNm13]ã®ã‚»ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°13
+     * @param argJobArgNm13 ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm13]ã«æ ¼ç´ã—ãŸã„å€¤
      */
     public void setJobArgNm13(final String argJobArgNm13) {
         fJobArgNm13 = argJobArgNm13;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh[jobArgNm13]‚ÌƒQƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”13
-     * @return ƒtƒB[ƒ‹ƒh[jobArgNm13]‚ÉŠi”[‚³‚ê‚Ä‚¢‚é’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm13]ã®ã‚²ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°13
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm13]ã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹å€¤
      */
     public String getJobArgNm13() {
         return fJobArgNm13;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [jobArgNm14]‚ÌƒZƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”14
-     * @param argJobArgNm14 ƒtƒB[ƒ‹ƒh[jobArgNm14]‚ÉŠi”[‚µ‚½‚¢’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [jobArgNm14]ã®ã‚»ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°14
+     * @param argJobArgNm14 ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm14]ã«æ ¼ç´ã—ãŸã„å€¤
      */
     public void setJobArgNm14(final String argJobArgNm14) {
         fJobArgNm14 = argJobArgNm14;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh[jobArgNm14]‚ÌƒQƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”14
-     * @return ƒtƒB[ƒ‹ƒh[jobArgNm14]‚ÉŠi”[‚³‚ê‚Ä‚¢‚é’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm14]ã®ã‚²ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°14
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm14]ã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹å€¤
      */
     public String getJobArgNm14() {
         return fJobArgNm14;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [jobArgNm15]‚ÌƒZƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”15
-     * @param argJobArgNm15 ƒtƒB[ƒ‹ƒh[jobArgNm15]‚ÉŠi”[‚µ‚½‚¢’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [jobArgNm15]ã®ã‚»ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°15
+     * @param argJobArgNm15 ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm15]ã«æ ¼ç´ã—ãŸã„å€¤
      */
     public void setJobArgNm15(final String argJobArgNm15) {
         fJobArgNm15 = argJobArgNm15;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh[jobArgNm15]‚ÌƒQƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”15
-     * @return ƒtƒB[ƒ‹ƒh[jobArgNm15]‚ÉŠi”[‚³‚ê‚Ä‚¢‚é’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm15]ã®ã‚²ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°15
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm15]ã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹å€¤
      */
     public String getJobArgNm15() {
         return fJobArgNm15;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [jobArgNm16]‚ÌƒZƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”16
-     * @param argJobArgNm16 ƒtƒB[ƒ‹ƒh[jobArgNm16]‚ÉŠi”[‚µ‚½‚¢’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [jobArgNm16]ã®ã‚»ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°16
+     * @param argJobArgNm16 ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm16]ã«æ ¼ç´ã—ãŸã„å€¤
      */
     public void setJobArgNm16(final String argJobArgNm16) {
         fJobArgNm16 = argJobArgNm16;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh[jobArgNm16]‚ÌƒQƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”16
-     * @return ƒtƒB[ƒ‹ƒh[jobArgNm16]‚ÉŠi”[‚³‚ê‚Ä‚¢‚é’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm16]ã®ã‚²ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°16
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm16]ã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹å€¤
      */
     public String getJobArgNm16() {
         return fJobArgNm16;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [jobArgNm17]‚ÌƒZƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”17
-     * @param argJobArgNm17 ƒtƒB[ƒ‹ƒh[jobArgNm17]‚ÉŠi”[‚µ‚½‚¢’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [jobArgNm17]ã®ã‚»ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°17
+     * @param argJobArgNm17 ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm17]ã«æ ¼ç´ã—ãŸã„å€¤
      */
     public void setJobArgNm17(final String argJobArgNm17) {
         fJobArgNm17 = argJobArgNm17;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh[jobArgNm17]‚ÌƒQƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”17
-     * @return ƒtƒB[ƒ‹ƒh[jobArgNm17]‚ÉŠi”[‚³‚ê‚Ä‚¢‚é’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm17]ã®ã‚²ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°17
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm17]ã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹å€¤
      */
     public String getJobArgNm17() {
         return fJobArgNm17;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [jobArgNm18]‚ÌƒZƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”18
-     * @param argJobArgNm18 ƒtƒB[ƒ‹ƒh[jobArgNm18]‚ÉŠi”[‚µ‚½‚¢’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [jobArgNm18]ã®ã‚»ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°18
+     * @param argJobArgNm18 ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm18]ã«æ ¼ç´ã—ãŸã„å€¤
      */
     public void setJobArgNm18(final String argJobArgNm18) {
         fJobArgNm18 = argJobArgNm18;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh[jobArgNm18]‚ÌƒQƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”18
-     * @return ƒtƒB[ƒ‹ƒh[jobArgNm18]‚ÉŠi”[‚³‚ê‚Ä‚¢‚é’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm18]ã®ã‚²ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°18
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm18]ã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹å€¤
      */
     public String getJobArgNm18() {
         return fJobArgNm18;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [jobArgNm19]‚ÌƒZƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”19
-     * @param argJobArgNm19 ƒtƒB[ƒ‹ƒh[jobArgNm19]‚ÉŠi”[‚µ‚½‚¢’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [jobArgNm19]ã®ã‚»ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°19
+     * @param argJobArgNm19 ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm19]ã«æ ¼ç´ã—ãŸã„å€¤
      */
     public void setJobArgNm19(final String argJobArgNm19) {
         fJobArgNm19 = argJobArgNm19;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh[jobArgNm19]‚ÌƒQƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”19
-     * @return ƒtƒB[ƒ‹ƒh[jobArgNm19]‚ÉŠi”[‚³‚ê‚Ä‚¢‚é’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm19]ã®ã‚²ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°19
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm19]ã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹å€¤
      */
     public String getJobArgNm19() {
         return fJobArgNm19;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [jobArgNm20]‚ÌƒZƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”20
-     * @param argJobArgNm20 ƒtƒB[ƒ‹ƒh[jobArgNm20]‚ÉŠi”[‚µ‚½‚¢’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [jobArgNm20]ã®ã‚»ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°20
+     * @param argJobArgNm20 ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm20]ã«æ ¼ç´ã—ãŸã„å€¤
      */
     public void setJobArgNm20(final String argJobArgNm20) {
         fJobArgNm20 = argJobArgNm20;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh[jobArgNm20]‚ÌƒQƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ˆø”20
-     * @return ƒtƒB[ƒ‹ƒh[jobArgNm20]‚ÉŠi”[‚³‚ê‚Ä‚¢‚é’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm20]ã®ã‚²ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * å¼•æ•°20
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobArgNm20]ã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹å€¤
      */
     public String getJobArgNm20() {
         return fJobArgNm20;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [blogicAppStatus]‚ÌƒZƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * BLogicƒXƒe[ƒ^ƒX
-     * @param argBLogicAppStatus ƒtƒB[ƒ‹ƒh[blogicAppStatus]‚ÉŠi”[‚µ‚½‚¢’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [blogicAppStatus]ã®ã‚»ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * BLogicã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹
+     * @param argBLogicAppStatus ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[blogicAppStatus]ã«æ ¼ç´ã—ãŸã„å€¤
      */
     public void setErrAppStatus(final String argBLogicAppStatus) {
         fBLogicAppStatus = argBLogicAppStatus;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh[blogicAppStatus]‚ÌƒQƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * BLogicƒXƒe[ƒ^ƒX
-     * @return ƒtƒB[ƒ‹ƒh[blogicAppStatus]‚ÉŠi”[‚³‚ê‚Ä‚¢‚é’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[blogicAppStatus]ã®ã‚²ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * BLogicã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[blogicAppStatus]ã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹å€¤
      */
     public String getBLogicAppStatus() {
         return fBLogicAppStatus;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [curAppStatus]‚ÌƒZƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ƒXƒe[ƒ^ƒX
-     * @param argCurAppStatus ƒtƒB[ƒ‹ƒh[curAppStatus]‚ÉŠi”[‚µ‚½‚¢’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [curAppStatus]ã®ã‚»ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹
+     * @param argCurAppStatus ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[curAppStatus]ã«æ ¼ç´ã—ãŸã„å€¤
      */
     public void setCurAppStatus(final String argCurAppStatus) {
         fCurAppStatus = argCurAppStatus;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh[curAppStatus]‚ÌƒQƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ƒXƒe[ƒ^ƒX
-     * @return ƒtƒB[ƒ‹ƒh[curAppStatus]‚ÉŠi”[‚³‚ê‚Ä‚¢‚é’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[curAppStatus]ã®ã‚²ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[curAppStatus]ã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹å€¤
      */
     public String getCurAppStatus() {
         return fCurAppStatus;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [addDateTime]‚ÌƒZƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.sql.Timestamp]<br>
-     * “o˜^“úiƒ~ƒŠ•bj
-     * @param argAddDateTime ƒtƒB[ƒ‹ƒh[addDateTime]‚ÉŠi”[‚µ‚½‚¢’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [addDateTime]ã®ã‚»ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.sql.Timestamp]<br>
+     * ç™»éŒ²æ—¥æ™‚ï¼ˆãƒŸãƒªç§’ï¼‰
+     * @param argAddDateTime ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[addDateTime]ã«æ ¼ç´ã—ãŸã„å€¤
      */
     public void setAddDateTime(final Timestamp argAddDateTime) {
         fAddDateTime = argAddDateTime;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh[addDateTime]‚ÌƒQƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.sql.Timestamp]<br>
-     * “o˜^“úiƒ~ƒŠ•bj
-     * @return ƒtƒB[ƒ‹ƒh[addDateTime]‚ÉŠi”[‚³‚ê‚Ä‚¢‚é’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[addDateTime]ã®ã‚²ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.sql.Timestamp]<br>
+     * ç™»éŒ²æ—¥æ™‚ï¼ˆãƒŸãƒªç§’ï¼‰
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[addDateTime]ã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹å€¤
      */
     public Timestamp getAddDateTime() {
         return fAddDateTime;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [updDateTime]‚ÌƒZƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.sql.Timestamp]<br>
-     * XV“úiƒ~ƒŠ•bj
-     * @param argUpdDateTime ƒtƒB[ƒ‹ƒh[updDateTime]‚ÉŠi”[‚µ‚½‚¢’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [updDateTime]ã®ã‚»ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.sql.Timestamp]<br>
+     * æ›´æ–°æ—¥æ™‚ï¼ˆãƒŸãƒªç§’ï¼‰
+     * @param argUpdDateTime ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[updDateTime]ã«æ ¼ç´ã—ãŸã„å€¤
      */
     public void setUpdDateTime(final Timestamp argUpdDateTime) {
         fUpdDateTime = argUpdDateTime;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh[updDateTime]‚ÌƒQƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.sql.Timestamp]<br>
-     * XV“úiƒ~ƒŠ•bj
-     * @return ƒtƒB[ƒ‹ƒh[updDateTime]‚ÉŠi”[‚³‚ê‚Ä‚¢‚é’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[updDateTime]ã®ã‚²ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.sql.Timestamp]<br>
+     * æ›´æ–°æ—¥æ™‚ï¼ˆãƒŸãƒªç§’ï¼‰
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[updDateTime]ã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹å€¤
      */
     public Timestamp getUpdDateTime() {
         return fUpdDateTime;
     }
 
     /**
-     * ‚±‚ÌƒoƒŠƒ…[ƒIƒuƒWƒFƒNƒg‚Ì•¶š—ñ•\Œ»‚ğæ“¾‚µ‚Ü‚·B ƒIƒuƒWƒFƒNƒg‚ÌƒVƒƒƒ[”ÍˆÍ‚Å‚µ‚©toString‚³‚ê‚È‚¢“_‚É’ˆÓ‚µ‚Ä—˜—p‚µ‚Ä‚­‚¾‚³‚¢B
-     * @return ƒoƒŠƒ…[ƒIƒuƒWƒFƒNƒg‚Ì•¶š—ñ•\Œ»B
+     * ã“ã®ãƒãƒªãƒ¥ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®æ–‡å­—åˆ—è¡¨ç¾ã‚’å–å¾—ã—ã¾ã™ã€‚ ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚·ãƒ£ãƒ­ãƒ¼ç¯„å›²ã§ã—ã‹toStringã•ã‚Œãªã„ç‚¹ã«æ³¨æ„ã—ã¦åˆ©ç”¨ã—ã¦ãã ã•ã„ã€‚
+     * @return ãƒãƒªãƒ¥ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®æ–‡å­—åˆ—è¡¨ç¾ã€‚
      */
     public String toString() {
         final StringBuffer buf = new StringBuffer();

@@ -29,12 +29,12 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * {@link jp.terasoluna.fw.file.dao.standard.PlainFileLineWriter} ƒNƒ‰ƒX‚ÌƒeƒXƒgB
+ * {@link jp.terasoluna.fw.file.dao.standard.PlainFileLineWriter} ã‚¯ãƒ©ã‚¹ã®ãƒ†ã‚¹ãƒˆã€‚
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4> ƒrƒWƒlƒXƒƒWƒbƒN‚È‚Ç‚©‚çó‚¯æ‚Á‚½•¶š—ñ‚ğƒtƒ@ƒCƒ‹‚Éo—Í‚·‚éB ‘¼‚Ìƒtƒ@ƒCƒ‹ƒAƒNƒZƒX‹@”\‚Æ‚ÍˆÙ‚È‚èAƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ğg‚í‚È‚¢B<br>
- * AbstractFileLineWriter‚ÌƒTƒuƒNƒ‰ƒXB
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4> ãƒ“ã‚¸ãƒã‚¹ãƒ­ã‚¸ãƒƒã‚¯ãªã©ã‹ã‚‰å—ã‘å–ã£ãŸæ–‡å­—åˆ—ã‚’ãƒ•ã‚¡ã‚¤ãƒ«ã«å‡ºåŠ›ã™ã‚‹ã€‚ ä»–ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚¢ã‚¯ã‚»ã‚¹æ©Ÿèƒ½ã¨ã¯ç•°ãªã‚Šã€ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ä½¿ã‚ãªã„ã€‚<br>
+ * AbstractFileLineWriterã®ã‚µãƒ–ã‚¯ãƒ©ã‚¹ã€‚
  * <p>
- * @author ‰œ“c“Ni
+ * @author å¥¥ç”°å“²å¸
  * @see jp.terasoluna.fw.file.dao.standard.PlainFileLineWriter
  */
 public class PlainFileLineWriterTest {
@@ -43,8 +43,8 @@ public class PlainFileLineWriterTest {
             .getResource("PlainFileLineWriterTest_tmp.txt").getPath();
 
     /**
-     * ‚±‚ÌƒeƒXƒgƒP[ƒX‚ğÀs‚·‚éˆ×‚Ì GUI ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‹N“®‚·‚éB
-     * @param args java ƒRƒ}ƒ“ƒh‚Éİ’è‚³‚ê‚½ƒpƒ‰ƒ[ƒ^
+     * ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã‚’å®Ÿè¡Œã™ã‚‹ç‚ºã® GUI ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’èµ·å‹•ã™ã‚‹ã€‚
+     * @param args java ã‚³ãƒãƒ³ãƒ‰ã«è¨­å®šã•ã‚ŒãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public static void main(String[] args) {
         // junit.swingui.TestRunner.run(PlainFileLineWriterTest.class);
@@ -53,7 +53,7 @@ public class PlainFileLineWriterTest {
     @Before
     public void setUp() throws Exception {
         VMOUTUtil.initialize();
-        // ƒtƒ@ƒCƒ‹‚Ì‰Šú‰»
+        // ãƒ•ã‚¡ã‚¤ãƒ«ã®åˆæœŸåŒ–
         File file = new File(TEMP_FILE_NAME);
         file.delete();
         file.createNewFile();
@@ -61,7 +61,7 @@ public class PlainFileLineWriterTest {
 
     @AfterClass
     public static void afterClass() throws Exception {
-        // ƒtƒ@ƒCƒ‹‚Ì‰Šú‰»
+        // ãƒ•ã‚¡ã‚¤ãƒ«ã®åˆæœŸåŒ–
         File file = new File(TEMP_FILE_NAME);
         file.delete();
         file.createNewFile();
@@ -70,47 +70,47 @@ public class PlainFileLineWriterTest {
     /**
      * testPlainFileLineWriter01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileName:PlainFileLineWriter01.txt<br>
-     * @ƒf[ƒ^‚ğ‚½‚È‚¢ƒtƒ@ƒCƒ‹‚ÌƒpƒX<br>
-     * (ˆø”) clazz:PlainFileLineWriter_Stub01<br>
-     * @@FileFormat‚Ìİ’è—L‚èA‚·‚×‚Ä‰Šú’lB<br>
-     * (ˆø”) columnFormatterMap:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂMap<String, ColumnFormatter>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"java.lang.String"=NullColumnFormatterƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileName:PlainFileLineWriter01.txt<br>
+     * ã€€ãƒ‡ãƒ¼ã‚¿ã‚’æŒãŸãªã„ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹<br>
+     * (å¼•æ•°) clazz:PlainFileLineWriter_Stub01<br>
+     * ã€€@FileFormatã®è¨­å®šæœ‰ã‚Šã€ã™ã¹ã¦åˆæœŸå€¤ã€‚<br>
+     * (å¼•æ•°) columnFormatterMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤Map<String, ColumnFormatter>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"java.lang.String"=NullColumnFormatterã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») super:1‰ñŒÄ‚Ño‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * ŒÄ‚Ño‚³‚ê‚é‚Æ‚«‚Ìˆø”‚ªAˆø”fileName,clazz,columnFormatterMap‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒX‚Å‚ ‚é‚±‚Æ<br>
-     * (ó‘Ô•Ï‰») super.init:1‰ñŒÄ‚Ño‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) super:1å›å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * å‘¼ã³å‡ºã•ã‚Œã‚‹ã¨ãã®å¼•æ•°ãŒã€å¼•æ•°fileName,clazz,columnFormatterMapã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã§ã‚ã‚‹ã“ã¨<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) super.init:1å›å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * eƒNƒ‰ƒX‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ªŒÄ‚Î‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * è¦ªã‚¯ãƒ©ã‚¹ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãŒå‘¼ã°ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     @Test
     public void testPlain01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
-        // ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚È‚Ì‚Å•s—v
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
+        // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãªã®ã§ä¸è¦
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String fileName = TEMP_FILE_NAME;
 
         Class<PlainFileLineWriter_Stub01> clazz = PlainFileLineWriter_Stub01.class;
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ‚È‚µ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         PlainFileLineWriter plainFileLineWriter = new PlainFileLineWriter(
                 fileName, clazz, columnFormatterMap);
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
                 "<init>"));
         List arguments = VMOUTUtil.getArguments(AbstractFileLineWriter.class,
@@ -124,28 +124,28 @@ public class PlainFileLineWriterTest {
     /**
      * testPrintDataLine01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE.F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE.F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) t:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) AbstractFileLineWriter#checkWriteTrailer():³íÀs<br>
-     * (ó‘Ô) Writer.writer():³íÀs<br>
-     * (ó‘Ô) AbstractFileLineWriter#getLineFeedChar():StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) AbstractFileLineWriter#getWriter():WriterƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) AbstractFileLineWriter#setWriteData():³íÀs<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) t:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) AbstractFileLineWriter#checkWriteTrailer():æ­£å¸¸å®Ÿè¡Œ<br>
+     * (çŠ¶æ…‹) Writer.writer():æ­£å¸¸å®Ÿè¡Œ<br>
+     * (çŠ¶æ…‹) AbstractFileLineWriter#getLineFeedChar():Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) AbstractFileLineWriter#getWriter():Writerã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) AbstractFileLineWriter#setWriteData():æ­£å¸¸å®Ÿè¡Œ<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») AbstractFileLineWriter#checkWriteTrailer():1‰ñŒÄ‚Î‚ê‚é<br>
-     * (ó‘Ô•Ï‰») Writer.writer():2‰ñŒÄ‚Î‚ê‚é<br>
-     * (ó‘Ô•Ï‰») AbstractFileLineWriter#getLineFeedChar():1‰ñŒÄ‚Î‚ê‚é<br>
-     * (ó‘Ô•Ï‰») AbstractFileLineWriter#getWriter():2‰ñŒÄ‚Î‚ê‚é<br>
-     * (ó‘Ô•Ï‰») AbstractFileLineWriter#setWriteData():1‰ñŒÄ‚Î‚ê‚é<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) AbstractFileLineWriter#checkWriteTrailer():1å›å‘¼ã°ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) Writer.writer():2å›å‘¼ã°ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) AbstractFileLineWriter#getLineFeedChar():1å›å‘¼ã°ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) AbstractFileLineWriter#getWriter():2å›å‘¼ã°ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) AbstractFileLineWriter#setWriteData():1å›å‘¼ã°ã‚Œã‚‹<br>
      * <br>
-     * ³íƒpƒ^[ƒ“ <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ãƒ‘ã‚¿ãƒ¼ãƒ³ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testPrintDataLine01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         String fileName = TEMP_FILE_NAME;
 
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
@@ -153,19 +153,19 @@ public class PlainFileLineWriterTest {
         PlainFileLineWriter plainFileLineWriter = new PlainFileLineWriter(
                 fileName, PlainFileLineWriter_Stub01.class, columnFormatterMap);
 
-        // ˆø”‚Ìİ’è
-        String t = "ƒf[ƒ^";
+        // å¼•æ•°ã®è¨­å®š
+        String t = "ãƒ‡ãƒ¼ã‚¿";
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Éİ’èÏ‚İ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–æ™‚ã«è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         plainFileLineWriter.printDataLine(t);
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
                 "checkWriteTrailer"));
         assertEquals(2, VMOUTUtil.getCallCount(Writer.class, "write"));
@@ -181,33 +181,33 @@ public class PlainFileLineWriterTest {
     /**
      * testPrintDataLine02() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) t:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) AbstractFileLineWriter#checkWriteTrailer():³íÀs<br>
-     * (ó‘Ô) Writer.writer():IOException<br>
-     * —áŠO”­¶<br>
-     * (ó‘Ô) AbstractFileLineWriter#getLineFeedChar():StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) AbstractFileLineWriter#getWriter():WriterƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) AbstractFileLineWriter#setWriteData():³íÀs<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) t:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) AbstractFileLineWriter#checkWriteTrailer():æ­£å¸¸å®Ÿè¡Œ<br>
+     * (çŠ¶æ…‹) Writer.writer():IOException<br>
+     * ä¾‹å¤–ç™ºç”Ÿ<br>
+     * (çŠ¶æ…‹) AbstractFileLineWriter#getLineFeedChar():Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) AbstractFileLineWriter#getWriter():Writerã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) AbstractFileLineWriter#setWriteData():æ­£å¸¸å®Ÿè¡Œ<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») AbstractFileLineWriter#checkWriteTrailer():1‰ñŒÄ‚Î‚ê‚é<br>
-     * (ó‘Ô•Ï‰») Writer.writer():‚P‰ñŒÄ‚Î‚ê‚é<br>
-     * (ó‘Ô•Ï‰») AbstractFileLineWriter#getLineFeedChar():ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») AbstractFileLineWriter#getWriter():1‰ñŒÄ‚Î‚ê‚é<br>
-     * (ó‘Ô•Ï‰») AbstractFileLineWriter#setWriteData():ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») ‚È‚µ:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂFileException—áŠO”­¶<br>
-     * EƒƒbƒZ[ƒWF"writer control operation was failed."<br>
-     * EŒ´ˆö—áŠOFWriter.writer()‚©‚ç”­¶‚µ‚½IOException<br>
-     * Eƒtƒ@ƒCƒ‹–¼igetFileName‚ÌŒ‹‰Êj<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) AbstractFileLineWriter#checkWriteTrailer():1å›å‘¼ã°ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) Writer.writer():ï¼‘å›å‘¼ã°ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) AbstractFileLineWriter#getLineFeedChar():å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) AbstractFileLineWriter#getWriter():1å›å‘¼ã°ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) AbstractFileLineWriter#setWriteData():å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ãªã—:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤FileExceptionä¾‹å¤–ç™ºç”Ÿ<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"writer control operation was failed."<br>
+     * ãƒ»åŸå› ä¾‹å¤–ï¼šWriter.writer()ã‹ã‚‰ç™ºç”Ÿã—ãŸIOException<br>
+     * ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼ˆgetFileNameã®çµæœï¼‰<br>
      * <br>
-     * Writer.writer()‚©‚çIOException‚ª”­¶‚µ‚½ê‡FileException‚ªƒXƒ[‚³‚ê‚é‚Ì‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * Writer.writer()ã‹ã‚‰IOExceptionãŒç™ºç”Ÿã—ãŸå ´åˆFileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã®ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testPrintDataLine02() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         String fileName = TEMP_FILE_NAME;
 
         Class<PlainFileLineWriter_Stub01> clazz = PlainFileLineWriter_Stub01.class;
@@ -216,23 +216,23 @@ public class PlainFileLineWriterTest {
         PlainFileLineWriter plainFileLineWriter = new PlainFileLineWriter(
                 fileName, clazz, columnFormatterMap);
 
-        // ˆø”‚Ìİ’è
-        String t = "ƒf[ƒ^";
+        // å¼•æ•°ã®è¨­å®š
+        String t = "ãƒ‡ãƒ¼ã‚¿";
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         IOException exception = new IOException();
         VMOUTUtil.setExceptionAtAllTimes(Writer.class, "write", exception);
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Éİ’èÏ‚İ
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–æ™‚ã«è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             plainFileLineWriter.printDataLine(t);
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸ");
         } catch (FileException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(1, VMOUTUtil.getCallCount(
                     AbstractFileLineWriter.class, "checkWriteTrailer"));
             assertEquals(1, VMOUTUtil.getCallCount(Writer.class, "write"));
@@ -255,30 +255,30 @@ public class PlainFileLineWriterTest {
     /**
      * testPrintDataLine03() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) t:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) AbstractFileLineWriter#checkWriteTrailer():FileException<br>
-     * —áŠO”­¶<br>
-     * (ó‘Ô) Writer.writer():³íÀs<br>
-     * (ó‘Ô) AbstractFileLineWriter#getLineFeedChar():StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) AbstractFileLineWriter#getWriter():WriterƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) AbstractFileLineWriter#setWriteData():³íÀs<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) t:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) AbstractFileLineWriter#checkWriteTrailer():FileException<br>
+     * ä¾‹å¤–ç™ºç”Ÿ<br>
+     * (çŠ¶æ…‹) Writer.writer():æ­£å¸¸å®Ÿè¡Œ<br>
+     * (çŠ¶æ…‹) AbstractFileLineWriter#getLineFeedChar():Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) AbstractFileLineWriter#getWriter():Writerã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) AbstractFileLineWriter#setWriteData():æ­£å¸¸å®Ÿè¡Œ<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») AbstractFileLineWriter#checkWriteTrailer():1‰ñŒÄ‚Î‚ê‚é<br>
-     * (ó‘Ô•Ï‰») Writer.writer():ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») AbstractFileLineWriter#getLineFeedChar():ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») AbstractFileLineWriter#getWriter():ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») AbstractFileLineWriter#setWriteData():ŒÄ‚Î‚ê‚È‚¢<br>
-     * (ó‘Ô•Ï‰») ‚È‚µ:checkWriteTrailer()‚©‚ç”­¶‚µ‚½FileException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) AbstractFileLineWriter#checkWriteTrailer():1å›å‘¼ã°ã‚Œã‚‹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) Writer.writer():å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) AbstractFileLineWriter#getLineFeedChar():å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) AbstractFileLineWriter#getWriter():å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) AbstractFileLineWriter#setWriteData():å‘¼ã°ã‚Œãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ãªã—:checkWriteTrailer()ã‹ã‚‰ç™ºç”Ÿã—ãŸFileException<br>
      * <br>
-     * AbstractFileLineWriter#checkWriteTrailer()‚©‚çFileException‚ªƒXƒ[‚³‚ê‚é‚Ì‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * AbstractFileLineWriter#checkWriteTrailer()ã‹ã‚‰FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã®ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testPrintDataLine03() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         String fileName = TEMP_FILE_NAME;
 
         Class<PlainFileLineWriter_Stub01> clazz = PlainFileLineWriter_Stub01.class;
@@ -287,24 +287,24 @@ public class PlainFileLineWriterTest {
         PlainFileLineWriter plainFileLineWriter = new PlainFileLineWriter(
                 fileName, clazz, columnFormatterMap);
 
-        // ˆø”‚Ìİ’è
-        String t = "ƒf[ƒ^";
+        // å¼•æ•°ã®è¨­å®š
+        String t = "ãƒ‡ãƒ¼ã‚¿";
 
-        // ‘O’ñğŒ‚Ìİ’è
-        FileException exception = new FileException("checkWriteTrailer‚©‚ç‚ÌƒGƒ‰[‚Å‚·");
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        FileException exception = new FileException("checkWriteTrailerã‹ã‚‰ã®ã‚¨ãƒ©ãƒ¼ã§ã™");
         VMOUTUtil.setExceptionAtAllTimes(AbstractFileLineWriter.class,
                 "checkWriteTrailer", exception);
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Éİ’èÏ‚İ
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–æ™‚ã«è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             plainFileLineWriter.printDataLine(t);
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸ");
         } catch (FileException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(1, VMOUTUtil.getCallCount(
                     AbstractFileLineWriter.class, "checkWriteTrailer"));
             assertEquals(0, VMOUTUtil.getCallCount(Writer.class, "write"));
@@ -324,24 +324,24 @@ public class PlainFileLineWriterTest {
     /**
      * testPrintDataLine04() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) t:null<br>
-     * (ó‘Ô) AbstractFileLineWriter#checkWriteTrailer():³íÀs<br>
-     * (ó‘Ô) Writer.writer():³íÀs<br>
-     * (ó‘Ô) AbstractFileLineWriter#getLineFeedChar():StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) AbstractFileLineWriter#getWriter():WriterƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) AbstractFileLineWriter#setWriteData():³íÀs<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) t:null<br>
+     * (çŠ¶æ…‹) AbstractFileLineWriter#checkWriteTrailer():æ­£å¸¸å®Ÿè¡Œ<br>
+     * (çŠ¶æ…‹) Writer.writer():æ­£å¸¸å®Ÿè¡Œ<br>
+     * (çŠ¶æ…‹) AbstractFileLineWriter#getLineFeedChar():Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) AbstractFileLineWriter#getWriter():Writerã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) AbstractFileLineWriter#setWriteData():æ­£å¸¸å®Ÿè¡Œ<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») ‚È‚µ:NullPointerException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ãªã—:NullPointerException<br>
      * <br>
-     * ˆø”‚”‚ÉNull‚ğİ’è‚µ‚½ê‡‚ÍA—áŠO‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚é <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * å¼•æ•°ï½”ã«Nullã‚’è¨­å®šã—ãŸå ´åˆã¯ã€ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testPrintDataLine04() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         String fileName = TEMP_FILE_NAME;
 
         Class<PlainFileLineWriter_Stub01> clazz = PlainFileLineWriter_Stub01.class;
@@ -350,21 +350,21 @@ public class PlainFileLineWriterTest {
         PlainFileLineWriter plainFileLineWriter = new PlainFileLineWriter(
                 fileName, clazz, columnFormatterMap);
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String t = null;
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Éİ’èÏ‚İ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–æ™‚ã«è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             plainFileLineWriter.printDataLine(t);
-            fail("NullPointerException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½");
+            fail("NullPointerExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸ");
         } catch (NullPointerException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertSame(NullPointerException.class, e.getClass());
         } finally {
             plainFileLineWriter.closeFile();
@@ -372,23 +372,23 @@ public class PlainFileLineWriterTest {
     }
 
     /**
-     * ³íŒn<br>
-     * FileFormat‚ÌencloseChar‚Ædelimiter‚ªİ’è‚³‚ê‚Ä‚¢‚Ä‚àA–³‹‚·‚é
+     * æ­£å¸¸ç³»<br>
+     * FileFormatã®encloseCharã¨delimiterãŒè¨­å®šã•ã‚Œã¦ã„ã¦ã‚‚ã€ç„¡è¦–ã™ã‚‹
      * @throws Exception
      */
     @Test
     public void testPrintDataLine05() throws Exception {
-        // ‘Oˆ—(ƒtƒ@ƒCƒ‹)
+        // å‰å‡¦ç†(ãƒ•ã‚¡ã‚¤ãƒ«)
         String fileName = TEMP_FILE_NAME;
 
-        // ‘Oˆ—(Œ±‘ÎÛ)
+        // å‰å‡¦ç†(è©¦é¨“å¯¾è±¡)
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
         PlainFileLineWriter fileLineWriter = new PlainFileLineWriter(fileName,
                 PlainFileLineIterator_Stub02.class, columnFormatterMap);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         fileLineWriter.printDataLine("\"1\",'22',\"333\",|4444|");
         fileLineWriter.printDataLine("\"5\",'66',\"777\",|8888|");
         fileLineWriter.printDataLine("\"9\",'AA',\"BBB\",|CCCC|");
@@ -412,18 +412,18 @@ public class PlainFileLineWriterTest {
     /**
      * testGetDelimiter01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC <br>
      * <br>
-     * “ü—Í’lF <br>
-     * Šú‘Ò’lF(–ß‚è’l) char:0<br>
+     * å…¥åŠ›å€¤ï¼š <br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) char:0<br>
      * <br>
-     * getDelimiter()‚ªÀs‚·‚é‚Æ‚«•K‚¸‚O‚ğ•Ô‹p‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * getDelimiter()ãŒå®Ÿè¡Œã™ã‚‹ã¨ãå¿…ãšï¼ã‚’è¿”å´ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testGetDelimiter01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         String fileName = TEMP_FILE_NAME;
 
         Class<PlainFileLineWriter_Stub01> clazz = PlainFileLineWriter_Stub01.class;
@@ -432,20 +432,20 @@ public class PlainFileLineWriterTest {
         PlainFileLineWriter plainFileLineWriter = new PlainFileLineWriter(
                 fileName, clazz, columnFormatterMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ‚È‚µ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         char result = plainFileLineWriter.getDelimiter();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals(0, result);
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
-        // ‚È‚µ
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
+        // ãªã—
 
         plainFileLineWriter.closeFile();
     }
@@ -453,18 +453,18 @@ public class PlainFileLineWriterTest {
     /**
      * testGetEncloseChar01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC <br>
      * <br>
-     * “ü—Í’lF <br>
-     * Šú‘Ò’lF(–ß‚è’l) char:0<br>
+     * å…¥åŠ›å€¤ï¼š <br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) char:0<br>
      * <br>
-     * getEncloseChar()‚ªÀs‚·‚é‚Æ‚«•K‚¸‚O‚ğ•Ô‹p‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * getEncloseChar()ãŒå®Ÿè¡Œã™ã‚‹ã¨ãå¿…ãšï¼ã‚’è¿”å´ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testGetEncloseChar01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         String fileName = TEMP_FILE_NAME;
 
         Class<PlainFileLineWriter_Stub01> clazz = PlainFileLineWriter_Stub01.class;
@@ -473,20 +473,20 @@ public class PlainFileLineWriterTest {
         PlainFileLineWriter plainFileLineWriter = new PlainFileLineWriter(
                 fileName, clazz, columnFormatterMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ‚È‚µ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         char result = plainFileLineWriter.getEncloseChar();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals(0, result);
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
-        // ‚È‚µ
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
+        // ãªã—
 
         plainFileLineWriter.closeFile();
     }

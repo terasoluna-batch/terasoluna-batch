@@ -20,10 +20,10 @@ import jp.terasoluna.utlib.UTUtil;
 import junit.framework.TestCase;
 
 /**
- * {@link jp.terasoluna.fw.message.DBMessage} ƒNƒ‰ƒX‚Ìƒuƒ‰ƒbƒNƒ{ƒbƒNƒXƒeƒXƒgB
+ * {@link jp.terasoluna.fw.message.DBMessage} ã‚¯ãƒ©ã‚¹ã®ãƒ–ãƒ©ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ†ã‚¹ãƒˆã€‚
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4>
- * ƒƒbƒZ[ƒWƒŠƒ\[ƒX‚ğ•Û‚·‚éƒNƒ‰ƒXB
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4>
+ * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒªã‚½ãƒ¼ã‚¹ã‚’ä¿æŒã™ã‚‹ã‚¯ãƒ©ã‚¹ã€‚
  * <p>
  * 
  * @see jp.terasoluna.fw.message.DBMessage
@@ -32,10 +32,10 @@ import junit.framework.TestCase;
 public class DBMessageTest extends TestCase {
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -44,10 +44,10 @@ public class DBMessageTest extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -56,10 +56,10 @@ public class DBMessageTest extends TestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      * 
      * @param name
-     *            ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     *            ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public DBMessageTest(String name) {
         super(name);
@@ -68,34 +68,34 @@ public class DBMessageTest extends TestCase {
     /**
      * testDBMessage01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FA <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šA <br>
      * <br>
-     * “ü—Í’lF(ˆø”) code:"abc"<br>
-     * (ˆø”) language:"def"<br>
-     * (ˆø”) country:"ghi"<br>
-     * (ˆø”) variant:"jkl"<br>
-     * (ˆø”) message:"mno"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) code:"abc"<br>
+     * (å¼•æ•°) language:"def"<br>
+     * (å¼•æ•°) country:"ghi"<br>
+     * (å¼•æ•°) variant:"jkl"<br>
+     * (å¼•æ•°) message:"mno"<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») code:"abc"<br>
-     * (ó‘Ô•Ï‰») language:"def"<br>
-     * (ó‘Ô•Ï‰») country:"ghi"<br>
-     * (ó‘Ô•Ï‰») variant:"jkl"<br>
-     * (ó‘Ô•Ï‰») message:"mno"<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) code:"abc"<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) language:"def"<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) country:"ghi"<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) variant:"jkl"<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) message:"mno"<br>
      * <br>
-     * ˆø”‚Æ‚µ‚Ä—^‚¦‚ç‚ê‚½’l‚É‚È‚é‚©‚ğŠm”FB <br>
+     * å¼•æ•°ã¨ã—ã¦ä¸ãˆã‚‰ã‚ŒãŸå€¤ã«ãªã‚‹ã‹ã‚’ç¢ºèªã€‚ <br>
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testDBMessage01()
             throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DBMessage db = new DBMessage("abc", "def", "ghi", "jkl", "mno");
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals("abc", UTUtil.getPrivateField(db, "code"));
         assertEquals("def", UTUtil.getPrivateField(db, "language"));
         assertEquals("ghi", UTUtil.getPrivateField(db, "country"));
@@ -106,134 +106,134 @@ public class DBMessageTest extends TestCase {
     /**
      * testGetCode01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FA <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šA <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) code:"abc"<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) code:"abc"<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:"abc"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:"abc"<br>
      * <br>
-     * ³íŒn1Œ‚Ì‚İƒeƒXƒg <br>
+     * æ­£å¸¸ç³»1ä»¶ã®ã¿ãƒ†ã‚¹ãƒˆ <br>
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetCode01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DBMessage db = new DBMessage(null, null, null, null, null);
         UTUtil.setPrivateField(db, "code", "abc");
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String returnCode = db.getCode();
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals("abc", returnCode);
     }
 
     /**
      * testGetLanguage01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FA <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šA <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) language:"abc"<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) language:"abc"<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:"abc"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:"abc"<br>
      * <br>
-     * ³íŒn1Œ‚Ì‚İƒeƒXƒg <br>
+     * æ­£å¸¸ç³»1ä»¶ã®ã¿ãƒ†ã‚¹ãƒˆ <br>
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetLanguage01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DBMessage db = new DBMessage(null, null, null, null, null);
         UTUtil.setPrivateField(db, "language", "abc");
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String returnLanguage = db.getLanguage();
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals("abc", returnLanguage);
     }
 
     /**
      * testGetCountry01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FA <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šA <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) country:"abc"<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) country:"abc"<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:"abc"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:"abc"<br>
      * <br>
-     * ³íŒn1Œ‚Ì‚İƒeƒXƒg <br>
+     * æ­£å¸¸ç³»1ä»¶ã®ã¿ãƒ†ã‚¹ãƒˆ <br>
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetCountry01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DBMessage db = new DBMessage(null, null, null, null, null);
         UTUtil.setPrivateField(db, "country", "abc");
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String returnCountry = db.getCountry();
-        // ”»’è
+        // åˆ¤å®š
         assertEquals("abc", returnCountry);
     }
 
     /**
      * testGetVariant01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FA <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šA <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) variant:"abc"<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) variant:"abc"<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:"abc"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:"abc"<br>
      * <br>
-     * ³íŒn1Œ‚Ì‚İƒeƒXƒg <br>
+     * æ­£å¸¸ç³»1ä»¶ã®ã¿ãƒ†ã‚¹ãƒˆ <br>
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetVariant01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DBMessage db = new DBMessage(null, null, null, null, null);
         UTUtil.setPrivateField(db, "variant", "abc");
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String returnVariant = db.getVariant();
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals("abc", returnVariant);
     }
 
     /**
      * testGetMessage01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FA <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šA <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) message:"abc"<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) message:"abc"<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:"abc"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:"abc"<br>
      * <br>
-     * ³íŒn1Œ‚Ì‚İƒeƒXƒg <br>
+     * æ­£å¸¸ç³»1ä»¶ã®ã¿ãƒ†ã‚¹ãƒˆ <br>
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetMessage01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DBMessage db = new DBMessage(null, null, null, null, null);
         UTUtil.setPrivateField(db, "message", "abc");
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String returnMessage = db.getMessage();
         
-        // ”»’è
+        // åˆ¤å®š
         assertEquals("abc", returnMessage);
     }
 }

@@ -22,10 +22,10 @@ import jp.terasoluna.fw.file.dao.FileLineWriter;
 import jp.terasoluna.fw.file.dao.FileUpdateDAO;
 
 /**
- * ƒtƒ@ƒCƒ‹‘‚«‚İ—p‚ÌFileLineWriter¶¬ƒNƒ‰ƒXB
+ * ãƒ•ã‚¡ã‚¤ãƒ«æ›¸ãè¾¼ã¿ç”¨ã®FileLineWriterç”Ÿæˆã‚¯ãƒ©ã‚¹ã€‚
  * <p>
- * ƒtƒ@ƒCƒ‹ƒAƒNƒZƒX(ƒf[ƒ^‘)‚ğs‚¤3‚Â‚ÌƒNƒ‰ƒX(CSVAŒÅ’è’·A‰Â•Ï’·) ‚É‹¤’Ê‚·‚éˆ—‚ğ‚Ü‚Æ‚ß‚½’ŠÛƒNƒ‰ƒXB ƒtƒ@ƒCƒ‹‚Ìí—Ş‚É‘Î‰‚·‚éƒTƒuƒNƒ‰ƒX‚ªˆ—‚ğs‚¤B<br>
- * İ’è—á‚Í{@link jp.terasoluna.fw.file.dao.FileUpdateDAO}‚ğQÆ‚Ì‚±‚ÆB
+ * ãƒ•ã‚¡ã‚¤ãƒ«ã‚¢ã‚¯ã‚»ã‚¹(ãƒ‡ãƒ¼ã‚¿æ›¸è¾¼)ã‚’è¡Œã†3ã¤ã®ã‚¯ãƒ©ã‚¹(CSVã€å›ºå®šé•·ã€å¯å¤‰é•·) ã«å…±é€šã™ã‚‹å‡¦ç†ã‚’ã¾ã¨ã‚ãŸæŠ½è±¡ã‚¯ãƒ©ã‚¹ã€‚ ãƒ•ã‚¡ã‚¤ãƒ«ã®ç¨®é¡ã«å¯¾å¿œã™ã‚‹ã‚µãƒ–ã‚¯ãƒ©ã‚¹ãŒå‡¦ç†ã‚’è¡Œã†ã€‚<br>
+ * è¨­å®šä¾‹ã¯{@link jp.terasoluna.fw.file.dao.FileUpdateDAO}ã‚’å‚ç…§ã®ã“ã¨ã€‚
  * </p>
  * @see jp.terasoluna.fw.file.dao.FileUpdateDAO
  * @see jp.terasoluna.fw.file.dao.standard.CSVFileUpdateDAO
@@ -36,31 +36,31 @@ import jp.terasoluna.fw.file.dao.FileUpdateDAO;
 public abstract class AbstractFileUpdateDAO implements FileUpdateDAO {
 
     /**
-     * •¶šƒtƒH[ƒ}ƒbƒgˆ—ƒ}ƒbƒvB
+     * æ–‡å­—ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆå‡¦ç†ãƒãƒƒãƒ—ã€‚
      */
     private Map<String, ColumnFormatter> columnFormatterMap = null;
 
     /**
-     * ƒtƒ@ƒCƒ‹–¼‚ğw’è‚µ‚ÄA<code>FileLineWriter</code> ‚ğæ“¾‚·‚éB
-     * @param <T> 1s•ª‚Ì•¶š—ñ‚ğŠi”[‚·‚éƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgƒNƒ‰ƒX
-     * @param fileName ƒtƒ@ƒCƒ‹–¼iâ‘ÎƒpƒX‚Ü‚½‚Í‘Š‘ÎƒpƒX‚Ì‚Ç‚¿‚ç‚©j
-     * @param clazz 1s•ª‚Ì•¶š—ñ‚ğŠi”[‚·‚éƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgƒNƒ‰ƒX
-     * @return ƒtƒ@ƒCƒ‹o—Í—pWriter
+     * ãƒ•ã‚¡ã‚¤ãƒ«åã‚’æŒ‡å®šã—ã¦ã€<code>FileLineWriter</code> ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @param <T> 1è¡Œåˆ†ã®æ–‡å­—åˆ—ã‚’æ ¼ç´ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¯ãƒ©ã‚¹
+     * @param fileName ãƒ•ã‚¡ã‚¤ãƒ«åï¼ˆçµ¶å¯¾ãƒ‘ã‚¹ã¾ãŸã¯ç›¸å¯¾ãƒ‘ã‚¹ã®ã©ã¡ã‚‰ã‹ï¼‰
+     * @param clazz 1è¡Œåˆ†ã®æ–‡å­—åˆ—ã‚’æ ¼ç´ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¯ãƒ©ã‚¹
+     * @return ãƒ•ã‚¡ã‚¤ãƒ«å‡ºåŠ›ç”¨Writer
      */
     public abstract <T> FileLineWriter<T> execute(String fileName,
             Class<T> clazz);
 
     /**
-     * •¶šƒtƒH[ƒ}ƒbƒgˆ—ƒ}ƒbƒv‚ğæ“¾‚·‚éB
-     * @return •¶šƒtƒH[ƒ}ƒbƒgˆ—ƒ}ƒbƒv
+     * æ–‡å­—ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆå‡¦ç†ãƒãƒƒãƒ—ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return æ–‡å­—ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆå‡¦ç†ãƒãƒƒãƒ—
      */
     public Map<String, ColumnFormatter> getColumnFormatterMap() {
         return columnFormatterMap;
     }
 
     /**
-     * •¶šƒtƒH[ƒ}ƒbƒgˆ—ƒ}ƒbƒv‚ğİ’è‚·‚éB
-     * @param columnFormatterMap •¶šƒtƒH[ƒ}ƒbƒgˆ—ƒ}ƒbƒv
+     * æ–‡å­—ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆå‡¦ç†ãƒãƒƒãƒ—ã‚’è¨­å®šã™ã‚‹ã€‚
+     * @param columnFormatterMap æ–‡å­—ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆå‡¦ç†ãƒãƒƒãƒ—
      */
     public void setColumnFormatterMap(
             Map<String, ColumnFormatter> columnFormatterMap) {

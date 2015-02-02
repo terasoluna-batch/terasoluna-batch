@@ -28,11 +28,11 @@ import org.apache.commons.validator.ValidatorException;
 import org.apache.commons.validator.Var;
 
 /**
- * {@link jp.terasoluna.fw.validation.FieldChecks} ƒNƒ‰ƒX‚Ìƒuƒ‰ƒbƒNƒ{ƒbƒNƒXƒeƒXƒgB
+ * {@link jp.terasoluna.fw.validation.FieldChecks} ã‚¯ãƒ©ã‚¹ã®ãƒ–ãƒ©ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ†ã‚¹ãƒˆã€‚
  *
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4>
- * TERASOLUNA‚Ì“ü—Íƒ`ƒFƒbƒN‹@”\‚Å‹¤’Ê‚Ég—p‚³‚ê‚éŒŸØƒ‹[ƒ‹ƒNƒ‰ƒXB
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4>
+ * TERASOLUNAã®å…¥åŠ›ãƒã‚§ãƒƒã‚¯æ©Ÿèƒ½ã§å…±é€šã«ä½¿ç”¨ã•ã‚Œã‚‹æ¤œè¨¼ãƒ«ãƒ¼ãƒ«ã‚¯ãƒ©ã‚¹ã€‚
  * <p>
  *
  * @see jp.terasoluna.fw.validation.FieldChecks
@@ -40,19 +40,19 @@ import org.apache.commons.validator.Var;
 public class FieldChecksTest06 extends TestCase {
 
     /**
-     * ‚±‚ÌƒeƒXƒgƒP[ƒX‚ğÀs‚·‚éˆ×‚Ì
-     * GUI ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‹N“®‚·‚éB
+     * ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã‚’å®Ÿè¡Œã™ã‚‹ç‚ºã®
+     * GUI ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’èµ·å‹•ã™ã‚‹ã€‚
      *
-     * @param args java ƒRƒ}ƒ“ƒh‚Éİ’è‚³‚ê‚½ƒpƒ‰ƒ[ƒ^
+     * @param args java ã‚³ãƒãƒ³ãƒ‰ã«è¨­å®šã•ã‚ŒãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public static void main(String[] args) {
         junit.swingui.TestRunner.run(FieldChecksTest06.class);
     }
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -62,9 +62,9 @@ public class FieldChecksTest06 extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -73,9 +73,9 @@ public class FieldChecksTest06 extends TestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      *
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public FieldChecksTest06(String name) {
         super(name);
@@ -85,27 +85,27 @@ public class FieldChecksTest06 extends TestCase {
      * testValidateAlphaNumericString01()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:null<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:null<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚ªnull‚Ìê‡Atrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanãŒnullã®å ´åˆã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateAlphaNumericString01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         // bean : null
         Object bean = null;
         // va : not null
@@ -116,11 +116,11 @@ public class FieldChecksTest06 extends TestCase {
         FieldChecks_ValidationErrorsImpl01 errors =
             new FieldChecks_ValidationErrorsImpl01();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean b =
             new FieldChecks().validateAlphaNumericString(bean, va, field, errors);
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(b);
         assertEquals(0, errors.addErrorCount);
     }
@@ -129,27 +129,27 @@ public class FieldChecksTest06 extends TestCase {
      * testValidateAlphaNumericString02()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:""<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:""<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚ª‹ó•¶š‚Ìê‡Atrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanãŒç©ºæ–‡å­—ã®å ´åˆã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateAlphaNumericString02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         // bean : ""
         Object bean = "";
         // va : not null
@@ -160,11 +160,11 @@ public class FieldChecksTest06 extends TestCase {
         FieldChecks_ValidationErrorsImpl01 errors =
             new FieldChecks_ValidationErrorsImpl01();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean b =
             new FieldChecks().validateAlphaNumericString(bean, va, field, errors);
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(b);
         assertEquals(0, errors.addErrorCount);
     }
@@ -173,27 +173,27 @@ public class FieldChecksTest06 extends TestCase {
      * testValidateAlphaNumericString03()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"a0A"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"a0A"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚ª”¼Šp‰p”•¶š‚Ì‚İ‚Å\¬‚³‚ê‚Ä‚¢‚éê‡Atrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanãŒåŠè§’è‹±æ•°æ–‡å­—ã®ã¿ã§æ§‹æˆã•ã‚Œã¦ã„ã‚‹å ´åˆã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateAlphaNumericString03() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         // bean : "a0A"
         Object bean = "a0A";
         // va : not null
@@ -204,11 +204,11 @@ public class FieldChecksTest06 extends TestCase {
         FieldChecks_ValidationErrorsImpl01 errors =
             new FieldChecks_ValidationErrorsImpl01();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean b =
             new FieldChecks().validateAlphaNumericString(bean, va, field, errors);
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(b);
         assertEquals(0, errors.addErrorCount);
     }
@@ -217,27 +217,27 @@ public class FieldChecksTest06 extends TestCase {
      * testValidateAlphaNumericString04()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"Zg3%"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"Zg3%"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
-     *         (ó‘Ô•Ï‰») errors:bean,field,va‚ğˆø”‚Æ‚µ‚ÄaddErrors‚ªŒÄ‚Ño‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:bean,field,vaã‚’å¼•æ•°ã¨ã—ã¦addErrorsãŒå‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚É”¼Šp‰p”•¶šˆÈŠO‚Ì•¶š‚ªŠÜ‚Ü‚ê‚Ä‚¢‚éê‡AƒGƒ‰[‚ğ’Ç‰Á‚µ‚Ätrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanã«åŠè§’è‹±æ•°æ–‡å­—ä»¥å¤–ã®æ–‡å­—ãŒå«ã¾ã‚Œã¦ã„ã‚‹å ´åˆã€ã‚¨ãƒ©ãƒ¼ã‚’è¿½åŠ ã—ã¦trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateAlphaNumericString04() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         // bean : "Zg3%"
         Object bean = "Zg3%";
         // va : not null
@@ -248,14 +248,14 @@ public class FieldChecksTest06 extends TestCase {
         FieldChecks_ValidationErrorsImpl01 errors =
             new FieldChecks_ValidationErrorsImpl01();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean b = new FieldChecks().validateAlphaNumericString(bean, va, field, errors);
 
-        // ”»’è
+        // åˆ¤å®š
         assertFalse(b);
-        // ŒÄoŠm”F
+        // å‘¼å‡ºç¢ºèª
         assertEquals(1, errors.addErrorCount);
-        // ˆø”Šm”F
+        // å¼•æ•°ç¢ºèª
         ArrayList beanList = (ArrayList) UTUtil.getPrivateField(errors, "beanList");
         assertSame(bean, beanList.get(0));
         ArrayList vaList = (ArrayList) UTUtil.getPrivateField(errors, "vaList");
@@ -268,27 +268,27 @@ public class FieldChecksTest06 extends TestCase {
      * testValidateCapAlphaNumericString01()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:null<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:null<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚ªnull‚Ìê‡Atrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanãŒnullã®å ´åˆã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateCapAlphaNumericString01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         // bean : null
         Object bean = null;
         // va : not null
@@ -299,11 +299,11 @@ public class FieldChecksTest06 extends TestCase {
         FieldChecks_ValidationErrorsImpl01 errors =
             new FieldChecks_ValidationErrorsImpl01();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean b =
             new FieldChecks().validateCapAlphaNumericString(bean, va, field, errors);
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(b);
         assertEquals(0, errors.addErrorCount);
     }
@@ -312,27 +312,27 @@ public class FieldChecksTest06 extends TestCase {
      * testValidateCapAlphaNumericString02()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:""<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:""<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚ª‹ó•¶š‚Ìê‡Atrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanãŒç©ºæ–‡å­—ã®å ´åˆã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateCapAlphaNumericString02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         // bean : ""
         Object bean = "";
         // va : not null
@@ -343,11 +343,11 @@ public class FieldChecksTest06 extends TestCase {
         FieldChecks_ValidationErrorsImpl01 errors =
             new FieldChecks_ValidationErrorsImpl01();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean b =
             new FieldChecks().validateCapAlphaNumericString(bean, va, field, errors);
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(b);
         assertEquals(0, errors.addErrorCount);
     }
@@ -356,27 +356,27 @@ public class FieldChecksTest06 extends TestCase {
      * testValidateCapAlphaNumericString03()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"ABC0"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"ABC0"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚ª‘å•¶š‚Ì”¼Šp‰p”•¶š‚Ì‚İ‚Å\¬‚³‚ê‚Ä‚¢‚éê‡Atrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanãŒå¤§æ–‡å­—ã®åŠè§’è‹±æ•°æ–‡å­—ã®ã¿ã§æ§‹æˆã•ã‚Œã¦ã„ã‚‹å ´åˆã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateCapAlphaNumericString03() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         // bean : "ABC0"
         Object bean = "ABC0";
         // va : not null
@@ -387,11 +387,11 @@ public class FieldChecksTest06 extends TestCase {
         FieldChecks_ValidationErrorsImpl01 errors =
             new FieldChecks_ValidationErrorsImpl01();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean b =
             new FieldChecks().validateCapAlphaNumericString(bean, va, field, errors);
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(b);
         assertEquals(0, errors.addErrorCount);
     }
@@ -400,27 +400,27 @@ public class FieldChecksTest06 extends TestCase {
      * testValidateCapAlphaNumericString04()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"Aa0"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"Aa0"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
-     *         (ó‘Ô•Ï‰») errors:bean,field,va‚ğˆø”‚Æ‚µ‚ÄaddErrors‚ªŒÄ‚Ño‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:bean,field,vaã‚’å¼•æ•°ã¨ã—ã¦addErrorsãŒå‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚É‘å•¶š‚Ì”¼Šp‰p”•¶šˆÈŠO‚Ì•¶š‚ªŠÜ‚Ü‚ê‚Ä‚¢‚éê‡AƒGƒ‰[‚ğ’Ç‰Á‚µ‚Ätrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanã«å¤§æ–‡å­—ã®åŠè§’è‹±æ•°æ–‡å­—ä»¥å¤–ã®æ–‡å­—ãŒå«ã¾ã‚Œã¦ã„ã‚‹å ´åˆã€ã‚¨ãƒ©ãƒ¼ã‚’è¿½åŠ ã—ã¦trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateCapAlphaNumericString04() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         // bean : "Aa0"
         Object bean = "Aa0";
         // va : not null
@@ -431,14 +431,14 @@ public class FieldChecksTest06 extends TestCase {
         FieldChecks_ValidationErrorsImpl01 errors =
             new FieldChecks_ValidationErrorsImpl01();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean b = new FieldChecks().validateCapAlphaNumericString(bean, va, field, errors);
 
-        // ”»’è
+        // åˆ¤å®š
         assertFalse(b);
-        // ŒÄoŠm”F
+        // å‘¼å‡ºç¢ºèª
         assertEquals(1, errors.addErrorCount);
-        // ˆø”Šm”F
+        // å¼•æ•°ç¢ºèª
         ArrayList beanList = (ArrayList) UTUtil.getPrivateField(errors, "beanList");
         assertSame(bean, beanList.get(0));
         ArrayList vaList = (ArrayList) UTUtil.getPrivateField(errors, "vaList");
@@ -451,27 +451,27 @@ public class FieldChecksTest06 extends TestCase {
      * testValidateNumber01()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:null<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:null<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚ªnull‚Ìê‡Atrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanãŒnullã®å ´åˆã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateNumber01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         // bean : null
         Object bean = null;
         // va : not null
@@ -482,11 +482,11 @@ public class FieldChecksTest06 extends TestCase {
         FieldChecks_ValidationErrorsImpl01 errors =
             new FieldChecks_ValidationErrorsImpl01();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean b =
             new FieldChecks().validateNumber(bean, va, field, errors);
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(b);
         assertEquals(0, errors.addErrorCount);
     }
@@ -495,27 +495,27 @@ public class FieldChecksTest06 extends TestCase {
      * testValidateNumber02()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:""<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:""<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚ª‹ó•¶š‚Ìê‡Atrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanãŒç©ºæ–‡å­—ã®å ´åˆã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateNumber02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         // bean : ""
         Object bean = "";
         // va : not null
@@ -526,11 +526,11 @@ public class FieldChecksTest06 extends TestCase {
         FieldChecks_ValidationErrorsImpl01 errors =
             new FieldChecks_ValidationErrorsImpl01();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean b =
             new FieldChecks().validateNumber(bean, va, field, errors);
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(b);
         assertEquals(0, errors.addErrorCount);
     }
@@ -539,29 +539,29 @@ public class FieldChecksTest06 extends TestCase {
      * testValidateNumber03()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"‚T"i‘SŠpj<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"ï¼•"ï¼ˆå…¨è§’ï¼‰<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
-     *         (ó‘Ô•Ï‰») errors:bean,field,va‚ğˆø”‚Æ‚µ‚ÄaddErrors‚ªŒÄ‚Ño‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:bean,field,vaã‚’å¼•æ•°ã¨ã—ã¦addErrorsãŒå‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
      *
      * <br>
-     * “ü—Í’l‚ª‘SŠp‚Ìê‡AƒGƒ‰[‚ğ’Ç‰Á‚µfalse‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å…¥åŠ›å€¤ãŒå…¨è§’ã®å ´åˆã€ã‚¨ãƒ©ãƒ¼ã‚’è¿½åŠ ã—falseãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateNumber03() throws Exception {
-        // ‘Oˆ—
-        // bean : "‚T"
-        Object bean = "‚T";
+        // å‰å‡¦ç†
+        // bean : "ï¼•"
+        Object bean = "ï¼•";
         // va : not null
         ValidatorAction va = new ValidatorAction();
         // field : not null
@@ -570,15 +570,15 @@ public class FieldChecksTest06 extends TestCase {
         FieldChecks_ValidationErrorsImpl01 errors =
             new FieldChecks_ValidationErrorsImpl01();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean b =
             new FieldChecks().validateNumber(bean, va, field, errors);
 
-        // ”»’è
+        // åˆ¤å®š
         assertFalse(b);
-        // ŒÄoŠm”F
+        // å‘¼å‡ºç¢ºèª
         assertEquals(1, errors.addErrorCount);
-        // ˆø”Šm”F
+        // å¼•æ•°ç¢ºèª
         ArrayList beanList = (ArrayList) UTUtil.getPrivateField(errors, "beanList");
         assertSame(bean, beanList.get(0));
         ArrayList vaList = (ArrayList) UTUtil.getPrivateField(errors, "vaList");
@@ -591,27 +591,27 @@ public class FieldChecksTest06 extends TestCase {
      * testValidateNumber04()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"test"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) errors:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"test"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
-     *         (ó‘Ô•Ï‰») errors:bean,field,va‚ğˆø”‚Æ‚µ‚ÄaddErrors‚ªŒÄ‚Ño‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:bean,field,vaã‚’å¼•æ•°ã¨ã—ã¦addErrorsãŒå‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
      *
      * <br>
-     * “ü—Í’l‚ª”’l‚É•ÏŠ·‚Å‚«‚È‚¢ê‡AƒGƒ‰[‚ğ’Ç‰Á‚µfalse‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å…¥åŠ›å€¤ãŒæ•°å€¤ã«å¤‰æ›ã§ããªã„å ´åˆã€ã‚¨ãƒ©ãƒ¼ã‚’è¿½åŠ ã—falseãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateNumber04() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         // bean : "test"
         Object bean = "test";
         // va : not null
@@ -622,15 +622,15 @@ public class FieldChecksTest06 extends TestCase {
         FieldChecks_ValidationErrorsImpl01 errors =
             new FieldChecks_ValidationErrorsImpl01();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean b =
             new FieldChecks().validateNumber(bean, va, field, errors);
 
-        // ”»’è
+        // åˆ¤å®š
         assertFalse(b);
-        // ŒÄoŠm”F
+        // å‘¼å‡ºç¢ºèª
         assertEquals(1, errors.addErrorCount);
-        // ˆø”Šm”F
+        // å¼•æ•°ç¢ºèª
         ArrayList beanList = (ArrayList) UTUtil.getPrivateField(errors, "beanList");
         assertSame(bean, beanList.get(0));
         ArrayList vaList = (ArrayList) UTUtil.getPrivateField(errors, "vaList");
@@ -643,30 +643,30 @@ public class FieldChecksTest06 extends TestCase {
      * testValidateNumber05()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"5"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"5"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                integerLength="abc"<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:ValidatorException<br>
-     *                    ƒƒbƒZ[ƒWF"Mistake on validation definition file. - integerLength is not number. You'll have to check it over. "<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:ƒƒOƒŒƒxƒ‹FƒGƒ‰[<br>
-     *                    ƒƒbƒZ[ƒWF"Mistake on validation definition file. - integerLength is not number. You'll have to check it over. ", new NumberFormatException()<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ValidatorException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Mistake on validation definition file. - integerLength is not number. You'll have to check it over. "<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ï¼šã‚¨ãƒ©ãƒ¼<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Mistake on validation definition file. - integerLength is not number. You'll have to check it over. ", new NumberFormatException()<br>
      *
      * <br>
-     * var‚ÌintegerLength‚ª”’l‚É•ÏŠ·‚Å‚«‚È‚¢ê‡AValidatorException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * varã®integerLengthãŒæ•°å€¤ã«å¤‰æ›ã§ããªã„å ´åˆã€ValidatorExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateNumber05() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         // bean : "5"
         Object bean = "5";
         // va : not null
@@ -683,12 +683,12 @@ public class FieldChecksTest06 extends TestCase {
             new FieldChecks_ValidationErrorsImpl01();
         
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             @SuppressWarnings("unused") boolean b =
                 new FieldChecks().validateNumber(bean, va, field, errors);
             fail();
         } catch (ValidatorException e) {
-            // ”»’è
+            // åˆ¤å®š
             String message = "Mistake on validation definition file. "
                 + "- integerLength is not number. "
                 + "You'll have to check it over. ";
@@ -701,30 +701,30 @@ public class FieldChecksTest06 extends TestCase {
      * testValidateNumber06()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"5"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"5"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                scale="abc"<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:ValidatorException<br>
-     *                    ƒƒbƒZ[ƒWF"Mistake on validation definition file. - scale is not number. You'll have to check it over. "<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:ƒƒOƒŒƒxƒ‹FƒGƒ‰[<br>
-     *                    ƒƒbƒZ[ƒWF"Mistake on validation definition file. - scale is not number. You'll have to check it over. ", new NumberFormatException()<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ValidatorException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Mistake on validation definition file. - scale is not number. You'll have to check it over. "<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ï¼šã‚¨ãƒ©ãƒ¼<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Mistake on validation definition file. - scale is not number. You'll have to check it over. ", new NumberFormatException()<br>
      *
      * <br>
-     * var‚Ìscale‚ª”’l‚É•ÏŠ·‚Å‚«‚È‚¢ê‡AValidatorException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * varã®scaleãŒæ•°å€¤ã«å¤‰æ›ã§ããªã„å ´åˆã€ValidatorExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateNumber06() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         // bean : "5"
         Object bean = "5";
         // va : not null
@@ -741,12 +741,12 @@ public class FieldChecksTest06 extends TestCase {
             new FieldChecks_ValidationErrorsImpl01();
         
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             @SuppressWarnings("unused") boolean b =
                 new FieldChecks().validateNumber(bean, va, field, errors);
             fail();
         } catch (ValidatorException e) {
-            // ”»’è
+            // åˆ¤å®š
             String message = "Mistake on validation definition file. "
                 + "- scale is not number. "
                 + "You'll have to check it over. ";
@@ -759,29 +759,29 @@ public class FieldChecksTest06 extends TestCase {
      * testValidateNumber07()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_F
+     * è¦³ç‚¹ï¼š
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"100.05"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"100.05"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                integerLength="5"<br>
      *                scale="3"<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * “ü—Í‚³‚ê‚½•¶š‚Ì®”•”‚ÌŒ…”‚ªAvar‚ÌintegerLength‚Ì’l‚æ‚è¬‚³‚­A¬”•”‚ÌŒ…”‚ªvar‚Ìscale‚Ì’l‚æ‚è¬‚³‚¢ê‡Atrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å…¥åŠ›ã•ã‚ŒãŸæ–‡å­—ã®æ•´æ•°éƒ¨ã®æ¡æ•°ãŒã€varã®integerLengthã®å€¤ã‚ˆã‚Šå°ã•ãã€å°æ•°éƒ¨ã®æ¡æ•°ãŒvarã®scaleã®å€¤ã‚ˆã‚Šå°ã•ã„å ´åˆã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateNumber07() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         // bean : "100.05"
         Object bean = "100.05";
         // va : not null
@@ -802,11 +802,11 @@ public class FieldChecksTest06 extends TestCase {
         FieldChecks_ValidationErrorsImpl01 errors =
             new FieldChecks_ValidationErrorsImpl01();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean b =
             new FieldChecks().validateNumber(bean, va, field, errors);
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(b);
         assertEquals(0, errors.addErrorCount);
     }
@@ -815,31 +815,31 @@ public class FieldChecksTest06 extends TestCase {
      * testValidateNumber08()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"100.05"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"100.05"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                integerLength="3"<br>
      *                scale="2"<br>
      *                isAccordedInteger="true"<br>
      *                isAccordedScale="true"<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * var‚ÌisAccordedInteger‚Étrue‚ªw’è‚³‚ê‚Ä‚¢‚ÄA“ü—Í‚³‚ê‚½•¶š‚Ì®”•”‚ÌŒ…”‚ªAvar‚ÌintegerLength‚Ì’l‚Æ“™‚µ‚­Avar‚ÌisAccordedScale‚Étrue‚ªw’è‚³‚ê‚Ä‚¢‚ÄA¬”•”‚ÌŒ…”‚ªvar‚Ìscale‚Ì’l‚Æ“™‚µ‚¢ê‡Atrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * varã®isAccordedIntegerã«trueãŒæŒ‡å®šã•ã‚Œã¦ã„ã¦ã€å…¥åŠ›ã•ã‚ŒãŸæ–‡å­—ã®æ•´æ•°éƒ¨ã®æ¡æ•°ãŒã€varã®integerLengthã®å€¤ã¨ç­‰ã—ãã€varã®isAccordedScaleã«trueãŒæŒ‡å®šã•ã‚Œã¦ã„ã¦ã€å°æ•°éƒ¨ã®æ¡æ•°ãŒvarã®scaleã®å€¤ã¨ç­‰ã—ã„å ´åˆã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateNumber08() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         // bean : "100.05"
         Object bean = "100.05";
         // va : not null
@@ -870,11 +870,11 @@ public class FieldChecksTest06 extends TestCase {
         FieldChecks_ValidationErrorsImpl01 errors =
             new FieldChecks_ValidationErrorsImpl01();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean b =
             new FieldChecks().validateNumber(bean, va, field, errors);
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(b);
         assertEquals(0, errors.addErrorCount);
     }
@@ -883,31 +883,31 @@ public class FieldChecksTest06 extends TestCase {
      * testValidateNumber09()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"100.05"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"100.05"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                integerLength="5"<br>
      *                scale="3"<br>
      *                isAccordedInteger="test"<br>
      *                isAccordedScale="test"<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ŒÄ‚Ño‚³‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:å‘¼ã³å‡ºã•ã‚Œãªã„<br>
      *
      * <br>
-     * var‚ÌisAccordedInteger‚ÉtrueˆÈŠO‚Ì•¶š—ñ‚ªw’è‚³‚ê‚Ä‚¢‚ÄA“ü—Í‚³‚ê‚½•¶š‚Ì®”•”‚ÌŒ…”‚ªAvar‚ÌintegerLength‚Ì’l‚æ‚è¬‚³‚­Avar‚ÌisAccordedScale‚ÉtrueˆÈŠO‚Ì•¶š—ñ‚ªw’è‚³‚ê‚Ä‚¢‚ÄA¬”•”‚ÌŒ…”‚ªvar‚Ìscale‚Ì’l‚æ‚è¬‚³‚¢ê‡Atrue‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * varã®isAccordedIntegerã«trueä»¥å¤–ã®æ–‡å­—åˆ—ãŒæŒ‡å®šã•ã‚Œã¦ã„ã¦ã€å…¥åŠ›ã•ã‚ŒãŸæ–‡å­—ã®æ•´æ•°éƒ¨ã®æ¡æ•°ãŒã€varã®integerLengthã®å€¤ã‚ˆã‚Šå°ã•ãã€varã®isAccordedScaleã«trueä»¥å¤–ã®æ–‡å­—åˆ—ãŒæŒ‡å®šã•ã‚Œã¦ã„ã¦ã€å°æ•°éƒ¨ã®æ¡æ•°ãŒvarã®scaleã®å€¤ã‚ˆã‚Šå°ã•ã„å ´åˆã€trueãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateNumber09() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         // bean : "100.05"
         Object bean = "100.05";
         // va : not null
@@ -939,11 +939,11 @@ public class FieldChecksTest06 extends TestCase {
         FieldChecks_ValidationErrorsImpl01 errors =
             new FieldChecks_ValidationErrorsImpl01();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean b =
             new FieldChecks().validateNumber(bean, va, field, errors);
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(b);
         assertEquals(0, errors.addErrorCount);
     }
@@ -952,28 +952,28 @@ public class FieldChecksTest06 extends TestCase {
      * testValidateNumber10()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"100.05"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"100.05"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                integerLength="2"<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
-     *         (ó‘Ô•Ï‰») errors:bean,field,va‚ğˆø”‚Æ‚µ‚ÄaddErrors‚ªŒÄ‚Ño‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:bean,field,vaã‚’å¼•æ•°ã¨ã—ã¦addErrorsãŒå‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
      *
      * <br>
-     * “ü—Í‚³‚ê‚½•¶š‚Ì®”•”‚ÌŒ…”‚ªAvar‚ÌintegerLength‚Ì’l‚æ‚è‘å‚«‚¢ê‡AƒGƒ‰[‚ğ’Ç‰Á‚µ‚Äfalse‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å…¥åŠ›ã•ã‚ŒãŸæ–‡å­—ã®æ•´æ•°éƒ¨ã®æ¡æ•°ãŒã€varã®integerLengthã®å€¤ã‚ˆã‚Šå¤§ãã„å ´åˆã€ã‚¨ãƒ©ãƒ¼ã‚’è¿½åŠ ã—ã¦falseãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateNumber10() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         // bean : "100.05"
         Object bean = "100.05";
         // va : not null
@@ -990,15 +990,15 @@ public class FieldChecksTest06 extends TestCase {
         FieldChecks_ValidationErrorsImpl01 errors =
             new FieldChecks_ValidationErrorsImpl01();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean b =
             new FieldChecks().validateNumber(bean, va, field, errors);
         
-        // ”»’è
+        // åˆ¤å®š
         assertFalse(b);
-        // ŒÄoŠm”F
+        // å‘¼å‡ºç¢ºèª
         assertEquals(1, errors.addErrorCount);
-        // ˆø”Šm”F
+        // å¼•æ•°ç¢ºèª
         ArrayList beanList = (ArrayList) UTUtil.getPrivateField(errors, "beanList");
         assertSame(bean, beanList.get(0));
         ArrayList vaList = (ArrayList) UTUtil.getPrivateField(errors, "vaList");
@@ -1011,28 +1011,28 @@ public class FieldChecksTest06 extends TestCase {
      * testValidateNumber11()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"100.05"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"100.05"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                scale="1"<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
-     *         (ó‘Ô•Ï‰») errors:bean,field,va‚ğˆø”‚Æ‚µ‚ÄaddErrors‚ªŒÄ‚Ño‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:bean,field,vaã‚’å¼•æ•°ã¨ã—ã¦addErrorsãŒå‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
      *
      * <br>
-     * “ü—Í‚³‚ê‚½•¶š‚Ì¬”•”‚ÌŒ…”‚ªAvar‚Ìscale‚Ì’l‚æ‚è‘å‚«‚¢ê‡AƒGƒ‰[‚ğ’Ç‰Á‚µ‚Äfalse‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å…¥åŠ›ã•ã‚ŒãŸæ–‡å­—ã®å°æ•°éƒ¨ã®æ¡æ•°ãŒã€varã®scaleã®å€¤ã‚ˆã‚Šå¤§ãã„å ´åˆã€ã‚¨ãƒ©ãƒ¼ã‚’è¿½åŠ ã—ã¦falseãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateNumber11() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         // bean : "100.05"
         Object bean = "100.05";
         // va : not null
@@ -1049,15 +1049,15 @@ public class FieldChecksTest06 extends TestCase {
         FieldChecks_ValidationErrorsImpl01 errors =
             new FieldChecks_ValidationErrorsImpl01();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean b =
             new FieldChecks().validateNumber(bean, va, field, errors);
         
-        // ”»’è
+        // åˆ¤å®š
         assertFalse(b);
-        // ŒÄoŠm”F
+        // å‘¼å‡ºç¢ºèª
         assertEquals(1, errors.addErrorCount);
-        // ˆø”Šm”F
+        // å¼•æ•°ç¢ºèª
         ArrayList beanList = (ArrayList) UTUtil.getPrivateField(errors, "beanList");
         assertSame(bean, beanList.get(0));
         ArrayList vaList = (ArrayList) UTUtil.getPrivateField(errors, "vaList");
@@ -1070,29 +1070,29 @@ public class FieldChecksTest06 extends TestCase {
      * testValidateNumber12()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"100.05"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"100.05"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                integerLength="5"<br>
      *                isAccordedInteger="true"<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
-     *         (ó‘Ô•Ï‰») errors:bean,field,va‚ğˆø”‚Æ‚µ‚ÄaddErrors‚ªŒÄ‚Ño‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:bean,field,vaã‚’å¼•æ•°ã¨ã—ã¦addErrorsãŒå‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
      *
      * <br>
-     * var‚ÌisAccordedInteger‚Étrue‚ªw’è‚³‚ê‚Ä‚¢‚ÄA“ü—Í‚³‚ê‚½•¶š‚Ì®”•”‚ÌŒ…”‚ªAvar‚ÌintegerLength‚Ì’l‚æ‚è¬‚³‚¢ê‡AƒGƒ‰[‚ğ’Ç‰Á‚µ‚Äfalse‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * varã®isAccordedIntegerã«trueãŒæŒ‡å®šã•ã‚Œã¦ã„ã¦ã€å…¥åŠ›ã•ã‚ŒãŸæ–‡å­—ã®æ•´æ•°éƒ¨ã®æ¡æ•°ãŒã€varã®integerLengthã®å€¤ã‚ˆã‚Šå°ã•ã„å ´åˆã€ã‚¨ãƒ©ãƒ¼ã‚’è¿½åŠ ã—ã¦falseãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateNumber12() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         // bean : "100.05"
         Object bean = "100.05";
         // va : not null
@@ -1113,15 +1113,15 @@ public class FieldChecksTest06 extends TestCase {
         FieldChecks_ValidationErrorsImpl01 errors =
             new FieldChecks_ValidationErrorsImpl01();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean b =
             new FieldChecks().validateNumber(bean, va, field, errors);
         
-        // ”»’è
+        // åˆ¤å®š
         assertFalse(b);
-        // ŒÄoŠm”F
+        // å‘¼å‡ºç¢ºèª
         assertEquals(1, errors.addErrorCount);
-        // ˆø”Šm”F
+        // å¼•æ•°ç¢ºèª
         ArrayList beanList = (ArrayList) UTUtil.getPrivateField(errors, "beanList");
         assertSame(bean, beanList.get(0));
         ArrayList vaList = (ArrayList) UTUtil.getPrivateField(errors, "vaList");
@@ -1134,29 +1134,29 @@ public class FieldChecksTest06 extends TestCase {
      * testValidateNumber13()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"100.05"<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) field:var:<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"100.05"<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) field:var:<br>
      *                scale="3"<br>
      *                isAccordedScale="true"<br>
-     *         (ˆø”) errors:not null<br>
+     *         (å¼•æ•°) errors:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
-     *         (ó‘Ô•Ï‰») errors:bean,field,va‚ğˆø”‚Æ‚µ‚ÄaddErrors‚ªŒÄ‚Ño‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:bean,field,vaã‚’å¼•æ•°ã¨ã—ã¦addErrorsãŒå‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
      *
      * <br>
-     * var‚ÌisAccordedScale‚Étrue‚ªw’è‚³‚ê‚Ä‚¢‚ÄA“ü—Í‚³‚ê‚½•¶š‚Ì¬”•”‚ÌŒ…”‚ªAvar‚Ìscale‚Ì’l‚æ‚è¬‚³‚¢ê‡AƒGƒ‰[‚ğ’Ç‰Á‚µ‚Äfalse‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * varã®isAccordedScaleã«trueãŒæŒ‡å®šã•ã‚Œã¦ã„ã¦ã€å…¥åŠ›ã•ã‚ŒãŸæ–‡å­—ã®å°æ•°éƒ¨ã®æ¡æ•°ãŒã€varã®scaleã®å€¤ã‚ˆã‚Šå°ã•ã„å ´åˆã€ã‚¨ãƒ©ãƒ¼ã‚’è¿½åŠ ã—ã¦falseãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateNumber13() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         // bean : "100.05"
         Object bean = "100.05";
         // va : not null
@@ -1177,15 +1177,15 @@ public class FieldChecksTest06 extends TestCase {
         FieldChecks_ValidationErrorsImpl01 errors =
             new FieldChecks_ValidationErrorsImpl01();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean b =
             new FieldChecks().validateNumber(bean, va, field, errors);
         
-        // ”»’è
+        // åˆ¤å®š
         assertFalse(b);
-        // ŒÄoŠm”F
+        // å‘¼å‡ºç¢ºèª
         assertEquals(1, errors.addErrorCount);
-        // ˆø”Šm”F
+        // å¼•æ•°ç¢ºèª
         ArrayList beanList = (ArrayList) UTUtil.getPrivateField(errors, "beanList");
         assertSame(bean, beanList.get(0));
         ArrayList vaList = (ArrayList) UTUtil.getPrivateField(errors, "vaList");

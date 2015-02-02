@@ -4,9 +4,9 @@ import java.io.IOException;
 import java.io.Reader;
 
 /**
- * ReaderÀ‘•ƒNƒ‰ƒX
+ * Readerå®Ÿè£…ã‚¯ãƒ©ã‚¹
  * <p>
- * {@link #ready()}A{@link #read()}A{@link #close()}‚ğŒÄ‚Ño‚·‚ÆA {@link IOException}‚ğƒXƒ[‚·‚é
+ * {@link #ready()}ã€{@link #read()}ã€{@link #close()}ã‚’å‘¼ã³å‡ºã™ã¨ã€ {@link IOException}ã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹
  */
 public class LineFeed2LineReader_Stub01 extends Reader {
 

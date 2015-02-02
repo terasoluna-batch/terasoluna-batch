@@ -1,4 +1,4 @@
 /**
- * 入力チェック関連
+ * 蜈･蜉帙メ繧ｧ繝�繧ｯ髢｢騾｣
  */
 package jp.terasoluna.fw.validation;

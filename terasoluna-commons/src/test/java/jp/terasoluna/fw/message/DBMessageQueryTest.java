@@ -29,11 +29,11 @@ import junit.framework.TestCase;
 import com.mockrunner.mock.jdbc.MockResultSet;
 
 /**
- * {@link jp.terasoluna.fw.message.DBMessageQuery} ƒNƒ‰ƒX‚Ìƒuƒ‰ƒbƒNƒ{ƒbƒNƒXƒeƒXƒgB
+ * {@link jp.terasoluna.fw.message.DBMessageQuery} ã‚¯ãƒ©ã‚¹ã®ãƒ–ãƒ©ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ†ã‚¹ãƒˆã€‚
  * 
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4>
- * ƒƒbƒZ[ƒWƒŠƒ\[ƒX‚ğæ“¾‚·‚éRDBMSƒIƒyƒŒ[ƒVƒ‡ƒ“ƒNƒ‰ƒX
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4>
+ * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒªã‚½ãƒ¼ã‚¹ã‚’å–å¾—ã™ã‚‹RDBMSã‚ªãƒšãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã‚¯ãƒ©ã‚¹
  * <p>
  * 
  * @see jp.terasoluna.fw.message.DBMessageQuery
@@ -42,9 +42,9 @@ public class DBMessageQueryTest extends TestCase {
 
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -53,9 +53,9 @@ public class DBMessageQueryTest extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -64,9 +64,9 @@ public class DBMessageQueryTest extends TestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      * 
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public DBMessageQueryTest(String name) {
         super(name);
@@ -76,43 +76,43 @@ public class DBMessageQueryTest extends TestCase {
      * testDBMessageDataSource01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) ds:not null<br>
-     *         (ˆø”) sql:"SELECT CODE,MESSAGE FROM MESSAGES"<br>
-     *         (ˆø”) codeColumn:"CODE"<br>
-     *         (ˆø”) languageColumn:"LANGUAGE"<br>
-     *         (ˆø”) countryColumn:"COUNTRY"<br>
-     *         (ˆø”) variantColumn:"VARIANT"<br>
-     *         (ˆø”) messageColumn:"MESSAGE"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) ds:not null<br>
+     *         (å¼•æ•°) sql:"SELECT CODE,MESSAGE FROM MESSAGES"<br>
+     *         (å¼•æ•°) codeColumn:"CODE"<br>
+     *         (å¼•æ•°) languageColumn:"LANGUAGE"<br>
+     *         (å¼•æ•°) countryColumn:"COUNTRY"<br>
+     *         (å¼•æ•°) variantColumn:"VARIANT"<br>
+     *         (å¼•æ•°) messageColumn:"MESSAGE"<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») rsCodeColumn:"CODE"<br>
-     *         (ó‘Ô•Ï‰») rsLanguageColumn:"LANGUAGE"<br>
-     *         (ó‘Ô•Ï‰») rsCountryColumn:"COUNTRY"<br>
-     *         (ó‘Ô•Ï‰») rsVariantColumn:"VARIANT"<br>
-     *         (ó‘Ô•Ï‰») message:"MESSAGE"<br>
-     *         (ó‘Ô•Ï‰») compile():ŒÄ‚Ño‚³‚ê‚½‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) rsCodeColumn:"CODE"<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) rsLanguageColumn:"LANGUAGE"<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) rsCountryColumn:"COUNTRY"<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) rsVariantColumn:"VARIANT"<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) message:"MESSAGE"<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) compile():å‘¼ã³å‡ºã•ã‚ŒãŸã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *         
      * <br>
-     * ˆø”‚ªString‚¾‚Á‚½ê‡Aˆø‚«“n‚³‚ê‚½’l‚ª•Ï‰»‚È‚­Ši”[‚³‚ê‚é‚©‚ğŠm”FB
+     * å¼•æ•°ãŒStringã ã£ãŸå ´åˆã€å¼•ãæ¸¡ã•ã‚ŒãŸå€¤ãŒå¤‰åŒ–ãªãæ ¼ç´ã•ã‚Œã‚‹ã‹ã‚’ç¢ºèªã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testDBMessageDataSource01()
             throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DataSource ds = new MockDataSource();
         DBMessageQuery db = new DBMessageQuery(ds,
                 "SELECT CODE,MESSAGE FROM MESSAGES", "CODE", "LANGUAGE",
                 "COUNTRY", "VARIANT", "MESSAGE");
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals("CODE", UTUtil.getPrivateField(db, "rsCodeColumn"));
         assertEquals("LANGUAGE",
                 UTUtil.getPrivateField(db, "rsLanguageColumn"));
@@ -126,42 +126,42 @@ public class DBMessageQueryTest extends TestCase {
      * testDBMessageDataSource02()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA,C
+     * è¦³ç‚¹ï¼šA,C
      * <br><br>
-     * “ü—Í’lF(ˆø”) ds:not null<br>
-     *         (ˆø”) sql:"SELECT CODE,MESSAGE FROM MESSAGES"<br>
-     *         (ˆø”) codeColumn:""<br>
-     *         (ˆø”) languageColumn:""<br>
-     *         (ˆø”) countryColumn:""<br>
-     *         (ˆø”) variantColumn:""<br>
-     *         (ˆø”) messageColumn:""<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) ds:not null<br>
+     *         (å¼•æ•°) sql:"SELECT CODE,MESSAGE FROM MESSAGES"<br>
+     *         (å¼•æ•°) codeColumn:""<br>
+     *         (å¼•æ•°) languageColumn:""<br>
+     *         (å¼•æ•°) countryColumn:""<br>
+     *         (å¼•æ•°) variantColumn:""<br>
+     *         (å¼•æ•°) messageColumn:""<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») rsCodeColumn:""<br>
-     *         (ó‘Ô•Ï‰») rsLanguageColumn:""<br>
-     *         (ó‘Ô•Ï‰») rsCountryColumn:""<br>
-     *         (ó‘Ô•Ï‰») rsVariantColumn:""<br>
-     *         (ó‘Ô•Ï‰») message:""<br>
-     *         (ó‘Ô•Ï‰») compile():ŒÄ‚Ño‚³‚ê‚½‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) rsCodeColumn:""<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) rsLanguageColumn:""<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) rsCountryColumn:""<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) rsVariantColumn:""<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) message:""<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) compile():å‘¼ã³å‡ºã•ã‚ŒãŸã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *         
      * <br>
-     * ˆø”‚ª‹ó•¶š‚¾‚Á‚½ê‡Aˆø‚«“n‚³‚ê‚½’l‚ª•Ï‰»‚È‚­Ši”[‚³‚ê‚é‚©‚ğŠm”FB
+     * å¼•æ•°ãŒç©ºæ–‡å­—ã ã£ãŸå ´åˆã€å¼•ãæ¸¡ã•ã‚ŒãŸå€¤ãŒå¤‰åŒ–ãªãæ ¼ç´ã•ã‚Œã‚‹ã‹ã‚’ç¢ºèªã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testDBMessageDataSource02()
             throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DataSource ds = new MockDataSource();
         DBMessageQuery db = new DBMessageQuery(ds,
                 "SELECT CODE,MESSAGE FROM MESSAGES", "", "", "", "", "");
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals("", UTUtil.getPrivateField(db, "rsCodeColumn"));
         assertEquals("", UTUtil.getPrivateField(db, "rsLanguageColumn"));
         assertEquals("", UTUtil.getPrivateField(db, "rsCountryColumn"));
@@ -174,43 +174,43 @@ public class DBMessageQueryTest extends TestCase {
      * testDBMessageDataSource03()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA,C
+     * è¦³ç‚¹ï¼šA,C
      * <br><br>
-     * “ü—Í’lF(ˆø”) ds:not null<br>
-     *         (ˆø”) sql:"SELECT CODE,MESSAGE FROM MESSAGES"<br>
-     *         (ˆø”) codeColumn:null<br>
-     *         (ˆø”) languageColumn:null<br>
-     *         (ˆø”) countryColumn:null<br>
-     *         (ˆø”) variantColumn:null<br>
-     *         (ˆø”) messageColumn:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) ds:not null<br>
+     *         (å¼•æ•°) sql:"SELECT CODE,MESSAGE FROM MESSAGES"<br>
+     *         (å¼•æ•°) codeColumn:null<br>
+     *         (å¼•æ•°) languageColumn:null<br>
+     *         (å¼•æ•°) countryColumn:null<br>
+     *         (å¼•æ•°) variantColumn:null<br>
+     *         (å¼•æ•°) messageColumn:null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») rsCodeColumn:null<br>
-     *         (ó‘Ô•Ï‰») rsLanguageColumn:null<br>
-     *         (ó‘Ô•Ï‰») rsCountryColumn:null<br>
-     *         (ó‘Ô•Ï‰») rsVariantColumn:null<br>
-     *         (ó‘Ô•Ï‰») message:null<br>
-     *         (ó‘Ô•Ï‰») compile():ŒÄ‚Ño‚³‚ê‚½‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) rsCodeColumn:null<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) rsLanguageColumn:null<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) rsCountryColumn:null<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) rsVariantColumn:null<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) message:null<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) compile():å‘¼ã³å‡ºã•ã‚ŒãŸã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *         
      * <br>
-     * ˆø”‚ªnull‚¾‚Á‚½ê‡Aˆø‚«“n‚³‚ê‚½’l‚ª•Ï‰»‚È‚­Ši”[‚³‚ê‚é‚©‚ğŠm”FB
+     * å¼•æ•°ãŒnullã ã£ãŸå ´åˆã€å¼•ãæ¸¡ã•ã‚ŒãŸå€¤ãŒå¤‰åŒ–ãªãæ ¼ç´ã•ã‚Œã‚‹ã‹ã‚’ç¢ºèªã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testDBMessageDataSource03()
             throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DataSource ds = new MockDataSource();
         DBMessageQuery db = new DBMessageQuery(ds,
                 "SELECT CODE,MESSAGE FROM MESSAGES", null, null, null, null,
                 null);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
 
-        // ”»’è
+        // åˆ¤å®š
         assertNull(UTUtil.getPrivateField(db, "rsCodeColumn"));
         assertNull(UTUtil.getPrivateField(db, "rsLanguageColumn"));
         assertNull(UTUtil.getPrivateField(db, "rsCountryColumn"));
@@ -223,34 +223,34 @@ public class DBMessageQueryTest extends TestCase {
      * testMapRow01()
      * <br><br>
      * 
-     * (³íŒn) 
+     * (æ­£å¸¸ç³») 
      * <br>
-     * ŠÏ“_FA,E
+     * è¦³ç‚¹ï¼šA,E
      * <br><br>
-     * “ü—Í’lF(ˆø”) rs:|"code"="test01"|"language"="ja"|"country"="JP"
-     * |"variant"="kaisai"|"message"="ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P"|"hoge"="ŠÖŒW‚È‚¢ƒJƒ‰ƒ€"|<br>
-     *                ‚Æ‚¢‚¤“à—e‚ÌResultSet<br>
-     *         (ˆø”) rowNum:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) rs:|"code"="test01"|"language"="ja"|"country"="JP"
+     * |"variant"="kaisai"|"message"="ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘"|"hoge"="é–¢ä¿‚ãªã„ã‚«ãƒ©ãƒ "|<br>
+     *                ã¨ã„ã†å†…å®¹ã®ResultSet<br>
+     *         (å¼•æ•°) rowNum:not null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) DBMessage Bean:code->"test01"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) DBMessage Bean:code->"test01"<br>
      *                  language->"ja"<br>
      *                  country->"JP"<br>
      *                  variant->"kansai"<br>
-     *                  message->"ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P"<br>
+     *                  message->"ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘"<br>
      *         
      * <br>
-     * ResultSet‚ÌƒJƒ‰ƒ€‚Ì“à—e‚ªString‚Å‚ ‚Á‚½ê‡A’l‚Ìæ“¾‚ªo—ˆ‚é‚©‚ÌŠm”F‚·‚éB
-     * ‚Ü‚½A—v‹‚µ‚Ä‚¢‚È‚¢"hoge"ƒJƒ‰ƒ€‚ª‚ ‚éê‡AƒGƒ‰[‚É‚È‚ç‚¸‚É–³‹‚·‚é‚©‚ğ
-     * Šm”F‚·‚éB<br>
-     * æ“¾‚µ‚½String•¶š—ñ‚ğ‚»‚Ì‚Ü‚ÜDBMessageBean‚ÉŠi”[‚·‚éB
-     * "hoge"ƒJƒ‰ƒ€‚Í–³‹‚³‚êA‚Ç‚±‚É‚à‰e‹¿‚µ‚È‚¢B
+     * ResultSetã®ã‚«ãƒ©ãƒ ã®å†…å®¹ãŒStringã§ã‚ã£ãŸå ´åˆã€å€¤ã®å–å¾—ãŒå‡ºæ¥ã‚‹ã‹ã®ç¢ºèªã™ã‚‹ã€‚
+     * ã¾ãŸã€è¦æ±‚ã—ã¦ã„ãªã„"hoge"ã‚«ãƒ©ãƒ ãŒã‚ã‚‹å ´åˆã€ã‚¨ãƒ©ãƒ¼ã«ãªã‚‰ãšã«ç„¡è¦–ã™ã‚‹ã‹ã‚’
+     * ç¢ºèªã™ã‚‹ã€‚<br>
+     * å–å¾—ã—ãŸStringæ–‡å­—åˆ—ã‚’ãã®ã¾ã¾DBMessageBeanã«æ ¼ç´ã™ã‚‹ã€‚
+     * "hoge"ã‚«ãƒ©ãƒ ã¯ç„¡è¦–ã•ã‚Œã€ã©ã“ã«ã‚‚å½±éŸ¿ã—ãªã„ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testMapRow01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DataSource ds = new MockDataSource();
         DBMessageQuery db = new DBMessageQuery(ds,
                 "SELECT CODE,MESSAGE FROM MESSAGES", "CODE", "LANGUAGE",
@@ -262,7 +262,7 @@ public class DBMessageQueryTest extends TestCase {
         db.rsVariantColumn = "variant";
         db.rsMessageColumn = "message";
         
-        // ‹[—ResultSet‚Ìİ’è
+        // æ“¬ä¼¼ResultSetã®è¨­å®š
         MockResultSet rs = new MockResultSet("TestResult");
         
         List<String> list1 = new ArrayList<String>();
@@ -282,54 +282,54 @@ public class DBMessageQueryTest extends TestCase {
         rs.addColumn("variant", list4);
         
         List<String> list5 = new ArrayList<String>();
-        list5.add("ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P");
+        list5.add("ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘");
         rs.addColumn("message", list5);
         
         rs.first();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         DBMessage dbmReturn = (DBMessage) db.mapRow(rs, rowNum);
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals("test01", dbmReturn.getCode());
         assertEquals("ja", dbmReturn.getLanguage());
         assertEquals("JP", dbmReturn.getCountry());
         assertEquals("kansai", dbmReturn.getVariant());
-        assertEquals("ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P", dbmReturn.getMessage());
+        assertEquals("ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘", dbmReturn.getMessage());
     }
 
     /**
      * testMapRow02()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA,E
+     * è¦³ç‚¹ï¼šA,E
      * <br><br>
-     * “ü—Í’lF(ˆø”) rs:|"code"=""|"language"=""|"country"=""|"variant"=""|
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) rs:|"code"=""|"language"=""|"country"=""|"variant"=""|
      * "message"=""|"hoge"=""|<br>
-     *                ‚Æ‚¢‚¤“à—e‚ÌResultSet<br>
-     *         (ˆø”) rowNum:not null<br>
+     *                ã¨ã„ã†å†…å®¹ã®ResultSet<br>
+     *         (å¼•æ•°) rowNum:not null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) DBMessage Bean:code->""<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) DBMessage Bean:code->""<br>
      *                  language->""<br>
      *                  country->""<br>
      *                  variant->""<br>
      *                  message->""<br>
      *         
      * <br>
-     * ResultSet‚ÌƒJƒ‰ƒ€‚Ì“à—e‚ª‹ó•¶š‚Å‚ ‚Á‚½ê‡A’l‚Ìæ“¾‚ªo—ˆ‚é‚©‚ÌŠm”F‚·‚éB
-     * ‚Ü‚½A—v‹‚µ‚Ä‚¢‚È‚¢"hoge"ƒJƒ‰ƒ€‚ª‚ ‚éê‡AƒGƒ‰[‚É‚È‚ç‚¸‚É–³‹‚·‚é‚©‚ğ
-     * Šm”F‚·‚éB<br>
-     * æ“¾‚µ‚½‹ó•¶š‚ğ‚»‚Ì‚Ü‚ÜDBMessageBean‚ÉŠi”[‚·‚éB"hoge"ƒJƒ‰ƒ€‚Í–³‹‚³‚êA
-     * ‚Ç‚±‚É‚à‰e‹¿‚µ‚È‚¢B
+     * ResultSetã®ã‚«ãƒ©ãƒ ã®å†…å®¹ãŒç©ºæ–‡å­—ã§ã‚ã£ãŸå ´åˆã€å€¤ã®å–å¾—ãŒå‡ºæ¥ã‚‹ã‹ã®ç¢ºèªã™ã‚‹ã€‚
+     * ã¾ãŸã€è¦æ±‚ã—ã¦ã„ãªã„"hoge"ã‚«ãƒ©ãƒ ãŒã‚ã‚‹å ´åˆã€ã‚¨ãƒ©ãƒ¼ã«ãªã‚‰ãšã«ç„¡è¦–ã™ã‚‹ã‹ã‚’
+     * ç¢ºèªã™ã‚‹ã€‚<br>
+     * å–å¾—ã—ãŸç©ºæ–‡å­—ã‚’ãã®ã¾ã¾DBMessageBeanã«æ ¼ç´ã™ã‚‹ã€‚"hoge"ã‚«ãƒ©ãƒ ã¯ç„¡è¦–ã•ã‚Œã€
+     * ã©ã“ã«ã‚‚å½±éŸ¿ã—ãªã„ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testMapRow02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DataSource ds = new MockDataSource();
         DBMessageQuery db = new DBMessageQuery(ds,
                 "SELECT CODE,MESSAGE FROM MESSAGES", "CODE", "LANGUAGE",
@@ -341,7 +341,7 @@ public class DBMessageQueryTest extends TestCase {
         db.rsVariantColumn = "variant";
         db.rsMessageColumn = "message";
         
-        // ‹[—ResultSet‚Ìİ’è
+        // æ“¬ä¼¼ResultSetã®è¨­å®š
         MockResultSet rs = new MockResultSet("TestResult");
         
         List<String> list1 = new ArrayList<String>();
@@ -366,10 +366,10 @@ public class DBMessageQueryTest extends TestCase {
         
         rs.first();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         DBMessage dbmReturn = (DBMessage) db.mapRow(rs, rowNum);
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals("", dbmReturn.getCode());
         assertEquals("", dbmReturn.getLanguage());
         assertEquals("", dbmReturn.getCountry());
@@ -381,36 +381,36 @@ public class DBMessageQueryTest extends TestCase {
      * testMapRowResultSetint03()
      * <br><br>
      * 
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA,E
+     * è¦³ç‚¹ï¼šA,E
      * <br><br>
-     * “ü—Í’lF(ˆø”) rs:|"code"=null|"language"=null|"country"=null
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) rs:|"code"=null|"language"=null|"country"=null
      * |"variant"=null|"message"=null|"hoge"=null|<br>
-     *                ‚Æ‚¢‚¤“à—e‚ÌResultSet<br>
-     *         (ˆø”) rowNum:not null<br>
+     *                ã¨ã„ã†å†…å®¹ã®ResultSet<br>
+     *         (å¼•æ•°) rowNum:not null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) DBMessage Bean:code->""<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) DBMessage Bean:code->""<br>
      *                  language->""<br>
      *                  country->""<br>
      *                  variant->""<br>
      *                  message->""<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:yŒxƒƒOz<br>
-     *                    ƒƒƒbƒZ[ƒW„<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ã€è­¦å‘Šãƒ­ã‚°ã€‘<br>
+     *                    ï¼œãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼<br>
      *                    "MessageCode is null"<br>
      *         
      * <br>
-     * ResultSet‚ÌƒJƒ‰ƒ€‚Ì“à—e‚ªnull‚Å‚ ‚Á‚½ê‡A"hoge"ƒJƒ‰ƒ€‚ğœ‚«A‹ó•¶š‚É
-     * •ÏŠ·‚µ‚ÄDBMessageBean‚ÉŠi”[‚·‚éB‚Ü‚½MessageCodeƒJƒ‰ƒ€‚Ì“à—e‚ªnull‚Å
-     * ‚ ‚Á‚½ê‡‚ÍAŒxƒƒO‚ğo—Í‚·‚éB"hoge"ƒJƒ‰ƒ€‚Í–³‹‚³‚êA
-     * ‚Ç‚±‚É‚à‰e‹¿‚µ‚È‚¢B
+     * ResultSetã®ã‚«ãƒ©ãƒ ã®å†…å®¹ãŒnullã§ã‚ã£ãŸå ´åˆã€"hoge"ã‚«ãƒ©ãƒ ã‚’é™¤ãã€ç©ºæ–‡å­—ã«
+     * å¤‰æ›ã—ã¦DBMessageBeanã«æ ¼ç´ã™ã‚‹ã€‚ã¾ãŸMessageCodeã‚«ãƒ©ãƒ ã®å†…å®¹ãŒnullã§
+     * ã‚ã£ãŸå ´åˆã¯ã€è­¦å‘Šãƒ­ã‚°ã‚’å‡ºåŠ›ã™ã‚‹ã€‚"hoge"ã‚«ãƒ©ãƒ ã¯ç„¡è¦–ã•ã‚Œã€
+     * ã©ã“ã«ã‚‚å½±éŸ¿ã—ãªã„ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testMapRowResultSetint03() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DataSource ds = new MockDataSource();
         DBMessageQuery db = new DBMessageQuery(ds,
                 "SELECT CODE,MESSAGE FROM MESSAGES", "CODE", "LANGUAGE",
@@ -422,7 +422,7 @@ public class DBMessageQueryTest extends TestCase {
         db.rsVariantColumn = "variant";
         db.rsMessageColumn = "message";
         
-        // ‹[—ResultSet‚Ìİ’è
+        // æ“¬ä¼¼ResultSetã®è¨­å®š
         MockResultSet rs = new MockResultSet("TestResult");
         
         List<String> list1 = new ArrayList<String>();
@@ -447,10 +447,10 @@ public class DBMessageQueryTest extends TestCase {
         
         rs.first();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         DBMessage dbmReturn = (DBMessage) db.mapRow(rs, rowNum);
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals("", dbmReturn.getCode());
         assertEquals("", dbmReturn.getLanguage());
         assertEquals("", dbmReturn.getCountry());

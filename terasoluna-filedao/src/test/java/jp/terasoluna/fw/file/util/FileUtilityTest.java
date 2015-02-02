@@ -27,27 +27,27 @@ import jp.terasoluna.utlib.UTUtil;
 import junit.framework.TestCase;
 
 /**
- * {@link jp.terasoluna.fw.file.util.FileUtility} ƒNƒ‰ƒX‚ÌƒeƒXƒgB
+ * {@link jp.terasoluna.fw.file.util.FileUtility} ã‚¯ãƒ©ã‚¹ã®ãƒ†ã‚¹ãƒˆã€‚
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4> ƒtƒ@ƒCƒ‹‘€ì‹@”\‚ğÀ‘•‚·‚éƒNƒ‰ƒX.
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4> ãƒ•ã‚¡ã‚¤ãƒ«æ“ä½œæ©Ÿèƒ½ã‚’å®Ÿè£…ã™ã‚‹ã‚¯ãƒ©ã‚¹.
  * <p>
- * @author ‹gMˆè”ü
- * @author æâ•î“O
+ * @author å‰ä¿¡éƒç¾
+ * @author è¶™ä¿¸å¾¹
  * @see jp.terasoluna.fw.file.util.FileUtility
  */
 public class FileUtilityTest extends TestCase {
 
     /**
-     * ‚±‚ÌƒeƒXƒgƒP[ƒX‚ğÀs‚·‚éˆ×‚Ì GUI ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‹N“®‚·‚éB
-     * @param args java ƒRƒ}ƒ“ƒh‚Éİ’è‚³‚ê‚½ƒpƒ‰ƒ[ƒ^
+     * ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã‚’å®Ÿè¡Œã™ã‚‹ç‚ºã® GUI ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’èµ·å‹•ã™ã‚‹ã€‚
+     * @param args java ã‚³ãƒãƒ³ãƒ‰ã«è¨­å®šã•ã‚ŒãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public static void main(String[] args) {
         // junit.swingui.TestRunner.run(FileUtilityTest.class);
     }
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -57,21 +57,21 @@ public class FileUtilityTest extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
     protected void tearDown() throws Exception {
         super.tearDown();
 
-        // FileUtility‚ÌstaticƒtƒB[ƒ‹ƒh‚ğƒfƒtƒHƒ‹ƒg’l‚É‰Šú‰»‚·‚éB
+        // FileUtilityã®staticãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ã«åˆæœŸåŒ–ã™ã‚‹ã€‚
         UTUtil.setPrivateField(FileUtility.class, "checkFileExist", false);
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public FileUtilityTest(String name) {
         super(name);
@@ -80,35 +80,35 @@ public class FileUtilityTest extends TestCase {
     /*
      * testCopyFile01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) srcFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testCopyFile01_src.txt"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) srcFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testCopyFile01_src.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testCopyFile01_new.txt"<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testCopyFile01_new.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ó‘Ô) this.checkFileExist:false<br>
-     * (ó‘Ô) srcFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestCopyFile01_src.txtƒf[ƒ^<br>
-     * (ó‘Ô) newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚µ‚È‚¢B<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (çŠ¶æ…‹) this.checkFileExist:false<br>
+     * (çŠ¶æ…‹) srcFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testCopyFile01_src.txtãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã—ãªã„ã€‚<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») checkAbsolutePath():2‰ñŒÄ‚Ño‚³‚ê‚éB<br>
-     * 1‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”‚Æ‚µ‚ÄAˆø”srcFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * 2‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”‚Æ‚µ‚ÄAˆø”newFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * (ó‘Ô•Ï‰») newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:ƒRƒs[Œ³‚ÌsrcFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹‚Æ“¯ˆê‚Ì“à—e‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) checkAbsolutePath():2å›å‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
+     * 1å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°ã¨ã—ã¦ã€å¼•æ•°srcFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * 2å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°ã¨ã—ã¦ã€å¼•æ•°newFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:ã‚³ãƒ”ãƒ¼å…ƒã®srcFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«ã¨åŒä¸€ã®å†…å®¹ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * ƒRƒs[æ‚Ìƒtƒ@ƒCƒ‹‚ª‘¶İ‚µ‚È‚¢ê‡A³‚µ‚­ƒtƒ@ƒCƒ‹ƒRƒs[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * ã‚³ãƒ”ãƒ¼å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã—ãªã„å ´åˆã€æ­£ã—ããƒ•ã‚¡ã‚¤ãƒ«ã‚³ãƒ”ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     // This testcase is ignored, because of Windows environment dependency.
     public void _ignore_testCopyFile01() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -117,10 +117,10 @@ public class FileUtilityTest extends TestCase {
         String srcFile = directoryPath + "testCopyFile01_src.txt";
         String newFile = directoryPath + "testCopyFile01_new.txt";
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(FileUtility.class, "checkFileExist", false);
 
-        // ƒeƒXƒg‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»‚·‚éB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–ã™ã‚‹ã€‚
         File testSrcFile = new File(srcFile);
         testSrcFile.delete();
         testSrcFile.createNewFile();
@@ -131,16 +131,16 @@ public class FileUtilityTest extends TestCase {
         FileWriter testSrcFileFileWriter = null;
         try {
             testSrcFileFileWriter = new FileWriter(testSrcFile);
-            testSrcFileFileWriter.write("testCopyFile01_src.txtƒf[ƒ^");
+            testSrcFileFileWriter.write("testCopyFile01_src.txtãƒ‡ãƒ¼ã‚¿");
             testSrcFileFileWriter.flush();
             testSrcFileFileWriter.close();
 
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             FileUtility.copyFile(srcFile, newFile);
 
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(2, VMOUTUtil.getCallCount(FileUtility.class,
                     "checkAbsolutePath"));
             assertEquals(srcFile, VMOUTUtil.getArgument(FileUtility.class,
@@ -148,7 +148,7 @@ public class FileUtilityTest extends TestCase {
             assertEquals(newFile, VMOUTUtil.getArgument(FileUtility.class,
                     "checkAbsolutePath", 1, 0));
 
-            // ƒRƒs[æ‚Ìƒtƒ@ƒCƒ‹“à—eŠm”F
+            // ã‚³ãƒ”ãƒ¼å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«å†…å®¹ç¢ºèª
             File getFile = new File(newFile);
             UTUtil.assertEqualsFile(testSrcFile, getFile);
         } finally {
@@ -156,7 +156,7 @@ public class FileUtilityTest extends TestCase {
                 testSrcFileFileWriter.close();
             }
 
-            // ƒeƒXƒgŒãƒtƒ@ƒCƒ‹‚ğíœ
+            // ãƒ†ã‚¹ãƒˆå¾Œãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤
             File file = new File(srcFile);
             file.delete();
             file = new File(newFile);
@@ -167,36 +167,36 @@ public class FileUtilityTest extends TestCase {
     /**
      * testCopyFile02() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) srcFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testCopyFile02_src.txt"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) srcFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testCopyFile02_src.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testCopyFile02_new.txt"<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testCopyFile02_new.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ó‘Ô) this.checkFileExist:true<br>
-     * (ó‘Ô) srcFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestCopyFile02_src.txtƒf[ƒ^<br>
-     * (ó‘Ô) newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * EtestCopyFile02_new.txtƒf[ƒ^<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (çŠ¶æ…‹) this.checkFileExist:true<br>
+     * (çŠ¶æ…‹) srcFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testCopyFile02_src.txtãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ãƒ»testCopyFile02_new.txtãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») checkAbsolutePath():2‰ñŒÄ‚Ño‚³‚ê‚éB<br>
-     * 1‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”‚Æ‚µ‚ÄAˆø”srcFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * 2‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”‚Æ‚µ‚ÄAˆø”newFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * (ó‘Ô•Ï‰») newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:ƒRƒs[Œ³‚ÌsrcFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹‚Æ“¯ˆê‚Ì“à—e‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) checkAbsolutePath():2å›å‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
+     * 1å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°ã¨ã—ã¦ã€å¼•æ•°srcFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * 2å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°ã¨ã—ã¦ã€å¼•æ•°newFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:ã‚³ãƒ”ãƒ¼å…ƒã®srcFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«ã¨åŒä¸€ã®å†…å®¹ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * icheckFileExist‚ªTRUEj<br>
-     * ƒRƒs[æ‚Ìƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚éê‡A³‚µ‚­ƒtƒ@ƒCƒ‹ƒRƒs[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * ï¼ˆcheckFileExistãŒTRUEï¼‰<br>
+     * ã‚³ãƒ”ãƒ¼å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚‹å ´åˆã€æ­£ã—ããƒ•ã‚¡ã‚¤ãƒ«ã‚³ãƒ”ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testCopyFile02() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -205,10 +205,10 @@ public class FileUtilityTest extends TestCase {
         String srcFile = directoryPath + "testCopyFile02_src.txt";
         String newFile = directoryPath + "testCopyFile02_new.txt";
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(FileUtility.class, "checkFileExist", true);
 
-        // ƒeƒXƒg‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»‚·‚éB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–ã™ã‚‹ã€‚
         File testSrcFile = new File(srcFile);
         testSrcFile.delete();
         testSrcFile.createNewFile();
@@ -221,21 +221,21 @@ public class FileUtilityTest extends TestCase {
         FileWriter testNewFileFileWriter = null;
         try {
             testSrcFileFileWriter = new FileWriter(testSrcFile);
-            testSrcFileFileWriter.write("testCopyFile02_src.txtƒf[ƒ^");
+            testSrcFileFileWriter.write("testCopyFile02_src.txtãƒ‡ãƒ¼ã‚¿");
             testSrcFileFileWriter.flush();
             testSrcFileFileWriter.close();
 
             testNewFileFileWriter = new FileWriter(testNewFile);
-            testNewFileFileWriter.write("testCopyFile02_new.txtƒf[ƒ^");
+            testNewFileFileWriter.write("testCopyFile02_new.txtãƒ‡ãƒ¼ã‚¿");
             testNewFileFileWriter.flush();
             testNewFileFileWriter.close();
 
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             FileUtility.copyFile(srcFile, newFile);
 
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(2, VMOUTUtil.getCallCount(FileUtility.class,
                     "checkAbsolutePath"));
             assertEquals(srcFile, VMOUTUtil.getArgument(FileUtility.class,
@@ -243,7 +243,7 @@ public class FileUtilityTest extends TestCase {
             assertEquals(newFile, VMOUTUtil.getArgument(FileUtility.class,
                     "checkAbsolutePath", 1, 0));
 
-            // ƒRƒs[æ‚Ìƒtƒ@ƒCƒ‹“à—eŠm”F
+            // ã‚³ãƒ”ãƒ¼å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«å†…å®¹ç¢ºèª
             File getFile = new File(newFile);
             UTUtil.assertEqualsFile(testSrcFile, getFile);
         } finally {
@@ -253,7 +253,7 @@ public class FileUtilityTest extends TestCase {
             if (testNewFileFileWriter != null) {
                 testNewFileFileWriter.close();
             }
-            // ƒeƒXƒgŒãƒtƒ@ƒCƒ‹‚ğíœ
+            // ãƒ†ã‚¹ãƒˆå¾Œãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤
             File file = new File(srcFile);
             file.delete();
             file = new File(newFile);
@@ -264,36 +264,36 @@ public class FileUtilityTest extends TestCase {
     /**
      * testCopyFile03() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FC,F,G <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,F,G <br>
      * <br>
-     * “ü—Í’lF(ˆø”) srcFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testCopyFile03_src.txt"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) srcFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testCopyFile03_src.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testCopyFile03_new.txt"<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testCopyFile03_new.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ó‘Ô) this.checkFileExist:false<br>
-     * (ó‘Ô) srcFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚µ‚È‚¢B<br>
-     * (ó‘Ô) newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * EtestCopyFile03_new.txtƒf[ƒ^<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (çŠ¶æ…‹) this.checkFileExist:false<br>
+     * (çŠ¶æ…‹) srcFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã—ãªã„ã€‚<br>
+     * (çŠ¶æ…‹) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ãƒ»testCopyFile03_new.txtãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») checkAbsolutePath():2‰ñŒÄ‚Ño‚³‚ê‚éB<br>
-     * 1‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”‚Æ‚µ‚ÄAˆø”srcFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * 2‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”‚Æ‚µ‚ÄAˆø”newFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * (ó‘Ô•Ï‰») newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:•ÏX‚È‚µ<br>
-     * (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"(ƒpƒX)/testCopyFile03_src.txt is not exist."<br>
-     * Eƒtƒ@ƒCƒ‹–¼FsrcFile‚Æ“¯‚¶’l<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) checkAbsolutePath():2å›å‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
+     * 1å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°ã¨ã—ã¦ã€å¼•æ•°srcFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * 2å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°ã¨ã—ã¦ã€å¼•æ•°newFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å¤‰æ›´ãªã—<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"(ãƒ‘ã‚¹)/testCopyFile03_src.txt is not exist."<br>
+     * ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šsrcFileã¨åŒã˜å€¤<br>
      * <br>
-     * ˆÙíƒP[ƒX<br>
-     * ƒRƒs[Œ³‚Ìƒtƒ@ƒCƒ‹‚ª‚È‚¢ê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * ã‚³ãƒ”ãƒ¼å…ƒã®ãƒ•ã‚¡ã‚¤ãƒ«ãŒãªã„å ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testCopyFile03() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -302,10 +302,10 @@ public class FileUtilityTest extends TestCase {
         String srcFile = directoryPath + "testCopyFile03_src.txt";
         String newFile = directoryPath + "testCopyFile03_new.txt";
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(FileUtility.class, "checkFileExist", false);
 
-        // ƒeƒXƒg‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»‚·‚éB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–ã™ã‚‹ã€‚
         File testSrcFile = new File(srcFile);
         testSrcFile.delete();
 
@@ -317,20 +317,20 @@ public class FileUtilityTest extends TestCase {
         BufferedReader postReader = null;
         try {
             testNewFileFileWriter = new FileWriter(testNewFile);
-            testNewFileFileWriter.write("testCopyFile03_new.txtƒf[ƒ^");
+            testNewFileFileWriter.write("testCopyFile03_new.txtãƒ‡ãƒ¼ã‚¿");
             testNewFileFileWriter.flush();
             testNewFileFileWriter.close();
 
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             FileUtility.copyFile(srcFile, newFile);
-            fail("FileException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B¸”s‚Å‚·B");
+            fail("FileExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚å¤±æ•—ã§ã™ã€‚");
         } catch (FileException e) {
-            // —áŠO‚ÌŠm”F
+            // ä¾‹å¤–ã®ç¢ºèª
             assertTrue(FileException.class.isAssignableFrom(e.getClass()));
             assertEquals(srcFile + " is not exist.", e.getMessage());
             assertEquals(srcFile, e.getFileName());
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(2, VMOUTUtil.getCallCount(FileUtility.class,
                     "checkAbsolutePath"));
             assertEquals(srcFile, VMOUTUtil.getArgument(FileUtility.class,
@@ -338,16 +338,16 @@ public class FileUtilityTest extends TestCase {
             assertEquals(newFile, VMOUTUtil.getArgument(FileUtility.class,
                     "checkAbsolutePath", 1, 0));
 
-            // ƒRƒs[æ‚Ìƒtƒ@ƒCƒ‹“à—eŠm”F
+            // ã‚³ãƒ”ãƒ¼å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«å†…å®¹ç¢ºèª
             File resultFile = new File(newFile);
             assertTrue(resultFile.exists());
             postReader = new BufferedReader(new InputStreamReader(
                     new FileInputStream(resultFile)));
             assertTrue(postReader.ready());
-            String expectationResultData = "testCopyFile03_new.txtƒf[ƒ^";
+            String expectationResultData = "testCopyFile03_new.txtãƒ‡ãƒ¼ã‚¿";
             String data = "";
             for (int i = 0; i < expectationResultData.length(); i++) {
-                assertTrue(i + "‰ñ–Ú‚Ì”»’è‚Å¸”s‚µ‚Ü‚µ‚½B", postReader.ready());
+                assertTrue(i + "å›ç›®ã®åˆ¤å®šã§å¤±æ•—ã—ã¾ã—ãŸã€‚", postReader.ready());
                 data += (char) postReader.read();
             }
             assertEquals(expectationResultData, data);
@@ -359,7 +359,7 @@ public class FileUtilityTest extends TestCase {
             if (postReader != null) {
                 postReader.close();
             }
-            // ƒeƒXƒgŒãƒtƒ@ƒCƒ‹‚ğíœ
+            // ãƒ†ã‚¹ãƒˆå¾Œãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤
             File file = new File(srcFile);
             file.delete();
             file = new File(newFile);
@@ -370,39 +370,39 @@ public class FileUtilityTest extends TestCase {
     /**
      * testCopyFile04() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FC,F,G <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,F,G <br>
      * <br>
-     * “ü—Í’lF(ˆø”) srcFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testCopyFile04_src.txt"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) srcFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testCopyFile04_src.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testCopyFile04_new.txt"<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testCopyFile04_new.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ó‘Ô) this.checkFileExist:false<br>
-     * (ó‘Ô) srcFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestCopyFile04_src.txtƒf[ƒ^<br>
-     * (ó‘Ô) newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * EtestCopyFile04_new.txtƒf[ƒ^<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (çŠ¶æ…‹) this.checkFileExist:false<br>
+     * (çŠ¶æ…‹) srcFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testCopyFile04_src.txtãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ãƒ»testCopyFile04_new.txtãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») checkAbsolutePath():2‰ñŒÄ‚Ño‚³‚ê‚éB<br>
-     * 1‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”‚Æ‚µ‚ÄAˆø”srcFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * 2‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”‚Æ‚µ‚ÄAˆø”newFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * (ó‘Ô•Ï‰») newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:•ÏX‚È‚µ<br>
-     * (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"(ƒpƒX)/testCopyFile04_new.txt is exist."<br>
-     * Eƒtƒ@ƒCƒ‹–¼FnewFile‚Æ“¯‚¶’l<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) checkAbsolutePath():2å›å‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
+     * 1å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°ã¨ã—ã¦ã€å¼•æ•°srcFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * 2å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°ã¨ã—ã¦ã€å¼•æ•°newFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å¤‰æ›´ãªã—<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"(ãƒ‘ã‚¹)/testCopyFile04_new.txt is exist."<br>
+     * ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šnewFileã¨åŒã˜å€¤<br>
      * <br>
-     * ˆÙíƒP[ƒX<br>
-     * icheckFileExist‚ªFALSEj<br>
-     * ƒRƒs[æ‚Ìƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚éê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * ï¼ˆcheckFileExistãŒFALSEï¼‰<br>
+     * ã‚³ãƒ”ãƒ¼å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚‹å ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testCopyFile04() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -411,10 +411,10 @@ public class FileUtilityTest extends TestCase {
         String srcFile = directoryPath + "testCopyFile04_src.txt";
         String newFile = directoryPath + "testCopyFile04_new.txt";
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(FileUtility.class, "checkFileExist", false);
 
-        // ƒeƒXƒg‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»‚·‚éB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–ã™ã‚‹ã€‚
         File testSrcFile = new File(srcFile);
         testSrcFile.delete();
         testSrcFile.createNewFile();
@@ -428,25 +428,25 @@ public class FileUtilityTest extends TestCase {
         BufferedReader postReader = null;
         try {
             testSrcFileFileWriter = new FileWriter(testSrcFile);
-            testSrcFileFileWriter.write("testCopyFile04_src.txtƒf[ƒ^");
+            testSrcFileFileWriter.write("testCopyFile04_src.txtãƒ‡ãƒ¼ã‚¿");
             testSrcFileFileWriter.flush();
             testSrcFileFileWriter.close();
 
             testNewFileFileWriter = new FileWriter(testNewFile);
-            testNewFileFileWriter.write("testCopyFile04_new.txtƒf[ƒ^");
+            testNewFileFileWriter.write("testCopyFile04_new.txtãƒ‡ãƒ¼ã‚¿");
             testNewFileFileWriter.flush();
             testNewFileFileWriter.close();
 
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             FileUtility.copyFile(srcFile, newFile);
-            fail("FileException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B¸”s‚Å‚·B");
+            fail("FileExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚å¤±æ•—ã§ã™ã€‚");
         } catch (FileException e) {
-            // —áŠO‚ÌŠm”F
+            // ä¾‹å¤–ã®ç¢ºèª
             assertTrue(FileException.class.isAssignableFrom(e.getClass()));
             assertEquals(newFile + " is exist.", e.getMessage());
             assertEquals(newFile, e.getFileName());
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(2, VMOUTUtil.getCallCount(FileUtility.class,
                     "checkAbsolutePath"));
             assertEquals(srcFile, VMOUTUtil.getArgument(FileUtility.class,
@@ -454,16 +454,16 @@ public class FileUtilityTest extends TestCase {
             assertEquals(newFile, VMOUTUtil.getArgument(FileUtility.class,
                     "checkAbsolutePath", 1, 0));
 
-            // ƒRƒs[æ‚Ìƒtƒ@ƒCƒ‹“à—eŠm”F
+            // ã‚³ãƒ”ãƒ¼å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«å†…å®¹ç¢ºèª
             File resultFile = new File(newFile);
             assertTrue(resultFile.exists());
             postReader = new BufferedReader(new InputStreamReader(
                     new FileInputStream(resultFile)));
             assertTrue(postReader.ready());
-            String expectationResultData = "testCopyFile04_new.txtƒf[ƒ^";
+            String expectationResultData = "testCopyFile04_new.txtãƒ‡ãƒ¼ã‚¿";
             String data = "";
             for (int i = 0; i < expectationResultData.length(); i++) {
-                assertTrue(i + "‰ñ–Ú‚Ì”»’è‚Å¸”s‚µ‚Ü‚µ‚½B", postReader.ready());
+                assertTrue(i + "å›ç›®ã®åˆ¤å®šã§å¤±æ•—ã—ã¾ã—ãŸã€‚", postReader.ready());
                 data += (char) postReader.read();
             }
             assertEquals(expectationResultData, data);
@@ -478,7 +478,7 @@ public class FileUtilityTest extends TestCase {
             if (postReader != null) {
                 postReader.close();
             }
-            // ƒeƒXƒgŒãƒtƒ@ƒCƒ‹‚ğíœ
+            // ãƒ†ã‚¹ãƒˆå¾Œãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤
             File file = new File(srcFile);
             file.delete();
             file = new File(newFile);
@@ -489,39 +489,39 @@ public class FileUtilityTest extends TestCase {
     /**
      * testCopyFile05() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FC,F,G <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,F,G <br>
      * <br>
-     * “ü—Í’lF(ˆø”) srcFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testCopyFile05_src.txt"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) srcFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testCopyFile05_src.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testCopyFile05_new.txt"<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testCopyFile05_new.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ó‘Ô) this.checkFileExist:true<br>
-     * (ó‘Ô) srcFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestCopyFile05_src.txtƒf[ƒ^<br>
-     * (ó‘Ô) newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * EtestCopyFile05_new.txtƒf[ƒ^<br>
-     * (ó‘Ô) FileOutputStream#<init>():FileNotFoundException”­¶<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (çŠ¶æ…‹) this.checkFileExist:true<br>
+     * (çŠ¶æ…‹) srcFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testCopyFile05_src.txtãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ãƒ»testCopyFile05_new.txtãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹) FileOutputStream#<init>():FileNotFoundExceptionç™ºç”Ÿ<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») checkAbsolutePath():2‰ñŒÄ‚Ño‚³‚ê‚éB<br>
-     * 1‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”‚Æ‚µ‚ÄAˆø”srcFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * 2‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”‚Æ‚µ‚ÄAˆø”newFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * (ó‘Ô•Ï‰») newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:ƒtƒ@ƒCƒ‹‚ª‘¶İ‚µ‚È‚¢B<br>
-     * (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"File control operation was failed."<br>
-     * EŒ´ˆö—áŠOFFileNotFoundException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) checkAbsolutePath():2å›å‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
+     * 1å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°ã¨ã—ã¦ã€å¼•æ•°srcFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * 2å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°ã¨ã—ã¦ã€å¼•æ•°newFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã—ãªã„ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"File control operation was failed."<br>
+     * ãƒ»åŸå› ä¾‹å¤–ï¼šFileNotFoundException<br>
      * <br>
-     * ˆÙíƒP[ƒX<br>
-     * ƒtƒ@ƒCƒ‹‚Ì‘¶İƒ`ƒFƒbƒNŒã‚Ìƒ^ƒCƒ~ƒ“ƒO‚ÅƒRƒs[æ‚Ìƒtƒ@ƒCƒ‹‚ªíœ‚³‚ê‚½ê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * ãƒ•ã‚¡ã‚¤ãƒ«ã®å­˜åœ¨ãƒã‚§ãƒƒã‚¯å¾Œã®ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã§ã‚³ãƒ”ãƒ¼å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«ãŒå‰Šé™¤ã•ã‚ŒãŸå ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testCopyFile05() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -530,11 +530,11 @@ public class FileUtilityTest extends TestCase {
         String srcFile = directoryPath + "testCopyFile05_src.txt";
         String newFile = directoryPath + "testCopyFile05_new.txt";
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(FileUtility.class, "checkFileExist",
                 Boolean.TRUE);
 
-        // ƒeƒXƒg‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»‚·‚éB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–ã™ã‚‹ã€‚
         File testSrcFile = new File(srcFile);
         testSrcFile.delete();
         testSrcFile.createNewFile();
@@ -544,7 +544,7 @@ public class FileUtilityTest extends TestCase {
         testNewFile.createNewFile();
 
         FileNotFoundException fileNotFoundException = new FileNotFoundException(
-                "testCopyFile05—áŠO");
+                "testCopyFile05ä¾‹å¤–");
         VMOUTUtil.setExceptionAtAllTimes(FileOutputStream.class, "<init>",
                 fileNotFoundException);
 
@@ -553,25 +553,25 @@ public class FileUtilityTest extends TestCase {
         BufferedReader postReader = null;
         try {
             testSrcFileFileWriter = new FileWriter(testSrcFile);
-            testSrcFileFileWriter.write("testCopyFile05_src.txtƒf[ƒ^");
+            testSrcFileFileWriter.write("testCopyFile05_src.txtãƒ‡ãƒ¼ã‚¿");
             testSrcFileFileWriter.flush();
             testSrcFileFileWriter.close();
 
             testNewFileFileWriter = new FileWriter(testNewFile);
-            testNewFileFileWriter.write("testCopyFile05_new.txtƒf[ƒ^");
+            testNewFileFileWriter.write("testCopyFile05_new.txtãƒ‡ãƒ¼ã‚¿");
             testNewFileFileWriter.flush();
             testNewFileFileWriter.close();
 
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             FileUtility.copyFile(srcFile, newFile);
-            fail("FileException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B¸”s‚Å‚·B");
+            fail("FileExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚å¤±æ•—ã§ã™ã€‚");
         } catch (FileException e) {
-            // —áŠO‚ÌŠm”F
+            // ä¾‹å¤–ã®ç¢ºèª
             assertTrue(FileException.class.isAssignableFrom(e.getClass()));
             assertEquals("File control operation was failed.", e.getMessage());
             assertSame(fileNotFoundException, e.getCause());
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(2, VMOUTUtil.getCallCount(FileUtility.class,
                     "checkAbsolutePath"));
             assertEquals(srcFile, VMOUTUtil.getArgument(FileUtility.class,
@@ -579,7 +579,7 @@ public class FileUtilityTest extends TestCase {
             assertEquals(newFile, VMOUTUtil.getArgument(FileUtility.class,
                     "checkAbsolutePath", 1, 0));
 
-            // ƒRƒs[æ‚Ìƒtƒ@ƒCƒ‹“à—eŠm”F
+            // ã‚³ãƒ”ãƒ¼å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«å†…å®¹ç¢ºèª
             File file = new File(newFile);
             assertFalse(file.exists());
         } finally {
@@ -592,7 +592,7 @@ public class FileUtilityTest extends TestCase {
             if (postReader != null) {
                 postReader.close();
             }
-            // ƒeƒXƒgŒãƒtƒ@ƒCƒ‹‚ğíœ
+            // ãƒ†ã‚¹ãƒˆå¾Œãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤
             File file = new File(srcFile);
             file.delete();
             file = new File(newFile);
@@ -603,39 +603,39 @@ public class FileUtilityTest extends TestCase {
     /**
      * testCopyFile06() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FC,F,G <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,F,G <br>
      * <br>
-     * “ü—Í’lF(ˆø”) srcFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testCopyFile06_src.txt"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) srcFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testCopyFile06_src.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testCopyFile06_new.txt"<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testCopyFile06_new.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ó‘Ô) this.checkFileExist:true<br>
-     * (ó‘Ô) srcFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestCopyFile06_src.txtƒf[ƒ^<br>
-     * (ó‘Ô) newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * EtestCopyFile06_new.txtƒf[ƒ^<br>
-     * (ó‘Ô) FileChannel#position():IOException”­¶<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (çŠ¶æ…‹) this.checkFileExist:true<br>
+     * (çŠ¶æ…‹) srcFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testCopyFile06_src.txtãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ãƒ»testCopyFile06_new.txtãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹) FileChannel#position():IOExceptionç™ºç”Ÿ<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») checkAbsolutePath():2‰ñŒÄ‚Ño‚³‚ê‚éB<br>
-     * 1‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”‚Æ‚µ‚ÄAˆø”srcFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * 2‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”‚Æ‚µ‚ÄAˆø”newFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * (ó‘Ô•Ï‰») newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:ƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚é‚ªA“à—e‚ª‚È‚¢B<br>
-     * (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"File control operation was failed."<br>
-     * EŒ´ˆö—áŠOFIOException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) checkAbsolutePath():2å›å‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
+     * 1å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°ã¨ã—ã¦ã€å¼•æ•°srcFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * 2å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°ã¨ã—ã¦ã€å¼•æ•°newFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚‹ãŒã€å†…å®¹ãŒãªã„ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"File control operation was failed."<br>
+     * ãƒ»åŸå› ä¾‹å¤–ï¼šIOException<br>
      * <br>
-     * ˆÙíƒP[ƒX<br>
-     * ƒtƒ@ƒCƒ‹‚ÌƒRƒs[ˆ—“r’†‚ÉIOException‚ª”­¶‚µ‚½ê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚³ãƒ”ãƒ¼å‡¦ç†é€”ä¸­ã«IOExceptionãŒç™ºç”Ÿã—ãŸå ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testCopyFile06() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -644,11 +644,11 @@ public class FileUtilityTest extends TestCase {
         String srcFile = directoryPath + "testCopyFile06_src.txt";
         String newFile = directoryPath + "testCopyFile06_new.txt";
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(FileUtility.class, "checkFileExist",
                 Boolean.TRUE);
 
-        // ƒeƒXƒg‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»‚·‚éB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–ã™ã‚‹ã€‚
         File testSrcFile = new File(srcFile);
         testSrcFile.delete();
         testSrcFile.createNewFile();
@@ -657,7 +657,7 @@ public class FileUtilityTest extends TestCase {
         testNewFile.delete();
         testNewFile.createNewFile();
 
-        IOException exception = new IOException("testCopyFile06—áŠO");
+        IOException exception = new IOException("testCopyFile06ä¾‹å¤–");
         VMOUTUtil.setExceptionAtAllTimes(FileChannel.class, "position",
                 exception);
 
@@ -666,25 +666,25 @@ public class FileUtilityTest extends TestCase {
         BufferedReader postReader = null;
         try {
             testSrcFileFileWriter = new FileWriter(testSrcFile);
-            testSrcFileFileWriter.write("testCopyFile06_src.txtƒf[ƒ^");
+            testSrcFileFileWriter.write("testCopyFile06_src.txtãƒ‡ãƒ¼ã‚¿");
             testSrcFileFileWriter.flush();
             testSrcFileFileWriter.close();
 
             testNewFileFileWriter = new FileWriter(testNewFile);
-            testNewFileFileWriter.write("testCopyFile06_new.txtƒf[ƒ^");
+            testNewFileFileWriter.write("testCopyFile06_new.txtãƒ‡ãƒ¼ã‚¿");
             testNewFileFileWriter.flush();
             testNewFileFileWriter.close();
 
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             FileUtility.copyFile(srcFile, newFile);
-            fail("FileException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B¸”s‚Å‚·B");
+            fail("FileExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚å¤±æ•—ã§ã™ã€‚");
         } catch (FileException e) {
-            // —áŠO‚ÌŠm”F
+            // ä¾‹å¤–ã®ç¢ºèª
             assertTrue(FileException.class.isAssignableFrom(e.getClass()));
             assertEquals("File control operation was failed.", e.getMessage());
             assertSame(exception, e.getCause());
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(2, VMOUTUtil.getCallCount(FileUtility.class,
                     "checkAbsolutePath"));
             assertEquals(srcFile, VMOUTUtil.getArgument(FileUtility.class,
@@ -692,7 +692,7 @@ public class FileUtilityTest extends TestCase {
             assertEquals(newFile, VMOUTUtil.getArgument(FileUtility.class,
                     "checkAbsolutePath", 1, 0));
 
-            // ƒRƒs[æ‚Ìƒtƒ@ƒCƒ‹“à—eŠm”F
+            // ã‚³ãƒ”ãƒ¼å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«å†…å®¹ç¢ºèª
             File resultFile = new File(newFile);
             assertTrue(resultFile.exists());
             postReader = new BufferedReader(new InputStreamReader(
@@ -708,7 +708,7 @@ public class FileUtilityTest extends TestCase {
             if (postReader != null) {
                 postReader.close();
             }
-            // ƒeƒXƒgŒãƒtƒ@ƒCƒ‹‚ğíœ
+            // ãƒ†ã‚¹ãƒˆå¾Œãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤
             File file = new File(srcFile);
             file.delete();
             file = new File(newFile);
@@ -719,36 +719,36 @@ public class FileUtilityTest extends TestCase {
     /**
      * testCopyFile07() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FC,F,G <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,F,G <br>
      * <br>
-     * “ü—Í’lF(ˆø”) srcFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testCopyFile07_src.txt"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) srcFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testCopyFile07_src.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testCopyFile07_new.txt"<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testCopyFile07_new.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ó‘Ô) this.checkFileExist:true<br>
-     * (ó‘Ô) srcFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestCopyFile07_src.txtƒf[ƒ^<br>
-     * (ó‘Ô) newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * EtestCopyFile07_new.txtƒf[ƒ^<br>
-     * (ó‘Ô) FileOutputStream#close():IOException”­¶<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (çŠ¶æ…‹) this.checkFileExist:true<br>
+     * (çŠ¶æ…‹) srcFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testCopyFile07_src.txtãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ãƒ»testCopyFile07_new.txtãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹) FileOutputStream#close():IOExceptionç™ºç”Ÿ<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») checkAbsolutePath():2‰ñŒÄ‚Ño‚³‚ê‚éB<br>
-     * 1‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”‚Æ‚µ‚ÄAˆø”srcFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * 2‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”‚Æ‚µ‚ÄAˆø”newFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * (ó‘Ô•Ï‰») newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:ƒRƒs[Œ³‚ÌsrcFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹‚Æ“¯ˆê‚Ì“à—e‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) checkAbsolutePath():2å›å‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
+     * 1å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°ã¨ã—ã¦ã€å¼•æ•°srcFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * 2å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°ã¨ã—ã¦ã€å¼•æ•°newFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:ã‚³ãƒ”ãƒ¼å…ƒã®srcFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«ã¨åŒä¸€ã®å†…å®¹ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * ˆÙíƒP[ƒX<br>
-     * ƒtƒ@ƒCƒ‹‚ÌƒRƒs[ˆ—Š®—¹ŒãƒŠƒ\[ƒX‚ÌŠJ•úˆ—‚ÅIOException‚ª”­¶‚µ‚½ê‡A‚»‚Ì‚Ü‚Üˆ—‚ğ‘±‚«³íI—¹‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚³ãƒ”ãƒ¼å‡¦ç†å®Œäº†å¾Œãƒªã‚½ãƒ¼ã‚¹ã®é–‹æ”¾å‡¦ç†ã§IOExceptionãŒç™ºç”Ÿã—ãŸå ´åˆã€ãã®ã¾ã¾å‡¦ç†ã‚’ç¶šãæ­£å¸¸çµ‚äº†ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testCopyFile07() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -757,11 +757,11 @@ public class FileUtilityTest extends TestCase {
         String srcFile = directoryPath + "testCopyFile07_src.txt";
         String newFile = directoryPath + "testCopyFile07_new.txt";
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(FileUtility.class, "checkFileExist",
                 Boolean.TRUE);
 
-        // ƒeƒXƒg‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»‚·‚éB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–ã™ã‚‹ã€‚
         File testSrcFile = new File(srcFile);
         testSrcFile.delete();
         testSrcFile.createNewFile();
@@ -770,7 +770,7 @@ public class FileUtilityTest extends TestCase {
         testNewFile.delete();
         testNewFile.createNewFile();
 
-        IOException exception = new IOException("testCopyFile07—áŠO");
+        IOException exception = new IOException("testCopyFile07ä¾‹å¤–");
         VMOUTUtil.setExceptionAtAllTimes(FileOutputStream.class, "close",
                 exception);
 
@@ -779,21 +779,21 @@ public class FileUtilityTest extends TestCase {
         BufferedReader postReader = null;
         try {
             testSrcFileFileWriter = new FileWriter(testSrcFile);
-            testSrcFileFileWriter.write("testCopyFile07_src.txtƒf[ƒ^");
+            testSrcFileFileWriter.write("testCopyFile07_src.txtãƒ‡ãƒ¼ã‚¿");
             testSrcFileFileWriter.flush();
             testSrcFileFileWriter.close();
 
             testNewFileFileWriter = new FileWriter(testNewFile);
-            testNewFileFileWriter.write("testCopyFile07_new.txtƒf[ƒ^");
+            testNewFileFileWriter.write("testCopyFile07_new.txtãƒ‡ãƒ¼ã‚¿");
             testNewFileFileWriter.flush();
             testNewFileFileWriter.close();
 
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             FileUtility.copyFile(srcFile, newFile);
 
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(2, VMOUTUtil.getCallCount(FileUtility.class,
                     "checkAbsolutePath"));
             assertEquals(srcFile, VMOUTUtil.getArgument(FileUtility.class,
@@ -801,7 +801,7 @@ public class FileUtilityTest extends TestCase {
             assertEquals(newFile, VMOUTUtil.getArgument(FileUtility.class,
                     "checkAbsolutePath", 1, 0));
 
-            // ƒRƒs[æ‚Ìƒtƒ@ƒCƒ‹“à—eŠm”F
+            // ã‚³ãƒ”ãƒ¼å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«å†…å®¹ç¢ºèª
             File getFile = new File(newFile);
             UTUtil.assertEqualsFile(testSrcFile, getFile);
         } finally {
@@ -814,7 +814,7 @@ public class FileUtilityTest extends TestCase {
             if (postReader != null) {
                 postReader.close();
             }
-            // ƒeƒXƒgŒãƒtƒ@ƒCƒ‹‚ğíœ
+            // ãƒ†ã‚¹ãƒˆå¾Œãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤
             File file = new File(srcFile);
             file.delete();
             file = new File(newFile);
@@ -825,32 +825,32 @@ public class FileUtilityTest extends TestCase {
     /**
      * testCopyFile08() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FC,F,G <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,F,G <br>
      * <br>
-     * “ü—Í’lF(ˆø”) srcFile:null<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testCopyFile08_new.txt"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) srcFile:null<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testCopyFile08_new.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ó‘Ô) this.checkFileExist:true<br>
-     * (ó‘Ô) srcFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚µ‚È‚¢B<br>
-     * (ó‘Ô) newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * EtestCopyFile08_new.txtƒf[ƒ^<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (çŠ¶æ…‹) this.checkFileExist:true<br>
+     * (çŠ¶æ…‹) srcFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã—ãªã„ã€‚<br>
+     * (çŠ¶æ…‹) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ãƒ»testCopyFile08_new.txtãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») checkAbsolutePath():1‰ñŒÄ‚Ño‚³‚ê‚éB<br>
-     * ˆø”‚Æ‚µ‚ÄAˆø”srcFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * (ó‘Ô•Ï‰») newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:•ÏX‚È‚µ<br>
-     * (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"File path is not set."<br>
-     * Eƒtƒ@ƒCƒ‹–¼Fnull<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) checkAbsolutePath():1å›å‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
+     * å¼•æ•°ã¨ã—ã¦ã€å¼•æ•°srcFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å¤‰æ›´ãªã—<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"File path is not set."<br>
+     * ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šnull<br>
      * <br>
-     * ˆÙíƒP[ƒX<br>
-     * ƒRƒs[Œ³‚Ìƒtƒ@ƒCƒ‹–¼‚ªnull‚Å“ü—Í‚³‚ê‚½ê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * ã‚³ãƒ”ãƒ¼å…ƒã®ãƒ•ã‚¡ã‚¤ãƒ«åãŒnullã§å…¥åŠ›ã•ã‚ŒãŸå ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testCopyFile08() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -859,11 +859,11 @@ public class FileUtilityTest extends TestCase {
         String srcFile = null;
         String newFile = directoryPath + "testCopyFile08_new.txt";
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(FileUtility.class, "checkFileExist",
                 Boolean.TRUE);
 
-        // ƒeƒXƒg‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»‚·‚éB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–ã™ã‚‹ã€‚
         File testNewFile = new File(newFile);
         testNewFile.delete();
         testNewFile.createNewFile();
@@ -875,35 +875,35 @@ public class FileUtilityTest extends TestCase {
         BufferedReader postReader = null;
         try {
             testNewFileFileWriter = new FileWriter(testNewFile);
-            testNewFileFileWriter.write("testCopyFile08_new.txtƒf[ƒ^");
+            testNewFileFileWriter.write("testCopyFile08_new.txtãƒ‡ãƒ¼ã‚¿");
             testNewFileFileWriter.flush();
             testNewFileFileWriter.close();
 
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             FileUtility.copyFile(srcFile, newFile);
-            fail("FileException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B¸”s‚Å‚·B");
+            fail("FileExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚å¤±æ•—ã§ã™ã€‚");
         } catch (FileException e) {
-            // —áŠO‚ÌŠm”F
+            // ä¾‹å¤–ã®ç¢ºèª
             assertTrue(FileException.class.isAssignableFrom(e.getClass()));
             assertEquals("File path is not set.", e.getMessage());
             assertNull(e.getFileName());
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(1, VMOUTUtil.getCallCount(FileUtility.class,
                     "checkAbsolutePath"));
             assertEquals(srcFile, VMOUTUtil.getArgument(FileUtility.class,
                     "checkAbsolutePath", 0, 0));
 
-            // ƒRƒs[æ‚Ìƒtƒ@ƒCƒ‹“à—eŠm”F
+            // ã‚³ãƒ”ãƒ¼å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«å†…å®¹ç¢ºèª
             File resultFile = new File(newFile);
             assertTrue(resultFile.exists());
             postReader = new BufferedReader(new InputStreamReader(
                     new FileInputStream(resultFile)));
             assertTrue(postReader.ready());
-            String expectationResultData = "testCopyFile08_new.txtƒf[ƒ^";
+            String expectationResultData = "testCopyFile08_new.txtãƒ‡ãƒ¼ã‚¿";
             String data = "";
             for (int i = 0; i < expectationResultData.length(); i++) {
-                assertTrue(i + "‰ñ–Ú‚Ì”»’è‚Å¸”s‚µ‚Ü‚µ‚½B", postReader.ready());
+                assertTrue(i + "å›ç›®ã®åˆ¤å®šã§å¤±æ•—ã—ã¾ã—ãŸã€‚", postReader.ready());
                 data += (char) postReader.read();
             }
             assertEquals(expectationResultData, data);
@@ -915,7 +915,7 @@ public class FileUtilityTest extends TestCase {
             if (postReader != null) {
                 postReader.close();
             }
-            // ƒeƒXƒgŒãƒtƒ@ƒCƒ‹‚ğíœ
+            // ãƒ†ã‚¹ãƒˆå¾Œãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤
             File file = new File(newFile);
             file.delete();
         }
@@ -924,38 +924,38 @@ public class FileUtilityTest extends TestCase {
     /**
      * testCopyFile09() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FC,F,G <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,F,G <br>
      * <br>
-     * “ü—Í’lF(ˆø”) srcFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testCopyFile09_src.txt"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) srcFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testCopyFile09_src.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "testCopyFile09_new.txt"<br>
      * <br>
-     * ¦‘Š‘ÎƒpƒX<br>
-     * (ó‘Ô) this.checkFileExist:true<br>
-     * (ó‘Ô) srcFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestCopyFile09_src.txtƒf[ƒ^<br>
-     * (ó‘Ô) newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * EtestCopyFile09_new.txtƒf[ƒ^<br>
+     * â€»ç›¸å¯¾ãƒ‘ã‚¹<br>
+     * (çŠ¶æ…‹) this.checkFileExist:true<br>
+     * (çŠ¶æ…‹) srcFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testCopyFile09_src.txtãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ãƒ»testCopyFile09_new.txtãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») checkAbsolutePath():2‰ñŒÄ‚Ño‚³‚ê‚éB<br>
-     * 1‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”‚Æ‚µ‚ÄAˆø”srcFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * 2‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”‚Æ‚µ‚ÄAˆø”newFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * (ó‘Ô•Ï‰») newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:•ÏX‚È‚µ<br>
-     * (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"File path is not absolute."<br>
-     * Eƒtƒ@ƒCƒ‹–¼FnewFile‚Æ“¯‚¶’l<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) checkAbsolutePath():2å›å‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
+     * 1å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°ã¨ã—ã¦ã€å¼•æ•°srcFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * 2å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°ã¨ã—ã¦ã€å¼•æ•°newFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å¤‰æ›´ãªã—<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"File path is not absolute."<br>
+     * ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šnewFileã¨åŒã˜å€¤<br>
      * <br>
-     * ˆÙíƒP[ƒX<br>
-     * ƒRƒs[æ‚Ìƒtƒ@ƒCƒ‹–¼‚ª‘Š‘ÎƒpƒX‚Å“ü—Í‚³‚ê‚½ê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * ã‚³ãƒ”ãƒ¼å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«åãŒç›¸å¯¾ãƒ‘ã‚¹ã§å…¥åŠ›ã•ã‚ŒãŸå ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testCopyFile09() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -964,11 +964,11 @@ public class FileUtilityTest extends TestCase {
         String srcFile = directoryPath + "testCopyFile09_src.txt";
         String newFile = "testCopyFile09_new.txt";
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(FileUtility.class, "checkFileExist",
                 Boolean.TRUE);
 
-        // ƒeƒXƒg‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»‚·‚éB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–ã™ã‚‹ã€‚
         File testSrcFile = new File(srcFile);
         testSrcFile.delete();
         testSrcFile.createNewFile();
@@ -982,25 +982,25 @@ public class FileUtilityTest extends TestCase {
         BufferedReader postReader = null;
         try {
             testSrcFileFileWriter = new FileWriter(testSrcFile);
-            testSrcFileFileWriter.write("testCopyFile09_src.txtƒf[ƒ^");
+            testSrcFileFileWriter.write("testCopyFile09_src.txtãƒ‡ãƒ¼ã‚¿");
             testSrcFileFileWriter.flush();
             testSrcFileFileWriter.close();
 
             testNewFileFileWriter = new FileWriter(testNewFile);
-            testNewFileFileWriter.write("testCopyFile09_new.txtƒf[ƒ^");
+            testNewFileFileWriter.write("testCopyFile09_new.txtãƒ‡ãƒ¼ã‚¿");
             testNewFileFileWriter.flush();
             testNewFileFileWriter.close();
 
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             FileUtility.copyFile(srcFile, newFile);
-            fail("FileException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B¸”s‚Å‚·B");
+            fail("FileExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚å¤±æ•—ã§ã™ã€‚");
         } catch (FileException e) {
-            // —áŠO‚ÌŠm”F
+            // ä¾‹å¤–ã®ç¢ºèª
             assertTrue(FileException.class.isAssignableFrom(e.getClass()));
             assertEquals("File path is not absolute.", e.getMessage());
             assertEquals(newFile, e.getFileName());
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(2, VMOUTUtil.getCallCount(FileUtility.class,
                     "checkAbsolutePath"));
             assertEquals(srcFile, VMOUTUtil.getArgument(FileUtility.class,
@@ -1008,16 +1008,16 @@ public class FileUtilityTest extends TestCase {
             assertEquals(newFile, VMOUTUtil.getArgument(FileUtility.class,
                     "checkAbsolutePath", 1, 0));
 
-            // ƒRƒs[æ‚Ìƒtƒ@ƒCƒ‹“à—eŠm”F
+            // ã‚³ãƒ”ãƒ¼å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«å†…å®¹ç¢ºèª
             File resultFile = new File(directoryPath + newFile);
             assertTrue(resultFile.exists());
             postReader = new BufferedReader(new InputStreamReader(
                     new FileInputStream(resultFile)));
             assertTrue(postReader.ready());
-            String expectationResultData = "testCopyFile09_new.txtƒf[ƒ^";
+            String expectationResultData = "testCopyFile09_new.txtãƒ‡ãƒ¼ã‚¿";
             String data = "";
             for (int i = 0; i < expectationResultData.length(); i++) {
-                assertTrue(i + "‰ñ–Ú‚Ì”»’è‚Å¸”s‚µ‚Ü‚µ‚½B", postReader.ready());
+                assertTrue(i + "å›ç›®ã®åˆ¤å®šã§å¤±æ•—ã—ã¾ã—ãŸã€‚", postReader.ready());
                 data += (char) postReader.read();
             }
             assertEquals(expectationResultData, data);
@@ -1029,7 +1029,7 @@ public class FileUtilityTest extends TestCase {
             if (postReader != null) {
                 postReader.close();
             }
-            // ƒeƒXƒgŒãƒtƒ@ƒCƒ‹‚ğíœ
+            // ãƒ†ã‚¹ãƒˆå¾Œãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤
             File file = new File(srcFile);
             file.delete();
             file = new File(directoryPath + newFile);
@@ -1040,34 +1040,34 @@ public class FileUtilityTest extends TestCase {
     /**
      * testCopyFile10() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FC,F,G <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,F,G <br>
      * <br>
-     * “ü—Í’lF(ˆø”) srcFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testCopyFile10_src.txt"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) srcFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testCopyFile10_src.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ˆø”) newFile:null<br>
-     * (ó‘Ô) this.checkFileExist:true<br>
-     * (ó‘Ô) srcFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestCopyFile10_src.txtƒf[ƒ^<br>
-     * (ó‘Ô) newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚µ‚È‚¢B<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (å¼•æ•°) newFile:null<br>
+     * (çŠ¶æ…‹) this.checkFileExist:true<br>
+     * (çŠ¶æ…‹) srcFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testCopyFile10_src.txtãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã—ãªã„ã€‚<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») checkAbsolutePath():2‰ñŒÄ‚Ño‚³‚ê‚éB<br>
-     * 1‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”‚Æ‚µ‚ÄAˆø”srcFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * 2‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”‚Æ‚µ‚ÄAˆø”newFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * (ó‘Ô•Ï‰») newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:•ÏX‚È‚µ<br>
-     * (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"File path is not set."<br>
-     * Eƒtƒ@ƒCƒ‹–¼Fnull<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) checkAbsolutePath():2å›å‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
+     * 1å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°ã¨ã—ã¦ã€å¼•æ•°srcFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * 2å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°ã¨ã—ã¦ã€å¼•æ•°newFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å¤‰æ›´ãªã—<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"File path is not set."<br>
+     * ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šnull<br>
      * <br>
-     * ˆÙíƒP[ƒX<br>
-     * ƒRƒs[æ‚Ìƒtƒ@ƒCƒ‹–¼‚ªnull‚Å“ü—Í‚³‚ê‚½ê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * ã‚³ãƒ”ãƒ¼å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«åãŒnullã§å…¥åŠ›ã•ã‚ŒãŸå ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testCopyFile10() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -1076,11 +1076,11 @@ public class FileUtilityTest extends TestCase {
         String srcFile = directoryPath + "testCopyFile10_src.txt";
         String newFile = null;
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(FileUtility.class, "checkFileExist",
                 Boolean.TRUE);
 
-        // ƒeƒXƒg‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»‚·‚éB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–ã™ã‚‹ã€‚
         File testSrcFile = new File(srcFile);
         testSrcFile.delete();
         testSrcFile.createNewFile();
@@ -1088,20 +1088,20 @@ public class FileUtilityTest extends TestCase {
         FileWriter testSrcFileFileWriter = null;
         try {
             testSrcFileFileWriter = new FileWriter(testSrcFile);
-            testSrcFileFileWriter.write("testCopyFile10_src.txtƒf[ƒ^");
+            testSrcFileFileWriter.write("testCopyFile10_src.txtãƒ‡ãƒ¼ã‚¿");
             testSrcFileFileWriter.flush();
             testSrcFileFileWriter.close();
 
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             FileUtility.copyFile(srcFile, newFile);
-            fail("FileException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B¸”s‚Å‚·B");
+            fail("FileExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚å¤±æ•—ã§ã™ã€‚");
         } catch (FileException e) {
-            // —áŠO‚ÌŠm”F
+            // ä¾‹å¤–ã®ç¢ºèª
             assertTrue(FileException.class.isAssignableFrom(e.getClass()));
             assertEquals("File path is not set.", e.getMessage());
             assertNull(e.getFileName());
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(2, VMOUTUtil.getCallCount(FileUtility.class,
                     "checkAbsolutePath"));
             assertEquals(srcFile, VMOUTUtil.getArgument(FileUtility.class,
@@ -1112,7 +1112,7 @@ public class FileUtilityTest extends TestCase {
             if (testSrcFileFileWriter != null) {
                 testSrcFileFileWriter.close();
             }
-            // ƒeƒXƒgŒãƒtƒ@ƒCƒ‹‚ğíœ
+            // ãƒ†ã‚¹ãƒˆå¾Œãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤
             File file = new File(srcFile);
             file.delete();
         }
@@ -1121,35 +1121,35 @@ public class FileUtilityTest extends TestCase {
     /**
      * testCopyFile11() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FC,F,G <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,F,G <br>
      * <br>
-     * “ü—Í’lF(ˆø”) srcFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) srcFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "testCopyFile11_src.txt"<br>
      * <br>
-     * ¦‘Š‘ÎƒpƒX<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testCopyFile11_new.txt"<br>
+     * â€»ç›¸å¯¾ãƒ‘ã‚¹<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testCopyFile11_new.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ó‘Ô) this.checkFileExist:true<br>
-     * (ó‘Ô) srcFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚µ‚È‚¢B<br>
-     * (ó‘Ô) newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * EtestCopyFile11_new.txtƒf[ƒ^<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (çŠ¶æ…‹) this.checkFileExist:true<br>
+     * (çŠ¶æ…‹) srcFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã—ãªã„ã€‚<br>
+     * (çŠ¶æ…‹) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ãƒ»testCopyFile11_new.txtãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») checkAbsolutePath():1‰ñŒÄ‚Ño‚³‚ê‚éB<br>
-     * ˆø”‚Æ‚µ‚ÄAˆø”srcFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * (ó‘Ô•Ï‰») newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:•ÏX‚È‚µ<br>
-     * (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"File path is not absolute."<br>
-     * Eƒtƒ@ƒCƒ‹–¼FsrcFile‚Æ“¯‚¶’l<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) checkAbsolutePath():1å›å‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
+     * å¼•æ•°ã¨ã—ã¦ã€å¼•æ•°srcFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å¤‰æ›´ãªã—<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"File path is not absolute."<br>
+     * ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šsrcFileã¨åŒã˜å€¤<br>
      * <br>
-     * ˆÙíƒP[ƒX<br>
-     * ƒRƒs[Œ³‚Ìƒtƒ@ƒCƒ‹–¼‚ª‘Š‘ÎƒpƒX‚Å“ü—Í‚³‚ê‚½ê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * ã‚³ãƒ”ãƒ¼å…ƒã®ãƒ•ã‚¡ã‚¤ãƒ«åãŒç›¸å¯¾ãƒ‘ã‚¹ã§å…¥åŠ›ã•ã‚ŒãŸå ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testCopyFile11() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -1158,11 +1158,11 @@ public class FileUtilityTest extends TestCase {
         String srcFile = "testCopyFile10_src.txt";
         String newFile = directoryPath + "testCopyFile10_new.txt";
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(FileUtility.class, "checkFileExist",
                 Boolean.TRUE);
 
-        // ƒeƒXƒg‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»‚·‚éB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–ã™ã‚‹ã€‚
         File testSrcFile = new File(directoryPath + srcFile);
         testSrcFile.delete();
         testSrcFile.createNewFile();
@@ -1176,40 +1176,40 @@ public class FileUtilityTest extends TestCase {
         BufferedReader postReader = null;
         try {
             testSrcFileFileWriter = new FileWriter(testSrcFile);
-            testSrcFileFileWriter.write("testCopyFile11_src.txtƒf[ƒ^");
+            testSrcFileFileWriter.write("testCopyFile11_src.txtãƒ‡ãƒ¼ã‚¿");
             testSrcFileFileWriter.flush();
             testSrcFileFileWriter.close();
 
             testNewFileFileWriter = new FileWriter(testNewFile);
-            testNewFileFileWriter.write("testCopyFile11_new.txtƒf[ƒ^");
+            testNewFileFileWriter.write("testCopyFile11_new.txtãƒ‡ãƒ¼ã‚¿");
             testNewFileFileWriter.flush();
             testNewFileFileWriter.close();
 
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             FileUtility.copyFile(srcFile, newFile);
-            fail("FileException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B¸”s‚Å‚·B");
+            fail("FileExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚å¤±æ•—ã§ã™ã€‚");
         } catch (FileException e) {
-            // —áŠO‚ÌŠm”F
+            // ä¾‹å¤–ã®ç¢ºèª
             assertTrue(FileException.class.isAssignableFrom(e.getClass()));
             assertEquals("File path is not absolute.", e.getMessage());
             assertEquals(srcFile, e.getFileName());
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(1, VMOUTUtil.getCallCount(FileUtility.class,
                     "checkAbsolutePath"));
             assertEquals(srcFile, VMOUTUtil.getArgument(FileUtility.class,
                     "checkAbsolutePath", 0, 0));
 
-            // ƒRƒs[æ‚Ìƒtƒ@ƒCƒ‹“à—eŠm”F
+            // ã‚³ãƒ”ãƒ¼å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«å†…å®¹ç¢ºèª
             File resultFile = new File(newFile);
             assertTrue(resultFile.exists());
             postReader = new BufferedReader(new InputStreamReader(
                     new FileInputStream(resultFile)));
             assertTrue(postReader.ready());
-            String expectationResultData = "testCopyFile11_new.txtƒf[ƒ^";
+            String expectationResultData = "testCopyFile11_new.txtãƒ‡ãƒ¼ã‚¿";
             String data = "";
             for (int i = 0; i < expectationResultData.length(); i++) {
-                assertTrue(i + "‰ñ–Ú‚Ì”»’è‚Å¸”s‚µ‚Ü‚µ‚½B", postReader.ready());
+                assertTrue(i + "å›ç›®ã®åˆ¤å®šã§å¤±æ•—ã—ã¾ã—ãŸã€‚", postReader.ready());
                 data += (char) postReader.read();
             }
             assertEquals(expectationResultData, data);
@@ -1221,7 +1221,7 @@ public class FileUtilityTest extends TestCase {
             if (postReader != null) {
                 postReader.close();
             }
-            // ƒeƒXƒgŒãƒtƒ@ƒCƒ‹‚ğíœ
+            // ãƒ†ã‚¹ãƒˆå¾Œãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤
             File file = new File(directoryPath + srcFile);
             file.delete();
             file = new File(newFile);
@@ -1232,42 +1232,42 @@ public class FileUtilityTest extends TestCase {
     /*
      * testCopyFile12() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FC,F,G <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,F,G <br>
      * <br>
-     * “ü—Í’lF(ˆø”) srcFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testCopyFile12_src.txt"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) srcFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testCopyFile12_src.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testCopyFile02_new.txt"<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testCopyFile02_new.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ó‘Ô) this.checkFileExist:true<br>
-     * (ó‘Ô) srcFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestCopyFile02_src.txtƒf[ƒ^<br>
-     * (ó‘Ô) newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * EtestCopyFile02_new.txtƒf[ƒ^<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (çŠ¶æ…‹) this.checkFileExist:true<br>
+     * (çŠ¶æ…‹) srcFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testCopyFile02_src.txtãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ãƒ»testCopyFile02_new.txtãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     * ¦ƒƒbƒN‚ªŠ|‚©‚Á‚Ä‚¢‚éB<br>
+     * â€»ãƒ­ãƒƒã‚¯ãŒæ›ã‹ã£ã¦ã„ã‚‹ã€‚<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») checkAbsolutePath():2‰ñŒÄ‚Ño‚³‚ê‚éB<br>
-     * 1‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”‚Æ‚µ‚ÄAˆø”srcFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * 2‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”‚Æ‚µ‚ÄAˆø”newFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * (ó‘Ô•Ï‰») newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:•ÏX‚È‚µ<br>
-     * (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"File control operation was failed."<br>
-     * Eƒtƒ@ƒCƒ‹–¼FnewFile‚Æ“¯‚¶’l<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) checkAbsolutePath():2å›å‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
+     * 1å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°ã¨ã—ã¦ã€å¼•æ•°srcFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * 2å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°ã¨ã—ã¦ã€å¼•æ•°newFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å¤‰æ›´ãªã—<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"File control operation was failed."<br>
+     * ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šnewFileã¨åŒã˜å€¤<br>
      * <br>
-     * ˆÙíƒP[ƒX<br>
-     * icheckFileExist‚ªTRUEj<br>
-     * ƒRƒs[æ‚Ìƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚é‚ªƒƒbƒN‚³‚ê‚Ä‚¢‚éê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * ï¼ˆcheckFileExistãŒTRUEï¼‰<br>
+     * ã‚³ãƒ”ãƒ¼å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚‹ãŒãƒ­ãƒƒã‚¯ã•ã‚Œã¦ã„ã‚‹å ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     // This testcase is ignored, because of Windows environment dependency.
     public void _ignore_testCopyFile12() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -1276,10 +1276,10 @@ public class FileUtilityTest extends TestCase {
         String srcFile = directoryPath + "testCopyFile12_src.txt";
         String newFile = directoryPath + "testCopyFile12_new.txt";
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(FileUtility.class, "checkFileExist", true);
 
-        // ƒeƒXƒg‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»‚·‚éB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–ã™ã‚‹ã€‚
         File testSrcFile = new File(srcFile);
         testSrcFile.delete();
         testSrcFile.createNewFile();
@@ -1295,28 +1295,28 @@ public class FileUtilityTest extends TestCase {
         BufferedReader postReader = null;
         try {
             testSrcFileFileWriter = new FileWriter(testSrcFile);
-            testSrcFileFileWriter.write("testCopyFile02_src.txtƒf[ƒ^");
+            testSrcFileFileWriter.write("testCopyFile02_src.txtãƒ‡ãƒ¼ã‚¿");
             testSrcFileFileWriter.flush();
             testSrcFileFileWriter.close();
 
             testNewFileFileWriter = new FileWriter(testNewFile);
-            testNewFileFileWriter.write("testCopyFile02_new.txtƒf[ƒ^");
+            testNewFileFileWriter.write("testCopyFile02_new.txtãƒ‡ãƒ¼ã‚¿");
             testNewFileFileWriter.flush();
             testNewFileFileWriter.close();
 
             fis = new FileInputStream(testNewFile);
             lock = fis.getChannel().lock(0L, Long.MAX_VALUE, true);
 
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             FileUtility.copyFile(srcFile, newFile);
-            fail("FileException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("FileExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (FileException e) {
-            // —áŠO‚ÌŠm”F
+            // ä¾‹å¤–ã®ç¢ºèª
             assertTrue(FileException.class.isAssignableFrom(e.getClass()));
             assertEquals("File control operation was failed.", e.getMessage());
             assertEquals(newFile, e.getFileName());
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(2, VMOUTUtil.getCallCount(FileUtility.class,
                     "checkAbsolutePath"));
             assertEquals(srcFile, VMOUTUtil.getArgument(FileUtility.class,
@@ -1324,19 +1324,19 @@ public class FileUtilityTest extends TestCase {
             assertEquals(newFile, VMOUTUtil.getArgument(FileUtility.class,
                     "checkAbsolutePath", 1, 0));
 
-            // ƒRƒs[æ‚Ìƒtƒ@ƒCƒ‹“à—eŠm”F
+            // ã‚³ãƒ”ãƒ¼å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«å†…å®¹ç¢ºèª
             lock.release();
-            // ƒtƒ@ƒCƒ‹–¼‚Ì•ÏX‚ğŠm”F
+            // ãƒ•ã‚¡ã‚¤ãƒ«åã®å¤‰æ›´ã‚’ç¢ºèª
             lock.release();
             File getFile = new File(newFile);
             assertTrue(getFile.exists());
             postReader = new BufferedReader(new InputStreamReader(
                     new FileInputStream(getFile)));
             assertTrue(postReader.ready());
-            String expectationResultData = "testCopyFile02_new.txtƒf[ƒ^";
+            String expectationResultData = "testCopyFile02_new.txtãƒ‡ãƒ¼ã‚¿";
             String data = "";
             for (int i = 0; i < expectationResultData.length(); i++) {
-                assertTrue(i + "‰ñ–Ú‚Ì”»’è‚Å¸”s‚µ‚Ü‚µ‚½B", postReader.ready());
+                assertTrue(i + "å›ç›®ã®åˆ¤å®šã§å¤±æ•—ã—ã¾ã—ãŸã€‚", postReader.ready());
                 data += (char) postReader.read();
             }
             assertEquals(expectationResultData, data);
@@ -1359,7 +1359,7 @@ public class FileUtilityTest extends TestCase {
             if (postReader != null) {
                 postReader.close();
             }
-            // ƒeƒXƒgŒãƒtƒ@ƒCƒ‹‚ğíœ
+            // ãƒ†ã‚¹ãƒˆå¾Œãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤
             File file = new File(srcFile);
             file.delete();
             file = new File(newFile);
@@ -1370,25 +1370,25 @@ public class FileUtilityTest extends TestCase {
     /**
      * testDeleteFile01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) srcFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testDeleteFile01_src.txt"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) srcFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testDeleteFile01_src.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ó‘Ô) srcFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestCopyFile01_src.txtƒf[ƒ^<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (çŠ¶æ…‹) srcFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testCopyFile01_src.txtãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») srcFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚µ‚È‚¢B<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) srcFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã—ãªã„ã€‚<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * ‘ÎÛƒtƒ@ƒCƒ‹‚ª³‚µ‚­íœ‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ãŒæ­£ã—ãå‰Šé™¤ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testDeleteFile01() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -1396,7 +1396,7 @@ public class FileUtilityTest extends TestCase {
 
         String srcFile = directoryPath + "testDeleteFile01_src.txt";
 
-        // ƒeƒXƒg‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»‚·‚éB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–ã™ã‚‹ã€‚
         File testSrcFile = new File(srcFile);
         testSrcFile.delete();
         testSrcFile.createNewFile();
@@ -1404,15 +1404,15 @@ public class FileUtilityTest extends TestCase {
         FileWriter testSrcFileFileWriter = null;
         try {
             testSrcFileFileWriter = new FileWriter(testSrcFile);
-            testSrcFileFileWriter.write("testCopyFile01_src.txtƒf[ƒ^");
+            testSrcFileFileWriter.write("testCopyFile01_src.txtãƒ‡ãƒ¼ã‚¿");
             testSrcFileFileWriter.flush();
             testSrcFileFileWriter.close();
 
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             FileUtility.deleteFile(srcFile);
 
-            // ”»’è
-            // ƒRƒs[æ‚Ìƒtƒ@ƒCƒ‹“à—eŠm”F
+            // åˆ¤å®š
+            // ã‚³ãƒ”ãƒ¼å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«å†…å®¹ç¢ºèª
             File resultFile = new File(srcFile);
             assertFalse(resultFile.exists());
         } finally {
@@ -1427,26 +1427,26 @@ public class FileUtilityTest extends TestCase {
     /**
      * testDeleteFile02() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FC,F,G <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,F,G <br>
      * <br>
-     * “ü—Í’lF(ˆø”) srcFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testDeleteFile02_src.txt"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) srcFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testDeleteFile02_src.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ó‘Ô) srcFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚µ‚È‚¢B<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (çŠ¶æ…‹) srcFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã—ãªã„ã€‚<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») srcFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:•Ï‰»‚È‚µ<br>
-     * (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"(ƒpƒX)/testDeleteFile02_src.txt  is not exist."<br>
-     * Eƒtƒ@ƒCƒ‹–¼FsrcFile‚Æ“¯‚¶’l<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) srcFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å¤‰åŒ–ãªã—<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"(ãƒ‘ã‚¹)/testDeleteFile02_src.txt  is not exist."<br>
+     * ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šsrcFileã¨åŒã˜å€¤<br>
      * <br>
-     * ˆÙíƒP[ƒX<br>
-     * ‘ÎÛƒtƒ@ƒCƒ‹‚ª‘¶İ‚µ‚È‚¢ê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã—ãªã„å ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testDeleteFile02() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -1454,15 +1454,15 @@ public class FileUtilityTest extends TestCase {
 
         String srcFile = directoryPath + "testDeleteFile01_src.txt";
 
-        // ƒeƒXƒg‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»‚·‚éB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–ã™ã‚‹ã€‚
         File testSrcFile = new File(srcFile);
         testSrcFile.delete();
 
         try {
             FileUtility.deleteFile(srcFile);
-            fail("FileException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B¸”s‚Å‚·B");
+            fail("FileExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚å¤±æ•—ã§ã™ã€‚");
         } catch (FileException e) {
-            // —áŠO‚ÌŠm”F
+            // ä¾‹å¤–ã®ç¢ºèª
             assertTrue(FileException.class.isAssignableFrom(e.getClass()));
             assertEquals(srcFile + " is not exist.", e.getMessage());
             assertEquals(srcFile, e.getFileName());
@@ -1475,29 +1475,29 @@ public class FileUtilityTest extends TestCase {
     /**
      * testDeleteFile03() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FC,F,G <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,F,G <br>
      * <br>
-     * “ü—Í’lF(ˆø”) srcFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testDeleteFile03_src.txt"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) srcFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testDeleteFile03_src.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ó‘Ô) srcFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestCopyFile03_src.txtƒf[ƒ^<br>
-     * (ó‘Ô) File#delete():false<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (çŠ¶æ…‹) srcFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testCopyFile03_src.txtãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹) File#delete():false<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») srcFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:•Ï‰»‚È‚µ<br>
-     * (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"File control operation was failed."<br>
-     * Eƒtƒ@ƒCƒ‹–¼FsrcFile‚Æ“¯‚¶’l<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) srcFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å¤‰åŒ–ãªã—<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"File control operation was failed."<br>
+     * ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šsrcFileã¨åŒã˜å€¤<br>
      * <br>
-     * ˆÙíƒP[ƒX<br>
-     * ‘ÎÛƒtƒ@ƒCƒ‹‚Ìíœ‚ªƒtƒ@ƒCƒ‹ƒƒbƒN‚È‚Ç‚É‚æ‚Á‚Ä¸”s‚µ‚½ê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã®å‰Šé™¤ãŒãƒ•ã‚¡ã‚¤ãƒ«ãƒ­ãƒƒã‚¯ãªã©ã«ã‚ˆã£ã¦å¤±æ•—ã—ãŸå ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testDeleteFile03() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -1505,7 +1505,7 @@ public class FileUtilityTest extends TestCase {
 
         String srcFile = directoryPath + "testDeleteFile03_src.txt";
 
-        // ƒeƒXƒg‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»‚·‚éB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–ã™ã‚‹ã€‚
         File testSrcFile = new File(srcFile);
         testSrcFile.delete();
         testSrcFile.createNewFile();
@@ -1516,29 +1516,29 @@ public class FileUtilityTest extends TestCase {
         BufferedReader postReader = null;
         try {
             testSrcFileFileWriter = new FileWriter(testSrcFile);
-            testSrcFileFileWriter.write("testCopyFile03_src.txtƒf[ƒ^");
+            testSrcFileFileWriter.write("testCopyFile03_src.txtãƒ‡ãƒ¼ã‚¿");
             testSrcFileFileWriter.flush();
             testSrcFileFileWriter.close();
 
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             FileUtility.deleteFile(srcFile);
-            fail("FileException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B¸”s‚Å‚·B");
+            fail("FileExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚å¤±æ•—ã§ã™ã€‚");
         } catch (FileException e) {
-            // —áŠO‚ÌŠm”F
+            // ä¾‹å¤–ã®ç¢ºèª
             assertTrue(FileException.class.isAssignableFrom(e.getClass()));
             assertEquals("File control operation was failed.", e.getMessage());
             assertEquals(srcFile, e.getFileName());
 
-            // ƒRƒs[æ‚Ìƒtƒ@ƒCƒ‹“à—eŠm”F
+            // ã‚³ãƒ”ãƒ¼å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«å†…å®¹ç¢ºèª
             File resultFile = new File(srcFile);
             assertTrue(resultFile.exists());
             postReader = new BufferedReader(new InputStreamReader(
                     new FileInputStream(resultFile)));
             assertTrue(postReader.ready());
-            String expectationResultData = "testCopyFile03_src.txtƒf[ƒ^";
+            String expectationResultData = "testCopyFile03_src.txtãƒ‡ãƒ¼ã‚¿";
             String data = "";
             for (int i = 0; i < expectationResultData.length(); i++) {
-                assertTrue(i + "‰ñ–Ú‚Ì”»’è‚Å¸”s‚µ‚Ü‚µ‚½B", postReader.ready());
+                assertTrue(i + "å›ç›®ã®åˆ¤å®šã§å¤±æ•—ã—ã¾ã—ãŸã€‚", postReader.ready());
                 data += (char) postReader.read();
             }
             assertEquals(expectationResultData, data);
@@ -1558,30 +1558,30 @@ public class FileUtilityTest extends TestCase {
     /**
      * testDeleteFile04() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FC,F,G <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,F,G <br>
      * <br>
-     * “ü—Í’lF(ˆø”) srcFile:null<br>
-     * (ó‘Ô) srcFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚µ‚È‚¢B<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) srcFile:null<br>
+     * (çŠ¶æ…‹) srcFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã—ãªã„ã€‚<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») srcFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:•Ï‰»‚È‚µ<br>
-     * (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"File path is not set."<br>
-     * Eƒtƒ@ƒCƒ‹–¼FsrcFile‚Æ“¯‚¶’l<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) srcFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å¤‰åŒ–ãªã—<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"File path is not set."<br>
+     * ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šsrcFileã¨åŒã˜å€¤<br>
      * <br>
-     * ˆÙíƒP[ƒX<br>
-     * ‘ÎÛƒtƒ@ƒCƒ‹‚ÌƒpƒX‚ªnull‚Ìê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹ãŒnullã®å ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testDeleteFile04() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String srcFile = null;
 
         try {
             FileUtility.deleteFile(srcFile);
-            fail("FileException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B¸”s‚Å‚·B");
+            fail("FileExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚å¤±æ•—ã§ã™ã€‚");
         } catch (FileException e) {
-            // —áŠO‚ÌŠm”F
+            // ä¾‹å¤–ã®ç¢ºèª
             assertTrue(FileException.class.isAssignableFrom(e.getClass()));
             assertEquals("File path is not set.", e.getMessage());
             assertNull(e.getFileName());
@@ -1591,28 +1591,28 @@ public class FileUtilityTest extends TestCase {
     /**
      * testDeleteFile05() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FC,F,G <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,F,G <br>
      * <br>
-     * “ü—Í’lF(ˆø”) srcFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) srcFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "testDeleteFile05_src.txt"<br>
      * <br>
-     * ¦‘Š‘ÎƒpƒX<br>
-     * (ó‘Ô) srcFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestCopyFile05_src.txtƒf[ƒ^<br>
+     * â€»ç›¸å¯¾ãƒ‘ã‚¹<br>
+     * (çŠ¶æ…‹) srcFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testCopyFile05_src.txtãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») srcFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:•Ï‰»‚È‚µ<br>
-     * (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"File path is not absolute."<br>
-     * Eƒtƒ@ƒCƒ‹–¼FsrcFile‚Æ“¯‚¶’l<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) srcFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å¤‰åŒ–ãªã—<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"File path is not absolute."<br>
+     * ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šsrcFileã¨åŒã˜å€¤<br>
      * <br>
-     * ˆÙíƒP[ƒX<br>
-     * ‘ÎÛƒtƒ@ƒCƒ‹‚ÌƒpƒX‚ª‘Š‘ÎƒpƒX‚Ìê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹ãŒç›¸å¯¾ãƒ‘ã‚¹ã®å ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testDeleteFile05() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -1620,7 +1620,7 @@ public class FileUtilityTest extends TestCase {
 
         String srcFile = "testDeleteFile05_src.txt";
 
-        // ƒeƒXƒg‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»‚·‚éB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–ã™ã‚‹ã€‚
         File testSrcFile = new File(directoryPath + srcFile);
         testSrcFile.delete();
         testSrcFile.createNewFile();
@@ -1629,29 +1629,29 @@ public class FileUtilityTest extends TestCase {
         BufferedReader postReader = null;
         try {
             testSrcFileFileWriter = new FileWriter(testSrcFile);
-            testSrcFileFileWriter.write("testCopyFile05_src.txtƒf[ƒ^");
+            testSrcFileFileWriter.write("testCopyFile05_src.txtãƒ‡ãƒ¼ã‚¿");
             testSrcFileFileWriter.flush();
             testSrcFileFileWriter.close();
 
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             FileUtility.deleteFile(srcFile);
-            fail("FileException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B¸”s‚Å‚·B");
+            fail("FileExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚å¤±æ•—ã§ã™ã€‚");
         } catch (FileException e) {
-            // —áŠO‚ÌŠm”F
+            // ä¾‹å¤–ã®ç¢ºèª
             assertTrue(FileException.class.isAssignableFrom(e.getClass()));
             assertEquals("File path is not absolute.", e.getMessage());
             assertEquals(srcFile, e.getFileName());
 
-            // ƒRƒs[æ‚Ìƒtƒ@ƒCƒ‹“à—eŠm”F
+            // ã‚³ãƒ”ãƒ¼å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«å†…å®¹ç¢ºèª
             File resultFile = new File(directoryPath + srcFile);
             assertTrue(resultFile.exists());
             postReader = new BufferedReader(new InputStreamReader(
                     new FileInputStream(resultFile)));
             assertTrue(postReader.ready());
-            String expectationResultData = "testCopyFile05_src.txtƒf[ƒ^";
+            String expectationResultData = "testCopyFile05_src.txtãƒ‡ãƒ¼ã‚¿";
             String data = "";
             for (int i = 0; i < expectationResultData.length(); i++) {
-                assertTrue(i + "‰ñ–Ú‚Ì”»’è‚Å¸”s‚µ‚Ü‚µ‚½B", postReader.ready());
+                assertTrue(i + "å›ç›®ã®åˆ¤å®šã§å¤±æ•—ã—ã¾ã—ãŸã€‚", postReader.ready());
                 data += (char) postReader.read();
             }
             assertEquals(expectationResultData, data);
@@ -1671,28 +1671,28 @@ public class FileUtilityTest extends TestCase {
     /**
      * testMergeFile01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC,D,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,D,F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileList:—v‘f‚ğ‚½‚È‚¢ListƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testMergeFile01_new.txt"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileList:è¦ç´ ã‚’æŒãŸãªã„Listã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testMergeFile01_new.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ó‘Ô) this.checkFileExist:false<br>
-     * (ó‘Ô) fileList‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚µ‚È‚¢<br>
-     * (ó‘Ô) newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚µ‚È‚¢<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (çŠ¶æ…‹) this.checkFileExist:false<br>
+     * (çŠ¶æ…‹) fileListã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã—ãªã„<br>
+     * (çŠ¶æ…‹) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã—ãªã„<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») checkAbsolutePath():1‰ñŒÄ‚Î‚ê‚éB<br>
-     * ˆø”newFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * (ó‘Ô•Ï‰») newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‹ó‚Ìƒtƒ@ƒCƒ‹<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) checkAbsolutePath():1å›å‘¼ã°ã‚Œã‚‹ã€‚<br>
+     * å¼•æ•°newFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:ç©ºã®ãƒ•ã‚¡ã‚¤ãƒ«<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * Œ‹‡‘ÎÛƒtƒ@ƒCƒ‹ƒŠƒXƒg‚ª‹ó‚Ìê‡A‹óƒtƒ@ƒCƒ‹‚ª¶¬‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * çµåˆå¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ãƒªã‚¹ãƒˆãŒç©ºã®å ´åˆã€ç©ºãƒ•ã‚¡ã‚¤ãƒ«ãŒç”Ÿæˆã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testMergeFile01() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         List<String> fileList = new ArrayList<String>();
 
         String classFileName = this.getClass().getSimpleName() + ".class";
@@ -1702,27 +1702,27 @@ public class FileUtilityTest extends TestCase {
 
         String newFile = directoryPath + "testMergeFile01_new.txt";
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(FileUtility.class, "checkFileExist", false);
 
-        // ƒeƒXƒg‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»‚·‚éB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–ã™ã‚‹ã€‚
         File testNewFile = new File(newFile);
         testNewFile.delete();
 
         BufferedReader postReader = null;
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             FileUtility.mergeFile(fileList, newFile);
 
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(1, VMOUTUtil.getCallCount(FileUtility.class,
                     "checkAbsolutePath"));
             assertEquals(newFile, VMOUTUtil.getArgument(FileUtility.class,
                     "checkAbsolutePath", 0, 0));
 
-            // ƒ}[ƒWæ‚Ìƒtƒ@ƒCƒ‹“à—eŠm”F
+            // ãƒãƒ¼ã‚¸å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«å†…å®¹ç¢ºèª
             File mergeFile = new File(newFile);
             assertTrue(mergeFile.exists());
 
@@ -1733,7 +1733,7 @@ public class FileUtilityTest extends TestCase {
             if (postReader != null) {
                 postReader.close();
             }
-            // ƒeƒXƒgŒãƒtƒ@ƒCƒ‹‚ğíœ
+            // ãƒ†ã‚¹ãƒˆå¾Œãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤
             File file = new File(newFile);
             file.delete();
         }
@@ -1743,31 +1743,31 @@ public class FileUtilityTest extends TestCase {
     /**
      * testMergeFile02() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC,D,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,D,F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileList:—v‘f‚ğ‚½‚È‚¢ListƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testMergeFile02_new.txt"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileList:è¦ç´ ã‚’æŒãŸãªã„Listã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testMergeFile02_new.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ó‘Ô) this.checkFileExist:true<br>
-     * (ó‘Ô) fileList‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚µ‚È‚¢<br>
-     * (ó‘Ô) newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestMergeFile02_new.txtƒf[ƒ^<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (çŠ¶æ…‹) this.checkFileExist:true<br>
+     * (çŠ¶æ…‹) fileListã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã—ãªã„<br>
+     * (çŠ¶æ…‹) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testMergeFile02_new.txtãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») checkAbsolutePath():1‰ñŒÄ‚Î‚ê‚éB<br>
-     * ˆø”newFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * (ó‘Ô•Ï‰») newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‹ó‚Ìƒtƒ@ƒCƒ‹<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) checkAbsolutePath():1å›å‘¼ã°ã‚Œã‚‹ã€‚<br>
+     * å¼•æ•°newFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:ç©ºã®ãƒ•ã‚¡ã‚¤ãƒ«<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * (checkFileExistİ’èFTRUE)<br>
-     * w’è‚³‚ê‚½Œ‹‰Êƒtƒ@ƒCƒ‹‚ªŠù‚É‘¶İ‚·‚éê‡A–â‘è‚È‚­Œ‹‰Êƒtƒ@ƒCƒ‹‚ª¶¬‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (checkFileExistè¨­å®šï¼šTRUE)<br>
+     * æŒ‡å®šã•ã‚ŒãŸçµæœãƒ•ã‚¡ã‚¤ãƒ«ãŒæ—¢ã«å­˜åœ¨ã™ã‚‹å ´åˆã€å•é¡Œãªãçµæœãƒ•ã‚¡ã‚¤ãƒ«ãŒç”Ÿæˆã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testMergeFile02() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         List<String> fileList = new ArrayList<String>();
 
         String classFileName = this.getClass().getSimpleName() + ".class";
@@ -1777,10 +1777,10 @@ public class FileUtilityTest extends TestCase {
 
         String newFile = directoryPath + "testMergeFile02_new.txt";
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(FileUtility.class, "checkFileExist", true);
 
-        // ƒeƒXƒg‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»‚·‚éB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–ã™ã‚‹ã€‚
         File testNewFile = new File(newFile);
         testNewFile.delete();
         testNewFile.createNewFile();
@@ -1789,22 +1789,22 @@ public class FileUtilityTest extends TestCase {
         BufferedReader postReader = null;
         try {
             testNewFileFileWriter = new FileWriter(testNewFile);
-            testNewFileFileWriter.write("testMergeFile02_new.txtƒf[ƒ^");
+            testNewFileFileWriter.write("testMergeFile02_new.txtãƒ‡ãƒ¼ã‚¿");
             testNewFileFileWriter.flush();
             testNewFileFileWriter.close();
 
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             FileUtility.mergeFile(fileList, newFile);
 
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(1, VMOUTUtil.getCallCount(FileUtility.class,
                     "checkAbsolutePath"));
             assertEquals(newFile, VMOUTUtil.getArgument(FileUtility.class,
                     "checkAbsolutePath", 0, 0));
 
-            // ƒ}[ƒWæ‚Ìƒtƒ@ƒCƒ‹“à—eŠm”F
+            // ãƒãƒ¼ã‚¸å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«å†…å®¹ç¢ºèª
             File mergeFile = new File(newFile);
             assertTrue(mergeFile.exists());
 
@@ -1818,7 +1818,7 @@ public class FileUtilityTest extends TestCase {
             if (postReader != null) {
                 postReader.close();
             }
-            // ƒeƒXƒgŒãƒtƒ@ƒCƒ‹‚ğíœ
+            // ãƒ†ã‚¹ãƒˆå¾Œãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤
             File file = new File(newFile);
             file.delete();
         }
@@ -1827,34 +1827,34 @@ public class FileUtilityTest extends TestCase {
     /**
      * testMergeFile03() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FC,D,F,G <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,D,F,G <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileList:—v‘f‚ğ‚½‚È‚¢ListƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testMergeFile03_new.txt"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileList:è¦ç´ ã‚’æŒãŸãªã„Listã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testMergeFile03_new.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ó‘Ô) this.checkFileExist:false<br>
-     * (ó‘Ô) fileList‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚µ‚È‚¢<br>
-     * (ó‘Ô) newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestMergeFile03_new.txtƒf[ƒ^<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (çŠ¶æ…‹) this.checkFileExist:false<br>
+     * (çŠ¶æ…‹) fileListã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã—ãªã„<br>
+     * (çŠ¶æ…‹) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testMergeFile03_new.txtãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») checkAbsolutePath():1‰ñŒÄ‚Î‚ê‚éB<br>
-     * ˆø”newFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * (ó‘Ô•Ï‰») newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:•Ï‰»‚È‚µ<br>
-     * (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìİ’è‚ğ‚ÂFileException‚ª”­¶‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"(ƒpƒX)/testMergeFile03_new.txt is exist."<br>
-     * Eƒtƒ@ƒCƒ‹–¼FnewFile‚Æ“¯‚¶’l<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) checkAbsolutePath():1å›å‘¼ã°ã‚Œã‚‹ã€‚<br>
+     * å¼•æ•°newFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å¤‰åŒ–ãªã—<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"(ãƒ‘ã‚¹)/testMergeFile03_new.txt is exist."<br>
+     * ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šnewFileã¨åŒã˜å€¤<br>
      * <br>
-     * ˆÙíƒP[ƒX<br>
-     * (checkFileExistİ’èFFALSE)<br>
-     * w’è‚³‚ê‚½Œ‹‰Êƒtƒ@ƒCƒ‹‚ªŠù‚É‘¶İ‚·‚éê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (checkFileExistè¨­å®šï¼šFALSE)<br>
+     * æŒ‡å®šã•ã‚ŒãŸçµæœãƒ•ã‚¡ã‚¤ãƒ«ãŒæ—¢ã«å­˜åœ¨ã™ã‚‹å ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testMergeFile03() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         List<String> fileList = new ArrayList<String>();
 
         String classFileName = this.getClass().getSimpleName() + ".class";
@@ -1864,10 +1864,10 @@ public class FileUtilityTest extends TestCase {
 
         String newFile = directoryPath + "testMergeFile03_new.txt";
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(FileUtility.class, "checkFileExist", false);
 
-        // ƒeƒXƒg‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»‚·‚éB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–ã™ã‚‹ã€‚
         File testNewFile = new File(newFile);
         testNewFile.delete();
         testNewFile.createNewFile();
@@ -1876,35 +1876,35 @@ public class FileUtilityTest extends TestCase {
         BufferedReader postReader = null;
         try {
             testNewFileFileWriter = new FileWriter(testNewFile);
-            testNewFileFileWriter.write("testMergeFile03_new.txtƒf[ƒ^");
+            testNewFileFileWriter.write("testMergeFile03_new.txtãƒ‡ãƒ¼ã‚¿");
             testNewFileFileWriter.flush();
             testNewFileFileWriter.close();
 
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             FileUtility.mergeFile(fileList, newFile);
-            fail("FileException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B¸”s‚Å‚·B");
+            fail("FileExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚å¤±æ•—ã§ã™ã€‚");
         } catch (FileException e) {
-            // —áŠO‚ÌŠm”F
+            // ä¾‹å¤–ã®ç¢ºèª
             assertTrue(FileException.class.isAssignableFrom(e.getClass()));
             assertEquals(newFile + " is exist.", e.getMessage());
             assertEquals(newFile, e.getFileName());
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(1, VMOUTUtil.getCallCount(FileUtility.class,
                     "checkAbsolutePath"));
             assertEquals(newFile, VMOUTUtil.getArgument(FileUtility.class,
                     "checkAbsolutePath", 0, 0));
 
-            // ƒ}[ƒWæ‚Ìƒtƒ@ƒCƒ‹“à—eŠm”F
+            // ãƒãƒ¼ã‚¸å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«å†…å®¹ç¢ºèª
             File mergeFile = new File(newFile);
             assertTrue(mergeFile.exists());
             postReader = new BufferedReader(new InputStreamReader(
                     new FileInputStream(mergeFile)));
             assertTrue(postReader.ready());
-            String expectationResultData = "testMergeFile03_new.txtƒf[ƒ^";
+            String expectationResultData = "testMergeFile03_new.txtãƒ‡ãƒ¼ã‚¿";
             String data = "";
             for (int i = 0; i < expectationResultData.length(); i++) {
-                assertTrue(i + "‰ñ–Ú‚Ì”»’è‚Å¸”s‚µ‚Ü‚µ‚½B", postReader.ready());
+                assertTrue(i + "å›ç›®ã®åˆ¤å®šã§å¤±æ•—ã—ã¾ã—ãŸã€‚", postReader.ready());
                 data += (char) postReader.read();
             }
             assertEquals(expectationResultData, data);
@@ -1916,7 +1916,7 @@ public class FileUtilityTest extends TestCase {
             if (postReader != null) {
                 postReader.close();
             }
-            // ƒeƒXƒgŒãƒtƒ@ƒCƒ‹‚ğíœ
+            // ãƒ†ã‚¹ãƒˆå¾Œãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤
             File file = new File(newFile);
             file.delete();
         }
@@ -1926,38 +1926,38 @@ public class FileUtilityTest extends TestCase {
     /**
      * testMergeFile04() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC,D,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,D,F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileList:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂListƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * 1D"(ƒpƒX)/testMergeFile04_src1.txt"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileList:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤Listã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * 1ï¼"(ãƒ‘ã‚¹)/testMergeFile04_src1.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testMergeFile04_new.txt"<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testMergeFile04_new.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ó‘Ô) this.checkFileExist:true<br>
-     * (ó‘Ô) fileList‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestMergeFile04_src1.txtƒf[ƒ^<br>
-     * (ó‘Ô) newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestMergeFile04_new.txtƒf[ƒ^<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (çŠ¶æ…‹) this.checkFileExist:true<br>
+     * (çŠ¶æ…‹) fileListã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testMergeFile04_src1.txtãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testMergeFile04_new.txtãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») checkAbsolutePath():2‰ñŒÄ‚Î‚ê‚éB<br>
-     * 1‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”newFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * 2‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”fileList‚Ì—v‘f1‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * (ó‘Ô•Ï‰») newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestMergeFile04_src1.txtƒf[ƒ^<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) checkAbsolutePath():2å›å‘¼ã°ã‚Œã‚‹ã€‚<br>
+     * 1å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°newFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * 2å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°fileListã®è¦ç´ 1ã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testMergeFile04_src1.txtãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * Œ‹‡‘ÎÛƒtƒ@ƒCƒ‹ƒŠƒXƒg‚É‘¶İ‚·‚éƒtƒ@ƒCƒ‹‚ÌƒpƒX‚ªˆê‚Âİ’è‚³‚ê‚Ä‚¢‚éê‡A‚»‚Ìˆê‚Â‚Ìƒtƒ@ƒCƒ‹‚Æ“¯‚¶“à—e‚Ìƒtƒ@ƒCƒ‹‚ª¶¬‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * çµåˆå¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ãƒªã‚¹ãƒˆã«å­˜åœ¨ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹ãŒä¸€ã¤è¨­å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã€ãã®ä¸€ã¤ã®ãƒ•ã‚¡ã‚¤ãƒ«ã¨åŒã˜å†…å®¹ã®ãƒ•ã‚¡ã‚¤ãƒ«ãŒç”Ÿæˆã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testMergeFile04() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -1969,10 +1969,10 @@ public class FileUtilityTest extends TestCase {
 
         String newFile = directoryPath + "testMergeFile04_new.txt";
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(FileUtility.class, "checkFileExist", true);
 
-        // ƒeƒXƒg‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»‚·‚éB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–ã™ã‚‹ã€‚
         File testSrcFile1 = new File(srcFile1);
         testSrcFile1.delete();
         testSrcFile1.createNewFile();
@@ -1984,19 +1984,19 @@ public class FileUtilityTest extends TestCase {
         FileWriter testNewFileFileWriter = null;
         try {
             testSrcFile1FileWriter = new FileWriter(testSrcFile1);
-            testSrcFile1FileWriter.write("testMergeFile04_src1.txtƒf[ƒ^");
+            testSrcFile1FileWriter.write("testMergeFile04_src1.txtãƒ‡ãƒ¼ã‚¿");
             testSrcFile1FileWriter.flush();
             testSrcFile1FileWriter.close();
 
             testNewFileFileWriter = new FileWriter(testNewFile);
-            testNewFileFileWriter.write("testMergeFile04_new.txtƒf[ƒ^");
+            testNewFileFileWriter.write("testMergeFile04_new.txtãƒ‡ãƒ¼ã‚¿");
             testNewFileFileWriter.flush();
             testNewFileFileWriter.close();
 
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             FileUtility.mergeFile(fileList, newFile);
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(2, VMOUTUtil.getCallCount(FileUtility.class,
                     "checkAbsolutePath"));
             assertEquals(newFile, VMOUTUtil.getArgument(FileUtility.class,
@@ -2004,7 +2004,7 @@ public class FileUtilityTest extends TestCase {
             assertEquals(srcFile1, VMOUTUtil.getArgument(FileUtility.class,
                     "checkAbsolutePath", 1, 0));
 
-            // ƒ}[ƒWæ‚Ìƒtƒ@ƒCƒ‹“à—eŠm”F
+            // ãƒãƒ¼ã‚¸å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«å†…å®¹ç¢ºèª
             File mergeFile = new File(newFile);
             UTUtil.assertEqualsFile(testSrcFile1, mergeFile);
         } finally {
@@ -2014,7 +2014,7 @@ public class FileUtilityTest extends TestCase {
             if (testNewFileFileWriter != null) {
                 testNewFileFileWriter.close();
             }
-            // ƒeƒXƒgŒãƒtƒ@ƒCƒ‹‚ğíœ
+            // ãƒ†ã‚¹ãƒˆå¾Œãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤
             File file = new File(srcFile1);
             file.delete();
             file = new File(newFile);
@@ -2025,44 +2025,44 @@ public class FileUtilityTest extends TestCase {
     /**
      * testMergeFile05() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC,D,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,D,F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileList:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂListƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * 1D"(ƒpƒX)/testMergeFile05_src1.txt"<br>
-     * 2D"(ƒpƒX)/testMergeFile05_src2.txt"<br>
-     * 3D"(ƒpƒX)/testMergeFile05_src3.txt"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileList:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤Listã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * 1ï¼"(ãƒ‘ã‚¹)/testMergeFile05_src1.txt"<br>
+     * 2ï¼"(ãƒ‘ã‚¹)/testMergeFile05_src2.txt"<br>
+     * 3ï¼"(ãƒ‘ã‚¹)/testMergeFile05_src3.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testMergeFile05_new.txt"<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testMergeFile05_new.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ó‘Ô) this.checkFileExist:true<br>
-     * (ó‘Ô) fileList‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ªŠeƒtƒ@ƒCƒ‹‚É“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestMergeFile05_src1.txtƒf[ƒ^<br>
-     * EtestMergeFile05_src2.txtƒf[ƒ^<br>
-     * EtestMergeFile05_src3.txtƒf[ƒ^<br>
-     * (ó‘Ô) newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestMergeFile05_new.txtƒf[ƒ^<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (çŠ¶æ…‹) this.checkFileExist:true<br>
+     * (çŠ¶æ…‹) fileListã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå„ãƒ•ã‚¡ã‚¤ãƒ«ã«å…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testMergeFile05_src1.txtãƒ‡ãƒ¼ã‚¿<br>
+     * ãƒ»testMergeFile05_src2.txtãƒ‡ãƒ¼ã‚¿<br>
+     * ãƒ»testMergeFile05_src3.txtãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testMergeFile05_new.txtãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») checkAbsolutePath():4‰ñŒÄ‚Î‚ê‚éB<br>
-     * 1‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”newFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * 2‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”fileList‚Ì—v‘f1‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * 3‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”fileList‚Ì—v‘f2‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * 4‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”fileList‚Ì—v‘f3‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * (ó‘Ô•Ï‰») newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestMergeFile05_src1.txtƒf[ƒ^testMergeFile05_src2.txtƒf[ƒ^testMergeFile05_src3.txtƒf[ƒ^<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) checkAbsolutePath():4å›å‘¼ã°ã‚Œã‚‹ã€‚<br>
+     * 1å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°newFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * 2å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°fileListã®è¦ç´ 1ã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * 3å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°fileListã®è¦ç´ 2ã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * 4å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°fileListã®è¦ç´ 3ã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿å…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testMergeFile05_src1.txtãƒ‡ãƒ¼ã‚¿testMergeFile05_src2.txtãƒ‡ãƒ¼ã‚¿testMergeFile05_src3.txtãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * Œ‹‡‘ÎÛƒtƒ@ƒCƒ‹ƒŠƒXƒg‚É‘¶İ‚·‚éƒtƒ@ƒCƒ‹‚ÌƒpƒX‚ª•¡”İ’è‚³‚ê‚Ä‚¢‚éê‡A‚»‚Ì‘Sƒtƒ@ƒCƒ‹‚Ì“à—e‚ª‡”Ô‚ÉŒ‹‡‚³‚ê‚ÄŒ‹‰Êƒtƒ@ƒCƒ‹‚Æ‚µ‚Ä¶¬‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * çµåˆå¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ãƒªã‚¹ãƒˆã«å­˜åœ¨ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹ãŒè¤‡æ•°è¨­å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã€ãã®å…¨ãƒ•ã‚¡ã‚¤ãƒ«ã®å†…å®¹ãŒé †ç•ªã«çµåˆã•ã‚Œã¦çµæœãƒ•ã‚¡ã‚¤ãƒ«ã¨ã—ã¦ç”Ÿæˆã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testMergeFile05() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -2078,10 +2078,10 @@ public class FileUtilityTest extends TestCase {
 
         String newFile = directoryPath + "testMergeFile05_new.txt";
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(FileUtility.class, "checkFileExist", true);
 
-        // ƒeƒXƒg‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»‚·‚éB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–ã™ã‚‹ã€‚
         File testSrcFile1 = new File(srcFile1);
         testSrcFile1.delete();
         testSrcFile1.createNewFile();
@@ -2105,31 +2105,31 @@ public class FileUtilityTest extends TestCase {
         BufferedReader postReader = null;
         try {
             testSrcFile1FileWriter = new FileWriter(testSrcFile1);
-            testSrcFile1FileWriter.write("testMergeFile05_src1.txtƒf[ƒ^");
+            testSrcFile1FileWriter.write("testMergeFile05_src1.txtãƒ‡ãƒ¼ã‚¿");
             testSrcFile1FileWriter.flush();
             testSrcFile1FileWriter.close();
 
             testSrcFile2FileWriter = new FileWriter(testSrcFile2);
-            testSrcFile2FileWriter.write("testMergeFile05_src2.txtƒf[ƒ^");
+            testSrcFile2FileWriter.write("testMergeFile05_src2.txtãƒ‡ãƒ¼ã‚¿");
             testSrcFile2FileWriter.flush();
             testSrcFile2FileWriter.close();
 
             testSrcFile3FileWriter = new FileWriter(testSrcFile3);
-            testSrcFile3FileWriter.write("testMergeFile05_src3.txtƒf[ƒ^");
+            testSrcFile3FileWriter.write("testMergeFile05_src3.txtãƒ‡ãƒ¼ã‚¿");
             testSrcFile3FileWriter.flush();
             testSrcFile3FileWriter.close();
 
             testNewFileFileWriter = new FileWriter(testNewFile);
-            testNewFileFileWriter.write("testMergeFile05_new.txtƒf[ƒ^");
+            testNewFileFileWriter.write("testMergeFile05_new.txtãƒ‡ãƒ¼ã‚¿");
             testNewFileFileWriter.flush();
             testNewFileFileWriter.close();
 
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             FileUtility.mergeFile(fileList, newFile);
 
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(4, VMOUTUtil.getCallCount(FileUtility.class,
                     "checkAbsolutePath"));
             assertEquals(newFile, VMOUTUtil.getArgument(FileUtility.class,
@@ -2141,17 +2141,17 @@ public class FileUtilityTest extends TestCase {
             assertEquals(srcFile3, VMOUTUtil.getArgument(FileUtility.class,
                     "checkAbsolutePath", 3, 0));
 
-            // ƒ}[ƒWæ‚Ìƒtƒ@ƒCƒ‹“à—eŠm”F
+            // ãƒãƒ¼ã‚¸å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«å†…å®¹ç¢ºèª
             File mergeFile = new File(newFile);
             assertTrue(mergeFile.exists());
             postReader = new BufferedReader(new InputStreamReader(
                     new FileInputStream(mergeFile)));
             assertTrue(postReader.ready());
-            String expectationResultData = "testMergeFile05_src1.txtƒf[ƒ^"
-                    + "testMergeFile05_src2.txtƒf[ƒ^testMergeFile05_src3.txtƒf[ƒ^";
+            String expectationResultData = "testMergeFile05_src1.txtãƒ‡ãƒ¼ã‚¿"
+                    + "testMergeFile05_src2.txtãƒ‡ãƒ¼ã‚¿testMergeFile05_src3.txtãƒ‡ãƒ¼ã‚¿";
             String data = "";
             for (int i = 0; i < expectationResultData.length(); i++) {
-                assertTrue(i + "‰ñ–Ú‚Ì”»’è‚Å¸”s‚µ‚Ü‚µ‚½B", postReader.ready());
+                assertTrue(i + "å›ç›®ã®åˆ¤å®šã§å¤±æ•—ã—ã¾ã—ãŸã€‚", postReader.ready());
                 data += (char) postReader.read();
             }
             assertEquals(expectationResultData, data);
@@ -2172,7 +2172,7 @@ public class FileUtilityTest extends TestCase {
             if (postReader != null) {
                 postReader.close();
             }
-            // ƒeƒXƒgŒãƒtƒ@ƒCƒ‹‚ğíœ
+            // ãƒ†ã‚¹ãƒˆå¾Œãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤
             File file = new File(srcFile1);
             file.delete();
             file = new File(srcFile2);
@@ -2187,39 +2187,39 @@ public class FileUtilityTest extends TestCase {
     /**
      * testMergeFile06() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FC,D,F,G <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,D,F,G <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileList:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂListƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * 1D"(ƒpƒX)/testMergeFile06_src1.txt"<br>
-     * 2D"(ƒpƒX)/testMergeFile06_src2.txt"<br>
-     * 3D"(ƒpƒX)/testMergeFile06_src3.txt"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileList:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤Listã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * 1ï¼"(ãƒ‘ã‚¹)/testMergeFile06_src1.txt"<br>
+     * 2ï¼"(ãƒ‘ã‚¹)/testMergeFile06_src2.txt"<br>
+     * 3ï¼"(ãƒ‘ã‚¹)/testMergeFile06_src3.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testMergeFile06_new.txt"<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testMergeFile06_new.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ó‘Ô) this.checkFileExist:true<br>
-     * (ó‘Ô) fileList‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚µ‚È‚¢<br>
-     * (ó‘Ô) newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestMergeFile06_new.txtƒf[ƒ^<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (çŠ¶æ…‹) this.checkFileExist:true<br>
+     * (çŠ¶æ…‹) fileListã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã—ãªã„<br>
+     * (çŠ¶æ…‹) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testMergeFile06_new.txtãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») checkAbsolutePath():2‰ñŒÄ‚Î‚ê‚éB<br>
-     * 1‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”newFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * 2‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”fileList‚Ì—v‘f1‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * (ó‘Ô•Ï‰») newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‹ó‚Ìƒtƒ@ƒCƒ‹<br>
-     * (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìİ’è‚ğ‚ÂFileException‚ª”­¶‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"(ƒpƒX)/testMergeFile06_src1.txt is exist."<br>
-     * Eƒtƒ@ƒCƒ‹–¼F"(ƒpƒX)/testMergeFile06_src1.txt"<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) checkAbsolutePath():2å›å‘¼ã°ã‚Œã‚‹ã€‚<br>
+     * 1å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°newFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * 2å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°fileListã®è¦ç´ 1ã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:ç©ºã®ãƒ•ã‚¡ã‚¤ãƒ«<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"(ãƒ‘ã‚¹)/testMergeFile06_src1.txt is exist."<br>
+     * ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼š"(ãƒ‘ã‚¹)/testMergeFile06_src1.txt"<br>
      * <br>
-     * ˆÙíƒP[ƒX<br>
-     * Œ‹‡‘ÎÛƒtƒ@ƒCƒ‹ƒŠƒXƒg‚É‘¶İ‚µ‚È‚¢ƒtƒ@ƒCƒ‹‚ÌƒpƒX‚ª•¡”İ’è‚³‚ê‚Ä‚¢‚éê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * çµåˆå¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ãƒªã‚¹ãƒˆã«å­˜åœ¨ã—ãªã„ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹ãŒè¤‡æ•°è¨­å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testMergeFile06() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -2235,10 +2235,10 @@ public class FileUtilityTest extends TestCase {
 
         String newFile = directoryPath + "testMergeFile06_new.txt";
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(FileUtility.class, "checkFileExist", true);
 
-        // ƒeƒXƒg‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»‚·‚éB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–ã™ã‚‹ã€‚
         File testSrcFile1 = new File(srcFile1);
         testSrcFile1.delete();
 
@@ -2256,20 +2256,20 @@ public class FileUtilityTest extends TestCase {
         BufferedReader postReader = null;
         try {
             testNewFileFileWriter = new FileWriter(testNewFile);
-            testNewFileFileWriter.write("testMergeFile06_new.txtƒf[ƒ^");
+            testNewFileFileWriter.write("testMergeFile06_new.txtãƒ‡ãƒ¼ã‚¿");
             testNewFileFileWriter.flush();
             testNewFileFileWriter.close();
 
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             FileUtility.mergeFile(fileList, newFile);
-            fail("FileException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B¸”s‚Å‚·B");
+            fail("FileExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚å¤±æ•—ã§ã™ã€‚");
         } catch (FileException e) {
-            // —áŠO‚Ì”»’è
+            // ä¾‹å¤–ã®åˆ¤å®š
             assertTrue(FileException.class.isAssignableFrom(e.getClass()));
             assertEquals(srcFile1 + " is not exist.", e.getMessage());
             assertEquals(srcFile1, e.getFileName());
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(2, VMOUTUtil.getCallCount(FileUtility.class,
                     "checkAbsolutePath"));
             assertEquals(newFile, VMOUTUtil.getArgument(FileUtility.class,
@@ -2277,7 +2277,7 @@ public class FileUtilityTest extends TestCase {
             assertEquals(srcFile1, VMOUTUtil.getArgument(FileUtility.class,
                     "checkAbsolutePath", 1, 0));
 
-            // ƒ}[ƒWæ‚Ìƒtƒ@ƒCƒ‹“à—eŠm”F
+            // ãƒãƒ¼ã‚¸å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«å†…å®¹ç¢ºèª
             File mergeFile = new File(newFile);
             assertTrue(mergeFile.exists());
             postReader = new BufferedReader(new InputStreamReader(
@@ -2290,7 +2290,7 @@ public class FileUtilityTest extends TestCase {
             if (postReader != null) {
                 postReader.close();
             }
-            // ƒeƒXƒgŒãƒtƒ@ƒCƒ‹‚ğíœ
+            // ãƒ†ã‚¹ãƒˆå¾Œãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤
             File file = new File(srcFile1);
             file.delete();
             file = new File(srcFile2);
@@ -2305,47 +2305,47 @@ public class FileUtilityTest extends TestCase {
     /**
      * testMergeFile07() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FC,D,F,G <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,D,F,G <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileList:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂListƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * 1D"(ƒpƒX)/testMergeFile07_src1.txt"<br>
-     * 2D"(ƒpƒX)/testMergeFile07_src2.txt"<br>
-     * 3D"(ƒpƒX)/testMergeFile07_src3.txt"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileList:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤Listã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * 1ï¼"(ãƒ‘ã‚¹)/testMergeFile07_src1.txt"<br>
+     * 2ï¼"(ãƒ‘ã‚¹)/testMergeFile07_src2.txt"<br>
+     * 3ï¼"(ãƒ‘ã‚¹)/testMergeFile07_src3.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testMergeFile07_new.txt"<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testMergeFile07_new.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ó‘Ô) this.checkFileExist:true<br>
-     * (ó‘Ô) fileList‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:"(ƒpƒX)/testMergeFile07_src3.txt"‚Ì‚İ‘¶İ‚µ‚È‚¢<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (çŠ¶æ…‹) this.checkFileExist:true<br>
+     * (çŠ¶æ…‹) fileListã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:"(ãƒ‘ã‚¹)/testMergeFile07_src3.txt"ã®ã¿å­˜åœ¨ã—ãªã„<br>
      * <br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ªŠeƒtƒ@ƒCƒ‹‚É“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestMergeFile07_src1.txtƒf[ƒ^<br>
-     * EtestMergeFile07_src2.txtƒf[ƒ^<br>
-     * (ó‘Ô) newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestMergeFile07_new.txtƒf[ƒ^<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå„ãƒ•ã‚¡ã‚¤ãƒ«ã«å…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testMergeFile07_src1.txtãƒ‡ãƒ¼ã‚¿<br>
+     * ãƒ»testMergeFile07_src2.txtãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testMergeFile07_new.txtãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») checkAbsolutePath():4‰ñŒÄ‚Î‚ê‚éB<br>
-     * 1‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”newFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * 2‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”fileList‚Ì—v‘f1‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * 3‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”fileList‚Ì—v‘f2‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * 4‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”fileList‚Ì—v‘f3‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * (ó‘Ô•Ï‰») newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ªŠeƒtƒ@ƒCƒ‹‚É“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestMergeFile07_src1.txtƒf[ƒ^testMergeFile07_src2.txtƒf[ƒ^<br>
-     * (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìİ’è‚ğ‚ÂFileException‚ª”­¶‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"(ƒpƒX)/testMergeFile07_src3.txt is not exist."<br>
-     * Eƒtƒ@ƒCƒ‹–¼F"(ƒpƒX)/testMergeFile07_src3.txt"<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) checkAbsolutePath():4å›å‘¼ã°ã‚Œã‚‹ã€‚<br>
+     * 1å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°newFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * 2å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°fileListã®è¦ç´ 1ã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * 3å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°fileListã®è¦ç´ 2ã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * 4å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°fileListã®è¦ç´ 3ã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå„ãƒ•ã‚¡ã‚¤ãƒ«ã«å…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testMergeFile07_src1.txtãƒ‡ãƒ¼ã‚¿testMergeFile07_src2.txtãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"(ãƒ‘ã‚¹)/testMergeFile07_src3.txt is not exist."<br>
+     * ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼š"(ãƒ‘ã‚¹)/testMergeFile07_src3.txt"<br>
      * <br>
-     * ˆÙíƒP[ƒX<br>
-     * Œ‹‡‘ÎÛƒtƒ@ƒCƒ‹ƒŠƒXƒg‚Éˆê•”‘¶İ‚µ‚È‚¢ƒtƒ@ƒCƒ‹‚ÌƒpƒX‚ªİ’è‚³‚ê‚Ä‚¢‚éê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * çµåˆå¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ãƒªã‚¹ãƒˆã«ä¸€éƒ¨å­˜åœ¨ã—ãªã„ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testMergeFile07() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -2361,10 +2361,10 @@ public class FileUtilityTest extends TestCase {
 
         String newFile = directoryPath + "testMergeFile07_new.txt";
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(FileUtility.class, "checkFileExist", true);
 
-        // ƒeƒXƒg‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»‚·‚éB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–ã™ã‚‹ã€‚
         File testSrcFile1 = new File(srcFile1);
         testSrcFile1.delete();
         testSrcFile1.createNewFile();
@@ -2386,30 +2386,30 @@ public class FileUtilityTest extends TestCase {
         BufferedReader postReader = null;
         try {
             testSrcFile1FileWriter = new FileWriter(testSrcFile1);
-            testSrcFile1FileWriter.write("testMergeFile07_src1.txtƒf[ƒ^");
+            testSrcFile1FileWriter.write("testMergeFile07_src1.txtãƒ‡ãƒ¼ã‚¿");
             testSrcFile1FileWriter.flush();
             testSrcFile1FileWriter.close();
 
             testSrcFile2FileWriter = new FileWriter(testSrcFile2);
-            testSrcFile2FileWriter.write("testMergeFile07_src2.txtƒf[ƒ^");
+            testSrcFile2FileWriter.write("testMergeFile07_src2.txtãƒ‡ãƒ¼ã‚¿");
             testSrcFile2FileWriter.flush();
             testSrcFile2FileWriter.close();
 
             testNewFileFileWriter = new FileWriter(testNewFile);
-            testNewFileFileWriter.write("testMergeFile07_new.txtƒf[ƒ^");
+            testNewFileFileWriter.write("testMergeFile07_new.txtãƒ‡ãƒ¼ã‚¿");
             testNewFileFileWriter.flush();
             testNewFileFileWriter.close();
 
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             FileUtility.mergeFile(fileList, newFile);
-            fail("FileException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B¸”s‚Å‚·B");
+            fail("FileExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚å¤±æ•—ã§ã™ã€‚");
         } catch (FileException e) {
-            // —áŠO‚ÌŠm”F
+            // ä¾‹å¤–ã®ç¢ºèª
             assertTrue(FileException.class.isAssignableFrom(e.getClass()));
             assertEquals(srcFile3 + " is not exist.", e.getMessage());
             assertEquals(srcFile3, e.getFileName());
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(4, VMOUTUtil.getCallCount(FileUtility.class,
                     "checkAbsolutePath"));
             assertEquals(newFile, VMOUTUtil.getArgument(FileUtility.class,
@@ -2421,17 +2421,17 @@ public class FileUtilityTest extends TestCase {
             assertEquals(srcFile3, VMOUTUtil.getArgument(FileUtility.class,
                     "checkAbsolutePath", 3, 0));
 
-            // ƒ}[ƒWæ‚Ìƒtƒ@ƒCƒ‹“à—eŠm”F
+            // ãƒãƒ¼ã‚¸å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«å†…å®¹ç¢ºèª
             File mergeFile = new File(newFile);
             assertTrue(mergeFile.exists());
             postReader = new BufferedReader(new InputStreamReader(
                     new FileInputStream(mergeFile)));
             assertTrue(postReader.ready());
-            String expectationResultData = "testMergeFile07_src1.txtƒf[ƒ^"
-                    + "testMergeFile07_src2.txtƒf[ƒ^";
+            String expectationResultData = "testMergeFile07_src1.txtãƒ‡ãƒ¼ã‚¿"
+                    + "testMergeFile07_src2.txtãƒ‡ãƒ¼ã‚¿";
             String data = "";
             for (int i = 0; i < expectationResultData.length(); i++) {
-                assertTrue(i + "‰ñ–Ú‚Ì”»’è‚Å¸”s‚µ‚Ü‚µ‚½B", postReader.ready());
+                assertTrue(i + "å›ç›®ã®åˆ¤å®šã§å¤±æ•—ã—ã¾ã—ãŸã€‚", postReader.ready());
                 data += (char) postReader.read();
             }
             assertEquals(expectationResultData, data);
@@ -2449,7 +2449,7 @@ public class FileUtilityTest extends TestCase {
             if (postReader != null) {
                 postReader.close();
             }
-            // ƒeƒXƒgŒãƒtƒ@ƒCƒ‹‚ğíœ
+            // ãƒ†ã‚¹ãƒˆå¾Œãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤
             File file = new File(srcFile1);
             file.delete();
             file = new File(srcFile2);
@@ -2464,44 +2464,44 @@ public class FileUtilityTest extends TestCase {
     /**
      * testMergeFile08() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FC,D,F,G <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,D,F,G <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileList:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂListƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * 1D"(ƒpƒX)/testMergeFile08_src1.txt"<br>
-     * 2D"(ƒpƒX)/testMergeFile08_src2.txt"<br>
-     * 3D"(ƒpƒX)/testMergeFile08_src3.txt"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileList:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤Listã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * 1ï¼"(ãƒ‘ã‚¹)/testMergeFile08_src1.txt"<br>
+     * 2ï¼"(ãƒ‘ã‚¹)/testMergeFile08_src2.txt"<br>
+     * 3ï¼"(ãƒ‘ã‚¹)/testMergeFile08_src3.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testMergeFile08_new.txt"<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testMergeFile08_new.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ó‘Ô) this.checkFileExist:true<br>
-     * (ó‘Ô) fileList‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ªŠeƒtƒ@ƒCƒ‹‚É“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestMergeFile08_src1.txtƒf[ƒ^<br>
-     * EtestMergeFile08_src2.txtƒf[ƒ^<br>
-     * EtestMergeFile08_src3.txtƒf[ƒ^<br>
-     * (ó‘Ô) newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestMergeFile08_new.txtƒf[ƒ^<br>
-     * (ó‘Ô) inputFileChannel#position():IOException”­¶<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (çŠ¶æ…‹) this.checkFileExist:true<br>
+     * (çŠ¶æ…‹) fileListã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå„ãƒ•ã‚¡ã‚¤ãƒ«ã«å…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testMergeFile08_src1.txtãƒ‡ãƒ¼ã‚¿<br>
+     * ãƒ»testMergeFile08_src2.txtãƒ‡ãƒ¼ã‚¿<br>
+     * ãƒ»testMergeFile08_src3.txtãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testMergeFile08_new.txtãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹) inputFileChannel#position():IOExceptionç™ºç”Ÿ<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») checkAbsolutePath():2‰ñŒÄ‚Î‚ê‚éB<br>
-     * 1‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”newFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * 2‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”fileList‚Ì—v‘f1‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * (ó‘Ô•Ï‰») newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‹ó‚Ìƒtƒ@ƒCƒ‹<br>
-     * (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìİ’è‚ğ‚ÂFileException‚ª”­¶‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"File control operation was failed."<br>
-     * EŒ´ˆö—áŠOFFileOutputStream#close()‚Å”­¶‚µ‚½IOException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) checkAbsolutePath():2å›å‘¼ã°ã‚Œã‚‹ã€‚<br>
+     * 1å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°newFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * 2å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°fileListã®è¦ç´ 1ã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:ç©ºã®ãƒ•ã‚¡ã‚¤ãƒ«<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"File control operation was failed."<br>
+     * ãƒ»åŸå› ä¾‹å¤–ï¼šFileOutputStream#close()ã§ç™ºç”Ÿã—ãŸIOException<br>
      * <br>
-     * ˆÙíƒP[ƒX<br>
-     * ƒtƒ@ƒCƒ‹ˆ—‚ÅIOException‚ª”­¶‚µ‚½ê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * ãƒ•ã‚¡ã‚¤ãƒ«å‡¦ç†ã§IOExceptionãŒç™ºç”Ÿã—ãŸå ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testMergeFile08() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -2517,10 +2517,10 @@ public class FileUtilityTest extends TestCase {
 
         String newFile = directoryPath + "testMergeFile08_new.txt";
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(FileUtility.class, "checkFileExist", true);
 
-        // ƒeƒXƒg‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»‚·‚éB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–ã™ã‚‹ã€‚
         File testSrcFile1 = new File(srcFile1);
         testSrcFile1.delete();
         testSrcFile1.createNewFile();
@@ -2537,7 +2537,7 @@ public class FileUtilityTest extends TestCase {
         testNewFile.delete();
         testNewFile.createNewFile();
 
-        IOException ioException = new IOException("testMergeFile08—áŠO");
+        IOException ioException = new IOException("testMergeFile08ä¾‹å¤–");
         VMOUTUtil.setExceptionAtAllTimes(FileChannel.class, "position",
                 ioException);
 
@@ -2548,35 +2548,35 @@ public class FileUtilityTest extends TestCase {
         BufferedReader postReader = null;
         try {
             testSrcFile1FileWriter = new FileWriter(testSrcFile1);
-            testSrcFile1FileWriter.write("testMergeFile08_src1.txtƒf[ƒ^");
+            testSrcFile1FileWriter.write("testMergeFile08_src1.txtãƒ‡ãƒ¼ã‚¿");
             testSrcFile1FileWriter.flush();
             testSrcFile1FileWriter.close();
 
             testSrcFile2FileWriter = new FileWriter(testSrcFile2);
-            testSrcFile2FileWriter.write("testMergeFile08_src2.txtƒf[ƒ^");
+            testSrcFile2FileWriter.write("testMergeFile08_src2.txtãƒ‡ãƒ¼ã‚¿");
             testSrcFile2FileWriter.flush();
             testSrcFile2FileWriter.close();
 
             testSrcFile3FileWriter = new FileWriter(testSrcFile3);
-            testSrcFile3FileWriter.write("testMergeFile08_src3.txtƒf[ƒ^");
+            testSrcFile3FileWriter.write("testMergeFile08_src3.txtãƒ‡ãƒ¼ã‚¿");
             testSrcFile3FileWriter.flush();
             testSrcFile3FileWriter.close();
 
             testNewFileFileWriter = new FileWriter(testNewFile);
-            testNewFileFileWriter.write("testMergeFile08_new.txtƒf[ƒ^");
+            testNewFileFileWriter.write("testMergeFile08_new.txtãƒ‡ãƒ¼ã‚¿");
             testNewFileFileWriter.flush();
             testNewFileFileWriter.close();
 
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             FileUtility.mergeFile(fileList, newFile);
-            fail("FileException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B¸”s‚Å‚·B");
+            fail("FileExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚å¤±æ•—ã§ã™ã€‚");
         } catch (FileException e) {
-            // —áŠO‚ÌŠm”F
+            // ä¾‹å¤–ã®ç¢ºèª
             assertTrue(FileException.class.isAssignableFrom(e.getClass()));
             assertEquals("File control operation was failed.", e.getMessage());
             assertSame(ioException, e.getCause());
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(2, VMOUTUtil.getCallCount(FileUtility.class,
                     "checkAbsolutePath"));
             assertEquals(newFile, VMOUTUtil.getArgument(FileUtility.class,
@@ -2584,7 +2584,7 @@ public class FileUtilityTest extends TestCase {
             assertEquals(srcFile1, VMOUTUtil.getArgument(FileUtility.class,
                     "checkAbsolutePath", 1, 0));
 
-            // ƒ}[ƒWæ‚Ìƒtƒ@ƒCƒ‹“à—eŠm”F
+            // ãƒãƒ¼ã‚¸å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«å†…å®¹ç¢ºèª
             File mergeFile = new File(newFile);
             assertTrue(mergeFile.exists());
             postReader = new BufferedReader(new InputStreamReader(
@@ -2606,7 +2606,7 @@ public class FileUtilityTest extends TestCase {
             if (postReader != null) {
                 postReader.close();
             }
-            // ƒeƒXƒgŒãƒtƒ@ƒCƒ‹‚ğíœ
+            // ãƒ†ã‚¹ãƒˆå¾Œãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤
             File file = new File(srcFile1);
             file.delete();
             file = new File(srcFile2);
@@ -2621,46 +2621,46 @@ public class FileUtilityTest extends TestCase {
     /**
      * testMergeFile09() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FC,D,F <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,D,F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileList:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂListƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * 1D"(ƒpƒX)/testMergeFile09_src1.txt"<br>
-     * 2D"(ƒpƒX)/testMergeFile09_src2.txt"<br>
-     * 3D"(ƒpƒX)/testMergeFile09_src3.txt"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileList:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤Listã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * 1ï¼"(ãƒ‘ã‚¹)/testMergeFile09_src1.txt"<br>
+     * 2ï¼"(ãƒ‘ã‚¹)/testMergeFile09_src2.txt"<br>
+     * 3ï¼"(ãƒ‘ã‚¹)/testMergeFile09_src3.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testMergeFile09_new.txt"<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testMergeFile09_new.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ó‘Ô) this.checkFileExist:true<br>
-     * (ó‘Ô) fileList‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ªŠeƒtƒ@ƒCƒ‹‚É“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestMergeFile09_src1.txtƒf[ƒ^<br>
-     * EtestMergeFile09_src2.txtƒf[ƒ^<br>
-     * EtestMergeFile09_src3.txtƒf[ƒ^<br>
-     * (ó‘Ô) newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestMergeFile09_new.txtƒf[ƒ^<br>
-     * (ó‘Ô) FileOutputStream#close():IOException”­¶<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (çŠ¶æ…‹) this.checkFileExist:true<br>
+     * (çŠ¶æ…‹) fileListã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå„ãƒ•ã‚¡ã‚¤ãƒ«ã«å…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testMergeFile09_src1.txtãƒ‡ãƒ¼ã‚¿<br>
+     * ãƒ»testMergeFile09_src2.txtãƒ‡ãƒ¼ã‚¿<br>
+     * ãƒ»testMergeFile09_src3.txtãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testMergeFile09_new.txtãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹) FileOutputStream#close():IOExceptionç™ºç”Ÿ<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») checkAbsolutePath():4‰ñŒÄ‚Î‚ê‚éB<br>
-     * 1‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”newFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * 2‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”fileList‚Ì—v‘f1‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * 3‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”fileList‚Ì—v‘f2‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * 4‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”fileList‚Ì—v‘f3‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * (ó‘Ô•Ï‰») newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestMergeFile09_src1.txtƒf[ƒ^testMergeFile09_src2.txtƒf[ƒ^testMergeFile09_src3.txtƒf[ƒ^<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) checkAbsolutePath():4å›å‘¼ã°ã‚Œã‚‹ã€‚<br>
+     * 1å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°newFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * 2å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°fileListã®è¦ç´ 1ã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * 3å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°fileListã®è¦ç´ 2ã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * 4å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°fileListã®è¦ç´ 3ã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testMergeFile09_src1.txtãƒ‡ãƒ¼ã‚¿testMergeFile09_src2.txtãƒ‡ãƒ¼ã‚¿testMergeFile09_src3.txtãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     * ˆÙíƒP[ƒX<br>
-     * ƒtƒ@ƒCƒ‹¶¬ˆ——˜—p‚µ‚ÄƒŠƒ\[ƒX‚ÌŠJ•ú‚É¸”s‚µ‚½ê‡A—áŠO‚ª”­¶‚µ‚È‚¢‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * ‚Ü‚½AŒ‹‰Êƒtƒ@ƒCƒ‹‚ª³‚µ‚­¶¬‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * ãƒ•ã‚¡ã‚¤ãƒ«ç”Ÿæˆå‡¦ç†æ™‚åˆ©ç”¨ã—ã¦ãƒªã‚½ãƒ¼ã‚¹ã®é–‹æ”¾ã«å¤±æ•—ã—ãŸå ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã—ãªã„ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * ã¾ãŸã€çµæœãƒ•ã‚¡ã‚¤ãƒ«ãŒæ­£ã—ãç”Ÿæˆã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testMergeFile09() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -2676,10 +2676,10 @@ public class FileUtilityTest extends TestCase {
 
         String newFile = directoryPath + "testMergeFile09_new.txt";
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(FileUtility.class, "checkFileExist", true);
 
-        // ƒeƒXƒg‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»‚·‚éB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–ã™ã‚‹ã€‚
         File testSrcFile1 = new File(srcFile1);
         testSrcFile1.delete();
         testSrcFile1.createNewFile();
@@ -2696,7 +2696,7 @@ public class FileUtilityTest extends TestCase {
         testNewFile.delete();
         testNewFile.createNewFile();
 
-        IOException ioException = new IOException("testMergeFile09—áŠO");
+        IOException ioException = new IOException("testMergeFile09ä¾‹å¤–");
         VMOUTUtil.setExceptionAtAllTimes(FileOutputStream.class, "close",
                 ioException);
 
@@ -2707,29 +2707,29 @@ public class FileUtilityTest extends TestCase {
         BufferedReader postReader = null;
         try {
             testSrcFile1FileWriter = new FileWriter(testSrcFile1);
-            testSrcFile1FileWriter.write("testMergeFile09_src1.txtƒf[ƒ^");
+            testSrcFile1FileWriter.write("testMergeFile09_src1.txtãƒ‡ãƒ¼ã‚¿");
             testSrcFile1FileWriter.flush();
             testSrcFile1FileWriter.close();
 
             testSrcFile2FileWriter = new FileWriter(testSrcFile2);
-            testSrcFile2FileWriter.write("testMergeFile09_src2.txtƒf[ƒ^");
+            testSrcFile2FileWriter.write("testMergeFile09_src2.txtãƒ‡ãƒ¼ã‚¿");
             testSrcFile2FileWriter.flush();
             testSrcFile2FileWriter.close();
 
             testSrcFile3FileWriter = new FileWriter(testSrcFile3);
-            testSrcFile3FileWriter.write("testMergeFile09_src3.txtƒf[ƒ^");
+            testSrcFile3FileWriter.write("testMergeFile09_src3.txtãƒ‡ãƒ¼ã‚¿");
             testSrcFile3FileWriter.flush();
             testSrcFile3FileWriter.close();
 
             testNewFileFileWriter = new FileWriter(testNewFile);
-            testNewFileFileWriter.write("testMergeFile09_new.txtƒf[ƒ^");
+            testNewFileFileWriter.write("testMergeFile09_new.txtãƒ‡ãƒ¼ã‚¿");
             testNewFileFileWriter.flush();
             testNewFileFileWriter.close();
 
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             FileUtility.mergeFile(fileList, newFile);
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(4, VMOUTUtil.getCallCount(FileUtility.class,
                     "checkAbsolutePath"));
             assertEquals(newFile, VMOUTUtil.getArgument(FileUtility.class,
@@ -2741,17 +2741,17 @@ public class FileUtilityTest extends TestCase {
             assertEquals(srcFile3, VMOUTUtil.getArgument(FileUtility.class,
                     "checkAbsolutePath", 3, 0));
 
-            // ƒ}[ƒWæ‚Ìƒtƒ@ƒCƒ‹“à—eŠm”F
+            // ãƒãƒ¼ã‚¸å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«å†…å®¹ç¢ºèª
             File mergeFile = new File(newFile);
             assertTrue(mergeFile.exists());
             postReader = new BufferedReader(new InputStreamReader(
                     new FileInputStream(mergeFile)));
             assertTrue(postReader.ready());
-            String expectationResultData = "testMergeFile09_src1.txtƒf[ƒ^"
-                    + "testMergeFile09_src2.txtƒf[ƒ^testMergeFile09_src3.txtƒf[ƒ^";
+            String expectationResultData = "testMergeFile09_src1.txtãƒ‡ãƒ¼ã‚¿"
+                    + "testMergeFile09_src2.txtãƒ‡ãƒ¼ã‚¿testMergeFile09_src3.txtãƒ‡ãƒ¼ã‚¿";
             String data = "";
             for (int i = 0; i < expectationResultData.length(); i++) {
-                assertTrue(i + "‰ñ–Ú‚Ì”»’è‚Å¸”s‚µ‚Ü‚µ‚½B", postReader.ready());
+                assertTrue(i + "å›ç›®ã®åˆ¤å®šã§å¤±æ•—ã—ã¾ã—ãŸã€‚", postReader.ready());
                 data += (char) postReader.read();
             }
             assertEquals(expectationResultData, data);
@@ -2773,7 +2773,7 @@ public class FileUtilityTest extends TestCase {
             if (postReader != null) {
                 postReader.close();
             }
-            // ƒeƒXƒgŒãƒtƒ@ƒCƒ‹‚ğíœ
+            // ãƒ†ã‚¹ãƒˆå¾Œãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤
             File file = new File(srcFile1);
             file.delete();
             file = new File(srcFile2);
@@ -2788,43 +2788,43 @@ public class FileUtilityTest extends TestCase {
     /**
      * testMergeFile10() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FC,D,F,G <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,D,F,G <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileList:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂListƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * 1D"(ƒpƒX)/testMergeFile10_src1.txt"<br>
-     * 2D"(ƒpƒX)/testMergeFile10_src2.txt"<br>
-     * 3D"(ƒpƒX)/testMergeFile10_src3.txt"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileList:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤Listã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * 1ï¼"(ãƒ‘ã‚¹)/testMergeFile10_src1.txt"<br>
+     * 2ï¼"(ãƒ‘ã‚¹)/testMergeFile10_src2.txt"<br>
+     * 3ï¼"(ãƒ‘ã‚¹)/testMergeFile10_src3.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testMergeFile10_new.txt"<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testMergeFile10_new.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ó‘Ô) this.checkFileExist:true<br>
-     * (ó‘Ô) fileList‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ªŠeƒtƒ@ƒCƒ‹‚É“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestMergeFile10_src1.txtƒf[ƒ^<br>
-     * EtestMergeFile10_src2.txtƒf[ƒ^<br>
-     * EtestMergeFile10_src3.txtƒf[ƒ^<br>
-     * (ó‘Ô) newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestMergeFile10_new.txtƒf[ƒ^<br>
-     * (ó‘Ô) FileOutputStream.<init>:FileNotFountException”­¶<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (çŠ¶æ…‹) this.checkFileExist:true<br>
+     * (çŠ¶æ…‹) fileListã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå„ãƒ•ã‚¡ã‚¤ãƒ«ã«å…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testMergeFile10_src1.txtãƒ‡ãƒ¼ã‚¿<br>
+     * ãƒ»testMergeFile10_src2.txtãƒ‡ãƒ¼ã‚¿<br>
+     * ãƒ»testMergeFile10_src3.txtãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testMergeFile10_new.txtãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹) FileOutputStream.<init>:FileNotFountExceptionç™ºç”Ÿ<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») checkAbsolutePath():1‰ñŒÄ‚Î‚ê‚éB<br>
-     * 1‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”newFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * (ó‘Ô•Ï‰») newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:ƒtƒ@ƒCƒ‹‚ª‘¶İ‚µ‚È‚¢<br>
-     * (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìİ’è‚ğ‚ÂFileException‚ª”­¶‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"File control operation was failed."<br>
-     * EŒ´ˆö—áŠOFFileOutputStream.<init>‚Å”­¶‚µ‚½FileNotFoundException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) checkAbsolutePath():1å›å‘¼ã°ã‚Œã‚‹ã€‚<br>
+     * 1å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°newFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã—ãªã„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"File control operation was failed."<br>
+     * ãƒ»åŸå› ä¾‹å¤–ï¼šFileOutputStream.<init>ã§ç™ºç”Ÿã—ãŸFileNotFoundException<br>
      * <br>
-     * ˆÙíƒP[ƒX<br>
-     * ˆ—“r’†‚Éƒtƒ@ƒCƒ‹‚ªíœ‚³‚êFileNotFoundException‚ª”­¶‚µ‚½ê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * å‡¦ç†é€”ä¸­ã«ãƒ•ã‚¡ã‚¤ãƒ«ãŒå‰Šé™¤ã•ã‚ŒFileNotFoundExceptionãŒç™ºç”Ÿã—ãŸå ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testMergeFile10() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -2840,10 +2840,10 @@ public class FileUtilityTest extends TestCase {
 
         String newFile = directoryPath + "testMergeFile10_new.txt";
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(FileUtility.class, "checkFileExist", true);
 
-        // ƒeƒXƒg‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»‚·‚éB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–ã™ã‚‹ã€‚
         File testSrcFile1 = new File(srcFile1);
         testSrcFile1.delete();
         testSrcFile1.createNewFile();
@@ -2861,7 +2861,7 @@ public class FileUtilityTest extends TestCase {
         testNewFile.createNewFile();
 
         FileNotFoundException fileNotFoundException = new FileNotFoundException(
-                "testMergeFile10—áŠO");
+                "testMergeFile10ä¾‹å¤–");
         VMOUTUtil.setExceptionAtAllTimes(FileOutputStream.class, "<init>",
                 fileNotFoundException);
 
@@ -2871,41 +2871,41 @@ public class FileUtilityTest extends TestCase {
         FileWriter testNewFileFileWriter = null;
         try {
             testSrcFile1FileWriter = new FileWriter(testSrcFile1);
-            testSrcFile1FileWriter.write("testMergeFile10_src1.txtƒf[ƒ^");
+            testSrcFile1FileWriter.write("testMergeFile10_src1.txtãƒ‡ãƒ¼ã‚¿");
             testSrcFile1FileWriter.flush();
             testSrcFile1FileWriter.close();
 
             testSrcFile2FileWriter = new FileWriter(testSrcFile2);
-            testSrcFile2FileWriter.write("testMergeFile10_src2.txtƒf[ƒ^");
+            testSrcFile2FileWriter.write("testMergeFile10_src2.txtãƒ‡ãƒ¼ã‚¿");
             testSrcFile2FileWriter.flush();
             testSrcFile2FileWriter.close();
 
             testSrcFile3FileWriter = new FileWriter(testSrcFile3);
-            testSrcFile3FileWriter.write("testMergeFile10_src3.txtƒf[ƒ^");
+            testSrcFile3FileWriter.write("testMergeFile10_src3.txtãƒ‡ãƒ¼ã‚¿");
             testSrcFile3FileWriter.flush();
             testSrcFile3FileWriter.close();
 
             testNewFileFileWriter = new FileWriter(testNewFile);
-            testNewFileFileWriter.write("testMergeFile10_new.txtƒf[ƒ^");
+            testNewFileFileWriter.write("testMergeFile10_new.txtãƒ‡ãƒ¼ã‚¿");
             testNewFileFileWriter.flush();
             testNewFileFileWriter.close();
 
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             FileUtility.mergeFile(fileList, newFile);
-            fail("FileException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B¸”s‚Å‚·B");
+            fail("FileExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚å¤±æ•—ã§ã™ã€‚");
         } catch (FileException e) {
-            // —áŠO‚ÌŠm”F
+            // ä¾‹å¤–ã®ç¢ºèª
             assertTrue(FileException.class.isAssignableFrom(e.getClass()));
             assertEquals("File control operation was failed.", e.getMessage());
             assertSame(fileNotFoundException, e.getCause());
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(1, VMOUTUtil.getCallCount(FileUtility.class,
                     "checkAbsolutePath"));
             assertEquals(newFile, VMOUTUtil.getArgument(FileUtility.class,
                     "checkAbsolutePath", 0, 0));
 
-            // ƒ}[ƒWæ‚Ìƒtƒ@ƒCƒ‹“à—eŠm”F
+            // ãƒãƒ¼ã‚¸å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«å†…å®¹ç¢ºèª
             File mergeFile = new File(newFile);
             assertFalse(mergeFile.exists());
         } finally {
@@ -2921,7 +2921,7 @@ public class FileUtilityTest extends TestCase {
             if (testNewFileFileWriter != null) {
                 testNewFileFileWriter.close();
             }
-            // ƒeƒXƒgŒãƒtƒ@ƒCƒ‹‚ğíœ
+            // ãƒ†ã‚¹ãƒˆå¾Œãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤
             File file = new File(srcFile1);
             file.delete();
             file = new File(srcFile2);
@@ -2936,31 +2936,31 @@ public class FileUtilityTest extends TestCase {
     /**
      * testMergeFile11() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FC,D,F,G <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,D,F,G <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileList:null<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testMergeFile11_new.txt"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileList:null<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testMergeFile11_new.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ó‘Ô) this.checkFileExist:true<br>
-     * (ó‘Ô) fileList‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚µ‚È‚¢<br>
-     * (ó‘Ô) newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestMergeFile11_new.txtƒf[ƒ^<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (çŠ¶æ…‹) this.checkFileExist:true<br>
+     * (çŠ¶æ…‹) fileListã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã—ãªã„<br>
+     * (çŠ¶æ…‹) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testMergeFile11_new.txtãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») checkAbsolutePath():1‰ñŒÄ‚Î‚ê‚éB<br>
-     * 1‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”newFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * (ó‘Ô•Ï‰») newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‹ó‚Ìƒtƒ@ƒCƒ‹<br>
-     * (ó‘Ô•Ï‰») —áŠO:NullPointerException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) checkAbsolutePath():1å›å‘¼ã°ã‚Œã‚‹ã€‚<br>
+     * 1å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°newFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:ç©ºã®ãƒ•ã‚¡ã‚¤ãƒ«<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:NullPointerExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * ˆÙíƒP[ƒX<br>
-     * Œ‹‡‘ÎÛƒtƒ@ƒCƒ‹ƒŠƒXƒg‚ªnull‚Ìê‡ANullPointerException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * çµåˆå¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ãƒªã‚¹ãƒˆãŒnullã®å ´åˆã€NullPointerExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testMergeFile11() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         List<String> fileList = null;
 
         String classFileName = this.getClass().getSimpleName() + ".class";
@@ -2970,7 +2970,7 @@ public class FileUtilityTest extends TestCase {
 
         String newFile = directoryPath + "testMergeFile11_new.txt";
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(FileUtility.class, "checkFileExist", true);
 
         File testNewFile = new File(newFile);
@@ -2981,25 +2981,25 @@ public class FileUtilityTest extends TestCase {
         BufferedReader postReader = null;
         try {
             testNewFileFileWriter = new FileWriter(testNewFile);
-            testNewFileFileWriter.write("testMergeFile11_new.txtƒf[ƒ^");
+            testNewFileFileWriter.write("testMergeFile11_new.txtãƒ‡ãƒ¼ã‚¿");
             testNewFileFileWriter.flush();
             testNewFileFileWriter.close();
 
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             FileUtility.mergeFile(fileList, newFile);
-            fail("NullPointerException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B¸”s‚Å‚·B");
+            fail("NullPointerExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚å¤±æ•—ã§ã™ã€‚");
         } catch (NullPointerException e) {
-            // —áŠO‚ÌŠm”F
+            // ä¾‹å¤–ã®ç¢ºèª
             assertTrue(NullPointerException.class
                     .isAssignableFrom(e.getClass()));
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(1, VMOUTUtil.getCallCount(FileUtility.class,
                     "checkAbsolutePath"));
             assertEquals(newFile, VMOUTUtil.getArgument(FileUtility.class,
                     "checkAbsolutePath", 0, 0));
 
-            // ƒ}[ƒWæ‚Ìƒtƒ@ƒCƒ‹“à—eŠm”F
+            // ãƒãƒ¼ã‚¸å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«å†…å®¹ç¢ºèª
             File mergeFile = new File(newFile);
             assertTrue(mergeFile.exists());
             postReader = new BufferedReader(new InputStreamReader(
@@ -3012,7 +3012,7 @@ public class FileUtilityTest extends TestCase {
             if (postReader != null) {
                 postReader.close();
             }
-            // ƒeƒXƒgŒãƒtƒ@ƒCƒ‹‚ğíœ
+            // ãƒ†ã‚¹ãƒˆå¾Œãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤
             File file = new File(newFile);
             file.delete();
         }
@@ -3021,36 +3021,36 @@ public class FileUtilityTest extends TestCase {
     /**
      * testMergeFile12() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FC,D,F,G <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,D,F,G <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileList:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂListƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * 1D"(ƒpƒX)/testMergeFile12_src1.txt"<br>
-     * 2D"(ƒpƒX)/testMergeFile12_src2.txt"<br>
-     * 3D"(ƒpƒX)/testMergeFile12_src3.txt"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileList:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤Listã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * 1ï¼"(ãƒ‘ã‚¹)/testMergeFile12_src1.txt"<br>
+     * 2ï¼"(ãƒ‘ã‚¹)/testMergeFile12_src2.txt"<br>
+     * 3ï¼"(ãƒ‘ã‚¹)/testMergeFile12_src3.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ˆø”) newFile:null<br>
-     * (ó‘Ô) this.checkFileExist:true<br>
-     * (ó‘Ô) fileList‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ªŠeƒtƒ@ƒCƒ‹‚É“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestMergeFile12_src1.txtƒf[ƒ^<br>
-     * EtestMergeFile12_src2.txtƒf[ƒ^<br>
-     * EtestMergeFile12_src3.txtƒf[ƒ^<br>
-     * (ó‘Ô) newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚µ‚È‚¢<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (å¼•æ•°) newFile:null<br>
+     * (çŠ¶æ…‹) this.checkFileExist:true<br>
+     * (çŠ¶æ…‹) fileListã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå„ãƒ•ã‚¡ã‚¤ãƒ«ã«å…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testMergeFile12_src1.txtãƒ‡ãƒ¼ã‚¿<br>
+     * ãƒ»testMergeFile12_src2.txtãƒ‡ãƒ¼ã‚¿<br>
+     * ãƒ»testMergeFile12_src3.txtãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã—ãªã„<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») checkAbsolutePath():1‰ñŒÄ‚Î‚ê‚éB<br>
-     * ˆø”newFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìİ’è‚ğ‚ÂFileException‚ª”­¶‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"File path is not set."<br>
-     * Eƒtƒ@ƒCƒ‹–¼Fnull<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) checkAbsolutePath():1å›å‘¼ã°ã‚Œã‚‹ã€‚<br>
+     * å¼•æ•°newFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"File path is not set."<br>
+     * ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šnull<br>
      * <br>
-     * ˆÙíƒP[ƒX<br>
-     * Œ‹‰Êƒtƒ@ƒCƒ‹‚ÌƒpƒX‚ªnull‚Ìê‡A—áŠO‚ªo‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * çµæœãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹ãŒnullã®å ´åˆã€ä¾‹å¤–ãŒå‡ºã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testMergeFile12() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -3066,10 +3066,10 @@ public class FileUtilityTest extends TestCase {
 
         String newFile = null;
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(FileUtility.class, "checkFileExist", true);
 
-        // ƒeƒXƒg‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»‚·‚éB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–ã™ã‚‹ã€‚
         File testSrcFile1 = new File(srcFile1);
         testSrcFile1.delete();
         testSrcFile1.createNewFile();
@@ -3087,30 +3087,30 @@ public class FileUtilityTest extends TestCase {
         FileWriter testSrcFile3FileWriter = null;
         try {
             testSrcFile1FileWriter = new FileWriter(testSrcFile1);
-            testSrcFile1FileWriter.write("testMergeFile12_src1.txtƒf[ƒ^");
+            testSrcFile1FileWriter.write("testMergeFile12_src1.txtãƒ‡ãƒ¼ã‚¿");
             testSrcFile1FileWriter.flush();
             testSrcFile1FileWriter.close();
 
             testSrcFile2FileWriter = new FileWriter(testSrcFile2);
-            testSrcFile2FileWriter.write("testMergeFile12_src2.txtƒf[ƒ^");
+            testSrcFile2FileWriter.write("testMergeFile12_src2.txtãƒ‡ãƒ¼ã‚¿");
             testSrcFile2FileWriter.flush();
             testSrcFile2FileWriter.close();
 
             testSrcFile3FileWriter = new FileWriter(testSrcFile3);
-            testSrcFile3FileWriter.write("testMergeFile12_src3.txtƒf[ƒ^");
+            testSrcFile3FileWriter.write("testMergeFile12_src3.txtãƒ‡ãƒ¼ã‚¿");
             testSrcFile3FileWriter.flush();
             testSrcFile3FileWriter.close();
 
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             FileUtility.mergeFile(fileList, newFile);
-            fail("FileException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B¸”s‚Å‚·B");
+            fail("FileExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚å¤±æ•—ã§ã™ã€‚");
         } catch (FileException e) {
-            // —áŠO‚ÌŠm”F
+            // ä¾‹å¤–ã®ç¢ºèª
             assertTrue(FileException.class.isAssignableFrom(e.getClass()));
             assertEquals("File path is not set.", e.getMessage());
             assertNull(e.getFileName());
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(1, VMOUTUtil.getCallCount(FileUtility.class,
                     "checkAbsolutePath"));
             assertEquals(newFile, VMOUTUtil.getArgument(FileUtility.class,
@@ -3125,7 +3125,7 @@ public class FileUtilityTest extends TestCase {
             if (testSrcFile3FileWriter != null) {
                 testSrcFile3FileWriter.close();
             }
-            // ƒeƒXƒgŒãƒtƒ@ƒCƒ‹‚ğíœ
+            // ãƒ†ã‚¹ãƒˆå¾Œãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤
             File file = new File(srcFile1);
             file.delete();
             file = new File(srcFile2);
@@ -3138,42 +3138,42 @@ public class FileUtilityTest extends TestCase {
     /**
      * testMergeFile13() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FC,D,F,G <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,D,F,G <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileList:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂListƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * 1D"(ƒpƒX)/testMergeFile13_src1.txt"<br>
-     * 2D"(ƒpƒX)/testMergeFile13_src2.txt"<br>
-     * 3D"(ƒpƒX)/testMergeFile13_src3.txt"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileList:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤Listã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * 1ï¼"(ãƒ‘ã‚¹)/testMergeFile13_src1.txt"<br>
+     * 2ï¼"(ãƒ‘ã‚¹)/testMergeFile13_src2.txt"<br>
+     * 3ï¼"(ãƒ‘ã‚¹)/testMergeFile13_src3.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "testMergeFile13_new.txt"<br>
      * <br>
-     * ¦‘Š‘ÎƒpƒX<br>
-     * (ó‘Ô) this.checkFileExist:true<br>
-     * (ó‘Ô) fileList‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ªŠeƒtƒ@ƒCƒ‹‚É“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestMergeFile13_src1.txtƒf[ƒ^<br>
-     * EtestMergeFile13_src2.txtƒf[ƒ^<br>
-     * EtestMergeFile13_src3.txtƒf[ƒ^<br>
-     * (ó‘Ô) newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestMergeFile13_new.txtƒf[ƒ^<br>
+     * â€»ç›¸å¯¾ãƒ‘ã‚¹<br>
+     * (çŠ¶æ…‹) this.checkFileExist:true<br>
+     * (çŠ¶æ…‹) fileListã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå„ãƒ•ã‚¡ã‚¤ãƒ«ã«å…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testMergeFile13_src1.txtãƒ‡ãƒ¼ã‚¿<br>
+     * ãƒ»testMergeFile13_src2.txtãƒ‡ãƒ¼ã‚¿<br>
+     * ãƒ»testMergeFile13_src3.txtãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testMergeFile13_new.txtãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») checkAbsolutePath():1‰ñŒÄ‚Î‚ê‚éB<br>
-     * ˆø”newFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * (ó‘Ô•Ï‰») newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:•Ï‰»‚È‚µ<br>
-     * (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìİ’è‚ğ‚ÂFileException‚ª”­¶‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"File path is not absolute."<br>
-     * Eƒtƒ@ƒCƒ‹–¼FnewFile‚Æ“¯‚¶’l<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) checkAbsolutePath():1å›å‘¼ã°ã‚Œã‚‹ã€‚<br>
+     * å¼•æ•°newFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å¤‰åŒ–ãªã—<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"File path is not absolute."<br>
+     * ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šnewFileã¨åŒã˜å€¤<br>
      * <br>
-     * ˆÙíƒP[ƒX<br>
-     * Œ‹‰Êƒtƒ@ƒCƒ‹‚ÌƒpƒX‚ª‘Š‘ÎƒpƒX‚Ìê‡A—áŠO‚ªo‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * çµæœãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹ãŒç›¸å¯¾ãƒ‘ã‚¹ã®å ´åˆã€ä¾‹å¤–ãŒå‡ºã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testMergeFile13() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -3189,10 +3189,10 @@ public class FileUtilityTest extends TestCase {
 
         String newFile = "testMergeFile13_new.txt";
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(FileUtility.class, "checkFileExist", false);
 
-        // ƒeƒXƒg‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»‚·‚éB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–ã™ã‚‹ã€‚
         File testSrcFile1 = new File(srcFile1);
         testSrcFile1.delete();
         testSrcFile1.createNewFile();
@@ -3216,50 +3216,50 @@ public class FileUtilityTest extends TestCase {
         BufferedReader postReader = null;
         try {
             testSrcFile1FileWriter = new FileWriter(testSrcFile1);
-            testSrcFile1FileWriter.write("testMergeFile13_src1.txtƒf[ƒ^");
+            testSrcFile1FileWriter.write("testMergeFile13_src1.txtãƒ‡ãƒ¼ã‚¿");
             testSrcFile1FileWriter.flush();
             testSrcFile1FileWriter.close();
 
             testSrcFile2FileWriter = new FileWriter(testSrcFile2);
-            testSrcFile2FileWriter.write("testMergeFile13_src2.txtƒf[ƒ^");
+            testSrcFile2FileWriter.write("testMergeFile13_src2.txtãƒ‡ãƒ¼ã‚¿");
             testSrcFile2FileWriter.flush();
             testSrcFile2FileWriter.close();
 
             testSrcFile3FileWriter = new FileWriter(testSrcFile3);
-            testSrcFile3FileWriter.write("testMergeFile13_src3.txtƒf[ƒ^");
+            testSrcFile3FileWriter.write("testMergeFile13_src3.txtãƒ‡ãƒ¼ã‚¿");
             testSrcFile3FileWriter.flush();
             testSrcFile3FileWriter.close();
 
             testNewFileFileWriter = new FileWriter(testNewFile);
-            testNewFileFileWriter.write("testMergeFile13_new.txtƒf[ƒ^");
+            testNewFileFileWriter.write("testMergeFile13_new.txtãƒ‡ãƒ¼ã‚¿");
             testNewFileFileWriter.flush();
             testNewFileFileWriter.close();
 
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             FileUtility.mergeFile(fileList, newFile);
-            fail("FileException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B¸”s‚Å‚·B");
+            fail("FileExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚å¤±æ•—ã§ã™ã€‚");
         } catch (FileException e) {
-            // —áŠO‚ÌŠm”F
+            // ä¾‹å¤–ã®ç¢ºèª
             assertTrue(FileException.class.isAssignableFrom(e.getClass()));
             assertEquals("File path is not absolute.", e.getMessage());
             assertEquals(newFile, e.getFileName());
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(1, VMOUTUtil.getCallCount(FileUtility.class,
                     "checkAbsolutePath"));
             assertEquals(newFile, VMOUTUtil.getArgument(FileUtility.class,
                     "checkAbsolutePath", 0, 0));
 
-            // ƒ}[ƒWæ‚Ìƒtƒ@ƒCƒ‹“à—eŠm”F
+            // ãƒãƒ¼ã‚¸å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«å†…å®¹ç¢ºèª
             File mergeFile = new File(directoryPath + newFile);
             assertTrue(mergeFile.exists());
             postReader = new BufferedReader(new InputStreamReader(
                     new FileInputStream(mergeFile)));
             assertTrue(postReader.ready());
-            String expectationResultData = "testMergeFile13_new.txtƒf[ƒ^";
+            String expectationResultData = "testMergeFile13_new.txtãƒ‡ãƒ¼ã‚¿";
             String data = "";
             for (int i = 0; i < expectationResultData.length(); i++) {
-                assertTrue(i + "‰ñ–Ú‚Ì”»’è‚Å¸”s‚µ‚Ü‚µ‚½B", postReader.ready());
+                assertTrue(i + "å›ç›®ã®åˆ¤å®šã§å¤±æ•—ã—ã¾ã—ãŸã€‚", postReader.ready());
                 data += (char) postReader.read();
             }
             assertEquals(expectationResultData, data);
@@ -3277,7 +3277,7 @@ public class FileUtilityTest extends TestCase {
             if (postReader != null) {
                 postReader.close();
             }
-            // ƒeƒXƒgŒãƒtƒ@ƒCƒ‹‚ğíœ
+            // ãƒ†ã‚¹ãƒˆå¾Œãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤
             File file = new File(srcFile1);
             file.delete();
             file = new File(srcFile2);
@@ -3292,46 +3292,46 @@ public class FileUtilityTest extends TestCase {
     /**
      * testMergeFile14() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FC,D,F,G <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,D,F,G <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileList:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂListƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * 1D"(ƒpƒX)/testMergeFile14_src1.txt"<br>
-     * 2Dnull<br>
-     * 3D"(ƒpƒX)/testMergeFile14_src3.txt"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileList:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤Listã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * 1ï¼"(ãƒ‘ã‚¹)/testMergeFile14_src1.txt"<br>
+     * 2ï¼null<br>
+     * 3ï¼"(ãƒ‘ã‚¹)/testMergeFile14_src3.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testMergeFile14_new.txt"<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testMergeFile14_new.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ó‘Ô) this.checkFileExist:true<br>
-     * (ó‘Ô) fileList‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:2”Ô–Ú‚Ì‚İ‘¶İ‚µ‚È‚¢<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (çŠ¶æ…‹) this.checkFileExist:true<br>
+     * (çŠ¶æ…‹) fileListã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:2ç•ªç›®ã®ã¿å­˜åœ¨ã—ãªã„<br>
      * <br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ªŠeƒtƒ@ƒCƒ‹‚É“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestMergeFile14_src1.txtƒf[ƒ^<br>
-     * EtestMergeFile14_src3.txtƒf[ƒ^<br>
-     * (ó‘Ô) newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestMergeFile14_new.txtƒf[ƒ^<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå„ãƒ•ã‚¡ã‚¤ãƒ«ã«å…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testMergeFile14_src1.txtãƒ‡ãƒ¼ã‚¿<br>
+     * ãƒ»testMergeFile14_src3.txtãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testMergeFile14_new.txtãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») checkAbsolutePath():3‰ñŒÄ‚Î‚ê‚éB<br>
-     * 1‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”newFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * 2‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”fileList‚Ì—v‘f1‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * 3‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”fileList‚Ì—v‘f2‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * (ó‘Ô•Ï‰») newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestMergeFile14_src1.txtƒf[ƒ^<br>
-     * (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìİ’è‚ğ‚ÂFileException‚ª”­¶‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"File path is not set."<br>
-     * Eƒtƒ@ƒCƒ‹–¼Fnull<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) checkAbsolutePath():3å›å‘¼ã°ã‚Œã‚‹ã€‚<br>
+     * 1å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°newFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * 2å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°fileListã®è¦ç´ 1ã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * 3å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°fileListã®è¦ç´ 2ã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testMergeFile14_src1.txtãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"File path is not set."<br>
+     * ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šnull<br>
      * <br>
-     * ˆÙíƒP[ƒX<br>
-     * Œ‹‡‘ÎÛƒtƒ@ƒCƒ‹ƒŠƒXƒg‚Ì€–Ú‚Ì’†‚Énull‚ª‚ ‚éê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * çµåˆå¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ãƒªã‚¹ãƒˆã®é …ç›®ã®ä¸­ã«nullãŒã‚ã‚‹å ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testMergeFile14() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -3347,10 +3347,10 @@ public class FileUtilityTest extends TestCase {
 
         String newFile = directoryPath + "testMergeFile14_new.txt";
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(FileUtility.class, "checkFileExist", true);
 
-        // ƒeƒXƒg‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»‚·‚éB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–ã™ã‚‹ã€‚
         File testSrcFile1 = new File(srcFile1);
         testSrcFile1.delete();
         testSrcFile1.createNewFile();
@@ -3369,30 +3369,30 @@ public class FileUtilityTest extends TestCase {
         BufferedReader postReader = null;
         try {
             testSrcFile1FileWriter = new FileWriter(testSrcFile1);
-            testSrcFile1FileWriter.write("testMergeFile14_src1.txtƒf[ƒ^");
+            testSrcFile1FileWriter.write("testMergeFile14_src1.txtãƒ‡ãƒ¼ã‚¿");
             testSrcFile1FileWriter.flush();
             testSrcFile1FileWriter.close();
 
             testSrcFile3FileWriter = new FileWriter(testSrcFile3);
-            testSrcFile3FileWriter.write("testMergeFile14_src3.txtƒf[ƒ^");
+            testSrcFile3FileWriter.write("testMergeFile14_src3.txtãƒ‡ãƒ¼ã‚¿");
             testSrcFile3FileWriter.flush();
             testSrcFile3FileWriter.close();
 
             testNewFileFileWriter = new FileWriter(testNewFile);
-            testNewFileFileWriter.write("testMergeFile14_new.txtƒf[ƒ^");
+            testNewFileFileWriter.write("testMergeFile14_new.txtãƒ‡ãƒ¼ã‚¿");
             testNewFileFileWriter.flush();
             testNewFileFileWriter.close();
 
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             FileUtility.mergeFile(fileList, newFile);
-            fail("FileException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B¸”s‚Å‚·B");
+            fail("FileExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚å¤±æ•—ã§ã™ã€‚");
         } catch (FileException e) {
-            // —áŠO‚ÌŠm”F
+            // ä¾‹å¤–ã®ç¢ºèª
             assertTrue(FileException.class.isAssignableFrom(e.getClass()));
             assertEquals("File path is not set.", e.getMessage());
             assertNull(e.getFileName());
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(3, VMOUTUtil.getCallCount(FileUtility.class,
                     "checkAbsolutePath"));
             assertEquals(newFile, VMOUTUtil.getArgument(FileUtility.class,
@@ -3402,16 +3402,16 @@ public class FileUtilityTest extends TestCase {
             assertNull(VMOUTUtil.getArgument(FileUtility.class,
                     "checkAbsolutePath", 2, 0));
 
-            // ƒ}[ƒWæ‚Ìƒtƒ@ƒCƒ‹“à—eŠm”F
+            // ãƒãƒ¼ã‚¸å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«å†…å®¹ç¢ºèª
             File mergeFile = new File(newFile);
             assertTrue(mergeFile.exists());
             postReader = new BufferedReader(new InputStreamReader(
                     new FileInputStream(mergeFile)));
             assertTrue(postReader.ready());
-            String expectationResultData = "testMergeFile14_src1.txtƒf[ƒ^";
+            String expectationResultData = "testMergeFile14_src1.txtãƒ‡ãƒ¼ã‚¿";
             String data = "";
             for (int i = 0; i < expectationResultData.length(); i++) {
-                assertTrue(i + "‰ñ–Ú‚Ì”»’è‚Å¸”s‚µ‚Ü‚µ‚½B", postReader.ready());
+                assertTrue(i + "å›ç›®ã®åˆ¤å®šã§å¤±æ•—ã—ã¾ã—ãŸã€‚", postReader.ready());
                 data += (char) postReader.read();
             }
             assertEquals(expectationResultData, data);
@@ -3426,7 +3426,7 @@ public class FileUtilityTest extends TestCase {
             if (postReader != null) {
                 postReader.close();
             }
-            // ƒeƒXƒgŒãƒtƒ@ƒCƒ‹‚ğíœ
+            // ãƒ†ã‚¹ãƒˆå¾Œãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤
             File file = new File(srcFile1);
             file.delete();
             file = new File(srcFile3);
@@ -3439,45 +3439,45 @@ public class FileUtilityTest extends TestCase {
     /**
      * testMergeFile15() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FC,D,F,G <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,D,F,G <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileList:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂListƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * 1D"(ƒpƒX)/testMergeFile15_src1.txt"<br>
-     * 2D"(ƒpƒX)/testMergeFile15_src1.txt"<br>
-     * 3D"testMergeFile15_src3.txt"(‘Š‘ÎƒpƒX)<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testMergeFile15_new.txt"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileList:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤Listã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * 1ï¼"(ãƒ‘ã‚¹)/testMergeFile15_src1.txt"<br>
+     * 2ï¼"(ãƒ‘ã‚¹)/testMergeFile15_src1.txt"<br>
+     * 3ï¼"testMergeFile15_src3.txt"(ç›¸å¯¾ãƒ‘ã‚¹)<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testMergeFile15_new.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ó‘Ô) this.checkFileExist:true<br>
-     * (ó‘Ô) fileList‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ªŠeƒtƒ@ƒCƒ‹‚É“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestMergeFile15_src1.txtƒf[ƒ^<br>
-     * EtestMergeFile15_src2.txtƒf[ƒ^<br>
-     * EtestMergeFile15_src3.txtƒf[ƒ^<br>
-     * (ó‘Ô) newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestMergeFile15_new.txtƒf[ƒ^<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (çŠ¶æ…‹) this.checkFileExist:true<br>
+     * (çŠ¶æ…‹) fileListã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå„ãƒ•ã‚¡ã‚¤ãƒ«ã«å…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testMergeFile15_src1.txtãƒ‡ãƒ¼ã‚¿<br>
+     * ãƒ»testMergeFile15_src2.txtãƒ‡ãƒ¼ã‚¿<br>
+     * ãƒ»testMergeFile15_src3.txtãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testMergeFile15_new.txtãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») checkAbsolutePath():4‰ñŒÄ‚Î‚ê‚éB<br>
-     * 1‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”newFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * 2‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”fileList‚Ì—v‘f1‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * 3‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”fileList‚Ì—v‘f2‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * 4‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”fileList‚Ì—v‘f3‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * (ó‘Ô•Ï‰») newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestMergeFile15_src1.txtƒf[ƒ^testMergeFile15_src2.txtƒf[ƒ^<br>
-     * (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìİ’è‚ğ‚ÂFileException‚ª”­¶‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"File path is not absolute."<br>
-     * Eƒtƒ@ƒCƒ‹–¼FsrcFile3‚Æ“¯‚¶’l<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) checkAbsolutePath():4å›å‘¼ã°ã‚Œã‚‹ã€‚<br>
+     * 1å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°newFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * 2å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°fileListã®è¦ç´ 1ã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * 3å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°fileListã®è¦ç´ 2ã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * 4å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°fileListã®è¦ç´ 3ã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testMergeFile15_src1.txtãƒ‡ãƒ¼ã‚¿testMergeFile15_src2.txtãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"File path is not absolute."<br>
+     * ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šsrcFile3ã¨åŒã˜å€¤<br>
      * <br>
-     * ˆÙíƒP[ƒX<br>
-     * Œ‹‡‘ÎÛƒtƒ@ƒCƒ‹ƒŠƒXƒg‚Ì€–Ú‚Ì’†‚É‘Š‘ÎƒpƒX‚ª‚ ‚éê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * çµåˆå¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ãƒªã‚¹ãƒˆã®é …ç›®ã®ä¸­ã«ç›¸å¯¾ãƒ‘ã‚¹ãŒã‚ã‚‹å ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testMergeFile15() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -3493,10 +3493,10 @@ public class FileUtilityTest extends TestCase {
 
         String newFile = directoryPath + "testMergeFile14_new.txt";
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(FileUtility.class, "checkFileExist", true);
 
-        // ƒeƒXƒg‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»‚·‚éB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–ã™ã‚‹ã€‚
         File testSrcFile1 = new File(srcFile1);
         testSrcFile1.delete();
         testSrcFile1.createNewFile();
@@ -3520,35 +3520,35 @@ public class FileUtilityTest extends TestCase {
         BufferedReader postReader = null;
         try {
             testSrcFile1FileWriter = new FileWriter(testSrcFile1);
-            testSrcFile1FileWriter.write("testMergeFile15_src1.txtƒf[ƒ^");
+            testSrcFile1FileWriter.write("testMergeFile15_src1.txtãƒ‡ãƒ¼ã‚¿");
             testSrcFile1FileWriter.flush();
             testSrcFile1FileWriter.close();
 
             testSrcFile2FileWriter = new FileWriter(testSrcFile2);
-            testSrcFile2FileWriter.write("testMergeFile15_src2.txtƒf[ƒ^");
+            testSrcFile2FileWriter.write("testMergeFile15_src2.txtãƒ‡ãƒ¼ã‚¿");
             testSrcFile2FileWriter.flush();
             testSrcFile2FileWriter.close();
 
             testSrcFile3FileWriter = new FileWriter(testSrcFile3);
-            testSrcFile3FileWriter.write("testMergeFile15_src3.txtƒf[ƒ^");
+            testSrcFile3FileWriter.write("testMergeFile15_src3.txtãƒ‡ãƒ¼ã‚¿");
             testSrcFile3FileWriter.flush();
             testSrcFile3FileWriter.close();
 
             testNewFileFileWriter = new FileWriter(testNewFile);
-            testNewFileFileWriter.write("testMergeFile15_new.txtƒf[ƒ^");
+            testNewFileFileWriter.write("testMergeFile15_new.txtãƒ‡ãƒ¼ã‚¿");
             testNewFileFileWriter.flush();
             testNewFileFileWriter.close();
 
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             FileUtility.mergeFile(fileList, newFile);
-            fail("FileException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B¸”s‚Å‚·B");
+            fail("FileExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚å¤±æ•—ã§ã™ã€‚");
         } catch (FileException e) {
-            // —áŠO‚ÌŠm”F
+            // ä¾‹å¤–ã®ç¢ºèª
             assertTrue(FileException.class.isAssignableFrom(e.getClass()));
             assertEquals("File path is not absolute.", e.getMessage());
             assertEquals(srcFile3, e.getFileName());
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(4, VMOUTUtil.getCallCount(FileUtility.class,
                     "checkAbsolutePath"));
             assertEquals(newFile, VMOUTUtil.getArgument(FileUtility.class,
@@ -3560,17 +3560,17 @@ public class FileUtilityTest extends TestCase {
             assertEquals(srcFile3, VMOUTUtil.getArgument(FileUtility.class,
                     "checkAbsolutePath", 3, 0));
 
-            // ƒ}[ƒWæ‚Ìƒtƒ@ƒCƒ‹“à—eŠm”F
+            // ãƒãƒ¼ã‚¸å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«å†…å®¹ç¢ºèª
             File mergeFile = new File(newFile);
             assertTrue(mergeFile.exists());
             postReader = new BufferedReader(new InputStreamReader(
                     new FileInputStream(mergeFile)));
             assertTrue(postReader.ready());
-            String expectationResultData = "testMergeFile15_src1.txtƒf[ƒ^"
-                    + "testMergeFile15_src2.txtƒf[ƒ^";
+            String expectationResultData = "testMergeFile15_src1.txtãƒ‡ãƒ¼ã‚¿"
+                    + "testMergeFile15_src2.txtãƒ‡ãƒ¼ã‚¿";
             String data = "";
             for (int i = 0; i < expectationResultData.length(); i++) {
-                assertTrue(i + "‰ñ–Ú‚Ì”»’è‚Å¸”s‚µ‚Ü‚µ‚½B", postReader.ready());
+                assertTrue(i + "å›ç›®ã®åˆ¤å®šã§å¤±æ•—ã—ã¾ã—ãŸã€‚", postReader.ready());
                 data += (char) postReader.read();
             }
             assertEquals(expectationResultData, data);
@@ -3588,7 +3588,7 @@ public class FileUtilityTest extends TestCase {
             if (postReader != null) {
                 postReader.close();
             }
-            // ƒeƒXƒgŒãƒtƒ@ƒCƒ‹‚ğíœ
+            // ãƒ†ã‚¹ãƒˆå¾Œãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤
             File file = new File(srcFile1);
             file.delete();
             file = new File(srcFile2);
@@ -3603,37 +3603,37 @@ public class FileUtilityTest extends TestCase {
     /*
      * testMergeFile16() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FC,D,F,G <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,D,F,G <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileList:—v‘f‚ğ‚½‚È‚¢ListƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testMergeFile16_new.txt"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileList:è¦ç´ ã‚’æŒãŸãªã„Listã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testMergeFile16_new.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ó‘Ô) this.checkFileExist:true<br>
-     * (ó‘Ô) fileList‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚µ‚È‚¢<br>
-     * (ó‘Ô) newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestMergeFile16_new.txtƒf[ƒ^<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (çŠ¶æ…‹) this.checkFileExist:true<br>
+     * (çŠ¶æ…‹) fileListã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã—ãªã„<br>
+     * (çŠ¶æ…‹) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testMergeFile16_new.txtãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     * ¦ƒƒbƒN‚ªŠ|‚©‚Á‚Ä‚¢‚éB<br>
+     * â€»ãƒ­ãƒƒã‚¯ãŒæ›ã‹ã£ã¦ã„ã‚‹ã€‚<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») checkAbsolutePath():1‰ñŒÄ‚Î‚ê‚éB<br>
-     * ˆø”newFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * (ó‘Ô•Ï‰») newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:•Ï‰»‚È‚µ<br>
-     * (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"File control operation was failed."<br>
-     * Eƒtƒ@ƒCƒ‹–¼FnewFile‚Æ“¯‚¶’l<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) checkAbsolutePath():1å›å‘¼ã°ã‚Œã‚‹ã€‚<br>
+     * å¼•æ•°newFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å¤‰åŒ–ãªã—<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"File control operation was failed."<br>
+     * ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šnewFileã¨åŒã˜å€¤<br>
      * <br>
-     * ˆÙíƒP[ƒX<br>
-     * (checkFileExistİ’èFTRUE)<br>
-     * w’è‚³‚ê‚½Œ‹‰Êƒtƒ@ƒCƒ‹‚ªŠù‚É‘¶İ‚·‚é‚ªƒƒbƒN‚³‚ê‚Ä‚¢‚éê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (checkFileExistè¨­å®šï¼šTRUE)<br>
+     * æŒ‡å®šã•ã‚ŒãŸçµæœãƒ•ã‚¡ã‚¤ãƒ«ãŒæ—¢ã«å­˜åœ¨ã™ã‚‹ãŒãƒ­ãƒƒã‚¯ã•ã‚Œã¦ã„ã‚‹å ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     // This testcase is ignored, because of Windows environment dependency.
     public void _ignore_testMergeFile16() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         List<String> fileList = new ArrayList<String>();
 
         String classFileName = this.getClass().getSimpleName() + ".class";
@@ -3643,10 +3643,10 @@ public class FileUtilityTest extends TestCase {
 
         String newFile = directoryPath + "testMergeFile16_new.txt";
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(FileUtility.class, "checkFileExist", true);
 
-        // ƒeƒXƒg‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»‚·‚éB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–ã™ã‚‹ã€‚
         File testNewFile = new File(newFile);
         testNewFile.delete();
         testNewFile.createNewFile();
@@ -3657,39 +3657,39 @@ public class FileUtilityTest extends TestCase {
         BufferedReader postReader = null;
         try {
             testNewFileFileWriter = new FileWriter(testNewFile);
-            testNewFileFileWriter.write("testMergeFile16_new.txtƒf[ƒ^");
+            testNewFileFileWriter.write("testMergeFile16_new.txtãƒ‡ãƒ¼ã‚¿");
             testNewFileFileWriter.flush();
             testNewFileFileWriter.close();
 
             fis = new FileInputStream(testNewFile);
             lock = fis.getChannel().lock(0L, Long.MAX_VALUE, true);
 
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             FileUtility.mergeFile(fileList, newFile);
-            fail("FileException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("FileExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (FileException e) {
-            // —áŠO‚ÌŠm”F
+            // ä¾‹å¤–ã®ç¢ºèª
             assertTrue(FileException.class.isAssignableFrom(e.getClass()));
             assertEquals("File control operation was failed.", e.getMessage());
             assertEquals(newFile, e.getFileName());
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(1, VMOUTUtil.getCallCount(FileUtility.class,
                     "checkAbsolutePath"));
             assertEquals(newFile, VMOUTUtil.getArgument(FileUtility.class,
                     "checkAbsolutePath", 0, 0));
 
-            // ƒ}[ƒWæ‚Ìƒtƒ@ƒCƒ‹“à—eŠm”F
+            // ãƒãƒ¼ã‚¸å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«å†…å®¹ç¢ºèª
             lock.release();
             File mergeFile = new File(newFile);
             assertTrue(mergeFile.exists());
             postReader = new BufferedReader(new InputStreamReader(
                     new FileInputStream(mergeFile)));
             assertTrue(postReader.ready());
-            String expectationResultData = "testMergeFile16_new.txtƒf[ƒ^";
+            String expectationResultData = "testMergeFile16_new.txtãƒ‡ãƒ¼ã‚¿";
             String data = "";
             for (int i = 0; i < expectationResultData.length(); i++) {
-                assertTrue(i + "‰ñ–Ú‚Ì”»’è‚Å¸”s‚µ‚Ü‚µ‚½B", postReader.ready());
+                assertTrue(i + "å›ç›®ã®åˆ¤å®šã§å¤±æ•—ã—ã¾ã—ãŸã€‚", postReader.ready());
                 data += (char) postReader.read();
             }
             assertEquals(expectationResultData, data);
@@ -3709,7 +3709,7 @@ public class FileUtilityTest extends TestCase {
             if (postReader != null) {
                 postReader.close();
             }
-            // ƒeƒXƒgŒãƒtƒ@ƒCƒ‹‚ğíœ
+            // ãƒ†ã‚¹ãƒˆå¾Œãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤
             File file = new File(newFile);
             file.delete();
         }
@@ -3718,37 +3718,37 @@ public class FileUtilityTest extends TestCase {
     /**
      * testRenameFile01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) srcFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testRenameFile01_src.txt"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) srcFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testRenameFile01_src.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testRenameFile01_new.txt"<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testRenameFile01_new.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ó‘Ô) FileUtility#checkFileExist():false<br>
-     * (ó‘Ô) srcFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestRenameFile01_src.txtƒf[ƒ^<br>
-     * (ó‘Ô) newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚µ‚È‚¢B<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (çŠ¶æ…‹) FileUtility#checkFileExist():false<br>
+     * (çŠ¶æ…‹) srcFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testRenameFile01_src.txtãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã—ãªã„ã€‚<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») checkAbsolutePath():2‰ñŒÄ‚Ño‚³‚ê‚éB<br>
-     * 1‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”srcFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * 2‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”newFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * (ó‘Ô•Ï‰») srcFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚µ‚È‚¢B<br>
-     * (ó‘Ô•Ï‰») newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestRenameFile01_src.txtƒf[ƒ^<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) checkAbsolutePath():2å›å‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
+     * 1å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°srcFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * 2å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°newFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) srcFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã—ãªã„ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testRenameFile01_src.txtãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * •ÏXæ‚Ìƒtƒ@ƒCƒ‹‚ª‘¶İ‚µ‚È‚¢ê‡A³‚µ‚­ƒtƒ@ƒCƒ‹–¼‚ª•ÏX‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * å¤‰æ›´å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã—ãªã„å ´åˆã€æ­£ã—ããƒ•ã‚¡ã‚¤ãƒ«åãŒå¤‰æ›´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testRenameFile01() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -3758,10 +3758,10 @@ public class FileUtilityTest extends TestCase {
 
         String newFile = directoryPath + "testRenameFile01_new.txt";
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(FileUtility.class, "checkFileExist", false);
 
-        // ƒeƒXƒg‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»‚·‚éB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–ã™ã‚‹ã€‚
         File testSrcFile = new File(srcFile);
         testSrcFile.delete();
         testSrcFile.createNewFile();
@@ -3773,16 +3773,16 @@ public class FileUtilityTest extends TestCase {
         BufferedReader postReader = null;
         try {
             testSrcFileFileWriter = new FileWriter(testSrcFile);
-            testSrcFileFileWriter.write("testRenameFile01_src.txtƒf[ƒ^");
+            testSrcFileFileWriter.write("testRenameFile01_src.txtãƒ‡ãƒ¼ã‚¿");
             testSrcFileFileWriter.flush();
             testSrcFileFileWriter.close();
 
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             FileUtility.renameFile(srcFile, newFile);
 
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(2, VMOUTUtil.getCallCount(FileUtility.class,
                     "checkAbsolutePath"));
             assertEquals(srcFile, VMOUTUtil.getArgument(FileUtility.class,
@@ -3790,7 +3790,7 @@ public class FileUtilityTest extends TestCase {
             assertEquals(newFile, VMOUTUtil.getArgument(FileUtility.class,
                     "checkAbsolutePath", 1, 0));
 
-            // ƒtƒ@ƒCƒ‹–¼‚Ì•ÏX‚ğŠm”F
+            // ãƒ•ã‚¡ã‚¤ãƒ«åã®å¤‰æ›´ã‚’ç¢ºèª
             File removeFile = new File(srcFile);
             assertFalse(removeFile.exists());
 
@@ -3799,10 +3799,10 @@ public class FileUtilityTest extends TestCase {
             postReader = new BufferedReader(new InputStreamReader(
                     new FileInputStream(renameFile)));
             assertTrue(postReader.ready());
-            String expectationResultData = "testRenameFile01_src.txtƒf[ƒ^";
+            String expectationResultData = "testRenameFile01_src.txtãƒ‡ãƒ¼ã‚¿";
             String data = "";
             for (int i = 0; i < expectationResultData.length(); i++) {
-                assertTrue(i + "‰ñ–Ú‚Ì”»’è‚Å¸”s‚µ‚Ü‚µ‚½B", postReader.ready());
+                assertTrue(i + "å›ç›®ã®åˆ¤å®šã§å¤±æ•—ã—ã¾ã—ãŸã€‚", postReader.ready());
                 data += (char) postReader.read();
             }
             assertEquals(expectationResultData, data);
@@ -3814,7 +3814,7 @@ public class FileUtilityTest extends TestCase {
             if (postReader != null) {
                 postReader.close();
             }
-            // ƒeƒXƒgŒãƒtƒ@ƒCƒ‹‚ğíœ
+            // ãƒ†ã‚¹ãƒˆå¾Œãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤
             File file = new File(srcFile);
             file.delete();
             file = new File(newFile);
@@ -3825,40 +3825,40 @@ public class FileUtilityTest extends TestCase {
     /**
      * testRenameFile02() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) srcFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testRenameFile02_src.txt"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) srcFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testRenameFile02_src.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testRenameFile02_new.txt"<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testRenameFile02_new.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ó‘Ô) FileUtility#checkFileExist():true<br>
-     * (ó‘Ô) srcFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestRenameFile02_src.txtƒf[ƒ^<br>
-     * (ó‘Ô) newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestRenameFile02_new.txtƒf[ƒ^<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (çŠ¶æ…‹) FileUtility#checkFileExist():true<br>
+     * (çŠ¶æ…‹) srcFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testRenameFile02_src.txtãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testRenameFile02_new.txtãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») checkAbsolutePath():2‰ñŒÄ‚Ño‚³‚ê‚éB<br>
-     * 1‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”srcFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * 2‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”newFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * (ó‘Ô•Ï‰») srcFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚µ‚È‚¢B<br>
-     * (ó‘Ô•Ï‰») newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestRenameFile02_src.txtƒf[ƒ^<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) checkAbsolutePath():2å›å‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
+     * 1å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°srcFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * 2å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°newFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) srcFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã—ãªã„ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testRenameFile02_src.txtãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * (checkFileExistİ’èFTRUE)<br>
-     * •ÏXæ‚Ìƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚éê‡AŒ³‚Ìƒtƒ@ƒCƒ‹‚ğíœ‚µ‚½ŒãA³‚µ‚­ƒtƒ@ƒCƒ‹–¼‚ª•ÏX‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (checkFileExistè¨­å®šï¼šTRUE)<br>
+     * å¤‰æ›´å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚‹å ´åˆã€å…ƒã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤ã—ãŸå¾Œã€æ­£ã—ããƒ•ã‚¡ã‚¤ãƒ«åãŒå¤‰æ›´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testRenameFile02() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -3868,10 +3868,10 @@ public class FileUtilityTest extends TestCase {
 
         String newFile = directoryPath + "testRenameFile02_new.txt";
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(FileUtility.class, "checkFileExist", true);
 
-        // ƒeƒXƒg‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»‚·‚éB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–ã™ã‚‹ã€‚
         File testSrcFile = new File(srcFile);
         testSrcFile.delete();
         testSrcFile.createNewFile();
@@ -3885,21 +3885,21 @@ public class FileUtilityTest extends TestCase {
         BufferedReader postReader = null;
         try {
             testSrcFileFileWriter = new FileWriter(testSrcFile);
-            testSrcFileFileWriter.write("testRenameFile02_src.txtƒf[ƒ^");
+            testSrcFileFileWriter.write("testRenameFile02_src.txtãƒ‡ãƒ¼ã‚¿");
             testSrcFileFileWriter.flush();
             testSrcFileFileWriter.close();
 
             testNewFileFileWriter = new FileWriter(testNewFile);
-            testNewFileFileWriter.write("testRenameFile02_new.txtƒf[ƒ^");
+            testNewFileFileWriter.write("testRenameFile02_new.txtãƒ‡ãƒ¼ã‚¿");
             testNewFileFileWriter.flush();
             testNewFileFileWriter.close();
 
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             FileUtility.renameFile(srcFile, newFile);
 
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(2, VMOUTUtil.getCallCount(FileUtility.class,
                     "checkAbsolutePath"));
             assertEquals(srcFile, VMOUTUtil.getArgument(FileUtility.class,
@@ -3907,7 +3907,7 @@ public class FileUtilityTest extends TestCase {
             assertEquals(newFile, VMOUTUtil.getArgument(FileUtility.class,
                     "checkAbsolutePath", 1, 0));
 
-            // ƒtƒ@ƒCƒ‹–¼‚Ì•ÏX‚ğŠm”F
+            // ãƒ•ã‚¡ã‚¤ãƒ«åã®å¤‰æ›´ã‚’ç¢ºèª
             File removeFile = new File(srcFile);
             assertFalse(removeFile.exists());
 
@@ -3916,10 +3916,10 @@ public class FileUtilityTest extends TestCase {
             postReader = new BufferedReader(new InputStreamReader(
                     new FileInputStream(renameFile)));
             assertTrue(postReader.ready());
-            String expectationResultData = "testRenameFile02_src.txtƒf[ƒ^";
+            String expectationResultData = "testRenameFile02_src.txtãƒ‡ãƒ¼ã‚¿";
             String data = "";
             for (int i = 0; i < expectationResultData.length(); i++) {
-                assertTrue(i + "‰ñ–Ú‚Ì”»’è‚Å¸”s‚µ‚Ü‚µ‚½B", postReader.ready());
+                assertTrue(i + "å›ç›®ã®åˆ¤å®šã§å¤±æ•—ã—ã¾ã—ãŸã€‚", postReader.ready());
                 data += (char) postReader.read();
             }
             assertEquals(expectationResultData, data);
@@ -3934,7 +3934,7 @@ public class FileUtilityTest extends TestCase {
             if (postReader != null) {
                 postReader.close();
             }
-            // ƒeƒXƒgŒãƒtƒ@ƒCƒ‹‚ğíœ
+            // ãƒ†ã‚¹ãƒˆå¾Œãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤
             File file = new File(srcFile);
             file.delete();
             file = new File(newFile);
@@ -3945,40 +3945,40 @@ public class FileUtilityTest extends TestCase {
     /**
      * testRenameFile03() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FC,F,G <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,F,G <br>
      * <br>
-     * “ü—Í’lF(ˆø”) srcFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testRenameFile03_src.txt"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) srcFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testRenameFile03_src.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testRenameFile03_new.txt"<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testRenameFile03_new.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ó‘Ô) FileUtility#checkFileExist():false<br>
-     * (ó‘Ô) srcFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚µ‚È‚¢B<br>
-     * (ó‘Ô) newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestRenameFile03_new.txtƒf[ƒ^<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (çŠ¶æ…‹) FileUtility#checkFileExist():false<br>
+     * (çŠ¶æ…‹) srcFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã—ãªã„ã€‚<br>
+     * (çŠ¶æ…‹) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testRenameFile03_new.txtãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») checkAbsolutePath():2‰ñŒÄ‚Ño‚³‚ê‚éB<br>
-     * 1‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”srcFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * 2‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”newFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * (ó‘Ô•Ï‰») srcFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚µ‚È‚¢B<br>
-     * (ó‘Ô•Ï‰») newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestRenameFile03_new.txtƒf[ƒ^<br>
-     * (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"(ƒpƒX)/testRenameFile03_src.txt is not exist."<br>
-     * Eƒtƒ@ƒCƒ‹–¼FsrcFile‚Æ“¯‚¶’l<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) checkAbsolutePath():2å›å‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
+     * 1å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°srcFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * 2å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°newFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) srcFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã—ãªã„ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testRenameFile03_new.txtãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"(ãƒ‘ã‚¹)/testRenameFile03_src.txt is not exist."<br>
+     * ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šsrcFileã¨åŒã˜å€¤<br>
      * <br>
-     * ˆÙíƒP[ƒX<br>
-     * •ÏX‘Oƒtƒ@ƒCƒ‹‚ª‘¶İ‚µ‚È‚¢ê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * å¤‰æ›´å‰ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã—ãªã„å ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testRenameFile03() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -3988,10 +3988,10 @@ public class FileUtilityTest extends TestCase {
 
         String newFile = directoryPath + "testRenameFile03_new.txt";
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(FileUtility.class, "checkFileExist", false);
 
-        // ƒeƒXƒg‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»‚·‚éB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–ã™ã‚‹ã€‚
         File testSrcFile = new File(srcFile);
         testSrcFile.delete();
 
@@ -4003,20 +4003,20 @@ public class FileUtilityTest extends TestCase {
         BufferedReader postReader = null;
         try {
             testNewFileFileWriter = new FileWriter(testNewFile);
-            testNewFileFileWriter.write("testRenameFile03_new.txtƒf[ƒ^");
+            testNewFileFileWriter.write("testRenameFile03_new.txtãƒ‡ãƒ¼ã‚¿");
             testNewFileFileWriter.flush();
             testNewFileFileWriter.close();
 
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             FileUtility.renameFile(srcFile, newFile);
-            fail("FileException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B¸”s‚Å‚·B");
+            fail("FileExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚å¤±æ•—ã§ã™ã€‚");
         } catch (FileException e) {
-            // —áŠO‚ÌŠm”F
+            // ä¾‹å¤–ã®ç¢ºèª
             assertTrue(FileException.class.isAssignableFrom(e.getClass()));
             assertEquals(srcFile + " is not exist.", e.getMessage());
             assertEquals(srcFile, e.getFileName());
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(2, VMOUTUtil.getCallCount(FileUtility.class,
                     "checkAbsolutePath"));
             assertEquals(srcFile, VMOUTUtil.getArgument(FileUtility.class,
@@ -4024,16 +4024,16 @@ public class FileUtilityTest extends TestCase {
             assertEquals(newFile, VMOUTUtil.getArgument(FileUtility.class,
                     "checkAbsolutePath", 1, 0));
 
-            // ƒtƒ@ƒCƒ‹–¼‚Ì•ÏX‚ğŠm”F
+            // ãƒ•ã‚¡ã‚¤ãƒ«åã®å¤‰æ›´ã‚’ç¢ºèª
             File renameFile = new File(newFile);
             assertTrue(renameFile.exists());
             postReader = new BufferedReader(new InputStreamReader(
                     new FileInputStream(renameFile)));
             assertTrue(postReader.ready());
-            String expectationResultData = "testRenameFile03_new.txtƒf[ƒ^";
+            String expectationResultData = "testRenameFile03_new.txtãƒ‡ãƒ¼ã‚¿";
             String data = "";
             for (int i = 0; i < expectationResultData.length(); i++) {
-                assertTrue(i + "‰ñ–Ú‚Ì”»’è‚Å¸”s‚µ‚Ü‚µ‚½B", postReader.ready());
+                assertTrue(i + "å›ç›®ã®åˆ¤å®šã§å¤±æ•—ã—ã¾ã—ãŸã€‚", postReader.ready());
                 data += (char) postReader.read();
             }
             assertEquals(expectationResultData, data);
@@ -4045,7 +4045,7 @@ public class FileUtilityTest extends TestCase {
             if (postReader != null) {
                 postReader.close();
             }
-            // ƒeƒXƒgŒãƒtƒ@ƒCƒ‹‚ğíœ
+            // ãƒ†ã‚¹ãƒˆå¾Œãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤
             File file = new File(srcFile);
             file.delete();
             file = new File(newFile);
@@ -4056,45 +4056,45 @@ public class FileUtilityTest extends TestCase {
     /**
      * testRenameFile04() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FC,F,G <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,F,G <br>
      * <br>
-     * “ü—Í’lF(ˆø”) srcFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testRenameFile04_src.txt"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) srcFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testRenameFile04_src.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testRenameFile04_new.txt"<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testRenameFile04_new.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ó‘Ô) FileUtility#checkFileExist():false<br>
-     * (ó‘Ô) srcFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestRenameFile04_src.txtƒf[ƒ^<br>
-     * (ó‘Ô) newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestRenameFile04_new.txtƒf[ƒ^<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (çŠ¶æ…‹) FileUtility#checkFileExist():false<br>
+     * (çŠ¶æ…‹) srcFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testRenameFile04_src.txtãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testRenameFile04_new.txtãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») checkAbsolutePath():2‰ñŒÄ‚Ño‚³‚ê‚éB<br>
-     * 1‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”srcFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * 2‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”newFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * (ó‘Ô•Ï‰») srcFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestRenameFile04_src.txtƒf[ƒ^<br>
-     * (ó‘Ô•Ï‰») newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestRenameFile04_new.txtƒf[ƒ^<br>
-     * (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"(ƒpƒX)/testRenameFile04_new.txt is exist."<br>
-     * EnewFile‚Æ“¯‚¶’l<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) checkAbsolutePath():2å›å‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
+     * 1å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°srcFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * 2å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°newFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) srcFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testRenameFile04_src.txtãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testRenameFile04_new.txtãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"(ãƒ‘ã‚¹)/testRenameFile04_new.txt is exist."<br>
+     * ãƒ»newFileã¨åŒã˜å€¤<br>
      * <br>
-     * ˆÙíƒP[ƒX<br>
-     * (checkFileExistİ’èFFALSE)<br>
-     * •ÏXæ‚Ìƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚éê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (checkFileExistè¨­å®šï¼šFALSE)<br>
+     * å¤‰æ›´å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚‹å ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testRenameFile04() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -4104,10 +4104,10 @@ public class FileUtilityTest extends TestCase {
 
         String newFile = directoryPath + "testRenameFile04_new.txt";
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(FileUtility.class, "checkFileExist", false);
 
-        // ƒeƒXƒg‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»‚·‚éB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–ã™ã‚‹ã€‚
         File testSrcFile = new File(srcFile);
         testSrcFile.delete();
         testSrcFile.createNewFile();
@@ -4121,25 +4121,25 @@ public class FileUtilityTest extends TestCase {
         BufferedReader postReader = null;
         try {
             testSrcFileFileWriter = new FileWriter(testSrcFile);
-            testSrcFileFileWriter.write("testRenameFile04_src.txtƒf[ƒ^");
+            testSrcFileFileWriter.write("testRenameFile04_src.txtãƒ‡ãƒ¼ã‚¿");
             testSrcFileFileWriter.flush();
             testSrcFileFileWriter.close();
 
             testNewFileFileWriter = new FileWriter(testNewFile);
-            testNewFileFileWriter.write("testRenameFile04_new.txtƒf[ƒ^");
+            testNewFileFileWriter.write("testRenameFile04_new.txtãƒ‡ãƒ¼ã‚¿");
             testNewFileFileWriter.flush();
             testNewFileFileWriter.close();
 
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             FileUtility.renameFile(srcFile, newFile);
-            fail("FileException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B¸”s‚Å‚·B");
+            fail("FileExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚å¤±æ•—ã§ã™ã€‚");
         } catch (FileException e) {
-            // —áŠO‚ÌŠm”F
+            // ä¾‹å¤–ã®ç¢ºèª
             assertTrue(FileException.class.isAssignableFrom(e.getClass()));
             assertEquals(newFile + " is exist.", e.getMessage());
             assertEquals(newFile, e.getFileName());
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(2, VMOUTUtil.getCallCount(FileUtility.class,
                     "checkAbsolutePath"));
             assertEquals(srcFile, VMOUTUtil.getArgument(FileUtility.class,
@@ -4148,16 +4148,16 @@ public class FileUtilityTest extends TestCase {
                     "checkAbsolutePath", 1, 0));
             assertTrue(testSrcFile.exists());
 
-            // ƒtƒ@ƒCƒ‹–¼‚Ì•ÏX‚ğŠm”F
+            // ãƒ•ã‚¡ã‚¤ãƒ«åã®å¤‰æ›´ã‚’ç¢ºèª
             File removeFile = new File(srcFile);
             assertTrue(removeFile.exists());
             postReader = new BufferedReader(new InputStreamReader(
                     new FileInputStream(removeFile)));
             assertTrue(postReader.ready());
-            String expectationResultData = "testRenameFile04_src.txtƒf[ƒ^";
+            String expectationResultData = "testRenameFile04_src.txtãƒ‡ãƒ¼ã‚¿";
             String data = "";
             for (int i = 0; i < expectationResultData.length(); i++) {
-                assertTrue(i + "‰ñ–Ú‚Ì”»’è‚Å¸”s‚µ‚Ü‚µ‚½B", postReader.ready());
+                assertTrue(i + "å›ç›®ã®åˆ¤å®šã§å¤±æ•—ã—ã¾ã—ãŸã€‚", postReader.ready());
                 data += (char) postReader.read();
             }
             assertEquals(expectationResultData, data);
@@ -4169,10 +4169,10 @@ public class FileUtilityTest extends TestCase {
             postReader = new BufferedReader(new InputStreamReader(
                     new FileInputStream(renameFile)));
             assertTrue(postReader.ready());
-            expectationResultData = "testRenameFile04_new.txtƒf[ƒ^";
+            expectationResultData = "testRenameFile04_new.txtãƒ‡ãƒ¼ã‚¿";
             data = "";
             for (int i = 0; i < expectationResultData.length(); i++) {
-                assertTrue(i + "‰ñ–Ú‚Ì”»’è‚Å¸”s‚µ‚Ü‚µ‚½B", postReader.ready());
+                assertTrue(i + "å›ç›®ã®åˆ¤å®šã§å¤±æ•—ã—ã¾ã—ãŸã€‚", postReader.ready());
                 data += (char) postReader.read();
             }
             assertEquals(expectationResultData, data);
@@ -4187,7 +4187,7 @@ public class FileUtilityTest extends TestCase {
             if (postReader != null) {
                 postReader.close();
             }
-            // ƒeƒXƒgŒãƒtƒ@ƒCƒ‹‚ğíœ
+            // ãƒ†ã‚¹ãƒˆå¾Œãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤
             File file = new File(srcFile);
             file.delete();
             file = new File(newFile);
@@ -4198,44 +4198,44 @@ public class FileUtilityTest extends TestCase {
     /*
      * testRenameFile05() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FC,F,G <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,F,G <br>
      * <br>
-     * “ü—Í’lF(ˆø”) srcFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testRenameFile05_src.txt"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) srcFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testRenameFile05_src.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testRenameFile05_new.txt"<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testRenameFile05_new.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ó‘Ô) FileUtility#checkFileExist():true<br>
-     * (ó‘Ô) srcFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestRenameFile05_src.txtƒf[ƒ^<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (çŠ¶æ…‹) FileUtility#checkFileExist():true<br>
+     * (çŠ¶æ…‹) srcFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testRenameFile05_src.txtãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     * ¦ƒƒbƒN‚ªŠ|‚©‚Á‚Ä‚¢‚éB<br>
-     * (ó‘Ô) newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestRenameFile05_new.txtƒf[ƒ^<br>
+     * â€»ãƒ­ãƒƒã‚¯ãŒæ›ã‹ã£ã¦ã„ã‚‹ã€‚<br>
+     * (çŠ¶æ…‹) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testRenameFile05_new.txtãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») checkAbsolutePath():2‰ñŒÄ‚Ño‚³‚ê‚éB<br>
-     * 1‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”srcFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * 2‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”newFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * (ó‘Ô•Ï‰») srcFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestRenameFile05_src.txtƒf[ƒ^<br>
-     * (ó‘Ô•Ï‰») newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚µ‚È‚¢B<br>
-     * (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"File control operation was failed."<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) checkAbsolutePath():2å›å‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
+     * 1å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°srcFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * 2å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°newFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) srcFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testRenameFile05_src.txtãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã—ãªã„ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"File control operation was failed."<br>
      * <br>
-     * ˆÙíƒP[ƒX<br>
-     * ƒtƒ@ƒCƒ‹ƒƒbƒN‚È‚Ç‚Åƒtƒ@ƒCƒ‹‚ÌRenameˆ—‚É¸”s‚µ‚½ê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * ãƒ•ã‚¡ã‚¤ãƒ«ãƒ­ãƒƒã‚¯ãªã©ã§ãƒ•ã‚¡ã‚¤ãƒ«ã®Renameå‡¦ç†ã«å¤±æ•—ã—ãŸå ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     // This testcase is ignored, because of Windows environment dependency.
     public void _ignore_testRenameFile05() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -4245,10 +4245,10 @@ public class FileUtilityTest extends TestCase {
 
         String newFile = directoryPath + "testRenameFile05_new.txt";
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(FileUtility.class, "checkFileExist", true);
 
-        // ƒeƒXƒg‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»‚·‚éB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–ã™ã‚‹ã€‚
         File testSrcFile = new File(srcFile);
         testSrcFile.delete();
         testSrcFile.createNewFile();
@@ -4264,7 +4264,7 @@ public class FileUtilityTest extends TestCase {
         FileLock lock = null;
         try {
             testSrcFileFileWriter = new FileWriter(testSrcFile);
-            testSrcFileFileWriter.write("testRenameFile05_src.txtƒf[ƒ^");
+            testSrcFileFileWriter.write("testRenameFile05_src.txtãƒ‡ãƒ¼ã‚¿");
             testSrcFileFileWriter.flush();
             testSrcFileFileWriter.close();
 
@@ -4272,19 +4272,19 @@ public class FileUtilityTest extends TestCase {
             lock = fis.getChannel().lock(0L, Long.MAX_VALUE, true);
 
             testNewFileFileWriter = new FileWriter(testNewFile);
-            testNewFileFileWriter.write("testRenameFile05_new.txtƒf[ƒ^");
+            testNewFileFileWriter.write("testRenameFile05_new.txtãƒ‡ãƒ¼ã‚¿");
             testNewFileFileWriter.flush();
             testNewFileFileWriter.close();
 
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             FileUtility.renameFile(srcFile, newFile);
-            fail("FileException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B¸”s‚Å‚·B");
+            fail("FileExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚å¤±æ•—ã§ã™ã€‚");
         } catch (FileException e) {
-            // —áŠO‚ÌŠm”F
+            // ä¾‹å¤–ã®ç¢ºèª
             assertTrue(FileException.class.isAssignableFrom(e.getClass()));
             assertEquals("File control operation was failed.", e.getMessage());
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(2, VMOUTUtil.getCallCount(FileUtility.class,
                     "checkAbsolutePath"));
             assertEquals(srcFile, VMOUTUtil.getArgument(FileUtility.class,
@@ -4292,17 +4292,17 @@ public class FileUtilityTest extends TestCase {
             assertEquals(newFile, VMOUTUtil.getArgument(FileUtility.class,
                     "checkAbsolutePath", 1, 0));
 
-            // ƒtƒ@ƒCƒ‹–¼‚Ì•ÏX‚ğŠm”F
+            // ãƒ•ã‚¡ã‚¤ãƒ«åã®å¤‰æ›´ã‚’ç¢ºèª
             lock.release();
             File removeFile = new File(srcFile);
             assertTrue(removeFile.exists());
             postReader = new BufferedReader(new InputStreamReader(
                     new FileInputStream(removeFile)));
             assertTrue(postReader.ready());
-            String expectationResultData = "testRenameFile05_src.txtƒf[ƒ^";
+            String expectationResultData = "testRenameFile05_src.txtãƒ‡ãƒ¼ã‚¿";
             String data = "";
             for (int i = 0; i < expectationResultData.length(); i++) {
-                assertTrue(i + "‰ñ–Ú‚Ì”»’è‚Å¸”s‚µ‚Ü‚µ‚½B", postReader.ready());
+                assertTrue(i + "å›ç›®ã®åˆ¤å®šã§å¤±æ•—ã—ã¾ã—ãŸã€‚", postReader.ready());
                 data += (char) postReader.read();
             }
             assertEquals(expectationResultData, data);
@@ -4327,7 +4327,7 @@ public class FileUtilityTest extends TestCase {
             if (postReader != null) {
                 postReader.close();
             }
-            // ƒeƒXƒgŒãƒtƒ@ƒCƒ‹‚ğíœ
+            // ãƒ†ã‚¹ãƒˆå¾Œãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤
             File file = new File(srcFile);
             file.delete();
             file = new File(newFile);
@@ -4338,36 +4338,36 @@ public class FileUtilityTest extends TestCase {
     /**
      * testRenameFile06() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FC,F,G <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,F,G <br>
      * <br>
-     * “ü—Í’lF(ˆø”) srcFile:null<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testRenameFile06_new.txt"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) srcFile:null<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testRenameFile06_new.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ó‘Ô) FileUtility#checkFileExist():true<br>
-     * (ó‘Ô) srcFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚µ‚È‚¢B<br>
-     * (ó‘Ô) newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestRenameFile06_new.txtƒf[ƒ^<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (çŠ¶æ…‹) FileUtility#checkFileExist():true<br>
+     * (çŠ¶æ…‹) srcFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã—ãªã„ã€‚<br>
+     * (çŠ¶æ…‹) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testRenameFile06_new.txtãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») checkAbsolutePath():1‰ñŒÄ‚Ño‚³‚ê‚éB<br>
-     * ˆø”srcFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * (ó‘Ô•Ï‰») srcFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚µ‚È‚¢B<br>
-     * (ó‘Ô•Ï‰») newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestRenameFile06_new.txtƒf[ƒ^<br>
-     * (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"File path is not set."<br>
-     * Eƒtƒ@ƒCƒ‹–¼Fnull<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) checkAbsolutePath():1å›å‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
+     * å¼•æ•°srcFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) srcFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã—ãªã„ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testRenameFile06_new.txtãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"File path is not set."<br>
+     * ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šnull<br>
      * <br>
-     * ˆÙíƒP[ƒX<br>
-     * •ÏX‘Oƒtƒ@ƒCƒ‹‚ªnull‚Ìê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * å¤‰æ›´å‰ãƒ•ã‚¡ã‚¤ãƒ«ãŒnullã®å ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testRenameFile06() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -4377,10 +4377,10 @@ public class FileUtilityTest extends TestCase {
 
         String newFile = directoryPath + "testRenameFile06_new.txt";
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(FileUtility.class, "checkFileExist", true);
 
-        // ƒeƒXƒg‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»‚·‚éB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–ã™ã‚‹ã€‚
         File testNewFile = new File(newFile);
         testNewFile.delete();
         testNewFile.createNewFile();
@@ -4389,35 +4389,35 @@ public class FileUtilityTest extends TestCase {
         BufferedReader postReader = null;
         try {
             testNewFileFileWriter = new FileWriter(testNewFile);
-            testNewFileFileWriter.write("testRenameFile06_new.txtƒf[ƒ^");
+            testNewFileFileWriter.write("testRenameFile06_new.txtãƒ‡ãƒ¼ã‚¿");
             testNewFileFileWriter.flush();
             testNewFileFileWriter.close();
 
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             FileUtility.renameFile(srcFile, newFile);
-            fail("FileException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B¸”s‚Å‚·B");
+            fail("FileExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚å¤±æ•—ã§ã™ã€‚");
         } catch (FileException e) {
-            // —áŠO‚ÌŠm”F
+            // ä¾‹å¤–ã®ç¢ºèª
             assertTrue(FileException.class.isAssignableFrom(e.getClass()));
             assertEquals("File path is not set.", e.getMessage());
             assertNull(e.getFileName());
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(1, VMOUTUtil.getCallCount(FileUtility.class,
                     "checkAbsolutePath"));
             assertEquals(srcFile, VMOUTUtil.getArgument(FileUtility.class,
                     "checkAbsolutePath", 0, 0));
 
-            // ƒtƒ@ƒCƒ‹–¼‚Ì•ÏX‚ğŠm”F
+            // ãƒ•ã‚¡ã‚¤ãƒ«åã®å¤‰æ›´ã‚’ç¢ºèª
             File renameFile = new File(newFile);
             assertTrue(renameFile.exists());
             postReader = new BufferedReader(new InputStreamReader(
                     new FileInputStream(renameFile)));
             assertTrue(postReader.ready());
-            String expectationResultData = "testRenameFile06_new.txtƒf[ƒ^";
+            String expectationResultData = "testRenameFile06_new.txtãƒ‡ãƒ¼ã‚¿";
             String data = "";
             for (int i = 0; i < expectationResultData.length(); i++) {
-                assertTrue(i + "‰ñ–Ú‚Ì”»’è‚Å¸”s‚µ‚Ü‚µ‚½B", postReader.ready());
+                assertTrue(i + "å›ç›®ã®åˆ¤å®šã§å¤±æ•—ã—ã¾ã—ãŸã€‚", postReader.ready());
                 data += (char) postReader.read();
             }
             assertEquals(expectationResultData, data);
@@ -4429,7 +4429,7 @@ public class FileUtilityTest extends TestCase {
             if (postReader != null) {
                 postReader.close();
             }
-            // ƒeƒXƒgŒãƒtƒ@ƒCƒ‹‚ğíœ
+            // ãƒ†ã‚¹ãƒˆå¾Œãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤
             File file = new File(newFile);
             file.delete();
         }
@@ -4438,44 +4438,44 @@ public class FileUtilityTest extends TestCase {
     /**
      * testRenameFile07() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FC,F,G <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,F,G <br>
      * <br>
-     * “ü—Í’lF(ˆø”) srcFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testRenameFile07_src.txt"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) srcFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testRenameFile07_src.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "testRenameFile07_new.txt"<br>
      * <br>
-     * ¦‘Š‘ÎƒpƒX<br>
-     * (ó‘Ô) FileUtility#checkFileExist():true<br>
-     * (ó‘Ô) srcFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestRenameFile07_src.txtƒf[ƒ^<br>
-     * (ó‘Ô) newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestRenameFile07_new.txtƒf[ƒ^<br>
+     * â€»ç›¸å¯¾ãƒ‘ã‚¹<br>
+     * (çŠ¶æ…‹) FileUtility#checkFileExist():true<br>
+     * (çŠ¶æ…‹) srcFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testRenameFile07_src.txtãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testRenameFile07_new.txtãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») checkAbsolutePath():2‰ñŒÄ‚Ño‚³‚ê‚éB<br>
-     * 1‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”srcFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * 2‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”newFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * (ó‘Ô•Ï‰») srcFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestRenameFile07_src.txtƒf[ƒ^<br>
-     * (ó‘Ô•Ï‰») newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestRenameFile07_new.txtƒf[ƒ^<br>
-     * (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"File path is not absolute."<br>
-     * Eƒtƒ@ƒCƒ‹–¼FnewFile‚Æ“¯‚¶’l<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) checkAbsolutePath():2å›å‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
+     * 1å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°srcFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * 2å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°newFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) srcFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testRenameFile07_src.txtãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testRenameFile07_new.txtãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"File path is not absolute."<br>
+     * ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šnewFileã¨åŒã˜å€¤<br>
      * <br>
-     * ˆÙíƒP[ƒX<br>
-     * •ÏXæƒtƒ@ƒCƒ‹‚ª‘Š‘ÎƒpƒX‚Åİ’è‚³‚ê‚½ê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * å¤‰æ›´å…ˆãƒ•ã‚¡ã‚¤ãƒ«ãŒç›¸å¯¾ãƒ‘ã‚¹ã§è¨­å®šã•ã‚ŒãŸå ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testRenameFile07() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -4485,10 +4485,10 @@ public class FileUtilityTest extends TestCase {
 
         String newFile = "testRenameFile07_new.txt";
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(FileUtility.class, "checkFileExist", true);
 
-        // ƒeƒXƒg‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»‚·‚éB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–ã™ã‚‹ã€‚
         File testSrcFile = new File(srcFile);
         testSrcFile.delete();
         testSrcFile.createNewFile();
@@ -4502,25 +4502,25 @@ public class FileUtilityTest extends TestCase {
         BufferedReader postReader = null;
         try {
             testSrcFileFileWriter = new FileWriter(testSrcFile);
-            testSrcFileFileWriter.write("testRenameFile07_src.txtƒf[ƒ^");
+            testSrcFileFileWriter.write("testRenameFile07_src.txtãƒ‡ãƒ¼ã‚¿");
             testSrcFileFileWriter.flush();
             testSrcFileFileWriter.close();
 
             testNewFileFileWriter = new FileWriter(testNewFile);
-            testNewFileFileWriter.write("testRenameFile07_new.txtƒf[ƒ^");
+            testNewFileFileWriter.write("testRenameFile07_new.txtãƒ‡ãƒ¼ã‚¿");
             testNewFileFileWriter.flush();
             testNewFileFileWriter.close();
 
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             FileUtility.renameFile(srcFile, newFile);
-            fail("FileException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B¸”s‚Å‚·B");
+            fail("FileExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚å¤±æ•—ã§ã™ã€‚");
         } catch (FileException e) {
-            // —áŠO‚ÌŠm”F
+            // ä¾‹å¤–ã®ç¢ºèª
             assertTrue(FileException.class.isAssignableFrom(e.getClass()));
             assertEquals("File path is not absolute.", e.getMessage());
             assertEquals(newFile, e.getFileName());
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(2, VMOUTUtil.getCallCount(FileUtility.class,
                     "checkAbsolutePath"));
             assertEquals(srcFile, VMOUTUtil.getArgument(FileUtility.class,
@@ -4528,16 +4528,16 @@ public class FileUtilityTest extends TestCase {
             assertEquals(newFile, VMOUTUtil.getArgument(FileUtility.class,
                     "checkAbsolutePath", 1, 0));
 
-            // ƒtƒ@ƒCƒ‹–¼‚Ì•ÏX‚ğŠm”F
+            // ãƒ•ã‚¡ã‚¤ãƒ«åã®å¤‰æ›´ã‚’ç¢ºèª
             File removeFile = new File(srcFile);
             assertTrue(removeFile.exists());
             postReader = new BufferedReader(new InputStreamReader(
                     new FileInputStream(removeFile)));
             assertTrue(postReader.ready());
-            String expectationResultData = "testRenameFile07_src.txtƒf[ƒ^";
+            String expectationResultData = "testRenameFile07_src.txtãƒ‡ãƒ¼ã‚¿";
             String data = "";
             for (int i = 0; i < expectationResultData.length(); i++) {
-                assertTrue(i + "‰ñ–Ú‚Ì”»’è‚Å¸”s‚µ‚Ü‚µ‚½B", postReader.ready());
+                assertTrue(i + "å›ç›®ã®åˆ¤å®šã§å¤±æ•—ã—ã¾ã—ãŸã€‚", postReader.ready());
                 data += (char) postReader.read();
             }
             assertEquals(expectationResultData, data);
@@ -4549,10 +4549,10 @@ public class FileUtilityTest extends TestCase {
             postReader = new BufferedReader(new InputStreamReader(
                     new FileInputStream(renameFile)));
             assertTrue(postReader.ready());
-            expectationResultData = "testRenameFile07_new.txtƒf[ƒ^";
+            expectationResultData = "testRenameFile07_new.txtãƒ‡ãƒ¼ã‚¿";
             data = "";
             for (int i = 0; i < expectationResultData.length(); i++) {
-                assertTrue(i + "‰ñ–Ú‚Ì”»’è‚Å¸”s‚µ‚Ü‚µ‚½B", postReader.ready());
+                assertTrue(i + "å›ç›®ã®åˆ¤å®šã§å¤±æ•—ã—ã¾ã—ãŸã€‚", postReader.ready());
                 data += (char) postReader.read();
             }
             assertEquals(expectationResultData, data);
@@ -4567,7 +4567,7 @@ public class FileUtilityTest extends TestCase {
             if (postReader != null) {
                 postReader.close();
             }
-            // ƒeƒXƒgŒãƒtƒ@ƒCƒ‹‚ğíœ
+            // ãƒ†ã‚¹ãƒˆå¾Œãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤
             File file = new File(srcFile);
             file.delete();
             file = new File(directoryPath + newFile);
@@ -4578,37 +4578,37 @@ public class FileUtilityTest extends TestCase {
     /**
      * testRenameFile08() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FC,F,G <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,F,G <br>
      * <br>
-     * “ü—Í’lF(ˆø”) srcFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testRenameFile08_src.txt"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) srcFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testRenameFile08_src.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ˆø”) newFile:null<br>
-     * (ó‘Ô) FileUtility#checkFileExist():true<br>
-     * (ó‘Ô) srcFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestRenameFile08_src.txtƒf[ƒ^<br>
-     * (ó‘Ô) newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚µ‚È‚¢B<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (å¼•æ•°) newFile:null<br>
+     * (çŠ¶æ…‹) FileUtility#checkFileExist():true<br>
+     * (çŠ¶æ…‹) srcFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testRenameFile08_src.txtãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã—ãªã„ã€‚<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») checkAbsolutePath():2‰ñŒÄ‚Ño‚³‚ê‚éB<br>
-     * 1‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”srcFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * 2‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”newFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * (ó‘Ô•Ï‰») srcFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestRenameFile08_src.txtƒf[ƒ^<br>
-     * (ó‘Ô•Ï‰») newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚µ‚È‚¢B<br>
-     * (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"File path is not set."<br>
-     * Eƒtƒ@ƒCƒ‹–¼Fnull<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) checkAbsolutePath():2å›å‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
+     * 1å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°srcFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * 2å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°newFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) srcFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testRenameFile08_src.txtãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã—ãªã„ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"File path is not set."<br>
+     * ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šnull<br>
      * <br>
-     * ˆÙíƒP[ƒX<br>
-     * •ÏXæƒtƒ@ƒCƒ‹‚ªnull‚Åİ’è‚³‚ê‚½ê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * å¤‰æ›´å…ˆãƒ•ã‚¡ã‚¤ãƒ«ãŒnullã§è¨­å®šã•ã‚ŒãŸå ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testRenameFile08() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -4618,10 +4618,10 @@ public class FileUtilityTest extends TestCase {
 
         String newFile = null;
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(FileUtility.class, "checkFileExist", true);
 
-        // ƒeƒXƒg‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»‚·‚éB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–ã™ã‚‹ã€‚
         File testSrcFile = new File(srcFile);
         testSrcFile.delete();
         testSrcFile.createNewFile();
@@ -4630,20 +4630,20 @@ public class FileUtilityTest extends TestCase {
         BufferedReader postReader = null;
         try {
             testSrcFileFileWriter = new FileWriter(testSrcFile);
-            testSrcFileFileWriter.write("testRenameFile08_src.txtƒf[ƒ^");
+            testSrcFileFileWriter.write("testRenameFile08_src.txtãƒ‡ãƒ¼ã‚¿");
             testSrcFileFileWriter.flush();
             testSrcFileFileWriter.close();
 
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             FileUtility.renameFile(srcFile, newFile);
-            fail("FileException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B¸”s‚Å‚·B");
+            fail("FileExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚å¤±æ•—ã§ã™ã€‚");
         } catch (FileException e) {
-            // —áŠO‚ÌŠm”F
+            // ä¾‹å¤–ã®ç¢ºèª
             assertTrue(FileException.class.isAssignableFrom(e.getClass()));
             assertEquals("File path is not set.", e.getMessage());
             assertNull(e.getFileName());
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(2, VMOUTUtil.getCallCount(FileUtility.class,
                     "checkAbsolutePath"));
             assertEquals(srcFile, VMOUTUtil.getArgument(FileUtility.class,
@@ -4651,16 +4651,16 @@ public class FileUtilityTest extends TestCase {
             assertEquals(newFile, VMOUTUtil.getArgument(FileUtility.class,
                     "checkAbsolutePath", 1, 0));
 
-            // ƒtƒ@ƒCƒ‹–¼‚Ì•ÏX‚ğŠm”F
+            // ãƒ•ã‚¡ã‚¤ãƒ«åã®å¤‰æ›´ã‚’ç¢ºèª
             File removeFile = new File(srcFile);
             assertTrue(removeFile.exists());
             postReader = new BufferedReader(new InputStreamReader(
                     new FileInputStream(removeFile)));
             assertTrue(postReader.ready());
-            String expectationResultData = "testRenameFile08_src.txtƒf[ƒ^";
+            String expectationResultData = "testRenameFile08_src.txtãƒ‡ãƒ¼ã‚¿";
             String data = "";
             for (int i = 0; i < expectationResultData.length(); i++) {
-                assertTrue(i + "‰ñ–Ú‚Ì”»’è‚Å¸”s‚µ‚Ü‚µ‚½B", postReader.ready());
+                assertTrue(i + "å›ç›®ã®åˆ¤å®šã§å¤±æ•—ã—ã¾ã—ãŸã€‚", postReader.ready());
                 data += (char) postReader.read();
             }
             assertEquals(expectationResultData, data);
@@ -4673,7 +4673,7 @@ public class FileUtilityTest extends TestCase {
             if (postReader != null) {
                 postReader.close();
             }
-            // ƒeƒXƒgŒãƒtƒ@ƒCƒ‹‚ğíœ
+            // ãƒ†ã‚¹ãƒˆå¾Œãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤
             File file = new File(srcFile);
             file.delete();
         }
@@ -4682,43 +4682,43 @@ public class FileUtilityTest extends TestCase {
     /**
      * testRenameFile09() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FC,F,G <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,F,G <br>
      * <br>
-     * “ü—Í’lF(ˆø”) srcFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) srcFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "testRenameFile09_src.txt"<br>
      * <br>
-     * ¦‘Š‘ÎƒpƒX<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testRenameFile09_new.txt"<br>
+     * â€»ç›¸å¯¾ãƒ‘ã‚¹<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testRenameFile09_new.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ó‘Ô) FileUtility#checkFileExist():true<br>
-     * (ó‘Ô) srcFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestRenameFile09_src.txtƒf[ƒ^<br>
-     * (ó‘Ô) newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestRenameFile09_new.txtƒf[ƒ^<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (çŠ¶æ…‹) FileUtility#checkFileExist():true<br>
+     * (çŠ¶æ…‹) srcFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testRenameFile09_src.txtãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testRenameFile09_new.txtãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») checkAbsolutePath():1‰ñŒÄ‚Ño‚³‚ê‚éB<br>
-     * ˆø”srcFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * (ó‘Ô•Ï‰») srcFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestRenameFile09_src.txtƒf[ƒ^<br>
-     * (ó‘Ô•Ï‰») newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestRenameFile09_new.txtƒf[ƒ^<br>
-     * (ó‘Ô•Ï‰») —áŠO:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚éB<br>
-     * EƒƒbƒZ[ƒWF"File path is not absolute."<br>
-     * Eƒtƒ@ƒCƒ‹–¼FsrcFile‚Æ“¯‚¶’l<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) checkAbsolutePath():1å›å‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
+     * å¼•æ•°srcFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) srcFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testRenameFile09_src.txtãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testRenameFile09_new.txtãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"File path is not absolute."<br>
+     * ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åï¼šsrcFileã¨åŒã˜å€¤<br>
      * <br>
-     * ˆÙíƒP[ƒX<br>
-     * •ÏX‘Oƒtƒ@ƒCƒ‹‚ª‘Š‘ÎƒpƒX‚Åİ’è‚³‚ê‚½ê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * å¤‰æ›´å‰ãƒ•ã‚¡ã‚¤ãƒ«ãŒç›¸å¯¾ãƒ‘ã‚¹ã§è¨­å®šã•ã‚ŒãŸå ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testRenameFile09() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -4728,10 +4728,10 @@ public class FileUtilityTest extends TestCase {
 
         String newFile = directoryPath + "testRenameFile09_new.txt";
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(FileUtility.class, "checkFileExist", true);
 
-        // ƒeƒXƒg‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»‚·‚éB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–ã™ã‚‹ã€‚
         File testSrcFile = new File(directoryPath + srcFile);
         testSrcFile.delete();
         testSrcFile.createNewFile();
@@ -4745,40 +4745,40 @@ public class FileUtilityTest extends TestCase {
         BufferedReader postReader = null;
         try {
             testSrcFileFileWriter = new FileWriter(testSrcFile);
-            testSrcFileFileWriter.write("testRenameFile09_src.txtƒf[ƒ^");
+            testSrcFileFileWriter.write("testRenameFile09_src.txtãƒ‡ãƒ¼ã‚¿");
             testSrcFileFileWriter.flush();
             testSrcFileFileWriter.close();
 
             testNewFileFileWriter = new FileWriter(testNewFile);
-            testNewFileFileWriter.write("testRenameFile09_new.txtƒf[ƒ^");
+            testNewFileFileWriter.write("testRenameFile09_new.txtãƒ‡ãƒ¼ã‚¿");
             testNewFileFileWriter.flush();
             testNewFileFileWriter.close();
 
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             FileUtility.renameFile(srcFile, newFile);
-            fail("FileException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B¸”s‚Å‚·B");
+            fail("FileExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚å¤±æ•—ã§ã™ã€‚");
         } catch (FileException e) {
-            // —áŠO‚ÌŠm”F
+            // ä¾‹å¤–ã®ç¢ºèª
             assertTrue(FileException.class.isAssignableFrom(e.getClass()));
             assertEquals("File path is not absolute.", e.getMessage());
             assertEquals(srcFile, e.getFileName());
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(1, VMOUTUtil.getCallCount(FileUtility.class,
                     "checkAbsolutePath"));
             assertEquals(srcFile, VMOUTUtil.getArgument(FileUtility.class,
                     "checkAbsolutePath", 0, 0));
 
-            // ƒtƒ@ƒCƒ‹–¼‚Ì•ÏX‚ğŠm”F
+            // ãƒ•ã‚¡ã‚¤ãƒ«åã®å¤‰æ›´ã‚’ç¢ºèª
             File removeFile = new File(directoryPath + srcFile);
             assertTrue(removeFile.exists());
             postReader = new BufferedReader(new InputStreamReader(
                     new FileInputStream(removeFile)));
             assertTrue(postReader.ready());
-            String expectationResultData = "testRenameFile09_src.txtƒf[ƒ^";
+            String expectationResultData = "testRenameFile09_src.txtãƒ‡ãƒ¼ã‚¿";
             String data = "";
             for (int i = 0; i < expectationResultData.length(); i++) {
-                assertTrue(i + "‰ñ–Ú‚Ì”»’è‚Å¸”s‚µ‚Ü‚µ‚½B", postReader.ready());
+                assertTrue(i + "å›ç›®ã®åˆ¤å®šã§å¤±æ•—ã—ã¾ã—ãŸã€‚", postReader.ready());
                 data += (char) postReader.read();
             }
             assertEquals(expectationResultData, data);
@@ -4790,10 +4790,10 @@ public class FileUtilityTest extends TestCase {
             postReader = new BufferedReader(new InputStreamReader(
                     new FileInputStream(renameFile)));
             assertTrue(postReader.ready());
-            expectationResultData = "testRenameFile09_new.txtƒf[ƒ^";
+            expectationResultData = "testRenameFile09_new.txtãƒ‡ãƒ¼ã‚¿";
             data = "";
             for (int i = 0; i < expectationResultData.length(); i++) {
-                assertTrue(i + "‰ñ–Ú‚Ì”»’è‚Å¸”s‚µ‚Ü‚µ‚½B", postReader.ready());
+                assertTrue(i + "å›ç›®ã®åˆ¤å®šã§å¤±æ•—ã—ã¾ã—ãŸã€‚", postReader.ready());
                 data += (char) postReader.read();
             }
             assertEquals(expectationResultData, data);
@@ -4808,7 +4808,7 @@ public class FileUtilityTest extends TestCase {
             if (postReader != null) {
                 postReader.close();
             }
-            // ƒeƒXƒgŒãƒtƒ@ƒCƒ‹‚ğíœ
+            // ãƒ†ã‚¹ãƒˆå¾Œãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤
             File file = new File(directoryPath + srcFile);
             file.delete();
             file = new File(newFile);
@@ -4819,43 +4819,43 @@ public class FileUtilityTest extends TestCase {
     /*
      * testRenameFile10() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FC,F,G <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,F,G <br>
      * <br>
-     * “ü—Í’lF(ˆø”) srcFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testRenameFile10_src.txt"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) srcFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testRenameFile10_src.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)/testRenameFile10_new.txt"<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)/testRenameFile10_new.txt"<br>
      * <br>
-     * ¦â‘ÎƒpƒX<br>
-     * (ó‘Ô) FileUtility#checkFileExist():true<br>
-     * (ó‘Ô) srcFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestRenameFile10_src.txtƒf[ƒ^<br>
-     * (ó‘Ô) newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestRenameFile10_new.txtƒf[ƒ^<br>
+     * â€»çµ¶å¯¾ãƒ‘ã‚¹<br>
+     * (çŠ¶æ…‹) FileUtility#checkFileExist():true<br>
+     * (çŠ¶æ…‹) srcFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testRenameFile10_src.txtãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testRenameFile10_new.txtãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     * ¦ƒƒbƒN‚ªŠ|‚©‚Á‚Ä‚¢‚éB<br>
+     * â€»ãƒ­ãƒƒã‚¯ãŒæ›ã‹ã£ã¦ã„ã‚‹ã€‚<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») checkAbsolutePath():2‰ñŒÄ‚Ño‚³‚ê‚éB<br>
-     * 1‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”srcFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * 2‰ñ–Ú‚ÌŒÄ‚Ño‚µFˆø”newFile‚ª“n‚³‚ê‚é‚±‚ÆB<br>
-     * (ó‘Ô•Ï‰») srcFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚µ‚È‚¢B<br>
-     * (ó‘Ô•Ï‰») newFile‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹:‘¶İ‚·‚éB<br>
-     * ˆÈ‰º‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚¢‚éB<br>
-     * EtestRenameFile02_src.txtƒf[ƒ^<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) checkAbsolutePath():2å›å‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
+     * 1å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°srcFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * 2å›ç›®ã®å‘¼ã³å‡ºã—ï¼šå¼•æ•°newFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) srcFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã—ãªã„ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) newFileã§æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«:å­˜åœ¨ã™ã‚‹ã€‚<br>
+     * ä»¥ä¸‹ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¥ã£ã¦ã„ã‚‹ã€‚<br>
+     * ãƒ»testRenameFile02_src.txtãƒ‡ãƒ¼ã‚¿<br>
      * <br>
-     * ˆÙíƒP[ƒX<br>
-     * (checkFileExistİ’èFTRUE)<br>
-     * •ÏXæ‚Ìƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚é‚ªƒƒbƒN‚³‚ê‚Ä‚¢‚éê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * (checkFileExistè¨­å®šï¼šTRUE)<br>
+     * å¤‰æ›´å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚‹ãŒãƒ­ãƒƒã‚¯ã•ã‚Œã¦ã„ã‚‹å ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     // This testcase is ignored, because of Windows environment dependency.
     public void _ignore_testRenameFile10() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -4865,10 +4865,10 @@ public class FileUtilityTest extends TestCase {
 
         String newFile = directoryPath + "testRenameFile10_new.txt";
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(FileUtility.class, "checkFileExist", true);
 
-        // ƒeƒXƒg‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»‚·‚éB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–ã™ã‚‹ã€‚
         File testSrcFile = new File(srcFile);
         testSrcFile.delete();
         testSrcFile.createNewFile();
@@ -4884,28 +4884,28 @@ public class FileUtilityTest extends TestCase {
         BufferedReader postReader = null;
         try {
             testSrcFileFileWriter = new FileWriter(testSrcFile);
-            testSrcFileFileWriter.write("testRenameFile10_src.txtƒf[ƒ^");
+            testSrcFileFileWriter.write("testRenameFile10_src.txtãƒ‡ãƒ¼ã‚¿");
             testSrcFileFileWriter.flush();
             testSrcFileFileWriter.close();
 
             testNewFileFileWriter = new FileWriter(testNewFile);
-            testNewFileFileWriter.write("testRenameFile10_new.txtƒf[ƒ^");
+            testNewFileFileWriter.write("testRenameFile10_new.txtãƒ‡ãƒ¼ã‚¿");
             testNewFileFileWriter.flush();
             testNewFileFileWriter.close();
 
             fis = new FileInputStream(testNewFile);
             lock = fis.getChannel().lock(0L, Long.MAX_VALUE, true);
 
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             FileUtility.renameFile(srcFile, newFile);
-            fail("FileException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("FileExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (FileException e) {
-            // —áŠO‚ÌŠm”F
+            // ä¾‹å¤–ã®ç¢ºèª
             assertTrue(FileException.class.isAssignableFrom(e.getClass()));
             assertEquals("File control operation was failed.", e.getMessage());
             assertEquals(newFile, e.getFileName());
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(2, VMOUTUtil.getCallCount(FileUtility.class,
                     "checkAbsolutePath"));
             assertEquals(srcFile, VMOUTUtil.getArgument(FileUtility.class,
@@ -4913,16 +4913,16 @@ public class FileUtilityTest extends TestCase {
             assertEquals(newFile, VMOUTUtil.getArgument(FileUtility.class,
                     "checkAbsolutePath", 1, 0));
 
-            // ƒtƒ@ƒCƒ‹–¼‚Ì•ÏX‚ğŠm”F
+            // ãƒ•ã‚¡ã‚¤ãƒ«åã®å¤‰æ›´ã‚’ç¢ºèª
             File removeFile = new File(srcFile);
             assertTrue(removeFile.exists());
             postReader = new BufferedReader(new InputStreamReader(
                     new FileInputStream(removeFile)));
             assertTrue(postReader.ready());
-            String expectationResultData = "testRenameFile10_src.txtƒf[ƒ^";
+            String expectationResultData = "testRenameFile10_src.txtãƒ‡ãƒ¼ã‚¿";
             String data = "";
             for (int i = 0; i < expectationResultData.length(); i++) {
-                assertTrue(i + "‰ñ–Ú‚Ì”»’è‚Å¸”s‚µ‚Ü‚µ‚½B", postReader.ready());
+                assertTrue(i + "å›ç›®ã®åˆ¤å®šã§å¤±æ•—ã—ã¾ã—ãŸã€‚", postReader.ready());
                 data += (char) postReader.read();
             }
             assertEquals(expectationResultData, data);
@@ -4933,10 +4933,10 @@ public class FileUtilityTest extends TestCase {
             postReader = new BufferedReader(new InputStreamReader(
                     new FileInputStream(renameFile)));
             assertTrue(postReader.ready());
-            expectationResultData = "testRenameFile10_new.txtƒf[ƒ^";
+            expectationResultData = "testRenameFile10_new.txtãƒ‡ãƒ¼ã‚¿";
             data = "";
             for (int i = 0; i < expectationResultData.length(); i++) {
-                assertTrue(i + "‰ñ–Ú‚Ì”»’è‚Å¸”s‚µ‚Ü‚µ‚½B", postReader.ready());
+                assertTrue(i + "å›ç›®ã®åˆ¤å®šã§å¤±æ•—ã—ã¾ã—ãŸã€‚", postReader.ready());
                 data += (char) postReader.read();
             }
             assertEquals(expectationResultData, data);
@@ -4957,7 +4957,7 @@ public class FileUtilityTest extends TestCase {
             if (postReader != null) {
                 postReader.close();
             }
-            // ƒeƒXƒgŒãƒtƒ@ƒCƒ‹‚ğíœ
+            // ãƒ†ã‚¹ãƒˆå¾Œãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤
             File file = new File(srcFile);
             file.delete();
             file = new File(newFile);
@@ -4968,48 +4968,48 @@ public class FileUtilityTest extends TestCase {
     /**
      * testIsCheckFileExist01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FF <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šF <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) FileUtility#checkFileExist():false<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) FileUtility#checkFileExist():false<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
      * <br>
-     * ‘®«‚Ì’l‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * å±æ€§ã®å€¤ãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsCheckFileExist01() throws Exception {
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(FileUtility.class, "checkFileExist", false);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean result = FileUtility.isCheckFileExist();
-        // ”»’è
+        // åˆ¤å®š
         assertFalse(result);
     }
 
     /**
      * testSetCheckFileExist01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE <br>
      * <br>
-     * “ü—Í’lF(ˆø”) checkFileExist:true<br>
-     * (ó‘Ô) FileUtility#checkFileExist():false<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) checkFileExist:true<br>
+     * (çŠ¶æ…‹) FileUtility#checkFileExist():false<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») checkFileExist:true<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) checkFileExist:true<br>
      * <br>
-     * ˆø”‚Ì’l‚ª‘®«‚Éİ’è‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * å¼•æ•°ã®å€¤ãŒå±æ€§ã«è¨­å®šã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testSetCheckFileExist01() throws Exception {
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(FileUtility.class, "checkFileExist", false);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         FileUtility.setCheckFileExist(true);
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(true, UTUtil.getPrivateField(FileUtility.class,
                 "checkFileExist"));
     }

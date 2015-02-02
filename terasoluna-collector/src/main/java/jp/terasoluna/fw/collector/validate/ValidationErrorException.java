@@ -28,24 +28,24 @@ public class ValidationErrorException extends RuntimeException {
     private static final long serialVersionUID = 5886358053601538376L;
 
     /**
-     * ƒLƒ…[‚Éƒf[ƒ^‚â—áŠO‚ğŠi”[‚·‚éÛ‚Ì” 
+     * ã‚­ãƒ¥ãƒ¼ã«ãƒ‡ãƒ¼ã‚¿ã‚„ä¾‹å¤–ã‚’æ ¼ç´ã™ã‚‹éš›ã®ç®±
      */
     private DataValueObject dataValueObject = null;
 
     /**
-     * ƒGƒ‰[î•ñ
+     * ã‚¨ãƒ©ãƒ¼æƒ…å ±
      */
     private Errors errors = null;
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      */
     public ValidationErrorException() {
         super();
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      * @param message String
      */
     public ValidationErrorException(String message) {
@@ -53,7 +53,7 @@ public class ValidationErrorException extends RuntimeException {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      * @param message String
      * @param cause Throwable
      */
@@ -62,7 +62,7 @@ public class ValidationErrorException extends RuntimeException {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      * @param cause Throwable
      */
     public ValidationErrorException(Throwable cause) {
@@ -70,7 +70,7 @@ public class ValidationErrorException extends RuntimeException {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      * @param dataValueObject DataValueObject
      * @param errors Errors
      */
@@ -81,7 +81,7 @@ public class ValidationErrorException extends RuntimeException {
     }
 
     /**
-     * ƒLƒ…[‚Éƒf[ƒ^‚â—áŠO‚ğŠi”[‚·‚éÛ‚Ì” ‚ğæ“¾‚·‚é
+     * ã‚­ãƒ¥ãƒ¼ã«ãƒ‡ãƒ¼ã‚¿ã‚„ä¾‹å¤–ã‚’æ ¼ç´ã™ã‚‹éš›ã®ç®±ã‚’å–å¾—ã™ã‚‹
      * @return DataValueObject
      */
     public DataValueObject getDataValueObject() {
@@ -89,7 +89,7 @@ public class ValidationErrorException extends RuntimeException {
     }
 
     /**
-     * ƒGƒ‰[î•ñ‚ğæ“¾‚·‚é
+     * ã‚¨ãƒ©ãƒ¼æƒ…å ±ã‚’å–å¾—ã™ã‚‹
      * @return Errors
      */
     public Errors getErrors() {

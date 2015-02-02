@@ -1,7 +1,7 @@
 package jp.terasoluna.fw.file.dao.standard;
 
 /**
- * ファイル行オブジェクトスタブクラス
+ * 繝輔ぃ繧､繝ｫ陦後が繝悶ず繧ｧ繧ｯ繝医せ繧ｿ繝悶け繝ｩ繧ｹ
  */
 public class NullColumnFormatter_Stub01 {
     private String string = null;

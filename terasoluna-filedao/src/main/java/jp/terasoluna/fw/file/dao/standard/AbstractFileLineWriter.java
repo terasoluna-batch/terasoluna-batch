@@ -44,164 +44,164 @@ import jp.terasoluna.fw.file.dao.FileLineWriter;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * ƒtƒ@ƒCƒ‹ƒAƒNƒZƒX(ƒf[ƒ^‘)—p‚Ì‹¤’ÊƒNƒ‰ƒXB
+ * ãƒ•ã‚¡ã‚¤ãƒ«ã‚¢ã‚¯ã‚»ã‚¹(ãƒ‡ãƒ¼ã‚¿æ›¸è¾¼)ç”¨ã®å…±é€šã‚¯ãƒ©ã‚¹ã€‚
  * <p>
- * ƒtƒ@ƒCƒ‹ƒAƒNƒZƒX(ƒf[ƒ^‘)‚ğs‚¤3‚Â‚ÌƒNƒ‰ƒX(CSVAŒÅ’è’·A‰Â•Ï’·) ‚É‹¤’Ê‚·‚éˆ—‚ğ‚Ü‚Æ‚ß‚½’ŠÛƒNƒ‰ƒXB ƒtƒ@ƒCƒ‹‚Ìí—Ş‚É‘Î‰‚·‚éƒTƒuƒNƒ‰ƒX‚ªˆ—‚ğs‚¤B<br>
- * g—p—á‚Í{@link jp.terasoluna.fw.file.dao.FileLineWriter}‚ğQÆ‚Ì‚±‚ÆB
+ * ãƒ•ã‚¡ã‚¤ãƒ«ã‚¢ã‚¯ã‚»ã‚¹(ãƒ‡ãƒ¼ã‚¿æ›¸è¾¼)ã‚’è¡Œã†3ã¤ã®ã‚¯ãƒ©ã‚¹(CSVã€å›ºå®šé•·ã€å¯å¤‰é•·) ã«å…±é€šã™ã‚‹å‡¦ç†ã‚’ã¾ã¨ã‚ãŸæŠ½è±¡ã‚¯ãƒ©ã‚¹ã€‚ ãƒ•ã‚¡ã‚¤ãƒ«ã®ç¨®é¡ã«å¯¾å¿œã™ã‚‹ã‚µãƒ–ã‚¯ãƒ©ã‚¹ãŒå‡¦ç†ã‚’è¡Œã†ã€‚<br>
+ * ä½¿ç”¨ä¾‹ã¯{@link jp.terasoluna.fw.file.dao.FileLineWriter}ã‚’å‚ç…§ã®ã“ã¨ã€‚
  * </p>
  * <p>
- * ƒtƒ@ƒCƒ‹æ“¾ˆ—‚Í‰º‹L‚Ìè‡‚ÅŒÄ‚Ño‚³‚ê‚é‚æ‚¤‚ÉÀ‘•‚·‚é‚±‚ÆB
+ * ãƒ•ã‚¡ã‚¤ãƒ«å–å¾—å‡¦ç†ã¯ä¸‹è¨˜ã®æ‰‹é †ã§å‘¼ã³å‡ºã•ã‚Œã‚‹ã‚ˆã†ã«å®Ÿè£…ã™ã‚‹ã“ã¨ã€‚
  * <ul>
- * <li>‰Šú‰»ˆ—(init()AƒCƒ“ƒXƒ^ƒ“ƒX¶¬•K‚¸‚P‰ñs‚È‚¤)</li>
- * <li>ƒwƒbƒ_•”æ“¾(printHeaderLine())</li>
- * <li>ƒf[ƒ^•”æ“¾ˆ—(printDataLine())</li>
- * <li>ƒgƒŒƒCƒ‰•”æ“¾(printTrailerLine())</li>
+ * <li>åˆæœŸåŒ–å‡¦ç†(init()ã€ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ç”Ÿæˆæ™‚å¿…ãšï¼‘å›è¡Œãªã†)</li>
+ * <li>ãƒ˜ãƒƒãƒ€éƒ¨å–å¾—(printHeaderLine())</li>
+ * <li>ãƒ‡ãƒ¼ã‚¿éƒ¨å–å¾—å‡¦ç†(printDataLine())</li>
+ * <li>ãƒˆãƒ¬ã‚¤ãƒ©éƒ¨å–å¾—(printTrailerLine())</li>
  * </ul>
- * ã‹L‚Ì‡”Ô‚Å‚Ì‚İ³Šm‚Éo—Í‚Å‚«‚éB<br>
+ * ä¸Šè¨˜ã®é †ç•ªã§ã®ã¿æ­£ç¢ºã«å‡ºåŠ›ã§ãã‚‹ã€‚<br>
  * </p>
  * @see jp.terasoluna.fw.file.dao.FileLineWriter
  * @see jp.terasoluna.fw.file.dao.standard.CSVFileLineWriter
  * @see jp.terasoluna.fw.file.dao.standard.FixedFileLineWriter
  * @see jp.terasoluna.fw.file.dao.standard.VariableFileLineWriter
  * @see jp.terasoluna.fw.file.dao.standard.PlainFileLineWriter
- * @param <T> ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgB
+ * @param <T> ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
  */
 public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
 
     /**
-     * ‰Šú‰»ˆ—‚Ìs”Ô†B
+     * åˆæœŸåŒ–å‡¦ç†æ™‚ã®è¡Œç•ªå·ã€‚
      */
     private static final int INITIAL_LINE_NO = -1;
 
     /**
-     * ƒtƒ@ƒCƒ‹ƒAƒNƒZƒXio—Íj—p‚Ì•¶šƒXƒgƒŠ[ƒ€B
+     * ãƒ•ã‚¡ã‚¤ãƒ«ã‚¢ã‚¯ã‚»ã‚¹ï¼ˆå‡ºåŠ›ï¼‰ç”¨ã®æ–‡å­—ã‚¹ãƒˆãƒªãƒ¼ãƒ ã€‚
      */
     private Writer writer = null;
 
     /**
-     * ƒtƒ@ƒCƒ‹ƒAƒNƒZƒX‚ğs‚¤ƒtƒ@ƒCƒ‹–¼B
+     * ãƒ•ã‚¡ã‚¤ãƒ«ã‚¢ã‚¯ã‚»ã‚¹ã‚’è¡Œã†ãƒ•ã‚¡ã‚¤ãƒ«åã€‚
      */
     private String fileName = null;
 
     /**
-     * ƒtƒ@ƒCƒ‹ƒGƒ“ƒR[ƒfƒBƒ“ƒOB
+     * ãƒ•ã‚¡ã‚¤ãƒ«ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ã€‚
      */
     private String fileEncoding = System.getProperty("file.encoding");
 
     /**
-     * ƒpƒ‰ƒ[ƒ^ƒNƒ‰ƒX‚ÌƒNƒ‰ƒXB
+     * ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚¯ãƒ©ã‚¹ã®ã‚¯ãƒ©ã‚¹ã€‚
      */
     private Class<T> clazz = null;
 
     /**
-     * s‹æØ‚è•¶šB
+     * è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—ã€‚
      */
     private String lineFeedChar = System.getProperty("line.separator");
 
     /**
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌFieldî•ñiAnnotationj‚ğŠi”[‚·‚é•Ï”B
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®Fieldæƒ…å ±ï¼ˆAnnotationï¼‰ã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°ã€‚
      */
     private Field[] fields = null;
 
     /**
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚Ìo—Íİ’èƒAƒmƒe[ƒVƒ‡ƒ“‚ğŠi”[‚·‚é•Ï”B
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å‡ºåŠ›è¨­å®šã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°ã€‚
      */
     private OutputFileColumn[] outputFileColumns = null;
 
     /**
-     * ŠeƒJƒ‰ƒ€‚²‚Æ‚ÌƒJƒ‰ƒ€Index‚ğŠi”[‚·‚é•Ï”B
+     * å„ã‚«ãƒ©ãƒ ã”ã¨ã®ã‚«ãƒ©ãƒ Indexã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°ã€‚
      */
     private int[] columnIndexs = null;
 
     /**
-     * ŠeƒJƒ‰ƒ€‚²‚Æ‚ÌƒJƒ‰ƒ€‚ÌƒtƒH[ƒ}ƒbƒg‚ğŠi”[‚·‚é•Ï”B
+     * å„ã‚«ãƒ©ãƒ ã”ã¨ã®ã‚«ãƒ©ãƒ ã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°ã€‚
      */
     private String[] columnFormats = null;
 
     /**
-     * ŠeƒJƒ‰ƒ€‚²‚Æ‚ÌƒoƒCƒg”‚ğŠi”[‚·‚é•Ï”B
+     * å„ã‚«ãƒ©ãƒ ã”ã¨ã®ãƒã‚¤ãƒˆæ•°ã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°ã€‚
      */
     private int[] columnBytes = null;
 
     /**
-     * ŠeƒJƒ‰ƒ€‚²‚Æ‚ÌƒpƒfƒBƒ“ƒOí•Ê‚ğŠi”[‚·‚é•Ï”B
+     * å„ã‚«ãƒ©ãƒ ã”ã¨ã®ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°ç¨®åˆ¥ã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°ã€‚
      */
     private PaddingType[] paddingTypes = null;
 
     /**
-     * ŠeƒJƒ‰ƒ€‚²‚Æ‚ÌƒpƒfƒBƒ“ƒO•¶š‚ğŠi”[‚·‚é•Ï”B
+     * å„ã‚«ãƒ©ãƒ ã”ã¨ã®ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°æ–‡å­—ã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°ã€‚
      */
     private char[] paddingChars = null;
 
     /**
-     * ŠeƒJƒ‰ƒ€‚²‚Æ‚ÌƒgƒŠƒ€í•Ê‚ğŠi”[‚·‚é•Ï”B
+     * å„ã‚«ãƒ©ãƒ ã”ã¨ã®ãƒˆãƒªãƒ ç¨®åˆ¥ã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°ã€‚
      */
     private TrimType[] trimTypes;
 
     /**
-     * ŠeƒJƒ‰ƒ€‚ÌƒgƒŠƒ€•¶š‚ğŠi”[‚·‚é•Ï”B
+     * å„ã‚«ãƒ©ãƒ ã®ãƒˆãƒªãƒ æ–‡å­—ã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°ã€‚
      */
     private char[] trimChars;
 
     /**
-     * ŠeƒJƒ‰ƒ€‚²‚Æ‚ÌˆÍ‚İ•¶š‚ğŠi”[‚·‚é•Ï”B
+     * å„ã‚«ãƒ©ãƒ ã”ã¨ã®å›²ã¿æ–‡å­—ã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°ã€‚
      */
     private char[] columnEncloseChar;
 
     /**
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌƒXƒgƒŠƒ“ƒOƒRƒ“ƒo[ƒ^‚ğŠi”[‚·‚é•Ï”B
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¹ãƒˆãƒªãƒ³ã‚°ã‚³ãƒ³ãƒãƒ¼ã‚¿ã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°ã€‚
      */
     private StringConverter[] stringConverters = null;
 
     /**
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌƒXƒgƒŠƒ“ƒOƒRƒ“ƒo[ƒ^‚ğŠi”[‚·‚éƒ}ƒbƒvB
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¹ãƒˆãƒªãƒ³ã‚°ã‚³ãƒ³ãƒãƒ¼ã‚¿ã‚’æ ¼ç´ã™ã‚‹ãƒãƒƒãƒ—ã€‚
      */
     @SuppressWarnings("unchecked")
     private static Map<Class, StringConverter> stringConverterCacheMap = new HashMap<Class, StringConverter>();
 
     /**
-     * ƒƒ\ƒbƒhƒIƒuƒWƒFƒNƒg
+     * ãƒ¡ã‚½ãƒƒãƒ‰ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      */
     private Method[] methods = null;
 
     /**
-     * ƒJƒ‰ƒ€ƒtƒH[ƒ}ƒbƒg(ƒtƒ@ƒCƒ‹‘j‚ğŠi”[‚·‚éƒ}ƒbƒvB
+     * ã‚«ãƒ©ãƒ ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆ(ãƒ•ã‚¡ã‚¤ãƒ«æ›¸è¾¼ï¼‰ã‚’æ ¼ç´ã™ã‚‹ãƒãƒƒãƒ—ã€‚
      */
     private Map<String, ColumnFormatter> columnFormatterMap = null;
 
     /**
-     * ƒf[ƒ^•”o—ÍŠm”F—pƒtƒ‰ƒOB
+     * ãƒ‡ãƒ¼ã‚¿éƒ¨å‡ºåŠ›ç¢ºèªç”¨ãƒ•ãƒ©ã‚°ã€‚
      */
     private boolean writeData = false;
 
     /**
-     * ƒgƒŒƒCƒ‰•”o—ÍŠm”F—pƒtƒ‰ƒOB
+     * ãƒˆãƒ¬ã‚¤ãƒ©éƒ¨å‡ºåŠ›ç¢ºèªç”¨ãƒ•ãƒ©ã‚°ã€‚
      */
     private boolean writeTrailer = false;
 
     /**
-     * ‘‚«‚İˆ—Ï‚İƒf[ƒ^•”‚Ìs”B
+     * æ›¸ãè¾¼ã¿å‡¦ç†æ¸ˆã¿ãƒ‡ãƒ¼ã‚¿éƒ¨ã®è¡Œæ•°ã€‚
      */
     private int currentLineCount = 0;
 
     /**
-     * ‰Šú‰»ˆ—Àsƒtƒ‰ƒOB
+     * åˆæœŸåŒ–å‡¦ç†å®Ÿè¡Œãƒ•ãƒ©ã‚°ã€‚
      */
     private boolean calledInit = false;
 
     /**
-     * ˆÍ‚İ•¶šŠm”F—pƒtƒ‰ƒOB
+     * å›²ã¿æ–‡å­—ç¢ºèªç”¨ãƒ•ãƒ©ã‚°ã€‚
      */
     private boolean enclosed = false;
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B<br>
-     * ˆø”‚Æ<code>@FileFormat</code>ƒAƒmƒe[ƒVƒ‡ƒ“‚Ìİ’èƒ`ƒFƒbƒN‚·‚éB <code>@FileFormat</code>ƒAƒmƒe[ƒVƒ‡ƒ“‚ªİ’è‚³‚ê‚Ä‚¢‚È‚¢ê‡‚Í”ñŒŸ¸—áŠO‚ğƒXƒ[‚·‚éB<br>
-     * ‹æØ‚è•¶š‚ÆˆÍ‚İ•¶š‚É“¯ˆê•¶š‚ªİ’è‚³‚ê‚Ä‚¢‚éê‡‚ÍA”ñŒŸ¸—áŠO‚ğƒXƒ[‚·‚éB<br>
-     * s‹æØ‚è•¶š‚ª‚R•¶šˆÈã‚Ìê‡‚ÍA”ñŒŸ¸—áŠO‚ğƒXƒ[‚·‚éB<br>
-     * @param fileName ƒtƒ@ƒCƒ‹–¼
-     * @param clazz ƒpƒ‰ƒ[ƒ^ƒNƒ‰ƒX
-     * @param columnFormatterMap ƒeƒLƒXƒgæ“¾ƒ‹[ƒ‹
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚<br>
+     * å¼•æ•°ã¨<code>@FileFormat</code>ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã®è¨­å®šãƒã‚§ãƒƒã‚¯ã™ã‚‹ã€‚ <code>@FileFormat</code>ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ãŒè¨­å®šã•ã‚Œã¦ã„ãªã„å ´åˆã¯éæ¤œæŸ»ä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã€‚<br>
+     * åŒºåˆ‡ã‚Šæ–‡å­—ã¨å›²ã¿æ–‡å­—ã«åŒä¸€æ–‡å­—ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã¯ã€éæ¤œæŸ»ä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã€‚<br>
+     * è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—ãŒï¼“æ–‡å­—ä»¥ä¸Šã®å ´åˆã¯ã€éæ¤œæŸ»ä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã€‚<br>
+     * @param fileName ãƒ•ã‚¡ã‚¤ãƒ«å
+     * @param clazz ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚¯ãƒ©ã‚¹
+     * @param columnFormatterMap ãƒ†ã‚­ã‚¹ãƒˆå–å¾—ãƒ«ãƒ¼ãƒ«
      */
     public AbstractFileLineWriter(String fileName, Class<T> clazz,
             Map<String, ColumnFormatter> columnFormatterMap) {
@@ -225,37 +225,37 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
         this.clazz = clazz;
         this.columnFormatterMap = columnFormatterMap;
 
-        // FileFormat‚ÉŠÖ‚·‚éƒ`ƒFƒbƒNˆ—B
+        // FileFormatã«é–¢ã™ã‚‹ãƒã‚§ãƒƒã‚¯å‡¦ç†ã€‚
 
-        // ƒtƒ@ƒCƒ‹ƒtƒH[ƒ}ƒbƒg‚ğæ“¾‚·‚éB
+        // ãƒ•ã‚¡ã‚¤ãƒ«ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’å–å¾—ã™ã‚‹ã€‚
         FileFormat fileFormat = clazz.getAnnotation(FileFormat.class);
 
-        // @FileFormat‚ª–³‚¢ê‡A—áŠO‚ğƒXƒ[‚·‚éB
+        // @FileFormatãŒç„¡ã„å ´åˆã€ä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã€‚
         if (fileFormat == null) {
             throw new FileException("FileFormat annotation is not found.",
                     new IllegalStateException(), fileName);
         }
 
-        // ‹æØ‚è•¶š‚ÆˆÍ‚İ•¶š‚ª“¯‚¶ê‡A—áŠO‚ğƒXƒ[‚·‚éB
+        // åŒºåˆ‡ã‚Šæ–‡å­—ã¨å›²ã¿æ–‡å­—ãŒåŒã˜å ´åˆã€ä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã€‚
         if (fileFormat.delimiter() == fileFormat.encloseChar()) {
             throw new FileException(
                     "Delimiter is the same as EncloseChar and is no use.",
                     new IllegalStateException(), fileName);
         }
 
-        // •¶šƒR[ƒh‚ğ‰Šú‰»‚·‚éB
+        // æ–‡å­—ã‚³ãƒ¼ãƒ‰ã‚’åˆæœŸåŒ–ã™ã‚‹ã€‚
         if (fileFormat.fileEncoding() != null
                 && !"".equals(fileFormat.fileEncoding())) {
             this.fileEncoding = fileFormat.fileEncoding();
         }
 
-        // s‹æØ‚è•¶š‚ğƒ`ƒFƒbƒN‚·‚éBİ’è‚ª‚È‚¢ê‡‚ÍƒVƒXƒeƒ€ƒfƒtƒHƒ‹ƒg’l‚ğ—˜—p‚·‚éB
+        // è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã€‚è¨­å®šãŒãªã„å ´åˆã¯ã‚·ã‚¹ãƒ†ãƒ ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ã‚’åˆ©ç”¨ã™ã‚‹ã€‚
         if (fileFormat.lineFeedChar() != null
                 && !"".equals(fileFormat.lineFeedChar())) {
             this.lineFeedChar = fileFormat.lineFeedChar();
         }
 
-        // s‹æØ‚è•¶š‚ª3•¶šˆÈã‚Ìê‡A—áŠO‚ğƒXƒ[‚·‚éB
+        // è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—ãŒ3æ–‡å­—ä»¥ä¸Šã®å ´åˆã€ä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã€‚
         if (lineFeedChar.length() > 2) {
             throw new FileException("lineFeedChar length must be 1 or 2. but: "
                     + lineFeedChar.length(), new IllegalStateException(),
@@ -264,27 +264,27 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
     }
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B<br>
-     * ‰Šú‰»ˆ—‚Ås‚¤ˆ—‚ÍˆÈ‰º‚Å‚·BB
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚<br>
+     * åˆæœŸåŒ–å‡¦ç†ã§è¡Œã†å‡¦ç†ã¯ä»¥ä¸‹ã§ã™ã€‚ã€‚
      * <ul>
-     * <li>ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚Ì‘®«(Field)‚Ìæ“¾</li>
-     * <li>•¶š•ÏŠ·í•ÊƒIƒuƒWƒFƒNƒg(stringConverters)‚Ì¶¬</li>
-     * <li>ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚Ì‘®«‚É‘Î‚·‚éƒZƒbƒ^ƒƒ\ƒbƒh(methods)‚Ìæ“¾</li>
-     * <li>‘ÎÛƒtƒ@ƒCƒ‹‚Ìã‘‚«İ’è‚ÌŠm”F</li>
-     * <li>ƒtƒ@ƒCƒ‹‚Ö‚ÌƒXƒgƒŠ[ƒ€‚ğŠJ‚­</li>
+     * <li>ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å±æ€§(Field)ã®å–å¾—</li>
+     * <li>æ–‡å­—å¤‰æ›ç¨®åˆ¥ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ(stringConverters)ã®ç”Ÿæˆ</li>
+     * <li>ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å±æ€§ã«å¯¾ã™ã‚‹ã‚»ãƒƒã‚¿ãƒ¡ã‚½ãƒƒãƒ‰(methods)ã®å–å¾—</li>
+     * <li>å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã®ä¸Šæ›¸ãè¨­å®šã®ç¢ºèª</li>
+     * <li>ãƒ•ã‚¡ã‚¤ãƒ«ã¸ã®ã‚¹ãƒˆãƒªãƒ¼ãƒ ã‚’é–‹ã</li>
      * </ul>
-     * init()‚ÍAbstracFileLineWriter‚ğŒp³‚·‚éƒNƒ‰ƒX‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Å ŒÄ‚Ôƒƒ\ƒbƒh‚Å‚ ‚éB<br>
-     * ‰ºˆÊŒİŠ·«‚Ì‚½‚ßA2‰ñˆÈãÀs‚Å‚«‚È‚¢‚æ‚¤‚É‚µ‚Ä‚¢‚éB
+     * init()ã¯AbstracFileLineWriterã‚’ç¶™æ‰¿ã™ã‚‹ã‚¯ãƒ©ã‚¹ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§ å‘¼ã¶ãƒ¡ã‚½ãƒƒãƒ‰ã§ã‚ã‚‹ã€‚<br>
+     * ä¸‹ä½äº’æ›æ€§ã®ãŸã‚ã€2å›ä»¥ä¸Šå®Ÿè¡Œã§ããªã„ã‚ˆã†ã«ã—ã¦ã„ã‚‹ã€‚
      */
     protected void init() {
         if (!calledInit) {
-            // ƒtƒ@ƒCƒ‹ƒtƒH[ƒ}ƒbƒg‚ğæ“¾‚·‚éB
+            // ãƒ•ã‚¡ã‚¤ãƒ«ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’å–å¾—ã™ã‚‹ã€‚
             FileFormat fileFormat = clazz.getAnnotation(FileFormat.class);
 
             buildFields();
 
             if (isCheckEncloseChar()) {
-                // ƒJƒ‰ƒ€‚²‚Æ‚ÌˆÍ‚İ•¶š‚ªİ’è‚³‚ê‚Ä‚¢‚éê‡A—áŠO‚ğƒXƒ[‚·‚éB
+                // ã‚«ãƒ©ãƒ ã”ã¨ã®å›²ã¿æ–‡å­—ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã€ä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã€‚
                 if (enclosed) {
                     throw new FileException(
                             "columnEncloseChar can not change.",
@@ -293,7 +293,7 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
             }
 
             if (isCheckColumnAnnotationCount()) {
-                // ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÉƒAƒmƒe[ƒVƒ‡ƒ“‚ªİ’è‚³‚ê‚Ä‚¢‚È‚¢ê‡A—áŠO‚ğƒXƒ[‚·‚éB
+                // ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ãŒè¨­å®šã•ã‚Œã¦ã„ãªã„å ´åˆã€ä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã€‚
                 if (fields.length == 0) {
                     throw new FileException("OutputFileColumn is not found.",
                             new IllegalStateException(), fileName);
@@ -303,7 +303,7 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
             buildStringConverters();
             buildMethods();
 
-            // ã‘‚«ƒtƒ‰ƒO‚ğŠm”F
+            // ä¸Šæ›¸ããƒ•ãƒ©ã‚°ã‚’ç¢ºèª
             if (fileFormat.overWriteFlg()) {
                 File file = new File(fileName);
                 if (file.exists()) {
@@ -311,7 +311,7 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
                 }
             }
 
-            // ƒtƒ@ƒCƒ‹ƒI[ƒvƒ“
+            // ãƒ•ã‚¡ã‚¤ãƒ«ã‚ªãƒ¼ãƒ—ãƒ³
             try {
                 writer = new BufferedWriter(new OutputStreamWriter(
                         (new FileOutputStream(fileName, true)), fileEncoding));
@@ -327,13 +327,13 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
     }
 
     /**
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚Ì‘®«‚ÌƒtƒB[ƒ‹ƒhƒIƒuƒWƒFƒNƒg‚Ì”z—ñ‚ğ¶¬‚·‚éB
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å±æ€§ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®é…åˆ—ã‚’ç”Ÿæˆã™ã‚‹ã€‚
      */
     @SuppressWarnings("unchecked")
     private void buildFields() {
         List<Field[]> fieldList = new ArrayList<Field[]>();
 
-        // ƒtƒB[ƒ‹ƒhƒIƒuƒWƒFƒNƒg‚ğ¶¬
+        // ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ç”Ÿæˆ
         Class tempClass = clazz;
         Field[] declaredFieldArray = null;
         int allFieldCount = 0;
@@ -344,7 +344,7 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
             tempClass = tempClass.getSuperclass();
         }
 
-        // ƒJƒ‰ƒ€ƒCƒ“ƒfƒbƒNƒX‚Ì’è‹`‚Ì‡”Ô‚É•À‚Ñ‘Ö‚¦
+        // ã‚«ãƒ©ãƒ ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã®å®šç¾©ã®é †ç•ªã«ä¸¦ã³æ›¿ãˆ
         Field[] dataColumnFields = new Field[allFieldCount];
 
         OutputFileColumn outputFileColumn = null;
@@ -356,7 +356,7 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
             for (Field field : fields) {
                 outputFileColumn = field.getAnnotation(OutputFileColumn.class);
                 if (outputFileColumn != null) {
-                    // ƒ}ƒbƒsƒ“ƒO‰Â”\‚ÈŒ^‚ÌƒtƒB[ƒ‹ƒh‚È‚Ì‚©Šm”F‚·‚éB
+                    // ãƒãƒƒãƒ”ãƒ³ã‚°å¯èƒ½ãªå‹ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ãªã®ã‹ç¢ºèªã™ã‚‹ã€‚
                     if (columnFormatterMap.get(field.getType().getName()) == null) {
                         throw new FileException(
                                 "There is a type which isn't supported in a "
@@ -365,21 +365,21 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
                     }
 
                     columnIndex = outputFileColumn.columnIndex();
-                    // ƒJƒ‰ƒ€Index‚ªƒ}ƒCƒiƒX’l‚È‚Ì‚©Šm”F‚·‚éB
+                    // ã‚«ãƒ©ãƒ IndexãŒãƒã‚¤ãƒŠã‚¹å€¤ãªã®ã‹ç¢ºèªã™ã‚‹ã€‚
                     if (columnIndex < 0) {
                         throw new FileException(
                                 "Column Index in FileLineObject is the minus "
                                         + "number.",
                                 new IllegalStateException(), fileName);
                     }
-                    // ƒJƒ‰ƒ€Index‚ªƒtƒB[ƒ‹ƒh”‚ğ’´‚¦‚Ä‚¢‚é‚©‚¢‚é‚©Šm”F‚·‚éB
+                    // ã‚«ãƒ©ãƒ IndexãŒãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰æ•°ã‚’è¶…ãˆã¦ã„ã‚‹ã‹ã„ã‚‹ã‹ç¢ºèªã™ã‚‹ã€‚
                     if (dataColumnFields.length <= columnIndex) {
                         throw new FileException(
                                 "Column Index in FileLineObject is bigger than "
                                         + "the total number of the field.",
                                 new IllegalStateException(), fileName);
                     }
-                    // ƒJƒ‰ƒ€Index‚ªd•¡‚µ‚Ä‚È‚¢‚Ì‚©Šm”F‚·‚éB
+                    // ã‚«ãƒ©ãƒ IndexãŒé‡è¤‡ã—ã¦ãªã„ã®ã‹ç¢ºèªã™ã‚‹ã€‚
                     if (dataColumnFields[columnIndex] == null) {
                         dataColumnFields[columnIndex] = field;
                         if (maxColumnIndex < columnIndex) {
@@ -393,14 +393,14 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
                 }
             }
         }
-        // columnIndex‚ª˜A”Ô‚Å’è‹`‚³‚ê‚Ä‚¢‚é‚©‚ğƒ`ƒFƒbƒN‚·‚é
+        // columnIndexãŒé€£ç•ªã§å®šç¾©ã•ã‚Œã¦ã„ã‚‹ã‹ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹
         if (columnCount != (maxColumnIndex + 1)) {
             throw new FileException(
                     "columnIndex in FileLineObject is not sequential order.",
                     new IllegalStateException(), fileName);
         }
 
-        // ƒtƒB[ƒ‹ƒh‚ğƒRƒs[(null‚Ì•”•ªíœ)
+        // ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’ã‚³ãƒ”ãƒ¼(nullã®éƒ¨åˆ†å‰Šé™¤)
         if (dataColumnFields.length == columnCount) {
             this.fields = dataColumnFields;
         } else {
@@ -408,7 +408,7 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
             System.arraycopy(dataColumnFields, 0, this.fields, 0, columnCount);
         }
 
-        // OutputFileColumniƒAƒmƒe[ƒVƒ‡ƒ“j‚ğListƒIƒuƒWƒFƒNƒg‚ÉŠi”[
+        // OutputFileColumnï¼ˆã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ï¼‰ã‚’Listã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«æ ¼ç´
         outputFileColumns = new OutputFileColumn[fields.length];
         columnIndexs = new int[fields.length];
         columnFormats = new String[fields.length];
@@ -418,7 +418,7 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
         trimTypes = new TrimType[fields.length];
         trimChars = new char[fields.length];
 
-        // ˆÍ‚İ•¶šİ’èB‚Ü‚¸FileFormat‚Ìİ’è‚ğ“K—p‚·‚éB
+        // å›²ã¿æ–‡å­—è¨­å®šã€‚ã¾ãšFileFormatã®è¨­å®šã‚’é©ç”¨ã™ã‚‹ã€‚
         columnEncloseChar = new char[fields.length];
         if (getEncloseChar() != Character.MIN_VALUE) {
             enclosed = true;
@@ -437,7 +437,7 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
             paddingChars[i] = outputFileColumns[i].paddingChar();
             trimTypes[i] = outputFileColumns[i].trimType();
             trimChars[i] = outputFileColumns[i].trimChar();
-            // ˆÍ‚İ•¶šİ’èBinputFileColumns‚Ìİ’è‚Åã‘‚«‚ğ‚·‚éB
+            // å›²ã¿æ–‡å­—è¨­å®šã€‚inputFileColumnsã®è¨­å®šã§ä¸Šæ›¸ãã‚’ã™ã‚‹ã€‚
             if (outputFileColumns[i].columnEncloseChar() != Character.MIN_VALUE) {
                 columnEncloseChar[i] = outputFileColumns[i].columnEncloseChar();
                 enclosed = true;
@@ -446,33 +446,33 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
     }
 
     /**
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚Ì‘®«‚Ì•¶š•ÏŠ·í•ÊƒIƒuƒWƒFƒNƒg‚Ì”z—ñ‚ğ¶¬‚·‚éB<br>
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å±æ€§ã®æ–‡å­—å¤‰æ›ç¨®åˆ¥ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®é…åˆ—ã‚’ç”Ÿæˆã™ã‚‹ã€‚<br>
      */
     private void buildStringConverters() {
 
-        // •¶š•ÏŠ·í•Ê‚Ì”z—ñ‚ğ¶¬
+        // æ–‡å­—å¤‰æ›ç¨®åˆ¥ã®é…åˆ—ã‚’ç”Ÿæˆ
         StringConverter[] dataColumnStringConverters = new StringConverter[fields.length];
 
         OutputFileColumn outputFileColumn = null;
         Class<? extends StringConverter> converterKind = null;
 
         for (int i = 0; i < fields.length; i++) {
-            // JavaBean‚Ì“ü—Í—p‚ÌƒAƒmƒe[ƒVƒ‡ƒ“‚ğæ“¾‚·‚éB
+            // JavaBeanã®å…¥åŠ›ç”¨ã®ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã‚’å–å¾—ã™ã‚‹ã€‚
             // outputFileColumn = fields[i].getAnnotation(OutputFileColumn.class);
             outputFileColumn = outputFileColumns[i];
 
-            // OutputFileColumn.stringConverter()‚Ì“à—e‚É‚æ‚èˆ—‚ğU‚è•ª‚¯‚éB
+            // OutputFileColumn.stringConverter()ã®å†…å®¹ã«ã‚ˆã‚Šå‡¦ç†ã‚’æŒ¯ã‚Šåˆ†ã‘ã‚‹ã€‚
             try {
-                // •¶š•ÏŠ·í•Ê‚ÌƒAƒmƒe[ƒVƒ‡ƒ“‚ğæ“¾‚·‚éB
+                // æ–‡å­—å¤‰æ›ç¨®åˆ¥ã®ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã‚’å–å¾—ã™ã‚‹ã€‚
                 converterKind = outputFileColumn.stringConverter();
 
-                // ƒ}ƒbƒv“à‚Éæ“¾‚µ‚½•¶š•ÏŠ·í•Ê‚Æˆê’v‚·‚éƒL[‚ª‘¶İ‚·‚é‚©”»’è‚·‚éB
+                // ãƒãƒƒãƒ—å†…ã«å–å¾—ã—ãŸæ–‡å­—å¤‰æ›ç¨®åˆ¥ã¨ä¸€è‡´ã™ã‚‹ã‚­ãƒ¼ãŒå­˜åœ¨ã™ã‚‹ã‹åˆ¤å®šã™ã‚‹ã€‚
                 if (stringConverterCacheMap.containsKey(converterKind)) {
-                    // ƒ}ƒbƒv‚©‚çƒIƒuƒWƒFƒNƒg‚ğæ“¾‚µA•¶š•ÏŠ·í•Ê‚Ì”z—ñ‚ÉƒZƒbƒg‚·‚éB
+                    // ãƒãƒƒãƒ—ã‹ã‚‰ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å–å¾—ã—ã€æ–‡å­—å¤‰æ›ç¨®åˆ¥ã®é…åˆ—ã«ã‚»ãƒƒãƒˆã™ã‚‹ã€‚
                     dataColumnStringConverters[i] = stringConverterCacheMap
                             .get(converterKind);
                 } else {
-                    // ƒCƒ“ƒXƒ^ƒ“ƒX‚ğ¶¬‚µA•¶š•ÏŠ·í•Ê‚Ì”z—ñ‚ÉƒZƒbƒg‚·‚éB
+                    // ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã—ã€æ–‡å­—å¤‰æ›ç¨®åˆ¥ã®é…åˆ—ã«ã‚»ãƒƒãƒˆã™ã‚‹ã€‚
                     dataColumnStringConverters[i] = converterKind.newInstance();
                     stringConverterCacheMap.put(converterKind,
                             dataColumnStringConverters[i]);
@@ -495,14 +495,14 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
     }
 
     /**
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚Ì‘®«‚Ìgetterƒƒ\ƒbƒh‚Ìƒƒ\ƒbƒhƒIƒuƒWƒFƒNƒg‚Ì”z—ñ‚ğ¶¬‚·‚éB<br>
-     * ‘®«‚É‘Î‚·‚égetterƒƒ\ƒbƒh‚ÍˆÈ‰º‚Ìƒ‹[ƒ‹‚ÅŒŸõ‚·‚éB<br>
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å±æ€§ã®getterãƒ¡ã‚½ãƒƒãƒ‰ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®é…åˆ—ã‚’ç”Ÿæˆã™ã‚‹ã€‚<br>
+     * å±æ€§ã«å¯¾ã™ã‚‹getterãƒ¡ã‚½ãƒƒãƒ‰ã¯ä»¥ä¸‹ã®ãƒ«ãƒ¼ãƒ«ã§æ¤œç´¢ã™ã‚‹ã€‚<br>
      * <ul>
-     * <li>‘®«–¼‚ÌÅ‰‚Ì•¶š‚ğ‘å•¶š‚É‚µ‚½•¶š—ñ‚Ìæ“ª‚Éugetv‚ğ‚Â‚¯‚½‚à‚ÌB</li>
-     * <li>is`()Ahas`()‚È‚Ç‚Ìgetterƒƒ\ƒbƒh‚ÍŒŸõ‘ÎÛŠO‚Å‚·B</li>
+     * <li>å±æ€§åã®æœ€åˆã®æ–‡å­—ã‚’å¤§æ–‡å­—ã«ã—ãŸæ–‡å­—åˆ—ã®å…ˆé ­ã«ã€Œgetã€ã‚’ã¤ã‘ãŸã‚‚ã®ã€‚</li>
+     * <li>isï½()ã€hasï½()ãªã©ã®getterãƒ¡ã‚½ãƒƒãƒ‰ã¯æ¤œç´¢å¯¾è±¡å¤–ã§ã™ã€‚</li>
      * </ul>
-     * getterƒƒ\ƒbƒh‚ªŒŸõ‚Å‚«‚È‚¢ê‡‚Í—áŠO‚ª”­¶‚·‚éB
-     * @throws FileException getterƒƒ\ƒbƒh‚ªŒ©‚Â‚©‚ç‚È‚©‚Á‚½ê‡B
+     * getterãƒ¡ã‚½ãƒƒãƒ‰ãŒæ¤œç´¢ã§ããªã„å ´åˆã¯ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã€‚
+     * @throws FileException getterãƒ¡ã‚½ãƒƒãƒ‰ãŒè¦‹ã¤ã‹ã‚‰ãªã‹ã£ãŸå ´åˆã€‚
      */
     private void buildMethods() {
         Method[] dataColumnGetMethods = new Method[fields.length];
@@ -510,16 +510,16 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
         String fieldName = null;
 
         for (int i = 0; i < fields.length; i++) {
-            // JavaBean‚©‚çˆ—‚Ì‘ÎÛ‚Æ‚È‚é‘®«‚Ì‘®«–¼‚ğæ“¾‚·‚éB
+            // JavaBeanã‹ã‚‰å‡¦ç†ã®å¯¾è±¡ã¨ãªã‚‹å±æ€§ã®å±æ€§åã‚’å–å¾—ã™ã‚‹ã€‚
             fieldName = fields[i].getName();
 
-            // ‘®«–¼‚ğŒ³‚ÉAgetterƒƒ\ƒbƒh‚Ì–¼‘O‚ğ¶¬‚·‚éB
+            // å±æ€§åã‚’å…ƒã«ã€getterãƒ¡ã‚½ãƒƒãƒ‰ã®åå‰ã‚’ç”Ÿæˆã™ã‚‹ã€‚
             getterName.setLength(0);
             getterName.append("get");
             getterName.append(StringUtils.upperCase(fieldName.substring(0, 1)));
             getterName.append(fieldName.substring(1, fieldName.length()));
 
-            // getter‚ÌƒŠƒtƒŒƒNƒVƒ‡ƒ“ƒIƒuƒWƒFƒNƒg‚ğæ“¾‚·‚éB
+            // getterã®ãƒªãƒ•ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å–å¾—ã™ã‚‹ã€‚
             try {
                 dataColumnGetMethods[i] = clazz
                         .getMethod(getterName.toString());
@@ -533,8 +533,8 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
     }
 
     /**
-     * ƒwƒbƒ_•”‚Ö‚Ì‘‚İˆ—B
-     * @param headerLine ƒwƒbƒ_•”‚Ö‘‚«‚Ş•¶š—ñ‚ÌƒŠƒXƒg
+     * ãƒ˜ãƒƒãƒ€éƒ¨ã¸ã®æ›¸è¾¼ã¿å‡¦ç†ã€‚
+     * @param headerLine ãƒ˜ãƒƒãƒ€éƒ¨ã¸æ›¸ãè¾¼ã‚€æ–‡å­—åˆ—ã®ãƒªã‚¹ãƒˆ
      */
     public void printHeaderLine(List<String> headerLine) {
         if (writeData || writeTrailer) {
@@ -546,16 +546,16 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
     }
 
     /**
-     * ƒf[ƒ^•”‚Ö‚Ì‘‚«‚İˆ—B
-     * @param t ƒf[ƒ^•”‚Ö‘‚«‚Şƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg
+     * ãƒ‡ãƒ¼ã‚¿éƒ¨ã¸ã®æ›¸ãè¾¼ã¿å‡¦ç†ã€‚
+     * @param t ãƒ‡ãƒ¼ã‚¿éƒ¨ã¸æ›¸ãè¾¼ã‚€ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      */
     public void printDataLine(T t) {
         checkWriteTrailer();
-        // ƒtƒ@ƒCƒ‹‘‚«‚İ‚Ì‰Šú‰»
+        // ãƒ•ã‚¡ã‚¤ãƒ«æ›¸ãè¾¼ã¿ã®åˆæœŸåŒ–
         StringBuilder fileLineBuilder = new StringBuilder();
 
-        // ŒÅ’è’·ƒtƒ@ƒCƒ‹‚Ìê‡
-        // (‹æØ‚è•¶šAˆÍ‚İ•¶š‚ª‚È‚¢ê‡‚ÍŒÅ’è’·ƒtƒ@ƒCƒ‹‚Æ”»’f‚·‚éB)
+        // å›ºå®šé•·ãƒ•ã‚¡ã‚¤ãƒ«ã®å ´åˆ
+        // (åŒºåˆ‡ã‚Šæ–‡å­—ã€å›²ã¿æ–‡å­—ãŒãªã„å ´åˆã¯å›ºå®šé•·ãƒ•ã‚¡ã‚¤ãƒ«ã¨åˆ¤æ–­ã™ã‚‹ã€‚)
         if (getDelimiter() == Character.MIN_VALUE
                 && getEncloseChar() == Character.MIN_VALUE) {
             for (int i = 0; i < fields.length; i++) {
@@ -563,7 +563,7 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
             }
         } else {
             for (int i = 0; i < fields.length; i++) {
-                // ˆÍ‚İ•¶šA‹æØ‚è•¶š‚Ì’Ç‰Áˆ—B
+                // å›²ã¿æ–‡å­—ã€åŒºåˆ‡ã‚Šæ–‡å­—ã®è¿½åŠ å‡¦ç†ã€‚
                 if (columnEncloseChar[i] != Character.MIN_VALUE) {
                     fileLineBuilder.append(columnEncloseChar[i]);
                     fileLineBuilder.append(getColumn(t, i));
@@ -573,16 +573,16 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
                 }
                 fileLineBuilder.append(getDelimiter());
             }
-            // ˆê”ÔÅŒã‚Ì‹æØ‚è•¶š‚ğíœ‚·‚éB
+            // ä¸€ç•ªæœ€å¾Œã®åŒºåˆ‡ã‚Šæ–‡å­—ã‚’å‰Šé™¤ã™ã‚‹ã€‚
             if (fileLineBuilder.length() > 0) {
                 fileLineBuilder.deleteCharAt(fileLineBuilder.length() - 1);
             }
         }
 
-        // s‹æØ‚è•¶š‚ğ’Ç‰Á‚·‚éB
+        // è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—ã‚’è¿½åŠ ã™ã‚‹ã€‚
         fileLineBuilder.append(getLineFeedChar());
 
-        // ƒtƒ@ƒCƒ‹‚Ö‚Ì‘‚«‚İˆ—B
+        // ãƒ•ã‚¡ã‚¤ãƒ«ã¸ã®æ›¸ãè¾¼ã¿å‡¦ç†ã€‚
         try {
             getWriter().write(fileLineBuilder.toString());
         } catch (IOException e) {
@@ -594,8 +594,8 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
     }
 
     /**
-     * ƒgƒŒƒCƒ‰•”‚Ö‚Ì‘‚İˆ—B
-     * @param trailerLine ƒgƒŒƒCƒ‰•”‚Ö‘‚«‚Ş•¶š—ñ‚ÌƒŠƒXƒg
+     * ãƒˆãƒ¬ã‚¤ãƒ©éƒ¨ã¸ã®æ›¸è¾¼ã¿å‡¦ç†ã€‚
+     * @param trailerLine ãƒˆãƒ¬ã‚¤ãƒ©éƒ¨ã¸æ›¸ãè¾¼ã‚€æ–‡å­—åˆ—ã®ãƒªã‚¹ãƒˆ
      */
     public void printTrailerLine(List<String> trailerLine) {
         printList(trailerLine);
@@ -603,8 +603,8 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
     }
 
     /**
-     * ƒwƒbƒ_•”AƒgƒŒƒCƒ‰•”‚Ì‘‚«‚İ—p‚Ì‹¤’Êƒƒ\ƒbƒhB
-     * @param stringList •¶š—ñ‚ÌƒŠƒXƒg
+     * ãƒ˜ãƒƒãƒ€éƒ¨ã€ãƒˆãƒ¬ã‚¤ãƒ©éƒ¨ã®æ›¸ãè¾¼ã¿ç”¨ã®å…±é€šãƒ¡ã‚½ãƒƒãƒ‰ã€‚
+     * @param stringList æ–‡å­—åˆ—ã®ãƒªã‚¹ãƒˆ
      */
     private void printList(List<String> stringList) {
         for (String stringData : stringList) {
@@ -619,7 +619,7 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
     }
 
     /**
-     * ƒtƒ@ƒCƒ‹ƒNƒ[ƒYˆ—B
+     * ãƒ•ã‚¡ã‚¤ãƒ«ã‚¯ãƒ­ãƒ¼ã‚ºå‡¦ç†ã€‚
      */
     public void closeFile() {
         try {
@@ -633,26 +633,26 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
 
     /**
      * <p>
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚©‚çƒJƒ‰ƒ€ƒCƒ“ƒfƒbƒNƒX‚Æˆê’v‚·‚é‘®«‚Ì’l‚ğæ“¾‚·‚éB
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã‚‰ã‚«ãƒ©ãƒ ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã¨ä¸€è‡´ã™ã‚‹å±æ€§ã®å€¤ã‚’å–å¾—ã™ã‚‹ã€‚
      * </p>
      * <p>
-     * ‘®«‚ğæ“¾‚·‚éÛAƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌƒAƒmƒe[ƒVƒ‡ƒ“‚Ì‹Lq‚É‚æ‚è ˆÈ‰º‚Ìˆ—‚ğs‚¤B<br>
-     * <li>ƒgƒŠƒ€ˆ—<br>
-     * <li>ƒpƒfƒBƒ“ƒO<br>
-     * <li>•¶š•ÏŠ·ˆ—<br>
+     * å±æ€§ã‚’å–å¾—ã™ã‚‹éš›ã€ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã®è¨˜è¿°ã«ã‚ˆã‚Š ä»¥ä¸‹ã®å‡¦ç†ã‚’è¡Œã†ã€‚<br>
+     * <li>ãƒˆãƒªãƒ å‡¦ç†<br>
+     * <li>ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°<br>
+     * <li>æ–‡å­—å¤‰æ›å‡¦ç†<br>
      * <br>
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌƒAƒmƒe[ƒVƒ‡ƒ“‚ÅƒJƒ‰ƒ€‚ÌƒoƒCƒg’·‚ªw’è‚³‚ê‚Ä‚¢‚éê‡A<br>
-     * •Ô‹p‚·‚é•¶š—ñ‚ªƒoƒCƒg’·‚Æˆê’v‚µ‚Ä‚¢‚é‚©Šm”F‚·‚éB
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã§ã‚«ãƒ©ãƒ ã®ãƒã‚¤ãƒˆé•·ãŒæŒ‡å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã€<br>
+     * è¿”å´ã™ã‚‹æ–‡å­—åˆ—ãŒãƒã‚¤ãƒˆé•·ã¨ä¸€è‡´ã—ã¦ã„ã‚‹ã‹ç¢ºèªã™ã‚‹ã€‚
      * </p>
-     * @param t ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg
-     * @param index ƒJƒ‰ƒ€‚ÌƒCƒ“ƒfƒbƒNƒX
-     * @return ƒJƒ‰ƒ€‚Ì•¶š—ñ
+     * @param t ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param index ã‚«ãƒ©ãƒ ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+     * @return ã‚«ãƒ©ãƒ ã®æ–‡å­—åˆ—
      */
     protected String getColumn(T t, int index) {
-        // ƒtƒ@ƒCƒ‹‚É‘‚«‚ŞƒJƒ‰ƒ€‚Ì•¶š—ñB
+        // ãƒ•ã‚¡ã‚¤ãƒ«ã«æ›¸ãè¾¼ã‚€ã‚«ãƒ©ãƒ ã®æ–‡å­—åˆ—ã€‚
         String columnString = null;
 
-        // ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg(t)‚©‚çƒJƒ‰ƒ€ƒCƒ“ƒfƒbƒNƒX‚Æˆê’v‚·‚é‘®«‚Ì’l‚ğæ“¾‚·‚éB
+        // ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ(t)ã‹ã‚‰ã‚«ãƒ©ãƒ ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã¨ä¸€è‡´ã™ã‚‹å±æ€§ã®å€¤ã‚’å–å¾—ã™ã‚‹ã€‚
         ColumnFormatter columnFormatter = columnFormatterMap.get(methods[index]
                 .getReturnType().getName());
         try {
@@ -676,22 +676,22 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
             columnString = "";
         }
 
-        // ƒgƒŠƒ€ˆ—
+        // ãƒˆãƒªãƒ å‡¦ç†
         columnString = FileDAOUtility.trim(columnString, fileEncoding,
                 trimChars[index], trimTypes[index]);
 
-        // ƒpƒfƒBƒ“ƒOˆ—
+        // ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°å‡¦ç†
         columnString = FileDAOUtility.padding(columnString, fileEncoding,
                 columnBytes[index], paddingChars[index], paddingTypes[index]);
 
-        // •¶š—ñ•ÏŠ·ˆ—
-        // OutputFileColumn.stringConverter()‚Ì“à—e‚É‚æ‚èˆ—‚ğU‚è•ª‚¯‚éB
+        // æ–‡å­—åˆ—å¤‰æ›å‡¦ç†
+        // OutputFileColumn.stringConverter()ã®å†…å®¹ã«ã‚ˆã‚Šå‡¦ç†ã‚’æŒ¯ã‚Šåˆ†ã‘ã‚‹ã€‚
         columnString = stringConverters[index].convert(columnString);
 
-        // ƒJƒ‰ƒ€‚ÌƒoƒCƒg”ƒ`ƒFƒbƒNB
+        // ã‚«ãƒ©ãƒ ã®ãƒã‚¤ãƒˆæ•°ãƒã‚§ãƒƒã‚¯ã€‚
         if (isCheckByte(columnBytes[index])) {
             try {
-                // ŒÅ’è’·o—ÍABytes’l‚Ìİ’è‚ª‚Ì—áŠO
+                // å›ºå®šé•·å‡ºåŠ›æ™‚ã€Byteså€¤ã®è¨­å®šãŒæ™‚ã®ä¾‹å¤–
                 if (columnBytes[index] <= 0) {
                     throw new FileLineException("bytes is not set "
                             + "or a number equal to or less than 0 is set.",
@@ -699,7 +699,7 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
                             currentLineCount + 1, fields[index].getName(),
                             columnIndexs[index]);
                 }
-                // İ’è‚³‚ê‚½Bytes’l‚Æƒf[ƒ^‚ÌƒTƒCƒY‚ªˆá‚¤ê‡‚Í—áŠO”­¶
+                // è¨­å®šã•ã‚ŒãŸByteså€¤ã¨ãƒ‡ãƒ¼ã‚¿ã®ã‚µã‚¤ã‚ºãŒé•ã†å ´åˆã¯ä¾‹å¤–ç™ºç”Ÿ
                 if (columnString.getBytes(fileEncoding).length != columnBytes[index]) {
                     throw new FileLineException(
                             "The data size is different from bytes value of "
@@ -718,32 +718,32 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
     }
 
     /**
-     * ƒtƒ@ƒCƒ‹–¼‚ğæ“¾‚·‚éB
-     * @return fileName ƒtƒ@ƒCƒ‹–¼
+     * ãƒ•ã‚¡ã‚¤ãƒ«åã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return fileName ãƒ•ã‚¡ã‚¤ãƒ«å
      */
     public String getFileName() {
         return fileName;
     }
 
     /**
-     * s‹æØ‚è•¶š‚ğİ’è‚·‚éB
-     * @return lineFeedChar s‹æØ‚è•¶š
+     * è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—ã‚’è¨­å®šã™ã‚‹ã€‚
+     * @return lineFeedChar è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—
      */
     protected String getLineFeedChar() {
         return lineFeedChar;
     }
 
     /**
-     * s‹æØ‚è•¶š‚ğİ’è‚·‚éB
-     * @param lineFeedChar s‹æØ‚è•¶š
+     * è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—ã‚’è¨­å®šã™ã‚‹ã€‚
+     * @param lineFeedChar è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—
      */
     protected void setLineFeedChar(String lineFeedChar) {
         this.lineFeedChar = lineFeedChar;
     }
 
     /**
-     * ƒJƒ‰ƒ€ƒtƒH[ƒ}ƒbƒg(ƒtƒ@ƒCƒ‹‘jˆ—‚ğŠi”[‚·‚éƒ}ƒbƒv‚ğæ“¾‚·‚éB
-     * @param columnFormatterMap ƒJƒ‰ƒ€ƒtƒH[ƒ}ƒbƒg(ƒtƒ@ƒCƒ‹‘j‚ğŠi”[‚·‚éƒ}ƒbƒv
+     * ã‚«ãƒ©ãƒ ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆ(ãƒ•ã‚¡ã‚¤ãƒ«æ›¸è¾¼ï¼‰å‡¦ç†ã‚’æ ¼ç´ã™ã‚‹ãƒãƒƒãƒ—ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @param columnFormatterMap ã‚«ãƒ©ãƒ ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆ(ãƒ•ã‚¡ã‚¤ãƒ«æ›¸è¾¼ï¼‰ã‚’æ ¼ç´ã™ã‚‹ãƒãƒƒãƒ—
      */
     public void setColumnFormatterMap(
             Map<String, ColumnFormatter> columnFormatterMap) {
@@ -751,40 +751,40 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
     }
 
     /**
-     * ƒtƒ@ƒCƒ‹ƒAƒNƒZƒXio—Íj—p‚Ì•¶šƒXƒgƒŠ[ƒ€‚ğæ“¾‚·‚éB
-     * @return bufferedWriter ƒtƒ@ƒCƒ‹ƒAƒNƒZƒXio—Íj—p‚Ì•¶šƒXƒgƒŠ[ƒ€
+     * ãƒ•ã‚¡ã‚¤ãƒ«ã‚¢ã‚¯ã‚»ã‚¹ï¼ˆå‡ºåŠ›ï¼‰ç”¨ã®æ–‡å­—ã‚¹ãƒˆãƒªãƒ¼ãƒ ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return bufferedWriter ãƒ•ã‚¡ã‚¤ãƒ«ã‚¢ã‚¯ã‚»ã‚¹ï¼ˆå‡ºåŠ›ï¼‰ç”¨ã®æ–‡å­—ã‚¹ãƒˆãƒªãƒ¼ãƒ 
      */
     protected Writer getWriter() {
         return writer;
     }
 
     /**
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌFieldî•ñiAnnotationj‚ğŠi”[‚·‚é•Ï”‚ğæ“¾‚·‚éB
-     * @return fields ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌFieldî•ñiAnnotationj‚ğŠi”[‚·‚é•Ï”
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®Fieldæƒ…å ±ï¼ˆAnnotationï¼‰ã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return fields ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®Fieldæƒ…å ±ï¼ˆAnnotationï¼‰ã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°
      */
     protected Field[] getFields() {
         return fields;
     }
 
     /**
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌFieldî•ñ‚É‘Î‰‚·‚égetterƒƒ\ƒbƒh‚ğŠi”[‚·‚é•Ï”‚ğæ“¾‚·‚éB
-     * @return methods ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌFieldî•ñ‚É‘Î‰‚·‚égetterƒƒ\ƒbƒh‚ğŠi”[‚·‚é•Ï”
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®Fieldæƒ…å ±ã«å¯¾å¿œã™ã‚‹getterãƒ¡ã‚½ãƒƒãƒ‰ã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return methods ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®Fieldæƒ…å ±ã«å¯¾å¿œã™ã‚‹getterãƒ¡ã‚½ãƒƒãƒ‰ã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°
      */
     protected Method[] getMethods() {
         return methods;
     }
 
     /**
-     * ƒf[ƒ^•”‚Ìo—Í‚ªŠJn‚³‚ê‚Ä‚¢‚é‚©‚Ç‚¤‚©‚ğ”»’è‚·‚éƒtƒ‰ƒOB
-     * @param writeData ƒtƒ‰ƒO
+     * ãƒ‡ãƒ¼ã‚¿éƒ¨ã®å‡ºåŠ›ãŒé–‹å§‹ã•ã‚Œã¦ã„ã‚‹ã‹ã©ã†ã‹ã‚’åˆ¤å®šã™ã‚‹ãƒ•ãƒ©ã‚°ã€‚
+     * @param writeData ãƒ•ãƒ©ã‚°
      */
     protected void setWriteData(boolean writeData) {
         this.writeData = writeData;
     }
 
     /**
-     * ƒgƒŒƒCƒ‰•”‚Ìˆ—‚ªI‚í‚Á‚Ä‚¢‚é‚©‚Ç‚¤‚©‚ğ”»’è‚·‚éB<br>
-     * ˆ—‚ªŠ®—¹‚µ‚Ä‚¢‚éê‡A—áŠO‚ğƒXƒ[‚·‚éB
+     * ãƒˆãƒ¬ã‚¤ãƒ©éƒ¨ã®å‡¦ç†ãŒçµ‚ã‚ã£ã¦ã„ã‚‹ã‹ã©ã†ã‹ã‚’åˆ¤å®šã™ã‚‹ã€‚<br>
+     * å‡¦ç†ãŒå®Œäº†ã—ã¦ã„ã‚‹å ´åˆã€ä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã€‚
      */
     protected void checkWriteTrailer() {
         if (writeTrailer) {
@@ -795,25 +795,25 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
     }
 
     /**
-     * ‹æØ‚è•¶š‚ğæ“¾‚·‚éB
-     * @return ‹æØ‚è•¶š
+     * åŒºåˆ‡ã‚Šæ–‡å­—ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return åŒºåˆ‡ã‚Šæ–‡å­—
      */
     public abstract char getDelimiter();
 
     /**
-     * ˆÍ‚İ•¶š‚ğæ“¾‚·‚éB
-     * @return ˆÍ‚İ•¶š
+     * å›²ã¿æ–‡å­—ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return å›²ã¿æ–‡å­—
      */
     public abstract char getEncloseChar();
 
     /**
-     * ‘ÎÛƒJƒ‰ƒ€‚É‘Î‚·‚éƒoƒCƒg”ƒ`ƒFƒbƒN‚ğs‚¤‚©‚ğ•Ô‚·B
+     * å¯¾è±¡ã‚«ãƒ©ãƒ ã«å¯¾ã™ã‚‹ãƒã‚¤ãƒˆæ•°ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†ã‹ã‚’è¿”ã™ã€‚
      * <p>
-     * ŒÅ’è’·ƒtƒ@ƒCƒ‹Œ`®‚Ìê‡‚Íí‚É<code>true</code>‚ğ•Ô‹p‚µ‚ÄƒoƒCƒg”ƒ`ƒFƒbƒN‚ğs‚¤B<br>
-     * ‰Â•Ï’·A‚b‚r‚uŒ`®‚Å<code>bytes</code>‚ªw’è‚³‚ê‚Ä‚¢‚é‚Æ‚«‚É‚Í true‚ğ•Ô‹p‚µƒoƒCƒg”ƒ`ƒFƒbƒN‚ğs‚¤B
+     * å›ºå®šé•·ãƒ•ã‚¡ã‚¤ãƒ«å½¢å¼ã®å ´åˆã¯å¸¸ã«<code>true</code>ã‚’è¿”å´ã—ã¦ãƒã‚¤ãƒˆæ•°ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†ã€‚<br>
+     * å¯å¤‰é•·ã€ï¼£ï¼³ï¼¶å½¢å¼ã§<code>bytes</code>ãŒæŒ‡å®šã•ã‚Œã¦ã„ã‚‹ã¨ãã«ã¯ trueã‚’è¿”å´ã—ãƒã‚¤ãƒˆæ•°ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†ã€‚
      * </p>
-     * @param outputFileColumn ‘ÎÛƒJƒ‰ƒ€‚ÌOutputFileColumnî•ñ
-     * @return ƒoƒCƒg”‚ªİ’è‚³‚ê‚Ä‚¢‚é(1ƒoƒCƒgˆÈã)ê‡‚ÍtrueB
+     * @param outputFileColumn å¯¾è±¡ã‚«ãƒ©ãƒ ã®OutputFileColumnæƒ…å ±
+     * @return ãƒã‚¤ãƒˆæ•°ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹(1ãƒã‚¤ãƒˆä»¥ä¸Š)å ´åˆã¯trueã€‚
      */
     protected boolean isCheckByte(OutputFileColumn outputFileColumn) {
 
@@ -825,9 +825,9 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
     }
 
     /**
-     * ‘ÎÛƒJƒ‰ƒ€‚É‘Î‚·‚éƒoƒCƒg”ƒ`ƒFƒbƒN‚ğs‚¤‚©‚ğ•Ô‚·B
-     * @param columnByte ‘ÎÛƒJƒ‰ƒ€‚ÌƒoƒCƒg”
-     * @return ƒoƒCƒg”‚ªİ’è‚³‚ê‚Ä‚¢‚é(1ƒoƒCƒgˆÈã)ê‡‚ÍtrueB
+     * å¯¾è±¡ã‚«ãƒ©ãƒ ã«å¯¾ã™ã‚‹ãƒã‚¤ãƒˆæ•°ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†ã‹ã‚’è¿”ã™ã€‚
+     * @param columnByte å¯¾è±¡ã‚«ãƒ©ãƒ ã®ãƒã‚¤ãƒˆæ•°
+     * @return ãƒã‚¤ãƒˆæ•°ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹(1ãƒã‚¤ãƒˆä»¥ä¸Š)å ´åˆã¯trueã€‚
      */
     protected boolean isCheckByte(int columnByte) {
         if (0 < columnByte) {
@@ -837,24 +837,24 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
     }
 
     /**
-     * ˆÍ‚İ•¶š‚ªİ’è‚³‚ê‚Ä‚¢‚È‚¢–‚ğƒ`ƒFƒbƒN‚·‚é‚©‚Ç‚¤‚©‚ğ•Ô‚·B
-     * @return ƒ`ƒFƒbƒN‚ğs‚¤ê‡‚ÍtrueB
+     * å›²ã¿æ–‡å­—ãŒè¨­å®šã•ã‚Œã¦ã„ãªã„äº‹ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã‹ã©ã†ã‹ã‚’è¿”ã™ã€‚
+     * @return ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†å ´åˆã¯trueã€‚
      */
     protected boolean isCheckEncloseChar() {
         return false;
     }
 
     /**
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÉƒAƒmƒe[ƒVƒ‡ƒ“‚ªİ’è‚³‚ê‚Ä‚¢‚é–‚ğƒ`ƒFƒbƒN‚·‚é‚©‚Ç‚¤‚©‚ğ•Ô‚·B
-     * @return ƒ`ƒFƒbƒN‚ğs‚¤ê‡‚ÍtrueB
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹äº‹ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã‹ã©ã†ã‹ã‚’è¿”ã™ã€‚
+     * @return ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†å ´åˆã¯trueã€‚
      */
     protected boolean isCheckColumnAnnotationCount() {
         return true;
     }
 
     /**
-     * ƒJƒ‰ƒ€‚ÌˆÍ‚İ•¶š‚ğæ“¾‚·‚éB
-     * @return columnEncloseChar ˆÍ‚İ•¶š
+     * ã‚«ãƒ©ãƒ ã®å›²ã¿æ–‡å­—ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return columnEncloseChar å›²ã¿æ–‡å­—
      */
     protected char[] getColumnEncloseChar() {
         return columnEncloseChar;

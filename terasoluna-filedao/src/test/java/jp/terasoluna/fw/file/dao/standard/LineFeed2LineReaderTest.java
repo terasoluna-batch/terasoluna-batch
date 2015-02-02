@@ -21,26 +21,26 @@ import junit.framework.TestCase;
 import org.easymock.classextension.EasyMock;
 
 /**
- * {@link jp.terasoluna.fw.file.dao.standard.LineFeed2LineReader} ƒNƒ‰ƒX‚ÌƒeƒXƒgB
+ * {@link jp.terasoluna.fw.file.dao.standard.LineFeed2LineReader} ã‚¯ãƒ©ã‚¹ã®ãƒ†ã‚¹ãƒˆã€‚
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4> ˆÍ‚İ•¶š‚È‚µAs‹æØ‚è•¶š‚ª2•¶š‚Ìê‡‚Ìƒtƒ@ƒCƒ‹‚©‚ç1s•ª‚Ì•¶š—ñ‚ğæ“¾‚·‚éˆ—‚ğs‚¤B
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4> å›²ã¿æ–‡å­—ãªã—ã€è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—ãŒ2æ–‡å­—ã®å ´åˆã®ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰1è¡Œåˆ†ã®æ–‡å­—åˆ—ã‚’å–å¾—ã™ã‚‹å‡¦ç†ã‚’è¡Œã†ã€‚
  * <p>
- * @author ‰œ“c“Ni
+ * @author å¥¥ç”°å“²å¸
  * @see jp.terasoluna.fw.file.dao.standard.LineFeed2LineReader
  */
 public class LineFeed2LineReaderTest extends TestCase {
 
     /**
-     * ‚±‚ÌƒeƒXƒgƒP[ƒX‚ğÀs‚·‚éˆ×‚Ì GUI ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‹N“®‚·‚éB
-     * @param args java ƒRƒ}ƒ“ƒh‚Éİ’è‚³‚ê‚½ƒpƒ‰ƒ[ƒ^
+     * ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã‚’å®Ÿè¡Œã™ã‚‹ç‚ºã® GUI ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’èµ·å‹•ã™ã‚‹ã€‚
+     * @param args java ã‚³ãƒãƒ³ãƒ‰ã«è¨­å®šã•ã‚ŒãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public static void main(String[] args) {
         // junit.swingui.TestRunner.run(LineFeed2LineReaderTest.class);
     }
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -49,8 +49,8 @@ public class LineFeed2LineReaderTest extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -59,8 +59,8 @@ public class LineFeed2LineReaderTest extends TestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public LineFeed2LineReaderTest(String name) {
         super(name);
@@ -69,41 +69,41 @@ public class LineFeed2LineReaderTest extends TestCase {
     /**
      * testLineFeed2LineReaderReaderString01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE,F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) reader:Reader‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ˆø”) lineFeedChar:"\r\n"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) reader:Readerã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (å¼•æ•°) lineFeedChar:"\r\n"<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.reader:ˆø”reader‚Æ“¯ˆê‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô•Ï‰») this.lineFeedChar:ˆø”lineFeedChar‚Æ“¯ˆê‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.reader:å¼•æ•°readerã¨åŒä¸€ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.lineFeedChar:å¼•æ•°lineFeedCharã¨åŒä¸€ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     * ³íƒP[ƒXB<br>
-     * “n‚³‚ê‚½ˆø”‚Ìî•ñ‚ğ‚ÂƒIƒuƒWƒFƒNƒg‚ª¶¬‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹ã€‚<br>
+     * æ¸¡ã•ã‚ŒãŸå¼•æ•°ã®æƒ…å ±ã‚’æŒã¤ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒç”Ÿæˆã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testLineFeed2LineReader01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
-        // ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚È‚Ì‚Å•s—v
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
+        // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãªã®ã§ä¸è¦
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         byte[] buf = {};
         InputStream inputStream = new ByteArrayInputStream(buf);
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         BufferedReader reader = new BufferedReader(inputStreamReader);
         String lineFeedChar = "\r\n";
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ‚È‚µ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         LineFeed2LineReader result = new LineFeed2LineReader(reader,
                 lineFeedChar);
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertSame(reader, UTUtil.getPrivateField(result, "reader"));
         assertEquals(lineFeedChar, UTUtil.getPrivateField(result,
                 "lineFeedChar"));
@@ -112,39 +112,39 @@ public class LineFeed2LineReaderTest extends TestCase {
     /**
      * testLineFeed2LineReaderReaderString02() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) reader:null<br>
-     * (ˆø”) lineFeedChar:"\r\n"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) reader:null<br>
+     * (å¼•æ•°) lineFeedChar:"\r\n"<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») -:IllegalArgumentException<br>
-     * EƒƒbƒZ[ƒWF"reader is required."<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) -:IllegalArgumentException<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"reader is required."<br>
      * <br>
-     * —áŠOB<br>
-     * ˆø”reader‚ªnull‚Ìê‡‚ÉA”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ä¾‹å¤–ã€‚<br>
+     * å¼•æ•°readerãŒnullã®å ´åˆã«ã€ç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testLineFeed2LineReader02() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
-        // ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚È‚Ì‚Å•s—v
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
+        // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãªã®ã§ä¸è¦
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         BufferedReader reader = null;
         String lineFeedChar = "\r\n";
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ‚È‚µ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             new LineFeed2LineReader(reader, lineFeedChar);
-            fail("IllegalArgumentException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½");
+            fail("IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸ");
         } catch (IllegalArgumentException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertSame(IllegalArgumentException.class, e.getClass());
             assertEquals("reader is required.", e.getMessage());
         }
@@ -153,42 +153,42 @@ public class LineFeed2LineReaderTest extends TestCase {
     /**
      * testLineFeed2LineReaderReaderString03() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) reader:Reader‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ˆø”) lineFeedChar:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) reader:Readerã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (å¼•æ•°) lineFeedChar:null<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») -:IllegalArgumentException<br>
-     * EƒƒbƒZ[ƒWF"lineFeedChar is required."<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) -:IllegalArgumentException<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"lineFeedChar is required."<br>
      * <br>
-     * —áŠOB<br>
-     * ˆø”lineFeedChar‚ªnull‚Ìê‡‚ÉA”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ä¾‹å¤–ã€‚<br>
+     * å¼•æ•°lineFeedCharãŒnullã®å ´åˆã«ã€ç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testLineFeed2LineReader03() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
-        // ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚È‚Ì‚Å•s—v
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
+        // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãªã®ã§ä¸è¦
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         byte[] buf = {};
         InputStream inputStream = new ByteArrayInputStream(buf);
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         BufferedReader reader = new BufferedReader(inputStreamReader);
         String lineFeedChar = null;
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ‚È‚µ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             new LineFeed2LineReader(reader, lineFeedChar);
-            fail("IllegalArgumentException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½");
+            fail("IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸ");
         } catch (IllegalArgumentException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertSame(IllegalArgumentException.class, e.getClass());
             assertEquals("lineFeedChar is required.", e.getMessage());
         }
@@ -197,42 +197,42 @@ public class LineFeed2LineReaderTest extends TestCase {
     /**
      * testLineFeed2LineReaderReaderString04() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) reader:Reader‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ˆø”) lineFeedChar:"123"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) reader:Readerã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (å¼•æ•°) lineFeedChar:"123"<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») -:IllegalArgumentException<br>
-     * EƒƒbƒZ[ƒWF"lineFeedChar should be defined by 2 digit of character string."<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) -:IllegalArgumentException<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"lineFeedChar should be defined by 2 digit of character string."<br>
      * <br>
-     * —áŠOB<br>
-     * ˆø”lineFeedChar‚ª2Œ…•¶š—ñ‚Å‚Í‚È‚¢ê‡‚ÉA”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ä¾‹å¤–ã€‚<br>
+     * å¼•æ•°lineFeedCharãŒ2æ¡æ–‡å­—åˆ—ã§ã¯ãªã„å ´åˆã«ã€ç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testLineFeed2LineReader04() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
-        // ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚È‚Ì‚Å•s—v
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
+        // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãªã®ã§ä¸è¦
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         byte[] buf = {};
         InputStream inputStream = new ByteArrayInputStream(buf);
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         BufferedReader reader = new BufferedReader(inputStreamReader);
         String lineFeedChar = "123";
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ‚È‚µ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             new LineFeed2LineReader(reader, lineFeedChar);
-            fail("IllegalArgumentException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½");
+            fail("IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸ");
         } catch (IllegalArgumentException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertSame(IllegalArgumentException.class, e.getClass());
             assertEquals(
                     "lineFeedChar should be defined by 2 digit of character string.",
@@ -243,48 +243,48 @@ public class LineFeed2LineReaderTest extends TestCase {
     /**
      * testReadLine01() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) this.reader:î•ñ‚ğ‚½‚È‚¢ReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) this.lineFeedChar:"\r\n"<br>
-     * (ó‘Ô) Reader.ready():IOException—áŠO‚ª”­¶‚·‚éB<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) this.reader:æƒ…å ±ã‚’æŒãŸãªã„Readerã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) this.lineFeedChar:"\r\n"<br>
+     * (çŠ¶æ…‹) Reader.ready():IOExceptionä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») -:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚é<br>
-     * EŒ´ˆö—áŠOFIOException(Reader.ready()‚Å”­¶‚µ‚½‚à‚Ì)<br>
-     * EƒƒbƒZ[ƒWF"Reader control operation was failed."<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) -:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹<br>
+     * ãƒ»åŸå› ä¾‹å¤–ï¼šIOException(Reader.ready()ã§ç™ºç”Ÿã—ãŸã‚‚ã®)<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Reader control operation was failed."<br>
      * <br>
-     * —áŠOB<br>
-     * Reader‚Ìó‘Ôƒ`ƒFƒbƒN‚Å—áŠO‚ª”­¶‚µ‚½ê‡A FileException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ä¾‹å¤–ã€‚<br>
+     * Readerã®çŠ¶æ…‹ãƒã‚§ãƒƒã‚¯ã§ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€ FileExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testReadLine01() throws Exception {
-        // Mockì¬
+        // Mockä½œæˆ
         Reader reader = EasyMock.createMock(Reader.class);
         EasyMock.expect(reader.read()).andReturn(null).andThrow(
                 new IOException());
         EasyMock.replay(reader);
 
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         String lineFeedChar = "\r\n";
         LineFeed2LineReader lineFeed2LineReader = new LineFeed2LineReader(
                 reader, lineFeedChar);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Éİ’èÏ‚İ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–æ™‚ã«è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             lineFeed2LineReader.readLine();
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸ");
         } catch (FileException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertSame(FileException.class, e.getClass());
             assertEquals("Reader control operation was failed.", e.getMessage());
             assertSame(IOException.class, e.getCause().getClass());
@@ -294,23 +294,23 @@ public class LineFeed2LineReaderTest extends TestCase {
     /**
      * testReadLine02() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD,E,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD,E,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) this.reader:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * ""(‹ó)<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) this.reader:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤Readerã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ""(ç©º)<br>
      * <br>
-     * ¦ƒf[ƒ^‚ª‚È‚¢B<br>
-     * (ó‘Ô) this.lineFeedChar:"\r\n"<br>
+     * â€»ãƒ‡ãƒ¼ã‚¿ãŒãªã„ã€‚<br>
+     * (çŠ¶æ…‹) this.lineFeedChar:"\r\n"<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:""<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:""<br>
      * <br>
-     * ³íƒpƒ^[ƒ“B<br>
-     * Reader‚Éæ“¾î•ñ‚ª–³‚¢ê‡A‹ó‚Ì•¶š—ñ‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ãƒ‘ã‚¿ãƒ¼ãƒ³ã€‚<br>
+     * Readerã«å–å¾—æƒ…å ±ãŒç„¡ã„å ´åˆã€ç©ºã®æ–‡å­—åˆ—ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testReadLine02() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         byte[] buf = "".getBytes();
         InputStream inputStream = new ByteArrayInputStream(buf);
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
@@ -319,42 +319,42 @@ public class LineFeed2LineReaderTest extends TestCase {
         LineFeed2LineReader lineFeed2LineReader = new LineFeed2LineReader(
                 reader, lineFeedChar);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Éİ’èÏ‚İ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–æ™‚ã«è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = lineFeed2LineReader.readLine();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals("", result);
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
-        // ‚È‚µ
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
+        // ãªã—
     }
 
     /**
      * testReadLine03() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD,E,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD,E,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) this.reader:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) this.reader:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤Readerã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "aaa,aaa,aaa\r\n"<br>
      * <br>
-     * ¦ÅŒã‚Ìs‹æØ‚è•¶š‚ª‚ ‚é1sƒf[ƒ^<br>
-     * (ó‘Ô) this.lineFeedChar:"\r\n"<br>
+     * â€»æœ€å¾Œã®è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—ãŒã‚ã‚‹1è¡Œãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹) this.lineFeedChar:"\r\n"<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:"aaa,aaa,aaa"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:"aaa,aaa,aaa"<br>
      * <br>
-     * ³íƒpƒ^[ƒ“B<br>
-     * Reader‚É‚Ps‚Ìî•ñ‚Ì‚İ‚ ‚éê‡(‚©‚ÂÅŒã‚És‹æØ‚è•¶š‚ ‚è)A‚»‚Ì‚Ps‚Ìî•ñ‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ãƒ‘ã‚¿ãƒ¼ãƒ³ã€‚<br>
+     * Readerã«ï¼‘è¡Œã®æƒ…å ±ã®ã¿ã‚ã‚‹å ´åˆ(ã‹ã¤æœ€å¾Œã«è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—ã‚ã‚Š)ã€ãã®ï¼‘è¡Œã®æƒ…å ±ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testReadLine03() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         String byteParm = "aaa,aaa,aaa\r\n";
         InputStream inputStream = new ByteArrayInputStream(byteParm.getBytes());
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
@@ -363,42 +363,42 @@ public class LineFeed2LineReaderTest extends TestCase {
         LineFeed2LineReader lineFeed2LineReader = new LineFeed2LineReader(
                 reader, lineFeedChar);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Éİ’èÏ‚İ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–æ™‚ã«è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = lineFeed2LineReader.readLine();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals("aaa,aaa,aaa", result);
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
-        // ‚È‚µ
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
+        // ãªã—
     }
 
     /**
      * testReadLine04() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD,E,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD,E,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) this.reader:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) this.reader:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤Readerã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "\"aaa\",\"aaa\",\"aa\r\na\"\r\n"<br>
      * <br>
-     * ¦s‹æØ‚è•¶š‚ª•¡”‚ ‚é•¡”sƒf[ƒ^<br>
-     * (ó‘Ô) this.lineFeedChar:"\r\n"<br>
+     * â€»è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—ãŒè¤‡æ•°ã‚ã‚‹è¤‡æ•°è¡Œãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹) this.lineFeedChar:"\r\n"<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:"\"aaa\",\"aaa\",\"aa"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:"\"aaa\",\"aaa\",\"aa"<br>
      * <br>
-     * ³íƒpƒ^[ƒ“B<br>
-     * Reader‚É•¡”s‚Ìî•ñ‚ª‚ ‚éê‡AÅ‰‚Ì‚Ps‚Ìî•ñ‚Ì‚İ•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ãƒ‘ã‚¿ãƒ¼ãƒ³ã€‚<br>
+     * Readerã«è¤‡æ•°è¡Œã®æƒ…å ±ãŒã‚ã‚‹å ´åˆã€æœ€åˆã®ï¼‘è¡Œã®æƒ…å ±ã®ã¿è¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testReadLine04() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         String byteParm = "\"aaa\",\"aaa\",\"aa\r\na\"\r\n";
         InputStream inputStream = new ByteArrayInputStream(byteParm.getBytes());
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
@@ -407,67 +407,67 @@ public class LineFeed2LineReaderTest extends TestCase {
         LineFeed2LineReader lineFeed2LineReader = new LineFeed2LineReader(
                 reader, lineFeedChar);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Éİ’èÏ‚İ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–æ™‚ã«è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = lineFeed2LineReader.readLine();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals("\"aaa\",\"aaa\",\"aa", result);
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
-        // ‚È‚µ
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
+        // ãªã—
     }
 
     /**
      * testReadLine05() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) this.reader:î•ñ‚ğ‚½‚È‚¢ReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) this.lineFeedChar:"\r\n"<br>
-     * (ó‘Ô) Reader.read():IOException—áŠO‚ª”­¶‚·‚éB<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) this.reader:æƒ…å ±ã‚’æŒãŸãªã„Readerã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) this.lineFeedChar:"\r\n"<br>
+     * (çŠ¶æ…‹) Reader.read():IOExceptionä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») -:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂFileException‚ª”­¶‚·‚é<br>
-     * EŒ´ˆö—áŠOFIOException(Reader.read()‚Å”­¶‚µ‚½‚à‚Ì)<br>
-     * EƒƒbƒZ[ƒWF"Reader control operation was failed."<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) -:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹<br>
+     * ãƒ»åŸå› ä¾‹å¤–ï¼šIOException(Reader.read()ã§ç™ºç”Ÿã—ãŸã‚‚ã®)<br>
+     * ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Reader control operation was failed."<br>
      * <br>
-     * —áŠOB<br>
-     * Reader‚Ì“Ç‚İˆ—‚Å—áŠO‚ª”­¶‚µ‚½ê‡AFileException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ä¾‹å¤–ã€‚<br>
+     * Readerã®èª­ã¿å‡¦ç†ã§ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€FileExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testReadLine05() throws Exception {
-        // Mockì¬
+        // Mockä½œæˆ
         Reader reader = EasyMock.createMock(Reader.class);
         EasyMock.expect(reader.read()).andReturn(null).andThrow(
                 new IOException());
         EasyMock.replay(reader);
 
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         String lineFeedChar = "\r\n";
         LineFeed2LineReader lineFeed2LineReader = new LineFeed2LineReader(
                 reader, lineFeedChar);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Éİ’èÏ‚İ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–æ™‚ã«è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             lineFeed2LineReader.readLine();
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸ");
         } catch (FileException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertSame(FileException.class, e.getClass());
             assertEquals("Reader control operation was failed.", e.getMessage());
             assertSame(IOException.class, e.getCause().getClass());
@@ -477,23 +477,23 @@ public class LineFeed2LineReaderTest extends TestCase {
     /**
      * testReadLine06() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD,E,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD,E,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) this.reader:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) this.reader:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤Readerã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "999,999,999"<br>
      * <br>
-     * ¦s‹æØ‚è•¶š‚ğŠÜ‚ß‚È‚¢ƒf[ƒ^<br>
-     * (ó‘Ô) this.lineFeedChar:"\r\n"<br>
+     * â€»è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—ã‚’å«ã‚ãªã„ãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹) this.lineFeedChar:"\r\n"<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:"999,999,999"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:"999,999,999"<br>
      * <br>
-     * ³íƒpƒ^[ƒ“B<br>
-     * Reader‚É‚Ps‚Ìî•ñ‚Ì‚İ‚ ‚éê‡(‚©‚Âs‹æØ‚è•¶š‚È‚µ)A‚»‚Ì‚Ps‚Ìî•ñ‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ãƒ‘ã‚¿ãƒ¼ãƒ³ã€‚<br>
+     * Readerã«ï¼‘è¡Œã®æƒ…å ±ã®ã¿ã‚ã‚‹å ´åˆ(ã‹ã¤è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—ãªã—)ã€ãã®ï¼‘è¡Œã®æƒ…å ±ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testReadLine06() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         String byteParm = "999,999,999";
         InputStream inputStream = new ByteArrayInputStream(byteParm.getBytes());
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
@@ -502,42 +502,42 @@ public class LineFeed2LineReaderTest extends TestCase {
         LineFeed2LineReader lineFeed2LineReader = new LineFeed2LineReader(
                 reader, lineFeedChar);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Éİ’èÏ‚İ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–æ™‚ã«è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = lineFeed2LineReader.readLine();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals(byteParm, result);
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
-        // ‚È‚µ
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
+        // ãªã—
     }
 
     /**
      * testReadLine07() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD,E,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD,E,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) this.reader:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) this.reader:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤Readerã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "101010,101010,101010\rn"<br>
      * <br>
-     * ¦s‹æØ‚è•¶š‚ÌÅ‰‚ÌŒ…•¶š‚Ì‚İ‚ ‚éƒf[ƒ^<br>
-     * (ó‘Ô) this.lineFeedChar:"\r\n"<br>
+     * â€»è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—ã®æœ€åˆã®æ¡æ–‡å­—ã®ã¿ã‚ã‚‹ãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹) this.lineFeedChar:"\r\n"<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:"101010,101010,101010\rn"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:"101010,101010,101010\rn"<br>
      * <br>
-     * ³íƒpƒ^[ƒ“B<br>
-     * s‹æØ‚è•¶š‚Ìæ“ª•¶š‚Ì‚İƒf[ƒ^‚ÉŠÜ‚Ü‚ê‚Ä‚¢‚éê‡A‚»‚ÌˆÊ’u‚Ås‹æØ‚èˆ—‚ªs‚í‚È‚¢‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ãƒ‘ã‚¿ãƒ¼ãƒ³ã€‚<br>
+     * è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—ã®å…ˆé ­æ–‡å­—ã®ã¿ãƒ‡ãƒ¼ã‚¿ã«å«ã¾ã‚Œã¦ã„ã‚‹å ´åˆã€ãã®ä½ç½®ã§è¡ŒåŒºåˆ‡ã‚Šå‡¦ç†ãŒè¡Œã‚ãªã„ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testReadLine07() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         String byteParm = "101010,101010,101010\rn";
         InputStream inputStream = new ByteArrayInputStream(byteParm.getBytes());
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
@@ -546,43 +546,43 @@ public class LineFeed2LineReaderTest extends TestCase {
         LineFeed2LineReader lineFeed2LineReader = new LineFeed2LineReader(
                 reader, lineFeedChar);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Éİ’èÏ‚İ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–æ™‚ã«è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = lineFeed2LineReader.readLine();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals("101010,101010,101010\rn", result);
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
-        // ‚È‚µ
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
+        // ãªã—
 
     }
 
     /**
      * testReadLine08() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD,E,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD,E,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) this.reader:ˆÈ‰º‚Ìî•ñ‚ğ‚ÂReaderƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "‚ ‚¢‚¤\r\n"<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) this.reader:ä»¥ä¸‹ã®æƒ…å ±ã‚’æŒã¤Readerã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "ã‚ã„ã†\r\n"<br>
      * <br>
-     * ¦s‹æØ‚è•¶š‚ÌÅ‰‚ÌŒ…•¶š‚Ì‚İ‚ ‚éƒf[ƒ^<br>
-     * (ó‘Ô) this.lineFeedChar:"\r\n"<br>
+     * â€»è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—ã®æœ€åˆã®æ¡æ–‡å­—ã®ã¿ã‚ã‚‹ãƒ‡ãƒ¼ã‚¿<br>
+     * (çŠ¶æ…‹) this.lineFeedChar:"\r\n"<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:"‚ ‚¢‚¤"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:"ã‚ã„ã†"<br>
      * <br>
-     * •¶š—ñ‚Ì’†‚É‘SŠp•¶š‚ªŠÜ‚Ü‚ê‚Ä‚¢‚éê‡B‚Ps‚Ìî•ñ‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ–‡å­—åˆ—ã®ä¸­ã«å…¨è§’æ–‡å­—ãŒå«ã¾ã‚Œã¦ã„ã‚‹å ´åˆã€‚ï¼‘è¡Œã®æƒ…å ±ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testReadLine08() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
-        String byteParm = "‚ ‚¢‚¤\r\n";
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
+        String byteParm = "ã‚ã„ã†\r\n";
         InputStream inputStream = new ByteArrayInputStream(byteParm.getBytes());
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         BufferedReader reader = new BufferedReader(inputStreamReader);
@@ -590,20 +590,20 @@ public class LineFeed2LineReaderTest extends TestCase {
         LineFeed2LineReader lineFeed2LineReader = new LineFeed2LineReader(
                 reader, lineFeedChar);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Éİ’èÏ‚İ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–æ™‚ã«è¨­å®šæ¸ˆã¿
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = lineFeed2LineReader.readLine();
 
-        // •Ô‹p’l‚ÌŠm”F
-        assertEquals("‚ ‚¢‚¤", result);
+        // è¿”å´å€¤ã®ç¢ºèª
+        assertEquals("ã‚ã„ã†", result);
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
-        // ‚È‚µ
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
+        // ãªã—
 
     }
 }

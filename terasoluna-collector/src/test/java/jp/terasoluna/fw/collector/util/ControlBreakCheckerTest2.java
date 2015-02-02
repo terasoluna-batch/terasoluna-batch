@@ -25,13 +25,13 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 /**
- * ƒRƒŒƒNƒ^‚ÆƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒN‚Ì‘g‚İ‡‚í‚¹Œ±B 
- * ‹@”\Œ‹‡Œ±‚ÉŠY“–‚·‚é‚ªAJUnit‚Å‚àŒ±‚ª‰Â”\‚Å‚ ‚é‚±‚ÆA ‘g‚İ‡‚í‚¹‚Ìƒpƒ^[ƒ“‚ª‘½Šò‚É‚í‚½‚é‚±‚Æ‚©‚çA JUnit‚ÌŒ±‚Æ‚µ‚½B
+ * ã‚³ãƒ¬ã‚¯ã‚¿ã¨ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯ã®çµ„ã¿åˆã‚ã›è©¦é¨“ã€‚ 
+ * æ©Ÿèƒ½çµåˆè©¦é¨“ã«è©²å½“ã™ã‚‹ãŒã€JUnitã§ã‚‚è©¦é¨“ãŒå¯èƒ½ã§ã‚ã‚‹ã“ã¨ã€ çµ„ã¿åˆã‚ã›ã®ãƒ‘ã‚¿ãƒ¼ãƒ³ãŒå¤šå²ã«ã‚ãŸã‚‹ã“ã¨ã‹ã‚‰ã€ JUnitã®è©¦é¨“ã¨ã—ãŸã€‚
  */
 public class ControlBreakCheckerTest2 {
 
     /**
-     * ƒuƒŒƒCƒNƒL[‚ÌƒJƒ‰ƒ€–¼
+     * ãƒ–ãƒ¬ã‚¤ã‚¯ã‚­ãƒ¼ã®ã‚«ãƒ©ãƒ å
      */
     private static final String BREAK_KEY = "column1";
 
@@ -52,20 +52,20 @@ public class ControlBreakCheckerTest2 {
     }
 
     /**
-     * ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒN‚Æ‘g‚İ‡‚í‚¹‚ÌƒeƒXƒgB<br>
-     * BUG_B30020‚Ì‹­‰»Œ±B
+     * ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯ã¨çµ„ã¿åˆã‚ã›ã®ãƒ†ã‚¹ãƒˆã€‚<br>
+     * BUG_B30020ã®å¼·åŒ–è©¦é¨“ã€‚
      * <p>
      * <ul>
-     * <li>—áŠOƒnƒ“ƒhƒ‰‚È‚µ(‚»‚Ì‚Ü‚ÜƒGƒ‰[‚ğƒXƒ[‚·‚é)</li>
+     * <li>ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©ãªã—(ãã®ã¾ã¾ã‚¨ãƒ©ãƒ¼ã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹)</li>
      * </ul>
-     * Šú‘Ò’l‚ÍˆÈ‰º‚Ì’Ê‚è
-     * “ü—Íƒf[ƒ^F[1(bkv1), 2(bkv1), 3(bkv1), (—áŠO), 5(bkv2), 6(bkv2), 7(bkv3), 
-     * (—áŠO), 9(bkv3), 10(bkv4), 11(bkv4), (—áŠO),
+     * æœŸå¾…å€¤ã¯ä»¥ä¸‹ã®é€šã‚Š
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1(bkv1), 2(bkv1), 3(bkv1), (ä¾‹å¤–), 5(bkv2), 6(bkv2), 7(bkv3), 
+     * (ä¾‹å¤–), 9(bkv3), 10(bkv4), 11(bkv4), (ä¾‹å¤–),
      * 13(bkv5), 14(bkv5), 15(bkv5)]
-     * Œ‹‰ÊF[1(¦1), 2, 3(¦4), (—áŠO)(¦2¦4), 5(¦2), 6(¦3), 7(¦1¦4), 
-     * (—áŠO)(¦2¦4), 9(¦2¦3), 10(¦1), 11(¦4), (—áŠO)(¦2¦4), 13(¦2), 14, 15(¦3)]
-     * ¦1:‘OƒuƒŒƒCƒN ¦2:‘OƒuƒŒƒCƒN”»’è•s”\(‘OƒuƒŒƒCƒN”»’è‚É—áŠOƒXƒ[)
-     * ¦3:ŒãƒuƒŒƒCƒN ¦4:ŒãƒuƒŒƒCƒN”»’è•s”\(ŒãƒuƒŒƒCƒN”»’è‚É—áŠOƒXƒ[)
+     * çµæœï¼š[1(â€»1), 2, 3(â€»4), (ä¾‹å¤–)(â€»2â€»4), 5(â€»2), 6(â€»3), 7(â€»1â€»4), 
+     * (ä¾‹å¤–)(â€»2â€»4), 9(â€»2â€»3), 10(â€»1), 11(â€»4), (ä¾‹å¤–)(â€»2â€»4), 13(â€»2), 14, 15(â€»3)]
+     * â€»1:å‰ãƒ–ãƒ¬ã‚¤ã‚¯ â€»2:å‰ãƒ–ãƒ¬ã‚¤ã‚¯åˆ¤å®šä¸èƒ½(å‰ãƒ–ãƒ¬ã‚¤ã‚¯åˆ¤å®šæ™‚ã«ä¾‹å¤–ã‚¹ãƒ­ãƒ¼)
+     * â€»3:å¾Œãƒ–ãƒ¬ã‚¤ã‚¯ â€»4:å¾Œãƒ–ãƒ¬ã‚¤ã‚¯åˆ¤å®šä¸èƒ½(å¾Œãƒ–ãƒ¬ã‚¤ã‚¯åˆ¤å®šæ™‚ã«ä¾‹å¤–ã‚¹ãƒ­ãƒ¼)
      */
     @Test
     public void testDefaultHandler001() throws Exception {
@@ -89,221 +89,221 @@ public class ControlBreakCheckerTest2 {
                 bean05, bean06, bean07, bean08, bean09, bean10, bean11, bean12,
                 bean13, bean14, bean15 };
 
-        // E“ü—Íƒ`ƒFƒbƒNƒGƒ‰[ƒnƒ“ƒhƒ‰F‚È‚µ
+        // ãƒ»å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãƒãƒ³ãƒ‰ãƒ©ï¼šãªã—
         ValidationErrorHandler argValidationErrorHandler = null;
-        // —áŠOƒnƒ“ƒhƒ‰F‚È‚µ
+        // ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©ï¼šãªã—
         CollectorExceptionHandler argExceptionHandler = null;
         Collector<ControlBreakCheckerTestBean> collector = createTestCollector(
                 argValidationErrorHandler, argExceptionHandler, beans);
 
-        // ####################‘æ1—v‘f####################
+        // ####################ç¬¬1è¦ç´ ####################
         assertTrue(collector.hasNext());
         collector.next();
 
-        // ‘OƒuƒŒƒCƒN=TRUE
+        // å‰ãƒ–ãƒ¬ã‚¤ã‚¯=TRUE
         assertTrue(ControlBreakChecker.isPreBreak(collector, BREAK_KEY));
         assertEquals("aaa", ControlBreakChecker.getPreBreakKey(collector,
                 BREAK_KEY).get(BREAK_KEY));
 
-        // ŒãƒuƒŒƒCƒN=FALSE
+        // å¾Œãƒ–ãƒ¬ã‚¤ã‚¯=FALSE
         assertFalse(ControlBreakChecker.isBreak(collector, BREAK_KEY));
 
-        // ####################‘æ2—v‘f####################
+        // ####################ç¬¬2è¦ç´ ####################
         assertTrue(collector.hasNext());
         collector.next();
 
-        // ‘OƒuƒŒƒCƒN=FALSE
+        // å‰ãƒ–ãƒ¬ã‚¤ã‚¯=FALSE
         assertFalse(ControlBreakChecker.isPreBreak(collector, BREAK_KEY));
 
-        // ŒãƒuƒŒƒCƒN=FALSE
+        // å¾Œãƒ–ãƒ¬ã‚¤ã‚¯=FALSE
         assertFalse(ControlBreakChecker.isBreak(collector, BREAK_KEY));
-        // ####################‘æ3—v‘f####################
+        // ####################ç¬¬3è¦ç´ ####################
         assertTrue(collector.hasNext());
         collector.next();
 
-        // ‘OƒuƒŒƒCƒN=FALSE
+        // å‰ãƒ–ãƒ¬ã‚¤ã‚¯=FALSE
         assertFalse(ControlBreakChecker.isPreBreak(collector, BREAK_KEY));
 
-        // ŒãƒuƒŒƒCƒN=(ƒGƒ‰[)
+        // å¾Œãƒ–ãƒ¬ã‚¤ã‚¯=(ã‚¨ãƒ©ãƒ¼)
         try {
             ControlBreakChecker.isBreak(collector, BREAK_KEY);
             fail();
         } catch (FileLineException e) {
-            assertEquals("“ü—ÍƒGƒ‰[", e.getMessage());
+            assertEquals("å…¥åŠ›ã‚¨ãƒ©ãƒ¼", e.getMessage());
         }
 
-        // ####################‘æ4—v‘f(—áŠO)####################
+        // ####################ç¬¬4è¦ç´ (ä¾‹å¤–)####################
         try {
             collector.next();
             fail();
         } catch (FileLineException e) {
-            // ƒ|ƒCƒ“ƒ^‚ği‚ß‚é
+            // ãƒã‚¤ãƒ³ã‚¿ã‚’é€²ã‚ã‚‹
         }
         try {
             ControlBreakChecker.isPreBreak(collector, BREAK_KEY);
             fail();
         } catch (FileLineException e) {
-            // ‘OƒuƒŒƒCƒN”»’è•s”\
+            // å‰ãƒ–ãƒ¬ã‚¤ã‚¯åˆ¤å®šä¸èƒ½
         }
         try {
             ControlBreakChecker.isBreak(collector, BREAK_KEY);
             fail();
         } catch (FileLineException e) {
-            // ŒãƒuƒŒƒCƒN”»’è•s”\
+            // å¾Œãƒ–ãƒ¬ã‚¤ã‚¯åˆ¤å®šä¸èƒ½
         }
-        // ####################‘æ5—v‘f####################
+        // ####################ç¬¬5è¦ç´ ####################
         assertTrue(collector.hasNext());
         collector.next();
-        // ‘OƒuƒŒƒCƒN=(ƒGƒ‰[)
+        // å‰ãƒ–ãƒ¬ã‚¤ã‚¯=(ã‚¨ãƒ©ãƒ¼)
         try {
             ControlBreakChecker.isPreBreak(collector, BREAK_KEY);
             fail();
         } catch (FileLineException e) {
-            assertEquals("“ü—ÍƒGƒ‰[", e.getMessage());
+            assertEquals("å…¥åŠ›ã‚¨ãƒ©ãƒ¼", e.getMessage());
         }
 
-        // ŒãƒuƒŒƒCƒN=FALSE
+        // å¾Œãƒ–ãƒ¬ã‚¤ã‚¯=FALSE
         assertFalse(ControlBreakChecker.isBreak(collector, BREAK_KEY));
 
-        // ####################‘æ6—v‘f####################
+        // ####################ç¬¬6è¦ç´ ####################
         assertTrue(collector.hasNext());
         collector.next();
-        // ‘OƒuƒŒƒCƒN=FALSE
+        // å‰ãƒ–ãƒ¬ã‚¤ã‚¯=FALSE
         assertFalse(ControlBreakChecker.isPreBreak(collector, BREAK_KEY));
 
-        // ŒãƒuƒŒƒCƒN=TRUE
+        // å¾Œãƒ–ãƒ¬ã‚¤ã‚¯=TRUE
         assertTrue(ControlBreakChecker.isBreak(collector, BREAK_KEY));
         assertEquals("bbb", ControlBreakChecker.getBreakKey(collector,
                 BREAK_KEY).get(BREAK_KEY));
 
-        // ####################‘æ7—v‘f####################
+        // ####################ç¬¬7è¦ç´ ####################
         assertTrue(collector.hasNext());
         collector.next();
 
-        // ‘OƒuƒŒƒCƒN=TRUE
+        // å‰ãƒ–ãƒ¬ã‚¤ã‚¯=TRUE
         assertTrue(ControlBreakChecker.isPreBreak(collector, BREAK_KEY));
         assertEquals("ccc", ControlBreakChecker.getPreBreakKey(collector,
                 BREAK_KEY).get(BREAK_KEY));
 
-        // ŒãƒuƒŒƒCƒN=(ƒGƒ‰[)
+        // å¾Œãƒ–ãƒ¬ã‚¤ã‚¯=(ã‚¨ãƒ©ãƒ¼)
         try {
             ControlBreakChecker.isBreak(collector, BREAK_KEY);
             fail();
         } catch (FileLineException e) {
-            assertEquals("“ü—ÍƒGƒ‰[", e.getMessage());
+            assertEquals("å…¥åŠ›ã‚¨ãƒ©ãƒ¼", e.getMessage());
         }
-        // ####################‘æ8—v‘f‚ÍƒGƒ‰[####################
+        // ####################ç¬¬8è¦ç´ ã¯ã‚¨ãƒ©ãƒ¼####################
         try {
             collector.next();
             fail();
         } catch (FileLineException e) {
-            // ƒ|ƒCƒ“ƒ^‚ği‚ß‚é
+            // ãƒã‚¤ãƒ³ã‚¿ã‚’é€²ã‚ã‚‹
         }
         try {
             ControlBreakChecker.isPreBreak(collector, BREAK_KEY);
             fail();
         } catch (FileLineException e) {
-            // ‘OƒuƒŒƒCƒN”»’è•s”\
+            // å‰ãƒ–ãƒ¬ã‚¤ã‚¯åˆ¤å®šä¸èƒ½
         }
         try {
             ControlBreakChecker.isBreak(collector, BREAK_KEY);
             fail();
         } catch (FileLineException e) {
-            // ŒãƒuƒŒƒCƒN”»’è•s”\
+            // å¾Œãƒ–ãƒ¬ã‚¤ã‚¯åˆ¤å®šä¸èƒ½
         }
-        // ####################‘æ9—v‘f####################
+        // ####################ç¬¬9è¦ç´ ####################
         assertTrue(collector.hasNext());
         collector.next();
 
-        // ‘OƒuƒŒƒCƒN=(ƒGƒ‰[)
+        // å‰ãƒ–ãƒ¬ã‚¤ã‚¯=(ã‚¨ãƒ©ãƒ¼)
         try {
             ControlBreakChecker.isPreBreak(collector, BREAK_KEY);
             fail();
         } catch (FileLineException e) {
-            assertEquals("“ü—ÍƒGƒ‰[", e.getMessage());
+            assertEquals("å…¥åŠ›ã‚¨ãƒ©ãƒ¼", e.getMessage());
         }
 
-        // ŒãƒuƒŒƒCƒN=TRUE
+        // å¾Œãƒ–ãƒ¬ã‚¤ã‚¯=TRUE
         assertTrue(ControlBreakChecker.isBreak(collector, BREAK_KEY));
         assertEquals("ccc", ControlBreakChecker.getBreakKey(collector,
                 BREAK_KEY).get(BREAK_KEY));
 
-        // ####################‘æ10—v‘f####################
+        // ####################ç¬¬10è¦ç´ ####################
         assertTrue(collector.hasNext());
         collector.next();
-        // ‘OƒuƒŒƒCƒN=TRUE
+        // å‰ãƒ–ãƒ¬ã‚¤ã‚¯=TRUE
         assertTrue(ControlBreakChecker.isPreBreak(collector, BREAK_KEY));
         assertEquals("ddd", ControlBreakChecker.getPreBreakKey(collector,
                 BREAK_KEY).get(BREAK_KEY));
 
-        // ŒãƒuƒŒƒCƒN=FALSE
+        // å¾Œãƒ–ãƒ¬ã‚¤ã‚¯=FALSE
         assertFalse(ControlBreakChecker.isBreak(collector, BREAK_KEY));
 
-        // ####################‘æ11—v‘f####################
+        // ####################ç¬¬11è¦ç´ ####################
         assertTrue(collector.hasNext());
         collector.next();
-        // ‘OƒuƒŒƒCƒN=FALSE
+        // å‰ãƒ–ãƒ¬ã‚¤ã‚¯=FALSE
         assertFalse(ControlBreakChecker.isPreBreak(collector, BREAK_KEY));
 
-        // ŒãƒuƒŒƒCƒN=(ƒGƒ‰[)
+        // å¾Œãƒ–ãƒ¬ã‚¤ã‚¯=(ã‚¨ãƒ©ãƒ¼)
         try {
             ControlBreakChecker.isBreak(collector, BREAK_KEY);
             fail();
         } catch (FileLineException e) {
-            assertEquals("“ü—ÍƒGƒ‰[", e.getMessage());
+            assertEquals("å…¥åŠ›ã‚¨ãƒ©ãƒ¼", e.getMessage());
         }
 
-        // ####################‘æ12—v‘f‚ÍƒGƒ‰[####################
+        // ####################ç¬¬12è¦ç´ ã¯ã‚¨ãƒ©ãƒ¼####################
         try {
             collector.next();
             fail();
         } catch (FileLineException e) {
-            // ƒ|ƒCƒ“ƒ^‚ği‚ß‚é
+            // ãƒã‚¤ãƒ³ã‚¿ã‚’é€²ã‚ã‚‹
         }
         try {
             ControlBreakChecker.isPreBreak(collector, BREAK_KEY);
             fail();
         } catch (FileLineException e) {
-            // ‘OƒuƒŒƒCƒN”»’è•s”\
+            // å‰ãƒ–ãƒ¬ã‚¤ã‚¯åˆ¤å®šä¸èƒ½
         }
         try {
             ControlBreakChecker.isBreak(collector, BREAK_KEY);
             fail();
         } catch (FileLineException e) {
-            // ŒãƒuƒŒƒCƒN”»’è•s”\
+            // å¾Œãƒ–ãƒ¬ã‚¤ã‚¯åˆ¤å®šä¸èƒ½
         }
-        // ####################‘æ13—v‘f####################
+        // ####################ç¬¬13è¦ç´ ####################
         assertTrue(collector.hasNext());
         collector.next();
 
-        // ‘OƒuƒŒƒCƒN=(ƒGƒ‰[)
+        // å‰ãƒ–ãƒ¬ã‚¤ã‚¯=(ã‚¨ãƒ©ãƒ¼)
         try {
             ControlBreakChecker.isPreBreak(collector, BREAK_KEY);
             fail();
         } catch (FileLineException e) {
-            assertEquals("“ü—ÍƒGƒ‰[", e.getMessage());
+            assertEquals("å…¥åŠ›ã‚¨ãƒ©ãƒ¼", e.getMessage());
         }
-        // ŒãƒuƒŒƒCƒN=FALSE
+        // å¾Œãƒ–ãƒ¬ã‚¤ã‚¯=FALSE
         assertFalse(ControlBreakChecker.isBreak(collector, BREAK_KEY));
 
-        // ####################‘æ14—v‘f####################
+        // ####################ç¬¬14è¦ç´ ####################
         assertTrue(collector.hasNext());
         collector.next();
 
-        // ‘OƒuƒŒƒCƒN=FALSE
+        // å‰ãƒ–ãƒ¬ã‚¤ã‚¯=FALSE
         assertFalse(ControlBreakChecker.isPreBreak(collector, BREAK_KEY));
 
-        // ŒãƒuƒŒƒCƒN=FALSE
+        // å¾Œãƒ–ãƒ¬ã‚¤ã‚¯=FALSE
         assertFalse(ControlBreakChecker.isBreak(collector, BREAK_KEY));
 
-        // ####################‘æ15—v‘f####################
+        // ####################ç¬¬15è¦ç´ ####################
         assertTrue(collector.hasNext());
         collector.next();
 
-        // ‘OƒuƒŒƒCƒN=FALSE
+        // å‰ãƒ–ãƒ¬ã‚¤ã‚¯=FALSE
         assertFalse(ControlBreakChecker.isPreBreak(collector, BREAK_KEY));
 
-        // ŒãƒuƒŒƒCƒN=TRUE
+        // å¾Œãƒ–ãƒ¬ã‚¤ã‚¯=TRUE
         assertTrue(ControlBreakChecker.isBreak(collector, BREAK_KEY));
         assertEquals("eee", ControlBreakChecker.getBreakKey(collector,
                 BREAK_KEY).get(BREAK_KEY));
@@ -312,60 +312,60 @@ public class ControlBreakCheckerTest2 {
     }
 
     /**
-     * ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒN‚Æ‘g‚İ‡‚í‚¹‚ÌƒeƒXƒgB<br>
-     * BUG_B30020‚Ì‹­‰»Œ±B
+     * ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯ã¨çµ„ã¿åˆã‚ã›ã®ãƒ†ã‚¹ãƒˆã€‚<br>
+     * BUG_B30020ã®å¼·åŒ–è©¦é¨“ã€‚
      * <p>
      * <ul>
-     * <li>—áŠOƒnƒ“ƒhƒ‰‚ ‚è(END)</li>
-     * <li>“ü—Íƒf[ƒ^ã‚ÌƒuƒŒƒCƒN‘O‚Å—áŠO¨END</li>
+     * <li>ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©ã‚ã‚Š(END)</li>
+     * <li>å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ä¸Šã®ãƒ–ãƒ¬ã‚¤ã‚¯å‰ã§ä¾‹å¤–â†’END</li>
      * </ul>
-     * Šú‘Ò’l‚ÍˆÈ‰º‚Ì’Ê‚è
-     * “ü—Íƒf[ƒ^F[1(bkv1), 2(bkv1), (—áŠO), 4(bkv2)]
-     * Œ‹‰ÊF[1(¦1), 2(¦3)]
-     * ¦1:‘OƒuƒŒƒCƒN ¦2:‘OƒuƒŒƒCƒN”»’è•s”\(‘OƒuƒŒƒCƒN”»’è‚É—áŠOƒXƒ[)
-     * ¦3:ŒãƒuƒŒƒCƒN ¦4:ŒãƒuƒŒƒCƒN”»’è•s”\(ŒãƒuƒŒƒCƒN”»’è‚É—áŠOƒXƒ[)
+     * æœŸå¾…å€¤ã¯ä»¥ä¸‹ã®é€šã‚Š
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1(bkv1), 2(bkv1), (ä¾‹å¤–), 4(bkv2)]
+     * çµæœï¼š[1(â€»1), 2(â€»3)]
+     * â€»1:å‰ãƒ–ãƒ¬ã‚¤ã‚¯ â€»2:å‰ãƒ–ãƒ¬ã‚¤ã‚¯åˆ¤å®šä¸èƒ½(å‰ãƒ–ãƒ¬ã‚¤ã‚¯åˆ¤å®šæ™‚ã«ä¾‹å¤–ã‚¹ãƒ­ãƒ¼)
+     * â€»3:å¾Œãƒ–ãƒ¬ã‚¤ã‚¯ â€»4:å¾Œãƒ–ãƒ¬ã‚¤ã‚¯åˆ¤å®šä¸èƒ½(å¾Œãƒ–ãƒ¬ã‚¤ã‚¯åˆ¤å®šæ™‚ã«ä¾‹å¤–ã‚¹ãƒ­ãƒ¼)
      */
     @Test
     public void testErrorHandlerReturnsEnd001() throws Exception {
         ControlBreakCheckerTestBean bean01 = new ControlBreakCheckerTestBean("aaa", "1", "1");
         ControlBreakCheckerTestBean bean02 = new ControlBreakCheckerTestBean("aaa", "2", "1");
-        ControlBreakCheckerTestBean bean03 = new ControlBreakCheckerTestBean("aaa", "3", "Exception"); // —áŠO
+        ControlBreakCheckerTestBean bean03 = new ControlBreakCheckerTestBean("aaa", "3", "Exception"); // ä¾‹å¤–
         ControlBreakCheckerTestBean bean04 = new ControlBreakCheckerTestBean("bbb", "4", "1");
 
         ControlBreakCheckerTestBean[] beans = { bean01, bean02, bean03, bean04 };
 
-        // E“ü—Íƒ`ƒFƒbƒNƒGƒ‰[ƒnƒ“ƒhƒ‰F‚È‚µ
+        // ãƒ»å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãƒãƒ³ãƒ‰ãƒ©ï¼šãªã—
         ValidationErrorHandler argValidationErrorHandler = null;
-        // —áŠOƒnƒ“ƒhƒ‰F‚ ‚è(END‚ğ•Ô‚·)
+        // ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©ï¼šã‚ã‚Š(ENDã‚’è¿”ã™)
         CollectorExceptionHandler argExceptionHandler = new CollectorExceptionHandlerStub1();
         Collector<ControlBreakCheckerTestBean> collector = createTestCollector(
                 argValidationErrorHandler, argExceptionHandler, beans);
 
-        // ####################‘æ1—v‘f####################
+        // ####################ç¬¬1è¦ç´ ####################
         assertTrue(collector.hasNext());
         collector.next();
 
-        // ‘OƒuƒŒƒCƒN=TRUE
+        // å‰ãƒ–ãƒ¬ã‚¤ã‚¯=TRUE
         assertTrue(ControlBreakChecker.isPreBreak(collector, BREAK_KEY));
         assertEquals("aaa", ControlBreakChecker.getPreBreakKey(collector,
                 BREAK_KEY).get(BREAK_KEY));
 
-        // ŒãƒuƒŒƒCƒN=FALSE
+        // å¾Œãƒ–ãƒ¬ã‚¤ã‚¯=FALSE
         assertFalse(ControlBreakChecker.isBreak(collector, BREAK_KEY));
 
-        // ####################‘æ2—v‘f####################
+        // ####################ç¬¬2è¦ç´ ####################
         assertTrue(collector.hasNext());
         collector.next();
 
-        // ‘OƒuƒŒƒCƒN=FALSE
+        // å‰ãƒ–ãƒ¬ã‚¤ã‚¯=FALSE
         assertFalse(ControlBreakChecker.isPreBreak(collector, BREAK_KEY));
 
-        // ŒãƒuƒŒƒCƒN=TRUE
+        // å¾Œãƒ–ãƒ¬ã‚¤ã‚¯=TRUE
         assertTrue(ControlBreakChecker.isBreak(collector, BREAK_KEY));
         assertEquals("aaa", ControlBreakChecker.getBreakKey(collector,
                 BREAK_KEY).get(BREAK_KEY));
 
-        // ####################‘æ3—v‘f####################
+        // ####################ç¬¬3è¦ç´ ####################
         try {
             collector.next();
             fail();
@@ -376,72 +376,72 @@ public class ControlBreakCheckerTest2 {
     }
 
     /**
-     * ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒN‚Æ‘g‚İ‡‚í‚¹‚ÌƒeƒXƒgB<br>
-     * BUG_B30020‚Ì‹­‰»Œ±B
+     * ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯ã¨çµ„ã¿åˆã‚ã›ã®ãƒ†ã‚¹ãƒˆã€‚<br>
+     * BUG_B30020ã®å¼·åŒ–è©¦é¨“ã€‚
      * <p>
      * <ul>
-     * <li>—áŠOƒnƒ“ƒhƒ‰‚ ‚è(END)</li>
-     * <li>“ü—Íƒf[ƒ^ã‚ÌƒuƒŒƒCƒNŒã‚Å—áŠO¨END</li>
+     * <li>ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©ã‚ã‚Š(END)</li>
+     * <li>å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ä¸Šã®ãƒ–ãƒ¬ã‚¤ã‚¯å¾Œã§ä¾‹å¤–â†’END</li>
      * </ul>
-     * Šú‘Ò’l‚ÍˆÈ‰º‚Ì’Ê‚è
-     * “ü—Íƒf[ƒ^F[1(bkv1), 2(bkv1), 3(bkv1), (—áŠO), 5(bkv2)]
-     * Œ‹‰ÊF[1(¦1), 2, 3(¦3)]
-     * ¦1:‘OƒuƒŒƒCƒN ¦2:‘OƒuƒŒƒCƒN”»’è•s”\(‘OƒuƒŒƒCƒN”»’è‚É—áŠOƒXƒ[)
-     * ¦3:ŒãƒuƒŒƒCƒN ¦4:ŒãƒuƒŒƒCƒN”»’è•s”\(ŒãƒuƒŒƒCƒN”»’è‚É—áŠOƒXƒ[)
+     * æœŸå¾…å€¤ã¯ä»¥ä¸‹ã®é€šã‚Š
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1(bkv1), 2(bkv1), 3(bkv1), (ä¾‹å¤–), 5(bkv2)]
+     * çµæœï¼š[1(â€»1), 2, 3(â€»3)]
+     * â€»1:å‰ãƒ–ãƒ¬ã‚¤ã‚¯ â€»2:å‰ãƒ–ãƒ¬ã‚¤ã‚¯åˆ¤å®šä¸èƒ½(å‰ãƒ–ãƒ¬ã‚¤ã‚¯åˆ¤å®šæ™‚ã«ä¾‹å¤–ã‚¹ãƒ­ãƒ¼)
+     * â€»3:å¾Œãƒ–ãƒ¬ã‚¤ã‚¯ â€»4:å¾Œãƒ–ãƒ¬ã‚¤ã‚¯åˆ¤å®šä¸èƒ½(å¾Œãƒ–ãƒ¬ã‚¤ã‚¯åˆ¤å®šæ™‚ã«ä¾‹å¤–ã‚¹ãƒ­ãƒ¼)
      */
     @Test
     public void testErrorHandlerReturnsEnd002() throws Exception {
         ControlBreakCheckerTestBean bean01 = new ControlBreakCheckerTestBean("aaa", "1", "1");
         ControlBreakCheckerTestBean bean02 = new ControlBreakCheckerTestBean("aaa", "2", "1");
         ControlBreakCheckerTestBean bean03 = new ControlBreakCheckerTestBean("aaa", "3", "1");
-        ControlBreakCheckerTestBean bean04 = new ControlBreakCheckerTestBean("bbb", "4", "Exception"); // —áŠO
+        ControlBreakCheckerTestBean bean04 = new ControlBreakCheckerTestBean("bbb", "4", "Exception"); // ä¾‹å¤–
         ControlBreakCheckerTestBean bean05 = new ControlBreakCheckerTestBean("bbb", "5", "1");
 
         ControlBreakCheckerTestBean[] beans = { bean01, bean02, bean03, bean04,
                 bean05 };
 
-        // E“ü—Íƒ`ƒFƒbƒNƒGƒ‰[ƒnƒ“ƒhƒ‰F‚È‚µ
+        // ãƒ»å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãƒãƒ³ãƒ‰ãƒ©ï¼šãªã—
         ValidationErrorHandler argValidationErrorHandler = null;
-        // —áŠOƒnƒ“ƒhƒ‰F‚ ‚è(END‚ğ•Ô‚·)
+        // ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©ï¼šã‚ã‚Š(ENDã‚’è¿”ã™)
         CollectorExceptionHandler argExceptionHandler = new CollectorExceptionHandlerStub1();
         Collector<ControlBreakCheckerTestBean> collector = createTestCollector(
                 argValidationErrorHandler, argExceptionHandler, beans);
 
-        // ####################‘æ1—v‘f####################
+        // ####################ç¬¬1è¦ç´ ####################
         assertTrue(collector.hasNext());
         collector.next();
 
-        // ‘OƒuƒŒƒCƒN=TRUE
+        // å‰ãƒ–ãƒ¬ã‚¤ã‚¯=TRUE
         assertTrue(ControlBreakChecker.isPreBreak(collector, BREAK_KEY));
         assertEquals("aaa", ControlBreakChecker.getPreBreakKey(collector,
                 BREAK_KEY).get(BREAK_KEY));
 
-        // ŒãƒuƒŒƒCƒN=FALSE
+        // å¾Œãƒ–ãƒ¬ã‚¤ã‚¯=FALSE
         assertFalse(ControlBreakChecker.isBreak(collector, BREAK_KEY));
 
-        // ####################‘æ2—v‘f####################
+        // ####################ç¬¬2è¦ç´ ####################
         assertTrue(collector.hasNext());
         collector.next();
 
-        // ‘OƒuƒŒƒCƒN=FALSE
+        // å‰ãƒ–ãƒ¬ã‚¤ã‚¯=FALSE
         assertFalse(ControlBreakChecker.isPreBreak(collector, BREAK_KEY));
 
-        // ŒãƒuƒŒƒCƒN=FALSE
+        // å¾Œãƒ–ãƒ¬ã‚¤ã‚¯=FALSE
         assertFalse(ControlBreakChecker.isBreak(collector, BREAK_KEY));
 
-        // ####################‘æ3—v‘f####################
+        // ####################ç¬¬3è¦ç´ ####################
         assertTrue(collector.hasNext());
         collector.next();
 
-        // ‘OƒuƒŒƒCƒN=FALSE
+        // å‰ãƒ–ãƒ¬ã‚¤ã‚¯=FALSE
         assertFalse(ControlBreakChecker.isPreBreak(collector, BREAK_KEY));
 
-        // ŒãƒuƒŒƒCƒN=TRUE
+        // å¾Œãƒ–ãƒ¬ã‚¤ã‚¯=TRUE
         assertTrue(ControlBreakChecker.isBreak(collector, BREAK_KEY));
         assertEquals("aaa", ControlBreakChecker.getBreakKey(collector,
                 BREAK_KEY).get(BREAK_KEY));
 
-        // ####################‘æ4—v‘f####################
+        // ####################ç¬¬4è¦ç´ ####################
         try {
             collector.next();
             fail();
@@ -452,18 +452,18 @@ public class ControlBreakCheckerTest2 {
     }
 
     /**
-     * ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒN‚Æ‘g‚İ‡‚í‚¹‚ÌƒeƒXƒgB<br>
-     * BUG_B30020‚Ì‹­‰»Œ±B
+     * ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯ã¨çµ„ã¿åˆã‚ã›ã®ãƒ†ã‚¹ãƒˆã€‚<br>
+     * BUG_B30020ã®å¼·åŒ–è©¦é¨“ã€‚
      * <p>
      * <ul>
-     * <li>—áŠOƒnƒ“ƒhƒ‰‚ ‚è(SKIP)</li>
-     * <li>ŒãƒuƒŒƒCƒNŒã‚É—áŠO(ƒuƒŒƒCƒN”»’è‰Â”\)</li>
+     * <li>ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©ã‚ã‚Š(SKIP)</li>
+     * <li>å¾Œãƒ–ãƒ¬ã‚¤ã‚¯å¾Œã«ä¾‹å¤–(ãƒ–ãƒ¬ã‚¤ã‚¯åˆ¤å®šå¯èƒ½)</li>
      * </ul>
-     * Šú‘Ò’l‚ÍˆÈ‰º‚Ì’Ê‚è
-     * “ü—Íƒf[ƒ^F[1(bkv1), 2(bkv1), (—áŠO), 4(bkv1), 5(bkv1), (—áŠO), 7(bkv2), 8(bkv2), (—áŠO), 10(bkv3), 11(bkv3), (—áŠO)]
-     * Œ‹‰ÊF[1(¦1), 2, 4, 5(¦3), 7(¦1), 8(¦3), 10(¦1), 11(¦3)]
-     * ¦1:‘OƒuƒŒƒCƒN ¦2:‘OƒuƒŒƒCƒN”»’è•s”\(‘OƒuƒŒƒCƒN”»’è‚É—áŠOƒXƒ[)
-     * ¦3:ŒãƒuƒŒƒCƒN ¦4:ŒãƒuƒŒƒCƒN”»’è•s”\(ŒãƒuƒŒƒCƒN”»’è‚É—áŠOƒXƒ[)
+     * æœŸå¾…å€¤ã¯ä»¥ä¸‹ã®é€šã‚Š
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1(bkv1), 2(bkv1), (ä¾‹å¤–), 4(bkv1), 5(bkv1), (ä¾‹å¤–), 7(bkv2), 8(bkv2), (ä¾‹å¤–), 10(bkv3), 11(bkv3), (ä¾‹å¤–)]
+     * çµæœï¼š[1(â€»1), 2, 4, 5(â€»3), 7(â€»1), 8(â€»3), 10(â€»1), 11(â€»3)]
+     * â€»1:å‰ãƒ–ãƒ¬ã‚¤ã‚¯ â€»2:å‰ãƒ–ãƒ¬ã‚¤ã‚¯åˆ¤å®šä¸èƒ½(å‰ãƒ–ãƒ¬ã‚¤ã‚¯åˆ¤å®šæ™‚ã«ä¾‹å¤–ã‚¹ãƒ­ãƒ¼)
+     * â€»3:å¾Œãƒ–ãƒ¬ã‚¤ã‚¯ â€»4:å¾Œãƒ–ãƒ¬ã‚¤ã‚¯åˆ¤å®šä¸èƒ½(å¾Œãƒ–ãƒ¬ã‚¤ã‚¯åˆ¤å®šæ™‚ã«ä¾‹å¤–ã‚¹ãƒ­ãƒ¼)
      */
     @Test
     public void testErrorHandlerReturnsSkip001() throws Exception {
@@ -483,125 +483,125 @@ public class ControlBreakCheckerTest2 {
         ControlBreakCheckerTestBean[] beans = { bean01, bean02, bean03, bean04,
                 bean05, bean06, bean07, bean08, bean09, bean10, bean11, bean12 };
 
-        // E“ü—Íƒ`ƒFƒbƒNƒGƒ‰[ƒnƒ“ƒhƒ‰F‚È‚µ
+        // ãƒ»å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãƒãƒ³ãƒ‰ãƒ©ï¼šãªã—
         ValidationErrorHandler argValidationErrorHandler = null;
-        // —áŠOƒnƒ“ƒhƒ‰F‚ ‚è(SKIP‚ğ•Ô‚·)
+        // ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©ï¼šã‚ã‚Š(SKIPã‚’è¿”ã™)
         CollectorExceptionHandler argExceptionHandler = new CollectorExceptionHandlerStub2(CollectorExceptionHandlerStatus.SKIP);
         Collector<ControlBreakCheckerTestBean> collector = createTestCollector(
                 argValidationErrorHandler, argExceptionHandler, beans);
 
-        // ####################‘æ1—v‘f####################
+        // ####################ç¬¬1è¦ç´ ####################
         assertTrue(collector.hasNext());
         collector.next();
 
-        // ‘OƒuƒŒƒCƒN=TRUE
+        // å‰ãƒ–ãƒ¬ã‚¤ã‚¯=TRUE
         assertTrue(ControlBreakChecker.isPreBreak(collector, BREAK_KEY));
         assertEquals("aaa", ControlBreakChecker.getPreBreakKey(collector,
                 BREAK_KEY).get(BREAK_KEY));
 
-        // ŒãƒuƒŒƒCƒN=FALSE
+        // å¾Œãƒ–ãƒ¬ã‚¤ã‚¯=FALSE
         assertFalse(ControlBreakChecker.isBreak(collector, BREAK_KEY));
 
-        // ####################‘æ2—v‘f####################
+        // ####################ç¬¬2è¦ç´ ####################
         assertTrue(collector.hasNext());
         collector.next();
 
-        // ‘OƒuƒŒƒCƒN=FALSE
+        // å‰ãƒ–ãƒ¬ã‚¤ã‚¯=FALSE
         assertFalse(ControlBreakChecker.isPreBreak(collector, BREAK_KEY));
 
-        // ŒãƒuƒŒƒCƒN=FALSE
+        // å¾Œãƒ–ãƒ¬ã‚¤ã‚¯=FALSE
         assertFalse(ControlBreakChecker.isBreak(collector, BREAK_KEY));
 
-        // ####################‘æ3—v‘f####################
-        // ####################‘æ4—v‘f####################
+        // ####################ç¬¬3è¦ç´ ####################
+        // ####################ç¬¬4è¦ç´ ####################
         assertTrue(collector.hasNext());
         collector.next();
 
-        // ‘OƒuƒŒƒCƒN=FALSE
+        // å‰ãƒ–ãƒ¬ã‚¤ã‚¯=FALSE
         assertFalse(ControlBreakChecker.isPreBreak(collector, BREAK_KEY));
 
-        // ŒãƒuƒŒƒCƒN=TRUE
+        // å¾Œãƒ–ãƒ¬ã‚¤ã‚¯=TRUE
         assertFalse(ControlBreakChecker.isBreak(collector, BREAK_KEY));
 
-        // ####################‘æ5—v‘f####################
+        // ####################ç¬¬5è¦ç´ ####################
         assertTrue(collector.hasNext());
         collector.next();
 
-        // ‘OƒuƒŒƒCƒN=FALSE
+        // å‰ãƒ–ãƒ¬ã‚¤ã‚¯=FALSE
         assertFalse(ControlBreakChecker.isPreBreak(collector, BREAK_KEY));
 
-        // ŒãƒuƒŒƒCƒN=TRUE
+        // å¾Œãƒ–ãƒ¬ã‚¤ã‚¯=TRUE
         assertTrue(ControlBreakChecker.isBreak(collector, BREAK_KEY));
         assertEquals("aaa", ControlBreakChecker.getBreakKey(collector,
                 BREAK_KEY).get(BREAK_KEY));
 
-        // ####################‘æ6—v‘f####################
-        // ####################‘æ7—v‘f####################
+        // ####################ç¬¬6è¦ç´ ####################
+        // ####################ç¬¬7è¦ç´ ####################
         assertTrue(collector.hasNext());
         collector.next();
 
-        // ‘OƒuƒŒƒCƒN=TRUE
+        // å‰ãƒ–ãƒ¬ã‚¤ã‚¯=TRUE
         assertTrue(ControlBreakChecker.isPreBreak(collector, BREAK_KEY));
         assertEquals("bbb", ControlBreakChecker.getPreBreakKey(collector,
                 BREAK_KEY).get(BREAK_KEY));
 
-        // ŒãƒuƒŒƒCƒN=FALSE
+        // å¾Œãƒ–ãƒ¬ã‚¤ã‚¯=FALSE
         assertFalse(ControlBreakChecker.isBreak(collector, BREAK_KEY));
 
-        // ####################‘æ8—v‘f####################
+        // ####################ç¬¬8è¦ç´ ####################
         assertTrue(collector.hasNext());
         collector.next();
 
-        // ‘OƒuƒŒƒCƒN=FALSE
+        // å‰ãƒ–ãƒ¬ã‚¤ã‚¯=FALSE
         assertFalse(ControlBreakChecker.isPreBreak(collector, BREAK_KEY));
 
-        // ŒãƒuƒŒƒCƒN=TRUE
+        // å¾Œãƒ–ãƒ¬ã‚¤ã‚¯=TRUE
         assertTrue(ControlBreakChecker.isBreak(collector, BREAK_KEY));
         assertEquals("bbb", ControlBreakChecker.getBreakKey(collector,
                 BREAK_KEY).get(BREAK_KEY));
 
-        // ####################‘æ9—v‘f####################
-        // ####################‘æ10—v‘f####################
+        // ####################ç¬¬9è¦ç´ ####################
+        // ####################ç¬¬10è¦ç´ ####################
         assertTrue(collector.hasNext());
         collector.next();
 
-        // ‘OƒuƒŒƒCƒN=TRUE
+        // å‰ãƒ–ãƒ¬ã‚¤ã‚¯=TRUE
         assertTrue(ControlBreakChecker.isPreBreak(collector, BREAK_KEY));
         assertEquals("ccc", ControlBreakChecker.getPreBreakKey(collector,
                 BREAK_KEY).get(BREAK_KEY));
 
-        // ŒãƒuƒŒƒCƒN=FALSE
+        // å¾Œãƒ–ãƒ¬ã‚¤ã‚¯=FALSE
         assertFalse(ControlBreakChecker.isBreak(collector, BREAK_KEY));
 
-        // ####################‘æ11—v‘f####################
+        // ####################ç¬¬11è¦ç´ ####################
         assertTrue(collector.hasNext());
         collector.next();
 
-        // ‘OƒuƒŒƒCƒN=FALSE
+        // å‰ãƒ–ãƒ¬ã‚¤ã‚¯=FALSE
         assertFalse(ControlBreakChecker.isPreBreak(collector, BREAK_KEY));
-        // ŒãƒuƒŒƒCƒN=TRUE
+        // å¾Œãƒ–ãƒ¬ã‚¤ã‚¯=TRUE
         assertTrue(ControlBreakChecker.isBreak(collector, BREAK_KEY));
         assertEquals("ccc", ControlBreakChecker.getBreakKey(collector,
                 BREAK_KEY).get(BREAK_KEY));
 
-        // ####################‘æ12—v‘f####################
+        // ####################ç¬¬12è¦ç´ ####################
         collector.close();
     }
 
     /**
-     * ƒRƒ“ƒgƒ[ƒ‹ƒuƒŒƒCƒN‚Æ‘g‚İ‡‚í‚¹‚ÌƒeƒXƒgB<br>
-     * BUG_B30019‚Ì‹­‰»Œ±B
+     * ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ–ãƒ¬ã‚¤ã‚¯ã¨çµ„ã¿åˆã‚ã›ã®ãƒ†ã‚¹ãƒˆã€‚<br>
+     * BUG_B30019ã®å¼·åŒ–è©¦é¨“ã€‚
      * <p>
      * <ul>
-     * <li>“ü—Íƒ`ƒFƒbƒNƒGƒ‰[ƒnƒ“ƒhƒ‰‚ ‚è(‚»‚Ì‚Ü‚Ü—áŠO‚ğƒXƒ[‚·‚é)</li>
+     * <li>å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãƒãƒ³ãƒ‰ãƒ©ã‚ã‚Š(ãã®ã¾ã¾ä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹)</li>
      * </ul>
-     * Šú‘Ò’l‚ÍˆÈ‰º‚Ì’Ê‚è
-     * “ü—Íƒf[ƒ^F[1(bkv1), 2(bkv1), 3(bkv1), 4(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[)(bkv2), 5(bkv2), 6(bkv2), 7(bkv3), 
-     * 8(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[)(bkv3), 9(bkv3), 10(bkv4), 11(bkv4), 12(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[)(bkv4), 13(bkv5), 14(bkv5), 15(bkv5)]
-     * Œ‹‰ÊF[1(¦1), 2, 3(¦3), 4(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[)(¦1), 5, 6(¦3), 7(¦1),
-     * 8(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[), 9(¦3), 10(¦1), 11, 12(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[)(¦3), 13(¦1), 14, 15(¦3)]
-     * ¦1:‘OƒuƒŒƒCƒN ¦2:‘OƒuƒŒƒCƒN”»’è•s”\(‘OƒuƒŒƒCƒN”»’è‚É—áŠOƒXƒ[)
-     * ¦3:ŒãƒuƒŒƒCƒN ¦4:ŒãƒuƒŒƒCƒN”»’è•s”\(ŒãƒuƒŒƒCƒN”»’è‚É—áŠOƒXƒ[)
+     * æœŸå¾…å€¤ã¯ä»¥ä¸‹ã®é€šã‚Š
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1(bkv1), 2(bkv1), 3(bkv1), 4(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼)(bkv2), 5(bkv2), 6(bkv2), 7(bkv3), 
+     * 8(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼)(bkv3), 9(bkv3), 10(bkv4), 11(bkv4), 12(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼)(bkv4), 13(bkv5), 14(bkv5), 15(bkv5)]
+     * çµæœï¼š[1(â€»1), 2, 3(â€»3), 4(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼)(â€»1), 5, 6(â€»3), 7(â€»1),
+     * 8(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼), 9(â€»3), 10(â€»1), 11, 12(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼)(â€»3), 13(â€»1), 14, 15(â€»3)]
+     * â€»1:å‰ãƒ–ãƒ¬ã‚¤ã‚¯ â€»2:å‰ãƒ–ãƒ¬ã‚¤ã‚¯åˆ¤å®šä¸èƒ½(å‰ãƒ–ãƒ¬ã‚¤ã‚¯åˆ¤å®šæ™‚ã«ä¾‹å¤–ã‚¹ãƒ­ãƒ¼)
+     * â€»3:å¾Œãƒ–ãƒ¬ã‚¤ã‚¯ â€»4:å¾Œãƒ–ãƒ¬ã‚¤ã‚¯åˆ¤å®šä¸èƒ½(å¾Œãƒ–ãƒ¬ã‚¤ã‚¯åˆ¤å®šæ™‚ã«ä¾‹å¤–ã‚¹ãƒ­ãƒ¼)
      */
     @Test
     public void testValidateErrorHandler001() throws Exception {
@@ -625,191 +625,191 @@ public class ControlBreakCheckerTest2 {
                 bean05, bean06, bean07, bean08, bean09, bean10, bean11, bean12,
                 bean13, bean14, bean15 };
 
-        // E“ü—Íƒ`ƒFƒbƒNƒGƒ‰[ƒnƒ“ƒhƒ‰F‚ ‚è
+        // ãƒ»å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãƒãƒ³ãƒ‰ãƒ©ï¼šã‚ã‚Š
         ValidationErrorHandler argValidationErrorHandler = new ExceptionValidationErrorHandler();
-        // —áŠOƒnƒ“ƒhƒ‰F‚È‚µ
+        // ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©ï¼šãªã—
         CollectorExceptionHandler argExceptionHandler = null;
         Collector<ControlBreakCheckerTestBean> collector = createTestCollector(
                 argValidationErrorHandler, argExceptionHandler, beans);
 
-        // ####################‘æ1—v‘f####################
+        // ####################ç¬¬1è¦ç´ ####################
         assertTrue(collector.hasNext());
         collector.next();
 
-        // ‘OƒuƒŒƒCƒN=TRUE
+        // å‰ãƒ–ãƒ¬ã‚¤ã‚¯=TRUE
         assertTrue(ControlBreakChecker.isPreBreak(collector, BREAK_KEY));
         assertEquals("aaa", ControlBreakChecker.getPreBreakKey(collector,
                 BREAK_KEY).get(BREAK_KEY));
 
-        // ŒãƒuƒŒƒCƒN=FALSE
+        // å¾Œãƒ–ãƒ¬ã‚¤ã‚¯=FALSE
         assertFalse(ControlBreakChecker.isBreak(collector, BREAK_KEY));
 
-        // ####################‘æ2—v‘f####################
+        // ####################ç¬¬2è¦ç´ ####################
         assertTrue(collector.hasNext());
         collector.next();
 
-        // ‘OƒuƒŒƒCƒN=FALSE
+        // å‰ãƒ–ãƒ¬ã‚¤ã‚¯=FALSE
         assertFalse(ControlBreakChecker.isPreBreak(collector, BREAK_KEY));
 
-        // ŒãƒuƒŒƒCƒN=FALSE
+        // å¾Œãƒ–ãƒ¬ã‚¤ã‚¯=FALSE
         assertFalse(ControlBreakChecker.isBreak(collector, BREAK_KEY));
 
-        // ####################‘æ3—v‘f####################
+        // ####################ç¬¬3è¦ç´ ####################
         assertTrue(collector.hasNext());
         collector.next();
 
-        // ‘OƒuƒŒƒCƒN=FALSE
+        // å‰ãƒ–ãƒ¬ã‚¤ã‚¯=FALSE
         assertFalse(ControlBreakChecker.isPreBreak(collector, BREAK_KEY));
 
-        // ŒãƒuƒŒƒCƒN=TRUE
+        // å¾Œãƒ–ãƒ¬ã‚¤ã‚¯=TRUE
         assertTrue(ControlBreakChecker.isBreak(collector, BREAK_KEY));
         assertEquals("aaa", ControlBreakChecker.getBreakKey(collector,
                 BREAK_KEY).get(BREAK_KEY));
 
-        // ####################‘æ4—v‘f####################
+        // ####################ç¬¬4è¦ç´ ####################
         try {
             collector.next();
             fail();
         } catch (ValidationErrorException e) {
-            // ƒ|ƒCƒ“ƒ^‚ğˆê‚Âi‚ß‚é
+            // ãƒã‚¤ãƒ³ã‚¿ã‚’ä¸€ã¤é€²ã‚ã‚‹
         }
 
-        // ‘OƒuƒŒƒCƒN=TRUE
+        // å‰ãƒ–ãƒ¬ã‚¤ã‚¯=TRUE
         assertTrue(ControlBreakChecker.isPreBreak(collector, BREAK_KEY));
         assertEquals("bbb", ControlBreakChecker.getPreBreakKey(collector,
                 BREAK_KEY).get(BREAK_KEY));
 
-        // ŒãƒuƒŒƒCƒN=FALSE
+        // å¾Œãƒ–ãƒ¬ã‚¤ã‚¯=FALSE
         assertFalse(ControlBreakChecker.isBreak(collector, BREAK_KEY));
 
-        // ####################‘æ5—v‘f####################
+        // ####################ç¬¬5è¦ç´ ####################
         assertTrue(collector.hasNext());
         collector.next();
 
-        // ‘OƒuƒŒƒCƒN=FALSE
+        // å‰ãƒ–ãƒ¬ã‚¤ã‚¯=FALSE
         assertFalse(ControlBreakChecker.isPreBreak(collector, BREAK_KEY));
 
-        // ŒãƒuƒŒƒCƒN=FALSE
+        // å¾Œãƒ–ãƒ¬ã‚¤ã‚¯=FALSE
         assertFalse(ControlBreakChecker.isBreak(collector, BREAK_KEY));
 
-        // ####################‘æ6—v‘f####################
+        // ####################ç¬¬6è¦ç´ ####################
         assertTrue(collector.hasNext());
         collector.next();
 
-        // ‘OƒuƒŒƒCƒN=FALSE
+        // å‰ãƒ–ãƒ¬ã‚¤ã‚¯=FALSE
         assertFalse(ControlBreakChecker.isPreBreak(collector, BREAK_KEY));
 
-        // ŒãƒuƒŒƒCƒN=TRUE
+        // å¾Œãƒ–ãƒ¬ã‚¤ã‚¯=TRUE
         assertTrue(ControlBreakChecker.isBreak(collector, BREAK_KEY));
         assertEquals("bbb", ControlBreakChecker.getBreakKey(collector,
                 BREAK_KEY).get(BREAK_KEY));
 
-        // ####################‘æ7—v‘f####################
+        // ####################ç¬¬7è¦ç´ ####################
         assertTrue(collector.hasNext());
         collector.next();
 
-        // ‘OƒuƒŒƒCƒN=TRUE
+        // å‰ãƒ–ãƒ¬ã‚¤ã‚¯=TRUE
         assertTrue(ControlBreakChecker.isPreBreak(collector, BREAK_KEY));
         assertEquals("ccc", ControlBreakChecker.getPreBreakKey(collector,
                 BREAK_KEY).get(BREAK_KEY));
 
-        // ŒãƒuƒŒƒCƒN=FALSE
+        // å¾Œãƒ–ãƒ¬ã‚¤ã‚¯=FALSE
         assertFalse(ControlBreakChecker.isBreak(collector, BREAK_KEY));
 
-        // ####################‘æ8—v‘f####################
+        // ####################ç¬¬8è¦ç´ ####################
         try {
             collector.next();
             fail();
         } catch (ValidationErrorException e) {
-            // ƒ|ƒCƒ“ƒ^‚ğˆê‚Âi‚ß‚é
+            // ãƒã‚¤ãƒ³ã‚¿ã‚’ä¸€ã¤é€²ã‚ã‚‹
         }
 
-        // ‘OƒuƒŒƒCƒN=FALSE
+        // å‰ãƒ–ãƒ¬ã‚¤ã‚¯=FALSE
         assertFalse(ControlBreakChecker.isPreBreak(collector, BREAK_KEY));
 
-        // ŒãƒuƒŒƒCƒN=FALSE
+        // å¾Œãƒ–ãƒ¬ã‚¤ã‚¯=FALSE
         assertFalse(ControlBreakChecker.isBreak(collector, BREAK_KEY));
 
-        // ####################‘æ9—v‘f####################
+        // ####################ç¬¬9è¦ç´ ####################
         assertTrue(collector.hasNext());
         collector.next();
 
-        // ‘OƒuƒŒƒCƒN=FALSE
+        // å‰ãƒ–ãƒ¬ã‚¤ã‚¯=FALSE
         assertFalse(ControlBreakChecker.isPreBreak(collector, BREAK_KEY));
 
-        // ŒãƒuƒŒƒCƒN=TRUE
+        // å¾Œãƒ–ãƒ¬ã‚¤ã‚¯=TRUE
         assertTrue(ControlBreakChecker.isBreak(collector, BREAK_KEY));
         assertEquals("ccc", ControlBreakChecker.getBreakKey(collector,
                 BREAK_KEY).get(BREAK_KEY));
 
-        // ####################‘æ10—v‘f####################
+        // ####################ç¬¬10è¦ç´ ####################
         assertTrue(collector.hasNext());
         collector.next();
 
-        // ‘OƒuƒŒƒCƒN=TRUE
+        // å‰ãƒ–ãƒ¬ã‚¤ã‚¯=TRUE
         assertTrue(ControlBreakChecker.isPreBreak(collector, BREAK_KEY));
         assertEquals("ddd", ControlBreakChecker.getPreBreakKey(collector,
                 BREAK_KEY).get(BREAK_KEY));
 
-        // ŒãƒuƒŒƒCƒN=FALSE
+        // å¾Œãƒ–ãƒ¬ã‚¤ã‚¯=FALSE
         assertFalse(ControlBreakChecker.isBreak(collector, BREAK_KEY));
 
-        // ####################‘æ11—v‘f####################
+        // ####################ç¬¬11è¦ç´ ####################
         assertTrue(collector.hasNext());
         collector.next();
 
-        // ‘OƒuƒŒƒCƒN=FALSE
+        // å‰ãƒ–ãƒ¬ã‚¤ã‚¯=FALSE
         assertFalse(ControlBreakChecker.isPreBreak(collector, BREAK_KEY));
 
-        // ŒãƒuƒŒƒCƒN=FALSE
+        // å¾Œãƒ–ãƒ¬ã‚¤ã‚¯=FALSE
         assertFalse(ControlBreakChecker.isBreak(collector, BREAK_KEY));
 
-        // ####################‘æ12—v‘f####################
+        // ####################ç¬¬12è¦ç´ ####################
         try {
             collector.next();
             fail();
         } catch (ValidationErrorException e) {
-            // ƒ|ƒCƒ“ƒ^‚ğˆê‚Âi‚ß‚é
+            // ãƒã‚¤ãƒ³ã‚¿ã‚’ä¸€ã¤é€²ã‚ã‚‹
         }
 
-        // ‘OƒuƒŒƒCƒN=FALSE
+        // å‰ãƒ–ãƒ¬ã‚¤ã‚¯=FALSE
         assertFalse(ControlBreakChecker.isPreBreak(collector, BREAK_KEY));
 
-        // ŒãƒuƒŒƒCƒN=TRUE
+        // å¾Œãƒ–ãƒ¬ã‚¤ã‚¯=TRUE
         assertTrue(ControlBreakChecker.isBreak(collector, BREAK_KEY));
         assertEquals("ddd", ControlBreakChecker.getBreakKey(collector,
                 BREAK_KEY).get(BREAK_KEY));
 
-        // ####################‘æ13—v‘f####################
+        // ####################ç¬¬13è¦ç´ ####################
         assertTrue(collector.hasNext());
         collector.next();
 
-        // ‘OƒuƒŒƒCƒN=TRUE
+        // å‰ãƒ–ãƒ¬ã‚¤ã‚¯=TRUE
         assertTrue(ControlBreakChecker.isPreBreak(collector, BREAK_KEY));
         assertEquals("eee", ControlBreakChecker.getPreBreakKey(collector,
                 BREAK_KEY).get(BREAK_KEY));
 
-        // ŒãƒuƒŒƒCƒN=FALSE
+        // å¾Œãƒ–ãƒ¬ã‚¤ã‚¯=FALSE
         assertFalse(ControlBreakChecker.isBreak(collector, BREAK_KEY));
 
-        // ####################‘æ14—v‘f####################
+        // ####################ç¬¬14è¦ç´ ####################
         assertTrue(collector.hasNext());
         collector.next();
 
-        // ‘OƒuƒŒƒCƒN=FALSE
+        // å‰ãƒ–ãƒ¬ã‚¤ã‚¯=FALSE
         assertFalse(ControlBreakChecker.isPreBreak(collector, BREAK_KEY));
 
-        // ŒãƒuƒŒƒCƒN=FALSE
+        // å¾Œãƒ–ãƒ¬ã‚¤ã‚¯=FALSE
         assertFalse(ControlBreakChecker.isBreak(collector, BREAK_KEY));
 
-        // ####################‘æ15—v‘f####################
+        // ####################ç¬¬15è¦ç´ ####################
         assertTrue(collector.hasNext());
         collector.next();
 
-        // ‘OƒuƒŒƒCƒN=FALSE
+        // å‰ãƒ–ãƒ¬ã‚¤ã‚¯=FALSE
         assertFalse(ControlBreakChecker.isPreBreak(collector, BREAK_KEY));
 
-        // ŒãƒuƒŒƒCƒN=TRUE
+        // å¾Œãƒ–ãƒ¬ã‚¤ã‚¯=TRUE
         assertTrue(ControlBreakChecker.isBreak(collector, BREAK_KEY));
         assertEquals("eee", ControlBreakChecker.getBreakKey(collector,
                 BREAK_KEY).get(BREAK_KEY));
@@ -818,14 +818,14 @@ public class ControlBreakCheckerTest2 {
     }
 
     /**
-     * ƒeƒXƒgƒf[ƒ^‚ğ’ñ‹Ÿ‚·‚éƒRƒŒƒNƒ^‚ğ¶¬‚·‚éB 
-     * Validator‹@”\‚ğ‚¿ACollectorTestBean‚ğŠi”[‚Å‚«‚éB
-     * CollectorTestBean1‚Ìcolumn3‚ª"validateError"‚¾‚Æ“ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚Æ‚È‚è
-     * "Exception"‚¾‚Æ“ü—ÍƒGƒ‰[‚ª”­¶‚·‚éB
+     * ãƒ†ã‚¹ãƒˆãƒ‡ãƒ¼ã‚¿ã‚’æä¾›ã™ã‚‹ã‚³ãƒ¬ã‚¯ã‚¿ã‚’ç”Ÿæˆã™ã‚‹ã€‚ 
+     * Validatoræ©Ÿèƒ½ã‚’æŒã¡ã€CollectorTestBeanã‚’æ ¼ç´ã§ãã‚‹ã€‚
+     * CollectorTestBean1ã®column3ãŒ"validateError"ã ã¨å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ã¨ãªã‚Š
+     * "Exception"ã ã¨å…¥åŠ›ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã™ã‚‹ã€‚
      * @param argValidationErrorHandler ValidationErrorHandler
      * @param argExceptionHandler ExceptionHandler
-     * @param CollectorTestBean[] beans ƒRƒŒƒNƒ^‚Ì’†g‚É‚È‚éCollectorTestBean1‚Ì”z—ñ
-     * @return ƒeƒXƒgƒf[ƒ^‚ğ’ñ‹Ÿ‚·‚éƒRƒŒƒNƒ^
+     * @param CollectorTestBean[] beans ã‚³ãƒ¬ã‚¯ã‚¿ã®ä¸­èº«ã«ãªã‚‹CollectorTestBean1ã®é…åˆ—
+     * @return ãƒ†ã‚¹ãƒˆãƒ‡ãƒ¼ã‚¿ã‚’æä¾›ã™ã‚‹ã‚³ãƒ¬ã‚¯ã‚¿
      */
     private static Collector<ControlBreakCheckerTestBean> createTestCollector(
             final ValidationErrorHandler argValidationErrorHandler,
@@ -835,7 +835,7 @@ public class ControlBreakCheckerTest2 {
             {
                 this.validator = new Validator() {
 
-                    // “ü—Íƒ`ƒFƒbƒN‚ğs‚¤Bcolumn3‚ª"validateError"‚Ìê‡‚Í“ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚Æ‚·‚éB
+                    // å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†ã€‚column3ãŒ"validateError"ã®å ´åˆã¯å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ã¨ã™ã‚‹ã€‚
                     public void validate(Object target, Errors errors) {
                         ControlBreakCheckerTestBean data = (ControlBreakCheckerTestBean) target;
                         if ("validateError".equals(data.getColumn3())) {
@@ -851,12 +851,12 @@ public class ControlBreakCheckerTest2 {
                 this.exceptionHandler = argExceptionHandler;
             }
 
-            // column3‚ª"Exception"‚¾‚Á‚½‚çFileLineExceptioni“ü—ÍƒGƒ‰[j‚Æ‚¢‚¤‚±‚Æ‚É‚·‚é
+            // column3ãŒ"Exception"ã ã£ãŸã‚‰FileLineExceptionï¼ˆå…¥åŠ›ã‚¨ãƒ©ãƒ¼ï¼‰ã¨ã„ã†ã“ã¨ã«ã™ã‚‹
             public Integer call() throws Exception {
 
                 for (int count = 0; count < beans.length; count++) {
                     if ("Exception".equals(beans[count].getColumn3())) {
-                        addQueue(new DataValueObject(new FileLineException("“ü—ÍƒGƒ‰["), count));
+                        addQueue(new DataValueObject(new FileLineException("å…¥åŠ›ã‚¨ãƒ©ãƒ¼"), count));
                     } else {
                         addQueue(new DataValueObject(beans[count], count));
                     }

@@ -36,13 +36,13 @@ import org.springframework.transaction.interceptor.TransactionInterceptor;
 import org.springframework.transaction.support.SimpleTransactionStatus;
 
 /**
- * TransactionUtil ƒuƒ‰ƒbƒNƒ{ƒbƒNƒXƒeƒXƒgB<br>
- * {@link jp.terasoluna.fw.util.TransactionUtil} ƒNƒ‰ƒX‚ÌƒeƒXƒgB
+ * TransactionUtil ãƒ–ãƒ©ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ†ã‚¹ãƒˆã€‚<br>
+ * {@link jp.terasoluna.fw.util.TransactionUtil} ã‚¯ãƒ©ã‚¹ã®ãƒ†ã‚¹ãƒˆã€‚
  * 
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4>
- * —áŠO‚ğ”­¶‚³‚¹‚¸‚Æ‚àƒ[ƒ‹ƒoƒbƒN‚ğÀs‚·‚é‚³‚¢‚Ég—p‚·‚éTransactionUtilƒNƒ‰ƒXB<br>
- * setRollbackOnlyƒƒ\ƒbƒhg—p‚µ‚ÄisRollbackOnlyƒXƒe[ƒ^ƒX‚ğtrue‚É•ÏX‚·‚éB
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4>
+ * ä¾‹å¤–ã‚’ç™ºç”Ÿã•ã›ãšã¨ã‚‚ãƒ­ãƒ¼ãƒ«ãƒãƒƒã‚¯ã‚’å®Ÿè¡Œã™ã‚‹ã•ã„ã«ä½¿ç”¨ã™ã‚‹TransactionUtilã‚¯ãƒ©ã‚¹ã€‚<br>
+ * setRollbackOnlyãƒ¡ã‚½ãƒƒãƒ‰ä½¿ç”¨ã—ã¦isRollbackOnlyã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã‚’trueã«å¤‰æ›´ã™ã‚‹ã€‚
  * <p>
  * 
  * @see jp.terasoluna.fw.util.TransactionUtil
@@ -50,16 +50,16 @@ import org.springframework.transaction.support.SimpleTransactionStatus;
 public class TransactionUtilTest extends TestCase {
 
     /**
-     * —áŠO‚ª”­¶‚µ‚½‚Ìˆ×‚Éƒƒ\ƒbƒh‚ğ—pˆÓB
+     * ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸæ™‚ã®ç‚ºã«ãƒ¡ã‚½ãƒƒãƒ‰ã‚’ç”¨æ„ã€‚
      */
     protected Method exceptionalMethod;
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      */
     public TransactionUtilTest() {
         try {
-            // ƒeƒXƒg‚·‚éƒƒ\ƒbƒh‚ğƒLƒƒƒbƒVƒ…
+            // ãƒ†ã‚¹ãƒˆã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ã‚’ã‚­ãƒ£ãƒƒã‚·ãƒ¥
             exceptionalMethod = ITestBean.class.getMethod("exceptional",
                     new Class[] { Throwable.class });
         } catch (NoSuchMethodException ex) {
@@ -71,57 +71,57 @@ public class TransactionUtilTest extends TestCase {
      * testSetRollbackOnly() <br>
      * <br>
      * 
-     * (³íŒn) <br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šA<br>
      * <br>
-     * “ü—Í’lF(ŒÄ‚Ño‚µƒƒ\ƒbƒh) setRollbackOnly();<br>
-     * (ó‘Ô) isRollbackOnly:false<br>
+     * å…¥åŠ›å€¤ï¼š(å‘¼ã³å‡ºã—ãƒ¡ã‚½ãƒƒãƒ‰) setRollbackOnly();<br>
+     * (çŠ¶æ…‹) isRollbackOnly:false<br>
      * 
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») isRollbackOnly:"true"<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) isRollbackOnly:"true"<br>
      * 
      * <br>
-     * TransactionUtilƒNƒ‰ƒX‚ÌsetRollbackOnlyƒƒ\ƒbƒh‚ªŒÄ‚Ño‚³‚ê‚½AisRollbackOnly‚ªtrue‚É‚È‚è‚Ü‚·B
+     * TransactionUtilã‚¯ãƒ©ã‚¹ã®setRollbackOnlyãƒ¡ã‚½ãƒƒãƒ‰ãŒå‘¼ã³å‡ºã•ã‚ŒãŸæ™‚ã€isRollbackOnlyãŒtrueã«ãªã‚Šã¾ã™ã€‚
      * <br>
      * 
      * @throws Throwable
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testSetRollbackOnly() throws Throwable {
 
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         TransactionAttribute txatt = new DefaultTransactionAttribute();
 
         MapTransactionAttributeSource tas = new MapTransactionAttributeSource();
         tas.register(exceptionalMethod, txatt);
         SimpleTransactionStatus status = new SimpleTransactionStatus();
 
-        // ƒ‚ƒbƒNì¬
+        // ãƒ¢ãƒƒã‚¯ä½œæˆ
         PlatformTransactionManager mock = createMock(PlatformTransactionManager.class);
 
-        // getTransactionƒƒ\ƒbƒh‚Íˆø”txattA–ß‚è’lstatus‚Å1‰ñŒÄ‚Î‚ê‚é
+        // getTransactionãƒ¡ã‚½ãƒƒãƒ‰ã¯å¼•æ•°txattã€æˆ»ã‚Šå€¤statusã§1å›å‘¼ã°ã‚Œã‚‹
         expect(mock.getTransaction(txatt)).andReturn(status);
         expectLastCall().times(1);
 
-        // commitƒƒ\ƒbƒh‚Íˆø”statusA–ß‚è’l‚Ívoid‚Å1‰ñŒÄ‚Î‚ê‚é
+        // commitãƒ¡ã‚½ãƒƒãƒ‰ã¯å¼•æ•°statusã€æˆ»ã‚Šå€¤ã¯voidã§1å›å‘¼ã°ã‚Œã‚‹
         mock.commit(status);
         expectLastCall().times(1);
 
-        // ƒ‚ƒbƒN‚ğ—LŒø‰»
+        // ãƒ¢ãƒƒã‚¯ã‚’æœ‰åŠ¹åŒ–
         replay(mock);
 
         TestBean outer = new TestBean() {
             @Override
             public void exceptional(Throwable t) throws Throwable {
 
-                // ƒeƒXƒgÀs
+                // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
                 TransactionUtil.setRollbackOnly();
 
                 SimpleTransactionStatus sts = new SimpleTransactionStatus();
                 sts = (SimpleTransactionStatus) TransactionAspectSupport
                         .currentTransactionStatus();
 
-                // ”»’è
+                // åˆ¤å®š
                 assertEquals(true, sts.isRollbackOnly());
 
             }
@@ -129,22 +129,22 @@ public class TransactionUtilTest extends TestCase {
         ITestBean outerProxy = (ITestBean) advised(outer, mock, tas);
         outerProxy.exceptional(null);
 
-        // ƒ‚ƒbƒN‚ª‹K’è’Ê‚è‚Ìƒƒ\ƒbƒhA‚¨‚æ‚Ñ‰ñ”‚ªŒÄ‚Ño‚³‚ê‚Ä‚¢‚½‚©ŒŸ¸
+        // ãƒ¢ãƒƒã‚¯ãŒè¦å®šé€šã‚Šã®ãƒ¡ã‚½ãƒƒãƒ‰ã€ãŠã‚ˆã³å›æ•°ãŒå‘¼ã³å‡ºã•ã‚Œã¦ã„ãŸã‹æ¤œæŸ»
         verify(mock);
 
     }
 
     /**
-     * ƒAƒhƒoƒCƒXƒIƒuƒWƒFƒNƒg‚Æƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“‚ÌƒZƒbƒgƒAƒbƒv—p‚ÌƒIƒuƒWƒFƒNƒg‚ğì¬‚·‚éƒeƒ“ƒvƒŒ[ƒgƒƒ\ƒbƒhB<br>
-     * TransactionInterceptor‚ğì¬‚µ‚Ä‚»‚ê‚ğ“K—p‚µ‚Ü‚·B
+     * ã‚¢ãƒ‰ãƒã‚¤ã‚¹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¨ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã®ã‚»ãƒƒãƒˆã‚¢ãƒƒãƒ—ç”¨ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ä½œæˆã™ã‚‹ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆãƒ¡ã‚½ãƒƒãƒ‰ã€‚<br>
+     * TransactionInterceptorã‚’ä½œæˆã—ã¦ãã‚Œã‚’é©ç”¨ã—ã¾ã™ã€‚
      * 
      * @param target
-     *            TransactionUtilTest null’l
+     *            TransactionUtilTest nullå€¤
      * @param ptm
-     *            Proxy0 ƒCƒ“ƒ^[ƒtƒF[ƒX‚Ì‚½‚ß‚ÌEasyMock
+     *            Proxy0 ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ã®ãŸã‚ã®EasyMock
      * @param tas
-     *            MapTransactionAttributeSource ƒnƒbƒVƒ…ƒ}ƒbƒv
-     * @return pf ProxyFactory JDBCƒCƒ“ƒ^[ƒtƒF[ƒX‚ÌƒvƒƒLƒV
+     *            MapTransactionAttributeSource ãƒãƒƒã‚·ãƒ¥ãƒãƒƒãƒ—
+     * @return pf ProxyFactory JDBCã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ã®ãƒ—ãƒ­ã‚­ã‚·
      */
     Object advised(Object target, PlatformTransactionManager ptm,
             TransactionAttributeSource tas) {

@@ -20,23 +20,23 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 /**
- * �������l������̂��߂̃J�����p�[�T�[�N���X�B
+ * 整数数値文字列のためのカラムパーサークラス。
  * <p>
- * �w�肳�ꂽ��������p�[�X���Aint�^�ɕϊ�����B �ϊ����ʂ��t�@�C���s�I�u�W�F�N�g��int�^�̑����ɒl���i�[����B
+ * 指定された文字列をパースし、int型に変換する。 変換結果をファイル行オブジェクトのint型の属性に値を格納する。
  * </p>
  */
 public class IntColumnParser implements ColumnParser {
 
     /**
-     * �w�肳�ꂽ��������p�[�X���Aint�^�ɕϊ�����B�ϊ����ʂ��t�@�C���s�I�u�W�F�N�g�Ɋi�[����B
-     * @param column �J�����̕�����
-     * @param t �t�@�C���s�I�u�W�F�N�g
-     * @param method �J�����̕�������t�@�C���s�I�u�W�F�N�g�Ɋi�[���郁�\�b�h
-     * @param columnFormat �p�[�X����ۂ̃t�H�[�}�b�g������
-     * @throws IllegalArgumentException �t�H�[�}�b�g�����񂪃t�H�[�}�b�g�Ƃ��ĕs���ł���Ƃ�
-     * @throws NumberFormatException ���͕����񂪐����ȊO�̏ꍇ�B
-     * @throws IllegalAccessException �t�@�C���s�I�u�W�F�N�g�ւ̐ݒ肪���s�����Ƃ�
-     * @throws InvocationTargetException �t�@�C���s�I�u�W�F�N�g�̃��\�b�h����O���X���[�����Ƃ�
+     * 指定された文字列をパースし、int型に変換する。変換結果をファイル行オブジェクトに格納する。
+     * @param column カラムの文字列
+     * @param t ファイル行オブジェクト
+     * @param method カラムの文字列をファイル行オブジェクトに格納するメソッド
+     * @param columnFormat パースする際のフォーマット文字列
+     * @throws IllegalArgumentException フォーマット文字列がフォーマットとして不正であるとき
+     * @throws NumberFormatException 入力文字列が整数以外の場合。
+     * @throws IllegalAccessException ファイル行オブジェクトへの設定が失敗したとき
+     * @throws InvocationTargetException ファイル行オブジェクトのメソッドが例外をスローしたとき
      */
     public void parse(String column, Object t, Method method,
             String columnFormat) throws NumberFormatException,

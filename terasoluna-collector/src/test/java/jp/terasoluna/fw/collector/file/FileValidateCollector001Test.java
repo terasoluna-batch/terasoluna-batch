@@ -66,7 +66,7 @@ public class FileValidateCollector001Test extends DaoTestCase {
      */
     public void testFileValidateCollector001() throws Exception {
         if (this.csvFileQueryDAO == null) {
-            fail("csvFileQueryDAO‚ªnull‚Å‚·B");
+            fail("csvFileQueryDAOãŒnullã§ã™ã€‚");
         }
 
         URL url = getClass().getClassLoader().getResource("USER_TEST.csv");
@@ -79,7 +79,7 @@ public class FileValidateCollector001Test extends DaoTestCase {
         }
 
         if (url == null) {
-            fail("url‚ªnull‚Å‚·B");
+            fail("urlãŒnullã§ã™ã€‚");
         }
 
         // int count_first = 0;
@@ -108,7 +108,7 @@ public class FileValidateCollector001Test extends DaoTestCase {
         }
 
         if (url == null) {
-            fail("url‚ªnull‚Å‚·B");
+            fail("urlãŒnullã§ã™ã€‚");
         }
 
         // int count_first = 0;

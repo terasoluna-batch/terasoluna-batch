@@ -3,20 +3,20 @@ package jp.terasoluna.fw.file.dao.standard;
 import jp.terasoluna.fw.file.annotation.StringConverter;
 
 /**
- * ƒfƒtƒHƒ‹ƒgƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ğ‚½‚È‚¢StringConverterƒXƒ^ƒu
- * @author æâ•î“O
+ * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã‚’æŒãŸãªã„StringConverterã‚¹ã‚¿ãƒ–
+ * @author è¶™ä¿¸å¾¹
  */
 public class AbstractFileLineWriter_StringConverterStub01 implements
                                                          StringConverter {
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      */
     public AbstractFileLineWriter_StringConverterStub01(String dummy) {
     }
 
     /**
-     * •ÏŠ·ˆ—‚ğs‚í‚È‚¢B
+     * å¤‰æ›å‡¦ç†ã‚’è¡Œã‚ãªã„ã€‚
      * @param s
      * @return
      */

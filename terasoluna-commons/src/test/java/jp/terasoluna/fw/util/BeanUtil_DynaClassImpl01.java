@@ -21,7 +21,7 @@ import org.apache.commons.beanutils.DynaClass;
 import org.apache.commons.beanutils.DynaProperty;
 
 /**
- * {@link BeanUtil}‚ğƒeƒXƒg‚·‚é‚½‚ß‚Ì{@link DynaClass}À‘•ƒNƒ‰ƒXB
+ * {@link BeanUtil}ã‚’ãƒ†ã‚¹ãƒˆã™ã‚‹ãŸã‚ã®{@link DynaClass}å®Ÿè£…ã‚¯ãƒ©ã‚¹ã€‚
  * 
  * @see org.apache.commons.beanutils.DynaClass
  * @see jp.terasoluna.fw.util.BeanUtilTest
@@ -29,12 +29,12 @@ import org.apache.commons.beanutils.DynaProperty;
 public class BeanUtil_DynaClassImpl01 implements DynaClass {
 
     /**
-     * dynaPropertyB
+     * dynaPropertyã€‚
      */
     private DynaProperty dynaProperty = null; 
     
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      */
     public BeanUtil_DynaClassImpl01() {
         super();
@@ -48,16 +48,16 @@ public class BeanUtil_DynaClassImpl01 implements DynaClass {
     }
 
     /**
-     * dynaProperty‚ğ•Ô‹p‚·‚éB 
-     * @param arg0 ƒpƒ‰ƒ[ƒ^
+     * dynaPropertyã‚’è¿”å´ã™ã‚‹ã€‚ 
+     * @param arg0 ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public DynaProperty getDynaProperty(String arg0) {
         return dynaProperty;
     }
     
     /** 
-     * dynaProperty‚ğİ’è‚·‚éB 
-     * @param property DynaPropertyŒ^‚Ì‘®«
+     * dynaPropertyã‚’è¨­å®šã™ã‚‹ã€‚ 
+     * @param property DynaPropertyå‹ã®å±æ€§
      */
     public void setDynaProperty(DynaProperty property) {
         this.dynaProperty = property;

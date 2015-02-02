@@ -17,74 +17,74 @@
 package jp.terasoluna.fw.file.dao;
 
 /**
- * ƒtƒ@ƒCƒ‹‚©‚çs‚Ìƒf[ƒ^‚ğ“Ç‚İæ‚éÛ‚É”­¶‚µ‚½—áŠO‚ğƒ‰ƒbƒv‚·‚éƒNƒ‰ƒXB<br>
- * ƒGƒ‰[‚Ìî•ñ‚Æ‚µ‚ÄˆÈ‰º‚ğ‚ÂB<br>
+ * ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰è¡Œã®ãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿å–ã‚‹éš›ã«ç™ºç”Ÿã—ãŸä¾‹å¤–ã‚’ãƒ©ãƒƒãƒ—ã™ã‚‹ã‚¯ãƒ©ã‚¹ã€‚<br>
+ * ã‚¨ãƒ©ãƒ¼ã®æƒ…å ±ã¨ã—ã¦ä»¥ä¸‹ã‚’æŒã¤ã€‚<br>
  * <ul>
- * <li>ƒGƒ‰[ƒƒbƒZ[ƒW</li>
- * <li>Œ´ˆö—áŠO</li>
- * <li>ƒGƒ‰[‚ª”­¶‚µ‚½ƒf[ƒ^‚Ìƒf[ƒ^•”“às”Ô†</li>
- * <li>ƒGƒ‰[‚ª”­¶‚µ‚½ƒf[ƒ^‚ÌƒJƒ‰ƒ€–¼</li>
- * <li>ƒGƒ‰[‚ª”­¶‚µ‚½ƒf[ƒ^‚ÌƒJƒ‰ƒ€ƒCƒ“ƒfƒbƒNƒX</li>
+ * <li>ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸</li>
+ * <li>åŸå› ä¾‹å¤–</li>
+ * <li>ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸãƒ‡ãƒ¼ã‚¿ã®ãƒ‡ãƒ¼ã‚¿éƒ¨å†…è¡Œç•ªå·</li>
+ * <li>ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸãƒ‡ãƒ¼ã‚¿ã®ã‚«ãƒ©ãƒ å</li>
+ * <li>ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸãƒ‡ãƒ¼ã‚¿ã®ã‚«ãƒ©ãƒ ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹</li>
  * </ul>
- * <b>¦’ˆÓ–€</b> FileLineException‚ÉŠi”[‚³‚ê‚és”Ô†î•ñ‚Íƒtƒ@ƒCƒ‹‚É‘Î‚·‚és”Ô†‚Å‚Í‚È‚­ ƒf[ƒ^•”“à‚Ìs”Ô†‚Å‚·B<br>
- * ƒwƒbƒ_•”‚ª‘¶İ‚·‚éê‡‚Íƒtƒ@ƒCƒ‹‚Ìs”Ô†‚Æ‡‚í‚È‚¢ˆ×‹C‚ğ‚Â‚¯‚é‚±‚ÆB<br>
+ * <b>â€»æ³¨æ„äº‹é …</b> FileLineExceptionã«æ ¼ç´ã•ã‚Œã‚‹è¡Œç•ªå·æƒ…å ±ã¯ãƒ•ã‚¡ã‚¤ãƒ«ã«å¯¾ã™ã‚‹è¡Œç•ªå·ã§ã¯ãªã ãƒ‡ãƒ¼ã‚¿éƒ¨å†…ã®è¡Œç•ªå·ã§ã™ã€‚<br>
+ * ãƒ˜ãƒƒãƒ€éƒ¨ãŒå­˜åœ¨ã™ã‚‹å ´åˆã¯ãƒ•ã‚¡ã‚¤ãƒ«ã®è¡Œç•ªå·ã¨åˆã‚ãªã„ç‚ºæ°—ã‚’ã¤ã‘ã‚‹ã“ã¨ã€‚<br>
  */
 public class FileLineException extends FileException {
 
     /**
-     * ƒVƒŠƒAƒ‹ƒo[ƒWƒ‡ƒ“UIDB
+     * ã‚·ãƒªã‚¢ãƒ«ãƒãƒ¼ã‚¸ãƒ§ãƒ³UIDã€‚
      */
     private static final long serialVersionUID = 2922540035720279260L;
 
     /**
-     * ƒGƒ‰[‚ª”­¶‚µ‚½ƒf[ƒ^‚ÌƒJƒ‰ƒ€–¼B<br>
-     * –¢İ’è‚Í<code>null</code>‚ğ‚ÂB<br>
+     * ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸãƒ‡ãƒ¼ã‚¿ã®ã‚«ãƒ©ãƒ åã€‚<br>
+     * æœªè¨­å®šæ™‚ã¯<code>null</code>ã‚’æŒã¤ã€‚<br>
      */
     private String columnName = null;
 
     /**
-     * ƒGƒ‰[‚ª”­¶‚µ‚½ƒf[ƒ^‚ÌƒJƒ‰ƒ€”Ô†B<br>
-     * –¢İ’è‚Í<code>-1</code>‚ğ‚ÂB<br>
+     * ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸãƒ‡ãƒ¼ã‚¿ã®ã‚«ãƒ©ãƒ ç•ªå·ã€‚<br>
+     * æœªè¨­å®šæ™‚ã¯<code>-1</code>ã‚’æŒã¤ã€‚<br>
      */
     private int columnIndex = -1;
 
     /**
-     * ƒGƒ‰[‚ª”­¶‚µ‚½ƒf[ƒ^‚Ìƒf[ƒ^•”“às”Ô†B<br>
-     * ƒtƒ@ƒCƒ‹‚Ìs”Ô†‚Å‚Í‚È‚­ƒf[ƒ^•”“à‚Ìs”Ô†‚Å‚·B<br>
-     * –¢İ’è‚Í<code>-1</code>‚ğ‚ÂB<br>
+     * ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸãƒ‡ãƒ¼ã‚¿ã®ãƒ‡ãƒ¼ã‚¿éƒ¨å†…è¡Œç•ªå·ã€‚<br>
+     * ãƒ•ã‚¡ã‚¤ãƒ«ã®è¡Œç•ªå·ã§ã¯ãªããƒ‡ãƒ¼ã‚¿éƒ¨å†…ã®è¡Œç•ªå·ã§ã™ã€‚<br>
+     * æœªè¨­å®šæ™‚ã¯<code>-1</code>ã‚’æŒã¤ã€‚<br>
      */
     private int lineNo = -1;
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-     * @param e Œ´ˆö—áŠO
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * @param e åŸå› ä¾‹å¤–
      */
     public FileLineException(Exception e) {
         super(e);
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-     * @param message ƒƒbƒZ[ƒW
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * @param message ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
      */
     public FileLineException(String message) {
         super(message);
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-     * @param message ƒƒbƒZ[ƒW
-     * @param e Œ´ˆö—áŠO
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * @param message ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
+     * @param e åŸå› ä¾‹å¤–
      */
     public FileLineException(String message, Exception e) {
         super(message, e);
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-     * @param e Œ´ˆö—áŠO
-     * @param fileName ƒtƒ@ƒCƒ‹–¼
-     * @param lineNo ƒGƒ‰[‚ª”­¶‚µ‚½ƒf[ƒ^‚Ìƒf[ƒ^•”“às”Ô†
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * @param e åŸå› ä¾‹å¤–
+     * @param fileName ãƒ•ã‚¡ã‚¤ãƒ«å
+     * @param lineNo ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸãƒ‡ãƒ¼ã‚¿ã®ãƒ‡ãƒ¼ã‚¿éƒ¨å†…è¡Œç•ªå·
      */
     public FileLineException(Exception e, String fileName, int lineNo) {
         super(e, fileName);
@@ -92,11 +92,11 @@ public class FileLineException extends FileException {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-     * @param message ƒƒbƒZ[ƒW
-     * @param e Œ´ˆö—áŠO
-     * @param fileName ƒtƒ@ƒCƒ‹–¼
-     * @param lineNo ƒGƒ‰[‚ª”­¶‚µ‚½ƒf[ƒ^‚Ìƒf[ƒ^•”“às”Ô†
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * @param message ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
+     * @param e åŸå› ä¾‹å¤–
+     * @param fileName ãƒ•ã‚¡ã‚¤ãƒ«å
+     * @param lineNo ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸãƒ‡ãƒ¼ã‚¿ã®ãƒ‡ãƒ¼ã‚¿éƒ¨å†…è¡Œç•ªå·
      */
     public FileLineException(String message, Exception e, String fileName,
             int lineNo) {
@@ -105,12 +105,12 @@ public class FileLineException extends FileException {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-     * @param e Œ´ˆö—áŠO
-     * @param fileName ƒtƒ@ƒCƒ‹–¼
-     * @param lineNo ƒGƒ‰[‚ª”­¶‚µ‚½ƒf[ƒ^‚Ìƒf[ƒ^•”“às”Ô†
-     * @param columnName ƒJƒ‰ƒ€–¼
-     * @param columnIndex ƒGƒ‰[‚ª”­¶‚µ‚½ƒJƒ‰ƒ€”Ô†
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * @param e åŸå› ä¾‹å¤–
+     * @param fileName ãƒ•ã‚¡ã‚¤ãƒ«å
+     * @param lineNo ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸãƒ‡ãƒ¼ã‚¿ã®ãƒ‡ãƒ¼ã‚¿éƒ¨å†…è¡Œç•ªå·
+     * @param columnName ã‚«ãƒ©ãƒ å
+     * @param columnIndex ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸã‚«ãƒ©ãƒ ç•ªå·
      */
     public FileLineException(Exception e, String fileName, int lineNo,
             String columnName, int columnIndex) {
@@ -121,13 +121,13 @@ public class FileLineException extends FileException {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-     * @param message ƒƒbƒZ[ƒW
-     * @param e Œ´ˆö—áŠO
-     * @param fileName ƒtƒ@ƒCƒ‹–¼
-     * @param lineNo ƒGƒ‰[‚ª”­¶‚µ‚½ƒf[ƒ^‚Ìƒf[ƒ^•”“às”Ô†
-     * @param columnName ƒJƒ‰ƒ€–¼
-     * @param columnIndex ƒGƒ‰[‚ª”­¶‚µ‚½ƒJƒ‰ƒ€”Ô†
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * @param message ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
+     * @param e åŸå› ä¾‹å¤–
+     * @param fileName ãƒ•ã‚¡ã‚¤ãƒ«å
+     * @param lineNo ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸãƒ‡ãƒ¼ã‚¿ã®ãƒ‡ãƒ¼ã‚¿éƒ¨å†…è¡Œç•ªå·
+     * @param columnName ã‚«ãƒ©ãƒ å
+     * @param columnIndex ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸã‚«ãƒ©ãƒ ç•ªå·
      */
     public FileLineException(String message, Exception e, String fileName,
             int lineNo, String columnName, int columnIndex) {
@@ -138,24 +138,24 @@ public class FileLineException extends FileException {
     }
 
     /**
-     * ƒJƒ‰ƒ€–¼‚ğæ“¾‚·‚éB
-     * @return ƒJƒ‰ƒ€–¼
+     * ã‚«ãƒ©ãƒ åã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return ã‚«ãƒ©ãƒ å
      */
     public String getColumnName() {
         return this.columnName;
     }
 
     /**
-     * ƒGƒ‰[‚ª”­¶‚µ‚½s‚Ìs”Ô†‚ğæ“¾‚·‚éB
-     * @return ƒGƒ‰[‚ª”­¶‚µ‚½s‚Ìs”Ô†
+     * ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸè¡Œã®è¡Œç•ªå·ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸè¡Œã®è¡Œç•ªå·
      */
     public int getLineNo() {
         return this.lineNo;
     }
 
     /**
-     * ƒGƒ‰[‚ª”­¶‚µ‚½ƒJƒ‰ƒ€‚ÌƒJƒ‰ƒ€”Ô†‚ğæ“¾‚·‚éB
-     * @return ƒGƒ‰[‚ª”­¶‚µ‚½ƒJƒ‰ƒ€‚ÌƒJƒ‰ƒ€”Ô†i0‚©‚çŠJnj
+     * ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸã‚«ãƒ©ãƒ ã®ã‚«ãƒ©ãƒ ç•ªå·ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸã‚«ãƒ©ãƒ ã®ã‚«ãƒ©ãƒ ç•ªå·ï¼ˆ0ã‹ã‚‰é–‹å§‹ï¼‰
      */
     public int getColumnIndex() {
         return columnIndex;

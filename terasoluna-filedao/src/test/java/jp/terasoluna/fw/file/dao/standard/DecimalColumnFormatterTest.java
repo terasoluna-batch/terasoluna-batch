@@ -17,26 +17,26 @@ import jp.terasoluna.utlib.UTUtil;
 import junit.framework.TestCase;
 
 /**
- * {@link jp.terasoluna.fw.file.dao.standard.DecimalColumnFormatter} ƒNƒ‰ƒX‚ÌƒeƒXƒgB
+ * {@link jp.terasoluna.fw.file.dao.standard.DecimalColumnFormatter} ã‚¯ãƒ©ã‚¹ã®ãƒ†ã‚¹ãƒˆã€‚
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4> ƒAƒmƒe[ƒVƒ‡ƒ“columnFormat‚Ì‹Lq‚É]‚¢A•¶š—ñ‚Ì•ÏŠ·ˆ—‚ğs‚¤B
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4> ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³columnFormatã®è¨˜è¿°ã«å¾“ã„ã€æ–‡å­—åˆ—ã®å¤‰æ›å‡¦ç†ã‚’è¡Œã†ã€‚
  * <p>
- * @author ‰œ“c “Ni
+ * @author å¥¥ç”° å“²å¸
  * @see jp.terasoluna.fw.file.dao.standard.DecimalColumnFormatter
  */
 public class DecimalColumnFormatterTest extends TestCase {
 
     /**
-     * ‚±‚ÌƒeƒXƒgƒP[ƒX‚ğÀs‚·‚éˆ×‚Ì GUI ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‹N“®‚·‚éB
-     * @param args java ƒRƒ}ƒ“ƒh‚Éİ’è‚³‚ê‚½ƒpƒ‰ƒ[ƒ^
+     * ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã‚’å®Ÿè¡Œã™ã‚‹ç‚ºã® GUI ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’èµ·å‹•ã™ã‚‹ã€‚
+     * @param args java ã‚³ãƒãƒ³ãƒ‰ã«è¨­å®šã•ã‚ŒãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public static void main(String[] args) {
         // junit.swingui.TestRunner.run(DecimalColumnFormatterTest.class);
     }
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -46,8 +46,8 @@ public class DecimalColumnFormatterTest extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -56,8 +56,8 @@ public class DecimalColumnFormatterTest extends TestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public DecimalColumnFormatterTest(String name) {
         super(name);
@@ -66,35 +66,35 @@ public class DecimalColumnFormatterTest extends TestCase {
     /**
      * testFormat01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC,E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) ‚”:ˆÈ‰º‚Ìî•ñ‚ğObjectƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * EƒtƒB[ƒ‹ƒh<br>
-     * - ƒtƒB[ƒ‹ƒh–¼Fdecimal01<br>
-     * - Œ^FBigDecimal<br>
-     * - İ’è’lFnew BigDecimal(1000000)<br>
-     * Eƒƒ\ƒbƒh<br>
-     * - ƒtƒB[ƒ‹ƒh‚É‘Î‚·‚égetterAsetterƒƒ\ƒbƒh‚ª‘¶İ‚·‚éB<br>
-     * ¦getterƒƒ\ƒbƒh‚Ì’è‹`‚Íˆø”method‚Ì‹Lq‚É]‚¤B<br>
-     * (ˆø”) method:‘ÎÛƒtƒB[ƒ‹ƒh‚É‘Î‚·‚égetterƒƒ\ƒbƒh‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E‰Â‹«Fpublic<br>
-     * Eˆø”F‚È‚µ<br>
-     * Eˆ—F‘ÎÛƒtƒB[ƒ‹‚Ìî•ñ‚ğ•Ô‚·B<br>
-     * (ˆø”) columnFormat:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) ï½”:ä»¥ä¸‹ã®æƒ…å ±ã‚’Objectã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰åï¼šdecimal01<br>
+     * - å‹ï¼šBigDecimal<br>
+     * - è¨­å®šå€¤ï¼šnew BigDecimal(1000000)<br>
+     * ãƒ»ãƒ¡ã‚½ãƒƒãƒ‰<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«å¯¾ã™ã‚‹getterã€setterãƒ¡ã‚½ãƒƒãƒ‰ãŒå­˜åœ¨ã™ã‚‹ã€‚<br>
+     * â€»getterãƒ¡ã‚½ãƒƒãƒ‰ã®å®šç¾©ã¯å¼•æ•°methodã®è¨˜è¿°ã«å¾“ã†ã€‚<br>
+     * (å¼•æ•°) method:å¯¾è±¡ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«å¯¾ã™ã‚‹getterãƒ¡ã‚½ãƒƒãƒ‰ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»å¯è¦–æ€§ï¼špublic<br>
+     * ãƒ»å¼•æ•°ï¼šãªã—<br>
+     * ãƒ»å‡¦ç†ï¼šå¯¾è±¡ãƒ•ã‚£ãƒ¼ãƒ«ã®æƒ…å ±ã‚’è¿”ã™ã€‚<br>
+     * (å¼•æ•°) columnFormat:null<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) •¶š—ñ:"1000000"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) æ–‡å­—åˆ—:"1000000"<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * ƒtƒH[ƒ}ƒbƒg—p‚Ì•¶š—ñ‚ªnull‚Ìê‡A ‚©‚ÂƒtƒB[ƒ‹ƒh‚Ìgetterƒƒ\ƒbƒh‚ª³‚µ‚­İ’è‚³‚ê‚Ä‚¢‚éê‡‚ÉA ‘ÎÛƒtƒB[ƒ‹ƒh‚Ìî•ñ‚ª”š‚Ì‚İ‚Ì•¶š—ñ(BigDecimal.toPlainString()‚ÌŒ‹‰Ê)
-     * ‚Æ‚µ‚Äæ“¾‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆç”¨ã®æ–‡å­—åˆ—ãŒnullã®å ´åˆã€ ã‹ã¤ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®getterãƒ¡ã‚½ãƒƒãƒ‰ãŒæ­£ã—ãè¨­å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã«ã€ å¯¾è±¡ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®æƒ…å ±ãŒæ•°å­—ã®ã¿ã®æ–‡å­—åˆ—(BigDecimal.toPlainString()ã®çµæœ)
+     * ã¨ã—ã¦å–å¾—ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testFormat01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DecimalColumnFormatter decimalColumnFormatter = new DecimalColumnFormatter();
 
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         DecimalColumnFormatter_FileLineObjectStub01 stub = new DecimalColumnFormatter_FileLineObjectStub01();
         stub.setDecimal01(new BigDecimal(1000000));
 
@@ -102,11 +102,11 @@ public class DecimalColumnFormatterTest extends TestCase {
 
         String columnFormat = null;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = decimalColumnFormatter.format(stub, method,
                 columnFormat);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertEquals("1000000", result);
     }
@@ -114,34 +114,34 @@ public class DecimalColumnFormatterTest extends TestCase {
     /**
      * testFormat02() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE <br>
      * <br>
-     * “ü—Í’lF(ˆø”) ‚”:ˆÈ‰º‚Ìî•ñ‚ğObjectƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * EƒtƒB[ƒ‹ƒh<br>
-     * - ƒtƒB[ƒ‹ƒh–¼Fdecimal02<br>
-     * - Œ^FBigDecimal<br>
-     * - İ’è’lFnew BigDecimal(1000000)<br>
-     * Eƒƒ\ƒbƒh<br>
-     * - ƒtƒB[ƒ‹ƒh‚É‘Î‚·‚égetterAsetterƒƒ\ƒbƒh‚ª‘¶İ‚·‚éB<br>
-     * ¦getterƒƒ\ƒbƒh‚Ì’è‹`‚Íˆø”method‚Ì‹Lq‚É]‚¤B<br>
-     * (ˆø”) method:‘ÎÛƒtƒB[ƒ‹ƒh‚É‘Î‚·‚égetterƒƒ\ƒbƒh‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E‰Â‹«Fpublic<br>
-     * Eˆø”F‚È‚µ<br>
-     * Eˆ—F‘ÎÛƒtƒB[ƒ‹‚Ìî•ñ‚ğ•Ô‚·B<br>
-     * (ˆø”) columnFormat:"\\##,###,###.00"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) ï½”:ä»¥ä¸‹ã®æƒ…å ±ã‚’Objectã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰åï¼šdecimal02<br>
+     * - å‹ï¼šBigDecimal<br>
+     * - è¨­å®šå€¤ï¼šnew BigDecimal(1000000)<br>
+     * ãƒ»ãƒ¡ã‚½ãƒƒãƒ‰<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«å¯¾ã™ã‚‹getterã€setterãƒ¡ã‚½ãƒƒãƒ‰ãŒå­˜åœ¨ã™ã‚‹ã€‚<br>
+     * â€»getterãƒ¡ã‚½ãƒƒãƒ‰ã®å®šç¾©ã¯å¼•æ•°methodã®è¨˜è¿°ã«å¾“ã†ã€‚<br>
+     * (å¼•æ•°) method:å¯¾è±¡ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«å¯¾ã™ã‚‹getterãƒ¡ã‚½ãƒƒãƒ‰ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»å¯è¦–æ€§ï¼špublic<br>
+     * ãƒ»å¼•æ•°ï¼šãªã—<br>
+     * ãƒ»å‡¦ç†ï¼šå¯¾è±¡ãƒ•ã‚£ãƒ¼ãƒ«ã®æƒ…å ±ã‚’è¿”ã™ã€‚<br>
+     * (å¼•æ•°) columnFormat:"\\##,###,###.00"<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) •¶š—ñ:"\\1,000,000.00"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) æ–‡å­—åˆ—:"\\1,000,000.00"<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * ƒtƒH[ƒ}ƒbƒg—p‚Ì•¶š—ñ‚ª³‚µ‚­İ’è‚³‚ê‚½ê‡A ‚©‚ÂƒtƒB[ƒ‹ƒh‚Ìgetterƒƒ\ƒbƒh‚ª³‚µ‚­İ’è‚³‚ê‚Ä‚¢‚éê‡‚ÉA ‘ÎÛƒtƒB[ƒ‹ƒh‚Ìî•ñ‚ªƒtƒH[ƒ}ƒbƒg‚É]‚Á‚½•¶š—ñ‚Æ‚µ‚Äæ“¾‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆç”¨ã®æ–‡å­—åˆ—ãŒæ­£ã—ãè¨­å®šã•ã‚ŒãŸå ´åˆã€ ã‹ã¤ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®getterãƒ¡ã‚½ãƒƒãƒ‰ãŒæ­£ã—ãè¨­å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã«ã€ å¯¾è±¡ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®æƒ…å ±ãŒãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã«å¾“ã£ãŸæ–‡å­—åˆ—ã¨ã—ã¦å–å¾—ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testFormat02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DecimalColumnFormatter decimalColumnFormatter = new DecimalColumnFormatter();
 
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         DecimalColumnFormatter_FileLineObjectStub01 stub = new DecimalColumnFormatter_FileLineObjectStub01();
         stub.setDecimal02(new BigDecimal(1000000));
 
@@ -149,11 +149,11 @@ public class DecimalColumnFormatterTest extends TestCase {
 
         String columnFormat = "\\##,###,###.00";
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = decimalColumnFormatter.format(stub, method,
                 columnFormat);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertEquals("\\1,000,000.00", result);
     }
@@ -161,34 +161,34 @@ public class DecimalColumnFormatterTest extends TestCase {
     /**
      * testFormat03() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) ‚”:ˆÈ‰º‚Ìî•ñ‚ğObjectƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * EƒtƒB[ƒ‹ƒh<br>
-     * - ƒtƒB[ƒ‹ƒh–¼Fdecimal03<br>
-     * - Œ^FBigDecimal<br>
-     * - İ’è’lFnew BigDecimal(1000000)<br>
-     * Eƒƒ\ƒbƒh<br>
-     * - ƒtƒB[ƒ‹ƒh‚É‘Î‚·‚égetterAsetterƒƒ\ƒbƒh‚ª‘¶İ‚·‚éB<br>
-     * ¦getterƒƒ\ƒbƒh‚Ì’è‹`‚Íˆø”method‚Ì‹Lq‚É]‚¤B<br>
-     * (ˆø”) method:‘ÎÛƒtƒB[ƒ‹ƒh‚É‘Î‚·‚égetterƒƒ\ƒbƒh‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E‰Â‹«Fprivate<br>
-     * Eˆø”F‚È‚µ<br>
-     * Eˆ—F‘ÎÛƒtƒB[ƒ‹‚Ìî•ñ‚ğ•Ô‚·B<br>
-     * (ˆø”) columnFormat:"\\##,###,###.00"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) ï½”:ä»¥ä¸‹ã®æƒ…å ±ã‚’Objectã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰åï¼šdecimal03<br>
+     * - å‹ï¼šBigDecimal<br>
+     * - è¨­å®šå€¤ï¼šnew BigDecimal(1000000)<br>
+     * ãƒ»ãƒ¡ã‚½ãƒƒãƒ‰<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«å¯¾ã™ã‚‹getterã€setterãƒ¡ã‚½ãƒƒãƒ‰ãŒå­˜åœ¨ã™ã‚‹ã€‚<br>
+     * â€»getterãƒ¡ã‚½ãƒƒãƒ‰ã®å®šç¾©ã¯å¼•æ•°methodã®è¨˜è¿°ã«å¾“ã†ã€‚<br>
+     * (å¼•æ•°) method:å¯¾è±¡ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«å¯¾ã™ã‚‹getterãƒ¡ã‚½ãƒƒãƒ‰ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»å¯è¦–æ€§ï¼šprivate<br>
+     * ãƒ»å¼•æ•°ï¼šãªã—<br>
+     * ãƒ»å‡¦ç†ï¼šå¯¾è±¡ãƒ•ã‚£ãƒ¼ãƒ«ã®æƒ…å ±ã‚’è¿”ã™ã€‚<br>
+     * (å¼•æ•°) columnFormat:"\\##,###,###.00"<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») -:IllegalAccessException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) -:IllegalAccessExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * ˆÙíƒP[ƒX<br>
-     * ƒtƒB[ƒ‹ƒh‚Ìgetterƒƒ\ƒbƒh‚ªprivate‚ÅéŒ¾‚³‚ê‚½ê‡A IllegalAccessException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚é <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®getterãƒ¡ã‚½ãƒƒãƒ‰ãŒprivateã§å®£è¨€ã•ã‚ŒãŸå ´åˆã€ IllegalAccessExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testFormat03() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DecimalColumnFormatter decimalColumnFormatter = new DecimalColumnFormatter();
 
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         DecimalColumnFormatter_FileLineObjectStub01 stub = new DecimalColumnFormatter_FileLineObjectStub01();
         stub.setDecimal03(new BigDecimal(1000000));
 
@@ -196,12 +196,12 @@ public class DecimalColumnFormatterTest extends TestCase {
 
         String columnFormat = "\\##,###,###.00";
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             decimalColumnFormatter.format(stub, method, columnFormat);
-            fail("IllegalAccessException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("IllegalAccessExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalAccessException e) {
-            // ”»’è
+            // åˆ¤å®š
             assertTrue(e instanceof IllegalAccessException);
         }
     }
@@ -209,34 +209,34 @@ public class DecimalColumnFormatterTest extends TestCase {
     /**
      * testFormat04() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) ‚”:ˆÈ‰º‚Ìî•ñ‚ğObjectƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * EƒtƒB[ƒ‹ƒh<br>
-     * - ƒtƒB[ƒ‹ƒh–¼Fdecimal04<br>
-     * - Œ^FBigDecimal<br>
-     * - İ’è’lFnew BigDecimal(1000000)<br>
-     * Eƒƒ\ƒbƒh<br>
-     * - ƒtƒB[ƒ‹ƒh‚É‘Î‚·‚égetterAsetterƒƒ\ƒbƒh‚ª‘¶İ‚·‚éB<br>
-     * ¦getterƒƒ\ƒbƒh‚Ì’è‹`‚Íˆø”method‚Ì‹Lq‚É]‚¤B<br>
-     * (ˆø”) method:‘ÎÛƒtƒB[ƒ‹ƒh‚É‘Î‚·‚égetterƒƒ\ƒbƒh‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E‰Â‹«Fpublic<br>
-     * Eˆø”F‚È‚µ<br>
-     * Eˆ—F—áŠO‚ª”­¶‚·‚éB<br>
-     * (ˆø”) columnFormat:"\\##,###,###.00"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) ï½”:ä»¥ä¸‹ã®æƒ…å ±ã‚’Objectã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰åï¼šdecimal04<br>
+     * - å‹ï¼šBigDecimal<br>
+     * - è¨­å®šå€¤ï¼šnew BigDecimal(1000000)<br>
+     * ãƒ»ãƒ¡ã‚½ãƒƒãƒ‰<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«å¯¾ã™ã‚‹getterã€setterãƒ¡ã‚½ãƒƒãƒ‰ãŒå­˜åœ¨ã™ã‚‹ã€‚<br>
+     * â€»getterãƒ¡ã‚½ãƒƒãƒ‰ã®å®šç¾©ã¯å¼•æ•°methodã®è¨˜è¿°ã«å¾“ã†ã€‚<br>
+     * (å¼•æ•°) method:å¯¾è±¡ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«å¯¾ã™ã‚‹getterãƒ¡ã‚½ãƒƒãƒ‰ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»å¯è¦–æ€§ï¼špublic<br>
+     * ãƒ»å¼•æ•°ï¼šãªã—<br>
+     * ãƒ»å‡¦ç†ï¼šä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * (å¼•æ•°) columnFormat:"\\##,###,###.00"<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») -:InvocationTargetException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) -:InvocationTargetExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * ˆÙíƒP[ƒX<br>
-     * ƒtƒB[ƒ‹ƒh‚Ìgetterƒƒ\ƒbƒhˆ—’†—áŠO‚ª”­¶‚µ‚½ê‡A InvocationTargetException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚é <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®getterãƒ¡ã‚½ãƒƒãƒ‰å‡¦ç†ä¸­ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€ InvocationTargetExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testFormat04() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DecimalColumnFormatter decimalColumnFormatter = new DecimalColumnFormatter();
 
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         DecimalColumnFormatter_FileLineObjectStub01 stub = new DecimalColumnFormatter_FileLineObjectStub01();
         stub.setDecimal04(new BigDecimal(1000000));
 
@@ -244,12 +244,12 @@ public class DecimalColumnFormatterTest extends TestCase {
 
         String columnFormat = "\\##,###,###.00";
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             decimalColumnFormatter.format(stub, method, columnFormat);
-            fail("InvocationTargetException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("InvocationTargetExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (InvocationTargetException e) {
-            // ”»’è
+            // åˆ¤å®š
             assertTrue(e instanceof InvocationTargetException);
         }
     }
@@ -257,34 +257,34 @@ public class DecimalColumnFormatterTest extends TestCase {
     /**
      * testFormat05() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) ‚”:ˆÈ‰º‚Ìî•ñ‚ğObjectƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * EƒtƒB[ƒ‹ƒh<br>
-     * - ƒtƒB[ƒ‹ƒh–¼Fdecimal05<br>
-     * - Œ^FBigDecimal<br>
-     * - İ’è’lFnew BigDecimal(1000000)<br>
-     * Eƒƒ\ƒbƒh<br>
-     * - ƒtƒB[ƒ‹ƒh‚É‘Î‚·‚égetterAsetterƒƒ\ƒbƒh‚ª‘¶İ‚·‚éB<br>
-     * ¦getterƒƒ\ƒbƒh‚Ì’è‹`‚Íˆø”method‚Ì‹Lq‚É]‚¤B<br>
-     * (ˆø”) method:‘ÎÛƒtƒB[ƒ‹ƒh‚É‘Î‚·‚égetterƒƒ\ƒbƒh‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E‰Â‹«Fpublic<br>
-     * Eˆø”F‚ ‚é<br>
-     * Eˆ—F‘ÎÛƒtƒB[ƒ‹‚Ìî•ñ‚ğ•Ô‚·B<br>
-     * (ˆø”) columnFormat:new String()<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) ï½”:ä»¥ä¸‹ã®æƒ…å ±ã‚’Objectã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰åï¼šdecimal05<br>
+     * - å‹ï¼šBigDecimal<br>
+     * - è¨­å®šå€¤ï¼šnew BigDecimal(1000000)<br>
+     * ãƒ»ãƒ¡ã‚½ãƒƒãƒ‰<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«å¯¾ã™ã‚‹getterã€setterãƒ¡ã‚½ãƒƒãƒ‰ãŒå­˜åœ¨ã™ã‚‹ã€‚<br>
+     * â€»getterãƒ¡ã‚½ãƒƒãƒ‰ã®å®šç¾©ã¯å¼•æ•°methodã®è¨˜è¿°ã«å¾“ã†ã€‚<br>
+     * (å¼•æ•°) method:å¯¾è±¡ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«å¯¾ã™ã‚‹getterãƒ¡ã‚½ãƒƒãƒ‰ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»å¯è¦–æ€§ï¼špublic<br>
+     * ãƒ»å¼•æ•°ï¼šã‚ã‚‹<br>
+     * ãƒ»å‡¦ç†ï¼šå¯¾è±¡ãƒ•ã‚£ãƒ¼ãƒ«ã®æƒ…å ±ã‚’è¿”ã™ã€‚<br>
+     * (å¼•æ•°) columnFormat:new String()<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») -:IllegalArgumentException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) -:IllegalArgumentExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * ˆÙíƒP[ƒX<br>
-     * ƒtƒB[ƒ‹ƒh‚Ìgetterƒƒ\ƒbƒh‚Æ‚µ‚Äˆø”‚È‚µ‚Ìƒƒ\ƒbƒh‚ª‘¶İ‚µ‚È‚¢ê‡A IllegalArgumentException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚é <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®getterãƒ¡ã‚½ãƒƒãƒ‰ã¨ã—ã¦å¼•æ•°ãªã—ã®ãƒ¡ã‚½ãƒƒãƒ‰ãŒå­˜åœ¨ã—ãªã„å ´åˆã€ IllegalArgumentExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testFormat05() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DecimalColumnFormatter decimalColumnFormatter = new DecimalColumnFormatter();
 
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         DecimalColumnFormatter_FileLineObjectStub01 stub = new DecimalColumnFormatter_FileLineObjectStub01();
         stub.setDecimal05(new BigDecimal(1000000));
 
@@ -293,12 +293,12 @@ public class DecimalColumnFormatterTest extends TestCase {
 
         String columnFormat = new String();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             decimalColumnFormatter.format(stub, method, columnFormat);
-            fail("IllegalArgumentException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("IllegalArgumentExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalArgumentException e) {
-            // ”»’è
+            // åˆ¤å®š
             assertTrue(e instanceof IllegalArgumentException);
         }
     }
@@ -306,34 +306,34 @@ public class DecimalColumnFormatterTest extends TestCase {
     /**
      * testFormat06() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC,E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) ‚”:ˆÈ‰º‚Ìî•ñ‚ğObjectƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * EƒtƒB[ƒ‹ƒh<br>
-     * - ƒtƒB[ƒ‹ƒh–¼Fdecimal06<br>
-     * - Œ^FBigDecimal<br>
-     * - İ’è’lFnull<br>
-     * Eƒƒ\ƒbƒh<br>
-     * - ƒtƒB[ƒ‹ƒh‚É‘Î‚·‚égetterAsetterƒƒ\ƒbƒh‚ª‘¶İ‚·‚éB<br>
-     * ¦getterƒƒ\ƒbƒh‚Ì’è‹`‚Íˆø”method‚Ì‹Lq‚É]‚¤B<br>
-     * (ˆø”) method:‘ÎÛƒtƒB[ƒ‹ƒh‚É‘Î‚·‚égetterƒƒ\ƒbƒh‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E‰Â‹«Fpublic<br>
-     * Eˆø”F‚È‚µ<br>
-     * Eˆ—F‘ÎÛƒtƒB[ƒ‹‚Ìî•ñ‚ğ•Ô‚·B<br>
-     * (ˆø”) columnFormat:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) ï½”:ä»¥ä¸‹ã®æƒ…å ±ã‚’Objectã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰åï¼šdecimal06<br>
+     * - å‹ï¼šBigDecimal<br>
+     * - è¨­å®šå€¤ï¼šnull<br>
+     * ãƒ»ãƒ¡ã‚½ãƒƒãƒ‰<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«å¯¾ã™ã‚‹getterã€setterãƒ¡ã‚½ãƒƒãƒ‰ãŒå­˜åœ¨ã™ã‚‹ã€‚<br>
+     * â€»getterãƒ¡ã‚½ãƒƒãƒ‰ã®å®šç¾©ã¯å¼•æ•°methodã®è¨˜è¿°ã«å¾“ã†ã€‚<br>
+     * (å¼•æ•°) method:å¯¾è±¡ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«å¯¾ã™ã‚‹getterãƒ¡ã‚½ãƒƒãƒ‰ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»å¯è¦–æ€§ï¼špublic<br>
+     * ãƒ»å¼•æ•°ï¼šãªã—<br>
+     * ãƒ»å‡¦ç†ï¼šå¯¾è±¡ãƒ•ã‚£ãƒ¼ãƒ«ã®æƒ…å ±ã‚’è¿”ã™ã€‚<br>
+     * (å¼•æ•°) columnFormat:null<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) •¶š—ñ:""<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) æ–‡å­—åˆ—:""<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌƒtƒB[ƒ‹ƒh’l‚ªnull‚Ìê‡A‹ó•¶š‚ªæ“¾‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å€¤ãŒnullã®å ´åˆã€ç©ºæ–‡å­—ãŒå–å¾—ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testFormat06() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DecimalColumnFormatter decimalColumnFormatter = new DecimalColumnFormatter();
 
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         DecimalColumnFormatter_FileLineObjectStub01 stub = new DecimalColumnFormatter_FileLineObjectStub01();
         stub.setDecimal06(null);
 
@@ -341,11 +341,11 @@ public class DecimalColumnFormatterTest extends TestCase {
 
         String columnFormat = null;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = decimalColumnFormatter.format(stub, method,
                 columnFormat);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertEquals("", result);
 
@@ -354,34 +354,34 @@ public class DecimalColumnFormatterTest extends TestCase {
     /**
      * testFormat07() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FC,E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC,E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) ‚”:ˆÈ‰º‚Ìî•ñ‚ğObjectƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * EƒtƒB[ƒ‹ƒh<br>
-     * - ƒtƒB[ƒ‹ƒh–¼Fdecimal07<br>
-     * - Œ^FBigDecimal<br>
-     * - İ’è’lFnew BigDecimal(1000000)<br>
-     * Eƒƒ\ƒbƒh<br>
-     * - ƒtƒB[ƒ‹ƒh‚É‘Î‚·‚égetterAsetterƒƒ\ƒbƒh‚ª‘¶İ‚·‚éB<br>
-     * ¦getterƒƒ\ƒbƒh‚Ì’è‹`‚Íˆø”method‚Ì‹Lq‚É]‚¤B<br>
-     * (ˆø”) method:‘ÎÛƒtƒB[ƒ‹ƒh‚É‘Î‚·‚égetterƒƒ\ƒbƒh‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E‰Â‹«Fpublic<br>
-     * Eˆø”F‚È‚µ<br>
-     * Eˆ—F‘ÎÛƒtƒB[ƒ‹‚Ìî•ñ‚ğ•Ô‚·B<br>
-     * (ˆø”) columnFormat:""<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) ï½”:ä»¥ä¸‹ã®æƒ…å ±ã‚’Objectã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰åï¼šdecimal07<br>
+     * - å‹ï¼šBigDecimal<br>
+     * - è¨­å®šå€¤ï¼šnew BigDecimal(1000000)<br>
+     * ãƒ»ãƒ¡ã‚½ãƒƒãƒ‰<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«å¯¾ã™ã‚‹getterã€setterãƒ¡ã‚½ãƒƒãƒ‰ãŒå­˜åœ¨ã™ã‚‹ã€‚<br>
+     * â€»getterãƒ¡ã‚½ãƒƒãƒ‰ã®å®šç¾©ã¯å¼•æ•°methodã®è¨˜è¿°ã«å¾“ã†ã€‚<br>
+     * (å¼•æ•°) method:å¯¾è±¡ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«å¯¾ã™ã‚‹getterãƒ¡ã‚½ãƒƒãƒ‰ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»å¯è¦–æ€§ï¼špublic<br>
+     * ãƒ»å¼•æ•°ï¼šãªã—<br>
+     * ãƒ»å‡¦ç†ï¼šå¯¾è±¡ãƒ•ã‚£ãƒ¼ãƒ«ã®æƒ…å ±ã‚’è¿”ã™ã€‚<br>
+     * (å¼•æ•°) columnFormat:""<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) •¶š—ñ:"1000000"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) æ–‡å­—åˆ—:"1000000"<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * ƒtƒH[ƒ}ƒbƒg—p‚Ì•¶š—ñ‚ª‹ó•¶š‚Ìê‡A‚©‚ÂƒtƒB[ƒ‹ƒh‚Ìgetterƒƒ\ƒbƒh‚ª ³‚µ‚­İ’è‚³‚ê‚Ä‚¢‚éê‡‚ÉA‘ÎÛƒtƒB[ƒ‹ƒh‚Ìî•ñ‚ª”š‚Ì‚İ‚Ì•¶š—ñ (BigDecimal.toPlainString()‚ÌŒ‹‰Ê)‚Æ‚µ‚Äæ“¾‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆç”¨ã®æ–‡å­—åˆ—ãŒç©ºæ–‡å­—ã®å ´åˆã€ã‹ã¤ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®getterãƒ¡ã‚½ãƒƒãƒ‰ãŒ æ­£ã—ãè¨­å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã«ã€å¯¾è±¡ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®æƒ…å ±ãŒæ•°å­—ã®ã¿ã®æ–‡å­—åˆ— (BigDecimal.toPlainString()ã®çµæœ)ã¨ã—ã¦å–å¾—ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testFormat07() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DecimalColumnFormatter decimalColumnFormatter = new DecimalColumnFormatter();
 
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         DecimalColumnFormatter_FileLineObjectStub01 stub = new DecimalColumnFormatter_FileLineObjectStub01();
         stub.setDecimal07(new BigDecimal(1000000));
 
@@ -389,11 +389,11 @@ public class DecimalColumnFormatterTest extends TestCase {
 
         String columnFormat = "";
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = decimalColumnFormatter.format(stub, method,
                 columnFormat);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertEquals("1000000", result);
     }
@@ -401,40 +401,40 @@ public class DecimalColumnFormatterTest extends TestCase {
     /**
      * testFormat08() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE <br>
      * <br>
-     * “ü—Í’lF(ˆø”) ‚”:ˆÈ‰º‚Ìî•ñ‚ğObjectƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * EƒtƒB[ƒ‹ƒh<br>
-     * - ƒtƒB[ƒ‹ƒh–¼Fdecimal08<br>
-     * - Œ^FBigDecimal<br>
-     * - İ’è’lFnew BigDecimal(1000000)<br>
-     * Eƒƒ\ƒbƒh<br>
-     * - ƒtƒB[ƒ‹ƒh‚É‘Î‚·‚égetterAsetterƒƒ\ƒbƒh‚ª‘¶İ‚·‚éB<br>
-     * ¦getterƒƒ\ƒbƒh‚Ì’è‹`‚Íˆø”method‚Ì‹Lq‚É]‚¤B<br>
-     * (ˆø”) method:‘ÎÛƒtƒB[ƒ‹ƒh‚É‘Î‚·‚égetterƒƒ\ƒbƒh‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E‰Â‹«Fpublic<br>
-     * Eˆø”F‚È‚µ<br>
-     * Eˆ—F‘ÎÛƒtƒB[ƒ‹‚Ìî•ñ‚ğ•Ô‚·B<br>
-     * (ˆø”) columnFormat:"\\##,###,###.00"<br>
-     * (ó‘Ô) dfMap:—v‘f‚ğ‚½‚È‚¢ConcurrentHashMapƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) ï½”:ä»¥ä¸‹ã®æƒ…å ±ã‚’Objectã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰åï¼šdecimal08<br>
+     * - å‹ï¼šBigDecimal<br>
+     * - è¨­å®šå€¤ï¼šnew BigDecimal(1000000)<br>
+     * ãƒ»ãƒ¡ã‚½ãƒƒãƒ‰<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«å¯¾ã™ã‚‹getterã€setterãƒ¡ã‚½ãƒƒãƒ‰ãŒå­˜åœ¨ã™ã‚‹ã€‚<br>
+     * â€»getterãƒ¡ã‚½ãƒƒãƒ‰ã®å®šç¾©ã¯å¼•æ•°methodã®è¨˜è¿°ã«å¾“ã†ã€‚<br>
+     * (å¼•æ•°) method:å¯¾è±¡ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«å¯¾ã™ã‚‹getterãƒ¡ã‚½ãƒƒãƒ‰ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»å¯è¦–æ€§ï¼špublic<br>
+     * ãƒ»å¼•æ•°ï¼šãªã—<br>
+     * ãƒ»å‡¦ç†ï¼šå¯¾è±¡ãƒ•ã‚£ãƒ¼ãƒ«ã®æƒ…å ±ã‚’è¿”ã™ã€‚<br>
+     * (å¼•æ•°) columnFormat:"\\##,###,###.00"<br>
+     * (çŠ¶æ…‹) dfMap:è¦ç´ ã‚’æŒãŸãªã„ConcurrentHashMapã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) •¶š—ñ:"\\1,000,000.00"<br>
-     * (ó‘Ô•Ï‰») dfMap:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂConcurrentHashMapƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * EkeyF"\\##,###,###.00"<br>
-     * valueFƒL[‚É‘Î‚·‚éDecimalFormatLocalƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô•Ï‰») DecimalFormatLocal#<init>:1‰ñŒÄ‚Î‚ê‚é<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) æ–‡å­—åˆ—:"\\1,000,000.00"<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) dfMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤ConcurrentHashMapã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»keyï¼š"\\##,###,###.00"<br>
+     * valueï¼šã‚­ãƒ¼ã«å¯¾ã™ã‚‹DecimalFormatLocalã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) DecimalFormatLocal#<init>:1å›å‘¼ã°ã‚Œã‚‹<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * ƒtƒH[ƒ}ƒbƒg—p‚Ì•¶š—ñ‚É‘Î‚·‚éDecimalFormatLocal‚ªƒLƒƒƒbƒVƒ…‚É‘¶İ‚µ‚È‚¢ê‡A –â‘è‚È‚­Às‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * ‚Ü‚½AV‚µ‚­¶¬‚³‚ê‚½ƒtƒH[ƒ}ƒbƒg—p‚Ì•¶š—ñ‚É‘Î‚·‚é DecimalFormatLocal‚ªƒLƒƒƒbƒVƒ…‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆç”¨ã®æ–‡å­—åˆ—ã«å¯¾ã™ã‚‹DecimalFormatLocalãŒã‚­ãƒ£ãƒƒã‚·ãƒ¥ã«å­˜åœ¨ã—ãªã„å ´åˆã€ å•é¡Œãªãå®Ÿè¡Œã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * ã¾ãŸã€æ–°ã—ãç”Ÿæˆã•ã‚ŒãŸãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆç”¨ã®æ–‡å­—åˆ—ã«å¯¾ã™ã‚‹ DecimalFormatLocalãŒã‚­ãƒ£ãƒƒã‚·ãƒ¥ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testFormat08() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DecimalColumnFormatter decimalColumnFormatter = new DecimalColumnFormatter();
 
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         DecimalColumnFormatter_FileLineObjectStub01 stub = new DecimalColumnFormatter_FileLineObjectStub01();
         stub.setDecimal08(new BigDecimal(1000000));
 
@@ -446,11 +446,11 @@ public class DecimalColumnFormatterTest extends TestCase {
         UTUtil.setPrivateField(decimalColumnFormatter, "dfMap", dfMap);
         dfMap.clear();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = decimalColumnFormatter.format(stub, method,
                 columnFormat);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertEquals("\\1,000,000.00", result);
 
@@ -470,42 +470,42 @@ public class DecimalColumnFormatterTest extends TestCase {
     /**
      * testFormat09() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE <br>
      * <br>
-     * “ü—Í’lF(ˆø”) ‚”:ˆÈ‰º‚Ìî•ñ‚ğObjectƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * EƒtƒB[ƒ‹ƒh<br>
-     * - ƒtƒB[ƒ‹ƒh–¼Fdecimal09<br>
-     * - Œ^FBigDecimal<br>
-     * - İ’è’lFnew BigDecimal(1000000)<br>
-     * Eƒƒ\ƒbƒh<br>
-     * - ƒtƒB[ƒ‹ƒh‚É‘Î‚·‚égetterAsetterƒƒ\ƒbƒh‚ª‘¶İ‚·‚éB<br>
-     * ¦getterƒƒ\ƒbƒh‚Ì’è‹`‚Íˆø”method‚Ì‹Lq‚É]‚¤B<br>
-     * (ˆø”) method:‘ÎÛƒtƒB[ƒ‹ƒh‚É‘Î‚·‚égetterƒƒ\ƒbƒh‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E‰Â‹«Fpublic<br>
-     * Eˆø”F‚È‚µ<br>
-     * Eˆ—F‘ÎÛƒtƒB[ƒ‹‚Ìî•ñ‚ğ•Ô‚·B<br>
-     * (ˆø”) columnFormat:"\\##,###,###.00"<br>
-     * (ó‘Ô) dfMap:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂConcurrentHashMapƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * EkeyF"\\##,###,###.00"<br>
-     * valueFƒL[‚É‘Î‚·‚éDecimalFormatLocalƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) ï½”:ä»¥ä¸‹ã®æƒ…å ±ã‚’Objectã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰åï¼šdecimal09<br>
+     * - å‹ï¼šBigDecimal<br>
+     * - è¨­å®šå€¤ï¼šnew BigDecimal(1000000)<br>
+     * ãƒ»ãƒ¡ã‚½ãƒƒãƒ‰<br>
+     * - ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«å¯¾ã™ã‚‹getterã€setterãƒ¡ã‚½ãƒƒãƒ‰ãŒå­˜åœ¨ã™ã‚‹ã€‚<br>
+     * â€»getterãƒ¡ã‚½ãƒƒãƒ‰ã®å®šç¾©ã¯å¼•æ•°methodã®è¨˜è¿°ã«å¾“ã†ã€‚<br>
+     * (å¼•æ•°) method:å¯¾è±¡ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«å¯¾ã™ã‚‹getterãƒ¡ã‚½ãƒƒãƒ‰ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»å¯è¦–æ€§ï¼špublic<br>
+     * ãƒ»å¼•æ•°ï¼šãªã—<br>
+     * ãƒ»å‡¦ç†ï¼šå¯¾è±¡ãƒ•ã‚£ãƒ¼ãƒ«ã®æƒ…å ±ã‚’è¿”ã™ã€‚<br>
+     * (å¼•æ•°) columnFormat:"\\##,###,###.00"<br>
+     * (çŠ¶æ…‹) dfMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤ConcurrentHashMapã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»keyï¼š"\\##,###,###.00"<br>
+     * valueï¼šã‚­ãƒ¼ã«å¯¾ã™ã‚‹DecimalFormatLocalã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) •¶š—ñ:"\\1,000,000.00"<br>
-     * (ó‘Ô•Ï‰») dfMap:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂConcurrentHashMapƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * EkeyF"\\##,###,###.00"<br>
-     * valueFƒL[‚É‘Î‚·‚éDecimalFormatLocalƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô•Ï‰») DecimalFormatLocal#<init>:ŒÄ‚Î‚ê‚È‚¢<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) æ–‡å­—åˆ—:"\\1,000,000.00"<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) dfMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤ConcurrentHashMapã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»keyï¼š"\\##,###,###.00"<br>
+     * valueï¼šã‚­ãƒ¼ã«å¯¾ã™ã‚‹DecimalFormatLocalã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) DecimalFormatLocal#<init>:å‘¼ã°ã‚Œãªã„<br>
      * <br>
-     * ³íƒP[ƒX<br>
-     * ƒtƒH[ƒ}ƒbƒg—p‚Ì•¶š—ñ‚É‘Î‚·‚éDecimalFormatLocal‚ªƒLƒƒƒbƒVƒ…‚É‘¶İ‚·‚éê‡A –â‘è‚È‚­Às‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * ‚Ü‚½AƒtƒH[ƒ}ƒbƒg—p‚Ì•¶š—ñ‚É‘Î‚·‚éDecimalFormatLocal‚ªV‚µ‚­¶¬‚³‚ê‚È‚¢‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ã‚±ãƒ¼ã‚¹<br>
+     * ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆç”¨ã®æ–‡å­—åˆ—ã«å¯¾ã™ã‚‹DecimalFormatLocalãŒã‚­ãƒ£ãƒƒã‚·ãƒ¥ã«å­˜åœ¨ã™ã‚‹å ´åˆã€ å•é¡Œãªãå®Ÿè¡Œã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * ã¾ãŸã€ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆç”¨ã®æ–‡å­—åˆ—ã«å¯¾ã™ã‚‹DecimalFormatLocalãŒæ–°ã—ãç”Ÿæˆã•ã‚Œãªã„ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testFormat09() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DecimalColumnFormatter decimalColumnFormatter = new DecimalColumnFormatter();
 
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         DecimalColumnFormatter_FileLineObjectStub01 stub = new DecimalColumnFormatter_FileLineObjectStub01();
         stub.setDecimal09(new BigDecimal(1000000));
 
@@ -520,11 +520,11 @@ public class DecimalColumnFormatterTest extends TestCase {
 
         VMOUTUtil.initialize();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = decimalColumnFormatter.format(stub, method,
                 columnFormat);
 
-        // ”»’è
+        // åˆ¤å®š
         assertNotNull(result);
         assertEquals("\\1,000,000.00", result);
 

@@ -6,8 +6,8 @@ import java.util.Date;
 import jp.terasoluna.fw.collector.util.strategy.CompareStrategy;
 
 /**
- * Date‚ğHour‚Ì¸“x‚Å”äŠr‚·‚éCompareStrategyB
- * (‚±‚ÌƒXƒ^ƒu‚ÍAƒXƒŒƒbƒhŠÔ‚Å‹¤—L‚µ‚Ä‚Í‚È‚ç‚È‚¢B)
+ * Dateã‚’Hourã®ç²¾åº¦ã§æ¯”è¼ƒã™ã‚‹CompareStrategyã€‚
+ * (ã“ã®ã‚¹ã‚¿ãƒ–ã¯ã€ã‚¹ãƒ¬ãƒƒãƒ‰é–“ã§å…±æœ‰ã—ã¦ã¯ãªã‚‰ãªã„ã€‚)
  */
 public class CompareStrategyStub3 implements CompareStrategy<Date> {
 

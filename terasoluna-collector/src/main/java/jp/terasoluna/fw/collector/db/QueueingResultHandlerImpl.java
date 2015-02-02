@@ -25,7 +25,7 @@ import jp.terasoluna.fw.logger.TLogger;
 import org.apache.ibatis.session.ResultContext;
 
 /**
- * QueueingResultHandler‚ÌÀ‘•ƒNƒ‰ƒX<br>
+ * QueueingResultHandlerã®å®Ÿè£…ã‚¯ãƒ©ã‚¹<br>
  */
 public class QueueingResultHandlerImpl implements QueueingResultHandler {
 
@@ -35,18 +35,18 @@ public class QueueingResultHandlerImpl implements QueueingResultHandler {
     private static final TLogger LOGGER = TLogger
             .getLogger(QueueingResultHandlerImpl.class);
 
-    /** ç’·ƒƒOo—Íƒtƒ‰ƒO. */
+    /** å†—é•·ãƒ­ã‚°å‡ºåŠ›ãƒ•ãƒ©ã‚°. */
     protected static AtomicBoolean verboseLog = new AtomicBoolean(false);
 
     /**
-     * ‘O‰ñhandleResultƒƒ\ƒbƒh‚É“n‚³‚ê‚½ƒIƒuƒWƒFƒNƒg
+     * å‰å›handleResultãƒ¡ã‚½ãƒƒãƒ‰ã«æ¸¡ã•ã‚ŒãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      */
     protected Object prevRow = null;
 
     /** DaoCollector */
     protected DaoCollector<?> daoCollector = null;
 
-    /** ƒf[ƒ^ƒJƒEƒ“ƒg */
+    /** ãƒ‡ãƒ¼ã‚¿ã‚«ã‚¦ãƒ³ãƒˆ */
     protected AtomicLong dataCount = new AtomicLong(0);
 
     /*
@@ -56,7 +56,7 @@ public class QueueingResultHandlerImpl implements QueueingResultHandler {
     public void handleResult(ResultContext context) {
         delayCollect();
         if (Thread.currentThread().isInterrupted()) {
-            // Š„‚è‚İ‚ª”­¶‚µ‚½‚çƒLƒ…[‚ğƒXƒLƒbƒv‚·‚é
+            // å‰²ã‚Šè¾¼ã¿ãŒç™ºç”Ÿã—ãŸã‚‰ã‚­ãƒ¥ãƒ¼ã‚’ã‚¹ã‚­ãƒƒãƒ—ã™ã‚‹
             if (verboseLog.get()) {
                 LOGGER.trace(LogId.TAL041003);
             }
@@ -67,7 +67,7 @@ public class QueueingResultHandlerImpl implements QueueingResultHandler {
     }
 
     /**
-     * ‘O‰ñhandleResultƒƒ\ƒbƒh‚É“n‚³‚ê‚½<code>Row</code>ƒf[ƒ^‚ğƒLƒ…[‚ÉŠi”[‚·‚éB
+     * å‰å›handleResultãƒ¡ã‚½ãƒƒãƒ‰ã«æ¸¡ã•ã‚ŒãŸ<code>Row</code>ãƒ‡ãƒ¼ã‚¿ã‚’ã‚­ãƒ¥ãƒ¼ã«æ ¼ç´ã™ã‚‹ã€‚
      */
     public void delayCollect() {
         if (this.prevRow == null) {
@@ -78,7 +78,7 @@ public class QueueingResultHandlerImpl implements QueueingResultHandler {
         }
         try {
             if (this.daoCollector != null) {
-                // æ“¾‚µ‚½ƒIƒuƒWƒFƒNƒg‚ğ1ŒƒLƒ…[‚É‚Â‚ß‚é
+                // å–å¾—ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’1ä»¶ã‚­ãƒ¥ãƒ¼ã«ã¤ã‚ã‚‹
                 this.daoCollector.addQueue(new DataValueObject(
                         this.prevRow, this.dataCount.incrementAndGet()));
             }
@@ -87,14 +87,14 @@ public class QueueingResultHandlerImpl implements QueueingResultHandler {
                 LOGGER.trace(LogId.TAL041002, Thread.currentThread()
                         .getName());
             }
-            // InterruptedException”­¶‚É‚æ‚èƒXƒŒƒbƒh‚ÌuŠ„‚è‚İó‘Ôv‚ÍƒNƒŠƒA‚³‚ê‚éB
-            // ŒÄ‚Ño‚µŒ³‚ÉŠ„‚è‚İ‚ª”­¶‚µ‚½‚±‚Æ‚ğ’Ê’m‚·‚é•K—v‚ª‚ ‚é‚½‚ßAuŠ„‚è‚İó‘Ôv‚ğÄ“x•Û‘¶‚·‚éB
+            // InterruptedExceptionç™ºç”Ÿã«ã‚ˆã‚Šã‚¹ãƒ¬ãƒƒãƒ‰ã®ã€Œå‰²ã‚Šè¾¼ã¿çŠ¶æ…‹ã€ã¯ã‚¯ãƒªã‚¢ã•ã‚Œã‚‹ã€‚
+            // å‘¼ã³å‡ºã—å…ƒã«å‰²ã‚Šè¾¼ã¿ãŒç™ºç”Ÿã—ãŸã“ã¨ã‚’é€šçŸ¥ã™ã‚‹å¿…è¦ãŒã‚ã‚‹ãŸã‚ã€ã€Œå‰²ã‚Šè¾¼ã¿çŠ¶æ…‹ã€ã‚’å†åº¦ä¿å­˜ã™ã‚‹ã€‚
             Thread.currentThread().interrupt();
         }
     }
 
     /**
-     * DaoCollector‚ğİ’è‚·‚éB<br>
+     * DaoCollectorã‚’è¨­å®šã™ã‚‹ã€‚<br>
      * @param daoCollector DaoCollector&lt;?&gt;
      */
     public void setDaoCollector(DaoCollector<?> daoCollector) {
@@ -102,8 +102,8 @@ public class QueueingResultHandlerImpl implements QueueingResultHandler {
     }
 
     /**
-     * ç’·ƒƒOo—Íƒtƒ‰ƒO‚ğİ’è‚·‚éB
-     * @param verbose ç’·ƒƒOo—Íƒtƒ‰ƒO
+     * å†—é•·ãƒ­ã‚°å‡ºåŠ›ãƒ•ãƒ©ã‚°ã‚’è¨­å®šã™ã‚‹ã€‚
+     * @param verbose å†—é•·ãƒ­ã‚°å‡ºåŠ›ãƒ•ãƒ©ã‚°
      */
     public static void setVerbose(boolean verbose) {
         verboseLog.set(verbose);

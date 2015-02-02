@@ -20,36 +20,36 @@ import jp.terasoluna.fw.batch.util.BatchUtil;
 import jp.terasoluna.fw.batch.util.MessageUtil;
 
 /**
- * ƒoƒbƒ`—áŠOB<br>
+ * ãƒãƒƒãƒä¾‹å¤–ã€‚<br>
  * <br>
- * ƒoƒbƒ`Às‚É”­¶‚µ‚½—áŠOî•ñ‚ğ•Û‚·‚éB
+ * ãƒãƒƒãƒå®Ÿè¡Œæ™‚ã«ç™ºç”Ÿã—ãŸä¾‹å¤–æƒ…å ±ã‚’ä¿æŒã™ã‚‹ã€‚
  */
 public class BatchException extends RuntimeException {
 
     /**
-     * ƒVƒŠƒAƒ‹ƒo[ƒWƒ‡ƒ“ID
+     * ã‚·ãƒªã‚¢ãƒ«ãƒãƒ¼ã‚¸ãƒ§ãƒ³ID
      */
     private static final long serialVersionUID = 7677068837918514733L;
 
     /**
-     * ƒƒbƒZ[ƒWID
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ID
      */
     private String messageId = null;
 
     /**
-     * —áŠOî•ñ“Á’è‚Ì‚½‚ß‚Ìƒpƒ‰ƒ[ƒ^
+     * ä¾‹å¤–æƒ…å ±ç‰¹å®šã®ãŸã‚ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     private Object[] params = null;
 
     /**
-     * BatchException‚ğ¶¬‚·‚é
+     * BatchExceptionã‚’ç”Ÿæˆã™ã‚‹
      */
     public BatchException() {
         super();
     }
 
     /**
-     * BatchException‚ğ¶¬‚·‚é
+     * BatchExceptionã‚’ç”Ÿæˆã™ã‚‹
      * @param message
      */
     public BatchException(String message) {
@@ -57,7 +57,7 @@ public class BatchException extends RuntimeException {
     }
 
     /**
-     * BatchException‚ğ¶¬‚·‚é
+     * BatchExceptionã‚’ç”Ÿæˆã™ã‚‹
      * @param message
      * @param cause
      */
@@ -66,7 +66,7 @@ public class BatchException extends RuntimeException {
     }
 
     /**
-     * BatchException‚ğ¶¬‚·‚é
+     * BatchExceptionã‚’ç”Ÿæˆã™ã‚‹
      * @param cause
      */
     public BatchException(Throwable cause) {
@@ -74,9 +74,9 @@ public class BatchException extends RuntimeException {
     }
 
     /**
-     * BatchException‚ğ¶¬‚·‚é
-     * @param messageId ƒGƒ‰[ƒR[ƒh
-     * @param message ƒGƒ‰[ƒƒbƒZ[ƒW
+     * BatchExceptionã‚’ç”Ÿæˆã™ã‚‹
+     * @param messageId ã‚¨ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰
+     * @param message ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
      */
     public BatchException(String messageId, String message) {
         super(message);
@@ -85,10 +85,10 @@ public class BatchException extends RuntimeException {
     }
 
     /**
-     * BatchException‚ğ¶¬‚·‚é
-     * @param messageId ƒƒbƒZ[ƒWID
-     * @param message ƒGƒ‰[ƒƒbƒZ[ƒW
-     * @param cause Œ´ˆö‚Æ‚È‚Á‚½—áŠO
+     * BatchExceptionã‚’ç”Ÿæˆã™ã‚‹
+     * @param messageId ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ID
+     * @param message ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
+     * @param cause åŸå› ã¨ãªã£ãŸä¾‹å¤–
      */
     public BatchException(String messageId, String message, Throwable cause) {
         super(message, cause);
@@ -97,10 +97,10 @@ public class BatchException extends RuntimeException {
     }
 
     /**
-     * BatchException‚ğ¶¬‚·‚é
-     * @param messageId ƒƒbƒZ[ƒWID
-     * @param message ƒGƒ‰[ƒƒbƒZ[ƒW
-     * @param params —áŠOî•ñ“Á’è‚Ì‚½‚ß‚Ìƒpƒ‰ƒ[ƒ^
+     * BatchExceptionã‚’ç”Ÿæˆã™ã‚‹
+     * @param messageId ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ID
+     * @param message ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
+     * @param params ä¾‹å¤–æƒ…å ±ç‰¹å®šã®ãŸã‚ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public BatchException(String messageId, String message, Object... params) {
         super(message);
@@ -110,11 +110,11 @@ public class BatchException extends RuntimeException {
     }
 
     /**
-     * BatchException‚ğ¶¬‚·‚é
-     * @param messageId ƒƒbƒZ[ƒWID
-     * @param message ƒGƒ‰[ƒƒbƒZ[ƒW
-     * @param cause Œ´ˆö‚Æ‚È‚Á‚½—áŠO
-     * @param params —áŠOî•ñ“Á’è‚Ì‚½‚ß‚Ìƒpƒ‰ƒ[ƒ^
+     * BatchExceptionã‚’ç”Ÿæˆã™ã‚‹
+     * @param messageId ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ID
+     * @param message ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
+     * @param cause åŸå› ã¨ãªã£ãŸä¾‹å¤–
+     * @param params ä¾‹å¤–æƒ…å ±ç‰¹å®šã®ãŸã‚ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public BatchException(String messageId, String message, Throwable cause,
             Object... params) {
@@ -125,19 +125,19 @@ public class BatchException extends RuntimeException {
     }
 
     /**
-     * BatchException‚Ìƒtƒ@ƒNƒgƒŠƒƒ\ƒbƒh
-     * @param messageId ƒƒbƒZ[ƒWID
-     * @return ˆø”‚Ì“à—e‚Åì¬‚³‚ê‚½BatchExceptionƒCƒ“ƒXƒ^ƒ“ƒX
+     * BatchExceptionã®ãƒ•ã‚¡ã‚¯ãƒˆãƒªãƒ¡ã‚½ãƒƒãƒ‰
+     * @param messageId ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ID
+     * @return å¼•æ•°ã®å†…å®¹ã§ä½œæˆã•ã‚ŒãŸBatchExceptionã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
      */
     public static BatchException createException(String messageId) {
         return new BatchException(messageId, MessageUtil.getMessage(messageId));
     }
 
     /**
-     * BatchException‚Ìƒtƒ@ƒNƒgƒŠƒƒ\ƒbƒh
-     * @param messageId ƒƒbƒZ[ƒWID
-     * @param params —áŠOî•ñ“Á’è‚Ì‚½‚ß‚Ìƒpƒ‰ƒ[ƒ^
-     * @return ˆø”‚Ì“à—e‚Åì¬‚³‚ê‚½BatchExceptionƒCƒ“ƒXƒ^ƒ“ƒX
+     * BatchExceptionã®ãƒ•ã‚¡ã‚¯ãƒˆãƒªãƒ¡ã‚½ãƒƒãƒ‰
+     * @param messageId ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ID
+     * @param params ä¾‹å¤–æƒ…å ±ç‰¹å®šã®ãŸã‚ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
+     * @return å¼•æ•°ã®å†…å®¹ã§ä½œæˆã•ã‚ŒãŸBatchExceptionã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
      */
     public static BatchException createException(String messageId,
             Object... params) {
@@ -146,10 +146,10 @@ public class BatchException extends RuntimeException {
     }
 
     /**
-     * BatchException‚Ìƒtƒ@ƒNƒgƒŠƒƒ\ƒbƒh
-     * @param messageId ƒƒbƒZ[ƒWID
-     * @param cause Œ´ˆö‚Æ‚È‚Á‚½—áŠO
-     * @return ˆø”‚Ì“à—e‚Åì¬‚³‚ê‚½BatchExceptionƒCƒ“ƒXƒ^ƒ“ƒX
+     * BatchExceptionã®ãƒ•ã‚¡ã‚¯ãƒˆãƒªãƒ¡ã‚½ãƒƒãƒ‰
+     * @param messageId ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ID
+     * @param cause åŸå› ã¨ãªã£ãŸä¾‹å¤–
+     * @return å¼•æ•°ã®å†…å®¹ã§ä½œæˆã•ã‚ŒãŸBatchExceptionã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
      */
     public static BatchException createException(String messageId,
             Throwable cause) {
@@ -158,11 +158,11 @@ public class BatchException extends RuntimeException {
     }
 
     /**
-     * BatchException‚Ìƒtƒ@ƒNƒgƒŠƒƒ\ƒbƒh
-     * @param messageId ƒƒbƒZ[ƒWID
-     * @param cause Œ´ˆö‚Æ‚È‚Á‚½—áŠO
-     * @param params —áŠOî•ñ“Á’è‚Ì‚½‚ß‚Ìƒpƒ‰ƒ[ƒ^
-     * @return ˆø”‚Ì“à—e‚Åì¬‚³‚ê‚½BatchExceptionƒCƒ“ƒXƒ^ƒ“ƒX
+     * BatchExceptionã®ãƒ•ã‚¡ã‚¯ãƒˆãƒªãƒ¡ã‚½ãƒƒãƒ‰
+     * @param messageId ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ID
+     * @param cause åŸå› ã¨ãªã£ãŸä¾‹å¤–
+     * @param params ä¾‹å¤–æƒ…å ±ç‰¹å®šã®ãŸã‚ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
+     * @return å¼•æ•°ã®å†…å®¹ã§ä½œæˆã•ã‚ŒãŸBatchExceptionã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
      */
     public static BatchException createException(String messageId,
             Throwable cause, Object... params) {
@@ -171,8 +171,8 @@ public class BatchException extends RuntimeException {
     }
 
     /**
-     * ƒƒOo—Í—p•¶š—ñì¬
-     * @return ƒƒOo—Í—p•¶š—ñ
+     * ãƒ­ã‚°å‡ºåŠ›ç”¨æ–‡å­—åˆ—ä½œæˆ
+     * @return ãƒ­ã‚°å‡ºåŠ›ç”¨æ–‡å­—åˆ—
      */
     public String getLogMessage() {
 
@@ -192,7 +192,7 @@ public class BatchException extends RuntimeException {
     }
 
     /**
-     * ƒƒbƒZ[ƒWID‚ğæ“¾.
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸IDã‚’å–å¾—.
      * @return the messageId
      */
     public String getMessageId() {

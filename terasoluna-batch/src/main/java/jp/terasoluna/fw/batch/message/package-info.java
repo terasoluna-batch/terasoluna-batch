@@ -1,4 +1,4 @@
 /**
- * メッセージ関連
+ * 繝｡繝�繧ｻ繝ｼ繧ｸ髢｢騾｣
  */
 package jp.terasoluna.fw.batch.message;

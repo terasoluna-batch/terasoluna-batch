@@ -24,7 +24,7 @@ import org.springframework.transaction.interceptor.AbstractFallbackTransactionAt
 import org.springframework.transaction.interceptor.TransactionAttribute;
 
 /**
- * AbstractFallbackTransactionAttributeSource‚©‚çfallback‚ÌU‚é•‘‚¢‚ğŒp³‚µ‚Ü‚·B
+ * AbstractFallbackTransactionAttributeSourceã‹ã‚‰fallbackã®æŒ¯ã‚‹èˆã„ã‚’ç¶™æ‰¿ã—ã¾ã™ã€‚
  */
 public class MapTransactionAttributeSource extends
         AbstractFallbackTransactionAttributeSource {

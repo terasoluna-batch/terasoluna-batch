@@ -19,57 +19,57 @@ package jp.terasoluna.fw.validation;
 import java.lang.reflect.InvocationTargetException;
 
 /**
- * {@link FieldChecksExtend}‚ğƒeƒXƒg‚·‚é‚½‚ß‚ÌJavaBeanB
+ * {@link FieldChecksExtend}ã‚’ãƒ†ã‚¹ãƒˆã™ã‚‹ãŸã‚ã®JavaBeanã€‚
  * 
  *
  */
 public class FieldChecks_JavaBeanStub03 {
 
     /**
-     * field1B
+     * field1ã€‚
      */
     @SuppressWarnings("unused")
     private String field1 = null;
 
     /**
-     * field2B
+     * field2ã€‚
      */
     @SuppressWarnings("unused")
     private String field2 = null;
 
     /**
-     * InvocationTargetException ‚ğƒXƒ[‚·‚éB
+     * InvocationTargetException ã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã€‚
      * 
-     * @return field1B
-     * @throws InvocationTargetException ƒXƒ[‚³‚ê‚é—áŠOB
+     * @return field1ã€‚
+     * @throws InvocationTargetException ã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ä¾‹å¤–ã€‚
      */
     public String getField1() throws InvocationTargetException {
         throw new InvocationTargetException(new RuntimeException());
     }
 
     /**
-     * field1 ‚ğİ’è‚·‚éB
+     * field1 ã‚’è¨­å®šã™ã‚‹ã€‚
      * 
-     * @param field1 İ’è‚·‚é field1B
+     * @param field1 è¨­å®šã™ã‚‹ field1ã€‚
      */
     public void setField1(String field1) {
         this.field1 = field1;
     }
 
     /**
-     * InvocationTargetException ‚ğƒXƒ[‚·‚éB
+     * InvocationTargetException ã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã€‚
      * 
-     * @return field2B
-     * @throws InvocationTargetException ƒXƒ[‚³‚ê‚é—áŠOB
+     * @return field2ã€‚
+     * @throws InvocationTargetException ã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ä¾‹å¤–ã€‚
      */
     public String getField2() throws InvocationTargetException {
         throw new InvocationTargetException(new RuntimeException());
     }
 
     /**
-     * field2 ‚ğİ’è‚·‚éB
+     * field2 ã‚’è¨­å®šã™ã‚‹ã€‚
      * 
-     * @param field2 İ’è‚·‚é field2B
+     * @param field2 è¨­å®šã™ã‚‹ field2ã€‚
      */
     public void setField2(String field2) {
         this.field2 = field2;

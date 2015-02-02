@@ -18,26 +18,26 @@ import jp.terasoluna.utlib.UTUtil;
 import junit.framework.TestCase;
 
 /**
- * {@link jp.terasoluna.fw.file.dao.standard.CSVFileQueryDAO} ƒNƒ‰ƒX‚ÌƒeƒXƒgB
+ * {@link jp.terasoluna.fw.file.dao.standard.CSVFileQueryDAO} ã‚¯ãƒ©ã‚¹ã®ãƒ†ã‚¹ãƒˆã€‚
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4> CSVƒtƒ@ƒCƒ‹“Çæ—p‚ÌFileLineIterator¶¬ƒNƒ‰ƒXB
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4> CSVãƒ•ã‚¡ã‚¤ãƒ«èª­å–ç”¨ã®FileLineIteratorç”Ÿæˆã‚¯ãƒ©ã‚¹ã€‚
  * <p>
- * @author ‰œ“c“Ni
+ * @author å¥¥ç”°å“²å¸
  * @see jp.terasoluna.fw.file.dao.standard.CSVFileQueryDAO
  */
 public class CSVFileQueryDAOTest extends TestCase {
 
     /**
-     * ‚±‚ÌƒeƒXƒgƒP[ƒX‚ğÀs‚·‚éˆ×‚Ì GUI ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‹N“®‚·‚éB
-     * @param args java ƒRƒ}ƒ“ƒh‚Éİ’è‚³‚ê‚½ƒpƒ‰ƒ[ƒ^
+     * ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã‚’å®Ÿè¡Œã™ã‚‹ç‚ºã® GUI ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’èµ·å‹•ã™ã‚‹ã€‚
+     * @param args java ã‚³ãƒãƒ³ãƒ‰ã«è¨­å®šã•ã‚ŒãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public static void main(String[] args) {
         // junit.swingui.TestRunner.run(CSVFileQueryDAOTest.class);
     }
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -47,8 +47,8 @@ public class CSVFileQueryDAOTest extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -57,8 +57,8 @@ public class CSVFileQueryDAOTest extends TestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public CSVFileQueryDAOTest(String name) {
         super(name);
@@ -67,53 +67,53 @@ public class CSVFileQueryDAOTest extends TestCase {
     /**
      * testExecute01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE.F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE.F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileName:CSVFleQueryDAO01.txt<br>
-     * @ƒf[ƒ^‚ğ‚½‚È‚¢ƒtƒ@ƒCƒ‹‚ÌƒpƒX<br>
-     * (ˆø”) clazz:FileFormatƒAƒmƒe[ƒVƒ‡ƒ“‚ğ‚ÂƒXƒ^ƒu‚ğg—p<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileName:CSVFleQueryDAO01.txt<br>
+     * ã€€ãƒ‡ãƒ¼ã‚¿ã‚’æŒãŸãªã„ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹<br>
+     * (å¼•æ•°) clazz:FileFormatã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã‚’æŒã¤ã‚¹ã‚¿ãƒ–ã‚’ä½¿ç”¨<br>
      * CSVFileQueryDAO_Stub01<br>
-     * (ó‘Ô) FileQueryDAO.columnParserMap:ˆÈ‰º‚Ìİ’è‚ğ‚ÂHashMap‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * —v‘f1<br>
+     * (çŠ¶æ…‹) FileQueryDAO.columnParserMap:ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤HashMapã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * è¦ç´ 1<br>
      * key:"java.lang.String"<br>
-     * value:ColumnParserƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * CSVFileLineIterator_ColumnParserStub01ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * ‹óÀ‘•<br>
+     * value:ColumnParserã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * CSVFileLineIterator_ColumnParserStub01ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ç©ºå®Ÿè£…<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) FileLineIterator<T>:CSVFileLineIterator<T>‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô•Ï‰») CSVFileLineIterator:1‰ñŒÄ‚Î‚ê‚éB<br>
-     * ˆø”1Fˆø”fileName<br>
-     * ˆø”2Fˆø”clazz<br>
-     * ˆø”3FFileQueryDAO.columnParserMap<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) FileLineIterator<T>:CSVFileLineIterator<T>ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) CSVFileLineIterator:1å›å‘¼ã°ã‚Œã‚‹ã€‚<br>
+     * å¼•æ•°1ï¼šå¼•æ•°fileName<br>
+     * å¼•æ•°2ï¼šå¼•æ•°clazz<br>
+     * å¼•æ•°3ï¼šFileQueryDAO.columnParserMap<br>
      * <br>
-     * ³íƒpƒ^[ƒ“ <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ãƒ‘ã‚¿ãƒ¼ãƒ³ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testExecute01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         CSVFileQueryDAO fileQueryDAO = new CSVFileQueryDAO();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         URL url = this.getClass().getResource("File_Empty.txt");
         String fileName = url.getPath();
         Class<CSVFileQueryDAO_Stub01> clazz = CSVFileQueryDAO_Stub01.class;
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         Map<String, ColumnParser> columnParser = new HashMap<String, ColumnParser>();
         ColumnParser parser = new CSVFileQueryDAO_ColumnParserStub01();
         columnParser.put("java.lang.String", parser);
         UTUtil.setPrivateField(fileQueryDAO, "columnParserMap", columnParser);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         FileLineIterator fileLineIterator = fileQueryDAO.execute(fileName,
                 clazz);
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals(CSVFileLineIterator.class, fileLineIterator.getClass());
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(1, VMOUTUtil.getCallCount(CSVFileLineIterator.class,
                 "<init>"));
         List arguments = VMOUTUtil.getArguments(CSVFileLineIterator.class,

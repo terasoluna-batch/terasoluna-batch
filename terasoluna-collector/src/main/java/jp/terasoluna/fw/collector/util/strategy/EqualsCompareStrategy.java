@@ -17,15 +17,15 @@
 package jp.terasoluna.fw.collector.util.strategy;
 
 /**
- * CompareStrategy�����N���X.<br>
- * ��r�ΏۃI�u�W�F�N�g��equals���\�b�h�Ŕ�r����X�g���e�W�B<br>
- * �R���g���[���u���C�N����ɂ����āA
+ * CompareStrategy実装クラス.<br>
+ * 比較対象オブジェクトのequalsメソッドで比較するストラテジ。<br>
+ * コントロールブレイク判定において、
  * <ul>
- * <li>Comparable�����N���X�����AcompareTo���\�b�h�ł͂Ȃ�equals���\�b�h�Ŕ�r������</li>
- * <li>Comparable�����N���X�ł͂Ȃ����AEqualsBuilder#reflectionEquals�ł͂Ȃ�equals���\�b�h�Ŕ�r������</li>
+ * <li>Comparable実装クラスだが、compareToメソッドではなくequalsメソッドで比較したい</li>
+ * <li>Comparable実装クラスではないが、EqualsBuilder#reflectionEqualsではなくequalsメソッドで比較したい</li>
  * </ul>
- * �Ƃ����ꍇ�ɁA���̃N���X�𗘗p����B<br>
- * �Ȃ��A���̃N���X�̓X�e�[�g���X�ł��邽�߁A��r�̂��тɃC���X�^���X���쐬���Ȃ����K�v�͖����B
+ * という場合に、このクラスを利用する。<br>
+ * なお、このクラスはステートレスであるため、比較のたびにインスタンスを作成しなおす必要は無い。
  */
 public class EqualsCompareStrategy implements CompareStrategy<Object> {
 

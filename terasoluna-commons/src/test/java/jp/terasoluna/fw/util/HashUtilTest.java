@@ -22,17 +22,17 @@ import java.security.NoSuchAlgorithmException;
 import junit.framework.TestCase;
 
 /**
- * HashUtilƒuƒ‰ƒbƒNƒ{ƒbƒNƒXƒeƒXƒg<br>
+ * HashUtilãƒ–ãƒ©ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ†ã‚¹ãƒˆ<br>
  * 
- * (‘O’ñğŒ)<br>
- * E‚Æ‚­‚É‚È‚µ<br>
+ * (å‰ææ¡ä»¶)<br>
+ * ãƒ»ã¨ãã«ãªã—<br>
  * 
  */
 public class HashUtilTest extends TestCase {
 
     /**
      * Constructor for HashUtilTest.
-     * @param arg0 ƒeƒXƒgƒP[ƒX‚Ìƒƒ\ƒbƒh–¼
+     * @param arg0 ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®ãƒ¡ã‚½ãƒƒãƒ‰å
      */
     public HashUtilTest(String arg0) {
         super(arg0);
@@ -40,7 +40,7 @@ public class HashUtilTest extends TestCase {
 
     /**
      * @see TestCase#setUp()
-     * @throws Exception ƒeƒXƒgƒR[ƒh‚Ì–{¿‚Æ‚©‚©‚í‚è‚Ì–³‚¢—áŠO
+     * @throws Exception ãƒ†ã‚¹ãƒˆã‚³ãƒ¼ãƒ‰ã®æœ¬è³ªã¨ã‹ã‹ã‚ã‚Šã®ç„¡ã„ä¾‹å¤–
      * 
      */
     @Override
@@ -50,7 +50,7 @@ public class HashUtilTest extends TestCase {
 
     /**
      * @see TestCase#tearDown()
-     * @throws Exception ƒeƒXƒgƒR[ƒh‚Ì–{¿‚Æ‚©‚©‚í‚è‚Ì–³‚¢—áŠO
+     * @throws Exception ãƒ†ã‚¹ãƒˆã‚³ãƒ¼ãƒ‰ã®æœ¬è³ªã¨ã‹ã‹ã‚ã‚Šã®ç„¡ã„ä¾‹å¤–
      */
     @Override
     protected void tearDown() throws Exception {
@@ -58,27 +58,27 @@ public class HashUtilTest extends TestCase {
     }
 
     /**
-     * testHash01B<br>
+     * testHash01ã€‚<br>
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      * 
-     * “ü—Í’lF”¼Šp•¶š—ñ<br>
-     * Šú‘Ò’lF”¼Šp•¶š—ñ‚ÌƒnƒbƒVƒ…’l<br>
+     * å…¥åŠ›å€¤ï¼šåŠè§’æ–‡å­—åˆ—<br>
+     * æœŸå¾…å€¤ï¼šåŠè§’æ–‡å­—åˆ—ã®ãƒãƒƒã‚·ãƒ¥å€¤<br>
      * 
-     * ”¼Šp•¶š—ñ‚ÌƒnƒbƒVƒ…’l‚Ìæ“¾‚ªo—ˆ‚é‚±‚Æ‚ÌŠm”F‚ğŠm”F‚·‚éB<br>
+     * åŠè§’æ–‡å­—åˆ—ã®ãƒãƒƒã‚·ãƒ¥å€¤ã®å–å¾—ãŒå‡ºæ¥ã‚‹ã“ã¨ã®ç¢ºèªã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * 
-     * @throws Exception ƒeƒXƒgƒR[ƒh‚Ì–{¿‚Æ‚©‚©‚í‚è‚Ì–³‚¢—áŠO
+     * @throws Exception ãƒ†ã‚¹ãƒˆã‚³ãƒ¼ãƒ‰ã®æœ¬è³ªã¨ã‹ã‹ã‚ã‚Šã®ç„¡ã„ä¾‹å¤–
      */
     public void testHash01() throws Exception {
-        // “ü—Í’lİ’è
+        // å…¥åŠ›å€¤è¨­å®š
         String paramAlgorithm = "MD5";
         String paramStr = "abc";
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         byte[] resultHashValue = HashUtil.hash(paramAlgorithm, paramStr);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertTrue(
             MessageDigest.isEqual(
                 MessageDigest.getInstance("MD5").digest("abc".getBytes()),
@@ -86,54 +86,54 @@ public class HashUtilTest extends TestCase {
     }
 
     /**
-     * testHash02B<br>
+     * testHash02ã€‚<br>
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      * 
-     * “ü—Í’lF‘SŠp•¶š—ñ<br>
-     * Šú‘Ò’lF‘SŠp•¶š—ñ‚ÌƒnƒbƒVƒ…’l<br>
+     * å…¥åŠ›å€¤ï¼šå…¨è§’æ–‡å­—åˆ—<br>
+     * æœŸå¾…å€¤ï¼šå…¨è§’æ–‡å­—åˆ—ã®ãƒãƒƒã‚·ãƒ¥å€¤<br>
      * 
-     * ‘SŠp•¶š—ñ‚ÌƒnƒbƒVƒ…’l‚Ìæ“¾‚ªo—ˆ‚é‚±‚Æ‚ÌŠm”F‚ğŠm”F‚·‚éB<br>
+     * å…¨è§’æ–‡å­—åˆ—ã®ãƒãƒƒã‚·ãƒ¥å€¤ã®å–å¾—ãŒå‡ºæ¥ã‚‹ã“ã¨ã®ç¢ºèªã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * 
-     * @throws Exception ƒeƒXƒgƒR[ƒh‚Ì–{¿‚Æ‚©‚©‚í‚è‚Ì–³‚¢—áŠO
+     * @throws Exception ãƒ†ã‚¹ãƒˆã‚³ãƒ¼ãƒ‰ã®æœ¬è³ªã¨ã‹ã‹ã‚ã‚Šã®ç„¡ã„ä¾‹å¤–
      */
     public void testHash02() throws Exception {
-        // “ü—Í’lİ’è
+        // å…¥åŠ›å€¤è¨­å®š
         String paramAlgorithm = "MD5";
-        String paramStr = "‚ ‚¢‚¤";
+        String paramStr = "ã‚ã„ã†";
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         byte[] resultHashValue = HashUtil.hash(paramAlgorithm, paramStr);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertTrue(
             MessageDigest.isEqual(
-                MessageDigest.getInstance("MD5").digest("‚ ‚¢‚¤".getBytes()),
+                MessageDigest.getInstance("MD5").digest("ã‚ã„ã†".getBytes()),
                 resultHashValue));
     }
     /**
-     * testHash03B<br>
+     * testHash03ã€‚<br>
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_FC<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šC<br>
      * 
-     * “ü—Í’lF‹ó•¶š—ñ<br>
-     * Šú‘Ò’lF‹ó•¶š—ñ‚ÌƒnƒbƒVƒ…’l<br>
+     * å…¥åŠ›å€¤ï¼šç©ºæ–‡å­—åˆ—<br>
+     * æœŸå¾…å€¤ï¼šç©ºæ–‡å­—åˆ—ã®ãƒãƒƒã‚·ãƒ¥å€¤<br>
      * 
-     * ‹ó•¶š—ñ‚ÌƒnƒbƒVƒ…’l‚Ìæ“¾‚ªo—ˆ‚é‚±‚Æ‚ÌŠm”F‚ğŠm”F‚·‚éB<br>
+     * ç©ºæ–‡å­—åˆ—ã®ãƒãƒƒã‚·ãƒ¥å€¤ã®å–å¾—ãŒå‡ºæ¥ã‚‹ã“ã¨ã®ç¢ºèªã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * 
-     * @throws Exception ƒeƒXƒgƒR[ƒh‚Ì–{¿‚Æ‚©‚©‚í‚è‚Ì–³‚¢—áŠO
+     * @throws Exception ãƒ†ã‚¹ãƒˆã‚³ãƒ¼ãƒ‰ã®æœ¬è³ªã¨ã‹ã‹ã‚ã‚Šã®ç„¡ã„ä¾‹å¤–
      */
     public void testHash03() throws Exception {
-        // “ü—Í’lİ’è
+        // å…¥åŠ›å€¤è¨­å®š
         String paramAlgorithm = "MD5";
         String paramStr = "";
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         byte[] resultHashValue = HashUtil.hash(paramAlgorithm, paramStr);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertTrue(
             MessageDigest.isEqual(
                 MessageDigest.getInstance("MD5").digest("".getBytes()),
@@ -141,27 +141,27 @@ public class HashUtilTest extends TestCase {
     }
 
     /**
-     * testHash04B<br>
+     * testHash04ã€‚<br>
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      * 
-     * “ü—Í’lFƒnƒbƒVƒ…ƒAƒ‹ƒSƒŠƒYƒ€w’è‚ğ¬•¶š<br>
-     * Šú‘Ò’lFƒnƒbƒVƒ…’l‚Ìæ“¾¬Œ÷<br>
+     * å…¥åŠ›å€¤ï¼šãƒãƒƒã‚·ãƒ¥ã‚¢ãƒ«ã‚´ãƒªã‚ºãƒ æŒ‡å®šã‚’å°æ–‡å­—<br>
+     * æœŸå¾…å€¤ï¼šãƒãƒƒã‚·ãƒ¥å€¤ã®å–å¾—æˆåŠŸ<br>
      * 
-     * ƒnƒbƒVƒ…ƒAƒ‹ƒSƒŠƒYƒ€w’è‚ğ¬•¶š‚Ås‚Á‚½ê‡‚É‚àƒnƒbƒVƒ…’l‚Ìæ“¾‚ªo—ˆ‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * ãƒãƒƒã‚·ãƒ¥ã‚¢ãƒ«ã‚´ãƒªã‚ºãƒ æŒ‡å®šã‚’å°æ–‡å­—ã§è¡Œã£ãŸå ´åˆã«ã‚‚ãƒãƒƒã‚·ãƒ¥å€¤ã®å–å¾—ãŒå‡ºæ¥ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * 
-     * @throws Exception ƒeƒXƒgƒR[ƒh‚Ì–{¿‚Æ‚©‚©‚í‚è‚Ì–³‚¢—áŠO
+     * @throws Exception ãƒ†ã‚¹ãƒˆã‚³ãƒ¼ãƒ‰ã®æœ¬è³ªã¨ã‹ã‹ã‚ã‚Šã®ç„¡ã„ä¾‹å¤–
      */
     public void testHash04() throws Exception {
-        // “ü—Í’lİ’è
+        // å…¥åŠ›å€¤è¨­å®š
         String paramAlgorithm = "md5";
         String paramStr = "";
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         byte[] resultHashValue = HashUtil.hash(paramAlgorithm, paramStr);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertTrue(
             MessageDigest.isEqual(
                 MessageDigest.getInstance("MD5").digest("".getBytes()),
@@ -169,50 +169,50 @@ public class HashUtilTest extends TestCase {
     }
 
     /**
-     * testHash05B<br>
+     * testHash05ã€‚<br>
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_FC<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šC<br>
      * 
-     * “ü—Í’lFnull•¶š—ñ<br>
-     * Šú‘Ò’lFNullPointerException‚ª”­¶<br>
+     * å…¥åŠ›å€¤ï¼šnullæ–‡å­—åˆ—<br>
+     * æœŸå¾…å€¤ï¼šNullPointerExceptionãŒç™ºç”Ÿ<br>
      * 
-     * null•¶š—ñ‚ÌƒnƒbƒVƒ…’l‚Ìæ“¾NullPointerException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * nullæ–‡å­—åˆ—ã®ãƒãƒƒã‚·ãƒ¥å€¤ã®å–å¾—æ™‚NullPointerExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * 
-     * @throws Exception ƒeƒXƒgƒR[ƒh‚Ì–{¿‚Æ‚©‚©‚í‚è‚Ì–³‚¢—áŠO
+     * @throws Exception ãƒ†ã‚¹ãƒˆã‚³ãƒ¼ãƒ‰ã®æœ¬è³ªã¨ã‹ã‹ã‚ã‚Šã®ç„¡ã„ä¾‹å¤–
      */
     public void testHash05() throws Exception {
-        // “ü—Í’lİ’è
+        // å…¥åŠ›å€¤è¨­å®š
         String paramAlgorithm = "md5";
         String paramStr = null;
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         byte[] resultHashValue = HashUtil.hash(paramAlgorithm, paramStr);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertNull(resultHashValue);
     }
 
     /**
-     * testHash06B<br>
+     * testHash06ã€‚<br>
      * 
-     * (ˆÙíŒn)<br>
-     * ŠÏ“_FA<br>
+     * (ç•°å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      * 
-     * “ü—Í’lF•s³‚ÈƒnƒbƒVƒ…ƒAƒ‹ƒSƒŠƒYƒ€<br>
-     * Šú‘Ò’lFNoSuchAlgorithmException‚ª”­¶<br>
+     * å…¥åŠ›å€¤ï¼šä¸æ­£ãªãƒãƒƒã‚·ãƒ¥ã‚¢ãƒ«ã‚´ãƒªã‚ºãƒ <br>
+     * æœŸå¾…å€¤ï¼šNoSuchAlgorithmExceptionãŒç™ºç”Ÿ<br>
      * 
-     * •s³‚ÈƒnƒbƒVƒ…ƒAƒ‹ƒSƒŠƒYƒ€w’èNoSuchAlgorithmException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * ä¸æ­£ãªãƒãƒƒã‚·ãƒ¥ã‚¢ãƒ«ã‚´ãƒªã‚ºãƒ æŒ‡å®šæ™‚NoSuchAlgorithmExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * 
-     * @throws Exception ƒeƒXƒgƒR[ƒh‚Ì–{¿‚Æ‚©‚©‚í‚è‚Ì–³‚¢—áŠO
+     * @throws Exception ãƒ†ã‚¹ãƒˆã‚³ãƒ¼ãƒ‰ã®æœ¬è³ªã¨ã‹ã‹ã‚ã‚Šã®ç„¡ã„ä¾‹å¤–
      */
     public void testHash06() throws Exception {
-        // “ü—Í’lİ’è
+        // å…¥åŠ›å€¤è¨­å®š
         String paramAlgorithm = "NoSuchAlgorithm";
         String paramStr = "abc";
 
         try {
-            // ƒeƒXƒgÀs
+            // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
             HashUtil.hash(paramAlgorithm, paramStr);
             fail();
         } catch (NoSuchAlgorithmException nsae) {
@@ -221,25 +221,25 @@ public class HashUtilTest extends TestCase {
     }
 
     /**
-     * testHash07B<br>
+     * testHash07ã€‚<br>
      * 
-     * (ˆÙíŒn)<br>
-     * ŠÏ“_FC<br>
+     * (ç•°å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šC<br>
      * 
-     * “ü—Í’lFƒnƒbƒVƒ…ƒAƒ‹ƒSƒŠƒYƒ€‚É‹ó•¶š—ñw’è<br>
-     * Šú‘Ò’lFNoSuchAlgorithmException‚ª”­¶<br>
+     * å…¥åŠ›å€¤ï¼šãƒãƒƒã‚·ãƒ¥ã‚¢ãƒ«ã‚´ãƒªã‚ºãƒ ã«ç©ºæ–‡å­—åˆ—æŒ‡å®š<br>
+     * æœŸå¾…å€¤ï¼šNoSuchAlgorithmExceptionãŒç™ºç”Ÿ<br>
      * 
-     * ƒnƒbƒVƒ…ƒAƒ‹ƒSƒŠƒYƒ€‚É‹ó•¶š—ñw’èNoSuchAlgorithmException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * ãƒãƒƒã‚·ãƒ¥ã‚¢ãƒ«ã‚´ãƒªã‚ºãƒ ã«ç©ºæ–‡å­—åˆ—æŒ‡å®šæ™‚NoSuchAlgorithmExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * 
-     * @throws Exception ƒeƒXƒgƒR[ƒh‚Ì–{¿‚Æ‚©‚©‚í‚è‚Ì–³‚¢—áŠO
+     * @throws Exception ãƒ†ã‚¹ãƒˆã‚³ãƒ¼ãƒ‰ã®æœ¬è³ªã¨ã‹ã‹ã‚ã‚Šã®ç„¡ã„ä¾‹å¤–
      */
     public void testHash07() throws Exception {
-        // “ü—Í’lİ’è
+        // å…¥åŠ›å€¤è¨­å®š
         String paramAlgorithm = "";
         String paramStr = "abc";
 
         try {
-            // ƒeƒXƒgÀs
+            // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
             HashUtil.hash(paramAlgorithm, paramStr);
             fail();
         } catch (NoSuchAlgorithmException nsae) {
@@ -248,51 +248,51 @@ public class HashUtilTest extends TestCase {
     }
 
     /**
-     * testHash08B<br>
+     * testHash08ã€‚<br>
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_FC<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šC<br>
      * 
-     * “ü—Í’lFƒnƒbƒVƒ…ƒAƒ‹ƒSƒŠƒYƒ€‚Énullw’è<br>
-     * Šú‘Ò’lFNullPointerException‚ª”­¶<br>
+     * å…¥åŠ›å€¤ï¼šãƒãƒƒã‚·ãƒ¥ã‚¢ãƒ«ã‚´ãƒªã‚ºãƒ ã«nullæŒ‡å®š<br>
+     * æœŸå¾…å€¤ï¼šNullPointerExceptionãŒç™ºç”Ÿ<br>
      * 
-     * ƒnƒbƒVƒ…ƒAƒ‹ƒSƒŠƒYƒ€‚Énullw’èNullPointerException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * ãƒãƒƒã‚·ãƒ¥ã‚¢ãƒ«ã‚´ãƒªã‚ºãƒ ã«nullæŒ‡å®šæ™‚NullPointerExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * 
-     * @throws Exception ƒeƒXƒgƒR[ƒh‚Ì–{¿‚Æ‚©‚©‚í‚è‚Ì–³‚¢—áŠO
+     * @throws Exception ãƒ†ã‚¹ãƒˆã‚³ãƒ¼ãƒ‰ã®æœ¬è³ªã¨ã‹ã‹ã‚ã‚Šã®ç„¡ã„ä¾‹å¤–
      */
     public void testHash08() throws Exception {
-        // “ü—Í’lİ’è
+        // å…¥åŠ›å€¤è¨­å®š
         String paramAlgorithm = null;
         String paramStr = "abc";
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         byte[] resultHashValue = HashUtil.hash(paramAlgorithm, paramStr);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertNull(resultHashValue);
     }
 
     /**
-     * testHashMD501B<br>
+     * testHashMD501ã€‚<br>
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      * 
-     * “ü—Í’lF”¼Šp•¶š—ñ<br>
-     * Šú‘Ò’lF”¼Šp•¶š—ñ‚ÌƒnƒbƒVƒ…’l<br>
+     * å…¥åŠ›å€¤ï¼šåŠè§’æ–‡å­—åˆ—<br>
+     * æœŸå¾…å€¤ï¼šåŠè§’æ–‡å­—åˆ—ã®ãƒãƒƒã‚·ãƒ¥å€¤<br>
      * 
-     * ”¼Šp•¶š—ñ‚ÌƒnƒbƒVƒ…’l‚Ìæ“¾‚ªo—ˆ‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * åŠè§’æ–‡å­—åˆ—ã®ãƒãƒƒã‚·ãƒ¥å€¤ã®å–å¾—ãŒå‡ºæ¥ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * 
-     * @throws Exception ƒeƒXƒgƒR[ƒh‚Ì–{¿‚Æ‚©‚©‚í‚è‚Ì–³‚¢—áŠO
+     * @throws Exception ãƒ†ã‚¹ãƒˆã‚³ãƒ¼ãƒ‰ã®æœ¬è³ªã¨ã‹ã‹ã‚ã‚Šã®ç„¡ã„ä¾‹å¤–
      */
     public void testHashMD501() throws Exception {
-        // “ü—Í’lİ’è
+        // å…¥åŠ›å€¤è¨­å®š
         String paramStr = "abc";
 
-        // ƒeƒXƒgÀs        
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ        
         byte[] resultHashValue = HashUtil.hashMD5(paramStr);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertTrue(
             MessageDigest.isEqual(
                 MessageDigest.getInstance("MD5").digest("abc".getBytes()),
@@ -301,53 +301,53 @@ public class HashUtilTest extends TestCase {
     }
 
     /**
-     * testHashMD502B<br>
+     * testHashMD502ã€‚<br>
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      * 
-     * “ü—Í’lF‘SŠp•¶š—ñ<br>
-     * Šú‘Ò’lF‘SŠp•¶š—ñ‚ÌƒnƒbƒVƒ…’l<br>
+     * å…¥åŠ›å€¤ï¼šå…¨è§’æ–‡å­—åˆ—<br>
+     * æœŸå¾…å€¤ï¼šå…¨è§’æ–‡å­—åˆ—ã®ãƒãƒƒã‚·ãƒ¥å€¤<br>
      * 
-     * ‘SŠp•¶š—ñ‚ÌƒnƒbƒVƒ…’l‚Ìæ“¾‚ªo—ˆ‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * å…¨è§’æ–‡å­—åˆ—ã®ãƒãƒƒã‚·ãƒ¥å€¤ã®å–å¾—ãŒå‡ºæ¥ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * 
-     * @throws Exception ƒeƒXƒgƒR[ƒh‚Ì–{¿‚Æ‚©‚©‚í‚è‚Ì–³‚¢—áŠO
+     * @throws Exception ãƒ†ã‚¹ãƒˆã‚³ãƒ¼ãƒ‰ã®æœ¬è³ªã¨ã‹ã‹ã‚ã‚Šã®ç„¡ã„ä¾‹å¤–
      */
     public void testHashMD502() throws Exception {
-        // “ü—Í’lİ’è
-        String paramStr = "‚ ‚¢‚¤";
+        // å…¥åŠ›å€¤è¨­å®š
+        String paramStr = "ã‚ã„ã†";
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         byte[] resultHashValue = HashUtil.hashMD5(paramStr);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertTrue(
             MessageDigest.isEqual(
-                MessageDigest.getInstance("MD5").digest("‚ ‚¢‚¤".getBytes()),
+                MessageDigest.getInstance("MD5").digest("ã‚ã„ã†".getBytes()),
                 resultHashValue));
     }
 
     /**
-     * testHashMD503B<br>
+     * testHashMD503ã€‚<br>
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_FC<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šC<br>
      * 
-     * “ü—Í’lF‹ó•¶š—ñ<br>
-     * Šú‘Ò’lF‹ó•¶š—ñ‚ÌƒnƒbƒVƒ…’l<br>
+     * å…¥åŠ›å€¤ï¼šç©ºæ–‡å­—åˆ—<br>
+     * æœŸå¾…å€¤ï¼šç©ºæ–‡å­—åˆ—ã®ãƒãƒƒã‚·ãƒ¥å€¤<br>
      * 
-     * ‹ó•¶š—ñ‚ÌƒnƒbƒVƒ…’l‚Ìæ“¾‚ªo—ˆ‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * ç©ºæ–‡å­—åˆ—ã®ãƒãƒƒã‚·ãƒ¥å€¤ã®å–å¾—ãŒå‡ºæ¥ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * 
-     * @throws Exception ƒeƒXƒgƒR[ƒh‚Ì–{¿‚Æ‚©‚©‚í‚è‚Ì–³‚¢—áŠO
+     * @throws Exception ãƒ†ã‚¹ãƒˆã‚³ãƒ¼ãƒ‰ã®æœ¬è³ªã¨ã‹ã‹ã‚ã‚Šã®ç„¡ã„ä¾‹å¤–
      */
     public void testHashMD503() throws Exception {
-        // “ü—Í’lİ’è
+        // å…¥åŠ›å€¤è¨­å®š
         String paramStr = "";
 
-        // ƒeƒXƒgÀs        
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ        
         byte[] resultHashValue = HashUtil.hashMD5(paramStr);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertTrue(
             MessageDigest.isEqual(
                 MessageDigest.getInstance("MD5").digest("".getBytes()),
@@ -355,50 +355,50 @@ public class HashUtilTest extends TestCase {
     }
 
     /**
-     * testHashMD504B<br>
+     * testHashMD504ã€‚<br>
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_FC<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šC<br>
      * 
-     * “ü—Í’lFnull•¶š—ñ<br>
-     * Šú‘Ò’lFNullPointerException‚ª”­¶<br>
+     * å…¥åŠ›å€¤ï¼šnullæ–‡å­—åˆ—<br>
+     * æœŸå¾…å€¤ï¼šNullPointerExceptionãŒç™ºç”Ÿ<br>
      * 
-     * null•¶š—ñ‚ÌƒnƒbƒVƒ…’l‚Ìæ“¾NullPointerException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * nullæ–‡å­—åˆ—ã®ãƒãƒƒã‚·ãƒ¥å€¤ã®å–å¾—æ™‚NullPointerExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * 
-     * @throws Exception ƒeƒXƒgƒR[ƒh‚Ì–{¿‚Æ‚©‚©‚í‚è‚Ì–³‚¢—áŠO
+     * @throws Exception ãƒ†ã‚¹ãƒˆã‚³ãƒ¼ãƒ‰ã®æœ¬è³ªã¨ã‹ã‹ã‚ã‚Šã®ç„¡ã„ä¾‹å¤–
      */
     public void testHashMD504() throws Exception {
-        // “ü—Í’lİ’è
+        // å…¥åŠ›å€¤è¨­å®š
         String paramStr = null;
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         byte[] resultHashValue = HashUtil.hashMD5(paramStr);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertNull(resultHashValue);
     }
 
     /**
-     * testHashSHA101B<br>
+     * testHashSHA101ã€‚<br>
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      * 
-     * “ü—Í’lF”¼Šp•¶š—ñ<br>
-     * Šú‘Ò’lF”¼Šp•¶š—ñ‚ÌƒnƒbƒVƒ…’l<br>
+     * å…¥åŠ›å€¤ï¼šåŠè§’æ–‡å­—åˆ—<br>
+     * æœŸå¾…å€¤ï¼šåŠè§’æ–‡å­—åˆ—ã®ãƒãƒƒã‚·ãƒ¥å€¤<br>
      * 
-     * ”¼Šp•¶š—ñ‚ÌƒnƒbƒVƒ…’l‚Ìæ“¾‚ªo—ˆ‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * åŠè§’æ–‡å­—åˆ—ã®ãƒãƒƒã‚·ãƒ¥å€¤ã®å–å¾—ãŒå‡ºæ¥ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * 
-     * @throws Exception ƒeƒXƒgƒR[ƒh‚Ì–{¿‚Æ‚©‚©‚í‚è‚Ì–³‚¢—áŠO
+     * @throws Exception ãƒ†ã‚¹ãƒˆã‚³ãƒ¼ãƒ‰ã®æœ¬è³ªã¨ã‹ã‹ã‚ã‚Šã®ç„¡ã„ä¾‹å¤–
      */
     public void testHashSHA101() throws Exception {
-        // “ü—Í’lİ’è
+        // å…¥åŠ›å€¤è¨­å®š
         String paramStr = "abc";
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         byte[] resultHashValue = HashUtil.hashSHA1(paramStr);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertTrue(
             MessageDigest.isEqual(
                 MessageDigest.getInstance("SHA1").digest("abc".getBytes()),
@@ -406,53 +406,53 @@ public class HashUtilTest extends TestCase {
     }
 
     /**
-     * testHashSHA102B<br>
+     * testHashSHA102ã€‚<br>
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      * 
-     * “ü—Í’lF‘SŠp•¶š—ñ<br>
-     * Šú‘Ò’lF‘SŠp•¶š—ñ‚ÌƒnƒbƒVƒ…’l<br>
+     * å…¥åŠ›å€¤ï¼šå…¨è§’æ–‡å­—åˆ—<br>
+     * æœŸå¾…å€¤ï¼šå…¨è§’æ–‡å­—åˆ—ã®ãƒãƒƒã‚·ãƒ¥å€¤<br>
      * 
-     * ‘SŠp•¶š—ñ‚ÌƒnƒbƒVƒ…’l‚Ìæ“¾‚ªo—ˆ‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * å…¨è§’æ–‡å­—åˆ—ã®ãƒãƒƒã‚·ãƒ¥å€¤ã®å–å¾—ãŒå‡ºæ¥ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * 
-     * @throws Exception ƒeƒXƒgƒR[ƒh‚Ì–{¿‚Æ‚©‚©‚í‚è‚Ì–³‚¢—áŠO
+     * @throws Exception ãƒ†ã‚¹ãƒˆã‚³ãƒ¼ãƒ‰ã®æœ¬è³ªã¨ã‹ã‹ã‚ã‚Šã®ç„¡ã„ä¾‹å¤–
      */
     public void testHashSHA102() throws Exception {
-        // “ü—Í’lİ’è
-        String paramStr = "‚ ‚¢‚¤";
+        // å…¥åŠ›å€¤è¨­å®š
+        String paramStr = "ã‚ã„ã†";
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         byte[] resultHashValue = HashUtil.hashSHA1(paramStr);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertTrue(
             MessageDigest.isEqual(
-                MessageDigest.getInstance("SHA1").digest("‚ ‚¢‚¤".getBytes()),
+                MessageDigest.getInstance("SHA1").digest("ã‚ã„ã†".getBytes()),
                 resultHashValue));
     }
 
     /**
-     * testHashSHA103B<br>
+     * testHashSHA103ã€‚<br>
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_FC<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šC<br>
      * 
-     * “ü—Í’lF‹ó•¶š—ñ<br>
-     * Šú‘Ò’lF‹ó•¶š—ñ‚ÌƒnƒbƒVƒ…’l<br>
+     * å…¥åŠ›å€¤ï¼šç©ºæ–‡å­—åˆ—<br>
+     * æœŸå¾…å€¤ï¼šç©ºæ–‡å­—åˆ—ã®ãƒãƒƒã‚·ãƒ¥å€¤<br>
      * 
-     * ‘SŠp•¶š—ñ‚ÌƒnƒbƒVƒ…’l‚Ìæ“¾‚ªo—ˆ‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * å…¨è§’æ–‡å­—åˆ—ã®ãƒãƒƒã‚·ãƒ¥å€¤ã®å–å¾—ãŒå‡ºæ¥ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * 
-     * @throws Exception ƒeƒXƒgƒR[ƒh‚Ì–{¿‚Æ‚©‚©‚í‚è‚Ì–³‚¢—áŠO
+     * @throws Exception ãƒ†ã‚¹ãƒˆã‚³ãƒ¼ãƒ‰ã®æœ¬è³ªã¨ã‹ã‹ã‚ã‚Šã®ç„¡ã„ä¾‹å¤–
      */
     public void testHashSHA103() throws Exception {
-        // “ü—Í’lİ’è
+        // å…¥åŠ›å€¤è¨­å®š
         String paramStr = "";
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         byte[] resultHashValue = HashUtil.hashSHA1(paramStr);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertTrue(
             MessageDigest.isEqual(
                 MessageDigest.getInstance("SHA1").digest("".getBytes()),
@@ -460,26 +460,26 @@ public class HashUtilTest extends TestCase {
     }
 
     /**
-     * testHashSHA104B<br>
+     * testHashSHA104ã€‚<br>
      * 
-     * (³íŒn)<br>
-     * ŠÏ“_FC<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šC<br>
      * 
-     * “ü—Í’lFnull•¶š—ñ<br>
-     * Šú‘Ò’lFNullPointerException‚ª”­¶<br>
+     * å…¥åŠ›å€¤ï¼šnullæ–‡å­—åˆ—<br>
+     * æœŸå¾…å€¤ï¼šNullPointerExceptionãŒç™ºç”Ÿ<br>
      * 
-     * null•¶š—ñ‚ÌƒnƒbƒVƒ…’l‚Ìæ“¾NullPointerException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * nullæ–‡å­—åˆ—ã®ãƒãƒƒã‚·ãƒ¥å€¤ã®å–å¾—æ™‚NullPointerExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * 
-     * @throws Exception ƒeƒXƒgƒR[ƒh‚Ì–{¿‚Æ‚©‚©‚í‚è‚Ì–³‚¢—áŠO
+     * @throws Exception ãƒ†ã‚¹ãƒˆã‚³ãƒ¼ãƒ‰ã®æœ¬è³ªã¨ã‹ã‹ã‚ã‚Šã®ç„¡ã„ä¾‹å¤–
      */
     public void testHashSHA104() throws Exception {
-        // “ü—Í’lİ’è
+        // å…¥åŠ›å€¤è¨­å®š
         String paramStr = null;
 
-        // ƒeƒXƒgÀs
+        // ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         byte[] resultHashValue = HashUtil.hashSHA1(paramStr);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertNull(resultHashValue);
     }
 

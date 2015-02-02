@@ -46,216 +46,216 @@ import jp.terasoluna.fw.file.dao.FileLineIterator;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * ƒtƒ@ƒCƒ‹ƒAƒNƒZƒX(ƒf[ƒ^æ“¾)—p‚Ì‹¤’ÊƒNƒ‰ƒXB
+ * ãƒ•ã‚¡ã‚¤ãƒ«ã‚¢ã‚¯ã‚»ã‚¹(ãƒ‡ãƒ¼ã‚¿å–å¾—)ç”¨ã®å…±é€šã‚¯ãƒ©ã‚¹ã€‚
  * <p>
- * ƒtƒ@ƒCƒ‹ƒAƒNƒZƒX(ƒf[ƒ^æ“¾)‚ğs‚¤3‚Â‚ÌƒNƒ‰ƒX(CSVAŒÅ’è’·A‰Â•Ï’·) ‚É‹¤’Ê‚·‚éˆ—‚ğ‚Ü‚Æ‚ß‚½’ŠÛƒNƒ‰ƒXB ƒtƒ@ƒCƒ‹‚Ìí—Ş‚É‘Î‰‚·‚éƒTƒuƒNƒ‰ƒX‚ªˆ—‚ğs‚¤B<br>
- * g—p—á‚Í{@link jp.terasoluna.fw.file.dao.FileLineIterator}‚ğQÆ‚Ì‚±‚ÆB
+ * ãƒ•ã‚¡ã‚¤ãƒ«ã‚¢ã‚¯ã‚»ã‚¹(ãƒ‡ãƒ¼ã‚¿å–å¾—)ã‚’è¡Œã†3ã¤ã®ã‚¯ãƒ©ã‚¹(CSVã€å›ºå®šé•·ã€å¯å¤‰é•·) ã«å…±é€šã™ã‚‹å‡¦ç†ã‚’ã¾ã¨ã‚ãŸæŠ½è±¡ã‚¯ãƒ©ã‚¹ã€‚ ãƒ•ã‚¡ã‚¤ãƒ«ã®ç¨®é¡ã«å¯¾å¿œã™ã‚‹ã‚µãƒ–ã‚¯ãƒ©ã‚¹ãŒå‡¦ç†ã‚’è¡Œã†ã€‚<br>
+ * ä½¿ç”¨ä¾‹ã¯{@link jp.terasoluna.fw.file.dao.FileLineIterator}ã‚’å‚ç…§ã®ã“ã¨ã€‚
  * </p>
- * ƒtƒ@ƒCƒ‹æ“¾ˆ—‚Íƒf[ƒ^‚ğæ“ª‚©‚ç‡”Ô‚É“Ç‚İ‚Ş‚½‚ßA‰º‹L‚Ìè‡‚ÅŒÄ‚Ño‚³‚ê‚é‚æ‚¤‚ÉÀ‘•‚·‚é•K—v‚ª‚ ‚è‚Ü‚·B<br>
+ * ãƒ•ã‚¡ã‚¤ãƒ«å–å¾—å‡¦ç†ã¯ãƒ‡ãƒ¼ã‚¿ã‚’å…ˆé ­ã‹ã‚‰é †ç•ªã«èª­ã¿è¾¼ã‚€ãŸã‚ã€ä¸‹è¨˜ã®æ‰‹é †ã§å‘¼ã³å‡ºã•ã‚Œã‚‹ã‚ˆã†ã«å®Ÿè£…ã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚<br>
  * <ul>
- * <li>ƒwƒbƒ_•”æ“¾(getHeader())</li>
- * <li>ƒXƒLƒbƒvˆ—(skip())</li>
- * <li>ƒf[ƒ^•”æ“¾ˆ—(hasNext()AreadLine())</li>
- * <li>ƒgƒŒƒCƒ‰•”æ“¾(getTrailer())</li>
+ * <li>ãƒ˜ãƒƒãƒ€éƒ¨å–å¾—(getHeader())</li>
+ * <li>ã‚¹ã‚­ãƒƒãƒ—å‡¦ç†(skip())</li>
+ * <li>ãƒ‡ãƒ¼ã‚¿éƒ¨å–å¾—å‡¦ç†(hasNext()ã€readLine())</li>
+ * <li>ãƒˆãƒ¬ã‚¤ãƒ©éƒ¨å–å¾—(getTrailer())</li>
  * </ul>
- * ‚à‚µAƒgƒŒƒCƒ‰•”‚Ìæ“¾‚ğs‚¤‚Æ“à•”‚Åc‚Á‚Ä‚¢‚éƒf[ƒ^•”‚ğ‘S•”ƒXƒLƒbƒv‚·‚é‚½‚ßA ˆ—“r’†‚ÉƒgƒŒƒCƒ‰•”‚ğæ“¾‚·‚é‚Æƒf[ƒ^•”‚Ìæ“¾‚ªo—ˆ‚È‚­‚È‚è‚Ü‚·B<br>
- * ƒgƒŒƒCƒ‰•”‚Ìæ“¾Œãƒf[ƒ^•”æ“¾ˆ—‚ğÀs‚·‚é‚Æ<code>IllegalStateException<code>‚ª”­¶‚µ‚Ü‚·B<br>
+ * ã‚‚ã—ã€ãƒˆãƒ¬ã‚¤ãƒ©éƒ¨ã®å–å¾—ã‚’è¡Œã†ã¨å†…éƒ¨ã§æ®‹ã£ã¦ã„ã‚‹ãƒ‡ãƒ¼ã‚¿éƒ¨ã‚’å…¨éƒ¨ã‚¹ã‚­ãƒƒãƒ—ã™ã‚‹ãŸã‚ã€ å‡¦ç†é€”ä¸­ã«ãƒˆãƒ¬ã‚¤ãƒ©éƒ¨ã‚’å–å¾—ã™ã‚‹ã¨ãƒ‡ãƒ¼ã‚¿éƒ¨ã®å–å¾—ãŒå‡ºæ¥ãªããªã‚Šã¾ã™ã€‚<br>
+ * ãƒˆãƒ¬ã‚¤ãƒ©éƒ¨ã®å–å¾—å¾Œãƒ‡ãƒ¼ã‚¿éƒ¨å–å¾—å‡¦ç†ã‚’å®Ÿè¡Œã™ã‚‹ã¨<code>IllegalStateException<code>ãŒç™ºç”Ÿã—ã¾ã™ã€‚<br>
  * @see jp.terasoluna.fw.file.dao.FileLineIterator
  * @see jp.terasoluna.fw.file.dao.standard.CSVFileLineIterator
  * @see jp.terasoluna.fw.file.dao.standard.FixedFileLineIterator
  * @see jp.terasoluna.fw.file.dao.standard.VariableFileLineIterator
  * @see jp.terasoluna.fw.file.dao.standard.PlainFileLineIterator
- * @param <T> ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgB
+ * @param <T> ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
  */
 public abstract class AbstractFileLineIterator<T> implements
                                                   FileLineIterator<T> {
 
     /**
-     * ‰Šú‰»ˆ—‚ğ‚ ‚ç‚í‚·s”Ô†B
+     * åˆæœŸåŒ–å‡¦ç†ã‚’ã‚ã‚‰ã‚ã™è¡Œç•ªå·ã€‚
      */
     private static final int INITIAL_LINE_NO = -1;
 
     /**
-     * ƒtƒ@ƒCƒ‹–¼B
+     * ãƒ•ã‚¡ã‚¤ãƒ«åã€‚
      */
     private String fileName = null;
 
     /**
-     * Œ‹‰ÊƒNƒ‰ƒXB
+     * çµæœã‚¯ãƒ©ã‚¹ã€‚
      */
     private Class<T> clazz = null;
 
     /**
-     * s‹æØ‚è•¶šB
+     * è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—ã€‚
      */
     private String lineFeedChar = System.getProperty("line.separator");
 
     /**
-     * ƒtƒ@ƒCƒ‹ƒGƒ“ƒR[ƒfƒBƒ“ƒOB
+     * ãƒ•ã‚¡ã‚¤ãƒ«ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ã€‚
      */
     private String fileEncoding = System.getProperty("file.encoding");
 
     /**
-     * ƒwƒbƒ_s”B
+     * ãƒ˜ãƒƒãƒ€è¡Œæ•°ã€‚
      */
     private int headerLineCount = 0;
 
     /**
-     * ƒgƒŒƒCƒ‰s”B
+     * ãƒˆãƒ¬ã‚¤ãƒ©è¡Œæ•°ã€‚
      */
     private int trailerLineCount = 0;
 
     /**
-     * ƒtƒ@ƒCƒ‹“ü—Íˆ—Ï‚İ‚Ìƒf[ƒ^•”‚Ìs”B
+     * ãƒ•ã‚¡ã‚¤ãƒ«å…¥åŠ›å‡¦ç†æ¸ˆã¿ã®ãƒ‡ãƒ¼ã‚¿éƒ¨ã®è¡Œæ•°ã€‚
      */
     private int currentLineCount = 0;
 
     /**
-     * ƒtƒ@ƒCƒ‹ƒAƒNƒZƒX—p‚Ì•¶šƒXƒgƒŠ[ƒ€B
+     * ãƒ•ã‚¡ã‚¤ãƒ«ã‚¢ã‚¯ã‚»ã‚¹ç”¨ã®æ–‡å­—ã‚¹ãƒˆãƒªãƒ¼ãƒ ã€‚
      */
     private BufferedReader reader = null;
 
     /**
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌFieldî•ñiAnnotationj‚ğŠi”[‚·‚é•Ï”B
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®Fieldæƒ…å ±ï¼ˆAnnotationï¼‰ã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°ã€‚
      */
     private Field[] fields = null;
 
     /**
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚Ì“ü—Íİ’èƒAƒmƒe[ƒVƒ‡ƒ“‚ğŠi”[‚·‚é•Ï”B
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å…¥åŠ›è¨­å®šã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°ã€‚
      */
     private InputFileColumn[] inputFileColumns = null;
 
     /**
-     * ŠeƒJƒ‰ƒ€‚²‚Æ‚ÌƒJƒ‰ƒ€Index‚ğŠi”[‚·‚é•Ï”B
+     * å„ã‚«ãƒ©ãƒ ã”ã¨ã®ã‚«ãƒ©ãƒ Indexã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°ã€‚
      */
     private int[] columnIndexs = null;
 
     /**
-     * ŠeƒJƒ‰ƒ€‚²‚Æ‚ÌƒJƒ‰ƒ€‚ÌƒtƒH[ƒ}ƒbƒg‚ğŠi”[‚·‚é•Ï”B
+     * å„ã‚«ãƒ©ãƒ ã”ã¨ã®ã‚«ãƒ©ãƒ ã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°ã€‚
      */
     private String[] columnFormats = null;
 
     /**
-     * ŠeƒJƒ‰ƒ€‚²‚Æ‚ÌƒoƒCƒg”‚ğŠi”[‚·‚é•Ï”B
+     * å„ã‚«ãƒ©ãƒ ã”ã¨ã®ãƒã‚¤ãƒˆæ•°ã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°ã€‚
      */
     private int[] columnBytes = null;
 
     /**
-     * 1s•ª‚ÌƒoƒCƒg”‚ğŠi”[‚·‚é•Ï”B
+     * 1è¡Œåˆ†ã®ãƒã‚¤ãƒˆæ•°ã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°ã€‚
      */
     private int totalBytes = 0;
 
     /**
-     * ŠeƒJƒ‰ƒ€‚²‚Æ‚ÌƒpƒfƒBƒ“ƒOí•Ê‚ğŠi”[‚·‚é•Ï”B
+     * å„ã‚«ãƒ©ãƒ ã”ã¨ã®ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°ç¨®åˆ¥ã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°ã€‚
      */
     private PaddingType[] paddingTypes = null;
 
     /**
-     * ŠeƒJƒ‰ƒ€‚²‚Æ‚ÌƒpƒfƒBƒ“ƒO•¶š‚ğŠi”[‚·‚é•Ï”B
+     * å„ã‚«ãƒ©ãƒ ã”ã¨ã®ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°æ–‡å­—ã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°ã€‚
      */
     private char[] paddingChars = null;
 
     /**
-     * ŠeƒJƒ‰ƒ€‚²‚Æ‚ÌƒgƒŠƒ€í•Ê‚ğŠi”[‚·‚é•Ï”B
+     * å„ã‚«ãƒ©ãƒ ã”ã¨ã®ãƒˆãƒªãƒ ç¨®åˆ¥ã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°ã€‚
      */
     private TrimType[] trimTypes;
 
     /**
-     * ŠeƒJƒ‰ƒ€‚ÌƒgƒŠƒ€•¶š‚ğŠi”[‚·‚é•Ï”B
+     * å„ã‚«ãƒ©ãƒ ã®ãƒˆãƒªãƒ æ–‡å­—ã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°ã€‚
      */
     private char[] trimChars;
 
     /**
-     * ŠeƒJƒ‰ƒ€‚²‚Æ‚ÌˆÍ‚İ•¶š‚ğŠi”[‚·‚é•Ï”B
+     * å„ã‚«ãƒ©ãƒ ã”ã¨ã®å›²ã¿æ–‡å­—ã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°ã€‚
      */
     private char[] columnEncloseChar;
 
     /**
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌƒXƒgƒŠƒ“ƒOƒRƒ“ƒo[ƒ^‚ğŠi”[‚·‚é•Ï”B
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¹ãƒˆãƒªãƒ³ã‚°ã‚³ãƒ³ãƒãƒ¼ã‚¿ã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°ã€‚
      */
     private StringConverter[] stringConverters = null;
 
     /**
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌƒXƒgƒŠƒ“ƒOƒRƒ“ƒo[ƒ^‚ğŠi”[‚·‚éƒ}ƒbƒvB
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¹ãƒˆãƒªãƒ³ã‚°ã‚³ãƒ³ãƒãƒ¼ã‚¿ã‚’æ ¼ç´ã™ã‚‹ãƒãƒƒãƒ—ã€‚
      */
     @SuppressWarnings("unchecked")
     private static Map<Class, StringConverter> stringConverterCacheMap = new HashMap<Class, StringConverter>();
 
     /**
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌField‚É‘Î‰‚·‚ésetterƒƒ\ƒbƒh‚ğŠi”[‚·‚éB
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®Fieldã«å¯¾å¿œã™ã‚‹setterãƒ¡ã‚½ãƒƒãƒ‰ã‚’æ ¼ç´ã™ã‚‹ã€‚
      */
     private Method[] methods = null;
 
     /**
-     * ƒJƒ‰ƒ€ƒp[ƒT[‚ğŠi”[‚·‚éƒ}ƒbƒvB
+     * ã‚«ãƒ©ãƒ ãƒ‘ãƒ¼ã‚µãƒ¼ã‚’æ ¼ç´ã™ã‚‹ãƒãƒƒãƒ—ã€‚
      */
     private Map<String, ColumnParser> columnParserMap = null;
 
     /**
-     * ƒwƒbƒ_•”‚Ì•¶š—ñƒŠƒXƒgB
+     * ãƒ˜ãƒƒãƒ€éƒ¨ã®æ–‡å­—åˆ—ãƒªã‚¹ãƒˆã€‚
      */
     private List<String> header = new ArrayList<String>();
 
     /**
-     * ƒgƒŒƒCƒ‰•”‚Ì•¶š—ñƒŠƒXƒgB
+     * ãƒˆãƒ¬ã‚¤ãƒ©éƒ¨ã®æ–‡å­—åˆ—ãƒªã‚¹ãƒˆã€‚
      */
     private List<String> trailer = new ArrayList<String>();
 
     /**
-     * ƒgƒŒƒCƒ‰•”ˆ—Šm”F—pƒtƒ‰ƒOB
+     * ãƒˆãƒ¬ã‚¤ãƒ©éƒ¨å‡¦ç†ç¢ºèªç”¨ãƒ•ãƒ©ã‚°ã€‚
      */
     private boolean readTrailer = false;
 
     /**
-     * ƒgƒŒƒCƒ‰•”‚ÌˆêŠi”[—p‚ÌƒLƒ…[B
+     * ãƒˆãƒ¬ã‚¤ãƒ©éƒ¨ã®ä¸€æ™‚æ ¼ç´ç”¨ã®ã‚­ãƒ¥ãƒ¼ã€‚
      */
     private Queue<String> trailerQueue = null;
 
     /**
-     * 1s•ª‚Ì•¶š—ñ‚ğ“Ç‚İ‚ŞƒIƒuƒWƒFƒNƒg
+     * 1è¡Œåˆ†ã®æ–‡å­—åˆ—ã‚’èª­ã¿è¾¼ã‚€ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      */
     private LineReader lineReader = null;
 
     /**
-     * ‰Šú‰»ˆ—Šm”F—pƒtƒ‰ƒOB
+     * åˆæœŸåŒ–å‡¦ç†ç¢ºèªç”¨ãƒ•ãƒ©ã‚°ã€‚
      */
     private boolean calledInit = false;
 
     /**
-     * ˆÍ‚İ•¶šŠm”F—pƒtƒ‰ƒOB
+     * å›²ã¿æ–‡å­—ç¢ºèªç”¨ãƒ•ãƒ©ã‚°ã€‚
      */
     private boolean enclosed = false;
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B<br>
-     * ˆø”‚Ìƒ`ƒFƒbƒN‹y‚ÑAƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌFileFormatƒAƒmƒe[ƒVƒ‡ƒ“ İ’è‚Ìƒ`ƒFƒbƒN‚ğs‚¤B<br>
-     * ƒ`ƒFƒbƒNŒ‹‰Ê–â‘è‚ª‚ ‚éê‡‚Í—áŠO‚ğ”­¶‚·‚éB<br>
-     * @param fileName ƒtƒ@ƒCƒ‹–¼ÅŒã‚ÉˆÚ“®
-     * @param clazz ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgƒNƒ‰ƒX
-     * @param columnParserMap ƒtƒH[ƒ}ƒbƒgˆ—ƒŠƒXƒg
-     * @throws FileException ‰Šú‰»ˆ—‚Å¸”s‚µ‚½ê‡B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚<br>
+     * å¼•æ•°ã®ãƒã‚§ãƒƒã‚¯åŠã³ã€ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®FileFormatã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ è¨­å®šã®ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†ã€‚<br>
+     * ãƒã‚§ãƒƒã‚¯çµæœå•é¡ŒãŒã‚ã‚‹å ´åˆã¯ä¾‹å¤–ã‚’ç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * @param fileName ãƒ•ã‚¡ã‚¤ãƒ«åæœ€å¾Œã«ç§»å‹•
+     * @param clazz ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¯ãƒ©ã‚¹
+     * @param columnParserMap ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆå‡¦ç†ãƒªã‚¹ãƒˆ
+     * @throws FileException åˆæœŸåŒ–å‡¦ç†ã§å¤±æ•—ã—ãŸå ´åˆã€‚
      */
     public AbstractFileLineIterator(String fileName, Class<T> clazz,
             Map<String, ColumnParser> columnParserMap) {
-        // ƒtƒ@ƒCƒ‹–¼‚Ì•K{ƒ`ƒFƒbƒN‚ğs‚¤B
+        // ãƒ•ã‚¡ã‚¤ãƒ«åã®å¿…é ˆãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†ã€‚
         if (fileName == null || "".equals(fileName)) {
             throw new FileException("fileName is required.",
                     new IllegalArgumentException(), fileName);
         }
 
-        // ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgƒNƒ‰ƒX‚Ì•K{ƒ`ƒFƒbƒN‚ğs‚¤B
+        // ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¯ãƒ©ã‚¹ã®å¿…é ˆãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†ã€‚
         if (clazz == null) {
             throw new FileException("clazz is required.",
                     new IllegalArgumentException(), fileName);
         }
 
-        // ƒtƒH[ƒ}ƒbƒgˆ—ƒŠƒXƒg‚Ì•K{ƒ`ƒFƒbƒN‚ğs‚¤B
+        // ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆå‡¦ç†ãƒªã‚¹ãƒˆã®å¿…é ˆãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†ã€‚
         if (columnParserMap == null || columnParserMap.isEmpty()) {
             throw new FileException("columnFormaterMap is required.",
                     new IllegalArgumentException(), fileName);
         }
 
-        // ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgƒNƒ‰ƒX‚ªƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Å‚«‚é‚©‚ğƒ`ƒFƒbƒN‚·‚éB
+        // ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¯ãƒ©ã‚¹ãŒã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§ãã‚‹ã‹ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã€‚
         try {
             clazz.newInstance();
         } catch (InstantiationException e) {
@@ -271,46 +271,46 @@ public abstract class AbstractFileLineIterator<T> implements
         this.clazz = clazz;
         this.columnParserMap = columnParserMap;
 
-        // FileFormatƒAƒmƒe[ƒVƒ‡ƒ“‚Ìİ’è‚ğƒ`ƒFƒbƒN‚·‚éB
+        // FileFormatã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã®è¨­å®šã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã€‚
         FileFormat fileFormat = clazz.getAnnotation(FileFormat.class);
 
-        // ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌClass‚ÉFileFormatƒAƒmƒe[ƒVƒ‡ƒ“‚ª‚ ‚é‚©ƒ`ƒFƒbƒN‚·‚éB
+        // ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®Classã«FileFormatã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ãŒã‚ã‚‹ã‹ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã€‚
         if (fileFormat == null) {
             throw new FileException("FileFormat annotation is not found.",
                     new IllegalStateException(), fileName);
         }
 
-        // ‹æØ‚è•¶š‚ÆˆÍ‚İ•¶š‚ª“¯‚¶ê‡A—áŠO‚ğƒXƒ[‚·‚éB
+        // åŒºåˆ‡ã‚Šæ–‡å­—ã¨å›²ã¿æ–‡å­—ãŒåŒã˜å ´åˆã€ä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã€‚
         if (fileFormat.delimiter() == fileFormat.encloseChar()) {
             throw new FileException(
                     "Delimiter is the same as EncloseChar and is no use.",
                     new IllegalStateException(), fileName);
         }
 
-        // s‹æØ‚è•¶š‚ğƒ`ƒFƒbƒN‚·‚éBİ’è‚ª‚È‚¢ê‡‚ÍƒVƒXƒeƒ€ƒfƒtƒHƒ‹ƒg’l‚ğ—˜—p‚·‚éB
+        // è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã€‚è¨­å®šãŒãªã„å ´åˆã¯ã‚·ã‚¹ãƒ†ãƒ ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ã‚’åˆ©ç”¨ã™ã‚‹ã€‚
         if (fileFormat.lineFeedChar() != null
                 && !"".equals(fileFormat.lineFeedChar())) {
             this.lineFeedChar = fileFormat.lineFeedChar();
         }
 
-        // ƒtƒ@ƒCƒ‹ƒGƒ“ƒR[ƒfƒBƒ“ƒO‚ğƒ`ƒFƒbƒN‚·‚éBİ’è‚ª‚È‚¢ê‡‚ÍƒVƒXƒeƒ€ƒfƒtƒHƒ‹ƒg’l‚ğ—˜—p‚·‚éB
+        // ãƒ•ã‚¡ã‚¤ãƒ«ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã€‚è¨­å®šãŒãªã„å ´åˆã¯ã‚·ã‚¹ãƒ†ãƒ ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ã‚’åˆ©ç”¨ã™ã‚‹ã€‚
         if (fileFormat.fileEncoding() != null
                 && !"".equals(fileFormat.fileEncoding())) {
             this.fileEncoding = fileFormat.fileEncoding();
         }
 
-        // ƒwƒbƒ_s”‚ğİ’è‚·‚éB
+        // ãƒ˜ãƒƒãƒ€è¡Œæ•°ã‚’è¨­å®šã™ã‚‹ã€‚
         this.headerLineCount = fileFormat.headerLineCount();
 
-        // ƒgƒŒƒCƒ‰s”‚ğİ’è‚·‚éB
+        // ãƒˆãƒ¬ã‚¤ãƒ©è¡Œæ•°ã‚’è¨­å®šã™ã‚‹ã€‚
         this.trailerLineCount = fileFormat.trailerLineCount();
     }
 
     /**
-     * Ÿ‚Ìs‚ÌƒŒƒR[ƒh‚ª‚ ‚é‚©‚Ç‚¤‚©Šm”F‚·‚éB<br>
-     * ŒJ‚è•Ô‚µˆ—‚Å‚³‚ç‚É—v‘f‚ª‚ ‚éê‡‚É true ‚ğ•Ô‚µ‚Ü‚·B
-     * @return ŒJ‚è•Ô‚µˆ—‚Å‚³‚ç‚É—v‘f‚ª‚ ‚éê‡‚É <code>true</code>
-     * @throws FileException ƒŠ[ƒ_‚©‚çIOException‚ª”­¶‚µ‚½ê‡B
+     * æ¬¡ã®è¡Œã®ãƒ¬ã‚³ãƒ¼ãƒ‰ãŒã‚ã‚‹ã‹ã©ã†ã‹ç¢ºèªã™ã‚‹ã€‚<br>
+     * ç¹°ã‚Šè¿”ã—å‡¦ç†ã§ã•ã‚‰ã«è¦ç´ ãŒã‚ã‚‹å ´åˆã« true ã‚’è¿”ã—ã¾ã™ã€‚
+     * @return ç¹°ã‚Šè¿”ã—å‡¦ç†ã§ã•ã‚‰ã«è¦ç´ ãŒã‚ã‚‹å ´åˆã« <code>true</code>
+     * @throws FileException ãƒªãƒ¼ãƒ€ã‹ã‚‰IOExceptionãŒç™ºç”Ÿã—ãŸå ´åˆã€‚
      */
     public boolean hasNext() {
         try {
@@ -334,25 +334,25 @@ public abstract class AbstractFileLineIterator<T> implements
     }
 
     /**
-     * ŒJ‚è•Ô‚µˆ—‚Åƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ğ•Ô‹p‚·‚éB<br>
+     * ç¹°ã‚Šè¿”ã—å‡¦ç†ã§ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’è¿”å´ã™ã‚‹ã€‚<br>
      * <p>
-     * Ÿ‚Ìs‚ÌƒŒƒR[ƒh‚Ìî•ñ‚ğƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÉŠi”[‚µ‚Ä•Ô‹p‚µ‚Ü‚·B<br>
-     * ŒJ‚è•Ô‚µˆ—‚ÅŸ‚Ì—v‘f‚ğ•Ô‚µ‚Ü‚·B<br>
+     * æ¬¡ã®è¡Œã®ãƒ¬ã‚³ãƒ¼ãƒ‰ã®æƒ…å ±ã‚’ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«æ ¼ç´ã—ã¦è¿”å´ã—ã¾ã™ã€‚<br>
+     * ç¹°ã‚Šè¿”ã—å‡¦ç†ã§æ¬¡ã®è¦ç´ ã‚’è¿”ã—ã¾ã™ã€‚<br>
      * </p>
-     * Ÿ‚Ìs‚ÌƒŒƒR[ƒh‚Ìî•ñ‚Íƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌInputFileColumn‚Ì’è‹`‚É Šî‚Ã‚¢‚ÄŠi”[‚³‚ê‚éB<br>
-     * ‚à‚µAƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚Ìƒ}ƒbƒsƒ“ƒOƒtƒB[ƒ‹ƒh‚Ì”‚Æ‡‚í‚È‚¢ ƒŒƒR[ƒhî•ñ‚ª—ˆ‚½ê‡‚Í—áŠO‚ğ”­¶‚·‚éB<br>
-     * ‚Ü‚½AInputFileColumn‚Éİ’è‚³‚ê‚½ƒoƒCƒg”‚Æˆá‚¤î•ñ‚ª—ˆ‚½ê‡‚à—áŠO‚ğ”­¶‚·‚éB<br>
-     * ‚»‚ê‚Å‚Í‚È‚¢ê‡‚ÍˆÈ‰º‚Ì‡”Ô‚Åƒf[ƒ^‚ğˆ—‚µŠi”[‚·‚éB<br>
+     * æ¬¡ã®è¡Œã®ãƒ¬ã‚³ãƒ¼ãƒ‰ã®æƒ…å ±ã¯ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®InputFileColumnã®å®šç¾©ã« åŸºã¥ã„ã¦æ ¼ç´ã•ã‚Œã‚‹ã€‚<br>
+     * ã‚‚ã—ã€ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ãƒãƒƒãƒ”ãƒ³ã‚°ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®æ•°ã¨åˆã‚ãªã„ ãƒ¬ã‚³ãƒ¼ãƒ‰æƒ…å ±ãŒæ¥ãŸå ´åˆã¯ä¾‹å¤–ã‚’ç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * ã¾ãŸã€InputFileColumnã«è¨­å®šã•ã‚ŒãŸãƒã‚¤ãƒˆæ•°ã¨é•ã†æƒ…å ±ãŒæ¥ãŸå ´åˆã‚‚ä¾‹å¤–ã‚’ç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * ãã‚Œã§ã¯ãªã„å ´åˆã¯ä»¥ä¸‹ã®é †ç•ªã§ãƒ‡ãƒ¼ã‚¿ã‚’å‡¦ç†ã—æ ¼ç´ã™ã‚‹ã€‚<br>
      * <ul>
-     * @@
-     * <li>ƒgƒŠƒ€ˆ—</li> @@
-     * <li>ƒpƒfƒBƒ“ƒOˆ—</li> @@
-     * <li>•¶š—ñ•ÏŠ·ˆ—</li> @@
-     * <li>Œ^•ÏŠ·(ƒ}ƒbƒsƒ“ƒO)ˆ—</li>
+     * ã€€ã€€
+     * <li>ãƒˆãƒªãƒ å‡¦ç†</li> ã€€ã€€
+     * <li>ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°å‡¦ç†</li> ã€€ã€€
+     * <li>æ–‡å­—åˆ—å¤‰æ›å‡¦ç†</li> ã€€ã€€
+     * <li>å‹å¤‰æ›(ãƒãƒƒãƒ”ãƒ³ã‚°)å‡¦ç†</li>
      * </ul>
-     * @return ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg
-     * @throws FileException ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚Ì¶¬‚É¸”s‚µ‚½ê‡B
-     * @throws FileLineException ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚Ìæ“¾‚É¸”s‚µ‚½ê‡B
+     * @return ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @throws FileException ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ç”Ÿæˆã«å¤±æ•—ã—ãŸå ´åˆã€‚
+     * @throws FileLineException ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å–å¾—ã«å¤±æ•—ã—ãŸå ´åˆã€‚
      */
     public T next() {
         if (readTrailer) {
@@ -370,11 +370,11 @@ public abstract class AbstractFileLineIterator<T> implements
 
         T fileLineObject = null;
 
-        // Ÿ‚Ìsƒf[ƒ^‚ğ“Ç‚ŞBhasNext()ƒ`ƒFƒbƒN‚ğs‚Á‚½‚½‚ßAnull‚Ìê‡‚È‚¢B
+        // æ¬¡ã®è¡Œãƒ‡ãƒ¼ã‚¿ã‚’èª­ã‚€ã€‚hasNext()ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã£ãŸãŸã‚ã€nullã®å ´åˆãªã„ã€‚
         String currentString = readLine();
         currentLineCount++;
 
-        // ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ğV‚½‚É¶¬‚·‚éˆ—B
+        // ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’æ–°ãŸã«ç”Ÿæˆã™ã‚‹å‡¦ç†ã€‚
         try {
             fileLineObject = clazz.newInstance();
         } catch (InstantiationException e) {
@@ -387,11 +387,11 @@ public abstract class AbstractFileLineIterator<T> implements
                     fileName);
         }
 
-        // CSV‚Ì‹æØ‚è•¶š‚É‚µ‚½‚ª‚Á‚Ä“ü—Íƒf[ƒ^‚ğ•ª‰ğ‚·‚éB
-        // ‹æØ‚è•¶š‚ÍƒAƒmƒe[ƒVƒ‡ƒ“‚©‚çæ“¾‚·‚éB
+        // CSVã®åŒºåˆ‡ã‚Šæ–‡å­—ã«ã—ãŸãŒã£ã¦å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ã‚’åˆ†è§£ã™ã‚‹ã€‚
+        // åŒºåˆ‡ã‚Šæ–‡å­—ã¯ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã‹ã‚‰å–å¾—ã™ã‚‹ã€‚
         String[] columns = separateColumns(currentString);
 
-        // ƒtƒ@ƒCƒ‹‚©‚ç“Ç‚İæ‚Á‚½ƒJƒ‰ƒ€”‚Æƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌƒJƒ‰ƒ€”‚ğ”äŠr‚·‚éB
+        // ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰èª­ã¿å–ã£ãŸã‚«ãƒ©ãƒ æ•°ã¨ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚«ãƒ©ãƒ æ•°ã‚’æ¯”è¼ƒã™ã‚‹ã€‚
         if (fields.length != columns.length) {
             throw new FileLineException("Column Count is different from "
                     + "FileLineObject's column counts",
@@ -403,13 +403,13 @@ public abstract class AbstractFileLineIterator<T> implements
 
         for (int i = 0; i < fields.length; i++) {
 
-            // JavaBean‚Ì“ü—Í—p‚ÌƒAƒmƒe[ƒVƒ‡ƒ“‚ğİ’è‚·‚éB
+            // JavaBeanã®å…¥åŠ›ç”¨ã®ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã‚’è¨­å®šã™ã‚‹ã€‚
             columnIndex = columnIndexs[i];
 
-            // 1ƒJƒ‰ƒ€‚Ì•¶š—ñ‚ğƒZƒbƒg‚·‚éB
+            // 1ã‚«ãƒ©ãƒ ã®æ–‡å­—åˆ—ã‚’ã‚»ãƒƒãƒˆã™ã‚‹ã€‚
             columnString = columns[columnIndex];
 
-            // ƒJƒ‰ƒ€‚ÌƒoƒCƒg”ƒ`ƒFƒbƒNB
+            // ã‚«ãƒ©ãƒ ã®ãƒã‚¤ãƒˆæ•°ãƒã‚§ãƒƒã‚¯ã€‚
             if (isCheckByte(columnBytes[i])) {
                 try {
                     if (columnString.getBytes(fileEncoding).length != columnBytes[i]) {
@@ -427,19 +427,19 @@ public abstract class AbstractFileLineIterator<T> implements
                 }
             }
 
-            // ƒgƒŠƒ€ˆ—
+            // ãƒˆãƒªãƒ å‡¦ç†
             columnString = FileDAOUtility.trim(columnString, fileEncoding,
                     trimChars[i], trimTypes[i]);
 
-            // ƒpƒfƒBƒ“ƒOˆ—
+            // ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°å‡¦ç†
             columnString = FileDAOUtility.padding(columnString, fileEncoding,
                     columnBytes[i], paddingChars[i], paddingTypes[i]);
 
-            // •¶š—ñ•ÏŠ·‚Ìˆ—B
+            // æ–‡å­—åˆ—å¤‰æ›ã®å‡¦ç†ã€‚
             columnString = stringConverters[i].convert(columnString);
 
-            // ’l‚ğŠi”[‚·‚éˆ—B
-            // JavaBean‚Ì‘®«‚ÌŒ^‚Ì–¼‘O‚É‚æ‚Á‚Äˆ—‚ğU‚è•ª‚¯‚éB
+            // å€¤ã‚’æ ¼ç´ã™ã‚‹å‡¦ç†ã€‚
+            // JavaBeanã®å±æ€§ã®å‹ã®åå‰ã«ã‚ˆã£ã¦å‡¦ç†ã‚’æŒ¯ã‚Šåˆ†ã‘ã‚‹ã€‚
             ColumnParser columnParser = columnParserMap.get(fields[i].getType()
                     .getName());
             try {
@@ -469,38 +469,38 @@ public abstract class AbstractFileLineIterator<T> implements
     }
 
     /**
-     * ƒTƒ|[ƒg‚µ‚È‚¢B<br>
-     * Iterator‚Å’è‹`‚³‚ê‚Ä‚¢‚éƒƒ\ƒbƒhB<br>
-     * FileQueryDAO‚Å‚ÍÀ‘•‚µ‚È‚¢‚Ì‚ÅA‘¼‚ÌƒNƒ‰ƒX‚©‚çŒÄ‚Ño‚µ‚½ê‡A UnsupportedOperationException‚ğƒXƒ[‚·‚éB
-     * @throws UnsupportedOperationException ‚±‚Ìƒƒ\ƒbƒh‚ÍƒTƒ|[ƒg‚µ‚È‚¢B
+     * ã‚µãƒãƒ¼ãƒˆã—ãªã„ã€‚<br>
+     * Iteratorã§å®šç¾©ã•ã‚Œã¦ã„ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ã€‚<br>
+     * FileQueryDAOã§ã¯å®Ÿè£…ã—ãªã„ã®ã§ã€ä»–ã®ã‚¯ãƒ©ã‚¹ã‹ã‚‰å‘¼ã³å‡ºã—ãŸå ´åˆã€ UnsupportedOperationExceptionã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã€‚
+     * @throws UnsupportedOperationException ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã¯ã‚µãƒãƒ¼ãƒˆã—ãªã„ã€‚
      */
     public void remove() {
         throw new UnsupportedOperationException("remove() isn't supported.");
     }
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B<br>
-     * ‰Šú‰»ˆ—‚Ås‚¤ˆ—‚ÍˆÈ‰º‚Å‚·BB
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚<br>
+     * åˆæœŸåŒ–å‡¦ç†ã§è¡Œã†å‡¦ç†ã¯ä»¥ä¸‹ã§ã™ã€‚ã€‚
      * <ul>
-     * <li>ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚Ì‘®«(Field)‚Ìæ“¾</li>
-     * <li>•¶š•ÏŠ·í•ÊƒIƒuƒWƒFƒNƒg(stringConverters)‚Ì¶¬</li>
-     * <li>ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚Ì‘®«‚É‘Î‚·‚éƒZƒbƒ^ƒƒ\ƒbƒh(methods)‚Ìæ“¾</li>
-     * <li>ƒtƒ@ƒCƒ‹‚©‚çƒf[ƒ^‚ğ“Ç‚Ş‚½‚ß‚ÌLineReader‚Ì¶¬</li>
-     * <li>ƒwƒbƒ_•”‚Ìæ“¾</li>
-     * <li>ƒgƒŒƒCƒ‰ƒLƒ…[‚Ì‰Šú‰»</li>
+     * <li>ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å±æ€§(Field)ã®å–å¾—</li>
+     * <li>æ–‡å­—å¤‰æ›ç¨®åˆ¥ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ(stringConverters)ã®ç”Ÿæˆ</li>
+     * <li>ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å±æ€§ã«å¯¾ã™ã‚‹ã‚»ãƒƒã‚¿ãƒ¡ã‚½ãƒƒãƒ‰(methods)ã®å–å¾—</li>
+     * <li>ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ãƒ‡ãƒ¼ã‚¿ã‚’èª­è¾¼ã‚€ãŸã‚ã®LineReaderã®ç”Ÿæˆ</li>
+     * <li>ãƒ˜ãƒƒãƒ€éƒ¨ã®å–å¾—</li>
+     * <li>ãƒˆãƒ¬ã‚¤ãƒ©ã‚­ãƒ¥ãƒ¼ã®åˆæœŸåŒ–</li>
      * </ul>
-     * init()‚ÍAbstracFileLineIterator‚ğŒp³‚·‚éƒNƒ‰ƒX‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Å ŒÄ‚Ôƒƒ\ƒbƒh‚Å‚ ‚éB<br>
-     * ‰ºˆÊŒİŠ·«‚Ì‚½‚ßA2‰ñˆÈãÀs‚Å‚«‚È‚¢‚æ‚¤‚É‚µ‚Ä‚¢‚éB
-     * @throws FileException ‰Šú‰»ˆ—‚Å¸”s‚µ‚½ê‡B
-     * @throws FileLineException ƒJƒ‰ƒ€‚ÉŠÖ˜A‚·‚é‰Šú‰»ˆ—‚Å¸”s‚µ‚½ê‡B
+     * init()ã¯AbstracFileLineIteratorã‚’ç¶™æ‰¿ã™ã‚‹ã‚¯ãƒ©ã‚¹ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§ å‘¼ã¶ãƒ¡ã‚½ãƒƒãƒ‰ã§ã‚ã‚‹ã€‚<br>
+     * ä¸‹ä½äº’æ›æ€§ã®ãŸã‚ã€2å›ä»¥ä¸Šå®Ÿè¡Œã§ããªã„ã‚ˆã†ã«ã—ã¦ã„ã‚‹ã€‚
+     * @throws FileException åˆæœŸåŒ–å‡¦ç†ã§å¤±æ•—ã—ãŸå ´åˆã€‚
+     * @throws FileLineException ã‚«ãƒ©ãƒ ã«é–¢é€£ã™ã‚‹åˆæœŸåŒ–å‡¦ç†ã§å¤±æ•—ã—ãŸå ´åˆã€‚
      */
     protected void init() {
         if (!calledInit) {
-            // ƒŠƒtƒŒƒNƒVƒ‡ƒ“ˆ—‚ÌŠî–{î•ñ‚ğ¶¬‚·‚éB
+            // ãƒªãƒ•ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³å‡¦ç†ã®åŸºæœ¬æƒ…å ±ã‚’ç”Ÿæˆã™ã‚‹ã€‚
             buildFields();
 
             if (isCheckEncloseChar()) {
-                // ƒJƒ‰ƒ€‚²‚Æ‚ÌˆÍ‚İ•¶š‚ªİ’è‚³‚ê‚Ä‚¢‚éê‡A—áŠO‚ğƒXƒ[‚·‚éB
+                // ã‚«ãƒ©ãƒ ã”ã¨ã®å›²ã¿æ–‡å­—ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã€ä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã€‚
                 if (isEnclosed()) {
                     throw new FileException(
                             "columnEncloseChar can not change.",
@@ -509,7 +509,7 @@ public abstract class AbstractFileLineIterator<T> implements
             }
 
             if (isCheckColumnAnnotationCount()) {
-                // ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÉƒAƒmƒe[ƒVƒ‡ƒ“‚ªİ’è‚³‚ê‚Ä‚¢‚È‚¢ê‡A—áŠO‚ğƒXƒ[‚·‚éB
+                // ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ãŒè¨­å®šã•ã‚Œã¦ã„ãªã„å ´åˆã€ä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã€‚
                 if (fields.length == 0) {
                     throw new FileException("InputFileColumn is not found.",
                             new IllegalStateException(), fileName);
@@ -519,10 +519,10 @@ public abstract class AbstractFileLineIterator<T> implements
             buildStringConverters();
             buildMethods();
 
-            // ƒtƒ@ƒCƒ‹‚©‚çƒf[ƒ^‚ğ“Ç‚Ş‚½‚ß‚ÌLineReader‚ğ¶¬‚·‚éB
+            // ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ãƒ‡ãƒ¼ã‚¿ã‚’èª­è¾¼ã‚€ãŸã‚ã®LineReaderã‚’ç”Ÿæˆã™ã‚‹ã€‚
             buildLineReader();
 
-            // ƒwƒbƒ_•”‚ÆƒgƒŒƒCƒ‰•”‚Ìæ“¾‚·‚é‚½‚ß‚ÌŠî–{î•ñ‚ğ¶¬‚·‚éB
+            // ãƒ˜ãƒƒãƒ€éƒ¨ã¨ãƒˆãƒ¬ã‚¤ãƒ©éƒ¨ã®å–å¾—ã™ã‚‹ãŸã‚ã®åŸºæœ¬æƒ…å ±ã‚’ç”Ÿæˆã™ã‚‹ã€‚
             buildHeader();
             buildTrailerQueue();
 
@@ -531,13 +531,13 @@ public abstract class AbstractFileLineIterator<T> implements
     }
 
     /**
-     * ƒtƒ@ƒCƒ‹‚©‚çƒf[ƒ^‚ğ“Ç‚Ş‚½‚ß‚ÌLineReader‚ğ¶¬‚·‚éB<br>
-     * ƒtƒ@ƒCƒ‹‚ÌReader‚Ì¶¬‚¨‚æ‚ÑA—˜—p‚·‚×‚«LineReader‚Ì¶¬‚ğs‚¤B<br>
-     * s‹æØ‚è•¶š‚ª0,1,2Œ…‚Å‚Í‚È‚¢ê‡‚Í—áŠO‚ğ”­¶‚·‚éB
-     * @throws FileException LineReader‚Ì¶¬‚É¸”s‚µ‚½ê‡B
+     * ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ãƒ‡ãƒ¼ã‚¿ã‚’èª­è¾¼ã‚€ãŸã‚ã®LineReaderã‚’ç”Ÿæˆã™ã‚‹ã€‚<br>
+     * ãƒ•ã‚¡ã‚¤ãƒ«ã®Readerã®ç”ŸæˆãŠã‚ˆã³ã€åˆ©ç”¨ã™ã¹ãLineReaderã®ç”Ÿæˆã‚’è¡Œã†ã€‚<br>
+     * è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—ãŒ0,1,2æ¡ã§ã¯ãªã„å ´åˆã¯ä¾‹å¤–ã‚’ç™ºç”Ÿã™ã‚‹ã€‚
+     * @throws FileException LineReaderã®ç”Ÿæˆã«å¤±æ•—ã—ãŸå ´åˆã€‚
      */
     private void buildLineReader() {
-        // ‘ÎÛƒtƒ@ƒCƒ‹‚É‘Î‚·‚éReader‚ğæ“¾‚·‚éB
+        // å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã«å¯¾ã™ã‚‹Readerã‚’å–å¾—ã™ã‚‹ã€‚
         try {
             this.reader = new BufferedReader(new InputStreamReader(
                     (new FileInputStream(fileName)), fileEncoding));
@@ -553,31 +553,31 @@ public abstract class AbstractFileLineIterator<T> implements
                     fileName);
         }
 
-        // s‹æØ‚è•¶š‚ÆˆÍ‚İ•¶š‚Ìî•ñ‚ÉŠî‚Ã‚¢‚ÄLineReader‚ğ¶¬‚·‚éB
+        // è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—ã¨å›²ã¿æ–‡å­—ã®æƒ…å ±ã«åŸºã¥ã„ã¦LineReaderã‚’ç”Ÿæˆã™ã‚‹ã€‚
         if (lineFeedChar.length() == 2) {
-            // s‹æØ‚è•¶š‚ª2•¶š
+            // è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—ãŒ2æ–‡å­—
             if (!enclosed) {
-                // ˆÍ‚İ•¶š–³‚µ
+                // å›²ã¿æ–‡å­—ç„¡ã—
                 lineReader = new LineFeed2LineReader(reader, lineFeedChar);
             } else {
-                // ˆÍ‚İ•¶š‚ ‚è
+                // å›²ã¿æ–‡å­—ã‚ã‚Š
                 lineReader = new EncloseCharLineFeed2LineReader(getDelimiter(),
                         getEncloseChar(), columnEncloseChar, reader,
                         lineFeedChar);
             }
         } else if (lineFeedChar.length() == 1) {
-            // s‹æØ‚è•¶š‚ª1•¶š
+            // è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—ãŒ1æ–‡å­—
             if (!enclosed) {
-                // ˆÍ‚İ•¶š–³‚µ
+                // å›²ã¿æ–‡å­—ç„¡ã—
                 lineReader = new LineFeed1LineReader(reader, lineFeedChar);
             } else {
-                // ˆÍ‚İ•¶š‚ ‚è
+                // å›²ã¿æ–‡å­—ã‚ã‚Š
                 lineReader = new EncloseCharLineFeed1LineReader(getDelimiter(),
                         getEncloseChar(), columnEncloseChar, reader,
                         lineFeedChar);
             }
         } else if (lineFeedChar.length() == 0) {
-            // s‹æØ‚è•¶š‚ª0•¶š
+            // è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—ãŒ0æ–‡å­—
             lineReader = new LineFeed0LineReader(reader, fileEncoding,
                     totalBytes);
         } else {
@@ -589,19 +589,19 @@ public abstract class AbstractFileLineIterator<T> implements
     }
 
     /**
-     * InputFileColumnƒAƒmƒe[ƒVƒ‡ƒ“‚ªİ’è‚³‚ê‚Ä‚¢‚éƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚Ì ‘®«‚Ì”z—ñ‚ğ¶¬‚·‚éB<br>
-     * æ“¾‘ÎÛ‘®«‚Íƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÆŒp³Œ³‚Ì‘SƒNƒ‰ƒX‚Ì‘®«‚Å‚·B<br>
-     * æ“¾‚µ‚½‘®«‚Ì{@link InputFileColumn#columnIndex()}‚ª‘¼‘®«‚Æd•¡‚µ‚Ä ‚¢‚éê‡‚Í—áŠO‚ª”­¶‚·‚éB<br>
-     * ‚Ü‚½A{@link InputFileColumn#columnIndex()}‚ÌÅ‘å’l‚ªƒJƒ‰ƒ€‚Ì”‚Æ‡‚í‚È‚¢ ê‡‚à—áŠO‚ª”­¶‚·‚éB<br>
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚Ì‘®«‚Ìİ’è‚É–â‘è‚ª–³‚¢ê‡‚Í InputFileColumnƒAƒmƒe[ƒVƒ‡ƒ“İ’è‚ª‚ ‚é‘®«‚Ì‚İ®—‚µ”z—ñ‚É‚·‚éB<br>
-     * @throws FileException ƒJƒ‰ƒ€ƒCƒ“ƒfƒbƒNƒX‚ªd•¡‚µ‚½ê‡B
+     * InputFileColumnã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã® å±æ€§ã®é…åˆ—ã‚’ç”Ÿæˆã™ã‚‹ã€‚<br>
+     * å–å¾—å¯¾è±¡å±æ€§ã¯ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¨ç¶™æ‰¿å…ƒã®å…¨ã‚¯ãƒ©ã‚¹ã®å±æ€§ã§ã™ã€‚<br>
+     * å–å¾—ã—ãŸå±æ€§ã®{@link InputFileColumn#columnIndex()}ãŒä»–å±æ€§ã¨é‡è¤‡ã—ã¦ ã„ã‚‹å ´åˆã¯ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * ã¾ãŸã€{@link InputFileColumn#columnIndex()}ã®æœ€å¤§å€¤ãŒã‚«ãƒ©ãƒ ã®æ•°ã¨åˆã‚ãªã„ å ´åˆã‚‚ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å±æ€§ã®è¨­å®šã«å•é¡ŒãŒç„¡ã„å ´åˆã¯ InputFileColumnã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³è¨­å®šãŒã‚ã‚‹å±æ€§ã®ã¿æ•´ç†ã—é…åˆ—ã«ã™ã‚‹ã€‚<br>
+     * @throws FileException ã‚«ãƒ©ãƒ ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ãŒé‡è¤‡ã—ãŸå ´åˆã€‚
      */
     @SuppressWarnings("unchecked")
     private void buildFields() {
-        // ƒtƒB[ƒ‹ƒhƒIƒuƒWƒFƒNƒg‚ğ¶¬
+        // ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ç”Ÿæˆ
         List<Field[]> allFields = new ArrayList<Field[]>();
 
-        // ƒtƒB[ƒ‹ƒhƒIƒuƒWƒFƒNƒg‚ğ¶¬
+        // ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ç”Ÿæˆ
         Class tempClass = clazz;
         Field[] declaredFieldArray = null;
         int allFieldCount = 0;
@@ -612,7 +612,7 @@ public abstract class AbstractFileLineIterator<T> implements
             tempClass = tempClass.getSuperclass();
         }
 
-        // ƒJƒ‰ƒ€ƒCƒ“ƒfƒbƒNƒX‚Ì’è‹`‚Ì‡”Ô‚É•À‚Ñ‘Ö‚¦
+        // ã‚«ãƒ©ãƒ ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã®å®šç¾©ã®é †ç•ªã«ä¸¦ã³æ›¿ãˆ
         Field[] dataColumnFields = new Field[allFieldCount];
 
         InputFileColumn inputFileColumn = null;
@@ -624,7 +624,7 @@ public abstract class AbstractFileLineIterator<T> implements
             for (Field field : fields) {
                 inputFileColumn = field.getAnnotation(InputFileColumn.class);
                 if (inputFileColumn != null) {
-                    // ƒ}ƒbƒsƒ“ƒO‰Â”\‚ÈŒ^‚ÌƒtƒB[ƒ‹ƒh‚È‚Ì‚©Šm”F‚·‚éB
+                    // ãƒãƒƒãƒ”ãƒ³ã‚°å¯èƒ½ãªå‹ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ãªã®ã‹ç¢ºèªã™ã‚‹ã€‚
                     if (columnParserMap.get(field.getType().getName()) == null) {
                         throw new FileException(
                                 "There is a type which isn't supported in a "
@@ -633,21 +633,21 @@ public abstract class AbstractFileLineIterator<T> implements
                     }
 
                     columnIndex = inputFileColumn.columnIndex();
-                    // ƒJƒ‰ƒ€Index‚ªƒ}ƒCƒiƒX’l‚È‚Ì‚©Šm”F‚·‚éB
+                    // ã‚«ãƒ©ãƒ IndexãŒãƒã‚¤ãƒŠã‚¹å€¤ãªã®ã‹ç¢ºèªã™ã‚‹ã€‚
                     if (columnIndex < 0) {
                         throw new FileException(
                                 "Column Index in FileLineObject is the minus "
                                         + "number.",
                                 new IllegalStateException(), fileName);
                     }
-                    // ƒJƒ‰ƒ€Index‚ªƒtƒB[ƒ‹ƒh”‚ğ’´‚¦‚Ä‚¢‚é‚©‚¢‚é‚©Šm”F‚·‚éB
+                    // ã‚«ãƒ©ãƒ IndexãŒãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰æ•°ã‚’è¶…ãˆã¦ã„ã‚‹ã‹ã„ã‚‹ã‹ç¢ºèªã™ã‚‹ã€‚
                     if (dataColumnFields.length <= columnIndex) {
                         throw new FileException(
                                 "Column Index in FileLineObject is bigger than "
                                         + "the total number of the field.",
                                 new IllegalStateException(), fileName);
                     }
-                    // ƒJƒ‰ƒ€Index‚ªd•¡‚µ‚Ä‚È‚¢‚Ì‚©Šm”F‚·‚éB
+                    // ã‚«ãƒ©ãƒ IndexãŒé‡è¤‡ã—ã¦ãªã„ã®ã‹ç¢ºèªã™ã‚‹ã€‚
                     if (dataColumnFields[columnIndex] == null) {
                         dataColumnFields[columnIndex] = field;
                         if (maxColumnIndex < columnIndex) {
@@ -662,14 +662,14 @@ public abstract class AbstractFileLineIterator<T> implements
             }
         }
 
-        // columnIndex‚ª˜A”Ô‚Å’è‹`‚³‚ê‚Ä‚¢‚é‚©‚ğƒ`ƒFƒbƒN‚·‚é
+        // columnIndexãŒé€£ç•ªã§å®šç¾©ã•ã‚Œã¦ã„ã‚‹ã‹ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹
         if (columnCount != (maxColumnIndex + 1)) {
             throw new FileException(
                     "columnIndex in FileLineObject is not sequential order.",
                     new IllegalStateException(), fileName);
         }
 
-        // ƒtƒB[ƒ‹ƒh‚ğƒRƒs[(null‚Ì•”•ªíœ)
+        // ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’ã‚³ãƒ”ãƒ¼(nullã®éƒ¨åˆ†å‰Šé™¤)
         if (dataColumnFields.length == columnCount) {
             this.fields = dataColumnFields;
         } else {
@@ -677,7 +677,7 @@ public abstract class AbstractFileLineIterator<T> implements
             System.arraycopy(dataColumnFields, 0, this.fields, 0, columnCount);
         }
 
-        // InputFileColumniƒAƒmƒe[ƒVƒ‡ƒ“jƒIƒuƒWƒFƒNƒg‚ğ•Ï”‚ÉŠi”[‚·‚éBiStringConverterˆÈŠOj
+        // InputFileColumnï¼ˆã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ï¼‰ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å¤‰æ•°ã«æ ¼ç´ã™ã‚‹ã€‚ï¼ˆStringConverterä»¥å¤–ï¼‰
         inputFileColumns = new InputFileColumn[fields.length];
         columnIndexs = new int[fields.length];
         columnFormats = new String[fields.length];
@@ -687,7 +687,7 @@ public abstract class AbstractFileLineIterator<T> implements
         trimTypes = new TrimType[fields.length];
         trimChars = new char[fields.length];
 
-        // ˆÍ‚İ•¶šİ’èB‚Ü‚¸FileFormat‚Ìİ’è‚ğ“K—p‚·‚éB
+        // å›²ã¿æ–‡å­—è¨­å®šã€‚ã¾ãšFileFormatã®è¨­å®šã‚’é©ç”¨ã™ã‚‹ã€‚
         columnEncloseChar = new char[fields.length];
         if (getEncloseChar() != Character.MIN_VALUE) {
             enclosed = true;
@@ -708,7 +708,7 @@ public abstract class AbstractFileLineIterator<T> implements
             trimTypes[i] = inputFileColumns[i].trimType();
             trimChars[i] = inputFileColumns[i].trimChar();
 
-            // ˆÍ‚İ•¶šİ’èBinputFileColumns‚Ìİ’è‚Åã‘‚«‚ğ‚·‚éB
+            // å›²ã¿æ–‡å­—è¨­å®šã€‚inputFileColumnsã®è¨­å®šã§ä¸Šæ›¸ãã‚’ã™ã‚‹ã€‚
             if (inputFileColumns[i].columnEncloseChar() != Character.MIN_VALUE) {
                 columnEncloseChar[i] = inputFileColumns[i].columnEncloseChar();
                 enclosed = true;
@@ -717,14 +717,14 @@ public abstract class AbstractFileLineIterator<T> implements
     }
 
     /**
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚Ì‘®«‚Ì•¶š•ÏŠ·í•ÊƒIƒuƒWƒFƒNƒg‚Ì”z—ñ‚ğ¶¬‚·‚éB<br>
-     * ¶¬‚³‚ê‚½•¶š•ÏŠ·í•ÊƒIƒuƒWƒFƒNƒgƒCƒ“ƒXƒ^ƒ“ƒX‚ÍƒLƒƒƒbƒVƒ…‚µA “¯—l‚Ìİ’è‚ª‚ ‚é‘®«‚Å—˜—p‚·‚éB<br>
-     * İ’è‚³‚ê‚½•¶š•ÏŠ·í•ÊƒIƒuƒWƒFƒNƒg‚ªƒCƒ“ƒXƒ^ƒ“ƒX‰»o—ˆ‚È‚¢‚à‚Ì‚Ìê‡‚É —áŠO‚ª”­¶‚·‚éB<br>
-     * @throws FileLineException •¶š•ÏŠ·í•ÊƒIƒuƒWƒFƒNƒg‚Ì¶¬‚É¸”s‚µ‚½ê‡B
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å±æ€§ã®æ–‡å­—å¤‰æ›ç¨®åˆ¥ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®é…åˆ—ã‚’ç”Ÿæˆã™ã‚‹ã€‚<br>
+     * ç”Ÿæˆã•ã‚ŒãŸæ–‡å­—å¤‰æ›ç¨®åˆ¥ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã¯ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã—ã€ åŒæ§˜ã®è¨­å®šãŒã‚ã‚‹å±æ€§ã§åˆ©ç”¨ã™ã‚‹ã€‚<br>
+     * è¨­å®šã•ã‚ŒãŸæ–‡å­—å¤‰æ›ç¨®åˆ¥ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–å‡ºæ¥ãªã„ã‚‚ã®ã®å ´åˆã« ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * @throws FileLineException æ–‡å­—å¤‰æ›ç¨®åˆ¥ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ç”Ÿæˆã«å¤±æ•—ã—ãŸå ´åˆã€‚
      */
     private void buildStringConverters() {
 
-        // •¶š•ÏŠ·í•Ê‚Ì”z—ñ‚ğ¶¬
+        // æ–‡å­—å¤‰æ›ç¨®åˆ¥ã®é…åˆ—ã‚’ç”Ÿæˆ
         StringConverter[] dataColumnStringConverters = new StringConverter[fields.length];
 
         InputFileColumn inputFileColumn = null;
@@ -732,22 +732,22 @@ public abstract class AbstractFileLineIterator<T> implements
 
         for (int i = 0; i < fields.length; i++) {
 
-            // JavaBean‚Ì“ü—Í—p‚ÌƒAƒmƒe[ƒVƒ‡ƒ“‚ğæ“¾‚·‚éB
+            // JavaBeanã®å…¥åŠ›ç”¨ã®ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã‚’å–å¾—ã™ã‚‹ã€‚
             inputFileColumn = inputFileColumns[i];
 
-            // inputFileColumn.stringConverter()‚Ì“à—e‚É‚æ‚èˆ—‚ğU‚è•ª‚¯‚éB
+            // inputFileColumn.stringConverter()ã®å†…å®¹ã«ã‚ˆã‚Šå‡¦ç†ã‚’æŒ¯ã‚Šåˆ†ã‘ã‚‹ã€‚
             try {
-                // •¶š•ÏŠ·í•Ê‚ÌƒAƒmƒe[ƒVƒ‡ƒ“‚ğæ“¾‚·‚éB
+                // æ–‡å­—å¤‰æ›ç¨®åˆ¥ã®ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã‚’å–å¾—ã™ã‚‹ã€‚
                 converterKind = inputFileColumn.stringConverter();
 
-                // ƒ}ƒbƒv“à‚Éæ“¾‚µ‚½•¶š•ÏŠ·í•Ê‚Æˆê’v‚·‚éƒL[‚ª‘¶İ‚·‚é‚©”»’è‚·‚éB
+                // ãƒãƒƒãƒ—å†…ã«å–å¾—ã—ãŸæ–‡å­—å¤‰æ›ç¨®åˆ¥ã¨ä¸€è‡´ã™ã‚‹ã‚­ãƒ¼ãŒå­˜åœ¨ã™ã‚‹ã‹åˆ¤å®šã™ã‚‹ã€‚
                 if (stringConverterCacheMap.containsKey(converterKind)) {
-                    // ƒ}ƒbƒv‚©‚çƒIƒuƒWƒFƒNƒg‚ğæ“¾‚µA•¶š•ÏŠ·í•Ê‚Ì”z—ñ‚ÉƒZƒbƒg‚·‚éB
+                    // ãƒãƒƒãƒ—ã‹ã‚‰ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å–å¾—ã—ã€æ–‡å­—å¤‰æ›ç¨®åˆ¥ã®é…åˆ—ã«ã‚»ãƒƒãƒˆã™ã‚‹ã€‚
                     dataColumnStringConverters[i] = stringConverterCacheMap
                             .get(converterKind);
 
                 } else {
-                    // ƒCƒ“ƒXƒ^ƒ“ƒX‚ğ¶¬‚µA•¶š•ÏŠ·í•Ê‚Ì”z—ñ‚ÉƒZƒbƒg‚·‚éB
+                    // ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã—ã€æ–‡å­—å¤‰æ›ç¨®åˆ¥ã®é…åˆ—ã«ã‚»ãƒƒãƒˆã™ã‚‹ã€‚
                     dataColumnStringConverters[i] = converterKind.newInstance();
                     stringConverterCacheMap.put(converterKind,
                             dataColumnStringConverters[i]);
@@ -770,13 +770,13 @@ public abstract class AbstractFileLineIterator<T> implements
     }
 
     /**
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚Ì‘®«‚Ìsetterƒƒ\ƒbƒh‚Ìƒƒ\ƒbƒhƒIƒuƒWƒFƒNƒg‚Ì”z—ñ‚ğ¶¬‚·‚éB<br>
-     * ‘®«‚É‘Î‚·‚ésetterƒƒ\ƒbƒh‚ÍˆÈ‰º‚Ìƒ‹[ƒ‹‚ÅŒŸõ‚·‚éB<br>
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å±æ€§ã®setterãƒ¡ã‚½ãƒƒãƒ‰ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®é…åˆ—ã‚’ç”Ÿæˆã™ã‚‹ã€‚<br>
+     * å±æ€§ã«å¯¾ã™ã‚‹setterãƒ¡ã‚½ãƒƒãƒ‰ã¯ä»¥ä¸‹ã®ãƒ«ãƒ¼ãƒ«ã§æ¤œç´¢ã™ã‚‹ã€‚<br>
      * <ul>
-     * <li>‘®«–¼‚ÌÅ‰‚Ì•¶š‚ğ‘å•¶š‚É‚µ‚½•¶š—ñ‚Ìæ“ª‚Éusetv‚ğ‚Â‚¯‚½‚à‚ÌB</li>
+     * <li>å±æ€§åã®æœ€åˆã®æ–‡å­—ã‚’å¤§æ–‡å­—ã«ã—ãŸæ–‡å­—åˆ—ã®å…ˆé ­ã«ã€Œsetã€ã‚’ã¤ã‘ãŸã‚‚ã®ã€‚</li>
      * </ul>
-     * setterƒƒ\ƒbƒh‚ªŒŸõ‚Å‚«‚È‚¢ê‡‚Í—áŠO‚ª”­¶‚·‚éB
-     * @throws FileException setterƒƒ\ƒbƒh‚ªŒ©‚Â‚©‚ç‚È‚©‚Á‚½ê‡B
+     * setterãƒ¡ã‚½ãƒƒãƒ‰ãŒæ¤œç´¢ã§ããªã„å ´åˆã¯ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã€‚
+     * @throws FileException setterãƒ¡ã‚½ãƒƒãƒ‰ãŒè¦‹ã¤ã‹ã‚‰ãªã‹ã£ãŸå ´åˆã€‚
      */
     private void buildMethods() {
         Method[] dataColumnSetMethods = new Method[fields.length];
@@ -784,17 +784,17 @@ public abstract class AbstractFileLineIterator<T> implements
         String fieldName = null;
 
         for (int i = 0; i < fields.length; i++) {
-            // JavaBean‚©‚çˆ—‚Ì‘ÎÛ‚Æ‚È‚é‘®«‚Ì‘®«–¼‚ğæ“¾‚·‚éB
+            // JavaBeanã‹ã‚‰å‡¦ç†ã®å¯¾è±¡ã¨ãªã‚‹å±æ€§ã®å±æ€§åã‚’å–å¾—ã™ã‚‹ã€‚
             fieldName = fields[i].getName();
 
-            // ‘®«–¼‚ğŒ³‚ÉAsetterƒƒ\ƒbƒh‚Ì–¼‘O‚ğ¶¬‚·‚éB
+            // å±æ€§åã‚’å…ƒã«ã€setterãƒ¡ã‚½ãƒƒãƒ‰ã®åå‰ã‚’ç”Ÿæˆã™ã‚‹ã€‚
             setterName.setLength(0);
             setterName.append("set");
             setterName.append(StringUtils.upperCase(fieldName.substring(0, 1)));
             setterName.append(fieldName.substring(1, fieldName.length()));
 
-            // setter‚ÌƒŠƒtƒŒƒNƒVƒ‡ƒ“ƒIƒuƒWƒFƒNƒg‚ğæ“¾‚·‚éB
-            // fields[i].getType()‚Åˆø”‚ÌŒ^‚ğw’è‚µ‚Ä‚¢‚éB
+            // setterã®ãƒªãƒ•ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å–å¾—ã™ã‚‹ã€‚
+            // fields[i].getType()ã§å¼•æ•°ã®å‹ã‚’æŒ‡å®šã—ã¦ã„ã‚‹ã€‚
             try {
                 dataColumnSetMethods[i] = clazz.getMethod(
                         setterName.toString(), new Class[] { fields[i]
@@ -809,9 +809,9 @@ public abstract class AbstractFileLineIterator<T> implements
     }
 
     /**
-     * ƒwƒbƒ_•”‚Ìæ“¾‚ğs‚¤B<br>
-     * w’è‚³‚ê‚½s”•ª‚Ìƒf[ƒ^‚ª‘¶İ‚µ‚È‚¢ê‡‚É—áŠO‚ğ•Ô‚·B<br>
-     * @throws FileException ƒwƒbƒ_•”‚Ìæ“¾‚É¸”s‚µ‚½ê‡B
+     * ãƒ˜ãƒƒãƒ€éƒ¨ã®å–å¾—ã‚’è¡Œã†ã€‚<br>
+     * æŒ‡å®šã•ã‚ŒãŸè¡Œæ•°åˆ†ã®ãƒ‡ãƒ¼ã‚¿ãŒå­˜åœ¨ã—ãªã„å ´åˆã«ä¾‹å¤–ã‚’è¿”ã™ã€‚<br>
+     * @throws FileException ãƒ˜ãƒƒãƒ€éƒ¨ã®å–å¾—ã«å¤±æ•—ã—ãŸå ´åˆã€‚
      */
     private void buildHeader() {
         if (0 < headerLineCount) {
@@ -833,19 +833,19 @@ public abstract class AbstractFileLineIterator<T> implements
     }
 
     /**
-     * ƒgƒŒƒCƒ‰ƒLƒ…[‚Ì‰Šú‰»‚ğs‚¤B<br>
-     * ƒgƒŒƒCƒ‰•”‚Íƒf[ƒ^•”‚ğ‘S•”“Ç‚ñ‚¾Œã‚Ì•”•ª‚Å\¬‚³‚ê‚Ü‚·‚ªA ƒtƒ@ƒCƒ‹‚Í‘O‚©‚çŒã‚É‡’²‚É“Ç‚Ü‚ê‚é‚½‚ßA<br>
-     * ¡æ“¾‚µ‚½ƒf[ƒ^‚ªƒf[ƒ^•”‚Ìî•ñ‚È‚Ì‚©ƒgƒŒƒCƒ‰•”‚Ìî•ñ‚©‚ª”»’f‚Å‚«‚È‚¢B<br>
-     * ‚»‚Ì‚½‚ßAƒLƒ…[‚Éƒf[ƒ^‚ğ“ü‚ê‚Äæ“¾‚·‚éB<br>
-     * w’è‚³‚ê‚½s”•ª‚Ìƒf[ƒ^‚ª‘¶İ‚µ‚È‚¢ê‡‚É—áŠO‚ğ•Ô‚·B<br>
-     * @throws FileException ƒgƒŒƒCƒ‰ƒLƒ…[‚Ì‰Šú‰»ˆ—‚ª¸”s‚µ‚½ê‡B
+     * ãƒˆãƒ¬ã‚¤ãƒ©ã‚­ãƒ¥ãƒ¼ã®åˆæœŸåŒ–ã‚’è¡Œã†ã€‚<br>
+     * ãƒˆãƒ¬ã‚¤ãƒ©éƒ¨ã¯ãƒ‡ãƒ¼ã‚¿éƒ¨ã‚’å…¨éƒ¨èª­ã‚“ã å¾Œã®éƒ¨åˆ†ã§æ§‹æˆã•ã‚Œã¾ã™ãŒã€ ãƒ•ã‚¡ã‚¤ãƒ«ã¯å‰ã‹ã‚‰å¾Œã«é †èª¿ã«èª­ã¾ã‚Œã‚‹ãŸã‚ã€<br>
+     * ä»Šå–å¾—ã—ãŸãƒ‡ãƒ¼ã‚¿ãŒãƒ‡ãƒ¼ã‚¿éƒ¨ã®æƒ…å ±ãªã®ã‹ãƒˆãƒ¬ã‚¤ãƒ©éƒ¨ã®æƒ…å ±ã‹ãŒåˆ¤æ–­ã§ããªã„ã€‚<br>
+     * ãã®ãŸã‚ã€ã‚­ãƒ¥ãƒ¼ã«ãƒ‡ãƒ¼ã‚¿ã‚’å…¥ã‚Œã¦å–å¾—ã™ã‚‹ã€‚<br>
+     * æŒ‡å®šã•ã‚ŒãŸè¡Œæ•°åˆ†ã®ãƒ‡ãƒ¼ã‚¿ãŒå­˜åœ¨ã—ãªã„å ´åˆã«ä¾‹å¤–ã‚’è¿”ã™ã€‚<br>
+     * @throws FileException ãƒˆãƒ¬ã‚¤ãƒ©ã‚­ãƒ¥ãƒ¼ã®åˆæœŸåŒ–å‡¦ç†ãŒå¤±æ•—ã—ãŸå ´åˆã€‚
      */
     private void buildTrailerQueue() {
         if (0 < trailerLineCount) {
-            // ƒgƒŒƒCƒ‰ƒLƒ…[ƒCƒ“ƒXƒ^ƒ“ƒX‚ğ¶¬‚·‚éB
+            // ãƒˆãƒ¬ã‚¤ãƒ©ã‚­ãƒ¥ãƒ¼ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã™ã‚‹ã€‚
             trailerQueue = new ArrayBlockingQueue<String>(trailerLineCount);
 
-            // ƒgƒŒƒCƒ‰ƒLƒ…[‚ÌƒgƒŒƒCƒ‰s”•ª‚Ìƒf[ƒ^‚ğ’Ç‰Á‚·‚éB
+            // ãƒˆãƒ¬ã‚¤ãƒ©ã‚­ãƒ¥ãƒ¼ã®ãƒˆãƒ¬ã‚¤ãƒ©è¡Œæ•°åˆ†ã®ãƒ‡ãƒ¼ã‚¿ã‚’è¿½åŠ ã™ã‚‹ã€‚
             for (int i = 0; i < trailerLineCount; i++) {
                 if (!hasNext()) {
                     throw new FileException(
@@ -864,8 +864,8 @@ public abstract class AbstractFileLineIterator<T> implements
     }
 
     /**
-     * ƒtƒ@ƒCƒ‹•ÂÇˆ—‚ğs‚¤B<br>
-     * @throws FileException ƒtƒ@ƒCƒ‹•ÂÇˆ—‚Å¸”s‚µ‚½ê‡B
+     * ãƒ•ã‚¡ã‚¤ãƒ«é–‰å¡å‡¦ç†ã‚’è¡Œã†ã€‚<br>
+     * @throws FileException ãƒ•ã‚¡ã‚¤ãƒ«é–‰å¡å‡¦ç†ã§å¤±æ•—ã—ãŸå ´åˆã€‚
      */
     public void closeFile() {
         try {
@@ -877,28 +877,28 @@ public abstract class AbstractFileLineIterator<T> implements
     }
 
     /**
-     * ƒwƒbƒ_•”‚Ìƒf[ƒ^‚ğæ“¾‚·‚éB<br>
-     * ƒf[ƒ^•”‚ÆƒgƒŒƒCƒ‰•”‚Ìæ“¾ˆ—‚ÌÀs‰Â”Û‚ÆŠÖŒW‚È‚­ƒwƒbƒ_•”‚ğæ“¾‚·‚é‚±‚Æ‚ª o—ˆ‚éB
-     * @return header ƒwƒbƒ_•”‚Ì•¶š—ñƒŠƒXƒg
+     * ãƒ˜ãƒƒãƒ€éƒ¨ã®ãƒ‡ãƒ¼ã‚¿ã‚’å–å¾—ã™ã‚‹ã€‚<br>
+     * ãƒ‡ãƒ¼ã‚¿éƒ¨ã¨ãƒˆãƒ¬ã‚¤ãƒ©éƒ¨ã®å–å¾—å‡¦ç†ã®å®Ÿè¡Œå¯å¦ã¨é–¢ä¿‚ãªããƒ˜ãƒƒãƒ€éƒ¨ã‚’å–å¾—ã™ã‚‹ã“ã¨ãŒ å‡ºæ¥ã‚‹ã€‚
+     * @return header ãƒ˜ãƒƒãƒ€éƒ¨ã®æ–‡å­—åˆ—ãƒªã‚¹ãƒˆ
      */
     public List<String> getHeader() {
         return header;
     }
 
     /**
-     * ƒgƒŒƒCƒ‰•”‚Ìƒf[ƒ^‚ğæ“¾‚·‚éB<br>
-     * ƒgƒŒƒCƒ‰•”‚Ìƒf[ƒ^‚ğæ“¾‚·‚é‚Æƒf[ƒ^•”‚Ìƒf[ƒ^‚ğæ“¾‚·‚é‚±‚Æ‚Ío—ˆ‚È‚¢B<br>
-     * ——R‚ÍƒgƒŒƒCƒ‰•”‚Ìƒf[ƒ^æ“¾‚ÉAƒf[ƒ^•”‚Ìî•ñ‚ğ‘S•”ƒXƒLƒbƒv‚·‚é‚½‚ß‚Å‚·B<br>
-     * <b>¦’ˆÓ–€</b><br>
-     * ƒf[ƒ^•”‚Ìƒf[ƒ^‚ğ‘S•”æ“¾‚·‚éˆÈ‘O‚ÉƒgƒŒƒCƒ‰•”‚ğæ“¾‚µ‚È‚¢‚±‚ÆB<br>
-     * @return ƒgƒŒƒCƒ‰•”‚Ì•¶š—ñƒŠƒXƒg
-     * @throws FileException ƒf[ƒ^sæ“¾ˆ—‚Å¸”s‚µ‚½ê‡B
+     * ãƒˆãƒ¬ã‚¤ãƒ©éƒ¨ã®ãƒ‡ãƒ¼ã‚¿ã‚’å–å¾—ã™ã‚‹ã€‚<br>
+     * ãƒˆãƒ¬ã‚¤ãƒ©éƒ¨ã®ãƒ‡ãƒ¼ã‚¿ã‚’å–å¾—ã™ã‚‹ã¨ãƒ‡ãƒ¼ã‚¿éƒ¨ã®ãƒ‡ãƒ¼ã‚¿ã‚’å–å¾—ã™ã‚‹ã“ã¨ã¯å‡ºæ¥ãªã„ã€‚<br>
+     * ç†ç”±ã¯ãƒˆãƒ¬ã‚¤ãƒ©éƒ¨ã®ãƒ‡ãƒ¼ã‚¿å–å¾—æ™‚ã«ã€ãƒ‡ãƒ¼ã‚¿éƒ¨ã®æƒ…å ±ã‚’å…¨éƒ¨ã‚¹ã‚­ãƒƒãƒ—ã™ã‚‹ãŸã‚ã§ã™ã€‚<br>
+     * <b>â€»æ³¨æ„äº‹é …</b><br>
+     * ãƒ‡ãƒ¼ã‚¿éƒ¨ã®ãƒ‡ãƒ¼ã‚¿ã‚’å…¨éƒ¨å–å¾—ã™ã‚‹ä»¥å‰ã«ãƒˆãƒ¬ã‚¤ãƒ©éƒ¨ã‚’å–å¾—ã—ãªã„ã“ã¨ã€‚<br>
+     * @return ãƒˆãƒ¬ã‚¤ãƒ©éƒ¨ã®æ–‡å­—åˆ—ãƒªã‚¹ãƒˆ
+     * @throws FileException ãƒ‡ãƒ¼ã‚¿è¡Œå–å¾—å‡¦ç†ã§å¤±æ•—ã—ãŸå ´åˆã€‚
      */
     public List<String> getTrailer() {
-        // ƒgƒŒƒCƒ‰•”‚ÌƒLƒƒƒbƒVƒ…‚ª‚È‚¢ê‡‚ÉÀs‚·‚éB
+        // ãƒˆãƒ¬ã‚¤ãƒ©éƒ¨ã®ã‚­ãƒ£ãƒƒã‚·ãƒ¥ãŒãªã„å ´åˆã«å®Ÿè¡Œã™ã‚‹ã€‚
         if (!readTrailer) {
             String currentData = null;
-            // c‚Á‚Ä‚¢‚éƒf[ƒ^•”‚ğ”ò‚Î‚·ˆ—‚ğs‚¤B
+            // æ®‹ã£ã¦ã„ã‚‹ãƒ‡ãƒ¼ã‚¿éƒ¨ã‚’é£›ã°ã™å‡¦ç†ã‚’è¡Œã†ã€‚
             while (hasNext()) {
                 try {
                     currentData = lineReader.readLine();
@@ -912,7 +912,7 @@ public abstract class AbstractFileLineIterator<T> implements
                 }
             }
 
-            // ƒtƒ@ƒCƒ‹‚ÌƒgƒŒƒCƒ‰•”î•ñ‚ğƒLƒƒƒbƒVƒ…‚ÉŠi”[‚·‚éB
+            // ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒˆãƒ¬ã‚¤ãƒ©éƒ¨æƒ…å ±ã‚’ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã«æ ¼ç´ã™ã‚‹ã€‚
             if (0 < trailerLineCount) {
                 int trailerQueueLength = trailerQueue.size();
 
@@ -926,22 +926,22 @@ public abstract class AbstractFileLineIterator<T> implements
     }
 
     /**
-     * ƒtƒ@ƒCƒ‹‚©‚çƒf[ƒ^•”‚Ìƒf[ƒ^‚ğ1s•ª“Ç‚İæ‚èA•¶š—ñ‚Æ‚µ‚ÄŒÄoŒ³‚É•Ô‹p‚·‚éB<br>
-     * ƒgƒŒƒCƒ‰•”‚ª‘¶İ‚·‚éê‡‚ÍƒgƒŒƒCƒ‰ƒLƒ…[‚©‚çƒf[ƒ^‚ğæ“¾‚µ‚ÄŒ‹‰Ê•¶š—ñ‚É ‚·‚éB<br>
-     * ‚»‚ÌŒãLineReader‚©‚ç1s•ª‚Ì•¶š—ñ‚ğæ“¾‚µƒgƒŒƒCƒ‰ƒLƒ…[‚ÉŠi”[‚·‚éB<br>
-     * ƒgƒŒƒCƒ‰•”‚ª‘¶İ‚µ‚È‚¢ê‡‚ÍLineReader‚©‚çæ“¾‚µ‚½1s•ª‚Ì•¶š—ñ‚ğŒ‹‰Ê•¶š—ñ‚É ‚·‚éB<br>
-     * ‚à‚µAŸ‚Ì1s•ª‚Ìƒf[ƒ^‚ª‚È‚¢ê‡‚Ínull‚ğ•Ô‚·B
-     * @return ƒf[ƒ^•”‚Ì‚Ps•ª‚Ì•¶š—ñ
-     * @throws FileException ƒf[ƒ^sæ“¾ˆ—‚Å¸”s‚µ‚½ê‡B
+     * ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ãƒ‡ãƒ¼ã‚¿éƒ¨ã®ãƒ‡ãƒ¼ã‚¿ã‚’1è¡Œåˆ†èª­ã¿å–ã‚Šã€æ–‡å­—åˆ—ã¨ã—ã¦å‘¼å‡ºå…ƒã«è¿”å´ã™ã‚‹ã€‚<br>
+     * ãƒˆãƒ¬ã‚¤ãƒ©éƒ¨ãŒå­˜åœ¨ã™ã‚‹å ´åˆã¯ãƒˆãƒ¬ã‚¤ãƒ©ã‚­ãƒ¥ãƒ¼ã‹ã‚‰ãƒ‡ãƒ¼ã‚¿ã‚’å–å¾—ã—ã¦çµæœæ–‡å­—åˆ—ã« ã™ã‚‹ã€‚<br>
+     * ãã®å¾ŒLineReaderã‹ã‚‰1è¡Œåˆ†ã®æ–‡å­—åˆ—ã‚’å–å¾—ã—ãƒˆãƒ¬ã‚¤ãƒ©ã‚­ãƒ¥ãƒ¼ã«æ ¼ç´ã™ã‚‹ã€‚<br>
+     * ãƒˆãƒ¬ã‚¤ãƒ©éƒ¨ãŒå­˜åœ¨ã—ãªã„å ´åˆã¯LineReaderã‹ã‚‰å–å¾—ã—ãŸ1è¡Œåˆ†ã®æ–‡å­—åˆ—ã‚’çµæœæ–‡å­—åˆ—ã« ã™ã‚‹ã€‚<br>
+     * ã‚‚ã—ã€æ¬¡ã®1è¡Œåˆ†ã®ãƒ‡ãƒ¼ã‚¿ãŒãªã„å ´åˆã¯nullã‚’è¿”ã™ã€‚
+     * @return ãƒ‡ãƒ¼ã‚¿éƒ¨ã®ï¼‘è¡Œåˆ†ã®æ–‡å­—åˆ—
+     * @throws FileException ãƒ‡ãƒ¼ã‚¿è¡Œå–å¾—å‡¦ç†ã§å¤±æ•—ã—ãŸå ´åˆã€‚
      */
     protected String readLine() {
 
-        // Ÿ‚Ìsƒf[ƒ^‚ª‚È‚¢ê‡‚Ínull‚ğ•Ô‚·B
+        // æ¬¡ã®è¡Œãƒ‡ãƒ¼ã‚¿ãŒãªã„å ´åˆã¯nullã‚’è¿”ã™ã€‚
         if (!hasNext()) {
             return null;
         }
 
-        // Ÿ‚Ì1s•ª‚Ì•¶š—ñ‚ğæ“¾‚·‚éB
+        // æ¬¡ã®1è¡Œåˆ†ã®æ–‡å­—åˆ—ã‚’å–å¾—ã™ã‚‹ã€‚
         String currentReadLineString = null;
         try {
             currentReadLineString = lineReader.readLine();
@@ -950,8 +950,8 @@ public abstract class AbstractFileLineIterator<T> implements
                     fileName);
         }
 
-        // ƒgƒŒƒCƒ‰ƒLƒ…[‚ª‘¶İ‚·‚éê‡‚ÍAŒ‹‰Ê‚Æ‚µ‚ÄƒLƒ…[‚Ìæ“ªƒf[ƒ^‚ğ•Ô‚·B
-        // ¡æ“¾‚µ‚½1s•ª‚Ì•¶š—ñ‚ÍƒgƒŒƒCƒ‰ƒLƒ…[‚É“ü‚ê‚éB
+        // ãƒˆãƒ¬ã‚¤ãƒ©ã‚­ãƒ¥ãƒ¼ãŒå­˜åœ¨ã™ã‚‹å ´åˆã¯ã€çµæœã¨ã—ã¦ã‚­ãƒ¥ãƒ¼ã®å…ˆé ­ãƒ‡ãƒ¼ã‚¿ã‚’è¿”ã™ã€‚
+        // ä»Šå–å¾—ã—ãŸ1è¡Œåˆ†ã®æ–‡å­—åˆ—ã¯ãƒˆãƒ¬ã‚¤ãƒ©ã‚­ãƒ¥ãƒ¼ã«å…¥ã‚Œã‚‹ã€‚
         if (0 < trailerLineCount) {
             String pollingLineString = trailerQueue.poll();
             trailerQueue.add(currentReadLineString);
@@ -962,8 +962,8 @@ public abstract class AbstractFileLineIterator<T> implements
     }
 
     /**
-     * ƒf[ƒ^•”‚Ìƒf[ƒ^‚ğ“Ç‚İ”ò‚Î‚·ˆ—‚ğs‚¤B<br>
-     * @param skipLines “Ç‚İ”ò‚Î‚·s”B
+     * ãƒ‡ãƒ¼ã‚¿éƒ¨ã®ãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿é£›ã°ã™å‡¦ç†ã‚’è¡Œã†ã€‚<br>
+     * @param skipLines èª­ã¿é£›ã°ã™è¡Œæ•°ã€‚
      */
     public void skip(int skipLines) {
         for (int i = 0; i < skipLines; i++) {
@@ -979,30 +979,30 @@ public abstract class AbstractFileLineIterator<T> implements
     }
 
     /**
-     * ‹æØ‚è•¶š‚ğæ“¾‚·‚éB
-     * @return s‹æØ‚è•¶šB
+     * åŒºåˆ‡ã‚Šæ–‡å­—ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—ã€‚
      */
     protected abstract char getDelimiter();
 
     /**
-     * ˆÍ‚İ•¶š‚ğæ“¾‚·‚éB
-     * @return ˆÍ‚İ•¶šB
+     * å›²ã¿æ–‡å­—ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return å›²ã¿æ–‡å­—ã€‚
      */
     protected abstract char getEncloseChar();
 
     /**
-     * ƒf[ƒ^•”‚Ìƒf[ƒ^‚Ps•ª‚ğƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌƒAƒmƒe[ƒVƒ‡ƒ“‚Ì‹Lq‚É ]‚¢ƒJƒ‰ƒ€‚É•ªŠ„‚·‚éB<br>
-     * ˆø”<code>fileLineString</code>‚ª<code>null</code>‚à‚µ‚­‚Í ‹ó•¶š‚Ìê‡‚ÍA—v‘f‚ğ‚½‚È‚¢<code>String</code>”z—ñ‚ğ•Ô‚µ‚Ü‚·B<br>
-     * ƒTƒuƒNƒ‰ƒX‚Í‚±‚Ìƒƒ\ƒbƒh‚ğƒI[ƒo[ƒ‰ƒCƒh‚µ‚Ü‚·B
-     * @param fileLineString ƒf[ƒ^•”‚Ìƒf[ƒ^‚Ps•ª
-     * @return ƒf[ƒ^•”‚Ps‚Ì•¶š—ñ‚ğ•ª‰ğ‚µ‚½•¶š”z—ñ
+     * ãƒ‡ãƒ¼ã‚¿éƒ¨ã®ãƒ‡ãƒ¼ã‚¿ï¼‘è¡Œåˆ†ã‚’ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã®è¨˜è¿°ã« å¾“ã„ã‚«ãƒ©ãƒ ã«åˆ†å‰²ã™ã‚‹ã€‚<br>
+     * å¼•æ•°<code>fileLineString</code>ãŒ<code>null</code>ã‚‚ã—ãã¯ ç©ºæ–‡å­—ã®å ´åˆã¯ã€è¦ç´ ã‚’æŒãŸãªã„<code>String</code>é…åˆ—ã‚’è¿”ã—ã¾ã™ã€‚<br>
+     * ã‚µãƒ–ã‚¯ãƒ©ã‚¹ã¯ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚’ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã—ã¾ã™ã€‚
+     * @param fileLineString ãƒ‡ãƒ¼ã‚¿éƒ¨ã®ãƒ‡ãƒ¼ã‚¿ï¼‘è¡Œåˆ†
+     * @return ãƒ‡ãƒ¼ã‚¿éƒ¨ï¼‘è¡Œã®æ–‡å­—åˆ—ã‚’åˆ†è§£ã—ãŸæ–‡å­—é…åˆ—
      */
     protected abstract String[] separateColumns(String fileLineString);
 
     /**
-     * ‘ÎÛƒJƒ‰ƒ€‚É‘Î‚·‚éƒoƒCƒg”ƒ`ƒFƒbƒN‚ğs‚¤‚©‚ğ•Ô‚·B
-     * @param inputFileColumn ‘ÎÛƒJƒ‰ƒ€‚ÌInputFileColumnî•ñ
-     * @return ƒoƒCƒg”‚ªİ’è‚³‚ê‚Ä‚¢‚é(1ƒoƒCƒgˆÈã)ê‡‚ÍtrueB
+     * å¯¾è±¡ã‚«ãƒ©ãƒ ã«å¯¾ã™ã‚‹ãƒã‚¤ãƒˆæ•°ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†ã‹ã‚’è¿”ã™ã€‚
+     * @param inputFileColumn å¯¾è±¡ã‚«ãƒ©ãƒ ã®InputFileColumnæƒ…å ±
+     * @return ãƒã‚¤ãƒˆæ•°ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹(1ãƒã‚¤ãƒˆä»¥ä¸Š)å ´åˆã¯trueã€‚
      */
     protected boolean isCheckByte(InputFileColumn inputFileColumn) {
         if (0 < inputFileColumn.bytes()) {
@@ -1012,9 +1012,9 @@ public abstract class AbstractFileLineIterator<T> implements
     }
 
     /**
-     * ‘ÎÛƒJƒ‰ƒ€‚É‘Î‚·‚éƒoƒCƒg”ƒ`ƒFƒbƒN‚ğs‚¤‚©‚ğ•Ô‚·B
-     * @param columnByte ‘ÎÛƒJƒ‰ƒ€‚ÌƒoƒCƒg”
-     * @return ƒoƒCƒg”‚ªİ’è‚³‚ê‚Ä‚¢‚é(1ƒoƒCƒgˆÈã)ê‡‚ÍtrueB
+     * å¯¾è±¡ã‚«ãƒ©ãƒ ã«å¯¾ã™ã‚‹ãƒã‚¤ãƒˆæ•°ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†ã‹ã‚’è¿”ã™ã€‚
+     * @param columnByte å¯¾è±¡ã‚«ãƒ©ãƒ ã®ãƒã‚¤ãƒˆæ•°
+     * @return ãƒã‚¤ãƒˆæ•°ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹(1ãƒã‚¤ãƒˆä»¥ä¸Š)å ´åˆã¯trueã€‚
      */
     protected boolean isCheckByte(int columnByte) {
         if (0 < columnByte) {
@@ -1024,112 +1024,112 @@ public abstract class AbstractFileLineIterator<T> implements
     }
 
     /**
-     * s‹æØ‚è•¶š‚ğæ“¾‚·‚éB
-     * @return s‹æØ‚è•¶š
+     * è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—
      */
     protected String getLineFeedChar() {
         return lineFeedChar;
     }
 
     /**
-     * s‹æØ‚è•¶š‚ğİ’è‚·‚éB
-     * @param s‹æØ‚è•¶š
+     * è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—ã‚’è¨­å®šã™ã‚‹ã€‚
+     * @param è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—
      */
     protected void setLineFeedChar(String lineFeedChar) {
         this.lineFeedChar = lineFeedChar;
     }
 
     /**
-     * ƒtƒ@ƒCƒ‹ƒGƒ“ƒR[ƒfƒBƒ“ƒOæ“¾‚·‚éB
-     * @return ƒtƒ@ƒCƒ‹ƒGƒ“ƒR[ƒfƒBƒ“ƒO
+     * ãƒ•ã‚¡ã‚¤ãƒ«ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°å–å¾—ã™ã‚‹ã€‚
+     * @return ãƒ•ã‚¡ã‚¤ãƒ«ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°
      */
     protected String getFileEncoding() {
         return fileEncoding;
     }
 
     /**
-     * ƒwƒbƒ_s”‚ğæ“¾‚·‚éB
-     * @return ƒwƒbƒ_s”
+     * ãƒ˜ãƒƒãƒ€è¡Œæ•°ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return ãƒ˜ãƒƒãƒ€è¡Œæ•°
      */
     protected int getHeaderLineCount() {
         return headerLineCount;
     }
 
     /**
-     * ƒgƒŒƒCƒ‰s”‚ğæ“¾‚·‚éB
-     * @return ƒgƒŒƒCƒ‰s”
+     * ãƒˆãƒ¬ã‚¤ãƒ©è¡Œæ•°ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return ãƒˆãƒ¬ã‚¤ãƒ©è¡Œæ•°
      */
     protected int getTrailerLineCount() {
         return trailerLineCount;
     }
 
     /**
-     * Œ»İƒtƒ@ƒCƒ‹“ü—Íˆ—Ï‚İ‚Ìƒf[ƒ^•”“à‚Ìs”‚ğæ“¾‚·‚éB
-     * @return ƒtƒ@ƒCƒ‹“ü—Íˆ—Ï‚İ‚Ìƒf[ƒ^•”‚Ìs”B
+     * ç¾åœ¨ãƒ•ã‚¡ã‚¤ãƒ«å…¥åŠ›å‡¦ç†æ¸ˆã¿ã®ãƒ‡ãƒ¼ã‚¿éƒ¨å†…ã®è¡Œæ•°ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return ãƒ•ã‚¡ã‚¤ãƒ«å…¥åŠ›å‡¦ç†æ¸ˆã¿ã®ãƒ‡ãƒ¼ã‚¿éƒ¨ã®è¡Œæ•°ã€‚
      */
     public int getCurrentLineCount() {
         return currentLineCount;
     }
 
     /**
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌFieldî•ñiAnnotationj‚ğŠi”[‚·‚é•Ï”‚ğæ“¾‚·‚éB
-     * @return ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌFieldî•ñiAnnotationj‚ğŠi”[‚·‚é•Ï”
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®Fieldæƒ…å ±ï¼ˆAnnotationï¼‰ã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®Fieldæƒ…å ±ï¼ˆAnnotationï¼‰ã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°
      */
     protected Field[] getFields() {
         return fields;
     }
 
     /**
-     * ƒtƒ@ƒCƒ‹–¼‚ğæ“¾‚·‚éB
-     * @return fileName ƒtƒ@ƒCƒ‹–¼
+     * ãƒ•ã‚¡ã‚¤ãƒ«åã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return fileName ãƒ•ã‚¡ã‚¤ãƒ«å
      */
     protected String getFileName() {
         return fileName;
     }
 
     /**
-     * ƒJƒ‰ƒ€‚ÌˆÍ‚İ•¶š‚ğæ“¾‚·‚éB
-     * @return columnEncloseChar ˆÍ‚İ•¶š
+     * ã‚«ãƒ©ãƒ ã®å›²ã¿æ–‡å­—ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return columnEncloseChar å›²ã¿æ–‡å­—
      */
     protected char[] getColumnEncloseChar() {
         return columnEncloseChar;
     }
 
     /**
-     * ˆÍ‚İ•¶š‚ªİ’è‚³‚ê‚Ä‚¢‚é‚©‚ğ•Ô‚·B
-     * @return enclosed ˆÍ‚İ•¶š
+     * å›²ã¿æ–‡å­—ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹ã‹ã‚’è¿”ã™ã€‚
+     * @return enclosed å›²ã¿æ–‡å­—
      */
     protected boolean isEnclosed() {
         return enclosed;
     }
 
     /**
-     * ŠeƒJƒ‰ƒ€‚ÌƒoƒCƒg”‚ğæ“¾‚·‚éB
-     * @return columnBytes ŠeƒJƒ‰ƒ€‚ÌƒoƒCƒg”
+     * å„ã‚«ãƒ©ãƒ ã®ãƒã‚¤ãƒˆæ•°ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return columnBytes å„ã‚«ãƒ©ãƒ ã®ãƒã‚¤ãƒˆæ•°
      */
     protected int[] getColumnBytes() {
         return columnBytes;
     }
 
     /**
-     * 1s•ª‚ÌƒoƒCƒg”‚ğæ“¾‚·‚éB
-     * @return totalBytes 1s•ª‚ÌƒoƒCƒg”
+     * 1è¡Œåˆ†ã®ãƒã‚¤ãƒˆæ•°ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return totalBytes 1è¡Œåˆ†ã®ãƒã‚¤ãƒˆæ•°
      */
     protected int getTotalBytes() {
         return totalBytes;
     }
 
     /**
-     * ˆÍ‚İ•¶š‚ªİ’è‚³‚ê‚Ä‚¢‚È‚¢–‚ğƒ`ƒFƒbƒN‚·‚é‚©‚Ç‚¤‚©‚ğ•Ô‚·B
-     * @return ƒ`ƒFƒbƒN‚ğs‚¤ê‡‚ÍtrueB
+     * å›²ã¿æ–‡å­—ãŒè¨­å®šã•ã‚Œã¦ã„ãªã„äº‹ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã‹ã©ã†ã‹ã‚’è¿”ã™ã€‚
+     * @return ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†å ´åˆã¯trueã€‚
      */
     protected boolean isCheckEncloseChar() {
         return false;
     }
 
     /**
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÉƒAƒmƒe[ƒVƒ‡ƒ“‚ªİ’è‚³‚ê‚Ä‚¢‚é–‚ğƒ`ƒFƒbƒN‚·‚é‚©‚Ç‚¤‚©‚ğ•Ô‚·B
-     * @return ƒ`ƒFƒbƒN‚ğs‚¤ê‡‚ÍtrueB
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹äº‹ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã‹ã©ã†ã‹ã‚’è¿”ã™ã€‚
+     * @return ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†å ´åˆã¯trueã€‚
      */
     protected boolean isCheckColumnAnnotationCount() {
         return true;

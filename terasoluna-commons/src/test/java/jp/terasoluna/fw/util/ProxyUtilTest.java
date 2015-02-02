@@ -23,11 +23,11 @@ import org.springframework.aop.support.AopUtils;
 
 
 /**
- * {@link jp.terasoluna.fw.util.ProxyUtil} ƒNƒ‰ƒX‚Ìƒuƒ‰ƒbƒNƒ{ƒbƒNƒXƒeƒXƒgB
+ * {@link jp.terasoluna.fw.util.ProxyUtil} ã‚¯ãƒ©ã‚¹ã®ãƒ–ãƒ©ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ†ã‚¹ãƒˆã€‚
  * 
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4>
- * ƒvƒƒLƒVŠÖ˜A‚Ìƒ†[ƒeƒBƒŠƒeƒBƒNƒ‰ƒXB
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4>
+ * ãƒ—ãƒ­ã‚­ã‚·é–¢é€£ã®ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ã‚¯ãƒ©ã‚¹ã€‚
  * <p>
  * 
  * @see jp.terasoluna.fw.util.ProxyUtil
@@ -35,27 +35,27 @@ import org.springframework.aop.support.AopUtils;
 public class ProxyUtilTest extends TestCase {
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Override
     protected void setUp() throws Exception {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Override
     protected void tearDown() throws Exception {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      * 
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public ProxyUtilTest(String name) {
         super(name);
@@ -65,24 +65,24 @@ public class ProxyUtilTest extends TestCase {
      * testGetTargetClass01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) proxy:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) proxy:null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
      *                    "Proxy object is null."<br>
      *         
      * <br>
-     * ƒvƒƒLƒVƒIƒuƒWƒFƒNƒg‚ªnull‚Ìê‡‚ÌƒeƒXƒgB
+     * ãƒ—ãƒ­ã‚­ã‚·ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒnullã®å ´åˆã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetTargetClass01() throws Exception {
-    	// ƒeƒXƒgÀ{
+    	// ãƒ†ã‚¹ãƒˆå®Ÿæ–½
     	try {
     		ProxyUtil.getTargetClass(null);
     		fail();
@@ -96,33 +96,33 @@ public class ProxyUtilTest extends TestCase {
      * testGetTargetClass02()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) proxy:Cglib2AopProxy<br>
-     *                @‡˜JavaBeanƒIƒuƒWƒFƒNƒg<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) proxy:Cglib2AopProxy<br>
+     *                ã€€âˆŸJavaBeanã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Class:JavaBean.class<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Class:JavaBean.class<br>
      *         
      * <br>
-     * ƒvƒƒLƒVƒIƒuƒWƒFƒNƒg‚ªCGLIB‚Åì¬‚³‚ê‚½ê‡‚ÌƒeƒXƒgB
+     * ãƒ—ãƒ­ã‚­ã‚·ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒCGLIBã§ä½œæˆã•ã‚ŒãŸå ´åˆã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetTargetClass02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
     	ProxyFactory pf = new ProxyFactory(new ProxyUtil_JavaBeanStub01());
     	pf.setProxyTargetClass(true);
         Object proxy = pf.getProxy();
         assertTrue(AopUtils.isCglibProxy(proxy));
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
     	Class result = ProxyUtil.getTargetClass(proxy);
 
-        // ”»’è
+        // åˆ¤å®š
     	assertSame(ProxyUtil_JavaBeanStub01.class, result);
     }
 
@@ -130,26 +130,26 @@ public class ProxyUtilTest extends TestCase {
      * testGetTargetClass03()
      * <br><br>
      * 
-     * (³íŒn) 
+     * (æ­£å¸¸ç³») 
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) proxy:JavaBean<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) proxy:JavaBean<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Class:JavaBean.class<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Class:JavaBean.class<br>
      *         
      * <br>
-     * ƒ^[ƒQƒbƒgƒIƒuƒWƒFƒNƒg‚ÉƒvƒƒLƒV‚ª‚©‚©‚Á‚Ä‚¢‚È‚¢ê‡‚ÌƒeƒXƒgB
+     * ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«ãƒ—ãƒ­ã‚­ã‚·ãŒã‹ã‹ã£ã¦ã„ãªã„å ´åˆã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetTargetClass03() throws Exception {
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
     	Class result = ProxyUtil.getTargetClass(new ProxyUtil_JavaBeanStub01());
 
-        // ”»’è
+        // åˆ¤å®š
     	assertSame(ProxyUtil_JavaBeanStub01.class, result);
     }
 
@@ -157,33 +157,33 @@ public class ProxyUtilTest extends TestCase {
      * testGetTargetClass04()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) proxy:JdkDynamicAopProxy<br>
-     *                @‡˜JavaBean<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) proxy:JdkDynamicAopProxy<br>
+     *                ã€€âˆŸJavaBean<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Class:JavaBean.class<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Class:JavaBean.class<br>
      *         
      * <br>
-     * ƒvƒƒLƒVƒIƒuƒWƒFƒNƒg‚ªProxy‚Åì¬‚³‚ê‚½ê‡‚ÌƒeƒXƒgB
+     * ãƒ—ãƒ­ã‚­ã‚·ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒProxyã§ä½œæˆã•ã‚ŒãŸå ´åˆã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetTargetClass04() throws Exception {
-    	// ‘Oˆ—
+    	// å‰å‡¦ç†
     	ProxyFactory pf = new ProxyFactory(new ProxyUtil_JavaBeanStub01());
         Object proxy = pf.getProxy();
 
         assertTrue(AopUtils.isJdkDynamicProxy(proxy));
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
     	Class result = ProxyUtil.getTargetClass(proxy);
 
-        // ”»’è
+        // åˆ¤å®š
     	assertSame(ProxyUtil_JavaBeanStub01.class, result);
     }
 
@@ -191,25 +191,25 @@ public class ProxyUtilTest extends TestCase {
      * testGetTargetClass05()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) proxy:JdkDynamicAopProxy<br>
-     *                @‡˜JdkDynamicAopProxy<br>
-     *                @@@@‡˜JavaBean<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) proxy:JdkDynamicAopProxy<br>
+     *                ã€€âˆŸJdkDynamicAopProxy<br>
+     *                ã€€ã€€ã€€ã€€âˆŸJavaBean<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Class:JavaBean.class<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Class:JavaBean.class<br>
      *         
      * <br>
-     * ƒvƒƒLƒVƒIƒuƒWƒFƒNƒg‚ªƒlƒXƒg‚µ‚½Proxy‚Åì¬‚³‚ê‚½ê‡‚ÌƒeƒXƒgB
+     * ãƒ—ãƒ­ã‚­ã‚·ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒãƒã‚¹ãƒˆã—ãŸProxyã§ä½œæˆã•ã‚ŒãŸå ´åˆã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetTargetClass05() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
     	ProxyFactory parentPf = new ProxyFactory(new ProxyUtil_JavaBeanStub01());
         Object parent = parentPf.getProxy();
         
@@ -218,10 +218,10 @@ public class ProxyUtilTest extends TestCase {
 
         assertTrue(AopUtils.isJdkDynamicProxy(proxy));
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
     	Class result = ProxyUtil.getTargetClass(proxy);
 
-        // ”»’è
+        // åˆ¤å®š
     	assertSame(ProxyUtil_JavaBeanStub01.class, result);
     }
 }

@@ -1,4 +1,4 @@
 /**
- * 例外ハンドラ関連
+ * 萓句､悶ワ繝ｳ繝峨Λ髢｢騾｣
  */
 package jp.terasoluna.fw.batch.exception.handler;

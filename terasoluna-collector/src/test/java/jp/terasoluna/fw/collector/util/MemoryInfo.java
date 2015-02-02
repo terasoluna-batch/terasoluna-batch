@@ -4,8 +4,8 @@ import java.text.DecimalFormat;
 
 public class MemoryInfo {
     /**
-     * Java ���z�}�V���̃��������e�ʁA�g�p�ʁA �g�p�����݂�ő僁�����e�ʂ̏���Ԃ��܂��B
-     * @return Java ���z�}�V���̃��������
+     * Java 仮想マシンのメモリ総容量、使用量、 使用を試みる最大メモリ容量の情報を返します。
+     * @return Java 仮想マシンのメモリ情報
      */
     public static String getMemoryInfo() {
         DecimalFormat f1 = new DecimalFormat("#,###KB");

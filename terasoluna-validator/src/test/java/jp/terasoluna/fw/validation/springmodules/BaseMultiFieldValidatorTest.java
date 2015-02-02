@@ -22,12 +22,12 @@ import org.springframework.validation.Errors;
 
 /**
  * {@link jp.terasoluna.fw.validation.springmodules.
- * BaseMultiFieldValidator} ƒNƒ‰ƒX‚Ìƒuƒ‰ƒbƒNƒ{ƒbƒNƒXƒeƒXƒgB
+ * BaseMultiFieldValidator} ã‚¯ãƒ©ã‚¹ã®ãƒ–ãƒ©ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ†ã‚¹ãƒˆã€‚
  * 
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4>
- * ‘ŠŠÖƒ`ƒFƒbƒN‚ğs‚È‚¤’ŠÛƒNƒ‰ƒXB<br>
- * ‘O’ñğŒFŒŸ¸‘ÎÛ‚ÌƒIƒuƒWƒFƒNƒgAƒGƒ‰[ƒIƒuƒWƒFƒNƒg‚ÍNull’l‚É‚È‚ç‚È‚¢B
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4>
+ * ç›¸é–¢ãƒã‚§ãƒƒã‚¯ã‚’è¡Œãªã†æŠ½è±¡ã‚¯ãƒ©ã‚¹ã€‚<br>
+ * å‰ææ¡ä»¶ï¼šæ¤œæŸ»å¯¾è±¡ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€ã‚¨ãƒ©ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¯Nullå€¤ã«ãªã‚‰ãªã„ã€‚
  * <p>
  * 
  * @see jp.terasoluna.fw.validation.springmodules.
@@ -36,19 +36,19 @@ import org.springframework.validation.Errors;
 public class BaseMultiFieldValidatorTest extends TestCase {
 
     /**
-     * ‚±‚ÌƒeƒXƒgƒP[ƒX‚ğÀs‚·‚éˆ×‚Ì
-     * GUI ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‹N“®‚·‚éB
+     * ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã‚’å®Ÿè¡Œã™ã‚‹ç‚ºã®
+     * GUI ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’èµ·å‹•ã™ã‚‹ã€‚
      * 
-     * @param args java ƒRƒ}ƒ“ƒh‚Éİ’è‚³‚ê‚½ƒpƒ‰ƒ[ƒ^
+     * @param args java ã‚³ãƒãƒ³ãƒ‰ã«è¨­å®šã•ã‚ŒãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public static void main(String[] args) {
         junit.swingui.TestRunner.run(BaseMultiFieldValidatorTest.class);
     }
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -57,9 +57,9 @@ public class BaseMultiFieldValidatorTest extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -68,9 +68,9 @@ public class BaseMultiFieldValidatorTest extends TestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      * 
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public BaseMultiFieldValidatorTest(String name) {
         super(name);
@@ -80,54 +80,54 @@ public class BaseMultiFieldValidatorTest extends TestCase {
      * testValidate01()
      * <br><br>
      * 
-     * (³íŒn) 
+     * (æ­£å¸¸ç³») 
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:not null<br>
-     *         (ˆø”) error‚“:not null<br>
-     *         (ó‘Ô) super.validateij:ƒGƒ‰[‚ª”­¶‚µ‚È‚¢ƒpƒ^[ƒ“<br>
-     *                iˆø”‚Ìerrors‚Ìerrors.hasErrors()ƒƒ\ƒbƒh‚ª
-     *                FALSE‚É‚È‚é‚æ‚¤‚É‚·‚éj<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:not null<br>
+     *         (å¼•æ•°) errorï½“:not null<br>
+     *         (çŠ¶æ…‹) super.validateï¼ˆï¼‰:ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãªã„ãƒ‘ã‚¿ãƒ¼ãƒ³<br>
+     *                ï¼ˆå¼•æ•°ã®errorsã®errors.hasErrors()ãƒ¡ã‚½ãƒƒãƒ‰ãŒ
+     *                FALSEã«ãªã‚‹ã‚ˆã†ã«ã™ã‚‹ï¼‰<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») super.validateij:
-     *         ƒƒ\ƒbƒh‚ªŒÄ‚Ño‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») validateMultiField():
-     *         ƒƒ\ƒbƒh‚ªŒÄ‚Ño‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     *         ˆø”‚ğó‚¯æ‚Á‚½‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) super.validateï¼ˆï¼‰:
+     *         ãƒ¡ã‚½ãƒƒãƒ‰ãŒå‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) validateMultiField():
+     *         ãƒ¡ã‚½ãƒƒãƒ‰ãŒå‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     *         å¼•æ•°ã‚’å—ã‘å–ã£ãŸã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *         
      * <br>
-     * ’P€–Úƒ`ƒFƒbƒN‚ÅƒGƒ‰[‚ª”­¶‚¹‚¸A
-     * ‘ŠŠÖƒ`ƒFƒbƒNƒƒ\ƒbƒh‚ğÀs‚·‚éƒpƒ^[ƒ“‚ÌƒeƒXƒgB
+     * å˜é …ç›®ãƒã‚§ãƒƒã‚¯ã§ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã›ãšã€
+     * ç›¸é–¢ãƒã‚§ãƒƒã‚¯ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å®Ÿè¡Œã™ã‚‹ãƒ‘ã‚¿ãƒ¼ãƒ³ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidate01() throws Exception {
-        // ‘Oˆ— --------------------------------------------------------------
+        // å‰å‡¦ç† --------------------------------------------------------------
         BaseMultiFieldValidatorImpl01 validator = 
             new BaseMultiFieldValidatorImpl01();
         
-        // ValidatorFactory‚Ìì¬
+        // ValidatorFactoryã®ä½œæˆ
         BaseMultiFieldValidator_ValidatorFactoryStub01 factory =
             new BaseMultiFieldValidator_ValidatorFactoryStub01();
         BaseMutiFieldValidator_ValidatorStub01 commonsValidator =
             new BaseMutiFieldValidator_ValidatorStub01();
         factory.setValidator(commonsValidator);
         
-        // ‘®«‚ğİ’è
+        // å±æ€§ã‚’è¨­å®š
         validator.setValidatorFactory(factory);
         
-        // ƒƒ\ƒbƒhˆø”
+        // ãƒ¡ã‚½ãƒƒãƒ‰å¼•æ•°
         Object obj = new Object();
         Errors errors = 
             new BaseMultiFieldValidator_BindExceptionStub01(obj, "");
 
-        // ƒeƒXƒgÀ{ ----------------------------------------------------------
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ ----------------------------------------------------------
         validator.validate(obj, errors);
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(commonsValidator.isValidate);
         assertSame(obj, validator.obj);
         assertSame(errors, validator.errors);
@@ -137,54 +137,54 @@ public class BaseMultiFieldValidatorTest extends TestCase {
      * testValidate02()
      * <br><br>
      * 
-     * (³íŒn) 
+     * (æ­£å¸¸ç³») 
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) obj:not null<br>
-     *         (ˆø”) error‚“:not null<br>
-     *         (ó‘Ô) super.validateij:ƒGƒ‰[‚ª”­¶‚·‚éƒpƒ^[ƒ“<br>
-     *                iˆø”‚Ìerrors‚Ìerrors.hasErrors()ƒƒ\ƒbƒh‚ª
-     *                TRUE‚É‚È‚é‚æ‚¤‚É‚·‚éj<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) obj:not null<br>
+     *         (å¼•æ•°) errorï½“:not null<br>
+     *         (çŠ¶æ…‹) super.validateï¼ˆï¼‰:ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã™ã‚‹ãƒ‘ã‚¿ãƒ¼ãƒ³<br>
+     *                ï¼ˆå¼•æ•°ã®errorsã®errors.hasErrors()ãƒ¡ã‚½ãƒƒãƒ‰ãŒ
+     *                TRUEã«ãªã‚‹ã‚ˆã†ã«ã™ã‚‹ï¼‰<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») super.validateij:
-     *          ƒƒ\ƒbƒh‚ªŒÄ‚Ño‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     *          ˆø”‚ğó‚¯æ‚Á‚½‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») validateMultiField():
-     *         ƒƒ\ƒbƒh‚ªŒÄ‚Ño‚³‚ê‚È‚¢‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) super.validateï¼ˆï¼‰:
+     *          ãƒ¡ã‚½ãƒƒãƒ‰ãŒå‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     *          å¼•æ•°ã‚’å—ã‘å–ã£ãŸã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) validateMultiField():
+     *         ãƒ¡ã‚½ãƒƒãƒ‰ãŒå‘¼ã³å‡ºã•ã‚Œãªã„ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *         
      * <br>
-     * ’P€–Úƒ`ƒFƒbƒN‚ÅƒGƒ‰[‚ª”­¶‚µA
-     * ‘ŠŠÖƒ`ƒFƒbƒNƒƒ\ƒbƒh‚ªÀs‚³‚ê‚È‚¢ƒpƒ^[ƒ“‚ÌƒeƒXƒgB
+     * å˜é …ç›®ãƒã‚§ãƒƒã‚¯ã§ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã€
+     * ç›¸é–¢ãƒã‚§ãƒƒã‚¯ãƒ¡ã‚½ãƒƒãƒ‰ãŒå®Ÿè¡Œã•ã‚Œãªã„ãƒ‘ã‚¿ãƒ¼ãƒ³ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidate02() throws Exception {
-        // ‘Oˆ— --------------------------------------------------------------
+        // å‰å‡¦ç† --------------------------------------------------------------
         BaseMultiFieldValidatorImpl01 validator = 
             new BaseMultiFieldValidatorImpl01();
         
-        // ValidatorFactory‚Ìì¬
+        // ValidatorFactoryã®ä½œæˆ
         BaseMultiFieldValidator_ValidatorFactoryStub01 factory =
             new BaseMultiFieldValidator_ValidatorFactoryStub01();
         BaseMutiFieldValidator_ValidatorStub01 commonsValidator =
             new BaseMutiFieldValidator_ValidatorStub01();
         factory.setValidator(commonsValidator);
         
-        // ‘®«‚ğİ’è
+        // å±æ€§ã‚’è¨­å®š
         validator.setValidatorFactory(factory);
         
-        // ƒƒ\ƒbƒhˆø”
+        // ãƒ¡ã‚½ãƒƒãƒ‰å¼•æ•°
         Object obj = new Object();
         Errors errors = 
             new BaseMultiFieldValidator_BindExceptionStub02(obj, "");
 
-        // ƒeƒXƒgÀ{ ----------------------------------------------------------
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½ ----------------------------------------------------------
         validator.validate(obj, errors);
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(commonsValidator.isValidate);
         assertSame(null, validator.obj);
         assertSame(null, validator.errors);

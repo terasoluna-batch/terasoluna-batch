@@ -19,36 +19,36 @@ package jp.terasoluna.fw.file.util;
 import java.util.List;
 
 /**
- * ƒtƒ@ƒCƒ‹‘€ì‹@”\‚Å’ñ‹Ÿ‚·‚éˆ—‚ÌƒCƒ“ƒ^ƒtƒF[ƒX.
+ * ãƒ•ã‚¡ã‚¤ãƒ«æ“ä½œæ©Ÿèƒ½ã§æä¾›ã™ã‚‹å‡¦ç†ã®ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹.
  * @see FileControlImpl
  * @see FileUtility
  */
 public interface FileControl {
 
     /**
-     * ƒtƒ@ƒCƒ‹‚ÌƒRƒs[.
-     * @param srcFile ƒRƒs[Œ³‚Ìƒtƒ@ƒCƒ‹‚ÌƒpƒX
-     * @param newFile ƒRƒs[æ‚Ìƒtƒ@ƒCƒ‹‚ÌƒpƒX
+     * ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚³ãƒ”ãƒ¼.
+     * @param srcFile ã‚³ãƒ”ãƒ¼å…ƒã®ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹
+     * @param newFile ã‚³ãƒ”ãƒ¼å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹
      */
     void copyFile(String srcFile, String newFile);
 
     /**
-     * ƒtƒ@ƒCƒ‹‚Ìíœ.
-     * @param srcFile íœ‚·‚éƒtƒ@ƒCƒ‹‚ÌƒpƒX
+     * ãƒ•ã‚¡ã‚¤ãƒ«ã®å‰Šé™¤.
+     * @param srcFile å‰Šé™¤ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹
      */
     void deleteFile(String srcFile);
 
     /**
-     * ƒtƒ@ƒCƒ‹Œ‹‡.
-     * @param fileList Œ‹‡‚·‚éƒtƒ@ƒCƒ‹‚ÌƒŠƒXƒg
-     * @param newFile Œ‹‡‚µ‚Ä‚Å‚«‚éƒtƒ@ƒCƒ‹‚ÌƒpƒX
+     * ãƒ•ã‚¡ã‚¤ãƒ«çµåˆ.
+     * @param fileList çµåˆã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒªã‚¹ãƒˆ
+     * @param newFile çµåˆã—ã¦ã§ãã‚‹ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹
      */
     void mergeFile(List<String> fileList, String newFile);
 
     /**
-     * ƒtƒ@ƒCƒ‹–¼‚Ì•ÏX¥ƒtƒ@ƒCƒ‹‚ÌˆÚ“®.
-     * @param srcFile ˆÚ“®‘O‚ÌƒpƒX
-     * @param newFile ˆÚ“®Œã‚ÌƒpƒX
+     * ãƒ•ã‚¡ã‚¤ãƒ«åã®å¤‰æ›´ï½¥ãƒ•ã‚¡ã‚¤ãƒ«ã®ç§»å‹•.
+     * @param srcFile ç§»å‹•å‰ã®ãƒ‘ã‚¹
+     * @param newFile ç§»å‹•å¾Œã®ãƒ‘ã‚¹
      */
     void renameFile(String srcFile, String newFile);
 

@@ -17,21 +17,21 @@
 package jp.terasoluna.fw.collector.db;
 
 /**
- * {@link DaoCollectorPrePostProcess#postprocessException(DaoCollector, Throwable)} の結果
+ * {@link DaoCollectorPrePostProcess#postprocessException(DaoCollector, Throwable)} 縺ｮ邨先棡
  */
 public enum DaoCollectorPrePostProcessStatus {
     /**
-     * 例外をスローする
+     * 萓句､悶ｒ繧ｹ繝ｭ繝ｼ縺吶ｋ
      */
     THROW,
 
     /**
-     * 例外をスローせずにリトライする
+     * 萓句､悶ｒ繧ｹ繝ｭ繝ｼ縺帙★縺ｫ繝ｪ繝医Λ繧､縺吶ｋ
      */
     RETRY,
 
     /**
-     * 例外をスローせずにコレクタを終了する
+     * 萓句､悶ｒ繧ｹ繝ｭ繝ｼ縺帙★縺ｫ繧ｳ繝ｬ繧ｯ繧ｿ繧堤ｵゆｺ�縺吶ｋ
      */
     END
 }

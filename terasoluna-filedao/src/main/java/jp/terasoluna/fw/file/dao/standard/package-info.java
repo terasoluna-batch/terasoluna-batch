@@ -1,4 +1,4 @@
 /**
- * FileDAO基底クラスに対する標準実装クラス群
+ * FileDAO蝓ｺ蠎輔け繝ｩ繧ｹ縺ｫ蟇ｾ縺吶ｋ讓呎ｺ門ｮ溯｣�繧ｯ繝ｩ繧ｹ鄒､
  */
 package jp.terasoluna.fw.file.dao.standard;

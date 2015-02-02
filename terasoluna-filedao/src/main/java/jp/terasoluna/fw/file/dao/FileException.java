@@ -17,26 +17,26 @@
 package jp.terasoluna.fw.file.dao;
 
 /**
- * ƒtƒ@ƒCƒ‹ƒAƒNƒZƒX‹@”\‚Å”­¶‚µ‚½—áŠO‚ğƒ‰ƒbƒv‚·‚éƒNƒ‰ƒXB
+ * ãƒ•ã‚¡ã‚¤ãƒ«ã‚¢ã‚¯ã‚»ã‚¹æ©Ÿèƒ½ã§ç™ºç”Ÿã—ãŸä¾‹å¤–ã‚’ãƒ©ãƒƒãƒ—ã™ã‚‹ã‚¯ãƒ©ã‚¹ã€‚
  * <p>
- * ƒtƒ@ƒCƒ‹ƒAƒNƒZƒX‹@”\‚Ì‰Šú‰»‚É”­¶‚µ‚½—áŠO‚ğƒ‰ƒbƒv‚·‚éƒNƒ‰ƒXB
+ * ãƒ•ã‚¡ã‚¤ãƒ«ã‚¢ã‚¯ã‚»ã‚¹æ©Ÿèƒ½ã®åˆæœŸåŒ–æ™‚ã«ç™ºç”Ÿã—ãŸä¾‹å¤–ã‚’ãƒ©ãƒƒãƒ—ã™ã‚‹ã‚¯ãƒ©ã‚¹ã€‚
  * </p>
  */
 public class FileException extends RuntimeException {
 
     /**
-     * ƒVƒŠƒAƒ‹ƒo[ƒWƒ‡ƒ“UIDB
+     * ã‚·ãƒªã‚¢ãƒ«ãƒãƒ¼ã‚¸ãƒ§ãƒ³UIDã€‚
      */
     private static final long serialVersionUID = 3532998688369543117L;
 
     /**
-     * ƒtƒ@ƒCƒ‹–¼B
+     * ãƒ•ã‚¡ã‚¤ãƒ«åã€‚
      */
     private final String fileName;
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-     * @param e Œ´ˆö—áŠO
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * @param e åŸå› ä¾‹å¤–
      */
     public FileException(Exception e) {
         super(e);
@@ -44,9 +44,9 @@ public class FileException extends RuntimeException {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-     * @param e Œ´ˆö—áŠO
-     * @param fileName ƒtƒ@ƒCƒ‹–¼
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * @param e åŸå› ä¾‹å¤–
+     * @param fileName ãƒ•ã‚¡ã‚¤ãƒ«å
      */
     public FileException(Exception e, String fileName) {
         super(e);
@@ -54,8 +54,8 @@ public class FileException extends RuntimeException {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-     * @param message ƒƒbƒZ[ƒW
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * @param message ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
      */
     public FileException(String message) {
         super(message);
@@ -63,9 +63,9 @@ public class FileException extends RuntimeException {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-     * @param message ƒƒbƒZ[ƒW
-     * @param fileName ƒtƒ@ƒCƒ‹–¼
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * @param message ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
+     * @param fileName ãƒ•ã‚¡ã‚¤ãƒ«å
      */
     public FileException(String message, String fileName) {
         super(message);
@@ -73,9 +73,9 @@ public class FileException extends RuntimeException {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-     * @param message ƒƒbƒZ[ƒW
-     * @param e Œ´ˆö—áŠO
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * @param message ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
+     * @param e åŸå› ä¾‹å¤–
      */
     public FileException(String message, Exception e) {
         super(message, e);
@@ -83,10 +83,10 @@ public class FileException extends RuntimeException {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-     * @param message ƒƒbƒZ[ƒW
-     * @param e Œ´ˆö—áŠO
-     * @param fileName ƒtƒ@ƒCƒ‹–¼
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * @param message ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
+     * @param e åŸå› ä¾‹å¤–
+     * @param fileName ãƒ•ã‚¡ã‚¤ãƒ«å
      */
     public FileException(String message, Exception e, String fileName) {
         super(message, e);
@@ -94,8 +94,8 @@ public class FileException extends RuntimeException {
     }
 
     /**
-     * ƒtƒ@ƒCƒ‹–¼‚ğæ“¾‚·‚éB
-     * @return ƒtƒ@ƒCƒ‹–¼
+     * ãƒ•ã‚¡ã‚¤ãƒ«åã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return ãƒ•ã‚¡ã‚¤ãƒ«å
      */
     public String getFileName() {
         return fileName;

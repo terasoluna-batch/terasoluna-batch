@@ -36,39 +36,39 @@ import org.apache.ibatis.session.RowBounds;
 import org.springframework.dao.DataAccessException;
 
 /**
- * ƒWƒ‡ƒuŠÇ—î•ñŠÖ˜Aƒ†[ƒeƒBƒŠƒeƒBB<br>
+ * ã‚¸ãƒ§ãƒ–ç®¡ç†æƒ…å ±é–¢é€£ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ã€‚<br>
  * <br>
- * å‚ÉƒtƒŒ[ƒ€ƒ[ƒN‚ÌAbstractJobBatchExecutor‚©‚ç—˜—p‚³‚ê‚éƒ†[ƒeƒBƒŠƒeƒBB<br>
+ * ä¸»ã«ãƒ•ãƒ¬ãƒ¼ãƒ ãƒ¯ãƒ¼ã‚¯ã®AbstractJobBatchExecutorã‹ã‚‰åˆ©ç”¨ã•ã‚Œã‚‹ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ã€‚<br>
  * @see jp.terasoluna.fw.batch.executor.AbstractJobBatchExecutor
  */
 public class JobUtil {
 
     /**
-     * ƒƒK[.
+     * ãƒ­ã‚¬ãƒ¼.
      */
     private static final TLogger LOGGER = TLogger.getLogger(JobUtil.class);
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      */
     protected JobUtil() {
     }
 
     /**
-     * <h6>ƒWƒ‡ƒuƒŠƒXƒgæ“¾.</h6>
-     * @param systemDao ƒtƒŒ[ƒ€ƒ[ƒN—pƒVƒXƒeƒ€DAO
-     * @return ƒWƒ‡ƒuƒŠƒXƒg
+     * <h6>ã‚¸ãƒ§ãƒ–ãƒªã‚¹ãƒˆå–å¾—.</h6>
+     * @param systemDao ãƒ•ãƒ¬ãƒ¼ãƒ ãƒ¯ãƒ¼ã‚¯ç”¨ã‚·ã‚¹ãƒ†ãƒ DAO
+     * @return ã‚¸ãƒ§ãƒ–ãƒªã‚¹ãƒˆ
      */
     public static List<BatchJobListResult> selectJobList(SystemDao systemDao) {
         return selectJobList(null, systemDao);
     }
 
     /**
-     * <h6>ƒWƒ‡ƒuƒŠƒXƒgæ“¾.</h6>
+     * <h6>ã‚¸ãƒ§ãƒ–ãƒªã‚¹ãƒˆå–å¾—.</h6>
      * @param systemDao SystemDao
-     * @param beginIndex æ“¾‚·‚éŠJnƒCƒ“ƒfƒbƒNƒX
-     * @param maxCount æ“¾‚·‚éŒ”
-     * @return ƒWƒ‡ƒuƒŠƒXƒg
+     * @param beginIndex å–å¾—ã™ã‚‹é–‹å§‹ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+     * @param maxCount å–å¾—ã™ã‚‹ä»¶æ•°
+     * @return ã‚¸ãƒ§ãƒ–ãƒªã‚¹ãƒˆ
      */
     public static List<BatchJobListResult> selectJobList(SystemDao systemDao,
             int beginIndex, int maxCount) {
@@ -76,10 +76,10 @@ public class JobUtil {
     }
 
     /**
-     * <h6>ƒWƒ‡ƒuƒŠƒXƒgæ“¾.</h6>
-     * @param jobAppCd ƒWƒ‡ƒu‹Æ–±ƒR[ƒh
-     * @param systemDao ƒtƒŒ[ƒ€ƒ[ƒN—pƒVƒXƒeƒ€DAO
-     * @return ƒWƒ‡ƒuƒŠƒXƒg
+     * <h6>ã‚¸ãƒ§ãƒ–ãƒªã‚¹ãƒˆå–å¾—.</h6>
+     * @param jobAppCd ã‚¸ãƒ§ãƒ–æ¥­å‹™ã‚³ãƒ¼ãƒ‰
+     * @param systemDao ãƒ•ãƒ¬ãƒ¼ãƒ ãƒ¯ãƒ¼ã‚¯ç”¨ã‚·ã‚¹ãƒ†ãƒ DAO
+     * @return ã‚¸ãƒ§ãƒ–ãƒªã‚¹ãƒˆ
      */
     public static List<BatchJobListResult> selectJobList(String jobAppCd,
             SystemDao systemDao) {
@@ -87,19 +87,19 @@ public class JobUtil {
     }
 
     /**
-     * <h6>ƒWƒ‡ƒuƒŠƒXƒgæ“¾.</h6> ¦–¢À{ƒXƒe[ƒ^ƒX‚ÌƒWƒ‡ƒu‚Ì‚İæ“¾
-     * @param jobAppCd ƒWƒ‡ƒu‹Æ–±ƒR[ƒh
-     * @param systemDao ƒtƒŒ[ƒ€ƒ[ƒN—pƒVƒXƒeƒ€DAO
-     * @param beginIndex æ“¾‚·‚éŠJnƒCƒ“ƒfƒbƒNƒX
-     * @param maxCount æ“¾‚·‚éŒ”
-     * @return ƒWƒ‡ƒuƒŠƒXƒg
+     * <h6>ã‚¸ãƒ§ãƒ–ãƒªã‚¹ãƒˆå–å¾—.</h6> â€»æœªå®Ÿæ–½ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã®ã‚¸ãƒ§ãƒ–ã®ã¿å–å¾—
+     * @param jobAppCd ã‚¸ãƒ§ãƒ–æ¥­å‹™ã‚³ãƒ¼ãƒ‰
+     * @param systemDao ãƒ•ãƒ¬ãƒ¼ãƒ ãƒ¯ãƒ¼ã‚¯ç”¨ã‚·ã‚¹ãƒ†ãƒ DAO
+     * @param beginIndex å–å¾—ã™ã‚‹é–‹å§‹ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+     * @param maxCount å–å¾—ã™ã‚‹ä»¶æ•°
+     * @return ã‚¸ãƒ§ãƒ–ãƒªã‚¹ãƒˆ
      */
     public static List<BatchJobListResult> selectJobList(String jobAppCd,
             SystemDao systemDao, int beginIndex, int maxCount) {
-        // ƒXƒe[ƒ^ƒX
+        // ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹
         List<String> curAppStatusList = new ArrayList<String>();
 
-        // ƒXƒe[ƒ^ƒXi–¢À{j
+        // ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ï¼ˆæœªå®Ÿæ–½ï¼‰
         curAppStatusList.add(JobStatusConstants.JOB_STATUS_UNEXECUTION);
 
         return selectJobList(jobAppCd, curAppStatusList, systemDao, beginIndex,
@@ -107,13 +107,13 @@ public class JobUtil {
     }
 
     /**
-     * <h6>ƒWƒ‡ƒuƒŠƒXƒgæ“¾.</h6>
-     * @param jobAppCd ƒWƒ‡ƒu‹Æ–±ƒR[ƒh
-     * @param curAppStatusList æ“¾‚·‚éƒXƒe[ƒ^ƒX‚Ìˆê——
-     * @param systemDao ƒtƒŒ[ƒ€ƒ[ƒN—pƒVƒXƒeƒ€DAO
-     * @param beginIndex æ“¾‚·‚éŠJnƒCƒ“ƒfƒbƒNƒX
-     * @param maxCount æ“¾‚·‚éŒ”
-     * @return ƒWƒ‡ƒuƒŠƒXƒg
+     * <h6>ã‚¸ãƒ§ãƒ–ãƒªã‚¹ãƒˆå–å¾—.</h6>
+     * @param jobAppCd ã‚¸ãƒ§ãƒ–æ¥­å‹™ã‚³ãƒ¼ãƒ‰
+     * @param curAppStatusList å–å¾—ã™ã‚‹ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã®ä¸€è¦§
+     * @param systemDao ãƒ•ãƒ¬ãƒ¼ãƒ ãƒ¯ãƒ¼ã‚¯ç”¨ã‚·ã‚¹ãƒ†ãƒ DAO
+     * @param beginIndex å–å¾—ã™ã‚‹é–‹å§‹ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+     * @param maxCount å–å¾—ã™ã‚‹ä»¶æ•°
+     * @return ã‚¸ãƒ§ãƒ–ãƒªã‚¹ãƒˆ
      */
     public static List<BatchJobListResult> selectJobList(String jobAppCd,
             List<String> curAppStatusList, SystemDao systemDao, int beginIndex,
@@ -121,10 +121,10 @@ public class JobUtil {
 
         BatchJobListParam param = new BatchJobListParam();
 
-        // ƒWƒ‡ƒu‹Æ–±ƒR[ƒh
+        // ã‚¸ãƒ§ãƒ–æ¥­å‹™ã‚³ãƒ¼ãƒ‰
         param.setJobAppCd(jobAppCd);
 
-        // æ“¾‚·‚éƒXƒe[ƒ^ƒX
+        // å–å¾—ã™ã‚‹ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹
         if (curAppStatusList != null) {
             param.setCurAppStatusList(curAppStatusList);
         }
@@ -145,20 +145,20 @@ public class JobUtil {
     }
 
     /**
-     * <h6>ƒWƒ‡ƒu1Œæ“¾.</h6>
-     * @param jobSequenceId ƒWƒ‡ƒuƒV[ƒPƒ“ƒXID
-     * @param forUpdate ‘ÎÛsƒƒbƒN‚ğs‚¤ê‡‚Ítrue
-     * @param systemDao ƒtƒŒ[ƒ€ƒ[ƒN—pƒVƒXƒeƒ€DAO
+     * <h6>ã‚¸ãƒ§ãƒ–1ä»¶å–å¾—.</h6>
+     * @param jobSequenceId ã‚¸ãƒ§ãƒ–ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ID
+     * @param forUpdate å¯¾è±¡è¡Œãƒ­ãƒƒã‚¯ã‚’è¡Œã†å ´åˆã¯true
+     * @param systemDao ãƒ•ãƒ¬ãƒ¼ãƒ ãƒ¯ãƒ¼ã‚¯ç”¨ã‚·ã‚¹ãƒ†ãƒ DAO
      * @return
      */
     public static BatchJobData selectJob(String jobSequenceId,
             boolean forUpdate, SystemDao systemDao) {
         BatchJobManagementParam param = new BatchJobManagementParam();
 
-        // ƒWƒ‡ƒuƒV[ƒPƒ“ƒXƒR[ƒh
+        // ã‚¸ãƒ§ãƒ–ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã‚³ãƒ¼ãƒ‰
         param.setJobSequenceId(jobSequenceId);
 
-        // FOR UPDATE•t—^
+        // FOR UPDATEä»˜ä¸
         param.setForUpdate(forUpdate);
 
         BatchJobData result = null;
@@ -177,27 +177,27 @@ public class JobUtil {
     }
 
     /**
-     * <h6>ƒWƒ‡ƒuƒŒƒR[ƒhXV.</h6>
-     * @param jobSequenceId ƒWƒ‡ƒuƒV[ƒPƒ“ƒXID
-     * @param curAppStatus ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ÌŒ»İ‚ÌÀsó‘Ô
-     * @param blogicAppStatus ƒrƒWƒlƒXƒƒWƒbƒN‚©‚ç‚Ì•Ô‹p’l
-     * @return ƒWƒ‡ƒuŠÇ—ƒe[ƒuƒ‹ƒŒƒR[ƒh‚ÌXV‚ª¬Œ÷‚µ‚½ê‡true
+     * <h6>ã‚¸ãƒ§ãƒ–ãƒ¬ã‚³ãƒ¼ãƒ‰æ›´æ–°.</h6>
+     * @param jobSequenceId ã‚¸ãƒ§ãƒ–ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ID
+     * @param curAppStatus ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã®ç¾åœ¨ã®å®Ÿè¡ŒçŠ¶æ…‹
+     * @param blogicAppStatus ãƒ“ã‚¸ãƒã‚¹ãƒ­ã‚¸ãƒƒã‚¯ã‹ã‚‰ã®è¿”å´å€¤
+     * @return ã‚¸ãƒ§ãƒ–ç®¡ç†ãƒ†ãƒ¼ãƒ–ãƒ«ãƒ¬ã‚³ãƒ¼ãƒ‰ã®æ›´æ–°ãŒæˆåŠŸã—ãŸå ´åˆtrue
      */
     public static boolean updateJobStatus(String jobSequenceId,
             String curAppStatus, String blogicAppStatus,
             SystemDao systemDao) {
         BatchJobManagementUpdateParam param = new BatchJobManagementUpdateParam();
 
-        // ƒWƒ‡ƒuƒV[ƒPƒ“ƒXƒR[ƒh
+        // ã‚¸ãƒ§ãƒ–ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã‚³ãƒ¼ãƒ‰
         param.setJobSequenceId(jobSequenceId);
 
-        // ‹Æ–±ƒXƒe[ƒ^ƒX
+        // æ¥­å‹™ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹
         param.setBLogicAppStatus(blogicAppStatus);
 
-        // ƒXƒe[ƒ^ƒX
+        // ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹
         param.setCurAppStatus(curAppStatus);
 
-        // XV“úiƒ~ƒŠ•bj
+        // æ›´æ–°æ—¥æ™‚ï¼ˆãƒŸãƒªç§’ï¼‰
         Timestamp updDateTime = getCurrentTime(systemDao);
         param.setUpdDateTime(updDateTime);
 
@@ -222,9 +222,9 @@ public class JobUtil {
     }
 
     /**
-     * <h6>ƒJƒŒƒ“ƒg‚ğæ“¾‚·‚é.</h6>
-     * @param systemDao ƒtƒŒ[ƒ€ƒ[ƒN—p‚ÌƒVƒXƒeƒ€DAO
-     * @return Timestamp ƒJƒŒƒ“ƒg
+     * <h6>ã‚«ãƒ¬ãƒ³ãƒˆæ™‚åˆ»ã‚’å–å¾—ã™ã‚‹.</h6>
+     * @param systemDao ãƒ•ãƒ¬ãƒ¼ãƒ ãƒ¯ãƒ¼ã‚¯ç”¨ã®ã‚·ã‚¹ãƒ†ãƒ DAO
+     * @return Timestamp ã‚«ãƒ¬ãƒ³ãƒˆæ™‚åˆ»
      */
     @Deprecated
     public static Timestamp getCurrentTime(SystemDao systemDao) {
@@ -241,9 +241,9 @@ public class JobUtil {
     }
 
     /**
-     * <h6>ƒJƒŒƒ“ƒg“ú•t‚ğæ“¾‚·‚é.</h6>
-     * @param systemDao ƒtƒŒ[ƒ€ƒ[ƒN—pƒVƒXƒeƒ€DAO
-     * @return Date ƒJƒŒƒ“ƒg“ú•t
+     * <h6>ã‚«ãƒ¬ãƒ³ãƒˆæ—¥ä»˜ã‚’å–å¾—ã™ã‚‹.</h6>
+     * @param systemDao ãƒ•ãƒ¬ãƒ¼ãƒ ãƒ¯ãƒ¼ã‚¯ç”¨ã‚·ã‚¹ãƒ†ãƒ DAO
+     * @return Date ã‚«ãƒ¬ãƒ³ãƒˆæ—¥ä»˜
      */
     @Deprecated
     public static Date getCurrentDate(SystemDao systemDao) {
@@ -258,9 +258,9 @@ public class JobUtil {
     }
 
     /**
-     * <h6>w’è‚³‚ê‚½ŠÂ‹«•Ï”‚Ì’l‚ğæ“¾‚·‚é.</h6>
+     * <h6>æŒ‡å®šã•ã‚ŒãŸç’°å¢ƒå¤‰æ•°ã®å€¤ã‚’å–å¾—ã™ã‚‹.</h6>
      * <p>
-     * ƒVƒXƒeƒ€ŠÂ‹«‚Å•Ï”‚ğ’è‹`‚µ‚È‚¢ê‡‚Í ""i‹ó•¶šj ‚ğ•Ô‚·
+     * ã‚·ã‚¹ãƒ†ãƒ ç’°å¢ƒã§å¤‰æ•°ã‚’å®šç¾©ã—ãªã„å ´åˆã¯ ""ï¼ˆç©ºæ–‡å­—ï¼‰ ã‚’è¿”ã™
      * </p>
      * @param name
      * @return

@@ -23,74 +23,74 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * ���o�͐ݒ�p�̃A�m�e�[�V�����B
+ * 入出力設定用のアノテーション。
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Target(ElementType.TYPE)
 public @interface FileFormat {
     /**
-     * �s��؂蕶���B
+     * 行区切り文字。
      * <p>
-     * �s��؂蕶����ݒ肷��B�s��؂蕶���͔��p�����Ɍ���B�Ȃ��A�G�X�P�[�v�V�[�P���X���g���s��؂蕶���͈ȉ��ɋ�������̂Ɍ���B<br>
+     * 行区切り文字を設定する。行区切り文字は半角文字に限る。なお、エスケープシーケンスを使う行区切り文字は以下に挙げるものに限る。<br>
      * <ul>
      * <li>\r</li>
      * <li>\n</li>
      * <li>\r\n</li>
      * </ul>
-     * �f�t�H���g�l�͎��s���Ɉˑ�����B
+     * デフォルト値は実行環境に依存する。
      * </p>
      */
     String lineFeedChar() default "";
 
     /**
-     * ��؂蕶���B
+     * 区切り文字。
      * <p>
-     * CSV,�ϒ��t�@�C���̋�؂蕶����ݒ肷��B��؂蕶���͔��p�����Ɍ���B<br>
-     * �f�t�H���g�l�́u','�i�J���}�j�v�B
+     * CSV,可変長ファイルの区切り文字を設定する。区切り文字は半角文字に限る。<br>
+     * デフォルト値は「','（カンマ）」。
      * </p>
      */
     char delimiter() default ',';
 
     /**
-     * �͂ݕ����B
+     * 囲み文字。
      * <p>
-     * CSV,�ϒ��t�@�C���̈͂ݕ�����ݒ肷��B�͂ݕ����͔��p�����Ɍ���B<br>
-     * �u'\u0000'�ichar�^�̍ŏ��l�j�v��ݒ肷��ƁA�t���[�����[�N�͈͂ݕ��������Ɣ��f����B �f�t�H���g�l�́u'\u0000'�ichar�^�̍ŏ��l�j�v�B
+     * CSV,可変長ファイルの囲み文字を設定する。囲み文字は半角文字に限る。<br>
+     * 「'\u0000'（char型の最小値）」を設定すると、フレームワークは囲み文字無しと判断する。 デフォルト値は「'\u0000'（char型の最小値）」。
      * </p>
      */
     char encloseChar() default Character.MIN_VALUE;
 
     /**
-     * �t�@�C���G���R�[�f�B���O�B
+     * ファイルエンコーディング。
      * <p>
-     * ���o�͂��s���t�@�C���̃G���R�[�f�B���O��ݒ肷��B<br>
-     * �f�t�H���g�l�͎��s���Ɉˑ�����B
+     * 入出力を行うファイルのエンコーディングを設定する。<br>
+     * デフォルト値は実行環境に依存する。
      */
     String fileEncoding() default "";
 
     /**
-     * �w�b�_�s���B
+     * ヘッダ行数。
      * <p>
-     * ���̓t�@�C���̃w�b�_���ɑ�������s����ݒ肷��B<br>
-     * �f�t�H���g�l�́u0�i�[���j�v�B
+     * 入力ファイルのヘッダ部に相当する行数を設定する。<br>
+     * デフォルト値は「0（ゼロ）」。
      */
     int headerLineCount() default 0;
 
     /**
-     * �g���C���s���B
+     * トレイラ行数。
      * <p>
-     * ���̓t�@�C���̃g���C�����ɑ�������s����ݒ肷��B<br>
-     * �f�t�H���g�l�́u0�i�[���j�v�B
+     * 入力ファイルのトレイラ部に相当する行数を設定する。<br>
+     * デフォルト値は「0（ゼロ）」。
      * </p>
      */
     int trailerLineCount() default 0;
 
     /**
-     * �㏑���t���O�B
+     * 上書きフラグ。
      * <p>
-     * �o�̓t�@�C���Ɠ����t�@�C�������݂���ꍇ�ɏ㏑�����邩�ǂ�����ݒ肷��B<br>
-     * �f�t�H���g�l�́ufalse�i�㏑�����Ȃ��j�v�B
+     * 出力ファイルと同じファイルが存在する場合に上書きするかどうかを設定する。<br>
+     * デフォルト値は「false（上書きしない）」。
      * </p>
      */
     boolean overWriteFlg() default false;

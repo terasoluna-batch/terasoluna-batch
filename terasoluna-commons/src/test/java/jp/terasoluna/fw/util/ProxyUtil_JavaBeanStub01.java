@@ -20,19 +20,19 @@ import java.io.Serializable;
 
 public class ProxyUtil_JavaBeanStub01 implements Serializable, ProxyUtil_IJavaBeanStub01 {
     /**
-     * ƒVƒŠƒAƒ‹ƒo[ƒWƒ‡ƒ“IDB
+     * ã‚·ãƒªã‚¢ãƒ«ãƒãƒ¼ã‚¸ãƒ§ãƒ³IDã€‚
      */
     private static final long serialVersionUID = -3029460937604647413L;
     private String name = "";
 
-    /* (”ñ Javadoc)
+    /* (é Javadoc)
      * @see jp.terasoluna.fw.util.ProxyUtil_IJavaBeanStub01#getName()
      */
     public String getName() {
         return name;
     }
 
-    /* (”ñ Javadoc)
+    /* (é Javadoc)
      * @see jp.terasoluna.fw.util.ProxyUtil_IJavaBeanStub01#setName(java.lang.String)
      */
     public void setName(String name) {

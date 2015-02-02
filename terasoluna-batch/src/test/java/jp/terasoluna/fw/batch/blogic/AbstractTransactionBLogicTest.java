@@ -25,7 +25,7 @@ public class AbstractTransactionBLogicTest extends TestCase {
 
         BLogicParam param = new BLogicParam();
 
-        // ÉeÉXÉg
+        // „ÉÜ„Çπ„Éà
         int result = blogic.execute(param);
 
         assertEquals(0, result);
@@ -47,7 +47,7 @@ public class AbstractTransactionBLogicTest extends TestCase {
 
         BLogicParam param = new BLogicParam();
 
-        // ÉeÉXÉg
+        // „ÉÜ„Çπ„Éà
         @SuppressWarnings("unused")
         int result = -1;
         try {
@@ -68,7 +68,7 @@ public class AbstractTransactionBLogicTest extends TestCase {
         AbstractTransactionBLogic blogic = new AbstractTransactionBLogic() {
             @Override
             public int doMain(BLogicParam param) {
-                throw new NullPointerException("Ç ÇÈÇ€");
+                throw new NullPointerException("„Å¨„Çã„ÅΩ");
             }
         };
         ApplicationContext context = new ClassPathXmlApplicationContext(
@@ -76,7 +76,7 @@ public class AbstractTransactionBLogicTest extends TestCase {
         blogic.setApplicationContext(context);
         BLogicParam param = new BLogicParam();
 
-        // ÉeÉXÉg
+        // „ÉÜ„Çπ„Éà
         try {
             blogic.execute(param);
         } catch (Exception e) {
@@ -92,7 +92,7 @@ public class AbstractTransactionBLogicTest extends TestCase {
         AbstractTransactionBLogic blogic = new AbstractTransactionBLogic() {
             @Override
             public int doMain(BLogicParam param) {
-                throw new OutOfMemoryError("Å¶ÉeÉXÉgÅ¶ÉÅÉÇÉäïsë´Å¶ÉeÉXÉgÅ¶");
+                throw new OutOfMemoryError("‚Äª„ÉÜ„Çπ„Éà‚Äª„É°„É¢„É™‰∏çË∂≥‚Äª„ÉÜ„Çπ„Éà‚Äª");
             }
         };
         ApplicationContext context = new ClassPathXmlApplicationContext(
@@ -100,7 +100,7 @@ public class AbstractTransactionBLogicTest extends TestCase {
         blogic.setApplicationContext(context);
         BLogicParam param = new BLogicParam();
 
-        // ÉeÉXÉg
+        // „ÉÜ„Çπ„Éà
         try {
             blogic.execute(param);
         } catch (Exception e) {

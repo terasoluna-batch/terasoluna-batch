@@ -22,10 +22,10 @@ import jp.terasoluna.fw.exception.SystemException;
 import junit.framework.TestCase;
 
 /**
- * ExceptionUtil ƒuƒ‰ƒbƒNƒ{ƒbƒNƒXƒeƒXƒgB<br>
+ * ExceptionUtil ãƒ–ãƒ©ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ†ã‚¹ãƒˆã€‚<br>
  * <br>
- * (‘O’ñğŒ)
- * @@@@‚È‚µ<br>
+ * (å‰ææ¡ä»¶)
+ * ã€€ã€€ã€€ã€€ãªã—<br>
  * 
  * <br>
  */
@@ -55,50 +55,50 @@ public class ExceptionUtilTest extends TestCase {
         super.tearDown();
     }
     /**
-     * testGetStackTrace01()B<br>
+     * testGetStackTrace01()ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA<br>
-     * “ü—Í’l :1‚Â‚Ì—áŠOƒIƒuƒWƒFƒNƒg<br>
-     * Šú‘Ò’l :ƒXƒ^ƒbƒNƒgƒŒ[ƒX<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA<br>
+     * å…¥åŠ›å€¤ :1ã¤ã®ä¾‹å¤–ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
+     * æœŸå¾…å€¤ :ã‚¹ã‚¿ãƒƒã‚¯ãƒˆãƒ¬ãƒ¼ã‚¹<br>
      *
-     *  1‚Â‚Ì—áŠOƒIƒuƒWƒFƒNƒg‚©‚çƒXƒ^ƒbƒNƒgƒŒ[ƒX‚ªæ“¾‚Å‚«‚é‚±‚ÆB<br>
+     *  1ã¤ã®ä¾‹å¤–ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã‚‰ã‚¹ã‚¿ãƒƒã‚¯ãƒˆãƒ¬ãƒ¼ã‚¹ãŒå–å¾—ã§ãã‚‹ã“ã¨ã€‚<br>
      *
      */
     public void testGetStackTrace01() {
-        //‰Šúİ’è
+        //åˆæœŸè¨­å®š
         NullPointerException ne = new NullPointerException();
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = ExceptionUtil.getStackTrace(ne);
 
-        //SystemExceptionANullPointerException‚Ì
-        //ƒXƒ^ƒbƒNƒgƒŒ[ƒX‚Ì‘æˆês–Ú‚ªŠÜ‚Ü‚ê‚Ä‚¢‚é‚±‚ÆB
+        //SystemExceptionã€NullPointerExceptionã®
+        //ã‚¹ã‚¿ãƒƒã‚¯ãƒˆãƒ¬ãƒ¼ã‚¹ã®ç¬¬ä¸€è¡Œç›®ãŒå«ã¾ã‚Œã¦ã„ã‚‹ã“ã¨ã€‚
         assertTrue(result.indexOf("java.lang.NullPointerException") != -1);
     }
 
     /**
-     * testGetStackTrace02()B<br>
+     * testGetStackTrace02()ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FA<br>
-     * “ü—Í’l :—áŠOƒIƒuƒWƒFƒNƒg‚ğ“à•ï‚·‚é—áŠOƒIƒuƒWƒFƒNƒg<br>
-     * Šú‘Ò’l :”­¶¶‹L‚Ì—áŠO‚©‚ç‡‚É˜AŒ‹‚³‚ê‚½ƒXƒ^ƒbƒNƒgƒŒ[ƒX<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šA<br>
+     * å…¥åŠ›å€¤ :ä¾‹å¤–ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å†…åŒ…ã™ã‚‹ä¾‹å¤–ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
+     * æœŸå¾…å€¤ :ç™ºç”Ÿå·¦è¨˜ã®ä¾‹å¤–ã‹ã‚‰é †ã«é€£çµã•ã‚ŒãŸã‚¹ã‚¿ãƒƒã‚¯ãƒˆãƒ¬ãƒ¼ã‚¹<br>
      *
-     * —áŠOƒIƒuƒWƒFƒNƒg‚ğ“à•ï‚·‚é—áŠOƒIƒuƒWƒFƒNƒg‚É‘Î‚µ‚ÄÀs‚·‚é‚ÆA
-     * ”­¶æ‚Ì—áŠO‚©‚ç‡‚ÉƒXƒ^ƒbƒNƒgƒŒ[ƒX‚ª˜AŒ‹‚³‚ê‚Äæ“¾‚Å‚«‚é‚±‚ÆB<br>
+     * ä¾‹å¤–ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å†…åŒ…ã™ã‚‹ä¾‹å¤–ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«å¯¾ã—ã¦å®Ÿè¡Œã™ã‚‹ã¨ã€
+     * ç™ºç”Ÿå…ˆã®ä¾‹å¤–ã‹ã‚‰é †ã«ã‚¹ã‚¿ãƒƒã‚¯ãƒˆãƒ¬ãƒ¼ã‚¹ãŒé€£çµã•ã‚Œã¦å–å¾—ã§ãã‚‹ã“ã¨ã€‚<br>
      *
      */
     public void testGetStackTrace02() {
-        //‰Šúİ’è
+        //åˆæœŸè¨­å®š
         SystemException se = new SystemException(new ServletException(new NullPointerException()));
 
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String result = ExceptionUtil.getStackTrace(se);
 
 
-        //SystemExceptionAServletExceptionANullPointerException‚Ì
-        //ƒXƒ^ƒbƒNƒgƒŒ[ƒX‚Ì‘æˆês–Ú‚ªŠÜ‚Ü‚ê‚Ä‚¢‚é‚±‚ÆB
+        //SystemExceptionã€ServletExceptionã€NullPointerExceptionã®
+        //ã‚¹ã‚¿ãƒƒã‚¯ãƒˆãƒ¬ãƒ¼ã‚¹ã®ç¬¬ä¸€è¡Œç›®ãŒå«ã¾ã‚Œã¦ã„ã‚‹ã“ã¨ã€‚
         assertTrue(
             result.indexOf(
                 "jp.terasoluna.fw.exception.SystemException")
@@ -106,13 +106,13 @@ public class ExceptionUtilTest extends TestCase {
         assertTrue(result.indexOf("\njavax.servlet.ServletException") != -1);
         assertTrue(result.indexOf("\njava.lang.NullPointerException") != -1);
 
-        // SystemException¨ServletException‚Ì‡‚ÅAo—Í‚³‚ê‚Ä‚¢‚é‚±‚Æ
+        // SystemExceptionâ†’ServletExceptionã®é †ã§ã€å‡ºåŠ›ã•ã‚Œã¦ã„ã‚‹ã“ã¨
         assertTrue(
             result.indexOf(
                 "jp.terasoluna.framework.exception.SystemException")
                 < result.indexOf("\njavax.servlet.ServletException"));
 
-        // ServletException¨NullPointerException‚Ì‡‚ÅAo—Í‚³‚ê‚Ä‚¢‚é‚±‚Æ
+        // ServletExceptionâ†’NullPointerExceptionã®é †ã§ã€å‡ºåŠ›ã•ã‚Œã¦ã„ã‚‹ã“ã¨
         assertTrue(
             result.indexOf(
                 "\njavax.servlet.ServletException")
@@ -120,21 +120,21 @@ public class ExceptionUtilTest extends TestCase {
     }
 
     /**
-     * testGetStackTrace03()B<br>
+     * testGetStackTrace03()ã€‚<br>
      * 
-     * i³íŒnj<br>
-     * ŠÏ“_FC<br>
-     * “ü—Í’l :ˆø”‚ªnull<br>
-     * Šú‘Ò’l :‹ó•¶š<br>
+     * ï¼ˆæ­£å¸¸ç³»ï¼‰<br>
+     * è¦³ç‚¹ï¼šC<br>
+     * å…¥åŠ›å€¤ :å¼•æ•°ãŒnull<br>
+     * æœŸå¾…å€¤ :ç©ºæ–‡å­—<br>
      *
-     * ˆø”‚ªnull‚ÌA‹ó‚ÌƒXƒ^ƒbƒNƒgƒŒ[ƒX‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * å¼•æ•°ãŒnullã®æ™‚ã€ç©ºã®ã‚¹ã‚¿ãƒƒã‚¯ãƒˆãƒ¬ãƒ¼ã‚¹ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *
      */
     public void testGetStackTrace03() {
-        //ƒeƒXƒgÀs
+        //ãƒ†ã‚¹ãƒˆå®Ÿè¡Œ
         String trace = ExceptionUtil.getStackTrace(null);
 
-        //Œ‹‰ÊŠm”F
+        //çµæœç¢ºèª
         assertEquals("", trace);
     }
 }

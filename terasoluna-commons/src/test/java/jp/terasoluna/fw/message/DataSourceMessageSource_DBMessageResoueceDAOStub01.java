@@ -19,21 +19,21 @@ package jp.terasoluna.fw.message;
 import java.util.List;
 
 /**
- * DataSourceMessageSource‚Åg—p‚·‚éƒXƒ^ƒuƒNƒ‰ƒXB ƒCƒ“ƒ^[ƒtƒFƒCƒXDBMessageResourceDAO‚ÌÀ‘•ƒƒ\ƒbƒh
+ * DataSourceMessageSourceã§ä½¿ç”¨ã™ã‚‹ã‚¹ã‚¿ãƒ–ã‚¯ãƒ©ã‚¹ã€‚ ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ã‚¤ã‚¹DBMessageResourceDAOã®å®Ÿè£…ãƒ¡ã‚½ãƒƒãƒ‰
  * 
  */
 public class DataSourceMessageSource_DBMessageResoueceDAOStub01 implements
         DBMessageResourceDAO {
 
     /**
-     * ŒÄ‚Ño‚µŠm”F
+     * å‘¼ã³å‡ºã—ç¢ºèª
      */
     protected boolean isRead = false;
 
     protected List<DBMessage> list = null;
 
     /**
-     * @return —v‘f”‚ª1Œ‚ÌList
+     * @return è¦ç´ æ•°ãŒ1ä»¶ã®List
      */
     public List<DBMessage> findDBMessages() {
         this.isRead = true;

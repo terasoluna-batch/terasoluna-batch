@@ -29,11 +29,11 @@ import junit.framework.TestCase;
 
 /**
  * {@link jp.terasoluna.fw.message.DataSourceMessageSource}
- * ƒNƒ‰ƒX‚Ìƒuƒ‰ƒbƒNƒ{ƒbƒNƒXƒeƒXƒgB
+ * ã‚¯ãƒ©ã‚¹ã®ãƒ–ãƒ©ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ†ã‚¹ãƒˆã€‚
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4>
- * DAO‚©‚çæ“¾‚µ‚½ƒƒbƒZ[ƒWƒŠƒ\[ƒX‚æ‚èAƒƒbƒZ[ƒWƒR[ƒh‹y‚ÑƒƒP[ƒ‹‚ğƒL[<br>
- * ‚Æ‚µ‚ÄAƒƒbƒZ[ƒW‚à‚µ‚­‚ÍƒƒbƒZ[ƒWƒtƒH[ƒ}ƒbƒg‚ğŒˆ’è‚·‚éƒNƒ‰ƒX
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4>
+ * DAOã‹ã‚‰å–å¾—ã—ãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒªã‚½ãƒ¼ã‚¹ã‚ˆã‚Šã€ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚³ãƒ¼ãƒ‰åŠã³ãƒ­ã‚±ãƒ¼ãƒ«ã‚’ã‚­ãƒ¼<br>
+ * ã¨ã—ã¦ã€ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚‚ã—ãã¯ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’æ±ºå®šã™ã‚‹ã‚¯ãƒ©ã‚¹
  * <p>
  * 
  * @see jp.terasoluna.fw.message.DataSourceMessageSource
@@ -41,10 +41,10 @@ import junit.framework.TestCase;
 public class DataSourceMessageSourceTest extends TestCase {
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -53,10 +53,10 @@ public class DataSourceMessageSourceTest extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -65,10 +65,10 @@ public class DataSourceMessageSourceTest extends TestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      * 
      * @param name
-     *            ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     *            ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public DataSourceMessageSourceTest(String name) {
         super(name);
@@ -77,144 +77,144 @@ public class DataSourceMessageSourceTest extends TestCase {
     /**
      * testSetDefaultLocale01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FA <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šA <br>
      * <br>
-     * “ü—Í’lF(ˆø”) defaultLocale:Locale JAPAN<br>
-     *         (ó‘Ô) this.defaultLocale:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) defaultLocale:Locale JAPAN<br>
+     *         (çŠ¶æ…‹) this.defaultLocale:null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.defaultLocale:ˆø”‚Åİ’è‚µ‚½Locale<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.defaultLocale:å¼•æ•°ã§è¨­å®šã—ãŸLocale<br>
      *         
      * <br>
-     * Locale‘®«‚Ìsetterƒƒ\ƒbƒh‚ÌƒeƒXƒgB
+     * Localeå±æ€§ã®setterãƒ¡ã‚½ãƒƒãƒ‰ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testSetDefaultLocale01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DataSourceMessageSource ds = new DataSourceMessageSource();
         ds.defaultLocale = null;
         
         Locale locale = Locale.JAPAN;
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         ds.setDefaultLocale(locale);
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(locale, ds.defaultLocale);
     }
 
     /**
      * testSetDbMessageResourceDAO01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE <br>
      * <br>
-     * “ü—Í’lF(ˆø”) dbMessageResourceDAO:DBMessageResourceDAOƒIƒuƒWƒFƒNƒg<br>
-     *         (ó‘Ô) this.dbMessageResourceDAO:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) dbMessageResourceDAO:DBMessageResourceDAOã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
+     *         (çŠ¶æ…‹) this.dbMessageResourceDAO:null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.dbMessageResourceDAO:ˆø”‚Åİ’è‚µ‚½DAOƒIƒuƒWƒFƒNƒg<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.dbMessageResourceDAO:å¼•æ•°ã§è¨­å®šã—ãŸDAOã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
      *         
      * <br>
-     * DBMessageResourceDAO‘®«‚Ìsetterƒƒ\ƒbƒh‚ÌƒeƒXƒgB
+     * DBMessageResourceDAOå±æ€§ã®setterãƒ¡ã‚½ãƒƒãƒ‰ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testSetDbMessageResourceDAO01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DataSourceMessageSource ds = new DataSourceMessageSource();
         DataSourceMessageSource_DBMessageResoueceDAOStub01 dbmr
                 = new DataSourceMessageSource_DBMessageResoueceDAOStub01();
         ds.dbMessageResourceDAO = null;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         ds.setDbMessageResourceDAO(dbmr);
-        // ”»’è
+        // åˆ¤å®š
         assertSame(dbmr, ds.dbMessageResourceDAO);
     }
 
     /**
      * testAfterPropertiesSet01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FA <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šA <br>
      * <br>
-     * “ü—Í’lF
+     * å…¥åŠ›å€¤ï¼š
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») readMessageFromDataSource:ŒÄ‚Ño‚³‚ê‚Ä‚¢‚é‚Ì‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) readMessageFromDataSource:å‘¼ã³å‡ºã•ã‚Œã¦ã„ã‚‹ã®ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *         
      * <br>
-     * afterPropertiesSet‚ªÀs‚³‚ê‚é‚ÆreadMessageFromDataSource‚ªÀs‚³‚ê‚é‚Ì‚ğŠm”F‚·‚éB
+     * afterPropertiesSetãŒå®Ÿè¡Œã•ã‚Œã‚‹ã¨readMessageFromDataSourceãŒå®Ÿè¡Œã•ã‚Œã‚‹ã®ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testAfterPropertiesSet01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DataSourceMessageSource_DataSourceMessageSourceStub01 ds
                 = new DataSourceMessageSource_DataSourceMessageSourceStub01();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         ds.afterPropertiesSet();
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(ds.isRead);
     }
 
     /**
      * testReloadDataSourceMessage01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FA <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šA <br>
      * <br>
-     * “ü—Í’lF
+     * å…¥åŠ›å€¤ï¼š
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») readMessageFromDataSource:ŒÄ‚Ño‚³‚ê‚Ä‚¢‚é‚Ì‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) readMessageFromDataSource:å‘¼ã³å‡ºã•ã‚Œã¦ã„ã‚‹ã®ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *         
      * <br>
-     * reloadDataSourceMessage‚ªÀs‚³‚ê‚é‚ÆreadMessageFromDataSource‚ªÀs‚³‚ê‚é‚Ì‚ğŠm”F‚·‚éB
+     * reloadDataSourceMessageãŒå®Ÿè¡Œã•ã‚Œã‚‹ã¨readMessageFromDataSourceãŒå®Ÿè¡Œã•ã‚Œã‚‹ã®ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testReloadDataSourceMessage01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DataSourceMessageSource_DataSourceMessageSourceStub01 ds 
                 = new DataSourceMessageSource_DataSourceMessageSourceStub01();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         ds.reloadDataSourceMessage();
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(ds.isRead);
     }
 
     /**
      * testReadMessageFromDataSource01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD,E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD,E <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) dbMessageResourceDAO.findDBMessage():List‚Ì—v‘f”‚ª‚O<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) dbMessageResourceDAO.findDBMessage():Listã®è¦ç´ æ•°ãŒï¼<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») cachedMergedProperties.clear():ŒÄ‚Ño‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») cachedMessageFormats.clear():ŒÄ‚Ño‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») dbMessageResourceDAO.findDBMessage():ŒÄ‚Ño‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) cachedMergedProperties.clear():å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) cachedMessageFormats.clear():å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) dbMessageResourceDAO.findDBMessage():å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *         
      * <br>
-     * DBMessage‚ÌƒLƒƒƒbƒVƒ…‚ªs‚È‚í‚ê‚¸A‰½‚à‚µ‚È‚¢‚ÅI—¹‚·‚éB
+     * DBMessageã®ã‚­ãƒ£ãƒƒã‚·ãƒ¥ãŒè¡Œãªã‚ã‚Œãšã€ä½•ã‚‚ã—ãªã„ã§çµ‚äº†ã™ã‚‹ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testReadMessageFromDataSource01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DataSourceMessageSource_DataSourceMessageSourceStub02 ds 
                 = new DataSourceMessageSource_DataSourceMessageSourceStub02();
         DataSourceMessageSource_DBMessageResoueceDAOStub01 dbmr 
@@ -227,10 +227,10 @@ public class DataSourceMessageSourceTest extends TestCase {
         
         dbmr.list = new ArrayList();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         ds.readMessagesFromDataSource();
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(ds.cachedMergedProperties.isEmpty());
         assertTrue(ds.cachedMessageFormats.isEmpty());
         assertTrue(dbmr.isRead);
@@ -240,28 +240,28 @@ public class DataSourceMessageSourceTest extends TestCase {
     /**
      * testReadMessageFromDataSource02() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD,E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD,E <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) dbMessageResourceDAO.findDBMessage():List‚Ì—v‘f”‚ª‚P<br>
-     *                DBMessage("test01","JP","ja","kaisai","ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P")<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) dbMessageResourceDAO.findDBMessage():Listã®è¦ç´ æ•°ãŒï¼‘<br>
+     *                DBMessage("test01","JP","ja","kaisai","ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘")<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») cachedMergedProperties.clear():ŒÄ‚Ño‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») cachedMessageFormats.clear():ŒÄ‚Ño‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») dbMessageResourceDAO.findDBMessage():ŒÄ‚Ño‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») mapMessage():ŒÄ‚Ño‚³‚ê‚½‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *                    ˆø”‚ª‚í‚½‚³‚½‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) cachedMergedProperties.clear():å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) cachedMessageFormats.clear():å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) dbMessageResourceDAO.findDBMessage():å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) mapMessage():å‘¼ã³å‡ºã•ã‚ŒãŸã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *                    å¼•æ•°ãŒã‚ãŸã•ãŸã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *         
      * <br>
-     * DBMessageƒIƒuƒWƒFƒNƒg‚©‚ç’l‚ğæ‚èo‚µAƒ}ƒbƒv‚É‚Â‚ß‚È‚¨‚·‚±‚Æ‚ğŠm”F‚·‚éB
+     * DBMessageã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã‚‰å€¤ã‚’å–ã‚Šå‡ºã—ã€ãƒãƒƒãƒ—ã«ã¤ã‚ãªãŠã™ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testReadMessageFromDataSource02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DataSourceMessageSource_DataSourceMessageSourceStub02 ds 
                 = new DataSourceMessageSource_DataSourceMessageSourceStub02();
         DataSourceMessageSource_DBMessageResoueceDAOStub01 dbmr 
@@ -274,15 +274,15 @@ public class DataSourceMessageSourceTest extends TestCase {
         
         List<DBMessage> list = new ArrayList<DBMessage>();
         DBMessage db1 = new DBMessage("test01", "JP", "ja", "kaisai",
-                "ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P");
+                "ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘");
         list.add(db1);
         dbmr.list = list;
         
      
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         ds.readMessagesFromDataSource();
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(ds.cachedMergedProperties.isEmpty());
         assertTrue(ds.cachedMessageFormats.isEmpty());
         assertTrue(dbmr.isRead);
@@ -293,30 +293,30 @@ public class DataSourceMessageSourceTest extends TestCase {
     /**
      * testReadMessageFromDataSource03() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD,E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD,E <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) dbMessageResourceDAO.findDBMessage():LIst‚Ì—v‘f”‚ª‚R<br>
-     *                DBMessage("test01","JP","ja","kaisai","ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P")<br>
-     *                DBMessage("test02","JP","ja","kaisai","ƒeƒXƒgƒƒbƒZ[ƒW‚O‚Q")<br>
-     *                DBMessage("test03","JP","ja","kaisai","ƒeƒXƒgƒƒbƒZ[ƒW‚O‚R")<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) dbMessageResourceDAO.findDBMessage():LIstã®è¦ç´ æ•°ãŒï¼“<br>
+     *                DBMessage("test01","JP","ja","kaisai","ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘")<br>
+     *                DBMessage("test02","JP","ja","kaisai","ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼’")<br>
+     *                DBMessage("test03","JP","ja","kaisai","ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼“")<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») cachedMergedProperties.clear():ŒÄ‚Ño‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») cachedMessageFormats.clear():ŒÄ‚Ño‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») dbMessageResourceDAO.findDBMessage():ŒÄ‚Ño‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») mapMessage():ŒÄ‚Ño‚³‚ê‚½‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *                    ˆø”‚ª‚í‚½‚³‚½‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) cachedMergedProperties.clear():å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) cachedMessageFormats.clear():å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) dbMessageResourceDAO.findDBMessage():å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) mapMessage():å‘¼ã³å‡ºã•ã‚ŒãŸã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *                    å¼•æ•°ãŒã‚ãŸã•ãŸã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *         
      * <br>
-     * DBMessageƒIƒuƒWƒFƒNƒg‚©‚ç’l‚ğæ‚èo‚µAƒ}ƒbƒv‚É‚Â‚ß‚È‚¨‚·‚±‚Æ‚ğŠm”F‚·‚éB
+     * DBMessageã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã‚‰å€¤ã‚’å–ã‚Šå‡ºã—ã€ãƒãƒƒãƒ—ã«ã¤ã‚ãªãŠã™ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testReadMessageFromDataSource03() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DataSourceMessageSource_DataSourceMessageSourceStub02 ds
                 = new DataSourceMessageSource_DataSourceMessageSourceStub02();
         DataSourceMessageSource_DBMessageResoueceDAOStub01 dbmr 
@@ -330,20 +330,20 @@ public class DataSourceMessageSourceTest extends TestCase {
         
         List<DBMessage> list = new ArrayList<DBMessage>();
         DBMessage db1 = new DBMessage("test01", "JP", "ja", "kaisai",
-                "ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P");
+                "ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘");
         DBMessage db2 = new DBMessage("test02", "JP", "ja", "kaisai",
-                "ƒeƒXƒgƒƒbƒZ[ƒW‚O‚Q");
+                "ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼’");
         DBMessage db3 = new DBMessage("test03", "JP", "ja", "kaisai",
-                "ƒeƒXƒgƒƒbƒZ[ƒW‚O‚R");
+                "ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼“");
         list.add(db1);
         list.add(db2);
         list.add(db3);
         dbmr.list = list;        
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         ds.readMessagesFromDataSource();
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(ds.cachedMergedProperties.isEmpty());
         assertTrue(ds.cachedMessageFormats.isEmpty());
         assertTrue(dbmr.isRead);
@@ -356,28 +356,28 @@ public class DataSourceMessageSourceTest extends TestCase {
     /**
      * testReadMessageFromDataSource04() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) dbMessageResourceDAO.findDBMessage():List‚Ì—v‘f”‚ª‚P<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) dbMessageResourceDAO.findDBMessage():Listã®è¦ç´ æ•°ãŒï¼‘<br>
      *                DBMessage("","","","","")<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») cachedMergedProperties.clear():ŒÄ‚Ño‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») cachedMessageFormats.clear():ŒÄ‚Ño‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») dbMessageResourceDAO.findDBMessage():ŒÄ‚Ño‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») mapMessage():ŒÄ‚Ño‚³‚ê‚½‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *                    ˆø”‚ª‚í‚½‚³‚½‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) cachedMergedProperties.clear():å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) cachedMessageFormats.clear():å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) dbMessageResourceDAO.findDBMessage():å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) mapMessage():å‘¼ã³å‡ºã•ã‚ŒãŸã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *                    å¼•æ•°ãŒã‚ãŸã•ãŸã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *         
      * <br>
-     * DBMessageƒIƒuƒWƒFƒNƒg‚©‚ç’l‚ğæ‚èo‚µAƒ}ƒbƒv‚É‚Â‚ß‚È‚¨‚·‚±‚Æ‚ğŠm”F‚·‚éB
+     * DBMessageã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã‚‰å€¤ã‚’å–ã‚Šå‡ºã—ã€ãƒãƒƒãƒ—ã«ã¤ã‚ãªãŠã™ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testReadMessageFromDataSource04() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DataSourceMessageSource_DataSourceMessageSourceStub02 ds
                 = new DataSourceMessageSource_DataSourceMessageSourceStub02();
         DataSourceMessageSource_DBMessageResoueceDAOStub01 dbmr 
@@ -396,10 +396,10 @@ public class DataSourceMessageSourceTest extends TestCase {
         dbmr.list = list;           
         
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         ds.readMessagesFromDataSource();
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(ds.cachedMergedProperties.isEmpty());
         assertTrue(ds.cachedMessageFormats.isEmpty());
         assertTrue(dbmr.isRead);
@@ -410,27 +410,27 @@ public class DataSourceMessageSourceTest extends TestCase {
     /**
      * testReadMessageFromDataSource05() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) dbMessageResourceDAO.findDBMessage():List‚Ì—v‘f”‚ª‚P<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) dbMessageResourceDAO.findDBMessage():Listã®è¦ç´ æ•°ãŒï¼‘<br>
      *                DBMessage(null,null,null.null.null)<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») cachedMergedProperties.clear():ŒÄ‚Ño‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») cachedMessageFormats.clear():ŒÄ‚Ño‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») dbMessageResourceDAO.findDBMessage():ŒÄ‚Ño‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») mapMessage():ŒÄ‚Ño‚³‚ê‚Ä‚¢‚È‚¢‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) cachedMergedProperties.clear():å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) cachedMessageFormats.clear():å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) dbMessageResourceDAO.findDBMessage():å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) mapMessage():å‘¼ã³å‡ºã•ã‚Œã¦ã„ãªã„ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *         
      * <br>
-     * ƒƒbƒZ[ƒWƒR[ƒh‚à‚µ‚­‚ÍƒƒbƒZ[ƒW–{‘Ì‚ª‚È‚¢‚Æƒ}ƒbƒv‚ÉŠi”[‚³‚ê‚È‚¢‚±‚Æ‚ğŠm”F‚·‚éB
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚³ãƒ¼ãƒ‰ã‚‚ã—ãã¯ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸æœ¬ä½“ãŒãªã„ã¨ãƒãƒƒãƒ—ã«æ ¼ç´ã•ã‚Œãªã„ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testReadMessageFromDataSource05() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DataSourceMessageSource_DataSourceMessageSourceStub02 ds
                 = new DataSourceMessageSource_DataSourceMessageSourceStub02();
         DataSourceMessageSource_DBMessageResoueceDAOStub01 dbmr 
@@ -447,10 +447,10 @@ public class DataSourceMessageSourceTest extends TestCase {
         list.add(db1);
         dbmr.list = list;
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         ds.readMessagesFromDataSource();
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(ds.cachedMergedProperties.isEmpty());
         assertTrue(ds.cachedMessageFormats.isEmpty());
         assertTrue(dbmr.isRead);
@@ -460,27 +460,27 @@ public class DataSourceMessageSourceTest extends TestCase {
     /**
      * testReadMessageFromDataSource06() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) dbMessageResourceDAO.findDBMessage():LIst‚Ì—v‘f”‚ª‚P<br>
-     *                DBMessage(null,"JP","ja","kaisai","ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P")<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) dbMessageResourceDAO.findDBMessage():LIstã®è¦ç´ æ•°ãŒï¼‘<br>
+     *                DBMessage(null,"JP","ja","kaisai","ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘")<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») cachedMergedProperties.clear():ŒÄ‚Ño‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») cachedMessageFormats.clear():ŒÄ‚Ño‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») dbMessageResourceDAO.findDBMessage():ŒÄ‚Ño‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») mapMessage():ŒÄ‚Ño‚³‚ê‚Ä‚¢‚È‚¢‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) cachedMergedProperties.clear():å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) cachedMessageFormats.clear():å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) dbMessageResourceDAO.findDBMessage():å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) mapMessage():å‘¼ã³å‡ºã•ã‚Œã¦ã„ãªã„ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *         
      * <br>
-     * ƒƒbƒZ[ƒWƒR[ƒh‚à‚µ‚­‚ÍƒƒbƒZ[ƒW–{‘Ì‚ª‚È‚¢‚Æƒ}ƒbƒv‚ÉŠi”[‚³‚ê‚È‚¢‚±‚Æ‚ğŠm”F‚·‚éB
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚³ãƒ¼ãƒ‰ã‚‚ã—ãã¯ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸æœ¬ä½“ãŒãªã„ã¨ãƒãƒƒãƒ—ã«æ ¼ç´ã•ã‚Œãªã„ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testReadMessageFromDataSource06() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DataSourceMessageSource_DataSourceMessageSourceStub02 ds 
                 = new DataSourceMessageSource_DataSourceMessageSourceStub02();
         DataSourceMessageSource_DBMessageResoueceDAOStub01 dbmr 
@@ -494,14 +494,14 @@ public class DataSourceMessageSourceTest extends TestCase {
         
         List list = new ArrayList();
         DBMessage db1 
-            = new DBMessage(null, "JP", "ja", "kaisai", "ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P");
+            = new DBMessage(null, "JP", "ja", "kaisai", "ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘");
         list.add(db1);
         dbmr.list = list;
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         ds.readMessagesFromDataSource();
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(ds.cachedMergedProperties.isEmpty());
         assertTrue(ds.cachedMessageFormats.isEmpty());
         assertTrue(dbmr.isRead);
@@ -511,27 +511,27 @@ public class DataSourceMessageSourceTest extends TestCase {
     /**
      * testReadMessageFromDataSource07() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) dbMessageResourceDAO.findDBMessage():List‚Ì—v‘f”‚ª‚P<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) dbMessageResourceDAO.findDBMessage():Listã®è¦ç´ æ•°ãŒï¼‘<br>
      *                DBMessage("test01","JP","ja","kaisai",null)<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») cachedMergedProperties.clear():ŒÄ‚Ño‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») cachedMessageFormats.clear():ŒÄ‚Ño‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») dbMessageResourceDAO.findDBMessage():ŒÄ‚Ño‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») mapMessage():ŒÄ‚Ño‚³‚ê‚Ä‚¢‚È‚¢‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) cachedMergedProperties.clear():å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) cachedMessageFormats.clear():å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) dbMessageResourceDAO.findDBMessage():å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) mapMessage():å‘¼ã³å‡ºã•ã‚Œã¦ã„ãªã„ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *         
      * <br>
-     * ƒƒbƒZ[ƒWƒR[ƒh‚à‚µ‚­‚ÍƒƒbƒZ[ƒW–{‘Ì‚ª‚È‚¢‚Æƒ}ƒbƒv‚ÉŠi”[‚³‚ê‚È‚¢‚±‚Æ‚ğŠm”F‚·‚éB
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚³ãƒ¼ãƒ‰ã‚‚ã—ãã¯ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸æœ¬ä½“ãŒãªã„ã¨ãƒãƒƒãƒ—ã«æ ¼ç´ã•ã‚Œãªã„ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testReadMessageFromDataSource07() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DataSourceMessageSource_DataSourceMessageSourceStub02 ds 
                 = new DataSourceMessageSource_DataSourceMessageSourceStub02();
         DataSourceMessageSource_DBMessageResoueceDAOStub01 dbmr 
@@ -548,10 +548,10 @@ public class DataSourceMessageSourceTest extends TestCase {
         
         dbmr.list = list;        
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         ds.readMessagesFromDataSource();
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(ds.cachedMergedProperties.isEmpty());
         assertTrue(ds.cachedMessageFormats.isEmpty());
         assertTrue(dbmr.isRead);
@@ -561,28 +561,28 @@ public class DataSourceMessageSourceTest extends TestCase {
     /**
      * testReadMessageFromDataSource08() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FE,G <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE,G <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) dbMessageResourceDAO.findDBMessage():List‚Ì—v‘f”‚ª‚P<br>
-     *                DBMessageƒIƒuƒWƒFƒNƒgˆÈŠO‚ÌƒIƒuƒWƒFƒNƒg<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) dbMessageResourceDAO.findDBMessage():Listã®è¦ç´ æ•°ãŒï¼‘<br>
+     *                DBMessageã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆä»¥å¤–ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») cachedMergedProperties.clear():ŒÄ‚Ño‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») cachedMessageFormats.clear():ŒÄ‚Ño‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») dbMessageResourceDAO.findDBMessage():ŒÄ‚Ño‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») mapMessage():ŒÄ‚Ño‚³‚ê‚Ä‚¢‚È‚¢‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») —áŠO:ClassCastException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) cachedMergedProperties.clear():å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) cachedMessageFormats.clear():å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) dbMessageResourceDAO.findDBMessage():å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) mapMessage():å‘¼ã³å‡ºã•ã‚Œã¦ã„ãªã„ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ClassCastException<br>
      *         
      * <br>
-     * DBMessageƒIƒuƒWƒFƒNƒg‚ğ“n‚³‚È‚¢‚ÆA—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * DBMessageã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’æ¸¡ã•ãªã„ã¨ã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testReadMessageFromDataSource08() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DataSourceMessageSource_DataSourceMessageSourceStub02 ds 
                 = new DataSourceMessageSource_DataSourceMessageSourceStub02();
         DataSourceMessageSource_DBMessageResoueceDAOStub01 dbmr 
@@ -599,11 +599,11 @@ public class DataSourceMessageSourceTest extends TestCase {
         dbmr.list = list;
         
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             ds.readMessagesFromDataSource();
             fail();
         } catch (ClassCastException e) {
-            // ”»’è
+            // åˆ¤å®š
             assertTrue(ds.cachedMergedProperties.isEmpty());
             assertTrue(ds.cachedMessageFormats.isEmpty());
             assertTrue(dbmr.isRead);
@@ -614,24 +614,24 @@ public class DataSourceMessageSourceTest extends TestCase {
     /**
      * testMapMessage01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FA <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šA <br>
      * <br>
-     * “ü—Í’lF(ˆø”) message:DBMessageƒIƒuƒWƒFƒNƒg<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) message:DBMessageã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») createLocale(message):w’è‚³‚ê‚½ˆø”‚ÅŒÄ‚Ño‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») getMessages:w’è‚³‚ê‚½ˆø”‚ÅŒÄ‚Ño‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») messages:message‚æ‚èæ“¾‚µ‚½’l‚ªmessages‚ÉŠi”[‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) createLocale(message):æŒ‡å®šã•ã‚ŒãŸå¼•æ•°ã§å‘¼ã³å‡ºã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) getMessages:æŒ‡å®šã•ã‚ŒãŸå¼•æ•°ã§å‘¼ã³å‡ºã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) messages:messageã‚ˆã‚Šå–å¾—ã—ãŸå€¤ãŒmessagesã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *         
      * <br>
-     * æ“¾‚µ‚½DBMessageƒIƒuƒWƒFƒNƒg‚©‚ç’l‚ğæ‚èo‚µAƒe[ƒuƒ‹‚ÉŠi”[‚·‚é‚±‚Æ‚ğŠm”FB
+     * å–å¾—ã—ãŸDBMessageã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã‚‰å€¤ã‚’å–ã‚Šå‡ºã—ã€ãƒ†ãƒ¼ãƒ–ãƒ«ã«æ ¼ç´ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testMapMessage01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DataSourceMessageSource_DataSourceMessageSourceStub03 ds 
                 = new DataSourceMessageSource_DataSourceMessageSourceStub03();
         DBMessage message = new DBMessage("a", "b", "c", "d", "e");
@@ -640,10 +640,10 @@ public class DataSourceMessageSourceTest extends TestCase {
         Properties props = new Properties();
         ds.messages = props;
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         ds.mapMessage(message);
 
-        // ”»’è
+        // åˆ¤å®š
         assertSame(message, ds.dbm);
         assertSame(locale, ds.locale2);
         assertSame(props, ds.messages);
@@ -653,72 +653,72 @@ public class DataSourceMessageSourceTest extends TestCase {
     /**
      * testCreateLocale01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FA <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šA <br>
      * <br>
-     * “ü—Í’lF(ˆø”) message:LanguageƒJƒ‰ƒ€‚ªnull‚Ìê‡B<br>
-     *                DBMessage("test01",null,null,null,"ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P")<br>
-     *         (ó‘Ô) defaultLocale:Locale.FRENCH<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) message:Languageã‚«ãƒ©ãƒ ãŒnullã®å ´åˆã€‚<br>
+     *                DBMessage("test01",null,null,null,"ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘")<br>
+     *         (çŠ¶æ…‹) defaultLocale:Locale.FRENCH<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) LocaleƒIƒuƒWƒFƒNƒg:Locale("fr","","")<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Localeã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ:Locale("fr","","")<br>
      *         
      * <br>
-     * —^‚¦‚ç‚ê‚½ˆø”‚©‚çLocale‚ªŒˆ’è‚Å‚«‚È‚¢ê‡AƒfƒtƒHƒ‹ƒgƒƒP[ƒ‹‚ğg‚¤B
+     * ä¸ãˆã‚‰ã‚ŒãŸå¼•æ•°ã‹ã‚‰LocaleãŒæ±ºå®šã§ããªã„å ´åˆã€ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒ­ã‚±ãƒ¼ãƒ«ã‚’ä½¿ã†ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testCreateLocale01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DataSourceMessageSource ds = new DataSourceMessageSource();
         DBMessage message = new DBMessage("test01", null, null, null,
-                "ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P");
+                "ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘");
         ds.defaultLocale = Locale.FRENCH;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Locale returnLocale = ds.createLocale(message);
 
-        // ”»’è
+        // åˆ¤å®š
         assertSame(ds.defaultLocale, returnLocale);
     }
 
     /**
      * testCreateLocale02() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) message:LanguageƒJƒ‰ƒ€‚ªnull‚Ìê‡B<br>
-     * DBMessage("test01",null,null,null,"ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P")<br>
-     * (ó‘Ô) defaultLocale:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) message:Languageã‚«ãƒ©ãƒ ãŒnullã®å ´åˆã€‚<br>
+     * DBMessage("test01",null,null,null,"ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘")<br>
+     * (çŠ¶æ…‹) defaultLocale:null<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) LocaleƒIƒuƒWƒFƒNƒg:—áŠO‚ª”­¶‚·‚éB<br>
-     * (ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     * ƒƒbƒZ[ƒWFCan't resolve Locale.Define Locale in MessageSource or
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Localeã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ:ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼šCan't resolve Locale.Define Locale in MessageSource or
      * Defaultlocale<br>
-     * (ó‘Ô•Ï‰») ƒƒO:ƒGƒ‰[ƒƒOFCan't resolve Locale.Define Locale in MessageSource or
+     * (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°ï¼šCan't resolve Locale.Define Locale in MessageSource or
      * Defaultlocale<br>
      * <br>
-     * Locale‚ªw’è‚Å‚«‚¸A—áŠO‚ğo‚·B <br>
+     * LocaleãŒæŒ‡å®šã§ããšã€ä¾‹å¤–ã‚’å‡ºã™ã€‚ <br>
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testCreateLocale02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DataSourceMessageSource ds = new DataSourceMessageSource();
         DBMessage message = new DBMessage("test01", null, null, null,
-                "ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P");
+                "ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘");
         ds.defaultLocale = null;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             ds.createLocale(message);
             fail();
         } catch (IllegalArgumentException e) {
 
-            // ”»’è
+            // åˆ¤å®š
             assertEquals(
                     "Can't resolve Locale.Define Locale in MessageSource or Defaultlocale.",
                     e.getMessage());
@@ -730,33 +730,33 @@ public class DataSourceMessageSourceTest extends TestCase {
     /**
      * testCreateLocale03() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FA <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šA <br>
      * <br>
-     * “ü—Í’lF(ˆø”) message:CountryƒJƒ‰ƒ€‚ªnull‚Ìê‡B<br>
-     *                DBMessage("test01","ja",null,null,"ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P")<br>
-     *         (ó‘Ô) defaultLocale:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) message:Countryã‚«ãƒ©ãƒ ãŒnullã®å ´åˆã€‚<br>
+     *                DBMessage("test01","ja",null,null,"ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘")<br>
+     *         (çŠ¶æ…‹) defaultLocale:null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) LocaleƒIƒuƒWƒFƒNƒg:Locale("ja","","")<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Localeã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ:Locale("ja","","")<br>
      *         
      * <br>
-     * —^‚¦‚ç‚ê‚½ˆø”‚©‚çALocale‚ğŒˆ’è‚·‚éB—^‚¦‚ç‚ê‚éˆø”‚ÍŒ¾ŒêƒR[ƒh‚Å‚ ‚éB
+     * ä¸ãˆã‚‰ã‚ŒãŸå¼•æ•°ã‹ã‚‰ã€Localeã‚’æ±ºå®šã™ã‚‹ã€‚ä¸ãˆã‚‰ã‚Œã‚‹å¼•æ•°ã¯è¨€èªã‚³ãƒ¼ãƒ‰ã§ã‚ã‚‹ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testCreateLocale03() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DataSourceMessageSource ds = new DataSourceMessageSource();
         DBMessage message = new DBMessage("test01", "ja", null, null,
-                "ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P");
+                "ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘");
         ds.defaultLocale = null;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Locale returnLocale = ds.createLocale(message);
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals("ja", returnLocale.getLanguage());
         assertEquals("", returnLocale.getCountry());
         assertEquals("", returnLocale.getVariant());
@@ -765,33 +765,33 @@ public class DataSourceMessageSourceTest extends TestCase {
     /**
      * testCreateLocale04() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FA <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šA <br>
      * <br>
-     * “ü—Í’lF(ˆø”) message:VariantƒJƒ‰ƒ€‚ªnull‚Ìê‡B<br>
-     *                DBMessage("test01","ja","JP",null,"ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P")<br>
-     *         (ó‘Ô) defaultLocale:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) message:Variantã‚«ãƒ©ãƒ ãŒnullã®å ´åˆã€‚<br>
+     *                DBMessage("test01","ja","JP",null,"ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘")<br>
+     *         (çŠ¶æ…‹) defaultLocale:null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) LocaleƒIƒuƒWƒFƒNƒg:Locale("ja","JP","")<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Localeã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ:Locale("ja","JP","")<br>
      *         
      * <br>
-     * —^‚¦‚ç‚ê‚½ˆø”‚©‚çALocale‚ğŒˆ’è‚·‚éB—^‚¦‚ç‚ê‚éˆø”‚ÍŒ¾ŒêƒR[ƒh‚Æ‘ƒR[ƒh‚Å‚ ‚éB
+     * ä¸ãˆã‚‰ã‚ŒãŸå¼•æ•°ã‹ã‚‰ã€Localeã‚’æ±ºå®šã™ã‚‹ã€‚ä¸ãˆã‚‰ã‚Œã‚‹å¼•æ•°ã¯è¨€èªã‚³ãƒ¼ãƒ‰ã¨å›½ã‚³ãƒ¼ãƒ‰ã§ã‚ã‚‹ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testCreateLocale04() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DataSourceMessageSource ds = new DataSourceMessageSource();
         DBMessage message = new DBMessage("test01", "ja", "JP", null,
-                "ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P");
+                "ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘");
         ds.defaultLocale = null;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Locale returnLocale = ds.createLocale(message);
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals("ja", returnLocale.getLanguage());
         assertEquals("JP", returnLocale.getCountry());
         assertEquals("", returnLocale.getVariant());
@@ -801,34 +801,34 @@ public class DataSourceMessageSourceTest extends TestCase {
     /**
      * testCreateLocale05() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FA <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šA <br>
      * <br>
-      * “ü—Í’lF(ˆø”) message:VariantƒJƒ‰ƒ€‚ªnull‚Å‚È‚¢ê‡B<br>
-     *                DBMessage("test01","ja","JP","kansai","ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P")<br>
-     *         (ó‘Ô) defaultLocale:null<br>
+      * å…¥åŠ›å€¤ï¼š(å¼•æ•°) message:Variantã‚«ãƒ©ãƒ ãŒnullã§ãªã„å ´åˆã€‚<br>
+     *                DBMessage("test01","ja","JP","kansai","ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘")<br>
+     *         (çŠ¶æ…‹) defaultLocale:null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) LocaleƒIƒuƒWƒFƒNƒg:Locale("ja","JP","kansai")<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Localeã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ:Locale("ja","JP","kansai")<br>
      *         
      * <br>
-     * —^‚¦‚ç‚ê‚½ˆø”‚©‚çALocale‚ğŒˆ’è‚·‚éB—^‚¦‚ç‚ê‚éˆø”‚ÍŒ¾ŒêƒR[ƒh‚Æ
-     * ‘ƒR[ƒh‚ÆƒoƒŠƒAƒ“ƒgƒR[ƒh‚Å‚ ‚éB
+     * ä¸ãˆã‚‰ã‚ŒãŸå¼•æ•°ã‹ã‚‰ã€Localeã‚’æ±ºå®šã™ã‚‹ã€‚ä¸ãˆã‚‰ã‚Œã‚‹å¼•æ•°ã¯è¨€èªã‚³ãƒ¼ãƒ‰ã¨
+     * å›½ã‚³ãƒ¼ãƒ‰ã¨ãƒãƒªã‚¢ãƒ³ãƒˆã‚³ãƒ¼ãƒ‰ã§ã‚ã‚‹ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testCreateLocale05() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DataSourceMessageSource ds = new DataSourceMessageSource();
         DBMessage message = new DBMessage("test01", "ja", "JP", "kansai",
-                "ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P");
+                "ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘");
         ds.defaultLocale = null;
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Locale returnLocale = ds.createLocale(message);
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals("ja", returnLocale.getLanguage());
         assertEquals("JP", returnLocale.getCountry());
         assertEquals("kansai", returnLocale.getVariant());
@@ -837,34 +837,34 @@ public class DataSourceMessageSourceTest extends TestCase {
     /**
      * testGetMessages01() <br>
      * <br>
-     * (³íŒn)<br>
-     * ŠÏ“_FF<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šF<br>
      * <br>
-     * “ü—Í’lF(ˆø”) locale:Locale("ja,JP,"")<br>
-     * (ó‘Ô) cachedMergedProperties.get(locale):HashMapo<br>
-     * Local(ja_JP)=Properties()<br> p<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) locale:Locale("ja,JP,"")<br>
+     * (çŠ¶æ…‹) cachedMergedProperties.get(locale):HashMapï½›<br>
+     * Local(ja_JP)=Properties()<br> ï½<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) messages:Properties()<br>
-     * (ó‘Ô•Ï‰») cachedMergedProperties.get(locale):w’è‚³‚ê‚½ˆø”‚ÅŒÄ‚Ño‚³‚ê
-     * ‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) messages:Properties()<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) cachedMergedProperties.get(locale):æŒ‡å®šã•ã‚ŒãŸå¼•æ•°ã§å‘¼ã³å‡ºã•ã‚Œ
+     * ã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * ˆø”‚ğƒL[‚Æ‚µ‚Äƒ}ƒbƒv‚©‚ç’l‚ğæ‚èo‚µA‚»‚Ì’l‚ğ–ß‚è’l‚Æ‚µ‚Ä•Ô‹p‚·‚é‚±‚Æ
-     * ‚ğŠm”F‚·‚éB <br>
+     * å¼•æ•°ã‚’ã‚­ãƒ¼ã¨ã—ã¦ãƒãƒƒãƒ—ã‹ã‚‰å€¤ã‚’å–ã‚Šå‡ºã—ã€ãã®å€¤ã‚’æˆ»ã‚Šå€¤ã¨ã—ã¦è¿”å´ã™ã‚‹ã“ã¨
+     * ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetMessages01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DataSourceMessageSource ds = new DataSourceMessageSource();
         Locale locale = new Locale("ja", "JP", "");
         Properties props = new Properties();
         ds.cachedMergedProperties.put(locale, props);
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Properties returnProp = ds.getMessages(locale);
 
-        // ”»’è
+        // åˆ¤å®š
         assertSame(props, returnProp);
                 
     }
@@ -872,33 +872,33 @@ public class DataSourceMessageSourceTest extends TestCase {
     /**
      * testGetMessages02() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FF<br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šF<br>
      * <br>
-     * “ü—Í’lF(ˆø”) locale:Locale("ja,JP,"")<br>
-     * (ó‘Ô) cachedMergedProperties.get(locale):‹ó‚ÌHashMap<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) locale:Locale("ja,JP,"")<br>
+     * (çŠ¶æ…‹) cachedMergedProperties.get(locale):ç©ºã®HashMap<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) messages:‹ó‚ÌPropertiesƒIƒuƒWƒFƒNƒg<br>
-     * (ó‘Ô•Ï‰») cachedMergedProperties.get(locale):w’è‚³‚ê‚½ˆø”‚Å
-     * ŒÄ‚Ño‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * (ó‘Ô•Ï‰») cachedMergedProperties.put(locale,messages):
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) messages:ç©ºã®Propertiesã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) cachedMergedProperties.get(locale):æŒ‡å®šã•ã‚ŒãŸå¼•æ•°ã§
+     * å‘¼ã³å‡ºã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) cachedMergedProperties.put(locale,messages):
      * HashMap<Locale,<null,null>><br>
      * <br>
-     * ˆø”‚ğƒL[‚Æ‚µ‚Äƒ}ƒbƒv‚©‚çæ‚èo‚µ‚½’l‚ªnull‚¾‚Á‚½ê‡AV‚½‚É¶¬‚µAŠi”[‚·‚éB <br>
+     * å¼•æ•°ã‚’ã‚­ãƒ¼ã¨ã—ã¦ãƒãƒƒãƒ—ã‹ã‚‰å–ã‚Šå‡ºã—ãŸå€¤ãŒnullã ã£ãŸå ´åˆã€æ–°ãŸã«ç”Ÿæˆã—ã€æ ¼ç´ã™ã‚‹ã€‚ <br>
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetMessages02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DataSourceMessageSource ds = new DataSourceMessageSource();
         Locale locale = new Locale("ja", "JP", "");
         ds.cachedMergedProperties.clear();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Properties returnProps = ds.getMessages(locale);
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(1, ds.cachedMergedProperties.size());
         Properties result = null;
         result = ds.cachedMergedProperties.get(locale);
@@ -909,34 +909,34 @@ public class DataSourceMessageSourceTest extends TestCase {
     /**
      * testResolveCodeWithoutArguments01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šA<br>
      * <br>
-     * “ü—Í’lF(ˆø”) code:"code01"<br>
-     * (ˆø”) locale:Locale("ja","JP","")<br>
-     * (ó‘Ô) internalResolveCodeWithoutArguments:"ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) code:"code01"<br>
+     * (å¼•æ•°) locale:Locale("ja","JP","")<br>
+     * (çŠ¶æ…‹) internalResolveCodeWithoutArguments:"ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘"<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) msg:"ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P"<br>
-     * (ó‘Ô•Ï‰») internalResolveCodeWithoutArguments:w’è‚³‚ê‚½ˆø”‚ÅŒÄ‚Ño‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) msg:"ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘"<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) internalResolveCodeWithoutArguments:æŒ‡å®šã•ã‚ŒãŸå¼•æ•°ã§å‘¼ã³å‡ºã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * —^‚¦‚ç‚ê‚½ˆø”‚æ‚èƒƒbƒZ[ƒW‚ğŒˆ’è‚µA•Ô‹p‚·‚éB <br>
+     * ä¸ãˆã‚‰ã‚ŒãŸå¼•æ•°ã‚ˆã‚Šãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’æ±ºå®šã—ã€è¿”å´ã™ã‚‹ã€‚ <br>
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testResolveCodeWithoutArguments01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DataSourceMessageSource_DataSourceMessageSourceStub04 ds
                 = new DataSourceMessageSource_DataSourceMessageSourceStub04();
         String code = "code01";
         Locale locale = new Locale("ja", "JP", "");
-        String msg = "ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P";
+        String msg = "ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘";
         ds.msg = msg;
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String returnMsg = ds.resolveCodeWithoutArguments(code, locale);
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(code, ds.code);
         assertSame(locale, ds.locale);
         assertTrue(ds.isRead);
@@ -946,32 +946,32 @@ public class DataSourceMessageSourceTest extends TestCase {
     /**
      * testResolveCodeWithoutArguments02() <br>
      * <br>
-     * (³íŒn)<br>
-     * ŠÏ“_FA,C<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA,C<br>
      * <br>
-     * “ü—Í’lF(ˆø”) code:"code01"<br>
-     * (ˆø”) locale:Locale("ja","JP","")<br>
-     * (ó‘Ô) internalResolveCodeWithoutArguments:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) code:"code01"<br>
+     * (å¼•æ•°) locale:Locale("ja","JP","")<br>
+     * (çŠ¶æ…‹) internalResolveCodeWithoutArguments:null<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) msg:null<br>
-     * (ó‘Ô•Ï‰») internalResolveCodeWithoutArguments:w’è‚³‚ê‚½ˆø”‚ÅŒÄ‚Ño‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) msg:null<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) internalResolveCodeWithoutArguments:æŒ‡å®šã•ã‚ŒãŸå¼•æ•°ã§å‘¼ã³å‡ºã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * —^‚¦‚ç‚ê‚½ˆø”‚æ‚èƒƒbƒZ[ƒW‚ªŒˆ’è‚Å‚«‚¸Anull‚ğ•Ô‹p‚·‚éB <br>
+     * ä¸ãˆã‚‰ã‚ŒãŸå¼•æ•°ã‚ˆã‚Šãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒæ±ºå®šã§ããšã€nullã‚’è¿”å´ã™ã‚‹ã€‚ <br>
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testResolveCodeWithoutArguments02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DataSourceMessageSource_DataSourceMessageSourceStub04 ds
                 = new DataSourceMessageSource_DataSourceMessageSourceStub04();
         String code = "code01";
         Locale locale = new Locale("ja", "JP", "");
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String returnMsg = ds.resolveCodeWithoutArguments(code, locale);
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(code, ds.code);
         assertSame(locale, ds.locale);
         assertTrue(ds.isRead);
@@ -981,28 +981,28 @@ public class DataSourceMessageSourceTest extends TestCase {
     /**
      * testInternalResolveCodeWithoutArguments01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FF<br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šF<br>
      * <br>
-     * “ü—Í’lF(ˆø”) code:"code01"<br>
-     *         (ˆø”) locale:Locale("ja","JP","")<br>
-     *         (ó‘Ô) getMessage().getProperties:"ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P"<br>
-     *         (ó‘Ô) ƒƒbƒZ[ƒW‚Ìlocale:Locale("ja",JP","")<br>
-     *         (ó‘Ô) defaultLocale:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) code:"code01"<br>
+     *         (å¼•æ•°) locale:Locale("ja","JP","")<br>
+     *         (çŠ¶æ…‹) getMessage().getProperties:"ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘"<br>
+     *         (çŠ¶æ…‹) ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®locale:Locale("ja",JP","")<br>
+     *         (çŠ¶æ…‹) defaultLocale:null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) msg:"ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P"<br>
-     *         (ó‘Ô•Ï‰») getMessage().getProperties:w’è‚³‚ê‚½ˆø”‚ÅŒÄ‚Ño‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) msg:"ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘"<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) getMessage().getProperties:æŒ‡å®šã•ã‚ŒãŸå¼•æ•°ã§å‘¼ã³å‡ºã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *         
      * <br>
-     * w’è‚³‚ê‚½ˆø”‚æ‚èƒƒbƒZ[ƒW‚ğŒˆ’è‚µA•Ô‹p‚·‚éB
+     * æŒ‡å®šã•ã‚ŒãŸå¼•æ•°ã‚ˆã‚Šãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’æ±ºå®šã—ã€è¿”å´ã™ã‚‹ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testInternalResolveCodeWithoutArguments01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DataSourceMessageSource ds = new DataSourceMessageSource();
         ds.cachedMergedProperties = null;
         
@@ -1010,278 +1010,278 @@ public class DataSourceMessageSourceTest extends TestCase {
         Locale locale = new Locale("ja", "JP", "");
         ds.defaultLocale = null;
         
-        //cachedMergedProperties¶¬
+        //cachedMergedPropertiesç”Ÿæˆ
         Map map = new HashMap();
         Properties props = new Properties();
-        String msg = "ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P";
+        String msg = "ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘";
         props.put(code, msg);
         map.put(locale, props);
         ds.cachedMergedProperties = map;
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String returnMsg = ds.internalResolveCodeWithoutArguments(code, locale);
         
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(msg, returnMsg);
     }
 
     /**
      * testInternalResolveCodeWithoutArguments02() <br>
      * <br>
-     * (³íŒn)<br>
-     * ŠÏ“_FF<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šF<br>
      * <br>
-     * “ü—Í’lF(ˆø”) code:"code01"<br>
-     * (ˆø”) locale:Locale("ja","JP","")<br>
-     * (ó‘Ô) getMessage().getProperties:null<br>
-     * (ó‘Ô) ƒƒbƒZ[ƒW‚Ìlocale:Locale("ja","","")<br>
-     * (ó‘Ô) defaultLocale:null<br>
-     * (ó‘Ô) getAlternativeLocalesij:Listo<br>
-     * Localei"ja")<br> p<br>
-     * (ó‘Ô) getMessage(locales.get()).getProperties():1‰ñ–Ú‚Ì–ß‚è’l<br>
-     * "ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) code:"code01"<br>
+     * (å¼•æ•°) locale:Locale("ja","JP","")<br>
+     * (çŠ¶æ…‹) getMessage().getProperties:null<br>
+     * (çŠ¶æ…‹) ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®locale:Locale("ja","","")<br>
+     * (çŠ¶æ…‹) defaultLocale:null<br>
+     * (çŠ¶æ…‹) getAlternativeLocalesï¼ˆï¼‰:Listï½›<br>
+     * Localeï¼ˆ"ja")<br> ï½<br>
+     * (çŠ¶æ…‹) getMessage(locales.get()).getProperties():1å›ç›®ã®æˆ»ã‚Šå€¤<br>
+     * "ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘"<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) msg:"ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P"<br>
-     * (ó‘Ô•Ï‰») getMessage().getProperties:w’è‚³‚ê‚½ˆø”‚ÅŒÄ‚Ño‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * (ó‘Ô•Ï‰») getAlternativeLocales:w’è‚³‚ê‚½ˆø”‚ÅŒÄ‚Ño‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * (ó‘Ô•Ï‰»)
-     * getMessages(locales.get()).getProperties():w’è‚³‚ê‚½ˆø”‚ÅŒÄ‚Ño‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) msg:"ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘"<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) getMessage().getProperties:æŒ‡å®šã•ã‚ŒãŸå¼•æ•°ã§å‘¼ã³å‡ºã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) getAlternativeLocales:æŒ‡å®šã•ã‚ŒãŸå¼•æ•°ã§å‘¼ã³å‡ºã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–)
+     * getMessages(locales.get()).getProperties():æŒ‡å®šã•ã‚ŒãŸå¼•æ•°ã§å‘¼ã³å‡ºã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * w’è‚³‚ê‚½ˆø”‚ÅƒƒbƒZ[ƒW‚ğŒˆ’è‚Å‚«‚¸AV‚½‚Éì¬‚µ‚½ˆø”‚É‚æ‚èƒƒbƒZ[ƒW‚ğŒˆ’è‚µA
-     * •Ô‹p‚·‚éB‚Ü‚½AƒƒP[ƒ‹‚ªnull‚Å‚àƒGƒ‰[‚É‚È‚ç‚È‚¢‚±‚Æ‚ğŠm”F‚·‚éB
+     * æŒ‡å®šã•ã‚ŒãŸå¼•æ•°ã§ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’æ±ºå®šã§ããšã€æ–°ãŸã«ä½œæˆã—ãŸå¼•æ•°ã«ã‚ˆã‚Šãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’æ±ºå®šã—ã€
+     * è¿”å´ã™ã‚‹ã€‚ã¾ãŸã€ãƒ­ã‚±ãƒ¼ãƒ«ãŒnullã§ã‚‚ã‚¨ãƒ©ãƒ¼ã«ãªã‚‰ãªã„ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testInternalResolveCodeWithoutArguments02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DataSourceMessageSource ds = new DataSourceMessageSource();
         
         String code = "code01";
         Locale locale = new Locale("ja", "JP", "");
         ds.defaultLocale = null;
         
-        //cachedMergedProperties¶¬
+        //cachedMergedPropertiesç”Ÿæˆ
         Map map = new HashMap();
         Properties props = new Properties();
         Locale msglocale = new Locale("ja", "", "");
-        String msg = "ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P";
+        String msg = "ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘";
         props.put(code, msg);
         map.put(msglocale, props);
         ds.cachedMergedProperties = map;
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String returnMsg = ds.internalResolveCodeWithoutArguments(code, locale);
         
-        // ”»’è
-        assertEquals("ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P", returnMsg);
+        // åˆ¤å®š
+        assertEquals("ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘", returnMsg);
     }
 
     /**
      * testInternalResolveCodeWithoutArguments03() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FF<br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šF<br>
      * <br>
-     * “ü—Í’lF(ˆø”) code:"code01"<br>
-     * (ˆø”) locale:Locale("ja","JP","")<br>
-     * (ó‘Ô) getMessage().getProperties:null<br>
-     * (ó‘Ô) ƒƒbƒZ[ƒW‚Ìlocale:Locale("en","","")<br>
-     * (ó‘Ô) defaultLocale:Locale("en","US","")<br>
-     * (ó‘Ô) getAlternativeLocalesij:Listo<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) code:"code01"<br>
+     * (å¼•æ•°) locale:Locale("ja","JP","")<br>
+     * (çŠ¶æ…‹) getMessage().getProperties:null<br>
+     * (çŠ¶æ…‹) ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®locale:Locale("en","","")<br>
+     * (çŠ¶æ…‹) defaultLocale:Locale("en","US","")<br>
+     * (çŠ¶æ…‹) getAlternativeLocalesï¼ˆï¼‰:Listï½›<br>
      * Locale("ja","","")<br>
      * Locale("en","US","")<br>
-     * Localei"en","","")<br> p<br>
-     * (ó‘Ô) getMessage(locales.get()).getProperties():‚P‰ñ–Ú‚Ì–ß‚è’l<br>
+     * Localeï¼ˆ"en","","")<br> ï½<br>
+     * (çŠ¶æ…‹) getMessage(locales.get()).getProperties():ï¼‘å›ç›®ã®æˆ»ã‚Šå€¤<br>
      * null<br>
-     * ‚Q‰ñ–Ú‚Ì–ß‚è’l<br>
+     * ï¼’å›ç›®ã®æˆ»ã‚Šå€¤<br>
      * null<br>
-     * ‚R‰ñ–Ú‚Ì–ß‚è’l<br>
-     * "ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P"<br>
+     * ï¼“å›ç›®ã®æˆ»ã‚Šå€¤<br>
+     * "ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘"<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) msg:"ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P"<br>
-     * (ó‘Ô•Ï‰») getMessage().getProperties:w’è‚³‚ê‚½ˆø”‚ÅŒÄ‚Ño‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * (ó‘Ô•Ï‰») getAlternativeLocales:w’è‚³‚ê‚½ˆø”‚ÅŒÄ‚Ño‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * (ó‘Ô•Ï‰»)
-     * getMessages(locales.get()).getProperties():w’è‚³‚ê‚½ˆø”‚Å
-     * ŒÄ‚Ño‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) msg:"ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘"<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) getMessage().getProperties:æŒ‡å®šã•ã‚ŒãŸå¼•æ•°ã§å‘¼ã³å‡ºã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) getAlternativeLocales:æŒ‡å®šã•ã‚ŒãŸå¼•æ•°ã§å‘¼ã³å‡ºã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–)
+     * getMessages(locales.get()).getProperties():æŒ‡å®šã•ã‚ŒãŸå¼•æ•°ã§
+     * å‘¼ã³å‡ºã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * w’è‚³‚ê‚½ˆø”‚ÅƒƒbƒZ[ƒW‚ğŒˆ’è‚Å‚«‚¸AV‚½‚Éì¬‚µ‚½ˆø”‚É‚æ‚è
-     * ƒƒbƒZ[ƒW‚ğŒˆ’è‚µA•Ô‹p‚·‚éB‚Ü‚½AƒƒP[ƒ‹‚ªnull‚Å‚àƒGƒ‰[‚É‚È‚ç‚È‚¢‚±‚Æ‚ğŠm”F‚·‚éB
+     * æŒ‡å®šã•ã‚ŒãŸå¼•æ•°ã§ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’æ±ºå®šã§ããšã€æ–°ãŸã«ä½œæˆã—ãŸå¼•æ•°ã«ã‚ˆã‚Š
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’æ±ºå®šã—ã€è¿”å´ã™ã‚‹ã€‚ã¾ãŸã€ãƒ­ã‚±ãƒ¼ãƒ«ãŒnullã§ã‚‚ã‚¨ãƒ©ãƒ¼ã«ãªã‚‰ãªã„ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testInternalResolveCodeWithoutArguments03() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DataSourceMessageSource ds = new DataSourceMessageSource();
 
         String code = "code01";
         Locale locale = new Locale("ja", "JP", "");
         ds.defaultLocale = new Locale("en", "US", "");
         
-        //cachedMergedProperties¶¬
+        //cachedMergedPropertiesç”Ÿæˆ
         Map map = new HashMap();
         Properties props = new Properties();
         Locale msglocale = new Locale("en", "", "");
-        String msg = "ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P";
+        String msg = "ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘";
         props.put(code, msg);
         map.put(msglocale, props);
         ds.cachedMergedProperties = map;
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String returnMsg = ds.internalResolveCodeWithoutArguments(code, locale);
         
-        // ”»’è
-        assertEquals("ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P", returnMsg);
+        // åˆ¤å®š
+        assertEquals("ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘", returnMsg);
     }
 
     /**
      * testInternalResolveCodeWithoutArguments04() <br>
      * <br>
-     * (³íŒn)<br>
-     * ŠÏ“_FF<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šF<br>
      * <br>
-     * “ü—Í’lF(ˆø”) code:"code01"<br>
-     *         (ˆø”) locale:Locale("ja","JP","")<br>
-     *         (ó‘Ô) getMessage().getProperties:null<br>
-     *         (ó‘Ô) ƒƒbƒZ[ƒW‚Ìlocale:Locale("ja","JP","kansai")<br>
-     *         (ó‘Ô) defaultLocale:Locale("en","US","")<br>
-     *         (ó‘Ô) getAlternativeLocalesij:Listo<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) code:"code01"<br>
+     *         (å¼•æ•°) locale:Locale("ja","JP","")<br>
+     *         (çŠ¶æ…‹) getMessage().getProperties:null<br>
+     *         (çŠ¶æ…‹) ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®locale:Locale("ja","JP","kansai")<br>
+     *         (çŠ¶æ…‹) defaultLocale:Locale("en","US","")<br>
+     *         (çŠ¶æ…‹) getAlternativeLocalesï¼ˆï¼‰:Listï½›<br>
      *                  Locale("ja","","")<br>
      *                  Locale("en","US","")<br>
-     *                @Localei"en","","")<br>
-     *                p<br>
-     *         (ó‘Ô) getMessage(locales.get()).getProperties():‚P‰ñ–Ú‚Ì–ß‚è’l<br>
+     *                ã€€Localeï¼ˆ"en","","")<br>
+     *                ï½<br>
+     *         (çŠ¶æ…‹) getMessage(locales.get()).getProperties():ï¼‘å›ç›®ã®æˆ»ã‚Šå€¤<br>
      *                null<br>
-     *                ‚Q‰ñ–Ú‚Ì–ß‚è’l<br>
+     *                ï¼’å›ç›®ã®æˆ»ã‚Šå€¤<br>
      *                null<br>
-     *                ‚R‰ñ–Ú‚Ì–ß‚è’l<br>
+     *                ï¼“å›ç›®ã®æˆ»ã‚Šå€¤<br>
      *                null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) msg:null<br>
-     *         (ó‘Ô•Ï‰») getMessage().getProperties:w’è‚³‚ê‚½ˆø”‚ÅŒÄ‚Ño‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») getAlternativeLocales:w’è‚³‚ê‚½ˆø”‚ÅŒÄ‚Ño‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») getMessages(locales.get()).getProperties():
-     *         w’è‚³‚ê‚½ˆø”‚ÅŒÄ‚Ño‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) msg:null<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) getMessage().getProperties:æŒ‡å®šã•ã‚ŒãŸå¼•æ•°ã§å‘¼ã³å‡ºã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) getAlternativeLocales:æŒ‡å®šã•ã‚ŒãŸå¼•æ•°ã§å‘¼ã³å‡ºã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) getMessages(locales.get()).getProperties():
+     *         æŒ‡å®šã•ã‚ŒãŸå¼•æ•°ã§å‘¼ã³å‡ºã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *         
      * <br>
-     * w’è‚³‚ê‚½ˆø”‹y‚ÑV‚½‚É¶¬‚µ‚½ˆø”‚æ‚èAƒƒbƒZ[ƒW‚ªŒˆ’è‚Å‚«‚È‚¢ê‡‚Ínull‚ğ•Ô‹p‚·‚éB
+     * æŒ‡å®šã•ã‚ŒãŸå¼•æ•°åŠã³æ–°ãŸã«ç”Ÿæˆã—ãŸå¼•æ•°ã‚ˆã‚Šã€ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒæ±ºå®šã§ããªã„å ´åˆã¯nullã‚’è¿”å´ã™ã‚‹ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testInternalResolveCodeWithoutArguments04() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DataSourceMessageSource ds = new DataSourceMessageSource();
         
         String code = "code01";
         Locale locale = new Locale("ja", "JP", "");
         ds.defaultLocale = new Locale("en", "US", "");
         
-        //cachedMergedProperties¶¬
+        //cachedMergedPropertiesç”Ÿæˆ
         Map map = new HashMap();
         Properties props = new Properties();
         Locale msglocale = new Locale("ja", "JP", "kansai");
-        String msg = "ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P‚â‚Å";
+        String msg = "ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘ã‚„ã§";
         props.put(code, msg);
         map.put(msglocale, props);
         ds.cachedMergedProperties = map;
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String returnMsg = ds.internalResolveCodeWithoutArguments(code, locale);
         
-        // ”»’è
+        // åˆ¤å®š
         assertNull(returnMsg);
     }
 
     /**
      * testInternalResolveCodeWithoutArguments05() <br>
      * <br>
-     * (³íŒn)<br>
-     * ŠÏ“_FF<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šF<br>
      * <br>
-     * “ü—Í’lF(ˆø”) code:"code01"<br>
-     *         (ˆø”) locale:Locale("ja","","")<br>
-     *         (ó‘Ô) getMessage().getProperties:null<br>
-     *         (ó‘Ô) ƒƒbƒZ[ƒW‚Ìlocale:Locale("ja","JP","kansai")<br>
-     *         (ó‘Ô) defaultLocale:null<br>
-     *         (ó‘Ô) getAlternativeLocalesij:Listo<br>
-     *                p<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) code:"code01"<br>
+     *         (å¼•æ•°) locale:Locale("ja","","")<br>
+     *         (çŠ¶æ…‹) getMessage().getProperties:null<br>
+     *         (çŠ¶æ…‹) ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®locale:Locale("ja","JP","kansai")<br>
+     *         (çŠ¶æ…‹) defaultLocale:null<br>
+     *         (çŠ¶æ…‹) getAlternativeLocalesï¼ˆï¼‰:Listï½›<br>
+     *                ï½<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) msg:null<br>
-     *         (ó‘Ô•Ï‰») getMessage().getProperties:w’è‚³‚ê‚½ˆø”‚ÅŒÄ‚Ño‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») getAlternativeLocales:w’è‚³‚ê‚½ˆø”‚ÅŒÄ‚Ño‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) msg:null<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) getMessage().getProperties:æŒ‡å®šã•ã‚ŒãŸå¼•æ•°ã§å‘¼ã³å‡ºã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) getAlternativeLocales:æŒ‡å®šã•ã‚ŒãŸå¼•æ•°ã§å‘¼ã³å‡ºã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *         
      * <br>
-     * ƒƒP[ƒ‹‚ğæ“¾‚Å‚«‚È‚¢ê‡Anull‚ğ•Ô‹p‚·‚éB
+     * ãƒ­ã‚±ãƒ¼ãƒ«ã‚’å–å¾—ã§ããªã„å ´åˆã€nullã‚’è¿”å´ã™ã‚‹ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testInternalResolveCodeWithoutArguments05() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DataSourceMessageSource ds = new DataSourceMessageSource();
         
         String code = "code01";
         Locale locale = new Locale("ja", "", "");
         ds.defaultLocale = null;
         
-        //cachedMergedProperties¶¬
+        //cachedMergedPropertiesç”Ÿæˆ
         Map map = new HashMap();
         Properties props = new Properties();
         Locale msglocale = new Locale("ja", "JP", "kansai");
-        String msg = "ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P‚â‚Å";
+        String msg = "ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘ã‚„ã§";
         props.put(code, msg);
         map.put(msglocale, props);
         ds.cachedMergedProperties = map;
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String returnMsg = ds.internalResolveCodeWithoutArguments(code, locale);
         
-        // ”»’è
+        // åˆ¤å®š
         assertNull(returnMsg);
     }
 
     /**
      * testGetAlternativeLocales01() <br>
      * <br>
-     * (³íŒn)<br>
-     * ŠÏ“_FF<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šF<br>
      * <br>
-     * “ü—Í’lF(ˆø”) locale:Locale("ja","","")<br>
-     *         (ó‘Ô) defaultLocale:Locale("en","","")<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) locale:Locale("ja","","")<br>
+     *         (çŠ¶æ…‹) defaultLocale:Locale("en","","")<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) locales:—v‘f”1‚ÌList<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) locales:è¦ç´ æ•°1ã®List<br>
      *                  Locale{"en","",""}<br>
      *         
      * <br>
-     * ˆø”locale‚ÉŒ¾ŒêƒR[ƒh‚µ‚©‘¶İ‚µ‚È‚¢ê‡AV‚½‚Èlocale‚Ìƒpƒ^[ƒ“‚ğ
-     * ¶¬‚µ‚È‚¢B‚Ü‚½AdefaultLocale‚ÉŒ¾ŒêƒR[ƒh‚µ‚©‘¶İ‚µ‚È‚¢ê‡A1ƒpƒ^[ƒ“‚ÌlocaleƒIƒuƒWƒFƒNƒg‚ğ¶¬‚µAƒŠƒXƒg‚ÉŠi”[‚·‚éB
+     * å¼•æ•°localeã«è¨€èªã‚³ãƒ¼ãƒ‰ã—ã‹å­˜åœ¨ã—ãªã„å ´åˆã€æ–°ãŸãªlocaleã®ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’
+     * ç”Ÿæˆã—ãªã„ã€‚ã¾ãŸã€defaultLocaleã«è¨€èªã‚³ãƒ¼ãƒ‰ã—ã‹å­˜åœ¨ã—ãªã„å ´åˆã€1ãƒ‘ã‚¿ãƒ¼ãƒ³ã®localeã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ç”Ÿæˆã—ã€ãƒªã‚¹ãƒˆã«æ ¼ç´ã™ã‚‹ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetAlternativeLocales01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DataSourceMessageSource ds = new DataSourceMessageSource();
         Locale locale = new Locale("ja", "", "");
         Locale defaultLocale = new Locale("en", "", "");
         ds.defaultLocale = defaultLocale;
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         List locales = ds.getAlternativeLocales(locale);
         
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(1, locales.size());
         assertEquals(defaultLocale, locales.get(0));
     }
@@ -1289,27 +1289,27 @@ public class DataSourceMessageSourceTest extends TestCase {
     /**
      * testGetAlternativeLocales02() <br>
      * <br>
-     * (³íŒn)<br>
-     * ŠÏ“_FF<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šF<br>
      * <br>
-     * “ü—Í’lF(ˆø”) locale:Locale("ja","JP","")<br>
-     *         (ó‘Ô) defaultLocale:Locale("en","US","")<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) locale:Locale("ja","JP","")<br>
+     *         (çŠ¶æ…‹) defaultLocale:Locale("en","US","")<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) locales:—v‘f”2‚ÌList<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) locales:è¦ç´ æ•°2ã®List<br>
      *                  Locale{"ja","",""},<br>
      *                  Locale{"en","US",""}<br>
      *                  Locale{"en","",""}<br>
      *         
      * <br>
-     * ˆø”locale‚É‘ƒR[ƒh‚Ü‚Å‘¶İ‚·‚éê‡A1ƒpƒ^[ƒ“‚ÌLocaleƒIƒuƒWƒFƒNƒg‚ğ
-     * ¶¬‚·‚éB‚Ü‚½AdefaultLocale‚É‘ƒR[ƒh‚Ü‚Å‘¶İ‚·‚éê‡A2ƒpƒ^[ƒ“‚ÌlocaleƒIƒuƒWƒFƒNƒg‚ğ¶¬‚µAƒŠƒXƒg‚ÉŠi”[‚·‚éB
+     * å¼•æ•°localeã«å›½ã‚³ãƒ¼ãƒ‰ã¾ã§å­˜åœ¨ã™ã‚‹å ´åˆã€1ãƒ‘ã‚¿ãƒ¼ãƒ³ã®Localeã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’
+     * ç”Ÿæˆã™ã‚‹ã€‚ã¾ãŸã€defaultLocaleã«å›½ã‚³ãƒ¼ãƒ‰ã¾ã§å­˜åœ¨ã™ã‚‹å ´åˆã€2ãƒ‘ã‚¿ãƒ¼ãƒ³ã®localeã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ç”Ÿæˆã—ã€ãƒªã‚¹ãƒˆã«æ ¼ç´ã™ã‚‹ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetAlternativeLocales02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DataSourceMessageSource ds = new DataSourceMessageSource();
         Locale locale = new Locale("ja", "JP", "");
         Locale defaultLocale = new Locale("en", "US", "");
@@ -1318,10 +1318,10 @@ public class DataSourceMessageSourceTest extends TestCase {
         Locale locale1 = new Locale("ja", "", "");
         Locale defaultLocale2 = new Locale("en", "", "");
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         List locales = ds.getAlternativeLocales(locale);
         
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(3, locales.size());
         assertEquals(locale1, locales.get(0));
         assertEquals(defaultLocale, locales.get(1));
@@ -1331,14 +1331,14 @@ public class DataSourceMessageSourceTest extends TestCase {
     /**
      * testGetAlternativeLocales03() <br>
      * <br>
-     * (³íŒn)<br>
-     * ŠÏ“_FF<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šF<br>
      * <br>
-     * “ü—Í’lF(ˆø”) locale:Locale("ja","JP","kansai")<br>
-     *         (ó‘Ô) defaultLocale:Locale("en","US","NY")<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) locale:Locale("ja","JP","kansai")<br>
+     *         (çŠ¶æ…‹) defaultLocale:Locale("en","US","NY")<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) locales:—v‘f”5‚ÌList<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) locales:è¦ç´ æ•°5ã®List<br>
      *                  Locale{"ja","JP",""}<br>
      *                  Locale{"ja","",""}<br>
      *                  Locale{"en","US","NY"}<br>
@@ -1346,16 +1346,16 @@ public class DataSourceMessageSourceTest extends TestCase {
      *                  Locale{"en","",""}<br>
      *         
      * <br>
-     * ˆø”locale‚ÉƒoƒŠƒAƒ“ƒgƒR[ƒh‚Ü‚Å‘¶İ‚·‚éê‡A2ƒpƒ^[ƒ“‚Ì
-     * LocaleƒIƒuƒWƒFƒNƒg‚ğ¶¬‚·‚éB
-     * ‚Ü‚½AdefaultLocale‚ÉƒoƒŠƒAƒ“ƒgƒR[ƒh‚Ü‚Å‘¶İ‚·‚éê‡A
-     * 3ƒpƒ^[ƒ“‚ÌlocaleƒIƒuƒWƒFƒNƒg‚ğ¶¬‚µAƒŠƒXƒg‚ÉŠi”[‚·‚éB
+     * å¼•æ•°localeã«ãƒãƒªã‚¢ãƒ³ãƒˆã‚³ãƒ¼ãƒ‰ã¾ã§å­˜åœ¨ã™ã‚‹å ´åˆã€2ãƒ‘ã‚¿ãƒ¼ãƒ³ã®
+     * Localeã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ç”Ÿæˆã™ã‚‹ã€‚
+     * ã¾ãŸã€defaultLocaleã«ãƒãƒªã‚¢ãƒ³ãƒˆã‚³ãƒ¼ãƒ‰ã¾ã§å­˜åœ¨ã™ã‚‹å ´åˆã€
+     * 3ãƒ‘ã‚¿ãƒ¼ãƒ³ã®localeã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ç”Ÿæˆã—ã€ãƒªã‚¹ãƒˆã«æ ¼ç´ã™ã‚‹ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetAlternativeLocales03() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DataSourceMessageSource ds = new DataSourceMessageSource();
         Locale locale = new Locale("ja", "JP", "kansai");
         Locale defaultLocale = new Locale("en", "US", "NY");
@@ -1366,10 +1366,10 @@ public class DataSourceMessageSourceTest extends TestCase {
         Locale defaultLocale2 = new Locale("en", "US", "");
         Locale defaultLocale3 = new Locale("en", "", "");
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         List locales = ds.getAlternativeLocales(locale);
         
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(5, locales.size());
         assertEquals(locale1, locales.get(0));
         assertEquals(locale2, locales.get(1));
@@ -1381,26 +1381,26 @@ public class DataSourceMessageSourceTest extends TestCase {
     /**
      * testGetAlternativeLocales04() <br>
      * <br>
-     * (³íŒn)<br>
-     * ŠÏ“_FF <br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šF <br>
      * <br>
-     * “ü—Í’lF(ˆø”) locale:Locale("ja","JP","kansai")<br>
-     *         (ó‘Ô) defaultLocale:Locale("ja","JP","kansai")<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) locale:Locale("ja","JP","kansai")<br>
+     *         (çŠ¶æ…‹) defaultLocale:Locale("ja","JP","kansai")<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) locales:—v‘f”2‚ÌList<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) locales:è¦ç´ æ•°2ã®List<br>
      *                  Locale{"ja","JP",""}<br>
      *                  Locale{"ja","",""}<br>
      *         
      * <br>
-     * ˆø”locale‚ÆdefaultLocale‚ª“¯’l‚Å‚ ‚Á‚½ê‡Aˆø”locale‚©‚ç
-     * V‚½‚ÈlocaleƒIƒuƒWƒFƒNƒg‚ğ¶¬‚µAƒŠƒXƒg‚ÉŠi”[‚·‚éB
+     * å¼•æ•°localeã¨defaultLocaleãŒåŒå€¤ã§ã‚ã£ãŸå ´åˆã€å¼•æ•°localeã‹ã‚‰
+     * æ–°ãŸãªlocaleã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ç”Ÿæˆã—ã€ãƒªã‚¹ãƒˆã«æ ¼ç´ã™ã‚‹ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetAlternativeLocales04() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DataSourceMessageSource ds = new DataSourceMessageSource();
         Locale locale = new Locale("ja", "JP", "kansai");
         ds.defaultLocale = locale;
@@ -1408,10 +1408,10 @@ public class DataSourceMessageSourceTest extends TestCase {
         Locale locale1 = new Locale("ja", "JP", "");
         Locale locale2 = new Locale("ja", "", "");
  
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         List locales = ds.getAlternativeLocales(locale);
         
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(2, locales.size());
         assertEquals(locale1, locales.get(0));
         assertEquals(locale2, locales.get(1)); 
@@ -1420,341 +1420,341 @@ public class DataSourceMessageSourceTest extends TestCase {
     /**
      * testGetAlternativeLocales05() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FF<br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šF<br>
      * <br>
-     * “ü—Í’lF(ˆø”) locale:Locale("ja","","")<br>
-     *         (ó‘Ô) defaultLocale:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) locale:Locale("ja","","")<br>
+     *         (çŠ¶æ…‹) defaultLocale:null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) locales:—v‘f”0‚ÌList<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) locales:è¦ç´ æ•°0ã®List<br>
      *         
      * <br>
-     * defaultLocale‚Ìİ’è‚ªs‚í‚ê‚Ä‚¢‚È‚¢ê‡‚ÍAList‚ª0‚Å•Ô‚éB
+     * defaultLocaleã®è¨­å®šãŒè¡Œã‚ã‚Œã¦ã„ãªã„å ´åˆã¯ã€ListãŒ0ã§è¿”ã‚‹ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetAlternativeLocales05() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DataSourceMessageSource ds = new DataSourceMessageSource();
         Locale locale = new Locale("ja", "", "");
         ds.defaultLocale = null;
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         List locales = ds.getAlternativeLocales(locale);
         
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(0, locales.size());
     }
     /**
      * testResolveCode01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šA<br>
      * <br>
-     * “ü—Í’lF(ˆø”) code:"code01"<br>
-     *         (ˆø”) locale:Locale("ja","JP","")<br>
-     *         (ó‘Ô) getMessageFormat(code,locale):"ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P"<br>
-     *         (ó‘Ô) defaultLocale:null<br>
-     *         (ó‘Ô) ƒƒbƒZ[ƒW‚ÌƒƒP[ƒ‹:Locale("ja","JP","")<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) code:"code01"<br>
+     *         (å¼•æ•°) locale:Locale("ja","JP","")<br>
+     *         (çŠ¶æ…‹) getMessageFormat(code,locale):"ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘"<br>
+     *         (çŠ¶æ…‹) defaultLocale:null<br>
+     *         (çŠ¶æ…‹) ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®ãƒ­ã‚±ãƒ¼ãƒ«:Locale("ja","JP","")<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) messageFormat:"ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P"<br>
-     *         (ó‘Ô•Ï‰») getMessageFormat(code,locale):w’è‚³‚ê‚½ˆø”‚É‚æ‚è
-     *         ŒÄ‚Ño‚³‚ê‚½‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) messageFormat:"ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘"<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) getMessageFormat(code,locale):æŒ‡å®šã•ã‚ŒãŸå¼•æ•°ã«ã‚ˆã‚Š
+     *         å‘¼ã³å‡ºã•ã‚ŒãŸã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *         
      * <br>
-     * w’è‚³‚ê‚½ˆø”‚æ‚èƒƒbƒZ[ƒWƒtƒH[ƒ}ƒbƒg‚ğŒˆ’è‚µA•Ô‹p‚·‚éB
+     * æŒ‡å®šã•ã‚ŒãŸå¼•æ•°ã‚ˆã‚Šãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’æ±ºå®šã—ã€è¿”å´ã™ã‚‹ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testResolveCode01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DataSourceMessageSource ds = new DataSourceMessageSource();
         String code = "code01";
         Locale locale = new Locale("ja", "JP", "");
         
-        //cachedMergedProperties¶¬
+        //cachedMergedPropertiesç”Ÿæˆ
         Map map = new HashMap();
         Locale formatlocale = new Locale("ja", "JP", "");
         MessageFormat mFormat = new MessageFormat("");
         mFormat.setLocale(formatlocale);
-        mFormat.applyPattern("ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P");
+        mFormat.applyPattern("ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘");
         map.put(formatlocale, mFormat);
         ds.cachedMessageFormats.put(code, map);
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         MessageFormat mfreturn = ds.resolveCode(code, locale);
         
-        // ”»’è
+        // åˆ¤å®š
         assertSame(mFormat, mfreturn);
     }
 
     /**
      * testResolveCode02() <br>
      * <br>
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      * <br>
-     * “ü—Í’lF(ˆø”) code:"code01"<br>
-     *         (ˆø”) locale:Locale("ja","JP","")<br>
-     *         (ó‘Ô) getMessageFormat(code,locale):null<br>
-     *         (ó‘Ô) defaultLocale:null<br>
-     *         (ó‘Ô) ƒƒbƒZ[ƒW‚ÌƒƒP[ƒ‹:Locale("ja","","")<br>
-     *         (ó‘Ô) getAlternativeLocalesij:Listo<br>
-     *                @Localei"ja")<br>
-     *                p<br>
-     *         (ó‘Ô) getMessageFormat(code.locales.get(i)):1‰ñ–Ú‚Ì–ß‚è’l<br>
-     *                "ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) code:"code01"<br>
+     *         (å¼•æ•°) locale:Locale("ja","JP","")<br>
+     *         (çŠ¶æ…‹) getMessageFormat(code,locale):null<br>
+     *         (çŠ¶æ…‹) defaultLocale:null<br>
+     *         (çŠ¶æ…‹) ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®ãƒ­ã‚±ãƒ¼ãƒ«:Locale("ja","","")<br>
+     *         (çŠ¶æ…‹) getAlternativeLocalesï¼ˆï¼‰:Listï½›<br>
+     *                ã€€Localeï¼ˆ"ja")<br>
+     *                ï½<br>
+     *         (çŠ¶æ…‹) getMessageFormat(code.locales.get(i)):1å›ç›®ã®æˆ»ã‚Šå€¤<br>
+     *                "ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘"<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) messageFormat:"ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P"<br>
-     *         (ó‘Ô•Ï‰») getAlternativeLocale:w’è‚³‚ê‚½ˆø”‚É‚æ‚èŒÄ‚Ño‚³‚ê‚½
-     *         ‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») getMessageFormat(code,locale):w’è‚³‚ê‚½ˆø”‚É‚æ‚è
-     *         ŒÄ‚Ño‚³‚ê‚½‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») getMessageFormat(code.locales.get(i)):w’è‚³‚ê‚½ˆø”‚É
-     *         ‚æ‚èŒÄ‚Ño‚³‚ê‚½‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) messageFormat:"ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘"<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) getAlternativeLocale:æŒ‡å®šã•ã‚ŒãŸå¼•æ•°ã«ã‚ˆã‚Šå‘¼ã³å‡ºã•ã‚ŒãŸ
+     *         ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) getMessageFormat(code,locale):æŒ‡å®šã•ã‚ŒãŸå¼•æ•°ã«ã‚ˆã‚Š
+     *         å‘¼ã³å‡ºã•ã‚ŒãŸã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) getMessageFormat(code.locales.get(i)):æŒ‡å®šã•ã‚ŒãŸå¼•æ•°ã«
+     *         ã‚ˆã‚Šå‘¼ã³å‡ºã•ã‚ŒãŸã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *         
      * <br>
-     * w’è‚³‚ê‚½ˆø”‚ÅƒƒbƒZ[ƒWƒtƒH[ƒ}ƒbƒg‚ğŒˆ’è‚Å‚«‚¸AV‚½‚Éì¬‚µ‚½ˆø”‚É
-     * ‚æ‚èƒƒbƒZ[ƒWƒtƒH[ƒ}ƒbƒg‚ğŒˆ’è‚µA•Ô‹p‚·‚éB
-     * ‚Ü‚½AƒƒP[ƒ‹‚ªnull‚Å‚àƒGƒ‰[‚É‚È‚ç‚È‚¢‚±‚Æ‚ğŠm”F‚·‚éB
+     * æŒ‡å®šã•ã‚ŒãŸå¼•æ•°ã§ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’æ±ºå®šã§ããšã€æ–°ãŸã«ä½œæˆã—ãŸå¼•æ•°ã«
+     * ã‚ˆã‚Šãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’æ±ºå®šã—ã€è¿”å´ã™ã‚‹ã€‚
+     * ã¾ãŸã€ãƒ­ã‚±ãƒ¼ãƒ«ãŒnullã§ã‚‚ã‚¨ãƒ©ãƒ¼ã«ãªã‚‰ãªã„ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testResolveCode02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DataSourceMessageSource ds = new DataSourceMessageSource();
         String code = "code01";
         Locale locale = new Locale("ja", "JP", "");
         
-        //cachedMergedProperties¶¬
+        //cachedMergedPropertiesç”Ÿæˆ
         Map map = new HashMap();
         Locale formatlocale = new Locale("ja", "", "");
         MessageFormat mFormat = new MessageFormat("");
         mFormat.setLocale(formatlocale);
-        mFormat.applyPattern("ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P");
+        mFormat.applyPattern("ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘");
         map.put(formatlocale, mFormat);
         ds.cachedMessageFormats.put(code, map);
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         MessageFormat mfreturn = ds.resolveCode(code, locale);
         
-        // ”»’è
+        // åˆ¤å®š
         assertSame(mFormat, mfreturn);
     }
 
     /**
      * testResolveCode03() <br>
      * <br>
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      * <br>
-     * “ü—Í’lF(ˆø”) code:"code01"<br>
-     *         (ˆø”) locale:Locale("ja","JP","kansai")<br>
-     *         (ó‘Ô) getMessageFormat(code,locale):null<br>
-     *         (ó‘Ô) defaultLocale:Locale("en","","")<br>
-     *         (ó‘Ô) ƒƒbƒZ[ƒW‚ÌƒƒP[ƒ‹:Locale("en","","")<br>
-     *         (ó‘Ô) getAlternativeLocalesij:Listo<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) code:"code01"<br>
+     *         (å¼•æ•°) locale:Locale("ja","JP","kansai")<br>
+     *         (çŠ¶æ…‹) getMessageFormat(code,locale):null<br>
+     *         (çŠ¶æ…‹) defaultLocale:Locale("en","","")<br>
+     *         (çŠ¶æ…‹) ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®ãƒ­ã‚±ãƒ¼ãƒ«:Locale("en","","")<br>
+     *         (çŠ¶æ…‹) getAlternativeLocalesï¼ˆï¼‰:Listï½›<br>
      *                  Locale("ja","JP","")<br>
      *                  Locale("ja","","")<br>
-     *                @Localei"en","","")<br>
-     *                p<br>
-     *         (ó‘Ô) getMessageFormat(code.locales.get(i)):‚P‰ñ–Ú‚Ì–ß‚è’l<br>
+     *                ã€€Localeï¼ˆ"en","","")<br>
+     *                ï½<br>
+     *         (çŠ¶æ…‹) getMessageFormat(code.locales.get(i)):ï¼‘å›ç›®ã®æˆ»ã‚Šå€¤<br>
      *                null<br>
-     *                ‚Q‰ñ–Ú‚Ì–ß‚è’l<br>
+     *                ï¼’å›ç›®ã®æˆ»ã‚Šå€¤<br>
      *                null<br>
-     *                ‚R‰ñ–Ú‚Ì–ß‚è’l<br>
-     *                "ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P"<br>
+     *                ï¼“å›ç›®ã®æˆ»ã‚Šå€¤<br>
+     *                "ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘"<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) messageFormat:"ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P"<br>
-     *         (ó‘Ô•Ï‰») getAlternativeLocale:w’è‚³‚ê‚½ˆø”‚É‚æ‚èŒÄ‚Ño‚³‚ê‚½
-     *         ‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») getMessageFormat(code,locale):w’è‚³‚ê‚½ˆø”‚É‚æ‚è
-     *         ŒÄ‚Ño‚³‚ê‚½‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») getMessageFormat(code.locales.get(i)):w’è‚³‚ê‚½ˆø”
-     *         ‚É‚æ‚èŒÄ‚Ño‚³‚ê‚½‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) messageFormat:"ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘"<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) getAlternativeLocale:æŒ‡å®šã•ã‚ŒãŸå¼•æ•°ã«ã‚ˆã‚Šå‘¼ã³å‡ºã•ã‚ŒãŸ
+     *         ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) getMessageFormat(code,locale):æŒ‡å®šã•ã‚ŒãŸå¼•æ•°ã«ã‚ˆã‚Š
+     *         å‘¼ã³å‡ºã•ã‚ŒãŸã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) getMessageFormat(code.locales.get(i)):æŒ‡å®šã•ã‚ŒãŸå¼•æ•°
+     *         ã«ã‚ˆã‚Šå‘¼ã³å‡ºã•ã‚ŒãŸã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *         
      * <br>
-     * w’è‚³‚ê‚½ˆø”‚ÅƒƒbƒZ[ƒWƒtƒH[ƒ}ƒbƒg‚ğŒˆ’è‚Å‚«‚¸AV‚½‚Éì¬‚µ‚½ˆø”
-     * ‚É‚æ‚èƒƒbƒZ[ƒWƒtƒH[ƒ}ƒbƒg‚ğŒˆ’è‚µA•Ô‹p‚·‚éB
-     * ‚Ü‚½AƒƒP[ƒ‹‚ªnull‚Å‚àƒGƒ‰[‚É‚È‚ç‚È‚¢‚±‚Æ‚ğŠm”F‚·‚éB
+     * æŒ‡å®šã•ã‚ŒãŸå¼•æ•°ã§ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’æ±ºå®šã§ããšã€æ–°ãŸã«ä½œæˆã—ãŸå¼•æ•°
+     * ã«ã‚ˆã‚Šãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’æ±ºå®šã—ã€è¿”å´ã™ã‚‹ã€‚
+     * ã¾ãŸã€ãƒ­ã‚±ãƒ¼ãƒ«ãŒnullã§ã‚‚ã‚¨ãƒ©ãƒ¼ã«ãªã‚‰ãªã„ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testResolveCode03() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DataSourceMessageSource ds = new DataSourceMessageSource();
         String code = "code01";
         Locale locale = new Locale("ja", "JP", "kansai");
         Locale defaultLocale = new Locale("en", "", "");
         ds.defaultLocale = defaultLocale;
         
-        //cachedMergedProperties¶¬
+        //cachedMergedPropertiesç”Ÿæˆ
         Map map = new HashMap();
         Locale formatlocale = new Locale("en", "", "");
         MessageFormat mFormat = new MessageFormat("");
         mFormat.setLocale(formatlocale);
-        mFormat.applyPattern("ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P");
+        mFormat.applyPattern("ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘");
         map.put(formatlocale, mFormat);
         ds.cachedMessageFormats.put(code, map);
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         MessageFormat mfreturn = ds.resolveCode(code, locale);
         
-        // ”»’è
+        // åˆ¤å®š
         assertSame(mFormat, mfreturn);
     }
 
     /**
      * testResolveCode04() <br>
      * <br>
-     * (³íŒn)<br>
-     * ŠÏ“_FA <br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA <br>
      * <br>
-     * “ü—Í’lF(ˆø”) code:"code01"<br>
-     *         (ˆø”) locale:Locale("ja","JP","kansai")<br>
-     *         (ó‘Ô) getMessageFormat(code,locale):null<br>
-     *         (ó‘Ô) defaultLocale:Locale("en","","")<br>
-     *         (ó‘Ô) ƒƒbƒZ[ƒW‚ÌƒƒP[ƒ‹:Locale("en","US","NY")<br>
-     *         (ó‘Ô) getAlternativeLocalesij:Listo<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) code:"code01"<br>
+     *         (å¼•æ•°) locale:Locale("ja","JP","kansai")<br>
+     *         (çŠ¶æ…‹) getMessageFormat(code,locale):null<br>
+     *         (çŠ¶æ…‹) defaultLocale:Locale("en","","")<br>
+     *         (çŠ¶æ…‹) ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®ãƒ­ã‚±ãƒ¼ãƒ«:Locale("en","US","NY")<br>
+     *         (çŠ¶æ…‹) getAlternativeLocalesï¼ˆï¼‰:Listï½›<br>
      *                  Locale("ja","JP","")<br>
      *                  Locale("ja","","")<br>
-     *                @Localei"en","","")<br>
-     *                p<br>
-     *         (ó‘Ô) getMessageFormat(code.locales.get(i)):‚P‰ñ–Ú‚Ì–ß‚è’l<br>
+     *                ã€€Localeï¼ˆ"en","","")<br>
+     *                ï½<br>
+     *         (çŠ¶æ…‹) getMessageFormat(code.locales.get(i)):ï¼‘å›ç›®ã®æˆ»ã‚Šå€¤<br>
      *                null<br>
-     *                ‚Q‰ñ–Ú‚Ì–ß‚è’l<br>
+     *                ï¼’å›ç›®ã®æˆ»ã‚Šå€¤<br>
      *                null<br>
-     *                ‚R‰ñ–Ú‚Ì–ß‚è’l<br>
+     *                ï¼“å›ç›®ã®æˆ»ã‚Šå€¤<br>
      *                null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) messageFormat:null<br>
-     *         (ó‘Ô•Ï‰») getAlternativeLocale:w’è‚³‚ê‚½ˆø”‚É‚æ‚èŒÄ‚Ño‚³‚ê‚½
-     *         ‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») getMessageFormat(code,locale):w’è‚³‚ê‚½ˆø”‚É‚æ‚è
-     *         ŒÄ‚Ño‚³‚ê‚½‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») getMessageFormat(code.locales.get(i)):w’è‚³‚ê‚½ˆø”
-     *         ‚É‚æ‚èŒÄ‚Ño‚³‚ê‚½‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) messageFormat:null<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) getAlternativeLocale:æŒ‡å®šã•ã‚ŒãŸå¼•æ•°ã«ã‚ˆã‚Šå‘¼ã³å‡ºã•ã‚ŒãŸ
+     *         ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) getMessageFormat(code,locale):æŒ‡å®šã•ã‚ŒãŸå¼•æ•°ã«ã‚ˆã‚Š
+     *         å‘¼ã³å‡ºã•ã‚ŒãŸã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) getMessageFormat(code.locales.get(i)):æŒ‡å®šã•ã‚ŒãŸå¼•æ•°
+     *         ã«ã‚ˆã‚Šå‘¼ã³å‡ºã•ã‚ŒãŸã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *         
      * <br>
-     * w’è‚³‚ê‚½ˆø”‹y‚ÑV‚½‚É¶¬‚µ‚½ˆø”‚æ‚èAƒƒbƒZ[ƒWƒtƒH[ƒ}ƒbƒg‚ª
-     * Œˆ’è‚Å‚«‚È‚¢ê‡‚Ínull‚ğ•Ô‹p‚·‚éB
+     * æŒ‡å®šã•ã‚ŒãŸå¼•æ•°åŠã³æ–°ãŸã«ç”Ÿæˆã—ãŸå¼•æ•°ã‚ˆã‚Šã€ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆãŒ
+     * æ±ºå®šã§ããªã„å ´åˆã¯nullã‚’è¿”å´ã™ã‚‹ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testResolveCode04() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DataSourceMessageSource ds = new DataSourceMessageSource();
         String code = "code01";
         Locale locale = new Locale("ja", "JP", "kansai");
         Locale defaultLocale = new Locale("en", "", "");
         ds.defaultLocale = defaultLocale;
         
-        //cachedMergedProperties¶¬
+        //cachedMergedPropertiesç”Ÿæˆ
         Map map = new HashMap();
         Locale formatlocale = new Locale("en", "US", "NY");
         MessageFormat mFormat = new MessageFormat("");
         mFormat.setLocale(formatlocale);
-        mFormat.applyPattern("ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P");
+        mFormat.applyPattern("ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘");
         map.put(formatlocale, mFormat);
         ds.cachedMessageFormats.put(code, map);
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         MessageFormat mfreturn = ds.resolveCode(code, locale);
         
-        // ”»’è
+        // åˆ¤å®š
         assertNull(mfreturn);
     }
 
     /**
      * testResolveCode05() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FA <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šA <br>
      * <br>
-     * “ü—Í’lF(ˆø”) code:"code01"<br>
-     *         (ˆø”) locale:Locale("ja","","")<br>
-     *         (ó‘Ô) getMessageFormat(code,locale):null<br>
-     *         (ó‘Ô) defaultLocale:null<br>
-     *         (ó‘Ô) ƒƒbƒZ[ƒW‚ÌƒƒP[ƒ‹:Locale("en","US","NY")<br>
-     *         (ó‘Ô) getAlternativeLocalesij:Listo<br>
-     *                p<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) code:"code01"<br>
+     *         (å¼•æ•°) locale:Locale("ja","","")<br>
+     *         (çŠ¶æ…‹) getMessageFormat(code,locale):null<br>
+     *         (çŠ¶æ…‹) defaultLocale:null<br>
+     *         (çŠ¶æ…‹) ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®ãƒ­ã‚±ãƒ¼ãƒ«:Locale("en","US","NY")<br>
+     *         (çŠ¶æ…‹) getAlternativeLocalesï¼ˆï¼‰:Listï½›<br>
+     *                ï½<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) messageFormat:null<br>
-     *         (ó‘Ô•Ï‰») getAlternativeLocale:w’è‚³‚ê‚½ˆø”‚ÅŒÄ‚Ño‚³‚ê‚Ä‚¢‚é
-     *         ‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») getMessageFormat(code,locale):w’è‚³‚ê‚½ˆø”‚Å
-     *         ŒÄ‚Ño‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) messageFormat:null<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) getAlternativeLocale:æŒ‡å®šã•ã‚ŒãŸå¼•æ•°ã§å‘¼ã³å‡ºã•ã‚Œã¦ã„ã‚‹
+     *         ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) getMessageFormat(code,locale):æŒ‡å®šã•ã‚ŒãŸå¼•æ•°ã§
+     *         å‘¼ã³å‡ºã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *         
      * <br>
-     * ƒƒP[ƒ‹‚ğæ“¾‚Å‚«‚È‚¢ê‡Anull‚ğ•Ô‹p‚·‚éB
+     * ãƒ­ã‚±ãƒ¼ãƒ«ã‚’å–å¾—ã§ããªã„å ´åˆã€nullã‚’è¿”å´ã™ã‚‹ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testResolveCode05() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DataSourceMessageSource ds = new DataSourceMessageSource();
         String code = "code01";
         Locale locale = new Locale("ja", "", "");
         ds.defaultLocale = null;
         
-        //cachedMergedProperties¶¬
+        //cachedMergedPropertiesç”Ÿæˆ
         Map map = new HashMap();
         Locale formatlocale = new Locale("en", "US", "NY");
         MessageFormat mFormat = new MessageFormat("");
         mFormat.setLocale(formatlocale);
-        mFormat.applyPattern("ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P");
+        mFormat.applyPattern("ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘");
         map.put(formatlocale, mFormat);
         ds.cachedMessageFormats.put(code, map);
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         MessageFormat mfreturn = ds.resolveCode(code, locale);
         
-        // ”»’è
+        // åˆ¤å®š
         assertNull(mfreturn);
     }
 
     /**
      * testGetMessageFormat01() <br>
      * <br>
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      * <br>
-     * “ü—Í’lF(ˆø”) code:"code01"<br>
-     *         (ˆø”) locale:Locale("ja",JP","")<br>
-     *         (ó‘Ô) cashedMessageFormats:<"code01",<Locale("ja","JP"),
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) code:"code01"<br>
+     *         (å¼•æ•°) locale:Locale("ja",JP","")<br>
+     *         (çŠ¶æ…‹) cashedMessageFormats:<"code01",<Locale("ja","JP"),
      *         MessageFormat("")>><br>
-     *         (ó‘Ô) ƒƒbƒZ[ƒWƒtƒH[ƒ}ƒbƒg‚Ìlocale:Locale("ja",JP","")<br>
+     *         (çŠ¶æ…‹) ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã®locale:Locale("ja",JP","")<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) result:ƒƒbƒZ[ƒWƒtƒH[ƒ}ƒbƒgƒIƒuƒWƒFƒNƒg<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) result:ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
      *         
      * <br>
-     * ˆø”‚É‘Î‰‚·‚é’l‚ª‚·‚Å‚ÉƒLƒƒƒbƒVƒ…‚³‚ê‚½Map‚É‚ ‚èA‚©‚Âæ‚èo‚µ‚½’l‚ª
-     * null‚Å‚È‚¢ê‡B
+     * å¼•æ•°ã«å¯¾å¿œã™ã‚‹å€¤ãŒã™ã§ã«ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã•ã‚ŒãŸMapã«ã‚ã‚Šã€ã‹ã¤å–ã‚Šå‡ºã—ãŸå€¤ãŒ
+     * nullã§ãªã„å ´åˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testGetMessageFormat01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DataSourceMessageSource ds 
                 = new DataSourceMessageSource();
         String code = "code01";
@@ -1764,39 +1764,39 @@ public class DataSourceMessageSourceTest extends TestCase {
         map.put(locale, mf);
         ds.cachedMessageFormats.put(code, map);
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         MessageFormat result = ds.getMessageFormat(code, locale);
         
-        // ”»’è
+        // åˆ¤å®š
         assertSame(mf, result);
     }
 
     /**
      * testGetMessageFormat02() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FA <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šA <br>
      * <br>
-     * “ü—Í’lF(ˆø”) code:"code01"<br>
-     *         (ˆø”) locale:Locale("ja",JP","")<br>
-     *         (ó‘Ô) cashedMessageFormats:<"code01",<Locale("ja","JP"),null>><br>
-     *         (ó‘Ô) ƒƒbƒZ[ƒWƒtƒH[ƒ}ƒbƒg‚Ìlocale:Locale("ja",JP","")<br>
-     *         (ó‘Ô) getMessage(locale):Properties<"code01","ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P"><br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) code:"code01"<br>
+     *         (å¼•æ•°) locale:Locale("ja",JP","")<br>
+     *         (çŠ¶æ…‹) cashedMessageFormats:<"code01",<Locale("ja","JP"),null>><br>
+     *         (çŠ¶æ…‹) ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã®locale:Locale("ja",JP","")<br>
+     *         (çŠ¶æ…‹) getMessage(locale):Properties<"code01","ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘"><br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) result:ƒƒbƒZ[ƒWƒtƒH[ƒ}ƒbƒgƒIƒuƒWƒFƒNƒg<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) result:ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
      *         
      * <br>
-     * ˆø”‚É‘Î‰‚·‚é’l‚ª‚·‚Å‚ÉƒLƒƒƒbƒVƒ…‚³‚ê‚½Map‚É‚ ‚é‚ªæ‚èo‚µ‚½’l‚ªnullA
-     * ‚©‚ÂƒƒbƒZ[ƒWƒŠƒ\[ƒX‚Éˆø”‚É‘Î‰‚·‚é’l‚ª‚ ‚èA
-     * ƒƒbƒZ[ƒWƒtƒH[ƒ}ƒbƒg‚Ì¶¬‚É¬Œ÷‚µ‚½ê‡B
+     * å¼•æ•°ã«å¯¾å¿œã™ã‚‹å€¤ãŒã™ã§ã«ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã•ã‚ŒãŸMapã«ã‚ã‚‹ãŒå–ã‚Šå‡ºã—ãŸå€¤ãŒnullã€
+     * ã‹ã¤ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒªã‚½ãƒ¼ã‚¹ã«å¼•æ•°ã«å¯¾å¿œã™ã‚‹å€¤ãŒã‚ã‚Šã€
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã®ç”Ÿæˆã«æˆåŠŸã—ãŸå ´åˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testGetMessageFormat02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DataSourceMessageSource_DataSourceMessageSourceStub18 ds 
                 = new DataSourceMessageSource_DataSourceMessageSourceStub18();
         String code = "code01";
@@ -1806,10 +1806,10 @@ public class DataSourceMessageSourceTest extends TestCase {
         map.put(locale, mf);
         ds.cachedMessageFormats.put(code, map);
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         MessageFormat result = ds.getMessageFormat(code, locale);
         
-        // ”»’è
+        // åˆ¤å®š
         assertSame(mf, result);
         assertTrue(ds.isRead_A1);
     }
@@ -1817,28 +1817,28 @@ public class DataSourceMessageSourceTest extends TestCase {
     /**
      * testGetMessageFormat03() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FA <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šA <br>
      * <br>
-     * “ü—Í’lF(ˆø”) code:"code01"<br>
-     *         (ˆø”) locale:Locale("ja",JP","")<br>
-     *         (ó‘Ô) cashedMessageFormats:<"code01",<Locale("ja","JP"),null><br>
-     *         (ó‘Ô) ƒƒbƒZ[ƒWƒtƒH[ƒ}ƒbƒg‚Ìlocale:Locale("ja",JP","")<br>
-     *         (ó‘Ô) getMessage(locale):Properties<"abc",""><br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) code:"code01"<br>
+     *         (å¼•æ•°) locale:Locale("ja",JP","")<br>
+     *         (çŠ¶æ…‹) cashedMessageFormats:<"code01",<Locale("ja","JP"),null><br>
+     *         (çŠ¶æ…‹) ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã®locale:Locale("ja",JP","")<br>
+     *         (çŠ¶æ…‹) getMessage(locale):Properties<"abc",""><br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) result:null<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) result:null<br>
      *         
      * <br>
-     * ˆø”‚É‘Î‰‚·‚é’l‚ª‚·‚Å‚ÉƒLƒƒƒbƒVƒ…‚³‚ê‚½Map‚É‚ ‚é‚ªæ‚èo‚µ‚½’l‚ªnullA
-     * ‚©‚ÂƒƒbƒZ[ƒWƒŠƒ\[ƒX‚Éˆø”‚É‘Î‰‚·‚é’l‚ª‚È‚¢ê‡B
+     * å¼•æ•°ã«å¯¾å¿œã™ã‚‹å€¤ãŒã™ã§ã«ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã•ã‚ŒãŸMapã«ã‚ã‚‹ãŒå–ã‚Šå‡ºã—ãŸå€¤ãŒnullã€
+     * ã‹ã¤ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒªã‚½ãƒ¼ã‚¹ã«å¼•æ•°ã«å¯¾å¿œã™ã‚‹å€¤ãŒãªã„å ´åˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testGetMessageFormat03() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DataSourceMessageSource_DataSourceMessageSourceStub19 ds 
                 = new DataSourceMessageSource_DataSourceMessageSourceStub19();
         String code = "code01";
@@ -1848,10 +1848,10 @@ public class DataSourceMessageSourceTest extends TestCase {
         map.put(locale, mf);
         ds.cachedMessageFormats.put(code, map);
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         MessageFormat result = ds.getMessageFormat(code, locale);
         
-        // ”»’è
+        // åˆ¤å®š
         assertNull(result);
         assertTrue(ds.isRead_A1);
     }
@@ -1860,27 +1860,27 @@ public class DataSourceMessageSourceTest extends TestCase {
     /**
      * testGetMessageFormat04() <br>
      * <br>
-     * (³íŒn)<br>
-     * ŠÏ“_FA <br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA <br>
      * <br>
-     * “ü—Í’lF(ˆø”) code:"code01"<br>
-     *         (ˆø”) locale:Locale("ja",JP","")<br>
-     *         (ó‘Ô) cashedMessageFormats:<"code01",null><br>
-     *         (ó‘Ô) ƒƒbƒZ[ƒWƒtƒH[ƒ}ƒbƒg‚Ìlocale:Locale("ja",JP","")<br>
-     *         (ó‘Ô) getMessage(locale):Properties<"code01","ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P"><br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) code:"code01"<br>
+     *         (å¼•æ•°) locale:Locale("ja",JP","")<br>
+     *         (çŠ¶æ…‹) cashedMessageFormats:<"code01",null><br>
+     *         (çŠ¶æ…‹) ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã®locale:Locale("ja",JP","")<br>
+     *         (çŠ¶æ…‹) getMessage(locale):Properties<"code01","ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘"><br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) result:ƒƒbƒZ[ƒWƒtƒH[ƒ}ƒbƒgƒIƒuƒWƒFƒNƒg<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) result:ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
      *         
      * <br>
-     * ˆø”‚É‘Î‰‚·‚é’l‚ª‚·‚Å‚ÉƒLƒƒƒbƒVƒ…‚³‚ê‚½Map‚É‚È‚­A‚©‚ÂƒƒbƒZ[ƒWƒŠƒ\[ƒX
-     * ‚Éˆø”‚É‘Î‰‚·‚é’l‚ª‚ ‚èAƒƒbƒZ[ƒWƒtƒH[ƒ}ƒbƒg‚Ì¶¬‚É¬Œ÷‚µ‚½ê‡B
+     * å¼•æ•°ã«å¯¾å¿œã™ã‚‹å€¤ãŒã™ã§ã«ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã•ã‚ŒãŸMapã«ãªãã€ã‹ã¤ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒªã‚½ãƒ¼ã‚¹
+     * ã«å¼•æ•°ã«å¯¾å¿œã™ã‚‹å€¤ãŒã‚ã‚Šã€ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã®ç”Ÿæˆã«æˆåŠŸã—ãŸå ´åˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetMessageFormat04() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DataSourceMessageSource_DataSourceMessageSourceStub18 ds 
                 = new DataSourceMessageSource_DataSourceMessageSourceStub18();
         String code = "code01";
@@ -1891,12 +1891,12 @@ public class DataSourceMessageSourceTest extends TestCase {
         
         ds.cachedMessageFormats.clear();
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         MessageFormat result = ds.getMessageFormat(code, locale);
         
-        // ”»’è
+        // åˆ¤å®š
         assertSame(locale, ds.locale);
-        assertSame("ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P", ds.msg);
+        assertSame("ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘", ds.msg);
         assertSame(mf, result);
         
         assertEquals(1, ds.cachedMessageFormats.size());

@@ -3,19 +3,19 @@ package jp.terasoluna.fw.file.dao.standard;
 import jp.terasoluna.fw.file.annotation.FileFormat;
 
 /**
- * AbstractFileLineWriter‚ÌŒ±‚Å—˜—p‚·‚éƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌƒXƒ^ƒuƒNƒ‰ƒXB<br>
+ * AbstractFileLineWriterã®è©¦é¨“ã§åˆ©ç”¨ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¹ã‚¿ãƒ–ã‚¯ãƒ©ã‚¹ã€‚<br>
  * <br>
- * ˆÈ‰º‚Ì@FileFormat‚Ìİ’è‚ğ‚Â<br>
+ * ä»¥ä¸‹ã®@FileFormatã®è¨­å®šã‚’æŒã¤<br>
  * <ul>
- * <li>delimiterF"|"(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)</li>
- * <li>encloseCharF"\""(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)</li>
- * <li>lineFeedCharF""(‹ó•¶šAƒfƒtƒHƒ‹ƒg’l)</li>
- * <li>fileEncodingF""(‹ó•¶šAƒfƒtƒHƒ‹ƒg’l)</li>
- * <li>overWriteFlgFtrue(ƒfƒtƒHƒ‹ƒg’lˆÈŠO)</li>
+ * <li>delimiterï¼š"|"(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)</li>
+ * <li>encloseCharï¼š"\""(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)</li>
+ * <li>lineFeedCharï¼š""(ç©ºæ–‡å­—ã€ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤)</li>
+ * <li>fileEncodingï¼š""(ç©ºæ–‡å­—ã€ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤)</li>
+ * <li>overWriteFlgï¼štrue(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–)</li>
  * </ul>
  * <br>
- * ƒtƒB[ƒ‹ƒh‚Í‚½‚È‚¢<br>
- * @author æâ•î“O
+ * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã¯æŒãŸãªã„<br>
+ * @author è¶™ä¿¸å¾¹
  */
 @FileFormat(delimiter = '|', encloseChar = '\"', lineFeedChar = "", fileEncoding = "", overWriteFlg = true)
 public class AbstractFileLineWriter_Stub03 {

@@ -22,28 +22,28 @@ import org.apache.commons.validator.ValidatorResources;
 import org.apache.commons.validator.ValidatorResults;
 
 /**
- * Jakarta Commons‚ÌValidatorŒp³ƒNƒ‰ƒX
+ * Jakarta Commonsã®Validatorç¶™æ‰¿ã‚¯ãƒ©ã‚¹
  * 
  * <p>
- * validate()ƒƒ\ƒbƒh‚ğƒI[ƒo[ƒ‰ƒCƒh‚µ‚Ä‚¢‚éB
- * eƒNƒ‰ƒX‚Ìvalidate()ƒƒ\ƒbƒh‚ğŒÄ‚Ño‚µ‚½Û‚É
- * validation.xml‚È‚Ç‚Ì‹Lqƒ~ƒX‚É‚æ‚èAƒoƒŠƒf[ƒg—áŠO‚ª”­¶‚µ‚½ê‡A
- * ‚»‚Ì—áŠOƒCƒ“ƒXƒ^ƒ“ƒX‚ğ‘®«‚É•Û‚·‚éB
+ * validate()ãƒ¡ã‚½ãƒƒãƒ‰ã‚’ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã—ã¦ã„ã‚‹ã€‚
+ * è¦ªã‚¯ãƒ©ã‚¹ã®validate()ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã—ãŸéš›ã«
+ * validation.xmlãªã©ã®è¨˜è¿°ãƒŸã‚¹ã«ã‚ˆã‚Šã€ãƒãƒªãƒ‡ãƒ¼ãƒˆä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€
+ * ãã®ä¾‹å¤–ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’å±æ€§ã«ä¿æŒã™ã‚‹ã€‚
  * </p>
  * 
  * <p>
- * g—p‘O‚Éclear()ƒƒ\ƒbƒh‚Å‰Šú‰»‚µ‚½ê‡‚ÍƒXƒŒƒbƒhƒZ[ƒt‚Æ‚µ‚Äg—p‰Â”\B
+ * ä½¿ç”¨å‰ã«clear()ãƒ¡ã‚½ãƒƒãƒ‰ã§åˆæœŸåŒ–ã—ãŸå ´åˆã¯ã‚¹ãƒ¬ãƒƒãƒ‰ã‚»ãƒ¼ãƒ•ã¨ã—ã¦ä½¿ç”¨å¯èƒ½ã€‚
  * </p>
  * 
  * <p>
- * –{ƒNƒ‰ƒX‚ÍACommonsValidatorEx‚É‚æ‚Á‚Ä¶¬‚³‚ê‚éB
- * ‚Ü‚½A‘®«‚É•Û‚µ‚½—áŠOƒCƒ“ƒXƒ^ƒ“ƒX‚ÍA
- * DefaultValidatorFactoryEx‚É‚æ‚Á‚Ä—˜—p‚³‚ê‚éB
+ * æœ¬ã‚¯ãƒ©ã‚¹ã¯ã€CommonsValidatorExã«ã‚ˆã£ã¦ç”Ÿæˆã•ã‚Œã‚‹ã€‚
+ * ã¾ãŸã€å±æ€§ã«ä¿æŒã—ãŸä¾‹å¤–ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã¯ã€
+ * DefaultValidatorFactoryExã«ã‚ˆã£ã¦åˆ©ç”¨ã•ã‚Œã‚‹ã€‚
  * </p>
  * 
  * <p>
- * –{ƒNƒ‰ƒX‚ğ—˜—p‚·‚éê‡‚É•K—v‚ÈBean’è‹`ƒtƒ@ƒCƒ‹‚Ìİ’è‚É‚Â‚¢‚Ä‚ÍA
- * DefaultValidatorFactoryEx‚ÌJavaDoc‚Ì‹Lq‚ğQÆ‚Ì‚±‚ÆB
+ * æœ¬ã‚¯ãƒ©ã‚¹ã‚’åˆ©ç”¨ã™ã‚‹å ´åˆã«å¿…è¦ãªBeanå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ã®è¨­å®šã«ã¤ã„ã¦ã¯ã€
+ * DefaultValidatorFactoryExã®JavaDocã®è¨˜è¿°ã‚’å‚ç…§ã®ã“ã¨ã€‚
  * </p>
  * 
  * 
@@ -51,55 +51,55 @@ import org.apache.commons.validator.ValidatorResults;
 public class CommonsValidatorEx extends Validator {
 
     /**
-     * ƒVƒŠƒAƒ‹ƒo[ƒWƒ‡ƒ“ID
+     * ã‚·ãƒªã‚¢ãƒ«ãƒãƒ¼ã‚¸ãƒ§ãƒ³ID
      */
     private static final long serialVersionUID = -7315991856716383283L;
     
     /**
-     * XMLƒf[ƒ^‚ÌŒŸØ‚É”­¶‚µ‚½—áŠO
+     * XMLãƒ‡ãƒ¼ã‚¿ã®æ¤œè¨¼æ™‚ã«ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     private ValidatorException validatorException = null;
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-     * @param resources ŒŸØƒŠƒ\[ƒX
-     * @param formName ƒtƒH[ƒ€–¼
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+     * @param resources æ¤œè¨¼ãƒªã‚½ãƒ¼ã‚¹
+     * @param formName ãƒ•ã‚©ãƒ¼ãƒ å
      */
     public CommonsValidatorEx(ValidatorResources resources, String formName) {
         super(resources, formName);
     }
 
     /**
-     * XMLƒf[ƒ^‚ÌŒŸØ‚É”­¶‚µ‚½—áŠO‚ğæ“¾‚·‚é
-     * @return XMLƒf[ƒ^‚ÌŒŸØ‚É”­¶‚µ‚½—áŠO
+     * XMLãƒ‡ãƒ¼ã‚¿ã®æ¤œè¨¼æ™‚ã«ç™ºç”Ÿã—ãŸä¾‹å¤–ã‚’å–å¾—ã™ã‚‹
+     * @return XMLãƒ‡ãƒ¼ã‚¿ã®æ¤œè¨¼æ™‚ã«ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public ValidatorException getValidatorException() {
         return validatorException;
     }
 
     /**
-     * ŒŸØƒƒ\ƒbƒh
-     * Validator‚Ìvalidate()ƒƒ\ƒbƒh‚ğŒÄ‚Ño‚µA 
-     * ƒGƒ‰[‚ª‚ ‚Á‚½‚çƒNƒ‰ƒX‚Ì‘®«‚Éİ’è‚µ‚ÄƒXƒ[‚·‚éB 
-     * @return ŒŸØŒ‹‰Ê
-     * @throws XMLƒf[ƒ^‚ÌŒŸØ‚É”­¶‚µ‚½—áŠO
+     * æ¤œè¨¼ãƒ¡ã‚½ãƒƒãƒ‰
+     * Validatorã®validate()ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã—ã€ 
+     * ã‚¨ãƒ©ãƒ¼ãŒã‚ã£ãŸã‚‰ã‚¯ãƒ©ã‚¹ã®å±æ€§ã«è¨­å®šã—ã¦ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã€‚ 
+     * @return æ¤œè¨¼çµæœ
+     * @throws XMLãƒ‡ãƒ¼ã‚¿ã®æ¤œè¨¼æ™‚ã«ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Override
     public ValidatorResults validate() throws ValidatorException {
         try {
             return super.validate();
         } catch (ValidatorException e) {
-            // XMLƒf[ƒ^‚ÌŒŸØ‚É—áŠO‚ª”­¶‚µ‚½ê‡‚ÍA”­¶‚µ‚½
-            // —áŠO‚ğvalidatorException‘®«‚É•Û‚µAƒXƒ[‚·‚é
+            // XMLãƒ‡ãƒ¼ã‚¿ã®æ¤œè¨¼æ™‚ã«ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã¯ã€ç™ºç”Ÿã—ãŸ
+            // ä¾‹å¤–ã‚’validatorExceptionå±æ€§ã«ä¿æŒã—ã€ã‚¹ãƒ­ãƒ¼ã™ã‚‹
             validatorException = e;
             throw e;
         }
     }
     
     /**
-     * ƒNƒŠƒAƒƒ\ƒbƒh
-     * Validator‚Ìclear()ƒƒ\ƒbƒh‚ğŒÄ‚Ño‚µA 
-     * ƒNƒ‰ƒX‚ÌvalidatorException‘®«‚ğnull‚Éİ’è‚µ‚Ü‚·B 
+     * ã‚¯ãƒªã‚¢ãƒ¡ã‚½ãƒƒãƒ‰
+     * Validatorã®clear()ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã—ã€ 
+     * ã‚¯ãƒ©ã‚¹ã®validatorExceptionå±æ€§ã‚’nullã«è¨­å®šã—ã¾ã™ã€‚ 
      */
     @Override
     public void clear() {

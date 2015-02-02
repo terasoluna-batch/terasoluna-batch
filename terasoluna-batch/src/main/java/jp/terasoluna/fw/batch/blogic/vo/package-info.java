@@ -1,4 +1,4 @@
 /**
- * ƒrƒWƒlƒXƒƒWƒbƒNŠÖ˜A‚ÌƒoƒŠƒ…[ƒIƒuƒWƒFƒNƒg
+ * ãƒ“ã‚¸ãƒã‚¹ãƒ­ã‚¸ãƒƒã‚¯é–¢é€£ã®ãƒãƒªãƒ¥ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
  */
 package jp.terasoluna.fw.batch.blogic.vo;

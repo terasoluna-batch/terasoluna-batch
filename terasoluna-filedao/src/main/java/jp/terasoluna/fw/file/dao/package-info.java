@@ -1,4 +1,4 @@
 /**
- * FileDAOŠî’êƒNƒ‰ƒXŒQ
+ * FileDAOåŸºåº•ã‚¯ãƒ©ã‚¹ç¾¤
  */
 package jp.terasoluna.fw.file.dao;

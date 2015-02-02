@@ -25,11 +25,11 @@ import junit.framework.TestCase;
 
 /**
  * {@link jp.terasoluna.fw.dao.ibatis.QueryDAOiBatisImpl}
- * ƒNƒ‰ƒX‚Ìƒuƒ‰ƒbƒNƒ{ƒbƒNƒXƒeƒXƒgB
+ * ã‚¯ãƒ©ã‚¹ã®ãƒ–ãƒ©ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ†ã‚¹ãƒˆã€‚
  * 
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4>
- * QueryDAOƒCƒ“ƒ^ƒtƒF[ƒX‚ÌiBATIS—pÀ‘•ƒNƒ‰ƒXB
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4>
+ * QueryDAOã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã®iBATISç”¨å®Ÿè£…ã‚¯ãƒ©ã‚¹ã€‚
  * <p>
  * 
  * @see jp.terasoluna.fw.dao.ibatis.QueryDAOiBatisImpl
@@ -37,25 +37,25 @@ import junit.framework.TestCase;
 public class QueryDAOiBatisImplTest extends TestCase {
 
     /**
-     * ƒeƒXƒg‘ÎÛƒNƒ‰ƒX
+     * ãƒ†ã‚¹ãƒˆå¯¾è±¡ã‚¯ãƒ©ã‚¹
      */
     private QueryDAOiBatisImpl dao = new QueryDAOiBatisImpl();
 
     /**
-     * ‚±‚ÌƒeƒXƒgƒP[ƒX‚ğÀs‚·‚éˆ×‚Ì GUI ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‹N“®‚·‚éB
+     * ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã‚’å®Ÿè¡Œã™ã‚‹ç‚ºã® GUI ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’èµ·å‹•ã™ã‚‹ã€‚
      * 
      * @param args
-     *            java ƒRƒ}ƒ“ƒh‚Éİ’è‚³‚ê‚½ƒpƒ‰ƒ[ƒ^
+     *            java ã‚³ãƒãƒ³ãƒ‰ã«è¨­å®šã•ã‚ŒãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public static void main(String[] args) {
         junit.swingui.TestRunner.run(QueryDAOiBatisImplTest.class);
     }
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -65,10 +65,10 @@ public class QueryDAOiBatisImplTest extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -78,10 +78,10 @@ public class QueryDAOiBatisImplTest extends TestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      * 
      * @param name
-     *            ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     *            ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public QueryDAOiBatisImplTest(String name) {
         super(name);
@@ -91,39 +91,39 @@ public class QueryDAOiBatisImplTest extends TestCase {
      * testExecuteForObject01() <br>
      * <br>
      * 
-     * (³íŒn) <br>
-     * ŠÏ“_FC <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC <br>
      * <br>
-     * “ü—Í’lF(ˆø”) sqlID:"sqlId"<br>
-     * (ˆø”) bindParams:"1"<br>
-     * (ˆø”) clazz:"java.lang.String"<br>
-     * (ó‘Ô) queryForObject‚Ì–ß‚è‚ÌObject:String("abc")<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) sqlID:"sqlId"<br>
+     * (å¼•æ•°) bindParams:"1"<br>
+     * (å¼•æ•°) clazz:"java.lang.String"<br>
+     * (çŠ¶æ…‹) queryForObjectã®æˆ»ã‚Šã®Object:String("abc")<br>
      * 
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) E:String("abc")<br>
-     * queryForObject‚Ì–ß‚è‚ÌObject‚ªˆø”clazz‚ÌƒNƒ‰ƒX‚É
-     * •ÏŠ·‚³‚ê‚Ä•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”FB<br>
-     * (ó‘Ô•Ï‰») queryForObject‚ÌŒÄoŠm”F:ˆø”‚ªsqlIdA
-     * bindParams‚ÅŒÄ‚Ño‚³‚ê‚Ä‚¢‚é–‚ğŠm”F<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) E:String("abc")<br>
+     * queryForObjectã®æˆ»ã‚Šã®ObjectãŒå¼•æ•°clazzã®ã‚¯ãƒ©ã‚¹ã«
+     * å¤‰æ›ã•ã‚Œã¦è¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) queryForObjectã®å‘¼å‡ºç¢ºèª:å¼•æ•°ãŒsqlIdã€
+     * bindParamsã§å‘¼ã³å‡ºã•ã‚Œã¦ã„ã‚‹äº‹ã‚’ç¢ºèª<br>
      * 
      * <br>
-     * queryForObject‚Ì–ß‚è’l‚ªAˆø”clazz‚Ì•û‚ÉƒLƒƒƒXƒg‚Å‚«A•Ô‹p‚³‚ê‚éê‡
+     * queryForObjectã®æˆ»ã‚Šå€¤ãŒã€å¼•æ•°clazzã®æ–¹ã«ã‚­ãƒ£ã‚¹ãƒˆã§ãã€è¿”å´ã•ã‚Œã‚‹å ´åˆ
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExecuteForObject01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         dao.setSqlMapClientTemplate(
                 new QueryDAOiBatisImpl_SqlMapClientTemplateStub01());
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String str = dao.executeForObject("sqlId", "1", String.class);
 
-        // –ß‚è’l‚ÌŠm”F
+        // æˆ»ã‚Šå€¤ã®ç¢ºèª
         assertEquals("abc", str);
 
-        // ŒÄ‚Ño‚µŠm”F
+        // å‘¼ã³å‡ºã—ç¢ºèª
         QueryDAOiBatisImpl_SqlMapClientTemplateStub01 sqlMapTemp =
             (QueryDAOiBatisImpl_SqlMapClientTemplateStub01) dao
                 .getSqlMapClientTemplate();
@@ -136,39 +136,39 @@ public class QueryDAOiBatisImplTest extends TestCase {
      * testExecuteForObject02() <br>
      * <br>
      * 
-     * (³íŒn) <br>
-     * ŠÏ“_FC <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC <br>
      * <br>
-     * “ü—Í’lF(ˆø”) sqlID:"sqlId"<br>
-     * (ˆø”) bindParams:"1"<br>
-     * (ˆø”) clazz:null<br>
-     * (ó‘Ô) queryForObject‚Ì–ß‚è‚ÌObject:String("abc")<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) sqlID:"sqlId"<br>
+     * (å¼•æ•°) bindParams:"1"<br>
+     * (å¼•æ•°) clazz:null<br>
+     * (çŠ¶æ…‹) queryForObjectã®æˆ»ã‚Šã®Object:String("abc")<br>
      * 
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») queryForObject‚ÌŒÄoŠm”F:ˆø”‚ªsqlIdA
-     * bindParams‚ÅŒÄ‚Ño‚³‚ê‚Ä‚¢‚é–‚ğŠm”F<br>
-     * (ó‘Ô•Ï‰») —áŠO:IllegalClassTypeException<br>
-     * (ó‘Ô•Ï‰») ƒƒO:ƒƒƒbƒZ[ƒW„<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) queryForObjectã®å‘¼å‡ºç¢ºèª:å¼•æ•°ãŒsqlIdã€
+     * bindParamsã§å‘¼ã³å‡ºã•ã‚Œã¦ã„ã‚‹äº‹ã‚’ç¢ºèª<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalClassTypeException<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ï¼œãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼<br>
      * "The mistake Class Type of the argument."<br>
      * 
      * <br>
-     * ˆø”clazz‚ªnull‚Ìê‡ <br>
+     * å¼•æ•°clazzãŒnullã®å ´åˆ <br>
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExecuteForObject02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         dao.setSqlMapClientTemplate(
                 new QueryDAOiBatisImpl_SqlMapClientTemplateStub01());
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String str = dao.executeForObject("sqlId", "1", null);
 
-        // –ß‚è’l‚ÌŠm”F
+        // æˆ»ã‚Šå€¤ã®ç¢ºèª
         assertNull(str);
 
-        // ŒÄ‚Ño‚µŠm”F
+        // å‘¼ã³å‡ºã—ç¢ºèª
         QueryDAOiBatisImpl_SqlMapClientTemplateStub01 sqlMapTemp =
             (QueryDAOiBatisImpl_SqlMapClientTemplateStub01) dao
                 .getSqlMapClientTemplate();
@@ -181,33 +181,33 @@ public class QueryDAOiBatisImplTest extends TestCase {
      * testExecuteForObject03() <br>
      * <br>
      * 
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) sqlID:"sqlId"<br>
-     * (ˆø”) bindParams:"1"<br>
-     * (ˆø”) clazz:"java.lang.Integer"<br>
-     * (ó‘Ô) queryForObject‚Ì–ß‚è‚ÌObject:String("abc")<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) sqlID:"sqlId"<br>
+     * (å¼•æ•°) bindParams:"1"<br>
+     * (å¼•æ•°) clazz:"java.lang.Integer"<br>
+     * (çŠ¶æ…‹) queryForObjectã®æˆ»ã‚Šã®Object:String("abc")<br>
      * 
      * <br>
-     * Šú‘Ò’lF (ó‘Ô•Ï‰») queryForObject‚ÌŒÄoŠm”F:ˆø”‚ªsqlIdA
-     * bindParams‚ÅŒÄ‚Ño‚³‚ê‚Ä‚¢‚é–‚ğŠm”F<br>
-     * (ó‘Ô•Ï‰») —áŠO:IllegalClassTypeException<br>
-     * ƒ‰ƒbƒv‚³‚ê‚½—áŠOFClassCastException (ó‘Ô•Ï‰») ƒƒO:ƒƒƒbƒZ[ƒW„<br>
+     * æœŸå¾…å€¤ï¼š (çŠ¶æ…‹å¤‰åŒ–) queryForObjectã®å‘¼å‡ºç¢ºèª:å¼•æ•°ãŒsqlIdã€
+     * bindParamsã§å‘¼ã³å‡ºã•ã‚Œã¦ã„ã‚‹äº‹ã‚’ç¢ºèª<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalClassTypeException<br>
+     * ãƒ©ãƒƒãƒ—ã•ã‚ŒãŸä¾‹å¤–ï¼šClassCastException (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ï¼œãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼<br>
      * "The mistake Class Type of the argument."<br>
      * 
      * <br>
-     * ˆø”clazz‚ÆqueryForObject‚Ì–ß‚è‚É•û‚ªˆá‚¤ê‡ <br>
+     * å¼•æ•°clazzã¨queryForObjectã®æˆ»ã‚Šã«æ–¹ãŒé•ã†å ´åˆ <br>
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExecuteForObject03() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         dao.setSqlMapClientTemplate(
                 new QueryDAOiBatisImpl_SqlMapClientTemplateStub01());
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             dao.executeForObject("sqlId", "1", Integer.class);
             fail();
@@ -218,7 +218,7 @@ public class QueryDAOiBatisImplTest extends TestCase {
                     IllegalClassTypeException.ERROR_ILLEGAL_CLASS_TYPE));
         }
 
-        // ŒÄ‚Ño‚µŠm”F
+        // å‘¼ã³å‡ºã—ç¢ºèª
         QueryDAOiBatisImpl_SqlMapClientTemplateStub01 sqlMapTemp =
             (QueryDAOiBatisImpl_SqlMapClientTemplateStub01) dao
                 .getSqlMapClientTemplate();
@@ -231,37 +231,37 @@ public class QueryDAOiBatisImplTest extends TestCase {
      * testExecuteForObject04() <br>
      * <br>
      * 
-     * (³íŒn) <br>
-     * ŠÏ“_FC <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC <br>
      * <br>
-     * “ü—Í’lF(ˆø”) sqlID:"sqlId"<br>
-     * (ˆø”) bindParams:"1"<br>
-     * (ˆø”) clazz:"java.lang.String"<br>
-     * (ó‘Ô) queryForObject‚Ì–ß‚è‚ÌObject:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) sqlID:"sqlId"<br>
+     * (å¼•æ•°) bindParams:"1"<br>
+     * (å¼•æ•°) clazz:"java.lang.String"<br>
+     * (çŠ¶æ…‹) queryForObjectã®æˆ»ã‚Šã®Object:null<br>
      * 
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) E:null<br>
-     * (ó‘Ô•Ï‰») queryForObject‚ÌŒÄoŠm”F:ˆø”‚ªsqlIdA
-     * bindParams‚ÅŒÄ‚Ño‚³‚ê‚Ä‚¢‚é–‚ğŠm”F<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) E:null<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) queryForObjectã®å‘¼å‡ºç¢ºèª:å¼•æ•°ãŒsqlIdã€
+     * bindParamsã§å‘¼ã³å‡ºã•ã‚Œã¦ã„ã‚‹äº‹ã‚’ç¢ºèª<br>
      * 
      * <br>
-     * queryForObject‚Ì–ß‚è’l‚ªAnull‚Ìê‡ <br>
+     * queryForObjectã®æˆ»ã‚Šå€¤ãŒã€nullã®å ´åˆ <br>
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExecuteForObject04() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         dao.setSqlMapClientTemplate(
                 new QueryDAOiBatisImpl_SqlMapClientTemplateStub02());
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String str = dao.executeForObject("sqlId", "1", String.class);
 
-        // –ß‚è’l‚ÌŠm”F
+        // æˆ»ã‚Šå€¤ã®ç¢ºèª
         assertNull(str);
 
-        // ŒÄ‚Ño‚µŠm”F
+        // å‘¼ã³å‡ºã—ç¢ºèª
         QueryDAOiBatisImpl_SqlMapClientTemplateStub02 sqlMapTemp =
             (QueryDAOiBatisImpl_SqlMapClientTemplateStub02) dao
                 .getSqlMapClientTemplate();
@@ -274,35 +274,35 @@ public class QueryDAOiBatisImplTest extends TestCase {
      * testExecuteForMap01() <br>
      * <br>
      * 
-     * (³íŒn) <br>
-     * ŠÏ“_FC <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC <br>
      * <br>
-     * “ü—Í’lF(ˆø”) sqlID:"sqlId"<br>
-     * (ˆø”) bindParams:"1"<br>
-     * (ó‘Ô) queryForMap‚Ì–ß‚è‚ÌMap:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) sqlID:"sqlId"<br>
+     * (å¼•æ•°) bindParams:"1"<br>
+     * (çŠ¶æ…‹) queryForMapã®æˆ»ã‚Šã®Map:not null<br>
      * 
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Map:not null<br>
-     * (ó‘Ô•Ï‰») queryForObject‚ÌŒÄoŠm”F:ˆø”‚ªsqlIdAbindParams ‚ÅŒÄ‚Ño‚³‚ê‚Ä‚¢‚é–‚ğŠm”F<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Map:not null<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) queryForObjectã®å‘¼å‡ºç¢ºèª:å¼•æ•°ãŒsqlIdã€bindParams ã§å‘¼ã³å‡ºã•ã‚Œã¦ã„ã‚‹äº‹ã‚’ç¢ºèª<br>
      * 
      * <br>
-     * queryForObject‚Ì–ß‚è‚ªnot null‚ÅA‚»‚Ì–ß‚è‚ª‚»‚Ì‚Ü‚Ü•Ô‹p‚³‚ê‚éê‡ <br>
+     * queryForObjectã®æˆ»ã‚ŠãŒnot nullã§ã€ãã®æˆ»ã‚ŠãŒãã®ã¾ã¾è¿”å´ã•ã‚Œã‚‹å ´åˆ <br>
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExecuteForMap01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         dao.setSqlMapClientTemplate(
                 new QueryDAOiBatisImpl_SqlMapClientTemplateStub03());
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Map<String, Object> str = dao.executeForMap("sqlId", "1");
 
-        // –ß‚è’l‚ÌŠm”F
+        // æˆ»ã‚Šå€¤ã®ç¢ºèª
         assertNotNull(str);
 
-        // ŒÄ‚Ño‚µŠm”F
+        // å‘¼ã³å‡ºã—ç¢ºèª
         QueryDAOiBatisImpl_SqlMapClientTemplateStub03 sqlMapTemp =
             (QueryDAOiBatisImpl_SqlMapClientTemplateStub03) dao
                 .getSqlMapClientTemplate();
@@ -315,43 +315,43 @@ public class QueryDAOiBatisImplTest extends TestCase {
      * testExecuteForObjectArrayStringObjectClass01() <br>
      * <br>
      * 
-     * (³íŒn) <br>
-     * ŠÏ“_FC <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC <br>
      * <br>
-     * “ü—Í’lF(ˆø”) sqlID:"sqlId"<br>
-     * (ˆø”) bindParams:"1"<br>
-     * (ˆø”) clazz:"java.lang.String"<br>
-     * (ó‘Ô) queryForList‚Ì–ß‚è‚ÌList:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) sqlID:"sqlId"<br>
+     * (å¼•æ•°) bindParams:"1"<br>
+     * (å¼•æ•°) clazz:"java.lang.String"<br>
+     * (çŠ¶æ…‹) queryForListã®æˆ»ã‚Šã®List:not null<br>
      * [String("a"),String("b"), String("c")]<br>
      * 
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) E[]:String("a")<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) E[]:String("a")<br>
      * String("b")<br>
      * String("c")<br>
-     * (ó‘Ô•Ï‰») queryForList‚ÌŒÄoŠm”F:ˆø”‚ªsqlIdAbindParams‚Å
-     * ŒÄ‚Ño‚³‚ê‚Ä‚¢‚é–‚ğŠm”F<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) queryForListã®å‘¼å‡ºç¢ºèª:å¼•æ•°ãŒsqlIdã€bindParamsã§
+     * å‘¼ã³å‡ºã•ã‚Œã¦ã„ã‚‹äº‹ã‚’ç¢ºèª<br>
      * 
      * <br>
-     * queryForList‚Ì–ß‚è‚ªnot null‚ÅAˆø”clazz‚ÌŒ^‚Ì”z—ñ‚É•ÏŠ·‚Å‚«‚½ê‡ <br>
+     * queryForListã®æˆ»ã‚ŠãŒnot nullã§ã€å¼•æ•°clazzã®å‹ã®é…åˆ—ã«å¤‰æ›ã§ããŸå ´åˆ <br>
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExecuteForObjectArrayStringObjectClass01() 
             throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         dao.setSqlMapClientTemplate(
                 new QueryDAOiBatisImpl_SqlMapClientTemplateStub01());
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String[] str = dao.executeForObjectArray("sqlId", "1", String.class);
 
-        // –ß‚è’l‚ÌŠm”F
+        // æˆ»ã‚Šå€¤ã®ç¢ºèª
         assertEquals("a", str[0]);
         assertEquals("b", str[1]);
         assertEquals("c", str[2]);
 
-        // ŒÄ‚Ño‚µŠm”F
+        // å‘¼ã³å‡ºã—ç¢ºèª
         QueryDAOiBatisImpl_SqlMapClientTemplateStub01 sqlMapTemp =
             (QueryDAOiBatisImpl_SqlMapClientTemplateStub01) dao
                 .getSqlMapClientTemplate();
@@ -364,32 +364,32 @@ public class QueryDAOiBatisImplTest extends TestCase {
      * testExecuteForObjectArrayStringObjectClass02() <br>
      * <br>
      * 
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) sqlID:"sqlId"<br>
-     * (ˆø”) bindParams:"1"<br>
-     * (ˆø”) clazz:null<br>
-     * (ó‘Ô) queryForList‚Ì–ß‚è‚ÌList:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) sqlID:"sqlId"<br>
+     * (å¼•æ•°) bindParams:"1"<br>
+     * (å¼•æ•°) clazz:null<br>
+     * (çŠ¶æ…‹) queryForListã®æˆ»ã‚Šã®List:not null<br>
      * 
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:llegalClassTypeException<br>
-     * (ó‘Ô•Ï‰») ƒƒO:ƒƒƒbƒZ[ƒW„<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:llegalClassTypeException<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ï¼œãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼<br>
      * "The mistake Class Type of the argument."<br>
      * 
      * <br>
-     * ˆø”clazz‚ªnull‚Ìê‡ <br>
+     * å¼•æ•°clazzãŒnullã®å ´åˆ <br>
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExecuteForObjectArrayStringObjectClass02() 
             throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         dao.setSqlMapClientTemplate(
                 new QueryDAOiBatisImpl_SqlMapClientTemplateStub01());
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             dao.executeForObjectArray("sqlId", "1", null);
             fail();
@@ -399,7 +399,7 @@ public class QueryDAOiBatisImplTest extends TestCase {
                     IllegalClassTypeException.ERROR_ILLEGAL_CLASS_TYPE));
         }
 
-        // ŒÄ‚Ño‚µŠm”F
+        // å‘¼ã³å‡ºã—ç¢ºèª
         QueryDAOiBatisImpl_SqlMapClientTemplateStub01 sqlMapTemp =
             (QueryDAOiBatisImpl_SqlMapClientTemplateStub01) dao
                 .getSqlMapClientTemplate();
@@ -410,35 +410,35 @@ public class QueryDAOiBatisImplTest extends TestCase {
      * testExecuteForObjectArrayStringObjectClass03() <br>
      * <br>
      * 
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) sqlID:"sqlId"<br>
-     * (ˆø”) bindParams:"1"<br>
-     * (ˆø”) clazz:"java.lang.Integer"<br>
-     * (ó‘Ô) queryForList‚Ì–ß‚è‚ÌList:"not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) sqlID:"sqlId"<br>
+     * (å¼•æ•°) bindParams:"1"<br>
+     * (å¼•æ•°) clazz:"java.lang.Integer"<br>
+     * (çŠ¶æ…‹) queryForListã®æˆ»ã‚Šã®List:"not null<br>
      * [String(""a""),String(""b""), String(""c"")]"<br>
      * 
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalClassTypeException<br>
-     * ƒ‰ƒbƒv‚³‚ê‚½—áŠOF<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalClassTypeException<br>
+     * ãƒ©ãƒƒãƒ—ã•ã‚ŒãŸä¾‹å¤–ï¼š<br>
      * ArrayStoreException<br>
-     * (ó‘Ô•Ï‰») ƒƒO:ƒƒƒbƒZ[ƒW„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ï¼œãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼<br>
      * "The mistake Class Type of the argument."<br>
      * 
      * <br>
-     * queryForList‚Ì–ß‚è‚Æˆø”clazz‚ÌŒ^‚ªˆá‚¤ê‡ <br>
+     * queryForListã®æˆ»ã‚Šã¨å¼•æ•°clazzã®å‹ãŒé•ã†å ´åˆ <br>
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExecuteForObjectArrayStringObjectClass03() 
             throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         dao.setSqlMapClientTemplate(
                 new QueryDAOiBatisImpl_SqlMapClientTemplateStub01());
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             dao.executeForObjectArray("sqlId", "1", Integer.class);
             fail();
@@ -449,7 +449,7 @@ public class QueryDAOiBatisImplTest extends TestCase {
                     IllegalClassTypeException.ERROR_ILLEGAL_CLASS_TYPE));
         }
 
-        // ŒÄ‚Ño‚µŠm”F
+        // å‘¼ã³å‡ºã—ç¢ºèª
         QueryDAOiBatisImpl_SqlMapClientTemplateStub01 sqlMapTemp =
             (QueryDAOiBatisImpl_SqlMapClientTemplateStub01) dao
                 .getSqlMapClientTemplate();
@@ -462,33 +462,33 @@ public class QueryDAOiBatisImplTest extends TestCase {
      * testExecuteForMapArrayStringObject01() <br>
      * <br>
      * 
-     * (³íŒn) <br>
-     * ŠÏ“_FC <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC <br>
      * <br>
-     * “ü—Í’lF(ˆø”) sqlID:"sqlId"<br>
-     * (ˆø”) bindParams:"1"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) sqlID:"sqlId"<br>
+     * (å¼•æ•°) bindParams:"1"<br>
      * 
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Map”z—ñ<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Mapé…åˆ—<br>
      * [0]=Map["abc","123"]<br>
-     * (ó‘Ô•Ï‰») executeForObjectArray‚ÌŒÄoŠm”F:ˆø”‚ªsqlIdA bindParams,
-     * Map.class‚ÅŒÄ‚Ño‚³‚ê‚Ä‚¢‚é–‚ğŠm”F<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) executeForObjectArrayã®å‘¼å‡ºç¢ºèª:å¼•æ•°ãŒsqlIdã€ bindParams,
+     * Map.classã§å‘¼ã³å‡ºã•ã‚Œã¦ã„ã‚‹äº‹ã‚’ç¢ºèª<br>
      * 
      * <br>
-     * “à•”‚Å‚ÍAexecuteForObjectArray‚ğŒÄ‚Ño‚µ‚Ä‚¢‚é‚½‚ßA
-     * ƒeƒXƒg‚ÍexecuteForObjectArray‚ÌƒeƒXƒgƒP[ƒX‚É•ïŠÜ‚·‚éB <br>
+     * å†…éƒ¨ã§ã¯ã€executeForObjectArrayã‚’å‘¼ã³å‡ºã—ã¦ã„ã‚‹ãŸã‚ã€
+     * ãƒ†ã‚¹ãƒˆã¯executeForObjectArrayã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã«åŒ…å«ã™ã‚‹ã€‚ <br>
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExecuteForMapArrayStringObject01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         dao = new QueryDAOiBatisImpl_QueryDAOiBatisImplStub01();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Map<String, Object>[] map = dao.executeForMapArray("sqlId", "1");
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(map[0].containsKey("abc"));
         assertEquals("123", map[0].get("abc"));
         assertTrue(((QueryDAOiBatisImpl_QueryDAOiBatisImplStub01) dao)
@@ -506,46 +506,46 @@ public class QueryDAOiBatisImplTest extends TestCase {
      * testExecuteForObjectArrayStringObjectClassintint01() <br>
      * <br>
      * 
-     * (³íŒn) <br>
-     * ŠÏ“_FC <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC <br>
      * <br>
-     * “ü—Í’lF(ˆø”) sqlID:"sqlId"<br>
-     * (ˆø”) bindParams:"1"<br>
-     * (ˆø”) clazz:"java.lang.String"<br>
-     * (ˆø”) beginIndex:10<br>
-     * (ˆø”) maxCount:100<br>
-     * (ó‘Ô) queryForList‚Ì–ß‚è‚ÌList:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) sqlID:"sqlId"<br>
+     * (å¼•æ•°) bindParams:"1"<br>
+     * (å¼•æ•°) clazz:"java.lang.String"<br>
+     * (å¼•æ•°) beginIndex:10<br>
+     * (å¼•æ•°) maxCount:100<br>
+     * (çŠ¶æ…‹) queryForListã®æˆ»ã‚Šã®List:not null<br>
      * [String("a"),String("b"), String("c")]<br>
      * 
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) E[]:String("a")<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) E[]:String("a")<br>
      * String("b")<br>
      * String("c")<br>
-     * (ó‘Ô•Ï‰») queryForList‚ÌŒÄoŠm”F:ˆø”‚ªsqlID, bindParams, beginIndex,
-     * maxCount‚ÅŒÄ‚Ño‚³‚ê‚Ä‚¢‚é–‚ğŠm”F<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) queryForListã®å‘¼å‡ºç¢ºèª:å¼•æ•°ãŒsqlID, bindParams, beginIndex,
+     * maxCountã§å‘¼ã³å‡ºã•ã‚Œã¦ã„ã‚‹äº‹ã‚’ç¢ºèª<br>
      * 
      * <br>
-     * queryForList‚Ì–ß‚è‚ªnot null‚ÅAˆø”clazz‚ÌŒ^‚Ì”z—ñ‚É•ÏŠ·‚Å‚«‚½ê‡ <br>
+     * queryForListã®æˆ»ã‚ŠãŒnot nullã§ã€å¼•æ•°clazzã®å‹ã®é…åˆ—ã«å¤‰æ›ã§ããŸå ´åˆ <br>
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExecuteForObjectArrayStringObjectClassintint01()
             throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         dao.setSqlMapClientTemplate(
                 new QueryDAOiBatisImpl_SqlMapClientTemplateStub01());
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String[] str = dao.executeForObjectArray("sqlId", "1", String.class,
                 10, 100);
 
-        // –ß‚è’l‚ÌŠm”F
+        // æˆ»ã‚Šå€¤ã®ç¢ºèª
         assertEquals("a", str[0]);
         assertEquals("b", str[1]);
         assertEquals("c", str[2]);
 
-        // ŒÄ‚Ño‚µŠm”F
+        // å‘¼ã³å‡ºã—ç¢ºèª
         QueryDAOiBatisImpl_SqlMapClientTemplateStub01 sqlMapTemp =
             (QueryDAOiBatisImpl_SqlMapClientTemplateStub01) dao
                 .getSqlMapClientTemplate();
@@ -560,32 +560,32 @@ public class QueryDAOiBatisImplTest extends TestCase {
      * testExecuteForObjectArrayStringObjectClassintint02() <br>
      * <br>
      * 
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) sqlID:"sqlId"<br>
-     * (ˆø”) bindParams:"1"<br>
-     * (ˆø”) clazz:null<br>
-     * (ó‘Ô) queryForList‚Ì–ß‚è‚ÌList:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) sqlID:"sqlId"<br>
+     * (å¼•æ•°) bindParams:"1"<br>
+     * (å¼•æ•°) clazz:null<br>
+     * (çŠ¶æ…‹) queryForListã®æˆ»ã‚Šã®List:not null<br>
      * 
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:llegalClassTypeException<br>
-     * (ó‘Ô•Ï‰») ƒƒO:ƒƒƒbƒZ[ƒW„<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:llegalClassTypeException<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ï¼œãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼<br>
      * "The mistake Class Type of the argument."<br>
      * 
      * <br>
-     * ˆø”clazz‚ªnull‚Ìê‡ <br>
+     * å¼•æ•°clazzãŒnullã®å ´åˆ <br>
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExecuteForObjectArrayStringObjectClassintint02()
             throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         dao.setSqlMapClientTemplate(
                 new QueryDAOiBatisImpl_SqlMapClientTemplateStub01());
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             dao.executeForObjectArray("sqlId", "1", null, 10, 100);
             fail();
@@ -595,7 +595,7 @@ public class QueryDAOiBatisImplTest extends TestCase {
                     IllegalClassTypeException.ERROR_ILLEGAL_CLASS_TYPE));
         }
 
-        // ŒÄ‚Ño‚µŠm”F
+        // å‘¼ã³å‡ºã—ç¢ºèª
         QueryDAOiBatisImpl_SqlMapClientTemplateStub01 sqlMapTemp =
             (QueryDAOiBatisImpl_SqlMapClientTemplateStub01) dao
                 .getSqlMapClientTemplate();
@@ -606,35 +606,35 @@ public class QueryDAOiBatisImplTest extends TestCase {
      * testExecuteForObjectArrayStringObjectClassintint03() <br>
      * <br>
      * 
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) sqlID:"sqlId"<br>
-     * (ˆø”) bindParams:"1"<br>
-     * (ˆø”) clazz:"java.lang.String"<br>
-     * (ó‘Ô) queryForList‚Ì–ß‚è‚ÌList:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) sqlID:"sqlId"<br>
+     * (å¼•æ•°) bindParams:"1"<br>
+     * (å¼•æ•°) clazz:"java.lang.String"<br>
+     * (çŠ¶æ…‹) queryForListã®æˆ»ã‚Šã®List:not null<br>
      * [Integer(1)]<br>
      * 
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalClassTypeException<br>
-     * ƒ‰ƒbƒv‚³‚ê‚½—áŠOF<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalClassTypeException<br>
+     * ãƒ©ãƒƒãƒ—ã•ã‚ŒãŸä¾‹å¤–ï¼š<br>
      * ArrayStoreException<br>
-     * (ó‘Ô•Ï‰») ƒƒO:ƒƒƒbƒZ[ƒW„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ï¼œãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼<br>
      * "The mistake Class Type of the argument."<br>
      * 
      * <br>
-     * queryForList‚Ì–ß‚è‚Æˆø”clazz‚ÌŒ^‚ªˆá‚¤ê‡ <br>
+     * queryForListã®æˆ»ã‚Šã¨å¼•æ•°clazzã®å‹ãŒé•ã†å ´åˆ <br>
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExecuteForObjectArrayStringObjectClassintint03()
             throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         dao.setSqlMapClientTemplate(
                 new QueryDAOiBatisImpl_SqlMapClientTemplateStub01());
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             dao.executeForObjectArray("sqlId", "1", Integer.class, 10, 100);
             fail();
@@ -645,7 +645,7 @@ public class QueryDAOiBatisImplTest extends TestCase {
                     IllegalClassTypeException.ERROR_ILLEGAL_CLASS_TYPE));
         }
 
-        // ŒÄ‚Ño‚µŠm”F
+        // å‘¼ã³å‡ºã—ç¢ºèª
         QueryDAOiBatisImpl_SqlMapClientTemplateStub01 sqlMapTemp =
             (QueryDAOiBatisImpl_SqlMapClientTemplateStub01) dao
                 .getSqlMapClientTemplate();
@@ -660,36 +660,36 @@ public class QueryDAOiBatisImplTest extends TestCase {
      * testExecuteForMapArrayStringObjectintint01() <br>
      * <br>
      * 
-     * (³íŒn) <br>
-     * ŠÏ“_FC <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC <br>
      * <br>
-     * “ü—Í’lF(ˆø”) sqlID:"sqlId"<br>
-     * (ˆø”) bindParams:"1"<br>
-     * (ˆø”) beginIndex:10<br>
-     * (ˆø”) maxCount:100<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) sqlID:"sqlId"<br>
+     * (å¼•æ•°) bindParams:"1"<br>
+     * (å¼•æ•°) beginIndex:10<br>
+     * (å¼•æ•°) maxCount:100<br>
      * 
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Map”z—ñ<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Mapé…åˆ—<br>
      * [0]=Map["abc","123"]<br>
-     * (ó‘Ô•Ï‰») executeForObjectArray‚ÌŒÄoŠm”F:ˆø”‚ªsqlIdA bindParams,
-     * Map.class,beginIndex, maxCount‚ÅŒÄ‚Ño‚³‚ê‚Ä‚¢‚é–‚ğŠm”F<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) executeForObjectArrayã®å‘¼å‡ºç¢ºèª:å¼•æ•°ãŒsqlIdã€ bindParams,
+     * Map.class,beginIndex, maxCountã§å‘¼ã³å‡ºã•ã‚Œã¦ã„ã‚‹äº‹ã‚’ç¢ºèª<br>
      * 
      * <br>
-     * “à•”‚Å‚ÍAexecuteForObjectArray‚ğŒÄ‚Ño‚µ‚Ä‚¢‚é‚½‚ßA
-     * ƒeƒXƒg‚ÍexecuteForObjectArray‚ÌƒeƒXƒgƒP[ƒX‚É•ïŠÜ‚·‚éB <br>
+     * å†…éƒ¨ã§ã¯ã€executeForObjectArrayã‚’å‘¼ã³å‡ºã—ã¦ã„ã‚‹ãŸã‚ã€
+     * ãƒ†ã‚¹ãƒˆã¯executeForObjectArrayã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã«åŒ…å«ã™ã‚‹ã€‚ <br>
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExecuteForMapArrayStringObjectintint01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         dao = new QueryDAOiBatisImpl_QueryDAOiBatisImplStub01();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Map<String, Object>[] map = dao.executeForMapArray("sqlId", "1", 10,
                 100);
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(map[0].containsKey("abc"));
         assertEquals("123", map[0].get("abc"));
         assertTrue(((QueryDAOiBatisImpl_QueryDAOiBatisImplStub01) dao)
@@ -711,43 +711,43 @@ public class QueryDAOiBatisImplTest extends TestCase {
      * testExecuteForObjectListStringObjectClass01() <br>
      * <br>
      * 
-     * (³íŒn) <br>
-     * ŠÏ“_FC <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC <br>
      * <br>
-     * “ü—Í’lF(ˆø”) sqlID:"sqlId"<br>
-     * (ˆø”) bindParams:"1"<br>
-     * (ˆø”) clazz:"java.lang.String"<br>
-     * (ó‘Ô) queryForList‚Ì–ß‚è‚ÌList:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) sqlID:"sqlId"<br>
+     * (å¼•æ•°) bindParams:"1"<br>
+     * (å¼•æ•°) clazz:"java.lang.String"<br>
+     * (çŠ¶æ…‹) queryForListã®æˆ»ã‚Šã®List:not null<br>
      * [String("a"),String("b"), String("c")]<br>
      * 
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) List<E>:String("a")<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) List<E>:String("a")<br>
      * String("b")<br>
      * String("c")<br>
-     * (ó‘Ô•Ï‰») queryForList‚ÌŒÄoŠm”F:ˆø”‚ªsqlIdAbindParams‚Å
-     * ŒÄ‚Ño‚³‚ê‚Ä‚¢‚é–‚ğŠm”F<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) queryForListã®å‘¼å‡ºç¢ºèª:å¼•æ•°ãŒsqlIdã€bindParamsã§
+     * å‘¼ã³å‡ºã•ã‚Œã¦ã„ã‚‹äº‹ã‚’ç¢ºèª<br>
      * 
      * <br>
-     * queryForList‚Ì–ß‚è‚ªnot null‚Ìê‡ <br>
+     * queryForListã®æˆ»ã‚ŠãŒnot nullã®å ´åˆ <br>
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExecuteForObjectListStringObjectClass01() 
             throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         dao.setSqlMapClientTemplate(
                 new QueryDAOiBatisImpl_SqlMapClientTemplateStub01());
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         List<String> str = dao.executeForObjectList("sqlId", "1");
 
-        // –ß‚è’l‚ÌŠm”F
+        // æˆ»ã‚Šå€¤ã®ç¢ºèª
         assertEquals("a", str.get(0));
         assertEquals("b", str.get(1));
         assertEquals("c", str.get(2));
 
-        // ŒÄ‚Ño‚µŠm”F
+        // å‘¼ã³å‡ºã—ç¢ºèª
         QueryDAOiBatisImpl_SqlMapClientTemplateStub01 sqlMapTemp =
             (QueryDAOiBatisImpl_SqlMapClientTemplateStub01) dao
                 .getSqlMapClientTemplate();
@@ -760,33 +760,33 @@ public class QueryDAOiBatisImplTest extends TestCase {
      * testExecuteForMapListStringObject01() <br>
      * <br>
      * 
-     * (³íŒn) <br>
-     * ŠÏ“_FC <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC <br>
      * <br>
-     * “ü—Í’lF(ˆø”) sqlID:"sqlId"<br>
-     * (ˆø”) bindParams:"1"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) sqlID:"sqlId"<br>
+     * (å¼•æ•°) bindParams:"1"<br>
      * 
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Map‚ÌList<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Mapã®List<br>
      * List.get(0)=Map["abc","123"]<br>
-     * (ó‘Ô•Ï‰») executeForObjectList‚ÌŒÄoŠm”F:ˆø”‚ªsqlIdA bindParams,
-     * Map.class‚ÅŒÄ‚Ño‚³‚ê‚Ä‚¢‚é–‚ğŠm”F<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) executeForObjectListã®å‘¼å‡ºç¢ºèª:å¼•æ•°ãŒsqlIdã€ bindParams,
+     * Map.classã§å‘¼ã³å‡ºã•ã‚Œã¦ã„ã‚‹äº‹ã‚’ç¢ºèª<br>
      * 
      * <br>
-     * “à•”‚Å‚ÍAexecuteForObjectList‚ğŒÄ‚Ño‚µ‚Ä‚¢‚é‚½‚ßA
-     * ƒeƒXƒg‚ÍexecuteForObjectList‚ÌƒeƒXƒgƒP[ƒX‚É•ïŠÜ‚·‚éB <br>
+     * å†…éƒ¨ã§ã¯ã€executeForObjectListã‚’å‘¼ã³å‡ºã—ã¦ã„ã‚‹ãŸã‚ã€
+     * ãƒ†ã‚¹ãƒˆã¯executeForObjectListã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã«åŒ…å«ã™ã‚‹ã€‚ <br>
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExecuteForMapListStringObject01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         dao = new QueryDAOiBatisImpl_QueryDAOiBatisImplStub01();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         List<Map<String, Object>> map = dao.executeForMapList("sqlId", "1");
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(map.get(0).containsKey("abc"));
         assertEquals("123", map.get(0).get("abc"));
         assertTrue(((QueryDAOiBatisImpl_QueryDAOiBatisImplStub01) dao)
@@ -801,46 +801,46 @@ public class QueryDAOiBatisImplTest extends TestCase {
      * testExecuteForObjectListStringObjectClassintint01() <br>
      * <br>
      * 
-     * (³íŒn) <br>
-     * ŠÏ“_FC <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC <br>
      * <br>
-     * “ü—Í’lF(ˆø”) sqlID:"sqlId"<br>
-     * (ˆø”) bindParams:"1"<br>
-     * (ˆø”) clazz:"java.lang.String"<br>
-     * (ˆø”) beginIndex:10<br>
-     * (ˆø”) maxCount:100<br>
-     * (ó‘Ô) queryForList‚Ì–ß‚è‚ÌList:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) sqlID:"sqlId"<br>
+     * (å¼•æ•°) bindParams:"1"<br>
+     * (å¼•æ•°) clazz:"java.lang.String"<br>
+     * (å¼•æ•°) beginIndex:10<br>
+     * (å¼•æ•°) maxCount:100<br>
+     * (çŠ¶æ…‹) queryForListã®æˆ»ã‚Šã®List:not null<br>
      * [String("a"),String("b"), String("c")]<br>
      * 
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) List<E>:String("a")<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) List<E>:String("a")<br>
      * String("b")<br>
      * String("c")<br>
-     * (ó‘Ô•Ï‰») queryForList‚ÌŒÄoŠm”F:ˆø”‚ªsqlID, bindParams, beginIndex,
-     * maxCount‚ÅŒÄ‚Ño‚³‚ê‚Ä‚¢‚é–‚ğŠm”F<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) queryForListã®å‘¼å‡ºç¢ºèª:å¼•æ•°ãŒsqlID, bindParams, beginIndex,
+     * maxCountã§å‘¼ã³å‡ºã•ã‚Œã¦ã„ã‚‹äº‹ã‚’ç¢ºèª<br>
      * 
      * <br>
-     * queryForList‚Ì–ß‚è‚ªnot null‚ÅAˆø”clazz‚ÌŒ^‚Ì”z—ñ‚É•ÏŠ·‚Å‚«‚½ê‡ <br>
+     * queryForListã®æˆ»ã‚ŠãŒnot nullã§ã€å¼•æ•°clazzã®å‹ã®é…åˆ—ã«å¤‰æ›ã§ããŸå ´åˆ <br>
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExecuteForObjectListStringObjectClassintint01()
             throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         dao.setSqlMapClientTemplate(
                 new QueryDAOiBatisImpl_SqlMapClientTemplateStub01());
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         List<String> str = dao.executeForObjectList("sqlId", "1", 
                 10, 100);
 
-        // –ß‚è’l‚ÌŠm”F
+        // æˆ»ã‚Šå€¤ã®ç¢ºèª
         assertEquals("a", str.get(0));
         assertEquals("b", str.get(1));
         assertEquals("c", str.get(2));
 
-        // ŒÄ‚Ño‚µŠm”F
+        // å‘¼ã³å‡ºã—ç¢ºèª
         QueryDAOiBatisImpl_SqlMapClientTemplateStub01 sqlMapTemp =
             (QueryDAOiBatisImpl_SqlMapClientTemplateStub01) dao
                 .getSqlMapClientTemplate();
@@ -855,36 +855,36 @@ public class QueryDAOiBatisImplTest extends TestCase {
      * testExecuteForMapListStringObjectintint01() <br>
      * <br>
      * 
-     * (³íŒn) <br>
-     * ŠÏ“_FC <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šC <br>
      * <br>
-     * “ü—Í’lF(ˆø”) sqlID:"sqlId"<br>
-     * (ˆø”) bindParams:"1"<br>
-     * (ˆø”) beginIndex:10<br>
-     * (ˆø”) maxCount:100<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) sqlID:"sqlId"<br>
+     * (å¼•æ•°) bindParams:"1"<br>
+     * (å¼•æ•°) beginIndex:10<br>
+     * (å¼•æ•°) maxCount:100<br>
      * 
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Map‚ÌList<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Mapã®List<br>
      * List.get(0)=Map["abc","123"]<br>
-     * (ó‘Ô•Ï‰») executeForObjectList‚ÌŒÄoŠm”F:ˆø”‚ªsqlIdA bindParams,
-     * Map.class,beginIndex, maxCount‚ÅŒÄ‚Ño‚³‚ê‚Ä‚¢‚é–‚ğŠm”F<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) executeForObjectListã®å‘¼å‡ºç¢ºèª:å¼•æ•°ãŒsqlIdã€ bindParams,
+     * Map.class,beginIndex, maxCountã§å‘¼ã³å‡ºã•ã‚Œã¦ã„ã‚‹äº‹ã‚’ç¢ºèª<br>
      * 
      * <br>
-     * “à•”‚Å‚ÍAexecuteForObjectList‚ğŒÄ‚Ño‚µ‚Ä‚¢‚é‚½‚ßA
-     * ƒeƒXƒg‚ÍexecuteForObjectList‚ÌƒeƒXƒgƒP[ƒX‚É•ïŠÜ‚·‚éB <br>
+     * å†…éƒ¨ã§ã¯ã€executeForObjectListã‚’å‘¼ã³å‡ºã—ã¦ã„ã‚‹ãŸã‚ã€
+     * ãƒ†ã‚¹ãƒˆã¯executeForObjectListã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã«åŒ…å«ã™ã‚‹ã€‚ <br>
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExecuteForMapListStringObjectintint01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         dao = new QueryDAOiBatisImpl_QueryDAOiBatisImplStub01();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         List<Map<String, Object>> map = dao.executeForMapList("sqlId", "1", 10,
                 100);
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(map.get(0).containsKey("abc"));
         assertEquals("123", map.get(0).get("abc"));
         assertTrue(((QueryDAOiBatisImpl_QueryDAOiBatisImplStub01) dao)

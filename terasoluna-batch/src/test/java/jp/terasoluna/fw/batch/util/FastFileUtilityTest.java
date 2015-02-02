@@ -31,14 +31,14 @@ import jp.terasoluna.fw.file.dao.FileException;
 import junit.framework.TestCase;
 
 /**
- * ‘O’ñğŒFŠeƒeƒXƒgƒƒ\ƒbƒh‚²‚Æ‚Ì‘O’ñğŒ‚ğŠm”F‚·‚é‚±‚Æ
+ * å‰ææ¡ä»¶ï¼šå„ãƒ†ã‚¹ãƒˆãƒ¡ã‚½ãƒƒãƒ‰ã”ã¨ã®å‰ææ¡ä»¶ã‚’ç¢ºèªã™ã‚‹ã“ã¨
  */
 public class FastFileUtilityTest extends TestCase {
     /**
      * testConstructor
      */
     public void testConstructor() {
-        // ƒJƒoƒŒƒbƒW‚ğ–‚½‚·‚½‚ß‚¾‚¯‚Ì€–Ú
+        // ã‚«ãƒãƒ¬ãƒƒã‚¸ã‚’æº€ãŸã™ãŸã‚ã ã‘ã®é …ç›®
         ReflectionUtils.newInstance(FastFileUtility.class);
         assertTrue(true);
     }
@@ -46,17 +46,17 @@ public class FastFileUtilityTest extends TestCase {
     /**
      * testCopyFile01()<br>
      * <br>
-     * –‘Oó‘ÔFƒNƒ‰ƒXƒpƒX/testdata ”z‰º‚Étest01.txt‚ª‘¶İ‚·‚é‚±‚ÆB<br>
+     * äº‹å‰çŠ¶æ…‹ï¼šã‚¯ãƒ©ã‚¹ãƒ‘ã‚¹/testdata é…ä¸‹ã«test01.txtãŒå­˜åœ¨ã™ã‚‹ã“ã¨ã€‚<br>
      * <br>
-     * ƒeƒXƒgŠT—vFƒtƒ@ƒCƒ‹‚ª“Ç‚İ‚Ü‚êA³í‚ÉƒRƒs[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * ãƒ†ã‚¹ãƒˆæ¦‚è¦ï¼šãƒ•ã‚¡ã‚¤ãƒ«ãŒèª­ã¿è¾¼ã¾ã‚Œã€æ­£å¸¸ã«ã‚³ãƒ”ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * Šm”F€–ÚFƒRƒs[æ‚Ìƒtƒ@ƒCƒ‹‚ªƒRƒs[Œ³‚Æ“à—e‚ª“¯‚¶‚©Šm”F‚·‚éB<br>
+     * ç¢ºèªé …ç›®ï¼šã‚³ãƒ”ãƒ¼å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«ãŒã‚³ãƒ”ãƒ¼å…ƒã¨å†…å®¹ãŒåŒã˜ã‹ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
      * @throws Exception
      */
     public void testCopyFile01() throws Exception {
 
-        // ƒeƒXƒgƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆãƒ‡ãƒ¼ã‚¿è¨­å®š
         URL srcUrl = this.getClass().getResource("/testdata/test01.txt");
         String srcFile = srcUrl.getPath();
         String newFile = srcFile.replaceAll("01", "01A");
@@ -65,10 +65,10 @@ public class FastFileUtilityTest extends TestCase {
             newFileCheck.delete();
         }
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         FastFileUtility.copyFile(srcFile, newFile);
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
         File expected = new File(srcFile);
         File actual = new File(newFile);
 
@@ -78,14 +78,14 @@ public class FastFileUtilityTest extends TestCase {
     /**
      * testCopyFile02()<br>
      * <br>
-     * –‘Oó‘ÔFƒNƒ‰ƒXƒpƒX/testdata ”z‰º‚Étest01.txt‚ª‘¶İ‚·‚é‚±‚ÆB<br>
-     * –‘Oó‘ÔFƒNƒ‰ƒXƒpƒX/testdata ”z‰º‚Étest02.txt‚ª‘¶İ‚µ‚È‚¢‚±‚ÆB<br>
+     * äº‹å‰çŠ¶æ…‹ï¼šã‚¯ãƒ©ã‚¹ãƒ‘ã‚¹/testdata é…ä¸‹ã«test01.txtãŒå­˜åœ¨ã™ã‚‹ã“ã¨ã€‚<br>
+     * äº‹å‰çŠ¶æ…‹ï¼šã‚¯ãƒ©ã‚¹ãƒ‘ã‚¹/testdata é…ä¸‹ã«test02.txtãŒå­˜åœ¨ã—ãªã„ã“ã¨ã€‚<br>
      * <br>
-     * ƒeƒXƒgŠT—vFƒtƒ@ƒCƒ‹‚ª“Ç‚İ‚Ü‚ê‚¸AFileException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * ãƒ†ã‚¹ãƒˆæ¦‚è¦ï¼šãƒ•ã‚¡ã‚¤ãƒ«ãŒèª­ã¿è¾¼ã¾ã‚Œãšã€FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * Šm”F€–ÚFFileException‚ªƒXƒ[‚³‚ê‚é‚±‚ÆB<br>
+     * ç¢ºèªé …ç›®ï¼šFileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
      * <br>
-     * Šm”F€–ÚF—áŠO‚ÉuC:\\tmp\\test02.txt is not exist.vƒƒbƒZ[ƒW‚ªİ’è‚³‚ê‚Ä‚¢‚é‚±‚ÆB<br>
+     * ç¢ºèªé …ç›®ï¼šä¾‹å¤–ã«ã€ŒC:\\tmp\\test02.txt is not exist.ã€ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹ã“ã¨ã€‚<br>
      * <br>
      * @throws Exception
      */
@@ -106,13 +106,13 @@ public class FastFileUtilityTest extends TestCase {
     /**
      * testCopyFile03()<br>
      * <br>
-     * –‘Oó‘ÔFƒNƒ‰ƒXƒpƒX/testdata ”z‰º‚Étest03.txt‚ª‘¶İ‚µA“Ç‚İæ‚èŒ ŒÀ‚ª‚È‚¢‚±‚Æ<br>
+     * äº‹å‰çŠ¶æ…‹ï¼šã‚¯ãƒ©ã‚¹ãƒ‘ã‚¹/testdata é…ä¸‹ã«test03.txtãŒå­˜åœ¨ã—ã€èª­ã¿å–ã‚Šæ¨©é™ãŒãªã„ã“ã¨<br>
      * <br>
-     * ƒeƒXƒgŠT—vFƒtƒ@ƒCƒ‹‚ª“Ç‚İ‚Ü‚ê‚¸AFileException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * ãƒ†ã‚¹ãƒˆæ¦‚è¦ï¼šãƒ•ã‚¡ã‚¤ãƒ«ãŒèª­ã¿è¾¼ã¾ã‚Œãšã€FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * Šm”F€–ÚFFileException‚ªƒXƒ[‚³‚ê‚é‚±‚ÆB<br>
+     * ç¢ºèªé …ç›®ï¼šFileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
      * <br>
-     * Šm”F€–ÚF—áŠO‚ÉuFile control operation was failed.vƒƒbƒZ[ƒW‚ªİ’è‚³‚ê‚Ä‚¢‚é‚±‚ÆB<br>
+     * ç¢ºèªé …ç›®ï¼šä¾‹å¤–ã«ã€ŒFile control operation was failed.ã€ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹ã“ã¨ã€‚<br>
      * <br>
      * @throws Exception
      */
@@ -133,13 +133,13 @@ public class FastFileUtilityTest extends TestCase {
     /**
      * testCopyFile04()<br>
      * <br>
-     * –‘Oó‘ÔFƒNƒ‰ƒXƒpƒX/testdata ”z‰º‚Étest01.txt‚ª‘¶İ‚·‚é‚±‚ÆB<br>
+     * äº‹å‰çŠ¶æ…‹ï¼šã‚¯ãƒ©ã‚¹ãƒ‘ã‚¹/testdata é…ä¸‹ã«test01.txtãŒå­˜åœ¨ã™ã‚‹ã“ã¨ã€‚<br>
      * <br>
-     * ƒeƒXƒgŠT—vFsrcFile‚Énull‚ğİ’è‚µ‚½ê‡Aƒtƒ@ƒCƒ‹‚ª“Ç‚İ‚Ü‚ê‚¸AFileException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * ãƒ†ã‚¹ãƒˆæ¦‚è¦ï¼šsrcFileã«nullã‚’è¨­å®šã—ãŸå ´åˆã€ãƒ•ã‚¡ã‚¤ãƒ«ãŒèª­ã¿è¾¼ã¾ã‚Œãšã€FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * Šm”F€–ÚFFileException‚ªƒXƒ[‚³‚ê‚é‚±‚ÆB<br>
+     * ç¢ºèªé …ç›®ï¼šFileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
      * <br>
-     * Šm”F€–ÚF—áŠO‚ÉuFile control operation was failed.vƒƒbƒZ[ƒW‚ªİ’è‚³‚ê‚Ä‚¢‚é‚±‚ÆB<br>
+     * ç¢ºèªé …ç›®ï¼šä¾‹å¤–ã«ã€ŒFile control operation was failed.ã€ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹ã“ã¨ã€‚<br>
      * <br>
      * @throws Exception
      */
@@ -159,19 +159,19 @@ public class FastFileUtilityTest extends TestCase {
     /**
      * testCopyFile05()<br>
      * <br>
-     * –‘Oó‘ÔF‚È‚µ<br>
+     * äº‹å‰çŠ¶æ…‹ï¼šãªã—<br>
      * <br>
-     * ƒeƒXƒgŠT—vFƒNƒ‰ƒXƒpƒX/testdata ”z‰º‚Étest01.txt‚ª‘¶İ‚µAnewFile‚Énull‚ªİ’è‚³‚ê‚½ê‡A FileException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * ãƒ†ã‚¹ãƒˆæ¦‚è¦ï¼šã‚¯ãƒ©ã‚¹ãƒ‘ã‚¹/testdata é…ä¸‹ã«test01.txtãŒå­˜åœ¨ã—ã€newFileã«nullãŒè¨­å®šã•ã‚ŒãŸå ´åˆã€ FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * Šm”F€–ÚFFileException‚ªƒXƒ[‚³‚ê‚é‚±‚ÆB<br>
+     * ç¢ºèªé …ç›®ï¼šFileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã€‚<br>
      * <br>
-     * Šm”F€–ÚF—áŠO‚ÉuFile control operation was failed.vƒƒbƒZ[ƒW‚ªİ’è‚³‚ê‚Ä‚¢‚é‚±‚ÆB<br>
+     * ç¢ºèªé …ç›®ï¼šä¾‹å¤–ã«ã€ŒFile control operation was failed.ã€ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹ã“ã¨ã€‚<br>
      * <br>
      * @throws Exception
      */
     public void testCopyFile05() throws Exception {
 
-        // ƒeƒXƒgƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆãƒ‡ãƒ¼ã‚¿è¨­å®š
         URL srcUrl = this.getClass().getResource("/testdata/test01.txt");
         String srcFile = srcUrl.getPath();
         String newFile = null;
@@ -186,18 +186,18 @@ public class FastFileUtilityTest extends TestCase {
     /**
      * testCopyFile06()<br>
      * <br>
-     * –‘Oó‘ÔFƒNƒ‰ƒXƒpƒX/testdata ”z‰º‚É—e—Ê‚Ì‘å‚«‚¢test06.txt‚·‚é‚±‚Æ<br>
+     * äº‹å‰çŠ¶æ…‹ï¼šã‚¯ãƒ©ã‚¹ãƒ‘ã‚¹/testdata é…ä¸‹ã«å®¹é‡ã®å¤§ãã„test06.txtã™ã‚‹ã“ã¨<br>
      * <br>
-     * ƒeƒXƒgŠT—vFƒtƒ@ƒCƒ‹‚ª“Ç‚İ‚Ü‚êA³í‚ÉƒRƒs[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * ãƒ†ã‚¹ãƒˆæ¦‚è¦ï¼šãƒ•ã‚¡ã‚¤ãƒ«ãŒèª­ã¿è¾¼ã¾ã‚Œã€æ­£å¸¸ã«ã‚³ãƒ”ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * Šm”F€–ÚFƒRƒs[æ‚Ìƒtƒ@ƒCƒ‹‚ªƒRƒs[Œ³‚Æ“à—e‚ª“¯‚¶‚©Šm”F‚·‚éB<br>
+     * ç¢ºèªé …ç›®ï¼šã‚³ãƒ”ãƒ¼å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«ãŒã‚³ãƒ”ãƒ¼å…ƒã¨å†…å®¹ãŒåŒã˜ã‹ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
      * @throws Exception
      */
     public void testCopyFile06() throws Exception {
 
         
-        // 583MBƒtƒ@ƒCƒ‹‚ğì¬
+        // 583MBãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä½œæˆ
         URL parent = this.getClass().getResource("/testdata");
         String target = parent.getPath() + "/test06.txt";
         File f = new File(target);
@@ -226,7 +226,7 @@ public class FastFileUtilityTest extends TestCase {
             }
         }
 
-        // ƒeƒXƒgƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆãƒ‡ãƒ¼ã‚¿è¨­å®š
         URL srcUrl = this.getClass().getResource("/testdata/test06.txt");
 
         String srcFile = srcUrl.getPath();
@@ -236,10 +236,10 @@ public class FastFileUtilityTest extends TestCase {
             newFileCheck.delete();
         }
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         FastFileUtility.copyFile(srcFile, newFile);
 
-        // Œ‹‰ÊŒŸØ
+        // çµæœæ¤œè¨¼
         File expected = new File(srcFile);
         File actual = new File(newFile);
 
@@ -261,7 +261,7 @@ public class FastFileUtilityTest extends TestCase {
             }
         };
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         FastFileUtility.closeQuietly(channel);
     }
 
@@ -280,7 +280,7 @@ public class FastFileUtilityTest extends TestCase {
             }
         };
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         FastFileUtility.closeQuietly(channel);
     }
 
@@ -292,7 +292,7 @@ public class FastFileUtilityTest extends TestCase {
         URL srcUrl = this.getClass().getResource("/testdata/test01.txt");
         FileInputStream channel = new FileInputStream(srcUrl.getPath());
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         FastFileUtility.closeQuietly(channel);
     }
 
@@ -309,7 +309,7 @@ public class FastFileUtilityTest extends TestCase {
             }
         };
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         FastFileUtility.closeQuietly(channel);
     }
 
@@ -328,7 +328,7 @@ public class FastFileUtilityTest extends TestCase {
 
         FileOutputStream channel = new FileOutputStream(newFile);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         FastFileUtility.closeQuietly(channel);
     }
 
@@ -352,7 +352,7 @@ public class FastFileUtilityTest extends TestCase {
             }
         };
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         FastFileUtility.closeQuietly(channel);
     }
 

@@ -20,7 +20,7 @@ import jp.terasoluna.utlib.UTUtil;
 import junit.framework.TestCase;
 
 /**
- * SystemException ƒuƒ‰ƒbƒNƒ{ƒbƒNƒXƒeƒXƒgB<br>
+ * SystemException ãƒ–ãƒ©ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ†ã‚¹ãƒˆã€‚<br>
  *
  *
  * @version 2004/04/21
@@ -29,12 +29,12 @@ import junit.framework.TestCase;
 public class SystemExceptionTest extends TestCase {
 
     /**
-      * ƒeƒXƒg—pSystemExceptionƒtƒB[ƒ‹ƒhB
+      * ãƒ†ã‚¹ãƒˆç”¨SystemExceptionãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã€‚
       */
     private SystemException se1 = null;
 
     /**
-     * SystemException‚ğƒeƒXƒg‚·‚éÛ‚És‚¤‰Šú‰»ˆ—B
+     * SystemExceptionã‚’ãƒ†ã‚¹ãƒˆã™ã‚‹éš›ã«è¡Œã†åˆæœŸåŒ–å‡¦ç†ã€‚
      * @see TestCase#setUp()
      */
     @Override
@@ -53,23 +53,23 @@ public class SystemExceptionTest extends TestCase {
     /**
      * testSystemExceptionThrowable01()<br>
      *
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lFcause = not null<br>
-     * Šú‘Ò’lFcause = not null, errorCode = ""‚ªİ’è‚³‚ê‚éB<br>
+     * å…¥åŠ›å€¤ï¼šcause = not null<br>
+     * æœŸå¾…å€¤ï¼šcause = not null, errorCode = ""ãŒè¨­å®šã•ã‚Œã‚‹ã€‚<br>
      * 
-     * ŠT—vFˆø”cause‚ªNotNull‚ÅAƒƒbƒZ[ƒW‚ª‚ ‚è‚Ìê‡
-     * @throws Exception —áŠO
+     * æ¦‚è¦ï¼šå¼•æ•°causeãŒNotNullã§ã€ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒã‚ã‚Šã®å ´åˆ
+     * @throws Exception ä¾‹å¤–
      */
     public void testSystemExceptionThrowable01() throws Exception {
 
-        // “ü—Í’l‚Ìİ’èB
+        // å…¥åŠ›å€¤ã®è¨­å®šã€‚
         Throwable cause = new Throwable("testException");
-        // ƒeƒXƒg‘ÎÛƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌÀsB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å®Ÿè¡Œã€‚
         se1 = new SystemException(cause);
 
-        // o—Í’l‚ÌŠm”FB
+        // å‡ºåŠ›å€¤ã®ç¢ºèªã€‚
         String throwWord =
             ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
         String errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
@@ -81,23 +81,23 @@ public class SystemExceptionTest extends TestCase {
     /**
      * testSystemExceptionThrowable02()<br>
      *
-     * (³íŒn)<br>
-     * ŠÏ“_FC<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šC<br>
      *
-     * “ü—Í’lFcause = ""<br>
-     * Šú‘Ò’lFcause = "", errorCode = ""‚ªİ’è‚³‚ê‚éB<br>
+     * å…¥åŠ›å€¤ï¼šcause = ""<br>
+     * æœŸå¾…å€¤ï¼šcause = "", errorCode = ""ãŒè¨­å®šã•ã‚Œã‚‹ã€‚<br>
      * 
-     * ŠT—vFˆø”cause‚ªNotNull‚ÅAƒƒbƒZ[ƒW‚ª‹ó”’‚Ìê‡
-     * @throws Exception —áŠO
+     * æ¦‚è¦ï¼šå¼•æ•°causeãŒNotNullã§ã€ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒç©ºç™½ã®å ´åˆ
+     * @throws Exception ä¾‹å¤–
      */
     public void testSystemExceptionThrowable02() throws Exception {
-        // “ü—Í’l‚Ìİ’èB
+        // å…¥åŠ›å€¤ã®è¨­å®šã€‚
         Throwable cause = new Throwable("");
 
-        // ƒeƒXƒg‘ÎÛƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌÀsB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å®Ÿè¡Œã€‚
         se1 = new SystemException(cause);
 
-        // o—Í’l‚ÌŠm”FB
+        // å‡ºåŠ›å€¤ã®ç¢ºèªã€‚
         String throwWord =
             ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
         String errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
@@ -108,21 +108,21 @@ public class SystemExceptionTest extends TestCase {
     /**
      * testSystemExceptionThrowable03()<br>
      *
-     * (³íŒn)<br>
-     * ŠÏ“_FC<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šC<br>
      *
-     * “ü—Í’lFcause = null<br>
-     * Šú‘Ò’lFcause = null, errorCode = ""‚ªİ’è‚³‚ê‚éB<br>
+     * å…¥åŠ›å€¤ï¼šcause = null<br>
+     * æœŸå¾…å€¤ï¼šcause = null, errorCode = ""ãŒè¨­å®šã•ã‚Œã‚‹ã€‚<br>
      * 
-     * ŠT—vFˆø”cause‚ªnull‚Ìê‡
-     * @throws Exception —áŠO
+     * æ¦‚è¦ï¼šå¼•æ•°causeãŒnullã®å ´åˆ
+     * @throws Exception ä¾‹å¤–
      */
     public void testSystemExceptionThrowable03() throws Exception {
 
-        // ƒeƒXƒg‘ÎÛƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌÀsB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å®Ÿè¡Œã€‚
         se1 = new SystemException(null);
 
-        // o—Í’l‚ÌŠm”FB
+        // å‡ºåŠ›å€¤ã®ç¢ºèªã€‚
         Throwable throWord = (Throwable) UTUtil.getPrivateField(se1, "cause");
         String errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
         assertNull(throWord);
@@ -132,24 +132,24 @@ public class SystemExceptionTest extends TestCase {
     /**
      * testSystemExceptionThrowableString01()<br>
      *
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lFcause = not null, errorCode = not null<br>
-     * Šú‘Ò’lFcause = not null, errorCode = not null‚ªİ’è‚³‚ê‚éB<br>
+     * å…¥åŠ›å€¤ï¼šcause = not null, errorCode = not null<br>
+     * æœŸå¾…å€¤ï¼šcause = not null, errorCode = not nullãŒè¨­å®šã•ã‚Œã‚‹ã€‚<br>
      * 
-     * ŠT—vFˆø”cause‚ªNotNull‚ÅƒƒbƒZ[ƒW‚ª‚ ‚èAˆø”errorCode‚ª"test01"‚Ìê‡
-     * @throws Exception —áŠO
+     * æ¦‚è¦ï¼šå¼•æ•°causeãŒNotNullã§ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒã‚ã‚Šã€å¼•æ•°errorCodeãŒ"test01"ã®å ´åˆ
+     * @throws Exception ä¾‹å¤–
      */
     public void testSystemExceptionThrowableString01() throws Exception {
-        // “ü—Í’l‚Ìİ’èB
+        // å…¥åŠ›å€¤ã®è¨­å®šã€‚
         Throwable cause = new Throwable("testException");
         String errorCode = "test01";
 
-        // ƒeƒXƒg‘ÎÛƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌÀsB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å®Ÿè¡Œã€‚
         se1 = new SystemException(cause, errorCode);
 
-        // o—Í’l‚ÌŠm”FB
+        // å‡ºåŠ›å€¤ã®ç¢ºèªã€‚
         String throwWord =
             ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
         errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
@@ -160,23 +160,23 @@ public class SystemExceptionTest extends TestCase {
     /**
      * testSystemExceptionThrowableString02()<br>
      *
-     * (³íŒn)<br>
-     * ŠÏ“_FC<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šC<br>
      *
-     * “ü—Í’lFcause = not null, errorCode = ""<br>
-     * Šú‘Ò’lFcause = not null, errorCode = ""‚ªİ’è‚³‚ê‚éB<br>
+     * å…¥åŠ›å€¤ï¼šcause = not null, errorCode = ""<br>
+     * æœŸå¾…å€¤ï¼šcause = not null, errorCode = ""ãŒè¨­å®šã•ã‚Œã‚‹ã€‚<br>
      * 
-     * ŠT—vFˆø”cause‚ªNotNull‚ÅƒƒbƒZ[ƒW‚ª‚ ‚èAˆø”errorCode‚ª‹ó”’‚Ìê‡
-     * @throws Exception —áŠO
+     * æ¦‚è¦ï¼šå¼•æ•°causeãŒNotNullã§ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒã‚ã‚Šã€å¼•æ•°errorCodeãŒç©ºç™½ã®å ´åˆ
+     * @throws Exception ä¾‹å¤–
      */
     public void testSystemExceptionThrowableString02() throws Exception {
-        // “ü—Í’l‚Ìİ’èB
+        // å…¥åŠ›å€¤ã®è¨­å®šã€‚
         Throwable cause = new Throwable("testException");
 
-        // ƒeƒXƒg‘ÎÛƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌÀsB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å®Ÿè¡Œã€‚
         se1 = new SystemException(cause, "");
 
-        // o—Í’l‚ÌŠm”FB
+        // å‡ºåŠ›å€¤ã®ç¢ºèªã€‚
         String throwWord =
             ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
         String errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
@@ -186,23 +186,23 @@ public class SystemExceptionTest extends TestCase {
     /**
      * testSystemExceptionThrowableString03<br>
      *
-     * (³íŒn)<br>
-     * ŠÏ“_FC<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šC<br>
      *
-     * “ü—Í’lFcause = not null, errorCode = null<br>
-     * Šú‘Ò’lFcause = not null, errorCode = null‚ªİ’è‚³‚ê‚éB<br>
+     * å…¥åŠ›å€¤ï¼šcause = not null, errorCode = null<br>
+     * æœŸå¾…å€¤ï¼šcause = not null, errorCode = nullãŒè¨­å®šã•ã‚Œã‚‹ã€‚<br>
      * 
-     * ŠT—vFˆø”cause‚ªNotNull‚ÅƒƒbƒZ[ƒW‚ª‚ ‚èAˆø”errorCode‚ªnull‚Ìê‡
-     * @throws Exception —áŠO
+     * æ¦‚è¦ï¼šå¼•æ•°causeãŒNotNullã§ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒã‚ã‚Šã€å¼•æ•°errorCodeãŒnullã®å ´åˆ
+     * @throws Exception ä¾‹å¤–
      */
     public void testSystemExceptionThrowableString03() throws Exception {
-        // “ü—Í’l‚Ìİ’èB
+        // å…¥åŠ›å€¤ã®è¨­å®šã€‚
         Throwable cause = new Throwable("testException");
 
-        // ƒeƒXƒg‘ÎÛƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌÀsB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å®Ÿè¡Œã€‚
         se1 = new SystemException(cause, null);
 
-        // o—Í’l‚ÌŠm”FB
+        // å‡ºåŠ›å€¤ã®ç¢ºèªã€‚
         String throwWord =
             ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
         String errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
@@ -213,29 +213,29 @@ public class SystemExceptionTest extends TestCase {
     /**
      * testSystemExceptionThrowableStringStringArray01<br>
      *
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      *
-     * ŠÏ“_FA<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lFcause = not null, errorCode = not null, <br>
+     * å…¥åŠ›å€¤ï¼šcause = not null, errorCode = not null, <br>
      *        optionStrings = not null<br>
-     * Šú‘Ò’lFcause = not null, errorCode = not null, <br>
-     *        options = not null‚ªİ’è‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼šcause = not null, errorCode = not null, <br>
+     *        options = not nullãŒè¨­å®šã•ã‚Œã‚‹ã€‚<br>
      * 
-     * ŠT—vFˆø”cause‚ªNotNull‚ÅƒƒbƒZ[ƒW‚ª‚ ‚èAˆø”errorCode‚ª"test01"Aˆø”options‚ªu{ "a" }v‚Ìê‡
-     * @throws Exception —áŠO
+     * æ¦‚è¦ï¼šå¼•æ•°causeãŒNotNullã§ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒã‚ã‚Šã€å¼•æ•°errorCodeãŒ"test01"ã€å¼•æ•°optionsãŒã€Œ{ "a" }ã€ã®å ´åˆ
+     * @throws Exception ä¾‹å¤–
      */
     public void testSystemExceptionThrowableStringStringArray01()
         throws Exception {
-        // “ü—Í’l‚Ìİ’èB
+        // å…¥åŠ›å€¤ã®è¨­å®šã€‚
         Throwable cause = new Throwable("testException");
         String errorCode = "test01";
         String[] optionStrings = { "a" };
 
-        // ƒeƒXƒg‘ÎÛƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌÀsB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å®Ÿè¡Œã€‚
         se1 = new SystemException(cause, errorCode, optionStrings);
 
-        // o—Í’l‚ÌŠm”FB
+        // å‡ºåŠ›å€¤ã®ç¢ºèªã€‚
         String throwWord =
             ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
         errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
@@ -248,28 +248,28 @@ public class SystemExceptionTest extends TestCase {
     /**
      * testSystemExceptionThrowableStringStringArray02()<br>
      *
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      *
-     * ŠÏ“_FA<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lFcause = not null, errorCode = "", <br>
+     * å…¥åŠ›å€¤ï¼šcause = not null, errorCode = "", <br>
      *        optionStrings = not null<br>
-     * Šú‘Ò’lFcause = not null, errorCode = "", <br>
-     *        options = not null‚ªİ’è‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼šcause = not null, errorCode = "", <br>
+     *        options = not nullãŒè¨­å®šã•ã‚Œã‚‹ã€‚<br>
      * 
-     * ŠT—vFˆø”cause‚ªNotNull‚ÅƒƒbƒZ[ƒW‚ª‚ ‚èAˆø”errorCode‚ª"test01"Aˆø”options‚ªu{ "a", "b" }v‚Ìê‡
-     * @throws Exception —áŠO
+     * æ¦‚è¦ï¼šå¼•æ•°causeãŒNotNullã§ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒã‚ã‚Šã€å¼•æ•°errorCodeãŒ"test01"ã€å¼•æ•°optionsãŒã€Œ{ "a", "b" }ã€ã®å ´åˆ
+     * @throws Exception ä¾‹å¤–
      */
     public void testSystemExceptionThrowableStringStringArray02()
         throws Exception {
-        // “ü—Í’l‚Ìİ’èB
+        // å…¥åŠ›å€¤ã®è¨­å®šã€‚
         Throwable cause = new Throwable("testException");
         String[] optionStrings = { "a", "b" };
 
-        // ƒeƒXƒg‘ÎÛƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌÀsB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å®Ÿè¡Œã€‚
         se1 = new SystemException(cause, "", optionStrings);
 
-        // o—Í’l‚ÌŠm”FB
+        // å‡ºåŠ›å€¤ã®ç¢ºèªã€‚
         String throwWord =
             ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
         String errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
@@ -283,28 +283,28 @@ public class SystemExceptionTest extends TestCase {
     /**
      * testSystemExceptionThrowableStringStringArray03()<br>
      *
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      *
-     * ŠÏ“_FA<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lFcause = not null, errorCode = null, <br>
+     * å…¥åŠ›å€¤ï¼šcause = not null, errorCode = null, <br>
      *        optionStrings = not null<br>
-     * Šú‘Ò’lFcause = not null, errorCode = null, <br>
-     *        options = not null‚ªİ’è‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼šcause = not null, errorCode = null, <br>
+     *        options = not nullãŒè¨­å®šã•ã‚Œã‚‹ã€‚<br>
      * 
-     * ŠT—vFˆø”cause‚ªNotNull‚ÅƒƒbƒZ[ƒW‚ª‚ ‚èAˆø”errorCode‚ª"test01"Aˆø”options‚ªu{ "a", "b", "c" }v‚Ìê‡
-     * @throws Exception —áŠO
+     * æ¦‚è¦ï¼šå¼•æ•°causeãŒNotNullã§ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒã‚ã‚Šã€å¼•æ•°errorCodeãŒ"test01"ã€å¼•æ•°optionsãŒã€Œ{ "a", "b", "c" }ã€ã®å ´åˆ
+     * @throws Exception ä¾‹å¤–
      */
     public void testSystemExceptionThrowableStringStringArray03()
         throws Exception {
-        // “ü—Í’l‚Ìİ’èB
+        // å…¥åŠ›å€¤ã®è¨­å®šã€‚
         Throwable cause = new Throwable("testException");
         String[] optionStrings = { "a", "b", "c" };
 
-        // ƒeƒXƒg‘ÎÛƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌÀsB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å®Ÿè¡Œã€‚
         se1 = new SystemException(cause, null, optionStrings);
 
-        // o—Í’l‚ÌŠm”FB
+        // å‡ºåŠ›å€¤ã®ç¢ºèªã€‚
         String throwWord =
             ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
         String errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
@@ -319,28 +319,28 @@ public class SystemExceptionTest extends TestCase {
     /**
      * testSystemExceptionThrowableStringStringArray04<br>
      *
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      *
-     * ŠÏ“_FC<br>
+     * è¦³ç‚¹ï¼šC<br>
      *
-     * “ü—Í’lFcause = not null, errorCode = "", <br>
+     * å…¥åŠ›å€¤ï¼šcause = not null, errorCode = "", <br>
      *        optionStrings = null<br>
-     * Šú‘Ò’lFcause = not null, errorCode = "", <br>
-     *        options = null‚ªİ’è‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼šcause = not null, errorCode = "", <br>
+     *        options = nullãŒè¨­å®šã•ã‚Œã‚‹ã€‚<br>
      * 
-     * ŠT—vFˆø”cause‚ªNotNull‚ÅƒƒbƒZ[ƒW‚ª‚ ‚èAˆø”errorCode‚ª"test01"Aˆø”options‚ªnull‚Ìê‡
-     * @throws Exception —áŠO
+     * æ¦‚è¦ï¼šå¼•æ•°causeãŒNotNullã§ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒã‚ã‚Šã€å¼•æ•°errorCodeãŒ"test01"ã€å¼•æ•°optionsãŒnullã®å ´åˆ
+     * @throws Exception ä¾‹å¤–
      */
     public void testSystemExceptionThrowableStringStringArray04()
         throws Exception {
-        // “ü—Í’l‚Ìİ’èB
+        // å…¥åŠ›å€¤ã®è¨­å®šã€‚
         Throwable cause = new Throwable("testException");
         String[] optionStrings = null;
 
-        // ƒeƒXƒg‘ÎÛƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌÀsB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å®Ÿè¡Œã€‚
         se1 = new SystemException(cause, "", optionStrings);
 
-        // o—Í’l‚ÌŠm”FB
+        // å‡ºåŠ›å€¤ã®ç¢ºèªã€‚
         String throwWord =
             ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
         String errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
@@ -354,28 +354,28 @@ public class SystemExceptionTest extends TestCase {
     /**
      * testSystemExceptionThrowableStringStringArray05<br>
      *
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      *
-     * ŠÏ“_FC<br>
+     * è¦³ç‚¹ï¼šC<br>
      *
-     * “ü—Í’lFcause = not null, errorCode = null, <br>
-     *        optionStrings = not null(”z—ñ—v‘f‚É‹ó”’‚ ‚è)<br>
-     * Šú‘Ò’lFcause = not null, errorCode = null, <br>
-     *        options = not null(”z—ñ—v‘f‚É‹ó”’‚ ‚è)‚ªİ’è‚³‚ê‚éB<br>
+     * å…¥åŠ›å€¤ï¼šcause = not null, errorCode = null, <br>
+     *        optionStrings = not null(é…åˆ—è¦ç´ ã«ç©ºç™½ã‚ã‚Š)<br>
+     * æœŸå¾…å€¤ï¼šcause = not null, errorCode = null, <br>
+     *        options = not null(é…åˆ—è¦ç´ ã«ç©ºç™½ã‚ã‚Š)ãŒè¨­å®šã•ã‚Œã‚‹ã€‚<br>
      * 
-     * ŠT—vFˆø”cause‚ªNotNull‚ÅƒƒbƒZ[ƒW‚ª‚ ‚èAˆø”errorCode‚ª"test01"Aˆø”options‚ªu{ "", "", "" }v‚Ìê‡
-     * @throws Exception —áŠO
+     * æ¦‚è¦ï¼šå¼•æ•°causeãŒNotNullã§ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒã‚ã‚Šã€å¼•æ•°errorCodeãŒ"test01"ã€å¼•æ•°optionsãŒã€Œ{ "", "", "" }ã€ã®å ´åˆ
+     * @throws Exception ä¾‹å¤–
      */
     public void testSystemExceptionThrowableStringStringArray05()
         throws Exception {
-        // “ü—Í’l‚Ìİ’èB
+        // å…¥åŠ›å€¤ã®è¨­å®šã€‚
         Throwable cause = new Throwable("testException");
         String[] optionStrings = { "", "", "" };
 
-        // ƒeƒXƒg‘ÎÛƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌÀsB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å®Ÿè¡Œã€‚
         se1 = new SystemException(cause, null, optionStrings);
 
-        // o—Í’l‚ÌŠm”FB
+        // å‡ºåŠ›å€¤ã®ç¢ºèªã€‚
         String throwWord =
             ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
         String errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
@@ -391,29 +391,29 @@ public class SystemExceptionTest extends TestCase {
     /**
      * testSystemExceptionThrowableStringStringArray06<br>
      *
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      *
-     * ŠÏ“_FC<br>
+     * è¦³ç‚¹ï¼šC<br>
      *
-     * “ü—Í’lFcause = not null, errorCode = not null, <br>
-     *        optionStrings = not null(”z—ñ—v‘f‚Énull‚ ‚è)<br>
-     * Šú‘Ò’lFcause = not null, errorCode = not null, <br>
-     *        options = not null(”z—ñ—v‘f‚Énull‚ ‚è)‚ªİ’è‚³‚ê‚éB<br>
+     * å…¥åŠ›å€¤ï¼šcause = not null, errorCode = not null, <br>
+     *        optionStrings = not null(é…åˆ—è¦ç´ ã«nullã‚ã‚Š)<br>
+     * æœŸå¾…å€¤ï¼šcause = not null, errorCode = not null, <br>
+     *        options = not null(é…åˆ—è¦ç´ ã«nullã‚ã‚Š)ãŒè¨­å®šã•ã‚Œã‚‹ã€‚<br>
      * 
-     * ŠT—vFˆø”cause‚ªNotNull‚ÅƒƒbƒZ[ƒW‚ª‚ ‚èAˆø”errorCode‚ª"test01"Aˆø”options‚ªu{ null, null, null }v‚Ìê‡
-     * @throws Exception —áŠO
+     * æ¦‚è¦ï¼šå¼•æ•°causeãŒNotNullã§ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒã‚ã‚Šã€å¼•æ•°errorCodeãŒ"test01"ã€å¼•æ•°optionsãŒã€Œ{ null, null, null }ã€ã®å ´åˆ
+     * @throws Exception ä¾‹å¤–
      */
     public void testSystemExceptionThrowableStringStringArray06()
         throws Exception {
-        // “ü—Í’l‚Ìİ’èB
+        // å…¥åŠ›å€¤ã®è¨­å®šã€‚
         Throwable cause = new Throwable("testException");
         String errorCode = "test01";
         String[] optionStrings = { null, null, null };
 
-        // ƒeƒXƒg‘ÎÛƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌÀsB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å®Ÿè¡Œã€‚
         se1 = new SystemException(cause, errorCode, optionStrings);
 
-        // o—Í’l‚ÌŠm”FB
+        // å‡ºåŠ›å€¤ã®ç¢ºèªã€‚
         String throwWord =
             ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
         errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
@@ -429,29 +429,29 @@ public class SystemExceptionTest extends TestCase {
     /**
      * testSystemExceptionThrowableStringStringArray07<br>
      *
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      *
-     * ŠÏ“_FC<br>
+     * è¦³ç‚¹ï¼šC<br>
      *
-     * “ü—Í’lFcause = not null, errorCode = not null, <br>
-     *        optionStrings = not null(”z—ñ—v‘f‚É‹ó”’Anull‚ ‚è)<br>
-     * Šú‘Ò’lFcause = not null, errorCode = not null, <br>
-     *        options = not null(”z—ñ—v‘f‚É‹ó”’Anull‚ ‚è)‚ªİ’è‚³‚ê‚éB<br>
+     * å…¥åŠ›å€¤ï¼šcause = not null, errorCode = not null, <br>
+     *        optionStrings = not null(é…åˆ—è¦ç´ ã«ç©ºç™½ã€nullã‚ã‚Š)<br>
+     * æœŸå¾…å€¤ï¼šcause = not null, errorCode = not null, <br>
+     *        options = not null(é…åˆ—è¦ç´ ã«ç©ºç™½ã€nullã‚ã‚Š)ãŒè¨­å®šã•ã‚Œã‚‹ã€‚<br>
      * 
-     * ŠT—vFˆø”cause‚ªNotNull‚ÅƒƒbƒZ[ƒW‚ª‚ ‚èAˆø”errorCode‚ª"test01"Aˆø”options‚ªu{ "a", "", null }v‚Ìê‡
-     * @throws Exception —áŠO
+     * æ¦‚è¦ï¼šå¼•æ•°causeãŒNotNullã§ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒã‚ã‚Šã€å¼•æ•°errorCodeãŒ"test01"ã€å¼•æ•°optionsãŒã€Œ{ "a", "", null }ã€ã®å ´åˆ
+     * @throws Exception ä¾‹å¤–
      */
     public void testSystemExceptionThrowableStringStringArray07()
         throws Exception {
-        // “ü—Í’l‚Ìİ’èB
+        // å…¥åŠ›å€¤ã®è¨­å®šã€‚
         Throwable cause = new Throwable("testException");
         String errorCode = "test01";
         String[] optionStrings = { "a", "", null };
 
-        // ƒeƒXƒg‘ÎÛƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌÀsB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å®Ÿè¡Œã€‚
         se1 = new SystemException(cause, errorCode, optionStrings);
 
-        // o—Í’l‚ÌŠm”FB
+        // å‡ºåŠ›å€¤ã®ç¢ºèªã€‚
         String throwWord =
             ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
         errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
@@ -467,27 +467,27 @@ public class SystemExceptionTest extends TestCase {
     /**
      * testSystemExceptionThrowableStringString01()<br>
      *
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      *
-     * ŠÏ“_FA<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lFcause = not null, errorCode = not null, s0 = not null<br>
-     * Šú‘Ò’lFcause = not null, errorCode = not null, <br>
-     *        options = not null‚ªİ’è‚³‚ê‚éB<br>
+     * å…¥åŠ›å€¤ï¼šcause = not null, errorCode = not null, s0 = not null<br>
+     * æœŸå¾…å€¤ï¼šcause = not null, errorCode = not null, <br>
+     *        options = not nullãŒè¨­å®šã•ã‚Œã‚‹ã€‚<br>
      * 
-     * ŠT—vFˆø”cause‚ªNotNull‚ÅƒƒbƒZ[ƒW‚ª‚ ‚èAˆø”errorCode‚ª"test01"Aˆø”s0‚ª"a"‚Ìê‡
-     * @throws Exception —áŠO
+     * æ¦‚è¦ï¼šå¼•æ•°causeãŒNotNullã§ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒã‚ã‚Šã€å¼•æ•°errorCodeãŒ"test01"ã€å¼•æ•°s0ãŒ"a"ã®å ´åˆ
+     * @throws Exception ä¾‹å¤–
      */
     public void testSystemExceptionThrowableStringString01() throws Exception {
-        // “ü—Í’l‚Ìİ’èB
+        // å…¥åŠ›å€¤ã®è¨­å®šã€‚
         Throwable cause = new Throwable("testException");
         String errorCode = "test01";
         String s0 = "a";
 
-        // ƒeƒXƒg‘ÎÛƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌÀsB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å®Ÿè¡Œã€‚
         se1 = new SystemException(cause, errorCode, s0);
 
-        // o—Í’l‚ÌŠm”FB
+        // å‡ºåŠ›å€¤ã®ç¢ºèªã€‚
         String throwWord =
             ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
         errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
@@ -500,25 +500,25 @@ public class SystemExceptionTest extends TestCase {
     /**
      * testSystemExceptionThrowableStringString02()<br>
      *
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      *
-     * ŠÏ“_FC<br>
+     * è¦³ç‚¹ï¼šC<br>
      *
-     * “ü—Í’lFcause = not null, errorCode = "", s0 = ""<br>
-     * Šú‘Ò’lFcause = not null, errorCode = "", <br>
-     *        options = not null(”z—ñ—v‘f‚É‹ó”’‚ ‚è)‚ªİ’è‚³‚ê‚éB<br>
+     * å…¥åŠ›å€¤ï¼šcause = not null, errorCode = "", s0 = ""<br>
+     * æœŸå¾…å€¤ï¼šcause = not null, errorCode = "", <br>
+     *        options = not null(é…åˆ—è¦ç´ ã«ç©ºç™½ã‚ã‚Š)ãŒè¨­å®šã•ã‚Œã‚‹ã€‚<br>
      * 
-     * ŠT—vFˆø”cause‚ªNotNull‚ÅƒƒbƒZ[ƒW‚ª‚ ‚èAˆø”errorCode‚ª""Aˆø”s0‚ª‹ó”’‚Ìê‡
-     * @throws Exception —áŠO
+     * æ¦‚è¦ï¼šå¼•æ•°causeãŒNotNullã§ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒã‚ã‚Šã€å¼•æ•°errorCodeãŒ""ã€å¼•æ•°s0ãŒç©ºç™½ã®å ´åˆ
+     * @throws Exception ä¾‹å¤–
      */
     public void testSystemExceptionThrowableStringString02() throws Exception {
-        // “ü—Í’l‚Ìİ’èB
+        // å…¥åŠ›å€¤ã®è¨­å®šã€‚
         Throwable cause = new Throwable("testException");
 
-        // ƒeƒXƒg‘ÎÛƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌÀsB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å®Ÿè¡Œã€‚
         se1 = new SystemException(cause, "", "");
 
-        // o—Í’l‚ÌŠm”FB
+        // å‡ºåŠ›å€¤ã®ç¢ºèªã€‚
         String throwWord =
             ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
         String errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
@@ -531,26 +531,26 @@ public class SystemExceptionTest extends TestCase {
     /**
      * testSystemExceptionThrowableStringString03()<br>
      *
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      *
-     * ŠÏ“_FC<br>
+     * è¦³ç‚¹ï¼šC<br>
      *
-     * “ü—Í’lFcause = not null, errorCode = null, s0 = null<br>
-     * Šú‘Ò’lFcause = not null, errorCode = null, <br>
-     *        options = not null(”z—ñ—v‘f‚Énull‚ ‚è)‚ªİ’è‚³‚ê‚éB<br>
+     * å…¥åŠ›å€¤ï¼šcause = not null, errorCode = null, s0 = null<br>
+     * æœŸå¾…å€¤ï¼šcause = not null, errorCode = null, <br>
+     *        options = not null(é…åˆ—è¦ç´ ã«nullã‚ã‚Š)ãŒè¨­å®šã•ã‚Œã‚‹ã€‚<br>
      * 
-     * ŠT—vFˆø”cause‚ªNotNull‚ÅƒƒbƒZ[ƒW‚ª‚ ‚èAˆø”errorCode‚ªnullAˆø”s0‚ªnull‚Ìê‡
-     * @throws Exception —áŠO
+     * æ¦‚è¦ï¼šå¼•æ•°causeãŒNotNullã§ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒã‚ã‚Šã€å¼•æ•°errorCodeãŒnullã€å¼•æ•°s0ãŒnullã®å ´åˆ
+     * @throws Exception ä¾‹å¤–
      */
     public void testSystemExceptionThrowableStringString03() throws Exception {
-        // “ü—Í’l‚Ìİ’èB
+        // å…¥åŠ›å€¤ã®è¨­å®šã€‚
         Throwable cause = new Throwable("testException");
         String s0 = null;
 
-        // ƒeƒXƒg‘ÎÛƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌÀsB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å®Ÿè¡Œã€‚
         se1 = new SystemException(cause, null, s0);
 
-        // o—Í’l‚ÌŠm”FB
+        // å‡ºåŠ›å€¤ã®ç¢ºèªã€‚
         String throwWord =
             ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
         String errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
@@ -563,30 +563,30 @@ public class SystemExceptionTest extends TestCase {
     /**
      * testSystemExceptionThrowableStringStringString01()<br>
      *
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      *
-     * ŠÏ“_FA<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lFcause = not null, errorCode = not null,<br>
+     * å…¥åŠ›å€¤ï¼šcause = not null, errorCode = not null,<br>
      *        s0 = not null, s1 = not null<br>
-     * Šú‘Ò’lFcause = not null, errorCode = not null, <br>
-     *        options = not null‚ªİ’è‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼šcause = not null, errorCode = not null, <br>
+     *        options = not nullãŒè¨­å®šã•ã‚Œã‚‹ã€‚<br>
      * 
-     * ŠT—vFˆø”cause‚ªNotNull‚ÅƒƒbƒZ[ƒW‚ª‚ ‚èAˆø”errorCode‚ª"test01"Aˆø”s0‚ª"a"Aˆø”s1‚ª"b"‚Ìê‡
-     * @throws Exception —áŠO
+     * æ¦‚è¦ï¼šå¼•æ•°causeãŒNotNullã§ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒã‚ã‚Šã€å¼•æ•°errorCodeãŒ"test01"ã€å¼•æ•°s0ãŒ"a"ã€å¼•æ•°s1ãŒ"b"ã®å ´åˆ
+     * @throws Exception ä¾‹å¤–
      */
     public void testSystemExceptionThrowableStringStringString01()
         throws Exception {
-        // “ü—Í’l‚Ìİ’èB
+        // å…¥åŠ›å€¤ã®è¨­å®šã€‚
         Throwable cause = new Throwable("testException");
         String errorCode = "test01";
         String s0 = "a";
         String s1 = "b";
 
-        // ƒeƒXƒg‘ÎÛƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌÀsB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å®Ÿè¡Œã€‚
         se1 = new SystemException(cause, errorCode, s0, s1);
 
-        // o—Í’l‚ÌŠm”FB
+        // å‡ºåŠ›å€¤ã®ç¢ºèªã€‚
         String throwWord =
             ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
         errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
@@ -600,27 +600,27 @@ public class SystemExceptionTest extends TestCase {
     /**
      * testSystemExceptionThrowableStringStringString02()<br>
      *
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      *
-     * ŠÏ“_FC<br>
+     * è¦³ç‚¹ï¼šC<br>
      *
-     * “ü—Í’lFcause = not null, errorCode = not null, s0 = "", s1 = ""<br>
-     * Šú‘Ò’lFcause = not null, errorCode = not null, <br>
-     *        options = not null(”z—ñ—v‘f‚É""‚ ‚è)‚ªİ’è‚³‚ê‚éB<br>
+     * å…¥åŠ›å€¤ï¼šcause = not null, errorCode = not null, s0 = "", s1 = ""<br>
+     * æœŸå¾…å€¤ï¼šcause = not null, errorCode = not null, <br>
+     *        options = not null(é…åˆ—è¦ç´ ã«""ã‚ã‚Š)ãŒè¨­å®šã•ã‚Œã‚‹ã€‚<br>
      * 
-     * ŠT—vFˆø”cause‚ªNotNull‚ÅƒƒbƒZ[ƒW‚ª‚ ‚èAˆø”errorCode‚ª"test01"Aˆø”s0‚ª‹ó”’Aˆø”s1‚ª‹ó”’‚Ìê‡
-     * @throws Exception —áŠO
+     * æ¦‚è¦ï¼šå¼•æ•°causeãŒNotNullã§ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒã‚ã‚Šã€å¼•æ•°errorCodeãŒ"test01"ã€å¼•æ•°s0ãŒç©ºç™½ã€å¼•æ•°s1ãŒç©ºç™½ã®å ´åˆ
+     * @throws Exception ä¾‹å¤–
      */
     public void testSystemExceptionThrowableStringStringString02()
         throws Exception {
-        // “ü—Í’l‚Ìİ’èB
+        // å…¥åŠ›å€¤ã®è¨­å®šã€‚
         Throwable cause = new Throwable("testException");
         String errorCode = "test01";
 
-        // ƒeƒXƒg‘ÎÛƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌÀsB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å®Ÿè¡Œã€‚
         se1 = new SystemException(cause, errorCode, "", "");
 
-        // o—Í’l‚ÌŠm”FB
+        // å‡ºåŠ›å€¤ã®ç¢ºèªã€‚
         String throwWord =
             ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
         errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
@@ -634,26 +634,26 @@ public class SystemExceptionTest extends TestCase {
     /**
      * testSystemExceptionThrowableStringStringString03()<br>
      *
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      *
-     * ŠÏ“_FC<br>
+     * è¦³ç‚¹ï¼šC<br>
      *
-     * “ü—Í’lFcause = not null, errorCode = "", s0 = null, s1 = null<br>
-     * Šú‘Ò’lFcause = not null, errorCode = "", <br>
-     *        options = not null(”z—ñ—v‘f‚Énull‚ ‚è)‚ªİ’è‚³‚ê‚éB<br>
+     * å…¥åŠ›å€¤ï¼šcause = not null, errorCode = "", s0 = null, s1 = null<br>
+     * æœŸå¾…å€¤ï¼šcause = not null, errorCode = "", <br>
+     *        options = not null(é…åˆ—è¦ç´ ã«nullã‚ã‚Š)ãŒè¨­å®šã•ã‚Œã‚‹ã€‚<br>
      * 
-     * ŠT—vFˆø”cause‚ªNotNull‚ÅƒƒbƒZ[ƒW‚ª‚ ‚èAˆø”errorCode‚ª‹ó”’Aˆø”s0‚ªnullAˆø”s1‚ªnull‚Ìê‡
-     * @throws Exception —áŠO
+     * æ¦‚è¦ï¼šå¼•æ•°causeãŒNotNullã§ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒã‚ã‚Šã€å¼•æ•°errorCodeãŒç©ºç™½ã€å¼•æ•°s0ãŒnullã€å¼•æ•°s1ãŒnullã®å ´åˆ
+     * @throws Exception ä¾‹å¤–
      */
     public void testSystemExceptionThrowableStringStringString03()
         throws Exception {
-        // “ü—Í’l‚Ìİ’èB
+        // å…¥åŠ›å€¤ã®è¨­å®šã€‚
         Throwable cause = new Throwable("testException");
 
-        // ƒeƒXƒg‘ÎÛƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌÀsB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å®Ÿè¡Œã€‚
         se1 = new SystemException(cause, "", null, null);
 
-        // o—Í’l‚ÌŠm”FB
+        // å‡ºåŠ›å€¤ã®ç¢ºèªã€‚
         String throwWord =
             ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
         String errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
@@ -667,27 +667,27 @@ public class SystemExceptionTest extends TestCase {
     /**
      * testSystemExceptionThrowableStringStringString04()<br>
      *
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      *
-     * ŠÏ“_FC<br>
+     * è¦³ç‚¹ï¼šC<br>
      *
-     * “ü—Í’lFcause = not null, errorCode = null, s0 = "", s1 = not null<br>
-     * Šú‘Ò’lFcause = not null, errorCode = null, <br>
-     *        options = not null(”z—ñ—v‘f‚É‹ó”’‚ ‚è)‚ªİ’è‚³‚ê‚éB<br>
+     * å…¥åŠ›å€¤ï¼šcause = not null, errorCode = null, s0 = "", s1 = not null<br>
+     * æœŸå¾…å€¤ï¼šcause = not null, errorCode = null, <br>
+     *        options = not null(é…åˆ—è¦ç´ ã«ç©ºç™½ã‚ã‚Š)ãŒè¨­å®šã•ã‚Œã‚‹ã€‚<br>
      * 
-     * ŠT—vFˆø”cause‚ªNotNull‚ÅƒƒbƒZ[ƒW‚ª‚ ‚èAˆø”errorCode‚ªnullAˆø”s0‚ª‹ó”’Aˆø”s1‚ª"a"‚Ìê‡
-     * @throws Exception —áŠO
+     * æ¦‚è¦ï¼šå¼•æ•°causeãŒNotNullã§ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒã‚ã‚Šã€å¼•æ•°errorCodeãŒnullã€å¼•æ•°s0ãŒç©ºç™½ã€å¼•æ•°s1ãŒ"a"ã®å ´åˆ
+     * @throws Exception ä¾‹å¤–
      */
     public void testSystemExceptionThrowableStringStringString04()
         throws Exception {
-        // “ü—Í’l‚Ìİ’èB
+        // å…¥åŠ›å€¤ã®è¨­å®šã€‚
         Throwable cause = new Throwable("testException");
         String s1 = "a";
 
-        // ƒeƒXƒg‘ÎÛƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌÀsB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å®Ÿè¡Œã€‚
         se1 = new SystemException(cause, null, "", s1);
 
-        // o—Í’l‚ÌŠm”FB
+        // å‡ºåŠ›å€¤ã®ç¢ºèªã€‚
         String throwWord =
             ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
         String errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
@@ -701,28 +701,28 @@ public class SystemExceptionTest extends TestCase {
     /**
      * testSystemExceptionThrowableStringStringString05()<br>
      *
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      *
-     * ŠÏ“_FC<br>
+     * è¦³ç‚¹ï¼šC<br>
      *
-     * “ü—Í’lFcause = not null, errorCode = not null, s0 = null, s1 = not null<br>
-     * Šú‘Ò’lFcause = not null, errorCode = not null, <br>
-     *        options = not null(”z—ñ—v‘f‚Énull‚ ‚è)‚ªİ’è‚³‚ê‚éB<br>
+     * å…¥åŠ›å€¤ï¼šcause = not null, errorCode = not null, s0 = null, s1 = not null<br>
+     * æœŸå¾…å€¤ï¼šcause = not null, errorCode = not null, <br>
+     *        options = not null(é…åˆ—è¦ç´ ã«nullã‚ã‚Š)ãŒè¨­å®šã•ã‚Œã‚‹ã€‚<br>
      * 
-     * ŠT—vFˆø”cause‚ªNotNull‚ÅƒƒbƒZ[ƒW‚ª‚ ‚èAˆø”errorCode‚ª"test01"Aˆø”s0‚ªnullAˆø”s1‚ª"a"‚Ìê‡
-     * @throws Exception —áŠO
+     * æ¦‚è¦ï¼šå¼•æ•°causeãŒNotNullã§ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒã‚ã‚Šã€å¼•æ•°errorCodeãŒ"test01"ã€å¼•æ•°s0ãŒnullã€å¼•æ•°s1ãŒ"a"ã®å ´åˆ
+     * @throws Exception ä¾‹å¤–
      */
     public void testSystemExceptionThrowableStringStringString05()
         throws Exception {
-        // “ü—Í’l‚Ìİ’èB
+        // å…¥åŠ›å€¤ã®è¨­å®šã€‚
         Throwable cause = new Throwable("testException");
         String errorCode = "test01";
         String s1 = "a";
 
-        // ƒeƒXƒg‘ÎÛƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌÀsB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å®Ÿè¡Œã€‚
         se1 = new SystemException(cause, errorCode, null, s1);
 
-        // o—Í’l‚ÌŠm”FB
+        // å‡ºåŠ›å€¤ã®ç¢ºèªã€‚
         String throwWord =
             ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
         errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
@@ -736,31 +736,31 @@ public class SystemExceptionTest extends TestCase {
     /**
      * testSystemExceptionThrowableStringStringStringString01()<br>
      *
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      *
-     * ŠÏ“_FA<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lFcause = not null, errorCode = not null, <br>
+     * å…¥åŠ›å€¤ï¼šcause = not null, errorCode = not null, <br>
      *        s0 = not null, s1 = not null, s2 = not null<br>
-     * Šú‘Ò’lFcause = not null, errorCode = not null, <br>
-     *        options = not null‚ªİ’è‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼šcause = not null, errorCode = not null, <br>
+     *        options = not nullãŒè¨­å®šã•ã‚Œã‚‹ã€‚<br>
      * 
-     * ŠT—vFˆø”cause‚ªNotNull‚ÅƒƒbƒZ[ƒW‚ª‚ ‚èAˆø”errorCode‚ª"test01"Aˆø”s0‚ª"a"Aˆø”s1‚ª"b"Aˆø”s2‚ª"c"‚Ìê‡
-     * @throws Exception —áŠO
+     * æ¦‚è¦ï¼šå¼•æ•°causeãŒNotNullã§ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒã‚ã‚Šã€å¼•æ•°errorCodeãŒ"test01"ã€å¼•æ•°s0ãŒ"a"ã€å¼•æ•°s1ãŒ"b"ã€å¼•æ•°s2ãŒ"c"ã®å ´åˆ
+     * @throws Exception ä¾‹å¤–
      */
     public void testSystemExceptionThrowableStringStringStringString01()
         throws Exception {
-        // “ü—Í’l‚Ìİ’èB
+        // å…¥åŠ›å€¤ã®è¨­å®šã€‚
         Throwable cause = new Throwable("testException");
         String errorCode = "test01";
         String s0 = "a";
         String s1 = "b";
         String s2 = "c";
 
-        // ƒeƒXƒg‘ÎÛƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌÀsB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å®Ÿè¡Œã€‚
         se1 = new SystemException(cause, errorCode, s0, s1, s2);
 
-        // o—Í’l‚ÌŠm”FB
+        // å‡ºåŠ›å€¤ã®ç¢ºèªã€‚
         String throwWord =
             ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
         errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
@@ -775,27 +775,27 @@ public class SystemExceptionTest extends TestCase {
     /**
      * testSystemExceptionThrowableStringStringStringString02()<br>
      *
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      *
-     * ŠÏ“_FC<br>
+     * è¦³ç‚¹ï¼šC<br>
      *
-     * “ü—Í’lFcause = not null, errorCode = "", <br>
+     * å…¥åŠ›å€¤ï¼šcause = not null, errorCode = "", <br>
      *        s0 = "", s1 = "", s2 = ""<br>
-     * Šú‘Ò’lFcause = not null, errorCode = "", <br>
-     *        options = not null(”z—ñ—v‘f‚É‹ó”’‚ ‚è)‚ªİ’è‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼šcause = not null, errorCode = "", <br>
+     *        options = not null(é…åˆ—è¦ç´ ã«ç©ºç™½ã‚ã‚Š)ãŒè¨­å®šã•ã‚Œã‚‹ã€‚<br>
      * 
-     * ŠT—vFˆø”cause‚ªNotNull‚ÅƒƒbƒZ[ƒW‚ª‚ ‚èAˆø”errorCode‚ª‹ó”’Aˆø”s0‚ª‹ó”’Aˆø”s1‚ª‹ó”’Aˆø”s2‚ª‹ó”’‚Ìê‡
-     * @throws Exception —áŠO
+     * æ¦‚è¦ï¼šå¼•æ•°causeãŒNotNullã§ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒã‚ã‚Šã€å¼•æ•°errorCodeãŒç©ºç™½ã€å¼•æ•°s0ãŒç©ºç™½ã€å¼•æ•°s1ãŒç©ºç™½ã€å¼•æ•°s2ãŒç©ºç™½ã®å ´åˆ
+     * @throws Exception ä¾‹å¤–
      */
     public void testSystemExceptionThrowableStringStringStringString02()
         throws Exception {
-        // “ü—Í’l‚Ìİ’èB
+        // å…¥åŠ›å€¤ã®è¨­å®šã€‚
         Throwable cause = new Throwable("testException");
 
-        // ƒeƒXƒg‘ÎÛƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌÀsB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å®Ÿè¡Œã€‚
         se1 = new SystemException(cause, "", "", "", "");
 
-        // o—Í’l‚ÌŠm”FB
+        // å‡ºåŠ›å€¤ã®ç¢ºèªã€‚
         String throwWord =
             ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
         String errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
@@ -810,27 +810,27 @@ public class SystemExceptionTest extends TestCase {
     /**
      * testSystemExceptionThrowableStringStringStringString03()<br>
      *
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      *
-     * ŠÏ“_FC<br>
+     * è¦³ç‚¹ï¼šC<br>
      *
-     * “ü—Í’lFcause = not null, errorCode = null, <br>
+     * å…¥åŠ›å€¤ï¼šcause = not null, errorCode = null, <br>
      *        s0 = null, s1 = null, s2 = null<br>
-     * Šú‘Ò’lFcause = not null, errorCode = null, <br>
-     *        options = not null(”z—ñ—v‘f‚É‹ó”’‚ ‚è)‚ªİ’è‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼šcause = not null, errorCode = null, <br>
+     *        options = not null(é…åˆ—è¦ç´ ã«ç©ºç™½ã‚ã‚Š)ãŒè¨­å®šã•ã‚Œã‚‹ã€‚<br>
      * 
-     * ŠT—vFˆø”cause‚ªNotNull‚ÅƒƒbƒZ[ƒW‚ª‚ ‚èAˆø”errorCode‚ªnullAˆø”s0‚ªnullAˆø”s1‚ªnullAˆø”s2‚ªnull‚Ìê‡
-     * @throws Exception —áŠO
+     * æ¦‚è¦ï¼šå¼•æ•°causeãŒNotNullã§ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒã‚ã‚Šã€å¼•æ•°errorCodeãŒnullã€å¼•æ•°s0ãŒnullã€å¼•æ•°s1ãŒnullã€å¼•æ•°s2ãŒnullã®å ´åˆ
+     * @throws Exception ä¾‹å¤–
      */
     public void testSystemExceptionThrowableStringStringStringString03()
         throws Exception {
-        // “ü—Í’l‚Ìİ’èB
+        // å…¥åŠ›å€¤ã®è¨­å®šã€‚
         Throwable cause = new Throwable("testException");
 
-        // ƒeƒXƒg‘ÎÛƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌÀsB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å®Ÿè¡Œã€‚
         se1 = new SystemException(cause, null, null, null, null);
 
-        // o—Í’l‚ÌŠm”FB
+        // å‡ºåŠ›å€¤ã®ç¢ºèªã€‚
         String throwWord =
             ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
         String errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
@@ -845,29 +845,29 @@ public class SystemExceptionTest extends TestCase {
     /**
      * testSystemExceptionThrowableStringStringStringString04()<br>
      *
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      *
-     * ŠÏ“_FC<br>
+     * è¦³ç‚¹ï¼šC<br>
      *
-     * “ü—Í’lFcause = not null, errorCode = not null,<br>
+     * å…¥åŠ›å€¤ï¼šcause = not null, errorCode = not null,<br>
      *        s0 = not null, s1 = "", s2 = null<br>
-     * Šú‘Ò’lFcause = not null, errorCode = not null,<br>
-     *        options = not null‚ªİ’è‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼šcause = not null, errorCode = not null,<br>
+     *        options = not nullãŒè¨­å®šã•ã‚Œã‚‹ã€‚<br>
      * 
-     * ŠT—vFˆø”cause‚ªNotNull‚ÅƒƒbƒZ[ƒW‚ª‚ ‚èAˆø”errorCode‚ª"test01"Aˆø”s0‚ª"a"Aˆø”s1‚ª‹ó”’Aˆø”s2‚ªnull‚Ìê‡
-     * @throws Exception —áŠO
+     * æ¦‚è¦ï¼šå¼•æ•°causeãŒNotNullã§ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒã‚ã‚Šã€å¼•æ•°errorCodeãŒ"test01"ã€å¼•æ•°s0ãŒ"a"ã€å¼•æ•°s1ãŒç©ºç™½ã€å¼•æ•°s2ãŒnullã®å ´åˆ
+     * @throws Exception ä¾‹å¤–
      */
     public void testSystemExceptionThrowableStringStringStringString04()
         throws Exception {
-        // “ü—Í’l‚Ìİ’èB
+        // å…¥åŠ›å€¤ã®è¨­å®šã€‚
         Throwable cause = new Throwable("testException");
         String errorCode = "test01";
         String s0 = "a";
 
-        // ƒeƒXƒg‘ÎÛƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌÀsB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å®Ÿè¡Œã€‚
         se1 = new SystemException(cause, errorCode, s0, "", null);
 
-        // o—Í’l‚ÌŠm”FB
+        // å‡ºåŠ›å€¤ã®ç¢ºèªã€‚
         String throwWord =
             ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
         errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
@@ -882,31 +882,31 @@ public class SystemExceptionTest extends TestCase {
     /**
      * testSystemExceptionThrowableStringStringStringStringString01()<br>
      *
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      *
-     * ŠÏ“_FA<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lFcause = not null, errorCode = null,<br>
+     * å…¥åŠ›å€¤ï¼šcause = not null, errorCode = null,<br>
      *        s0 = not null, s1 = not null, s2 = not null, s3 = not null<br>
-     * Šú‘Ò’lFcause = not null, errorCode = null, <br>
-     *        options = not null‚ªİ’è‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼šcause = not null, errorCode = null, <br>
+     *        options = not nullãŒè¨­å®šã•ã‚Œã‚‹ã€‚<br>
      * 
-     * ŠT—vFˆø”cause‚ªNotNull‚ÅƒƒbƒZ[ƒW‚ª‚ ‚èAˆø”errorCode‚ªnullAˆø”s0‚ª"a"Aˆø”s1‚ª"b"Aˆø”s2‚ª"c"Aˆø”s3‚ª"d"‚Ìê‡
-     * @throws Exception —áŠO
+     * æ¦‚è¦ï¼šå¼•æ•°causeãŒNotNullã§ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒã‚ã‚Šã€å¼•æ•°errorCodeãŒnullã€å¼•æ•°s0ãŒ"a"ã€å¼•æ•°s1ãŒ"b"ã€å¼•æ•°s2ãŒ"c"ã€å¼•æ•°s3ãŒ"d"ã®å ´åˆ
+     * @throws Exception ä¾‹å¤–
      */
     public void testSystemExceptionThrowableStringStringStringStringString01()
         throws Exception {
-        // “ü—Í’l‚Ìİ’èB
+        // å…¥åŠ›å€¤ã®è¨­å®šã€‚
         Throwable cause = new Throwable("testException");
         String s0 = "a";
         String s1 = "b";
         String s2 = "c";
         String s3 = "d";
 
-        // ƒeƒXƒg‘ÎÛƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌÀsB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å®Ÿè¡Œã€‚
         se1 = new SystemException(cause, null, s0, s1, s2, s3);
 
-        // o—Í’l‚ÌŠm”FB
+        // å‡ºåŠ›å€¤ã®ç¢ºèªã€‚
         String throwWord =
             ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
         String errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
@@ -922,28 +922,28 @@ public class SystemExceptionTest extends TestCase {
     /**
      * testSystemExceptionThrowableStringStringStringStringString02()<br>
      *
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      *
-     * ŠÏ“_FC<br>
+     * è¦³ç‚¹ï¼šC<br>
      *
-     * “ü—Í’lFcause = not null, errorCode = not null,<br>
+     * å…¥åŠ›å€¤ï¼šcause = not null, errorCode = not null,<br>
      *        s0 = "", s1 = "", s2 = "", s3 = ""<br>
-     * Šú‘Ò’lFcause = not null, errorCode = not null, <br>
-     *        options = not null(”z—ñ—v‘f‚É‹ó”’‚ ‚è)‚ªİ’è‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼šcause = not null, errorCode = not null, <br>
+     *        options = not null(é…åˆ—è¦ç´ ã«ç©ºç™½ã‚ã‚Š)ãŒè¨­å®šã•ã‚Œã‚‹ã€‚<br>
      * 
-     * ŠT—vFˆø”cause‚ªNotNull‚ÅƒƒbƒZ[ƒW‚ª‚ ‚èAˆø”errorCode‚ª"test01"Aˆø”s0‚ª‹ó”’Aˆø”s1‚ª‹ó”’Aˆø”s2‚ª‹ó”’Aˆø”s3‚ª‹ó”’‚Ìê‡
-     * @throws Exception —áŠO
+     * æ¦‚è¦ï¼šå¼•æ•°causeãŒNotNullã§ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒã‚ã‚Šã€å¼•æ•°errorCodeãŒ"test01"ã€å¼•æ•°s0ãŒç©ºç™½ã€å¼•æ•°s1ãŒç©ºç™½ã€å¼•æ•°s2ãŒç©ºç™½ã€å¼•æ•°s3ãŒç©ºç™½ã®å ´åˆ
+     * @throws Exception ä¾‹å¤–
      */
     public void testSystemExceptionThrowableStringStringStringStringString02()
         throws Exception {
-        // “ü—Í’l‚Ìİ’èB
+        // å…¥åŠ›å€¤ã®è¨­å®šã€‚
         Throwable cause = new Throwable("testException");
         String errorCode = "test01";
 
-        // ƒeƒXƒg‘ÎÛƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌÀsB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å®Ÿè¡Œã€‚
         se1 = new SystemException(cause, errorCode, "", "", "", "");
 
-        // o—Í’l‚ÌŠm”FB
+        // å‡ºåŠ›å€¤ã®ç¢ºèªã€‚
         String throwWord =
             ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
         errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
@@ -959,27 +959,27 @@ public class SystemExceptionTest extends TestCase {
     /**
      * testSystemExceptionThrowableStringStringStringStringString03()<br>
      *
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      *
-     * ŠÏ“_FC<br>
+     * è¦³ç‚¹ï¼šC<br>
      *
-     * “ü—Í’lFcause = not null, errorCode = "", <br>
+     * å…¥åŠ›å€¤ï¼šcause = not null, errorCode = "", <br>
      *        s0 = null, s1 = null, s2 = null, s3 = null<br>
-     * Šú‘Ò’lFcause = not null, errorCode = "", <br>
-     *        options = not null(”z—ñ—v‘f‚Énull‚ ‚è)‚ªİ’è‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼šcause = not null, errorCode = "", <br>
+     *        options = not null(é…åˆ—è¦ç´ ã«nullã‚ã‚Š)ãŒè¨­å®šã•ã‚Œã‚‹ã€‚<br>
      * 
-     * ŠT—vFˆø”cause‚ªNotNull‚ÅƒƒbƒZ[ƒW‚ª‚ ‚èAˆø”errorCode‚ª‹ó”’Aˆø”s0‚ªnullAˆø”s1‚ªnullAˆø”s2‚ªnullAˆø”s3‚ªnull‚Ìê‡
-     * @throws Exception —áŠO
+     * æ¦‚è¦ï¼šå¼•æ•°causeãŒNotNullã§ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒã‚ã‚Šã€å¼•æ•°errorCodeãŒç©ºç™½ã€å¼•æ•°s0ãŒnullã€å¼•æ•°s1ãŒnullã€å¼•æ•°s2ãŒnullã€å¼•æ•°s3ãŒnullã®å ´åˆ
+     * @throws Exception ä¾‹å¤–
      */
     public void testSystemExceptionThrowableStringStringStringStringString03()
         throws Exception {
-        // “ü—Í’l‚Ìİ’èB
+        // å…¥åŠ›å€¤ã®è¨­å®šã€‚
         Throwable cause = new Throwable("testException");
 
-        // ƒeƒXƒg‘ÎÛƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌÀsB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å®Ÿè¡Œã€‚
         se1 = new SystemException(cause, "", null, null, null, null);
 
-        // o—Í’l‚ÌŠm”FB
+        // å‡ºåŠ›å€¤ã®ç¢ºèªã€‚
         String throwWord =
             ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
         String errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
@@ -995,29 +995,29 @@ public class SystemExceptionTest extends TestCase {
     /**
      * testSystemExceptionThrowableStringStringStringStringString04()<br>
      *
-     * (³íŒn)<br>
+     * (æ­£å¸¸ç³»)<br>
      *
-     * ŠÏ“_FC<br>
+     * è¦³ç‚¹ï¼šC<br>
      *
-     * “ü—Í’lFcause = not null, errorCode = null,<br>
+     * å…¥åŠ›å€¤ï¼šcause = not null, errorCode = null,<br>
      *        s0 = not null, s1 = not null, s2 = "", s3 = null<br>
-     * Šú‘Ò’lFcause = not null, errorCode = null, <br>
-     *        options = not null(”z—ñ—v‘f‚É‹ó”’Anull‚ ‚è)‚ªİ’è‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼šcause = not null, errorCode = null, <br>
+     *        options = not null(é…åˆ—è¦ç´ ã«ç©ºç™½ã€nullã‚ã‚Š)ãŒè¨­å®šã•ã‚Œã‚‹ã€‚<br>
      * 
-     * ŠT—vFˆø”cause‚ªNotNull‚ÅƒƒbƒZ[ƒW‚ª‚ ‚èAˆø”errorCode‚ªnullAˆø”s0‚ª"a"Aˆø”s1‚ª"b"Aˆø”s2‚ª‹ó”’Aˆø”s3‚ªnull‚Ìê‡
-     * @throws Exception —áŠO
+     * æ¦‚è¦ï¼šå¼•æ•°causeãŒNotNullã§ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒã‚ã‚Šã€å¼•æ•°errorCodeãŒnullã€å¼•æ•°s0ãŒ"a"ã€å¼•æ•°s1ãŒ"b"ã€å¼•æ•°s2ãŒç©ºç™½ã€å¼•æ•°s3ãŒnullã®å ´åˆ
+     * @throws Exception ä¾‹å¤–
      */
     public void testSystemExceptionThrowableStringStringStringStringString04()
         throws Exception {
-        // “ü—Í’l‚Ìİ’èB
+        // å…¥åŠ›å€¤ã®è¨­å®šã€‚
         Throwable cause = new Throwable("testException");
         String s0 = "a";
         String s1 = "b";
 
-        // ƒeƒXƒg‘ÎÛƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌÀsB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å®Ÿè¡Œã€‚
         se1 = new SystemException(cause, null, s0, s1, "", null);
 
-        // o—Í’l‚ÌŠm”FB
+        // å‡ºåŠ›å€¤ã®ç¢ºèªã€‚
         String throwWord =
             ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
         String errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
@@ -1033,47 +1033,47 @@ public class SystemExceptionTest extends TestCase {
     /**
      * testGetErrorCode01()<br>
      *
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lFcause = not null, errorCode = not null<br>
-     * Šú‘Ò’lFSystemException‚ÌerrorCode‘®«‚ªæ“¾‚Å‚«‚Ä‚¢‚é‚©Šm”F‚·‚éB
+     * å…¥åŠ›å€¤ï¼šcause = not null, errorCode = not null<br>
+     * æœŸå¾…å€¤ï¼šSystemExceptionã®errorCodeå±æ€§ãŒå–å¾—ã§ãã¦ã„ã‚‹ã‹ç¢ºèªã™ã‚‹ã€‚
      * 
-     * ŠT—vF¦³íŒnˆêŒ‚Ì‚İƒeƒXƒg
-     * @throws Exception —áŠO
+     * æ¦‚è¦ï¼šâ€»æ­£å¸¸ç³»ä¸€ä»¶ã®ã¿ãƒ†ã‚¹ãƒˆ
+     * @throws Exception ä¾‹å¤–
      */
     public void testGetErrorCode01() throws Exception {
-        // SystemException‚Ìİ’èB
+        // SystemExceptionã®è¨­å®šã€‚
         Throwable cause = new Throwable("testException");
 
-        // ƒeƒXƒg‘ÎÛƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌÀsB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å®Ÿè¡Œã€‚
         se1 = new SystemException(cause);
         UTUtil.setPrivateField(se1, "errorCode", "abc");
 
-        // ƒeƒXƒg‘ÎÛƒƒ\ƒbƒh‚ÌÀs‚Æo—Í’l‚ÌŠm”FB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ãƒ¡ã‚½ãƒƒãƒ‰ã®å®Ÿè¡Œã¨å‡ºåŠ›å€¤ã®ç¢ºèªã€‚
         assertEquals("abc", se1.getErrorCode());
     }
 
     /**
      * testGetOptions01()<br>
      *
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lFoptions = not null<br>
-     * Šú‘Ò’lFSystemException‚Ìoptions‘®«‚ªæ“¾‚Å‚«‚Ä‚¢‚é‚©Šm”F‚·‚éB
+     * å…¥åŠ›å€¤ï¼šoptions = not null<br>
+     * æœŸå¾…å€¤ï¼šSystemExceptionã®optionså±æ€§ãŒå–å¾—ã§ãã¦ã„ã‚‹ã‹ç¢ºèªã™ã‚‹ã€‚
      * 
-     * ŠT—vF¦³íŒnˆêŒ‚Ì‚İƒeƒXƒg
-     * @throws Exception —áŠO
+     * æ¦‚è¦ï¼šâ€»æ­£å¸¸ç³»ä¸€ä»¶ã®ã¿ãƒ†ã‚¹ãƒˆ
+     * @throws Exception ä¾‹å¤–
      */
     public void testGetOptions01() throws Exception {
-        // SystemException‚Ìİ’èB
+        // SystemExceptionã®è¨­å®šã€‚
         Throwable cause = new Throwable("testException");
         String[] options = { "a", "b" };
         se1 = new SystemException(cause);
         UTUtil.setPrivateField(se1, "options", options);
 
-        // ƒeƒXƒg‘ÎÛƒƒ\ƒbƒh‚ÌÀs‚Æo—Í’l‚ÌŠm”FB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ãƒ¡ã‚½ãƒƒãƒ‰ã®å®Ÿè¡Œã¨å‡ºåŠ›å€¤ã®ç¢ºèªã€‚
         assertEquals("a", se1.getOptions()[0]);
         assertEquals("b", se1.getOptions()[1]);
         assertEquals(2, se1.getOptions().length);
@@ -1082,49 +1082,49 @@ public class SystemExceptionTest extends TestCase {
     /**
      * testSetMessage01()<br>
      *
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lFcause = not null, message = not null<br>
-     * Šú‘Ò’lFSystemException‚Ìmessage‘®«‚ª“ü—Í‚Å‚«‚Ä‚¢‚é‚©Šm”F‚·‚éB
+     * å…¥åŠ›å€¤ï¼šcause = not null, message = not null<br>
+     * æœŸå¾…å€¤ï¼šSystemExceptionã®messageå±æ€§ãŒå…¥åŠ›ã§ãã¦ã„ã‚‹ã‹ç¢ºèªã™ã‚‹ã€‚
      * 
-     * ŠT—vF¦³íŒnˆêŒ‚Ì‚İƒeƒXƒg
-     * @throws Exception —áŠO
+     * æ¦‚è¦ï¼šâ€»æ­£å¸¸ç³»ä¸€ä»¶ã®ã¿ãƒ†ã‚¹ãƒˆ
+     * @throws Exception ä¾‹å¤–
      */
     public void testSetMessage01() throws Exception {
-        // SystemException‚Ìİ’èB
+        // SystemExceptionã®è¨­å®šã€‚
         Throwable cause = new Throwable("testException");
         se1 = new SystemException(cause);
         String message = "abc";
 
-        // ƒeƒXƒg‘ÎÛƒƒ\ƒbƒh‚ÌÀsB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ãƒ¡ã‚½ãƒƒãƒ‰ã®å®Ÿè¡Œã€‚
         se1.setMessage(message);
 
-        // o—Í’l‚ÌŠm”FB
+        // å‡ºåŠ›å€¤ã®ç¢ºèªã€‚
         assertEquals("abc", UTUtil.getPrivateField(se1, "message"));
     }
 
     /**
      * testGetMessage01()<br>
      *
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lFcause = not null, message = not null<br>
-     * Šú‘Ò’lFSystemException‚Ìmessage‘®«‚ªæ“¾‚Å‚«‚Ä‚¢‚é‚©Šm”F‚·‚éB
+     * å…¥åŠ›å€¤ï¼šcause = not null, message = not null<br>
+     * æœŸå¾…å€¤ï¼šSystemExceptionã®messageå±æ€§ãŒå–å¾—ã§ãã¦ã„ã‚‹ã‹ç¢ºèªã™ã‚‹ã€‚
      * 
-     * ŠT—vFmessage‚Ì’l‚ªnot null‚Ìê‡Amessage‚Ì’l‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
-     * @throws Exception —áŠO
+     * æ¦‚è¦ï¼šmessageã®å€¤ãŒnot nullã®å ´åˆã€messageã®å€¤ãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * @throws Exception ä¾‹å¤–
      */
     public void testGetMessage01() throws Exception {
-        // SystemException‚Ìİ’èB
+        // SystemExceptionã®è¨­å®šã€‚
         Throwable cause = new Throwable("testException");
 
-        // ƒeƒXƒg‘ÎÛƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌÀsB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å®Ÿè¡Œã€‚
         se1 = new SystemException(cause);
         UTUtil.setPrivateField(se1, "message", "abc");
 
-        // ƒeƒXƒg‘ÎÛƒƒ\ƒbƒh‚ÌÀs‚Æo—Í’l‚ÌŠm”FB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ãƒ¡ã‚½ãƒƒãƒ‰ã®å®Ÿè¡Œã¨å‡ºåŠ›å€¤ã®ç¢ºèªã€‚
         assertEquals("abc", se1.getMessage());
     }
 
@@ -1132,34 +1132,34 @@ public class SystemExceptionTest extends TestCase {
      * testGetMessage02()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ó‘Ô) message:null<br>
-     *         (ó‘Ô) errorCode:"def"<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) message:null<br>
+     *         (çŠ¶æ…‹) errorCode:"def"<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) message:"def"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) message:"def"<br>
      *
      * <br>
-     * message‚Ì’l‚ªnull‚Ìê‡AerrorCode‚Ì’l‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * messageã®å€¤ãŒnullã®å ´åˆã€errorCodeã®å€¤ãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      * 
-     * ŠT—vFmessage‚Ì’l‚ªnull‚Ìê‡AerrorCode‚Ì’l‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * æ¦‚è¦ï¼šmessageã®å€¤ãŒnullã®å ´åˆã€errorCodeã®å€¤ãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetMessage02() throws Exception {
-        // SystemException‚Ìİ’èB
+        // SystemExceptionã®è¨­å®šã€‚
         Throwable cause = new Throwable("testException");
 
-        // ƒeƒXƒg‘ÎÛƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌÀsB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å®Ÿè¡Œã€‚
         se1 = new SystemException(cause);
         UTUtil.setPrivateField(se1, "message", null);
         UTUtil.setPrivateField(se1, "errorCode", "def");
 
-        // ƒeƒXƒg‘ÎÛƒƒ\ƒbƒh‚ÌÀs‚Æo—Í’l‚ÌŠm”FB
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ãƒ¡ã‚½ãƒƒãƒ‰ã®å®Ÿè¡Œã¨å‡ºåŠ›å€¤ã®ç¢ºèªã€‚
         assertEquals("def", se1.getMessage());
     }
 }

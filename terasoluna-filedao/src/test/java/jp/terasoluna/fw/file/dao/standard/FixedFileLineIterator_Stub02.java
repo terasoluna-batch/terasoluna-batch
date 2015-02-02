@@ -4,12 +4,12 @@ import jp.terasoluna.fw.file.annotation.FileFormat;
 import jp.terasoluna.fw.file.annotation.InputFileColumn;
 
 /**
- * FileFormatƒAƒmƒe[ƒVƒ‡ƒ“‚Ìİ’è‚ğ‚ÂAƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgƒXƒ^ƒuƒNƒ‰ƒX
+ * FileFormatã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã®è¨­å®šã‚’æŒã¤ã€ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¹ã‚¿ãƒ–ã‚¯ãƒ©ã‚¹
  * <p>
- * ˆÈ‰º‚Ìİ’è‚ğ‚Â<br>
+ * ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤<br>
  * <ul>
  * <li>@FileFormat()
- * <li>‘®«
+ * <li>å±æ€§
  * <ul>
  * <li>@InputFileColumn(columnIndex = 1, bytes = 5)<br>
  * String column01
@@ -30,28 +30,28 @@ public class FixedFileLineIterator_Stub02 {
     private String column2 = null;
 
     /**
-     * @return column1 ‚ğ–ß‚µ‚Ü‚·B
+     * @return column1 ã‚’æˆ»ã—ã¾ã™ã€‚
      */
     public String getColumn1() {
         return column1;
     }
 
     /**
-     * @param column1 İ’è‚·‚é column1B
+     * @param column1 è¨­å®šã™ã‚‹ column1ã€‚
      */
     public void setColumn1(String column1) {
         this.column1 = column1;
     }
 
     /**
-     * @return column2 ‚ğ–ß‚µ‚Ü‚·B
+     * @return column2 ã‚’æˆ»ã—ã¾ã™ã€‚
      */
     public String getColumn2() {
         return column2;
     }
 
     /**
-     * @param column2 İ’è‚·‚é column2B
+     * @param column2 è¨­å®šã™ã‚‹ column2ã€‚
      */
     public void setColumn2(String column2) {
         this.column2 = column2;

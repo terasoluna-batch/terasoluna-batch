@@ -19,7 +19,7 @@ public class BatchThreadPoolTaskExecutorTest extends TestCase {
 
 
     /**
-     * setQueueCapacity‚Ìˆø”‚ÉŠÖ‚í‚ç‚¸AqueueCapacity‚É0‚ªİ’è‚³‚ê‚é‚±‚ÆB
+     * setQueueCapacityã®å¼•æ•°ã«é–¢ã‚ã‚‰ãšã€queueCapacityã«0ãŒè¨­å®šã•ã‚Œã‚‹ã“ã¨ã€‚
      */
     public void testSetQueueCapacity() throws Exception {
         BatchThreadPoolTaskExecutor executor = new BatchThreadPoolTaskExecutor();
@@ -30,7 +30,7 @@ public class BatchThreadPoolTaskExecutorTest extends TestCase {
     }
 
     /**
-     * queueCapacity‚É0‚ªİ’è‚³‚ê‚é‚±‚ÆB
+     * queueCapacityã«0ãŒè¨­å®šã•ã‚Œã‚‹ã“ã¨ã€‚
      */
     public void testBatchThreadPoolTaskExecutor() throws Exception {
         BatchThreadPoolTaskExecutor executor = new BatchThreadPoolTaskExecutor();

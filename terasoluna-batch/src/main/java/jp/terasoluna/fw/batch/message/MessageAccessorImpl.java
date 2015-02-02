@@ -19,16 +19,16 @@ package jp.terasoluna.fw.batch.message;
 import org.springframework.context.support.ApplicationObjectSupport;
 
 /**
- * Spring Framework‚ª’ñ‹Ÿ‚µ‚Ä‚¢‚é‹@”\‚ğ—˜—p‚µ‚ÄAƒƒbƒZ[ƒW‚ğæ“¾‚·‚éƒNƒ‰ƒXB<br>
+ * Spring FrameworkãŒæä¾›ã—ã¦ã„ã‚‹æ©Ÿèƒ½ã‚’åˆ©ç”¨ã—ã¦ã€ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å–å¾—ã™ã‚‹ã‚¯ãƒ©ã‚¹ã€‚<br>
  */
 public class MessageAccessorImpl extends ApplicationObjectSupport implements
                                                                  MessageAccessor {
 
     /**
-     * ƒƒbƒZ[ƒW‚ğæ“¾‚·‚éB
-     * @param code ƒƒbƒZ[ƒWƒR[ƒh
-     * @param args ’uŠ·•¶š—ñ
-     * @return String ƒƒbƒZ[ƒW
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @param code ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚³ãƒ¼ãƒ‰
+     * @param args ç½®æ›æ–‡å­—åˆ—
+     * @return String ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
      */
     public String getMessage(String code, Object[] args) {
 

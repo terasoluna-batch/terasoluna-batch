@@ -17,21 +17,21 @@
 package jp.terasoluna.fw.collector.validate;
 
 public enum ValidationErrorLoglevel {
-    /** ログレベル(TRACE) */
+    /** 繝ｭ繧ｰ繝ｬ繝吶Ν(TRACE) */
     TRACE,
 
-    /** ログレベル(DEBUG) */
+    /** 繝ｭ繧ｰ繝ｬ繝吶Ν(DEBUG) */
     DEBUG,
 
-    /** ログレベル(INFO) */
+    /** 繝ｭ繧ｰ繝ｬ繝吶Ν(INFO) */
     INFO,
 
-    /** ログレベル(WARN) */
+    /** 繝ｭ繧ｰ繝ｬ繝吶Ν(WARN) */
     WARN,
 
-    /** ログレベル(ERROR) */
+    /** 繝ｭ繧ｰ繝ｬ繝吶Ν(ERROR) */
     ERROR,
 
-    /** ログレベル(FATAL) */
+    /** 繝ｭ繧ｰ繝ｬ繝吶Ν(FATAL) */
     FATAL
 }

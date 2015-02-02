@@ -18,7 +18,7 @@ package jp.terasoluna.fw.util;
 
 
 /**
- * {@link GenericPropertyUtil}‚ÌƒeƒXƒg‚Ì‚½‚ß‚ÌƒXƒ^ƒuƒNƒ‰ƒXB
+ * {@link GenericPropertyUtil}ã®ãƒ†ã‚¹ãƒˆã®ãŸã‚ã®ã‚¹ã‚¿ãƒ–ã‚¯ãƒ©ã‚¹ã€‚
  *
  */
 public class GenericPropertyUtil_Stub02 {
@@ -32,7 +32,7 @@ public class GenericPropertyUtil_Stub02 {
     private GenericPropertyUtil_Stub02 bean2;
 
     /**
-     * string2‚ğæ“¾‚·‚éB
+     * string2ã‚’å–å¾—ã™ã‚‹ã€‚
      *
      * @return string2
      */
@@ -41,7 +41,7 @@ public class GenericPropertyUtil_Stub02 {
     }
 
     /**
-     * bean2‚ğæ“¾‚·‚éB
+     * bean2ã‚’å–å¾—ã™ã‚‹ã€‚
      *
      * @return bean2
      */

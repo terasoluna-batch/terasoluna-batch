@@ -1,4 +1,4 @@
 /**
- * ƒoƒŠƒ…[ƒIƒuƒWƒFƒNƒg
+ * ãƒãƒªãƒ¥ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
  */
 package jp.terasoluna.fw.collector.vo;

@@ -69,11 +69,11 @@ public class DaoValidateCollector002Test extends DaoTestCase {
 
     /**
      * {@link DaoValidateCollector#finalize()}
-     * ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     public void testFinalize001() throws Exception {
         if (this.userListQueryResultHandleDao == null) {
-            fail("userListQueryResultHandleDao‚ªnull‚Å‚·B");
+            fail("userListQueryResultHandleDaoãŒnullã§ã™ã€‚");
         }
 
         Validator validator = null;
@@ -83,29 +83,29 @@ public class DaoValidateCollector002Test extends DaoTestCase {
         try {
             for (UserBean user : it) {
 
-                // ‚ ‚¦‚Ä“r’†‚Å”²‚¯‚é
+                // ã‚ãˆã¦é€”ä¸­ã§æŠœã‘ã‚‹
                 break;
             }
         } catch (Throwable e) {
             throw new SystemException(e);
         } finally {
-            // ‚ ‚¦‚ÄƒNƒ[ƒY‚¹‚¸‚É•ú’u
+            // ã‚ãˆã¦ã‚¯ãƒ­ãƒ¼ã‚ºã›ãšã«æ”¾ç½®
             // DaoValidateCollector.closeQuietly(it);
         }
 
-        // ƒRƒŒƒNƒ^ƒXƒŒƒbƒh”ƒ`ƒFƒbƒN
+        // ã‚³ãƒ¬ã‚¯ã‚¿ã‚¹ãƒ¬ãƒƒãƒ‰æ•°ãƒã‚§ãƒƒã‚¯
         assertTrue(CollectorTestUtil
                 .lessThanCollectorThreadCount(1 + this.previousThreadCount));
     }
 
     /**
      * {@link jp.terasoluna.fw.collector.db.DaoValidateCollector#DaoValidateCollector(Object, String, Object, org.springframework.validation.Validator)}
-     * ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     public void testDaoValidateCollectorObjectStringObjectValidator001()
                                                                              throws Exception {
         if (this.userListQueryResultHandleDao == null) {
-            fail("userListQueryResultHandleDao‚ªnull‚Å‚·B");
+            fail("userListQueryResultHandleDaoãŒnullã§ã™ã€‚");
         }
 
         int count_first = 0;
@@ -128,12 +128,12 @@ public class DaoValidateCollector002Test extends DaoTestCase {
                     logger.info("SQLState:" + sqle.getSQLState());
                     logger.info("ErrorCode:" + sqle.getErrorCode());
                     logger.info("", e);
-                    // Oracle‚Ìê‡‚ÍORA-00054
+                    // Oracleã®å ´åˆã¯ORA-00054
                     if (sqle.getErrorCode() == 54) {
-                        // ƒŠƒgƒ‰ƒCƒtƒ‰ƒO‚ğ—§‚Ä‚é
+                        // ãƒªãƒˆãƒ©ã‚¤ãƒ•ãƒ©ã‚°ã‚’ç«‹ã¦ã‚‹
                         retryFlg = true;
                         retryCount--;
-                        // ƒEƒFƒCƒg
+                        // ã‚¦ã‚§ã‚¤ãƒˆ
                         Thread.sleep(1000);
                         continue;
                     }
@@ -143,14 +143,14 @@ public class DaoValidateCollector002Test extends DaoTestCase {
                 DaoValidateCollector.closeQuietly(it);
             }
 
-            // ƒRƒŒƒNƒ^ƒXƒŒƒbƒh”ƒ`ƒFƒbƒN
+            // ã‚³ãƒ¬ã‚¯ã‚¿ã‚¹ãƒ¬ãƒƒãƒ‰æ•°ãƒã‚§ãƒƒã‚¯
             assertTrue(CollectorTestUtil
                     .lessThanCollectorThreadCount(0 + this.previousThreadCount));
 
         } while (retryFlg && retryCount > 0);
 
         if (retryFlg && retryCount == 0) {
-            logger.info("ƒŠƒgƒ‰ƒCƒJƒEƒ“ƒgƒI[ƒo[");
+            logger.info("ãƒªãƒˆãƒ©ã‚¤ã‚«ã‚¦ãƒ³ãƒˆã‚ªãƒ¼ãƒãƒ¼");
             fail();
             return;
         }
@@ -168,7 +168,7 @@ public class DaoValidateCollector002Test extends DaoTestCase {
                 DaoValidateCollector.closeQuietly(it2);
             }
 
-            // ƒRƒŒƒNƒ^ƒXƒŒƒbƒh”ƒ`ƒFƒbƒN
+            // ã‚³ãƒ¬ã‚¯ã‚¿ã‚¹ãƒ¬ãƒƒãƒ‰æ•°ãƒã‚§ãƒƒã‚¯
             assertTrue(CollectorTestUtil
                     .lessThanCollectorThreadCount(0 + this.previousThreadCount));
             assertEquals(count_first, count);
@@ -177,12 +177,12 @@ public class DaoValidateCollector002Test extends DaoTestCase {
 
     /**
      * {@link jp.terasoluna.fw.collector.db.DaoValidateCollector#DaoValidateCollector(Object, String, Object, org.springframework.validation.Validator)}
-     * ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     public void testDaoValidateCollectorObjectStringObjectValidator002()
                                                                              throws Exception {
         if (this.userListQueryResultHandleDao == null) {
-            fail("userListQueryResultHandleDao‚ªnull‚Å‚·B");
+            fail("userListQueryResultHandleDaoãŒnullã§ã™ã€‚");
         }
 
         int count_first = 0;
@@ -212,7 +212,7 @@ public class DaoValidateCollector002Test extends DaoTestCase {
             DaoValidateCollector.closeQuietly(it);
         }
 
-        // ƒRƒŒƒNƒ^ƒXƒŒƒbƒh”ƒ`ƒFƒbƒN
+        // ã‚³ãƒ¬ã‚¯ã‚¿ã‚¹ãƒ¬ãƒƒãƒ‰æ•°ãƒã‚§ãƒƒã‚¯
         assertTrue(CollectorTestUtil
                 .lessThanCollectorThreadCount(0 + this.previousThreadCount));
 
@@ -228,7 +228,7 @@ public class DaoValidateCollector002Test extends DaoTestCase {
             } finally {
                 DaoValidateCollector.closeQuietly(it2);
             }
-            // ƒRƒŒƒNƒ^ƒXƒŒƒbƒh”ƒ`ƒFƒbƒN
+            // ã‚³ãƒ¬ã‚¯ã‚¿ã‚¹ãƒ¬ãƒƒãƒ‰æ•°ãƒã‚§ãƒƒã‚¯
             assertTrue(CollectorTestUtil
                     .lessThanCollectorThreadCount(0 + this.previousThreadCount));
             assertEquals(count_first, count);
@@ -237,12 +237,12 @@ public class DaoValidateCollector002Test extends DaoTestCase {
 
     /**
      * {@link jp.terasoluna.fw.collector.db.DaoValidateCollector#DaoValidateCollector(Object, String, Object, org.springframework.validation.Validator)}
-     * ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     public void testDaoValidateCollectorObjectStringObjectValidator003()
                                                                              throws Exception {
         if (this.userListQueryResultHandleDao == null) {
-            fail("userListQueryResultHandleDao‚ªnull‚Å‚·B");
+            fail("userListQueryResultHandleDaoãŒnullã§ã™ã€‚");
         }
 
         int count_first = 0;
@@ -264,7 +264,7 @@ public class DaoValidateCollector002Test extends DaoTestCase {
             DaoValidateCollector.closeQuietly(it);
         }
 
-        // ƒRƒŒƒNƒ^ƒXƒŒƒbƒh”ƒ`ƒFƒbƒN
+        // ã‚³ãƒ¬ã‚¯ã‚¿ã‚¹ãƒ¬ãƒƒãƒ‰æ•°ãƒã‚§ãƒƒã‚¯
         assertTrue(CollectorTestUtil
                 .lessThanCollectorThreadCount(0 + this.previousThreadCount));
 
@@ -274,12 +274,12 @@ public class DaoValidateCollector002Test extends DaoTestCase {
 
     /**
      * {@link jp.terasoluna.fw.collector.db.DaoValidateCollector#DaoValidateCollector(Object, String, Object, boolean, org.springframework.validation.Validator)}
-     * ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     public void testDaoValidateCollectorObjectStringObjectBooleanValidator001()
                                                                              throws Exception {
         if (this.userListQueryResultHandleDao == null) {
-            fail("userListQueryResultHandleDao‚ªnull‚Å‚·B");
+            fail("userListQueryResultHandleDaoãŒnullã§ã™ã€‚");
         }
 
         int count_first = 0;
@@ -301,7 +301,7 @@ public class DaoValidateCollector002Test extends DaoTestCase {
             DaoValidateCollector.closeQuietly(it);
         }
 
-        // ƒRƒŒƒNƒ^ƒXƒŒƒbƒh”ƒ`ƒFƒbƒN
+        // ã‚³ãƒ¬ã‚¯ã‚¿ã‚¹ãƒ¬ãƒƒãƒ‰æ•°ãƒã‚§ãƒƒã‚¯
         assertTrue(CollectorTestUtil
                 .lessThanCollectorThreadCount(0 + this.previousThreadCount));
 
@@ -311,12 +311,12 @@ public class DaoValidateCollector002Test extends DaoTestCase {
 
     /**
      * {@link jp.terasoluna.fw.collector.db.DaoValidateCollector#DaoValidateCollector(Object, String, Object, int, boolean, jp.terasoluna.fw.collector.exception.CollectorExceptionHandler, DaoCollectorPrePostProcess, org.springframework.validation.Validator, jp.terasoluna.fw.collector.validate.ValidationErrorHandler)}
-     * ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     public void testDaoValidateCollectorObjectStringObjectIntBooleanCollectorExceptionHandlerDaoCollectorPrePostProcessValidatorValidationErrorHandler001()
                                                                              throws Exception {
         if (this.userListQueryResultHandleDao == null) {
-            fail("userListQueryResultHandleDao‚ªnull‚Å‚·B");
+            fail("userListQueryResultHandleDaoãŒnullã§ã™ã€‚");
         }
 
         int count_first = 0;
@@ -339,7 +339,7 @@ public class DaoValidateCollector002Test extends DaoTestCase {
             DaoValidateCollector.closeQuietly(it);
         }
 
-        // ƒRƒŒƒNƒ^ƒXƒŒƒbƒh”ƒ`ƒFƒbƒN
+        // ã‚³ãƒ¬ã‚¯ã‚¿ã‚¹ãƒ¬ãƒƒãƒ‰æ•°ãƒã‚§ãƒƒã‚¯
         assertTrue(CollectorTestUtil
                 .lessThanCollectorThreadCount(0 + this.previousThreadCount));
 
@@ -349,12 +349,12 @@ public class DaoValidateCollector002Test extends DaoTestCase {
 
     /**
      * {@link jp.terasoluna.fw.collector.db.DaoValidateCollector#DaoValidateCollector(Object, String, Object, org.springframework.validation.Validator)}
-     * ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     public void testDaoValidateCollectorObjectStringObjectValidator004()
                                                                              throws Exception {
         if (this.userListQueryResultHandleDao == null) {
-            fail("userListQueryResultHandleDao‚ªnull‚Å‚·B");
+            fail("userListQueryResultHandleDaoãŒnullã§ã™ã€‚");
         }
 
         int count_first = 0;
@@ -375,7 +375,7 @@ public class DaoValidateCollector002Test extends DaoTestCase {
             DaoValidateCollector.closeQuietly(it);
         }
 
-        // ƒRƒŒƒNƒ^ƒXƒŒƒbƒh”ƒ`ƒFƒbƒN
+        // ã‚³ãƒ¬ã‚¯ã‚¿ã‚¹ãƒ¬ãƒƒãƒ‰æ•°ãƒã‚§ãƒƒã‚¯
         assertTrue(CollectorTestUtil
                 .lessThanCollectorThreadCount(0 + this.previousThreadCount));
 
@@ -385,12 +385,12 @@ public class DaoValidateCollector002Test extends DaoTestCase {
 
     /**
      * {@link jp.terasoluna.fw.collector.db.DaoValidateCollector#DaoValidateCollector(Object, String, Object, boolean, org.springframework.validation.Validator)}
-     * ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     public void testDaoValidateCollectorObjectStringObjectBooleanValidator002()
                                                                              throws Exception {
         if (this.userListQueryResultHandleDao == null) {
-            fail("userListQueryResultHandleDao‚ªnull‚Å‚·B");
+            fail("userListQueryResultHandleDaoãŒnullã§ã™ã€‚");
         }
 
         int count_first = 0;
@@ -415,7 +415,7 @@ public class DaoValidateCollector002Test extends DaoTestCase {
             DaoValidateCollector.closeQuietly(it);
         }
 
-        // ƒRƒŒƒNƒ^ƒXƒŒƒbƒh”ƒ`ƒFƒbƒN
+        // ã‚³ãƒ¬ã‚¯ã‚¿ã‚¹ãƒ¬ãƒƒãƒ‰æ•°ãƒã‚§ãƒƒã‚¯
         assertTrue(CollectorTestUtil
                 .lessThanCollectorThreadCount(0 + this.previousThreadCount));
 
@@ -425,12 +425,12 @@ public class DaoValidateCollector002Test extends DaoTestCase {
 
     /**
      * {@link jp.terasoluna.fw.collector.db.DaoValidateCollector#DaoValidateCollector(Object, String, Object, int, boolean, jp.terasoluna.fw.collector.exception.CollectorExceptionHandler, jp.terasoluna.fw.collector.db.DaoCollectorPrePostProcess, org.springframework.validation.Validator,jp.terasoluna.fw.collector.validate.ValidationErrorHandler)}
-     * ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     public void testDaoValidateCollectorObjectStringObjectIntBooleanCollectorExceptionHandlerDaoCollectorPrePostProcessValidatorValidationErrorHandler002()
                                                                              throws Exception {
         if (this.userListQueryResultHandleDao == null) {
-            fail("userListQueryResultHandleDao‚ªnull‚Å‚·B");
+            fail("userListQueryResultHandleDaoãŒnullã§ã™ã€‚");
         }
 
         int count_first = 0;
@@ -456,7 +456,7 @@ public class DaoValidateCollector002Test extends DaoTestCase {
             DaoValidateCollector.closeQuietly(it);
         }
 
-        // ƒRƒŒƒNƒ^ƒXƒŒƒbƒh”ƒ`ƒFƒbƒN
+        // ã‚³ãƒ¬ã‚¯ã‚¿ã‚¹ãƒ¬ãƒƒãƒ‰æ•°ãƒã‚§ãƒƒã‚¯
         assertTrue(CollectorTestUtil
                 .lessThanCollectorThreadCount(0 + this.previousThreadCount));
 

@@ -9,7 +9,7 @@ public class CollectorExceptionHandlerStub2 implements
 
 	private CollectorExceptionHandlerStatus collectorExceptionHandlerStatus = null;
 	
-	// コンストラクタ
+	// 繧ｳ繝ｳ繧ｹ繝医Λ繧ｯ繧ｿ
 	public CollectorExceptionHandlerStub2(CollectorExceptionHandlerStatus status) {
 		this.collectorExceptionHandlerStatus = status;
 	}

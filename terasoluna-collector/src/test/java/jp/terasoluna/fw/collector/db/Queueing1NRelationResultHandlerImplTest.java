@@ -137,7 +137,7 @@ public class Queueing1NRelationResultHandlerImplTest {
             @Override
             public void doRun() throws Exception {
                 Thread.currentThread().interrupt();
-                    // Š„‚è‚İ”­¶‚ÍhandleResult‚Íˆ—‚³‚ê‚¸AƒXƒŒƒbƒh‚ªŠ„‚è‚İó‘Ô‚Æ‚È‚Á‚Ä‚¢‚é‚±‚ÆB
+                    // å‰²ã‚Šè¾¼ã¿ç™ºç”Ÿæ™‚ã¯handleResultã¯å‡¦ç†ã•ã‚Œãšã€ã‚¹ãƒ¬ãƒƒãƒ‰ãŒå‰²ã‚Šè¾¼ã¿çŠ¶æ…‹ã¨ãªã£ã¦ã„ã‚‹ã“ã¨ã€‚
                     DummyResultContext context = new DummyResultContext();
                     context.setResultObject("rowObject");
                     drh.handleResult(context);
@@ -183,7 +183,7 @@ public class Queueing1NRelationResultHandlerImplTest {
         DaoCollectorStub001 daoCollector = new DaoCollectorStub001();
         drh.setDaoCollector(daoCollector);
 
-        // prevRow‚ªnull‚Ì‚ÍƒLƒ…[’Ç‰Á‚ªs‚í‚ê‚È‚¢‚±‚ÆB
+        // prevRowãŒnullã®æ™‚ã¯ã‚­ãƒ¥ãƒ¼è¿½åŠ ãŒè¡Œã‚ã‚Œãªã„ã“ã¨ã€‚
         drh.delayCollect();
 
         assertEquals(0L, drh.dataCount.get());
@@ -203,7 +203,7 @@ public class Queueing1NRelationResultHandlerImplTest {
         daoCollector.setFinish(false);
         drh.setDaoCollector(daoCollector);
 
-        // 1Œ‚ÌƒLƒ…[’Ç‰Á‚ªs‚í‚ê‚é‚±‚ÆB
+        // 1ä»¶ã®ã‚­ãƒ¥ãƒ¼è¿½åŠ ãŒè¡Œã‚ã‚Œã‚‹ã“ã¨ã€‚
         drh.delayCollect();
 
         assertEquals(1L, drh.dataCount.get());
@@ -230,8 +230,8 @@ public class Queueing1NRelationResultHandlerImplTest {
         HogeBean hoge4 = new HogeBean();
         hoge4.setHoge("hoge4");
 
-        // ˆÈ‰ºAƒXƒŒƒbƒh‚ÉŠ„‚è‚İ‚ª”­¶‚µ‚È‚¢ŒÀ‚èŒp‘±‚³‚ê‚é‚±‚ÆB
-        // queue‚Í‹ó(prevRow=hoge1)
+        // ä»¥ä¸‹ã€ã‚¹ãƒ¬ãƒƒãƒ‰ã«å‰²ã‚Šè¾¼ã¿ãŒç™ºç”Ÿã—ãªã„é™ã‚Šç¶™ç¶šã•ã‚Œã‚‹ã“ã¨ã€‚
+        // queueã¯ç©º(prevRow=hoge1)
         DummyResultContext context = new DummyResultContext();
         context.setResultObject(hoge1);
         drh.handleResult(context);
@@ -240,12 +240,12 @@ public class Queueing1NRelationResultHandlerImplTest {
         drh.handleResult(context);
         // queue=[hoge1,hoge2](prevRow=hoge2)
         drh.delayCollect();
-        // queue=[hoge1,hoge2,hoge2(ƒvƒƒpƒeƒB‰Šú‰»)](prevRow=hoge3)
+        // queue=[hoge1,hoge2,hoge2(ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£åˆæœŸåŒ–)](prevRow=hoge3)
         context.setResultObject(hoge3);
         drh.handleResult(context);
-        // queue=[hoge1,hoge2,hoge2(ƒvƒƒpƒeƒB‰Šú‰»),hoge3](prevRow=hoge3)
+        // queue=[hoge1,hoge2,hoge2(ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£åˆæœŸåŒ–),hoge3](prevRow=hoge3)
         drh.delayCollect();
-        // queue=[hoge1,hoge2,hoge2(ƒvƒƒpƒeƒB‰Šú‰»),hoge3,hoge3(ƒvƒƒpƒeƒB‰Šú‰»)](prevRow=hoge4)
+        // queue=[hoge1,hoge2,hoge2(ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£åˆæœŸåŒ–),hoge3,hoge3(ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£åˆæœŸåŒ–)](prevRow=hoge4)
         context.setResultObject(hoge4);
         drh.handleResult(context);
 
@@ -262,7 +262,7 @@ public class Queueing1NRelationResultHandlerImplTest {
 
         DataValueObject obj3 = daoCollector.getQueue().poll();
         assertTrue(obj3.getValue() instanceof HogeBean);
-        // prevRow‚Æ“¯ˆê‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚Å‚ ‚éhoge2‚Ìƒpƒ‰ƒ[ƒ^‚Í‰Šú‰»‚³‚ê‚Ä‚¢‚é‚±‚ÆB
+        // prevRowã¨åŒä¸€ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã§ã‚ã‚‹hoge2ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã¯åˆæœŸåŒ–ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã€‚
         assertNull(((HogeBean) obj3.getValue()).getHoge());
         assertEquals(3L, obj3.getDataCount());
 
@@ -273,7 +273,7 @@ public class Queueing1NRelationResultHandlerImplTest {
 
         DataValueObject obj5 = daoCollector.getQueue().poll();
         assertTrue(obj5.getValue() instanceof HogeBean);
-        // prevRow‚Æ“¯ˆê‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚Å‚ ‚éhoge3‚Ìƒpƒ‰ƒ[ƒ^‚Í‰Šú‰»‚³‚ê‚Ä‚¢‚é‚±‚ÆB
+        // prevRowã¨åŒä¸€ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã§ã‚ã‚‹hoge3ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã¯åˆæœŸåŒ–ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã€‚
         assertNull(((HogeBean) obj5.getValue()).getHoge());
         assertEquals(5L, obj5.getDataCount());
 
@@ -303,7 +303,7 @@ public class Queueing1NRelationResultHandlerImplTest {
             context.setResultObject("hoge2");
             drh.handleResult(context);
             drh.delayCollect();
-            fail("¸”s");
+            fail("å¤±æ•—");
         } catch (SystemException e) {
             assertNotNull(e);
             assertEquals(SystemException.class, e.getClass());
@@ -330,7 +330,7 @@ public class Queueing1NRelationResultHandlerImplTest {
                 drh.delayCollect();
                 drh.prevRow = "hoge2";
                 Thread.currentThread().interrupt();
-                // Š„‚è‚İ”­¶‚ÍdelayCollect‚Íˆ—‚³‚ê‚¸AƒXƒŒƒbƒh‚ªŠ„‚è‚İó‘Ô‚Ì‚Ü‚Ü‚Å‚ ‚é‚±‚ÆB
+                // å‰²ã‚Šè¾¼ã¿ç™ºç”Ÿæ™‚ã¯delayCollectã¯å‡¦ç†ã•ã‚Œãšã€ã‚¹ãƒ¬ãƒƒãƒ‰ãŒå‰²ã‚Šè¾¼ã¿çŠ¶æ…‹ã®ã¾ã¾ã§ã‚ã‚‹ã“ã¨ã€‚
                 drh.delayCollect();
                 assertTrue(Thread.currentThread().isInterrupted());
             }
@@ -338,15 +338,15 @@ public class Queueing1NRelationResultHandlerImplTest {
         service.submit(runnable);
         runnable.throwErrorOrExceptionIfThrown();
 
-        // "hoge1"‚Ì‚İƒLƒ…[ƒCƒ“ƒO‚³‚ê‚Ä‚¢‚é‚±‚ÆB
+        // "hoge1"ã®ã¿ã‚­ãƒ¥ãƒ¼ã‚¤ãƒ³ã‚°ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã€‚
         assertEquals(1, daoCollector.getQueue().size());
     }
 
     /**
-     * ƒGƒ‰[‚ğƒtƒB[ƒhƒoƒbƒN‚Å‚«‚éRunnableÀ‘•B
-     * •ÊƒXƒŒƒbƒh‚ÅÀ{‚µ‚½‚¢“à—e‚ğ doRun() throws Exception ‚ÉÀ‘•‚·‚éB
-     * Œ±I—¹AthrowErrorOrExceptionIfThrownƒƒ\ƒbƒh‚ğÀs‚·‚é‚ÆA
-     * doRunƒƒ\ƒbƒh‚É‚Ä‘z’èŠO‚ÌƒGƒ‰[‚ª”­¶‚µ‚½ê‡‚ÉA‚»‚ÌƒGƒ‰[‚ªƒXƒ[‚³‚ê‚éB
+     * ã‚¨ãƒ©ãƒ¼ã‚’ãƒ•ã‚£ãƒ¼ãƒ‰ãƒãƒƒã‚¯ã§ãã‚‹Runnableå®Ÿè£…ã€‚
+     * åˆ¥ã‚¹ãƒ¬ãƒƒãƒ‰ã§å®Ÿæ–½ã—ãŸã„å†…å®¹ã‚’ doRun() throws Exception ã«å®Ÿè£…ã™ã‚‹ã€‚
+     * è©¦é¨“çµ‚äº†æ™‚ã€throwErrorOrExceptionIfThrownãƒ¡ã‚½ãƒƒãƒ‰ã‚’å®Ÿè¡Œã™ã‚‹ã¨ã€
+     * doRunãƒ¡ã‚½ãƒƒãƒ‰ã«ã¦æƒ³å®šå¤–ã®ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´åˆã«ã€ãã®ã‚¨ãƒ©ãƒ¼ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã€‚
      */
     abstract class ErrorFeedBackRunnable implements Runnable {
         private Exception exception;

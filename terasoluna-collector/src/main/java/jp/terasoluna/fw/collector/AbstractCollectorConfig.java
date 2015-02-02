@@ -22,10 +22,10 @@ import jp.terasoluna.fw.collector.validate.ValidationErrorHandler;
 import org.springframework.validation.Validator;
 
 /**
- * AbstractCollectorİ’è€–Ú
+ * AbstractCollectorè¨­å®šé …ç›®
  */
 public class AbstractCollectorConfig {
-    /** ƒLƒ…[ƒTƒCƒY */
+    /** ã‚­ãƒ¥ãƒ¼ã‚µã‚¤ã‚º */
     protected int queueSize = AbstractCollector.DEFAULT_QUEUE_SIZE;
 
     /** CollectorExceptionHandler */
@@ -37,27 +37,27 @@ public class AbstractCollectorConfig {
     /** ValidationErrorHandler */
     protected ValidationErrorHandler validationErrorHandler = null;
 
-    /** ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Åˆ—‚ğÀs‚·‚éƒtƒ‰ƒOitrue:Às‚·‚éAfalse:Às‚µ‚È‚¢j */
+    /** ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§å‡¦ç†ã‚’å®Ÿè¡Œã™ã‚‹ãƒ•ãƒ©ã‚°ï¼ˆtrue:å®Ÿè¡Œã™ã‚‹ã€false:å®Ÿè¡Œã—ãªã„ï¼‰ */
     protected boolean executeByConstructor = false;
 
     /**
-     * ƒLƒ…[ƒTƒCƒY‚ğæ“¾‚·‚éB
-     * @return ƒLƒ…[ƒTƒCƒY
+     * ã‚­ãƒ¥ãƒ¼ã‚µã‚¤ã‚ºã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return ã‚­ãƒ¥ãƒ¼ã‚µã‚¤ã‚º
      */
     public int getQueueSize() {
         return queueSize;
     }
 
     /**
-     * ƒLƒ…[ƒTƒCƒY‚ğİ’è‚·‚éB
-     * @param queueSize ƒLƒ…[ƒTƒCƒY
+     * ã‚­ãƒ¥ãƒ¼ã‚µã‚¤ã‚ºã‚’è¨­å®šã™ã‚‹ã€‚
+     * @param queueSize ã‚­ãƒ¥ãƒ¼ã‚µã‚¤ã‚º
      */
     public void setQueueSize(int queueSize) {
         this.queueSize = queueSize;
     }
 
     /**
-     * CollectorExceptionHandler‚ğæ“¾‚·‚éB
+     * CollectorExceptionHandlerã‚’å–å¾—ã™ã‚‹ã€‚
      * @return CollectorExceptionHandler
      */
     public CollectorExceptionHandler getExceptionHandler() {
@@ -65,7 +65,7 @@ public class AbstractCollectorConfig {
     }
 
     /**
-     * CollectorExceptionHandler‚ğİ’è‚·‚éB
+     * CollectorExceptionHandlerã‚’è¨­å®šã™ã‚‹ã€‚
      * @param exceptionHandler CollectorExceptionHandler
      */
     public void setExceptionHandler(CollectorExceptionHandler exceptionHandler) {
@@ -73,7 +73,7 @@ public class AbstractCollectorConfig {
     }
 
     /**
-     * Validator‚ğæ“¾‚·‚éB
+     * Validatorã‚’å–å¾—ã™ã‚‹ã€‚
      * @return Validator
      */
     public Validator getValidator() {
@@ -81,7 +81,7 @@ public class AbstractCollectorConfig {
     }
 
     /**
-     * Validator‚ğİ’è‚·‚éB
+     * Validatorã‚’è¨­å®šã™ã‚‹ã€‚
      * @param validator Validator
      */
     public void setValidator(Validator validator) {
@@ -89,7 +89,7 @@ public class AbstractCollectorConfig {
     }
 
     /**
-     * ValidationErrorHandler‚ğæ“¾‚·‚éB
+     * ValidationErrorHandlerã‚’å–å¾—ã™ã‚‹ã€‚
      * @return ValidationErrorHandler
      */
     public ValidationErrorHandler getValidationErrorHandler() {
@@ -97,7 +97,7 @@ public class AbstractCollectorConfig {
     }
 
     /**
-     * ValidationErrorHandler‚ğİ’è‚·‚éB
+     * ValidationErrorHandlerã‚’è¨­å®šã™ã‚‹ã€‚
      * @param validationErrorHandler ValidationErrorHandler
      */
     public void setValidationErrorHandler(
@@ -106,16 +106,16 @@ public class AbstractCollectorConfig {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Åˆ—‚ğÀs‚·‚éƒtƒ‰ƒO‚ğæ“¾‚·‚éB
-     * @return ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Åˆ—‚ğÀs‚·‚éƒtƒ‰ƒO
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§å‡¦ç†ã‚’å®Ÿè¡Œã™ã‚‹ãƒ•ãƒ©ã‚°ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§å‡¦ç†ã‚’å®Ÿè¡Œã™ã‚‹ãƒ•ãƒ©ã‚°
      */
     public boolean isExecuteByConstructor() {
         return executeByConstructor;
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Åˆ—‚ğÀs‚·‚éƒtƒ‰ƒO‚ğİ’è‚·‚éB
-     * @param executeByConstructor ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Åˆ—‚ğÀs‚·‚éƒtƒ‰ƒO
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§å‡¦ç†ã‚’å®Ÿè¡Œã™ã‚‹ãƒ•ãƒ©ã‚°ã‚’è¨­å®šã™ã‚‹ã€‚
+     * @param executeByConstructor ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§å‡¦ç†ã‚’å®Ÿè¡Œã™ã‚‹ãƒ•ãƒ©ã‚°
      */
     public void setExecuteByConstructor(boolean executeByConstructor) {
         this.executeByConstructor = executeByConstructor;

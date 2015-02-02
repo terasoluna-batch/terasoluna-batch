@@ -28,12 +28,12 @@ import org.apache.commons.jxpath.ri.model.NodePointer;
 import org.apache.commons.jxpath.ri.model.beans.PropertyPointer;
 
 /**
- * {@link jp.terasoluna.fw.beans.jxpath.BeanPointerEx} ƒNƒ‰ƒX‚Ìƒuƒ‰ƒbƒNƒ{ƒbƒNƒXƒeƒXƒgB
+ * {@link jp.terasoluna.fw.beans.jxpath.BeanPointerEx} ã‚¯ãƒ©ã‚¹ã®ãƒ–ãƒ©ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ†ã‚¹ãƒˆã€‚
  * 
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4>
- * Beanƒ|ƒCƒ“ƒ^‚ÌŠg’£ƒNƒ‰ƒXB<br>
- * ‘O’ñğŒF
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4>
+ * Beanãƒã‚¤ãƒ³ã‚¿ã®æ‹¡å¼µã‚¯ãƒ©ã‚¹ã€‚<br>
+ * å‰ææ¡ä»¶ï¼š
  * <p>
  * 
  * @see jp.terasoluna.fw.beans.jxpath.BeanPointerEx
@@ -42,9 +42,9 @@ public class BeanPointerExTest extends TestCase {
 
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -53,9 +53,9 @@ public class BeanPointerExTest extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -64,9 +64,9 @@ public class BeanPointerExTest extends TestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      * 
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public BeanPointerExTest(String name) {
         super(name);
@@ -76,36 +76,36 @@ public class BeanPointerExTest extends TestCase {
      * testBeanPointerExQname01()
      * <br><br>
      * 
-     * (³íŒn) 
+     * (æ­£å¸¸ç³») 
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) name:not null<br>
-     *         (ˆø”) bean:new Object()<br>
-     *         (ˆø”) beanInfo:not null<br>
-     *         (ˆø”) locale:Locale("ja")<br>
-     *         (ó‘Ô) this.beanInfo:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) name:not null<br>
+     *         (å¼•æ•°) bean:new Object()<br>
+     *         (å¼•æ•°) beanInfo:not null<br>
+     *         (å¼•æ•°) locale:Locale("ja")<br>
+     *         (çŠ¶æ…‹) this.beanInfo:null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.beanInfo:ˆø”‚Åİ’è‚³‚ê‚½’lB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.beanInfo:å¼•æ•°ã§è¨­å®šã•ã‚ŒãŸå€¤ã€‚<br>
      *         
      * <br>
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ğŒÄ‚Ño‚·ƒeƒXƒgB
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã‚’å‘¼ã³å‡ºã™ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testBeanPointerExQname01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
     	QName qName = new QName("name");
     	Object bean = new Object();
     	JXPathBeanInfo beanInfo = new JXPathBasicBeanInfo(bean.getClass());
     	Locale locale = new Locale("ja");
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
     	BeanPointerEx result = new BeanPointerEx(qName, bean, beanInfo, locale);
 
-        // ”»’è
+        // åˆ¤å®š
     	assertEquals(beanInfo, UTUtil.getPrivateField(result, "beanInfo"));
     }
 
@@ -113,37 +113,37 @@ public class BeanPointerExTest extends TestCase {
      * testBeanPointerExNodePointer01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) parent:not null<br>
-     *         (ˆø”) name:not null<br>
-     *         (ˆø”) bean:new Object()<br>
-     *         (ˆø”) beanInfo:not null<br>
-     *         (ó‘Ô) this.beanInfo:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) parent:not null<br>
+     *         (å¼•æ•°) name:not null<br>
+     *         (å¼•æ•°) bean:new Object()<br>
+     *         (å¼•æ•°) beanInfo:not null<br>
+     *         (çŠ¶æ…‹) this.beanInfo:null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.beanInfo:ˆø”‚Åİ’è‚³‚ê‚½’lB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.beanInfo:å¼•æ•°ã§è¨­å®šã•ã‚ŒãŸå€¤ã€‚<br>
      *         
      * <br>
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ğŒÄ‚Ño‚·ƒeƒXƒgB
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã‚’å‘¼ã³å‡ºã™ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testBeanPointerExNodePointer01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
     	QName qName = new QName("name");
     	Object bean = new Object();
     	JXPathBeanInfo beanInfo = new JXPathBasicBeanInfo(bean.getClass());
     	Locale locale = new Locale("ja");
     	NodePointer nodePointer = NodePointer.newNodePointer(qName, bean, locale);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
     	BeanPointerEx result = new BeanPointerEx(nodePointer, qName, bean, beanInfo);
 
-        // ”»’è
+        // åˆ¤å®š
     	assertEquals(beanInfo, UTUtil.getPrivateField(result, "beanInfo"));
     }
 
@@ -151,36 +151,36 @@ public class BeanPointerExTest extends TestCase {
      * testGetPropertyPointer01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ó‘Ô) this.beanInfo:not null<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) this.beanInfo:not null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) PropertyPointer:new BeanPropertyPointerEx{<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) PropertyPointer:new BeanPropertyPointerEx{<br>
      *                      parent=this<br>
-     *                      beanInfo=‘O’ñğŒ‚ÌbeanInfo<br>
+     *                      beanInfo=å‰ææ¡ä»¶ã®beanInfo<br>
      *                  }<br>
      *         
      * <br>
-     * ƒvƒƒpƒeƒBƒ|ƒCƒ“ƒ^‚ğæ“¾‚·‚éƒƒ\ƒbƒh‚ÌƒeƒXƒgB
+     * ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒã‚¤ãƒ³ã‚¿ã‚’å–å¾—ã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetPropertyPointer01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
     	QName qName = new QName("name");
     	Object bean = new Object();
     	JXPathBeanInfo beanInfo = new JXPathBasicBeanInfo(bean.getClass());
     	Locale locale = new Locale("ja");
     	BeanPointerEx beanPointer = new BeanPointerEx(qName, bean, beanInfo, locale);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
     	PropertyPointer result = beanPointer.getPropertyPointer();
 
-        // ”»’è
+        // åˆ¤å®š
     	assertSame(BeanPropertyPointerEx.class, result.getClass());
     	assertSame(beanPointer, result.getParent());
     	assertSame(beanInfo, UTUtil.getPrivateField(result, "beanInfo"));

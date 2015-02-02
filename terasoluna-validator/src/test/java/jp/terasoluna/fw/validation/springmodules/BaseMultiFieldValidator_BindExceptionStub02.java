@@ -19,18 +19,18 @@ package jp.terasoluna.fw.validation.springmodules;
 import org.springframework.validation.BindException;
 
 /**
- * BindException‚ÌƒXƒ^ƒuƒNƒ‰ƒXBƒGƒ‰[‚ ‚è‚Ìó‘ÔB
+ * BindExceptionã®ã‚¹ã‚¿ãƒ–ã‚¯ãƒ©ã‚¹ã€‚ã‚¨ãƒ©ãƒ¼ã‚ã‚Šã®çŠ¶æ…‹ã€‚
  *
  */
 public class BaseMultiFieldValidator_BindExceptionStub02 extends BindException {
 
     /**
-     * ƒVƒŠƒAƒ‹ƒo[ƒWƒ‡ƒ“IDB
+     * ã‚·ãƒªã‚¢ãƒ«ãƒãƒ¼ã‚¸ãƒ§ãƒ³IDã€‚
      */
     private static final long serialVersionUID = 2111159027023367043L;
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      * @param target
      * @param objectName
      */
@@ -40,7 +40,7 @@ public class BaseMultiFieldValidator_BindExceptionStub02 extends BindException {
     }
     
     /**
-     * ƒGƒ‰[‚ ‚èB
+     * ã‚¨ãƒ©ãƒ¼ã‚ã‚Šã€‚
      */
     @Override
     public boolean hasErrors() {

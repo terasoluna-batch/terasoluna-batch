@@ -22,20 +22,20 @@ import org.apache.commons.validator.ValidatorResources;
 import org.apache.commons.validator.ValidatorResults;
 
 /**
- * Commons-Validator‚ÌƒXƒ^ƒuƒNƒ‰ƒXBƒƒ\ƒbƒhŒÄ‚Ño‚µŠm”F—pB
+ * Commons-Validatorã®ã‚¹ã‚¿ãƒ–ã‚¯ãƒ©ã‚¹ã€‚ãƒ¡ã‚½ãƒƒãƒ‰å‘¼ã³å‡ºã—ç¢ºèªç”¨ã€‚
  *
  */
 public class BaseMutiFieldValidator_ValidatorStub01 extends Validator {
 
     /**
-     * ƒVƒŠƒAƒ‹ƒo[ƒWƒ‡ƒ“IDB
+     * ã‚·ãƒªã‚¢ãƒ«ãƒãƒ¼ã‚¸ãƒ§ãƒ³IDã€‚
      */
     private static final long serialVersionUID = 8741542862050179269L;
     protected boolean isValidate = false;
     
     
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      */
     public BaseMutiFieldValidator_ValidatorStub01() {
         super(new ValidatorResources());

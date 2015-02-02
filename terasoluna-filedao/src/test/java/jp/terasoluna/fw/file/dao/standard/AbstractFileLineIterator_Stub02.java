@@ -1,7 +1,7 @@
 package jp.terasoluna.fw.file.dao.standard;
 
 /**
- * FileFormatアノテーションの設定を持たないスタブクラス
+ * FileFormat繧｢繝弱ユ繝ｼ繧ｷ繝ｧ繝ｳ縺ｮ險ｭ螳壹ｒ謖√◆縺ｪ縺�繧ｹ繧ｿ繝悶け繝ｩ繧ｹ
  */
 public class AbstractFileLineIterator_Stub02 {
 

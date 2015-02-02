@@ -19,25 +19,25 @@ package jp.terasoluna.fw.file.dao.standard;
 import jp.terasoluna.fw.file.dao.FileLineWriter;
 
 /**
- * ƒtƒ@ƒCƒ‹‘‚İ—p‚ÌFileLineWriter¶¬ƒNƒ‰ƒXB
+ * ãƒ•ã‚¡ã‚¤ãƒ«æ›¸è¾¼ã¿ç”¨ã®FileLineWriterç”Ÿæˆã‚¯ãƒ©ã‚¹ã€‚
  * <p>
- * CSVƒtƒ@ƒCƒ‹—p‚ÌFileLineWriter‚ğ¶¬‚·‚éB
+ * CSVãƒ•ã‚¡ã‚¤ãƒ«ç”¨ã®FileLineWriterã‚’ç”Ÿæˆã™ã‚‹ã€‚
  * </p>
- * sƒIƒuƒWƒFƒNƒg‚Éİ’èo—ˆ‚éƒAƒmƒe[ƒVƒ‡ƒ“‚Ìà–¾‚Í{@link CSVFileLineWriter} ‚ÌJavaDoc‚ğQl‚µ‚Ä‰º‚³‚¢B
+ * è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«è¨­å®šå‡ºæ¥ã‚‹ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã®èª¬æ˜ã¯{@link CSVFileLineWriter} ã®JavaDocã‚’å‚è€ƒã—ã¦ä¸‹ã•ã„ã€‚
  */
 public class CSVFileUpdateDAO extends AbstractFileUpdateDAO {
 
     /**
-     * FileLineWriteræ“¾—pƒƒ\ƒbƒhB
-     * @param <T> 1s•ª‚Ì•¶š—ñ‚ğŠi”[‚·‚éƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgƒNƒ‰ƒX
-     * @param fileName ƒtƒ@ƒCƒ‹–¼
-     * @param clazz ƒpƒ‰ƒ[ƒ^ƒNƒ‰ƒX
-     * @return CSVƒtƒ@ƒCƒ‹—p‚ÌFileLineWriter
+     * FileLineWriterå–å¾—ç”¨ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
+     * @param <T> 1è¡Œåˆ†ã®æ–‡å­—åˆ—ã‚’æ ¼ç´ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¯ãƒ©ã‚¹
+     * @param fileName ãƒ•ã‚¡ã‚¤ãƒ«å
+     * @param clazz ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚¯ãƒ©ã‚¹
+     * @return CSVãƒ•ã‚¡ã‚¤ãƒ«ç”¨ã®FileLineWriter
      */
     @Override
     public <T> FileLineWriter<T> execute(String fileName, Class<T> clazz) {
 
-        // FileLineWriter‚ğ¶¬‚·‚éB
+        // FileLineWriterã‚’ç”Ÿæˆã™ã‚‹ã€‚
         CSVFileLineWriter<T> fileLineWriter = new CSVFileLineWriter<T>(
                 fileName, clazz, getColumnFormatterMap());
 

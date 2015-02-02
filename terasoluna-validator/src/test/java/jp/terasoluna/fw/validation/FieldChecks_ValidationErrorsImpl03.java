@@ -21,22 +21,22 @@ import org.apache.commons.validator.ValidatorAction;
 
 
 /**
- * {@link FieldChecksExtend}‚ğƒeƒXƒg‚·‚é‚½‚ß‚Ì{@link ValidationErrors}À‘•ƒNƒ‰ƒXB
+ * {@link FieldChecksExtend}ã‚’ãƒ†ã‚¹ãƒˆã™ã‚‹ãŸã‚ã®{@link ValidationErrors}å®Ÿè£…ã‚¯ãƒ©ã‚¹ã€‚
  * 
  */
 public class FieldChecks_ValidationErrorsImpl03 implements ValidationErrors {
     
     /**
-     * İ’è‚³‚ê‚éƒGƒ‰[ƒƒbƒZ[ƒWB
+     * è¨­å®šã•ã‚Œã‚‹ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã€‚
      */
     protected String errorMessage = null;
     
     /**
-     * ƒGƒ‰[î•ñ‚ğ’Ç‰Á‚·‚éB
+     * ã‚¨ãƒ©ãƒ¼æƒ…å ±ã‚’è¿½åŠ ã™ã‚‹ã€‚
      * 
-     * @param bean ŒŸ¸‘ÎÛ‚ÌJavaBeanƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param field ƒtƒB[ƒ‹ƒhƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param va Validator‚É‚æ‚è—pˆÓ‚³‚ê‚½ValidatorAction
+     * @param bean æ¤œæŸ»å¯¾è±¡ã®JavaBeanã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param field ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param va Validatorã«ã‚ˆã‚Šç”¨æ„ã•ã‚ŒãŸValidatorAction
      */
     public void addError(Object bean, Field field, ValidatorAction va) {
         this.errorMessage = "errorMessage";

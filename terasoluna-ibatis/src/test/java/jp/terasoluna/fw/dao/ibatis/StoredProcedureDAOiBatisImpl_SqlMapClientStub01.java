@@ -23,20 +23,20 @@ import com.ibatis.sqlmap.engine.impl.SqlMapClientImpl;
 import com.ibatis.sqlmap.engine.impl.SqlMapExecutorDelegate;
 
 /**
- * {@link StoredProcedureDAOiBatisImpl}�̎����̂��߂Ɏg�p�����X�^�u�B
+ * {@link StoredProcedureDAOiBatisImpl}の試験のために使用されるスタブ。
  * 
- * {@link StoredProcedureDAOiBatisImpl}����̌Ăяo���m�F�p�Ɏg�p�����B
+ * {@link StoredProcedureDAOiBatisImpl}からの呼び出し確認用に使用される。
  * 
  */
 public class StoredProcedureDAOiBatisImpl_SqlMapClientStub01 extends SqlMapClientImpl {
 
     /*
-     * �Ăяo���m�F�p�ϐ�
+     * 呼び出し確認用変数
      */
     private boolean called = false;
     
     /**
-     * �e�X�g�p�R���X�g���N�^
+     * テスト用コンストラクタ
      *
      */
     public StoredProcedureDAOiBatisImpl_SqlMapClientStub01() {
@@ -49,7 +49,7 @@ public class StoredProcedureDAOiBatisImpl_SqlMapClientStub01 extends SqlMapClien
     }
 
     /**
-     * �e�X�g�p���\�b�h
+     * テスト用メソッド
      */
     @Override
     public SqlMapSession openSession(Connection conn) {

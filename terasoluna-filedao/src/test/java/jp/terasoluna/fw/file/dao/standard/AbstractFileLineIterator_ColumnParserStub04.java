@@ -7,9 +7,9 @@ import java.text.ParseException;
 import jp.terasoluna.fw.file.dao.standard.ColumnParser;
 
 /**
- * ColumnParserÀ‘•ƒNƒ‰ƒX
+ * ColumnParserå®Ÿè£…ã‚¯ãƒ©ã‚¹
  * <p>
- * {@link #parse(String, Object, Method, String)}‚ÍA•K‚¸ ParseException‚ğƒXƒ[‚·‚éB
+ * {@link #parse(String, Object, Method, String)}ã¯ã€å¿…ãš ParseExceptionã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã€‚
  */
 public class AbstractFileLineIterator_ColumnParserStub04 implements
                                                         ColumnParser {
@@ -18,7 +18,7 @@ public class AbstractFileLineIterator_ColumnParserStub04 implements
             String columnFormat) throws IllegalArgumentException,
                                 IllegalAccessException,
                                 InvocationTargetException, ParseException {
-        throw new ParseException("ColumnParser‚Å‚ÌƒGƒ‰[‚Å‚·", 0);
+        throw new ParseException("ColumnParserã§ã®ã‚¨ãƒ©ãƒ¼ã§ã™", 0);
     }
 
 }

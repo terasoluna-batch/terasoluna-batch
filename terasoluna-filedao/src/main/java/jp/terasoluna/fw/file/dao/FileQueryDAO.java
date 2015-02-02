@@ -17,47 +17,47 @@
 package jp.terasoluna.fw.file.dao;
 
 /**
- * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg¶¬—p‚ÌƒCƒeƒŒ[ƒ^‚ğ¶¬‚·‚é‚½‚ß‚ÌƒCƒ“ƒ^ƒtƒF[ƒXB
+ * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç”Ÿæˆç”¨ã®ã‚¤ãƒ†ãƒ¬ãƒ¼ã‚¿ã‚’ç”Ÿæˆã™ã‚‹ãŸã‚ã®ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã€‚
  * <p>
- * •¶šƒXƒgƒŠ[ƒ€‚©‚çƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ğ¶¬‚·‚é<code>FileLineIterator</code> ‚ğ¶¬‚·‚é‚½‚ß‚ÌƒCƒ“ƒ^ƒtƒF[ƒX‚Å‚ ‚éB ƒTƒuƒNƒ‰ƒX‚ÅÀ‘•‚·‚éƒƒ\ƒbƒh‚Í<code>execute</code>‚Ì‚İB
- * ˆø”‚É‚Íƒf[ƒ^‚ğ“Ç‚İæ‚éƒtƒ@ƒCƒ‹‚ÌƒpƒXi‘Š‘ÎƒpƒX/â‘ÎƒpƒXj‚ÆA ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌƒNƒ‰ƒX‚ğİ’è‚·‚éB<br>
- * FileLineIterator‚ğ¶¬‚·‚é•û–@‚ğˆÈ‰º‚É‚ ‚°‚éB
+ * æ–‡å­—ã‚¹ãƒˆãƒªãƒ¼ãƒ ã‹ã‚‰ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ç”Ÿæˆã™ã‚‹<code>FileLineIterator</code> ã‚’ç”Ÿæˆã™ã‚‹ãŸã‚ã®ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã§ã‚ã‚‹ã€‚ ã‚µãƒ–ã‚¯ãƒ©ã‚¹ã§å®Ÿè£…ã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ã¯<code>execute</code>ã®ã¿ã€‚
+ * å¼•æ•°ã«ã¯ãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿å–ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹ï¼ˆç›¸å¯¾ãƒ‘ã‚¹/çµ¶å¯¾ãƒ‘ã‚¹ï¼‰ã¨ã€ ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¯ãƒ©ã‚¹ã‚’è¨­å®šã™ã‚‹ã€‚<br>
+ * FileLineIteratorã‚’ç”Ÿæˆã™ã‚‹æ–¹æ³•ã‚’ä»¥ä¸‹ã«ã‚ã’ã‚‹ã€‚
  * </p>
  * <p>
- * <strong>İ’è—á</strong><br>
- * ƒrƒWƒlƒXƒƒWƒbƒN(SampleLogic)‚Ì’†‚ÅFileLineIterator‚ğ¶¬‚·‚é—á
+ * <strong>è¨­å®šä¾‹</strong><br>
+ * ãƒ“ã‚¸ãƒã‚¹ãƒ­ã‚¸ãƒƒã‚¯(SampleLogic)ã®ä¸­ã§FileLineIteratorã‚’ç”Ÿæˆã™ã‚‹ä¾‹
  * 
  * <pre>
- * &lt;li&gt;1.FileQueryDAO‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚Ìî•ñ‚ğƒWƒ‡ƒuBean’è‹`ƒtƒ@ƒCƒ‹‚Éİ’è‚·‚éB&lt;/li&gt;
+ * &lt;li&gt;1.FileQueryDAOã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã®æƒ…å ±ã‚’ã‚¸ãƒ§ãƒ–Beanå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ã«è¨­å®šã™ã‚‹ã€‚&lt;/li&gt;
  * &lt;code&gt;
  * &lt;bean id=&quot;blogic&quot; 
- * @class=&quot;jp.terasoluna.batch.sample.SampleLogic&quot;&gt;
+ * ã€€class=&quot;jp.terasoluna.batch.sample.SampleLogic&quot;&gt;
  *  &lt;property name=&quot;fileQueryDAO&quot; ref=&quot;csvFileQueryDao&quot; /&gt;
  * &lt;/bean&gt;
  * &lt;/code&gt;
- * QÆ‚·‚éFileQueryDAO‚ÌƒTƒuƒNƒ‰ƒX‚ÍuFileAccessBean.xmlv‚ğQÆ‚Ì‚±‚ÆB
+ * å‚ç…§ã™ã‚‹FileQueryDAOã®ã‚µãƒ–ã‚¯ãƒ©ã‚¹ã¯ã€ŒFileAccessBean.xmlã€ã‚’å‚ç…§ã®ã“ã¨ã€‚
  * 
- * &lt;li&gt;2.FileLineIterator‚ğƒrƒWƒlƒXƒƒWƒbƒN‚Ì’†‚Å¶¬‚·‚éB&lt;/li&gt;
+ * &lt;li&gt;2.FileLineIteratorã‚’ãƒ“ã‚¸ãƒã‚¹ãƒ­ã‚¸ãƒƒã‚¯ã®ä¸­ã§ç”Ÿæˆã™ã‚‹ã€‚&lt;/li&gt;
  * &lt;code&gt;
- * FileQueryDAO fileDao = null;@@@//FileQueryDAO‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚Ìî•ñ‚ÍƒWƒ‡ƒuBean’è‹`ƒtƒ@ƒCƒ‹‚Éİ’è‚·‚éBsetter‚ÍÈ—ªB
- * cc
- * // FileLineIterator‚ğ¶¬B
+ * FileQueryDAO fileDao = null;ã€€ã€€ã€€//FileQueryDAOã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã®æƒ…å ±ã¯ã‚¸ãƒ§ãƒ–Beanå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ã«è¨­å®šã™ã‚‹ã€‚setterã¯çœç•¥ã€‚
+ * â€¦â€¦
+ * // FileLineIteratorã‚’ç”Ÿæˆã€‚
  * FileLineIterator fileLineIterator 
- *     = fileDao.execute(&quot;yƒAƒNƒZƒX‚·‚éƒtƒ@ƒCƒ‹–¼z&quot;, yƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌƒNƒ‰ƒXz);
- * cc
+ *     = fileDao.execute(&quot;ã€ã‚¢ã‚¯ã‚»ã‚¹ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«åã€‘&quot;, ã€ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¯ãƒ©ã‚¹ã€‘);
+ * â€¦â€¦
  * &lt;/code&gt;
  * </pre>
  * 
- * FileLineIterator‚É‚Â‚¢‚Ä‚Ío@link jp.terasoluna.fw.file.dao.FileLineIterator}‚ğQÆ‚Ì‚±‚ÆB
+ * FileLineIteratorã«ã¤ã„ã¦ã¯ï½›@link jp.terasoluna.fw.file.dao.FileLineIterator}ã‚’å‚ç…§ã®ã“ã¨ã€‚
  */
 public interface FileQueryDAO {
 
     /**
-     * ƒtƒ@ƒCƒ‹–¼‚ğw’è‚µ‚ÄA<code>FileLineIterator</code>‚ğæ“¾‚·‚éB
-     * @param fileName ƒtƒ@ƒCƒ‹–¼iâ‘ÎƒpƒX‚Ü‚½‚Í‘Š‘ÎƒpƒX‚Ì‚Ç‚¿‚ç‚©j
-     * @param clazz 1s•ª‚Ì•¶š—ñ‚ğŠi”[‚·‚éƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgƒNƒ‰ƒX
-     * @param <T> ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg
-     * @return ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg¶¬—p‚ÌƒCƒeƒŒ[ƒ^
+     * ãƒ•ã‚¡ã‚¤ãƒ«åã‚’æŒ‡å®šã—ã¦ã€<code>FileLineIterator</code>ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @param fileName ãƒ•ã‚¡ã‚¤ãƒ«åï¼ˆçµ¶å¯¾ãƒ‘ã‚¹ã¾ãŸã¯ç›¸å¯¾ãƒ‘ã‚¹ã®ã©ã¡ã‚‰ã‹ï¼‰
+     * @param clazz 1è¡Œåˆ†ã®æ–‡å­—åˆ—ã‚’æ ¼ç´ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¯ãƒ©ã‚¹
+     * @param <T> ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @return ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç”Ÿæˆç”¨ã®ã‚¤ãƒ†ãƒ¬ãƒ¼ã‚¿
      */
     <T> FileLineIterator<T> execute(String fileName, Class<T> clazz);
 }

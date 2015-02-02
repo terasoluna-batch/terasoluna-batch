@@ -1,14 +1,14 @@
 package jp.terasoluna.fw.file.dao.standard;
 
 /**
- * —áŠO‚ğ”­¶‚³‚¹‚éƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgƒXƒ^ƒuƒNƒ‰ƒX
+ * ä¾‹å¤–ã‚’ç™ºç”Ÿã•ã›ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¹ã‚¿ãƒ–ã‚¯ãƒ©ã‚¹
  */
 public class NullColumnFormatter_Stub03 {
     @SuppressWarnings("unused")
     private String string = null;
 
     public String getString() {
-        throw new RuntimeException("—áŠO”­¶");
+        throw new RuntimeException("ä¾‹å¤–ç™ºç”Ÿ");
     }
 
 }

@@ -19,60 +19,60 @@ package jp.terasoluna.fw.batch.executor.vo;
 import java.util.List;
 
 /**
- * ƒWƒ‡ƒuƒŠƒXƒgæ“¾—pDAO‚Ì“ü—Íƒpƒ‰ƒ[ƒ^B<br>
+ * ã‚¸ãƒ§ãƒ–ãƒªã‚¹ãƒˆå–å¾—ç”¨DAOã®å…¥åŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã€‚<br>
  */
 public class BatchJobListParam {
     /**
-     * ƒtƒB[ƒ‹ƒh [jobAppCd] €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ƒWƒ‡ƒu‹Æ–±ƒR[ƒh
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [jobAppCd] é …ç›®ã®å‹ [java.lang.String]<br>
+     * ã‚¸ãƒ§ãƒ–æ¥­å‹™ã‚³ãƒ¼ãƒ‰
      */
     private String JobAppCd;
 
     /**
-     * ƒtƒB[ƒ‹ƒh [curAppStatusList] €–Ú‚ÌŒ^ [java.util.List]<br>
-     * ƒXƒe[ƒ^ƒXƒŠƒXƒg
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [curAppStatusList] é …ç›®ã®å‹ [java.util.List]<br>
+     * ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãƒªã‚¹ãƒˆ
      */
     private List<String> CurAppStatusList;
 
     /**
-     * ƒtƒB[ƒ‹ƒh [jobAppCd]‚ÌƒZƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ƒWƒ‡ƒu‹Æ–±ƒR[ƒh
-     * @param argJobAppCd ƒtƒB[ƒ‹ƒh[jobAppCd]‚ÉŠi”[‚µ‚½‚¢’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [jobAppCd]ã®ã‚»ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * ã‚¸ãƒ§ãƒ–æ¥­å‹™ã‚³ãƒ¼ãƒ‰
+     * @param argJobAppCd ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobAppCd]ã«æ ¼ç´ã—ãŸã„å€¤
      */
     public void setJobAppCd(final String argJobAppCd) {
         this.JobAppCd = argJobAppCd;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh[jobAppCd]‚ÌƒQƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.lang.String]<br>
-     * ƒWƒ‡ƒu‹Æ–±ƒR[ƒh
-     * @return ƒtƒB[ƒ‹ƒh[jobAppCd]‚ÉŠi”[‚³‚ê‚Ä‚¢‚é’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobAppCd]ã®ã‚²ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.lang.String]<br>
+     * ã‚¸ãƒ§ãƒ–æ¥­å‹™ã‚³ãƒ¼ãƒ‰
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[jobAppCd]ã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹å€¤
      */
     public String getJobAppCd() {
         return JobAppCd;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [curAppStatusList]‚ÌƒZƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.util.List]<br>
-     * ƒXƒe[ƒ^ƒXƒŠƒXƒg
-     * @param argCurAppStatusList ƒtƒB[ƒ‹ƒh[curAppStatusList]‚ÉŠi”[‚µ‚½‚¢’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [curAppStatusList]ã®ã‚»ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.util.List]<br>
+     * ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãƒªã‚¹ãƒˆ
+     * @param argCurAppStatusList ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[curAppStatusList]ã«æ ¼ç´ã—ãŸã„å€¤
      */
     public void setCurAppStatusList(final List<String> argCurAppStatusList) {
         this.CurAppStatusList = argCurAppStatusList;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh[curAppStatusList]‚ÌƒQƒbƒ^[ƒƒ\ƒbƒh €–Ú‚ÌŒ^ [java.util.List]<br>
-     * ƒXƒe[ƒ^ƒXƒŠƒXƒg
-     * @return ƒtƒB[ƒ‹ƒh[curAppStatusList]‚ÉŠi”[‚³‚ê‚Ä‚¢‚é’l
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[curAppStatusList]ã®ã‚²ãƒƒã‚¿ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰ é …ç›®ã®å‹ [java.util.List]<br>
+     * ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãƒªã‚¹ãƒˆ
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[curAppStatusList]ã«æ ¼ç´ã•ã‚Œã¦ã„ã‚‹å€¤
      */
     public List<String> getCurAppStatusList() {
         return CurAppStatusList;
     }
 
     /**
-     * ‚±‚ÌƒoƒŠƒ…[ƒIƒuƒWƒFƒNƒg‚Ì•¶š—ñ•\Œ»‚ğæ“¾‚µ‚Ü‚·B ƒIƒuƒWƒFƒNƒg‚ÌƒVƒƒƒ[”ÍˆÍ‚Å‚µ‚©toString‚³‚ê‚È‚¢“_‚É’ˆÓ‚µ‚Ä—˜—p‚µ‚Ä‚­‚¾‚³‚¢B
-     * @return ƒoƒŠƒ…[ƒIƒuƒWƒFƒNƒg‚Ì•¶š—ñ•\Œ»B
+     * ã“ã®ãƒãƒªãƒ¥ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®æ–‡å­—åˆ—è¡¨ç¾ã‚’å–å¾—ã—ã¾ã™ã€‚ ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚·ãƒ£ãƒ­ãƒ¼ç¯„å›²ã§ã—ã‹toStringã•ã‚Œãªã„ç‚¹ã«æ³¨æ„ã—ã¦åˆ©ç”¨ã—ã¦ãã ã•ã„ã€‚
+     * @return ãƒãƒªãƒ¥ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®æ–‡å­—åˆ—è¡¨ç¾ã€‚
      */
     public String toString() {
         final StringBuffer buf = new StringBuffer();

@@ -17,24 +17,24 @@
 package jp.terasoluna.fw.validation;
 
 /**
- * �����̃t�B�[���h�̑��֓��̓`�F�b�N���s���C���^�t�F�[�X�B
+ * 複数のフィールドの相関入力チェックを行うインタフェース。
  *
- * �����t�B�[���h�Ԃ̈ˑ��֌W�ɂ����̓`�F�b�N�����s����ꍇ�́A
- * ���̃C���^�t�F�[�X�����������N���X���쐬����B
- * {@link #validate(Object, Object[])} ���\�b�h�̑������ɂ͌��ؑΏۂ̒l�A
- * �������ɂ͈ˑ�����t�B�[���h�̒l���z��œn�����B���؃G���[�̏ꍇ��
- * <code>false</code> ��ԋp���邱�ƁB<br>
- * ���ؑΏۂ̃t�B�[���h�� <code>null</code> �܂��͋󕶎��œn�����ꍇ������
- * �̂ŁA���ӂ��K�v�ł���B�܂��A���̌��؃��[���ɂ̓f�t�H���g��
- * �G���[���b�Z�[�W�����݂��Ȃ����߁A<code>validation.xml</code>
- * �ɂ͕K�����b�Z�[�W�̐ݒ���s�����ƁB<br>
- * <strong>�����̌��؃��[����JavaScript�ł̃`�F�b�N���T�|�[�g���Ă��Ȃ��B
+ * 複数フィールド間の依存関係による入力チェックを実行する場合は、
+ * このインタフェースを実装したクラスを作成する。
+ * {@link #validate(Object, Object[])} メソッドの第一引数には検証対象の値、
+ * 第二引数には依存するフィールドの値が配列で渡される。検証エラーの場合は
+ * <code>false</code> を返却すること。<br>
+ * 検証対象のフィールドは <code>null</code> または空文字で渡される場合がある
+ * ので、注意が必要である。また、この検証ルールにはデフォルトの
+ * エラーメッセージが存在しないため、<code>validation.xml</code>
+ * には必ずメッセージの設定を行うこと。<br>
+ * <strong>※この検証ルールはJavaScriptでのチェックをサポートしていない。
  * </strong>
  * <br>
  * <br>
- * value�t�B�[���h�̒l���Avalue1�t�B�[���h�̒l�ȏ�Avalue2�t�B�[���h�̒l�ȉ�
- * �ł��邱�Ƃ����؂���ꍇ�A�ȉ��̂悤�Ɏ����A�ݒ���s���B
- * <h5>{@link MultiFieldValidator} �̎�����</h5>
+ * valueフィールドの値が、value1フィールドの値以上、value2フィールドの値以下
+ * であることを検証する場合、以下のように実装、設定を行う。
+ * <h5>{@link MultiFieldValidator} の実装例</h5>
  * <code><pre>
  * public boolean validate(Object value, Object[] fields) {
  *     if (!(value instanceof Integer)) {
@@ -52,7 +52,7 @@ package jp.terasoluna.fw.validation;
  *     return (value1 <= value0 && value2 >= value0);
  * }
  * </pre></code>
- * <h5>validation.xml�̐ݒ��</h5>
+ * <h5>validation.xmlの設定例</h5>
  * <code><pre>
  * &lt;form name=&quot;/validateMultiField&quot;&gt;
  *   &lt;field property=&quot;value&quot; depends=&quot;multiField&quot;&gt;
@@ -72,24 +72,24 @@ package jp.terasoluna.fw.validation;
  *   &lt;/field&gt;
  * &lt;/form&gt;
  * </pre></code>
- * <h5>���b�Z�[�W���\�[�X�t�@�C���̐ݒ��</h5>
+ * <h5>メッセージリソースファイルの設定例</h5>
  * <code>
- * errors.multiField={0}��{1}����{2}�̊Ԃ̒l����͂��Ă��������B
+ * errors.multiField={0}は{1}から{2}の間の値を入力してください。
  * </code>
  *
  */
 public interface MultiFieldValidator {
 
     /**
-     * �����t�B�[���h�̑��֓��̓`�F�b�N�����s����B
+     * 複数フィールドの相関入力チェックを実行する。
      * <br>
-     * ���ؑΏۂ̒l�͑������œn�����B���؂ɕK�v�ȑ��̃t�B�[���h��
-     * �l�͑������ɔz��Ƃ��ēn�����B���؃G���[�̏ꍇ�� <code>false</code>
-     * ��ԋp���邱�ƁB
+     * 検証対象の値は第一引数で渡される。検証に必要な他のフィールドの
+     * 値は第二引数に配列として渡される。検証エラーの場合は <code>false</code>
+     * を返却すること。
      *
-     * @param value ���ؑΏۂ̒l
-     * @param fields ���؂ɕK�v�ȑ��̃t�B�[���h�̒l�z��
-     * @return �G���[���Ȃ���� <code>true</code>
+     * @param value 検証対象の値
+     * @param fields 検証に必要な他のフィールドの値配列
+     * @return エラーがなければ <code>true</code>
      */
     boolean validate(Object value, Object[] fields);
 

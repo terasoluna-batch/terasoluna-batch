@@ -17,14 +17,14 @@
 package jp.terasoluna.fw.batch.exception.handler;
 
 /**
- * —áŠOƒnƒ“ƒhƒ‰ƒCƒ“ƒ^ƒtƒF[ƒX.
+ * ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹.
  */
 public interface ExceptionHandler {
 
     /**
-     * ƒrƒWƒlƒXƒƒWƒbƒN—áŠO‚Ìƒnƒ“ƒhƒŠƒ“ƒO
-     * @param e ”­¶‚µ‚½—áŠO
-     * @return —áŠOƒnƒ“ƒhƒŠƒ“ƒOŒã‚ÌƒXƒe[ƒ^ƒX‚ğ•Ô‚·B
+     * ãƒ“ã‚¸ãƒã‚¹ãƒ­ã‚¸ãƒƒã‚¯ä¾‹å¤–æ™‚ã®ãƒãƒ³ãƒ‰ãƒªãƒ³ã‚°
+     * @param e ç™ºç”Ÿã—ãŸä¾‹å¤–
+     * @return ä¾‹å¤–ãƒãƒ³ãƒ‰ãƒªãƒ³ã‚°å¾Œã®ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã‚’è¿”ã™ã€‚
      */
     int handleThrowableException(Throwable e);
 

@@ -1,5 +1,5 @@
 /**
- * 汎用メッセージパッケージ
+ * 豎守畑繝｡繝�繧ｻ繝ｼ繧ｸ繝代ャ繧ｱ繝ｼ繧ｸ
  */
 package jp.terasoluna.fw.message;
 

@@ -5,9 +5,9 @@ import java.util.Date;
 import jp.terasoluna.fw.file.annotation.FileFormat;
 
 /**
- * 可視性がprivateのメソッドを持つファイル行オブジェクトスタブクラス
+ * 蜿ｯ隕匁ｧ縺継rivate縺ｮ繝｡繧ｽ繝�繝峨ｒ謖√▽繝輔ぃ繧､繝ｫ陦後が繝悶ず繧ｧ繧ｯ繝医せ繧ｿ繝悶け繝ｩ繧ｹ
  * <p>
- * 以下の設定を持つ<br>
+ * 莉･荳九�ｮ險ｭ螳壹ｒ謖√▽<br>
  * <ul>
  * <li>@FileFormat()
  */

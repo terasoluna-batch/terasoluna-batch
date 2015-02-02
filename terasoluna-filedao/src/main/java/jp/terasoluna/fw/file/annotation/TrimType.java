@@ -17,28 +17,28 @@
 package jp.terasoluna.fw.file.annotation;
 
 /**
- * ƒgƒŠƒ€Ží•ÊB<br>
+ * ãƒˆãƒªãƒ ç¨®åˆ¥ã€‚<br>
  * <br>
- * ƒgƒŠƒ€‚ÌŽí•Ê(¶‹l/‰E‹l/ƒgƒŠƒ€‚È‚µ/—¼‘¤[LEFT/RIGHT/NONE/BOTH])‚ðŽ¦‚·B
+ * ãƒˆãƒªãƒ ã®ç¨®åˆ¥(å·¦è©°/å³è©°/ãƒˆãƒªãƒ ãªã—/ä¸¡å´[LEFT/RIGHT/NONE/BOTH])ã‚’ç¤ºã™ã€‚
  */
 public enum TrimType {
     /**
-     * ¶‹l
+     * å·¦è©°
      */
     LEFT,
 
     /**
-     * ‰E‹l
+     * å³è©°
      */
     RIGHT,
 
     /**
-     * ƒgƒŠƒ€‚È‚µ
+     * ãƒˆãƒªãƒ ãªã—
      */
     NONE,
 
     /**
-     * —¼‘¤
+     * ä¸¡å´
      */
     BOTH
 }

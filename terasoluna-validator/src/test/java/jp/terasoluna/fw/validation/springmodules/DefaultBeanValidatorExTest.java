@@ -25,11 +25,11 @@ import org.apache.commons.validator.ValidatorResources;
 
 /**
  * {@link jp.terasoluna.fw.validation.springmodules.DefaultBeanValidatorEx}
- * ƒNƒ‰ƒX‚ÌƒeƒXƒgB
+ * ã‚¯ãƒ©ã‚¹ã®ãƒ†ã‚¹ãƒˆã€‚
  * 
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4>
- * Spring-Modules‚ÌDefaultBeanValidator’ŠÛƒNƒ‰ƒXB
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4>
+ * Spring-Modulesã®DefaultBeanValidatoræŠ½è±¡ã‚¯ãƒ©ã‚¹ã€‚
  * <p>
  * 
  * @see jp.terasoluna.fw.validation.springmodules.DefaultBeanValidatorEx
@@ -37,20 +37,20 @@ import org.apache.commons.validator.ValidatorResources;
 public class DefaultBeanValidatorExTest extends TestCase {
 
     /**
-     * ‚±‚ÌƒeƒXƒgƒP[ƒX‚ğÀs‚·‚éˆ×‚Ì GUI ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‹N“®‚·‚éB
+     * ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã‚’å®Ÿè¡Œã™ã‚‹ç‚ºã® GUI ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’èµ·å‹•ã™ã‚‹ã€‚
      * 
      * @param args
-     *            java ƒRƒ}ƒ“ƒh‚Éİ’è‚³‚ê‚½ƒpƒ‰ƒ[ƒ^
+     *            java ã‚³ãƒãƒ³ãƒ‰ã«è¨­å®šã•ã‚ŒãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public static void main(String[] args) {
         junit.swingui.TestRunner.run(DefaultBeanValidatorExTest.class);
     }
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -59,10 +59,10 @@ public class DefaultBeanValidatorExTest extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -71,10 +71,10 @@ public class DefaultBeanValidatorExTest extends TestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      * 
      * @param name
-     *            ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     *            ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public DefaultBeanValidatorExTest(String name) {
         super(name);
@@ -84,24 +84,24 @@ public class DefaultBeanValidatorExTest extends TestCase {
      * testCleanupValidator01() <br>
      * <br>
      * 
-     * (³íŒn) <br>
-     * ŠÏ“_FA,E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šA,E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) validator:CommonsValidatorExƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (‘O’ñğŒ) validator.getValidatorException():ValidatorExceptionƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) validator:CommonsValidatorExã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (å‰ææ¡ä»¶) validator.getValidatorException():ValidatorExceptionã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * 
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:ValidatorExceptioniterasoluna-spring-validator)<br>
-     * EŒ´ˆö—áŠO]ValidatorException(commons)<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ValidatorExceptionï¼ˆterasoluna-spring-validator)<br>
+     * ãƒ»åŸå› ä¾‹å¤–â€ValidatorException(commons)<br>
      * 
      * <br>
-     * ˆø”validator‚ÉValidatorException‚ªİ’è‚³‚ê‚Ä‚¢‚éê‡Aƒ‰ƒ“ƒ^ƒCƒ€—áŠO‚Éƒ‰ƒbƒv‚µ‚ÄƒXƒ[‚·‚é‚±‚Æ‚ÌƒeƒXƒgB <br>
+     * å¼•æ•°validatorã«ValidatorExceptionãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã€ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ä¾‹å¤–ã«ãƒ©ãƒƒãƒ—ã—ã¦ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã“ã¨ã®ãƒ†ã‚¹ãƒˆã€‚ <br>
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testCleanupValidator01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         ValidatorResources resources = new ValidatorResources();
         CommonsValidatorEx commonsValidatorEx = new CommonsValidatorEx(
                 resources, null);
@@ -111,11 +111,11 @@ public class DefaultBeanValidatorExTest extends TestCase {
 
         DefaultBeanValidatorEx defaultBeanValidatorEx = new DefaultBeanValidatorEx();
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             defaultBeanValidatorEx.cleanupValidator(commonsValidatorEx);
             fail();
         } catch (jp.terasoluna.fw.validation.springmodules.ValidatorException e) {
-            // ”»’è
+            // åˆ¤å®š
             assertSame(validatorException, e.getCause());
         }
     }
@@ -124,21 +124,21 @@ public class DefaultBeanValidatorExTest extends TestCase {
      * testCleanupValidator02() <br>
      * <br>
      * 
-     * (³íŒn) <br>
-     * ŠÏ“_FA,E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šA,E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) validator:CommonsValidatorExƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (‘O’ñğŒ) validator.getValidatorException():null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) validator:CommonsValidatorExã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (å‰ææ¡ä»¶) validator.getValidatorException():null<br>
      * 
      * <br>
-     * Šú‘Ò’lF <br>
-     * ˆø”validator‚ÉValidatorException‚ªİ’è‚³‚ê‚Ä‚¢‚È‚¢ê‡A—áŠO‚ğƒXƒ[‚¹‚¸‚Éˆ—‚ğI—¹‚·‚é‚±‚Æ‚ÌƒeƒXƒgB <br>
+     * æœŸå¾…å€¤ï¼š <br>
+     * å¼•æ•°validatorã«ValidatorExceptionãŒè¨­å®šã•ã‚Œã¦ã„ãªã„å ´åˆã€ä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã›ãšã«å‡¦ç†ã‚’çµ‚äº†ã™ã‚‹ã“ã¨ã®ãƒ†ã‚¹ãƒˆã€‚ <br>
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testCleanupValidator02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         ValidatorResources resources = new ValidatorResources();
         CommonsValidatorEx commonsValidatorEx = new CommonsValidatorEx(
                 resources, null);
@@ -146,10 +146,10 @@ public class DefaultBeanValidatorExTest extends TestCase {
 
         DefaultBeanValidatorEx defaultBeanValidatorEx = new DefaultBeanValidatorEx();
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             defaultBeanValidatorEx.cleanupValidator(commonsValidatorEx);
         } catch (jp.terasoluna.fw.validation.springmodules.ValidatorException e) {
-            // ”»’è
+            // åˆ¤å®š
             fail();
         }
     }
@@ -158,21 +158,21 @@ public class DefaultBeanValidatorExTest extends TestCase {
      * testCleanupValidator03() <br>
      * <br>
      * 
-     * (³íŒn) <br>
-     * ŠÏ“_FA,E <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šA,E <br>
      * <br>
-     * “ü—Í’lF(ˆø”) validator:CommonsValidatorExˆÈŠO‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) validator:CommonsValidatorExä»¥å¤–ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * 
      * <br>
-     * Šú‘Ò’lF <br>
-     * ˆø”validator‚ªvalidatorCommonsValidatorExƒCƒ“ƒXƒ^ƒ“ƒX‚Å‚È‚¢ê‡AŠO‚ğƒXƒ[‚¹‚¸‚Éˆ—‚ğI—¹‚·‚é‚±‚Æ‚ÌƒeƒXƒgB
+     * æœŸå¾…å€¤ï¼š <br>
+     * å¼•æ•°validatorãŒvalidatorCommonsValidatorExã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã§ãªã„å ´åˆã€å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã›ãšã«å‡¦ç†ã‚’çµ‚äº†ã™ã‚‹ã“ã¨ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testCleanupValidator03() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         ValidatorResources resources = new ValidatorResources();
         Validator validator = new Validator(resources);
 
@@ -181,7 +181,7 @@ public class DefaultBeanValidatorExTest extends TestCase {
 
             defaultBeanValidatorEx.cleanupValidator(validator);
         } catch (jp.terasoluna.fw.validation.springmodules.ValidatorException e) {
-            // ”»’è
+            // åˆ¤å®š
             fail();
         }
     }

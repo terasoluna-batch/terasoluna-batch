@@ -17,20 +17,20 @@
 package jp.terasoluna.fw.dao;
 
 /**
- * StoredProcedureDAOƒCƒ“ƒ^ƒtƒF[ƒXB
+ * StoredProcedureDAOã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã€‚
  * 
- * StoredProcedure‚ğÀs‚·‚é‚½‚ß‚ÌDAOƒCƒ“ƒ^ƒtƒF[ƒX‚Å‚ ‚éB
+ * StoredProcedureã‚’å®Ÿè¡Œã™ã‚‹ãŸã‚ã®DAOã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã§ã‚ã‚‹ã€‚
  *
  */
 public interface StoredProcedureDAO {
 
     /**
-     * w’è‚³‚ê‚½SQLID‚ÌƒXƒgƒAƒhƒvƒƒV[ƒWƒƒ[‚ğÀs‚·‚éB
-     * ƒXƒgƒAƒhƒvƒƒV[ƒWƒƒ[‚ÌŒ‹‰Ê‚Å‚ ‚éƒAƒEƒgƒpƒ‰ƒ[ƒ^‚ÍA
-     * ˆø”‚ÌbindParams‚É”½‰f‚³‚ê‚éB
+     * æŒ‡å®šã•ã‚ŒãŸSQLIDã®ã‚¹ãƒˆã‚¢ãƒ‰ãƒ—ãƒ­ã‚·ãƒ¼ã‚¸ãƒ£ãƒ¼ã‚’å®Ÿè¡Œã™ã‚‹ã€‚
+     * ã‚¹ãƒˆã‚¢ãƒ‰ãƒ—ãƒ­ã‚·ãƒ¼ã‚¸ãƒ£ãƒ¼ã®çµæœã§ã‚ã‚‹ã‚¢ã‚¦ãƒˆãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã¯ã€
+     * å¼•æ•°ã®bindParamsã«åæ˜ ã•ã‚Œã‚‹ã€‚
      * 
-     * @param sqlID Às‚·‚éSQL‚ÌID
-     * @param bindParams SQL‚ÉƒoƒCƒ“ƒh‚·‚é’l‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg
+     * @param sqlID å®Ÿè¡Œã™ã‚‹SQLã®ID
+     * @param bindParams SQLã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹å€¤ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      */
     void executeForObject(String sqlID, Object bindParams);
 }

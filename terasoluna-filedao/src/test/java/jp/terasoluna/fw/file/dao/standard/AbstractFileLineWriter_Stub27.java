@@ -4,21 +4,21 @@ import jp.terasoluna.fw.file.annotation.FileFormat;
 import jp.terasoluna.fw.file.annotation.OutputFileColumn;
 
 /**
- * AbstractFileLineWriter‚ÌŒ±‚Å—˜—p‚·‚éƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌƒXƒ^ƒuƒNƒ‰ƒXB<br>
+ * AbstractFileLineWriterã®è©¦é¨“ã§åˆ©ç”¨ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¹ã‚¿ãƒ–ã‚¯ãƒ©ã‚¹ã€‚<br>
  * <br>
- * ˆÈ‰º‚Ì@FileFormat‚Ìİ’è‚ğ‚Â<br>
+ * ä»¥ä¸‹ã®@FileFormatã®è¨­å®šã‚’æŒã¤<br>
  * <ul>
- * <li>encloseCharF'\"'</li>
- * <li>‚»‚Ì‘¼FƒfƒtƒHƒ‹ƒg’l</li>
+ * <li>encloseCharï¼š'\"'</li>
+ * <li>ãã®ä»–ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤</li>
  * </ul>
  * <br>
- * <code>@OutputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
+ * <code>@OutputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
  * <ul>
- * <li>ƒtƒB[ƒ‹ƒhFString column1
- *     <code>@OutputFileColumn</code>İ’è<br>
- * > columnIndexF0<br>
- * > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l</li> </ul>
- * @author æâ•î“O
+ * <li>ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column1
+ *     <code>@OutputFileColumn</code>è¨­å®š<br>
+ * > columnIndexï¼š0<br>
+ * > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤</li> </ul>
+ * @author è¶™ä¿¸å¾¹
  */
 @FileFormat(encloseChar = '\"')
 public class AbstractFileLineWriter_Stub27 {
@@ -30,7 +30,7 @@ public class AbstractFileLineWriter_Stub27 {
     private String column1 = null;
 
     /**
-     * column1‚ğæ“¾‚·‚éB
+     * column1ã‚’å–å¾—ã™ã‚‹ã€‚
      * @return column1
      */
     public String getColumn1() {
@@ -38,7 +38,7 @@ public class AbstractFileLineWriter_Stub27 {
     }
 
     /**
-     * column1‚ğİ’è‚·‚éB
+     * column1ã‚’è¨­å®šã™ã‚‹ã€‚
      * @param column1 column1
      */
     public void setColumn1(String column1) {

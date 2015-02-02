@@ -25,12 +25,12 @@ public class JXPathIndexedBeanWrapperImplStub04 extends
         JXPathIndexedBeanWrapperImpl {
 
     /**
-     * ˆø”‚ğ•Û‚·‚é‘®«B
+     * å¼•æ•°ã‚’ä¿æŒã™ã‚‹å±æ€§ã€‚
      */
     public ArrayList<String> extractAttributeNameArg1 = new ArrayList<String>();
 
     /**
-     * ˆø”‚ğ•Û‚·‚é‘®«B
+     * å¼•æ•°ã‚’ä¿æŒã™ã‚‹å±æ€§ã€‚
      */
     public ArrayList<String> extractMapAttributeNameArg1 = new ArrayList<String>();
     
@@ -39,45 +39,45 @@ public class JXPathIndexedBeanWrapperImplStub04 extends
     private int extractMapAttributeNameInnerCount = 0;
 
     /**
-     * ˆø”‚ğ•Û‚·‚é‘®«B
+     * å¼•æ•°ã‚’ä¿æŒã™ã‚‹å±æ€§ã€‚
      */
     public ArrayList<String> extractMapKeyArg1 = new ArrayList<String>();
     private String[] extractMapKeyReturnValue = { "bbb", "eee" };
     private int extractMapKeyInnerCount = 0;
 
     /**
-     * ˆø”‚ğ•Û‚·‚é‘®«B
+     * å¼•æ•°ã‚’ä¿æŒã™ã‚‹å±æ€§ã€‚
      */
     public ArrayList<String> extractDecrementIndexArg1 = new ArrayList<String>();
     
     /**
-     * –ß‚è’l‚ğ•Û‚·‚é‘®«B
+     * æˆ»ã‚Šå€¤ã‚’ä¿æŒã™ã‚‹å±æ€§ã€‚
      */
     public String extractDecrementIndexReturnValue = null;
 
     /**
-     * ˆø”‚ğ•Û‚·‚é‘®«B
+     * å¼•æ•°ã‚’ä¿æŒã™ã‚‹å±æ€§ã€‚
      */
     public ArrayList<String> isMapAttributeArg1 = new ArrayList<String>();
     
     /**
-     * –ß‚è’l‚ğ•Û‚·‚é‘®«B
+     * æˆ»ã‚Šå€¤ã‚’ä¿æŒã™ã‚‹å±æ€§ã€‚
      */
     public boolean isMapAttributeReturnValue = false;
 
     /**
-     * –ß‚è’l‚ğ•Û‚·‚é‘®«B
+     * æˆ»ã‚Šå€¤ã‚’ä¿æŒã™ã‚‹å±æ€§ã€‚
      */
     public ArrayList<String> isMapObjectArg1 = new ArrayList<String>();
     
     /**
-     * –ß‚è’l‚ğ•Û‚·‚é‘®«B
+     * æˆ»ã‚Šå€¤ã‚’ä¿æŒã™ã‚‹å±æ€§ã€‚
      */
     public boolean isMapObjectReturnValue = false;
     
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-     * @param target ƒ^[ƒQƒbƒg‚ÌJavaBean
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+     * @param target ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã®JavaBean
      */
     public JXPathIndexedBeanWrapperImplStub04(Object target) {
         super(target);
@@ -93,7 +93,7 @@ public class JXPathIndexedBeanWrapperImplStub04 extends
     }
 
     /**
-     * ¦’ˆÓFŒÄ‚Ño‚µ‰ñ”‚É‚æ‚è –ß‚è’l‚ª•Ï‚í‚éB
+     * â€»æ³¨æ„ï¼šå‘¼ã³å‡ºã—å›æ•°ã«ã‚ˆã‚Š æˆ»ã‚Šå€¤ãŒå¤‰ã‚ã‚‹ã€‚
      */
     @Override
     protected String extractMapAttributeName(String node) {
@@ -108,7 +108,7 @@ public class JXPathIndexedBeanWrapperImplStub04 extends
     }
 
     /**
-     * ¦’ˆÓFŒÄ‚Ño‚µ‰ñ”‚É‚æ‚è –ß‚è’l‚ª•Ï‚í‚éB
+     * â€»æ³¨æ„ï¼šå‘¼ã³å‡ºã—å›æ•°ã«ã‚ˆã‚Š æˆ»ã‚Šå€¤ãŒå¤‰ã‚ã‚‹ã€‚
      */
     @Override
     protected String extractMapKey(String node) {
@@ -123,8 +123,8 @@ public class JXPathIndexedBeanWrapperImplStub04 extends
     }
 
     /**
-     * yŒÄ‚Ño‚µ•û–@z
-     * extractDecrementIndexReturnValue ‚É–ß‚è’l‚ğİ’è‚µ‚½Œã‚ÅŒÄ‚Ño‚·B
+     * ã€å‘¼ã³å‡ºã—æ–¹æ³•ã€‘
+     * extractDecrementIndexReturnValue ã«æˆ»ã‚Šå€¤ã‚’è¨­å®šã—ãŸå¾Œã§å‘¼ã³å‡ºã™ã€‚
      */
     @Override
     protected String extractDecrementIndex(String node) {
@@ -133,8 +133,8 @@ public class JXPathIndexedBeanWrapperImplStub04 extends
     }
 
     /**
-     * yŒÄ‚Ño‚µ•û–@z
-     *  isMapAttributeReturnValue ‚É–ß‚è’l‚ğİ’è‚µ‚½Œã‚ÅŒÄ‚Ño‚·B
+     * ã€å‘¼ã³å‡ºã—æ–¹æ³•ã€‘
+     *  isMapAttributeReturnValue ã«æˆ»ã‚Šå€¤ã‚’è¨­å®šã—ãŸå¾Œã§å‘¼ã³å‡ºã™ã€‚
      */
     @Override
     protected boolean isMapAttribute(String node) {
@@ -143,8 +143,8 @@ public class JXPathIndexedBeanWrapperImplStub04 extends
     }
 
     /**
-     * yŒÄ‚Ño‚µ•û–@z
-     *  isMapObjectReturnValue ‚É–ß‚è’l‚ğİ’è‚µ‚½Œã‚ÅŒÄ‚Ño‚·B
+     * ã€å‘¼ã³å‡ºã—æ–¹æ³•ã€‘
+     *  isMapObjectReturnValue ã«æˆ»ã‚Šå€¤ã‚’è¨­å®šã—ãŸå¾Œã§å‘¼ã³å‡ºã™ã€‚
      */
     @Override
     protected boolean isMapObject(String node) {

@@ -27,12 +27,12 @@ import org.apache.commons.jxpath.ri.QName;
 import org.apache.commons.jxpath.ri.model.NodePointer;
 
 /**
- * {@link jp.terasoluna.fw.beans.jxpath.DynamicPointerEx} ƒNƒ‰ƒX‚Ìƒuƒ‰ƒbƒNƒ{ƒbƒNƒXƒeƒXƒgB
+ * {@link jp.terasoluna.fw.beans.jxpath.DynamicPointerEx} ã‚¯ãƒ©ã‚¹ã®ãƒ–ãƒ©ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ†ã‚¹ãƒˆã€‚
  * 
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4>
- * null’l‚ğˆµ‚¤‚½‚ß‚ÌMapƒ|ƒCƒ“ƒ^Šg’£ƒNƒ‰ƒXB<br>
- * ‘O’ñğŒF
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4>
+ * nullå€¤ã‚’æ‰±ã†ãŸã‚ã®Mapãƒã‚¤ãƒ³ã‚¿æ‹¡å¼µã‚¯ãƒ©ã‚¹ã€‚<br>
+ * å‰ææ¡ä»¶ï¼š
  * <p>
  * 
  * @see jp.terasoluna.fw.beans.jxpath.DynamicPointerEx
@@ -41,9 +41,9 @@ public class DynamicPointerExTest extends TestCase {
 
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -52,9 +52,9 @@ public class DynamicPointerExTest extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -63,9 +63,9 @@ public class DynamicPointerExTest extends TestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      * 
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public DynamicPointerExTest(String name) {
         super(name);
@@ -75,36 +75,36 @@ public class DynamicPointerExTest extends TestCase {
      * testDynamicPointerExQname01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) name:not null<br>
-     *         (ˆø”) bean:new Object()<br>
-     *         (ˆø”) handler:not null<br>
-     *         (ˆø”) locale:Locale("ja")<br>
-     *         (ó‘Ô) this.handler:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) name:not null<br>
+     *         (å¼•æ•°) bean:new Object()<br>
+     *         (å¼•æ•°) handler:not null<br>
+     *         (å¼•æ•°) locale:Locale("ja")<br>
+     *         (çŠ¶æ…‹) this.handler:null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.handler:ˆø”‚Åİ’è‚³‚ê‚½’lB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.handler:å¼•æ•°ã§è¨­å®šã•ã‚ŒãŸå€¤ã€‚<br>
      *         
      * <br>
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ğŒÄ‚Ño‚·ƒeƒXƒgB
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã‚’å‘¼ã³å‡ºã™ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testDynamicPointerExQname01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
     	QName qName = new QName("name");
     	Object bean = new Object();
     	DynamicPropertyHandler handler = new MapDynamicPropertyHandler();
     	Locale locale = new Locale("ja");
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
     	DynamicPointerEx result = new DynamicPointerEx(qName, bean, handler,locale);
 
-        // ”»’è
+        // åˆ¤å®š
     	assertSame(handler, UTUtil.getPrivateField(result, "handler"));
     }
 
@@ -112,37 +112,37 @@ public class DynamicPointerExTest extends TestCase {
      * testDynamicPointerExNodePointer01()
      * <br><br>
      * 
-     * (³íŒn) 
+     * (æ­£å¸¸ç³») 
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) parent:not null<br>
-     *         (ˆø”) name:not null<br>
-     *         (ˆø”) bean:new Object()<br>
-     *         (ˆø”) handler:not null<br>
-     *         (ó‘Ô) this.handler:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) parent:not null<br>
+     *         (å¼•æ•°) name:not null<br>
+     *         (å¼•æ•°) bean:new Object()<br>
+     *         (å¼•æ•°) handler:not null<br>
+     *         (çŠ¶æ…‹) this.handler:null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.handler:ˆø”‚Åİ’è‚³‚ê‚½’lB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.handler:å¼•æ•°ã§è¨­å®šã•ã‚ŒãŸå€¤ã€‚<br>
      *         
      * <br>
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ğŒÄ‚Ño‚·ƒeƒXƒgB
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã‚’å‘¼ã³å‡ºã™ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testDynamicPointerExNodePointer01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
     	QName qName = new QName("name");
     	Object bean = new Object();
     	DynamicPropertyHandler handler = new MapDynamicPropertyHandler();
     	Locale locale = new Locale("ja");
     	NodePointer nodePointer = NodePointer.newNodePointer(qName, bean, locale);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
     	DynamicPointerEx result = new DynamicPointerEx(nodePointer, qName, bean, handler);
 
-        // ”»’è
+        // åˆ¤å®š
     	assertSame(handler, UTUtil.getPrivateField(result, "handler"));
     }
 
@@ -150,36 +150,36 @@ public class DynamicPointerExTest extends TestCase {
      * testGetPropertyPointer01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ó‘Ô) this.handler:not null<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) this.handler:not null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) PropertyPointer:new DynamicPropertyPointerEx{<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) PropertyPointer:new DynamicPropertyPointerEx{<br>
      *                      parent=this<br>
-     *                      handler=‘O’ñğŒ‚Ìhandler<br>
+     *                      handler=å‰ææ¡ä»¶ã®handler<br>
      *                  }<br>
      *         
      * <br>
-     * ƒvƒƒpƒeƒBƒ|ƒCƒ“ƒ^‚ğæ“¾‚·‚éƒƒ\ƒbƒh‚ÌƒeƒXƒgB
+     * ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒã‚¤ãƒ³ã‚¿ã‚’å–å¾—ã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetPropertyPointer01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
     	QName qName = new QName("name");
     	Object bean = new Object();
     	DynamicPropertyHandler handler = new MapDynamicPropertyHandler();
     	Locale locale = new Locale("ja");
     	DynamicPointerEx pointer = new DynamicPointerEx(qName, bean, handler,locale);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
     	Object result = pointer.getPropertyPointer();
 
-        // ”»’è
+        // åˆ¤å®š
     	assertSame(DynamicPropertyPointerEx.class, result.getClass());
     	assertSame(pointer, ((DynamicPropertyPointerEx) result).getParent());
     	assertSame(handler, UTUtil.getPrivateField(result, "handler"));

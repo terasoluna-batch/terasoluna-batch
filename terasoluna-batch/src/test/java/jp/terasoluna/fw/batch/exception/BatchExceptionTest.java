@@ -26,51 +26,51 @@ import jp.terasoluna.fw.util.PropertyUtil;
 import junit.framework.TestCase;
 
 /**
- * –‘OğŒ<br>
+ * äº‹å‰æ¡ä»¶<br>
  * <br>
  * 
- * Esrc/test/resourcesƒtƒHƒ‹ƒ_”z‰º‚ÉAppricationResources.properties‚ª‘¶İ‚·‚é‚±‚ÆB<br>
+ * ãƒ»src/test/resourcesãƒ•ã‚©ãƒ«ãƒ€é…ä¸‹ã«AppricationResources.propertiesãŒå­˜åœ¨ã™ã‚‹ã“ã¨ã€‚<br>
  * <br>
  * 
- * EƒvƒƒpƒeƒBMessageAccessor.default‚Ì’l‚ªİ’è‚³‚ê‚Ä‚¢‚é‚±‚ÆB<br>
- * <fieldset><legend>batch.propertiesİ’è—á</legend>
- * #ƒƒbƒZ[ƒWƒ\[ƒXƒAƒNƒZƒT‚ÌBean–¼<br>
+ * ãƒ»ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£MessageAccessor.defaultã®å€¤ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹ã“ã¨ã€‚<br>
+ * <fieldset><legend>batch.propertiesè¨­å®šä¾‹</legend>
+ * #ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚½ãƒ¼ã‚¹ã‚¢ã‚¯ã‚»ã‚µã®Beanå<br>
  * MessageAccessor.default=msgAcc
  * 
  * </fieldset> <br>
- * EBean’è‹`ƒtƒ@ƒCƒ‹‚ÉƒvƒƒpƒeƒB‚Åİ’è‚³‚ê‚½‚Ì’l‚ÌBean–¼‚ªİ’è‚³‚ê‚Ä‚¢‚é‚±‚ÆB<br>
- * <fieldset><legend>AdminContext.xmlİ’è—á</legend>
+ * ãƒ»Beanå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ã«ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã§è¨­å®šã•ã‚ŒãŸã®å€¤ã®BeanåãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹ã“ã¨ã€‚<br>
+ * <fieldset><legend>AdminContext.xmlè¨­å®šä¾‹</legend>
  * 
- * &lt;!-- ƒƒbƒZ[ƒWƒAƒNƒZƒT --&gt;<br>
+ * &lt;!-- ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚¢ã‚¯ã‚»ã‚µ --&gt;<br>
  * &lt;bean id=&quot;msgAcc&quot;
  * class=&quot;jp.terasoluna.fw.batch.message.MessageAccessorImpl&quot;
  * /&gt;
  * 
  * </fieldset> <br>
- * Emessages.propertiesƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚é‚±‚Æ<br>
+ * ãƒ»messages.propertiesãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚‹ã“ã¨<br>
  * 
  */
 public class BatchExceptionTest extends TestCase {
 
 	/**
-	 * ƒvƒƒpƒeƒB’læ“¾’l
+	 * ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£å€¤å–å¾—å€¤
 	 */
 	private String value = null;
 
 	/**
-	 * ƒRƒ“ƒeƒi—p‚ÌƒtƒB[ƒ‹ƒh
+	 * ã‚³ãƒ³ãƒ†ãƒŠç”¨ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰
 	 */
 	private ApplicationContext context;
 
 	/**
-	 * MessageAccessorƒNƒ‰ƒX‚ÌƒtƒB[ƒ‹ƒh
+	 * MessageAccessorã‚¯ãƒ©ã‚¹ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰
 	 */
 	private MessageAccessor messageAccessor;
 
 	@Override
 	protected void setUp() throws Exception {
 
-		// ƒƒbƒZ[ƒWƒ\[ƒXƒAƒNƒZƒT‚ÌBean–¼æ“¾
+		// ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚½ãƒ¼ã‚¹ã‚¢ã‚¯ã‚»ã‚µã®Beanåå–å¾—
 		context = new ClassPathXmlApplicationContext(
 				"beansDef/AdminContext.xml");
 		value = PropertyUtil.getProperty("messageAccessor.default");
@@ -81,9 +81,9 @@ public class BatchExceptionTest extends TestCase {
 	/**
 	 * testBatchException01()<br>
 	 * <br>
-	 * ƒeƒXƒgŠT—vFBatchException‚ªƒCƒ“ƒXƒ^ƒ“ƒX‚³‚ê‚½‚±‚Æ‚ğŠm”F‚·‚é<br>
+	 * ãƒ†ã‚¹ãƒˆæ¦‚è¦ï¼šBatchExceptionãŒã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã•ã‚ŒãŸã“ã¨ã‚’ç¢ºèªã™ã‚‹<br>
 	 * <br>
-	 * Šm”F€–ÚFBatchException‚ªnull‚Å‚È‚¢‚±‚Æ<br>
+	 * ç¢ºèªé …ç›®ï¼šBatchExceptionãŒnullã§ãªã„ã“ã¨<br>
 	 * <br>
 	 * 
 	 * @throws Exception
@@ -97,10 +97,10 @@ public class BatchExceptionTest extends TestCase {
 	/**
 	 * testBatchException02()<br>
 	 * <br>
-	 * ƒeƒXƒgŠT—vFBatchException‚ªƒCƒ“ƒXƒ^ƒ“ƒX‚³‚ê‚½‚±‚Æ‚ğŠm”F‚·‚é<br>
+	 * ãƒ†ã‚¹ãƒˆæ¦‚è¦ï¼šBatchExceptionãŒã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã•ã‚ŒãŸã“ã¨ã‚’ç¢ºèªã™ã‚‹<br>
 	 * <br>
-	 * Šm”F€–ÚFBatchException‚ªnull‚Å‚È‚¢‚±‚Æ<br>
-	 * Šm”F€–ÚFmessage‚É"test"‚ªİ’è‚³‚ê‚Ä‚¢‚é‚±‚Æ<br>
+	 * ç¢ºèªé …ç›®ï¼šBatchExceptionãŒnullã§ãªã„ã“ã¨<br>
+	 * ç¢ºèªé …ç›®ï¼šmessageã«"test"ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹ã“ã¨<br>
 	 * <br>
 	 * 
 	 * @throws Exception
@@ -115,11 +115,11 @@ public class BatchExceptionTest extends TestCase {
 	/**
 	 * testBatchException03()<br>
 	 * <br>
-	 * ƒeƒXƒgŠT—vFBatchException‚ªƒCƒ“ƒXƒ^ƒ“ƒX‚³‚ê‚½‚±‚Æ‚ğŠm”F‚·‚é<br>
+	 * ãƒ†ã‚¹ãƒˆæ¦‚è¦ï¼šBatchExceptionãŒã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã•ã‚ŒãŸã“ã¨ã‚’ç¢ºèªã™ã‚‹<br>
 	 * <br>
-	 * Šm”F€–ÚFBatchException‚ªnull‚Å‚È‚¢‚±‚Æ<br>
-	 * Šm”F€–ÚFmessage‚É"test"‚ªİ’è‚³‚ê‚Ä‚¢‚é‚±‚Æ<br>
-	 * Šm”F€–ÚFcause‚ªRuntimeException‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚é<br>
+	 * ç¢ºèªé …ç›®ï¼šBatchExceptionãŒnullã§ãªã„ã“ã¨<br>
+	 * ç¢ºèªé …ç›®ï¼šmessageã«"test"ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹ã“ã¨<br>
+	 * ç¢ºèªé …ç›®ï¼šcauseãŒRuntimeExceptionã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹<br>
 	 * <br>
 	 * 
 	 * @throws Exception
@@ -137,10 +137,10 @@ public class BatchExceptionTest extends TestCase {
 	/**
 	 * testBatchException04()<br>
 	 * <br>
-	 * ƒeƒXƒgŠT—vFBatchException‚ªƒCƒ“ƒXƒ^ƒ“ƒX‚³‚ê‚½‚±‚Æ‚ğŠm”F‚·‚é<br>
+	 * ãƒ†ã‚¹ãƒˆæ¦‚è¦ï¼šBatchExceptionãŒã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã•ã‚ŒãŸã“ã¨ã‚’ç¢ºèªã™ã‚‹<br>
 	 * <br>
-	 * Šm”F€–ÚFBatchException‚ªnull‚Å‚È‚¢‚±‚Æ<br>
-	 * Šm”F€–ÚFcause‚ªRuntimeException‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚é<br>
+	 * ç¢ºèªé …ç›®ï¼šBatchExceptionãŒnullã§ãªã„ã“ã¨<br>
+	 * ç¢ºèªé …ç›®ï¼šcauseãŒRuntimeExceptionã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹<br>
 	 * <br>
 	 * 
 	 * @throws Exception
@@ -156,10 +156,10 @@ public class BatchExceptionTest extends TestCase {
 	/**
 	 * testCreateException01()<br>
 	 * <br>
-	 * ƒeƒXƒgŠT—vFBatchException‚ªƒCƒ“ƒXƒ^ƒ“ƒX‚³‚ê‚½‚±‚Æ‚ğŠm”F‚·‚é<br>
+	 * ãƒ†ã‚¹ãƒˆæ¦‚è¦ï¼šBatchExceptionãŒã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã•ã‚ŒãŸã“ã¨ã‚’ç¢ºèªã™ã‚‹<br>
 	 * <br>
-	 * Šm”F€–ÚFBatchException‚ªnull‚Å‚È‚¢‚±‚Æ<br>
-	 * Šm”F€–ÚFerrors.requiredƒL[‚ÌƒƒbƒZ[ƒW‚ªİ’è‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚é<br>
+	 * ç¢ºèªé …ç›®ï¼šBatchExceptionãŒnullã§ãªã„ã“ã¨<br>
+	 * ç¢ºèªé …ç›®ï¼šerrors.requiredã‚­ãƒ¼ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹<br>
 	 * <br>
 	 * 
 	 * @throws Exception
@@ -170,16 +170,16 @@ public class BatchExceptionTest extends TestCase {
 				.createException("errors.required");
 
 		assertNotNull(result);
-		assertEquals("{0}‚Í“ü—Í•K{€–Ú‚Å‚·.", result.getMessage());
+		assertEquals("{0}ã¯å…¥åŠ›å¿…é ˆé …ç›®ã§ã™.", result.getMessage());
 	}
 
 	/**
 	 * testCreateException02()<br>
 	 * <br>
-	 * ƒeƒXƒgŠT—vFBatchException‚ªƒCƒ“ƒXƒ^ƒ“ƒX‚³‚ê‚½‚±‚Æ‚ğŠm”F‚·‚é<br>
+	 * ãƒ†ã‚¹ãƒˆæ¦‚è¦ï¼šBatchExceptionãŒã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã•ã‚ŒãŸã“ã¨ã‚’ç¢ºèªã™ã‚‹<br>
 	 * <br>
-	 * Šm”F€–ÚFBatchException‚ªnull‚Å‚È‚¢‚±‚Æ<br>
-	 * Šm”F€–ÚFƒƒbƒZ[ƒW‚ªİ’è‚³‚ê‚Ä‚¢‚È‚¢‚±‚Æ‚ğŠm”F‚·‚é<br>
+	 * ç¢ºèªé …ç›®ï¼šBatchExceptionãŒnullã§ãªã„ã“ã¨<br>
+	 * ç¢ºèªé …ç›®ï¼šãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒè¨­å®šã•ã‚Œã¦ã„ãªã„ã“ã¨ã‚’ç¢ºèªã™ã‚‹<br>
 	 * <br>
 	 * 
 	 * @throws Exception
@@ -195,10 +195,10 @@ public class BatchExceptionTest extends TestCase {
 	/**
 	 * testCreateException03()<br>
 	 * <br>
-	 * ƒeƒXƒgŠT—vFBatchException‚ªƒCƒ“ƒXƒ^ƒ“ƒX‚³‚ê‚½‚±‚Æ‚ğŠm”F‚·‚é<br>
+	 * ãƒ†ã‚¹ãƒˆæ¦‚è¦ï¼šBatchExceptionãŒã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã•ã‚ŒãŸã“ã¨ã‚’ç¢ºèªã™ã‚‹<br>
 	 * <br>
-	 * Šm”F€–ÚFBatchException‚ªnull‚Å‚È‚¢‚±‚Æ<br>
-	 * Šm”F€–ÚFƒƒbƒZ[ƒW‚ªİ’è‚³‚ê‚Ä‚¢‚È‚¢‚±‚Æ‚ğŠm”F‚·‚é<br>
+	 * ç¢ºèªé …ç›®ï¼šBatchExceptionãŒnullã§ãªã„ã“ã¨<br>
+	 * ç¢ºèªé …ç›®ï¼šãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒè¨­å®šã•ã‚Œã¦ã„ãªã„ã“ã¨ã‚’ç¢ºèªã™ã‚‹<br>
 	 * <br>
 	 * 
 	 * @throws Exception
@@ -214,10 +214,10 @@ public class BatchExceptionTest extends TestCase {
 	/**
 	 * testCreateException04()<br>
 	 * <br>
-	 * ƒeƒXƒgŠT—vFBatchException‚ªƒCƒ“ƒXƒ^ƒ“ƒX‚³‚ê‚½‚±‚Æ‚ğŠm”F‚·‚é<br>
+	 * ãƒ†ã‚¹ãƒˆæ¦‚è¦ï¼šBatchExceptionãŒã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã•ã‚ŒãŸã“ã¨ã‚’ç¢ºèªã™ã‚‹<br>
 	 * <br>
-	 * Šm”F€–ÚFBatchException‚ªnull‚Å‚È‚¢‚±‚Æ<br>
-	 * Šm”F€–ÚFaerrors.requiredƒL[‚ÌƒƒbƒZ[ƒW‚Éarg‚ªİ’è‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚é<br>
+	 * ç¢ºèªé …ç›®ï¼šBatchExceptionãŒnullã§ãªã„ã“ã¨<br>
+	 * ç¢ºèªé …ç›®ï¼šaerrors.requiredã‚­ãƒ¼ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã«argãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹<br>
 	 * <br>
 	 * 
 	 * @throws Exception
@@ -228,16 +228,16 @@ public class BatchExceptionTest extends TestCase {
 				"errors.required", "test1");
 
 		assertNotNull(result);
-		assertEquals("test1‚Í“ü—Í•K{€–Ú‚Å‚·.", result.getMessage());
+		assertEquals("test1ã¯å…¥åŠ›å¿…é ˆé …ç›®ã§ã™.", result.getMessage());
 	}
 
 	/**
 	 * testCreateException05()<br>
 	 * <br>
-	 * ƒeƒXƒgŠT—vFBatchException‚ªƒCƒ“ƒXƒ^ƒ“ƒX‚³‚ê‚½‚±‚Æ‚ğŠm”F‚·‚é<br>
+	 * ãƒ†ã‚¹ãƒˆæ¦‚è¦ï¼šBatchExceptionãŒã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã•ã‚ŒãŸã“ã¨ã‚’ç¢ºèªã™ã‚‹<br>
 	 * <br>
-	 * Šm”F€–ÚFBatchException‚ªnull‚Å‚È‚¢‚±‚Æ<br>
-	 * Šm”F€–ÚFaerrors.requiredƒL[‚ÌƒƒbƒZ[ƒW‚Éarg‚ª3‚Âİ’è‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚é<br>
+	 * ç¢ºèªé …ç›®ï¼šBatchExceptionãŒnullã§ãªã„ã“ã¨<br>
+	 * ç¢ºèªé …ç›®ï¼šaerrors.requiredã‚­ãƒ¼ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã«argãŒ3ã¤è¨­å®šã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹<br>
 	 * <br>
 	 * 
 	 * @throws Exception
@@ -248,17 +248,17 @@ public class BatchExceptionTest extends TestCase {
 				"test1", "10", "20");
 
 		assertNotNull(result);
-		assertEquals("test1‚É‚Í10‚©‚ç20‚Ü‚Å‚Ì”ÍˆÍ‚Å“ü—Í‚µ‚Ä‚­‚¾‚³‚¢.", result.getMessage());
+		assertEquals("test1ã«ã¯10ã‹ã‚‰20ã¾ã§ã®ç¯„å›²ã§å…¥åŠ›ã—ã¦ãã ã•ã„.", result.getMessage());
 	}
 
 	/**
 	 * testCreateException06()<br>
 	 * <br>
-	 * ƒeƒXƒgŠT—vFBatchException‚ªƒCƒ“ƒXƒ^ƒ“ƒX‚³‚ê‚½‚±‚Æ‚ğŠm”F‚·‚é<br>
+	 * ãƒ†ã‚¹ãƒˆæ¦‚è¦ï¼šBatchExceptionãŒã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã•ã‚ŒãŸã“ã¨ã‚’ç¢ºèªã™ã‚‹<br>
 	 * <br>
-	 * Šm”F€–ÚFBatchException‚ªnull‚Å‚È‚¢‚±‚Æ<br>
-	 * Šm”F€–ÚFerrors.requiredƒL[‚ÌƒƒbƒZ[ƒW‚ªİ’è‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚é<br>
-	 * Šm”F€–ÚFcause‚ªRuntimeException‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚é<br>
+	 * ç¢ºèªé …ç›®ï¼šBatchExceptionãŒnullã§ãªã„ã“ã¨<br>
+	 * ç¢ºèªé …ç›®ï¼šerrors.requiredã‚­ãƒ¼ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹<br>
+	 * ç¢ºèªé …ç›®ï¼šcauseãŒRuntimeExceptionã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹<br>
 	 * <br>
 	 * 
 	 * @throws Exception
@@ -269,7 +269,7 @@ public class BatchExceptionTest extends TestCase {
 				"errors.required", new RuntimeException());
 
 		assertNotNull(result);
-		assertEquals("{0}‚Í“ü—Í•K{€–Ú‚Å‚·.", result.getMessage());
+		assertEquals("{0}ã¯å…¥åŠ›å¿…é ˆé …ç›®ã§ã™.", result.getMessage());
 		assertEquals("java.lang.RuntimeException", result.getCause().toString());
 		
 	}
@@ -277,11 +277,11 @@ public class BatchExceptionTest extends TestCase {
 	/**
 	 * testCreateException07()<br>
 	 * <br>
-	 * ƒeƒXƒgŠT—vFBatchException‚ªƒCƒ“ƒXƒ^ƒ“ƒX‚³‚ê‚½‚±‚Æ‚ğŠm”F‚·‚é<br>
+	 * ãƒ†ã‚¹ãƒˆæ¦‚è¦ï¼šBatchExceptionãŒã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã•ã‚ŒãŸã“ã¨ã‚’ç¢ºèªã™ã‚‹<br>
 	 * <br>
-	 * Šm”F€–ÚFBatchException‚ªnull‚Å‚È‚¢‚±‚Æ<br>
-	 * Šm”F€–ÚFaerrors.requiredƒL[‚ÌƒƒbƒZ[ƒW‚Éarg‚ªİ’è‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚é<br>
-	 * Šm”F€–ÚFcause‚ªRuntimeException‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚é<br>
+	 * ç¢ºèªé …ç›®ï¼šBatchExceptionãŒnullã§ãªã„ã“ã¨<br>
+	 * ç¢ºèªé …ç›®ï¼šaerrors.requiredã‚­ãƒ¼ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã«argãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹<br>
+	 * ç¢ºèªé …ç›®ï¼šcauseãŒRuntimeExceptionã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹<br>
 	 * <br>
 	 * 
 	 * @throws Exception
@@ -292,18 +292,18 @@ public class BatchExceptionTest extends TestCase {
 				"errors.required", new RuntimeException(), "test1");
 
 		assertNotNull(result);
-		assertEquals("test1‚Í“ü—Í•K{€–Ú‚Å‚·.", result.getMessage());
+		assertEquals("test1ã¯å…¥åŠ›å¿…é ˆé …ç›®ã§ã™.", result.getMessage());
 		assertEquals("java.lang.RuntimeException", result.getCause().toString());
 	}
 
 	/**
 	 * testCreateException08()<br>
 	 * <br>
-	 * ƒeƒXƒgŠT—vFBatchException‚ªƒCƒ“ƒXƒ^ƒ“ƒX‚³‚ê‚½‚±‚Æ‚ğŠm”F‚·‚é<br>
+	 * ãƒ†ã‚¹ãƒˆæ¦‚è¦ï¼šBatchExceptionãŒã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã•ã‚ŒãŸã“ã¨ã‚’ç¢ºèªã™ã‚‹<br>
 	 * <br>
-	 * Šm”F€–ÚFBatchException‚ªnull‚Å‚È‚¢‚±‚Æ<br>
-	 * Šm”F€–ÚFerrors.rangeƒL[‚ÌƒƒbƒZ[ƒW‚Éarg‚ª3‚Âİ’è‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚é<br>
-	 * Šm”F€–ÚFcause‚ªRuntimeException‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚é<br>
+	 * ç¢ºèªé …ç›®ï¼šBatchExceptionãŒnullã§ãªã„ã“ã¨<br>
+	 * ç¢ºèªé …ç›®ï¼šerrors.rangeã‚­ãƒ¼ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã«argãŒ3ã¤è¨­å®šã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹<br>
+	 * ç¢ºèªé …ç›®ï¼šcauseãŒRuntimeExceptionã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹<br>
 	 * <br>
 	 * 
 	 * @throws Exception
@@ -314,16 +314,16 @@ public class BatchExceptionTest extends TestCase {
 				new RuntimeException(), "test1", "10", "20");
 
 		assertNotNull(result);
-		assertEquals("test1‚É‚Í10‚©‚ç20‚Ü‚Å‚Ì”ÍˆÍ‚Å“ü—Í‚µ‚Ä‚­‚¾‚³‚¢.", result.getMessage());
+		assertEquals("test1ã«ã¯10ã‹ã‚‰20ã¾ã§ã®ç¯„å›²ã§å…¥åŠ›ã—ã¦ãã ã•ã„.", result.getMessage());
 		assertEquals("java.lang.RuntimeException", result.getCause().toString());
 	}
 
 	/**
 	 * testGetLogMessage01()<br>
 	 * <br>
-	 * ƒeƒXƒgŠT—vF•Ô‹p‚³‚ê‚½ƒƒOƒƒbƒZ[ƒW‚ª³í‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚é<br>
+	 * ãƒ†ã‚¹ãƒˆæ¦‚è¦ï¼šè¿”å´ã•ã‚ŒãŸãƒ­ã‚°ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒæ­£å¸¸ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹<br>
 	 * <br>
-	 * Šm”F€–ÚFerrors.requiredƒL[‚ÌƒƒbƒZ[ƒW‚ª³‚µ‚­ƒƒOƒƒbƒZ[ƒW‚Æ‚È‚Á‚Ä‚¢‚é‚©Šm”F‚·‚é<br>
+	 * ç¢ºèªé …ç›®ï¼šerrors.requiredã‚­ãƒ¼ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒæ­£ã—ããƒ­ã‚°ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã¨ãªã£ã¦ã„ã‚‹ã‹ç¢ºèªã™ã‚‹<br>
 	 * <br>
 	 * 
 	 * @throws Exception
@@ -335,16 +335,16 @@ public class BatchExceptionTest extends TestCase {
 
 		String result = exception.getLogMessage();
 
-		assertEquals("[errors.required] test1‚Í“ü—Í•K{€–Ú‚Å‚·. (\n\ttest1\n)", result);
+		assertEquals("[errors.required] test1ã¯å…¥åŠ›å¿…é ˆé …ç›®ã§ã™. (\n\ttest1\n)", result);
 
 	}
 
 	/**
 	 * testGetMessageId01()<br>
 	 * <br>
-	 * ƒeƒXƒgŠT—vFİ’è‚³‚ê‚½ƒƒbƒZ[ƒWƒL[‚ª³‚µ‚¢ƒƒbƒZ[ƒWƒL[‚©Šm”F‚·‚é<br>
+	 * ãƒ†ã‚¹ãƒˆæ¦‚è¦ï¼šè¨­å®šã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚­ãƒ¼ãŒæ­£ã—ã„ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚­ãƒ¼ã‹ç¢ºèªã™ã‚‹<br>
 	 * <br>
-	 * Šm”F€–ÚFerrors.requiredƒL[‚ÌƒƒbƒZ[ƒW‚ª³‚µ‚­æ“¾‚Å‚«‚é‚©Šm”F‚·‚é<br>
+	 * ç¢ºèªé …ç›®ï¼šerrors.requiredã‚­ãƒ¼ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒæ­£ã—ãå–å¾—ã§ãã‚‹ã‹ç¢ºèªã™ã‚‹<br>
 	 * <br>
 	 * 
 	 * @throws Exception
@@ -363,9 +363,9 @@ public class BatchExceptionTest extends TestCase {
 	/**
 	 * testGetMessageId02()<br>
 	 * <br>
-	 * ƒeƒXƒgŠT—vFİ’è‚³‚ê‚½ƒƒbƒZ[ƒWƒL[‚ªnull‚Ìê‡AŒ‹‰Ê‚ªnull‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚é<br>
+	 * ãƒ†ã‚¹ãƒˆæ¦‚è¦ï¼šè¨­å®šã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚­ãƒ¼ãŒnullã®å ´åˆã€çµæœãŒnullã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹<br>
 	 * <br>
-	 * Šm”F€–ÚFnull‚Å‚ ‚é‚±‚Æ<br>
+	 * ç¢ºèªé …ç›®ï¼šnullã§ã‚ã‚‹ã“ã¨<br>
 	 * <br>
 	 * 
 	 * @throws Exception
@@ -385,9 +385,9 @@ public class BatchExceptionTest extends TestCase {
 	/**
 	 * testGetMessageId03()<br>
 	 * <br>
-	 * ƒeƒXƒgŠT—vFİ’è‚³‚ê‚½ƒƒbƒZ[ƒWƒL[‚ª‹ó•¶š‚Ìê‡AŒ‹‰Ê‚ª‹ó•¶š‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚é<br>
+	 * ãƒ†ã‚¹ãƒˆæ¦‚è¦ï¼šè¨­å®šã•ã‚ŒãŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚­ãƒ¼ãŒç©ºæ–‡å­—ã®å ´åˆã€çµæœãŒç©ºæ–‡å­—ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹<br>
 	 * <br>
-	 * Šm”F€–ÚF‹ó•¶š‚Å‚ ‚é‚±‚Æ<br>
+	 * ç¢ºèªé …ç›®ï¼šç©ºæ–‡å­—ã§ã‚ã‚‹ã“ã¨<br>
 	 * <br>
 	 * 
 	 * @throws Exception

@@ -18,42 +18,42 @@ package jp.terasoluna.fw.validation;
 
 
 /**
- * {@link FieldChecksExtend}‚ğƒeƒXƒg‚·‚é‚½‚ß‚Ì{@link MultiFieldValidator}À‘•ƒNƒ‰ƒXB
+ * {@link FieldChecksExtend}ã‚’ãƒ†ã‚¹ãƒˆã™ã‚‹ãŸã‚ã®{@link MultiFieldValidator}å®Ÿè£…ã‚¯ãƒ©ã‚¹ã€‚
  * 
  */
 public class FieldChecks_MultiFieldValidatorImpl01 implements
         MultiFieldValidator {
 
     /**
-     * <code>validate</code>ƒƒ\ƒbƒh‚ÌŒ‹‰Ê‚Æ‚·‚é’lB
+     * <code>validate</code>ãƒ¡ã‚½ãƒƒãƒ‰ã®çµæœã¨ã™ã‚‹å€¤ã€‚
      */
     protected static boolean result = false;
 
     /**
-     * <code>validate</code>ƒƒ\ƒbƒh‚ªƒR[ƒ‹‚³‚ê‚½ƒJƒEƒ“ƒgB
+     * <code>validate</code>ãƒ¡ã‚½ãƒƒãƒ‰ãŒã‚³ãƒ¼ãƒ«ã•ã‚ŒãŸã‚«ã‚¦ãƒ³ãƒˆã€‚
      */
     protected static int validateCalledCount = 0;
     
     /**
-     * <code>validate</code>ƒƒ\ƒbƒh‚Ì‘æˆêˆø”‚Ì’lB
+     * <code>validate</code>ãƒ¡ã‚½ãƒƒãƒ‰ã®ç¬¬ä¸€å¼•æ•°ã®å€¤ã€‚
      */
     protected static Object value = null;
 
     /**
-     * <code>validate</code>ƒƒ\ƒbƒh‚Ì‘æ“ñˆø”‚Ì’lB
+     * <code>validate</code>ãƒ¡ã‚½ãƒƒãƒ‰ã®ç¬¬äºŒå¼•æ•°ã®å€¤ã€‚
      */
     protected static Object[] fields = null;
     
     /**
-     * •¡”ƒtƒB[ƒ‹ƒh‚Ì‘ŠŠÖ“ü—Íƒ`ƒFƒbƒN‚ğÀs‚·‚éB
+     * è¤‡æ•°ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®ç›¸é–¢å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚’å®Ÿè¡Œã™ã‚‹ã€‚
      * <br>
-     * ŒŸØ‘ÎÛ‚Ì’l‚Í‘æˆêˆø”‚Å“n‚³‚ê‚éBŒŸØ‚É•K—v‚È‘¼‚ÌƒtƒB[ƒ‹ƒh‚Ì
-     * ’l‚Í‘æ“ñˆø”‚É”z—ñ‚Æ‚µ‚Ä“n‚³‚ê‚éBŒŸØƒGƒ‰[‚Ìê‡‚Í <code>false</code>
-     * ‚ğ•Ô‹p‚·‚é‚±‚ÆB
+     * æ¤œè¨¼å¯¾è±¡ã®å€¤ã¯ç¬¬ä¸€å¼•æ•°ã§æ¸¡ã•ã‚Œã‚‹ã€‚æ¤œè¨¼ã«å¿…è¦ãªä»–ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®
+     * å€¤ã¯ç¬¬äºŒå¼•æ•°ã«é…åˆ—ã¨ã—ã¦æ¸¡ã•ã‚Œã‚‹ã€‚æ¤œè¨¼ã‚¨ãƒ©ãƒ¼ã®å ´åˆã¯ <code>false</code>
+     * ã‚’è¿”å´ã™ã‚‹ã“ã¨ã€‚
      *
-     * @param value ŒŸØ‘ÎÛ‚Ì’l
-     * @param fields ŒŸØ‚É•K—v‚È‘¼‚ÌƒtƒB[ƒ‹ƒh‚Ì’l”z—ñ
-     * @return ƒGƒ‰[‚ª‚È‚¯‚ê‚Î <code>true</code>
+     * @param value æ¤œè¨¼å¯¾è±¡ã®å€¤
+     * @param fields æ¤œè¨¼ã«å¿…è¦ãªä»–ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®å€¤é…åˆ—
+     * @return ã‚¨ãƒ©ãƒ¼ãŒãªã‘ã‚Œã° <code>true</code>
      */
     @SuppressWarnings("hiding")
     public boolean validate(Object value, Object[] fields) {

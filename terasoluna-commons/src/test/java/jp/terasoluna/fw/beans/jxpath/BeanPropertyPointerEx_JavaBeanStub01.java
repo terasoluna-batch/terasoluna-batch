@@ -21,12 +21,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * JavaBean�̃X�^�u�B
+ * JavaBeanのスタブ。
  */
 public class BeanPropertyPointerEx_JavaBeanStub01 implements Serializable {
     
     /**
-     * �V���A���o�[�W����ID
+     * シリアルバージョンID
      */
     private static final long serialVersionUID = 3092857648272149366L;
     
@@ -34,7 +34,7 @@ public class BeanPropertyPointerEx_JavaBeanStub01 implements Serializable {
     private List listProperty = new ArrayList();
 
     /**
-     * property���擾����B
+     * propertyを取得する。
      * @return property
      */
     public String getProperty() {
@@ -42,7 +42,7 @@ public class BeanPropertyPointerEx_JavaBeanStub01 implements Serializable {
     }
 
     /**
-     * property��ݒ肷��B
+     * propertyを設定する。
      * @param property
      */
     public void setProperty(String property) {
@@ -50,7 +50,7 @@ public class BeanPropertyPointerEx_JavaBeanStub01 implements Serializable {
     }
 
     /**
-     * listProperty���擾����B
+     * listPropertyを取得する。
      * @return listProperty
      */
     public List getListProperty() {
@@ -58,7 +58,7 @@ public class BeanPropertyPointerEx_JavaBeanStub01 implements Serializable {
     }
 
     /**
-     * listProperty��ݒ肷��B
+     * listPropertyを設定する。
      * @param listProperty
      */
     public void setListProperty(List listProperty) {

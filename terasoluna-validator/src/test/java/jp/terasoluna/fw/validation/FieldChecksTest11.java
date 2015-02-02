@@ -27,11 +27,11 @@ import org.apache.commons.validator.ValidatorAction;
 import org.apache.commons.validator.Var;
 
 /**
- * {@link FieldChecks} ƒNƒ‰ƒX‚ÌƒeƒXƒgB
+ * {@link FieldChecks} ã‚¯ãƒ©ã‚¹ã®ãƒ†ã‚¹ãƒˆã€‚
  * 
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4>
- * TERASOLUNA‚Ì“ü—Íƒ`ƒFƒbƒN‹@”\‚Å‹¤’Ê‚Ég—p‚³‚ê‚éŒŸØƒ‹[ƒ‹ƒNƒ‰ƒXB
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4>
+ * TERASOLUNAã®å…¥åŠ›ãƒã‚§ãƒƒã‚¯æ©Ÿèƒ½ã§å…±é€šã«ä½¿ç”¨ã•ã‚Œã‚‹æ¤œè¨¼ãƒ«ãƒ¼ãƒ«ã‚¯ãƒ©ã‚¹ã€‚
  * <p>
  * 
  * @see jp.terasoluna.fw.validation.FieldChecks
@@ -39,19 +39,19 @@ import org.apache.commons.validator.Var;
 public class FieldChecksTest11 extends TestCase {
     
     /**
-     * ‚±‚ÌƒeƒXƒgƒP[ƒX‚ğÀs‚·‚éˆ×‚Ì
-     * GUI ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‹N“®‚·‚éB
+     * ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã‚’å®Ÿè¡Œã™ã‚‹ç‚ºã®
+     * GUI ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’èµ·å‹•ã™ã‚‹ã€‚
      * 
-     * @param args java ƒRƒ}ƒ“ƒh‚Éİ’è‚³‚ê‚½ƒpƒ‰ƒ[ƒ^
+     * @param args java ã‚³ãƒãƒ³ãƒ‰ã«è¨­å®šã•ã‚ŒãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public static void main(String[] args) {
         junit.swingui.TestRunner.run(FieldChecksTest11.class);
     }
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -65,9 +65,9 @@ public class FieldChecksTest11 extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -76,9 +76,9 @@ public class FieldChecksTest11 extends TestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      * 
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public FieldChecksTest11(String name) {
         super(name);
@@ -88,42 +88,42 @@ public class FieldChecksTest11 extends TestCase {
      * testValidateMultiField01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC, F, I
+     * è¦³ç‚¹ï¼šC, F, I
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:null<br>
-     *         (ˆø”) va:ValidatorActionnƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *         (ˆø”) field:FieldƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:null<br>
+     *         (å¼•æ•°) va:ValidatorActionnã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *         (å¼•æ•°) field:Fieldã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                <br>
      *                Msg("message, "message")<br>
-     *         (ˆø”) errors:MockValidationErrorsƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     *         (å¼•æ•°) errors:MockValidationErrorsã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ƒtƒB[ƒ‹ƒherrorMessage‚ªnull‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:ƒƒOƒŒƒxƒ‹FERROR<br>
-     *                    ƒƒbƒZ[ƒWF"bean is null."<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰errorMessageãŒnullã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ï¼šERROR<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"bean is null."<br>
      *         
      * <br>
-     * ˆø”bean‚ªnull‚Ìê‡‚ÉƒGƒ‰[ƒƒO‚ğo—Í‚µ‚ÄATRUE‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°beanãŒnullã®å ´åˆã«ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¦ã€TRUEãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateMultiField01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object bean = null;
         ValidatorAction va = new ValidatorAction();
         Field field = new Field();
         FieldChecks_ValidationErrorsImpl03 errors = new FieldChecks_ValidationErrorsImpl03();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         FieldChecks fieldChecks = new FieldChecks();
         boolean result = 
             fieldChecks.validateMultiField(bean, va, field, errors);
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(result);
         assertNull(errors.errorMessage);
         assertTrue(LogUTUtil.checkError("bean is null."));
@@ -133,37 +133,37 @@ public class FieldChecksTest11 extends TestCase {
      * testValidateMultiField02()
      * <br><br>
      * 
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC, F, G, I
+     * è¦³ç‚¹ï¼šC, F, G, I
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:""i‹ó•¶šj<br>
-     *         (ˆø”) va:ValidatorActionnƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *         (ˆø”) field:ˆÈ‰º‚ÌƒtƒB[ƒ‹ƒh‚ğİ’è‚µ‚½FieldƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:""ï¼ˆç©ºæ–‡å­—ï¼‰<br>
+     *         (å¼•æ•°) va:ValidatorActionnã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *         (å¼•æ•°) field:ä»¥ä¸‹ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’è¨­å®šã—ãŸFieldã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                <br>
-     *                varFmultiFieldValidator=null<br>
-     *         (ˆø”) errors:MockValidationErrorsƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     *                varï¼šmultiFieldValidator=null<br>
+     *         (å¼•æ•°) errors:MockValidationErrorsã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») errors:ƒtƒB[ƒ‹ƒherrorMessage‚ªnull‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») —áŠO:—áŠOFIllegalArgumentException<br>
-     *                    ƒƒbƒZ[ƒWF
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) errors:ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰errorMessageãŒnullã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä¾‹å¤–ï¼šIllegalArgumentException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š
      *                    "var value[multiFieldValidator] is required."<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:ƒƒOƒŒƒxƒ‹FERROR<br>
-     *                    ƒƒbƒZ[ƒWF
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ï¼šERROR<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š
      *                    "var value[multiFieldValidator] is required."<br>
      *         
      * <br>
-     * ˆø”field‚ÌAvar-nameFmultiFieldValidator‚É‘Î‰‚·‚évar-value‚ªnull‚Ìê‡‚ÉA
-     * ƒGƒ‰[ƒƒO‚ğo—Í‚µ‚ÄAIllegalArgumentException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB<br>
+     * å¼•æ•°fieldã®ã€var-nameï¼šmultiFieldValidatorã«å¯¾å¿œã™ã‚‹var-valueãŒnullã®å ´åˆã«ã€
+     * ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¦ã€IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚<br>
      * <br>
-     * ¦ˆø”bean‚ª‹ó•¶š‚Ìê‡‚Éƒ`ƒFƒbƒN‚ª‘±s‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒg‚ğ•ïŠÜ‚·‚éB
+     * â€»å¼•æ•°beanãŒç©ºæ–‡å­—ã®å ´åˆã«ãƒã‚§ãƒƒã‚¯ãŒç¶šè¡Œã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã‚’åŒ…å«ã™ã‚‹ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateMultiField02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object bean = "";
         ValidatorAction va = new ValidatorAction();
         Field field = new Field();
@@ -171,13 +171,13 @@ public class FieldChecksTest11 extends TestCase {
         field.addVar(var);
         FieldChecks_ValidationErrorsImpl03 errors = new FieldChecks_ValidationErrorsImpl03();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         FieldChecks fieldChecks = new FieldChecks();
         try {
             fieldChecks.validateMultiField(bean, va, field, errors);
-            fail("IllegalArgumentException‚ªƒXƒ[‚³‚ê‚È‚©‚Á‚½B");
+            fail("IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œãªã‹ã£ãŸã€‚");
         } catch (IllegalArgumentException e) {
-            // ”»’è
+            // åˆ¤å®š
             assertNull(errors.errorMessage);
             assertEquals(IllegalArgumentException.class.getName(), 
                         e.getClass().getName());
@@ -192,35 +192,35 @@ public class FieldChecksTest11 extends TestCase {
      * testValidateMultiField03()
      * <br><br>
      * 
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC, F, G, I
+     * è¦³ç‚¹ï¼šC, F, G, I
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"bean"<br>
-     *         (ˆø”) va:ValidatorActionnƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *         (ˆø”) field:ˆÈ‰º‚ÌƒtƒB[ƒ‹ƒh‚ğİ’è‚µ‚½FieldƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"bean"<br>
+     *         (å¼•æ•°) va:ValidatorActionnã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *         (å¼•æ•°) field:ä»¥ä¸‹ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’è¨­å®šã—ãŸFieldã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                <br>
-     *                varFmultiFieldValidator=""i‹ó•¶šj<br>
-     *         (ˆø”) errors:MockValidationErrorsƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     *                varï¼šmultiFieldValidator=""ï¼ˆç©ºæ–‡å­—ï¼‰<br>
+     *         (å¼•æ•°) errors:MockValidationErrorsã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») errors:ƒtƒB[ƒ‹ƒherrorMessage‚ªnull‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») —áŠO:—áŠOFIllegalArgumentException<br>
-     *                    ƒƒbƒZ[ƒWF
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) errors:ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰errorMessageãŒnullã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä¾‹å¤–ï¼šIllegalArgumentException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š
      *                    "var value[multiFieldValidator] is required."<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:ƒƒOƒŒƒxƒ‹FERROR<br>
-     *                    ƒƒbƒZ[ƒWF
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ï¼šERROR<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š
      *                    "var value[multiFieldValidator] is required."<br>
      *         
      * <br>
-     * ˆø”field‚ÌAvar-nameFmultiFieldValidator‚É‘Î‰‚·‚évar-value‚ª‹ó•¶š‚Ìê‡‚ÉA
-     * ƒGƒ‰[ƒƒO‚ğo—Í‚µ‚ÄAIllegalArgumentException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°fieldã®ã€var-nameï¼šmultiFieldValidatorã«å¯¾å¿œã™ã‚‹var-valueãŒç©ºæ–‡å­—ã®å ´åˆã«ã€
+     * ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¦ã€IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateMultiField03() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object bean = "bean";
         ValidatorAction va = new ValidatorAction();
         Field field = new Field();
@@ -228,13 +228,13 @@ public class FieldChecksTest11 extends TestCase {
         field.addVar(var);
         FieldChecks_ValidationErrorsImpl03 errors = new FieldChecks_ValidationErrorsImpl03();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         FieldChecks fieldChecks = new FieldChecks();
         try {
             fieldChecks.validateMultiField(bean, va, field, errors);
-            fail("IllegalArgumentException‚ªƒXƒ[‚³‚ê‚È‚©‚Á‚½B");
+            fail("IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œãªã‹ã£ãŸã€‚");
         } catch (IllegalArgumentException e) {
-            // ”»’è
+            // åˆ¤å®š
             assertNull(errors.errorMessage);
             assertEquals(IllegalArgumentException.class.getName(), 
                         e.getClass().getName());
@@ -249,36 +249,36 @@ public class FieldChecksTest11 extends TestCase {
      * testValidateMultiField04()
      * <br><br>
      * 
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF, G, I
+     * è¦³ç‚¹ï¼šF, G, I
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"bean"<br>
-     *         (ˆø”) va:ValidatorActionnƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *         (ˆø”) field:ˆÈ‰º‚ÌƒtƒB[ƒ‹ƒh‚ğİ’è‚µ‚½FieldƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"bean"<br>
+     *         (å¼•æ•°) va:ValidatorActionnã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *         (å¼•æ•°) field:ä»¥ä¸‹ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’è¨­å®šã—ãŸFieldã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                <br>
-     *                varFmultiFieldValidator="not.Exist"<br>
-     *         (ˆø”) errors:MockValidationErrorsƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     *                varï¼šmultiFieldValidator="not.Exist"<br>
+     *         (å¼•æ•°) errors:MockValidationErrorsã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») errors:ƒtƒB[ƒ‹ƒherrorMessage‚ªnull‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») —áŠO:—áŠOFIllegalArgumentException<br>
-     *                    ƒƒbƒZ[ƒWF"var value[multiFieldValidator] is invalid."<br>
-     *                    ƒ‰ƒbƒv‚³‚ê‚½—áŠOFClassLoadException<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:ƒƒOƒŒƒxƒ‹FERROR<br>
-     *                    ƒƒbƒZ[ƒWF"var value[multiFieldValidator] is invalid."<br>
-     *                    ƒ‰ƒbƒv‚³‚ê‚½—áŠOFClassLoadException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) errors:ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰errorMessageãŒnullã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä¾‹å¤–ï¼šIllegalArgumentException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"var value[multiFieldValidator] is invalid."<br>
+     *                    ãƒ©ãƒƒãƒ—ã•ã‚ŒãŸä¾‹å¤–ï¼šClassLoadException<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ï¼šERROR<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"var value[multiFieldValidator] is invalid."<br>
+     *                    ãƒ©ãƒƒãƒ—ã•ã‚ŒãŸä¾‹å¤–ï¼šClassLoadException<br>
      *         
      * <br>
-     * ˆø”field‚ÌAvar-nameFmultiFieldValidator‚É‘Î‰‚·‚évar-value‚ªƒNƒ‰ƒXƒpƒXã‚É
-     * ‘¶İ‚µ‚È‚¢ƒNƒ‰ƒX–¼‚Ìê‡‚ÉAƒGƒ‰[ƒƒO‚ğo—Í‚µ‚ÄAIllegalArgumentException‚ª
-     * ƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°fieldã®ã€var-nameï¼šmultiFieldValidatorã«å¯¾å¿œã™ã‚‹var-valueãŒã‚¯ãƒ©ã‚¹ãƒ‘ã‚¹ä¸Šã«
+     * å­˜åœ¨ã—ãªã„ã‚¯ãƒ©ã‚¹åã®å ´åˆã«ã€ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¦ã€IllegalArgumentExceptionãŒ
+     * ã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateMultiField04() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object bean = "bean";
         ValidatorAction va = new ValidatorAction();
         Field field = new Field();
@@ -286,13 +286,13 @@ public class FieldChecksTest11 extends TestCase {
         field.addVar(var);
         FieldChecks_ValidationErrorsImpl03 errors = new FieldChecks_ValidationErrorsImpl03();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         FieldChecks fieldChecks = new FieldChecks();
         try {
             fieldChecks.validateMultiField(bean, va, field, errors);
-            fail("IllegalArgumentException‚ªƒXƒ[‚³‚ê‚È‚©‚Á‚½B");
+            fail("IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œãªã‹ã£ãŸã€‚");
         } catch (IllegalArgumentException e) {
-            // ”»’è
+            // åˆ¤å®š
             assertNull(errors.errorMessage);
             assertEquals(IllegalArgumentException.class.getName(), 
                         e.getClass().getName());
@@ -309,36 +309,36 @@ public class FieldChecksTest11 extends TestCase {
      * testValidateMultiField05()
      * <br><br>
      * 
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF, G, I
+     * è¦³ç‚¹ï¼šF, G, I
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"bean"<br>
-     *         (ˆø”) va:ValidatorActionnƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *         (ˆø”) field:ˆÈ‰º‚ÌƒtƒB[ƒ‹ƒh‚ğİ’è‚µ‚½FieldƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"bean"<br>
+     *         (å¼•æ•°) va:ValidatorActionnã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *         (å¼•æ•°) field:ä»¥ä¸‹ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’è¨­å®šã—ãŸFieldã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                <br>
-     *                varFmultiFieldValidator="java.lang.String"<br>
-     *         (ˆø”) errors:MockValidationErrorsƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     *                varï¼šmultiFieldValidator="java.lang.String"<br>
+     *         (å¼•æ•°) errors:MockValidationErrorsã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») errors:ƒtƒB[ƒ‹ƒherrorMessage‚ªnull‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») —áŠO:—áŠOFIllegalArgumentException<br>
-     *                    ƒƒbƒZ[ƒWF"var value[multiFieldValidator] is invalid."<br>
-     *                    ƒ‰ƒbƒv‚³‚ê‚½—áŠOFClassCastException<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:ƒƒOƒŒƒxƒ‹FERROR<br>
-     *                    ƒƒbƒZ[ƒWF"var value[multiFieldValidator] is invalid."<br>
-     *                    ƒ‰ƒbƒv‚³‚ê‚½—áŠOFClassCastException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) errors:ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰errorMessageãŒnullã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä¾‹å¤–ï¼šIllegalArgumentException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"var value[multiFieldValidator] is invalid."<br>
+     *                    ãƒ©ãƒƒãƒ—ã•ã‚ŒãŸä¾‹å¤–ï¼šClassCastException<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ï¼šERROR<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"var value[multiFieldValidator] is invalid."<br>
+     *                    ãƒ©ãƒƒãƒ—ã•ã‚ŒãŸä¾‹å¤–ï¼šClassCastException<br>
      *         
      * <br>
-     * ˆø”field‚ÌAvar-nameFmultiFieldValidator‚É‘Î‰‚·‚évar-value‚ª
-     * MultiFieldValidator‚ğÀ‘•‚µ‚Ä‚¢‚È‚¢ƒNƒ‰ƒX–¼‚Ìê‡‚ÉAƒGƒ‰[ƒƒO‚ğo—Í‚µ‚ÄA
-     * IllegalArgumentException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * å¼•æ•°fieldã®ã€var-nameï¼šmultiFieldValidatorã«å¯¾å¿œã™ã‚‹var-valueãŒ
+     * MultiFieldValidatorã‚’å®Ÿè£…ã—ã¦ã„ãªã„ã‚¯ãƒ©ã‚¹åã®å ´åˆã«ã€ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¦ã€
+     * IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateMultiField05() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object bean = "bean";
         ValidatorAction va = new ValidatorAction();
         Field field = new Field();
@@ -346,13 +346,13 @@ public class FieldChecksTest11 extends TestCase {
         field.addVar(var);
         FieldChecks_ValidationErrorsImpl03 errors = new FieldChecks_ValidationErrorsImpl03();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         FieldChecks fieldChecks = new FieldChecks();
         try {
             fieldChecks.validateMultiField(bean, va, field, errors);
-            fail("IllegalArgumentException‚ªƒXƒ[‚³‚ê‚È‚©‚Á‚½B");
+            fail("IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œãªã‹ã£ãŸã€‚");
         } catch (IllegalArgumentException e) {
-            // ”»’è
+            // åˆ¤å®š
             assertNull(errors.errorMessage);
             assertEquals(IllegalArgumentException.class.getName(), 
                         e.getClass().getName());
@@ -369,43 +369,43 @@ public class FieldChecksTest11 extends TestCase {
      * testValidateMultiField06()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"bean"<br>
-     *         (ˆø”) va:ValidatorActionnƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *         (ˆø”) field:ˆÈ‰º‚ÌƒtƒB[ƒ‹ƒh‚ğİ’è‚µ‚½FieldƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"bean"<br>
+     *         (å¼•æ•°) va:ValidatorActionnã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *         (å¼•æ•°) field:ä»¥ä¸‹ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’è¨­å®šã—ãŸFieldã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                <br>
-     *         varFmultiFieldValidator=
+     *         varï¼šmultiFieldValidator=
      *         "jp.terasoluna.fw.validation.
      *         FieldChecks_MultiFieldValidatorImpl01"<br>
-     *                varFfields=null<br>
-     *         (ˆø”) errors:MockValidationErrorsƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *         (ó‘Ô) MultiFieldValidator#validate‚Ì–ß‚è’l:TRUE‚Éİ’è<br>
+     *                varï¼šfields=null<br>
+     *         (å¼•æ•°) errors:MockValidationErrorsã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *         (çŠ¶æ…‹) MultiFieldValidator#validateã®æˆ»ã‚Šå€¤:TRUEã«è¨­å®š<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ƒtƒB[ƒ‹ƒherrorMessage‚ªnull‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») MultiFieldValidator:ƒtƒB[ƒ‹ƒhvalidateCalledCount‚ª
-     *         1‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰errorMessageãŒnullã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) MultiFieldValidator:ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰validateCalledCountãŒ
+     *         1ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *                    <br>
-     *                    ƒtƒB[ƒ‹ƒhvalue‚ª"bean"‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     *                    ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰valueãŒ"bean"ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *                    <br>
-     *                    ƒtƒB[ƒ‹ƒhfields‚Ì”z—ñ’·‚ª0‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     *                    ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰fieldsã®é…åˆ—é•·ãŒ0ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *         
      * <br>
-     * field‚Ìvar-nameFfields‚É‘Î‰‚·‚évar-value‚ªnull‚Ìê‡A
-     * MultiFieldValidator#validate‚Ì‘æ“ñˆø”‚É‹ó‚Ì”z—ñ‚ª“n‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB<br>
+     * fieldã®var-nameï¼šfieldsã«å¯¾å¿œã™ã‚‹var-valueãŒnullã®å ´åˆã€
+     * MultiFieldValidator#validateã®ç¬¬äºŒå¼•æ•°ã«ç©ºã®é…åˆ—ãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚<br>
      * <br>
-     * ¦ˆø”bean‚ª•¶š—ñ‚Ìê‡‚ÉAMultiFieldValidator#validate‚Ì
-     * ‘æˆêˆø”‚É‚»‚Ì•¶š—ñ‚ª“n‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒg‚ğ•ïŠÜ‚·‚éB
+     * â€»å¼•æ•°beanãŒæ–‡å­—åˆ—ã®å ´åˆã«ã€MultiFieldValidator#validateã®
+     * ç¬¬ä¸€å¼•æ•°ã«ãã®æ–‡å­—åˆ—ãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã‚’åŒ…å«ã™ã‚‹ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateMultiField06() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object bean = "bean";
         ValidatorAction va = new ValidatorAction();
         Field field = new Field();
@@ -418,13 +418,13 @@ public class FieldChecksTest11 extends TestCase {
         FieldChecks_ValidationErrorsImpl03 errors = new FieldChecks_ValidationErrorsImpl03();
         FieldChecks_MultiFieldValidatorImpl01.result = true;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         FieldChecks fieldChecks = new FieldChecks();
 
         boolean result = 
             fieldChecks.validateMultiField(bean, va, field, errors);
     
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(result);
         assertNull(errors.errorMessage);
         assertEquals(1, FieldChecks_MultiFieldValidatorImpl01.
@@ -439,40 +439,40 @@ public class FieldChecksTest11 extends TestCase {
      * testValidateMultiField07()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"bean"<br>
-     *         (ˆø”) va:ValidatorActionnƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *         (ˆø”) field:ˆÈ‰º‚ÌƒtƒB[ƒ‹ƒh‚ğİ’è‚µ‚½FieldƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"bean"<br>
+     *         (å¼•æ•°) va:ValidatorActionnã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *         (å¼•æ•°) field:ä»¥ä¸‹ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’è¨­å®šã—ãŸFieldã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                <br>
-     *                varFmultiFieldValidator=
+     *                varï¼šmultiFieldValidator=
      *                "jp.terasoluna.fw.validation.
      *                FieldChecks_MultiFieldValidatorImpl01"<br>
-     *                varFfields=""i‹ó•¶šj<br>
-     *         (ˆø”) errors:MockValidationErrorsƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *         (ó‘Ô) MultiFieldValidator#validate‚Ì–ß‚è’l:TRUE‚Éİ’è<br>
+     *                varï¼šfields=""ï¼ˆç©ºæ–‡å­—ï¼‰<br>
+     *         (å¼•æ•°) errors:MockValidationErrorsã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *         (çŠ¶æ…‹) MultiFieldValidator#validateã®æˆ»ã‚Šå€¤:TRUEã«è¨­å®š<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ƒtƒB[ƒ‹ƒherrorMessage‚ªnull‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») MultiFieldValidator:ƒtƒB[ƒ‹ƒhvalidateCalledCount‚ª1‚Å
-     *         ‚ ‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰errorMessageãŒnullã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) MultiFieldValidator:ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰validateCalledCountãŒ1ã§
+     *         ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *                    <br>
-     *                    ƒtƒB[ƒ‹ƒhvalue‚ª"bean"‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     *                    ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰valueãŒ"bean"ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *                    <br>
-     *                    ƒtƒB[ƒ‹ƒhfields‚Ì”z—ñ’·‚ª0‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     *                    ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰fieldsã®é…åˆ—é•·ãŒ0ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *         
      * <br>
-     * field‚Ìvar-nameFfields‚É‘Î‰‚·‚évar-value‚ª‹ó•¶š‚Ìê‡A
-     * MultiFieldValidator#validate‚Ì‘æ“ñˆø”‚É‹ó‚Ì”z—ñ‚ª“n‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB
+     * fieldã®var-nameï¼šfieldsã«å¯¾å¿œã™ã‚‹var-valueãŒç©ºæ–‡å­—ã®å ´åˆã€
+     * MultiFieldValidator#validateã®ç¬¬äºŒå¼•æ•°ã«ç©ºã®é…åˆ—ãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateMultiField07() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         Object bean = "bean";
         ValidatorAction va = new ValidatorAction();
         Field field = new Field();
@@ -485,13 +485,13 @@ public class FieldChecksTest11 extends TestCase {
         FieldChecks_ValidationErrorsImpl03 errors = new FieldChecks_ValidationErrorsImpl03();
         FieldChecks_MultiFieldValidatorImpl01.result = true;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         FieldChecks fieldChecks = new FieldChecks();
 
         boolean result = 
             fieldChecks.validateMultiField(bean, va, field, errors);
     
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(result);
         assertNull(errors.errorMessage);
         assertEquals(1, FieldChecks_MultiFieldValidatorImpl01.
@@ -506,53 +506,53 @@ public class FieldChecksTest11 extends TestCase {
      * testValidateMultiField08()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:ˆÈ‰º‚ÌƒtƒB[ƒ‹ƒh‚ğİ’è‚µ‚½FieldChecksExtend_BeanStub01ƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:ä»¥ä¸‹ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’è¨­å®šã—ãŸFieldChecksExtend_BeanStub01ã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                <br>
-     *                field1=ObjectƒNƒ‰ƒX‚ÌƒCƒ“ƒ^ƒ“ƒX1<br>
-     *                field2=ObjectƒNƒ‰ƒX‚ÌƒCƒ“ƒ^ƒ“ƒX2<br>
-     *         (ˆø”) va:ValidatorActionnƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *         (ˆø”) field:ˆÈ‰º‚ÌƒtƒB[ƒ‹ƒh‚ğİ’è‚µ‚½FieldƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     *                field1=Objectã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¿ãƒ³ã‚¹1<br>
+     *                field2=Objectã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¿ãƒ³ã‚¹2<br>
+     *         (å¼•æ•°) va:ValidatorActionnã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *         (å¼•æ•°) field:ä»¥ä¸‹ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’è¨­å®šã—ãŸFieldã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                <br>
      *                property="field1"<br>
-     *                varFmultiFieldValidator=
+     *                varï¼šmultiFieldValidator=
      *                "jp.terasoluna.fw.validation.
      *                FieldChecks_MultiFieldValidatorImpl01"<br>
-     *                varFfields="field2"<br>
-     *         (ˆø”) errors:MockValidationErrorsƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *         (ó‘Ô) MultiFieldValidator#validate‚Ì–ß‚è’l:TRUE‚Éİ’è<br>
+     *                varï¼šfields="field2"<br>
+     *         (å¼•æ•°) errors:MockValidationErrorsã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *         (çŠ¶æ…‹) MultiFieldValidator#validateã®æˆ»ã‚Šå€¤:TRUEã«è¨­å®š<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ƒtƒB[ƒ‹ƒherrorMessage‚ªnull‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») MultiFieldValidator:ƒtƒB[ƒ‹ƒhvalidateCalledCount‚ª
-     *         1‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰errorMessageãŒnullã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) MultiFieldValidator:ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰validateCalledCountãŒ
+     *         1ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *                    <br>
-     *                    ƒtƒB[ƒ‹ƒhvalue‚ªAİ’è‚³‚ê‚½ObjectƒNƒ‰ƒX‚ÌƒCƒ“ƒ^ƒ“ƒX1‚Æ
-     *                    “¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒX‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     *                    ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰valueãŒã€è¨­å®šã•ã‚ŒãŸObjectã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¿ãƒ³ã‚¹1ã¨
+     *                    åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *                    <br>
-     *                    ƒtƒB[ƒ‹ƒhfields‚Ì”z—ñ’·‚ª1‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     *                    ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰fieldsã®é…åˆ—é•·ãŒ1ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *                    <br>
-     *                    ƒtƒB[ƒ‹ƒhfields‚ªˆÈ‰º‚Ì1—v‘f‚ğ‚Â‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *                    fields[0]=ObjectƒNƒ‰ƒX‚ÌƒCƒ“ƒ^ƒ“ƒX2‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     *                    ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰fieldsãŒä»¥ä¸‹ã®1è¦ç´ ã‚’æŒã¤ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *                    fields[0]=Objectã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¿ãƒ³ã‚¹2ã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *         
      * <br>
-     * field‚Ìvar-nameFfields‚É‘Î‰‚·‚évar-value‚ÉAƒJƒ“ƒ}‹æØ‚è–³‚µ‚Ì•¶š—ñ‚ª
-     * w’è‚³‚ê‚Ä‚¢‚éê‡A‚»‚Ì–¼‘O‚É‘Î‰‚·‚éƒvƒƒpƒeƒB’l‚ğˆø”bean‚©‚çæ“¾‚µA
-     * ’·‚³1‚Ì”z—ñ‚Æ‚µ‚ÄMultiFieldValidator‚Ì‘æ“ñˆø”‚É“n‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB<br>
+     * fieldã®var-nameï¼šfieldsã«å¯¾å¿œã™ã‚‹var-valueã«ã€ã‚«ãƒ³ãƒåŒºåˆ‡ã‚Šç„¡ã—ã®æ–‡å­—åˆ—ãŒ
+     * æŒ‡å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã€ãã®åå‰ã«å¯¾å¿œã™ã‚‹ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£å€¤ã‚’å¼•æ•°beanã‹ã‚‰å–å¾—ã—ã€
+     * é•·ã•1ã®é…åˆ—ã¨ã—ã¦MultiFieldValidatorã®ç¬¬äºŒå¼•æ•°ã«æ¸¡ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚<br>
      * <br>
-     * ¦ˆø”bean‚ªJavaBean‚Ìê‡‚ÉAˆø”field‚ÌƒvƒƒpƒeƒB–¼‚É‘Î‰‚·‚éƒvƒƒpƒeƒB’l‚ğ
-     * ˆø”‚Ìbean‚©‚çæ“¾‚µA‚»‚ê‚ªMultiFieldValidator#validate‚Ì‘æˆêˆø”‚É“n‚³‚ê‚é
-     * ‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒg‚ğ•ïŠÜ‚·‚éB
+     * â€»å¼•æ•°beanãŒJavaBeanã®å ´åˆã«ã€å¼•æ•°fieldã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£åã«å¯¾å¿œã™ã‚‹ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£å€¤ã‚’
+     * å¼•æ•°ã®beanã‹ã‚‰å–å¾—ã—ã€ãã‚ŒãŒMultiFieldValidator#validateã®ç¬¬ä¸€å¼•æ•°ã«æ¸¡ã•ã‚Œã‚‹
+     * ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã‚’åŒ…å«ã™ã‚‹ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateMultiField08() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         FieldChecks_JavaBeanStub02 bean = new FieldChecks_JavaBeanStub02();
         Object testValue1 = new Object();
         Object testValue2 = new Object();
@@ -570,13 +570,13 @@ public class FieldChecksTest11 extends TestCase {
         FieldChecks_ValidationErrorsImpl03 errors = new FieldChecks_ValidationErrorsImpl03();
         FieldChecks_MultiFieldValidatorImpl01.result = true;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         FieldChecks fieldChecks = new FieldChecks();
 
         boolean result = 
             fieldChecks.validateMultiField(bean, va, field, errors);
     
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(result);
         assertNull(errors.errorMessage);
         assertEquals(1, FieldChecks_MultiFieldValidatorImpl01.
@@ -594,70 +594,70 @@ public class FieldChecksTest11 extends TestCase {
      * testValidateMultiField09()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA, D, F, I
+     * è¦³ç‚¹ï¼šA, D, F, I
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:ˆÈ‰º‚ÌƒtƒB[ƒ‹ƒh‚ğİ’è‚µ‚½FieldChecksExtend_BeanStub01ƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:ä»¥ä¸‹ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’è¨­å®šã—ãŸFieldChecksExtend_BeanStub01ã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                <br>
-     *                field1=ObjectƒNƒ‰ƒX‚ÌƒCƒ“ƒ^ƒ“ƒX1<br>
-     *                field2=ObjectƒNƒ‰ƒX‚ÌƒCƒ“ƒ^ƒ“ƒX2<br>
-     *                field3=ObjectƒNƒ‰ƒX‚ÌƒCƒ“ƒ^ƒ“ƒX3<br>
-     *         (ˆø”) va:ValidatorActionnƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *         (ˆø”) field:ˆÈ‰º‚ÌƒtƒB[ƒ‹ƒh‚ğİ’è‚µ‚½FieldƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     *                field1=Objectã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¿ãƒ³ã‚¹1<br>
+     *                field2=Objectã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¿ãƒ³ã‚¹2<br>
+     *                field3=Objectã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¿ãƒ³ã‚¹3<br>
+     *         (å¼•æ•°) va:ValidatorActionnã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *         (å¼•æ•°) field:ä»¥ä¸‹ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’è¨­å®šã—ãŸFieldã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                <br>
      *                property="invalidProperty"<br>
-     *                varFmultiFieldValidator=
+     *                varï¼šmultiFieldValidator=
      *                "jp.terasoluna.fw.validation.
      *                FieldChecks_MultiFieldValidatorImpl01"<br>
-     *                varFfields="field1 ,,invalidProperty,field2,field3"<br>
-     *         (ˆø”) errors:MockValidationErrorsƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *         (ó‘Ô) MultiFieldValidator#validate‚Ì–ß‚è’l:FALSE‚Éİ’è<br>
+     *                varï¼šfields="field1 ,,invalidProperty,field2,field3"<br>
+     *         (å¼•æ•°) errors:MockValidationErrorsã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *         (çŠ¶æ…‹) MultiFieldValidator#validateã®æˆ»ã‚Šå€¤:FALSEã«è¨­å®š<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
-     *         (ó‘Ô•Ï‰») errors:ƒtƒB[ƒ‹ƒherrorMessage‚ª"errorMessage"‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») MultiFieldValidator:ƒtƒB[ƒ‹ƒhvalidateCalledCount‚ª
-     *         1‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰errorMessageãŒ"errorMessage"ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) MultiFieldValidator:ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰validateCalledCountãŒ
+     *         1ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *                    <br>
-     *                    ƒtƒB[ƒ‹ƒhvalue‚ªAnull‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     *                    ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰valueãŒã€nullã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *                    <br>
-     *                    ƒtƒB[ƒ‹ƒhfields‚Ì”z—ñ’·‚ª3‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     *                    ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰fieldsã®é…åˆ—é•·ãŒ3ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *                    <br>
-     *                    ƒtƒB[ƒ‹ƒhfields‚ªˆÈ‰º‚Ì1—v‘f‚ğ‚Â‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *                    fields[0]=ObjectƒNƒ‰ƒX‚ÌƒCƒ“ƒ^ƒ“ƒX1‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                    fields[1]=ObjectƒNƒ‰ƒX‚ÌƒCƒ“ƒ^ƒ“ƒX2‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *                    fields[2]=ObjectƒNƒ‰ƒX‚ÌƒCƒ“ƒ^ƒ“ƒX3‚Æ“¯‚¶ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:ƒƒOƒŒƒxƒ‹FERROR<br>
-     *                    ƒƒbƒZ[ƒWF"Unknown property 'invalidProperty'"<br>  
-     *                    ƒ‰ƒbƒv‚³‚ê‚½—áŠOFNoSuchMethodException<br>
+     *                    ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰fieldsãŒä»¥ä¸‹ã®1è¦ç´ ã‚’æŒã¤ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *                    fields[0]=Objectã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¿ãƒ³ã‚¹1ã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                    fields[1]=Objectã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¿ãƒ³ã‚¹2ã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *                    fields[2]=Objectã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¿ãƒ³ã‚¹3ã¨åŒã˜ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ï¼šERROR<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Unknown property 'invalidProperty'"<br>  
+     *                    ãƒ©ãƒƒãƒ—ã•ã‚ŒãŸä¾‹å¤–ï¼šNoSuchMethodException<br>
      *                    <br>
-     *                    ƒƒOƒŒƒxƒ‹FERROR<br>
-     *                    ƒƒbƒZ[ƒWF"Unknown property 'invalidProperty'"<br>
-     *                    ƒ‰ƒbƒv‚³‚ê‚½—áŠOFNoSuchMethodException<br>
+     *                    ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ï¼šERROR<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"Unknown property 'invalidProperty'"<br>
+     *                    ãƒ©ãƒƒãƒ—ã•ã‚ŒãŸä¾‹å¤–ï¼šNoSuchMethodException<br>
      *         
      * <br>
-     * field‚Ìvar-nameFfields‚É‘Î‰‚·‚évar-value‚ÉAƒJƒ“ƒ}‹æØ‚è‚Ì•¶š—ñ‚ª
-     * w’è‚³‚ê‚Ä‚¢‚éê‡AƒJƒ“ƒ}‚Å‹æØ‚ç‚ê‚½‘S‚Ä‚Ì–¼‘O‚É‘Î‰‚·‚é‘SƒvƒƒpƒeƒB’l‚ğ
-     * ˆø”‚Ìbean‚©‚çæ“¾‚µA’·‚³3‚Ì”z—ñ‚Æ‚µ‚ÄMultiFieldValidator‚Ì‘æ“ñˆø”‚É
-     * “n‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB<br>
+     * fieldã®var-nameï¼šfieldsã«å¯¾å¿œã™ã‚‹var-valueã«ã€ã‚«ãƒ³ãƒåŒºåˆ‡ã‚Šã®æ–‡å­—åˆ—ãŒ
+     * æŒ‡å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã€ã‚«ãƒ³ãƒã§åŒºåˆ‡ã‚‰ã‚ŒãŸå…¨ã¦ã®åå‰ã«å¯¾å¿œã™ã‚‹å…¨ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£å€¤ã‚’
+     * å¼•æ•°ã®beanã‹ã‚‰å–å¾—ã—ã€é•·ã•3ã®é…åˆ—ã¨ã—ã¦MultiFieldValidatorã®ç¬¬äºŒå¼•æ•°ã«
+     * æ¸¡ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚<br>
      * <br>
-     * ¦MultiFieldValidator#validate‚Ì•Ô‹p’l‚ªfalse‚Ìê‡AƒGƒ‰[ƒƒbƒZ[ƒW‚ğ
-     * ’Ç‰Á‚µ‚Äfalse‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒg‚ğ•ïŠÜ‚·‚éB<br>
+     * â€»MultiFieldValidator#validateã®è¿”å´å€¤ãŒfalseã®å ´åˆã€ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’
+     * è¿½åŠ ã—ã¦falseãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã‚’åŒ…å«ã™ã‚‹ã€‚<br>
      * <br>
-     * ¦‘ŠŠÖƒ`ƒFƒbƒN‘ÎÛƒtƒB[ƒ‹ƒh’l‚ğˆø”‚Ìbean‚©‚çæ“¾‚·‚éÛ‚ÉA
-     * PropertyUtils#getProperty‚É‚¨‚¢‚Ä”­¶‚µ‚½NoSuchMethodException‚ğƒ‰ƒbƒv‚µ‚½
-     * ƒGƒ‰[ƒƒO‚ğo—Í‚µ‚Äƒ`ƒFƒbƒN‚ª‘±s‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒg‚ğ•ïŠÜ‚·‚éB<br>
+     * â€»ç›¸é–¢ãƒã‚§ãƒƒã‚¯å¯¾è±¡ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å€¤ã‚’å¼•æ•°ã®beanã‹ã‚‰å–å¾—ã™ã‚‹éš›ã«ã€
+     * PropertyUtils#getPropertyã«ãŠã„ã¦ç™ºç”Ÿã—ãŸNoSuchMethodExceptionã‚’ãƒ©ãƒƒãƒ—ã—ãŸ
+     * ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¦ãƒã‚§ãƒƒã‚¯ãŒç¶šè¡Œã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã‚’åŒ…å«ã™ã‚‹ã€‚<br>
      * <br>
-     * ¦‘ŠŠÖƒ`ƒFƒbƒNˆË‘¶ƒtƒB[ƒ‹ƒh’l‚ğˆø”‚Ìbean‚©‚çæ“¾‚·‚éÛ‚ÉA
-     * PropertyUtils#getProperty‚É‚¨‚¢‚Ä”­¶‚µ‚½NoSuchMethodException‚ğƒ‰ƒbƒv‚µ‚½
-     * ƒGƒ‰[ƒƒO‚ğo—Í‚µ‚Äƒ`ƒFƒbƒN‚ª‘±s‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒg‚ğ•ïŠÜ‚·‚éB
+     * â€»ç›¸é–¢ãƒã‚§ãƒƒã‚¯ä¾å­˜ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å€¤ã‚’å¼•æ•°ã®beanã‹ã‚‰å–å¾—ã™ã‚‹éš›ã«ã€
+     * PropertyUtils#getPropertyã«ãŠã„ã¦ç™ºç”Ÿã—ãŸNoSuchMethodExceptionã‚’ãƒ©ãƒƒãƒ—ã—ãŸ
+     * ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¦ãƒã‚§ãƒƒã‚¯ãŒç¶šè¡Œã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã‚’åŒ…å«ã™ã‚‹ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateMultiField09() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         FieldChecks_JavaBeanStub02 bean = new FieldChecks_JavaBeanStub02();
         Object testValue1 = new Object();
         Object testValue2 = new Object();
@@ -678,13 +678,13 @@ public class FieldChecksTest11 extends TestCase {
         FieldChecks_ValidationErrorsImpl03 errors = new FieldChecks_ValidationErrorsImpl03();
         FieldChecks_MultiFieldValidatorImpl01.result = false;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         FieldChecks fieldChecks = new FieldChecks();
 
         boolean result = 
             fieldChecks.validateMultiField(bean, va, field, errors);
     
-        // ”»’è
+        // åˆ¤å®š
         assertFalse(result);
         assertEquals("errorMessage", errors.errorMessage);
         assertEquals(1, FieldChecks_MultiFieldValidatorImpl01.
@@ -709,56 +709,56 @@ public class FieldChecksTest11 extends TestCase {
      * testValidateMultiField10()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA, F, I
+     * è¦³ç‚¹ï¼šA, F, I
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:ˆÈ‰º‚ğÀ‘•‚µ‚½FieldChecksExtend_BeanStub03ƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:ä»¥ä¸‹ã‚’å®Ÿè£…ã—ãŸFieldChecksExtend_BeanStub03ã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                <br>
-     *                field1‚Ìgetter‚ÅRuntimeException‚ğƒ‰ƒbƒv‚µ‚½
-     *                InvocationTargetException‚ğƒXƒ[‚·‚éB<br>
-     *                field2‚Ìgetter‚ÅRuntimeException‚ğƒ‰ƒbƒv‚µ‚½
-     *                InvocationTargetException‚ğƒXƒ[‚·‚éB<br>
-     *         (ˆø”) va:ValidatorActionnƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *         (ˆø”) field:ˆÈ‰º‚ÌƒtƒB[ƒ‹ƒh‚ğİ’è‚µ‚½FieldƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     *                field1ã®getterã§RuntimeExceptionã‚’ãƒ©ãƒƒãƒ—ã—ãŸ
+     *                InvocationTargetExceptionã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã€‚<br>
+     *                field2ã®getterã§RuntimeExceptionã‚’ãƒ©ãƒƒãƒ—ã—ãŸ
+     *                InvocationTargetExceptionã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã€‚<br>
+     *         (å¼•æ•°) va:ValidatorActionnã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *         (å¼•æ•°) field:ä»¥ä¸‹ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’è¨­å®šã—ãŸFieldã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                <br>
      *                property="field1"<br>
-     *                varFmultiFieldValidator=
+     *                varï¼šmultiFieldValidator=
      *                "jp.terasoluna.fw.validation.
      *                FieldChecks_MultiFieldValidatorImpl01"<br>
-     *                varFfields="field2"<br>
-     *         (ˆø”) errors:MockValidationErrorsƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *         (ó‘Ô) MultiFieldValidator#validate‚Ì–ß‚è’l:TRUE‚Éİ’è<br>
+     *                varï¼šfields="field2"<br>
+     *         (å¼•æ•°) errors:MockValidationErrorsã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *         (çŠ¶æ…‹) MultiFieldValidator#validateã®æˆ»ã‚Šå€¤:TRUEã«è¨­å®š<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
-     *         (ó‘Ô•Ï‰») errors:ƒtƒB[ƒ‹ƒherrorMessage‚ªnull‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») MultiFieldValidator:ƒtƒB[ƒ‹ƒhvalidateCalledCount‚ª
-     *         1‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) errors:ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰errorMessageãŒnullã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) MultiFieldValidator:ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰validateCalledCountãŒ
+     *         1ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *                    <br>
-     *                    ƒtƒB[ƒ‹ƒhvalue‚ªnull‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     *                    ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰valueãŒnullã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      *                    <br>
-     *                    ƒtƒB[ƒ‹ƒhfields‚Ì”z—ñ’·‚ª0‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:ƒƒOƒŒƒxƒ‹FERROR<br>
-     *                    ƒ‰ƒbƒv‚³‚ê‚½—áŠOFInvocationTargetException<br>
+     *                    ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰fieldsã®é…åˆ—é•·ãŒ0ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ï¼šERROR<br>
+     *                    ãƒ©ãƒƒãƒ—ã•ã‚ŒãŸä¾‹å¤–ï¼šInvocationTargetException<br>
      *                    <br>
-     *                    ƒƒOƒŒƒxƒ‹FERROR<br>
-     *                    ƒ‰ƒbƒv‚³‚ê‚½—áŠOFInvocationTargetException<br>
+     *                    ãƒ­ã‚°ãƒ¬ãƒ™ãƒ«ï¼šERROR<br>
+     *                    ãƒ©ãƒƒãƒ—ã•ã‚ŒãŸä¾‹å¤–ï¼šInvocationTargetException<br>
      *         
      * <br>
-     * ‘ŠŠÖƒ`ƒFƒbƒN‘ÎÛƒtƒB[ƒ‹ƒh’l‚ğˆø”‚Ìbean‚©‚çæ“¾‚·‚éÛ‚ÉA
-     * PropertyUtils#getProperty‚É‚¨‚¢‚Ä”­¶‚µ‚½InvocationTargetException‚ğƒ‰ƒbƒv‚µ‚½
-     * ƒGƒ‰[ƒƒO‚ğo—Í‚µ‚Äƒ`ƒFƒbƒN‚ª‘±s‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB<br>
+     * ç›¸é–¢ãƒã‚§ãƒƒã‚¯å¯¾è±¡ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å€¤ã‚’å¼•æ•°ã®beanã‹ã‚‰å–å¾—ã™ã‚‹éš›ã«ã€
+     * PropertyUtils#getPropertyã«ãŠã„ã¦ç™ºç”Ÿã—ãŸInvocationTargetExceptionã‚’ãƒ©ãƒƒãƒ—ã—ãŸ
+     * ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¦ãƒã‚§ãƒƒã‚¯ãŒç¶šè¡Œã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚<br>
      * <br>
-     * ¦‘ŠŠÖƒ`ƒFƒbƒNˆË‘¶ƒtƒB[ƒ‹ƒh’l‚ğˆø”‚Ìbean‚©‚çæ“¾‚·‚éÛ‚ÉA
-     * PropertyUtils#getProperty‚É‚¨‚¢‚Ä”­¶‚µ‚½InvocationTargetException‚ğƒ‰ƒbƒv‚µ‚½
-     * ƒGƒ‰[ƒƒO‚ğo—Í‚µ‚Äƒ`ƒFƒbƒN‚ª‘±s‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒg‚ğ•ïŠÜ‚·‚éB
+     * â€»ç›¸é–¢ãƒã‚§ãƒƒã‚¯ä¾å­˜ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å€¤ã‚’å¼•æ•°ã®beanã‹ã‚‰å–å¾—ã™ã‚‹éš›ã«ã€
+     * PropertyUtils#getPropertyã«ãŠã„ã¦ç™ºç”Ÿã—ãŸInvocationTargetExceptionã‚’ãƒ©ãƒƒãƒ—ã—ãŸ
+     * ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã¦ãƒã‚§ãƒƒã‚¯ãŒç¶šè¡Œã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã‚’åŒ…å«ã™ã‚‹ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testValidateMultiField10() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         FieldChecks_JavaBeanStub03 bean = new FieldChecks_JavaBeanStub03();
         ValidatorAction va = new ValidatorAction();
         Field field = new Field();
@@ -772,13 +772,13 @@ public class FieldChecksTest11 extends TestCase {
         FieldChecks_ValidationErrorsImpl03 errors = new FieldChecks_ValidationErrorsImpl03();
         FieldChecks_MultiFieldValidatorImpl01.result = true;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         FieldChecks fieldChecks = new FieldChecks();
 
         boolean result = 
             fieldChecks.validateMultiField(bean, va, field, errors);
     
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(result);
         assertNull(errors.errorMessage);
         assertEquals(1, FieldChecks_MultiFieldValidatorImpl01.

@@ -11,7 +11,7 @@ public class CollectorTestUtil {
     private static Log logger = LogFactory.getLog(CollectorTestUtil.class);
 
     /**
-     * ‘S‚Ä‚ÌƒRƒŒƒNƒ^ƒXƒŒƒbƒh‚ÉŠ„‚èž‚Ý‚ð‚©‚¯‚é
+     * å…¨ã¦ã®ã‚³ãƒ¬ã‚¯ã‚¿ã‚¹ãƒ¬ãƒƒãƒ‰ã«å‰²ã‚Šè¾¼ã¿ã‚’ã‹ã‘ã‚‹
      */
     public static void allInterrupt() {
         int activeCount = Thread.activeCount();
@@ -36,7 +36,7 @@ public class CollectorTestUtil {
     }
 
     /**
-     * ƒRƒŒƒNƒ^ƒXƒŒƒbƒh”‚ªŽw’èˆÈ‰º‚Å‚ ‚é‚©ƒ`ƒFƒbƒN‚·‚é
+     * ã‚³ãƒ¬ã‚¯ã‚¿ã‚¹ãƒ¬ãƒƒãƒ‰æ•°ãŒæŒ‡å®šä»¥ä¸‹ã§ã‚ã‚‹ã‹ãƒã‚§ãƒƒã‚¯ã™ã‚‹
      * @param count
      * @return
      */
@@ -67,8 +67,8 @@ public class CollectorTestUtil {
     }
 
     /**
-     * ƒRƒŒƒNƒ^ƒXƒŒƒbƒh‚Ì”‚ð•Ô‚·
-     * @return ƒRƒŒƒNƒ^ƒXƒŒƒbƒh‚Ì”
+     * ã‚³ãƒ¬ã‚¯ã‚¿ã‚¹ãƒ¬ãƒƒãƒ‰ã®æ•°ã‚’è¿”ã™
+     * @return ã‚³ãƒ¬ã‚¯ã‚¿ã‚¹ãƒ¬ãƒƒãƒ‰ã®æ•°
      */
     public static int getCollectorThreadCount() {
         int collectorThreadCount = 0;

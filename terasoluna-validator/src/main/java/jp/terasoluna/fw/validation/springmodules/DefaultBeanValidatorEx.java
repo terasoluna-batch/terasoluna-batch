@@ -21,32 +21,32 @@ import org.apache.commons.validator.ValidatorException;
 import org.springmodules.validation.commons.DefaultBeanValidator;
 
 /**
- * Spring Modules‚ÌDefaultBeanValidatorŒp³ƒNƒ‰ƒXB
+ * Spring Modulesã®DefaultBeanValidatorç¶™æ‰¿ã‚¯ãƒ©ã‚¹ã€‚
  * 
  * <p>
- * DefaultBeanValidator‚ÍACommons Validator‚Ìvalidator()ƒƒ\ƒbƒh‚ğŒÄ‚Ño‚µ‚½ŒãA
- * finally‹å‚ÅcleanupValidator()ƒƒ\ƒbƒh‚ğŒÄ‚Ño‚·B
+ * DefaultBeanValidatorã¯ã€Commons Validatorã®validator()ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã—ãŸå¾Œã€
+ * finallyå¥ã§cleanupValidator()ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã™ã€‚
  * </p>
  * 
  * <p>
- * –{ƒNƒ‰ƒX‚Å‚ÍAcleanupValidator()ƒƒ\ƒbƒh‚ğƒI[ƒo[ƒ‰ƒCƒh‚µ‚Ä‚¢‚éB
- * ˆø‚«”‚ÌƒoƒŠƒf[ƒ^‚ÉƒoƒŠƒf[ƒg—áŠO‚ªŠi”[‚³‚ê‚Ä‚¢‚½ê‡A
- * ‚»‚Ì—áŠO‚ğƒ‰ƒ“ƒ^ƒCƒ€‚ÌƒoƒŠƒf[ƒg—áŠO‚Éƒ‰ƒbƒv‚µ‚ÄƒXƒ[‚·‚éB
+ * æœ¬ã‚¯ãƒ©ã‚¹ã§ã¯ã€cleanupValidator()ãƒ¡ã‚½ãƒƒãƒ‰ã‚’ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã—ã¦ã„ã‚‹ã€‚
+ * å¼•ãæ•°ã®ãƒãƒªãƒ‡ãƒ¼ã‚¿ã«ãƒãƒªãƒ‡ãƒ¼ãƒˆä¾‹å¤–ãŒæ ¼ç´ã•ã‚Œã¦ã„ãŸå ´åˆã€
+ * ãã®ä¾‹å¤–ã‚’ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ã®ãƒãƒªãƒ‡ãƒ¼ãƒˆä¾‹å¤–ã«ãƒ©ãƒƒãƒ—ã—ã¦ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã€‚
  * </p>
  * 
  * <p>
- * –{ƒNƒ‰ƒX‚ÍA
- * cleanupValidator‚Ìˆø‚«”‚Æ‚µ‚ÄCommonsValidatorExƒCƒ“ƒXƒ^ƒ“ƒX‚ª
- * “n‚³‚ê‚é‚±‚Æ‚ğ‘O’ñ‚Æ‚µ‚Ä‚¢‚éB
- * CommonsValidatorExƒNƒ‰ƒX‚ÍA
- * DefaultValidatorFactoryExƒNƒ‰ƒX‚É‚æ‚Á‚Ä¶¬‚³‚ê‚éB
- * ‚æ‚Á‚ÄA–{ƒNƒ‰ƒX‚ğ—˜—p‚·‚éê‡‚ÍA
- * DefaultValidatorFactoryExƒNƒ‰ƒX‚à“¯‚É—˜—p‚µ‚È‚¯‚ê‚Î‚È‚ç‚È‚¢B
+ * æœ¬ã‚¯ãƒ©ã‚¹ã¯ã€
+ * cleanupValidatorã®å¼•ãæ•°ã¨ã—ã¦CommonsValidatorExã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ãŒ
+ * æ¸¡ã•ã‚Œã‚‹ã“ã¨ã‚’å‰æã¨ã—ã¦ã„ã‚‹ã€‚
+ * CommonsValidatorExã‚¯ãƒ©ã‚¹ã¯ã€
+ * DefaultValidatorFactoryExã‚¯ãƒ©ã‚¹ã«ã‚ˆã£ã¦ç”Ÿæˆã•ã‚Œã‚‹ã€‚
+ * ã‚ˆã£ã¦ã€æœ¬ã‚¯ãƒ©ã‚¹ã‚’åˆ©ç”¨ã™ã‚‹å ´åˆã¯ã€
+ * DefaultValidatorFactoryExã‚¯ãƒ©ã‚¹ã‚‚åŒæ™‚ã«åˆ©ç”¨ã—ãªã‘ã‚Œã°ãªã‚‰ãªã„ã€‚
  * </p>
  * 
  * <p>
- * –{ƒNƒ‰ƒX‚ğ—˜—p‚·‚éê‡‚É•K—v‚ÈBean’è‹`ƒtƒ@ƒCƒ‹‚Ìİ’è‚É‚Â‚¢‚Ä‚ÍA
- * DefaultValidatorFactoryEx‚ÌJavaDoc‚Ì‹Lq‚ğQÆ‚Ì‚±‚ÆB
+ * æœ¬ã‚¯ãƒ©ã‚¹ã‚’åˆ©ç”¨ã™ã‚‹å ´åˆã«å¿…è¦ãªBeanå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ã®è¨­å®šã«ã¤ã„ã¦ã¯ã€
+ * DefaultValidatorFactoryExã®JavaDocã®è¨˜è¿°ã‚’å‚ç…§ã®ã“ã¨ã€‚
  * </p>
  * 
  *
@@ -54,22 +54,22 @@ import org.springmodules.validation.commons.DefaultBeanValidator;
 public class DefaultBeanValidatorEx extends DefaultBeanValidator {
 
     /**
-     * Validator‚ÌƒNƒŠ[ƒ“ƒAƒbƒvƒƒ\ƒbƒhB
-     * validator‚Ì‘®«‚É”­¶‚ª‘¶İ‚µ‚½ê‡‚ÍValidatorException‚ğƒXƒ[‚·‚éB
+     * Validatorã®ã‚¯ãƒªãƒ¼ãƒ³ã‚¢ãƒƒãƒ—ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
+     * validatorã®å±æ€§ã«ç™ºç”ŸãŒå­˜åœ¨ã—ãŸå ´åˆã¯ValidatorExceptionã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã€‚
      * 
      * @param validator Commons Validator
      * @throws jp.terasoluna.fw.validation.springmodules.ValidatorException 
-     *          ƒoƒŠƒf[ƒg—áŠO
+     *          ãƒãƒªãƒ‡ãƒ¼ãƒˆä¾‹å¤–
      */
     @Override
     public void cleanupValidator(Validator validator) {
         
-        // validator‚ÍCommonsValidatorEx‚Ìê‡
+        // validatorã¯CommonsValidatorExã®å ´åˆ
         if (validator instanceof CommonsValidatorEx) {
-            // validator‚Ìƒ`ƒFƒbƒN‚Æ‚«”­¶‚µ‚½—áŠO‚ğæ“¾‚·‚é
+            // validatorã®ãƒã‚§ãƒƒã‚¯ã¨ãç™ºç”Ÿã—ãŸä¾‹å¤–ã‚’å–å¾—ã™ã‚‹
             ValidatorException validatorException = 
                 ((CommonsValidatorEx) validator).getValidatorException();
-            // ‚±‚Ì—áŠO‚ª‚ ‚Á‚½ê‡
+            // ã“ã®ä¾‹å¤–ãŒã‚ã£ãŸå ´åˆ
             if (validatorException != null) {
                 throw new jp.terasoluna.fw.validation.springmodules.
                     ValidatorException(validatorException);

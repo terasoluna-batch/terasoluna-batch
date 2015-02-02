@@ -30,13 +30,13 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * {@link jp.terasoluna.fw.file.dao.standard.CSVFileLineWriter} ƒNƒ‰ƒX‚ÌƒeƒXƒgB
+ * {@link jp.terasoluna.fw.file.dao.standard.CSVFileLineWriter} ã‚¯ãƒ©ã‚¹ã®ãƒ†ã‚¹ãƒˆã€‚
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4> ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚©‚çƒf[ƒ^‚ğ“Ç‚İ‚İA 1s•ª‚Ìƒf[ƒ^‚ğCSVŒ`®‚Åƒtƒ@ƒCƒ‹ ‚É‘‚«‚ŞB<br>
- * AbstractFileLineWriter‚ÌƒTƒuƒNƒ‰ƒXB
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4> ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã‚‰ãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿è¾¼ã¿ã€ 1è¡Œåˆ†ã®ãƒ‡ãƒ¼ã‚¿ã‚’CSVå½¢å¼ã§ãƒ•ã‚¡ã‚¤ãƒ« ã«æ›¸ãè¾¼ã‚€ã€‚<br>
+ * AbstractFileLineWriterã®ã‚µãƒ–ã‚¯ãƒ©ã‚¹ã€‚
  * <p>
- * @author ‰œ“c “Ni
- * @author æâ •î“O
+ * @author å¥¥ç”° å“²å¸
+ * @author è¶™ ä¿¸å¾¹
  * @see jp.terasoluna.fw.file.dao.standard.CSVFileLineWriter
  */
 public class CSVFileLineWriterTest {
@@ -45,8 +45,8 @@ public class CSVFileLineWriterTest {
             .getResource("CSVFileLineWriterTest_tmp.txt").getPath();
 
     /**
-     * ‚±‚ÌƒeƒXƒgƒP[ƒX‚ğÀs‚·‚éˆ×‚Ì GUI ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‹N“®‚·‚éB
-     * @param args java ƒRƒ}ƒ“ƒh‚Éİ’è‚³‚ê‚½ƒpƒ‰ƒ[ƒ^
+     * ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã‚’å®Ÿè¡Œã™ã‚‹ç‚ºã® GUI ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’èµ·å‹•ã™ã‚‹ã€‚
+     * @param args java ã‚³ãƒãƒ³ãƒ‰ã«è¨­å®šã•ã‚ŒãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public static void main(String[] args) {
         // junit.swingui.TestRunner.run(CSVFileLineWriterTest.class);
@@ -55,7 +55,7 @@ public class CSVFileLineWriterTest {
     @Before
     public void setUp() throws Exception {
         VMOUTUtil.initialize();
-        // ƒtƒ@ƒCƒ‹‚Ì‰Šú‰»
+        // ãƒ•ã‚¡ã‚¤ãƒ«ã®åˆæœŸåŒ–
         File file = new File(TEMP_FILE_NAME);
         file.delete();
         file.createNewFile();
@@ -63,7 +63,7 @@ public class CSVFileLineWriterTest {
 
     @AfterClass
     public static void afterClass() throws Exception {
-        // ƒtƒ@ƒCƒ‹‚Ì‰Šú‰»
+        // ãƒ•ã‚¡ã‚¤ãƒ«ã®åˆæœŸåŒ–
         File file = new File(TEMP_FILE_NAME);
         file.delete();
         file.createNewFile();
@@ -72,49 +72,49 @@ public class CSVFileLineWriterTest {
     /**
      * testCSVFileLineWriter01() <br>
      * <br>
-     * (ˆÙíŒn) <br>
+     * (ç•°å¸¸ç³») <br>
      * <br>
-     * ŠÏ“_FG <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileName:"(ƒpƒX)CSVFileLineWriter_testCSVFileLineWriter01.txt"<br>
-     * (ˆø”) clazz:CSVFileLineWriter_Stub05ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * @@FileFormat‚Ìİ’è<br>
-     * @@delimiter='A'<br>
-     * (ˆø”) columnFormatterMap:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂMap<String, ColumnFormatter>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"java.lang.String"=NullColumnFormatter.java<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileName:"(ãƒ‘ã‚¹)CSVFileLineWriter_testCSVFileLineWriter01.txt"<br>
+     * (å¼•æ•°) clazz:CSVFileLineWriter_Stub05ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ã€€@FileFormatã®è¨­å®š<br>
+     * ã€€ã€€delimiter='ã€'<br>
+     * (å¼•æ•°) columnFormatterMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤Map<String, ColumnFormatter>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"java.lang.String"=NullColumnFormatter.java<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:"Delimiter can not change."‚ÌƒƒbƒZ[ƒWAIllegalStateExceptionAƒtƒ@ƒCƒ‹–¼‚ğ‚ÂFileException‚ª”­¶‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:"Delimiter can not change."ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã€IllegalStateExceptionã€ãƒ•ã‚¡ã‚¤ãƒ«åã‚’æŒã¤FileExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
      * <br>
-     * —áŠOB@FileFormat‚Ìdelimiter‚É‰Šú’lˆÈŠO‚ğİ’è‚µ‚½ê‡A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * ƒtƒ@ƒCƒ‹–¼‚ª“ü—Í’l‚ÌfileName‚Éˆê’v‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ä¾‹å¤–ã€‚@FileFormatã®delimiterã«åˆæœŸå€¤ä»¥å¤–ã‚’è¨­å®šã—ãŸå ´åˆã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * ãƒ•ã‚¡ã‚¤ãƒ«åãŒå…¥åŠ›å€¤ã®fileNameã«ä¸€è‡´ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testCSVFileLineWriter01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
-        // ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌŒ±‚¾‚©‚ç•s—v
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
+        // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®è©¦é¨“ã ã‹ã‚‰ä¸è¦
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String fileName = TEMP_FILE_NAME;
 
         Class<CSVFileLineWriter_Stub05> clazz = CSVFileLineWriter_Stub05.class;
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ‚È‚µ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãªã—
         CSVFileLineWriter<CSVFileLineWriter_Stub05> writer = null;
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             writer = new CSVFileLineWriter<CSVFileLineWriter_Stub05>(fileName,
                     clazz, columnFormatterMap);
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (FileException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(FileException.class, e.getClass());
             assertEquals("Delimiter can not change.", e.getMessage());
             assertEquals(IllegalStateException.class, e.getCause().getClass());
@@ -129,50 +129,50 @@ public class CSVFileLineWriterTest {
     /**
      * testCSVFileLineWriter02() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileName:"(ƒpƒX)CSVFileLineWriter_testCSVFileLineWriter02.txt"<br>
-     * (ˆø”) clazz:CSVFileLineWriter_Stub01<br>
-     * @@FileFormat‚Ìİ’è<br>
-     * @@delimiterˆÈŠO=ƒfƒtƒHƒ‹ƒg’lˆÈŠO<br>
-     * (ˆø”) columnFormatterMap:ˆÈ‰º‚Ì—v‘f‚ğ‚ÂMap<String, ColumnFormatter>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * E"java.lang.String"=NullColumnFormatter.java<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileName:"(ãƒ‘ã‚¹)CSVFileLineWriter_testCSVFileLineWriter02.txt"<br>
+     * (å¼•æ•°) clazz:CSVFileLineWriter_Stub01<br>
+     * ã€€@FileFormatã®è¨­å®š<br>
+     * ã€€ã€€delimiterä»¥å¤–=ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ä»¥å¤–<br>
+     * (å¼•æ•°) columnFormatterMap:ä»¥ä¸‹ã®è¦ç´ ã‚’æŒã¤Map<String, ColumnFormatter>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ãƒ»"java.lang.String"=NullColumnFormatter.java<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.encloseChar:ˆø”clazz‚ÌƒAƒmƒe[ƒVƒ‡ƒ“FileFormat‚ÌencloseChar()‚Ì’lB<br>
-     * (ó‘Ô•Ï‰») AbstractFileLineWriter#AbstractFileLineWriter():1‰ñŒÄ‚Ño‚³‚ê‚é‚±‚Æ<br>
-     * ˆø”‚ğŠm”F‚·‚é‚±‚Æ<br>
-     * (ó‘Ô•Ï‰») AbstractFileLineWriter#init():1‰ñŒÄ‚Ño‚³‚ê‚é‚±‚Æ<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.encloseChar:å¼•æ•°clazzã®ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³FileFormatã®encloseChar()ã®å€¤ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) AbstractFileLineWriter#AbstractFileLineWriter():1å›å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨<br>
+     * å¼•æ•°ã‚’ç¢ºèªã™ã‚‹ã“ã¨<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) AbstractFileLineWriter#init():1å›å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨<br>
      * <br>
-     * @FileFormat‚ÌdelimiterˆÈŠO‚Ìİ’è‚ğƒfƒtƒHƒ‹ƒg’l‚Å‚Í‚È‚¢ƒf[ƒ^‚Åİ’è‚µ‚½ê‡AƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌŒÄ‚Ño‚µ‚ª³í‚És‚í‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @FileFormatã®delimiterä»¥å¤–ã®è¨­å®šã‚’ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ã§ã¯ãªã„ãƒ‡ãƒ¼ã‚¿ã§è¨­å®šã—ãŸå ´åˆã€ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å‘¼ã³å‡ºã—ãŒæ­£å¸¸ã«è¡Œã‚ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     @Test
     public void testCSVFileLineWriter02() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
-        // ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌŒ±‚¾‚©‚ç•s—v
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
+        // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®è©¦é¨“ã ã‹ã‚‰ä¸è¦
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String fileName = TEMP_FILE_NAME;
 
         Class<CSVFileLineWriter_Stub01> clazz = CSVFileLineWriter_Stub01.class;
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ‚È‚µ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãªã—
 
         CSVFileLineWriter<CSVFileLineWriter_Stub01> result = null;
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             result = new CSVFileLineWriter<CSVFileLineWriter_Stub01>(fileName,
                     clazz, columnFormatterMap);
 
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals('\"', UTUtil.getPrivateField(result, "encloseChar"));
 
             int superCallCount = VMOUTUtil.getCallCount(
@@ -188,7 +188,7 @@ public class CSVFileLineWriterTest {
             assertEquals(2, VMOUTUtil.getCallCount(
                     AbstractFileLineWriter.class, "init"));
         } finally {
-            // ƒeƒXƒg‘ÎÛ‚ÌƒNƒ[ƒYˆ—
+            // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¯ãƒ­ãƒ¼ã‚ºå‡¦ç†
             if (result != null) {
                 result.closeFile();
             }
@@ -196,13 +196,13 @@ public class CSVFileLineWriterTest {
     }
 
     /**
-     * ˆÙíŒn<br>
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÉOutputFileColumnƒAƒmƒe[ƒVƒ‡ƒ“‚ª–³‚µ
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ç•°å¸¸ç³»<br>
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«OutputFileColumnã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ãŒç„¡ã—
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testCSVFileLineWriter03() throws Exception {
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String fileName = TEMP_FILE_NAME;
 
         Class<FileLineObject_Empty> clazz = FileLineObject_Empty.class;
@@ -210,15 +210,15 @@ public class CSVFileLineWriterTest {
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
         CSVFileLineWriter<FileLineObject_Empty> writer = null;
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             new CSVFileLineWriter<FileLineObject_Empty>(fileName, clazz,
                     columnFormatterMap);
-            fail("FileException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (FileException e) {
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals("OutputFileColumn is not found.", e.getMessage());
             assertEquals(fileName, e.getFileName());
             assertEquals(IllegalStateException.class, e.getCause().getClass());
@@ -232,26 +232,26 @@ public class CSVFileLineWriterTest {
     /**
      * testGetColumn01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE <br>
      * <br>
-     * “ü—Í’lF(ˆø”) t:CSVFileLineWriter_Stub06ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * @@FileFormat()<br>
-     * @String•Ï”column01<br>
-     * @@ƒAƒmƒe[ƒVƒ‡ƒ“F@OutputFileColumn(columnIndex = 0)<br>
-     * @@’lF"abcdef"<br>
-     * (ˆø”) index:0<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) t:CSVFileLineWriter_Stub06ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ã€€@FileFormat()<br>
+     * ã€€Stringå¤‰æ•°column01<br>
+     * ã€€ã€€ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ï¼š@OutputFileColumn(columnIndex = 0)<br>
+     * ã€€ã€€å€¤ï¼š"abcdef"<br>
+     * (å¼•æ•°) index:0<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:"abcdef"<br>
-     * (ó‘Ô•Ï‰») AbstractFileLineWriter#getColumn():ˆø”‚ª“n‚³‚ê‚ÄA1‰ñŒÄ‚Ño‚³‚ê‚é‚±‚Æ<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:"abcdef"<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) AbstractFileLineWriter#getColumn():å¼•æ•°ãŒæ¸¡ã•ã‚Œã¦ã€1å›å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨<br>
      * <br>
-     * ˆø”t‚Éİ’è‚³‚ê‚½ƒNƒ‰ƒXiˆÍ‚İ•¶š‚ªİ’è‚³‚ê‚Ä‚¢‚È‚¢ê‡j‚ÌƒJƒ‰ƒ€ƒCƒ“ƒfƒbƒNƒX1‚Ì‘®«’liˆÍ‚İ•¶š‚ªŠÜ‚Ü‚ê‚È‚¢j‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * å¼•æ•°tã«è¨­å®šã•ã‚ŒãŸã‚¯ãƒ©ã‚¹ï¼ˆå›²ã¿æ–‡å­—ãŒè¨­å®šã•ã‚Œã¦ã„ãªã„å ´åˆï¼‰ã®ã‚«ãƒ©ãƒ ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹1ã®å±æ€§å€¤ï¼ˆå›²ã¿æ–‡å­—ãŒå«ã¾ã‚Œãªã„ï¼‰ãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     @SuppressWarnings("unchecked")
     public void testGetColumn01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         String fileName = TEMP_FILE_NAME;
 
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
@@ -260,21 +260,21 @@ public class CSVFileLineWriterTest {
         CSVFileLineWriter<CSVFileLineWriter_Stub06> lineWriter = new CSVFileLineWriter<CSVFileLineWriter_Stub06>(
                 fileName, CSVFileLineWriter_Stub06.class, columnFormatterMap);
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         CSVFileLineWriter_Stub06 stub = new CSVFileLineWriter_Stub06();
         stub.setColumn01("abcdef");
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ‚È‚µ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãªã—
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             String result = lineWriter.getColumn(stub, 0);
 
-            // •Ô‹p’l‚ÌŠm”F
+            // è¿”å´å€¤ã®ç¢ºèª
             assertEquals("abcdef", result);
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             int superCallCount = VMOUTUtil.getCallCount(
                     AbstractFileLineWriter.class, "getColumn");
             assertEquals(1, superCallCount);
@@ -284,7 +284,7 @@ public class CSVFileLineWriterTest {
             assertSame(stub, arguments.get(0));
             assertEquals(0, arguments.get(1));
         } finally {
-            // ƒeƒXƒg‘ÎÛ‚ÌƒNƒ[ƒYˆ—
+            // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¯ãƒ­ãƒ¼ã‚ºå‡¦ç†
             lineWriter.closeFile();
         }
     }
@@ -292,26 +292,26 @@ public class CSVFileLineWriterTest {
     /**
      * testGetColumn02() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE <br>
      * <br>
-     * “ü—Í’lF(ˆø”) t:CSVFileLineWriter_Stub07ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * @@FileFormat(encloseChar='\"')<br>
-     * @String•Ï”column01<br>
-     * @@ƒAƒmƒe[ƒVƒ‡ƒ“F@OutputFileColumn(columnIndex = 0)<br>
-     * @@’lF"abcdef"<br>
-     * (ˆø”) index:0<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) t:CSVFileLineWriter_Stub07ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ã€€@FileFormat(encloseChar='\"')<br>
+     * ã€€Stringå¤‰æ•°column01<br>
+     * ã€€ã€€ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ï¼š@OutputFileColumn(columnIndex = 0)<br>
+     * ã€€ã€€å€¤ï¼š"abcdef"<br>
+     * (å¼•æ•°) index:0<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:"abcdef"<br>
-     * (ó‘Ô•Ï‰») AbstractFileLineWriter#getColumn():ˆø”‚ª“n‚³‚ê‚ÄA1‰ñŒÄ‚Ño‚³‚ê‚é‚±‚Æ<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:"abcdef"<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) AbstractFileLineWriter#getColumn():å¼•æ•°ãŒæ¸¡ã•ã‚Œã¦ã€1å›å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨<br>
      * <br>
-     * ˆø”t‚Éİ’è‚³‚ê‚½ƒNƒ‰ƒXiˆÍ‚İ•¶š‚ªİ’è‚³‚ê‚Ä‚¢‚éê‡j‚ÌƒJƒ‰ƒ€ƒCƒ“ƒfƒbƒNƒX1‚Ì‘®«’liˆÍ‚İ•¶š‚ªŠÜ‚Ü‚ê‚È‚¢j‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * å¼•æ•°tã«è¨­å®šã•ã‚ŒãŸã‚¯ãƒ©ã‚¹ï¼ˆå›²ã¿æ–‡å­—ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹å ´åˆï¼‰ã®ã‚«ãƒ©ãƒ ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹1ã®å±æ€§å€¤ï¼ˆå›²ã¿æ–‡å­—ãŒå«ã¾ã‚Œãªã„ï¼‰ãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     @SuppressWarnings("unchecked")
     public void testGetColumn02() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         String fileName = TEMP_FILE_NAME;
 
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
@@ -319,21 +319,21 @@ public class CSVFileLineWriterTest {
         CSVFileLineWriter<CSVFileLineWriter_Stub07> lineWriter = new CSVFileLineWriter<CSVFileLineWriter_Stub07>(
                 fileName, CSVFileLineWriter_Stub07.class, columnFormatterMap);
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         CSVFileLineWriter_Stub07 stub = new CSVFileLineWriter_Stub07();
         stub.setColumn01("abcdef");
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ‚È‚µ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             String result = lineWriter.getColumn(stub, 0);
 
-            // •Ô‹p’l‚ÌŠm”F
+            // è¿”å´å€¤ã®ç¢ºèª
             assertEquals("abcdef", result);
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             int superCallCount = VMOUTUtil.getCallCount(
                     AbstractFileLineWriter.class, "getColumn");
             assertEquals(1, superCallCount);
@@ -343,7 +343,7 @@ public class CSVFileLineWriterTest {
             assertSame(stub, arguments.get(0));
             assertEquals(0, arguments.get(1));
         } finally {
-            // ƒeƒXƒg‘ÎÛ‚ÌƒNƒ[ƒYˆ—
+            // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¯ãƒ­ãƒ¼ã‚ºå‡¦ç†
             lineWriter.closeFile();
         }
     }
@@ -351,26 +351,26 @@ public class CSVFileLineWriterTest {
     /**
      * testGetColumn03() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE <br>
      * <br>
-     * “ü—Í’lF(ˆø”) t:CSVFileLineWriter_Stub07ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * @@FileFormat(encloseChar='\"')<br>
-     * @String•Ï”column01<br>
-     * @@ƒAƒmƒe[ƒVƒ‡ƒ“F@OutputFileColumn(columnIndex = 0)<br>
-     * @@’lF"ab\"cdef"<br>
-     * (ˆø”) index:0<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) t:CSVFileLineWriter_Stub07ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ã€€@FileFormat(encloseChar='\"')<br>
+     * ã€€Stringå¤‰æ•°column01<br>
+     * ã€€ã€€ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ï¼š@OutputFileColumn(columnIndex = 0)<br>
+     * ã€€ã€€å€¤ï¼š"ab\"cdef"<br>
+     * (å¼•æ•°) index:0<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:"ab""cdef"<br>
-     * (ó‘Ô•Ï‰») AbstractFileLineWriter#getColumn():ˆø”‚ª“n‚³‚ê‚ÄA1‰ñŒÄ‚Ño‚³‚ê‚é‚±‚Æ<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:"ab""cdef"<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) AbstractFileLineWriter#getColumn():å¼•æ•°ãŒæ¸¡ã•ã‚Œã¦ã€1å›å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨<br>
      * <br>
-     * ˆø”t‚Éİ’è‚³‚ê‚½ƒNƒ‰ƒXiˆÍ‚İ•¶š‚ªİ’è‚³‚ê‚Ä‚¢‚éê‡j‚ÌƒJƒ‰ƒ€ƒCƒ“ƒfƒbƒNƒX1‚Ì‘®«’liˆÍ‚İ•¶š‚ªŠÜ‚Ü‚ê‚éj‚ªƒGƒXƒP[ƒvˆ—‚³‚ê‚ÄAæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éƒeƒXƒgB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * å¼•æ•°tã«è¨­å®šã•ã‚ŒãŸã‚¯ãƒ©ã‚¹ï¼ˆå›²ã¿æ–‡å­—ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹å ´åˆï¼‰ã®ã‚«ãƒ©ãƒ ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹1ã®å±æ€§å€¤ï¼ˆå›²ã¿æ–‡å­—ãŒå«ã¾ã‚Œã‚‹ï¼‰ãŒã‚¨ã‚¹ã‚±ãƒ¼ãƒ—å‡¦ç†ã•ã‚Œã¦ã€å–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ãƒ†ã‚¹ãƒˆã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     @SuppressWarnings("unchecked")
     public void testGetColumn03() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         String fileName = TEMP_FILE_NAME;
 
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
@@ -378,21 +378,21 @@ public class CSVFileLineWriterTest {
         CSVFileLineWriter<CSVFileLineWriter_Stub07> lineWriter = new CSVFileLineWriter<CSVFileLineWriter_Stub07>(
                 fileName, CSVFileLineWriter_Stub07.class, columnFormatterMap);
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         CSVFileLineWriter_Stub07 stub = new CSVFileLineWriter_Stub07();
         UTUtil.setPrivateField(stub, "column01", "ab\"cdef");
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ‚È‚µ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             String result = lineWriter.getColumn(stub, 0);
 
-            // •Ô‹p’l‚ÌŠm”F
+            // è¿”å´å€¤ã®ç¢ºèª
             assertEquals("ab\"\"cdef", result);
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             int superCallCount = VMOUTUtil.getCallCount(
                     AbstractFileLineWriter.class, "getColumn");
             assertEquals(1, superCallCount);
@@ -402,7 +402,7 @@ public class CSVFileLineWriterTest {
             assertSame(stub, arguments.get(0));
             assertEquals(0, arguments.get(1));
         } finally {
-            // ƒeƒXƒg‘ÎÛ‚ÌƒNƒ[ƒYˆ—
+            // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¯ãƒ­ãƒ¼ã‚ºå‡¦ç†
             lineWriter.closeFile();
         }
     }
@@ -410,27 +410,27 @@ public class CSVFileLineWriterTest {
     /**
      * testGetColumn04() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) t:CSVFileLineWriter_Stub06ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * @@FileFormat()<br>
-     * @String•Ï”column01<br>
-     * @@ƒAƒmƒe[ƒVƒ‡ƒ“F@OutputFileColumn(columnIndex = 0)<br>
-     * @@’lF"abcdef"<br>
-     * (ˆø”) index:1<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) t:CSVFileLineWriter_Stub06ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * ã€€@FileFormat()<br>
+     * ã€€Stringå¤‰æ•°column01<br>
+     * ã€€ã€€ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ï¼š@OutputFileColumn(columnIndex = 0)<br>
+     * ã€€ã€€å€¤ï¼š"abcdef"<br>
+     * (å¼•æ•°) index:1<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») AbstractFileLineWriter#getColumn():ˆø”‚ª“n‚³‚ê‚ÄA1‰ñŒÄ‚Ño‚³‚ê‚é‚±‚Æ<br>
-     * (ó‘Ô•Ï‰») —áŠO:ArrayIndexOutOfBoundsException<br>
-     * AbstractFileLineWriter#getColumn()‚Å”­¶‚·‚é<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) AbstractFileLineWriter#getColumn():å¼•æ•°ãŒæ¸¡ã•ã‚Œã¦ã€1å›å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ArrayIndexOutOfBoundsException<br>
+     * AbstractFileLineWriter#getColumn()ã§ç™ºç”Ÿã™ã‚‹<br>
      * <br>
-     * ˆø”index‚ÉƒJƒ‰ƒ€ƒCƒ“ƒfƒbƒNƒX‚É‘¶İ‚µ‚È‚¢’l‚ğ“n‚·‚ÆAArrayIndexOutOfBoundsException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * å¼•æ•°indexã«ã‚«ãƒ©ãƒ ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã«å­˜åœ¨ã—ãªã„å€¤ã‚’æ¸¡ã™ã¨ã€ArrayIndexOutOfBoundsExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     @SuppressWarnings("unchecked")
     public void testGetColumn04() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         String fileName = TEMP_FILE_NAME;
 
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
@@ -438,22 +438,22 @@ public class CSVFileLineWriterTest {
         CSVFileLineWriter<CSVFileLineWriter_Stub06> lineWriter = new CSVFileLineWriter<CSVFileLineWriter_Stub06>(
                 fileName, CSVFileLineWriter_Stub06.class, columnFormatterMap);
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         CSVFileLineWriter_Stub06 stub = new CSVFileLineWriter_Stub06();
         UTUtil.setPrivateField(stub, "column01", "abcdef");
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ‚È‚µ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             lineWriter.getColumn(stub, 1);
-            fail("ArrayIndexOutOfBoundsException‚ªƒXƒ[‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("ArrayIndexOutOfBoundsExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (ArrayIndexOutOfBoundsException e) {
-            // •Ô‹p’l‚ÌŠm”F
-            // ‚È‚µ
+            // è¿”å´å€¤ã®ç¢ºèª
+            // ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             int superCallCount = VMOUTUtil.getCallCount(
                     AbstractFileLineWriter.class, "getColumn");
             assertEquals(1, superCallCount);
@@ -465,7 +465,7 @@ public class CSVFileLineWriterTest {
 
             assertEquals(ArrayIndexOutOfBoundsException.class, e.getClass());
         } finally {
-            // ƒeƒXƒg‘ÎÛ‚ÌƒNƒ[ƒYˆ—
+            // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¯ãƒ­ãƒ¼ã‚ºå‡¦ç†
             lineWriter.closeFile();
         }
     }
@@ -473,19 +473,19 @@ public class CSVFileLineWriterTest {
     /**
      * testGetDelimiter01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FF <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šF <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) this.delimiter:"','"<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) this.delimiter:"','"<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) this.delimiter:"','"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) this.delimiter:"','"<br>
      * <br>
-     * delimiter‚Ìgetterƒƒ\ƒbƒh‚ª³‚µ‚­’l‚ğæ“¾‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * delimiterã®getterãƒ¡ã‚½ãƒƒãƒ‰ãŒæ­£ã—ãå€¤ã‚’å–å¾—ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testGetDelimiter01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         String fileName = TEMP_FILE_NAME;
 
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
@@ -494,24 +494,24 @@ public class CSVFileLineWriterTest {
         CSVFileLineWriter<CSVFileLineWriter_Stub04> lineWriter = new CSVFileLineWriter<CSVFileLineWriter_Stub04>(
                 fileName, CSVFileLineWriter_Stub04.class, columnFormatterMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ƒfƒtƒHƒ‹ƒg‚ÅˆÈ‰º‚É‚È‚Á‚Ä‚¢‚é‚½‚ßA‰½‚à‚µ‚È‚¢
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã§ä»¥ä¸‹ã«ãªã£ã¦ã„ã‚‹ãŸã‚ã€ä½•ã‚‚ã—ãªã„
         // this.delimiter:"','"
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             char result = lineWriter.getDelimiter();
 
-            // •Ô‹p’l‚ÌŠm”F
+            // è¿”å´å€¤ã®ç¢ºèª
             assertEquals(',', result);
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
-            // ‚È‚µ
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
+            // ãªã—
         } finally {
-            // ƒeƒXƒg‘ÎÛ‚ÌƒNƒ[ƒYˆ—
+            // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¯ãƒ­ãƒ¼ã‚ºå‡¦ç†
             lineWriter.closeFile();
         }
     }
@@ -519,19 +519,19 @@ public class CSVFileLineWriterTest {
     /**
      * testGetEncloseChar01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FF <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šF <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) this.encloseChar:'\u0000'<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) this.encloseChar:'\u0000'<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) this.encloseChar:'\u0000'<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) this.encloseChar:'\u0000'<br>
      * <br>
-     * encloseChar‚Ìgetterƒƒ\ƒbƒh‚ª³‚µ‚­’l‚ğæ“¾‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * encloseCharã®getterãƒ¡ã‚½ãƒƒãƒ‰ãŒæ­£ã—ãå€¤ã‚’å–å¾—ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @Test
     public void testGetEncloseChar01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         String fileName = TEMP_FILE_NAME;
 
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
@@ -540,46 +540,46 @@ public class CSVFileLineWriterTest {
         CSVFileLineWriter<CSVFileLineWriter_Stub04> lineWriter = new CSVFileLineWriter<CSVFileLineWriter_Stub04>(
                 fileName, CSVFileLineWriter_Stub04.class, columnFormatterMap);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ƒfƒtƒHƒ‹ƒg‚ÅˆÈ‰º‚É‚È‚Á‚Ä‚¢‚é‚½‚ßA‰½‚à‚µ‚È‚¢
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã§ä»¥ä¸‹ã«ãªã£ã¦ã„ã‚‹ãŸã‚ã€ä½•ã‚‚ã—ãªã„
         // this.encloseChar:\u0000'
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             char result = lineWriter.getEncloseChar();
 
-            // •Ô‹p’l‚ÌŠm”F
+            // è¿”å´å€¤ã®ç¢ºèª
             assertEquals('\u0000', result);
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
-            // ‚È‚µ
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
+            // ãªã—
         } finally {
-            // ƒeƒXƒg‘ÎÛ‚ÌƒNƒ[ƒYˆ—
+            // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¯ãƒ­ãƒ¼ã‚ºå‡¦ç†
             lineWriter.closeFile();
         }
     }
 
     /**
-     * ³íŒn<br>
-     * OutputFileColumn‚ÌcolumnEncloseChar‚É‚æ‚Á‚ÄAŒÂX‚ÌƒJƒ‰ƒ€‚ÉˆÍ‚İ•¶š‚ğİ’è
+     * æ­£å¸¸ç³»<br>
+     * OutputFileColumnã®columnEncloseCharã«ã‚ˆã£ã¦ã€å€‹ã€…ã®ã‚«ãƒ©ãƒ ã«å›²ã¿æ–‡å­—ã‚’è¨­å®š
      * @throws Exception
      */
     @Test
     public void testPrintDataLine01() throws Exception {
-        // ‘Oˆ—(ƒtƒ@ƒCƒ‹)
+        // å‰å‡¦ç†(ãƒ•ã‚¡ã‚¤ãƒ«)
         String fileName = TEMP_FILE_NAME;
 
-        // ‘Oˆ—(Œ±‘ÎÛ)
+        // å‰å‡¦ç†(è©¦é¨“å¯¾è±¡)
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
         CSVFileLineWriter<CSVFileLine_Stub01> fileLineWriter = new CSVFileLineWriter<CSVFileLine_Stub01>(
                 fileName, CSVFileLine_Stub01.class, columnFormatterMap);
 
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         CSVFileLine_Stub01 t1 = new CSVFileLine_Stub01();
         CSVFileLine_Stub01 t2 = new CSVFileLine_Stub01();
         CSVFileLine_Stub01 t3 = new CSVFileLine_Stub01();
@@ -597,7 +597,7 @@ public class CSVFileLineWriterTest {
         t3.setColumn3("BBB");
         t3.setColumn4("CCCC");
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         fileLineWriter.printDataLine(t1);
         fileLineWriter.printDataLine(t2);
         fileLineWriter.printDataLine(t3);
@@ -619,23 +619,23 @@ public class CSVFileLineWriterTest {
     }
 
     /**
-     * ³íŒn<br>
-     * FileFormat‚ÌencloseChar‚ÆOutputFileColumn‚ÌcolumnEncloseChar‚É‚æ‚Á‚ÄAŒÂX‚ÌƒJƒ‰ƒ€‚ÉˆÍ‚İ•¶š‚ğİ’è
+     * æ­£å¸¸ç³»<br>
+     * FileFormatã®encloseCharã¨OutputFileColumnã®columnEncloseCharã«ã‚ˆã£ã¦ã€å€‹ã€…ã®ã‚«ãƒ©ãƒ ã«å›²ã¿æ–‡å­—ã‚’è¨­å®š
      * @throws Exception
      */
     @Test
     public void testPrintDataLine02() throws Exception {
-        // ‘Oˆ—(ƒtƒ@ƒCƒ‹)
+        // å‰å‡¦ç†(ãƒ•ã‚¡ã‚¤ãƒ«)
         String fileName = TEMP_FILE_NAME;
 
-        // ‘Oˆ—(Œ±‘ÎÛ)
+        // å‰å‡¦ç†(è©¦é¨“å¯¾è±¡)
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
         CSVFileLineWriter<CSVFileLine_Stub02> fileLineWriter = new CSVFileLineWriter<CSVFileLine_Stub02>(
                 fileName, CSVFileLine_Stub02.class, columnFormatterMap);
 
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         CSVFileLine_Stub02 t1 = new CSVFileLine_Stub02();
         CSVFileLine_Stub02 t2 = new CSVFileLine_Stub02();
         CSVFileLine_Stub02 t3 = new CSVFileLine_Stub02();
@@ -653,7 +653,7 @@ public class CSVFileLineWriterTest {
         t3.setColumn3("BBB");
         t3.setColumn4("CCCC");
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         fileLineWriter.printDataLine(t1);
         fileLineWriter.printDataLine(t2);
         fileLineWriter.printDataLine(t3);
@@ -675,23 +675,23 @@ public class CSVFileLineWriterTest {
     }
 
     /**
-     * ³íŒn<br>
-     * ƒLƒƒƒbƒVƒ…‚µ‚Ä‚¢‚éƒAƒmƒe[ƒVƒ‡ƒ“‚Ìî•ñ‚ğ—˜—p‚µ‚Ä‚¢‚é–‚ğŠm”F‚·‚éB<br>
+     * æ­£å¸¸ç³»<br>
+     * ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã—ã¦ã„ã‚‹ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã®æƒ…å ±ã‚’åˆ©ç”¨ã—ã¦ã„ã‚‹äº‹ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * @throws Exception
      */
     @Test
     public void testPrintDataLine03() throws Exception {
-        // ‘Oˆ—(ƒtƒ@ƒCƒ‹)
+        // å‰å‡¦ç†(ãƒ•ã‚¡ã‚¤ãƒ«)
         String fileName = TEMP_FILE_NAME;
 
-        // ‘Oˆ—(Œ±‘ÎÛ)
+        // å‰å‡¦ç†(è©¦é¨“å¯¾è±¡)
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
         CSVFileLineWriter<CSVFileLine_Stub03> fileLineWriter = new CSVFileLineWriter<CSVFileLine_Stub03>(
                 fileName, CSVFileLine_Stub03.class, columnFormatterMap);
 
-        // ‘Oˆ—(ˆø”)
+        // å‰å‡¦ç†(å¼•æ•°)
         CSVFileLine_Stub03 t1 = new CSVFileLine_Stub03();
 
         t1.setColumn1("1");
@@ -699,11 +699,11 @@ public class CSVFileLineWriterTest {
         t1.setColumn3("333");
         t1.setColumn4("4444");
 
-        // ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚Éİ’è‚µ‚Ä‚ ‚Á‚½’l‚ğ‘S‚Äã‘‚«
-        // ˆÈ‰º‚Ìİ’è‚ª“K—p‚³‚ê‚ê‚ÎAƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚Ì
-        // ƒAƒmƒe[ƒVƒ‡ƒ“‚ÉƒAƒNƒZƒX‚µ‚Ä‚¢‚È‚¢‚±‚Æ‚É‚È‚éB
+        // ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«è¨­å®šã—ã¦ã‚ã£ãŸå€¤ã‚’å…¨ã¦ä¸Šæ›¸ã
+        // ä»¥ä¸‹ã®è¨­å®šãŒé©ç”¨ã•ã‚Œã‚Œã°ã€ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®
+        // ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã«ã‚¢ã‚¯ã‚»ã‚¹ã—ã¦ã„ãªã„ã“ã¨ã«ãªã‚‹ã€‚
         char[] charArray = new char[] { 0, 0, 0, 0 };
-        // ‘O’ñğŒ
+        // å‰ææ¡ä»¶
         UTUtil.setPrivateField(fileLineWriter, "lineFeedChar", "\r\n");
         UTUtil.setPrivateField(fileLineWriter, "delimiter", '_');
         UTUtil.setPrivateField(fileLineWriter, "outputFileColumns", null);
@@ -723,7 +723,7 @@ public class CSVFileLineWriterTest {
                         new NullStringConverter(), new NullStringConverter(),
                         new NullStringConverter() });
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         fileLineWriter.printDataLine(t1);
 
         fileLineWriter.closeFile();

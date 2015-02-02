@@ -14,26 +14,26 @@ import jp.terasoluna.utlib.UTUtil;
 import junit.framework.TestCase;
 
 /**
- * {@link jp.terasoluna.fw.file.dao.FileLineException} ƒNƒ‰ƒX‚ÌƒeƒXƒgB
+ * {@link jp.terasoluna.fw.file.dao.FileLineException} ã‚¯ãƒ©ã‚¹ã®ãƒ†ã‚¹ãƒˆã€‚
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4> ƒtƒ@ƒCƒ‹ƒAƒNƒZƒX‹@”\‚Å”­¶‚·‚é—áŠO‚ğƒ‰ƒbƒv‚·‚éRuntimeException
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4> ãƒ•ã‚¡ã‚¤ãƒ«ã‚¢ã‚¯ã‚»ã‚¹æ©Ÿèƒ½ã§ç™ºç”Ÿã™ã‚‹ä¾‹å¤–ã‚’ãƒ©ãƒƒãƒ—ã™ã‚‹RuntimeException
  * <p>
- * @author ‰œ“c“Ni
+ * @author å¥¥ç”°å“²å¸
  * @see jp.terasoluna.fw.file.dao.FileLineException
  */
 public class FileLineExceptionTest extends TestCase {
 
     /**
-     * ‚±‚ÌƒeƒXƒgƒP[ƒX‚ğÀs‚·‚éˆ×‚Ì GUI ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‹N“®‚·‚éB
-     * @param args java ƒRƒ}ƒ“ƒh‚Éİ’è‚³‚ê‚½ƒpƒ‰ƒ[ƒ^
+     * ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã‚’å®Ÿè¡Œã™ã‚‹ç‚ºã® GUI ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’èµ·å‹•ã™ã‚‹ã€‚
+     * @param args java ã‚³ãƒãƒ³ãƒ‰ã«è¨­å®šã•ã‚ŒãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public static void main(String[] args) {
         // junit.swingui.TestRunner.run(FileLineExceptionTest.class);
     }
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -43,8 +43,8 @@ public class FileLineExceptionTest extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -53,8 +53,8 @@ public class FileLineExceptionTest extends TestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public FileLineExceptionTest(String name) {
         super(name);
@@ -63,39 +63,39 @@ public class FileLineExceptionTest extends TestCase {
     /**
      * testFileLineExceptionException01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE <br>
      * <br>
-     * “ü—Í’lF(ˆø”) e:not null<br>
-     * Exception‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) e:not null<br>
+     * Exceptionã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») columnName:null<br>
-     * (ó‘Ô•Ï‰») columnIndex:-1<br>
-     * (ó‘Ô•Ï‰») lineNo:-1<br>
-     * (ó‘Ô•Ï‰») FileLineException.cause: ˆø”e‚Æ“™‰¿‚ÌƒIƒuƒWƒFƒNƒgB<br>
-     * (ó‘Ô•Ï‰») FileException:1‰ñŒÄ‚Î‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) columnName:null<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) columnIndex:-1<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) lineNo:-1<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) FileLineException.cause: å¼•æ•°eã¨ç­‰ä¾¡ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) FileException:1å›å‘¼ã°ã‚Œã‚‹ã€‚<br>
      * <br>
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ìˆø”‚Åó‚¯æ‚Á‚½Exception‚ğƒ‰ƒbƒv‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å¼•æ•°ã§å—ã‘å–ã£ãŸExceptionã‚’ãƒ©ãƒƒãƒ—ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testFileLineExceptionException01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
-        // ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚È‚Ì‚Å•s—v
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
+        // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãªã®ã§ä¸è¦
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         Exception exception = new Exception();
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ‚È‚µ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         FileLineException fe = new FileLineException(exception);
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertNull(UTUtil.getPrivateField(fe, "columnName"));
         assertEquals(-1, UTUtil.getPrivateField(fe, "columnIndex"));
         assertEquals(-1, UTUtil.getPrivateField(fe, "lineNo"));
@@ -112,40 +112,40 @@ public class FileLineExceptionTest extends TestCase {
     /**
      * testFileLineExceptionString01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE <br>
      * <br>
-     * “ü—Í’lF(ˆø”) message:not null<br>
-     * ‹ó‚ÌStringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) message:not null<br>
+     * ç©ºã®Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») columnName:null<br>
-     * (ó‘Ô•Ï‰») columnIndex:-1<br>
-     * (ó‘Ô•Ï‰») lineNo:-1<br>
-     * (ó‘Ô•Ï‰») FileLineException.detailMessage: ˆø”message‚Æ“™‰¿‚ÌƒIƒuƒWƒFƒNƒgB<br>
-     * (ó‘Ô•Ï‰») FileException:1‰ñŒÄ‚Î‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) columnName:null<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) columnIndex:-1<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) lineNo:-1<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) FileLineException.detailMessage: å¼•æ•°messageã¨ç­‰ä¾¡ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) FileException:1å›å‘¼ã°ã‚Œã‚‹ã€‚<br>
      * <br>
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^ˆø”‚É—áŠOƒƒbƒZ[ƒW‚ğİ’è‚·‚éB<br>
-     * —áŠOƒIƒuƒWƒFƒNƒg¶¬Œã‚ÉƒƒbƒZ[ƒW‚ªŠi”[‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿å¼•æ•°ã«ä¾‹å¤–ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’è¨­å®šã™ã‚‹ã€‚<br>
+     * ä¾‹å¤–ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç”Ÿæˆå¾Œã«ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒæ ¼ç´ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testFileLineExceptionString01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
-        // ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚È‚Ì‚Å•s—v
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
+        // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãªã®ã§ä¸è¦
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String message = new String();
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ‚È‚µ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         FileLineException fe = new FileLineException(message);
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertNull(UTUtil.getPrivateField(fe, "columnName"));
         assertEquals(-1, UTUtil.getPrivateField(fe, "columnIndex"));
         assertEquals(-1, UTUtil.getPrivateField(fe, "lineNo"));
@@ -162,44 +162,44 @@ public class FileLineExceptionTest extends TestCase {
     /**
      * testFileLineExceptionStringException01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE <br>
      * <br>
-     * “ü—Í’lF(ˆø”) message:not null<br>
-     * ‹ó‚ÌStringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ˆø”) exceotion:not null<br>
-     * Exception‚ÌƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) message:not null<br>
+     * ç©ºã®Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (å¼•æ•°) exceotion:not null<br>
+     * Exceptionã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») columnName:null<br>
-     * (ó‘Ô•Ï‰») columnIndex:-1<br>
-     * (ó‘Ô•Ï‰») lineNo:-1<br>
-     * (ó‘Ô•Ï‰») FileLineException.detailMessage: ˆø”message‚Æ“™‰¿‚ÌƒIƒuƒWƒFƒNƒgB<br>
-     * (ó‘Ô•Ï‰») FileLineException.caouse: ˆø”exception‚Æ“™‰¿‚ÌƒIƒuƒWƒFƒNƒg<br>
-     * (ó‘Ô•Ï‰») FileException:1‰ñŒÄ‚Î‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) columnName:null<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) columnIndex:-1<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) lineNo:-1<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) FileLineException.detailMessage: å¼•æ•°messageã¨ç­‰ä¾¡ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) FileLineException.caouse: å¼•æ•°exceptionã¨ç­‰ä¾¡ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) FileException:1å›å‘¼ã°ã‚Œã‚‹ã€‚<br>
      * <br>
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^ˆø”‚É—áŠOƒƒbƒZ[ƒW‚ğİ’è‚·‚éB<br>
-     * —áŠOƒIƒuƒWƒFƒNƒg¶¬Œã‚ÉƒƒbƒZ[ƒW‚ªŠi”[‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿å¼•æ•°ã«ä¾‹å¤–ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’è¨­å®šã™ã‚‹ã€‚<br>
+     * ä¾‹å¤–ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç”Ÿæˆå¾Œã«ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒæ ¼ç´ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testFileLineExceptionStringException01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
-        // ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚È‚Ì‚Å•s—v
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
+        // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãªã®ã§ä¸è¦
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String message = new String();
         Exception exception = new Exception();
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ‚È‚µ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         FileLineException fe = new FileLineException(message, exception);
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertNull(UTUtil.getPrivateField(fe, "columnName"));
         assertEquals(-1, UTUtil.getPrivateField(fe, "columnIndex"));
         assertEquals(-1, UTUtil.getPrivateField(fe, "lineNo"));
@@ -218,47 +218,47 @@ public class FileLineExceptionTest extends TestCase {
     /**
      * testFileLineExceptionExceptionStringint01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE <br>
      * <br>
-     * “ü—Í’lF(ˆø”) exception:not null<br>
-     * ExceptionƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ˆø”) fileName:not null<br>
-     * ‹ó‚ÌStringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ˆø”) lineNo:1<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) exception:not null<br>
+     * Exceptionã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (å¼•æ•°) fileName:not null<br>
+     * ç©ºã®Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (å¼•æ•°) lineNo:1<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.colmnName:null<br>
-     * (ó‘Ô•Ï‰») this.columnIndex:-1<br>
-     * (ó‘Ô•Ï‰») this.lineNo:1<br>
-     * (ó‘Ô•Ï‰») FileLineException.cause: ˆø”exception‚Æ“™‰¿‚ÌƒIƒuƒWƒFƒNƒg<br>
-     * (ó‘Ô•Ï‰») FileLineException.fileName: ˆø”fileName‚Æ“™‰¿ƒIƒuƒWƒFƒNƒg<br>
-     * (ó‘Ô•Ï‰») FileException:1‰ñŒÄ‚Î‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.colmnName:null<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.columnIndex:-1<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) this.lineNo:1<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) FileLineException.cause: å¼•æ•°exceptionã¨ç­‰ä¾¡ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) FileLineException.fileName: å¼•æ•°fileNameã¨ç­‰ä¾¡ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) FileException:1å›å‘¼ã°ã‚Œã‚‹ã€‚<br>
      * <br>
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^ˆø”‚Éƒtƒ@ƒCƒ‹–¼‚ğİ’è‚·‚éB<br>
-     * —áŠOƒIƒuƒWƒFƒNƒg¶¬Œã‚Éƒtƒ@ƒCƒ‹–¼‚ªŠi”[‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿å¼•æ•°ã«ãƒ•ã‚¡ã‚¤ãƒ«åã‚’è¨­å®šã™ã‚‹ã€‚<br>
+     * ä¾‹å¤–ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç”Ÿæˆå¾Œã«ãƒ•ã‚¡ã‚¤ãƒ«åãŒæ ¼ç´ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testFileLineExceptionExceptionStringint01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
-        // ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚È‚Ì‚Å•s—v
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
+        // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãªã®ã§ä¸è¦
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         Exception exception = new Exception();
         String fileName = new String();
         int lineNo = 1;
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ‚È‚µ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         FileLineException fe = new FileLineException(exception, fileName,
                 lineNo);
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertNull(UTUtil.getPrivateField(fe, "columnName"));
         assertEquals(-1, UTUtil.getPrivateField(fe, "columnIndex"));
         assertEquals(1, UTUtil.getPrivateField(fe, "lineNo"));
@@ -277,47 +277,47 @@ public class FileLineExceptionTest extends TestCase {
     /**
      * testFileLineExceptionStringExceptionStringint01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE <br>
      * <br>
-     * “ü—Í’lF(ˆø”) message:‹ó‚ÌStringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ˆø”) e:ExceptionƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ˆø”) fileName:‹ó‚ÌStringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ˆø”) lineNo:1<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) message:ç©ºã®Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (å¼•æ•°) e:Exceptionã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (å¼•æ•°) fileName:ç©ºã®Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (å¼•æ•°) lineNo:1<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») FileLineException.cause: ˆø”e‚Æ“™‰¿‚ÌƒIƒuƒWƒFƒNƒg<br>
-     * (ó‘Ô•Ï‰») FileLineException.fileName: ˆø”fileName‚Æ“™‰¿‚ÌƒIƒuƒWƒFƒNƒg<br>
-     * (ó‘Ô•Ï‰») FileLineException.detailMessage: ˆø”message‚Æ“™‰¿‚ÌƒIƒuƒWƒFƒNƒg<br>
-     * (ó‘Ô•Ï‰») lineNo:ˆø”lineNo‚Æ“¯‚¶’l<br>
-     * (ó‘Ô•Ï‰») FileException:1‰ñŒÄ‚Î‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) FileLineException.cause: å¼•æ•°eã¨ç­‰ä¾¡ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) FileLineException.fileName: å¼•æ•°fileNameã¨ç­‰ä¾¡ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) FileLineException.detailMessage: å¼•æ•°messageã¨ç­‰ä¾¡ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) lineNo:å¼•æ•°lineNoã¨åŒã˜å€¤<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) FileException:1å›å‘¼ã°ã‚Œã‚‹ã€‚<br>
      * <br>
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^ˆø”‚Éƒtƒ@ƒCƒ‹–¼‚ğİ’è‚·‚éB<br>
-     * —áŠOƒIƒuƒWƒFƒNƒg¶¬Œã‚Éƒtƒ@ƒCƒ‹–¼‚ªŠi”[‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿å¼•æ•°ã«ãƒ•ã‚¡ã‚¤ãƒ«åã‚’è¨­å®šã™ã‚‹ã€‚<br>
+     * ä¾‹å¤–ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç”Ÿæˆå¾Œã«ãƒ•ã‚¡ã‚¤ãƒ«åãŒæ ¼ç´ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testFileLineExceptionStringExceptionStringint01()
                                                                  throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
-        // ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚È‚Ì‚Å•s—v
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
+        // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãªã®ã§ä¸è¦
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String message = new String();
         Exception exception = new Exception();
         String fileName = new String();
         int lineNo = 1;
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ‚È‚µ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         FileLineException fe = new FileLineException(message, exception,
                 fileName, lineNo);
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertSame(exception, fe.getCause());
         assertSame(fileName, UTUtil.getPrivateField(fe, "fileName"));
         assertSame(message, fe.getMessage());
@@ -336,53 +336,53 @@ public class FileLineExceptionTest extends TestCase {
     /**
      * testFileLineExceptionExceptionStringintStringint01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE <br>
      * <br>
-     * “ü—Í’lF(ˆø”) exception:not null<br>
-     * ExceptionƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ˆø”) fileName:not null<br>
-     * ‹ó‚ÌStringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ˆø”) lineNo:1<br>
-     * (ˆø”) columnName:not null<br>
-     * ‹ó‚ÌStringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ˆø”) columnIndex:1<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) exception:not null<br>
+     * Exceptionã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (å¼•æ•°) fileName:not null<br>
+     * ç©ºã®Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (å¼•æ•°) lineNo:1<br>
+     * (å¼•æ•°) columnName:not null<br>
+     * ç©ºã®Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (å¼•æ•°) columnIndex:1<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») FileLineException.cause: ˆø”exception‚Æ“™‰¿‚ÌƒIƒuƒWƒFƒNƒg<br>
-     * (ó‘Ô•Ï‰») FileLineException.fileName: ˆø”fileName‚Æ“™‰¿‚ÌƒIƒuƒWƒFƒNƒg<br>
-     * (ó‘Ô•Ï‰») FileLineException.lineNo: ˆø”lineNo‚Æ“¯‚¶’l<br>
-     * (ó‘Ô•Ï‰») FileLineException.columnName: ˆø”columnName‚Æ“™‰¿‚ÌƒIƒuƒWƒFƒNƒg<br>
-     * (ó‘Ô•Ï‰») FileLineException.columnIndex: ˆø”columnIndex‚Æ“¯‚¶’l<br>
-     * (ó‘Ô•Ï‰») FileException:1‰ñŒÄ‚Î‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) FileLineException.cause: å¼•æ•°exceptionã¨ç­‰ä¾¡ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) FileLineException.fileName: å¼•æ•°fileNameã¨ç­‰ä¾¡ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) FileLineException.lineNo: å¼•æ•°lineNoã¨åŒã˜å€¤<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) FileLineException.columnName: å¼•æ•°columnNameã¨ç­‰ä¾¡ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) FileLineException.columnIndex: å¼•æ•°columnIndexã¨åŒã˜å€¤<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) FileException:1å›å‘¼ã°ã‚Œã‚‹ã€‚<br>
      * <br>
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^ˆø”‚Éƒtƒ@ƒCƒ‹–¼‚ğİ’è‚·‚éB<br>
-     * —áŠOƒIƒuƒWƒFƒNƒg¶¬Œã‚Éƒtƒ@ƒCƒ‹–¼‚ªŠi”[‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿å¼•æ•°ã«ãƒ•ã‚¡ã‚¤ãƒ«åã‚’è¨­å®šã™ã‚‹ã€‚<br>
+     * ä¾‹å¤–ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç”Ÿæˆå¾Œã«ãƒ•ã‚¡ã‚¤ãƒ«åãŒæ ¼ç´ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testFileLineExceptionExceptionStringintStringint01()
                                                                     throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
-        // ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚È‚Ì‚Å•s—v
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
+        // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãªã®ã§ä¸è¦
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         Exception exception = new Exception();
         String fileName = new String();
         int lineNo = 1;
         String columnName = new String();
         int columnIndex = 1;
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ‚È‚µ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         FileLineException fe = new FileLineException(exception, fileName,
                 lineNo, columnName, columnIndex);
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertSame(exception, fe.getCause());
         assertEquals(fileName, UTUtil.getPrivateField(fe, "fileName"));
         assertEquals(lineNo, UTUtil.getPrivateField(fe, "lineNo"));
@@ -401,39 +401,39 @@ public class FileLineExceptionTest extends TestCase {
     /**
      * testFileLineExceptionStringExceptionStringintStringint01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE <br>
      * <br>
-     * “ü—Í’lF(ˆø”) message:not null<br>
-     * ‹ó‚ÌStringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ˆø”) exception:not null<br>
-     * ExceptionƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ˆø”) fileName:not null<br>
-     * ‹ó‚ÌStringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ˆø”) lineNo:1<br>
-     * (ˆø”) columnName:not null<br>
-     * ‹ó‚ÌStringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ˆø”) columnIndex:1<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) message:not null<br>
+     * ç©ºã®Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (å¼•æ•°) exception:not null<br>
+     * Exceptionã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (å¼•æ•°) fileName:not null<br>
+     * ç©ºã®Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (å¼•æ•°) lineNo:1<br>
+     * (å¼•æ•°) columnName:not null<br>
+     * ç©ºã®Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (å¼•æ•°) columnIndex:1<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») FileLineException.message: ˆø”message‚Æ“™‰¿‚ÌƒIƒuƒWƒFƒNƒg<br>
-     * (ó‘Ô•Ï‰») FileLineException.cause: ˆø”exception‚Æ“™‰¿‚ÌƒIƒuƒWƒFƒNƒg<br>
-     * (ó‘Ô•Ï‰») FileLineException.fileName: ˆø”fileName‚Æ“™‰¿‚ÌƒIƒuƒWƒFƒNƒg<br>
-     * (ó‘Ô•Ï‰») FileLineException.lineNo: ˆø”lineNo‚Æ“¯‚¶’l<br>
-     * (ó‘Ô•Ï‰») FileLineException.columnName: ˆø”columnName‚Æ“™‰¿‚ÌƒIƒuƒWƒFƒNƒg<br>
-     * (ó‘Ô•Ï‰») FileLineException.columnIndex: ˆø”columnIndex‚Æ“¯‚¶’l<br>
-     * (ó‘Ô•Ï‰») FileException:1‰ñŒÄ‚Î‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) FileLineException.message: å¼•æ•°messageã¨ç­‰ä¾¡ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) FileLineException.cause: å¼•æ•°exceptionã¨ç­‰ä¾¡ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) FileLineException.fileName: å¼•æ•°fileNameã¨ç­‰ä¾¡ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) FileLineException.lineNo: å¼•æ•°lineNoã¨åŒã˜å€¤<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) FileLineException.columnName: å¼•æ•°columnNameã¨ç­‰ä¾¡ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) FileLineException.columnIndex: å¼•æ•°columnIndexã¨åŒã˜å€¤<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) FileException:1å›å‘¼ã°ã‚Œã‚‹ã€‚<br>
      * <br>
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^ˆø”‚Éƒtƒ@ƒCƒ‹–¼‚ğİ’è‚·‚éB<br>
-     * —áŠOƒIƒuƒWƒFƒNƒg¶¬Œã‚Éƒtƒ@ƒCƒ‹–¼‚ªŠi”[‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿å¼•æ•°ã«ãƒ•ã‚¡ã‚¤ãƒ«åã‚’è¨­å®šã™ã‚‹ã€‚<br>
+     * ä¾‹å¤–ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç”Ÿæˆå¾Œã«ãƒ•ã‚¡ã‚¤ãƒ«åãŒæ ¼ç´ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testFileLineExceptionStringExceptionStringintStringint01()
                                                                           throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
-        // ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚È‚Ì‚Å•s—v
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
+        // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãªã®ã§ä¸è¦
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String message = new String();
         Exception exception = new Exception();
         String fileName = new String();
@@ -441,17 +441,17 @@ public class FileLineExceptionTest extends TestCase {
         String columnName = new String();
         int columnIndex = 1;
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ‚È‚µ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         FileLineException fe = new FileLineException(message, exception,
                 fileName, lineNo, columnName, columnIndex);
 
-        // •Ô‹p’l‚ÌŠm”F
-        // ‚È‚µ
+        // è¿”å´å€¤ã®ç¢ºèª
+        // ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertSame(message, fe.getMessage());
         assertSame(exception, fe.getCause());
         assertEquals(fileName, UTUtil.getPrivateField(fe, "fileName"));
@@ -472,28 +472,28 @@ public class FileLineExceptionTest extends TestCase {
     /**
      * testGetColumnName01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FF <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šF <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) message:not null<br>
-     * ‹ó‚ÌStringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) exception:not null<br>
-     * ExceptionƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) fileName:not null<br>
-     * ‹ó‚ÌStringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) lineNo:1<br>
-     * (ó‘Ô) columnName:not null<br>
-     * ‹ó‚ÌStringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) columnIndex:0<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) message:not null<br>
+     * ç©ºã®Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) exception:not null<br>
+     * Exceptionã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) fileName:not null<br>
+     * ç©ºã®Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) lineNo:1<br>
+     * (çŠ¶æ…‹) columnName:not null<br>
+     * ç©ºã®Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) columnIndex:0<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:‘O’ñğŒ‚ÌcolumnName‚Æ“¯ˆê‚ÌƒIƒuƒWƒFƒNƒg<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:å‰ææ¡ä»¶ã®columnNameã¨åŒä¸€ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ<br>
      * <br>
-     * columnName‚Ìgetterƒƒ\ƒbƒh‚ª³‚µ‚­’l‚ğæ“¾‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * columnNameã®getterãƒ¡ã‚½ãƒƒãƒ‰ãŒæ­£ã—ãå€¤ã‚’å–å¾—ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
 
     public void testGetColumnName01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         String message = new String();
         Exception exception = new Exception();
         String fileName = new String();
@@ -503,47 +503,47 @@ public class FileLineExceptionTest extends TestCase {
         FileLineException fe = new FileLineException(message, exception,
                 fileName, lineNo, columnName, columnIndex);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ‚È‚µ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String result = fe.getColumnName();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertSame(columnName, result);
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
-        // ‚È‚µ
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
+        // ãªã—
     }
 
     /**
      * testGetLineNo01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FF <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šF <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) message:not null<br>
-     * ‹ó‚ÌStringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) exception:not null<br>
-     * ExceptionƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) fileName:not null<br>
-     * ‹ó‚ÌStringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) lineNo:1<br>
-     * (ó‘Ô) columnName:not null<br>
-     * ‹ó‚ÌStringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) columnIndex:0<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) message:not null<br>
+     * ç©ºã®Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) exception:not null<br>
+     * Exceptionã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) fileName:not null<br>
+     * ç©ºã®Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) lineNo:1<br>
+     * (çŠ¶æ…‹) columnName:not null<br>
+     * ç©ºã®Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) columnIndex:0<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) int:‘O’ñğŒ‚ÌlineNo‚Æ“¯‚¶’l<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) int:å‰ææ¡ä»¶ã®lineNoã¨åŒã˜å€¤<br>
      * <br>
-     * lineNo‚Ìgetterƒƒ\ƒbƒh‚ª³‚µ‚­’l‚ğæ“¾‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * lineNoã®getterãƒ¡ã‚½ãƒƒãƒ‰ãŒæ­£ã—ãå€¤ã‚’å–å¾—ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
 
     public void testGetLineNo01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         String message = new String();
         Exception exception = new Exception();
         String fileName = new String();
@@ -553,64 +553,64 @@ public class FileLineExceptionTest extends TestCase {
         FileLineException fe = new FileLineException(message, exception,
                 fileName, lineNo, columnName, columnIndex);
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
-        // ‚È‚µ
+        // å‰ææ¡ä»¶ã®è¨­å®š
+        // ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         int result = fe.getLineNo();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals(lineNo, result);
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
-        // ‚È‚µ
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
+        // ãªã—
     }
 
     /**
      * testGetColumnIndex01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FF <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šF <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) message:not null<br>
-     * ‹ó‚ÌStringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) exception:not null<br>
-     * ExceptionƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) fileName:not null<br>
-     * ‹ó‚ÌStringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) lineNo:-1<br>
-     * (ó‘Ô) columnName:not null<br>
-     * ‹ó‚ÌStringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) columnIndex:1<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) message:not null<br>
+     * ç©ºã®Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) exception:not null<br>
+     * Exceptionã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) fileName:not null<br>
+     * ç©ºã®Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) lineNo:-1<br>
+     * (çŠ¶æ…‹) columnName:not null<br>
+     * ç©ºã®Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) columnIndex:1<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) int:‘O’ñğŒ‚ÌcolumnIndex‚Æ“¯‚¶’l<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) int:å‰ææ¡ä»¶ã®columnIndexã¨åŒã˜å€¤<br>
      * <br>
-     * ‘®«‚Ì’l‚ª³‚µ‚­’l‚ğæ“¾‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * å±æ€§ã®å€¤ãŒæ­£ã—ãå€¤ã‚’å–å¾—ã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
 
     public void testGetColumnIndex01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         FileLineException fe = new FileLineException(new String());
 
-        // ˆø”‚Ìİ’è
-        // ‚È‚µ
+        // å¼•æ•°ã®è¨­å®š
+        // ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         int columnIndex = 1;
         UTUtil.setPrivateField(fe, "columnIndex", columnIndex);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         int result = fe.getColumnIndex();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals(columnIndex, result);
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
-        // ‚È‚µ
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
+        // ãªã—
     }
 
 }

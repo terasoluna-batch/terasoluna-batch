@@ -19,11 +19,11 @@ package jp.terasoluna.fw.validation;
 import jp.terasoluna.utlib.PropertyTestCase;
 
 /**
- * {@link jp.terasoluna.fw.validation.ValidationUtil} ƒNƒ‰ƒX‚Ìƒuƒ‰ƒbƒNƒ{ƒbƒNƒXƒeƒXƒgB
+ * {@link jp.terasoluna.fw.validation.ValidationUtil} ã‚¯ãƒ©ã‚¹ã®ãƒ–ãƒ©ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ†ã‚¹ãƒˆã€‚
  *
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4>
- * ŒŸØƒƒWƒbƒN‚Ìƒ†[ƒeƒBƒŠƒeƒBƒNƒ‰ƒXB
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4>
+ * æ¤œè¨¼ãƒ­ã‚¸ãƒƒã‚¯ã®ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ã‚¯ãƒ©ã‚¹ã€‚
  * <p>
  *
  * @see jp.terasoluna.fw.validation.ValidationUtil
@@ -31,19 +31,19 @@ import jp.terasoluna.utlib.PropertyTestCase;
 public class ValidationUtilTest05 extends PropertyTestCase {
 
     /**
-     * ‚±‚ÌƒeƒXƒgƒP[ƒX‚ğÀs‚·‚éˆ×‚Ì
-     * GUI ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‹N“®‚·‚éB
+     * ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã‚’å®Ÿè¡Œã™ã‚‹ç‚ºã®
+     * GUI ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’èµ·å‹•ã™ã‚‹ã€‚
      *
-     * @param args java ƒRƒ}ƒ“ƒh‚Éİ’è‚³‚ê‚½ƒpƒ‰ƒ[ƒ^
+     * @param args java ã‚³ãƒãƒ³ãƒ‰ã«è¨­å®šã•ã‚ŒãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public static void main(String[] args) {
         junit.swingui.TestRunner.run(ValidationUtilTest05.class);
     }
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see jp.terasoluna.utlib.spring.PropertyTestCase#setUpData()
      */
     @Override
@@ -51,9 +51,9 @@ public class ValidationUtilTest05 extends PropertyTestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see jp.terasoluna.utlib.spring.PropertyTestCase#cleanUpData()
      */
     @Override
@@ -61,9 +61,9 @@ public class ValidationUtilTest05 extends PropertyTestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      *
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public ValidationUtilTest05(String name) {
         super(name);
@@ -73,33 +73,33 @@ public class ValidationUtilTest05 extends PropertyTestCase {
      * testIsByteInRange01()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”value‚ªnull‚Ìê‡
+     * å¼•æ•°valueãŒnullã®å ´åˆ
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsByteInRange01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         String value = null;
         String encoding = null;
         int min = 0;
         int max = 0;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean result = ValidationUtil.isByteInRange(
                 value, encoding, min, max);
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(result);
     }
 
@@ -107,33 +107,33 @@ public class ValidationUtilTest05 extends PropertyTestCase {
      * testIsByteInRange02()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:""<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:""<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”value‚ª‹ó”’‚Ìê‡
+     * å¼•æ•°valueãŒç©ºç™½ã®å ´åˆ
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsByteInRange02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         String value = "";
         String encoding = null;
         int min = 0;
         int max = 0;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean result = ValidationUtil.isByteInRange(
                 value, encoding, min, max);
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(result);
     }
 
@@ -141,36 +141,36 @@ public class ValidationUtilTest05 extends PropertyTestCase {
      * testIsByteInRange03()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"abc"<br>
-     *         (ˆø”) encoding:null<br>
-     *         (ˆø”) min:0<br>
-     *         (ˆø”) max:10<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"abc"<br>
+     *         (å¼•æ•°) encoding:null<br>
+     *         (å¼•æ•°) min:0<br>
+     *         (å¼•æ•°) max:10<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”value‚ªNotNullAencoding‚ªnull‚ÅA³í‚É’·‚³‚ª‚Æ‚êAw’è”ÍˆÍ“à‚Ìê‡
+     * å¼•æ•°valueãŒNotNullã€encodingãŒnullã§ã€æ­£å¸¸ã«é•·ã•ãŒã¨ã‚Œã€æŒ‡å®šç¯„å›²å†…ã®å ´åˆ
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsByteInRange03() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         String value = "abc";
         String encoding = null;
         int min = 0;
         int max = 10;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean result = ValidationUtil.isByteInRange(
                 value, encoding, min, max);
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(result);
     }
 
@@ -178,36 +178,36 @@ public class ValidationUtilTest05 extends PropertyTestCase {
      * testIsByteInRange04()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"abc"<br>
-     *         (ˆø”) encoding:""<br>
-     *         (ˆø”) min:5<br>
-     *         (ˆø”) max:10<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"abc"<br>
+     *         (å¼•æ•°) encoding:""<br>
+     *         (å¼•æ•°) min:5<br>
+     *         (å¼•æ•°) max:10<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
      *
      * <br>
-     * ˆø”value‚ªNotNullAencoding‚ª‹ó”’‚ÅA³í‚É’·‚³‚ª‚Æ‚êAw’è”ÍˆÍŠO‚Ìê‡
+     * å¼•æ•°valueãŒNotNullã€encodingãŒç©ºç™½ã§ã€æ­£å¸¸ã«é•·ã•ãŒã¨ã‚Œã€æŒ‡å®šç¯„å›²å¤–ã®å ´åˆ
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsByteInRange04() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         String value = "abc";
         String encoding = "";
         int min = 5;
         int max = 10;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean result = ValidationUtil.isByteInRange(
                 value, encoding, min, max);
 
-        // ”»’è
+        // åˆ¤å®š
         assertFalse(result);
     }
 
@@ -215,36 +215,36 @@ public class ValidationUtilTest05 extends PropertyTestCase {
      * testIsByteInRange05()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"abc"<br>
-     *         (ˆø”) encoding:"UTF-8"<br>
-     *         (ˆø”) min:3<br>
-     *         (ˆø”) max:3<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"abc"<br>
+     *         (å¼•æ•°) encoding:"UTF-8"<br>
+     *         (å¼•æ•°) min:3<br>
+     *         (å¼•æ•°) max:3<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”value‚ªNotNullAencoding‚ªNotNull‚ÅA³í‚É’·‚³‚ª‚Æ‚êAw’è”ÍˆÍ“à‚Ìê‡
+     * å¼•æ•°valueãŒNotNullã€encodingãŒNotNullã§ã€æ­£å¸¸ã«é•·ã•ãŒã¨ã‚Œã€æŒ‡å®šç¯„å›²å†…ã®å ´åˆ
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsByteInRange05() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         String value = "abc";
         String encoding = "UTF-8";
         int min = 3;
         int max = 3;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean result = ValidationUtil.isByteInRange(
                 value, encoding, min, max);
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(result);
     }
 
@@ -252,37 +252,37 @@ public class ValidationUtilTest05 extends PropertyTestCase {
      * testIsByteInRange06()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"abc"<br>
-     *         (ˆø”) encoding:"aaa"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"abc"<br>
+     *         (å¼•æ•°) encoding:"aaa"<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:—áŠOFIllegalArgumentException<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä¾‹å¤–ï¼šIllegalArgumentException<br>
      *
      * <br>
-     * ˆø”value‚ªNotNullAencoding‚ª•s³‚È•¶š—ñ‚Ìê‡
+     * å¼•æ•°valueãŒNotNullã€encodingãŒä¸æ­£ãªæ–‡å­—åˆ—ã®å ´åˆ
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsByteInRange06() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         String value = "abc";
         String encoding = "aaa";
         int min = 5;
         int max = 10;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             ValidationUtil.isByteInRange(
                     value, encoding, min, max);
-            fail("—áŠO‚ª”­¶‚µ‚È‚¢B");
+            fail("ä¾‹å¤–ãŒç™ºç”Ÿã—ãªã„ã€‚");
         } catch (IllegalArgumentException e) {
-            // ”»’è
-            //—áŠO‚ª”­¶‚·‚ê‚ÎOKB
+            // åˆ¤å®š
+            //ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚Œã°OKã€‚
             assertNotNull(e);
         }
     }
@@ -291,34 +291,34 @@ public class ValidationUtilTest05 extends PropertyTestCase {
      * testIsDateInRange01()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”value‚ªnull‚Ìê‡
+     * å¼•æ•°valueãŒnullã®å ´åˆ
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsDateInRange01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         String value = null;
         String startDateStr = null;
         String endDateStr = null;
         String datePattern = null;
         String datePatternStrict = null;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean result = ValidationUtil.isDateInRange(value, startDateStr,
                 endDateStr,datePattern, datePatternStrict);
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(result);
     }
 
@@ -326,34 +326,34 @@ public class ValidationUtilTest05 extends PropertyTestCase {
      * testIsDateInRange02()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:""<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:""<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”value‚ª‹ó”’‚Ìê‡
+     * å¼•æ•°valueãŒç©ºç™½ã®å ´åˆ
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsDateInRange02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         String value = "";
         String startDateStr = null;
         String endDateStr = null;
         String datePattern = null;
         String datePatternStrict = null;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean result = ValidationUtil.isDateInRange(value, startDateStr,
                 endDateStr,datePattern, datePatternStrict);
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(result);
     }
 
@@ -361,36 +361,36 @@ public class ValidationUtilTest05 extends PropertyTestCase {
      * testIsDateInRange03()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"2005/11/1"<br>
-     *         (ˆø”) datePattern:null<br>
-     *         (ˆø”) datePatternStrict:"yyyy/MM/dd"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"2005/11/1"<br>
+     *         (å¼•æ•°) datePattern:null<br>
+     *         (å¼•æ•°) datePatternStrict:"yyyy/MM/dd"<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
      *
      * <br>
-     * ˆø”value‚ª³í‚É“ú•t‚É•ÏŠ·‚Å‚«‚È‚¢ê‡
+     * å¼•æ•°valueãŒæ­£å¸¸ã«æ—¥ä»˜ã«å¤‰æ›ã§ããªã„å ´åˆ
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsDateInRange03() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         String value = "2005/11/1";
         String startDateStr = null;
         String endDateStr = null;
         String datePattern = null;
         String datePatternStrict = "yyyy/MM/dd";
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean result = ValidationUtil.isDateInRange(value, startDateStr,
                 endDateStr,datePattern, datePatternStrict);
 
-        // ”»’è
+        // åˆ¤å®š
         assertFalse(result);
     }
 
@@ -398,38 +398,38 @@ public class ValidationUtilTest05 extends PropertyTestCase {
      * testIsDateInRange04()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"2005/11/01"<br>
-     *         (ˆø”) startDateStr:null<br>
-     *         (ˆø”) endDateStr:null<br>
-     *         (ˆø”) datePattern:null<br>
-     *         (ˆø”) datePatternStrict:"yyyy/MM/dd"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"2005/11/01"<br>
+     *         (å¼•æ•°) startDateStr:null<br>
+     *         (å¼•æ•°) endDateStr:null<br>
+     *         (å¼•æ•°) datePattern:null<br>
+     *         (å¼•æ•°) datePatternStrict:"yyyy/MM/dd"<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”startDateStrAendDateStr‚ªnull‚Ìê‡
+     * å¼•æ•°startDateStrã€endDateStrãŒnullã®å ´åˆ
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsDateInRange04() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         String value = "2005/11/01";
         String startDateStr = null;
         String endDateStr = null;
         String datePattern = null;
         String datePatternStrict = "yyyy/MM/dd";
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean result = ValidationUtil.isDateInRange(value, startDateStr,
                 endDateStr,datePattern, datePatternStrict);
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(result);
     }
 
@@ -437,38 +437,38 @@ public class ValidationUtilTest05 extends PropertyTestCase {
      * testIsDateInRange05()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"2005/11/1"<br>
-     *         (ˆø”) startDateStr:""<br>
-     *         (ˆø”) endDateStr:""<br>
-     *         (ˆø”) datePattern:"yyyy/MM/dd"<br>
-     *         (ˆø”) datePatternStrict:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"2005/11/1"<br>
+     *         (å¼•æ•°) startDateStr:""<br>
+     *         (å¼•æ•°) endDateStr:""<br>
+     *         (å¼•æ•°) datePattern:"yyyy/MM/dd"<br>
+     *         (å¼•æ•°) datePatternStrict:null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”startDateStrAendDateStr‚ª‹ó”’‚Ìê‡
+     * å¼•æ•°startDateStrã€endDateStrãŒç©ºç™½ã®å ´åˆ
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsDateInRange05() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         String value = "2005/11/1";
         String startDateStr = "";
         String endDateStr = "";
         String datePattern = "yyyy/MM/dd";
         String datePatternStrict = null;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean result = ValidationUtil.isDateInRange(value, startDateStr,
                 endDateStr,datePattern, datePatternStrict);
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(result);
     }
 
@@ -476,36 +476,36 @@ public class ValidationUtilTest05 extends PropertyTestCase {
      * testIsDateInRange06()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"2005/11/01"<br>
-     *         (ˆø”) startDateStr:"2005/12/1"<br>
-     *         (ˆø”) endDateStr:null<br>
-     *         (ˆø”) datePattern:null<br>
-     *         (ˆø”) datePatternStrict:"yyyy/MM/dd"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"2005/11/01"<br>
+     *         (å¼•æ•°) startDateStr:"2005/12/1"<br>
+     *         (å¼•æ•°) endDateStr:null<br>
+     *         (å¼•æ•°) datePattern:null<br>
+     *         (å¼•æ•°) datePatternStrict:"yyyy/MM/dd"<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:-<br>
-     *         (ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    ƒƒbƒZ[ƒWF"startDate is unparseable[2005/12/1]"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:-<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"startDate is unparseable[2005/12/1]"<br>
      *
      * <br>
-     * ˆø”startDateStr‚ªNotNull‚¾‚ªA“ú•t‚É•ÏŠ·‚Å‚«‚È‚¢ê‡
+     * å¼•æ•°startDateStrãŒNotNullã ãŒã€æ—¥ä»˜ã«å¤‰æ›ã§ããªã„å ´åˆ
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsDateInRange06() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         String value = "2005/11/01";
         String startDateStr = "2005/12/1";
         String endDateStr = null;
         String datePattern = null;
         String datePatternStrict = "yyyy/MM/dd";
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             ValidationUtil.isDateInRange(value, startDateStr,
                     endDateStr,datePattern, datePatternStrict);
@@ -519,38 +519,38 @@ public class ValidationUtilTest05 extends PropertyTestCase {
      * testIsDateInRange07()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"2005/11/1"<br>
-     *         (ˆø”) startDateStr:"2005/12/1"<br>
-     *         (ˆø”) endDateStr:null<br>
-     *         (ˆø”) datePattern:"yyyy/MM/dd"<br>
-     *         (ˆø”) datePatternStrict:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"2005/11/1"<br>
+     *         (å¼•æ•°) startDateStr:"2005/12/1"<br>
+     *         (å¼•æ•°) endDateStr:null<br>
+     *         (å¼•æ•°) datePattern:"yyyy/MM/dd"<br>
+     *         (å¼•æ•°) datePatternStrict:null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
      *
      * <br>
-     * ˆø”startDateStr‚ª³í‚É“ú•t‚É•ÏŠ·‚Å‚«‚¾‚ªAvalue‚ªstartDateStr‚æ‚èˆÈ‘O‚¾‚Á‚½ê‡
+     * å¼•æ•°startDateStrãŒæ­£å¸¸ã«æ—¥ä»˜ã«å¤‰æ›ã§ãã ãŒã€valueãŒstartDateStrã‚ˆã‚Šä»¥å‰ã ã£ãŸå ´åˆ
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsDateInRange07() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         String value = "2005/11/1";
         String startDateStr = "2005/12/1";
         String endDateStr = null;
         String datePattern = "yyyy/MM/dd";
         String datePatternStrict = null;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean result = ValidationUtil.isDateInRange(value, startDateStr,
                 endDateStr,datePattern, datePatternStrict);
 
-        // ”»’è
+        // åˆ¤å®š
         assertFalse(result);
     }
 
@@ -558,36 +558,36 @@ public class ValidationUtilTest05 extends PropertyTestCase {
      * testIsDateInRange08()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"2005/11/01"<br>
-     *         (ˆø”) startDateStr:null<br>
-     *         (ˆø”) endDateStr:"2005/10/1"<br>
-     *         (ˆø”) datePattern:null<br>
-     *         (ˆø”) datePatternStrict:"yyyy/MM/dd"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"2005/11/01"<br>
+     *         (å¼•æ•°) startDateStr:null<br>
+     *         (å¼•æ•°) endDateStr:"2005/10/1"<br>
+     *         (å¼•æ•°) datePattern:null<br>
+     *         (å¼•æ•°) datePatternStrict:"yyyy/MM/dd"<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:-<br>
-     *         (ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    ƒƒbƒZ[ƒWF"endDate is unparseable[2005/10/1]"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:-<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"endDate is unparseable[2005/10/1]"<br>
      *
      * <br>
-     * ˆø”endDateStr‚ªNotNull‚¾‚ªA“ú•t‚É•ÏŠ·‚Å‚«‚È‚¢ê‡
+     * å¼•æ•°endDateStrãŒNotNullã ãŒã€æ—¥ä»˜ã«å¤‰æ›ã§ããªã„å ´åˆ
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsDateInRange08() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         String value = "2005/11/01";
         String startDateStr = null;
         String endDateStr = "2005/10/1";
         String datePattern = null;
         String datePatternStrict = "yyyy/MM/dd";
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             ValidationUtil.isDateInRange(value, startDateStr,
                     endDateStr,datePattern, datePatternStrict);
@@ -601,38 +601,38 @@ public class ValidationUtilTest05 extends PropertyTestCase {
      * testIsDateInRange09()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"2005/11/1"<br>
-     *         (ˆø”) startDateStr:null<br>
-     *         (ˆø”) endDateStr:"2005/10/1"<br>
-     *         (ˆø”) datePattern:"yyyy/MM/dd"<br>
-     *         (ˆø”) datePatternStrict:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"2005/11/1"<br>
+     *         (å¼•æ•°) startDateStr:null<br>
+     *         (å¼•æ•°) endDateStr:"2005/10/1"<br>
+     *         (å¼•æ•°) datePattern:"yyyy/MM/dd"<br>
+     *         (å¼•æ•°) datePatternStrict:null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
      *
      * <br>
-     * ˆø”endDateStr‚ª³í‚É“ú•t‚É•ÏŠ·‚Å‚«‚¾‚ªAvalue‚ªendDateStr‚æ‚èˆÈŒã‚¾‚Á‚½ê‡
+     * å¼•æ•°endDateStrãŒæ­£å¸¸ã«æ—¥ä»˜ã«å¤‰æ›ã§ãã ãŒã€valueãŒendDateStrã‚ˆã‚Šä»¥å¾Œã ã£ãŸå ´åˆ
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsDateInRange09() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         String value = "2005/11/1";
         String startDateStr = null;
         String endDateStr = "2005/10/1";
         String datePattern = "yyyy/MM/dd";
         String datePatternStrict = null;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean result = ValidationUtil.isDateInRange(value, startDateStr,
                 endDateStr,datePattern, datePatternStrict);
 
-        // ”»’è
+        // åˆ¤å®š
         assertFalse(result);
     }
 
@@ -640,38 +640,38 @@ public class ValidationUtilTest05 extends PropertyTestCase {
      * testIsDateInRange10()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"2005/11/1"<br>
-     *         (ˆø”) startDateStr:"2005/10/1"<br>
-     *         (ˆø”) endDateStr:"2005/12/1"<br>
-     *         (ˆø”) datePattern:"yyyy/MM/dd"<br>
-     *         (ˆø”) datePatternStrict:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"2005/11/1"<br>
+     *         (å¼•æ•°) startDateStr:"2005/10/1"<br>
+     *         (å¼•æ•°) endDateStr:"2005/12/1"<br>
+     *         (å¼•æ•°) datePattern:"yyyy/MM/dd"<br>
+     *         (å¼•æ•°) datePatternStrict:null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * ˆø”valueAstartDateStrAendDateStr‚·‚×‚Ä³í‚É“ú•t‚É•ÏŠ·‚Å‚«Avalue‚ªstartDateStr‚ÆendDateStr‚ÌŠÔ‚Ì“ú•t‚Ìê‡
+     * å¼•æ•°valueã€startDateStrã€endDateStrã™ã¹ã¦æ­£å¸¸ã«æ—¥ä»˜ã«å¤‰æ›ã§ãã€valueãŒstartDateStrã¨endDateStrã®é–“ã®æ—¥ä»˜ã®å ´åˆ
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsDateInRange10() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         String value = "2005/11/1";
         String startDateStr = "2005/10/1";
         String endDateStr = "2005/12/1";
         String datePattern = "yyyy/MM/dd";
         String datePatternStrict = null;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean result = ValidationUtil.isDateInRange(value, startDateStr,
                 endDateStr,datePattern, datePatternStrict);
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(result);
     }
 
@@ -679,33 +679,33 @@ public class ValidationUtilTest05 extends PropertyTestCase {
      * testIsDateInRange11()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF,G
+     * è¦³ç‚¹ï¼šF,G
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"2005/11/1"<br>
-     *         (ˆø”) datePattern:null<br>
-     *         (ˆø”) datePatternStrict:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"2005/11/1"<br>
+     *         (å¼•æ•°) datePattern:null<br>
+     *         (å¼•æ•°) datePatternStrict:null<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    ƒƒbƒZ[ƒWF"datePattern or datePatternStrict must be specified."<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"datePattern or datePatternStrict must be specified."<br>
      *
      * <br>
-     * datePatternAdatePatternStrict‚ªnull‚Ìê‡AIllegalArgumentException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * datePatternã€datePatternStrictãŒnullã®å ´åˆã€IllegalArgumentExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsDateInRange11() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         String value = "2005/11/1";
         String startDateStr = "2005/10/1";
         String endDateStr = "2005/12/1";
         String datePattern = null;
         String datePatternStrict = null;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             ValidationUtil.isDateInRange(value, startDateStr,
                     endDateStr,datePattern, datePatternStrict);
@@ -720,33 +720,33 @@ public class ValidationUtilTest05 extends PropertyTestCase {
      * testIsDateInRange12()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF,G
+     * è¦³ç‚¹ï¼šF,G
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"2005/11/1"<br>
-     *         (ˆø”) datePattern:""<br>
-     *         (ˆø”) datePatternStrict:""<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"2005/11/1"<br>
+     *         (å¼•æ•°) datePattern:""<br>
+     *         (å¼•æ•°) datePatternStrict:""<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    ƒƒbƒZ[ƒWF"datePattern or datePatternStrict must be specified."<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"datePattern or datePatternStrict must be specified."<br>
      *
      * <br>
-     * datePatternAdatePatternStrict‚ª‹ó•¶š‚Ìê‡AIllegalArgumentException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * datePatternã€datePatternStrictãŒç©ºæ–‡å­—ã®å ´åˆã€IllegalArgumentExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsDateInRange12() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         String value = "2005/11/1";
         String startDateStr = "2005/10/1";
         String endDateStr = "2005/12/1";
         String datePattern = "";
         String datePatternStrict = "";
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             ValidationUtil.isDateInRange(value, startDateStr,
                     endDateStr,datePattern, datePatternStrict);
@@ -761,34 +761,34 @@ public class ValidationUtilTest05 extends PropertyTestCase {
      * testIsDateInRange13()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF,G
+     * è¦³ç‚¹ï¼šF,G
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"2005/11/1"<br>
-     *         (ˆø”) datePattern:"abc"<br>
-     *         (ˆø”) datePatternStrict:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"2005/11/1"<br>
+     *         (å¼•æ•°) datePattern:"abc"<br>
+     *         (å¼•æ•°) datePatternStrict:null<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    ƒƒbƒZ[ƒWF<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š<br>
      *                    "Illegal pattern character 'b'"<br>
      *
      * <br>
-     * datePattern‚ª•s³‚Èê‡AIllegalArgumentException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * datePatternãŒä¸æ­£ãªå ´åˆã€IllegalArgumentExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsDateInRange13() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         String value = "2005/11/1";
         String startDateStr = "2005/10/1";
         String endDateStr = "2005/12/1";
         String datePattern = "abc";
         String datePatternStrict = null;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             ValidationUtil.isDateInRange(value, startDateStr,
                     endDateStr,datePattern, datePatternStrict);
@@ -803,34 +803,34 @@ public class ValidationUtilTest05 extends PropertyTestCase {
      * testIsDateInRange14()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF,G
+     * è¦³ç‚¹ï¼šF,G
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"2005/11/1"<br>
-     *         (ˆø”) datePattern:null<br>
-     *         (ˆø”) datePatternStrict:"abc"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"2005/11/1"<br>
+     *         (å¼•æ•°) datePattern:null<br>
+     *         (å¼•æ•°) datePatternStrict:"abc"<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    ƒƒbƒZ[ƒWF<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š<br>
      *                    "Illegal pattern character 'b'"<br>
      *
      * <br>
-     * datePatternStrict‚ª•s³‚Èê‡AIllegalArgumentException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * datePatternStrictãŒä¸æ­£ãªå ´åˆã€IllegalArgumentExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsDateInRange14() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         String value = "2005/11/1";
         String startDateStr = "2005/10/1";
         String endDateStr = "2005/12/1";
         String datePattern = null;
         String datePatternStrict = "abc";
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             ValidationUtil.isDateInRange(value, startDateStr,
                     endDateStr,datePattern, datePatternStrict);
@@ -845,34 +845,34 @@ public class ValidationUtilTest05 extends PropertyTestCase {
      * testIsDateInRange15()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF,G
+     * è¦³ç‚¹ï¼šF,G
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"2005/11/1"<br>
-     *         (ˆø”) startDateStr:"test"<br>
-     *         (ˆø”) datePattern:"yyyy/MM/dd"<br>
-     *         (ˆø”) datePatternStrict:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"2005/11/1"<br>
+     *         (å¼•æ•°) startDateStr:"test"<br>
+     *         (å¼•æ•°) datePattern:"yyyy/MM/dd"<br>
+     *         (å¼•æ•°) datePatternStrict:null<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    ƒƒbƒZ[ƒWF"startDate is unparseable[test]"<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"startDate is unparseable[test]"<br>
      *
      * <br>
-     * startDateStr‚ª“ú•t‚É•ÏŠ·‚Å‚«‚È‚¢ê‡AIllegalArgumentException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * startDateStrãŒæ—¥ä»˜ã«å¤‰æ›ã§ããªã„å ´åˆã€IllegalArgumentExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsDateInRange15() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         String value = "2005/11/1";
         String startDateStr = "test";
         String endDateStr = null;
         String datePattern = "yyyy/MM/dd";
         String datePatternStrict = null;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             ValidationUtil.isDateInRange(value, startDateStr,
                     endDateStr,datePattern, datePatternStrict);
@@ -887,34 +887,34 @@ public class ValidationUtilTest05 extends PropertyTestCase {
      * testIsDateInRange16()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF,G
+     * è¦³ç‚¹ï¼šF,G
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"2005/11/1"<br>
-     *         (ˆø”) endDateStr:"test"<br>
-     *         (ˆø”) datePattern:"yyyy/MM/dd"<br>
-     *         (ˆø”) datePatternStrict:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"2005/11/1"<br>
+     *         (å¼•æ•°) endDateStr:"test"<br>
+     *         (å¼•æ•°) datePattern:"yyyy/MM/dd"<br>
+     *         (å¼•æ•°) datePatternStrict:null<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentException<br>
-     *                    ƒƒbƒZ[ƒWF"endDate is unparseable[test]"<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentException<br>
+     *                    ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"endDate is unparseable[test]"<br>
      *
      * <br>
-     * endDateStr‚ª“ú•t‚É•ÏŠ·‚Å‚«‚È‚¢ê‡AIllegalArgumentException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * endDateStrãŒæ—¥ä»˜ã«å¤‰æ›ã§ããªã„å ´åˆã€IllegalArgumentExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsDateInRange16() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         String value = "2005/11/1";
         String startDateStr = null;
         String endDateStr = "test";
         String datePattern = "yyyy/MM/dd";
         String datePatternStrict = null;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             ValidationUtil.isDateInRange(value, startDateStr,
                     endDateStr,datePattern, datePatternStrict);
@@ -929,38 +929,38 @@ public class ValidationUtilTest05 extends PropertyTestCase {
      * testIsDateInRange17()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF,G
+     * è¦³ç‚¹ï¼šF,G
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"2005/11/1"<br>
-     *         (ˆø”) startDateStr:"2005/11/1"<br>
-     *         (ˆø”) endDateStr:"2005/11/1"<br>
-     *         (ˆø”) datePattern:"yyyy/MM/dd"<br>
-     *         (ˆø”) datePatternStrict:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"2005/11/1"<br>
+     *         (å¼•æ•°) startDateStr:"2005/11/1"<br>
+     *         (å¼•æ•°) endDateStr:"2005/11/1"<br>
+     *         (å¼•æ•°) datePattern:"yyyy/MM/dd"<br>
+     *         (å¼•æ•°) datePatternStrict:null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:true<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:true<br>
      *
      * <br>
-     * “ü—Í’l‚ÆstartDateStrAendDateStr‚Ì“ú•t‚ª“™‚µ‚¢ê‡Atrue‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å…¥åŠ›å€¤ã¨startDateStrã€endDateStrã®æ—¥ä»˜ãŒç­‰ã—ã„å ´åˆã€trueãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsDateInRange17() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         String value = "2005/11/1";
         String startDateStr = "2005/11/1";
         String endDateStr = "2005/11/1";
         String datePattern = "yyyy/MM/dd";
         String datePatternStrict = null;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean result = ValidationUtil.isDateInRange(value, startDateStr,
                     endDateStr,datePattern, datePatternStrict);
 
-        // ”»’è
+        // åˆ¤å®š
         assertTrue(result);
     }
 
@@ -968,38 +968,38 @@ public class ValidationUtilTest05 extends PropertyTestCase {
      * testIsDateInRange18()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) value:"test"<br>
-     *         (ˆø”) startDateStr:"2005/1/1"<br>
-     *         (ˆø”) endDateStr:"2005/12/31"<br>
-     *         (ˆø”) datePattern:"yyyy/MM/dd"<br>
-     *         (ˆø”) datePatternStrict:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) value:"test"<br>
+     *         (å¼•æ•°) startDateStr:"2005/1/1"<br>
+     *         (å¼•æ•°) endDateStr:"2005/12/31"<br>
+     *         (å¼•æ•°) datePattern:"yyyy/MM/dd"<br>
+     *         (å¼•æ•°) datePatternStrict:null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) boolean:false<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) boolean:false<br>
      *
      * <br>
-     * “ü—Í’l‚ª“ú•t‚É•ÏŠ·‚Å‚«‚È‚¢ê‡Afalse‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å…¥åŠ›å€¤ãŒæ—¥ä»˜ã«å¤‰æ›ã§ããªã„å ´åˆã€falseãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testIsDateInRange18() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         String value = "test";
         String startDateStr = "2005/11/1";
         String endDateStr = "2005/12/31";
         String datePattern = "yyyy/MM/dd";
         String datePatternStrict = null;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         boolean result = ValidationUtil.isDateInRange(value, startDateStr,
                     endDateStr,datePattern, datePatternStrict);
 
-        // ”»’è
+        // åˆ¤å®š
         assertFalse(result);
     }
 

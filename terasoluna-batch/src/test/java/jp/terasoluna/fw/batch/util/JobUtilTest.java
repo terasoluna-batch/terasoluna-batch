@@ -39,7 +39,7 @@ import static org.mockito.Mockito.*;
 public class JobUtilTest extends DaoTestCase {
 
     /**
-     * —˜—p‚·‚éDAOƒNƒ‰ƒX
+     * åˆ©ç”¨ã™ã‚‹DAOã‚¯ãƒ©ã‚¹
      */
     private SystemDao systemDao = null;
 
@@ -154,20 +154,20 @@ public class JobUtilTest extends DaoTestCase {
 
     /**
      * testSelectJobList06<br>
-     * –‘O€”õF<br>
-     * selectJobListƒƒ\ƒbƒh‚É‘Î‚µ‚ÄAˆÈ‰º‚Ì’l‚ğˆø”‚Æ‚µ‚ÄÀs<br>
-     * EŠJnƒCƒ“ƒfƒbƒNƒXAæ“¾Œ”‚É-1‚Ì’l‚ğ—^‚¦‚é<br>
-     * ESystemDao‚ÉMockSystemDao‚ğ—^‚¦‚é<br>
+     * äº‹å‰æº–å‚™ï¼š<br>
+     * selectJobListãƒ¡ã‚½ãƒƒãƒ‰ã«å¯¾ã—ã¦ã€ä»¥ä¸‹ã®å€¤ã‚’å¼•æ•°ã¨ã—ã¦å®Ÿè¡Œ<br>
+     * ãƒ»é–‹å§‹ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã€å–å¾—ä»¶æ•°ã«-1ã®å€¤ã‚’ä¸ãˆã‚‹<br>
+     * ãƒ»SystemDaoã«MockSystemDaoã‚’ä¸ãˆã‚‹<br>
      * <br>
-     * Šú‘ÒŒ‹‰ÊF<br>
-     * EBatchException‚ª•Ô‚é‚±‚Æ<br>
+     * æœŸå¾…çµæœï¼š<br>
+     * ãƒ»BatchExceptionãŒè¿”ã‚‹ã“ã¨<br>
      * <br>
      * @throws Exception
      */
     public void testSelectJobList06() throws Exception {
         try {
             JobUtil.selectJobList("hoge", new MockSystemDao(), -1, -1);
-            fail("—áŠO‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½");
+            fail("ä¾‹å¤–ãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸ");
         } catch (Exception e) {
             e.printStackTrace();
             assertEquals(BatchException.class, e.getClass());
@@ -194,21 +194,21 @@ public class JobUtilTest extends DaoTestCase {
      */
     public void testSelectJob02() throws Exception {
         MockSystemDao mockSystemDao = new MockSystemDao();
-        mockSystemDao.addResult(new RuntimeException("—áŠO”­¶‚ÌƒƒbƒZ[ƒW"));
+        mockSystemDao.addResult(new RuntimeException("ä¾‹å¤–ç™ºç”Ÿæ™‚ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸"));
         assertNull(JobUtil.selectJob("hoge", true, mockSystemDao));
     }
 
     public void testSelectJob03() throws Exception {
         SystemDao systemDao = mock(SystemDao.class);
         when(systemDao.selectJob(any(BatchJobManagementParam.class)))
-                .thenThrow(new DataAccessException("DBƒXƒe[ƒ^ƒXæ“¾—áŠOŠm”F—p") {});
+                .thenThrow(new DataAccessException("DBã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹å–å¾—æ™‚ä¾‹å¤–ç¢ºèªç”¨") {});
 
         try {
             JobUtil.selectJob("0000000001", true,
                 systemDao);
             fail();
         } catch (DataAccessException e) {
-            assertEquals("DBƒXƒe[ƒ^ƒXæ“¾—áŠOŠm”F—p", e.getMessage());
+            assertEquals("DBã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹å–å¾—æ™‚ä¾‹å¤–ç¢ºèªç”¨", e.getMessage());
         }
     }
 
@@ -241,12 +241,12 @@ public class JobUtilTest extends DaoTestCase {
     public void testGetCurrentTime03() throws Exception {
         SystemDao systemDao = mock(SystemDao.class);
         when(systemDao.readCurrentTime()).thenThrow(
-                new DataAccessException("DBƒXƒe[ƒ^ƒXæ“¾—áŠOŠm”F—p") {});
+                new DataAccessException("DBã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹å–å¾—æ™‚ä¾‹å¤–ç¢ºèªç”¨") {});
         try {
             JobUtil.getCurrentTime(systemDao);
             fail();
         } catch (DataAccessException e) {
-            assertEquals("DBƒXƒe[ƒ^ƒXæ“¾—áŠOŠm”F—p", e.getMessage());
+            assertEquals("DBã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹å–å¾—æ™‚ä¾‹å¤–ç¢ºèªç”¨", e.getMessage());
         }
     }
 
@@ -291,9 +291,9 @@ public class JobUtilTest extends DaoTestCase {
 
     /**
      * testGetenv02<br>
-     * –‘O€”õF<br>
-     * –‘O‚ÉˆÈ‰º‚ÌƒRƒ}ƒ“ƒh‚ğİ’è‚µAŠÂ‹«•Ï”‚ğİ’è‚µ‚Ä‚¨‚­‚±‚Æ<br>
-     * eclipse‚ÅÀs‚·‚éÛ‚ÍÀs‚Ì\¬‚Åİ’è‚·‚é‚±‚Æ<br>
+     * äº‹å‰æº–å‚™ï¼š<br>
+     * äº‹å‰ã«ä»¥ä¸‹ã®ã‚³ãƒãƒ³ãƒ‰ã‚’è¨­å®šã—ã€ç’°å¢ƒå¤‰æ•°ã‚’è¨­å®šã—ã¦ãŠãã“ã¨<br>
+     * eclipseã§å®Ÿè¡Œã™ã‚‹éš›ã¯å®Ÿè¡Œã®æ§‹æˆã§è¨­å®šã™ã‚‹ã“ã¨<br>
      * SET JOB_APP_CD=B000001
      * @throws Exception
      */
@@ -321,11 +321,11 @@ public class JobUtilTest extends DaoTestCase {
 
     /**
      * testUpdateJobStatus02<br>
-     * –‘O€”õF<br>
-     * 1. updateJobStatusƒƒ\ƒbƒh‚É‘Î‚µ‚ÄAˆÈ‰º‚Ì’l‚ğˆø”‚Æ‚µ‚ÄÀs<br>
-     * EupdateJobTable()Às‚ÉDataAccessExceptionˆÈŠO‚Ì—áŠO‚ğƒXƒ[‚·‚éSystemDao<br>
-     * Šú‘ÒŒ‹‰ÊF<br>
-     * 1. false‚ª•Ô‚é‚±‚Æ(Àsƒƒ\ƒbƒh“à‚ÌSystemDao.updateJobTable()ƒƒ\ƒbƒh‚ÅXV¸”s’l‚Ì—áŠO‚ªƒXƒ[‚³‚ê‚é)<br>
+     * äº‹å‰æº–å‚™ï¼š<br>
+     * 1. updateJobStatusãƒ¡ã‚½ãƒƒãƒ‰ã«å¯¾ã—ã¦ã€ä»¥ä¸‹ã®å€¤ã‚’å¼•æ•°ã¨ã—ã¦å®Ÿè¡Œ<br>
+     * ãƒ»updateJobTable()å®Ÿè¡Œæ™‚ã«DataAccessExceptionä»¥å¤–ã®ä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹SystemDao<br>
+     * æœŸå¾…çµæœï¼š<br>
+     * 1. falseãŒè¿”ã‚‹ã“ã¨(å®Ÿè¡Œãƒ¡ã‚½ãƒƒãƒ‰å†…ã®SystemDao.updateJobTable()ãƒ¡ã‚½ãƒƒãƒ‰ã§æ›´æ–°å¤±æ•—å€¤ã®ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹)<br>
      * @throws Exception
      */
     public void testUpdateJobStatus02() throws Exception {
@@ -351,7 +351,7 @@ public class JobUtilTest extends DaoTestCase {
             }
 
             public int updateJobTable(BatchJobManagementUpdateParam batchJobManagementUpdateParam) {
-                throw new RuntimeException("—áŠO”­¶‚ÌƒƒbƒZ[ƒW");
+                throw new RuntimeException("ä¾‹å¤–ç™ºç”Ÿæ™‚ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸");
             }
         };
         assertFalse(JobUtil.updateJobStatus("hoge", "piyo", "foo", mockDao));
@@ -359,11 +359,11 @@ public class JobUtilTest extends DaoTestCase {
 
     /**
      * testUpdateJobStatus03<br>
-     * –‘O€”õF<br>
-     * 1.updateJobStatusƒƒ\ƒbƒh‚É‘Î‚µ‚ÄAˆÈ‰º‚Ì’l‚ğˆø”‚Æ‚µ‚ÄÀs<br>
-     * EXVŒ”‚ÌŒ‹‰Ê‚É-1‚ğ•Ô‹p‚·‚éSystemDao<br>
-     * Šú‘ÒŒ‹‰ÊF<br>
-     * 1.false‚ª•Ô‚é‚±‚Æ(Àsƒƒ\ƒbƒh“à‚Å—áŠO‚ª”­¶‚·‚é)<br>
+     * äº‹å‰æº–å‚™ï¼š<br>
+     * 1.updateJobStatusãƒ¡ã‚½ãƒƒãƒ‰ã«å¯¾ã—ã¦ã€ä»¥ä¸‹ã®å€¤ã‚’å¼•æ•°ã¨ã—ã¦å®Ÿè¡Œ<br>
+     * ãƒ»æ›´æ–°ä»¶æ•°ã®çµæœã«-1ã‚’è¿”å´ã™ã‚‹SystemDao<br>
+     * æœŸå¾…çµæœï¼š<br>
+     * 1.falseãŒè¿”ã‚‹ã“ã¨(å®Ÿè¡Œãƒ¡ã‚½ãƒƒãƒ‰å†…ã§ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹)<br>
      * <br>
      * @throws Exception
      */
@@ -399,12 +399,12 @@ public class JobUtilTest extends DaoTestCase {
     public void testUpdateJobStatus04() throws Exception {
         SystemDao mockSystemDao = mock(SystemDao.class);
         when(mockSystemDao.updateJobTable(any(BatchJobManagementUpdateParam.class)))
-                .thenThrow(new DataAccessException("DBƒXƒe[ƒ^ƒXXV—áŠOŠm”F—p") {});
+                .thenThrow(new DataAccessException("DBã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹æ›´æ–°æ™‚ä¾‹å¤–ç¢ºèªç”¨") {});
         try {
             JobUtil.updateJobStatus("0000000002", "0", null, mockSystemDao);
             fail();
         } catch (DataAccessException e) {
-            assertEquals("DBƒXƒe[ƒ^ƒXXV—áŠOŠm”F—p", e.getMessage());
+            assertEquals("DBã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹æ›´æ–°æ™‚ä¾‹å¤–ç¢ºèªç”¨", e.getMessage());
         }
     }
 

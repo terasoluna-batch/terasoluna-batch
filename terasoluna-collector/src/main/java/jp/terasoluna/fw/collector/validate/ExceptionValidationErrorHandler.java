@@ -21,17 +21,17 @@ import jp.terasoluna.fw.collector.vo.DataValueObject;
 import org.springframework.validation.Errors;
 
 /**
- * “ü—Íƒ`ƒFƒbƒNƒGƒ‰[ƒnƒ“ƒhƒ‰‚ÌÀ‘•ƒNƒ‰ƒX.<br>
+ * å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãƒãƒ³ãƒ‰ãƒ©ã®å®Ÿè£…ã‚¯ãƒ©ã‚¹.<br>
  * <p>
- * “ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚ª‚ ‚Á‚½ê‡‚ÍATRACEƒƒO‚ÉƒGƒ‰[ƒR[ƒh‚ğo—Í‚·‚éB<br>
- * ƒGƒ‰[î•ñ‚ğ•Û‚µ‚½—áŠO‚ğƒXƒ[‚·‚éB
+ * å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãŒã‚ã£ãŸå ´åˆã¯ã€TRACEãƒ­ã‚°ã«ã‚¨ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰ã‚’å‡ºåŠ›ã™ã‚‹ã€‚<br>
+ * ã‚¨ãƒ©ãƒ¼æƒ…å ±ã‚’ä¿æŒã—ãŸä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã€‚
  * </p>
  */
 public class ExceptionValidationErrorHandler extends
                                             AbstractValidationErrorHandler {
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      */
     public ExceptionValidationErrorHandler() {
         super();

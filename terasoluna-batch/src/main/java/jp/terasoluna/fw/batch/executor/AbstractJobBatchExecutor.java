@@ -34,9 +34,9 @@ import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 
 /**
- * ”ñ“¯Šúƒoƒbƒ`ƒGƒOƒ[ƒLƒ…[ƒ^’ŠÛƒNƒ‰ƒXB<br>
+ * éåŒæœŸãƒãƒƒãƒã‚¨ã‚°ã‚¼ã‚­ãƒ¥ãƒ¼ã‚¿æŠ½è±¡ã‚¯ãƒ©ã‚¹ã€‚<br>
  * <br>
- * ”ñ“¯ŠúƒWƒ‡ƒu‹N“®—p‚Ìƒoƒbƒ`ƒGƒOƒ[ƒLƒ…[ƒ^B
+ * éåŒæœŸã‚¸ãƒ§ãƒ–èµ·å‹•ç”¨ã®ãƒãƒƒãƒã‚¨ã‚°ã‚¼ã‚­ãƒ¥ãƒ¼ã‚¿ã€‚
  * @see jp.terasoluna.fw.batch.executor.BatchExecutor
  * @see jp.terasoluna.fw.batch.executor.AbstractBatchExecutor
  * @see jp.terasoluna.fw.batch.executor.AsyncBatchExecutor
@@ -44,78 +44,78 @@ import org.springframework.transaction.support.DefaultTransactionDefinition;
 public abstract class AbstractJobBatchExecutor extends AbstractBatchExecutor {
 
     /**
-     * ƒƒO.
+     * ãƒ­ã‚°.
      */
     private static final TLogger LOGGER = TLogger
             .getLogger(AbstractJobBatchExecutor.class);
 
     /**
-     * ƒWƒ‡ƒu‚ÌÀsŠÔŠuiƒ~ƒŠ•bjæ“¾—pƒL[.
+     * ã‚¸ãƒ§ãƒ–ã®å®Ÿè¡Œé–“éš”ï¼ˆãƒŸãƒªç§’ï¼‰å–å¾—ç”¨ã‚­ãƒ¼.
      */
     protected static final String JOB_INTERVAL_TIME = "polling.interval";
 
     /**
-     * Executor‚Ìí’“ƒ‚[ƒh‚ÌI—¹ƒtƒ‰ƒOŠÄ‹ƒtƒ@ƒCƒ‹iƒtƒ‹ƒpƒX‚Å‹Lqjæ“¾—pƒL[.
+     * Executorã®å¸¸é§ãƒ¢ãƒ¼ãƒ‰æ™‚ã®çµ‚äº†ãƒ•ãƒ©ã‚°ç›£è¦–ãƒ•ã‚¡ã‚¤ãƒ«ï¼ˆãƒ•ãƒ«ãƒ‘ã‚¹ã§è¨˜è¿°ï¼‰å–å¾—ç”¨ã‚­ãƒ¼.
      */
     protected static final String EXECUTOR_END_MONITORING_FILE = "executor.endMonitoringFile";
 
     /**
-     * Executor‚ÌƒWƒ‡ƒuI—¹‘Ò‚¿ƒ`ƒFƒbƒNŠÔŠuiƒ~ƒŠ•bjæ“¾—pƒL[.
+     * Executorã®ã‚¸ãƒ§ãƒ–çµ‚äº†å¾…ã¡ãƒã‚§ãƒƒã‚¯é–“éš”ï¼ˆãƒŸãƒªç§’ï¼‰å–å¾—ç”¨ã‚­ãƒ¼.
      */
     protected static final String EXECUTOR_JOB_TERMINATE_WAIT_INTERVAL_TIME = "executor.jobTerminateWaitInterval";
 
     /**
-     * ƒWƒ‡ƒu‚ÌÀsŠÔŠuiƒ~ƒŠ•bj‚ÌƒfƒtƒHƒ‹ƒg’l
+     * ã‚¸ãƒ§ãƒ–ã®å®Ÿè¡Œé–“éš”ï¼ˆãƒŸãƒªç§’ï¼‰ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤
      */
     protected static final long DEFAULT_JOB_INTERVAL_TIME = 1000;
 
     /**
-     * ƒWƒ‡ƒuÀsŒã‚ÉGC‚ğs‚¤itrue/falsej‚ÌƒfƒtƒHƒ‹ƒg’l
+     * ã‚¸ãƒ§ãƒ–å®Ÿè¡Œå¾Œã«GCã‚’è¡Œã†ï¼ˆtrue/falseï¼‰ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤
      */
     protected static final boolean DEFAULT_JOB_AFTER_GC = true;
 
     /**
-     * Executor‚Ìí’“ƒ‚[ƒh‚ÌƒWƒ‡ƒuƒŠƒXƒgæ“¾ŠÔŠuiƒ~ƒŠ•bj‚ÌƒfƒtƒHƒ‹ƒg’l
+     * Executorã®å¸¸é§ãƒ¢ãƒ¼ãƒ‰æ™‚ã®ã‚¸ãƒ§ãƒ–ãƒªã‚¹ãƒˆå–å¾—é–“éš”ï¼ˆãƒŸãƒªç§’ï¼‰ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤
      */
     protected static final long DEFAULT_EXECUTOR_LOOP_INTERVAL_TIME = 1000;
 
     /**
-     * Executor‚Ìí’“ƒ‚[ƒh‚ÌI—¹ƒtƒ‰ƒOŠÄ‹ƒtƒ@ƒCƒ‹iƒtƒ‹ƒpƒX‚Å‹Lqj‚ÌƒfƒtƒHƒ‹ƒg’l
+     * Executorã®å¸¸é§ãƒ¢ãƒ¼ãƒ‰æ™‚ã®çµ‚äº†ãƒ•ãƒ©ã‚°ç›£è¦–ãƒ•ã‚¡ã‚¤ãƒ«ï¼ˆãƒ•ãƒ«ãƒ‘ã‚¹ã§è¨˜è¿°ï¼‰ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤
      */
     protected static final String DEFAULT_EXECUTOR_END_MONITORING_FILE = null;
 
     /**
-     * Executor‚ÌƒXƒŒƒbƒhƒLƒ…[ƒTƒCƒYƒ`ƒFƒbƒNŠÔŠuiƒ~ƒŠ•bj‚ÌƒfƒtƒHƒ‹ƒg’l
+     * Executorã®ã‚¹ãƒ¬ãƒƒãƒ‰ã‚­ãƒ¥ãƒ¼ã‚µã‚¤ã‚ºãƒã‚§ãƒƒã‚¯é–“éš”ï¼ˆãƒŸãƒªç§’ï¼‰ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤
      */
     protected static final long DEFAULT_EXECUTOR_QUEUE_CHECK_INTERVAL_TIME = 1000;
 
     /**
-     * Executor‚ÌƒWƒ‡ƒuI—¹‘Ò‚¿ƒ`ƒFƒbƒNŠÔŠuiƒ~ƒŠ•bj‚ÌƒfƒtƒHƒ‹ƒg’l
+     * Executorã®ã‚¸ãƒ§ãƒ–çµ‚äº†å¾…ã¡ãƒã‚§ãƒƒã‚¯é–“éš”ï¼ˆãƒŸãƒªç§’ï¼‰ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤
      */
     protected static final long DEFAULT_EXECUTOR_JOB_TERMINATE_WAIT_INTERVAL_TIME = 5000;
 
     /**
-     * ƒWƒ‡ƒu‚ÌÀsŠÔŠuiƒ~ƒŠ•bj
+     * ã‚¸ãƒ§ãƒ–ã®å®Ÿè¡Œé–“éš”ï¼ˆãƒŸãƒªç§’ï¼‰
      */
     protected long jobIntervalTime = DEFAULT_JOB_INTERVAL_TIME;
 
     /**
-     * Executor‚Ìí’“ƒ‚[ƒh‚ÌI—¹ƒtƒ‰ƒOŠÄ‹ƒtƒ@ƒCƒ‹iƒtƒ‹ƒpƒX‚Å‹Lqj
+     * Executorã®å¸¸é§ãƒ¢ãƒ¼ãƒ‰æ™‚ã®çµ‚äº†ãƒ•ãƒ©ã‚°ç›£è¦–ãƒ•ã‚¡ã‚¤ãƒ«ï¼ˆãƒ•ãƒ«ãƒ‘ã‚¹ã§è¨˜è¿°ï¼‰
      */
     protected String executorEndMonitoringFile = DEFAULT_EXECUTOR_END_MONITORING_FILE;
 
     /**
-     * Executor‚ÌƒWƒ‡ƒuI—¹‘Ò‚¿ƒ`ƒFƒbƒNŠÔŠuiƒ~ƒŠ•bj
+     * Executorã®ã‚¸ãƒ§ãƒ–çµ‚äº†å¾…ã¡ãƒã‚§ãƒƒã‚¯é–“éš”ï¼ˆãƒŸãƒªç§’ï¼‰
      */
     protected long executorJobTerminateWaitIntervalTime = DEFAULT_EXECUTOR_JOB_TERMINATE_WAIT_INTERVAL_TIME;
 
     /**
-     * ŠJn‚ÌƒXƒe[ƒ^ƒX•ÏX‚ğs‚¤‚©‚Ç‚¤‚©
+     * é–‹å§‹æ™‚ã®ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹å¤‰æ›´ã‚’è¡Œã†ã‹ã©ã†ã‹
      */
     protected boolean changeStartStatus = false;
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      */
     protected AbstractJobBatchExecutor() {
         super();
@@ -128,13 +128,13 @@ public abstract class AbstractJobBatchExecutor extends AbstractBatchExecutor {
      */
     @Override
     protected void initDefaultAppContext() {
-        // ƒVƒXƒeƒ€ƒAƒvƒŠƒP[ƒVƒ‡ƒ“ƒRƒ“ƒeƒLƒXƒgæ“¾
+        // ã‚·ã‚¹ãƒ†ãƒ ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆå–å¾—
         String defaultAppContextName = getDefaultBeanFileName();
         if (defaultAppContextName == null || "".equals(defaultAppContextName)) {
             LOGGER.error(LogId.EAL025003);
             return;
         }
-        // ƒf[ƒ^ƒ\[ƒXƒAƒvƒŠƒP[ƒVƒ‡ƒ“ƒRƒ“ƒeƒLƒXƒgæ“¾
+        // ãƒ‡ãƒ¼ã‚¿ã‚½ãƒ¼ã‚¹ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆå–å¾—
         String dataSourceAppContextName = getDataSourceBeanFileName();
         if (dataSourceAppContextName == null
                 || "".equals(dataSourceAppContextName)) {
@@ -166,7 +166,7 @@ public abstract class AbstractJobBatchExecutor extends AbstractBatchExecutor {
         String transactionManagerKey = PropertyUtil
                 .getProperty(SYSTEM_DATASOURCE_TRANSACTION_MANAGER);
 
-        // ƒVƒXƒeƒ€DAOæ“¾
+        // ã‚·ã‚¹ãƒ†ãƒ DAOå–å¾—
         if (systemDaoKey != null && systemDaoKey.length() != 0) {
             if (defaultApplicationContext.containsBean(systemDaoKey)) {
                 try {
@@ -178,7 +178,7 @@ public abstract class AbstractJobBatchExecutor extends AbstractBatchExecutor {
             }
         }
 
-        // transactionManageræ“¾
+        // transactionManagerå–å¾—
         if (transactionManagerKey != null
                 && transactionManagerKey.length() != 0) {
             if (defaultApplicationContext.containsBean(transactionManagerKey)) {
@@ -201,10 +201,10 @@ public abstract class AbstractJobBatchExecutor extends AbstractBatchExecutor {
     }
 
     /**
-     * ‰Šú‰»
+     * åˆæœŸåŒ–
      */
     protected void initParameter() {
-        // ƒWƒ‡ƒu‚ÌÀsŠÔŠuiƒ~ƒŠ•bj
+        // ã‚¸ãƒ§ãƒ–ã®å®Ÿè¡Œé–“éš”ï¼ˆãƒŸãƒªç§’ï¼‰
         String jobIntervalTimeStr = PropertyUtil.getProperty(JOB_INTERVAL_TIME);
         if (jobIntervalTimeStr != null && jobIntervalTimeStr.length() != 0) {
             try {
@@ -216,7 +216,7 @@ public abstract class AbstractJobBatchExecutor extends AbstractBatchExecutor {
             this.jobIntervalTime = DEFAULT_JOB_INTERVAL_TIME;
         }
 
-        // Executor‚Ìí’“ƒ‚[ƒh‚ÌI—¹ƒtƒ‰ƒOŠÄ‹ƒtƒ@ƒCƒ‹iƒtƒ‹ƒpƒX‚Å‹Lqj
+        // Executorã®å¸¸é§ãƒ¢ãƒ¼ãƒ‰æ™‚ã®çµ‚äº†ãƒ•ãƒ©ã‚°ç›£è¦–ãƒ•ã‚¡ã‚¤ãƒ«ï¼ˆãƒ•ãƒ«ãƒ‘ã‚¹ã§è¨˜è¿°ï¼‰
         String executorEndMonitoringFileStr = PropertyUtil
                 .getProperty(EXECUTOR_END_MONITORING_FILE);
         if (executorEndMonitoringFileStr != null
@@ -226,7 +226,7 @@ public abstract class AbstractJobBatchExecutor extends AbstractBatchExecutor {
             this.executorEndMonitoringFile = DEFAULT_EXECUTOR_END_MONITORING_FILE;
         }
 
-        // Executor‚ÌƒWƒ‡ƒuI—¹‘Ò‚¿ƒ`ƒFƒbƒNŠÔŠuiƒ~ƒŠ•bj
+        // Executorã®ã‚¸ãƒ§ãƒ–çµ‚äº†å¾…ã¡ãƒã‚§ãƒƒã‚¯é–“éš”ï¼ˆãƒŸãƒªç§’ï¼‰
         String executorJobTerminateWaitIntervalTimeStr = PropertyUtil
                 .getProperty(EXECUTOR_JOB_TERMINATE_WAIT_INTERVAL_TIME);
         if (executorJobTerminateWaitIntervalTimeStr != null
@@ -244,9 +244,9 @@ public abstract class AbstractJobBatchExecutor extends AbstractBatchExecutor {
     }
 
     /**
-     * <h6>ƒoƒbƒ`Às.</h6>
-     * @param jobSequenceId ƒWƒ‡ƒuƒV[ƒPƒ“ƒXƒR[ƒh
-     * @return ƒrƒWƒlƒXƒƒWƒbƒNÀsŒ‹‰Ê
+     * <h6>ãƒãƒƒãƒå®Ÿè¡Œ.</h6>
+     * @param jobSequenceId ã‚¸ãƒ§ãƒ–ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã‚³ãƒ¼ãƒ‰
+     * @return ãƒ“ã‚¸ãƒã‚¹ãƒ­ã‚¸ãƒƒã‚¯å®Ÿè¡Œçµæœ
      */
     public BLogicResult executeBatch(String jobSequenceId) {
         BLogicResult result = new BLogicResult();
@@ -254,14 +254,14 @@ public abstract class AbstractJobBatchExecutor extends AbstractBatchExecutor {
 
         LOGGER.info(LogId.IAL025001, jobSequenceId);
 
-        // DAO‚ªg—p‰Â”\‚©ƒ`ƒFƒbƒN
+        // DAOãŒä½¿ç”¨å¯èƒ½ã‹ãƒã‚§ãƒƒã‚¯
         if (systemDao == null || sysTransactionManager == null) {
             LOGGER.error(LogId.EAL025023, jobSequenceId);
             return result;
         }
 
         try {
-            // ƒWƒ‡ƒuƒŒƒR[ƒhæ“¾
+            // ã‚¸ãƒ§ãƒ–ãƒ¬ã‚³ãƒ¼ãƒ‰å–å¾—
             BatchJobData jobRecord = null;
             try {
                 jobRecord = JobUtil.selectJob(jobSequenceId, false,
@@ -279,7 +279,7 @@ public abstract class AbstractJobBatchExecutor extends AbstractBatchExecutor {
             if (changeStartStatus) {
                 boolean status;
                 try {
-                    // ƒWƒ‡ƒuƒXƒe[ƒ^ƒXİ’èiŠJnj
+                    // ã‚¸ãƒ§ãƒ–ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹è¨­å®šï¼ˆé–‹å§‹ï¼‰
                     status = startBatchStatus(jobSequenceId, systemDao, sysTransactionManager);
                 } catch (DataAccessException e) {
                     LOGGER.error(LogId.EAL025050, e, jobSequenceId);
@@ -289,18 +289,18 @@ public abstract class AbstractJobBatchExecutor extends AbstractBatchExecutor {
                     return result;
                 }
                 if (!status) {
-                    // ƒXƒe[ƒ^ƒXXV¸”s‚Ì•s®‡ó‘ÔŒŸo
+                    // ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹æ›´æ–°å¤±æ•—æ™‚ã®ä¸æ•´åˆçŠ¶æ…‹æ¤œå‡ºæ™‚
                     LOGGER.error(LogId.EAL025050, jobSequenceId);
                     return result;
                 }
             }
 
-            // ”O‚Ì‚½‚ßƒgƒŠƒ€‚·‚é
+            // å¿µã®ãŸã‚ãƒˆãƒªãƒ ã™ã‚‹
             if (jobRecord.getJobAppCd() != null) {
                 jobRecord.setJobAppCd(jobRecord.getJobAppCd().trim());
             }
 
-            // ƒoƒbƒ`ˆ—Às
+            // ãƒãƒƒãƒå‡¦ç†å®Ÿè¡Œ
             result = executeBatch(jobRecord);
 
             if (LOGGER.isDebugEnabled()) {
@@ -308,7 +308,7 @@ public abstract class AbstractJobBatchExecutor extends AbstractBatchExecutor {
             }
         } finally {
             try {
-                // ˆ—Ï‚İ ¨ƒWƒ‡ƒuƒXƒe[ƒ^ƒXİ’èiI—¹j
+                // å‡¦ç†æ¸ˆã¿ â†’ã‚¸ãƒ§ãƒ–ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹è¨­å®šï¼ˆçµ‚äº†ï¼‰
                 st = endBatchStatus(jobSequenceId, result,
                         systemDao, sysTransactionManager);
             } catch (DataAccessException e) {
@@ -337,11 +337,11 @@ public abstract class AbstractJobBatchExecutor extends AbstractBatchExecutor {
     }
 
     /**
-     * <h6>ƒWƒ‡ƒuƒXƒe[ƒ^ƒXXViƒWƒ‡ƒuŠJnj.</h6>
-     * @param jobSequenceId XV‘ÎÛ‚ÌƒWƒ‡ƒuƒV[ƒPƒ“ƒXƒR[ƒh
-     * @param systemDao ƒVƒXƒeƒ€—pDAO
+     * <h6>ã‚¸ãƒ§ãƒ–ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹æ›´æ–°ï¼ˆã‚¸ãƒ§ãƒ–é–‹å§‹ï¼‰.</h6>
+     * @param jobSequenceId æ›´æ–°å¯¾è±¡ã®ã‚¸ãƒ§ãƒ–ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã‚³ãƒ¼ãƒ‰
+     * @param systemDao ã‚·ã‚¹ãƒ†ãƒ ç”¨DAO
      * @param transactionManager TransactionManager
-     * @return ƒXƒe[ƒ^ƒXXV‚ª¬Œ÷‚µ‚½‚çtrue
+     * @return ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹æ›´æ–°ãŒæˆåŠŸã—ãŸã‚‰true
      */
     protected boolean startBatchStatus(String jobSequenceId, SystemDao systemDao,
                                        PlatformTransactionManager transactionManager) {
@@ -350,12 +350,12 @@ public abstract class AbstractJobBatchExecutor extends AbstractBatchExecutor {
     }
 
     /**
-     * <h6>ƒWƒ‡ƒuƒXƒe[ƒ^ƒXXViƒWƒ‡ƒuI—¹j.</h6>
-     * @param jobSequenceId XV‘ÎÛ‚ÌƒWƒ‡ƒuƒV[ƒPƒ“ƒXƒR[ƒh
-     * @param result ƒXƒe[ƒ^ƒX
-     * @param systemDao ƒVƒXƒeƒ€—pDAO
+     * <h6>ã‚¸ãƒ§ãƒ–ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹æ›´æ–°ï¼ˆã‚¸ãƒ§ãƒ–çµ‚äº†ï¼‰.</h6>
+     * @param jobSequenceId æ›´æ–°å¯¾è±¡ã®ã‚¸ãƒ§ãƒ–ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã‚³ãƒ¼ãƒ‰
+     * @param result ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹
+     * @param systemDao ã‚·ã‚¹ãƒ†ãƒ ç”¨DAO
      * @param transactionManager TransactionManager
-     * @return ƒXƒe[ƒ^ƒXXV‚ª¬Œ÷‚µ‚½‚çtrue
+     * @return ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹æ›´æ–°ãŒæˆåŠŸã—ãŸã‚‰true
      */
     protected boolean endBatchStatus(String jobSequenceId, BLogicResult result,
             SystemDao systemDao, PlatformTransactionManager transactionManager) {
@@ -369,16 +369,16 @@ public abstract class AbstractJobBatchExecutor extends AbstractBatchExecutor {
     }
 
     /**
-     * <h6>ƒWƒ‡ƒuƒXƒe[ƒ^ƒXXV.</h6>
+     * <h6>ã‚¸ãƒ§ãƒ–ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹æ›´æ–°.</h6>
      * <p>
-     * ƒXƒe[ƒ^ƒX”»’èƒ}ƒbƒv‚É‚µ‚½‚ª‚Á‚ÄAƒWƒ‡ƒu‚ÌƒXƒe[ƒ^ƒX‚ğ”½‰f
+     * ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹åˆ¤å®šãƒãƒƒãƒ—ã«ã—ãŸãŒã£ã¦ã€ã‚¸ãƒ§ãƒ–ã®ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã‚’åæ˜ 
      * </p>
-     * @param jobSequenceId XV‘ÎÛ‚ÌƒWƒ‡ƒuƒV[ƒPƒ“ƒXƒR[ƒh
-     * @param eventCode ƒCƒxƒ“ƒgƒR[ƒh
-     * @param blogicStatus blogic‚Ì–ß‚è’l
+     * @param jobSequenceId æ›´æ–°å¯¾è±¡ã®ã‚¸ãƒ§ãƒ–ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã‚³ãƒ¼ãƒ‰
+     * @param eventCode ã‚¤ãƒ™ãƒ³ãƒˆã‚³ãƒ¼ãƒ‰
+     * @param blogicStatus blogicã®æˆ»ã‚Šå€¤
      * @param systemDao SystemDAO
      * @param transactionManager TransactionManager
-     * @return ƒXƒe[ƒ^ƒXXV‚ª¬Œ÷‚µ‚½‚çtrue
+     * @return ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹æ›´æ–°ãŒæˆåŠŸã—ãŸã‚‰true
      */
     protected boolean updateBatchStatus(String jobSequenceId, String eventCode,
             String blogicStatus, SystemDao systemDao, PlatformTransactionManager transactionManager) {
@@ -387,31 +387,31 @@ public abstract class AbstractJobBatchExecutor extends AbstractBatchExecutor {
         try {
             DefaultTransactionDefinition tranDef = new DefaultTransactionDefinition();
 
-            // ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“ŠJn
+            // ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³é–‹å§‹
             tranStatus = transactionManager.getTransaction(tranDef);
             LOGGER.debug(LogId.DAL025022);
 
-            // ƒWƒ‡ƒuƒŒƒR[ƒhæ“¾
+            // ã‚¸ãƒ§ãƒ–ãƒ¬ã‚³ãƒ¼ãƒ‰å–å¾—
             BatchJobData job = JobUtil.selectJob(jobSequenceId, true, systemDao);
             if (job == null) {
                 LOGGER.error(LogId.EAL025026, jobSequenceId);
                 return false;
             }
 
-            // ƒXƒe[ƒ^ƒX”»’èˆ—
+            // ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹åˆ¤å®šå‡¦ç†
             String changeStatus = judgmentStatus(job, jobSequenceId, eventCode,
                     blogicStatus);
             if (changeStatus == null) {
-                // ƒXƒe[ƒ^ƒX•s®‡‚É‚æ‚éƒoƒbƒ`ÀsƒXƒLƒbƒv
+                // ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ä¸æ•´åˆã«ã‚ˆã‚‹ãƒãƒƒãƒå®Ÿè¡Œã‚¹ã‚­ãƒƒãƒ—
                 return false;
             }
 
             LOGGER.debug(LogId.DAL025023, jobSequenceId, changeStatus);
 
-            // ƒXƒe[ƒ^ƒXXV
+            // ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹æ›´æ–°
             JobUtil.updateJobStatus(job.getJobSequenceId(), changeStatus, blogicStatus, systemDao);
 
-            // ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“ƒRƒ~ƒbƒg
+            // ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã‚³ãƒŸãƒƒãƒˆ
             transactionManager.commit(tranStatus);
             LOGGER.debug(LogId.DAL025024);
         } catch (Exception e) {
@@ -424,7 +424,7 @@ public abstract class AbstractJobBatchExecutor extends AbstractBatchExecutor {
             throw new BatchException(e);
         } finally {
             try {
-                // ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“I—¹iƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“‚ª–¢Š®—¹‚Ìê‡‚Íƒ[ƒ‹ƒoƒbƒN‚·‚éj
+                // ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³çµ‚äº†ï¼ˆãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ãŒæœªå®Œäº†ã®å ´åˆã¯ãƒ­ãƒ¼ãƒ«ãƒãƒƒã‚¯ã™ã‚‹ï¼‰
                 if (tranStatus != null && !tranStatus.isCompleted()) {
                     transactionManager.rollback(tranStatus);
                 }
@@ -437,12 +437,12 @@ public abstract class AbstractJobBatchExecutor extends AbstractBatchExecutor {
     }
 
     /**
-     * <h6>ƒWƒ‡ƒuƒXƒe[ƒ^ƒX‚ÌXV”»’èƒƒ\ƒbƒh</h6> ƒCƒxƒ“ƒgƒR[ƒh‚ÆƒWƒ‡ƒuƒXƒe[ƒ^ƒX‚ğŠm”F‚µAƒWƒ‡ƒuƒXƒe[ƒ^ƒX‚ÌXV‚ª•K—v‚©”»’è‚ğs‚¤B<br>
-     * XV‚ª•K—v‚È‚¢ê‡‚ÍInfoƒƒO‚ğo—Í‚µAnull‚ğ•Ô‹p‚·‚éB
-     * @param job ƒWƒ‡ƒuƒŒƒR[ƒh
-     * @param jobSequenceId XV‘ÎÛ‚ÌƒWƒ‡ƒuƒV[ƒPƒ“ƒXƒR[ƒh
-     * @param eventCode ƒCƒxƒ“ƒgƒR[ƒh
-     * @param blogicStatus blogic‚Ì–ß‚è’l
+     * <h6>ã‚¸ãƒ§ãƒ–ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã®æ›´æ–°åˆ¤å®šãƒ¡ã‚½ãƒƒãƒ‰</h6> ã‚¤ãƒ™ãƒ³ãƒˆã‚³ãƒ¼ãƒ‰ã¨ã‚¸ãƒ§ãƒ–ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã‚’ç¢ºèªã—ã€ã‚¸ãƒ§ãƒ–ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã®æ›´æ–°ãŒå¿…è¦ã‹åˆ¤å®šã‚’è¡Œã†ã€‚<br>
+     * æ›´æ–°ãŒå¿…è¦ãªã„å ´åˆã¯Infoãƒ­ã‚°ã‚’å‡ºåŠ›ã—ã€nullã‚’è¿”å´ã™ã‚‹ã€‚
+     * @param job ã‚¸ãƒ§ãƒ–ãƒ¬ã‚³ãƒ¼ãƒ‰
+     * @param jobSequenceId æ›´æ–°å¯¾è±¡ã®ã‚¸ãƒ§ãƒ–ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã‚³ãƒ¼ãƒ‰
+     * @param eventCode ã‚¤ãƒ™ãƒ³ãƒˆã‚³ãƒ¼ãƒ‰
+     * @param blogicStatus blogicã®æˆ»ã‚Šå€¤
      * @return
      */
     protected String judgmentStatus(BatchJobData job, String jobSequenceId,
@@ -466,9 +466,9 @@ public abstract class AbstractJobBatchExecutor extends AbstractBatchExecutor {
             }
         }
 
-        // ƒXƒe[ƒ^ƒXNGƒ`ƒFƒbƒN
+        // ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹NGãƒã‚§ãƒƒã‚¯
         if (judge == null) {
-            // INFO‚¶‚á‚È‚­‚È‚¢H
+            // INFOã˜ã‚ƒãªããªã„ï¼Ÿ
             if (LOGGER.isInfoEnabled()) {
                 LOGGER.info(LogId.IAL025004, jobSequenceId, blogicStatus,
                         eventCode, job.getCurAppStatus(), judge);
@@ -480,7 +480,7 @@ public abstract class AbstractJobBatchExecutor extends AbstractBatchExecutor {
     }
 
     /**
-     * ƒWƒ‡ƒu‚ÌÀsŠÔŠuiƒ~ƒŠ•bj
+     * ã‚¸ãƒ§ãƒ–ã®å®Ÿè¡Œé–“éš”ï¼ˆãƒŸãƒªç§’ï¼‰
      * @return the jobIntervalTime
      */
     public long getJobIntervalTime() {
@@ -488,7 +488,7 @@ public abstract class AbstractJobBatchExecutor extends AbstractBatchExecutor {
     }
 
     /**
-     * Executor‚Ìí’“ƒ‚[ƒh‚ÌI—¹ƒtƒ‰ƒOŠÄ‹ƒtƒ@ƒCƒ‹iƒtƒ‹ƒpƒX‚Å‹Lqj
+     * Executorã®å¸¸é§ãƒ¢ãƒ¼ãƒ‰æ™‚ã®çµ‚äº†ãƒ•ãƒ©ã‚°ç›£è¦–ãƒ•ã‚¡ã‚¤ãƒ«ï¼ˆãƒ•ãƒ«ãƒ‘ã‚¹ã§è¨˜è¿°ï¼‰
      * @return the executorEndMonitoringFile
      */
     public String getExecutorEndMonitoringFile() {
@@ -496,7 +496,7 @@ public abstract class AbstractJobBatchExecutor extends AbstractBatchExecutor {
     }
 
     /**
-     * Executor‚ÌƒWƒ‡ƒuI—¹‘Ò‚¿ƒ`ƒFƒbƒNŠÔŠuiƒ~ƒŠ•bj
+     * Executorã®ã‚¸ãƒ§ãƒ–çµ‚äº†å¾…ã¡ãƒã‚§ãƒƒã‚¯é–“éš”ï¼ˆãƒŸãƒªç§’ï¼‰
      * @return the executorJobTerminateWaitIntervalTime
      */
     public long getExecutorJobTerminateWaitIntervalTime() {
@@ -504,7 +504,7 @@ public abstract class AbstractJobBatchExecutor extends AbstractBatchExecutor {
     }
 
     /**
-     * ŠJn‚ÌƒXƒe[ƒ^ƒX•ÏX‚ğs‚¤‚©‚Ç‚¤‚©
+     * é–‹å§‹æ™‚ã®ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹å¤‰æ›´ã‚’è¡Œã†ã‹ã©ã†ã‹
      * @param changeStartStatus the changeStartStatus to set
      */
     public void setChangeStartStatus(boolean changeStartStatus) {

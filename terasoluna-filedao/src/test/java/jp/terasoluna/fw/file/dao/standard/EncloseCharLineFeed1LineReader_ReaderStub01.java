@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.Reader;
 
 /**
- * —áŠO(IOException)‚ğƒXƒ[‚·‚éƒXƒ^ƒuƒNƒ‰ƒX
+ * ä¾‹å¤–(IOException)ã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã‚¹ã‚¿ãƒ–ã‚¯ãƒ©ã‚¹
  */
 public class EncloseCharLineFeed1LineReader_ReaderStub01 extends Reader {
 

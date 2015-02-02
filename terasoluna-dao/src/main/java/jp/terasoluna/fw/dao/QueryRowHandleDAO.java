@@ -20,23 +20,23 @@ import jp.terasoluna.fw.dao.event.DataRowHandler;
 
 /**
  * <p>
- * QÆŒnSQL‚ÌŒ‹‰Ê‚ğ1s‚¸‚Âˆ—‚·‚é‚½‚ß‚ÌƒCƒ“ƒ^ƒtƒF[ƒXB
+ * å‚ç…§ç³»SQLã®çµæœã‚’1è¡Œãšã¤å‡¦ç†ã™ã‚‹ãŸã‚ã®ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã€‚
  * </p>
  * 
  * <p>
- * 1s–ˆ‚ÉDataRowHandler#handleRow()‚ğŒÄ‚Ño‚µA
- * 1s‚Ìƒf[ƒ^‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg‚ğˆø”‚É“n‚·‚æ‚¤À‘•‚·‚é‚±‚ÆB
+ * 1è¡Œæ¯ã«DataRowHandler#handleRow()ã‚’å‘¼ã³å‡ºã—ã€
+ * 1è¡Œã®ãƒ‡ãƒ¼ã‚¿ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å¼•æ•°ã«æ¸¡ã™ã‚ˆã†å®Ÿè£…ã™ã‚‹ã“ã¨ã€‚
  * </p>
  *
  * @see jp.terasoluna.fw.dao.event.DataRowHandler
  */
 public interface QueryRowHandleDAO {
     /**
-     * SQL‚ÌÀsŒ‹‰Ê‚ğDataRowHandler‚Å1s‚¸‚Âˆ—‚·‚éB
+     * SQLã®å®Ÿè¡Œçµæœã‚’DataRowHandlerã§1è¡Œãšã¤å‡¦ç†ã™ã‚‹ã€‚
      * 
-     * @param sqlID Às‚·‚éSQL‚ÌID
-     * @param bindParams SQL‚ÉƒoƒCƒ“ƒh‚·‚é’l‚ğŠi”[‚µ‚½ƒIƒuƒWƒFƒNƒg
-     * @param rowHandler 1sæ“¾‚²‚Æ‚Éˆ—‚·‚éƒnƒ“ƒhƒ‰
+     * @param sqlID å®Ÿè¡Œã™ã‚‹SQLã®ID
+     * @param bindParams SQLã«ãƒã‚¤ãƒ³ãƒ‰ã™ã‚‹å€¤ã‚’æ ¼ç´ã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param rowHandler 1è¡Œå–å¾—ã”ã¨ã«å‡¦ç†ã™ã‚‹ãƒãƒ³ãƒ‰ãƒ©
      */
     void executeWithRowHandler(final String sqlID, final Object bindParams,
             final DataRowHandler rowHandler);

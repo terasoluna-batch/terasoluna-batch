@@ -32,13 +32,13 @@ import org.springframework.validation.Errors;
 
 /**
  * {@link jp.terasoluna.fw.validation.springmodules.SpringValidationErrors}
- * ƒNƒ‰ƒX‚Ìƒuƒ‰ƒbƒNƒ{ƒbƒNƒXƒeƒXƒgB
+ * ã‚¯ãƒ©ã‚¹ã®ãƒ–ãƒ©ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ†ã‚¹ãƒˆã€‚
  * 
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4>
- * SpringƒtƒŒ[ƒ€ƒ[ƒN‚Ìorg.springframework.validation.ErrorsƒCƒ“ƒ^ƒtƒF[ƒX‚É
- * ƒGƒ‰[î•ñ‚ğ’Ç‰Á‚·‚é‚½‚ß‚ÌƒNƒ‰ƒXB<br>
- * ¦addError‚Ìˆø”Field‚ÆValidatorAction‚Énull‚Í“ü‚ç‚È‚¢B
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4>
+ * Springãƒ•ãƒ¬ãƒ¼ãƒ ãƒ¯ãƒ¼ã‚¯ã®org.springframework.validation.Errorsã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã«
+ * ã‚¨ãƒ©ãƒ¼æƒ…å ±ã‚’è¿½åŠ ã™ã‚‹ãŸã‚ã®ã‚¯ãƒ©ã‚¹ã€‚<br>
+ * â€»addErrorã®å¼•æ•°Fieldã¨ValidatorActionã«nullã¯å…¥ã‚‰ãªã„ã€‚
  * <p>
  * 
  * @see jp.terasoluna.fw.validation.springmodules.SpringValidationErrors
@@ -46,19 +46,19 @@ import org.springframework.validation.Errors;
 public class SpringValidationErrorsTest extends TestCase {
 
     /**
-     * ‚±‚ÌƒeƒXƒgƒP[ƒX‚ğÀs‚·‚éˆ×‚Ì
-     * GUI ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‹N“®‚·‚éB
+     * ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã‚’å®Ÿè¡Œã™ã‚‹ç‚ºã®
+     * GUI ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’èµ·å‹•ã™ã‚‹ã€‚
      * 
-     * @param args java ƒRƒ}ƒ“ƒh‚Éİ’è‚³‚ê‚½ƒpƒ‰ƒ[ƒ^
+     * @param args java ã‚³ãƒãƒ³ãƒ‰ã«è¨­å®šã•ã‚ŒãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public static void main(String[] args) {
         junit.swingui.TestRunner.run(SpringValidationErrorsTest.class);
     }
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -67,9 +67,9 @@ public class SpringValidationErrorsTest extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -78,9 +78,9 @@ public class SpringValidationErrorsTest extends TestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      * 
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public SpringValidationErrorsTest(String name) {
         super(name);
@@ -90,33 +90,33 @@ public class SpringValidationErrorsTest extends TestCase {
      * testSetErrors01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) errors:ErrorsƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     *         (ó‘Ô) errors:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) errors:Errorsã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     *         (çŠ¶æ…‹) errors:null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») errors:ˆø”‚Æ“¯ˆê‚ÌErrorsƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) errors:å¼•æ•°ã¨åŒä¸€ã®Errorsã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *         
      * <br>
-     * ˆø”‚Ì’l‚ª‘®«‚É³í‚Éİ’è‚³‚ê‚é‚±‚Æ
+     * å¼•æ•°ã®å€¤ãŒå±æ€§ã«æ­£å¸¸ã«è¨­å®šã•ã‚Œã‚‹ã“ã¨
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testSetErrors01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         SpringValidationErrors validation = new SpringValidationErrors();
         UTUtil.setPrivateField(validation, "errors", null);
         
         Errors errors = new ErrorsImpl01();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         validation.setErrors(errors);
 
-        // ”»’è
+        // åˆ¤å®š
         assertSame(errors, UTUtil.getPrivateField(validation, "errors"));
     }
 
@@ -124,32 +124,32 @@ public class SpringValidationErrorsTest extends TestCase {
      * testGetErrors01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) ‚È‚µ:|<br>
-     *         (ó‘Ô) errors:ErrorsƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) ãªã—:ï¼<br>
+     *         (çŠ¶æ…‹) errors:Errorsã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Errors:ErrorsƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Errors:Errorsã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *         
      * <br>
-     * ‘®«‚Éİ’è‚³‚ê‚Ä‚¢‚é’l‚ğ³í‚Éæ“¾‚·‚é‚±‚ÆB
+     * å±æ€§ã«è¨­å®šã•ã‚Œã¦ã„ã‚‹å€¤ã‚’æ­£å¸¸ã«å–å¾—ã™ã‚‹ã“ã¨ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetErrors01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         SpringValidationErrors validation = new SpringValidationErrors();
         Errors errors = new ErrorsImpl01();
         UTUtil.setPrivateField(validation, "errors", errors);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Errors result = validation.getErrors();
 
-        // ”»’è
+        // åˆ¤å®š
         assertSame(errors, result);
     }
 
@@ -157,59 +157,59 @@ public class SpringValidationErrorsTest extends TestCase {
      * testAddErrors01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC
+     * è¦³ç‚¹ï¼šC
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:Object<br>
-     *         (ˆø”) field:FieldƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:Object<br>
+     *         (å¼•æ•°) field:Fieldã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                field.getKey()="key"<br>
      *                field.getMsg("name")="messageKey"<br>
      *                field.getArg("name", 0)="arg0"<br>
      *                field.getArg("name", 1)="arg1"<br>
      *                field.getArg("name", 2)="arg2"<br>
      *                field.getArg("name", 3)="arg3"<br>
-     *         (ˆø”) va:ValidationActionƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     *         (å¼•æ•°) va:ValidationActionã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      *                va.getName()="name"<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») rejectValue():ŒÄ‚Ño‚µŠm”F‚Æˆø”‚ÌŠm”FF<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) rejectValue():å‘¼ã³å‡ºã—ç¢ºèªã¨å¼•æ•°ã®ç¢ºèªï¼š<br>
      *                    fieldCode="key"<br>
      *                    errorCode="messageKey"<br>
      *                    args={<br>
-     *                    MessageSourceResolvableƒCƒ“ƒXƒ^ƒ“ƒX{<br>
+     *                    MessageSourceResolvableã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹{<br>
      *                    codes[0]={"arg0"}, arguments=null, defaultMessage="arg0"}, <br>
-     *                    MessageSourceResolvableƒCƒ“ƒXƒ^ƒ“ƒX{<br>
+     *                    MessageSourceResolvableã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹{<br>
      *                    codes[1]={"arg1"}, arguments=null, defaultMessage="arg1"}, <br>
-     *                    MessageSourceResolvableƒCƒ“ƒXƒ^ƒ“ƒX{<br>
+     *                    MessageSourceResolvableã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹{<br>
      *                    codes[2]={"arg2"}, arguments=null, defaultMessage="arg2"}, <br>
-     *                    MessageSourceResolvableƒCƒ“ƒXƒ^ƒ“ƒX{<br>
+     *                    MessageSourceResolvableã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹{<br>
      *                    codes[3]={"arg3"}, arguments=null, defaultMessage="arg3"}, <br>
      *                    }<br>
      *         
      * <br>
-     * ˆø”‚ªnot null‚Ìê‡
+     * å¼•æ•°ãŒnot nullã®å ´åˆ
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testAddErrors01() throws Exception {
-        // ‘Oˆ—
-        // ˆø”bean
+        // å‰å‡¦ç†
+        // å¼•æ•°bean
         Object bean = new Object();
-        // ˆø”field
+        // å¼•æ•°field
         Field field = new Field();
         // field.getKey() : "key"
         field.setKey("key");
         
-        // field.getMsg("name")‚Ì’l‚ğİ’èierrorCodeæ“¾‚Ì‚½‚ßj
+        // field.getMsg("name")ã®å€¤ã‚’è¨­å®šï¼ˆerrorCodeå–å¾—ã®ãŸã‚ï¼‰
         FastHashMap hMsgs = new FastHashMap();
         Msg msg = new Msg();
         msg.setKey("messageKey");
         hMsgs.put("name", msg);
         UTUtil.setPrivateField(field, "hMsgs", hMsgs);
         
-        // iObject[] argsæ“¾‚Ì‚½‚ßj
+        // ï¼ˆObject[] argså–å¾—ã®ãŸã‚ï¼‰
         Map[] args = new HashMap[4];
         
         // args[0]
@@ -242,38 +242,38 @@ public class SpringValidationErrorsTest extends TestCase {
         
         UTUtil.setPrivateField(field, "args", args);
         
-        // ˆø”va
+        // å¼•æ•°va
         ValidatorAction va = new ValidatorAction();
         
         // va.getName : "name"
         va.setName("name");
         
-        // SpringValidationErrorsƒCƒ“ƒXƒ^ƒ“ƒX¶¬
+        // SpringValidationErrorsã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ç”Ÿæˆ
         SpringValidationErrors validation = new SpringValidationErrors();
         
-        // Errors‚Ìİ’è : ErrorsImpl01 - ƒƒ\ƒbƒhrejectValue‚Æˆø”‚ÌŒÄoŠm”F
+        // Errorsã®è¨­å®š : ErrorsImpl01 - ãƒ¡ã‚½ãƒƒãƒ‰rejectValueã¨å¼•æ•°ã®å‘¼å‡ºç¢ºèª
         ErrorsImpl01 errors = new ErrorsImpl01();
         UTUtil.setPrivateField(validation, "errors", errors);
 
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         validation.addError(bean, field, va);
 
         
-        // ”»’è
+        // åˆ¤å®š
         ErrorsImpl01 assertErrors =
             (ErrorsImpl01) UTUtil.getPrivateField(validation, "errors");
-        // rejectValueŒÄoŠm”F
+        // rejectValueå‘¼å‡ºç¢ºèª
         assertTrue(assertErrors.isRejectValue);
         
-        // ˆø”fieldŠm”F
+        // å¼•æ•°fieldç¢ºèª
         assertEquals("key", assertErrors.field);
         
-        // ˆø”errorCodeŠm”F
+        // å¼•æ•°errorCodeç¢ºèª
         assertEquals("messageKey", assertErrors.errorCode);
         
         // assertSame(args, assertErrors.errorArgs);
-        // ˆø”errorArgsŠm”F
+        // å¼•æ•°errorArgsç¢ºèª
         Object[] objs = assertErrors.errorArgs;
         MessageSourceResolvable msr = null;
         for(int i=0; i<objs.length; i++) {
@@ -288,7 +288,7 @@ public class SpringValidationErrorsTest extends TestCase {
             assertEquals("arg" + i, msr.getDefaultMessage());
         }
         
-        // ˆø”defaultMessageŠm”F
+        // å¼•æ•°defaultMessageç¢ºèª
         assertEquals("messageKey", assertErrors.defaultMessage);
     }
 }

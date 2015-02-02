@@ -6,9 +6,9 @@ import java.lang.reflect.Method;
 import jp.terasoluna.fw.file.dao.standard.ColumnFormatter;
 
 /**
- * ColumnFormatter‚ÌƒXƒ^ƒuƒNƒ‰ƒXB<br>
- * “ü—Í‚ÉŠÖŒW‚È‚­null‚ğ•Ô‚·B
- * @author æâ•î“O
+ * ColumnFormatterã®ã‚¹ã‚¿ãƒ–ã‚¯ãƒ©ã‚¹ã€‚<br>
+ * å…¥åŠ›ã«é–¢ä¿‚ãªãnullã‚’è¿”ã™ã€‚
+ * @author è¶™ä¿¸å¾¹
  */
 public class AbstractFileLineWriter_ColumnFormatterStub01 implements
                                                          ColumnFormatter {

@@ -80,11 +80,11 @@ public class DaoValidateCollectorFinalize001Test extends DaoTestCase {
 
     /**
      * {@link DaoValidateCollector#finalize()}
-     * ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     public void testFinalize001() throws Exception {
         if (this.userListQueryResultHandleDao == null) {
-            fail("userListQueryResultHandleDao‚ªnull‚Å‚·B");
+            fail("userListQueryResultHandleDaoãŒnullã§ã™ã€‚");
         }
 
         Validator validator = null;
@@ -93,17 +93,17 @@ public class DaoValidateCollectorFinalize001Test extends DaoTestCase {
                 this.userListQueryResultHandleDao, "collect", null, validator);
         try {
             for (UserBean user : it) {
-                // ‚ ‚¦‚Ä“r’†‚Å”²‚¯‚é
+                // ã‚ãˆã¦é€”ä¸­ã§æŠœã‘ã‚‹
                 break;
             }
         } catch (Throwable e) {
             throw new SystemException(e);
         } finally {
-            // ‚ ‚¦‚ÄƒNƒ[ƒY‚¹‚¸‚É•ú’u
+            // ã‚ãˆã¦ã‚¯ãƒ­ãƒ¼ã‚ºã›ãšã«æ”¾ç½®
             // DaoValidateCollector.closeQuietly(it);
         }
 
-        // ƒRƒŒƒNƒ^ƒXƒŒƒbƒh”ƒ`ƒFƒbƒN
+        // ã‚³ãƒ¬ã‚¯ã‚¿ã‚¹ãƒ¬ãƒƒãƒ‰æ•°ãƒã‚§ãƒƒã‚¯
         assertTrue(CollectorTestUtil
                 .lessThanCollectorThreadCount(1 + this.previousThreadCount));
     }

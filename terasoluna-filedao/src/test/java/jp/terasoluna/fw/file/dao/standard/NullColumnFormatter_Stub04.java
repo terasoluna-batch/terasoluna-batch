@@ -1,7 +1,7 @@
 package jp.terasoluna.fw.file.dao.standard;
 
 /**
- * メソッドに引数を持つオブジェクトスタブクラス
+ * 繝｡繧ｽ繝�繝峨↓蠑墓焚繧呈戟縺､繧ｪ繝悶ず繧ｧ繧ｯ繝医せ繧ｿ繝悶け繝ｩ繧ｹ
  */
 public class NullColumnFormatter_Stub04 {
     private String string = null;

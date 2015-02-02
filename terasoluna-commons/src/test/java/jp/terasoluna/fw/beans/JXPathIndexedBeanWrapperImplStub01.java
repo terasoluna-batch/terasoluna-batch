@@ -17,68 +17,68 @@
 package jp.terasoluna.fw.beans;
 
 /**
- * JXPathIndexedBeanWrapperImplTest‚Åg—p‚·‚éƒXƒ^ƒuƒNƒ‰ƒXB
+ * JXPathIndexedBeanWrapperImplTestã§ä½¿ç”¨ã™ã‚‹ã‚¹ã‚¿ãƒ–ã‚¯ãƒ©ã‚¹ã€‚
  * <br><br>
  * 
- * testEscapeMapPropertyXX()ƒƒ\ƒbƒh‚Åg—p‚·‚éB<br>
- * testEextractIncremantIndexStringIntXX()ƒƒ\ƒbƒh‚Åg—p‚·‚éB<br>
+ * testEscapeMapPropertyXX()ãƒ¡ã‚½ãƒƒãƒ‰ã§ä½¿ç”¨ã™ã‚‹ã€‚<br>
+ * testEextractIncremantIndexStringIntXX()ãƒ¡ã‚½ãƒƒãƒ‰ã§ä½¿ç”¨ã™ã‚‹ã€‚<br>
  *
  */
 public class JXPathIndexedBeanWrapperImplStub01 extends
         JXPathIndexedBeanWrapperImpl {
     
     /**
-     * extractIndexƒXƒ^ƒuƒƒ\ƒbƒh‚Ì“ü—ÍŠm”F—pB
+     * extractIndexã‚¹ã‚¿ãƒ–ãƒ¡ã‚½ãƒƒãƒ‰ã®å…¥åŠ›ç¢ºèªç”¨ã€‚
      */
     public String extractIndexParam1 = null;
     
     /**
-     * extractIndexƒXƒ^ƒuƒƒ\ƒbƒh‚Ì–ß‚è’lİ’è—pB
+     * extractIndexã‚¹ã‚¿ãƒ–ãƒ¡ã‚½ãƒƒãƒ‰ã®æˆ»ã‚Šå€¤è¨­å®šç”¨ã€‚
      */
     public String extractIndexResult = null;
     
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-     * @param obj ƒ‰ƒbƒv‚·‚éBean
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * @param obj ãƒ©ãƒƒãƒ—ã™ã‚‹Bean
      */
     public JXPathIndexedBeanWrapperImplStub01(Object obj) {
         super(obj);
     }
     
     /**
-     * MapŒ^‘®«‚ÌƒvƒƒpƒeƒB–¼‚ğæ‚èo‚·ƒXƒ^ƒuƒƒ\ƒbƒhB
-     * @param property JavaƒvƒƒpƒeƒB–¼B
-     * @return String XPathB 
+     * Mapå‹å±æ€§ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£åã‚’å–ã‚Šå‡ºã™ã‚¹ã‚¿ãƒ–ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
+     * @param property Javaãƒ—ãƒ­ãƒ‘ãƒ†ã‚£åã€‚
+     * @return String XPathã€‚ 
      */
     @Override
     protected String extractMapPropertyName(String property) {
-        // “®“I‚É–ß‚è’l‚ğì¬B
+        // å‹•çš„ã«æˆ»ã‚Šå€¤ã‚’ä½œæˆã€‚
         return property + "Name";
     }
     
     /**
-     * MapŒ^‘®«‚ÌƒL[–¼‚ğæ‚èo‚·ƒXƒ^ƒuƒƒ\ƒbƒhB
-     * @param property JavaƒvƒƒpƒeƒB–¼B
-     * @return String XPathB 
+     * Mapå‹å±æ€§ã®ã‚­ãƒ¼åã‚’å–ã‚Šå‡ºã™ã‚¹ã‚¿ãƒ–ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
+     * @param property Javaãƒ—ãƒ­ãƒ‘ãƒ†ã‚£åã€‚
+     * @return String XPathã€‚ 
      */
     @Override
     protected String extractMapPropertyKey(String property) {
-        // “®“I‚É–ß‚è’l‚ğì¬B
+        // å‹•çš„ã«æˆ»ã‚Šå€¤ã‚’ä½œæˆã€‚
         return property + "Key";
     }
     
     
     /**
-     * ”z—ñƒCƒ“ƒfƒbƒNƒX‚ğæ“¾‚·‚éƒXƒ^ƒuƒƒ\ƒbƒhB
-     * @param property ƒvƒƒpƒeƒB–¼B
-     * @return ”z—ñƒCƒ“ƒfƒbƒNƒXB
+     * é…åˆ—ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’å–å¾—ã™ã‚‹ã‚¹ã‚¿ãƒ–ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
+     * @param property ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£åã€‚
+     * @return é…åˆ—ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã€‚
      */
     @Override
     protected String extractIndex(String property) {
-        // “ü—ÍŠm”F—pƒƒ“ƒo‚ÉŠi”[B
+        // å…¥åŠ›ç¢ºèªç”¨ãƒ¡ãƒ³ãƒã«æ ¼ç´ã€‚
         this.extractIndexParam1 = property;
         
-        // –ß‚è’lİ’è—pƒƒ“ƒo‚Ì’l‚ğ•Ô‚·B
+        // æˆ»ã‚Šå€¤è¨­å®šç”¨ãƒ¡ãƒ³ãƒã®å€¤ã‚’è¿”ã™ã€‚
         return this.extractIndexResult;
     }
 

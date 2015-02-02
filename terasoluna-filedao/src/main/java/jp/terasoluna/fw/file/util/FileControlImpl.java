@@ -23,36 +23,36 @@ import java.util.List;
 import jp.terasoluna.fw.file.dao.FileException;
 
 /**
- * FileControlƒCƒ“ƒ^ƒtƒF[ƒX‚ğÀ‘•‚·‚éƒNƒ‰ƒX.
+ * FileControlã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã‚’å®Ÿè£…ã™ã‚‹ã‚¯ãƒ©ã‚¹.
  * <p>
- * ‚±‚ÌƒNƒ‰ƒX‚ÍAƒtƒ@ƒCƒ‹‘€ìˆ—‚ğÀs‚·‚éFileUtilityƒNƒ‰ƒX‚ğƒ‰ƒbƒv‚µ‚Ä‚¢‚éB<br>
- * FileControlƒNƒ‰ƒX‚ÍDIƒRƒ“ƒeƒi‚É‚æ‚Á‚ÄƒrƒWƒlƒXƒƒWƒbƒN‚ğ¶¬‚·‚éÛAƒrƒWƒlƒXƒƒWƒbƒN‚Ì‘®«‚Æ‚µ‚Äİ’è‚·‚éB<br>
- * FileControlƒNƒ‰ƒX‚Í‘®«‚ÉAƒtƒ@ƒCƒ‹‘€ì‚ğs‚¤Û‚ÉŠî€‚Æ‚È‚éƒpƒX(Šî€ƒpƒX)‚ğ‚ÂB<br>
- * FileUtilityƒNƒ‰ƒX‚ÍˆÈ‰º‚Ì‹@”\‚ğÀ‘•‚µ‚Ä‚¢‚éB
+ * ã“ã®ã‚¯ãƒ©ã‚¹ã¯ã€ãƒ•ã‚¡ã‚¤ãƒ«æ“ä½œå‡¦ç†ã‚’å®Ÿè¡Œã™ã‚‹FileUtilityã‚¯ãƒ©ã‚¹ã‚’ãƒ©ãƒƒãƒ—ã—ã¦ã„ã‚‹ã€‚<br>
+ * FileControlã‚¯ãƒ©ã‚¹ã¯DIã‚³ãƒ³ãƒ†ãƒŠã«ã‚ˆã£ã¦ãƒ“ã‚¸ãƒã‚¹ãƒ­ã‚¸ãƒƒã‚¯ã‚’ç”Ÿæˆã™ã‚‹éš›ã€ãƒ“ã‚¸ãƒã‚¹ãƒ­ã‚¸ãƒƒã‚¯ã®å±æ€§ã¨ã—ã¦è¨­å®šã™ã‚‹ã€‚<br>
+ * FileControlã‚¯ãƒ©ã‚¹ã¯å±æ€§ã«ã€ãƒ•ã‚¡ã‚¤ãƒ«æ“ä½œã‚’è¡Œã†éš›ã«åŸºæº–ã¨ãªã‚‹ãƒ‘ã‚¹(åŸºæº–ãƒ‘ã‚¹)ã‚’æŒã¤ã€‚<br>
+ * FileUtilityã‚¯ãƒ©ã‚¹ã¯ä»¥ä¸‹ã®æ©Ÿèƒ½ã‚’å®Ÿè£…ã—ã¦ã„ã‚‹ã€‚
  * <ul>
- * <li>ƒtƒ@ƒCƒ‹–¼‚Ì•ÏX¥ƒtƒ@ƒCƒ‹‚ÌˆÚ“®</li>
- * <li>ƒtƒ@ƒCƒ‹‚ÌƒRƒs[</li>
- * <li>ƒtƒ@ƒCƒ‹‚Ìíœ</li>
- * <li>ƒtƒ@ƒCƒ‹‚ÌŒ‹‡</li>
+ * <li>ãƒ•ã‚¡ã‚¤ãƒ«åã®å¤‰æ›´ï½¥ãƒ•ã‚¡ã‚¤ãƒ«ã®ç§»å‹•</li>
+ * <li>ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚³ãƒ”ãƒ¼</li>
+ * <li>ãƒ•ã‚¡ã‚¤ãƒ«ã®å‰Šé™¤</li>
+ * <li>ãƒ•ã‚¡ã‚¤ãƒ«ã®çµåˆ</li>
  * </ul>
- * ‚È‚¨Aƒtƒ@ƒCƒ‹‹@”\‚Åg—p‚·‚éƒpƒX‚Í‘Š‘ÎƒpƒXAâ‘ÎƒpƒX‚Ì—¼•û‚ğw‚·B
+ * ãªãŠã€ãƒ•ã‚¡ã‚¤ãƒ«æ©Ÿèƒ½ã§ä½¿ç”¨ã™ã‚‹ãƒ‘ã‚¹ã¯ç›¸å¯¾ãƒ‘ã‚¹ã€çµ¶å¯¾ãƒ‘ã‚¹ã®ä¸¡æ–¹ã‚’æŒ‡ã™ã€‚
  * </p>
  * @see FileUtility
  */
 public class FileControlImpl implements FileControl {
 
     /**
-     * Šî€ƒpƒX.
+     * åŸºæº–ãƒ‘ã‚¹.
      * <p>
-     * Šî€ƒpƒX‚ğg—p‚·‚é‚±‚Æ‚É‚æ‚èAƒtƒ@ƒCƒ‹ƒAƒNƒZƒX‚É”­¶‚·‚éƒtƒ@ƒCƒ‹ƒpƒX‚ÌŠÂ‹«ˆË‘¶‚Ì–â‘è‚ğ‰ñ”ğ‚·‚é‚±‚Æ‚ª‚Å‚«‚éB
+     * åŸºæº–ãƒ‘ã‚¹ã‚’ä½¿ç”¨ã™ã‚‹ã“ã¨ã«ã‚ˆã‚Šã€ãƒ•ã‚¡ã‚¤ãƒ«ã‚¢ã‚¯ã‚»ã‚¹æ™‚ã«ç™ºç”Ÿã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ã®ç’°å¢ƒä¾å­˜ã®å•é¡Œã‚’å›é¿ã™ã‚‹ã“ã¨ãŒã§ãã‚‹ã€‚
      * </p>
      */
     private String basePath = "";
 
     /**
-     * ƒtƒ@ƒCƒ‹‚ÌƒRƒs[B
-     * @param srcFile ƒRƒs[Œ³‚Ìƒtƒ@ƒCƒ‹‚ÌƒpƒX
-     * @param newFile ƒRƒs[æ‚Ìƒtƒ@ƒCƒ‹‚ÌƒpƒX
+     * ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚³ãƒ”ãƒ¼ã€‚
+     * @param srcFile ã‚³ãƒ”ãƒ¼å…ƒã®ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹
+     * @param newFile ã‚³ãƒ”ãƒ¼å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹
      */
     public void copyFile(String srcFile, String newFile) {
 
@@ -61,8 +61,8 @@ public class FileControlImpl implements FileControl {
     }
 
     /**
-     * ƒtƒ@ƒCƒ‹‚ÌíœB
-     * @param srcFile íœ‚·‚éƒtƒ@ƒCƒ‹‚ÌƒpƒX
+     * ãƒ•ã‚¡ã‚¤ãƒ«ã®å‰Šé™¤ã€‚
+     * @param srcFile å‰Šé™¤ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹
      */
     public void deleteFile(String srcFile) {
 
@@ -70,9 +70,9 @@ public class FileControlImpl implements FileControl {
     }
 
     /**
-     * ƒtƒ@ƒCƒ‹Œ‹‡B
-     * @param fileList Œ‹‡‚·‚éƒtƒ@ƒCƒ‹‚ÌƒŠƒXƒg
-     * @param newFile Œ‹‡‚µ‚Ä‚Å‚«‚éƒtƒ@ƒCƒ‹‚ÌƒpƒX
+     * ãƒ•ã‚¡ã‚¤ãƒ«çµåˆã€‚
+     * @param fileList çµåˆã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒªã‚¹ãƒˆ
+     * @param newFile çµåˆã—ã¦ã§ãã‚‹ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹
      */
     public void mergeFile(List<String> fileList, String newFile) {
 
@@ -85,9 +85,9 @@ public class FileControlImpl implements FileControl {
     }
 
     /**
-     * ƒtƒ@ƒCƒ‹–¼‚Ì•ÏX¥ƒtƒ@ƒCƒ‹‚ÌˆÚ“®B
-     * @param srcFile ˆÚ“®‘O‚ÌƒpƒX
-     * @param newFile ˆÚ“®Œã‚ÌƒpƒX
+     * ãƒ•ã‚¡ã‚¤ãƒ«åã®å¤‰æ›´ï½¥ãƒ•ã‚¡ã‚¤ãƒ«ã®ç§»å‹•ã€‚
+     * @param srcFile ç§»å‹•å‰ã®ãƒ‘ã‚¹
+     * @param newFile ç§»å‹•å¾Œã®ãƒ‘ã‚¹
      */
     public void renameFile(String srcFile, String newFile) {
 
@@ -96,10 +96,10 @@ public class FileControlImpl implements FileControl {
     }
 
     /**
-     * FileControl‚Åg—p‚·‚éƒtƒ@ƒCƒ‹–¼‚ğâ‘ÎƒpƒX‚©‚Ç‚¤‚©‚ğŠm”F‚µ‚ÄAâ‘ÎƒpƒX‚ğ•Ô‹p‚·‚éB
-     * @param fileName Šeƒƒ\ƒbƒh‚Ìˆø”‚Æ‚µ‚Äó‚¯‚½ƒtƒ@ƒCƒ‹–¼
-     * @return fileName‚Ìâ‘ÎƒpƒX
-     * @throws ƒtƒ@ƒCƒ‹‹@”\—áŠO
+     * FileControlã§ä½¿ç”¨ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«åã‚’çµ¶å¯¾ãƒ‘ã‚¹ã‹ã©ã†ã‹ã‚’ç¢ºèªã—ã¦ã€çµ¶å¯¾ãƒ‘ã‚¹ã‚’è¿”å´ã™ã‚‹ã€‚
+     * @param fileName å„ãƒ¡ã‚½ãƒƒãƒ‰ã®å¼•æ•°ã¨ã—ã¦å—ã‘ãŸãƒ•ã‚¡ã‚¤ãƒ«å
+     * @return fileNameã®çµ¶å¯¾ãƒ‘ã‚¹
+     * @throws ãƒ•ã‚¡ã‚¤ãƒ«æ©Ÿèƒ½ä¾‹å¤–
      */
     private String getAbsolutePath(String fileName) {
 
@@ -118,24 +118,24 @@ public class FileControlImpl implements FileControl {
     }
 
     /**
-     * Šî€ƒpƒX‚ğæ“¾‚·‚éB
-     * @return Šî€ƒpƒX
+     * åŸºæº–ãƒ‘ã‚¹ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return åŸºæº–ãƒ‘ã‚¹
      */
     public String getBasePath() {
         return basePath;
     }
 
     /**
-     * Šî€ƒpƒX‚ğİ’è‚·‚éB
-     * @param basePath Šî€ƒpƒX
+     * åŸºæº–ãƒ‘ã‚¹ã‚’è¨­å®šã™ã‚‹ã€‚
+     * @param basePath åŸºæº–ãƒ‘ã‚¹
      */
     public void setBasePath(String basePath) {
         this.basePath = basePath;
     }
 
     /**
-     * FileUtility‚Ìƒtƒ@ƒCƒ‹‚Ìã‘‚«ƒtƒ‰ƒO‚ğİ’è‚·‚éB
-     * @param checkFileExist ã‘‚«ƒtƒ‰ƒO
+     * FileUtilityã®ãƒ•ã‚¡ã‚¤ãƒ«ã®ä¸Šæ›¸ããƒ•ãƒ©ã‚°ã‚’è¨­å®šã™ã‚‹ã€‚
+     * @param checkFileExist ä¸Šæ›¸ããƒ•ãƒ©ã‚°
      */
     public void setCheckFileExist(boolean checkFileExist) {
         FileUtility.setCheckFileExist(checkFileExist);

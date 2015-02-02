@@ -17,27 +17,27 @@ import jp.terasoluna.utlib.UTUtil;
 import junit.framework.TestCase;
 
 /**
- * {@link jp.terasoluna.fw.file.dao.standard.CSVFileUpdateDAO} ƒNƒ‰ƒX‚ÌƒeƒXƒgB
+ * {@link jp.terasoluna.fw.file.dao.standard.CSVFileUpdateDAO} ã‚¯ãƒ©ã‚¹ã®ãƒ†ã‚¹ãƒˆã€‚
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4> CSVƒtƒ@ƒCƒ‹—p‚ÌFileLineWriter‚ğ¶¬‚·‚éB<br>
- * AbstractFileUpdateDAO‚ÌƒTƒuƒNƒ‰ƒXB
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4> CSVãƒ•ã‚¡ã‚¤ãƒ«ç”¨ã®FileLineWriterã‚’ç”Ÿæˆã™ã‚‹ã€‚<br>
+ * AbstractFileUpdateDAOã®ã‚µãƒ–ã‚¯ãƒ©ã‚¹ã€‚
  * <p>
- * @author ‰œ“c“Ni
+ * @author å¥¥ç”°å“²å¸
  * @see jp.terasoluna.fw.file.dao.standard.CSVFileUpdateDAO
  */
 public class CSVFileUpdateDAOTest extends TestCase {
 
     /**
-     * ‚±‚ÌƒeƒXƒgƒP[ƒX‚ğÀs‚·‚éˆ×‚Ì GUI ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‹N“®‚·‚éB
-     * @param args java ƒRƒ}ƒ“ƒh‚Éİ’è‚³‚ê‚½ƒpƒ‰ƒ[ƒ^
+     * ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã‚’å®Ÿè¡Œã™ã‚‹ç‚ºã® GUI ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’èµ·å‹•ã™ã‚‹ã€‚
+     * @param args java ã‚³ãƒãƒ³ãƒ‰ã«è¨­å®šã•ã‚ŒãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public static void main(String[] args) {
         // junit.swingui.TestRunner.run(CSVFileUpdateDAOTest.class);
     }
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -47,8 +47,8 @@ public class CSVFileUpdateDAOTest extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -57,8 +57,8 @@ public class CSVFileUpdateDAOTest extends TestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public CSVFileUpdateDAOTest(String name) {
         super(name);
@@ -67,45 +67,45 @@ public class CSVFileUpdateDAOTest extends TestCase {
     /**
      * testExecute01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE.F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE.F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileName:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ˆø”) clazz:Class<T>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô) AbstractFileUpdateDAO.columnFormatterMap: HashMapƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileName:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (å¼•æ•°) clazz:Class<T>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹) AbstractFileUpdateDAO.columnFormatterMap: HashMapã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) fileLineWriter:CSVFileLineWriter<T>ƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ó‘Ô•Ï‰») CSVFileLineWriter#CSVFileLineWriter():1‰ñŒÄ‚Î‚ê‚éB<br>
-     * ŒÄ‚Î‚ê‚é‚Æ‚«‚Ìˆø”‚ğŠm”F‚·‚éB<br>
-     * (ó‘Ô•Ï‰») AbstractFileUpdateDAO#getColumnFormatterMap(): 1‰ñŒÄ‚Î‚ê‚é<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) fileLineWriter:CSVFileLineWriter<T>ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) CSVFileLineWriter#CSVFileLineWriter():1å›å‘¼ã°ã‚Œã‚‹ã€‚<br>
+     * å‘¼ã°ã‚Œã‚‹ã¨ãã®å¼•æ•°ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) AbstractFileUpdateDAO#getColumnFormatterMap(): 1å›å‘¼ã°ã‚Œã‚‹<br>
      * <br>
-     * ³íƒpƒ^[ƒ“<br>
-     * ˆø”‚ª‚»‚ê‚¼‚ênot null‚Å‚ ‚ê‚ÎA–ß‚è’l‚ª‹A‚Á‚Ä‚­‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * æ­£å¸¸ãƒ‘ã‚¿ãƒ¼ãƒ³<br>
+     * å¼•æ•°ãŒãã‚Œãã‚Œnot nullã§ã‚ã‚Œã°ã€æˆ»ã‚Šå€¤ãŒå¸°ã£ã¦ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testExecute01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         CSVFileUpdateDAO fileUpdateDAO = new CSVFileUpdateDAO();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String fileName = "aaa";
         Class<CSVFileUpdateDAO_Stub01> clazz = CSVFileUpdateDAO_Stub01.class;
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         HashMap<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
         UTUtil.setPrivateField(fileUpdateDAO, "columnFormatterMap",
                 columnFormatterMap);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         FileLineWriter<CSVFileUpdateDAO_Stub01> fileLineWriter = fileUpdateDAO
                 .execute(fileName, clazz);
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals(CSVFileLineWriter.class, fileLineWriter.getClass());
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(1, VMOUTUtil.getCallCount(CSVFileLineWriter.class,
                 "<init>"));
         assertEquals(1, VMOUTUtil.getCallCount(AbstractFileUpdateDAO.class,
@@ -116,9 +116,9 @@ public class CSVFileUpdateDAOTest extends TestCase {
         assertEquals(clazz, arguments.get(1));
         assertEquals(columnFormatterMap, arguments.get(2));
 
-        // ƒNƒ[ƒYˆ—
+        // ã‚¯ãƒ­ãƒ¼ã‚ºå‡¦ç†
         fileLineWriter.closeFile();
-        // ƒeƒXƒgŒãƒtƒ@ƒCƒ‹‚ğíœ
+        // ãƒ†ã‚¹ãƒˆå¾Œãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤
         File file = new File("aaa");
         file.delete();
     }

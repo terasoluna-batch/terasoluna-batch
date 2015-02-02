@@ -25,11 +25,11 @@ import org.apache.commons.validator.ValidatorAction;
 
 /**
  * {@link jp.terasoluna.fw.validation.FieldChecks}
- * ƒNƒ‰ƒX‚Ìƒuƒ‰ƒbƒNƒ{ƒbƒNƒXƒeƒXƒgB
+ * ã‚¯ãƒ©ã‚¹ã®ãƒ–ãƒ©ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ†ã‚¹ãƒˆã€‚
  *
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4>
- * TERASOLUNA‚Ì“ü—Íƒ`ƒFƒbƒN‹@”\‚Å‹¤’Ê‚Ég—p‚³‚ê‚éŒŸØƒ‹[ƒ‹ƒNƒ‰ƒXB
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4>
+ * TERASOLUNAã®å…¥åŠ›ãƒã‚§ãƒƒã‚¯æ©Ÿèƒ½ã§å…±é€šã«ä½¿ç”¨ã•ã‚Œã‚‹æ¤œè¨¼ãƒ«ãƒ¼ãƒ«ã‚¯ãƒ©ã‚¹ã€‚
  * <p>
  *
  * @see jp.terasoluna.fw.validation.FieldChecks
@@ -37,29 +37,29 @@ import org.apache.commons.validator.ValidatorAction;
 public class FieldChecksTest01 extends TestCase {
 
     /**
-     * ƒeƒXƒg—pƒCƒ“ƒXƒ^ƒ“ƒXB
+     * ãƒ†ã‚¹ãƒˆç”¨ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
      */
     private ValidatorAction va = null;
 
     /**
-     * ƒeƒXƒg—pƒCƒ“ƒXƒ^ƒ“ƒXB
+     * ãƒ†ã‚¹ãƒˆç”¨ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
      */
     private Field field = null;
 
     /**
-     * ‚±‚ÌƒeƒXƒgƒP[ƒX‚ğÀs‚·‚éˆ×‚Ì
-     * GUI ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‹N“®‚·‚éB
+     * ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã‚’å®Ÿè¡Œã™ã‚‹ç‚ºã®
+     * GUI ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’èµ·å‹•ã™ã‚‹ã€‚
      *
-     * @param args java ƒRƒ}ƒ“ƒh‚Éİ’è‚³‚ê‚½ƒpƒ‰ƒ[ƒ^
+     * @param args java ã‚³ãƒãƒ³ãƒ‰ã«è¨­å®šã•ã‚ŒãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public static void main(String[] args) {
         junit.swingui.TestRunner.run(FieldChecksTest01.class);
     }
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -70,9 +70,9 @@ public class FieldChecksTest01 extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -81,9 +81,9 @@ public class FieldChecksTest01 extends TestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      *
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public FieldChecksTest01(String name) {
         super(name);
@@ -93,32 +93,32 @@ public class FieldChecksTest01 extends TestCase {
      * testGetParamClass01()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) va:not null<br>
-     *         (ó‘Ô) va.methodParams:""<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) va:not null<br>
+     *         (çŠ¶æ…‹) va.methodParams:""<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Class[]:Class[]{}<br>
-     *                  —v‘f”0<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Class[]:Class[]{}<br>
+     *                  è¦ç´ æ•°0<br>
      *
      * <br>
-     * va‚ÌmethodParams‚ª‹ó•¶š‚Ì‚Æ‚«A
-     * —v‘f”0‚ÌClassŒ^”z—ñ‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * vaã®methodParamsãŒç©ºæ–‡å­—ã®ã¨ãã€
+     * è¦ç´ æ•°0ã®Classå‹é…åˆ—ãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetParamClass01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         va.setMethodParams("");
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Class[] result = new FieldChecks().getParamClass(va);
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(0, result.length);
     }
 
@@ -126,35 +126,35 @@ public class FieldChecksTest01 extends TestCase {
      * testGetParamClass02()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) va:not null<br>
-     *         (ó‘Ô) va.methodParams:
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) va:not null<br>
+     *         (çŠ¶æ…‹) va.methodParams:
      *                "java.lang.String,java.lang.Integer,java.lang.Boolean"<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Class[]:{String.class,<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Class[]:{String.class,<br>
      *                   Integer.class,<br>
      *                   Boolean.class}<br>
      *
      * <br>
-     * va‚ÌmethodParams‚Éİ’è‚³‚ê‚Ä‚¢‚éA
-     * ƒJƒ“ƒ}‹æØ‚è‚ÌƒNƒ‰ƒX–¼‚ÌƒNƒ‰ƒXƒCƒ“ƒXƒ^ƒ“ƒX‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * vaã®methodParamsã«è¨­å®šã•ã‚Œã¦ã„ã‚‹ã€
+     * ã‚«ãƒ³ãƒåŒºåˆ‡ã‚Šã®ã‚¯ãƒ©ã‚¹åã®ã‚¯ãƒ©ã‚¹ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetParamClass02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         va.setMethodParams(
                 "java.lang.String,java.lang.Integer,java.lang.Boolean");
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Class[] result = new FieldChecks().getParamClass(va);
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(3, result.length);
         assertSame(String.class, result[0]);
         assertSame(Integer.class, result[1]);
@@ -165,29 +165,29 @@ public class FieldChecksTest01 extends TestCase {
      * testGetParamClass03()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) va:not null<br>
-     *         (ó‘Ô) va.methodParams:"java.lang.String,bbb"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) va:not null<br>
+     *         (çŠ¶æ…‹) va.methodParams:"java.lang.String,bbb"<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Class[]:null<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Class[]:null<br>
      *
      * <br>
-     * va‚ÌmethodParams‚ÉƒNƒ‰ƒXƒpƒX‚É‘¶İ‚µ‚È‚¢ƒNƒ‰ƒX–¼‚ªŠÜ‚Ü‚ê‚Ä‚¢‚éê‡A
-     * null‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * vaã®methodParamsã«ã‚¯ãƒ©ã‚¹ãƒ‘ã‚¹ã«å­˜åœ¨ã—ãªã„ã‚¯ãƒ©ã‚¹åãŒå«ã¾ã‚Œã¦ã„ã‚‹å ´åˆã€
+     * nullãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetParamClass03() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         va.setMethodParams("java.lang.String,bbb");
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertNull(new FieldChecks().getParamClass(va));
 
     }
@@ -196,28 +196,28 @@ public class FieldChecksTest01 extends TestCase {
      * testGetMethod01()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC,F
+     * è¦³ç‚¹ï¼šC,F
      * <br><br>
-     * “ü—Í’lF(ˆø”) va:not null<br>
-     *         (ó‘Ô) va.getName:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) va:not null<br>
+     *         (çŠ¶æ…‹) va.getName:null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Method:null<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Method:null<br>
      *
      * <br>
-     * va‚©‚çæ“¾‚µ‚½ƒƒ\ƒbƒh–¼‚ªnull‚Ìê‡Anull‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * vaã‹ã‚‰å–å¾—ã—ãŸãƒ¡ã‚½ãƒƒãƒ‰åãŒnullã®å ´åˆã€nullãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetMethod01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         va.setName(null);
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertNull(new FieldChecks().getMethod(va, new Class[]{}));
     }
 
@@ -225,28 +225,28 @@ public class FieldChecksTest01 extends TestCase {
      * testGetMethod02()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC,F
+     * è¦³ç‚¹ï¼šC,F
      * <br><br>
-     * “ü—Í’lF(ˆø”) va:not null<br>
-     *         (ó‘Ô) va.getName:‹ó•¶š<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) va:not null<br>
+     *         (çŠ¶æ…‹) va.getName:ç©ºæ–‡å­—<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Method:null<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Method:null<br>
      *
      * <br>
-     * va‚©‚çæ“¾‚µ‚½ƒƒ\ƒbƒh–¼‚ª‹ó•¶š‚Ìê‡Anull‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * vaã‹ã‚‰å–å¾—ã—ãŸãƒ¡ã‚½ãƒƒãƒ‰åãŒç©ºæ–‡å­—ã®å ´åˆã€nullãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetMethod02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         va.setName("");
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertNull(new FieldChecks().getMethod(va, new Class[]{}));
     }
 
@@ -254,30 +254,30 @@ public class FieldChecksTest01 extends TestCase {
      * testGetMethod03()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) va:not null<br>
-     *         (ˆø”) paramClass:{Object.class,<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) paramClass:{Object.class,<br>
      *                 ValidatorAction.class,<br>
      *                 Field.class,<br>
      *                 ValidationErrors.class}<br>
-     *         (ó‘Ô) va.getName:"requiredArray"<br>
+     *         (çŠ¶æ…‹) va.getName:"requiredArray"<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Method:new FieldChecks()#validateRequired<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Method:new FieldChecks()#validateRequired<br>
      *
      * <br>
-     * va‚©‚çæ“¾‚µ‚½ƒƒ\ƒbƒh‚ÌÅŒã‚Ì5•¶š‚ğœ‚«A
-     * æ“ª‚Évalidate‚ğ•t—^‚µ‚½ƒƒ\ƒbƒh‚ª‘¶İ‚·‚éê‡A
-     * ‚»‚Ìƒƒ\ƒbƒh‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * vaã‹ã‚‰å–å¾—ã—ãŸãƒ¡ã‚½ãƒƒãƒ‰ã®æœ€å¾Œã®5æ–‡å­—ã‚’é™¤ãã€
+     * å…ˆé ­ã«validateã‚’ä»˜ä¸ã—ãŸãƒ¡ã‚½ãƒƒãƒ‰ãŒå­˜åœ¨ã™ã‚‹å ´åˆã€
+     * ãã®ãƒ¡ã‚½ãƒƒãƒ‰ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetMethod03() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         va.setName("requiredArray");
         Class[] paramClass = {
             Object.class,
@@ -286,10 +286,10 @@ public class FieldChecksTest01 extends TestCase {
             ValidationErrors.class
         };
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Method result = new FieldChecks().getMethod(va,paramClass);
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(FieldChecks.class, result.getDeclaringClass());
         assertEquals("validateRequired", result.getName());
     }
@@ -298,30 +298,30 @@ public class FieldChecksTest01 extends TestCase {
      * testGetMethod04()
      * <br><br>
      *
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) va:not null<br>
-     *         (ˆø”) paramClass:{Object.class,<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) paramClass:{Object.class,<br>
      *                 ValidatorAction.class,<br>
      *                 Field.class}<br>
-     *         (ó‘Ô) va.getName:"requiredArray"<br>
+     *         (çŠ¶æ…‹) va.getName:"requiredArray"<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Method:null<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Method:null<br>
      *
      * <br>
-     * va‚©‚çæ“¾‚µ‚½ƒƒ\ƒbƒh‚ÌÅŒã‚Ì5•¶š‚ğœ‚«A
-     * æ“ª‚Évalidate‚ğ•t—^‚µ‚½ƒƒ\ƒbƒh‚ª‘¶İ‚·‚é‚ªA
-     * ˆø”‚Ìƒpƒ^[ƒ“‚ªparamClass‚Æˆê’v‚µ‚È‚¢ê‡A
-     * null‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * vaã‹ã‚‰å–å¾—ã—ãŸãƒ¡ã‚½ãƒƒãƒ‰ã®æœ€å¾Œã®5æ–‡å­—ã‚’é™¤ãã€
+     * å…ˆé ­ã«validateã‚’ä»˜ä¸ã—ãŸãƒ¡ã‚½ãƒƒãƒ‰ãŒå­˜åœ¨ã™ã‚‹ãŒã€
+     * å¼•æ•°ã®ãƒ‘ã‚¿ãƒ¼ãƒ³ãŒparamClassã¨ä¸€è‡´ã—ãªã„å ´åˆã€
+     * nullãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetMethod04() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         va.setName("requiredArray");
         Class[] paramClass = {
             Object.class,
@@ -329,8 +329,8 @@ public class FieldChecksTest01 extends TestCase {
             Field.class
         };
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertNull(new FieldChecks().getMethod(va,paramClass));
     }
 
@@ -338,30 +338,30 @@ public class FieldChecksTest01 extends TestCase {
      * testGetMethod05()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) va:not null<br>
-     *         (ˆø”) paramClass:{Object.class,<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) paramClass:{Object.class,<br>
      *                 ValidatorAction.class,<br>
      *                 Field.class,<br>
      *                 ValidationErrors.class}<br>
-     *         (ó‘Ô) va.getName:"requiredXXXXX"<br>
+     *         (çŠ¶æ…‹) va.getName:"requiredXXXXX"<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) Method:new FieldChecks()#validateRequired<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) Method:new FieldChecks()#validateRequired<br>
      *
      * <br>
-     * va‚©‚çæ“¾‚µ‚½ƒƒ\ƒbƒh‚ÌÅŒã‚Ì5•¶š‚ğœ‚«A
-     * æ“ª‚Évalidate‚ğ•t—^‚µ‚½ƒƒ\ƒbƒh‚ª‘¶İ‚·‚éê‡A
-     * ‚»‚Ìƒƒ\ƒbƒh‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * vaã‹ã‚‰å–å¾—ã—ãŸãƒ¡ã‚½ãƒƒãƒ‰ã®æœ€å¾Œã®5æ–‡å­—ã‚’é™¤ãã€
+     * å…ˆé ­ã«validateã‚’ä»˜ä¸ã—ãŸãƒ¡ã‚½ãƒƒãƒ‰ãŒå­˜åœ¨ã™ã‚‹å ´åˆã€
+     * ãã®ãƒ¡ã‚½ãƒƒãƒ‰ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetMethod05() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         va.setName("requiredXXXXX");
         Class[] paramClass = {
             Object.class,
@@ -370,10 +370,10 @@ public class FieldChecksTest01 extends TestCase {
             ValidationErrors.class
         };
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         Method result = new FieldChecks().getMethod(va,paramClass);
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(FieldChecks.class, result.getDeclaringClass());
         assertEquals("validateRequired", result.getName());
     }
@@ -382,24 +382,24 @@ public class FieldChecksTest01 extends TestCase {
      * testExtractValue01()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FC,F
+     * è¦³ç‚¹ï¼šC,F
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:null<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:null<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:null<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚ªnull‚Ìê‡Anull‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanãŒnullã®å ´åˆã€nullãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExtractValue01() throws Exception {
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertNull(new FieldChecks().extractValue(null, field));
     }
 
@@ -407,24 +407,24 @@ public class FieldChecksTest01 extends TestCase {
      * testExtractValue02()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:"test"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:"test"<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:"test"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:"test"<br>
      *
      * <br>
-     * ˆø”‚Ìbean‚ªStringŒ^‚Ìê‡Abean‚Ì’l‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanãŒStringå‹ã®å ´åˆã€beanã®å€¤ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExtractValue02() throws Exception {
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertEquals("test", new FieldChecks().extractValue("test", field));
     }
 
@@ -432,33 +432,33 @@ public class FieldChecksTest01 extends TestCase {
      * testExtractValue03()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:JavaBean {<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:JavaBean {<br>
      *                   field="testProperty"<br>
      *                }<br>
-     *         (ˆø”) field:property="field"<br>
+     *         (å¼•æ•°) field:property="field"<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:"testProperty"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:"testProperty"<br>
      *
      * <br>
-     * bean‚ÉAfield‚Ìproperty‘®«’l‚ÌƒtƒB[ƒ‹ƒh‚ª‘¶İ‚·‚éê‡A
-     * ‚»‚Ì’l‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * beanã«ã€fieldã®propertyå±æ€§å€¤ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ãŒå­˜åœ¨ã™ã‚‹å ´åˆã€
+     * ãã®å€¤ãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExtractValue03() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         FieldChecks_JavaBeanStub01 bean
             = new FieldChecks_JavaBeanStub01();
         field.setProperty("field");
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertEquals("testProperty", new FieldChecks().extractValue(bean, field));
     }
 
@@ -466,33 +466,33 @@ public class FieldChecksTest01 extends TestCase {
      * testExtractValue04()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:JavaBean {<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:JavaBean {<br>
      *                   field="testProperty"<br>
      *                }<br>
-     *         (ˆø”) field:property="field2"<br>
+     *         (å¼•æ•°) field:property="field2"<br>
      *
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:null<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:null<br>
      *
      * <br>
-     * bean‚ÉAfield‚Ìproperty‘®«’l‚ÌƒtƒB[ƒ‹ƒh‚ª‘¶İ‚µ‚È‚¢ê‡A
-     * null‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * beanã«ã€fieldã®propertyå±æ€§å€¤ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ãŒå­˜åœ¨ã—ãªã„å ´åˆã€
+     * nullãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExtractValue04() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         FieldChecks_JavaBeanStub01 bean
             = new FieldChecks_JavaBeanStub01();
         field.setProperty("field2");
 
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertNull(new FieldChecks().extractValue(bean, field));
     }
 
@@ -500,24 +500,24 @@ public class FieldChecksTest01 extends TestCase {
      * testExtractValue05()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:new Integer(12345)<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:new Integer(12345)<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:"12345"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:"12345"<br>
      *         
      * <br>
-     * ˆø”‚Ìbean‚ªNumberŒ^‚Ìê‡Abean‚Ì’l‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanãŒNumberå‹ã®å ´åˆã€beanã®å€¤ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExtractValue05() throws Exception {
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertEquals("12345", new FieldChecks().extractValue(new Integer(12345), field));
     }
 
@@ -525,24 +525,24 @@ public class FieldChecksTest01 extends TestCase {
      * testExtractValue06()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:new Boolean(true)<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:new Boolean(true)<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:"true"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:"true"<br>
      *         
      * <br>
-     * ˆø”‚Ìbean‚ªBooleanŒ^‚Ìê‡Abean‚Ì’l‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanãŒBooleanå‹ã®å ´åˆã€beanã®å€¤ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExtractValue06() throws Exception {
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertEquals("true", new FieldChecks().extractValue(new Boolean(true), field)); 
     }
 
@@ -550,24 +550,24 @@ public class FieldChecksTest01 extends TestCase {
      * testExtractValue07()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) bean:new Character('@')<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) bean:new Character('@')<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:"@"<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:"@"<br>
      *         
      * <br>
-     * ˆø”‚Ìbean‚ªCharacterŒ^‚Ìê‡Abean‚Ì’l‚ª•Ô‹p‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * å¼•æ•°ã®beanãŒCharacterå‹ã®å ´åˆã€beanã®å€¤ãŒè¿”å´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testExtractValue07() throws Exception {
-        // ƒeƒXƒgÀ{
-        // ”»’è
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
+        // åˆ¤å®š
         assertEquals("@", new FieldChecks().extractValue(new Character('@'), field)); 
     }
 
@@ -575,35 +575,35 @@ public class FieldChecksTest01 extends TestCase {
      * testRejectValue01()
      * <br><br>
      *
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FF
+     * è¦³ç‚¹ï¼šF
      * <br><br>
-     * “ü—Í’lF(ˆø”) errors:not null<br>
-     *         (ˆø”) field:not null<br>
-     *         (ˆø”) va:not null<br>
-     *         (ˆø”) bean:not null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) errors:not null<br>
+     *         (å¼•æ•°) field:not null<br>
+     *         (å¼•æ•°) va:not null<br>
+     *         (å¼•æ•°) bean:not null<br>
      *
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») errors:bean,field,va‚ğˆø”‚Æ‚µ‚Ä
-     * addErrors‚ªŒÄ‚Ño‚³‚ê‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) errors:bean,field,vaã‚’å¼•æ•°ã¨ã—ã¦
+     * addErrorsãŒå‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
      *
      * <br>
-     * bean,field,va‚ğˆø”‚Æ‚µ‚ÄaddErrors‚ªŒÄ‚Ño‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * bean,field,vaã‚’å¼•æ•°ã¨ã—ã¦addErrorsãŒå‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      *
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testRejectValue01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         FieldChecks_JavaBeanStub01 bean = new FieldChecks_JavaBeanStub01();
         FieldChecks_ValidationErrorsImpl01 errors =
             new FieldChecks_ValidationErrorsImpl01();
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         new FieldChecks().rejectValue(errors, field, va, bean);
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(1, errors.addErrorCount);
         assertSame(field, errors.fieldList.get(0));
         assertSame(va, errors.vaList.get(0));

@@ -19,23 +19,23 @@ package jp.terasoluna.fw.beans;
 import java.util.Map;
 
 /**
- * JavaBean‚Ì”z—ñEƒRƒŒƒNƒVƒ‡ƒ“Œ^‘®«‚Ö‚ÌƒAƒNƒZƒT‚ğ‚ÂƒCƒ“ƒ^ƒtƒF[ƒXB
+ * JavaBeanã®é…åˆ—ãƒ»ã‚³ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³å‹å±æ€§ã¸ã®ã‚¢ã‚¯ã‚»ã‚µã‚’æŒã¤ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã€‚
  * 
- * <p>{@link #getIndexedPropertyValues(String)}ƒƒ\ƒbƒh‚ÅA
- * ”z—ñŒ^‘®«‚ÉƒAƒNƒZƒX‚·‚éB
- * StringŒ^‚Ìˆø”‚ÉƒAƒNƒZƒX‚·‚éƒvƒƒpƒeƒB–¼‚ğw’è‚·‚é‚ÆA
- * ƒvƒƒpƒeƒB–¼‚Éˆê’v‚·‚é‘®«‚ğ‘S‚Äæ“¾‚·‚éB
- * –ß‚è’l‚ÍMapiƒL[‚ªƒvƒƒpƒeƒB–¼A’l‚ª‘®«’lj‚ª•Ô‚³‚ê‚éB
- * {@link #getIndexedPropertyValues(String)}ƒƒ\ƒbƒh‚ÍA”z—ñŒ^ˆÈŠO‚Å‚à
- * g—p‚ª‰Â”\‚Å‚ ‚éB</p>
+ * <p>{@link #getIndexedPropertyValues(String)}ãƒ¡ã‚½ãƒƒãƒ‰ã§ã€
+ * é…åˆ—å‹å±æ€§ã«ã‚¢ã‚¯ã‚»ã‚¹ã™ã‚‹ã€‚
+ * Stringå‹ã®å¼•æ•°ã«ã‚¢ã‚¯ã‚»ã‚¹ã™ã‚‹ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£åã‚’æŒ‡å®šã™ã‚‹ã¨ã€
+ * ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£åã«ä¸€è‡´ã™ã‚‹å±æ€§ã‚’å…¨ã¦å–å¾—ã™ã‚‹ã€‚
+ * æˆ»ã‚Šå€¤ã¯Mapï¼ˆã‚­ãƒ¼ãŒãƒ—ãƒ­ãƒ‘ãƒ†ã‚£åã€å€¤ãŒå±æ€§å€¤ï¼‰ãŒè¿”ã•ã‚Œã‚‹ã€‚
+ * {@link #getIndexedPropertyValues(String)}ãƒ¡ã‚½ãƒƒãƒ‰ã¯ã€é…åˆ—å‹ä»¥å¤–ã§ã‚‚
+ * ä½¿ç”¨ãŒå¯èƒ½ã§ã‚ã‚‹ã€‚</p>
  * 
- * <h5>”z—ñŒ^‘®«‚ÉƒAƒNƒZƒX‚·‚é—á</h5>
+ * <h5>é…åˆ—å‹å±æ€§ã«ã‚¢ã‚¯ã‚»ã‚¹ã™ã‚‹ä¾‹</h5>
  * <p>
  * <pre>
  * public class TestBean {
  *     private String[] stringArray;
  *     
- *     ¥¥¥iˆÈ‰ºAgetter/setter‚Í—ªj
+ *     ï½¥ï½¥ï½¥ï¼ˆä»¥ä¸‹ã€getter/setterã¯ç•¥ï¼‰
  * </pre>
  * <pre>
  * IndexedBeanWrapperImpl bw = new JXPathIndexedBeanWrapperImpl(bean);
@@ -43,20 +43,20 @@ import java.util.Map;
  * </pre>
  * </p>
  * 
- * <p>{@link #getIndexedPropertyValues(String)}ƒƒ\ƒbƒh‚ÅstringArray‘®«‚É
- * ƒAƒNƒZƒX‚·‚é‚ÆAstringArray[0]AstringArray[1]¥¥¥stringArray[n]‚Ü‚Å‚Ì
- * ƒvƒƒpƒeƒB–¼‚Æ‘®«’l‚ğMapŒ^‚É‚µ‚Ä•Ô‚·B
- * ˆø”‚É‚ÍhstringArray[0]h‚Ì‚æ‚¤‚ÉA’¼Ú—v‘f‚ğw’è‚·‚é•K—v‚Í‚È‚¢B</p>
+ * <p>{@link #getIndexedPropertyValues(String)}ãƒ¡ã‚½ãƒƒãƒ‰ã§stringArrayå±æ€§ã«
+ * ã‚¢ã‚¯ã‚»ã‚¹ã™ã‚‹ã¨ã€stringArray[0]ã€stringArray[1]ï½¥ï½¥ï½¥stringArray[n]ã¾ã§ã®
+ * ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£åã¨å±æ€§å€¤ã‚’Mapå‹ã«ã—ã¦è¿”ã™ã€‚
+ * å¼•æ•°ã«ã¯â€stringArray[0]â€ã®ã‚ˆã†ã«ã€ç›´æ¥è¦ç´ ã‚’æŒ‡å®šã™ã‚‹å¿…è¦ã¯ãªã„ã€‚</p>
  * 
  *
  */
 public interface IndexedBeanWrapper {
     /**
-     * w’è‚µ‚½ƒvƒƒpƒeƒB–¼‚Éˆê’v‚·‚é‘®«’l‚ğ•Ô‚·B
-     * æ“¾‚µ‚½ƒvƒƒpƒeƒB–¼‚ÍƒCƒ“ƒfƒbƒNƒX‚ğƒL[‚É¸‡‚Éƒ\[ƒg‚³‚ê‚Ä‚¢‚éB
-     * @param propertyName ƒvƒƒpƒeƒB–¼
-     * @return ƒvƒƒpƒeƒB–¼‚Éˆê’v‚·‚é‘®«’l‚ğŠi”[‚·‚éMap
-     * iƒvƒƒpƒeƒB–¼A‘®«’lj
+     * æŒ‡å®šã—ãŸãƒ—ãƒ­ãƒ‘ãƒ†ã‚£åã«ä¸€è‡´ã™ã‚‹å±æ€§å€¤ã‚’è¿”ã™ã€‚
+     * å–å¾—ã—ãŸãƒ—ãƒ­ãƒ‘ãƒ†ã‚£åã¯ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’ã‚­ãƒ¼ã«æ˜‡é †ã«ã‚½ãƒ¼ãƒˆã•ã‚Œã¦ã„ã‚‹ã€‚
+     * @param propertyName ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£å
+     * @return ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£åã«ä¸€è‡´ã™ã‚‹å±æ€§å€¤ã‚’æ ¼ç´ã™ã‚‹Map
+     * ï¼ˆãƒ—ãƒ­ãƒ‘ãƒ†ã‚£åã€å±æ€§å€¤ï¼‰
      */
     Map<String, Object> getIndexedPropertyValues(String propertyName);
 }

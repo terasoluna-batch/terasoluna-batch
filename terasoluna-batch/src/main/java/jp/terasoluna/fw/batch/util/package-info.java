@@ -1,4 +1,4 @@
 /**
- * ユーティリティ関連
+ * 繝ｦ繝ｼ繝�繧｣繝ｪ繝�繧｣髢｢騾｣
  */
 package jp.terasoluna.fw.batch.util;

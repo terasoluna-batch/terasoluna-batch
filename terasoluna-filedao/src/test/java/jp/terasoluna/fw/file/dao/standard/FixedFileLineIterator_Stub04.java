@@ -9,12 +9,12 @@ import jp.terasoluna.fw.file.annotation.StringConverterToUpperCase;
 import jp.terasoluna.fw.file.annotation.TrimType;
 
 /**
- * FileFormatƒAƒmƒe[ƒVƒ‡ƒ“‚Ìİ’è‚ğ‚ÂAƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgƒXƒ^ƒuƒNƒ‰ƒX
+ * FileFormatã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã®è¨­å®šã‚’æŒã¤ã€ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¹ã‚¿ãƒ–ã‚¯ãƒ©ã‚¹
  * <p>
- * ˆÈ‰º‚Ìİ’è‚ğ‚Â<br>
+ * ä»¥ä¸‹ã®è¨­å®šã‚’æŒã¤<br>
  * <ul>
  * <li>@FileFormat()
- * <li>‘®«
+ * <li>å±æ€§
  * <ul>
  * <li>@InputFileColumn(columnIndex = 0, bytes = 10, columnFormat = "yyyy/MM/dd") Date hiduke
  * </ul>
@@ -40,42 +40,42 @@ public class FixedFileLineIterator_Stub04 {
     private BigDecimal uriage = null;
 
     /**
-     * @return hiduke ‚ğ–ß‚µ‚Ü‚·B
+     * @return hiduke ã‚’æˆ»ã—ã¾ã™ã€‚
      */
     public Date getHiduke() {
         return hiduke;
     }
 
     /**
-     * @param hiduke İ’è‚·‚é hidukeB
+     * @param hiduke è¨­å®šã™ã‚‹ hidukeã€‚
      */
     public void setHiduke(Date hiduke) {
         this.hiduke = hiduke;
     }
 
     /**
-     * @return shopId ‚ğ–ß‚µ‚Ü‚·B
+     * @return shopId ã‚’æˆ»ã—ã¾ã™ã€‚
      */
     public String getShopId() {
         return shopId;
     }
 
     /**
-     * @param shopId İ’è‚·‚é shopIdB
+     * @param shopId è¨­å®šã™ã‚‹ shopIdã€‚
      */
     public void setShopId(String shopId) {
         this.shopId = shopId;
     }
 
     /**
-     * @return uriage ‚ğ–ß‚µ‚Ü‚·B
+     * @return uriage ã‚’æˆ»ã—ã¾ã™ã€‚
      */
     public BigDecimal getUriage() {
         return uriage;
     }
 
     /**
-     * @param uriage İ’è‚·‚é uriageB
+     * @param uriage è¨­å®šã™ã‚‹ uriageã€‚
      */
     public void setUriage(BigDecimal uriage) {
         this.uriage = uriage;

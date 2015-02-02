@@ -22,10 +22,10 @@ import jp.terasoluna.fw.file.dao.FileLineIterator;
 import jp.terasoluna.fw.file.dao.FileQueryDAO;
 
 /**
- * ƒtƒ@ƒCƒ‹“Çæ—p‚ÌFileLineIterator¶¬—p‚ÌƒNƒ‰ƒXB
+ * ãƒ•ã‚¡ã‚¤ãƒ«èª­å–ç”¨ã®FileLineIteratorç”Ÿæˆç”¨ã®ã‚¯ãƒ©ã‚¹ã€‚
  * <p>
- * ƒtƒ@ƒCƒ‹ƒAƒNƒZƒX(ƒf[ƒ^æ“¾)‚ğs‚¤3‚Â‚ÌƒNƒ‰ƒX(CSVAŒÅ’è’·A‰Â•Ï’·) ‚É‹¤’Ê‚·‚éˆ—‚ğ‚Ü‚Æ‚ß‚½’ŠÛƒNƒ‰ƒXB ƒtƒ@ƒCƒ‹‚Ìí—Ş‚É‘Î‰‚·‚éƒTƒuƒNƒ‰ƒX‚ªˆ—‚ğs‚¤B<br>
- * İ’è—á‚Í{@link jp.terasoluna.fw.file.dao.FileQueryDAO}‚ğQÆ‚Ì‚±‚ÆB
+ * ãƒ•ã‚¡ã‚¤ãƒ«ã‚¢ã‚¯ã‚»ã‚¹(ãƒ‡ãƒ¼ã‚¿å–å¾—)ã‚’è¡Œã†3ã¤ã®ã‚¯ãƒ©ã‚¹(CSVã€å›ºå®šé•·ã€å¯å¤‰é•·) ã«å…±é€šã™ã‚‹å‡¦ç†ã‚’ã¾ã¨ã‚ãŸæŠ½è±¡ã‚¯ãƒ©ã‚¹ã€‚ ãƒ•ã‚¡ã‚¤ãƒ«ã®ç¨®é¡ã«å¯¾å¿œã™ã‚‹ã‚µãƒ–ã‚¯ãƒ©ã‚¹ãŒå‡¦ç†ã‚’è¡Œã†ã€‚<br>
+ * è¨­å®šä¾‹ã¯{@link jp.terasoluna.fw.file.dao.FileQueryDAO}ã‚’å‚ç…§ã®ã“ã¨ã€‚
  * </p>
  * @see jp.terasoluna.fw.file.dao.FileQueryDAO
  * @see jp.terasoluna.fw.file.dao.standard.CSVFileQueryDAO
@@ -36,31 +36,31 @@ import jp.terasoluna.fw.file.dao.FileQueryDAO;
 public abstract class AbstractFileQueryDAO implements FileQueryDAO {
 
     /**
-     * ƒJƒ‰ƒ€ƒp[ƒT[‚ğŠi”[‚·‚éƒ}ƒbƒvB
+     * ã‚«ãƒ©ãƒ ãƒ‘ãƒ¼ã‚µãƒ¼ã‚’æ ¼ç´ã™ã‚‹ãƒãƒƒãƒ—ã€‚
      */
     private Map<String, ColumnParser> columnParserMap = null;
 
     /**
-     * ƒtƒ@ƒCƒ‹–¼‚ğw’è‚µ‚ÄA<code>FileLineIterator</code>‚ğæ“¾‚·‚éB
-     * @param <T> 1s•ª‚Ì•¶š—ñ‚ğŠi”[‚·‚éƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgƒNƒ‰ƒX
-     * @param fileName ƒtƒ@ƒCƒ‹–¼iâ‘ÎƒpƒX‚Ü‚½‚Í‘Š‘ÎƒpƒX‚Ì‚Ç‚¿‚ç‚©j
-     * @param clazz 1s•ª‚Ì•¶š—ñ‚ğŠi”[‚·‚éƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒgƒNƒ‰ƒX
-     * @return ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg¶¬—p‚ÌƒCƒeƒŒ[ƒ^
+     * ãƒ•ã‚¡ã‚¤ãƒ«åã‚’æŒ‡å®šã—ã¦ã€<code>FileLineIterator</code>ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @param <T> 1è¡Œåˆ†ã®æ–‡å­—åˆ—ã‚’æ ¼ç´ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¯ãƒ©ã‚¹
+     * @param fileName ãƒ•ã‚¡ã‚¤ãƒ«åï¼ˆçµ¶å¯¾ãƒ‘ã‚¹ã¾ãŸã¯ç›¸å¯¾ãƒ‘ã‚¹ã®ã©ã¡ã‚‰ã‹ï¼‰
+     * @param clazz 1è¡Œåˆ†ã®æ–‡å­—åˆ—ã‚’æ ¼ç´ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¯ãƒ©ã‚¹
+     * @return ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç”Ÿæˆç”¨ã®ã‚¤ãƒ†ãƒ¬ãƒ¼ã‚¿
      */
     public abstract <T> FileLineIterator<T> execute(String fileName,
             Class<T> clazz);
 
     /**
-     * ƒJƒ‰ƒ€ƒp[ƒT[‚ğŠi”[‚·‚éƒ}ƒbƒv‚ğæ“¾‚·‚éB
-     * @return ƒJƒ‰ƒ€ƒp[ƒT[‚ğŠi”[‚·‚éƒ}ƒbƒv
+     * ã‚«ãƒ©ãƒ ãƒ‘ãƒ¼ã‚µãƒ¼ã‚’æ ¼ç´ã™ã‚‹ãƒãƒƒãƒ—ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return ã‚«ãƒ©ãƒ ãƒ‘ãƒ¼ã‚µãƒ¼ã‚’æ ¼ç´ã™ã‚‹ãƒãƒƒãƒ—
      */
     protected Map<String, ColumnParser> getColumnParserMap() {
         return columnParserMap;
     }
 
     /**
-     * ƒJƒ‰ƒ€ƒp[ƒT[‚ğŠi”[‚·‚éƒ}ƒbƒv‚ğİ’è‚·‚éB
-     * @param columnParserMap ƒJƒ‰ƒ€ƒp[ƒT[‚ğŠi”[‚·‚éƒ}ƒbƒv
+     * ã‚«ãƒ©ãƒ ãƒ‘ãƒ¼ã‚µãƒ¼ã‚’æ ¼ç´ã™ã‚‹ãƒãƒƒãƒ—ã‚’è¨­å®šã™ã‚‹ã€‚
+     * @param columnParserMap ã‚«ãƒ©ãƒ ãƒ‘ãƒ¼ã‚µãƒ¼ã‚’æ ¼ç´ã™ã‚‹ãƒãƒƒãƒ—
      */
     public void setColumnParserMap(Map<String, ColumnParser> columnParserMap) {
         this.columnParserMap = columnParserMap;

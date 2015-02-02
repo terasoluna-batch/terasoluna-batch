@@ -1,5 +1,5 @@
 /**
- * 汎用例外パッケージ
+ * 豎守畑萓句､悶ヱ繝�繧ｱ繝ｼ繧ｸ
  */
 package jp.terasoluna.fw.exception;
 

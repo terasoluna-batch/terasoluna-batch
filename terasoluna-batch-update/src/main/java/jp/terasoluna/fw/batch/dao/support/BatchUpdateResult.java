@@ -17,35 +17,35 @@
 package jp.terasoluna.fw.batch.dao.support;
 
 /**
- * ƒoƒbƒ`XVÀsŒ‹‰ÊƒNƒ‰ƒX<br>
+ * ãƒãƒƒãƒæ›´æ–°å®Ÿè¡Œçµæœã‚¯ãƒ©ã‚¹<br>
  */
 public class BatchUpdateResult {
 
     /**
-     * ƒoƒbƒ`XVÀs‚Ég—p‚µ‚½ƒoƒbƒ`XVƒTƒ|[ƒg
+     * ãƒãƒƒãƒæ›´æ–°å®Ÿè¡Œã«ä½¿ç”¨ã—ãŸãƒãƒƒãƒæ›´æ–°ã‚µãƒãƒ¼ãƒˆ
      */
     private BatchUpdateSupport executeBatchUpdateSupport = null;
 
     /**
-     * ƒoƒbƒ`XVÀsŒ‹‰Ê.<br>
+     * ãƒãƒƒãƒæ›´æ–°å®Ÿè¡Œçµæœ.<br>
      */
     private Integer executeBatchResult = null;
 
     /**
-     * ƒoƒbƒ`XVÀs‚É”­¶‚µ‚½—áŠO.<br>
+     * ãƒãƒƒãƒæ›´æ–°å®Ÿè¡Œæ™‚ã«ç™ºç”Ÿã—ãŸä¾‹å¤–.<br>
      */
     private Throwable executeBatchException = null;
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      */
     public BatchUpdateResult() {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-     * @param executeBatchUpdateSupport BatchUpdateSupport XVÀs‚Ég—p‚µ‚½ƒoƒbƒ`XVƒTƒ|[ƒg
-     * @param executeBatchResult Integer ƒoƒbƒ`XVÀsŒ‹‰Ê
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+     * @param executeBatchUpdateSupport BatchUpdateSupport æ›´æ–°å®Ÿè¡Œã«ä½¿ç”¨ã—ãŸãƒãƒƒãƒæ›´æ–°ã‚µãƒãƒ¼ãƒˆ
+     * @param executeBatchResult Integer ãƒãƒƒãƒæ›´æ–°å®Ÿè¡Œçµæœ
      */
     public BatchUpdateResult(BatchUpdateSupport executeBatchUpdateSupport,
             Integer executeBatchResult) {
@@ -54,9 +54,9 @@ public class BatchUpdateResult {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-     * @param executeBatchUpdateSupport BatchUpdateSupport XVÀs‚Ég—p‚µ‚½ƒoƒbƒ`XVƒTƒ|[ƒg
-     * @param executeBatchException Throwable ƒoƒbƒ`XVÀs‚É”­¶‚µ‚½—áŠO
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+     * @param executeBatchUpdateSupport BatchUpdateSupport æ›´æ–°å®Ÿè¡Œã«ä½¿ç”¨ã—ãŸãƒãƒƒãƒæ›´æ–°ã‚µãƒãƒ¼ãƒˆ
+     * @param executeBatchException Throwable ãƒãƒƒãƒæ›´æ–°å®Ÿè¡Œæ™‚ã«ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public BatchUpdateResult(BatchUpdateSupport executeBatchUpdateSupport,
             Throwable executeBatchException) {
@@ -65,7 +65,7 @@ public class BatchUpdateResult {
     }
 
     /**
-     * ƒoƒbƒ`XVÀs‚Ég—p‚µ‚½ƒoƒbƒ`XVƒTƒ|[ƒg‚ğæ“¾‚·‚é.<br>
+     * ãƒãƒƒãƒæ›´æ–°å®Ÿè¡Œã«ä½¿ç”¨ã—ãŸãƒãƒƒãƒæ›´æ–°ã‚µãƒãƒ¼ãƒˆã‚’å–å¾—ã™ã‚‹.<br>
      * @return
      */
     public BatchUpdateSupport getExecuteBatchUpdateSupport() {
@@ -73,7 +73,7 @@ public class BatchUpdateResult {
     }
 
     /**
-     * ƒoƒbƒ`XVÀs‚Ég—p‚µ‚½ƒoƒbƒ`XVƒTƒ|[ƒg‚ğİ’è‚·‚é.<br>
+     * ãƒãƒƒãƒæ›´æ–°å®Ÿè¡Œã«ä½¿ç”¨ã—ãŸãƒãƒƒãƒæ›´æ–°ã‚µãƒãƒ¼ãƒˆã‚’è¨­å®šã™ã‚‹.<br>
      * @param executeBatchUpdateSupport
      */
     public void setExecuteBatchUpdateSupport(
@@ -82,7 +82,7 @@ public class BatchUpdateResult {
     }
 
     /**
-     * ƒoƒbƒ`XVÀsŒ‹‰Ê‚ğæ“¾‚·‚é.<br>
+     * ãƒãƒƒãƒæ›´æ–°å®Ÿè¡Œçµæœã‚’å–å¾—ã™ã‚‹.<br>
      * @return
      */
     public Integer getExecuteBatchResult() {
@@ -90,7 +90,7 @@ public class BatchUpdateResult {
     }
 
     /**
-     * ƒoƒbƒ`XVÀsŒ‹‰Ê‚ğİ’è‚·‚é.<br>
+     * ãƒãƒƒãƒæ›´æ–°å®Ÿè¡Œçµæœã‚’è¨­å®šã™ã‚‹.<br>
      * @param executeBatchResult
      */
     public void setExecuteBatchResult(Integer executeBatchResult) {
@@ -98,7 +98,7 @@ public class BatchUpdateResult {
     }
 
     /**
-     * ƒoƒbƒ`XVÀs‚É”­¶‚µ‚½—áŠO‚ğæ“¾‚·‚é.<br>
+     * ãƒãƒƒãƒæ›´æ–°å®Ÿè¡Œæ™‚ã«ç™ºç”Ÿã—ãŸä¾‹å¤–ã‚’å–å¾—ã™ã‚‹.<br>
      * @return
      */
     public Throwable getExecuteBatchException() {
@@ -106,7 +106,7 @@ public class BatchUpdateResult {
     }
 
     /**
-     * ƒoƒbƒ`XVÀs‚É”­¶‚µ‚½—áŠO‚ğİ’è‚·‚é.<br>
+     * ãƒãƒƒãƒæ›´æ–°å®Ÿè¡Œæ™‚ã«ç™ºç”Ÿã—ãŸä¾‹å¤–ã‚’è¨­å®šã™ã‚‹.<br>
      * @param executeBatchException
      */
     public void setExecuteBatchException(Throwable executeBatchException) {

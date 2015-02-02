@@ -18,27 +18,27 @@ package jp.terasoluna.fw.util;
 
 
 /**
- * TODO ƒRƒƒ“ƒg
+ * TODO ã‚³ãƒ¡ãƒ³ãƒˆ
  * 
- * TODO ŠÖ˜A‚·‚éƒNƒ‰ƒXi@seej
+ * TODO é–¢é€£ã™ã‚‹ã‚¯ãƒ©ã‚¹ï¼ˆ@seeï¼‰
  */
 public class ConvertUtil_Stub02 {
 
     protected String A = null;
 
     /**
-     * TODO ƒRƒƒ“ƒg
+     * TODO ã‚³ãƒ¡ãƒ³ãƒˆ
      * 
-     * @return a ‚ğ•Ô‚·B
+     * @return a ã‚’è¿”ã™ã€‚
      */
     public String getA() {
         throw new RuntimeException();
     }
 
     /**
-     * TODO ƒRƒƒ“ƒg
+     * TODO ã‚³ãƒ¡ãƒ³ãƒˆ
      * 
-     * @param a TODO ƒRƒƒ“ƒg
+     * @param a TODO ã‚³ãƒ¡ãƒ³ãƒˆ
      */
     public void setA(String a) {
         this.A = a;

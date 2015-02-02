@@ -26,33 +26,33 @@ import jp.terasoluna.fw.batch.util.JobUtil;
 import jp.terasoluna.fw.logger.TLogger;
 
 /**
- * “¯Šúƒoƒbƒ`ƒGƒOƒ[ƒLƒ…[ƒ^B<br>
+ * åŒæœŸãƒãƒƒãƒã‚¨ã‚°ã‚¼ã‚­ãƒ¥ãƒ¼ã‚¿ã€‚<br>
  * <p>
- * Žw’è‚ÌƒWƒ‡ƒu‹Æ–±‚ðŽÀs‚·‚é
+ * æŒ‡å®šã®ã‚¸ãƒ§ãƒ–æ¥­å‹™ã‚’å®Ÿè¡Œã™ã‚‹
  * </p>
  * @see jp.terasoluna.fw.batch.executor.AbstractBatchExecutor
  */
 public class SyncBatchExecutor extends AbstractBatchExecutor {
 
     /**
-     * ƒƒK[.
+     * ãƒ­ã‚¬ãƒ¼.
      */
     private static final TLogger LOGGER  = TLogger.getLogger(SyncBatchExecutor.class);
 
     /**
-     * ˆø”ƒpƒ‰ƒ[ƒ^‚ÌŠî–{•”•ª
+     * å¼•æ•°ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®åŸºæœ¬éƒ¨åˆ†
      */
     private static final String JOB_ARG_PARAM_BASE = "JobArgNm";
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      */
     protected SyncBatchExecutor() {
         super();
     }
 
     /**
-     * ƒƒCƒ“ƒƒ\ƒbƒh.
+     * ãƒ¡ã‚¤ãƒ³ãƒ¡ã‚½ãƒƒãƒ‰.
      * @param args
      */
     public static void main(String[] args) {
@@ -61,15 +61,15 @@ public class SyncBatchExecutor extends AbstractBatchExecutor {
 
         LOGGER.info(LogId.IAL025014);
 
-        // ƒWƒ‡ƒuƒŒƒR[ƒhƒf[ƒ^
+        // ã‚¸ãƒ§ãƒ–ãƒ¬ã‚³ãƒ¼ãƒ‰ãƒ‡ãƒ¼ã‚¿
         BatchJobData jobRecord = new BatchJobData();
 
-        // ‘æ‚Pˆø”‚©‚çƒWƒ‡ƒuƒV[ƒPƒ“ƒXƒR[ƒh‚ðŽæ“¾
+        // ç¬¬ï¼‘å¼•æ•°ã‹ã‚‰ã‚¸ãƒ§ãƒ–ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’å–å¾—
         if (args.length > 0) {
             jobAppCd = args[0];
         }
 
-        // ‘æ‚Qˆø”‚©‚ç‘æ‚Q‚Pˆø”‚Ü‚ÅAƒWƒ‡ƒu‚Ö‚Ìˆø”‚ðŽæ“¾
+        // ç¬¬ï¼’å¼•æ•°ã‹ã‚‰ç¬¬ï¼’ï¼‘å¼•æ•°ã¾ã§ã€ã‚¸ãƒ§ãƒ–ã¸ã®å¼•æ•°ã‚’å–å¾—
         for (int i = 1; i < args.length && i <= ENV_JOB_ARG_MAX; i++) {
             String arg = args[i];
             if (arg != null && arg.length() != 0) {
@@ -77,14 +77,14 @@ public class SyncBatchExecutor extends AbstractBatchExecutor {
             }
         }
 
-        // ˆø”‚ÉuƒWƒ‡ƒu‹Æ–±ƒR[ƒhv‚ªŽw’è‚³‚ê‚Ä‚¢‚È‚¯‚ê‚ÎAŠÂ‹«•Ï”‚©‚çŽæ“¾‚·‚é
+        // å¼•æ•°ã«ã€Œã‚¸ãƒ§ãƒ–æ¥­å‹™ã‚³ãƒ¼ãƒ‰ã€ãŒæŒ‡å®šã•ã‚Œã¦ã„ãªã‘ã‚Œã°ã€ç’°å¢ƒå¤‰æ•°ã‹ã‚‰å–å¾—ã™ã‚‹
         if (jobAppCd == null || jobAppCd.length() == 0) {
             jobAppCd = JobUtil.getenv(ENV_JOB_APP_CD);
         }
-        // ƒWƒ‡ƒu‹Æ–±ƒR[ƒh
+        // ã‚¸ãƒ§ãƒ–æ¥­å‹™ã‚³ãƒ¼ãƒ‰
         jobRecord.setJobAppCd(jobAppCd);
 
-        // ˆø”‚Éuˆø”1v`uˆø”20v‚ªŽw’è‚³‚ê‚Ä‚¢‚È‚¯‚ê‚ÎAŠÂ‹«•Ï”‚©‚çŽæ“¾‚·‚é
+        // å¼•æ•°ã«ã€Œå¼•æ•°1ã€ï½žã€Œå¼•æ•°20ã€ãŒæŒ‡å®šã•ã‚Œã¦ã„ãªã‘ã‚Œã°ã€ç’°å¢ƒå¤‰æ•°ã‹ã‚‰å–å¾—ã™ã‚‹
         StringBuilder envName = new StringBuilder();
         for (int i = 1; i <= ENV_JOB_ARG_MAX; i++) {
             String param = getParam(jobRecord, JOB_ARG_PARAM_BASE, i);
@@ -102,14 +102,14 @@ public class SyncBatchExecutor extends AbstractBatchExecutor {
             }
         }
 
-        // ƒWƒ‡ƒuƒV[ƒPƒ“ƒXƒR[ƒh
+        // ã‚¸ãƒ§ãƒ–ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã‚³ãƒ¼ãƒ‰
         jobRecord.setJobSequenceId(JobUtil.getenv(ENV_JOB_SEQ_ID));
-        // ‹Æ–±ƒXƒe[ƒ^ƒX
+        // æ¥­å‹™ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹
         jobRecord.setErrAppStatus(JobUtil.getenv(ENV_BLOGIC_APP_STATUS));
-        // ƒXƒe[ƒ^ƒX
+        // ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹
         jobRecord.setCurAppStatus(JobUtil.getenv(ENV_CUR_APP_STATUS));
 
-        // ƒoƒbƒ`ˆ—ŽÀs
+        // ãƒãƒƒãƒå‡¦ç†å®Ÿè¡Œ
         SyncBatchExecutor executor = new SyncBatchExecutor();
         result = executor.executeBatch(jobRecord);
 
@@ -122,7 +122,7 @@ public class SyncBatchExecutor extends AbstractBatchExecutor {
     }
 
     /**
-     * ƒpƒ‰ƒ[ƒ^‚ðŽæ“¾‚·‚é
+     * ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’å–å¾—ã™ã‚‹
      * @param obj
      * @param paramName
      * @param i
@@ -172,11 +172,11 @@ public class SyncBatchExecutor extends AbstractBatchExecutor {
     }
 
     /**
-     * ƒpƒ‰ƒ[ƒ^Ý’è
-     * @param obj ‘ÎÛƒIƒuƒWƒFƒNƒg
-     * @param paramName ƒpƒ‰ƒ[ƒ^–¼
+     * ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿è¨­å®š
+     * @param obj å¯¾è±¡ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param paramName ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å
      * @param i
-     * @param value Ý’è‚·‚é’l
+     * @param value è¨­å®šã™ã‚‹å€¤
      */
     private static void setParam(Object obj, String paramName, int i,
             String value) {

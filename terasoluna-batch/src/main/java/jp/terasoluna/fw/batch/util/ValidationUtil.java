@@ -28,23 +28,23 @@ import org.springframework.validation.ObjectError;
 import org.springframework.validation.Validator;
 
 /**
- * “ü—Íƒ`ƒFƒbƒNƒ†[ƒeƒBƒŠƒeƒBB<br>
+ * å…¥åŠ›ãƒã‚§ãƒƒã‚¯ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ã€‚<br>
  * <br>
- * ƒrƒWƒlƒXƒƒWƒbƒN’†‚É“ü—Íƒ`ƒFƒbƒNˆ—‚ğs‚¢‚½‚¢ê‡‚É—˜—p‚·‚éB
+ * ãƒ“ã‚¸ãƒã‚¹ãƒ­ã‚¸ãƒƒã‚¯ä¸­ã«å…¥åŠ›ãƒã‚§ãƒƒã‚¯å‡¦ç†ã‚’è¡Œã„ãŸã„å ´åˆã«åˆ©ç”¨ã™ã‚‹ã€‚
  */
 public class ValidationUtil {
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      */
     protected ValidationUtil() {
     }
 
     /**
-     * “ü—Íƒ`ƒFƒbƒN‚ğs‚¤
+     * å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†
      * @param validator Validator
-     * @param value ƒ`ƒFƒbƒN‘ÎÛƒIƒuƒWƒFƒNƒg
-     * @return “ü—Íƒ`ƒFƒbƒNŒ‹‰Ê
+     * @param value ãƒã‚§ãƒƒã‚¯å¯¾è±¡ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @return å…¥åŠ›ãƒã‚§ãƒƒã‚¯çµæœ
      */
     public static Errors validate(Validator validator, Object value) {
         String objectName = null;
@@ -67,7 +67,7 @@ public class ValidationUtil {
     }
 
     /**
-     * Errors‚©‚çFieldError‚ÌƒŠƒXƒg‚ğæ“¾‚·‚é
+     * Errorsã‹ã‚‰FieldErrorã®ãƒªã‚¹ãƒˆã‚’å–å¾—ã™ã‚‹
      * @param errors Errors
      * @return List<FieldError>
      */
@@ -86,7 +86,7 @@ public class ValidationUtil {
     }
 
     /**
-     * Errors‚©‚çObjectError‚ÌƒŠƒXƒg‚ğæ“¾‚·‚é
+     * Errorsã‹ã‚‰ObjectErrorã®ãƒªã‚¹ãƒˆã‚’å–å¾—ã™ã‚‹
      * @param errors Errors
      * @return List<ObjectError>
      */
@@ -105,7 +105,7 @@ public class ValidationUtil {
     }
 
     /**
-     * Errors‚©‚çDefaultMessageSourceResolvable‚ÌƒŠƒXƒg‚ğæ“¾‚·‚é
+     * Errorsã‹ã‚‰DefaultMessageSourceResolvableã®ãƒªã‚¹ãƒˆã‚’å–å¾—ã™ã‚‹
      * @param errors Errors
      * @return List<DefaultMessageSourceResolvable>
      */

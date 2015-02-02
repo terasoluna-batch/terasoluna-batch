@@ -22,135 +22,135 @@ import jp.terasoluna.fw.file.annotation.FileFormat;
 import jp.terasoluna.fw.file.dao.FileException;
 
 /**
- * ‰Â•Ï’·ƒtƒ@ƒCƒ‹—p‚Ìƒtƒ@ƒCƒ‹ƒAƒNƒZƒX(ƒf[ƒ^‘)ƒNƒ‰ƒXB
+ * å¯å¤‰é•·ãƒ•ã‚¡ã‚¤ãƒ«ç”¨ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚¢ã‚¯ã‚»ã‚¹(ãƒ‡ãƒ¼ã‚¿æ›¸è¾¼)ã‚¯ãƒ©ã‚¹ã€‚
  * <p>
- * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚©‚çƒf[ƒ^‚ğ“Ç‚İ‚İA1s•ª‚Ìƒf[ƒ^‚ğ‰Â•Ï’·Œ`®‚Å ƒtƒ@ƒCƒ‹‚É‘‚«‚ŞB
+ * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã‚‰ãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿è¾¼ã¿ã€1è¡Œåˆ†ã®ãƒ‡ãƒ¼ã‚¿ã‚’å¯å¤‰é•·å½¢å¼ã§ ãƒ•ã‚¡ã‚¤ãƒ«ã«æ›¸ãè¾¼ã‚€ã€‚
  * </p>
- * <b>¦—˜—p‚·‚éƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌƒAƒmƒe[ƒVƒ‡ƒ“€–Ú</b><br>
- * ú@D@{@link FileFormat}‚Ìİ’è€–Ú<br>
+ * <b>â€»åˆ©ç”¨ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³é …ç›®</b><br>
+ * â…°ï¼@{@link FileFormat}ã®è¨­å®šé …ç›®<br>
  * <div align="center">
  * <table width="90%" border="1" bgcolor="#FFFFFF">
  * <tr>
- * <td><b>˜_—€–Ú–¼</b></td>
- * <td><b>•¨—€–Ú–¼</b></td>
- * <td><b>ƒfƒtƒHƒ‹ƒg’l</b></td>
- * <td><b>•K{«</b></td>
+ * <td><b>è«–ç†é …ç›®å</b></td>
+ * <td><b>ç‰©ç†é …ç›®å</b></td>
+ * <td><b>ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤</b></td>
+ * <td><b>å¿…é ˆæ€§</b></td>
  * </tr>
  * <tr>
- * <td> <code>s‹æØ‚è•¶š</code></td>
+ * <td> <code>è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—</code></td>
  * <td> <code>lineFeedChar</code></td>
- * <td> <code>ƒVƒXƒeƒ€‚Ìs‹æØ‚è•¶š</code></td>
- * <td> <code>ƒIƒvƒVƒ‡ƒ“</code></td>
+ * <td> <code>ã‚·ã‚¹ãƒ†ãƒ ã®è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—</code></td>
+ * <td> <code>ã‚ªãƒ—ã‚·ãƒ§ãƒ³</code></td>
  * </tr>
  * <tr>
- * <td> <code>‹æØ‚è•¶š</code></td>
+ * <td> <code>åŒºåˆ‡ã‚Šæ–‡å­—</code></td>
  * <td> <code>delimiter</code></td>
  * <td> <code>','</code></td>
- * <td> <code>ƒIƒvƒVƒ‡ƒ“</code></td>
+ * <td> <code>ã‚ªãƒ—ã‚·ãƒ§ãƒ³</code></td>
  * </tr>
  * <tr>
- * <td> <code>ˆÍ‚İ•¶š</code></td>
+ * <td> <code>å›²ã¿æ–‡å­—</code></td>
  * <td> <code>encloseChar</code></td>
- * <td> <code>‚È‚µ('\u0000')</code></td>
- * <td> <code>ƒIƒvƒVƒ‡ƒ“</code></td>
+ * <td> <code>ãªã—('\u0000')</code></td>
+ * <td> <code>ã‚ªãƒ—ã‚·ãƒ§ãƒ³</code></td>
  * </tr>
  * <tr>
- * <td> <code>ƒtƒ@ƒCƒ‹ƒGƒ“ƒR[ƒfƒBƒ“ƒO</code></td>
+ * <td> <code>ãƒ•ã‚¡ã‚¤ãƒ«ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°</code></td>
  * <td> <code>fileEncodeing</code></td>
- * <td> <code>ƒVƒXƒeƒ€‚Ìƒtƒ@ƒCƒ‹ƒGƒ“ƒR[ƒfƒBƒ“ƒO</code></td>
- * <td> <code>ƒIƒvƒVƒ‡ƒ“</code></td>
+ * <td> <code>ã‚·ã‚¹ãƒ†ãƒ ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°</code></td>
+ * <td> <code>ã‚ªãƒ—ã‚·ãƒ§ãƒ³</code></td>
  * </tr>
  * <tr>
- * <td> <code>ƒtƒ@ƒCƒ‹ã‘‚«ƒtƒ‰ƒO</code></td>
+ * <td> <code>ãƒ•ã‚¡ã‚¤ãƒ«ä¸Šæ›¸ããƒ•ãƒ©ã‚°</code></td>
  * <td> <code>overWriteFlg</code></td>
  * <td> <code>false</code></td>
- * <td> <code>ƒIƒvƒVƒ‡ƒ“</code></td>
+ * <td> <code>ã‚ªãƒ—ã‚·ãƒ§ãƒ³</code></td>
  * </tr>
  * </table>
  * </div> <br>
- * úAD@{@link jp.terasoluna.fw.file.annotation.InputFileColumn}A@{@link jp.terasoluna.fw.file.annotation.OutputFileColumn}‚Ìİ’è€–Ú<br>
+ * â…±ï¼@{@link jp.terasoluna.fw.file.annotation.InputFileColumn}ã€@{@link jp.terasoluna.fw.file.annotation.OutputFileColumn}ã®è¨­å®šé …ç›®<br>
  * <div align="center">
  * <table width="90%" border="1" bgcolor="#FFFFFF">
  * <tr>
- * <td><b>˜_—€–Ú–¼</b></td>
- * <td><b>•¨—€–Ú–¼</b></td>
- * <td><b>ƒfƒtƒHƒ‹ƒg’l</b></td>
- * <td><b>•K{«</b></td>
+ * <td><b>è«–ç†é …ç›®å</b></td>
+ * <td><b>ç‰©ç†é …ç›®å</b></td>
+ * <td><b>ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤</b></td>
+ * <td><b>å¿…é ˆæ€§</b></td>
  * </tr>
  * <tr>
- * <td> <code>ƒJƒ‰ƒ€ƒCƒ“ƒfƒbƒNƒX</code></td>
+ * <td> <code>ã‚«ãƒ©ãƒ ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹</code></td>
  * <td> <code>columnIndex</code></td>
  * <td>-</td>
- * <td> <code>•K{</code></td>
+ * <td> <code>å¿…é ˆ</code></td>
  * </tr>
  * <tr>
- * <td> <code>ƒtƒH[ƒ}ƒbƒg</code></td>
+ * <td> <code>ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆ</code></td>
  * <td> <code>columnFormat</code></td>
  * <td> <code>""</code></td>
- * <td> <code>ƒIƒvƒVƒ‡ƒ“</code></td>
+ * <td> <code>ã‚ªãƒ—ã‚·ãƒ§ãƒ³</code></td>
  * </tr>
  * <tr>
- * <td> <code>ƒoƒCƒg’·</code></td>
+ * <td> <code>ãƒã‚¤ãƒˆé•·</code></td>
  * <td> <code>bytes</code></td>
  * <td> <code>-1</code></td>
- * <td> <code>ƒIƒvƒVƒ‡ƒ“</code></td>
+ * <td> <code>ã‚ªãƒ—ã‚·ãƒ§ãƒ³</code></td>
  * </tr>
  * <tr>
- * <td> <code>ƒpƒfƒBƒ“ƒOí•Ê</code></td>
+ * <td> <code>ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°ç¨®åˆ¥</code></td>
  * <td> <code>paddingType</code></td>
- * <td> <code>ƒpƒfƒBƒ“ƒO‚È‚µ</code></td>
- * <td> <code>ƒIƒvƒVƒ‡ƒ“</code></td>
+ * <td> <code>ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°ãªã—</code></td>
+ * <td> <code>ã‚ªãƒ—ã‚·ãƒ§ãƒ³</code></td>
  * </tr>
  * <tr>
- * <td> <code>ƒpƒfƒBƒ“ƒO•¶š</code></td>
+ * <td> <code>ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°æ–‡å­—</code></td>
  * <td> <code>paddingChar</code></td>
  * <td> <code>' '</code></td>
- * <td> <code>ƒIƒvƒVƒ‡ƒ“</code></td>
+ * <td> <code>ã‚ªãƒ—ã‚·ãƒ§ãƒ³</code></td>
  * </tr>
  * <tr>
- * <td> <code>ƒgƒŠƒ€í•Ê</code></td>
+ * <td> <code>ãƒˆãƒªãƒ ç¨®åˆ¥</code></td>
  * <td> <code>trimType</code></td>
- * <td> <code>ƒgƒŠƒ€‚È‚µ</code></td>
- * <td> <code>ƒIƒvƒVƒ‡ƒ“</code></td>
+ * <td> <code>ãƒˆãƒªãƒ ãªã—</code></td>
+ * <td> <code>ã‚ªãƒ—ã‚·ãƒ§ãƒ³</code></td>
  * </tr>
  * <tr>
- * <td> <code>ƒgƒŠƒ€•¶š</code></td>
+ * <td> <code>ãƒˆãƒªãƒ æ–‡å­—</code></td>
  * <td> <code>trimChar</code></td>
  * <td> <code>' '</code></td>
- * <td> <code>ƒIƒvƒVƒ‡ƒ“</code></td>
+ * <td> <code>ã‚ªãƒ—ã‚·ãƒ§ãƒ³</code></td>
  * </tr>
  * <tr>
- * <td> <code>•¶š•ÏŠ·í•Ê</code></td>
+ * <td> <code>æ–‡å­—å¤‰æ›ç¨®åˆ¥</code></td>
  * <td> <code>stringConverter</code></td>
  * <td> <code>NullStringConverter.class</code></td>
- * <td> <code>ƒIƒvƒVƒ‡ƒ“</code></td>
+ * <td> <code>ã‚ªãƒ—ã‚·ãƒ§ãƒ³</code></td>
  * </tr>
  * </table>
  * </div> <br>
- * <b>¦’ˆÓ–€</b><br>
+ * <b>â€»æ³¨æ„äº‹é …</b><br>
  * <ul>
- * @
- * <li>‹æØ‚è•¶š‚ÉCaracter.MIN_VALUE‚ğİ’è‚·‚é‚±‚Æ‚Ío—ˆ‚È‚¢B(ƒGƒ‰[”­¶)</li>
+ * ã€€
+ * <li>åŒºåˆ‡ã‚Šæ–‡å­—ã«Caracter.MIN_VALUEã‚’è¨­å®šã™ã‚‹ã“ã¨ã¯å‡ºæ¥ãªã„ã€‚(ã‚¨ãƒ©ãƒ¼ç™ºç”Ÿ)</li>
  * </ul>
- * @param <T> ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg
+ * @param <T> ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
  */
 public class VariableFileLineWriter<T> extends AbstractFileLineWriter<T> {
 
     /**
-     * ‹æØ‚è•¶šB‰Â•Ï’·ƒtƒ@ƒCƒ‹o—Í‚Ìê‡AƒfƒtƒHƒ‹ƒg‚Íu,(ƒJƒ“ƒ})vB
+     * åŒºåˆ‡ã‚Šæ–‡å­—ã€‚å¯å¤‰é•·ãƒ•ã‚¡ã‚¤ãƒ«å‡ºåŠ›ã®å ´åˆã€ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã¯ã€Œ,(ã‚«ãƒ³ãƒ)ã€ã€‚
      */
     private char delimiter = ',';
 
     /**
-     * ˆÍ‚İ•¶šB
+     * å›²ã¿æ–‡å­—ã€‚
      */
     private char encloseChar = Character.MIN_VALUE;
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-     * @param fileName ƒtƒ@ƒCƒ‹–¼
-     * @param clazz ƒpƒ‰ƒ[ƒ^ƒNƒ‰ƒX
-     * @param columnFormatterMap ƒeƒLƒXƒgæ“¾ƒ‹[ƒ‹
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * @param fileName ãƒ•ã‚¡ã‚¤ãƒ«å
+     * @param clazz ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚¯ãƒ©ã‚¹
+     * @param columnFormatterMap ãƒ†ã‚­ã‚¹ãƒˆå–å¾—ãƒ«ãƒ¼ãƒ«
      */
     public VariableFileLineWriter(String fileName, Class<T> clazz,
             Map<String, ColumnFormatter> columnFormatterMap) {
@@ -159,48 +159,48 @@ public class VariableFileLineWriter<T> extends AbstractFileLineWriter<T> {
 
         FileFormat fileFormat = clazz.getAnnotation(FileFormat.class);
 
-        // ‹æØ‚è•¶š‚ªCharacter.MIN_VALUE‚Ìê‡A—áŠO‚ğƒXƒ[‚·‚éB
+        // åŒºåˆ‡ã‚Šæ–‡å­—ãŒCharacter.MIN_VALUEã®å ´åˆã€ä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã€‚
         if (fileFormat.delimiter() == Character.MIN_VALUE) {
             throw new FileException("Delimiter can not use '\\u0000'.",
                     new IllegalStateException(), fileName);
         }
 
-        // ‰üs•¶š“à‚É‹æØ‚è•¶š‚ªŠÜ‚Ü‚ê‚Ä‚¢‚éê‡A—áŠO‚ğƒXƒ[‚·‚éB
+        // æ”¹è¡Œæ–‡å­—å†…ã«åŒºåˆ‡ã‚Šæ–‡å­—ãŒå«ã¾ã‚Œã¦ã„ã‚‹å ´åˆã€ä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã€‚
         if (fileFormat.lineFeedChar().indexOf(fileFormat.delimiter()) >= 0) {
             throw new FileException(
                     "delimiter is the same as lineFeedChar and is no use.",
                     new IllegalStateException(), fileName);
         }
 
-        // ‹æØ‚è•¶š‚ğİ’è‚·‚éB
+        // åŒºåˆ‡ã‚Šæ–‡å­—ã‚’è¨­å®šã™ã‚‹ã€‚
         delimiter = fileFormat.delimiter();
 
-        // ˆÍ‚İ•¶š‚ğİ’è‚·‚éB
+        // å›²ã¿æ–‡å­—ã‚’è¨­å®šã™ã‚‹ã€‚
         encloseChar = fileFormat.encloseChar();
 
-        // ‰Šú‰»ˆ—
+        // åˆæœŸåŒ–å‡¦ç†
         super.init();
     }
 
     /**
      * <p>
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚©‚çƒJƒ‰ƒ€ƒCƒ“ƒfƒbƒNƒX‚Æˆê’v‚·‚é‘®«‚Ì’l‚ğæ“¾‚·‚éB
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã‚‰ã‚«ãƒ©ãƒ ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã¨ä¸€è‡´ã™ã‚‹å±æ€§ã®å€¤ã‚’å–å¾—ã™ã‚‹ã€‚
      * </p>
      * <p>
-     * ˆÍ‚İ•¶š‚ªƒf[ƒ^’†‚É‚ ‚éê‡‚ÍA“¯ˆêˆÍ‚İ•¶š‚ğ•t‰Á‚µ‚ÄƒGƒXƒP[ƒv•¶š‚Æ‚·‚éB
+     * å›²ã¿æ–‡å­—ãŒãƒ‡ãƒ¼ã‚¿ä¸­ã«ã‚ã‚‹å ´åˆã¯ã€åŒä¸€å›²ã¿æ–‡å­—ã‚’ä»˜åŠ ã—ã¦ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—æ–‡å­—ã¨ã™ã‚‹ã€‚
      * </p>
-     * @param t ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg
-     * @param index ƒJƒ‰ƒ€‚ÌƒCƒ“ƒfƒbƒNƒX
-     * @return ƒJƒ‰ƒ€‚Ì•¶š—ñ
+     * @param t ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param index ã‚«ãƒ©ãƒ ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+     * @return ã‚«ãƒ©ãƒ ã®æ–‡å­—åˆ—
      */
     @Override
     protected String getColumn(T t, int index) {
         String columnString = super.getColumn(t, index);
-        // ƒGƒXƒP[ƒvˆ—
+        // ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—å‡¦ç†
         if (getColumnEncloseChar()[index] == Character.MIN_VALUE) {
             return columnString;
         } else {
-            // ƒGƒXƒP[ƒv•ÒW—pƒf[ƒ^
+            // ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—ç·¨é›†ç”¨ãƒ‡ãƒ¼ã‚¿
             StringBuilder builder = new StringBuilder();
             for (int i = 0; i < columnString.length(); i++) {
                 char columnChar = columnString.charAt(i);
@@ -214,8 +214,8 @@ public class VariableFileLineWriter<T> extends AbstractFileLineWriter<T> {
     }
 
     /**
-     * ‹æØ‚è•¶š‚ğæ“¾‚·‚éB
-     * @return ‹æØ‚è•¶š
+     * åŒºåˆ‡ã‚Šæ–‡å­—ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return åŒºåˆ‡ã‚Šæ–‡å­—
      */
     public char getDelimiter() {
 
@@ -223,8 +223,8 @@ public class VariableFileLineWriter<T> extends AbstractFileLineWriter<T> {
     }
 
     /**
-     * ˆÍ‚İ•¶š‚ğæ“¾‚·‚éB
-     * @return ˆÍ‚İ•¶š
+     * å›²ã¿æ–‡å­—ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return å›²ã¿æ–‡å­—
      */
     public char getEncloseChar() {
 

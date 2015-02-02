@@ -20,25 +20,25 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 /**
- * ƒp[ƒX‚ðs‚í‚È‚È‚¢ƒJƒ‰ƒ€ƒp[ƒT[ƒNƒ‰ƒXB
+ * ãƒ‘ãƒ¼ã‚¹ã‚’è¡Œã‚ãªãªã„ã‚«ãƒ©ãƒ ãƒ‘ãƒ¼ã‚µãƒ¼ã‚¯ãƒ©ã‚¹ã€‚
  * <p>
- * •ÏŠ·Œ‹‰Ê‚ðƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌStringŒ^‚Ì‘®«‚É’l‚ðŠi”[‚·‚éB
+ * å¤‰æ›çµæžœã‚’ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®Stringåž‹ã®å±žæ€§ã«å€¤ã‚’æ ¼ç´ã™ã‚‹ã€‚
  * </p>
  * <p>
- * ƒtƒH[ƒ}ƒbƒg•¶Žš—ñ‚ÍA–³Ž‹‚³‚ê‚éB
+ * ãƒ•ã‚©ãƒ¼ãƒžãƒƒãƒˆæ–‡å­—åˆ—ã¯ã€ç„¡è¦–ã•ã‚Œã‚‹ã€‚
  * </p>
  */
 public class NullColumnParser implements ColumnParser {
 
     /**
-     * Žw’è‚³‚ê‚½•¶Žš—ñ‚ð‚»‚Ì‚Ü‚Üƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÉŠi”[‚·‚éB
-     * @param column ƒJƒ‰ƒ€‚Ì•¶Žš—ñ
-     * @param t ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg
-     * @param method ƒJƒ‰ƒ€‚Ì•¶Žš—ñ‚ðƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÉŠi”[‚·‚éƒƒ\ƒbƒh
-     * @param columnFormat ƒp[ƒX‚·‚éÛ‚ÌƒtƒH[ƒ}ƒbƒg•¶Žš—ñ
-     * @throws IllegalArgumentException ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚Ìsetterƒƒ\ƒbƒh‚ÌƒAƒNƒZƒX‚ÉŽ¸”s‚µ‚½‚Æ‚«
-     * @throws IllegalAccessException ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚Ö‚ÌÝ’è‚ªŽ¸”s‚µ‚½‚Æ‚«
-     * @throws InvocationTargetException ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚Ìƒƒ\ƒbƒh‚ª—áŠO‚ðƒXƒ[‚µ‚½‚Æ‚«
+     * æŒ‡å®šã•ã‚ŒãŸæ–‡å­—åˆ—ã‚’ãã®ã¾ã¾ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«æ ¼ç´ã™ã‚‹ã€‚
+     * @param column ã‚«ãƒ©ãƒ ã®æ–‡å­—åˆ—
+     * @param t ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param method ã‚«ãƒ©ãƒ ã®æ–‡å­—åˆ—ã‚’ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«æ ¼ç´ã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰
+     * @param columnFormat ãƒ‘ãƒ¼ã‚¹ã™ã‚‹éš›ã®ãƒ•ã‚©ãƒ¼ãƒžãƒƒãƒˆæ–‡å­—åˆ—
+     * @throws IllegalArgumentException ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®setterãƒ¡ã‚½ãƒƒãƒ‰ã®ã‚¢ã‚¯ã‚»ã‚¹ã«å¤±æ•—ã—ãŸã¨ã
+     * @throws IllegalAccessException ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¸ã®è¨­å®šãŒå¤±æ•—ã—ãŸã¨ã
+     * @throws InvocationTargetException ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ãƒ¡ã‚½ãƒƒãƒ‰ãŒä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã—ãŸã¨ã
      */
     public void parse(String column, Object t, Method method,
             String columnFormat) throws IllegalArgumentException,

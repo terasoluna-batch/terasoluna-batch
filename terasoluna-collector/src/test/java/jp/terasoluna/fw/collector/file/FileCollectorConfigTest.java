@@ -55,7 +55,7 @@ public class FileCollectorConfigTest {
 
     /**
      * {@link jp.terasoluna.fw.collector.file.FileCollectorConfig#FileCollectorConfig(jp.terasoluna.fw.file.dao.FileQueryDAO, java.lang.String, java.lang.Class)}
-     * ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     @SuppressWarnings("unchecked")
     @Test
@@ -64,7 +64,7 @@ public class FileCollectorConfigTest {
         String fileName = null;
         Class clazz = null;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         FileCollectorConfig config = new FileCollectorConfig(fileQueryDAO,
                 fileName, clazz);
 
@@ -73,7 +73,7 @@ public class FileCollectorConfigTest {
 
     /**
      * {@link jp.terasoluna.fw.collector.file.FileCollectorConfig#FileCollectorConfig(jp.terasoluna.fw.file.dao.FileQueryDAO, java.lang.String, java.lang.Class)}
-     * ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     @SuppressWarnings("unchecked")
     @Test
@@ -87,7 +87,7 @@ public class FileCollectorConfigTest {
         String fileName = "hoge";
         Class clazz = B000001Data.class;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         FileCollectorConfig config = new FileCollectorConfig(fileQueryDAO,
                 fileName, clazz);
 
@@ -98,7 +98,7 @@ public class FileCollectorConfigTest {
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.file.FileCollectorConfig#addQueueSize(int)} ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * {@link jp.terasoluna.fw.collector.file.FileCollectorConfig#addQueueSize(int)} ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     @SuppressWarnings("unchecked")
     @Test
@@ -117,7 +117,7 @@ public class FileCollectorConfigTest {
 
         int queueSize = 987;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         config.addQueueSize(queueSize);
 
         assertNotNull(config);
@@ -129,7 +129,7 @@ public class FileCollectorConfigTest {
 
     /**
      * {@link jp.terasoluna.fw.collector.file.FileCollectorConfig#addExceptionHandler(jp.terasoluna.fw.collector.exception.CollectorExceptionHandler)}
-     * ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     @SuppressWarnings("unchecked")
     @Test
@@ -153,7 +153,7 @@ public class FileCollectorConfigTest {
             }
         };
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         config.addExceptionHandler(exceptionHandler);
 
         assertNotNull(config);
@@ -165,7 +165,7 @@ public class FileCollectorConfigTest {
 
     /**
      * {@link jp.terasoluna.fw.collector.file.FileCollectorConfig#addValidator(org.springframework.validation.Validator)}
-     * ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     @SuppressWarnings("unchecked")
     @Test
@@ -191,7 +191,7 @@ public class FileCollectorConfigTest {
             }
         };
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         config.addValidator(validator);
 
         assertNotNull(config);
@@ -203,7 +203,7 @@ public class FileCollectorConfigTest {
 
     /**
      * {@link jp.terasoluna.fw.collector.file.FileCollectorConfig#addValidationErrorHandler(jp.terasoluna.fw.collector.validate.ValidationErrorHandler)}
-     * ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     @SuppressWarnings("unchecked")
     @Test
@@ -227,7 +227,7 @@ public class FileCollectorConfigTest {
             }
         };
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         config.addValidationErrorHandler(validationErrorHandler);
 
         assertNotNull(config);
@@ -238,7 +238,7 @@ public class FileCollectorConfigTest {
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.file.FileCollectorConfig#addExecuteByConstructor(boolean)} ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * {@link jp.terasoluna.fw.collector.file.FileCollectorConfig#addExecuteByConstructor(boolean)} ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     @SuppressWarnings("unchecked")
     @Test
@@ -257,7 +257,7 @@ public class FileCollectorConfigTest {
 
         boolean executeByConstructor = true;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         config.addExecuteByConstructor(executeByConstructor);
 
         assertNotNull(config);
@@ -268,7 +268,7 @@ public class FileCollectorConfigTest {
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.file.FileCollectorConfig#getFileQueryDAO()} ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * {@link jp.terasoluna.fw.collector.file.FileCollectorConfig#getFileQueryDAO()} ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     @SuppressWarnings("unchecked")
     @Test
@@ -285,7 +285,7 @@ public class FileCollectorConfigTest {
         FileCollectorConfig config = new FileCollectorConfig(fileQueryDAO,
                 fileName, clazz);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         FileQueryDAO result = config.getFileQueryDAO();
 
         assertNotNull(result);
@@ -294,7 +294,7 @@ public class FileCollectorConfigTest {
 
     /**
      * {@link jp.terasoluna.fw.collector.file.FileCollectorConfig#setFileQueryDAO(jp.terasoluna.fw.file.dao.FileQueryDAO)}
-     * ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     @SuppressWarnings("unchecked")
     @Test
@@ -317,7 +317,7 @@ public class FileCollectorConfigTest {
         FileCollectorConfig config = new FileCollectorConfig(fileQueryDAO,
                 fileName, clazz);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         config.setFileQueryDAO(fileQueryDAO2);
 
         assertNotNull(config.getFileQueryDAO());
@@ -325,7 +325,7 @@ public class FileCollectorConfigTest {
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.file.FileCollectorConfig#getFileName()} ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * {@link jp.terasoluna.fw.collector.file.FileCollectorConfig#getFileName()} ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     @SuppressWarnings("unchecked")
     @Test
@@ -342,7 +342,7 @@ public class FileCollectorConfigTest {
         FileCollectorConfig config = new FileCollectorConfig(fileQueryDAO,
                 fileName, clazz);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         String result = config.getFileName();
 
         assertNotNull(result);
@@ -350,7 +350,7 @@ public class FileCollectorConfigTest {
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.file.FileCollectorConfig#setFileName(java.lang.String)} ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * {@link jp.terasoluna.fw.collector.file.FileCollectorConfig#setFileName(java.lang.String)} ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     @SuppressWarnings("unchecked")
     @Test
@@ -369,7 +369,7 @@ public class FileCollectorConfigTest {
         FileCollectorConfig config = new FileCollectorConfig(fileQueryDAO,
                 fileName, clazz);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         config.setFileName(fileName2);
 
         assertNotNull(config.getFileName());
@@ -377,7 +377,7 @@ public class FileCollectorConfigTest {
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.file.FileCollectorConfig#getClazz()} ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * {@link jp.terasoluna.fw.collector.file.FileCollectorConfig#getClazz()} ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     @SuppressWarnings("unchecked")
     @Test
@@ -394,7 +394,7 @@ public class FileCollectorConfigTest {
         FileCollectorConfig config = new FileCollectorConfig(fileQueryDAO,
                 fileName, clazz);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         Class result = config.getClazz();
 
         assertNotNull(result);
@@ -402,7 +402,7 @@ public class FileCollectorConfigTest {
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.file.FileCollectorConfig#setClazz(java.lang.Class)} ‚Ì‚½‚ß‚ÌƒeƒXƒgEƒƒ\ƒbƒhB
+     * {@link jp.terasoluna.fw.collector.file.FileCollectorConfig#setClazz(java.lang.Class)} ã®ãŸã‚ã®ãƒ†ã‚¹ãƒˆãƒ»ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      */
     @SuppressWarnings("unchecked")
     @Test
@@ -421,7 +421,7 @@ public class FileCollectorConfigTest {
         FileCollectorConfig config = new FileCollectorConfig(fileQueryDAO,
                 fileName, clazz);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         config.setClazz(clazz2);
 
         assertNotNull(config.getClazz());

@@ -22,17 +22,17 @@ import org.springframework.aop.framework.Advised;
 import org.springframework.aop.support.AopUtils;
 
 /**
- *  ƒvƒƒLƒVŠÖ˜A‚Ìƒ†[ƒeƒBƒŠƒeƒBƒNƒ‰ƒXB
+ *  ãƒ—ãƒ­ã‚­ã‚·é–¢é€£ã®ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ã‚¯ãƒ©ã‚¹ã€‚
  *
  */
 public class ProxyUtil {
     /**
-     * ƒvƒƒLƒV‚Ìƒ^[ƒQƒbƒgƒNƒ‰ƒX‚ğæ“¾‚·‚éB
-     * @param proxy ƒvƒƒLƒVƒIƒuƒWƒFƒNƒgB
-     * @return w’è‚µ‚½ƒvƒƒLƒV‚Ìƒ^[ƒQƒbƒgƒNƒ‰ƒXB
+     * ãƒ—ãƒ­ã‚­ã‚·ã®ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã‚¯ãƒ©ã‚¹ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @param proxy ãƒ—ãƒ­ã‚­ã‚·ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
+     * @return æŒ‡å®šã—ãŸãƒ—ãƒ­ã‚­ã‚·ã®ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã‚¯ãƒ©ã‚¹ã€‚
      */
     public static Class getTargetClass(Object proxy) {
-        // Nullƒ`ƒFƒbƒN
+        // Nullãƒã‚§ãƒƒã‚¯
         if (proxy == null) {
             throw new IllegalArgumentException("Proxy object is null.");
         }
@@ -40,7 +40,7 @@ public class ProxyUtil {
             return proxy.getClass().getSuperclass();
         }
         if (proxy instanceof Advised) {
-            // æ“¾‚µ‚½ƒ^[ƒQƒbƒg‚ªƒvƒƒLƒV‚Ìê‡AƒlƒXƒg‚µ‚½ƒ^[ƒQƒbƒg‚ğæ“¾‚·‚é
+            // å–å¾—ã—ãŸã‚¿ãƒ¼ã‚²ãƒƒãƒˆãŒãƒ—ãƒ­ã‚­ã‚·ã®å ´åˆã€ãƒã‚¹ãƒˆã—ãŸã‚¿ãƒ¼ã‚²ãƒƒãƒˆã‚’å–å¾—ã™ã‚‹
             do {
                 proxy = getAdvisedTarget((Advised) proxy);
             } while (Proxy.isProxyClass(proxy.getClass()));
@@ -48,16 +48,16 @@ public class ProxyUtil {
         return proxy.getClass();
     }
     /**
-     * ƒvƒƒLƒV‚Ìƒ^[ƒQƒbƒg‚ğæ“¾‚·‚éB
-     * @param advised ƒIƒuƒWƒFƒNƒgB
-     * @return w’è‚µ‚½ƒvƒƒLƒV‚Ìƒ^[ƒQƒbƒgƒIƒuƒWƒFƒNƒgB
+     * ãƒ—ãƒ­ã‚­ã‚·ã®ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã‚’å–å¾—ã™ã‚‹ã€‚
+     * @param advised ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
+     * @return æŒ‡å®šã—ãŸãƒ—ãƒ­ã‚­ã‚·ã®ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
      * @throws CannotGetTargetException 
      */
     private static Object getAdvisedTarget(Advised advised) {
         try {
             return advised.getTargetSource().getTarget();
         } catch (Exception e) {
-            // ƒ^[ƒQƒbƒg‚ªæ“¾‚Å‚«‚È‚©‚Á‚½ê‡‚Ì—áŠOˆ—B
+            // ã‚¿ãƒ¼ã‚²ãƒƒãƒˆãŒå–å¾—ã§ããªã‹ã£ãŸå ´åˆã®ä¾‹å¤–å‡¦ç†ã€‚
             throw new CannotGetTargetException(e);
         }
     }

@@ -20,29 +20,29 @@ import java.util.Locale;
 import jp.terasoluna.fw.logger.TLogger;
 
 /**
- * ”Ä—p—áŠOƒNƒ‰ƒX
+ * æ±ç”¨ä¾‹å¤–ã‚¯ãƒ©ã‚¹
  * 
  * <p>
- * ƒƒbƒZ[ƒW‚ÌŠÇ—•û–@‚Í{@link TLogger}‚Æ“¯—l‚Å‚·B<br>
- * ‚½‚¾‚µAİ’èƒtƒ@ƒCƒ‹‚ª<code>META-INF/terasoluna-logger.properties</code>‚Å‚Í‚È‚­A <code>META-INF/terasoluna-exception.properties</code>‚É‚È‚è‚Ü‚·B
+ * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®ç®¡ç†æ–¹æ³•ã¯{@link TLogger}ã¨åŒæ§˜ã§ã™ã€‚<br>
+ * ãŸã ã—ã€è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ãŒ<code>META-INF/terasoluna-logger.properties</code>ã§ã¯ãªãã€ <code>META-INF/terasoluna-exception.properties</code>ã«ãªã‚Šã¾ã™ã€‚
  * </p>
  */
 @SuppressWarnings("serial")
 public class TException extends Exception {
     /**
-     * ƒƒbƒZ[ƒWID
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ID
      */
     private final String messageId;
     /**
-     * ’uŠ·ƒpƒ‰ƒ[ƒ^
+     * ç½®æ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     private final Object[] args;
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      * 
-     * @param messageId ƒƒbƒZ[ƒWID
-     * @param args ’uŠ·ƒpƒ‰ƒ[ƒ^
+     * @param messageId ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ID
+     * @param args ç½®æ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public TException(String messageId, Object... args) {
         super(getMessage(messageId, ExceptionConfig.getLocale(), args));
@@ -51,11 +51,11 @@ public class TException extends Exception {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      * 
-     * @param messageId ƒƒbƒZ[ƒWId
-     * @param cause ‹Nˆö—áŠO
-     * @param args ’uŠ·ƒpƒ‰ƒ[ƒ^
+     * @param messageId ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸Id
+     * @param cause èµ·å› ä¾‹å¤–
+     * @param args ç½®æ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public TException(String messageId, Throwable cause, Object... args) {
         super(getMessage(messageId, ExceptionConfig.getLocale(), args), cause);
@@ -64,12 +64,12 @@ public class TException extends Exception {
     }
 
     /**
-     * ƒƒbƒZ[ƒW‚ğæ“¾‚µ‚Ü‚·B
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * @param messageId ƒƒbƒZ[ƒWID
-     * @param locale ƒƒP[ƒ‹
-     * @param args ’uŠ·ƒpƒ‰ƒ[ƒ^
-     * @return ƒƒbƒZ[ƒW
+     * @param messageId ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ID
+     * @param locale ãƒ­ã‚±ãƒ¼ãƒ«
+     * @param args ç½®æ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
+     * @return ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
      */
     protected static String getMessage(String messageId, Locale locale,
             Object... args) {
@@ -78,18 +78,18 @@ public class TException extends Exception {
     }
 
     /**
-     * ƒƒbƒZ[ƒWID‚ğæ“¾‚µ‚Ü‚·
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸IDã‚’å–å¾—ã—ã¾ã™
      * 
-     * @return ƒƒbƒZ[ƒWID
+     * @return ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ID
      */
     public String getMessageId() {
         return messageId;
     }
 
     /**
-     * ’uŠ·ƒpƒ‰ƒ[ƒ^‚ğæ“¾‚µ‚Ü‚·B
+     * ç½®æ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * @return ’uŠ·ƒpƒ‰ƒ[ƒ^
+     * @return ç½®æ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public Object[] getArgs() {
         return args;

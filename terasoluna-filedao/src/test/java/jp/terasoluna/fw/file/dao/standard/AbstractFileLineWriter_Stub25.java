@@ -4,20 +4,20 @@ import jp.terasoluna.fw.file.annotation.FileFormat;
 import jp.terasoluna.fw.file.annotation.OutputFileColumn;
 
 /**
- * AbstractFileLineWriter‚ÌŒ±‚Å—˜—p‚·‚éƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌƒXƒ^ƒuƒNƒ‰ƒXB<br>
+ * AbstractFileLineWriterã®è©¦é¨“ã§åˆ©ç”¨ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¹ã‚¿ãƒ–ã‚¯ãƒ©ã‚¹ã€‚<br>
  * <br>
- * ˆÈ‰º‚Ì@FileFormat‚Ìİ’è‚ğ‚Â<br>
+ * ä»¥ä¸‹ã®@FileFormatã®è¨­å®šã‚’æŒã¤<br>
  * <ul>
- * <li>‘S€–ÚFƒfƒtƒHƒ‹ƒg’l</li>
+ * <li>å…¨é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤</li>
  * </ul>
  * <br>
- * <code>@OutputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
+ * <code>@OutputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
  * <ul>
- * <li>ƒtƒB[ƒ‹ƒhFString column1
- *     <code>@OutputFileColumn</code>İ’è<br>
- * > columnIndexF0<br>
- * > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l</li> </ul> ŠeƒtƒB[ƒ‹ƒh‚Ìgetter/setterƒƒ\ƒbƒh‚ğ‚½‚È‚¢B
- * @author æâ•î“O
+ * <li>ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column1
+ *     <code>@OutputFileColumn</code>è¨­å®š<br>
+ * > columnIndexï¼š0<br>
+ * > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤</li> </ul> å„ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®getter/setterãƒ¡ã‚½ãƒƒãƒ‰ã‚’æŒãŸãªã„ã€‚
+ * @author è¶™ä¿¸å¾¹
  */
 @FileFormat()
 public class AbstractFileLineWriter_Stub25 {

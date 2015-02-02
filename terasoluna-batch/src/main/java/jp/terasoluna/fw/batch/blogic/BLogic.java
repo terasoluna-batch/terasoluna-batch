@@ -19,15 +19,15 @@ package jp.terasoluna.fw.batch.blogic;
 import jp.terasoluna.fw.batch.blogic.vo.BLogicParam;
 
 /**
- * ƒrƒWƒlƒXƒƒWƒbƒNƒCƒ“ƒ^ƒtƒF[ƒXB<br>
+ * ãƒ“ã‚¸ãƒã‚¹ãƒ­ã‚¸ãƒƒã‚¯ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã€‚<br>
  * <br>
- * ”CˆÓ‚Éƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“‚ğŠÇ—‚µ‚½‚¢ê‡‚ÌBLogicƒCƒ“ƒ^ƒtƒF[ƒX‚ğÀ‘•‚·‚é‚±‚ÆB<br>
+ * ä»»æ„ã«ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã‚’ç®¡ç†ã—ãŸã„å ´åˆã®BLogicã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã‚’å®Ÿè£…ã™ã‚‹ã“ã¨ã€‚<br>
  */
 public interface BLogic {
     /**
-     * ƒoƒbƒ`ˆ—Àsƒƒ\ƒbƒh.
+     * ãƒãƒƒãƒå‡¦ç†å®Ÿè¡Œãƒ¡ã‚½ãƒƒãƒ‰.
      * @param param BLogocParam
-     * @return I—¹ƒtƒ‰ƒO
+     * @return çµ‚äº†ãƒ•ãƒ©ã‚°
      */
     int execute(BLogicParam param);
 }

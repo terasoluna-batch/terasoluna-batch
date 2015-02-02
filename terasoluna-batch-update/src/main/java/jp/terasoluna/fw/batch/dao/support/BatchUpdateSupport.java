@@ -23,185 +23,185 @@ import jp.terasoluna.fw.dao.SqlHolder;
 import jp.terasoluna.fw.dao.UpdateDAO;
 
 /**
- * �o�b�`�X�V�T�|�[�g�C���^�t�F�[�X<br>
+ * バッチ更新サポートインタフェース<br>
  * <p>
- * �{�N���X�̃��\�b�h���s�O��sort���\�b�h�����s���Ă���ꍇ�A<br>
- * �������̓R���X�g���N�^����s���\�b�h�Ȃǂ�Comparator��n�����ꍇ�́A<br>
- * �\�[�g���ɕ��ёւ�����B<br>
+ * 本クラスのメソッド実行前にsortメソッドを実行している場合、<br>
+ * もしくはコンストラクタや実行メソッドなどでComparatorを渡した場合は、<br>
+ * ソート順に並び替えられる。<br>
  * </p>
  * @see UpdateDAO
  */
 public interface BatchUpdateSupport {
-    /** UpdateDAO��null�̂Ƃ��̃G���[�X�e�[�^�X */
+    /** UpdateDAOがnullのときのエラーステータス */
     int ERROR_UPDATE_DAO_IS_NULL = -100;
 
-    /** sqlIdOrder�Ɏw�肳��Ă��Ȃ�SQL-ID���w�肳��Ă���Ƃ��̃G���[�X�e�[�^�X */
+    /** sqlIdOrderに指定されていないSQL-IDが指定されているときのエラーステータス */
     int ERROR_UNKNOWN_SQL_ID = -200;
 
     /**
-     * �o�b�`���s�pSQL��ǉ�����B<br>
+     * バッチ実行用SQLを追加する。<br>
      * @param sqlID String
      * @param bindParams Object
      */
     void addBatch(final String sqlID, final Object bindParams);
 
     /**
-     * �o�b�`���s���s���B<br>
+     * バッチ実行を行う。<br>
      * <p>
-     * �o�b�`���s�����������ꍇ�́A�ێ����Ă���o�b�`���sSQL���X�g�̍폜���s���B
+     * バッチ実行が成功した場合は、保持しているバッチ実行SQLリストの削除を行う。
      * </p>
      * <p>
-     * �{���\�b�h�Ŏ��s����ꍇ�́A�R���X�g���N�^������UpdateDAO��n���Ă������ƁB<br>
-     * UpdateDAO���R���X�g���N�^�����œn����Ă��Ȃ��ꍇ�́A-100���ԋp�����B
+     * 本メソッドで実行する場合は、コンストラクタ引数でUpdateDAOを渡しておくこと。<br>
+     * UpdateDAOがコンストラクタ引数で渡されていない場合は、-100が返却される。
      * </p>
-     * @return SQL�̎��s����
+     * @return SQLの実行結果
      * @see UpdateDAO
      */
     int executeBatch();
 
     /**
-     * �o�b�`���s���s���B<br>
+     * バッチ実行を行う。<br>
      * <p>
-     * �o�b�`���s�����������ꍇ�́A�ێ����Ă���o�b�`���sSQL���X�g�̍폜���s���B
+     * バッチ実行が成功した場合は、保持しているバッチ実行SQLリストの削除を行う。
      * </p>
      * <p>
-     * �{���\�b�h�Ŏ��s����ꍇ�́A�R���X�g���N�^�����œn���ꂽUpdateDAO�͎g�p����Ȃ��B<br>
-     * UpdateDAO��null�̏ꍇ�́A-100���ԋp�����B
+     * 本メソッドで実行する場合は、コンストラクタ引数で渡されたUpdateDAOは使用されない。<br>
+     * UpdateDAOがnullの場合は、-100が返却される。
      * </p>
      * @param updateDAO UpdateDAO
-     * @return SQL�̎��s����
+     * @return SQLの実行結果
      * @see UpdateDAO
      */
     int executeBatch(UpdateDAO updateDAO);
 
     /**
-     * �o�b�`���s���s���B<br>
+     * バッチ実行を行う。<br>
      * <p>
-     * �o�b�`���s�����������ꍇ�́A�ێ����Ă���o�b�`���sSQL���X�g�̍폜���s���B
+     * バッチ実行が成功した場合は、保持しているバッチ実行SQLリストの削除を行う。
      * </p>
      * <p>
-     * �{���\�b�h�Ŏ��s����ꍇ�́A�R���X�g���N�^�����œn���ꂽUpdateDAO�͎g�p����Ȃ��B<br>
-     * UpdateDAO��null�̏ꍇ�́A-100���ԋp�����B
+     * 本メソッドで実行する場合は、コンストラクタ引数で渡されたUpdateDAOは使用されない。<br>
+     * UpdateDAOがnullの場合は、-100が返却される。
      * </p>
      * <p>
-     * Comparator��n�����Ƃɂ��SQL���s���������𐧌�ł���B<br>
-     * ��Comparator��n�����ꍇ�͕K���\�[�g���s����BComparator�̑召���f�Ɋ�Â��A�����Ń\�[�g���s����B
+     * Comparatorを渡すことによりSQL実行順序順序を制御できる。<br>
+     * ※Comparatorを渡した場合は必ずソートが行われる。Comparatorの大小判断に基づき、昇順でソートが行われる。
      * </p>
      * @param updateDAO UpdateDAO
      * @param comparator Comparator&lt;String&gt;
-     * @return SQL�̎��s����
+     * @return SQLの実行結果
      * @see UpdateDAO
      */
     int executeBatch(UpdateDAO updateDAO, Comparator<String> comparator);
 
     /**
-     * �o�b�`���s���s���B<br>
+     * バッチ実行を行う。<br>
      * <p>
-     * �o�b�`���s�����������ꍇ�́A�ێ����Ă���o�b�`���sSQL���X�g�̍폜���s���B
+     * バッチ実行が成功した場合は、保持しているバッチ実行SQLリストの削除を行う。
      * </p>
      * <p>
-     * �{���\�b�h�Ŏ��s����ꍇ�́A�R���X�g���N�^�����œn���ꂽUpdateDAO�͎g�p����Ȃ��B<br>
-     * UpdateDAO��null�̏ꍇ�́A-100���ԋp�����B
+     * 本メソッドで実行する場合は、コンストラクタ引数で渡されたUpdateDAOは使用されない。<br>
+     * UpdateDAOがnullの場合は、-100が返却される。
      * </p>
      * <p>
-     * �������ȍ~�Ɏ��s����SQL-ID�����Ԃɐݒ肷�邱�Ƃɂ��SQL���s�����𐧌�ł���B<br>
-     * sqlIdOrder��SQL-ID���w�肵���ꍇ�́A�K�����̏��Ԃ�SQL�����s�����B<br>
-     * �܂��A���̍ۂ�sqlIdOrder�Ɏw�肳��Ă��Ȃ�SQL-ID�����݂����ꍇ�͎��s���ꂸ��-200���ԋp�����B<br>
+     * 第二引数以降に実行するSQL-IDを順番に設定することによりSQL実行順序を制御できる。<br>
+     * sqlIdOrderにSQL-IDを指定した場合は、必ずその順番でSQLが実行される。<br>
+     * また、その際はsqlIdOrderに指定されていないSQL-IDが存在した場合は実行されずに-200が返却される。<br>
      * </p>
      * @param updateDAO UpdateDAO
-     * @param sqlIdOrder SQL-ID�̎��s�������w�肷��
-     * @return SQL�̎��s����
+     * @param sqlIdOrder SQL-IDの実行順序を指定する
+     * @return SQLの実行結果
      * @see UpdateDAO
      */
     int executeBatch(UpdateDAO updateDAO, String... sqlIdOrder);
 
     /**
-     * �o�b�`���sSQL���X�g�̃\�[�g���s���B<br>
+     * バッチ実行SQLリストのソートを行う。<br>
      * <p>
-     * executeBatch��getSqlHolderList�����s����O�ɖ{���\�b�h�����s���邱�ƂŁA<br>
-     * SQL�̎��s������SQL-ID�̏����ɕ��ёւ��邱�Ƃ��ł���B
+     * executeBatchやgetSqlHolderListを実行する前に本メソッドを実行することで、<br>
+     * SQLの実行順序をSQL-IDの昇順に並び替えることができる。
      * </p>
      * <p>
-     * ���{���\�b�h���s�^�C�~���O�Ŏ��ۂɓ����Ń\�[�g���s���邩�ǂ����͋K�肵�Ȃ�
+     * ※本メソッド実行タイミングで実際に内部でソートが行われるかどうかは規定しない
      * </p>
      */
     void sort();
 
     /**
-     * �o�b�`���sSQL���X�g�̃\�[�g���s���B<br>
+     * バッチ実行SQLリストのソートを行う。<br>
      * <p>
-     * executeBatch��getSqlHolderList�����s����O�ɖ{���\�b�h�����s���邱�ƂŁA<br>
-     * SQL�̎��s������Comparator�ɏ]���ĕ��ёւ��邱�Ƃ��ł���B
+     * executeBatchやgetSqlHolderListを実行する前に本メソッドを実行することで、<br>
+     * SQLの実行順序をComparatorに従って並び替えることができる。
      * </p>
      * <p>
-     * Comparator��n�����Ƃɂ��SQL�̕��ёւ������𐧌�ł���B<br>
-     * �i��Comparator��n�����ꍇ�͕K���\�[�g���s����BComparator�̑召���f�Ɋ�Â��A�����Ń\�[�g���s����B�j
+     * Comparatorを渡すことによりSQLの並び替え順序を制御できる。<br>
+     * （※Comparatorを渡した場合は必ずソートが行われる。Comparatorの大小判断に基づき、昇順でソートが行われる。）
      * </p>
      * <p>
-     * ���{���\�b�h���s�^�C�~���O�Ŏ��ۂɓ����Ń\�[�g���s���邩�ǂ����͋K�肵�Ȃ�
+     * ※本メソッド実行タイミングで実際に内部でソートが行われるかどうかは規定しない
      * </p>
      * @param comparator Comparator&lt;String&gt;
      */
     void sort(Comparator<String> comparator);
 
     /**
-     * �o�b�`���sSQL���X�g�̓��e���폜����B<br>
+     * バッチ実行SQLリストの内容を削除する。<br>
      * <p>
-     * �ێ����Ă���o�b�`���sSQL���X�g�̍폜���s���B
+     * 保持しているバッチ実行SQLリストの削除を行う。
      * </p>
      */
     void clear();
 
     /**
-     * �o�b�`���sSQL���X�g�̓o�^�������擾����B<br>
-     * @return �o�b�`���sSQL���X�g�̓o�^����
+     * バッチ実行SQLリストの登録件数を取得する。<br>
+     * @return バッチ実行SQLリストの登録件数
      */
     long size();
 
     /**
-     * SQL-ID�Ő��񂳂ꂽSqlHolder���X�g���擾����B<br>
+     * SQL-IDで整列されたSqlHolderリストを取得する。<br>
      * <p>
-     * �ێ����Ă���o�b�`���sSQL���X�g��SQL-ID���ɐ��񂵂����X�g��ԋp����B
+     * 保持しているバッチ実行SQLリストをSQL-ID順に整列したリストを返却する。
      * </p>
      * <p>
-     * ���{���\�b�h�����s���Ă��ێ����Ă���o�b�`���sSQL���X�g�͍폜����Ȃ��B
+     * ※本メソッドを実行しても保持しているバッチ実行SQLリストは削除されない。
      * </p>
-     * @return SqlHolder���X�g
+     * @return SqlHolderリスト
      */
     List<SqlHolder> getSqlHolderList();
 
     /**
-     * SQL-ID�Ő��񂳂ꂽSqlHolder���X�g���擾����B<br>
+     * SQL-IDで整列されたSqlHolderリストを取得する。<br>
      * <p>
-     * �ێ����Ă���o�b�`���sSQL���X�g��SQL-ID���ɐ��񂵂����X�g��ԋp����B
+     * 保持しているバッチ実行SQLリストをSQL-ID順に整列したリストを返却する。
      * </p>
      * <p>
-     * ���{���\�b�h�����s���Ă��ێ����Ă���o�b�`���sSQL���X�g�͍폜����Ȃ��B
+     * ※本メソッドを実行しても保持しているバッチ実行SQLリストは削除されない。
      * </p>
      * <p>
-     * Comparator��n�����Ƃɂ��SQL�̕��ёւ������𐧌�ł���B<br>
-     * ��Comparator��n�����ꍇ�͕K���\�[�g���s����BComparator�̑召���f�Ɋ�Â��A�����Ń\�[�g���s����B
+     * Comparatorを渡すことによりSQLの並び替え順序を制御できる。<br>
+     * ※Comparatorを渡した場合は必ずソートが行われる。Comparatorの大小判断に基づき、昇順でソートが行われる。
      * </p>
      * @param comparator Comparator&lt;String&gt;
-     * @return SqlHolder���X�g
+     * @return SqlHolderリスト
      */
     List<SqlHolder> getSqlHolderList(Comparator<String> comparator);
 
     /**
-     * SQL-ID�Ő��񂳂ꂽSqlHolder���X�g���擾����B<br>
+     * SQL-IDで整列されたSqlHolderリストを取得する。<br>
      * <p>
-     * �ێ����Ă���o�b�`���sSQL���X�g��SQL-ID���ɐ��񂵂����X�g��ԋp����B
+     * 保持しているバッチ実行SQLリストをSQL-ID順に整列したリストを返却する。
      * </p>
      * <p>
-     * ���{���\�b�h�����s���Ă��ێ����Ă���o�b�`���sSQL���X�g�͍폜����Ȃ��B
+     * ※本メソッドを実行しても保持しているバッチ実行SQLリストは削除されない。
      * </p>
      * <p>
-     * ���s����SQL-ID�����Ԃɐݒ肷�邱�Ƃɂ��擾��SqlHolder���X�g�̏����𐧌�ł���B<br>
-     * sqlIdOrder��SQL-ID���w�肵���ꍇ�́A�K�����̏��Ԃ�SQL�����ёւ�����B<br>
-     * �܂��A���̍ۂ�sqlIdOrder�Ɏw�肳��Ă��Ȃ�SQL-ID�����݂����ꍇ��null���ԋp�����B<br>
+     * 実行するSQL-IDを順番に設定することにより取得すSqlHolderリストの順序を制御できる。<br>
+     * sqlIdOrderにSQL-IDを指定した場合は、必ずその順番でSQLが並び替えられる。<br>
+     * また、その際はsqlIdOrderに指定されていないSQL-IDが存在した場合はnullが返却される。<br>
      * </p>
-     * @param sqlIdOrder SQL-ID�̎��s�������w�肷��
-     * @return SqlHolder���X�g
+     * @param sqlIdOrder SQL-IDの実行順序を指定する
+     * @return SqlHolderリスト
      */
     List<SqlHolder> getSqlHolderList(String... sqlIdOrder);
 

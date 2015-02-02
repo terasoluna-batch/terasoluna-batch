@@ -18,47 +18,47 @@ package jp.terasoluna.fw.exception;
 
 
 /**
- * ƒtƒŒ[ƒ€ƒ[ƒN‚©‚ç”­¶‚·‚é”Ä—p—áŠOƒNƒ‰ƒXB
+ * ãƒ•ãƒ¬ãƒ¼ãƒ ãƒ¯ãƒ¼ã‚¯ã‹ã‚‰ç™ºç”Ÿã™ã‚‹æ±ç”¨ä¾‹å¤–ã‚¯ãƒ©ã‚¹ã€‚
  *
  * <p>
- * ˆ—‚Ì‘±s‚ª¢“ï‚Èê‡‚ÉƒtƒŒ[ƒ€ƒ[ƒN‚©‚ç”­¶‚·‚é—áŠOƒNƒ‰ƒXB<br>
- * –{ƒNƒ‰ƒX‚É‚ÍƒƒbƒZ[ƒWƒL[‚ÆƒƒbƒZ[ƒW’uŠ·•¶š—ñ‚ğİ’è‚·‚é‚±‚Æ‚ª‚Å‚«‚éB
- * ’A‚µAƒƒbƒZ[ƒWæ“¾A‹y‚ÑƒvƒŒ[ƒXƒzƒ‹ƒ_‚Ì’uŠ·‚Í•Ê‚ÌƒNƒ‰ƒX‚ÅÀs‚µA
- * Ä“x {@link #setMessage(String)} ‚ğÀs‚µ‚ÄƒƒbƒZ[ƒW‚ğİ’è‚·‚é•K—v‚ª‚ ‚éB
- * ƒƒbƒZ[ƒW‚ªİ’è‚³‚ê‚Ä‚¢‚È‚¢ó‘Ô‚ÅA{@link #getMessage()}
- * ƒƒ\ƒbƒh‚ğ—p‚¢‚ÄƒƒbƒZ[ƒW‚ğæ“¾‚·‚é‚ÆƒƒbƒZ[ƒWƒL[‚ª•Ô‹p‚³‚ê‚éB
- * ]‚Á‚ÄAƒƒbƒZ[ƒW’uŠ·‚ªs‚¦‚È‚¢‚æ‚¤‚Èó‹µ‚Å–{ƒNƒ‰ƒX‚ğg—p‚·‚éê‡‚ÍA
- * ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌerrorCode‚ÉAƒƒbƒZ[ƒWƒL[‚Å‚Í‚È‚­ƒGƒ‰[ƒR[ƒh‚â
- * ƒGƒ‰[ƒƒbƒZ[ƒW‚ğ’¼Úİ’è‚·‚é‚±‚ÆB
+ * å‡¦ç†ã®ç¶šè¡ŒãŒå›°é›£ãªå ´åˆã«ãƒ•ãƒ¬ãƒ¼ãƒ ãƒ¯ãƒ¼ã‚¯ã‹ã‚‰ç™ºç”Ÿã™ã‚‹ä¾‹å¤–ã‚¯ãƒ©ã‚¹ã€‚<br>
+ * æœ¬ã‚¯ãƒ©ã‚¹ã«ã¯ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚­ãƒ¼ã¨ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ç½®æ›æ–‡å­—åˆ—ã‚’è¨­å®šã™ã‚‹ã“ã¨ãŒã§ãã‚‹ã€‚
+ * ä½†ã—ã€ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸å–å¾—ã€åŠã³ãƒ—ãƒ¬ãƒ¼ã‚¹ãƒ›ãƒ«ãƒ€ã®ç½®æ›ã¯åˆ¥ã®ã‚¯ãƒ©ã‚¹ã§å®Ÿè¡Œã—ã€
+ * å†åº¦ {@link #setMessage(String)} ã‚’å®Ÿè¡Œã—ã¦ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’è¨­å®šã™ã‚‹å¿…è¦ãŒã‚ã‚‹ã€‚
+ * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒè¨­å®šã•ã‚Œã¦ã„ãªã„çŠ¶æ…‹ã§ã€{@link #getMessage()}
+ * ãƒ¡ã‚½ãƒƒãƒ‰ã‚’ç”¨ã„ã¦ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å–å¾—ã™ã‚‹ã¨ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚­ãƒ¼ãŒè¿”å´ã•ã‚Œã‚‹ã€‚
+ * å¾“ã£ã¦ã€ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ç½®æ›ãŒè¡Œãˆãªã„ã‚ˆã†ãªçŠ¶æ³ã§æœ¬ã‚¯ãƒ©ã‚¹ã‚’ä½¿ç”¨ã™ã‚‹å ´åˆã¯ã€
+ * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®errorCodeã«ã€ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚­ãƒ¼ã§ã¯ãªãã‚¨ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰ã‚„
+ * ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’ç›´æ¥è¨­å®šã™ã‚‹ã“ã¨ã€‚
  * </p>
  *
  */
 public class SystemException extends RuntimeException {
 
     /**
-     * ƒVƒŠƒAƒ‹ƒo[ƒWƒ‡ƒ“IDB
+     * ã‚·ãƒªã‚¢ãƒ«ãƒãƒ¼ã‚¸ãƒ§ãƒ³IDã€‚
      */
     private static final long serialVersionUID = -3348737638719112576L;
 
     /**
-     * ƒGƒ‰[ƒR[ƒhB
+     * ã‚¨ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰ã€‚
      */
     private String errorCode = null;
 
     /**
-     * ƒGƒ‰[ƒƒbƒZ[ƒW‚Ì’uŠ·•¶š—ñB
+     * ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®ç½®æ›æ–‡å­—åˆ—ã€‚
      */
     private String[] options = null;
 
     /**
-     * ƒGƒ‰[ƒƒbƒZ[ƒWB
+     * ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã€‚
      */
     private String message = null;
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      *
-     * @param cause Œ´ˆö‚Æ‚È‚Á‚½—áŠO
+     * @param cause åŸå› ã¨ãªã£ãŸä¾‹å¤–
      */
     public SystemException(Throwable cause) {
         super(cause);
@@ -66,10 +66,10 @@ public class SystemException extends RuntimeException {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      *
-     * @param cause Œ´ˆö‚Æ‚È‚Á‚½—áŠO
-     * @param errorCode ƒGƒ‰[ƒR[ƒh
+     * @param cause åŸå› ã¨ãªã£ãŸä¾‹å¤–
+     * @param errorCode ã‚¨ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰
      */
     public SystemException(Throwable cause,
                             String errorCode) {
@@ -78,11 +78,11 @@ public class SystemException extends RuntimeException {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      *
-     * @param cause Œ´ˆö‚Æ‚È‚Á‚½—áŠO
-     * @param errorCode ƒGƒ‰[ƒR[ƒh
-     * @param optionStrings ƒƒbƒZ[ƒW’†‚Ì{n}‚ğ’uŠ·‚·‚é•¶š—ñ‚Ì”z—ñ
+     * @param cause åŸå› ã¨ãªã£ãŸä¾‹å¤–
+     * @param errorCode ã‚¨ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰
+     * @param optionStrings ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ä¸­ã®{n}ã‚’ç½®æ›ã™ã‚‹æ–‡å­—åˆ—ã®é…åˆ—
      */
     public SystemException(Throwable cause,
                             String errorCode,
@@ -93,11 +93,11 @@ public class SystemException extends RuntimeException {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      *
-     * @param cause Œ´ˆö‚Æ‚È‚Á‚½—áŠO
-     * @param errorCode ƒGƒ‰[ƒR[ƒh
-     * @param s0 ƒGƒ‰[ƒƒbƒZ[ƒW’†‚Ì{0}‚ğ’uŠ·‚·‚é•¶š—ñ
+     * @param cause åŸå› ã¨ãªã£ãŸä¾‹å¤–
+     * @param errorCode ã‚¨ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰
+     * @param s0 ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ä¸­ã®{0}ã‚’ç½®æ›ã™ã‚‹æ–‡å­—åˆ—
      */
     public SystemException(Throwable cause,
                             String errorCode,
@@ -108,12 +108,12 @@ public class SystemException extends RuntimeException {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      *
-     * @param cause Œ´ˆö‚Æ‚È‚Á‚½—áŠO
-     * @param errorCode ƒGƒ‰[ƒR[ƒh
-     * @param s0 ƒGƒ‰[ƒƒbƒZ[ƒW’†‚Ì{0}‚ğ’uŠ·‚·‚é•¶š—ñ
-     * @param s1 ƒGƒ‰[ƒƒbƒZ[ƒW’†‚Ì{1}‚ğ’uŠ·‚·‚é•¶š—ñ
+     * @param cause åŸå› ã¨ãªã£ãŸä¾‹å¤–
+     * @param errorCode ã‚¨ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰
+     * @param s0 ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ä¸­ã®{0}ã‚’ç½®æ›ã™ã‚‹æ–‡å­—åˆ—
+     * @param s1 ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ä¸­ã®{1}ã‚’ç½®æ›ã™ã‚‹æ–‡å­—åˆ—
      */
     public SystemException(Throwable cause,
                             String errorCode,
@@ -125,13 +125,13 @@ public class SystemException extends RuntimeException {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      *
-     * @param cause Œ´ˆö‚Æ‚È‚Á‚½—áŠO
-     * @param errorCode ƒGƒ‰[ƒR[ƒh
-     * @param s0 ƒGƒ‰[ƒƒbƒZ[ƒW’†‚Ì{0}‚ğ’uŠ·‚·‚é•¶š—ñ
-     * @param s1 ƒGƒ‰[ƒƒbƒZ[ƒW’†‚Ì{1}‚ğ’uŠ·‚·‚é•¶š—ñ
-     * @param s2 ƒGƒ‰[ƒƒbƒZ[ƒW’†‚Ì{2}‚ğ’uŠ·‚·‚é•¶š—ñ
+     * @param cause åŸå› ã¨ãªã£ãŸä¾‹å¤–
+     * @param errorCode ã‚¨ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰
+     * @param s0 ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ä¸­ã®{0}ã‚’ç½®æ›ã™ã‚‹æ–‡å­—åˆ—
+     * @param s1 ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ä¸­ã®{1}ã‚’ç½®æ›ã™ã‚‹æ–‡å­—åˆ—
+     * @param s2 ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ä¸­ã®{2}ã‚’ç½®æ›ã™ã‚‹æ–‡å­—åˆ—
      */
     public SystemException(Throwable cause,
                             String errorCode,
@@ -144,14 +144,14 @@ public class SystemException extends RuntimeException {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      *
-     * @param cause Œ´ˆö‚Æ‚È‚Á‚½—áŠO
-     * @param errorCode ƒGƒ‰[ƒR[ƒh
-     * @param s0 ƒGƒ‰[ƒƒbƒZ[ƒW’†‚Ì{0}‚ğ’uŠ·‚·‚é•¶š—ñ
-     * @param s1 ƒGƒ‰[ƒƒbƒZ[ƒW’†‚Ì{1}‚ğ’uŠ·‚·‚é•¶š—ñ
-     * @param s2 ƒGƒ‰[ƒƒbƒZ[ƒW’†‚Ì{2}‚ğ’uŠ·‚·‚é•¶š—ñ
-     * @param s3 ƒGƒ‰[ƒƒbƒZ[ƒW’†‚Ì{3}‚ğ’uŠ·‚·‚é•¶š—ñ
+     * @param cause åŸå› ã¨ãªã£ãŸä¾‹å¤–
+     * @param errorCode ã‚¨ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰
+     * @param s0 ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ä¸­ã®{0}ã‚’ç½®æ›ã™ã‚‹æ–‡å­—åˆ—
+     * @param s1 ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ä¸­ã®{1}ã‚’ç½®æ›ã™ã‚‹æ–‡å­—åˆ—
+     * @param s2 ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ä¸­ã®{2}ã‚’ç½®æ›ã™ã‚‹æ–‡å­—åˆ—
+     * @param s3 ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ä¸­ã®{3}ã‚’ç½®æ›ã™ã‚‹æ–‡å­—åˆ—
      */
     public SystemException(Throwable cause,
                             String errorCode,
@@ -165,39 +165,39 @@ public class SystemException extends RuntimeException {
     }
 
     /**
-     * ƒGƒ‰[ƒR[ƒh‚ğæ“¾‚·‚éB
+     * ã‚¨ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰ã‚’å–å¾—ã™ã‚‹ã€‚
      *
-     * @return ƒGƒ‰[ƒR[ƒh
+     * @return ã‚¨ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰
      */
     public String getErrorCode() {
         return this.errorCode;
     }
 
     /**
-     * ƒGƒ‰[ƒƒbƒZ[ƒW‚Ì’uŠ·•¶š—ñ‚ğæ“¾‚·‚éB
+     * ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®ç½®æ›æ–‡å­—åˆ—ã‚’å–å¾—ã™ã‚‹ã€‚
      *
-     * @return ƒGƒ‰[ƒƒbƒZ[ƒW’uŠ·•¶š—ñ
+     * @return ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ç½®æ›æ–‡å­—åˆ—
      */
     public String[] getOptions() {
         return this.options;
     }
 
     /**
-     * ƒGƒ‰[ƒƒbƒZ[ƒW‚ğŠi”[‚·‚éB
+     * ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’æ ¼ç´ã™ã‚‹ã€‚
      *
-     * @param message ƒGƒ‰[ƒƒbƒZ[ƒW
+     * @param message ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
      */
     public void setMessage(String message) {
         this.message = message;
     }
 
     /**
-     * ƒGƒ‰[ƒƒbƒZ[ƒW‚ğ•Ô‹p‚·‚éB
-     * ŠO•”‚©‚ç {@link #setMessage(String)} ‚ğ—p‚¢‚ÄƒƒbƒZ[ƒW‚ªİ’è‚³‚ê‚Ä‚¢‚È‚¢
-     * ê‡‚ÍAƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌerrorCode‚Éw’è‚µ‚½•¶š—ñ‚ğ•Ô‹p‚·‚éB
+     * ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’è¿”å´ã™ã‚‹ã€‚
+     * å¤–éƒ¨ã‹ã‚‰ {@link #setMessage(String)} ã‚’ç”¨ã„ã¦ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒè¨­å®šã•ã‚Œã¦ã„ãªã„
+     * å ´åˆã¯ã€ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®errorCodeã«æŒ‡å®šã—ãŸæ–‡å­—åˆ—ã‚’è¿”å´ã™ã‚‹ã€‚
      *
      * @return
-     *     ƒGƒ‰[ƒƒbƒZ[ƒWA‚Ü‚½‚ÍƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌerrorCode‚Éw’è‚³‚ê‚½•¶š—ñ
+     *     ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã€ã¾ãŸã¯ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®errorCodeã«æŒ‡å®šã•ã‚ŒãŸæ–‡å­—åˆ—
      */
     @Override
     public String getMessage() {

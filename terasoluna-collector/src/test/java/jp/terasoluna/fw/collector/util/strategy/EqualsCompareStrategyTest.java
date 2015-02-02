@@ -30,8 +30,8 @@ public class EqualsCompareStrategyTest {
 
     @Test
     public void testEqualsObjects0001() {
-        // compareTo‚Å”äŠr‚·‚é‚Æ0‚ğ•Ô‚·‚ª
-        // equals‚Å”äŠr‚·‚é‚Æfalse‚ğ•Ô‚·‘g‚İ‡‚í‚¹B
+        // compareToã§æ¯”è¼ƒã™ã‚‹ã¨0ã‚’è¿”ã™ãŒ
+        // equalsã§æ¯”è¼ƒã™ã‚‹ã¨falseã‚’è¿”ã™çµ„ã¿åˆã‚ã›ã€‚
         BigDecimal decimal1 = new BigDecimal("1.00");
         BigDecimal decimal2 = new BigDecimal("1.0");
         EqualsCompareStrategy strategy = new EqualsCompareStrategy();
@@ -43,7 +43,7 @@ public class EqualsCompareStrategyTest {
 
     @Test
     public void testEqualsObjects0002() {
-        // equals‚Å”äŠr‚·‚é‚Ætrue‚ğ•Ô‚·‘g‚İ‡‚í‚¹B
+        // equalsã§æ¯”è¼ƒã™ã‚‹ã¨trueã‚’è¿”ã™çµ„ã¿åˆã‚ã›ã€‚
         BigDecimal decimal1 = new BigDecimal("1.00");
         BigDecimal decimal2 = new BigDecimal("1.00");
         EqualsCompareStrategy strategy = new EqualsCompareStrategy();

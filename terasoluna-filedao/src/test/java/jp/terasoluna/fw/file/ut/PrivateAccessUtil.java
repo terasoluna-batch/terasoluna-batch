@@ -10,18 +10,18 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 /**
- *  privateƒƒ\ƒbƒh‚ğŒÄ‚Ño‚·‚½‚ß‚Ìƒ†[ƒeƒBƒŠƒeƒBƒNƒ‰ƒXB
+ * â— privateãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã™ãŸã‚ã®ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ã‚¯ãƒ©ã‚¹ã€‚
  * @version 2003.08.29
- * @author ’O‰H —²
+ * @author ä¸¹ç¾½ éš†
  */
 class PrivateAccessUtil {
 
     /**
-     * privateƒƒ\ƒbƒhistatic‚Å‚È‚¢‚à‚Ìj‚ğŒÄ‚Ño‚·B<BR>
-     * ƒpƒ‰ƒ[ƒ^0ŒÂ`2ŒÂ‚Ìƒƒ\ƒbƒh‚É‚Íê—p‚Ìƒƒ\ƒbƒh‚ª—pˆÓ‚³‚ê‚Ä‚¢‚é‚Ì‚ÅA ‚»‚¿‚ç‚ğ—˜—p‚µ‚½•û‚ªƒVƒ“ƒvƒ‹‚É‹Lq‚Å‚«‚éB
+     * privateãƒ¡ã‚½ãƒƒãƒ‰ï¼ˆstaticã§ãªã„ã‚‚ã®ï¼‰ã‚’å‘¼ã³å‡ºã™ã€‚<BR>
+     * ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿0å€‹ï½2å€‹ã®ãƒ¡ã‚½ãƒƒãƒ‰ã«ã¯å°‚ç”¨ã®ãƒ¡ã‚½ãƒƒãƒ‰ãŒç”¨æ„ã•ã‚Œã¦ã„ã‚‹ã®ã§ã€ ãã¡ã‚‰ã‚’åˆ©ç”¨ã—ãŸæ–¹ãŒã‚·ãƒ³ãƒ—ãƒ«ã«è¨˜è¿°ã§ãã‚‹ã€‚
      * 
      * <pre>
-     * [g—p—á]
+     * [ä½¿ç”¨ä¾‹]
      * class Sample {
      *     private int calcAdd(int val1, int val2, int val3) {
      *         return val1 + val2 + val3;
@@ -42,18 +42,18 @@ class PrivateAccessUtil {
      *     }
      * }
      * </pre>
-     * @param target ŒÄ‚Ño‚·‘ÎÛ‚ÌƒIƒuƒWƒFƒNƒg
-     * @param methodName ŒÄ‚Ño‚µ‚½‚¢ƒƒ\ƒbƒh‚Ì–¼‘O
-     * @param argTypes ˆø”‚ÌŒ^‚Ì”z—ñ
-     * @param args ˆø”‚Ì’l‚Ì”z—ñB int,boolean“™‚ÌŠî–{ƒf[ƒ^Œ^‚ÍAInteger, Boolean“™‚Ìƒ‰ƒbƒp[ƒNƒ‰ƒX‚É Ši”[‚µ‚Ä’l‚ğ“n‚·•K—v‚ ‚èB
-     * @return ƒƒ\ƒbƒh‚Ì–ß‚è’lBŒÄ‚Ño‚µ‘¤‚Åƒ_ƒEƒ“ƒLƒƒƒXƒg‚ª•K—vB int, boolean“™‚ÌŠî–{ƒf[ƒ^Œ^‚ÍAInteger, Boolean“™‚Ì ƒ‰ƒbƒp[ƒNƒ‰ƒX‚ÉŠi”[‚³‚ê‚Ä’l‚ª–ß‚³‚ê‚éB
+     * @param target å‘¼ã³å‡ºã™å¯¾è±¡ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param methodName å‘¼ã³å‡ºã—ãŸã„ãƒ¡ã‚½ãƒƒãƒ‰ã®åå‰
+     * @param argTypes å¼•æ•°ã®å‹ã®é…åˆ—
+     * @param args å¼•æ•°ã®å€¤ã®é…åˆ—ã€‚ int,booleanç­‰ã®åŸºæœ¬ãƒ‡ãƒ¼ã‚¿å‹ã¯ã€Integer, Booleanç­‰ã®ãƒ©ãƒƒãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã« æ ¼ç´ã—ã¦å€¤ã‚’æ¸¡ã™å¿…è¦ã‚ã‚Šã€‚
+     * @return ãƒ¡ã‚½ãƒƒãƒ‰ã®æˆ»ã‚Šå€¤ã€‚å‘¼ã³å‡ºã—å´ã§ãƒ€ã‚¦ãƒ³ã‚­ãƒ£ã‚¹ãƒˆãŒå¿…è¦ã€‚ int, booleanç­‰ã®åŸºæœ¬ãƒ‡ãƒ¼ã‚¿å‹ã¯ã€Integer, Booleanç­‰ã® ãƒ©ãƒƒãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã«æ ¼ç´ã•ã‚Œã¦å€¤ãŒæˆ»ã•ã‚Œã‚‹ã€‚
      * @throws Exception
      */
     @SuppressWarnings("unchecked")
     public static Object invokePrivate(Object target, String methodName,
             Class[] argTypes, Object[] args) throws Exception {
 
-        // ƒpƒ‰ƒ[ƒ^’l‚Ìƒ`ƒFƒbƒN
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å€¤ã®ãƒã‚§ãƒƒã‚¯
         if (target == null) {
             throw new IllegalArgumentException();
         }
@@ -64,8 +64,8 @@ class PrivateAccessUtil {
             throw new IllegalArgumentException();
         }
 
-        // privateƒƒ\ƒbƒhŒÄ‚Ño‚µˆ—B
-        // ƒX[ƒp[ƒNƒ‰ƒX‘S‚Ä‚É‚Â‚¢‚ÄŒÄ‚Ño‚µ‚ğƒgƒ‰ƒC‚·‚éB
+        // privateãƒ¡ã‚½ãƒƒãƒ‰å‘¼ã³å‡ºã—å‡¦ç†ã€‚
+        // ã‚¹ãƒ¼ãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹å…¨ã¦ã«ã¤ã„ã¦å‘¼ã³å‡ºã—ã‚’ãƒˆãƒ©ã‚¤ã™ã‚‹ã€‚
         Class c = target.getClass();
         while (c != null) {
             try {
@@ -73,24 +73,24 @@ class PrivateAccessUtil {
                 method.setAccessible(true);
                 return method.invoke(target, args);
             } catch (InvocationTargetException e) {
-                // ŒÄ‚Ño‚µ‚½ƒƒ\ƒbƒh‚ª—áŠO‚ğ“Š‚°‚½ê‡B
+                // å‘¼ã³å‡ºã—ãŸãƒ¡ã‚½ãƒƒãƒ‰ãŒä¾‹å¤–ã‚’æŠ•ã’ãŸå ´åˆã€‚
                 throw (Exception) e.getTargetException();
             } catch (Exception e) {
-                // ŒÄ‚Ño‚»‚¤‚Æ‚µ‚½ƒƒ\ƒbƒh‚ª‘¶İ‚µ‚È‚©‚Á‚½ê‡A‰½‚à‚µ‚È‚¢B
-                // (eƒNƒ‰ƒX‚Å“¯‚¶ƒgƒ‰ƒC‚ğŒJ‚è•Ô‚·B)
+                // å‘¼ã³å‡ºãã†ã¨ã—ãŸãƒ¡ã‚½ãƒƒãƒ‰ãŒå­˜åœ¨ã—ãªã‹ã£ãŸå ´åˆã€ä½•ã‚‚ã—ãªã„ã€‚
+                // (è¦ªã‚¯ãƒ©ã‚¹ã§åŒã˜ãƒˆãƒ©ã‚¤ã‚’ç¹°ã‚Šè¿”ã™ã€‚)
             }
             c = c.getSuperclass();
         }
-        // ŒÄ‚Ño‚»‚¤‚Æ‚µ‚½ƒƒ\ƒbƒh‚ª‘¶İ‚µ‚È‚©‚Á‚½ê‡B
+        // å‘¼ã³å‡ºãã†ã¨ã—ãŸãƒ¡ã‚½ãƒƒãƒ‰ãŒå­˜åœ¨ã—ãªã‹ã£ãŸå ´åˆã€‚
         throw new NoSuchMethodException("Could not invoke "
                 + target.getClass().getName() + "." + methodName + "()");
     }
 
     /**
-     * privateƒƒ\ƒbƒhistatic‚Å‚È‚¢‚à‚Ìj‚ğŒÄ‚Ño‚·iƒpƒ‰ƒ[ƒ^0ŒÂ—pjB
+     * privateãƒ¡ã‚½ãƒƒãƒ‰ï¼ˆstaticã§ãªã„ã‚‚ã®ï¼‰ã‚’å‘¼ã³å‡ºã™ï¼ˆãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿0å€‹ç”¨ï¼‰ã€‚
      * 
      * <pre>
-     * [g—p—á]
+     * [ä½¿ç”¨ä¾‹]
      * class Sample {
      *     private int getString() {
      *         return &quot;success&quot;;
@@ -106,9 +106,9 @@ class PrivateAccessUtil {
      *     }
      * }
      * </pre>
-     * @param target ŒÄ‚Ño‚·‘ÎÛ‚ÌƒIƒuƒWƒFƒNƒg
-     * @param methodName ŒÄ‚Ño‚µ‚½‚¢ƒƒ\ƒbƒh‚Ì–¼‘O
-     * @return ƒƒ\ƒbƒh‚Ì–ß‚è’lBŒÄ‚Ño‚µ‘¤‚Åƒ_ƒEƒ“ƒLƒƒƒXƒg‚ª•K—vB int, boolean“™‚ÌŠî–{ƒf[ƒ^Œ^‚ÍAInteger, Boolean“™‚Ì ƒ‰ƒbƒp[ƒNƒ‰ƒX‚ÉŠi”[‚³‚ê‚Ä’l‚ª–ß‚³‚ê‚éB
+     * @param target å‘¼ã³å‡ºã™å¯¾è±¡ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param methodName å‘¼ã³å‡ºã—ãŸã„ãƒ¡ã‚½ãƒƒãƒ‰ã®åå‰
+     * @return ãƒ¡ã‚½ãƒƒãƒ‰ã®æˆ»ã‚Šå€¤ã€‚å‘¼ã³å‡ºã—å´ã§ãƒ€ã‚¦ãƒ³ã‚­ãƒ£ã‚¹ãƒˆãŒå¿…è¦ã€‚ int, booleanç­‰ã®åŸºæœ¬ãƒ‡ãƒ¼ã‚¿å‹ã¯ã€Integer, Booleanç­‰ã® ãƒ©ãƒƒãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã«æ ¼ç´ã•ã‚Œã¦å€¤ãŒæˆ»ã•ã‚Œã‚‹ã€‚
      * @throws Exception
      */
     public static Object invokePrivate(Object target, String methodName)
@@ -119,10 +119,10 @@ class PrivateAccessUtil {
     }
 
     /**
-     * privateƒƒ\ƒbƒhistatic‚Å‚È‚¢‚à‚Ìj‚ğŒÄ‚Ño‚·iƒpƒ‰ƒ[ƒ^1ŒÂ—pjB
+     * privateãƒ¡ã‚½ãƒƒãƒ‰ï¼ˆstaticã§ãªã„ã‚‚ã®ï¼‰ã‚’å‘¼ã³å‡ºã™ï¼ˆãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿1å€‹ç”¨ï¼‰ã€‚
      * 
      * <pre>
-     * [g—p—á]
+     * [ä½¿ç”¨ä¾‹]
      * class Sample {
      *     private long square(long val) {
      *         return val &circ; 2;
@@ -138,11 +138,11 @@ class PrivateAccessUtil {
      *     }
      * }
      * </pre>
-     * @param target ŒÄ‚Ño‚·‘ÎÛ‚ÌƒIƒuƒWƒFƒNƒg
-     * @param methodName ŒÄ‚Ño‚µ‚½‚¢ƒƒ\ƒbƒh‚Ì–¼‘O
-     * @param argType ˆø”‚ÌŒ^
-     * @param arg ˆø”‚Ì’lB int,boolean“™‚ÌŠî–{ƒf[ƒ^Œ^‚ÍAInteger, Boolean“™‚Ìƒ‰ƒbƒp[ƒNƒ‰ƒX‚É Ši”[‚µ‚Ä’l‚ğ“n‚·•K—v‚ ‚èB
-     * @return ƒƒ\ƒbƒh‚Ì–ß‚è’lBŒÄ‚Ño‚µ‘¤‚Åƒ_ƒEƒ“ƒLƒƒƒXƒg‚ª•K—vB int, boolean“™‚ÌŠî–{ƒf[ƒ^Œ^‚ÍAInteger, Boolean“™‚Ì ƒ‰ƒbƒp[ƒNƒ‰ƒX‚ÉŠi”[‚³‚ê‚Ä’l‚ª–ß‚³‚ê‚éB
+     * @param target å‘¼ã³å‡ºã™å¯¾è±¡ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param methodName å‘¼ã³å‡ºã—ãŸã„ãƒ¡ã‚½ãƒƒãƒ‰ã®åå‰
+     * @param argType å¼•æ•°ã®å‹
+     * @param arg å¼•æ•°ã®å€¤ã€‚ int,booleanç­‰ã®åŸºæœ¬ãƒ‡ãƒ¼ã‚¿å‹ã¯ã€Integer, Booleanç­‰ã®ãƒ©ãƒƒãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã« æ ¼ç´ã—ã¦å€¤ã‚’æ¸¡ã™å¿…è¦ã‚ã‚Šã€‚
+     * @return ãƒ¡ã‚½ãƒƒãƒ‰ã®æˆ»ã‚Šå€¤ã€‚å‘¼ã³å‡ºã—å´ã§ãƒ€ã‚¦ãƒ³ã‚­ãƒ£ã‚¹ãƒˆãŒå¿…è¦ã€‚ int, booleanç­‰ã®åŸºæœ¬ãƒ‡ãƒ¼ã‚¿å‹ã¯ã€Integer, Booleanç­‰ã® ãƒ©ãƒƒãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã«æ ¼ç´ã•ã‚Œã¦å€¤ãŒæˆ»ã•ã‚Œã‚‹ã€‚
      * @throws Exception
      */
     @SuppressWarnings("unchecked")
@@ -154,10 +154,10 @@ class PrivateAccessUtil {
     }
 
     /**
-     * privateƒƒ\ƒbƒhistatic‚Å‚È‚¢‚à‚Ìj‚ğŒÄ‚Ño‚·iƒpƒ‰ƒ[ƒ^2ŒÂ—pjB
+     * privateãƒ¡ã‚½ãƒƒãƒ‰ï¼ˆstaticã§ãªã„ã‚‚ã®ï¼‰ã‚’å‘¼ã³å‡ºã™ï¼ˆãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿2å€‹ç”¨ï¼‰ã€‚
      * 
      * <pre>
-     * [g—p—á]
+     * [ä½¿ç”¨ä¾‹]
      * class Sample {
      *     private static int calcAdd(int val1, int val2) {
      *         return val1 + val2;
@@ -179,13 +179,13 @@ class PrivateAccessUtil {
      *     }
      * }
      * </pre>
-     * @param target ŒÄ‚Ño‚·‘ÎÛ‚ÌƒIƒuƒWƒFƒNƒg
-     * @param methodName ŒÄ‚Ño‚µ‚½‚¢ƒƒ\ƒbƒh‚Ì–¼‘O
-     * @param argType1 ‘æˆêˆø”‚ÌŒ^
-     * @param argType2 ‘æ“ñˆø”‚ÌŒ^
-     * @param arg1 ‘æˆêˆø”‚Ì’lB int,boolean“™‚ÌŠî–{ƒf[ƒ^Œ^‚ÍAInteger, Boolean“™‚Ìƒ‰ƒbƒp[ƒNƒ‰ƒX‚É Ši”[‚µ‚Ä’l‚ğ“n‚·•K—v‚ ‚èB
-     * @param arg2 ‘æ“ñˆø”‚Ì’lB
-     * @return ƒƒ\ƒbƒh‚Ì–ß‚è’lBŒÄ‚Ño‚µ‘¤‚Åƒ_ƒEƒ“ƒLƒƒƒXƒg‚ª•K—vB int, boolean“™‚ÌŠî–{ƒf[ƒ^Œ^‚ÍAInteger, Boolean“™‚Ì ƒ‰ƒbƒp[ƒNƒ‰ƒX‚ÉŠi”[‚³‚ê‚Ä’l‚ª–ß‚³‚ê‚éB
+     * @param target å‘¼ã³å‡ºã™å¯¾è±¡ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+     * @param methodName å‘¼ã³å‡ºã—ãŸã„ãƒ¡ã‚½ãƒƒãƒ‰ã®åå‰
+     * @param argType1 ç¬¬ä¸€å¼•æ•°ã®å‹
+     * @param argType2 ç¬¬äºŒå¼•æ•°ã®å‹
+     * @param arg1 ç¬¬ä¸€å¼•æ•°ã®å€¤ã€‚ int,booleanç­‰ã®åŸºæœ¬ãƒ‡ãƒ¼ã‚¿å‹ã¯ã€Integer, Booleanç­‰ã®ãƒ©ãƒƒãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã« æ ¼ç´ã—ã¦å€¤ã‚’æ¸¡ã™å¿…è¦ã‚ã‚Šã€‚
+     * @param arg2 ç¬¬äºŒå¼•æ•°ã®å€¤ã€‚
+     * @return ãƒ¡ã‚½ãƒƒãƒ‰ã®æˆ»ã‚Šå€¤ã€‚å‘¼ã³å‡ºã—å´ã§ãƒ€ã‚¦ãƒ³ã‚­ãƒ£ã‚¹ãƒˆãŒå¿…è¦ã€‚ int, booleanç­‰ã®åŸºæœ¬ãƒ‡ãƒ¼ã‚¿å‹ã¯ã€Integer, Booleanç­‰ã® ãƒ©ãƒƒãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã«æ ¼ç´ã•ã‚Œã¦å€¤ãŒæˆ»ã•ã‚Œã‚‹ã€‚
      * @throws Exception
      */
     @SuppressWarnings("unchecked")
@@ -198,12 +198,12 @@ class PrivateAccessUtil {
     }
 
     /**
-     * static‚Èprivateƒƒ\ƒbƒh‚ğŒÄ‚Ño‚·B <BR>
+     * staticãªprivateãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã™ã€‚ <BR>
      * <BR>
-     * ƒpƒ‰ƒ[ƒ^0ŒÂ`2ŒÂ‚Ìƒƒ\ƒbƒh‚É‚Íê—p‚Ìƒƒ\ƒbƒh‚ª—pˆÓ‚³‚ê‚Ä‚¢‚é‚Ì‚ÅA ‚»‚¿‚ç‚ğ—˜—p‚µ‚½•û‚ªƒVƒ“ƒvƒ‹‚É‹Lq‚Å‚«‚éB
+     * ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿0å€‹ï½2å€‹ã®ãƒ¡ã‚½ãƒƒãƒ‰ã«ã¯å°‚ç”¨ã®ãƒ¡ã‚½ãƒƒãƒ‰ãŒç”¨æ„ã•ã‚Œã¦ã„ã‚‹ã®ã§ã€ ãã¡ã‚‰ã‚’åˆ©ç”¨ã—ãŸæ–¹ãŒã‚·ãƒ³ãƒ—ãƒ«ã«è¨˜è¿°ã§ãã‚‹ã€‚
      * 
      * <pre>
-     * [g—p—á]
+     * [ä½¿ç”¨ä¾‹]
      * class Sample {
      *     private static int calcAdd(int val1, int val2, int val3) {
      *         return val1 + val2 + val3;
@@ -223,18 +223,18 @@ class PrivateAccessUtil {
      *     }
      * }
      * </pre>
-     * @param target ŒÄ‚Ño‚·‘ÎÛ‚ÌƒNƒ‰ƒX
-     * @param methodName ŒÄ‚Ño‚µ‚½‚¢ƒƒ\ƒbƒh‚Ì–¼‘O
-     * @param argTypes ˆø”‚ÌŒ^‚Ì”z—ñ
-     * @param args ˆø”‚Ì’l‚Ì”z—ñB int,boolean“™‚ÌŠî–{ƒf[ƒ^Œ^‚ÍAInteger, Boolean“™‚Ìƒ‰ƒbƒp[ƒNƒ‰ƒX‚É Ši”[‚µ‚Ä’l‚ğ“n‚·•K—v‚ ‚èB
-     * @return ƒƒ\ƒbƒh‚Ì–ß‚è’lBŒÄ‚Ño‚µ‘¤‚Åƒ_ƒEƒ“ƒLƒƒƒXƒg‚ª•K—vB int, boolean“™‚ÌŠî–{ƒf[ƒ^Œ^‚ÍAInteger, Boolean“™‚Ì ƒ‰ƒbƒp[ƒNƒ‰ƒX‚ÉŠi”[‚³‚ê‚Ä’l‚ª–ß‚³‚ê‚éB
+     * @param target å‘¼ã³å‡ºã™å¯¾è±¡ã®ã‚¯ãƒ©ã‚¹
+     * @param methodName å‘¼ã³å‡ºã—ãŸã„ãƒ¡ã‚½ãƒƒãƒ‰ã®åå‰
+     * @param argTypes å¼•æ•°ã®å‹ã®é…åˆ—
+     * @param args å¼•æ•°ã®å€¤ã®é…åˆ—ã€‚ int,booleanç­‰ã®åŸºæœ¬ãƒ‡ãƒ¼ã‚¿å‹ã¯ã€Integer, Booleanç­‰ã®ãƒ©ãƒƒãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã« æ ¼ç´ã—ã¦å€¤ã‚’æ¸¡ã™å¿…è¦ã‚ã‚Šã€‚
+     * @return ãƒ¡ã‚½ãƒƒãƒ‰ã®æˆ»ã‚Šå€¤ã€‚å‘¼ã³å‡ºã—å´ã§ãƒ€ã‚¦ãƒ³ã‚­ãƒ£ã‚¹ãƒˆãŒå¿…è¦ã€‚ int, booleanç­‰ã®åŸºæœ¬ãƒ‡ãƒ¼ã‚¿å‹ã¯ã€Integer, Booleanç­‰ã® ãƒ©ãƒƒãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã«æ ¼ç´ã•ã‚Œã¦å€¤ãŒæˆ»ã•ã‚Œã‚‹ã€‚
      * @throws Exception
      */
     @SuppressWarnings("unchecked")
     public static Object invokePrivate(Class target, String methodName,
             Class[] argTypes, Object[] args) throws Exception {
 
-        // ƒpƒ‰ƒ[ƒ^’l‚Ìƒ`ƒFƒbƒN
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å€¤ã®ãƒã‚§ãƒƒã‚¯
         if (target == null) {
             throw new IllegalArgumentException();
         }
@@ -245,8 +245,8 @@ class PrivateAccessUtil {
             throw new IllegalArgumentException();
         }
 
-        // privateƒƒ\ƒbƒhŒÄ‚Ño‚µˆ—B
-        // ƒX[ƒp[ƒNƒ‰ƒX‘S‚Ä‚É‚Â‚¢‚ÄŒÄ‚Ño‚µ‚ğƒgƒ‰ƒC‚·‚éB
+        // privateãƒ¡ã‚½ãƒƒãƒ‰å‘¼ã³å‡ºã—å‡¦ç†ã€‚
+        // ã‚¹ãƒ¼ãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹å…¨ã¦ã«ã¤ã„ã¦å‘¼ã³å‡ºã—ã‚’ãƒˆãƒ©ã‚¤ã™ã‚‹ã€‚
         Class c = target;
         while (c != null) {
             try {
@@ -254,24 +254,24 @@ class PrivateAccessUtil {
                 method.setAccessible(true);
                 return method.invoke(target, args);
             } catch (InvocationTargetException e) {
-                // ŒÄ‚Ño‚µ‚½ƒƒ\ƒbƒh‚ª—áŠO‚ğ“Š‚°‚½ê‡B
+                // å‘¼ã³å‡ºã—ãŸãƒ¡ã‚½ãƒƒãƒ‰ãŒä¾‹å¤–ã‚’æŠ•ã’ãŸå ´åˆã€‚
                 throw (Exception) e.getTargetException();
             } catch (Exception e) {
-                // ŒÄ‚Ño‚»‚¤‚Æ‚µ‚½ƒƒ\ƒbƒh‚ª‘¶İ‚µ‚È‚©‚Á‚½ê‡A‰½‚à‚µ‚È‚¢B
-                // (eƒNƒ‰ƒX‚Å“¯‚¶ƒgƒ‰ƒC‚ğŒJ‚è•Ô‚·B)
+                // å‘¼ã³å‡ºãã†ã¨ã—ãŸãƒ¡ã‚½ãƒƒãƒ‰ãŒå­˜åœ¨ã—ãªã‹ã£ãŸå ´åˆã€ä½•ã‚‚ã—ãªã„ã€‚
+                // (è¦ªã‚¯ãƒ©ã‚¹ã§åŒã˜ãƒˆãƒ©ã‚¤ã‚’ç¹°ã‚Šè¿”ã™ã€‚)
             }
             c = c.getSuperclass();
         }
-        // ŒÄ‚Ño‚»‚¤‚Æ‚µ‚½ƒƒ\ƒbƒh‚ª‘¶İ‚µ‚È‚©‚Á‚½ê‡B
+        // å‘¼ã³å‡ºãã†ã¨ã—ãŸãƒ¡ã‚½ãƒƒãƒ‰ãŒå­˜åœ¨ã—ãªã‹ã£ãŸå ´åˆã€‚
         throw new NoSuchMethodException("Could not invoke "
                 + target.getClass().getName() + "." + methodName + "()");
     }
 
     /**
-     * static‚Èprivateƒƒ\ƒbƒh‚ğŒÄ‚Ño‚·iƒpƒ‰ƒ[ƒ^0ŒÂ—pjB
+     * staticãªprivateãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã™ï¼ˆãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿0å€‹ç”¨ï¼‰ã€‚
      * 
      * <pre>
-     * [g—p—á]
+     * [ä½¿ç”¨ä¾‹]
      * class Sample {
      *     private static int getString() {
      *         return &quot;success&quot;;
@@ -286,9 +286,9 @@ class PrivateAccessUtil {
      *     }
      * }
      * </pre>
-     * @param target ŒÄ‚Ño‚·‘ÎÛ‚ÌƒNƒ‰ƒX
-     * @param methodName ŒÄ‚Ño‚µ‚½‚¢ƒƒ\ƒbƒh‚Ì–¼‘O
-     * @return ƒƒ\ƒbƒh‚Ì–ß‚è’lBŒÄ‚Ño‚µ‘¤‚Åƒ_ƒEƒ“ƒLƒƒƒXƒg‚ª•K—vB int, boolean“™‚ÌŠî–{ƒf[ƒ^Œ^‚ÍAInteger, Boolean“™‚Ì ƒ‰ƒbƒp[ƒNƒ‰ƒX‚ÉŠi”[‚³‚ê‚Ä’l‚ª–ß‚³‚ê‚éB
+     * @param target å‘¼ã³å‡ºã™å¯¾è±¡ã®ã‚¯ãƒ©ã‚¹
+     * @param methodName å‘¼ã³å‡ºã—ãŸã„ãƒ¡ã‚½ãƒƒãƒ‰ã®åå‰
+     * @return ãƒ¡ã‚½ãƒƒãƒ‰ã®æˆ»ã‚Šå€¤ã€‚å‘¼ã³å‡ºã—å´ã§ãƒ€ã‚¦ãƒ³ã‚­ãƒ£ã‚¹ãƒˆãŒå¿…è¦ã€‚ int, booleanç­‰ã®åŸºæœ¬ãƒ‡ãƒ¼ã‚¿å‹ã¯ã€Integer, Booleanç­‰ã® ãƒ©ãƒƒãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã«æ ¼ç´ã•ã‚Œã¦å€¤ãŒæˆ»ã•ã‚Œã‚‹ã€‚
      * @throws Exception
      */
     @SuppressWarnings("unchecked")
@@ -300,10 +300,10 @@ class PrivateAccessUtil {
     }
 
     /**
-     * static‚Èprivateƒƒ\ƒbƒh‚ğŒÄ‚Ño‚·iƒpƒ‰ƒ[ƒ^1ŒÂ—pjB
+     * staticãªprivateãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã™ï¼ˆãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿1å€‹ç”¨ï¼‰ã€‚
      * 
      * <pre>
-     * [g—p—á]
+     * [ä½¿ç”¨ä¾‹]
      * class Sample {
      *     private static long square(long val) {
      *         return val &circ; 2;
@@ -318,11 +318,11 @@ class PrivateAccessUtil {
      *     }
      * }
      * </pre>
-     * @param target ŒÄ‚Ño‚·‘ÎÛ‚ÌƒNƒ‰ƒX
-     * @param methodName ŒÄ‚Ño‚µ‚½‚¢ƒƒ\ƒbƒh‚Ì–¼‘O
-     * @param argType ˆø”‚ÌŒ^
-     * @param arg ˆø”‚Ì’lB int,boolean“™‚ÌŠî–{ƒf[ƒ^Œ^‚ÍAInteger, Boolean“™‚Ìƒ‰ƒbƒp[ƒNƒ‰ƒX‚É Ši”[‚µ‚Ä’l‚ğ“n‚·•K—v‚ ‚èB
-     * @return ƒƒ\ƒbƒh‚Ì–ß‚è’lBŒÄ‚Ño‚µ‘¤‚Åƒ_ƒEƒ“ƒLƒƒƒXƒg‚ª•K—vB int, boolean“™‚ÌŠî–{ƒf[ƒ^Œ^‚ÍAInteger, Boolean“™‚Ì ƒ‰ƒbƒp[ƒNƒ‰ƒX‚ÉŠi”[‚³‚ê‚Ä’l‚ª–ß‚³‚ê‚éB
+     * @param target å‘¼ã³å‡ºã™å¯¾è±¡ã®ã‚¯ãƒ©ã‚¹
+     * @param methodName å‘¼ã³å‡ºã—ãŸã„ãƒ¡ã‚½ãƒƒãƒ‰ã®åå‰
+     * @param argType å¼•æ•°ã®å‹
+     * @param arg å¼•æ•°ã®å€¤ã€‚ int,booleanç­‰ã®åŸºæœ¬ãƒ‡ãƒ¼ã‚¿å‹ã¯ã€Integer, Booleanç­‰ã®ãƒ©ãƒƒãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã« æ ¼ç´ã—ã¦å€¤ã‚’æ¸¡ã™å¿…è¦ã‚ã‚Šã€‚
+     * @return ãƒ¡ã‚½ãƒƒãƒ‰ã®æˆ»ã‚Šå€¤ã€‚å‘¼ã³å‡ºã—å´ã§ãƒ€ã‚¦ãƒ³ã‚­ãƒ£ã‚¹ãƒˆãŒå¿…è¦ã€‚ int, booleanç­‰ã®åŸºæœ¬ãƒ‡ãƒ¼ã‚¿å‹ã¯ã€Integer, Booleanç­‰ã® ãƒ©ãƒƒãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã«æ ¼ç´ã•ã‚Œã¦å€¤ãŒæˆ»ã•ã‚Œã‚‹ã€‚
      * @throws Exception
      */
     @SuppressWarnings("unchecked")
@@ -334,10 +334,10 @@ class PrivateAccessUtil {
     }
 
     /**
-     * static‚Èprivateƒƒ\ƒbƒh‚ğŒÄ‚Ño‚·iƒpƒ‰ƒ[ƒ^2ŒÂ—pjB
+     * staticãªprivateãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã™ï¼ˆãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿2å€‹ç”¨ï¼‰ã€‚
      * 
      * <pre>
-     * [g—p—á]
+     * [ä½¿ç”¨ä¾‹]
      * class Sample {
      *     private static int calcAdd(int val1, int val2) {
      *         return val1 + val2;
@@ -358,13 +358,13 @@ class PrivateAccessUtil {
      *     }
      * }
      * </pre>
-     * @param target ŒÄ‚Ño‚·‘ÎÛ‚ÌƒNƒ‰ƒX
-     * @param methodName ŒÄ‚Ño‚µ‚½‚¢ƒƒ\ƒbƒh‚Ì–¼‘O
-     * @param argType1 ‘æˆêˆø”‚ÌŒ^
-     * @param argType2 ‘æ“ñˆø”‚ÌŒ^
-     * @param arg1 ‘æˆêˆø”‚Ì’lB int,boolean“™‚ÌŠî–{ƒf[ƒ^Œ^‚ÍAInteger, Boolean“™‚Ìƒ‰ƒbƒp[ƒNƒ‰ƒX‚É Ši”[‚µ‚Ä’l‚ğ“n‚·•K—v‚ ‚èB
-     * @param arg2 ‘æ“ñˆø”‚Ì’lB
-     * @return ƒƒ\ƒbƒh‚Ì–ß‚è’lBŒÄ‚Ño‚µ‘¤‚Åƒ_ƒEƒ“ƒLƒƒƒXƒg‚ª•K—vB int, boolean“™‚ÌŠî–{ƒf[ƒ^Œ^‚ÍAInteger, Boolean“™‚Ì ƒ‰ƒbƒp[ƒNƒ‰ƒX‚ÉŠi”[‚³‚ê‚Ä’l‚ª–ß‚³‚ê‚éB
+     * @param target å‘¼ã³å‡ºã™å¯¾è±¡ã®ã‚¯ãƒ©ã‚¹
+     * @param methodName å‘¼ã³å‡ºã—ãŸã„ãƒ¡ã‚½ãƒƒãƒ‰ã®åå‰
+     * @param argType1 ç¬¬ä¸€å¼•æ•°ã®å‹
+     * @param argType2 ç¬¬äºŒå¼•æ•°ã®å‹
+     * @param arg1 ç¬¬ä¸€å¼•æ•°ã®å€¤ã€‚ int,booleanç­‰ã®åŸºæœ¬ãƒ‡ãƒ¼ã‚¿å‹ã¯ã€Integer, Booleanç­‰ã®ãƒ©ãƒƒãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã« æ ¼ç´ã—ã¦å€¤ã‚’æ¸¡ã™å¿…è¦ã‚ã‚Šã€‚
+     * @param arg2 ç¬¬äºŒå¼•æ•°ã®å€¤ã€‚
+     * @return ãƒ¡ã‚½ãƒƒãƒ‰ã®æˆ»ã‚Šå€¤ã€‚å‘¼ã³å‡ºã—å´ã§ãƒ€ã‚¦ãƒ³ã‚­ãƒ£ã‚¹ãƒˆãŒå¿…è¦ã€‚ int, booleanç­‰ã®åŸºæœ¬ãƒ‡ãƒ¼ã‚¿å‹ã¯ã€Integer, Booleanç­‰ã® ãƒ©ãƒƒãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã«æ ¼ç´ã•ã‚Œã¦å€¤ãŒæˆ»ã•ã‚Œã‚‹ã€‚
      * @throws Exception
      */
     @SuppressWarnings("unchecked")

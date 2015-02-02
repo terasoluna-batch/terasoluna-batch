@@ -1,4 +1,4 @@
 /**
- * エグゼキュータ関連
+ * 繧ｨ繧ｰ繧ｼ繧ｭ繝･繝ｼ繧ｿ髢｢騾｣
  */
 package jp.terasoluna.fw.batch.executor;

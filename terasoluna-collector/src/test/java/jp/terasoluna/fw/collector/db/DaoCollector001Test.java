@@ -96,7 +96,7 @@ public class DaoCollector001Test extends DaoTestCase {
         DaoCollector<UserBean> dbc = null;
         try {
             dbc = new DaoCollector<UserBean>(config);
-            fail("Ž¸”s");
+            fail("å¤±æ•—");
         } catch (IllegalArgumentException e) {
             assertNotNull(e);
             assertEquals("The parameter is null.", e.getMessage());
@@ -140,7 +140,7 @@ public class DaoCollector001Test extends DaoTestCase {
         QueueingResultHandler drh = null;
         try {
             drh = dbc.getResultHandler();
-            fail("Ž¸”s");
+            fail("å¤±æ•—");
         } catch (SystemException e) {
             assertNotNull(e);
             assertEquals(SystemException.class, e.getClass());
@@ -167,7 +167,7 @@ public class DaoCollector001Test extends DaoTestCase {
         QueueingResultHandler drh = null;
         try {
             drh = dbc.getResultHandler();
-            fail("Ž¸”s");
+            fail("å¤±æ•—");
         } catch (SystemException e) {
             assertNotNull(e);
             assertEquals(SystemException.class, e.getClass());

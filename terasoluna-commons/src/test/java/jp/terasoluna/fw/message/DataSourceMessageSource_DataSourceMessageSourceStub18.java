@@ -22,22 +22,22 @@ import java.util.Properties;
 
 
 /**
- * DataSourceMessageSourceƒNƒ‰ƒX‚Å—˜—p‚·‚éƒXƒ^ƒu
+ * DataSourceMessageSourceã‚¯ãƒ©ã‚¹ã§åˆ©ç”¨ã™ã‚‹ã‚¹ã‚¿ãƒ–
  *
  */
 public class DataSourceMessageSource_DataSourceMessageSourceStub18 extends
         DataSourceMessageSource {
     /**
-     * ŒÄ‚Ño‚µŠm”F
+     * å‘¼ã³å‡ºã—ç¢ºèª
      */
     protected boolean isRead_A1 = false;
     
     /**
-     * ƒƒP[ƒ‹¶¬
+     * ãƒ­ã‚±ãƒ¼ãƒ«ç”Ÿæˆ
      */
     Locale locale_A1 = new Locale("ja", "JP", "");
     /**
-     * ˆø”code‚ğŠi”[
+     * å¼•æ•°codeã‚’æ ¼ç´
      */
     protected String code = "code01";
     
@@ -53,7 +53,7 @@ public class DataSourceMessageSource_DataSourceMessageSourceStub18 extends
     protected Properties getMessages(Locale locale) {
 
         if (locale.equals(locale_A1)) {
-            prop.put(code, "ƒeƒXƒgƒƒbƒZ[ƒW‚O‚P");
+            prop.put(code, "ãƒ†ã‚¹ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼ï¼‘");
             this.isRead_A1 = true;
             return prop;
         }

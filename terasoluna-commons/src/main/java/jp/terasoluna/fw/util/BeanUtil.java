@@ -24,7 +24,7 @@ import org.apache.commons.beanutils.PropertyUtils;
 
 
 /**
- *  BeanŠÖ˜A‚Ìƒ†[ƒeƒBƒŠƒeƒBƒNƒ‰ƒXB
+ *  Beané–¢é€£ã®ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ã‚¯ãƒ©ã‚¹ã€‚
  *
  * @see jp.terasoluna.fw.util.PropertyAccessException
  *
@@ -32,22 +32,22 @@ import org.apache.commons.beanutils.PropertyUtils;
 public final class BeanUtil {
 
     /**
-     * w’è‚µ‚½JavaBean‚ÌƒvƒƒpƒeƒB‚É’l‚ğŠi”[‚·‚éB
+     * æŒ‡å®šã—ãŸJavaBeanã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã«å€¤ã‚’æ ¼ç´ã™ã‚‹ã€‚
      *
      * @param bean
-     *            ’l‚ÌŠi”[æ‚Æ‚·‚éJavaBean
+     *            å€¤ã®æ ¼ç´å…ˆã¨ã™ã‚‹JavaBean
      * @param property
-     *            JavaBean‚ÌƒvƒƒpƒeƒB
+     *            JavaBeanã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£
      * @param value
-     *            Ši”[‚·‚é’l
+     *            æ ¼ç´ã™ã‚‹å€¤
      * @throws PropertyAccessException
-     *             ’lŠi”[‚É”­¶‚µ‚½—áŠO‚ğƒ‰ƒbƒv‚µ‚½—áŠO
+     *             å€¤æ ¼ç´æ™‚ã«ç™ºç”Ÿã—ãŸä¾‹å¤–ã‚’ãƒ©ãƒƒãƒ—ã—ãŸä¾‹å¤–
      */
     public static void setBeanProperty(Object bean, String property,
             Object value) throws PropertyAccessException {
 
         try {
-            // “ü—Í’lİ’èƒƒ\ƒbƒh‚ğÀs
+            // å…¥åŠ›å€¤è¨­å®šãƒ¡ã‚½ãƒƒãƒ‰ã‚’å®Ÿè¡Œ
             PropertyUtils.setProperty(bean, property, value);
         } catch (IllegalArgumentException e) {
             throw new PropertyAccessException(e);
@@ -61,15 +61,15 @@ public final class BeanUtil {
     }
 
     /**
-     * w’è‚µ‚½JavaBean‚ÌƒvƒƒpƒeƒB‚©‚ç’l‚ğæ“¾‚·‚éB
+     * æŒ‡å®šã—ãŸJavaBeanã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‹ã‚‰å€¤ã‚’å–å¾—ã™ã‚‹ã€‚
      *
      * @param bean
-     *            ’l‚Ìæ“¾Œ³‚Æ‚·‚éJavaBean
+     *            å€¤ã®å–å¾—å…ƒã¨ã™ã‚‹JavaBean
      * @param property
-     *            JavaBean‚ÌƒvƒƒpƒeƒB
-     * @return value æ“¾‚µ‚½’l
+     *            JavaBeanã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£
+     * @return value å–å¾—ã—ãŸå€¤
      * @throws PropertyAccessException
-     *             ’læ“¾‚É”­¶‚µ‚½—áŠO‚ğƒ‰ƒbƒv‚µ‚½—áŠO
+     *             å€¤å–å¾—æ™‚ã«ç™ºç”Ÿã—ãŸä¾‹å¤–ã‚’ãƒ©ãƒƒãƒ—ã—ãŸä¾‹å¤–
      */
     public static Object getBeanProperty(Object bean, String property)
             throws PropertyAccessException {
@@ -90,13 +90,13 @@ public final class BeanUtil {
     }
     
     /**
-     * w’è‚µ‚½JavaBean‚ÌƒvƒƒpƒeƒB‚©‚çŒ^‚ğæ“¾‚·‚éB
+     * æŒ‡å®šã—ãŸJavaBeanã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‹ã‚‰å‹ã‚’å–å¾—ã™ã‚‹ã€‚
      * @param bean
-     *            ’l‚Ìæ“¾Œ³‚Æ‚·‚éJavaBean
+     *            å€¤ã®å–å¾—å…ƒã¨ã™ã‚‹JavaBean
      * @param property
-     *            JavaBean‚ÌƒvƒƒpƒeƒB
-     * @return ‘®«‚ÌƒNƒ‰ƒXB
-     * @throws PropertyAccessException ’læ“¾‚É”­¶‚µ‚½—áŠO‚ğƒ‰ƒbƒv‚µ‚½—áŠO
+     *            JavaBeanã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£
+     * @return å±æ€§ã®ã‚¯ãƒ©ã‚¹ã€‚
+     * @throws PropertyAccessException å€¤å–å¾—æ™‚ã«ç™ºç”Ÿã—ãŸä¾‹å¤–ã‚’ãƒ©ãƒƒãƒ—ã—ãŸä¾‹å¤–
      */
     public static Class getBeanPropertyType(Object bean, String property) 
         throws PropertyAccessException {

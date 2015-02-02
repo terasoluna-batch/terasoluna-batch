@@ -40,9 +40,9 @@ public class ArrayBlockingQueueExTest {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌŠm”F
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®ç¢ºèª
      * ArrayBlockingQueueEx(int capacity, boolean fair)
-     * fair‚Ìw’è‚ªtrue‚Ìê‡
+     * fairã®æŒ‡å®šãŒtrueã®å ´åˆ
      */
     @Test
     public void testConstructor001() {
@@ -50,22 +50,22 @@ public class ArrayBlockingQueueExTest {
     	
     	ArrayBlockingQueueEx<DataValueObject> queue = new ArrayBlockingQueueEx<DataValueObject>(capacity, true);
     	
-    	// capacity ‚ÌŠm”F
+    	// capacity ã®ç¢ºèª
     	int capacityResult = (Integer) ReflectionUtils.getField(queue, "capacity");
     	assertEquals(capacity, capacityResult);
     	
-    	// fair ‚ÌŠm”F(true ‚Éİ’è‚µ‚½ê‡‚ÍAFairSync, false ‚Ìê‡‚Í NonFairSysc)
-    	//    ReflectionUtil ‚ğ—˜—p‚µAqueue ‚Ì lock ‚ğæ“¾
-    	//    lock‚ÌŒö•½«‚ªFair isync‚ªFairSync ‚ÌƒCƒ“ƒXƒ^ƒ“ƒXj‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚éB
+    	// fair ã®ç¢ºèª(true ã«è¨­å®šã—ãŸå ´åˆã¯ã€FairSync, false ã®å ´åˆã¯ NonFairSysc)
+    	//    ReflectionUtil ã‚’åˆ©ç”¨ã—ã€queue ã® lock ã‚’å–å¾—
+    	//    lockã®å…¬å¹³æ€§ãŒFair ï¼ˆsyncãŒFairSync ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ï¼‰ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
     	ReentrantLock lockResult = ReflectionUtils.getField(queue, ArrayBlockingQueue.class, "lock");
     	assertTrue(lockResult.isFair());    	
     	
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌŠm”F
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®ç¢ºèª
      * ArrayBlockingQueueEx(int capacity, boolean fair)
-     * fair‚Ìw’è‚ªfalse‚Ìê‡
+     * fairã®æŒ‡å®šãŒfalseã®å ´åˆ
      */
     @Test
     public void testConstructor002() {
@@ -73,20 +73,20 @@ public class ArrayBlockingQueueExTest {
     	
     	ArrayBlockingQueueEx<DataValueObject> queue = new ArrayBlockingQueueEx<DataValueObject>(capacity, false);
     	
-    	// capacity ‚ÌŠm”F
+    	// capacity ã®ç¢ºèª
     	int capacityResult = (Integer) ReflectionUtils.getField(queue, "capacity");
     	assertEquals(capacity, capacityResult);
     	
-    	// fair ‚ÌŠm”F(true ‚Éİ’è‚µ‚½ê‡‚ÍAFairSync, false ‚Ìê‡‚Í NonFairSysc)
-    	//    ReflectionUtil ‚ğ—˜—p‚µAqueue ‚Ì lock ‚ğæ“¾
-    	//    lock‚ÌŒö•½«‚ªNonFair isync‚ªFairSync ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚Å‚Í‚È‚¢j‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚éB
+    	// fair ã®ç¢ºèª(true ã«è¨­å®šã—ãŸå ´åˆã¯ã€FairSync, false ã®å ´åˆã¯ NonFairSysc)
+    	//    ReflectionUtil ã‚’åˆ©ç”¨ã—ã€queue ã® lock ã‚’å–å¾—
+    	//    lockã®å…¬å¹³æ€§ãŒNonFair ï¼ˆsyncãŒFairSync ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã§ã¯ãªã„ï¼‰ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
     	ReentrantLock lockResult = ReflectionUtils.getField(queue, ArrayBlockingQueue.class, "lock");
     	assertFalse(lockResult.isFair());
     	
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÌŠm”F
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®ç¢ºèª
      * ArrayBlockingQueueEx(int capacity)
      */
     @Test
@@ -95,14 +95,14 @@ public class ArrayBlockingQueueExTest {
     	
     	ArrayBlockingQueueEx<DataValueObject> queue = new ArrayBlockingQueueEx<DataValueObject>(capacity);
     	
-    	// capacity ‚ÌŠm”F
+    	// capacity ã®ç¢ºèª
     	int capacityResult = (Integer) ReflectionUtils.getField(queue, "capacity");
     	assertEquals(capacity, capacityResult);
     	
     }
     
 
-    // AbstractCollector#setFinish ‚ÌŒ±‚É‚ÄÀ{‚·‚éB
+    // AbstractCollector#setFinish ã®è©¦é¨“ã«ã¦å®Ÿæ–½ã™ã‚‹ã€‚
 //    @Test
 //    public void testFinishQueueing001() {
 //    }
@@ -110,8 +110,8 @@ public class ArrayBlockingQueueExTest {
     
     
     /**
-     * poll(long timeout, TimeUnit unit) ‚ÌƒeƒXƒg
-     * ˆÙíŒnFInterruptedException‚ÌŠm”F
+     * poll(long timeout, TimeUnit unit) ã®ãƒ†ã‚¹ãƒˆ
+     * ç•°å¸¸ç³»ï¼šInterruptedExceptionã®ç¢ºèª
      */
     @Test
     public void testPoll001() throws Exception{
@@ -123,22 +123,22 @@ public class ArrayBlockingQueueExTest {
 
     	final ArrayBlockingQueueEx<DataValueObject> queue = new ArrayBlockingQueueEx<DataValueObject>(capacity);
     	
-    	// •ÊƒXƒŒƒbƒh‚Åoffer‚ğÀsiƒLƒ…[‚ª‹ó‚È‚Ì‚Å‘Ò‚¿‚É‚È‚éj
+    	// åˆ¥ã‚¹ãƒ¬ãƒƒãƒ‰ã§offerã‚’å®Ÿè¡Œï¼ˆã‚­ãƒ¥ãƒ¼ãŒç©ºãªã®ã§å¾…ã¡ã«ãªã‚‹ï¼‰
         ErrorFeedBackThread thread01 = new ErrorFeedBackThread() {
         	@Override
         	public void doRun() throws Exception {
         		long timeStart = System.currentTimeMillis();
         		threadSync.countDown();
         		try {
-        			// ‘Ò‚¿ó‘Ô‚ğ‚Â‚­‚é
+        			// å¾…ã¡çŠ¶æ…‹ã‚’ã¤ãã‚‹
         			queue.poll(timeout, unit);
         			fail();
         		} catch (InterruptedException e) {
-        			// Šú‘Ò’Ê‚è
+        			// æœŸå¾…é€šã‚Š
         		}
     			long timeEnd = System.currentTimeMillis();
     			long timeDiff = timeEnd - timeStart;
-    			// –ñ1000ƒ~ƒŠ•b‚Ì‘Ò‚¿Šm”F(50ƒ~ƒŠ•b‚ÌŒë·‚ğ‹–—e)
+    			// ç´„1000ãƒŸãƒªç§’ã®å¾…ã¡ç¢ºèª(50ãƒŸãƒªç§’ã®èª¤å·®ã‚’è¨±å®¹)
     			if(timeDiff < 950) {
     				fail();
     			}
@@ -150,15 +150,15 @@ public class ArrayBlockingQueueExTest {
     	threadSync.await();
     	Thread.sleep(1000);
     	
-    	// Š„‚è‚İ
+    	// å‰²ã‚Šè¾¼ã¿
     	thread01.interrupt();
     	
     	thread01.throwErrorOrExceptionIfThrown();
     }
 
     /**
-     * poll(long timeout, TimeUnit unit) ‚ÌƒeƒXƒg
-     * ³íŒnFƒ^ƒCƒ€ƒAƒEƒgŒã‚ÉƒLƒ…[‚ª‹ó‚Ìê‡‚Énull‚ğ•Ô‚·Šm”F
+     * poll(long timeout, TimeUnit unit) ã®ãƒ†ã‚¹ãƒˆ
+     * æ­£å¸¸ç³»ï¼šã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆå¾Œã«ã‚­ãƒ¥ãƒ¼ãŒç©ºã®å ´åˆã«nullã‚’è¿”ã™ç¢ºèª
      */
     @Test
     public void testPoll002() throws Exception{
@@ -169,17 +169,17 @@ public class ArrayBlockingQueueExTest {
 
     	ArrayBlockingQueueEx<DataValueObject> queue = new ArrayBlockingQueueEx<DataValueObject>(capacity);
     	
-    	// ƒLƒ…[‚ª‹ó‚Å‚ ‚é‚±‚Æ‚ÌŠm”F
+    	// ã‚­ãƒ¥ãƒ¼ãŒç©ºã§ã‚ã‚‹ã“ã¨ã®ç¢ºèª
     	assertEquals(0, queue.size());
     	
-    	// poll‚ÌÀs‚Æˆ—ŠÔŒv‘ª
+    	// pollã®å®Ÿè¡Œã¨å‡¦ç†æ™‚é–“è¨ˆæ¸¬
     	long timeStart = System.currentTimeMillis();
     	DataValueObject objResult = queue.poll(timeout, unit);
     	long timeEnd = System.currentTimeMillis();
     	long timeDiff = timeEnd - timeStart;
     	
-    	// Œ‹‰ÊŠm”F
-    	// –ñ1000ƒ~ƒŠ•b‚Ì‘Ò‚¿Šm”F(50ƒ~ƒŠ•b‚ÌŒë·‚ğ‹–—e)
+    	// çµæœç¢ºèª
+    	// ç´„1000ãƒŸãƒªç§’ã®å¾…ã¡ç¢ºèª(50ãƒŸãƒªç§’ã®èª¤å·®ã‚’è¨±å®¹)
     	if (timeDiff < (timeout-50)) {
     		fail();
     	}
@@ -187,8 +187,8 @@ public class ArrayBlockingQueueExTest {
     }
 
     /**
-     * poll(long timeout, TimeUnit unit) ‚ÌƒeƒXƒg
-     * ³íŒnFƒLƒ…[ƒCƒ“ƒO‚ÌI—¹’Ê’mŒã‚ÉƒLƒ…[‚ª‹ó‚Ìê‡‚Énull‚ğ•Ô‚·Šm”F
+     * poll(long timeout, TimeUnit unit) ã®ãƒ†ã‚¹ãƒˆ
+     * æ­£å¸¸ç³»ï¼šã‚­ãƒ¥ãƒ¼ã‚¤ãƒ³ã‚°ã®çµ‚äº†é€šçŸ¥å¾Œã«ã‚­ãƒ¥ãƒ¼ãŒç©ºã®å ´åˆã«nullã‚’è¿”ã™ç¢ºèª
      */
     @Test
     public void testPoll003() throws Exception{
@@ -214,20 +214,20 @@ public class ArrayBlockingQueueExTest {
     		}
     	};
     	
-    	// ƒLƒ…[‚ª‹ó‚Å‚ ‚é‚±‚Æ‚ÌŠm”F
+    	// ã‚­ãƒ¥ãƒ¼ãŒç©ºã§ã‚ã‚‹ã“ã¨ã®ç¢ºèª
     	assertEquals(0, queue.size());
 
     	thread01.start();
     	
-    	// poll‚ÌÀs‚Æˆ—ŠÔŒv‘ª
+    	// pollã®å®Ÿè¡Œã¨å‡¦ç†æ™‚é–“è¨ˆæ¸¬
     	long timeStart = System.currentTimeMillis();
     	threadSync.countDown();
     	DataValueObject objResult = queue.poll(timeout, unit);
     	long timeEnd = System.currentTimeMillis();
     	long timeDiff = timeEnd - timeStart;
     	
-    	// Œ‹‰ÊŠm”F
-    	// –ñ1000ƒ~ƒŠ•b‚Ì‘Ò‚¿Šm”F(50ƒ~ƒŠ•b‚ÌŒë·‚ğ‹–—e)
+    	// çµæœç¢ºèª
+    	// ç´„1000ãƒŸãƒªç§’ã®å¾…ã¡ç¢ºèª(50ãƒŸãƒªç§’ã®èª¤å·®ã‚’è¨±å®¹)
     	if (timeDiff < (sleeptime-50)) {
     		fail();
     	}
@@ -235,8 +235,8 @@ public class ArrayBlockingQueueExTest {
     }
 
     /**
-     * poll(long timeout, TimeUnit unit) ‚ÌƒeƒXƒg
-     * ³íŒnFƒLƒ…[‚Ìæ“ª‚ğæ“¾‚µíœ‚·‚é‚±‚Æ‚ÌŠm”F
+     * poll(long timeout, TimeUnit unit) ã®ãƒ†ã‚¹ãƒˆ
+     * æ­£å¸¸ç³»ï¼šã‚­ãƒ¥ãƒ¼ã®å…ˆé ­ã‚’å–å¾—ã—å‰Šé™¤ã™ã‚‹ã“ã¨ã®ç¢ºèª
      */
     @Test
     public void testPoll004() throws Exception{
@@ -251,26 +251,26 @@ public class ArrayBlockingQueueExTest {
     	DataValueObject obj2 = new DataValueObject("fuga");
     	DataValueObject obj3 = new DataValueObject("piyo");
     	
-    	// ƒLƒ…[‚É—v‘f‚ğ‹l‚ß‚éiaddg—pj
+    	// ã‚­ãƒ¥ãƒ¼ã«è¦ç´ ã‚’è©°ã‚ã‚‹ï¼ˆaddä½¿ç”¨ï¼‰
     	queue.add(obj1);
     	queue.add(obj2);
     	queue.add(obj3);
     	int sizeBefore = queue.size();
     	
-    	// poll‚Å—v‘f‚ğ1‚Âæ“¾
+    	// pollã§è¦ç´ ã‚’1ã¤å–å¾—
     	DataValueObject objPoll = queue.poll(timeout, unit);
     	int sizeAfter = queue.size();
     	
-    	// æ“¾‚µ‚½—v‘f‚ªadd‚ÅÅ‰‚É‹l‚ß‚½—v‘fiæ“ª‚Ì—v‘fj‚Å‚ ‚é‚±‚Æ‚ğŠm”F
+    	// å–å¾—ã—ãŸè¦ç´ ãŒaddã§æœ€åˆã«è©°ã‚ãŸè¦ç´ ï¼ˆå…ˆé ­ã®è¦ç´ ï¼‰ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª
     	assertEquals(obj1, objPoll);
     	
-    	// —v‘f”‚ª1‚ÂŒ¸‚Á‚Ä‚¢‚é‚±‚Æ‚ğŠm”F
+    	// è¦ç´ æ•°ãŒ1ã¤æ¸›ã£ã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèª
     	assertEquals(1, sizeBefore - sizeAfter);
     }
 
     /**
-     * poll() ‚ÌƒeƒXƒg
-     * ³íŒnFpoll()‚É‚æ‚ènotFullƒVƒOƒiƒ‹‚ª‘—M‚³‚ê‚é‚±‚Æ‚ÌŠm”F
+     * poll() ã®ãƒ†ã‚¹ãƒˆ
+     * æ­£å¸¸ç³»ï¼špoll()ã«ã‚ˆã‚ŠnotFullã‚·ã‚°ãƒŠãƒ«ãŒé€ä¿¡ã•ã‚Œã‚‹ã“ã¨ã®ç¢ºèª
      */
     @Test
     public void testPoll005() throws Exception {
@@ -279,8 +279,8 @@ public class ArrayBlockingQueueExTest {
         final CountDownLatch threadSync = new CountDownLatch(1);
         int count = 0;
 
-        // •ÊƒXƒŒƒbƒh‚Åput‚ğÀs
-        // putŠÔŠu‚ğpollŠÔŠu‚æ‚è’Z‚­‚·‚é‚±‚Æ‚ÅAƒLƒ…[‚ªÅ‘å‚Ü‚Å–„‚Ü‚èAput‘Ò‚¿ó‘Ô‚ğì‚éB
+        // åˆ¥ã‚¹ãƒ¬ãƒƒãƒ‰ã§putã‚’å®Ÿè¡Œ
+        // puté–“éš”ã‚’pollé–“éš”ã‚ˆã‚ŠçŸ­ãã™ã‚‹ã“ã¨ã§ã€ã‚­ãƒ¥ãƒ¼ãŒæœ€å¤§ã¾ã§åŸ‹ã¾ã‚Šã€putå¾…ã¡çŠ¶æ…‹ã‚’ä½œã‚‹ã€‚
         ErrorFeedBackThread thread01 = new ErrorFeedBackThread() {
             @Override
             public void doRun() throws Exception {
@@ -295,8 +295,8 @@ public class ArrayBlockingQueueExTest {
         thread01.start();
         threadSync.await();
 
-        // poll‚ğÀs
-        // pollŠÔŠu‚ğputŠÔŠu‚æ‚è’·‚­‚·‚é‚±‚Æ‚ÅAƒLƒ…[‚ªÅ‘å‚Ü‚Å–„‚Ü‚èAput‘Ò‚¿ó‘Ô‚ğì‚éB
+        // pollã‚’å®Ÿè¡Œ
+        // pollé–“éš”ã‚’puté–“éš”ã‚ˆã‚Šé•·ãã™ã‚‹ã“ã¨ã§ã€ã‚­ãƒ¥ãƒ¼ãŒæœ€å¤§ã¾ã§åŸ‹ã¾ã‚Šã€putå¾…ã¡çŠ¶æ…‹ã‚’ä½œã‚‹ã€‚
         for (int idx=0; idx < 10; idx++) {
             Thread.sleep(1000);
             DataValueObject obj = queue.poll();
@@ -305,14 +305,14 @@ public class ArrayBlockingQueueExTest {
             }
         }
 
-        // poll‚Å10‰ñ’l‚ªæ‚ê‚Ä‚¢‚é‚±‚Æ‚ğŠm”F
-        // notFullƒVƒOƒiƒ‹‚ª‘—M‚³‚ê‚Ä‚¢‚È‚¯‚ê‚ÎAput‚ªƒfƒbƒgƒƒbƒN‚Æ‚È‚è’l‚ğ10‰ñæ“¾‚Å‚«‚È‚¢B
+        // pollã§10å›å€¤ãŒå–ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèª
+        // notFullã‚·ã‚°ãƒŠãƒ«ãŒé€ä¿¡ã•ã‚Œã¦ã„ãªã‘ã‚Œã°ã€putãŒãƒ‡ãƒƒãƒˆãƒ­ãƒƒã‚¯ã¨ãªã‚Šå€¤ã‚’10å›å–å¾—ã§ããªã„ã€‚
         assertEquals(10, count);
     }
 
     /**
-     * poll() ‚ÌƒeƒXƒg
-     * ³íŒnFpoll()‚ÅƒLƒ…[‚©‚ç’l‚ğ‡”Ô‚Éæ“¾‚Å‚«‚é‚±‚Æ‚ÌŠm”F
+     * poll() ã®ãƒ†ã‚¹ãƒˆ
+     * æ­£å¸¸ç³»ï¼špoll()ã§ã‚­ãƒ¥ãƒ¼ã‹ã‚‰å€¤ã‚’é †ç•ªã«å–å¾—ã§ãã‚‹ã“ã¨ã®ç¢ºèª
      */
     @Test
     public void testPoll006() throws Exception {
@@ -323,12 +323,12 @@ public class ArrayBlockingQueueExTest {
         DataValueObject obj2 = new DataValueObject("Value2");
         DataValueObject obj3 = new DataValueObject("Value3");
 
-        // ƒLƒ…[‚É3Œ‘}“ü
+        // ã‚­ãƒ¥ãƒ¼ã«3ä»¶æŒ¿å…¥
         queue.put(obj1);
         queue.put(obj2);
         queue.put(obj3);
 
-        // poll()À{
+        // poll()å®Ÿæ–½
         int queueSize0 = queue.size();
         DataValueObject pollObject1 = queue.poll();
         int queueSize1 = queue.size();
@@ -339,7 +339,7 @@ public class ArrayBlockingQueueExTest {
         DataValueObject pollObject4 = queue.poll();
         int queueSize4 = queue.size();
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals(3, queueSize0);
         assertEquals(2, queueSize1);
         assertEquals(1, queueSize2);
@@ -352,8 +352,8 @@ public class ArrayBlockingQueueExTest {
     }
 
     /**
-     * offer(E o, long timeout, TimeUnit unit) ‚ÌƒeƒXƒg
-     * ˆÙíŒnFNullPointerException‚ÌŠm”F
+     * offer(E o, long timeout, TimeUnit unit) ã®ãƒ†ã‚¹ãƒˆ
+     * ç•°å¸¸ç³»ï¼šNullPointerExceptionã®ç¢ºèª
      */
     @Test
     public void testOffer001() {
@@ -374,8 +374,8 @@ public class ArrayBlockingQueueExTest {
     }
 
     /**
-     * offer(E o, long timeout, TimeUnit unit) ‚ÌƒeƒXƒg
-     * ˆÙíŒnFInterruptedException‚ÌŠm”F
+     * offer(E o, long timeout, TimeUnit unit) ã®ãƒ†ã‚¹ãƒˆ
+     * ç•°å¸¸ç³»ï¼šInterruptedExceptionã®ç¢ºèª
      */
     @Test
     public void testOffer002() throws Exception {
@@ -389,28 +389,28 @@ public class ArrayBlockingQueueExTest {
     	
     	final ArrayBlockingQueueEx<DataValueObject> queue = new ArrayBlockingQueueEx<DataValueObject>(capacity);
     	
-    	// ƒLƒ…[‚ğ‚¢‚Á‚Ï‚¢‚É‚·‚é
+    	// ã‚­ãƒ¥ãƒ¼ã‚’ã„ã£ã±ã„ã«ã™ã‚‹
     	result1 = queue.offer(obj1, timeout, unit);
     	assertTrue(result1);
     	
-    	// •ÊƒXƒŒƒbƒh‚Åoffer‚ğÀsiƒLƒ…[‚ª‚¢‚Á‚Ï‚¢‚È‚Ì‚Å‘Ò‚¿‚É‚È‚éj
+    	// åˆ¥ã‚¹ãƒ¬ãƒƒãƒ‰ã§offerã‚’å®Ÿè¡Œï¼ˆã‚­ãƒ¥ãƒ¼ãŒã„ã£ã±ã„ãªã®ã§å¾…ã¡ã«ãªã‚‹ï¼‰
         ErrorFeedBackThread thread01 = new ErrorFeedBackThread() {
         	@Override
         	public void doRun() throws Exception {
     			DataValueObject obj2 = new DataValueObject("hoge2");
         		
-    			// ‘Ò‚¿ó‘Ô‚ğ‚Â‚­‚é
+    			// å¾…ã¡çŠ¶æ…‹ã‚’ã¤ãã‚‹
     			long timeStart = System.currentTimeMillis();
     			threadSync.countDown();
     			try {
     				queue.offer(obj2, timeout, unit);
     				fail();
     			} catch (InterruptedException e) {
-    				// Šú‘Ò’Ê‚è
+    				// æœŸå¾…é€šã‚Š
     			}
     			long timeEnd = System.currentTimeMillis();
     			long timeDiff = timeEnd - timeStart;
-    			// –ñ1000ƒ~ƒŠ•b‚Ì‘Ò‚¿Šm”F(50ƒ~ƒŠ•b‚ÌŒë·‚ğ‹–—e)
+    			// ç´„1000ãƒŸãƒªç§’ã®å¾…ã¡ç¢ºèª(50ãƒŸãƒªç§’ã®èª¤å·®ã‚’è¨±å®¹)
     			if(timeDiff < 950) {
     				fail();
     			}
@@ -422,7 +422,7 @@ public class ArrayBlockingQueueExTest {
     	threadSync.await();
     	Thread.sleep(1000);
     	
-    	// Š„‚è‚İ
+    	// å‰²ã‚Šè¾¼ã¿
     	thread01.interrupt();
     	
     	thread01.throwErrorOrExceptionIfThrown();
@@ -430,8 +430,8 @@ public class ArrayBlockingQueueExTest {
 
 
     /**
-     * offer(E o, long timeout, TimeUnit unit) ‚ÌƒeƒXƒg
-     * ³íŒnF w’è‚³‚ê‚½—v‘f‚ğ‚±‚ÌƒLƒ…[‚Ì––”ö‚É‘}“ü‚·‚éi‡”Ô’Ê‚è‚É‚È‚Á‚Ä‚¢‚é‚±‚Æj + ³íŒn‚ÌÛ‚Ì return true
+     * offer(E o, long timeout, TimeUnit unit) ã®ãƒ†ã‚¹ãƒˆ
+     * æ­£å¸¸ç³»ï¼š æŒ‡å®šã•ã‚ŒãŸè¦ç´ ã‚’ã“ã®ã‚­ãƒ¥ãƒ¼ã®æœ«å°¾ã«æŒ¿å…¥ã™ã‚‹ï¼ˆé †ç•ªé€šã‚Šã«ãªã£ã¦ã„ã‚‹ã“ã¨ï¼‰ + æ­£å¸¸ç³»ã®éš›ã® return true
      */
     @Test
     public void testOffer003() throws Exception {
@@ -456,8 +456,8 @@ public class ArrayBlockingQueueExTest {
     }
 
     /**
-     * offer(E o, long timeout, TimeUnit unit) ‚ÌƒeƒXƒg
-     * ³íŒnF ƒƒbƒN‚µ‚½‚Ü‚Üƒ^ƒCƒ€ƒAƒEƒg‚µ‚½ê‡
+     * offer(E o, long timeout, TimeUnit unit) ã®ãƒ†ã‚¹ãƒˆ
+     * æ­£å¸¸ç³»ï¼š ãƒ­ãƒƒã‚¯ã—ãŸã¾ã¾ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆã—ãŸå ´åˆ
      */
     @Test
     public void testOffer004() throws Exception{
@@ -471,16 +471,16 @@ public class ArrayBlockingQueueExTest {
     	
     	ArrayBlockingQueueEx<DataValueObject> queue = new ArrayBlockingQueueEx<DataValueObject>(capacity);
     	
-		// ƒLƒ…[‚ğ‚¢‚Á‚Ï‚¢‚É‚·‚é
+		// ã‚­ãƒ¥ãƒ¼ã‚’ã„ã£ã±ã„ã«ã™ã‚‹
 		queue.offer(obj1, timeout, unit);
 		
-		// ƒLƒ…[‚É“ü‚ê‚æ‚¤‚Æ‚·‚éiƒ^ƒCƒ€ƒAƒEƒg‚É‚È‚é‚Ü‚Å‘Ò‚¿Afalse‚ğ•Ô‚·j
+		// ã‚­ãƒ¥ãƒ¼ã«å…¥ã‚Œã‚ˆã†ã¨ã™ã‚‹ï¼ˆã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆã«ãªã‚‹ã¾ã§å¾…ã¡ã€falseã‚’è¿”ã™ï¼‰
 		long timeStart = System.currentTimeMillis();
 		result2 = queue.offer(obj2, timeout, unit);
 		long timeEnd = System.currentTimeMillis();
 		long timeDiff = timeEnd - timeStart;
 		
-		// –ñ1000ƒ~ƒŠ•b‚Ì‘Ò‚¿Šm”F(50ƒ~ƒŠ•b‚ÌŒë·‚ğ‹–—e)
+		// ç´„1000ãƒŸãƒªç§’ã®å¾…ã¡ç¢ºèª(50ãƒŸãƒªç§’ã®èª¤å·®ã‚’è¨±å®¹)
 		if (timeDiff < (timeout-50)) {
 			fail();
 		}
@@ -490,8 +490,8 @@ public class ArrayBlockingQueueExTest {
     }
     
     /**
-     * offer(E o, long timeout, TimeUnit unit) ‚ÌƒeƒXƒg
-     * ³íŒnF signal ’Ê’m‚ÌŠm”F
+     * offer(E o, long timeout, TimeUnit unit) ã®ãƒ†ã‚¹ãƒˆ
+     * æ­£å¸¸ç³»ï¼š signal é€šçŸ¥ã®ç¢ºèª
      */
     @Test
     public void testOffer005() throws Exception{
@@ -507,7 +507,7 @@ public class ArrayBlockingQueueExTest {
     	
     	final ArrayBlockingQueueEx<DataValueObject> queue = new ArrayBlockingQueueEx<DataValueObject>(capacity);
     	
-    	// ƒXƒŒƒbƒh‚Åpeek‚ğÀs‚³‚¹‚éiÅ‰‚ÍƒLƒ…[‚ª‹ó‚È‚Ì‚Å‘Ò‚Âj
+    	// ã‚¹ãƒ¬ãƒƒãƒ‰ã§peekã‚’å®Ÿè¡Œã•ã›ã‚‹ï¼ˆæœ€åˆã¯ã‚­ãƒ¥ãƒ¼ãŒç©ºãªã®ã§å¾…ã¤ï¼‰
     	Thread thread01 = new Thread() {
     		public void run() {
     			long timeStart = System.currentTimeMillis();
@@ -516,7 +516,7 @@ public class ArrayBlockingQueueExTest {
     			long timeEnd = System.currentTimeMillis();
     			long timeDiff = timeEnd - timeStart;
     			
-    			// –ñ1000ƒ~ƒŠ•b‚Ì‘Ò‚¿Šm”F(50ƒ~ƒŠ•b‚ÌŒë·‚ğ‹–—e)
+    			// ç´„1000ãƒŸãƒªç§’ã®å¾…ã¡ç¢ºèª(50ãƒŸãƒªç§’ã®èª¤å·®ã‚’è¨±å®¹)
     			if (timeDiff < 950) {
     				fail();
     			}
@@ -527,22 +527,22 @@ public class ArrayBlockingQueueExTest {
     	
     	threadSync.await();
     	Thread.sleep(1000);
-    	// ƒtƒ‰ƒO‚ğŠm”F‚·‚éioffer‚æ‚è‘O‚Épeek‚ª“®‚¢‚Ä‚¢‚È‚¢‚±‚Æj
+    	// ãƒ•ãƒ©ã‚°ã‚’ç¢ºèªã™ã‚‹ï¼ˆofferã‚ˆã‚Šå‰ã«peekãŒå‹•ã„ã¦ã„ãªã„ã“ã¨ï¼‰
     	assertFalse(checkflg.get());
-    	// ƒLƒ…[‚É—v‘f‚ğ‹l‚ß‚éi¨‚±‚ê‚É‚æ‚èƒVƒOƒiƒ‹‚ªo‚ê‚Îpeek‚ª“®‚­‚Í‚¸j
+    	// ã‚­ãƒ¥ãƒ¼ã«è¦ç´ ã‚’è©°ã‚ã‚‹ï¼ˆâ†’ã“ã‚Œã«ã‚ˆã‚Šã‚·ã‚°ãƒŠãƒ«ãŒå‡ºã‚Œã°peekãŒå‹•ãã¯ãšï¼‰
     	queue.offer(obj1, timeout, unit);
 
-    	// ƒXƒŒƒbƒh‚ª“®‚­ŠÔ•ª‚¾‚¯‘Ò‚Â
+    	// ã‚¹ãƒ¬ãƒƒãƒ‰ãŒå‹•ãæ™‚é–“åˆ†ã ã‘å¾…ã¤
     	thread01.join();
 
-    	// ƒtƒ‰ƒO‚ğŠm”F‚·‚é
+    	// ãƒ•ãƒ©ã‚°ã‚’ç¢ºèªã™ã‚‹
     	assertTrue(checkflg.get());
     }
 
     
     /**
-     * offer(E o) ‚ÌƒeƒXƒg
-     * ˆÙíŒnF NullPointerException ‚ÌŠm”F
+     * offer(E o) ã®ãƒ†ã‚¹ãƒˆ
+     * ç•°å¸¸ç³»ï¼š NullPointerException ã®ç¢ºèª
      */
     @Test
     public void testOffer006() throws Exception{
@@ -562,8 +562,8 @@ public class ArrayBlockingQueueExTest {
     }
     
     /**
-     * offer(E o) ‚ÌƒeƒXƒg
-     * ³íŒnFƒLƒ…[‚Ì––”ö‚É—v‘f‚ğ‘}“ü‚·‚é‚±‚Æ‚ÌŠm”F
+     * offer(E o) ã®ãƒ†ã‚¹ãƒˆ
+     * æ­£å¸¸ç³»ï¼šã‚­ãƒ¥ãƒ¼ã®æœ«å°¾ã«è¦ç´ ã‚’æŒ¿å…¥ã™ã‚‹ã“ã¨ã®ç¢ºèª
      */
     @Test
     public void testOffer007() throws Exception{
@@ -593,8 +593,8 @@ public class ArrayBlockingQueueExTest {
     }
 
     /**
-     * offer(E o) ‚ÌƒeƒXƒg
-     * ³íŒnF —v‘f‚ª’Ç‰Á•s‰Â‚Ìê‡‚Éfalse‚ğ•Ô‚·Šm”F
+     * offer(E o) ã®ãƒ†ã‚¹ãƒˆ
+     * æ­£å¸¸ç³»ï¼š è¦ç´ ãŒè¿½åŠ ä¸å¯ã®å ´åˆã«falseã‚’è¿”ã™ç¢ºèª
      */
     @Test
     public void testOffer008() throws Exception{
@@ -612,8 +612,8 @@ public class ArrayBlockingQueueExTest {
     }
 
     /**
-     * offer(E o) ‚ÌƒeƒXƒg
-     * ³íŒnF signal ‚ÌŠm”F
+     * offer(E o) ã®ãƒ†ã‚¹ãƒˆ
+     * æ­£å¸¸ç³»ï¼š signal ã®ç¢ºèª
      */
     @Test
     public void testOffer009() throws Exception{
@@ -627,7 +627,7 @@ public class ArrayBlockingQueueExTest {
     	
     	final ArrayBlockingQueueEx<DataValueObject> queue = new ArrayBlockingQueueEx<DataValueObject>(capacity);
     	
-    	// ƒXƒŒƒbƒh‚Åpeek‚ğÀs‚³‚¹‚éiÅ‰‚ÍƒLƒ…[‚ª‹ó‚È‚Ì‚Å‘Ò‚Âj
+    	// ã‚¹ãƒ¬ãƒƒãƒ‰ã§peekã‚’å®Ÿè¡Œã•ã›ã‚‹ï¼ˆæœ€åˆã¯ã‚­ãƒ¥ãƒ¼ãŒç©ºãªã®ã§å¾…ã¤ï¼‰
     	Thread thread01 = new Thread() {
     		public void run() {
     			long timeStart = System.currentTimeMillis();
@@ -636,7 +636,7 @@ public class ArrayBlockingQueueExTest {
     			long timeEnd = System.currentTimeMillis();
     			long timeDiff = timeEnd - timeStart;
     			
-    			// –ñ1000ƒ~ƒŠ•b‚Ì‘Ò‚¿Šm”F(50ƒ~ƒŠ•b‚ÌŒë·‚ğ‹–—e)
+    			// ç´„1000ãƒŸãƒªç§’ã®å¾…ã¡ç¢ºèª(50ãƒŸãƒªç§’ã®èª¤å·®ã‚’è¨±å®¹)
     			if (timeDiff < 950) {
     				fail();
     			}
@@ -647,21 +647,21 @@ public class ArrayBlockingQueueExTest {
     	
     	threadSync.await();
     	Thread.sleep(1000);
-    	// ƒtƒ‰ƒO‚ğŠm”F‚·‚éioffer‚æ‚è‘O‚Épeek‚ª“®‚¢‚Ä‚¢‚È‚¢‚±‚Æj
+    	// ãƒ•ãƒ©ã‚°ã‚’ç¢ºèªã™ã‚‹ï¼ˆofferã‚ˆã‚Šå‰ã«peekãŒå‹•ã„ã¦ã„ãªã„ã“ã¨ï¼‰
     	assertFalse(checkflg.get());
-    	// ƒLƒ…[‚É—v‘f‚ğ‹l‚ß‚éi¨‚±‚ê‚É‚æ‚èƒVƒOƒiƒ‹‚ªo‚ê‚Îpeek‚ª“®‚­‚Í‚¸j
+    	// ã‚­ãƒ¥ãƒ¼ã«è¦ç´ ã‚’è©°ã‚ã‚‹ï¼ˆâ†’ã“ã‚Œã«ã‚ˆã‚Šã‚·ã‚°ãƒŠãƒ«ãŒå‡ºã‚Œã°peekãŒå‹•ãã¯ãšï¼‰
     	queue.offer(obj1);
 
-    	// ƒXƒŒƒbƒh‚ª“®‚­ŠÔ•ª‚¾‚¯‘Ò‚Â
+    	// ã‚¹ãƒ¬ãƒƒãƒ‰ãŒå‹•ãæ™‚é–“åˆ†ã ã‘å¾…ã¤
     	thread01.join();
 
-    	// ƒtƒ‰ƒO‚ğŠm”F‚·‚é
+    	// ãƒ•ãƒ©ã‚°ã‚’ç¢ºèªã™ã‚‹
     	assertTrue(checkflg.get());
     }
 
     /**
-     * put(E o) ‚ÌƒeƒXƒg
-     * ˆÙíŒnF NullPointerException ‚ÌŠm”F
+     * put(E o) ã®ãƒ†ã‚¹ãƒˆ
+     * ç•°å¸¸ç³»ï¼š NullPointerException ã®ç¢ºèª
      */
     @Test
     public void testPut001() throws Exception{
@@ -680,8 +680,8 @@ public class ArrayBlockingQueueExTest {
     }
 
     /**
-     * put(E o) ‚ÌƒeƒXƒg
-     * ˆÙíŒnF InterruptedException ‚ÌŠm”F
+     * put(E o) ã®ãƒ†ã‚¹ãƒˆ
+     * ç•°å¸¸ç³»ï¼š InterruptedException ã®ç¢ºèª
      */
     @Test
     public void testPut002() throws Exception{
@@ -693,27 +693,27 @@ public class ArrayBlockingQueueExTest {
     	
     	final ArrayBlockingQueueEx<DataValueObject> queue = new ArrayBlockingQueueEx<DataValueObject>(capacity);
     	
-    	// ƒLƒ…[‚ğ‚¢‚Á‚Ï‚¢‚É‚·‚é
+    	// ã‚­ãƒ¥ãƒ¼ã‚’ã„ã£ã±ã„ã«ã™ã‚‹
     	queue.put(obj1);
     		    		
-    	// •ÊƒXƒŒƒbƒh‚Åput‚ğÀsiƒLƒ…[‚ª‚¢‚Á‚Ï‚¢‚È‚Ì‚Å‘Ò‚¿‚É‚È‚éj
+    	// åˆ¥ã‚¹ãƒ¬ãƒƒãƒ‰ã§putã‚’å®Ÿè¡Œï¼ˆã‚­ãƒ¥ãƒ¼ãŒã„ã£ã±ã„ãªã®ã§å¾…ã¡ã«ãªã‚‹ï¼‰
         ErrorFeedBackThread thread01 = new ErrorFeedBackThread() {
         	@Override
         	public void doRun() throws Exception {
     			DataValueObject obj2 = new DataValueObject("hoge2");
         		
-    			// ‘Ò‚¿ó‘Ô‚ğ‚Â‚­‚é
+    			// å¾…ã¡çŠ¶æ…‹ã‚’ã¤ãã‚‹
     			long timeStart = System.currentTimeMillis();
     			threadSync.countDown();
     			try {
     				queue.put(obj2);
     				fail();
     			} catch (InterruptedException e) {
-    				// Šú‘Ò’Ê‚è
+    				// æœŸå¾…é€šã‚Š
     			}
     			long timeEnd = System.currentTimeMillis();
     			long timeDiff = timeEnd - timeStart;
-    			// –ñ1000ƒ~ƒŠ•b‚Ì‘Ò‚¿Šm”F(50ƒ~ƒŠ•b‚ÌŒë·‚ğ‹–—e)
+    			// ç´„1000ãƒŸãƒªç§’ã®å¾…ã¡ç¢ºèª(50ãƒŸãƒªç§’ã®èª¤å·®ã‚’è¨±å®¹)
     			if(timeDiff < 950) {
     				fail();
     			}
@@ -725,15 +725,15 @@ public class ArrayBlockingQueueExTest {
     	threadSync.await();
     	Thread.sleep(1000);
     	
-    	// Š„‚è‚İ
+    	// å‰²ã‚Šè¾¼ã¿
     	thread01.interrupt();
     	
     	thread01.throwErrorOrExceptionIfThrown();
     }
 
     /**
-     * put(E o) ‚ÌƒeƒXƒg
-     * ³íŒnF w’è‚³‚ê‚½—v‘f‚ğ‚±‚ÌƒLƒ…[‚Ì––”ö‚É’Ç‰Á‚·‚é‚±‚Æ‚ÌŠm”F
+     * put(E o) ã®ãƒ†ã‚¹ãƒˆ
+     * æ­£å¸¸ç³»ï¼š æŒ‡å®šã•ã‚ŒãŸè¦ç´ ã‚’ã“ã®ã‚­ãƒ¥ãƒ¼ã®æœ«å°¾ã«è¿½åŠ ã™ã‚‹ã“ã¨ã®ç¢ºèª
      */
     @Test
     public void testPut003() throws Exception{
@@ -758,8 +758,8 @@ public class ArrayBlockingQueueExTest {
     }
 
     /**
-     * put(E o)‚ÌƒeƒXƒg
-     * ³íŒnF‹óŠÔ‚ª—˜—p‰Â”\‚É‚È‚é‚Ü‚Å‘Ò‹@‚µ‚Ä‚©‚ç—v‘f‚ğ’Ç‰Á‚·‚é‚±‚Æ‚ÌŠm”F
+     * put(E o)ã®ãƒ†ã‚¹ãƒˆ
+     * æ­£å¸¸ç³»ï¼šç©ºé–“ãŒåˆ©ç”¨å¯èƒ½ã«ãªã‚‹ã¾ã§å¾…æ©Ÿã—ã¦ã‹ã‚‰è¦ç´ ã‚’è¿½åŠ ã™ã‚‹ã“ã¨ã®ç¢ºèª
      */
     @Test
     public void testPut004() throws Exception {
@@ -782,13 +782,13 @@ public class ArrayBlockingQueueExTest {
     			long timeStart = System.currentTimeMillis();
     			threadSync.countDown();
     			try {
-    				queue.put(obj2);	// ƒLƒ…[‚ª‹ó‚­‚Ü‚Å‘Ò‚Á‚Ä‚©‚çÀs‚·‚é
+    				queue.put(obj2);	// ã‚­ãƒ¥ãƒ¼ãŒç©ºãã¾ã§å¾…ã£ã¦ã‹ã‚‰å®Ÿè¡Œã™ã‚‹
     			} catch (InterruptedException e) {
     				e.printStackTrace();
     			}
     			long timeEnd = System.currentTimeMillis();
     			long timeDiff = timeEnd - timeStart;
-    			// –ñ1000ƒ~ƒŠ•b‚Ì‘Ò‚¿Šm”F(50ƒ~ƒŠ•b‚ÌŒë·‚ğ‹–—e)
+    			// ç´„1000ãƒŸãƒªç§’ã®å¾…ã¡ç¢ºèª(50ãƒŸãƒªç§’ã®èª¤å·®ã‚’è¨±å®¹)
     			if(timeDiff < 950) {
     				fail();
     			}
@@ -798,7 +798,7 @@ public class ArrayBlockingQueueExTest {
     	thread01.start();
     	threadSync.await();
     	Thread.sleep(1000);
-    	// ƒtƒ‰ƒO‚ğŠm”F‚·‚éipoll‚æ‚è‘O‚Éput‚ª“®‚¢‚Ä‚¢‚È‚¢‚±‚Æj
+    	// ãƒ•ãƒ©ã‚°ã‚’ç¢ºèªã™ã‚‹ï¼ˆpollã‚ˆã‚Šå‰ã«putãŒå‹•ã„ã¦ã„ãªã„ã“ã¨ï¼‰
     	assertFalse(checkflg.get());
     	queue.poll(timeout, unit);
 
@@ -810,8 +810,8 @@ public class ArrayBlockingQueueExTest {
     }
     
     /**
-     * put(E o) ‚ÌƒeƒXƒg
-     * ³íŒnF signal‚ÌŠm”F
+     * put(E o) ã®ãƒ†ã‚¹ãƒˆ
+     * æ­£å¸¸ç³»ï¼š signalã®ç¢ºèª
      */
     @Test
     public void testPut005() throws Exception{
@@ -825,7 +825,7 @@ public class ArrayBlockingQueueExTest {
     	
     	final ArrayBlockingQueueEx<DataValueObject> queue = new ArrayBlockingQueueEx<DataValueObject>(capacity);
     	
-    	// ƒXƒŒƒbƒh‚Åpeek‚ğÀs‚³‚¹‚éiÅ‰‚ÍƒLƒ…[‚ª‹ó‚È‚Ì‚Å‘Ò‚Âj
+    	// ã‚¹ãƒ¬ãƒƒãƒ‰ã§peekã‚’å®Ÿè¡Œã•ã›ã‚‹ï¼ˆæœ€åˆã¯ã‚­ãƒ¥ãƒ¼ãŒç©ºãªã®ã§å¾…ã¤ï¼‰
     	Thread thread01 = new Thread() {
     		public void run() {
     			long timeStart = System.currentTimeMillis();
@@ -834,7 +834,7 @@ public class ArrayBlockingQueueExTest {
     			long timeEnd = System.currentTimeMillis();
     			long timeDiff = timeEnd - timeStart;
     			
-    			// –ñ1000ƒ~ƒŠ•b‚Ì‘Ò‚¿Šm”F(50ƒ~ƒŠ•b‚ÌŒë·‚ğ‹–—e)
+    			// ç´„1000ãƒŸãƒªç§’ã®å¾…ã¡ç¢ºèª(50ãƒŸãƒªç§’ã®èª¤å·®ã‚’è¨±å®¹)
     			if (timeDiff < 950) {
     				fail();
     			}
@@ -843,23 +843,23 @@ public class ArrayBlockingQueueExTest {
     	};
     	thread01.start();
     	
-    	// ƒLƒ…[‚É—v‘f‚ğ‹l‚ß‚éi¨‚±‚ê‚É‚æ‚èƒVƒOƒiƒ‹‚ªo‚ê‚Îpeek‚ª“®‚­‚Í‚¸j
+    	// ã‚­ãƒ¥ãƒ¼ã«è¦ç´ ã‚’è©°ã‚ã‚‹ï¼ˆâ†’ã“ã‚Œã«ã‚ˆã‚Šã‚·ã‚°ãƒŠãƒ«ãŒå‡ºã‚Œã°peekãŒå‹•ãã¯ãšï¼‰
     	threadSync.await();
     	Thread.sleep(1000);
-    	// ƒtƒ‰ƒO‚ğŠm”F‚·‚éiput‚æ‚è‘O‚Épeek‚ª“®‚¢‚Ä‚¢‚È‚¢‚±‚Æj
+    	// ãƒ•ãƒ©ã‚°ã‚’ç¢ºèªã™ã‚‹ï¼ˆputã‚ˆã‚Šå‰ã«peekãŒå‹•ã„ã¦ã„ãªã„ã“ã¨ï¼‰
     	assertFalse(checkflg.get());
     	queue.put(obj1);
 
-    	// ƒXƒŒƒbƒh‚ª“®‚­ŠÔ•ª‚¾‚¯‘Ò‚Â
+    	// ã‚¹ãƒ¬ãƒƒãƒ‰ãŒå‹•ãæ™‚é–“åˆ†ã ã‘å¾…ã¤
     	thread01.join();
 
-    	// ƒtƒ‰ƒO‚ğŠm”F‚·‚é
+    	// ãƒ•ãƒ©ã‚°ã‚’ç¢ºèªã™ã‚‹
     	assertTrue(checkflg.get());
     }
 
     /**
-     * peek() ‚ÌƒeƒXƒg
-     * ³íŒnFƒLƒ…[‚Ìæ“ª‚ğæ“¾‚·‚é‚ªíœ‚µ‚È‚¢Šm”F
+     * peek() ã®ãƒ†ã‚¹ãƒˆ
+     * æ­£å¸¸ç³»ï¼šã‚­ãƒ¥ãƒ¼ã®å…ˆé ­ã‚’å–å¾—ã™ã‚‹ãŒå‰Šé™¤ã—ãªã„ç¢ºèª
      */
     @Test
     public void testPeek001() throws Exception{
@@ -885,8 +885,8 @@ public class ArrayBlockingQueueExTest {
     }
 
     /**
-     * peek() ‚ÌƒeƒXƒg
-     * ³íŒnFƒLƒ…[‚ª‹ó‚Ìê‡AƒLƒ…[‚É—v‘f‚ª“ü‚é‚Ì‚ğ‘Ò‚ÂŠm”F
+     * peek() ã®ãƒ†ã‚¹ãƒˆ
+     * æ­£å¸¸ç³»ï¼šã‚­ãƒ¥ãƒ¼ãŒç©ºã®å ´åˆã€ã‚­ãƒ¥ãƒ¼ã«è¦ç´ ãŒå…¥ã‚‹ã®ã‚’å¾…ã¤ç¢ºèª
      */
     @Test
     public void testPeek002() throws Exception{
@@ -912,31 +912,31 @@ public class ArrayBlockingQueueExTest {
     		}
     	};
     	
-    	// ƒLƒ…[‚ª‹ó‚Å‚ ‚é‚±‚Æ‚ÌŠm”F
+    	// ã‚­ãƒ¥ãƒ¼ãŒç©ºã§ã‚ã‚‹ã“ã¨ã®ç¢ºèª
     	assertEquals(0, queue.size());
 
     	thread01.start();
     	
     	long timeStart = System.currentTimeMillis(); 
     	threadSync.countDown();
-    	// •ÊƒXƒŒƒbƒh‚ÅƒLƒ…[‚Ö—v‘f’Ç‰Á‚ğ‚µ‚È‚¢‚Æpeek()‚Í‚¢‚Â‚Ü‚Å‚à‘Ò‚¿‘±‚¯‚é
+    	// åˆ¥ã‚¹ãƒ¬ãƒƒãƒ‰ã§ã‚­ãƒ¥ãƒ¼ã¸è¦ç´ è¿½åŠ ã‚’ã—ãªã„ã¨peek()ã¯ã„ã¤ã¾ã§ã‚‚å¾…ã¡ç¶šã‘ã‚‹
     	DataValueObject objPeek = queue.peek();
     	long timeEnd = System.currentTimeMillis();
     	long timeDiff = timeEnd - timeStart;
     	
-    	// ƒLƒ…[‚É—v‘f‚ª“ü‚é‚Ì‚ğ‘Ò‚Á‚½‚±‚Æ‚ğŠm”F
-    	// –ñ1000ƒ~ƒŠ•b‚Ì‘Ò‚¿Šm”F(50ƒ~ƒŠ•b‚ÌŒë·‚ğ‹–—e)
+    	// ã‚­ãƒ¥ãƒ¼ã«è¦ç´ ãŒå…¥ã‚‹ã®ã‚’å¾…ã£ãŸã“ã¨ã‚’ç¢ºèª
+    	// ç´„1000ãƒŸãƒªç§’ã®å¾…ã¡ç¢ºèª(50ãƒŸãƒªç§’ã®èª¤å·®ã‚’è¨±å®¹)
     	if(timeDiff < (waittime-50)) {
     		fail();
     	}
-    	// ƒLƒ…[‚Ì—v‘f‚ª’Ç‰Á‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ÌŠm”F
+    	// ã‚­ãƒ¥ãƒ¼ã®è¦ç´ ãŒè¿½åŠ ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã®ç¢ºèª
     	assertEquals(obj1.getValue(), objPeek.getValue());
     	
     }
     
     /**
-     * peek() ‚ÌƒeƒXƒg
-     * ³íŒnFƒLƒ…[‚ª‹ó‚Ìê‡AƒLƒ…[ƒCƒ“ƒO‚ÌI—¹’Ê’m‚ğ‘Ò‚ÂŠm”F
+     * peek() ã®ãƒ†ã‚¹ãƒˆ
+     * æ­£å¸¸ç³»ï¼šã‚­ãƒ¥ãƒ¼ãŒç©ºã®å ´åˆã€ã‚­ãƒ¥ãƒ¼ã‚¤ãƒ³ã‚°ã®çµ‚äº†é€šçŸ¥ã‚’å¾…ã¤ç¢ºèª
      */
     @Test
     public void testPeek003() throws Exception{
@@ -959,31 +959,31 @@ public class ArrayBlockingQueueExTest {
     		}
     	};
     	
-    	// ƒLƒ…[‚ª‹ó‚Å‚ ‚é‚±‚Æ‚ÌŠm”F
+    	// ã‚­ãƒ¥ãƒ¼ãŒç©ºã§ã‚ã‚‹ã“ã¨ã®ç¢ºèª
     	assertEquals(0, queue.size());
 
     	thread01.start();
     	
-    	// •ÊƒXƒŒƒbƒh‚ÅƒLƒ…[ƒCƒ“ƒOI—¹’Ê’m‚ğ‚µ‚È‚¢‚Æpeek()‚Í‚¢‚Â‚Ü‚Å‚à‘Ò‚¿‘±‚¯‚é
-    	// ƒLƒ…[‚Ì—v‘f‚ª’Ç‰Á‚³‚ê‚Ä‚¢‚È‚¢ê‡null‚ª•Ô‚é
+    	// åˆ¥ã‚¹ãƒ¬ãƒƒãƒ‰ã§ã‚­ãƒ¥ãƒ¼ã‚¤ãƒ³ã‚°çµ‚äº†é€šçŸ¥ã‚’ã—ãªã„ã¨peek()ã¯ã„ã¤ã¾ã§ã‚‚å¾…ã¡ç¶šã‘ã‚‹
+    	// ã‚­ãƒ¥ãƒ¼ã®è¦ç´ ãŒè¿½åŠ ã•ã‚Œã¦ã„ãªã„å ´åˆnullãŒè¿”ã‚‹
     	long timeStart = System.currentTimeMillis();
     	threadSync.countDown();
     	DataValueObject objPeek = queue.peek();
     	long timeEnd = System.currentTimeMillis();
     	long timeDiff = timeEnd - timeStart;
     	
-    	// ƒLƒ…[ƒCƒ“ƒOI—¹‚Ü‚Å‘Ò‚Á‚½‚±‚Æ‚ğŠm”F
-    	// –ñ1000ƒ~ƒŠ•b‚Ì‘Ò‚¿Šm”F(50ƒ~ƒŠ•b‚ÌŒë·‚ğ‹–—e)
+    	// ã‚­ãƒ¥ãƒ¼ã‚¤ãƒ³ã‚°çµ‚äº†ã¾ã§å¾…ã£ãŸã“ã¨ã‚’ç¢ºèª
+    	// ç´„1000ãƒŸãƒªç§’ã®å¾…ã¡ç¢ºèª(50ãƒŸãƒªç§’ã®èª¤å·®ã‚’è¨±å®¹)
     	if(timeDiff < (waittime-50)) {
     		fail();
     	}
-    	// Peek‚ÌŒ‹‰Ê‚ªNULL‚Å‚ ‚é‚±‚Æ‚ğŠm”F
+    	// Peekã®çµæœãŒNULLã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèª
     	assertNull(objPeek);
     }
     
     /**
-     * peek() ‚ÌƒeƒXƒg
-     * ˆÙíŒnFƒLƒ…[‚ª‹ó‚Å‘Ò‹@‚µ‚Ä‚¢‚é‚ÉInterruptedExeception‚ª”­¶‚µ‚½ê‡‚Énull‚ğ•Ô‚·Šm”F
+     * peek() ã®ãƒ†ã‚¹ãƒˆ
+     * ç•°å¸¸ç³»ï¼šã‚­ãƒ¥ãƒ¼ãŒç©ºã§å¾…æ©Ÿã—ã¦ã„ã‚‹æ™‚ã«InterruptedExeceptionãŒç™ºç”Ÿã—ãŸå ´åˆã«nullã‚’è¿”ã™ç¢ºèª
      */
     @Test
     public void testPeek004() throws Exception {
@@ -993,20 +993,20 @@ public class ArrayBlockingQueueExTest {
     	
     	final ArrayBlockingQueueEx<DataValueObject> queue = new ArrayBlockingQueueEx<DataValueObject>(capacity);
 
-    	// •ÊƒXƒŒƒbƒh‚Åpeek‚ğÀsiƒLƒ…[‚ª‹ó‚È‚Ì‚Å‘Ò‚¿‚É‚È‚éj
+    	// åˆ¥ã‚¹ãƒ¬ãƒƒãƒ‰ã§peekã‚’å®Ÿè¡Œï¼ˆã‚­ãƒ¥ãƒ¼ãŒç©ºãªã®ã§å¾…ã¡ã«ãªã‚‹ï¼‰
         ErrorFeedBackThread thread01 = new ErrorFeedBackThread() {
           	@Override
            	public void doRun() throws Exception {
-          		// ‘Ò‚¿ó‘Ô‚ğ‚Â‚­‚é
+          		// å¾…ã¡çŠ¶æ…‹ã‚’ã¤ãã‚‹
     			long timeStart = System.currentTimeMillis();
     			threadSync.countDown();
     			DataValueObject result = queue.peek();
     			long timeEnd = System.currentTimeMillis();
-    			// result‚ÌŠm”F
+    			// resultã®ç¢ºèª
     			assertNull(result);
-    			// ˆ—ŠÔ‚ÌŠm”Fiinterrupt‚É‚æ‚Á‚ÄI—¹‚µ‚½‚©j
+    			// å‡¦ç†æ™‚é–“ã®ç¢ºèªï¼ˆinterruptã«ã‚ˆã£ã¦çµ‚äº†ã—ãŸã‹ï¼‰
     			long timeDiff = timeEnd - timeStart;
-    			// –ñ1000ƒ~ƒŠ•b‚Ì‘Ò‚¿Šm”F(50ƒ~ƒŠ•b‚ÌŒë·‚ğ‹–—e)
+    			// ç´„1000ãƒŸãƒªç§’ã®å¾…ã¡ç¢ºèª(50ãƒŸãƒªç§’ã®èª¤å·®ã‚’è¨±å®¹)
     			if(timeDiff < (sleeptime-50)) {
     				fail();
     			}
@@ -1015,19 +1015,19 @@ public class ArrayBlockingQueueExTest {
         
     	thread01.start();
 
-    	// ­‚µ‘Ò‚Â
+    	// å°‘ã—å¾…ã¤
     	threadSync.await();
     	Thread.sleep(sleeptime);
     	
-    	// Š„‚è‚İ
+    	// å‰²ã‚Šè¾¼ã¿
     	thread01.interrupt();
     	
     	thread01.throwErrorOrExceptionIfThrown();
     }
 
     /**
-     * isEmpty() ‚ÌƒeƒXƒg
-     * ³íŒnFƒLƒ…[‚Ì—v‘f‚ª‚È‚¢ê‡‚Étrue‚ğ•Ô‚·Šm”Fi‘Ò‹@‚µ‚½Œ‹‰Ê—v‘f‚ª‚È‚¢j
+     * isEmpty() ã®ãƒ†ã‚¹ãƒˆ
+     * æ­£å¸¸ç³»ï¼šã‚­ãƒ¥ãƒ¼ã®è¦ç´ ãŒãªã„å ´åˆã«trueã‚’è¿”ã™ç¢ºèªï¼ˆå¾…æ©Ÿã—ãŸçµæœè¦ç´ ãŒãªã„ï¼‰
      */
     @Test
     public void testIsEmpty001() throws Exception {
@@ -1049,13 +1049,13 @@ public class ArrayBlockingQueueExTest {
     	
     	thread01.start();
     	
-    	// •ÊƒXƒŒƒbƒh‚ÅƒLƒ…[ƒCƒ“ƒOI—¹’Ê’m‚ğs‚¤‚Ætrue‚ğ•Ô‚·
+    	// åˆ¥ã‚¹ãƒ¬ãƒƒãƒ‰ã§ã‚­ãƒ¥ãƒ¼ã‚¤ãƒ³ã‚°çµ‚äº†é€šçŸ¥ã‚’è¡Œã†ã¨trueã‚’è¿”ã™
     	assertTrue(queue.isEmpty());
     }
     
     /**
-     * isEmpty() ‚ÌƒeƒXƒg
-     * ³íŒnFƒLƒ…[‚Ì—v‘f‚ª‚ ‚éê‡‚Éfalse‚ğ•Ô‚·Šm”Fi‘Ò‹@’†‚É—v‘f‚ª’Ç‰Á‚³‚ê‚éj
+     * isEmpty() ã®ãƒ†ã‚¹ãƒˆ
+     * æ­£å¸¸ç³»ï¼šã‚­ãƒ¥ãƒ¼ã®è¦ç´ ãŒã‚ã‚‹å ´åˆã«falseã‚’è¿”ã™ç¢ºèªï¼ˆå¾…æ©Ÿä¸­ã«è¦ç´ ãŒè¿½åŠ ã•ã‚Œã‚‹ï¼‰
      */
     @Test
     public void testIsEmpty002() throws Exception {
@@ -1078,14 +1078,14 @@ public class ArrayBlockingQueueExTest {
     	
     	thread01.start();
     	
-    	// •ÊƒXƒŒƒbƒh‚ÅƒLƒ…[ƒCƒ“ƒOI—¹’Ê’m‚ğs‚¤‚Ætrue‚ğ•Ô‚·
+    	// åˆ¥ã‚¹ãƒ¬ãƒƒãƒ‰ã§ã‚­ãƒ¥ãƒ¼ã‚¤ãƒ³ã‚°çµ‚äº†é€šçŸ¥ã‚’è¡Œã†ã¨trueã‚’è¿”ã™
     	assertFalse(queue.isEmpty());
     	
     }
 
     /**
-     * isEmpty() ‚ÌƒeƒXƒg
-     * ³íŒnFƒLƒ…[‚Ì—v‘f‚ª‚ ‚éê‡‚Éfalse‚ğ•Ô‚·Šm”FiÅ‰‚©‚ç—v‘f‚ª‚ ‚éj
+     * isEmpty() ã®ãƒ†ã‚¹ãƒˆ
+     * æ­£å¸¸ç³»ï¼šã‚­ãƒ¥ãƒ¼ã®è¦ç´ ãŒã‚ã‚‹å ´åˆã«falseã‚’è¿”ã™ç¢ºèªï¼ˆæœ€åˆã‹ã‚‰è¦ç´ ãŒã‚ã‚‹ï¼‰
      */
     @Test
     public void testIsEmpty003() throws Exception {
@@ -1101,8 +1101,8 @@ public class ArrayBlockingQueueExTest {
     }
 
     /**
-     * isEmpty() ‚ÌƒeƒXƒg
-     * ³íŒnFƒLƒ…[‚Ì—v‘f‚ª‚È‚¢ê‡‚Étrue‚ğ•Ô‚·Šm”Fi‘Ò‹@‚µ‚È‚¢j
+     * isEmpty() ã®ãƒ†ã‚¹ãƒˆ
+     * æ­£å¸¸ç³»ï¼šã‚­ãƒ¥ãƒ¼ã®è¦ç´ ãŒãªã„å ´åˆã«trueã‚’è¿”ã™ç¢ºèªï¼ˆå¾…æ©Ÿã—ãªã„ï¼‰
      */
     @Test
     public void testIsEmpty004() throws Exception {
@@ -1116,8 +1116,8 @@ public class ArrayBlockingQueueExTest {
     }
 
     /**
-     * isEmpty() ‚ÌƒeƒXƒg
-     * ˆÙíŒnFƒLƒ…[‚ª‹ó‚Å‘Ò‹@‚µ‚Ä‚¢‚é‚ÉInterruptedExeception‚ª”­¶‚µ‚½ê‡‚Étrue‚ğ•Ô‚·Šm”F
+     * isEmpty() ã®ãƒ†ã‚¹ãƒˆ
+     * ç•°å¸¸ç³»ï¼šã‚­ãƒ¥ãƒ¼ãŒç©ºã§å¾…æ©Ÿã—ã¦ã„ã‚‹æ™‚ã«InterruptedExeceptionãŒç™ºç”Ÿã—ãŸå ´åˆã«trueã‚’è¿”ã™ç¢ºèª
      */
     @Test
     public void testIsEmpty005() throws Exception {
@@ -1127,20 +1127,20 @@ public class ArrayBlockingQueueExTest {
     	
     	final ArrayBlockingQueueEx<DataValueObject> queue = new ArrayBlockingQueueEx<DataValueObject>(capacity);
     	
-    	// •ÊƒXƒŒƒbƒh‚ÅisEmpty‚ğÀsiƒLƒ…[‚ª‹ó‚È‚Ì‚Å‘Ò‚¿‚É‚È‚éj
+    	// åˆ¥ã‚¹ãƒ¬ãƒƒãƒ‰ã§isEmptyã‚’å®Ÿè¡Œï¼ˆã‚­ãƒ¥ãƒ¼ãŒç©ºãªã®ã§å¾…ã¡ã«ãªã‚‹ï¼‰
         ErrorFeedBackThread thread01 = new ErrorFeedBackThread() {
            	@Override
            	public void doRun() throws Exception {
-    			// ‘Ò‚¿ó‘Ô‚ğ‚Â‚­‚é
+    			// å¾…ã¡çŠ¶æ…‹ã‚’ã¤ãã‚‹
     			long timeStart = System.currentTimeMillis();
     			threadSync.countDown();
     			boolean result = queue.isEmpty();
     			long timeEnd = System.currentTimeMillis();
-    			// result‚ÌŠm”F
+    			// resultã®ç¢ºèª
     			assertTrue(result);
-    			// ˆ—ŠÔ‚ÌŠm”Fiinterrupt‚É‚æ‚Á‚ÄI—¹‚µ‚½‚©j
+    			// å‡¦ç†æ™‚é–“ã®ç¢ºèªï¼ˆinterruptã«ã‚ˆã£ã¦çµ‚äº†ã—ãŸã‹ï¼‰
     			long timeDiff = timeEnd - timeStart;
-    			// –ñ1000ƒ~ƒŠ•b‚Ì‘Ò‚¿Šm”F(50ƒ~ƒŠ•b‚ÌŒë·‚ğ‹–—e)
+    			// ç´„1000ãƒŸãƒªç§’ã®å¾…ã¡ç¢ºèª(50ãƒŸãƒªç§’ã®èª¤å·®ã‚’è¨±å®¹)
     			if(timeDiff < (sleeptime-50)) {
     				fail();
     			}
@@ -1149,21 +1149,21 @@ public class ArrayBlockingQueueExTest {
         
     	thread01.start();
 
-   		// ­‚µ‘Ò‚Â
+   		// å°‘ã—å¾…ã¤
     	threadSync.await();
    		Thread.sleep(sleeptime);
    		
-   		// Š„‚è‚İ
+   		// å‰²ã‚Šè¾¼ã¿
    		thread01.interrupt();
    		
    		thread01.throwErrorOrExceptionIfThrown();
     }
 
     /**
-     * ƒGƒ‰[‚ğƒtƒB[ƒhƒoƒbƒN‚Å‚«‚éƒXƒŒƒbƒhB
-     * •ÊƒXƒŒƒbƒh‚ÅÀ{‚µ‚½‚¢“à—e‚ğ doRun() throws Exception ‚ÉÀ‘•‚·‚éB
-     * Œ±I—¹AthrowErrorOrExceptionIfThrownƒƒ\ƒbƒh‚ğÀs‚·‚é‚ÆA
-     * doRunƒƒ\ƒbƒh‚É‚Ä‘z’èŠO‚ÌƒGƒ‰[‚ª”­¶‚µ‚½ê‡‚ÉA‚»‚ÌƒGƒ‰[‚ªƒXƒ[‚³‚ê‚éB
+     * ã‚¨ãƒ©ãƒ¼ã‚’ãƒ•ã‚£ãƒ¼ãƒ‰ãƒãƒƒã‚¯ã§ãã‚‹ã‚¹ãƒ¬ãƒƒãƒ‰ã€‚
+     * åˆ¥ã‚¹ãƒ¬ãƒƒãƒ‰ã§å®Ÿæ–½ã—ãŸã„å†…å®¹ã‚’ doRun() throws Exception ã«å®Ÿè£…ã™ã‚‹ã€‚
+     * è©¦é¨“çµ‚äº†æ™‚ã€throwErrorOrExceptionIfThrownãƒ¡ã‚½ãƒƒãƒ‰ã‚’å®Ÿè¡Œã™ã‚‹ã¨ã€
+     * doRunãƒ¡ã‚½ãƒƒãƒ‰ã«ã¦æƒ³å®šå¤–ã®ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´åˆã«ã€ãã®ã‚¨ãƒ©ãƒ¼ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã€‚
      */
     abstract class ErrorFeedBackThread extends Thread {
         private Exception exception;

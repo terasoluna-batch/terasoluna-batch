@@ -1,4 +1,4 @@
 /**
- * フレームワーク汎用例外クラス
+ * 繝輔Ξ繝ｼ繝繝ｯ繝ｼ繧ｯ豎守畑萓句､悶け繝ｩ繧ｹ
  */
 package jp.terasoluna.fw.exception;

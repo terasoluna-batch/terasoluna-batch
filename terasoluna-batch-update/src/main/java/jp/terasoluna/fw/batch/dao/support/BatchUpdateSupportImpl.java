@@ -32,35 +32,35 @@ import jp.terasoluna.fw.dao.UpdateDAO;
 import jp.terasoluna.fw.logger.TLogger;
 
 /**
- * ƒoƒbƒ`XVƒTƒ|[ƒgƒNƒ‰ƒX<br>
+ * ãƒãƒƒãƒæ›´æ–°ã‚µãƒãƒ¼ãƒˆã‚¯ãƒ©ã‚¹<br>
  * <p>
- * –{ƒNƒ‰ƒX‚ğ—˜—p‚·‚±‚Æ‚ÅUpdateDAO‚Ìƒoƒbƒ`XVˆ—‚ÌÀs‚ğSqlID–ˆ‚É®—ñ‚³‚ê‚½ó‘Ô‚Ås‚¤‚±‚Æ‚ª‚Å‚«‚éB<br>
- * SqlID‚Åƒ\[ƒg‚·‚é‚±‚Æ‚ÅJDBC‚ÌPreparedStatement#executeBatch‚ÌÀs‰ñ”‚ğŒ¸‚ç‚¹‚é–‚É‚æ‚è«”\‚ÉŠñ—^‚·‚éB
+ * æœ¬ã‚¯ãƒ©ã‚¹ã‚’åˆ©ç”¨ã™ã“ã¨ã§UpdateDAOã®ãƒãƒƒãƒæ›´æ–°å‡¦ç†ã®å®Ÿè¡Œã‚’SqlIDæ¯ã«æ•´åˆ—ã•ã‚ŒãŸçŠ¶æ…‹ã§è¡Œã†ã“ã¨ãŒã§ãã‚‹ã€‚<br>
+ * SqlIDã§ã‚½ãƒ¼ãƒˆã™ã‚‹ã“ã¨ã§JDBCã®PreparedStatement#executeBatchã®å®Ÿè¡Œå›æ•°ã‚’æ¸›ã‚‰ã›ã‚‹äº‹ã«ã‚ˆã‚Šæ€§èƒ½ã«å¯„ä¸ã™ã‚‹ã€‚
  * </p>
  * <p>
- * sortƒƒ\ƒbƒh‚ğÀs‚¹‚¸‚ÉSQL‚ğÀs‚µ‚½ê‡‚ÍA‰‰ñ‚É’Ç‰Á‚µ‚½SQL-ID‚Ì‡‚ªˆÛ‚³‚ê‚éB<br>
+ * sortãƒ¡ã‚½ãƒƒãƒ‰ã‚’å®Ÿè¡Œã›ãšã«SQLã‚’å®Ÿè¡Œã—ãŸå ´åˆã¯ã€åˆå›ã«è¿½åŠ ã—ãŸSQL-IDã®é †ãŒç¶­æŒã•ã‚Œã‚‹ã€‚<br>
  * <p>
- * <li>‚½‚Æ‚¦‚ÎˆÈ‰º‚Ì‚æ‚¤‚È‡‚ÅSQL-ID‚ğ’Ç‰Á‚µ‚½ê‡</li><br>
+ * <li>ãŸã¨ãˆã°ä»¥ä¸‹ã®ã‚ˆã†ãªé †ã§SQL-IDã‚’è¿½åŠ ã—ãŸå ´åˆ</li><br>
  * A C B A B C B C A
  * </p>
  * <p>
- * <li>sortƒƒ\ƒbƒh‚ğÀs‚¹‚¸‚ÉSQL‚ğÀs‚µ‚½ê‡‚ÌÀs‡</li><br>
+ * <li>sortãƒ¡ã‚½ãƒƒãƒ‰ã‚’å®Ÿè¡Œã›ãšã«SQLã‚’å®Ÿè¡Œã—ãŸå ´åˆã®å®Ÿè¡Œé †</li><br>
  * A A A C C C B B B
  * </p>
  * <p>
- * <li>sortƒƒ\ƒbƒh‚ğÀsŒã‚ÉSQL‚ğÀs‚µ‚½ê‡‚ÌÀs‡</li><br>
+ * <li>sortãƒ¡ã‚½ãƒƒãƒ‰ã‚’å®Ÿè¡Œå¾Œã«SQLã‚’å®Ÿè¡Œã—ãŸå ´åˆã®å®Ÿè¡Œé †</li><br>
  * A A A B B B C C C
  * </p>
  * </p>
  * <p>
- * <b> ¦ƒ}ƒ‹ƒ`ƒXƒŒƒbƒhƒZ[ƒt‚Å‚Í‚È‚¢‚½‚ß•¡”ƒXƒŒƒbƒh‚Å—˜—p‚·‚éê‡‚ÍAŠeƒXƒŒƒbƒh‚²‚Æ‚É•ÊƒCƒ“ƒXƒ^ƒ“ƒX‚ğ¶¬‚·‚é‚±‚ÆB </b>
+ * <b> â€»ãƒãƒ«ãƒã‚¹ãƒ¬ãƒƒãƒ‰ã‚»ãƒ¼ãƒ•ã§ã¯ãªã„ãŸã‚è¤‡æ•°ã‚¹ãƒ¬ãƒƒãƒ‰ã§åˆ©ç”¨ã™ã‚‹å ´åˆã¯ã€å„ã‚¹ãƒ¬ãƒƒãƒ‰ã”ã¨ã«åˆ¥ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã™ã‚‹ã“ã¨ã€‚ </b>
  * </p>
  * @see UpdateDAO
  */
 public class BatchUpdateSupportImpl implements BatchUpdateSupport {
 
     /**
-     * ƒƒK[.
+     * ãƒ­ã‚¬ãƒ¼.
      */
     private static final TLogger LOGGER = TLogger
             .getLogger(BatchUpdateExecutor.class);
@@ -68,32 +68,32 @@ public class BatchUpdateSupportImpl implements BatchUpdateSupport {
     /** UpdateDAO */
     protected UpdateDAO updateDAO = null;
 
-    /** SqlID‚ğƒ\[ƒg‚·‚é‚Ég—p‚·‚éComparator */
+    /** SqlIDã‚’ã‚½ãƒ¼ãƒˆã™ã‚‹æ™‚ã«ä½¿ç”¨ã™ã‚‹Comparator */
     protected volatile Comparator<String> comparator = null;
 
-    /** ƒoƒbƒ`ÀsSQL‚ğ•Û‚·‚é. */
+    /** ãƒãƒƒãƒå®Ÿè¡ŒSQLã‚’ä¿æŒã™ã‚‹. */
     protected final Map<String, Queue<SqlHolder>> batchSqlsMap = new LinkedHashMap<String, Queue<SqlHolder>>();
 
     /**
-     * ƒ\[ƒgƒtƒ‰ƒO
+     * ã‚½ãƒ¼ãƒˆãƒ•ãƒ©ã‚°
      */
     protected volatile boolean sortMode = false;
 
-    /** ƒoƒbƒ`ÀsSQL“o˜^Œ” */
+    /** ãƒãƒƒãƒå®Ÿè¡ŒSQLç™»éŒ²ä»¶æ•° */
     protected volatile AtomicLong count = new AtomicLong(0);
 
-    /** SQL-ID‚ÌÀs‡˜ */
+    /** SQL-IDã®å®Ÿè¡Œé †åº */
     private String[] sqlIdOrder = null;
 
     /**
-     * ƒoƒbƒ`XVƒTƒ|[ƒgƒNƒ‰ƒXƒRƒ“ƒXƒgƒ‰ƒNƒ^.
+     * ãƒãƒƒãƒæ›´æ–°ã‚µãƒãƒ¼ãƒˆã‚¯ãƒ©ã‚¹ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿.
      */
     public BatchUpdateSupportImpl() {
-        // ‰½‚à‚µ‚È‚¢
+        // ä½•ã‚‚ã—ãªã„
     }
 
     /**
-     * ƒoƒbƒ`XVƒTƒ|[ƒgƒNƒ‰ƒXƒRƒ“ƒXƒgƒ‰ƒNƒ^.
+     * ãƒãƒƒãƒæ›´æ–°ã‚µãƒãƒ¼ãƒˆã‚¯ãƒ©ã‚¹ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿.
      * @param updateDAO UpdateDAO
      */
     public BatchUpdateSupportImpl(UpdateDAO updateDAO) {
@@ -101,7 +101,7 @@ public class BatchUpdateSupportImpl implements BatchUpdateSupport {
     }
 
     /**
-     * ƒoƒbƒ`XVƒTƒ|[ƒgƒNƒ‰ƒXƒRƒ“ƒXƒgƒ‰ƒNƒ^.
+     * ãƒãƒƒãƒæ›´æ–°ã‚µãƒãƒ¼ãƒˆã‚¯ãƒ©ã‚¹ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿.
      * @param updateDAO UpdateDAO
      * @param comparator Comparator&lt;String&gt;
      */
@@ -116,9 +116,9 @@ public class BatchUpdateSupportImpl implements BatchUpdateSupport {
     }
 
     /**
-     * ƒoƒbƒ`XVƒTƒ|[ƒgƒNƒ‰ƒXƒRƒ“ƒXƒgƒ‰ƒNƒ^.
+     * ãƒãƒƒãƒæ›´æ–°ã‚µãƒãƒ¼ãƒˆã‚¯ãƒ©ã‚¹ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿.
      * @param updateDAO UpdateDAO
-     * @param sqlIdOrder SQL-ID‚ÌÀs‡˜‚ğw’è‚·‚é
+     * @param sqlIdOrder SQL-IDã®å®Ÿè¡Œé †åºã‚’æŒ‡å®šã™ã‚‹
      */
     public BatchUpdateSupportImpl(UpdateDAO updateDAO, String... sqlIdOrder) {
         this.updateDAO = updateDAO;
@@ -142,7 +142,7 @@ public class BatchUpdateSupportImpl implements BatchUpdateSupport {
         Queue<SqlHolder> sqlQueue = this.batchSqlsMap.get(sqlID);
 
         if (sqlQueue == null) {
-            // Äæ“¾
+            // å†å–å¾—
             sqlQueue = this.batchSqlsMap.get(sqlID);
 
             if (sqlQueue == null) {
@@ -192,11 +192,11 @@ public class BatchUpdateSupportImpl implements BatchUpdateSupport {
     }
 
     /**
-     * ƒoƒbƒ`Às‚ğs‚¤B
+     * ãƒãƒƒãƒå®Ÿè¡Œã‚’è¡Œã†ã€‚
      * @param updateDAO UpdateDAO
      * @param comparator Comparator&lt;String&gt;
-     * @param sqlIdOrder SQL-ID‚ÌÀs‡˜‚ğw’è‚·‚é
-     * @return SQL‚ÌÀsŒ‹‰Ê
+     * @param sqlIdOrder SQL-IDã®å®Ÿè¡Œé †åºã‚’æŒ‡å®šã™ã‚‹
+     * @return SQLã®å®Ÿè¡Œçµæœ
      */
     protected int executeBatch(UpdateDAO updateDAO,
             Comparator<String> comparator, String[] sqlIdOrder) {
@@ -209,13 +209,13 @@ public class BatchUpdateSupportImpl implements BatchUpdateSupport {
 
         List<SqlHolder> sqlHolderList = new ArrayList<SqlHolder>();
 
-        // SQL-IDƒŠƒXƒg‚ğæ“¾
+        // SQL-IDãƒªã‚¹ãƒˆã‚’å–å¾—
         List<String> keyList = new ArrayList<String>(this.batchSqlsMap.keySet());
 
         if (sqlIdOrder != null) {
             List<String> sqlIdOrderList = Arrays.asList(sqlIdOrder);
 
-            // Œ”ƒ`ƒFƒbƒN
+            // ä»¶æ•°ãƒã‚§ãƒƒã‚¯
             if (keyList.size() > sqlIdOrderList.size()) {
                 if (LOGGER.isWarnEnabled()) {
                     LOGGER.warn(LogId.WAL036004, keyList.size(), sqlIdOrderList
@@ -223,17 +223,17 @@ public class BatchUpdateSupportImpl implements BatchUpdateSupport {
                 }
                 return ERROR_UNKNOWN_SQL_ID;
             }
-            // SQL-ID‘¶İƒ`ƒFƒbƒN
+            // SQL-IDå­˜åœ¨ãƒã‚§ãƒƒã‚¯
             for (String key : keyList) {
                 if (!sqlIdOrderList.contains(key)) {
                     LOGGER.warn(LogId.WAL036005, key);
                     return ERROR_UNKNOWN_SQL_ID;
                 }
             }
-            // ƒL[ƒŠƒXƒg‚ğã‘‚«
+            // ã‚­ãƒ¼ãƒªã‚¹ãƒˆã‚’ä¸Šæ›¸ã
             keyList = sqlIdOrderList;
         } else if (this.sortMode || comparator != null) {
-            // SQL-ID‚Åƒ\[ƒg‚·‚é
+            // SQL-IDã§ã‚½ãƒ¼ãƒˆã™ã‚‹
             if (comparator != null) {
                 Collections.sort(keyList, comparator);
             } else {
@@ -247,7 +247,7 @@ public class BatchUpdateSupportImpl implements BatchUpdateSupport {
             }
         }
 
-        // ƒoƒbƒ`XVÀs
+        // ãƒãƒƒãƒæ›´æ–°å®Ÿè¡Œ
         result = updateDAO.executeBatch(sqlHolderList);
 
         this.batchSqlsMap.clear();
@@ -317,22 +317,22 @@ public class BatchUpdateSupportImpl implements BatchUpdateSupport {
     }
 
     /**
-     * SQL-ID‚Å®—ñ‚³‚ê‚½SqlHolderƒŠƒXƒg‚ğæ“¾‚·‚éB
+     * SQL-IDã§æ•´åˆ—ã•ã‚ŒãŸSqlHolderãƒªã‚¹ãƒˆã‚’å–å¾—ã™ã‚‹ã€‚
      * @param comparator Comparator&lt;String&gt;
-     * @param sqlIdOrder SQL-ID‚ÌÀs‡˜‚ğw’è‚·‚é
-     * @return SqlHolderƒŠƒXƒg
+     * @param sqlIdOrder SQL-IDã®å®Ÿè¡Œé †åºã‚’æŒ‡å®šã™ã‚‹
+     * @return SqlHolderãƒªã‚¹ãƒˆ
      */
     protected List<SqlHolder> getSqlHolderList(Comparator<String> comparator,
             String[] sqlIdOrder) {
         List<SqlHolder> sqlHolderList = new ArrayList<SqlHolder>();
 
-        // SQL-IDƒŠƒXƒg‚ğæ“¾
+        // SQL-IDãƒªã‚¹ãƒˆã‚’å–å¾—
         List<String> keyList = new ArrayList<String>(this.batchSqlsMap.keySet());
 
         if (sqlIdOrder != null) {
             List<String> sqlIdOrderList = Arrays.asList(sqlIdOrder);
 
-            // Œ”ƒ`ƒFƒbƒN
+            // ä»¶æ•°ãƒã‚§ãƒƒã‚¯
             if (keyList.size() > sqlIdOrderList.size()) {
                 if (LOGGER.isWarnEnabled()) {
                     LOGGER.warn(LogId.WAL036004, keyList.size(), sqlIdOrderList
@@ -340,17 +340,17 @@ public class BatchUpdateSupportImpl implements BatchUpdateSupport {
                 }
                 return null;
             }
-            // SQL-ID‘¶İƒ`ƒFƒbƒN
+            // SQL-IDå­˜åœ¨ãƒã‚§ãƒƒã‚¯
             for (String key : keyList) {
                 if (!sqlIdOrderList.contains(key)) {
                     LOGGER.warn(LogId.WAL036005, key);
                     return null;
                 }
             }
-            // ƒL[ƒŠƒXƒg‚ğã‘‚«
+            // ã‚­ãƒ¼ãƒªã‚¹ãƒˆã‚’ä¸Šæ›¸ã
             keyList = sqlIdOrderList;
         } else if (this.sortMode || comparator != null) {
-            // SQL-ID‚Åƒ\[ƒg‚·‚é
+            // SQL-IDã§ã‚½ãƒ¼ãƒˆã™ã‚‹
             if (comparator != null) {
                 Collections.sort(keyList, comparator);
             } else {

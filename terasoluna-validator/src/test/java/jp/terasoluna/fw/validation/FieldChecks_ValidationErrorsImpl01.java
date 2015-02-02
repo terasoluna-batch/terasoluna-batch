@@ -23,35 +23,35 @@ import org.apache.commons.validator.Field;
 import org.apache.commons.validator.ValidatorAction;
 
 /**
- * FieldChecksTest‚Åg—p‚·‚éValidationErrors‚ÌƒXƒ^ƒuƒNƒ‰ƒXB
+ * FieldChecksTestã§ä½¿ç”¨ã™ã‚‹ValidationErrorsã®ã‚¹ã‚¿ãƒ–ã‚¯ãƒ©ã‚¹ã€‚
  */
 public class FieldChecks_ValidationErrorsImpl01 implements ValidationErrors {
 
     /**
-     * addError‚ªƒR[ƒ‹‚³‚ê‚é‚ÆƒJƒEƒ“ƒgƒAƒbƒv‚·‚éB
+     * addErrorãŒã‚³ãƒ¼ãƒ«ã•ã‚Œã‚‹ã¨ã‚«ã‚¦ãƒ³ãƒˆã‚¢ãƒƒãƒ—ã™ã‚‹ã€‚
      */
     public int addErrorCount = 0;
 
     /**
-     * ‘æˆêˆø”‚Ì’lƒŠƒXƒgB
+     * ç¬¬ä¸€å¼•æ•°ã®å€¤ãƒªã‚¹ãƒˆã€‚
      */
     public List beanList = new ArrayList();
 
     /**
-     * ‘æ“ñˆø”‚Ì’lƒŠƒXƒgB
+     * ç¬¬äºŒå¼•æ•°ã®å€¤ãƒªã‚¹ãƒˆã€‚
      */
     public List fieldList = new ArrayList();
 
     /**
-     * ‘æOˆø”‚Ì’lƒŠƒXƒgB
+     * ç¬¬ä¸‰å¼•æ•°ã®å€¤ãƒªã‚¹ãƒˆã€‚
      */
     public List vaList = new ArrayList();
 
     /**
-     * ƒXƒ^ƒuƒƒ\ƒbƒhBŒÄ‚Ño‚µŠm”F‚Ì‚½‚ßAŒÄ‚Î‚ê‚½‰ñ”‚Æˆø”‚ğƒLƒƒƒbƒVƒ…‚·‚éB
-     * @param bean ŒŸ¸‘ÎÛ‚ÌJavaBeanƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param field ƒtƒB[ƒ‹ƒhƒCƒ“ƒXƒ^ƒ“ƒX
-     * @param va Validator‚É‚æ‚è—pˆÓ‚³‚ê‚½ValidatorAction
+     * ã‚¹ã‚¿ãƒ–ãƒ¡ã‚½ãƒƒãƒ‰ã€‚å‘¼ã³å‡ºã—ç¢ºèªã®ãŸã‚ã€å‘¼ã°ã‚ŒãŸå›æ•°ã¨å¼•æ•°ã‚’ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã™ã‚‹ã€‚
+     * @param bean æ¤œæŸ»å¯¾è±¡ã®JavaBeanã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param field ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
+     * @param va Validatorã«ã‚ˆã‚Šç”¨æ„ã•ã‚ŒãŸValidatorAction
      */
     @SuppressWarnings("unchecked")
     public void addError(Object bean, Field field, ValidatorAction va) {

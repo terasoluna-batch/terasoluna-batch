@@ -69,17 +69,17 @@ public class AsyncBatchExecutorTest extends TestCase {
     }
 
     /**
-     * mainƒeƒXƒg01 yˆÙíŒnz
+     * mainãƒ†ã‚¹ãƒˆ01 ã€ç•°å¸¸ç³»ã€‘
      * 
      * <pre>
-     * –‘OğŒ
-     * Eadmin.dataSource‚Ìbean’è‹`ƒtƒ@ƒCƒ‹‚©‚çæ“¾‚·‚ésystemDao‚ªnull
-     * E‹N“®ˆø”‚ªfoo
-     * Šm”F€–Ú
-     * EEAL025052‚ÌƒƒO‚ªo—Í‚³‚ê‚é‚±‚Æ
-     * EIAL025018‚ÌƒƒO‚ªo—Í‚³‚ê‚é‚±‚Æ
-     * EIAL025006‚ÌƒƒO‚Éfoo‚ªo—Í‚³‚ê‚é‚±‚Æ
-     * EƒŠƒ^[ƒ“ƒR[ƒh‚ª255
+     * äº‹å‰æ¡ä»¶
+     * ãƒ»admin.dataSourceã®beanå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰å–å¾—ã™ã‚‹systemDaoãŒnull
+     * ãƒ»èµ·å‹•å¼•æ•°ãŒfoo
+     * ç¢ºèªé …ç›®
+     * ãƒ»EAL025052ã®ãƒ­ã‚°ãŒå‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»IAL025018ã®ãƒ­ã‚°ãŒå‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»IAL025006ã®ãƒ­ã‚°ã«fooãŒå‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»ãƒªã‚¿ãƒ¼ãƒ³ã‚³ãƒ¼ãƒ‰ãŒ255
      * </pre>
      */
     public void testMain01() throws Exception {
@@ -90,7 +90,7 @@ public class AsyncBatchExecutorTest extends TestCase {
 
         try {
             AsyncBatchExecutor.main(new String[] { "foo" });
-            fail("—áŠO‚Í”­¶‚µ‚Ü‚¹‚ñ");
+            fail("ä¾‹å¤–ã¯ç™ºç”Ÿã—ã¾ã›ã‚“");
         } catch (ExitException e) {
             List<String> logList = new ArrayList<String>();
             String line;
@@ -105,17 +105,17 @@ public class AsyncBatchExecutorTest extends TestCase {
     }
 
     /**
-     * mainƒeƒXƒg03 yˆÙíŒnz
+     * mainãƒ†ã‚¹ãƒˆ03 ã€ç•°å¸¸ç³»ã€‘
      * 
      * <pre>
-     * –‘OğŒ
-     * Eadmin.dataSource‚Ìbean’è‹`ƒtƒ@ƒCƒ‹‚©‚çæ“¾‚·‚étransactionManager‚ªnull
-     * E‹N“®ˆø”‚ªfoo
-     * Šm”F€–Ú
-     * EEAL025022‚ÌƒƒO‚ªo—Í‚³‚ê‚é‚±‚Æ
-     * EIAL025016‚ÌƒƒO‚ªo—Í‚³‚ê‚é‚±‚Æ
-     * EIAL025006‚ÌƒƒO‚Éfoo‚ªo—Í‚³‚ê‚é‚±‚Æ
-     * EƒŠƒ^[ƒ“ƒR[ƒh‚ª255
+     * äº‹å‰æ¡ä»¶
+     * ãƒ»admin.dataSourceã®beanå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰å–å¾—ã™ã‚‹transactionManagerãŒnull
+     * ãƒ»èµ·å‹•å¼•æ•°ãŒfoo
+     * ç¢ºèªé …ç›®
+     * ãƒ»EAL025022ã®ãƒ­ã‚°ãŒå‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»IAL025016ã®ãƒ­ã‚°ãŒå‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»IAL025006ã®ãƒ­ã‚°ã«fooãŒå‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»ãƒªã‚¿ãƒ¼ãƒ³ã‚³ãƒ¼ãƒ‰ãŒ255
      * </pre>
      */
     public void testMain03() throws Exception {
@@ -126,7 +126,7 @@ public class AsyncBatchExecutorTest extends TestCase {
 
         try {
             AsyncBatchExecutor.main(new String[] { "foo" });
-            fail("—áŠO‚Í”­¶‚µ‚Ü‚¹‚ñ");
+            fail("ä¾‹å¤–ã¯ç™ºç”Ÿã—ã¾ã›ã‚“");
         } catch (ExitException e) {
             List<String> logList = new ArrayList<String>();
             String line;
@@ -141,14 +141,14 @@ public class AsyncBatchExecutorTest extends TestCase {
     }
 
     /**
-     * mainƒeƒXƒg04 y³íŒnz
+     * mainãƒ†ã‚¹ãƒˆ04 ã€æ­£å¸¸ç³»ã€‘
      * 
      * <pre>
-     * –‘OğŒ
-     * E‹N“®ˆø”‚ª‹ó
-     * EŠÂ‹«•Ï”JOB_APP_CD‚ª–¢İ’è
-     * Šm”F€–Ú
-     * EIAL025006‚ÌƒƒO‚ÉjobAppCd‚ª‹ó•¶š‚Æ‚µ‚Äo—Í‚³‚ê‚é‚±‚ÆB
+     * äº‹å‰æ¡ä»¶
+     * ãƒ»èµ·å‹•å¼•æ•°ãŒç©º
+     * ãƒ»ç’°å¢ƒå¤‰æ•°JOB_APP_CDãŒæœªè¨­å®š
+     * ç¢ºèªé …ç›®
+     * ãƒ»IAL025006ã®ãƒ­ã‚°ã«jobAppCdãŒç©ºæ–‡å­—ã¨ã—ã¦å‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨ã€‚
      * </pre>
      */
     public void testMain04() throws Exception {
@@ -159,7 +159,7 @@ public class AsyncBatchExecutorTest extends TestCase {
         SystemEnvUtils.removeEnv(AsyncBatchExecutor.ENV_JOB_APP_CD);
         try {
             AsyncBatchExecutor.main(new String[] {});
-            fail("—áŠO‚Í”­¶‚µ‚Ü‚¹‚ñ");
+            fail("ä¾‹å¤–ã¯ç™ºç”Ÿã—ã¾ã›ã‚“");
         } catch (ExitException e) {
             List<String> logList = new ArrayList<String>();
             String line;
@@ -172,14 +172,14 @@ public class AsyncBatchExecutorTest extends TestCase {
     }
 
     /**
-     * mainƒeƒXƒg05 y³íŒnz
+     * mainãƒ†ã‚¹ãƒˆ05 ã€æ­£å¸¸ç³»ã€‘
      * 
      * <pre>
-     * –‘OğŒ
-     * E‹N“®ˆø”‚ª‹ó
-     * EŠÂ‹«•Ï”JOB_APP_CD‚ªhoge‚ªİ’è
-     * Šm”F€–Ú
-     * EIAL025006‚ÌƒƒO‚Éhoge‚ªo—Í‚³‚ê‚é‚±‚Æ
+     * äº‹å‰æ¡ä»¶
+     * ãƒ»èµ·å‹•å¼•æ•°ãŒç©º
+     * ãƒ»ç’°å¢ƒå¤‰æ•°JOB_APP_CDãŒhogeãŒè¨­å®š
+     * ç¢ºèªé …ç›®
+     * ãƒ»IAL025006ã®ãƒ­ã‚°ã«hogeãŒå‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨
      * </pre>
      */
     public void testMain05() throws Exception {
@@ -190,7 +190,7 @@ public class AsyncBatchExecutorTest extends TestCase {
         SystemEnvUtils.setEnv(AsyncBatchExecutor.ENV_JOB_APP_CD, "hoge");
         try {
             AsyncBatchExecutor.main(new String[] {});
-            fail("—áŠO‚Í”­¶‚µ‚Ü‚¹‚ñ");
+            fail("ä¾‹å¤–ã¯ç™ºç”Ÿã—ã¾ã›ã‚“");
         } catch (ExitException e) {
             List<String> logList = new ArrayList<String>();
             String line;
@@ -203,13 +203,13 @@ public class AsyncBatchExecutorTest extends TestCase {
     }
 
     /**
-     * mainƒeƒXƒg06 y³íŒnz
+     * mainãƒ†ã‚¹ãƒˆ06 ã€æ­£å¸¸ç³»ã€‘
      * 
      * <pre>
-     * –‘OğŒ
-     * Ewƒf[ƒ^ƒx[ƒXˆÙí‚ÌƒŠƒgƒ‰ƒC‰ñ”x‚É&quot;abc&quot;‚ªİ’è
-     * Šm”F€–Ú
-     * EƒŠƒ^[ƒ“ƒR[ƒh‚ª255
+     * äº‹å‰æ¡ä»¶
+     * ãƒ»ã€ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ç•°å¸¸æ™‚ã®ãƒªãƒˆãƒ©ã‚¤å›æ•°ã€ã«&quot;abc&quot;ãŒè¨­å®š
+     * ç¢ºèªé …ç›®
+     * ãƒ»ãƒªã‚¿ãƒ¼ãƒ³ã‚³ãƒ¼ãƒ‰ãŒ255
      * </pre>
      */
     public void testMain06() throws Exception {
@@ -221,20 +221,20 @@ public class AsyncBatchExecutorTest extends TestCase {
         SystemEnvUtils.setEnv(AsyncBatchExecutor.ENV_JOB_APP_CD, "hoge");
         try {
             AsyncBatchExecutor.main(new String[] {});
-            fail("—áŠO‚Í”­¶‚µ‚Ü‚¹‚ñ");
+            fail("ä¾‹å¤–ã¯ç™ºç”Ÿã—ã¾ã›ã‚“");
         } catch (ExitException e) {
             assertEquals(255, e.state);
         }
     }
 
     /**
-     * mainƒeƒXƒg07 y³íŒnz
+     * mainãƒ†ã‚¹ãƒˆ07 ã€æ­£å¸¸ç³»ã€‘
      * 
      * <pre>
-     * –‘OğŒ
-     * Ewƒf[ƒ^ƒx[ƒXˆÙí‚ÌƒŠƒgƒ‰ƒCŠÔŠuiƒ~ƒŠ•bjx‚É&quot;abc&quot;‚ªİ’è
-     * Šm”F€–Ú
-     * EƒŠƒ^[ƒ“ƒR[ƒh‚ª255
+     * äº‹å‰æ¡ä»¶
+     * ãƒ»ã€ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ç•°å¸¸æ™‚ã®ãƒªãƒˆãƒ©ã‚¤é–“éš”ï¼ˆãƒŸãƒªç§’ï¼‰ã€ã«&quot;abc&quot;ãŒè¨­å®š
+     * ç¢ºèªé …ç›®
+     * ãƒ»ãƒªã‚¿ãƒ¼ãƒ³ã‚³ãƒ¼ãƒ‰ãŒ255
      * </pre>
      */
     public void testMain07() throws Exception {
@@ -246,20 +246,20 @@ public class AsyncBatchExecutorTest extends TestCase {
         SystemEnvUtils.setEnv(AsyncBatchExecutor.ENV_JOB_APP_CD, "hoge");
         try {
             AsyncBatchExecutor.main(new String[] {});
-            fail("—áŠO‚Í”­¶‚µ‚Ü‚¹‚ñ");
+            fail("ä¾‹å¤–ã¯ç™ºç”Ÿã—ã¾ã›ã‚“");
         } catch (ExitException e) {
             assertEquals(255, e.state);
         }
     }
 
     /**
-     * mainƒeƒXƒg08 y³íŒnz
+     * mainãƒ†ã‚¹ãƒˆ08 ã€æ­£å¸¸ç³»ã€‘
      * 
      * <pre>
-     * –‘OğŒ
-     * Ewƒf[ƒ^ƒx[ƒXˆÙí‚ÌƒŠƒgƒ‰ƒC‰ñ”‚ğƒŠƒZƒbƒg‚·‚é‘O‰ñ‚©‚ç‚Ì”­¶ŠÔŠuiƒ~ƒŠ•bjx‚É&quot;abc&quot;‚ªİ’è
-     * Šm”F€–Ú
-     * EƒŠƒ^[ƒ“ƒR[ƒh‚ª255
+     * äº‹å‰æ¡ä»¶
+     * ãƒ»ã€ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ç•°å¸¸æ™‚ã®ãƒªãƒˆãƒ©ã‚¤å›æ•°ã‚’ãƒªã‚»ãƒƒãƒˆã™ã‚‹å‰å›ã‹ã‚‰ã®ç™ºç”Ÿé–“éš”ï¼ˆãƒŸãƒªç§’ï¼‰ã€ã«&quot;abc&quot;ãŒè¨­å®š
+     * ç¢ºèªé …ç›®
+     * ãƒ»ãƒªã‚¿ãƒ¼ãƒ³ã‚³ãƒ¼ãƒ‰ãŒ255
      * </pre>
      */
     public void testMain08() throws Exception {
@@ -271,20 +271,20 @@ public class AsyncBatchExecutorTest extends TestCase {
         SystemEnvUtils.setEnv(AsyncBatchExecutor.ENV_JOB_APP_CD, "hoge");
         try {
             AsyncBatchExecutor.main(new String[] {});
-            fail("—áŠO‚Í”­¶‚µ‚Ü‚¹‚ñ");
+            fail("ä¾‹å¤–ã¯ç™ºç”Ÿã—ã¾ã›ã‚“");
         } catch (ExitException e) {
             assertEquals(255, e.state);
         }
     }
 
     /**
-     * mainƒeƒXƒg09 y³íŒnz
+     * mainãƒ†ã‚¹ãƒˆ09 ã€æ­£å¸¸ç³»ã€‘
      * 
      * <pre>
-     * –‘OğŒ
-     * EwƒWƒ‡ƒuÀsƒŠƒgƒ‰ƒCŠÔŠuiƒ~ƒŠ•bjx‚É&quot;abc&quot;‚ªİ’è
-     * Šm”F€–Ú
-     * EƒŠƒ^[ƒ“ƒR[ƒh‚ª255
+     * äº‹å‰æ¡ä»¶
+     * ãƒ»ã€ã‚¸ãƒ§ãƒ–å®Ÿè¡Œãƒªãƒˆãƒ©ã‚¤é–“éš”ï¼ˆãƒŸãƒªç§’ï¼‰ã€ã«&quot;abc&quot;ãŒè¨­å®š
+     * ç¢ºèªé …ç›®
+     * ãƒ»ãƒªã‚¿ãƒ¼ãƒ³ã‚³ãƒ¼ãƒ‰ãŒ255
      * </pre>
      */
     public void testMain09() throws Exception {
@@ -296,20 +296,20 @@ public class AsyncBatchExecutorTest extends TestCase {
         SystemEnvUtils.setEnv(AsyncBatchExecutor.ENV_JOB_APP_CD, "hoge");
         try {
             AsyncBatchExecutor.main(new String[] {});
-            fail("—áŠO‚Í”­¶‚µ‚Ü‚¹‚ñ");
+            fail("ä¾‹å¤–ã¯ç™ºç”Ÿã—ã¾ã›ã‚“");
         } catch (ExitException e) {
             assertEquals(255, e.state);
         }
     }
 
     /**
-     * mainƒeƒXƒg10 y³íŒnz
+     * mainãƒ†ã‚¹ãƒˆ10 ã€æ­£å¸¸ç³»ã€‘
      * 
      * <pre>
-     * –‘OğŒ
-     * EwƒWƒ‡ƒuÀsƒŠƒgƒ‰ƒC‰ñ”x‚É&quot;abc&quot;‚ªİ’è
-     * Šm”F€–Ú
-     * EƒŠƒ^[ƒ“ƒR[ƒh‚ª255
+     * äº‹å‰æ¡ä»¶
+     * ãƒ»ã€ã‚¸ãƒ§ãƒ–å®Ÿè¡Œãƒªãƒˆãƒ©ã‚¤å›æ•°ã€ã«&quot;abc&quot;ãŒè¨­å®š
+     * ç¢ºèªé …ç›®
+     * ãƒ»ãƒªã‚¿ãƒ¼ãƒ³ã‚³ãƒ¼ãƒ‰ãŒ255
      * </pre>
      */
     public void testMain10() throws Exception {
@@ -321,20 +321,20 @@ public class AsyncBatchExecutorTest extends TestCase {
         SystemEnvUtils.setEnv(AsyncBatchExecutor.ENV_JOB_APP_CD, "hoge");
         try {
             AsyncBatchExecutor.main(new String[] {});
-            fail("—áŠO‚Í”­¶‚µ‚Ü‚¹‚ñ");
+            fail("ä¾‹å¤–ã¯ç™ºç”Ÿã—ã¾ã›ã‚“");
         } catch (ExitException e) {
             assertEquals(255, e.state);
         }
     }
 
     /**
-     * mainƒeƒXƒg11 y³íŒnz
+     * mainãƒ†ã‚¹ãƒˆ11 ã€æ­£å¸¸ç³»ã€‘
      * 
      * <pre>
-     * –‘OğŒ
-     * Ew‹ó‚«ƒXƒŒƒbƒhc”è‡’l‚ÌƒfƒtƒHƒ‹ƒg’lx‚É&quot;abc&quot;‚ªİ’è
-     * Šm”F€–Ú
-     * EƒŠƒ^[ƒ“ƒR[ƒh‚ª255
+     * äº‹å‰æ¡ä»¶
+     * ãƒ»ã€ç©ºãã‚¹ãƒ¬ãƒƒãƒ‰æ®‹æ•°é–¾å€¤ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ã€ã«&quot;abc&quot;ãŒè¨­å®š
+     * ç¢ºèªé …ç›®
+     * ãƒ»ãƒªã‚¿ãƒ¼ãƒ³ã‚³ãƒ¼ãƒ‰ãŒ255
      * </pre>
      */
     public void testMain11() throws Exception {
@@ -346,20 +346,20 @@ public class AsyncBatchExecutorTest extends TestCase {
         SystemEnvUtils.setEnv(AsyncBatchExecutor.ENV_JOB_APP_CD, "hoge");
         try {
             AsyncBatchExecutor.main(new String[] {});
-            fail("—áŠO‚Í”­¶‚µ‚Ü‚¹‚ñ");
+            fail("ä¾‹å¤–ã¯ç™ºç”Ÿã—ã¾ã›ã‚“");
         } catch (ExitException e) {
             assertEquals(255, e.state);
         }
     }
 
     /**
-     * mainƒeƒXƒg12 y³íŒnz
+     * mainãƒ†ã‚¹ãƒˆ12 ã€æ­£å¸¸ç³»ã€‘
      * 
      * <pre>
-     * –‘OğŒ
-     * Ew‹ó‚«ƒXƒŒƒbƒhc”è‡’lˆÈ‰º‚Ìê‡‚ÌƒEƒFƒCƒgŠÔiƒ~ƒŠ•bj‚ÌƒfƒtƒHƒ‹ƒg’lx‚É&quot;abc&quot;‚ªİ’è
-     * Šm”F€–Ú
-     * EƒŠƒ^[ƒ“ƒR[ƒh‚ª255
+     * äº‹å‰æ¡ä»¶
+     * ãƒ»ã€ç©ºãã‚¹ãƒ¬ãƒƒãƒ‰æ®‹æ•°é–¾å€¤ä»¥ä¸‹ã®å ´åˆã®ã‚¦ã‚§ã‚¤ãƒˆæ™‚é–“ï¼ˆãƒŸãƒªç§’ï¼‰ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ã€ã«&quot;abc&quot;ãŒè¨­å®š
+     * ç¢ºèªé …ç›®
+     * ãƒ»ãƒªã‚¿ãƒ¼ãƒ³ã‚³ãƒ¼ãƒ‰ãŒ255
      * </pre>
      */
     public void testMain12() throws Exception {
@@ -371,24 +371,24 @@ public class AsyncBatchExecutorTest extends TestCase {
         SystemEnvUtils.setEnv(AsyncBatchExecutor.ENV_JOB_APP_CD, "hoge");
         try {
             AsyncBatchExecutor.main(new String[] {});
-            fail("—áŠO‚Í”­¶‚µ‚Ü‚¹‚ñ");
+            fail("ä¾‹å¤–ã¯ç™ºç”Ÿã—ã¾ã›ã‚“");
         } catch (ExitException e) {
             assertEquals(255, e.state);
         }
     }
 
     /**
-     * mainƒeƒXƒg13 y³íŒnz
+     * mainãƒ†ã‚¹ãƒˆ13 ã€æ­£å¸¸ç³»ã€‘
      * 
      * <pre>
-     * –‘OğŒ
-     * EwƒWƒ‡ƒuÀsƒŠƒgƒ‰ƒCŠÔŠuiƒ~ƒŠ•bjx‚É&quot;10&quot;‚ªİ’è
-     * Šm”F€–Ú
-     * EƒŠƒ^[ƒ“ƒR[ƒh‚ª0
+     * äº‹å‰æ¡ä»¶
+     * ãƒ»ã€ã‚¸ãƒ§ãƒ–å®Ÿè¡Œãƒªãƒˆãƒ©ã‚¤é–“éš”ï¼ˆãƒŸãƒªç§’ï¼‰ã€ã«&quot;10&quot;ãŒè¨­å®š
+     * ç¢ºèªé …ç›®
+     * ãƒ»ãƒªã‚¿ãƒ¼ãƒ³ã‚³ãƒ¼ãƒ‰ãŒ0
      * </pre>
      */
     public void testMain13() throws Exception {
-        // ƒeƒXƒgƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆãƒ‡ãƒ¼ã‚¿è¨­å®š
         URL srcUrl = this.getClass().getResource("/testdata/test01.txt");
         String endFilePath = srcUrl.getPath();
 
@@ -403,24 +403,24 @@ public class AsyncBatchExecutorTest extends TestCase {
         SystemEnvUtils.setEnv(AsyncBatchExecutor.ENV_JOB_APP_CD, "hoge");
         try {
             AsyncBatchExecutor.main(new String[] {});
-            fail("—áŠO‚Í”­¶‚µ‚Ü‚¹‚ñ");
+            fail("ä¾‹å¤–ã¯ç™ºç”Ÿã—ã¾ã›ã‚“");
         } catch (ExitException e) {
             assertEquals(0, e.state);
         }
     }
 
     /**
-     * mainƒeƒXƒg14 y³íŒnz
+     * mainãƒ†ã‚¹ãƒˆ14 ã€æ­£å¸¸ç³»ã€‘
      * 
      * <pre>
-     * –‘OğŒ
-     * EwƒWƒ‡ƒuÀsƒŠƒgƒ‰ƒC‰ñ”x‚É&quot;10&quot;‚ªİ’è
-     * Šm”F€–Ú
-     * EƒŠƒ^[ƒ“ƒR[ƒh‚ª0
+     * äº‹å‰æ¡ä»¶
+     * ãƒ»ã€ã‚¸ãƒ§ãƒ–å®Ÿè¡Œãƒªãƒˆãƒ©ã‚¤å›æ•°ã€ã«&quot;10&quot;ãŒè¨­å®š
+     * ç¢ºèªé …ç›®
+     * ãƒ»ãƒªã‚¿ãƒ¼ãƒ³ã‚³ãƒ¼ãƒ‰ãŒ0
      * </pre>
      */
     public void testMain14() throws Exception {
-        // ƒeƒXƒgƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆãƒ‡ãƒ¼ã‚¿è¨­å®š
         URL srcUrl = this.getClass().getResource("/testdata/test01.txt");
         String endFilePath = srcUrl.getPath();
 
@@ -435,24 +435,24 @@ public class AsyncBatchExecutorTest extends TestCase {
         SystemEnvUtils.setEnv(AsyncBatchExecutor.ENV_JOB_APP_CD, "hoge");
         try {
             AsyncBatchExecutor.main(new String[] {});
-            fail("—áŠO‚Í”­¶‚µ‚Ü‚¹‚ñ");
+            fail("ä¾‹å¤–ã¯ç™ºç”Ÿã—ã¾ã›ã‚“");
         } catch (ExitException e) {
             assertEquals(0, e.state);
         }
     }
 
     /**
-     * mainƒeƒXƒg15 y³íŒnz
+     * mainãƒ†ã‚¹ãƒˆ15 ã€æ­£å¸¸ç³»ã€‘
      * 
      * <pre>
-     * –‘OğŒ
-     * Ew‹ó‚«ƒXƒŒƒbƒhc”è‡’l‚ÌƒfƒtƒHƒ‹ƒg’lx‚É&quot;10&quot;‚ªİ’è
-     * Šm”F€–Ú
-     * EƒŠƒ^[ƒ“ƒR[ƒh‚ª0
+     * äº‹å‰æ¡ä»¶
+     * ãƒ»ã€ç©ºãã‚¹ãƒ¬ãƒƒãƒ‰æ®‹æ•°é–¾å€¤ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ã€ã«&quot;10&quot;ãŒè¨­å®š
+     * ç¢ºèªé …ç›®
+     * ãƒ»ãƒªã‚¿ãƒ¼ãƒ³ã‚³ãƒ¼ãƒ‰ãŒ0
      * </pre>
      */
     public void testMain15() throws Exception {
-        // ƒeƒXƒgƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆãƒ‡ãƒ¼ã‚¿è¨­å®š
         URL srcUrl = this.getClass().getResource("/testdata/test01.txt");
         String endFilePath = srcUrl.getPath();
 
@@ -467,24 +467,24 @@ public class AsyncBatchExecutorTest extends TestCase {
         SystemEnvUtils.setEnv(AsyncBatchExecutor.ENV_JOB_APP_CD, "hoge");
         try {
             AsyncBatchExecutor.main(new String[] {});
-            fail("—áŠO‚Í”­¶‚µ‚Ü‚¹‚ñ");
+            fail("ä¾‹å¤–ã¯ç™ºç”Ÿã—ã¾ã›ã‚“");
         } catch (ExitException e) {
             assertEquals(0, e.state);
         }
     }
 
     /**
-     * mainƒeƒXƒg16 y³íŒnz
+     * mainãƒ†ã‚¹ãƒˆ16 ã€æ­£å¸¸ç³»ã€‘
      * 
      * <pre>
-     * –‘OğŒ
-     * Ew‹ó‚«ƒXƒŒƒbƒhc”è‡’lˆÈ‰º‚Ìê‡‚ÌƒEƒFƒCƒgŠÔiƒ~ƒŠ•bj‚ÌƒfƒtƒHƒ‹ƒg’lx‚É&quot;10&quot;‚ªİ’è
-     * Šm”F€–Ú
-     * EƒŠƒ^[ƒ“ƒR[ƒh‚ª0
+     * äº‹å‰æ¡ä»¶
+     * ãƒ»ã€ç©ºãã‚¹ãƒ¬ãƒƒãƒ‰æ®‹æ•°é–¾å€¤ä»¥ä¸‹ã®å ´åˆã®ã‚¦ã‚§ã‚¤ãƒˆæ™‚é–“ï¼ˆãƒŸãƒªç§’ï¼‰ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ã€ã«&quot;10&quot;ãŒè¨­å®š
+     * ç¢ºèªé …ç›®
+     * ãƒ»ãƒªã‚¿ãƒ¼ãƒ³ã‚³ãƒ¼ãƒ‰ãŒ0
      * </pre>
      */
     public void testMain16() throws Exception {
-        // ƒeƒXƒgƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆãƒ‡ãƒ¼ã‚¿è¨­å®š
         URL srcUrl = this.getClass().getResource("/testdata/test01.txt");
         String endFilePath = srcUrl.getPath();
 
@@ -499,24 +499,24 @@ public class AsyncBatchExecutorTest extends TestCase {
         SystemEnvUtils.setEnv(AsyncBatchExecutor.ENV_JOB_APP_CD, "hoge");
         try {
             AsyncBatchExecutor.main(new String[] {});
-            fail("—áŠO‚Í”­¶‚µ‚Ü‚¹‚ñ");
+            fail("ä¾‹å¤–ã¯ç™ºç”Ÿã—ã¾ã›ã‚“");
         } catch (ExitException e) {
             assertEquals(0, e.state);
         }
     }
 
     /**
-     * mainƒeƒXƒg17 y³íŒnz
+     * mainãƒ†ã‚¹ãƒˆ17 ã€æ­£å¸¸ç³»ã€‘
      * 
      * <pre>
-     * –‘OğŒ
-     * Ew‹ó‚«ƒXƒŒƒbƒhc”è‡’lˆÈ‰º‚Ìê‡‚ÌƒEƒFƒCƒgŠÔiƒ~ƒŠ•bj‚ÌƒfƒtƒHƒ‹ƒg’lx‚É&quot;10&quot;‚ªİ’è
-     * Šm”F€–Ú
-     * EƒŠƒ^[ƒ“ƒR[ƒh‚ª0
+     * äº‹å‰æ¡ä»¶
+     * ãƒ»ã€ç©ºãã‚¹ãƒ¬ãƒƒãƒ‰æ®‹æ•°é–¾å€¤ä»¥ä¸‹ã®å ´åˆã®ã‚¦ã‚§ã‚¤ãƒˆæ™‚é–“ï¼ˆãƒŸãƒªç§’ï¼‰ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ã€ã«&quot;10&quot;ãŒè¨­å®š
+     * ç¢ºèªé …ç›®
+     * ãƒ»ãƒªã‚¿ãƒ¼ãƒ³ã‚³ãƒ¼ãƒ‰ãŒ0
      * </pre>
      */
     public void testMain17() throws Exception {
-        // ƒeƒXƒgƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆãƒ‡ãƒ¼ã‚¿è¨­å®š
         URL srcUrl = this.getClass().getResource("/testdata/test01.txt");
         String endFilePath = srcUrl.getPath();
 
@@ -531,7 +531,7 @@ public class AsyncBatchExecutorTest extends TestCase {
         SystemEnvUtils.setEnv(AsyncBatchExecutor.ENV_JOB_APP_CD, "hoge");
         try {
             AsyncBatchExecutor.main(new String[] {});
-            fail("—áŠO‚Í”­¶‚µ‚Ü‚¹‚ñ");
+            fail("ä¾‹å¤–ã¯ç™ºç”Ÿã—ã¾ã›ã‚“");
         } catch (ExitException e) {
             assertEquals(0, e.state);
         }
@@ -662,7 +662,7 @@ public class AsyncBatchExecutorTest extends TestCase {
      * @throws Exception
      */
     public void testCheckEndFile002() throws Exception {
-        // ƒeƒXƒgƒf[ƒ^İ’è
+        // ãƒ†ã‚¹ãƒˆãƒ‡ãƒ¼ã‚¿è¨­å®š
         URL srcUrl = this.getClass().getResource("/testdata/test01.txt");
 
         String endFilePath = srcUrl.getPath();
@@ -754,18 +754,18 @@ public class AsyncBatchExecutorTest extends TestCase {
      * @throws Exception
      */
     public void testExecuteJob001() throws Exception {
-        // ƒpƒ‰ƒ[ƒ^
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
         AsyncBatchExecutor executor = null;
         ApplicationContext ctx = null;
         ThreadPoolTaskExecutor taskExecutor = null;
         String batchTaskServantName = null;
         BatchJobListResult batchJobListResult = null;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = AsyncBatchExecutor.executeJob(executor, ctx,
                 taskExecutor, batchTaskServantName, batchJobListResult);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
     }
 
@@ -774,7 +774,7 @@ public class AsyncBatchExecutorTest extends TestCase {
      * @throws Exception
      */
     public void testExecuteJob002() throws Exception {
-        // ƒpƒ‰ƒ[ƒ^
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
         AsyncBatchExecutor executor = new AsyncBatchExecutor() {
             @Override
             public SystemDao getSystemDao() {
@@ -786,11 +786,11 @@ public class AsyncBatchExecutorTest extends TestCase {
         String batchTaskServantName = "batchTaskServant";
         BatchJobListResult batchJobListResult = new BatchJobListResult();
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = AsyncBatchExecutor.executeJob(executor, ctx,
                 taskExecutor, batchTaskServantName, batchJobListResult);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
     }
 
@@ -799,7 +799,7 @@ public class AsyncBatchExecutorTest extends TestCase {
      * @throws Exception
      */
     public void testExecuteJob004() throws Exception {
-        // ƒpƒ‰ƒ[ƒ^
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
         AsyncBatchExecutor executor = new AsyncBatchExecutor() {
             @Override
             public PlatformTransactionManager getSysTransactionManager() {
@@ -811,11 +811,11 @@ public class AsyncBatchExecutorTest extends TestCase {
         String batchTaskServantName = "batchTaskServant";
         BatchJobListResult batchJobListResult = new BatchJobListResult();
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = AsyncBatchExecutor.executeJob(executor, ctx,
                 taskExecutor, batchTaskServantName, batchJobListResult);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
     }
 
@@ -824,18 +824,18 @@ public class AsyncBatchExecutorTest extends TestCase {
      * @throws Exception
      */
     public void testExecuteJob005() throws Exception {
-        // ƒpƒ‰ƒ[ƒ^
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
         AsyncBatchExecutor executor = new AsyncBatchExecutor();
         ApplicationContext ctx = new MockApplicationContext();
         ThreadPoolTaskExecutor taskExecutor = new ThreadPoolTaskExecutor();
         String batchTaskServantName = "batchTaskServant";
         BatchJobListResult batchJobListResult = new BatchJobListResult();
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = AsyncBatchExecutor.executeJob(executor, ctx,
                 taskExecutor, batchTaskServantName, batchJobListResult);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
     }
 
@@ -844,7 +844,7 @@ public class AsyncBatchExecutorTest extends TestCase {
      * @throws Exception
      */
     public void testExecuteJob006() throws Exception {
-        // ƒpƒ‰ƒ[ƒ^
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
         AsyncBatchExecutor executor = new AsyncBatchExecutor();
         MockApplicationContext ctx = new MockApplicationContext() {
             @Override
@@ -856,11 +856,11 @@ public class AsyncBatchExecutorTest extends TestCase {
         String batchTaskServantName = "batchServant";
         BatchJobListResult batchJobListResult = new BatchJobListResult();
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = AsyncBatchExecutor.executeJob(executor, ctx,
                 taskExecutor, batchTaskServantName, batchJobListResult);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
     }
 
@@ -869,7 +869,7 @@ public class AsyncBatchExecutorTest extends TestCase {
      * @throws Exception
      */
     public void testExecuteJob007() throws Exception {
-        // ƒpƒ‰ƒ[ƒ^
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
         AsyncBatchExecutor executor = new AsyncBatchExecutor() {
             @Override
             protected boolean startBatchStatus(String jobSequenceId,
@@ -883,7 +883,7 @@ public class AsyncBatchExecutorTest extends TestCase {
 
             @Override
             public void execute(Runnable task) {
-                throw new IllegalStateException("BatchServant‚ªÀs‚³‚ê‚½‚çƒGƒ‰[");
+                throw new IllegalStateException("BatchServantãŒå®Ÿè¡Œã•ã‚ŒãŸã‚‰ã‚¨ãƒ©ãƒ¼");
             }
         };
         String batchTaskServantName = "batchServant";
@@ -898,11 +898,11 @@ public class AsyncBatchExecutorTest extends TestCase {
         };
         ctx.addBeanMap(batchTaskServantName, batchServant);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = AsyncBatchExecutor.executeJob(executor, ctx,
                 taskExecutor, batchTaskServantName, batchJobListResult);
 
-        // ŒŸØ(ƒWƒ‡ƒuŠÇ—ƒe[ƒuƒ‹ƒXƒe[ƒ^ƒXXV‚ª³í‚ÉI—¹‚µ‚È‚©‚Á‚½ê‡‚àƒ|[ƒŠƒ“ƒOƒ‹[ƒv‚ÍŒp‘±‚³‚¹‚éB)
+        // æ¤œè¨¼(ã‚¸ãƒ§ãƒ–ç®¡ç†ãƒ†ãƒ¼ãƒ–ãƒ«ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹æ›´æ–°ãŒæ­£å¸¸ã«çµ‚äº†ã—ãªã‹ã£ãŸå ´åˆã‚‚ãƒãƒ¼ãƒªãƒ³ã‚°ãƒ«ãƒ¼ãƒ—ã¯ç¶™ç¶šã•ã›ã‚‹ã€‚)
         assertTrue(result);
     }
 
@@ -911,7 +911,7 @@ public class AsyncBatchExecutorTest extends TestCase {
      * @throws Exception
      */
     public void testExecuteJob008() throws Exception {
-        // ƒpƒ‰ƒ[ƒ^
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
         TerasolunaPropertyUtils
                 .removeProperty("batchTaskExecutor.executeRetryCountMax");
         TerasolunaPropertyUtils.addProperty(
@@ -948,11 +948,11 @@ public class AsyncBatchExecutorTest extends TestCase {
         ctx.addBeanMap(batchTaskServantName, batchServant);
         AsyncBatchExecutor.destroyCandidateThreadGroupList.clear();
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = AsyncBatchExecutor.executeJob(executor, ctx,
                 taskExecutor, batchTaskServantName, batchJobListResult);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
         assertSame(taskExecutor.getThreadGroup(), AsyncBatchExecutor.destroyCandidateThreadGroupList.get(0));
     }
@@ -962,7 +962,7 @@ public class AsyncBatchExecutorTest extends TestCase {
      * @throws Exception
      */
     public void testExecuteJob009() throws Exception {
-        // ƒpƒ‰ƒ[ƒ^
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
         AsyncBatchExecutor executor = new AsyncBatchExecutor() {
             @Override
             protected boolean startBatchStatus(String jobSequenceId,
@@ -988,24 +988,24 @@ public class AsyncBatchExecutorTest extends TestCase {
         };
         ctx.addBeanMap(batchTaskServantName, batchServant);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = AsyncBatchExecutor.executeJob(executor, ctx,
                 taskExecutor, batchTaskServantName, batchJobListResult);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
     }
 
     /**
      * testBatchServantTaskEndTrackerRun001
-     * runƒƒ\ƒbƒhÀs‚ÉA
-     * BatchServantTaskEndTracker‚Éƒ‰ƒbƒv‚³‚ê‚Ä‚¢‚éBatchServant‚Ìrunƒƒ\ƒbƒh‚ªÀs‚³‚êA
-     * AsyncBatchExecutor.destroyCandidateThreadGroupList‚ÉA
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Å—^‚¦‚½ThreadGroup‚ª“o˜^‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * runãƒ¡ã‚½ãƒƒãƒ‰å®Ÿè¡Œæ™‚ã«ã€
+     * BatchServantTaskEndTrackerã«ãƒ©ãƒƒãƒ—ã•ã‚Œã¦ã„ã‚‹BatchServantã®runãƒ¡ã‚½ãƒƒãƒ‰ãŒå®Ÿè¡Œã•ã‚Œã€
+     * AsyncBatchExecutor.destroyCandidateThreadGroupListã«ã€
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§ä¸ãˆãŸThreadGroupãŒç™»éŒ²ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * @throws Exception
      */
     public void testBatchServantTaskEndTrackerRun001() throws Exception {
-        // ƒpƒ‰ƒ[ƒ^
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
         final AtomicBoolean runWasExecuted = new AtomicBoolean(false);
         BatchServant batchServant = new BatchServant() {
             public void setJobSequenceId(String jobSequenceId) {
@@ -1019,11 +1019,11 @@ public class AsyncBatchExecutorTest extends TestCase {
         BatchServantTaskEndTracker tracker = new BatchServantTaskEndTracker(batchServant, testTG);
         AsyncBatchExecutor.destroyCandidateThreadGroupList.clear();
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         tracker.run();
 
         try {
-            // ŒŸØ
+            // æ¤œè¨¼
             assertTrue(runWasExecuted.get());
             assertSame(testTG, AsyncBatchExecutor.destroyCandidateThreadGroupList.get(0));
         } finally {
@@ -1034,23 +1034,23 @@ public class AsyncBatchExecutorTest extends TestCase {
 
     /**
      * testDestroyThreadGroupsIfPossible001
-     * AsyncBatchExecutor.destroyCandidateThreadGroupList‚ª0Œ‚Ì‚Æ‚«A
-     * ‚Ç‚ÌThreadGroup‚àdestroy‚µ‚È‚¢‚±‚Æ‚ğŠm”F‚·‚éB
-     * (ƒAƒNƒeƒBƒuƒXƒŒƒbƒh”‚ª0‚ÌThreadGroup‚Å‚àA
-     *  AsyncBatchExecutor.destroyCandidateThreadGroupList‚É“o˜^‚³‚ê‚Ä‚¢‚È‚¯‚ê‚Î
-     *  destroy‚µ‚È‚¢‚±‚Æ‚ğŠm”F‚·‚éB)
+     * AsyncBatchExecutor.destroyCandidateThreadGroupListãŒ0ä»¶ã®ã¨ãã€
+     * ã©ã®ThreadGroupã‚‚destroyã—ãªã„ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
+     * (ã‚¢ã‚¯ãƒ†ã‚£ãƒ–ã‚¹ãƒ¬ãƒƒãƒ‰æ•°ãŒ0ã®ThreadGroupã§ã‚‚ã€
+     *  AsyncBatchExecutor.destroyCandidateThreadGroupListã«ç™»éŒ²ã•ã‚Œã¦ã„ãªã‘ã‚Œã°
+     *  destroyã—ãªã„ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚)
      * @throws Exception
      */
     public void testDestroyThreadGroupsIfPossible001() throws Exception {
-        // ƒpƒ‰ƒ[ƒ^
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
         ThreadGroup testTG = new ThreadGroup("testDestroyThreadGroupsIfPossible001-TG");
         AsyncBatchExecutor.destroyCandidateThreadGroupList.clear();
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         AsyncBatchExecutor.destroyThreadGroupsIfPossible();
 
         try {
-            // ŒŸØ
+            // æ¤œè¨¼
             assertFalse(testTG.isDestroyed());
         } finally {
             testTG.destroy();
@@ -1059,38 +1059,38 @@ public class AsyncBatchExecutorTest extends TestCase {
 
     /**
      * testDestroyThreadGroupsIfPossible002
-     * AsyncBatchExecutor.destroyCandidateThreadGroupList‚ª1Œ‚Å‚ ‚èA
-     * “o˜^‚³‚ê‚Ä‚¢‚éThreadGroup‚ÌƒAƒNƒeƒBƒuƒXƒŒƒbƒh”‚ª0ŒÂ‚Ìê‡A
-     * EThreadGroup‚ğdestroy‚·‚é‚±‚Æ
-     * Edestroy‚µ‚½ThreadGroup‚ğAsyncBatchExecutor.destroyCandidateThreadGroupList‚ª‚©‚çíœ‚·‚é‚±‚Æ
-     * ‚ğŠm”F‚·‚éB
+     * AsyncBatchExecutor.destroyCandidateThreadGroupListãŒ1ä»¶ã§ã‚ã‚Šã€
+     * ç™»éŒ²ã•ã‚Œã¦ã„ã‚‹ThreadGroupã®ã‚¢ã‚¯ãƒ†ã‚£ãƒ–ã‚¹ãƒ¬ãƒƒãƒ‰æ•°ãŒ0å€‹ã®å ´åˆã€
+     * ãƒ»ThreadGroupã‚’destroyã™ã‚‹ã“ã¨
+     * ãƒ»destroyã—ãŸThreadGroupã‚’AsyncBatchExecutor.destroyCandidateThreadGroupListãŒã‹ã‚‰å‰Šé™¤ã™ã‚‹ã“ã¨
+     * ã‚’ç¢ºèªã™ã‚‹ã€‚
      * @throws Exception
      */
     public void testDestroyThreadGroupsIfPossible002() throws Exception {
-        // ƒpƒ‰ƒ[ƒ^
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
         ThreadGroup testTG = new ThreadGroup("testDestroyThreadGroupsIfPossible002-TG");
         AsyncBatchExecutor.destroyCandidateThreadGroupList.clear();
         AsyncBatchExecutor.destroyCandidateThreadGroupList.add(testTG);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         AsyncBatchExecutor.destroyThreadGroupsIfPossible();
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(testTG.isDestroyed());
         assertEquals(0, AsyncBatchExecutor.destroyCandidateThreadGroupList.size());
     }
 
     /**
      * testDestroyThreadGroupsIfPossible003
-     * AsyncBatchExecutor.destroyCandidateThreadGroupList‚ª1Œ‚Å‚ ‚èA
-     * “o˜^‚³‚ê‚Ä‚¢‚éThreadGroup‚ÌƒAƒNƒeƒBƒuƒXƒŒƒbƒh”‚ª1ŒÂ‚Ìê‡A
-     * EThreadGroup‚ğdestroy‚µ‚È‚¢‚±‚Æ
-     * EThreadGroup‚ğAsyncBatchExecutor.destroyCandidateThreadGroupList‚ª‚©‚çíœ‚µ‚È‚¢‚±‚Æ
-     * ‚ğŠm”F‚·‚éB
+     * AsyncBatchExecutor.destroyCandidateThreadGroupListãŒ1ä»¶ã§ã‚ã‚Šã€
+     * ç™»éŒ²ã•ã‚Œã¦ã„ã‚‹ThreadGroupã®ã‚¢ã‚¯ãƒ†ã‚£ãƒ–ã‚¹ãƒ¬ãƒƒãƒ‰æ•°ãŒ1å€‹ã®å ´åˆã€
+     * ãƒ»ThreadGroupã‚’destroyã—ãªã„ã“ã¨
+     * ãƒ»ThreadGroupã‚’AsyncBatchExecutor.destroyCandidateThreadGroupListãŒã‹ã‚‰å‰Šé™¤ã—ãªã„ã“ã¨
+     * ã‚’ç¢ºèªã™ã‚‹ã€‚
      * @throws Exception
      */
     public void testDestroyThreadGroupsIfPossible003() throws Exception {
-        // ƒpƒ‰ƒ[ƒ^
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
         ThreadGroup testTG = new ThreadGroup("testDestroyThreadGroupsIfPossible003-TG");
         AsyncBatchExecutor.destroyCandidateThreadGroupList.clear();
         AsyncBatchExecutor.destroyCandidateThreadGroupList.add(testTG);
@@ -1105,13 +1105,13 @@ public class AsyncBatchExecutorTest extends TestCase {
         };
         testThread.start();
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         AsyncBatchExecutor.destroyThreadGroupsIfPossible();
         assertEquals(1, AsyncBatchExecutor.destroyCandidateThreadGroupList.size());
         assertEquals(testTG, AsyncBatchExecutor.destroyCandidateThreadGroupList.get(0));
 
         try {
-            // ŒŸØ
+            // æ¤œè¨¼
             assertFalse(testTG.isDestroyed());
         } finally {
             testThread.interrupt();
@@ -1125,18 +1125,18 @@ public class AsyncBatchExecutorTest extends TestCase {
 
     /**
      * testDestroyThreadGroupsIfPossible005
-     * AsyncBatchExecutor.destroyCandidateThreadGroupList‚ª4Œ‚Å‚ ‚èA
-     * ƒAƒNƒeƒBƒuƒXƒŒƒbƒh”‚ª1ŒÂ‚ÌThreadGroup‚ª2ŒÂA
-     * ƒAƒNƒeƒBƒuƒXƒŒƒbƒh”‚ª0ŒÂ‚ÌThreadGroup‚ª2ŒÂA“o˜^‚³‚ê‚Ä‚¢‚éê‡A
-     * EƒAƒNƒeƒBƒuƒXƒŒƒbƒh”‚ª1ŒÂ‚ÌThreadGroup‚Ídestroy‚³‚ê‚È‚¢‚±‚Æ
-     * EƒAƒNƒeƒBƒuƒXƒŒƒbƒh”‚ª0ŒÂ‚ÌThreadGroup‚Ídestroy‚³‚ê‚é‚±‚Æ
-     * Edestroy‚µ‚½ThreadGroup‚ğAsyncBatchExecutor.destroyCandidateThreadGroupList‚©‚çíœ‚·‚é‚±‚Æ
-     * Edestroy‚µ‚È‚©‚Á‚½ThreadGroup‚ğAsyncBatchExecutor.destroyCandidateThreadGroupList‚©‚çíœ‚µ‚È‚¢‚±‚Æ
-     * ‚ğŠm”F‚·‚éB
+     * AsyncBatchExecutor.destroyCandidateThreadGroupListãŒ4ä»¶ã§ã‚ã‚Šã€
+     * ã‚¢ã‚¯ãƒ†ã‚£ãƒ–ã‚¹ãƒ¬ãƒƒãƒ‰æ•°ãŒ1å€‹ã®ThreadGroupãŒ2å€‹ã€
+     * ã‚¢ã‚¯ãƒ†ã‚£ãƒ–ã‚¹ãƒ¬ãƒƒãƒ‰æ•°ãŒ0å€‹ã®ThreadGroupãŒ2å€‹ã€ç™»éŒ²ã•ã‚Œã¦ã„ã‚‹å ´åˆã€
+     * ãƒ»ã‚¢ã‚¯ãƒ†ã‚£ãƒ–ã‚¹ãƒ¬ãƒƒãƒ‰æ•°ãŒ1å€‹ã®ThreadGroupã¯destroyã•ã‚Œãªã„ã“ã¨
+     * ãƒ»ã‚¢ã‚¯ãƒ†ã‚£ãƒ–ã‚¹ãƒ¬ãƒƒãƒ‰æ•°ãŒ0å€‹ã®ThreadGroupã¯destroyã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»destroyã—ãŸThreadGroupã‚’AsyncBatchExecutor.destroyCandidateThreadGroupListã‹ã‚‰å‰Šé™¤ã™ã‚‹ã“ã¨
+     * ãƒ»destroyã—ãªã‹ã£ãŸThreadGroupã‚’AsyncBatchExecutor.destroyCandidateThreadGroupListã‹ã‚‰å‰Šé™¤ã—ãªã„ã“ã¨
+     * ã‚’ç¢ºèªã™ã‚‹ã€‚
      * @throws Exception
      */
     public void testDestroyThreadGroupsIfPossible004() throws Exception {
-        // ƒpƒ‰ƒ[ƒ^
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
         ThreadGroup testTG1 = new ThreadGroup("testDestroyThreadGroupsIfPossible004-TG1");
         ThreadGroup testTG2 = new ThreadGroup("testDestroyThreadGroupsIfPossible004-TG2");
         ThreadGroup testTG3 = new ThreadGroup("testDestroyThreadGroupsIfPossible004-TG3");
@@ -1167,14 +1167,14 @@ public class AsyncBatchExecutorTest extends TestCase {
         testThread1.start();
         testThread3.start();
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         AsyncBatchExecutor.destroyThreadGroupsIfPossible();
         assertEquals(2, AsyncBatchExecutor.destroyCandidateThreadGroupList.size());
         assertEquals(testTG1, AsyncBatchExecutor.destroyCandidateThreadGroupList.get(0));
         assertEquals(testTG3, AsyncBatchExecutor.destroyCandidateThreadGroupList.get(1));
 
         try {
-            // ŒŸØ
+            // æ¤œè¨¼
             assertFalse(testTG1.isDestroyed());
             assertTrue(testTG2.isDestroyed());
             assertFalse(testTG3.isDestroyed());
@@ -1197,10 +1197,10 @@ public class AsyncBatchExecutorTest extends TestCase {
 
     /**
      * testLogActiveThreadGroupsInfo001
-     * activeGroupCountÀsŒã‚ÉThreadGroup‚ª‘‚¦‚È‚¢ó‹µ‚É‚¨‚¢‚Ä‚ÍA
-     * enumerate‚ğ1‰ñ‚¾‚¯Às‚µA
-     * enumerate‚Ì–ß‚è’lƒenumerate‚Ìˆø”‚Ì”z—ñ—v‘f”
-     * ‚ğ–‚½‚·‚±‚Æ‚ğŠm”F‚·‚éB
+     * activeGroupCountå®Ÿè¡Œå¾Œã«ThreadGroupãŒå¢—ãˆãªã„çŠ¶æ³ã«ãŠã„ã¦ã¯ã€
+     * enumerateã‚’1å›ã ã‘å®Ÿè¡Œã—ã€
+     * enumerateã®æˆ»ã‚Šå€¤ï¼œenumerateã®å¼•æ•°ã®é…åˆ—è¦ç´ æ•°
+     * ã‚’æº€ãŸã™ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * @throws Exception
      */
     public void testLogActiveThreadGroupsInfo001() throws Exception {
@@ -1225,7 +1225,7 @@ public class AsyncBatchExecutorTest extends TestCase {
             public void run() {
                 ThreadGroup testTG = new ThreadGroup("testLogActiveThreadGroupsInfo001-TG");
 
-                // ƒeƒXƒg
+                // ãƒ†ã‚¹ãƒˆ
                 AsyncBatchExecutor.logActiveThreadGroupsInfo();
 
                 testTG.destroy();
@@ -1235,18 +1235,18 @@ public class AsyncBatchExecutorTest extends TestCase {
         testThread.start();
         testThread.join();
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertEquals(1, enumerateCallCount.get());
         assertTrue(enumerateSuccess.get());
     }
 
     /**
      * testLogActiveThreadGroupsInfo002
-     * activeGroupCountÀsŒã‚ÉThreadGroup‚ª‘‚¦‚½‚±‚Æ‚É‚æ‚èA
-     * enumerate‚Ì–ß‚è’lƒenumerate‚Ìˆø”‚Ì”z—ñ—v‘f”(activeGroupCount‚Ì–ß‚è’l+1)
-     * ‚ğ–‚½‚³‚È‚¢‚Æ‚«A
-     * enumerate‚Ì–ß‚è’lƒenumerate‚Ìˆø”‚Ì”z—ñ—v‘f”
-     * ‚ğ–‚½‚·‚æ‚¤AÄ“xactiveGroupCount‚Æenumerate‚ğÀs‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * activeGroupCountå®Ÿè¡Œå¾Œã«ThreadGroupãŒå¢—ãˆãŸã“ã¨ã«ã‚ˆã‚Šã€
+     * enumerateã®æˆ»ã‚Šå€¤ï¼œenumerateã®å¼•æ•°ã®é…åˆ—è¦ç´ æ•°(activeGroupCountã®æˆ»ã‚Šå€¤+1)
+     * ã‚’æº€ãŸã•ãªã„ã¨ãã€
+     * enumerateã®æˆ»ã‚Šå€¤ï¼œenumerateã®å¼•æ•°ã®é…åˆ—è¦ç´ æ•°
+     * ã‚’æº€ãŸã™ã‚ˆã†ã€å†åº¦activeGroupCountã¨enumerateã‚’å®Ÿè¡Œã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * @throws Exception
      */
     public void testLogActiveThreadGroupsInfo002() throws Exception {
@@ -1257,8 +1257,8 @@ public class AsyncBatchExecutorTest extends TestCase {
             @Override
             public int activeGroupCount() {
                 if (firstCount.get()) {
-                    // Å‰‚Ì1‰ñ‚¾‚¯A1‚Â­‚È‚¢’l‚ğ•Ô‚·‚±‚Æ‚ÅA
-                    // activeGroupCountÀsŒã‚ÉThreadGroup‚ª‘‚¦‚½ó‹µ‚ğƒGƒ~ƒ…ƒŒ[ƒgB
+                    // æœ€åˆã®1å›ã ã‘ã€1ã¤å°‘ãªã„å€¤ã‚’è¿”ã™ã“ã¨ã§ã€
+                    // activeGroupCountå®Ÿè¡Œå¾Œã«ThreadGroupãŒå¢—ãˆãŸçŠ¶æ³ã‚’ã‚¨ãƒŸãƒ¥ãƒ¬ãƒ¼ãƒˆã€‚
                     firstCount.set(false);
                     return super.activeGroupCount() - 1;
                 }
@@ -1278,7 +1278,7 @@ public class AsyncBatchExecutorTest extends TestCase {
             public void run() {
                 ThreadGroup testTG = new ThreadGroup("testLogActiveThreadGroupsInfo002-TG");
 
-                // ƒeƒXƒg
+                // ãƒ†ã‚¹ãƒˆ
                 AsyncBatchExecutor.logActiveThreadGroupsInfo();
 
                 testTG.destroy();
@@ -1287,7 +1287,7 @@ public class AsyncBatchExecutorTest extends TestCase {
         testThread.start();
         testThread.join();
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertEquals(2, enumerateCallCount.get());
         assertTrue(enumerateSuccess.get());
     }

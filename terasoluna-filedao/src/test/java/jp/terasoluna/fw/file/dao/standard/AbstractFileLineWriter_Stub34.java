@@ -4,32 +4,32 @@ import jp.terasoluna.fw.file.annotation.FileFormat;
 import jp.terasoluna.fw.file.annotation.OutputFileColumn;
 
 /**
- * AbstractFileLineWriter‚ÌŒ±‚Å—˜—p‚·‚éƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌƒXƒ^ƒuƒNƒ‰ƒXB<br>
+ * AbstractFileLineWriterã®è©¦é¨“ã§åˆ©ç”¨ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¹ã‚¿ãƒ–ã‚¯ãƒ©ã‚¹ã€‚<br>
  * <br>
- * ˆÈ‰º‚Ì@FileFormat‚Ìİ’è‚ğ‚Â<br>
+ * ä»¥ä¸‹ã®@FileFormatã®è¨­å®šã‚’æŒã¤<br>
  * <ul>
- * <li>delimiterFCharacter.MIN_VALUE</li>
- * <li>encloseCharF'\"'</li>
- * <li>‚»‚Ì‘¼FƒfƒtƒHƒ‹ƒg’l</li>
+ * <li>delimiterï¼šCharacter.MIN_VALUE</li>
+ * <li>encloseCharï¼š'\"'</li>
+ * <li>ãã®ä»–ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤</li>
  * </ul>
  * <br>
- * <code>@OutputFileColumnİ’è‚ ‚è‚ÌƒtƒB[ƒ‹ƒh‚ğ‚Â<br>
+ * <code>@OutputFileColumnè¨­å®šã‚ã‚Šã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æŒã¤<br>
  * <ul>
- * <li>ƒtƒB[ƒ‹ƒhFString column1
- *     <code>@OutputFileColumn</code>İ’è<br>
- * > columnIndexF0<br>
- * > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l</li> </ul>
+ * <li>ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column1
+ *     <code>@OutputFileColumn</code>è¨­å®š<br>
+ * > columnIndexï¼š0<br>
+ * > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤</li> </ul>
  * <ul>
- * <li>ƒtƒB[ƒ‹ƒhFString column2 <code>@OutputFileColumn</code>İ’è<br>
- * > columnIndexF1<br>
- * > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l</li>
+ * <li>ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column2 <code>@OutputFileColumn</code>è¨­å®š<br>
+ * > columnIndexï¼š1<br>
+ * > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤</li>
  * </ul>
  * <ul>
- * <li>ƒtƒB[ƒ‹ƒhFString column3 <code>@OutputFileColumn</code>İ’è<br>
- * > columnIndexF2<br>
- * > ‚»‚Ì‘¼€–ÚFƒfƒtƒHƒ‹ƒg’l</li>
+ * <li>ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ï¼šString column3 <code>@OutputFileColumn</code>è¨­å®š<br>
+ * > columnIndexï¼š2<br>
+ * > ãã®ä»–é …ç›®ï¼šãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤</li>
  * </ul>
- * @author æâ•î“O
+ * @author è¶™ä¿¸å¾¹
  */
 @FileFormat(delimiter = Character.MIN_VALUE, encloseChar = '\"')
 public class AbstractFileLineWriter_Stub34 {
@@ -53,7 +53,7 @@ public class AbstractFileLineWriter_Stub34 {
     private String column3 = null;
 
     /**
-     * column1‚ğæ“¾‚·‚éB
+     * column1ã‚’å–å¾—ã™ã‚‹ã€‚
      * @return column1
      */
     public String getColumn1() {
@@ -61,7 +61,7 @@ public class AbstractFileLineWriter_Stub34 {
     }
 
     /**
-     * column1‚ğİ’è‚·‚éB
+     * column1ã‚’è¨­å®šã™ã‚‹ã€‚
      * @param column1 column1
      */
     public void setColumn1(String column1) {
@@ -69,7 +69,7 @@ public class AbstractFileLineWriter_Stub34 {
     }
 
     /**
-     * column2‚ğæ“¾‚·‚éB
+     * column2ã‚’å–å¾—ã™ã‚‹ã€‚
      * @return column2
      */
     public String getColumn2() {
@@ -77,7 +77,7 @@ public class AbstractFileLineWriter_Stub34 {
     }
 
     /**
-     * column2‚ğİ’è‚·‚éB
+     * column2ã‚’è¨­å®šã™ã‚‹ã€‚
      * @param column2 column2
      */
     public void setColumn2(String column2) {
@@ -85,7 +85,7 @@ public class AbstractFileLineWriter_Stub34 {
     }
 
     /**
-     * column3‚ğæ“¾‚·‚éB
+     * column3ã‚’å–å¾—ã™ã‚‹ã€‚
      * @return column3
      */
     public String getColumn3() {
@@ -93,7 +93,7 @@ public class AbstractFileLineWriter_Stub34 {
     }
 
     /**
-     * column3‚ğİ’è‚·‚éB
+     * column3ã‚’è¨­å®šã™ã‚‹ã€‚
      * @param column3 column3
      */
     public void setColumn3(String column3) {

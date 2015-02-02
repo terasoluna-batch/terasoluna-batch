@@ -32,41 +32,41 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
- * JXPath‚ğ—p‚¢‚½IndexBeanWrapper‚ÌÀ‘•B
+ * JXPathã‚’ç”¨ã„ãŸIndexBeanWrapperã®å®Ÿè£…ã€‚
  * 
- * <p>JavaBeanAMapADynaBean‚©‚çƒvƒƒpƒeƒB–¼‚ğw’è‚·‚é‚±‚Æ‚É‚æ‚èA
- * ‘®«’l‚ğæ“¾‚·‚é‚±‚Æ‚ª‚Å‚«‚éB
- * ‘®«‚ª”z—ñEListŒ^‚Ìê‡AŠY“–‚·‚é‘®«’l‚ğ‘S‚Äæ“¾‚·‚éB
- * <h5>æ“¾‚Å‚«‚é‘®«‚ÌŒ^</h5>
+ * <p>JavaBeanã€Mapã€DynaBeanã‹ã‚‰ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£åã‚’æŒ‡å®šã™ã‚‹ã“ã¨ã«ã‚ˆã‚Šã€
+ * å±æ€§å€¤ã‚’å–å¾—ã™ã‚‹ã“ã¨ãŒã§ãã‚‹ã€‚
+ * å±æ€§ãŒé…åˆ—ãƒ»Listå‹ã®å ´åˆã€è©²å½“ã™ã‚‹å±æ€§å€¤ã‚’å…¨ã¦å–å¾—ã™ã‚‹ã€‚
+ * <h5>å–å¾—ã§ãã‚‹å±æ€§ã®å‹</h5>
  * <ul>
- *   <li>ƒvƒŠƒ~ƒeƒBƒuŒ^</li>
- *   <li>ƒvƒŠƒ~ƒeƒBƒuŒ^‚Ì”z—ñ</li>
+ *   <li>ãƒ—ãƒªãƒŸãƒ†ã‚£ãƒ–å‹</li>
+ *   <li>ãƒ—ãƒªãƒŸãƒ†ã‚£ãƒ–å‹ã®é…åˆ—</li>
  *   <li>JavaBean</li>
- *   <li>JavaBean‚Ì”z—ñEListŒ^</li>
- *   <li>MapŒ^</li>
+ *   <li>JavaBeanã®é…åˆ—ãƒ»Listå‹</li>
+ *   <li>Mapå‹</li>
  * </ul>
  * </p>
  * 
  * <p>
- * MapƒIƒuƒWƒFƒNƒgA‚Ü‚½‚ÍMapŒ^‘®«‚ğg—p‚·‚éê‡A
- * ˆÈ‰º‚Ì•¶š‚ÍMapƒL[‚Ég—p‚Å‚«‚È‚¢B
+ * Mapã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€ã¾ãŸã¯Mapå‹å±æ€§ã‚’ä½¿ç”¨ã™ã‚‹å ´åˆã€
+ * ä»¥ä¸‹ã®æ–‡å­—ã¯Mapã‚­ãƒ¼ã«ä½¿ç”¨ã§ããªã„ã€‚
  * <ul>
- *   <li>/ cƒXƒ‰ƒbƒVƒ…</li>
- *   <li>[ cŠp‚©‚Á‚±iŠJ‚­j</li>
- *   <li>] cŠp‚©‚Á‚±i•Â‚¶j</li>
- *   <li>. cƒhƒbƒg</li>
- *   <li>' cƒVƒ“ƒOƒ‹ƒNƒH[ƒg</li>
- *   <li>" cƒ_ƒuƒ‹ƒNƒH[ƒg</li>
- *   <li>( c‚©‚Á‚±iŠJ‚­j</li>
- *   <li>) c‚©‚Á‚±i•Â‚¶j</li>
+ *   <li>/ â€¦ã‚¹ãƒ©ãƒƒã‚·ãƒ¥</li>
+ *   <li>[ â€¦è§’ã‹ã£ã“ï¼ˆé–‹ãï¼‰</li>
+ *   <li>] â€¦è§’ã‹ã£ã“ï¼ˆé–‰ã˜ï¼‰</li>
+ *   <li>. â€¦ãƒ‰ãƒƒãƒˆ</li>
+ *   <li>' â€¦ã‚·ãƒ³ã‚°ãƒ«ã‚¯ã‚©ãƒ¼ãƒˆ</li>
+ *   <li>" â€¦ãƒ€ãƒ–ãƒ«ã‚¯ã‚©ãƒ¼ãƒˆ</li>
+ *   <li>( â€¦ã‹ã£ã“ï¼ˆé–‹ãï¼‰</li>
+ *   <li>) â€¦ã‹ã£ã“ï¼ˆé–‰ã˜ï¼‰</li>
  * </ul>
  * </p>
  * 
  * <hr>
  *
- * <h4>ŠÈ’P‚Èg—p—á</h4>
+ * <h4>ç°¡å˜ãªä½¿ç”¨ä¾‹</h4>
  *
- * <p>ˆÈ‰º‚Ì‚æ‚¤‚ÈEmployeeƒIƒuƒWƒFƒNƒg‚ÌfirstName‘®«‚ÉƒAƒNƒZƒX‚·‚éB
+ * <p>ä»¥ä¸‹ã®ã‚ˆã†ãªEmployeeã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®firstNameå±æ€§ã«ã‚¢ã‚¯ã‚»ã‚¹ã™ã‚‹ã€‚
  * <pre>
  * public class Employee {
  *     private String firstName;
@@ -81,26 +81,26 @@ import org.apache.commons.logging.LogFactory;
  * </pre>
  * </p>
  *
- * <p><u>‚PDƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÅƒAƒNƒZƒX‘ÎÛ‚ÌJavaBean‚ğƒ‰ƒbƒv‚·‚éB</u>
+ * <p><u>ï¼‘ï¼ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§ã‚¢ã‚¯ã‚»ã‚¹å¯¾è±¡ã®JavaBeanã‚’ãƒ©ãƒƒãƒ—ã™ã‚‹ã€‚</u>
  * <pre>
- * // ƒAƒNƒZƒX‘ÎÛ‚Æ‚È‚éEmployeeƒIƒuƒWƒFƒNƒg
+ * // ã‚¢ã‚¯ã‚»ã‚¹å¯¾è±¡ã¨ãªã‚‹Employeeã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
  * Employee emp = new Employee();
- * emp.setFirstName("‚ß‚¢");
+ * emp.setFirstName("ã‚ã„");
  * 
  * IndexedBeanWrapper bw = new JXPathIndexedBeanWrapperImpl(emp);
  * </pre>
  * </p>
  *
- * <p><u>‚QDfirstName‘®«‚ÉƒAƒNƒZƒX‚·‚éB</u>
- * ˆø”‚ÌString‚É‚Í‘®«–¼‚ğw’è‚·‚éB
+ * <p><u>ï¼’ï¼firstNameå±æ€§ã«ã‚¢ã‚¯ã‚»ã‚¹ã™ã‚‹ã€‚</u>
+ * å¼•æ•°ã®Stringã«ã¯å±æ€§åã‚’æŒ‡å®šã™ã‚‹ã€‚
  * <pre>
  * Map&lt;String, Object&gt; map = bw.getIndexedPropertyValues("<strong>firstName</strong>");
  * </pre>
  * 
- * ƒL[‚ªƒvƒƒpƒeƒB–¼A’l‚ª‘®«’l‚ÌMapƒCƒ“ƒXƒ^ƒ“ƒX‚ª•Ô‚³‚ê‚éB
- * ˆÈ‰º‚ÌƒR[ƒh‚Å‚Í‘S‚Ä‚Ì—v‘f‚ğƒRƒ“ƒ\[ƒ‹‚Éo—Í‚µ‚Ä‚¢‚éB
+ * ã‚­ãƒ¼ãŒãƒ—ãƒ­ãƒ‘ãƒ†ã‚£åã€å€¤ãŒå±æ€§å€¤ã®Mapã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ãŒè¿”ã•ã‚Œã‚‹ã€‚
+ * ä»¥ä¸‹ã®ã‚³ãƒ¼ãƒ‰ã§ã¯å…¨ã¦ã®è¦ç´ ã‚’ã‚³ãƒ³ã‚½ãƒ¼ãƒ«ã«å‡ºåŠ›ã—ã¦ã„ã‚‹ã€‚
  * <pre>
- * System.out.println("Map‚ÌƒL[FMap‚Ì’l");
+ * System.out.println("Mapã®ã‚­ãƒ¼ï¼šMapã®å€¤");
  * System.out.println("========================");
  * Set&lt;String&gt; keyset = map.keySet();
  * for (String key : keyset) {
@@ -108,19 +108,19 @@ import org.apache.commons.logging.LogFactory;
  *     System.out.println(map.get(key).toString());
  * }
  * </pre>
- * Œ‹‰Ê‚ÍˆÈ‰º‚Ì‚æ‚¤‚Éo—Í‚³‚ê‚éB
+ * çµæœã¯ä»¥ä¸‹ã®ã‚ˆã†ã«å‡ºåŠ›ã•ã‚Œã‚‹ã€‚
  * <pre>
- * Map‚ÌƒL[FMap‚Ì’l
+ * Mapã®ã‚­ãƒ¼ï¼šMapã®å€¤
  * ========================
- * firstName:‚ß‚¢
+ * firstName:ã‚ã„
  * </pre>
  * </p>
  * 
  * <hr>
  *
- * <h4>”z—ñ‘®«‚Ö‚ÌƒAƒNƒZƒX</h4>
+ * <h4>é…åˆ—å±æ€§ã¸ã®ã‚¢ã‚¯ã‚»ã‚¹</h4>
  *
- * <p>ˆÈ‰º‚Ì‚æ‚¤‚ÈAddressƒIƒuƒWƒFƒNƒg‚Ì”z—ñŒ^‘®«numbers‚ÉƒAƒNƒZƒX‚·‚éB
+ * <p>ä»¥ä¸‹ã®ã‚ˆã†ãªAddressã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®é…åˆ—å‹å±æ€§numbersã«ã‚¢ã‚¯ã‚»ã‚¹ã™ã‚‹ã€‚
  * <pre>
  * public class Address {
  *     private int[] numbers;
@@ -135,9 +135,9 @@ import org.apache.commons.logging.LogFactory;
  * </pre>
  * </p>
  *
- * <p><u>‚PDƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÅƒAƒNƒZƒX‘ÎÛ‚ÌJavaBean‚ğƒ‰ƒbƒv‚·‚éB</u>
+ * <p><u>ï¼‘ï¼ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§ã‚¢ã‚¯ã‚»ã‚¹å¯¾è±¡ã®JavaBeanã‚’ãƒ©ãƒƒãƒ—ã™ã‚‹ã€‚</u>
  * <pre>
- * // Employee‚Ì‘®«‚Æ‚È‚éAddressƒIƒuƒWƒFƒNƒg
+ * // Employeeã®å±æ€§ã¨ãªã‚‹Addressã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
  * Address address = new Address();
  * address.setNumbers(new int[]{1, 2, 3});
  * 
@@ -145,18 +145,18 @@ import org.apache.commons.logging.LogFactory;
  * </pre>
  * </p>
  *
- * <p><u>‚QDnumbers‘®«‚ÉƒAƒNƒZƒX‚·‚éB</u>
- * <em>'numbers[]'‚Ì‚æ‚¤‚É”z—ñ‹L†‚ğ•t‚¯‚é•K—v‚Í‚È‚­A
- * ‘®«–¼‚ğw’è‚·‚ê‚Î‚æ‚¢‚±‚Æ‚É’ˆÓ‚·‚é‚±‚ÆB</em>
+ * <p><u>ï¼’ï¼numberså±æ€§ã«ã‚¢ã‚¯ã‚»ã‚¹ã™ã‚‹ã€‚</u>
+ * <em>'numbers[]'ã®ã‚ˆã†ã«é…åˆ—è¨˜å·ã‚’ä»˜ã‘ã‚‹å¿…è¦ã¯ãªãã€
+ * å±æ€§åã‚’æŒ‡å®šã™ã‚Œã°ã‚ˆã„ã“ã¨ã«æ³¨æ„ã™ã‚‹ã“ã¨ã€‚</em>
  * <pre>
  * Map&lt;String, Object&gt; map = bw.getIndexedPropertyValues("<strong>numbers</strong>");
  * </pre>
  * </p>
  *
- * ƒL[‚ªƒvƒƒpƒeƒB–¼A’l‚ª‘®«’l‚ÌMapƒCƒ“ƒXƒ^ƒ“ƒX‚ª•Ô‚³‚ê‚éB
- * ˆÈ‰º‚ÌƒR[ƒh‚Å‚Í‘S‚Ä‚Ì—v‘f‚ğƒRƒ“ƒ\[ƒ‹‚Éo—Í‚µ‚Ä‚¢‚éB
+ * ã‚­ãƒ¼ãŒãƒ—ãƒ­ãƒ‘ãƒ†ã‚£åã€å€¤ãŒå±æ€§å€¤ã®Mapã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ãŒè¿”ã•ã‚Œã‚‹ã€‚
+ * ä»¥ä¸‹ã®ã‚³ãƒ¼ãƒ‰ã§ã¯å…¨ã¦ã®è¦ç´ ã‚’ã‚³ãƒ³ã‚½ãƒ¼ãƒ«ã«å‡ºåŠ›ã—ã¦ã„ã‚‹ã€‚
  * <pre>
- * System.out.println("Map‚ÌƒL[FMap‚Ì’l");
+ * System.out.println("Mapã®ã‚­ãƒ¼ï¼šMapã®å€¤");
  * System.out.println("========================");
  * Set&lt;String&gt; keyset = map.keySet();
  * for (String key : keyset) {
@@ -164,23 +164,23 @@ import org.apache.commons.logging.LogFactory;
  *     System.out.println(map.get(key).toString());
  * }
  * </pre>
- * Œ‹‰Ê‚ÍˆÈ‰º‚Ì‚æ‚¤‚Éo—Í‚³‚ê‚éB
+ * çµæœã¯ä»¥ä¸‹ã®ã‚ˆã†ã«å‡ºåŠ›ã•ã‚Œã‚‹ã€‚
  * <pre>
- * Map‚ÌƒL[FMap‚Ì’l
+ * Mapã®ã‚­ãƒ¼ï¼šMapã®å€¤
  * ========================
  * numbers[0]:1
  * numbers[1]:2
  * numbers[2]:3
  * </pre>
- * ListŒ^‚ÌƒIƒuƒWƒFƒNƒg‚É‘Î‚µ‚Ä‚àA“¯—l‚Ì•û–@‚Å’l‚ªæ“¾‚Å‚«‚éB
+ * Listå‹ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«å¯¾ã—ã¦ã‚‚ã€åŒæ§˜ã®æ–¹æ³•ã§å€¤ãŒå–å¾—ã§ãã‚‹ã€‚
  * </p>
  * 
  * <hr>
  *
- * <h4>ƒlƒXƒg‚µ‚½‘®«‚Ö‚ÌƒAƒNƒZƒX</h4>
+ * <h4>ãƒã‚¹ãƒˆã—ãŸå±æ€§ã¸ã®ã‚¢ã‚¯ã‚»ã‚¹</h4>
  *
- * <p>‰º‹L‚Ì‚æ‚¤‚ÈEmployeeƒIƒuƒWƒFƒNƒg‚©‚çA
- * ƒlƒXƒg‚³‚ê‚½AddressƒNƒ‰ƒX‚ÌstreetNumber‘®«‚ÉƒAƒNƒZƒX‚·‚éB
+ * <p>ä¸‹è¨˜ã®ã‚ˆã†ãªEmployeeã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã‚‰ã€
+ * ãƒã‚¹ãƒˆã•ã‚ŒãŸAddressã‚¯ãƒ©ã‚¹ã®streetNumberå±æ€§ã«ã‚¢ã‚¯ã‚»ã‚¹ã™ã‚‹ã€‚
  * <pre>
  * public class Employee {
  *     private Address homeAddress;
@@ -205,11 +205,11 @@ import org.apache.commons.logging.LogFactory;
  * </pre>
  * </p>
  * 
- * <p><u>‚PDƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÅƒAƒNƒZƒX‘ÎÛ‚ÌJavaBean‚ğƒ‰ƒbƒv‚·‚éB</u>
+ * <p><u>ï¼‘ï¼ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§ã‚¢ã‚¯ã‚»ã‚¹å¯¾è±¡ã®JavaBeanã‚’ãƒ©ãƒƒãƒ—ã™ã‚‹ã€‚</u>
  * <pre>
- * // Employee‚Ì‘®«‚Æ‚È‚éAddressƒIƒuƒWƒFƒNƒg
+ * // Employeeã®å±æ€§ã¨ãªã‚‹Addressã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
  * Address address = new Address();
- * address.setStreetNumber("ZŠ");
+ * address.setStreetNumber("ä½æ‰€");
  * 
  * // Employee
  * Employee emp = new Employee();
@@ -219,19 +219,19 @@ import org.apache.commons.logging.LogFactory;
  * </pre>
  * </p>
  *
- * <p><u>‚QDEmployeeƒIƒuƒWƒFƒNƒg‚ÌhomeAddress‘®«‚ÉƒlƒXƒg‚³‚ê‚½A
- * streetNumber‘®«‚ÉƒAƒNƒZƒX‚·‚éB</u>
- * ƒlƒXƒg‚µ‚½‘®«‚ğw’è‚·‚éê‡AˆÈ‰º‚ÌƒR[ƒh‚Ì‚æ‚¤‚É'.'iƒhƒbƒgj‚Å
- * ‘®«–¼‚ğ˜AŒ‹‚·‚éB
+ * <p><u>ï¼’ï¼Employeeã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®homeAddresså±æ€§ã«ãƒã‚¹ãƒˆã•ã‚ŒãŸã€
+ * streetNumberå±æ€§ã«ã‚¢ã‚¯ã‚»ã‚¹ã™ã‚‹ã€‚</u>
+ * ãƒã‚¹ãƒˆã—ãŸå±æ€§ã‚’æŒ‡å®šã™ã‚‹å ´åˆã€ä»¥ä¸‹ã®ã‚³ãƒ¼ãƒ‰ã®ã‚ˆã†ã«'.'ï¼ˆãƒ‰ãƒƒãƒˆï¼‰ã§
+ * å±æ€§åã‚’é€£çµã™ã‚‹ã€‚
  * <pre>
  * Map&lt;String, Object&gt; map = bw.getIndexedPropertyValues("<strong>homeAddress.streetNumber</strong>");
  * </pre>
  * </p>
  * 
- * ƒL[‚ªƒvƒƒpƒeƒB–¼A’l‚ª‘®«’l‚ÌMapƒCƒ“ƒXƒ^ƒ“ƒX‚ª•Ô‚³‚ê‚éB
- * ˆÈ‰º‚ÌƒR[ƒh‚Å‚Í‘S‚Ä‚Ì—v‘f‚ğƒRƒ“ƒ\[ƒ‹‚Éo—Í‚µ‚Ä‚¢‚éB
+ * ã‚­ãƒ¼ãŒãƒ—ãƒ­ãƒ‘ãƒ†ã‚£åã€å€¤ãŒå±æ€§å€¤ã®Mapã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ãŒè¿”ã•ã‚Œã‚‹ã€‚
+ * ä»¥ä¸‹ã®ã‚³ãƒ¼ãƒ‰ã§ã¯å…¨ã¦ã®è¦ç´ ã‚’ã‚³ãƒ³ã‚½ãƒ¼ãƒ«ã«å‡ºåŠ›ã—ã¦ã„ã‚‹ã€‚
  * <pre>
- * System.out.println("Map‚ÌƒL[FMap‚Ì’l");
+ * System.out.println("Mapã®ã‚­ãƒ¼ï¼šMapã®å€¤");
  * System.out.println("========================");
  * Set&lt;String&gt; keyset = map.keySet();
  * for (String key : keyset) {
@@ -239,20 +239,20 @@ import org.apache.commons.logging.LogFactory;
  *     System.out.println(map.get(key).toString());
  * }
  * </pre>
- * Œ‹‰Ê‚ÍˆÈ‰º‚Ì‚æ‚¤‚Éo—Í‚³‚ê‚éB
+ * çµæœã¯ä»¥ä¸‹ã®ã‚ˆã†ã«å‡ºåŠ›ã•ã‚Œã‚‹ã€‚
  * <pre>
- * Map‚ÌƒL[FMap‚Ì’l
+ * Mapã®ã‚­ãƒ¼ï¼šMapã®å€¤
  * ========================
- * homeAddress.streetNumber:ZŠ
+ * homeAddress.streetNumber:ä½æ‰€
  * </pre>
- * ƒlƒXƒg‚µ‚½‘®«‚ª”z—ñEListŒ^‚Å‚ ‚Á‚Ä‚àA’l‚ğæ“¾‚·‚é‚±‚Æ‚ª‚Å‚«‚éB
+ * ãƒã‚¹ãƒˆã—ãŸå±æ€§ãŒé…åˆ—ãƒ»Listå‹ã§ã‚ã£ã¦ã‚‚ã€å€¤ã‚’å–å¾—ã™ã‚‹ã“ã¨ãŒã§ãã‚‹ã€‚
  * </p>
  * 
  * <hr>
  *
- * <h4>MapŒ^‘®«‚Ö‚ÌƒAƒNƒZƒX</h4>
+ * <h4>Mapå‹å±æ€§ã¸ã®ã‚¢ã‚¯ã‚»ã‚¹</h4>
  *
- * <p>‰º‹L‚Ì‚æ‚¤‚ÈEmployeeƒIƒuƒWƒFƒNƒg‚ÌMap‘®«addressMap‚ÉƒAƒNƒZƒX‚·‚éB
+ * <p>ä¸‹è¨˜ã®ã‚ˆã†ãªEmployeeã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®Mapå±æ€§addressMapã«ã‚¢ã‚¯ã‚»ã‚¹ã™ã‚‹ã€‚
  * <pre>
  * public class Employee {
  *     private Map addressMap;
@@ -267,9 +267,9 @@ import org.apache.commons.logging.LogFactory;
  * </pre>
  * </p>
  * 
- * <p><u>‚PDƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÅƒAƒNƒZƒX‘ÎÛ‚ÌJavaBean‚ğƒ‰ƒbƒv‚·‚éB</u>
+ * <p><u>ï¼‘ï¼ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§ã‚¢ã‚¯ã‚»ã‚¹å¯¾è±¡ã®JavaBeanã‚’ãƒ©ãƒƒãƒ—ã™ã‚‹ã€‚</u>
  * <pre>
- * // Employee‚Ì‘®«‚Æ‚È‚éMap
+ * // Employeeã®å±æ€§ã¨ãªã‚‹Map
  * Map addressMap = new HashMap();
  * addressMap.put("home", "address1");
  * 
@@ -281,17 +281,17 @@ import org.apache.commons.logging.LogFactory;
  * </pre>
  * </p>
  *
- * <p><u>‚QDEmployee‚ÌaddressMap‘®«’†‚ÉƒZƒbƒg‚µ‚½homeƒL[‚ÉƒAƒNƒZƒX‚·‚éB</u>
- * MapŒ^‘®«‚ÌƒL[‚ğw’è‚·‚éê‡AˆÈ‰º‚ÌƒR[ƒh‚Ì‚æ‚¤‚É‚©‚Á‚±‚ÅƒL[–¼‚ğ˜AŒ‹‚·‚éB
+ * <p><u>ï¼’ï¼Employeeã®addressMapå±æ€§ä¸­ã«ã‚»ãƒƒãƒˆã—ãŸhomeã‚­ãƒ¼ã«ã‚¢ã‚¯ã‚»ã‚¹ã™ã‚‹ã€‚</u>
+ * Mapå‹å±æ€§ã®ã‚­ãƒ¼ã‚’æŒ‡å®šã™ã‚‹å ´åˆã€ä»¥ä¸‹ã®ã‚³ãƒ¼ãƒ‰ã®ã‚ˆã†ã«ã‹ã£ã“ã§ã‚­ãƒ¼åã‚’é€£çµã™ã‚‹ã€‚
  * <pre>
  * Map&lt;String, Object&gt; map = bw.getIndexedPropertyValues("<strong>addressMap(home)</strong>");
  * </pre>
  * </p>
  * 
- * ƒL[‚ªƒvƒƒpƒeƒB–¼A’l‚ª‘®«’l‚ÌMapƒCƒ“ƒXƒ^ƒ“ƒX‚ª•Ô‚³‚ê‚éB
- * ˆÈ‰º‚ÌƒR[ƒh‚Å‚Í‘S‚Ä‚Ì—v‘f‚ğƒRƒ“ƒ\[ƒ‹‚Éo—Í‚µ‚Ä‚¢‚éB
+ * ã‚­ãƒ¼ãŒãƒ—ãƒ­ãƒ‘ãƒ†ã‚£åã€å€¤ãŒå±æ€§å€¤ã®Mapã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ãŒè¿”ã•ã‚Œã‚‹ã€‚
+ * ä»¥ä¸‹ã®ã‚³ãƒ¼ãƒ‰ã§ã¯å…¨ã¦ã®è¦ç´ ã‚’ã‚³ãƒ³ã‚½ãƒ¼ãƒ«ã«å‡ºåŠ›ã—ã¦ã„ã‚‹ã€‚
  * <pre>
- * System.out.println("Map‚ÌƒL[FMap‚Ì’l");
+ * System.out.println("Mapã®ã‚­ãƒ¼ï¼šMapã®å€¤");
  * System.out.println("========================");
  * Set&lt;String&gt; keyset = map.keySet();
  * for (String key : keyset) {
@@ -299,24 +299,24 @@ import org.apache.commons.logging.LogFactory;
  *     System.out.println(map.get(key).toString());
  * }
  * </pre>
- * Œ‹‰Ê‚ÍˆÈ‰º‚Ì‚æ‚¤‚Éo—Í‚³‚ê‚éB
+ * çµæœã¯ä»¥ä¸‹ã®ã‚ˆã†ã«å‡ºåŠ›ã•ã‚Œã‚‹ã€‚
  * <pre>
- * Map‚ÌƒL[FMap‚Ì’l
+ * Mapã®ã‚­ãƒ¼ï¼šMapã®å€¤
  * ========================
  * addressMap(home):address1
  * </pre>
- * MapŒ^‘®«‚ÌƒL[–¼‚Í()iŠ‡ŒÊj‚ÅˆÍ‚í‚ê‚é‚±‚Æ‚É’ˆÓ‚·‚é‚±‚ÆB
+ * Mapå‹å±æ€§ã®ã‚­ãƒ¼åã¯()ï¼ˆæ‹¬å¼§ï¼‰ã§å›²ã‚ã‚Œã‚‹ã“ã¨ã«æ³¨æ„ã™ã‚‹ã“ã¨ã€‚
  * </p>
  *
  * <hr>
  *
- * <h4>MapƒIƒuƒWƒFƒNƒg‚Ö‚ÌƒAƒNƒZƒX</h4>
+ * <h4>Mapã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¸ã®ã‚¢ã‚¯ã‚»ã‚¹</h4>
  *
- * <p>–{ƒNƒ‰ƒX‚ÍJavaBean‚¾‚¯‚Å‚Í‚È‚­AMapƒIƒuƒWƒFƒNƒg‚Ö‚ÌƒAƒNƒZƒX‚ª‰Â”\‚Å‚ ‚éB
+ * <p>æœ¬ã‚¯ãƒ©ã‚¹ã¯JavaBeanã ã‘ã§ã¯ãªãã€Mapã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¸ã®ã‚¢ã‚¯ã‚»ã‚¹ãŒå¯èƒ½ã§ã‚ã‚‹ã€‚
  * 
- * <p><u>‚PDƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÅƒAƒNƒZƒX‘ÎÛ‚ÌMap‚ğƒ‰ƒbƒv‚·‚éB</u>
+ * <p><u>ï¼‘ï¼ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§ã‚¢ã‚¯ã‚»ã‚¹å¯¾è±¡ã®Mapã‚’ãƒ©ãƒƒãƒ—ã™ã‚‹ã€‚</u>
  * <pre>
- * // Employee‚Ì‘®«‚Æ‚È‚éMap
+ * // Employeeã®å±æ€§ã¨ãªã‚‹Map
  * Map addressMap = new HashMap();
  * addressMap.put("home", "address1");
  * 
@@ -324,16 +324,16 @@ import org.apache.commons.logging.LogFactory;
  * </pre>
  * </p>
  *
- * <p><u>‚QDaddressMap‚ÉƒZƒbƒg‚µ‚½homeƒL[‚ÉƒAƒNƒZƒX‚·‚éB</u>
+ * <p><u>ï¼’ï¼addressMapã«ã‚»ãƒƒãƒˆã—ãŸhomeã‚­ãƒ¼ã«ã‚¢ã‚¯ã‚»ã‚¹ã™ã‚‹ã€‚</u>
  * <pre>
  * Map&lt;String, Object&gt; map = bw.getIndexedPropertyValues("<strong>home</strong>");
  * </pre>
  * </p>
  * 
- * ƒL[‚ªƒvƒƒpƒeƒB–¼A’l‚ª‘®«’l‚ÌMapƒCƒ“ƒXƒ^ƒ“ƒX‚ª•Ô‚³‚ê‚éB
- * ˆÈ‰º‚ÌƒR[ƒh‚Å‚Í‘S‚Ä‚Ì—v‘f‚ğƒRƒ“ƒ\[ƒ‹‚Éo—Í‚µ‚Ä‚¢‚éB
+ * ã‚­ãƒ¼ãŒãƒ—ãƒ­ãƒ‘ãƒ†ã‚£åã€å€¤ãŒå±æ€§å€¤ã®Mapã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ãŒè¿”ã•ã‚Œã‚‹ã€‚
+ * ä»¥ä¸‹ã®ã‚³ãƒ¼ãƒ‰ã§ã¯å…¨ã¦ã®è¦ç´ ã‚’ã‚³ãƒ³ã‚½ãƒ¼ãƒ«ã«å‡ºåŠ›ã—ã¦ã„ã‚‹ã€‚
  * <pre>
- * System.out.println("Map‚ÌƒL[FMap‚Ì’l");
+ * System.out.println("Mapã®ã‚­ãƒ¼ï¼šMapã®å€¤");
  * System.out.println("========================");
  * Set&lt;String&gt; keyset = map.keySet();
  * for (String key : keyset) {
@@ -341,27 +341,27 @@ import org.apache.commons.logging.LogFactory;
  *     System.out.println(map.get(key).toString());
  * }
  * </pre>
- * Œ‹‰Ê‚ÍˆÈ‰º‚Ì‚æ‚¤‚Éo—Í‚³‚ê‚éB
+ * çµæœã¯ä»¥ä¸‹ã®ã‚ˆã†ã«å‡ºåŠ›ã•ã‚Œã‚‹ã€‚
  * <pre>
- * Map‚ÌƒL[FMap‚Ì’l
+ * Mapã®ã‚­ãƒ¼ï¼šMapã®å€¤
  * ========================
  * home:address1
  * </pre>
- * MapƒIƒuƒWƒFƒNƒg‚É‘Î‚µ‚Ä‚àA”z—ñEListŒ^‘®«A
- * ƒlƒXƒg‚µ‚½‘®«‚Ìæ“¾‚ª‰Â”\‚Å‚ ‚éB
+ * Mapã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«å¯¾ã—ã¦ã‚‚ã€é…åˆ—ãƒ»Listå‹å±æ€§ã€
+ * ãƒã‚¹ãƒˆã—ãŸå±æ€§ã®å–å¾—ãŒå¯èƒ½ã§ã‚ã‚‹ã€‚
  * </p>
  * 
  * <hr>
  *
- * <h4>DynaBean‚Ö‚ÌƒAƒNƒZƒX</h4>
+ * <h4>DynaBeanã¸ã®ã‚¢ã‚¯ã‚»ã‚¹</h4>
  *
- * <p>–{ƒNƒ‰ƒX‚ÍJavaBean‚¾‚¯‚Å‚Í‚È‚­ADynaBean‚Ö‚ÌƒAƒNƒZƒX‚ª‰Â”\‚Å‚ ‚éB
+ * <p>æœ¬ã‚¯ãƒ©ã‚¹ã¯JavaBeanã ã‘ã§ã¯ãªãã€DynaBeanã¸ã®ã‚¢ã‚¯ã‚»ã‚¹ãŒå¯èƒ½ã§ã‚ã‚‹ã€‚
  * 
- * <p><u>‚PDƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÅƒAƒNƒZƒX‘ÎÛ‚ÌDynaBean‚ğƒ‰ƒbƒv‚·‚éB</u>
+ * <p><u>ï¼‘ï¼ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§ã‚¢ã‚¯ã‚»ã‚¹å¯¾è±¡ã®DynaBeanã‚’ãƒ©ãƒƒãƒ—ã™ã‚‹ã€‚</u>
  * <pre>
- * // DynaBean‚Éƒ‰ƒbƒv‚³‚ê‚éJavaBean
+ * // DynaBeanã«ãƒ©ãƒƒãƒ—ã•ã‚Œã‚‹JavaBean
  * Address address = new Address();
- * address.setStreetNumber("ZŠ");
+ * address.setStreetNumber("ä½æ‰€");
  * 
  * // DynaBean
  * DynaBean dynaBean = new WrapDynaBean(address);
@@ -369,7 +369,7 @@ import org.apache.commons.logging.LogFactory;
  * IndexedBeanWrapper bw = new JXPathIndexedBeanWrapperImpl(dynaBean);
  *     
  * --------------------------------------------------------
- * ã‹L‚ÌƒR[ƒh‚Åg—p‚µ‚Ä‚¢‚éAddressƒIƒuƒWƒFƒNƒg‚ÍˆÈ‰º‚Ì‚æ‚¤‚ÈƒNƒ‰ƒX‚Å‚ ‚éB
+ * ä¸Šè¨˜ã®ã‚³ãƒ¼ãƒ‰ã§ä½¿ç”¨ã—ã¦ã„ã‚‹Addressã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¯ä»¥ä¸‹ã®ã‚ˆã†ãªã‚¯ãƒ©ã‚¹ã§ã‚ã‚‹ã€‚
  * 
  * public class Address {
  *     private String streetNumber;
@@ -385,16 +385,16 @@ import org.apache.commons.logging.LogFactory;
  * 
  * </p>
  *
- * <p><u>‚QDDynaBean‚ÌstreetNumber‘®«‚ÉƒAƒNƒZƒX‚·‚éB</u>
+ * <p><u>ï¼’ï¼DynaBeanã®streetNumberå±æ€§ã«ã‚¢ã‚¯ã‚»ã‚¹ã™ã‚‹ã€‚</u>
  * <pre>
  * Map&lt;String, Object&gt; map = bw.getIndexedPropertyValues("<strong>streetNumber</strong>");
  * </pre>
  * </p>
  * 
- * ƒL[‚ªƒvƒƒpƒeƒB–¼A’l‚ª‘®«’l‚ÌMapƒCƒ“ƒXƒ^ƒ“ƒX‚ª•Ô‚³‚ê‚éB
- * ˆÈ‰º‚ÌƒR[ƒh‚Å‚Í‘S‚Ä‚Ì—v‘f‚ğƒRƒ“ƒ\[ƒ‹‚Éo—Í‚µ‚Ä‚¢‚éB
+ * ã‚­ãƒ¼ãŒãƒ—ãƒ­ãƒ‘ãƒ†ã‚£åã€å€¤ãŒå±æ€§å€¤ã®Mapã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ãŒè¿”ã•ã‚Œã‚‹ã€‚
+ * ä»¥ä¸‹ã®ã‚³ãƒ¼ãƒ‰ã§ã¯å…¨ã¦ã®è¦ç´ ã‚’ã‚³ãƒ³ã‚½ãƒ¼ãƒ«ã«å‡ºåŠ›ã—ã¦ã„ã‚‹ã€‚
  * <pre>
- * System.out.println("Map‚ÌƒL[FMap‚Ì’l");
+ * System.out.println("Mapã®ã‚­ãƒ¼ï¼šMapã®å€¤");
  * System.out.println("========================");
  * Set&lt;String&gt; keyset = map.keySet();
  * for (String key : keyset) {
@@ -402,34 +402,34 @@ import org.apache.commons.logging.LogFactory;
  *     System.out.println(map.get(key).toString());
  * }
  * </pre>
- * Œ‹‰Ê‚ÍˆÈ‰º‚Ì‚æ‚¤‚Éo—Í‚³‚ê‚éB
+ * çµæœã¯ä»¥ä¸‹ã®ã‚ˆã†ã«å‡ºåŠ›ã•ã‚Œã‚‹ã€‚
  * <pre>
- * Map‚ÌƒL[FMap‚Ì’l
+ * Mapã®ã‚­ãƒ¼ï¼šMapã®å€¤
  * ========================
- * streetNumber:ZŠ
+ * streetNumber:ä½æ‰€
  * </pre>
  * </p>
  * 
  */
 public class JXPathIndexedBeanWrapperImpl implements IndexedBeanWrapper {
     /**
-     * ƒƒOƒNƒ‰ƒXB
+     * ãƒ­ã‚°ã‚¯ãƒ©ã‚¹ã€‚
      */
     private static Log log 
         = LogFactory.getLog(JXPathIndexedBeanWrapperImpl.class);
     
     /**
-     * JXPathƒRƒ“ƒeƒLƒXƒgB
+     * JXPathã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆã€‚
      */
     protected JXPathContext context = null;
     
     /**
-     * ‰Šú‰»ˆ—B
+     * åˆæœŸåŒ–å‡¦ç†ã€‚
      * 
-     * <p>Šg’£‚µ‚½NodePointerƒtƒ@ƒNƒgƒŠ‚ğ’Ç‰Á‚·‚éB
-     * NodePointerƒtƒ@ƒNƒgƒŠ‚Ístaticƒƒ\ƒbƒh‚ÅAˆê“x‚¾‚¯ŒÄ‚Ño‚·B
-     * Às’†‚ÉNodePointerƒtƒ@ƒNƒgƒŠ’Ç‰Á‚ğs‚È‚¤‚ÆA
-     * ƒ}ƒ‹ƒ`ƒXƒŒƒbƒhŠÂ‹«‚É‚ÄNullPointerException‚ª”­¶‚·‚é‰Â”\«‚ª‚ ‚éB</p>
+     * <p>æ‹¡å¼µã—ãŸNodePointerãƒ•ã‚¡ã‚¯ãƒˆãƒªã‚’è¿½åŠ ã™ã‚‹ã€‚
+     * NodePointerãƒ•ã‚¡ã‚¯ãƒˆãƒªã¯staticãƒ¡ã‚½ãƒƒãƒ‰ã§ã€ä¸€åº¦ã ã‘å‘¼ã³å‡ºã™ã€‚
+     * å®Ÿè¡Œä¸­ã«NodePointerãƒ•ã‚¡ã‚¯ãƒˆãƒªè¿½åŠ ã‚’è¡Œãªã†ã¨ã€
+     * ãƒãƒ«ãƒã‚¹ãƒ¬ãƒƒãƒ‰ç’°å¢ƒã«ã¦NullPointerExceptionãŒç™ºç”Ÿã™ã‚‹å¯èƒ½æ€§ãŒã‚ã‚‹ã€‚</p>
      */
     static {
     	JXPathContextReferenceImpl.addNodePointerFactory(
@@ -439,11 +439,11 @@ public class JXPathIndexedBeanWrapperImpl implements IndexedBeanWrapper {
     }
     
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-     * @param target ‘ÎÛ‚ÌƒIƒuƒWƒFƒNƒg
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * @param target å¯¾è±¡ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      */
     public JXPathIndexedBeanWrapperImpl(Object target) {
-        // ƒ^[ƒQƒbƒg‚Æ‚È‚éJavaBean‚ªNull‚Ìê‡‚Í—áŠO
+        // ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã¨ãªã‚‹JavaBeanãŒNullã®å ´åˆã¯ä¾‹å¤–
         if (target == null) {
             log.error("TargetBean is null!");
             throw new IllegalArgumentException("TargetBean is null!");
@@ -452,21 +452,21 @@ public class JXPathIndexedBeanWrapperImpl implements IndexedBeanWrapper {
     }
     
     /**
-     * w’è‚µ‚½ƒvƒƒpƒeƒB–¼‚Éˆê’v‚·‚é‘®«’l‚ğ•Ô‚·B
+     * æŒ‡å®šã—ãŸãƒ—ãƒ­ãƒ‘ãƒ†ã‚£åã«ä¸€è‡´ã™ã‚‹å±æ€§å€¤ã‚’è¿”ã™ã€‚
      *
-     * @param propertyName ƒvƒƒpƒeƒB–¼
-     * @return ƒvƒƒpƒeƒB–¼‚Éˆê’v‚·‚é‘®«’l‚ğŠi”[‚·‚éMapiˆÊ’uî•ñA‘®«’lj
+     * @param propertyName ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£å
+     * @return ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£åã«ä¸€è‡´ã™ã‚‹å±æ€§å€¤ã‚’æ ¼ç´ã™ã‚‹Mapï¼ˆä½ç½®æƒ…å ±ã€å±æ€§å€¤ï¼‰
      */
     public Map<String, Object> getIndexedPropertyValues(String propertyName) {
         
-        // ƒvƒƒpƒeƒB–¼‚ªNullE‹ó•¶š
+        // ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£åãŒNullãƒ»ç©ºæ–‡å­—
         if (StringUtils.isEmpty(propertyName)) {
             String message = "PropertyName is empty!";
             log.error(message);
             throw new IllegalArgumentException(message);
         }
         
-        // ƒvƒƒpƒeƒB–¼‚É•s³‚È•¶š
+        // ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£åã«ä¸æ­£ãªæ–‡å­—
         if (StringUtils.indexOfAny(propertyName,
                 new char[]{'/', '"', '\''}) != -1) { 
             String message = "Invalid character has found within property name."
@@ -475,7 +475,7 @@ public class JXPathIndexedBeanWrapperImpl implements IndexedBeanWrapper {
             throw new IllegalArgumentException(message);
         }
         
-        // ”z—ñ‚Ì[]ˆÈŠO‚É[]‚ªg‚í‚ê‚Ä‚¢‚é
+        // é…åˆ—ã®[]ä»¥å¤–ã«[]ãŒä½¿ã‚ã‚Œã¦ã„ã‚‹
         String stringIndex = extractIndex(propertyName);
         if (stringIndex.length() > 0) {
             try {
@@ -492,12 +492,12 @@ public class JXPathIndexedBeanWrapperImpl implements IndexedBeanWrapper {
             = new LinkedHashMap<String, Object>();
         String requestXpath = toXPath(propertyName);
         
-        // JXPath‚©‚çƒvƒƒpƒeƒBæ“¾
+        // JXPathã‹ã‚‰ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£å–å¾—
         Iterator ite = null;
         try {
             ite = context.iteratePointers(requestXpath);
         } catch (JXPathException e) {
-            // ƒvƒƒpƒeƒB–¼‚ª•s³
+            // ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£åãŒä¸æ­£
             String message = 
                 "Invalid property name. "
                 + "PropertyName: '" + propertyName + "'"
@@ -506,7 +506,7 @@ public class JXPathIndexedBeanWrapperImpl implements IndexedBeanWrapper {
             throw new IllegalArgumentException(message, e);
         }
         
-        // XPath Ë Java property
+        // XPath â‡’ Java property
         while (ite.hasNext()) {
             Pointer p = (Pointer) ite.next();
             result.put(this.toPropertyName(p.asPath()), p.getValue());
@@ -515,9 +515,9 @@ public class JXPathIndexedBeanWrapperImpl implements IndexedBeanWrapper {
     }
     
     /**
-     * ƒvƒƒpƒeƒBŒ`®‚Ì•¶š—ñ‚ğXPathŒ`®‚Ì•¶š—ñ‚É•ÏŠ·‚·‚éB
-     * @param propertyName ƒvƒƒpƒeƒBŒ`®•¶š—ñ
-     * @return XPathŒ`®•¶š—ñ
+     * ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£å½¢å¼ã®æ–‡å­—åˆ—ã‚’XPathå½¢å¼ã®æ–‡å­—åˆ—ã«å¤‰æ›ã™ã‚‹ã€‚
+     * @param propertyName ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£å½¢å¼æ–‡å­—åˆ—
+     * @return XPathå½¢å¼æ–‡å­—åˆ—
      */
     protected String toXPath(String propertyName) {
         StringBuilder builder = new StringBuilder("/");
@@ -530,40 +530,40 @@ public class JXPathIndexedBeanWrapperImpl implements IndexedBeanWrapper {
         }
         
         for (String property : properties) {
-            // ƒlƒXƒg
+            // ãƒã‚¹ãƒˆ
             if (builder.length() > 1) {
                 builder.append('/');
             }
             
-            // Map‘®«
+            // Mapå±æ€§
             if (isMapProperty(property)) {
                 builder.append(escapeMapProperty(property));
                 
-            // JavaBean ‚Ü‚½‚Í Primitive
+            // JavaBean ã¾ãŸã¯ Primitive
             } else {
                 builder.append(extractAttributeName(property));
             }
            
-            // ”z—ñƒCƒ“ƒfƒbƒNƒX
+            // é…åˆ—ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
             builder.append(extractIncrementIndex(property));
         }
         return builder.toString();
     }
     
     /**
-     * ƒCƒ“ƒNƒŠƒƒ“ƒg‚³‚ê‚½“Y‚¦š‚ğæ‚èo‚·B
-     * @param property JavaƒvƒƒpƒeƒB–¼B
-     * @return String XPathŒ`®‚Ì“Y‚¦šB 
+     * ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ãƒˆã•ã‚ŒãŸæ·»ãˆå­—ã‚’å–ã‚Šå‡ºã™ã€‚
+     * @param property Javaãƒ—ãƒ­ãƒ‘ãƒ†ã‚£åã€‚
+     * @return String XPathå½¢å¼ã®æ·»ãˆå­—ã€‚ 
      */
     protected String extractIncrementIndex(String property) {
         return extractIncrementIndex(property, 1);
     }
 
     /**
-     * ƒCƒ“ƒNƒŠƒƒ“ƒg‚³‚ê‚½“Y‚¦š‚ğæ‚èo‚·B
-     * @param property ƒvƒƒpƒeƒB–¼B
-     * @param increment ƒCƒ“ƒNƒŠƒƒ“ƒg‚·‚é’lB
-     * @return String ƒCƒ“ƒNƒŠƒƒ“ƒg‚³‚ê‚½“Y‚¦šB
+     * ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ãƒˆã•ã‚ŒãŸæ·»ãˆå­—ã‚’å–ã‚Šå‡ºã™ã€‚
+     * @param property ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£åã€‚
+     * @param increment ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ãƒˆã™ã‚‹å€¤ã€‚
+     * @return String ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ãƒˆã•ã‚ŒãŸæ·»ãˆå­—ã€‚
      */
     protected String extractIncrementIndex(String property, int increment) {
         String stringIndex = extractIndex(property);
@@ -571,32 +571,32 @@ public class JXPathIndexedBeanWrapperImpl implements IndexedBeanWrapper {
             return "";
         }
         
-        // “Y‚¦š‚ªæ“¾‚Å‚«‚½ê‡AƒCƒ“ƒNƒŠƒƒ“ƒg‚·‚é
+        // æ·»ãˆå­—ãŒå–å¾—ã§ããŸå ´åˆã€ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ãƒˆã™ã‚‹
         try {
             int index = Integer.parseInt(stringIndex);
             return new StringBuilder().append('[')
                 .append(index + increment).append(']').toString();
         } catch (NumberFormatException e) {
-            // ”z—ñ‚Ì[]‚Å‚Í‚È‚¢
+            // é…åˆ—ã®[]ã§ã¯ãªã„
             return "";
         }
     }
 
     /**
-     * ”z—ñƒCƒ“ƒfƒbƒNƒX‚ğæ“¾‚·‚éB
-     * @param property ƒvƒƒpƒeƒB–¼B
-     * @return ”z—ñƒCƒ“ƒfƒbƒNƒXB
+     * é…åˆ—ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @param property ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£åã€‚
+     * @return é…åˆ—ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã€‚
      */
     protected String extractIndex(String property) {
         int start = property.lastIndexOf('[');
         int end = property.lastIndexOf(']');
         
-        // []‚ª‚È‚¢‚Ì‚Å”z—ñ‚Å‚Í‚È‚¢
+        // []ãŒãªã„ã®ã§é…åˆ—ã§ã¯ãªã„
         if (start == -1 && end == -1) {
             return "";
         }
         
-        // ']aaa[' ‚Ì‚æ‚¤‚É[]‚ÌˆÊ’u‚ª•s³A‚Ü‚½‚Í[]‚Ì‚Ç‚¿‚ç‚©‚µ‚©‚È‚¢
+        // ']aaa[' ã®ã‚ˆã†ã«[]ã®ä½ç½®ãŒä¸æ­£ã€ã¾ãŸã¯[]ã®ã©ã¡ã‚‰ã‹ã—ã‹ãªã„
         if (start == -1 || end == -1 || start > end) {
             String message = "Cannot get Index. "
                 + "Invalid property name. '" + property + "'";
@@ -607,26 +607,26 @@ public class JXPathIndexedBeanWrapperImpl implements IndexedBeanWrapper {
     }
     
     /**
-     * MapƒvƒƒpƒeƒB‚ğXPathŒ`®‚ÉƒGƒXƒP[ƒv‚·‚éB
-     * @param property JavaƒvƒƒpƒeƒB–¼B
-     * @return String XPathB 
+     * Mapãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚’XPathå½¢å¼ã«ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—ã™ã‚‹ã€‚
+     * @param property Javaãƒ—ãƒ­ãƒ‘ãƒ†ã‚£åã€‚
+     * @return String XPathã€‚ 
      */
     protected String escapeMapProperty(String property) {
-        // aaa(bbb) ¨ aaa/bbb
+        // aaa(bbb) â†’ aaa/bbb
         String mapPropertyName = extractMapPropertyName(property);
         String mapKey = extractMapPropertyKey(property);
         return mapPropertyName + "/" + mapKey;
     }
 
     /**
-     * MapŒ^‘®«‚ÌƒvƒƒpƒeƒB–¼‚ğæ‚èo‚·B
-     * @param property JavaƒvƒƒpƒeƒB–¼B
-     * @return String XPathB 
+     * Mapå‹å±æ€§ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£åã‚’å–ã‚Šå‡ºã™ã€‚
+     * @param property Javaãƒ—ãƒ­ãƒ‘ãƒ†ã‚£åã€‚
+     * @return String XPathã€‚ 
      */
     protected String extractMapPropertyName(String property) {
         int pos = property.indexOf('(');
         
-        // '('‚ª‚È‚¢ê‡‚Í—áŠO
+        // '('ãŒãªã„å ´åˆã¯ä¾‹å¤–
         if (pos == -1) {
             String message = "Cannot get Map attribute. "
                 + "Invalid property name. '" + property + "'";
@@ -637,16 +637,16 @@ public class JXPathIndexedBeanWrapperImpl implements IndexedBeanWrapper {
     }
 
     /**
-     * MapŒ^‘®«‚ÌƒL[–¼‚ğæ‚èo‚·B
-     * @param property JavaƒvƒƒpƒeƒB–¼B
-     * @return String XPathB 
+     * Mapå‹å±æ€§ã®ã‚­ãƒ¼åã‚’å–ã‚Šå‡ºã™ã€‚
+     * @param property Javaãƒ—ãƒ­ãƒ‘ãƒ†ã‚£åã€‚
+     * @return String XPathã€‚ 
      */
     protected String extractMapPropertyKey(String property) {
-        // aaa(bbb) ¨ bbb
+        // aaa(bbb) â†’ bbb
         int start = property.indexOf('(');
         int end = property.indexOf(')');
         
-        // '()'‚ª‚È‚¢A‚Ü‚½‚Í()‚ÌˆÊ’u‚ª•s³‚Èê‡‚Í—áŠO
+        // '()'ãŒãªã„ã€ã¾ãŸã¯()ã®ä½ç½®ãŒä¸æ­£ãªå ´åˆã¯ä¾‹å¤–
         if (start == -1 || end == -1 || start > end) {
             String message = "Cannot get Map key. "
                 + "Invalid property name. '" + property + "'";
@@ -657,12 +657,12 @@ public class JXPathIndexedBeanWrapperImpl implements IndexedBeanWrapper {
     }
 
     /**
-     * MapŒ^‘®«‚©‚Ç‚¤‚©”»’f‚·‚éB
-     * @param property JavaƒvƒƒpƒeƒB–¼B
-     * @return boolean MapŒ^‘®«‚È‚ç‚ÎtrueA‚»‚êˆÈŠO‚Ífalse‚ğ•Ô‚·B 
+     * Mapå‹å±æ€§ã‹ã©ã†ã‹åˆ¤æ–­ã™ã‚‹ã€‚
+     * @param property Javaãƒ—ãƒ­ãƒ‘ãƒ†ã‚£åã€‚
+     * @return boolean Mapå‹å±æ€§ãªã‚‰ã°trueã€ãã‚Œä»¥å¤–ã¯falseã‚’è¿”ã™ã€‚ 
      */
     protected boolean isMapProperty(String property) {
-        // '()'‚ª‚ ‚ê‚ÎMapŒ^‘®«
+        // '()'ãŒã‚ã‚Œã°Mapå‹å±æ€§
         if (property.indexOf('(') != -1 && property.indexOf(')') != -1) {
             return true;
         }
@@ -670,9 +670,9 @@ public class JXPathIndexedBeanWrapperImpl implements IndexedBeanWrapper {
     }
     
     /**
-     * XPathŒ`®‚Ì•¶š—ñ‚ğƒvƒƒpƒeƒBŒ`®‚Ì•¶š—ñ‚É•ÏŠ·‚·‚éB
-     * @param xpath XPathŒ`®•¶š—ñ
-     * @return ƒvƒƒpƒeƒBŒ`®•¶š—ñ
+     * XPathå½¢å¼ã®æ–‡å­—åˆ—ã‚’ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£å½¢å¼ã®æ–‡å­—åˆ—ã«å¤‰æ›ã™ã‚‹ã€‚
+     * @param xpath XPathå½¢å¼æ–‡å­—åˆ—
+     * @return ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£å½¢å¼æ–‡å­—åˆ—
      */
     protected String toPropertyName(String xpath) {
         StringBuilder builder = new StringBuilder("");
@@ -687,61 +687,61 @@ public class JXPathIndexedBeanWrapperImpl implements IndexedBeanWrapper {
         for (int i = 0; i < nodes.length; i++) {
             String node = nodes[i];
             
-            // MapƒIƒuƒWƒFƒNƒg
+            // Mapã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
             if (i == 0 && isMapObject(node)) {
                 builder.append(extractMapKey(node));
                 builder.append(extractDecrementIndex(node));
                 continue;
             }
             
-            // ƒlƒXƒg
+            // ãƒã‚¹ãƒˆ
             if (builder.length() > 0) {
                 builder.append('.');
             }
             
-            // Map‘®«
+            // Mapå±æ€§
             if (isMapAttribute(node)) {
                 builder.append(extractMapAttributeName(node));
                 builder.append('(');
                 builder.append(extractMapKey(node));
                 builder.append(')');
                 
-            // JavaBean ‚Ü‚½‚Í primitive
+            // JavaBean ã¾ãŸã¯ primitive
             } else {
                 builder.append(extractAttributeName(node));
             }
             
-            // ”z—ñƒCƒ“ƒfƒbƒNƒX
+            // é…åˆ—ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
             builder.append(extractDecrementIndex(node));
         }
         return builder.toString();
     }
 
     /**
-     * ‘®«–¼‚ğæ‚èo‚·B
-     * ”z—ñ‚Ìê‡A“Y‚¦š‚ÍƒJƒbƒg‚³‚ê‚éB
-     * @param node XPath‚Ìƒm[ƒhB
-     * @return ‘®«–¼B
+     * å±æ€§åã‚’å–ã‚Šå‡ºã™ã€‚
+     * é…åˆ—ã®å ´åˆã€æ·»ãˆå­—ã¯ã‚«ãƒƒãƒˆã•ã‚Œã‚‹ã€‚
+     * @param node XPathã®ãƒãƒ¼ãƒ‰ã€‚
+     * @return å±æ€§åã€‚
      */
     protected String extractAttributeName(String node) {
         int pos = node.lastIndexOf('[');
         if (pos == -1) {
             return node;
         }
-        // ”z—ñ‚Ì“Y‚¦š‚ÍƒJƒbƒg
+        // é…åˆ—ã®æ·»ãˆå­—ã¯ã‚«ãƒƒãƒˆ
         return node.substring(0, pos);
     }
 
     /**
-     * Map‚Ì‘®«–¼‚ğæ‚èo‚·B
-     * @param node XPath‚Ìƒm[ƒhB
-     * @return ‘®«–¼B
+     * Mapã®å±æ€§åã‚’å–ã‚Šå‡ºã™ã€‚
+     * @param node XPathã®ãƒãƒ¼ãƒ‰ã€‚
+     * @return å±æ€§åã€‚
      */
     protected String extractMapAttributeName(String node) {
-        // Å‰‚Ì'['‚Ü‚Å‚Ì•¶š—ñ‚ğMap‚Ì‘®«–¼‚Æ‚·‚é
+        // æœ€åˆã®'['ã¾ã§ã®æ–‡å­—åˆ—ã‚’Mapã®å±æ€§åã¨ã™ã‚‹
         int pos = node.indexOf('[');
         
-        // '['‚ª‚È‚¢ê‡‚Í—áŠO
+        // '['ãŒãªã„å ´åˆã¯ä¾‹å¤–
         if (pos == -1) {
             String message = "Cannot get Map attribute. "
                 + "Invalid property name. '" + node + "'";
@@ -752,16 +752,16 @@ public class JXPathIndexedBeanWrapperImpl implements IndexedBeanWrapper {
     }
 
     /**
-     * MapƒL[‚ğæ‚èo‚·B
-     * @param node XPath‚Ìƒm[ƒhB
-     * @return ‘®«–¼B
+     * Mapã‚­ãƒ¼ã‚’å–ã‚Šå‡ºã™ã€‚
+     * @param node XPathã®ãƒãƒ¼ãƒ‰ã€‚
+     * @return å±æ€§åã€‚
      */
     protected String extractMapKey(String node) {
-        // aaa[@name='bbb'] ¨ bbb 
+        // aaa[@name='bbb'] â†’ bbb 
         int start = node.indexOf('[');
         int end = node.indexOf(']');
         
-        // '[]'‚ª‚È‚¢A‚Ü‚½‚Í[]‚ÌˆÊ’u‚ª•s³‚Èê‡‚Í—áŠO
+        // '[]'ãŒãªã„ã€ã¾ãŸã¯[]ã®ä½ç½®ãŒä¸æ­£ãªå ´åˆã¯ä¾‹å¤–
         if (start == -1 || end == -1 || start > end) {
             String message = "Cannot get Map key. "
                 + "Invalid property name. '" + node + "'";
@@ -772,21 +772,21 @@ public class JXPathIndexedBeanWrapperImpl implements IndexedBeanWrapper {
     }
 
     /**
-     * ƒfƒNƒŠƒƒ“ƒg‚µ‚½“Y‚¦š‚ğæ‚èo‚·B
-     * @param node XPath‚Ìƒm[ƒhB
-     * @return ‘®«–¼B
+     * ãƒ‡ã‚¯ãƒªãƒ¡ãƒ³ãƒˆã—ãŸæ·»ãˆå­—ã‚’å–ã‚Šå‡ºã™ã€‚
+     * @param node XPathã®ãƒãƒ¼ãƒ‰ã€‚
+     * @return å±æ€§åã€‚
      */
     protected String extractDecrementIndex(String node) {
         return extractIncrementIndex(node, -1);
     }
 
     /**
-     * Map‘®«‚ğ‚ÂƒIƒuƒWƒFƒNƒg‚©‚Ç‚¤‚©”»’f‚·‚éB
-     * @param node XPath‚Ìƒm[ƒhB
-     * @return Map‘®«‚È‚ç‚ÎtrueA‚»‚êˆÈŠO‚Ífalse‚ğ•Ô‚·B
+     * Mapå±æ€§ã‚’æŒã¤ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã©ã†ã‹åˆ¤æ–­ã™ã‚‹ã€‚
+     * @param node XPathã®ãƒãƒ¼ãƒ‰ã€‚
+     * @return Mapå±æ€§ãªã‚‰ã°trueã€ãã‚Œä»¥å¤–ã¯falseã‚’è¿”ã™ã€‚
      */
     protected boolean isMapAttribute(String node) {
-        // '[@name'‚ª‚ ‚ê‚ÎMap‘®«
+        // '[@name'ãŒã‚ã‚Œã°Mapå±æ€§
         if (node.indexOf("[@name") != -1) {
             return true;
         }
@@ -794,12 +794,12 @@ public class JXPathIndexedBeanWrapperImpl implements IndexedBeanWrapper {
     }
 
     /**
-     * MapƒIƒuƒWƒFƒNƒg‚©‚Ç‚¤‚©”»’f‚·‚éB
-     * @param node XPath‚Ìƒm[ƒhB
-     * @return MapƒIƒuƒWƒFƒNƒg‚È‚ç‚ÎtrueA‚»‚êˆÈŠO‚Ífalse‚ğ•Ô‚·B
+     * Mapã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã©ã†ã‹åˆ¤æ–­ã™ã‚‹ã€‚
+     * @param node XPathã®ãƒãƒ¼ãƒ‰ã€‚
+     * @return Mapã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãªã‚‰ã°trueã€ãã‚Œä»¥å¤–ã¯falseã‚’è¿”ã™ã€‚
      */
     protected boolean isMapObject(String node) {
-        // '.[@name'c‚Ån‚Ü‚é‚È‚ç‚ÎMapƒIƒuƒWƒFƒNƒg
+        // '.[@name'â€¦ã§å§‹ã¾ã‚‹ãªã‚‰ã°Mapã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
         if (node.startsWith(".[@name")) {
             return true;
         }

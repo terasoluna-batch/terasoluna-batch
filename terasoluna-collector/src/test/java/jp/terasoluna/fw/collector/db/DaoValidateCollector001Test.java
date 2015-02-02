@@ -231,7 +231,7 @@ public class DaoValidateCollector001Test extends DaoTestCase {
         DaoCollector<UserBean> dbc = null;
         try {
             dbc = new DaoValidateCollector<UserBean>(config);
-            fail("Ž¸”s");
+            fail("å¤±æ•—");
         } catch (IllegalArgumentException e) {
             assertNotNull(e);
             assertEquals("The parameter is null.", e.getMessage());

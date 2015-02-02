@@ -19,17 +19,17 @@ package jp.terasoluna.fw.file.annotation;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * ¬•¶š•ÏŠ·ˆ—ƒNƒ‰ƒXB
+ * å°æ–‡å­—å¤‰æ›å‡¦ç†ã‚¯ãƒ©ã‚¹ã€‚
  * <p>
- * StringŒ^‚ÌƒJƒ‰ƒ€‚É‚Â‚¢‚Ä¬•¶š•ÏŠ·‚ğs‚¤B<br>
+ * Stringå‹ã®ã‚«ãƒ©ãƒ ã«ã¤ã„ã¦å°æ–‡å­—å¤‰æ›ã‚’è¡Œã†ã€‚<br>
  * </p>
  */
 public class StringConverterToLowerCase implements StringConverter {
 
     /**
-     * ¬•¶š•ÏŠ·‚ğs‚¤B
-     * @param s •ÏŠ·‘O‚Ì•¶š—ñ
-     * @return ¬•¶š‚É•ÏŠ·‚³‚ê‚½•¶š—ñ
+     * å°æ–‡å­—å¤‰æ›ã‚’è¡Œã†ã€‚
+     * @param s å¤‰æ›å‰ã®æ–‡å­—åˆ—
+     * @return å°æ–‡å­—ã«å¤‰æ›ã•ã‚ŒãŸæ–‡å­—åˆ—
      */
     public String convert(String s) {
         return StringUtils.lowerCase(s);

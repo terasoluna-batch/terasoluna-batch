@@ -18,33 +18,33 @@ import jp.terasoluna.utlib.UTUtil;
 import junit.framework.TestCase;
 
 /**
- * {@link jp.terasoluna.fw.file.util.FileControlImpl} ƒNƒ‰ƒX‚ÌƒeƒXƒgB
+ * {@link jp.terasoluna.fw.file.util.FileControlImpl} ã‚¯ãƒ©ã‚¹ã®ãƒ†ã‚¹ãƒˆã€‚
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4> FileControlƒCƒ“ƒ^ƒtƒF[ƒX‚ğÀ‘•‚·‚éƒNƒ‰ƒX.
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4> FileControlã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã‚’å®Ÿè£…ã™ã‚‹ã‚¯ãƒ©ã‚¹.
  * <p>
- * @author ‹gMˆè”ü
+ * @author å‰ä¿¡éƒç¾
  * @see jp.terasoluna.fw.file.util.FileControlImpl
  */
 public class FileControlImplTest extends TestCase {
 
     /**
-     * ‚±‚ÌƒeƒXƒgƒP[ƒX‚ğÀs‚·‚éˆ×‚Ì GUI ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‹N“®‚·‚éB
-     * @param args java ƒRƒ}ƒ“ƒh‚Éİ’è‚³‚ê‚½ƒpƒ‰ƒ[ƒ^
+     * ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã‚’å®Ÿè¡Œã™ã‚‹ç‚ºã® GUI ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’èµ·å‹•ã™ã‚‹ã€‚
+     * @param args java ã‚³ãƒãƒ³ãƒ‰ã«è¨­å®šã•ã‚ŒãŸãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public static void main(String[] args) {
         // junit.swingui.TestRunner.run(FileControlImplTest.class);
     }
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
     protected void setUp() throws Exception {
         super.setUp();
         VMOUTUtil.initialize();
-        // FileUtility‚Ìˆ—‚ğ~‚ß‚é
+        // FileUtilityã®å‡¦ç†ã‚’æ­¢ã‚ã‚‹
         VMOUTUtil.setReturnValueAtAllTimes(FileUtility.class, "copyFile", null);
         VMOUTUtil.setReturnValueAtAllTimes(FileUtility.class, "deleteFile",
                 null);
@@ -59,8 +59,8 @@ public class FileControlImplTest extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -69,8 +69,8 @@ public class FileControlImplTest extends TestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public FileControlImplTest(String name) {
         super(name);
@@ -79,28 +79,28 @@ public class FileControlImplTest extends TestCase {
     /**
      * testCopyFile01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE, F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE, F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) srcFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)testCopyFile01_src.txt"<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)testCopyFile01_new.txt"<br>
-     * (ó‘Ô) FileControl.basePath:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) srcFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)testCopyFile01_src.txt"<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)testCopyFile01_new.txt"<br>
+     * (çŠ¶æ…‹) FileControl.basePath:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * ""<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») FileUtility#copyFile():ŒÄ‚Ño‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * ˆø”srcFileAnewFile‚Ì‡‚ÉFileUtility‚Ìˆø”‚É“n‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) FileUtility#copyFile():å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * å¼•æ•°srcFileã€newFileã®é †ã«FileUtilityã®å¼•æ•°ã«æ¸¡ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * ƒRƒs[Œ³‚ÆƒRƒs[æ‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚Éâ‘ÎƒpƒX‚ğw’è‚·‚éƒP[ƒXB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ã‚³ãƒ”ãƒ¼å…ƒã¨ã‚³ãƒ”ãƒ¼å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ã«çµ¶å¯¾ãƒ‘ã‚¹ã‚’æŒ‡å®šã™ã‚‹ã‚±ãƒ¼ã‚¹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testCopyFile01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         FileControlImpl fileControl = new FileControlImpl();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -109,7 +109,7 @@ public class FileControlImplTest extends TestCase {
         String srcFile = directoryPath + "testCopyFile01_src.txt";
         String newFile = directoryPath + "testCopyFile01_new.txt";
 
-        // ƒeƒXƒg‘OA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+        // ãƒ†ã‚¹ãƒˆå‰ã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
         File file = new File(srcFile);
         file.delete();
         file.createNewFile();
@@ -118,17 +118,17 @@ public class FileControlImplTest extends TestCase {
         file.delete();
         file.createNewFile();
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         String basePath = "";
         UTUtil.setPrivateField(fileControl, "basePath", basePath);
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             fileControl.copyFile(srcFile, newFile);
 
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(1, VMOUTUtil.getCallCount(FileUtility.class,
                     "copyFile"));
             List arguments = VMOUTUtil.getArguments(FileUtility.class,
@@ -142,7 +142,7 @@ public class FileControlImplTest extends TestCase {
             assertEquals(newFile, VMOUTUtil.getArgument(fileControl.getClass(),
                     "getAbsolutePath", 1, 0));
         } finally {
-            // ƒeƒXƒgŒãA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+            // ãƒ†ã‚¹ãƒˆå¾Œã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
             file = new File(srcFile);
             file.delete();
             file = new File(newFile);
@@ -153,30 +153,30 @@ public class FileControlImplTest extends TestCase {
     /**
      * testCopyFile02() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE, F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE, F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) srcFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) srcFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "testCopyFile02_src.txt"<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "testCopyFile02_new.txt"<br>
-     * (ó‘Ô) FileControl.basePath:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)"<br>
+     * (çŠ¶æ…‹) FileControl.basePath:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)"<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») FileUtility#copyFile():ŒÄ‚Ño‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * ˆø”srcFileAnewFile‚Ì‡‚É<br>
-     * FileControl.basePath‚ğ‚»‚ê‚¼‚ê‚Ìæ“ª‚É‚Â‚¯‚Ä<br>
-     * FileUtility‚Ìˆø”‚É“n‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) FileUtility#copyFile():å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * å¼•æ•°srcFileã€newFileã®é †ã«<br>
+     * FileControl.basePathã‚’ãã‚Œãã‚Œã®å…ˆé ­ã«ã¤ã‘ã¦<br>
+     * FileUtilityã®å¼•æ•°ã«æ¸¡ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * ƒRƒs[Œ³‚ÆƒRƒs[æ‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚É‘Š‘ÎƒpƒX‚ğw’è‚·‚éƒP[ƒXB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ã‚³ãƒ”ãƒ¼å…ƒã¨ã‚³ãƒ”ãƒ¼å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ã«ç›¸å¯¾ãƒ‘ã‚¹ã‚’æŒ‡å®šã™ã‚‹ã‚±ãƒ¼ã‚¹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testCopyFile02() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         FileControlImpl fileControl = new FileControlImpl();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -185,7 +185,7 @@ public class FileControlImplTest extends TestCase {
         String srcFile = "testCopyFile02_src.txt";
         String newFile = "testCopyFile02_new.txt";
 
-        // ƒeƒXƒg‘OA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+        // ãƒ†ã‚¹ãƒˆå‰ã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
         File file = new File(directoryPath + srcFile);
         file.delete();
         file.createNewFile();
@@ -194,17 +194,17 @@ public class FileControlImplTest extends TestCase {
         file.delete();
         file.createNewFile();
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         String basePath = directoryPath;
         UTUtil.setPrivateField(fileControl, "basePath", basePath);
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             fileControl.copyFile(srcFile, newFile);
 
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(1, VMOUTUtil.getCallCount(FileUtility.class,
                     "copyFile"));
             List arguments = VMOUTUtil.getArguments(FileUtility.class,
@@ -218,7 +218,7 @@ public class FileControlImplTest extends TestCase {
             assertEquals(newFile, VMOUTUtil.getArgument(fileControl.getClass(),
                     "getAbsolutePath", 1, 0));
         } finally {
-            // ƒeƒXƒgŒãA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+            // ãƒ†ã‚¹ãƒˆå¾Œã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
             file = new File(directoryPath + srcFile);
             file.delete();
             file = new File(directoryPath + newFile);
@@ -229,30 +229,30 @@ public class FileControlImplTest extends TestCase {
     /**
      * testCopyFile03() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE, F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE, F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) srcFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)testCopyFile03_src.txt"<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)testCopyFile03_new.txt"<br>
-     * (ó‘Ô) FileControl.basePath:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) srcFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)testCopyFile03_src.txt"<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)testCopyFile03_new.txt"<br>
+     * (çŠ¶æ…‹) FileControl.basePath:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)"<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») FileUtility#copyFile():ŒÄ‚Ño‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * ˆø”srcFileAnewFile‚Ì‡‚É<br>
-     * FileControl.basePath‚ğ‚»‚ê‚¼‚ê‚Ìæ“ª‚É‚Â‚­‚±‚Æ‚È‚­<br>
-     * FileUtility‚Ìˆø”‚É“n‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) FileUtility#copyFile():å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * å¼•æ•°srcFileã€newFileã®é †ã«<br>
+     * FileControl.basePathã‚’ãã‚Œãã‚Œã®å…ˆé ­ã«ã¤ãã“ã¨ãªã<br>
+     * FileUtilityã®å¼•æ•°ã«æ¸¡ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * ˆø”‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚ªâ‘ÎƒpƒX‚Å‚ ‚èAŠî€ƒpƒX‚ªİ’è‚³‚ê‚Ä‚¢‚éê‡‚ÍŠî€ƒpƒX‚ª•t—^‚³‚ê‚È‚¢‚±‚ÆB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * å¼•æ•°ã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ãŒçµ¶å¯¾ãƒ‘ã‚¹ã§ã‚ã‚Šã€åŸºæº–ãƒ‘ã‚¹ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã¯åŸºæº–ãƒ‘ã‚¹ãŒä»˜ä¸ã•ã‚Œãªã„ã“ã¨ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testCopyFile03() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         FileControlImpl fileControl = new FileControlImpl();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -261,7 +261,7 @@ public class FileControlImplTest extends TestCase {
         String srcFile = directoryPath + "testCopyFile03_src.txt";
         String newFile = directoryPath + "testCopyFile03_new.txt";
 
-        // ƒeƒXƒg‘OA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+        // ãƒ†ã‚¹ãƒˆå‰ã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
         File file = new File(srcFile);
         file.delete();
         file.createNewFile();
@@ -270,17 +270,17 @@ public class FileControlImplTest extends TestCase {
         file.delete();
         file.createNewFile();
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         String basePath = directoryPath;
         UTUtil.setPrivateField(fileControl, "basePath", basePath);
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             fileControl.copyFile(srcFile, newFile);
 
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(1, VMOUTUtil.getCallCount(FileUtility.class,
                     "copyFile"));
             List arguments = VMOUTUtil.getArguments(FileUtility.class,
@@ -294,7 +294,7 @@ public class FileControlImplTest extends TestCase {
             assertEquals(newFile, VMOUTUtil.getArgument(fileControl.getClass(),
                     "getAbsolutePath", 1, 0));
         } finally {
-            // ƒeƒXƒgŒãA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+            // ãƒ†ã‚¹ãƒˆå¾Œã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
             file = new File(srcFile);
             file.delete();
             file = new File(newFile);
@@ -305,28 +305,28 @@ public class FileControlImplTest extends TestCase {
     /**
      * testCopyFile04() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FG <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) srcFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) srcFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "testCopyFile04_src.txt"<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "testCopyFile04_new.txt"<br>
-     * (ó‘Ô) FileControl.basePath:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * (çŠ¶æ…‹) FileControl.basePath:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * ""<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») FileUtility#copyFile():ŒÄ‚Ño‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * ˆø”srcFileAnewFile‚Ì‡‚É“n‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) FileUtility#copyFile():å‘¼ã³å‡ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * å¼•æ•°srcFileã€newFileã®é †ã«æ¸¡ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * ƒtƒ@ƒCƒ‹‚ÌƒpƒX‚ª‘Š‘ÎƒpƒX‚Å‚ ‚èAŠî€ƒpƒX‚ªİ’è‚³‚ê‚Ä‚¢‚È‚¢ƒP[ƒXB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹ãŒç›¸å¯¾ãƒ‘ã‚¹ã§ã‚ã‚Šã€åŸºæº–ãƒ‘ã‚¹ãŒè¨­å®šã•ã‚Œã¦ã„ãªã„ã‚±ãƒ¼ã‚¹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testCopyFile04() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         FileControlImpl fileControl = new FileControlImpl();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -335,7 +335,7 @@ public class FileControlImplTest extends TestCase {
         String srcFile = "testCopyFile04_src.txt";
         String newFile = "testCopyFile04_new.txt";
 
-        // ƒeƒXƒg‘OA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+        // ãƒ†ã‚¹ãƒˆå‰ã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
         File file = new File(directoryPath + srcFile);
         file.delete();
         file.createNewFile();
@@ -344,15 +344,15 @@ public class FileControlImplTest extends TestCase {
         file.delete();
         file.createNewFile();
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         String basePath = "";
         UTUtil.setPrivateField(fileControl, "basePath", basePath);
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             fileControl.copyFile(srcFile, newFile);
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(1, VMOUTUtil.getCallCount(FileUtility.class,
                     "copyFile"));
             List arguments = VMOUTUtil.getArguments(FileUtility.class,
@@ -366,7 +366,7 @@ public class FileControlImplTest extends TestCase {
             assertEquals(newFile, VMOUTUtil.getArgument(fileControl.getClass(),
                     "getAbsolutePath", 1, 0));
         } finally {
-            // ƒeƒXƒgŒãA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+            // ãƒ†ã‚¹ãƒˆå¾Œã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
             file = new File(directoryPath + srcFile);
             file.delete();
             file = new File(directoryPath + newFile);
@@ -377,26 +377,26 @@ public class FileControlImplTest extends TestCase {
     /**
      * testCopyFile05() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) srcFile:null<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)testCopyFile05_new.txt"<br>
-     * (ó‘Ô) FileControl.basePath:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) srcFile:null<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)testCopyFile05_new.txt"<br>
+     * (çŠ¶æ…‹) FileControl.basePath:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * ""<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:—áŠOFileException‚ª”­¶‚·‚éB<br>
-     * ƒƒbƒZ[ƒWF"File name is not set."<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä¾‹å¤–FileExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"File name is not set."<br>
      * <br>
-     * ˆø”srcFile‚Énull‚ªİ’è‚³‚ê‚½ê‡‚ÍAFileException‚ªƒXƒ[‚³‚ê‚é‚±‚ÆB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * å¼•æ•°srcFileã«nullãŒè¨­å®šã•ã‚ŒãŸå ´åˆã¯ã€FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testCopyFile05() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         FileControlImpl fileControl = new FileControlImpl();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -405,23 +405,23 @@ public class FileControlImplTest extends TestCase {
         String srcFile = null;
         String newFile = directoryPath + "testCopyFile05_new.txt";
 
-        // ƒeƒXƒg‘OA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+        // ãƒ†ã‚¹ãƒˆå‰ã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
         File file = new File(newFile);
         file.delete();
         file.createNewFile();
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         String basePath = "";
         UTUtil.setPrivateField(fileControl, "basePath", basePath);
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             fileControl.copyFile(srcFile, newFile);
-            fail("FileException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B¸”s‚Å‚·B");
+            fail("FileExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚å¤±æ•—ã§ã™ã€‚");
         } catch (FileException e) {
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertFalse(VMOUTUtil.isCalled(FileUtility.class, "copyFile"));
             assertEquals(1, VMOUTUtil.getCallCount(fileControl.getClass(),
                     "getAbsolutePath"));
@@ -431,7 +431,7 @@ public class FileControlImplTest extends TestCase {
             assertEquals("File name is not set.", e.getMessage());
             assertNull(e.getFileName());
         } finally {
-            // ƒeƒXƒgŒãA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+            // ãƒ†ã‚¹ãƒˆå¾Œã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
             file = new File(newFile);
             file.delete();
         }
@@ -440,26 +440,26 @@ public class FileControlImplTest extends TestCase {
     /**
      * testCopyFile06() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) srcFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)testCopyFile06_src.txt"<br>
-     * (ˆø”) newFile:null<br>
-     * (ó‘Ô) FileControl.basePath:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) srcFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)testCopyFile06_src.txt"<br>
+     * (å¼•æ•°) newFile:null<br>
+     * (çŠ¶æ…‹) FileControl.basePath:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * ""<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:—áŠOFileException‚ª”­¶‚·‚éB<br>
-     * ƒƒbƒZ[ƒWF"File name is not set."<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä¾‹å¤–FileExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"File name is not set."<br>
      * <br>
-     * ˆø”newFile‚Énull‚ªİ’è‚³‚ê‚½ê‡‚ÍAFileException‚ªƒXƒ[‚³‚ê‚é‚±‚ÆB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * å¼•æ•°newFileã«nullãŒè¨­å®šã•ã‚ŒãŸå ´åˆã¯ã€FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testCopyFile06() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         FileControlImpl fileControl = new FileControlImpl();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -468,23 +468,23 @@ public class FileControlImplTest extends TestCase {
         String srcFile = directoryPath + "testCopyFile06_src.txt";
         String newFile = null;
 
-        // ƒeƒXƒg‘OA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+        // ãƒ†ã‚¹ãƒˆå‰ã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
         File file = new File(srcFile);
         file.delete();
         file.createNewFile();
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         String basePath = "";
         UTUtil.setPrivateField(fileControl, "basePath", basePath);
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             fileControl.copyFile(srcFile, newFile);
-            fail("FileException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B¸”s‚Å‚·B");
+            fail("FileExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚å¤±æ•—ã§ã™ã€‚");
         } catch (FileException e) {
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertFalse(VMOUTUtil.isCalled(FileUtility.class, "copyFile"));
             assertEquals(2, VMOUTUtil.getCallCount(fileControl.getClass(),
                     "getAbsolutePath"));
@@ -496,7 +496,7 @@ public class FileControlImplTest extends TestCase {
             assertEquals("File name is not set.", e.getMessage());
             assertNull(e.getFileName());
         } finally {
-            // ƒeƒXƒgŒãA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+            // ãƒ†ã‚¹ãƒˆå¾Œã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
             file = new File(srcFile);
             file.delete();
         }
@@ -505,29 +505,29 @@ public class FileControlImplTest extends TestCase {
     /**
      * testCopyFile07() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE, F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE, F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) srcFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) srcFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "testCopyFile07_src.txt"<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)testCopyFile07_new.txt"<br>
-     * (ó‘Ô) FileControl.basePath:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)"<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)testCopyFile07_new.txt"<br>
+     * (çŠ¶æ…‹) FileControl.basePath:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)"<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») FileUtility#copyFile():ŒÄ‚Ño‚³‚ê‚éB<br>
-     * ˆø”srcFile‚ªFileControl.basePath‚ğæ“ª‚É‚Â‚¯‚Ä“n‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * ˆø”newFile‚ªFileControl.basePath‚ğæ“ª‚É‚Â‚¯‚¸‚É“n‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) FileUtility#copyFile():å‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
+     * å¼•æ•°srcFileãŒFileControl.basePathã‚’å…ˆé ­ã«ã¤ã‘ã¦æ¸¡ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * å¼•æ•°newFileãŒFileControl.basePathã‚’å…ˆé ­ã«ã¤ã‘ãšã«æ¸¡ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * ˆø”‚“‚’‚ƒFile‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚ª‘Š‘ÎƒpƒX‚ÅAˆø”newFile‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚ªâ‘ÎƒpƒX‚Ìê‡AsrcFile‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚ÉŠî€ƒpƒX‚ª•t—^‚³‚ênewFile‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚É‚ÍŠî€ƒpƒX‚ª•t—^‚³‚ê‚È‚¢‚±‚ÆB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * å¼•æ•°ï½“ï½’ï½ƒFileã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ãŒç›¸å¯¾ãƒ‘ã‚¹ã§ã€å¼•æ•°newFileã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ãŒçµ¶å¯¾ãƒ‘ã‚¹ã®å ´åˆã€srcFileã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ã«åŸºæº–ãƒ‘ã‚¹ãŒä»˜ä¸ã•ã‚ŒnewFileã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ã«ã¯åŸºæº–ãƒ‘ã‚¹ãŒä»˜ä¸ã•ã‚Œãªã„ã“ã¨ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testCopyFile07() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         FileControlImpl fileControl = new FileControlImpl();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -536,7 +536,7 @@ public class FileControlImplTest extends TestCase {
         String srcFile = "testCopyFile07_src.txt";
         String newFile = directoryPath + "testCopyFile07_new.txt";
 
-        // ƒeƒXƒg‘OA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+        // ãƒ†ã‚¹ãƒˆå‰ã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
         File file = new File(directoryPath + srcFile);
         file.delete();
         file.createNewFile();
@@ -545,17 +545,17 @@ public class FileControlImplTest extends TestCase {
         file.delete();
         file.createNewFile();
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         String basePath = directoryPath;
         UTUtil.setPrivateField(fileControl, "basePath", basePath);
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             fileControl.copyFile(srcFile, newFile);
 
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(1, VMOUTUtil.getCallCount(FileUtility.class,
                     "copyFile"));
             List arguments = VMOUTUtil.getArguments(FileUtility.class,
@@ -569,7 +569,7 @@ public class FileControlImplTest extends TestCase {
             assertEquals(newFile, VMOUTUtil.getArgument(fileControl.getClass(),
                     "getAbsolutePath", 1, 0));
         } finally {
-            // ƒeƒXƒgŒãA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+            // ãƒ†ã‚¹ãƒˆå¾Œã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
             file = new File(directoryPath + srcFile);
             file.delete();
             file = new File(newFile);
@@ -580,29 +580,29 @@ public class FileControlImplTest extends TestCase {
     /**
      * testCopyFile08() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE, F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE, F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) srcFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)testCopyFile08_src.txt"<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) srcFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)testCopyFile08_src.txt"<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "testCopyFile08_new.txt"<br>
-     * (ó‘Ô) FileControl.basePath:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)"<br>
+     * (çŠ¶æ…‹) FileControl.basePath:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)"<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») FileUtility#copyFile():ŒÄ‚Ño‚³‚ê‚éB<br>
-     * ˆø”srcFile‚ªFileControl.basePath‚ğæ“ª‚É‚Â‚¯‚¸‚É“n‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * ˆø”newFile‚ªFileControl.basePath‚ğæ“ª‚É‚Â‚¯‚Ä“n‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) FileUtility#copyFile():å‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
+     * å¼•æ•°srcFileãŒFileControl.basePathã‚’å…ˆé ­ã«ã¤ã‘ãšã«æ¸¡ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * å¼•æ•°newFileãŒFileControl.basePathã‚’å…ˆé ­ã«ã¤ã‘ã¦æ¸¡ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * ˆø”‚“‚’‚ƒFile‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚ªâ‘ÎƒpƒX‚ÅAˆø”newFile‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚ª‘Š‘ÎƒpƒX‚Ìê‡AsrcFile‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚ÉŠî€ƒpƒX‚ª•t—^‚³‚ê‚¸newFile‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚É‚ÍŠî€ƒpƒX‚ª•t—^‚³‚ê‚é‚±‚ÆB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * å¼•æ•°ï½“ï½’ï½ƒFileã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ãŒçµ¶å¯¾ãƒ‘ã‚¹ã§ã€å¼•æ•°newFileã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ãŒç›¸å¯¾ãƒ‘ã‚¹ã®å ´åˆã€srcFileã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ã«åŸºæº–ãƒ‘ã‚¹ãŒä»˜ä¸ã•ã‚ŒãšnewFileã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ã«ã¯åŸºæº–ãƒ‘ã‚¹ãŒä»˜ä¸ã•ã‚Œã‚‹ã“ã¨ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testCopyFile08() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         FileControlImpl fileControl = new FileControlImpl();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -611,7 +611,7 @@ public class FileControlImplTest extends TestCase {
         String srcFile = directoryPath + "testCopyFile08_src.txt";
         String newFile = "testCopyFile08_new.txt";
 
-        // ƒeƒXƒg‘OA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+        // ãƒ†ã‚¹ãƒˆå‰ã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
         File file = new File(srcFile);
         file.delete();
         file.createNewFile();
@@ -620,17 +620,17 @@ public class FileControlImplTest extends TestCase {
         file.delete();
         file.createNewFile();
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         String basePath = directoryPath;
         UTUtil.setPrivateField(fileControl, "basePath", basePath);
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             fileControl.copyFile(srcFile, newFile);
 
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(1, VMOUTUtil.getCallCount(FileUtility.class,
                     "copyFile"));
             List arguments = VMOUTUtil.getArguments(FileUtility.class,
@@ -644,7 +644,7 @@ public class FileControlImplTest extends TestCase {
             assertEquals(newFile, VMOUTUtil.getArgument(fileControl.getClass(),
                     "getAbsolutePath", 1, 0));
         } finally {
-            // ƒeƒXƒgŒãA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+            // ãƒ†ã‚¹ãƒˆå¾Œã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
             file = new File(srcFile);
             file.delete();
             file = new File(directoryPath + newFile);
@@ -655,25 +655,25 @@ public class FileControlImplTest extends TestCase {
     /**
      * testDeleteFile01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE, F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE, F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) srcFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)testDeleteFile01_src.txt"<br>
-     * (ó‘Ô) FileControl.basePath:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) srcFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)testDeleteFile01_src.txt"<br>
+     * (çŠ¶æ…‹) FileControl.basePath:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * ""<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») FileUtility.deleteFile():ŒÄ‚Ño‚³‚ê‚éB<br>
-     * ˆø”srcFile‚ª“n‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) FileUtility.deleteFile():å‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
+     * å¼•æ•°srcFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * ƒtƒ@ƒCƒ‹‚ÌƒpƒX‚ªâ‘ÎƒpƒX‚Å‚ ‚éƒP[ƒXB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹ãŒçµ¶å¯¾ãƒ‘ã‚¹ã§ã‚ã‚‹ã‚±ãƒ¼ã‚¹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testDeleteFile01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         FileControlImpl fileControl = new FileControlImpl();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -681,22 +681,22 @@ public class FileControlImplTest extends TestCase {
 
         String srcFile = directoryPath + "testDeleteFile01_src.txt";
 
-        // ƒeƒXƒg‘OA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+        // ãƒ†ã‚¹ãƒˆå‰ã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
         File file = new File(srcFile);
         file.delete();
         file.createNewFile();
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         String basePath = "";
         UTUtil.setPrivateField(fileControl, "basePath", basePath);
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             fileControl.deleteFile(srcFile);
 
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(1, VMOUTUtil.getCallCount(FileUtility.class,
                     "deleteFile"));
             assertEquals(srcFile, VMOUTUtil.getArgument(FileUtility.class,
@@ -706,7 +706,7 @@ public class FileControlImplTest extends TestCase {
             assertEquals(srcFile, VMOUTUtil.getArgument(fileControl.getClass(),
                     "getAbsolutePath", 0, 0));
         } finally {
-            // ƒeƒXƒgŒãA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+            // ãƒ†ã‚¹ãƒˆå¾Œã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
             file = new File(srcFile);
             file.delete();
         }
@@ -715,25 +715,25 @@ public class FileControlImplTest extends TestCase {
     /**
      * testDeleteFile02() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE, F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE, F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) srcFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) srcFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "testDeleteFile02_src.txt"<br>
-     * (ó‘Ô) FileControl.basePath:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)"<br>
+     * (çŠ¶æ…‹) FileControl.basePath:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)"<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») FileUtility.deleteFile():ŒÄ‚Ño‚³‚ê‚éB<br>
-     * ˆø”srcFile‚ªFileControl.basePath‚ğæ“ª‚É‚Â‚¯‚Ä“n‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) FileUtility.deleteFile():å‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
+     * å¼•æ•°srcFileãŒFileControl.basePathã‚’å…ˆé ­ã«ã¤ã‘ã¦æ¸¡ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * ƒtƒ@ƒCƒ‹‚ÌƒpƒX‚ª‘Š‘ÎƒpƒX‚Å‚ ‚éƒP[ƒXB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹ãŒç›¸å¯¾ãƒ‘ã‚¹ã§ã‚ã‚‹ã‚±ãƒ¼ã‚¹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testDeleteFile02() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         FileControlImpl fileControl = new FileControlImpl();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -741,22 +741,22 @@ public class FileControlImplTest extends TestCase {
 
         String srcFile = "testDeleteFile02_src.txt";
 
-        // ƒeƒXƒg‘OA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+        // ãƒ†ã‚¹ãƒˆå‰ã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
         File file = new File(directoryPath + srcFile);
         file.delete();
         file.createNewFile();
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         String basePath = directoryPath;
         UTUtil.setPrivateField(fileControl, "basePath", basePath);
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             fileControl.deleteFile(srcFile);
 
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(1, VMOUTUtil.getCallCount(FileUtility.class,
                     "deleteFile"));
             assertEquals(basePath + srcFile, VMOUTUtil.getArgument(
@@ -766,7 +766,7 @@ public class FileControlImplTest extends TestCase {
             assertEquals(srcFile, VMOUTUtil.getArgument(fileControl.getClass(),
                     "getAbsolutePath", 0, 0));
         } finally {
-            // ƒeƒXƒgŒãA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+            // ãƒ†ã‚¹ãƒˆå¾Œã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
             file = new File(directoryPath + srcFile);
             file.delete();
         }
@@ -775,25 +775,25 @@ public class FileControlImplTest extends TestCase {
     /**
      * testDeleteFile03() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE, F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE, F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) srcFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)testDeleteFile03_src.txt"<br>
-     * (ó‘Ô) FileControl.basePath:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) srcFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)testDeleteFile03_src.txt"<br>
+     * (çŠ¶æ…‹) FileControl.basePath:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)"<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») FileUtility.deleteFile():ŒÄ‚Ño‚³‚ê‚éB<br>
-     * ˆø”srcFile‚ªFileControl.basePath‚ğæ“ª‚É‚Â‚¯‚¸‚É“n‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) FileUtility.deleteFile():å‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
+     * å¼•æ•°srcFileãŒFileControl.basePathã‚’å…ˆé ­ã«ã¤ã‘ãšã«æ¸¡ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * ˆø”‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚ªâ‘ÎƒpƒX‚Å‚ ‚èAŠî€ƒpƒX‚ªİ’è‚³‚ê‚Ä‚¢‚éê‡‚ÍŠî€ƒpƒX‚ª•t—^‚³‚ê‚È‚¢‚±‚ÆB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * å¼•æ•°ã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ãŒçµ¶å¯¾ãƒ‘ã‚¹ã§ã‚ã‚Šã€åŸºæº–ãƒ‘ã‚¹ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã¯åŸºæº–ãƒ‘ã‚¹ãŒä»˜ä¸ã•ã‚Œãªã„ã“ã¨ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testDeleteFile03() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         FileControlImpl fileControl = new FileControlImpl();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -801,22 +801,22 @@ public class FileControlImplTest extends TestCase {
 
         String srcFile = directoryPath + "testDeleteFile03_src.txt";
 
-        // ƒeƒXƒg‘OA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+        // ãƒ†ã‚¹ãƒˆå‰ã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
         File file = new File(srcFile);
         file.delete();
         file.createNewFile();
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         String basePath = directoryPath;
         UTUtil.setPrivateField(fileControl, "basePath", basePath);
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             fileControl.deleteFile(srcFile);
 
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(1, VMOUTUtil.getCallCount(FileUtility.class,
                     "deleteFile"));
             assertEquals(srcFile, VMOUTUtil.getArgument(FileUtility.class,
@@ -826,7 +826,7 @@ public class FileControlImplTest extends TestCase {
             assertEquals(srcFile, VMOUTUtil.getArgument(fileControl.getClass(),
                     "getAbsolutePath", 0, 0));
         } finally {
-            // ƒeƒXƒgŒãA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+            // ãƒ†ã‚¹ãƒˆå¾Œã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
             file = new File(srcFile);
             file.delete();
         }
@@ -835,25 +835,25 @@ public class FileControlImplTest extends TestCase {
     /**
      * testDeleteFile04() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FG <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) srcFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) srcFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "testDeleteFile04_src.txt"<br>
-     * (ó‘Ô) FileControl.basePath:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * (çŠ¶æ…‹) FileControl.basePath:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * ""<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») FileUtility.deleteFile():ŒÄ‚Ño‚³‚ê‚éB<br>
-     * ˆø”srcFile‚ªFileControl.basePath‚ğæ“ª‚É‚Â‚¯‚Ä“n‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) FileUtility.deleteFile():å‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
+     * å¼•æ•°srcFileãŒFileControl.basePathã‚’å…ˆé ­ã«ã¤ã‘ã¦æ¸¡ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * ƒtƒ@ƒCƒ‹‚ÌƒpƒX‚ª‘Š‘ÎƒpƒX‚Å‚ ‚èAŠî€ƒpƒX‚ªİ’è‚³‚ê‚Ä‚¢‚È‚¢ƒP[ƒXB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹ãŒç›¸å¯¾ãƒ‘ã‚¹ã§ã‚ã‚Šã€åŸºæº–ãƒ‘ã‚¹ãŒè¨­å®šã•ã‚Œã¦ã„ãªã„ã‚±ãƒ¼ã‚¹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testDeleteFile04() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         FileControlImpl fileControl = new FileControlImpl();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -861,26 +861,26 @@ public class FileControlImplTest extends TestCase {
 
         String srcFile = "testDeleteFile04_src.txt";
 
-        // ƒeƒXƒg‘OA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+        // ãƒ†ã‚¹ãƒˆå‰ã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
         File file = new File(directoryPath + srcFile);
         file.delete();
         file.createNewFile();
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         String basePath = "";
         UTUtil.setPrivateField(fileControl, "basePath", basePath);
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             fileControl.deleteFile(srcFile);
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(1, VMOUTUtil.getCallCount(FileUtility.class,
                     "deleteFile"));
             assertEquals(basePath + srcFile, VMOUTUtil.getArgument(
                     FileUtility.class, "deleteFile", 0, 0));
         } finally {
-            // ƒeƒXƒgŒãA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+            // ãƒ†ã‚¹ãƒˆå¾Œã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
             file = new File(directoryPath + srcFile);
             file.delete();
         }
@@ -889,37 +889,37 @@ public class FileControlImplTest extends TestCase {
     /**
      * testDeleteFile05() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) srcFile:null<br>
-     * (ó‘Ô) FileControl.basePath:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) srcFile:null<br>
+     * (çŠ¶æ…‹) FileControl.basePath:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * ""<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:—áŠOFileException‚ª”­¶‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä¾‹å¤–FileExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
      * <br>
-     * ˆø”‚Énull‚ªİ’è‚³‚ê‚½ê‡‚ÍAFileException‚ªƒXƒ[‚³‚ê‚é‚±‚ÆB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * å¼•æ•°ã«nullãŒè¨­å®šã•ã‚ŒãŸå ´åˆã¯ã€FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testDeleteFile05() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         FileControlImpl fileControl = new FileControlImpl();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String srcFile = null;
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         String basePath = "";
         UTUtil.setPrivateField(fileControl, "basePath", basePath);
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             fileControl.deleteFile(srcFile);
-            fail("FileException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B¸”s‚Å‚·B");
+            fail("FileExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚å¤±æ•—ã§ã™ã€‚");
         } catch (FileException e) {
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertFalse(VMOUTUtil.isCalled(FileUtility.class, "deleteFile"));
             assertEquals(1, VMOUTUtil.getCallCount(fileControl.getClass(),
                     "getAbsolutePath"));
@@ -932,26 +932,26 @@ public class FileControlImplTest extends TestCase {
     /**
      * testMergeFile01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD, E, F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD, E, F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileList:—v‘f‚ğ‚à‚½‚È‚¢ArrayListƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)testMergeFile01_new.txt"<br>
-     * (ó‘Ô) FileControl.basePath:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileList:è¦ç´ ã‚’ã‚‚ãŸãªã„ArrayListã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)testMergeFile01_new.txt"<br>
+     * (çŠ¶æ…‹) FileControl.basePath:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * ""<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») FileUtility.mergeFile():1‰ñŒÄ‚Ño‚³‚ê‚éB<br>
-     * ˆø”newFileAfileList‚ª“n‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) FileUtility.mergeFile():1å›å‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
+     * å¼•æ•°newFileã€fileListãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * fileList‚Ì—v‘f‚ª‹ó‚Å‚ ‚éƒP[ƒXB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * fileListã®è¦ç´ ãŒç©ºã§ã‚ã‚‹ã‚±ãƒ¼ã‚¹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testMergeFile01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         FileControlImpl fileControl = new FileControlImpl();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -961,22 +961,22 @@ public class FileControlImplTest extends TestCase {
 
         String newFile = directoryPath + "testMergeFile01_new.txt";
 
-        // ƒeƒXƒg‘OA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+        // ãƒ†ã‚¹ãƒˆå‰ã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
         File file = new File(newFile);
         file.delete();
         file.createNewFile();
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         String basePath = "";
         UTUtil.setPrivateField(fileControl, "basePath", basePath);
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             fileControl.mergeFile(fileList, newFile);
 
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(1, VMOUTUtil.getCallCount(FileUtility.class,
                     "mergeFile"));
             assertEquals(fileList, VMOUTUtil.getArgument(FileUtility.class,
@@ -988,7 +988,7 @@ public class FileControlImplTest extends TestCase {
             assertEquals(newFile, VMOUTUtil.getArgument(fileControl.getClass(),
                     "getAbsolutePath", 0, 0));
         } finally {
-            // ƒeƒXƒgŒãA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+            // ãƒ†ã‚¹ãƒˆå¾Œã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
             file = new File(newFile);
             file.delete();
         }
@@ -997,27 +997,27 @@ public class FileControlImplTest extends TestCase {
     /**
      * testMergeFile02() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD, E, F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD, E, F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileList:ˆÈ‰º‚Ì—v‘f‚ğ‚à‚ÂArrayListƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * —v‘f1:"(ƒpƒX)testMergeFile02-01_src.txt"<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)testMergeFile02_new.txt"<br>
-     * (ó‘Ô) FileControl.basePath:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileList:ä»¥ä¸‹ã®è¦ç´ ã‚’ã‚‚ã¤ArrayListã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * è¦ç´ 1:"(ãƒ‘ã‚¹)testMergeFile02-01_src.txt"<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)testMergeFile02_new.txt"<br>
+     * (çŠ¶æ…‹) FileControl.basePath:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * ""<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») FileUtility.mergeFile():1‰ñŒÄ‚Ño‚³‚ê‚éB<br>
-     * ˆø”newFileAfileList‚ª“n‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) FileUtility.mergeFile():1å›å‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
+     * å¼•æ•°newFileã€fileListãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * fileList‚Ì—v‘f‚ª1‚Â‚ÅA“‡ƒtƒ@ƒCƒ‹‚ÌƒpƒX‚ªâ‘ÎƒpƒX‚Å‚ ‚éƒP[ƒXB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * fileListã®è¦ç´ ãŒ1ã¤ã§ã€çµ±åˆãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹ãŒçµ¶å¯¾ãƒ‘ã‚¹ã§ã‚ã‚‹ã‚±ãƒ¼ã‚¹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testMergeFile02() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         FileControlImpl fileControl = new FileControlImpl();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -1030,7 +1030,7 @@ public class FileControlImplTest extends TestCase {
 
         String newFile = directoryPath + "testMergeFile02_new.txt";
 
-        // ƒeƒXƒg‘OA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+        // ãƒ†ã‚¹ãƒˆå‰ã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
         File file = new File(srcFile1);
         file.delete();
         file.createNewFile();
@@ -1039,17 +1039,17 @@ public class FileControlImplTest extends TestCase {
         file.delete();
         file.createNewFile();
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         String basePath = "";
         UTUtil.setPrivateField(fileControl, "basePath", basePath);
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             fileControl.mergeFile(fileList, newFile);
 
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(1, VMOUTUtil.getCallCount(FileUtility.class,
                     "mergeFile"));
             assertEquals(fileList, VMOUTUtil.getArgument(FileUtility.class,
@@ -1063,7 +1063,7 @@ public class FileControlImplTest extends TestCase {
             assertEquals(newFile, VMOUTUtil.getArgument(fileControl.getClass(),
                     "getAbsolutePath", 1, 0));
         } finally {
-            // ƒeƒXƒgŒãA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+            // ãƒ†ã‚¹ãƒˆå¾Œã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
             file = new File(srcFile1);
             file.delete();
             file = new File(newFile);
@@ -1074,30 +1074,30 @@ public class FileControlImplTest extends TestCase {
     /**
      * testMergeFile03() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD, E, F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD, E, F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileList:ˆÈ‰º‚Ì—v‘f‚ğ‚à‚ÂArrayListƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * —v‘f1:"testMergeFile03-01_src.txt"<br>
-     * —v‘f2:"testMergeFile03-02_src.txt"<br>
-     * —v‘f3:"testMergeFile03-03_src.txt"<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileList:ä»¥ä¸‹ã®è¦ç´ ã‚’ã‚‚ã¤ArrayListã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * è¦ç´ 1:"testMergeFile03-01_src.txt"<br>
+     * è¦ç´ 2:"testMergeFile03-02_src.txt"<br>
+     * è¦ç´ 3:"testMergeFile03-03_src.txt"<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "testMergeFile03_new.txt"<br>
-     * (ó‘Ô) FileControl.basePath:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)"<br>
+     * (çŠ¶æ…‹) FileControl.basePath:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)"<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») FileUtility.mergeFile():1‰ñŒÄ‚Ño‚³‚ê‚éB<br>
-     * ˆø”newFileAfileList‚ªFileControl.basePath‚ğæ“ª‚É‚Â‚¯‚Ä“n‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) FileUtility.mergeFile():1å›å‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
+     * å¼•æ•°newFileã€fileListãŒFileControl.basePathã‚’å…ˆé ­ã«ã¤ã‘ã¦æ¸¡ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * fileList‚Ì—v‘f‚ª3‚Â‚ÅA“‡ƒtƒ@ƒCƒ‹‚ÌƒpƒX‚ª‘Š‘ÎƒpƒX‚Å‚ ‚éƒP[ƒXB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * fileListã®è¦ç´ ãŒ3ã¤ã§ã€çµ±åˆãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹ãŒç›¸å¯¾ãƒ‘ã‚¹ã§ã‚ã‚‹ã‚±ãƒ¼ã‚¹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testMergeFile03() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         FileControlImpl fileControl = new FileControlImpl();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -1116,7 +1116,7 @@ public class FileControlImplTest extends TestCase {
 
         String newFile = "testMergeFile03_new.txt";
 
-        // ƒeƒXƒg‘OA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+        // ãƒ†ã‚¹ãƒˆå‰ã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
         File file = new File(directoryPath + srcFile1);
         file.delete();
         file.createNewFile();
@@ -1133,17 +1133,17 @@ public class FileControlImplTest extends TestCase {
         file.delete();
         file.createNewFile();
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         String basePath = directoryPath;
         UTUtil.setPrivateField(fileControl, "basePath", basePath);
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             fileControl.mergeFile(fileList, newFile);
 
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(1, VMOUTUtil.getCallCount(FileUtility.class,
                     "mergeFile"));
             List arguments = VMOUTUtil.getArguments(FileUtility.class,
@@ -1169,7 +1169,7 @@ public class FileControlImplTest extends TestCase {
                     .getClass(), "getAbsolutePath", 3, 0);
             assertEquals(newFile, getNewFile);
         } finally {
-            // ƒeƒXƒgŒãA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+            // ãƒ†ã‚¹ãƒˆå¾Œã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
             file = new File(directoryPath + srcFile1);
             file.delete();
             file = new File(directoryPath + srcFile2);
@@ -1184,29 +1184,29 @@ public class FileControlImplTest extends TestCase {
     /**
      * testMergeFile04() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD, E, F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD, E, F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileList:ˆÈ‰º‚Ì—v‘f‚ğ‚à‚ÂArrayListƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * —v‘f1:"(ƒpƒX)testMergeFile04-01_src.txt"<br>
-     * —v‘f2:"(ƒpƒX)testMergeFile04-02_src.txt"<br>
-     * —v‘f3:"(ƒpƒX)testMergeFile04-03_src.txt"<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)testMergeFile04_new.txt"<br>
-     * (ó‘Ô) FileControl.basePath:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileList:ä»¥ä¸‹ã®è¦ç´ ã‚’ã‚‚ã¤ArrayListã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * è¦ç´ 1:"(ãƒ‘ã‚¹)testMergeFile04-01_src.txt"<br>
+     * è¦ç´ 2:"(ãƒ‘ã‚¹)testMergeFile04-02_src.txt"<br>
+     * è¦ç´ 3:"(ãƒ‘ã‚¹)testMergeFile04-03_src.txt"<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)testMergeFile04_new.txt"<br>
+     * (çŠ¶æ…‹) FileControl.basePath:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)"<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») FileUtility.mergeFile():1‰ñŒÄ‚Ño‚³‚ê‚éB<br>
-     * ˆø”newFileAfileList‚ªFileControl.basePath‚ğæ“ª‚É‚Â‚¯‚¸‚É“n‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) FileUtility.mergeFile():1å›å‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
+     * å¼•æ•°newFileã€fileListãŒFileControl.basePathã‚’å…ˆé ­ã«ã¤ã‘ãšã«æ¸¡ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * ˆø”‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚ªâ‘ÎƒpƒX‚Å‚ ‚èAŠî€ƒpƒX‚ªİ’è‚³‚ê‚Ä‚¢‚éê‡‚ÍŠî€ƒpƒX‚ª•t—^‚³‚ê‚È‚¢‚±‚ÆB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * å¼•æ•°ã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ãŒçµ¶å¯¾ãƒ‘ã‚¹ã§ã‚ã‚Šã€åŸºæº–ãƒ‘ã‚¹ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã¯åŸºæº–ãƒ‘ã‚¹ãŒä»˜ä¸ã•ã‚Œãªã„ã“ã¨ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testMergeFile04() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         FileControlImpl fileControl = new FileControlImpl();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -1225,7 +1225,7 @@ public class FileControlImplTest extends TestCase {
 
         String newFile = directoryPath + "testMergeFile04_new.txt";
 
-        // ƒeƒXƒg‘OA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+        // ãƒ†ã‚¹ãƒˆå‰ã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
         File file = new File(srcFile1);
         file.delete();
         file.createNewFile();
@@ -1242,17 +1242,17 @@ public class FileControlImplTest extends TestCase {
         file.delete();
         file.createNewFile();
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         String basePath = directoryPath;
         UTUtil.setPrivateField(fileControl, "basePath", basePath);
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             fileControl.mergeFile(fileList, newFile);
 
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(1, VMOUTUtil.getCallCount(FileUtility.class,
                     "mergeFile"));
             assertEquals(fileList, VMOUTUtil.getArgument(FileUtility.class,
@@ -1275,7 +1275,7 @@ public class FileControlImplTest extends TestCase {
                     .getClass(), "getAbsolutePath", 3, 0);
             assertEquals(newFile, getNewFile);
         } finally {
-            // ƒeƒXƒgŒãA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+            // ãƒ†ã‚¹ãƒˆå¾Œã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
             file = new File(srcFile1);
             file.delete();
             file = new File(srcFile2);
@@ -1290,29 +1290,29 @@ public class FileControlImplTest extends TestCase {
     /**
      * testMergeFile05() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FG <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileList:ˆÈ‰º‚Ì—v‘f‚ğ‚à‚ÂArrayListƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * —v‘f1:"testMergeFile05-01_src.txt"<br>
-     * —v‘f2:"testMergeFile05-02_src.txt"<br>
-     * —v‘f3:"testMergeFile05-03_src.txt"<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileList:ä»¥ä¸‹ã®è¦ç´ ã‚’ã‚‚ã¤ArrayListã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * è¦ç´ 1:"testMergeFile05-01_src.txt"<br>
+     * è¦ç´ 2:"testMergeFile05-02_src.txt"<br>
+     * è¦ç´ 3:"testMergeFile05-03_src.txt"<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "testMergeFile05_new.txt"<br>
-     * (ó‘Ô) FileControl.basePath:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * (çŠ¶æ…‹) FileControl.basePath:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * ""<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») FileUtility.mergeFile():1‰ñŒÄ‚Ño‚³‚ê‚éB<br>
-     * ˆø”newFileAfileList‚ªFileControl.basePath‚ğæ“ª‚É‚Â‚¯‚Ä“n‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) FileUtility.mergeFile():1å›å‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
+     * å¼•æ•°newFileã€fileListãŒFileControl.basePathã‚’å…ˆé ­ã«ã¤ã‘ã¦æ¸¡ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * ƒtƒ@ƒCƒ‹‚ÌƒpƒX‚ª‘Š‘ÎƒpƒX‚Å‚ ‚èAŠî€ƒpƒX‚ªİ’è‚³‚ê‚Ä‚¢‚È‚¢ƒP[ƒXB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹ãŒç›¸å¯¾ãƒ‘ã‚¹ã§ã‚ã‚Šã€åŸºæº–ãƒ‘ã‚¹ãŒè¨­å®šã•ã‚Œã¦ã„ãªã„ã‚±ãƒ¼ã‚¹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testMergeFile05() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         FileControlImpl fileControl = new FileControlImpl();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -1331,7 +1331,7 @@ public class FileControlImplTest extends TestCase {
 
         String newFile = "testMergeFile05_new.txt";
 
-        // ƒeƒXƒg‘OA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+        // ãƒ†ã‚¹ãƒˆå‰ã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
         File file = new File(directoryPath + srcFile1);
         file.delete();
         file.createNewFile();
@@ -1348,15 +1348,15 @@ public class FileControlImplTest extends TestCase {
         file.delete();
         file.createNewFile();
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         String basePath = "";
         UTUtil.setPrivateField(fileControl, "basePath", basePath);
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             fileControl.mergeFile(fileList, newFile);
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(1, VMOUTUtil.getCallCount(FileUtility.class,
                     "mergeFile"));
             assertEquals(fileList, VMOUTUtil.getArgument(FileUtility.class,
@@ -1379,7 +1379,7 @@ public class FileControlImplTest extends TestCase {
                     .getClass(), "getAbsolutePath", 3, 0);
             assertEquals(newFile, getNewFile);
         } finally {
-            // ƒeƒXƒgŒãA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+            // ãƒ†ã‚¹ãƒˆå¾Œã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
             file = new File(directoryPath + srcFile1);
             file.delete();
             file = new File(directoryPath + srcFile2);
@@ -1394,25 +1394,25 @@ public class FileControlImplTest extends TestCase {
     /**
      * testMergeFile06() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileList:null<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)testMergeFile06_new.txt"<br>
-     * (ó‘Ô) FileControl.basePath:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileList:null<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)testMergeFile06_new.txt"<br>
+     * (çŠ¶æ…‹) FileControl.basePath:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * ""<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:—áŠONullPointerException‚ª”­¶‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä¾‹å¤–NullPointerExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
      * <br>
-     * ˆø”fileList‚Énull‚ªİ’è‚³‚ê‚½ê‡‚ÍANullPointerException‚ªƒXƒ[‚³‚ê‚é‚±‚ÆB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * å¼•æ•°fileListã«nullãŒè¨­å®šã•ã‚ŒãŸå ´åˆã¯ã€NullPointerExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testMergeFile06() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         FileControlImpl fileControl = new FileControlImpl();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -1421,26 +1421,26 @@ public class FileControlImplTest extends TestCase {
         List<String> fileList = null;
         String newFile = directoryPath + "testMergeFile06_new.txt";
 
-        // ƒeƒXƒg‘OA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+        // ãƒ†ã‚¹ãƒˆå‰ã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
         File file = new File(newFile);
         file.delete();
         file.createNewFile();
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         String basePath = "";
         UTUtil.setPrivateField(fileControl, "basePath", basePath);
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             fileControl.mergeFile(fileList, newFile);
-            fail("NullPointerException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B¸”s‚Å‚·B");
+            fail("NullPointerExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚å¤±æ•—ã§ã™ã€‚");
         } catch (Exception e) {
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(NullPointerException.class, e.getClass());
         } finally {
-            // ƒeƒXƒgŒãA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+            // ãƒ†ã‚¹ãƒˆå¾Œã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
             file = new File(newFile);
             file.delete();
         }
@@ -1449,26 +1449,26 @@ public class FileControlImplTest extends TestCase {
     /**
      * testMergeFile07() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileList:ˆÈ‰º‚Ì—v‘f‚ğ‚à‚ÂArrayListƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * —v‘f1:"(ƒpƒX)testMergeFile07-01_src.txt"<br>
-     * (ˆø”) newFile:null<br>
-     * (ó‘Ô) FileControl.basePath:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileList:ä»¥ä¸‹ã®è¦ç´ ã‚’ã‚‚ã¤ArrayListã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * è¦ç´ 1:"(ãƒ‘ã‚¹)testMergeFile07-01_src.txt"<br>
+     * (å¼•æ•°) newFile:null<br>
+     * (çŠ¶æ…‹) FileControl.basePath:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * ""<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:—áŠOFileException‚ª”­¶‚·‚éB<br>
-     * ƒƒbƒZ[ƒWF"File name is not set."<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä¾‹å¤–FileExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"File name is not set."<br>
      * <br>
-     * ˆø”newFile‚Énull‚ªİ’è‚³‚ê‚½ê‡‚ÍAFileException‚ªƒXƒ[‚³‚ê‚é‚±‚ÆB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * å¼•æ•°newFileã«nullãŒè¨­å®šã•ã‚ŒãŸå ´åˆã¯ã€FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testMergeFile07() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         FileControlImpl fileControl = new FileControlImpl();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -1481,23 +1481,23 @@ public class FileControlImplTest extends TestCase {
 
         String newFile = null;
 
-        // ƒeƒXƒg‘OA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+        // ãƒ†ã‚¹ãƒˆå‰ã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
         File file = new File(srcFile1);
         file.delete();
         file.createNewFile();
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         String basePath = "";
         UTUtil.setPrivateField(fileControl, "basePath", basePath);
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             fileControl.mergeFile(fileList, newFile);
-            fail("FileException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B¸”s‚Å‚·B");
+            fail("FileExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚å¤±æ•—ã§ã™ã€‚");
         } catch (FileException e) {
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(2, VMOUTUtil.getCallCount(fileControl.getClass(),
                     "getAbsolutePath"));
             assertEquals(srcFile1, VMOUTUtil.getArgument(
@@ -1508,7 +1508,7 @@ public class FileControlImplTest extends TestCase {
             assertEquals("File name is not set.", e.getMessage());
             assertNull(e.getFileName());
         } finally {
-            // ƒeƒXƒgŒãA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+            // ãƒ†ã‚¹ãƒˆå¾Œã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
             file = new File(srcFile1);
             file.delete();
         }
@@ -1517,29 +1517,29 @@ public class FileControlImplTest extends TestCase {
     /**
      * testMergeFile08() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileList:ˆÈ‰º‚Ì—v‘f‚ğ‚à‚ÂArrayListƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * —v‘f1:"(ƒpƒX)testMergeFile08-01_src.txt"<br>
-     * —v‘f2:null<br>
-     * —v‘f3:"(ƒpƒX)testMergeFile08-03_src.txt"<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)testMergeFile08_new.txt"<br>
-     * (ó‘Ô) FileControl.basePath:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileList:ä»¥ä¸‹ã®è¦ç´ ã‚’ã‚‚ã¤ArrayListã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * è¦ç´ 1:"(ãƒ‘ã‚¹)testMergeFile08-01_src.txt"<br>
+     * è¦ç´ 2:null<br>
+     * è¦ç´ 3:"(ãƒ‘ã‚¹)testMergeFile08-03_src.txt"<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)testMergeFile08_new.txt"<br>
+     * (çŠ¶æ…‹) FileControl.basePath:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * ""<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:—áŠOFileException‚ª”­¶‚·‚éB<br>
-     * ƒƒbƒZ[ƒWF"File name is not set."<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä¾‹å¤–FileExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"File name is not set."<br>
      * <br>
-     * ˆø”fileList‚Ì—v‘f‚Énull‚ªŠÜ‚Ü‚ê‚Ä‚¢‚éê‡‚ÍAFileException‚ªƒXƒ[‚³‚ê‚é‚±‚ÆB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * å¼•æ•°fileListã®è¦ç´ ã«nullãŒå«ã¾ã‚Œã¦ã„ã‚‹å ´åˆã¯ã€FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testMergeFile08() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         FileControlImpl fileControl = new FileControlImpl();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -1558,7 +1558,7 @@ public class FileControlImplTest extends TestCase {
 
         String newFile = directoryPath + "testMergeFile08_new.txt";
 
-        // ƒeƒXƒg‘OA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+        // ãƒ†ã‚¹ãƒˆå‰ã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
         File file = new File(srcFile1);
         file.delete();
         file.createNewFile();
@@ -1571,18 +1571,18 @@ public class FileControlImplTest extends TestCase {
         file.delete();
         file.createNewFile();
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         String basePath = "";
         UTUtil.setPrivateField(fileControl, "basePath", basePath);
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             fileControl.mergeFile(fileList, newFile);
-            fail("FileException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B¸”s‚Å‚·B");
+            fail("FileExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚å¤±æ•—ã§ã™ã€‚");
         } catch (FileException e) {
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(2, VMOUTUtil.getCallCount(fileControl.getClass(),
                     "getAbsolutePath"));
             String fileName1 = (String) VMOUTUtil.getArgument(fileControl
@@ -1596,7 +1596,7 @@ public class FileControlImplTest extends TestCase {
             assertEquals("File name is not set.", e.getMessage());
             assertNull(e.getFileName());
         } finally {
-            // ƒeƒXƒgŒãA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+            // ãƒ†ã‚¹ãƒˆå¾Œã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
             file = new File(srcFile1);
             file.delete();
             file = new File(srcFile3);
@@ -1609,32 +1609,32 @@ public class FileControlImplTest extends TestCase {
     /**
      * testMergeFile09() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD, E, F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD, E, F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileList:ˆÈ‰º‚Ì—v‘f‚ğ‚à‚ÂArrayListƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * —v‘f1:"testMergeFile09-01_src.txt"<br>
-     * —v‘f2:"testMergeFile09-02_src.txt"<br>
-     * —v‘f3:"testMergeFile09-03_src.txt"<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)testMergeFile09_new.txt"<br>
-     * (ó‘Ô) FileControl.basePath:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileList:ä»¥ä¸‹ã®è¦ç´ ã‚’ã‚‚ã¤ArrayListã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * è¦ç´ 1:"testMergeFile09-01_src.txt"<br>
+     * è¦ç´ 2:"testMergeFile09-02_src.txt"<br>
+     * è¦ç´ 3:"testMergeFile09-03_src.txt"<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)testMergeFile09_new.txt"<br>
+     * (çŠ¶æ…‹) FileControl.basePath:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)"<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») FileUtility.mergeFile():1‰ñŒÄ‚Ño‚³‚ê‚éB<br>
-     * ˆø”fileList‚ªFileControl.basePath‚ğæ“ª‚É‚Â‚¯‚Ä“n‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * ˆø”newFile‚ªFileControl.basePath‚ğæ“ª‚É‚Â‚¯‚¸‚É“n‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) FileUtility.mergeFile():1å›å‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
+     * å¼•æ•°fileListãŒFileControl.basePathã‚’å…ˆé ­ã«ã¤ã‘ã¦æ¸¡ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * å¼•æ•°newFileãŒFileControl.basePathã‚’å…ˆé ­ã«ã¤ã‘ãšã«æ¸¡ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * ˆø”fileList‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚ª‘Š‘ÎƒpƒX‚ÅAˆø”newFile‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚ªâ‘ÎƒpƒX‚Ìê‡B<br>
-     * fileList‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚ÉŠî€ƒpƒX‚ª•t—^‚³‚ênewFile‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚É‚ÍŠî€ƒpƒX‚ª•t—^‚³‚ê‚È‚¢‚±‚ÆB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * å¼•æ•°fileListã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ãŒç›¸å¯¾ãƒ‘ã‚¹ã§ã€å¼•æ•°newFileã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ãŒçµ¶å¯¾ãƒ‘ã‚¹ã®å ´åˆã€‚<br>
+     * fileListã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ã«åŸºæº–ãƒ‘ã‚¹ãŒä»˜ä¸ã•ã‚ŒnewFileã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ã«ã¯åŸºæº–ãƒ‘ã‚¹ãŒä»˜ä¸ã•ã‚Œãªã„ã“ã¨ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testMergeFile09() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         FileControlImpl fileControl = new FileControlImpl();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -1653,7 +1653,7 @@ public class FileControlImplTest extends TestCase {
 
         String newFile = directoryPath + "testMergeFile09_new.txt";
 
-        // ƒeƒXƒg‘OA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+        // ãƒ†ã‚¹ãƒˆå‰ã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
         File file = new File(directoryPath + srcFile1);
         file.delete();
         file.createNewFile();
@@ -1670,17 +1670,17 @@ public class FileControlImplTest extends TestCase {
         file.delete();
         file.createNewFile();
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         String basePath = directoryPath;
         UTUtil.setPrivateField(fileControl, "basePath", basePath);
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             fileControl.mergeFile(fileList, newFile);
 
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(1, VMOUTUtil.getCallCount(FileUtility.class,
                     "mergeFile"));
             List arguments = VMOUTUtil.getArguments(FileUtility.class,
@@ -1706,7 +1706,7 @@ public class FileControlImplTest extends TestCase {
                     .getClass(), "getAbsolutePath", 3, 0);
             assertEquals(newFile, getNewFile);
         } finally {
-            // ƒeƒXƒgŒãA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+            // ãƒ†ã‚¹ãƒˆå¾Œã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
             file = new File(directoryPath + srcFile1);
             file.delete();
             file = new File(directoryPath + srcFile2);
@@ -1721,33 +1721,33 @@ public class FileControlImplTest extends TestCase {
     /**
      * testMergeFile10() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD, E, F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD, E, F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileList:ˆÈ‰º‚Ì—v‘f‚ğ‚à‚ÂArrayListƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * —v‘f1:"(ƒpƒX)testMergeFile10-01_src.txt"<br>
-     * —v‘f2:"testMergeFile10-02_src.txt"<br>
-     * —v‘f3:"(ƒpƒX)testMergeFile10-03_src.txt"<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)testMergeFile10_new.txt"<br>
-     * (ó‘Ô) FileControl.basePath:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileList:ä»¥ä¸‹ã®è¦ç´ ã‚’ã‚‚ã¤ArrayListã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * è¦ç´ 1:"(ãƒ‘ã‚¹)testMergeFile10-01_src.txt"<br>
+     * è¦ç´ 2:"testMergeFile10-02_src.txt"<br>
+     * è¦ç´ 3:"(ãƒ‘ã‚¹)testMergeFile10-03_src.txt"<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)testMergeFile10_new.txt"<br>
+     * (çŠ¶æ…‹) FileControl.basePath:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)"<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») FileUtility.mergeFile():1‰ñŒÄ‚Ño‚³‚ê‚éB<br>
-     * ˆø”fileList‚Ì—v‘f1A3‚ªFileControl.basePath‚ğæ“ª‚É‚Â‚¯‚¸‚É“n‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * ˆø”fileList‚Ì—v‘f2‚ªFileControl.basePath‚ğæ“ª‚É‚Â‚¯‚Ä“n‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * ˆø”newFile‚ªFileControl.basePath‚ğæ“ª‚É‚Â‚¯‚¸‚É“n‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) FileUtility.mergeFile():1å›å‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
+     * å¼•æ•°fileListã®è¦ç´ 1ã€3ãŒFileControl.basePathã‚’å…ˆé ­ã«ã¤ã‘ãšã«æ¸¡ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * å¼•æ•°fileListã®è¦ç´ 2ãŒFileControl.basePathã‚’å…ˆé ­ã«ã¤ã‘ã¦æ¸¡ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * å¼•æ•°newFileãŒFileControl.basePathã‚’å…ˆé ­ã«ã¤ã‘ãšã«æ¸¡ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * ˆø”fileList‚Ì—v‘f‚Éƒtƒ@ƒCƒ‹ƒpƒX‚ª‘Š‘ÎƒpƒX‚Æâ‘ÎƒpƒX‚ªŠÜ‚Ü‚ê‚Ä‚¢‚ÄAˆø”newFile‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚ªâ‘ÎƒpƒX‚Ìê‡B<br>
-     * fileList‚Ì—v‘f2‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚ÉŠî€ƒpƒX‚ª•t—^‚³‚ê‚»‚Ì‘¼‚Ì—v‘f‚É‚Í•t—^‚³‚ê‚¸AnewFile‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚É‚ÍŠî€ƒpƒX‚ª•t—^‚³‚ê‚È‚¢‚±‚ÆB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * å¼•æ•°fileListã®è¦ç´ ã«ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ãŒç›¸å¯¾ãƒ‘ã‚¹ã¨çµ¶å¯¾ãƒ‘ã‚¹ãŒå«ã¾ã‚Œã¦ã„ã¦ã€å¼•æ•°newFileã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ãŒçµ¶å¯¾ãƒ‘ã‚¹ã®å ´åˆã€‚<br>
+     * fileListã®è¦ç´ 2ã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ã«åŸºæº–ãƒ‘ã‚¹ãŒä»˜ä¸ã•ã‚Œãã®ä»–ã®è¦ç´ ã«ã¯ä»˜ä¸ã•ã‚Œãšã€newFileã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ã«ã¯åŸºæº–ãƒ‘ã‚¹ãŒä»˜ä¸ã•ã‚Œãªã„ã“ã¨ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testMergeFile10() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         FileControlImpl fileControl = new FileControlImpl();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -1766,7 +1766,7 @@ public class FileControlImplTest extends TestCase {
 
         String newFile = directoryPath + "testMergeFile10_new.txt";
 
-        // ƒeƒXƒg‘OA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+        // ãƒ†ã‚¹ãƒˆå‰ã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
         File file = new File(srcFile1);
         file.delete();
         file.createNewFile();
@@ -1783,17 +1783,17 @@ public class FileControlImplTest extends TestCase {
         file.delete();
         file.createNewFile();
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         String basePath = directoryPath;
         UTUtil.setPrivateField(fileControl, "basePath", basePath);
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             fileControl.mergeFile(fileList, newFile);
 
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(1, VMOUTUtil.getCallCount(FileUtility.class,
                     "mergeFile"));
             List arguments = VMOUTUtil.getArguments(FileUtility.class,
@@ -1819,7 +1819,7 @@ public class FileControlImplTest extends TestCase {
                     .getClass(), "getAbsolutePath", 3, 0);
             assertEquals(newFile, getNewFile);
         } finally {
-            // ƒeƒXƒgŒãA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+            // ãƒ†ã‚¹ãƒˆå¾Œã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
             file = new File(srcFile1);
             file.delete();
             file = new File(directoryPath + srcFile2);
@@ -1834,32 +1834,32 @@ public class FileControlImplTest extends TestCase {
     /**
      * testMergeFile11() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FD, E, F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šD, E, F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) fileList:ˆÈ‰º‚Ì—v‘f‚ğ‚à‚ÂArrayListƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * —v‘f1:"(ƒpƒX)testMergeFile11-01_src.txt"<br>
-     * —v‘f2:"(ƒpƒX)testMergeFile11-02_src.txt"<br>
-     * —v‘f3:"(ƒpƒX)testMergeFile11-03_src.txt"<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) fileList:ä»¥ä¸‹ã®è¦ç´ ã‚’ã‚‚ã¤ArrayListã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * è¦ç´ 1:"(ãƒ‘ã‚¹)testMergeFile11-01_src.txt"<br>
+     * è¦ç´ 2:"(ãƒ‘ã‚¹)testMergeFile11-02_src.txt"<br>
+     * è¦ç´ 3:"(ãƒ‘ã‚¹)testMergeFile11-03_src.txt"<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "testMergeFile11_new.txt"<br>
-     * (ó‘Ô) FileControl.basePath:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)"<br>
+     * (çŠ¶æ…‹) FileControl.basePath:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)"<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») FileUtility.mergeFile():1‰ñŒÄ‚Ño‚³‚ê‚éB<br>
-     * ˆø”fileList‚ªFileControl.basePath‚ğæ“ª‚É‚Â‚¯‚¸‚É“n‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * ˆø”newFile‚ªFileControl.basePath‚ğæ“ª‚É‚Â‚¯‚Ä“n‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) FileUtility.mergeFile():1å›å‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
+     * å¼•æ•°fileListãŒFileControl.basePathã‚’å…ˆé ­ã«ã¤ã‘ãšã«æ¸¡ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * å¼•æ•°newFileãŒFileControl.basePathã‚’å…ˆé ­ã«ã¤ã‘ã¦æ¸¡ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * ˆø”fileList‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚ªâ‘ÎƒpƒX‚ÅAˆø”newFile‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚ª‘Š‘ÎƒpƒX‚Ìê‡B<br>
-     * fileList‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚ÉŠî€ƒpƒX‚ª•t—^‚³‚ê‚¸newFile‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚É‚ÍŠî€ƒpƒX‚ª•t—^‚³‚ê‚é‚±‚ÆB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * å¼•æ•°fileListã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ãŒçµ¶å¯¾ãƒ‘ã‚¹ã§ã€å¼•æ•°newFileã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ãŒç›¸å¯¾ãƒ‘ã‚¹ã®å ´åˆã€‚<br>
+     * fileListã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ã«åŸºæº–ãƒ‘ã‚¹ãŒä»˜ä¸ã•ã‚ŒãšnewFileã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ã«ã¯åŸºæº–ãƒ‘ã‚¹ãŒä»˜ä¸ã•ã‚Œã‚‹ã“ã¨ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testMergeFile11() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         FileControlImpl fileControl = new FileControlImpl();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -1878,7 +1878,7 @@ public class FileControlImplTest extends TestCase {
 
         String newFile = "testMergeFile11_new.txt";
 
-        // ƒeƒXƒg‘OA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+        // ãƒ†ã‚¹ãƒˆå‰ã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
         File file = new File(srcFile1);
         file.delete();
         file.createNewFile();
@@ -1895,17 +1895,17 @@ public class FileControlImplTest extends TestCase {
         file.delete();
         file.createNewFile();
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         String basePath = directoryPath;
         UTUtil.setPrivateField(fileControl, "basePath", basePath);
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             fileControl.mergeFile(fileList, newFile);
 
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(1, VMOUTUtil.getCallCount(FileUtility.class,
                     "mergeFile"));
             List arguments = VMOUTUtil.getArguments(FileUtility.class,
@@ -1931,7 +1931,7 @@ public class FileControlImplTest extends TestCase {
                     .getClass(), "getAbsolutePath", 3, 0);
             assertEquals(newFile, getNewFile);
         } finally {
-            // ƒeƒXƒgŒãA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+            // ãƒ†ã‚¹ãƒˆå¾Œã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
             file = new File(srcFile1);
             file.delete();
             file = new File(srcFile2);
@@ -1946,27 +1946,27 @@ public class FileControlImplTest extends TestCase {
     /**
      * testRenameFile01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE, F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE, F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) srcFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)testRenameFile01_src.txt"<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)testRenameFile01_new.txt"<br>
-     * (ó‘Ô) FileControl.basePath:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) srcFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)testRenameFile01_src.txt"<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)testRenameFile01_new.txt"<br>
+     * (çŠ¶æ…‹) FileControl.basePath:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * ""<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») FileUtility.renameFile():ŒÄ‚Ño‚³‚ê‚éB<br>
-     * ˆø”srcFileAnewFile‚ª“n‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) FileUtility.renameFile():å‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
+     * å¼•æ•°srcFileã€newFileãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * ƒtƒ@ƒCƒ‹‚ÌƒpƒX‚ªâ‘ÎƒpƒX‚Å‚ ‚éƒP[ƒXB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹ãŒçµ¶å¯¾ãƒ‘ã‚¹ã§ã‚ã‚‹ã‚±ãƒ¼ã‚¹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testRenameFile01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         FileControlImpl fileControl = new FileControlImpl();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -1975,7 +1975,7 @@ public class FileControlImplTest extends TestCase {
         String srcFile = directoryPath + "testRenameFile01_src.txt";
         String newFile = directoryPath + "testRenameFile01_new.txt";
 
-        // ƒeƒXƒg‘OA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+        // ãƒ†ã‚¹ãƒˆå‰ã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
         File file = new File(srcFile);
         file.delete();
         file.createNewFile();
@@ -1984,17 +1984,17 @@ public class FileControlImplTest extends TestCase {
         file.delete();
         file.createNewFile();
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         String basePath = "";
         UTUtil.setPrivateField(fileControl, "basePath", basePath);
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             fileControl.renameFile(srcFile, newFile);
 
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(1, VMOUTUtil.getCallCount(FileUtility.class,
                     "renameFile"));
             assertEquals(srcFile, VMOUTUtil.getArgument(FileUtility.class,
@@ -2008,7 +2008,7 @@ public class FileControlImplTest extends TestCase {
             assertEquals(newFile, VMOUTUtil.getArgument(fileControl.getClass(),
                     "getAbsolutePath", 1, 0));
         } finally {
-            // ƒeƒXƒgŒãA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+            // ãƒ†ã‚¹ãƒˆå¾Œã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
             file = new File(srcFile);
             file.delete();
             file = new File(newFile);
@@ -2019,27 +2019,27 @@ public class FileControlImplTest extends TestCase {
     /**
      * testRenameFile02() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE, F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE, F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) srcFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) srcFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "testRenameFile02_src.txt"<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "testRenameFile02_new.txt"<br>
-     * (ó‘Ô) FileControl.basePath:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)"<br>
+     * (çŠ¶æ…‹) FileControl.basePath:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)"<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») FileUtility.renameFile():ŒÄ‚Ño‚³‚ê‚éB<br>
-     * ˆø”srcFileAnewFile‚ªFileControl.basePath‚ğæ“ª‚É‚Â‚¯‚Ä“n‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) FileUtility.renameFile():å‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
+     * å¼•æ•°srcFileã€newFileãŒFileControl.basePathã‚’å…ˆé ­ã«ã¤ã‘ã¦æ¸¡ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * ƒtƒ@ƒCƒ‹‚ÌƒpƒX‚ª‘Š‘ÎƒpƒX‚Å‚ ‚éƒP[ƒXB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹ãŒç›¸å¯¾ãƒ‘ã‚¹ã§ã‚ã‚‹ã‚±ãƒ¼ã‚¹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testRenameFile02() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         FileControlImpl fileControl = new FileControlImpl();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -2048,7 +2048,7 @@ public class FileControlImplTest extends TestCase {
         String srcFile = "testRenameFile02_src.txt";
         String newFile = "testRenameFile02_new.txt";
 
-        // ƒeƒXƒg‘OA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+        // ãƒ†ã‚¹ãƒˆå‰ã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
         File file = new File(directoryPath + srcFile);
         file.delete();
         file.createNewFile();
@@ -2057,17 +2057,17 @@ public class FileControlImplTest extends TestCase {
         file.delete();
         file.createNewFile();
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         String basePath = directoryPath;
         UTUtil.setPrivateField(fileControl, "basePath", basePath);
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             fileControl.renameFile(srcFile, newFile);
 
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(1, VMOUTUtil.getCallCount(FileUtility.class,
                     "renameFile"));
             assertEquals(basePath + srcFile, VMOUTUtil.getArgument(
@@ -2081,7 +2081,7 @@ public class FileControlImplTest extends TestCase {
             assertEquals(newFile, VMOUTUtil.getArgument(fileControl.getClass(),
                     "getAbsolutePath", 1, 0));
         } finally {
-            // ƒeƒXƒgŒãA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+            // ãƒ†ã‚¹ãƒˆå¾Œã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
             file = new File(directoryPath + srcFile);
             file.delete();
             file = new File(directoryPath + newFile);
@@ -2092,27 +2092,27 @@ public class FileControlImplTest extends TestCase {
     /**
      * testRenameFile03() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE, F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE, F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) srcFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)testRenameFile03_src.txt"<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)testRenameFile03_new.txt"<br>
-     * (ó‘Ô) FileControl.basePath:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) srcFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)testRenameFile03_src.txt"<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)testRenameFile03_new.txt"<br>
+     * (çŠ¶æ…‹) FileControl.basePath:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)"<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») FileUtility.renameFile():ŒÄ‚Ño‚³‚ê‚éB<br>
-     * ˆø”srcFileAnewFile‚ªFileControl.basePath‚ğæ“ª‚É‚Â‚¯‚¸‚É“n‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) FileUtility.renameFile():å‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
+     * å¼•æ•°srcFileã€newFileãŒFileControl.basePathã‚’å…ˆé ­ã«ã¤ã‘ãšã«æ¸¡ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * ˆø”‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚ªâ‘ÎƒpƒX‚Å‚ ‚èAŠî€ƒpƒX‚ªİ’è‚³‚ê‚Ä‚¢‚éê‡‚ÍŠî€ƒpƒX‚ª•t—^‚³‚ê‚È‚¢‚±‚ÆB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * å¼•æ•°ã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ãŒçµ¶å¯¾ãƒ‘ã‚¹ã§ã‚ã‚Šã€åŸºæº–ãƒ‘ã‚¹ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã¯åŸºæº–ãƒ‘ã‚¹ãŒä»˜ä¸ã•ã‚Œãªã„ã“ã¨ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testRenameFile03() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         FileControlImpl fileControl = new FileControlImpl();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -2121,7 +2121,7 @@ public class FileControlImplTest extends TestCase {
         String srcFile = directoryPath + "testRenameFile03_src.txt";
         String newFile = directoryPath + "testRenameFile03_new.txt";
 
-        // ƒeƒXƒg‘OA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+        // ãƒ†ã‚¹ãƒˆå‰ã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
         File file = new File(srcFile);
         file.delete();
         file.createNewFile();
@@ -2130,17 +2130,17 @@ public class FileControlImplTest extends TestCase {
         file.delete();
         file.createNewFile();
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         String basePath = directoryPath;
         UTUtil.setPrivateField(fileControl, "basePath", basePath);
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             fileControl.renameFile(srcFile, newFile);
 
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(1, VMOUTUtil.getCallCount(FileUtility.class,
                     "renameFile"));
             assertEquals(srcFile, VMOUTUtil.getArgument(FileUtility.class,
@@ -2154,7 +2154,7 @@ public class FileControlImplTest extends TestCase {
             assertEquals(newFile, VMOUTUtil.getArgument(fileControl.getClass(),
                     "getAbsolutePath", 1, 0));
         } finally {
-            // ƒeƒXƒgŒãA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+            // ãƒ†ã‚¹ãƒˆå¾Œã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
             file = new File(srcFile);
             file.delete();
             file = new File(newFile);
@@ -2165,28 +2165,28 @@ public class FileControlImplTest extends TestCase {
     /**
      * testRenameFile04() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FG <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) srcFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) srcFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "testRenameFile04_src.txt"<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "testRenameFile04_new.txt"<br>
-     * (ó‘Ô) FileControl.basePath:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * (çŠ¶æ…‹) FileControl.basePath:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * ""<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») FileUtility.renameFile():ŒÄ‚Ño‚³‚ê‚éB<br>
-     * ˆø”srcFileAnewFile‚ªFileControl.basePath‚ğæ“ª‚É‚Â‚¯‚Ä“n‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) FileUtility.renameFile():å‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
+     * å¼•æ•°srcFileã€newFileãŒFileControl.basePathã‚’å…ˆé ­ã«ã¤ã‘ã¦æ¸¡ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * ƒtƒ@ƒCƒ‹‚ÌƒpƒX‚ª‘Š‘ÎƒpƒX‚Å‚ ‚èAŠî€ƒpƒX‚ªİ’è‚³‚ê‚Ä‚¢‚È‚¢ƒP[ƒXB<br>
-     * —áŠOFileException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹ãŒç›¸å¯¾ãƒ‘ã‚¹ã§ã‚ã‚Šã€åŸºæº–ãƒ‘ã‚¹ãŒè¨­å®šã•ã‚Œã¦ã„ãªã„ã‚±ãƒ¼ã‚¹ã€‚<br>
+     * ä¾‹å¤–FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testRenameFile04() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         FileControlImpl fileControl = new FileControlImpl();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -2195,7 +2195,7 @@ public class FileControlImplTest extends TestCase {
         String srcFile = "testRenameFile04_src.txt";
         String newFile = "testRenameFile04_new.txt";
 
-        // ƒeƒXƒg‘OA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+        // ãƒ†ã‚¹ãƒˆå‰ã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
         File file = new File(directoryPath + srcFile);
         file.delete();
         file.createNewFile();
@@ -2204,15 +2204,15 @@ public class FileControlImplTest extends TestCase {
         file.delete();
         file.createNewFile();
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         String basePath = "";
         UTUtil.setPrivateField(fileControl, "basePath", basePath);
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             fileControl.renameFile(srcFile, newFile);
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(1, VMOUTUtil.getCallCount(FileUtility.class,
                     "renameFile"));
             assertEquals(srcFile, VMOUTUtil.getArgument(FileUtility.class,
@@ -2226,7 +2226,7 @@ public class FileControlImplTest extends TestCase {
             assertEquals(newFile, VMOUTUtil.getArgument(fileControl.getClass(),
                     "getAbsolutePath", 1, 0));
         } finally {
-            // ƒeƒXƒgŒãA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+            // ãƒ†ã‚¹ãƒˆå¾Œã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
             file = new File(directoryPath + srcFile);
             file.delete();
             file = new File(directoryPath + newFile);
@@ -2237,26 +2237,26 @@ public class FileControlImplTest extends TestCase {
     /**
      * testRenameFile05() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) srcFile:null<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)testRenameFile05_new.txt"<br>
-     * (ó‘Ô) FileControl.basePath:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) srcFile:null<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)testRenameFile05_new.txt"<br>
+     * (çŠ¶æ…‹) FileControl.basePath:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * ""<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:—áŠOFileException‚ª”­¶‚·‚éB<br>
-     * ƒƒbƒZ[ƒWF"File name is not set."<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä¾‹å¤–FileExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"File name is not set."<br>
      * <br>
-     * ˆø”srcFile‚Énull‚ªİ’è‚³‚ê‚½ê‡‚ÍAFileException‚ªƒXƒ[‚³‚ê‚é‚±‚ÆB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * å¼•æ•°srcFileã«nullãŒè¨­å®šã•ã‚ŒãŸå ´åˆã¯ã€FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testRenameFile05() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         FileControlImpl fileControl = new FileControlImpl();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -2265,23 +2265,23 @@ public class FileControlImplTest extends TestCase {
         String srcFile = null;
         String newFile = directoryPath + "testRenameFile05_new.txt";
 
-        // ƒeƒXƒg‘OA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+        // ãƒ†ã‚¹ãƒˆå‰ã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
         File file = new File(newFile);
         file.delete();
         file.createNewFile();
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         String basePath = "";
         UTUtil.setPrivateField(fileControl, "basePath", basePath);
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             fileControl.renameFile(srcFile, newFile);
-            fail("FileException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B¸”s‚Å‚·B");
+            fail("FileExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚å¤±æ•—ã§ã™ã€‚");
         } catch (FileException e) {
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(1, VMOUTUtil.getCallCount(fileControl.getClass(),
                     "getAbsolutePath"));
             assertEquals(srcFile, VMOUTUtil.getArgument(fileControl.getClass(),
@@ -2291,7 +2291,7 @@ public class FileControlImplTest extends TestCase {
             assertEquals("File name is not set.", e.getMessage());
             assertNull(e.getFileName());
         } finally {
-            // ƒeƒXƒgŒãA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+            // ãƒ†ã‚¹ãƒˆå¾Œã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
             file = new File(newFile);
             file.delete();
         }
@@ -2300,26 +2300,26 @@ public class FileControlImplTest extends TestCase {
     /**
      * testRenameFile06() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ˆø”) srcFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)testRenameFile06_src.txt"<br>
-     * (ˆø”) newFile:null<br>
-     * (ó‘Ô) FileControl.basePath:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) srcFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)testRenameFile06_src.txt"<br>
+     * (å¼•æ•°) newFile:null<br>
+     * (çŠ¶æ…‹) FileControl.basePath:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * ""<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:—áŠOFileException‚ª”­¶‚·‚éB<br>
-     * ƒƒbƒZ[ƒWF"File name is not set."<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:ä¾‹å¤–FileExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼š"File name is not set."<br>
      * <br>
-     * ˆø”newFile‚Énull‚ªİ’è‚³‚ê‚½ê‡‚ÍAFileException‚ªƒXƒ[‚³‚ê‚é‚±‚ÆB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * å¼•æ•°newFileã«nullãŒè¨­å®šã•ã‚ŒãŸå ´åˆã¯ã€FileExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testRenameFile06() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         FileControlImpl fileControl = new FileControlImpl();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -2328,23 +2328,23 @@ public class FileControlImplTest extends TestCase {
         String srcFile = directoryPath + "testRenameFile06_src.txt";
         String newFile = null;
 
-        // ƒeƒXƒg‘OA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+        // ãƒ†ã‚¹ãƒˆå‰ã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
         File file = new File(srcFile);
         file.delete();
         file.createNewFile();
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         String basePath = "";
         UTUtil.setPrivateField(fileControl, "basePath", basePath);
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             fileControl.renameFile(srcFile, newFile);
-            fail("FileException‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B¸”s‚Å‚·B");
+            fail("FileExceptionãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚å¤±æ•—ã§ã™ã€‚");
         } catch (FileException e) {
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(2, VMOUTUtil.getCallCount(fileControl.getClass(),
                     "getAbsolutePath"));
             assertEquals(srcFile, VMOUTUtil.getArgument(fileControl.getClass(),
@@ -2356,7 +2356,7 @@ public class FileControlImplTest extends TestCase {
             assertEquals("File name is not set.", e.getMessage());
             assertNull(e.getFileName());
         } finally {
-            // ƒeƒXƒgŒãA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+            // ãƒ†ã‚¹ãƒˆå¾Œã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
             file = new File(srcFile);
             file.delete();
         }
@@ -2365,28 +2365,28 @@ public class FileControlImplTest extends TestCase {
     /**
      * testRenameFile07() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE, F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE, F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) srcFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) srcFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "testRenameFile07_src.txt"<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)testRenameFile07_new.txt"<br>
-     * (ó‘Ô) FileControl.basePath:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)"<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)testRenameFile07_new.txt"<br>
+     * (çŠ¶æ…‹) FileControl.basePath:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)"<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») FileUtility.renameFile():ŒÄ‚Ño‚³‚ê‚éB<br>
-     * ˆø”srcFile‚ªFileControl.basePath‚ğæ“ª‚É‚Â‚¯‚Ä“n‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * ˆø”newFile‚ªFileControl.basePath‚ğæ“ª‚É‚Â‚¯‚¸‚É“n‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) FileUtility.renameFile():å‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
+     * å¼•æ•°srcFileãŒFileControl.basePathã‚’å…ˆé ­ã«ã¤ã‘ã¦æ¸¡ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * å¼•æ•°newFileãŒFileControl.basePathã‚’å…ˆé ­ã«ã¤ã‘ãšã«æ¸¡ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * ˆø”‚“‚’‚ƒFile‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚ª‘Š‘ÎƒpƒX‚ÅAˆø”newFile‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚ªâ‘ÎƒpƒX‚Ìê‡AsrcFile‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚ÉŠî€ƒpƒX‚ª•t—^‚³‚ênewFile‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚É‚ÍŠî€ƒpƒX‚ª•t—^‚³‚ê‚È‚¢‚±‚ÆB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * å¼•æ•°ï½“ï½’ï½ƒFileã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ãŒç›¸å¯¾ãƒ‘ã‚¹ã§ã€å¼•æ•°newFileã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ãŒçµ¶å¯¾ãƒ‘ã‚¹ã®å ´åˆã€srcFileã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ã«åŸºæº–ãƒ‘ã‚¹ãŒä»˜ä¸ã•ã‚ŒnewFileã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ã«ã¯åŸºæº–ãƒ‘ã‚¹ãŒä»˜ä¸ã•ã‚Œãªã„ã“ã¨ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testRenameFile07() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         FileControlImpl fileControl = new FileControlImpl();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -2395,7 +2395,7 @@ public class FileControlImplTest extends TestCase {
         String srcFile = "testRenameFile07_src.txt";
         String newFile = directoryPath + "testRenameFile07_new.txt";
 
-        // ƒeƒXƒg‘OA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+        // ãƒ†ã‚¹ãƒˆå‰ã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
         File file = new File(directoryPath + srcFile);
         file.delete();
         file.createNewFile();
@@ -2404,17 +2404,17 @@ public class FileControlImplTest extends TestCase {
         file.delete();
         file.createNewFile();
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         String basePath = directoryPath;
         UTUtil.setPrivateField(fileControl, "basePath", basePath);
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             fileControl.renameFile(srcFile, newFile);
 
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(1, VMOUTUtil.getCallCount(FileUtility.class,
                     "renameFile"));
             assertEquals(basePath + srcFile, VMOUTUtil.getArgument(
@@ -2428,7 +2428,7 @@ public class FileControlImplTest extends TestCase {
             assertEquals(newFile, VMOUTUtil.getArgument(fileControl.getClass(),
                     "getAbsolutePath", 1, 0));
         } finally {
-            // ƒeƒXƒgŒãA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+            // ãƒ†ã‚¹ãƒˆå¾Œã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
             file = new File(directoryPath + srcFile);
             file.delete();
             file = new File(newFile);
@@ -2439,28 +2439,28 @@ public class FileControlImplTest extends TestCase {
     /**
      * testRenameFile08() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE, F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE, F <br>
      * <br>
-     * “ü—Í’lF(ˆø”) srcFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)testRenameFile08_src.txt"<br>
-     * (ˆø”) newFile:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) srcFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)testRenameFile08_src.txt"<br>
+     * (å¼•æ•°) newFile:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "testRenameFile08_new.txt"<br>
-     * (ó‘Ô) FileControl.basePath:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
-     * "(ƒpƒX)"<br>
+     * (çŠ¶æ…‹) FileControl.basePath:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
+     * "(ãƒ‘ã‚¹)"<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») FileUtility.renameFile():ŒÄ‚Ño‚³‚ê‚éB<br>
-     * ˆø”srcFile‚ªFileControl.basePath‚ğæ“ª‚É‚Â‚¯‚¸‚É“n‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * ˆø”newFile‚ªFileControl.basePath‚ğæ“ª‚É‚Â‚¯‚Ä“n‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) FileUtility.renameFile():å‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
+     * å¼•æ•°srcFileãŒFileControl.basePathã‚’å…ˆé ­ã«ã¤ã‘ãšã«æ¸¡ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * å¼•æ•°newFileãŒFileControl.basePathã‚’å…ˆé ­ã«ã¤ã‘ã¦æ¸¡ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * ˆø”‚“‚’‚ƒFile‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚ªâ‘ÎƒpƒX‚ÅAˆø”newFile‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚ª‘Š‘ÎƒpƒX‚Ìê‡AsrcFile‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚ÉŠî€ƒpƒX‚ª•t—^‚³‚ê‚¸newFile‚Ìƒtƒ@ƒCƒ‹ƒpƒX‚É‚ÍŠî€ƒpƒX‚ª•t—^‚³‚ê‚é‚±‚ÆB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * å¼•æ•°ï½“ï½’ï½ƒFileã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ãŒçµ¶å¯¾ãƒ‘ã‚¹ã§ã€å¼•æ•°newFileã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ãŒç›¸å¯¾ãƒ‘ã‚¹ã®å ´åˆã€srcFileã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ã«åŸºæº–ãƒ‘ã‚¹ãŒä»˜ä¸ã•ã‚ŒãšnewFileã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ã«ã¯åŸºæº–ãƒ‘ã‚¹ãŒä»˜ä¸ã•ã‚Œã‚‹ã“ã¨ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testRenameFile08() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         FileControlImpl fileControl = new FileControlImpl();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
         String directoryPath = url.getPath().substring(0,
@@ -2469,7 +2469,7 @@ public class FileControlImplTest extends TestCase {
         String srcFile = directoryPath + "testRenameFile08_src.txt";
         String newFile = "testRenameFile08_new.txt";
 
-        // ƒeƒXƒg‘OA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+        // ãƒ†ã‚¹ãƒˆå‰ã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
         File file = new File(srcFile);
         file.delete();
         file.createNewFile();
@@ -2478,17 +2478,17 @@ public class FileControlImplTest extends TestCase {
         file.delete();
         file.createNewFile();
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         String basePath = directoryPath;
         UTUtil.setPrivateField(fileControl, "basePath", basePath);
 
         try {
-            // ƒeƒXƒgÀ{
+            // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
             fileControl.renameFile(srcFile, newFile);
 
-            // •Ô‹p’l‚È‚µ
+            // è¿”å´å€¤ãªã—
 
-            // ó‘Ô•Ï‰»‚ÌŠm”F
+            // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
             assertEquals(1, VMOUTUtil.getCallCount(FileUtility.class,
                     "renameFile"));
             assertEquals(srcFile, VMOUTUtil.getArgument(FileUtility.class,
@@ -2502,7 +2502,7 @@ public class FileControlImplTest extends TestCase {
             assertEquals(newFile, VMOUTUtil.getArgument(fileControl.getClass(),
                     "getAbsolutePath", 1, 0));
         } finally {
-            // ƒeƒXƒgŒãA‘ÎÛƒtƒ@ƒCƒ‹‚ğ‰Šú‰»
+            // ãƒ†ã‚¹ãƒˆå¾Œã€å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’åˆæœŸåŒ–
             file = new File(srcFile);
             file.delete();
             file = new File(directoryPath + newFile);
@@ -2513,101 +2513,101 @@ public class FileControlImplTest extends TestCase {
     /**
      * testGetBasePath01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FF <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šF <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) basePath:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) basePath:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "aaa"<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) String:‘O’ñğŒ‚ÌbasePath‚Æ“¯‚¶<br>
-     * StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) String:å‰ææ¡ä»¶ã®basePathã¨åŒã˜<br>
+     * Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     * ‘®«‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * å±æ€§ãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testGetBasePath01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         FileControlImpl fileControl = new FileControlImpl();
 
-        // ˆø”‚È‚µ
+        // å¼•æ•°ãªã—
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         String basePath = "aaa";
         UTUtil.setPrivateField(fileControl, "basePath", basePath);
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String getBasePath = fileControl.getBasePath();
 
-        // •Ô‹p’l‚ÌŠm”F
+        // è¿”å´å€¤ã®ç¢ºèª
         assertEquals(basePath, getBasePath);
 
-        // ó‘Ô•Ï‰»‚È‚µ
+        // çŠ¶æ…‹å¤‰åŒ–ãªã—
     }
 
     /**
      * testSetBasePath01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FE <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šE <br>
      * <br>
-     * “ü—Í’lF(ˆø”) basePath:StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) basePath:Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * "aaa"<br>
-     * (ó‘Ô) basePath:""<br>
+     * (çŠ¶æ…‹) basePath:""<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») basePath:ˆø”‚ÌbasePath‚Æ“¯‚¶<br>
-     * StringƒCƒ“ƒXƒ^ƒ“ƒX<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) basePath:å¼•æ•°ã®basePathã¨åŒã˜<br>
+     * Stringã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹<br>
      * <br>
-     * ˆø”‚ª³‚µ‚­‘®«‚Éİ’è‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * å¼•æ•°ãŒæ­£ã—ãå±æ€§ã«è¨­å®šã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚ <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testSetBasePath01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         FileControlImpl fileControl = new FileControlImpl();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         String basePath = "aaa";
 
-        // ‘O’ñğŒ‚Ìİ’è
+        // å‰ææ¡ä»¶ã®è¨­å®š
         UTUtil.setPrivateField(fileControl, "basePath", "");
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         fileControl.setBasePath(basePath);
 
-        // •Ô‹p’l‚È‚µ
+        // è¿”å´å€¤ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(basePath, UTUtil.getPrivateField(fileControl, "basePath"));
     }
 
     /**
      * testSetCheckFileExist01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FA <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šA <br>
      * <br>
-     * “ü—Í’lF(ˆø”) checkFileExist:true<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) checkFileExist:true<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») setCheckFileExist:ŒÄ‚Ño‚³‚ê‚éB<br>
-     * ˆø”checkFileExist‚ª“n‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) setCheckFileExist:å‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
+     * å¼•æ•°checkFileExistãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * ˆø”‚ªtrue <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * å¼•æ•°ãŒtrue <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testSetCheckFileExist01() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         FileControlImpl fileControl = new FileControlImpl();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         boolean checkFileExist = true;
 
-        // ‘O’ñğŒ‚È‚µ
+        // å‰ææ¡ä»¶ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         fileControl.setCheckFileExist(checkFileExist);
 
-        // •Ô‹p’l‚È‚µ
+        // è¿”å´å€¤ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(1, VMOUTUtil.getCallCount(FileUtility.class,
                 "setCheckFileExist"));
         assertEquals(checkFileExist, VMOUTUtil.getArgument(FileUtility.class,
@@ -2617,32 +2617,32 @@ public class FileControlImplTest extends TestCase {
     /**
      * testSetCheckFileExist02() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FA <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šA <br>
      * <br>
-     * “ü—Í’lF(ˆø”) checkFileExist:false<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) checkFileExist:false<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») setCheckFileExist:ŒÄ‚Ño‚³‚ê‚éB<br>
-     * ˆø”checkFileExist‚ª“n‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) setCheckFileExist:å‘¼ã³å‡ºã•ã‚Œã‚‹ã€‚<br>
+     * å¼•æ•°checkFileExistãŒæ¸¡ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
      * <br>
-     * ˆø”‚ªfalse <br>
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * å¼•æ•°ãŒfalse <br>
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testSetCheckFileExist02() throws Exception {
-        // ƒeƒXƒg‘ÎÛ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
         FileControlImpl fileControl = new FileControlImpl();
 
-        // ˆø”‚Ìİ’è
+        // å¼•æ•°ã®è¨­å®š
         boolean checkFileExist = false;
 
-        // ‘O’ñğŒ‚È‚µ
+        // å‰ææ¡ä»¶ãªã—
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         fileControl.setCheckFileExist(checkFileExist);
 
-        // •Ô‹p’l‚È‚µ
+        // è¿”å´å€¤ãªã—
 
-        // ó‘Ô•Ï‰»‚ÌŠm”F
+        // çŠ¶æ…‹å¤‰åŒ–ã®ç¢ºèª
         assertEquals(1, VMOUTUtil.getCallCount(FileUtility.class,
                 "setCheckFileExist"));
         assertEquals(checkFileExist, VMOUTUtil.getArgument(FileUtility.class,

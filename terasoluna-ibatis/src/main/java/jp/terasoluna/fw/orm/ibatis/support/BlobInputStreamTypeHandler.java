@@ -27,57 +27,57 @@ import org.springframework.jdbc.support.lob.LobHandler;
 import org.springframework.orm.ibatis.support.AbstractLobTypeHandler;
 
 /**
- * iBATIS‚©‚ç—˜—p‚³‚ê‚éBLOB‚ÆƒXƒgƒŠ[ƒ€‚ğƒ}ƒbƒsƒ“ƒO‚·‚éÀ‘•‚ÌiBATIS‚Ìƒ^ƒCƒvƒnƒ“ƒhƒ‰B
+ * iBATISã‹ã‚‰åˆ©ç”¨ã•ã‚Œã‚‹BLOBã¨ã‚¹ãƒˆãƒªãƒ¼ãƒ ã‚’ãƒãƒƒãƒ”ãƒ³ã‚°ã™ã‚‹å®Ÿè£…ã®iBATISã®ã‚¿ã‚¤ãƒ—ãƒãƒ³ãƒ‰ãƒ©ã€‚
  *
  * <p>
- * Oracle‚ÌBLOBŒ^‚ğƒXƒgƒŠ[ƒ€‚Åˆµ‚¤ê‡‚Í–{API‚ğg—p‚·‚éBi¦–{ƒNƒ‰ƒX‚ÍPostgreSQL‚Å‚Í—˜—p‚Å‚«‚È‚¢j<br>
- * BLOB—ñ‚ğƒoƒCƒg”z—ñ‚Æ‚µ‚Äˆµ‚¤ê‡A–{ƒNƒ‰ƒX‚ğ—˜—p‚·‚é•K—v‚Í‚È‚¢B<br>
- * BLOB—ñ‚ÌƒTƒCƒY‚ª‘å‚«‚­Aƒƒ‚ƒŠ‚É‘Sƒf[ƒ^‚ğŠi”[‚Å‚«‚È‚¢‰Â”\«‚ª‚ ‚éê‡‚ÍA–{ƒNƒ‰ƒX‚ğ—˜—p‚·‚é‚±‚ÆB<br>
- * </p>
- *
- * <p>
- * –{ƒNƒ‰ƒX‚ğ—˜—p‚·‚é‚½‚ß‚É‚ÍOracleLobHandler‚ÌBean’è‹`‚ÆsqlMapClientFactoryBean‚Ö‚Ìİ’è‚ğs‚¤‚±‚ÆB<br>
- * ‚Ü‚½AOracleLobHandler‚É‚ÍNativeJdbcExtractorÀ‘•ƒNƒ‰ƒX‚ğİ’è‚·‚é‚±‚ÆB<br>
- * ‚È‚¨ASpring‚ªOracleLobHandler‚Æ‚¢‚­‚Â‚©‚ÌNativeJdbcExtractorÀ‘•ƒNƒ‰ƒX‚ğ’ñ‹Ÿ‚µ‚Ä‚¢‚éB<br>
- * </p>
- * 
- * <p>
- * OracleLobHandler‚ÍA
- * Oracle‚ÌJDBCƒhƒ‰ƒCƒo‚ÌƒRƒlƒNƒVƒ‡ƒ“(oracle.jdbc.OracleConnectionƒCƒ“ƒ^ƒtƒF[ƒXÀ‘•ƒNƒ‰ƒX)‚ÌAPI‚ğg—p‚µ‚ÄA
- * Lob‚Ìƒnƒ“ƒhƒŠƒ“ƒO‚ğs‚¤B<br>
- * ‚»‚Ì‚½‚ß‚ÉAƒRƒlƒNƒVƒ‡ƒ“ƒv[ƒ‹‚©‚çæ“¾‚µ‚½ƒRƒlƒNƒVƒ‡ƒ“
- * (close‚·‚é‚ÆƒRƒlƒNƒVƒ‡ƒ“‚ªƒv[ƒ‹‚É•Ô‚é‚µ‚­‚İ‚ªÀ‘•‚³‚ê‚Ä‚¢‚éAƒRƒlƒNƒVƒ‡ƒ“‚Ìƒ‰ƒbƒp)‚©‚çA
- * JDBCƒhƒ‰ƒCƒo‚ÌƒRƒlƒNƒVƒ‡ƒ“‚ğæ“¾‚·‚é–ğŠ„‚ğ‰Ê‚½‚·‚Ì‚ªANativeJdbcExtractor(Spring‚ÌƒCƒ“ƒ^ƒtƒF[ƒX)‚Å‚ ‚éB<br>
- * JDBCƒhƒ‰ƒCƒo‚ÌƒRƒlƒNƒVƒ‡ƒ“‚Ìæ“¾•û–@‚Í
- * g—p‚µ‚Ä‚¢‚éƒRƒlƒNƒVƒ‡ƒ“ƒv[ƒ‹‚ÌÀ‘•‚É‚æ‚Á‚ÄˆÙ‚È‚é‚½‚ßASpring‚ª—lX‚ÈNativeJdbcExtractorÀ‘•ƒNƒ‰ƒX‚ğ’ñ‹Ÿ‚µ‚Ä‚¢‚éB
- * </p>
- * 
- * <p>
- * Spring‚ª’ñ‹Ÿ‚µ‚Ä‚¢‚éÀ‘•ƒNƒ‰ƒX‚Ìˆê‚Â‚ÉSimpleNativeJdbcExtractor‚ª‚ ‚éB<br>
- * SimpleNativeJdbcExtractor‚ÍAŠÈ’P‚©‚ÂA“Á’è‚ÌƒRƒlƒNƒVƒ‡ƒ“ƒv[ƒ‹‚ğˆÓ¯‚µ‚È‚¢À‘•‚ª‚³‚ê‚Ä‚¢‚éB<br>
- * ‚½‚¾‚µASimpleNativeJdbcExtractor‚ğ—˜—p‚µ‚Ä‚àA
- * commons-dbcp-1.3ˆÈ~‚È‚ÇAƒRƒlƒNƒVƒ‡ƒ“ƒv[ƒ‹‚ÌÀ‘•‚É‚æ‚Á‚Ä‚ÍAJDBCƒRƒlƒNƒVƒ‡ƒ“‚ğæ“¾‚Å‚«‚È‚¢ê‡‚ª‚ ‚éB<br>
- * ‚»‚Ìê‡ASpring‚ª’ñ‹Ÿ‚µ‚Ä‚¢‚é‘¼‚ÌNativeJdbcExtractorÀ‘•ƒNƒ‰ƒX‚ğg—p‚·‚é‚©A
- * ŠeAPƒT[ƒo—p‚ÉV‚½‚ÉNativeJdbcExtractorÀ‘•ƒNƒ‰ƒX‚ğì¬‚·‚é•K—v‚ª‚ ‚éB<br>
- * </p>
- * 
- * <p>
- * —á‚¦‚ÎA
- * commons-dbcp-1.3ˆÈ~A‚ ‚é‚¢‚Í‚»‚ê‚ğg—p‚µ‚Ä‚¢‚éƒo[ƒWƒ‡ƒ“‚ÌTomcat‚Ìê‡‚ÍACommonsDbcpNativeJdbcExtractor‚ğg—p‚·‚éB
- * APƒT[ƒo‚ªWebLogic‚Ìê‡‚ÍAWebLogicNativeJdbcExtractor‚ğg—p‚·‚éB
- * ã‹L‚ÌNativeJdbcExtractorÀ‘•ƒNƒ‰ƒX‚ÍA‚Ç‚¿‚ç‚àSpring‚ª’ñ‹Ÿ‚µ‚Ä‚¢‚éB
+ * Oracleã®BLOBå‹ã‚’ã‚¹ãƒˆãƒªãƒ¼ãƒ ã§æ‰±ã†å ´åˆã¯æœ¬APIã‚’ä½¿ç”¨ã™ã‚‹ã€‚ï¼ˆâ€»æœ¬ã‚¯ãƒ©ã‚¹ã¯PostgreSQLã§ã¯åˆ©ç”¨ã§ããªã„ï¼‰<br>
+ * BLOBåˆ—ã‚’ãƒã‚¤ãƒˆé…åˆ—ã¨ã—ã¦æ‰±ã†å ´åˆã€æœ¬ã‚¯ãƒ©ã‚¹ã‚’åˆ©ç”¨ã™ã‚‹å¿…è¦ã¯ãªã„ã€‚<br>
+ * BLOBåˆ—ã®ã‚µã‚¤ã‚ºãŒå¤§ããã€ãƒ¡ãƒ¢ãƒªã«å…¨ãƒ‡ãƒ¼ã‚¿ã‚’æ ¼ç´ã§ããªã„å¯èƒ½æ€§ãŒã‚ã‚‹å ´åˆã¯ã€æœ¬ã‚¯ãƒ©ã‚¹ã‚’åˆ©ç”¨ã™ã‚‹ã“ã¨ã€‚<br>
  * </p>
  *
  * <p>
- *  y<code>Bean’è‹`ƒtƒ@ƒCƒ‹</code>‚Ìİ’è—áz<br>
+ * æœ¬ã‚¯ãƒ©ã‚¹ã‚’åˆ©ç”¨ã™ã‚‹ãŸã‚ã«ã¯OracleLobHandlerã®Beanå®šç¾©ã¨sqlMapClientFactoryBeanã¸ã®è¨­å®šã‚’è¡Œã†ã“ã¨ã€‚<br>
+ * ã¾ãŸã€OracleLobHandlerã«ã¯NativeJdbcExtractorå®Ÿè£…ã‚¯ãƒ©ã‚¹ã‚’è¨­å®šã™ã‚‹ã“ã¨ã€‚<br>
+ * ãªãŠã€SpringãŒOracleLobHandlerã¨ã„ãã¤ã‹ã®NativeJdbcExtractorå®Ÿè£…ã‚¯ãƒ©ã‚¹ã‚’æä¾›ã—ã¦ã„ã‚‹ã€‚<br>
+ * </p>
+ * 
+ * <p>
+ * OracleLobHandlerã¯ã€
+ * Oracleã®JDBCãƒ‰ãƒ©ã‚¤ãƒã®ã‚³ãƒã‚¯ã‚·ãƒ§ãƒ³(oracle.jdbc.OracleConnectionã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹å®Ÿè£…ã‚¯ãƒ©ã‚¹)ã®APIã‚’ä½¿ç”¨ã—ã¦ã€
+ * Lobã®ãƒãƒ³ãƒ‰ãƒªãƒ³ã‚°ã‚’è¡Œã†ã€‚<br>
+ * ãã®ãŸã‚ã«ã€ã‚³ãƒã‚¯ã‚·ãƒ§ãƒ³ãƒ—ãƒ¼ãƒ«ã‹ã‚‰å–å¾—ã—ãŸã‚³ãƒã‚¯ã‚·ãƒ§ãƒ³
+ * (closeã™ã‚‹ã¨ã‚³ãƒã‚¯ã‚·ãƒ§ãƒ³ãŒãƒ—ãƒ¼ãƒ«ã«è¿”ã‚‹ã—ãã¿ãŒå®Ÿè£…ã•ã‚Œã¦ã„ã‚‹ã€ã‚³ãƒã‚¯ã‚·ãƒ§ãƒ³ã®ãƒ©ãƒƒãƒ‘)ã‹ã‚‰ã€
+ * JDBCãƒ‰ãƒ©ã‚¤ãƒã®ã‚³ãƒã‚¯ã‚·ãƒ§ãƒ³ã‚’å–å¾—ã™ã‚‹å½¹å‰²ã‚’æœãŸã™ã®ãŒã€NativeJdbcExtractor(Springã®ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹)ã§ã‚ã‚‹ã€‚<br>
+ * JDBCãƒ‰ãƒ©ã‚¤ãƒã®ã‚³ãƒã‚¯ã‚·ãƒ§ãƒ³ã®å–å¾—æ–¹æ³•ã¯
+ * ä½¿ç”¨ã—ã¦ã„ã‚‹ã‚³ãƒã‚¯ã‚·ãƒ§ãƒ³ãƒ—ãƒ¼ãƒ«ã®å®Ÿè£…ã«ã‚ˆã£ã¦ç•°ãªã‚‹ãŸã‚ã€SpringãŒæ§˜ã€…ãªNativeJdbcExtractorå®Ÿè£…ã‚¯ãƒ©ã‚¹ã‚’æä¾›ã—ã¦ã„ã‚‹ã€‚
+ * </p>
+ * 
+ * <p>
+ * SpringãŒæä¾›ã—ã¦ã„ã‚‹å®Ÿè£…ã‚¯ãƒ©ã‚¹ã®ä¸€ã¤ã«SimpleNativeJdbcExtractorãŒã‚ã‚‹ã€‚<br>
+ * SimpleNativeJdbcExtractorã¯ã€ç°¡å˜ã‹ã¤ã€ç‰¹å®šã®ã‚³ãƒã‚¯ã‚·ãƒ§ãƒ³ãƒ—ãƒ¼ãƒ«ã‚’æ„è­˜ã—ãªã„å®Ÿè£…ãŒã•ã‚Œã¦ã„ã‚‹ã€‚<br>
+ * ãŸã ã—ã€SimpleNativeJdbcExtractorã‚’åˆ©ç”¨ã—ã¦ã‚‚ã€
+ * commons-dbcp-1.3ä»¥é™ãªã©ã€ã‚³ãƒã‚¯ã‚·ãƒ§ãƒ³ãƒ—ãƒ¼ãƒ«ã®å®Ÿè£…ã«ã‚ˆã£ã¦ã¯ã€JDBCã‚³ãƒã‚¯ã‚·ãƒ§ãƒ³ã‚’å–å¾—ã§ããªã„å ´åˆãŒã‚ã‚‹ã€‚<br>
+ * ãã®å ´åˆã€SpringãŒæä¾›ã—ã¦ã„ã‚‹ä»–ã®NativeJdbcExtractorå®Ÿè£…ã‚¯ãƒ©ã‚¹ã‚’ä½¿ç”¨ã™ã‚‹ã‹ã€
+ * å„APã‚µãƒ¼ãƒç”¨ã«æ–°ãŸã«NativeJdbcExtractorå®Ÿè£…ã‚¯ãƒ©ã‚¹ã‚’ä½œæˆã™ã‚‹å¿…è¦ãŒã‚ã‚‹ã€‚<br>
+ * </p>
+ * 
+ * <p>
+ * ä¾‹ãˆã°ã€
+ * commons-dbcp-1.3ä»¥é™ã€ã‚ã‚‹ã„ã¯ãã‚Œã‚’ä½¿ç”¨ã—ã¦ã„ã‚‹ãƒãƒ¼ã‚¸ãƒ§ãƒ³ã®Tomcatã®å ´åˆã¯ã€CommonsDbcpNativeJdbcExtractorã‚’ä½¿ç”¨ã™ã‚‹ã€‚
+ * APã‚µãƒ¼ãƒãŒWebLogicã®å ´åˆã¯ã€WebLogicNativeJdbcExtractorã‚’ä½¿ç”¨ã™ã‚‹ã€‚
+ * ä¸Šè¨˜ã®NativeJdbcExtractorå®Ÿè£…ã‚¯ãƒ©ã‚¹ã¯ã€ã©ã¡ã‚‰ã‚‚SpringãŒæä¾›ã—ã¦ã„ã‚‹ã€‚
+ * </p>
+ *
+ * <p>
+ *  ã€<code>Beanå®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«</code>ã®è¨­å®šä¾‹ã€‘<br>
  * <code><pre>
- *   &lt;!-- LOBƒtƒB[ƒ‹ƒh‚ğˆµ‚¤‚½‚ß‚Ìƒnƒ“ƒhƒ‰ --&gt;
+ *   &lt;!-- LOBãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’æ‰±ã†ãŸã‚ã®ãƒãƒ³ãƒ‰ãƒ© --&gt;
  *   &lt;bean id="oracleLobHandler"
  *            class="org.springframework.jdbc.support.lob.OracleLobHandler"&gt;
  *     &lt;property name="nativeJdbcExtractor" ref="simpleExtractor"/&gt;
  *   &lt;/bean&gt;
  *
- *   &lt;!-- iBATIS ƒf[ƒ^ƒx[ƒX‘w‚Ì‚½‚ß‚ÌSQlMap‚Ìİ’è --&gt;
+ *   &lt;!-- iBATIS ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹å±¤ã®ãŸã‚ã®SQlMapã®è¨­å®š --&gt;
  *   &lt;bean id="sqlMapClient"
  *       class="org.springframework.orm.ibatis.SqlMapClientFactoryBean"&gt;
  *     &lt;property name="configLocation" value="WEB-INF/sql-map-config.xml"/&gt;
@@ -85,8 +85,8 @@ import org.springframework.orm.ibatis.support.AbstractLobTypeHandler;
  *     &lt;property name="lobHandler" ref="oracleLobHandler"/&gt;
  *   &lt;/bean&gt;
  *   
- *  &lt;!-- simpleExtractor‚ÌBean’è‹`İ’è --&gt;
- *  &lt;!-- ¦ OC4J‚ÌJNDI‚©‚çƒf[ƒ^ƒ\[ƒX‚ğæ“¾‚·‚éê‡‚ÍAƒvƒƒpƒeƒB‚Í‚·‚×‚Ätrue‚É‚µ‚Ä‚¨‚­‚±‚ÆB --&gt;
+ *  &lt;!-- simpleExtractorã®Beanå®šç¾©è¨­å®š --&gt;
+ *  &lt;!-- â€» OC4Jã®JNDIã‹ã‚‰ãƒ‡ãƒ¼ã‚¿ã‚½ãƒ¼ã‚¹ã‚’å–å¾—ã™ã‚‹å ´åˆã¯ã€ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã¯ã™ã¹ã¦trueã«ã—ã¦ãŠãã“ã¨ã€‚ --&gt;
  *  &lt;bean id="simpleExtractor"
  *        class="org.springframework.jdbc.support.nativejdbc.SimpleNativeJdbcExtractor"&gt;
  *    &lt;property name="nativeConnectionNecessaryForNativeStatements" value="true"/&gt;
@@ -97,15 +97,15 @@ import org.springframework.orm.ibatis.support.AbstractLobTypeHandler;
  * </p>
  *
  * <p>
- * –{ƒNƒ‰ƒX‚ğ—˜—p‚µ‚½iBATISİ’èƒtƒ@ƒCƒ‹‚Ì‹Lq•û–@‚ğˆÈ‰º‚É¦‚·B
+ * æœ¬ã‚¯ãƒ©ã‚¹ã‚’åˆ©ç”¨ã—ãŸiBATISè¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã®è¨˜è¿°æ–¹æ³•ã‚’ä»¥ä¸‹ã«ç¤ºã™ã€‚
  * </p>
  *
  * <p>
- *  yBLOB_TESTƒe[ƒuƒ‹’è‹`z<br>
+ *  ã€BLOB_TESTãƒ†ãƒ¼ãƒ–ãƒ«å®šç¾©ã€‘<br>
  *   <table border="1" CELLPADDING="8">
- *     <th>—ñ–¼</th>
- *     <th>Œ^</th>
- *     <th>§–ñ</th>
+ *     <th>åˆ—å</th>
+ *     <th>å‹</th>
+ *     <th>åˆ¶ç´„</th>
  *
  *     <tr>
  *       <td align=center>PK</td>
@@ -122,9 +122,9 @@ import org.springframework.orm.ibatis.support.AbstractLobTypeHandler;
  * </p>
  *
  * <p>
- *  y<code>iBATISİ’èƒtƒ@ƒCƒ‹</code>‚Ìİ’è—áz<br>
+ *  ã€<code>iBATISè¨­å®šãƒ•ã‚¡ã‚¤ãƒ«</code>ã®è¨­å®šä¾‹ã€‘<br>
  * <code><pre>
- * &lt;!-- update•¶‚Ìİ’è --&gt;
+ * &lt;!-- updateæ–‡ã®è¨­å®š --&gt;
  * &lt;parameterMap id="blobParam" class="java.util.Map"&gt;
  *   &lt;parameter property="pk"/&gt;
  *   &lt;parameter property="map"
@@ -135,7 +135,7 @@ import org.springframework.orm.ibatis.support.AbstractLobTypeHandler;
  *   INSERT INTO BLOB_TEST (PK, MAP) VALUES (?, ?)
  * &lt;/insert&gt;
  *
- * &lt;!-- select•¶‚Ìİ’è --&gt;
+ * &lt;!-- selectæ–‡ã®è¨­å®š --&gt;
  * &lt;resultMap id="blobResult" class="java.util.HashMap"&gt;
  *   &lt;result property="pk"/&gt;
  *   &lt;result property="map"
@@ -152,14 +152,14 @@ import org.springframework.orm.ibatis.support.AbstractLobTypeHandler;
 public class BlobInputStreamTypeHandler extends AbstractLobTypeHandler {
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      */
     public BlobInputStreamTypeHandler() {
         super();
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      * @param lobHandler LobHandler
      */
     protected BlobInputStreamTypeHandler(LobHandler lobHandler) {
@@ -167,14 +167,14 @@ public class BlobInputStreamTypeHandler extends AbstractLobTypeHandler {
     }
 
     /**
-     * ƒpƒ‰ƒ[ƒ^‚ğİ’è‚·‚éB
+     * ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’è¨­å®šã™ã‚‹ã€‚
      *
-     * @param ps ƒZƒbƒgæ‚ÌPreparedStatement
-     * @param index ƒpƒ‰ƒ[ƒ^‚ÌƒCƒ“ƒfƒbƒNƒX
-     * @param value ƒZƒbƒg‚·‚éƒpƒ‰ƒ[ƒ^
-     * @param jdbcType ƒpƒ‰ƒ[ƒ^‚ÌJDBCŒ^
-     * @param lobCreator —˜—p‚·‚éLobCreator
-     * @throws SQLException SQL—áŠO
+     * @param ps ã‚»ãƒƒãƒˆå…ˆã®PreparedStatement
+     * @param index ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+     * @param value ã‚»ãƒƒãƒˆã™ã‚‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
+     * @param jdbcType ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®JDBCå‹
+     * @param lobCreator åˆ©ç”¨ã™ã‚‹LobCreator
+     * @throws SQLException SQLä¾‹å¤–
      */
     @Override
     protected void setParameterInternal(
@@ -188,12 +188,12 @@ public class BlobInputStreamTypeHandler extends AbstractLobTypeHandler {
     }
 
     /**
-     * Œ‹‰Ê‚ğæ“¾‚·‚éB
-     * @param rs æ“¾Œ³‚ÌResultSet
-     * @param index ResultSet‚ÌƒCƒ“ƒfƒbƒNƒX
-     * @param lobHandler —˜—p‚·‚éLobHandler
-     * @return æ“¾Œ‹‰Ê
-     * @throws SQLException SQL—áŠO
+     * çµæœã‚’å–å¾—ã™ã‚‹ã€‚
+     * @param rs å–å¾—å…ƒã®ResultSet
+     * @param index ResultSetã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+     * @param lobHandler åˆ©ç”¨ã™ã‚‹LobHandler
+     * @return å–å¾—çµæœ
+     * @throws SQLException SQLä¾‹å¤–
      */
     @Override
     protected Object getResultInternal(
@@ -205,9 +205,9 @@ public class BlobInputStreamTypeHandler extends AbstractLobTypeHandler {
     }
 
     /**
-     * •¶š—ñ‚ğ–{Handler‚ªˆµ‚¤Œ^‚É•ÏŠ·‚·‚éB
-     * @param s •¶š—ñ
-     * @return Handler‚ªˆµ‚¤Œ^‚ÌƒCƒ“ƒXƒ^ƒ“ƒX
+     * æ–‡å­—åˆ—ã‚’æœ¬HandlerãŒæ‰±ã†å‹ã«å¤‰æ›ã™ã‚‹ã€‚
+     * @param s æ–‡å­—åˆ—
+     * @return HandlerãŒæ‰±ã†å‹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
      */
     public Object valueOf(String s) {
         if (s == null) {

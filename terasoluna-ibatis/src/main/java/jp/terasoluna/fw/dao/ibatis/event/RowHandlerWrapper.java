@@ -22,12 +22,12 @@ import com.ibatis.sqlmap.client.event.RowHandler;
 
 /**
  * <p>
- * iBATIS‚ÌRowHandler‚Ìƒ‰ƒbƒp[ƒNƒ‰ƒXB
+ * iBATISã®RowHandlerã®ãƒ©ãƒƒãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹ã€‚
  * </p>
  * 
  * <p>
- * TERASOLUNA‚ÌDataRowHandler‚ğiBATIS‚ÌRowHandler‚Ö•ÏŠ·‚·‚éB<br>
- * 1s‚Ìƒf[ƒ^ˆ—‚ÍDataRowHandler‚ÉÀ‘•‚·‚é‚±‚ÆB
+ * TERASOLUNAã®DataRowHandlerã‚’iBATISã®RowHandlerã¸å¤‰æ›ã™ã‚‹ã€‚<br>
+ * 1è¡Œã®ãƒ‡ãƒ¼ã‚¿å‡¦ç†ã¯DataRowHandlerã«å®Ÿè£…ã™ã‚‹ã“ã¨ã€‚
  * </p>
  *
  * @see jp.terasoluna.fw.dao.ibatis.QueryRowHandleDAOiBatisImpl
@@ -40,7 +40,7 @@ public class RowHandlerWrapper implements RowHandler {
     protected DataRowHandler dataRowHandler = null;
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      * 
      * @param dataRowHandler DataRowHandler
      */
@@ -50,9 +50,9 @@ public class RowHandlerWrapper implements RowHandler {
     }
 
     /**
-     * 1s–ˆ‚ÉŒÄ‚Î‚ê‚éƒƒ\ƒbƒh
+     * 1è¡Œæ¯ã«å‘¼ã°ã‚Œã‚‹ãƒ¡ã‚½ãƒƒãƒ‰
      *
-     * @param valueObject 1s‚Ìƒf[ƒ^
+     * @param valueObject 1è¡Œã®ãƒ‡ãƒ¼ã‚¿
      * @see com.ibatis.sqlmap.client.event.RowHandler#handleRow(java.lang.Object)
      */
     public void handleRow(Object valueObject) {

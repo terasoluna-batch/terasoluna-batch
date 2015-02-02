@@ -22,67 +22,67 @@ import java.util.Map;
 import jp.terasoluna.fw.file.dao.FileException;
 
 /**
- * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ğ—p‚¢‚È‚¢ƒtƒ@ƒCƒ‹‘‹@”\B
+ * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ç”¨ã„ãªã„ãƒ•ã‚¡ã‚¤ãƒ«æ›¸è¾¼æ©Ÿèƒ½ã€‚
  * <p>
- * ƒrƒWƒlƒXƒƒWƒbƒN‚È‚Ç‚©‚çó‚¯æ‚Á‚½•¶š—ñ‚ğƒtƒ@ƒCƒ‹‚Éo—Í‚·‚éB ‘¼‚Ìƒtƒ@ƒCƒ‹ƒAƒNƒZƒX‹@”\‚Æ‚ÍˆÙ‚È‚èAƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ğg‚í‚È‚¢B
+ * ãƒ“ã‚¸ãƒã‚¹ãƒ­ã‚¸ãƒƒã‚¯ãªã©ã‹ã‚‰å—ã‘å–ã£ãŸæ–‡å­—åˆ—ã‚’ãƒ•ã‚¡ã‚¤ãƒ«ã«å‡ºåŠ›ã™ã‚‹ã€‚ ä»–ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚¢ã‚¯ã‚»ã‚¹æ©Ÿèƒ½ã¨ã¯ç•°ãªã‚Šã€ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ä½¿ã‚ãªã„ã€‚
  * </p>
- * <b>¦—˜—p‚·‚éƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÌƒAƒmƒe[ƒVƒ‡ƒ“€–Ú</b><br>
- * ú@D@{@link jp.terasoluna.fw.file.annotation.FileFormat}‚Ìİ’è€–Ú<br>
+ * <b>â€»åˆ©ç”¨ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³é …ç›®</b><br>
+ * â…°ï¼@{@link jp.terasoluna.fw.file.annotation.FileFormat}ã®è¨­å®šé …ç›®<br>
  * <div align="center">
  * <table width="90%" border="1" bgcolor="#FFFFFF">
  * <tr>
- * <td><b>˜_—€–Ú–¼</b></td>
- * <td><b>•¨—€–Ú–¼</b></td>
- * <td><b>ƒfƒtƒHƒ‹ƒg’l</b></td>
- * <td><b>•K{«</b></td>
+ * <td><b>è«–ç†é …ç›®å</b></td>
+ * <td><b>ç‰©ç†é …ç›®å</b></td>
+ * <td><b>ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤</b></td>
+ * <td><b>å¿…é ˆæ€§</b></td>
  * </tr>
  * <tr>
- * <td> <code>s‹æØ‚è•¶š</code></td>
+ * <td> <code>è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—</code></td>
  * <td> <code>lineFeedChar</code></td>
- * <td> <code>ƒVƒXƒeƒ€‚Ìs‹æØ‚è•¶š</code></td>
- * <td> <code>ƒIƒvƒVƒ‡ƒ“</code></td>
+ * <td> <code>ã‚·ã‚¹ãƒ†ãƒ ã®è¡ŒåŒºåˆ‡ã‚Šæ–‡å­—</code></td>
+ * <td> <code>ã‚ªãƒ—ã‚·ãƒ§ãƒ³</code></td>
  * </tr>
  * <tr>
- * <td> <code>ƒtƒ@ƒCƒ‹ƒGƒ“ƒR[ƒfƒBƒ“ƒO</code></td>
+ * <td> <code>ãƒ•ã‚¡ã‚¤ãƒ«ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°</code></td>
  * <td> <code>fileEncodeing</code></td>
- * <td> <code>ƒVƒXƒeƒ€‚Ìƒtƒ@ƒCƒ‹ƒGƒ“ƒR[ƒfƒBƒ“ƒO</code></td>
- * <td> <code>ƒIƒvƒVƒ‡ƒ“</code></td>
+ * <td> <code>ã‚·ã‚¹ãƒ†ãƒ ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°</code></td>
+ * <td> <code>ã‚ªãƒ—ã‚·ãƒ§ãƒ³</code></td>
  * </tr>
  * <tr>
- * <td> <code>ƒtƒ@ƒCƒ‹ã‘‚«ƒtƒ‰ƒO</code></td>
+ * <td> <code>ãƒ•ã‚¡ã‚¤ãƒ«ä¸Šæ›¸ããƒ•ãƒ©ã‚°</code></td>
  * <td> <code>overWriteFlg</code></td>
  * <td> <code>false</code></td>
- * <td> <code>ƒIƒvƒVƒ‡ƒ“</code></td>
+ * <td> <code>ã‚ªãƒ—ã‚·ãƒ§ãƒ³</code></td>
  * </tr>
  * </table>
  * </div> <br>
- * <b>¦’ˆÓ–€</b><br>
+ * <b>â€»æ³¨æ„äº‹é …</b><br>
  * <ul>
- * @
- * <li>‹æØ‚è•¶š‚ÆˆÍ‚İ•¶š‚Ìİ’è‚Í–³‹‚·‚éB</li>
+ * ã€€
+ * <li>åŒºåˆ‡ã‚Šæ–‡å­—ã¨å›²ã¿æ–‡å­—ã®è¨­å®šã¯ç„¡è¦–ã™ã‚‹ã€‚</li>
  * </ul>
  */
 public class PlainFileLineWriter extends AbstractFileLineWriter<String> {
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-     * @param fileName ƒtƒ@ƒCƒ‹–¼
-     * @param clazz ƒpƒ‰ƒ[ƒ^ƒNƒ‰ƒX
-     * @param columnFormatterMap ƒeƒLƒXƒgæ“¾ƒ‹[ƒ‹
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * @param fileName ãƒ•ã‚¡ã‚¤ãƒ«å
+     * @param clazz ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚¯ãƒ©ã‚¹
+     * @param columnFormatterMap ãƒ†ã‚­ã‚¹ãƒˆå–å¾—ãƒ«ãƒ¼ãƒ«
      */
     @SuppressWarnings("unchecked")
     public PlainFileLineWriter(String fileName, Class clazz,
             Map<String, ColumnFormatter> columnFormatterMap) {
         super(fileName, clazz, columnFormatterMap);
 
-        // ‰Šú‰»ˆ—
+        // åˆæœŸåŒ–å‡¦ç†
         super.init();
     }
 
     /**
-     * ˆø”<code>t</code>‚Ì•¶š—ñ‚ğƒtƒ@ƒCƒ‹‚É‘‚«‚ŞB
-     * @param t •¶š—ñ
-     * @throws NullPointerException <code>t</code>‚ª<code>null</code>‚Ìê‡
+     * å¼•æ•°<code>t</code>ã®æ–‡å­—åˆ—ã‚’ãƒ•ã‚¡ã‚¤ãƒ«ã«æ›¸ãè¾¼ã‚€ã€‚
+     * @param t æ–‡å­—åˆ—
+     * @throws NullPointerException <code>t</code>ãŒ<code>null</code>ã®å ´åˆ
      */
     @Override
     public void printDataLine(String t) {
@@ -98,9 +98,9 @@ public class PlainFileLineWriter extends AbstractFileLineWriter<String> {
     }
 
     /**
-     * ‹æØ‚è•¶š‚ğæ“¾‚·‚éB<br>
-     * u0v‚ÅŒÅ’èB
-     * @return ‹æØ‚è•¶š
+     * åŒºåˆ‡ã‚Šæ–‡å­—ã‚’å–å¾—ã™ã‚‹ã€‚<br>
+     * ã€Œ0ã€ã§å›ºå®šã€‚
+     * @return åŒºåˆ‡ã‚Šæ–‡å­—
      */
     @Override
     public char getDelimiter() {
@@ -108,9 +108,9 @@ public class PlainFileLineWriter extends AbstractFileLineWriter<String> {
     }
 
     /**
-     * ˆÍ‚İ•¶š‚ğæ“¾‚·‚éB<br>
-     * u0v‚ÅŒÅ’èB
-     * @return ˆÍ‚İ•¶š
+     * å›²ã¿æ–‡å­—ã‚’å–å¾—ã™ã‚‹ã€‚<br>
+     * ã€Œ0ã€ã§å›ºå®šã€‚
+     * @return å›²ã¿æ–‡å­—
      */
     @Override
     public char getEncloseChar() {
@@ -118,8 +118,8 @@ public class PlainFileLineWriter extends AbstractFileLineWriter<String> {
     }
 
     /**
-     * ƒtƒ@ƒCƒ‹sƒIƒuƒWƒFƒNƒg‚ÉƒAƒmƒe[ƒVƒ‡ƒ“‚ªİ’è‚³‚ê‚Ä‚¢‚é–‚ğƒ`ƒFƒbƒN‚·‚é‚©‚Ç‚¤‚©‚ğ•Ô‚·B<br>
-     * PlainFileLineWriter‚Å‚Íƒ`ƒFƒbƒN‚ğs‚í‚È‚¢‚½‚ßAfalseB
+     * ãƒ•ã‚¡ã‚¤ãƒ«è¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹äº‹ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã‹ã©ã†ã‹ã‚’è¿”ã™ã€‚<br>
+     * PlainFileLineWriterã§ã¯ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã‚ãªã„ãŸã‚ã€falseã€‚
      * @return false
      */
     @Override

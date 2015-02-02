@@ -17,7 +17,7 @@
 package jp.terasoluna.fw.collector.exception;
 
 /**
- * ƒRƒŒƒNƒ^—áŠO
+ * ã‚³ãƒ¬ã‚¯ã‚¿ä¾‹å¤–
  */
 public class CollectorException extends RuntimeException {
 
@@ -27,14 +27,14 @@ public class CollectorException extends RuntimeException {
     private static final long serialVersionUID = -4662102198786531151L;
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      */
     public CollectorException() {
         super();
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      * @param message
      */
     public CollectorException(String message) {
@@ -42,7 +42,7 @@ public class CollectorException extends RuntimeException {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      * @param cause
      */
     public CollectorException(Throwable cause) {
@@ -50,7 +50,7 @@ public class CollectorException extends RuntimeException {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
      * @param message
      * @param cause
      */

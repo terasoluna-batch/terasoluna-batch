@@ -24,11 +24,11 @@ public class AbstractCollectorStub17<P> extends AbstractCollector<P> {
     @Override
     protected BlockingQueue<DataValueObject> createQueue() {
         if (this.currentQueue == null) {
-            // currentƒLƒ…[¶¬
+            // currentã‚­ãƒ¥ãƒ¼ç”Ÿæˆ
             this.currentQueue = createCurrentQueue();
         }
         if (this.previousQueue == null) {
-            // previousƒLƒ…[¶¬
+            // previousã‚­ãƒ¥ãƒ¼ç”Ÿæˆ
             this.previousQueue = createPreviousQueue();
         }
         return new LinkedBlockingQueue<DataValueObject>();

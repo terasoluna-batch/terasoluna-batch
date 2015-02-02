@@ -25,39 +25,39 @@ import java.util.Locale;
 import jp.terasoluna.utlib.PropertyTestCase;
 
 /**
- * DateUtil ƒuƒ‰ƒbƒNƒ{ƒbƒNƒXƒeƒXƒgB<br>
- * ‘O’ñğŒ<br>
- * Etest.properties‚ªƒNƒ‰ƒXƒpƒX‚Éİ’è‚³‚ê‚Ä‚¢‚é•K—v‚ª‚ ‚é<br>
- * EƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚ÉˆÈ‰º‚Ì‚æ‚¤‚Èİ’è‚ğ‚µ‚Ä‚¨‚­<br>
- * @wareki.gengo.0.name = •½¬<br>
- * @wareki.gengo.0.roman = H<br>
- * @wareki.gengo.0.startDate = 1989/01/08<br>
- * @wareki.gengo.1.name = º˜a<br>
- * @wareki.gengo.1.roman = S<br>
- * @wareki.gengo.1.startDate = 1926/12/25<br>
- * @wareki.gengo.2.name = ‘å³<br>
- * @wareki.gengo.2.roman = T<br>
- * @wareki.gengo.2.startDate = 1912/07/30<br>
- * @wareki.gengo.3.name = –¾¡<br>
- * @wareki.gengo.3.roman = M<br>
- * @wareki.gengo.3.startDate = 1868/09/04<br>
- * @wareki.gengo.4.name = •½¬<br>
- * @wareki.gengo.4.roman = H<br>
- * @wareki.gengo.5.name = •½¬<br>
- * @wareki.gengo.5.roman = H<br>
- * @wareki.gengo.5.startDate = asdf<br>
+ * DateUtil ãƒ–ãƒ©ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ†ã‚¹ãƒˆã€‚<br>
+ * å‰ææ¡ä»¶<br>
+ * ãƒ»test.propertiesãŒã‚¯ãƒ©ã‚¹ãƒ‘ã‚¹ã«è¨­å®šã•ã‚Œã¦ã„ã‚‹å¿…è¦ãŒã‚ã‚‹<br>
+ * ãƒ»ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ã«ä»¥ä¸‹ã®ã‚ˆã†ãªè¨­å®šã‚’ã—ã¦ãŠã<br>
+ * ã€€wareki.gengo.0.name = å¹³æˆ<br>
+ * ã€€wareki.gengo.0.roman = H<br>
+ * ã€€wareki.gengo.0.startDate = 1989/01/08<br>
+ * ã€€wareki.gengo.1.name = æ˜­å’Œ<br>
+ * ã€€wareki.gengo.1.roman = S<br>
+ * ã€€wareki.gengo.1.startDate = 1926/12/25<br>
+ * ã€€wareki.gengo.2.name = å¤§æ­£<br>
+ * ã€€wareki.gengo.2.roman = T<br>
+ * ã€€wareki.gengo.2.startDate = 1912/07/30<br>
+ * ã€€wareki.gengo.3.name = æ˜æ²»<br>
+ * ã€€wareki.gengo.3.roman = M<br>
+ * ã€€wareki.gengo.3.startDate = 1868/09/04<br>
+ * ã€€wareki.gengo.4.name = å¹³æˆ<br>
+ * ã€€wareki.gengo.4.roman = H<br>
+ * ã€€wareki.gengo.5.name = å¹³æˆ<br>
+ * ã€€wareki.gengo.5.roman = H<br>
+ * ã€€wareki.gengo.5.startDate = asdf<br>
  *
  */
 @SuppressWarnings("unused")
 public class DateUtilTest01 extends PropertyTestCase {
 
     /**
-     * “ú‚ğİ’è‚·‚é‚½‚ß‚ÌƒtƒB[ƒ‹ƒh
+     * æ—¥æ™‚ã‚’è¨­å®šã™ã‚‹ãŸã‚ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰
      */
     private SimpleDateFormat df = null;
 
     /**
-     * “ú‚ğİ’è‚·‚é‚½‚ß‚ÌƒtƒB[ƒ‹ƒh
+     * æ—¥æ™‚ã‚’è¨­å®šã™ã‚‹ãŸã‚ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰
      */
     private Date date = null;
 
@@ -71,21 +71,21 @@ public class DateUtilTest01 extends PropertyTestCase {
 
     @Override
     protected void setUpData() throws Exception {
-        addProperty("wareki.gengo.0.name", "•½¬");
+        addProperty("wareki.gengo.0.name", "å¹³æˆ");
         addProperty("wareki.gengo.0.roman", "H");
         addProperty("wareki.gengo.0.startDate", "1989/01/08");
-        addProperty("wareki.gengo.1.name", "º˜a");
+        addProperty("wareki.gengo.1.name", "æ˜­å’Œ");
         addProperty("wareki.gengo.1.roman", "S");
         addProperty("wareki.gengo.1.startDate", "1926/12/25");
-        addProperty("wareki.gengo.2.name", "‘å³");
+        addProperty("wareki.gengo.2.name", "å¤§æ­£");
         addProperty("wareki.gengo.2.roman", "T");
         addProperty("wareki.gengo.2.startDate", "1912/07/30");
-        addProperty("wareki.gengo.3.name", "–¾¡");
+        addProperty("wareki.gengo.3.name", "æ˜æ²»");
         addProperty("wareki.gengo.3.roman", "M");
         addProperty("wareki.gengo.3.startDate", "1868/09/04");
-        addProperty("wareki.gengo.4.name", "•½¬");
+        addProperty("wareki.gengo.4.name", "å¹³æˆ");
         addProperty("wareki.gengo.4.roman", "H");
-        addProperty("wareki.gengo.5.name", "•½¬");
+        addProperty("wareki.gengo.5.name", "å¹³æˆ");
         addProperty("wareki.gengo.5.roman", "H");
         addProperty("wareki.gengo.5.startDate", "asdf");
     }
@@ -96,669 +96,669 @@ public class DateUtilTest01 extends PropertyTestCase {
     }
 
     /**
-     * testGetSystemTime01B<br>
+     * testGetSystemTime01ã€‚<br>
      *
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lF‚È‚µ<br>
-     * Šú‘Ò’lFƒeƒXƒgÀs‚ÌƒVƒXƒeƒ€<br>
+     * å…¥åŠ›å€¤ï¼šãªã—<br>
+     * æœŸå¾…å€¤ï¼šãƒ†ã‚¹ãƒˆå®Ÿè¡Œæ™‚ã®ã‚·ã‚¹ãƒ†ãƒ æ™‚åˆ»<br>
      *
-     * EƒVƒXƒeƒ€‚ªæ“¾‚Å‚«‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * @Œ‹‰ÊŠm”F‚Å‚ÍƒeƒXƒg‘ÎÛ‚Ì“à—e‚Æ“¯‚¶‚±‚Æ‚ğ‚µ‚Ä‚¢‚éB<br>
-     * @throws Exception —áŠO
+     * ãƒ»ã‚·ã‚¹ãƒ†ãƒ æ™‚åˆ»ãŒå–å¾—ã§ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * ã€€çµæœç¢ºèªã§ã¯ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å†…å®¹ã¨åŒã˜ã“ã¨ã‚’ã—ã¦ã„ã‚‹ã€‚<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testGetSystemTime01() throws Exception {
-        // “ü—Í’l‚Ìİ’è
-        // ƒVƒXƒeƒ€‚Ìæ“¾‚Ì‚½‚ßA“ü—Í‚È‚µ
+        // å…¥åŠ›å€¤ã®è¨­å®š
+        // ã‚·ã‚¹ãƒ†ãƒ æ™‚åˆ»ã®å–å¾—ã®ãŸã‚ã€å…¥åŠ›ãªã—
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         Date result = DateUtil.getSystemTime();
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         Date hope = Calendar.getInstance().getTime();
         assertEquals(hope, result);
     }
 
     // ************************************************************************
-    //  ˜a—ï•ÏŠ·—pƒƒ\ƒbƒh‚ÉŠÖ‚·‚éŠm”F
+    //  å’Œæš¦å¤‰æ›ç”¨ãƒ¡ã‚½ãƒƒãƒ‰ã«é–¢ã™ã‚‹ç¢ºèª
     // ************************************************************************
 
     // ************************************************************************
-    //  Œ³†‚ÌƒtƒH[ƒ}ƒbƒguGv‚ÉŠÖ‚·‚éŠm”F
+    //  å…ƒå·ã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã€ŒGã€ã«é–¢ã™ã‚‹ç¢ºèª
     // ************************************************************************
 
     /**
-     * testDateToWarekiString01B<br>
+     * testDateToWarekiString01ã€‚<br>
      *
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lFformat="G"<br>
+     * å…¥åŠ›å€¤ï¼šformat="G"<br>
      *         date="2001.01.01 00:00:00"<br>
      *
-     * Šú‘Ò’lFdate="H"<br>
+     * æœŸå¾…å€¤ï¼šdate="H"<br>
      *
-     * EŒ³†‚ÌƒtƒH[ƒ}ƒbƒg‚ğuGv‚Æ1•¶š‚É‚µAŒ³†‚Ìo—ÍŒ`®‚ğŠm”F‚·‚éB<br>
-     * @throws Exception —áŠO
+     * ãƒ»å…ƒå·ã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’ã€ŒGã€ã¨1æ–‡å­—ã«ã—ã€å…ƒå·ã®å‡ºåŠ›å½¢å¼ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testDateToWarekiString01() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String format = "G";
-        // ‚Ìİ’è
+        // æ™‚åˆ»ã®è¨­å®š
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         date = new Date(df.parse("2001.01.01 00:00:00").getTime());
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = DateUtil.dateToWarekiString(format, date);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("H", str);
     }
 
     /**
-     * testDateToWarekiString02B<br>
+     * testDateToWarekiString02ã€‚<br>
      *
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lFformat="G"<br>
-     * @@@@currentTime="1980”N1Œ1“ú 00•ª0•b"<br>
-     * Šú‘Ò’lF"S"<br>
+     * å…¥åŠ›å€¤ï¼šformat="G"<br>
+     * ã€€ã€€ã€€ã€€currentTime="1980å¹´1æœˆ1æ—¥ 0æ™‚0åˆ†0ç§’"<br>
+     * æœŸå¾…å€¤ï¼š"S"<br>
      *
-     * EŒ³†‚ÌƒtƒH[ƒ}ƒbƒg‚ğuGv‚Æ1•¶š‚É‚µAŒ³†‚Ìo—ÍŒ`®‚ğŠm”F‚·‚éB<br>
-     * @throws Exception —áŠO
+     * ãƒ»å…ƒå·ã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’ã€ŒGã€ã¨1æ–‡å­—ã«ã—ã€å…ƒå·ã®å‡ºåŠ›å½¢å¼ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testDateToWarekiString02() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String format = "G";
-        // ‚Ìİ’è
+        // æ™‚åˆ»ã®è¨­å®š
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         date = new Date(df.parse("1980.01.01 00:00:00").getTime());
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = DateUtil.dateToWarekiString(format, date);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("S", str);
     }
 
     /**
-     * testDateToWarekiString03B<br>
+     * testDateToWarekiString03ã€‚<br>
      *
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lFformat="GGG"<br>
-     * @@@@currentTime="2001”N1Œ1“ú 00•ª0•b"<br>
-     * Šú‘Ò’lF"H"<br>
+     * å…¥åŠ›å€¤ï¼šformat="GGG"<br>
+     * ã€€ã€€ã€€ã€€currentTime="2001å¹´1æœˆ1æ—¥ 0æ™‚0åˆ†0ç§’"<br>
+     * æœŸå¾…å€¤ï¼š"H"<br>
      *
-     * EŒ³†‚ÌƒtƒH[ƒ}ƒbƒg‚ğuGGGv‚Æ3•¶š‚É‚µAŒ³†‚Ìo—ÍŒ`®‚ğŠm”F‚·‚éB<br>
-     * @throws Exception —áŠO
+     * ãƒ»å…ƒå·ã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’ã€ŒGGGã€ã¨3æ–‡å­—ã«ã—ã€å…ƒå·ã®å‡ºåŠ›å½¢å¼ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testDateToWarekiString03() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String format = "GGG";
-        // ‚Ìİ’è
+        // æ™‚åˆ»ã®è¨­å®š
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         date = new Date(df.parse("2001.01.01 00:00:00").getTime());
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = DateUtil.dateToWarekiString(format, date);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("H", str);
     }
 
     /**
-     * testDateToWarekiString04B<br>
+     * testDateToWarekiString04ã€‚<br>
      *
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lFformat="GGGG"<br>
-     * @@@@currentTime="2001”N1Œ1“ú 00•ª0•b"<br>
-     * Šú‘Ò’lF"•½¬"<br>
+     * å…¥åŠ›å€¤ï¼šformat="GGGG"<br>
+     * ã€€ã€€ã€€ã€€currentTime="2001å¹´1æœˆ1æ—¥ 0æ™‚0åˆ†0ç§’"<br>
+     * æœŸå¾…å€¤ï¼š"å¹³æˆ"<br>
      *
-     * EŒ³†‚ÌƒtƒH[ƒ}ƒbƒg‚ğuGGGGv‚Æ4•¶š‚É‚µAŒ³†‚Ìo—ÍŒ`®‚ğŠm”F‚·‚éB<br>
-     * @throws Exception —áŠO
+     * ãƒ»å…ƒå·ã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’ã€ŒGGGGã€ã¨4æ–‡å­—ã«ã—ã€å…ƒå·ã®å‡ºåŠ›å½¢å¼ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testDateToWarekiString04() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String format = "GGGG";
-        // ‚Ìİ’è
+        // æ™‚åˆ»ã®è¨­å®š
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         date = new Date(df.parse("2001.01.01 00:00:00").getTime());
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = DateUtil.dateToWarekiString(format, date);
 
-        // Œ‹‰ÊŠm”F
-        assertEquals("•½¬", str);
+        // çµæœç¢ºèª
+        assertEquals("å¹³æˆ", str);
     }
 
     /**
-     * testDateToWarekiString05B<br>
+     * testDateToWarekiString05ã€‚<br>
      *
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lFformat="GGGGGGGGGG"<br>
-     * @@@@currentTime="2001”N1Œ1“ú 00•ª0•b"<br>
-     * Šú‘Ò’lF"•½¬"<br>
+     * å…¥åŠ›å€¤ï¼šformat="GGGGGGGGGG"<br>
+     * ã€€ã€€ã€€ã€€currentTime="2001å¹´1æœˆ1æ—¥ 0æ™‚0åˆ†0ç§’"<br>
+     * æœŸå¾…å€¤ï¼š"å¹³æˆ"<br>
      *
-     * EŒ³†‚ÌƒtƒH[ƒ}ƒbƒg‚ğuGGGGGGGGGGv‚Æ10•¶š‚É‚µA
-     * Œ³†‚Ìo—ÍŒ`®‚ğŠm”F‚·‚éB<br>
-     * @throws Exception —áŠO
+     * ãƒ»å…ƒå·ã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’ã€ŒGGGGGGGGGGã€ã¨10æ–‡å­—ã«ã—ã€
+     * å…ƒå·ã®å‡ºåŠ›å½¢å¼ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testDateToWarekiString05() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String format = "GGGGGGGGGG";
-        // ‚Ìİ’è
+        // æ™‚åˆ»ã®è¨­å®š
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         date = new Date(df.parse("2001.01.01 00:00:00").getTime());
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = DateUtil.dateToWarekiString(format, date);
 
-        // Œ‹‰ÊŠm”F
-        assertEquals("•½¬", str);
+        // çµæœç¢ºèª
+        assertEquals("å¹³æˆ", str);
     }
 
     // ************************************************************************
-    //  ”N‚ÌƒtƒH[ƒ}ƒbƒguyv‚ÉŠÖ‚·‚éŠm”F
+    //  å¹´ã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã€Œyã€ã«é–¢ã™ã‚‹ç¢ºèª
     // ************************************************************************
 
     /**
-     * testDateToWarekiString06B<br>
+     * testDateToWarekiString06ã€‚<br>
      *
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lFformat="y"<br>
-     * @@@@currentTime="2001”N1Œ1“ú 00•ª0•b"<br>
-     * Šú‘Ò’lF"13"<br>
+     * å…¥åŠ›å€¤ï¼šformat="y"<br>
+     * ã€€ã€€ã€€ã€€currentTime="2001å¹´1æœˆ1æ—¥ 0æ™‚0åˆ†0ç§’"<br>
+     * æœŸå¾…å€¤ï¼š"13"<br>
      *
-     * EŒ³†‚ÌƒtƒH[ƒ}ƒbƒg‚ğuyv‚Æ1•¶š‚É‚µA˜a—ï”N‚ªo—Í‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * @throws Exception —áŠO
+     * ãƒ»å…ƒå·ã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’ã€Œyã€ã¨1æ–‡å­—ã«ã—ã€å’Œæš¦å¹´ãŒå‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testDateToWarekiString06() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String format = "y";
-        // ‚Ìİ’è
+        // æ™‚åˆ»ã®è¨­å®š
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         date = new Date(df.parse("2001.01.01 00:00:00").getTime());
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = DateUtil.dateToWarekiString(format, date);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("13", str);
     }
 
     /**
-     * testDateToWarekiString07B<br>
+     * testDateToWarekiString07ã€‚<br>
      *
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lFformat="y"<br>
-     * @@@@currentTime="1869”N1Œ1“ú 00•ª0•b"<br>
-     * Šú‘Ò’lF"2"<br>
+     * å…¥åŠ›å€¤ï¼šformat="y"<br>
+     * ã€€ã€€ã€€ã€€currentTime="1869å¹´1æœˆ1æ—¥ 0æ™‚0åˆ†0ç§’"<br>
+     * æœŸå¾…å€¤ï¼š"2"<br>
      *
-     * EŒ³†‚ÌƒtƒH[ƒ}ƒbƒg‚ğuyv‚Æ1•¶š‚É‚µA˜a—ï”N‚ªo—Í‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * @throws Exception —áŠO
+     * ãƒ»å…ƒå·ã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’ã€Œyã€ã¨1æ–‡å­—ã«ã—ã€å’Œæš¦å¹´ãŒå‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testDateToWarekiString07() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String format = "y";
-        // ‚Ìİ’è
+        // æ™‚åˆ»ã®è¨­å®š
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         date = new Date(df.parse("1869.01.01 00:00:00").getTime());
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = DateUtil.dateToWarekiString(format, date);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("2", str);
     }
 
     /**
-     * testDateToWarekiString08B<br>
+     * testDateToWarekiString08ã€‚<br>
      *
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lFformat="yy"<br>
-     * @@@@currentTime="2001”N1Œ1“ú 00•ª0•b"<br>
-     * Šú‘Ò’lF"13"<br>
+     * å…¥åŠ›å€¤ï¼šformat="yy"<br>
+     * ã€€ã€€ã€€ã€€currentTime="2001å¹´1æœˆ1æ—¥ 0æ™‚0åˆ†0ç§’"<br>
+     * æœŸå¾…å€¤ï¼š"13"<br>
      *
-     * EŒ³†‚ÌƒtƒH[ƒ}ƒbƒg‚ğuyyv‚Æ2•¶š‚É‚µA˜a—ï”N‚ªo—Í‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * @throws Exception —áŠO
+     * ãƒ»å…ƒå·ã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’ã€Œyyã€ã¨2æ–‡å­—ã«ã—ã€å’Œæš¦å¹´ãŒå‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testDateToWarekiString08() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String format = "yy";
-        // ‚Ìİ’è
+        // æ™‚åˆ»ã®è¨­å®š
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         date = new Date(df.parse("2001.01.01 00:00:00").getTime());
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = DateUtil.dateToWarekiString(format, date);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("13", str);
     }
 
     /**
-     * testDateToWarekiString09B<br>
+     * testDateToWarekiString09ã€‚<br>
      *
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lFformat="yyyyyyyyyy"<br>
-     * @@@@currentTime="2001”N1Œ1“ú 00•ª0•b"<br>
-     * Šú‘Ò’lF"13"<br>
+     * å…¥åŠ›å€¤ï¼šformat="yyyyyyyyyy"<br>
+     * ã€€ã€€ã€€ã€€currentTime="2001å¹´1æœˆ1æ—¥ 0æ™‚0åˆ†0ç§’"<br>
+     * æœŸå¾…å€¤ï¼š"13"<br>
      *
-     * EŒ³†‚ÌƒtƒH[ƒ}ƒbƒg‚ğuyyyyyyyyyyv‚Æ10•¶š‚É‚µA˜a—ï”N‚ªo—Í‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * @throws Exception —áŠO
+     * ãƒ»å…ƒå·ã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’ã€Œyyyyyyyyyyã€ã¨10æ–‡å­—ã«ã—ã€å’Œæš¦å¹´ãŒå‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testDateToWarekiString09() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String format = "yyyyyyyyyy";
-        // ‚Ìİ’è
+        // æ™‚åˆ»ã®è¨­å®š
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         date = new Date(df.parse("2001.01.01 00:00:00").getTime());
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = DateUtil.dateToWarekiString(format, date);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("13", str);
     }
 
     // ************************************************************************
-    //  —j“ú‚ÌƒtƒH[ƒ}ƒbƒguEv‚ÉŠÖ‚·‚éŠm”F
+    //  æ›œæ—¥ã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã€ŒEã€ã«é–¢ã™ã‚‹ç¢ºèª
     // ************************************************************************
 
     /**
-     * testDateToWarekiString10B<br>
+     * testDateToWarekiString10ã€‚<br>
      *
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lFformat="E"<br>
-     * @@@@currentTime="2001”N1Œ1“ú 00•ª0•b"<br>
-     * Šú‘Ò’lF"Œ"<br>
+     * å…¥åŠ›å€¤ï¼šformat="E"<br>
+     * ã€€ã€€ã€€ã€€currentTime="2001å¹´1æœˆ1æ—¥ 0æ™‚0åˆ†0ç§’"<br>
+     * æœŸå¾…å€¤ï¼š"æœˆ"<br>
      *
-     * E—j“ú‚ÌƒtƒH[ƒ}ƒbƒg‚ğuEv‚Æ1•¶š‚É‚µ‚½ê‡‚ğŠm”F‚·‚éB<br>
-     * @throws Exception —áŠO
+     * ãƒ»æ›œæ—¥ã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’ã€ŒEã€ã¨1æ–‡å­—ã«ã—ãŸå ´åˆã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testDateToWarekiString10() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String format = "E";
-        // ‚Ìİ’è
+        // æ™‚åˆ»ã®è¨­å®š
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         date = new Date(df.parse("2001.01.01 00:00:00").getTime());
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = DateUtil.dateToWarekiString(format, date);
 
-        // Œ‹‰ÊŠm”F
-        assertEquals("Œ", str);
+        // çµæœç¢ºèª
+        assertEquals("æœˆ", str);
     }
 
     /**
-     * testDateToWarekiString11B<br>
+     * testDateToWarekiString11ã€‚<br>
      *
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lFformat="E"<br>
-     * @@@@currentTime="1868”N9Œ3“ú 00•ª0•b"<br>
-     * Šú‘Ò’lF"–Ø"<br>
+     * å…¥åŠ›å€¤ï¼šformat="E"<br>
+     * ã€€ã€€ã€€ã€€currentTime="1868å¹´9æœˆ3æ—¥ 0æ™‚0åˆ†0ç§’"<br>
+     * æœŸå¾…å€¤ï¼š"æœ¨"<br>
      *
-     * E—j“ú‚ÌƒtƒH[ƒ}ƒbƒg‚ğuEv‚Æ1•¶š‚É‚µA“ü—Í‚·‚é“ú•t‚ª<br>
-     * –¾¡Å‰‚Ì“ú‚Ì‘O“ú‚Ìê‡‚ğŠm”F‚·‚éB<br>
-     * @throws Exception —áŠO
+     * ãƒ»æ›œæ—¥ã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’ã€ŒEã€ã¨1æ–‡å­—ã«ã—ã€å…¥åŠ›ã™ã‚‹æ—¥ä»˜ãŒ<br>
+     * æ˜æ²»æœ€åˆã®æ—¥ã®å‰æ—¥ã®å ´åˆã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testDateToWarekiString11() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String format = "E";
-        // ‚Ìİ’è
+        // æ™‚åˆ»ã®è¨­å®š
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         date = new Date(df.parse("1868.09.03 00:00:00").getTime());
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = DateUtil.dateToWarekiString(format, date);
 
-        // Œ‹‰ÊŠm”F
-        assertEquals("–Ø", str);
+        // çµæœç¢ºèª
+        assertEquals("æœ¨", str);
     }
 
     /**
-     * testDateToWarekiString12B<br>
+     * testDateToWarekiString12ã€‚<br>
      *
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lFformat="EEE"<br>
-     * @@@@currentTime="2001”N1Œ1“ú 00•ª0•b"<br>
-     * Šú‘Ò’lF"Œ"<br>
+     * å…¥åŠ›å€¤ï¼šformat="EEE"<br>
+     * ã€€ã€€ã€€ã€€currentTime="2001å¹´1æœˆ1æ—¥ 0æ™‚0åˆ†0ç§’"<br>
+     * æœŸå¾…å€¤ï¼š"æœˆ"<br>
      *
-     * E—j“ú‚ÌƒtƒH[ƒ}ƒbƒg‚ğuEEEv‚Æ3•¶š‚É‚µ‚½ê‡‚ğŠm”F‚·‚éB<br>
-     * @throws Exception —áŠO
+     * ãƒ»æ›œæ—¥ã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’ã€ŒEEEã€ã¨3æ–‡å­—ã«ã—ãŸå ´åˆã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testDateToWarekiString12() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String format = "EEE";
-        // ‚Ìİ’è
+        // æ™‚åˆ»ã®è¨­å®š
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         date = new Date(df.parse("2001.01.01 00:00:00").getTime());
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = DateUtil.dateToWarekiString(format, date);
 
-        // Œ‹‰ÊŠm”F
-        assertEquals("Œ", str);
+        // çµæœç¢ºèª
+        assertEquals("æœˆ", str);
     }
 
     /**
-     * testDateToWarekiString13B<br>
+     * testDateToWarekiString13ã€‚<br>
      *
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lFformat="EEEE"<br>
-     * @@@@currentTime="2001”N1Œ1“ú 00•ª0•b"<br>
-     * Šú‘Ò’lF"Œ—j“ú"<br>
+     * å…¥åŠ›å€¤ï¼šformat="EEEE"<br>
+     * ã€€ã€€ã€€ã€€currentTime="2001å¹´1æœˆ1æ—¥ 0æ™‚0åˆ†0ç§’"<br>
+     * æœŸå¾…å€¤ï¼š"æœˆæ›œæ—¥"<br>
      *
-     * E—j“ú‚ÌƒtƒH[ƒ}ƒbƒg‚ğuEEEEv‚Æ4•¶š‚É‚µ‚½ê‡‚ğŠm”F‚·‚éB<br>
-     * @throws Exception —áŠO
+     * ãƒ»æ›œæ—¥ã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’ã€ŒEEEEã€ã¨4æ–‡å­—ã«ã—ãŸå ´åˆã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testDateToWarekiString13() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String format = "EEEE";
-        // ‚Ìİ’è
+        // æ™‚åˆ»ã®è¨­å®š
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         date = new Date(df.parse("2001.01.01 00:00:00").getTime());
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = DateUtil.dateToWarekiString(format, date);
 
-        // Œ‹‰ÊŠm”F
-        assertEquals("Œ—j“ú", str);
+        // çµæœç¢ºèª
+        assertEquals("æœˆæ›œæ—¥", str);
     }
 
     /**
-     * testDateToWarekiString14B<br>
+     * testDateToWarekiString14ã€‚<br>
      *
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lFformat="EEEEEEEEEE"<br>
-     * @@@@currentTime="2001”N1Œ2“ú 00•ª0•b"<br>
-     * Šú‘Ò’lF"‰Î—j“ú"<br>
+     * å…¥åŠ›å€¤ï¼šformat="EEEEEEEEEE"<br>
+     * ã€€ã€€ã€€ã€€currentTime="2001å¹´1æœˆ2æ—¥ 0æ™‚0åˆ†0ç§’"<br>
+     * æœŸå¾…å€¤ï¼š"ç«æ›œæ—¥"<br>
      *
-     * E—j“ú‚ÌƒtƒH[ƒ}ƒbƒg‚ğuEEEEEEEEEEv‚Æ10•¶š‚É‚µ‚½ê‡‚ğŠm”F‚·‚éB<br>
-     * @throws Exception —áŠO
+     * ãƒ»æ›œæ—¥ã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’ã€ŒEEEEEEEEEEã€ã¨10æ–‡å­—ã«ã—ãŸå ´åˆã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testDateToWarekiString14() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String format = "EEEEEEEEEE";
-        // ‚Ìİ’è
+        // æ™‚åˆ»ã®è¨­å®š
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         date = new Date(df.parse("2001.01.02 00:00:00").getTime());
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = DateUtil.dateToWarekiString(format, date);
 
-        // Œ‹‰ÊŠm”F
-        assertEquals("‰Î—j“ú", str);
+        // çµæœç¢ºèª
+        assertEquals("ç«æ›œæ—¥", str);
     }
 
     // ************************************************************************
-    //  Œ³†‚Æ”N‚Ìo—Í‡‚ÉŠÖ‚·‚éŠm”F
+    //  å…ƒå·ã¨å¹´ã®å‡ºåŠ›é †ã«é–¢ã™ã‚‹ç¢ºèª
     // ************************************************************************
 
     /**
-     * testDateToWarekiString15B<br>
+     * testDateToWarekiString15ã€‚<br>
      *
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lFformat="Gy"<br>
-     * @@@@currentTime="2001”N1Œ1“ú 00•ª0•b"<br>
-     * Šú‘Ò’lF"H13"<br>
+     * å…¥åŠ›å€¤ï¼šformat="Gy"<br>
+     * ã€€ã€€ã€€ã€€currentTime="2001å¹´1æœˆ1æ—¥ 0æ™‚0åˆ†0ç§’"<br>
+     * æœŸå¾…å€¤ï¼š"H13"<br>
      *
-     * EƒtƒH[ƒ}ƒbƒg‚ğuGyv‚Æ‚µAŒ³†(ƒ[ƒ}š){”N‚Ì‡‚Éo—Í‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * @throws Exception —áŠO
+     * ãƒ»ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’ã€ŒGyã€ã¨ã—ã€å…ƒå·(ãƒ­ãƒ¼ãƒå­—)ï¼‹å¹´ã®é †ã«å‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testDateToWarekiString15() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String format = "Gy";
-        // ‚Ìİ’è
+        // æ™‚åˆ»ã®è¨­å®š
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         date = new Date(df.parse("2001.01.01 00:00:00").getTime());
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = DateUtil.dateToWarekiString(format, date);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("H13", str);
     }
 
     /**
-     * testDateToWarekiString16B<br>
+     * testDateToWarekiString16ã€‚<br>
      *
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lFformat="yG"<br>
-     * @@@@currentTime="2001”N1Œ1“ú 00•ª0•b"<br>
-     * Šú‘Ò’lF"13H"<br>
+     * å…¥åŠ›å€¤ï¼šformat="yG"<br>
+     * ã€€ã€€ã€€ã€€currentTime="2001å¹´1æœˆ1æ—¥ 0æ™‚0åˆ†0ç§’"<br>
+     * æœŸå¾…å€¤ï¼š"13H"<br>
      *
-     * EƒtƒH[ƒ}ƒbƒg‚ğuyGv‚Æ‚µA”N{Œ³†(ƒ[ƒ}š)‚Ì‡‚Éo—Í‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * @throws Exception —áŠO
+     * ãƒ»ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’ã€ŒyGã€ã¨ã—ã€å¹´ï¼‹å…ƒå·(ãƒ­ãƒ¼ãƒå­—)ã®é †ã«å‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testDateToWarekiString16() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String format = "yG";
-        // ‚Ìİ’è
+        // æ™‚åˆ»ã®è¨­å®š
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         date = new Date(df.parse("2001.01.01 00:00:00").getTime());
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = DateUtil.dateToWarekiString(format, date);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("13H", str);
     }
 
     /**
-     * testDateToWarekiString17B<br>
+     * testDateToWarekiString17ã€‚<br>
      *
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lFformat="GGGGy"<br>
-     * @@@@currentTime="2001”N1Œ1“ú 00•ª0•b"<br>
-     * Šú‘Ò’lF"•½¬13"<br>
+     * å…¥åŠ›å€¤ï¼šformat="GGGGy"<br>
+     * ã€€ã€€ã€€ã€€currentTime="2001å¹´1æœˆ1æ—¥ 0æ™‚0åˆ†0ç§’"<br>
+     * æœŸå¾…å€¤ï¼š"å¹³æˆ13"<br>
      *
-     * EƒtƒH[ƒ}ƒbƒg‚ğuGGGGyv‚Æ‚µAŒ³†(Š¿š){”N‚Ì‡‚Éo—Í‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * @throws Exception —áŠO
+     * ãƒ»ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’ã€ŒGGGGyã€ã¨ã—ã€å…ƒå·(æ¼¢å­—)ï¼‹å¹´ã®é †ã«å‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testDateToWarekiString17() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String format = "GGGGy";
-        // ‚Ìİ’è
+        // æ™‚åˆ»ã®è¨­å®š
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         date = new Date(df.parse("2001.01.01 00:00:00").getTime());
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = DateUtil.dateToWarekiString(format, date);
 
-        // Œ‹‰ÊŠm”F
-        assertEquals("•½¬13", str);
+        // çµæœç¢ºèª
+        assertEquals("å¹³æˆ13", str);
     }
 
     /**
-     * testDateToWarekiString18B<br>
+     * testDateToWarekiString18ã€‚<br>
      *
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lFformat="yGGGG"<br>
-     * @@@@currentTime="2001”N1Œ1“ú 00•ª0•b"<br>
-     * Šú‘Ò’lF"13•½¬"<br>
+     * å…¥åŠ›å€¤ï¼šformat="yGGGG"<br>
+     * ã€€ã€€ã€€ã€€currentTime="2001å¹´1æœˆ1æ—¥ 0æ™‚0åˆ†0ç§’"<br>
+     * æœŸå¾…å€¤ï¼š"13å¹³æˆ"<br>
      *
-     * EƒtƒH[ƒ}ƒbƒg‚ğuyGGGGv‚Æ‚µA”N{Œ³†(Š¿š)‚Ì‡‚Éo—Í‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * @throws Exception —áŠO
+     * ãƒ»ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’ã€ŒyGGGGã€ã¨ã—ã€å¹´ï¼‹å…ƒå·(æ¼¢å­—)ã®é †ã«å‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testDateToWarekiString18() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String format = "yGGGG";
-        // ‚Ìİ’è
+        // æ™‚åˆ»ã®è¨­å®š
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         date = new Date(df.parse("2001.01.01 00:00:00").getTime());
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = DateUtil.dateToWarekiString(format, date);
 
-        // Œ‹‰ÊŠm”F
-        assertEquals("13•½¬", str);
+        // çµæœç¢ºèª
+        assertEquals("13å¹³æˆ", str);
     }
 
     /**
-     * testDateToWarekiString19B<br>
+     * testDateToWarekiString19ã€‚<br>
      *
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lFformat="G GGGG"<br>
-     * @@@@currentTime="2001”N1Œ1“ú 00•ª0•b"<br>
-     * Šú‘Ò’lF"H •½¬"<br>
+     * å…¥åŠ›å€¤ï¼šformat="G GGGG"<br>
+     * ã€€ã€€ã€€ã€€currentTime="2001å¹´1æœˆ1æ—¥ 0æ™‚0åˆ†0ç§’"<br>
+     * æœŸå¾…å€¤ï¼š"H å¹³æˆ"<br>
      *
-     * EƒtƒH[ƒ}ƒbƒg‚ğuG GGGGv‚Æ‚µAŒ³†(ƒ[ƒ}š){Œ³†(Š¿š)‚Ì‡‚É<br>
-     * o—Í‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * @throws Exception —áŠO
+     * ãƒ»ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’ã€ŒG GGGGã€ã¨ã—ã€å…ƒå·(ãƒ­ãƒ¼ãƒå­—)ï¼‹å…ƒå·(æ¼¢å­—)ã®é †ã«<br>
+     * å‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testDateToWarekiString19() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String format = "G GGGG";
-        // ‚Ìİ’è
+        // æ™‚åˆ»ã®è¨­å®š
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         date = new Date(df.parse("2001.01.01 00:00:00").getTime());
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = DateUtil.dateToWarekiString(format, date);
 
-        // Œ‹‰ÊŠm”F
-        assertEquals("H •½¬", str);
+        // çµæœç¢ºèª
+        assertEquals("H å¹³æˆ", str);
     }
 
     /**
-     * testDateToWarekiString20B<br>
+     * testDateToWarekiString20ã€‚<br>
      *
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lFformat="GGGG G"<br>
-     * @@@@currentTime="2001”N1Œ1“ú 00•ª0•b"<br>
-     * Šú‘Ò’lF"•½¬ H"<br>
+     * å…¥åŠ›å€¤ï¼šformat="GGGG G"<br>
+     * ã€€ã€€ã€€ã€€currentTime="2001å¹´1æœˆ1æ—¥ 0æ™‚0åˆ†0ç§’"<br>
+     * æœŸå¾…å€¤ï¼š"å¹³æˆ H"<br>
      *
-     * EƒtƒH[ƒ}ƒbƒg‚ğuGGGG Gv‚Æ‚µAŒ³†(Š¿š){Œ³†(ƒ[ƒ}š)‚Ì‡‚É<br>
-     * o—Í‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * @throws Exception —áŠO
+     * ãƒ»ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’ã€ŒGGGG Gã€ã¨ã—ã€å…ƒå·(æ¼¢å­—)ï¼‹å…ƒå·(ãƒ­ãƒ¼ãƒå­—)ã®é †ã«<br>
+     * å‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testDateToWarekiString20() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String format = "GGGG G";
-        // ‚Ìİ’è
+        // æ™‚åˆ»ã®è¨­å®š
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         date = new Date(df.parse("2001.01.01 00:00:00").getTime());
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = DateUtil.dateToWarekiString(format, date);
 
-        // Œ‹‰ÊŠm”F
-        assertEquals("•½¬ H", str);
+        // çµæœç¢ºèª
+        assertEquals("å¹³æˆ H", str);
     }
 
     /**
-     * testDateToWarekiString21B<br>
+     * testDateToWarekiString21ã€‚<br>
      *
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lFformat="GGGGG E"<br>
-     * @@@@currentTime="2001”N1Œ1“ú 00•ª0•b"<br>
-     * Šú‘Ò’lF"•½¬ Œ"<br>
+     * å…¥åŠ›å€¤ï¼šformat="GGGGG E"<br>
+     * ã€€ã€€ã€€ã€€currentTime="2001å¹´1æœˆ1æ—¥ 0æ™‚0åˆ†0ç§’"<br>
+     * æœŸå¾…å€¤ï¼š"å¹³æˆ æœˆ"<br>
      *
-     * EƒtƒH[ƒ}ƒbƒg‚ğuGGGGG Ev‚Æ‚µAŒ³†(Š¿š){—j“ú‚Ì‡‚É<br>
-     * o—Í‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * @throws Exception —áŠO
+     * ãƒ»ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’ã€ŒGGGGG Eã€ã¨ã—ã€å…ƒå·(æ¼¢å­—)ï¼‹æ›œæ—¥ã®é †ã«<br>
+     * å‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testDateToWarekiString21() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String format = "GGGGG E";
-        // ‚Ìİ’è
+        // æ™‚åˆ»ã®è¨­å®š
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         date = new Date(df.parse("2001.01.01 00:00:00").getTime());
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = DateUtil.dateToWarekiString(format, date);
 
-        // Œ‹‰ÊŠm”F
-        assertEquals("•½¬ Œ", str);
+        // çµæœç¢ºèª
+        assertEquals("å¹³æˆ æœˆ", str);
     }
 
     /**
-     * testDateToWarekiString22B<br>
+     * testDateToWarekiString22ã€‚<br>
      *
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lFformat="MM.dd HH:mm:ss z"<br>
-     * @@@@currentTime="2001”N2Œ1“ú 34•ª5•b"<br>
-     * Šú‘Ò’lF"02.01 03:04:05 JST"<br>
+     * å…¥åŠ›å€¤ï¼šformat="MM.dd HH:mm:ss z"<br>
+     * ã€€ã€€ã€€ã€€currentTime="2001å¹´2æœˆ1æ—¥ 3æ™‚4åˆ†5ç§’"<br>
+     * æœŸå¾…å€¤ï¼š"02.01 03:04:05 JST"<br>
      *
-     * Ey,G,E‚ğŠÜ‚Ü‚È‚¢ƒtƒH[ƒ}ƒbƒg‚Ìê‡‚ğŠm”F‚·‚éB<br>
-     * @throws Exception —áŠO
+     * ãƒ»y,G,Eã‚’å«ã¾ãªã„ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã®å ´åˆã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testDateToWarekiString22() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String format = "MM.dd HH:mm:ss z";
-        // ‚Ìİ’è
+        // æ™‚åˆ»ã®è¨­å®š
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         date = new Date(df.parse("2001.02.01 03:04:05").getTime());
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = DateUtil.dateToWarekiString(format, date);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("02.01 03:04:05 " + this.getTimeZoneName(date), str);
     }
 
     /**
-     * ƒ^ƒCƒ€ƒ][ƒ“‚Ì—ª–¼‚ğæ“¾B SimpleDateFormatƒNƒ‰ƒX‚Æ“¯—l‚Ì•û–@‚Åƒ^ƒCƒ€ƒ][ƒ“‚Ì—ª–¼‚ğæ“¾‚µ‚Ä‚¢‚éB
+     * ã‚¿ã‚¤ãƒ ã‚¾ãƒ¼ãƒ³ã®ç•¥åã‚’å–å¾—ã€‚ SimpleDateFormatã‚¯ãƒ©ã‚¹ã¨åŒæ§˜ã®æ–¹æ³•ã§ã‚¿ã‚¤ãƒ ã‚¾ãƒ¼ãƒ³ã®ç•¥åã‚’å–å¾—ã—ã¦ã„ã‚‹ã€‚
      *
-     * @param dt ƒf[ƒ^
-     * @return ƒ^ƒCƒ€ƒ][ƒ“‚Ì—ª–¼
-     * @throws Exception —áŠO
+     * @param dt æ™‚åˆ»ãƒ‡ãƒ¼ã‚¿
+     * @return ã‚¿ã‚¤ãƒ ã‚¾ãƒ¼ãƒ³ã®ç•¥å
+     * @throws Exception ä¾‹å¤–
      */
     private String getTimeZoneName(Date dt) throws Exception {
         Calendar calender = Calendar.getInstance();
         calender.setTime(dt);
 
-        // DateFormatSymbols ‚ÍAŒA—j“úAƒ^ƒCƒ€ƒ][ƒ“ƒf[ƒ^‚È‚ÇA
-        // ’nˆæ‘Î‰‚ª‰Â”\‚È“ú•t/ƒtƒH[ƒ}ƒbƒgƒf[ƒ^‚ğƒJƒvƒZƒ‹‰»‚·‚é‚½‚ß‚Ì public ƒNƒ‰ƒXB
+        // DateFormatSymbols ã¯ã€æœˆã€æ›œæ—¥ã€ã‚¿ã‚¤ãƒ ã‚¾ãƒ¼ãƒ³ãƒ‡ãƒ¼ã‚¿ãªã©ã€
+        // åœ°åŸŸå¯¾å¿œãŒå¯èƒ½ãªæ—¥ä»˜/æ™‚åˆ»ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆãƒ‡ãƒ¼ã‚¿ã‚’ã‚«ãƒ—ã‚»ãƒ«åŒ–ã™ã‚‹ãŸã‚ã® public ã‚¯ãƒ©ã‚¹ã€‚
         DateFormatSymbols formatData = new DateFormatSymbols(Locale
                 .getDefault());
-        // ƒ^ƒCƒ€ƒ][ƒ“•¶š—ñ‚Ìæ“¾
+        // ã‚¿ã‚¤ãƒ ã‚¾ãƒ¼ãƒ³æ–‡å­—åˆ—ã®å–å¾—
         String zoneStrings[][] = formatData.getZoneStrings();
 
-        // zoneIndex‚Ìæ“¾
+        // zoneIndexã®å–å¾—
         int zoneIndex = -1;
         String zoneID = calender.getTimeZone().getID();
         for (int index = 0; index < zoneStrings.length; index++) {
@@ -768,12 +768,12 @@ public class DateUtilTest01 extends PropertyTestCase {
             }
         }
 
-        // “Á•Ê‚Ì—ª–¼‚Í‘¶İ‚µ‚È‚¢
+        // ç‰¹åˆ¥ã®ç•¥åã¯å­˜åœ¨ã—ãªã„æ™‚
         if (zoneIndex == -1) {
             return zoneID;
         }
 
-        // —ª–¼‚ÌƒCƒ“ƒfƒbƒNƒX‚Ìæ“¾
+        // ç•¥åã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã®å–å¾—
         int index = -1;
         if(calender.get(Calendar.DST_OFFSET) == 0 ){
             index = 2;
@@ -785,142 +785,142 @@ public class DateUtilTest01 extends PropertyTestCase {
     }
 
     // ************************************************************************
-    //  “ü—Í‚ª•s³‚Èê‡‚ÌŠm”F
+    //  å…¥åŠ›ãŒä¸æ­£ãªå ´åˆã®ç¢ºèª
     // ************************************************************************
 
     /**
-     * testDateToWarekiString23B<br>
+     * testDateToWarekiString23ã€‚<br>
      *
-     * (³íŒn)<br>
-     * ŠÏ“_FA,C<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA,C<br>
      *
-     * “ü—Í’lFformat=""<br>
-     * @@@@currentTime="2001”N1Œ1“ú 00•ª0•b"<br>
-     * Šú‘Ò’lF""<br>
+     * å…¥åŠ›å€¤ï¼šformat=""<br>
+     * ã€€ã€€ã€€ã€€currentTime="2001å¹´1æœˆ1æ—¥ 0æ™‚0åˆ†0ç§’"<br>
+     * æœŸå¾…å€¤ï¼š""<br>
      *
-     * EƒtƒH[ƒ}ƒbƒg‚ğ‹ó•¶š‚É‚µA‹ó•¶š‚ªo—Í‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * @throws Exception —áŠO
+     * ãƒ»ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’ç©ºæ–‡å­—ã«ã—ã€ç©ºæ–‡å­—ãŒå‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testDateToWarekiString23() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String format = "";
-        // ‚Ìİ’è
+        // æ™‚åˆ»ã®è¨­å®š
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         date = new Date(df.parse("2001.01.01 00:00:00").getTime());
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = DateUtil.dateToWarekiString(format, date);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("", str);
     }
 
     /**
-     * testDateToWarekiString24B<br>
+     * testDateToWarekiString24ã€‚<br>
      *
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lFformat="#!--0"<br>
-     * @@@@currentTime="2001”N1Œ1“ú 00•ª0•b"<br>
-     * Šú‘Ò’lF"#!--0"<br>
+     * å…¥åŠ›å€¤ï¼šformat="#!--0"<br>
+     * ã€€ã€€ã€€ã€€currentTime="2001å¹´1æœˆ1æ—¥ 0æ™‚0åˆ†0ç§’"<br>
+     * æœŸå¾…å€¤ï¼š"#!--0"<br>
      *
-     * EƒtƒH[ƒ}ƒbƒg‚ğƒpƒ^[ƒ“•¶šˆÈŠO‚É‚µA<br>
-     * ‚»‚Ì‚Ü‚Üo—Í‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * @throws Exception —áŠO
+     * ãƒ»ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’ãƒ‘ã‚¿ãƒ¼ãƒ³æ–‡å­—ä»¥å¤–ã«ã—ã€<br>
+     * ãã®ã¾ã¾å‡ºåŠ›ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testDateToWarekiString24() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String format = "#!--0";
-        // ‚Ìİ’è
+        // æ™‚åˆ»ã®è¨­å®š
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         date = new Date(df.parse("2001.01.01 00:00:00").getTime());
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = DateUtil.dateToWarekiString(format, date);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("#!--0", str);
     }
 
     /**
-     * testDateToWarekiString25B<br>
+     * testDateToWarekiString25ã€‚<br>
      *
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lFformat="'GGGG' G 'dd' dd"<br>
-     * @@@@currentTime="2001”N1Œ1“ú 00•ª0•b"<br>
-     * Šú‘Ò’lF"GGGG H dd 01"<br>
+     * å…¥åŠ›å€¤ï¼šformat="'GGGG' G 'dd' dd"<br>
+     * ã€€ã€€ã€€ã€€currentTime="2001å¹´1æœˆ1æ—¥ 0æ™‚0åˆ†0ç§’"<br>
+     * æœŸå¾…å€¤ï¼š"GGGG H dd 01"<br>
      *
-     * EƒtƒH[ƒ}ƒbƒgƒLƒƒƒ‰ƒNƒ^‚ğƒVƒ“ƒOƒ‹ƒNƒH[ƒe[ƒVƒ‡ƒ“‚ÅˆÍ‚ñ‚¾ê‡A<br>
-     * •¶š—ñ‚Æ‚µ‚ÄƒGƒXƒP[ƒv‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * @throws Exception —áŠO
+     * ãƒ»ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚­ãƒ£ãƒ©ã‚¯ã‚¿ã‚’ã‚·ãƒ³ã‚°ãƒ«ã‚¯ã‚©ãƒ¼ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã§å›²ã‚“ã å ´åˆã€<br>
+     * æ–‡å­—åˆ—ã¨ã—ã¦ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testDateToWarekiString25() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String format = "'GGGG' G 'dd' dd";
-        // ‚Ìİ’è
+        // æ™‚åˆ»ã®è¨­å®š
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         date = new Date(df.parse("2001.01.01 00:00:00").getTime());
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = DateUtil.dateToWarekiString(format, date);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("GGGG H dd 01", str);
     }
 
     /**
-     * testDateToWarekiString26B<br>
+     * testDateToWarekiString26ã€‚<br>
      *
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lFformat="'y' y 'E' E"<br>
-     * @@@@currentTime="2001”N1Œ1“ú 00•ª0•b"<br>
-     * Šú‘Ò’lFy 13 E Œ<br>
+     * å…¥åŠ›å€¤ï¼šformat="'y' y 'E' E"<br>
+     * ã€€ã€€ã€€ã€€currentTime="2001å¹´1æœˆ1æ—¥ 0æ™‚0åˆ†0ç§’"<br>
+     * æœŸå¾…å€¤ï¼šy 13 E æœˆ<br>
      *
-     * EƒtƒH[ƒ}ƒbƒgƒLƒƒƒ‰ƒNƒ^‚ğƒVƒ“ƒOƒ‹ƒNƒH[ƒe[ƒVƒ‡ƒ“‚ÅˆÍ‚ñ‚¾ê‡A<br>
-     * "y"‚Æ"E"‚Í•¶š—ñ‚Æ‚µ‚ÄƒGƒXƒP[ƒv‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * @throws Exception —áŠO
+     * ãƒ»ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚­ãƒ£ãƒ©ã‚¯ã‚¿ã‚’ã‚·ãƒ³ã‚°ãƒ«ã‚¯ã‚©ãƒ¼ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã§å›²ã‚“ã å ´åˆã€<br>
+     * "y"ã¨"E"ã¯æ–‡å­—åˆ—ã¨ã—ã¦ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testDateToWarekiString26() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String format = "'y' y 'E' E";
-        // ‚Ìİ’è
+        // æ™‚åˆ»ã®è¨­å®š
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         date = new Date(df.parse("2001.01.01 00:00:00").getTime());
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = DateUtil.dateToWarekiString(format, date);
 
-        // Œ‹‰ÊŠm”F
-        assertEquals("y 13 E Œ", str);
+        // çµæœç¢ºèª
+        assertEquals("y 13 E æœˆ", str);
     }
 
     /**
-     * testDateToWarekiString27B<br>
+     * testDateToWarekiString27ã€‚<br>
      *
-     * (ˆÙíŒn)<br>
-     * ŠÏ“_FG<br>
+     * (ç•°å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šG<br>
      *
-     * “ü—Í’lFformat="A"<br>
-     * @@@@currentTime="2001”N1Œ1“ú 00•ª0•b"<br>
-     * Šú‘Ò’lFIllegalArgumentException‚ªƒXƒ[‚³‚ê‚é<br>
+     * å…¥åŠ›å€¤ï¼šformat="A"<br>
+     * ã€€ã€€ã€€ã€€currentTime="2001å¹´1æœˆ1æ—¥ 0æ™‚0åˆ†0ç§’"<br>
+     * æœŸå¾…å€¤ï¼šIllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹<br>
      *
-     * EƒtƒH[ƒ}ƒbƒg•¶š‚É‚È‚¢uAv‚ğw’è‚µ‚½ê‡A<br>
-     * IllegalArgumentException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * @throws Exception —áŠO
+     * ãƒ»ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆæ–‡å­—ã«ãªã„ã€ŒAã€ã‚’æŒ‡å®šã—ãŸå ´åˆã€<br>
+     * IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testDateToWarekiString27() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String format = "A";
-        // ‚Ìİ’è
+        // æ™‚åˆ»ã®è¨­å®š
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         date = new Date(df.parse("2001.01.01 00:00:00").getTime());
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         try {
             String str = DateUtil.dateToWarekiString(format, date);
             fail();
@@ -930,27 +930,27 @@ public class DateUtilTest01 extends PropertyTestCase {
     }
 
     /**
-     * testDateToWarekiString28B<br>
+     * testDateToWarekiString28ã€‚<br>
      *
-     * (ˆÙíŒn)<br>
-     * ŠÏ“_FG<br>
+     * (ç•°å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šG<br>
      *
-     * “ü—Í’lFformat="G"<br>
-     * @@@@currentTime="1868”N9Œ3“ú 00•ª0•b"<br>
-     * Šú‘Ò’lFIllegalArgumentException‚ªƒXƒ[‚³‚ê‚é<br>
+     * å…¥åŠ›å€¤ï¼šformat="G"<br>
+     * ã€€ã€€ã€€ã€€currentTime="1868å¹´9æœˆ3æ—¥ 0æ™‚0åˆ†0ç§’"<br>
+     * æœŸå¾…å€¤ï¼šIllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹<br>
      *
-     * EƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚Åw’è‚³‚ê‚½ÅŒÃ“ú•tˆÈ‘O‚Ì“ú•t‚ğdate‚Å“n‚µ‚½ê‡A<br>
-     * ƒtƒH[ƒ}ƒbƒg‚É"G"‚ğw’è‚·‚é‚ÆIllegalArgumentException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * @throws Exception —áŠO
+     * ãƒ»ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ã§æŒ‡å®šã•ã‚ŒãŸæœ€å¤æ—¥ä»˜ä»¥å‰ã®æ—¥ä»˜ã‚’dateã§æ¸¡ã—ãŸå ´åˆã€<br>
+     * ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã«"G"ã‚’æŒ‡å®šã™ã‚‹ã¨IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testDateToWarekiString28() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String format = "G";
-        // ‚Ìİ’è
+        // æ™‚åˆ»ã®è¨­å®š
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         date = new Date(df.parse("1868.09.03 00:00:00").getTime());
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         try {
             String str = DateUtil.dateToWarekiString(format, date);
             fail();
@@ -960,27 +960,27 @@ public class DateUtilTest01 extends PropertyTestCase {
     }
 
     /**
-     * testDateToWarekiString29B<br>
+     * testDateToWarekiString29ã€‚<br>
      *
-     * (ˆÙíŒn)<br>
-     * ŠÏ“_FG<br>
+     * (ç•°å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šG<br>
      *
-     * “ü—Í’lFformat="y"<br>
-     * @@@@currentTime="1868”N9Œ3“ú 00•ª0•b"<br>
-     * Šú‘Ò’lFIllegalArgumentException‚ªƒXƒ[‚³‚ê‚é<br>
+     * å…¥åŠ›å€¤ï¼šformat="y"<br>
+     * ã€€ã€€ã€€ã€€currentTime="1868å¹´9æœˆ3æ—¥ 0æ™‚0åˆ†0ç§’"<br>
+     * æœŸå¾…å€¤ï¼šIllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹<br>
      *
-     * EƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚Åw’è‚³‚ê‚½ÅŒÃ“ú•tˆÈ‘O‚Ì“ú•t‚ğdate‚Å“n‚µ‚½ê‡A<br>
-     * ƒtƒH[ƒ}ƒbƒg‚É"y"‚ğw’è‚·‚é‚ÆIllegalArgumentException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * @throws Exception —áŠO
+     * ãƒ»ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ã§æŒ‡å®šã•ã‚ŒãŸæœ€å¤æ—¥ä»˜ä»¥å‰ã®æ—¥ä»˜ã‚’dateã§æ¸¡ã—ãŸå ´åˆã€<br>
+     * ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã«"y"ã‚’æŒ‡å®šã™ã‚‹ã¨IllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testDateToWarekiString29() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String format = "y";
-        // ‚Ìİ’è
+        // æ™‚åˆ»ã®è¨­å®š
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         date = new Date(df.parse("1868.09.03 00:00:00").getTime());
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         try {
             String str = DateUtil.dateToWarekiString(format, date);
             fail();
@@ -990,27 +990,27 @@ public class DateUtilTest01 extends PropertyTestCase {
     }
 
     /**
-     * testDateToWarekiString30B<br>
+     * testDateToWarekiString30ã€‚<br>
      *
-     * (ˆÙíŒn)<br>
-     * ŠÏ“_FC,G<br>
+     * (ç•°å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šC,G<br>
      *
-     * “ü—Í’lFformat=null<br>
-     * @@@@currentTime=*<br>
-     * Šú‘Ò’lFNullPointerException‚ªƒXƒ[‚³‚ê‚é<br>
+     * å…¥åŠ›å€¤ï¼šformat=null<br>
+     * ã€€ã€€ã€€ã€€currentTime=*<br>
+     * æœŸå¾…å€¤ï¼šNullPointerExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹<br>
      *
-     * EƒtƒH[ƒ}ƒbƒg‚Énull‚ğw’è‚µ‚½ê‡A<br>
-     * NullPointerException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * @throws Exception —áŠO
+     * ãƒ»ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã«nullã‚’æŒ‡å®šã—ãŸå ´åˆã€<br>
+     * NullPointerExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testDateToWarekiString30() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String format = null;
-        // ‚Ìİ’è
+        // æ™‚åˆ»ã®è¨­å®š
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         date = new Date(df.parse("2001.01.01 00:00:00").getTime());
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         try {
             String str = DateUtil.dateToWarekiString(format, date);
             fail();
@@ -1020,25 +1020,25 @@ public class DateUtilTest01 extends PropertyTestCase {
     }
 
     /**
-     * testDateToWarekiString31B<br>
+     * testDateToWarekiString31ã€‚<br>
      *
-     * (ˆÙíŒn)<br>
-     * ŠÏ“_FC,G<br>
+     * (ç•°å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šC,G<br>
      *
-     * “ü—Í’lFformat=not null<br>
-     * @@@@currentTime=null<br>
-     * Šú‘Ò’lFNullPointerException‚ªƒXƒ[‚³‚ê‚é<br>
+     * å…¥åŠ›å€¤ï¼šformat=not null<br>
+     * ã€€ã€€ã€€ã€€currentTime=null<br>
+     * æœŸå¾…å€¤ï¼šNullPointerExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹<br>
      *
-     * E“ú•t‚Énull‚ğw’è‚µ‚½ê‡A<br>
-     * NullPointerException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * @throws Exception —áŠO
+     * ãƒ»æ—¥ä»˜ã«nullã‚’æŒ‡å®šã—ãŸå ´åˆã€<br>
+     * NullPointerExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testDateToWarekiString31() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String format = "G";
         date = null;
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         try {
             String str = DateUtil.dateToWarekiString(format, date);
             fail();
@@ -1048,91 +1048,91 @@ public class DateUtilTest01 extends PropertyTestCase {
     }
 
     /**
-     * testDateToWarekiString32B<br>
+     * testDateToWarekiString32ã€‚<br>
      *
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lFformat="G 'G' ''G'' '''G''' ''''G'''' y 'y' ''y'' '''y''' ''''y'''' E 'E' ''E'' '''E''' ''''E''''"<br>
-     * @@@@currentTime="2001”N1Œ1“ú 00•ª0•b"<br>
-     * Šú‘Ò’lFH G 'H' 'G' ''H'' 13 y '13' 'y' ''13'' Œ E 'Œ' 'E' ''Œ''<br>
+     * å…¥åŠ›å€¤ï¼šformat="G 'G' ''G'' '''G''' ''''G'''' y 'y' ''y'' '''y''' ''''y'''' E 'E' ''E'' '''E''' ''''E''''"<br>
+     * ã€€ã€€ã€€ã€€currentTime="2001å¹´1æœˆ1æ—¥ 0æ™‚0åˆ†0ç§’"<br>
+     * æœŸå¾…å€¤ï¼šH G 'H' 'G' ''H'' 13 y '13' 'y' ''13'' æœˆ E 'æœˆ' 'E' ''æœˆ''<br>
      *
-     * EƒtƒH[ƒ}ƒbƒgƒLƒƒƒ‰ƒNƒ^‚ğƒVƒ“ƒOƒ‹ƒNƒH[ƒe[ƒVƒ‡ƒ“‚ÅˆÍ‚ñ‚¾ê‡A<br>
-     * ƒGƒXƒP[ƒv‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * EƒtƒH[ƒ}ƒbƒgƒLƒƒƒ‰ƒNƒ^‚ğƒVƒ“ƒOƒ‹ƒNƒH[ƒe[ƒVƒ‡ƒ“2‚Â‚ÅˆÍ‚ñ‚¾ê‡A<br>
-     * ƒVƒ“ƒOƒ‹ƒNƒI[ƒe[ƒVƒ‡ƒ“©‘Ì‚ª•\¦‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * E˜a—ïŒ³†E—j“ú‚ªÈ—ª•\‹L‚Ìê‡<br>
-     * @throws Exception —áŠO
+     * ãƒ»ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚­ãƒ£ãƒ©ã‚¯ã‚¿ã‚’ã‚·ãƒ³ã‚°ãƒ«ã‚¯ã‚©ãƒ¼ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã§å›²ã‚“ã å ´åˆã€<br>
+     * ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚­ãƒ£ãƒ©ã‚¯ã‚¿ã‚’ã‚·ãƒ³ã‚°ãƒ«ã‚¯ã‚©ãƒ¼ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³2ã¤ã§å›²ã‚“ã å ´åˆã€<br>
+     * ã‚·ãƒ³ã‚°ãƒ«ã‚¯ã‚ªãƒ¼ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³è‡ªä½“ãŒè¡¨ç¤ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * ãƒ»å’Œæš¦å…ƒå·ãƒ»æ›œæ—¥ãŒçœç•¥è¡¨è¨˜ã®å ´åˆ<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testDateToWarekiString32() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String format = "G 'G' ''G'' '''G''' ''''G'''' y 'y' ''y'' '''y''' ''''y'''' E 'E' ''E'' '''E''' ''''E''''";
-        // ‚Ìİ’è
+        // æ™‚åˆ»ã®è¨­å®š
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         date = new Date(df.parse("2001.01.01 00:00:00").getTime());
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = DateUtil.dateToWarekiString(format, date);
 
-        // Œ‹‰ÊŠm”F
-        assertEquals("H G 'H' 'G' ''H'' 13 y '13' 'y' ''13'' Œ E 'Œ' 'E' ''Œ''", str);
+        // çµæœç¢ºèª
+        assertEquals("H G 'H' 'G' ''H'' 13 y '13' 'y' ''13'' æœˆ E 'æœˆ' 'E' ''æœˆ''", str);
     }
 
     /**
-     * testDateToWarekiString33B<br>
+     * testDateToWarekiString33ã€‚<br>
      *
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lFformat="GGGG 'GGGG' ''GGGG'' '''GGGG''' ''''GGGG'''' yyyy 'yyyy' ''yyyy'' '''yyyy''' ''''y'''' EEEE 'EEEE' ''EEEE'' '''EEEE''' ''''EEEE''''"<br>
-     * @@@@currentTime="2001”N1Œ1“ú 00•ª0•b"<br>
-     * Šú‘Ò’lF•½¬ GGGG '•½¬' 'GGGG' ''•½¬'' 13 yyyy '13' 'yyyy' ''13'' Œ—j“ú EEEE 'Œ—j“ú' 'EEEE' ''Œ—j“ú''<br>
+     * å…¥åŠ›å€¤ï¼šformat="GGGG 'GGGG' ''GGGG'' '''GGGG''' ''''GGGG'''' yyyy 'yyyy' ''yyyy'' '''yyyy''' ''''y'''' EEEE 'EEEE' ''EEEE'' '''EEEE''' ''''EEEE''''"<br>
+     * ã€€ã€€ã€€ã€€currentTime="2001å¹´1æœˆ1æ—¥ 0æ™‚0åˆ†0ç§’"<br>
+     * æœŸå¾…å€¤ï¼šå¹³æˆ GGGG 'å¹³æˆ' 'GGGG' ''å¹³æˆ'' 13 yyyy '13' 'yyyy' ''13'' æœˆæ›œæ—¥ EEEE 'æœˆæ›œæ—¥' 'EEEE' ''æœˆæ›œæ—¥''<br>
      *
-     * EƒtƒH[ƒ}ƒbƒgƒLƒƒƒ‰ƒNƒ^‚ğƒVƒ“ƒOƒ‹ƒNƒH[ƒe[ƒVƒ‡ƒ“‚ÅˆÍ‚ñ‚¾ê‡A<br>
-     * ƒGƒXƒP[ƒv‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * EƒtƒH[ƒ}ƒbƒgƒLƒƒƒ‰ƒNƒ^‚ğƒVƒ“ƒOƒ‹ƒNƒH[ƒe[ƒVƒ‡ƒ“2‚Â‚ÅˆÍ‚ñ‚¾ê‡A<br>
-     * ƒVƒ“ƒOƒ‹ƒNƒI[ƒe[ƒVƒ‡ƒ“©‘Ì‚ª•\¦‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB<br>
-     * E˜a—ïŒ³†E—j“ú‚ªŠ®‘S•\‹L‚Ìê‡<br>
-     * @throws Exception —áŠO
+     * ãƒ»ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚­ãƒ£ãƒ©ã‚¯ã‚¿ã‚’ã‚·ãƒ³ã‚°ãƒ«ã‚¯ã‚©ãƒ¼ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã§å›²ã‚“ã å ´åˆã€<br>
+     * ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * ãƒ»ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚­ãƒ£ãƒ©ã‚¯ã‚¿ã‚’ã‚·ãƒ³ã‚°ãƒ«ã‚¯ã‚©ãƒ¼ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³2ã¤ã§å›²ã‚“ã å ´åˆã€<br>
+     * ã‚·ãƒ³ã‚°ãƒ«ã‚¯ã‚ªãƒ¼ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³è‡ªä½“ãŒè¡¨ç¤ºã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * ãƒ»å’Œæš¦å…ƒå·ãƒ»æ›œæ—¥ãŒå®Œå…¨è¡¨è¨˜ã®å ´åˆ<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testDateToWarekiString33() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String format = "GGGG 'GGGG' ''GGGG'' '''GGGG''' ''''GGGG'''' yyyy 'yyyy' ''yyyy'' '''yyyy''' ''''y'''' EEEE 'EEEE' ''EEEE'' '''EEEE''' ''''EEEE''''";
-        // ‚Ìİ’è
+        // æ™‚åˆ»ã®è¨­å®š
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         date = new Date(df.parse("2001.01.01 00:00:00").getTime());
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = DateUtil.dateToWarekiString(format, date);
 
-        // Œ‹‰ÊŠm”F
-        assertEquals("•½¬ GGGG '•½¬' 'GGGG' ''•½¬'' 13 yyyy '13' 'yyyy' ''13'' Œ—j“ú EEEE 'Œ—j“ú' 'EEEE' ''Œ—j“ú''", str);
+        // çµæœç¢ºèª
+        assertEquals("å¹³æˆ GGGG 'å¹³æˆ' 'GGGG' ''å¹³æˆ'' 13 yyyy '13' 'yyyy' ''13'' æœˆæ›œæ—¥ EEEE 'æœˆæ›œæ—¥' 'EEEE' ''æœˆæ›œæ—¥''", str);
     }
 
     /**
-     * testDateToWarekiString34B<br>
+     * testDateToWarekiString34ã€‚<br>
      *
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lFformat="'MM.dd HH:mm:ss z'"<br>
-     * @@@@currentTime="2001”N2Œ1“ú 34•ª5•b"<br>
-     * Šú‘Ò’lF"MM.dd HH:mm:ss z"<br>
+     * å…¥åŠ›å€¤ï¼šformat="'MM.dd HH:mm:ss z'"<br>
+     * ã€€ã€€ã€€ã€€currentTime="2001å¹´2æœˆ1æ—¥ 3æ™‚4åˆ†5ç§’"<br>
+     * æœŸå¾…å€¤ï¼š"MM.dd HH:mm:ss z"<br>
      *
-     * Ey,G,E‚ğŠÜ‚Ü‚È‚¢ƒtƒH[ƒ}ƒbƒg‚ğƒVƒ“ƒOƒ‹ƒNƒH[ƒe[ƒVƒ‡ƒ“‚ÅˆÍ‚ñ‚¾ê‡‚ğŠm”F‚·‚éB<br>
-     * @throws Exception —áŠO
+     * ãƒ»y,G,Eã‚’å«ã¾ãªã„ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’ã‚·ãƒ³ã‚°ãƒ«ã‚¯ã‚©ãƒ¼ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã§å›²ã‚“ã å ´åˆã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testDateToWarekiString34() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         String format = "'MM.dd HH:mm:ss z'";
-        // ‚Ìİ’è
+        // æ™‚åˆ»ã®è¨­å®š
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         date = new Date(df.parse("2001.02.01 03:04:05").getTime());
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = DateUtil.dateToWarekiString(format, date);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("MM.dd HH:mm:ss z", str);
     }
 
@@ -1141,95 +1141,95 @@ public class DateUtilTest01 extends PropertyTestCase {
     // ************************************************************************
 
     /**
-     * testGetWarekiGengoName01B<br>
+     * testGetWarekiGengoName01ã€‚<br>
      *
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lFdate=1989”N1Œ8“ú00•ª0•b<br>
-     * Šú‘Ò’lF"•½¬"<br>
+     * å…¥åŠ›å€¤ï¼šdate=1989å¹´1æœˆ8æ—¥0æ™‚0åˆ†0ç§’<br>
+     * æœŸå¾…å€¤ï¼š"å¹³æˆ"<br>
      *
-     * E•½¬Å‰‚Ì“ú‚ÌŒß‘O0‚¿‚å‚¤‚Ç‚ğŠm”F‚·‚éB<br>
-     * @throws Exception —áŠO
+     * ãƒ»å¹³æˆæœ€åˆã®æ—¥ã®åˆå‰0æ™‚ã¡ã‚‡ã†ã©ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testGetWarekiGengoName01() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         date = new Date(df.parse("1989.01.08 00:00:00").getTime());
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = DateUtil.getWarekiGengoName(date);
 
-        // Œ‹‰ÊŠm”F
-        assertEquals("•½¬", str);
+        // çµæœç¢ºèª
+        assertEquals("å¹³æˆ", str);
     }
 
     /**
-     * testGetWarekiGengoName02B<br>
+     * testGetWarekiGengoName02ã€‚<br>
      *
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lFdate=1989”N1Œ7“ú2359•ª59•b<br>
-     * Šú‘Ò’lF"º˜a"<br>
+     * å…¥åŠ›å€¤ï¼šdate=1989å¹´1æœˆ7æ—¥23æ™‚59åˆ†59ç§’<br>
+     * æœŸå¾…å€¤ï¼š"æ˜­å’Œ"<br>
      *
-     * E•½¬Å‰‚Ì“ú‚ÌŒß‘O0‚Ì1•b‘O‚ğŠm”F‚·‚éB<br>
-     * @throws Exception —áŠO
+     * ãƒ»å¹³æˆæœ€åˆã®æ—¥ã®åˆå‰0æ™‚ã®1ç§’å‰ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testGetWarekiGengoName02() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         date = new Date(df.parse("1989.01.07 23:59:59").getTime());
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = DateUtil.getWarekiGengoName(date);
 
-        // Œ‹‰ÊŠm”F
-        assertEquals("º˜a", str);
+        // çµæœç¢ºèª
+        assertEquals("æ˜­å’Œ", str);
     }
 
     /**
-     * testGetWarekiGengoName03B<br>
+     * testGetWarekiGengoName03ã€‚<br>
      *
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lFdate=1989”N1Œ8“ú00•ª1•b<br>
-     * Šú‘Ò’lF"•½¬"<br>
+     * å…¥åŠ›å€¤ï¼šdate=1989å¹´1æœˆ8æ—¥0æ™‚0åˆ†1ç§’<br>
+     * æœŸå¾…å€¤ï¼š"å¹³æˆ"<br>
      *
-     * E•½¬Å‰‚Ì“ú‚ÌŒß‘O0‚Ì1•bŒã‚ğŠm”F‚·‚éB<br>
-     * @throws Exception —áŠO
+     * ãƒ»å¹³æˆæœ€åˆã®æ—¥ã®åˆå‰0æ™‚ã®1ç§’å¾Œã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testGetWarekiGengoName03() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         date = new Date(df.parse("1989.01.08 00:00:01").getTime());
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = DateUtil.getWarekiGengoName(date);
 
-        // Œ‹‰ÊŠm”F
-        assertEquals("•½¬", str);
+        // çµæœç¢ºèª
+        assertEquals("å¹³æˆ", str);
     }
 
     /**
-     * testGetWarekiGengoName04B<br>
+     * testGetWarekiGengoName04ã€‚<br>
      *
-     * (ˆÙíŒn)<br>
-     * ŠÏ“_FG<br>
+     * (ç•°å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šG<br>
      *
-     * “ü—Í’lFdate=1868”N9Œ3“ú<br>
-     * Šú‘Ò’lFIllegalArgumentException<br>
+     * å…¥åŠ›å€¤ï¼šdate=1868å¹´9æœˆ3æ—¥<br>
+     * æœŸå¾…å€¤ï¼šIllegalArgumentException<br>
      *
-     * E“ü—Í‚·‚é“ú•t‚ª–¾¡Å‰‚Ì“ú‚Ì‘O“ú‚Ìê‡‚ğŠm”F‚·‚éB<br>
-     * @throws Exception —áŠO
+     * ãƒ»å…¥åŠ›ã™ã‚‹æ—¥ä»˜ãŒæ˜æ²»æœ€åˆã®æ—¥ã®å‰æ—¥ã®å ´åˆã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testGetWarekiGengoName04() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         date = new Date(df.parse("1868.09.03 00:00:00").getTime());
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         try {
             String str = DateUtil.getWarekiGengoName(date);
             fail();
@@ -1241,22 +1241,22 @@ public class DateUtilTest01 extends PropertyTestCase {
     }
 
     /**
-     * testGetWarekiGengoName05B<br>
+     * testGetWarekiGengoName05ã€‚<br>
      *
-     * (ˆÙíŒn)<br>
-     * ŠÏ“_FG<br>
+     * (ç•°å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šG<br>
      *
-     * “ü—Í’lFdate=null<br>
-     * Šú‘Ò’lFNullPointerException‚ªƒXƒ[‚³‚ê‚é<br>
+     * å…¥åŠ›å€¤ï¼šdate=null<br>
+     * æœŸå¾…å€¤ï¼šNullPointerExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹<br>
      *
-     * E“ü—Í‚·‚é“ú•t‚ªnull‚ÌANullPointerException‚ª”­¶‚·‚éB<br>
-     * @throws Exception —áŠO
+     * ãƒ»å…¥åŠ›ã™ã‚‹æ—¥ä»˜ãŒnullã®æ™‚ã€NullPointerExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testGetWarekiGengoName05() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         date = null;
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         try {
             String str = DateUtil.getWarekiGengoName(date);
             fail();
@@ -1270,95 +1270,95 @@ public class DateUtilTest01 extends PropertyTestCase {
     // ************************************************************************
 
     /**
-     * testGetWarekiGengoRoman01B<br>
+     * testGetWarekiGengoRoman01ã€‚<br>
      *
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lFdate=1989”N1Œ8“ú00•ª0•b<br>
-     * Šú‘Ò’lF"•½¬"<br>
+     * å…¥åŠ›å€¤ï¼šdate=1989å¹´1æœˆ8æ—¥0æ™‚0åˆ†0ç§’<br>
+     * æœŸå¾…å€¤ï¼š"å¹³æˆ"<br>
      *
-     * E•½¬Å‰‚Ì“ú‚ÌŒß‘O0‚¿‚å‚¤‚Ç‚ğŠm”F‚·‚éB<br>
-     * @throws Exception —áŠO
+     * ãƒ»å¹³æˆæœ€åˆã®æ—¥ã®åˆå‰0æ™‚ã¡ã‚‡ã†ã©ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testGetWarekiGengoRoman01() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         date = new Date(df.parse("1989.01.08 00:00:00").getTime());
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = DateUtil.getWarekiGengoRoman(date);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("H", str);
     }
 
     /**
-     * testGetWarekiGengoRoman02B<br>
+     * testGetWarekiGengoRoman02ã€‚<br>
      *
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lFdate=1989”N1Œ7“ú2359•ª59•b<br>
-     * Šú‘Ò’lF"º˜a"<br>
+     * å…¥åŠ›å€¤ï¼šdate=1989å¹´1æœˆ7æ—¥23æ™‚59åˆ†59ç§’<br>
+     * æœŸå¾…å€¤ï¼š"æ˜­å’Œ"<br>
      *
-     * E•½¬Å‰‚Ì“ú‚ÌŒß‘O0‚Ì1•b‘O‚ğŠm”F‚·‚éB<br>
-     * @throws Exception —áŠO
+     * ãƒ»å¹³æˆæœ€åˆã®æ—¥ã®åˆå‰0æ™‚ã®1ç§’å‰ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testGetWarekiGengoRoman02() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         date = new Date(df.parse("1989.01.07 23:59:59").getTime());
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = DateUtil.getWarekiGengoRoman(date);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("S", str);
     }
 
     /**
-     * testGetWarekiGengoRoman03B<br>
+     * testGetWarekiGengoRoman03ã€‚<br>
      *
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lFdate=1989”N1Œ8“ú00•ª1•b<br>
-     * Šú‘Ò’lF"•½¬"<br>
+     * å…¥åŠ›å€¤ï¼šdate=1989å¹´1æœˆ8æ—¥0æ™‚0åˆ†1ç§’<br>
+     * æœŸå¾…å€¤ï¼š"å¹³æˆ"<br>
      *
-     * E•½¬Å‰‚Ì“ú‚ÌŒß‘O0‚Ì1•bŒã‚ğŠm”F‚·‚éB<br>
-     * @throws Exception —áŠO
+     * ãƒ»å¹³æˆæœ€åˆã®æ—¥ã®åˆå‰0æ™‚ã®1ç§’å¾Œã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testGetWarekiGengoRoman03() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         date = new Date(df.parse("1989.01.08 00:00:01").getTime());
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         String str = DateUtil.getWarekiGengoRoman(date);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals("H", str);
     }
 
     /**
-     * testGetWarekiGengoRoman04B<br>
+     * testGetWarekiGengoRoman04ã€‚<br>
      *
-     * (ˆÙíŒn)<br>
-     * ŠÏ“_FG<br>
+     * (ç•°å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šG<br>
      *
-     * “ü—Í’lFdate=1868”N9Œ3“ú<br>
-     * Šú‘Ò’lFIllegalArgumentException‚ªƒXƒ[‚³‚ê‚é<br>
+     * å…¥åŠ›å€¤ï¼šdate=1868å¹´9æœˆ3æ—¥<br>
+     * æœŸå¾…å€¤ï¼šIllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹<br>
      *
-     * E“ü—Í‚·‚é“ú•t‚ª–¾¡Å‰‚Ì“ú‚Ì‘O“ú‚Ìê‡‚ğŠm”F‚·‚éB<br>
-     * @throws Exception —áŠO
+     * ãƒ»å…¥åŠ›ã™ã‚‹æ—¥ä»˜ãŒæ˜æ²»æœ€åˆã®æ—¥ã®å‰æ—¥ã®å ´åˆã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testGetWarekiGengoRoman04() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         date = new Date(df.parse("1868.09.03 00:00:00").getTime());
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         try {
             String str = DateUtil.getWarekiGengoRoman(date);
             fail();
@@ -1370,22 +1370,22 @@ public class DateUtilTest01 extends PropertyTestCase {
     }
 
     /**
-     * testGetWarekiGengoRoman05B<br>
+     * testGetWarekiGengoRoman05ã€‚<br>
      *
-     * (ˆÙíŒn)<br>
-     * ŠÏ“_FG<br>
+     * (ç•°å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šG<br>
      *
-     * “ü—Í’lFdate=null<br>
-     * Šú‘Ò’lFNullPointerException‚ªƒXƒ[‚³‚ê‚é<br>
+     * å…¥åŠ›å€¤ï¼šdate=null<br>
+     * æœŸå¾…å€¤ï¼šNullPointerExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹<br>
      *
-     * E“ü—Í‚·‚é“ú•t‚ªNull‚ÌANullPointerException‚ª”­¶‚·‚é<br>
-     * @throws Exception —áŠO
+     * ãƒ»å…¥åŠ›ã™ã‚‹æ—¥ä»˜ãŒNullã®æ™‚ã€NullPointerExceptionãŒç™ºç”Ÿã™ã‚‹<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testGetWarekiGengoRoman05() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         date = null;
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         try {
             String str = DateUtil.getWarekiGengoRoman(date);
             fail();
@@ -1399,95 +1399,95 @@ public class DateUtilTest01 extends PropertyTestCase {
     // ************************************************************************
 
     /**
-     * testGetWarekiYear01B<br>
+     * testGetWarekiYear01ã€‚<br>
      *
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lFdate=1989”N1Œ8“ú00•ª0•b<br>
-     * Šú‘Ò’lF1<br>
+     * å…¥åŠ›å€¤ï¼šdate=1989å¹´1æœˆ8æ—¥0æ™‚0åˆ†0ç§’<br>
+     * æœŸå¾…å€¤ï¼š1<br>
      *
-     * E•½¬Å‰‚Ì“ú‚ÌŒß‘O0‚¿‚å‚¤‚Ç‚ğŠm”F‚·‚éB<br>
-     * @throws Exception —áŠO
+     * ãƒ»å¹³æˆæœ€åˆã®æ—¥ã®åˆå‰0æ™‚ã¡ã‚‡ã†ã©ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testGetWarekiYear01() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         date = new Date(df.parse("1989.01.08 00:00:00").getTime());
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         int year = DateUtil.getWarekiYear(date);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals(1, year);
     }
 
     /**
-     * testGetWarekiYear02B<br>
+     * testGetWarekiYear02ã€‚<br>
      *
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lFdate=1989”N1Œ7“ú2359•ª59•b<br>
-     * Šú‘Ò’lF64<br>
+     * å…¥åŠ›å€¤ï¼šdate=1989å¹´1æœˆ7æ—¥23æ™‚59åˆ†59ç§’<br>
+     * æœŸå¾…å€¤ï¼š64<br>
      *
-     * E•½¬Å‰‚Ì“ú‚ÌŒß‘O0‚Ì1•b‘O‚ğŠm”F‚·‚éB<br>
-     * @throws Exception —áŠO
+     * ãƒ»å¹³æˆæœ€åˆã®æ—¥ã®åˆå‰0æ™‚ã®1ç§’å‰ã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testGetWarekiYear02() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         date = new Date(df.parse("1989.01.07 23:59:59").getTime());
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         int year = DateUtil.getWarekiYear(date);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals(64, year);
     }
 
     /**
-     * testGetWarekiYear03B<br>
+     * testGetWarekiYear03ã€‚<br>
      *
-     * (³íŒn)<br>
-     * ŠÏ“_FA<br>
+     * (æ­£å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šA<br>
      *
-     * “ü—Í’lFdate=1989”N1Œ8“ú00•ª1•b<br>
-     * Šú‘Ò’lF1<br>
+     * å…¥åŠ›å€¤ï¼šdate=1989å¹´1æœˆ8æ—¥0æ™‚0åˆ†1ç§’<br>
+     * æœŸå¾…å€¤ï¼š1<br>
      *
-     * E•½¬Å‰‚Ì“ú‚ÌŒß‘O0‚Ì1•bŒã‚ğŠm”F‚·‚éB<br>
-     * @throws Exception —áŠO
+     * ãƒ»å¹³æˆæœ€åˆã®æ—¥ã®åˆå‰0æ™‚ã®1ç§’å¾Œã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testGetWarekiYear03() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         date = new Date(df.parse("1989.01.08 00:00:01").getTime());
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         int year = DateUtil.getWarekiYear(date);
 
-        // Œ‹‰ÊŠm”F
+        // çµæœç¢ºèª
         assertEquals(1, year);
     }
 
     /**
-     * testGetWarekiYear04B<br>
+     * testGetWarekiYear04ã€‚<br>
      *
-     * (ˆÙíŒn)<br>
-     * ŠÏ“_FG<br>
+     * (ç•°å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šG<br>
      *
-     * “ü—Í’lFdate=1868”N9Œ3“ú<br>
-     * Šú‘Ò’lFIllegalArgumentException‚ªƒXƒ[‚³‚ê‚é<br>
+     * å…¥åŠ›å€¤ï¼šdate=1868å¹´9æœˆ3æ—¥<br>
+     * æœŸå¾…å€¤ï¼šIllegalArgumentExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹<br>
      *
-     * E“ü—Í‚·‚é“ú•t‚ª–¾¡Å‰‚Ì“ú‚Ì‘O“ú‚Ìê‡‚ğŠm”F‚·‚éB<br>
-     * @throws Exception —áŠO
+     * ãƒ»å…¥åŠ›ã™ã‚‹æ—¥ä»˜ãŒæ˜æ²»æœ€åˆã®æ—¥ã®å‰æ—¥ã®å ´åˆã‚’ç¢ºèªã™ã‚‹ã€‚<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testGetWarekiYear04() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
         df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
         date = new Date(df.parse("1868.09.03 00:00:00").getTime());
 
-        // ƒeƒXƒg‘ÎÛ‚ÌÀs
+        // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
         try {
             int year = DateUtil.getWarekiYear(date);
             fail();
@@ -1499,22 +1499,22 @@ public class DateUtilTest01 extends PropertyTestCase {
     }
 
     /**
-     * testGetWarekiYear05B<br>
+     * testGetWarekiYear05ã€‚<br>
      *
-     * (ˆÙíŒn)<br>
-     * ŠÏ“_FG<br>
+     * (ç•°å¸¸ç³»)<br>
+     * è¦³ç‚¹ï¼šG<br>
      *
-     * “ü—Í’lFdate=null<br>
-     * Šú‘Ò’lFNullPointerException‚ªƒXƒ[‚³‚ê‚é<br>
+     * å…¥åŠ›å€¤ï¼šdate=null<br>
+     * æœŸå¾…å€¤ï¼šNullPointerExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹<br>
      *
-     * ENullPointerException‚ª”­¶‚·‚é<br>
-     * @throws Exception —áŠO
+     * ãƒ»NullPointerExceptionãŒç™ºç”Ÿã™ã‚‹<br>
+     * @throws Exception ä¾‹å¤–
      */
     public void testGetWarekiYear05() throws Exception {
-        // “ü—Í’l‚Ìİ’è
+        // å…¥åŠ›å€¤ã®è¨­å®š
 
         try {
-            // ƒeƒXƒg‘ÎÛ‚ÌÀs
+            // ãƒ†ã‚¹ãƒˆå¯¾è±¡ã®å®Ÿè¡Œ
             int year = DateUtil.getWarekiYear(null);
             fail();
         } catch (NullPointerException e) {

@@ -17,7 +17,7 @@
 package jp.terasoluna.fw.util;
 
 /**
- * {@link jp.terasoluna.fw.util.BeanUtilTest} ƒNƒ‰ƒX‚Åg—p‚·‚éB
+ * {@link jp.terasoluna.fw.util.BeanUtilTest} ã‚¯ãƒ©ã‚¹ã§ä½¿ç”¨ã™ã‚‹ã€‚
  * 
  * @see jp.terasoluna.fw.util.BeanUtilTest
  */
@@ -27,25 +27,25 @@ public class BeanUtil_BeanStub01 {
     private String param2 = null;
 
     /**
-     * Exception‚ğƒXƒ[‚·‚éB
-     * @return •¶š—ñB
-     * @throws Exception —áŠO
+     * Exceptionã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã€‚
+     * @return æ–‡å­—åˆ—ã€‚
+     * @throws Exception ä¾‹å¤–
      */
     public String getParam1() throws Exception {
         throw new Exception();
     }
     
     /**
-     * Exception‚ğƒXƒ[‚·‚éB
-     * @param param1 ƒpƒ‰ƒ[ƒ^
-     * @throws Exception —áŠO
+     * Exceptionã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã€‚
+     * @param param1 ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
+     * @throws Exception ä¾‹å¤–
      */
     public void setParam1(String param1) throws Exception {
         throw new Exception();
     }
     
     /**
-     * param2‚ğ•Ô‹p‚·‚éB
+     * param2ã‚’è¿”å´ã™ã‚‹ã€‚
      * 
      * @return param2
      */
@@ -54,8 +54,8 @@ public class BeanUtil_BeanStub01 {
     }
     
     /**
-     * param2‚ğİ’è‚·‚éB
-     * @param param2 ƒpƒ‰ƒ[ƒ^
+     * param2ã‚’è¨­å®šã™ã‚‹ã€‚
+     * @param param2 ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
      */
     public void setParam2(String param2) {
         this.param2 = param2;

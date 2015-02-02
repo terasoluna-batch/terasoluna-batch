@@ -28,10 +28,10 @@ import junit.framework.TestCase;
 
 /**
  * {@link jp.terasoluna.fw.message.DBMessageResourceDAOImpl}
- * ƒNƒ‰ƒX‚Ìƒuƒ‰ƒbƒNƒ{ƒbƒNƒXƒeƒXƒgB
+ * ã‚¯ãƒ©ã‚¹ã®ãƒ–ãƒ©ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ãƒ†ã‚¹ãƒˆã€‚
  * <p>
- * <h4>yƒNƒ‰ƒX‚ÌŠT—vz</h4>
- * DB‚©‚çƒƒbƒZ[ƒWƒŠƒ\[ƒX‚ğæ“¾‚·‚éDBMessageResourceDAO‚ÌÀ‘•ƒNƒ‰ƒX
+ * <h4>ã€ã‚¯ãƒ©ã‚¹ã®æ¦‚è¦ã€‘</h4>
+ * DBã‹ã‚‰ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒªã‚½ãƒ¼ã‚¹ã‚’å–å¾—ã™ã‚‹DBMessageResourceDAOã®å®Ÿè£…ã‚¯ãƒ©ã‚¹
  * <p>
  * 
  * @see jp.terasoluna.fw.message.DBMessageResourceDAOImpl
@@ -40,9 +40,9 @@ public class DBMessageResourceDAOImplTest extends TestCase {
 
 
     /**
-     * ‰Šú‰»ˆ—‚ğs‚¤B
+     * åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#setUp()
      */
     @Override
@@ -51,9 +51,9 @@ public class DBMessageResourceDAOImplTest extends TestCase {
     }
 
     /**
-     * I—¹ˆ—‚ğs‚¤B
+     * çµ‚äº†å‡¦ç†ã‚’è¡Œã†ã€‚
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
@@ -62,9 +62,9 @@ public class DBMessageResourceDAOImplTest extends TestCase {
     }
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      * 
-     * @param name ‚±‚ÌƒeƒXƒgƒP[ƒX‚Ì–¼‘OB
+     * @param name ã“ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã®åå‰ã€‚
      */
     public DBMessageResourceDAOImplTest(String name) {
         super(name);
@@ -74,31 +74,31 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * testSetTableName01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) tableName:"test01"<br>
-     *         (ó‘Ô) this.tableName:"MESSAGES"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) tableName:"test01"<br>
+     *         (çŠ¶æ…‹) this.tableName:"MESSAGES"<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.tableName:ˆø”‚Åİ’è‚µ‚½’l<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.tableName:å¼•æ•°ã§è¨­å®šã—ãŸå€¤<br>
      *         
      * <br>
-     * tableName‘®«‚Ìsetterƒƒ\ƒbƒh‚ÌƒeƒXƒgB
+     * tableNameå±æ€§ã®setterãƒ¡ã‚½ãƒƒãƒ‰ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testSetTableName01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DBMessageResourceDAOImpl daoImpl = new DBMessageResourceDAOImpl();
         daoImpl.tableName = "MESSAGES";
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         daoImpl.setTableName("test01");
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals("test01", UTUtil.getPrivateField(daoImpl, "tableName"));
     }
 
@@ -106,31 +106,31 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * testSetCodeColumn01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) codeColumn:"test01"<br>
-     *         (ó‘Ô) this.codeColumn:"CODE"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) codeColumn:"test01"<br>
+     *         (çŠ¶æ…‹) this.codeColumn:"CODE"<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.codeColumn:ˆø”‚Åİ’è‚µ‚½’l<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.codeColumn:å¼•æ•°ã§è¨­å®šã—ãŸå€¤<br>
      *         
      * <br>
-     * codeColumn‘®«‚Ìsetterƒƒ\ƒbƒh‚ÌƒeƒXƒgB
+     * codeColumnå±æ€§ã®setterãƒ¡ã‚½ãƒƒãƒ‰ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testSetCodeColumn01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DBMessageResourceDAOImpl daoImpl = new DBMessageResourceDAOImpl();
         daoImpl.codeColumn = "CODE";
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         daoImpl.setCodeColumn("test01");
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals("test01", UTUtil.getPrivateField(daoImpl, "codeColumn"));
     }
 
@@ -138,31 +138,31 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * testSetLaunguageColumn01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) languageColumn:"test01"<br>
-     *         (ó‘Ô) this.languageColumn:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) languageColumn:"test01"<br>
+     *         (çŠ¶æ…‹) this.languageColumn:null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.languageColumn:ˆø”‚Åİ’è‚µ‚½’l<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.languageColumn:å¼•æ•°ã§è¨­å®šã—ãŸå€¤<br>
      *         
      * <br>
-     * languageColumn‘®«‚Ìsetterƒƒ\ƒbƒh‚ÌƒeƒXƒgB
+     * languageColumnå±æ€§ã®setterãƒ¡ã‚½ãƒƒãƒ‰ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testSetLaunguageColumn01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DBMessageResourceDAOImpl daoImpl = new DBMessageResourceDAOImpl();
         daoImpl.languageColumn = null;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         daoImpl.setLanguageColumn("test01");
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals("test01", UTUtil
                 .getPrivateField(daoImpl, "languageColumn"));
     }
@@ -171,31 +171,31 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * testSetCountryColumn01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) countryColumn:"test01"<br>
-     *         (ó‘Ô) this.countryColumn:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) countryColumn:"test01"<br>
+     *         (çŠ¶æ…‹) this.countryColumn:null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.countryColumn:ˆø”‚Åİ’è‚µ‚½’l<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.countryColumn:å¼•æ•°ã§è¨­å®šã—ãŸå€¤<br>
      *         
      * <br>
-     * countryColumn‘®«‚Ìsetterƒƒ\ƒbƒh‚ÌƒeƒXƒgB
+     * countryColumnå±æ€§ã®setterãƒ¡ã‚½ãƒƒãƒ‰ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testSetCountryColumn01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DBMessageResourceDAOImpl daoImpl = new DBMessageResourceDAOImpl();
         daoImpl.countryColumn = null;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         daoImpl.setCountryColumn("test01");
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals("test01", UTUtil
                 .getPrivateField(daoImpl, "countryColumn"));
     }
@@ -204,31 +204,31 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * testSetVariantColumn01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) variantColumn:"test01"<br>
-     *         (ó‘Ô) this.variantColumn:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) variantColumn:"test01"<br>
+     *         (çŠ¶æ…‹) this.variantColumn:null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.variantColumn:ˆø”‚Åİ’è‚µ‚½’l<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.variantColumn:å¼•æ•°ã§è¨­å®šã—ãŸå€¤<br>
      *         
      * <br>
-     * variantColumn‘®«‚Ìsetterƒƒ\ƒbƒh‚ÌƒeƒXƒgB
+     * variantColumnå±æ€§ã®setterãƒ¡ã‚½ãƒƒãƒ‰ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testSetVariantColumn01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DBMessageResourceDAOImpl daoImpl = new DBMessageResourceDAOImpl();
         daoImpl.variantColumn = null;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         daoImpl.setVariantColumn("test01");
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals("test01", UTUtil
                 .getPrivateField(daoImpl, "variantColumn"));
     }
@@ -237,31 +237,31 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * testSetMessageColumn01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) messageColumn:"test01"<br>
-     *         (ó‘Ô) this.messageColumn:"MESSAGE"<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) messageColumn:"test01"<br>
+     *         (çŠ¶æ…‹) this.messageColumn:"MESSAGE"<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.messageColumn:ˆø”‚Åİ’è‚µ‚½’l<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.messageColumn:å¼•æ•°ã§è¨­å®šã—ãŸå€¤<br>
      *         
      * <br>
-     * messageColumn‘®«‚Ìsetterƒƒ\ƒbƒh‚ÌƒeƒXƒgB
+     * messageColumnå±æ€§ã®setterãƒ¡ã‚½ãƒƒãƒ‰ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testSetMessageColumn01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DBMessageResourceDAOImpl daoImpl = new DBMessageResourceDAOImpl();
         daoImpl.messageColumn = "MESSAGE";
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         daoImpl.setMessageColumn("test01");
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals("test01", UTUtil
                 .getPrivateField(daoImpl, "messageColumn"));
     }
@@ -270,31 +270,31 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * testSetFindMessageSql01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ˆø”) findMessageSql:"test01"<br>
-     *         (ó‘Ô) this.findMessageSql:null<br>
+     * å…¥åŠ›å€¤ï¼š(å¼•æ•°) findMessageSql:"test01"<br>
+     *         (çŠ¶æ…‹) this.findMessageSql:null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») this.findMessageSql:ˆø”‚Åİ’è‚µ‚½’l<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) this.findMessageSql:å¼•æ•°ã§è¨­å®šã—ãŸå€¤<br>
      *         
      * <br>
-     * findMessageSql‘®«‚Ìsetterƒƒ\ƒbƒh‚ÌƒeƒXƒgB
+     * findMessageSqlå±æ€§ã®setterãƒ¡ã‚½ãƒƒãƒ‰ã®ãƒ†ã‚¹ãƒˆã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testSetFindMessageSql01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DBMessageResourceDAOImpl daoImpl = new DBMessageResourceDAOImpl();
         daoImpl.findMessageSql = null;
 
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         daoImpl.setFindMessageSql("test01");
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals("test01", UTUtil
                 .getPrivateField(daoImpl, "findMessageSql"));
     }
@@ -303,31 +303,31 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * testInitDao01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ó‘Ô) getDataSource():not null<br>
-     *         (ó‘Ô) makeSql():"SELECT FOO FROM BAR"<br>
-     *         (ó‘Ô) dBMessageQuery:null<br>
-     *         (ó‘Ô) codeColumn:"CODE"<br>
-     *         (ó‘Ô) languageColumn:"LANGUAGE"<br>
-     *         (ó‘Ô) countryColumn:"COUNTRY"<br>
-     *         (ó‘Ô) variantColumn:"VARIANT"<br>
-     *         (ó‘Ô) messageColumn:"MESSAGE"<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) getDataSource():not null<br>
+     *         (çŠ¶æ…‹) makeSql():"SELECT FOO FROM BAR"<br>
+     *         (çŠ¶æ…‹) dBMessageQuery:null<br>
+     *         (çŠ¶æ…‹) codeColumn:"CODE"<br>
+     *         (çŠ¶æ…‹) languageColumn:"LANGUAGE"<br>
+     *         (çŠ¶æ…‹) countryColumn:"COUNTRY"<br>
+     *         (çŠ¶æ…‹) variantColumn:"VARIANT"<br>
+     *         (çŠ¶æ…‹) messageColumn:"MESSAGE"<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») DBMessageQuery:DBMessageQueryƒIƒuƒWƒFƒNƒg‚ª¶¬‚³‚ê‚éB
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) DBMessageQuery:DBMessageQueryã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒç”Ÿæˆã•ã‚Œã‚‹ã€‚
      * <br>
      *         
      * <br>
-     * DBMessageQuery‚ªŒÄ‚Ño‚³‚êAthis.dBMessageQuery‚ÉŠi”[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * DBMessageQueryãŒå‘¼ã³å‡ºã•ã‚Œã€this.dBMessageQueryã«æ ¼ç´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testInitDao01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DataSource dataSource = new MockDataSource();
         DBMessageResourceDAOImpl_JdbcTemplateStub01 jdbc
             = new DBMessageResourceDAOImpl_JdbcTemplateStub01();
@@ -343,10 +343,10 @@ public class DBMessageResourceDAOImplTest extends TestCase {
         dbmr.variantColumn = "VARIANT";
         dbmr.messageColumn = "MESSAGE";
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         dbmr.initDao();
 
-        // ”»’è
+        // åˆ¤å®š
         DBMessageQuery query = dbmr.dBMessageQuery;
         
         assertEquals("CODE", query.rsCodeColumn);
@@ -361,37 +361,37 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * testInitDao02()
      * <br><br>
      * 
-     * (ˆÙíŒn)
+     * (ç•°å¸¸ç³»)
      * <br>
-     * ŠÏ“_FG
+     * è¦³ç‚¹ï¼šG
      * <br><br>
-     * “ü—Í’lF(ó‘Ô) getDataSource():null<br>
-     *         (ó‘Ô) makeSql():"SELECT FOO FROM BAR"<br>
-     *         (ó‘Ô) dBMessageQuery:null<br>
-     *         (ó‘Ô) codeColumn:"CODE"<br>
-     *         (ó‘Ô) languageColumn:null<br>
-     *         (ó‘Ô) countryColumn:null<br>
-     *         (ó‘Ô) variantColumn:null<br>
-     *         (ó‘Ô) messageColumn:"MESSAGE"<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) getDataSource():null<br>
+     *         (çŠ¶æ…‹) makeSql():"SELECT FOO FROM BAR"<br>
+     *         (çŠ¶æ…‹) dBMessageQuery:null<br>
+     *         (çŠ¶æ…‹) codeColumn:"CODE"<br>
+     *         (çŠ¶æ…‹) languageColumn:null<br>
+     *         (çŠ¶æ…‹) countryColumn:null<br>
+     *         (çŠ¶æ…‹) variantColumn:null<br>
+     *         (çŠ¶æ…‹) messageColumn:"MESSAGE"<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») DBMessageQuery:[<br>
-     *         (ó‘Ô•Ï‰») —áŠO:illgalArgumentException‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) DBMessageQuery:ãƒ¼<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:illgalArgumentExceptionãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      *         <br>
-     *                    ƒƒƒbƒZ[ƒW„<br>
+     *                    ï¼œãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼<br>
      *                    Missing dataSource in spring configuration file.<br>
-     *         (ó‘Ô•Ï‰») ƒƒO:yƒGƒ‰[ƒƒOz<br>
-     *                    ƒƒƒbƒZ[ƒW„<br>
+     *         (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ã€ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°ã€‘<br>
+     *                    ï¼œãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼<br>
      *                    Missing dataSource in spring configuration file.<br>
      *         
      * <br>
-     * DBMessageQuery‚ªŒÄ‚Ño‚³‚ê‚¸A—áŠO‚ª”­¶‚·‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * DBMessageQueryãŒå‘¼ã³å‡ºã•ã‚Œãšã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testInitDao02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DBMessageResourceDAOImpl_JdbcTemplateStub01 jdbc
             = new DBMessageResourceDAOImpl_JdbcTemplateStub01();
         DBMessageResourceDAOImpl_DBMessageResourceDAOImplStub01 dbmr
@@ -406,12 +406,12 @@ public class DBMessageResourceDAOImplTest extends TestCase {
         dbmr.variantColumn = "VARIANT";
         dbmr.messageColumn = "MESSAGE";
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             dbmr.initDao();
             fail();
         } catch (IllegalArgumentException e) {
-            // ”»’è
+            // åˆ¤å®š
             assertEquals(
                     "Missing dataSource in spring configuration file.",
                     e.getMessage());
@@ -424,30 +424,30 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * testInitDao03()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FA
+     * è¦³ç‚¹ï¼šA
      * <br><br>
-     * “ü—Í’lF(ó‘Ô) getDataSource():not null<br>
-     *         (ó‘Ô) makeSql():"SELECT FOO FROM BAR"<br>
-     *         (ó‘Ô) dBMessageQuery:null<br>
-     *         (ó‘Ô) codeColumn:"CODE"<br>
-     *         (ó‘Ô) languageColumn:null<br>
-     *         (ó‘Ô) countryColumn:null<br>
-     *         (ó‘Ô) variantColumn:null<br>
-     *         (ó‘Ô) messageColumn:"MESSAGE"<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) getDataSource():not null<br>
+     *         (çŠ¶æ…‹) makeSql():"SELECT FOO FROM BAR"<br>
+     *         (çŠ¶æ…‹) dBMessageQuery:null<br>
+     *         (çŠ¶æ…‹) codeColumn:"CODE"<br>
+     *         (çŠ¶æ…‹) languageColumn:null<br>
+     *         (çŠ¶æ…‹) countryColumn:null<br>
+     *         (çŠ¶æ…‹) variantColumn:null<br>
+     *         (çŠ¶æ…‹) messageColumn:"MESSAGE"<br>
      *         
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») DBMessageQuery:DBMessageQueryƒIƒuƒWƒFƒNƒg‚ª¶¬‚³‚ê‚éB
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) DBMessageQuery:DBMessageQueryã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒç”Ÿæˆã•ã‚Œã‚‹ã€‚
      * <br>       
      * <br>
-     * DBMessageQuery‚ªŒÄ‚Ño‚³‚êAthis.dBMessageQuery‚ÉŠi”[‚³‚ê‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * DBMessageQueryãŒå‘¼ã³å‡ºã•ã‚Œã€this.dBMessageQueryã«æ ¼ç´ã•ã‚Œã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testInitDao03() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DataSource dataSource = new MockDataSource();
         DBMessageResourceDAOImpl_JdbcTemplateStub01 jdbc
             = new DBMessageResourceDAOImpl_JdbcTemplateStub01();
@@ -463,11 +463,11 @@ public class DBMessageResourceDAOImplTest extends TestCase {
         dbmr.variantColumn = null;
         dbmr.messageColumn = "MESSAGE";
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         dbmr.initDao();
 
-        // ”»’è
-        // ”»’è
+        // åˆ¤å®š
+        // åˆ¤å®š
         DBMessageQuery query = dbmr.dBMessageQuery;
         
         assertEquals("CODE", query.rsCodeColumn);
@@ -481,27 +481,27 @@ public class DBMessageResourceDAOImplTest extends TestCase {
     /**
      * testMakeSql01() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FA <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šA <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) codeColumn:"CODE"<br>
-     * (ó‘Ô) languageColumn:"LANGUAGE"<br>
-     * (ó‘Ô) countryColumn:"COUNTRY"<br>
-     * (ó‘Ô) variantColumn:"VARIANT"<br>
-     * (ó‘Ô) messageColumn:"MESSAGE"<br>
-     * (ó‘Ô) tableName:"MESSAGES"<br>
-     * (ó‘Ô) findMessageSql:null<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) codeColumn:"CODE"<br>
+     * (çŠ¶æ…‹) languageColumn:"LANGUAGE"<br>
+     * (çŠ¶æ…‹) countryColumn:"COUNTRY"<br>
+     * (çŠ¶æ…‹) variantColumn:"VARIANT"<br>
+     * (çŠ¶æ…‹) messageColumn:"MESSAGE"<br>
+     * (çŠ¶æ…‹) tableName:"MESSAGES"<br>
+     * (çŠ¶æ…‹) findMessageSql:null<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) sql:"SELECT CODE,LANGUAGE,COUNTRY,VARIANT,MESSAGE FROM
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) sql:"SELECT CODE,LANGUAGE,COUNTRY,VARIANT,MESSAGE FROM
      * MESSAGES"<br>
      * <br>
-     * ˆø”‚Æ‚µ‚Ä‚ ‚½‚¦‚ç‚ê‚½•¶š—ñ‚©‚ç‚r‚p‚k•¶‚ğì¬‚µAString‚Å•Ô‹p‚·‚éB<br>
+     * å¼•æ•°ã¨ã—ã¦ã‚ãŸãˆã‚‰ã‚ŒãŸæ–‡å­—åˆ—ã‹ã‚‰ï¼³ï¼±ï¼¬æ–‡ã‚’ä½œæˆã—ã€Stringã§è¿”å´ã™ã‚‹ã€‚<br>
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testMakeSql01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DBMessageResourceDAOImpl dbmr = new DBMessageResourceDAOImpl();
         dbmr.codeColumn = "CODE";
         dbmr.languageColumn = "LANGUAGE";
@@ -511,10 +511,10 @@ public class DBMessageResourceDAOImplTest extends TestCase {
         dbmr.tableName = "MESSAGES";
         dbmr.findMessageSql = null;
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String sql = dbmr.makeSql();
 
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(
             "SELECT CODE,LANGUAGE,COUNTRY,VARIANT,MESSAGE FROM MESSAGES", sql);
     }
@@ -522,31 +522,31 @@ public class DBMessageResourceDAOImplTest extends TestCase {
     /**
      * testMakeSql02() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG<br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG<br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) codeColumn:""<br>
-     * (ó‘Ô) languageColumn:"LANGUAGE"<br>
-     * (ó‘Ô) countryColumn:"COUNTRY"<br>
-     * (ó‘Ô) variantColumn:"VARIANT"<br>
-     * (ó‘Ô) messageColumn:"MESSAGE"<br>
-     * (ó‘Ô) tableName:"MESSAGES"<br>
-     * (ó‘Ô) findMessageSql:null<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) codeColumn:""<br>
+     * (çŠ¶æ…‹) languageColumn:"LANGUAGE"<br>
+     * (çŠ¶æ…‹) countryColumn:"COUNTRY"<br>
+     * (çŠ¶æ…‹) variantColumn:"VARIANT"<br>
+     * (çŠ¶æ…‹) messageColumn:"MESSAGE"<br>
+     * (çŠ¶æ…‹) tableName:"MESSAGES"<br>
+     * (çŠ¶æ…‹) findMessageSql:null<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentExceptionF<br>
-     * ƒƒƒbƒZ[ƒW„<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentExceptionï¼š<br>
+     * ï¼œãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼<br>
      * "codeColumn is illegalAurgument"<br>
-     * (ó‘Ô•Ï‰») ƒƒO:yƒGƒ‰[ƒƒOz<br>
-     * ƒƒƒbƒZ[ƒW„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ã€ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°ã€‘<br>
+     * ï¼œãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼<br>
      * "codeColumn is illegalAurgument"<br>
      * <br>
-     * ƒR[ƒhƒJƒ‰ƒ€‚ª‹ó•¶š‚Ì‚½‚ßAŒÄ‚Ño‚µæƒƒ\ƒbƒh‚É‚Ä’â~‚·‚éB <br>
+     * ã‚³ãƒ¼ãƒ‰ã‚«ãƒ©ãƒ ãŒç©ºæ–‡å­—ã®ãŸã‚ã€å‘¼ã³å‡ºã—å…ˆãƒ¡ã‚½ãƒƒãƒ‰ã«ã¦åœæ­¢ã™ã‚‹ã€‚ <br>
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testMakeSql02() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DBMessageResourceDAOImpl dbmr 
                 = new DBMessageResourceDAOImpl();
         dbmr.codeColumn = "";
@@ -557,13 +557,13 @@ public class DBMessageResourceDAOImplTest extends TestCase {
         dbmr.tableName = "MESSAGES";
         dbmr.findMessageSql = null;
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             dbmr.makeSql();
             fail();
         } catch (IllegalArgumentException e) {
 
-            // ”»’è
+            // åˆ¤å®š
             assertEquals(
                     "illegalArgument: codeColumn is null or empty.", e.getMessage());
             assertTrue(LogUTUtil
@@ -574,31 +574,31 @@ public class DBMessageResourceDAOImplTest extends TestCase {
     /**
      * testMakeSql03() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) codeColumn:null<br>
-     * (ó‘Ô) languageColumn:"LANGUAGE"<br>
-     * (ó‘Ô) countryColumn:"COUNTRY"<br>
-     * (ó‘Ô) variantColumn:"VARIANT"<br>
-     * (ó‘Ô) messageColumn:"MESSAGE"<br>
-     * (ó‘Ô) tableName:"MESSAGES"<br>
-     * (ó‘Ô) findMessageSql:null<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) codeColumn:null<br>
+     * (çŠ¶æ…‹) languageColumn:"LANGUAGE"<br>
+     * (çŠ¶æ…‹) countryColumn:"COUNTRY"<br>
+     * (çŠ¶æ…‹) variantColumn:"VARIANT"<br>
+     * (çŠ¶æ…‹) messageColumn:"MESSAGE"<br>
+     * (çŠ¶æ…‹) tableName:"MESSAGES"<br>
+     * (çŠ¶æ…‹) findMessageSql:null<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentExceptionF<br>
-     * ƒƒƒbƒZ[ƒW„<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentExceptionï¼š<br>
+     * ï¼œãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼<br>
      * "codeColumn is illegalArgument"<br>
-     * (ó‘Ô•Ï‰») ƒƒO:yƒGƒ‰[ƒƒOz<br>
-     * ƒƒƒbƒZ[ƒW„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ã€ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°ã€‘<br>
+     * ï¼œãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼<br>
      * "codeColumn is illegalArgument"<br>
      * <br>
-     * ƒR[ƒhƒJƒ‰ƒ€‚ªnull‚Ì‚½‚ßAŒÄ‚Ño‚µæƒƒ\ƒbƒh‚É‚Ä’â~‚·‚éB <br>
+     * ã‚³ãƒ¼ãƒ‰ã‚«ãƒ©ãƒ ãŒnullã®ãŸã‚ã€å‘¼ã³å‡ºã—å…ˆãƒ¡ã‚½ãƒƒãƒ‰ã«ã¦åœæ­¢ã™ã‚‹ã€‚ <br>
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testMakeSql03() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DBMessageResourceDAOImpl dbmr 
                 = new DBMessageResourceDAOImpl();
         dbmr.codeColumn = null;
@@ -609,13 +609,13 @@ public class DBMessageResourceDAOImplTest extends TestCase {
         dbmr.tableName = "MESSAGES";
         dbmr.findMessageSql = null;
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             dbmr.makeSql();
             fail();
         } catch (IllegalArgumentException e) {
 
-            // ”»’è
+            // åˆ¤å®š
             assertEquals(
                     "illegalArgument: codeColumn is null or empty.", e.getMessage());
             assertTrue(LogUTUtil
@@ -626,31 +626,31 @@ public class DBMessageResourceDAOImplTest extends TestCase {
     /**
      * testMakeSql04() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) codeColumn:"CODE"<br>
-     * (ó‘Ô) languageColumn:""<br>
-     * (ó‘Ô) countryColumn:null<br>
-     * (ó‘Ô) variantColumn:null<br>
-     * (ó‘Ô) messageColumn:null<br>
-     * (ó‘Ô) tableName:"MESSAGES"<br>
-     * (ó‘Ô) findMessageSql:null<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) codeColumn:"CODE"<br>
+     * (çŠ¶æ…‹) languageColumn:""<br>
+     * (çŠ¶æ…‹) countryColumn:null<br>
+     * (çŠ¶æ…‹) variantColumn:null<br>
+     * (çŠ¶æ…‹) messageColumn:null<br>
+     * (çŠ¶æ…‹) tableName:"MESSAGES"<br>
+     * (çŠ¶æ…‹) findMessageSql:null<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentExceptionF<br>
-     * ƒƒƒbƒZ[ƒW„<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentExceptionï¼š<br>
+     * ï¼œãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼<br>
      * "languageColumn is illegalArgument"<br>
-     * (ó‘Ô•Ï‰») ƒƒO:yƒGƒ‰[ƒƒOz<br>
-     * ƒƒƒbƒZ[ƒW„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ã€ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°ã€‘<br>
+     * ï¼œãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼<br>
      * "languageColumn is illegalArgument"<br>
      * <br>
-     * Œ¾ŒêƒJƒ‰ƒ€‚ª‹ó•¶š‚Ì‚½‚ßAŒÄ‚Ño‚µæƒƒ\ƒbƒh‚É‚Ä’â~‚·‚éB <br>
+     * è¨€èªã‚«ãƒ©ãƒ ãŒç©ºæ–‡å­—ã®ãŸã‚ã€å‘¼ã³å‡ºã—å…ˆãƒ¡ã‚½ãƒƒãƒ‰ã«ã¦åœæ­¢ã™ã‚‹ã€‚ <br>
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testMakeSql04() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DBMessageResourceDAOImpl dbmr 
                 = new DBMessageResourceDAOImpl();
         dbmr.codeColumn = "CODE";
@@ -661,13 +661,13 @@ public class DBMessageResourceDAOImplTest extends TestCase {
         dbmr.tableName = "MESSAGES";
         dbmr.findMessageSql = null;
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             dbmr.makeSql();
             fail();
         } catch (IllegalArgumentException e) {
 
-            // ”»’è
+            // åˆ¤å®š
             assertEquals(
                     "illegalArgument: languageColumn is empty.", e.getMessage());
             assertTrue(LogUTUtil
@@ -678,31 +678,31 @@ public class DBMessageResourceDAOImplTest extends TestCase {
     /**
      * testMakeSql05() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) codeColumn:"CODE"<br>
-     * (ó‘Ô) languageColumn:null<br>
-     * (ó‘Ô) countryColumn:""<br>
-     * (ó‘Ô) variantColumn:null<br>
-     * (ó‘Ô) messageColumn:null<br>
-     * (ó‘Ô) tableName:"MESSAGES"<br>
-     * (ó‘Ô) findMessageSql:null<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) codeColumn:"CODE"<br>
+     * (çŠ¶æ…‹) languageColumn:null<br>
+     * (çŠ¶æ…‹) countryColumn:""<br>
+     * (çŠ¶æ…‹) variantColumn:null<br>
+     * (çŠ¶æ…‹) messageColumn:null<br>
+     * (çŠ¶æ…‹) tableName:"MESSAGES"<br>
+     * (çŠ¶æ…‹) findMessageSql:null<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentExceptionF<br>
-     * ƒƒƒbƒZ[ƒW„<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentExceptionï¼š<br>
+     * ï¼œãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼<br>
      * "countryColumn is illegalArgument"<br>
-     * (ó‘Ô•Ï‰») ƒƒO:yƒGƒ‰[ƒƒOz<br>
-     * ƒƒƒbƒZ[ƒW„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ã€ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°ã€‘<br>
+     * ï¼œãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼<br>
      * "countryColumn is illegalArgument"<br>
      * <br>
-     * ‘ƒJƒ‰ƒ€‚ª‹ó•¶š‚Ì‚½‚ßAŒÄ‚Ño‚µæƒƒ\ƒbƒh‚É‚Ä’â~‚·‚éB <br>
+     * å›½ã‚«ãƒ©ãƒ ãŒç©ºæ–‡å­—ã®ãŸã‚ã€å‘¼ã³å‡ºã—å…ˆãƒ¡ã‚½ãƒƒãƒ‰ã«ã¦åœæ­¢ã™ã‚‹ã€‚ <br>
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testMakeSql05() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DBMessageResourceDAOImpl dbmr 
                 = new DBMessageResourceDAOImpl();
         dbmr.codeColumn = "CODE";
@@ -713,13 +713,13 @@ public class DBMessageResourceDAOImplTest extends TestCase {
         dbmr.tableName = "MESSAGES";
         dbmr.findMessageSql = null;
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             dbmr.makeSql();
             fail();
         } catch (IllegalArgumentException e) {
 
-            // ”»’è
+            // åˆ¤å®š
             assertEquals(
                     "illegalArgument: countryColumn is empty.", e.getMessage());
             assertTrue(LogUTUtil
@@ -730,31 +730,31 @@ public class DBMessageResourceDAOImplTest extends TestCase {
     /**
      * testMakeSql06() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) codeColumn:"CODE"<br>
-     * (ó‘Ô) languageColumn:null<br>
-     * (ó‘Ô) countryColumn:null<br>
-     * (ó‘Ô) variantColumn:""<br>
-     * (ó‘Ô) messageColumn:null<br>
-     * (ó‘Ô) tableName:"MESSAGES"<br>
-     * (ó‘Ô) findMessageSql:null<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) codeColumn:"CODE"<br>
+     * (çŠ¶æ…‹) languageColumn:null<br>
+     * (çŠ¶æ…‹) countryColumn:null<br>
+     * (çŠ¶æ…‹) variantColumn:""<br>
+     * (çŠ¶æ…‹) messageColumn:null<br>
+     * (çŠ¶æ…‹) tableName:"MESSAGES"<br>
+     * (çŠ¶æ…‹) findMessageSql:null<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentExceptionF<br>
-     * ƒƒƒbƒZ[ƒW„<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentExceptionï¼š<br>
+     * ï¼œãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼<br>
      * "variantColumn is illegalArgument"<br>
-     * (ó‘Ô•Ï‰») ƒƒO:yƒGƒ‰[ƒƒOz<br>
-     * ƒƒƒbƒZ[ƒW„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ã€ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°ã€‘<br>
+     * ï¼œãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼<br>
      * "variantColumn is illegalArgument"<br>
      * <br>
-     * ƒoƒŠƒAƒ“ƒgƒJƒ‰ƒ€‚ª‹ó•¶š‚Ì‚½‚ßAŒÄ‚Ño‚µæƒƒ\ƒbƒh‚É‚Ä’â~‚·‚éB <br>
+     * ãƒãƒªã‚¢ãƒ³ãƒˆã‚«ãƒ©ãƒ ãŒç©ºæ–‡å­—ã®ãŸã‚ã€å‘¼ã³å‡ºã—å…ˆãƒ¡ã‚½ãƒƒãƒ‰ã«ã¦åœæ­¢ã™ã‚‹ã€‚ <br>
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testMakeSql06() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DBMessageResourceDAOImpl dbmr 
                 = new DBMessageResourceDAOImpl();
         dbmr.codeColumn = "CODE";
@@ -765,13 +765,13 @@ public class DBMessageResourceDAOImplTest extends TestCase {
         dbmr.tableName = "MESSAGES";
         dbmr.findMessageSql = null;
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             dbmr.makeSql();
             fail();
         } catch (IllegalArgumentException e) {
 
-            // ”»’è
+            // åˆ¤å®š
             assertEquals(
                     "illegalArgument: variantColumn is empty.", e.getMessage());
             assertTrue(LogUTUtil
@@ -782,31 +782,31 @@ public class DBMessageResourceDAOImplTest extends TestCase {
     /**
      * testMakeSql07() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) codeColumn:"CODE"<br>
-     * (ó‘Ô) languageColumn:null<br>
-     * (ó‘Ô) countryColumn:null<br>
-     * (ó‘Ô) variantColumn:null<br>
-     * (ó‘Ô) messageColumn:""<br>
-     * (ó‘Ô) tableName:"MESSAGES"<br>
-     * (ó‘Ô) findMessageSql:null<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) codeColumn:"CODE"<br>
+     * (çŠ¶æ…‹) languageColumn:null<br>
+     * (çŠ¶æ…‹) countryColumn:null<br>
+     * (çŠ¶æ…‹) variantColumn:null<br>
+     * (çŠ¶æ…‹) messageColumn:""<br>
+     * (çŠ¶æ…‹) tableName:"MESSAGES"<br>
+     * (çŠ¶æ…‹) findMessageSql:null<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentExceptionF<br>
-     * ƒƒƒbƒZ[ƒW„<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentExceptionï¼š<br>
+     * ï¼œãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼<br>
      * "messageColumn is illegalArgument"<br>
-     * (ó‘Ô•Ï‰») ƒƒO:yƒGƒ‰[ƒƒOz<br>
-     * ƒƒƒbƒZ[ƒW„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ã€ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°ã€‘<br>
+     * ï¼œãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼<br>
      * "messageColumn is illegalArgument"<br>
      * <br>
-     * ƒƒbƒZ[ƒWƒJƒ‰ƒ€‚ª‹ó•¶š‚Ì‚½‚ßAŒÄ‚Ño‚µæƒƒ\ƒbƒh‚É‚Ä’â~‚·‚éB <br>
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚«ãƒ©ãƒ ãŒç©ºæ–‡å­—ã®ãŸã‚ã€å‘¼ã³å‡ºã—å…ˆãƒ¡ã‚½ãƒƒãƒ‰ã«ã¦åœæ­¢ã™ã‚‹ã€‚ <br>
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testMakeSql07() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DBMessageResourceDAOImpl dbmr 
                 = new DBMessageResourceDAOImpl();
         dbmr.codeColumn = "CODE";
@@ -817,13 +817,13 @@ public class DBMessageResourceDAOImplTest extends TestCase {
         dbmr.tableName = "MESSAGES";
         dbmr.findMessageSql = null;
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             dbmr.makeSql();
             fail();
         } catch (IllegalArgumentException e) {
 
-            // ”»’è
+            // åˆ¤å®š
             assertEquals(
                     "illegalArgument: messageColumn is null or empty.", e.getMessage());
             assertTrue(LogUTUtil
@@ -834,31 +834,31 @@ public class DBMessageResourceDAOImplTest extends TestCase {
     /**
      * testMakeSql08() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) codeColumn:"CODE"<br>
-     * (ó‘Ô) languageColumn:null<br>
-     * (ó‘Ô) countryColumn:null<br>
-     * (ó‘Ô) variantColumn:null<br>
-     * (ó‘Ô) messageColumn:null<br>
-     * (ó‘Ô) tableName:"MESSAGES"<br>
-     * (ó‘Ô) findMessageSql:null<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) codeColumn:"CODE"<br>
+     * (çŠ¶æ…‹) languageColumn:null<br>
+     * (çŠ¶æ…‹) countryColumn:null<br>
+     * (çŠ¶æ…‹) variantColumn:null<br>
+     * (çŠ¶æ…‹) messageColumn:null<br>
+     * (çŠ¶æ…‹) tableName:"MESSAGES"<br>
+     * (çŠ¶æ…‹) findMessageSql:null<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentExceptionF<br>
-     * ƒƒƒbƒZ[ƒW„<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentExceptionï¼š<br>
+     * ï¼œãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼<br>
      * "MessageColumn is illegalArgument"<br>
-     * (ó‘Ô•Ï‰») ƒƒO:yƒGƒ‰[ƒƒOz<br>
-     * ƒƒƒbƒZ[ƒW„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ã€ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°ã€‘<br>
+     * ï¼œãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼<br>
      * "MessageColumn is illegalArgument"<br>
      * <br>
-     * ƒƒbƒZ[ƒWƒJƒ‰ƒ€‚ªnull‚Ì‚½‚ßAŒÄ‚Ño‚µæƒƒ\ƒbƒh‚É‚Ä’â~‚·‚éB <br>
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚«ãƒ©ãƒ ãŒnullã®ãŸã‚ã€å‘¼ã³å‡ºã—å…ˆãƒ¡ã‚½ãƒƒãƒ‰ã«ã¦åœæ­¢ã™ã‚‹ã€‚ <br>
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testMakeSql08() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DBMessageResourceDAOImpl dbmr 
                 = new DBMessageResourceDAOImpl();
         dbmr.codeColumn = "CODE";
@@ -869,13 +869,13 @@ public class DBMessageResourceDAOImplTest extends TestCase {
         dbmr.tableName = "MESSAGES";
         dbmr.findMessageSql = null;
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             dbmr.makeSql();
             fail();
         } catch (IllegalArgumentException e) {
 
-            // ”»’è
+            // åˆ¤å®š
             assertEquals(
                     "illegalArgument: messageColumn is null or empty.", e.getMessage());
             assertTrue(LogUTUtil
@@ -886,31 +886,31 @@ public class DBMessageResourceDAOImplTest extends TestCase {
     /**
      * testMakeSql09() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) codeColumn:"CODE"<br>
-     * (ó‘Ô) languageColumn:null<br>
-     * (ó‘Ô) countryColumn:null<br>
-     * (ó‘Ô) variantColumn:null<br>
-     * (ó‘Ô) messageColumn:"MESSAGE"<br>
-     * (ó‘Ô) tableName:""<br>
-     * (ó‘Ô) findMessageSql:null<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) codeColumn:"CODE"<br>
+     * (çŠ¶æ…‹) languageColumn:null<br>
+     * (çŠ¶æ…‹) countryColumn:null<br>
+     * (çŠ¶æ…‹) variantColumn:null<br>
+     * (çŠ¶æ…‹) messageColumn:"MESSAGE"<br>
+     * (çŠ¶æ…‹) tableName:""<br>
+     * (çŠ¶æ…‹) findMessageSql:null<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentExceptionF<br>
-     * ƒƒƒbƒZ[ƒW„<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentExceptionï¼š<br>
+     * ï¼œãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼<br>
      * "tableName is illegalArgument"<br>
-     * (ó‘Ô•Ï‰») ƒƒO:yƒGƒ‰[ƒƒOz<br>
-     * ƒƒƒbƒZ[ƒW„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ã€ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°ã€‘<br>
+     * ï¼œãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼<br>
      * "tableName is illegalArgument"<br>
      * <br>
-     * ƒe[ƒuƒ‹–¼‚ª‹ó•¶š‚Ì‚½‚ßAŒÄ‚Ño‚µæƒƒ\ƒbƒh‚É‚Ä’â~‚·‚éB <br>
+     * ãƒ†ãƒ¼ãƒ–ãƒ«åãŒç©ºæ–‡å­—ã®ãŸã‚ã€å‘¼ã³å‡ºã—å…ˆãƒ¡ã‚½ãƒƒãƒ‰ã«ã¦åœæ­¢ã™ã‚‹ã€‚ <br>
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testMakeSql09() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DBMessageResourceDAOImpl dbmr 
                 = new DBMessageResourceDAOImpl();
         dbmr.codeColumn = "CODE";
@@ -921,13 +921,13 @@ public class DBMessageResourceDAOImplTest extends TestCase {
         dbmr.tableName = "";
         dbmr.findMessageSql = null;
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             dbmr.makeSql();
             fail();
         } catch (IllegalArgumentException e) {
 
-            // ”»’è
+            // åˆ¤å®š
             assertEquals(
                     "illegalArgument: tableName is null or empty.", e.getMessage());
             assertTrue(LogUTUtil
@@ -938,31 +938,31 @@ public class DBMessageResourceDAOImplTest extends TestCase {
     /**
      * testMakeSql10() <br>
      * <br>
-     * (ˆÙíŒn) <br>
-     * ŠÏ“_FG <br>
+     * (ç•°å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šG <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) codeColumn:"CODE"<br>
-     * (ó‘Ô) languageColumn:null<br>
-     * (ó‘Ô) countryColumn:null<br>
-     * (ó‘Ô) variantColumn:null<br>
-     * (ó‘Ô) messageColumn:"MESSAGE"<br>
-     * (ó‘Ô) tableName:null<br>
-     * (ó‘Ô) findMessageSql:null<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) codeColumn:"CODE"<br>
+     * (çŠ¶æ…‹) languageColumn:null<br>
+     * (çŠ¶æ…‹) countryColumn:null<br>
+     * (çŠ¶æ…‹) variantColumn:null<br>
+     * (çŠ¶æ…‹) messageColumn:"MESSAGE"<br>
+     * (çŠ¶æ…‹) tableName:null<br>
+     * (çŠ¶æ…‹) findMessageSql:null<br>
      * <br>
-     * Šú‘Ò’lF(ó‘Ô•Ï‰») —áŠO:IllegalArgumentExceptionF<br>
-     * ƒƒƒbƒZ[ƒW„<br>
+     * æœŸå¾…å€¤ï¼š(çŠ¶æ…‹å¤‰åŒ–) ä¾‹å¤–:IllegalArgumentExceptionï¼š<br>
+     * ï¼œãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼<br>
      * "tableName is illegalArgument"<br>
-     * (ó‘Ô•Ï‰») ƒƒO:yƒGƒ‰[ƒƒOz<br>
-     * ƒƒƒbƒZ[ƒW„<br>
+     * (çŠ¶æ…‹å¤‰åŒ–) ãƒ­ã‚°:ã€ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°ã€‘<br>
+     * ï¼œãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ï¼<br>
      * "tableName is illegalArgument"<br>
      * <br>
-     * ƒe[ƒuƒ‹–¼‚ªnull‚Ì‚½‚ßAŒÄ‚Ño‚µæƒƒ\ƒbƒh‚É‚Ä’â~‚·‚éB <br>
+     * ãƒ†ãƒ¼ãƒ–ãƒ«åãŒnullã®ãŸã‚ã€å‘¼ã³å‡ºã—å…ˆãƒ¡ã‚½ãƒƒãƒ‰ã«ã¦åœæ­¢ã™ã‚‹ã€‚ <br>
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testMakeSql10() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DBMessageResourceDAOImpl dbmr 
                 = new DBMessageResourceDAOImpl();
         dbmr.codeColumn = "CODE";
@@ -973,13 +973,13 @@ public class DBMessageResourceDAOImplTest extends TestCase {
         dbmr.tableName = null;
         dbmr.findMessageSql = null;
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         try {
             dbmr.makeSql();
             fail();
         } catch (IllegalArgumentException e) {
 
-            // ”»’è
+            // åˆ¤å®š
             assertEquals(
                     "illegalArgument: tableName is null or empty.", e.getMessage());
             assertTrue(LogUTUtil
@@ -990,29 +990,29 @@ public class DBMessageResourceDAOImplTest extends TestCase {
     /**
      * testMakeSql11() <br>
      * <br>
-     * (³íŒn) <br>
-     * ŠÏ“_FA,F <br>
+     * (æ­£å¸¸ç³») <br>
+     * è¦³ç‚¹ï¼šA,F <br>
      * <br>
-     * “ü—Í’lF(ó‘Ô) codeColumn:"CODE"<br>
-     * (ó‘Ô) languageColumn:null<br>
-     * (ó‘Ô) countryColumn:null<br>
-     * (ó‘Ô) variantColumn:null<br>
-     * (ó‘Ô) messageColumn:"MESSAGE"<br>
-     * (ó‘Ô) tableName:"MESSAGES"<br>
-     * (ó‘Ô) findMessageSql:"SELECT CODE,LANGUAGE,COUNTRY,VARIANT,MESSAGE FROM
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) codeColumn:"CODE"<br>
+     * (çŠ¶æ…‹) languageColumn:null<br>
+     * (çŠ¶æ…‹) countryColumn:null<br>
+     * (çŠ¶æ…‹) variantColumn:null<br>
+     * (çŠ¶æ…‹) messageColumn:"MESSAGE"<br>
+     * (çŠ¶æ…‹) tableName:"MESSAGES"<br>
+     * (çŠ¶æ…‹) findMessageSql:"SELECT CODE,LANGUAGE,COUNTRY,VARIANT,MESSAGE FROM
      * MESSAGES"<br>
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) sql:"SELECT CODE,LANGUAGE,COUNTRY,VARIANT,MESSAGE FROM
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) sql:"SELECT CODE,LANGUAGE,COUNTRY,VARIANT,MESSAGE FROM
      * MESSAGES"<br>
      * <br>
-     * ˆø”‚Æ‚µ‚Ä‚ ‚½‚¦‚ç‚ê‚½SQL•¶‚ğAString‚Å•Ô‹p‚·‚éB<br>
-     * SQL•¶¶¬ƒƒWƒbƒN‚Íg—p‚µ‚È‚¢B <br>
+     * å¼•æ•°ã¨ã—ã¦ã‚ãŸãˆã‚‰ã‚ŒãŸSQLæ–‡ã‚’ã€Stringã§è¿”å´ã™ã‚‹ã€‚<br>
+     * SQLæ–‡ç”Ÿæˆãƒ­ã‚¸ãƒƒã‚¯ã¯ä½¿ç”¨ã—ãªã„ã€‚ <br>
      * 
      * @throws Exception
-     *             ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     *             ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     public void testMakeSql11() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DBMessageResourceDAOImpl dbmr 
                 = new DBMessageResourceDAOImpl();
         String sql ="SELECT CODE,LANGUAGE,COUNTRY,VARIANT,MESSAGE FROM MESSAGES";
@@ -1024,10 +1024,10 @@ public class DBMessageResourceDAOImplTest extends TestCase {
         dbmr.tableName = "MESSAGES";
         dbmr.findMessageSql = sql;
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         String sqlReturn = dbmr.makeSql();
         
-        // ”»’è
+        // åˆ¤å®š
         assertEquals(sql, sqlReturn);
     }
 
@@ -1035,24 +1035,24 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * testFindDBMessages01()
      * <br><br>
      * 
-     * (³íŒn)
+     * (æ­£å¸¸ç³»)
      * <br>
-     * ŠÏ“_FE
+     * è¦³ç‚¹ï¼šE
      * <br><br>
-     * “ü—Í’lF(ó‘Ô) dBmessageQuery:not null<br>
+     * å…¥åŠ›å€¤ï¼š(çŠ¶æ…‹) dBmessageQuery:not null<br>
      *         
      * <br>
-     * Šú‘Ò’lF(–ß‚è’l) dBMessageQuery.execute()‚ÌŒ‹‰Ê<br>
+     * æœŸå¾…å€¤ï¼š(æˆ»ã‚Šå€¤) dBMessageQuery.execute()ã®çµæœ<br>
      *         
      * <br>
-     * executeƒƒ\ƒbƒh‚ªŒÄ‚Ño‚³‚êA–ß‚è’l•Ô‚Á‚Ä‚­‚é‚±‚Æ‚ğŠm”F‚·‚éB
+     * executeãƒ¡ã‚½ãƒƒãƒ‰ãŒå‘¼ã³å‡ºã•ã‚Œã€æˆ»ã‚Šå€¤è¿”ã£ã¦ãã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹ã€‚
      * <br>
      * 
-     * @throws Exception ‚±‚Ìƒƒ\ƒbƒh‚Å”­¶‚µ‚½—áŠO
+     * @throws Exception ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ç™ºç”Ÿã—ãŸä¾‹å¤–
      */
     @SuppressWarnings("unchecked")
     public void testFindDBMessages01() throws Exception {
-        // ‘Oˆ—
+        // å‰å‡¦ç†
         DataSource ds = new MockDataSource();
         DBMessageResourceDAOImpl_DBMessageQueryStub01 query
                 = new DBMessageResourceDAOImpl_DBMessageQueryStub01(ds,
@@ -1065,10 +1065,10 @@ public class DBMessageResourceDAOImplTest extends TestCase {
         list.add("success");
         query.list = list;
         
-        // ƒeƒXƒgÀ{
+        // ãƒ†ã‚¹ãƒˆå®Ÿæ–½
         List listReturn = dbmr.findDBMessages();
         
-        // ”»’è
+        // åˆ¤å®š
         assertSame(list, listReturn);
     }
 }

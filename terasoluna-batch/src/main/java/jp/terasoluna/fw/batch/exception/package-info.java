@@ -1,4 +1,4 @@
 /**
- * —áŠOŠÖ˜A
+ * ä¾‹å¤–é–¢é€£
  */
 package jp.terasoluna.fw.batch.exception;

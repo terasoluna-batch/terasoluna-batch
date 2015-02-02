@@ -5,7 +5,7 @@ import jp.terasoluna.fw.file.annotation.InputFileColumn;
 import jp.terasoluna.fw.file.annotation.OutputFileColumn;
 
 /**
- * privateのgetメソッドを持つファイル行オブジェクト。
+ * private縺ｮget繝｡繧ｽ繝�繝峨ｒ謖√▽繝輔ぃ繧､繝ｫ陦後が繝悶ず繧ｧ繧ｯ繝医�
  */
 @FileFormat()
 public class IntColumnFormatter_Stub02 {

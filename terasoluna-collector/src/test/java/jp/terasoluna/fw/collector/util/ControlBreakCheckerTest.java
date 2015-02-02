@@ -60,12 +60,12 @@ public class ControlBreakCheckerTest {
         Collector<HogeBean> collector = null;
         String s = null;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isPreBreak(collector, s);
         Map<String, Object> resultKey = ControlBreakChecker.getPreBreakKey(
                 collector, s);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
         assertNotNull(resultKey);
         assertEquals(0, resultKey.size());
@@ -88,12 +88,12 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         String s = "hogeString";
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isPreBreak(collector, s);
         Map<String, Object> resultKey = ControlBreakChecker.getPreBreakKey(
                 collector, s);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(1, resultKey.size());
@@ -112,12 +112,12 @@ public class ControlBreakCheckerTest {
         Collector<HogeBean> collector = null;
         String[] s = null;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isPreBreak(collector, s);
         Map<String, Object> resultKey = ControlBreakChecker.getPreBreakKey(
                 collector, s);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
         assertNotNull(resultKey);
         assertEquals(0, resultKey.size());
@@ -140,12 +140,12 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         String[] s = { "hogeString" };
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isPreBreak(collector, s);
         Map<String, Object> resultKey = ControlBreakChecker.getPreBreakKey(
                 collector, s);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(1, resultKey.size());
@@ -164,12 +164,12 @@ public class ControlBreakCheckerTest {
         Collector<HogeBean> collector = null;
         String[] s = null;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isPreBreak(collector, s);
         Map<String, Object> resultKey = ControlBreakChecker.getPreBreakKey(
                 collector, s);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
         assertNotNull(resultKey);
         assertEquals(0, resultKey.size());
@@ -192,12 +192,12 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         String[] s = null;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isPreBreak(collector, s);
         Map<String, Object> resultKey = ControlBreakChecker.getPreBreakKey(
                 collector, s);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
         assertNotNull(resultKey);
         assertEquals(0, resultKey.size());
@@ -220,13 +220,13 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(null);
         List<String> s = Arrays.asList(new String[] { "hogeString" });
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isPreBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getPreBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(1, resultKey.size());
@@ -252,13 +252,13 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         List<String> s = Arrays.asList(new String[] { "hogeString" });
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isPreBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getPreBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(1, resultKey.size());
@@ -286,13 +286,13 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         List<String> s = Arrays.asList(new String[] { "hogeStringHoge" });
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isPreBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getPreBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
         assertNotNull(resultKey);
         assertEquals(0, resultKey.size());
@@ -315,13 +315,13 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         List<String> s = Arrays.asList(new String[] { "hogeString" });
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isPreBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getPreBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(1, resultKey.size());
@@ -347,13 +347,13 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         List<String> s = Arrays.asList(new String[] { "hogeString" });
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isPreBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getPreBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(1, resultKey.size());
@@ -381,13 +381,13 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         List<String> s = Arrays.asList(new String[] { "hogeBoolean" });
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isPreBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getPreBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(1, resultKey.size());
@@ -415,13 +415,13 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         List<String> s = Arrays.asList(new String[] { "hogeCharacter" });
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isPreBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getPreBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(1, resultKey.size());
@@ -449,13 +449,13 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         List<String> s = Arrays.asList(new String[] { "hogeByte" });
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isPreBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getPreBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(1, resultKey.size());
@@ -483,13 +483,13 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         List<String> s = Arrays.asList(new String[] { "hogeShort" });
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isPreBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getPreBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(1, resultKey.size());
@@ -517,13 +517,13 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         List<String> s = Arrays.asList(new String[] { "hogeInteger" });
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isPreBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getPreBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(1, resultKey.size());
@@ -551,13 +551,13 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         List<String> s = Arrays.asList(new String[] { "hogeLong" });
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isPreBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getPreBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(1, resultKey.size());
@@ -585,13 +585,13 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         List<String> s = Arrays.asList(new String[] { "hogeFloat" });
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isPreBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getPreBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(1, resultKey.size());
@@ -619,13 +619,13 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         List<String> s = Arrays.asList(new String[] { "hogeDouble" });
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isPreBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getPreBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(1, resultKey.size());
@@ -653,13 +653,13 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         List<String> s = Arrays.asList(new String[] { "hogeBigInteger" });
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isPreBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getPreBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(1, resultKey.size());
@@ -687,13 +687,13 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         List<String> s = Arrays.asList(new String[] { "hogeBigDecimal" });
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isPreBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getPreBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(1, resultKey.size());
@@ -721,13 +721,13 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         List<String> s = Arrays.asList(new String[] { "hogePrimitiveInt" });
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isPreBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getPreBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(1, resultKey.size());
@@ -761,13 +761,13 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         List<String> s = Arrays.asList(new String[] { "hogeHogeBean2" });
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isPreBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getPreBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
         assertNotNull(resultKey);
         assertEquals(0, resultKey.size());
@@ -804,13 +804,13 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         List<String> s = Arrays.asList(new String[] { "hogeHogeBean2" });
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isPreBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getPreBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(1, resultKey.size());
@@ -845,13 +845,13 @@ public class ControlBreakCheckerTest {
         List<String> s = Arrays
                 .asList(new String[] { "hogeHogeBean2.hogeString" });
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isPreBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getPreBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(1, resultKey.size());
@@ -872,12 +872,12 @@ public class ControlBreakCheckerTest {
         // Comparator comp = new ComparatorStub();
         // Comparator[] comparators = new Comparator[] { comp, comp };
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isPreBreak(collector, s);
         Map<String, Object> resultKey = ControlBreakChecker.getPreBreakKey(
                 collector, s);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
         assertNotNull(resultKey);
         assertEquals(0, resultKey.size());
@@ -893,12 +893,12 @@ public class ControlBreakCheckerTest {
         // Comparator comp = new ComparatorStub();
         // Comparator[] comparators = new Comparator[] { comp };
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isPreBreak(collector, s);
         Map<String, Object> resultKey = ControlBreakChecker.getPreBreakKey(
                 collector, s);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
         assertNotNull(resultKey);
         assertEquals(0, resultKey.size());
@@ -927,13 +927,13 @@ public class ControlBreakCheckerTest {
         // Comparator comp = new ComparatorStub();
         // Comparator[] comparators = new Comparator[] { comp, comp };
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isPreBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getPreBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
         assertNotNull(resultKey);
         assertEquals(0, resultKey.size());
@@ -962,13 +962,13 @@ public class ControlBreakCheckerTest {
         // Comparator comp = new ComparatorStub();
         // Comparator[] comparators = new Comparator[] { comp, comp };
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isPreBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getPreBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(2, resultKey.size());
@@ -1005,13 +1005,13 @@ public class ControlBreakCheckerTest {
         // Comparator comp = new ComparatorStub();
         // Comparator[] comparators = new Comparator[] { comp, comp };
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isPreBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getPreBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(1, resultKey.size());
@@ -1044,13 +1044,13 @@ public class ControlBreakCheckerTest {
         // Comparator comp = new ComparatorStub();
         // Comparator[] comparators = new Comparator[] { comp };
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isPreBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getPreBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(1, resultKey.size());
@@ -1081,13 +1081,13 @@ public class ControlBreakCheckerTest {
         List<String> s = Arrays.asList(new String[] { "hogeString",
                 "hogeBoolean" });
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isPreBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getPreBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
         assertNotNull(resultKey);
         assertEquals(0, resultKey.size());
@@ -1114,13 +1114,13 @@ public class ControlBreakCheckerTest {
         List<String> s = Arrays.asList(new String[] { "hogeString",
                 "hogeBoolean" });
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isPreBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getPreBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(2, resultKey.size());
@@ -1157,13 +1157,13 @@ public class ControlBreakCheckerTest {
         List<String> s = Arrays.asList(new String[] { "hogeString",
                 "hogeBoolean" });
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isPreBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getPreBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(1, resultKey.size());
@@ -1176,9 +1176,9 @@ public class ControlBreakCheckerTest {
 
     /**
      * testIsPreBreak0057.<br>
-     * compareStrategy‚ğì¬‚µ‚ÄŒ±‚ğs‚¤<br>
-     * breakkey‚Ì”=0(null)<br>
-     * compareStrategy‚Ì”=0(null)<br>
+     * compareStrategyã‚’ä½œæˆã—ã¦è©¦é¨“ã‚’è¡Œã†<br>
+     * breakkeyã®æ•°=0(null)<br>
+     * compareStrategyã®æ•°=0(null)<br>
      */
     @Test
     public void testIsPreBreak0057() {
@@ -1194,16 +1194,16 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         String[] s = null;
 
-        // compareStrategy¶¬B’†g‚Ínull
+        // compareStrategyç”Ÿæˆã€‚ä¸­èº«ã¯null
         CompareStrategy<?>[] compareStrategy = null;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isPreBreak(collector,
                 compareStrategy, s);
         Map<String, Object> resultKey = ControlBreakChecker.getPreBreakKey(
                 collector, compareStrategy, s);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
         assertNotNull(resultKey);
         assertEquals(0, resultKey.size());
@@ -1212,9 +1212,9 @@ public class ControlBreakCheckerTest {
 
     /**
      * testIsPreBreak0058.<br>
-     * compareStrategy‚ğì¬‚µ‚ÄŒ±‚ğs‚¤<br>
-     * breakkey‚Ì”=0(null)<br>
-     * compareStrategy‚Ì”=1<br>
+     * compareStrategyã‚’ä½œæˆã—ã¦è©¦é¨“ã‚’è¡Œã†<br>
+     * breakkeyã®æ•°=0(null)<br>
+     * compareStrategyã®æ•°=1<br>
      */
     @Test
     public void testIsPreBreak0058() {
@@ -1230,17 +1230,17 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         String[] s = null;
 
-        // compareStrategy¶¬B
+        // compareStrategyç”Ÿæˆã€‚
         CompareStrategy<?> comp = new CompareStrategyStub1();
         CompareStrategy<?>[] compareStrategies = { comp };
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isPreBreak(collector,
                 compareStrategies, s);
         Map<String, Object> resultKey = ControlBreakChecker.getPreBreakKey(
                 collector, compareStrategies, s);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
         assertNotNull(resultKey);
         assertEquals(0, resultKey.size());
@@ -1248,9 +1248,9 @@ public class ControlBreakCheckerTest {
 
     /**
      * testIsPreBreak0059.<br>
-     * compareStrategy‚ğì¬‚µ‚ÄŒ±‚ğs‚¤<br>
-     * breakkey‚Ì”=1<br>
-     * compareStrategy‚Ì”=0<br>
+     * compareStrategyã‚’ä½œæˆã—ã¦è©¦é¨“ã‚’è¡Œã†<br>
+     * breakkeyã®æ•°=1<br>
+     * compareStrategyã®æ•°=0<br>
      */
     @Test
     public void testIsPreBreak0059() {
@@ -1266,11 +1266,11 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         String[] s = { "hogeString" };
 
-        // comparator¶¬
+        // comparatorç”Ÿæˆ
 
         CompareStrategy<?>[] compareStrategies = null;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isPreBreak(collector,
                 compareStrategies, s);
         Map<String, Object> resultKey = ControlBreakChecker.getPreBreakKey(
@@ -1287,9 +1287,9 @@ public class ControlBreakCheckerTest {
 
     /**
      * testIsPreBreak0060.<br>
-     * compareStrategy‚ğì¬‚µ‚ÄŒ±‚ğs‚¤<br>
-     * breakkey‚Ì”=1<br>
-     * compareStrategy‚Ì”=1<br>
+     * compareStrategyã‚’ä½œæˆã—ã¦è©¦é¨“ã‚’è¡Œã†<br>
+     * breakkeyã®æ•°=1<br>
+     * compareStrategyã®æ•°=1<br>
      */
     @Test
     public void testIsPreBreak0060() {
@@ -1305,11 +1305,11 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         String[] s = { "hogeString" };
 
-        // comparator¶¬
+        // comparatorç”Ÿæˆ
         CompareStrategy<?> comp1 = new CompareStrategyStub1();
         CompareStrategy<?>[] compareStrategies = { comp1 };
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isPreBreak(collector,
                 compareStrategies, s);
         Map<String, Object> resultKey = ControlBreakChecker.getPreBreakKey(
@@ -1322,9 +1322,9 @@ public class ControlBreakCheckerTest {
 
     /**
      * testIsPreBreak0061.<br>
-     * compareStrategy‚ğì¬‚µ‚ÄŒ±‚ğs‚¤<br>
-     * breakkey‚Ì”=1<br>
-     * compareStrategy‚Ì”=2<br>
+     * compareStrategyã‚’ä½œæˆã—ã¦è©¦é¨“ã‚’è¡Œã†<br>
+     * breakkeyã®æ•°=1<br>
+     * compareStrategyã®æ•°=2<br>
      */
     @Test
     public void testIsPreBreak0061() {
@@ -1340,18 +1340,18 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         String[] s = { "hogeString" };
 
-        // comparator¶¬
+        // comparatorç”Ÿæˆ
         CompareStrategy<?> comp1 = new CompareStrategyStub1();
         CompareStrategy<?> comp2 = new CompareStrategyStub2();
         CompareStrategy<?>[] compareStrategies = { comp1, comp2 };
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isPreBreak(collector,
                 compareStrategies, s);
         Map<String, Object> resultKey = ControlBreakChecker.getPreBreakKey(
                 collector, compareStrategies, s);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(1, resultKey.size());
@@ -1363,9 +1363,9 @@ public class ControlBreakCheckerTest {
 
     /**
      * testIsPreBreak0062.<br>
-     * compareStrategy‚ğì¬‚µ‚ÄŒ±‚ğs‚¤<br>
-     * breakkey‚Ì”=2<br>
-     * compareStrategy‚Ì”=0<br>
+     * compareStrategyã‚’ä½œæˆã—ã¦è©¦é¨“ã‚’è¡Œã†<br>
+     * breakkeyã®æ•°=2<br>
+     * compareStrategyã®æ•°=0<br>
      */
     @Test
     public void testIsPreBreak0062() {
@@ -1384,10 +1384,10 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         String[] s = { "hogeString", "hogeInteger" };
 
-        // comparator¶¬
+        // comparatorç”Ÿæˆ
         CompareStrategy<?>[] compareStrategies = null;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isPreBreak(collector,
                 compareStrategies, s);
         Map<String, Object> resultKey = ControlBreakChecker.getPreBreakKey(
@@ -1401,9 +1401,9 @@ public class ControlBreakCheckerTest {
 
     /**
      * testIsPreBreak0063.<br>
-     * compareStrategy‚ğì¬‚µ‚ÄŒ±‚ğs‚¤<br>
-     * breakkey‚Ì”=2<br>
-     * compareStrategy‚Ì”=1<br>
+     * compareStrategyã‚’ä½œæˆã—ã¦è©¦é¨“ã‚’è¡Œã†<br>
+     * breakkeyã®æ•°=2<br>
+     * compareStrategyã®æ•°=1<br>
      */
     @Test
     public void testIsPreBreak0063() {
@@ -1422,11 +1422,11 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         String[] s = { "hogeString", "hogeString2" };
 
-        // comparator¶¬
+        // comparatorç”Ÿæˆ
         CompareStrategy<?> comp1 = new CompareStrategyStub2();
         CompareStrategy<?>[] compareStrategies = { comp1 };
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isPreBreak(collector,
                 compareStrategies, s);
         Map<String, Object> resultKey = ControlBreakChecker.getPreBreakKey(
@@ -1443,9 +1443,9 @@ public class ControlBreakCheckerTest {
 
     /**
      * testIsPreBreak0064.<br>
-     * compareStrategy‚ğì¬‚µ‚ÄŒ±‚ğs‚¤<br>
-     * breakkey‚Ì”=2<br>
-     * compareStrategy‚Ì”=2<br>
+     * compareStrategyã‚’ä½œæˆã—ã¦è©¦é¨“ã‚’è¡Œã†<br>
+     * breakkeyã®æ•°=2<br>
+     * compareStrategyã®æ•°=2<br>
      */
     @Test
     public void testIsPreBreak0064() {
@@ -1464,12 +1464,12 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         String[] s = { "hogeString", "hogeInteger" };
 
-        // comparator¶¬B
+        // comparatorç”Ÿæˆã€‚
         CompareStrategy<?> comp1 = new CompareStrategyStub2();
         CompareStrategy<?> comp2 = new CompareStrategyStub1();
         CompareStrategy<?>[] compareStrategies = { comp1, comp2 };
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isPreBreak(collector,
                 compareStrategies, s);
         Map<String, Object> resultKey = ControlBreakChecker.getPreBreakKey(
@@ -1482,8 +1482,8 @@ public class ControlBreakCheckerTest {
 
     /**
      * testIsPreBreak0065.<br>
-     * g—p‚·‚égetXxx‚ª—áŠO‚ğƒXƒ[‚µ‚½ê‡‚É—áŠO‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ÌŠm”FB
-     * Collector#getPrevious‚ª—áŠO‚ğƒXƒ[‚·‚éƒP[ƒX
+     * ä½¿ç”¨ã™ã‚‹getXxxãŒä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã—ãŸå ´åˆã«ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã®ç¢ºèªã€‚
+     * Collector#getPreviousãŒä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã‚±ãƒ¼ã‚¹
      */
     @Test
     public void testIsPreBreak0065() {
@@ -1498,7 +1498,7 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         String[] s = { "hogeString" };
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         try {
             ControlBreakChecker.isPreBreak(collector, s);
             fail();
@@ -1513,8 +1513,8 @@ public class ControlBreakCheckerTest {
 
     /**
      * testIsPreBreak0066.<br>
-     * g—p‚·‚égetXxx‚ª—áŠO‚ğƒXƒ[‚µ‚½ê‡‚É—áŠO‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ÌŠm”FB
-     * Collector#getCurrent‚ª—áŠO‚ğƒXƒ[‚·‚éƒP[ƒX
+     * ä½¿ç”¨ã™ã‚‹getXxxãŒä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã—ãŸå ´åˆã«ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã®ç¢ºèªã€‚
+     * Collector#getCurrentãŒä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã‚±ãƒ¼ã‚¹
      */
     @Test
     public void testIsPreBreak0066() {
@@ -1529,7 +1529,7 @@ public class ControlBreakCheckerTest {
         collector.setPrevious(previous);
         String[] s = { "hogeString" };
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         try {
             ControlBreakChecker.isPreBreak(collector, s);
             fail();
@@ -1550,12 +1550,12 @@ public class ControlBreakCheckerTest {
         Collector<HogeBean> collector = null;
         String s = null;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreak(collector, s);
         Map<String, Object> resultKey = ControlBreakChecker.getBreakKey(
                 collector, s);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
         assertNotNull(resultKey);
         assertEquals(0, resultKey.size());
@@ -1578,12 +1578,12 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         String s = "hogeString";
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreak(collector, s);
         Map<String, Object> resultKey = ControlBreakChecker.getBreakKey(
                 collector, s);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(1, resultKey.size());
@@ -1602,12 +1602,12 @@ public class ControlBreakCheckerTest {
         Collector<HogeBean> collector = null;
         String[] s = null;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreak(collector, s);
         Map<String, Object> resultKey = ControlBreakChecker.getBreakKey(
                 collector, s);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
         assertNotNull(resultKey);
         assertEquals(0, resultKey.size());
@@ -1630,12 +1630,12 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         String[] s = { "hogeString" };
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreak(collector, s);
         Map<String, Object> resultKey = ControlBreakChecker.getBreakKey(
                 collector, s);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(1, resultKey.size());
@@ -1654,12 +1654,12 @@ public class ControlBreakCheckerTest {
         Collector<HogeBean> collector = null;
         String[] s = null;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreak(collector, s);
         Map<String, Object> resultKey = ControlBreakChecker.getBreakKey(
                 collector, s);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
         assertNotNull(resultKey);
         assertEquals(0, resultKey.size());
@@ -1682,12 +1682,12 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         String[] s = null;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreak(collector, s);
         Map<String, Object> resultKey = ControlBreakChecker.getBreakKey(
                 collector, s);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
         assertNotNull(resultKey);
         assertEquals(0, resultKey.size());
@@ -1710,13 +1710,13 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(null);
         List<String> s = Arrays.asList(new String[] { "hogeString" });
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(1, resultKey.size());
@@ -1742,13 +1742,13 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         List<String> s = Arrays.asList(new String[] { "hogeString" });
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(1, resultKey.size());
@@ -1776,13 +1776,13 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         List<String> s = Arrays.asList(new String[] { "hogeStringHoge" });
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
         assertNotNull(resultKey);
         assertEquals(0, resultKey.size());
@@ -1805,13 +1805,13 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         List<String> s = Arrays.asList(new String[] { "hogeString" });
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(1, resultKey.size());
@@ -1835,13 +1835,13 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         List<String> s = Arrays.asList(new String[] { "hogeString" });
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(1, resultKey.size());
@@ -1869,13 +1869,13 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         List<String> s = Arrays.asList(new String[] { "hogeBoolean" });
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(1, resultKey.size());
@@ -1903,13 +1903,13 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         List<String> s = Arrays.asList(new String[] { "hogeCharacter" });
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(1, resultKey.size());
@@ -1937,13 +1937,13 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         List<String> s = Arrays.asList(new String[] { "hogeByte" });
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(1, resultKey.size());
@@ -1971,13 +1971,13 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         List<String> s = Arrays.asList(new String[] { "hogeShort" });
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(1, resultKey.size());
@@ -2005,13 +2005,13 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         List<String> s = Arrays.asList(new String[] { "hogeInteger" });
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(1, resultKey.size());
@@ -2039,13 +2039,13 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         List<String> s = Arrays.asList(new String[] { "hogeLong" });
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(1, resultKey.size());
@@ -2073,13 +2073,13 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         List<String> s = Arrays.asList(new String[] { "hogeFloat" });
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(1, resultKey.size());
@@ -2107,13 +2107,13 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         List<String> s = Arrays.asList(new String[] { "hogeDouble" });
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(1, resultKey.size());
@@ -2141,13 +2141,13 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         List<String> s = Arrays.asList(new String[] { "hogeBigInteger" });
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(1, resultKey.size());
@@ -2175,13 +2175,13 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         List<String> s = Arrays.asList(new String[] { "hogeBigDecimal" });
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(1, resultKey.size());
@@ -2209,13 +2209,13 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         List<String> s = Arrays.asList(new String[] { "hogePrimitiveInt" });
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(1, resultKey.size());
@@ -2249,13 +2249,13 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         List<String> s = Arrays.asList(new String[] { "hogeHogeBean2" });
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
         assertNotNull(resultKey);
         assertEquals(0, resultKey.size());
@@ -2292,13 +2292,13 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         List<String> s = Arrays.asList(new String[] { "hogeHogeBean2" });
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(1, resultKey.size());
@@ -2333,13 +2333,13 @@ public class ControlBreakCheckerTest {
         List<String> s = Arrays
                 .asList(new String[] { "hogeHogeBean2.hogeString" });
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(1, resultKey.size());
@@ -2360,12 +2360,12 @@ public class ControlBreakCheckerTest {
         // Comparator comp = new ComparatorStub();
         // Comparator[] comparators = new Comparator[] { comp, comp };
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreak(collector, s);
         Map<String, Object> resultKey = ControlBreakChecker.getBreakKey(
                 collector, s);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
         assertNotNull(resultKey);
         assertEquals(0, resultKey.size());
@@ -2394,13 +2394,13 @@ public class ControlBreakCheckerTest {
         // Comparator comp = new ComparatorStub();
         // Comparator[] comparators = new Comparator[] { comp, comp };
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
         assertNotNull(resultKey);
         assertEquals(0, resultKey.size());
@@ -2429,13 +2429,13 @@ public class ControlBreakCheckerTest {
         // Comparator comp = new ComparatorStub();
         // Comparator[] comparators = new Comparator[] { comp, comp };
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(2, resultKey.size());
@@ -2472,13 +2472,13 @@ public class ControlBreakCheckerTest {
         // Comparator comp = new ComparatorStub();
         // Comparator[] comparators = new Comparator[] { comp, comp };
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(1, resultKey.size());
@@ -2511,13 +2511,13 @@ public class ControlBreakCheckerTest {
         // Comparator comp = new ComparatorStub();
         // Comparator[] comparators = new Comparator[] { comp };
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(1, resultKey.size());
@@ -2548,13 +2548,13 @@ public class ControlBreakCheckerTest {
         List<String> s = Arrays.asList(new String[] { "hogeString",
                 "hogeBoolean" });
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
         assertNotNull(resultKey);
         assertEquals(0, resultKey.size());
@@ -2581,13 +2581,13 @@ public class ControlBreakCheckerTest {
         List<String> s = Arrays.asList(new String[] { "hogeString",
                 "hogeBoolean" });
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(2, resultKey.size());
@@ -2624,13 +2624,13 @@ public class ControlBreakCheckerTest {
         List<String> s = Arrays.asList(new String[] { "hogeString",
                 "hogeBoolean" });
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreak(collector,
                 s.toArray(new String[0]));
         Map<String, Object> resultKey = ControlBreakChecker.getBreakKey(
                 collector, s.toArray(new String[0]));
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(1, resultKey.size());
@@ -2643,9 +2643,9 @@ public class ControlBreakCheckerTest {
 
     /**
      * testIsBreak0057.<br>
-     * compareStrategy‚ğì¬‚µ‚ÄŒ±‚ğs‚¤<br>
-     * breakkey‚Ì”=0(null)<br>
-     * compareStrategy‚Ì”=0(null)<br>
+     * compareStrategyã‚’ä½œæˆã—ã¦è©¦é¨“ã‚’è¡Œã†<br>
+     * breakkeyã®æ•°=0(null)<br>
+     * compareStrategyã®æ•°=0(null)<br>
      */
     @Test
     public void testIsBreak0057() {
@@ -2661,16 +2661,16 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         String[] s = null;
 
-        // comparator¶¬B’†g‚Ínull
+        // comparatorç”Ÿæˆã€‚ä¸­èº«ã¯null
         CompareStrategy<?>[] compareStrategies = null;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreak(collector,
                 compareStrategies, s);
         Map<String, Object> resultKey = ControlBreakChecker.getBreakKey(
                 collector, compareStrategies, s);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
         assertNotNull(resultKey);
         assertEquals(0, resultKey.size());
@@ -2678,9 +2678,9 @@ public class ControlBreakCheckerTest {
 
     /**
      * testIsBreak0058.<br>
-     * compareStrategy‚ğì¬‚µ‚ÄŒ±‚ğs‚¤<br>
-     * breakkey‚Ì”=0(null)<br>
-     * compareStrategy‚Ì”=1<br>
+     * compareStrategyã‚’ä½œæˆã—ã¦è©¦é¨“ã‚’è¡Œã†<br>
+     * breakkeyã®æ•°=0(null)<br>
+     * compareStrategyã®æ•°=1<br>
      */
     @Test
     public void testIsBreak0058() {
@@ -2696,17 +2696,17 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         String[] s = null;
 
-        // comparator¶¬B
+        // comparatorç”Ÿæˆã€‚
         CompareStrategy<?> comp = new CompareStrategyStub2();
         CompareStrategy<?>[] compareStrategies = { comp };
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreak(collector,
                 compareStrategies, s);
         Map<String, Object> resultKey = ControlBreakChecker.getBreakKey(
                 collector, compareStrategies, s);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
         assertNotNull(resultKey);
         assertEquals(0, resultKey.size());
@@ -2715,9 +2715,9 @@ public class ControlBreakCheckerTest {
 
     /**
      * testIsBreak0059.<br>
-     * compareStrategy‚ğì¬‚µ‚ÄŒ±‚ğs‚¤<br>
-     * breakkey‚Ì”=1<br>
-     * compareStrategy‚Ì”=0<br>
+     * compareStrategyã‚’ä½œæˆã—ã¦è©¦é¨“ã‚’è¡Œã†<br>
+     * breakkeyã®æ•°=1<br>
+     * compareStrategyã®æ•°=0<br>
      */
     @Test
     public void testIsBreak0059() {
@@ -2733,10 +2733,10 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         String[] s = { "hogeString" };
 
-        // comparator¶¬
+        // comparatorç”Ÿæˆ
         CompareStrategy<?>[] compareStrategies = null;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreak(collector,
                 compareStrategies, s);
         Map<String, Object> resultKey = ControlBreakChecker.getBreakKey(
@@ -2750,9 +2750,9 @@ public class ControlBreakCheckerTest {
 
     /**
      * testIsPreBreak0060.<br>
-     * compareStrategy‚ğì¬‚µ‚ÄŒ±‚ğs‚¤<br>
-     * breakkey‚Ì”=1<br>
-     * compareStrategy‚Ì”=1<br>
+     * compareStrategyã‚’ä½œæˆã—ã¦è©¦é¨“ã‚’è¡Œã†<br>
+     * breakkeyã®æ•°=1<br>
+     * compareStrategyã®æ•°=1<br>
      */
     @Test
     public void testIsBreak0060() {
@@ -2768,11 +2768,11 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         String[] s = { "hogeString" };
 
-        // comparator¶¬
+        // comparatorç”Ÿæˆ
         CompareStrategy<?> comp1 = new CompareStrategyStub1();
         CompareStrategy<?>[] compareStrategies = { comp1 };
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreak(collector,
                 compareStrategies, s);
         Map<String, Object> resultKey = ControlBreakChecker.getBreakKey(
@@ -2789,9 +2789,9 @@ public class ControlBreakCheckerTest {
 
     /**
      * testIsPreBreak0061.<br>
-     * compareStrategy‚ğì¬‚µ‚ÄŒ±‚ğs‚¤<br>
-     * breakkey‚Ì”=1<br>
-     * compareStrategy‚Ì”=2<br>
+     * compareStrategyã‚’ä½œæˆã—ã¦è©¦é¨“ã‚’è¡Œã†<br>
+     * breakkeyã®æ•°=1<br>
+     * compareStrategyã®æ•°=2<br>
      */
     @Test
     public void testIsBreak0061() {
@@ -2807,12 +2807,12 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         String[] s = { "hogeString" };
 
-        // comparator¶¬
+        // comparatorç”Ÿæˆ
         CompareStrategy<?> comp1 = new CompareStrategyStub1();
         CompareStrategy<?> comp2 = new CompareStrategyStub1();
         CompareStrategy<?>[] compareStrategies = { comp1, comp2 };
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreak(collector,
                 compareStrategies, s);
         Map<String, Object> resultKey = ControlBreakChecker.getBreakKey(
@@ -2825,9 +2825,9 @@ public class ControlBreakCheckerTest {
 
     /**
      * testIsPreBreak0062.<br>
-     * compareStrategy‚ğì¬‚µ‚ÄŒ±‚ğs‚¤<br>
-     * breakkey‚Ì”=2<br>
-     * compareStrategy‚Ì”=0<br>
+     * compareStrategyã‚’ä½œæˆã—ã¦è©¦é¨“ã‚’è¡Œã†<br>
+     * breakkeyã®æ•°=2<br>
+     * compareStrategyã®æ•°=0<br>
      */
     @Test
     public void testIsBreak0062() {
@@ -2846,10 +2846,10 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         String[] s = { "hogeString", "hogeInteger" };
 
-        // comparator¶¬
+        // comparatorç”Ÿæˆ
         CompareStrategy<?>[] compareStrategies = null;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreak(collector,
                 compareStrategies, s);
         Map<String, Object> resultKey = ControlBreakChecker.getBreakKey(
@@ -2863,9 +2863,9 @@ public class ControlBreakCheckerTest {
 
     /**
      * testIsPreBreak0063.<br>
-     * compareStrategy‚ğì¬‚µ‚ÄŒ±‚ğs‚¤<br>
-     * breakkey‚Ì”=2<br>
-     * compareStrategy‚Ì”=1<br>
+     * compareStrategyã‚’ä½œæˆã—ã¦è©¦é¨“ã‚’è¡Œã†<br>
+     * breakkeyã®æ•°=2<br>
+     * compareStrategyã®æ•°=1<br>
      */
     @Test
     public void testIsBreak0063() {
@@ -2884,11 +2884,11 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         String[] s = { "hogeString", "hogeInteger" };
 
-        // comparator¶¬
+        // comparatorç”Ÿæˆ
         CompareStrategy<?> comp1 = new CompareStrategyStub2();
         CompareStrategy<?>[] compareStrategies = { comp1 };
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreak(collector,
                 compareStrategies, s);
         Map<String, Object> resultKey = ControlBreakChecker.getBreakKey(
@@ -2909,9 +2909,9 @@ public class ControlBreakCheckerTest {
 
     /**
      * testIsPreBreak0064.<br>
-     * compareStrategy‚ğì¬‚µ‚ÄŒ±‚ğs‚¤<br>
-     * breakkey‚Ì”=2<br>
-     * compareStrategy‚Ì”=2<br>
+     * compareStrategyã‚’ä½œæˆã—ã¦è©¦é¨“ã‚’è¡Œã†<br>
+     * breakkeyã®æ•°=2<br>
+     * compareStrategyã®æ•°=2<br>
      */
     @Test
     public void testIsBreak0064() {
@@ -2930,12 +2930,12 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         String[] s = { "hogeString", "hogeInteger" };
 
-        // comparator¶¬B
+        // comparatorç”Ÿæˆã€‚
         CompareStrategy<?> comp1 = new CompareStrategyStub2();
         CompareStrategy<?> comp2 = new CompareStrategyStub1();
         CompareStrategy<?>[] compareStrategies = { comp1, comp2 };
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreak(collector,
                 compareStrategies, s);
         Map<String, Object> resultKey = ControlBreakChecker.getBreakKey(
@@ -2948,8 +2948,8 @@ public class ControlBreakCheckerTest {
 
     /**
      * testIsBreak0065.
-     * g—p‚·‚égetXxx‚ª—áŠO‚ğƒXƒ[‚µ‚½ê‡‚É—áŠO‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ÌŠm”FB
-     * Collector#getCurrent‚ª—áŠO‚ğƒXƒ[‚·‚éƒP[ƒX
+     * ä½¿ç”¨ã™ã‚‹getXxxãŒä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã—ãŸå ´åˆã«ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã®ç¢ºèªã€‚
+     * Collector#getCurrentãŒä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã‚±ãƒ¼ã‚¹
      */
     @Test
     public void testIsBreak0065() {
@@ -2964,7 +2964,7 @@ public class ControlBreakCheckerTest {
         collector.setFollowing(following);
         String[] s = { "hogeString" };
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         try {
             ControlBreakChecker.isBreak(collector, s);
             fail();
@@ -2979,8 +2979,8 @@ public class ControlBreakCheckerTest {
 
     /**
      * testIsBreak0066.
-     * g—p‚·‚égetXxx‚ª—áŠO‚ğƒXƒ[‚µ‚½ê‡‚É—áŠO‚ªƒXƒ[‚³‚ê‚é‚±‚Æ‚ÌŠm”FB
-     * Collector#getNext‚ª—áŠO‚ğƒXƒ[‚·‚éƒP[ƒX
+     * ä½¿ç”¨ã™ã‚‹getXxxãŒä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã—ãŸå ´åˆã«ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨ã®ç¢ºèªã€‚
+     * Collector#getNextãŒä¾‹å¤–ã‚’ã‚¹ãƒ­ãƒ¼ã™ã‚‹ã‚±ãƒ¼ã‚¹
      */
     @Test
     public void testIsBreak0066() {
@@ -2995,7 +2995,7 @@ public class ControlBreakCheckerTest {
         collector.setCurrent(current);
         String[] s = { "hogeString" };
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         try {
             ControlBreakChecker.isBreak(collector, s);
             fail();
@@ -3018,13 +3018,13 @@ public class ControlBreakCheckerTest {
         Comparator<?>[] comparators = null;
         String keys = null;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreakInternal(current, other,
                 comparators, keys);
         Map<String, Object> resultKey = ControlBreakChecker
                 .getBreakKeyInternal(current, other, comparators, keys);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
         assertNotNull(resultKey);
         assertEquals(0, resultKey.size());
@@ -3040,13 +3040,13 @@ public class ControlBreakCheckerTest {
         Comparator<?>[] comparators = null;
         String keys = "hogeString";
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreakInternal(current, other,
                 comparators, keys);
         Map<String, Object> resultKey = ControlBreakChecker
                 .getBreakKeyInternal(current, other, comparators, keys);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(1, resultKey.size());
@@ -3065,13 +3065,13 @@ public class ControlBreakCheckerTest {
         Comparator<?>[] comparators = null;
         String keys = "hogeString";
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreakInternal(current, other,
                 comparators, keys);
         Map<String, Object> resultKey = ControlBreakChecker
                 .getBreakKeyInternal(current, other, comparators, keys);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
         assertNotNull(resultKey);
         assertEquals(0, resultKey.size());
@@ -3088,13 +3088,13 @@ public class ControlBreakCheckerTest {
         Comparator<?>[] comparators = new Comparator[] { comp1 };
         String keys = "hogeString";
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreakInternal(current, other,
                 comparators, keys);
         Map<String, Object> resultKey = ControlBreakChecker
                 .getBreakKeyInternal(current, other, comparators, keys);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
         assertNotNull(resultKey);
         assertEquals(0, resultKey.size());
@@ -3113,13 +3113,13 @@ public class ControlBreakCheckerTest {
         Comparator<?>[] comparators = new Comparator[] { comp1 };
         String keys = "hogeString";
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreakInternal(current, other,
                 comparators, keys);
         Map<String, Object> resultKey = ControlBreakChecker
                 .getBreakKeyInternal(current, other, comparators, keys);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(1, resultKey.size());
@@ -3143,13 +3143,13 @@ public class ControlBreakCheckerTest {
         Comparator<?>[] comparators = new Comparator[] { comp1, comp2 };
         String keys = "hogeString";
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreakInternal(current, other,
                 comparators, keys);
         Map<String, Object> resultKey = ControlBreakChecker
                 .getBreakKeyInternal(current, other, comparators, keys);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(1, resultKey.size());
@@ -3161,7 +3161,7 @@ public class ControlBreakCheckerTest {
 
     /**
      * testIsBreakInternal0007. <br>
-     * compareStrategy‚ğ“n‚·
+     * compareStrategyã‚’æ¸¡ã™
      */
     @Test
     public void testIsBreakInternal0007() {
@@ -3170,13 +3170,13 @@ public class ControlBreakCheckerTest {
         CompareStrategy<?>[] compareStrategies = null;
         String keys = null;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreakInternal(current, other,
                 compareStrategies, keys);
         Map<String, Object> resultKey = ControlBreakChecker
                 .getBreakKeyInternal(current, other, compareStrategies, keys);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
         assertNotNull(resultKey);
         assertEquals(0, resultKey.size());
@@ -3184,7 +3184,7 @@ public class ControlBreakCheckerTest {
 
     /**
      * testIsBreakInternal0008. <br>
-     * compareStrategy‚ğ“n‚·
+     * compareStrategyã‚’æ¸¡ã™
      */
     @Test
     public void testIsBreakInternal0008() {
@@ -3193,13 +3193,13 @@ public class ControlBreakCheckerTest {
         CompareStrategy<?>[] compareStrategies = null;
         String keys = null;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreakInternal(current, other,
                 compareStrategies, keys);
         Map<String, Object> resultKey = ControlBreakChecker
                 .getBreakKeyInternal(current, other, compareStrategies, keys);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(0, resultKey.size());
@@ -3217,13 +3217,13 @@ public class ControlBreakCheckerTest {
         CompareStrategy<?>[] compareStrategies = null;
         String keys = "hogeString";
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreakInternal(current, other,
                 compareStrategies, keys);
         Map<String, Object> resultKey = ControlBreakChecker
                 .getBreakKeyInternal(current, other, compareStrategies, keys);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
         assertNotNull(resultKey);
         assertEquals(0, resultKey.size());
@@ -3240,13 +3240,13 @@ public class ControlBreakCheckerTest {
         CompareStrategy<?>[] compareStrategies = new CompareStrategy[] { comp1 };
         String keys = "hogeString";
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreakInternal(current, other,
                 compareStrategies, keys);
         Map<String, Object> resultKey = ControlBreakChecker
                 .getBreakKeyInternal(current, other, compareStrategies, keys);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
         assertNotNull(resultKey);
         assertEquals(0, resultKey.size());
@@ -3265,13 +3265,13 @@ public class ControlBreakCheckerTest {
         CompareStrategy<?>[] compareStrategies = new CompareStrategy[] { comp1 };
         String keys = "hogeString";
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreakInternal(current, other,
                 compareStrategies, keys);
         Map<String, Object> resultKey = ControlBreakChecker
                 .getBreakKeyInternal(current, other, compareStrategies, keys);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(1, resultKey.size());
@@ -3296,13 +3296,13 @@ public class ControlBreakCheckerTest {
                 comp2 };
         String keys = "hogeString";
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.isBreakInternal(current, other,
                 compareStrategies, keys);
         Map<String, Object> resultKey = ControlBreakChecker
                 .getBreakKeyInternal(current, other, compareStrategies, keys);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
         assertNotNull(resultKey);
         assertEquals(1, resultKey.size());
@@ -3320,10 +3320,10 @@ public class ControlBreakCheckerTest {
         Object value1 = null;
         Object value2 = null;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.equalsObjects(value1, value2, null);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
     }
 
@@ -3335,10 +3335,10 @@ public class ControlBreakCheckerTest {
         Object value1 = "hoge";
         Object value2 = null;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.equalsObjects(value1, value2, null);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
     }
 
@@ -3350,10 +3350,10 @@ public class ControlBreakCheckerTest {
         Object value1 = null;
         Object value2 = "hoge";
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.equalsObjects(value1, value2, null);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
     }
 
@@ -3365,10 +3365,10 @@ public class ControlBreakCheckerTest {
         Object value1 = "hoge";
         Object value2 = "hoge";
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.equalsObjects(value1, value2, null);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
     }
 
@@ -3380,10 +3380,10 @@ public class ControlBreakCheckerTest {
         Object value1 = "hoge";
         Object value2 = "hoga";
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.equalsObjects(value1, value2, null);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
     }
 
@@ -3395,10 +3395,10 @@ public class ControlBreakCheckerTest {
         Object value1 = Integer.valueOf(3);
         Object value2 = null;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.equalsObjects(value1, value2, null);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
     }
 
@@ -3410,10 +3410,10 @@ public class ControlBreakCheckerTest {
         Object value1 = null;
         Object value2 = Integer.valueOf(3);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.equalsObjects(value1, value2, null);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
     }
 
@@ -3425,10 +3425,10 @@ public class ControlBreakCheckerTest {
         Object value1 = Integer.valueOf(3);
         Object value2 = Integer.valueOf(3);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.equalsObjects(value1, value2, null);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
     }
 
@@ -3440,10 +3440,10 @@ public class ControlBreakCheckerTest {
         Object value1 = Integer.valueOf(3);
         Object value2 = Integer.valueOf(4);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.equalsObjects(value1, value2, null);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
     }
 
@@ -3455,10 +3455,10 @@ public class ControlBreakCheckerTest {
         Object value1 = new AtomicInteger(3);
         Object value2 = null;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.equalsObjects(value1, value2, null);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
     }
 
@@ -3470,10 +3470,10 @@ public class ControlBreakCheckerTest {
         Object value1 = null;
         Object value2 = new AtomicInteger(3);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.equalsObjects(value1, value2, null);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
     }
 
@@ -3485,10 +3485,10 @@ public class ControlBreakCheckerTest {
         Object value1 = new AtomicInteger(3);
         Object value2 = new AtomicInteger(3);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.equalsObjects(value1, value2, null);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
     }
 
@@ -3500,10 +3500,10 @@ public class ControlBreakCheckerTest {
         Object value1 = new AtomicInteger(3);
         Object value2 = new AtomicInteger(4);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.equalsObjects(value1, value2, null);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
     }
 
@@ -3515,10 +3515,10 @@ public class ControlBreakCheckerTest {
         Object value1 = new AtomicLong(3);
         Object value2 = null;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.equalsObjects(value1, value2, null);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
     }
 
@@ -3530,10 +3530,10 @@ public class ControlBreakCheckerTest {
         Object value1 = null;
         Object value2 = new AtomicLong(3);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.equalsObjects(value1, value2, null);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
     }
 
@@ -3545,10 +3545,10 @@ public class ControlBreakCheckerTest {
         Object value1 = new AtomicLong(3);
         Object value2 = new AtomicLong(3);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.equalsObjects(value1, value2, null);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
     }
 
@@ -3560,10 +3560,10 @@ public class ControlBreakCheckerTest {
         Object value1 = new AtomicLong(3);
         Object value2 = new AtomicLong(4);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.equalsObjects(value1, value2, null);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
     }
 
@@ -3575,10 +3575,10 @@ public class ControlBreakCheckerTest {
         Object value1 = new AtomicBoolean(true);
         Object value2 = null;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.equalsObjects(value1, value2, null);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
     }
 
@@ -3590,10 +3590,10 @@ public class ControlBreakCheckerTest {
         Object value1 = null;
         Object value2 = new AtomicBoolean(true);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.equalsObjects(value1, value2, null);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
     }
 
@@ -3605,10 +3605,10 @@ public class ControlBreakCheckerTest {
         Object value1 = new AtomicBoolean(true);
         Object value2 = new AtomicBoolean(true);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.equalsObjects(value1, value2, null);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
     }
 
@@ -3620,16 +3620,16 @@ public class ControlBreakCheckerTest {
         Object value1 = new AtomicBoolean(true);
         Object value2 = new AtomicBoolean(false);
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.equalsObjects(value1, value2, null);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
     }
 
     /**
      * testEqualsObjects0022.<br>
-     * java.sql.DateŒ^‚Ì”äŠrƒeƒXƒg<br>
+     * java.sql.Dateå‹ã®æ¯”è¼ƒãƒ†ã‚¹ãƒˆ<br>
      */
     @Test
     public void testEqualsObjects0022() {
@@ -3639,16 +3639,16 @@ public class ControlBreakCheckerTest {
         java.sql.Date value1 = null;
         java.sql.Date value2 = new java.sql.Date(cal.getTimeInMillis());
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.equalsObjects(value1, value2, null);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
     }
 
     /**
      * testEqualsObjects0023.<br>
-     * java.sql.DateŒ^‚Ì”äŠrƒeƒXƒg<br>
+     * java.sql.Dateå‹ã®æ¯”è¼ƒãƒ†ã‚¹ãƒˆ<br>
      */
     @Test
     public void testEqualsObjects0023() {
@@ -3658,16 +3658,16 @@ public class ControlBreakCheckerTest {
         java.sql.Date value1 = new java.sql.Date(cal.getTimeInMillis());
         java.sql.Date value2 = null;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.equalsObjects(value1, value2, null);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
     }
 
     /**
      * testEqualsObjects0024.<br>
-     * java.sql.DateŒ^‚Ì”äŠrƒeƒXƒg<br>
+     * java.sql.Dateå‹ã®æ¯”è¼ƒãƒ†ã‚¹ãƒˆ<br>
      */
     @Test
     public void testEqualsObjects0024() {
@@ -3677,16 +3677,16 @@ public class ControlBreakCheckerTest {
         java.sql.Date value1 = new java.sql.Date(cal.getTimeInMillis());
         java.sql.Date value2 = new java.sql.Date(cal.getTimeInMillis());
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.equalsObjects(value1, value2, null);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
     }
 
     /**
      * testEqualsObjects0025.<br>
-     * java.sql.DateŒ^‚Ì”äŠrƒeƒXƒg<br>
+     * java.sql.Dateå‹ã®æ¯”è¼ƒãƒ†ã‚¹ãƒˆ<br>
      */
     @Test
     public void testEqualsObjects0025() {
@@ -3698,16 +3698,16 @@ public class ControlBreakCheckerTest {
         cal.add(Calendar.DATE, -1);
         java.sql.Date value2 = new java.sql.Date(cal.getTimeInMillis());
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.equalsObjects(value1, value2, null);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
     }
 
     /**
      * testEqualsObjects0026.<br>
-     * ClassŒ^‚Ì”äŠrƒeƒXƒg<br>
+     * Classå‹ã®æ¯”è¼ƒãƒ†ã‚¹ãƒˆ<br>
      */
     @Test
     public void testEqualsObjects0026() {
@@ -3715,16 +3715,16 @@ public class ControlBreakCheckerTest {
         Class value1 = null;
         Class value2 = String.class;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.equalsObjects(value1, value2, null);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
     }
 
     /**
      * testEqualsObjects0027.<br>
-     * ClassŒ^‚Ì”äŠrƒeƒXƒg<br>
+     * Classå‹ã®æ¯”è¼ƒãƒ†ã‚¹ãƒˆ<br>
      */
     @Test
     public void testEqualsObjects0027() {
@@ -3732,16 +3732,16 @@ public class ControlBreakCheckerTest {
         Class value1 = String.class;
         Class value2 = null;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.equalsObjects(value1, value2, null);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
     }
 
     /**
      * testEqualsObjects0028.<br>
-     * ClassŒ^‚Ì”äŠrƒeƒXƒg<br>
+     * Classå‹ã®æ¯”è¼ƒãƒ†ã‚¹ãƒˆ<br>
      */
     @Test
     public void testEqualsObjects0028() {
@@ -3749,16 +3749,16 @@ public class ControlBreakCheckerTest {
         Class value1 = String.class;
         Class value2 = String.class;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.equalsObjects(value1, value2, null);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
     }
 
     /**
      * testEqualsObjects0029.<br>
-     * ClassŒ^‚Ì”äŠrƒeƒXƒg<br>
+     * Classå‹ã®æ¯”è¼ƒãƒ†ã‚¹ãƒˆ<br>
      */
     @Test
     public void testEqualsObjects0029() {
@@ -3766,19 +3766,19 @@ public class ControlBreakCheckerTest {
         Class value1 = String.class;
         Class value2 = Integer.class;
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.equalsObjects(value1, value2, null);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
     }
 
     /**
      * testEqualsObjects0030.<br>
-     * CompareStrategy‚ğl—¶‚µ‚½”äŠrƒeƒXƒg<br>
-     * java.util.DateŒ^‚ğg—p<br>
-     * Hour‚Ì¸“x‚Å”äŠr‚·‚éCompareStrategy–³‚µ<br>
-     * Hour‚Ì’l‚Ü‚Å“¯‚¶(Minute‚Í1•ªˆá‚¢)
+     * CompareStrategyã‚’è€ƒæ…®ã—ãŸæ¯”è¼ƒãƒ†ã‚¹ãƒˆ<br>
+     * java.util.Dateå‹ã‚’ä½¿ç”¨<br>
+     * Hourã®ç²¾åº¦ã§æ¯”è¼ƒã™ã‚‹CompareStrategyç„¡ã—<br>
+     * Hourã®å€¤ã¾ã§åŒã˜(Minuteã¯1åˆ†é•ã„)
      */
     @Test
     public void testEqualsObjects0030() {
@@ -3793,19 +3793,19 @@ public class ControlBreakCheckerTest {
         cal.add(Calendar.MINUTE, 1);
         Date value2 = new Date(cal.getTimeInMillis());
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.equalsObjects(value1, value2, null);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
     }
 
     /**
      * testEqualsObjects0031.<br>
-     * CompareStrategy‚ğl—¶‚µ‚½”äŠrƒeƒXƒg<br>
-     * java.util.DateŒ^‚ğg—p<br>
-     * Hour‚Ì¸“x‚Å”äŠr‚·‚éCompareStrategy–³‚µ(ˆø”–³‚µ)<br>
-     * Hour‚Ì’l‚Ü‚Å“¯‚¶(Minute‚Í1•ªˆá‚¢)
+     * CompareStrategyã‚’è€ƒæ…®ã—ãŸæ¯”è¼ƒãƒ†ã‚¹ãƒˆ<br>
+     * java.util.Dateå‹ã‚’ä½¿ç”¨<br>
+     * Hourã®ç²¾åº¦ã§æ¯”è¼ƒã™ã‚‹CompareStrategyç„¡ã—(å¼•æ•°ç„¡ã—)<br>
+     * Hourã®å€¤ã¾ã§åŒã˜(Minuteã¯1åˆ†é•ã„)
      */
     @Test
     public void testEqualsObjects0031() {
@@ -3820,19 +3820,19 @@ public class ControlBreakCheckerTest {
         cal.add(Calendar.MINUTE, 1);
         Date value2 = new Date(cal.getTimeInMillis());
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.equalsObjects(value1, value2);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
     }
 
     /**
      * testEqualsObjects0032.<br>
-     * CompareStrategy‚ğl—¶‚µ‚½”äŠrƒeƒXƒg<br>
-     * java.util.DateŒ^‚ğg—p<br>
-     * Hour‚Ì¸“x‚Å”äŠr‚·‚éCompareStrategy‚ ‚è<br>
-     * Hour‚Ì’l‚Ü‚Å“¯‚¶(Minute‚Í1•ªˆá‚¢)
+     * CompareStrategyã‚’è€ƒæ…®ã—ãŸæ¯”è¼ƒãƒ†ã‚¹ãƒˆ<br>
+     * java.util.Dateå‹ã‚’ä½¿ç”¨<br>
+     * Hourã®ç²¾åº¦ã§æ¯”è¼ƒã™ã‚‹CompareStrategyã‚ã‚Š<br>
+     * Hourã®å€¤ã¾ã§åŒã˜(Minuteã¯1åˆ†é•ã„)
      */
     @Test
     public void testEqualsObjects0032() {
@@ -3848,19 +3848,19 @@ public class ControlBreakCheckerTest {
         cal.add(Calendar.MINUTE, 1);
         Date value2 = new Date(cal.getTimeInMillis());
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.equalsObjects(value1, value2, strategy);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertTrue(result);
     }
 
     /**
      * testEqualsObjects0033.<br>
-     * CompareStrategy‚ğl—¶‚µ‚½”äŠrƒeƒXƒg<br>
-     * java.util.DateŒ^‚ğg—p<br>
-     * Hour‚Ì¸“x‚Å”äŠr‚·‚éCompareStrategy‚ ‚è<br>
-     * Hour‚Ì’l‚ªˆÙ‚È‚é(Minute‚Í1•ªˆá‚¢)
+     * CompareStrategyã‚’è€ƒæ…®ã—ãŸæ¯”è¼ƒãƒ†ã‚¹ãƒˆ<br>
+     * java.util.Dateå‹ã‚’ä½¿ç”¨<br>
+     * Hourã®ç²¾åº¦ã§æ¯”è¼ƒã™ã‚‹CompareStrategyã‚ã‚Š<br>
+     * Hourã®å€¤ãŒç•°ãªã‚‹(Minuteã¯1åˆ†é•ã„)
      */
     @Test
     public void testEqualsObjects0033() {
@@ -3873,13 +3873,13 @@ public class ControlBreakCheckerTest {
 
         Date value1 = new Date(cal.getTimeInMillis());
 
-        cal.add(Calendar.MINUTE, -1); // ŒJ‚è‰º‚ª‚è‚ÅHour‚Ì’l‚ª•Ï‚í‚é
+        cal.add(Calendar.MINUTE, -1); // ç¹°ã‚Šä¸‹ãŒã‚Šã§Hourã®å€¤ãŒå¤‰ã‚ã‚‹
         Date value2 = new Date(cal.getTimeInMillis());
 
-        // ƒeƒXƒg
+        // ãƒ†ã‚¹ãƒˆ
         boolean result = ControlBreakChecker.equalsObjects(value1, value2, strategy);
 
-        // ŒŸØ
+        // æ¤œè¨¼
         assertFalse(result);
     }
 }

@@ -20,45 +20,45 @@ import java.util.Locale;
 import jp.terasoluna.fw.message.MessageManager;
 
 /**
- * ”Ä—p—áŠOƒNƒ‰ƒX‚Ìİ’èƒNƒ‰ƒXB
+ * æ±ç”¨ä¾‹å¤–ã‚¯ãƒ©ã‚¹ã®è¨­å®šã‚¯ãƒ©ã‚¹ã€‚
  * 
  */
 public class ExceptionConfig {
     /**
-     * ”Ä—p—áŠOƒNƒ‰ƒX‚Ìİ’èƒtƒ@ƒCƒ‹ƒpƒX
+     * æ±ç”¨ä¾‹å¤–ã‚¯ãƒ©ã‚¹ã®è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹
      */
     public static final String MESSAGE_CONFIG_FILE = "META-INF/terasoluna-exception.properties";
 
     /**
-     * ”Ä—p—áŠOƒNƒ‰ƒX‚ÌƒƒbƒZ[ƒWŠÇ—ƒNƒ‰ƒXB
+     * æ±ç”¨ä¾‹å¤–ã‚¯ãƒ©ã‚¹ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ç®¡ç†ã‚¯ãƒ©ã‚¹ã€‚
      */
     protected static final MessageManager MESSAGE_MANAGER = new MessageManager(
             MESSAGE_CONFIG_FILE);
 
     /**
-     * ”Ä—p—áŠOƒNƒ‰ƒX‚ÌƒƒP[ƒ‹B
+     * æ±ç”¨ä¾‹å¤–ã‚¯ãƒ©ã‚¹ã®ãƒ­ã‚±ãƒ¼ãƒ«ã€‚
      */
     private static final ThreadLocal<Locale> locale = new ThreadLocal<Locale>();
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      */
     protected ExceptionConfig() {
     }
 
     /**
-     * ”Ä—p—áŠOƒNƒ‰ƒX‚ÌƒƒP[ƒ‹‚ğİ’è‚µ‚Ü‚·B
+     * æ±ç”¨ä¾‹å¤–ã‚¯ãƒ©ã‚¹ã®ãƒ­ã‚±ãƒ¼ãƒ«ã‚’è¨­å®šã—ã¾ã™ã€‚
      * 
-     * @param locale ƒƒP[ƒ‹
+     * @param locale ãƒ­ã‚±ãƒ¼ãƒ«
      */
     public static void setLocale(Locale locale) {
         ExceptionConfig.locale.set(locale);
     }
 
     /**
-     * ”Ä—p—áŠOƒNƒ‰ƒX‚ÌƒƒP[ƒ‹‚ğæ“¾‚µ‚Ü‚·B
+     * æ±ç”¨ä¾‹å¤–ã‚¯ãƒ©ã‚¹ã®ãƒ­ã‚±ãƒ¼ãƒ«ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * @return ƒƒP[ƒ‹
+     * @return ãƒ­ã‚±ãƒ¼ãƒ«
      */
     public static Locale getLocale() {
         return ExceptionConfig.locale.get();

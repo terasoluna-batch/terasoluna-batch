@@ -25,34 +25,34 @@ import org.springframework.beans.PropertyEditorRegistry;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 
 /**
- * DateŒ^‚ÌƒvƒƒpƒeƒBƒGƒfƒBƒ^‚ğ¶¬‚·‚éƒNƒ‰ƒXB
+ * Dateå‹ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚¨ãƒ‡ã‚£ã‚¿ã‚’ç”Ÿæˆã™ã‚‹ã‚¯ãƒ©ã‚¹ã€‚
  *
  */
 public class DatePropertyEditorRegistrar 
     implements PropertyEditorRegistrar {
     
     /**
-     * ‚±‚ÌƒvƒƒpƒeƒBƒGƒfƒBƒ^‚ªg—p‚·‚é“ú•tƒtƒH[ƒ}ƒbƒgB
+     * ã“ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚¨ãƒ‡ã‚£ã‚¿ãŒä½¿ç”¨ã™ã‚‹æ—¥ä»˜ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã€‚
      */
     private DateFormat dateFormat = DEFAULT_DATE_FORMAT;
     
     /**
-     * ƒfƒtƒHƒ‹ƒg‚Ì“ú•tƒtƒH[ƒ}ƒbƒgBYYYY/MM/DDŒ`®B
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®æ—¥ä»˜ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã€‚YYYY/MM/DDå½¢å¼ã€‚
      */
     private static final DateFormat DEFAULT_DATE_FORMAT 
         = new SimpleDateFormat("yyyy/MM/dd");
 
     /**
-     * “ú•tƒtƒH[ƒ}ƒbƒg‚ğİ’è‚·‚éB
-     * @param dateFormat “ú•tƒtƒH[ƒ}ƒbƒg
+     * æ—¥ä»˜ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’è¨­å®šã™ã‚‹ã€‚
+     * @param dateFormat æ—¥ä»˜ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆ
      */
     public void setDateFormat(DateFormat dateFormat) {
         this.dateFormat = dateFormat;
     }
     
     /**
-     * ƒJƒXƒ^ƒ€ƒvƒƒpƒeƒBƒGƒfƒBƒ^‚ğ¶¬‚·‚éB
-     * @param registry ƒvƒƒpƒeƒBƒGƒfƒBƒ^‚ğ•Û‚·‚éƒIƒuƒWƒFƒNƒg
+     * ã‚«ã‚¹ã‚¿ãƒ ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚¨ãƒ‡ã‚£ã‚¿ã‚’ç”Ÿæˆã™ã‚‹ã€‚
+     * @param registry ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚¨ãƒ‡ã‚£ã‚¿ã‚’ä¿æŒã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
      */
     public void registerCustomEditors(PropertyEditorRegistry registry) {
         registry.registerCustomEditor(Date.class, 

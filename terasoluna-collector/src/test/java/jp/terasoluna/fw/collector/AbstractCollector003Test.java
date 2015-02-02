@@ -46,12 +46,12 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * ƒf[ƒ^‚ª0Œ‚Ìê‡‚ÌƒeƒXƒgB
-     * “ü—Íƒf[ƒ^F[]
-     * o—Íƒf[ƒ^F[]
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * ãƒ‡ãƒ¼ã‚¿ãŒ0ä»¶ã®å ´åˆã®ãƒ†ã‚¹ãƒˆã€‚
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[]
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[]
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testNormal001() throws Exception {
@@ -64,7 +64,7 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Collections.emptyList();
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f‚ª–³‚¢‚±‚Æ‚ğŠm”F
+        // ç¬¬1è¦ç´ ãŒç„¡ã„ã“ã¨ã‚’ç¢ºèª
         assertFalse(collector.hasNext());
 
         try {
@@ -80,12 +80,12 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * ƒf[ƒ^‚ª1Œ‚Ìê‡
-     * “ü—Íƒf[ƒ^F[1]
-     * o—Íƒf[ƒ^F[1]
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * ãƒ‡ãƒ¼ã‚¿ãŒ1ä»¶ã®å ´åˆ
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1]
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1]
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testNormal002() throws Exception {
@@ -98,7 +98,7 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Collections.emptyList();
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f
+        // ç¬¬1è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("1", collector.next().getHoge());
         assertNull(collector.getPrevious());
@@ -120,12 +120,12 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * ƒf[ƒ^‚ª3Œ‚Ìê‡
-     * “ü—Íƒf[ƒ^F[1, 2, 3]
-     * o—Íƒf[ƒ^F[1, 2, 3]
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * ãƒ‡ãƒ¼ã‚¿ãŒ3ä»¶ã®å ´åˆ
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, 3]
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, 3]
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testNormal003() throws Exception {
@@ -138,17 +138,17 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Collections.emptyList();
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f
+        // ç¬¬1è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("1", collector.next().getHoge());
         assertNull(collector.getPrevious());
         assertEquals("1", collector.getCurrent().getHoge());
         assertEquals("2", collector.getNext().getHoge());
 
-        // ‘æ2—v‘f
+        // ç¬¬2è¦ç´ 
         assertNextData(collector, "2", "1", "2", "3");
 
-        // ‘æ3—v‘f
+        // ç¬¬3è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("3", collector.next().getHoge());
         assertEquals("2", collector.getPrevious().getHoge());
@@ -170,12 +170,12 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * ƒf[ƒ^‚Ìbean‚Æ‚µ‚Änull‚ªŠÜ‚Ü‚ê‚éê‡
-     * “ü—Íƒf[ƒ^F[null, 2, 3, 4, 5, 6]
-     * o—Íƒf[ƒ^F[null, 2, 3, 4, 5, 6]
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * ãƒ‡ãƒ¼ã‚¿ã®beanã¨ã—ã¦nullãŒå«ã¾ã‚Œã‚‹å ´åˆ
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[null, 2, 3, 4, 5, 6]
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[null, 2, 3, 4, 5, 6]
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testContainsNull001() throws Exception {
@@ -188,30 +188,30 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Arrays.asList(1);
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f
+        // ç¬¬1è¦ç´ 
         assertTrue(collector.hasNext());
         assertNull(collector.next());
         assertNull(collector.getPrevious());
         assertNull(collector.getCurrent());
         assertEquals("2", collector.getNext().getHoge());
 
-        // ‘æ2—v‘f
+        // ç¬¬2è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("2", collector.next().getHoge());
         assertNull(collector.getPrevious());
         assertEquals("2", collector.getCurrent().getHoge());
         assertEquals("3", collector.getNext().getHoge());
 
-        // ‘æ3—v‘f
+        // ç¬¬3è¦ç´ 
         assertNextData(collector, "3", "2", "3", "4");
 
-        // ‘æ4—v‘f
+        // ç¬¬4è¦ç´ 
         assertNextData(collector, "4", "3", "4", "5");
 
-        // ‘æ5—v‘f
+        // ç¬¬5è¦ç´ 
         assertNextData(collector, "5", "4", "5", "6");
 
-        // ‘æ6—v‘f
+        // ç¬¬6è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("6", collector.next().getHoge());
         assertEquals("5", collector.getPrevious().getHoge());
@@ -233,12 +233,12 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * ƒf[ƒ^‚Ìbean‚Æ‚µ‚Änull‚ªŠÜ‚Ü‚ê‚éê‡
-     * “ü—Íƒf[ƒ^F[1, 2, null, 4, 5, 6]
-     * o—Íƒf[ƒ^F[1, 2, null, 4, 5, 6]
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * ãƒ‡ãƒ¼ã‚¿ã®beanã¨ã—ã¦nullãŒå«ã¾ã‚Œã‚‹å ´åˆ
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, null, 4, 5, 6]
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, null, 4, 5, 6]
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testContainsNull002() throws Exception {
@@ -251,38 +251,38 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Arrays.asList(3);
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f
+        // ç¬¬1è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("1", collector.next().getHoge());
         assertNull(collector.getPrevious());
         assertEquals("1", collector.getCurrent().getHoge());
         assertEquals("2", collector.getNext().getHoge());
 
-        // ‘æ2—v‘f
+        // ç¬¬2è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("2", collector.next().getHoge());
         assertEquals("1", collector.getPrevious().getHoge());
         assertEquals("2", collector.getCurrent().getHoge());
         assertNull(collector.getNext());
 
-        // ‘æ3—v‘f
+        // ç¬¬3è¦ç´ 
         assertTrue(collector.hasNext());
         assertNull(collector.next());
         assertEquals("2", collector.getPrevious().getHoge());
         assertNull(collector.getCurrent());
         assertEquals("4", collector.getNext().getHoge());
 
-        // ‘æ4—v‘f
+        // ç¬¬4è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("4", collector.next().getHoge());
         assertNull(collector.getPrevious());
         assertEquals("4", collector.getCurrent().getHoge());
         assertEquals("5", collector.getNext().getHoge());
 
-        // ‘æ5—v‘f
+        // ç¬¬5è¦ç´ 
         assertNextData(collector, "5", "4", "5", "6");
 
-        // ‘æ6—v‘f
+        // ç¬¬6è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("6", collector.next().getHoge());
         assertEquals("5", collector.getPrevious().getHoge());
@@ -304,12 +304,12 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * ƒf[ƒ^‚Ìbean‚Æ‚µ‚Änull‚ªŠÜ‚Ü‚ê‚éê‡
-     * “ü—Íƒf[ƒ^F[1, 2, 3, 4, 5, null]
-     * o—Íƒf[ƒ^F[1, 2, 3, 4, 5, null]
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * ãƒ‡ãƒ¼ã‚¿ã®beanã¨ã—ã¦nullãŒå«ã¾ã‚Œã‚‹å ´åˆ
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, 3, 4, 5, null]
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, 3, 4, 5, null]
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testContainsNull003() throws Exception {
@@ -322,30 +322,30 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Arrays.asList(6);
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f
+        // ç¬¬1è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("1", collector.next().getHoge());
         assertNull(collector.getPrevious());
         assertEquals("1", collector.getCurrent().getHoge());
         assertEquals("2", collector.getNext().getHoge());
 
-        // ‘æ2—v‘f
+        // ç¬¬2è¦ç´ 
         assertNextData(collector, "2", "1", "2", "3");
 
-        // ‘æ3—v‘f
+        // ç¬¬3è¦ç´ 
         assertNextData(collector, "3", "2", "3", "4");
 
-        // ‘æ4—v‘f
+        // ç¬¬4è¦ç´ 
         assertNextData(collector, "4", "3", "4", "5");
 
-        // ‘æ5—v‘f
+        // ç¬¬5è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("5", collector.next().getHoge());
         assertEquals("4", collector.getPrevious().getHoge());
         assertEquals("5", collector.getCurrent().getHoge());
         assertNull(collector.getNext());
 
-        // ‘æ6—v‘f
+        // ç¬¬6è¦ç´ 
         assertTrue(collector.hasNext());
         assertNull(collector.next());
         assertEquals("5", collector.getPrevious().getHoge());
@@ -367,14 +367,14 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * “ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚ª”­¶‚µ‚½ê‡
-     * “ü—Íƒf[ƒ^F[1(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[), 2, 3, 4, 5, 6]
-     * ValidationErrorHandler‚Ì•Ô‹p’lFValidateErrorStatus.CONTINUE
-     * o—Íƒf[ƒ^F[1, 2, 3, 4, 5, 6]
-     * ¦ValidateErrorStatus.CONTINUE‚Ìê‡A“ü—Íƒ`ƒFƒbƒNƒGƒ‰[©‘Ì‚ª–³‚©‚Á‚½‚±‚Æ‚É‚È‚éB
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´åˆ
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼), 2, 3, 4, 5, 6]
+     * ValidationErrorHandlerã®è¿”å´å€¤ï¼šValidateErrorStatus.CONTINUE
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, 3, 4, 5, 6]
+     * â€»ValidateErrorStatus.CONTINUEã®å ´åˆã€å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼è‡ªä½“ãŒç„¡ã‹ã£ãŸã“ã¨ã«ãªã‚‹ã€‚
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testOccurValidationErrorContinue001() throws Exception {
@@ -387,26 +387,26 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Collections.emptyList();
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f
+        // ç¬¬1è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("1", collector.next().getHoge());
         assertNull(collector.getPrevious());
         assertEquals("1", collector.getCurrent().getHoge());
         assertEquals("2", collector.getNext().getHoge());
 
-        // ‘æ2—v‘f
+        // ç¬¬2è¦ç´ 
         assertNextData(collector, "2", "1", "2", "3");
 
-        // ‘æ3—v‘f
+        // ç¬¬3è¦ç´ 
         assertNextData(collector, "3", "2", "3", "4");
 
-        // ‘æ4—v‘f
+        // ç¬¬4è¦ç´ 
         assertNextData(collector, "4", "3", "4", "5");
 
-        // ‘æ5—v‘f
+        // ç¬¬5è¦ç´ 
         assertNextData(collector, "5", "4", "5", "6");
 
-        // ‘æ6—v‘f
+        // ç¬¬6è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("6", collector.next().getHoge());
         assertEquals("5", collector.getPrevious().getHoge());
@@ -428,14 +428,14 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * “ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚ª”­¶‚µ‚½ê‡
-     * “ü—Íƒf[ƒ^F[1, 2, 3(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[), 4, 5, 6]
-     * ValidationErrorHandler‚Ì•Ô‹p’lFValidateErrorStatus.CONTINUE
-     * o—Íƒf[ƒ^F[1, 2, 3, 4, 5, 6]
-     * ¦ValidateErrorStatus.CONTINUE‚Ìê‡A“ü—Íƒ`ƒFƒbƒNƒGƒ‰[©‘Ì‚ª–³‚©‚Á‚½‚±‚Æ‚É‚È‚éB
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´åˆ
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, 3(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼), 4, 5, 6]
+     * ValidationErrorHandlerã®è¿”å´å€¤ï¼šValidateErrorStatus.CONTINUE
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, 3, 4, 5, 6]
+     * â€»ValidateErrorStatus.CONTINUEã®å ´åˆã€å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼è‡ªä½“ãŒç„¡ã‹ã£ãŸã“ã¨ã«ãªã‚‹ã€‚
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testOccurValidationErrorContinue002() throws Exception {
@@ -448,26 +448,26 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Collections.emptyList();
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f
+        // ç¬¬1è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("1", collector.next().getHoge());
         assertNull(collector.getPrevious());
         assertEquals("1", collector.getCurrent().getHoge());
         assertEquals("2", collector.getNext().getHoge());
 
-        // ‘æ2—v‘f
+        // ç¬¬2è¦ç´ 
         assertNextData(collector, "2", "1", "2", "3");
 
-        // ‘æ3—v‘f
+        // ç¬¬3è¦ç´ 
         assertNextData(collector, "3", "2", "3", "4");
 
-        // ‘æ4—v‘f
+        // ç¬¬4è¦ç´ 
         assertNextData(collector, "4", "3", "4", "5");
 
-        // ‘æ5—v‘f
+        // ç¬¬5è¦ç´ 
         assertNextData(collector, "5", "4", "5", "6");
 
-        // ‘æ6—v‘f
+        // ç¬¬6è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("6", collector.next().getHoge());
         assertEquals("5", collector.getPrevious().getHoge());
@@ -489,14 +489,14 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * “ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚ª”­¶‚µ‚½ê‡
-     * “ü—Íƒf[ƒ^F[1, 2, 3, 4, 5, 6(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[)]
-     * ValidationErrorHandler‚Ì•Ô‹p’lFValidateErrorStatus.CONTINUE
-     * o—Íƒf[ƒ^F[1, 2, 3, 4, 5, 6]
-     * ¦ValidateErrorStatus.CONTINUE‚Ìê‡A“ü—Íƒ`ƒFƒbƒNƒGƒ‰[©‘Ì‚ª–³‚©‚Á‚½‚±‚Æ‚É‚È‚éB
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´åˆ
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, 3, 4, 5, 6(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼)]
+     * ValidationErrorHandlerã®è¿”å´å€¤ï¼šValidateErrorStatus.CONTINUE
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, 3, 4, 5, 6]
+     * â€»ValidateErrorStatus.CONTINUEã®å ´åˆã€å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼è‡ªä½“ãŒç„¡ã‹ã£ãŸã“ã¨ã«ãªã‚‹ã€‚
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testOccurValidationErrorContinue003() throws Exception {
@@ -509,26 +509,26 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Collections.emptyList();
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f
+        // ç¬¬1è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("1", collector.next().getHoge());
         assertNull(collector.getPrevious());
         assertEquals("1", collector.getCurrent().getHoge());
         assertEquals("2", collector.getNext().getHoge());
 
-        // ‘æ2—v‘f
+        // ç¬¬2è¦ç´ 
         assertNextData(collector, "2", "1", "2", "3");
 
-        // ‘æ3—v‘f
+        // ç¬¬3è¦ç´ 
         assertNextData(collector, "3", "2", "3", "4");
 
-        // ‘æ4—v‘f
+        // ç¬¬4è¦ç´ 
         assertNextData(collector, "4", "3", "4", "5");
 
-        // ‘æ5—v‘f
+        // ç¬¬5è¦ç´ 
         assertNextData(collector, "5", "4", "5", "6");
 
-        // ‘æ6—v‘f
+        // ç¬¬6è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("6", collector.next().getHoge());
         assertEquals("5", collector.getPrevious().getHoge());
@@ -550,14 +550,14 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * “ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚ª”­¶‚µ‚½ê‡
-     * “ü—Íƒf[ƒ^F[1(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[), 2, 3, 4, 5, 6]
-     * ValidationErrorHandler‚Ì•Ô‹p’lFValidateErrorStatus.SKIP
-     * o—Íƒf[ƒ^F[2, 3, 4, 5, 6]
-     * ¦ValidateErrorStatus.SKIP‚Ìê‡A“ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚ª”­¶‚µ‚½ƒf[ƒ^‚ÍAƒXƒLƒbƒv‚³‚êAo—Í‚³‚ê‚È‚¢B
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´åˆ
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼), 2, 3, 4, 5, 6]
+     * ValidationErrorHandlerã®è¿”å´å€¤ï¼šValidateErrorStatus.SKIP
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[2, 3, 4, 5, 6]
+     * â€»ValidateErrorStatus.SKIPã®å ´åˆã€å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸãƒ‡ãƒ¼ã‚¿ã¯ã€ã‚¹ã‚­ãƒƒãƒ—ã•ã‚Œã€å‡ºåŠ›ã•ã‚Œãªã„ã€‚
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testOccurValidationErrorSkip001() throws Exception {
@@ -570,23 +570,23 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Collections.emptyList();
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f
+        // ç¬¬1è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("2", collector.next().getHoge());
         assertNull(collector.getPrevious());
         assertEquals("2", collector.getCurrent().getHoge());
         assertEquals("3", collector.getNext().getHoge());
 
-        // ‘æ2—v‘f
+        // ç¬¬2è¦ç´ 
         assertNextData(collector, "3", "2", "3", "4");
 
-        // ‘æ3—v‘f
+        // ç¬¬3è¦ç´ 
         assertNextData(collector, "4", "3", "4", "5");
 
-        // ‘æ4—v‘f
+        // ç¬¬4è¦ç´ 
         assertNextData(collector, "5", "4", "5", "6");
 
-        // ‘æ5—v‘f
+        // ç¬¬5è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("6", collector.next().getHoge());
         assertEquals("5", collector.getPrevious().getHoge());
@@ -608,14 +608,14 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * “ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚ª”­¶‚µ‚½ê‡
-     * “ü—Íƒf[ƒ^F[1, 2, 3(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[), 4, 5, 6]
-     * ValidationErrorHandler‚Ì•Ô‹p’lFValidateErrorStatus.SKIP
-     * o—Íƒf[ƒ^F[1, 2, 4, 5, 6]
-     * ¦ValidateErrorStatus.SKIP‚Ìê‡A“ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚ª”­¶‚µ‚½ƒf[ƒ^‚ÍAƒXƒLƒbƒv‚³‚êAo—Í‚³‚ê‚È‚¢B
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´åˆ
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, 3(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼), 4, 5, 6]
+     * ValidationErrorHandlerã®è¿”å´å€¤ï¼šValidateErrorStatus.SKIP
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, 4, 5, 6]
+     * â€»ValidateErrorStatus.SKIPã®å ´åˆã€å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸãƒ‡ãƒ¼ã‚¿ã¯ã€ã‚¹ã‚­ãƒƒãƒ—ã•ã‚Œã€å‡ºåŠ›ã•ã‚Œãªã„ã€‚
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testOccurValidationErrorSkip002() throws Exception {
@@ -628,23 +628,23 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Collections.emptyList();
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f
+        // ç¬¬1è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("1", collector.next().getHoge());
         assertNull(collector.getPrevious());
         assertEquals("1", collector.getCurrent().getHoge());
         assertEquals("2", collector.getNext().getHoge());
 
-        // ‘æ2—v‘f
+        // ç¬¬2è¦ç´ 
         assertNextData(collector, "2", "1", "2", "4");
 
-        // ‘æ3—v‘f
+        // ç¬¬3è¦ç´ 
         assertNextData(collector, "4", "2", "4", "5");
 
-        // ‘æ4—v‘f
+        // ç¬¬4è¦ç´ 
         assertNextData(collector, "5", "4", "5", "6");
 
-        // ‘æ5—v‘f
+        // ç¬¬5è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("6", collector.next().getHoge());
         assertEquals("5", collector.getPrevious().getHoge());
@@ -666,14 +666,14 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * “ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚ª”­¶‚µ‚½ê‡
-     * “ü—Íƒf[ƒ^F[1, 2, 3, 4, 5, 6(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[)]
-     * ValidationErrorHandler‚Ì•Ô‹p’lFValidateErrorStatus.SKIP
-     * o—Íƒf[ƒ^F[1, 2, 3, 4, 5]
-     * ¦ValidateErrorStatus.SKIP‚Ìê‡A“ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚ª”­¶‚µ‚½ƒf[ƒ^‚ÍAƒXƒLƒbƒv‚³‚êAo—Í‚³‚ê‚È‚¢B
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´åˆ
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, 3, 4, 5, 6(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼)]
+     * ValidationErrorHandlerã®è¿”å´å€¤ï¼šValidateErrorStatus.SKIP
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, 3, 4, 5]
+     * â€»ValidateErrorStatus.SKIPã®å ´åˆã€å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸãƒ‡ãƒ¼ã‚¿ã¯ã€ã‚¹ã‚­ãƒƒãƒ—ã•ã‚Œã€å‡ºåŠ›ã•ã‚Œãªã„ã€‚
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testOccurValidationErrorSkip003() throws Exception {
@@ -686,23 +686,23 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Collections.emptyList();
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f
+        // ç¬¬1è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("1", collector.next().getHoge());
         assertNull(collector.getPrevious());
         assertEquals("1", collector.getCurrent().getHoge());
         assertEquals("2", collector.getNext().getHoge());
 
-        // ‘æ2—v‘f
+        // ç¬¬2è¦ç´ 
         assertNextData(collector, "2", "1", "2", "3");
 
-        // ‘æ3—v‘f
+        // ç¬¬3è¦ç´ 
         assertNextData(collector, "3", "2", "3", "4");
 
-        // ‘æ4—v‘f
+        // ç¬¬4è¦ç´ 
         assertNextData(collector, "4", "3", "4", "5");
 
-        // ‘æ5—v‘f
+        // ç¬¬5è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("5", collector.next().getHoge());
         assertEquals("4", collector.getPrevious().getHoge());
@@ -724,14 +724,14 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * “ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚ª”­¶‚µ‚½ê‡
-     * “ü—Íƒf[ƒ^F[1(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[), 2(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[), 3, 4(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[), 5(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[), 6, 7(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[), 8(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[)]
-     * ValidationErrorHandler‚Ì•Ô‹p’lFValidateErrorStatus.SKIP
-     * o—Íƒf[ƒ^F[3, 6]
-     * ¦ValidateErrorStatus.SKIP‚Ìê‡A“ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚ª”­¶‚µ‚½ƒf[ƒ^‚ÍAƒXƒLƒbƒv‚³‚êAo—Í‚³‚ê‚È‚¢B
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´åˆ
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼), 2(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼), 3, 4(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼), 5(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼), 6, 7(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼), 8(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼)]
+     * ValidationErrorHandlerã®è¿”å´å€¤ï¼šValidateErrorStatus.SKIP
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[3, 6]
+     * â€»ValidateErrorStatus.SKIPã®å ´åˆã€å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸãƒ‡ãƒ¼ã‚¿ã¯ã€ã‚¹ã‚­ãƒƒãƒ—ã•ã‚Œã€å‡ºåŠ›ã•ã‚Œãªã„ã€‚
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testOccurValidationErrorSkip004() throws Exception {
@@ -744,14 +744,14 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Collections.emptyList();
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f
+        // ç¬¬1è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("3", collector.next().getHoge());
         assertNull(collector.getPrevious());
         assertEquals("3", collector.getCurrent().getHoge());
         assertEquals("6", collector.getNext().getHoge());
 
-        // ‘æ2—v‘f
+        // ç¬¬2è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("6", collector.next().getHoge());
         assertEquals("3", collector.getPrevious().getHoge());
@@ -773,14 +773,14 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * “ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚ª”­¶‚µ‚½ê‡
-     * “ü—Íƒf[ƒ^F[1(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[), 2(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[), 3(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[), 4(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[)]
-     * ValidationErrorHandler‚Ì•Ô‹p’lFValidateErrorStatus.SKIP
-     * o—Íƒf[ƒ^F[]
-     * ¦ValidateErrorStatus.SKIP‚Ìê‡A“ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚ª”­¶‚µ‚½ƒf[ƒ^‚ÍAƒXƒLƒbƒv‚³‚êAo—Í‚³‚ê‚È‚¢B
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´åˆ
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼), 2(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼), 3(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼), 4(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼)]
+     * ValidationErrorHandlerã®è¿”å´å€¤ï¼šValidateErrorStatus.SKIP
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[]
+     * â€»ValidateErrorStatus.SKIPã®å ´åˆã€å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸãƒ‡ãƒ¼ã‚¿ã¯ã€ã‚¹ã‚­ãƒƒãƒ—ã•ã‚Œã€å‡ºåŠ›ã•ã‚Œãªã„ã€‚
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testOccurValidationErrorSkip005() throws Exception {
@@ -793,7 +793,7 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Collections.emptyList();
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f‚ª–³‚¢‚±‚Æ‚ğŠm”F
+        // ç¬¬1è¦ç´ ãŒç„¡ã„ã“ã¨ã‚’ç¢ºèª
         assertFalse(collector.hasNext());
 
         try {
@@ -809,14 +809,14 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * “ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚ª”­¶‚µ‚½ê‡
-     * “ü—Íƒf[ƒ^F[1(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[), 2, 3, 4, 5, 6]
-     * ValidationErrorHandler‚Ì•Ô‹p’lFValidateErrorStatus.END
-     * o—Íƒf[ƒ^F[]
-     * ¦ValidateErrorStatus.END‚Ìê‡A“ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚ª”­¶‚µ‚½ƒf[ƒ^‚Ì’¼‘O‚Ìƒf[ƒ^‚ªÅŒã‚Ìƒf[ƒ^ˆµ‚¢‚Æ‚È‚éB
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´åˆ
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼), 2, 3, 4, 5, 6]
+     * ValidationErrorHandlerã®è¿”å´å€¤ï¼šValidateErrorStatus.END
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[]
+     * â€»ValidateErrorStatus.ENDã®å ´åˆã€å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸãƒ‡ãƒ¼ã‚¿ã®ç›´å‰ã®ãƒ‡ãƒ¼ã‚¿ãŒæœ€å¾Œã®ãƒ‡ãƒ¼ã‚¿æ‰±ã„ã¨ãªã‚‹ã€‚
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testOccurValidationErrorEnd001() throws Exception {
@@ -829,7 +829,7 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Collections.emptyList();
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f‚ª–³‚¢‚±‚Æ‚ğŠm”F
+        // ç¬¬1è¦ç´ ãŒç„¡ã„ã“ã¨ã‚’ç¢ºèª
         assertFalse(collector.hasNext());
 
         try {
@@ -845,14 +845,14 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * “ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚ª”­¶‚µ‚½ê‡
-     * “ü—Íƒf[ƒ^F[1, 2, 3(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[), 4, 5, 6]
-     * ValidationErrorHandler‚Ì•Ô‹p’lFValidateErrorStatus.END
-     * o—Íƒf[ƒ^F[1, 2]
-     * ¦ValidateErrorStatus.END‚Ìê‡A“ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚ª”­¶‚µ‚½ƒf[ƒ^‚Ì’¼‘O‚Ìƒf[ƒ^‚ªÅŒã‚Ìƒf[ƒ^ˆµ‚¢‚Æ‚È‚éB
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´åˆ
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, 3(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼), 4, 5, 6]
+     * ValidationErrorHandlerã®è¿”å´å€¤ï¼šValidateErrorStatus.END
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2]
+     * â€»ValidateErrorStatus.ENDã®å ´åˆã€å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸãƒ‡ãƒ¼ã‚¿ã®ç›´å‰ã®ãƒ‡ãƒ¼ã‚¿ãŒæœ€å¾Œã®ãƒ‡ãƒ¼ã‚¿æ‰±ã„ã¨ãªã‚‹ã€‚
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testOccurValidationErrorEnd002() throws Exception {
@@ -865,14 +865,14 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Collections.emptyList();
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f
+        // ç¬¬1è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("1", collector.next().getHoge());
         assertNull(collector.getPrevious());
         assertEquals("1", collector.getCurrent().getHoge());
         assertEquals("2", collector.getNext().getHoge());
 
-        // ‘æ2—v‘f
+        // ç¬¬2è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("2", collector.next().getHoge());
         assertEquals("1", collector.getPrevious().getHoge());
@@ -894,14 +894,14 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * “ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚ª”­¶‚µ‚½ê‡
-     * “ü—Íƒf[ƒ^F[1, 2, 3, 4, 5, 6(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[)]
-     * ValidationErrorHandler‚Ì•Ô‹p’lFValidateErrorStatus.END
-     * o—Íƒf[ƒ^F[1, 2]
-     * ¦ValidateErrorStatus.END‚Ìê‡A“ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚ª”­¶‚µ‚½ƒf[ƒ^‚Ì’¼‘O‚Ìƒf[ƒ^‚ªÅŒã‚Ìƒf[ƒ^ˆµ‚¢‚Æ‚È‚éB
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´åˆ
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, 3, 4, 5, 6(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼)]
+     * ValidationErrorHandlerã®è¿”å´å€¤ï¼šValidateErrorStatus.END
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2]
+     * â€»ValidateErrorStatus.ENDã®å ´åˆã€å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸãƒ‡ãƒ¼ã‚¿ã®ç›´å‰ã®ãƒ‡ãƒ¼ã‚¿ãŒæœ€å¾Œã®ãƒ‡ãƒ¼ã‚¿æ‰±ã„ã¨ãªã‚‹ã€‚
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testOccurValidationErrorEnd003() throws Exception {
@@ -914,23 +914,23 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Collections.emptyList();
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f
+        // ç¬¬1è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("1", collector.next().getHoge());
         assertNull(collector.getPrevious());
         assertEquals("1", collector.getCurrent().getHoge());
         assertEquals("2", collector.getNext().getHoge());
 
-        // ‘æ2—v‘f
+        // ç¬¬2è¦ç´ 
         assertNextData(collector, "2", "1", "2", "3");
 
-        // ‘æ3—v‘f
+        // ç¬¬3è¦ç´ 
         assertNextData(collector, "3", "2", "3", "4");
 
-        // ‘æ4—v‘f
+        // ç¬¬4è¦ç´ 
         assertNextData(collector, "4", "3", "4", "5");
 
-        // ‘æ5—v‘f
+        // ç¬¬5è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("5", collector.next().getHoge());
         assertEquals("4", collector.getPrevious().getHoge());
@@ -952,15 +952,15 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * “ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚ª”­¶‚µ‚½ê‡ (“ü—Íƒ`ƒFƒbƒN•t‚«ƒRƒŒƒNƒ^‚ÌƒfƒtƒHƒ‹ƒgİ’è)
-     * “ü—Íƒf[ƒ^F[1(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[), 2, 3, 4, 5, 6]
-     * ValidationErrorHandler‚ÌŒ‹‰ÊFValidationErrorException‚ğƒXƒ[
-     * CollectorExceptionHandlerF‚È‚µ
-     * o—Íƒf[ƒ^F[1(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[), 2, 3, 4, 5, 6]
-     * ¦“ü—Íƒ`ƒFƒbƒNƒGƒ‰[•t‚«‚Ìo—Íƒf[ƒ^‚ÍAnext()‚Ì‚İ—áŠO‚ªƒXƒ[‚³‚êAgetPrevious()AgetCurrent()AgetNext()‚Å‚Íƒf[ƒ^‚ªæ“¾‚Å‚«‚éB
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´åˆ (å…¥åŠ›ãƒã‚§ãƒƒã‚¯ä»˜ãã‚³ãƒ¬ã‚¯ã‚¿ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆè¨­å®š)
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼), 2, 3, 4, 5, 6]
+     * ValidationErrorHandlerã®çµæœï¼šValidationErrorExceptionã‚’ã‚¹ãƒ­ãƒ¼
+     * CollectorExceptionHandlerï¼šãªã—
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼), 2, 3, 4, 5, 6]
+     * â€»å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ä»˜ãã®å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã¯ã€next()ã®ã¿ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã€getPrevious()ã€getCurrent()ã€getNext()ã§ã¯ãƒ‡ãƒ¼ã‚¿ãŒå–å¾—ã§ãã‚‹ã€‚
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testOccurValidationErrorThrowWithoutExceptionHandler001() throws Exception {
@@ -973,7 +973,7 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Collections.emptyList();
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f
+        // ç¬¬1è¦ç´ 
         assertTrue(collector.hasNext());
         try {
             collector.next();
@@ -984,19 +984,19 @@ public class AbstractCollector003Test {
         assertEquals("1", collector.getCurrent().getHoge());
         assertEquals("2", collector.getNext().getHoge());
 
-        // ‘æ2—v‘f
+        // ç¬¬2è¦ç´ 
         assertNextData(collector, "2", "1", "2", "3");
 
-        // ‘æ3—v‘f
+        // ç¬¬3è¦ç´ 
         assertNextData(collector, "3", "2", "3", "4");
 
-        // ‘æ4—v‘f
+        // ç¬¬4è¦ç´ 
         assertNextData(collector, "4", "3", "4", "5");
 
-        // ‘æ5—v‘f
+        // ç¬¬5è¦ç´ 
         assertNextData(collector, "5", "4", "5", "6");
 
-        // ‘æ6—v‘f
+        // ç¬¬6è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("6", collector.next().getHoge());
         assertEquals("5", collector.getPrevious().getHoge());
@@ -1018,15 +1018,15 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * “ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚ª”­¶‚µ‚½ê‡ (“ü—Íƒ`ƒFƒbƒN•t‚«ƒRƒŒƒNƒ^‚ÌƒfƒtƒHƒ‹ƒgİ’è)
-     * “ü—Íƒf[ƒ^F[1, 2, 3(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[), 4, 5, 6]
-     * ValidationErrorHandler‚ÌŒ‹‰ÊFValidationErrorException‚ğƒXƒ[
-     * CollectorExceptionHandlerF‚È‚µ
-     * o—Íƒf[ƒ^F[1, 2, 3(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[), 4, 5, 6]
-     * ¦“ü—Íƒ`ƒFƒbƒNƒGƒ‰[•t‚«‚Ìo—Íƒf[ƒ^‚ÍAnext()‚Ì‚İ—áŠO‚ªƒXƒ[‚³‚êAgetPrevious()AgetCurrent()AgetNext()‚Å‚Íƒf[ƒ^‚ªæ“¾‚Å‚«‚éB
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´åˆ (å…¥åŠ›ãƒã‚§ãƒƒã‚¯ä»˜ãã‚³ãƒ¬ã‚¯ã‚¿ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆè¨­å®š)
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, 3(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼), 4, 5, 6]
+     * ValidationErrorHandlerã®çµæœï¼šValidationErrorExceptionã‚’ã‚¹ãƒ­ãƒ¼
+     * CollectorExceptionHandlerï¼šãªã—
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, 3(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼), 4, 5, 6]
+     * â€»å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ä»˜ãã®å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã¯ã€next()ã®ã¿ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã€getPrevious()ã€getCurrent()ã€getNext()ã§ã¯ãƒ‡ãƒ¼ã‚¿ãŒå–å¾—ã§ãã‚‹ã€‚
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testOccurValidationErrorThrowWithoutExceptionHandler002() throws Exception {
@@ -1039,17 +1039,17 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Collections.emptyList();
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f
+        // ç¬¬1è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("1", collector.next().getHoge());
         assertNull(collector.getPrevious());
         assertEquals("1", collector.getCurrent().getHoge());
         assertEquals("2", collector.getNext().getHoge());
 
-        // ‘æ2—v‘f
+        // ç¬¬2è¦ç´ 
         assertNextData(collector, "2", "1", "2", "3");
 
-        // ‘æ3—v‘f
+        // ç¬¬3è¦ç´ 
         assertTrue(collector.hasNext());
         try {
             collector.next();
@@ -1060,13 +1060,13 @@ public class AbstractCollector003Test {
         assertEquals("3", collector.getCurrent().getHoge());
         assertEquals("4", collector.getNext().getHoge());
 
-        // ‘æ4—v‘f
+        // ç¬¬4è¦ç´ 
         assertNextData(collector, "4", "3", "4", "5");
 
-        // ‘æ5—v‘f
+        // ç¬¬5è¦ç´ 
         assertNextData(collector, "5", "4", "5", "6");
 
-        // ‘æ6—v‘f
+        // ç¬¬6è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("6", collector.next().getHoge());
         assertEquals("5", collector.getPrevious().getHoge());
@@ -1088,15 +1088,15 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * “ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚ª”­¶‚µ‚½ê‡ (“ü—Íƒ`ƒFƒbƒN•t‚«ƒRƒŒƒNƒ^‚ÌƒfƒtƒHƒ‹ƒgİ’è)
-     * “ü—Íƒf[ƒ^F[1, 2, 3, 4, 5, 6(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[)]
-     * ValidationErrorHandler‚ÌŒ‹‰ÊFValidationErrorException‚ğƒXƒ[
-     * CollectorExceptionHandlerF‚È‚µ
-     * o—Íƒf[ƒ^F[1, 2, 3, 4, 5, 6(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[)]
-     * ¦“ü—Íƒ`ƒFƒbƒNƒGƒ‰[•t‚«‚Ìo—Íƒf[ƒ^‚ÍAnext()‚Ì‚İ—áŠO‚ªƒXƒ[‚³‚êAgetPrevious()AgetCurrent()AgetNext()‚Å‚Íƒf[ƒ^‚ªæ“¾‚Å‚«‚éB
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´åˆ (å…¥åŠ›ãƒã‚§ãƒƒã‚¯ä»˜ãã‚³ãƒ¬ã‚¯ã‚¿ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆè¨­å®š)
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, 3, 4, 5, 6(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼)]
+     * ValidationErrorHandlerã®çµæœï¼šValidationErrorExceptionã‚’ã‚¹ãƒ­ãƒ¼
+     * CollectorExceptionHandlerï¼šãªã—
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, 3, 4, 5, 6(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼)]
+     * â€»å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ä»˜ãã®å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã¯ã€next()ã®ã¿ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã€getPrevious()ã€getCurrent()ã€getNext()ã§ã¯ãƒ‡ãƒ¼ã‚¿ãŒå–å¾—ã§ãã‚‹ã€‚
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testOccurValidationErrorThrowWithoutExceptionHandler003() throws Exception {
@@ -1109,26 +1109,26 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Collections.emptyList();
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f
+        // ç¬¬1è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("1", collector.next().getHoge());
         assertNull(collector.getPrevious());
         assertEquals("1", collector.getCurrent().getHoge());
         assertEquals("2", collector.getNext().getHoge());
 
-        // ‘æ2—v‘f
+        // ç¬¬2è¦ç´ 
         assertNextData(collector, "2", "1", "2", "3");
 
-        // ‘æ3—v‘f
+        // ç¬¬3è¦ç´ 
         assertNextData(collector, "3", "2", "3", "4");
 
-        // ‘æ4—v‘f
+        // ç¬¬4è¦ç´ 
         assertNextData(collector, "4", "3", "4", "5");
 
-        // ‘æ5—v‘f
+        // ç¬¬5è¦ç´ 
         assertNextData(collector, "5", "4", "5", "6");
 
-        // ‘æ6—v‘f
+        // ç¬¬6è¦ç´ 
         assertTrue(collector.hasNext());
         try {
             collector.next();
@@ -1154,15 +1154,15 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * “ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚ª”­¶‚µ‚½ê‡
-     * “ü—Íƒf[ƒ^F[1(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[), 2, 3, 4, 5, 6]
-     * ValidationErrorHandler‚ÌŒ‹‰ÊFValidationErrorException‚ğƒXƒ[
-     * CollectorExceptionHandler‚ÌŒ‹‰ÊFCollectorExceptionHandlerStatus.THROW
-     * o—Íƒf[ƒ^F[1(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[), 2, 3, 4, 5, 6]
-     * ¦“ü—Íƒ`ƒFƒbƒNƒGƒ‰[•t‚«‚Ìo—Íƒf[ƒ^‚ÍAnext()‚Ì‚İ—áŠO‚ªƒXƒ[‚³‚êAgetPrevious()AgetCurrent()AgetNext()‚Å‚Íƒf[ƒ^‚ªæ“¾‚Å‚«‚éB
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´åˆ
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼), 2, 3, 4, 5, 6]
+     * ValidationErrorHandlerã®çµæœï¼šValidationErrorExceptionã‚’ã‚¹ãƒ­ãƒ¼
+     * CollectorExceptionHandlerã®çµæœï¼šCollectorExceptionHandlerStatus.THROW
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼), 2, 3, 4, 5, 6]
+     * â€»å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ä»˜ãã®å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã¯ã€next()ã®ã¿ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã€getPrevious()ã€getCurrent()ã€getNext()ã§ã¯ãƒ‡ãƒ¼ã‚¿ãŒå–å¾—ã§ãã‚‹ã€‚
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testOccurValidationErrorThrowWithThrowExceptionHandler001() throws Exception {
@@ -1175,7 +1175,7 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Collections.emptyList();
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f
+        // ç¬¬1è¦ç´ 
         assertTrue(collector.hasNext());
         try {
             collector.next();
@@ -1186,19 +1186,19 @@ public class AbstractCollector003Test {
         assertEquals("1", collector.getCurrent().getHoge());
         assertEquals("2", collector.getNext().getHoge());
 
-        // ‘æ2—v‘f
+        // ç¬¬2è¦ç´ 
         assertNextData(collector, "2", "1", "2", "3");
 
-        // ‘æ3—v‘f
+        // ç¬¬3è¦ç´ 
         assertNextData(collector, "3", "2", "3", "4");
 
-        // ‘æ4—v‘f
+        // ç¬¬4è¦ç´ 
         assertNextData(collector, "4", "3", "4", "5");
 
-        // ‘æ5—v‘f
+        // ç¬¬5è¦ç´ 
         assertNextData(collector, "5", "4", "5", "6");
 
-        // ‘æ6—v‘f
+        // ç¬¬6è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("6", collector.next().getHoge());
         assertEquals("5", collector.getPrevious().getHoge());
@@ -1220,15 +1220,15 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * “ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚ª”­¶‚µ‚½ê‡
-     * “ü—Íƒf[ƒ^F[1, 2, 3(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[), 4, 5, 6]
-     * ValidationErrorHandler‚ÌŒ‹‰ÊFValidationErrorException‚ğƒXƒ[
-     * CollectorExceptionHandler‚ÌŒ‹‰ÊFCollectorExceptionHandlerStatus.THROW
-     * o—Íƒf[ƒ^F[1, 2, 3(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[), 4, 5, 6]
-     * ¦“ü—Íƒ`ƒFƒbƒNƒGƒ‰[•t‚«‚Ìo—Íƒf[ƒ^‚ÍAnext()‚Ì‚İ—áŠO‚ªƒXƒ[‚³‚êAgetPrevious()AgetCurrent()AgetNext()‚Å‚Íƒf[ƒ^‚ªæ“¾‚Å‚«‚éB
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´åˆ
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, 3(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼), 4, 5, 6]
+     * ValidationErrorHandlerã®çµæœï¼šValidationErrorExceptionã‚’ã‚¹ãƒ­ãƒ¼
+     * CollectorExceptionHandlerã®çµæœï¼šCollectorExceptionHandlerStatus.THROW
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, 3(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼), 4, 5, 6]
+     * â€»å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ä»˜ãã®å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã¯ã€next()ã®ã¿ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã€getPrevious()ã€getCurrent()ã€getNext()ã§ã¯ãƒ‡ãƒ¼ã‚¿ãŒå–å¾—ã§ãã‚‹ã€‚
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testOccurValidationErrorThrowWithThrowExceptionHandler002() throws Exception {
@@ -1241,17 +1241,17 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Collections.emptyList();
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f
+        // ç¬¬1è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("1", collector.next().getHoge());
         assertNull(collector.getPrevious());
         assertEquals("1", collector.getCurrent().getHoge());
         assertEquals("2", collector.getNext().getHoge());
 
-        // ‘æ2—v‘f
+        // ç¬¬2è¦ç´ 
         assertNextData(collector, "2", "1", "2", "3");
 
-        // ‘æ3—v‘f
+        // ç¬¬3è¦ç´ 
         assertTrue(collector.hasNext());
         try {
             collector.next();
@@ -1262,13 +1262,13 @@ public class AbstractCollector003Test {
         assertEquals("3", collector.getCurrent().getHoge());
         assertEquals("4", collector.getNext().getHoge());
 
-        // ‘æ4—v‘f
+        // ç¬¬4è¦ç´ 
         assertNextData(collector, "4", "3", "4", "5");
 
-        // ‘æ5—v‘f
+        // ç¬¬5è¦ç´ 
         assertNextData(collector, "5", "4", "5", "6");
 
-        // ‘æ6—v‘f
+        // ç¬¬6è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("6", collector.next().getHoge());
         assertEquals("5", collector.getPrevious().getHoge());
@@ -1290,15 +1290,15 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * “ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚ª”­¶‚µ‚½ê‡
-     * “ü—Íƒf[ƒ^F[1, 2, 3, 4, 5, 6(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[)]
-     * ValidationErrorHandler‚ÌŒ‹‰ÊFValidationErrorException‚ğƒXƒ[
-     * CollectorExceptionHandler‚ÌŒ‹‰ÊFCollectorExceptionHandlerStatus.THROW
-     * o—Íƒf[ƒ^F[1, 2, 3, 4, 5, 6(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[)]
-     * ¦“ü—Íƒ`ƒFƒbƒNƒGƒ‰[•t‚«‚Ìo—Íƒf[ƒ^‚ÍAnext()‚Ì‚İ—áŠO‚ªƒXƒ[‚³‚êAgetPrevious()AgetCurrent()AgetNext()‚Å‚Íƒf[ƒ^‚ªæ“¾‚Å‚«‚éB
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´åˆ
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, 3, 4, 5, 6(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼)]
+     * ValidationErrorHandlerã®çµæœï¼šValidationErrorExceptionã‚’ã‚¹ãƒ­ãƒ¼
+     * CollectorExceptionHandlerã®çµæœï¼šCollectorExceptionHandlerStatus.THROW
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, 3, 4, 5, 6(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼)]
+     * â€»å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ä»˜ãã®å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã¯ã€next()ã®ã¿ä¾‹å¤–ãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã€getPrevious()ã€getCurrent()ã€getNext()ã§ã¯ãƒ‡ãƒ¼ã‚¿ãŒå–å¾—ã§ãã‚‹ã€‚
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testOccurValidationErrorThrowWithThrowExceptionHandler003() throws Exception {
@@ -1311,26 +1311,26 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Collections.emptyList();
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f
+        // ç¬¬1è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("1", collector.next().getHoge());
         assertNull(collector.getPrevious());
         assertEquals("1", collector.getCurrent().getHoge());
         assertEquals("2", collector.getNext().getHoge());
 
-        // ‘æ2—v‘f
+        // ç¬¬2è¦ç´ 
         assertNextData(collector, "2", "1", "2", "3");
 
-        // ‘æ3—v‘f
+        // ç¬¬3è¦ç´ 
         assertNextData(collector, "3", "2", "3", "4");
 
-        // ‘æ4—v‘f
+        // ç¬¬4è¦ç´ 
         assertNextData(collector, "4", "3", "4", "5");
 
-        // ‘æ5—v‘f
+        // ç¬¬5è¦ç´ 
         assertNextData(collector, "5", "4", "5", "6");
 
-        // ‘æ6—v‘f
+        // ç¬¬6è¦ç´ 
         assertTrue(collector.hasNext());
         try {
             collector.next();
@@ -1356,15 +1356,15 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * “ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚ª”­¶‚µ‚½ê‡
-     * “ü—Íƒf[ƒ^F[1(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[), 2, 3, 4, 5, 6]
-     * ValidationErrorHandler‚ÌŒ‹‰ÊFValidationErrorException‚ğƒXƒ[
-     * CollectorExceptionHandler‚ÌŒ‹‰ÊFCollectorExceptionHandlerStatus.SKIP
-     * o—Íƒf[ƒ^F[2, 3, 4, 5, 6]
-     * ¦CollectorExceptionHandlerStatus.SKIP‚Ìê‡A“ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚ª”­¶‚µ‚½ƒf[ƒ^‚ÍAƒXƒLƒbƒv‚³‚êAo—Í‚³‚ê‚È‚¢B
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´åˆ
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼), 2, 3, 4, 5, 6]
+     * ValidationErrorHandlerã®çµæœï¼šValidationErrorExceptionã‚’ã‚¹ãƒ­ãƒ¼
+     * CollectorExceptionHandlerã®çµæœï¼šCollectorExceptionHandlerStatus.SKIP
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[2, 3, 4, 5, 6]
+     * â€»CollectorExceptionHandlerStatus.SKIPã®å ´åˆã€å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸãƒ‡ãƒ¼ã‚¿ã¯ã€ã‚¹ã‚­ãƒƒãƒ—ã•ã‚Œã€å‡ºåŠ›ã•ã‚Œãªã„ã€‚
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testOccurValidationErrorThrowWithSkipExceptionHandler001() throws Exception {
@@ -1377,23 +1377,23 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Collections.emptyList();
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f
+        // ç¬¬1è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("2", collector.next().getHoge());
         assertNull(collector.getPrevious());
         assertEquals("2", collector.getCurrent().getHoge());
         assertEquals("3", collector.getNext().getHoge());
 
-        // ‘æ2—v‘f
+        // ç¬¬2è¦ç´ 
         assertNextData(collector, "3", "2", "3", "4");
 
-        // ‘æ3—v‘f
+        // ç¬¬3è¦ç´ 
         assertNextData(collector, "4", "3", "4", "5");
 
-        // ‘æ4—v‘f
+        // ç¬¬4è¦ç´ 
         assertNextData(collector, "5", "4", "5", "6");
 
-        // ‘æ5—v‘f
+        // ç¬¬5è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("6", collector.next().getHoge());
         assertEquals("5", collector.getPrevious().getHoge());
@@ -1415,15 +1415,15 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * “ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚ª”­¶‚µ‚½ê‡
-     * “ü—Íƒf[ƒ^F[1, 2, 3(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[), 4, 5, 6]
-     * ValidationErrorHandler‚ÌŒ‹‰ÊFValidationErrorException‚ğƒXƒ[
-     * CollectorExceptionHandler‚ÌŒ‹‰ÊFCollectorExceptionHandlerStatus.SKIP
-     * o—Íƒf[ƒ^F[1, 2, 4, 5, 6]
-     * ¦CollectorExceptionHandlerStatus.SKIP‚Ìê‡A“ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚ª”­¶‚µ‚½ƒf[ƒ^‚ÍAƒXƒLƒbƒv‚³‚êAo—Í‚³‚ê‚È‚¢B
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´åˆ
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, 3(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼), 4, 5, 6]
+     * ValidationErrorHandlerã®çµæœï¼šValidationErrorExceptionã‚’ã‚¹ãƒ­ãƒ¼
+     * CollectorExceptionHandlerã®çµæœï¼šCollectorExceptionHandlerStatus.SKIP
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, 4, 5, 6]
+     * â€»CollectorExceptionHandlerStatus.SKIPã®å ´åˆã€å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸãƒ‡ãƒ¼ã‚¿ã¯ã€ã‚¹ã‚­ãƒƒãƒ—ã•ã‚Œã€å‡ºåŠ›ã•ã‚Œãªã„ã€‚
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testOccurValidationErrorThrowWithSkipExceptionHandler002() throws Exception {
@@ -1436,23 +1436,23 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Collections.emptyList();
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f
+        // ç¬¬1è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("1", collector.next().getHoge());
         assertNull(collector.getPrevious());
         assertEquals("1", collector.getCurrent().getHoge());
         assertEquals("2", collector.getNext().getHoge());
 
-        // ‘æ2—v‘f
+        // ç¬¬2è¦ç´ 
         assertNextData(collector, "2", "1", "2", "4");
 
-        // ‘æ3—v‘f
+        // ç¬¬3è¦ç´ 
         assertNextData(collector, "4", "2", "4", "5");
 
-        // ‘æ4—v‘f
+        // ç¬¬4è¦ç´ 
         assertNextData(collector, "5", "4", "5", "6");
 
-        // ‘æ5—v‘f
+        // ç¬¬5è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("6", collector.next().getHoge());
         assertEquals("5", collector.getPrevious().getHoge());
@@ -1474,15 +1474,15 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * “ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚ª”­¶‚µ‚½ê‡
-     * “ü—Íƒf[ƒ^F[1, 2, 3, 4, 5, 6(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[)]
-     * ValidationErrorHandler‚ÌŒ‹‰ÊFValidationErrorException‚ğƒXƒ[
-     * CollectorExceptionHandler‚ÌŒ‹‰ÊFCollectorExceptionHandlerStatus.SKIP
-     * o—Íƒf[ƒ^F[1, 2, 3, 4, 5]
-     * ¦CollectorExceptionHandlerStatus.SKIP‚Ìê‡A“ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚ª”­¶‚µ‚½ƒf[ƒ^‚ÍAƒXƒLƒbƒv‚³‚êAo—Í‚³‚ê‚È‚¢B
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´åˆ
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, 3, 4, 5, 6(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼)]
+     * ValidationErrorHandlerã®çµæœï¼šValidationErrorExceptionã‚’ã‚¹ãƒ­ãƒ¼
+     * CollectorExceptionHandlerã®çµæœï¼šCollectorExceptionHandlerStatus.SKIP
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, 3, 4, 5]
+     * â€»CollectorExceptionHandlerStatus.SKIPã®å ´åˆã€å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸãƒ‡ãƒ¼ã‚¿ã¯ã€ã‚¹ã‚­ãƒƒãƒ—ã•ã‚Œã€å‡ºåŠ›ã•ã‚Œãªã„ã€‚
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testOccurValidationErrorThrowWithSkipExceptionHandler003() throws Exception {
@@ -1495,23 +1495,23 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Collections.emptyList();
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f
+        // ç¬¬1è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("1", collector.next().getHoge());
         assertNull(collector.getPrevious());
         assertEquals("1", collector.getCurrent().getHoge());
         assertEquals("2", collector.getNext().getHoge());
 
-        // ‘æ2—v‘f
+        // ç¬¬2è¦ç´ 
         assertNextData(collector, "2", "1", "2", "3");
 
-        // ‘æ3—v‘f
+        // ç¬¬3è¦ç´ 
         assertNextData(collector, "3", "2", "3", "4");
 
-        // ‘æ4—v‘f
+        // ç¬¬4è¦ç´ 
         assertNextData(collector, "4", "3", "4", "5");
 
-        // ‘æ5—v‘f
+        // ç¬¬5è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("5", collector.next().getHoge());
         assertEquals("4", collector.getPrevious().getHoge());
@@ -1533,15 +1533,15 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * “ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚ª”­¶‚µ‚½ê‡
-     * “ü—Íƒf[ƒ^F[1(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[), 2(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[), 3, 4(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[), 5(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[), 6, 7(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[), 8(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[)]
-     * ValidationErrorHandler‚ÌŒ‹‰ÊFValidationErrorException‚ğƒXƒ[
-     * CollectorExceptionHandler‚ÌŒ‹‰ÊFCollectorExceptionHandlerStatus.SKIP
-     * o—Íƒf[ƒ^F[3, 6]
-     * ¦CollectorExceptionHandlerStatus.SKIP‚Ìê‡A“ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚ª”­¶‚µ‚½ƒf[ƒ^‚ÍAƒXƒLƒbƒv‚³‚êAo—Í‚³‚ê‚È‚¢B
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´åˆ
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼), 2(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼), 3, 4(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼), 5(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼), 6, 7(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼), 8(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼)]
+     * ValidationErrorHandlerã®çµæœï¼šValidationErrorExceptionã‚’ã‚¹ãƒ­ãƒ¼
+     * CollectorExceptionHandlerã®çµæœï¼šCollectorExceptionHandlerStatus.SKIP
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[3, 6]
+     * â€»CollectorExceptionHandlerStatus.SKIPã®å ´åˆã€å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸãƒ‡ãƒ¼ã‚¿ã¯ã€ã‚¹ã‚­ãƒƒãƒ—ã•ã‚Œã€å‡ºåŠ›ã•ã‚Œãªã„ã€‚
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testOccurValidationErrorThrowWithSkipExceptionHandler004() throws Exception {
@@ -1554,14 +1554,14 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Collections.emptyList();
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f
+        // ç¬¬1è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("3", collector.next().getHoge());
         assertNull(collector.getPrevious());
         assertEquals("3", collector.getCurrent().getHoge());
         assertEquals("6", collector.getNext().getHoge());
 
-        // ‘æ2—v‘f
+        // ç¬¬2è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("6", collector.next().getHoge());
         assertEquals("3", collector.getPrevious().getHoge());
@@ -1583,15 +1583,15 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * “ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚ª”­¶‚µ‚½ê‡
-     * “ü—Íƒf[ƒ^F[1(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[), 2(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[), 3(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[), 4(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[)]
-     * ValidationErrorHandler‚ÌŒ‹‰ÊFValidationErrorException‚ğƒXƒ[
-     * CollectorExceptionHandler‚ÌŒ‹‰ÊFCollectorExceptionHandlerStatus.SKIP
-     * o—Íƒf[ƒ^F[]
-     * ¦CollectorExceptionHandlerStatus.SKIP‚Ìê‡A“ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚ª”­¶‚µ‚½ƒf[ƒ^‚ÍAƒXƒLƒbƒv‚³‚êAo—Í‚³‚ê‚È‚¢B
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´åˆ
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼), 2(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼), 3(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼), 4(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼)]
+     * ValidationErrorHandlerã®çµæœï¼šValidationErrorExceptionã‚’ã‚¹ãƒ­ãƒ¼
+     * CollectorExceptionHandlerã®çµæœï¼šCollectorExceptionHandlerStatus.SKIP
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[]
+     * â€»CollectorExceptionHandlerStatus.SKIPã®å ´åˆã€å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸãƒ‡ãƒ¼ã‚¿ã¯ã€ã‚¹ã‚­ãƒƒãƒ—ã•ã‚Œã€å‡ºåŠ›ã•ã‚Œãªã„ã€‚
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testOccurValidationErrorThrowWithSkipExceptionHandler005() throws Exception {
@@ -1604,7 +1604,7 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Collections.emptyList();
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f‚ª–³‚¢‚±‚Æ‚ğŠm”F
+        // ç¬¬1è¦ç´ ãŒç„¡ã„ã“ã¨ã‚’ç¢ºèª
         assertFalse(collector.hasNext());
 
         try {
@@ -1620,15 +1620,15 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * “ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚ª”­¶‚µ‚½ê‡
-     * “ü—Íƒf[ƒ^F[1(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[), 2, 3, 4, 5, 6]
-     * ValidationErrorHandler‚ÌŒ‹‰ÊFValidationErrorException‚ğƒXƒ[
-     * CollectorExceptionHandler‚ÌŒ‹‰ÊFCollectorExceptionHandlerStatus.END
-     * o—Íƒf[ƒ^F[]
-     * ¦CollectorExceptionHandlerStatus.END‚Ìê‡A“ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚ª”­¶‚µ‚½ƒf[ƒ^‚Ì’¼‘O‚Ìƒf[ƒ^‚ªÅŒã‚Ìƒf[ƒ^ˆµ‚¢‚Æ‚È‚éB
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´åˆ
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼), 2, 3, 4, 5, 6]
+     * ValidationErrorHandlerã®çµæœï¼šValidationErrorExceptionã‚’ã‚¹ãƒ­ãƒ¼
+     * CollectorExceptionHandlerã®çµæœï¼šCollectorExceptionHandlerStatus.END
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[]
+     * â€»CollectorExceptionHandlerStatus.ENDã®å ´åˆã€å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸãƒ‡ãƒ¼ã‚¿ã®ç›´å‰ã®ãƒ‡ãƒ¼ã‚¿ãŒæœ€å¾Œã®ãƒ‡ãƒ¼ã‚¿æ‰±ã„ã¨ãªã‚‹ã€‚
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testOccurValidationErrorThrowWithEndExceptionHandler001() throws Exception {
@@ -1641,7 +1641,7 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Collections.emptyList();
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f‚ª–³‚¢‚±‚Æ‚ğŠm”F
+        // ç¬¬1è¦ç´ ãŒç„¡ã„ã“ã¨ã‚’ç¢ºèª
         assertFalse(collector.hasNext());
 
         try {
@@ -1657,15 +1657,15 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * “ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚ª”­¶‚µ‚½ê‡
-     * “ü—Íƒf[ƒ^F[1, 2, 3(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[), 4, 5, 6]
-     * ValidationErrorHandler‚ÌŒ‹‰ÊFValidationErrorException‚ğƒXƒ[
-     * CollectorExceptionHandler‚ÌŒ‹‰ÊFCollectorExceptionHandlerStatus.END
-     * o—Íƒf[ƒ^F[1, 2]
-     * ¦CollectorExceptionHandlerStatus.END‚Ìê‡A“ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚ª”­¶‚µ‚½ƒf[ƒ^‚Ì’¼‘O‚Ìƒf[ƒ^‚ªÅŒã‚Ìƒf[ƒ^ˆµ‚¢‚Æ‚È‚éB
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´åˆ
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, 3(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼), 4, 5, 6]
+     * ValidationErrorHandlerã®çµæœï¼šValidationErrorExceptionã‚’ã‚¹ãƒ­ãƒ¼
+     * CollectorExceptionHandlerã®çµæœï¼šCollectorExceptionHandlerStatus.END
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2]
+     * â€»CollectorExceptionHandlerStatus.ENDã®å ´åˆã€å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸãƒ‡ãƒ¼ã‚¿ã®ç›´å‰ã®ãƒ‡ãƒ¼ã‚¿ãŒæœ€å¾Œã®ãƒ‡ãƒ¼ã‚¿æ‰±ã„ã¨ãªã‚‹ã€‚
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testOccurValidationErrorThrowWithEndExceptionHandler002() throws Exception {
@@ -1678,14 +1678,14 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Collections.emptyList();
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f
+        // ç¬¬1è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("1", collector.next().getHoge());
         assertNull(collector.getPrevious());
         assertEquals("1", collector.getCurrent().getHoge());
         assertEquals("2", collector.getNext().getHoge());
 
-        // ‘æ2—v‘f
+        // ç¬¬2è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("2", collector.next().getHoge());
         assertEquals("1", collector.getPrevious().getHoge());
@@ -1707,15 +1707,15 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * “ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚ª”­¶‚µ‚½ê‡
-     * “ü—Íƒf[ƒ^F[1, 2, 3, 4, 5, 6(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[)]
-     * ValidationErrorHandler‚ÌŒ‹‰ÊFValidationErrorException‚ğƒXƒ[
-     * CollectorExceptionHandler‚ÌŒ‹‰ÊFCollectorExceptionHandlerStatus.END
-     * o—Íƒf[ƒ^F[1, 2, 3, 4, 5]
-     * ¦CollectorExceptionHandlerStatus.END‚Ìê‡A“ü—Íƒ`ƒFƒbƒNƒGƒ‰[‚ª”­¶‚µ‚½ƒf[ƒ^‚Ì’¼‘O‚Ìƒf[ƒ^‚ªÅŒã‚Ìƒf[ƒ^ˆµ‚¢‚Æ‚È‚éB
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´åˆ
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, 3, 4, 5, 6(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼)]
+     * ValidationErrorHandlerã®çµæœï¼šValidationErrorExceptionã‚’ã‚¹ãƒ­ãƒ¼
+     * CollectorExceptionHandlerã®çµæœï¼šCollectorExceptionHandlerStatus.END
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, 3, 4, 5]
+     * â€»CollectorExceptionHandlerStatus.ENDã®å ´åˆã€å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸãƒ‡ãƒ¼ã‚¿ã®ç›´å‰ã®ãƒ‡ãƒ¼ã‚¿ãŒæœ€å¾Œã®ãƒ‡ãƒ¼ã‚¿æ‰±ã„ã¨ãªã‚‹ã€‚
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testOccurValidationErrorThrowWithEndExceptionHandler003() throws Exception {
@@ -1728,23 +1728,23 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Collections.emptyList();
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f
+        // ç¬¬1è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("1", collector.next().getHoge());
         assertNull(collector.getPrevious());
         assertEquals("1", collector.getCurrent().getHoge());
         assertEquals("2", collector.getNext().getHoge());
 
-        // ‘æ2—v‘f
+        // ç¬¬2è¦ç´ 
         assertNextData(collector, "2", "1", "2", "3");
 
-        // ‘æ3—v‘f
+        // ç¬¬3è¦ç´ 
         assertNextData(collector, "3", "2", "3", "4");
 
-        // ‘æ4—v‘f
+        // ç¬¬4è¦ç´ 
         assertNextData(collector, "4", "3", "4", "5");
 
-        // ‘æ5—v‘f
+        // ç¬¬5è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("5", collector.next().getHoge());
         assertEquals("4", collector.getPrevious().getHoge());
@@ -1766,14 +1766,14 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * ƒf[ƒ^“ü—Í‚É—áŠO‚ª”­¶‚µ‚½ê‡
-     * “ü—Íƒf[ƒ^F[(—áŠO), 2, 3, 4, 5, 6]
-     * CollectorExceptionHandler‚ÌŒ‹‰ÊFCollectorExceptionHandlerStatus.SKIP
-     * o—Íƒf[ƒ^F[2, 3, 4, 5, 6]
-     * ¦CollectorExceptionHandlerStatus.SKIP‚Ìê‡A“ü—Í‚É—áŠO‚ª”­¶‚µ‚½—v‘f‚ÍAƒXƒLƒbƒv‚³‚êAo—Í‚³‚ê‚È‚¢B
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * ãƒ‡ãƒ¼ã‚¿å…¥åŠ›æ™‚ã«ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆ
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[(ä¾‹å¤–), 2, 3, 4, 5, 6]
+     * CollectorExceptionHandlerã®çµæœï¼šCollectorExceptionHandlerStatus.SKIP
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[2, 3, 4, 5, 6]
+     * â€»CollectorExceptionHandlerStatus.SKIPã®å ´åˆã€å…¥åŠ›æ™‚ã«ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸè¦ç´ ã¯ã€ã‚¹ã‚­ãƒƒãƒ—ã•ã‚Œã€å‡ºåŠ›ã•ã‚Œãªã„ã€‚
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testOccurExceptionWithSkipExceptionHandler001() throws Exception {
@@ -1786,23 +1786,23 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Collections.emptyList();
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f
+        // ç¬¬1è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("2", collector.next().getHoge());
         assertNull(collector.getPrevious());
         assertEquals("2", collector.getCurrent().getHoge());
         assertEquals("3", collector.getNext().getHoge());
 
-        // ‘æ2—v‘f
+        // ç¬¬2è¦ç´ 
         assertNextData(collector, "3", "2", "3", "4");
 
-        // ‘æ3—v‘f
+        // ç¬¬3è¦ç´ 
         assertNextData(collector, "4", "3", "4", "5");
 
-        // ‘æ4—v‘f
+        // ç¬¬4è¦ç´ 
         assertNextData(collector, "5", "4", "5", "6");
 
-        // ‘æ5—v‘f
+        // ç¬¬5è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("6", collector.next().getHoge());
         assertEquals("5", collector.getPrevious().getHoge());
@@ -1824,14 +1824,14 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * ƒf[ƒ^“ü—Í‚É—áŠO‚ª”­¶‚µ‚½ê‡
-     * “ü—Íƒf[ƒ^F[1, 2, (—áŠO), 4, 5, 6]
-     * CollectorExceptionHandler‚ÌŒ‹‰ÊFCollectorExceptionHandlerStatus.SKIP
-     * o—Íƒf[ƒ^F[1, 2, 4, 5, 6]
-     * ¦CollectorExceptionHandlerStatus.SKIP‚Ìê‡A“ü—Í‚É—áŠO‚ª”­¶‚µ‚½—v‘f‚ÍAƒXƒLƒbƒv‚³‚êAo—Í‚³‚ê‚È‚¢B
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * ãƒ‡ãƒ¼ã‚¿å…¥åŠ›æ™‚ã«ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆ
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, (ä¾‹å¤–), 4, 5, 6]
+     * CollectorExceptionHandlerã®çµæœï¼šCollectorExceptionHandlerStatus.SKIP
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, 4, 5, 6]
+     * â€»CollectorExceptionHandlerStatus.SKIPã®å ´åˆã€å…¥åŠ›æ™‚ã«ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸè¦ç´ ã¯ã€ã‚¹ã‚­ãƒƒãƒ—ã•ã‚Œã€å‡ºåŠ›ã•ã‚Œãªã„ã€‚
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testOccurExceptionWithSkipExceptionHandler002() throws Exception {
@@ -1844,23 +1844,23 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Collections.emptyList();
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f
+        // ç¬¬1è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("1", collector.next().getHoge());
         assertNull(collector.getPrevious());
         assertEquals("1", collector.getCurrent().getHoge());
         assertEquals("2", collector.getNext().getHoge());
 
-        // ‘æ2—v‘f
+        // ç¬¬2è¦ç´ 
         assertNextData(collector, "2", "1", "2", "4");
 
-        // ‘æ3—v‘f
+        // ç¬¬3è¦ç´ 
         assertNextData(collector, "4", "2", "4", "5");
 
-        // ‘æ4—v‘f
+        // ç¬¬4è¦ç´ 
         assertNextData(collector, "5", "4", "5", "6");
 
-        // ‘æ5—v‘f
+        // ç¬¬5è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("6", collector.next().getHoge());
         assertEquals("5", collector.getPrevious().getHoge());
@@ -1882,14 +1882,14 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * ƒf[ƒ^“ü—Í‚É—áŠO‚ª”­¶‚µ‚½ê‡
-     * “ü—Íƒf[ƒ^F[1, 2, 3, 4, 5, (—áŠO)]
-     * CollectorExceptionHandler‚ÌŒ‹‰ÊFCollectorExceptionHandlerStatus.SKIP
-     * o—Íƒf[ƒ^F[1, 2, 3, 4, 5]
-     * ¦CollectorExceptionHandlerStatus.SKIP‚Ìê‡A“ü—Í‚É—áŠO‚ª”­¶‚µ‚½—v‘f‚ÍAƒXƒLƒbƒv‚³‚êAo—Í‚³‚ê‚È‚¢B
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * ãƒ‡ãƒ¼ã‚¿å…¥åŠ›æ™‚ã«ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆ
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, 3, 4, 5, (ä¾‹å¤–)]
+     * CollectorExceptionHandlerã®çµæœï¼šCollectorExceptionHandlerStatus.SKIP
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, 3, 4, 5]
+     * â€»CollectorExceptionHandlerStatus.SKIPã®å ´åˆã€å…¥åŠ›æ™‚ã«ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸè¦ç´ ã¯ã€ã‚¹ã‚­ãƒƒãƒ—ã•ã‚Œã€å‡ºåŠ›ã•ã‚Œãªã„ã€‚
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testOccurExceptionWithSkipExceptionHandler003() throws Exception {
@@ -1902,23 +1902,23 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Collections.emptyList();
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f
+        // ç¬¬1è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("1", collector.next().getHoge());
         assertNull(collector.getPrevious());
         assertEquals("1", collector.getCurrent().getHoge());
         assertEquals("2", collector.getNext().getHoge());
 
-        // ‘æ2—v‘f
+        // ç¬¬2è¦ç´ 
         assertNextData(collector, "2", "1", "2", "3");
 
-        // ‘æ3—v‘f
+        // ç¬¬3è¦ç´ 
         assertNextData(collector, "3", "2", "3", "4");
 
-        // ‘æ4—v‘f
+        // ç¬¬4è¦ç´ 
         assertNextData(collector, "4", "3", "4", "5");
 
-        // ‘æ5—v‘f
+        // ç¬¬5è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("5", collector.next().getHoge());
         assertEquals("4", collector.getPrevious().getHoge());
@@ -1940,14 +1940,14 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * ƒf[ƒ^“ü—Í‚É—áŠO‚ª”­¶‚µ‚½ê‡
-     * “ü—Íƒf[ƒ^F[(—áŠO), (—áŠO), 3, (—áŠO), (—áŠO), 6, (—áŠO), (—áŠO)]
-     * CollectorExceptionHandler‚ÌŒ‹‰ÊFCollectorExceptionHandlerStatus.SKIP
-     * o—Íƒf[ƒ^F[3, 6]
-     * ¦CollectorExceptionHandlerStatus.SKIP‚Ìê‡A“ü—Í‚É—áŠO‚ª”­¶‚µ‚½—v‘f‚ÍAƒXƒLƒbƒv‚³‚êAo—Í‚³‚ê‚È‚¢B
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * ãƒ‡ãƒ¼ã‚¿å…¥åŠ›æ™‚ã«ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆ
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[(ä¾‹å¤–), (ä¾‹å¤–), 3, (ä¾‹å¤–), (ä¾‹å¤–), 6, (ä¾‹å¤–), (ä¾‹å¤–)]
+     * CollectorExceptionHandlerã®çµæœï¼šCollectorExceptionHandlerStatus.SKIP
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[3, 6]
+     * â€»CollectorExceptionHandlerStatus.SKIPã®å ´åˆã€å…¥åŠ›æ™‚ã«ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸè¦ç´ ã¯ã€ã‚¹ã‚­ãƒƒãƒ—ã•ã‚Œã€å‡ºåŠ›ã•ã‚Œãªã„ã€‚
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testOccurExceptionWithSkipExceptionHandler004() throws Exception {
@@ -1960,14 +1960,14 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Collections.emptyList();
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f
+        // ç¬¬1è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("3", collector.next().getHoge());
         assertNull(collector.getPrevious());
         assertEquals("3", collector.getCurrent().getHoge());
         assertEquals("6", collector.getNext().getHoge());
 
-        // ‘æ2—v‘f
+        // ç¬¬2è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("6", collector.next().getHoge());
         assertEquals("3", collector.getPrevious().getHoge());
@@ -1989,14 +1989,14 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * ƒf[ƒ^“ü—Í‚É—áŠO‚ª”­¶‚µ‚½ê‡
-     * “ü—Íƒf[ƒ^F[(—áŠO), (—áŠO), (—áŠO), (—áŠO)]
-     * CollectorExceptionHandler‚ÌŒ‹‰ÊFCollectorExceptionHandlerStatus.SKIP
-     * o—Íƒf[ƒ^F[]
-     * ¦CollectorExceptionHandlerStatus.SKIP‚Ìê‡A“ü—Í‚É—áŠO‚ª”­¶‚µ‚½—v‘f‚ÍAƒXƒLƒbƒv‚³‚êAo—Í‚³‚ê‚È‚¢B
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * ãƒ‡ãƒ¼ã‚¿å…¥åŠ›æ™‚ã«ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆ
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[(ä¾‹å¤–), (ä¾‹å¤–), (ä¾‹å¤–), (ä¾‹å¤–)]
+     * CollectorExceptionHandlerã®çµæœï¼šCollectorExceptionHandlerStatus.SKIP
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[]
+     * â€»CollectorExceptionHandlerStatus.SKIPã®å ´åˆã€å…¥åŠ›æ™‚ã«ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸè¦ç´ ã¯ã€ã‚¹ã‚­ãƒƒãƒ—ã•ã‚Œã€å‡ºåŠ›ã•ã‚Œãªã„ã€‚
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testOccurExceptionWithSkipExceptionHandler005() throws Exception {
@@ -2009,7 +2009,7 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Collections.emptyList();
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f‚ª–³‚¢‚±‚Æ‚ğŠm”F
+        // ç¬¬1è¦ç´ ãŒç„¡ã„ã“ã¨ã‚’ç¢ºèª
         assertFalse(collector.hasNext());
 
         try {
@@ -2025,14 +2025,14 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * ƒf[ƒ^“ü—Í‚É—áŠO‚ª”­¶‚µ‚½ê‡
-     * “ü—Íƒf[ƒ^F[(—áŠO), 2, 3, 4, 5, 6]
-     * CollectorExceptionHandler‚ÌŒ‹‰ÊFCollectorExceptionHandlerStatus.END
-     * o—Íƒf[ƒ^F[]
-     * ¦CollectorExceptionHandlerStatus.END‚Ìê‡A“ü—Í‚É—áŠO‚ª”­¶‚µ‚½—v‘f‚Ì’¼‘O‚Ìƒf[ƒ^‚ªÅŒã‚Ìƒf[ƒ^ˆµ‚¢‚Æ‚È‚éB
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * ãƒ‡ãƒ¼ã‚¿å…¥åŠ›æ™‚ã«ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆ
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[(ä¾‹å¤–), 2, 3, 4, 5, 6]
+     * CollectorExceptionHandlerã®çµæœï¼šCollectorExceptionHandlerStatus.END
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[]
+     * â€»CollectorExceptionHandlerStatus.ENDã®å ´åˆã€å…¥åŠ›æ™‚ã«ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸè¦ç´ ã®ç›´å‰ã®ãƒ‡ãƒ¼ã‚¿ãŒæœ€å¾Œã®ãƒ‡ãƒ¼ã‚¿æ‰±ã„ã¨ãªã‚‹ã€‚
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testOccurExceptionWithEndExceptionHandler001() throws Exception {
@@ -2045,7 +2045,7 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Collections.emptyList();
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f‚ª–³‚¢‚±‚Æ‚ğŠm”F
+        // ç¬¬1è¦ç´ ãŒç„¡ã„ã“ã¨ã‚’ç¢ºèª
         assertFalse(collector.hasNext());
 
         try {
@@ -2061,14 +2061,14 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * ƒf[ƒ^“ü—Í‚É—áŠO‚ª”­¶‚µ‚½ê‡
-     * “ü—Íƒf[ƒ^F[1, 2, (—áŠO), 4, 5, 6]
-     * CollectorExceptionHandler‚ÌŒ‹‰ÊFCollectorExceptionHandlerStatus.END
-     * o—Íƒf[ƒ^F[1, 2]
-     * ¦CollectorExceptionHandlerStatus.END‚Ìê‡A“ü—Í‚É—áŠO‚ª”­¶‚µ‚½—v‘f‚Ì’¼‘O‚Ìƒf[ƒ^‚ªÅŒã‚Ìƒf[ƒ^ˆµ‚¢‚Æ‚È‚éB
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * ãƒ‡ãƒ¼ã‚¿å…¥åŠ›æ™‚ã«ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆ
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, (ä¾‹å¤–), 4, 5, 6]
+     * CollectorExceptionHandlerã®çµæœï¼šCollectorExceptionHandlerStatus.END
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2]
+     * â€»CollectorExceptionHandlerStatus.ENDã®å ´åˆã€å…¥åŠ›æ™‚ã«ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸè¦ç´ ã®ç›´å‰ã®ãƒ‡ãƒ¼ã‚¿ãŒæœ€å¾Œã®ãƒ‡ãƒ¼ã‚¿æ‰±ã„ã¨ãªã‚‹ã€‚
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testOccurExceptionWithEndExceptionHandler002() throws Exception {
@@ -2081,14 +2081,14 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Collections.emptyList();
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f
+        // ç¬¬1è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("1", collector.next().getHoge());
         assertNull(collector.getPrevious());
         assertEquals("1", collector.getCurrent().getHoge());
         assertEquals("2", collector.getNext().getHoge());
 
-        // ‘æ2—v‘f
+        // ç¬¬2è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("2", collector.next().getHoge());
         assertEquals("1", collector.getPrevious().getHoge());
@@ -2110,14 +2110,14 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * ƒf[ƒ^“ü—Í‚É—áŠO‚ª”­¶‚µ‚½ê‡
-     * “ü—Íƒf[ƒ^F[1, 2, 3, 4, 5, (—áŠO)]
-     * CollectorExceptionHandler‚ÌŒ‹‰ÊFCollectorExceptionHandlerStatus.END
-     * o—Íƒf[ƒ^F[1, 2, 3, 4, 5]
-     * ¦CollectorExceptionHandlerStatus.END‚Ìê‡A“ü—Í‚É—áŠO‚ª”­¶‚µ‚½—v‘f‚Ì’¼‘O‚Ìƒf[ƒ^‚ªÅŒã‚Ìƒf[ƒ^ˆµ‚¢‚Æ‚È‚éB
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * ãƒ‡ãƒ¼ã‚¿å…¥åŠ›æ™‚ã«ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆ
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, 3, 4, 5, (ä¾‹å¤–)]
+     * CollectorExceptionHandlerã®çµæœï¼šCollectorExceptionHandlerStatus.END
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, 3, 4, 5]
+     * â€»CollectorExceptionHandlerStatus.ENDã®å ´åˆã€å…¥åŠ›æ™‚ã«ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸè¦ç´ ã®ç›´å‰ã®ãƒ‡ãƒ¼ã‚¿ãŒæœ€å¾Œã®ãƒ‡ãƒ¼ã‚¿æ‰±ã„ã¨ãªã‚‹ã€‚
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testOccurExceptionWithEndExceptionHandler003() throws Exception {
@@ -2130,23 +2130,23 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Collections.emptyList();
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f
+        // ç¬¬1è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("1", collector.next().getHoge());
         assertNull(collector.getPrevious());
         assertEquals("1", collector.getCurrent().getHoge());
         assertEquals("2", collector.getNext().getHoge());
 
-        // ‘æ2—v‘f
+        // ç¬¬2è¦ç´ 
         assertNextData(collector, "2", "1", "2", "3");
 
-        // ‘æ3—v‘f
+        // ç¬¬3è¦ç´ 
         assertNextData(collector, "3", "2", "3", "4");
 
-        // ‘æ4—v‘f
+        // ç¬¬4è¦ç´ 
         assertNextData(collector, "4", "3", "4", "5");
 
-        // ‘æ5—v‘f
+        // ç¬¬5è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("5", collector.next().getHoge());
         assertEquals("4", collector.getPrevious().getHoge());
@@ -2168,14 +2168,14 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * ƒf[ƒ^“ü—Í‚Éƒ‰ƒ“ƒ^ƒCƒ€—áŠO‚ª”­¶‚µ‚½ê‡
-     * “ü—Íƒf[ƒ^F[(ƒ‰ƒ“ƒ^ƒCƒ€—áŠO), 2, 3, 4, 5, 6]
-     * CollectorExceptionHandlerF‚È‚µ
-     * o—Íƒf[ƒ^F[(ƒ‰ƒ“ƒ^ƒCƒ€—áŠO), 2, 3, 4, 5, 6]
-     * ¦ƒ‰ƒ“ƒ^ƒCƒ€—áŠO”­¶—v‘f‚ÍAnext()AgetPrevious()AgetCurrent()AgetNext()‚Åƒ‰ƒ“ƒ^ƒCƒ€—áŠO‚ª‚»‚Ì‚Ü‚ÜƒXƒ[‚³‚ê‚é
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * ãƒ‡ãƒ¼ã‚¿å…¥åŠ›æ™‚ã«ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆ
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[(ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ä¾‹å¤–), 2, 3, 4, 5, 6]
+     * CollectorExceptionHandlerï¼šãªã—
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[(ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ä¾‹å¤–), 2, 3, 4, 5, 6]
+     * â€»ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ä¾‹å¤–ç™ºç”Ÿè¦ç´ ã¯ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã§ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ä¾‹å¤–ãŒãã®ã¾ã¾ã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testOccurRuntimeExceptionWithoutExceptionHandler001() throws Exception {
@@ -2188,7 +2188,7 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Collections.emptyList();
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f
+        // ç¬¬1è¦ç´ 
         assertTrue(collector.hasNext());
         try {
             collector.next();
@@ -2205,7 +2205,7 @@ public class AbstractCollector003Test {
         }
         assertEquals("2", collector.getNext().getHoge());
 
-        // ‘æ2—v‘f
+        // ç¬¬2è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("2", collector.next().getHoge());
         try {
@@ -2217,16 +2217,16 @@ public class AbstractCollector003Test {
         assertEquals("2", collector.getCurrent().getHoge());
         assertEquals("3", collector.getNext().getHoge());
 
-        // ‘æ3—v‘f
+        // ç¬¬3è¦ç´ 
         assertNextData(collector, "3", "2", "3", "4");
 
-        // ‘æ4—v‘f
+        // ç¬¬4è¦ç´ 
         assertNextData(collector, "4", "3", "4", "5");
 
-        // ‘æ5—v‘f
+        // ç¬¬5è¦ç´ 
         assertNextData(collector, "5", "4", "5", "6");
 
-        // ‘æ6—v‘f
+        // ç¬¬6è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("6", collector.next().getHoge());
         assertEquals("5", collector.getPrevious().getHoge());
@@ -2248,14 +2248,14 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * ƒf[ƒ^“ü—Í‚Éƒ‰ƒ“ƒ^ƒCƒ€—áŠO‚ª”­¶‚µ‚½ê‡
-     * “ü—Íƒf[ƒ^F[1, 2, (ƒ‰ƒ“ƒ^ƒCƒ€—áŠO), 4, 5, 6]
-     * CollectorExceptionHandlerF‚È‚µ
-     * o—Íƒf[ƒ^F[1, 2, (ƒ‰ƒ“ƒ^ƒCƒ€—áŠO), 4, 5, 6]
-     * ¦ƒ‰ƒ“ƒ^ƒCƒ€—áŠO”­¶—v‘f‚ÍAnext()AgetPrevious()AgetCurrent()AgetNext()‚Åƒ‰ƒ“ƒ^ƒCƒ€—áŠO‚ª‚»‚Ì‚Ü‚ÜƒXƒ[‚³‚ê‚é
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * ãƒ‡ãƒ¼ã‚¿å…¥åŠ›æ™‚ã«ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆ
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, (ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ä¾‹å¤–), 4, 5, 6]
+     * CollectorExceptionHandlerï¼šãªã—
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, (ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ä¾‹å¤–), 4, 5, 6]
+     * â€»ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ä¾‹å¤–ç™ºç”Ÿè¦ç´ ã¯ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã§ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ä¾‹å¤–ãŒãã®ã¾ã¾ã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testOccurRuntimeExceptionWithoutExceptionHandler002() throws Exception {
@@ -2268,14 +2268,14 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Collections.emptyList();
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f
+        // ç¬¬1è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("1", collector.next().getHoge());
         assertNull(collector.getPrevious());
         assertEquals("1", collector.getCurrent().getHoge());
         assertEquals("2", collector.getNext().getHoge());
 
-        // ‘æ2—v‘f
+        // ç¬¬2è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("2", collector.next().getHoge());
         assertEquals("1", collector.getPrevious().getHoge());
@@ -2287,7 +2287,7 @@ public class AbstractCollector003Test {
             assertSame(thrownException, e);
         }
 
-        // ‘æ3—v‘f
+        // ç¬¬3è¦ç´ 
         assertTrue(collector.hasNext());
         try {
             collector.next();
@@ -2304,7 +2304,7 @@ public class AbstractCollector003Test {
         }
         assertEquals("4", collector.getNext().getHoge());
 
-        // ‘æ4—v‘f
+        // ç¬¬4è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("4", collector.next().getHoge());
         try {
@@ -2316,10 +2316,10 @@ public class AbstractCollector003Test {
         assertEquals("4", collector.getCurrent().getHoge());
         assertEquals("5", collector.getNext().getHoge());
 
-        // ‘æ5—v‘f
+        // ç¬¬5è¦ç´ 
         assertNextData(collector, "5", "4", "5", "6");
 
-        // ‘æ6—v‘f
+        // ç¬¬6è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("6", collector.next().getHoge());
         assertEquals("5", collector.getPrevious().getHoge());
@@ -2341,14 +2341,14 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * ƒf[ƒ^“ü—Í‚Éƒ‰ƒ“ƒ^ƒCƒ€—áŠO‚ª”­¶‚µ‚½ê‡
-     * “ü—Íƒf[ƒ^F[1, 2, 3, 4, 5, (ƒ‰ƒ“ƒ^ƒCƒ€—áŠO)]
-     * CollectorExceptionHandlerF‚È‚µ
-     * o—Íƒf[ƒ^F[1, 2, 3, 4, 5, (ƒ‰ƒ“ƒ^ƒCƒ€—áŠO)]
-     * ¦ƒ‰ƒ“ƒ^ƒCƒ€—áŠO”­¶—v‘f‚ÍAnext()AgetPrevious()AgetCurrent()AgetNext()‚Åƒ‰ƒ“ƒ^ƒCƒ€—áŠO‚ª‚»‚Ì‚Ü‚ÜƒXƒ[‚³‚ê‚é
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * ãƒ‡ãƒ¼ã‚¿å…¥åŠ›æ™‚ã«ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆ
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, 3, 4, 5, (ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ä¾‹å¤–)]
+     * CollectorExceptionHandlerï¼šãªã—
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, 3, 4, 5, (ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ä¾‹å¤–)]
+     * â€»ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ä¾‹å¤–ç™ºç”Ÿè¦ç´ ã¯ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã§ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ä¾‹å¤–ãŒãã®ã¾ã¾ã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testOccurRuntimeExceptionWithoutExceptionHandler003() throws Exception {
@@ -2361,23 +2361,23 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Collections.emptyList();
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f
+        // ç¬¬1è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("1", collector.next().getHoge());
         assertNull(collector.getPrevious());
         assertEquals("1", collector.getCurrent().getHoge());
         assertEquals("2", collector.getNext().getHoge());
 
-        // ‘æ2—v‘f
+        // ç¬¬2è¦ç´ 
         assertNextData(collector, "2", "1", "2", "3");
 
-        // ‘æ3—v‘f
+        // ç¬¬3è¦ç´ 
         assertNextData(collector, "3", "2", "3", "4");
 
-        // ‘æ4—v‘f
+        // ç¬¬4è¦ç´ 
         assertNextData(collector, "4", "3", "4", "5");
 
-        // ‘æ5—v‘f
+        // ç¬¬5è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("5", collector.next().getHoge());
         assertEquals("4", collector.getPrevious().getHoge());
@@ -2389,7 +2389,7 @@ public class AbstractCollector003Test {
             assertSame(thrownException, e);
         }
 
-        // ‘æ6—v‘f
+        // ç¬¬6è¦ç´ 
         assertTrue(collector.hasNext());
         try {
             collector.next();
@@ -2426,14 +2426,14 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * ƒf[ƒ^“ü—Í‚Éƒ‰ƒ“ƒ^ƒCƒ€—áŠO‚ª”­¶‚µ‚½ê‡
-     * “ü—Íƒf[ƒ^F[(ƒ‰ƒ“ƒ^ƒCƒ€—áŠO), 2, 3, 4, 5, 6]
-     * CollectorExceptionHandler‚ÌŒ‹‰ÊFCollectorExceptionHandlerStatus.THROW
-     * o—Íƒf[ƒ^F[(ƒ‰ƒ“ƒ^ƒCƒ€—áŠO), 2, 3, 4, 5, 6]
-     * ¦ƒ‰ƒ“ƒ^ƒCƒ€—áŠO”­¶—v‘f‚ÍAnext()AgetPrevious()AgetCurrent()AgetNext()‚Åƒ‰ƒ“ƒ^ƒCƒ€—áŠO‚ª‚»‚Ì‚Ü‚ÜƒXƒ[‚³‚ê‚é
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * ãƒ‡ãƒ¼ã‚¿å…¥åŠ›æ™‚ã«ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆ
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[(ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ä¾‹å¤–), 2, 3, 4, 5, 6]
+     * CollectorExceptionHandlerã®çµæœï¼šCollectorExceptionHandlerStatus.THROW
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[(ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ä¾‹å¤–), 2, 3, 4, 5, 6]
+     * â€»ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ä¾‹å¤–ç™ºç”Ÿè¦ç´ ã¯ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã§ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ä¾‹å¤–ãŒãã®ã¾ã¾ã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testOccurRuntimeExceptionWithThrowExceptionHandler001() throws Exception {
@@ -2446,7 +2446,7 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Collections.emptyList();
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f
+        // ç¬¬1è¦ç´ 
         assertTrue(collector.hasNext());
         try {
             collector.next();
@@ -2463,7 +2463,7 @@ public class AbstractCollector003Test {
         }
         assertEquals("2", collector.getNext().getHoge());
 
-        // ‘æ2—v‘f
+        // ç¬¬2è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("2", collector.next().getHoge());
         try {
@@ -2475,16 +2475,16 @@ public class AbstractCollector003Test {
         assertEquals("2", collector.getCurrent().getHoge());
         assertEquals("3", collector.getNext().getHoge());
 
-        // ‘æ3—v‘f
+        // ç¬¬3è¦ç´ 
         assertNextData(collector, "3", "2", "3", "4");
 
-        // ‘æ4—v‘f
+        // ç¬¬4è¦ç´ 
         assertNextData(collector, "4", "3", "4", "5");
 
-        // ‘æ5—v‘f
+        // ç¬¬5è¦ç´ 
         assertNextData(collector, "5", "4", "5", "6");
 
-        // ‘æ6—v‘f
+        // ç¬¬6è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("6", collector.next().getHoge());
         assertEquals("5", collector.getPrevious().getHoge());
@@ -2506,14 +2506,14 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * ƒf[ƒ^“ü—Í‚Éƒ‰ƒ“ƒ^ƒCƒ€—áŠO‚ª”­¶‚µ‚½ê‡
-     * “ü—Íƒf[ƒ^F[1, 2, (ƒ‰ƒ“ƒ^ƒCƒ€—áŠO), 4, 5, 6]
-     * CollectorExceptionHandler‚ÌŒ‹‰ÊFCollectorExceptionHandlerStatus.THROW
-     * o—Íƒf[ƒ^F[1, 2, (ƒ‰ƒ“ƒ^ƒCƒ€—áŠO), 4, 5, 6]
-     * ¦ƒ‰ƒ“ƒ^ƒCƒ€—áŠO”­¶—v‘f‚ÍAnext()AgetPrevious()AgetCurrent()AgetNext()‚Åƒ‰ƒ“ƒ^ƒCƒ€—áŠO‚ª‚»‚Ì‚Ü‚ÜƒXƒ[‚³‚ê‚é
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * ãƒ‡ãƒ¼ã‚¿å…¥åŠ›æ™‚ã«ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆ
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, (ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ä¾‹å¤–), 4, 5, 6]
+     * CollectorExceptionHandlerã®çµæœï¼šCollectorExceptionHandlerStatus.THROW
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, (ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ä¾‹å¤–), 4, 5, 6]
+     * â€»ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ä¾‹å¤–ç™ºç”Ÿè¦ç´ ã¯ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã§ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ä¾‹å¤–ãŒãã®ã¾ã¾ã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testOccurRuntimeExceptionWithThrowExceptionHandler002() throws Exception {
@@ -2526,14 +2526,14 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Collections.emptyList();
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f
+        // ç¬¬1è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("1", collector.next().getHoge());
         assertNull(collector.getPrevious());
         assertEquals("1", collector.getCurrent().getHoge());
         assertEquals("2", collector.getNext().getHoge());
 
-        // ‘æ2—v‘f
+        // ç¬¬2è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("2", collector.next().getHoge());
         assertEquals("1", collector.getPrevious().getHoge());
@@ -2545,7 +2545,7 @@ public class AbstractCollector003Test {
             assertSame(thrownException, e);
         }
 
-        // ‘æ3—v‘f
+        // ç¬¬3è¦ç´ 
         assertTrue(collector.hasNext());
         try {
             collector.next();
@@ -2562,7 +2562,7 @@ public class AbstractCollector003Test {
         }
         assertEquals("4", collector.getNext().getHoge());
 
-        // ‘æ4—v‘f
+        // ç¬¬4è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("4", collector.next().getHoge());
         try {
@@ -2574,10 +2574,10 @@ public class AbstractCollector003Test {
         assertEquals("4", collector.getCurrent().getHoge());
         assertEquals("5", collector.getNext().getHoge());
 
-        // ‘æ5—v‘f
+        // ç¬¬5è¦ç´ 
         assertNextData(collector, "5", "4", "5", "6");
 
-        // ‘æ6—v‘f
+        // ç¬¬6è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("6", collector.next().getHoge());
         assertEquals("5", collector.getPrevious().getHoge());
@@ -2599,14 +2599,14 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * ƒf[ƒ^“ü—Í‚Éƒ‰ƒ“ƒ^ƒCƒ€—áŠO‚ª”­¶‚µ‚½ê‡
-     * “ü—Íƒf[ƒ^F[1, 2, 3, 4, 5, (ƒ‰ƒ“ƒ^ƒCƒ€—áŠO)]
-     * CollectorExceptionHandler‚ÌŒ‹‰ÊFCollectorExceptionHandlerStatus.THROW
-     * o—Íƒf[ƒ^F[1, 2, 3, 4, 5, (ƒ‰ƒ“ƒ^ƒCƒ€—áŠO)]
-     * ¦ƒ‰ƒ“ƒ^ƒCƒ€—áŠO”­¶—v‘f‚ÍAnext()AgetPrevious()AgetCurrent()AgetNext()‚Åƒ‰ƒ“ƒ^ƒCƒ€—áŠO‚ª‚»‚Ì‚Ü‚ÜƒXƒ[‚³‚ê‚é
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * ãƒ‡ãƒ¼ã‚¿å…¥åŠ›æ™‚ã«ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆ
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, 3, 4, 5, (ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ä¾‹å¤–)]
+     * CollectorExceptionHandlerã®çµæœï¼šCollectorExceptionHandlerStatus.THROW
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, 3, 4, 5, (ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ä¾‹å¤–)]
+     * â€»ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ä¾‹å¤–ç™ºç”Ÿè¦ç´ ã¯ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã§ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ä¾‹å¤–ãŒãã®ã¾ã¾ã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testOccurRuntimeExceptionWithThrowExceptionHandler003() throws Exception {
@@ -2619,23 +2619,23 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Collections.emptyList();
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f
+        // ç¬¬1è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("1", collector.next().getHoge());
         assertNull(collector.getPrevious());
         assertEquals("1", collector.getCurrent().getHoge());
         assertEquals("2", collector.getNext().getHoge());
 
-        // ‘æ2—v‘f
+        // ç¬¬2è¦ç´ 
         assertNextData(collector, "2", "1", "2", "3");
 
-        // ‘æ3—v‘f
+        // ç¬¬3è¦ç´ 
         assertNextData(collector, "3", "2", "3", "4");
 
-        // ‘æ4—v‘f
+        // ç¬¬4è¦ç´ 
         assertNextData(collector, "4", "3", "4", "5");
 
-        // ‘æ5—v‘f
+        // ç¬¬5è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("5", collector.next().getHoge());
         assertEquals("4", collector.getPrevious().getHoge());
@@ -2647,7 +2647,7 @@ public class AbstractCollector003Test {
             assertSame(thrownException, e);
         }
 
-        // ‘æ6—v‘f
+        // ç¬¬6è¦ç´ 
         assertTrue(collector.hasNext());
         try {
             collector.next();
@@ -2684,14 +2684,14 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * ƒf[ƒ^“ü—Í‚ÉŒŸ¸—áŠO‚ª”­¶‚µ‚½ê‡
-     * “ü—Íƒf[ƒ^F[(ŒŸ¸—áŠO), 2, 3, 4, 5, 6]
-     * CollectorExceptionHandlerF‚È‚µ
-     * o—Íƒf[ƒ^F[(SystemException‚Éƒ‰ƒbƒv‚³‚ê‚½ŒŸ¸—áŠO), 2, 3, 4, 5, 6]
-     * ¦ŒŸ¸—áŠO”­¶—v‘f‚ÍAnext()AgetPrevious()AgetCurrent()AgetNext()‚ÅSystemException‚ÉŒŸ¸—áŠO‚ªƒ‰ƒbƒv‚³‚êƒXƒ[‚³‚ê‚é
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * ãƒ‡ãƒ¼ã‚¿å…¥åŠ›æ™‚ã«æ¤œæŸ»ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆ
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[(æ¤œæŸ»ä¾‹å¤–), 2, 3, 4, 5, 6]
+     * CollectorExceptionHandlerï¼šãªã—
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[(SystemExceptionã«ãƒ©ãƒƒãƒ—ã•ã‚ŒãŸæ¤œæŸ»ä¾‹å¤–), 2, 3, 4, 5, 6]
+     * â€»æ¤œæŸ»ä¾‹å¤–ç™ºç”Ÿè¦ç´ ã¯ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã§SystemExceptionã«æ¤œæŸ»ä¾‹å¤–ãŒãƒ©ãƒƒãƒ—ã•ã‚Œã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testOccurExceptionWithoutExceptionHandler001() throws Exception {
@@ -2704,7 +2704,7 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Collections.emptyList();
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f
+        // ç¬¬1è¦ç´ 
         assertTrue(collector.hasNext());
         try {
             collector.next();
@@ -2721,7 +2721,7 @@ public class AbstractCollector003Test {
         }
         assertEquals("2", collector.getNext().getHoge());
 
-        // ‘æ2—v‘f
+        // ç¬¬2è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("2", collector.next().getHoge());
         try {
@@ -2733,16 +2733,16 @@ public class AbstractCollector003Test {
         assertEquals("2", collector.getCurrent().getHoge());
         assertEquals("3", collector.getNext().getHoge());
 
-        // ‘æ3—v‘f
+        // ç¬¬3è¦ç´ 
         assertNextData(collector, "3", "2", "3", "4");
 
-        // ‘æ4—v‘f
+        // ç¬¬4è¦ç´ 
         assertNextData(collector, "4", "3", "4", "5");
 
-        // ‘æ5—v‘f
+        // ç¬¬5è¦ç´ 
         assertNextData(collector, "5", "4", "5", "6");
 
-        // ‘æ6—v‘f
+        // ç¬¬6è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("6", collector.next().getHoge());
         assertEquals("5", collector.getPrevious().getHoge());
@@ -2764,14 +2764,14 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * ƒf[ƒ^“ü—Í‚ÉŒŸ¸—áŠO‚ª”­¶‚µ‚½ê‡
-     * “ü—Íƒf[ƒ^F[1, 2, (ŒŸ¸—áŠO), 4, 5, 6]
-     * CollectorExceptionHandlerF‚È‚µ
-     * o—Íƒf[ƒ^F[1, 2, (SystemException‚Éƒ‰ƒbƒv‚³‚ê‚½ŒŸ¸—áŠO), 4, 5, 6]
-     * ¦ŒŸ¸—áŠO”­¶—v‘f‚ÍAnext()AgetPrevious()AgetCurrent()AgetNext()‚ÅSystemException‚ÉŒŸ¸—áŠO‚ªƒ‰ƒbƒv‚³‚êƒXƒ[‚³‚ê‚é
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * ãƒ‡ãƒ¼ã‚¿å…¥åŠ›æ™‚ã«æ¤œæŸ»ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆ
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, (æ¤œæŸ»ä¾‹å¤–), 4, 5, 6]
+     * CollectorExceptionHandlerï¼šãªã—
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, (SystemExceptionã«ãƒ©ãƒƒãƒ—ã•ã‚ŒãŸæ¤œæŸ»ä¾‹å¤–), 4, 5, 6]
+     * â€»æ¤œæŸ»ä¾‹å¤–ç™ºç”Ÿè¦ç´ ã¯ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã§SystemExceptionã«æ¤œæŸ»ä¾‹å¤–ãŒãƒ©ãƒƒãƒ—ã•ã‚Œã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testOccurExceptionWithoutExceptionHandler002() throws Exception {
@@ -2784,14 +2784,14 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Collections.emptyList();
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f
+        // ç¬¬1è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("1", collector.next().getHoge());
         assertNull(collector.getPrevious());
         assertEquals("1", collector.getCurrent().getHoge());
         assertEquals("2", collector.getNext().getHoge());
 
-        // ‘æ2—v‘f
+        // ç¬¬2è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("2", collector.next().getHoge());
         assertEquals("1", collector.getPrevious().getHoge());
@@ -2803,7 +2803,7 @@ public class AbstractCollector003Test {
             assertSame(thrownException, e.getCause());
         }
 
-        // ‘æ3—v‘f
+        // ç¬¬3è¦ç´ 
         assertTrue(collector.hasNext());
         try {
             collector.next();
@@ -2820,7 +2820,7 @@ public class AbstractCollector003Test {
         }
         assertEquals("4", collector.getNext().getHoge());
 
-        // ‘æ4—v‘f
+        // ç¬¬4è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("4", collector.next().getHoge());
         try {
@@ -2832,10 +2832,10 @@ public class AbstractCollector003Test {
         assertEquals("4", collector.getCurrent().getHoge());
         assertEquals("5", collector.getNext().getHoge());
 
-        // ‘æ5—v‘f
+        // ç¬¬5è¦ç´ 
         assertNextData(collector, "5", "4", "5", "6");
 
-        // ‘æ6—v‘f
+        // ç¬¬6è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("6", collector.next().getHoge());
         assertEquals("5", collector.getPrevious().getHoge());
@@ -2857,14 +2857,14 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * ƒf[ƒ^“ü—Í‚ÉŒŸ¸—áŠO‚ª”­¶‚µ‚½ê‡
-     * “ü—Íƒf[ƒ^F[1, 2, 3, 4, 5, (ŒŸ¸—áŠO)]
-     * CollectorExceptionHandlerF‚È‚µ
-     * o—Íƒf[ƒ^F[1, 2, 3, 4, 5, (SystemException‚Éƒ‰ƒbƒv‚³‚ê‚½ŒŸ¸—áŠO)]
-     * ¦ŒŸ¸—áŠO”­¶—v‘f‚ÍAnext()AgetPrevious()AgetCurrent()AgetNext()‚ÅSystemException‚ÉŒŸ¸—áŠO‚ªƒ‰ƒbƒv‚³‚êƒXƒ[‚³‚ê‚é
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * ãƒ‡ãƒ¼ã‚¿å…¥åŠ›æ™‚ã«æ¤œæŸ»ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆ
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, 3, 4, 5, (æ¤œæŸ»ä¾‹å¤–)]
+     * CollectorExceptionHandlerï¼šãªã—
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, 3, 4, 5, (SystemExceptionã«ãƒ©ãƒƒãƒ—ã•ã‚ŒãŸæ¤œæŸ»ä¾‹å¤–)]
+     * â€»æ¤œæŸ»ä¾‹å¤–ç™ºç”Ÿè¦ç´ ã¯ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã§SystemExceptionã«æ¤œæŸ»ä¾‹å¤–ãŒãƒ©ãƒƒãƒ—ã•ã‚Œã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testOccurExceptionWithoutExceptionHandler003() throws Exception {
@@ -2877,23 +2877,23 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Collections.emptyList();
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f
+        // ç¬¬1è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("1", collector.next().getHoge());
         assertNull(collector.getPrevious());
         assertEquals("1", collector.getCurrent().getHoge());
         assertEquals("2", collector.getNext().getHoge());
 
-        // ‘æ2—v‘f
+        // ç¬¬2è¦ç´ 
         assertNextData(collector, "2", "1", "2", "3");
 
-        // ‘æ3—v‘f
+        // ç¬¬3è¦ç´ 
         assertNextData(collector, "3", "2", "3", "4");
 
-        // ‘æ4—v‘f
+        // ç¬¬4è¦ç´ 
         assertNextData(collector, "4", "3", "4", "5");
 
-        // ‘æ5—v‘f
+        // ç¬¬5è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("5", collector.next().getHoge());
         assertEquals("4", collector.getPrevious().getHoge());
@@ -2905,7 +2905,7 @@ public class AbstractCollector003Test {
             assertSame(thrownException, e.getCause());
         }
 
-        // ‘æ6—v‘f
+        // ç¬¬6è¦ç´ 
         assertTrue(collector.hasNext());
         try {
             collector.next();
@@ -2942,14 +2942,14 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * ƒf[ƒ^“ü—Í‚ÉŒŸ¸—áŠO‚ª”­¶‚µ‚½ê‡
-     * “ü—Íƒf[ƒ^F[(ŒŸ¸—áŠO), 2, 3, 4, 5, 6]
-     * CollectorExceptionHandler‚ÌŒ‹‰ÊFCollectorExceptionHandlerStatus.THROW
-     * o—Íƒf[ƒ^F[(SystemException‚Éƒ‰ƒbƒv‚³‚ê‚½ŒŸ¸—áŠO), 2, 3, 4, 5, 6]
-     * ¦ŒŸ¸—áŠO”­¶—v‘f‚ÍAnext()AgetPrevious()AgetCurrent()AgetNext()‚ÅSystemException‚ÉŒŸ¸—áŠO‚ªƒ‰ƒbƒv‚³‚êƒXƒ[‚³‚ê‚é
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * ãƒ‡ãƒ¼ã‚¿å…¥åŠ›æ™‚ã«æ¤œæŸ»ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆ
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[(æ¤œæŸ»ä¾‹å¤–), 2, 3, 4, 5, 6]
+     * CollectorExceptionHandlerã®çµæœï¼šCollectorExceptionHandlerStatus.THROW
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[(SystemExceptionã«ãƒ©ãƒƒãƒ—ã•ã‚ŒãŸæ¤œæŸ»ä¾‹å¤–), 2, 3, 4, 5, 6]
+     * â€»æ¤œæŸ»ä¾‹å¤–ç™ºç”Ÿè¦ç´ ã¯ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã§SystemExceptionã«æ¤œæŸ»ä¾‹å¤–ãŒãƒ©ãƒƒãƒ—ã•ã‚Œã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testOccurExceptionWithThrowExceptionHandler001() throws Exception {
@@ -2962,7 +2962,7 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Collections.emptyList();
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f
+        // ç¬¬1è¦ç´ 
         assertTrue(collector.hasNext());
         try {
             collector.next();
@@ -2979,7 +2979,7 @@ public class AbstractCollector003Test {
         }
         assertEquals("2", collector.getNext().getHoge());
 
-        // ‘æ2—v‘f
+        // ç¬¬2è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("2", collector.next().getHoge());
         try {
@@ -2991,16 +2991,16 @@ public class AbstractCollector003Test {
         assertEquals("2", collector.getCurrent().getHoge());
         assertEquals("3", collector.getNext().getHoge());
 
-        // ‘æ3—v‘f
+        // ç¬¬3è¦ç´ 
         assertNextData(collector, "3", "2", "3", "4");
 
-        // ‘æ4—v‘f
+        // ç¬¬4è¦ç´ 
         assertNextData(collector, "4", "3", "4", "5");
 
-        // ‘æ5—v‘f
+        // ç¬¬5è¦ç´ 
         assertNextData(collector, "5", "4", "5", "6");
 
-        // ‘æ6—v‘f
+        // ç¬¬6è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("6", collector.next().getHoge());
         assertEquals("5", collector.getPrevious().getHoge());
@@ -3022,14 +3022,14 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * ƒf[ƒ^“ü—Í‚ÉŒŸ¸—áŠO‚ª”­¶‚µ‚½ê‡
-     * “ü—Íƒf[ƒ^F[1, 2, (ŒŸ¸—áŠO), 4, 5, 6]
-     * CollectorExceptionHandler‚ÌŒ‹‰ÊFCollectorExceptionHandlerStatus.THROW
-     * o—Íƒf[ƒ^F[1, 2, (SystemException‚Éƒ‰ƒbƒv‚³‚ê‚½ŒŸ¸—áŠO), 4, 5, 6]
-     * ¦ŒŸ¸—áŠO”­¶—v‘f‚ÍAnext()AgetPrevious()AgetCurrent()AgetNext()‚ÅSystemException‚ÉŒŸ¸—áŠO‚ªƒ‰ƒbƒv‚³‚êƒXƒ[‚³‚ê‚é
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * ãƒ‡ãƒ¼ã‚¿å…¥åŠ›æ™‚ã«æ¤œæŸ»ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆ
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, (æ¤œæŸ»ä¾‹å¤–), 4, 5, 6]
+     * CollectorExceptionHandlerã®çµæœï¼šCollectorExceptionHandlerStatus.THROW
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, (SystemExceptionã«ãƒ©ãƒƒãƒ—ã•ã‚ŒãŸæ¤œæŸ»ä¾‹å¤–), 4, 5, 6]
+     * â€»æ¤œæŸ»ä¾‹å¤–ç™ºç”Ÿè¦ç´ ã¯ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã§SystemExceptionã«æ¤œæŸ»ä¾‹å¤–ãŒãƒ©ãƒƒãƒ—ã•ã‚Œã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testOccurExceptionWithThrowExceptionHandler002() throws Exception {
@@ -3042,14 +3042,14 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Collections.emptyList();
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f
+        // ç¬¬1è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("1", collector.next().getHoge());
         assertNull(collector.getPrevious());
         assertEquals("1", collector.getCurrent().getHoge());
         assertEquals("2", collector.getNext().getHoge());
 
-        // ‘æ2—v‘f
+        // ç¬¬2è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("2", collector.next().getHoge());
         assertEquals("1", collector.getPrevious().getHoge());
@@ -3061,7 +3061,7 @@ public class AbstractCollector003Test {
             assertSame(thrownException, e.getCause());
         }
 
-        // ‘æ3—v‘f
+        // ç¬¬3è¦ç´ 
         assertTrue(collector.hasNext());
         try {
             collector.next();
@@ -3078,7 +3078,7 @@ public class AbstractCollector003Test {
         }
         assertEquals("4", collector.getNext().getHoge());
 
-        // ‘æ4—v‘f
+        // ç¬¬4è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("4", collector.next().getHoge());
         try {
@@ -3090,10 +3090,10 @@ public class AbstractCollector003Test {
         assertEquals("4", collector.getCurrent().getHoge());
         assertEquals("5", collector.getNext().getHoge());
 
-        // ‘æ5—v‘f
+        // ç¬¬5è¦ç´ 
         assertNextData(collector, "5", "4", "5", "6");
 
-        // ‘æ6—v‘f
+        // ç¬¬6è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("6", collector.next().getHoge());
         assertEquals("5", collector.getPrevious().getHoge());
@@ -3115,14 +3115,14 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * ƒf[ƒ^“ü—Í‚ÉŒŸ¸—áŠO‚ª”­¶‚µ‚½ê‡
-     * “ü—Íƒf[ƒ^F[1, 2, 3, 4, 5, (ŒŸ¸—áŠO)]
-     * CollectorExceptionHandler‚ÌŒ‹‰ÊFCollectorExceptionHandlerStatus.THROW
-     * o—Íƒf[ƒ^F[1, 2, 3, 4, 5, (SystemException‚Éƒ‰ƒbƒv‚³‚ê‚½ŒŸ¸—áŠO)]
-     * ¦ŒŸ¸—áŠO”­¶—v‘f‚ÍAnext()AgetPrevious()AgetCurrent()AgetNext()‚ÅSystemException‚ÉŒŸ¸—áŠO‚ªƒ‰ƒbƒv‚³‚êƒXƒ[‚³‚ê‚é
-     * EhasNext()Anext()AgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚ªAo—Íƒf[ƒ^‚É‘¥‚µ‚½‚à‚Ì‚Å‚ ‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚·‚é‚ÆNoSuchElementException‚ªƒXƒ[‚³‚ê‚é‚±‚Æ
-     * EŸ‚Ìƒf[ƒ^‚ª–³‚¢ó‘Ô‚Ånext()‚ğÀs‚µ‚Ä‚àAgetPrevious()AgetCurrent()AgetNext()‚ÌŒ‹‰Ê‚Ínext()Às‘O‚Æ•Ï‚í‚ç‚È‚¢‚±‚Æ
+     * ãƒ‡ãƒ¼ã‚¿å…¥åŠ›æ™‚ã«æ¤œæŸ»ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆ
+     * å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, 3, 4, 5, (æ¤œæŸ»ä¾‹å¤–)]
+     * CollectorExceptionHandlerã®çµæœï¼šCollectorExceptionHandlerStatus.THROW
+     * å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, 3, 4, 5, (SystemExceptionã«ãƒ©ãƒƒãƒ—ã•ã‚ŒãŸæ¤œæŸ»ä¾‹å¤–)]
+     * â€»æ¤œæŸ»ä¾‹å¤–ç™ºç”Ÿè¦ç´ ã¯ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã§SystemExceptionã«æ¤œæŸ»ä¾‹å¤–ãŒãƒ©ãƒƒãƒ—ã•ã‚Œã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹
+     * ãƒ»hasNext()ã€next()ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœãŒã€å‡ºåŠ›ãƒ‡ãƒ¼ã‚¿ã«å‰‡ã—ãŸã‚‚ã®ã§ã‚ã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã™ã‚‹ã¨NoSuchElementExceptionãŒã‚¹ãƒ­ãƒ¼ã•ã‚Œã‚‹ã“ã¨
+     * ãƒ»æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„çŠ¶æ…‹ã§next()ã‚’å®Ÿè¡Œã—ã¦ã‚‚ã€getPrevious()ã€getCurrent()ã€getNext()ã®çµæœã¯next()å®Ÿè¡Œå‰ã¨å¤‰ã‚ã‚‰ãªã„ã“ã¨
      */
     @Test
     public void testOccurExceptionWithThrowExceptionHandler003() throws Exception {
@@ -3135,23 +3135,23 @@ public class AbstractCollector003Test {
         List<Integer> nullBeanPoints = Collections.emptyList();
         Collector<AbstractCollectorTestBean> collector = createTestCollector(dataNum, validationErrorOccurPoints, argValidationErrorHandler, exceptionOccurPoints, argExceptionHandler, thrownException, nullBeanPoints);
 
-        // ‘æ1—v‘f
+        // ç¬¬1è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("1", collector.next().getHoge());
         assertNull(collector.getPrevious());
         assertEquals("1", collector.getCurrent().getHoge());
         assertEquals("2", collector.getNext().getHoge());
 
-        // ‘æ2—v‘f
+        // ç¬¬2è¦ç´ 
         assertNextData(collector, "2", "1", "2", "3");
 
-        // ‘æ3—v‘f
+        // ç¬¬3è¦ç´ 
         assertNextData(collector, "3", "2", "3", "4");
 
-        // ‘æ4—v‘f
+        // ç¬¬4è¦ç´ 
         assertNextData(collector, "4", "3", "4", "5");
 
-        // ‘æ5—v‘f
+        // ç¬¬5è¦ç´ 
         assertTrue(collector.hasNext());
         assertEquals("5", collector.next().getHoge());
         assertEquals("4", collector.getPrevious().getHoge());
@@ -3163,7 +3163,7 @@ public class AbstractCollector003Test {
             assertSame(thrownException, e.getCause());
         }
 
-        // ‘æ6—v‘f
+        // ç¬¬6è¦ç´ 
         assertTrue(collector.hasNext());
         try {
             collector.next();
@@ -3200,21 +3200,21 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * ’Pƒ‚Éƒf[ƒ^‚ªæ“¾‚Å‚«‚éê‡‚Ég—p‚Å‚«‚éŠÈˆÕƒAƒT[ƒVƒ‡ƒ“ƒƒ\ƒbƒhB<br>
+     * å˜ç´”ã«ãƒ‡ãƒ¼ã‚¿ãŒå–å¾—ã§ãã‚‹å ´åˆã«ä½¿ç”¨ã§ãã‚‹ç°¡æ˜“ã‚¢ã‚µãƒ¼ã‚·ãƒ§ãƒ³ãƒ¡ã‚½ãƒƒãƒ‰ã€‚<br>
      * assertTrue(collector.hasNext());<br>
      * assertEquals("2", collector.next().getHoge());<br>
      * assertEquals("1", collector.getPrevious().getHoge());<br>
      * assertEquals("2", collector.getCurrent().getHoge());<br>
      * assertEquals("3", collector.getNext().getHoge());<br>
-     * ‚ğ<br>
+     * ã‚’<br>
      * assertNextData("2", "1", "2", "3");<br>
-     * ‚Æ‹Lq‚Å‚«‚éB<br>
-     * —áŠO”­¶ƒP[ƒX‚ânull‚ğ•Ô‚·ƒP[ƒX‚Å‚ÍA‚±‚Ìƒƒ\ƒbƒh‚Íg—p‚¹‚¸AŒÂ•Ê‚ÉƒAƒT[ƒVƒ‡ƒ“‚ğÀ{‚·‚é‚±‚ÆB
-     * @param collector ƒRƒŒƒNƒ^
-     * @param nextExpectedHoge collector.next().getHoge()‚ÌŠú‘Ò’l
-     * @param getPreviousExpectedHoge collector.getPrevious().getHoge()‚ÌŠú‘Ò’l
-     * @param getCurrentExpectedHoge collector.getCurrent().getHoge()‚ÌŠú‘Ò’l
-     * @param getNextExpectedHoge collector.getNext().getHoge()‚ÌŠú‘Ò’l
+     * ã¨è¨˜è¿°ã§ãã‚‹ã€‚<br>
+     * ä¾‹å¤–ç™ºç”Ÿã‚±ãƒ¼ã‚¹ã‚„nullã‚’è¿”ã™ã‚±ãƒ¼ã‚¹ã§ã¯ã€ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã¯ä½¿ç”¨ã›ãšã€å€‹åˆ¥ã«ã‚¢ã‚µãƒ¼ã‚·ãƒ§ãƒ³ã‚’å®Ÿæ–½ã™ã‚‹ã“ã¨ã€‚
+     * @param collector ã‚³ãƒ¬ã‚¯ã‚¿
+     * @param nextExpectedHoge collector.next().getHoge()ã®æœŸå¾…å€¤
+     * @param getPreviousExpectedHoge collector.getPrevious().getHoge()ã®æœŸå¾…å€¤
+     * @param getCurrentExpectedHoge collector.getCurrent().getHoge()ã®æœŸå¾…å€¤
+     * @param getNextExpectedHoge collector.getNext().getHoge()ã®æœŸå¾…å€¤
      */
     private static void assertNextData(Collector<AbstractCollectorTestBean> collector, String nextExpectedHoge, String getPreviousExpectedHoge, String getCurrentExpectedHoge, String getNextExpectedHoge) {
         assertTrue(collector.hasNext());
@@ -3225,29 +3225,29 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * ƒeƒXƒgƒf[ƒ^‚ğ’ñ‹Ÿ‚·‚éƒRƒŒƒNƒ^‚ğ¶¬‚·‚éB
+     * ãƒ†ã‚¹ãƒˆãƒ‡ãƒ¼ã‚¿ã‚’æä¾›ã™ã‚‹ã‚³ãƒ¬ã‚¯ã‚¿ã‚’ç”Ÿæˆã™ã‚‹ã€‚
      * <p>
-     * —á1) “ü—Íƒf[ƒ^F[1, 2, 3, 4, 5]‚Ìì‚è•û<br>
+     * ä¾‹1) å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2, 3, 4, 5]ã®ä½œã‚Šæ–¹<br>
      * createTestCollector(5, Collections.EMPTY_LIST, new ExceptionValidationErrorHandler(), Collections.EMPTY_LIST, null, null, Collections.EMPTY_LIST);<br>
      * <br>
-     * —á2) “ü—Íƒf[ƒ^F[1, null, 3, null, 5]‚Ìì‚è•û<br>
+     * ä¾‹2) å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, null, 3, null, 5]ã®ä½œã‚Šæ–¹<br>
      * createTestCollector(5, Collections.EMPTY_LIST, new ExceptionValidationErrorHandler(), Collections.EMPTY_LIST, null, null, Arrays.asList(2, 4));<br>
      * <br>
-     * —á3) “ü—Íƒf[ƒ^F[1, 2(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[), 3, 4(“ü—Íƒ`ƒFƒbƒNƒGƒ‰[), 5]‚Ìì‚è•û<br>
+     * ä¾‹3) å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, 2(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼), 3, 4(å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼), 5]ã®ä½œã‚Šæ–¹<br>
      * createTestCollector(5, Arrays.asList(2, 4), new ExceptionValidationErrorHandler(), Collections.EMPTY_LIST, null, null, Collections.EMPTY_LIST);<br>
      * <br>
-     * —á4) “ü—Íƒf[ƒ^F[1, (—áŠO), 3, 4(—áŠO), 5]‚Ìì‚è•û<br>
-     * createTestCollector(5, Collections.EMPTY_LIST, new ExceptionValidationErrorHandler(), Arrays.asList(2, 4), null, —áŠO, Collections.EMPTY_LIST);<br>
+     * ä¾‹4) å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼š[1, (ä¾‹å¤–), 3, 4(ä¾‹å¤–), 5]ã®ä½œã‚Šæ–¹<br>
+     * createTestCollector(5, Collections.EMPTY_LIST, new ExceptionValidationErrorHandler(), Arrays.asList(2, 4), null, ä¾‹å¤–, Collections.EMPTY_LIST);<br>
      * <br>
-     * ¦ƒ^ƒCƒvƒZ[ƒt‚É‚·‚éê‡‚ÍACollections.EMPTY_LIST‚Ì‘ã‚í‚è‚ÉACollections.emptyList()‚ğListƒInteger„Œ^‚Ì•Ï”‚É“ü‚ê‚Äg—p‚·‚éB
-     * @param dataNum ƒf[ƒ^‚ÌŒÂ”
-     * @param validationErrorOccurPoints “ü—Íƒ`ƒFƒbƒNƒGƒ‰[”­¶ƒ|ƒCƒ“ƒg
+     * â€»ã‚¿ã‚¤ãƒ—ã‚»ãƒ¼ãƒ•ã«ã™ã‚‹å ´åˆã¯ã€Collections.EMPTY_LISTã®ä»£ã‚ã‚Šã«ã€Collections.emptyList()ã‚’Listï¼œIntegerï¼å‹ã®å¤‰æ•°ã«å…¥ã‚Œã¦ä½¿ç”¨ã™ã‚‹ã€‚
+     * @param dataNum ãƒ‡ãƒ¼ã‚¿ã®å€‹æ•°
+     * @param validationErrorOccurPoints å…¥åŠ›ãƒã‚§ãƒƒã‚¯ã‚¨ãƒ©ãƒ¼ç™ºç”Ÿãƒã‚¤ãƒ³ãƒˆ
      * @param argValidationErrorHandler ValidationErrorHandler
-     * @param exceptionOccurPoints —áŠO”­¶ƒ|ƒCƒ“ƒg
+     * @param exceptionOccurPoints ä¾‹å¤–ç™ºç”Ÿãƒã‚¤ãƒ³ãƒˆ
      * @param argExceptionHandler ExceptionHandler
-     * @param thrownException ƒXƒ[‚·‚é—áŠO
-     * @param nullBeanPoints Bean‚Ì‘ã‚í‚è‚Énull‚ğ‹l‚ß‚éƒ|ƒCƒ“ƒg
-     * @return ƒeƒXƒgƒf[ƒ^‚ğ’ñ‹Ÿ‚·‚éƒRƒŒƒNƒ^
+     * @param thrownException ã‚¹ãƒ­ãƒ¼ã™ã‚‹ä¾‹å¤–
+     * @param nullBeanPoints Beanã®ä»£ã‚ã‚Šã«nullã‚’è©°ã‚ã‚‹ãƒã‚¤ãƒ³ãƒˆ
+     * @return ãƒ†ã‚¹ãƒˆãƒ‡ãƒ¼ã‚¿ã‚’æä¾›ã™ã‚‹ã‚³ãƒ¬ã‚¯ã‚¿
      */
     private static Collector<AbstractCollectorTestBean> createTestCollector(final int dataNum, final List<Integer> validationErrorOccurPoints, final ValidationErrorHandler argValidationErrorHandler, final List<Integer> exceptionOccurPoints, final CollectorExceptionHandler argExceptionHandler, final Exception thrownException, final List<Integer> nullBeanPoints) {
         Collector<AbstractCollectorTestBean> collector = new AbstractCollector<AbstractCollectorTestBean>() {
@@ -3293,7 +3293,7 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * CollectorExceptionHandlerStatus.END‚ğ•Ô‹p‚·‚éCollectorExceptionHandlerB
+     * CollectorExceptionHandlerStatus.ENDã‚’è¿”å´ã™ã‚‹CollectorExceptionHandlerã€‚
      */
     private static class EndCollectorExceptionHandler implements CollectorExceptionHandler {
         public CollectorExceptionHandlerStatus handleException(
@@ -3303,7 +3303,7 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * CollectorExceptionHandlerStatus.SKIP‚ğ•Ô‹p‚·‚éCollectorExceptionHandlerB
+     * CollectorExceptionHandlerStatus.SKIPã‚’è¿”å´ã™ã‚‹CollectorExceptionHandlerã€‚
      */
     private static class SkipCollectorExceptionHandler implements CollectorExceptionHandler {
         public CollectorExceptionHandlerStatus handleException(
@@ -3313,7 +3313,7 @@ public class AbstractCollector003Test {
     }
 
     /**
-     * CollectorExceptionHandlerStatus.THROW‚ğ•Ô‹p‚·‚éCollectorExceptionHandlerB
+     * CollectorExceptionHandlerStatus.THROWã‚’è¿”å´ã™ã‚‹CollectorExceptionHandlerã€‚
      */
     private static class ThrowCollectorExceptionHandler implements CollectorExceptionHandler {
         public CollectorExceptionHandlerStatus handleException(

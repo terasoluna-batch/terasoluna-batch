@@ -17,17 +17,17 @@
 package jp.terasoluna.fw.batch.mock;
 
 /**
- * �R�[���o�b�N�C���^�t�F�[�X�ł��B
+ * コールバックインタフェースです。
  * 
  * <p>
- * ���b�NRepository�̃��\�b�h�ŕԂ�l�̌^��void�̂��̂ɑ΂��āA���������b�N�����邽�߂Ɏg�p���܂��B
+ * モックRepositoryのメソッドで返り値の型がvoidのものに対して、処理をモック化するために使用します。
  * </p>
  */
 public interface Callback {
     /**
-     * �R�[���o�b�N�����s���܂��B
+     * コールバックを実行します。
      * 
-     * @param args �R�[���o�b�N����
+     * @param args コールバック引数
      */
     void execute(Object[] args);
 }

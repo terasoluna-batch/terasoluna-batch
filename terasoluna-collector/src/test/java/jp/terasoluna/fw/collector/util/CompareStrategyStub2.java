@@ -7,7 +7,7 @@ public class CompareStrategyStub2 implements CompareStrategy<String> {
     public boolean equalsObjects(String value1, String value2) {
 
         if (value1 != null && value2 != null) {
-            // •¶š—ñ‚ÌŒã‚ë2•¶š‚ğ”äŠr‚·‚é
+            // æ–‡å­—åˆ—ã®å¾Œã‚2æ–‡å­—ã‚’æ¯”è¼ƒã™ã‚‹
             String substr1 = value1.substring(value1.length() - 2);
             String substr2 = value2.substring(value2.length() - 2);
 

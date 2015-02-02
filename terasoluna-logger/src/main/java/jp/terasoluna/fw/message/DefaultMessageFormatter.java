@@ -18,9 +18,9 @@ package jp.terasoluna.fw.message;
 import java.text.MessageFormat;
 
 /**
- * ƒfƒtƒHƒ‹ƒgƒƒbƒZ[ƒWƒtƒH[ƒ}ƒbƒ^À‘•B <br>
+ * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ•ã‚©ãƒ¼ãƒãƒƒã‚¿å®Ÿè£…ã€‚ <br>
  * <p>
- * {@link MessageFormat}ƒNƒ‰ƒX‚ÅƒtƒH[ƒ}ƒbƒg‚µ‚Ü‚·B
+ * {@link MessageFormat}ã‚¯ãƒ©ã‚¹ã§ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã—ã¾ã™ã€‚
  * </p>
  * 
  */

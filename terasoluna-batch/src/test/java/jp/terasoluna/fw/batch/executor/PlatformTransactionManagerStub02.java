@@ -54,7 +54,7 @@ public class PlatformTransactionManagerStub02 implements PlatformTransactionMana
     }
 
     public void commit(TransactionStatus status) throws TransactionException {
-        throw new TransactionException("コミット確認用") {
+        throw new TransactionException("繧ｳ繝溘ャ繝育｢ｺ隱咲畑") {
             /**
              * 
              */

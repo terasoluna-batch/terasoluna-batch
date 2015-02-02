@@ -1,4 +1,4 @@
 /**
- * メッセージリソース関連
+ * 繝｡繝�繧ｻ繝ｼ繧ｸ繝ｪ繧ｽ繝ｼ繧ｹ髢｢騾｣
  */
 package jp.terasoluna.fw.message;

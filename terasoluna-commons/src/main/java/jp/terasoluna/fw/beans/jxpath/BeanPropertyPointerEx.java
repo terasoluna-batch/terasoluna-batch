@@ -21,40 +21,40 @@ import org.apache.commons.jxpath.ri.model.NodePointer;
 import org.apache.commons.jxpath.ri.model.beans.BeanPropertyPointer;
 
 /**
- * null’l‚ğˆµ‚¤‚½‚ß‚ÌBeanƒvƒƒpƒeƒBƒ|ƒCƒ“ƒ^Šg’£ƒNƒ‰ƒXB
+ * nullå€¤ã‚’æ‰±ã†ãŸã‚ã®Beanãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒã‚¤ãƒ³ã‚¿æ‹¡å¼µã‚¯ãƒ©ã‚¹ã€‚
  * 
- * <p>ƒfƒtƒHƒ‹ƒg‚ÌBeanƒvƒƒpƒeƒBƒ|ƒCƒ“ƒ^‚Å‚ÍA
- * finalw’è‚³‚ê‚Ä‚¢‚È‚¢ƒNƒ‰ƒXiObject,DateAArrayListAetcj‚Ì‘®«‚É
- * null‚ª“ü‚Á‚Ä‚¢‚½ê‡A’l‚ª‚È‚¢‚à‚Ì‚Æ‚µ‚Äˆµ‚í‚ê‚éB
- * null‚ğæ“¾‚µ‚½‚¢ê‡A–{ƒNƒ‰ƒX‚ğg—p‚·‚é•K—v‚ª‚ ‚éB</p>
+ * <p>ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®Beanãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒã‚¤ãƒ³ã‚¿ã§ã¯ã€
+ * finalæŒ‡å®šã•ã‚Œã¦ã„ãªã„ã‚¯ãƒ©ã‚¹ï¼ˆObject,Dateã€ArrayListã€etcï¼‰ã®å±æ€§ã«
+ * nullãŒå…¥ã£ã¦ã„ãŸå ´åˆã€å€¤ãŒãªã„ã‚‚ã®ã¨ã—ã¦æ‰±ã‚ã‚Œã‚‹ã€‚
+ * nullã‚’å–å¾—ã—ãŸã„å ´åˆã€æœ¬ã‚¯ãƒ©ã‚¹ã‚’ä½¿ç”¨ã™ã‚‹å¿…è¦ãŒã‚ã‚‹ã€‚</p>
  * 
  * @see jp.terasoluna.fw.beans.jxpath.BeanPointerFactoryEx
  */
 public class BeanPropertyPointerEx extends BeanPropertyPointer {
 
     /**
-     * ƒVƒŠƒAƒ‹ƒo[ƒWƒ‡ƒ“IDB
+     * ã‚·ãƒªã‚¢ãƒ«ãƒãƒ¼ã‚¸ãƒ§ãƒ³IDã€‚
      */
     private static final long serialVersionUID = -4617365154553497991L;
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-     * @param parent e‚Æ‚È‚éBeanƒ|ƒCƒ“ƒ^
-     * @param beanInfo ƒ^[ƒQƒbƒg‚ÌBean‚Ìî•ñ
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+     * @param parent è¦ªã¨ãªã‚‹Beanãƒã‚¤ãƒ³ã‚¿
+     * @param beanInfo ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã®Beanã®æƒ…å ±
      */
     public BeanPropertyPointerEx(NodePointer parent, JXPathBeanInfo beanInfo) {
         super(parent, beanInfo);
     }
 
     /**
-     * —v‘f”‚ğæ“¾‚·‚éB
-     * @return —v‘f”
+     * è¦ç´ æ•°ã‚’å–å¾—ã™ã‚‹ã€‚
+     * @return è¦ç´ æ•°
      */
     @Override
     public int getLength() {
         int length = super.getLength();
         
-        // —v‘f‚Ì’l‚ªnull‚Ìê‡A—v‘f”‚ğ‚P‚Æ‚·‚é
+        // è¦ç´ ã®å€¤ãŒnullã®å ´åˆã€è¦ç´ æ•°ã‚’ï¼‘ã¨ã™ã‚‹
         if (length == 0 && getBaseValue() == null) { 
             return 1;
         }
@@ -62,9 +62,9 @@ public class BeanPropertyPointerEx extends BeanPropertyPointer {
     }
     
     /**
-     * ”z—ñ‚©‚Ç‚¤‚©”»’f‚·‚éB
-     * null‚Ìê‡A”z—ñ‚Æ‚Í‚İ‚È‚³‚È‚¢B
-     * @return ”z—ñ‚Ìê‡Atrue‚ğ•Ô‚·B‚»‚êˆÈŠO‚Ífalse‚ğ•Ô‚·B
+     * é…åˆ—ã‹ã©ã†ã‹åˆ¤æ–­ã™ã‚‹ã€‚
+     * nullã®å ´åˆã€é…åˆ—ã¨ã¯ã¿ãªã•ãªã„ã€‚
+     * @return é…åˆ—ã®å ´åˆã€trueã‚’è¿”ã™ã€‚ãã‚Œä»¥å¤–ã¯falseã‚’è¿”ã™ã€‚
      */
     @Override
     public boolean isCollection() {

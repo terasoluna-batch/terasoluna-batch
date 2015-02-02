@@ -10,9 +10,9 @@ public class DaoCollectorStub004 extends DaoCollector<HogeBean> {
     protected BlockingQueue<DataValueObject> inQueue = null;
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      *
-     * @param queueCount ƒuƒƒbƒN‚³‚ê‚¸‚ÉƒLƒ…[‚É‹l‚ß‚ç‚ê‚é”
+     * @param queueCount ãƒ–ãƒ­ãƒƒã‚¯ã•ã‚Œãšã«ã‚­ãƒ¥ãƒ¼ã«è©°ã‚ã‚‰ã‚Œã‚‹æ•°
      */
     public DaoCollectorStub004(int queueCount) {
         this.inQueue = new ArrayBlockingQueue<DataValueObject>(queueCount);
@@ -21,7 +21,7 @@ public class DaoCollectorStub004 extends DaoCollector<HogeBean> {
     @Override
     protected void addQueue(DataValueObject dataValueObject)
             throws InterruptedException {
-        // ƒLƒ…[‚Ì—e—Ê‚ğ’´‚¦‚Ä‚¢‚éê‡A‚±‚±‚ÅƒuƒƒbƒN‚·‚éB
+        // ã‚­ãƒ¥ãƒ¼ã®å®¹é‡ã‚’è¶…ãˆã¦ã„ã‚‹å ´åˆã€ã“ã“ã§ãƒ–ãƒ­ãƒƒã‚¯ã™ã‚‹ã€‚
         inQueue.put(dataValueObject);
     }
 

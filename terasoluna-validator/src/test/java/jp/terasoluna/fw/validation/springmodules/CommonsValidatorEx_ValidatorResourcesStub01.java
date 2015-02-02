@@ -22,27 +22,27 @@ import org.apache.commons.validator.Form;
 import org.apache.commons.validator.ValidatorResources;
 
 /**
- * ValidatorResources‚ÌƒXƒ^ƒuƒNƒ‰ƒXB
+ * ValidatorResourcesã®ã‚¹ã‚¿ãƒ–ã‚¯ãƒ©ã‚¹ã€‚
  *
  */
 public class CommonsValidatorEx_ValidatorResourcesStub01 extends
         ValidatorResources {
 
     /**
-     * ƒVƒŠƒAƒ‹ƒo[ƒWƒ‡ƒ“IDB
+     * ã‚·ãƒªã‚¢ãƒ«ãƒãƒ¼ã‚¸ãƒ§ãƒ³IDã€‚
      */
     private static final long serialVersionUID = 9152907604153954344L;
     
     /**
-     * ƒtƒH[ƒ€
+     * ãƒ•ã‚©ãƒ¼ãƒ 
      */
     private Form form;
 
     /**
-     * ƒtƒH[ƒ€‚ğæ“¾‚·‚é
-     * @param locale ƒ[ƒJƒ‹
-     * @param formKey ƒtƒH[ƒ€ƒL[
-     * @return ƒtƒH[ƒ€
+     * ãƒ•ã‚©ãƒ¼ãƒ ã‚’å–å¾—ã™ã‚‹
+     * @param locale ãƒ­ãƒ¼ã‚«ãƒ«
+     * @param formKey ãƒ•ã‚©ãƒ¼ãƒ ã‚­ãƒ¼
+     * @return ãƒ•ã‚©ãƒ¼ãƒ 
      */
     @Override
     public Form getForm(Locale locale, String formKey) {
@@ -50,8 +50,8 @@ public class CommonsValidatorEx_ValidatorResourcesStub01 extends
     }
 
     /**
-     * ƒtƒH[ƒ€‚ğİ’è‚·‚é
-     * @param form ƒtƒH[ƒ€
+     * ãƒ•ã‚©ãƒ¼ãƒ ã‚’è¨­å®šã™ã‚‹
+     * @param form ãƒ•ã‚©ãƒ¼ãƒ 
      */
     public void setForm(Form form){
         this.form = form;

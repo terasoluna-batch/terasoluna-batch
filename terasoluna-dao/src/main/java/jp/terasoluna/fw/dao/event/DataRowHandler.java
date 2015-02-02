@@ -18,16 +18,16 @@ package jp.terasoluna.fw.dao.event;
 
 /**
  * <p>
- * 1�s�̃f�[�^���������邽�߂̃C���^�t�F�[�X�B
+ * 1行のデータを処理するためのインタフェース。
  * </p>
  *
  * <p>
- * QueryRowHandleDAO�̎����N���X����ASQL�̎��s���ʂ�1�s����
- * handleRow���\�b�h���Ă΂��B<br>
- * ���̍ہA�����ɂ�1�s���̃f�[�^���i�[���ꂽ�I�u�W�F�N�g���n�����B
+ * QueryRowHandleDAOの実装クラスから、SQLの実行結果の1行毎に
+ * handleRowメソッドが呼ばれる。<br>
+ * その際、引数には1行分のデータが格納されたオブジェクトが渡される。
  * <br>
- * QueryRowHandleDAO�̎����N���X���g�p�̍ۂɂ́A
- * �{�C���^�t�F�[�X�����������N���X���쐬����K�v������B
+ * QueryRowHandleDAOの実装クラスを使用の際には、
+ * 本インタフェースを実装したクラスを作成する必要がある。
  * </p>
  *
  * @see jp.terasoluna.fw.dao.QueryRowHandleDAO
@@ -35,9 +35,9 @@ package jp.terasoluna.fw.dao.event;
 public interface DataRowHandler {
 
     /**
-     * 1�s���ɌĂ΂�郁�\�b�h
+     * 1行毎に呼ばれるメソッド
      *
-     * @param valueObject 1�s�̃f�[�^
+     * @param valueObject 1行のデータ
      */
     void handleRow(Object valueObject);
 }

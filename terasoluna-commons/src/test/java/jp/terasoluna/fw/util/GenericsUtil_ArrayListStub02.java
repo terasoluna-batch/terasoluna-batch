@@ -21,7 +21,7 @@ import java.util.ArrayList;
 
 
 /**
- * {@link GenericsUtil}‚ÌƒeƒXƒg‚Ì‚½‚ß‚ÌƒXƒ^ƒuƒNƒ‰ƒXB
+ * {@link GenericsUtil}ã®ãƒ†ã‚¹ãƒˆã®ãŸã‚ã®ã‚¹ã‚¿ãƒ–ã‚¯ãƒ©ã‚¹ã€‚
  *
  */
 public abstract class GenericsUtil_ArrayListStub02

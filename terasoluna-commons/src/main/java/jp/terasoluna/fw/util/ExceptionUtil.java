@@ -25,25 +25,25 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
- * ��O�Ɋւ��郆�[�e�B���e�B�N���X�B
+ * 例外に関するユーティリティクラス。
  * 
  * <p>
- *  ��O�̃X�^�b�N�g���[�X�����ׂďo�͂���@�\�ł���B<br>
- *  ���O�̋@�\�ɂ���ẮA�����ƂȂ�����O�X�^�b�N�g���[�X��
- *  �Ō�܂ŕ\�����Ȃ��B
- *  �{�@�\�́A�����ƂȂ�����O���ċA�I�Ɏ擾���A
- *  �X�^�b�N�g���[�X�ƂȂ镶������擾����B�g�p��͉��L�̂Ƃ���ł���B
+ *  例外のスタックトレースをすべて出力する機能である。<br>
+ *  ログの機能によっては、原因となった例外スタックトレースを
+ *  最後まで表示しない。
+ *  本機能は、原因となった例外を再帰的に取得し、
+ *  スタックトレースとなる文字列を取得する。使用例は下記のとおりである。
  *  
- *  <strong>ExceptionUtil�̎g�p��</strong><br>
+ *  <strong>ExceptionUtilの使用例</strong><br>
  *  <code><pre>
- *  �E�E�E
+ *  ・・・
  *  try {
- *     �E�E�E
+ *     ・・・
  *  } catch (Exception e) {
- *      // ��O�X�^�b�N�g���[�X���Ō�܂ŏo��
+ *      // 例外スタックトレースを最後まで出力
  *      log.error("error-message", ExceptionUtil.getStackTrace(e));
  *  }
- *  �E�E�E
+ *  ・・・
  * </pre></code>
  * </p>
  * 
@@ -51,34 +51,34 @@ import org.apache.commons.logging.LogFactory;
 public final class ExceptionUtil {
     
     /**
-     * ���O�N���X
+     * ログクラス
      */
     private static Log log = LogFactory.getLog(ExceptionUtil.class);
     
     /**
-     * ServletException�̂݁A��O���̃X�^�b�N�g���[�X�̏������قȂ�̂ŁA
-     * ��������ʂ��邽�߂Ɏg�p����B
+     * ServletExceptionのみ、例外時のスタックトレースの処理が異なるので、
+     * それを識別するために使用する。
      */
     private static final String SERVLET_EXCEPTION_NAME = 
         "javax.servlet.ServletException";
     
     /**
-     * ServletException�����������ۂɎg�p���郁�\�b�h���B
-     * Servlet �̗�O�������N�����ꂽ���ɂȂ�����O��Ԃ����\�b�h�ł���B
+     * ServletExceptionが発生した際に使用するメソッド名。
+     * Servlet の例外が引き起こされた元になった例外を返すメソッドである。
      */
     private static final String GET_ROOT_CAUSE = "getRootCause";
     
     /**
-     * �w�肵����O�̃X�^�b�N�g���[�X���擾����B
+     * 指定した例外のスタックトレースを取得する。
      * 
      * <p>
-     *  �w�肵����O�̌����ƂȂ�����O���擾�ł���΁A
-     *  ���̗�O�̃X�^�b�N�g���[�X���ċA�I�Ɏ擾����B
-     *  ������getRootCause()�ŏE�����̂ɂ��Ă�ServletException�̂ݑΉ��B
+     *  指定した例外の原因となった例外が取得できれば、
+     *  その例外のスタックトレースを再帰的に取得する。
+     *  ただしgetRootCause()で拾うものについてはServletExceptionのみ対応。
      * </p>
      *
-     * @param throwable ��O
-     * @return �ċA�I�ɒH��ꂽ�X�^�b�N�g���[�X
+     * @param throwable 例外
+     * @return 再帰的に辿られたスタックトレース
      */
     public static String getStackTrace(Throwable throwable) {
         StringBuilder sb = new StringBuilder();
@@ -88,26 +88,26 @@ public final class ExceptionUtil {
             throwable.printStackTrace(new PrintStream(baos));
             sb.append(baos.toString());
             
-            //throwable����Class�I�u�W�F�N�g�����o���B
+            //throwableからClassオブジェクトを取り出す。
             Class throwableClass = throwable.getClass();
             
-            // ServletException �Ȃ�� getRootCause ���g��
+            // ServletException ならば getRootCause を使う
             if (SERVLET_EXCEPTION_NAME.equals(throwableClass.getName())) {
                 try {
                     //throwable = ((ServletException) throwable).getRootCause()
-                    //Class�I�u�W�F�N�g���烁�\�b�h�����w�肵�Ď��s����B
+                    //Classオブジェクトからメソッド名を指定して実行する。
                     Method method = throwableClass.getMethod(GET_ROOT_CAUSE);
                     throwable = (Throwable) method.invoke(throwable);
                 } catch (NoSuchMethodException e) {
-                    //��v���郁�\�b�h��������Ȃ��ꍇ
+                    //一致するメソッドが見つからない場合
                     log.error(e.getMessage());
                     throwable = null;
                 } catch (IllegalAccessException e) {
-                    //��{�ƂȂ郁�\�b�h�ɃA�N�Z�X�ł��Ȃ��ꍇ
+                    //基本となるメソッドにアクセスできない場合
                     log.error(e.getMessage());
                     throwable = null;
                 } catch (InvocationTargetException e) {
-                    //��{�ƂȂ郁�\�b�h����O���X���[����ꍇ
+                    //基本となるメソッドが例外をスローする場合
                     log.error(e.getMessage());
                     throwable = null;
                 }
