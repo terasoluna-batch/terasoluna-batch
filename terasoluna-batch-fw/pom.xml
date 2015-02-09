@@ -295,8 +295,11 @@
                 <configuration>
                     <forkMode>always</forkMode>
                     <argLine><![CDATA[-Dfile.encoding=Windows-31J -Djava.system.class.loader=jp.co.dgic.testing.common.DJUnitClassLoader -Djp.co.dgic.eclipse.virtualmock.usevirtualmock=true -Djp.co.dgic.eclipse.coverage.usecoverage=true -Djp.co.dgic.eclipse.project.source.dir="${project.build.sourceDirectory}" -Djp.co.dgic.eclipse.virtualmock.ignore.library=false -Dcom.jcoverage.rawcoverage.dir="${basedir}/target" -XX:-UseSplitVerifier]]></argLine>
-                    <forkMode>always</forkMode>
                     <useSystemClassLoader>true</useSystemClassLoader>
+                    <includes combine.self="override">
+                        <include>**/*Test*.java</include>
+                    </includes>
+                    <excludes combine.self="override"/>
                 </configuration>
             </plugin>
 
