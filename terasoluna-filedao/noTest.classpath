@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<classpath>
-	<classpathentry kind="src" path="sources"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/terasoluna-lib/lib/commons-lang-2.3.jar"/>
-	<classpathentry kind="lib" path="/terasoluna-lib/lib/commons-logging-1.1.jar"/>
-	<classpathentry kind="output" path="classes"/>
-</classpath>
