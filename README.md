@@ -6,6 +6,6 @@ TERASOLUNA Batch Framework for Javaは、バッチシステムを構築するための実行基盤、
 共通機能を提供するフレームワークである。
 
 
-# Essentials
+## Download
 
-* [See th docs](https://github.com/terasoluna-batch/terasoluna-doc)
+* [Download from here](https://github.com/terasoluna-batch/terasoluna-sample/releases)
