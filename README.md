@@ -8,4 +8,4 @@ TERASOLUNA Batch Framework for Javaは、バッチシステムを構築するた
 
 ## Download
 
-* [Download from here](https://github.com/terasoluna-batch/terasoluna-sample/releases)
+* [Download from here](https://github.com/terasoluna-batch/terasoluna-batch/releases)
