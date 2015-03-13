@@ -69,7 +69,7 @@ public class FastFileUtility extends FileUtility {
             fos = new FileOutputStream(outputFileObject);
             ic = fis.getChannel();
             oc = fos.getChannel();
-            ic.transferTo(0, ic.size(), oc);
+            transferFileEntirely(ic, oc);
         } catch (IOException e) {
             throw new FileException("File control operation was failed.", e);
         } finally {
@@ -77,6 +77,20 @@ public class FastFileUtility extends FileUtility {
             closeQuietly(ic);
             closeQuietly(fos);
             closeQuietly(fis);
+        }
+    }
+
+    /**
+     * ファイルを完全にコピーする。
+     * @param srcChannel コピー元FileChannel
+     * @param destChannel コピー先FileChannel
+     */
+    private static void transferFileEntirely(FileChannel srcChannel, FileChannel destChannel) throws IOException {
+        long srcFileSize = srcChannel.size();
+        long transferedSize = 0L;
+        while(transferedSize < srcFileSize){
+            long transferSize = srcChannel.transferTo(transferedSize, srcFileSize - transferedSize, destChannel);
+            transferedSize += transferSize;
         }
     }
 

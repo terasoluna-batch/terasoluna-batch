@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.io.Writer;
 import java.net.URL;
 import java.nio.channels.Channel;
+import java.util.Random;
 
 import jp.terasoluna.fw.ex.unit.util.AssertUtils;
 import jp.terasoluna.fw.ex.unit.util.ReflectionUtils;
@@ -186,8 +187,8 @@ public class FastFileUtilityTest extends TestCase {
     /**
      * testCopyFile06()<br>
      * <br>
-     * 事前状態：クラスパス/testdata 配下に容量の大きいtest06.txtすること<br>
-     * <br>
+     * 事前状態：クラスパス/testdata 配下に容量の大きい(3GB)test06.txtがあること<br>
+     * ファイルが既に存在する場合は作成されない。 <br>
      * テスト概要：ファイルが読み込まれ、正常にコピーされることを確認する。<br>
      * <br>
      * 確認項目：コピー先のファイルがコピー元と内容が同じか確認する。<br>
@@ -196,35 +197,8 @@ public class FastFileUtilityTest extends TestCase {
      */
     public void testCopyFile06() throws Exception {
 
-        
-        // 583MBファイルを作成
-        URL parent = this.getClass().getResource("/testdata");
-        String target = parent.getPath() + "/test06.txt";
-        File f = new File(target);
-        if (!f.exists()) {
-            Writer writer = null;
-            try {
-                writer = new FileWriter(f);
-                StringBuilder sb = new StringBuilder();
-                for (int i = 0; i < 1024; i++) {
-                    for (int j = 0; j < 10; j++) {
-                        sb.append("TERASOLUNA");
-                    }
-                    sb.append("\r\n");
-                }
-                String record = sb.toString();
-                for (int i = 0; i < 5856; i++) {
-                    writer.write(record);
-                }
-            } finally {
-                if (writer != null) {
-                    try {
-                        writer.close();
-                    } catch (IOException e) {
-                    }
-                }
-            }
-        }
+        // 3GBのファイルを作成
+        create3GBFile("/testdata", "test06.txt");
 
         // テストデータ設定
         URL srcUrl = this.getClass().getResource("/testdata/test06.txt");
@@ -245,6 +219,72 @@ public class FastFileUtilityTest extends TestCase {
 
         AssertUtils.assertFileEquals(expected, actual);
 
+    }
+
+    /**
+     * 3GBファイルの作成
+     * @param directoryPath ファイルの作成先ディレクトリ
+     * @param fileName 作成するファイル名
+     * @return 1022文字+改行コード(\r\n)で1KB(1024Byte)分を1行として3GBのデータを作成
+     */
+    private void create3GBFile(String directoryPath, String fileName)
+                                                                     throws Exception {
+        long gByte = 1024L * 1024L * 1024L;
+        URL parent = this.getClass().getResource(directoryPath);
+        File f = new File(parent.getPath(), fileName);
+        if (f.exists() && f.length() == 3 * gByte) {
+            // 既にデータを作成済みの場合はスキップする
+            return;
+        }
+        Writer writer = null;
+        Random print1CharStringRandom = new Random();
+        try {
+            writer = new FileWriter(f);
+            for (int i = 0; i < 3; i++) {
+                createGByteData(writer, print1CharStringRandom);
+            }
+        } finally {
+            if (writer != null) {
+                try {
+                    writer.close();
+                } catch (IOException e) {
+                }
+            }
+        }
+    }
+
+    /**
+     * 1GByte分のデータを作成
+     * @param writer ファイル出力用のWriterクラス
+     * @param print1CharStringRandom テストデータに出力する文字をランダムで選択するためのRandomクラス
+     * @return 1022文字+改行コード(\r\n)で1KB(1024Byte)分を1行としてファイルサイズ分のデータを作成
+     */
+    private void createGByteData(Writer writer, Random print1CharStringRandom)
+                                                                              throws IOException {
+        int kByte = 1024;
+        int crlfSize = 2;
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < kByte; i++) {
+            for (int j = 0; j < kByte; j++) {
+                for (int k = 0; k < kByte - crlfSize; k++) {
+                    sb.append(getNextRandom1CharString(print1CharStringRandom));
+                }
+                sb.append("\r\n");
+                writer.write(sb.toString());
+                sb.setLength(0);
+            }
+        }
+    }
+
+    /**
+     * 次に出力するランダムな1文字を返却する
+     * @param print1CharStringRandom テストデータに出力する文字[0-9]をランダムで選択するためのRandomクラス
+     * @return 次に出力するランダムな1文字
+     */
+    private String getNextRandom1CharString(Random print1CharStringRandom) {
+        int randomInt = print1CharStringRandom.nextInt(10);
+        String nextRandomChar = String.valueOf(randomInt);
+        return nextRandomChar;
     }
 
     /**
