@@ -17,7 +17,6 @@
 package jp.terasoluna.fw.file.dao.standard;
 
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -303,18 +302,12 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
             buildStringConverters();
             buildMethods();
 
-            // 上書きフラグを確認
-            if (fileFormat.overWriteFlg()) {
-                File file = new File(fileName);
-                if (file.exists()) {
-                    file.delete();
-                }
-            }
-
             // ファイルオープン
             try {
+                boolean append = !fileFormat.overWriteFlg();
                 writer = new BufferedWriter(new OutputStreamWriter(
-                        (new FileOutputStream(fileName, true)), fileEncoding));
+                        (new FileOutputStream(fileName, append)),
+                        fileEncoding));
             } catch (UnsupportedEncodingException e) {
                 throw new FileException("Failed in generation of writer.", e,
                         fileName);
