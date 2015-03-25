@@ -1059,7 +1059,7 @@ public class AbstractFileLineWriterTest<T> {
                     FileOutputStream.class, "<init>", 0);
             assertEquals(2, fileOutputStreamInitArguments.size());
             assertEquals(fileName, fileOutputStreamInitArguments.get(0));
-            assertTrue(Boolean.class.cast(fileOutputStreamInitArguments.get(1)));
+            assertFalse(Boolean.class.cast(fileOutputStreamInitArguments.get(1)));
 
             assertEquals(1, VMOUTUtil.getCallCount(
                     AbstractFileLineWriter.class, "buildFields"));
@@ -1069,8 +1069,6 @@ public class AbstractFileLineWriterTest<T> {
 
             assertEquals(1, VMOUTUtil.getCallCount(
                     AbstractFileLineWriter.class, "buildMethods"));
-
-            assertEquals(1, VMOUTUtil.getCallCount(File.class, "delete"));
 
             // 判定(ファイル)
             assertTrue(new File(fileName).exists());
