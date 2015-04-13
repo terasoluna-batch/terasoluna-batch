@@ -22,8 +22,10 @@ import jp.terasoluna.fw.collector.exception.CollectorExceptionHandler;
 import jp.terasoluna.fw.collector.vo.DataValueObject;
 import jp.terasoluna.fw.exception.SystemException;
 import jp.terasoluna.fw.logger.TLogger;
+
 import org.apache.ibatis.session.ResultHandler;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 /**
@@ -176,8 +178,12 @@ public class DaoCollector<P> extends AbstractCollector<P> {
                     Method collectMethod = queryResultHandleDaoClazz.getMethod(this.methodName,
                             Object.class, ResultHandler.class);
 
-                    // QueryResultHandleDAO 実行
-                    collectMethod.invoke(this.queryResultHandleDao, this.bindParams, this.resultHandler);
+                    try {
+                        // QueryResultHandleDAO 実行
+                        collectMethod.invoke(this.queryResultHandleDao, this.bindParams, this.resultHandler);
+                    } catch (InvocationTargetException e){
+                        throw e.getCause();
+                    }
 
                     this.resultHandler.delayCollect();
 
