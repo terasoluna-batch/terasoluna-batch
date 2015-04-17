@@ -34,6 +34,8 @@
         <terasoluna.logger.version>${terasoluna.fw.version}</terasoluna.logger.version>
 
         <!-- Dependence library version -->
+        <!-- == Spring IO Platform == -->
+        <io.spring.platform.version>1.1.1.RELEASE</io.spring.platform.version>
         <!-- junit -->
         <junit3.version>3.8.2</junit3.version>
         <junit.addons.version>1.4</junit.addons.version>
@@ -453,7 +455,7 @@ sp_cleanup.organize_imports=true
             <dependency>
                 <groupId>io.spring.platform</groupId>
                 <artifactId>platform-bom</artifactId>
-                <version>1.1.1.RELEASE</version>
+                <version>${io.spring.platform.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
