@@ -7,9 +7,6 @@
 
 package jp.terasoluna.fw.file.dao;
 
-import java.util.List;
-
-import jp.terasoluna.fw.file.ut.VMOUTUtil;
 import jp.terasoluna.utlib.UTUtil;
 import junit.framework.TestCase;
 
@@ -22,43 +19,6 @@ import junit.framework.TestCase;
  * @see jp.terasoluna.fw.file.dao.FileLineException
  */
 public class FileLineExceptionTest extends TestCase {
-
-    /**
-     * このテストケースを実行する為の GUI アプリケーションを起動する。
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        // junit.swingui.TestRunner.run(FileLineExceptionTest.class);
-    }
-
-    /**
-     * 初期化処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
-     */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-        VMOUTUtil.initialize();
-    }
-
-    /**
-     * 終了処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * @param name このテストケースの名前。
-     */
-    public FileLineExceptionTest(String name) {
-        super(name);
-    }
 
     /**
      * testFileLineExceptionException01() <br>
@@ -100,13 +60,6 @@ public class FileLineExceptionTest extends TestCase {
         assertEquals(-1, UTUtil.getPrivateField(fe, "columnIndex"));
         assertEquals(-1, UTUtil.getPrivateField(fe, "lineNo"));
         assertSame(exception, fe.getCause());
-
-        assertTrue(VMOUTUtil.isCalled(FileException.class, "<init>"));
-        assertEquals(1, VMOUTUtil.getCallCount(FileException.class, "<init>"));
-        List arguments = VMOUTUtil.getArguments(FileException.class, "<init>",
-                0);
-        assertEquals(1, arguments.size());
-        assertSame(exception, arguments.get(0));
     }
 
     /**
@@ -134,7 +87,7 @@ public class FileLineExceptionTest extends TestCase {
         // コンストラクタなので不要
 
         // 引数の設定
-        String message = new String();
+        String message = "";
 
         // 前提条件の設定
         // なし
@@ -150,13 +103,6 @@ public class FileLineExceptionTest extends TestCase {
         assertEquals(-1, UTUtil.getPrivateField(fe, "columnIndex"));
         assertEquals(-1, UTUtil.getPrivateField(fe, "lineNo"));
         assertEquals(message, fe.getMessage());
-
-        assertTrue(VMOUTUtil.isCalled(FileException.class, "<init>"));
-        assertEquals(1, VMOUTUtil.getCallCount(FileException.class, "<init>"));
-        List arguments = VMOUTUtil.getArguments(FileException.class, "<init>",
-                0);
-        assertEquals(1, arguments.size());
-        assertSame(message, arguments.get(0));
     }
 
     /**
@@ -187,7 +133,7 @@ public class FileLineExceptionTest extends TestCase {
         // コンストラクタなので不要
 
         // 引数の設定
-        String message = new String();
+        String message = "";
         Exception exception = new Exception();
 
         // 前提条件の設定
@@ -205,14 +151,6 @@ public class FileLineExceptionTest extends TestCase {
         assertEquals(-1, UTUtil.getPrivateField(fe, "lineNo"));
         assertSame(message, fe.getMessage());
         assertSame(exception, fe.getCause());
-
-        assertTrue(VMOUTUtil.isCalled(FileException.class, "<init>"));
-        assertEquals(1, VMOUTUtil.getCallCount(FileException.class, "<init>"));
-        List arguments = VMOUTUtil.getArguments(FileException.class, "<init>",
-                0);
-        assertEquals(2, arguments.size());
-        assertSame(message, arguments.get(0));
-        assertSame(exception, arguments.get(1));
     }
 
     /**
@@ -245,7 +183,7 @@ public class FileLineExceptionTest extends TestCase {
 
         // 引数の設定
         Exception exception = new Exception();
-        String fileName = new String();
+        String fileName = "";
         int lineNo = 1;
 
         // 前提条件の設定
@@ -264,14 +202,6 @@ public class FileLineExceptionTest extends TestCase {
         assertEquals(1, UTUtil.getPrivateField(fe, "lineNo"));
         assertSame(exception, fe.getCause());
         assertSame(fileName, UTUtil.getPrivateField(fe, "fileName"));
-
-        assertTrue(VMOUTUtil.isCalled(FileException.class, "<init>"));
-        assertEquals(1, VMOUTUtil.getCallCount(FileException.class, "<init>"));
-        List arguments = VMOUTUtil.getArguments(FileException.class, "<init>",
-                0);
-        assertEquals(2, arguments.size());
-        assertSame(exception, arguments.get(0));
-        assertSame(fileName, arguments.get(1));
     }
 
     /**
@@ -302,9 +232,9 @@ public class FileLineExceptionTest extends TestCase {
         // コンストラクタなので不要
 
         // 引数の設定
-        String message = new String();
+        String message = "";
         Exception exception = new Exception();
-        String fileName = new String();
+        String fileName = "";
         int lineNo = 1;
 
         // 前提条件の設定
@@ -322,15 +252,6 @@ public class FileLineExceptionTest extends TestCase {
         assertSame(fileName, UTUtil.getPrivateField(fe, "fileName"));
         assertSame(message, fe.getMessage());
         assertEquals(1, UTUtil.getPrivateField(fe, "lineNo"));
-
-        assertTrue(VMOUTUtil.isCalled(FileException.class, "<init>"));
-        assertEquals(1, VMOUTUtil.getCallCount(FileException.class, "<init>"));
-        List arguments = VMOUTUtil.getArguments(FileException.class, "<init>",
-                0);
-        assertEquals(3, arguments.size());
-        assertSame(message, arguments.get(0));
-        assertSame(exception, arguments.get(1));
-        assertSame(fileName, arguments.get(2));
     }
 
     /**
@@ -367,9 +288,9 @@ public class FileLineExceptionTest extends TestCase {
 
         // 引数の設定
         Exception exception = new Exception();
-        String fileName = new String();
+        String fileName = "";
         int lineNo = 1;
-        String columnName = new String();
+        String columnName = "";
         int columnIndex = 1;
 
         // 前提条件の設定
@@ -388,14 +309,6 @@ public class FileLineExceptionTest extends TestCase {
         assertEquals(lineNo, UTUtil.getPrivateField(fe, "lineNo"));
         assertEquals(columnName, UTUtil.getPrivateField(fe, "columnName"));
         assertEquals(columnIndex, UTUtil.getPrivateField(fe, "columnIndex"));
-
-        assertTrue(VMOUTUtil.isCalled(FileException.class, "<init>"));
-        assertEquals(1, VMOUTUtil.getCallCount(FileException.class, "<init>"));
-        List arguments = VMOUTUtil.getArguments(FileException.class, "<init>",
-                0);
-        assertEquals(2, arguments.size());
-        assertSame(exception, arguments.get(0));
-        assertSame(fileName, arguments.get(1));
     }
 
     /**
@@ -434,11 +347,11 @@ public class FileLineExceptionTest extends TestCase {
         // コンストラクタなので不要
 
         // 引数の設定
-        String message = new String();
+        String message = "";
         Exception exception = new Exception();
-        String fileName = new String();
+        String fileName = "";
         int lineNo = 1;
-        String columnName = new String();
+        String columnName = "";
         int columnIndex = 1;
 
         // 前提条件の設定
@@ -458,15 +371,6 @@ public class FileLineExceptionTest extends TestCase {
         assertEquals(lineNo, UTUtil.getPrivateField(fe, "lineNo"));
         assertEquals(columnName, UTUtil.getPrivateField(fe, "columnName"));
         assertEquals(columnIndex, UTUtil.getPrivateField(fe, "columnIndex"));
-
-        assertTrue(VMOUTUtil.isCalled(FileException.class, "<init>"));
-        assertEquals(1, VMOUTUtil.getCallCount(FileException.class, "<init>"));
-        List arguments = VMOUTUtil.getArguments(FileException.class, "<init>",
-                0);
-        assertEquals(3, arguments.size());
-        assertSame(message, arguments.get(0));
-        assertSame(exception, arguments.get(1));
-        assertSame(fileName, arguments.get(2));
     }
 
     /**
@@ -494,11 +398,11 @@ public class FileLineExceptionTest extends TestCase {
 
     public void testGetColumnName01() throws Exception {
         // テスト対象のインスタンス化
-        String message = new String();
+        String message = "";
         Exception exception = new Exception();
-        String fileName = new String();
+        String fileName = "";
         int lineNo = 1;
-        String columnName = new String();
+        String columnName = "";
         int columnIndex = 1;
         FileLineException fe = new FileLineException(message, exception,
                 fileName, lineNo, columnName, columnIndex);
@@ -544,11 +448,11 @@ public class FileLineExceptionTest extends TestCase {
 
     public void testGetLineNo01() throws Exception {
         // テスト対象のインスタンス化
-        String message = new String();
+        String message = "";
         Exception exception = new Exception();
-        String fileName = new String();
+        String fileName = "";
         int lineNo = 1;
-        String columnName = new String();
+        String columnName = "";
         int columnIndex = 1;
         FileLineException fe = new FileLineException(message, exception,
                 fileName, lineNo, columnName, columnIndex);
@@ -594,7 +498,7 @@ public class FileLineExceptionTest extends TestCase {
 
     public void testGetColumnIndex01() throws Exception {
         // テスト対象のインスタンス化
-        FileLineException fe = new FileLineException(new String());
+        FileLineException fe = new FileLineException("");
 
         // 引数の設定
         // なし

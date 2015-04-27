@@ -1,7 +1,7 @@
 /*
  * $Id:$
  *
- * Copyright (c) 2006 NTT DATA Corporation
+ * Copyright (c) 2006-2015 NTT DATA Corporation
  *
  */
 
@@ -9,13 +9,14 @@ package jp.terasoluna.fw.file.dao.standard;
 
 import java.net.URL;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import jp.terasoluna.fw.file.dao.FileLineWriter;
-import jp.terasoluna.fw.file.ut.VMOUTUtil;
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertSame;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.PlainFileUpdateDAO} クラスのテスト。
@@ -26,43 +27,7 @@ import junit.framework.TestCase;
  * @author 奥田哲司
  * @see jp.terasoluna.fw.file.dao.standard.PlainFileUpdateDAO
  */
-public class PlainFileUpdateDAOTest extends TestCase {
-
-    /**
-     * このテストケースを実行する為の GUI アプリケーションを起動する。
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        // junit.swingui.TestRunner.run(PlainFileUpdateDAOTest.class);
-    }
-
-    /**
-     * 初期化処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
-     */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
-
-    /**
-     * 終了処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * @param name このテストケースの名前。
-     */
-    public PlainFileUpdateDAOTest(String name) {
-        super(name);
-    }
+public class PlainFileUpdateDAOTest {
 
     /**
      * testExecute01() <br>
@@ -85,6 +50,7 @@ public class PlainFileUpdateDAOTest extends TestCase {
      * 引数がそれぞれnot nullであれば、戻り値が帰ってくることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testExecute01() throws Exception {
         // テスト対象のインスタンス化
@@ -107,13 +73,8 @@ public class PlainFileUpdateDAOTest extends TestCase {
         // 返却値の確認
         assertEquals(PlainFileLineWriter.class, fileLineWriter.getClass());
 
-        // 状態変化の確認
-        assertEquals(1, VMOUTUtil.getCallCount(PlainFileLineWriter.class,
-                "<init>"));
-        List arguments = VMOUTUtil.getArguments(PlainFileLineWriter.class,
-                "<init>", 0);
-        assertSame(fileName, arguments.get(0));
-        assertSame(clazz, arguments.get(1));
-        assertSame(columnFormatterMap, arguments.get(2));
+        assertSame(fileName, UTUtil.getPrivateField(fileLineWriter, "fileName"));
+        assertSame(clazz, UTUtil.getPrivateField(fileLineWriter, "clazz"));
+        assertSame(columnFormatterMap, UTUtil.getPrivateField(fileLineWriter, "columnFormatterMap"));
     }
 }

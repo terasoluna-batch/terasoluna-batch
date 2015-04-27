@@ -1,7 +1,7 @@
 /*
  * $Id: PlainFileQueryDAOTest.java 5576 2007-11-15 13:13:32Z pakucn $
  *
- * Copyright (c) 2006 NTT DATA Corporation
+ * Copyright (c) 2006-2015 NTT DATA Corporation
  *
  */
 
@@ -13,9 +13,11 @@ import java.util.List;
 import java.util.Map;
 
 import jp.terasoluna.fw.file.dao.FileLineIterator;
-import jp.terasoluna.fw.file.ut.VMOUTUtil;
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertSame;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.PlainFileQueryDAO} クラスのテスト。
@@ -25,43 +27,7 @@ import junit.framework.TestCase;
  * @author 奥田哲司
  * @see jp.terasoluna.fw.file.dao.standard.PlainFileQueryDAO
  */
-public class PlainFileQueryDAOTest extends TestCase {
-
-    /**
-     * このテストケースを実行する為の GUI アプリケーションを起動する。
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        // junit.swingui.TestRunner.run(PlainFileQueryDAOTest.class);
-    }
-
-    /**
-     * 初期化処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
-     */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
-
-    /**
-     * 終了処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * @param name このテストケースの名前。
-     */
-    public PlainFileQueryDAOTest(String name) {
-        super(name);
-    }
+public class PlainFileQueryDAOTest {
 
     /**
      * testExcecute01() <br>
@@ -83,6 +49,7 @@ public class PlainFileQueryDAOTest extends TestCase {
      * PlainFileLineIteratorインスタンスが生成されることを確認する <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testExcecute01() throws Exception {
         // テスト対象のインスタンス化
@@ -106,13 +73,9 @@ public class PlainFileQueryDAOTest extends TestCase {
         assertEquals(PlainFileLineIterator.class, result.getClass());
 
         // 状態変化の確認
-        assertEquals(1, VMOUTUtil.getCallCount(PlainFileLineIterator.class,
-                "<init>"));
-        List arguments = VMOUTUtil.getArguments(PlainFileLineIterator.class,
-                "<init>", 0);
-        assertSame(fileName, arguments.get(0));
-        assertSame(clazz, arguments.get(1));
-        assertSame(columnParserMap, arguments.get(2));
+        assertSame(fileName, UTUtil.getPrivateField(result, "fileName"));
+        assertSame(clazz, UTUtil.getPrivateField(result, "clazz"));
+        assertSame(columnParserMap, UTUtil.getPrivateField(result, "columnParserMap"));
     }
 
 }

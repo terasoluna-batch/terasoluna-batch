@@ -1,7 +1,7 @@
 /*
  * $Id:$
  *
- * Copyright (c) 2006 NTT DATA Corporation
+ * Copyright (c) 2006-2015 NTT DATA Corporation
  *
  */
 
@@ -16,18 +16,17 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import jp.terasoluna.fw.file.annotation.NullStringConverter;
 import jp.terasoluna.fw.file.annotation.PaddingType;
 import jp.terasoluna.fw.file.dao.FileException;
-import jp.terasoluna.fw.file.ut.VMOUTUtil;
 import jp.terasoluna.utlib.UTUtil;
 
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mockito;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.VariableFileLineWriter} クラスのテスト。
@@ -44,17 +43,8 @@ public class VariableFileLineWriterTest {
     private static final String TEMP_FILE_NAME = VariableFileLineWriterTest.class
             .getResource("VariableFileLineWriterTest_tmp.txt").getPath();
 
-    /**
-     * このテストケースを実行する為の GUI アプリケーションを起動する。
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        // junit.swingui.TestRunner.run(VariableFileLineWriterTest.class);
-    }
-
     @Before
     public void setUp() throws Exception {
-        VMOUTUtil.initialize();
         // ファイルの初期化
         File file = new File(TEMP_FILE_NAME);
         file.delete();
@@ -115,16 +105,6 @@ public class VariableFileLineWriterTest {
             // なし
 
             // 状態変化の確認
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "init"));
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "<init>"));
-            List arguments = VMOUTUtil.getArguments(
-                    AbstractFileLineWriter.class, "<init>", 0);
-            assertEquals(3, arguments.size());
-            assertEquals(fileName, arguments.get(0));
-            assertEquals(VariableFileLineWriter_Stub01.class, arguments.get(1));
-            assertEquals(columnFormatterMap, arguments.get(2));
             assertEquals(Character.MIN_VALUE, UTUtil.getPrivateField(result,
                     "encloseChar"));
             assertEquals(',', UTUtil.getPrivateField(result, "delimiter"));
@@ -171,7 +151,6 @@ public class VariableFileLineWriterTest {
 
         // 前提条件の設定
         // なし
-
         try {
             // テスト実施
             new VariableFileLineWriter<VariableFileLineWriter_Stub04>(fileName,
@@ -182,17 +161,6 @@ public class VariableFileLineWriterTest {
             // なし
 
             // 状態変化の確認
-            assertEquals(0, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "init"));
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "<init>"));
-            List arguments = VMOUTUtil.getArguments(
-                    AbstractFileLineWriter.class, "<init>", 0);
-            assertEquals(3, arguments.size());
-            assertEquals(fileName, arguments.get(0));
-            assertEquals(VariableFileLineWriter_Stub04.class, arguments.get(1));
-            assertEquals(columnFormatterMap, arguments.get(2));
-
             assertEquals(FileException.class, e.getClass());
             assertEquals("Delimiter can not use '\\u0000'.", e.getMessage());
             assertEquals(IllegalStateException.class, e.getCause().getClass());
@@ -246,16 +214,6 @@ public class VariableFileLineWriterTest {
             // なし
 
             // 状態変化の確認
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "init"));
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "<init>"));
-            List arguments = VMOUTUtil.getArguments(
-                    AbstractFileLineWriter.class, "<init>", 0);
-            assertEquals(3, arguments.size());
-            assertEquals(fileName, arguments.get(0));
-            assertEquals(VariableFileLineWriter_Stub07.class, arguments.get(1));
-            assertEquals(columnFormatterMap, arguments.get(2));
             assertEquals('"', UTUtil.getPrivateField(result, "encloseChar"));
             assertEquals('#', UTUtil.getPrivateField(result, "delimiter"));
         } finally {
@@ -358,8 +316,6 @@ public class VariableFileLineWriterTest {
      * (状態) this.encloseChar:Charcator.MIN_VALUE<br>
      * <br>
      * 期待値：(戻り値) String:abcdef<br>
-     * (状態変化) AbstractFileLineWriter#getColumn():1回呼び出されること<br>
-     * 引数が渡されること<br>
      * <br>
      * 正しく値を取得することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
@@ -371,9 +327,9 @@ public class VariableFileLineWriterTest {
         String fileName = TEMP_FILE_NAME;
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
-        VariableFileLineWriter<VariableFileLineWriter_Stub05> lineWriter = new VariableFileLineWriter<VariableFileLineWriter_Stub05>(
+        VariableFileLineWriter<VariableFileLineWriter_Stub05> lineWriter = Mockito.spy(new VariableFileLineWriter<VariableFileLineWriter_Stub05>(
                 fileName, VariableFileLineWriter_Stub05.class,
-                columnFormatterMap);
+                columnFormatterMap));
 
         // 引数の設定
         VariableFileLineWriter_Stub05 t = new VariableFileLineWriter_Stub05();
@@ -388,14 +344,6 @@ public class VariableFileLineWriterTest {
             String result = lineWriter.getColumn(t, index);
             // 返却値の確認
             assertEquals("abcdef", result);
-
-            // 状態変化の確認
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "getColumn"));
-            List arguments = VMOUTUtil.getArguments(
-                    AbstractFileLineWriter.class, "getColumn", 0);
-            assertSame(t, arguments.get(0));
-            assertEquals(index, arguments.get(1));
         } finally {
             // テスト対象のクローズ処理
             lineWriter.closeFile();
@@ -414,8 +362,6 @@ public class VariableFileLineWriterTest {
      * (状態) this.encloseChar:'\"'<br>
      * <br>
      * 期待値：(戻り値) String:abcdef<br>
-     * (状態変化) AbstractFileLineWriter#getColumn():1回呼び出されること<br>
-     * 引数が渡されること<br>
      * <br>
      * 正しく値を取得することを確認する。<br>
      * 出力対象にエスケープ対象の文字（囲み文字）が無い場合は通常の文字 <br>
@@ -447,14 +393,6 @@ public class VariableFileLineWriterTest {
 
             // 返却値の確認
             assertEquals("abcdef", result);
-
-            // 状態変化の確認
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "getColumn"));
-            List arguments = VMOUTUtil.getArguments(
-                    AbstractFileLineWriter.class, "getColumn", 0);
-            assertSame(t, arguments.get(0));
-            assertEquals(index, arguments.get(1));
         } finally {
             // テスト対象のクローズ処理
             lineWriter.closeFile();
@@ -473,8 +411,6 @@ public class VariableFileLineWriterTest {
      * (状態) this.encloseChar:'\"'<br>
      * <br>
      * 期待値：(戻り値) String:"ab\"\"cdef"<br>
-     * (状態変化) AbstractFileLineWriter#getColumn():1回呼び出されること<br>
-     * 引数が渡されること<br>
      * <br>
      * 正しく値を取得することを確認する。<br>
      * 出力対象にエスケープ対象の文字（囲み文字）がある場合に、エスケープされる <br>
@@ -505,14 +441,6 @@ public class VariableFileLineWriterTest {
 
             // 返却値の確認
             assertEquals("ab\"\"cdef", result);
-
-            // 状態変化の確認
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "getColumn"));
-            List arguments = VMOUTUtil.getArguments(
-                    AbstractFileLineWriter.class, "getColumn", 0);
-            assertSame(t, arguments.get(0));
-            assertEquals(index, arguments.get(1));
         } finally {
             // テスト対象のクローズ処理
             lineWriter.closeFile();
@@ -576,8 +504,6 @@ public class VariableFileLineWriterTest {
      * (状態) this.encloseChar:'\"'<br>
      * <br>
      * 期待値：(戻り値) String:aaabbb<br>
-     * (状態変化) AbstractFileLineWriter#getColumn():1回呼び出されること<br>
-     * 引数が渡されること<br>
      * <br>
      * indexの値に紐づくカラムの値（囲み文字なしの場合）が取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
@@ -608,14 +534,6 @@ public class VariableFileLineWriterTest {
 
             // 返却値の確認
             assertEquals("aaabbb", result);
-
-            // 状態変化の確認
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "getColumn"));
-            List arguments = VMOUTUtil.getArguments(
-                    AbstractFileLineWriter.class, "getColumn", 0);
-            assertSame(t, arguments.get(0));
-            assertEquals(index, arguments.get(1));
         } finally {
             // テスト対象のクローズ処理
             lineWriter.closeFile();

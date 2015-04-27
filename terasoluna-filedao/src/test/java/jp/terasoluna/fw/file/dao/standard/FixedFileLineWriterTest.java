@@ -1,14 +1,13 @@
 /*
  * $Id: FixedFileLineWriterTest.java 5576 2007-11-15 13:13:32Z pakucn $
  *
- * Copyright (c) 2006 NTT DATA Corporation
+ * Copyright (c) 2006-2015 NTT DATA Corporation
  *
  */
 
 package jp.terasoluna.fw.file.dao.standard;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
@@ -19,19 +18,18 @@ import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import jp.terasoluna.fw.file.annotation.NullStringConverter;
 import jp.terasoluna.fw.file.annotation.OutputFileColumn;
 import jp.terasoluna.fw.file.annotation.PaddingType;
 import jp.terasoluna.fw.file.dao.FileException;
-import jp.terasoluna.fw.file.ut.VMOUTUtil;
 import jp.terasoluna.utlib.UTUtil;
 
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mockito;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.FixedFileLineWriter} クラスのテスト。
@@ -48,17 +46,8 @@ public class FixedFileLineWriterTest {
     private static final String TEMP_FILE_NAME = FixedFileLineWriterTest.class
             .getResource("FixedFileLineWriterTest_tmp.txt").getPath();
 
-    /**
-     * このテストケースを実行する為の GUI アプリケーションを起動する。
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        // junit.swingui.TestRunner.run(FixedFileLineWriterTest.class);
-    }
-
     @Before
     public void setUp() throws Exception {
-        VMOUTUtil.initialize();
         // ファイルの初期化
         File file = new File(TEMP_FILE_NAME);
         file.delete();
@@ -110,21 +99,16 @@ public class FixedFileLineWriterTest {
         // 前提条件なし
 
         // テスト実施
-        FixedFileLineWriter<FixedFileLineWriter_Stub01> fileWriter = new FixedFileLineWriter<FixedFileLineWriter_Stub01>(
-                fileName, clazz, columnFormatterMap);
+        FixedFileLineWriter<FixedFileLineWriter_Stub01> fileWriter = Mockito.spy(
+                new FixedFileLineWriter<FixedFileLineWriter_Stub01>(
+                    fileName, clazz, columnFormatterMap));
 
         // 返却値なし
 
         // 状態変化の確認
-        assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
-                "<init>"));
-        List arguments = VMOUTUtil.getArguments(AbstractFileLineWriter.class,
-                "<init>", 0);
-        assertEquals(fileName, arguments.get(0));
-        assertEquals(clazz, arguments.get(1));
-        assertSame(columnFormatterMap, arguments.get(2));
-        assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
-                "init"));
+        assertEquals(fileName, UTUtil.getPrivateField(fileWriter, "fileName"));
+        assertEquals(clazz, UTUtil.getPrivateField(fileWriter, "clazz"));
+        assertSame(columnFormatterMap, UTUtil.getPrivateField(fileWriter, "columnFormatterMap"));
 
         // クローズ処理
         fileWriter.closeFile();
@@ -176,16 +160,6 @@ public class FixedFileLineWriterTest {
             // 返却値なし
 
             // 状態変化の確認]
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "<init>"));
-            List arguments = VMOUTUtil.getArguments(
-                    AbstractFileLineWriter.class, "<init>", 0);
-            assertEquals(fileName, arguments.get(0));
-            assertEquals(FixedFileLineWriter_Stub02.class, arguments.get(1));
-            assertSame(columnFormatterMap, arguments.get(2));
-            assertFalse(VMOUTUtil
-                    .isCalled(AbstractFileLineWriter.class, "init"));
-
             assertEquals("Delimiter can not change.", e.getMessage());
             assertEquals(fileName, e.getFileName());
             assertEquals(IllegalStateException.class, e.getCause().getClass());
@@ -241,15 +215,6 @@ public class FixedFileLineWriterTest {
             // 返却値なし
 
             // 状態変化の確認
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "<init>"));
-            List arguments = VMOUTUtil.getArguments(
-                    AbstractFileLineWriter.class, "<init>", 0);
-            assertEquals(fileName, arguments.get(0));
-            assertEquals(FixedFileLineWriter_Stub03.class, arguments.get(1));
-            assertSame(columnFormatterMap, arguments.get(2));
-            assertFalse(VMOUTUtil
-                    .isCalled(AbstractFileLineWriter.class, "init"));
             assertEquals("EncloseChar can not change.", e.getMessage());
             assertEquals(fileName, e.getFileName());
             assertEquals(IllegalStateException.class, e.getCause().getClass());
@@ -294,21 +259,15 @@ public class FixedFileLineWriterTest {
         // 前提条件なし
 
         // テスト実施
-        FixedFileLineWriter<FixedFileLineWriter_Stub01> fileWriter = new FixedFileLineWriter<FixedFileLineWriter_Stub01>(
-                fileName, clazz, columnFormatterMap);
+        FixedFileLineWriter<FixedFileLineWriter_Stub01> fileWriter = Mockito.spy(
+                new FixedFileLineWriter<FixedFileLineWriter_Stub01>(fileName, clazz, columnFormatterMap));
 
         // 返却値なし
 
         // 状態変化の確認
-        assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
-                "<init>"));
-        List arguments = VMOUTUtil.getArguments(AbstractFileLineWriter.class,
-                "<init>", 0);
-        assertEquals(fileName, arguments.get(0));
-        assertEquals(clazz, arguments.get(1));
-        assertSame(columnFormatterMap, arguments.get(2));
-        assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
-                "init"));
+        assertEquals(fileName, UTUtil.getPrivateField(fileWriter, "fileName"));
+        assertEquals(clazz, UTUtil.getPrivateField(fileWriter, "clazz"));
+        assertSame(columnFormatterMap, UTUtil.getPrivateField(fileWriter, "columnFormatterMap"));
 
         // クローズ処理
         fileWriter.closeFile();

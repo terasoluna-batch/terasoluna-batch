@@ -1,7 +1,7 @@
 /*
  * $Id: DateColumnFormatterTest.java 5354 2007-10-03 06:06:25Z anh $
  * 
- * Copyright (c) 2006 NTT DATA Corporation
+ * Copyright (c) 2006-2015 NTT DATA Corporation
  * 
  */
 
@@ -10,13 +10,18 @@ package jp.terasoluna.fw.file.dao.standard;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Date;
-import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import jp.terasoluna.fw.file.ut.VMOUTUtil;
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mockito;
+import org.powermock.api.mockito.PowerMockito;
+import org.powermock.core.classloader.annotations.PrepareForTest;
+import org.powermock.modules.junit4.PowerMockRunner;
+
+import static org.junit.Assert.*;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.DateColumnFormatter} クラスのテスト。
@@ -26,44 +31,9 @@ import junit.framework.TestCase;
  * @author 奥田哲司
  * @see jp.terasoluna.fw.file.dao.standard.DateColumnFormatter
  */
-public class DateColumnFormatterTest extends TestCase {
-
-    /**
-     * このテストケースを実行する為の GUI アプリケーションを起動する。
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        // junit.swingui.TestRunner.run(DateColumnFormatterTest.class);
-    }
-
-    /**
-     * 初期化処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
-     */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-        VMOUTUtil.initialize();
-    }
-
-    /**
-     * 終了処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * @param name このテストケースの名前。
-     */
-    public DateColumnFormatterTest(String name) {
-        super(name);
-    }
+@RunWith(PowerMockRunner.class)
+@PrepareForTest({DateColumnFormatter.class, DateFormatLocal.class})
+public class DateColumnFormatterTest {
 
     /**
      * testFormat01() <br>
@@ -92,6 +62,7 @@ public class DateColumnFormatterTest extends TestCase {
      * 。マップにフォーマット用の文字列をキャッシュする。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testFormat01() throws Exception {
         // テスト対象のインスタンス化
@@ -104,8 +75,11 @@ public class DateColumnFormatterTest extends TestCase {
         String columnFormat = null;
 
         // 前提条件の設定
-        Map<String, DateFormatLocal> map = new ConcurrentHashMap<String, DateFormatLocal>();
+        Map<String, DateFormatLocal> map = Mockito.spy(new ConcurrentHashMap<String, DateFormatLocal>());
         UTUtil.setPrivateField(columnFormatter, "map", map);
+
+        DateFormatLocal dfl = new DateFormatLocal("yyyyMMdd");
+        PowerMockito.whenNew(DateFormatLocal.class).withArguments("yyyyMMdd").thenReturn(dfl);
 
         // テスト実施
         String testResult = columnFormatter.format(stub, method, columnFormat);
@@ -114,17 +88,8 @@ public class DateColumnFormatterTest extends TestCase {
         assertEquals("19700101", testResult);
 
         // 状態変化の確認
-        assertEquals(1, VMOUTUtil.getCallCount(Map.class, "get"));
-        assertEquals("yyyyMMdd", VMOUTUtil.getArgument(Map.class, "get", 0, 0));
-        assertEquals(1, VMOUTUtil.getCallCount(Map.class, "put"));
-        List arguments = VMOUTUtil.getArguments(Map.class, "put", 0);
-        assertEquals("yyyyMMdd", arguments.get(0));
-        assertTrue(arguments.get(1) instanceof DateFormatLocal);
-        Map getMap = (Map) UTUtil.getPrivateField(columnFormatter, "map");
-        assertEquals(1, getMap.size());
-        assertEquals(1, VMOUTUtil.getCallCount(DateFormatLocal.class, "<init>"));
-        assertEquals("yyyyMMdd", VMOUTUtil.getArgument(DateFormatLocal.class,
-                "<init>", 0, 0));
+        Mockito.verify(map).get("yyyyMMdd");
+        Mockito.verify(map).put(Mockito.eq("yyyyMMdd"), Mockito.any(DateFormatLocal.class));
     }
 
     /**
@@ -154,6 +119,7 @@ public class DateColumnFormatterTest extends TestCase {
      * ファイル行オブジェクトからDate型属性に格納されているオブジェクトの文字列を取得することができることを確認する。マップから取得したフォーマット用の文字列で設定されたとおりに出力されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testFormat02() throws Exception {
         // テスト対象のインスタンス化
         ColumnFormatter columnFormatter = new DateColumnFormatter();
@@ -165,11 +131,12 @@ public class DateColumnFormatterTest extends TestCase {
         String columnFormat = "";
 
         // 前提条件の設定
-        Map<String, DateFormatLocal> map = new ConcurrentHashMap<String, DateFormatLocal>();
+        Map<String, DateFormatLocal> map = Mockito.spy(new ConcurrentHashMap<String, DateFormatLocal>());
         map.put("yyyyMMdd", new DateFormatLocal("yyyyMMdd"));
         UTUtil.setPrivateField(columnFormatter, "map", map);
 
-        VMOUTUtil.initialize();
+        DateFormatLocal dfl = new DateFormatLocal("yyyyMMdd");
+        PowerMockito.whenNew(DateFormatLocal.class).withArguments("yyyyMMdd").thenReturn(dfl);
 
         // テスト実施
         String testResult = columnFormatter.format(stub, method, columnFormat);
@@ -177,11 +144,11 @@ public class DateColumnFormatterTest extends TestCase {
         // 返却値の確認
         assertEquals("19700101", testResult);
 
+
         // 状態変化の確認
-        assertEquals(1, VMOUTUtil.getCallCount(Map.class, "get"));
-        assertEquals("yyyyMMdd", VMOUTUtil.getArgument(Map.class, "get", 0, 0));
-        assertFalse(VMOUTUtil.isCalled(Map.class, "put"));
-        assertFalse(VMOUTUtil.isCalled(DateFormatLocal.class, "<init>"));
+        Mockito.verify(map).get("yyyyMMdd");
+        Mockito.verify(map).put(Mockito.anyString(), Mockito.any(DateFormatLocal.class));
+        PowerMockito.verifyNew(DateFormatLocal.class, Mockito.never()).withArguments("yyyyMMdd");
     }
 
     /**
@@ -213,6 +180,7 @@ public class DateColumnFormatterTest extends TestCase {
      * 。マップにフォーマット用の文字列をキャッシュする。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testFormat03() throws Exception {
         // テスト対象のインスタンス化
@@ -225,11 +193,12 @@ public class DateColumnFormatterTest extends TestCase {
         String columnFormat = "";
 
         // 前提条件の設定
-        Map<String, DateFormatLocal> map = new ConcurrentHashMap<String, DateFormatLocal>();
+        Map<String, DateFormatLocal> map = Mockito.spy(new ConcurrentHashMap<String, DateFormatLocal>());
         map.put("yyyy-MM-dd", new DateFormatLocal("yyyy-MM-dd"));
         UTUtil.setPrivateField(columnFormatter, "map", map);
 
-        VMOUTUtil.initialize();
+        DateFormatLocal dfl = new DateFormatLocal("yyyyMMdd");
+        PowerMockito.whenNew(DateFormatLocal.class).withArguments("yyyyMMdd").thenReturn(dfl);
 
         // テスト実施
         String testResult = columnFormatter.format(stub, method, columnFormat);
@@ -238,17 +207,11 @@ public class DateColumnFormatterTest extends TestCase {
         assertEquals("19700101", testResult);
 
         // 状態変化の確認
-        assertEquals(1, VMOUTUtil.getCallCount(Map.class, "get"));
-        assertEquals("yyyyMMdd", VMOUTUtil.getArgument(Map.class, "get", 0, 0));
-        assertEquals(1, VMOUTUtil.getCallCount(Map.class, "put"));
-        List arguments = VMOUTUtil.getArguments(Map.class, "put", 0);
-        assertEquals("yyyyMMdd", arguments.get(0));
-        assertTrue(arguments.get(1) instanceof DateFormatLocal);
+        Mockito.verify(map).get("yyyyMMdd");
+        Mockito.verify(map).put(Mockito.eq("yyyyMMdd"), Mockito.any(DateFormatLocal.class));
         Map getMap = (Map) UTUtil.getPrivateField(columnFormatter, "map");
         assertEquals(2, getMap.size());
-        assertEquals(1, VMOUTUtil.getCallCount(DateFormatLocal.class, "<init>"));
-        assertEquals("yyyyMMdd", VMOUTUtil.getArgument(DateFormatLocal.class,
-                "<init>", 0, 0));
+        PowerMockito.verifyNew(DateFormatLocal.class).withArguments("yyyyMMdd");
     }
 
     /**
@@ -277,6 +240,7 @@ public class DateColumnFormatterTest extends TestCase {
      * ファイル行オブジェクトからDate型属性に格納されているオブジェクトの文字列を取得することができることを確認する。フォーマット用の文字列で設定されたとおりに出力されることを確認する。マップにフォーマット用の文字列をキャッシュする。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testFormat04() throws Exception {
         // テスト対象のインスタンス化
@@ -289,8 +253,11 @@ public class DateColumnFormatterTest extends TestCase {
         String columnFormat = "yyyy/MM/dd";
 
         // 前提条件の設定
-        Map<String, DateFormatLocal> map = new ConcurrentHashMap<String, DateFormatLocal>();
+        Map<String, DateFormatLocal> map = Mockito.spy(new ConcurrentHashMap<String, DateFormatLocal>());
         UTUtil.setPrivateField(columnFormatter, "map", map);
+
+        DateFormatLocal dfl = new DateFormatLocal("yyyy/MM/dd");
+        PowerMockito.whenNew(DateFormatLocal.class).withArguments("yyyy/MM/dd").thenReturn(dfl);
 
         // テスト実施
         String testResult = columnFormatter.format(stub, method, columnFormat);
@@ -299,18 +266,11 @@ public class DateColumnFormatterTest extends TestCase {
         assertEquals("1970/01/01", testResult);
 
         // 状態変化の確認
-        assertEquals(1, VMOUTUtil.getCallCount(Map.class, "get"));
-        assertEquals(columnFormat, VMOUTUtil
-                .getArgument(Map.class, "get", 0, 0));
-        assertEquals(1, VMOUTUtil.getCallCount(Map.class, "put"));
-        List arguments = VMOUTUtil.getArguments(Map.class, "put", 0);
-        assertEquals(columnFormat, arguments.get(0));
-        assertTrue(arguments.get(1) instanceof DateFormatLocal);
+        Mockito.verify(map).get(columnFormat);
+        Mockito.verify(map).put(Mockito.eq(columnFormat), Mockito.any(DateFormatLocal.class));
         Map getMap = (Map) UTUtil.getPrivateField(columnFormatter, "map");
         assertEquals(1, getMap.size());
-        assertEquals(1, VMOUTUtil.getCallCount(DateFormatLocal.class, "<init>"));
-        assertEquals(columnFormat, VMOUTUtil.getArgument(DateFormatLocal.class,
-                "<init>", 0, 0));
+        PowerMockito.verifyNew(DateFormatLocal.class).withArguments("yyyy/MM/dd");
     }
 
     /**
@@ -340,7 +300,7 @@ public class DateColumnFormatterTest extends TestCase {
      * ファイル行オブジェクトからDate型属性に格納されているオブジェクトの文字列を取得することができることを確認する。マップから取得したフォーマット用の文字列で設定されたとおりに出力されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-
+    @Test
     public void testFormat05() throws Exception {
         // テスト対象のインスタンス化
         ColumnFormatter columnFormatter = new DateColumnFormatter();
@@ -352,11 +312,12 @@ public class DateColumnFormatterTest extends TestCase {
         String columnFormat = "yyyy/MM/dd";
 
         // 前提条件の設定
-        Map<String, DateFormatLocal> map = new ConcurrentHashMap<String, DateFormatLocal>();
+        Map<String, DateFormatLocal> map = Mockito.spy(new ConcurrentHashMap<String, DateFormatLocal>());
         map.put(columnFormat, new DateFormatLocal(columnFormat));
         UTUtil.setPrivateField(columnFormatter, "map", map);
 
-        VMOUTUtil.initialize();
+        DateFormatLocal dfl = new DateFormatLocal("yyyy/MM/dd");
+        PowerMockito.whenNew(DateFormatLocal.class).withArguments("yyyy/MM/dd").thenReturn(dfl);
 
         // テスト実施
         String testResult = columnFormatter.format(stub, method, columnFormat);
@@ -365,11 +326,9 @@ public class DateColumnFormatterTest extends TestCase {
         assertEquals("1970/01/01", testResult);
 
         // 状態変化の確認
-        assertEquals(1, VMOUTUtil.getCallCount(Map.class, "get"));
-        assertEquals(columnFormat, VMOUTUtil
-                .getArgument(Map.class, "get", 0, 0));
-        assertFalse(VMOUTUtil.isCalled(Map.class, "put"));
-        assertFalse(VMOUTUtil.isCalled(DateFormatLocal.class, "<init>"));
+        Mockito.verify(map).get(columnFormat);
+        Mockito.verify(map).put(Mockito.anyString(), Mockito.any(DateFormatLocal.class));
+        PowerMockito.verifyNew(DateFormatLocal.class, Mockito.never()).withArguments("yyyy/MM/dd");
     }
 
     /**
@@ -399,6 +358,7 @@ public class DateColumnFormatterTest extends TestCase {
      * ファイル行オブジェクトからDate型属性に格納されているオブジェクトの文字列を取得することができることを確認する。フォーマット用の文字列で設定されたとおりに出力されることを確認する。マップにフォーマット用の文字列をキャッシュする。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testFormat06() throws Exception {
         // テスト対象のインスタンス化
@@ -411,11 +371,12 @@ public class DateColumnFormatterTest extends TestCase {
         String columnFormat = "yyyy/MM/dd";
 
         // 前提条件の設定
-        Map<String, DateFormatLocal> map = new ConcurrentHashMap<String, DateFormatLocal>();
+        Map<String, DateFormatLocal> map = Mockito.spy(new ConcurrentHashMap<String, DateFormatLocal>());
         map.put("yyyy-MM-dd", new DateFormatLocal("yyyy-MM-dd"));
         UTUtil.setPrivateField(columnFormatter, "map", map);
 
-        VMOUTUtil.initialize();
+        DateFormatLocal dfl = new DateFormatLocal("yyyy/MM/dd");
+        PowerMockito.whenNew(DateFormatLocal.class).withArguments("yyyy/MM/dd").thenReturn(dfl);
 
         // テスト実施
         String testResult = columnFormatter.format(stub, method, columnFormat);
@@ -424,18 +385,11 @@ public class DateColumnFormatterTest extends TestCase {
         assertEquals("1970/01/01", testResult);
 
         // 状態変化の確認
-        assertEquals(1, VMOUTUtil.getCallCount(Map.class, "get"));
-        assertEquals(columnFormat, VMOUTUtil
-                .getArgument(Map.class, "get", 0, 0));
-        assertEquals(1, VMOUTUtil.getCallCount(Map.class, "put"));
-        List arguments = VMOUTUtil.getArguments(Map.class, "put", 0);
-        assertEquals(columnFormat, arguments.get(0));
-        assertTrue(arguments.get(1) instanceof DateFormatLocal);
+        Mockito.verify(map).get(columnFormat);
+        Mockito.verify(map).put(Mockito.eq(columnFormat), Mockito.any(DateFormatLocal.class));
         Map getMap = (Map) UTUtil.getPrivateField(columnFormatter, "map");
         assertEquals(2, getMap.size());
-        assertEquals(1, VMOUTUtil.getCallCount(DateFormatLocal.class, "<init>"));
-        assertEquals(columnFormat, VMOUTUtil.getArgument(DateFormatLocal.class,
-                "<init>", 0, 0));
+        PowerMockito.verifyNew(DateFormatLocal.class).withArguments("yyyy/MM/dd");
     }
 
     /**
@@ -460,7 +414,7 @@ public class DateColumnFormatterTest extends TestCase {
      * ファイル行オブジェクトのDate型属性のgetterメソッドにアクセスできない場合、IllegalAccessExceptionをスローすることを確認する <br>
      * @throws Exception このメソッドで発生した例外
      */
-
+    @Test
     public void testFormat07() throws Exception {
         // テスト対象のインスタンス化
         ColumnFormatter columnFormatter = new DateColumnFormatter();
@@ -507,7 +461,7 @@ public class DateColumnFormatterTest extends TestCase {
      * ファイル行オブジェクトのDate型属性のgetterメソッドが例外をスローする場合、getterメソッドがスローした例外をラップするInvocationTargetExceptionをスローすることを確認する <br>
      * @throws Exception このメソッドで発生した例外
      */
-
+    @Test
     public void testFormat08() throws Exception {
         // テスト対象のインスタンス化
         ColumnFormatter columnFormatter = new DateColumnFormatter();
@@ -553,7 +507,7 @@ public class DateColumnFormatterTest extends TestCase {
      * ファイル行オブジェクトのDate型属性のgetterメソッドが多数の引数を持つ場合、IllegalArgumentExceptionをスローすることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-
+    @Test
     public void testFormat09() throws Exception {
         // テスト対象のインスタンス化
         ColumnFormatter columnFormatter = new DateColumnFormatter();
@@ -600,7 +554,7 @@ public class DateColumnFormatterTest extends TestCase {
      * columnFormatに正しくない日付パターンを入れた場合は、IllegalArgumentExceptionがスローされることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-
+    @Test
     public void testFormat10() throws Exception {
         // テスト対象のインスタンス化
         ColumnFormatter columnFormatter = new DateColumnFormatter();
@@ -653,7 +607,7 @@ public class DateColumnFormatterTest extends TestCase {
      * 引数tのDate型フィールドにnullが設定されていた場合は、空文字が返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-
+    @Test
     public void testFormat11() throws Exception {
         // テスト対象のインスタンス化
         ColumnFormatter columnFormatter = new DateColumnFormatter();
@@ -664,8 +618,11 @@ public class DateColumnFormatterTest extends TestCase {
         String columnFormat = "yyyy/MM/dd";
 
         // 前提条件の設定
-        Map<String, DateFormatLocal> map = new ConcurrentHashMap<String, DateFormatLocal>();
+        Map<String, DateFormatLocal> map = Mockito.spy(new ConcurrentHashMap<String, DateFormatLocal>());
         UTUtil.setPrivateField(columnFormatter, "map", map);
+
+        DateFormatLocal dfl = new DateFormatLocal("yyyy/MM/dd");
+        PowerMockito.whenNew(DateFormatLocal.class).withArguments("yyyy/MM/dd").thenReturn(dfl);
 
         // テスト実施
         String testResult = columnFormatter.format(stub, method, columnFormat);
@@ -674,9 +631,9 @@ public class DateColumnFormatterTest extends TestCase {
         assertEquals("", testResult);
 
         // 状態変化の確認
-        assertFalse(VMOUTUtil.isCalled(Map.class, "get"));
-        assertFalse(VMOUTUtil.isCalled(Map.class, "put"));
-        assertFalse(VMOUTUtil.isCalled(DateFormatLocal.class, "<init>"));
+        Mockito.verify(map, Mockito.never()).get(Mockito.anyString());
+        Mockito.verify(map, Mockito.never()).put(Mockito.anyString(), Mockito.any(DateFormatLocal.class));
+        PowerMockito.verifyNew(DateFormatLocal.class, Mockito.never()).withArguments("yyyy/MM/dd");
     }
 
     /**

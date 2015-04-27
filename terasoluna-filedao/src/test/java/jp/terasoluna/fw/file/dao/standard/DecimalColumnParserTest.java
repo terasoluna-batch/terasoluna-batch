@@ -1,7 +1,7 @@
 /*
  * $Id: DecimalColumnParserTest.java 5354 2007-10-03 06:06:25Z anh $
  *
- * Copyright (c) 2006 NTT DATA Corporation
+ * Copyright (c) 2006-2015 NTT DATA Corporation
  *
  */
 
@@ -13,9 +13,16 @@ import java.math.BigDecimal;
 import java.text.ParseException;
 import java.util.concurrent.ConcurrentHashMap;
 
-import jp.terasoluna.fw.file.ut.VMOUTUtil;
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mockito;
+import org.powermock.api.mockito.PowerMockito;
+import org.powermock.core.classloader.annotations.PrepareForTest;
+import org.powermock.modules.junit4.PowerMockRunner;
+
+import static junit.framework.TestCase.assertNotNull;
+import static org.junit.Assert.*;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.DecimalColumnParser} クラスのテスト。
@@ -26,44 +33,9 @@ import junit.framework.TestCase;
  * @author 奥田 哲司
  * @see jp.terasoluna.fw.file.dao.standard.DecimalColumnParser
  */
-public class DecimalColumnParserTest extends TestCase {
-
-    /**
-     * このテストケースを実行する為の GUI アプリケーションを起動する。
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        // junit.swingui.TestRunner.run(DecimalColumnParserTest.class);
-    }
-
-    /**
-     * 初期化処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
-     */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-        VMOUTUtil.initialize();
-    }
-
-    /**
-     * 終了処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * @param name このテストケースの名前。
-     */
-    public DecimalColumnParserTest(String name) {
-        super(name);
-    }
+@RunWith(PowerMockRunner.class)
+@PrepareForTest(DecimalColumnParser.class)
+public class DecimalColumnParserTest {
 
     /**
      * testParse01() <br>
@@ -92,6 +64,7 @@ public class DecimalColumnParserTest extends TestCase {
      * フォーマット用の文字列がnullの場合、 かつフィールドのsetterメソッドが正しく設定されている場合に、 引数の文字列が正しくBigDecimalに変換されて格納されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse01() throws Exception {
         // 前処理
         DecimalColumnParser decimalColumnParser = new DecimalColumnParser();
@@ -143,6 +116,7 @@ public class DecimalColumnParserTest extends TestCase {
      * フォーマット用の文字列がある場合、 かつフィールドのsetterメソッドが正しく設定されている場合に、 引数の文字列が正しくフォーマットに従ってBigDecimalに変換されて格納されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse02() throws Exception {
         // 前処理
         DecimalColumnParser decimalColumnParser = new DecimalColumnParser();
@@ -196,6 +170,7 @@ public class DecimalColumnParserTest extends TestCase {
      * フォーマット文字列でパーシングできないデータが渡された場合、 ParseExceptionが発生することを確認する <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse03() throws Exception {
         // 前処理
         DecimalColumnParser decimalColumnParser = new DecimalColumnParser();
@@ -248,6 +223,7 @@ public class DecimalColumnParserTest extends TestCase {
      * フィールドのsetterメソッドがprivateで宣言された場合、 IllegalAccessExceptionが発生することを確認する <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse04() throws Exception {
         // 前処理
         DecimalColumnParser decimalColumnParser = new DecimalColumnParser();
@@ -300,6 +276,7 @@ public class DecimalColumnParserTest extends TestCase {
      * フィールドのsetterメソッドの処理で例外が発生した場合、 IvocationTargetExceptionが発生することを確認する <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse05() throws Exception {
         // 前処理
         DecimalColumnParser decimalColumnParser = new DecimalColumnParser();
@@ -352,6 +329,7 @@ public class DecimalColumnParserTest extends TestCase {
      * フィールドのsetterメソッドが引数でBigDecimal型１つ以外を持つ場合、 llegalArgumentExceptionが発生することを確認する <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse06() throws Exception {
         // 前処理
         DecimalColumnParser decimalColumnParser = new DecimalColumnParser();
@@ -405,6 +383,7 @@ public class DecimalColumnParserTest extends TestCase {
      * 引数がnullの場合、NullPointerExceptionが発生することを確認する <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse07() throws Exception {
         // 前処理
         DecimalColumnParser decimalColumnParser = new DecimalColumnParser();
@@ -457,6 +436,7 @@ public class DecimalColumnParserTest extends TestCase {
      * 引数が数字ではない場合、ParseExceptionが発生することを確認する <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse08() throws Exception {
         // 前処理
         DecimalColumnParser decimalColumnParser = new DecimalColumnParser();
@@ -511,6 +491,7 @@ public class DecimalColumnParserTest extends TestCase {
      * フォーマット用の文字列が空文字の場合、 かつフィールドのsetterメソッドが正しく設定されている場合に、 引数の文字列が正しくBigDecimalに変換されて格納されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse09() throws Exception {
         // 前処理
         DecimalColumnParser decimalColumnParser = new DecimalColumnParser();
@@ -565,6 +546,7 @@ public class DecimalColumnParserTest extends TestCase {
      * また、新しく生成されたフォーマット用の文字列に対する DecimalFormatLocalがキャッシュされることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse10() throws Exception {
         // 前処理
         DecimalColumnParser decimalColumnParser = new DecimalColumnParser();
@@ -584,6 +566,9 @@ public class DecimalColumnParserTest extends TestCase {
         UTUtil.setPrivateField(decimalColumnParser, "dfMap", dfMap);
         dfMap.clear();
 
+        DecimalFormatLocal dfl = Mockito.spy(new DecimalFormatLocal(columnFormat));
+        PowerMockito.whenNew(DecimalFormatLocal.class).withArguments(columnFormat).thenReturn(dfl);
+
         // テスト実施
         decimalColumnParser.parse(column, stub, method, columnFormat);
 
@@ -600,8 +585,7 @@ public class DecimalColumnParserTest extends TestCase {
         assertEquals(columnFormat, UTUtil
                 .getPrivateField(dfMapValue, "pattern"));
 
-        assertEquals(1, VMOUTUtil.getCallCount(DecimalFormatLocal.class,
-                "<init>"));
+        PowerMockito.verifyNew(DecimalFormatLocal.class).withArguments(columnFormat);
     }
 
     /**
@@ -639,6 +623,7 @@ public class DecimalColumnParserTest extends TestCase {
      * また、フォーマット用の文字列に対する DecimalFormatLocalが新しく生成されないことを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse11() throws Exception {
         DecimalColumnParser decimalColumnParser = new DecimalColumnParser();
 
@@ -654,11 +639,9 @@ public class DecimalColumnParserTest extends TestCase {
         String columnFormat = "-\\###,###,###.##";
 
         ConcurrentHashMap<String, DecimalFormatLocal> dfMap = new ConcurrentHashMap<String, DecimalFormatLocal>();
-        DecimalFormatLocal dfMapValue = new DecimalFormatLocal(columnFormat);
+        DecimalFormatLocal dfMapValue = new  DecimalFormatLocal(columnFormat);
         dfMap.put(columnFormat, dfMapValue);
         UTUtil.setPrivateField(decimalColumnParser, "dfMap", dfMap);
-
-        VMOUTUtil.initialize();
 
         // テスト実施
         decimalColumnParser.parse(column, stub, method, columnFormat);
@@ -673,7 +656,5 @@ public class DecimalColumnParserTest extends TestCase {
         assertTrue(dfMap.containsKey(columnFormat));
         DecimalFormatLocal formatLocal = dfMap.get(columnFormat);
         assertSame(dfMapValue, formatLocal);
-
-        assertFalse(VMOUTUtil.isCalled(DecimalFormatLocal.class, "<init>"));
     }
 }

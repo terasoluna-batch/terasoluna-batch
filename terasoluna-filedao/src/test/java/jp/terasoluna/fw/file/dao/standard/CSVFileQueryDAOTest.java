@@ -1,7 +1,7 @@
 /*
  * $Id: CSVFileQueryDAOTest.java 5576 2007-11-15 13:13:32Z pakucn $
  * 
- * Copyright (c) 2006 NTT DATA Corporation
+ * Copyright (c) 2006-2015 NTT DATA Corporation
  * 
  */
 
@@ -13,9 +13,11 @@ import java.util.List;
 import java.util.Map;
 
 import jp.terasoluna.fw.file.dao.FileLineIterator;
-import jp.terasoluna.fw.file.ut.VMOUTUtil;
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertSame;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.CSVFileQueryDAO} クラスのテスト。
@@ -25,44 +27,7 @@ import junit.framework.TestCase;
  * @author 奥田哲司
  * @see jp.terasoluna.fw.file.dao.standard.CSVFileQueryDAO
  */
-public class CSVFileQueryDAOTest extends TestCase {
-
-    /**
-     * このテストケースを実行する為の GUI アプリケーションを起動する。
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        // junit.swingui.TestRunner.run(CSVFileQueryDAOTest.class);
-    }
-
-    /**
-     * 初期化処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
-     */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-        VMOUTUtil.initialize();
-    }
-
-    /**
-     * 終了処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * @param name このテストケースの名前。
-     */
-    public CSVFileQueryDAOTest(String name) {
-        super(name);
-    }
+public class CSVFileQueryDAOTest {
 
     /**
      * testExecute01() <br>
@@ -90,6 +55,7 @@ public class CSVFileQueryDAOTest extends TestCase {
      * 正常パターン <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testExecute01() throws Exception {
         // テスト対象のインスタンス化
@@ -114,12 +80,8 @@ public class CSVFileQueryDAOTest extends TestCase {
         assertEquals(CSVFileLineIterator.class, fileLineIterator.getClass());
 
         // 状態変化の確認
-        assertEquals(1, VMOUTUtil.getCallCount(CSVFileLineIterator.class,
-                "<init>"));
-        List arguments = VMOUTUtil.getArguments(CSVFileLineIterator.class,
-                "<init>", 0);
-        assertEquals(fileName, arguments.get(0));
-        assertEquals(clazz, arguments.get(1));
-        assertSame(columnParser, arguments.get(2));
+        assertEquals(fileName, UTUtil.getPrivateField(fileLineIterator, "fileName"));
+        assertSame(clazz, UTUtil.getPrivateField(fileLineIterator, "clazz"));
+        assertSame(columnParser, UTUtil.getPrivateField(fileLineIterator, "columnParserMap"));
     }
 }

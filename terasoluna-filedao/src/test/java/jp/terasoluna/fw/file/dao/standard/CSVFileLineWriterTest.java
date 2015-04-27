@@ -1,7 +1,7 @@
 /*
  * $Id:$
  *
- * Copyright (c) 2006 NTT DATA Corporation
+ * Copyright (c) 2006-2015 NTT DATA Corporation
  *
  */
 
@@ -22,7 +22,6 @@ import java.util.Map;
 import jp.terasoluna.fw.file.annotation.NullStringConverter;
 import jp.terasoluna.fw.file.annotation.PaddingType;
 import jp.terasoluna.fw.file.dao.FileException;
-import jp.terasoluna.fw.file.ut.VMOUTUtil;
 import jp.terasoluna.utlib.UTUtil;
 
 import org.junit.AfterClass;
@@ -44,17 +43,8 @@ public class CSVFileLineWriterTest {
     private static final String TEMP_FILE_NAME = CSVFileLineWriterTest.class
             .getResource("CSVFileLineWriterTest_tmp.txt").getPath();
 
-    /**
-     * このテストケースを実行する為の GUI アプリケーションを起動する。
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        // junit.swingui.TestRunner.run(CSVFileLineWriterTest.class);
-    }
-
     @Before
     public void setUp() throws Exception {
-        VMOUTUtil.initialize();
         // ファイルの初期化
         File file = new File(TEMP_FILE_NAME);
         file.delete();
@@ -175,18 +165,9 @@ public class CSVFileLineWriterTest {
             // 状態変化の確認
             assertEquals('\"', UTUtil.getPrivateField(result, "encloseChar"));
 
-            int superCallCount = VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "<init>");
-            assertEquals(1, superCallCount);
-            List arguments = VMOUTUtil.getArguments(
-                    AbstractFileLineWriter.class, "<init>", 0);
-            assertEquals(3, arguments.size());
-            assertEquals(fileName, arguments.get(0));
-            assertEquals(CSVFileLineWriter_Stub01.class, arguments.get(1));
-            assertEquals(columnFormatterMap, arguments.get(2));
-
-            assertEquals(2, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "init"));
+            assertEquals(fileName, UTUtil.getPrivateField(result, "fileName"));
+            assertEquals(CSVFileLineWriter_Stub01.class, UTUtil.getPrivateField(result, "clazz"));
+            assertEquals(columnFormatterMap, UTUtil.getPrivateField(result, "columnFormatterMap"));
         } finally {
             // テスト対象のクローズ処理
             if (result != null) {
@@ -243,7 +224,6 @@ public class CSVFileLineWriterTest {
      * (引数) index:0<br>
      * <br>
      * 期待値：(戻り値) String:"abcdef"<br>
-     * (状態変化) AbstractFileLineWriter#getColumn():引数が渡されて、1回呼び出されること<br>
      * <br>
      * 引数tに設定されたクラス（囲み文字が設定されていない場合）のカラムインデックス1の属性値（囲み文字が含まれない）が取得できることを確認するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
@@ -273,16 +253,6 @@ public class CSVFileLineWriterTest {
 
             // 返却値の確認
             assertEquals("abcdef", result);
-
-            // 状態変化の確認
-            int superCallCount = VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "getColumn");
-            assertEquals(1, superCallCount);
-            List arguments = VMOUTUtil.getArguments(
-                    AbstractFileLineWriter.class, "getColumn", 0);
-            assertEquals(2, arguments.size());
-            assertSame(stub, arguments.get(0));
-            assertEquals(0, arguments.get(1));
         } finally {
             // テスト対象のクローズ処理
             lineWriter.closeFile();
@@ -303,7 +273,6 @@ public class CSVFileLineWriterTest {
      * (引数) index:0<br>
      * <br>
      * 期待値：(戻り値) String:"abcdef"<br>
-     * (状態変化) AbstractFileLineWriter#getColumn():引数が渡されて、1回呼び出されること<br>
      * <br>
      * 引数tに設定されたクラス（囲み文字が設定されている場合）のカラムインデックス1の属性値（囲み文字が含まれない）が取得できることを確認するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
@@ -332,16 +301,6 @@ public class CSVFileLineWriterTest {
 
             // 返却値の確認
             assertEquals("abcdef", result);
-
-            // 状態変化の確認
-            int superCallCount = VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "getColumn");
-            assertEquals(1, superCallCount);
-            List arguments = VMOUTUtil.getArguments(
-                    AbstractFileLineWriter.class, "getColumn", 0);
-            assertEquals(2, arguments.size());
-            assertSame(stub, arguments.get(0));
-            assertEquals(0, arguments.get(1));
         } finally {
             // テスト対象のクローズ処理
             lineWriter.closeFile();
@@ -362,7 +321,6 @@ public class CSVFileLineWriterTest {
      * (引数) index:0<br>
      * <br>
      * 期待値：(戻り値) String:"ab""cdef"<br>
-     * (状態変化) AbstractFileLineWriter#getColumn():引数が渡されて、1回呼び出されること<br>
      * <br>
      * 引数tに設定されたクラス（囲み文字が設定されている場合）のカラムインデックス1の属性値（囲み文字が含まれる）がエスケープ処理されて、取得できることを確認するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
@@ -391,16 +349,6 @@ public class CSVFileLineWriterTest {
 
             // 返却値の確認
             assertEquals("ab\"\"cdef", result);
-
-            // 状態変化の確認
-            int superCallCount = VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "getColumn");
-            assertEquals(1, superCallCount);
-            List arguments = VMOUTUtil.getArguments(
-                    AbstractFileLineWriter.class, "getColumn", 0);
-            assertEquals(2, arguments.size());
-            assertSame(stub, arguments.get(0));
-            assertEquals(0, arguments.get(1));
         } finally {
             // テスト対象のクローズ処理
             lineWriter.closeFile();
@@ -420,7 +368,6 @@ public class CSVFileLineWriterTest {
      * 　　値："abcdef"<br>
      * (引数) index:1<br>
      * <br>
-     * 期待値：(状態変化) AbstractFileLineWriter#getColumn():引数が渡されて、1回呼び出されること<br>
      * (状態変化) 例外:ArrayIndexOutOfBoundsException<br>
      * AbstractFileLineWriter#getColumn()で発生する<br>
      * <br>
@@ -454,15 +401,6 @@ public class CSVFileLineWriterTest {
             // なし
 
             // 状態変化の確認
-            int superCallCount = VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "getColumn");
-            assertEquals(1, superCallCount);
-            List arguments = VMOUTUtil.getArguments(
-                    AbstractFileLineWriter.class, "getColumn", 0);
-            assertEquals(2, arguments.size());
-            assertSame(stub, arguments.get(0));
-            assertEquals(1, arguments.get(1));
-
             assertEquals(ArrayIndexOutOfBoundsException.class, e.getClass());
         } finally {
             // テスト対象のクローズ処理

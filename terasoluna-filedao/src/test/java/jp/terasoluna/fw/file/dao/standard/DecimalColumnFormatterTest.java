@@ -1,7 +1,7 @@
 /*
  * $Id: DecimalColumnFormatterTest.java 5354 2007-10-03 06:06:25Z anh $
  *
- * Copyright (c) 2006 NTT DATA Corporation
+ * Copyright (c) 2006-2015 NTT DATA Corporation
  *
  */
 
@@ -12,9 +12,15 @@ import java.lang.reflect.Method;
 import java.math.BigDecimal;
 import java.util.concurrent.ConcurrentHashMap;
 
-import jp.terasoluna.fw.file.ut.VMOUTUtil;
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mockito;
+import org.powermock.api.mockito.PowerMockito;
+import org.powermock.core.classloader.annotations.PrepareForTest;
+import org.powermock.modules.junit4.PowerMockRunner;
+
+import static org.junit.Assert.*;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.DecimalColumnFormatter} クラスのテスト。
@@ -24,44 +30,9 @@ import junit.framework.TestCase;
  * @author 奥田 哲司
  * @see jp.terasoluna.fw.file.dao.standard.DecimalColumnFormatter
  */
-public class DecimalColumnFormatterTest extends TestCase {
-
-    /**
-     * このテストケースを実行する為の GUI アプリケーションを起動する。
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        // junit.swingui.TestRunner.run(DecimalColumnFormatterTest.class);
-    }
-
-    /**
-     * 初期化処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
-     */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-        VMOUTUtil.initialize();
-    }
-
-    /**
-     * 終了処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * @param name このテストケースの名前。
-     */
-    public DecimalColumnFormatterTest(String name) {
-        super(name);
-    }
+@RunWith(PowerMockRunner.class)
+@PrepareForTest(DecimalColumnFormatter.class)
+public class DecimalColumnFormatterTest {
 
     /**
      * testFormat01() <br>
@@ -90,6 +61,7 @@ public class DecimalColumnFormatterTest extends TestCase {
      * として取得されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testFormat01() throws Exception {
         // 前処理
         DecimalColumnFormatter decimalColumnFormatter = new DecimalColumnFormatter();
@@ -137,6 +109,7 @@ public class DecimalColumnFormatterTest extends TestCase {
      * フォーマット用の文字列が正しく設定された場合、 かつフィールドのgetterメソッドが正しく設定されている場合に、 対象フィールドの情報がフォーマットに従った文字列として取得されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testFormat02() throws Exception {
         // 前処理
         DecimalColumnFormatter decimalColumnFormatter = new DecimalColumnFormatter();
@@ -184,6 +157,7 @@ public class DecimalColumnFormatterTest extends TestCase {
      * フィールドのgetterメソッドがprivateで宣言された場合、 IllegalAccessExceptionが発生することを確認する <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testFormat03() throws Exception {
         // 前処理
         DecimalColumnFormatter decimalColumnFormatter = new DecimalColumnFormatter();
@@ -232,6 +206,7 @@ public class DecimalColumnFormatterTest extends TestCase {
      * フィールドのgetterメソッド処理中例外が発生した場合、 InvocationTargetExceptionが発生することを確認する <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testFormat04() throws Exception {
         // 前処理
         DecimalColumnFormatter decimalColumnFormatter = new DecimalColumnFormatter();
@@ -280,6 +255,7 @@ public class DecimalColumnFormatterTest extends TestCase {
      * フィールドのgetterメソッドとして引数なしのメソッドが存在しない場合、 IllegalArgumentExceptionが発生することを確認する <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testFormat05() throws Exception {
         // 前処理
         DecimalColumnFormatter decimalColumnFormatter = new DecimalColumnFormatter();
@@ -329,6 +305,7 @@ public class DecimalColumnFormatterTest extends TestCase {
      * ファイル行オブジェクトのフィールド値がnullの場合、空文字が取得されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testFormat06() throws Exception {
         // 前処理
         DecimalColumnFormatter decimalColumnFormatter = new DecimalColumnFormatter();
@@ -377,6 +354,7 @@ public class DecimalColumnFormatterTest extends TestCase {
      * フォーマット用の文字列が空文字の場合、かつフィールドのgetterメソッドが 正しく設定されている場合に、対象フィールドの情報が数字のみの文字列 (BigDecimal.toPlainString()の結果)として取得されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testFormat07() throws Exception {
         // 前処理
         DecimalColumnFormatter decimalColumnFormatter = new DecimalColumnFormatter();
@@ -430,6 +408,7 @@ public class DecimalColumnFormatterTest extends TestCase {
      * また、新しく生成されたフォーマット用の文字列に対する DecimalFormatLocalがキャッシュされることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testFormat08() throws Exception {
         // 前処理
         DecimalColumnFormatter decimalColumnFormatter = new DecimalColumnFormatter();
@@ -445,6 +424,9 @@ public class DecimalColumnFormatterTest extends TestCase {
         ConcurrentHashMap<String, DecimalFormatLocal> dfMap = new ConcurrentHashMap<String, DecimalFormatLocal>();
         UTUtil.setPrivateField(decimalColumnFormatter, "dfMap", dfMap);
         dfMap.clear();
+
+        DecimalFormatLocal dfl = Mockito.spy(new DecimalFormatLocal(columnFormat));
+        PowerMockito.whenNew(DecimalFormatLocal.class).withArguments(columnFormat).thenReturn(dfl);
 
         // テスト実施
         String result = decimalColumnFormatter.format(stub, method,
@@ -462,9 +444,7 @@ public class DecimalColumnFormatterTest extends TestCase {
         assertNotNull(dfMapValue);
         assertEquals(columnFormat, UTUtil
                 .getPrivateField(dfMapValue, "pattern"));
-
-        assertEquals(1, VMOUTUtil.getCallCount(DecimalFormatLocal.class,
-                "<init>"));
+        PowerMockito.verifyNew(DecimalFormatLocal.class).withArguments(columnFormat);
     }
 
     /**
@@ -501,6 +481,7 @@ public class DecimalColumnFormatterTest extends TestCase {
      * また、フォーマット用の文字列に対するDecimalFormatLocalが新しく生成されないことを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testFormat09() throws Exception {
         // 前処理
         DecimalColumnFormatter decimalColumnFormatter = new DecimalColumnFormatter();
@@ -514,12 +495,11 @@ public class DecimalColumnFormatterTest extends TestCase {
         String columnFormat = "\\##,###,###.00";
 
         ConcurrentHashMap<String, DecimalFormatLocal> dfMap = new ConcurrentHashMap<String, DecimalFormatLocal>();
-        DecimalFormatLocal dfMapValue = new DecimalFormatLocal(columnFormat);
+        DecimalFormatLocal dfMapValue = Mockito.spy(new DecimalFormatLocal(columnFormat));
         dfMap.put(columnFormat, dfMapValue);
         UTUtil.setPrivateField(decimalColumnFormatter, "dfMap", dfMap);
 
-        VMOUTUtil.initialize();
-
+        PowerMockito.whenNew(DecimalFormatLocal.class).withArguments(columnFormat).thenReturn(dfMapValue);
         // テスト実施
         String result = decimalColumnFormatter.format(stub, method,
                 columnFormat);
@@ -535,6 +515,6 @@ public class DecimalColumnFormatterTest extends TestCase {
         DecimalFormatLocal formatLocal = dfMap.get(columnFormat);
         assertSame(dfMapValue, formatLocal);
 
-        assertFalse(VMOUTUtil.isCalled(DecimalFormatLocal.class, "<init>"));
+        PowerMockito.verifyNew(DecimalFormatLocal.class, Mockito.never()).withArguments(columnFormat);
     }
 }

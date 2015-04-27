@@ -10,9 +10,11 @@ package jp.terasoluna.fw.file.dao.standard;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-import jp.terasoluna.fw.file.ut.VMOUTUtil;
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.IntColumnFormatter} クラスのテスト。
@@ -22,44 +24,7 @@ import junit.framework.TestCase;
  * @author 奥田 哲司
  * @see jp.terasoluna.fw.file.dao.standard.IntColumnFormatter
  */
-public class IntColumnFormatterTest extends TestCase {
-
-    /**
-     * このテストケースを実行する為の GUI アプリケーションを起動する。
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        // junit.swingui.TestRunner.run(IntColumnFormatterTest.class);
-    }
-
-    /**
-     * 初期化処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
-     */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-        VMOUTUtil.initialize();
-    }
-
-    /**
-     * 終了処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * @param name このテストケースの名前。
-     */
-    public IntColumnFormatterTest(String name) {
-        super(name);
-    }
+public class IntColumnFormatterTest {
 
     /**
      * testFormat01() <br>
@@ -81,6 +46,7 @@ public class IntColumnFormatterTest extends TestCase {
      * ファイル行オブジェクトからint型属性に格納されているオブジェクトの 文字列を取得することができることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testFormat01() throws Exception {
         // テスト対象のインスタンス化
         ColumnFormatter columnFormatter = new IntColumnFormatter();
@@ -122,6 +88,7 @@ public class IntColumnFormatterTest extends TestCase {
      * ファイル行オブジェクトのint型属性のgetterメソッドにアクセスできない場合、 IllegalAccessExceptionをスローすることを確認する <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testFormat02() throws Exception {
         // テスト対象のインスタンス化
         ColumnFormatter columnFormatter = new IntColumnFormatter();
@@ -168,6 +135,7 @@ public class IntColumnFormatterTest extends TestCase {
      * ファイル行オブジェクトのint型属性のgetterメソッドが例外をスローする場合、 getterメソッドがスローした例外をラップする InvocationTargetExceptionをスローすることを確認する <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testFormat03() throws Exception {
         // テスト対象のインスタンス化
         ColumnFormatter columnFormatter = new IntColumnFormatter();
@@ -213,6 +181,7 @@ public class IntColumnFormatterTest extends TestCase {
      * ファイル行オブジェクトのint型属性のgetterメソッドが多数の引数を持つ場合、 IllegalArgumentExceptionをスローすることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testFormat04() throws Exception {
         // テスト対象のインスタンス化
         ColumnFormatter columnFormatter = new IntColumnFormatter();

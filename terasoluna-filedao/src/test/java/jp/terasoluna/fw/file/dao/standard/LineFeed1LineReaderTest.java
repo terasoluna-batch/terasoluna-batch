@@ -1,7 +1,7 @@
 /*
  * $Id: LineFeed1LineReaderTest.java 5354 2007-10-03 06:06:25Z anh $
  *
- * Copyright (c) 2006 NTT DATA Corporation
+ * Copyright (c) 2006-2015 NTT DATA Corporation
  *
  */
 
@@ -13,58 +13,22 @@ import java.io.Reader;
 import java.io.StringReader;
 
 import jp.terasoluna.fw.file.dao.FileException;
-import jp.terasoluna.fw.file.ut.VMOUTUtil;
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
 
 import org.easymock.classextension.EasyMock;
+import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 /**
- * {@link jp..terasoluna.fw.file.dao.standard.LineFeed1LineReader} クラスのテスト。
+ * {@link jp.terasoluna.fw.file.dao.standard.LineFeed1LineReader} クラスのテスト。
  * <p>
  * <h4>【クラスの概要】</h4> 囲み文字なし、行区切り文字が1文字の場合のファイルから1行分の文字列を取得する処理を行う。
  * <p>
  * @author 奥田哲司
- * @see jp..terasoluna.fw.file.dao.standard.LineFeed1LineReader
+ * @see jp.terasoluna.fw.file.dao.standard.LineFeed1LineReader
  */
-public class LineFeed1LineReaderTest extends TestCase {
-
-    /**
-     * このテストケースを実行する為の GUI アプリケーションを起動する。
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        // junit.swingui.TestRunner.run(LineFeed1LineReaderTest.class);
-    }
-
-    /**
-     * 初期化処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
-     */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-        VMOUTUtil.initialize();
-    }
-
-    /**
-     * 終了処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * @param name このテストケースの名前。
-     */
-    public LineFeed1LineReaderTest(String name) {
-        super(name);
-    }
+public class LineFeed1LineReaderTest {
 
     /**
      * testLineFeed1LineReader01() <br>
@@ -81,6 +45,7 @@ public class LineFeed1LineReaderTest extends TestCase {
      * オブジェクトが生成できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testLineFeed1LineReader01() throws Exception {
         // 前処理(引数)
         Reader reader = new BufferedReader(new StringReader(""));
@@ -117,6 +82,7 @@ public class LineFeed1LineReaderTest extends TestCase {
      * 引数readerがnullの場合IllegalArgumentExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testLineFeed1LineReader02() throws Exception {
         // 前処理(引数)
         Reader reader = null;
@@ -148,6 +114,7 @@ public class LineFeed1LineReaderTest extends TestCase {
      * 引数lineFeedCharがnullの場合IllegalArgumentExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testLineFeed1LineReader03() throws Exception {
         // 前処理(引数)
         Reader reader = new BufferedReader(new StringReader(""));
@@ -179,6 +146,7 @@ public class LineFeed1LineReaderTest extends TestCase {
      * 引数lineFeedCharの行区切り文字が1文字じゃない場合 IllegalArgumentExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testLineFeed1LineReader04() throws Exception {
         // 前処理(引数)
         Reader reader = new BufferedReader(new StringReader(""));
@@ -212,6 +180,7 @@ public class LineFeed1LineReaderTest extends TestCase {
      * 例外。readerが例外をスローした場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testReadLine01() throws Exception {
         // Mock作成
         Reader reader = EasyMock.createMock(Reader.class);
@@ -251,6 +220,7 @@ public class LineFeed1LineReaderTest extends TestCase {
      * 空の文字列が返却されるのを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testReadLine02() throws Exception {
         // 前処理(試験対象)
 
@@ -289,6 +259,7 @@ public class LineFeed1LineReaderTest extends TestCase {
      * 文字列が1行返却されるのを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testReadLine03() throws Exception {
         // 前処理(試験対象)
         String str = "aaa,aaa,aaa\r";
@@ -322,6 +293,7 @@ public class LineFeed1LineReaderTest extends TestCase {
      * 文字列が1行返却される。囲み文字がある場合。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testReadLine04() throws Exception {
         // 前処理(試験対象)
         String str = "\"aaa\",\"aaa\",\"aaa\"\r";
@@ -355,6 +327,7 @@ public class LineFeed1LineReaderTest extends TestCase {
      * 文字列の中に囲み文字、区切り文字が含まれている場合。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testReadLine05() throws Exception {
         // 前処理(試験対象)
         String str = "\"aa,a\",\"aa\"\"a\",\"aaa\"\r";
@@ -389,6 +362,7 @@ public class LineFeed1LineReaderTest extends TestCase {
      * 行区切り文字のところで読み込みは終了する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testReadLine06() throws Exception {
         // 前処理(試験対象)
         String str = "\"aaa\",\"aaa\",\"aa\ra\"\r";
@@ -422,6 +396,7 @@ public class LineFeed1LineReaderTest extends TestCase {
      * 文字列が1行返却される。囲み文字(終了側)の後ろに文字列がつながる場合、 区切り文字もしくは行区切り文字が来るまでの文字列は全て前のカラムに含まれる。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testReadLine07() throws Exception {
         // 前処理(試験対象)
         String str = "\"aaa\",\"aaa\",\"aaa\"aaa\r";
@@ -455,6 +430,7 @@ public class LineFeed1LineReaderTest extends TestCase {
      * 行区切り文字が含まれてない場合すべてのデータが出力されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testReadLine08() throws Exception {
         // 前処理(試験対象)
         String str = "aaa,aaa,aaa";
@@ -488,6 +464,7 @@ public class LineFeed1LineReaderTest extends TestCase {
      * 文字列の中に囲み文字、全角文字が含まれている場合。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testReadLine09() throws Exception {
         // 前処理(試験対象)
         String str = "\"ａａ,ａ\",\"ａａ\"\"ａ\",\"ａａａ\"\r";
@@ -521,6 +498,7 @@ public class LineFeed1LineReaderTest extends TestCase {
      * 複数行分の文字列情報がある場合、結果文字列が1行分のみ返却されるのを確認する。<br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testReadLine10() throws Exception {
         // 前処理(試験対象)
         String str = "aaa,aaa,aaa\raaa,aaa,aaa\raaa,aaa,aaa\r";

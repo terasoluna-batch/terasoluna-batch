@@ -1,7 +1,7 @@
 /*
  * $Id: FixedFileLineIteratorTest.java 5354 2007-10-03 06:06:25Z anh $
  *
- * Copyright (c) 2006 NTT DATA Corporation
+ * Copyright (c) 2006-2015 NTT DATA Corporation
  *
  */
 
@@ -21,9 +21,9 @@ import org.junit.Test;
 import jp.terasoluna.fw.file.annotation.InputFileColumn;
 import jp.terasoluna.fw.file.annotation.NullStringConverter;
 import jp.terasoluna.fw.file.dao.FileException;
-import jp.terasoluna.fw.file.ut.VMOUTUtil;
 import jp.terasoluna.utlib.UTUtil;
 import junit.framework.TestCase;
+import org.mockito.Mockito;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.FixedFileLineIterator} クラスのテスト。
@@ -35,43 +35,6 @@ import junit.framework.TestCase;
  * @see jp.terasoluna.fw.file.dao.standard.FixedFileLineIterator
  */
 public class FixedFileLineIteratorTest extends TestCase {
-
-    /**
-     * このテストケースを実行する為の GUI アプリケーションを起動する。
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        // junit.swingui.TestRunner.run(FixedFileLineIteratorTest.class);
-    }
-
-    /**
-     * 初期化処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
-     */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-        VMOUTUtil.initialize();
-    }
-
-    /**
-     * 終了処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * @param name このテストケースの名前。
-     */
-    public FixedFileLineIteratorTest(String name) {
-        super(name);
-    }
 
     /**
      * testFixedFileLineIterator01() <br>
@@ -98,6 +61,7 @@ public class FixedFileLineIteratorTest extends TestCase {
      * 正常にコンストラクタの処理が行われることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testFixedFileLineIterator01() throws Exception {
         // テスト対象のインスタンス化なし
@@ -116,21 +80,15 @@ public class FixedFileLineIteratorTest extends TestCase {
         // 前提条件なし
 
         // テスト実施
-        new FixedFileLineIterator<FixedFileLineIterator_Stub01>(fileName,
-                clazz, columnParserMap);
+        FixedFileLineIterator<FixedFileLineIterator_Stub01> result =
+                Mockito.spy(new FixedFileLineIterator<FixedFileLineIterator_Stub01>(fileName, clazz, columnParserMap));
 
         // 返却値なし
 
         // 状態変化の確認
-        assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "<init>"));
-        List arguments = VMOUTUtil.getArguments(AbstractFileLineIterator.class,
-                "<init>", 0);
-        assertEquals(fileName, arguments.get(0));
-        assertEquals(clazz, arguments.get(1));
-        assertSame(columnParserMap, arguments.get(2));
-        assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "init"));
+        assertEquals(fileName, UTUtil.getPrivateField(result, "fileName"));
+        assertEquals(clazz, UTUtil.getPrivateField(result, "clazz"));
+        assertSame(columnParserMap, UTUtil.getPrivateField(result, "columnParserMap"));
     }
 
     /**
@@ -161,6 +119,7 @@ public class FixedFileLineIteratorTest extends TestCase {
      *                                ファイル名が入力値のfileNameに一致することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testFixedFileLineIterator02() throws Exception {
         // テスト対象のインスタンス化なし
@@ -187,13 +146,6 @@ public class FixedFileLineIteratorTest extends TestCase {
             // 返却値なし
 
             // 状態変化の確認
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "<init>"));
-            List arguments = VMOUTUtil.getArguments(
-                    AbstractFileLineIterator.class, "<init>", 0);
-            assertEquals(fileName, arguments.get(0));
-            assertEquals(clazz, arguments.get(1));
-            assertSame(columnParserMap, arguments.get(2));
             assertEquals(IllegalStateException.class, e.getCause().getClass());
             assertEquals("Delimiter can not change.", e.getMessage());
             assertEquals(fileName, e.getFileName());
@@ -228,6 +180,7 @@ public class FixedFileLineIteratorTest extends TestCase {
      *                                  ファイル名が入力値のfileNameに一致することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testFixedFileLineIterator03() throws Exception {
         // テスト対象のインスタンス化なし
@@ -254,13 +207,6 @@ public class FixedFileLineIteratorTest extends TestCase {
             // 返却値なし
 
             // 状態変化の確認
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "<init>"));
-            List arguments = VMOUTUtil.getArguments(
-                    AbstractFileLineIterator.class, "<init>", 0);
-            assertEquals(fileName, arguments.get(0));
-            assertEquals(clazz, arguments.get(1));
-            assertSame(columnParserMap, arguments.get(2));
             assertEquals(IllegalStateException.class, e.getCause().getClass());
             assertEquals("EncloseChar can not change.", e.getMessage());
             assertEquals(fileName, e.getFileName());
@@ -297,6 +243,7 @@ public class FixedFileLineIteratorTest extends TestCase {
      * 正常にコンストラクタの処理が行われることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testFixedFileLineIterator04() throws Exception {
         // テスト対象のインスタンス化なし
@@ -315,21 +262,15 @@ public class FixedFileLineIteratorTest extends TestCase {
         // 前提条件なし
 
         // テスト実施
-        new FixedFileLineIterator<FixedFileLineIterator_Stub02>(fileName,
-                clazz, columnParserMap);
+        FixedFileLineIterator<FixedFileLineIterator_Stub02> result =
+                Mockito.spy(new FixedFileLineIterator<FixedFileLineIterator_Stub02>(fileName, clazz, columnParserMap));
 
         // 返却値なし
 
         // 状態変化の確認
-        assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "<init>"));
-        List arguments = VMOUTUtil.getArguments(AbstractFileLineIterator.class,
-                "<init>", 0);
-        assertEquals(fileName, arguments.get(0));
-        assertEquals(clazz, arguments.get(1));
-        assertSame(columnParserMap, arguments.get(2));
-        assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "init"));
+        assertEquals(fileName, UTUtil.getPrivateField(result, "fileName"));
+        assertEquals(clazz, UTUtil.getPrivateField(result, "clazz"));
+        assertSame(columnParserMap, UTUtil.getPrivateField(result, "columnParserMap"));
     }
 
     /**
@@ -337,6 +278,7 @@ public class FixedFileLineIteratorTest extends TestCase {
      * ファイル行オブジェクトにInputFileColumnアノテーションが無し
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testFixedFileLineIterator05() throws Exception {
         // 引数の設定
         URL url = this.getClass().getResource("File_Empty.txt");
@@ -366,6 +308,7 @@ public class FixedFileLineIteratorTest extends TestCase {
      * InputFileColumnにEncloseCharが設定されている場合、エラーとする
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testFixedFileLineIterator06() throws Exception {
         // 引数の設定
         URL url = this.getClass().getResource("File_Empty.txt");
@@ -466,6 +409,7 @@ public class FixedFileLineIteratorTest extends TestCase {
      * 通常の処理でこの返却値が戻ることはない。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSeparateColumns01() throws Exception {
         // テスト対象のインスタンス化
         URL url = FixedFileLineIteratorTest.class.getResource("/aaa.txt");
@@ -511,6 +455,7 @@ public class FixedFileLineIteratorTest extends TestCase {
      * ファイル行オブジェクトのインスタンス変数がない場合。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSeparateColumns02() throws Exception {
         // テスト対象のインスタンス化
         URL url = FixedFileLineIteratorTest.class.getResource("/aaa.txt");
@@ -564,6 +509,7 @@ public class FixedFileLineIteratorTest extends TestCase {
      * 正常パターン。配列要素1の文字列型配列を返却する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSeparateColumns03() throws Exception {
         // テスト対象のインスタンス化
         URL url = FixedFileLineIteratorTest.class.getResource("/aaa.txt");
@@ -613,6 +559,7 @@ public class FixedFileLineIteratorTest extends TestCase {
      * 例外。設定されているエンコードが存在しない場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSeparateColumns04() throws Exception {
         // テスト対象のインスタンス化
         URL url = FixedFileLineIteratorTest.class.getResource("/aaa.txt");
@@ -677,6 +624,7 @@ public class FixedFileLineIteratorTest extends TestCase {
      *                              配列要素3の文字列方配列を返却する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSeparateColumns05() throws Exception {
         // テスト対象のインスタンス化
         URL url = FixedFileLineIteratorTest.class.getResource("/aaa.txt");

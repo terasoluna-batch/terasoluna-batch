@@ -9,14 +9,14 @@ package jp.terasoluna.fw.file.dao.standard;
 
 import java.net.URL;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import jp.terasoluna.fw.file.annotation.NullStringConverter;
 import jp.terasoluna.fw.file.dao.FileException;
-import jp.terasoluna.fw.file.ut.VMOUTUtil;
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
+import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.VariableFileLineIterator} クラスのテスト。
@@ -27,44 +27,7 @@ import junit.framework.TestCase;
  * @author 趙俸徹
  * @see jp.terasoluna.fw.file.dao.standard.VariableFileLineIterator
  */
-public class VariableFileLineIteratorTest extends TestCase {
-
-    /**
-     * このテストケースを実行する為の GUI アプリケーションを起動する。
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        // junit.swingui.TestRunner.run(VariableFileLineIteratorTest.class);
-    }
-
-    /**
-     * 初期化処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
-     */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-        VMOUTUtil.initialize();
-    }
-
-    /**
-     * 終了処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * @param name このテストケースの名前。
-     */
-    public VariableFileLineIteratorTest(String name) {
-        super(name);
-    }
+public class VariableFileLineIteratorTest {
 
     /**
      * testVariableFileLineIterator01() <br>
@@ -89,6 +52,7 @@ public class VariableFileLineIteratorTest extends TestCase {
      * 引数clazzに指定されているクラスの値でdelimiter、encloseCharが初期化されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testVariableFileLineIterator01() throws Exception {
         // テスト対象のインスタンス化
@@ -113,21 +77,12 @@ public class VariableFileLineIteratorTest extends TestCase {
 
         // 状態変化の確認
         // 判定
-        assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "<init>"));
-
-        List arguments = VMOUTUtil.getArguments(AbstractFileLineIterator.class,
-                "<init>", 0);
-        assertEquals(3, arguments.size());
-        assertEquals(fileName, arguments.get(0));
-        assertSame(clazz, arguments.get(1));
-        assertSame(columnParserMap, arguments.get(2));
+        assertEquals(fileName, UTUtil.getPrivateField(variableFileLineIterator, "fileName"));
+        assertSame(clazz, UTUtil.getPrivateField(variableFileLineIterator, "clazz"));
+        assertSame(columnParserMap, UTUtil.getPrivateField(variableFileLineIterator, "columnParserMap"));
 
         assertEquals('"', variableFileLineIterator.getEncloseChar());
         assertEquals('、', variableFileLineIterator.getDelimiter());
-
-        assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "init"));
     }
 
     /**
@@ -151,6 +106,7 @@ public class VariableFileLineIteratorTest extends TestCase {
      * ファイル名が入力値のfileNameに一致することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testVariableFileLineIterator02() throws Exception {
         // テスト対象のインスタンス化
@@ -177,16 +133,6 @@ public class VariableFileLineIteratorTest extends TestCase {
 
             // 状態変化の確認
             // 判定
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "<init>"));
-
-            List arguments = VMOUTUtil.getArguments(
-                    AbstractFileLineIterator.class, "<init>", 0);
-            assertEquals(3, arguments.size());
-            assertEquals(fileName, arguments.get(0));
-            assertSame(clazz, arguments.get(1));
-            assertSame(columnParserMap, arguments.get(2));
-
             assertEquals("Delimiter can not use '\\u0000'.", e.getMessage());
             assertEquals(fileName, e.getFileName());
             assertSame(IllegalStateException.class, e.getCause().getClass());
@@ -215,6 +161,7 @@ public class VariableFileLineIteratorTest extends TestCase {
      * 引数clazzで指定したクラスの@FileFormatでdelimiter、encloseCharが初期値の場合は、delimiter、encloseCharが初期値のままであることのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testVariableFileLineIterator03() throws Exception {
         // テスト対象のインスタンス化
@@ -239,28 +186,20 @@ public class VariableFileLineIteratorTest extends TestCase {
 
         // 状態変化の確認
         // 判定
-        assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "<init>"));
-
-        List arguments = VMOUTUtil.getArguments(AbstractFileLineIterator.class,
-                "<init>", 0);
-        assertEquals(3, arguments.size());
-        assertEquals(fileName, arguments.get(0));
-        assertSame(clazz, arguments.get(1));
-        assertSame(columnParserMap, arguments.get(2));
+        assertEquals(fileName, UTUtil.getPrivateField(variableFileLineIterator, "fileName"));
+        assertSame(clazz, UTUtil.getPrivateField(variableFileLineIterator, "clazz"));
+        assertSame(columnParserMap, UTUtil.getPrivateField(variableFileLineIterator, "columnParserMap"));
 
         assertEquals(Character.MIN_VALUE, variableFileLineIterator
                 .getEncloseChar());
         assertEquals(',', variableFileLineIterator.getDelimiter());
-
-        assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "init"));
     }
 
     /**
      * 異常系<br>
      * 改行文字に区切り文字が含まれる
      */
+    @Test
     public void testVariableFileLineIterator04() throws Exception {
         // 引数の設定
         URL url = this.getClass().getResource("File_Empty.txt");
@@ -287,6 +226,7 @@ public class VariableFileLineIteratorTest extends TestCase {
      * 異常系<br>
      * 改行文字と区切り文字が同一
      */
+    @Test
     public void testVariableFileLineIterator05() throws Exception {
         // 引数の設定
         URL url = this.getClass().getResource("File_Empty.txt");
@@ -314,6 +254,7 @@ public class VariableFileLineIteratorTest extends TestCase {
      * ファイル行オブジェクトにInputFileColumnアノテーションが無し
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testVariableFileLineIterator06() throws Exception {
         // 引数の設定
         URL url = this.getClass().getResource("File_Empty.txt");
@@ -354,6 +295,7 @@ public class VariableFileLineIteratorTest extends TestCase {
      * 通常の処理でこの返却値が戻ることはない。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testSeparateColumns01() throws Exception {
         // テスト対象のインスタンス化
@@ -398,6 +340,7 @@ public class VariableFileLineIteratorTest extends TestCase {
      * 要素数1の配列を返却することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testSeparateColumns02() throws Exception {
         // テスト対象のインスタンス化
@@ -443,6 +386,7 @@ public class VariableFileLineIteratorTest extends TestCase {
      * 要素数3の配列を返却することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testSeparateColumns03() throws Exception {
         // テスト対象のインスタンス化
@@ -490,6 +434,7 @@ public class VariableFileLineIteratorTest extends TestCase {
      * 要素数1の配列を返却することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testSeparateColumns04() throws Exception {
         // テスト対象のインスタンス化
@@ -536,6 +481,7 @@ public class VariableFileLineIteratorTest extends TestCase {
      * 要素数3の配列を返却することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testSeparateColumns05() throws Exception {
         // テスト対象のインスタンス化
@@ -590,6 +536,7 @@ public class VariableFileLineIteratorTest extends TestCase {
      * 行区切り文字、区切り文字、囲み文字がそれぞれ引数の文字列にf組まれている場合、エスケープされることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testSeparateColumns06() throws Exception {
         // テスト対象のインスタンス化
@@ -638,6 +585,7 @@ public class VariableFileLineIteratorTest extends TestCase {
      * 通常の処理でこの返却値が戻ることはない。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testSeparateColumns07() throws Exception {
         // テスト対象のインスタンス化
@@ -682,6 +630,7 @@ public class VariableFileLineIteratorTest extends TestCase {
      * 要素数3の配列を返却することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testSeparateColumns08() throws Exception {
         // テスト対象のインスタンス化
@@ -731,6 +680,7 @@ public class VariableFileLineIteratorTest extends TestCase {
      * 空白文字５の配列を返却することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testSeparateColumns09() throws Exception {
         // テスト対象のインスタンス化
@@ -780,6 +730,7 @@ public class VariableFileLineIteratorTest extends TestCase {
      * 区切り文字をデフォルト以外のものに設定した場合でも、要素数3の配列を返却することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testSeparateColumns10() throws Exception {
         // テスト対象のインスタンス化
@@ -827,6 +778,7 @@ public class VariableFileLineIteratorTest extends TestCase {
      * 空文字が先頭にある場合でも、要素数3の配列を返却することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testSeparateColumns11() throws Exception {
         // テスト対象のインスタンス化
@@ -874,6 +826,7 @@ public class VariableFileLineIteratorTest extends TestCase {
      * 空文字が途中に含まれる場合でも、要素数3の配列を返却することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testSeparateColumns12() throws Exception {
         // テスト対象のインスタンス化
@@ -921,6 +874,7 @@ public class VariableFileLineIteratorTest extends TestCase {
      * 空文字が最後に含まれる場合でも、要素数3の配列を返却することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testSeparateColumns13() throws Exception {
         // テスト対象のインスタンス化
@@ -967,6 +921,7 @@ public class VariableFileLineIteratorTest extends TestCase {
      * 囲み文字が設定されており、エスケープされていない囲み文字が内部データとして格納されている場合は、予期せぬデータが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testSeparateColumns14() throws Exception {
         // テスト対象のインスタンス化
@@ -1012,6 +967,7 @@ public class VariableFileLineIteratorTest extends TestCase {
      * encloseCharのgetterが正常に動作することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testGetEncloseChar01() throws Exception {
         // テスト対象のインスタンス化
@@ -1044,6 +1000,7 @@ public class VariableFileLineIteratorTest extends TestCase {
      * InputFileColumnのcolumnEncloseCharによって、個々のカラムに囲み文字を設定
      * @throws Exception
      */
+    @Test
     public void testNext01() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("CsvFileLineIterator_next01.txt");
@@ -1081,6 +1038,7 @@ public class VariableFileLineIteratorTest extends TestCase {
      * FileFormatのencloseCharとInputFileColumnのcolumnEncloseCharによって、カラムに囲み文字を設定
      * @throws Exception
      */
+    @Test
     public void testNext02() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("CsvFileLineIterator_next02.txt");
@@ -1118,6 +1076,7 @@ public class VariableFileLineIteratorTest extends TestCase {
      * キャッシュしているアノテーションの情報を利用している事を確認する。<br>
      * @throws Exception
      */
+    @Test
     public void testNext03() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("CsvFileLineIterator_next03.txt");
@@ -1180,6 +1139,7 @@ public class VariableFileLineIteratorTest extends TestCase {
      * testGetEncloseCharcter001.
      * @throws Exception
      */
+    @Test
     public void testGetEncloseCharcter001() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("CsvFileLineIterator_next03.txt");
@@ -1208,6 +1168,7 @@ public class VariableFileLineIteratorTest extends TestCase {
      * testGetEncloseCharcter002.
      * @throws Exception
      */
+    @Test
     public void testGetEncloseCharcter002() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("CsvFileLineIterator_next03.txt");
@@ -1236,6 +1197,7 @@ public class VariableFileLineIteratorTest extends TestCase {
      * testGetEncloseCharcter003.
      * @throws Exception
      */
+    @Test
     public void testGetEncloseCharcter003() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("CsvFileLineIterator_next03.txt");
@@ -1264,6 +1226,7 @@ public class VariableFileLineIteratorTest extends TestCase {
      * testGetEncloseCharcter004.
      * @throws Exception
      */
+    @Test
     public void testGetEncloseCharcter004() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("CsvFileLineIterator_next03.txt");
@@ -1292,6 +1255,7 @@ public class VariableFileLineIteratorTest extends TestCase {
      * testGetEncloseCharcter005.
      * @throws Exception
      */
+    @Test
     public void testGetEncloseCharcter005() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("CsvFileLineIterator_next03.txt");
@@ -1320,6 +1284,7 @@ public class VariableFileLineIteratorTest extends TestCase {
      * testGetEncloseCharcter006.
      * @throws Exception
      */
+    @Test
     public void testGetEncloseCharcter006() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("CsvFileLineIterator_next03.txt");

@@ -1,7 +1,7 @@
 /*
  * $Id: 
  *
- * Copyright (c) 2006 NTT DATA Corporation
+ * Copyright (c) 2006-2015 NTT DATA Corporation
  *
  */
 
@@ -15,9 +15,11 @@ import java.util.Date;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import jp.terasoluna.fw.file.ut.VMOUTUtil;
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.mockito.Mockito;
+
+import static org.junit.Assert.*;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.DateColumnParser} クラスのテスト。
@@ -28,44 +30,7 @@ import junit.framework.TestCase;
  * @author 奥田 哲司
  * @see jp.terasoluna.fw.file.dao.standard.DateColumnParser
  */
-public class DateColumnParserTest extends TestCase {
-
-    /**
-     * このテストケースを実行する為の GUI アプリケーションを起動する。
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        // junit.swingui.TestRunner.run(DateColumnParserTest.class);
-    }
-
-    /**
-     * 初期化処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
-     */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-        VMOUTUtil.initialize();
-    }
-
-    /**
-     * 終了処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * @param name このテストケースの名前。
-     */
-    public DateColumnParserTest(String name) {
-        super(name);
-    }
+public class DateColumnParserTest {
 
     /**
      * testParse01() <br>
@@ -93,6 +58,7 @@ public class DateColumnParserTest extends TestCase {
      * ファイル行オブジェクトに、引数columnで設定した文字列を Date型にパースした値が設定できること。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse01() throws Exception {
         // テスト対象のインスタンス化
         DateColumnParser dateColumnParser = new DateColumnParser();
@@ -105,7 +71,7 @@ public class DateColumnParserTest extends TestCase {
         String columnFormat = "";
 
         // 前提条件の設定
-        Map<String, DateFormatLocal> map = new ConcurrentHashMap<String, DateFormatLocal>();
+        Map<String, DateFormatLocal> map = Mockito.spy(new ConcurrentHashMap<String, DateFormatLocal>());
         UTUtil.setPrivateField(dateColumnParser, "map", map);
 
         // テスト実施
@@ -122,8 +88,8 @@ public class DateColumnParserTest extends TestCase {
         Date expected = simpleDateFormat.parse(column);
         assertEquals(expected, result);
 
-        assertEquals(1, VMOUTUtil.getCallCount(Map.class, "get"));
-        assertEquals(1, VMOUTUtil.getCallCount(Map.class, "put"));
+        Mockito.verify(map).get(Mockito.anyString());
+        Mockito.verify(map).put(Mockito.anyString(), Mockito.any(DateFormatLocal.class));
 
         assertEquals(1, map.size());
         assertNotNull(map.get("yyyyMMdd"));
@@ -156,6 +122,7 @@ public class DateColumnParserTest extends TestCase {
      * ファイル行オブジェクトに、引数columnで設定した文字列を Date型にパースした値が設定できること。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse02() throws Exception {
         // テスト対象のインスタンス化
         DateColumnParser dateColumnParser = new DateColumnParser();
@@ -171,6 +138,7 @@ public class DateColumnParserTest extends TestCase {
         Map<String, DateFormatLocal> map = new ConcurrentHashMap<String, DateFormatLocal>();
         DateFormatLocal cache = new DateFormatLocal("yyyyMMdd");
         map.put("yyyyMMdd", cache);
+        map = Mockito.spy(map);
         UTUtil.setPrivateField(dateColumnParser, "map", map);
 
         // テスト実施
@@ -185,8 +153,8 @@ public class DateColumnParserTest extends TestCase {
         simpleDateFormat.setLenient(false);
         Date expected = simpleDateFormat.parse(column);
         assertEquals(expected, result);
-        assertEquals(1, VMOUTUtil.getCallCount(Map.class, "get"));
-        assertEquals(0, VMOUTUtil.getCallCount(Map.class, "put"));
+        Mockito.verify(map).get(Mockito.anyString());
+        Mockito.verify(map, Mockito.never()).put(Mockito.anyString(), Mockito.any(DateFormatLocal.class));
 
         assertEquals(1, map.size());
         assertSame(cache, map.get("yyyyMMdd"));
@@ -219,6 +187,7 @@ public class DateColumnParserTest extends TestCase {
      * ファイル行オブジェクトに、引数columnで設定した文字列をDate型に パースした値が設定できること。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse03() throws Exception {
         // テスト対象のインスタンス化
         DateColumnParser dateColumnParser = new DateColumnParser();
@@ -234,6 +203,7 @@ public class DateColumnParserTest extends TestCase {
         Map<String, DateFormatLocal> map = new ConcurrentHashMap<String, DateFormatLocal>();
         DateFormatLocal cache = new DateFormatLocal("yyyy-MM-dd");
         map.put("yyyy-MM-dd", cache);
+        map = Mockito.spy(map);
         UTUtil.setPrivateField(dateColumnParser, "map", map);
 
         // テスト実施
@@ -248,8 +218,8 @@ public class DateColumnParserTest extends TestCase {
         simpleDateFormat.setLenient(false);
         Date expected = simpleDateFormat.parse(column);
         assertEquals(expected, result);
-        assertEquals(1, VMOUTUtil.getCallCount(Map.class, "get"));
-        assertEquals(1, VMOUTUtil.getCallCount(Map.class, "put"));
+        Mockito.verify(map).get(Mockito.anyString());
+        Mockito.verify(map).put(Mockito.anyString(), Mockito.any(DateFormatLocal.class));
 
         assertEquals(2, map.size());
         assertNotNull(map.get("yyyyMMdd"));
@@ -282,6 +252,7 @@ public class DateColumnParserTest extends TestCase {
      * ファイル行オブジェクトに、引数columnで設定した文字列をDate型に パースした値が設定できること。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse04() throws Exception {
         // テスト対象のインスタンス化
         DateColumnParser dateColumnParser = new DateColumnParser();
@@ -295,8 +266,8 @@ public class DateColumnParserTest extends TestCase {
 
         // 前提条件の設定
         Map<String, DateFormatLocal> map = new ConcurrentHashMap<String, DateFormatLocal>();
+        map = Mockito.spy(map);
         UTUtil.setPrivateField(dateColumnParser, "map", map);
-
         // テスト実施
         dateColumnParser.parse(column, t, method, columnFormat);
 
@@ -309,8 +280,8 @@ public class DateColumnParserTest extends TestCase {
         simpleDateFormat.setLenient(false);
         Date expected = simpleDateFormat.parse(column);
         assertEquals(expected, result);
-        assertEquals(1, VMOUTUtil.getCallCount(Map.class, "get"));
-        assertEquals(1, VMOUTUtil.getCallCount(Map.class, "put"));
+        Mockito.verify(map).get(Mockito.anyString());
+        Mockito.verify(map).put(Mockito.anyString(), Mockito.any(DateFormatLocal.class));
 
         assertEquals(1, map.size());
         assertNotNull(map.get("yyyy-MM-dd"));
@@ -343,6 +314,7 @@ public class DateColumnParserTest extends TestCase {
      * ファイル行オブジェクトに、引数columnで設定した文字列をDate型に パースした値が設定できること。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse05() throws Exception {
         // テスト対象のインスタンス化
         DateColumnParser dateColumnParser = new DateColumnParser();
@@ -358,6 +330,7 @@ public class DateColumnParserTest extends TestCase {
         Map<String, DateFormatLocal> map = new ConcurrentHashMap<String, DateFormatLocal>();
         DateFormatLocal cache = new DateFormatLocal(columnFormat);
         map.put(columnFormat, cache);
+        map = Mockito.spy(map);
         UTUtil.setPrivateField(dateColumnParser, "map", map);
 
         // テスト実施
@@ -372,8 +345,8 @@ public class DateColumnParserTest extends TestCase {
         simpleDateFormat.setLenient(false);
         Date expected = simpleDateFormat.parse(column);
         assertEquals(expected, result);
-        assertEquals(1, VMOUTUtil.getCallCount(Map.class, "get"));
-        assertEquals(0, VMOUTUtil.getCallCount(Map.class, "put"));
+        Mockito.verify(map).get(Mockito.anyString());
+        Mockito.verify(map, Mockito.never()).put(Mockito.anyString(), Mockito.any(DateFormatLocal.class));
 
         assertEquals(1, map.size());
         assertSame(cache, map.get("yyyy-MM-dd"));
@@ -406,6 +379,7 @@ public class DateColumnParserTest extends TestCase {
      * ファイル行オブジェクトに、引数columnで設定した文字列をDate型に パースした値が設定できること。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse06() throws Exception {
         // テスト対象のインスタンス化
         DateColumnParser dateColumnParser = new DateColumnParser();
@@ -421,6 +395,7 @@ public class DateColumnParserTest extends TestCase {
         Map<String, DateFormatLocal> map = new ConcurrentHashMap<String, DateFormatLocal>();
         DateFormatLocal cache = new DateFormatLocal("yyyy/MM/dd");
         map.put("yyyy/MM/dd", cache);
+        map = Mockito.spy(map);
         UTUtil.setPrivateField(dateColumnParser, "map", map);
 
         // テスト実施
@@ -435,8 +410,8 @@ public class DateColumnParserTest extends TestCase {
         simpleDateFormat.setLenient(false);
         Date expected = simpleDateFormat.parse(column);
         assertEquals(expected, result);
-        assertEquals(1, VMOUTUtil.getCallCount(Map.class, "get"));
-        assertEquals(1, VMOUTUtil.getCallCount(Map.class, "put"));
+        Mockito.verify(map).get(Mockito.anyString());
+        Mockito.verify(map).put(Mockito.anyString(), Mockito.any(DateFormatLocal.class));
 
         assertEquals(2, map.size());
         assertSame(cache, map.get("yyyy/MM/dd"));
@@ -466,6 +441,7 @@ public class DateColumnParserTest extends TestCase {
      * フォーマット文字列にありえない値が設定された場合、ParseExceptionが 発生することを確認する <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse07() throws Exception {
         // テスト対象のインスタンス化
         DateColumnParser dateColumnParser = new DateColumnParser();
@@ -517,6 +493,7 @@ public class DateColumnParserTest extends TestCase {
      * ファイル行オブジェクトのDate型属性のsetterメソッドに アクセスできない場合、IllegalAccessExceptionをスローすることを確認する <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse08() throws Exception {
         // テスト対象のインスタンス化
         DateColumnParser dateColumnParser = new DateColumnParser();
@@ -567,6 +544,7 @@ public class DateColumnParserTest extends TestCase {
      * ファイル行オブジェクトのDate型属性のsetterメソッドが例外を スローする場合、setterメソッドがスローした例外をラップする InvocationTargetExceptionをスローすることを確認する <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse09() throws Exception {
         // テスト対象のインスタンス化
         DateColumnParser dateColumnParser = new DateColumnParser();
@@ -617,6 +595,7 @@ public class DateColumnParserTest extends TestCase {
      * ファイル行オブジェクトのDate型属性のsetterメソッドの引数が多数ある場合、 IllegalArgumentExceptionをスローすることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse10() throws Exception {
         // テスト対象のインスタンス化
         DateColumnParser dateColumnParser = new DateColumnParser();
@@ -667,6 +646,7 @@ public class DateColumnParserTest extends TestCase {
      * Date型の属性の値が想定されない日付の場合、 ParseExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse11() throws Exception {
         // テスト対象のインスタンス化
         DateColumnParser dateColumnParser = new DateColumnParser();
@@ -718,6 +698,7 @@ public class DateColumnParserTest extends TestCase {
      * 引数columnにnullが設定された場合は、NullPointerExceptionが 発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse12() throws Exception {
         // テスト対象のインスタンス化
         DateColumnParser dateColumnParser = new DateColumnParser();
@@ -768,6 +749,7 @@ public class DateColumnParserTest extends TestCase {
      * 引数のcolumnのフォーマットとフォーマット用の文字列が異なる場合は、 ParseExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse13() throws Exception {
         // テスト対象のインスタンス化
         DateColumnParser dateColumnParser = new DateColumnParser();

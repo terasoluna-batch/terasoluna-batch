@@ -27,84 +27,29 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
                     <forkMode>always</forkMode>
-                    <argLine><![CDATA[-Dfile.encoding=Windows-31J -Djava.system.class.loader=jp.co.dgic.testing.common.DJUnitClassLoader -Djp.co.dgic.eclipse.virtualmock.usevirtualmock=true -Djp.co.dgic.eclipse.coverage.usecoverage=true -Djp.co.dgic.eclipse.project.source.dir="${project.build.sourceDirectory}" -Djp.co.dgic.eclipse.virtualmock.ignore.library=false -Dcom.jcoverage.rawcoverage.dir="${basedir}/target" -XX:-UseSplitVerifier]]></argLine>
-                    <useSystemClassLoader>true</useSystemClassLoader>
                     <includes>
                         <include>**/*Test*.java</include>
                     </includes>
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-antrun-plugin</artifactId>
-                <executions>
-                    <!-- JUnitのレポートを出力 -->
-                    <execution>
-                        <id>djunit-coverage-report</id>
-                        <phase>test</phase>
-                        <configuration>
-                            <target unless="maven.test.skip">
-                                <taskdef resource="djunittasks.properties">
-                                    <classpath refid="maven.test.classpath" />
-                                </taskdef>
-                                <djunit-coverage-report serFile="${basedir}/target/jcoverage.ser"
-                                                        srcdir="${basedir}/src/main/java" destdir="${basedir}/target/report/coverage"
-                                                        charset="${project.build.sourceEncoding}" srcfileencoding="${project.build.sourceEncoding}">
-                                    <classpath refid="maven.test.classpath" />
-                                </djunit-coverage-report>
-                            </target>
-                        </configuration>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                    </execution>
-                </executions>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>cobertura-maven-plugin</artifactId>
+                <configuration>
+                    <instrumentation>
+                        <excludes>
+                            <exclude>jp/terasoluna/**/*Test.class</exclude>
+                            <exclude>jp/terasoluna/fw/batch/**/*.class</exclude>
+                            <exclude>jp/terasoluna/fw/file/**/*.class</exclude>
+                            <exclude>jp/terasoluna/fw/logger/*.class</exclude>
+                            <exclude>jp/terasoluna/fw/validation/*.class</exclude>
+                        </excludes>
+                    </instrumentation>
+                    <check/>
+                </configuration>
             </plugin>
         </plugins>
     </build>
-    <!-- mvn siteコマンドでレポート出力（JUnitとcobertura) -->
-    <reporting>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-project-info-reports-plugin</artifactId>
-                <configuration>
-                    <dependencyLocationsEnabled>false</dependencyLocationsEnabled>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <configuration>
-                    <docencoding>UTF-8</docencoding>
-                    <charset>UTF-8</charset>
-                    <encoding>${encoding}</encoding>
-                    <bottom>
-                        <![CDATA[Copyright &copy; 2015 NTT DATA Corporation.]]>
-                    </bottom>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jxr-plugin</artifactId>
-                <configuration>
-                    <inputEncoding>UTF-8</inputEncoding>
-                    <outputEncoding>UTF-8</outputEncoding>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-report-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>taglist-maven-plugin</artifactId>
-                <configuration>
-                    <encoding>UTF-8</encoding>
-                </configuration>
-            </plugin>
-        </plugins>
-    </reporting>
 
     <dependencies>
         <!-- Spring -->

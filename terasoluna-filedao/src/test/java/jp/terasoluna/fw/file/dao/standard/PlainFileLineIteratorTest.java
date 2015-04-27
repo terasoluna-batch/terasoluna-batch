@@ -1,7 +1,7 @@
 /*
  * $Id:$
  *
- * Copyright (c) 2006 NTT DATA Corporation
+ * Copyright (c) 2006-2015 NTT DATA Corporation
  *
  */
 
@@ -15,9 +15,11 @@ import java.util.NoSuchElementException;
 
 import jp.terasoluna.fw.file.dao.FileException;
 import jp.terasoluna.fw.file.dao.FileLineException;
-import jp.terasoluna.fw.file.ut.VMOUTUtil;
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.mockito.Mockito;
+
+import static org.junit.Assert.*;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.PlainFileLineIterator} クラスのテスト。
@@ -27,44 +29,7 @@ import junit.framework.TestCase;
  * @author 奥田哲司
  * @see jp.terasoluna.fw.file.dao.standard.PlainFileLineIterator
  */
-public class PlainFileLineIteratorTest extends TestCase {
-
-    /**
-     * このテストケースを実行する為の GUI アプリケーションを起動する。
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        // junit.swingui.TestRunner.run(PlainFileLineIteratorTest.class);
-    }
-
-    /**
-     * 初期化処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
-     */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-        VMOUTUtil.initialize();
-    }
-
-    /**
-     * 終了処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * @param name このテストケースの名前。
-     */
-    public PlainFileLineIteratorTest(String name) {
-        super(name);
-    }
+public class PlainFileLineIteratorTest {
 
     /**
      * testPlainFileLineIterator01() <br>
@@ -86,6 +51,7 @@ public class PlainFileLineIteratorTest extends TestCase {
      * 親クラスのコンストラクタが呼ばれ、親クラスのinitメソッドが実行されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testPlainFileLineIterator01() throws Exception {
         // テスト対象のインスタンス化
@@ -102,25 +68,16 @@ public class PlainFileLineIteratorTest extends TestCase {
         // なし
 
         // テスト実施
-        new PlainFileLineIterator(fileName, clazz, columnParserMap);
+        PlainFileLineIterator result = Mockito.spy(new PlainFileLineIterator(fileName, clazz, columnParserMap));
 
         // 返却値の確認
         // なし
 
         // 状態変化の確認
         // 判定
-        assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "<init>"));
-
-        List arguments = VMOUTUtil.getArguments(AbstractFileLineIterator.class,
-                "<init>", 0);
-        assertEquals(3, arguments.size());
-        assertEquals(fileName, arguments.get(0));
-        assertSame(clazz, arguments.get(1));
-        assertSame(columnParserMap, arguments.get(2));
-
-        assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "init"));
+        assertEquals(fileName, UTUtil.getPrivateField(result, "fileName"));
+        assertSame(clazz, UTUtil.getPrivateField(result, "clazz"));
+        assertSame(columnParserMap, UTUtil.getPrivateField(result, "columnParserMap"));
     }
 
     /**
@@ -137,6 +94,7 @@ public class PlainFileLineIteratorTest extends TestCase {
      * このクラスではseparateColumnsをサポートしていない。よって、UnSupportedOperationExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSeparateColumns01() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("PlainFileLineIterator01.txt");
@@ -190,6 +148,7 @@ public class PlainFileLineIteratorTest extends TestCase {
      * hasNextメッソドがTRUEになっている場合readLineメッソドが呼ばれることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testNext01() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("PlainFileLineIterator01.txt");
@@ -197,8 +156,8 @@ public class PlainFileLineIteratorTest extends TestCase {
         Class<PlainFileLineIterator_Stub01> clazz = PlainFileLineIterator_Stub01.class;
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
-        PlainFileLineIterator plainFileLineIterator = new PlainFileLineIterator(
-                fileName, clazz, columnParserMap);
+        PlainFileLineIterator plainFileLineIterator = Mockito.spy(new PlainFileLineIterator(
+                fileName, clazz, columnParserMap));
 
         // 引数の設定
         // なし
@@ -213,8 +172,7 @@ public class PlainFileLineIteratorTest extends TestCase {
         assertEquals("1行目データ", result);
 
         // 状態変化の確認
-        assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "readLine"));
+        Mockito.verify(plainFileLineIterator).readLine();
         assertEquals(1, UTUtil.getPrivateField(plainFileLineIterator,
                 "currentLineCount"));
     }
@@ -246,6 +204,7 @@ public class PlainFileLineIteratorTest extends TestCase {
      * NoSuchElementExceptionがスローされることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testNext02() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("File_Empty.txt");
@@ -253,8 +212,8 @@ public class PlainFileLineIteratorTest extends TestCase {
         Class<PlainFileLineIterator_Stub01> clazz = PlainFileLineIterator_Stub01.class;
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
-        PlainFileLineIterator plainFileLineIterator = new PlainFileLineIterator(
-                fileName, clazz, columnParserMap);
+        PlainFileLineIterator plainFileLineIterator = Mockito.spy(new PlainFileLineIterator(
+                fileName, clazz, columnParserMap));
 
         // 引数の設定
         // なし
@@ -280,8 +239,7 @@ public class PlainFileLineIteratorTest extends TestCase {
             assertEquals(-1, e.getColumnIndex());
 
             // 状態変化の確認
-            assertEquals(0, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "readLine"));
+            Mockito.verify(plainFileLineIterator, Mockito.never()).readLine();
             assertEquals(0, UTUtil.getPrivateField(plainFileLineIterator,
                     "currentLineCount"));
 
@@ -314,6 +272,7 @@ public class PlainFileLineIteratorTest extends TestCase {
      * NoSuchElementExceptionがスローされることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testNext03() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("PlainFileLineIterator03.txt");
@@ -321,8 +280,8 @@ public class PlainFileLineIteratorTest extends TestCase {
         Class<PlainFileLineIterator_Stub03> clazz = PlainFileLineIterator_Stub03.class;
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
-        PlainFileLineIterator plainFileLineIterator = new PlainFileLineIterator(
-                fileName, clazz, columnParserMap);
+        PlainFileLineIterator plainFileLineIterator = Mockito.spy(new PlainFileLineIterator(
+                fileName, clazz, columnParserMap));
 
         // 引数の設定
         // なし
@@ -346,8 +305,7 @@ public class PlainFileLineIteratorTest extends TestCase {
             assertEquals(0, e.getLineNo());
 
             // 状態変化の確認
-            assertEquals(0, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "readLine"));
+            Mockito.verify(plainFileLineIterator, Mockito.never()).readLine();
             assertEquals(0, UTUtil.getPrivateField(plainFileLineIterator,
                     "currentLineCount"));
 
@@ -359,6 +317,7 @@ public class PlainFileLineIteratorTest extends TestCase {
      * FileFormatのencloseCharとdelimiterが設定されていても、無視する
      * @throws Exception
      */
+    @Test
     public void testNext04() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("CsvFileLineIterator_next01.txt");
@@ -401,6 +360,7 @@ public class PlainFileLineIteratorTest extends TestCase {
      * Skip対象行がない場合、そのまま正常終了することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSkipint01() throws Exception {
         // テスト対象のインスタンス化
         URL url = PlainFileLineIteratorTest.class
@@ -409,8 +369,8 @@ public class PlainFileLineIteratorTest extends TestCase {
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        PlainFileLineIterator fileLineIterator = new PlainFileLineIterator(
-                fileName, PlainFileLineIterator_Stub01.class, columnParserMap);
+        PlainFileLineIterator fileLineIterator = Mockito.spy(new PlainFileLineIterator(
+                fileName, PlainFileLineIterator_Stub01.class, columnParserMap));
         UTUtil.setPrivateField(fileLineIterator, "currentLineCount", 0);
 
         // 引数の設定
@@ -427,8 +387,9 @@ public class PlainFileLineIteratorTest extends TestCase {
         // なし
 
         // 状態変化の確認
-        assertEquals(0, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "readLine"));
+        Mockito.verify(fileLineIterator, Mockito.never()).readLine();
+//        assertEquals(0, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
+//                "readLine"));
         assertEquals(0, UTUtil.getPrivateField(fileLineIterator,
                 "currentLineCount"));
     }
@@ -454,6 +415,7 @@ public class PlainFileLineIteratorTest extends TestCase {
      * Skip対象行が１行の場合、対象データを１行読むことを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSkipint02() throws Exception {
         // テスト対象のインスタンス化
         URL url = AbstractFileLineIteratorTest.class
@@ -462,8 +424,8 @@ public class PlainFileLineIteratorTest extends TestCase {
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        PlainFileLineIterator fileLineIterator = new PlainFileLineIterator(
-                fileName, PlainFileLineIterator_Stub01.class, columnParserMap);
+        PlainFileLineIterator fileLineIterator = Mockito.spy(new PlainFileLineIterator(
+                fileName, PlainFileLineIterator_Stub01.class, columnParserMap));
         UTUtil.setPrivateField(fileLineIterator, "currentLineCount", 0);
 
         // 引数の設定
@@ -480,8 +442,9 @@ public class PlainFileLineIteratorTest extends TestCase {
         // なし
 
         // 状態変化の確認
-        assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "readLine"));
+        Mockito.verify(fileLineIterator).readLine();
+//        assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
+//                "readLine"));
         assertEquals(1, UTUtil.getPrivateField(fileLineIterator,
                 "currentLineCount"));
     }
@@ -507,6 +470,7 @@ public class PlainFileLineIteratorTest extends TestCase {
      * Skip対象行が３行の場合、対象データを３行読むことを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSkipint03() throws Exception {
         // テスト対象のインスタンス化
         URL url = AbstractFileLineIteratorTest.class
@@ -515,8 +479,8 @@ public class PlainFileLineIteratorTest extends TestCase {
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        PlainFileLineIterator fileLineIterator = new PlainFileLineIterator(
-                fileName, PlainFileLineIterator_Stub01.class, columnParserMap);
+        PlainFileLineIterator fileLineIterator = Mockito.spy(new PlainFileLineIterator(
+                fileName, PlainFileLineIterator_Stub01.class, columnParserMap));
         UTUtil.setPrivateField(fileLineIterator, "currentLineCount", 0);
 
         // 引数の設定
@@ -533,8 +497,9 @@ public class PlainFileLineIteratorTest extends TestCase {
         // なし
 
         // 状態変化の確認
-        assertEquals(3, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "readLine"));
+        Mockito.verify(fileLineIterator, Mockito.times(3)).readLine();
+//        assertEquals(3, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
+//                "readLine"));
         assertEquals(3, UTUtil.getPrivateField(fileLineIterator,
                 "currentLineCount"));
     }
@@ -560,6 +525,7 @@ public class PlainFileLineIteratorTest extends TestCase {
      * 対象データを読む処理で例外が発生した場合、その例外がそのまま返されることを確認する。。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSkipint04() throws Exception {
         // テスト対象のインスタンス化
         URL url = AbstractFileLineIteratorTest.class
@@ -568,8 +534,8 @@ public class PlainFileLineIteratorTest extends TestCase {
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        PlainFileLineIterator fileLineIterator = new PlainFileLineIterator(
-                fileName, PlainFileLineIterator_Stub01.class, columnParserMap);
+        PlainFileLineIterator fileLineIterator = Mockito.spy(new PlainFileLineIterator(
+                fileName, PlainFileLineIterator_Stub01.class, columnParserMap));
         UTUtil.setPrivateField(fileLineIterator, "currentLineCount", 0);
 
         // 引数の設定
@@ -578,8 +544,9 @@ public class PlainFileLineIteratorTest extends TestCase {
         // 前提条件の設定
         fileLineIterator.init();
         FileException exception = new FileException("readLineからの例外です");
-        VMOUTUtil.setExceptionAtAllTimes(AbstractFileLineIterator.class,
-                "readLine", exception);
+        Mockito.doThrow(exception).when(fileLineIterator).readLine();
+//        VMOUTUtil.setExceptionAtAllTimes(AbstractFileLineIterator.class,
+//                "readLine", exception);
         // テスト対象のインスタンス化で設定済み
 
         // テスト実施
@@ -623,6 +590,7 @@ public class PlainFileLineIteratorTest extends TestCase {
      * Skip対象行の数が対象データの数を越える場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSkipint05() throws Exception {
         // テスト対象のインスタンス化
         URL url = AbstractFileLineIteratorTest.class
@@ -631,8 +599,8 @@ public class PlainFileLineIteratorTest extends TestCase {
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        PlainFileLineIterator fileLineIterator = new PlainFileLineIterator(
-                fileName, PlainFileLineIterator_Stub01.class, columnParserMap);
+        PlainFileLineIterator fileLineIterator = Mockito.spy(new PlainFileLineIterator(
+                fileName, PlainFileLineIterator_Stub01.class, columnParserMap));
         UTUtil.setPrivateField(fileLineIterator, "currentLineCount", 0);
 
         // 引数の設定
@@ -655,8 +623,9 @@ public class PlainFileLineIteratorTest extends TestCase {
             assertEquals(4, e.getLineNo());
 
             // 状態変化の確認
-            assertEquals(3, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "readLine"));
+            Mockito.verify(fileLineIterator, Mockito.times(3)).readLine();
+//            assertEquals(3, VMOUTUtil.getCallCount(
+//                    AbstractFileLineIterator.class, "readLine"));
             assertEquals(3, UTUtil.getPrivateField(fileLineIterator,
                     "currentLineCount"));
         }
@@ -676,6 +645,7 @@ public class PlainFileLineIteratorTest extends TestCase {
      * 必ず','が返却される。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetDelimiter01() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("PlainFileLineIterator01.txt");
@@ -715,6 +685,7 @@ public class PlainFileLineIteratorTest extends TestCase {
      * encloseCharのgetterが正常に動作することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetEncloseChar01() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("PlainFileLineIterator01.txt");
@@ -754,6 +725,7 @@ public class PlainFileLineIteratorTest extends TestCase {
      * currentLineCountのgetterが正常に動作することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetCurrentLineCount01() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("PlainFileLineIterator01.txt");
@@ -796,6 +768,7 @@ public class PlainFileLineIteratorTest extends TestCase {
      * getTrailer()を呼ぶことによって、トレイラデータを取得し、トレイラ部処理確認用フラグがTrueに変化することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetTrailer01() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("PlainFileLineIterator03.txt");
