@@ -1,7 +1,7 @@
 /*
  * $Id:$
  *
- * Copyright (c) 2006 NTT DATA Corporation
+ * Copyright (c) 2006-2015 NTT DATA Corporation
  *
  */
 
@@ -16,18 +16,17 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import jp.terasoluna.fw.file.annotation.NullStringConverter;
 import jp.terasoluna.fw.file.annotation.PaddingType;
 import jp.terasoluna.fw.file.dao.FileException;
-import jp.terasoluna.fw.file.ut.VMOUTUtil;
 
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.test.util.ReflectionTestUtils;
+import org.mockito.Mockito;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.VariableFileLineWriter} クラスのテスト。
@@ -44,17 +43,8 @@ public class VariableFileLineWriterTest {
     private static final String TEMP_FILE_NAME = VariableFileLineWriterTest.class
             .getResource("VariableFileLineWriterTest_tmp.txt").getPath();
 
-    /**
-     * このテストケースを実行する為の GUI アプリケーションを起動する。
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        // junit.swingui.TestRunner.run(VariableFileLineWriterTest.class);
-    }
-
     @Before
     public void setUp() throws Exception {
-        VMOUTUtil.initialize();
         // ファイルの初期化
         File file = new File(TEMP_FILE_NAME);
         file.delete();
@@ -90,7 +80,6 @@ public class VariableFileLineWriterTest {
      * @FileFormatがすべてデフォルト値の場合に、コンストラクタの呼出が正常に行われることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
     @Test
     public void testVariableFileLineWriter01() throws Exception {
         // テスト対象のインスタンス化
@@ -108,26 +97,16 @@ public class VariableFileLineWriterTest {
         // テスト実施
         VariableFileLineWriter<VariableFileLineWriter_Stub01> result = null;
         try {
-            result = new VariableFileLineWriter<VariableFileLineWriter_Stub01>(
-                    fileName, clazz, columnFormatterMap);
+            result = new VariableFileLineWriter<VariableFileLineWriter_Stub01>(fileName, clazz, columnFormatterMap);
 
             // 返却値の確認
             // なし
 
             // 状態変化の確認
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "init"));
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "<init>"));
-            List arguments = VMOUTUtil.getArguments(
-                    AbstractFileLineWriter.class, "<init>", 0);
-            assertEquals(3, arguments.size());
-            assertEquals(fileName, arguments.get(0));
-            assertEquals(VariableFileLineWriter_Stub01.class, arguments.get(1));
-            assertEquals(columnFormatterMap, arguments.get(2));
-            assertEquals(Character.MIN_VALUE, ReflectionTestUtils.getField(result,
-                    "encloseChar"));
-            assertEquals(',', ReflectionTestUtils.getField(result, "delimiter"));
+            assertEquals(Character.MIN_VALUE, ReflectionTestUtils.getField(
+                    result, "encloseChar"));
+            assertEquals(',', ReflectionTestUtils.getField(result,
+                    "delimiter"));
         } finally {
             // テスト対象のクローズ処理
             if (result != null) {
@@ -156,7 +135,6 @@ public class VariableFileLineWriterTest {
      * ファイル名が入力値のfileNameに一致することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
     @Test
     public void testVariableFileLineWriter02() throws Exception {
         // テスト対象のインスタンス化
@@ -171,28 +149,15 @@ public class VariableFileLineWriterTest {
 
         // 前提条件の設定
         // なし
-
         try {
             // テスト実施
-            new VariableFileLineWriter<VariableFileLineWriter_Stub04>(fileName,
-                    clazz, columnFormatterMap);
+            new VariableFileLineWriter<VariableFileLineWriter_Stub04>(fileName, clazz, columnFormatterMap);
             fail("FileExceptionがスローされませんでした。");
         } catch (FileException e) {
             // 返却値の確認
             // なし
 
             // 状態変化の確認
-            assertEquals(0, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "init"));
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "<init>"));
-            List arguments = VMOUTUtil.getArguments(
-                    AbstractFileLineWriter.class, "<init>", 0);
-            assertEquals(3, arguments.size());
-            assertEquals(fileName, arguments.get(0));
-            assertEquals(VariableFileLineWriter_Stub04.class, arguments.get(1));
-            assertEquals(columnFormatterMap, arguments.get(2));
-
             assertEquals(FileException.class, e.getClass());
             assertEquals("Delimiter can not use '\\u0000'.", e.getMessage());
             assertEquals(IllegalStateException.class, e.getCause().getClass());
@@ -220,7 +185,6 @@ public class VariableFileLineWriterTest {
      * @FileFormatのdelimiterに'#'を設定、encloseCharに'"'を設定した場合、コンストラクタの呼出が正常に行われることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
     @Test
     public void testVariableFileLineWriter03() throws Exception {
         // テスト対象のインスタンス化
@@ -239,25 +203,16 @@ public class VariableFileLineWriterTest {
         VariableFileLineWriter<VariableFileLineWriter_Stub07> result = null;
         try {
             // テスト実施
-            result = new VariableFileLineWriter<VariableFileLineWriter_Stub07>(
-                    fileName, clazz, columnFormatterMap);
+            result = new VariableFileLineWriter<VariableFileLineWriter_Stub07>(fileName, clazz, columnFormatterMap);
 
             // 返却値の確認
             // なし
 
             // 状態変化の確認
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "init"));
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "<init>"));
-            List arguments = VMOUTUtil.getArguments(
-                    AbstractFileLineWriter.class, "<init>", 0);
-            assertEquals(3, arguments.size());
-            assertEquals(fileName, arguments.get(0));
-            assertEquals(VariableFileLineWriter_Stub07.class, arguments.get(1));
-            assertEquals(columnFormatterMap, arguments.get(2));
-            assertEquals('"', ReflectionTestUtils.getField(result, "encloseChar"));
-            assertEquals('#', ReflectionTestUtils.getField(result, "delimiter"));
+            assertEquals('"', ReflectionTestUtils.getField(result,
+                    "encloseChar"));
+            assertEquals('#', ReflectionTestUtils.getField(result,
+                    "delimiter"));
         } finally {
             // テスト対象のクローズ処理
             if (result != null) {
@@ -280,13 +235,11 @@ public class VariableFileLineWriterTest {
 
         // テスト実施
         try {
-            new VariableFileLineWriter<VariableFileLine_Stub01>(fileName,
-                    VariableFileLine_Stub01.class, columnFormatterMap);
+            new VariableFileLineWriter<VariableFileLine_Stub01>(fileName, VariableFileLine_Stub01.class, columnFormatterMap);
             fail();
         } catch (FileException e) {
-            assertEquals(
-                    "delimiter is the same as lineFeedChar and is no use.", e
-                            .getMessage());
+            assertEquals("delimiter is the same as lineFeedChar and is no use.",
+                    e.getMessage());
             assertEquals(fileName, e.getFileName());
             assertSame(IllegalStateException.class, e.getCause().getClass());
         }
@@ -306,13 +259,11 @@ public class VariableFileLineWriterTest {
 
         // テスト実施
         try {
-            new VariableFileLineWriter<VariableFileLine_Stub02>(fileName,
-                    VariableFileLine_Stub02.class, columnFormatterMap);
+            new VariableFileLineWriter<VariableFileLine_Stub02>(fileName, VariableFileLine_Stub02.class, columnFormatterMap);
             fail();
         } catch (FileException e) {
-            assertEquals(
-                    "delimiter is the same as lineFeedChar and is no use.", e
-                            .getMessage());
+            assertEquals("delimiter is the same as lineFeedChar and is no use.",
+                    e.getMessage());
             assertEquals(fileName, e.getFileName());
             assertSame(IllegalStateException.class, e.getCause().getClass());
         }
@@ -333,8 +284,7 @@ public class VariableFileLineWriterTest {
 
         // テスト実施
         try {
-            new VariableFileLineWriter<FileLineObject_Empty>(fileName, clazz,
-                    columnFormatterMap);
+            new VariableFileLineWriter<FileLineObject_Empty>(fileName, clazz, columnFormatterMap);
             fail("FileExceptionがスローされませんでした。");
         } catch (FileException e) {
             // 返却値なし
@@ -358,22 +308,18 @@ public class VariableFileLineWriterTest {
      * (状態) this.encloseChar:Charcator.MIN_VALUE<br>
      * <br>
      * 期待値：(戻り値) String:abcdef<br>
-     * (状態変化) AbstractFileLineWriter#getColumn():1回呼び出されること<br>
-     * 引数が渡されること<br>
      * <br>
      * 正しく値を取得することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
     @Test
     public void testGetColumn01() throws Exception {
         // テスト対象のインスタンス化
         String fileName = TEMP_FILE_NAME;
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
-        VariableFileLineWriter<VariableFileLineWriter_Stub05> lineWriter = new VariableFileLineWriter<VariableFileLineWriter_Stub05>(
-                fileName, VariableFileLineWriter_Stub05.class,
-                columnFormatterMap);
+        VariableFileLineWriter<VariableFileLineWriter_Stub05> lineWriter = Mockito
+                .spy(new VariableFileLineWriter<VariableFileLineWriter_Stub05>(fileName, VariableFileLineWriter_Stub05.class, columnFormatterMap));
 
         // 引数の設定
         VariableFileLineWriter_Stub05 t = new VariableFileLineWriter_Stub05();
@@ -388,14 +334,6 @@ public class VariableFileLineWriterTest {
             String result = lineWriter.getColumn(t, index);
             // 返却値の確認
             assertEquals("abcdef", result);
-
-            // 状態変化の確認
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "getColumn"));
-            List arguments = VMOUTUtil.getArguments(
-                    AbstractFileLineWriter.class, "getColumn", 0);
-            assertSame(t, arguments.get(0));
-            assertEquals(index, arguments.get(1));
         } finally {
             // テスト対象のクローズ処理
             lineWriter.closeFile();
@@ -414,14 +352,11 @@ public class VariableFileLineWriterTest {
      * (状態) this.encloseChar:'\"'<br>
      * <br>
      * 期待値：(戻り値) String:abcdef<br>
-     * (状態変化) AbstractFileLineWriter#getColumn():1回呼び出されること<br>
-     * 引数が渡されること<br>
      * <br>
      * 正しく値を取得することを確認する。<br>
      * 出力対象にエスケープ対象の文字（囲み文字）が無い場合は通常の文字 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
     @Test
     public void testGetColumn02() throws Exception {
         // テスト対象のインスタンス化
@@ -429,9 +364,7 @@ public class VariableFileLineWriterTest {
 
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
-        VariableFileLineWriter<VariableFileLineWriter_Stub06> lineWriter = new VariableFileLineWriter<VariableFileLineWriter_Stub06>(
-                fileName, VariableFileLineWriter_Stub06.class,
-                columnFormatterMap);
+        VariableFileLineWriter<VariableFileLineWriter_Stub06> lineWriter = new VariableFileLineWriter<VariableFileLineWriter_Stub06>(fileName, VariableFileLineWriter_Stub06.class, columnFormatterMap);
 
         // 引数の設定
         VariableFileLineWriter_Stub06 t = new VariableFileLineWriter_Stub06();
@@ -447,14 +380,6 @@ public class VariableFileLineWriterTest {
 
             // 返却値の確認
             assertEquals("abcdef", result);
-
-            // 状態変化の確認
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "getColumn"));
-            List arguments = VMOUTUtil.getArguments(
-                    AbstractFileLineWriter.class, "getColumn", 0);
-            assertSame(t, arguments.get(0));
-            assertEquals(index, arguments.get(1));
         } finally {
             // テスト対象のクローズ処理
             lineWriter.closeFile();
@@ -473,14 +398,11 @@ public class VariableFileLineWriterTest {
      * (状態) this.encloseChar:'\"'<br>
      * <br>
      * 期待値：(戻り値) String:"ab\"\"cdef"<br>
-     * (状態変化) AbstractFileLineWriter#getColumn():1回呼び出されること<br>
-     * 引数が渡されること<br>
      * <br>
      * 正しく値を取得することを確認する。<br>
      * 出力対象にエスケープ対象の文字（囲み文字）がある場合に、エスケープされる <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
     @Test
     public void testGetColumn03() throws Exception {
         // テスト対象のインスタンス化
@@ -488,8 +410,7 @@ public class VariableFileLineWriterTest {
 
         Map<String, ColumnFormatter> textGetterMap = new HashMap<String, ColumnFormatter>();
         textGetterMap.put("java.lang.String", new NullColumnFormatter());
-        VariableFileLineWriter<VariableFileLineWriter_Stub06> lineWriter = new VariableFileLineWriter<VariableFileLineWriter_Stub06>(
-                fileName, VariableFileLineWriter_Stub06.class, textGetterMap);
+        VariableFileLineWriter<VariableFileLineWriter_Stub06> lineWriter = new VariableFileLineWriter<VariableFileLineWriter_Stub06>(fileName, VariableFileLineWriter_Stub06.class, textGetterMap);
 
         // 引数の設定
         VariableFileLineWriter_Stub06 t = new VariableFileLineWriter_Stub06();
@@ -505,14 +426,6 @@ public class VariableFileLineWriterTest {
 
             // 返却値の確認
             assertEquals("ab\"\"cdef", result);
-
-            // 状態変化の確認
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "getColumn"));
-            List arguments = VMOUTUtil.getArguments(
-                    AbstractFileLineWriter.class, "getColumn", 0);
-            assertSame(t, arguments.get(0));
-            assertEquals(index, arguments.get(1));
         } finally {
             // テスト対象のクローズ処理
             lineWriter.closeFile();
@@ -541,8 +454,7 @@ public class VariableFileLineWriterTest {
 
         Map<String, ColumnFormatter> textGetterMap = new HashMap<String, ColumnFormatter>();
         textGetterMap.put("java.lang.String", new NullColumnFormatter());
-        VariableFileLineWriter<VariableFileLineWriter_Stub06> lineWriter = new VariableFileLineWriter<VariableFileLineWriter_Stub06>(
-                fileName, VariableFileLineWriter_Stub06.class, textGetterMap);
+        VariableFileLineWriter<VariableFileLineWriter_Stub06> lineWriter = new VariableFileLineWriter<VariableFileLineWriter_Stub06>(fileName, VariableFileLineWriter_Stub06.class, textGetterMap);
 
         // 引数の設定
         VariableFileLineWriter_Stub06 t = null;
@@ -576,13 +488,10 @@ public class VariableFileLineWriterTest {
      * (状態) this.encloseChar:'\"'<br>
      * <br>
      * 期待値：(戻り値) String:aaabbb<br>
-     * (状態変化) AbstractFileLineWriter#getColumn():1回呼び出されること<br>
-     * 引数が渡されること<br>
      * <br>
      * indexの値に紐づくカラムの値（囲み文字なしの場合）が取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
     @Test
     public void testGetColumn05() throws Exception {
         // テスト対象のインスタンス化
@@ -590,8 +499,7 @@ public class VariableFileLineWriterTest {
 
         Map<String, ColumnFormatter> textGetterMap = new HashMap<String, ColumnFormatter>();
         textGetterMap.put("java.lang.String", new NullColumnFormatter());
-        VariableFileLineWriter<VariableFileLineWriter_Stub08> lineWriter = new VariableFileLineWriter<VariableFileLineWriter_Stub08>(
-                fileName, VariableFileLineWriter_Stub08.class, textGetterMap);
+        VariableFileLineWriter<VariableFileLineWriter_Stub08> lineWriter = new VariableFileLineWriter<VariableFileLineWriter_Stub08>(fileName, VariableFileLineWriter_Stub08.class, textGetterMap);
 
         // 引数の設定
         VariableFileLineWriter_Stub08 t = new VariableFileLineWriter_Stub08();
@@ -608,14 +516,6 @@ public class VariableFileLineWriterTest {
 
             // 返却値の確認
             assertEquals("aaabbb", result);
-
-            // 状態変化の確認
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "getColumn"));
-            List arguments = VMOUTUtil.getArguments(
-                    AbstractFileLineWriter.class, "getColumn", 0);
-            assertSame(t, arguments.get(0));
-            assertEquals(index, arguments.get(1));
         } finally {
             // テスト対象のクローズ処理
             lineWriter.closeFile();
@@ -643,9 +543,7 @@ public class VariableFileLineWriterTest {
         String fileName = TEMP_FILE_NAME;
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
-        VariableFileLineWriter<VariableFileLineWriter_Stub01> lineWriter = new VariableFileLineWriter<VariableFileLineWriter_Stub01>(
-                fileName, VariableFileLineWriter_Stub01.class,
-                columnFormatterMap);
+        VariableFileLineWriter<VariableFileLineWriter_Stub01> lineWriter = new VariableFileLineWriter<VariableFileLineWriter_Stub01>(fileName, VariableFileLineWriter_Stub01.class, columnFormatterMap);
 
         // 引数の設定
         // なし
@@ -689,9 +587,7 @@ public class VariableFileLineWriterTest {
 
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
-        VariableFileLineWriter<VariableFileLineWriter_Stub01> lineWriter = new VariableFileLineWriter<VariableFileLineWriter_Stub01>(
-                fileName, VariableFileLineWriter_Stub01.class,
-                columnFormatterMap);
+        VariableFileLineWriter<VariableFileLineWriter_Stub01> lineWriter = new VariableFileLineWriter<VariableFileLineWriter_Stub01>(fileName, VariableFileLineWriter_Stub01.class, columnFormatterMap);
 
         // 引数の設定
         // なし
@@ -729,8 +625,7 @@ public class VariableFileLineWriterTest {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        VariableFileLineWriter<CSVFileLine_Stub01> fileLineWriter = new VariableFileLineWriter<CSVFileLine_Stub01>(
-                fileName, CSVFileLine_Stub01.class, columnFormatterMap);
+        VariableFileLineWriter<CSVFileLine_Stub01> fileLineWriter = new VariableFileLineWriter<CSVFileLine_Stub01>(fileName, CSVFileLine_Stub01.class, columnFormatterMap);
 
         // 前処理(引数)
         CSVFileLine_Stub01 t1 = new CSVFileLine_Stub01();
@@ -760,9 +655,8 @@ public class VariableFileLineWriterTest {
         BufferedReader reader = null;
 
         try {
-            reader = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(fileName), System
-                            .getProperty("file.encoding")));
+            reader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), System
+                    .getProperty("file.encoding")));
             assertEquals("\"1\",22,333,|4444|", reader.readLine());
             assertEquals("\"5\",66,777,|8888|", reader.readLine());
             assertEquals("\"9\",AA,BBB,|CCCC|", reader.readLine());
@@ -786,8 +680,7 @@ public class VariableFileLineWriterTest {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        VariableFileLineWriter<CSVFileLine_Stub02> fileLineWriter = new VariableFileLineWriter<CSVFileLine_Stub02>(
-                fileName, CSVFileLine_Stub02.class, columnFormatterMap);
+        VariableFileLineWriter<CSVFileLine_Stub02> fileLineWriter = new VariableFileLineWriter<CSVFileLine_Stub02>(fileName, CSVFileLine_Stub02.class, columnFormatterMap);
 
         // 前処理(引数)
         CSVFileLine_Stub02 t1 = new CSVFileLine_Stub02();
@@ -817,9 +710,8 @@ public class VariableFileLineWriterTest {
         BufferedReader reader = null;
 
         try {
-            reader = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(fileName), System
-                            .getProperty("file.encoding")));
+            reader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), System
+                    .getProperty("file.encoding")));
             assertEquals("\"1\",'22',\"333\",|4444|", reader.readLine());
             assertEquals("\"5\",'66',\"777\",|8888|", reader.readLine());
             assertEquals("\"9\",'AA',\"BBB\",|CCCC|", reader.readLine());
@@ -842,8 +734,7 @@ public class VariableFileLineWriterTest {
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        VariableFileLineWriter<CSVFileLine_Stub03> fileLineWriter = new VariableFileLineWriter<CSVFileLine_Stub03>(
-                fileName, CSVFileLine_Stub03.class, columnFormatterMap);
+        VariableFileLineWriter<CSVFileLine_Stub03> fileLineWriter = new VariableFileLineWriter<CSVFileLine_Stub03>(fileName, CSVFileLine_Stub03.class, columnFormatterMap);
 
         // 前処理(引数)
         CSVFileLine_Stub03 t1 = new CSVFileLine_Stub03();
@@ -861,10 +752,10 @@ public class VariableFileLineWriterTest {
         ReflectionTestUtils.setField(fileLineWriter, "lineFeedChar", "\r\n");
         ReflectionTestUtils.setField(fileLineWriter, "delimiter", '_');
         ReflectionTestUtils.setField(fileLineWriter, "outputFileColumns", null);
-        ReflectionTestUtils.setField(fileLineWriter, "columnFormats", new String[] {
-                "", "", "", "" });
-        ReflectionTestUtils.setField(fileLineWriter, "columnBytes", new int[] { -1,
-                -1, -1, -1 });
+        ReflectionTestUtils.setField(fileLineWriter, "columnFormats",
+                new String[] { "", "", "", "" });
+        ReflectionTestUtils.setField(fileLineWriter, "columnBytes", new int[] {
+                -1, -1, -1, -1 });
         // ReflectionTestUtils.setField(fileLineWriter, "totalBytes", 0);
         ReflectionTestUtils.setField(fileLineWriter, "paddingTypes",
                 new PaddingType[] { PaddingType.NONE, PaddingType.NONE,
@@ -886,9 +777,8 @@ public class VariableFileLineWriterTest {
         BufferedReader reader = null;
 
         try {
-            reader = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(fileName), System
-                            .getProperty("file.encoding")));
+            reader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), System
+                    .getProperty("file.encoding")));
             assertEquals("1_22_333_4444", reader.readLine());
         } finally {
             reader.close();

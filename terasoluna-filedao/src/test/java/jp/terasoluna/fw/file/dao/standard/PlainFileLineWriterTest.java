@@ -18,15 +18,18 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Writer;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import jp.terasoluna.fw.file.dao.FileException;
-import jp.terasoluna.fw.file.ut.VMOUTUtil;
 
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mockito;
+import org.powermock.api.mockito.PowerMockito;
+import org.powermock.core.classloader.annotations.PrepareForTest;
+import org.powermock.modules.junit4.PowerMockRunner;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.PlainFileLineWriter} クラスのテスト。
@@ -37,6 +40,8 @@ import org.junit.Test;
  * @author 奥田哲司
  * @see jp.terasoluna.fw.file.dao.standard.PlainFileLineWriter
  */
+@RunWith(PowerMockRunner.class)
+@PrepareForTest(AbstractFileLineWriter.class)
 public class PlainFileLineWriterTest {
 
     private static final String TEMP_FILE_NAME = PlainFileLineWriterTest.class
@@ -52,7 +57,7 @@ public class PlainFileLineWriterTest {
 
     @Before
     public void setUp() throws Exception {
-        VMOUTUtil.initialize();
+//        VMOUTUtil.initialize();
         // ファイルの初期化
         File file = new File(TEMP_FILE_NAME);
         file.delete();
@@ -103,6 +108,9 @@ public class PlainFileLineWriterTest {
         // 前提条件の設定
         // なし
 
+        PlainFileLineWriter pflw = PowerMockito.mock(PlainFileLineWriter.class);
+        PowerMockito.whenNew(PlainFileLineWriter.class).withAnyArguments().thenReturn(pflw);
+
         // テスト実施
         PlainFileLineWriter plainFileLineWriter = new PlainFileLineWriter(
                 fileName, clazz, columnFormatterMap);
@@ -111,13 +119,8 @@ public class PlainFileLineWriterTest {
         // なし
 
         // 状態変化の確認
-        assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
-                "<init>"));
-        List arguments = VMOUTUtil.getArguments(AbstractFileLineWriter.class,
-                "<init>", 0);
-        assertEquals(fileName, arguments.get(0));
-        assertEquals(clazz, arguments.get(1));
-        assertEquals(columnFormatterMap, arguments.get(2));
+        // 親クラスのコンストラクタコールは取得できないため、テスト対象の引数を確認している。
+        PowerMockito.verifyNew(PlainFileLineWriter.class).withArguments(fileName, clazz, columnFormatterMap);
         plainFileLineWriter.closeFile();
     }
 
@@ -150,8 +153,8 @@ public class PlainFileLineWriterTest {
 
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
-        PlainFileLineWriter plainFileLineWriter = new PlainFileLineWriter(
-                fileName, PlainFileLineWriter_Stub01.class, columnFormatterMap);
+        PlainFileLineWriter plainFileLineWriter = Mockito.spy(new PlainFileLineWriter(
+                fileName, PlainFileLineWriter_Stub01.class, columnFormatterMap));
 
         // 引数の設定
         String t = "データ";
@@ -166,15 +169,10 @@ public class PlainFileLineWriterTest {
         // なし
 
         // 状態変化の確認
-        assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
-                "checkWriteTrailer"));
-        assertEquals(2, VMOUTUtil.getCallCount(Writer.class, "write"));
-        assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
-                "getLineFeedChar"));
-        assertEquals(2, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
-                "getWriter"));
-        assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
-                "setWriteData"));
+        Mockito.verify(plainFileLineWriter).checkWriteTrailer();
+        Mockito.verify(plainFileLineWriter).getLineFeedChar();
+        Mockito.verify(plainFileLineWriter, Mockito.times(2)).getWriter();
+        Mockito.verify(plainFileLineWriter).setWriteData(Mockito.anyBoolean());
         plainFileLineWriter.closeFile();
     }
 
@@ -213,15 +211,18 @@ public class PlainFileLineWriterTest {
         Class<PlainFileLineWriter_Stub01> clazz = PlainFileLineWriter_Stub01.class;
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
-        PlainFileLineWriter plainFileLineWriter = new PlainFileLineWriter(
-                fileName, clazz, columnFormatterMap);
+        PlainFileLineWriter plainFileLineWriter = Mockito.spy(new PlainFileLineWriter(
+                fileName, clazz, columnFormatterMap));
 
         // 引数の設定
         String t = "データ";
 
         // 前提条件の設定
         IOException exception = new IOException();
-        VMOUTUtil.setExceptionAtAllTimes(Writer.class, "write", exception);
+        Writer writer = PowerMockito.mock(Writer.class);
+        Mockito.doThrow(exception).when(writer).write(Mockito.anyString());
+        Mockito.doReturn(writer).when(plainFileLineWriter).getWriter();
+
         // テスト対象のインスタンス化時に設定済み
 
         // テスト実施
@@ -233,15 +234,10 @@ public class PlainFileLineWriterTest {
             // なし
 
             // 状態変化の確認
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "checkWriteTrailer"));
-            assertEquals(1, VMOUTUtil.getCallCount(Writer.class, "write"));
-            assertEquals(0, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "getLineFeedChar"));
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "getWriter"));
-            assertEquals(0, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "setWriteData"));
+            Mockito.verify(plainFileLineWriter).checkWriteTrailer();
+            Mockito.verify(plainFileLineWriter, Mockito.never()).getLineFeedChar();
+            Mockito.verify(plainFileLineWriter).getWriter();
+            Mockito.verify(plainFileLineWriter, Mockito.never()).setWriteData(Mockito.anyBoolean());
 
             assertSame(FileException.class, e.getClass());
             assertEquals("writer control operation was failed.", e.getMessage());
@@ -284,16 +280,19 @@ public class PlainFileLineWriterTest {
         Class<PlainFileLineWriter_Stub01> clazz = PlainFileLineWriter_Stub01.class;
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
-        PlainFileLineWriter plainFileLineWriter = new PlainFileLineWriter(
-                fileName, clazz, columnFormatterMap);
+        PlainFileLineWriter plainFileLineWriter = Mockito.spy(new PlainFileLineWriter(
+                fileName, clazz, columnFormatterMap));
 
         // 引数の設定
         String t = "データ";
 
         // 前提条件の設定
         FileException exception = new FileException("checkWriteTrailerからのエラーです");
-        VMOUTUtil.setExceptionAtAllTimes(AbstractFileLineWriter.class,
-                "checkWriteTrailer", exception);
+        Mockito.doThrow(exception).when(plainFileLineWriter).checkWriteTrailer();
+
+        Writer writer = PowerMockito.mock(Writer.class);
+        Mockito.doReturn(writer).when(plainFileLineWriter).getWriter();
+
         // テスト対象のインスタンス化時に設定済み
 
         // テスト実施
@@ -305,15 +304,11 @@ public class PlainFileLineWriterTest {
             // なし
 
             // 状態変化の確認
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "checkWriteTrailer"));
-            assertEquals(0, VMOUTUtil.getCallCount(Writer.class, "write"));
-            assertEquals(0, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "getLineFeedChar"));
-            assertEquals(0, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "getWriter"));
-            assertEquals(0, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "setWriteData"));
+            Mockito.verify(plainFileLineWriter).checkWriteTrailer();
+            Mockito.verify(writer, Mockito.never()).write(Mockito.anyString());
+            Mockito.verify(plainFileLineWriter, Mockito.never()).getLineFeedChar();
+            Mockito.verify(plainFileLineWriter, Mockito.never()).getWriter();
+            Mockito.verify(plainFileLineWriter, Mockito.never()).setWriteData(Mockito.anyBoolean());
 
             assertSame(exception, e);
         } finally {

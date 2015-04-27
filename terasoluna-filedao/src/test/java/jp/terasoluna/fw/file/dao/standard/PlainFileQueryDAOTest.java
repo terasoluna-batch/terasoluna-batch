@@ -1,7 +1,7 @@
 /*
  * $Id: PlainFileQueryDAOTest.java 5576 2007-11-15 13:13:32Z pakucn $
  *
- * Copyright (c) 2006 NTT DATA Corporation
+ * Copyright (c) 2006-2015 NTT DATA Corporation
  *
  */
 
@@ -12,13 +12,11 @@ import static org.junit.Assert.assertSame;
 
 import java.net.URL;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.junit.Test;
 
 import jp.terasoluna.fw.file.dao.FileLineIterator;
-import jp.terasoluna.fw.file.ut.VMOUTUtil;
 import org.springframework.test.util.ReflectionTestUtils;
 
 /**
@@ -38,9 +36,9 @@ public class PlainFileQueryDAOTest {
      * 観点：E <br>
      * <br>
      * 入力値：(引数) fileName:PlainFleQueryDAO01.txt<br>
-     * 　データを持たないファイルのパス<br>
+     * データを持たないファイルのパス<br>
      * (引数) clazz:PlainFileQueryDAO_Stub01<br>
-     * 　空実装<br>
+     * 空実装<br>
      * (状態) AbstractFileQueryDAO.columnParserMap:以下の要素を持つMap<String, ColumnParser>インスタンス<br>
      * ・"java.lang.String"=NullColumnParserインスタンス<br>
      * <br>
@@ -68,19 +66,17 @@ public class PlainFileQueryDAOTest {
                 columnParserMap);
 
         // テスト実施
-        FileLineIterator<PlainFileQueryDAO_Stub01> result = plainFileQueryDAO.execute(fileName, clazz);
+        FileLineIterator<PlainFileQueryDAO_Stub01> result = plainFileQueryDAO
+                .execute(fileName, clazz);
 
         // 返却値の確認
         assertEquals(PlainFileLineIterator.class, result.getClass());
 
         // 状態変化の確認
-        assertEquals(1, VMOUTUtil.getCallCount(PlainFileLineIterator.class,
-                "<init>"));
-        List<?> arguments = VMOUTUtil.getArguments(PlainFileLineIterator.class,
-                "<init>", 0);
-        assertSame(fileName, arguments.get(0));
-        assertSame(clazz, arguments.get(1));
-        assertSame(columnParserMap, arguments.get(2));
+        assertSame(fileName, ReflectionTestUtils.getField(result, "fileName"));
+        assertSame(clazz, ReflectionTestUtils.getField(result, "clazz"));
+        assertSame(columnParserMap, ReflectionTestUtils.getField(result,
+                "columnParserMap"));
     }
 
 }

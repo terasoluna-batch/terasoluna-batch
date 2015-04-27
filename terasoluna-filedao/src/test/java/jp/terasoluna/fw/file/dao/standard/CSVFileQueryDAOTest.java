@@ -1,7 +1,7 @@
 /*
  * $Id: CSVFileQueryDAOTest.java 5576 2007-11-15 13:13:32Z pakucn $
  * 
- * Copyright (c) 2006 NTT DATA Corporation
+ * Copyright (c) 2006-2015 NTT DATA Corporation
  * 
  */
 
@@ -12,14 +12,11 @@ import static org.junit.Assert.assertSame;
 
 import java.net.URL;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import jp.terasoluna.fw.file.dao.FileLineIterator;
-import jp.terasoluna.fw.file.ut.VMOUTUtil;
 import org.springframework.test.util.ReflectionTestUtils;
 
 /**
@@ -31,14 +28,6 @@ import org.springframework.test.util.ReflectionTestUtils;
  * @see jp.terasoluna.fw.file.dao.standard.CSVFileQueryDAO
  */
 public class CSVFileQueryDAOTest {
-
-    /**
-     * 初期化処理を行う。
-     */
-    @Before
-    public void setUp() {
-        VMOUTUtil.initialize();
-    }
 
     /**
      * testExecute01() <br>
@@ -67,7 +56,6 @@ public class CSVFileQueryDAOTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testExecute01() throws Exception {
         // テスト対象のインスタンス化
         CSVFileQueryDAO fileQueryDAO = new CSVFileQueryDAO();
@@ -85,19 +73,18 @@ public class CSVFileQueryDAOTest {
                 columnParser);
 
         // テスト実施
-        FileLineIterator fileLineIterator = fileQueryDAO.execute(fileName,
-                clazz);
+        FileLineIterator<CSVFileQueryDAO_Stub01> fileLineIterator = fileQueryDAO
+                .execute(fileName, clazz);
 
         // 返却値の確認
         assertEquals(CSVFileLineIterator.class, fileLineIterator.getClass());
 
         // 状態変化の確認
-        assertEquals(1, VMOUTUtil.getCallCount(CSVFileLineIterator.class,
-                "<init>"));
-        List arguments = VMOUTUtil.getArguments(CSVFileLineIterator.class,
-                "<init>", 0);
-        assertEquals(fileName, arguments.get(0));
-        assertEquals(clazz, arguments.get(1));
-        assertSame(columnParser, arguments.get(2));
+        assertEquals(fileName, ReflectionTestUtils.getField(fileLineIterator,
+                "fileName"));
+        assertSame(clazz, ReflectionTestUtils.getField(fileLineIterator,
+                "clazz"));
+        assertSame(columnParser, ReflectionTestUtils.getField(fileLineIterator,
+                "columnParserMap"));
     }
 }

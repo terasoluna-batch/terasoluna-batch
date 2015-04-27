@@ -49,14 +49,12 @@
         <logback.version>1.1.2</logback.version>
         <!-- utlib -->
         <terasoluna.unit.version>2.3.1</terasoluna.unit.version>
+        <!-- powermock-mockito -->
+        <powermock-mockito.version>1.6.2</powermock-mockito.version>
         <!-- jakarta -->
         <oro.version>2.0.8</oro.version>
         <!-- postgresql -->
         <postgresql.version>9.3-1103-jdbc41</postgresql.version>
-
-        <djunit.version>0.8.5</djunit.version>
-        <jcoverage.version>djunit-1.0.5</jcoverage.version>
-
         <oracle.jdbc.version>11.2.0.4.0</oracle.jdbc.version>
 
         <!-- plugin version -->
@@ -75,13 +73,11 @@
         <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
         <maven-project-info-reports-plugin.version>2.4</maven-project-info-reports-plugin.version>
         <maven-jxr-plugin.version>2.3</maven-jxr-plugin.version>
-        <maven-surefire-report-plugin.version>2.10</maven-surefire-report-plugin.version>
+        <maven-surefire-report-plugin.version>2.18.1</maven-surefire-report-plugin.version>
         <taglist-maven-plugin.version>2.4</taglist-maven-plugin.version>
-        <cobertura-maven-plugin.version>2.5.1</cobertura-maven-plugin.version>
         <slf4j-test.version>1.1.0</slf4j-test.version>
+        <cobertura-maven-plugin.version>2.7</cobertura-maven-plugin.version>
     </properties>
-
-
 
     <!-- Environment Settings -->
     <repositories>
@@ -103,6 +99,13 @@
             </snapshots>
         </repository>
     </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>Codehaus repository</id>
+            <url>http://repository.codehaus.org/</url>
+        </pluginRepository>
+    </pluginRepositories>
 
     <distributionManagement>
         <repository>
@@ -377,8 +380,6 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
-                    <forkMode>always</forkMode>
-                    <argLine><![CDATA[-Dfile.encoding=Windows-31J -Djava.system.class.loader=jp.co.dgic.testing.common.DJUnitClassLoader -Djp.co.dgic.eclipse.virtualmock.usevirtualmock=true -Djp.co.dgic.eclipse.coverage.usecoverage=true -Djp.co.dgic.eclipse.project.source.dir="${project.build.sourceDirectory}" -Djp.co.dgic.eclipse.virtualmock.ignore.library=false -Dcom.jcoverage.rawcoverage.dir="${basedir}/target" -XX:-UseSplitVerifier]]></argLine>
                     <useSystemClassLoader>true</useSystemClassLoader>
                 </configuration>
             </plugin>
@@ -437,9 +438,61 @@ sp_cleanup.organize_imports=true
                     </additionalConfig>
                 </configuration>
             </plugin>
-
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>cobertura-maven-plugin</artifactId>
+                <configuration>
+                    <instrumentation>
+                        <excludes>
+                            <exclude>jp/terasoluna/**/*Test.class</exclude>
+                        </excludes>
+                    </instrumentation>
+                    <check/>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-report-plugin</artifactId>
+                <reportSets>
+                    <reportSet>
+                        <reports>
+                            <report>report-only</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <configuration>
+                    <dependencyLocationsEnabled>false</dependencyLocationsEnabled>
+                </configuration>
+                <reportSets>
+                    <reportSet>
+                        <reports>
+                            <!-- 依存性関連のレポートは逐次jarのアップデートをセントラルサーバまで確認してしまうため、indexのみ出力とする。-->
+                            <report>index</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>cobertura-maven-plugin</artifactId>
+                <configuration>
+                    <formats>
+                        <format>html</format>
+                        <format>xml</format>
+                    </formats>
+                    <check/>
+                </configuration>
+            </plugin>
+        </plugins>
+    </reporting>
 
     <!-- 共通で使用する依存ライブラリの定義 -->
     <dependencyManagement>
@@ -496,20 +549,6 @@ sp_cleanup.organize_imports=true
             </dependency>
 
 
-
-            <!-- dJUnit -->
-            <dependency>
-                <groupId>jp.co.dgic</groupId>
-                <artifactId>djunit</artifactId>
-                <version>${djunit.version}</version>
-            </dependency>
-
-            <!-- jcoverage -->
-            <dependency>
-                <groupId>jcoverage</groupId>
-                <artifactId>jcoverage</artifactId>
-                <version>${jcoverage.version}</version>
-            </dependency>
 
             <!-- TERASOLUNA Framework -->
             <dependency>
@@ -599,6 +638,16 @@ sp_cleanup.organize_imports=true
                 <groupId>org.postgresql</groupId>
                 <artifactId>postgresql</artifactId>
                 <version>${postgresql.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.powermock</groupId>
+                <artifactId>powermock-api-mockito</artifactId>
+                <version>${powermock-mockito.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.powermock</groupId>
+                <artifactId>powermock-module-junit4</artifactId>
+                <version>${powermock-mockito.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

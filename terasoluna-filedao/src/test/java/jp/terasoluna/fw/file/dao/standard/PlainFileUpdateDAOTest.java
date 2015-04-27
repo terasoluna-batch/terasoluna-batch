@@ -1,7 +1,7 @@
 /*
  * $Id:$
  *
- * Copyright (c) 2006 NTT DATA Corporation
+ * Copyright (c) 2006-2015 NTT DATA Corporation
  *
  */
 
@@ -12,14 +12,13 @@ import static org.junit.Assert.assertSame;
 
 import java.net.URL;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.junit.Test;
 
-import jp.terasoluna.fw.file.dao.FileLineWriter;
-import jp.terasoluna.fw.file.ut.VMOUTUtil;
 import org.springframework.test.util.ReflectionTestUtils;
+
+import jp.terasoluna.fw.file.dao.FileLineWriter;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.PlainFileUpdateDAO} クラスのテスト。
@@ -39,9 +38,9 @@ public class PlainFileUpdateDAOTest {
      * 観点：E <br>
      * <br>
      * 入力値：(引数) fileName:PlainFileUpdateDAO01.txt<br>
-     * 　データを持たないファイルのパス<br>
+     * データを持たないファイルのパス<br>
      * (引数) clazz:PlainFileUpdateDAO_Stub01<br>
-     * 　空実装<br>
+     * 空実装<br>
      * (状態) AbstractFileUpdateDAO.columnFormatterMap:以下の要素を持つMap<String, ColumnFormatter>インスタンス<br>
      * ・"java.lang.String"=NullColumnFormatterインスタンス<br>
      * <br>
@@ -70,18 +69,17 @@ public class PlainFileUpdateDAOTest {
                 columnFormatterMap);
 
         // テスト実施
-        FileLineWriter<PlainFileUpdateDAO_Stub01> fileLineWriter = fileUpdateDAO.execute(fileName, clazz);
+        FileLineWriter<PlainFileUpdateDAO_Stub01> fileLineWriter = fileUpdateDAO
+                .execute(fileName, clazz);
 
         // 返却値の確認
         assertEquals(PlainFileLineWriter.class, fileLineWriter.getClass());
 
-        // 状態変化の確認
-        assertEquals(1, VMOUTUtil.getCallCount(PlainFileLineWriter.class,
-                "<init>"));
-        List<?> arguments = VMOUTUtil.getArguments(PlainFileLineWriter.class,
-                "<init>", 0);
-        assertSame(fileName, arguments.get(0));
-        assertSame(clazz, arguments.get(1));
-        assertSame(columnFormatterMap, arguments.get(2));
+        assertSame(fileName, ReflectionTestUtils.getField(fileLineWriter,
+                "fileName"));
+        assertSame(clazz, ReflectionTestUtils.getField(fileLineWriter,
+                "clazz"));
+        assertSame(columnFormatterMap, ReflectionTestUtils.getField(
+                fileLineWriter, "columnFormatterMap"));
     }
 }

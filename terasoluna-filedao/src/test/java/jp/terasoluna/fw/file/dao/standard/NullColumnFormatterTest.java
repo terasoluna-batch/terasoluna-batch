@@ -1,7 +1,7 @@
 /*
  * $Id: NullColumnFormatterTest.java 5354 2007-10-03 06:06:25Z anh $
  *
- * Copyright (c) 2006 NTT DATA Corporation
+ * Copyright (c) 2006-2015 NTT DATA Corporation
  *
  */
 
@@ -13,10 +13,8 @@ import static org.junit.Assert.fail;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-import org.junit.Before;
 import org.junit.Test;
 
-import jp.terasoluna.fw.file.ut.VMOUTUtil;
 import org.springframework.test.util.ReflectionTestUtils;
 
 /**
@@ -30,14 +28,6 @@ import org.springframework.test.util.ReflectionTestUtils;
 public class NullColumnFormatterTest {
 
     /**
-     * 初期化処理を行う。
-     */
-    @Before
-    public void setUp() {
-        VMOUTUtil.initialize();
-    }
-
-    /**
      * testFormat01() <br>
      * <br>
      * (正常系) <br>
@@ -46,11 +36,11 @@ public class NullColumnFormatterTest {
      * 入力値：(引数) ファイル行オブジェクト<br>
      * ｔ:オブジェクト<br>
      * 以下の値を持つ<br>
-     * 　値："aaa"<br>
+     * 値："aaa"<br>
      * (引数) ファイル行オブジェクト(t)にあるString型属性のgetterメソッド<br>
      * method:以下の設定をもつMethodインスタンス<br>
-     * 　可視性：public<br>
-     * 　引数：なし<br>
+     * 可視性：public<br>
+     * 引数：なし<br>
      * (引数) フォーマット用の文字列<br>
      * columnFormat:Stringインスタンス<br>
      * <br>
@@ -90,11 +80,11 @@ public class NullColumnFormatterTest {
      * 入力値：(引数) ファイル行オブジェクト<br>
      * ｔ:オブジェクト<br>
      * 以下の値を持つ<br>
-     * 　値："aaa"<br>
+     * 値："aaa"<br>
      * (引数) ファイル行オブジェクト(t)にあるString型属性のgetterメソッド<br>
      * method:以下の設定をもつMethodインスタンス<br>
-     * 　可視性：private<br>
-     * 　引数：なし<br>
+     * 可視性：private<br>
+     * 引数：なし<br>
      * (引数) フォーマット用の文字列<br>
      * columnFormat:Stringインスタンス<br>
      * <br>
@@ -137,11 +127,11 @@ public class NullColumnFormatterTest {
      * 入力値：(引数) ファイル行オブジェクト<br>
      * ｔ:オブジェクト<br>
      * 以下の値を持つ<br>
-     * 　値：例外をスローする<br>
+     * 値：例外をスローする<br>
      * (引数) ファイル行オブジェクト(t)にあるString型属性のgetterメソッド<br>
      * method:以下の設定をもつMethodインスタンス<br>
-     * 　可視性：public<br>
-     * 　引数：なし<br>
+     * 可視性：public<br>
+     * 引数：なし<br>
      * (引数) フォーマット用の文字列<br>
      * columnFormat:Stringインスタンス<br>
      * <br>
@@ -184,11 +174,11 @@ public class NullColumnFormatterTest {
      * 入力値：(引数) ファイル行オブジェクト<br>
      * ｔ:オブジェクト<br>
      * 以下の値を持つ<br>
-     * 　値："aaa"<br>
+     * 値："aaa"<br>
      * (引数) ファイル行オブジェクト(t)にあるString型属性のgetterメソッド<br>
      * method:以下の設定をもつMethodインスタンス<br>
-     * 　可視性：public<br>
-     * 　引数：あり<br>
+     * 可視性：public<br>
+     * 引数：あり<br>
      * (引数) フォーマット用の文字列<br>
      * columnFormat:Stringインスタンス<br>
      * <br>
@@ -232,11 +222,11 @@ public class NullColumnFormatterTest {
      * 入力値：(引数) ファイル行オブジェクト<br>
      * ｔ:オブジェクト<br>
      * 以下の値を持つ<br>
-     * 　値：null<br>
+     * 値：null<br>
      * (引数) ファイル行オブジェクト(t)にあるString型属性のgetterメソッド<br>
      * method:以下の設定をもつMethodインスタンス<br>
-     * 　可視性：public<br>
-     * 　引数：なし<br>
+     * 可視性：public<br>
+     * 引数：なし<br>
      * (引数) フォーマット用の文字列<br>
      * columnFormat:Stringインスタンス<br>
      * <br>
@@ -317,7 +307,7 @@ public class NullColumnFormatterTest {
      * 入力値：(引数) ファイル行オブジェクト<br>
      * ｔ:オブジェクト<br>
      * 以下の値を持つ<br>
-     * 　値："aaa"<br>
+     * 値："aaa"<br>
      * (引数) ファイル行オブジェクト(t)にあるString型属性のgetterメソッド<br>
      * method:null<br>
      * (引数) フォーマット用の文字列<br>
@@ -361,11 +351,11 @@ public class NullColumnFormatterTest {
      * 入力値：(引数) ファイル行オブジェクト<br>
      * ｔ:オブジェクト<br>
      * 以下の値を持つ<br>
-     * 　値："aaa"<br>
+     * 値："aaa"<br>
      * (引数) ファイル行オブジェクト(t)にあるString型属性のgetterメソッド<br>
      * method:以下の設定をもつMethodインスタンス<br>
-     * 　可視性：public<br>
-     * 　引数：なし<br>
+     * 可視性：public<br>
+     * 引数：なし<br>
      * (引数) フォーマット用の文字列<br>
      * columnFormat:null<br>
      * <br>

@@ -13,10 +13,8 @@ import static org.junit.Assert.fail;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-import org.junit.Before;
 import org.junit.Test;
 
-import jp.terasoluna.fw.file.ut.VMOUTUtil;
 import org.springframework.test.util.ReflectionTestUtils;
 
 /**
@@ -28,14 +26,6 @@ import org.springframework.test.util.ReflectionTestUtils;
  * @see jp.terasoluna.fw.file.dao.standard.IntColumnFormatter
  */
 public class IntColumnFormatterTest {
-
-    /**
-     * 初期化処理を行う。
-     */
-    @Before
-    public void setUp() {
-        VMOUTUtil.initialize();
-    }
 
     /**
      * testFormat01() <br>
@@ -168,8 +158,8 @@ public class IntColumnFormatterTest {
             // なし
 
             // 状態変化の確認
-            assertEquals(InvocationTargetException.class.getName(), e
-                    .getClass().getName());
+            assertEquals(InvocationTargetException.class.getName(), e.getClass()
+                    .getName());
         }
     }
 
@@ -199,8 +189,8 @@ public class IntColumnFormatterTest {
 
         // 引数の設定
         IntColumnFormatter_Stub04 t = new IntColumnFormatter_Stub04();
-        Method method = t.getClass().getMethod("getIntValue",
-                new Class[] { int.class, String.class });
+        Method method = t.getClass().getMethod("getIntValue", new Class[] {
+                int.class, String.class });
         String columnFormat = new String();
 
         // 前提条件の設定

@@ -1,7 +1,7 @@
 /*
  * $Id: FixedFileLineIteratorTest.java 5354 2007-10-03 06:06:25Z anh $
  *
- * Copyright (c) 2006 NTT DATA Corporation
+ * Copyright (c) 2006-2015 NTT DATA Corporation
  *
  */
 
@@ -15,17 +15,15 @@ import static org.junit.Assert.fail;
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.springframework.test.util.ReflectionTestUtils;
 
 import jp.terasoluna.fw.file.annotation.InputFileColumn;
 import jp.terasoluna.fw.file.annotation.NullStringConverter;
 import jp.terasoluna.fw.file.dao.FileException;
-import jp.terasoluna.fw.file.ut.VMOUTUtil;
+import org.mockito.Mockito;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.FixedFileLineIterator} クラスのテスト。
@@ -39,14 +37,6 @@ import jp.terasoluna.fw.file.ut.VMOUTUtil;
 public class FixedFileLineIteratorTest {
 
     /**
-     * 初期化処理を行う。
-     */
-    @Before
-    public void setUp() {
-        VMOUTUtil.initialize();
-    }
-
-    /**
      * testFixedFileLineIterator01() <br>
      * <br>
      * (正常系) <br>
@@ -55,7 +45,7 @@ public class FixedFileLineIteratorTest {
      * 入力値：(引数) fileName:"aaa.txt"<br>
      * (引数) clazz:以下の設定を持つFileFormatアノテーションを持つスタブ<br>
      * FixedFileLineIterator_Stub01<br>
-     * 　 アノテーションFileFormat：初期値<br>
+     * アノテーションFileFormat：初期値<br>
      * (引数) columnParserMap:以下の設定を持つHashMapのインスタンス<br>
      * 要素1<br>
      * key:"java.lang.String"<br>
@@ -72,7 +62,6 @@ public class FixedFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testFixedFileLineIterator01() throws Exception {
         // テスト対象のインスタンス化なし
 
@@ -90,21 +79,17 @@ public class FixedFileLineIteratorTest {
         // 前提条件なし
 
         // テスト実施
-        new FixedFileLineIterator<FixedFileLineIterator_Stub01>(fileName,
-                clazz, columnParserMap);
+        FixedFileLineIterator<FixedFileLineIterator_Stub01> result = Mockito
+                .spy(new FixedFileLineIterator<FixedFileLineIterator_Stub01>(fileName, clazz, columnParserMap));
 
         // 返却値なし
 
         // 状態変化の確認
-        assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "<init>"));
-        List arguments = VMOUTUtil.getArguments(AbstractFileLineIterator.class,
-                "<init>", 0);
-        assertEquals(fileName, arguments.get(0));
-        assertEquals(clazz, arguments.get(1));
-        assertSame(columnParserMap, arguments.get(2));
-        assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "init"));
+        assertEquals(fileName, ReflectionTestUtils.getField(result,
+                "fileName"));
+        assertEquals(clazz, ReflectionTestUtils.getField(result, "clazz"));
+        assertSame(columnParserMap, ReflectionTestUtils.getField(result,
+                "columnParserMap"));
     }
 
     /**
@@ -116,27 +101,27 @@ public class FixedFileLineIteratorTest {
      * 入力値：(引数) fileName:"aaa.txt"<br>
      * (引数) clazz:以下の設定を持つFileFormatアノテーションを持つスタブ<br>
      * FixedFileLineIterator_Stub05<br>
-     * 　アノテーションFileFormat：delimiterが初期値以外<br>
-     * @FileFormat(delimiter='、')<br> (引数) columnParserMap:以下の設定を持つHashMapのインスタンス<br>
+     * アノテーションFileFormat：delimiterが初期値以外<br>
+     * @FileFormat(delimiter='、')<br>
+     *                                (引数) columnParserMap:以下の設定を持つHashMapのインスタンス<br>
      *                                要素1<br>
      *                                key:"java.lang.String"<br>
      *                                value:ColumnParserインスタンス<br>
      *                                FixedFileLineWriter_ColumnParserStub01インスタンス<br>
      *                                空実装<br>
      *                                (状態) totalDefineBytes:0<br>
-     * <br>
+     *                                <br>
      *                                期待値：(状態変化) AbstractFileLineIteratorコンストラクタ:1回呼ばれる。<br>
      *                                引数と同じインスタンスが渡される。<br>
      *                                (状態変化) AbstractFileLineIterator#init():呼ばれない。<br>
-     *                                (状態変化)
-     *                                なし:"Delimiter can not change."のメッセージ、IllegalStateException、ファイル名を持つFileExceptionが発生する。<br>
-     * <br>
+     *                                (状態変化) なし:"Delimiter can not change."
+     *                                のメッセージ、IllegalStateException、ファイル名を持つFileExceptionが発生する。<br>
+     *                                <br>
      *                                例外。@FileFormatのdelimiterに初期値以外を設定した場合、例外が発生することを確認する。<br>
      *                                ファイル名が入力値のfileNameに一致することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testFixedFileLineIterator02() throws Exception {
         // テスト対象のインスタンス化なし
 
@@ -155,20 +140,12 @@ public class FixedFileLineIteratorTest {
 
         // テスト実施
         try {
-            new FixedFileLineIterator<FixedFileLineIterator_Stub05>(fileName,
-                    clazz, columnParserMap);
+            new FixedFileLineIterator<FixedFileLineIterator_Stub05>(fileName, clazz, columnParserMap);
             fail("FileExceptionがスローされませんでした。");
         } catch (FileException e) {
             // 返却値なし
 
             // 状態変化の確認
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "<init>"));
-            List arguments = VMOUTUtil.getArguments(
-                    AbstractFileLineIterator.class, "<init>", 0);
-            assertEquals(fileName, arguments.get(0));
-            assertEquals(clazz, arguments.get(1));
-            assertSame(columnParserMap, arguments.get(2));
             assertEquals(IllegalStateException.class, e.getCause().getClass());
             assertEquals("Delimiter can not change.", e.getMessage());
             assertEquals(fileName, e.getFileName());
@@ -184,27 +161,27 @@ public class FixedFileLineIteratorTest {
      * 入力値：(引数) fileName:"aaa.txt"<br>
      * (引数) clazz:以下の設定を持つFileFormatアノテーションを持つスタブ<br>
      * FixedFileLineIterator_Stub06<br>
-     * 　アノテーションFileFormat：encloseCharが初期値以外<br>
-     * @FileFormat(encloseChar='"')<br> (引数) columnParserMap:以下の設定を持つHashMapのインスタンス<br>
+     * アノテーションFileFormat：encloseCharが初期値以外<br>
+     * @FileFormat(encloseChar='"')<br>
+     *                                  (引数) columnParserMap:以下の設定を持つHashMapのインスタンス<br>
      *                                  要素1<br>
      *                                  key:"java.lang.String"<br>
      *                                  value:ColumnParserインスタンス<br>
      *                                  FixedFileLineWriter_ColumnParserStub01インスタンス<br>
      *                                  空実装<br>
      *                                  (状態) totalDefineBytes:0<br>
-     * <br>
+     *                                  <br>
      *                                  期待値：(状態変化) AbstractFileLineIteratorコンストラクタ:1回呼ばれる。<br>
      *                                  引数と同じインスタンスが渡される。<br>
      *                                  (状態変化) AbstractFileLineIterator#init():呼ばれない。<br>
-     *                                  (状態変化)
-     *                                  なし:"EncloseChar can not change."のメッセージ、IllegalStateException、ファイル名を持つFileExceptionが発生する。<br>
-     * <br>
+     *                                  (状態変化) なし:"EncloseChar can not change."
+     *                                  のメッセージ、IllegalStateException、ファイル名を持つFileExceptionが発生する。<br>
+     *                                  <br>
      *                                  例外。@FileFormatのencloseCharに初期値以外を設定した場合、例外が発生することを確認する。<br>
      *                                  ファイル名が入力値のfileNameに一致することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testFixedFileLineIterator03() throws Exception {
         // テスト対象のインスタンス化なし
 
@@ -223,20 +200,12 @@ public class FixedFileLineIteratorTest {
 
         // テスト実施
         try {
-            new FixedFileLineIterator<FixedFileLineIterator_Stub06>(fileName,
-                    clazz, columnParserMap);
+            new FixedFileLineIterator<FixedFileLineIterator_Stub06>(fileName, clazz, columnParserMap);
             fail("FileExceptionがスローされませんでした。");
         } catch (FileException e) {
             // 返却値なし
 
             // 状態変化の確認
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "<init>"));
-            List arguments = VMOUTUtil.getArguments(
-                    AbstractFileLineIterator.class, "<init>", 0);
-            assertEquals(fileName, arguments.get(0));
-            assertEquals(clazz, arguments.get(1));
-            assertSame(columnParserMap, arguments.get(2));
             assertEquals(IllegalStateException.class, e.getCause().getClass());
             assertEquals("EncloseChar can not change.", e.getMessage());
             assertEquals(fileName, e.getFileName());
@@ -252,29 +221,28 @@ public class FixedFileLineIteratorTest {
      * 入力値：(引数) fileName:"aaa.txt"<br>
      * (引数) clazz:以下の設定を持つFileFormatアノテーションを持つスタブ<br>
      * FixedFileLineIterator_Stub02<br>
-     * 　 アノテーションFileFormat：初期値<br>
+     * アノテーションFileFormat：初期値<br>
      * 属性：<br>
-     * 　　　@InputFileColumn(columnIndex = 1, bytes = 5)<br>
-     * 　　　String column1;<br>
-     * 　　　@InputFileColumn(columnIndex = 1, bytes = 3)<br>
-     * 　　　String column2;<br>
-     * (引数) columnParserMap:以下の設定を持つHashMapのインスタンス<br>
-     * 要素1<br>
-     * key:"java.lang.String"<br>
-     * value:ColumnParserインスタンス<br>
-     * FixedFileLineWriter_ColumnParserStub01インスタンス<br>
-     * 空実装<br>
-     * (状態) totalDefineBytes:0<br>
-     * <br>
-     * 期待値：(状態変化) AbstractFileLineIteratorコンストラクタ:1回呼ばれる。<br>
-     * 引数と同じインスタンスが渡される。<br>
-     * (状態変化) AbstractFileLineIterator#init():1回呼ばれる。<br>
-     * <br>
-     * 正常にコンストラクタの処理が行われることを確認する。 <br>
+     * @InputFileColumn(columnIndex = 1, bytes = 5)<br>
+     *                              String column1;<br>
+     * @InputFileColumn(columnIndex = 1, bytes = 3)<br>
+     *                              String column2;<br>
+     *                              (引数) columnParserMap:以下の設定を持つHashMapのインスタンス<br>
+     *                              要素1<br>
+     *                              key:"java.lang.String"<br>
+     *                              value:ColumnParserインスタンス<br>
+     *                              FixedFileLineWriter_ColumnParserStub01インスタンス<br>
+     *                              空実装<br>
+     *                              (状態) totalDefineBytes:0<br>
+     *                              <br>
+     *                              期待値：(状態変化) AbstractFileLineIteratorコンストラクタ:1回呼ばれる。<br>
+     *                              引数と同じインスタンスが渡される。<br>
+     *                              (状態変化) AbstractFileLineIterator#init():1回呼ばれる。<br>
+     *                              <br>
+     *                              正常にコンストラクタの処理が行われることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testFixedFileLineIterator04() throws Exception {
         // テスト対象のインスタンス化なし
 
@@ -292,21 +260,17 @@ public class FixedFileLineIteratorTest {
         // 前提条件なし
 
         // テスト実施
-        new FixedFileLineIterator<FixedFileLineIterator_Stub02>(fileName,
-                clazz, columnParserMap);
+        FixedFileLineIterator<FixedFileLineIterator_Stub02> result = Mockito
+                .spy(new FixedFileLineIterator<FixedFileLineIterator_Stub02>(fileName, clazz, columnParserMap));
 
         // 返却値なし
 
         // 状態変化の確認
-        assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "<init>"));
-        List arguments = VMOUTUtil.getArguments(AbstractFileLineIterator.class,
-                "<init>", 0);
-        assertEquals(fileName, arguments.get(0));
-        assertEquals(clazz, arguments.get(1));
-        assertSame(columnParserMap, arguments.get(2));
-        assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "init"));
+        assertEquals(fileName, ReflectionTestUtils.getField(result,
+                "fileName"));
+        assertEquals(clazz, ReflectionTestUtils.getField(result, "clazz"));
+        assertSame(columnParserMap, ReflectionTestUtils.getField(result,
+                "columnParserMap"));
     }
 
     /**
@@ -326,8 +290,7 @@ public class FixedFileLineIteratorTest {
 
         // テスト実施
         try {
-            new FixedFileLineIterator<FileLineObject_Empty>(fileName, clazz,
-                    columnParserMap);
+            new FixedFileLineIterator<FileLineObject_Empty>(fileName, clazz, columnParserMap);
             fail("FileExceptionがスローされませんでした。");
         } catch (FileException e) {
             // 返却値なし
@@ -355,8 +318,7 @@ public class FixedFileLineIteratorTest {
 
         // テスト実施
         try {
-            new FixedFileLineIterator<CSVFileLine_Stub01>(fileName,
-                    CSVFileLine_Stub01.class, columnParserMap);
+            new FixedFileLineIterator<CSVFileLine_Stub01>(fileName, CSVFileLine_Stub01.class, columnParserMap);
             fail("FileExceptionがスローされませんでした。");
         } catch (FileException e) {
             // 返却値なし
@@ -385,8 +347,7 @@ public class FixedFileLineIteratorTest {
 
         // テスト実施
         try {
-            new FixedFileLineIterator<FixedFileLine_Stub03>(fileName,
-                    FixedFileLine_Stub03.class, columnParserMap);
+            new FixedFileLineIterator<FixedFileLine_Stub03>(fileName, FixedFileLine_Stub03.class, columnParserMap);
             fail("FileExceptionがスローされませんでした。");
         } catch (FileException e) {
             // 返却値なし
@@ -416,8 +377,7 @@ public class FixedFileLineIteratorTest {
 
         // テスト実施
         try {
-            new FixedFileLineIterator<FixedFileLine_Stub04>(fileName,
-                    FixedFileLine_Stub04.class, columnParserMap);
+            new FixedFileLineIterator<FixedFileLine_Stub04>(fileName, FixedFileLine_Stub04.class, columnParserMap);
             fail("FileExceptionがスローされませんでした。");
         } catch (FileException e) {
             // 返却値なし
@@ -457,8 +417,7 @@ public class FixedFileLineIteratorTest {
         columnParserMap.put("java.util.Date", parser);
         columnParserMap.put("java.math.BigDecimal", parser);
         columnParserMap.put("java.lang.int", parser);
-        FixedFileLineIterator<FixedFileLineIterator_Stub01> lineIterator = new FixedFileLineIterator<FixedFileLineIterator_Stub01>(
-                fileName, clazz, columnParserMap);
+        FixedFileLineIterator<FixedFileLineIterator_Stub01> lineIterator = new FixedFileLineIterator<FixedFileLineIterator_Stub01>(fileName, clazz, columnParserMap);
 
         // 引数の設定
         String fileLineString = null;
@@ -503,8 +462,7 @@ public class FixedFileLineIteratorTest {
         columnParserMap.put("java.util.Date", parser);
         columnParserMap.put("java.math.BigDecimal", parser);
         columnParserMap.put("java.lang.int", parser);
-        FixedFileLineIterator<FixedFileLineIterator_Stub01> lineIterator = new FixedFileLineIterator<FixedFileLineIterator_Stub01>(
-                fileName, clazz, columnParserMap);
+        FixedFileLineIterator<FixedFileLineIterator_Stub01> lineIterator = new FixedFileLineIterator<FixedFileLineIterator_Stub01>(fileName, clazz, columnParserMap);
 
         // 引数の設定
         String fileLineString = "aaa";
@@ -540,7 +498,7 @@ public class FixedFileLineIteratorTest {
      * (状態) AbstractFileLineIterator.fileEncoding:システムデフォルト<br>
      * <br>
      * 期待値：(戻り値) String[]:以下の要素を持つString配列<br>
-     * 　要素1："12345"<br>
+     * 要素1："12345"<br>
      * <br>
      * 正常パターン。配列要素1の文字列型配列を返却する。 <br>
      * @throws Exception このメソッドで発生した例外
@@ -557,8 +515,7 @@ public class FixedFileLineIteratorTest {
         columnParserMap.put("java.util.Date", columnParser);
         columnParserMap.put("java.math.BigDecimal", columnParser);
         columnParserMap.put("java.lang.int", columnParser);
-        FixedFileLineIterator<FixedFileLineIterator_Stub03> lineIterator = new FixedFileLineIterator<FixedFileLineIterator_Stub03>(
-                fileName, clazz, columnParserMap);
+        FixedFileLineIterator<FixedFileLineIterator_Stub03> lineIterator = new FixedFileLineIterator<FixedFileLineIterator_Stub03>(fileName, clazz, columnParserMap);
 
         // 引数の設定
         String fileLineString = "12345";
@@ -607,8 +564,7 @@ public class FixedFileLineIteratorTest {
         columnParserMap.put("java.util.Date", columnParser);
         columnParserMap.put("java.math.BigDecimal", columnParser);
         columnParserMap.put("java.lang.int", columnParser);
-        FixedFileLineIterator<FixedFileLineIterator_Stub03> lineIterator = new FixedFileLineIterator<FixedFileLineIterator_Stub03>(
-                fileName, clazz, columnParserMap);
+        FixedFileLineIterator<FixedFileLineIterator_Stub03> lineIterator = new FixedFileLineIterator<FixedFileLineIterator_Stub03>(fileName, clazz, columnParserMap);
 
         // 引数の設定
         String fileLineString = "12345";
@@ -646,16 +602,16 @@ public class FixedFileLineIteratorTest {
      * @InputFileColumn(columnIndex = 1, bytes = 5, stringConverter = StringConverterToUpperCase.class, trimChar = '0', trimType
      *                              = TrimType.LEFT)<br>
      *                              private String shopId = null;<br>
-     * <br>
+     *                              <br>
      * @InputFileColumn(columnIndex = 2, bytes = 9, columnFormat = "#########")<br>
      *                              private BigDecimal uriage = null;<br>
      *                              (状態) AbstractFileLineIterator.fileEncoding:システムデフォルト<br>
-     * <br>
+     *                              <br>
      *                              期待値：(戻り値) String[]:以下の要素を持つString配列<br>
-     *                              　要素1："2006/12/10"<br>
-     *                              　要素2："aaaaa"<br>
-     *                              　要素3："123456789"<br>
-     * <br>
+     *                              要素1："2006/12/10"<br>
+     *                              要素2："aaaaa"<br>
+     *                              要素3："123456789"<br>
+     *                              <br>
      *                              正常パターン<br>
      *                              配列要素3の文字列方配列を返却する。 <br>
      * @throws Exception このメソッドで発生した例外
@@ -672,8 +628,7 @@ public class FixedFileLineIteratorTest {
         columnParserMap.put("java.util.Date", columnParser);
         columnParserMap.put("java.math.BigDecimal", columnParser);
         columnParserMap.put("java.lang.int", columnParser);
-        FixedFileLineIterator<FixedFileLineIterator_Stub04> lineIterator = new FixedFileLineIterator<FixedFileLineIterator_Stub04>(
-                fileName, clazz, columnParserMap);
+        FixedFileLineIterator<FixedFileLineIterator_Stub04> lineIterator = new FixedFileLineIterator<FixedFileLineIterator_Stub04>(fileName, clazz, columnParserMap);
 
         // 引数の設定
         String fileLineString = "2006/12/10aaaaa123456789";
@@ -719,8 +674,7 @@ public class FixedFileLineIteratorTest {
         columnParserMap.put("java.util.Date", columnParser);
         columnParserMap.put("java.math.BigDecimal", columnParser);
         columnParserMap.put("java.lang.int", columnParser);
-        FixedFileLineIterator<FixedFileLineIterator_Stub01> lineIterator = new FixedFileLineIterator<FixedFileLineIterator_Stub01>(
-                fileName, clazz, columnParserMap);
+        FixedFileLineIterator<FixedFileLineIterator_Stub01> lineIterator = new FixedFileLineIterator<FixedFileLineIterator_Stub01>(fileName, clazz, columnParserMap);
 
         // 引数の設定
         String fileLineString = "";
@@ -748,15 +702,15 @@ public class FixedFileLineIteratorTest {
      * @InputFileColumn(columnIndex = 1, bytes = 5, stringConverter = StringConverterToUpperCase.class, trimChar = '0', trimType
      *                              = TrimType.LEFT)<br>
      *                              private String shopId = null;<br>
-     * <br>
+     *                              <br>
      * @InputFileColumn(columnIndex = 2, bytes = 9, columnFormat = "#########")<br>
      *                              private BigDecimal uriage = null;<br>
      *                              (状態) AbstractFileLineIterator.fileEncoding:システムデフォルト<br>
-     * <br>
+     *                              <br>
      *                              期待値：(状態変化) 例外:IllegaｌStateExceptionが発生。FileExceptionにラップされることを確認する。<br>
      *                              ファイル名が入力値のfileNameに一致することを確認する。<br>
      *                              メッセージ："Total Columns byte is different from Total FileLineObject's columns byte."<br>
-     * <br>
+     *                              <br>
      *                              例外。アノテーションで設定したバイト数の合計と、ファイルの1行あたりのバイト数が異なる場合、例外が発生することを確認する。<br>
      *                              ファイル行オブジェクトのインスタンス変数がない場合。 <br>
      * @throws Exception このメソッドで発生した例外
@@ -773,8 +727,7 @@ public class FixedFileLineIteratorTest {
         columnParserMap.put("java.util.Date", columnParser);
         columnParserMap.put("java.math.BigDecimal", columnParser);
         columnParserMap.put("java.lang.int", columnParser);
-        FixedFileLineIterator<FixedFileLineIterator_Stub04> lineIterator = new FixedFileLineIterator<FixedFileLineIterator_Stub04>(
-                fileName, clazz, columnParserMap);
+        FixedFileLineIterator<FixedFileLineIterator_Stub04> lineIterator = new FixedFileLineIterator<FixedFileLineIterator_Stub04>(fileName, clazz, columnParserMap);
 
         // 引数の設定
         String fileLineString = "2006/01/01あああああ012345678";
@@ -822,8 +775,7 @@ public class FixedFileLineIteratorTest {
         ColumnParser columnParser = new FixedFileLineIterator_ColumnParserStub01();
         columnParserMap.put("java.lang.String", columnParser);
 
-        FixedFileLineIterator<FixedFileLineIterator_Stub01> lineIterator = new FixedFileLineIterator<FixedFileLineIterator_Stub01>(
-                fileName, clazz, columnParserMap);
+        FixedFileLineIterator<FixedFileLineIterator_Stub01> lineIterator = new FixedFileLineIterator<FixedFileLineIterator_Stub01>(fileName, clazz, columnParserMap);
 
         // 引数の設定
         InputFileColumn inputFileColumn = null;
@@ -865,8 +817,7 @@ public class FixedFileLineIteratorTest {
         columnParserMap.put("java.math.BigDecimal", columnParser);
         columnParserMap.put("java.lang.int", columnParser);
 
-        FixedFileLineIterator<FixedFileLineIterator_Stub01> lineIterator = new FixedFileLineIterator<FixedFileLineIterator_Stub01>(
-                fileName, clazz, columnParserMap);
+        FixedFileLineIterator<FixedFileLineIterator_Stub01> lineIterator = new FixedFileLineIterator<FixedFileLineIterator_Stub01>(fileName, clazz, columnParserMap);
 
         // 引数なし
 
@@ -907,8 +858,7 @@ public class FixedFileLineIteratorTest {
         columnParserMap.put("java.math.BigDecimal", columnParser);
         columnParserMap.put("java.lang.int", columnParser);
 
-        FixedFileLineIterator<FixedFileLineIterator_Stub01> lineIterator = new FixedFileLineIterator<FixedFileLineIterator_Stub01>(
-                fileName, clazz, columnParserMap);
+        FixedFileLineIterator<FixedFileLineIterator_Stub01> lineIterator = new FixedFileLineIterator<FixedFileLineIterator_Stub01>(fileName, clazz, columnParserMap);
 
         // 引数なし
 
@@ -940,8 +890,7 @@ public class FixedFileLineIteratorTest {
         columnParserMap.put("java.math.BigDecimal", new DecimalColumnParser());
         columnParserMap.put("int", new IntColumnParser());
 
-        FixedFileLineIterator<FixedFileLine_Stub01> fileLineIterator = new FixedFileLineIterator<FixedFileLine_Stub01>(
-                fileName, FixedFileLine_Stub01.class, columnParserMap);
+        FixedFileLineIterator<FixedFileLine_Stub01> fileLineIterator = new FixedFileLineIterator<FixedFileLine_Stub01>(fileName, FixedFileLine_Stub01.class, columnParserMap);
 
         // テスト実施
         FixedFileLine_Stub01 result1 = fileLineIterator.next();
@@ -982,8 +931,7 @@ public class FixedFileLineIteratorTest {
         columnParserMap.put("java.math.BigDecimal", new DecimalColumnParser());
         columnParserMap.put("int", new IntColumnParser());
 
-        FixedFileLineIterator<FixedFileLine_Stub02> fileLineIterator = new FixedFileLineIterator<FixedFileLine_Stub02>(
-                fileName, FixedFileLine_Stub02.class, columnParserMap);
+        FixedFileLineIterator<FixedFileLine_Stub02> fileLineIterator = new FixedFileLineIterator<FixedFileLine_Stub02>(fileName, FixedFileLine_Stub02.class, columnParserMap);
 
         // テスト実施
         FixedFileLine_Stub02 result1 = fileLineIterator.next();
@@ -1021,8 +969,7 @@ public class FixedFileLineIteratorTest {
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
         // 様々な設定がされているファイル行オブジェクトを設定
-        FixedFileLineIterator<CSVFileLine_Stub04> fileLineIterator = new FixedFileLineIterator<CSVFileLine_Stub04>(
-                fileName, CSVFileLine_Stub04.class, columnParserMap);
+        FixedFileLineIterator<CSVFileLine_Stub04> fileLineIterator = new FixedFileLineIterator<CSVFileLine_Stub04>(fileName, CSVFileLine_Stub04.class, columnParserMap);
 
         // ファイル行オブジェクトに設定してあった値を全て上書き
         // 以下の設定が適用されれば、ファイル行オブジェクトの
@@ -1030,16 +977,17 @@ public class FixedFileLineIteratorTest {
         char[] charArray = new char[] { 0, 0, 0, 0 };
         // 前提条件
         ReflectionTestUtils.setField(fileLineIterator, "lineFeedChar", "\r\n");
-        ReflectionTestUtils.setField(fileLineIterator, "inputFileColumns", null);
-        ReflectionTestUtils.setField(fileLineIterator, "columnFormats", new String[] {
-                "", "", "", "" });
-        ReflectionTestUtils.setField(fileLineIterator, "columnBytes", new int[] { 4,
-                3, 4, 6 });
+        ReflectionTestUtils.setField(fileLineIterator, "inputFileColumns",
+                null);
+        ReflectionTestUtils.setField(fileLineIterator, "columnFormats",
+                new String[] { "", "", "", "" });
+        ReflectionTestUtils.setField(fileLineIterator, "columnBytes",
+                new int[] { 4, 3, 4, 6 });
         ReflectionTestUtils.setField(fileLineIterator, "totalBytes", 17);
 
         ReflectionTestUtils.setField(fileLineIterator, "trimChars", charArray);
         ReflectionTestUtils.setField(fileLineIterator, "columnEncloseChar",
-                        charArray);
+                charArray);
         ReflectionTestUtils.setField(fileLineIterator, "stringConverters",
                 new NullStringConverter[] { new NullStringConverter(),
                         new NullStringConverter(), new NullStringConverter(),

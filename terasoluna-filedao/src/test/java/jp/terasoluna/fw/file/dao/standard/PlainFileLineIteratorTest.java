@@ -1,7 +1,7 @@
 /*
  * $Id:$
  *
- * Copyright (c) 2006 NTT DATA Corporation
+ * Copyright (c) 2006-2015 NTT DATA Corporation
  *
  */
 
@@ -19,13 +19,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.springframework.test.util.ReflectionTestUtils;
 
 import jp.terasoluna.fw.file.dao.FileException;
 import jp.terasoluna.fw.file.dao.FileLineException;
-import jp.terasoluna.fw.file.ut.VMOUTUtil;
+import org.mockito.Mockito;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.PlainFileLineIterator} クラスのテスト。
@@ -38,23 +37,15 @@ import jp.terasoluna.fw.file.ut.VMOUTUtil;
 public class PlainFileLineIteratorTest {
 
     /**
-     * 初期化処理を行う。
-     */
-    @Before
-    public void setUp() {
-        VMOUTUtil.initialize();
-    }
-
-    /**
      * testPlainFileLineIterator01() <br>
      * <br>
      * (正常系) <br>
      * 観点：E <br>
      * <br>
      * 入力値：(引数) PlainFileLineIterator01.txt<br>
-     * 　データを持たないファイルのパス<br>
+     * データを持たないファイルのパス<br>
      * (引数) clazz:PlainFileLineIterator_Stub01<br>
-     * 　@FileFormatの設定有り、すべて初期値。<br>
+     * @FileFormatの設定有り、すべて初期値。<br>
      * (引数) columnParserMap:以下の要素を持つMap<String, ColumnParser>インスタンス<br>
      * ・"java.lang.String"=NullColumnParserインスタンス<br>
      * <br>
@@ -81,25 +72,19 @@ public class PlainFileLineIteratorTest {
         // なし
 
         // テスト実施
-        new PlainFileLineIterator(fileName, clazz, columnParserMap);
+        PlainFileLineIterator result = Mockito.spy(
+                new PlainFileLineIterator(fileName, clazz, columnParserMap));
 
         // 返却値の確認
         // なし
 
         // 状態変化の確認
         // 判定
-        assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "<init>"));
-
-        List<?> arguments = VMOUTUtil.getArguments(AbstractFileLineIterator.class,
-                "<init>", 0);
-        assertEquals(3, arguments.size());
-        assertEquals(fileName, arguments.get(0));
-        assertSame(clazz, arguments.get(1));
-        assertSame(columnParserMap, arguments.get(2));
-
-        assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "init"));
+        assertEquals(fileName, ReflectionTestUtils.getField(result,
+                "fileName"));
+        assertSame(clazz, ReflectionTestUtils.getField(result, "clazz"));
+        assertSame(columnParserMap, ReflectionTestUtils.getField(result,
+                "columnParserMap"));
     }
 
     /**
@@ -124,8 +109,7 @@ public class PlainFileLineIteratorTest {
         Class<PlainFileLineIterator_Stub01> clazz = PlainFileLineIterator_Stub01.class;
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
-        PlainFileLineIterator plainFileLineIterator = new PlainFileLineIterator(
-                fileName, clazz, columnParserMap);
+        PlainFileLineIterator plainFileLineIterator = new PlainFileLineIterator(fileName, clazz, columnParserMap);
 
         // 引数の設定
         String fileLineString = "aaa";
@@ -178,8 +162,8 @@ public class PlainFileLineIteratorTest {
         Class<PlainFileLineIterator_Stub01> clazz = PlainFileLineIterator_Stub01.class;
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
-        PlainFileLineIterator plainFileLineIterator = new PlainFileLineIterator(
-                fileName, clazz, columnParserMap);
+        PlainFileLineIterator plainFileLineIterator = Mockito.spy(
+                new PlainFileLineIterator(fileName, clazz, columnParserMap));
 
         // 引数の設定
         // なし
@@ -194,8 +178,7 @@ public class PlainFileLineIteratorTest {
         assertEquals("1行目データ", result);
 
         // 状態変化の確認
-        assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "readLine"));
+        Mockito.verify(plainFileLineIterator).readLine();
         assertEquals(1, ReflectionTestUtils.getField(plainFileLineIterator,
                 "currentLineCount"));
     }
@@ -235,8 +218,8 @@ public class PlainFileLineIteratorTest {
         Class<PlainFileLineIterator_Stub01> clazz = PlainFileLineIterator_Stub01.class;
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
-        PlainFileLineIterator plainFileLineIterator = new PlainFileLineIterator(
-                fileName, clazz, columnParserMap);
+        PlainFileLineIterator plainFileLineIterator = Mockito.spy(
+                new PlainFileLineIterator(fileName, clazz, columnParserMap));
 
         // 引数の設定
         // なし
@@ -262,8 +245,7 @@ public class PlainFileLineIteratorTest {
             assertEquals(-1, e.getColumnIndex());
 
             // 状態変化の確認
-            assertEquals(0, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "readLine"));
+            Mockito.verify(plainFileLineIterator, Mockito.never()).readLine();
             assertEquals(0, ReflectionTestUtils.getField(plainFileLineIterator,
                     "currentLineCount"));
 
@@ -304,14 +286,15 @@ public class PlainFileLineIteratorTest {
         Class<PlainFileLineIterator_Stub03> clazz = PlainFileLineIterator_Stub03.class;
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
-        PlainFileLineIterator plainFileLineIterator = new PlainFileLineIterator(
-                fileName, clazz, columnParserMap);
+        PlainFileLineIterator plainFileLineIterator = Mockito.spy(
+                new PlainFileLineIterator(fileName, clazz, columnParserMap));
 
         // 引数の設定
         // なし
 
         // 前提条件の設定
-        ReflectionTestUtils.setField(plainFileLineIterator, "readTrailer", true);
+        ReflectionTestUtils.setField(plainFileLineIterator, "readTrailer",
+                true);
 
         // テスト実施
         try {
@@ -329,8 +312,7 @@ public class PlainFileLineIteratorTest {
             assertEquals(0, e.getLineNo());
 
             // 状態変化の確認
-            assertEquals(0, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "readLine"));
+            Mockito.verify(plainFileLineIterator, Mockito.never()).readLine();
             assertEquals(0, ReflectionTestUtils.getField(plainFileLineIterator,
                     "currentLineCount"));
 
@@ -350,8 +332,7 @@ public class PlainFileLineIteratorTest {
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        PlainFileLineIterator fileLineIterator = new PlainFileLineIterator(
-                fileName, PlainFileLineIterator_Stub02.class, columnParserMap);
+        PlainFileLineIterator fileLineIterator = new PlainFileLineIterator(fileName, PlainFileLineIterator_Stub02.class, columnParserMap);
 
         // テスト実施
         String result1 = fileLineIterator.next();
@@ -388,14 +369,14 @@ public class PlainFileLineIteratorTest {
     @Test
     public void testSkipint01() throws Exception {
         // テスト対象のインスタンス化
-        URL url = PlainFileLineIteratorTest.class
-                .getResource("PlainFileLineIterator_skip01.txt");
+        URL url = PlainFileLineIteratorTest.class.getResource(
+                "PlainFileLineIterator_skip01.txt");
         String fileName = url.getPath();
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        PlainFileLineIterator fileLineIterator = new PlainFileLineIterator(
-                fileName, PlainFileLineIterator_Stub01.class, columnParserMap);
+        PlainFileLineIterator fileLineIterator = Mockito.spy(
+                new PlainFileLineIterator(fileName, PlainFileLineIterator_Stub01.class, columnParserMap));
         ReflectionTestUtils.setField(fileLineIterator, "currentLineCount", 0);
 
         // 引数の設定
@@ -412,8 +393,9 @@ public class PlainFileLineIteratorTest {
         // なし
 
         // 状態変化の確認
-        assertEquals(0, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "readLine"));
+        Mockito.verify(fileLineIterator, Mockito.never()).readLine();
+        // assertEquals(0, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
+        // "readLine"));
         assertEquals(0, ReflectionTestUtils.getField(fileLineIterator,
                 "currentLineCount"));
     }
@@ -442,14 +424,14 @@ public class PlainFileLineIteratorTest {
     @Test
     public void testSkipint02() throws Exception {
         // テスト対象のインスタンス化
-        URL url = AbstractFileLineIteratorTest.class
-                .getResource("PlainFileLineIterator_skip01.txt");
+        URL url = AbstractFileLineIteratorTest.class.getResource(
+                "PlainFileLineIterator_skip01.txt");
         String fileName = url.getPath();
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        PlainFileLineIterator fileLineIterator = new PlainFileLineIterator(
-                fileName, PlainFileLineIterator_Stub01.class, columnParserMap);
+        PlainFileLineIterator fileLineIterator = Mockito.spy(
+                new PlainFileLineIterator(fileName, PlainFileLineIterator_Stub01.class, columnParserMap));
         ReflectionTestUtils.setField(fileLineIterator, "currentLineCount", 0);
 
         // 引数の設定
@@ -466,8 +448,9 @@ public class PlainFileLineIteratorTest {
         // なし
 
         // 状態変化の確認
-        assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "readLine"));
+        Mockito.verify(fileLineIterator).readLine();
+        // assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
+        // "readLine"));
         assertEquals(1, ReflectionTestUtils.getField(fileLineIterator,
                 "currentLineCount"));
     }
@@ -496,14 +479,14 @@ public class PlainFileLineIteratorTest {
     @Test
     public void testSkipint03() throws Exception {
         // テスト対象のインスタンス化
-        URL url = AbstractFileLineIteratorTest.class
-                .getResource("PlainFileLineIterator_skip01.txt");
+        URL url = AbstractFileLineIteratorTest.class.getResource(
+                "PlainFileLineIterator_skip01.txt");
         String fileName = url.getPath();
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        PlainFileLineIterator fileLineIterator = new PlainFileLineIterator(
-                fileName, PlainFileLineIterator_Stub01.class, columnParserMap);
+        PlainFileLineIterator fileLineIterator = Mockito.spy(
+                new PlainFileLineIterator(fileName, PlainFileLineIterator_Stub01.class, columnParserMap));
         ReflectionTestUtils.setField(fileLineIterator, "currentLineCount", 0);
 
         // 引数の設定
@@ -520,8 +503,9 @@ public class PlainFileLineIteratorTest {
         // なし
 
         // 状態変化の確認
-        assertEquals(3, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "readLine"));
+        Mockito.verify(fileLineIterator, Mockito.times(3)).readLine();
+        // assertEquals(3, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
+        // "readLine"));
         assertEquals(3, ReflectionTestUtils.getField(fileLineIterator,
                 "currentLineCount"));
     }
@@ -550,14 +534,14 @@ public class PlainFileLineIteratorTest {
     @Test
     public void testSkipint04() throws Exception {
         // テスト対象のインスタンス化
-        URL url = AbstractFileLineIteratorTest.class
-                .getResource("PlainFileLineIterator_skip01.txt");
+        URL url = AbstractFileLineIteratorTest.class.getResource(
+                "PlainFileLineIterator_skip01.txt");
         String fileName = url.getPath();
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        PlainFileLineIterator fileLineIterator = new PlainFileLineIterator(
-                fileName, PlainFileLineIterator_Stub01.class, columnParserMap);
+        PlainFileLineIterator fileLineIterator = Mockito.spy(
+                new PlainFileLineIterator(fileName, PlainFileLineIterator_Stub01.class, columnParserMap));
         ReflectionTestUtils.setField(fileLineIterator, "currentLineCount", 0);
 
         // 引数の設定
@@ -566,8 +550,9 @@ public class PlainFileLineIteratorTest {
         // 前提条件の設定
         fileLineIterator.init();
         FileException exception = new FileException("readLineからの例外です");
-        VMOUTUtil.setExceptionAtAllTimes(AbstractFileLineIterator.class,
-                "readLine", exception);
+        Mockito.doThrow(exception).when(fileLineIterator).readLine();
+        // VMOUTUtil.setExceptionAtAllTimes(AbstractFileLineIterator.class,
+        // "readLine", exception);
         // テスト対象のインスタンス化で設定済み
 
         // テスト実施
@@ -614,14 +599,14 @@ public class PlainFileLineIteratorTest {
     @Test
     public void testSkipint05() throws Exception {
         // テスト対象のインスタンス化
-        URL url = AbstractFileLineIteratorTest.class
-                .getResource("PlainFileLineIterator_skip01.txt");
+        URL url = AbstractFileLineIteratorTest.class.getResource(
+                "PlainFileLineIterator_skip01.txt");
         String fileName = url.getPath();
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        PlainFileLineIterator fileLineIterator = new PlainFileLineIterator(
-                fileName, PlainFileLineIterator_Stub01.class, columnParserMap);
+        PlainFileLineIterator fileLineIterator = Mockito.spy(
+                new PlainFileLineIterator(fileName, PlainFileLineIterator_Stub01.class, columnParserMap));
         ReflectionTestUtils.setField(fileLineIterator, "currentLineCount", 0);
 
         // 引数の設定
@@ -644,8 +629,9 @@ public class PlainFileLineIteratorTest {
             assertEquals(4, e.getLineNo());
 
             // 状態変化の確認
-            assertEquals(3, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "readLine"));
+            Mockito.verify(fileLineIterator, Mockito.times(3)).readLine();
+            // assertEquals(3, VMOUTUtil.getCallCount(
+            // AbstractFileLineIterator.class, "readLine"));
             assertEquals(3, ReflectionTestUtils.getField(fileLineIterator,
                     "currentLineCount"));
         }
@@ -673,8 +659,7 @@ public class PlainFileLineIteratorTest {
         Class<PlainFileLineIterator_Stub02> clazz = PlainFileLineIterator_Stub02.class;
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
-        PlainFileLineIterator plainFileLineIterator = new PlainFileLineIterator(
-                fileName, clazz, columnParserMap);
+        PlainFileLineIterator plainFileLineIterator = new PlainFileLineIterator(fileName, clazz, columnParserMap);
 
         // 引数の設定
         // なし
@@ -713,8 +698,7 @@ public class PlainFileLineIteratorTest {
         Class<PlainFileLineIterator_Stub02> clazz = PlainFileLineIterator_Stub02.class;
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
-        PlainFileLineIterator plainFileLineIterator = new PlainFileLineIterator(
-                fileName, clazz, columnParserMap);
+        PlainFileLineIterator plainFileLineIterator = new PlainFileLineIterator(fileName, clazz, columnParserMap);
 
         // 引数の設定
         // なし
@@ -753,15 +737,15 @@ public class PlainFileLineIteratorTest {
         Class<PlainFileLineIterator_Stub02> clazz = PlainFileLineIterator_Stub02.class;
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
-        PlainFileLineIterator plainFileLineIterator = new PlainFileLineIterator(
-                fileName, clazz, columnParserMap);
+        PlainFileLineIterator plainFileLineIterator = new PlainFileLineIterator(fileName, clazz, columnParserMap);
 
         // 引数の設定
         // なし
 
         // 前提条件の設定
-        ReflectionTestUtils.setField(plainFileLineIterator, "currentLineCount", 5);
-        // テスト対象のインスタンス化時に設定済み
+        ReflectionTestUtils.setField(plainFileLineIterator, "currentLineCount",
+                5);
+                // テスト対象のインスタンス化時に設定済み
 
         // テスト実施
         int result = plainFileLineIterator.getCurrentLineCount();
@@ -796,8 +780,7 @@ public class PlainFileLineIteratorTest {
         Class<PlainFileLineIterator_Stub03> clazz = PlainFileLineIterator_Stub03.class;
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
-        PlainFileLineIterator plainFileLineIterator = new PlainFileLineIterator(
-                fileName, clazz, columnParserMap);
+        PlainFileLineIterator plainFileLineIterator = new PlainFileLineIterator(fileName, clazz, columnParserMap);
 
         // 引数の設定
         // なし

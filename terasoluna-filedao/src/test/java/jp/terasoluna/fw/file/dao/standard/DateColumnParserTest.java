@@ -1,7 +1,7 @@
 /*
  * $Id: 
  *
- * Copyright (c) 2006 NTT DATA Corporation
+ * Copyright (c) 2006-2015 NTT DATA Corporation
  *
  */
 
@@ -20,11 +20,10 @@ import java.util.Date;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import org.junit.Before;
 import org.junit.Test;
 
-import jp.terasoluna.fw.file.ut.VMOUTUtil;
 import org.springframework.test.util.ReflectionTestUtils;
+import org.mockito.Mockito;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.DateColumnParser} クラスのテスト。
@@ -38,14 +37,6 @@ import org.springframework.test.util.ReflectionTestUtils;
 public class DateColumnParserTest {
 
     /**
-     * 初期化処理を行う。
-     */
-    @Before
-    public void setUp() {
-        VMOUTUtil.initialize();
-    }
-
-    /**
      * testParse01() <br>
      * <br>
      * (正常系) <br>
@@ -54,11 +45,11 @@ public class DateColumnParserTest {
      * 入力値：(引数) column:"20060101"<br>
      * (引数) ファイル行オブジェクト<br>
      * ｔ:Date型のフィールドを持つ<br>
-     * 　値：null<br>
+     * 値：null<br>
      * (引数) ファイル行オブジェクト(t)にあるDate型属性の setterメソッド<br>
      * method:以下の設定をもつMethodインスタンス<br>
-     * 　可視性：public<br>
-     * 　引数：なし<br>
+     * 可視性：public<br>
+     * 引数：なし<br>
      * (引数) フォーマット用の文字列<br>
      * columnFormat:null もしくは 空文字<br>
      * (状態) map:要素なし<br>
@@ -84,7 +75,8 @@ public class DateColumnParserTest {
         String columnFormat = "";
 
         // 前提条件の設定
-        Map<String, DateFormatLocal> map = new ConcurrentHashMap<String, DateFormatLocal>();
+        Map<String, DateFormatLocal> map = Mockito.spy(
+                new ConcurrentHashMap<String, DateFormatLocal>());
         ReflectionTestUtils.setField(dateColumnParser, "map", map);
 
         // テスト実施
@@ -101,8 +93,9 @@ public class DateColumnParserTest {
         Date expected = simpleDateFormat.parse(column);
         assertEquals(expected, result);
 
-        assertEquals(1, VMOUTUtil.getCallCount(Map.class, "get"));
-        assertEquals(1, VMOUTUtil.getCallCount(Map.class, "put"));
+        Mockito.verify(map).get(Mockito.anyString());
+        Mockito.verify(map).put(Mockito.anyString(), Mockito.any(
+                DateFormatLocal.class));
 
         assertEquals(1, map.size());
         assertNotNull(map.get("yyyyMMdd"));
@@ -117,11 +110,11 @@ public class DateColumnParserTest {
      * 入力値：(引数) column:"20060101"<br>
      * (引数) ファイル行オブジェクト<br>
      * ｔ:Date型のフィールドを持つ<br>
-     * 　値：null<br>
+     * 値：null<br>
      * (引数) ファイル行オブジェクト(t)にあるDate型属性の setterメソッド<br>
      * method:以下の設定をもつMethodインスタンス<br>
-     * 　可視性：public<br>
-     * 　引数：なし<br>
+     * 可視性：public<br>
+     * 引数：なし<br>
      * (引数) フォーマット用の文字列<br>
      * columnFormat:null もしくは 空文字<br>
      * (状態) map:key:"yyyyMMdd"<br>
@@ -151,6 +144,7 @@ public class DateColumnParserTest {
         Map<String, DateFormatLocal> map = new ConcurrentHashMap<String, DateFormatLocal>();
         DateFormatLocal cache = new DateFormatLocal("yyyyMMdd");
         map.put("yyyyMMdd", cache);
+        map = Mockito.spy(map);
         ReflectionTestUtils.setField(dateColumnParser, "map", map);
 
         // テスト実施
@@ -165,8 +159,9 @@ public class DateColumnParserTest {
         simpleDateFormat.setLenient(false);
         Date expected = simpleDateFormat.parse(column);
         assertEquals(expected, result);
-        assertEquals(1, VMOUTUtil.getCallCount(Map.class, "get"));
-        assertEquals(0, VMOUTUtil.getCallCount(Map.class, "put"));
+        Mockito.verify(map).get(Mockito.anyString());
+        Mockito.verify(map, Mockito.never()).put(Mockito.anyString(), Mockito
+                .any(DateFormatLocal.class));
 
         assertEquals(1, map.size());
         assertSame(cache, map.get("yyyyMMdd"));
@@ -181,11 +176,11 @@ public class DateColumnParserTest {
      * 入力値：(引数) column:"20060101"<br>
      * (引数) ファイル行オブジェクト<br>
      * ｔ:Date型のフィールドを持つ<br>
-     * 　値：null<br>
+     * 値：null<br>
      * (引数) ファイル行オブジェクト(t)にある Date型属性のsetterメソッド<br>
      * method:以下の設定をもつMethodインスタンス<br>
-     * 　可視性：public<br>
-     * 　引数：なし<br>
+     * 可視性：public<br>
+     * 引数：なし<br>
      * (引数) フォーマット用の文字列<br>
      * columnFormat:null もしくは 空文字<br>
      * (状態) map:key:"yyyy-MM-dd"<br>
@@ -215,6 +210,8 @@ public class DateColumnParserTest {
         Map<String, DateFormatLocal> map = new ConcurrentHashMap<String, DateFormatLocal>();
         DateFormatLocal cache = new DateFormatLocal("yyyy-MM-dd");
         map.put("yyyy-MM-dd", cache);
+
+        map = Mockito.spy(map);
         ReflectionTestUtils.setField(dateColumnParser, "map", map);
 
         // テスト実施
@@ -229,8 +226,9 @@ public class DateColumnParserTest {
         simpleDateFormat.setLenient(false);
         Date expected = simpleDateFormat.parse(column);
         assertEquals(expected, result);
-        assertEquals(1, VMOUTUtil.getCallCount(Map.class, "get"));
-        assertEquals(1, VMOUTUtil.getCallCount(Map.class, "put"));
+        Mockito.verify(map).get(Mockito.anyString());
+        Mockito.verify(map).put(Mockito.anyString(), Mockito.any(
+                DateFormatLocal.class));
 
         assertEquals(2, map.size());
         assertNotNull(map.get("yyyyMMdd"));
@@ -246,11 +244,11 @@ public class DateColumnParserTest {
      * 入力値：(引数) column:"2006-01-01"<br>
      * (引数) ファイル行オブジェクト<br>
      * ｔ:Date型のフィールドを持つ<br>
-     * 　値：null<br>
+     * 値：null<br>
      * (引数) ファイル行オブジェクト(t)にあるDate型属性の setterメソッド<br>
      * method:以下の設定をもつMethodインスタンス<br>
-     * 　可視性：public<br>
-     * 　引数：1つ<br>
+     * 可視性：public<br>
+     * 引数：1つ<br>
      * (引数) フォーマット用の文字列<br>
      * columnFormat:"yyyy-MM-dd"<br>
      * (状態) map:要素なし<br>
@@ -277,6 +275,7 @@ public class DateColumnParserTest {
 
         // 前提条件の設定
         Map<String, DateFormatLocal> map = new ConcurrentHashMap<String, DateFormatLocal>();
+        map = Mockito.spy(map);
         ReflectionTestUtils.setField(dateColumnParser, "map", map);
 
         // テスト実施
@@ -291,8 +290,9 @@ public class DateColumnParserTest {
         simpleDateFormat.setLenient(false);
         Date expected = simpleDateFormat.parse(column);
         assertEquals(expected, result);
-        assertEquals(1, VMOUTUtil.getCallCount(Map.class, "get"));
-        assertEquals(1, VMOUTUtil.getCallCount(Map.class, "put"));
+        Mockito.verify(map).get(Mockito.anyString());
+        Mockito.verify(map).put(Mockito.anyString(), Mockito.any(
+                DateFormatLocal.class));
 
         assertEquals(1, map.size());
         assertNotNull(map.get("yyyy-MM-dd"));
@@ -307,11 +307,11 @@ public class DateColumnParserTest {
      * 入力値：(引数) column:"2006-01-01"<br>
      * (引数) ファイル行オブジェクト<br>
      * ｔ:Date型のフィールドを持つ<br>
-     * 　値：null<br>
+     * 値：null<br>
      * (引数) ファイル行オブジェクト(t)にある Date型属性のsetterメソッド<br>
      * method:以下の設定をもつMethodインスタンス<br>
-     * 　可視性：public<br>
-     * 　引数：1つ<br>
+     * 可視性：public<br>
+     * 引数：1つ<br>
      * (引数) フォーマット用の文字列<br>
      * columnFormat:"yyyy-MM-dd"<br>
      * (状態) map:key:"yyyy-MM-dd"<br>
@@ -341,6 +341,7 @@ public class DateColumnParserTest {
         Map<String, DateFormatLocal> map = new ConcurrentHashMap<String, DateFormatLocal>();
         DateFormatLocal cache = new DateFormatLocal(columnFormat);
         map.put(columnFormat, cache);
+        map = Mockito.spy(map);
         ReflectionTestUtils.setField(dateColumnParser, "map", map);
 
         // テスト実施
@@ -355,8 +356,9 @@ public class DateColumnParserTest {
         simpleDateFormat.setLenient(false);
         Date expected = simpleDateFormat.parse(column);
         assertEquals(expected, result);
-        assertEquals(1, VMOUTUtil.getCallCount(Map.class, "get"));
-        assertEquals(0, VMOUTUtil.getCallCount(Map.class, "put"));
+        Mockito.verify(map).get(Mockito.anyString());
+        Mockito.verify(map, Mockito.never()).put(Mockito.anyString(), Mockito
+                .any(DateFormatLocal.class));
 
         assertEquals(1, map.size());
         assertSame(cache, map.get("yyyy-MM-dd"));
@@ -371,11 +373,11 @@ public class DateColumnParserTest {
      * 入力値：(引数) column:"2006-01-01"<br>
      * (引数) ファイル行オブジェクト<br>
      * ｔ:Date型のフィールドを持つ<br>
-     * 　値：null<br>
+     * 値：null<br>
      * (引数) ファイル行オブジェクト(t)にあるDate型属性の setterメソッド<br>
      * method:以下の設定をもつMethodインスタンス<br>
-     * 　可視性：public<br>
-     * 　引数：1つ<br>
+     * 可視性：public<br>
+     * 引数：1つ<br>
      * (引数) フォーマット用の文字列<br>
      * columnFormat:"yyyy-MM-dd"<br>
      * (状態) map:key:"yyyy/MM/dd"<br>
@@ -405,6 +407,7 @@ public class DateColumnParserTest {
         Map<String, DateFormatLocal> map = new ConcurrentHashMap<String, DateFormatLocal>();
         DateFormatLocal cache = new DateFormatLocal("yyyy/MM/dd");
         map.put("yyyy/MM/dd", cache);
+        map = Mockito.spy(map);
         ReflectionTestUtils.setField(dateColumnParser, "map", map);
 
         // テスト実施
@@ -419,8 +422,9 @@ public class DateColumnParserTest {
         simpleDateFormat.setLenient(false);
         Date expected = simpleDateFormat.parse(column);
         assertEquals(expected, result);
-        assertEquals(1, VMOUTUtil.getCallCount(Map.class, "get"));
-        assertEquals(1, VMOUTUtil.getCallCount(Map.class, "put"));
+        Mockito.verify(map).get(Mockito.anyString());
+        Mockito.verify(map).put(Mockito.anyString(), Mockito.any(
+                DateFormatLocal.class));
 
         assertEquals(2, map.size());
         assertSame(cache, map.get("yyyy/MM/dd"));
@@ -436,11 +440,11 @@ public class DateColumnParserTest {
      * 入力値：(引数) column:"2006-01-01"<br>
      * (引数) ファイル行オブジェクト<br>
      * ｔ:Date型のフィールドを持つ<br>
-     * 　値：null<br>
+     * 値：null<br>
      * (引数) ファイル行オブジェクト(t)にあるDate型属性の setterメソッド<br>
      * method:以下の設定をもつMethodインスタンス<br>
-     * 　可視性：public<br>
-     * 　引数：1つ<br>
+     * 可視性：public<br>
+     * 引数：1つ<br>
      * (引数) フォーマット用の文字列<br>
      * columnFormat:formatできない文字列<br>
      * (状態) map:要素なし<br>
@@ -488,11 +492,11 @@ public class DateColumnParserTest {
      * 入力値：(引数) column:"2006-01-01"<br>
      * (引数) ファイル行オブジェクト<br>
      * ｔ:Date型のフィールドを持つ<br>
-     * 　値：null<br>
+     * 値：null<br>
      * (引数) ファイル行オブジェクト(t)にあるDate型属性の setterメソッド<br>
      * method:以下の設定をもつMethodインスタンス<br>
-     * 　可視性：private<br>
-     * 　引数：1つ<br>
+     * 可視性：private<br>
+     * 引数：1つ<br>
      * (引数) フォーマット用の文字列<br>
      * columnFormat:"yyyy-MM-dd"<br>
      * (状態) map:要素なし<br>
@@ -539,11 +543,11 @@ public class DateColumnParserTest {
      * 入力値：(引数) column:"2006-01-01"<br>
      * (引数) ファイル行オブジェクト<br>
      * ｔ:Date型のフィールドを持つ<br>
-     * 　値：例外をスローする<br>
+     * 値：例外をスローする<br>
      * (引数) ファイル行オブジェクト(t)にあるDate型属性の setterメソッド<br>
      * method:以下の設定をもつMethodインスタンス<br>
-     * 　可視性：public<br>
-     * 　引数：1つ<br>
+     * 可視性：public<br>
+     * 引数：1つ<br>
      * (引数) フォーマット用の文字列<br>
      * columnFormat:"yyyy-MM-dd"<br>
      * (状態) map:要素なし<br>
@@ -590,11 +594,11 @@ public class DateColumnParserTest {
      * 入力値：(引数) column:"2006-01-01"<br>
      * (引数) ファイル行オブジェクト<br>
      * ｔ:Date型のフィールドを持つ<br>
-     * 　値：null<br>
+     * 値：null<br>
      * (引数) ファイル行オブジェクト(t)にあるDate型属性の setterメソッド<br>
      * method:以下の設定をもつMethodインスタンス<br>
-     * 　可視性：public<br>
-     * 　引数：複数<br>
+     * 可視性：public<br>
+     * 引数：複数<br>
      * (引数) フォーマット用の文字列<br>
      * columnFormat:"yyyy-MM-dd"<br>
      * (状態) map:要素なし<br>
@@ -641,11 +645,11 @@ public class DateColumnParserTest {
      * 入力値：(引数) column:"2008-01-32"<br>
      * (引数) ファイル行オブジェクト<br>
      * ｔ:Date型のフィールドを持つ<br>
-     * 　値：null<br>
+     * 値：null<br>
      * (引数) ファイル行オブジェクト(t)にあるDate型属性の setterメソッド<br>
      * method:以下の設定をもつMethodインスタンス<br>
-     * 　可視性：public<br>
-     * 　引数：1つ<br>
+     * 可視性：public<br>
+     * 引数：1つ<br>
      * (引数) フォーマット用の文字列<br>
      * columnFormat:"yyyy-MM-dd"<br>
      * (状態) map:要素なし<br>
@@ -693,11 +697,11 @@ public class DateColumnParserTest {
      * 入力値：(引数) column:null<br>
      * (引数) ファイル行オブジェクト<br>
      * ｔ:Date型のフィールドを持つ<br>
-     * 　値：null<br>
+     * 値：null<br>
      * (引数) ファイル行オブジェクト(t)にあるDate型属性の setterメソッド<br>
      * method:以下の設定をもつMethodインスタンス<br>
-     * 　可視性：public<br>
-     * 　引数：1つ<br>
+     * 可視性：public<br>
+     * 引数：1つ<br>
      * (引数) フォーマット用の文字列<br>
      * columnFormat:"yyyy-MM-dd"<br>
      * (状態) map:要素なし<br>
@@ -744,11 +748,11 @@ public class DateColumnParserTest {
      * 入力値：(引数) column:"20080101"<br>
      * (引数) ファイル行オブジェクト<br>
      * ｔ:Date型のフィールドを持つ<br>
-     * 　値：null<br>
+     * 値：null<br>
      * (引数) ファイル行オブジェクト(t)にあるDate型属性の setterメソッド<br>
      * method:以下の設定をもつMethodインスタンス<br>
-     * 　可視性：public<br>
-     * 　引数：1つ<br>
+     * 可視性：public<br>
+     * 引数：1つ<br>
      * (引数) フォーマット用の文字列<br>
      * columnFormat:"yyyy-MM-dd"<br>
      * (状態) map:要素なし<br>
