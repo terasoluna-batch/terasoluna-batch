@@ -105,7 +105,9 @@ public class DateUtilTest01 extends PropertyTestCase {
      * 期待値：テスト実行時のシステム時刻<br>
      *
      * ・システム時刻が取得できることを確認する。<br>
-     * 　結果確認ではテスト対象の内容と誤差が1秒未満としている。<br>
+     * 　テストの実行環境により、期待値となるシステム時刻と
+     * 実行結果時刻で取得の時の誤差が生じることがあるため、
+     * 結果確認ではテスト対象の内容と誤差が1秒未満としている。<br>
      * @throws Exception 例外
      */
     public void testGetSystemTime01() throws Exception {
