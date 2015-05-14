@@ -134,6 +134,11 @@
             <artifactId>easymockclassextension</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>jp.co.dgic</groupId>
+            <artifactId>djunit</artifactId>
+            <scope>test</scope>
+        </dependency>
 
     </dependencies>
 </project>
