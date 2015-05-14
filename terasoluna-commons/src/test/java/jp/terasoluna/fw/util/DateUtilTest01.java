@@ -105,7 +105,7 @@ public class DateUtilTest01 extends PropertyTestCase {
      * 期待値：テスト実行時のシステム時刻<br>
      *
      * ・システム時刻が取得できることを確認する。<br>
-     * 　結果確認ではテスト対象の内容と同じことをしている。<br>
+     * 　結果確認ではテスト対象の内容と誤差が1秒未満としている。<br>
      * @throws Exception 例外
      */
     public void testGetSystemTime01() throws Exception {
@@ -117,7 +117,7 @@ public class DateUtilTest01 extends PropertyTestCase {
 
         // 結果確認
         Date hope = Calendar.getInstance().getTime();
-        assertEquals(hope, result);
+        assertTrue(Math.abs(hope.getTime() - result.getTime()) < 1000L);
     }
 
     // ************************************************************************
