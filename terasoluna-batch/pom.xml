@@ -193,7 +193,7 @@
 
         <dependency>
             <groupId>com.oracle</groupId>
-            <artifactId>ojdbc7</artifactId>
+            <artifactId>ojdbc6</artifactId>
             <scope>provided</scope>
         </dependency>
 

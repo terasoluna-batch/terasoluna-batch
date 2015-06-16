@@ -65,7 +65,7 @@
         <djunit.version>0.8.5</djunit.version>
         <jcoverage.version>djunit-1.0.5</jcoverage.version>
 
-        <oracle.jdbc.version>12.1.0.2.0</oracle.jdbc.version>
+        <oracle.jdbc.version>11.2.0.4.0</oracle.jdbc.version>
 
         <!-- plugin version -->
         <maven-antrun-plugin.version>1.7</maven-antrun-plugin.version>
@@ -623,7 +623,7 @@ sp_cleanup.organize_imports=true
             <!-- 3rd party libraries -->
             <dependency>
                 <groupId>com.oracle</groupId>
-                <artifactId>ojdbc7</artifactId>
+                <artifactId>ojdbc6</artifactId>
                 <version>${oracle.jdbc.version}</version>
             </dependency>
 
