@@ -5,7 +5,7 @@
     <!-- The Basics -->
     <groupId>jp.terasoluna.fw</groupId>
     <artifactId>terasoluna-batch-fw</artifactId>
-    <version>3.5.1-SNAPSHOT</version>
+    <version>3.5.1.RELEASE</version>
     <packaging>pom</packaging>
 
     <!-- More Project Information -->
