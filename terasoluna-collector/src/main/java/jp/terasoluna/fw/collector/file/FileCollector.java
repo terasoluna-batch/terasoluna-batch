@@ -151,7 +151,7 @@ public class FileCollector<P> extends AbstractCollector<P> {
                     }
                 }
             }
-        } catch (Throwable e) {
+        } catch (Exception e) {
             // シャットダウン中は発生した例外をキューに詰めない
             if (!isFinish()) {
                 // 発生した例外をキューにつめる
@@ -163,14 +163,14 @@ public class FileCollector<P> extends AbstractCollector<P> {
                 }
             }
 
-            return Integer.valueOf(-1);
+            return -1;
         } finally {
             try {
                 // ファイルクローズ
                 if (fli != null) {
                     fli.closeFile();
                 }
-            } catch (Throwable e) {
+            } catch (Exception e) {
                 // 何もしない
             } finally {
                 // 終了フラグを立てる

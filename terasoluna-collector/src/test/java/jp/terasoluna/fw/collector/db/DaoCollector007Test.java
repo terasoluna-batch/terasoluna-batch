@@ -4,15 +4,20 @@
 package jp.terasoluna.fw.collector.db;
 
 import java.util.List;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
 
 import jp.terasoluna.fw.collector.CollectorTestUtil;
 import jp.terasoluna.fw.collector.dao.UserListQueryResultHandleDao;
 import jp.terasoluna.fw.collector.util.MemoryInfo;
+import jp.terasoluna.fw.collector.vo.DataValueObject;
 import jp.terasoluna.fw.ex.unit.testcase.DaoTestCase;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.junit.Test;
+import org.mockito.Mockito;
+import org.mockito.internal.util.reflection.Whitebox;
 
 /**
  * DaoCollectorTest
@@ -291,4 +296,50 @@ public class DaoCollector007Test extends DaoTestCase {
     	assertTrue(dbc.resultHandler instanceof QueueingResultHandlerImpl);
 
     }
+
+	/**
+	 * handleException()のテスト.
+	 * 引数で与えられた例外がDataValueObjectにラップされ、エンキューされていること。
+	 *
+	 * @throws Exception 意図しない例外
+	 */
+	@Test
+	public void testHandleException01() throws Exception {
+		DaoCollector daoCollector = new DaoCollector();
+		Whitebox.setInternalState(daoCollector, "finish", false);
+		BlockingQueue<DataValueObject> queue = new ArrayBlockingQueue<>(10);
+		Whitebox.setInternalState(daoCollector, "queue", queue);
+		Exception expect = new Exception("expected exception.");
+
+		// テスト実行
+		daoCollector.handleException(expect);
+
+		assertEquals(1, queue.size());
+		assertSame(expect, queue.take().getThrowable());
+	}
+
+	/**
+	 * handleException()のテスト.
+	 * InterruptedExceptionの発生により、例外のエンキューが中断されていること。
+	 *
+	 * @throws Exception 意図しない例外
+	 */
+	@Test
+	public void testHandleException02() throws Exception {
+		DaoCollector daoCollector = new DaoCollector();
+		BlockingQueue queue = new ArrayBlockingQueue(10) {
+			@Override
+			public void put(Object o) throws InterruptedException {
+				throw new InterruptedException("interrupted.");
+			}
+		};
+		Whitebox.setInternalState(daoCollector, "queue", queue);
+		Whitebox.setInternalState(daoCollector, "finish", false);
+		Exception exception = new Exception("NOT expected exception.");
+
+		// テスト実行
+		daoCollector.handleException(exception);
+
+		assertEquals(0, queue.size());
+	}
 }

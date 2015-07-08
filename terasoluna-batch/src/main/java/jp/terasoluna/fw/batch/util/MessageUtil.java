@@ -75,7 +75,7 @@ public class MessageUtil {
         if (ma != null) {
             try {
                 mes = ma.getMessage(code, args);
-            } catch (Throwable e) {
+            } catch (Exception e) {
                 // 何もしない
             }
         } else {
