@@ -42,7 +42,6 @@ public class FastFileUtility extends FileUtility {
      * </p>
      * @param srcFile コピー元のファイルのパス
      * @param newFile コピー先のファイルのパス
-     * @throws ファイル機能例外
      */
     public static void copyFile(String srcFile, String newFile) {
 
@@ -59,14 +58,27 @@ public class FastFileUtility extends FileUtility {
             throw new FileException(srcFile + " is not exist.");
         }
         File outputFileObject = new File(newFile);
+        copyFile(srcFileObject, outputFileObject);
+    }
+
+    /**
+     * ファイルをコピーする。
+     * <p>
+     * コピー元のファイルのパスを受け取り、 コピー先のパスにファイルをコピーする。<br>
+     * コピー先にファイルが存在する場合、上書きでコピーされる。<br>
+     * </p>
+     * @param srcFile コピー元のファイルオブジェクト
+     * @param newFile コピー先のファイルオブジェクト
+     */
+    static void copyFile(File srcFile, File newFile) {
         FileInputStream fis = null;
         FileOutputStream fos = null;
         FileChannel ic = null;
         FileChannel oc = null;
 
         try {
-            fis = new FileInputStream(srcFileObject);
-            fos = new FileOutputStream(outputFileObject);
+            fis = new FileInputStream(srcFile);
+            fos = new FileOutputStream(newFile);
             ic = fis.getChannel();
             oc = fos.getChannel();
             transferFileEntirely(ic, oc);
