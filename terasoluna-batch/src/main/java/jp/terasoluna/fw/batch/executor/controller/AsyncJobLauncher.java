@@ -17,21 +17,21 @@
 package jp.terasoluna.fw.batch.executor.controller;
 
 /**
- * バッチ処理を構成するタスク管理を行うインタフェース。<br>
+ * バッチ処理を構成する非同期ジョブ実行管理を行うインタフェース。<br>
  *
  * @since 3.6
  */
-public interface JobLauncher {
+public interface AsyncJobLauncher {
 
     /**
-     * ジョブシーケンスコードからタスクを起動する。<br>
+     * ジョブシーケンスコードから非同期ジョブを起動する。<br>
      *
      * @param jobSequenceId ジョブのシーケンスコード
      */
-    void executeTask(String jobSequenceId);
+    void executeJob(String jobSequenceId);
 
     /**
-     * タスク管理機能をシャットダウンする。
+     * ジョブ実行管理機能をシャットダウンする。
      */
     void shutdown();
 }

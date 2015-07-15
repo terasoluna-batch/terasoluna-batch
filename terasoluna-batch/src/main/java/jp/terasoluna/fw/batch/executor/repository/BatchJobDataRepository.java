@@ -14,16 +14,19 @@
  * limitations under the License.
  */
 
-package jp.terasoluna.fw.batch.executor.vo;
+package jp.terasoluna.fw.batch.executor.repository;
+
+import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
+import jp.terasoluna.fw.batch.executor.vo.BatchJobListResult;
 
 /**
  * ジョブパラメータを解決するインタフェース。<br>
  * @since 3.6
  */
-public interface BatchJobDataResolver {
+public interface BatchJobDataRepository {
 
     /**
-     * ジョブ起動引数である<code>String</code>配列からジョブリスト取得用DAOの出力パラメータを取得する。<br>
+     * ジョブ起動引数である{@code String}配列からジョブリスト取得用DAOの出力パラメータを取得する。<br>
      *
      * @param args ジョブ起動引数
      * @return ジョブリスト取得用DAOの出力パラメータ
@@ -33,8 +36,8 @@ public interface BatchJobDataResolver {
     /**
      * ジョブ取得用DAOの入力パラメータからジョブパラメータを取得する。<br>
      *
-     * @param batchJobManagementParam ジョブ取得用DAOの入力パラメータ
+     * @param jobSequenceId ジョブのシーケンスID
      * @return ジョブパラメータ
      */
-    BatchJobData resolveBatchJobData(BatchJobManagementParam batchJobManagementParam);
+    BatchJobData resolveBatchJobData(String jobSequenceId);
 }
