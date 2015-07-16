@@ -1,15 +1,27 @@
 package jp.terasoluna.fw.batch.executor.controller;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 import javax.annotation.Resource;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
  * EndFileStopperのテストケースクラス
  */
-public class EndFileStopperTest extends TestCase {
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration("classpath:beansDef/AsyncBatchStopper.xml")
+public class EndFileStopperTest {
 
-    @Resource
+	@Resource
 	protected AsyncBatchStopper asyncBatchStopper;
 
 	/**
@@ -20,13 +32,22 @@ public class EndFileStopperTest extends TestCase {
 	 * ・終了ファイルが存在する
 	 * 確認項目
 	 * </pre>
+	 * 
+	 * @throws IOException
 	 */
-	public void testCanStop001() {
-        // テストデータ設定
+	@Test
+	public void testCanStop001() throws IOException {
+		// テストデータ準備 (batch.properties:executor.endMonitoringFileで指定しているファイル)
+		Files.createFile(Paths.get("/tmp/batch_terminate_file"));
 
-        // テスト実施
+		// テスト実施
 		// 結果検証
-		assertTrue(asyncBatchStopper.canStop());
+		try {
+			assertTrue(asyncBatchStopper.canStop());
+		} finally {
+			// テストデータ削除
+			Files.deleteIfExists(Paths.get("/tmp/batch_terminate_file"));
+		}
 	}
 
 	/**
@@ -38,9 +59,8 @@ public class EndFileStopperTest extends TestCase {
 	 * 確認項目
 	 * </pre>
 	 */
+	@Test
 	public void testCanStop002() {
-        // テストデータ設定
-
 		// テスト実施
 		// 結果検証
 		assertFalse(asyncBatchStopper.canStop());

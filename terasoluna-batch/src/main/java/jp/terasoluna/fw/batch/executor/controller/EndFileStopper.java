@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 @Component("asyncBatchStopper")
 public class EndFileStopper implements AsyncBatchStopper {
 
-	@Value("executor.endMonitoringFile")
+	@Value("${executor.endMonitoringFile}")
 	protected String endMonitoringFileName;
 
 	/**
