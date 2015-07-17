@@ -18,6 +18,8 @@ package jp.terasoluna.fw.batch.executor.worker;
 
 import jp.terasoluna.fw.batch.blogic.BLogic;
 import jp.terasoluna.fw.batch.blogic.vo.BLogicParam;
+import jp.terasoluna.fw.batch.exception.handler.ExceptionHandler;
+import jp.terasoluna.fw.batch.executor.vo.BLogicResult;
 import org.springframework.context.ApplicationContext;
 
 /**
@@ -32,7 +34,9 @@ public interface BLogicExecutor {
      * @param applicationContext 業務用Bean定義によるアプリケーションコンテキスト
      * @param blogic ビジネスロジック
      * @param blogicParam ビジネスロジックの入力パラメータ
-     * @return ビジネスロジックの実行結果戻り値
+     * @param exceptionHandler ビジネスロジックの例外ハンドラ
+     * @return ビジネスロジックの実行結果
      */
-    int execute(ApplicationContext applicationContext, BLogic blogic, BLogicParam blogicParam);
+    BLogicResult execute(ApplicationContext applicationContext, BLogic blogic, BLogicParam blogicParam,
+                         ExceptionHandler exceptionHandler);
 }
