@@ -16,41 +16,86 @@
 
 package jp.terasoluna.fw.batch.blogic;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
+import org.junit.Before;
 import org.junit.Test;
+import org.springframework.beans.factory.NoSuchBeanDefinitionException;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * BLogicResolverのテストケースクラス
  */
 public class BLogicResolverTest {
 
-	/**
-	 * setEnableJobComponentAnnotationテスト 【正常系】
-	 * 
-	 * <pre>
-	 * 事前条件
-	 * 確認項目
-	 * </pre>
-	 * 
-	 */
-	@Test
-	public void testSetEnableJobComponentAnnotation() {
-		fail("Not yet implemented");
-	}
+    BLogicResolverImpl bLogicResolverImpl;
 
-	/**
-	 * resolveBLogicテスト 【正常系】
-	 * 
-	 * <pre>
-	 * 事前条件
-	 * 確認項目
-	 * </pre>
-	 * 
-	 */
-	@Test
-	public void testResolveBLogic() {
-		fail("Not yet implemented");
-	}
+    ApplicationContext applicationContext;
 
+    @Before
+    public void setUp() {
+        bLogicResolverImpl = new BLogicResolverImpl();
+        applicationContext = new ClassPathXmlApplicationContext("beansDef/B000011.xml");
+    }
+
+    /**
+     * setEnableJobComponentAnnotationテスト 【正常系】
+     * 
+     * <pre>
+     * 事前条件
+     * ・なし
+     * 確認項目
+     * ・setEnableJobComponentAnnotation()メソッドでフィールドの値が設定されること
+     * </pre>
+     */
+    @Test
+    public void testSetEnableJobComponentAnnotation() {
+        bLogicResolverImpl.setEnableJobComponentAnnotation(true);
+        assertTrue(bLogicResolverImpl.enableJobComponentAnnotation);
+        bLogicResolverImpl.setEnableJobComponentAnnotation(false);
+        assertFalse(bLogicResolverImpl.enableJobComponentAnnotation);
+    }
+
+    /**
+     * resolveBLogicテスト 【正常系】
+     * 
+     * <pre>
+     * 事前条件
+     * ・beansDef/B000011.xmlにBLogic(B000011)の定義が存在する
+     * 確認項目
+     * ・BLogicのインスタンスが生成されること
+     * </pre>
+     */
+    @Test
+    public void testResolveBLogic01() {
+
+        BLogic bLogic = bLogicResolverImpl.resolveBLogic(applicationContext,
+                "B000011");
+        assertNotNull(bLogic);
+    }
+
+    /**
+     * resolveBLogicテスト 【異常系】
+     * 
+     * <pre>
+     * 事前条件
+     * ・beansDef/B000011.xmlにBLogic(DEFINE_NOT_EXIST)の定義が存在しない
+     * 確認項目
+     * ・NoSuchBeanDefinitionException例外がスローされること
+     * </pre>
+     */
+    @Test
+    public void testResolveBLogic02() {
+        try {
+            bLogicResolverImpl.resolveBLogic(applicationContext,
+                    "DEFINE_NOT_EXIST");
+            fail();
+        } catch (Exception e) {
+            assertTrue(e instanceof NoSuchBeanDefinitionException);
+        }
+    }
 }
