@@ -17,8 +17,10 @@
 package jp.terasoluna.fw.batch.executor.controller;
 
 import java.io.File;
+
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
+import org.springframework.util.Assert;
 
 /**
  * 非同期バッチ起動プロセスの終了判定。<br>
@@ -29,21 +31,24 @@ import org.springframework.stereotype.Component;
  * @see jp.terasoluna.fw.batch.executor.controller.AsyncBatchStopper
  * @since 3.6
  */
-@Component("asyncBatchStopper")
-public class EndFileStopper implements AsyncBatchStopper {
+public class EndFileStopper implements AsyncBatchStopper, InitializingBean {
 
-	@Value("${executor.endMonitoringFile}")
-	protected String endMonitoringFileName;
+    @Value("${executor.endMonitoringFile:}")
+    protected String endMonitoringFileName;
 
-	/**
-	 * ファイルの有無によってプロセスの終了判定を行う。<br>
-	 *
-	 * @return 非同期バッチ起動プロセスの終了条件（<code>true</code>返却時に終了する）
-	 */
-	@Override
-	public boolean canStop() {
-		File f = new File(endMonitoringFileName);
-		return f.exists();
-	}
+    /**
+     * ファイルの有無によってプロセスの終了判定を行う。<br>
+     *
+     * @return 非同期バッチ起動プロセスの終了条件（<code>true</code>返却時に終了する）
+     */
+    @Override
+    public boolean canStop() {
+        File f = new File(endMonitoringFileName);
+        return f.exists();
+    }
 
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        Assert.state(!"".equals(endMonitoringFileName));
+    }
 }
