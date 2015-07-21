@@ -49,7 +49,6 @@ public class EndFileStopperTest {
      * 確認項目
      * ・trueが返却されること
      * </pre>
-     * 
      * @throws IOException I/O 例外
      */
     @Test
@@ -82,5 +81,26 @@ public class EndFileStopperTest {
         // テスト実施
         // 結果検証
         assertFalse(asyncBatchStopper.canStop());
+    }
+
+    /**
+     * afterPropertiesSetテスト 【正常系】
+     * 
+     * <pre>
+     * 事前条件
+     * 確認項目
+     * ・IllegalStateException例外がスローされること
+     * </pre>
+     */
+    @Test
+    public void testAfterPropertiesSet() {
+        try {
+            String tempEndMonitoringFileName = ((EndFileStopper) asyncBatchStopper).endMonitoringFileName;
+            ((EndFileStopper) asyncBatchStopper).endMonitoringFileName = "";
+            ((EndFileStopper) asyncBatchStopper).endMonitoringFileName = tempEndMonitoringFileName;
+            ((EndFileStopper) asyncBatchStopper).afterPropertiesSet();
+        } catch (Exception e) {
+            assertTrue(e instanceof IllegalStateException);
+        }
     }
 }

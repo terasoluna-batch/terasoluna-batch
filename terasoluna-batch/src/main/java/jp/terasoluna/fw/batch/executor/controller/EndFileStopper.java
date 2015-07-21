@@ -27,7 +27,6 @@ import org.springframework.util.Assert;
  * <p>
  * 終了ファイルの有無を利用して非同期バッチ起動プロセスの終了判定を行う
  * </p>
- * 
  * @see jp.terasoluna.fw.batch.executor.controller.AsyncBatchStopper
  * @since 3.6
  */
@@ -38,7 +37,6 @@ public class EndFileStopper implements AsyncBatchStopper, InitializingBean {
 
     /**
      * ファイルの有無によってプロセスの終了判定を行う。<br>
-     *
      * @return 非同期バッチ起動プロセスの終了条件（<code>true</code>返却時に終了する）
      */
     @Override
@@ -47,8 +45,12 @@ public class EndFileStopper implements AsyncBatchStopper, InitializingBean {
         return f.exists();
     }
 
+    /**
+     * プロパティの設定後にファイル名が設定されているかどうかの判定を行う。<br>
+     * @throws IllegalStateException プロパティが未設定、あるいは、空文字である場合
+     */
     @Override
-    public void afterPropertiesSet() throws Exception {
+    public void afterPropertiesSet() throws IllegalStateException {
         Assert.state(!"".equals(endMonitoringFileName));
     }
 }
