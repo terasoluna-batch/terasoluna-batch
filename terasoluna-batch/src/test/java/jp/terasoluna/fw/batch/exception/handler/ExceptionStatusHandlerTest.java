@@ -27,26 +27,26 @@ import org.junit.Test;
  */
 public class ExceptionStatusHandlerTest {
 
-	/**
-	 * testHandleExceptionテスト 【正常系】
-	 * 
-	 * <pre>
-	 * 事前条件
-	 * ・なし
-	 * 確認項目
-	 * ・EAL025031のログが出力されていること
-	 * </pre>
-	 * 
-	 * @throws IOException
-	 */
-	@Test
-	public void testHandleException() {
-		ExceptionStatusHandler exceptionStatusHandler = new ExceptionStatusHandlerImpl();
+    /**
+     * testHandleExceptionテスト 【正常系】
+     * 
+     * <pre>
+     * 事前条件
+     * ・なし
+     * 確認項目
+     * ・EAL025031のログが出力されていること
+     * </pre>
+     * 
+     * @throws IOException I/O 例外
+     */
+    @Test
+    public void testHandleException() {
+        ExceptionStatusHandler exceptionStatusHandler = new ExceptionStatusHandlerImpl();
 
-		// テスト実施
-		// 結果検証
-		assertEquals(100, exceptionStatusHandler.handleException(new Exception(
-				"test exception.")));
-	}
+        // テスト実施
+        // 結果検証
+        assertEquals(100, exceptionStatusHandler.handleException(new Exception(
+                "test exception.")));
+    }
 
 }

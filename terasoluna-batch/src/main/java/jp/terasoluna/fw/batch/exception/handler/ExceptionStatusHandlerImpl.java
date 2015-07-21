@@ -19,33 +19,30 @@ package jp.terasoluna.fw.batch.exception.handler;
 import jp.terasoluna.fw.batch.constants.LogId;
 import jp.terasoluna.fw.logger.TLogger;
 
-import org.springframework.stereotype.Component;
-
 /**
  * フレームワーク内部例外ハンドラの実装クラス。<br>
  *
  * @since 3.6
  * @see ExceptionStatusHandler
  */
-@Component("exceptionStatusHandler")
 public class ExceptionStatusHandlerImpl implements ExceptionStatusHandler {
 
-	private static final TLogger LOGGER = TLogger
-			.getLogger(ExceptionStatusHandlerImpl.class);
+    private static final TLogger LOGGER = TLogger
+            .getLogger(ExceptionStatusHandlerImpl.class);
 
-	/**
-	 * フレームワーク機能内部で発生した例外を元にログを出力し、終了ステータスを返却する。<br>
-	 *
-	 * @param e
-	 *            フレームワーク機能内部で発生した例外
-	 * @return ジョブの終了ステータス
-	 */
-	@Override
-	public int handleException(Exception e) {
-		LOGGER.error(LogId.EAL025031, e);
-		
-		// TODO リテラルでよいのか確認
-		return 100;
-	}
+    /**
+     * フレームワーク機能内部で発生した例外を元にログを出力し、終了ステータスを返却する。<br>
+     *
+     * @param e
+     *            フレームワーク機能内部で発生した例外
+     * @return ジョブの終了ステータス
+     */
+    @Override
+    public int handleException(Exception e) {
+        LOGGER.error(LogId.EAL025031, e);
+
+        // TODO リテラルでよいのか確認
+        return 100;
+    }
 
 }
