@@ -21,9 +21,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 /**
- * 
  * ExceptionStatusHandlerのテストケースクラス
- *
  */
 public class ExceptionStatusHandlerTest {
 
@@ -36,7 +34,6 @@ public class ExceptionStatusHandlerTest {
      * 確認項目
      * ・EAL025031のログが出力されていること
      * </pre>
-     * 
      * @throws IOException I/O 例外
      */
     @Test
@@ -45,8 +42,8 @@ public class ExceptionStatusHandlerTest {
 
         // テスト実施
         // 結果検証
-        assertEquals(100, exceptionStatusHandler.handleException(new Exception(
-                "test exception.")));
+        assertEquals(255, exceptionStatusHandler
+                .handleException(new Exception("test exception.")));
     }
 
 }

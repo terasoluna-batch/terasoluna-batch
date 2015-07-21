@@ -21,7 +21,6 @@ import jp.terasoluna.fw.logger.TLogger;
 
 /**
  * フレームワーク内部例外ハンドラの実装クラス。<br>
- *
  * @since 3.6
  * @see ExceptionStatusHandler
  */
@@ -31,18 +30,20 @@ public class ExceptionStatusHandlerImpl implements ExceptionStatusHandler {
             .getLogger(ExceptionStatusHandlerImpl.class);
 
     /**
+     * 例外ハンドラのリターンコード.
+     */
+    protected static final int EXCEPTION_HANDLER_STATUS = 255;
+
+    /**
      * フレームワーク機能内部で発生した例外を元にログを出力し、終了ステータスを返却する。<br>
-     *
-     * @param e
-     *            フレームワーク機能内部で発生した例外
+     * @param e フレームワーク機能内部で発生した例外
      * @return ジョブの終了ステータス
      */
     @Override
     public int handleException(Exception e) {
-        LOGGER.error(LogId.EAL025031, e);
+        LOGGER.error(LogId.EAL025053, e);
 
-        // TODO リテラルでよいのか確認
-        return 100;
+        return EXCEPTION_HANDLER_STATUS;
     }
 
 }
