@@ -566,4 +566,8 @@ public final class LogId {
      * <strong>EAL025052 = System DAO is null.</strong>
      */
     public static final String EAL025052 = "EAL025052";
+    /**
+     * <strong>EAL025053 = An exception occurred.</strong>
+     */
+    public static final String EAL025053 = "EAL025053";
 }
