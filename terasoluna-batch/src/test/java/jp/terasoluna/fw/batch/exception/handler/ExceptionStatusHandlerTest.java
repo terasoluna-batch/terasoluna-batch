@@ -32,9 +32,8 @@ public class ExceptionStatusHandlerTest {
      * 事前条件
      * ・なし
      * 確認項目
-     * ・EAL025031のログが出力されていること
+     * ・ステータスコード255が返却されていること
      * </pre>
-     * @throws IOException I/O 例外
      */
     @Test
     public void testHandleException() {
