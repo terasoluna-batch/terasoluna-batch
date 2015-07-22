@@ -18,6 +18,7 @@ package jp.terasoluna.fw.batch.executor.controller;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -53,7 +54,7 @@ public class EndFileStopperTest {
      */
     @Test
     public void testCanStop001() throws IOException {
-        // テストデータ準備 (batch.properties:executor.endMonitoringFileで指定しているファイル)
+        // テストデータ準備 (batch.propertiesのexecutor.endMonitoringFileで指定しているファイル)
         Files.createFile(Paths.get("/tmp/batch_terminate_file"));
 
         // テスト実施
@@ -94,13 +95,17 @@ public class EndFileStopperTest {
      */
     @Test
     public void testAfterPropertiesSet() {
+        EndFileStopper endFileStopper = (EndFileStopper) asyncBatchStopper;
+        String tempEndMonitoringFileName = endFileStopper.endMonitoringFileName;
+
+        endFileStopper.endMonitoringFileName = "";
         try {
-            String tempEndMonitoringFileName = ((EndFileStopper) asyncBatchStopper).endMonitoringFileName;
-            ((EndFileStopper) asyncBatchStopper).endMonitoringFileName = "";
-            ((EndFileStopper) asyncBatchStopper).endMonitoringFileName = tempEndMonitoringFileName;
-            ((EndFileStopper) asyncBatchStopper).afterPropertiesSet();
+            endFileStopper.afterPropertiesSet();
+            fail();
         } catch (Exception e) {
             assertTrue(e instanceof IllegalStateException);
+        } finally {
+            endFileStopper.endMonitoringFileName = tempEndMonitoringFileName;
         }
     }
 }

@@ -18,6 +18,9 @@ package jp.terasoluna.fw.batch.executor.controller;
 
 import java.io.File;
 
+import jp.terasoluna.fw.batch.constants.LogId;
+import jp.terasoluna.fw.logger.TLogger;
+
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.util.Assert;
@@ -36,12 +39,21 @@ public class EndFileStopper implements AsyncBatchStopper, InitializingBean {
     protected String endMonitoringFileName;
 
     /**
+     * ロガー。
+     */
+    private static final TLogger LOGGER = TLogger
+            .getLogger(EndFileStopper.class);
+
+    /**
      * ファイルの有無によってプロセスの終了判定を行う。<br>
      * @return 非同期バッチ起動プロセスの終了条件（<code>true</code>返却時に終了する）
      */
     @Override
     public boolean canStop() {
         File f = new File(endMonitoringFileName);
+
+        // ファイル名をDEBUGログとして出力する
+        LOGGER.debug(LogId.DAL025060, endMonitoringFileName, f.exists());
         return f.exists();
     }
 
@@ -51,6 +63,7 @@ public class EndFileStopper implements AsyncBatchStopper, InitializingBean {
      */
     @Override
     public void afterPropertiesSet() throws IllegalStateException {
-        Assert.state(!"".equals(endMonitoringFileName));
+        Assert.state(!"".equals(endMonitoringFileName),
+                "[Assertion failed] - Property of executor.endMonitoringFile must be defined.");
     }
 }
