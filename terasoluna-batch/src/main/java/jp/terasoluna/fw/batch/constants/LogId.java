@@ -570,4 +570,8 @@ public final class LogId {
      * <strong>EAL025052 = System DAO is null.</strong>
      */
     public static final String EAL025052 = "EAL025052";
+    /**
+     * <strong>[Assertion failed] - Property of executor.endMonitoringFile must be defined.</strong>
+     */
+    public static final String EAL025056 = "EAL025056";
 }
