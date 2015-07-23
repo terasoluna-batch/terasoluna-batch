@@ -55,15 +55,6 @@ public class BLogicResolverImpl implements BLogicResolver {
     protected boolean enableJobComponentAnnotation = false;
 
     /**
-     * enableJobComponentAnnotationのセッター<br>
-     * @param enableJobComponentAnnotation JobComponentアノテーション有効化フラグ
-     */
-    public void setEnableJobComponentAnnotation(
-            boolean enableJobComponentAnnotation) {
-        this.enableJobComponentAnnotation = enableJobComponentAnnotation;
-    }
-
-    /**
      * 実行対象のビジネスロジックインスタンスを取得する。<br>
      * @param ctx インスタンス取得対象となるアプリケーションコンテキスト
      * @param jobAppCd ジョブ業務コード
@@ -79,8 +70,7 @@ public class BLogicResolverImpl implements BLogicResolver {
             }
         }
 
-        // TODO 何度もcontainsBean()してて効率悪い。
-        String bLogicBeanName = getBlogicBeanName(jobAppCd);
+        String bLogicBeanName = getBLogicBeanName(jobAppCd);
         // ビジネスロジックのBeanが存在するか確認
         if (ctx.containsBean(bLogicBeanName)) {
             return ctx.getBean(bLogicBeanName, BLogic.class);
@@ -97,7 +87,7 @@ public class BLogicResolverImpl implements BLogicResolver {
     }
 
     /**
-     * <h6>アノテーションからビジネスロジックを取得する。</h6>
+     * アノテーションからビジネスロジックを取得する。<br>
      * @param ctx インスタンス取得対象となるアプリケーションコンテキスト
      * @param jobAppCd ジョブアプリケーションコード
      * @return ビジネスロジック
@@ -125,11 +115,11 @@ public class BLogicResolverImpl implements BLogicResolver {
     }
 
     /**
-     * <h6>実行するBLogicのBean名を取得する.</h6>
+     * 実行するBLogicのBean名を取得する。<br>
      * @param jobAppCd ジョブアプリケーションコード
      * @return BLogicのBean名
      */
-    protected String getBlogicBeanName(String jobAppCd) {
+    protected String getBLogicBeanName(String jobAppCd) {
         StringBuilder str = new StringBuilder();
 
         if (jobAppCd != null && jobAppCd.length() != 0) {
