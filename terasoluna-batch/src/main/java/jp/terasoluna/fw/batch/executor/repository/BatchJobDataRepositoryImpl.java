@@ -34,8 +34,15 @@ import jp.terasoluna.fw.batch.executor.vo.BatchJobManagementParam;
  */
 public class BatchJobDataRepositoryImpl implements BatchJobDataRepository {
 
-    @Autowired
     protected SystemDao systemDao;
+    
+    /**
+     * コンストラクタ。
+     */
+    public BatchJobDataRepositoryImpl(SystemDao systemDao) {
+        super();
+        this.systemDao = systemDao;
+    }
 
     /**
      * ジョブ起動引数である{@code String}配列からジョブリスト取得用DAOの出力パラメータを取得する。<br>

@@ -41,10 +41,12 @@ public class BatchJobDataRepositoryImplTest {
 
     BatchJobDataRepository batchJobDataRepository;
 
+    /**
+     * 初期化処理を行う。
+     */
     @Before
     public void setUp() {
-        batchJobDataRepository = new BatchJobDataRepositoryImpl();
-        ((BatchJobDataRepositoryImpl) batchJobDataRepository).systemDao = mock(SystemDao.class);
+        batchJobDataRepository = new BatchJobDataRepositoryImpl(mock(SystemDao.class));
     }
 
     /**
@@ -85,7 +87,7 @@ public class BatchJobDataRepositoryImplTest {
      * 
      * <pre>
      * 事前条件
-     * ・とくになし
+     * ・systemDaoがselectJobListでnullを返却する
      * 確認項目
      * ・nullのbatchJobListResultが返却されること
      * </pre>
@@ -101,6 +103,31 @@ public class BatchJobDataRepositoryImplTest {
         // テスト実施
         BatchJobListResult batchJobListResult = batchJobDataRepository
                 .resolveBatchJobResult(new String[] { "0000000001" });
+        // 結果検証
+        assertNull(batchJobListResult);
+    }
+
+    /**
+     * resolveBatchJobResultテスト 【正常系】
+     * 
+     * <pre>
+     * 事前条件
+     * ・引数にnullを設定する
+     * 確認項目
+     * ・nullのbatchJobListResultが返却されること
+     * </pre>
+     */
+    @Test
+    public void testResolveBatchJobResult03() {
+        // テスト入力データ設定
+        when(
+                ((BatchJobDataRepositoryImpl) batchJobDataRepository).systemDao
+                        .selectJobList(any(BatchJobListParam.class)))
+                .thenReturn(null);
+
+        // テスト実施
+        BatchJobListResult batchJobListResult = batchJobDataRepository
+                .resolveBatchJobResult(null);
         // 結果検証
         assertNull(batchJobListResult);
     }
@@ -135,6 +162,36 @@ public class BatchJobDataRepositoryImplTest {
     }
 
     /**
+     * resolveBatchJobDataテスト 【正常系】
+     * 
+     * <pre>
+     * 事前条件
+     * ・ジョブアプリケーションコードの後ろに半角空白があること
+     * 確認項目
+     * ・"0000000001"のジョブアプリケーションコードが返却されること
+     * </pre>
+     */
+    @Test
+    public void testResolveBatchJobData02() {
+        // テスト入力データ設定
+        when(
+                ((BatchJobDataRepositoryImpl) batchJobDataRepository).systemDao
+                        .selectJob(any(BatchJobManagementParam.class)))
+                .thenReturn(new BatchJobData() {
+                    {
+                        setJobSequenceId("0000000001");
+                        setJobAppCd("0000000001     ");
+                    }
+                });
+
+        // テスト実施
+        BatchJobData batchJobData = batchJobDataRepository
+                .resolveBatchJobData("0000000001");
+        // 結果検証
+        assertEquals("0000000001", batchJobData.getJobAppCd());
+    }
+
+    /**
      * resolveBatchJobDataテスト 【異常系】
      * 
      * <pre>
@@ -145,7 +202,7 @@ public class BatchJobDataRepositoryImplTest {
      * </pre>
      */
     @Test
-    public void testResolveBatchJobData02() {
+    public void testResolveBatchJobData03() {
         // テスト入力データ設定
         when(
                 ((BatchJobDataRepositoryImpl) batchJobDataRepository).systemDao
