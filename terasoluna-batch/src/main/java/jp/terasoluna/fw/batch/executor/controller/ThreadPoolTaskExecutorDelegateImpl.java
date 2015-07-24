@@ -28,6 +28,9 @@ public class ThreadPoolTaskExecutorDelegateImpl implements
 
     ThreadPoolTaskExecutor threadPoolTaskExecutor;
 
+    /**
+     * コンストラクタ
+     */
     public ThreadPoolTaskExecutorDelegateImpl(
             ThreadPoolTaskExecutor threadPoolTaskExecutor) {
         super();

@@ -31,15 +31,9 @@ public class ThreadPoolTaskExecutorDelegateImplTest {
 
     ThreadPoolTaskExecutorDelegate threadPoolTaskExecutorDelegate;
 
-    private class AsyncTask implements Runnable {
-
-        @Override
-        public void run() {
-            System.out.println("async task.");
-        }
-
-    }
-
+    /**
+     * 初期化処理を行う。
+     */
     @Before
     public void setUp() {
         threadPoolTaskExecutor = new ThreadPoolTaskExecutor();
@@ -93,7 +87,12 @@ public class ThreadPoolTaskExecutorDelegateImplTest {
      */
     @Test
     public void testExecute() {
-        threadPoolTaskExecutorDelegate.execute(new AsyncTask());
+        threadPoolTaskExecutorDelegate.execute(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("async task.");
+            }
+        });
     }
 
 }
