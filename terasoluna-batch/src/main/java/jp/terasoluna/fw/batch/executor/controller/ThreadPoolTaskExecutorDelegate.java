@@ -20,7 +20,6 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 /**
  * <code>ThreadPoolTaskExecutor#execute()</code>のメソッド呼び出しを委譲するデリゲータ。<br>
- *
  * @see ThreadPoolTaskExecutor
  * @since 3.6
  */
@@ -28,14 +27,12 @@ public interface ThreadPoolTaskExecutorDelegate {
 
     /**
      * <code>ThreadPoolTaskExecutor</code>を取得する。<br>
-     *
      * @return threadPooltaskExecutorインスタンス
      */
     ThreadPoolTaskExecutor getThreadPoolTaskExecutor();
 
     /**
      * ジョインポイントとして<code>ThreadPooltaskExecutor#execute()</code>を委譲する。<br>
-     *
      * @param task 非同期実行タスク
      */
     void execute(Runnable task);
