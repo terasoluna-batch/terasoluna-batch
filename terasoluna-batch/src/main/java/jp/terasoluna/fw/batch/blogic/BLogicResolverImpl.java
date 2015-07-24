@@ -26,7 +26,6 @@ import jp.terasoluna.fw.batch.constants.LogId;
 import jp.terasoluna.fw.logger.TLogger;
 
 import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.annotation.AnnotationUtils;
@@ -51,8 +50,8 @@ public class BLogicResolverImpl implements BLogicResolver {
     /**
      * JobComponentアノテーション有効化フラグ
      */
-    @Value("${enableJobComponentAnnotation}")
-    protected boolean enableJobComponentAnnotation = false;
+    @Value("${enableJobComponentAnnotation:false}")
+    protected boolean enableJobComponentAnnotation;
 
     /**
      * 実行対象のビジネスロジックインスタンスを取得する。<br>
@@ -97,9 +96,6 @@ public class BLogicResolverImpl implements BLogicResolver {
         GenericBeanFactoryAccessorEx gbfa = new GenericBeanFactoryAccessorEx(ctx);
         Map<String, Object> jobMap = gbfa
                 .getBeansWithAnnotation(JobComponent.class);
-        if (jobMap == null) {
-            throw new NoSuchBeanDefinitionException("can't find @JobComponent on BLogic in applicationContext.");
-        }
         final Set<Map.Entry<String, Object>> entries = jobMap.entrySet();
         for (Map.Entry<String, Object> entry : entries) {
             Object obj = entry.getValue();
