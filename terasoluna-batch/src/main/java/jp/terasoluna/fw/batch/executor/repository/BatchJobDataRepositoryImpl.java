@@ -19,7 +19,6 @@ package jp.terasoluna.fw.batch.executor.repository;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import jp.terasoluna.fw.batch.constants.JobStatusConstants;
 import jp.terasoluna.fw.batch.executor.dao.SystemDao;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
@@ -35,7 +34,7 @@ import jp.terasoluna.fw.batch.executor.vo.BatchJobManagementParam;
 public class BatchJobDataRepositoryImpl implements BatchJobDataRepository {
 
     protected SystemDao systemDao;
-    
+
     /**
      * コンストラクタ。
      */
