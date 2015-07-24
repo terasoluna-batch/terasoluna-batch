@@ -18,14 +18,12 @@ package jp.terasoluna.fw.batch.executor.controller;
 
 /**
  * 非同期バッチ起動プロセスの終了判定を行うインタフェース。<br>
- *
  * @since 3.6
  */
 public interface AsyncBatchStopper {
 
     /**
      * プロセスの終了判定を行う。<br>
-     *
      * @return 非同期バッチ起動プロセスの終了条件（<code>true</code>返却時に終了する）
      */
     boolean canStop();
