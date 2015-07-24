@@ -64,6 +64,6 @@ public class EndFileStopper implements AsyncBatchStopper, InitializingBean {
     @Override
     public void afterPropertiesSet() throws IllegalStateException {
         Assert.state(!"".equals(endMonitoringFileName),
-                LogId.EAL025056);
+                LOGGER.getLogMessage(LogId.EAL025056));
     }
 }
