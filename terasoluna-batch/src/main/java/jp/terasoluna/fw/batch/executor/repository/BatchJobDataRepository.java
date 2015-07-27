@@ -27,7 +27,6 @@ public interface BatchJobDataRepository {
 
     /**
      * ジョブ起動引数である{@code String}配列からジョブリスト取得用DAOの出力パラメータを取得する。<br>
-     *
      * @param args ジョブ起動引数
      * @return ジョブリスト取得用DAOの出力パラメータ
      */
@@ -35,7 +34,6 @@ public interface BatchJobDataRepository {
 
     /**
      * ジョブ取得用DAOの入力パラメータからジョブパラメータを取得する。<br>
-     *
      * @param jobSequenceId ジョブのシーケンスID
      * @return ジョブパラメータ
      */
