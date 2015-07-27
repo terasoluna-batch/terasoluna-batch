@@ -279,6 +279,10 @@ public final class LogId {
      */
     public static final String DAL025059 = "DAL025059";
     /**
+     * <strong>DAL025060 = End file path:{0}, exists:{1}</strong>
+     */
+    public static final String DAL025060 = "DAL025060";
+    /**
      * <strong>IAL025001 = BATCH START jobSequenceId:[{0}]</strong>
      */
     public static final String IAL025001 = "IAL025001";
@@ -570,4 +574,8 @@ public final class LogId {
      * <strong>EAL025053 = An exception occurred.</strong>
      */
     public static final String EAL025053 = "EAL025053";
+    /**
+     * <strong>[Assertion failed] - Property of executor.endMonitoringFile must be defined.</strong>
+     */
+    public static final String EAL025056 = "EAL025056";
 }
