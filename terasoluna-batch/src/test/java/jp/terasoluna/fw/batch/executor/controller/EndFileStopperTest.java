@@ -16,6 +16,7 @@
 
 package jp.terasoluna.fw.batch.executor.controller;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
@@ -89,22 +90,49 @@ public class EndFileStopperTest {
      * 
      * <pre>
      * 事前条件
+     * ・プロパティファイルでexecutor.endMonitoringFileに"/tmp/batch_terminate_file"が設定されている
+     * 確認項目
+     * ・"/tmp/batch_terminate_file"が返却されること
+     * ・例外がスローされないこと
+     * </pre>
+     */
+    @Test
+    public void testAfterPropertiesSet01() {
+        // テストデータ準備 (batch.propertiesのexecutor.endMonitoringFileで指定しているファイル)
+        EndFileStopper endFileStopper = (EndFileStopper) asyncBatchStopper;
+
+        // テスト実施
+        // 結果検証
+        endFileStopper.afterPropertiesSet();
+        assertEquals(endFileStopper.endMonitoringFileName,
+                "/tmp/batch_terminate_file");
+    }
+
+    /**
+     * afterPropertiesSetテスト 【異常系】
+     * 
+     * <pre>
+     * 事前条件
      * 確認項目
      * ・IllegalStateException例外がスローされること
      * </pre>
      */
     @Test
-    public void testAfterPropertiesSet() {
+    public void testAfterPropertiesSet02() {
+        // テストデータ準備
         EndFileStopper endFileStopper = (EndFileStopper) asyncBatchStopper;
         String tempEndMonitoringFileName = endFileStopper.endMonitoringFileName;
 
         endFileStopper.endMonitoringFileName = "";
         try {
+            // テスト実施
             endFileStopper.afterPropertiesSet();
             fail();
         } catch (Exception e) {
+            // 結果検証
             assertTrue(e instanceof IllegalStateException);
         } finally {
+            // テストデータ戻し
             endFileStopper.endMonitoringFileName = tempEndMonitoringFileName;
         }
     }
