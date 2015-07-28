@@ -1,0 +1,174 @@
+package jp.terasoluna.fw.batch.executor.controller;
+
+import jp.terasoluna.fw.batch.constants.LogId;
+import jp.terasoluna.fw.batch.executor.worker.JobExecutorTemplate;
+import jp.terasoluna.fw.logger.TLogger;
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.task.TaskRejectedException;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
+import org.springframework.util.Assert;
+
+import java.util.concurrent.Semaphore;
+import java.util.concurrent.TimeUnit;
+
+/**
+ * 非同期バッチ実行機能で多重度の最大値を{@code ThreadPoolTaskExecutor}の最大スレッドプールサイズとした非同期のジョブ起動を行う。<br>
+ * 最大プールサイズ以上のジョブの実行が行われた場合、スレッドプールに空きができるまで待ち状態になる。
+ * 本機能を利用するにはスレッドプール{@code ThreadPoolTaskExecutorDelegate}およびジョブ実行テンプレート
+ * {@code JobExecutorTemplate}のBean定義が必要となる。
+ * 以下は{@code AsyncJobLauncher}のBean定義の設定例である。
+ * <code><pre>
+ *    &lt;task:executor id=&quot;threadPoolTaskExecutor&quot;
+ *            pool-size=&quot;4&quot;          ←最大プールサイズ
+ *            queue-capacity=&quot;4&quot; /&gt;  ←キューサイズの上限
+ *    &lt;bean id=&quot;threadPoolTaskExecutorDelegate&quot; class=&quot;jp.terasoluna.fw.batch.executor.controller.ThreadPoolTaskExecutorDelegateImpl&quot;&gt;
+ *            &lt;constructor-arg ref=&quot;threadPoolTaskExecutor&quot;/&gt;
+ *    &lt;/bean&gt;
+ *    &lt;bean id=&quot;asyncJobLauncher&quot; class=&quot;jp.terasoluna.fw.batch.executor.controller.AsyncJobLauncherImpl&quot;&gt;
+ *            &lt;constructor-arg index=&quot;0&quot; ref=&quot;threadPoolTaskExecutorDelegate&quot;/&gt;
+ *            &lt;constructor-arg index=&quot;1&quot; ref=&quot;jobExecutorTemplate&quot;/&gt;
+ *    &lt;/bean&gt;
+ * </pre></code>
+ * Bean定義を利用した多重度の設定では以下の制約に留意すること。
+ * <ol>
+ * <li>Bean定義のスレッドプール設定は{@code pool-size}によるハイフン区切り
+ * （&quot;1-3&quot;）で、コアプールサイズ-最大プールサイズがそれぞれ定義可能だが
+ * 本機能では同数を設定すること</li>
+ * <li>キューサイズの上限値は最大プールサイズ未満の値を設定しないこと
+ * （無設定時は{@code Integer.MAX_VALUE}が上限となる）</li>
+ * </ol>
+ * 最大プールサイズ及びキューサイズの詳細は{@code ThreadPoolExecutor}の
+ * APIドキュメントを参照のこと。
+ * 最大プールサイズ以上のジョブ実行が行われた場合はスレッドプールに
+ * 空きが生じるまで待ち状態となるが、この待ち状態が公平性（先入れ-先出し）
+ * を保ったまま解決されるかを{@code setFair()}メソッドで設定することができる。
+ * （公平性あり：{@code true}がデフォルトであり、DIコンテナの起動後の変更は無効。）
+ * @see org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor
+ * @see java.util.concurrent.ThreadPoolExecutor
+ * @since 3.6
+ */
+public class AsyncJobLauncherImpl
+        implements AsyncJobLauncher, InitializingBean {
+
+    private static final TLogger LOGGER = TLogger
+            .getLogger(AsyncJobLauncherImpl.class);
+
+    protected ThreadPoolTaskExecutorDelegate threadPoolTaskExecutorDelegate;
+
+    protected JobExecutorTemplate jobExecutorTemplate;
+
+    /**
+     * 非同期バッチ待ち状態解決の公平性。デフォルト：{@code true}
+     */
+    protected boolean fair = true;
+
+    /**
+     * スレッドプールの上限以上のタスク流入を防ぐためのセマフォ。
+     */
+    protected Semaphore taskPoolLimit = null;
+
+    @Value("${executor.jobTerminateWaitInterval:-1}")
+    protected volatile long executorJobTerminateWaitIntervalTime;
+
+    /**
+     * コンストラクタ。<br>
+     * @param threadPoolTaskExecutorDelegate {@code ThreadPoolTaskExecutor}のデリゲータ
+     * @param jobExecutorTemplate            ジョブの前処理と主処理を定義するテンプレート
+     */
+    public AsyncJobLauncherImpl(
+            ThreadPoolTaskExecutorDelegate threadPoolTaskExecutorDelegate,
+            JobExecutorTemplate jobExecutorTemplate) {
+        Assert.notNull(threadPoolTaskExecutorDelegate,
+                LOGGER.getLogMessage(LogId.EAL025055));
+        Assert.notNull(jobExecutorTemplate,
+                LOGGER.getLogMessage(LogId.EAL025057));
+
+        this.threadPoolTaskExecutorDelegate = threadPoolTaskExecutorDelegate;
+        this.jobExecutorTemplate = jobExecutorTemplate;
+    }
+
+    /**
+     * スレッドプール上限に達し、待ち状態となったジョブの公平性（先入れ-先出し）を設定する。<br>
+     * @param fair {@code true}の場合は公平性あり
+     */
+    public void setFair(boolean fair) {
+        this.fair = fair;
+    }
+
+    /**
+     * スレッドプールから実行タスクを割り当て、ジョブを実行する。<br>
+     * 最大プールサイズの上限に達している場合は待ち受けが行われる。
+     * @param jobSequenceId ジョブのシーケンスコード
+     */
+    @Override
+    public void executeJob(final String jobSequenceId) {
+        Assert.notNull(jobSequenceId);
+        try {
+            taskPoolLimit.acquire();
+            if (!jobExecutorTemplate.beforeExecute(jobSequenceId)) {
+                taskPoolLimit.release();
+                LOGGER.warn(LogId.WAL025009, jobSequenceId);
+                return;
+            }
+            threadPoolTaskExecutorDelegate.execute(new Runnable() {
+                @Override public void run() {
+                    try {
+                        jobExecutorTemplate.executeWorker(jobSequenceId);
+                    } finally {
+                        taskPoolLimit.release();
+                    }
+                }
+            });
+        } catch (TaskRejectedException e) {
+            LOGGER.error(LogId.EAL025047, e, jobSequenceId);
+            taskPoolLimit.release();
+        } catch (InterruptedException e) {
+            LOGGER.error(LogId.EAL025054, e, jobSequenceId);
+        }
+    }
+
+    /**
+     * スレッドプールをシャットダウンする。<br>
+     * プール内の全てのタスクが終了するまで本メソッドは終了しない。
+     */
+    @Override
+    public void shutdown() {
+        ThreadPoolTaskExecutor taskExecutor = threadPoolTaskExecutorDelegate
+                .getThreadPoolTaskExecutor();
+        taskExecutor.setWaitForTasksToCompleteOnShutdown(true);
+        taskExecutor.shutdown();
+        while (taskExecutor.getActiveCount() != 0) {
+            try {
+                if (LOGGER.isDebugEnabled()) {
+                    LOGGER.debug(LogId.DAL025031,
+                            taskExecutor.getActiveCount());
+                }
+                TimeUnit.MILLISECONDS
+                        .sleep(executorJobTerminateWaitIntervalTime);
+            } catch (InterruptedException e) {
+                // Do nothing.
+            }
+        }
+    }
+
+    /**
+     * SpringによるDIコンテナ生成時、プロパティ設定後にコールバックされる初期化処理。<br>
+     * @throws Exception 予期しない例外
+     */
+    @Override
+    public void afterPropertiesSet() throws Exception {
+
+        Assert.state(executorJobTerminateWaitIntervalTime > 0,
+                LOGGER.getLogMessage(LogId.EAL025058));
+
+        int maxPoolSize = threadPoolTaskExecutorDelegate
+                .getThreadPoolTaskExecutor().getMaxPoolSize();
+        Assert.state(maxPoolSize > 0,LOGGER.getLogMessage(LogId.EAL025087,
+                maxPoolSize));
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug(LogId.DAL025061, maxPoolSize, fair);
+        }
+        taskPoolLimit = new Semaphore(maxPoolSize, fair);
+    }
+}

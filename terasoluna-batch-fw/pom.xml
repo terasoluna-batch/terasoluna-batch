@@ -86,6 +86,7 @@
         <maven-surefire-report-plugin.version>2.10</maven-surefire-report-plugin.version>
         <taglist-maven-plugin.version>2.4</taglist-maven-plugin.version>
         <cobertura-maven-plugin.version>2.5.1</cobertura-maven-plugin.version>
+        <slf4j-test.version>1.1.0</slf4j-test.version>
     </properties>
 
 
@@ -618,6 +619,12 @@ sp_cleanup.organize_imports=true
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-core</artifactId>
                 <version>${logback.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>uk.org.lidalia</groupId>
+                <artifactId>slf4j-test</artifactId>
+                <version>${slf4j-test.version}</version>
             </dependency>
 
             <!-- 3rd party libraries -->
