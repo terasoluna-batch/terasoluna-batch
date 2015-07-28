@@ -16,11 +16,15 @@
 
 package jp.terasoluna.fw.batch.executor.controller;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertSame;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
+
+import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.doCallRealMethod;
+import static org.mockito.Mockito.verify;
 
 /**
  * ThreadPoolTaskExecutorDelegateImplのテストケースクラス
@@ -48,14 +52,17 @@ public class ThreadPoolTaskExecutorDelegateImplTest {
      * 事前条件
      * ・なし
      * 確認項目
-     * ・ThreadPoolTaskExecutorDelegateのインスタンスが生成されていること
+     * ・ThreadPoolTaskExecutorDelegateのインスタンス生成時に指定したThreadPoolTaskExecutorが設定されていること
+     * 
      * </pre>
      */
     @Test
     public void testThreadPoolTaskExecutorDelegateImpl() {
 
         // 結果検証
-        assertTrue(threadPoolTaskExecutorDelegate instanceof ThreadPoolTaskExecutorDelegate);
+        assertSame(
+                threadPoolTaskExecutor,
+                ((ThreadPoolTaskExecutorDelegateImpl) threadPoolTaskExecutorDelegate).threadPoolTaskExecutor);
     }
 
     /**
@@ -71,8 +78,8 @@ public class ThreadPoolTaskExecutorDelegateImplTest {
     @Test
     public void testGetThreadPoolTaskExecutor() {
         // 結果検証
-        assertTrue(threadPoolTaskExecutorDelegate.getThreadPoolTaskExecutor()
-                .equals(threadPoolTaskExecutor));
+        assertSame(threadPoolTaskExecutor, threadPoolTaskExecutorDelegate
+                .getThreadPoolTaskExecutor());
     }
 
     /**
@@ -82,17 +89,28 @@ public class ThreadPoolTaskExecutorDelegateImplTest {
      * 事前条件
      * ・なし
      * 確認項目
-     * ・例外が発生することなくexecuteメソッドが実行できること
+     * ・ThreadPoolTaskExecutor#execute()がデリゲータの引数と同じものを使用して呼び出されていること
      * </pre>
      */
     @Test
     public void testExecute() {
-        threadPoolTaskExecutorDelegate.execute(new Runnable() {
+        // テスト準備
+        ThreadPoolTaskExecutor mockExecutor = spy(threadPoolTaskExecutor);
+        ((ThreadPoolTaskExecutorDelegateImpl) threadPoolTaskExecutorDelegate).threadPoolTaskExecutor = mockExecutor;
+        final Runnable runnable = new Runnable() {
             @Override
             public void run() {
                 System.out.println("async task.");
             }
-        });
+        };
+        doCallRealMethod().when(mockExecutor).execute(runnable);
+
+        // テスト実行
+        threadPoolTaskExecutorDelegate.execute(runnable);
+
+        // 結果検証
+        verify(mockExecutor).execute(runnable);
+
     }
 
 }

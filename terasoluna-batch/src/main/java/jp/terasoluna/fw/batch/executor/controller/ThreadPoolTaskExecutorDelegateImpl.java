@@ -26,7 +26,7 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 public class ThreadPoolTaskExecutorDelegateImpl implements
                                                ThreadPoolTaskExecutorDelegate {
 
-    ThreadPoolTaskExecutor threadPoolTaskExecutor;
+    protected ThreadPoolTaskExecutor threadPoolTaskExecutor;
 
     /**
      * コンストラクタ
