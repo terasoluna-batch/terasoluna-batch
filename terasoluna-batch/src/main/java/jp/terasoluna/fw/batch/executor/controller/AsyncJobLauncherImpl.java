@@ -44,6 +44,7 @@ import java.util.concurrent.TimeUnit;
  * 空きが生じるまで待ち状態となるが、この待ち状態が公平性（先入れ-先出し）
  * を保ったまま解決されるかを{@code setFair()}メソッドで設定することができる。
  * （公平性あり：{@code true}がデフォルトであり、DIコンテナの起動後の変更は無効。）
+ *
  * @see org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor
  * @see java.util.concurrent.ThreadPoolExecutor
  * @since 3.6
@@ -51,11 +52,20 @@ import java.util.concurrent.TimeUnit;
 public class AsyncJobLauncherImpl
         implements AsyncJobLauncher, InitializingBean {
 
+    /**
+     * ロガー。
+     */
     private static final TLogger LOGGER = TLogger
             .getLogger(AsyncJobLauncherImpl.class);
 
+    /**
+     * {@code ThreadPoolTaskExecutor}のデリゲータ。
+     */
     protected ThreadPoolTaskExecutorDelegate threadPoolTaskExecutorDelegate;
 
+    /**
+     * ジョブ実行のテンプレート機能。
+     */
     protected JobExecutorTemplate jobExecutorTemplate;
 
     /**
@@ -68,11 +78,15 @@ public class AsyncJobLauncherImpl
      */
     protected Semaphore taskPoolLimit = null;
 
+    /**
+     * 残留ジョブがある場合、シャットダウンを保留する再チェックまでのスリープ時間。
+     */
     @Value("${executor.jobTerminateWaitInterval:-1}")
     protected volatile long executorJobTerminateWaitIntervalTime;
 
     /**
      * コンストラクタ。<br>
+     *
      * @param threadPoolTaskExecutorDelegate {@code ThreadPoolTaskExecutor}のデリゲータ
      * @param jobExecutorTemplate            ジョブの前処理と主処理を定義するテンプレート
      */
@@ -90,6 +104,7 @@ public class AsyncJobLauncherImpl
 
     /**
      * スレッドプール上限に達し、待ち状態となったジョブの公平性（先入れ-先出し）を設定する。<br>
+     *
      * @param fair {@code true}の場合は公平性あり
      */
     public void setFair(boolean fair) {
@@ -99,6 +114,7 @@ public class AsyncJobLauncherImpl
     /**
      * スレッドプールから実行タスクを割り当て、ジョブを実行する。<br>
      * 最大プールサイズの上限に達している場合は待ち受けが行われる。
+     *
      * @param jobSequenceId ジョブのシーケンスコード
      */
     @Override
@@ -106,13 +122,22 @@ public class AsyncJobLauncherImpl
         Assert.notNull(jobSequenceId);
         try {
             taskPoolLimit.acquire();
-            if (!jobExecutorTemplate.beforeExecute(jobSequenceId)) {
+            boolean beforeExecuteStatus = false;
+            try {
+                beforeExecuteStatus = jobExecutorTemplate
+                        .beforeExecute(jobSequenceId);
+            } catch (RuntimeException e) {
+                taskPoolLimit.release();
+                throw e;
+            }
+            if (!beforeExecuteStatus) {
                 taskPoolLimit.release();
                 LOGGER.warn(LogId.WAL025009, jobSequenceId);
                 return;
             }
             threadPoolTaskExecutorDelegate.execute(new Runnable() {
-                @Override public void run() {
+                @Override
+                public void run() {
                     try {
                         jobExecutorTemplate.executeWorker(jobSequenceId);
                     } finally {
@@ -154,6 +179,7 @@ public class AsyncJobLauncherImpl
 
     /**
      * SpringによるDIコンテナ生成時、プロパティ設定後にコールバックされる初期化処理。<br>
+     *
      * @throws Exception 予期しない例外
      */
     @Override
@@ -164,8 +190,6 @@ public class AsyncJobLauncherImpl
 
         int maxPoolSize = threadPoolTaskExecutorDelegate
                 .getThreadPoolTaskExecutor().getMaxPoolSize();
-        Assert.state(maxPoolSize > 0,LOGGER.getLogMessage(LogId.EAL025087,
-                maxPoolSize));
         if (LOGGER.isDebugEnabled()) {
             LOGGER.debug(LogId.DAL025061, maxPoolSize, fair);
         }
