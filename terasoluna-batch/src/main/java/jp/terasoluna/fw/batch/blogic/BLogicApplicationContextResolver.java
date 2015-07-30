@@ -21,6 +21,7 @@ import org.springframework.context.ApplicationContext;
 
 /**
  * 業務用Bean定義によるアプリケーションコンテキストの生成、クローズを解決するインタフェース。<br>
+ *
  * @since 3.6
  */
 public interface BLogicApplicationContextResolver {
