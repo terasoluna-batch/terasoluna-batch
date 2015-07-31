@@ -163,11 +163,14 @@ public class AsyncJobLauncherImpl
                 .getThreadPoolTaskExecutor();
         taskExecutor.setWaitForTasksToCompleteOnShutdown(true);
         taskExecutor.shutdown();
-        while (taskExecutor.getActiveCount() != 0) {
+        while (true) {
+            int executeCount = taskExecutor.getActiveCount();
+            if (executeCount == 0) {
+                break;
+            }
             try {
-                LOGGER.debug(LogId.DAL025031, taskExecutor.getActiveCount());
-                TimeUnit.MILLISECONDS
-                        .sleep(executorJobTerminateWaitIntervalTime);
+                LOGGER.debug(LogId.DAL025031, executeCount);
+                TimeUnit.MILLISECONDS.sleep(executorJobTerminateWaitIntervalTime);
             } catch (InterruptedException e) {
                 // Do nothing.
             }

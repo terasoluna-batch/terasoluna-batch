@@ -589,8 +589,7 @@ public class AsyncJobLauncherImplTest {
         ThreadPoolTaskExecutor taskExecutor = mock(
                 ThreadPoolTaskExecutor.class);
         doNothing().when(taskExecutor).shutdown();
-        // 待ち合わせタスクは1(while文とログ出力時で2回コール)⇒0
-        doReturn(1).doReturn(1).doReturn(0).when(taskExecutor).getActiveCount();
+        doReturn(1).doReturn(0).when(taskExecutor).getActiveCount();
         doReturn(taskExecutor).when(delegate).getThreadPoolTaskExecutor();
         AsyncJobLauncherImpl asyncJobLauncher = new AsyncJobLauncherImpl(
                 delegate, jobExecutorTemplate);
@@ -622,8 +621,7 @@ public class AsyncJobLauncherImplTest {
         ThreadPoolTaskExecutor taskExecutor = mock(
                 ThreadPoolTaskExecutor.class);
         doNothing().when(taskExecutor).shutdown();
-        // 待ち合わせタスクは1(while文とログ出力時で2回コール)⇒0
-        doReturn(1).doReturn(1).doReturn(0).when(taskExecutor).getActiveCount();
+        doReturn(1).doReturn(0).when(taskExecutor).getActiveCount();
         doReturn(taskExecutor).when(delegate).getThreadPoolTaskExecutor();
         AsyncJobLauncherImpl asyncJobLauncher = new AsyncJobLauncherImpl(
                 delegate, jobExecutorTemplate);
