@@ -283,6 +283,10 @@ public final class LogId {
      */
     public static final String DAL025060 = "DAL025060";
     /**
+     * <strong>DAL025061 = Creating Semaphore: maxSize:[{0}] and fair:[{1}].</strong>
+     */
+    public static final String DAL025061 = "DAL025061";
+    /**
      * <strong>IAL025001 = BATCH START jobSequenceId:[{0}]</strong>
      */
     public static final String IAL025001 = "IAL025001";
@@ -378,6 +382,22 @@ public final class LogId {
      * <strong>WAL025008 = MessageAccessor is null.{0}</strong>
      */
     public static final String WAL025008 = "WAL025008";
+    /**
+     * <strong>WAL025009 = Async job aborted in preprocessing because updating current application status was failed. jobSequenceId:[{0}]</strong>
+     */
+    public static final String WAL025009 = "WAL025009";
+    /**
+     * <strong>WAL025010 = ExceptionHandler won't be used in BLogic {0}, Bean Definition Files {1}</strong>
+     */
+    public static final String WAL025010 = "WAL025010";
+    /**
+     * <strong>WAL025011 = ExceptionHandler wasn't defined and BLogic {0} aborted by Throwabl.</strong>
+     */
+    public static final String WAL025011 = "WAL025011";
+    /**
+     * <strong>WAL025012 = Thread is interrupted in shutdowon sequence but continues taskExecutor shutdown procces.</strong>
+     */
+    public static final String WAL025012 = "WAL025012";
     /**
      * <strong>EAL025001 = At the end of the transaction error.</strong>
      */
@@ -575,7 +595,143 @@ public final class LogId {
      */
     public static final String EAL025053 = "EAL025053";
     /**
-     * <strong>[Assertion failed] - Property of executor.endMonitoringFile must be defined.</strong>
+     * <strong>EAL025054 = The asynchronous job in wait state was interrupted. jobSequenceId[{0}]</strong>
+     */
+    public static final String EAL025054 = "EAL025054";
+    /**
+     * <strong>EAL025055 = [Assertion failed] - AsyncJobLauncherImpl constructor needs ThreadPoolTaskExecutorDelegate</strong>
+     */
+    public static final String EAL025055 = "EAL025055";
+    /**
+     * <strong>EAL025056 = [Assertion failed] - Property of executor.endMonitoringFile must be defined.</strong>
      */
     public static final String EAL025056 = "EAL025056";
+    /**
+     * <strong>EAL025057 = [Assertion failed] - AsyncJobLauncherImpl constructor needs JobExecutorTemplate</strong>
+     */
+    public static final String EAL025057 = "EAL025057";
+    /**
+     * <strong>EAL025058 = [Assertion failed] - Property of executor.jobTerminateWaitInterval must be defined.</strong>
+     */
+    public static final String EAL025058 = "EAL025058";
+    /**
+     * <strong>EAL025059 = [Assertion failed] - Property of batchTaskExecutor.maxPoolSize must be defined.</strong>
+     */
+    public static final String EAL025059 = "EAL025059";
+    /**
+     * <strong>EAL025060 = [Assertion failed] - WorkerTemplateImpl constructor needs BLogicResolver</strong>
+     */
+    public static final String EAL025060 = "EAL025060";
+    /**
+     * <strong>EAL025061 = [Assertion failed] - WorkerTemplateImpl constructor needs BLogicExceptionHandlerResolver</strong>
+     */
+    public static final String EAL025061 = "EAL025061";
+    /**
+     * <strong>EAL025062 = [Assertion failed] - WorkerTemplateImpl constructor needs BLogicApplicationContextResolver</strong>
+     */
+    public static final String EAL025062 = "EAL025062";
+    /**
+     * <strong>EAL025063 = [Assertion failed] - WorkerTemplateImpl constructor needs BatchJobDataRepository</strong>
+     */
+    public static final String EAL025063 = "EAL025063";
+    /**
+     * <strong>EAL025064 = [Assertion failed] - WorkerTemplateImpl constructor needs BLogicParamConverter</strong>
+     */
+    public static final String EAL025064 = "EAL025064";
+    /**
+     * <strong>EAL025065 = [Assertion failed] - WorkerTemplateImpl constructor needs BLogicExecutor</strong>
+     */
+    public static final String EAL025065 = "EAL025065";
+    /**
+     * <strong>EAL025066 = [Assertion failed] - WorkerTemplateImpl constructor needs BatchStatusChanger</strong>
+     */
+    public static final String EAL025066 = "EAL025066";
+    /**
+     * <strong>EAL025067 = [Assertion failed] - WorkerTemplateImpl constructor needs ExceptionStatusHandler</strong>
+     */
+    public static final String EAL025067 = "EAL025067";
+    /**
+     * <strong>EAL025068 = JobSequenceId:{0} execution was faild </strong>
+     */
+    public static final String EAL025068 = "EAL025068";
+    /**
+     * <strong>EAL025069 = [Assertion failed] - BatchJobDataRepositoryImpl constructor needs SystemDao</strong>
+     */
+    public static final String EAL025069 = "EAL025069";
+    /**
+     * <strong>EAL025070 = BatchJobData of JobSequenceId {0} doesn't exist</strong>
+     */
+    public static final String EAL025070 = "EAL025070";
+    /**
+     * <strong>EAL025071 = [Assertion failed] - BatchJobDataRepositoryImpl constructor needs SystemDao</strong>
+     */
+    public static final String EAL025071 = "EAL025071";
+    /**
+     * <strong>EAL025072 = [Assertion failed] - DatabaseBatchStatusChanger constructor needs SystemDao</strong>
+     */
+    public static final String EAL025072 = "EAL025072";
+    /**
+     * <strong>EAL025073 = [Assertion failed] - DatabaseBatchStatusChanger constructor needs PlatformTransactionManager</strong>
+     */
+    public static final String EAL025073 = "EAL025073";
+    /**
+     * <strong>EAL025074 = [Assertion failed] - AsyncJobOperatorImpl constructor needs BatchJobDataRepository</strong>
+     */
+    public static final String EAL025074 = "EAL025074";
+    /**
+     * <strong>EAL025075 = [Assertion failed] - AsyncJobOperatorImpl constructor needs AsyncJobLauncher</strong>
+     */
+    public static final String EAL025075 = "EAL025075";
+    /**
+     * <strong>EAL025076 = [Assertion failed] - AsyncJobOperatorImpl constructor needs AsyncBatchStopper</strong>
+     */
+    public static final String EAL025076 = "EAL025076";
+    /**
+     * <strong>EAL025077 = [Assertion failed] - AsyncJobOperatorImpl constructor needs ExceptionStatusHandler</strong>
+     */
+    public static final String EAL025077 = "EAL025077";
+    /**
+     * <strong>EAL025078 = [Assertion failed] - Property of polling.interval must be defined.</strong>
+     */
+    public static final String EAL025078 = "EAL025078";
+    /**
+     * <strong>EAL025079 = [Assertion failed] - TaskExecutorDelegatorImpl constructor needs ThreadPoolTaskExecutor</strong>
+     */
+    public static final String EAL025079 = "EAL025079";
+    /**
+     * <strong>EAL025080 = [Assertion failed] - Property of beanDefinition.business.classpath must be defined.</strong>
+     */
+    public static final String EAL025080 = "EAL025080";
+    /**
+     * <strong>EAL025081 = [Assertion failed] - Property of batchTaskExecutor.batchServant must be defined.</strong>
+     */
+    public static final String EAL025081 = "EAL025081";
+    /**
+     * <strong>EAL025082 = [Assertion failed] - Property of batchTaskExecutor.dbAbnormalRetryMax must be defined.</strong>
+     */
+    public static final String EAL025082 = "EAL025082";
+    /**
+     * <strong>EAL025083 = [Assertion failed] - Property of batchTaskExecutor.dbAbnormalRetryMax must be defined.</strong>
+     */
+    public static final String EAL025083 = "EAL025083";
+    /**
+     * <strong>EAL025084 = [Assertion failed] - Property of batchTaskExecutor.dbAbnormalRetryReset must be defined.</strong>
+     */
+    public static final String EAL025084 = "EAL025084";
+    /**
+     * <strong>EAL025085 = [Assertion failed] - Property of beanDefinition.common.useParent must be defined.</strong>
+     */
+    public static final String EAL025085 = "EAL025085";
+    /**
+     * <strong>EAL025086 = [Assertion failed] - BLogicParamConverterImpl constructor needs org.dozer.Mapper</strong>
+     */
+    public static final String EAL025086 = "EAL025086";
+    /**
+     * <strong>EAL025087 = [Assertion failed] - maxPoolSize must be positive. maxPoolSize[{0}]</strong>
+     */
+    public static final String EAL025087 = "EAL025087";
+    /**
+     * <strong>EAL025088 = [Assertion failed] - BatchJobData is required; it must not be null.</strong>
+     */
+    public static final String EAL025088 = "EAL025088";
 }

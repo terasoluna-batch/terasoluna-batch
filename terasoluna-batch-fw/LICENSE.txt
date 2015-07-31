@@ -311,3 +311,10 @@ THE ACCOMPANYING PROGRAM IS PROVIDED UNDER THE TERMS OF THIS COMMON PUBLIC LICEN
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * ====================================================================
  */
+
+ **************
+ * SLF4J Test *
+ **************
+ Copyright (c) 2009-2010 Robert Elliot
+ Released under the MIT X11 License.
+ http://projects.lidalia.org.uk/slf4j-test/license.html
