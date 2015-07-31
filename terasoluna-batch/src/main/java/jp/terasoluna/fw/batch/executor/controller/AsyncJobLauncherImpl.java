@@ -165,10 +165,7 @@ public class AsyncJobLauncherImpl
         taskExecutor.shutdown();
         while (taskExecutor.getActiveCount() != 0) {
             try {
-                if (LOGGER.isDebugEnabled()) {
-                    LOGGER.debug(LogId.DAL025031,
-                            taskExecutor.getActiveCount());
-                }
+                LOGGER.debug(LogId.DAL025031, taskExecutor.getActiveCount());
                 TimeUnit.MILLISECONDS
                         .sleep(executorJobTerminateWaitIntervalTime);
             } catch (InterruptedException e) {
@@ -190,9 +187,7 @@ public class AsyncJobLauncherImpl
 
         int maxPoolSize = threadPoolTaskExecutorDelegate
                 .getThreadPoolTaskExecutor().getMaxPoolSize();
-        if (LOGGER.isDebugEnabled()) {
-            LOGGER.debug(LogId.DAL025061, maxPoolSize, fair);
-        }
+        LOGGER.debug(LogId.DAL025061, maxPoolSize, fair);
         taskPoolLimit = new Semaphore(maxPoolSize, fair);
     }
 }

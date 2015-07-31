@@ -24,6 +24,8 @@ import org.mockito.ArgumentCaptor;
 import org.mockito.Mockito;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.task.TaskRejectedException;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import uk.org.lidalia.slf4jtest.TestLogger;
@@ -738,5 +740,72 @@ public class AsyncJobLauncherImplTest {
                     "[EAL025058] [Assertion failed] - Property of executor.jobTerminateWaitInterval must be defined.",
                     e.getMessage());
         }
+    }
+}
+
+/**
+ * テスト内部で呼び出される非同期ジョブの代理として動作するアンサークラス。<br>
+ *
+ * @since 3.6
+ */
+class AnswerWithLock implements Answer<Object> {
+
+    private static final Logger logger = LoggerFactory
+            .getLogger(AnswerWithLock.class);
+
+    private Queue<String> queue;
+
+    private CountDownLatch runningLatch;
+
+    private CountDownLatch endLatch = new CountDownLatch(1);
+
+    /**
+     * コンストラクタ。<br>
+     *
+     * @param queue        実行メッセージの格納キュー
+     * @param runningLatch 開始メッセージのインキューまで進行停止
+     */
+    AnswerWithLock(Queue queue, CountDownLatch runningLatch) {
+        this.queue = queue;
+        this.runningLatch = runningLatch;
+    }
+
+    /**
+     * {@code JobExecutorTemplate#executeWorker()}呼び出し時のアンサー。<br>
+     *
+     * @param invocation 実行対象
+     * @return 常にnull
+     * @throws Throwable 意図しない例外
+     */
+    @Override
+    public Object answer(InvocationOnMock invocation) throws Throwable {
+        try {
+            String jobSequenceId = invocation.getArgumentAt(0, String.class);
+
+            queue.add("executing job." + jobSequenceId);
+            logger.trace("executing job.{}", jobSequenceId);
+            runningLatch.countDown();
+            if ("0000000003".equals(jobSequenceId)) {
+                TimeUnit.MILLISECONDS.sleep(2000L);
+                logger.trace("# sleep end.{}", jobSequenceId);
+            } else {
+                endLatch.await();
+                logger.trace("# job ending.{}", jobSequenceId);
+            }
+            queue.add("end job." + jobSequenceId);
+            logger.trace("end job.{}", jobSequenceId);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+        return null;
+    }
+
+    /**
+     * ジョブの終了指示。<br>
+     * 本メソッドが実行されるまで待ち状態となる。
+     */
+    public void endJob() {
+        this.endLatch.countDown();
     }
 }
