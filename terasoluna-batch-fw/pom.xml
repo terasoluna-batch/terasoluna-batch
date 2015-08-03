@@ -32,6 +32,7 @@
         <terasoluna.batch.version>${terasoluna.fw.version}</terasoluna.batch.version>
         <terasoluna.collector.version>${terasoluna.fw.version}</terasoluna.collector.version>
         <terasoluna.logger.version>${terasoluna.fw.version}</terasoluna.logger.version>
+        <dozer.version>5.5.1</dozer.version>
 
         <!-- Dependence library version -->
         <!-- == Spring IO Platform == -->
@@ -598,6 +599,17 @@ sp_cleanup.organize_imports=true
                 <groupId>org.mybatis</groupId>
                 <artifactId>mybatis-spring</artifactId>
                 <version>${mybatis-spring.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>net.sf.dozer</groupId>
+                <artifactId>dozer-spring</artifactId>
+                <version>${dozer.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>net.sf.dozer</groupId>
+                <artifactId>dozer</artifactId>
+                <version>${dozer.version}</version>
             </dependency>
 
             <dependency>
