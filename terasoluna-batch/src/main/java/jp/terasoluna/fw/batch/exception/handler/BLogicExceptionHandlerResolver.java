@@ -20,17 +20,16 @@ import org.springframework.context.ApplicationContext;
 
 /**
  * ビジネスロジックの例外ハンドラを解決するリゾルバインタフェース。<br>
- *
  * @since 3.6
  */
 public interface BLogicExceptionHandlerResolver {
 
     /**
      * ジョブ業務コードと業務用Bean定義のコンテキストを用い、ビジネスロジックの例外ハンドラを取得する。
-     *
      * @param ctx 業務用Bean定義によるアプリケーションコンテキスト
      * @param jobAppCd ジョブ業務コード
      * @return ビジネスロジックの例外ハンドラ
      */
-    ExceptionHandler resolveExceptionHandler(ApplicationContext ctx, String jobAppCd);
+    ExceptionHandler resolveExceptionHandler(ApplicationContext ctx,
+            String jobAppCd);
 }
