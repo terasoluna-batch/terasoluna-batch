@@ -351,6 +351,10 @@ public final class LogId {
      */
     public static final String IAL025018 = "IAL025018";
     /**
+     * <strong>IAL025019 = rollback:{0}</strong>
+     */
+    public static final String IAL025019 = "IAL025019";
+    /**
      * <strong>WAL025001 = MessageAccessor bean not found. beanName:[{0}]{1}</strong>
      */
     public static final String WAL025001 = "WAL025001";
@@ -734,4 +738,8 @@ public final class LogId {
      * <strong>EAL025088 = [Assertion failed] - BatchJobData is required; it must not be null.</strong>
      */
     public static final String EAL025088 = "EAL025088";
+    /**
+     * <strong>[Assertion failed] - {0} constructor requires {1}</strong>
+     */
+    public static final String EAL025089 = "EAL025089";
 }
