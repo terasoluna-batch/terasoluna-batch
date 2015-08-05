@@ -38,7 +38,7 @@ import jp.terasoluna.fw.logger.TLogger;
  */
 public class JobStatusChangerImpl implements JobStatusChanger {
 
-    private static final int EXPTECTED_UPDATE_JOB_COUNT = 1;
+    private static final int EXPECTED_UPDATE_JOB_COUNT = 1;
 
     private static final TLogger LOGGER = TLogger
             .getLogger(JobStatusChangerImpl.class);
@@ -46,6 +46,25 @@ public class JobStatusChangerImpl implements JobStatusChanger {
     protected SystemDao systemDao;
 
     protected PlatformTransactionManager adminTransactionManager;
+
+    /**
+     * メソッド呼び出し時の引数
+     */
+    private class ChangeJobStatusParam {
+        String jobSequenceId;
+
+        String eventStatus;
+
+        String targetJobStatus;
+
+        String nextJobStatus;
+
+        BLogicResult bLogicResult;
+
+        BatchJobData batchJobData;
+
+        String statusForUpdate;
+    }
 
     /**
      * コンストラクタ。
@@ -61,81 +80,69 @@ public class JobStatusChangerImpl implements JobStatusChanger {
                 LogId.EAL025089, "JobStatusChangerImpl",
                 "adminTransactionManager"));
     }
-    
-    /**
-     * ステータス更新処理
-     * @param event EVENT_STATUS_START or EVENT_STATUS_NORMAL_TERMINATION
-     * @param jobSequenceId ジョブシーケンスID
-     * @param bLogicResult ビジネスロジックの実行結果 (EVENT_STATUS_NORMAL_TERMINATIONのときのみ)
-     * @return 更新に成功したらtrue。<br>
-     *         BatchJobDataが取得できないとき、ジョブステータスが想定外のとき、ジョブステータスの更新が正常に行えなかったときはfalse。
-     */
-    private boolean changeJobStatus(String event, String jobSequenceId,
-            BLogicResult bLogicResult) {
-        String targetStatus = null;
-        String targetEvent = null;
-        String nextStatus = null;
-        TransactionStatus transactionStatus = null;
 
-        targetEvent = event;
-        if (EventConstants.EVENT_STATUS_START.equals(event)) {
-            targetStatus = JobStatusConstants.JOB_STATUS_UNEXECUTION;
-            nextStatus = JobStatusConstants.JOB_STATUS_EXECUTING;
-        } else {
-            targetStatus = JobStatusConstants.JOB_STATUS_EXECUTING;
-            nextStatus = JobStatusConstants.JOB_STATUS_PROCESSED;
+    /**
+     * BatchJobData取得
+     * @param changeJobStatusParam BatchJobData取得用の引数
+     * @return BatchJobData 取得したBatchJobData
+     */
+    private BatchJobData getBatchJobData(
+            ChangeJobStatusParam changeJobStatusParam) {
+        // ジョブデータ取得
+        BatchJobManagementParam param = new BatchJobManagementParam();
+
+        param.setJobSequenceId(changeJobStatusParam.jobSequenceId);
+        param.setForUpdate(true);
+        BatchJobData batchJobData = systemDao.selectJob(param);
+        if (batchJobData == null) {
+            LOGGER.error(LogId.EAL025026, changeJobStatusParam.jobSequenceId);
+            return null;
         }
 
-        try {
-            transactionStatus = adminTransactionManager
-                    .getTransaction(new DefaultTransactionDefinition());
+        return batchJobData;
+    }
 
-            // ジョブデータ取得
-            BatchJobManagementParam param = new BatchJobManagementParam();
-            param.setJobSequenceId(jobSequenceId);
-            param.setForUpdate(true);
-            BatchJobData batchJobData = systemDao.selectJob(param);
-            if (batchJobData == null) {
-                LOGGER.error(LogId.EAL025026, jobSequenceId);
-                return false;
-            }
+    /**
+     * ステータス判定
+     * @param changeJobStatusParam ステータス判定用の引数
+     * @return 対象ステータスのときはtrue。BatchJobDataがnull、あるいは、ステータスが対象外のときはfalse。
+     */
+    private boolean isJobStatusValid(ChangeJobStatusParam changeJobStatusParam) {
+        // ステータス判定
+        if (changeJobStatusParam.batchJobData == null) {
+            return false;
+        }
+        if (!changeJobStatusParam.targetJobStatus
+                .equals(changeJobStatusParam.batchJobData.getCurAppStatus())) {
+            LOGGER.info(LogId.IAL025004, changeJobStatusParam.jobSequenceId,
+                    changeJobStatusParam.batchJobData.getBLogicAppStatus(),
+                    changeJobStatusParam.eventStatus,
+                    changeJobStatusParam.batchJobData.getCurAppStatus(),
+                    "false");
+            return false;
+        }
+        return true;
+    }
 
-            // 開始前ステータス判定
-            if (!targetStatus.equals(batchJobData.getCurAppStatus())) {
-                if (LOGGER.isInfoEnabled()) {
-                    LOGGER.info(LogId.IAL025004, jobSequenceId, batchJobData
-                            .getBLogicAppStatus(), targetEvent, batchJobData
-                            .getCurAppStatus(), targetStatus);
-                }
-                return false;
-            }
+    /**
+     * ジョブステータス更新
+     * @param changeJobStatusParam ジョブステータス更新用の引数
+     * @return 正常に更新できた(更新件数が1)ときはtrue、更新件数が1以外のときはfalse
+     */
+    private boolean updateBatchJobStatus(
+            ChangeJobStatusParam changeJobStatusParam) {
+        // ジョブステータス更新
+        LOGGER.debug(LogId.DAL025023, changeJobStatusParam.jobSequenceId,
+                changeJobStatusParam.nextJobStatus);
+        BatchJobManagementUpdateParam updateParam = new BatchJobManagementUpdateParam();
 
-            // ジョブステータス更新
-            LOGGER.debug(LogId.DAL025023, jobSequenceId, nextStatus);
-            BatchJobManagementUpdateParam updateParam = new BatchJobManagementUpdateParam();
-            updateParam.setJobSequenceId(batchJobData.getJobSequenceId());
-            if (EventConstants.EVENT_STATUS_START.equals(event)) {
-                updateParam.setBLogicAppStatus(batchJobData
-                        .getBLogicAppStatus());
-            } else {
-                updateParam.setBLogicAppStatus(Integer.toString(bLogicResult
-                        .getBlogicStatus()));
-            }
-            updateParam.setCurAppStatus(nextStatus);
-            int count = systemDao.updateJobTable(updateParam);
-            if (count != EXPTECTED_UPDATE_JOB_COUNT) {
-                LOGGER.error(LogId.EAL025025, updateParam.getJobSequenceId(),
-                        updateParam.getCurAppStatus());
-                return false;
-            }
-            adminTransactionManager.commit(transactionStatus);
-        } finally {
-            if (transactionStatus != null && !transactionStatus.isCompleted()) {
-                if (LOGGER.isInfoEnabled()) {
-                    LOGGER.info(LogId.IAL025019, transactionStatus);
-                }
-                adminTransactionManager.rollback(transactionStatus);
-            }
+        updateParam.setJobSequenceId(changeJobStatusParam.jobSequenceId);
+        updateParam.setCurAppStatus(changeJobStatusParam.statusForUpdate);
+        int count = systemDao.updateJobTable(updateParam);
+        if (count != EXPECTED_UPDATE_JOB_COUNT) {
+            LOGGER.error(LogId.EAL025025, updateParam.getJobSequenceId(),
+                    updateParam.getCurAppStatus());
+            return false;
         }
         return true;
     }
@@ -145,8 +152,35 @@ public class JobStatusChangerImpl implements JobStatusChanger {
      */
     @Override
     public boolean changeToStartStatus(String jobSequenceId) {
-        return changeJobStatus(EventConstants.EVENT_STATUS_START,
-                jobSequenceId, null);
+        TransactionStatus transactionStatus = null;
+        ChangeJobStatusParam changeJobStatusParam = new ChangeJobStatusParam();
+        boolean returnValue = true;
+
+        changeJobStatusParam.jobSequenceId = jobSequenceId;
+        changeJobStatusParam.eventStatus = EventConstants.EVENT_STATUS_START;
+        changeJobStatusParam.targetJobStatus = JobStatusConstants.JOB_STATUS_UNEXECUTION;
+        changeJobStatusParam.nextJobStatus = JobStatusConstants.JOB_STATUS_EXECUTING;
+
+        try {
+            transactionStatus = adminTransactionManager
+                    .getTransaction(new DefaultTransactionDefinition());
+
+            changeJobStatusParam.batchJobData = getBatchJobData(changeJobStatusParam);
+            if (isJobStatusValid(changeJobStatusParam)) {
+                changeJobStatusParam.statusForUpdate = changeJobStatusParam.batchJobData
+                        .getBLogicAppStatus();
+                if (updateBatchJobStatus(changeJobStatusParam)) {
+                    adminTransactionManager.commit(transactionStatus);
+                }
+            }
+        } finally {
+            if (transactionStatus != null && !transactionStatus.isCompleted()) {
+                LOGGER.warn(LogId.WAL025013, jobSequenceId);
+                adminTransactionManager.rollback(transactionStatus);
+                returnValue = false;
+            }
+        }
+        return returnValue;
     }
 
     /**
@@ -155,8 +189,37 @@ public class JobStatusChangerImpl implements JobStatusChanger {
     @Override
     public boolean changeToEndStatus(String jobSequenceId,
             BLogicResult bLogicResult) {
-        return changeJobStatus(EventConstants.EVENT_STATUS_NORMAL_TERMINATION,
-                jobSequenceId, bLogicResult);
+        TransactionStatus transactionStatus = null;
+        ChangeJobStatusParam changeJobStatusParam = new ChangeJobStatusParam();
+        boolean returnValue = true;
+
+        changeJobStatusParam.jobSequenceId = jobSequenceId;
+        changeJobStatusParam.bLogicResult = bLogicResult;
+        changeJobStatusParam.eventStatus = EventConstants.EVENT_STATUS_NORMAL_TERMINATION;
+        changeJobStatusParam.targetJobStatus = JobStatusConstants.JOB_STATUS_EXECUTING;
+        changeJobStatusParam.nextJobStatus = JobStatusConstants.JOB_STATUS_PROCESSED;
+
+        try {
+            transactionStatus = adminTransactionManager
+                    .getTransaction(new DefaultTransactionDefinition());
+
+            changeJobStatusParam.batchJobData = getBatchJobData(changeJobStatusParam);
+            if (isJobStatusValid(changeJobStatusParam)) {
+                changeJobStatusParam.statusForUpdate = Integer
+                        .toString(changeJobStatusParam.bLogicResult
+                                .getBlogicStatus());
+                if (updateBatchJobStatus(changeJobStatusParam)) {
+                    adminTransactionManager.commit(transactionStatus);
+                }
+            }
+        } finally {
+            if (transactionStatus != null && !transactionStatus.isCompleted()) {
+                LOGGER.warn(LogId.WAL025013, jobSequenceId);
+                adminTransactionManager.rollback(transactionStatus);
+                returnValue = false;
+            }
+        }
+        return returnValue;
     }
 
 }
