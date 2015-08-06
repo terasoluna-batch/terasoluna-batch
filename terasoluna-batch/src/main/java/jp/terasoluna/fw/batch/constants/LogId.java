@@ -734,4 +734,8 @@ public final class LogId {
      * <strong>EAL025088 = [Assertion failed] - BatchJobData is required; it must not be null.</strong>
      */
     public static final String EAL025088 = "EAL025088";
+    /**
+     * <strong>EAL025090 = invalid format in batch.properties, key: {0}</strong>
+     */
+    public static final String EAL025090 = "EAL025090";
 }

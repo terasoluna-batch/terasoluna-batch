@@ -19,12 +19,11 @@ package jp.terasoluna.fw.batch.blogic;
 import jp.terasoluna.fw.batch.executor.B000001BLogic;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
 import jp.terasoluna.fw.batch.message.MessageAccessor;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.expression.ParseException;
 import org.springframework.expression.spel.SpelEvaluationException;
 
 import static org.junit.Assert.*;
@@ -79,7 +78,7 @@ public class BLogicApplicationContextResolverImplTest {
      * @throws Exception 予期しない例外
      */
     @Test
-    public void testResolveApplicationContext() throws Exception {
+    public void testResolveApplicationContext01() throws Exception {
         BatchJobData batchJobData = new BatchJobData();
         batchJobData.setJobAppCd("B000001");
 
@@ -97,6 +96,95 @@ public class BLogicApplicationContextResolverImplTest {
         // 親のDIコンテナのBeanが取得できること。
         MessageAccessor msg = ctx.getBean("msgAcc", MessageAccessor.class);
         assertNotNull(msg);
+    }
+
+    /**
+     * resolveApplicationContext()のテスト 【異常系】
+     * <pre>
+     * 事前条件
+     * ・なし
+     * 確認項目
+     * ・Bean定義ファイルが生成できないジョブ業務コードを指定したとき、
+     * 　{@code BeansException}をスローすること。
+     * </pre>
+     *
+     * @throws Exception 予期しない例外
+     */
+    @Test
+    public void testResolveApplicationContext02() throws Exception {
+        BatchJobData batchJobData = new BatchJobData();
+        batchJobData.setJobAppCd("not-defined");
+
+        target.setApplicationContext(parent);
+        target.classpath = "beansDef/";
+
+        // テスト実行
+        try {
+            target.resolveApplicationContext(batchJobData);
+            fail();
+        } catch (BeansException e) {
+            assertTrue(e.getMessage().contains(
+                    "IOException parsing XML document from class path resource [beansDef/not-defined.xml]"));
+        }
+    }
+
+    /**
+     * resolveApplicationContext()のテスト 【正常系】
+     * <pre>
+     * 事前条件
+     * ・なし
+     * 確認項目
+     * ・フレームワークのDIコンテナ自身に親コンテナが無い場合、
+     * 　業務DIコンテナである{@code ApplicationContext}の親コンテナは
+     * 　フレームワークのDIコンテナと同一になること。
+     * </pre>
+     *
+     * @throws Exception 予期しない例外
+     */
+    @Test
+    public void testResolveApplicationContext03() throws Exception {
+        BatchJobData batchJobData = new BatchJobData();
+        batchJobData.setJobAppCd("B000001");
+
+        target.setApplicationContext(parent);
+        target.classpath = "beansDef/";
+
+        // テスト実行
+        ApplicationContext ctx = target.resolveApplicationContext(batchJobData);
+
+        // 業務用DIコンテナの親コンテナが、フレームワークのDIコンテナと同一であること
+        assertSame(parent, ctx.getParent());
+    }
+
+    /**
+     * resolveApplicationContext()のテスト 【正常系】
+     * <pre>
+     * 事前条件
+     * ・なし
+     * 確認項目
+     * ・フレームワークのDIコンテナ自身に親コンテナを持つ場合、
+     * 　業務DIコンテナである{@code ApplicationContext}の親コンテナは
+     * 　フレームワークの親コンテナと同一になること。
+     * </pre>
+     *
+     * @throws Exception 予期しない例外
+     */
+    @Test
+    public void testResolveApplicationContext04() throws Exception {
+        BatchJobData batchJobData = new BatchJobData();
+        batchJobData.setJobAppCd("B000001");
+        // フレームワークのDIコンテナ（parentを親にもつ）
+        ApplicationContext fwChildCtx = new ClassPathXmlApplicationContext(
+                parent);
+        target.setApplicationContext(fwChildCtx);
+        target.classpath = "beansDef/";
+
+        // テスト実行
+        ApplicationContext ctx = target.resolveApplicationContext(batchJobData);
+
+        // 業務用DIコンテナの親コンテナが、フレームワークのDIコンテナ(fwChildCtx)
+        // の親コンテナ(parent)と同一であること
+        assertSame(parent, ctx.getParent());
     }
 
     /**
@@ -266,9 +354,9 @@ public class BLogicApplicationContextResolverImplTest {
         try {
             target.getBeanFileName(batchJobData);
             fail();
-        } catch (ParseException e) {
+        } catch (IllegalArgumentException e) {
             assertEquals(
-                    "Expression 'classpath/${jobAppCd/B0000001.xml' @ 10: No ending suffix '}' for expression starting at character 10: ${jobAppCd/B0000001.xml",
+                    "[EAL025090] invalid format in batch.properties, key: beanDefinition.business.classpath",
                     e.getMessage());
         }
     }
@@ -298,6 +386,54 @@ public class BLogicApplicationContextResolverImplTest {
                     "[Assertion failed] - this argument is required; it must not be null",
                     e.getMessage());
         }
+    }
+
+    /**
+     * getBeanFileName()のテスト 【正常系】
+     * <pre>
+     * 事前条件
+     * ・なし
+     * 確認項目
+     * ・引数に${jobAppCdUpper}が含まれているとき、プロパティが大文字化された
+     * 　ディレクトリパスが取得できること。
+     * </pre>
+     *
+     * @throws Exception 予期しない例外
+     */
+    @Test
+    public void testGetBeanFileName09() throws Exception {
+        BatchJobData batchJobData = new BatchJobData() {{
+            setJobAppCd("to_upper");
+        }};
+        target.classpath = "classpath/${jobAppCdUpper}/";
+
+        // テスト実行
+        assertEquals("classpath/TO_UPPER/to_upper.xml",
+                target.getBeanFileName(batchJobData));
+    }
+
+    /**
+     * getBeanFileName()のテスト 【正常系】
+     * <pre>
+     * 事前条件
+     * ・なし
+     * 確認項目
+     * ・引数に${jobAppCdLower}が含まれているとき、プロパティが小文字化された
+     * 　ディレクトリパスが取得できること。
+     * </pre>
+     *
+     * @throws Exception 予期しない例外
+     */
+    @Test
+    public void testGetBeanFileName10() throws Exception {
+        BatchJobData batchJobData = new BatchJobData() {{
+            setJobAppCd("TO_LOWER");
+        }};
+        target.classpath = "classpath/${jobAppCdLower}/";
+
+        // テスト実行
+        assertEquals("classpath/to_lower/TO_LOWER.xml",
+                target.getBeanFileName(batchJobData));
     }
 
     /**
