@@ -26,6 +26,7 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.expression.Expression;
+import org.springframework.expression.ParseException;
 import org.springframework.expression.common.TemplateParserContext;
 import org.springframework.expression.spel.standard.SpelExpressionParser;
 import org.springframework.expression.spel.support.StandardEvaluationContext;
@@ -35,18 +36,18 @@ import org.springframework.util.Assert;
  * 業務用DIコンテナの生成を行う。<br>
  * 本クラスでは業務用DIコンテナの親としてフレームワークのDIコンテナを指定する。<br>
  * <p>
- * 業務用DIコンテナのBean定義ファイルが格納されるディレクトリのクラスパスとして
- * {@code batch.properties}のプロパティ{@code beanDefinition.business.classpath}
- * の値を記述しておくこと。<br>
+ * 業務用DIコンテナのBean定義ファイルが格納されるクラスパス直下から
+ * Bean定義ファイルの格納ディレクトリまでのパスとして{@code batch.properties}の
+ * プロパティ{@code beanDefinition.business.classpath}の値を記述しておくこと。<br>
  * 指定がない場合、Bean定義ファイルパスはクラスパス直下にファイルが
  * 格納されているものとみなされる。
  * </p>
  * <p>
  * 配置ディレクトリはプロパティファイル経由で指定するが、このディレクトリパスで
- * {@code ${jobAppCd}}という文字列を埋め込むことで、実行対象のジョブ業務コードに
- * 置換される。<br>
- * これを利用してジョブ単位に業務用DIコンテナのBean定義ファイルの配置ディレクトリ
- * を分割することができる。<br>
+ * ${jobAppCd}のように${}内にBatchJobDataのプロパティの名前を埋め込むことで、
+ * {@code BatchJobData}のプロパティの値に置換される。<br>
+ * これを利用してジョブ単位に業務用DIコンテナのBean定義ファイルの配置ディレクトリを
+ * ジョブ毎の業務用Bean定義ファイルのパスとして分割することができる。<br>
  * なお、業務用DIコンテナのBean定義ファイルは「ジョブ業務コード({@code jobAppCode})
  * + &quot;.xml&quot;」というファイル名が固定で使用される。
  * </p>
@@ -55,6 +56,12 @@ import org.springframework.util.Assert;
  */
 public class BLogicApplicationContextResolverImpl
         implements BLogicApplicationContextResolver, ApplicationContextAware {
+
+    /**
+     * ロガー
+     */
+    private static final TLogger LOGGER = TLogger
+            .getLogger(BLogicApplicationContextResolverImpl.class);
 
     /**
      * 業務用DIコンテナの親として使用されるフレームワークのDIコンテナ。<br>
@@ -70,6 +77,26 @@ public class BLogicApplicationContextResolverImpl
      * 置換文字列接頭語。<br>
      */
     protected static final String REPLACE_STRING_PREFIX = "${";
+
+    /**
+     * 置換文字列：ジョブ業務コード（大文字）
+     */
+    protected static final String REPLACE_STRING_JOB_APP_CD_UPPER = "\\$\\{jobAppCdUpper\\}";
+
+    /**
+     * 置換文字列：ジョブ業務コード（大文字）の置換後EL式
+     */
+    protected static final String REPLACE_STRING_JOB_APP_CD_UPPER_REPLACE = "\\$\\{jobAppCd.toUpperCase()\\}";
+
+    /**
+     * 置換文字列：ジョブ業務コード（小文字）
+     */
+    protected static final String REPLACE_STRING_JOB_APP_CD_LOWER = "\\$\\{jobAppCdLower\\}";
+
+    /**
+     * 置換文字列：ジョブ業務コード（小文字）の置換後EL式
+     */
+    protected static final String REPLACE_STRING_JOB_APP_CD_LOWER_REPLACE = "\\$\\{jobAppCd.toLowerCase()\\}";
 
     /**
      * プロパティファイルからインジェクションされる業務用Bean定義ファイルのディレクトリパス。<br>
@@ -102,6 +129,8 @@ public class BLogicApplicationContextResolverImpl
     /**
      * 業務用DIコンテナとなるアプリケーションコンテキストを取得する。<br>
      * フレームワークのDIコンテナは業務用DIコンテナの親となる。<br>
+     * また、フレームワークのDIコンテナ自身が親コンテナを持つ場合、
+     * この親コンテナを業務用DIコンテナの親とする。<br>
      *
      * @param batchJobData ジョブパラメータ
      * @return 業務用DIコンテナ
@@ -111,9 +140,14 @@ public class BLogicApplicationContextResolverImpl
     public ApplicationContext resolveApplicationContext(
             BatchJobData batchJobData) throws BeansException {
         String bLogicBeanDefinitionName = getBeanFileName(batchJobData);
-
+        ApplicationContext parentIfAvailable;
+        if (parent.getParent() != null) {
+            parentIfAvailable = parent.getParent();
+        } else {
+            parentIfAvailable = parent;
+        }
         return new ClassPathXmlApplicationContext(
-                new String[] { bLogicBeanDefinitionName }, parent);
+                new String[] { bLogicBeanDefinitionName }, parentIfAvailable);
     }
 
     /**
@@ -133,16 +167,33 @@ public class BLogicApplicationContextResolverImpl
             return str.toString();
         }
 
-        String pathSource = str.append(classpath).append(jobAppCd)
-                .append(PROPERTY_BEAN_FILENAME_SUFFIX).toString();
+        str.append(classpath);
         if (!classpath.contains(REPLACE_STRING_PREFIX)) {
-            return pathSource;
+            return str.append(jobAppCd).append(PROPERTY_BEAN_FILENAME_SUFFIX)
+                    .toString();
         }
+
+        String pathSource = str.toString();
+        // ${jobAppCdUpper}, ${jobAppCdLower}のEL式置換
+        pathSource = pathSource.replaceAll(REPLACE_STRING_JOB_APP_CD_UPPER,
+                REPLACE_STRING_JOB_APP_CD_UPPER_REPLACE);
+        pathSource = pathSource.replaceAll(REPLACE_STRING_JOB_APP_CD_LOWER,
+                REPLACE_STRING_JOB_APP_CD_LOWER_REPLACE);
 
         StandardEvaluationContext eval = new StandardEvaluationContext(
                 jobRecord);
-        Expression exp = parser.parseExpression(pathSource, parserContext);
-        return String.class.cast(exp.getValue(eval));
+
+        Expression exp;
+        try {
+            exp = parser.parseExpression(pathSource, parserContext);
+            str = new StringBuilder(String.class.cast(exp.getValue(eval)));
+        } catch (ParseException e) {
+            throw new IllegalArgumentException(
+                    LOGGER.getLogMessage(LogId.EAL025090,
+                            "beanDefinition.business.classpath"), e);
+        }
+        return str.append(jobAppCd).append(PROPERTY_BEAN_FILENAME_SUFFIX)
+                .toString();
     }
 
     /**

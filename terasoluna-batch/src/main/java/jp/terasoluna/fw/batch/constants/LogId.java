@@ -399,6 +399,10 @@ public final class LogId {
      */
     public static final String WAL025012 = "WAL025012";
     /**
+     * <strong>WAL025013  = An unexpected event has detected at the job status update processing. It will be attempt to roll-back. jobSequenceId:{0}</strong>
+     */
+    public static final String WAL025013$32$ = "WAL025013 ";
+    /**
      * <strong>EAL025001 = At the end of the transaction error.</strong>
      */
     public static final String EAL025001 = "EAL025001";
@@ -734,4 +738,12 @@ public final class LogId {
      * <strong>EAL025088 = [Assertion failed] - BatchJobData is required; it must not be null.</strong>
      */
     public static final String EAL025088 = "EAL025088";
+    /**
+     * <strong>EAL025089 = [Assertion failed] - {0} constructor requires {1}</strong>
+     */
+    public static final String EAL025089 = "EAL025089";
+    /**
+     * <strong>EAL025090 = invalid format in batch.properties, key: {0}</strong>
+     */
+    public static final String EAL025090 = "EAL025090";
 }
