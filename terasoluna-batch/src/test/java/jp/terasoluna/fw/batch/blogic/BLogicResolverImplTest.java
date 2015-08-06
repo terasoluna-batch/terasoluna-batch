@@ -18,18 +18,26 @@ package jp.terasoluna.fw.batch.blogic;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
+import jp.terasoluna.fw.batch.executor.controller.EndFileStopper;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import uk.org.lidalia.slf4jtest.TestLogger;
+import uk.org.lidalia.slf4jtest.TestLoggerFactory;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.doReturn;
+import static uk.org.lidalia.slf4jtest.LoggingEvent.error;
+import static java.util.Arrays.asList;
+import static org.hamcrest.core.Is.is;
 
 /**
  * BLogicResolverのテストケースクラス
@@ -38,10 +46,21 @@ public class BLogicResolverImplTest {
 
     BLogicResolverImpl bLogicResolverImpl;
 
+    private TestLogger logger = TestLoggerFactory
+            .getTestLogger(BLogicResolverImpl.class);
+
     @Before
     public void setUp() {
         // テスト準備
         bLogicResolverImpl = new BLogicResolverImpl();
+    }
+
+    /**
+     * テスト後処理：ロガーのクリアを行う。
+     */
+    @After
+    public void tearDown() {
+        logger.clear();
     }
 
     /**
@@ -73,6 +92,7 @@ public class BLogicResolverImplTest {
      * ・beansDef/B000011.xmlにBLogic(DEFINE_NOT_EXIST)の定義が存在しない
      * 確認項目
      * ・NoSuchBeanDefinitionException例外がスローされること
+     * ・[EAL025009]のログが出力されること
      * </pre>
      */
     @Test
@@ -87,6 +107,9 @@ public class BLogicResolverImplTest {
             // 結果検証
             assertTrue(e instanceof NoSuchBeanDefinitionException);
         }
+        assertThat(
+                logger.getLoggingEvents(),
+                is(asList(error("[EAL025009] BLogic bean not found. beanName:[DEFINE_NOT_EXISTBLogic]"))));
     }
 
     /**
