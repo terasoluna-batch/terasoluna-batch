@@ -32,20 +32,20 @@ public class BLogicParamConverterImpl implements BLogicParamConverter {
     /**
      * ロガー。
      */
-    private TLogger LOGGER = TLogger.getLogger(BLogicParamConverterImpl.class);
+    private static final TLogger LOGGER = TLogger.getLogger(BLogicParamConverterImpl.class);
 
     /**
      * Dozerのマッパーオブジェクト
      */
-    protected Mapper beanMpper;
+    protected Mapper beanMapper;
 
     /**
      * コンストラクタ<br>
-     * @param beanMpper
+     * @param beanMpper BatchJobDataからBLogicParamに変換するためのマッパーオブジェクト
      */
     public BLogicParamConverterImpl(Mapper beanMpper) {
         Assert.notNull(beanMpper, LOGGER.getLogMessage(LogId.EAL025086));
-        this.beanMpper = beanMpper;
+        this.beanMapper = beanMpper;
     }
 
     /**
@@ -57,7 +57,7 @@ public class BLogicParamConverterImpl implements BLogicParamConverter {
     @Override
     public BLogicParam convertBLogicParam(BatchJobData batchJobData) {
         BLogicParam blogicParam = new BLogicParam();
-        beanMpper.map(batchJobData, blogicParam);
+        beanMapper.map(batchJobData, blogicParam);
         return blogicParam;
     }
 

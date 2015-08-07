@@ -26,8 +26,6 @@ import java.sql.Timestamp;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
 
 import org.dozer.Mapper;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,20 +43,6 @@ public class BLogicParamConverterImplTest {
     protected Mapper beanMapper;
 
     /**
-     * テスト前処理
-     */
-    @Before
-    public void setUp() throws Exception {
-    }
-
-    /**
-     * テスト後処理
-     */
-    @After
-    public void tearDown() throws Exception {
-    }
-
-    /**
      * コンストラクタのテスト01 【異常系】<br>
      * 
      * <pre>
@@ -67,7 +51,7 @@ public class BLogicParamConverterImplTest {
      * 確認項目
      * ・{@code beanMpper}に{@code null}を渡した場合、{@code IllegalArgumentException}をスローすること。
      * 
-     * @return Exception 予期しない例外
+     * @throws Exception 予期しない例外
      */
     @Test
     public void testBLogicParamConverterImpl01() throws Exception {
@@ -88,14 +72,14 @@ public class BLogicParamConverterImplTest {
      * 事前条件
      * ・beanMapperがAutowiredされていること
      * 確認項目
-     * ・{@code beanMpper}を{@code BLogicParamConverterImpl}のコンストラクタの引数に渡した場合、{@code beanMpper}がフィールドに設定こと。
+     * ・{@code beanMpper}を{@code BLogicParamConverterImpl}のコンストラクタの引数に渡した場合、{@code beanMpper}がフィールドに設定されていること。
      * 
-     * @return Exception 予期しない例外
+     * @throws Exception 予期しない例外
      */
     @Test
     public void testBLogicParamConverterImpl02() throws Exception {
         BLogicParamConverterImpl bLogicParamConverter = new BLogicParamConverterImpl(beanMapper);
-        assertThat(this.beanMapper, is(bLogicParamConverter.beanMpper));
+        assertThat(this.beanMapper, is(bLogicParamConverter.beanMapper));
     }
 
     /**
@@ -107,7 +91,7 @@ public class BLogicParamConverterImplTest {
      * 確認項目
      * ・{@code BatchJobData}に設定した各値が{@code BLogicParam}の各プロパティにセットされること。
      * 
-     * @return Exception 予期しない例外
+     * @throws Exception 予期しない例外
      */
     @Test
     public void testConvertBLogicParam01() throws Exception {
@@ -179,7 +163,7 @@ public class BLogicParamConverterImplTest {
      * ・{@code BatchJobData}のプロパティに{@code null}を渡した場合でも、例外が起きることなく{@code BLogicParam}の各プロパティにセットされること。
      *  尚、全てnullの場合、マッピングができているのか不明なため、jobArgNmの番号が奇数のもののみ{@code null}とする。
      * 
-     * @return Exception 予期しない例外
+     * @throws Exception 予期しない例外
      */
     @Test
     public void testConvertBLogicParam02() throws Exception {
@@ -237,7 +221,7 @@ public class BLogicParamConverterImplTest {
      * ・{@code BatchJobData}のプロパティに{@code null}を渡した場合でも、例外が起きることなく{@code BLogicParam}の各プロパティにセットされること。
      *  尚、全てnullの場合、マッピングができているのか不明なため、jobArgNmの番号が偶数のもの、及びjobAppCd、jobSequenceIdのみ{@code null}とする。
      * 
-     * @return Exception 予期しない例外
+     * @throws Exception 予期しない例外
      */
     @Test
     public void testConvertBLogicParam03() throws Exception {
