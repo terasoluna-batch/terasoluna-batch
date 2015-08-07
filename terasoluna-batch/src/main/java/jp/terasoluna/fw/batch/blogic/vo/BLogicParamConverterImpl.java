@@ -41,11 +41,11 @@ public class BLogicParamConverterImpl implements BLogicParamConverter {
 
     /**
      * コンストラクタ<br>
-     * @param beanMpper BatchJobDataからBLogicParamに変換するためのマッパーオブジェクト
+     * @param beanMapper BatchJobDataからBLogicParamに変換するためのマッパーオブジェクト
      */
-    public BLogicParamConverterImpl(Mapper beanMpper) {
-        Assert.notNull(beanMpper, LOGGER.getLogMessage(LogId.EAL025086));
-        this.beanMapper = beanMpper;
+    public BLogicParamConverterImpl(Mapper beanMapper) {
+        Assert.notNull(beanMapper, LOGGER.getLogMessage(LogId.EAL025086));
+        this.beanMapper = beanMapper;
     }
 
     /**

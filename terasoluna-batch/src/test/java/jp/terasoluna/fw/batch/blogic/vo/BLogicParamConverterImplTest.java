@@ -49,7 +49,7 @@ public class BLogicParamConverterImplTest {
      * 事前条件
      * ・特になし
      * 確認項目
-     * ・{@code beanMpper}に{@code null}を渡した場合、{@code IllegalArgumentException}をスローすること。
+     * ・{@code beanMapper}に{@code null}を渡した場合、{@code IllegalArgumentException}をスローすること。
      * 
      * @throws Exception 予期しない例外
      */
@@ -72,7 +72,7 @@ public class BLogicParamConverterImplTest {
      * 事前条件
      * ・beanMapperがAutowiredされていること
      * 確認項目
-     * ・{@code beanMpper}を{@code BLogicParamConverterImpl}のコンストラクタの引数に渡した場合、{@code beanMpper}がフィールドに設定されていること。
+     * ・{@code beanMapper}を{@code BLogicParamConverterImpl}のコンストラクタの引数に渡した場合、{@code beanMapper}がフィールドに設定されていること。
      * 
      * @throws Exception 予期しない例外
      */
@@ -210,7 +210,7 @@ public class BLogicParamConverterImplTest {
         assertThat(dist.getJobArgNm19(), nullValue());
         assertThat(dist.getJobArgNm20(), is("jobArgNm20"));
     }
-    
+
     /**
      * convertBLogicParamのテスト02 【正常系】<br>
      * 
