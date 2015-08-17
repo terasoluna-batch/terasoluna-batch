@@ -16,24 +16,20 @@
 
 package jp.terasoluna.fw.message;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.ResultSet;
 
 import javax.sql.DataSource;
 
+import org.junit.After;
+import org.junit.Test;
+
 import jp.terasoluna.utlib.MockDataSource;
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
-
-import com.mockrunner.mock.jdbc.MockResultSet;
-
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 import uk.org.lidalia.slf4jext.Level;
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
-import static uk.org.lidalia.slf4jtest.LoggingEvent.warn;
-import static java.util.Arrays.asList;
-import static org.hamcrest.core.Is.*;
-import static org.junit.Assert.*;
 
 /**
  * {@link jp.terasoluna.fw.message.DBMessageQuery} クラスのブラックボックステスト。
@@ -42,38 +38,17 @@ import static org.junit.Assert.*;
  * <p>
  * @see jp.terasoluna.fw.message.DBMessageQuery
  */
-public class DBMessageQueryTest extends TestCase {
+public class DBMessageQueryTest {
 
-    private TestLogger logger = TestLoggerFactory.getTestLogger(
-            DBMessageQuery.class);
-
-    /**
-     * 初期化処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
-     */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
+    private TestLogger logger = TestLoggerFactory
+            .getTestLogger(DBMessageQuery.class);
 
     /**
-     * 終了処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
+     * テスト後処理：ロガーのクリアを行う。
      */
-    @Override
-    protected void tearDown() throws Exception {
+    @After
+    public void tearDown() {
         logger.clear();
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * @param name このテストケースの名前。
-     */
-    public DBMessageQueryTest(String name) {
-        super(name);
     }
 
     /**
@@ -100,6 +75,7 @@ public class DBMessageQueryTest extends TestCase {
      * 引数がStringだった場合、引き渡された値が変化なく格納されるかを確認。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testDBMessageDataSource01() throws Exception {
         // 前処理
         DataSource ds = new MockDataSource();
@@ -109,8 +85,7 @@ public class DBMessageQueryTest extends TestCase {
 
         // 判定
         assertEquals("CODE", UTUtil.getPrivateField(db, "rsCodeColumn"));
-        assertEquals("LANGUAGE", UTUtil.getPrivateField(db,
-                "rsLanguageColumn"));
+        assertEquals("LANGUAGE", UTUtil.getPrivateField(db, "rsLanguageColumn"));
         assertEquals("COUNTRY", UTUtil.getPrivateField(db, "rsCountryColumn"));
         assertEquals("VARIANT", UTUtil.getPrivateField(db, "rsVariantColumn"));
         assertEquals("MESSAGE", UTUtil.getPrivateField(db, "rsMessageColumn"));
@@ -141,6 +116,7 @@ public class DBMessageQueryTest extends TestCase {
      * 引数が空文字だった場合、引き渡された値が変化なく格納されるかを確認。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testDBMessageDataSource02() throws Exception {
         // 前処理
         DataSource ds = new MockDataSource();
@@ -181,6 +157,7 @@ public class DBMessageQueryTest extends TestCase {
      * 引数がnullだった場合、引き渡された値が変化なく格納されるかを確認。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testDBMessageDataSource03() throws Exception {
         // 前処理
         DataSource ds = new MockDataSource();
@@ -203,8 +180,7 @@ public class DBMessageQueryTest extends TestCase {
      * (正常系) <br>
      * 観点：A,E <br>
      * <br>
-     * 入力値：(引数) rs:|"code"="test01"|"language"="ja"|"country"="JP" |"variant"="kaisai"|"message"="テストメッセージ０１"|"hoge"="関係ないカラム"|
-     * <br>
+     * 入力値：(引数) rs:|"code"="test01"|"language"="ja"|"country"="JP" |"variant"="kaisai"|"message"="テストメッセージ０１"|"hoge"="関係ないカラム"|<br>
      * という内容のResultSet<br>
      * (引数) rowNum:not null<br>
      * <br>
@@ -218,6 +194,7 @@ public class DBMessageQueryTest extends TestCase {
      * 取得したString文字列をそのままDBMessageBeanに格納する。 "hoge"カラムは無視され、どこにも影響しない。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testMapRow01() throws Exception {
         // 前処理
         DataSource ds = new MockDataSource();
@@ -230,27 +207,12 @@ public class DBMessageQueryTest extends TestCase {
         db.rsMessageColumn = "message";
 
         // 擬似ResultSetの設定
-        MockResultSet rs = new MockResultSet("TestResult");
-
-        List<String> list1 = new ArrayList<String>();
-        list1.add("test01");
-        rs.addColumn("code", list1);
-
-        List<String> list2 = new ArrayList<String>();
-        list2.add("ja");
-        rs.addColumn("language", list2);
-
-        List<String> list3 = new ArrayList<String>();
-        list3.add("JP");
-        rs.addColumn("country", list3);
-
-        List<String> list4 = new ArrayList<String>();
-        list4.add("kansai");
-        rs.addColumn("variant", list4);
-
-        List<String> list5 = new ArrayList<String>();
-        list5.add("テストメッセージ０１");
-        rs.addColumn("message", list5);
+        ResultSet rs = mock(ResultSet.class);
+        when(rs.getString("code")).thenReturn("test01");
+        when(rs.getString("language")).thenReturn("ja");
+        when(rs.getString("country")).thenReturn("JP");
+        when(rs.getString("variant")).thenReturn("kansai");
+        when(rs.getString("message")).thenReturn("テストメッセージ０１");
 
         rs.first();
 
@@ -285,6 +247,7 @@ public class DBMessageQueryTest extends TestCase {
      * 取得した空文字をそのままDBMessageBeanに格納する。"hoge"カラムは無視され、 どこにも影響しない。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testMapRow02() throws Exception {
         // 前処理
         DataSource ds = new MockDataSource();
@@ -297,27 +260,12 @@ public class DBMessageQueryTest extends TestCase {
         db.rsMessageColumn = "message";
 
         // 擬似ResultSetの設定
-        MockResultSet rs = new MockResultSet("TestResult");
-
-        List<String> list1 = new ArrayList<String>();
-        list1.add("");
-        rs.addColumn("code", list1);
-
-        List<String> list2 = new ArrayList<String>();
-        list2.add("");
-        rs.addColumn("language", list2);
-
-        List<String> list3 = new ArrayList<String>();
-        list3.add("");
-        rs.addColumn("country", list3);
-
-        List<String> list4 = new ArrayList<String>();
-        list4.add("");
-        rs.addColumn("variant", list4);
-
-        List<String> list5 = new ArrayList<String>();
-        list5.add("");
-        rs.addColumn("message", list5);
+        ResultSet rs = mock(ResultSet.class);
+        when(rs.getString("code")).thenReturn("");
+        when(rs.getString("language")).thenReturn("");
+        when(rs.getString("country")).thenReturn("");
+        when(rs.getString("variant")).thenReturn("");
+        when(rs.getString("message")).thenReturn("");
 
         rs.first();
 
@@ -355,6 +303,7 @@ public class DBMessageQueryTest extends TestCase {
      * あった場合は、警告ログを出力する。"hoge"カラムは無視され、 どこにも影響しない。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testMapRowResultSetint03() throws Exception {
         // 前処理
         logger.setEnabledLevels(Level.WARN);
@@ -368,29 +317,17 @@ public class DBMessageQueryTest extends TestCase {
         db.rsMessageColumn = "message";
 
         // 擬似ResultSetの設定
-        MockResultSet rs = new MockResultSet("TestResult");
-
-        List<String> list1 = new ArrayList<String>();
-        list1.add(null);
-        rs.addColumn("code", list1);
-
-        List<String> list2 = new ArrayList<String>();
-        list2.add(null);
-        rs.addColumn("language", list2);
-
-        List<String> list3 = new ArrayList<String>();
-        list3.add(null);
-        rs.addColumn("country", list3);
-
-        List<String> list4 = new ArrayList<String>();
-        list4.add(null);
-        rs.addColumn("variant", list4);
-
-        List<String> list5 = new ArrayList<String>();
-        list5.add(null);
-        rs.addColumn("message", list5);
+        ResultSet rs = mock(ResultSet.class);
+        when(rs.getString("code")).thenReturn(null);
+        when(rs.getString("language")).thenReturn(null);
+        when(rs.getString("country")).thenReturn(null);
+        when(rs.getString("variant")).thenReturn(null);
+        when(rs.getString("message")).thenReturn(null);
 
         rs.first();
+
+        // 不要なログをクリア
+        logger.clear();
 
         // テスト実施
         DBMessage dbmReturn = (DBMessage) db.mapRow(rs, rowNum);
@@ -401,8 +338,9 @@ public class DBMessageQueryTest extends TestCase {
         assertEquals("", dbmReturn.getCountry());
         assertEquals("", dbmReturn.getVariant());
         assertEquals("", dbmReturn.getMessage());
-        assertThat(logger.getLoggingEvents(), is(asList(warn(
-                "MessageCode is null"))));
 
+        assertTrue(logger.getLoggingEvents().get(0).getMessage().contains(
+                "MessageCode is null")
+                && logger.getLoggingEvents().get(0).getLevel() == Level.WARN);
     }
 }
