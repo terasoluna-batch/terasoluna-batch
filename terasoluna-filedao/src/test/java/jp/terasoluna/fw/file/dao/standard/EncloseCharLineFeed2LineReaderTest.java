@@ -18,7 +18,8 @@ import jp.terasoluna.fw.file.dao.FileException;
 import jp.terasoluna.utlib.UTUtil;
 import junit.framework.TestCase;
 
-import org.easymock.classextension.EasyMock;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.EncloseCharLineFeed2LineReader} クラスのテスト。
@@ -104,8 +105,7 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
         // 前提条件なし
 
         // テスト実施
-        EncloseCharLineFeed2LineReader testCalss = new EncloseCharLineFeed2LineReader(
-                dChar, Character.MIN_VALUE, eChar, bufferedReader, parm);
+        EncloseCharLineFeed2LineReader testCalss = new EncloseCharLineFeed2LineReader(dChar, Character.MIN_VALUE, eChar, bufferedReader, parm);
 
         // 返却値なし
 
@@ -156,9 +156,7 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
 
         // テスト実施
         try {
-            new EncloseCharLineFeed2LineReader(delimiterCharacter,
-                    Character.MIN_VALUE, encloseCharacter, bufferedReader,
-                    lineFeedChar);
+            new EncloseCharLineFeed2LineReader(delimiterCharacter, Character.MIN_VALUE, encloseCharacter, bufferedReader, lineFeedChar);
             fail("IllegalArgumentExceptionが発生しませんでした。失敗です。");
         } catch (Exception e) {
             // 返却値なし
@@ -203,9 +201,7 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
 
         // テスト実施
         try {
-            new EncloseCharLineFeed2LineReader(delimiterCharacter,
-                    Character.MIN_VALUE, encloseCharacter, bufferedReader,
-                    lineFeedChar);
+            new EncloseCharLineFeed2LineReader(delimiterCharacter, Character.MIN_VALUE, encloseCharacter, bufferedReader, lineFeedChar);
             fail("IllegalArgumentExceptionが発生しませんでした。失敗です。");
         } catch (Exception e) {
             // 返却値なし
@@ -246,9 +242,7 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
 
         // テスト実施
         try {
-            new EncloseCharLineFeed2LineReader(delimiterCharacter,
-                    Character.MIN_VALUE, encloseCharacter, bufferedReader,
-                    lineFeedChar);
+            new EncloseCharLineFeed2LineReader(delimiterCharacter, Character.MIN_VALUE, encloseCharacter, bufferedReader, lineFeedChar);
             fail("IllegalArgumentExceptionが発生しませんでした。失敗です。");
         } catch (Exception e) {
             // 返却値なし
@@ -292,9 +286,7 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
 
         // テスト実施
         try {
-            new EncloseCharLineFeed2LineReader(delimiterCharacter,
-                    Character.MIN_VALUE, encloseCharacter, bufferedReader,
-                    lineFeedChar);
+            new EncloseCharLineFeed2LineReader(delimiterCharacter, Character.MIN_VALUE, encloseCharacter, bufferedReader, lineFeedChar);
             fail("IllegalArgumentExceptionが発生しませんでした。失敗です。");
         } catch (Exception e) {
             // 返却値なし
@@ -338,9 +330,7 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
 
         // テスト実施
         try {
-            new EncloseCharLineFeed2LineReader(delimiterCharacter,
-                    Character.MIN_VALUE, encloseCharacter, bufferedReader,
-                    lineFeedChar);
+            new EncloseCharLineFeed2LineReader(delimiterCharacter, Character.MIN_VALUE, encloseCharacter, bufferedReader, lineFeedChar);
             fail("IllegalArgumentExceptionが発生しませんでした。失敗です。");
         } catch (Exception e) {
             // 返却値なし
@@ -385,9 +375,7 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
 
         // テスト実施
         try {
-            new EncloseCharLineFeed2LineReader(delimiterCharacter,
-                    Character.MIN_VALUE, encloseCharacter, bufferedReader,
-                    lineFeedChar);
+            new EncloseCharLineFeed2LineReader(delimiterCharacter, Character.MIN_VALUE, encloseCharacter, bufferedReader, lineFeedChar);
             fail("IllegalArgumentExceptionが発生しませんでした。失敗です。");
         } catch (Exception e) {
             // 返却値なし
@@ -423,17 +411,14 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
      */
     public void testReadLine01() throws Exception {
         // Mock作成
-        Reader reader = EasyMock.createMock(Reader.class);
-        EasyMock.expect(reader.read()).andReturn(null).andThrow(
-                new IOException());
-        EasyMock.replay(reader);
+        Reader reader = mock(Reader.class);
+        when(reader.read()).thenThrow(new IOException());
 
         // テスト対象のインスタンス化
         char dChar = 'a';
         char[] eChar = { 'b' };
         String parm = "\r\n";
-        EncloseCharLineFeed2LineReader target = new EncloseCharLineFeed2LineReader(
-                dChar, Character.MIN_VALUE, eChar, reader, parm);
+        EncloseCharLineFeed2LineReader target = new EncloseCharLineFeed2LineReader(dChar, Character.MIN_VALUE, eChar, reader, parm);
 
         // 引数なし
 
@@ -484,8 +469,7 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         String parm = "\r\n";
-        EncloseCharLineFeed2LineReader testCalss = new EncloseCharLineFeed2LineReader(
-                dChar, Character.MIN_VALUE, eChar, bufferedReader, parm);
+        EncloseCharLineFeed2LineReader testCalss = new EncloseCharLineFeed2LineReader(dChar, Character.MIN_VALUE, eChar, bufferedReader, parm);
 
         // 引数なし
 
@@ -527,8 +511,7 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         String parm = "\r\n";
-        EncloseCharLineFeed2LineReader testCalss = new EncloseCharLineFeed2LineReader(
-                dChar, Character.MIN_VALUE, eChar, bufferedReader, parm);
+        EncloseCharLineFeed2LineReader testCalss = new EncloseCharLineFeed2LineReader(dChar, Character.MIN_VALUE, eChar, bufferedReader, parm);
 
         // 引数なし
 
@@ -570,8 +553,7 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         String parm = "\r\n";
-        EncloseCharLineFeed2LineReader testCalss = new EncloseCharLineFeed2LineReader(
-                dChar, Character.MIN_VALUE, eChar, bufferedReader, parm);
+        EncloseCharLineFeed2LineReader testCalss = new EncloseCharLineFeed2LineReader(dChar, Character.MIN_VALUE, eChar, bufferedReader, parm);
 
         // 引数なし
 
@@ -613,8 +595,7 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         String parm = "\r\n";
-        EncloseCharLineFeed2LineReader testCalss = new EncloseCharLineFeed2LineReader(
-                dChar, Character.MIN_VALUE, eChar, bufferedReader, parm);
+        EncloseCharLineFeed2LineReader testCalss = new EncloseCharLineFeed2LineReader(dChar, Character.MIN_VALUE, eChar, bufferedReader, parm);
 
         // 引数なし
 
@@ -656,8 +637,7 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         String parm = "\r\n";
-        EncloseCharLineFeed2LineReader testCalss = new EncloseCharLineFeed2LineReader(
-                dChar, Character.MIN_VALUE, eChar, bufferedReader, parm);
+        EncloseCharLineFeed2LineReader testCalss = new EncloseCharLineFeed2LineReader(dChar, Character.MIN_VALUE, eChar, bufferedReader, parm);
 
         // 引数なし
 
@@ -699,8 +679,7 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         String parm = "\r\n";
-        EncloseCharLineFeed2LineReader testCalss = new EncloseCharLineFeed2LineReader(
-                dChar, Character.MIN_VALUE, eChar, bufferedReader, parm);
+        EncloseCharLineFeed2LineReader testCalss = new EncloseCharLineFeed2LineReader(dChar, Character.MIN_VALUE, eChar, bufferedReader, parm);
 
         // 引数なし
 
@@ -740,8 +719,7 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         String parm = "\r\n";
-        EncloseCharLineFeed2LineReader testCalss = new EncloseCharLineFeed2LineReader(
-                dChar, Character.MIN_VALUE, eChar, bufferedReader, parm);
+        EncloseCharLineFeed2LineReader testCalss = new EncloseCharLineFeed2LineReader(dChar, Character.MIN_VALUE, eChar, bufferedReader, parm);
 
         // 引数なし
 
@@ -783,8 +761,7 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         String parm = "\r\n";
-        EncloseCharLineFeed2LineReader testCalss = new EncloseCharLineFeed2LineReader(
-                dChar, Character.MIN_VALUE, eChar, bufferedReader, parm);
+        EncloseCharLineFeed2LineReader testCalss = new EncloseCharLineFeed2LineReader(dChar, Character.MIN_VALUE, eChar, bufferedReader, parm);
 
         // 引数なし
 
@@ -826,8 +803,7 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         String parm = "\r\n";
-        EncloseCharLineFeed2LineReader testCalss = new EncloseCharLineFeed2LineReader(
-                dChar, Character.MIN_VALUE, eChar, bufferedReader, parm);
+        EncloseCharLineFeed2LineReader testCalss = new EncloseCharLineFeed2LineReader(dChar, Character.MIN_VALUE, eChar, bufferedReader, parm);
 
         // 引数なし
 
@@ -869,8 +845,7 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         String parm = "\r\n";
-        EncloseCharLineFeed2LineReader testCalss = new EncloseCharLineFeed2LineReader(
-                dChar, Character.MIN_VALUE, eChar, bufferedReader, parm);
+        EncloseCharLineFeed2LineReader testCalss = new EncloseCharLineFeed2LineReader(dChar, Character.MIN_VALUE, eChar, bufferedReader, parm);
 
         // 引数なし
 
@@ -913,8 +888,7 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         String parm = "\r\n";
-        EncloseCharLineFeed2LineReader testCalss = new EncloseCharLineFeed2LineReader(
-                dChar, Character.MIN_VALUE, eChar, bufferedReader, parm);
+        EncloseCharLineFeed2LineReader testCalss = new EncloseCharLineFeed2LineReader(dChar, Character.MIN_VALUE, eChar, bufferedReader, parm);
 
         // 引数なし
 
@@ -940,12 +914,10 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
         char[] eChar = { '\"', Character.MIN_VALUE, '|' };
         byte[] buf = "\"aaa\",\"aaa\",|aaaaaa|\r\naaa".getBytes();
 
-        BufferedReader bufferedReader = new BufferedReader(
-                new InputStreamReader(new ByteArrayInputStream(buf)));
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new ByteArrayInputStream(buf)));
 
         String parm = "\r\n";
-        EncloseCharLineFeed2LineReader testCalss = new EncloseCharLineFeed2LineReader(
-                dChar, Character.MIN_VALUE, eChar, bufferedReader, parm);
+        EncloseCharLineFeed2LineReader testCalss = new EncloseCharLineFeed2LineReader(dChar, Character.MIN_VALUE, eChar, bufferedReader, parm);
 
         // テスト実施
         String result = testCalss.readLine();
@@ -965,12 +937,10 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
         char[] eChar = { '\"', Character.MIN_VALUE, '|' };
         byte[] buf = "\"a\r\naa\",\"aaa\",|aaa\r\naaa|\r\naaa".getBytes();
 
-        BufferedReader bufferedReader = new BufferedReader(
-                new InputStreamReader(new ByteArrayInputStream(buf)));
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new ByteArrayInputStream(buf)));
 
         String parm = "\r\n";
-        EncloseCharLineFeed2LineReader testCalss = new EncloseCharLineFeed2LineReader(
-                dChar, Character.MIN_VALUE, eChar, bufferedReader, parm);
+        EncloseCharLineFeed2LineReader testCalss = new EncloseCharLineFeed2LineReader(dChar, Character.MIN_VALUE, eChar, bufferedReader, parm);
 
         // テスト実施
         String result = testCalss.readLine();
@@ -991,12 +961,10 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
         char eChar = '\"';
         byte[] buf = "\"a\r\naa\",\"aaa\",|aaaaaa|\r\naaa".getBytes();
 
-        BufferedReader bufferedReader = new BufferedReader(
-                new InputStreamReader(new ByteArrayInputStream(buf)));
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new ByteArrayInputStream(buf)));
 
         String parm = "\r\n";
-        EncloseCharLineFeed2LineReader testCalss = new EncloseCharLineFeed2LineReader(
-                dChar, eChar, eColChar, bufferedReader, parm);
+        EncloseCharLineFeed2LineReader testCalss = new EncloseCharLineFeed2LineReader(dChar, eChar, eColChar, bufferedReader, parm);
 
         // テスト実施
         String result = testCalss.readLine();
@@ -1016,12 +984,10 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
         char eChar = '\'';
         byte[] buf = "\"a\raa\",\"aaa\",|aaaaaa|\r\naaa".getBytes();
 
-        BufferedReader bufferedReader = new BufferedReader(
-                new InputStreamReader(new ByteArrayInputStream(buf)));
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new ByteArrayInputStream(buf)));
 
         String parm = "\r\n";
-        EncloseCharLineFeed2LineReader testCalss = new EncloseCharLineFeed2LineReader(
-                dChar, eChar, eColChar, bufferedReader, parm);
+        EncloseCharLineFeed2LineReader testCalss = new EncloseCharLineFeed2LineReader(dChar, eChar, eColChar, bufferedReader, parm);
 
         int index = 0;
 
@@ -1045,12 +1011,10 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
         char eChar = '\'';
         byte[] buf = "\"a\raa\",\"aaa\",|aaaaaa|\r\naaa".getBytes();
 
-        BufferedReader bufferedReader = new BufferedReader(
-                new InputStreamReader(new ByteArrayInputStream(buf)));
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new ByteArrayInputStream(buf)));
 
         String parm = "\r\n";
-        EncloseCharLineFeed2LineReader testCalss = new EncloseCharLineFeed2LineReader(
-                dChar, eChar, eColChar, bufferedReader, parm);
+        EncloseCharLineFeed2LineReader testCalss = new EncloseCharLineFeed2LineReader(dChar, eChar, eColChar, bufferedReader, parm);
 
         int index = 1;
 
@@ -1074,12 +1038,10 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
         char eChar = '\'';
         byte[] buf = "\"a\raa\",\"aaa\",|aaaaaa|\r\naaa".getBytes();
 
-        BufferedReader bufferedReader = new BufferedReader(
-                new InputStreamReader(new ByteArrayInputStream(buf)));
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new ByteArrayInputStream(buf)));
 
         String parm = "\r\n";
-        EncloseCharLineFeed2LineReader testCalss = new EncloseCharLineFeed2LineReader(
-                dChar, eChar, eColChar, bufferedReader, parm);
+        EncloseCharLineFeed2LineReader testCalss = new EncloseCharLineFeed2LineReader(dChar, eChar, eColChar, bufferedReader, parm);
 
         int index = 3;
 
@@ -1103,12 +1065,10 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
         char eChar = '\'';
         byte[] buf = "\"a\raa\",\"aaa\",|aaaaaa|\r\naaa".getBytes();
 
-        BufferedReader bufferedReader = new BufferedReader(
-                new InputStreamReader(new ByteArrayInputStream(buf)));
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new ByteArrayInputStream(buf)));
 
         String parm = "\r\n";
-        EncloseCharLineFeed2LineReader testCalss = new EncloseCharLineFeed2LineReader(
-                dChar, eChar, eColChar, bufferedReader, parm);
+        EncloseCharLineFeed2LineReader testCalss = new EncloseCharLineFeed2LineReader(dChar, eChar, eColChar, bufferedReader, parm);
 
         int index = 4;
 
@@ -1132,12 +1092,10 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
         char eChar = '\'';
         byte[] buf = "\"a\raa\",\"aaa\",|aaaaaa|\r\naaa".getBytes();
 
-        BufferedReader bufferedReader = new BufferedReader(
-                new InputStreamReader(new ByteArrayInputStream(buf)));
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new ByteArrayInputStream(buf)));
 
         String parm = "\r\n";
-        EncloseCharLineFeed2LineReader testCalss = new EncloseCharLineFeed2LineReader(
-                dChar, eChar, eColChar, bufferedReader, parm);
+        EncloseCharLineFeed2LineReader testCalss = new EncloseCharLineFeed2LineReader(dChar, eChar, eColChar, bufferedReader, parm);
 
         int index = 5;
 

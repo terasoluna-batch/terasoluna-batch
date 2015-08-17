@@ -17,7 +17,8 @@ import jp.terasoluna.fw.file.ut.VMOUTUtil;
 import jp.terasoluna.utlib.UTUtil;
 import junit.framework.TestCase;
 
-import org.easymock.classextension.EasyMock;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 /**
  * {@link jp..terasoluna.fw.file.dao.standard.LineFeed1LineReader} クラスのテスト。
@@ -87,8 +88,7 @@ public class LineFeed1LineReaderTest extends TestCase {
         String lineFeedChar = new String("a");
 
         // テスト実施
-        LineFeed1LineReader lineFeed1LineReader = new LineFeed1LineReader(
-                reader, lineFeedChar);
+        LineFeed1LineReader lineFeed1LineReader = new LineFeed1LineReader(reader, lineFeedChar);
 
         // 判定
         assertNotNull(lineFeed1LineReader);
@@ -214,14 +214,11 @@ public class LineFeed1LineReaderTest extends TestCase {
      */
     public void testReadLine01() throws Exception {
         // Mock作成
-        Reader reader = EasyMock.createMock(Reader.class);
-        EasyMock.expect(reader.read()).andReturn(null).andThrow(
-                new IOException());
-        EasyMock.replay(reader);
+        Reader reader = mock(Reader.class);
+        when(reader.read()).thenThrow(new IOException());
 
         String tempLineFeedChar = "\r";
-        LineFeed1LineReader lineFeed1LineReader = new LineFeed1LineReader(
-                reader, tempLineFeedChar);
+        LineFeed1LineReader lineFeed1LineReader = new LineFeed1LineReader(reader, tempLineFeedChar);
 
         // テスト実施
         try {
@@ -259,8 +256,7 @@ public class LineFeed1LineReaderTest extends TestCase {
         BufferedReader bufReader = new BufferedReader(stringReader);
 
         String tempLineFeedChar = "\r";
-        LineFeed1LineReader lineFeed1LineReader = new LineFeed1LineReader(
-                bufReader, tempLineFeedChar);
+        LineFeed1LineReader lineFeed1LineReader = new LineFeed1LineReader(bufReader, tempLineFeedChar);
 
         String lineFeedChar = "\r";
         UTUtil.setPrivateField(lineFeed1LineReader, "lineFeedChar",
@@ -296,8 +292,7 @@ public class LineFeed1LineReaderTest extends TestCase {
         BufferedReader bufReader = new BufferedReader(stringReader);
 
         String tempLineFeedChar = "\r";
-        LineFeed1LineReader lineFeed1LineReader = new LineFeed1LineReader(
-                bufReader, tempLineFeedChar);
+        LineFeed1LineReader lineFeed1LineReader = new LineFeed1LineReader(bufReader, tempLineFeedChar);
 
         // テスト実施
         String resutl = lineFeed1LineReader.readLine();
@@ -329,8 +324,7 @@ public class LineFeed1LineReaderTest extends TestCase {
         BufferedReader bufReader = new BufferedReader(stringReader);
 
         String tempLineFeedChar = "\r";
-        LineFeed1LineReader lineFeed1LineReader = new LineFeed1LineReader(
-                bufReader, tempLineFeedChar);
+        LineFeed1LineReader lineFeed1LineReader = new LineFeed1LineReader(bufReader, tempLineFeedChar);
 
         // テスト実施
         String resutl = lineFeed1LineReader.readLine();
@@ -362,8 +356,7 @@ public class LineFeed1LineReaderTest extends TestCase {
         BufferedReader bufReader = new BufferedReader(stringReader);
 
         String tempLineFeedChar = "\r";
-        LineFeed1LineReader lineFeed1LineReader = new LineFeed1LineReader(
-                bufReader, tempLineFeedChar);
+        LineFeed1LineReader lineFeed1LineReader = new LineFeed1LineReader(bufReader, tempLineFeedChar);
 
         // テスト実施
         String result = lineFeed1LineReader.readLine();
@@ -396,8 +389,7 @@ public class LineFeed1LineReaderTest extends TestCase {
         BufferedReader bufReader = new BufferedReader(stringReader);
 
         String tempLineFeedChar = "\r";
-        LineFeed1LineReader lineFeed1LineReader = new LineFeed1LineReader(
-                bufReader, tempLineFeedChar);
+        LineFeed1LineReader lineFeed1LineReader = new LineFeed1LineReader(bufReader, tempLineFeedChar);
 
         // テスト実施
         String result = lineFeed1LineReader.readLine();
@@ -429,8 +421,7 @@ public class LineFeed1LineReaderTest extends TestCase {
         BufferedReader bufReader = new BufferedReader(stringReader);
 
         String tempLineFeedChar = "\r";
-        LineFeed1LineReader lineFeed1LineReader = new LineFeed1LineReader(
-                bufReader, tempLineFeedChar);
+        LineFeed1LineReader lineFeed1LineReader = new LineFeed1LineReader(bufReader, tempLineFeedChar);
 
         // テスト実施
         String resutl = lineFeed1LineReader.readLine();
@@ -462,8 +453,7 @@ public class LineFeed1LineReaderTest extends TestCase {
         BufferedReader bufReader = new BufferedReader(stringReader);
 
         String tempLineFeedChar = "\r";
-        LineFeed1LineReader lineFeed1LineReader = new LineFeed1LineReader(
-                bufReader, tempLineFeedChar);
+        LineFeed1LineReader lineFeed1LineReader = new LineFeed1LineReader(bufReader, tempLineFeedChar);
 
         // テスト実施
         String resutl = lineFeed1LineReader.readLine();
@@ -495,8 +485,7 @@ public class LineFeed1LineReaderTest extends TestCase {
         BufferedReader bufReader = new BufferedReader(stringReader);
 
         String tempLineFeedChar = "\r";
-        LineFeed1LineReader lineFeed1LineReader = new LineFeed1LineReader(
-                bufReader, tempLineFeedChar);
+        LineFeed1LineReader lineFeed1LineReader = new LineFeed1LineReader(bufReader, tempLineFeedChar);
 
         // テスト実施
         String resutl = lineFeed1LineReader.readLine();
@@ -528,8 +517,7 @@ public class LineFeed1LineReaderTest extends TestCase {
         BufferedReader bufReader = new BufferedReader(stringReader);
 
         String tempLineFeedChar = "\r";
-        LineFeed1LineReader lineFeed1LineReader = new LineFeed1LineReader(
-                bufReader, tempLineFeedChar);
+        LineFeed1LineReader lineFeed1LineReader = new LineFeed1LineReader(bufReader, tempLineFeedChar);
 
         // テスト実施
         String resutl = lineFeed1LineReader.readLine();
