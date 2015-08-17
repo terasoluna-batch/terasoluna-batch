@@ -659,9 +659,14 @@ sp_cleanup.organize_imports=true
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.mockrunner</groupId>
-            <artifactId>mockrunner</artifactId>
-            <scope>test</scope>
+        	<groupId>org.mockito</groupId>
+        	<artifactId>mockito-core</artifactId>
+        	<scope>test</scope>
+        </dependency>
+        <dependency>
+        	<groupId>uk.org.lidalia</groupId>
+        	<artifactId>slf4j-test</artifactId>
+        	<scope>test</scope>
         </dependency>
     </dependencies>
 

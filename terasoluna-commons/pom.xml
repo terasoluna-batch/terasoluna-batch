@@ -164,5 +164,9 @@
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+        	<groupId>jp.terasoluna.fw</groupId>
+        	<artifactId>terasoluna-logger</artifactId>
+        </dependency>
     </dependencies>
 </project>
