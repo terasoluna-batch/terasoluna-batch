@@ -16,6 +16,10 @@
 
 package jp.terasoluna.fw.util;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
@@ -25,10 +29,12 @@ import java.util.Map;
 
 import jp.terasoluna.utlib.LogUTUtil;
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
 
 import org.apache.commons.beanutils.BeanUtilsBean;
 import org.apache.commons.beanutils.PropertyUtilsBean;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * {@link jp.terasoluna.fw.GenericPropertyUtil} クラスのテスト。
@@ -40,7 +46,7 @@ import org.apache.commons.beanutils.PropertyUtilsBean;
  *
  * @see jp.terasoluna.fw.util.GenericPropertyUtil
  */
-public class GenericPropertyUtilTest extends TestCase {
+public class GenericPropertyUtilTest {
 
     /**
      * PropertyUtilsBean。
@@ -50,13 +56,9 @@ public class GenericPropertyUtilTest extends TestCase {
 
     /**
      * 初期化処理を行う。
-     *
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
      */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
+    @Before
+    public void setUp() {
         LogUTUtil.flush();
         BeanUtilsBean beanUtilsBean = BeanUtilsBean.getInstance();
         defaultPropertyUtilsBean = beanUtilsBean.getPropertyUtils();
@@ -64,25 +66,13 @@ public class GenericPropertyUtilTest extends TestCase {
 
     /**
      * 終了処理を行う。
-     *
      * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
      */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
+    @After
+    public void tearDown() throws Exception {
         BeanUtilsBean beanUtilsBean = BeanUtilsBean.getInstance();
         UTUtil.setPrivateField(beanUtilsBean, "propertyUtilsBean",
                 defaultPropertyUtilsBean);
-    }
-
-    /**
-     * コンストラクタ。
-     *
-     * @param name このテストケースの名前。
-     */
-    public GenericPropertyUtilTest(String name) {
-        super(name);
     }
 
     /**
@@ -104,6 +94,7 @@ public class GenericPropertyUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testResolveCollectionType01() throws Exception {
         try {
             // テスト実施
@@ -136,6 +127,7 @@ public class GenericPropertyUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testResolveCollectionType02() throws Exception {
         try {
             // テスト実施
@@ -169,6 +161,7 @@ public class GenericPropertyUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testResolveCollectionType03() throws Exception {
         try {
             // テスト実施
@@ -202,6 +195,7 @@ public class GenericPropertyUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testResolveCollectionType04() throws Exception {
         try {
             // テスト実施
@@ -235,6 +229,7 @@ public class GenericPropertyUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testResolveCollectionType05() throws Exception {
         try {
             // テスト実施
@@ -269,6 +264,7 @@ public class GenericPropertyUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveCollectionType06() throws Exception {
 
@@ -301,6 +297,7 @@ public class GenericPropertyUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveCollectionType07() throws Exception {
         // テスト実施
@@ -332,6 +329,7 @@ public class GenericPropertyUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveCollectionType08() throws Exception {
         // テスト実施
@@ -363,6 +361,7 @@ public class GenericPropertyUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveCollectionType09() throws Exception {
         try {
@@ -398,6 +397,7 @@ public class GenericPropertyUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveCollectionType10() throws Exception {
         try {
@@ -433,6 +433,7 @@ public class GenericPropertyUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveCollectionType11() throws Exception {
         // テスト実施
@@ -465,6 +466,7 @@ public class GenericPropertyUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testResolveTypeObjectStringClassint01() throws Exception {
         try {
             // テスト実施
@@ -503,6 +505,7 @@ public class GenericPropertyUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testResolveTypeObjectStringClassint02() throws Exception {
         try {
             // テスト実施
@@ -542,6 +545,7 @@ public class GenericPropertyUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testResolveTypeObjectStringClassint03() throws Exception {
         try {
             // テスト実施
@@ -581,6 +585,7 @@ public class GenericPropertyUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testResolveTypeObjectStringClassint04() throws Exception {
         try {
             // テスト実施
@@ -619,6 +624,7 @@ public class GenericPropertyUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testResolveTypeObjectStringClassint05() throws Exception {
         try {
             // テスト実施
@@ -655,6 +661,7 @@ public class GenericPropertyUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testResolveTypeObjectStringClassint06() throws Exception {
         try {
             // テスト実施
@@ -691,6 +698,7 @@ public class GenericPropertyUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveTypeObjectStringClassint07() throws Exception {
 
@@ -725,6 +733,7 @@ public class GenericPropertyUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveTypeObjectStringClassint08() throws Exception {
         // テスト実施
@@ -758,6 +767,7 @@ public class GenericPropertyUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testResolveTypeObjectStringClassint09() throws Exception {
         try {
             // テスト実施
@@ -794,6 +804,7 @@ public class GenericPropertyUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testResolveTypeObjectStringClassint10() throws Exception {
         try {
             // テスト実施
@@ -830,6 +841,7 @@ public class GenericPropertyUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveTypeObjectStringClassint11() throws Exception {
 
@@ -864,6 +876,7 @@ public class GenericPropertyUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveTypeObjectStringClassint12() throws Exception {
         // テスト実施
@@ -898,6 +911,7 @@ public class GenericPropertyUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveTypeObjectStringClassint13() throws Exception {
         try {
@@ -936,6 +950,7 @@ public class GenericPropertyUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveTypeObjectStringClassint14() throws Exception {
         try {
@@ -977,6 +992,7 @@ public class GenericPropertyUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveTypeObjectStringClassint15() throws Exception {
         try {
@@ -1016,6 +1032,7 @@ public class GenericPropertyUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveTypeObjectStringClassint16() throws Exception {
         // テスト実施
@@ -1048,6 +1065,7 @@ public class GenericPropertyUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetMethod01() throws Exception {
         try {
             // テスト実施
@@ -1085,6 +1103,7 @@ public class GenericPropertyUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetMethod02() throws Exception {
         try {
             // テスト実施
@@ -1121,6 +1140,7 @@ public class GenericPropertyUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetMethod03() throws Exception {
         // テスト実施
         Method actual = GenericPropertyUtil.getMethod(
@@ -1156,6 +1176,7 @@ public class GenericPropertyUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetMethod04() throws Exception {
         try {
             // テスト実施
@@ -1200,6 +1221,7 @@ public class GenericPropertyUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetMethod05() throws Exception {
         try {
             // テスト実施
@@ -1243,6 +1265,7 @@ public class GenericPropertyUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetMethod06() throws Exception {
         // 前処理
         BeanUtilsBean beanUtilsBean = BeanUtilsBean.getInstance();
@@ -1287,6 +1310,7 @@ public class GenericPropertyUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveTypeClassClassTypeint01() throws Exception {
         try {
@@ -1325,6 +1349,7 @@ public class GenericPropertyUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveTypeClassClassTypeint02() throws Exception {
         try {
@@ -1363,6 +1388,7 @@ public class GenericPropertyUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testResolveTypeClassClassTypeint03() throws Exception {
         try {
             // テスト実施
@@ -1402,6 +1428,7 @@ public class GenericPropertyUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testResolveTypeClassClassTypeint04() throws Exception {
         try {
             // テスト実施
@@ -1440,6 +1467,7 @@ public class GenericPropertyUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveTypeClassClassTypeint05() throws Exception {
         // テスト実施
@@ -1473,6 +1501,7 @@ public class GenericPropertyUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testResolveTypeClassClassTypeint06() throws Exception {
         try {
             // テスト実施
@@ -1516,6 +1545,7 @@ public class GenericPropertyUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveTypeClassClassTypeint07() throws Exception {
         // テスト実施
@@ -1556,6 +1586,7 @@ public class GenericPropertyUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveTypeClassClassTypeint08() throws Exception {
         //  前処理

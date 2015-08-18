@@ -7,15 +7,22 @@
 
 package jp.terasoluna.fw.file.util;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.fail;
+
 import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.Before;
+import org.junit.Test;
+
 import jp.terasoluna.fw.file.dao.FileException;
 import jp.terasoluna.fw.file.ut.VMOUTUtil;
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
 
 /**
  * {@link jp.terasoluna.fw.file.util.FileControlImpl} クラスのテスト。
@@ -25,24 +32,13 @@ import junit.framework.TestCase;
  * @author 吉信郁美
  * @see jp.terasoluna.fw.file.util.FileControlImpl
  */
-public class FileControlImplTest extends TestCase {
-
-    /**
-     * このテストケースを実行する為の GUI アプリケーションを起動する。
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        // junit.swingui.TestRunner.run(FileControlImplTest.class);
-    }
+public class FileControlImplTest {
 
     /**
      * 初期化処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
      */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
+    @Before
+    public void setUp() {
         VMOUTUtil.initialize();
         // FileUtilityの処理を止める
         VMOUTUtil.setReturnValueAtAllTimes(FileUtility.class, "copyFile", null);
@@ -56,24 +52,6 @@ public class FileControlImplTest extends TestCase {
                 "isCheckFileExist", null);
         VMOUTUtil.setReturnValueAtAllTimes(FileUtility.class,
                 "setCheckFileExist", null);
-    }
-
-    /**
-     * 終了処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * @param name このテストケースの名前。
-     */
-    public FileControlImplTest(String name) {
-        super(name);
     }
 
     /**
@@ -95,6 +73,7 @@ public class FileControlImplTest extends TestCase {
      * コピー元とコピー先のファイルパスに絶対パスを指定するケース。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testCopyFile01() throws Exception {
         // テスト対象のインスタンス化
@@ -171,6 +150,7 @@ public class FileControlImplTest extends TestCase {
      * コピー元とコピー先のファイルパスに相対パスを指定するケース。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testCopyFile02() throws Exception {
         // テスト対象のインスタンス化
@@ -247,6 +227,7 @@ public class FileControlImplTest extends TestCase {
      * 引数のファイルパスが絶対パスであり、基準パスが設定されている場合は基準パスが付与されないこと。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testCopyFile03() throws Exception {
         // テスト対象のインスタンス化
@@ -321,6 +302,7 @@ public class FileControlImplTest extends TestCase {
      * ファイルのパスが相対パスであり、基準パスが設定されていないケース。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testCopyFile04() throws Exception {
         // テスト対象のインスタンス化
@@ -392,6 +374,7 @@ public class FileControlImplTest extends TestCase {
      * 引数srcFileにnullが設定された場合は、FileExceptionがスローされること。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testCopyFile05() throws Exception {
         // テスト対象のインスタンス化
         FileControlImpl fileControl = new FileControlImpl();
@@ -455,6 +438,7 @@ public class FileControlImplTest extends TestCase {
      * 引数newFileにnullが設定された場合は、FileExceptionがスローされること。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testCopyFile06() throws Exception {
         // テスト対象のインスタンス化
         FileControlImpl fileControl = new FileControlImpl();
@@ -522,6 +506,7 @@ public class FileControlImplTest extends TestCase {
      * 引数ｓｒｃFileのファイルパスが相対パスで、引数newFileのファイルパスが絶対パスの場合、srcFileのファイルパスに基準パスが付与されnewFileのファイルパスには基準パスが付与されないこと。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testCopyFile07() throws Exception {
         // テスト対象のインスタンス化
@@ -597,6 +582,7 @@ public class FileControlImplTest extends TestCase {
      * 引数ｓｒｃFileのファイルパスが絶対パスで、引数newFileのファイルパスが相対パスの場合、srcFileのファイルパスに基準パスが付与されずnewFileのファイルパスには基準パスが付与されること。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testCopyFile08() throws Exception {
         // テスト対象のインスタンス化
@@ -669,6 +655,7 @@ public class FileControlImplTest extends TestCase {
      * ファイルのパスが絶対パスであるケース。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testDeleteFile01() throws Exception {
         // テスト対象のインスタンス化
         FileControlImpl fileControl = new FileControlImpl();
@@ -729,6 +716,7 @@ public class FileControlImplTest extends TestCase {
      * ファイルのパスが相対パスであるケース。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testDeleteFile02() throws Exception {
         // テスト対象のインスタンス化
         FileControlImpl fileControl = new FileControlImpl();
@@ -789,6 +777,7 @@ public class FileControlImplTest extends TestCase {
      * 引数のファイルパスが絶対パスであり、基準パスが設定されている場合は基準パスが付与されないこと。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testDeleteFile03() throws Exception {
         // テスト対象のインスタンス化
         FileControlImpl fileControl = new FileControlImpl();
@@ -849,6 +838,7 @@ public class FileControlImplTest extends TestCase {
      * ファイルのパスが相対パスであり、基準パスが設定されていないケース。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testDeleteFile04() throws Exception {
         // テスト対象のインスタンス化
         FileControlImpl fileControl = new FileControlImpl();
@@ -901,6 +891,7 @@ public class FileControlImplTest extends TestCase {
      * 引数にnullが設定された場合は、FileExceptionがスローされること。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testDeleteFile05() throws Exception {
         // テスト対象のインスタンス化
         FileControlImpl fileControl = new FileControlImpl();
@@ -947,6 +938,7 @@ public class FileControlImplTest extends TestCase {
      * fileListの要素が空であるケース。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testMergeFile01() throws Exception {
         // テスト対象のインスタンス化
         FileControlImpl fileControl = new FileControlImpl();
@@ -1013,6 +1005,7 @@ public class FileControlImplTest extends TestCase {
      * fileListの要素が1つで、統合ファイルのパスが絶対パスであるケース。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testMergeFile02() throws Exception {
         // テスト対象のインスタンス化
         FileControlImpl fileControl = new FileControlImpl();
@@ -1092,6 +1085,7 @@ public class FileControlImplTest extends TestCase {
      * fileListの要素が3つで、統合ファイルのパスが相対パスであるケース。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testMergeFile03() throws Exception {
         // テスト対象のインスタンス化
@@ -1202,6 +1196,7 @@ public class FileControlImplTest extends TestCase {
      * 引数のファイルパスが絶対パスであり、基準パスが設定されている場合は基準パスが付与されないこと。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testMergeFile04() throws Exception {
         // テスト対象のインスタンス化
         FileControlImpl fileControl = new FileControlImpl();
@@ -1308,6 +1303,7 @@ public class FileControlImplTest extends TestCase {
      * ファイルのパスが相対パスであり、基準パスが設定されていないケース。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testMergeFile05() throws Exception {
         // テスト対象のインスタンス化
         FileControlImpl fileControl = new FileControlImpl();
@@ -1408,6 +1404,7 @@ public class FileControlImplTest extends TestCase {
      * 引数fileListにnullが設定された場合は、NullPointerExceptionがスローされること。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testMergeFile06() throws Exception {
         // テスト対象のインスタンス化
         FileControlImpl fileControl = new FileControlImpl();
@@ -1464,6 +1461,7 @@ public class FileControlImplTest extends TestCase {
      * 引数newFileにnullが設定された場合は、FileExceptionがスローされること。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testMergeFile07() throws Exception {
         // テスト対象のインスタンス化
         FileControlImpl fileControl = new FileControlImpl();
@@ -1535,6 +1533,7 @@ public class FileControlImplTest extends TestCase {
      * 引数fileListの要素にnullが含まれている場合は、FileExceptionがスローされること。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testMergeFile08() throws Exception {
         // テスト対象のインスタンス化
         FileControlImpl fileControl = new FileControlImpl();
@@ -1629,6 +1628,7 @@ public class FileControlImplTest extends TestCase {
      * fileListのファイルパスに基準パスが付与されnewFileのファイルパスには基準パスが付与されないこと。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testMergeFile09() throws Exception {
         // テスト対象のインスタンス化
@@ -1742,6 +1742,7 @@ public class FileControlImplTest extends TestCase {
      * fileListの要素2のファイルパスに基準パスが付与されその他の要素には付与されず、newFileのファイルパスには基準パスが付与されないこと。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testMergeFile10() throws Exception {
         // テスト対象のインスタンス化
@@ -1854,6 +1855,7 @@ public class FileControlImplTest extends TestCase {
      * fileListのファイルパスに基準パスが付与されずnewFileのファイルパスには基準パスが付与されること。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testMergeFile11() throws Exception {
         // テスト対象のインスタンス化
@@ -1962,6 +1964,7 @@ public class FileControlImplTest extends TestCase {
      * ファイルのパスが絶対パスであるケース。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testRenameFile01() throws Exception {
         // テスト対象のインスタンス化
         FileControlImpl fileControl = new FileControlImpl();
@@ -2035,6 +2038,7 @@ public class FileControlImplTest extends TestCase {
      * ファイルのパスが相対パスであるケース。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testRenameFile02() throws Exception {
         // テスト対象のインスタンス化
         FileControlImpl fileControl = new FileControlImpl();
@@ -2108,6 +2112,7 @@ public class FileControlImplTest extends TestCase {
      * 引数のファイルパスが絶対パスであり、基準パスが設定されている場合は基準パスが付与されないこと。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testRenameFile03() throws Exception {
         // テスト対象のインスタンス化
         FileControlImpl fileControl = new FileControlImpl();
@@ -2182,6 +2187,7 @@ public class FileControlImplTest extends TestCase {
      * 例外FileExceptionがスローされることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testRenameFile04() throws Exception {
         // テスト対象のインスタンス化
         FileControlImpl fileControl = new FileControlImpl();
@@ -2252,6 +2258,7 @@ public class FileControlImplTest extends TestCase {
      * 引数srcFileにnullが設定された場合は、FileExceptionがスローされること。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testRenameFile05() throws Exception {
         // テスト対象のインスタンス化
         FileControlImpl fileControl = new FileControlImpl();
@@ -2315,6 +2322,7 @@ public class FileControlImplTest extends TestCase {
      * 引数newFileにnullが設定された場合は、FileExceptionがスローされること。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testRenameFile06() throws Exception {
         // テスト対象のインスタンス化
         FileControlImpl fileControl = new FileControlImpl();
@@ -2382,6 +2390,7 @@ public class FileControlImplTest extends TestCase {
      * 引数ｓｒｃFileのファイルパスが相対パスで、引数newFileのファイルパスが絶対パスの場合、srcFileのファイルパスに基準パスが付与されnewFileのファイルパスには基準パスが付与されないこと。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testRenameFile07() throws Exception {
         // テスト対象のインスタンス化
         FileControlImpl fileControl = new FileControlImpl();
@@ -2456,6 +2465,7 @@ public class FileControlImplTest extends TestCase {
      * 引数ｓｒｃFileのファイルパスが絶対パスで、引数newFileのファイルパスが相対パスの場合、srcFileのファイルパスに基準パスが付与されずnewFileのファイルパスには基準パスが付与されること。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testRenameFile08() throws Exception {
         // テスト対象のインスタンス化
         FileControlImpl fileControl = new FileControlImpl();
@@ -2525,6 +2535,7 @@ public class FileControlImplTest extends TestCase {
      * 属性が取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetBasePath01() throws Exception {
         // テスト対象のインスタンス化
         FileControlImpl fileControl = new FileControlImpl();
@@ -2560,6 +2571,7 @@ public class FileControlImplTest extends TestCase {
      * 引数が正しく属性に設定されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSetBasePath01() throws Exception {
         // テスト対象のインスタンス化
         FileControlImpl fileControl = new FileControlImpl();
@@ -2593,6 +2605,7 @@ public class FileControlImplTest extends TestCase {
      * 引数がtrue <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSetCheckFileExist01() throws Exception {
         // テスト対象のインスタンス化
         FileControlImpl fileControl = new FileControlImpl();
@@ -2628,6 +2641,7 @@ public class FileControlImplTest extends TestCase {
      * 引数がfalse <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSetCheckFileExist02() throws Exception {
         // テスト対象のインスタンス化
         FileControlImpl fileControl = new FileControlImpl();

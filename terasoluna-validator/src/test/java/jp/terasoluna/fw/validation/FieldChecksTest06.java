@@ -16,16 +16,23 @@
 
 package jp.terasoluna.fw.validation;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 import java.util.ArrayList;
 
 import jp.terasoluna.utlib.LogUTUtil;
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
 
 import org.apache.commons.validator.Field;
 import org.apache.commons.validator.ValidatorAction;
 import org.apache.commons.validator.ValidatorException;
 import org.apache.commons.validator.Var;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * {@link jp.terasoluna.fw.validation.FieldChecks} クラスのブラックボックステスト。
@@ -37,48 +44,14 @@ import org.apache.commons.validator.Var;
  *
  * @see jp.terasoluna.fw.validation.FieldChecks
  */
-public class FieldChecksTest06 extends TestCase {
-
-    /**
-     * このテストケースを実行する為の
-     * GUI アプリケーションを起動する。
-     *
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        junit.swingui.TestRunner.run(FieldChecksTest06.class);
-    }
+public class FieldChecksTest06 {
 
     /**
      * 初期化処理を行う。
-     *
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
      */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
+    @Before
+    public void setUp() {
         LogUTUtil.flush();
-    }
-
-    /**
-     * 終了処理を行う。
-     *
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     *
-     * @param name このテストケースの名前。
-     */
-    public FieldChecksTest06(String name) {
-        super(name);
     }
 
     /**
@@ -104,6 +77,7 @@ public class FieldChecksTest06 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateAlphaNumericString01() throws Exception {
         // 前処理
         // bean : null
@@ -148,6 +122,7 @@ public class FieldChecksTest06 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateAlphaNumericString02() throws Exception {
         // 前処理
         // bean : ""
@@ -192,6 +167,7 @@ public class FieldChecksTest06 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateAlphaNumericString03() throws Exception {
         // 前処理
         // bean : "a0A"
@@ -236,6 +212,7 @@ public class FieldChecksTest06 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateAlphaNumericString04() throws Exception {
         // 前処理
         // bean : "Zg3%"
@@ -287,6 +264,7 @@ public class FieldChecksTest06 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateCapAlphaNumericString01() throws Exception {
         // 前処理
         // bean : null
@@ -331,6 +309,7 @@ public class FieldChecksTest06 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateCapAlphaNumericString02() throws Exception {
         // 前処理
         // bean : ""
@@ -375,6 +354,7 @@ public class FieldChecksTest06 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateCapAlphaNumericString03() throws Exception {
         // 前処理
         // bean : "ABC0"
@@ -419,6 +399,7 @@ public class FieldChecksTest06 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateCapAlphaNumericString04() throws Exception {
         // 前処理
         // bean : "Aa0"
@@ -470,6 +451,7 @@ public class FieldChecksTest06 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateNumber01() throws Exception {
         // 前処理
         // bean : null
@@ -514,6 +496,7 @@ public class FieldChecksTest06 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateNumber02() throws Exception {
         // 前処理
         // bean : ""
@@ -558,6 +541,7 @@ public class FieldChecksTest06 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateNumber03() throws Exception {
         // 前処理
         // bean : "５"
@@ -610,6 +594,7 @@ public class FieldChecksTest06 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateNumber04() throws Exception {
         // 前処理
         // bean : "test"
@@ -665,6 +650,7 @@ public class FieldChecksTest06 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateNumber05() throws Exception {
         // 前処理
         // bean : "5"
@@ -723,6 +709,7 @@ public class FieldChecksTest06 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateNumber06() throws Exception {
         // 前処理
         // bean : "5"
@@ -780,6 +767,7 @@ public class FieldChecksTest06 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateNumber07() throws Exception {
         // 前処理
         // bean : "100.05"
@@ -838,6 +826,7 @@ public class FieldChecksTest06 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateNumber08() throws Exception {
         // 前処理
         // bean : "100.05"
@@ -906,6 +895,7 @@ public class FieldChecksTest06 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateNumber09() throws Exception {
         // 前処理
         // bean : "100.05"
@@ -972,6 +962,7 @@ public class FieldChecksTest06 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateNumber10() throws Exception {
         // 前処理
         // bean : "100.05"
@@ -1031,6 +1022,7 @@ public class FieldChecksTest06 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateNumber11() throws Exception {
         // 前処理
         // bean : "100.05"
@@ -1091,6 +1083,7 @@ public class FieldChecksTest06 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateNumber12() throws Exception {
         // 前処理
         // bean : "100.05"
@@ -1155,6 +1148,7 @@ public class FieldChecksTest06 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateNumber13() throws Exception {
         // 前処理
         // bean : "100.05"

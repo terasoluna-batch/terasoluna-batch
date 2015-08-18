@@ -16,15 +16,20 @@
 
 package jp.terasoluna.fw.message;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.sql.DataSource;
 
+import org.junit.Test;
+
 import jp.terasoluna.utlib.LogUTUtil;
 import jp.terasoluna.utlib.MockDataSource;
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
 
 import com.mockrunner.mock.jdbc.MockResultSet;
 
@@ -38,39 +43,7 @@ import com.mockrunner.mock.jdbc.MockResultSet;
  * 
  * @see jp.terasoluna.fw.message.DBMessageQuery
  */
-public class DBMessageQueryTest extends TestCase {
-
-
-    /**
-     * 初期化処理を行う。
-     * 
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
-     */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
-
-    /**
-     * 終了処理を行う。
-     * 
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * 
-     * @param name このテストケースの名前。
-     */
-    public DBMessageQueryTest(String name) {
-        super(name);
-    }
+public class DBMessageQueryTest {
 
     /**
      * testDBMessageDataSource01()
@@ -102,6 +75,7 @@ public class DBMessageQueryTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testDBMessageDataSource01()
             throws Exception {
         // 前処理
@@ -152,6 +126,7 @@ public class DBMessageQueryTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testDBMessageDataSource02()
             throws Exception {
         // 前処理
@@ -200,6 +175,7 @@ public class DBMessageQueryTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testDBMessageDataSource03()
             throws Exception {
         // 前処理
@@ -249,6 +225,7 @@ public class DBMessageQueryTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testMapRow01() throws Exception {
         // 前処理
         DataSource ds = new MockDataSource();
@@ -328,6 +305,7 @@ public class DBMessageQueryTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testMapRow02() throws Exception {
         // 前処理
         DataSource ds = new MockDataSource();
@@ -409,6 +387,7 @@ public class DBMessageQueryTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testMapRowResultSetint03() throws Exception {
         // 前処理
         DataSource ds = new MockDataSource();

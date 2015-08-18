@@ -16,6 +16,11 @@
 
 package jp.terasoluna.fw.web.jndi;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -24,9 +29,12 @@ import java.util.Properties;
 import javax.naming.Context;
 import javax.naming.NamingException;
 
+import org.junit.Before;
+import org.junit.Test;
+
 import jp.terasoluna.utlib.LogUTUtil;
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
+
 /**
  * {@link jp.terasoluna.fw.web.jndi.DefaultJndiSupport}
  * クラスのブラックボックステスト。
@@ -38,19 +46,11 @@ import junit.framework.TestCase;
  *
  * @see jp.terasoluna.fw.web.jndi.DefaultJndiSupport
  */
-public class DefaultJndiSupportTest extends TestCase {
+public class DefaultJndiSupportTest {
 
-
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
+    @Before
+    public void setUp() {
         LogUTUtil.flush();
-    }
-
-    @Override
-    protected void tearDown() throws Exception {
-
-        super.tearDown();
     }
 
     /**
@@ -73,6 +73,7 @@ public class DefaultJndiSupportTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSetJndiPrefix01() throws Exception {
         // 前処理
         DefaultJndiSupport support = new DefaultJndiSupport();
@@ -107,6 +108,7 @@ public class DefaultJndiSupportTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsJndiPrefix01() throws Exception {
         // 前処理
         DefaultJndiSupport support = new DefaultJndiSupport();
@@ -140,6 +142,7 @@ public class DefaultJndiSupportTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetJndiEnvironmentMap01() throws Exception {
         
         // 前処理
@@ -176,6 +179,7 @@ public class DefaultJndiSupportTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSetJndiEnvironmentMap01() throws Exception {
         
         // 前処理
@@ -208,6 +212,7 @@ public class DefaultJndiSupportTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testInitialize01() throws Exception {
 
         // 前処理
@@ -258,6 +263,7 @@ public class DefaultJndiSupportTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testInitialize02() throws Exception {
         // 前処理
         Map<String, String> map = new HashMap<String, String>();
@@ -325,6 +331,7 @@ public class DefaultJndiSupportTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testInitialize03() throws Exception {
         
         // 前処理
@@ -393,6 +400,7 @@ public class DefaultJndiSupportTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testInitialize04() throws Exception {
         // 前処理
         Map<String, String> map = new HashMap<String, String>();
@@ -461,6 +469,7 @@ public class DefaultJndiSupportTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testInitialize05() throws Exception {
         // 前処理
         Map<String, String> map = new HashMap<String, String>();
@@ -531,6 +540,7 @@ public class DefaultJndiSupportTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testInitialize06() throws Exception {
         // 前処理
         Map<String, String> map = new HashMap<String, String>();
@@ -586,6 +596,7 @@ public class DefaultJndiSupportTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testRebind01() throws Exception {
         // 前処理
         DefaultJndiSupport support = new DefaultJndiSupport();
@@ -638,6 +649,7 @@ public class DefaultJndiSupportTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testRebind02() throws Exception {
         // 前処理
         DefaultJndiSupport support = new DefaultJndiSupport();
@@ -690,6 +702,7 @@ public class DefaultJndiSupportTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testRebind03() throws Exception {
         // 前処理
         DefaultJndiSupport support = new DefaultJndiSupport();
@@ -744,6 +757,7 @@ public class DefaultJndiSupportTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testRebind04() throws Exception {
         // 前処理
         DefaultJndiSupport support = new DefaultJndiSupport();
@@ -813,6 +827,7 @@ public class DefaultJndiSupportTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testRebind05() throws Exception {
         // 前処理
         DefaultJndiSupport support = new DefaultJndiSupport();
@@ -870,6 +885,7 @@ public class DefaultJndiSupportTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testUnbind01() throws Exception {
         // 前処理
         DefaultJndiSupport support = new DefaultJndiSupport();
@@ -916,6 +932,7 @@ public class DefaultJndiSupportTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testUnbind02() throws Exception {
         // 前処理
         DefaultJndiSupport support = new DefaultJndiSupport();
@@ -973,6 +990,7 @@ public class DefaultJndiSupportTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testUnbind03() throws Exception {
         // 前処理
         DefaultJndiSupport support = new DefaultJndiSupport();
@@ -1035,6 +1053,7 @@ public class DefaultJndiSupportTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testUnbind04() throws Exception {
         // 前処理
         DefaultJndiSupport support = new DefaultJndiSupport();
@@ -1090,6 +1109,7 @@ public class DefaultJndiSupportTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testLookup01() throws Exception {
         // 前処理
         DefaultJndiSupport support = new DefaultJndiSupport();
@@ -1139,6 +1159,7 @@ public class DefaultJndiSupportTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testLookup02() throws Exception {
         // 前処理
         DefaultJndiSupport support = new DefaultJndiSupport();
@@ -1200,6 +1221,7 @@ public class DefaultJndiSupportTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testLookup03() throws Exception {
         // 前処理
         DefaultJndiSupport support = new DefaultJndiSupport();
@@ -1265,6 +1287,7 @@ public class DefaultJndiSupportTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testLookup04() throws Exception {
         // 前処理
         DefaultJndiSupport support = new DefaultJndiSupport();

@@ -7,11 +7,17 @@
 
 package jp.terasoluna.fw.file.dao.standard;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.fail;
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
+import org.junit.Test;
+
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.NullColumnParser} クラスのテスト。
@@ -21,43 +27,7 @@ import junit.framework.TestCase;
  * @author 奥田 哲司
  * @see jp.terasoluna.fw.file.dao.standard.NullColumnParser
  */
-public class NullColumnParserTest extends TestCase {
-
-    /**
-     * このテストケースを実行する為の GUI アプリケーションを起動する。
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        // junit.swingui.TestRunner.run(NullColumnParserTest.class);
-    }
-
-    /**
-     * 初期化処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
-     */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
-
-    /**
-     * 終了処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * @param name このテストケースの名前。
-     */
-    public NullColumnParserTest(String name) {
-        super(name);
-    }
+public class NullColumnParserTest {
 
     /**
      * testParse01() <br>
@@ -78,6 +48,7 @@ public class NullColumnParserTest extends TestCase {
      * ファイル行オブジェクトのString型属性に、引数columnの値が設定される ことを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse01() throws Exception {
         // テスト対象のインスタンス化
         NullColumnParser nullColumnParser = new NullColumnParser();
@@ -122,6 +93,7 @@ public class NullColumnParserTest extends TestCase {
      * ファイル行オブジェクトのString型属性のsetterメソッドに アクセスできない場合、IllegalAccessExceptionをスローすることを確認する <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse02() throws Exception {
         // テスト対象のインスタンス化
         NullColumnParser nullColumnParser = new NullColumnParser();
@@ -168,6 +140,7 @@ public class NullColumnParserTest extends TestCase {
      * ファイル行オブジェクトのString型属性のsetterメソッドが例外を スローする場合、setterメソッドがスローした例外をラップする InvocationTargetExceptionをスローすることを確認する <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse03() throws Exception {
         // テスト対象のインスタンス化
         NullColumnParser nullColumnParser = new NullColumnParser();
@@ -216,6 +189,7 @@ public class NullColumnParserTest extends TestCase {
      * ファイル行オブジェクトのString型属性のsetterメソッドの引数が 多数ある場合、IllegalArgumentExceptionをスローすることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse04() throws Exception {
         // テスト対象のインスタンス化
         NullColumnParser nullColumnParser = new NullColumnParser();
@@ -264,6 +238,7 @@ public class NullColumnParserTest extends TestCase {
      * columnがNullの場合に、ファイル行オブジェクトの属性にnullが 設定されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse05() throws Exception {
         // テスト対象のインスタンス化
         NullColumnParser nullColumnParser = new NullColumnParser();
@@ -308,6 +283,7 @@ public class NullColumnParserTest extends TestCase {
      * columnFormatがNullの場合に、ファイル行オブジェクトのString型属性に、引数columnの値が設定されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse06() throws Exception {
         // テスト対象のインスタンス化
         NullColumnParser nullColumnParser = new NullColumnParser();

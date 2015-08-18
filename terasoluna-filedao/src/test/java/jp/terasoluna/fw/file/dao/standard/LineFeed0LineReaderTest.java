@@ -3,6 +3,12 @@
  */
 package jp.terasoluna.fw.file.dao.standard;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.Reader;
@@ -10,7 +16,6 @@ import java.io.StringReader;
 
 import jp.terasoluna.fw.file.dao.FileException;
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
 
 import org.easymock.classextension.EasyMock;
 import org.junit.Test;
@@ -18,7 +23,7 @@ import org.junit.Test;
 /**
  * @author btkamaguchit
  */
-public class LineFeed0LineReaderTest extends TestCase {
+public class LineFeed0LineReaderTest {
 
     /**
      * 正常<br>

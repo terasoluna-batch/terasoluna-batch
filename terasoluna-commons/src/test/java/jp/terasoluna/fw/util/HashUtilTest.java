@@ -16,10 +16,14 @@
 
 package jp.terasoluna.fw.util;
 
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-import junit.framework.TestCase;
+import org.junit.Test;
 
 /**
  * HashUtilブラックボックステスト<br>
@@ -28,34 +32,7 @@ import junit.framework.TestCase;
  * ・とくになし<br>
  * 
  */
-public class HashUtilTest extends TestCase {
-
-    /**
-     * Constructor for HashUtilTest.
-     * @param arg0 テストケースのメソッド名
-     */
-    public HashUtilTest(String arg0) {
-        super(arg0);
-    }
-
-    /**
-     * @see TestCase#setUp()
-     * @throws Exception テストコードの本質とかかわりの無い例外
-     * 
-     */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
-
-    /**
-     * @see TestCase#tearDown()
-     * @throws Exception テストコードの本質とかかわりの無い例外
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
+public class HashUtilTest {
 
     /**
      * testHash01。<br>
@@ -70,6 +47,7 @@ public class HashUtilTest extends TestCase {
      * 
      * @throws Exception テストコードの本質とかかわりの無い例外
      */
+    @Test
     public void testHash01() throws Exception {
         // 入力値設定
         String paramAlgorithm = "MD5";
@@ -98,6 +76,7 @@ public class HashUtilTest extends TestCase {
      * 
      * @throws Exception テストコードの本質とかかわりの無い例外
      */
+    @Test
     public void testHash02() throws Exception {
         // 入力値設定
         String paramAlgorithm = "MD5";
@@ -125,6 +104,7 @@ public class HashUtilTest extends TestCase {
      * 
      * @throws Exception テストコードの本質とかかわりの無い例外
      */
+    @Test
     public void testHash03() throws Exception {
         // 入力値設定
         String paramAlgorithm = "MD5";
@@ -153,6 +133,7 @@ public class HashUtilTest extends TestCase {
      * 
      * @throws Exception テストコードの本質とかかわりの無い例外
      */
+    @Test
     public void testHash04() throws Exception {
         // 入力値設定
         String paramAlgorithm = "md5";
@@ -181,6 +162,7 @@ public class HashUtilTest extends TestCase {
      * 
      * @throws Exception テストコードの本質とかかわりの無い例外
      */
+    @Test
     public void testHash05() throws Exception {
         // 入力値設定
         String paramAlgorithm = "md5";
@@ -206,6 +188,7 @@ public class HashUtilTest extends TestCase {
      * 
      * @throws Exception テストコードの本質とかかわりの無い例外
      */
+    @Test
     public void testHash06() throws Exception {
         // 入力値設定
         String paramAlgorithm = "NoSuchAlgorithm";
@@ -233,6 +216,7 @@ public class HashUtilTest extends TestCase {
      * 
      * @throws Exception テストコードの本質とかかわりの無い例外
      */
+    @Test
     public void testHash07() throws Exception {
         // 入力値設定
         String paramAlgorithm = "";
@@ -260,6 +244,7 @@ public class HashUtilTest extends TestCase {
      * 
      * @throws Exception テストコードの本質とかかわりの無い例外
      */
+    @Test
     public void testHash08() throws Exception {
         // 入力値設定
         String paramAlgorithm = null;
@@ -285,6 +270,7 @@ public class HashUtilTest extends TestCase {
      * 
      * @throws Exception テストコードの本質とかかわりの無い例外
      */
+    @Test
     public void testHashMD501() throws Exception {
         // 入力値設定
         String paramStr = "abc";
@@ -313,6 +299,7 @@ public class HashUtilTest extends TestCase {
      * 
      * @throws Exception テストコードの本質とかかわりの無い例外
      */
+    @Test
     public void testHashMD502() throws Exception {
         // 入力値設定
         String paramStr = "あいう";
@@ -340,6 +327,7 @@ public class HashUtilTest extends TestCase {
      * 
      * @throws Exception テストコードの本質とかかわりの無い例外
      */
+    @Test
     public void testHashMD503() throws Exception {
         // 入力値設定
         String paramStr = "";
@@ -367,6 +355,7 @@ public class HashUtilTest extends TestCase {
      * 
      * @throws Exception テストコードの本質とかかわりの無い例外
      */
+    @Test
     public void testHashMD504() throws Exception {
         // 入力値設定
         String paramStr = null;
@@ -391,6 +380,7 @@ public class HashUtilTest extends TestCase {
      * 
      * @throws Exception テストコードの本質とかかわりの無い例外
      */
+    @Test
     public void testHashSHA101() throws Exception {
         // 入力値設定
         String paramStr = "abc";
@@ -418,6 +408,7 @@ public class HashUtilTest extends TestCase {
      * 
      * @throws Exception テストコードの本質とかかわりの無い例外
      */
+    @Test
     public void testHashSHA102() throws Exception {
         // 入力値設定
         String paramStr = "あいう";
@@ -445,6 +436,7 @@ public class HashUtilTest extends TestCase {
      * 
      * @throws Exception テストコードの本質とかかわりの無い例外
      */
+    @Test
     public void testHashSHA103() throws Exception {
         // 入力値設定
         String paramStr = "";
@@ -472,6 +464,7 @@ public class HashUtilTest extends TestCase {
      * 
      * @throws Exception テストコードの本質とかかわりの無い例外
      */
+    @Test
     public void testHashSHA104() throws Exception {
         // 入力値設定
         String paramStr = null;

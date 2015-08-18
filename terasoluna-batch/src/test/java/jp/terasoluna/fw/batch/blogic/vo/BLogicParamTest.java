@@ -1,13 +1,15 @@
 package jp.terasoluna.fw.batch.blogic.vo;
 
-import junit.framework.TestCase;
+import static org.junit.Assert.assertEquals;
 
+import org.junit.Test;
 
-public class BLogicParamTest extends TestCase {
+public class BLogicParamTest {
 
     /**
      *
      */
+    @Test
     public void testSetJobSequenceId001() {
         BLogicParam param = new BLogicParam();
 
@@ -19,6 +21,7 @@ public class BLogicParamTest extends TestCase {
     /**
      *
      */
+    @Test
     public void testSetJobAppCd001() {
         BLogicParam param = new BLogicParam();
 
@@ -30,6 +33,7 @@ public class BLogicParamTest extends TestCase {
     /**
      *
      */
+    @Test
     public void testSetJobArgNm1001() {
         BLogicParam param = new BLogicParam();
 
@@ -41,6 +45,7 @@ public class BLogicParamTest extends TestCase {
     /**
      *
      */
+    @Test
     public void testSetJobArgNm2001() {
         BLogicParam param = new BLogicParam();
 
@@ -52,6 +57,7 @@ public class BLogicParamTest extends TestCase {
     /**
      *
      */
+    @Test
     public void testSetJobArgNm3001() {
         BLogicParam param = new BLogicParam();
 
@@ -63,6 +69,7 @@ public class BLogicParamTest extends TestCase {
     /**
      *
      */
+    @Test
     public void testSetJobArgNm4001() {
         BLogicParam param = new BLogicParam();
 
@@ -74,6 +81,7 @@ public class BLogicParamTest extends TestCase {
     /**
      *
      */
+    @Test
     public void testSetJobArgNm5001() {
         BLogicParam param = new BLogicParam();
 
@@ -85,6 +93,7 @@ public class BLogicParamTest extends TestCase {
     /**
      *
      */
+    @Test
     public void testSetJobArgNm6001() {
         BLogicParam param = new BLogicParam();
 
@@ -96,6 +105,7 @@ public class BLogicParamTest extends TestCase {
     /**
      *
      */
+    @Test
     public void testSetJobArgNm7001() {
         BLogicParam param = new BLogicParam();
 
@@ -107,7 +117,7 @@ public class BLogicParamTest extends TestCase {
     /**
      *
      */
-
+    @Test
     public void testSetJobArgNm8001() {
         BLogicParam param = new BLogicParam();
 
@@ -119,7 +129,7 @@ public class BLogicParamTest extends TestCase {
     /**
      *
      */
-
+    @Test
     public void testSetJobArgNm9001() {
         BLogicParam param = new BLogicParam();
 
@@ -131,7 +141,7 @@ public class BLogicParamTest extends TestCase {
     /**
      *
      */
-
+    @Test
     public void testSetJobArgNm10001() {
         BLogicParam param = new BLogicParam();
 
@@ -143,7 +153,7 @@ public class BLogicParamTest extends TestCase {
     /**
      *
      */
-
+    @Test
     public void testSetJobArgNm11001() {
         BLogicParam param = new BLogicParam();
 
@@ -155,7 +165,7 @@ public class BLogicParamTest extends TestCase {
     /**
      *
      */
-
+    @Test
     public void testSetJobArgNm12001() {
         BLogicParam param = new BLogicParam();
 
@@ -167,7 +177,7 @@ public class BLogicParamTest extends TestCase {
     /**
      *
      */
-
+    @Test
     public void testSetJobArgNm13001() {
         BLogicParam param = new BLogicParam();
 
@@ -179,7 +189,7 @@ public class BLogicParamTest extends TestCase {
     /**
      *
      */
-
+    @Test
     public void testSetJobArgNm14001() {
         BLogicParam param = new BLogicParam();
 
@@ -191,7 +201,7 @@ public class BLogicParamTest extends TestCase {
     /**
      *
      */
-
+    @Test
     public void testSetJobArgNm15001() {
         BLogicParam param = new BLogicParam();
 
@@ -203,7 +213,7 @@ public class BLogicParamTest extends TestCase {
     /**
      *
      */
-
+    @Test
     public void testSetJobArgNm16001() {
         BLogicParam param = new BLogicParam();
 
@@ -215,7 +225,7 @@ public class BLogicParamTest extends TestCase {
     /**
      *
      */
-
+    @Test
     public void testSetJobArgNm17001() {
         BLogicParam param = new BLogicParam();
 
@@ -227,7 +237,7 @@ public class BLogicParamTest extends TestCase {
     /**
      *
      */
-
+    @Test
     public void testSetJobArgNm18001() {
         BLogicParam param = new BLogicParam();
 
@@ -239,7 +249,7 @@ public class BLogicParamTest extends TestCase {
     /**
      *
      */
-
+    @Test
     public void testSetJobArgNm19001() {
         BLogicParam param = new BLogicParam();
 
@@ -251,7 +261,7 @@ public class BLogicParamTest extends TestCase {
     /**
      *
      */
-
+    @Test
     public void testSetJobArgNm20001() {
         BLogicParam param = new BLogicParam();
 
@@ -261,6 +271,7 @@ public class BLogicParamTest extends TestCase {
     }
 
 
+    @Test
     public void testToString001() {
         BLogicParam param = new BLogicParam();
 

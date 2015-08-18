@@ -16,10 +16,14 @@
 
 package jp.terasoluna.fw.util;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import javax.servlet.ServletException;
 
+import org.junit.Test;
+
 import jp.terasoluna.fw.exception.SystemException;
-import junit.framework.TestCase;
 
 /**
  * ExceptionUtil ブラックボックステスト。<br>
@@ -29,31 +33,16 @@ import junit.framework.TestCase;
  * 
  * <br>
  */
-public class ExceptionUtilTest extends TestCase {
+public class ExceptionUtilTest {
 
-    /**
-     * Constructor for ExceptionUtilTest.
-     * @param arg0
-     */
-    public ExceptionUtilTest(String arg0) {
-        super(arg0);
-    }
+//    /**
+//     * Constructor for ExceptionUtilTest.
+//     * @param arg0
+//     */
+//    public ExceptionUtilTest(String arg0) {
+//        super(arg0);
+//    }
 
-    /*
-     * @see TestCase#setUp()
-     */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
-
-    /*
-     * @see TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
     /**
      * testGetStackTrace01()。<br>
      * 
@@ -65,6 +54,7 @@ public class ExceptionUtilTest extends TestCase {
      *  1つの例外オブジェクトからスタックトレースが取得できること。<br>
      *
      */
+    @Test
     public void testGetStackTrace01() {
         //初期設定
         NullPointerException ne = new NullPointerException();
@@ -89,6 +79,7 @@ public class ExceptionUtilTest extends TestCase {
      * 発生先の例外から順にスタックトレースが連結されて取得できること。<br>
      *
      */
+    @Test
     public void testGetStackTrace02() {
         //初期設定
         SystemException se = new SystemException(new ServletException(new NullPointerException()));
@@ -130,6 +121,7 @@ public class ExceptionUtilTest extends TestCase {
      * 引数がnullの時、空のスタックトレースが返却されることを確認する。<br>
      *
      */
+    @Test
     public void testGetStackTrace03() {
         //テスト実行
         String trace = ExceptionUtil.getStackTrace(null);

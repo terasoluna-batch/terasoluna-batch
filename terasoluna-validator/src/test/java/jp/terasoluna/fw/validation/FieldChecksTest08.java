@@ -16,17 +16,24 @@
 
 package jp.terasoluna.fw.validation;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 import java.util.ArrayList;
 import java.util.Collection;
 
 import jp.terasoluna.fw.util.PropertyAccessException;
 import jp.terasoluna.utlib.LogUTUtil;
-import junit.framework.TestCase;
 
 import org.apache.commons.validator.Field;
 import org.apache.commons.validator.ValidatorAction;
 import org.apache.commons.validator.ValidatorException;
 import org.apache.commons.validator.Var;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * {@link jp.terasoluna.fw.validation.FieldChecks}
@@ -39,7 +46,7 @@ import org.apache.commons.validator.Var;
  *
  * @see jp.terasoluna.fw.validation.FieldChecks
  */
-public class FieldChecksTest08 extends TestCase {
+public class FieldChecksTest08 {
 
     /**
      * テスト用インスタンス。
@@ -57,47 +64,13 @@ public class FieldChecksTest08 extends TestCase {
     private FieldChecks_ValidationErrorsImpl01 errors = null;
 
     /**
-     * このテストケースを実行する為の
-     * GUI アプリケーションを起動する。
-     *
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        junit.swingui.TestRunner.run(FieldChecksTest08.class);
-    }
-
-    /**
      * 初期化処理を行う。
-     *
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
      */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
+    @Before
+    public void setUp() {
         va = new ValidatorAction();
         field = new Field();
         errors = new FieldChecks_ValidationErrorsImpl01();
-    }
-
-    /**
-     * 終了処理を行う。
-     *
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     *
-     * @param name このテストケースの名前。
-     */
-    public FieldChecksTest08(String name) {
-        super(name);
     }
 
     /**
@@ -123,6 +96,7 @@ public class FieldChecksTest08 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateNumericString01() throws Exception {
         // テスト実施
         // 判定
@@ -155,6 +129,7 @@ public class FieldChecksTest08 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateNumericString02() throws Exception {
         // テスト実施
         // 判定
@@ -187,6 +162,7 @@ public class FieldChecksTest08 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateNumericString03() throws Exception {
         // テスト実施
         // 判定
@@ -223,6 +199,7 @@ public class FieldChecksTest08 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateNumericString04() throws Exception {
         // テスト実施
         // 判定
@@ -256,6 +233,7 @@ public class FieldChecksTest08 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateStringLength01() throws Exception {
         // テスト実施
         // 判定
@@ -289,6 +267,7 @@ public class FieldChecksTest08 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateStringLength02() throws Exception {
         // テスト実施
         // 判定
@@ -329,6 +308,7 @@ public class FieldChecksTest08 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateStringLength03() throws Exception {
         // テスト実施
         // 判定
@@ -375,6 +355,7 @@ public class FieldChecksTest08 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateStringLength04() throws Exception {
         // 前処理
         Var var = new Var();
@@ -427,6 +408,7 @@ public class FieldChecksTest08 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateStringLength05() throws Exception {
         // 前処理
         Var var = new Var();
@@ -474,6 +456,7 @@ public class FieldChecksTest08 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateStringLength06() throws Exception {
         // 前処理
         Var var = new Var();
@@ -519,6 +502,7 @@ public class FieldChecksTest08 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateStringLength07() throws Exception {
         // 前処理
         Var var = new Var();
@@ -562,6 +546,7 @@ public class FieldChecksTest08 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateStringLength08() throws Exception {
         // 前処理
         Var var = new Var();
@@ -605,6 +590,7 @@ public class FieldChecksTest08 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateArrayRange01() throws Exception {
         // 前処理
         field.setProperty("field");
@@ -652,6 +638,7 @@ public class FieldChecksTest08 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateArrayRange02() throws Exception {
         // 前処理
         FieldChecks_JavaBeanStub01 bean = new FieldChecks_JavaBeanStub01();
@@ -699,6 +686,7 @@ public class FieldChecksTest08 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateArrayRange03() throws Exception {
         // 前処理
         FieldChecks_JavaBeanStub01 bean = new FieldChecks_JavaBeanStub01();
@@ -746,6 +734,7 @@ public class FieldChecksTest08 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateArrayRange04() throws Exception {
         // 前処理
         FieldChecks_JavaBeanStub01 bean = new FieldChecks_JavaBeanStub01();
@@ -796,6 +785,7 @@ public class FieldChecksTest08 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateArrayRange05() throws Exception {
         // 前処理
         FieldChecks_JavaBeanStub01 bean = new FieldChecks_JavaBeanStub01();
@@ -853,6 +843,7 @@ public class FieldChecksTest08 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateArrayRange06() throws Exception {
         // 前処理
         FieldChecks_JavaBeanStub01 bean = new FieldChecks_JavaBeanStub01();
@@ -905,6 +896,7 @@ public class FieldChecksTest08 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateArrayRange07() throws Exception {
         // 前処理
         FieldChecks_JavaBeanStub01 bean = new FieldChecks_JavaBeanStub01();
@@ -962,6 +954,7 @@ public class FieldChecksTest08 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateArrayRange08() throws Exception {
         // 前処理
         FieldChecks_JavaBeanStub01 bean = new FieldChecks_JavaBeanStub01();
@@ -1020,6 +1013,7 @@ public class FieldChecksTest08 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateArrayRange09() throws Exception {
         // 前処理
         FieldChecks_JavaBeanStub01 bean = new FieldChecks_JavaBeanStub01();
@@ -1068,6 +1062,7 @@ public class FieldChecksTest08 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateArrayRange10() throws Exception {
         // 前処理
         FieldChecks_JavaBeanStub01 bean = new FieldChecks_JavaBeanStub01();
@@ -1118,6 +1113,7 @@ public class FieldChecksTest08 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateArrayRange11() throws Exception {
         // 前処理
         FieldChecks_JavaBeanStub01 bean = new FieldChecks_JavaBeanStub01();
@@ -1177,6 +1173,7 @@ public class FieldChecksTest08 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testValidateArrayRange12() throws Exception {
         // 前処理
@@ -1241,6 +1238,7 @@ public class FieldChecksTest08 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateArrayRange13() throws Exception {
         // 前処理
         FieldChecks_JavaBeanStub01 bean = new FieldChecks_JavaBeanStub01();
@@ -1302,6 +1300,7 @@ public class FieldChecksTest08 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateArrayRange14() throws Exception {
         // 前処理
         FieldChecks_JavaBeanStub01 bean = new FieldChecks_JavaBeanStub01();
@@ -1362,6 +1361,7 @@ public class FieldChecksTest08 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateArrayRange15() throws Exception {
         // 前処理
         FieldChecks_JavaBeanStub01 bean = new FieldChecks_JavaBeanStub01();

@@ -16,15 +16,22 @@
 
 package jp.terasoluna.fw.message;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.sql.DataSource;
 
+import org.junit.Test;
+
 import jp.terasoluna.utlib.LogUTUtil;
 import jp.terasoluna.utlib.MockDataSource;
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
 
 /**
  * {@link jp.terasoluna.fw.message.DBMessageResourceDAOImpl}
@@ -36,39 +43,7 @@ import junit.framework.TestCase;
  * 
  * @see jp.terasoluna.fw.message.DBMessageResourceDAOImpl
  */
-public class DBMessageResourceDAOImplTest extends TestCase {
-
-
-    /**
-     * 初期化処理を行う。
-     * 
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
-     */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
-
-    /**
-     * 終了処理を行う。
-     * 
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * 
-     * @param name このテストケースの名前。
-     */
-    public DBMessageResourceDAOImplTest(String name) {
-        super(name);
-    }
+public class DBMessageResourceDAOImplTest {
 
     /**
      * testSetTableName01()
@@ -90,6 +65,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSetTableName01() throws Exception {
         // 前処理
         DBMessageResourceDAOImpl daoImpl = new DBMessageResourceDAOImpl();
@@ -122,6 +98,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSetCodeColumn01() throws Exception {
         // 前処理
         DBMessageResourceDAOImpl daoImpl = new DBMessageResourceDAOImpl();
@@ -154,6 +131,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSetLaunguageColumn01() throws Exception {
         // 前処理
         DBMessageResourceDAOImpl daoImpl = new DBMessageResourceDAOImpl();
@@ -187,6 +165,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSetCountryColumn01() throws Exception {
         // 前処理
         DBMessageResourceDAOImpl daoImpl = new DBMessageResourceDAOImpl();
@@ -220,6 +199,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSetVariantColumn01() throws Exception {
         // 前処理
         DBMessageResourceDAOImpl daoImpl = new DBMessageResourceDAOImpl();
@@ -253,6 +233,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSetMessageColumn01() throws Exception {
         // 前処理
         DBMessageResourceDAOImpl daoImpl = new DBMessageResourceDAOImpl();
@@ -286,6 +267,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSetFindMessageSql01() throws Exception {
         // 前処理
         DBMessageResourceDAOImpl daoImpl = new DBMessageResourceDAOImpl();
@@ -326,6 +308,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testInitDao01() throws Exception {
         // 前処理
         DataSource dataSource = new MockDataSource();
@@ -390,6 +373,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testInitDao02() throws Exception {
         // 前処理
         DBMessageResourceDAOImpl_JdbcTemplateStub01 jdbc
@@ -446,6 +430,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testInitDao03() throws Exception {
         // 前処理
         DataSource dataSource = new MockDataSource();
@@ -500,6 +485,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * @throws Exception
      *             このメソッドで発生した例外
      */
+    @Test
     public void testMakeSql01() throws Exception {
         // 前処理
         DBMessageResourceDAOImpl dbmr = new DBMessageResourceDAOImpl();
@@ -545,6 +531,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * @throws Exception
      *             このメソッドで発生した例外
      */
+    @Test
     public void testMakeSql02() throws Exception {
         // 前処理
         DBMessageResourceDAOImpl dbmr 
@@ -597,6 +584,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * @throws Exception
      *             このメソッドで発生した例外
      */
+    @Test
     public void testMakeSql03() throws Exception {
         // 前処理
         DBMessageResourceDAOImpl dbmr 
@@ -649,6 +637,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * @throws Exception
      *             このメソッドで発生した例外
      */
+    @Test
     public void testMakeSql04() throws Exception {
         // 前処理
         DBMessageResourceDAOImpl dbmr 
@@ -701,6 +690,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * @throws Exception
      *             このメソッドで発生した例外
      */
+    @Test
     public void testMakeSql05() throws Exception {
         // 前処理
         DBMessageResourceDAOImpl dbmr 
@@ -753,6 +743,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * @throws Exception
      *             このメソッドで発生した例外
      */
+    @Test
     public void testMakeSql06() throws Exception {
         // 前処理
         DBMessageResourceDAOImpl dbmr 
@@ -805,6 +796,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * @throws Exception
      *             このメソッドで発生した例外
      */
+    @Test
     public void testMakeSql07() throws Exception {
         // 前処理
         DBMessageResourceDAOImpl dbmr 
@@ -857,6 +849,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * @throws Exception
      *             このメソッドで発生した例外
      */
+    @Test
     public void testMakeSql08() throws Exception {
         // 前処理
         DBMessageResourceDAOImpl dbmr 
@@ -909,6 +902,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * @throws Exception
      *             このメソッドで発生した例外
      */
+    @Test
     public void testMakeSql09() throws Exception {
         // 前処理
         DBMessageResourceDAOImpl dbmr 
@@ -961,6 +955,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * @throws Exception
      *             このメソッドで発生した例外
      */
+    @Test
     public void testMakeSql10() throws Exception {
         // 前処理
         DBMessageResourceDAOImpl dbmr 
@@ -1011,6 +1006,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * @throws Exception
      *             このメソッドで発生した例外
      */
+    @Test
     public void testMakeSql11() throws Exception {
         // 前処理
         DBMessageResourceDAOImpl dbmr 
@@ -1050,6 +1046,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testFindDBMessages01() throws Exception {
         // 前処理

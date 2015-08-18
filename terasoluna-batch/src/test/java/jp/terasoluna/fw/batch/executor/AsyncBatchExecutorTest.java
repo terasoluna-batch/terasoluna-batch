@@ -1,5 +1,11 @@
 package jp.terasoluna.fw.batch.executor;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -19,9 +25,11 @@ import jp.terasoluna.fw.batch.executor.dao.SystemDao;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobListResult;
 import jp.terasoluna.fw.ex.unit.util.SystemEnvUtils;
 import jp.terasoluna.fw.ex.unit.util.TerasolunaPropertyUtils;
-import junit.framework.TestCase;
 
 import org.apache.commons.logging.Log;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.context.ApplicationContext;
@@ -30,15 +38,11 @@ import org.springframework.core.task.TaskRejectedException;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.transaction.PlatformTransactionManager;
 
-public class AsyncBatchExecutorTest extends TestCase {
+public class AsyncBatchExecutorTest {
 
     final SecurityManager sm = System.getSecurityManager();
 
     private static BufferedReader logReader;
-
-    public AsyncBatchExecutorTest() {
-        super();
-    }
 
     static {
         try {
@@ -52,20 +56,18 @@ public class AsyncBatchExecutorTest extends TestCase {
         }
     }
 
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
+    @Before
+    public void setUp() {
         TerasolunaPropertyUtils.saveProperties();
         System.setSecurityManager(new SecurityManagerEx());
     }
 
-    @Override
-    protected void tearDown() throws Exception {
+    @After
+    public void tearDown() throws Exception {
         TerasolunaPropertyUtils.restoreProperties();
         SystemEnvUtils.restoreEnv();
         System.setSecurityManager(sm);
         while (logReader.readLine() != null) {}
-        super.tearDown();
     }
 
     /**
@@ -82,6 +84,7 @@ public class AsyncBatchExecutorTest extends TestCase {
      * ・リターンコードが255
      * </pre>
      */
+    @Test
     public void testMain01() throws Exception {
         TerasolunaPropertyUtils.addProperty("beanDefinition.admin.dataSource",
                 "AsyncBatchExecutorTest01.xml");
@@ -118,6 +121,7 @@ public class AsyncBatchExecutorTest extends TestCase {
      * ・リターンコードが255
      * </pre>
      */
+    @Test
     public void testMain03() throws Exception {
         TerasolunaPropertyUtils.addProperty("beanDefinition.admin.dataSource",
                 "AsyncBatchExecutorTest03.xml");
@@ -151,6 +155,7 @@ public class AsyncBatchExecutorTest extends TestCase {
      * ・IAL025006のログにjobAppCdが空文字として出力されること。
      * </pre>
      */
+    @Test
     public void testMain04() throws Exception {
         TerasolunaPropertyUtils.addProperty("beanDefinition.admin.dataSource",
                 "AsyncBatchExecutorTest01.xml");
@@ -182,6 +187,7 @@ public class AsyncBatchExecutorTest extends TestCase {
      * ・IAL025006のログにhogeが出力されること
      * </pre>
      */
+    @Test
     public void testMain05() throws Exception {
         TerasolunaPropertyUtils.addProperty("beanDefinition.admin.dataSource",
                 "AsyncBatchExecutorTest01.xml");
@@ -212,6 +218,7 @@ public class AsyncBatchExecutorTest extends TestCase {
      * ・リターンコードが255
      * </pre>
      */
+    @Test
     public void testMain06() throws Exception {
         TerasolunaPropertyUtils
                 .removeProperty("batchTaskExecutor.dbAbnormalRetryMax");
@@ -237,6 +244,7 @@ public class AsyncBatchExecutorTest extends TestCase {
      * ・リターンコードが255
      * </pre>
      */
+    @Test
     public void testMain07() throws Exception {
         TerasolunaPropertyUtils
                 .removeProperty("batchTaskExecutor.dbAbnormalRetryInterval");
@@ -262,6 +270,7 @@ public class AsyncBatchExecutorTest extends TestCase {
      * ・リターンコードが255
      * </pre>
      */
+    @Test
     public void testMain08() throws Exception {
         TerasolunaPropertyUtils
                 .removeProperty("batchTaskExecutor.dbAbnormalRetryReset");
@@ -287,6 +296,7 @@ public class AsyncBatchExecutorTest extends TestCase {
      * ・リターンコードが255
      * </pre>
      */
+    @Test
     public void testMain09() throws Exception {
         TerasolunaPropertyUtils
                 .removeProperty("batchTaskExecutor.executeRetryInterval");
@@ -312,6 +322,7 @@ public class AsyncBatchExecutorTest extends TestCase {
      * ・リターンコードが255
      * </pre>
      */
+    @Test
     public void testMain10() throws Exception {
         TerasolunaPropertyUtils
                 .removeProperty("batchTaskExecutor.executeRetryCountMax");
@@ -337,6 +348,7 @@ public class AsyncBatchExecutorTest extends TestCase {
      * ・リターンコードが255
      * </pre>
      */
+    @Test
     public void testMain11() throws Exception {
         TerasolunaPropertyUtils
                 .removeProperty("batchTaskExecutor.availableThreadThresholdCount");
@@ -362,6 +374,7 @@ public class AsyncBatchExecutorTest extends TestCase {
      * ・リターンコードが255
      * </pre>
      */
+    @Test
     public void testMain12() throws Exception {
         TerasolunaPropertyUtils
                 .removeProperty("batchTaskExecutor.availableThreadThresholdWait");
@@ -387,6 +400,7 @@ public class AsyncBatchExecutorTest extends TestCase {
      * ・リターンコードが0
      * </pre>
      */
+    @Test
     public void testMain13() throws Exception {
         // テストデータ設定
         URL srcUrl = this.getClass().getResource("/testdata/test01.txt");
@@ -419,6 +433,7 @@ public class AsyncBatchExecutorTest extends TestCase {
      * ・リターンコードが0
      * </pre>
      */
+    @Test
     public void testMain14() throws Exception {
         // テストデータ設定
         URL srcUrl = this.getClass().getResource("/testdata/test01.txt");
@@ -451,6 +466,7 @@ public class AsyncBatchExecutorTest extends TestCase {
      * ・リターンコードが0
      * </pre>
      */
+    @Test
     public void testMain15() throws Exception {
         // テストデータ設定
         URL srcUrl = this.getClass().getResource("/testdata/test01.txt");
@@ -483,6 +499,7 @@ public class AsyncBatchExecutorTest extends TestCase {
      * ・リターンコードが0
      * </pre>
      */
+    @Test
     public void testMain16() throws Exception {
         // テストデータ設定
         URL srcUrl = this.getClass().getResource("/testdata/test01.txt");
@@ -515,6 +532,7 @@ public class AsyncBatchExecutorTest extends TestCase {
      * ・リターンコードが0
      * </pre>
      */
+    @Test
     public void testMain17() throws Exception {
         // テストデータ設定
         URL srcUrl = this.getClass().getResource("/testdata/test01.txt");
@@ -541,6 +559,7 @@ public class AsyncBatchExecutorTest extends TestCase {
      * testCloseRootApplicationContext001
      * @throws Exception
      */
+    @Test
     public void testCloseRootApplicationContext001() throws Exception {
         ApplicationContext context = null;
         AsyncBatchExecutor.closeRootApplicationContext(context);
@@ -550,6 +569,7 @@ public class AsyncBatchExecutorTest extends TestCase {
      * testCloseRootApplicationContext002
      * @throws Exception
      */
+    @Test
     public void testCloseRootApplicationContext002() throws Exception {
         ApplicationContext context = new AbstractApplicationContext() {
 
@@ -576,6 +596,7 @@ public class AsyncBatchExecutorTest extends TestCase {
      * testLogOutputTaskExecutor001
      * @throws Exception
      */
+    @Test
     public void testLogOutputTaskExecutor001() throws Exception {
         Log log = new Log() {
             public void debug(Object message) {
@@ -651,6 +672,7 @@ public class AsyncBatchExecutorTest extends TestCase {
      * testCheckEndFile001
      * @throws Exception
      */
+    @Test
     public void testCheckEndFile001() throws Exception {
         String endFilePath = null;
         boolean result = AsyncBatchExecutor.checkEndFile(endFilePath);
@@ -661,6 +683,7 @@ public class AsyncBatchExecutorTest extends TestCase {
      * testCheckEndFile002
      * @throws Exception
      */
+    @Test
     public void testCheckEndFile002() throws Exception {
         // テストデータ設定
         URL srcUrl = this.getClass().getResource("/testdata/test01.txt");
@@ -674,6 +697,7 @@ public class AsyncBatchExecutorTest extends TestCase {
      * testCheckTaskQueue001
      * @throws Exception
      */
+    @Test
     public void testCheckTaskQueue001() throws Exception {
         ThreadPoolTaskExecutor taskExec = new BatchThreadPoolTaskExecutor();
         taskExec.setCorePoolSize(1);
@@ -688,6 +712,7 @@ public class AsyncBatchExecutorTest extends TestCase {
      * testCheckTaskQueue002
      * @throws Exception
      */
+    @Test
     public void testCheckTaskQueue002() throws Exception {
         ThreadPoolTaskExecutor taskExec = new ThreadPoolTaskExecutor();
         taskExec.setCorePoolSize(1);
@@ -721,6 +746,7 @@ public class AsyncBatchExecutorTest extends TestCase {
      * testCheckTaskQueue003
      * @throws Exception
      */
+    @Test
     public void testCheckTaskQueue003() throws Exception {
         ThreadPoolTaskExecutor taskExec = new BatchThreadPoolTaskExecutor();
         taskExec.setCorePoolSize(1);
@@ -753,6 +779,7 @@ public class AsyncBatchExecutorTest extends TestCase {
      * testExecuteJob001
      * @throws Exception
      */
+    @Test
     public void testExecuteJob001() throws Exception {
         // パラメータ
         AsyncBatchExecutor executor = null;
@@ -773,6 +800,7 @@ public class AsyncBatchExecutorTest extends TestCase {
      * testExecuteJob002
      * @throws Exception
      */
+    @Test
     public void testExecuteJob002() throws Exception {
         // パラメータ
         AsyncBatchExecutor executor = new AsyncBatchExecutor() {
@@ -798,6 +826,7 @@ public class AsyncBatchExecutorTest extends TestCase {
      * testExecuteJob004
      * @throws Exception
      */
+    @Test
     public void testExecuteJob004() throws Exception {
         // パラメータ
         AsyncBatchExecutor executor = new AsyncBatchExecutor() {
@@ -823,6 +852,7 @@ public class AsyncBatchExecutorTest extends TestCase {
      * testExecuteJob005
      * @throws Exception
      */
+    @Test
     public void testExecuteJob005() throws Exception {
         // パラメータ
         AsyncBatchExecutor executor = new AsyncBatchExecutor();
@@ -843,6 +873,7 @@ public class AsyncBatchExecutorTest extends TestCase {
      * testExecuteJob006
      * @throws Exception
      */
+    @Test
     public void testExecuteJob006() throws Exception {
         // パラメータ
         AsyncBatchExecutor executor = new AsyncBatchExecutor();
@@ -868,6 +899,7 @@ public class AsyncBatchExecutorTest extends TestCase {
      * testExecuteJob007
      * @throws Exception
      */
+    @Test
     public void testExecuteJob007() throws Exception {
         // パラメータ
         AsyncBatchExecutor executor = new AsyncBatchExecutor() {
@@ -910,6 +942,7 @@ public class AsyncBatchExecutorTest extends TestCase {
      * testExecuteJob008
      * @throws Exception
      */
+    @Test
     public void testExecuteJob008() throws Exception {
         // パラメータ
         TerasolunaPropertyUtils
@@ -961,6 +994,7 @@ public class AsyncBatchExecutorTest extends TestCase {
      * testExecuteJob009
      * @throws Exception
      */
+    @Test
     public void testExecuteJob009() throws Exception {
         // パラメータ
         AsyncBatchExecutor executor = new AsyncBatchExecutor() {
@@ -1004,6 +1038,7 @@ public class AsyncBatchExecutorTest extends TestCase {
      * コンストラクタで与えたThreadGroupが登録されることを確認する。
      * @throws Exception
      */
+    @Test
     public void testBatchServantTaskEndTrackerRun001() throws Exception {
         // パラメータ
         final AtomicBoolean runWasExecuted = new AtomicBoolean(false);
@@ -1041,6 +1076,7 @@ public class AsyncBatchExecutorTest extends TestCase {
      *  destroyしないことを確認する。)
      * @throws Exception
      */
+    @Test
     public void testDestroyThreadGroupsIfPossible001() throws Exception {
         // パラメータ
         ThreadGroup testTG = new ThreadGroup("testDestroyThreadGroupsIfPossible001-TG");
@@ -1066,6 +1102,7 @@ public class AsyncBatchExecutorTest extends TestCase {
      * を確認する。
      * @throws Exception
      */
+    @Test
     public void testDestroyThreadGroupsIfPossible002() throws Exception {
         // パラメータ
         ThreadGroup testTG = new ThreadGroup("testDestroyThreadGroupsIfPossible002-TG");
@@ -1089,6 +1126,7 @@ public class AsyncBatchExecutorTest extends TestCase {
      * を確認する。
      * @throws Exception
      */
+    @Test
     public void testDestroyThreadGroupsIfPossible003() throws Exception {
         // パラメータ
         ThreadGroup testTG = new ThreadGroup("testDestroyThreadGroupsIfPossible003-TG");
@@ -1135,6 +1173,7 @@ public class AsyncBatchExecutorTest extends TestCase {
      * を確認する。
      * @throws Exception
      */
+    @Test
     public void testDestroyThreadGroupsIfPossible004() throws Exception {
         // パラメータ
         ThreadGroup testTG1 = new ThreadGroup("testDestroyThreadGroupsIfPossible004-TG1");
@@ -1203,6 +1242,7 @@ public class AsyncBatchExecutorTest extends TestCase {
      * を満たすことを確認する。
      * @throws Exception
      */
+    @Test
     public void testLogActiveThreadGroupsInfo001() throws Exception {
         final AtomicInteger enumerateCallCount = new AtomicInteger(0);
         final AtomicBoolean enumerateSuccess = new AtomicBoolean(false);
@@ -1249,6 +1289,7 @@ public class AsyncBatchExecutorTest extends TestCase {
      * を満たすよう、再度activeGroupCountとenumerateを実行することを確認する。
      * @throws Exception
      */
+    @Test
     public void testLogActiveThreadGroupsInfo002() throws Exception {
         final AtomicBoolean firstCount = new AtomicBoolean(true);
         final AtomicInteger enumerateCallCount = new AtomicInteger(0);

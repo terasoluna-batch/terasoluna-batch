@@ -16,6 +16,11 @@
 
 package jp.terasoluna.fw.batch.message;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
+
+import org.junit.Before;
+import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.NoSuchMessageException;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -23,7 +28,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import jp.terasoluna.fw.batch.message.MessageAccessor;
 import jp.terasoluna.fw.batch.util.MessageUtil;
 import jp.terasoluna.fw.util.PropertyUtil;
-import junit.framework.TestCase;
 
 /**
  * 事前条件<br>
@@ -49,7 +53,7 @@ import junit.framework.TestCase;
  * ・messages.propertiesファイルが存在すること<br>
  * 
  */
-public class MessageAccessorImplTest extends TestCase {
+public class MessageAccessorImplTest {
 
 	/**
 	 * プロパティ値取得値
@@ -66,8 +70,8 @@ public class MessageAccessorImplTest extends TestCase {
 	 */
 	private MessageAccessor messageAccessor;
 
-	@Override
-	protected void setUp() throws Exception {
+	@Before
+	public void setUp() {
 
 		// メッセージソースアクセサのBean名取得
 		context = new ClassPathXmlApplicationContext(
@@ -89,6 +93,7 @@ public class MessageAccessorImplTest extends TestCase {
 	 * 
 	 * @throws Exception
 	 */
+    @Test
 	public void testGetMessage01() throws Exception {
 
 		String[] args = { "test1" };
@@ -112,6 +117,7 @@ public class MessageAccessorImplTest extends TestCase {
 	 * 
 	 * @throws Exception
 	 */
+    @Test
 	public void testGetMessage02() throws Exception {
 
 		String[] args = { "test1" };
@@ -132,6 +138,7 @@ public class MessageAccessorImplTest extends TestCase {
 	 * 
 	 * @throws Exception
 	 */
+    @Test
 	public void testGetMessage03() throws Exception {
 
 		try {
@@ -153,6 +160,7 @@ public class MessageAccessorImplTest extends TestCase {
 	 * 
 	 * @throws Exception
 	 */
+    @Test
 	public void testGetMessage04() throws Exception {
 
 		try {
@@ -173,6 +181,7 @@ public class MessageAccessorImplTest extends TestCase {
 	 * 
 	 * @throws Exception
 	 */
+    @Test
 	public void testGetMessage05() throws Exception {
 
 		try {

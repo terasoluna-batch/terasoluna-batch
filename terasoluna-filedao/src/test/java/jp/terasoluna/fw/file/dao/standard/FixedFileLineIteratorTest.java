@@ -8,6 +8,8 @@
 package jp.terasoluna.fw.file.dao.standard;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertSame;
 import static org.junit.Assert.fail;
 
 import java.io.UnsupportedEncodingException;
@@ -16,6 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import jp.terasoluna.fw.file.annotation.InputFileColumn;
@@ -23,7 +26,6 @@ import jp.terasoluna.fw.file.annotation.NullStringConverter;
 import jp.terasoluna.fw.file.dao.FileException;
 import jp.terasoluna.fw.file.ut.VMOUTUtil;
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.FixedFileLineIterator} クラスのテスト。
@@ -34,43 +36,14 @@ import junit.framework.TestCase;
  * @author 趙俸徹
  * @see jp.terasoluna.fw.file.dao.standard.FixedFileLineIterator
  */
-public class FixedFileLineIteratorTest extends TestCase {
-
-    /**
-     * このテストケースを実行する為の GUI アプリケーションを起動する。
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        // junit.swingui.TestRunner.run(FixedFileLineIteratorTest.class);
-    }
+public class FixedFileLineIteratorTest {
 
     /**
      * 初期化処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
      */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
+    @Before
+    public void setUp() {
         VMOUTUtil.initialize();
-    }
-
-    /**
-     * 終了処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * @param name このテストケースの名前。
-     */
-    public FixedFileLineIteratorTest(String name) {
-        super(name);
     }
 
     /**
@@ -98,6 +71,7 @@ public class FixedFileLineIteratorTest extends TestCase {
      * 正常にコンストラクタの処理が行われることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testFixedFileLineIterator01() throws Exception {
         // テスト対象のインスタンス化なし
@@ -161,6 +135,7 @@ public class FixedFileLineIteratorTest extends TestCase {
      *                                ファイル名が入力値のfileNameに一致することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testFixedFileLineIterator02() throws Exception {
         // テスト対象のインスタンス化なし
@@ -228,6 +203,7 @@ public class FixedFileLineIteratorTest extends TestCase {
      *                                  ファイル名が入力値のfileNameに一致することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testFixedFileLineIterator03() throws Exception {
         // テスト対象のインスタンス化なし
@@ -297,6 +273,7 @@ public class FixedFileLineIteratorTest extends TestCase {
      * 正常にコンストラクタの処理が行われることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testFixedFileLineIterator04() throws Exception {
         // テスト対象のインスタンス化なし
@@ -337,6 +314,7 @@ public class FixedFileLineIteratorTest extends TestCase {
      * ファイル行オブジェクトにInputFileColumnアノテーションが無し
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testFixedFileLineIterator05() throws Exception {
         // 引数の設定
         URL url = this.getClass().getResource("File_Empty.txt");
@@ -366,6 +344,7 @@ public class FixedFileLineIteratorTest extends TestCase {
      * InputFileColumnにEncloseCharが設定されている場合、エラーとする
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testFixedFileLineIterator06() throws Exception {
         // 引数の設定
         URL url = this.getClass().getResource("File_Empty.txt");
@@ -466,6 +445,7 @@ public class FixedFileLineIteratorTest extends TestCase {
      * 通常の処理でこの返却値が戻ることはない。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSeparateColumns01() throws Exception {
         // テスト対象のインスタンス化
         URL url = FixedFileLineIteratorTest.class.getResource("/aaa.txt");
@@ -511,6 +491,7 @@ public class FixedFileLineIteratorTest extends TestCase {
      * ファイル行オブジェクトのインスタンス変数がない場合。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSeparateColumns02() throws Exception {
         // テスト対象のインスタンス化
         URL url = FixedFileLineIteratorTest.class.getResource("/aaa.txt");
@@ -564,6 +545,7 @@ public class FixedFileLineIteratorTest extends TestCase {
      * 正常パターン。配列要素1の文字列型配列を返却する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSeparateColumns03() throws Exception {
         // テスト対象のインスタンス化
         URL url = FixedFileLineIteratorTest.class.getResource("/aaa.txt");
@@ -613,6 +595,7 @@ public class FixedFileLineIteratorTest extends TestCase {
      * 例外。設定されているエンコードが存在しない場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSeparateColumns04() throws Exception {
         // テスト対象のインスタンス化
         URL url = FixedFileLineIteratorTest.class.getResource("/aaa.txt");
@@ -677,6 +660,7 @@ public class FixedFileLineIteratorTest extends TestCase {
      *                              配列要素3の文字列方配列を返却する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSeparateColumns05() throws Exception {
         // テスト対象のインスタンス化
         URL url = FixedFileLineIteratorTest.class.getResource("/aaa.txt");
@@ -723,6 +707,7 @@ public class FixedFileLineIteratorTest extends TestCase {
      * 通常の処理でこの返却値が戻ることはない。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSeparateColumns06() throws Exception {
         // テスト対象のインスタンス化
         URL url = FixedFileLineIteratorTest.class.getResource("/aaa.txt");
@@ -776,6 +761,7 @@ public class FixedFileLineIteratorTest extends TestCase {
      *                              ファイル行オブジェクトのインスタンス変数がない場合。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSeparateColumns07() throws Exception {
         // テスト対象のインスタンス化
         URL url = FixedFileLineIteratorTest.class.getResource("/aaa.txt");
@@ -826,6 +812,7 @@ public class FixedFileLineIteratorTest extends TestCase {
      * falseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsCheckByte01() throws Exception {
         // テスト対象のインスタンス化
         URL url = FixedFileLineIteratorTest.class.getResource("/aaa.txt");
@@ -864,6 +851,7 @@ public class FixedFileLineIteratorTest extends TestCase {
      * delimiterのgetterメソッドが正しく値を取得することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetDelimiter01() throws Exception {
         // テスト対象のインスタンス化
         URL url = FixedFileLineIteratorTest.class.getResource("/aaa.txt");
@@ -905,6 +893,7 @@ public class FixedFileLineIteratorTest extends TestCase {
      * encloseCharのgetterメソッドが正しく値を取得することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetEncloseChar01() throws Exception {
         // テスト対象のインスタンス化
         URL url = FixedFileLineIteratorTest.class.getResource("/aaa.txt");
@@ -939,6 +928,7 @@ public class FixedFileLineIteratorTest extends TestCase {
      * 固定長改行無し
      * @throws Exception
      */
+    @Test
     public void testNext01() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -980,6 +970,7 @@ public class FixedFileLineIteratorTest extends TestCase {
      * 固定長
      * @throws Exception
      */
+    @Test
     public void testNext02() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -1021,6 +1012,7 @@ public class FixedFileLineIteratorTest extends TestCase {
      * キャッシュしているアノテーションの情報を利用している事を確認する。<br>
      * @throws Exception
      */
+    @Test
     public void testNext03() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("CsvFileLineIterator_next01.txt");

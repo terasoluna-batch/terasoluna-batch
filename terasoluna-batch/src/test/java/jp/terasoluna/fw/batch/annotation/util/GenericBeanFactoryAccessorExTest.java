@@ -1,13 +1,16 @@
 package jp.terasoluna.fw.batch.annotation.util;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.Map;
 
 import jp.terasoluna.fw.batch.annotation.JobComponent;
-import junit.framework.TestCase;
 
+import org.junit.Test;
 import org.springframework.aop.framework.AdvisedSupport;
 import org.springframework.aop.framework.AopProxyUtils;
 import org.springframework.beans.factory.config.BeanDefinition;
@@ -15,13 +18,7 @@ import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.support.GenericBeanDefinition;
 import org.springframework.util.ClassUtils;
 
-public class GenericBeanFactoryAccessorExTest extends TestCase {
-
-    public void setUp() throws Exception {
-    }
-
-    public void tearDown() throws Exception {
-    }
+public class GenericBeanFactoryAccessorExTest {
 
     /**
      * getBeansWithAnnotationメソッド<br>
@@ -47,6 +44,7 @@ public class GenericBeanFactoryAccessorExTest extends TestCase {
      * <li>return : not null</li>
      * </p>
      */
+    @Test
     public void testGetBeansWithAnnotationClassOfQextendsAnnotation001() {
         // パラメータ
         MockApplicationContext ac = new MockApplicationContext();
@@ -100,6 +98,7 @@ public class GenericBeanFactoryAccessorExTest extends TestCase {
      * <li>return : not null</li>
      * </p>
      */
+    @Test
     public void testFindAnnotationOnBeanStringClassOfA001() {
         // パラメータ
         MockApplicationContext ac = new MockApplicationContext();
@@ -151,6 +150,7 @@ public class GenericBeanFactoryAccessorExTest extends TestCase {
      * <li>return : not null</li>
      * </p>
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testFindAnnotationOnBeanStringClassOfA002() {
         // パラメータ
@@ -217,6 +217,7 @@ public class GenericBeanFactoryAccessorExTest extends TestCase {
      * <li>return : not null</li>
      * </p>
      */
+    @Test
     public void testFindAnnotationOnBeanStringClassOfA003() {
         // パラメータ
         MockApplicationContext ac1 = new MockApplicationContext();

@@ -16,6 +16,12 @@
 
 package jp.terasoluna.fw.batch.exception;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+
+import org.junit.Before;
+import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -23,7 +29,6 @@ import jp.terasoluna.fw.batch.exception.BatchException;
 import jp.terasoluna.fw.batch.message.MessageAccessor;
 import jp.terasoluna.fw.batch.util.MessageUtil;
 import jp.terasoluna.fw.util.PropertyUtil;
-import junit.framework.TestCase;
 
 /**
  * 事前条件<br>
@@ -50,7 +55,7 @@ import junit.framework.TestCase;
  * ・messages.propertiesファイルが存在すること<br>
  * 
  */
-public class BatchExceptionTest extends TestCase {
+public class BatchExceptionTest {
 
 	/**
 	 * プロパティ値取得値
@@ -67,8 +72,8 @@ public class BatchExceptionTest extends TestCase {
 	 */
 	private MessageAccessor messageAccessor;
 
-	@Override
-	protected void setUp() throws Exception {
+	@Before
+	public void setUp() {
 
 		// メッセージソースアクセサのBean名取得
 		context = new ClassPathXmlApplicationContext(
@@ -88,6 +93,7 @@ public class BatchExceptionTest extends TestCase {
 	 * 
 	 * @throws Exception
 	 */
+    @Test
 	public void testBatchException01() throws Exception {
 
 		BatchException result = new BatchException();
@@ -105,6 +111,7 @@ public class BatchExceptionTest extends TestCase {
 	 * 
 	 * @throws Exception
 	 */
+    @Test
 	public void testBatchException02() throws Exception {
 
 		BatchException result = new BatchException("test");
@@ -124,6 +131,7 @@ public class BatchExceptionTest extends TestCase {
 	 * 
 	 * @throws Exception
 	 */
+    @Test
 	public void testBatchException03() throws Exception {
 
 		BatchException result = new BatchException("test",
@@ -145,6 +153,7 @@ public class BatchExceptionTest extends TestCase {
 	 * 
 	 * @throws Exception
 	 */
+    @Test
 	public void testBatchException04() throws Exception {
 
 		BatchException result = new BatchException(new RuntimeException());
@@ -164,6 +173,7 @@ public class BatchExceptionTest extends TestCase {
 	 * 
 	 * @throws Exception
 	 */
+    @Test
 	public void testCreateException01() throws Exception {
 
 		BatchException result = BatchException
@@ -184,6 +194,7 @@ public class BatchExceptionTest extends TestCase {
 	 * 
 	 * @throws Exception
 	 */
+    @Test
 	public void testCreateException02() throws Exception {
 
 		BatchException result = BatchException.createException(null);
@@ -203,6 +214,7 @@ public class BatchExceptionTest extends TestCase {
 	 * 
 	 * @throws Exception
 	 */
+    @Test
 	public void testCreateException03() throws Exception {
 
 		BatchException result = BatchException.createException("");
@@ -222,6 +234,7 @@ public class BatchExceptionTest extends TestCase {
 	 * 
 	 * @throws Exception
 	 */
+    @Test
 	public void testCreateException04() throws Exception {
 
 		BatchException result = BatchException.createException(
@@ -242,6 +255,7 @@ public class BatchExceptionTest extends TestCase {
 	 * 
 	 * @throws Exception
 	 */
+    @Test
 	public void testCreateException05() throws Exception {
 
 		BatchException result = BatchException.createException("errors.range",
@@ -263,6 +277,7 @@ public class BatchExceptionTest extends TestCase {
 	 * 
 	 * @throws Exception
 	 */
+    @Test
 	public void testCreateException06() throws Exception {
 
 		BatchException result = BatchException.createException(
@@ -286,6 +301,7 @@ public class BatchExceptionTest extends TestCase {
 	 * 
 	 * @throws Exception
 	 */
+    @Test
 	public void testCreateException07() throws Exception {
 
 		BatchException result = BatchException.createException(
@@ -308,6 +324,7 @@ public class BatchExceptionTest extends TestCase {
 	 * 
 	 * @throws Exception
 	 */
+    @Test
 	public void testCreateException08() throws Exception {
 
 		BatchException result = BatchException.createException("errors.range",
@@ -328,6 +345,7 @@ public class BatchExceptionTest extends TestCase {
 	 * 
 	 * @throws Exception
 	 */
+    @Test
 	public void testGetLogMessage01() throws Exception {
 
 		BatchException exception = BatchException.createException(
@@ -349,6 +367,7 @@ public class BatchExceptionTest extends TestCase {
 	 * 
 	 * @throws Exception
 	 */
+    @Test
 	public void testGetMessageId01() throws Exception {
 
 		BatchException exception = BatchException.createException(
@@ -370,6 +389,7 @@ public class BatchExceptionTest extends TestCase {
 	 * 
 	 * @throws Exception
 	 */
+    @Test
 	public void testGetMessageId02() throws Exception {
 
 		BatchException exception = BatchException.createException(
@@ -392,6 +412,7 @@ public class BatchExceptionTest extends TestCase {
 	 * 
 	 * @throws Exception
 	 */
+    @Test
 	public void testGetMessageId03() throws Exception {
 
 		BatchException exception = BatchException.createException(

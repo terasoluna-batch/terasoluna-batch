@@ -16,12 +16,18 @@
 
 package jp.terasoluna.fw.util;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 import java.io.UnsupportedEncodingException;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Vector;
 
-import junit.framework.TestCase;
+import org.junit.Test;
 
 /**
  * 
@@ -34,7 +40,7 @@ import junit.framework.TestCase;
  *
  */
 @SuppressWarnings("unused")
-public class StringUtilTest extends TestCase {
+public class StringUtilTest {
 
     /**
      * ファイルログ出力先のディレクトリ名をプロパティから取得するキー値。
@@ -61,30 +67,6 @@ public class StringUtilTest extends TestCase {
             + PropertyUtil.getProperty(FILE_NAME);
 
     /**
-     * Constructor for StringUtilTest.
-     * @param arg0
-     */
-    public StringUtilTest(String arg0) {
-        super(arg0);
-    }
-
-    /*
-     * @see TestCase#setUp()
-     * @throws Exception 例外 */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
-
-    /*
-     * @see TestCase#tearDown()
-     * @throws Exception 例外 */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
      * testIsWhitespace01()
      * 
      * (正常系)<br>
@@ -99,6 +81,7 @@ public class StringUtilTest extends TestCase {
      * 返却されることを確認する。
      * 
      * @throws Exception 例外 */
+    @Test
     public void testIsWhitespace01() throws Exception {
         // 入力値の設定
         char input = ' ';
@@ -122,6 +105,7 @@ public class StringUtilTest extends TestCase {
      * 返却されることを確認する。
      * 
      * @throws Exception 例外 */
+    @Test
     public void testIsWhitespace02() throws Exception {
         // 入力値の設定
         char input = 'a';
@@ -144,6 +128,7 @@ public class StringUtilTest extends TestCase {
      * 0キャラクタを設定した時、falseが返却されること<br>
      * 
      * @throws Exception 例外 */
+    @Test
     public void testIsWhitespace03() throws Exception {
         // 入力値の設定
         //char input = '\u0000';
@@ -168,6 +153,7 @@ public class StringUtilTest extends TestCase {
      * 右スペースのみ除去されていることを確認。
      * 
      * @throws Exception 例外 */
+    @Test
     public void testRtrim01() throws Exception {
         // 入力値の設定
         String input = " TERASOLUNA ";
@@ -195,6 +181,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 
      * @throws Exception 例外 */
+    @Test
     public void testRtrim02() throws Exception {
         // 入力値の設定
         String input = "   TERASOLUNA   ";
@@ -221,6 +208,7 @@ public class StringUtilTest extends TestCase {
      * 返却されることを確認する。
      * 
      * @throws Exception 例外 */
+    @Test
     public void testRtrim03() throws Exception {
         // 入力値の設定
         String input = " TERASOLUNA";
@@ -247,6 +235,7 @@ public class StringUtilTest extends TestCase {
      * 返却されること。
      * 
      * @throws Exception 例外 */
+    @Test
     public void testRtrim04() throws Exception {
         // 入力値の設定
         String input = null;
@@ -272,6 +261,7 @@ public class StringUtilTest extends TestCase {
      * 空文字が入力値に設定された時、そのまま空文字が返却されること
      * 
      * @throws Exception 例外 */
+    @Test
     public void testRtrim05() throws Exception {
         // 入力値の設定
         String input = "";
@@ -297,6 +287,7 @@ public class StringUtilTest extends TestCase {
      * 左右両側にスペースが存在する文字列を入力した時、<br>
      * 左スペースのみ除去されていることを確認。 
      * @throws Exception 例外 */
+    @Test
     public void testLtrim01() throws Exception {
         // 入力値の設定
         String input = " TERASOLUNA ";
@@ -323,6 +314,7 @@ public class StringUtilTest extends TestCase {
      * 連続した左端スペースが除去されていることを確認。
      * 
      * @throws Exception 例外 */
+    @Test
     public void testLtrim02() throws Exception {
         // 入力値の設定
         String input = "   TERASOLUNA   ";
@@ -349,6 +341,7 @@ public class StringUtilTest extends TestCase {
      * 返却されることを確認する。
      * 
      * @throws Exception 例外 */
+    @Test
     public void testLtrim03() throws Exception {
         // 入力値の設定
         String input = "TERASOLUNA ";
@@ -375,6 +368,7 @@ public class StringUtilTest extends TestCase {
      * 返却されること。
      *  
      * @throws Exception 例外 */
+    @Test
     public void testLtrim04() throws Exception {
         // 入力値の設定
         String input = null;
@@ -400,6 +394,7 @@ public class StringUtilTest extends TestCase {
      * 空文字が入力値に設定された時、そのまま空文字が返却されること
      * 
      * @throws Exception 例外 */
+    @Test
     public void testLtrim05() throws Exception {
         // 入力値の設定
         String input = "";
@@ -427,6 +422,7 @@ public class StringUtilTest extends TestCase {
      * StringUtils.trim()の呼び出し確認のために、１ケースのみとする。
      * 
      * @throws Exception 例外 */
+    @Test
     public void testTrim01() throws Exception {
         // 入力値の設定
         String input = " TERASOLUNA ";
@@ -457,6 +453,7 @@ public class StringUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsZenHankakuSpace01() throws Exception {
         // 入力値の設定
         char input = '　';
@@ -484,6 +481,7 @@ public class StringUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsZenHankakuSpace02() throws Exception {
         // 入力値の設定
         char input = 'a';
@@ -511,6 +509,7 @@ public class StringUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsZenHankakuSpace03() throws Exception {
         // 入力値の設定
         char input = 0;
@@ -538,6 +537,7 @@ public class StringUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testRtrimZ01() throws Exception {
         // 入力値の設定
         String input = " 　 TERASOLUNA 　 ";
@@ -568,6 +568,7 @@ public class StringUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testRtrimZ02() throws Exception {
         // 入力値の設定
         String input = " 　  　TERASOLUNA 　 　 ";
@@ -598,6 +599,7 @@ public class StringUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testRtrimZ03() throws Exception {
         // 入力値の設定
         String input = "　 TERASOLUNA";
@@ -628,6 +630,7 @@ public class StringUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testRtrimZ04() throws Exception {
         // 入力値の設定
         String input = null;
@@ -658,6 +661,7 @@ public class StringUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testRtrimZ05() throws Exception {
         // 入力値の設定
         String input = "";
@@ -688,6 +692,7 @@ public class StringUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testLtrimZ01() throws Exception {
         // 入力値の設定
         String input = "　  TERASOLUNA 　 ";
@@ -718,6 +723,7 @@ public class StringUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testLtrimZ02() throws Exception {
         // 入力値の設定
         String input = " 　  　TERASOLUNA 　 　 ";
@@ -748,6 +754,7 @@ public class StringUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testLtrimZ03() throws Exception {
         // 入力値の設定
         String input = "TERASOLUNA 　";
@@ -778,6 +785,7 @@ public class StringUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testLtrimZ04() throws Exception {
         // 入力値の設定
         String input = null;
@@ -808,6 +816,7 @@ public class StringUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testLtrimZ05() throws Exception {
         // 入力値の設定
         String input = "";
@@ -839,6 +848,7 @@ public class StringUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testTrimZ01() throws Exception {
         // 入力値の設定
         String input = " 　 TERASOLUNA 　 ";
@@ -866,6 +876,7 @@ public class StringUtilTest extends TestCase {
      * ClassUtils.getShortClassName()の呼び出し確認のために、１ケースのみとする。
      * 
      * @throws Exception 例外 */
+    @Test
     public void testToShortClassName01() throws Exception {
         // 入力値の設定
         String input = "jp.terasoluna.util.StringUtil";
@@ -892,6 +903,7 @@ public class StringUtilTest extends TestCase {
      * ピリオド＋拡張子が返却されること。
      * 
      * @throws Exception 例外 */
+    @Test
     public void testGetExtention01() throws Exception {
         // 入力値の設定
         String input = "sample.txt";
@@ -918,6 +930,7 @@ public class StringUtilTest extends TestCase {
      * 入力値はファイル名のみと解釈され、空文字が返却されること。
      * 
      * @throws Exception 例外 */
+    @Test
     public void testGetExtention02() throws Exception {
         // 入力値の設定
         String input = "sample";
@@ -943,6 +956,7 @@ public class StringUtilTest extends TestCase {
      * 左端のピリオド＋拡張子が返却されること
      * 
      * @throws Exception 例外 */
+    @Test
     public void testGetExtention03() throws Exception {
         // 入力値の設定
         String input = "sample.txt.bak";
@@ -968,6 +982,7 @@ public class StringUtilTest extends TestCase {
      * 引数をnullで設定した時、nullが返却されること。
      * 
      * @throws Exception 例外 */
+    @Test
     public void testGetExtention04() throws Exception {
         // 入力値の設定
         String input = null;
@@ -993,6 +1008,7 @@ public class StringUtilTest extends TestCase {
      * 空文字列が設定された時、そのまま空文字が返却されること。
      * 
      * @throws Exception 例外 */
+    @Test
     public void testGetExtention05() throws Exception {
         // 入力値の設定
         String input = "";
@@ -1018,6 +1034,7 @@ public class StringUtilTest extends TestCase {
      * 末尾がピリオドのとき、ピリオドのみ返却されること。
      * 
      * @throws Exception 例外 */
+    @Test
     public void testGetExtention06() throws Exception {
         // 入力値の設定
         String input = "sample.txt.";
@@ -1043,6 +1060,7 @@ public class StringUtilTest extends TestCase {
      * 入力値の16進数2桁に変換されていること。
      * 
      * @throws Exception 例外 */
+    @Test
     public void testToHexString01() throws Exception {
         // 入力値の設定
         byte[] byteArray = { 0 };
@@ -1068,6 +1086,7 @@ public class StringUtilTest extends TestCase {
      * 空文字列が設定された時、空文字がそのまま返却されること。
      * 
      * @throws Exception 例外 */
+    @Test
     public void testToHexString02() throws Exception {
         // 入力値の設定
         byte[] byteArray = {};
@@ -1094,6 +1113,7 @@ public class StringUtilTest extends TestCase {
      * 文字列が、返却されること。
      * 
      * @throws Exception 例外 */
+    @Test
     public void testToHexString03() throws Exception {
         // 入力値の設定
         byte[] byteArray = { 0, 10, 100 };
@@ -1120,6 +1140,7 @@ public class StringUtilTest extends TestCase {
      * 結合されていること。
      * 
      * @throws Exception 例外 */
+    @Test
     public void testToHexString04() throws Exception {
         // 入力値の設定
         byte[] byteArray = { 0, 10, 100 };
@@ -1146,6 +1167,7 @@ public class StringUtilTest extends TestCase {
      * 結合されていること。
      * 
      * @throws Exception 例外 */
+    @Test
     public void testToHexString05() throws Exception {
         // 入力値の設定
         byte[] byteArray = { 0, 10, 100 };
@@ -1172,6 +1194,7 @@ public class StringUtilTest extends TestCase {
      * NullPointerExceptiが発生することを確認
      * 
      * @throws Exception 例外 */
+    @Test
     public void testToHexString06() throws Exception {
         // 入力値の設定
         byte[] byteArray = null;
@@ -1201,6 +1224,7 @@ public class StringUtilTest extends TestCase {
      * そのまま設定されていること。
      * 
      * @throws Exception 例外 */
+    @Test
     public void testParseCSVString01() throws Exception {
         // 入力値の設定
         String input = "abcde";
@@ -1229,6 +1253,7 @@ public class StringUtilTest extends TestCase {
      * 入力値がnullのとき、文字列長0の文字列が返却されること。
      * 
      * @throws Exception 例外 */
+    @Test
     public void testParseCSVString02() throws Exception {
         // 入力値の設定
         String input = null;
@@ -1254,6 +1279,7 @@ public class StringUtilTest extends TestCase {
      * String[]配列がカンマ毎で区切られ、配列化されていること。
      * 
      * @throws Exception 例外 */
+    @Test
     public void testParseCSVString03() throws Exception {
         // 入力値の設定
         String input = ",abcde,,あいうえお,";
@@ -1284,6 +1310,7 @@ public class StringUtilTest extends TestCase {
      * 入力値が空文字のとき、空の配列が返却されることと。
      * 
      * @throws Exception 例外 */
+    @Test
     public void testParseCSVString04() throws Exception {
         // 入力値の設定
         String input = "";
@@ -1312,6 +1339,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 入力値が空文字のとき、第一要素が空文字の文字配列が返却されること。
      * @throws Exception 例外 */
+    @Test
     public void testParseCSVStringString01() throws Exception {
         // 入力値の設定
 
@@ -1337,6 +1365,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 入力値がnullのとき、要素数0の空の配列が返却されること。
      * @throws Exception 例外 */
+    @Test
     public void testParseCSVStringString02() throws Exception {
         // 入力値の設定
 
@@ -1362,6 +1391,7 @@ public class StringUtilTest extends TestCase {
      * エスケープ文字がカンマの前に存在しない場合、
      * カンマ区切りの配列が返却されること。
      * @throws Exception 例外 */
+    @Test
     public void testParseCSVStringString03() throws Exception {
         // 入力値の設定
 
@@ -1391,6 +1421,7 @@ public class StringUtilTest extends TestCase {
      * 入力文字の先頭がカンマであるとき、第一要素が空文字であること。
      * カンマ区切りの配列が返却されること。
      * @throws Exception 例外 */
+    @Test
     public void testParseCSVStringString04() throws Exception {
         // 入力値の設定
 
@@ -1420,6 +1451,7 @@ public class StringUtilTest extends TestCase {
      * 入力文字の末尾がカンマであるとき、最終要素が空文字であること。
      * カンマ区切りの配列が返却されること。
      * @throws Exception 例外 */
+    @Test
     public void testParseCSVStringString05() throws Exception {
         // 入力値の設定
 
@@ -1450,6 +1482,7 @@ public class StringUtilTest extends TestCase {
      * 文字区切りが行なわれないこと。
      * それ以外のカンマは区切られること。
      * @throws Exception 例外 */
+    @Test
     public void testParseCSVStringString06() throws Exception {
         // 入力値の設定
 
@@ -1479,6 +1512,7 @@ public class StringUtilTest extends TestCase {
      * 入力文字の中にエスケープ文字＋カンマ以外の文字があるとき、
      * 文字区切りが行なわれず、返却文字列にエスケープ文字が混入していないこと。
      * @throws Exception 例外 */
+    @Test
     public void testParseCSVStringString07() throws Exception {
         // 入力値の設定
 
@@ -1508,6 +1542,7 @@ public class StringUtilTest extends TestCase {
      * 先頭がエスケープ文字＋カンマ文字であるとき、
      * 返却される先頭の要素の第一文字がカンマであること。
      * @throws Exception 例外 */
+    @Test
     public void testParseCSVStringString08() throws Exception {
         // 入力値の設定
 
@@ -1537,6 +1572,7 @@ public class StringUtilTest extends TestCase {
      * 終端がエスケープ文字＋カンマ文字であるとき、
      * 返却される終端の要素の最終文字がカンマであること。
      * @throws Exception 例外 */
+    @Test
     public void testParseCSVStringString09() throws Exception {
         // 入力値の設定
 
@@ -1566,6 +1602,7 @@ public class StringUtilTest extends TestCase {
      * カンマが複数個連続で入力された時、カンマ区切り数分の
      * 空文字要素が返却されること。
      * @throws Exception 例外 */
+    @Test
     public void testParseCSVStringString10() throws Exception {
         // 入力値の設定
 
@@ -1595,6 +1632,7 @@ public class StringUtilTest extends TestCase {
      * エスケープ文字とカンマが複数個連続で入力された時、
      * カンマのみ連続して配列要素に設定されること。
      * @throws Exception 例外 */
+    @Test
     public void testParseCSVStringString11() throws Exception {
         // 入力値の設定
 
@@ -1629,6 +1667,7 @@ public class StringUtilTest extends TestCase {
      *      エスケープ文字列として作用すること。</li>
      * </ol>
      * @throws Exception 例外 */
+    @Test
     public void testParseCSVStringString12() throws Exception {
         // 入力値の設定
 
@@ -1658,6 +1697,7 @@ public class StringUtilTest extends TestCase {
      * エスケープ文字列が空文字の時、エスケープが行なわれず
      * カンマ区切り文字列が配列に変換され、返却されること。
      * @throws Exception 例外 */
+    @Test
     public void testParseCSVStringString13() throws Exception {
         // 入力値の設定
 
@@ -1687,6 +1727,7 @@ public class StringUtilTest extends TestCase {
      * エスケープ文字列がnullの時、エスケープが行なわれず
      * カンマ区切り文字列が配列に変換され、返却されること。
      * @throws Exception 例外 */
+    @Test
     public void testParseCSVStringString14() throws Exception {
         // 入力値の設定
 
@@ -1712,6 +1753,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：ダンプ対象文字列に変換されていることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testDump01() throws Exception {
         //入力値の設定
         final String num = "1";
@@ -1747,6 +1789,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：ダンプ対象文字列に複数、変換されていることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testDump02() throws Exception {
         //入力値の設定
         final String[] num = { "1", "2", "3" };
@@ -1787,6 +1830,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：配列ダンプ対象文字列に変換されていることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testDump03() throws Exception {
         //入力値の設定
         Map map = new LinkedHashMap();
@@ -1817,6 +1861,7 @@ public class StringUtilTest extends TestCase {
      * 説明：配列要素中にnullが検出された場合、<br>
      * "null"という文字列が出力されることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testDump04() throws Exception {
         //入力値の設定
         final String[] num = { "1", "2", "3" };
@@ -1858,6 +1903,7 @@ public class StringUtilTest extends TestCase {
      * 説明：キーがnullの場合、<br>
      * "null"が表示されることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testDump05() throws Exception {
         //入力値の設定
         final String num = null;
@@ -1891,6 +1937,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：配列ダンプ対象文字列に変換されていることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testDump06() throws Exception {
         //入力値の設定
         final String num = "1";
@@ -1920,6 +1967,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：配列ダンプ対象文字列に変換されていることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testDump07() throws Exception {
         //入力値の設定
         final String num1 = "1";
@@ -1966,6 +2014,7 @@ public class StringUtilTest extends TestCase {
      * 説明：mapがnullの場合、<br>
      * nullが返却されることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testDump08() throws Exception {
         //入力値の設定        
         Map map = null;
@@ -1988,6 +2037,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：配列ダンプ対象文字列に変換されていることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testDump9() throws Exception {
         //入力値の設定
         final String num1 = "1";
@@ -2033,6 +2083,7 @@ public class StringUtilTest extends TestCase {
      * ArrayUtils.toString()の呼び出し確認のために、１ケースのみとする。
      * 
      * @throws Exception 例外 */
+    @Test
     public void testGetArraysStr01() throws Exception {
         //入力値の設定
         final String[] str = { "1", "2", "3", "4", "5" };
@@ -2055,6 +2106,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：半角普通英数字一文字が全角普通英数字に変換されることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testHankakuToZenkaku01() throws Exception {
         //入力値の設定
         String input = "A";
@@ -2077,6 +2129,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：半角普通文字が複数、全角普通文字に変換されることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testHankakuToZenkaku02() throws Exception {
         //入力値の設定
         String input = "ｱﾞ!A8";
@@ -2099,6 +2152,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：半角サ一文字が全角サに変換されることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testHankakuToZenkaku03() throws Exception {
         //入力値の設定
         String input = "ｻ";
@@ -2121,6 +2175,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：半角カサタハウが複数、全角カサタハウに変換されることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testHankakuToZenkaku04() throws Exception {
         //入力値の設定
         String input = "ｶｻﾀﾊｳ";
@@ -2143,6 +2198,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：半角濁点一文字が全角濁点に変換されることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testHankakuToZenkaku05() throws Exception {
         //入力値の設定
         String input = "ｶﾞ";
@@ -2165,6 +2221,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：半角濁点が複数文字、全角濁点に変換されることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testHankakuToZenkaku06() throws Exception {
         //入力値の設定
         String input = "ｶﾞｻﾞﾀﾞﾊﾞｳﾞ";
@@ -2187,6 +2244,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：半角半濁点(一文字)が全角半濁点に変換されることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testHankakuToZenkaku07() throws Exception {
         //入力値の設定
         String input = "ﾎﾟ";
@@ -2209,6 +2267,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：半角半濁点が複数文字、全角半濁点に変換されることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testHankakuToZenkaku08() throws Exception {
         //入力値の設定
         String input = "ﾊﾟﾋﾟﾌﾟﾍﾟﾎﾟ";
@@ -2231,6 +2290,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：半角ワが全角ワに変換されることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testHankakuToZenkaku09() throws Exception {
         //入力値の設定
         String input = "ﾜ";
@@ -2253,6 +2313,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：半角ヲが全角ヲに変換されることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testHankakuToZenkaku10() throws Exception {
         //入力値の設定
         String input = "ｦ";
@@ -2275,6 +2336,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：半角濁点ワが全角濁点ワに変換されることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testHankakuToZenkaku11() throws Exception {
         //入力値の設定
         String input = "ﾜﾞ";
@@ -2297,6 +2359,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：半角濁点ヲが全角濁点ヲに変換されることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testHankakuToZenkaku12() throws Exception {
         //入力値の設定
         String input = "ｦﾞ";
@@ -2319,6 +2382,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：半角ワが文字列の途中にある時、全角ワに変換されることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testHankakuToZenkaku13() throws Exception {
         //入力値の設定
         String input = "Aﾜ1";
@@ -2341,6 +2405,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：半角ヲが文字列の途中にある時、全角ヲに変換されることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testHankakuToZenkaku14() throws Exception {
         //入力値の設定
         String input = "Bｦ8";
@@ -2363,6 +2428,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：半角濁点ワが文字列の途中にある時、全角濁点ワに変換されることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testHankakuToZenkaku15() throws Exception {
         //入力値の設定
         String input = "Bﾜﾞ8";
@@ -2385,6 +2451,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：半角濁点ワが文字列の途中にある時、全角濁点ワに変換されることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testHankakuToZenkaku16() throws Exception {
         //入力値の設定
         String input = "Bｦﾞ8";
@@ -2407,6 +2474,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：半角ワが文字列の末尾にある時、全角ワに変換されることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testHankakuToZenkaku17() throws Exception {
         //入力値の設定
         String input = "ｱAﾜ";
@@ -2429,6 +2497,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：半角ヲが文字列の末尾にある時、全角ヲに変換されることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testHankakuToZenkaku18() throws Exception {
         //入力値の設定
         String input = "tBｦ";
@@ -2451,6 +2520,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：半角濁点ワが文字列の末尾にある時、全角濁点ワに変換されることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testHankakuToZenkaku19() throws Exception {
         //入力値の設定
         String input = "ｻBﾜﾞ";
@@ -2473,6 +2543,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：半角濁点ヲが文字列の末尾にある時、全角濁点ヲに変換されることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testHankakuToZenkaku20() throws Exception {
         //入力値の設定
         String input = "ｱBｦﾞ";
@@ -2496,6 +2567,7 @@ public class StringUtilTest extends TestCase {
      * 説明：入力値に全角文字と半角文字を混合させたものを設定し、<br>
      * 全て全角文字に変換されることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testHankakuToZenkaku21() throws Exception {
         //入力値の設定
         String input = "サｼズｾﾞソ";
@@ -2517,6 +2589,7 @@ public class StringUtilTest extends TestCase {
      * 期待値：null
      * 説明：置換対象文字列がnullの時、nullを戻り値とし処理を終了することを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testHankakuToZenkaku22() throws Exception {
         //入力値の設定
         String input = null;
@@ -2539,6 +2612,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：置換対象文字列が空文字の時、空文字を戻り値とし処理を終了することを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testHankakuToZenkaku23() throws Exception {
         //入力値の設定
         String input = "";
@@ -2561,6 +2635,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：半角半濁点文字が全角半濁点文字に変換されることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testHankakuToZenkaku24() throws Exception {
         //入力値の設定
         String input = "ｶﾟｷﾟ";
@@ -2583,6 +2658,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：全角文字が半角文字に複数文字変換されることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testZenkakuToHankaku01() throws Exception {
         //入力値の設定
         String input = "Ａ！ア";
@@ -2605,6 +2681,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：全角文字に対して半角文字に一文字変換されることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testZenkakuToHankaku02() throws Exception {
         //入力値の設定
         String input = "Ａ";
@@ -2627,6 +2704,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：全角カサタハが半角カサタハに変換されることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testZenkakuToHankaku03() throws Exception {
         //入力値の設定
         String input = "カサタハ";
@@ -2649,6 +2727,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：全角濁点文字が二文字に分解されて表示されることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testZenkakuToHankaku04() throws Exception {
         //入力値の設定
         String input = "ガザダ";
@@ -2671,6 +2750,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：全角濁点・半濁点文字が二文字に分解されて表示されることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testZenkakuToHankaku05() throws Exception {
         //入力値の設定
         String input = "パポ";
@@ -2693,6 +2773,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：全角ワが半角ワに変換されることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testZenkakuToHankaku06() throws Exception {
         //入力値の設定
         String input = "Ａワ";
@@ -2715,6 +2796,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：全角ヲが半角ヲに変換されることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testZenkakuToHankaku07() throws Exception {
         //入力値の設定
         String input = "Ａヲ";
@@ -2737,6 +2819,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：全角濁点ワが半角濁点ﾜに変換されることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testZenkakuToHankaku08() throws Exception {
         //入力値の設定
         String input = "ア\u30f7";
@@ -2759,6 +2842,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：全角濁点ヲが半角濁点ｦに変換されることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testZenkakuToHankaku09() throws Exception {
         //入力値の設定
         String input = "\u30faヴ";
@@ -2781,6 +2865,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：半角・全角混合文字が全て半角に変換されることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testZenkakuToHankaku10() throws Exception {
         //入力値の設定
         String input = "サ\u30faｲAピ";
@@ -2803,6 +2888,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：置換対象文字列が空文字の時、空文字を戻り値とし処理を終了することを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testZenkakuToHankaku11() throws Exception {
         //入力値の設定
         String input = "";
@@ -2825,6 +2911,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：置換対象文字列がnullの時、nullを戻り値とし処理を終了することを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testZenkakuToHankaku12() throws Exception {
         //入力値の設定
         String input = null;
@@ -2847,6 +2934,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：半角化不可能な文字列がそのまま全角文字列で出力されることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testZenkakuToHankaku13() throws Exception {
         //入力値の設定
         String input = "入力値";
@@ -2869,6 +2957,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：二文字以上の文字列中、一部がHTMLメタ文字に変換されることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testFilter01() throws Exception {
         //入力値の設定
         String input = "a & b";
@@ -2891,6 +2980,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：HTMLメタ文字に変換されることなくそのまま出力されることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testFilter02() throws Exception {
         //入力値の設定
         String input = "abc";
@@ -2913,6 +3003,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：HTMLメタ文字に全てが変換されることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testFilter03() throws Exception {
         //入力値の設定
         String input = "< & > \" '";
@@ -2935,6 +3026,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：HTMLメタ文字に一文字変換されることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testFilter04() throws Exception {
         //入力値の設定
         String input = "<";
@@ -2957,6 +3049,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：HTMLメタ文字に変換されることなく、そのまま出力されることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testFilter05() throws Exception {
         //入力値の設定
         String input = "ア";
@@ -2979,6 +3072,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：置換対象文字列がnullのとき、nullが返却されることを確認する。<br>
      * @throws Exception 例外 */
+    @Test
     public void testFilter06() throws Exception {
         //入力値の設定
         String input = null;
@@ -3001,6 +3095,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：HTMLメタ文字に変換されることなく、空文字がそのまま出力されることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testFilter07() throws Exception {
         //入力値の設定
         String input = "";
@@ -3023,6 +3118,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：検索条件文字列が一文字LIKE述語のパターン文字列に変換されることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testToLikeCondition01() throws Exception {
         //入力値の設定
         String input = "a%";
@@ -3046,6 +3142,7 @@ public class StringUtilTest extends TestCase {
      * 説明：LIKE述語のパターン文字列で用いるエスケープ文字が<br>
      * エスケープ文字でエスケープされることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testToLikeCondition02() throws Exception {
         //入力値の設定
         String input = "~";
@@ -3068,6 +3165,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：検索条件文字列が複数文字文字LIKE述語のパターン文字列に変換されることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testToLikeCondition03() throws Exception {
         //入力値の設定
         String input = "_a%";
@@ -3090,6 +3188,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：検索条件文字列以外の文字列は変換されることなく、そのまま出力されることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testToLikeCondition04() throws Exception {
         //入力値の設定
         String input = "aa";
@@ -3112,6 +3211,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：置換対象文字列がnullのとき、nullが返却されることを確認する。<br>
      * @throws Exception 例外 */
+    @Test
     public void testToLikeCondition05() throws Exception {
         //入力値の設定
         String input = null;
@@ -3134,6 +3234,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：置換対象文字列が空文字のとき、"%"が出力されることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testToLikeCondition06() throws Exception {
         //入力値の設定
         String input = "";
@@ -3156,6 +3257,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：置換対象文字列が"％"のとき、"~％%"が出力されることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testToLikeCondition07() throws Exception {
         //入力値の設定
         String input = "％";
@@ -3178,6 +3280,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：置換対象文字列が"＿"のとき、"~＿%"が出力されることを確認する。
      * @throws Exception 例外 */
+    @Test
     public void testToLikeCondition08() throws Exception {
         //入力値の設定
         String input = "＿";
@@ -3200,6 +3303,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：一文字目が正常に大文字に変換できる場合
      * @throws Exception 例外 */
+    @Test
     public void testCapitalizeInitial01() throws Exception {
         //入力値の設定
         String input = "abc";
@@ -3222,6 +3326,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：一文字目が最初から大文字の場合
      * @throws Exception 例外 */
+    @Test
     public void testCapitalizeInitial02() throws Exception {
         //入力値の設定
         String input = "Abc";
@@ -3244,6 +3349,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：一文字目が大文字に変換できない文字の場合
      * @throws Exception 例外 */
+    @Test
     public void testCapitalizeInitial03() throws Exception {
         //入力値の設定
         String input = "123";
@@ -3266,6 +3372,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：空白の場合
      * @throws Exception 例外 */
+    @Test
     public void testCapitalizeInitial04() throws Exception {
         //入力値の設定
         String input = "";
@@ -3288,6 +3395,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：nullの場合
      * @throws Exception 例外 */
+    @Test
     public void testCapitalizeInitial05() throws Exception {
         //入力値の設定
         String input = null;
@@ -3310,6 +3418,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：引数valueがnullの場合<br>
      * @throws Exception 例外 */
+    @Test
     public void testGetByteLength01() throws Exception {
         // 前処理
         String value = null;
@@ -3333,6 +3442,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：引数valueが空文字の場合<br>
      * @throws Exception 例外 */
+    @Test
     public void testGetByteLength02() throws Exception {
         // 前処理
         String value = "";
@@ -3356,6 +3466,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：引数encodingがnullの場合<br>
      * @throws Exception 例外 */
+    @Test
     public void testGetByteLength03() throws Exception {
         // 前処理
         String value = "aaa";
@@ -3379,6 +3490,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：引数encodingが空文字の場合<br>
      * @throws Exception 例外 */
+    @Test
     public void testGetByteLength04() throws Exception {
         // 前処理
         String value = "aaa";
@@ -3402,6 +3514,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：引数encodingが正しい文字エンコーディングの場合<br>
      * @throws Exception 例外 */
+    @Test
     public void testGetByteLength05() throws Exception {
         // 前処理
         String value = "あああ";
@@ -3425,6 +3538,7 @@ public class StringUtilTest extends TestCase {
      * 
      * 説明：引数encodingが不正な文字エンコーディングの場合<br>
      * @throws Exception 例外 */
+    @Test
     public void testGetByteLength06() throws Exception {
         // 前処理
         String value = "aaa";

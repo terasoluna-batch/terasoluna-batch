@@ -7,6 +7,10 @@
 
 package jp.terasoluna.fw.file.dao.standard;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.fail;
+
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -16,9 +20,9 @@ import java.io.Reader;
 
 import jp.terasoluna.fw.file.dao.FileException;
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
 
 import org.easymock.classextension.EasyMock;
+import org.junit.Test;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.LineFeed2LineReader} クラスのテスト。
@@ -28,43 +32,7 @@ import org.easymock.classextension.EasyMock;
  * @author 奥田哲司
  * @see jp.terasoluna.fw.file.dao.standard.LineFeed2LineReader
  */
-public class LineFeed2LineReaderTest extends TestCase {
-
-    /**
-     * このテストケースを実行する為の GUI アプリケーションを起動する。
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        // junit.swingui.TestRunner.run(LineFeed2LineReaderTest.class);
-    }
-
-    /**
-     * 初期化処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
-     */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
-
-    /**
-     * 終了処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * @param name このテストケースの名前。
-     */
-    public LineFeed2LineReaderTest(String name) {
-        super(name);
-    }
+public class LineFeed2LineReaderTest {
 
     /**
      * testLineFeed2LineReaderReaderString01() <br>
@@ -82,6 +50,7 @@ public class LineFeed2LineReaderTest extends TestCase {
      * 渡された引数の情報を持つオブジェクトが生成されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testLineFeed2LineReader01() throws Exception {
         // テスト対象のインスタンス化
         // コンストラクタなので不要
@@ -125,6 +94,7 @@ public class LineFeed2LineReaderTest extends TestCase {
      * 引数readerがnullの場合に、発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testLineFeed2LineReader02() throws Exception {
         // テスト対象のインスタンス化
         // コンストラクタなので不要
@@ -166,6 +136,7 @@ public class LineFeed2LineReaderTest extends TestCase {
      * 引数lineFeedCharがnullの場合に、発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testLineFeed2LineReader03() throws Exception {
         // テスト対象のインスタンス化
         // コンストラクタなので不要
@@ -210,6 +181,7 @@ public class LineFeed2LineReaderTest extends TestCase {
      * 引数lineFeedCharが2桁文字列ではない場合に、発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testLineFeed2LineReader04() throws Exception {
         // テスト対象のインスタンス化
         // コンストラクタなので不要
@@ -258,6 +230,7 @@ public class LineFeed2LineReaderTest extends TestCase {
      * Readerの状態チェックで例外が発生した場合、 FileExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testReadLine01() throws Exception {
         // Mock作成
         Reader reader = EasyMock.createMock(Reader.class);
@@ -309,6 +282,7 @@ public class LineFeed2LineReaderTest extends TestCase {
      * Readerに取得情報が無い場合、空の文字列が返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testReadLine02() throws Exception {
         // テスト対象のインスタンス化
         byte[] buf = "".getBytes();
@@ -353,6 +327,7 @@ public class LineFeed2LineReaderTest extends TestCase {
      * Readerに１行の情報のみある場合(かつ最後に行区切り文字あり)、その１行の情報が返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testReadLine03() throws Exception {
         // テスト対象のインスタンス化
         String byteParm = "aaa,aaa,aaa\r\n";
@@ -397,6 +372,7 @@ public class LineFeed2LineReaderTest extends TestCase {
      * Readerに複数行の情報がある場合、最初の１行の情報のみ返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testReadLine04() throws Exception {
         // テスト対象のインスタンス化
         String byteParm = "\"aaa\",\"aaa\",\"aa\r\na\"\r\n";
@@ -441,6 +417,7 @@ public class LineFeed2LineReaderTest extends TestCase {
      * Readerの読み処理で例外が発生した場合、FileExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testReadLine05() throws Exception {
         // Mock作成
         Reader reader = EasyMock.createMock(Reader.class);
@@ -492,6 +469,7 @@ public class LineFeed2LineReaderTest extends TestCase {
      * Readerに１行の情報のみある場合(かつ行区切り文字なし)、その１行の情報が返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testReadLine06() throws Exception {
         // テスト対象のインスタンス化
         String byteParm = "999,999,999";
@@ -536,6 +514,7 @@ public class LineFeed2LineReaderTest extends TestCase {
      * 行区切り文字の先頭文字のみデータに含まれている場合、その位置で行区切り処理が行わないことを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testReadLine07() throws Exception {
         // テスト対象のインスタンス化
         String byteParm = "101010,101010,101010\rn";
@@ -580,6 +559,7 @@ public class LineFeed2LineReaderTest extends TestCase {
      * 文字列の中に全角文字が含まれている場合。１行の情報が返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testReadLine08() throws Exception {
         // テスト対象のインスタンス化
         String byteParm = "あいう\r\n";

@@ -16,8 +16,14 @@
 
 package jp.terasoluna.fw.beans;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+import org.junit.Test;
+
 import jp.terasoluna.utlib.LogUTUtil;
-import junit.framework.TestCase;
 
 /**
  * {@link jp.terasoluna.fw.beans.JXPathIndexedBeanWrapperImpl} クラスのブラックボックステスト。
@@ -31,39 +37,7 @@ import junit.framework.TestCase;
  * 
  * @see jp.terasoluna.fw.beans.JXPathIndexedBeanWrapperImpl
  */
-public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
-
-
-    /**
-     * 初期化処理を行う。
-     * 
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
-     */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
-
-    /**
-     * 終了処理を行う。
-     * 
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * 
-     * @param name このテストケースの名前。
-     */
-    public JXPathIndexedBeanWrapperImplTest03(String name) {
-        super(name);
-    }
+public class JXPathIndexedBeanWrapperImplTest03 {
 
     /**
      * testToPropertyName01()
@@ -91,6 +65,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToPropertyName01() throws Exception {
         // 前処理
         String result = null;
@@ -139,6 +114,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToPropertyName02() throws Exception {
         // 前処理
         String result = null;
@@ -190,6 +166,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToPropertyName03() throws Exception {
         // 前処理
         String result = null;
@@ -239,6 +216,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToPropertyName04() throws Exception {
         // 前処理
         String result = null;
@@ -287,6 +265,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToPropertyName05() throws Exception {
         // 前処理
         String result = null;
@@ -344,6 +323,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToPropertyName06() throws Exception {
         // 前処理
         String result = null;
@@ -390,6 +370,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToPropertyName07() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl target =
@@ -426,6 +407,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractAttributeName01() throws Exception {
         // 前処理
         String result = null;
@@ -458,6 +440,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractAttributeName02() throws Exception {
         // 前処理
         String result = null;
@@ -490,6 +473,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractAttributeName03() throws Exception {
         // 前処理
         String result = null;
@@ -522,6 +506,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractAttributeName04() throws Exception {
         // 前処理
         String result = null;
@@ -554,6 +539,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractMapAttributeName01() throws Exception {
         // 前処理
         String result = null;
@@ -586,6 +572,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractMapAttributeName02() throws Exception {
         // 前処理
         String result = null;
@@ -620,6 +607,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractMapAttributeName03() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl target =
@@ -658,6 +646,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractMapAttributeName04() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl target =
@@ -694,6 +683,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractMapKey01() throws Exception {
         // 前処理
         String result = null;
@@ -726,6 +716,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractMapKey02() throws Exception {
         // 前処理
         String result = null;
@@ -760,6 +751,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractMapKey03() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl target =
@@ -798,6 +790,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractMapKey04() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl target =
@@ -836,6 +829,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractMapKey05() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl target =
@@ -874,6 +868,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractMapKey06() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl target =
@@ -912,6 +907,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractMapKey07() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl target =
@@ -953,6 +949,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractDecrementIndex01() throws Exception {
         // 前処理
         String result = null;
@@ -985,6 +982,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsMapAttribute01() throws Exception {
         // 前処理
         boolean result = false;
@@ -1017,6 +1015,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsMapAttribute02() throws Exception {
         // 前処理
         boolean result = true;
@@ -1049,6 +1048,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsMapAttribute03() throws Exception {
         // 前処理
         boolean result = true;
@@ -1081,6 +1081,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsMapObject01() throws Exception {
         // 前処理
         boolean result = false;
@@ -1113,6 +1114,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsMapObject02() throws Exception {
         // 前処理
         boolean result = true;
@@ -1145,6 +1147,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsMapObject03() throws Exception {
         // 前処理
         boolean result = true;

@@ -16,13 +16,19 @@
 
 package jp.terasoluna.fw.validation;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 import jp.terasoluna.utlib.LogUTUtil;
-import junit.framework.TestCase;
 
 import org.apache.commons.validator.Field;
 import org.apache.commons.validator.ValidatorAction;
 import org.apache.commons.validator.ValidatorException;
 import org.apache.commons.validator.Var;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * {@link jp.terasoluna.fw.validation.FieldChecks}
@@ -35,7 +41,7 @@ import org.apache.commons.validator.Var;
  *
  * @see jp.terasoluna.fw.validation.FieldChecks
  */
-public class FieldChecksTest04 extends TestCase {
+public class FieldChecksTest04 {
 
     /**
      * テスト用インスタンス。
@@ -53,47 +59,13 @@ public class FieldChecksTest04 extends TestCase {
     private FieldChecks_ValidationErrorsImpl01 errors = null;
 
     /**
-     * このテストケースを実行する為の
-     * GUI アプリケーションを起動する。
-     *
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        junit.swingui.TestRunner.run(FieldChecksTest04.class);
-    }
-
-    /**
      * 初期化処理を行う。
-     *
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
      */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
+    @Before
+    public void setUp() {
         va = new ValidatorAction();
         field = new Field();
         errors = new FieldChecks_ValidationErrorsImpl01();
-    }
-
-    /**
-     * 終了処理を行う。
-     *
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     *
-     * @param name このテストケースの名前。
-     */
-    public FieldChecksTest04(String name) {
-        super(name);
     }
 
     /**
@@ -119,6 +91,7 @@ public class FieldChecksTest04 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateIntRange01() throws Exception {
         // テスト実施
         // 判定
@@ -151,6 +124,7 @@ public class FieldChecksTest04 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateIntRange02() throws Exception {
         // テスト実施
         // 判定
@@ -185,6 +159,7 @@ public class FieldChecksTest04 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateIntRange03() throws Exception {
         // テスト実施
         // 判定
@@ -222,6 +197,7 @@ public class FieldChecksTest04 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateIntRange04() throws Exception {
         // テスト実施
         // 判定
@@ -258,6 +234,7 @@ public class FieldChecksTest04 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateIntRange05() throws Exception {
         // テスト実施
         // 判定
@@ -296,6 +273,7 @@ public class FieldChecksTest04 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateIntRange06() throws Exception {
         // 前処理
         Var var = new Var();
@@ -338,6 +316,7 @@ public class FieldChecksTest04 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateIntRange07() throws Exception {
         // 前処理
         Var var = new Var();
@@ -382,6 +361,7 @@ public class FieldChecksTest04 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateIntRange08() throws Exception {
         // テスト実施
         // 判定
@@ -418,6 +398,7 @@ public class FieldChecksTest04 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateIntRange09() throws Exception {
         // テスト実施
         // 判定
@@ -456,6 +437,7 @@ public class FieldChecksTest04 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateIntRange10() throws Exception {
         // 前処理
         Var var = new Var();
@@ -498,6 +480,7 @@ public class FieldChecksTest04 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateIntRange11() throws Exception {
         // 前処理
         Var var = new Var();
@@ -548,6 +531,7 @@ public class FieldChecksTest04 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateIntRange12() throws Exception {
         // 前処理
         Var var = new Var();
@@ -600,6 +584,7 @@ public class FieldChecksTest04 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateIntRange13() throws Exception {
         // 前処理
         Var var = new Var();
@@ -647,6 +632,7 @@ public class FieldChecksTest04 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateIntRange14() throws Exception {
         // 前処理
         Var var1 = new Var();
@@ -696,6 +682,7 @@ public class FieldChecksTest04 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateIntRange15() throws Exception {
         // 前処理
         Var var1 = new Var();
@@ -748,6 +735,7 @@ public class FieldChecksTest04 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateIntRange16() throws Exception {
         // 前処理
         Var var1 = new Var();
@@ -799,6 +787,7 @@ public class FieldChecksTest04 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateIntRange17() throws Exception {
         // 前処理
         Var var1 = new Var();
@@ -844,6 +833,7 @@ public class FieldChecksTest04 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateDoubleRange01() throws Exception {
         // テスト実施
         // 判定
@@ -876,6 +866,7 @@ public class FieldChecksTest04 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateDoubleRange02() throws Exception {
         // テスト実施
         // 判定
@@ -910,6 +901,7 @@ public class FieldChecksTest04 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateDoubleRange03() throws Exception {
         // テスト実施
         // 判定
@@ -947,6 +939,7 @@ public class FieldChecksTest04 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateDoubleRange04() throws Exception {
         // テスト実施
         // 判定
@@ -982,6 +975,7 @@ public class FieldChecksTest04 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateDoubleRange05() throws Exception {
         // 前処理
         Var var = new Var();
@@ -1022,6 +1016,7 @@ public class FieldChecksTest04 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateDoubleRange06() throws Exception {
         // テスト実施
         // 判定
@@ -1057,6 +1052,7 @@ public class FieldChecksTest04 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateDoubleRange07() throws Exception {
         // 前処理
         Var var = new Var();
@@ -1105,6 +1101,7 @@ public class FieldChecksTest04 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateDoubleRange08() throws Exception {
         // 前処理
         Var var = new Var();
@@ -1157,6 +1154,7 @@ public class FieldChecksTest04 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateDoubleRange09() throws Exception {
         // 前処理
         Var var = new Var();
@@ -1204,6 +1202,7 @@ public class FieldChecksTest04 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateDoubleRange10() throws Exception {
         // 前処理
         Var var1 = new Var();
@@ -1251,6 +1250,7 @@ public class FieldChecksTest04 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateDoubleRange11() throws Exception {
         // 前処理
         Var var1 = new Var();
@@ -1300,6 +1300,7 @@ public class FieldChecksTest04 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateDoubleRange12() throws Exception {
         // 前処理
         Var var1 = new Var();
@@ -1349,6 +1350,7 @@ public class FieldChecksTest04 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateDoubleRange13() throws Exception {
         // 前処理
         Var var1 = new Var();

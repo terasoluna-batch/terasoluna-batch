@@ -7,14 +7,23 @@
 
 package jp.terasoluna.fw.file.dao.standard;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
 import java.util.concurrent.ConcurrentHashMap;
 
+import org.junit.Before;
+import org.junit.Test;
+
 import jp.terasoluna.fw.file.ut.VMOUTUtil;
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.DecimalColumnFormatter} クラスのテスト。
@@ -24,43 +33,14 @@ import junit.framework.TestCase;
  * @author 奥田 哲司
  * @see jp.terasoluna.fw.file.dao.standard.DecimalColumnFormatter
  */
-public class DecimalColumnFormatterTest extends TestCase {
-
-    /**
-     * このテストケースを実行する為の GUI アプリケーションを起動する。
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        // junit.swingui.TestRunner.run(DecimalColumnFormatterTest.class);
-    }
+public class DecimalColumnFormatterTest {
 
     /**
      * 初期化処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
      */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
+    @Before
+    public void setUp() {
         VMOUTUtil.initialize();
-    }
-
-    /**
-     * 終了処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * @param name このテストケースの名前。
-     */
-    public DecimalColumnFormatterTest(String name) {
-        super(name);
     }
 
     /**
@@ -90,6 +70,7 @@ public class DecimalColumnFormatterTest extends TestCase {
      * として取得されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testFormat01() throws Exception {
         // 前処理
         DecimalColumnFormatter decimalColumnFormatter = new DecimalColumnFormatter();
@@ -137,6 +118,7 @@ public class DecimalColumnFormatterTest extends TestCase {
      * フォーマット用の文字列が正しく設定された場合、 かつフィールドのgetterメソッドが正しく設定されている場合に、 対象フィールドの情報がフォーマットに従った文字列として取得されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testFormat02() throws Exception {
         // 前処理
         DecimalColumnFormatter decimalColumnFormatter = new DecimalColumnFormatter();
@@ -184,6 +166,7 @@ public class DecimalColumnFormatterTest extends TestCase {
      * フィールドのgetterメソッドがprivateで宣言された場合、 IllegalAccessExceptionが発生することを確認する <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testFormat03() throws Exception {
         // 前処理
         DecimalColumnFormatter decimalColumnFormatter = new DecimalColumnFormatter();
@@ -232,6 +215,7 @@ public class DecimalColumnFormatterTest extends TestCase {
      * フィールドのgetterメソッド処理中例外が発生した場合、 InvocationTargetExceptionが発生することを確認する <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testFormat04() throws Exception {
         // 前処理
         DecimalColumnFormatter decimalColumnFormatter = new DecimalColumnFormatter();
@@ -280,6 +264,7 @@ public class DecimalColumnFormatterTest extends TestCase {
      * フィールドのgetterメソッドとして引数なしのメソッドが存在しない場合、 IllegalArgumentExceptionが発生することを確認する <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testFormat05() throws Exception {
         // 前処理
         DecimalColumnFormatter decimalColumnFormatter = new DecimalColumnFormatter();
@@ -329,6 +314,7 @@ public class DecimalColumnFormatterTest extends TestCase {
      * ファイル行オブジェクトのフィールド値がnullの場合、空文字が取得されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testFormat06() throws Exception {
         // 前処理
         DecimalColumnFormatter decimalColumnFormatter = new DecimalColumnFormatter();
@@ -377,6 +363,7 @@ public class DecimalColumnFormatterTest extends TestCase {
      * フォーマット用の文字列が空文字の場合、かつフィールドのgetterメソッドが 正しく設定されている場合に、対象フィールドの情報が数字のみの文字列 (BigDecimal.toPlainString()の結果)として取得されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testFormat07() throws Exception {
         // 前処理
         DecimalColumnFormatter decimalColumnFormatter = new DecimalColumnFormatter();
@@ -430,6 +417,7 @@ public class DecimalColumnFormatterTest extends TestCase {
      * また、新しく生成されたフォーマット用の文字列に対する DecimalFormatLocalがキャッシュされることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testFormat08() throws Exception {
         // 前処理
         DecimalColumnFormatter decimalColumnFormatter = new DecimalColumnFormatter();
@@ -501,6 +489,7 @@ public class DecimalColumnFormatterTest extends TestCase {
      * また、フォーマット用の文字列に対するDecimalFormatLocalが新しく生成されないことを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testFormat09() throws Exception {
         // 前処理
         DecimalColumnFormatter decimalColumnFormatter = new DecimalColumnFormatter();

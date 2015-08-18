@@ -44,14 +44,6 @@ public class CSVFileLineWriterTest {
     private static final String TEMP_FILE_NAME = CSVFileLineWriterTest.class
             .getResource("CSVFileLineWriterTest_tmp.txt").getPath();
 
-    /**
-     * このテストケースを実行する為の GUI アプリケーションを起動する。
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        // junit.swingui.TestRunner.run(CSVFileLineWriterTest.class);
-    }
-
     @Before
     public void setUp() throws Exception {
         VMOUTUtil.initialize();

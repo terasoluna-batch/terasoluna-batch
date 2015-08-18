@@ -16,15 +16,24 @@
 
 package jp.terasoluna.fw.validation;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 import java.lang.reflect.InvocationTargetException;
 
 import jp.terasoluna.fw.util.ClassLoadException;
 import jp.terasoluna.utlib.LogUTUtil;
-import junit.framework.TestCase;
 
 import org.apache.commons.validator.Field;
 import org.apache.commons.validator.ValidatorAction;
 import org.apache.commons.validator.Var;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * {@link FieldChecks} クラスのテスト。
@@ -36,7 +45,7 @@ import org.apache.commons.validator.Var;
  * 
  * @see jp.terasoluna.fw.validation.FieldChecks
  */
-public class FieldChecksTest11 extends TestCase {
+public class FieldChecksTest11 {
     
     /**
      * このテストケースを実行する為の
@@ -54,34 +63,13 @@ public class FieldChecksTest11 extends TestCase {
      * @throws Exception このメソッドで発生した例外
      * @see junit.framework.TestCase#setUp()
      */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
+    @Before
+    public void setUp() {
         LogUTUtil.flush();
         FieldChecks_MultiFieldValidatorImpl01.result = false;
         FieldChecks_MultiFieldValidatorImpl01.validateCalledCount = 0;
         FieldChecks_MultiFieldValidatorImpl01.value = null;
         FieldChecks_MultiFieldValidatorImpl01.fields = null;
-    }
-
-    /**
-     * 終了処理を行う。
-     * 
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * 
-     * @param name このテストケースの名前。
-     */
-    public FieldChecksTest11(String name) {
-        super(name);
     }
 
     /**
@@ -111,6 +99,7 @@ public class FieldChecksTest11 extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMultiField01() throws Exception {
         // 前処理
         Object bean = null;
@@ -162,6 +151,7 @@ public class FieldChecksTest11 extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMultiField02() throws Exception {
         // 前処理
         Object bean = "";
@@ -219,6 +209,7 @@ public class FieldChecksTest11 extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMultiField03() throws Exception {
         // 前処理
         Object bean = "bean";
@@ -277,6 +268,7 @@ public class FieldChecksTest11 extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMultiField04() throws Exception {
         // 前処理
         Object bean = "bean";
@@ -337,6 +329,7 @@ public class FieldChecksTest11 extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMultiField05() throws Exception {
         // 前処理
         Object bean = "bean";
@@ -404,6 +397,7 @@ public class FieldChecksTest11 extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMultiField06() throws Exception {
         // 前処理
         Object bean = "bean";
@@ -471,6 +465,7 @@ public class FieldChecksTest11 extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMultiField07() throws Exception {
         // 前処理
         Object bean = "bean";
@@ -551,6 +546,7 @@ public class FieldChecksTest11 extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMultiField08() throws Exception {
         // 前処理
         FieldChecks_JavaBeanStub02 bean = new FieldChecks_JavaBeanStub02();
@@ -656,6 +652,7 @@ public class FieldChecksTest11 extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMultiField09() throws Exception {
         // 前処理
         FieldChecks_JavaBeanStub02 bean = new FieldChecks_JavaBeanStub02();
@@ -757,6 +754,7 @@ public class FieldChecksTest11 extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMultiField10() throws Exception {
         // 前処理
         FieldChecks_JavaBeanStub03 bean = new FieldChecks_JavaBeanStub03();

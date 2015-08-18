@@ -16,6 +16,10 @@
 
 package jp.terasoluna.fw.batch.util;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -26,18 +30,20 @@ import java.net.URL;
 import java.nio.channels.Channel;
 import java.util.Random;
 
+import org.junit.Test;
+
 import jp.terasoluna.fw.ex.unit.util.AssertUtils;
 import jp.terasoluna.fw.ex.unit.util.ReflectionUtils;
 import jp.terasoluna.fw.file.dao.FileException;
-import junit.framework.TestCase;
 
 /**
  * 前提条件：各テストメソッドごとの前提条件を確認すること
  */
-public class FastFileUtilityTest extends TestCase {
+public class FastFileUtilityTest {
     /**
      * testConstructor
      */
+    @Test
     public void testConstructor() {
         // カバレッジを満たすためだけの項目
         ReflectionUtils.newInstance(FastFileUtility.class);
@@ -55,6 +61,7 @@ public class FastFileUtilityTest extends TestCase {
      * <br>
      * @throws Exception
      */
+    @Test
     public void testCopyFile01() throws Exception {
 
         // テストデータ設定
@@ -90,6 +97,7 @@ public class FastFileUtilityTest extends TestCase {
      * <br>
      * @throws Exception
      */
+    @Test
     public void testCopyFile02() throws Exception {
 
         URL srcUrl = this.getClass().getResource("/testdata/test01.txt");
@@ -117,6 +125,7 @@ public class FastFileUtilityTest extends TestCase {
      * <br>
      * @throws Exception
      */
+    @Test
     public void testCopyFile03() throws Exception {
 
         URL srcUrl = this.getClass().getResource("/testdata/test03.txt");
@@ -144,6 +153,7 @@ public class FastFileUtilityTest extends TestCase {
      * <br>
      * @throws Exception
      */
+    @Test
     public void testCopyFile04() throws Exception {
 
         URL srcUrl = this.getClass().getResource("/testdata/test01.txt");
@@ -170,6 +180,7 @@ public class FastFileUtilityTest extends TestCase {
      * <br>
      * @throws Exception
      */
+    @Test
     public void testCopyFile05() throws Exception {
 
         // テストデータ設定
@@ -195,6 +206,7 @@ public class FastFileUtilityTest extends TestCase {
      * <br>
      * @throws Exception
      */
+    @Test
     public void testCopyFile06() throws Exception {
 
         // 3GBのファイルを作成
@@ -291,6 +303,7 @@ public class FastFileUtilityTest extends TestCase {
      * testCloseQuietly001
      * @throws Exception
      */
+    @Test
     public void testCloseQuietly001() throws Exception {
         Channel channel = new Channel() {
             public void close() throws IOException {
@@ -309,6 +322,7 @@ public class FastFileUtilityTest extends TestCase {
      * testCloseQuietly002
      * @throws Exception
      */
+    @Test
     public void testCloseQuietly002() throws Exception {
         Channel channel = new Channel() {
             public void close() throws IOException {
@@ -328,6 +342,7 @@ public class FastFileUtilityTest extends TestCase {
      * testCloseQuietly011
      * @throws Exception
      */
+    @Test
     public void testCloseQuietly011() throws Exception {
         URL srcUrl = this.getClass().getResource("/testdata/test01.txt");
         FileInputStream channel = new FileInputStream(srcUrl.getPath());
@@ -340,6 +355,7 @@ public class FastFileUtilityTest extends TestCase {
      * testCloseQuietly012
      * @throws Exception
      */
+    @Test
     public void testCloseQuietly012() throws Exception {
         URL srcUrl = this.getClass().getResource("/testdata/test01.txt");
         FileInputStream channel = new FileInputStream(srcUrl.getPath()) {
@@ -357,6 +373,7 @@ public class FastFileUtilityTest extends TestCase {
      * testCloseQuietly021
      * @throws Exception
      */
+    @Test
     public void testCloseQuietly021() throws Exception {
         URL srcUrl = this.getClass().getResource("/testdata/test01.txt");
         String srcFile = srcUrl.getPath();
@@ -376,6 +393,7 @@ public class FastFileUtilityTest extends TestCase {
      * testCloseQuietly022
      * @throws Exception
      */
+    @Test
     public void testCloseQuietly022() throws Exception {
         URL srcUrl = this.getClass().getResource("/testdata/test01.txt");
         String srcFile = srcUrl.getPath();

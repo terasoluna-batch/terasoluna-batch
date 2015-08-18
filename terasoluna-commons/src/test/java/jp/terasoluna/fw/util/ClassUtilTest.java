@@ -16,7 +16,10 @@
 
 package jp.terasoluna.fw.util;
 
-import junit.framework.TestCase;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
+
+import org.junit.Test;
 
 /**
  * ClassUtil ブラックボックステスト。<br>
@@ -26,31 +29,14 @@ import junit.framework.TestCase;
  * <br>
  */
 @SuppressWarnings("unused")
-public class ClassUtilTest extends TestCase {
+public class ClassUtilTest {
 
-    /**
-     * Constructor for ClassUtilTest.
-     * @param arg0
-     */
-    public ClassUtilTest(String arg0) {
-        super(arg0);
-    }
-
-    /*
-     * @see TestCase#setUp()
-     */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
-
-    /*
-     * @see TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
+//    /**
+//     * Constructor for ClassUtilTest.
+//     * @param arg0
+//     */
+//    public ClassUtilTest(String arg0) {
+//    }
 
     /**
      * testCreate01(String)。<br>
@@ -64,6 +50,7 @@ public class ClassUtilTest extends TestCase {
      * 生成するオブジェクトのクラス名を元にインスタンスを生成することを確認する。<br>
      *
      */
+    @Test
     public void testCreateString01() {
         //初期設定
         String input = "java.lang.String";
@@ -92,6 +79,7 @@ public class ClassUtilTest extends TestCase {
      * インスタンスを生成することを確認する。<br>
      *
      */
+    @Test
     public void testCreateString02() {
         //初期設定
         String input = "jp.terasoluna.fw.util.ClassUtil";
@@ -122,6 +110,7 @@ public class ClassUtilTest extends TestCase {
      * InstantiationExceptionが発生することを確認する。<br>
      *
      */
+    @Test
     public void testCreateString03() {
         //初期設定
         String input = "javax.swing.AbstractAction";
@@ -151,6 +140,7 @@ public class ClassUtilTest extends TestCase {
      * ClassNotFoundExceptionが発生することを確認する。<br>
      *
      */
+    @Test
     public void testCreateString04() {
         //初期設定
         String input = "java.lang.Str";
@@ -180,6 +170,7 @@ public class ClassUtilTest extends TestCase {
      * IllegalAccessExceptionが発生することを確認する。<br>
      *
      */
+    @Test
     public void testCreateString05() {
         //初期設定
         String input = "java.lang.Void";
@@ -209,6 +200,7 @@ public class ClassUtilTest extends TestCase {
      * 生成するオブジェクトのクラス名を元にインスタンスを生成することを確認する。<br>
      *
      */
+    @Test
     public void testCreateStringObjectArray01() {
         //初期設定
         String input = "java.lang.Integer";
@@ -243,6 +235,7 @@ public class ClassUtilTest extends TestCase {
      * 生成するオブジェクトのクラス名を元にインスタンスを生成することを確認する。<br>
      *
      */
+    @Test
     public void testCreateStringObjectArray02() {
         //初期設定
         String input = "java.lang.String";
@@ -277,6 +270,7 @@ public class ClassUtilTest extends TestCase {
      * 生成するオブジェクトのクラス名を元にインスタンスを生成することを確認する。<br>
      *
      */
+    @Test
     public void testCreateStringObjectArray03() {
         //初期設定
         String input = "java.util.Locale";
@@ -315,6 +309,7 @@ public class ClassUtilTest extends TestCase {
      * インスタンスを生成することを確認する。<br>
      *
      */
+    @Test
     public void testCreateStringObjectArray04() {
         //初期設定
         String input = ClassUtil.class.getName();
@@ -344,6 +339,7 @@ public class ClassUtilTest extends TestCase {
      * それをラップするClassLoadExceptionが発生することを確認する。<br>
      *
      */
+    @Test
     public void testCreateStringObjectArray05() {
         //初期設定
         String input = "java.lang.Str";
@@ -372,6 +368,7 @@ public class ClassUtilTest extends TestCase {
      * それをラップする例外ClassLoadExceptionが発生することを確認する。<br>
      *
      */
+    @Test
     public void testCreateStringObjectArray06() {
         //初期設定
         String input = "javax.swing.AbstractAction";
@@ -400,6 +397,7 @@ public class ClassUtilTest extends TestCase {
      * それをラップする例外ClassLoadExceptionが発生することを確認する。<br>
      *
      */
+    @Test
     public void testCreateStringObjectArray07() {
         //初期設定
         String input = "java.lang.String";
@@ -428,6 +426,7 @@ public class ClassUtilTest extends TestCase {
      * それをラップする例外ClassLoadExceptionが発生することを確認する。<br>
      *
      */
+    @Test
     public void testCreateStringObjectArray08() {
         //初期設定
         String input = "java.lang.Void";
