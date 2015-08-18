@@ -16,15 +16,19 @@
 
 package jp.terasoluna.fw.beans.jxpath;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+
 import java.util.HashMap;
 import java.util.Locale;
 
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
 
 import org.apache.commons.jxpath.ri.QName;
 import org.apache.commons.jxpath.ri.model.NodePointer;
 import org.apache.commons.jxpath.ri.model.beans.NullPointer;
+import org.junit.Test;
 
 /**
  * {@link jp.terasoluna.fw.beans.jxpath.DynamicPointerFactoryEx} クラスのブラックボックステスト。
@@ -37,38 +41,7 @@ import org.apache.commons.jxpath.ri.model.beans.NullPointer;
  * 
  * @see jp.terasoluna.fw.beans.jxpath.DynamicPointerFactoryEx
  */
-public class DynamicPointerFactoryExTest extends TestCase {
-
-    /**
-     * 初期化処理を行う。
-     * 
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
-     */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
-
-    /**
-     * 終了処理を行う。
-     * 
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * 
-     * @param name このテストケースの名前。
-     */
-    public DynamicPointerFactoryExTest(String name) {
-        super(name);
-    }
+public class DynamicPointerFactoryExTest {
 
     /**
      * testGetOrder01()
@@ -88,6 +61,7 @@ public class DynamicPointerFactoryExTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetOrder01() throws Exception {
         // 前処理
     	DynamicPointerFactoryEx factory = new DynamicPointerFactoryEx();
@@ -124,6 +98,7 @@ public class DynamicPointerFactoryExTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testCreateNodePointerQname01() throws Exception {
         // 前処理
     	DynamicPointerFactoryEx factory = new DynamicPointerFactoryEx();
@@ -163,6 +138,7 @@ public class DynamicPointerFactoryExTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testCreateNodePointerQname02() throws Exception {
         // 前処理
     	DynamicPointerFactoryEx factory = new DynamicPointerFactoryEx();
@@ -198,6 +174,7 @@ public class DynamicPointerFactoryExTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testCreateNodePointerNodePointer01() throws Exception {
         // 前処理
     	DynamicPointerFactoryEx factory = new DynamicPointerFactoryEx();
@@ -242,6 +219,7 @@ public class DynamicPointerFactoryExTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testCreateNodePointerNodePointer02() throws Exception {
         // 前処理
     	DynamicPointerFactoryEx factory = new DynamicPointerFactoryEx();
@@ -283,6 +261,7 @@ public class DynamicPointerFactoryExTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testCreateNodePointerNodePointer03() throws Exception {
         // 前処理
     	DynamicPointerFactoryEx factory = new DynamicPointerFactoryEx();

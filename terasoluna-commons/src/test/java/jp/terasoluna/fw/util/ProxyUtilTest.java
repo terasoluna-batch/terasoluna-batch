@@ -16,8 +16,12 @@
 
 package jp.terasoluna.fw.util;
 
-import junit.framework.TestCase;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
+import org.junit.Test;
 import org.springframework.aop.framework.ProxyFactory;
 import org.springframework.aop.support.AopUtils;
 
@@ -32,34 +36,7 @@ import org.springframework.aop.support.AopUtils;
  * 
  * @see jp.terasoluna.fw.util.ProxyUtil
  */
-public class ProxyUtilTest extends TestCase {
-
-    /**
-     * 初期化処理を行う。
-     * 
-     * @throws Exception このメソッドで発生した例外
-     */
-    @Override
-    protected void setUp() throws Exception {
-    }
-
-    /**
-     * 終了処理を行う。
-     * 
-     * @throws Exception このメソッドで発生した例外
-     */
-    @Override
-    protected void tearDown() throws Exception {
-    }
-
-    /**
-     * コンストラクタ。
-     * 
-     * @param name このテストケースの名前。
-     */
-    public ProxyUtilTest(String name) {
-        super(name);
-    }
+public class ProxyUtilTest {
 
     /**
      * testGetTargetClass01()
@@ -81,6 +58,7 @@ public class ProxyUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetTargetClass01() throws Exception {
     	// テスト実施
     	try {
@@ -112,6 +90,7 @@ public class ProxyUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetTargetClass02() throws Exception {
         // 前処理
     	ProxyFactory pf = new ProxyFactory(new ProxyUtil_JavaBeanStub01());
@@ -145,6 +124,7 @@ public class ProxyUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetTargetClass03() throws Exception {
         // テスト実施
     	Class result = ProxyUtil.getTargetClass(new ProxyUtil_JavaBeanStub01());
@@ -173,6 +153,7 @@ public class ProxyUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetTargetClass04() throws Exception {
     	// 前処理
     	ProxyFactory pf = new ProxyFactory(new ProxyUtil_JavaBeanStub01());
@@ -208,6 +189,7 @@ public class ProxyUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetTargetClass05() throws Exception {
         // 前処理
     	ProxyFactory parentPf = new ProxyFactory(new ProxyUtil_JavaBeanStub01());

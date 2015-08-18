@@ -7,15 +7,24 @@
 
 package jp.terasoluna.fw.file.dao.standard;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
 import java.text.ParseException;
 import java.util.concurrent.ConcurrentHashMap;
 
+import org.junit.Before;
+import org.junit.Test;
+
 import jp.terasoluna.fw.file.ut.VMOUTUtil;
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.DecimalColumnParser} クラスのテスト。
@@ -26,43 +35,14 @@ import junit.framework.TestCase;
  * @author 奥田 哲司
  * @see jp.terasoluna.fw.file.dao.standard.DecimalColumnParser
  */
-public class DecimalColumnParserTest extends TestCase {
-
-    /**
-     * このテストケースを実行する為の GUI アプリケーションを起動する。
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        // junit.swingui.TestRunner.run(DecimalColumnParserTest.class);
-    }
+public class DecimalColumnParserTest {
 
     /**
      * 初期化処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
      */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
+    @Before
+    public void setUp() {
         VMOUTUtil.initialize();
-    }
-
-    /**
-     * 終了処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * @param name このテストケースの名前。
-     */
-    public DecimalColumnParserTest(String name) {
-        super(name);
     }
 
     /**
@@ -92,6 +72,7 @@ public class DecimalColumnParserTest extends TestCase {
      * フォーマット用の文字列がnullの場合、 かつフィールドのsetterメソッドが正しく設定されている場合に、 引数の文字列が正しくBigDecimalに変換されて格納されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse01() throws Exception {
         // 前処理
         DecimalColumnParser decimalColumnParser = new DecimalColumnParser();
@@ -143,6 +124,7 @@ public class DecimalColumnParserTest extends TestCase {
      * フォーマット用の文字列がある場合、 かつフィールドのsetterメソッドが正しく設定されている場合に、 引数の文字列が正しくフォーマットに従ってBigDecimalに変換されて格納されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse02() throws Exception {
         // 前処理
         DecimalColumnParser decimalColumnParser = new DecimalColumnParser();
@@ -196,6 +178,7 @@ public class DecimalColumnParserTest extends TestCase {
      * フォーマット文字列でパーシングできないデータが渡された場合、 ParseExceptionが発生することを確認する <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse03() throws Exception {
         // 前処理
         DecimalColumnParser decimalColumnParser = new DecimalColumnParser();
@@ -248,6 +231,7 @@ public class DecimalColumnParserTest extends TestCase {
      * フィールドのsetterメソッドがprivateで宣言された場合、 IllegalAccessExceptionが発生することを確認する <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse04() throws Exception {
         // 前処理
         DecimalColumnParser decimalColumnParser = new DecimalColumnParser();
@@ -300,6 +284,7 @@ public class DecimalColumnParserTest extends TestCase {
      * フィールドのsetterメソッドの処理で例外が発生した場合、 IvocationTargetExceptionが発生することを確認する <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse05() throws Exception {
         // 前処理
         DecimalColumnParser decimalColumnParser = new DecimalColumnParser();
@@ -352,6 +337,7 @@ public class DecimalColumnParserTest extends TestCase {
      * フィールドのsetterメソッドが引数でBigDecimal型１つ以外を持つ場合、 llegalArgumentExceptionが発生することを確認する <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse06() throws Exception {
         // 前処理
         DecimalColumnParser decimalColumnParser = new DecimalColumnParser();
@@ -405,6 +391,7 @@ public class DecimalColumnParserTest extends TestCase {
      * 引数がnullの場合、NullPointerExceptionが発生することを確認する <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse07() throws Exception {
         // 前処理
         DecimalColumnParser decimalColumnParser = new DecimalColumnParser();
@@ -457,6 +444,7 @@ public class DecimalColumnParserTest extends TestCase {
      * 引数が数字ではない場合、ParseExceptionが発生することを確認する <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse08() throws Exception {
         // 前処理
         DecimalColumnParser decimalColumnParser = new DecimalColumnParser();
@@ -511,6 +499,7 @@ public class DecimalColumnParserTest extends TestCase {
      * フォーマット用の文字列が空文字の場合、 かつフィールドのsetterメソッドが正しく設定されている場合に、 引数の文字列が正しくBigDecimalに変換されて格納されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse09() throws Exception {
         // 前処理
         DecimalColumnParser decimalColumnParser = new DecimalColumnParser();
@@ -565,6 +554,7 @@ public class DecimalColumnParserTest extends TestCase {
      * また、新しく生成されたフォーマット用の文字列に対する DecimalFormatLocalがキャッシュされることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse10() throws Exception {
         // 前処理
         DecimalColumnParser decimalColumnParser = new DecimalColumnParser();
@@ -639,6 +629,7 @@ public class DecimalColumnParserTest extends TestCase {
      * また、フォーマット用の文字列に対する DecimalFormatLocalが新しく生成されないことを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse11() throws Exception {
         DecimalColumnParser decimalColumnParser = new DecimalColumnParser();
 

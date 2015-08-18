@@ -16,18 +16,22 @@
 
 package jp.terasoluna.fw.collector;
 
-import junit.framework.TestCase;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+
+import org.junit.Test;
 
 /**
  * CollectorThreadFactoryのテストケース。
  */
-public class CollectorThreadFactoryTest extends TestCase {
+public class CollectorThreadFactoryTest {
 
     /**
      * 引数スレッドがデーモンスレッドの場合、非デーモンスレッドが取得できること。
      *
      * @throws Exception 予期しない例外
      */
+    @Test
     public void testNewThread01() throws Exception {
         Thread ownThread = new Thread();
         ownThread.setDaemon(true);
@@ -41,6 +45,7 @@ public class CollectorThreadFactoryTest extends TestCase {
      *
      * @throws Exception 予期しない例外
      */
+    @Test
     public void testNewThread02() throws Exception {
         Thread ownThread = new Thread();
         ownThread.setPriority(Thread.MAX_PRIORITY);

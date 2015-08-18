@@ -16,17 +16,21 @@
 
 package jp.terasoluna.fw.batch.executor;
 
-import junit.framework.TestCase;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
+
+import org.junit.Test;
 
 /**
  * RetryabbleExecuteExceptionのテストケース。
  */
-public class RetryableExecuteExceptionTest extends TestCase {
+public class RetryableExecuteExceptionTest {
 
     /**
      * コンストラクタのテストケース。
      * 引数に渡される原因例外がnot nullのとき、getCause()により原因例外とそのメッセージが取得できること。
      */
+    @Test
     public void testRetryableExecuteException01() {
         RetryableExecuteException exception = new RetryableExecuteException(new Exception("原因例外"));
         assertEquals("原因例外", exception.getCause().getMessage());
@@ -36,6 +40,7 @@ public class RetryableExecuteExceptionTest extends TestCase {
      * コンストラクタのテストケース。
      * 引数に渡される原因例外がnullのとき、アサーションエラーが発生すること。
      */
+    @Test
     public void testRetryableExecuteException02() {
         try {
             RetryableExecuteException executeException = new RetryableExecuteException(null);

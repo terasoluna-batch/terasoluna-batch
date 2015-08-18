@@ -16,11 +16,15 @@
 
 package jp.terasoluna.fw.batch.util;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 import jp.terasoluna.fw.batch.message.MessageAccessor;
 import jp.terasoluna.fw.ex.unit.util.ReflectionUtils;
 import jp.terasoluna.fw.util.PropertyUtil;
-import junit.framework.TestCase;
 
+import org.junit.Before;
+import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -37,7 +41,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * &lt;bean id=&quot;msgAcc&quot; class=&quot;jp.terasoluna.fw.batch.message.MessageAccessorImpl&quot; /&gt; </fieldset> <br>
  * ・messages.propertiesファイルが存在すること<br>
  */
-public class MessageUtilTest extends TestCase {
+public class MessageUtilTest {
 
     /**
      * プロパティ値取得値
@@ -54,8 +58,8 @@ public class MessageUtilTest extends TestCase {
      */
     private MessageAccessor messageAccessor;
 
-    @Override
-    protected void setUp() throws Exception {
+    @Before
+    public void setUp() {
 
         // メッセージソースアクセサのBean名取得
         context = new ClassPathXmlApplicationContext(
@@ -77,6 +81,7 @@ public class MessageUtilTest extends TestCase {
      * <br>
      * @throws Exception
      */
+    @Test
     public void testGetMessage01() throws Exception {
 
         String result = MessageUtil.getMessage("errors.alphaNumericString");
@@ -95,6 +100,7 @@ public class MessageUtilTest extends TestCase {
      * <br>
      * @throws Exception
      */
+    @Test
     public void testGetMessage02() throws Exception {
 
         String[] args = { "test1" };
@@ -115,6 +121,7 @@ public class MessageUtilTest extends TestCase {
      * <br>
      * @throws Exception
      */
+    @Test
     public void testGetMessage03() throws Exception {
 
         Object[] args = { "test1", 10, 20 };
@@ -134,6 +141,7 @@ public class MessageUtilTest extends TestCase {
      * <br>
      * @throws Exception
      */
+    @Test
     public void testGetMessage04() throws Exception {
 
         String[] args = { "test1" };
@@ -152,6 +160,7 @@ public class MessageUtilTest extends TestCase {
      * <br>
      * @throws Exception
      */
+    @Test
     public void testGetMessage05() throws Exception {
 
         String result = MessageUtil.getMessage(null);
@@ -163,6 +172,7 @@ public class MessageUtilTest extends TestCase {
     /**
      * testGetMessage06
      */
+    @Test
     public void testGetMessage06() {
         Thread th = Thread.currentThread();
         ThreadGroup g = th.getThreadGroup();
@@ -179,6 +189,7 @@ public class MessageUtilTest extends TestCase {
      * testSetMessageAccessor01
      * @throws Exception
      */
+    @Test
     public void testSetMessageAccessor01() throws Exception {
         MessageUtil.setMessageAccessor(null);
         assertTrue(true);
@@ -188,6 +199,7 @@ public class MessageUtilTest extends TestCase {
      * testRemoveMessageAccessor01
      * @throws Exception
      */
+    @Test
     public void testRemoveMessageAccessor01() throws Exception {
         MessageUtil.removeMessageAccessor();
         assertTrue(true);
@@ -197,6 +209,7 @@ public class MessageUtilTest extends TestCase {
      * testGetThreadGroup01
      * @throws Exception
      */
+    @Test
     public void testGetThreadGroup01() throws Exception {
         // Thread.currentThread().setContextClassLoader(null);
         ReflectionUtils.invoke(MessageUtil.class, "getThreadGroup");
@@ -208,6 +221,7 @@ public class MessageUtilTest extends TestCase {
      * testMessageUtil001
      * @throws Exception
      */
+    @Test
     public void testMessageUtil001() throws Exception {
         MessageUtil mu = new MessageUtil();
         assertNotNull(mu);

@@ -16,6 +16,10 @@
 
 package jp.terasoluna.fw.util;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
@@ -24,7 +28,6 @@ import java.util.List;
 import java.util.Map;
 
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
 
 import org.apache.commons.beanutils.BeanUtilsBean;
 import org.apache.commons.beanutils.PropertyUtilsBean;
@@ -34,6 +37,9 @@ import static uk.org.lidalia.slf4jtest.LoggingEvent.trace;
 import static java.util.Arrays.asList;
 import static org.hamcrest.core.Is.*;
 import static org.junit.Assert.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * {@link jp.terasoluna.fw.GenericPropertyUtil} クラスのテスト。
@@ -42,7 +48,7 @@ import static org.junit.Assert.*;
  * <p>
  * @see jp.terasoluna.fw.util.GenericPropertyUtil
  */
-public class GenericPropertyUtilTest extends TestCase {
+public class GenericPropertyUtilTest {
 
     private TestLogger logger = TestLoggerFactory.getTestLogger(
             GenericPropertyUtil.class);
@@ -54,12 +60,9 @@ public class GenericPropertyUtilTest extends TestCase {
 
     /**
      * 初期化処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
      */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
+    @Before
+    public void setUp() {
         BeanUtilsBean beanUtilsBean = BeanUtilsBean.getInstance();
         defaultPropertyUtilsBean = beanUtilsBean.getPropertyUtils();
     }
@@ -67,11 +70,9 @@ public class GenericPropertyUtilTest extends TestCase {
     /**
      * 終了処理を行う。
      * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
      */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
+    @After
+    public void tearDown() throws Exception {
         BeanUtilsBean beanUtilsBean = BeanUtilsBean.getInstance();
         UTUtil.setPrivateField(beanUtilsBean, "propertyUtilsBean",
                 defaultPropertyUtilsBean);
@@ -79,18 +80,10 @@ public class GenericPropertyUtilTest extends TestCase {
     }
 
     /**
-     * コンストラクタ。
-     * @param name このテストケースの名前。
-     */
-    public GenericPropertyUtilTest(String name) {
-        super(name);
-    }
-
-    /**
-     * testResolveCollectionType01() <br>
-     * <br>
-     * (異常系) <br>
-     * 観点：G <br>
+     * testResolveCollectionType01()
+     * <br><br>
+     *
+     * (異常系)
      * <br>
      * 入力値：(引数) bean:null<br>
      * <br>
@@ -99,6 +92,7 @@ public class GenericPropertyUtilTest extends TestCase {
      * 引数beanがnullの場合にIllegalArgumentExceptionがスローされることを確認するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testResolveCollectionType01() throws Exception {
         try {
             // テスト実施
@@ -125,6 +119,7 @@ public class GenericPropertyUtilTest extends TestCase {
      * 引数nameがnullの場合にIllegalArgumentExceptionがスローされることを確認するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testResolveCollectionType02() throws Exception {
         try {
             // テスト実施
@@ -151,6 +146,7 @@ public class GenericPropertyUtilTest extends TestCase {
      * 引数nameが空文字の場合にIllegalArgumentExceptionがスローされることを確認するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testResolveCollectionType03() throws Exception {
         try {
             // テスト実施
@@ -177,6 +173,7 @@ public class GenericPropertyUtilTest extends TestCase {
      * 引数nameが空白文字列の場合にIllegalArgumentExceptionがスローされることを確認するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testResolveCollectionType04() throws Exception {
         try {
             // テスト実施
@@ -203,6 +200,7 @@ public class GenericPropertyUtilTest extends TestCase {
      * 対応するメソッドが存在しない場合にIllegalArgumentExceptionがスローされることを確認するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testResolveCollectionType05() throws Exception {
         try {
             // テスト実施
@@ -230,6 +228,7 @@ public class GenericPropertyUtilTest extends TestCase {
      * 要素型が取得できることを確認するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveCollectionType06() throws Exception {
 
@@ -255,6 +254,7 @@ public class GenericPropertyUtilTest extends TestCase {
      * パラメータ付の型が取得できることを確認するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveCollectionType07() throws Exception {
         // テスト実施
@@ -279,6 +279,7 @@ public class GenericPropertyUtilTest extends TestCase {
      * 配列型が取得できることを確認するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveCollectionType08() throws Exception {
         // テスト実施
@@ -303,6 +304,7 @@ public class GenericPropertyUtilTest extends TestCase {
      * 指定したプロパティがプリミティブ型の場合、IllegalStateExceptionがスローされることを確認するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveCollectionType09() throws Exception {
         try {
@@ -331,6 +333,7 @@ public class GenericPropertyUtilTest extends TestCase {
      * 指定したプロパティがCollection以外の型の場合、IllegalStateExceptionがスローされることを確認するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveCollectionType10() throws Exception {
         try {
@@ -359,6 +362,7 @@ public class GenericPropertyUtilTest extends TestCase {
      * 型パラメータ指定がワイルドカードの場合、Objectが返却されることを確認するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveCollectionType11() throws Exception {
         // テスト実施
@@ -384,6 +388,7 @@ public class GenericPropertyUtilTest extends TestCase {
      * 引数beanがnullの場合にIllegalArgumentExceptionがスローされることを確認するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testResolveTypeObjectStringClassint01() throws Exception {
         try {
             // テスト実施
@@ -416,6 +421,7 @@ public class GenericPropertyUtilTest extends TestCase {
      * 引数nameがnullの場合にIllegalArgumentExceptionがスローされることを確認するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testResolveTypeObjectStringClassint02() throws Exception {
         try {
             // テスト実施
@@ -449,6 +455,7 @@ public class GenericPropertyUtilTest extends TestCase {
      * 引数nameが空文字の場合にIllegalArgumentExceptionがスローされることを確認するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testResolveTypeObjectStringClassint03() throws Exception {
         try {
             // テスト実施
@@ -481,6 +488,7 @@ public class GenericPropertyUtilTest extends TestCase {
      * 引数nameが空白文字列の場合にIllegalArgumentExceptionがスローされることを確認するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testResolveTypeObjectStringClassint04() throws Exception {
         try {
             // テスト実施
@@ -512,6 +520,7 @@ public class GenericPropertyUtilTest extends TestCase {
      * 対応するメソッドが存在しない場合にIllegalArgumentExceptionがスローされることを確認するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testResolveTypeObjectStringClassint05() throws Exception {
         try {
             // テスト実施
@@ -541,6 +550,7 @@ public class GenericPropertyUtilTest extends TestCase {
      * 引数indexが負の数である場合にIllegalArgumentExceptionがスローされることを確認するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testResolveTypeObjectStringClassint06() throws Exception {
         try {
             // テスト実施
@@ -570,6 +580,7 @@ public class GenericPropertyUtilTest extends TestCase {
      * 引数indexが型パラメータ数の範囲内である場合に型が取得できることを確認するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveTypeObjectStringClassint07() throws Exception {
 
@@ -597,6 +608,7 @@ public class GenericPropertyUtilTest extends TestCase {
      * 引数indexが型パラメータ数の範囲内である場合に型が取得できることを確認するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveTypeObjectStringClassint08() throws Exception {
         // テスト実施
@@ -623,6 +635,7 @@ public class GenericPropertyUtilTest extends TestCase {
      * 引数indexが型パラメータ数の範囲外である場合にIllegalArgumentExceptionがスローされることを確認するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testResolveTypeObjectStringClassint09() throws Exception {
         try {
             // テスト実施
@@ -652,6 +665,7 @@ public class GenericPropertyUtilTest extends TestCase {
      * 引数genericClassがnullである場合にIllegalArgumentExceptionがスローされることを確認するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testResolveTypeObjectStringClassint10() throws Exception {
         try {
             // テスト実施
@@ -681,6 +695,7 @@ public class GenericPropertyUtilTest extends TestCase {
      * 配列型が取得できることを確認するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveTypeObjectStringClassint11() throws Exception {
 
@@ -708,6 +723,7 @@ public class GenericPropertyUtilTest extends TestCase {
      * パラメータ付の型が取得できることを確認するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveTypeObjectStringClassint12() throws Exception {
         // テスト実施
@@ -734,6 +750,7 @@ public class GenericPropertyUtilTest extends TestCase {
      * genericClassがフィールドの型と合致しない場合、 IllegalStateExceptionがスローされることを確認するテスト。。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveTypeObjectStringClassint13() throws Exception {
         try {
@@ -765,6 +782,7 @@ public class GenericPropertyUtilTest extends TestCase {
      * 指定したプロパティがプリミティブ型の場合、 IllegalStateExceptionがスローされることを確認するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveTypeObjectStringClassint14() throws Exception {
         try {
@@ -797,6 +815,7 @@ public class GenericPropertyUtilTest extends TestCase {
      * 指定したプロパティがオブジェクト型の場合、 IllegalStateExceptionがスローされることを確認するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveTypeObjectStringClassint15() throws Exception {
         try {
@@ -828,6 +847,7 @@ public class GenericPropertyUtilTest extends TestCase {
      * 型パラメータ指定がワイルドカードの場合、Objectが返却されることを確認するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveTypeObjectStringClassint16() throws Exception {
         // テスト実施
@@ -853,6 +873,7 @@ public class GenericPropertyUtilTest extends TestCase {
      * 対応するフィールドが存在しない場合にIllegalArgumentExceptionがスローされることを確認するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetMethod01() throws Exception {
         try {
             // テスト実施
@@ -884,6 +905,7 @@ public class GenericPropertyUtilTest extends TestCase {
      * 対応するメソッドが存在しない場合にIllegalArgumentExceptionがスローされることを確認するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetMethod02() throws Exception {
         try {
             // テスト実施
@@ -914,6 +936,7 @@ public class GenericPropertyUtilTest extends TestCase {
      * 対応するメソッドが返却されることを確認するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetMethod03() throws Exception {
         // テスト実施
         Method actual = GenericPropertyUtil.getMethod(
@@ -942,6 +965,7 @@ public class GenericPropertyUtilTest extends TestCase {
      * PropertyUtils#getPropertyDescriptorでNoSuchMethodExceptionがスローされる場合のテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetMethod04() throws Exception {
         try {
             // テスト実施
@@ -979,6 +1003,7 @@ public class GenericPropertyUtilTest extends TestCase {
      * PropertyUtils#getPropertyDescriptorでInvocationTargetExceptionがスローされる場合のテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetMethod05() throws Exception {
         try {
             // テスト実施
@@ -1016,6 +1041,7 @@ public class GenericPropertyUtilTest extends TestCase {
      * PropertyUtils#getPropertyDescriptorでIllegalAccessExceptionがスローされる場合のテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetMethod06() throws Exception {
         // 前処理
         BeanUtilsBean beanUtilsBean = BeanUtilsBean.getInstance();
@@ -1054,6 +1080,7 @@ public class GenericPropertyUtilTest extends TestCase {
      * 引数genericClassがnullの場合にIllegalArgumentExceptionがスローされることを確認するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveTypeClassClassTypeint01() throws Exception {
         try {
@@ -1087,6 +1114,7 @@ public class GenericPropertyUtilTest extends TestCase {
      * 引数clazzがnullの場合にIllegalStateExceptionがスローされることを確認するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveTypeClassClassTypeint02() throws Exception {
         try {
@@ -1118,6 +1146,7 @@ public class GenericPropertyUtilTest extends TestCase {
      * 引数clazzがgenericClassのサブクラスではない場合にIllegalStateExceptionがスローされることを確認するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testResolveTypeClassClassTypeint03() throws Exception {
         try {
             // テスト実施
@@ -1151,6 +1180,7 @@ public class GenericPropertyUtilTest extends TestCase {
      * 引数indexが負の数である場合にIllegalArgumentExceptionがスローされることを確認するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testResolveTypeClassClassTypeint04() throws Exception {
         try {
             // テスト実施
@@ -1183,6 +1213,7 @@ public class GenericPropertyUtilTest extends TestCase {
      * 引数indexが型パラメータ数の範囲内である場合に型が取得できることを確認するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveTypeClassClassTypeint05() throws Exception {
         // テスト実施
@@ -1210,6 +1241,7 @@ public class GenericPropertyUtilTest extends TestCase {
      * 引数indexが型パラメータ数の範囲外である場合にIllegalArgumentExceptionがスローされることを確認するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testResolveTypeClassClassTypeint06() throws Exception {
         try {
             // テスト実施
@@ -1245,6 +1277,7 @@ public class GenericPropertyUtilTest extends TestCase {
      * 型が特定できない場合にObjectが返却されることを確認するテスト。 （経路確認のために特別にトレースログをチェックする） <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveTypeClassClassTypeint07() throws Exception {
         // テスト実施
@@ -1276,6 +1309,7 @@ public class GenericPropertyUtilTest extends TestCase {
      * typeで型が特定される場合に、型パラメータが返却されることを確認するテスト。 （経路確認のために特別にトレースログをチェックする） <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveTypeClassClassTypeint08() throws Exception {
         // 前処理

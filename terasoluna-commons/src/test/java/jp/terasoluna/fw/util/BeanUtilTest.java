@@ -16,16 +16,21 @@
 
 package jp.terasoluna.fw.util;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.fail;
+
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
 
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
 
 import org.apache.commons.beanutils.DynaBean;
 import org.apache.commons.beanutils.DynaProperty;
 import org.apache.commons.beanutils.NestedNullException;
+import org.junit.Test;
 
 /**
  * {@link jp.terasoluna.fw.util.BeanUtil} クラスの ブラックボックステスト。
@@ -35,36 +40,7 @@ import org.apache.commons.beanutils.NestedNullException;
  * @see jp.terasoluna.fw.util.BeanUtil
  */
 @SuppressWarnings("unused")
-public class BeanUtilTest extends TestCase {
-
-
-    /**
-     * 初期化処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
-     */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
-
-    /**
-     * 終了処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * @param name このテストケースの名前。
-     */
-    public BeanUtilTest(String name) {
-        super(name);
-    }
+public class BeanUtilTest {
 
     /**
      * testSetBeanProperty01() <br>
@@ -82,6 +58,7 @@ public class BeanUtilTest extends TestCase {
      * PropertyAccessExceptionでラップすること。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSetBeanProperty01() throws Exception {
         // テスト用JavaBean生成
         BeanUtil_BeanStub01 bean = new BeanUtil_BeanStub01();
@@ -112,6 +89,7 @@ public class BeanUtilTest extends TestCase {
      * PropertyUtils#setProperty()メソッドでNoSuchMethodExceptionが発生した時、PropertyAccessExceptionでラップすること。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSetBeanProperty02() throws Exception {
         // テスト用JavaBean生成
         BeanUtil_BeanStub01 bean = new BeanUtil_BeanStub01();
@@ -142,6 +120,7 @@ public class BeanUtilTest extends TestCase {
      * PropertyUtils#setProperty()メソッドでIllegalArgumentExceptionが発生した時、PropertyAccessExceptionでラップすること。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSetBeanProperty03() throws Exception {
         // テスト実行
         try {
@@ -169,6 +148,7 @@ public class BeanUtilTest extends TestCase {
      * PropertyUtils#setProperty()メソッドでIllegalArgumentExceptionが発生した時、PropertyAccessExceptionでラップすること。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSetBeanProperty04() throws Exception {
         // テスト用JavaBean生成
         BeanUtil_BeanStub01 bean = new BeanUtil_BeanStub01();
@@ -199,6 +179,7 @@ public class BeanUtilTest extends TestCase {
      * PropertyUtils#setProperty()メソッドが正しく呼び出され、処理が正常に行なわれること。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSetBeanProperty05() throws Exception {
         // テスト用JavaBean生成
         BeanUtil_BeanStub01 bean = new BeanUtil_BeanStub01();
@@ -225,6 +206,7 @@ public class BeanUtilTest extends TestCase {
      * PropertyUtils#setProperty()メソッドが正しく呼び出され、処理が正常に行なわれること。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSetBeanProperty06() throws Exception {
         // テスト用JavaBean生成
         BeanUtil_BeanStub01 bean = new BeanUtil_BeanStub01();
@@ -253,6 +235,7 @@ public class BeanUtilTest extends TestCase {
      * propertyが空文字の時、PropertyAccessExceptionをスローすること。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSetBeanProperty07() throws Exception {
         // テスト用JavaBean生成
         BeanUtil_BeanStub01 bean = new BeanUtil_BeanStub01();
@@ -284,6 +267,7 @@ public class BeanUtilTest extends TestCase {
      * PropertyAccessExceptionでラップすること。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetBeanProperty01() throws Exception {
         // テスト用JavaBean生成
         BeanUtil_BeanStub01 bean = new BeanUtil_BeanStub01();
@@ -314,6 +298,7 @@ public class BeanUtilTest extends TestCase {
      * PropertyUtils#getProperty()メソッドでNoSuchMethodExceptionが発生した時、PropertyAccessExceptionでラップすること。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetBeanProperty02() throws Exception {
         // テスト用JavaBean生成
         BeanUtil_BeanStub01 bean = new BeanUtil_BeanStub01();
@@ -344,6 +329,7 @@ public class BeanUtilTest extends TestCase {
      * PropertyUtils#getProperty()メソッドでIllegalArgumentExceptionが発生した時、PropertyAccessExceptionでラップすること。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetBeanProperty03() throws Exception {
         // テスト実行
         try {
@@ -371,6 +357,7 @@ public class BeanUtilTest extends TestCase {
      * PropertyUtils#getProperty()メソッドでIllegalArgumentExceptionが発生した時、PropertyAccessExceptionでラップすること。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetBeanProperty04() throws Exception {
         // テスト用JavaBean生成
         BeanUtil_BeanStub01 bean = new BeanUtil_BeanStub01();
@@ -400,6 +387,7 @@ public class BeanUtilTest extends TestCase {
      * PropertyUtils#getProperty()メソッドが正しく呼び出され、処理が正常に行なわれること。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetBeanProperty05() throws Exception {
         // テスト用JavaBean生成
         BeanUtil_BeanStub01 bean = new BeanUtil_BeanStub01();
@@ -423,6 +411,7 @@ public class BeanUtilTest extends TestCase {
      * PropertyUtils#getProperty()メソッドが正しく呼び出され、処理が正常に行なわれること。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetBeanProperty06() throws Exception {
         // テスト用JavaBean生成
         BeanUtil_BeanStub01 bean = new BeanUtil_BeanStub01();
@@ -446,6 +435,7 @@ public class BeanUtilTest extends TestCase {
      * propertyが空文字の時、PropertyAccessExceptionをスローすること。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetBeanProperty07() throws Exception {
         // テスト用JavaBean生成
         BeanUtil_BeanStub01 bean = new BeanUtil_BeanStub01();
@@ -477,6 +467,7 @@ public class BeanUtilTest extends TestCase {
      * PropertyAccessExceptionでラップすること。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetBeanPropertyType01() throws Exception {
         // テスト用JavaBean生成
         BeanUtil_BeanStub01 bean = new BeanUtil_BeanStub01();
@@ -506,6 +497,7 @@ public class BeanUtilTest extends TestCase {
      * PropertyUtils#getProperty()メソッドでNoSuchMethodExceptionが発生した時、 PropertyAccessExceptionでラップすること。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetBeanPropertyType02() throws Exception {
         // テスト用JavaBean生成
         BeanUtil_BeanStub01 bean = new BeanUtil_BeanStub01();
@@ -530,6 +522,7 @@ public class BeanUtilTest extends TestCase {
      * PropertyUtils#getProperty()メソッドでIllegalArgumentExceptionが発生した時、PropertyAccessExceptionでラップすること。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetBeanPropertyType03() throws Exception {
         // テスト実行
         try {
@@ -557,6 +550,7 @@ public class BeanUtilTest extends TestCase {
      * PropertyUtils#getProperty()メソッドでIllegalArgumentExceptionが発生した時、PropertyAccessExceptionでラップすること。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetBeanPropertyType04() throws Exception {
         // テスト用JavaBean生成
         BeanUtil_BeanStub01 bean = new BeanUtil_BeanStub01();
@@ -586,6 +580,7 @@ public class BeanUtilTest extends TestCase {
      * PropertyUtils#getProperty()メソッドが正しく呼び出され、処理が正常に行なわれること。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetBeanPropertyType05() throws Exception {
         // テスト用JavaBean生成
         BeanUtil_BeanStub01 bean = new BeanUtil_BeanStub01();
@@ -609,6 +604,7 @@ public class BeanUtilTest extends TestCase {
      * PropertyUtils#getProperty()メソッドが正しく呼び出され、処理が正常に行なわれること。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetBeanPropertyType06() throws Exception {
         // テスト用JavaBean生成
         BeanUtil_BeanStub01 bean = new BeanUtil_BeanStub01();
@@ -632,6 +628,7 @@ public class BeanUtilTest extends TestCase {
      * propertyが空文字の時、PropertyAccessExceptionをスローすること。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetBeanPropertyType07() throws Exception {
         // テスト用JavaBean生成
         Map map = new HashMap();
@@ -662,6 +659,7 @@ public class BeanUtilTest extends TestCase {
      * DynaBeanのフィールドが配列・Collection型ではない場合 、処理が正常に行なわれること。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetBeanPropertyType08() throws Exception {
         // 前処理
         DynaProperty dynaProperty = new DynaProperty("testString", String.class);
@@ -690,6 +688,7 @@ public class BeanUtilTest extends TestCase {
      * DynaBeanのフィールドが配列・Collection型です場合 、処理が正常に行なわれること。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetBeanPropertyType09() throws Exception {
         // 前処理
         DynaProperty dynaProperty = new DynaProperty("testArray",
@@ -718,6 +717,7 @@ public class BeanUtilTest extends TestCase {
      * 指定された属性がDynaBeanに存在しない場合、処理が正常に行なわれること。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetBeanPropertyType10() throws Exception {
         // 前処理
         BeanUtil_DynaClassImpl01 dynaClass = new BeanUtil_DynaClassImpl01();

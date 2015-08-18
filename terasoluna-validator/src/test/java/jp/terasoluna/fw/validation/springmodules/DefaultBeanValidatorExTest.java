@@ -16,10 +16,9 @@
 
 package jp.terasoluna.fw.validation.springmodules;
 
-import jp.terasoluna.utlib.UTUtil;
-
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.fail;
+import jp.terasoluna.utlib.UTUtil;
 
 import org.apache.commons.validator.Validator;
 import org.apache.commons.validator.ValidatorException;

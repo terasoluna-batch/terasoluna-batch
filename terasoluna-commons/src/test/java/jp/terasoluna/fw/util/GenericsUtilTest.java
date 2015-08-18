@@ -16,6 +16,13 @@
 
 package jp.terasoluna.fw.util;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 import java.lang.reflect.GenericArrayType;
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
@@ -30,7 +37,7 @@ import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.concurrent.FutureTask;
 
-import junit.framework.TestCase;
+import org.junit.Test;
 
 /**
  * {@link jp.terasoluna.fw.util.GenericsUtil} クラスのテスト。
@@ -42,39 +49,7 @@ import junit.framework.TestCase;
  *
  * @see jp.terasoluna.fw.client.util.GenericsUtil
  */
-public class GenericsUtilTest extends TestCase {
-
-
-    /**
-     * 初期化処理を行う。
-     *
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
-     */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
-
-    /**
-     * 終了処理を行う。
-     *
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     *
-     * @param name このテストケースの名前。
-     */
-    public GenericsUtilTest(String name) {
-        super(name);
-    }
+public class GenericsUtilTest {
 
     /**
      * testResolveParameterizedClassClassClass01()
@@ -98,6 +73,7 @@ public class GenericsUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testResolveParameterizedClassClassClass01() throws Exception {
 
         try {
@@ -137,6 +113,7 @@ public class GenericsUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testResolveParameterizedClassClassClass02() throws Exception {
         try {
             //  テスト実施
@@ -173,6 +150,7 @@ public class GenericsUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testResolveParameterizedClassClassClass03() throws Exception {
         try {
             //  テスト実施
@@ -208,6 +186,7 @@ public class GenericsUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testResolveParameterizedClassClassClass04() throws Exception {
         try {
             //  テスト実施
@@ -243,6 +222,7 @@ public class GenericsUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveParameterizedClassClassClass05() throws Exception {
         //  テスト実施
@@ -277,6 +257,7 @@ public class GenericsUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveParameterizedClassClassClass06() throws Exception {
         //  テスト実施
@@ -312,6 +293,7 @@ public class GenericsUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveParameterizedClassClassClass07() throws Exception {
         //  テスト実施
@@ -349,6 +331,7 @@ public class GenericsUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveParameterizedClassClassClass08() throws Exception {
         //  テスト実施
@@ -387,6 +370,7 @@ public class GenericsUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveParameterizedClassClassClass09() throws Exception {
         //  テスト実施
@@ -427,6 +411,7 @@ public class GenericsUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveParameterizedClassClassClass10() throws Exception {
         //  テスト実施
@@ -470,6 +455,7 @@ public class GenericsUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveParameterizedClassClassClass11() throws Exception {
         //  テスト実施
@@ -508,6 +494,7 @@ public class GenericsUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testResolveParameterizedClassClassClassint01() throws Exception {
 
         try {
@@ -548,6 +535,7 @@ public class GenericsUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testResolveParameterizedClassClassClassint02() throws Exception {
         try {
             //  テスト実施
@@ -585,6 +573,7 @@ public class GenericsUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testResolveParameterizedClassClassClassint03() throws Exception {
         try {
             //  テスト実施
@@ -620,6 +609,7 @@ public class GenericsUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testResolveParameterizedClassClassClassint04() throws Exception {
         try {
             //  テスト実施
@@ -656,6 +646,7 @@ public class GenericsUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveParameterizedClassClassClassint05() throws Exception {
         //  テスト実施
@@ -689,6 +680,7 @@ public class GenericsUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveParameterizedClassClassClassint06() throws Exception {
         //  テスト実施
@@ -723,6 +715,7 @@ public class GenericsUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testResolveParameterizedClassClassClassint07() throws Exception {
         try {
             //  テスト実施
@@ -763,6 +756,7 @@ public class GenericsUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testResolveParameterizedClassClassClassint08() throws Exception {
         try {
             //  テスト実施
@@ -800,6 +794,7 @@ public class GenericsUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveParameterizedClassClassClassint09() throws Exception {
         //  テスト実施
@@ -832,6 +827,7 @@ public class GenericsUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveParameterizedClassClassClassint10() throws Exception {
         //  テスト実施
@@ -866,6 +862,7 @@ public class GenericsUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveParameterizedClassClassClassint11() throws Exception {
         //  テスト実施
@@ -900,6 +897,7 @@ public class GenericsUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveParameterizedClassClassClassint12() throws Exception {
         //  テスト実施
@@ -933,6 +931,7 @@ public class GenericsUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetAncestorTypeList01() throws Exception {
         try {
             //  テスト実施
@@ -971,6 +970,7 @@ public class GenericsUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetAncestorTypeList02() throws Exception {
         //  テスト実施
         List<ParameterizedType> result = GenericsUtil.getAncestorTypeList(
@@ -1008,6 +1008,7 @@ public class GenericsUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetAncestorTypeList03() throws Exception {
         //  テスト実施
         List<ParameterizedType> result = GenericsUtil.getAncestorTypeList(
@@ -1045,6 +1046,7 @@ public class GenericsUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetAncestorTypeList04() throws Exception {
         //  テスト実施
         List<ParameterizedType> result = GenericsUtil.getAncestorTypeList(
@@ -1082,6 +1084,7 @@ public class GenericsUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetAncestorTypeList05() throws Exception {
         //  テスト実施
         List<ParameterizedType> result = GenericsUtil.getAncestorTypeList(
@@ -1121,6 +1124,7 @@ public class GenericsUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetAncestorTypeList06() throws Exception {
         //  テスト実施
         List<ParameterizedType> result = GenericsUtil.getAncestorTypeList(
@@ -1157,6 +1161,7 @@ public class GenericsUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testCheckParameterizedType01() throws Exception {
         //  前処理
         List<ParameterizedType> list = new ArrayList<ParameterizedType>();
@@ -1194,6 +1199,7 @@ public class GenericsUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testCheckParameterizedType02() throws Exception {
         //  前処理
         List<ParameterizedType> list = new ArrayList<ParameterizedType>();
@@ -1232,6 +1238,7 @@ public class GenericsUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testCheckParameterizedType03() throws Exception {
         //  前処理
         List<ParameterizedType> list = new ArrayList<ParameterizedType>();
@@ -1273,6 +1280,7 @@ public class GenericsUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings({ "null", "unchecked" })
     public void testCheckParameterizedType04() throws Exception {
         //  前処理
@@ -1317,6 +1325,7 @@ public class GenericsUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveTypeVariable01() throws Exception {
         // 前処理
@@ -1354,6 +1363,7 @@ public class GenericsUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testResolveTypeVariable02() throws Exception {
         // 前処理
         Type type = getTypeVariable(
@@ -1397,6 +1407,7 @@ public class GenericsUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testResolveTypeVariable03() throws Exception {
         try {
             //  テスト実施
@@ -1439,6 +1450,7 @@ public class GenericsUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveTypeVariable04() throws Exception {
         // 前処理
@@ -1488,6 +1500,7 @@ public class GenericsUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveTypeVariable05() throws Exception {
         // 前処理
@@ -1529,6 +1542,7 @@ public class GenericsUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveTypeVariable06() throws Exception {
         // 前処理
@@ -1564,6 +1578,7 @@ public class GenericsUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testsNotTypeVariable01() throws Exception {
         //  テスト実施
         boolean result = GenericsUtil.isNotTypeVariable(String.class);
@@ -1592,6 +1607,7 @@ public class GenericsUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsNotTypeVariable02() throws Exception {
         //  前処理
         Type type = getTypeVariable(
@@ -1628,6 +1644,7 @@ public class GenericsUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsNotTypeVariable03() throws Exception {
 
         // 前処理
@@ -1671,6 +1688,7 @@ public class GenericsUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsNotTypeVariable04() throws Exception {
         //  前処理
         Type type = GenericsUtil_ArrayListStub01.class.getGenericSuperclass();
@@ -1701,6 +1719,7 @@ public class GenericsUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsNotTypeVariable05() throws Exception {
         //  前処理
         Type type = new GenericsUtil_GenericArrayTypeStub01();
@@ -1801,6 +1820,7 @@ public class GenericsUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testGetRawClass01() throws Exception {
         //  前処理
@@ -1833,6 +1853,7 @@ public class GenericsUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testGetRawClass02() throws Exception {
         //  前処理
@@ -1866,6 +1887,7 @@ public class GenericsUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testGetRawClass03() throws Exception {
         //  前処理
@@ -1903,6 +1925,7 @@ public class GenericsUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetRawClass04() throws Exception {
         // 前処理
         Type type = new GenericsUtil_WildCardTypeStub01();
@@ -1948,6 +1971,7 @@ public class GenericsUtilTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testGetRawClass05() throws Exception {
         //  前処理

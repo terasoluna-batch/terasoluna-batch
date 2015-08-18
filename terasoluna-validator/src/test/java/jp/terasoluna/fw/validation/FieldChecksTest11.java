@@ -33,7 +33,6 @@ import static uk.org.lidalia.slf4jtest.LoggingEvent.error;
 import java.lang.reflect.InvocationTargetException;
 
 import jp.terasoluna.fw.util.ClassLoadException;
-import junit.framework.TestCase;
 
 import org.apache.commons.validator.Field;
 import org.apache.commons.validator.ValidatorAction;

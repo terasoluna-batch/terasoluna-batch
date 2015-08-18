@@ -16,7 +16,6 @@
 
 package jp.terasoluna.fw.validation;
 
-import static java.util.Arrays.asList;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsInstanceOf.instanceOf;
 import static org.hamcrest.core.IsEqual.equalTo;
@@ -26,8 +25,6 @@ import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
-import static uk.org.lidalia.slf4jtest.LoggingEvent.error;
-
 import org.apache.commons.validator.Field;
 import org.apache.commons.validator.ValidatorAction;
 import org.apache.commons.validator.ValidatorException;
@@ -78,6 +75,7 @@ public class FieldChecksTest03 {
     }
 
     /**
+<<<<<<< a57dbbe4830efc04ea52f49fcc2ac2e19bf2f42c
      * 終了処理を行う。
      */
     @After
@@ -90,6 +88,12 @@ public class FieldChecksTest03 {
      * <br>
      * (正常系) <br>
      * 観点：C,F <br>
+=======
+     * testValidateLong01()
+     * <br><br>
+     *
+     * (正常系)
+>>>>>>> Change JUnit3 to JUnit4. #257
      * <br>
      * 入力値：(引数) bean:null<br>
      * (引数) va:not null<br>

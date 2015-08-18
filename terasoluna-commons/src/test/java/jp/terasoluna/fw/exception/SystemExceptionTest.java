@@ -16,8 +16,12 @@
 
 package jp.terasoluna.fw.exception;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+
+import org.junit.Test;
+
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
 
 /**
  * SystemException ブラックボックステスト。<br>
@@ -26,29 +30,12 @@ import junit.framework.TestCase;
  * @version 2004/04/21
  */
 
-public class SystemExceptionTest extends TestCase {
+public class SystemExceptionTest {
 
     /**
       * テスト用SystemExceptionフィールド。
       */
     private SystemException se1 = null;
-
-    /**
-     * SystemExceptionをテストする際に行う初期化処理。
-     * @see TestCase#setUp()
-     */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
-
-    /**
-     * @see TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
 
     /**
      * testSystemExceptionThrowable01()<br>
@@ -62,6 +49,7 @@ public class SystemExceptionTest extends TestCase {
      * 概要：引数causeがNotNullで、メッセージがありの場合
      * @throws Exception 例外
      */
+    @Test
     public void testSystemExceptionThrowable01() throws Exception {
 
         // 入力値の設定。
@@ -90,6 +78,7 @@ public class SystemExceptionTest extends TestCase {
      * 概要：引数causeがNotNullで、メッセージが空白の場合
      * @throws Exception 例外
      */
+    @Test
     public void testSystemExceptionThrowable02() throws Exception {
         // 入力値の設定。
         Throwable cause = new Throwable("");
@@ -117,6 +106,7 @@ public class SystemExceptionTest extends TestCase {
      * 概要：引数causeがnullの場合
      * @throws Exception 例外
      */
+    @Test
     public void testSystemExceptionThrowable03() throws Exception {
 
         // テスト対象コンストラクタの実行。
@@ -141,6 +131,7 @@ public class SystemExceptionTest extends TestCase {
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeが"test01"の場合
      * @throws Exception 例外
      */
+    @Test
     public void testSystemExceptionThrowableString01() throws Exception {
         // 入力値の設定。
         Throwable cause = new Throwable("testException");
@@ -169,6 +160,7 @@ public class SystemExceptionTest extends TestCase {
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeが空白の場合
      * @throws Exception 例外
      */
+    @Test
     public void testSystemExceptionThrowableString02() throws Exception {
         // 入力値の設定。
         Throwable cause = new Throwable("testException");
@@ -183,6 +175,7 @@ public class SystemExceptionTest extends TestCase {
         assertEquals("testException", throwWord);
         assertEquals("", errorCode);
     }
+
     /**
      * testSystemExceptionThrowableString03<br>
      *
@@ -195,6 +188,7 @@ public class SystemExceptionTest extends TestCase {
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeがnullの場合
      * @throws Exception 例外
      */
+    @Test
     public void testSystemExceptionThrowableString03() throws Exception {
         // 入力値の設定。
         Throwable cause = new Throwable("testException");
@@ -225,6 +219,7 @@ public class SystemExceptionTest extends TestCase {
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeが"test01"、引数optionsが「{ "a" }」の場合
      * @throws Exception 例外
      */
+    @Test
     public void testSystemExceptionThrowableStringStringArray01()
         throws Exception {
         // 入力値の設定。
@@ -260,6 +255,7 @@ public class SystemExceptionTest extends TestCase {
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeが"test01"、引数optionsが「{ "a", "b" }」の場合
      * @throws Exception 例外
      */
+    @Test
     public void testSystemExceptionThrowableStringStringArray02()
         throws Exception {
         // 入力値の設定。
@@ -295,6 +291,7 @@ public class SystemExceptionTest extends TestCase {
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeが"test01"、引数optionsが「{ "a", "b", "c" }」の場合
      * @throws Exception 例外
      */
+    @Test
     public void testSystemExceptionThrowableStringStringArray03()
         throws Exception {
         // 入力値の設定。
@@ -331,6 +328,7 @@ public class SystemExceptionTest extends TestCase {
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeが"test01"、引数optionsがnullの場合
      * @throws Exception 例外
      */
+    @Test
     public void testSystemExceptionThrowableStringStringArray04()
         throws Exception {
         // 入力値の設定。
@@ -366,6 +364,7 @@ public class SystemExceptionTest extends TestCase {
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeが"test01"、引数optionsが「{ "", "", "" }」の場合
      * @throws Exception 例外
      */
+    @Test
     public void testSystemExceptionThrowableStringStringArray05()
         throws Exception {
         // 入力値の設定。
@@ -403,6 +402,7 @@ public class SystemExceptionTest extends TestCase {
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeが"test01"、引数optionsが「{ null, null, null }」の場合
      * @throws Exception 例外
      */
+    @Test
     public void testSystemExceptionThrowableStringStringArray06()
         throws Exception {
         // 入力値の設定。
@@ -441,6 +441,7 @@ public class SystemExceptionTest extends TestCase {
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeが"test01"、引数optionsが「{ "a", "", null }」の場合
      * @throws Exception 例外
      */
+    @Test
     public void testSystemExceptionThrowableStringStringArray07()
         throws Exception {
         // 入力値の設定。
@@ -478,6 +479,7 @@ public class SystemExceptionTest extends TestCase {
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeが"test01"、引数s0が"a"の場合
      * @throws Exception 例外
      */
+    @Test
     public void testSystemExceptionThrowableStringString01() throws Exception {
         // 入力値の設定。
         Throwable cause = new Throwable("testException");
@@ -511,6 +513,7 @@ public class SystemExceptionTest extends TestCase {
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeが""、引数s0が空白の場合
      * @throws Exception 例外
      */
+    @Test
     public void testSystemExceptionThrowableStringString02() throws Exception {
         // 入力値の設定。
         Throwable cause = new Throwable("testException");
@@ -542,6 +545,7 @@ public class SystemExceptionTest extends TestCase {
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeがnull、引数s0がnullの場合
      * @throws Exception 例外
      */
+    @Test
     public void testSystemExceptionThrowableStringString03() throws Exception {
         // 入力値の設定。
         Throwable cause = new Throwable("testException");
@@ -575,6 +579,7 @@ public class SystemExceptionTest extends TestCase {
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeが"test01"、引数s0が"a"、引数s1が"b"の場合
      * @throws Exception 例外
      */
+    @Test
     public void testSystemExceptionThrowableStringStringString01()
         throws Exception {
         // 入力値の設定。
@@ -611,6 +616,7 @@ public class SystemExceptionTest extends TestCase {
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeが"test01"、引数s0が空白、引数s1が空白の場合
      * @throws Exception 例外
      */
+    @Test
     public void testSystemExceptionThrowableStringStringString02()
         throws Exception {
         // 入力値の設定。
@@ -645,6 +651,7 @@ public class SystemExceptionTest extends TestCase {
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeが空白、引数s0がnull、引数s1がnullの場合
      * @throws Exception 例外
      */
+    @Test
     public void testSystemExceptionThrowableStringStringString03()
         throws Exception {
         // 入力値の設定。
@@ -678,6 +685,7 @@ public class SystemExceptionTest extends TestCase {
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeがnull、引数s0が空白、引数s1が"a"の場合
      * @throws Exception 例外
      */
+    @Test
     public void testSystemExceptionThrowableStringStringString04()
         throws Exception {
         // 入力値の設定。
@@ -712,6 +720,7 @@ public class SystemExceptionTest extends TestCase {
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeが"test01"、引数s0がnull、引数s1が"a"の場合
      * @throws Exception 例外
      */
+    @Test
     public void testSystemExceptionThrowableStringStringString05()
         throws Exception {
         // 入力値の設定。
@@ -748,6 +757,7 @@ public class SystemExceptionTest extends TestCase {
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeが"test01"、引数s0が"a"、引数s1が"b"、引数s2が"c"の場合
      * @throws Exception 例外
      */
+    @Test
     public void testSystemExceptionThrowableStringStringStringString01()
         throws Exception {
         // 入力値の設定。
@@ -787,6 +797,7 @@ public class SystemExceptionTest extends TestCase {
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeが空白、引数s0が空白、引数s1が空白、引数s2が空白の場合
      * @throws Exception 例外
      */
+    @Test
     public void testSystemExceptionThrowableStringStringStringString02()
         throws Exception {
         // 入力値の設定。
@@ -822,6 +833,7 @@ public class SystemExceptionTest extends TestCase {
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeがnull、引数s0がnull、引数s1がnull、引数s2がnullの場合
      * @throws Exception 例外
      */
+    @Test
     public void testSystemExceptionThrowableStringStringStringString03()
         throws Exception {
         // 入力値の設定。
@@ -857,6 +869,7 @@ public class SystemExceptionTest extends TestCase {
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeが"test01"、引数s0が"a"、引数s1が空白、引数s2がnullの場合
      * @throws Exception 例外
      */
+    @Test
     public void testSystemExceptionThrowableStringStringStringString04()
         throws Exception {
         // 入力値の設定。
@@ -894,6 +907,7 @@ public class SystemExceptionTest extends TestCase {
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeがnull、引数s0が"a"、引数s1が"b"、引数s2が"c"、引数s3が"d"の場合
      * @throws Exception 例外
      */
+    @Test
     public void testSystemExceptionThrowableStringStringStringStringString01()
         throws Exception {
         // 入力値の設定。
@@ -934,6 +948,7 @@ public class SystemExceptionTest extends TestCase {
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeが"test01"、引数s0が空白、引数s1が空白、引数s2が空白、引数s3が空白の場合
      * @throws Exception 例外
      */
+    @Test
     public void testSystemExceptionThrowableStringStringStringStringString02()
         throws Exception {
         // 入力値の設定。
@@ -971,6 +986,7 @@ public class SystemExceptionTest extends TestCase {
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeが空白、引数s0がnull、引数s1がnull、引数s2がnull、引数s3がnullの場合
      * @throws Exception 例外
      */
+    @Test
     public void testSystemExceptionThrowableStringStringStringStringString03()
         throws Exception {
         // 入力値の設定。
@@ -1007,6 +1023,7 @@ public class SystemExceptionTest extends TestCase {
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeがnull、引数s0が"a"、引数s1が"b"、引数s2が空白、引数s3がnullの場合
      * @throws Exception 例外
      */
+    @Test
     public void testSystemExceptionThrowableStringStringStringStringString04()
         throws Exception {
         // 入力値の設定。
@@ -1042,6 +1059,7 @@ public class SystemExceptionTest extends TestCase {
      * 概要：※正常系一件のみテスト
      * @throws Exception 例外
      */
+    @Test
     public void testGetErrorCode01() throws Exception {
         // SystemExceptionの設定。
         Throwable cause = new Throwable("testException");
@@ -1066,6 +1084,7 @@ public class SystemExceptionTest extends TestCase {
      * 概要：※正常系一件のみテスト
      * @throws Exception 例外
      */
+    @Test
     public void testGetOptions01() throws Exception {
         // SystemExceptionの設定。
         Throwable cause = new Throwable("testException");
@@ -1091,6 +1110,7 @@ public class SystemExceptionTest extends TestCase {
      * 概要：※正常系一件のみテスト
      * @throws Exception 例外
      */
+    @Test
     public void testSetMessage01() throws Exception {
         // SystemExceptionの設定。
         Throwable cause = new Throwable("testException");
@@ -1116,6 +1136,7 @@ public class SystemExceptionTest extends TestCase {
      * 概要：messageの値がnot nullの場合、messageの値が取得できることを確認する。
      * @throws Exception 例外
      */
+    @Test
     public void testGetMessage01() throws Exception {
         // SystemExceptionの設定。
         Throwable cause = new Throwable("testException");
@@ -1150,6 +1171,7 @@ public class SystemExceptionTest extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetMessage02() throws Exception {
         // SystemExceptionの設定。
         Throwable cause = new Throwable("testException");

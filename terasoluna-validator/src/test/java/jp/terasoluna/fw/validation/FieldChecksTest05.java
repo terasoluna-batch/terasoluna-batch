@@ -75,6 +75,7 @@ public class FieldChecksTest05 {
     }
 
     /**
+<<<<<<< a57dbbe4830efc04ea52f49fcc2ac2e19bf2f42c
      * 終了処理を行う。
      */
     @After
@@ -87,6 +88,12 @@ public class FieldChecksTest05 {
      * <br>
      * (正常系) <br>
      * 観点：C,F <br>
+=======
+     * testValidateFloatRange01()
+     * <br><br>
+     *
+     * (正常系)
+>>>>>>> Change JUnit3 to JUnit4. #257
      * <br>
      * 入力値：(引数) bean:null<br>
      * (引数) va:not null<br>

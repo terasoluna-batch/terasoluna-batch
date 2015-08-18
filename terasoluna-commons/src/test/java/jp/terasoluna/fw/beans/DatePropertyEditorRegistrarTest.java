@@ -16,13 +16,15 @@
 
 package jp.terasoluna.fw.beans;
 
+import static org.junit.Assert.assertSame;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
 
+import org.junit.Test;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 
 /**
@@ -35,39 +37,7 @@ import org.springframework.beans.propertyeditors.CustomDateEditor;
  * 
  * @see jp.terasoluna.fw.beans.DatePropertyEditorRegistrar
  */
-public class DatePropertyEditorRegistrarTest extends TestCase {
-
-
-    /**
-     * 初期化処理を行う。
-     * 
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
-     */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
-
-    /**
-     * 終了処理を行う。
-     * 
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * 
-     * @param name このテストケースの名前。
-     */
-    public DatePropertyEditorRegistrarTest(String name) {
-        super(name);
-    }
+public class DatePropertyEditorRegistrarTest {
 
     /**
      * testSetDateFormat01()
@@ -90,6 +60,7 @@ public class DatePropertyEditorRegistrarTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSetDateFormat01() throws Exception {
         // 前処理
     	DatePropertyEditorRegistrar registrar
@@ -123,6 +94,7 @@ public class DatePropertyEditorRegistrarTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testRegisterCustomEditors01() throws Exception {
         // 前処理
     	DatePropertyEditorRegistrar registrar
