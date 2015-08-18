@@ -20,7 +20,6 @@ import static java.util.Arrays.asList;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 import static uk.org.lidalia.slf4jtest.LoggingEvent.info;
-
 import static org.junit.Assert.assertTrue;
 
 import java.util.HashMap;

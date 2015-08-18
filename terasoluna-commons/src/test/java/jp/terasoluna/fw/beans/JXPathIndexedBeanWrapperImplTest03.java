@@ -46,7 +46,6 @@ public class JXPathIndexedBeanWrapperImplTest03 {
     public void tearDown() {
         logger.clear();
     }
-
     /**
      * testToPropertyName01() <br>
      * <br>

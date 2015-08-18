@@ -63,10 +63,9 @@ public class JXPathIndexedBeanWrapperImplTest01 {
      * 終了処理を行う。
      */
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() {
         logger.clear();
     }
-
     /**
      * testJXPathIndexedBeanWrapperImpl01() <br>
      * <br>
@@ -543,7 +542,7 @@ public class JXPathIndexedBeanWrapperImplTest01 {
     public void testGetIndexedPropertyValuesJavaBean07_6() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl_JavaBeanStub01 bean = new JXPathIndexedBeanWrapperImpl_JavaBeanStub01();
-        bean.setProperty4(new ArrayList());
+        bean.setProperty4(new ArrayList<Object>());
 
         JXPathIndexedBeanWrapperImpl bw = new JXPathIndexedBeanWrapperImpl(bean);
 

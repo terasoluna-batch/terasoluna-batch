@@ -82,8 +82,13 @@ public class GenericPropertyUtilTest {
     /**
      * testResolveCollectionType01()
      * <br><br>
+<<<<<<< 8e5ea229e8186a3608e9edcc92af89425cc77172
      *
      * (異常系)
+=======
+     * (異常系)<br>
+     * 観点：G <br>
+>>>>>>> Change JUnit3 to JUnit4. #257
      * <br>
      * 入力値：(引数) bean:null<br>
      * <br>

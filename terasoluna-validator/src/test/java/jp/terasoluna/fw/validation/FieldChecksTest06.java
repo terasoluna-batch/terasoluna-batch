@@ -61,10 +61,10 @@ public class FieldChecksTest06 {
     }
 
     /**
-     * testValidateAlphaNumericString01() <br>
-     * <br>
-     * (正常系) <br>
-     * 観点：A <br>
+     * testValidateAlphaNumericString01()
+     * <br><br>
+     *
+     * (正常系)
      * <br>
      * 入力値：(引数) bean:null<br>
      * (引数) va:not null<br>
