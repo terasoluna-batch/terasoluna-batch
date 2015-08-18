@@ -1,23 +1,19 @@
 package jp.terasoluna.fw.batch.executor.vo;
 
-import junit.framework.TestCase;
+import static org.junit.Assert.assertEquals;
 
-public class BLogicResultTest extends TestCase {
+import org.junit.Test;
 
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
+public class BLogicResultTest {
 
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
+    @Test
     public void testSetAndGetBlogicStatus() {
         BLogicResult r = new BLogicResult();
         r.setBlogicStatus(100);
         assertEquals(100, r.getBlogicStatus());
     }
 
+    @Test
     public void testSetAndGetBlogicThrowable() {
         BLogicResult r = new BLogicResult();
         Exception e = new Exception();

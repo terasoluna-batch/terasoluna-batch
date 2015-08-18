@@ -1,29 +1,27 @@
 package jp.terasoluna.fw.batch.executor.vo;
 
-import junit.framework.TestCase;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
-public class BatchJobManagementParamTest extends TestCase {
+import org.junit.Test;
 
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
+public class BatchJobManagementParamTest {
 
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
+    @Test
     public void testSetAndGetJobSequenceId() {
         BatchJobManagementParam p = new BatchJobManagementParam();
         p.setJobSequenceId("a");
         assertEquals("a", p.getJobSequenceId());
     }
 
+    @Test
     public void testSetAndGetForUpdate() {
         BatchJobManagementParam p = new BatchJobManagementParam();
         p.setForUpdate(true);
         assertTrue(p.getForUpdate());
     }
 
+    @Test
     public void testToString() {
         BatchJobManagementParam p = new BatchJobManagementParam();
         p.setJobSequenceId("a");

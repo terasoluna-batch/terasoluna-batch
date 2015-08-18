@@ -7,11 +7,18 @@
 
 package jp.terasoluna.fw.file.dao;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+
 import java.util.List;
+
+import org.junit.Before;
+import org.junit.Test;
 
 import jp.terasoluna.fw.file.ut.VMOUTUtil;
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.FileLineException} クラスのテスト。
@@ -21,43 +28,14 @@ import junit.framework.TestCase;
  * @author 奥田哲司
  * @see jp.terasoluna.fw.file.dao.FileLineException
  */
-public class FileLineExceptionTest extends TestCase {
-
-    /**
-     * このテストケースを実行する為の GUI アプリケーションを起動する。
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        // junit.swingui.TestRunner.run(FileLineExceptionTest.class);
-    }
+public class FileLineExceptionTest {
 
     /**
      * 初期化処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
      */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
+    @Before
+    public void setUp() {
         VMOUTUtil.initialize();
-    }
-
-    /**
-     * 終了処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * @param name このテストケースの名前。
-     */
-    public FileLineExceptionTest(String name) {
-        super(name);
     }
 
     /**
@@ -78,6 +56,7 @@ public class FileLineExceptionTest extends TestCase {
      * コンストラクタの引数で受け取ったExceptionをラップすることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testFileLineExceptionException01() throws Exception {
         // テスト対象のインスタンス化
@@ -128,6 +107,7 @@ public class FileLineExceptionTest extends TestCase {
      * 例外オブジェクト生成後にメッセージが格納されていることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testFileLineExceptionString01() throws Exception {
         // テスト対象のインスタンス化
@@ -181,6 +161,7 @@ public class FileLineExceptionTest extends TestCase {
      * 例外オブジェクト生成後にメッセージが格納されていることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testFileLineExceptionStringException01() throws Exception {
         // テスト対象のインスタンス化
@@ -238,6 +219,7 @@ public class FileLineExceptionTest extends TestCase {
      * 例外オブジェクト生成後にファイル名が格納されていることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testFileLineExceptionExceptionStringint01() throws Exception {
         // テスト対象のインスタンス化
@@ -295,6 +277,7 @@ public class FileLineExceptionTest extends TestCase {
      * 例外オブジェクト生成後にファイル名が格納されていることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testFileLineExceptionStringExceptionStringint01()
                                                                  throws Exception {
@@ -359,6 +342,7 @@ public class FileLineExceptionTest extends TestCase {
      * 例外オブジェクト生成後にファイル名が格納されていることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testFileLineExceptionExceptionStringintStringint01()
                                                                     throws Exception {
@@ -427,6 +411,7 @@ public class FileLineExceptionTest extends TestCase {
      * 例外オブジェクト生成後にファイル名が格納されていることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testFileLineExceptionStringExceptionStringintStringint01()
                                                                           throws Exception {
@@ -491,7 +476,7 @@ public class FileLineExceptionTest extends TestCase {
      * columnNameのgetterメソッドが正しく値を取得することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-
+    @Test
     public void testGetColumnName01() throws Exception {
         // テスト対象のインスタンス化
         String message = new String();
@@ -541,7 +526,7 @@ public class FileLineExceptionTest extends TestCase {
      * lineNoのgetterメソッドが正しく値を取得することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-
+    @Test
     public void testGetLineNo01() throws Exception {
         // テスト対象のインスタンス化
         String message = new String();
@@ -591,7 +576,7 @@ public class FileLineExceptionTest extends TestCase {
      * 属性の値が正しく値を取得することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-
+    @Test
     public void testGetColumnIndex01() throws Exception {
         // テスト対象のインスタンス化
         FileLineException fe = new FileLineException(new String());

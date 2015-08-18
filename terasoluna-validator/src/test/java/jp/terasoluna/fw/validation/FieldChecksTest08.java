@@ -84,7 +84,6 @@ public class FieldChecksTest08 {
     /**
      * 終了処理を行う。
      * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
      */
     @After
     public void tearDown() {

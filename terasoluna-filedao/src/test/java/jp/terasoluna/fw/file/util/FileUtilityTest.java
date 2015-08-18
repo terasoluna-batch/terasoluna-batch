@@ -7,6 +7,13 @@
 
 package jp.terasoluna.fw.file.util;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -21,10 +28,14 @@ import java.nio.channels.FileLock;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Ignore;
+import org.junit.Test;
+
 import jp.terasoluna.fw.file.dao.FileException;
 import jp.terasoluna.fw.file.ut.VMOUTUtil;
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
 
 /**
  * {@link jp.terasoluna.fw.file.util.FileUtility} クラスのテスト。
@@ -35,46 +46,23 @@ import junit.framework.TestCase;
  * @author 趙俸徹
  * @see jp.terasoluna.fw.file.util.FileUtility
  */
-public class FileUtilityTest extends TestCase {
-
-    /**
-     * このテストケースを実行する為の GUI アプリケーションを起動する。
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        // junit.swingui.TestRunner.run(FileUtilityTest.class);
-    }
+public class FileUtilityTest {
 
     /**
      * 初期化処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
      */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
+    @Before
+    public void setUp() {
         VMOUTUtil.initialize();
     }
 
     /**
      * 終了処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
      */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-
+    @After
+    public void tearDown() throws Exception {
         // FileUtilityのstaticフィールドをデフォルト値に初期化する。
         UTUtil.setPrivateField(FileUtility.class, "checkFileExist", false);
-    }
-
-    /**
-     * コンストラクタ。
-     * @param name このテストケースの名前。
-     */
-    public FileUtilityTest(String name) {
-        super(name);
     }
 
     /*
@@ -107,6 +95,8 @@ public class FileUtilityTest extends TestCase {
      * @throws Exception このメソッドで発生した例外
      */
     // This testcase is ignored, because of Windows environment dependency.
+    @Ignore
+    @Test
     public void _ignore_testCopyFile01() throws Exception {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
@@ -195,6 +185,7 @@ public class FileUtilityTest extends TestCase {
      * コピー先のファイルが存在する場合、正しくファイルコピーされることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testCopyFile02() throws Exception {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
@@ -292,6 +283,7 @@ public class FileUtilityTest extends TestCase {
      * コピー元のファイルがない場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testCopyFile03() throws Exception {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
@@ -401,6 +393,7 @@ public class FileUtilityTest extends TestCase {
      * コピー先のファイルが存在する場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testCopyFile04() throws Exception {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
@@ -520,6 +513,7 @@ public class FileUtilityTest extends TestCase {
      * ファイルの存在チェック後のタイミングでコピー先のファイルが削除された場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testCopyFile05() throws Exception {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
@@ -634,6 +628,7 @@ public class FileUtilityTest extends TestCase {
      * ファイルのコピー処理途中にIOExceptionが発生した場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testCopyFile06() throws Exception {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
@@ -747,6 +742,7 @@ public class FileUtilityTest extends TestCase {
      * ファイルのコピー処理完了後リソースの開放処理でIOExceptionが発生した場合、そのまま処理を続き正常終了されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testCopyFile07() throws Exception {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
@@ -849,6 +845,7 @@ public class FileUtilityTest extends TestCase {
      * コピー元のファイル名がnullで入力された場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testCopyFile08() throws Exception {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
@@ -954,6 +951,7 @@ public class FileUtilityTest extends TestCase {
      * コピー先のファイル名が相対パスで入力された場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testCopyFile09() throws Exception {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
@@ -1066,6 +1064,7 @@ public class FileUtilityTest extends TestCase {
      * コピー先のファイル名がnullで入力された場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testCopyFile10() throws Exception {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
@@ -1148,6 +1147,7 @@ public class FileUtilityTest extends TestCase {
      * コピー元のファイル名が相対パスで入力された場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testCopyFile11() throws Exception {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
@@ -1266,6 +1266,8 @@ public class FileUtilityTest extends TestCase {
      * @throws Exception このメソッドで発生した例外
      */
     // This testcase is ignored, because of Windows environment dependency.
+    @Ignore
+    @Test
     public void _ignore_testCopyFile12() throws Exception {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
@@ -1387,6 +1389,7 @@ public class FileUtilityTest extends TestCase {
      * 対象ファイルが正しく削除されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testDeleteFile01() throws Exception {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
@@ -1445,6 +1448,7 @@ public class FileUtilityTest extends TestCase {
      * 対象ファイルが存在しない場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testDeleteFile02() throws Exception {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
@@ -1496,6 +1500,7 @@ public class FileUtilityTest extends TestCase {
      * 対象ファイルの削除がファイルロックなどによって失敗した場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testDeleteFile03() throws Exception {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
@@ -1573,6 +1578,7 @@ public class FileUtilityTest extends TestCase {
      * 対象ファイルのパスがnullの場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testDeleteFile04() throws Exception {
         // 引数の設定
         String srcFile = null;
@@ -1611,6 +1617,7 @@ public class FileUtilityTest extends TestCase {
      * 対象ファイルのパスが相対パスの場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testDeleteFile05() throws Exception {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
@@ -1691,6 +1698,7 @@ public class FileUtilityTest extends TestCase {
      * 結合対象ファイルリストが空の場合、空ファイルが生成されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testMergeFile01() throws Exception {
         // 引数の設定
         List<String> fileList = new ArrayList<String>();
@@ -1766,6 +1774,7 @@ public class FileUtilityTest extends TestCase {
      * 指定された結果ファイルが既に存在する場合、問題なく結果ファイルが生成されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testMergeFile02() throws Exception {
         // 引数の設定
         List<String> fileList = new ArrayList<String>();
@@ -1853,6 +1862,7 @@ public class FileUtilityTest extends TestCase {
      * 指定された結果ファイルが既に存在する場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testMergeFile03() throws Exception {
         // 引数の設定
         List<String> fileList = new ArrayList<String>();
@@ -1956,6 +1966,7 @@ public class FileUtilityTest extends TestCase {
      * 結合対象ファイルリストに存在するファイルのパスが一つ設定されている場合、その一つのファイルと同じ内容のファイルが生成されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testMergeFile04() throws Exception {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
@@ -2061,6 +2072,7 @@ public class FileUtilityTest extends TestCase {
      * 結合対象ファイルリストに存在するファイルのパスが複数設定されている場合、その全ファイルの内容が順番に結合されて結果ファイルとして生成されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testMergeFile05() throws Exception {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
@@ -2218,6 +2230,7 @@ public class FileUtilityTest extends TestCase {
      * 結合対象ファイルリストに存在しないファイルのパスが複数設定されている場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testMergeFile06() throws Exception {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
@@ -2344,6 +2357,7 @@ public class FileUtilityTest extends TestCase {
      * 結合対象ファイルリストに一部存在しないファイルのパスが設定されている場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testMergeFile07() throws Exception {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
@@ -2500,6 +2514,7 @@ public class FileUtilityTest extends TestCase {
      * ファイル処理でIOExceptionが発生した場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testMergeFile08() throws Exception {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
@@ -2659,6 +2674,7 @@ public class FileUtilityTest extends TestCase {
      * また、結果ファイルが正しく生成されていることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testMergeFile09() throws Exception {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
@@ -2823,6 +2839,7 @@ public class FileUtilityTest extends TestCase {
      * 処理途中にファイルが削除されFileNotFoundExceptionが発生した場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testMergeFile10() throws Exception {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
@@ -2959,6 +2976,7 @@ public class FileUtilityTest extends TestCase {
      * 結合対象ファイルリストがnullの場合、NullPointerExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testMergeFile11() throws Exception {
         // 引数の設定
         List<String> fileList = null;
@@ -3049,6 +3067,7 @@ public class FileUtilityTest extends TestCase {
      * 結果ファイルのパスがnullの場合、例外が出ることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testMergeFile12() throws Exception {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
@@ -3172,6 +3191,7 @@ public class FileUtilityTest extends TestCase {
      * 結果ファイルのパスが相対パスの場合、例外が出ることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testMergeFile13() throws Exception {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
@@ -3330,6 +3350,7 @@ public class FileUtilityTest extends TestCase {
      * 結合対象ファイルリストの項目の中にnullがある場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testMergeFile14() throws Exception {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
@@ -3476,6 +3497,7 @@ public class FileUtilityTest extends TestCase {
      * 結合対象ファイルリストの項目の中に相対パスがある場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testMergeFile15() throws Exception {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
@@ -3632,6 +3654,8 @@ public class FileUtilityTest extends TestCase {
      * @throws Exception このメソッドで発生した例外
      */
     // This testcase is ignored, because of Windows environment dependency.
+    @Ignore
+    @Test
     public void _ignore_testMergeFile16() throws Exception {
         // 引数の設定
         List<String> fileList = new ArrayList<String>();
@@ -3747,6 +3771,7 @@ public class FileUtilityTest extends TestCase {
      * 変更先のファイルが存在しない場合、正しくファイル名が変更されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testRenameFile01() throws Exception {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
@@ -3857,6 +3882,7 @@ public class FileUtilityTest extends TestCase {
      * 変更先のファイルが存在する場合、元のファイルを削除した後、正しくファイル名が変更されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testRenameFile02() throws Exception {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
@@ -3977,6 +4003,7 @@ public class FileUtilityTest extends TestCase {
      * 変更前ファイルが存在しない場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testRenameFile03() throws Exception {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
@@ -4093,6 +4120,7 @@ public class FileUtilityTest extends TestCase {
      * 変更先のファイルが存在する場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testRenameFile04() throws Exception {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
@@ -4234,6 +4262,8 @@ public class FileUtilityTest extends TestCase {
      * @throws Exception このメソッドで発生した例外
      */
     // This testcase is ignored, because of Windows environment dependency.
+    @Ignore
+    @Test    
     public void _ignore_testRenameFile05() throws Exception {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
@@ -4366,6 +4396,7 @@ public class FileUtilityTest extends TestCase {
      * 変更前ファイルがnullの場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testRenameFile06() throws Exception {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
@@ -4474,6 +4505,7 @@ public class FileUtilityTest extends TestCase {
      * 変更先ファイルが相対パスで設定された場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testRenameFile07() throws Exception {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
@@ -4607,6 +4639,7 @@ public class FileUtilityTest extends TestCase {
      * 変更先ファイルがnullで設定された場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testRenameFile08() throws Exception {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
@@ -4717,6 +4750,7 @@ public class FileUtilityTest extends TestCase {
      * 変更前ファイルが相対パスで設定された場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testRenameFile09() throws Exception {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
@@ -4853,7 +4887,9 @@ public class FileUtilityTest extends TestCase {
      * 変更先のファイルが存在するがロックされている場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    // This testcase is ignored, because of Windows environment dependency.
+    // This testcase is ignored, because of Windows environment dependency.\
+    @Ignore
+    @Test
     public void _ignore_testRenameFile10() throws Exception {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
@@ -4978,6 +5014,7 @@ public class FileUtilityTest extends TestCase {
      * 属性の値が取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsCheckFileExist01() throws Exception {
         // 前提条件の設定
         UTUtil.setPrivateField(FileUtility.class, "checkFileExist", false);
@@ -5002,6 +5039,7 @@ public class FileUtilityTest extends TestCase {
      * 引数の値が属性に設定されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSetCheckFileExist01() throws Exception {
         // 前提条件の設定
         UTUtil.setPrivateField(FileUtility.class, "checkFileExist", false);

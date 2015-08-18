@@ -16,7 +16,6 @@
 
 package jp.terasoluna.fw.beans;
 
-import junit.framework.TestCase;
 import uk.org.lidalia.slf4jext.Level;
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
@@ -25,6 +24,14 @@ import static uk.org.lidalia.slf4jtest.LoggingEvent.info;
 import static java.util.Arrays.asList;
 import static org.hamcrest.core.Is.*;
 import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+import org.junit.After;
+import org.junit.Test;
+
 
 /**
  * {@link jp.terasoluna.fw.beans.JXPathIndexedBeanWrapperImpl} クラスのブラックボックステスト。
@@ -35,40 +42,18 @@ import static org.junit.Assert.*;
  * <p>
  * @see jp.terasoluna.fw.beans.JXPathIndexedBeanWrapperImpl
  */
-public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
+public class JXPathIndexedBeanWrapperImplTest03 {
 
     private TestLogger logger = TestLoggerFactory.getTestLogger(
             JXPathIndexedBeanWrapperImpl.class);
 
     /**
-     * 初期化処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
-     */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
-
-    /**
      * 終了処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
      */
-    @Override
-    protected void tearDown() throws Exception {
+    @After
+    public void tearDown() {
         logger.clear();
-        super.tearDown();
     }
-
-    /**
-     * コンストラクタ。
-     * @param name このテストケースの名前。
-     */
-    public JXPathIndexedBeanWrapperImplTest03(String name) {
-        super(name);
-    }
-
     /**
      * testToPropertyName01() <br>
      * <br>
@@ -89,6 +74,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * 想定した入力の場合の試験。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToPropertyName01() throws Exception {
         // 前処理
         String result = null;
@@ -130,6 +116,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * 想定した入力の場合の試験。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToPropertyName02() throws Exception {
         // 前処理
         String result = null;
@@ -176,6 +163,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * 想定した入力の場合の試験。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToPropertyName03() throws Exception {
         // 前処理
         String result = null;
@@ -220,6 +208,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * 想定した入力の場合の試験。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToPropertyName04() throws Exception {
         // 前処理
         String result = null;
@@ -261,6 +250,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * 想定した入力の場合の試験。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToPropertyName05() throws Exception {
         // 前処理
         String result = null;
@@ -311,6 +301,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * 想定した入力の場合の試験。階層間の区切り文字ありパターン。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToPropertyName06() throws Exception {
         // 前処理
         String result = null;
@@ -354,6 +345,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * xpathが空文字の場合の試験。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToPropertyName07() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl target = new JXPathIndexedBeanWrapperImpl("");
@@ -384,6 +376,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * nodeの内容が ネストなしの想定した形式の場合の試験。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractAttributeName01() throws Exception {
         // 前処理
         String result = null;
@@ -409,6 +402,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * nodeの内容がネストのある 想定した形式の場合の試験。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractAttributeName02() throws Exception {
         // 前処理
         String result = null;
@@ -434,6 +428,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * nodeの"["がない場合の試験。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractAttributeName03() throws Exception {
         // 前処理
         String result = null;
@@ -459,6 +454,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * nodeが空文字の場合の試験。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractAttributeName04() throws Exception {
         // 前処理
         String result = null;
@@ -484,6 +480,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * nodeの内容が 想定した形式の場合の試験。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractMapAttributeName01() throws Exception {
         // 前処理
         String result = null;
@@ -509,6 +506,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * nodeの属性名がない場合の試験。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractMapAttributeName02() throws Exception {
         // 前処理
         String result = null;
@@ -536,6 +534,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * nodeの"["がない場合の試験。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractMapAttributeName03() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl target = new JXPathIndexedBeanWrapperImpl("");
@@ -570,6 +569,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * nodeが空文字の場合の試験。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractMapAttributeName04() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl target = new JXPathIndexedBeanWrapperImpl("");
@@ -601,6 +601,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * nodeの内容が 想定した形式の場合の試験。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractMapKey01() throws Exception {
         // 前処理
         String result = null;
@@ -626,6 +627,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * nodeのMapキーが空文字の場合の試験。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractMapKey02() throws Exception {
         // 前処理
         String result = null;
@@ -653,6 +655,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * nodeの"]"がない場合の試験。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractMapKey03() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl target = new JXPathIndexedBeanWrapperImpl("");
@@ -687,6 +690,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * nodeの"["がない場合の試験。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractMapKey04() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl target = new JXPathIndexedBeanWrapperImpl("");
@@ -721,6 +725,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * nodeの[]がない場合の試験。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractMapKey05() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl target = new JXPathIndexedBeanWrapperImpl("");
@@ -754,6 +759,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * nodeの[]が逆向きの場合の試験。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractMapKey06() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl target = new JXPathIndexedBeanWrapperImpl("");
@@ -788,6 +794,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * nodeが空文字の場合の試験。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractMapKey07() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl target = new JXPathIndexedBeanWrapperImpl("");
@@ -824,6 +831,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * extractIncrementIndex()を正しく呼び出していることの試験。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractDecrementIndex01() throws Exception {
         // 前処理
         String result = null;
@@ -849,6 +857,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * Mapオブジェクトの場合の試験。nodeの途中に"[@name" <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsMapAttribute01() throws Exception {
         // 前処理
         boolean result = false;
@@ -874,6 +883,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * Mapオブジェクト以外の場合の試験。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsMapAttribute02() throws Exception {
         // 前処理
         boolean result = true;
@@ -899,6 +909,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * nodeが空文字列の場合の試験。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsMapAttribute03() throws Exception {
         // 前処理
         boolean result = true;
@@ -924,6 +935,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * Mapオブジェクトの場合の試験。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsMapObject01() throws Exception {
         // 前処理
         boolean result = false;
@@ -949,6 +961,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * Mapオブジェクト以外の場合の試験。".[@name"が先頭から始まらない。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsMapObject02() throws Exception {
         // 前処理
         boolean result = true;
@@ -974,6 +987,7 @@ public class JXPathIndexedBeanWrapperImplTest03 extends TestCase {
      * nodeが空文字列の場合の試験。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsMapObject03() throws Exception {
         // 前処理
         boolean result = true;

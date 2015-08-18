@@ -1,23 +1,19 @@
 package jp.terasoluna.fw.batch.executor.vo;
 
-import junit.framework.TestCase;
+import static org.junit.Assert.assertEquals;
 
-public class BatchJobListResultTest extends TestCase {
+import org.junit.Test;
 
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
+public class BatchJobListResultTest {
 
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
+    @Test
     public void testSetAndGetJobSequenceId() {
         BatchJobListResult r = new BatchJobListResult();
         r.setJobSequenceId("a");
         assertEquals("a", r.getJobSequenceId());
     }
 
+    @Test
     public void testToString() {
         BatchJobListResult r = new BatchJobListResult();
         r.setJobSequenceId("a");

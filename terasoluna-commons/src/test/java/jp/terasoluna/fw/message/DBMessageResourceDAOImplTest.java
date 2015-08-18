@@ -16,6 +16,12 @@
 
 package jp.terasoluna.fw.message;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,13 +29,13 @@ import javax.sql.DataSource;
 
 import jp.terasoluna.utlib.MockDataSource;
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
 import static uk.org.lidalia.slf4jtest.LoggingEvent.error;
 import static java.util.Arrays.asList;
 import static org.hamcrest.core.Is.*;
 import static org.junit.Assert.*;
+import org.junit.Test;
 
 /**
  * {@link jp.terasoluna.fw.message.DBMessageResourceDAOImpl} クラスのブラックボックステスト。
@@ -38,39 +44,10 @@ import static org.junit.Assert.*;
  * <p>
  * @see jp.terasoluna.fw.message.DBMessageResourceDAOImpl
  */
-public class DBMessageResourceDAOImplTest extends TestCase {
+public class DBMessageResourceDAOImplTest {
 
     private TestLogger logger = TestLoggerFactory.getTestLogger(
             DBMessageResourceDAOImpl.class);
-
-    /**
-     * 初期化処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
-     */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
-
-    /**
-     * 終了処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * @param name このテストケースの名前。
-     */
-    public DBMessageResourceDAOImplTest(String name) {
-        super(name);
-    }
-
     /**
      * testSetTableName01() <br>
      * <br>
@@ -85,6 +62,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * tableName属性のsetterメソッドのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSetTableName01() throws Exception {
         // 前処理
         DBMessageResourceDAOImpl daoImpl = new DBMessageResourceDAOImpl();
@@ -111,6 +89,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * codeColumn属性のsetterメソッドのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSetCodeColumn01() throws Exception {
         // 前処理
         DBMessageResourceDAOImpl daoImpl = new DBMessageResourceDAOImpl();
@@ -137,6 +116,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * languageColumn属性のsetterメソッドのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSetLaunguageColumn01() throws Exception {
         // 前処理
         DBMessageResourceDAOImpl daoImpl = new DBMessageResourceDAOImpl();
@@ -164,6 +144,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * countryColumn属性のsetterメソッドのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSetCountryColumn01() throws Exception {
         // 前処理
         DBMessageResourceDAOImpl daoImpl = new DBMessageResourceDAOImpl();
@@ -191,6 +172,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * variantColumn属性のsetterメソッドのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSetVariantColumn01() throws Exception {
         // 前処理
         DBMessageResourceDAOImpl daoImpl = new DBMessageResourceDAOImpl();
@@ -218,6 +200,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * messageColumn属性のsetterメソッドのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSetMessageColumn01() throws Exception {
         // 前処理
         DBMessageResourceDAOImpl daoImpl = new DBMessageResourceDAOImpl();
@@ -245,6 +228,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * findMessageSql属性のsetterメソッドのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSetFindMessageSql01() throws Exception {
         // 前処理
         DBMessageResourceDAOImpl daoImpl = new DBMessageResourceDAOImpl();
@@ -278,6 +262,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * DBMessageQueryが呼び出され、this.dBMessageQueryに格納されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testInitDao01() throws Exception {
         // 前処理
         DataSource dataSource = new MockDataSource();
@@ -333,6 +318,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * DBMessageQueryが呼び出されず、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testInitDao02() throws Exception {
         // 前処理
         DBMessageResourceDAOImpl_JdbcTemplateStub01 jdbc = new DBMessageResourceDAOImpl_JdbcTemplateStub01();
@@ -380,6 +366,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * DBMessageQueryが呼び出され、this.dBMessageQueryに格納されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testInitDao03() throws Exception {
         // 前処理
         DataSource dataSource = new MockDataSource();
@@ -429,6 +416,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * 引数としてあたえられた文字列からＳＱＬ文を作成し、Stringで返却する。<br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testMakeSql01() throws Exception {
         // 前処理
         DBMessageResourceDAOImpl dbmr = new DBMessageResourceDAOImpl();
@@ -473,6 +461,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * コードカラムが空文字のため、呼び出し先メソッドにて停止する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testMakeSql02() throws Exception {
         // 前処理
         DBMessageResourceDAOImpl dbmr = new DBMessageResourceDAOImpl();
@@ -523,6 +512,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * コードカラムがnullのため、呼び出し先メソッドにて停止する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testMakeSql03() throws Exception {
         // 前処理
         DBMessageResourceDAOImpl dbmr = new DBMessageResourceDAOImpl();
@@ -573,6 +563,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * 言語カラムが空文字のため、呼び出し先メソッドにて停止する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testMakeSql04() throws Exception {
         // 前処理
         DBMessageResourceDAOImpl dbmr = new DBMessageResourceDAOImpl();
@@ -623,6 +614,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * 国カラムが空文字のため、呼び出し先メソッドにて停止する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testMakeSql05() throws Exception {
         // 前処理
         DBMessageResourceDAOImpl dbmr = new DBMessageResourceDAOImpl();
@@ -673,6 +665,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * バリアントカラムが空文字のため、呼び出し先メソッドにて停止する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testMakeSql06() throws Exception {
         // 前処理
         DBMessageResourceDAOImpl dbmr = new DBMessageResourceDAOImpl();
@@ -723,6 +716,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * メッセージカラムが空文字のため、呼び出し先メソッドにて停止する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testMakeSql07() throws Exception {
         // 前処理
         DBMessageResourceDAOImpl dbmr = new DBMessageResourceDAOImpl();
@@ -773,6 +767,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * メッセージカラムがnullのため、呼び出し先メソッドにて停止する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testMakeSql08() throws Exception {
         // 前処理
         DBMessageResourceDAOImpl dbmr = new DBMessageResourceDAOImpl();
@@ -823,6 +818,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * テーブル名が空文字のため、呼び出し先メソッドにて停止する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testMakeSql09() throws Exception {
         // 前処理
         DBMessageResourceDAOImpl dbmr = new DBMessageResourceDAOImpl();
@@ -873,6 +869,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * テーブル名がnullのため、呼び出し先メソッドにて停止する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testMakeSql10() throws Exception {
         // 前処理
         DBMessageResourceDAOImpl dbmr = new DBMessageResourceDAOImpl();
@@ -919,6 +916,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * SQL文生成ロジックは使用しない。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testMakeSql11() throws Exception {
         // 前処理
         DBMessageResourceDAOImpl dbmr = new DBMessageResourceDAOImpl();
@@ -951,6 +949,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * executeメソッドが呼び出され、戻り値返ってくることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testFindDBMessages01() throws Exception {
         // 前処理

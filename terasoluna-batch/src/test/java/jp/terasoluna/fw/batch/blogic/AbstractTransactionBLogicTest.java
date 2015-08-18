@@ -1,17 +1,21 @@
 package jp.terasoluna.fw.batch.blogic;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
 import jp.terasoluna.fw.batch.blogic.vo.BLogicParam;
 import jp.terasoluna.fw.batch.exception.BatchException;
-import junit.framework.TestCase;
 
+import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class AbstractTransactionBLogicTest extends TestCase {
+public class AbstractTransactionBLogicTest {
 
     /**
      * testExecute001
      */
+    @Test
     public void testExecute001() {
         AbstractTransactionBLogic blogic = new AbstractTransactionBLogic() {
             @Override
@@ -34,6 +38,7 @@ public class AbstractTransactionBLogicTest extends TestCase {
     /**
      * testExecute002
      */
+    @Test
     public void testExecute002() {
         AbstractTransactionBLogic blogic = new AbstractTransactionBLogic() {
             @Override
@@ -64,6 +69,7 @@ public class AbstractTransactionBLogicTest extends TestCase {
     /**
      * testExecute011
      */
+    @Test
     public void testExecute011() {
         AbstractTransactionBLogic blogic = new AbstractTransactionBLogic() {
             @Override
@@ -88,6 +94,7 @@ public class AbstractTransactionBLogicTest extends TestCase {
     /**
      * testExecute012
      */
+    @Test
     public void testExecute012() {
         AbstractTransactionBLogic blogic = new AbstractTransactionBLogic() {
             @Override

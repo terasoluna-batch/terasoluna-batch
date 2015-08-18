@@ -16,14 +16,21 @@
 
 package jp.terasoluna.fw.batch.executor;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.*;
 import jp.terasoluna.fw.batch.blogic.vo.BLogicParam;
 import jp.terasoluna.fw.batch.executor.dao.SystemDao;
 import jp.terasoluna.fw.batch.executor.vo.BLogicResult;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
 import jp.terasoluna.fw.ex.unit.util.TerasolunaPropertyUtils;
-import junit.framework.TestCase;
 
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -31,12 +38,13 @@ import org.springframework.transaction.PlatformTransactionManager;
 /**
  * AbstractBatchExecutorTestのテストケースクラス
  */
-public class AbstractBatchExecutorTest extends TestCase {
+public class AbstractBatchExecutorTest {
 
     /**
      * blogicBeanNameがnullの場合、BLogicResultのリターンコードが-1が返却されることを確認する またログにJOB_APP_CD:[null]が出力されていることを確認する
      * @throws Exception
      */
+    @Test
     public void testExecuteBatch01() throws Exception {
 
         // テスト入力データ設定
@@ -54,6 +62,7 @@ public class AbstractBatchExecutorTest extends TestCase {
      * blogicBeanNameが空文字の場合、BLogicResultのリターンコードが-1が返却されることを確認する またログにJOB_APP_CD:[]が出力されていることを確認する
      * @throws Exception
      */
+    @Test
     public void testExecuteBatch02() throws Exception {
 
         // テスト入力データ設定
@@ -72,6 +81,7 @@ public class AbstractBatchExecutorTest extends TestCase {
      * テストを実施するためには、ジョブBean定義ファイル[B000001.xml]とB000001BLogic.javaが必要となる
      * @throws Exception
      */
+    @Test
     public void testExecuteBatch03() throws Exception {
 
         // テスト入力データ設定
@@ -90,6 +100,7 @@ public class AbstractBatchExecutorTest extends TestCase {
      * テストを実施するためには、ジョブBean定義ファイル[B000001.xml]とB000001BLogic.javaが必要となる
      * @throws Exception
      */
+    @Test
     public void testExecuteBatch04() throws Exception {
 
         // テスト入力データ設定
@@ -109,6 +120,7 @@ public class AbstractBatchExecutorTest extends TestCase {
      * テストを実施するためには、ジョブBean定義ファイル[B000001.xml]とB000001BLogic.javaが必要となる
      * @throws Exception
      */
+    @Test
     public void testExecuteBatch05() throws Exception {
 
         // テスト入力データ設定
@@ -147,6 +159,7 @@ public class AbstractBatchExecutorTest extends TestCase {
      * テストを実施するためには、ジョブBean定義ファイル[B000001.xml]とB000001BLogic.javaが必要となる
      * @throws Exception
      */
+    @Test
     public void testExecuteBatch06() throws Exception {
 
         // テスト入力データ設定
@@ -165,6 +178,7 @@ public class AbstractBatchExecutorTest extends TestCase {
      * テストを実施するためには、ジョブBean定義ファイル[B000001.xml]とB000001BLogic.javaが必要となる
      * @throws Exception
      */
+    @Test
     public void testExecuteBatch07() throws Exception {
 
         // テスト入力データ設定
@@ -183,6 +197,7 @@ public class AbstractBatchExecutorTest extends TestCase {
      * テストを実施するためには、ジョブBean定義ファイル[B000001.xml]とB000001BLogic.javaが必要となる
      * @throws Exception
      */
+    @Test
     public void testExecuteBatch08() throws Exception {
 
         // テスト入力データ設定
@@ -200,6 +215,7 @@ public class AbstractBatchExecutorTest extends TestCase {
      * 「バッチジョブレコードデータをBLogicParamに変換する」でnullが返るパターン
      * @throws Exception
      */
+    @Test
     public void testExecuteBatch09() throws Exception {
 
         // テスト入力データ設定
@@ -222,6 +238,7 @@ public class AbstractBatchExecutorTest extends TestCase {
      * 「例外ハンドラのBean名取得」でnullが返るパターン
      * @throws Exception
      */
+    @Test
     public void testExecuteBatch10() throws Exception {
 
         // テスト入力データ設定
@@ -244,6 +261,7 @@ public class AbstractBatchExecutorTest extends TestCase {
      * 「例外ハンドラのBean名取得」で空の文字列が返るパターン
      * @throws Exception
      */
+    @Test
     public void testExecuteBatch11() throws Exception {
 
         // テスト入力データ設定
@@ -266,6 +284,7 @@ public class AbstractBatchExecutorTest extends TestCase {
      * testConvertBLogicParam001
      * @throws Exception
      */
+    @Test
     public void testConvertBLogicParam001() throws Exception {
         // テスト入力データ設定
         BatchJobData param = new BatchJobData();
@@ -325,6 +344,7 @@ public class AbstractBatchExecutorTest extends TestCase {
      * testConvertBLogicParam002
      * @throws Exception
      */
+    @Test
     public void testConvertBLogicParam002() throws Exception {
         // テスト入力データ設定
         BatchJobData param = new BatchJobData();
@@ -348,6 +368,7 @@ public class AbstractBatchExecutorTest extends TestCase {
      * testExecuteBatchClass001
      * @throws Exception
      */
+    @Test
     public void testExecuteBatchClass001() throws Exception {
         String batchClassName = null;
         String exceptionHandlerBeanName = null;
@@ -367,6 +388,7 @@ public class AbstractBatchExecutorTest extends TestCase {
      * testExecuteBatchClass002
      * @throws Exception
      */
+    @Test
     public void testExecuteBatchClass002() throws Exception {
         String batchClassName = "B000001BLogic";
         String exceptionHandlerBeanName = "B000001ExceptionHandler";
@@ -387,6 +409,7 @@ public class AbstractBatchExecutorTest extends TestCase {
      * testExecuteBatchClass003
      * @throws Exception
      */
+    @Test
     public void testExecuteBatchClass003() throws Exception {
         String batchClassName = "B000000BLogic";
         String exceptionHandlerBeanName = "B000001ExceptionHandler";
@@ -407,6 +430,7 @@ public class AbstractBatchExecutorTest extends TestCase {
      * testExecuteBatchClass004
      * @throws Exception
      */
+    @Test
     public void testExecuteBatchClass004() throws Exception {
         String batchClassName = "B000004BLogic";
         String exceptionHandlerBeanName = "B000004ExceptionHandler";
@@ -427,6 +451,7 @@ public class AbstractBatchExecutorTest extends TestCase {
      * testExecuteBatchClass005
      * @throws Exception
      */
+    @Test
     public void testExecuteBatchClass005() throws Exception {
         String batchClassName = "B000000BLogic";
         String exceptionHandlerBeanName = "B000000ExceptionHandler";
@@ -447,6 +472,7 @@ public class AbstractBatchExecutorTest extends TestCase {
      * testExecuteBatchClass006
      * @throws Exception
      */
+    @Test
     public void testExecuteBatchClass006() throws Exception {
         String batchClassName = "B000006BLogic";
         String exceptionHandlerBeanName = "B000006ExceptionHandler";
@@ -468,6 +494,7 @@ public class AbstractBatchExecutorTest extends TestCase {
      * testExecuteBatchClass007
      * @throws Exception
      */
+    @Test
     public void testExecuteBatchClass007() throws Exception {
         String batchClassName = "B000007BLogic";
         String exceptionHandlerBeanName = "B000007ExceptionHandler";
@@ -488,6 +515,7 @@ public class AbstractBatchExecutorTest extends TestCase {
      * testExecuteBatchClass008
      * @throws Exception
      */
+    @Test
     public void testExecuteBatchClass008() throws Exception {
         String batchClassName = "B000008BLogic";
         String exceptionHandlerBeanName = "B000008ExceptionHandler";
@@ -508,6 +536,7 @@ public class AbstractBatchExecutorTest extends TestCase {
      * testExecuteBatchClass009
      * @throws Exception
      */
+    @Test
     public void testExecuteBatchClass009() throws Exception {
         String batchClassName = "B000009BLogic";
         String exceptionHandlerBeanName = "B000009ExceptionHandler";
@@ -528,6 +557,7 @@ public class AbstractBatchExecutorTest extends TestCase {
      * testExecuteBatchClass010
      * @throws Exception
      */
+    @Test
     public void testExecuteBatchClass010() throws Exception {
         // JobComponentアノテーション有効化フラグプロパティを削除し、
         // JobComponentアノテーションを無効化する
@@ -554,6 +584,7 @@ public class AbstractBatchExecutorTest extends TestCase {
      * testArgumentCopy001
      * @throws Exception
      */
+    @Test
     public void testArgumentCopy001() throws Exception {
         AbstractBatchExecutor exe = new SyncBatchExecutor();
 
@@ -571,6 +602,7 @@ public class AbstractBatchExecutorTest extends TestCase {
      * testArgumentCopy002
      * @throws Exception
      */
+    @Test
     public void testArgumentCopy002() throws Exception {
         AbstractBatchExecutor exe = new SyncBatchExecutor();
 
@@ -585,6 +617,7 @@ public class AbstractBatchExecutorTest extends TestCase {
         assertFalse(result);
     }
 
+    @Test
     public void testSetMethod01() throws Exception {
 
         AbstractBatchExecutor exe = new SyncBatchExecutor();
@@ -594,6 +627,7 @@ public class AbstractBatchExecutorTest extends TestCase {
 
     }
 
+    @Test
     public void testGetMethod01() throws Exception {
 
         AbstractBatchExecutor exe = new SyncBatchExecutor();
@@ -603,6 +637,7 @@ public class AbstractBatchExecutorTest extends TestCase {
 
     }
 
+    @Test
     public void testGetDefaultApplicationContext01() throws Exception {
 
         AbstractBatchExecutor exe = new SyncBatchExecutor();
@@ -612,6 +647,7 @@ public class AbstractBatchExecutorTest extends TestCase {
 
     }
 
+    @Test
     public void testGetSystemDao01() throws Exception {
 
         AbstractBatchExecutor exe = new AsyncBatchExecutor();
@@ -621,6 +657,7 @@ public class AbstractBatchExecutorTest extends TestCase {
         assertNotNull(result);
     }
 
+    @Test
     public void testGetSystemDao02() throws Exception {
 
         AbstractBatchExecutor exe = new SyncBatchExecutor();
@@ -630,6 +667,7 @@ public class AbstractBatchExecutorTest extends TestCase {
         assertNull(result);
     }
 
+    @Test
     public void testGetSysTransactionManager01() throws Exception {
 
         AbstractBatchExecutor exe = new AsyncBatchExecutor();
@@ -639,6 +677,7 @@ public class AbstractBatchExecutorTest extends TestCase {
         assertNotNull(result);
     }
 
+    @Test
     public void testGetSysTransactionManager02() throws Exception {
 
         AbstractBatchExecutor exe = new SyncBatchExecutor();
@@ -648,16 +687,17 @@ public class AbstractBatchExecutorTest extends TestCase {
         assertNull(result);
     }
 
-    @Override
-    protected void setUp() throws Exception {
+    @Before
+    public void setUp() {
         TerasolunaPropertyUtils.saveProperties();
     }
 
-    @Override
-    protected void tearDown() throws Exception {
+    @After
+    public void tearDown() {
         TerasolunaPropertyUtils.restoreProperties();
     }
 
+    @Test
     public void testGetDefaultBeanFileName01() throws Exception {
 
         TerasolunaPropertyUtils
@@ -669,6 +709,7 @@ public class AbstractBatchExecutorTest extends TestCase {
         assertEquals("", result);
     }
 
+    @Test
     public void testGetDefaultBeanFileName02() throws Exception {
 
         TerasolunaPropertyUtils
@@ -682,6 +723,7 @@ public class AbstractBatchExecutorTest extends TestCase {
         assertEquals("beansDef/", result);
     }
 
+    @Test
     public void testGetDefaultBeanFileName03() throws Exception {
 
         TerasolunaPropertyUtils
@@ -695,6 +737,7 @@ public class AbstractBatchExecutorTest extends TestCase {
         assertEquals("AdminContext.xml", result);
     }
 
+    @Test
     public void testGetDefaultBeanFileName04() throws Exception {
 
         TerasolunaPropertyUtils
@@ -710,6 +753,7 @@ public class AbstractBatchExecutorTest extends TestCase {
         assertEquals("beansDef/AdminContext.xml", result);
     }
 
+    @Test
     public void testGetDefaultBeanFileName05() throws Exception {
 
         TerasolunaPropertyUtils
@@ -725,6 +769,7 @@ public class AbstractBatchExecutorTest extends TestCase {
         assertEquals("", result);
     }
 
+    @Test
     public void testGetDataSourceBeanFileName01() throws Exception {
 
         TerasolunaPropertyUtils
@@ -737,6 +782,7 @@ public class AbstractBatchExecutorTest extends TestCase {
         assertEquals("", result);
     }
 
+    @Test
     public void testGetDataSourceBeanFileName02() throws Exception {
 
         TerasolunaPropertyUtils
@@ -751,6 +797,7 @@ public class AbstractBatchExecutorTest extends TestCase {
         assertEquals("beansDef/", result);
     }
 
+    @Test
     public void testGetDataSourceBeanFileName03() throws Exception {
 
         TerasolunaPropertyUtils
@@ -765,6 +812,7 @@ public class AbstractBatchExecutorTest extends TestCase {
         assertEquals("AdminDataSource.xml", result);
     }
 
+    @Test
     public void testGetDataSourceBeanFileName04() throws Exception {
 
         TerasolunaPropertyUtils
@@ -781,6 +829,7 @@ public class AbstractBatchExecutorTest extends TestCase {
         assertEquals("beansDef/AdminDataSource.xml", result);
     }
 
+    @Test
     public void testGetDataSourceBeanFileName05() throws Exception {
 
         TerasolunaPropertyUtils
@@ -801,6 +850,7 @@ public class AbstractBatchExecutorTest extends TestCase {
      * testInitDefaultAppContext01
      * @throws Exception
      */
+    @Test
     public void testInitDefaultAppContext01() throws Exception {
 
         AbstractBatchExecutor exe = new SyncBatchExecutor();
@@ -816,6 +866,7 @@ public class AbstractBatchExecutorTest extends TestCase {
      * testInitDefaultAppContext02
      * @throws Exception
      */
+    @Test
     public void testInitDefaultAppContext02() throws Exception {
 
         AbstractBatchExecutor exe = new SyncBatchExecutor();
@@ -827,6 +878,7 @@ public class AbstractBatchExecutorTest extends TestCase {
      * testInitDefaultAppContext03
      * @throws Exception
      */
+    @Test
     public void testInitDefaultAppContext03() throws Exception {
 
         AbstractBatchExecutor exe = new SyncBatchExecutor();
@@ -842,6 +894,7 @@ public class AbstractBatchExecutorTest extends TestCase {
      * testInitDefaultErrorMessage01
      * @throws Exception
      */
+    @Test
     public void testInitDefaultErrorMessage01() throws Exception {
 
         AbstractBatchExecutor exe = new SyncBatchExecutor();
@@ -856,6 +909,7 @@ public class AbstractBatchExecutorTest extends TestCase {
      * testInitDefaultErrorMessage02
      * @throws Exception
      */
+    @Test
     public void testInitDefaultErrorMessage02() throws Exception {
 
         AbstractBatchExecutor exe = new SyncBatchExecutor();
@@ -870,6 +924,7 @@ public class AbstractBatchExecutorTest extends TestCase {
      * testInitDefaultErrorMessage03
      * @throws Exception
      */
+    @Test
     public void testInitDefaultErrorMessage03() throws Exception {
 
         AbstractBatchExecutor exe = new SyncBatchExecutor();
@@ -885,6 +940,7 @@ public class AbstractBatchExecutorTest extends TestCase {
      * testInitDefaultErrorMessage04
      * @throws Exception
      */
+    @Test
     public void testInitDefaultErrorMessage04() throws Exception {
 
         AbstractBatchExecutor exe = new SyncBatchExecutor();
@@ -897,6 +953,7 @@ public class AbstractBatchExecutorTest extends TestCase {
 
     }
 
+    @Test
     public void testGetBeanFileName01() throws Exception {
 
         AbstractBatchExecutor exe = new SyncBatchExecutor();
@@ -904,6 +961,7 @@ public class AbstractBatchExecutorTest extends TestCase {
         assertEquals("beansDef/.xml", result);
     }
 
+    @Test
     public void testGetBeanFileName02() throws Exception {
 
         AbstractBatchExecutor exe = new SyncBatchExecutor();
@@ -914,6 +972,7 @@ public class AbstractBatchExecutorTest extends TestCase {
         assertEquals(".xml", result);
     }
 
+    @Test
     public void testGetBeanFileName03() throws Exception {
 
         AbstractBatchExecutor exe = new SyncBatchExecutor();
@@ -924,6 +983,7 @@ public class AbstractBatchExecutorTest extends TestCase {
         assertEquals(".xml", result);
     }
 
+    @Test
     public void testGetApplicationContext01() throws Exception {
 
         String[] batchBeanFileName = { "beansDef/B000000.xml" };
@@ -935,6 +995,7 @@ public class AbstractBatchExecutorTest extends TestCase {
 
     }
 
+    @Test
     public void testGetApplicationContext02() throws Exception {
 
         String[] batchBeanFileName = { "beansDef/B000001.xml" };
@@ -945,6 +1006,7 @@ public class AbstractBatchExecutorTest extends TestCase {
         assertNotNull(result);
     }
 
+    @Test
     public void testGetApplicationContext03() throws Exception {
 
         String[] batchBeanFileName = { "beansDef/B000001.xml",
@@ -956,6 +1018,7 @@ public class AbstractBatchExecutorTest extends TestCase {
         assertNotNull(result);
     }
 
+    @Test
     public void testGetApplicationContext04() throws Exception {
 
         String[] batchBeanFileName = { "beansDef/B000000.xml",
@@ -971,6 +1034,7 @@ public class AbstractBatchExecutorTest extends TestCase {
 
     }
 
+    @Test
     public void testGetApplicationContext05() throws Exception {
 
         String[] batchBeanFileName = { "beansDef/B000000.xml",
@@ -996,6 +1060,7 @@ public class AbstractBatchExecutorTest extends TestCase {
 
     }
 
+    @Test
     public void testGetBlogicBeanName01() throws Exception {
 
         AbstractBatchExecutor exe = new SyncBatchExecutor();
@@ -1004,6 +1069,7 @@ public class AbstractBatchExecutorTest extends TestCase {
         assertEquals("B000000BLogic", result);
     }
 
+    @Test
     public void testGetBlogicBeanName02() throws Exception {
 
         AbstractBatchExecutor exe = new SyncBatchExecutor();
@@ -1012,6 +1078,7 @@ public class AbstractBatchExecutorTest extends TestCase {
         assertEquals("", result);
     }
 
+    @Test
     public void testGetBlogicBeanName03() throws Exception {
 
         AbstractBatchExecutor exe = new SyncBatchExecutor();
@@ -1020,6 +1087,7 @@ public class AbstractBatchExecutorTest extends TestCase {
         assertEquals("", result);
     }
 
+    @Test
     public void testReplaceString01() throws Exception {
         AbstractBatchExecutor exe = new SyncBatchExecutor();
         BatchJobData jobData = new BatchJobData();
@@ -1027,6 +1095,7 @@ public class AbstractBatchExecutorTest extends TestCase {
         assertEquals("value", replaceString);
     }
 
+    @Test
     public void testReplaceString02() throws Exception {
         AbstractBatchExecutor exe = new SyncBatchExecutor();
         BatchJobData jobData = new BatchJobData();

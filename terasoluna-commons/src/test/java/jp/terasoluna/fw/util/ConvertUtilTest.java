@@ -16,6 +16,14 @@
 
 package jp.terasoluna.fw.util;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 import java.lang.reflect.InvocationTargetException;
 import java.math.BigInteger;
 import java.security.AlgorithmParameterGenerator;
@@ -27,11 +35,13 @@ import java.util.Map;
 import java.util.Vector;
 
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
 
 import org.apache.commons.beanutils.BeanUtilsBean;
 import org.apache.commons.beanutils.ConversionException;
 import org.apache.commons.beanutils.PropertyUtilsBean;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * {@link jp.terasoluna.fw.client.util.ConvertUtil} クラスのテスト。
@@ -43,7 +53,7 @@ import org.apache.commons.beanutils.PropertyUtilsBean;
  * 
  * @see jp.terasoluna.fw.client.util.ConvertUtil
  */
-public class ConvertUtilTest extends TestCase {
+public class ConvertUtilTest {
     
     /**
      * PropertyUtilsBean。
@@ -52,13 +62,9 @@ public class ConvertUtilTest extends TestCase {
 
     /**
      * 初期化処理を行う。
-     * 
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
      */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
+    @Before
+    public void setUp() {
         BeanUtilsBean beanUtilsBean = BeanUtilsBean.getInstance();
         defaultPropertyUtilsBean = beanUtilsBean.getPropertyUtils();
     }
@@ -67,23 +73,12 @@ public class ConvertUtilTest extends TestCase {
      * 終了処理を行う。
      * 
      * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
      */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
+    @After
+    public void tearDown() throws Exception {
         BeanUtilsBean beanUtilsBean = BeanUtilsBean.getInstance();
         UTUtil.setPrivateField(beanUtilsBean, "propertyUtilsBean",
                 defaultPropertyUtilsBean);
-    }
-
-    /**
-     * コンストラクタ。
-     * 
-     * @param name このテストケースの名前。
-     */
-    public ConvertUtilTest(String name) {
-        super(name);
     }
 
     /**
@@ -105,6 +100,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToArray01() throws Exception {
         // テスト実施
         Object[] result = ConvertUtil.toArray(null); 
@@ -133,6 +129,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToArray02() throws Exception {
         // テスト実施
         Object[] result = ConvertUtil.toArray(""); 
@@ -162,6 +159,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToArray03() throws Exception {
         // テスト実施
         Object[] result = ConvertUtil.toArray("  "); 
@@ -191,6 +189,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToArray04() throws Exception {
         // テスト実施
         Object[] result = ConvertUtil.toArray("array"); 
@@ -219,6 +218,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToArray05() throws Exception {
         // 前処理
         Object obj = new Object[0];
@@ -251,6 +251,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToArray06() throws Exception {
         // 前処理
         String[] obj = {"array"};
@@ -288,6 +289,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testToArray07() throws Exception {
         // 前処理
@@ -329,6 +331,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToArray08() throws Exception {
         // 前処理
         Collection obj = new Vector();
@@ -361,6 +364,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testToArray09() throws Exception {
         // 前処理
@@ -400,6 +404,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testToArray10() throws Exception {
         // 前処理
@@ -444,6 +449,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToList01() throws Exception {
         // テスト実施
         try {
@@ -480,6 +486,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToList02() throws Exception {
         // テスト実施
         List<Object> result = ConvertUtil.toList(null, Object.class);
@@ -509,6 +516,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToList03() throws Exception {
         // テスト実施
         List<Object> result = ConvertUtil.toList("", Object.class);
@@ -540,6 +548,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToList04() throws Exception {
         // テスト実施
         List<Object> result = ConvertUtil.toList("  ", Object.class);
@@ -570,6 +579,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToList05() throws Exception {
         // テスト実施
         List<Object> result = ConvertUtil.toList("list", Object.class);
@@ -607,6 +617,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testToList06() throws Exception {
         // テスト実施
@@ -649,6 +660,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToList07() throws Exception {
         // 前処理
         Object[] obj = new Object[0];
@@ -682,6 +694,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToList08() throws Exception {
         // 前処理
         Object[] obj = {"foo"};
@@ -720,6 +733,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToList09() throws Exception {
         // 前処理
         Object[] obj = new Object[3];
@@ -769,6 +783,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToList10() throws Exception {
         // 前処理
         Object[] obj = new Object[3];
@@ -815,6 +830,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToList11() throws Exception {
         // 前処理
         Collection obj = new Vector(); 
@@ -849,6 +865,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testToList12() throws Exception {
         // 前処理
@@ -889,6 +906,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testToList13() throws Exception {
         // 前処理
@@ -939,6 +957,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToList14() throws Exception {
         // 前処理
         Object[] obj = new Object[3];
@@ -988,6 +1007,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testConvertObjectClass01() throws Exception {
         // テスト実施
         try {
@@ -1024,6 +1044,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testConvertObjectClass02() throws Exception {
         // テスト実施
         // 判定
@@ -1050,6 +1071,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testConvertObjectClass03() throws Exception {
         // 前処理
         List list = new ArrayList();
@@ -1081,6 +1103,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testConvertObjectClass04() throws Exception {
         // 前処理
         Thread thread = new Thread();
@@ -1117,6 +1140,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testConvertIfNotNull01() throws Exception {
         // テスト実施
         try {
@@ -1159,6 +1183,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testConvertIfNotNull02() throws Exception {
         // テスト実施
         try {
@@ -1197,6 +1222,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testConvertIfNotNull03() throws Exception {
         // 前処理
         List list = new ArrayList();
@@ -1228,6 +1254,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testConvertIfNotNull04() throws Exception {
         // 前処理
         Thread thread = new Thread();
@@ -1266,6 +1293,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testConvertObjectClassboolean01() throws Exception {
         // テスト実施
         try {
@@ -1310,6 +1338,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testConvertObjectClassboolean02() throws Exception {
         // テスト実施
         try {
@@ -1349,6 +1378,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testConvertObjectClassboolean03() throws Exception {
         // テスト実施
         // 判定
@@ -1376,6 +1406,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testConvertObjectClassboolean04() throws Exception {
         // 前処理
         Thread thread = new Thread();
@@ -1408,6 +1439,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testConvertObjectClassboolean05() throws Exception {
         //  前処理
         List list = new ArrayList();
@@ -1441,6 +1473,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testConvertObjectClassboolean06() throws Exception {
         //  前処理
         Thread thread = new Thread();
@@ -1477,6 +1510,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testConvertObjectClassboolean07() throws Exception {
         
         // テスト実施
@@ -1510,6 +1544,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testConvertPrimitiveArrayToList01() throws Exception {
         // テスト実施
         // 判定
@@ -1535,6 +1570,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testConvertPrimitiveArrayToList02() throws Exception {
         // テスト実施
         Object result = ConvertUtil.convertPrimitiveArrayToList("");
@@ -1563,6 +1599,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testConvertPrimitiveArrayToList03() throws Exception {
         // テスト実施
         Object result = ConvertUtil.convertPrimitiveArrayToList("  ");
@@ -1591,6 +1628,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testConvertPrimitiveArrayToList04() throws Exception {
         // テスト実施
         Object result = ConvertUtil.convertPrimitiveArrayToList("noarray");
@@ -1619,6 +1657,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testConvertPrimitiveArrayToList05() throws Exception {
         // 前処理
         Object[] value = new Object[0];
@@ -1654,6 +1693,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testConvertPrimitiveArrayToList06() throws Exception {
         // 前処理
         Object[] value = {"foo"};
@@ -1695,6 +1735,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testConvertPrimitiveArrayToList07() throws Exception {
         // 前処理
         Object[] value = {"foo", "bar", "baz"};
@@ -1731,6 +1772,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testConvertPrimitiveArrayToList08() throws Exception {
         // 前処理
         boolean[] value = new boolean[0];
@@ -1766,6 +1808,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testConvertPrimitiveArrayToList09() throws Exception {
         // 前処理
         boolean[] value = {true};
@@ -1806,6 +1849,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testConvertPrimitiveArrayToList10() throws Exception {
         // 前処理
         boolean[] value = {true, false, true};
@@ -1842,6 +1886,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testConvertPrimitiveArrayToList11() throws Exception {
         // 前処理
         byte[] value = new byte[0];
@@ -1877,6 +1922,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testConvertPrimitiveArrayToList12() throws Exception {
         // 前処理
         byte[] value = {1};
@@ -1917,6 +1963,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testConvertPrimitiveArrayToList13() throws Exception {
         // 前処理
         byte[] value = {1, 2, 3};
@@ -1953,6 +2000,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testConvertPrimitiveArrayToList14() throws Exception {
         // 前処理
         char[] value = new char[0];
@@ -1988,6 +2036,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testConvertPrimitiveArrayToList15() throws Exception {
         // 前処理
         char[] value = {'A'};
@@ -2028,6 +2077,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testConvertPrimitiveArrayToList16() throws Exception {
         // 前処理
         char[] value = {'A', 'B', 'C'};
@@ -2064,6 +2114,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testConvertPrimitiveArrayToList17() throws Exception {
         // 前処理
         double[] value = new double[0];
@@ -2099,6 +2150,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testConvertPrimitiveArrayToList18() throws Exception {
         // 前処理
         double[] value = {123.456};
@@ -2139,6 +2191,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testConvertPrimitiveArrayToList19() throws Exception {
         // 前処理
         double[] value = {123.456, 12.34, 1.2};
@@ -2175,6 +2228,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testConvertPrimitiveArrayToList20() throws Exception {
         // 前処理
         float[] value = new float[0];
@@ -2210,6 +2264,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testConvertPrimitiveArrayToList21() throws Exception {
         // 前処理
         float[] value = {12.3F};
@@ -2250,6 +2305,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testConvertPrimitiveArrayToList22() throws Exception {
         // 前処理
         float[] value = {12.3F, 1.2F, 1F};
@@ -2286,6 +2342,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testConvertPrimitiveArrayToList23() throws Exception {
         // 前処理
         int[] value = new int[0];
@@ -2321,6 +2378,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testConvertPrimitiveArrayToList24() throws Exception {
         // 前処理
         int[] value = {1};
@@ -2361,6 +2419,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testConvertPrimitiveArrayToList25() throws Exception {
         // 前処理
         int[] value = {1, 2, 3};
@@ -2397,6 +2456,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testConvertPrimitiveArrayToList26() throws Exception {
         // 前処理
         long[] value = new long[0];
@@ -2432,6 +2492,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testConvertPrimitiveArrayToList27() throws Exception {
         // 前処理
         long[] value = {1L};
@@ -2472,6 +2533,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testConvertPrimitiveArrayToList28() throws Exception {
         // 前処理
         long[] value = {1L, 2L, 3L};
@@ -2508,6 +2570,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testConvertPrimitiveArrayToList29() throws Exception {
         // 前処理
         short[] value = new short[0];
@@ -2544,6 +2607,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testConvertPrimitiveArrayToList30() throws Exception {
         // 前処理
         short[] value = {(short) 1};
@@ -2583,6 +2647,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testConvertPrimitiveArrayToList31() throws Exception {
         // 前処理
         short[] value = {(short) 1, (short) 2, (short) 3};
@@ -2619,6 +2684,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToListOfMap01() throws Exception {
         // 前処理
         // テスト実施
@@ -2663,6 +2729,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToListOfMap02() throws Exception {
 
         List<ConvertUtil_Stub01> obj = new ArrayList<ConvertUtil_Stub01>();
@@ -2721,6 +2788,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToListOfMap03() throws Exception {
         ConvertUtil_Stub01 bean = new ConvertUtil_Stub01();
         bean.setA("value00");
@@ -2778,6 +2846,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToListOfMap04() throws Exception {
         List<Map<String, Object>> obj = new ArrayList<Map<String, Object>>();
         Map<String, Object> row = new HashMap<String, Object>();
@@ -2837,6 +2906,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToListOfMap05() throws Exception {
         Map<String, Object> row = new HashMap<String, Object>();
         row.put("a", "value00");
@@ -2884,6 +2954,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToListOfMap06() throws Exception {
         ConvertUtil_Stub01 obj = new ConvertUtil_Stub01();
         obj.setA("value00");
@@ -2921,6 +2992,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToListOfMap08() throws Exception {
         // 前処理
         ConvertUtil_Stub02 obj = new ConvertUtil_Stub02();
@@ -2963,6 +3035,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToListOfMap09() throws Exception {
         // 前処理
         List<ConvertUtil_Stub01> obj = new ArrayList<ConvertUtil_Stub01>();
@@ -3010,6 +3083,7 @@ public class ConvertUtilTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToListOfMap10() throws Exception {
         // 前処理
         List<ConvertUtil_Stub01> obj = new ArrayList<ConvertUtil_Stub01>();

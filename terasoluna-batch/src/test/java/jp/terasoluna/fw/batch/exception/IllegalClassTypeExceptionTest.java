@@ -16,17 +16,21 @@
 
 package jp.terasoluna.fw.batch.exception;
 
-import junit.framework.TestCase;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertSame;
+
+import org.junit.Test;
 
 /**
  * IllegalClassTypeExceptionのテストケース。
  */
-public class IllegalClassTypeExceptionTest extends TestCase {
+public class IllegalClassTypeExceptionTest {
 
     /**
      * {@see IllegalClassTypeException#IllegalClassTypeException(java.lang.String)}
      * のテストケース。
      */
+    @Test
     public void testIllegalClassTypeExceptionString() {
         IllegalClassTypeException e = new IllegalClassTypeException("message");
         assertEquals("message", e.getMessage());
@@ -36,6 +40,7 @@ public class IllegalClassTypeExceptionTest extends TestCase {
      * {@see IllegalClassTypeException#IllegalClassTypeException(java.lang.Throwable)}
      * のテストケース。
      */
+    @Test
     public void testIllegalClassTypeExceptionThrowable() {
         Exception cause = new RuntimeException("cause message");
         IllegalClassTypeException e = new IllegalClassTypeException(cause);
@@ -46,6 +51,7 @@ public class IllegalClassTypeExceptionTest extends TestCase {
      * {@see IllegalClassTypeException#IllegalClassTypeException(java.lang.String, java.lang.Throwable)}
      * のテストケース。
      */
+    @Test
     public void testIllegalClassTypeExcetpionStringThrowable() {
         Exception cause = new RuntimeException("cause message");
         IllegalClassTypeException e = new IllegalClassTypeException("message", cause);

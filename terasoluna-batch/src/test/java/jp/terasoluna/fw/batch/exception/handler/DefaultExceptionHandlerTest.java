@@ -1,17 +1,23 @@
 package jp.terasoluna.fw.batch.exception.handler;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
+
 import java.util.HashMap;
 import java.util.Map;
 
+import org.junit.Test;
+
 import jp.terasoluna.fw.batch.exception.BatchException;
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
 
-public class DefaultExceptionHandlerTest extends TestCase {
+public class DefaultExceptionHandlerTest {
 
     /**
      * testSetExceptionToStatusMap001
      */
+    @Test
     public void testSetExceptionToStatusMap001() {
         DefaultExceptionHandler handler = new DefaultExceptionHandler();
 
@@ -36,6 +42,7 @@ public class DefaultExceptionHandlerTest extends TestCase {
     /**
      * testHandleThrowableException001
      */
+    @Test
     public void testHandleThrowableException001() {
         DefaultExceptionHandler handler = new DefaultExceptionHandler();
 
@@ -52,6 +59,7 @@ public class DefaultExceptionHandlerTest extends TestCase {
     /**
      * testHandleThrowableException002
      */
+    @Test
     public void testHandleThrowableException002() {
         DefaultExceptionHandler handler = new DefaultExceptionHandler();
 
@@ -68,6 +76,7 @@ public class DefaultExceptionHandlerTest extends TestCase {
     /**
      * testHandleThrowableException003
      */
+    @Test
     public void testHandleThrowableException003() {
         DefaultExceptionHandler handler = new DefaultExceptionHandler();
 

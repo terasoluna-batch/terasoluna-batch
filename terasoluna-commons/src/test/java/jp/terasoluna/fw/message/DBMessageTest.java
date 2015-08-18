@@ -16,8 +16,11 @@
 
 package jp.terasoluna.fw.message;
 
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
 
 /**
  * {@link jp.terasoluna.fw.message.DBMessage} クラスのブラックボックステスト。
@@ -29,41 +32,7 @@ import junit.framework.TestCase;
  * @see jp.terasoluna.fw.message.DBMessage
  * @version 2005/12/5
  */
-public class DBMessageTest extends TestCase {
-
-    /**
-     * 初期化処理を行う。
-     * 
-     * @throws Exception
-     *             このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
-     */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
-
-    /**
-     * 終了処理を行う。
-     * 
-     * @throws Exception
-     *             このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * 
-     * @param name
-     *            このテストケースの名前。
-     */
-    public DBMessageTest(String name) {
-        super(name);
-    }
+public class DBMessageTest {
 
     /**
      * testDBMessage01() <br>
@@ -88,6 +57,7 @@ public class DBMessageTest extends TestCase {
      * @throws Exception
      *             このメソッドで発生した例外
      */
+    @Test
     public void testDBMessage01()
             throws Exception {
         // 前処理
@@ -118,6 +88,7 @@ public class DBMessageTest extends TestCase {
      * @throws Exception
      *             このメソッドで発生した例外
      */
+    @Test
     public void testGetCode01() throws Exception {
         // 前処理
         DBMessage db = new DBMessage(null, null, null, null, null);
@@ -145,6 +116,7 @@ public class DBMessageTest extends TestCase {
      * @throws Exception
      *             このメソッドで発生した例外
      */
+    @Test
     public void testGetLanguage01() throws Exception {
         // 前処理
         DBMessage db = new DBMessage(null, null, null, null, null);
@@ -172,6 +144,7 @@ public class DBMessageTest extends TestCase {
      * @throws Exception
      *             このメソッドで発生した例外
      */
+    @Test
     public void testGetCountry01() throws Exception {
         // 前処理
         DBMessage db = new DBMessage(null, null, null, null, null);
@@ -198,6 +171,7 @@ public class DBMessageTest extends TestCase {
      * @throws Exception
      *             このメソッドで発生した例外
      */
+    @Test
     public void testGetVariant01() throws Exception {
         // 前処理
         DBMessage db = new DBMessage(null, null, null, null, null);
@@ -225,6 +199,7 @@ public class DBMessageTest extends TestCase {
      * @throws Exception
      *             このメソッドで発生した例外
      */
+    @Test
     public void testGetMessage01() throws Exception {
         // 前処理
         DBMessage db = new DBMessage(null, null, null, null, null);

@@ -33,8 +33,6 @@ import static uk.org.lidalia.slf4jtest.LoggingEvent.error;
 import java.lang.reflect.InvocationTargetException;
 
 import jp.terasoluna.fw.util.ClassLoadException;
-import junit.framework.TestCase;
-
 import org.apache.commons.validator.Field;
 import org.apache.commons.validator.ValidatorAction;
 import org.apache.commons.validator.Var;
@@ -56,6 +54,7 @@ public class FieldChecksTest11 {
 
     private TestLogger logger = TestLoggerFactory.getTestLogger(
             FieldChecks.class);
+    
 
     /**
      * 初期化処理を行う。

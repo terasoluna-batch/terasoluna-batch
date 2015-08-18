@@ -7,6 +7,11 @@
 
 package jp.terasoluna.fw.file.dao.standard;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Date;
@@ -14,9 +19,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+import org.junit.Before;
+import org.junit.Test;
+
 import jp.terasoluna.fw.file.ut.VMOUTUtil;
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.DateColumnFormatter} クラスのテスト。
@@ -26,43 +33,14 @@ import junit.framework.TestCase;
  * @author 奥田哲司
  * @see jp.terasoluna.fw.file.dao.standard.DateColumnFormatter
  */
-public class DateColumnFormatterTest extends TestCase {
-
-    /**
-     * このテストケースを実行する為の GUI アプリケーションを起動する。
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        // junit.swingui.TestRunner.run(DateColumnFormatterTest.class);
-    }
+public class DateColumnFormatterTest {
 
     /**
      * 初期化処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
      */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
+    @Before
+    public void setUp() {
         VMOUTUtil.initialize();
-    }
-
-    /**
-     * 終了処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * @param name このテストケースの名前。
-     */
-    public DateColumnFormatterTest(String name) {
-        super(name);
     }
 
     /**
@@ -92,6 +70,7 @@ public class DateColumnFormatterTest extends TestCase {
      * 。マップにフォーマット用の文字列をキャッシュする。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testFormat01() throws Exception {
         // テスト対象のインスタンス化
@@ -154,6 +133,7 @@ public class DateColumnFormatterTest extends TestCase {
      * ファイル行オブジェクトからDate型属性に格納されているオブジェクトの文字列を取得することができることを確認する。マップから取得したフォーマット用の文字列で設定されたとおりに出力されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testFormat02() throws Exception {
         // テスト対象のインスタンス化
         ColumnFormatter columnFormatter = new DateColumnFormatter();
@@ -213,6 +193,7 @@ public class DateColumnFormatterTest extends TestCase {
      * 。マップにフォーマット用の文字列をキャッシュする。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testFormat03() throws Exception {
         // テスト対象のインスタンス化
@@ -277,6 +258,7 @@ public class DateColumnFormatterTest extends TestCase {
      * ファイル行オブジェクトからDate型属性に格納されているオブジェクトの文字列を取得することができることを確認する。フォーマット用の文字列で設定されたとおりに出力されることを確認する。マップにフォーマット用の文字列をキャッシュする。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testFormat04() throws Exception {
         // テスト対象のインスタンス化
@@ -340,7 +322,7 @@ public class DateColumnFormatterTest extends TestCase {
      * ファイル行オブジェクトからDate型属性に格納されているオブジェクトの文字列を取得することができることを確認する。マップから取得したフォーマット用の文字列で設定されたとおりに出力されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-
+    @Test
     public void testFormat05() throws Exception {
         // テスト対象のインスタンス化
         ColumnFormatter columnFormatter = new DateColumnFormatter();
@@ -399,6 +381,7 @@ public class DateColumnFormatterTest extends TestCase {
      * ファイル行オブジェクトからDate型属性に格納されているオブジェクトの文字列を取得することができることを確認する。フォーマット用の文字列で設定されたとおりに出力されることを確認する。マップにフォーマット用の文字列をキャッシュする。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testFormat06() throws Exception {
         // テスト対象のインスタンス化
@@ -460,7 +443,7 @@ public class DateColumnFormatterTest extends TestCase {
      * ファイル行オブジェクトのDate型属性のgetterメソッドにアクセスできない場合、IllegalAccessExceptionをスローすることを確認する <br>
      * @throws Exception このメソッドで発生した例外
      */
-
+    @Test
     public void testFormat07() throws Exception {
         // テスト対象のインスタンス化
         ColumnFormatter columnFormatter = new DateColumnFormatter();
@@ -507,7 +490,7 @@ public class DateColumnFormatterTest extends TestCase {
      * ファイル行オブジェクトのDate型属性のgetterメソッドが例外をスローする場合、getterメソッドがスローした例外をラップするInvocationTargetExceptionをスローすることを確認する <br>
      * @throws Exception このメソッドで発生した例外
      */
-
+    @Test
     public void testFormat08() throws Exception {
         // テスト対象のインスタンス化
         ColumnFormatter columnFormatter = new DateColumnFormatter();
@@ -553,7 +536,7 @@ public class DateColumnFormatterTest extends TestCase {
      * ファイル行オブジェクトのDate型属性のgetterメソッドが多数の引数を持つ場合、IllegalArgumentExceptionをスローすることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-
+    @Test
     public void testFormat09() throws Exception {
         // テスト対象のインスタンス化
         ColumnFormatter columnFormatter = new DateColumnFormatter();
@@ -600,7 +583,7 @@ public class DateColumnFormatterTest extends TestCase {
      * columnFormatに正しくない日付パターンを入れた場合は、IllegalArgumentExceptionがスローされることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-
+    @Test
     public void testFormat10() throws Exception {
         // テスト対象のインスタンス化
         ColumnFormatter columnFormatter = new DateColumnFormatter();
@@ -653,7 +636,7 @@ public class DateColumnFormatterTest extends TestCase {
      * 引数tのDate型フィールドにnullが設定されていた場合は、空文字が返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-
+    @Test
     public void testFormat11() throws Exception {
         // テスト対象のインスタンス化
         ColumnFormatter columnFormatter = new DateColumnFormatter();
@@ -700,7 +683,7 @@ public class DateColumnFormatterTest extends TestCase {
      * 引数tがnullだった場合は、NullPointerExceptionがスローされることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-
+    @Test
     public void testFormat12() throws Exception {
         // テスト対象のインスタンス化
         ColumnFormatter columnFormatter = new DateColumnFormatter();

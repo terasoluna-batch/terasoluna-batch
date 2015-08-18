@@ -16,14 +16,20 @@
 
 package jp.terasoluna.fw.message;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.sql.DataSource;
 
+import org.junit.After;
+import org.junit.Test;
+
 import jp.terasoluna.utlib.MockDataSource;
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
 
 import com.mockrunner.mock.jdbc.MockResultSet;
 
@@ -42,38 +48,17 @@ import static org.junit.Assert.*;
  * <p>
  * @see jp.terasoluna.fw.message.DBMessageQuery
  */
-public class DBMessageQueryTest extends TestCase {
+public class DBMessageQueryTest {
 
     private TestLogger logger = TestLoggerFactory.getTestLogger(
             DBMessageQuery.class);
 
     /**
-     * 初期化処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
-     */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
-
-    /**
      * 終了処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
      */
-    @Override
-    protected void tearDown() throws Exception {
+    @After
+    public void tearDown() {
         logger.clear();
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * @param name このテストケースの名前。
-     */
-    public DBMessageQueryTest(String name) {
-        super(name);
     }
 
     /**
@@ -100,7 +85,9 @@ public class DBMessageQueryTest extends TestCase {
      * 引数がStringだった場合、引き渡された値が変化なく格納されるかを確認。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    public void testDBMessageDataSource01() throws Exception {
+    @Test
+    public void testDBMessageDataSource01()
+            throws Exception {
         // 前処理
         DataSource ds = new MockDataSource();
         DBMessageQuery db = new DBMessageQuery(ds, "SELECT CODE,MESSAGE FROM MESSAGES", "CODE", "LANGUAGE", "COUNTRY", "VARIANT", "MESSAGE");
@@ -141,7 +128,9 @@ public class DBMessageQueryTest extends TestCase {
      * 引数が空文字だった場合、引き渡された値が変化なく格納されるかを確認。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    public void testDBMessageDataSource02() throws Exception {
+    @Test
+    public void testDBMessageDataSource02()
+            throws Exception {
         // 前処理
         DataSource ds = new MockDataSource();
         DBMessageQuery db = new DBMessageQuery(ds, "SELECT CODE,MESSAGE FROM MESSAGES", "", "", "", "", "");
@@ -181,7 +170,9 @@ public class DBMessageQueryTest extends TestCase {
      * 引数がnullだった場合、引き渡された値が変化なく格納されるかを確認。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    public void testDBMessageDataSource03() throws Exception {
+    @Test
+    public void testDBMessageDataSource03()
+            throws Exception {
         // 前処理
         DataSource ds = new MockDataSource();
         DBMessageQuery db = new DBMessageQuery(ds, "SELECT CODE,MESSAGE FROM MESSAGES", null, null, null, null, null);
@@ -218,6 +209,7 @@ public class DBMessageQueryTest extends TestCase {
      * 取得したString文字列をそのままDBMessageBeanに格納する。 "hoge"カラムは無視され、どこにも影響しない。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testMapRow01() throws Exception {
         // 前処理
         DataSource ds = new MockDataSource();
@@ -285,6 +277,7 @@ public class DBMessageQueryTest extends TestCase {
      * 取得した空文字をそのままDBMessageBeanに格納する。"hoge"カラムは無視され、 どこにも影響しない。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testMapRow02() throws Exception {
         // 前処理
         DataSource ds = new MockDataSource();
@@ -355,6 +348,7 @@ public class DBMessageQueryTest extends TestCase {
      * あった場合は、警告ログを出力する。"hoge"カラムは無視され、 どこにも影響しない。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testMapRowResultSetint03() throws Exception {
         // 前処理
         logger.setEnabledLevels(Level.WARN);

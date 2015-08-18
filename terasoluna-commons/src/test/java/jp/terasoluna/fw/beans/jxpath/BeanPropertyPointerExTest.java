@@ -16,13 +16,16 @@
 
 package jp.terasoluna.fw.beans.jxpath;
 
-import java.util.Locale;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
-import junit.framework.TestCase;
+import java.util.Locale;
 
 import org.apache.commons.jxpath.JXPathBasicBeanInfo;
 import org.apache.commons.jxpath.ri.QName;
 import org.apache.commons.jxpath.ri.model.NodePointer;
+import org.junit.Test;
 
 /**
  * {@link jp.terasoluna.fw.beans.jxpath.BeanPropertyPointerEx} クラスのブラックボックステスト。
@@ -35,38 +38,7 @@ import org.apache.commons.jxpath.ri.model.NodePointer;
  * 
  * @see jp.terasoluna.fw.beans.jxpath.BeanPropertyPointerEx
  */
-public class BeanPropertyPointerExTest extends TestCase {
-
-    /**
-     * 初期化処理を行う。
-     * 
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
-     */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
-
-    /**
-     * 終了処理を行う。
-     * 
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * 
-     * @param name このテストケースの名前。
-     */
-    public BeanPropertyPointerExTest(String name) {
-        super(name);
-    }
+public class BeanPropertyPointerExTest {
 
     /**
      * testGetLength01()
@@ -87,6 +59,7 @@ public class BeanPropertyPointerExTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetLength01() throws Exception {
         // 前処理
     	QName qName = new QName("property");
@@ -123,6 +96,7 @@ public class BeanPropertyPointerExTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetLength02() throws Exception {
         // 前処理
     	QName qName = new QName("property");
@@ -160,6 +134,7 @@ public class BeanPropertyPointerExTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetLength03() throws Exception {
         // 前処理
     	QName qName = new QName("property");
@@ -195,6 +170,7 @@ public class BeanPropertyPointerExTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsCollection01() throws Exception {
         // 前処理
     	QName qName = new QName("property");
@@ -231,6 +207,7 @@ public class BeanPropertyPointerExTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsCollection02() throws Exception {
         // 前処理
     	QName qName = new QName("property");

@@ -20,6 +20,12 @@ import static java.util.Arrays.asList;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 import static uk.org.lidalia.slf4jtest.LoggingEvent.error;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -27,7 +33,6 @@ import java.util.List;
 import java.util.Map;
 
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
 
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.beanutils.PropertyUtils;
@@ -38,6 +43,9 @@ import uk.org.lidalia.slf4jext.Level;
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
 
+import org.junit.After;
+import org.junit.Test;
+
 /**
  * {@link jp.terasoluna.fw.beans.JXPathIndexedBeanWrapperImpl} クラスのブラックボックステスト。
  * <p>
@@ -46,40 +54,18 @@ import uk.org.lidalia.slf4jtest.TestLoggerFactory;
  * <p>
  * @see jp.terasoluna.fw.beans.JXPathIndexedBeanWrapperImpl
  */
-public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
+public class JXPathIndexedBeanWrapperImplTest01 {
 
     private TestLogger logger = TestLoggerFactory.getTestLogger(
             JXPathIndexedBeanWrapperImpl.class);
 
     /**
-     * 初期化処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
-     */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
-
-    /**
      * 終了処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
      */
-    @Override
-    protected void tearDown() throws Exception {
+    @After
+    public void tearDown() {
         logger.clear();
-        super.tearDown();
     }
-
-    /**
-     * コンストラクタ。
-     * @param name このテストケースの名前。
-     */
-    public JXPathIndexedBeanWrapperImplTest01(String name) {
-        super(name);
-    }
-
     /**
      * testJXPathIndexedBeanWrapperImpl01() <br>
      * <br>
@@ -94,6 +80,7 @@ public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
      * ターゲットとなるJavaBeanをcontext属性に設定するコンストラクタのテスト。正常ケース。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testJXPathIndexedBeanWrapperImpl01() throws Exception {
         // 前処理
         Object obj = new Object();
@@ -123,6 +110,7 @@ public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
      * 引数のJavaBeanがNullの場合のテスト。例外を投げる。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testJXPathIndexedBeanWrapperImpl02() throws Exception {
         // 前処理
         try {
@@ -151,6 +139,7 @@ public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
      * 引数のプロパティ名がNullのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetIndexedPropertyValuesJavaBean01() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl bw = new JXPathIndexedBeanWrapperImpl(new Object());
@@ -183,6 +172,7 @@ public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
      * 引数のプロパティ名が空文字のテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetIndexedPropertyValuesJavaBean02() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl bw = new JXPathIndexedBeanWrapperImpl(new Object());
@@ -217,6 +207,7 @@ public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
      * 不正なプロパティ名が入れられた場合のテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetIndexedPropertyValuesJavaBean03() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl bw = new JXPathIndexedBeanWrapperImpl(new Object());
@@ -251,6 +242,7 @@ public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
      * プロパティ名に/（スラッシュ）が入っているバターン <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetIndexedPropertyValuesJavaBean04() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl bw = new JXPathIndexedBeanWrapperImpl(new Object());
@@ -286,6 +278,7 @@ public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
      * プロパティ名に[（配列の記号）が入っているバターン <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetIndexedPropertyValuesJavaBean05() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl bw = new JXPathIndexedBeanWrapperImpl(new Object());
@@ -320,6 +313,7 @@ public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
      * プロパティ名に]（配列の記号）が入っているバターン <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetIndexedPropertyValuesJavaBean06() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl bw = new JXPathIndexedBeanWrapperImpl(new Object());
@@ -355,6 +349,7 @@ public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
      * null値の値を取得するテスト。(Object型） <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetIndexedPropertyValuesJavaBean07() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl_JavaBeanStub01 bean = new JXPathIndexedBeanWrapperImpl_JavaBeanStub01();
@@ -391,6 +386,7 @@ public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
      * null値の値を取得するテスト。(String型） <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetIndexedPropertyValuesJavaBean07_2() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl_JavaBeanStub01 bean = new JXPathIndexedBeanWrapperImpl_JavaBeanStub01();
@@ -428,6 +424,7 @@ public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
      * null値の値を取得するテスト。(Date型） <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetIndexedPropertyValuesJavaBean07_3() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl_JavaBeanStub01 bean = new JXPathIndexedBeanWrapperImpl_JavaBeanStub01();
@@ -465,6 +462,7 @@ public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
      * null値の値を取得するテスト。(List型） <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetIndexedPropertyValuesJavaBean07_4() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl_JavaBeanStub01 bean = new JXPathIndexedBeanWrapperImpl_JavaBeanStub01();
@@ -502,6 +500,7 @@ public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
      * null値の値を取得するテスト。(int[]型） <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetIndexedPropertyValuesJavaBean07_5() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl_JavaBeanStub01 bean = new JXPathIndexedBeanWrapperImpl_JavaBeanStub01();
@@ -539,6 +538,7 @@ public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
      * 空のリスト値を取得するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetIndexedPropertyValuesJavaBean07_6() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl_JavaBeanStub01 bean = new JXPathIndexedBeanWrapperImpl_JavaBeanStub01();
@@ -572,6 +572,7 @@ public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
      * 空のint配列を取得するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetIndexedPropertyValuesJavaBean07_7() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl_JavaBeanStub01 bean = new JXPathIndexedBeanWrapperImpl_JavaBeanStub01();
@@ -605,6 +606,7 @@ public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
      * null値の値を取得するテスト。(List型） <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetIndexedPropertyValuesJavaBean07_8() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl_JavaBeanStub01 bean = new JXPathIndexedBeanWrapperImpl_JavaBeanStub01();
@@ -642,6 +644,7 @@ public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
      * String型の値を取得するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetIndexedPropertyValuesJavaBean08() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl_JavaBeanStub01 bean = new JXPathIndexedBeanWrapperImpl_JavaBeanStub01();
@@ -679,6 +682,7 @@ public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
      * boolean型の値を取得するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetIndexedPropertyValuesJavaBean09() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl_JavaBeanStub01 bean = new JXPathIndexedBeanWrapperImpl_JavaBeanStub01();
@@ -718,6 +722,7 @@ public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
      * ネストした値を取得するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetIndexedPropertyValuesJavaBean10() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl_JavaBeanStub03 bean = new JXPathIndexedBeanWrapperImpl_JavaBeanStub03();
@@ -770,6 +775,7 @@ public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
      * オブジェクト配列の値を取得するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetIndexedPropertyValuesJavaBean11() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl_JavaBeanStub04 bean = new JXPathIndexedBeanWrapperImpl_JavaBeanStub04();
@@ -851,6 +857,7 @@ public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
      * List値を取得するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetIndexedPropertyValuesJavaBean12() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl_JavaBeanStub04 bean = new JXPathIndexedBeanWrapperImpl_JavaBeanStub04();
@@ -937,6 +944,7 @@ public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
      * 配列＋null混じりの値を取得するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetIndexedPropertyValuesJavaBean13() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl_JavaBeanStub04 bean = new JXPathIndexedBeanWrapperImpl_JavaBeanStub04();
@@ -1026,6 +1034,7 @@ public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
      * ネスト＋配列の値を取得するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetIndexedPropertyValuesJavaBean14() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl_JavaBeanStub05 bean = new JXPathIndexedBeanWrapperImpl_JavaBeanStub05();
@@ -1132,6 +1141,7 @@ public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
      * ネスト＋配列＋nullが混じるパターンの値を取得するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetIndexedPropertyValuesJavaBean15() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl_JavaBeanStub05 bean = new JXPathIndexedBeanWrapperImpl_JavaBeanStub05();
@@ -1226,6 +1236,7 @@ public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
      * Map型の属性を取得するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetIndexedPropertyValuesJavaBean16() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl_JavaBeanStub01 bean = new JXPathIndexedBeanWrapperImpl_JavaBeanStub01();
@@ -1272,6 +1283,7 @@ public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
      * Map型の属性からList値を取得するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetIndexedPropertyValuesJavaBean17() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl_JavaBeanStub01 bean = new JXPathIndexedBeanWrapperImpl_JavaBeanStub01();
@@ -1317,6 +1329,7 @@ public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
      * ネストしたMap型の属性を取得するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetIndexedPropertyValuesJavaBean18() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl_JavaBeanStub01 bean = new JXPathIndexedBeanWrapperImpl_JavaBeanStub01();
@@ -1359,6 +1372,7 @@ public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
      * 存在しないプロパティ名にアクセスしたときのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetIndexedPropertyValuesJavaBean19() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl_JavaBeanStub01 bean = new JXPathIndexedBeanWrapperImpl_JavaBeanStub01();
@@ -1390,6 +1404,7 @@ public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
      * String型の値を取得するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetIndexedPropertyValuesMap01() throws Exception {
         // 前処理
         Map<String, Object> map = new HashMap<String, Object>();
@@ -1424,6 +1439,7 @@ public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
      * null値を取得するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetIndexedPropertyValuesMap02() throws Exception {
         // 前処理
         Map<String, Object> map = new HashMap<String, Object>();
@@ -1458,6 +1474,7 @@ public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
      * 存在しないキー名をもとにオブジェクトを取得するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetIndexedPropertyValuesMap03() throws Exception {
         // 前処理
         Map<String, Object> map = new HashMap<String, Object>();
@@ -1490,6 +1507,7 @@ public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
      * int型配列を取得するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetIndexedPropertyValuesMap04() throws Exception {
         // 前処理
         Map<String, Object> map = new HashMap<String, Object>();
@@ -1526,6 +1544,7 @@ public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
      * Long型配列を取得するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetIndexedPropertyValuesMap05() throws Exception {
         // 前処理
         Map<String, Object> map = new HashMap<String, Object>();
@@ -1563,6 +1582,7 @@ public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
      * Long型Listを取得するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetIndexedPropertyValuesMap06() throws Exception {
         // 前処理
         Map<String, Object> map = new HashMap<String, Object>();
@@ -1603,6 +1623,7 @@ public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
      * ネストしたプロパティを取得するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetIndexedPropertyValuesMap07() throws Exception {
         // 前処理
         Map<String, Object> map = new HashMap<String, Object>();
@@ -1655,6 +1676,7 @@ public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
      * ネスト＋配列プロパティを取得するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetIndexedPropertyValuesMap08() throws Exception {
         // 前処理
         Map<String, Object> map = new HashMap<String, Object>();
@@ -1726,6 +1748,7 @@ public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
      * 配列＋null混じりのプロパティを取得するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetIndexedPropertyValuesMap09() throws Exception {
         // 前処理
         Map<String, Object> map = new HashMap<String, Object>();
@@ -1782,6 +1805,7 @@ public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
      * 不正なMapキーのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetIndexedPropertyValuesMap10() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl bw = new JXPathIndexedBeanWrapperImpl(new HashMap<String, Object>());
@@ -1817,6 +1841,7 @@ public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
      * 不正なMapキーのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetIndexedPropertyValuesMap11() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl bw = new JXPathIndexedBeanWrapperImpl(new HashMap<String, Object>());
@@ -1852,6 +1877,7 @@ public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
      * 不正なMapキーのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetIndexedPropertyValuesMap12() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl bw = new JXPathIndexedBeanWrapperImpl(new HashMap<String, Object>());
@@ -1886,6 +1912,7 @@ public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
      * 不正なMapキーのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetIndexedPropertyValuesMap13() throws Exception {
         // 前処理
         Map<String, Object> map = new HashMap<String, Object>();
@@ -1919,6 +1946,7 @@ public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
      * 不正なMapキーのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetIndexedPropertyValuesMap14() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl bw = new JXPathIndexedBeanWrapperImpl(new HashMap<String, Object>());
@@ -1954,6 +1982,7 @@ public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
      * 不正なMapキーのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetIndexedPropertyValuesMap15() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl bw = new JXPathIndexedBeanWrapperImpl(new HashMap<String, Object>());
@@ -1989,6 +2018,7 @@ public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
      * 不正なMapキーのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetIndexedPropertyValuesMap16() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl bw = new JXPathIndexedBeanWrapperImpl(new HashMap<String, Object>());
@@ -2025,6 +2055,7 @@ public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
      * 不正なMapキーのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetIndexedPropertyValuesMap17() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl bw = new JXPathIndexedBeanWrapperImpl(new HashMap<String, Object>());
@@ -2061,6 +2092,7 @@ public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
      * ネストした値を取得するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetIndexedPropertyValuesDynaBean01() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl_JavaBeanStub03 bean = new JXPathIndexedBeanWrapperImpl_JavaBeanStub03();
@@ -2119,6 +2151,7 @@ public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
      * ネスト＋配列＋nullが混じるパターンの値を取得するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetIndexedPropertyValuesDynaBean02() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl_JavaBeanStub05 bean = new JXPathIndexedBeanWrapperImpl_JavaBeanStub05();

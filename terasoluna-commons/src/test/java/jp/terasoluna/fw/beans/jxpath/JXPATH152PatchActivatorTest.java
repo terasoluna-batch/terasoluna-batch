@@ -20,14 +20,17 @@ import static java.util.Arrays.asList;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 import static uk.org.lidalia.slf4jtest.LoggingEvent.info;
+import static org.junit.Assert.assertTrue;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.jxpath.JXPathIntrospector;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
 
@@ -48,7 +51,7 @@ import uk.org.lidalia.slf4jtest.TestLoggerFactory;
  * @see jp.terasoluna.fw.beans.jxpath.JXPATH152PatchActivator
  */
 @SuppressWarnings("unchecked")
-public class JXPATH152PatchActivatorTest extends TestCase {
+public class JXPATH152PatchActivatorTest {
 
     private Map byClassBak = null;
 
@@ -60,12 +63,9 @@ public class JXPATH152PatchActivatorTest extends TestCase {
     /**
      * 初期化処理を行う。
      * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
      */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-
+    @Before
+    public void setUp() throws Exception {
         // クラスロードされていなければクラスロード
         // (クラスロード時にstaticイニシャライザ実行)
         new JXPATH152PatchActivator();
@@ -81,12 +81,9 @@ public class JXPATH152PatchActivatorTest extends TestCase {
     /**
      * 終了処理を行う。
      * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
      */
-    @Override
-    protected void tearDown() throws Exception {
-        logger.clear();
-        super.tearDown();
+    @After
+    public void tearDown() throws Exception {
         UTUtil.setPrivateField(JXPathIntrospector.class, "byClass", byClassBak);
         UTUtil.setPrivateField(JXPathIntrospector.class, "byInterface",
                 byInterfaceBak);
@@ -110,6 +107,7 @@ public class JXPATH152PatchActivatorTest extends TestCase {
      * セキュリティマネージャに阻止されなければ、 JXPathIntrospectorのbyClassとbyInterfaceがHashMapForJXPathIntrospectorインスタンスになっていることのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testActivate01() throws Exception {
         // 前処理
         UTUtil.setPrivateField(JXPathIntrospector.class, "byClass",
@@ -149,6 +147,7 @@ public class JXPATH152PatchActivatorTest extends TestCase {
      * セキュリティマネージャに阻止された場合、 FATALログを出力することのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testActivate02() throws Exception {
         // TODO
         // Java7環境下ではAccessController.doPrivileged()に渡しているAccessControlContextのDomainCombiner#combine()が呼び出されず、本テストの動作確認が不可能であるため、コメントアウトしている。

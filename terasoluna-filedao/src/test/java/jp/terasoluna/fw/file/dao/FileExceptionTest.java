@@ -7,8 +7,12 @@
 
 package jp.terasoluna.fw.file.dao;
 
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+
+import org.junit.Test;
+
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.FileException} クラスのテスト。
@@ -18,43 +22,7 @@ import junit.framework.TestCase;
  * @author 奥田哲司
  * @see jp.terasoluna.fw.file.dao.FileException
  */
-public class FileExceptionTest extends TestCase {
-
-    /**
-     * このテストケースを実行する為の GUI アプリケーションを起動する。
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        // junit.swingui.TestRunner.run(FileExceptionTest.class);
-    }
-
-    /**
-     * 初期化処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
-     */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
-
-    /**
-     * 終了処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * @param name このテストケースの名前。
-     */
-    public FileExceptionTest(String name) {
-        super(name);
-    }
+public class FileExceptionTest {
 
     /**
      * testFileExceptionException01() <br>
@@ -71,7 +39,7 @@ public class FileExceptionTest extends TestCase {
      * 正常ケース <br>
      * @throws Exception このメソッドで発生した例外
      */
-
+    @Test
     public void testFileExceptionException01() throws Exception {
         // テスト対象のインスタンス化
         // コンストラクタの試験なので、不要
@@ -111,7 +79,7 @@ public class FileExceptionTest extends TestCase {
      * fileNameが属性に設定されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-
+    @Test
     public void testFileExceptionExceptionString01() throws Exception {
         // テスト対象のインスタンス化
         // コンストラクタの試験なので、不要
@@ -150,7 +118,7 @@ public class FileExceptionTest extends TestCase {
      * 例外オブジェクト生成後にメッセージが格納されていることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-
+    @Test
     public void testFileExceptionString01() throws Exception {
         // テスト対象のインスタンス化
         // コンストラクタの試験なので、不要
@@ -191,7 +159,7 @@ public class FileExceptionTest extends TestCase {
      * fileNameが属性に設定されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-
+    @Test
     public void testFileExceptionStringString01() throws Exception {
         // テスト対象のインスタンス化
         // コンストラクタの試験なので、不要
@@ -234,7 +202,7 @@ public class FileExceptionTest extends TestCase {
      * messageが属性に設定されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-
+    @Test
     public void testFileExceptionStringException01() throws Exception {
         // テスト対象のインスタンス化
         // コンストラクタの試験なので、不要
@@ -281,7 +249,7 @@ public class FileExceptionTest extends TestCase {
      * fileNameが属性に設定されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-
+    @Test
     public void testFileExceptionStringExceptionString01() throws Exception {
         // テスト対象のインスタンス化
         // コンストラクタの試験なので、不要
@@ -320,7 +288,7 @@ public class FileExceptionTest extends TestCase {
      * 属性が正しく取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-
+    @Test
     public void testGetFileName01() throws Exception {
         // テスト対象のインスタンス化
         FileException fe = new FileException(new String());

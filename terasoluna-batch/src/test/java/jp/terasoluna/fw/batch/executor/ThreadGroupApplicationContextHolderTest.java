@@ -1,14 +1,20 @@
 package jp.terasoluna.fw.batch.executor;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+
 import java.util.Map;
 
 import jp.terasoluna.fw.ex.unit.util.ReflectionUtils;
-import junit.framework.TestCase;
 
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class ThreadGroupApplicationContextHolderTest extends TestCase {
+public class ThreadGroupApplicationContextHolderTest {
 
     ApplicationContext ctx = new ClassPathXmlApplicationContext(
             "classpath:beansDef/AdminContext.xml");
@@ -17,25 +23,18 @@ public class ThreadGroupApplicationContextHolderTest extends TestCase {
      * (non-Javadoc)
      * @see junit.framework.TestCase#setUp()
      */
-    protected void setUp() throws Exception {
+    @Before
+    public void setUp() {
         // いったんクリア
         ((Map<?, ?>) ReflectionUtils.getField(
                 ThreadGroupApplicationContextHolder.class, "tga")).clear();
-        super.setUp();
-    }
-
-    /*
-     * (non-Javadoc)
-     * @see junit.framework.TestCase#tearDown()
-     */
-    protected void tearDown() throws Exception {
-        super.tearDown();
     }
 
     /**
      * testThreadGroupApplicationContextHolder001
      * @throws Exception
      */
+    @Test
     public void testThreadGroupApplicationContextHolder001() throws Exception {
         ThreadGroupApplicationContextHolder holder = new ThreadGroupApplicationContextHolder();
         assertNotNull(holder);
@@ -45,6 +44,7 @@ public class ThreadGroupApplicationContextHolderTest extends TestCase {
      * testGetThreadGroupApplicationContext001
      * @throws Exception
      */
+    @Test
     public void testGetThreadGroupApplicationContext001() throws Exception {
         ThreadGroup g = new ThreadGroup("hoge");
         Thread th = new Thread(g, new Runnable() {
@@ -61,6 +61,7 @@ public class ThreadGroupApplicationContextHolderTest extends TestCase {
     /**
      * testSetAndGetApplicationContext001
      */
+    @Test
     public void testSetAndGetApplicationContext001() {
         assertNull(ThreadGroupApplicationContextHolder
                 .getCurrentThreadGroupApplicationContext());
@@ -72,6 +73,7 @@ public class ThreadGroupApplicationContextHolderTest extends TestCase {
     /**
      * testSetAndGetApplicationContext002
      */
+    @Test
     public void testSetAndGetApplicationContext002() {
         ThreadGroupApplicationContextHolder.setApplicationContext(null);
         assertNull(ThreadGroupApplicationContextHolder
@@ -81,6 +83,7 @@ public class ThreadGroupApplicationContextHolderTest extends TestCase {
     /**
      * testRemoveApplicationContext001
      */
+    @Test
     public void testRemoveApplicationContext001() {
         ThreadGroupApplicationContextHolder.setApplicationContext(ctx);
         assertEquals(ctx, ThreadGroupApplicationContextHolder
@@ -93,6 +96,7 @@ public class ThreadGroupApplicationContextHolderTest extends TestCase {
     /**
      * testRemoveApplicationContext002
      */
+    @Test
     public void testRemoveApplicationContext002() {
         Thread th = Thread.currentThread();
         ThreadGroup g = th.getThreadGroup();
@@ -116,6 +120,7 @@ public class ThreadGroupApplicationContextHolderTest extends TestCase {
     /**
      * testGetThreadGroup001
      */
+    @Test
     public void testGetThreadGroup001() {
         assertEquals(Thread.currentThread().getThreadGroup(), getThreadGroup());
     }
@@ -123,6 +128,7 @@ public class ThreadGroupApplicationContextHolderTest extends TestCase {
     /**
      * testGetThreadGroup002
      */
+    @Test
     public void testGetThreadGroup002() {
         Thread th = Thread.currentThread();
         ThreadGroup g = th.getThreadGroup();
@@ -146,6 +152,7 @@ public class ThreadGroupApplicationContextHolderTest extends TestCase {
     /**
      * testGetThreadMessage001
      */
+    @Test
     public void testGetThreadMessage001() {
         Thread th = Thread.currentThread();
         ThreadGroup g = th.getThreadGroup();
@@ -157,6 +164,7 @@ public class ThreadGroupApplicationContextHolderTest extends TestCase {
     /**
      * testGetThreadMessage002
      */
+    @Test
     public void testGetThreadMessage002() {
         Thread th = Thread.currentThread();
         ThreadGroup g = th.getThreadGroup();

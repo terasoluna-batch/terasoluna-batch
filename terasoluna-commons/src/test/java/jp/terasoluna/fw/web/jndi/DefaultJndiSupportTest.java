@@ -16,6 +16,12 @@
 
 package jp.terasoluna.fw.web.jndi;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
@@ -24,7 +30,6 @@ import javax.naming.Context;
 import javax.naming.NamingException;
 
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
 import static uk.org.lidalia.slf4jtest.LoggingEvent.error;
@@ -32,6 +37,8 @@ import static uk.org.lidalia.slf4jtest.LoggingEvent.info;
 import static java.util.Arrays.asList;
 import static org.hamcrest.core.Is.*;
 import static org.junit.Assert.*;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * {@link jp.terasoluna.fw.web.jndi.DefaultJndiSupport} クラスのブラックボックステスト。
@@ -40,20 +47,14 @@ import static org.junit.Assert.*;
  * <p>
  * @see jp.terasoluna.fw.web.jndi.DefaultJndiSupport
  */
-public class DefaultJndiSupportTest extends TestCase {
+public class DefaultJndiSupportTest {
 
     private TestLogger logger = TestLoggerFactory.getTestLogger(
             DefaultJndiSupport.class);
 
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
-
-    @Override
-    protected void tearDown() throws Exception {
+    @Before
+    public void setUp() {
         logger.clear();
-        super.tearDown();
     }
 
     /**
@@ -70,6 +71,7 @@ public class DefaultJndiSupportTest extends TestCase {
      * 引数に指定した値がスーパークラスのresourceRefに正常に格納されることを確認 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSetJndiPrefix01() throws Exception {
         // 前処理
         DefaultJndiSupport support = new DefaultJndiSupport();
@@ -97,6 +99,7 @@ public class DefaultJndiSupportTest extends TestCase {
      * DefaultJndiSupportに格納されているsuper.resourceRefを正常に取得する ことを確認 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsJndiPrefix01() throws Exception {
         // 前処理
         DefaultJndiSupport support = new DefaultJndiSupport();
@@ -124,6 +127,7 @@ public class DefaultJndiSupportTest extends TestCase {
      * ※正常系1件のみ確認。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetJndiEnvironmentMap01() throws Exception {
 
         // 前処理
@@ -154,6 +158,7 @@ public class DefaultJndiSupportTest extends TestCase {
      * ※正常系1件のみ確認。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSetJndiEnvironmentMap01() throws Exception {
 
         // 前処理
@@ -181,6 +186,7 @@ public class DefaultJndiSupportTest extends TestCase {
      * jndiEnvironmentMapがnullだった場合、JndiTemplateの環境プロパティは設定されないことを確認 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testInitialize01() throws Exception {
 
         // 前処理
@@ -224,6 +230,7 @@ public class DefaultJndiSupportTest extends TestCase {
      * jndiEnvironmentMap.get("username")がnullだった場合、 JndiTemplateの環境プロパティにjndiFactoryとjndiUrlだけが設定されていることを確認 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testInitialize02() throws Exception {
         // 前処理
         Map<String, String> map = new HashMap<String, String>();
@@ -284,6 +291,7 @@ public class DefaultJndiSupportTest extends TestCase {
      * jndiEnvironmentMap.get("username")が空文字だった場合、JndiTemplateの環境 プロパティにjndiFactoryとjndiUrlだけが設定されていることを確認 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testInitialize03() throws Exception {
 
         // 前処理
@@ -347,6 +355,7 @@ public class DefaultJndiSupportTest extends TestCase {
      * プロパティにjndiFactoryとjndiUrlとjndiUsernameと空文字のjndiPasswordが設定されていることを確認 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testInitialize04() throws Exception {
         // 前処理
         Map<String, String> map = new HashMap<String, String>();
@@ -409,6 +418,7 @@ public class DefaultJndiSupportTest extends TestCase {
      * プロパティにjndiFactoryとjndiUrlとjndiUsernameとjndiPasswordが設定されていることを確認 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testInitialize05() throws Exception {
         // 前処理
         Map<String, String> map = new HashMap<String, String>();
@@ -472,6 +482,7 @@ public class DefaultJndiSupportTest extends TestCase {
      * プロパティにjndiFactory、jndiUrl、jndiUsername、jndiPasswordが設定されていることを確認 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testInitialize06() throws Exception {
         // 前処理
         Map<String, String> map = new HashMap<String, String>();
@@ -521,6 +532,7 @@ public class DefaultJndiSupportTest extends TestCase {
      * 引数nameがnullの場合、例外を起こすことを確認する <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testRebind01() throws Exception {
         // 前処理
         DefaultJndiSupport support = new DefaultJndiSupport();
@@ -567,6 +579,7 @@ public class DefaultJndiSupportTest extends TestCase {
      * 引数nameが空文字であり、引数objがnot nullの場合、JndiTemplate.rebind()の呼び出し確認を行う <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testRebind02() throws Exception {
         // 前処理
         DefaultJndiSupport support = new DefaultJndiSupport();
@@ -611,6 +624,7 @@ public class DefaultJndiSupportTest extends TestCase {
      * 引数objがnullの場合、例外を起こすことを確認する <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testRebind03() throws Exception {
         // 前処理
         DefaultJndiSupport support = new DefaultJndiSupport();
@@ -658,6 +672,7 @@ public class DefaultJndiSupportTest extends TestCase {
      * 行っていることを確認を行う <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testRebind04() throws Exception {
         // 前処理
         DefaultJndiSupport support = new DefaultJndiSupport();
@@ -719,6 +734,7 @@ public class DefaultJndiSupportTest extends TestCase {
      * JndiTemplate.rebind()でNamingExceptionが発生した場合、JndiExceptionを 起こすことを確認する <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testRebind05() throws Exception {
         // 前処理
         DefaultJndiSupport support = new DefaultJndiSupport();
@@ -770,6 +786,7 @@ public class DefaultJndiSupportTest extends TestCase {
      * 引数nameがnullの場合、例外を起こすことを確認する <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testUnbind01() throws Exception {
         // 前処理
         DefaultJndiSupport support = new DefaultJndiSupport();
@@ -810,6 +827,7 @@ public class DefaultJndiSupportTest extends TestCase {
      * 引数nameが空文字の場合、JndiTemplate.unbind()の呼び出し確認を行う <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testUnbind02() throws Exception {
         // 前処理
         DefaultJndiSupport support = new DefaultJndiSupport();
@@ -859,6 +877,7 @@ public class DefaultJndiSupportTest extends TestCase {
      * JndiTemplate.unbind()の呼び出しを行っていることを確認を行う <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testUnbind03() throws Exception {
         // 前処理
         DefaultJndiSupport support = new DefaultJndiSupport();
@@ -913,6 +932,7 @@ public class DefaultJndiSupportTest extends TestCase {
      * JndiTemplate.unbind()でNamingExceptionが発生した場合、JndiExceptionを 起こすことを確認する <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testUnbind04() throws Exception {
         // 前処理
         DefaultJndiSupport support = new DefaultJndiSupport();
@@ -962,6 +982,7 @@ public class DefaultJndiSupportTest extends TestCase {
      * 引数nameがnullの場合、例外を起こすことを確認する <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testLookup01() throws Exception {
         // 前処理
         DefaultJndiSupport support = new DefaultJndiSupport();
@@ -1005,6 +1026,7 @@ public class DefaultJndiSupportTest extends TestCase {
      * 引数nameが空文字の場合、JndiTemplate.lookup()の呼び出し確認を行う <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testLookup02() throws Exception {
         // 前処理
         DefaultJndiSupport support = new DefaultJndiSupport();
@@ -1058,6 +1080,7 @@ public class DefaultJndiSupportTest extends TestCase {
      * 行われていることを確認を行う <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testLookup03() throws Exception {
         // 前処理
         DefaultJndiSupport support = new DefaultJndiSupport();
@@ -1115,6 +1138,7 @@ public class DefaultJndiSupportTest extends TestCase {
      * JndiTemplate.lookup()でNamingExceptionが発生した場合、 JndiExceptionを起こすことを確認する <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testLookup04() throws Exception {
         // 前処理
         DefaultJndiSupport support = new DefaultJndiSupport();

@@ -7,7 +7,10 @@
 
 package jp.terasoluna.fw.file.annotation;
 
-import junit.framework.TestCase;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+
+import org.junit.Test;
 
 /**
  * {@link jp.terasoluna.fw.file.annotation.StringConverterToUpperCase} クラスのテスト。
@@ -18,43 +21,7 @@ import junit.framework.TestCase;
  * @author 奥田哲司
  * @see jp.terasoluna.fw.file.annotation.StringConverterToUpperCase
  */
-public class StringConverterToUpperCaseTest extends TestCase {
-
-    /**
-     * このテストケースを実行する為の GUI アプリケーションを起動する。
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        // junit.swingui.TestRunner.run(StringConverterToUpperCaseTest.class);
-    }
-
-    /**
-     * 初期化処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
-     */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
-
-    /**
-     * 終了処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * @param name このテストケースの名前。
-     */
-    public StringConverterToUpperCaseTest(String name) {
-        super(name);
-    }
+public class StringConverterToUpperCaseTest {
 
     /**
      * testConvert01() <br>
@@ -70,6 +37,7 @@ public class StringConverterToUpperCaseTest extends TestCase {
      * nullを返却する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testConvert01() throws Exception {
         // 前処理(引数)
         StringConverter stringTransformer = new StringConverterToUpperCase();
@@ -98,6 +66,7 @@ public class StringConverterToUpperCaseTest extends TestCase {
      * この場合、大文字変換処理なので、入力した文字列を全て大文字に変換して返却する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testConvert02() throws Exception {
         // 前処理(引数)
         StringConverter stringTransformer = new StringConverterToUpperCase();
@@ -128,6 +97,7 @@ public class StringConverterToUpperCaseTest extends TestCase {
      * ひらがな、カタカナ、漢字がある場合は、そのまま出力されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testConvert03() throws Exception {
         // 前処理(引数)
         StringConverter stringTransformer = new StringConverterToLowerCase();
@@ -154,6 +124,7 @@ public class StringConverterToUpperCaseTest extends TestCase {
      * ""(空文字）の場合は、そのまま変換されずに出力されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testConvert04() throws Exception {
         // 前処理(引数)
         StringConverter stringTransformer = new StringConverterToLowerCase();

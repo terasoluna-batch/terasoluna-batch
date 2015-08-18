@@ -7,11 +7,14 @@
 
 package jp.terasoluna.fw.file.dao.standard;
 
+import static org.junit.Assert.assertSame;
+
 import java.util.HashMap;
 import java.util.Map;
 
+import org.junit.Test;
+
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.AbstractFileUpdateDAO} クラスのテスト。
@@ -22,43 +25,7 @@ import junit.framework.TestCase;
  * @author 奥田哲司
  * @see jp.terasoluna.fw.file.dao.standard.AbstractFileUpdateDAO
  */
-public class AbstractFileUpdateDAOTest extends TestCase {
-
-    /**
-     * このテストケースを実行する為の GUI アプリケーションを起動する。
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        // junit.swingui.TestRunner.run(AbstractFileUpdateDAOTest.class);
-    }
-
-    /**
-     * 初期化処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
-     */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
-
-    /**
-     * 終了処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * @param name このテストケースの名前。
-     */
-    public AbstractFileUpdateDAOTest(String name) {
-        super(name);
-    }
+public class AbstractFileUpdateDAOTest {
 
     /**
      * testSetColumnFormatterMap01() <br>
@@ -73,6 +40,7 @@ public class AbstractFileUpdateDAOTest extends TestCase {
      * columnFormatterMapのsetterメソッドの値が 正しく設定されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSetColumnFormatterMap01() throws Exception {
         // テスト対象のインスタンス化
         AbstractFileUpdateDAO abstractFileUpdateDAO = new AbstractFileUpdateDAO_Stub01();
@@ -108,6 +76,7 @@ public class AbstractFileUpdateDAOTest extends TestCase {
      * columnFormatterMapのgetterメソッドが正しく値を 取得することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetColumnFormatterMap01() throws Exception {
         // テスト対象のインスタンス化
         AbstractFileUpdateDAO abstractFileUpdateDAO = new AbstractFileUpdateDAO_Stub01();

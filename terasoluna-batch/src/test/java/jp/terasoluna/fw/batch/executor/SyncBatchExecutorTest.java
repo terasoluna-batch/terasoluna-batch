@@ -1,12 +1,18 @@
 package jp.terasoluna.fw.batch.executor;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
 import jp.terasoluna.fw.batch.executor.SecurityManagerEx.ExitException;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
 import jp.terasoluna.fw.ex.unit.util.ReflectionUtils;
 import jp.terasoluna.fw.ex.unit.util.SystemEnvUtils;
-import junit.framework.TestCase;
 
-public class SyncBatchExecutorTest extends TestCase {
+public class SyncBatchExecutorTest {
 
     final SecurityManager sm = System.getSecurityManager();
 
@@ -14,17 +20,15 @@ public class SyncBatchExecutorTest extends TestCase {
         super();
     }
 
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
+    @Before
+    public void setUp() {
         System.setSecurityManager(new SecurityManagerEx());
     }
 
-    @Override
-    protected void tearDown() throws Exception {
+    @After
+    public void tearDown() {
         SystemEnvUtils.restoreEnv();
         System.setSecurityManager(sm);
-        super.tearDown();
     }
 
     /**
@@ -40,6 +44,7 @@ public class SyncBatchExecutorTest extends TestCase {
      * </pre>
      * @throws Exception
      */
+    @Test
     public void testMain01() throws Exception {
         try {
             SyncBatchExecutor.main(new String[] { "foo" });
@@ -62,6 +67,7 @@ public class SyncBatchExecutorTest extends TestCase {
      * </pre>
      * @throws Exception
      */
+    @Test
     public void testMain02() throws Exception {
         try {
             SyncBatchExecutor.main(new String[] { "TestSyncBatchExecutor01" });
@@ -83,6 +89,7 @@ public class SyncBatchExecutorTest extends TestCase {
      * </pre>
      * @throws Exception
      */
+    @Test
     public void testMain03() throws Exception {
         try {
             SystemEnvUtils.removeEnv(SyncBatchExecutor.ENV_JOB_APP_CD);
@@ -107,6 +114,7 @@ public class SyncBatchExecutorTest extends TestCase {
      * </pre>
      * @throws Exception
      */
+    @Test
     public void testMain04() throws Exception {
         try {
             SystemEnvUtils.setEnv(SyncBatchExecutor.ENV_JOB_APP_CD,
@@ -132,6 +140,7 @@ public class SyncBatchExecutorTest extends TestCase {
      * </pre>
      * @throws Exception
      */
+    @Test
     public void testMain05() throws Exception {
         try {
             SyncBatchExecutor.main(new String[] { "TestSyncBatchExecutor01",
@@ -159,6 +168,7 @@ public class SyncBatchExecutorTest extends TestCase {
      * </pre>
      * @throws Exception
      */
+    @Test
     public void testMain06() throws Exception {
         try {
             SyncBatchExecutor.main(new String[] { "TestSyncBatchExecutor01",
@@ -187,6 +197,7 @@ public class SyncBatchExecutorTest extends TestCase {
      * </pre>
      * @throws Exception
      */
+    @Test
     public void testMain07() throws Exception {
         try {
             SystemEnvUtils.setEnv(SyncBatchExecutor.ENV_JOB_SEQ_ID, "seq01");
@@ -212,6 +223,7 @@ public class SyncBatchExecutorTest extends TestCase {
      * </pre>
      * @throws Exception
      */
+    @Test
     public void testMain08() throws Exception {
         try {
             for (int i = 1; i <= 20; i++) {
@@ -239,6 +251,7 @@ public class SyncBatchExecutorTest extends TestCase {
      * </pre>
      * @throws Exception
      */
+    @Test
     public void testMain09() throws Exception {
         try {
             for (int i = 1; i <= 21; i++) {
@@ -262,6 +275,7 @@ public class SyncBatchExecutorTest extends TestCase {
      * </pre>
      * @throws Exception
      */
+    @Test
     public void testGetParam01() throws Exception {
         String getParam = ReflectionUtils.invoke(SyncBatchExecutor.class,
                 "getParam", new Class<?>[] { Object.class, String.class,
@@ -297,6 +311,7 @@ public class SyncBatchExecutorTest extends TestCase {
      * </pre>
      * @throws Exception
      */
+    @Test
     public void testGetParam03() throws Exception {
         String getParam = ReflectionUtils.invoke(SyncBatchExecutor.class,
                 "getParam", new Class<?>[] { Object.class, String.class,
@@ -347,6 +362,7 @@ public class SyncBatchExecutorTest extends TestCase {
      * </pre>
      * @throws Exception
      */
+    @Test
     public void testGetParam06() throws Exception {
         String getParam = ReflectionUtils.invoke(SyncBatchExecutor.class,
                 "getParam", new Class<?>[] { Object.class, String.class,
@@ -373,6 +389,7 @@ public class SyncBatchExecutorTest extends TestCase {
     /**
      * testSetParam01
      */
+    @Test
     public void testSetParam01() {
         SetParamBean bean = new SetParamBean();
         ReflectionUtils
@@ -391,6 +408,7 @@ public class SyncBatchExecutorTest extends TestCase {
      * testSetParam03<br>
      * NoSuchMethodExceptionのスタックトレースが出力されること
      */
+    @Test
     public void testSetParam03() {
         SetParamBean bean = new SetParamBean();
         ReflectionUtils
@@ -414,6 +432,7 @@ public class SyncBatchExecutorTest extends TestCase {
      * testSetParam06<br>
      * InvocationTargetExceptionのスタックトレースが出力されること
      */
+    @Test
     public void testSetParam06() {
         SetParamBean bean = new SetParamBean();
         ReflectionUtils
