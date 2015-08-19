@@ -586,25 +586,6 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
 
     /*
      * (non-Javadoc)
-     * @see java.lang.Object#finalize()
-     */
-    @Override
-    protected void finalize() throws Throwable {
-        if (verboseLog.get() && LOGGER.isTraceEnabled()) {
-            LOGGER.trace(LogId.TAL041011, Thread.currentThread().getName());
-        }
-        if (!isFinish()) {
-            if (LOGGER.isWarnEnabled()) {
-                LOGGER.warn(LogId.WAL041005, Thread.currentThread().getName());
-            }
-        }
-        super.finalize();
-
-        // ロックする危険のあるclose()の呼び出しをやめる
-    }
-
-    /*
-     * (non-Javadoc)
      * @see java.lang.Iterable#iterator()
      */
     public Iterator<P> iterator() {

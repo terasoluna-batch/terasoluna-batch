@@ -210,17 +210,6 @@ public class AbstractCollector002Test {
         assertNull(result);
     }
 
-    /**
-     * testFinalize
-     * @throws Throwable
-     */
-    @Test
-    public void testFinalize() throws Throwable {
-        AbstractCollectorStubGetNext1<AbstractCollectorTestBean> col = new AbstractCollectorStubGetNext1<AbstractCollectorTestBean>();
-
-        col.finalize();
-    }
-
     // @Test
     // public void testGetPrevious() {
     // fail("まだ実装されていません");
