@@ -201,6 +201,17 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
      * @param args
      */
     public static void main(String[] args) {
+        int status = doMain(args);
+        System.exit(status);
+    }
+
+    /**
+     * Javaプロセスの終了ステータスを返却する内部メインメソッド.
+     *
+     * @param args 実行引数
+     * @return プロセス終了ステータスコード
+     */
+    static int doMain(String[] args) {
         long retryCount = 0;
         long retryCountMax = BATCH_DB_ABNORMAL_RETRY_MAX_DEFAULT;
         long retryCountReset = BATCH_DB_ABNORMAL_RETRY_RESET_DEFAULT;
@@ -232,8 +243,7 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
             } catch (NumberFormatException e) {
                 LOGGER.error(LogId.EAL025046, e, BATCH_DB_ABNORMAL_RETRY_MAX,
                         dbAbnormalRetryMaxStr);
-                System.exit(status);
-                return;
+                return status;
             }
         }
 
@@ -246,8 +256,7 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
                 LOGGER.error(LogId.EAL025046, e,
                         BATCH_DB_ABNORMAL_RETRY_INTERVAL,
                         dbAbnormalRetryIntervalStr);
-                System.exit(status);
-                return;
+                return status;
             }
         }
 
@@ -259,8 +268,7 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
             } catch (NumberFormatException e) {
                 LOGGER.error(LogId.EAL025046, e, BATCH_DB_ABNORMAL_RETRY_RESET,
                         dbAbnormalRetryResetStr);
-                System.exit(status);
-                return;
+                return status;
             }
         }
 
@@ -272,8 +280,7 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
             } catch (NumberFormatException e) {
                 LOGGER.error(LogId.EAL025046, e, BATCH_EXECUTE_RETRY_INTERVAL,
                         executeRetryIntervalStr);
-                System.exit(status);
-                return;
+                return status;
             }
         }
 
@@ -285,8 +292,7 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
             } catch (NumberFormatException e) {
                 LOGGER.error(LogId.EAL025046, e, BATCH_EXECUTE_RETRY_COUNTMAX,
                         executeRetryCountMaxStr);
-                System.exit(status);
-                return;
+                return status;
             }
         }
 
@@ -300,8 +306,7 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
                 LOGGER.error(LogId.EAL025046, e,
                         BATCH_AVAILABLE_THREADTHRESHOLD_COUNT,
                         availableThreadThresholdCountStr);
-                System.exit(status);
-                return;
+                return status;
             }
         }
 
@@ -315,8 +320,7 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
                 LOGGER.error(LogId.EAL025046, e,
                         BATCH_AVAILABLE_THREADTHRESHOLD_WAIT,
                         availableThreadThresholdWaitStr);
-                System.exit(status);
-                return;
+                return status;
             }
         }
 
@@ -355,7 +359,7 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
             }
         } while (true);
 
-        System.exit(status);
+        return status;
     }
 
     /**
