@@ -20,16 +20,15 @@ import jp.terasoluna.fw.batch.executor.vo.BLogicResult;
 
 /**
  * ジョブの実行ステータス更新を行うインタフェース。<br>
- *
  * @since 3.6
  */
 public interface JobStatusChanger {
 
     /**
      * ジョブの実行ステータスを「実行中」に更新する。<br>
-     *
      * @param jobSequenceId ジョブのシーケンスコード
-     * @return 更新に成功したらtrue
+     * @return 更新に成功したらtrue。<br>
+     *         BatchJobDataが取得できないとき、ジョブステータスが想定外のとき、ジョブステータスの更新が正常に行えなかったときはfalse。
      */
     boolean changeToStartStatus(String jobSequenceId);
 
@@ -37,7 +36,8 @@ public interface JobStatusChanger {
      * ジョブの実行ステータスを「処理済み」に更新する。<br>
      * @param jobSequenceId ジョブのシーケンスコード
      * @param blogicResult ビジネスロジックの実行結果
-     * @return 更新に成功したらtrue
+     * @return 更新に成功したらtrue。<br>
+     *         BatchJobDataが取得できないとき、ジョブステータスが想定外のとき、ジョブステータスの更新が正常に行えなかったときはfalse。
      */
     boolean changeToEndStatus(String jobSequenceId, BLogicResult blogicResult);
 }
