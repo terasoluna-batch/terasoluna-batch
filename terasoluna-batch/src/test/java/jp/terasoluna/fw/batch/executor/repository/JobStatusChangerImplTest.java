@@ -16,36 +16,29 @@
 
 package jp.terasoluna.fw.batch.executor.repository;
 
+import static java.util.Arrays.*;
+import static org.hamcrest.core.Is.*;
 import static org.junit.Assert.*;
-import static org.mockito.Matchers.any;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.never;
+import static org.mockito.Matchers.*;
+import static org.mockito.Mockito.*;
+import static uk.org.lidalia.slf4jtest.LoggingEvent.*;
 
-import static java.util.Arrays.asList;
-import static org.hamcrest.core.Is.is;
-import jp.terasoluna.fw.batch.constants.JobStatusConstants;
-import jp.terasoluna.fw.batch.executor.dao.SystemDao;
-import jp.terasoluna.fw.batch.executor.vo.BLogicResult;
-import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
-import jp.terasoluna.fw.batch.executor.vo.BatchJobManagementParam;
-import jp.terasoluna.fw.batch.executor.vo.BatchJobManagementUpdateParam;
-
-import org.junit.Before;
 import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 
+import jp.terasoluna.fw.batch.constants.JobStatusConstants;
+import jp.terasoluna.fw.batch.executor.dao.SystemDao;
+import jp.terasoluna.fw.batch.executor.vo.BLogicResult;
+import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
+import jp.terasoluna.fw.batch.executor.vo.BatchJobManagementParam;
+import jp.terasoluna.fw.batch.executor.vo.BatchJobManagementUpdateParam;
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
-import static uk.org.lidalia.slf4jtest.LoggingEvent.debug;
-import static uk.org.lidalia.slf4jtest.LoggingEvent.error;
-import static uk.org.lidalia.slf4jtest.LoggingEvent.warn;
-import static uk.org.lidalia.slf4jtest.LoggingEvent.info;
 
 /**
  * JobStatusChangerImplのテストケースクラス
@@ -54,12 +47,13 @@ public class JobStatusChangerImplTest {
 
     private SystemDao mockSystemDao = mock(SystemDao.class);
 
-    private PlatformTransactionManager mockPlatformTransactionManager = mock(PlatformTransactionManager.class);
+    private PlatformTransactionManager mockPlatformTransactionManager = mock(
+            PlatformTransactionManager.class);
 
     private JobStatusChanger jobStatusChanger = new JobStatusChangerImpl(mockSystemDao, mockPlatformTransactionManager);
 
-    private TestLogger logger = TestLoggerFactory
-            .getTestLogger(JobStatusChangerImpl.class);
+    private TestLogger logger = TestLoggerFactory.getTestLogger(
+            JobStatusChangerImpl.class);
 
     @Before
     public void setUp() {
@@ -82,17 +76,67 @@ public class JobStatusChangerImplTest {
      * 事前条件
      * ・とくになし
      * 確認項目
-     * ・パラメータとフィールド変数が一致するかどうか
+     * ・パラメータとテスト対象のフィールド変数が一致するかどうか
      * </pre>
      */
     @Test
-    public void testJobStatusChangerImpl() {
+    public void testJobStatusChangerImpl01() {
+
+        // テスト実施
+        JobStatusChangerImpl target = new JobStatusChangerImpl(mockSystemDao, mockPlatformTransactionManager);
+
         // 結果検証
-        assertSame(mockSystemDao,
-                ((JobStatusChangerImpl) jobStatusChanger).systemDao);
-        assertSame(
-                mockPlatformTransactionManager,
-                ((JobStatusChangerImpl) jobStatusChanger).adminTransactionManager);
+        assertSame(mockSystemDao, target.systemDao);
+        assertSame(mockPlatformTransactionManager,
+                target.adminTransactionManager);
+    }
+
+    /**
+     * コンストラクタテスト 【異常系】
+     * 
+     * <pre>
+     * 事前条件
+     * ・systemDaoにNullを指定する
+     * 確認項目
+     * ・IllegalArgumentExceptionが発生すること
+     * </pre>
+     */
+    @Test
+    public void testJobStatusChangerImpl02() {
+
+        // テスト実施
+        try {
+            new JobStatusChangerImpl(null, mockPlatformTransactionManager);
+            fail();
+        } catch (IllegalArgumentException e) {
+            assertEquals(
+                    "[EAL025089] [Assertion failed] - JobStatusChangerImpl constructor requires systemDao",
+                    e.getMessage());
+        }
+    }
+
+    /**
+     * コンストラクタテスト 【異常系】
+     * 
+     * <pre>
+     * 事前条件
+     * ・platformTransactionManagerにNullを指定する
+     * 確認項目
+     * ・IllegalArgumentExceptionが発生すること
+     * </pre>
+     */
+    @Test
+    public void testJobStatusChangerImpl03() {
+
+        // テスト実施
+        try {
+            new JobStatusChangerImpl(mockSystemDao, null);
+            fail();
+        } catch (IllegalArgumentException e) {
+            assertEquals(
+                    "[EAL025089] [Assertion failed] - JobStatusChangerImpl constructor requires adminTransactionManager",
+                    e.getMessage());
+        }
     }
 
     /**
@@ -112,34 +156,29 @@ public class JobStatusChangerImplTest {
     @Test
     public void testChangeToStartStatus01() {
         // テスト入力データ設定
-        TransactionStatus mockTransactionStatus = mock(TransactionStatus.class);
+        TransactionStatus mockTran = mock(TransactionStatus.class);
 
-        when(
-                mockPlatformTransactionManager
-                        .getTransaction(any(DefaultTransactionDefinition.class)))
-                .thenReturn(mockTransactionStatus);
+        when(mockPlatformTransactionManager.getTransaction(any(
+                DefaultTransactionDefinition.class))).thenReturn(mockTran);
         when(mockSystemDao.selectJob(any(BatchJobManagementParam.class)))
                 .thenReturn(new BatchJobData() {
                     {
-                        setJobSequenceId("0000000001");
-                        setCurAppStatus(JobStatusConstants.JOB_STATUS_UNEXECUTION);
+                        setJobSequenceId("00000001");
+                        setCurAppStatus(
+                                JobStatusConstants.JOB_STATUS_UNEXECUTION);
                     }
                 });
-        when(
-                mockSystemDao
-                        .updateJobTable(any(BatchJobManagementUpdateParam.class)))
-                .thenReturn(1);
-        when(mockTransactionStatus.isCompleted()).thenReturn(true);
+        when(mockSystemDao.updateJobTable(any(
+                BatchJobManagementUpdateParam.class))).thenReturn(1);
+        when(mockTran.isCompleted()).thenReturn(true);
 
         // テスト実行
         // 結果検証
         assertTrue(jobStatusChanger.changeToStartStatus("00000001"));
-        assertThat(
-                logger.getLoggingEvents(),
-                is(asList(debug("[DAL025023] update status jobSequenceId:00000001 changeStatus:1"))));
-        verify(mockPlatformTransactionManager).commit(mockTransactionStatus);
-        verify(mockPlatformTransactionManager, never()).rollback(
-                mockTransactionStatus);
+        assertThat(logger.getLoggingEvents(), is(asList(debug(
+                "[DAL025023] update status jobSequenceId:00000001 changeStatus:1"))));
+        verify(mockPlatformTransactionManager).commit(mockTran);
+        verify(mockPlatformTransactionManager, never()).rollback(mockTran);
     }
 
     /**
@@ -157,24 +196,21 @@ public class JobStatusChangerImplTest {
     @Test
     public void testChangeToStartStatus02() {
         // テスト入力データ設定
-        TransactionStatus mockTransactionStatus = mock(TransactionStatus.class);
+        TransactionStatus mockTran = mock(TransactionStatus.class);
 
-        when(
-                mockPlatformTransactionManager
-                        .getTransaction(any(DefaultTransactionDefinition.class)))
-                .thenReturn(mockTransactionStatus);
+        when(mockPlatformTransactionManager.getTransaction(any(
+                DefaultTransactionDefinition.class))).thenReturn(mockTran);
         when(mockSystemDao.selectJob(any(BatchJobManagementParam.class)))
                 .thenReturn(null);
 
         // テスト実行
         // 結果検証
         assertFalse(jobStatusChanger.changeToStartStatus("00000001"));
-        assertThat(
-                logger.getLoggingEvents(),
-                is(asList(
-                        error("[EAL025026] Job record Not Found. jobSequenceId:00000001"),
-                        warn("[WAL025013] An unexpected event has detected at the job status update processing. It will be attempt to roll-back. jobSequenceId:00000001"))));
-        verify(mockPlatformTransactionManager).rollback(mockTransactionStatus);
+        assertThat(logger.getLoggingEvents(), is(asList(error(
+                "[EAL025026] Job record Not Found. jobSequenceId:00000001"),
+                warn("[WAL025013] An unexpected event has detected at the job status update processing. It will be attempt to roll-back. jobSequenceId:00000001"))));
+        verify(mockPlatformTransactionManager).rollback(mockTran);
+        verify(mockPlatformTransactionManager, never()).commit(mockTran);
     }
 
     /**
@@ -192,24 +228,21 @@ public class JobStatusChangerImplTest {
     @Test
     public void testChangeToStartStatus03() {
         // テスト入力データ設定
-        TransactionStatus mockTransactionStatus = mock(TransactionStatus.class);
+        TransactionStatus mockTran = mock(TransactionStatus.class);
 
-        when(
-                mockPlatformTransactionManager
-                        .getTransaction(any(DefaultTransactionDefinition.class)))
-                .thenReturn(mockTransactionStatus);
+        when(mockPlatformTransactionManager.getTransaction(any(
+                DefaultTransactionDefinition.class))).thenReturn(mockTran);
         when(mockSystemDao.selectJob(any(BatchJobManagementParam.class)))
                 .thenReturn(null);
 
         // テスト実行
         // 結果検証
         assertFalse(jobStatusChanger.changeToStartStatus(null));
-        assertThat(
-                logger.getLoggingEvents(),
-                is(asList(
-                        error("[EAL025026] Job record Not Found. jobSequenceId:null"),
-                        warn("[WAL025013] An unexpected event has detected at the job status update processing. It will be attempt to roll-back. jobSequenceId:null"))));
-        verify(mockPlatformTransactionManager).rollback(mockTransactionStatus);
+        assertThat(logger.getLoggingEvents(), is(asList(error(
+                "[EAL025026] Job record Not Found. jobSequenceId:null"), warn(
+                        "[WAL025013] An unexpected event has detected at the job status update processing. It will be attempt to roll-back. jobSequenceId:null"))));
+        verify(mockPlatformTransactionManager).rollback(mockTran);
+        verify(mockPlatformTransactionManager, never()).commit(mockTran);
     }
 
     /**
@@ -228,16 +261,14 @@ public class JobStatusChangerImplTest {
     @Test
     public void testChangeToStartStatus04() {
         // テスト入力データ設定
-        TransactionStatus mockTransactionStatus = mock(TransactionStatus.class);
+        TransactionStatus mockTran = mock(TransactionStatus.class);
 
-        when(
-                mockPlatformTransactionManager
-                        .getTransaction(any(DefaultTransactionDefinition.class)))
-                .thenReturn(mockTransactionStatus);
+        when(mockPlatformTransactionManager.getTransaction(any(
+                DefaultTransactionDefinition.class))).thenReturn(mockTran);
         when(mockSystemDao.selectJob(any(BatchJobManagementParam.class)))
                 .thenReturn(new BatchJobData() {
                     {
-                        setJobSequenceId("0000000001");
+                        setJobSequenceId("00000001");
                         setCurAppStatus(JobStatusConstants.JOB_STATUS_FAILURE);
                     }
                 });
@@ -245,12 +276,11 @@ public class JobStatusChangerImplTest {
         // テスト実行
         // 結果検証
         assertFalse(jobStatusChanger.changeToStartStatus("00000001"));
-        assertThat(
-                logger.getLoggingEvents(),
-                is(asList(
-                        info("[IAL025004] ステータスが判定基準外(ジョブシーケンスコード:00000001 blogicの戻り値:null イベント:0 ジョブレコードのステータス値:3 判定:false)"),
-                        warn("[WAL025013] An unexpected event has detected at the job status update processing. It will be attempt to roll-back. jobSequenceId:00000001"))));
-        verify(mockPlatformTransactionManager).rollback(mockTransactionStatus);
+        assertThat(logger.getLoggingEvents(), is(asList(info(
+                "[IAL025004] ステータスが判定基準外(ジョブシーケンスコード:00000001 blogicの戻り値:null イベント:0 ジョブレコードのステータス値:3 判定:false)"),
+                warn("[WAL025013] An unexpected event has detected at the job status update processing. It will be attempt to roll-back. jobSequenceId:00000001"))));
+        verify(mockPlatformTransactionManager).rollback(mockTran);
+        verify(mockPlatformTransactionManager, never()).commit(mockTran);
     }
 
     /**
@@ -263,41 +293,37 @@ public class JobStatusChangerImplTest {
      * ・ジョブステータスの更新に失敗すること
      * 確認項目
      * ・falseが返却されること
-     * ・[DAL025023]、[EAL025026]、[WAL025013]のログが出力されること
+     * ・[DAL025023]、[EAL025025]、[WAL025013]のログが出力されること
      * ・PlatformTransactionManager#rollback()が呼び出されること
      * </pre>
      */
     @Test
     public void testChangeToStartStatus05() {
         // テスト入力データ設定
-        TransactionStatus mockTransactionStatus = mock(TransactionStatus.class);
+        TransactionStatus mockTran = mock(TransactionStatus.class);
 
-        when(
-                mockPlatformTransactionManager
-                        .getTransaction(any(DefaultTransactionDefinition.class)))
-                .thenReturn(mockTransactionStatus);
+        when(mockPlatformTransactionManager.getTransaction(any(
+                DefaultTransactionDefinition.class))).thenReturn(mockTran);
         when(mockSystemDao.selectJob(any(BatchJobManagementParam.class)))
                 .thenReturn(new BatchJobData() {
                     {
                         setJobSequenceId("0000000001");
-                        setCurAppStatus(JobStatusConstants.JOB_STATUS_UNEXECUTION);
+                        setCurAppStatus(
+                                JobStatusConstants.JOB_STATUS_UNEXECUTION);
                     }
                 });
-        when(
-                mockSystemDao
-                        .updateJobTable(any(BatchJobManagementUpdateParam.class)))
-                .thenReturn(-1);
+        when(mockSystemDao.updateJobTable(any(
+                BatchJobManagementUpdateParam.class))).thenReturn(0);
 
         // テスト実行
         // 結果検証
         assertFalse(jobStatusChanger.changeToStartStatus("00000001"));
-        assertThat(
-                logger.getLoggingEvents(),
-                is(asList(
-                        debug("[DAL025023] update status jobSequenceId:00000001 changeStatus:1"),
-                        error("[EAL025025] Job status update error.(JOB_SEQ_ID:00000001) blogicStatus:[null])"),
-                        warn("[WAL025013] An unexpected event has detected at the job status update processing. It will be attempt to roll-back. jobSequenceId:00000001"))));
-        verify(mockPlatformTransactionManager).rollback(mockTransactionStatus);
+        assertThat(logger.getLoggingEvents(), is(asList(debug(
+                "[DAL025023] update status jobSequenceId:00000001 changeStatus:1"),
+                error("[EAL025025] Job status update error.(JOB_SEQ_ID:00000001) blogicStatus:[null])"),
+                warn("[WAL025013] An unexpected event has detected at the job status update processing. It will be attempt to roll-back. jobSequenceId:00000001"))));
+        verify(mockPlatformTransactionManager).rollback(mockTran);
+        verify(mockPlatformTransactionManager, never()).commit(mockTran);
     }
 
     /**
@@ -307,40 +333,32 @@ public class JobStatusChangerImplTest {
      * 事前条件
      * ・有効なジョブシーケンスIDが渡されること
      * ・ジョブのステータスがJOB_STATUS_UNEXECUTIONであること
-     * ・TransactionStatusとしてnullが返却されること
+     * ・TransactionStatusを取得する際に例外が発生すること
      * 確認項目
-     * ・falseが返却されること
-     * ・PlatformTransactionManager#commit()が呼び出されること
+     * ・PlatformTransactionManager#commit()が呼び出されないこと
      * ・PlatformTransactionManager#rollback()が呼び出されないこと
      * </pre>
      */
     @Test
     public void testChangeToStartStatus06() {
         // テスト入力データ設定
-        when(
-                mockPlatformTransactionManager
-                        .getTransaction(any(DefaultTransactionDefinition.class)))
-                .thenReturn(null);
-        when(mockSystemDao.selectJob(any(BatchJobManagementParam.class)))
-                .thenReturn(new BatchJobData() {
-                    {
-                        setJobSequenceId("0000000001");
-                        setCurAppStatus(JobStatusConstants.JOB_STATUS_UNEXECUTION);
-                    }
-                });
-        when(
-                mockSystemDao
-                        .updateJobTable(any(BatchJobManagementUpdateParam.class)))
-                .thenReturn(1);
+        Exception ex = new RuntimeException("test");
+        when(mockPlatformTransactionManager.getTransaction(any(
+                DefaultTransactionDefinition.class))).thenThrow(ex);
 
         // テスト実行
         // 結果検証
-        assertTrue(jobStatusChanger.changeToStartStatus("00000001"));
-        assertThat(
-                logger.getLoggingEvents(),
-                is(asList(debug("[DAL025023] update status jobSequenceId:00000001 changeStatus:1"))));
-        verify(mockPlatformTransactionManager).commit(null);
-        verify(mockPlatformTransactionManager, never()).rollback(null);
+        try {
+            jobStatusChanger.changeToStartStatus("00000001");
+            fail();
+        } catch (Exception e) {
+            assertSame(ex, e);
+            verify(mockPlatformTransactionManager, never()).commit(any(
+                    TransactionStatus.class));
+            verify(mockPlatformTransactionManager, never()).rollback(any(
+                    TransactionStatus.class));
+        }
+
     }
 
     /**
@@ -360,15 +378,13 @@ public class JobStatusChangerImplTest {
     @Test
     public void testChangeToStartStatus07() {
         // テスト入力データ設定
-        TransactionStatus mockTransactionStatus = mock(TransactionStatus.class);
-        RuntimeException runtimeException = new RuntimeException("Test exception.");
+        TransactionStatus mockTran = mock(TransactionStatus.class);
+        RuntimeException re = new RuntimeException("Test exception.");
 
-        when(
-                mockPlatformTransactionManager
-                        .getTransaction(any(DefaultTransactionDefinition.class)))
-                .thenReturn(mockTransactionStatus);
+        when(mockPlatformTransactionManager.getTransaction(any(
+                DefaultTransactionDefinition.class))).thenReturn(mockTran);
         when(mockSystemDao.selectJob(any(BatchJobManagementParam.class)))
-                .thenThrow(runtimeException);
+                .thenThrow(re);
 
         // テスト実行
         // 結果検証
@@ -376,15 +392,13 @@ public class JobStatusChangerImplTest {
             assertFalse(jobStatusChanger.changeToStartStatus("00000001"));
             fail();
         } catch (Exception e) {
-            assertSame(runtimeException, e);
+            assertSame(re, e);
         }
 
-        assertThat(
-                logger.getLoggingEvents(),
-                is(asList(warn("[WAL025013] An unexpected event has detected at the job status update processing. It will be attempt to roll-back. jobSequenceId:00000001"))));
-        verify(mockPlatformTransactionManager, never()).commit(
-                mockTransactionStatus);
-        verify(mockPlatformTransactionManager).rollback(mockTransactionStatus);
+        assertThat(logger.getLoggingEvents(), is(asList(warn(
+                "[WAL025013] An unexpected event has detected at the job status update processing. It will be attempt to roll-back. jobSequenceId:00000001"))));
+        verify(mockPlatformTransactionManager, never()).commit(mockTran);
+        verify(mockPlatformTransactionManager).rollback(mockTran);
     }
 
     /**
@@ -404,24 +418,21 @@ public class JobStatusChangerImplTest {
     @Test
     public void testChangeToStartStatus08() {
         // テスト入力データ設定
-        TransactionStatus mockTransactionStatus = mock(TransactionStatus.class);
-        RuntimeException runtimeException = new RuntimeException("Test exception.");
+        TransactionStatus mockTran = mock(TransactionStatus.class);
+        RuntimeException re = new RuntimeException("Test exception.");
 
-        when(
-                mockPlatformTransactionManager
-                        .getTransaction(any(DefaultTransactionDefinition.class)))
-                .thenReturn(mockTransactionStatus);
+        when(mockPlatformTransactionManager.getTransaction(any(
+                DefaultTransactionDefinition.class))).thenReturn(mockTran);
         when(mockSystemDao.selectJob(any(BatchJobManagementParam.class)))
                 .thenReturn(new BatchJobData() {
                     {
-                        setJobSequenceId("0000000001");
-                        setCurAppStatus(JobStatusConstants.JOB_STATUS_UNEXECUTION);
+                        setJobSequenceId("00000001");
+                        setCurAppStatus(
+                                JobStatusConstants.JOB_STATUS_UNEXECUTION);
                     }
                 });
-        when(
-                mockSystemDao
-                        .updateJobTable(any(BatchJobManagementUpdateParam.class)))
-                .thenThrow(runtimeException);
+        when(mockSystemDao.updateJobTable(any(
+                BatchJobManagementUpdateParam.class))).thenThrow(re);
 
         // テスト実行
         // 結果検証
@@ -429,16 +440,13 @@ public class JobStatusChangerImplTest {
             assertFalse(jobStatusChanger.changeToStartStatus("00000001"));
             fail();
         } catch (Exception e) {
-            assertSame(runtimeException, e);
+            assertSame(re, e);
         }
-        assertThat(
-                logger.getLoggingEvents(),
-                is(asList(
-                        debug("[DAL025023] update status jobSequenceId:00000001 changeStatus:1"),
-                        warn("[WAL025013] An unexpected event has detected at the job status update processing. It will be attempt to roll-back. jobSequenceId:00000001"))));
-        verify(mockPlatformTransactionManager, never()).commit(
-                mockTransactionStatus);
-        verify(mockPlatformTransactionManager).rollback(mockTransactionStatus);
+        assertThat(logger.getLoggingEvents(), is(asList(debug(
+                "[DAL025023] update status jobSequenceId:00000001 changeStatus:1"),
+                warn("[WAL025013] An unexpected event has detected at the job status update processing. It will be attempt to roll-back. jobSequenceId:00000001"))));
+        verify(mockPlatformTransactionManager, never()).commit(mockTran);
+        verify(mockPlatformTransactionManager).rollback(mockTran);
     }
 
     /**
@@ -458,34 +466,30 @@ public class JobStatusChangerImplTest {
     public void testChangeToEndStatus01() {
         // テスト入力データ設定
         BLogicResult bLogicResult = new BLogicResult();
-        TransactionStatus mockTransactionStatus = mock(TransactionStatus.class);
+        TransactionStatus mockTran = mock(TransactionStatus.class);
 
-        when(
-                mockPlatformTransactionManager
-                        .getTransaction(any(DefaultTransactionDefinition.class)))
-                .thenReturn(mockTransactionStatus);
+        when(mockPlatformTransactionManager.getTransaction(any(
+                DefaultTransactionDefinition.class))).thenReturn(mockTran);
         when(mockSystemDao.selectJob(any(BatchJobManagementParam.class)))
                 .thenReturn(new BatchJobData() {
                     {
-                        setJobSequenceId("0000000001");
-                        setCurAppStatus(JobStatusConstants.JOB_STATUS_EXECUTING);
+                        setJobSequenceId("00000001");
+                        setCurAppStatus(
+                                JobStatusConstants.JOB_STATUS_EXECUTING);
                     }
                 });
-        when(
-                mockSystemDao
-                        .updateJobTable(any(BatchJobManagementUpdateParam.class)))
-                .thenReturn(1);
-        when(mockTransactionStatus.isCompleted()).thenReturn(true);
+        when(mockSystemDao.updateJobTable(any(
+                BatchJobManagementUpdateParam.class))).thenReturn(1);
+        when(mockTran.isCompleted()).thenReturn(true);
 
         // テスト実行
         // 結果検証
-        assertTrue(jobStatusChanger.changeToEndStatus("00000001", bLogicResult));
-        assertThat(
-                logger.getLoggingEvents(),
-                is(asList(debug("[DAL025023] update status jobSequenceId:00000001 changeStatus:2"))));
-        verify(mockPlatformTransactionManager).commit(mockTransactionStatus);
-        verify(mockPlatformTransactionManager, never()).rollback(
-                mockTransactionStatus);
+        assertTrue(jobStatusChanger.changeToEndStatus("00000001",
+                bLogicResult));
+        assertThat(logger.getLoggingEvents(), is(asList(debug(
+                "[DAL025023] update status jobSequenceId:00000001 changeStatus:2"))));
+        verify(mockPlatformTransactionManager).commit(mockTran);
+        verify(mockPlatformTransactionManager, never()).rollback(mockTran);
     }
 
     /**
@@ -504,25 +508,21 @@ public class JobStatusChangerImplTest {
     public void testChangeToEndStatus02() {
         // テスト入力データ設定
         BLogicResult bLogicResult = new BLogicResult();
-        TransactionStatus mockTransactionStatus = mock(TransactionStatus.class);
+        TransactionStatus mockTran = mock(TransactionStatus.class);
 
-        when(
-                mockPlatformTransactionManager
-                        .getTransaction(any(DefaultTransactionDefinition.class)))
-                .thenReturn(mockTransactionStatus);
+        when(mockPlatformTransactionManager.getTransaction(any(
+                DefaultTransactionDefinition.class))).thenReturn(mockTran);
         when(mockSystemDao.selectJob(any(BatchJobManagementParam.class)))
                 .thenReturn(null);
 
         // テスト実行
         // 結果検証
-        assertFalse(jobStatusChanger
-                .changeToEndStatus("00000001", bLogicResult));
-        assertThat(
-                logger.getLoggingEvents(),
-                is(asList(
-                        error("[EAL025026] Job record Not Found. jobSequenceId:00000001"),
-                        warn("[WAL025013] An unexpected event has detected at the job status update processing. It will be attempt to roll-back. jobSequenceId:00000001"))));
-        verify(mockPlatformTransactionManager).rollback(mockTransactionStatus);
+        assertFalse(jobStatusChanger.changeToEndStatus("00000001",
+                bLogicResult));
+        assertThat(logger.getLoggingEvents(), is(asList(error(
+                "[EAL025026] Job record Not Found. jobSequenceId:00000001"),
+                warn("[WAL025013] An unexpected event has detected at the job status update processing. It will be attempt to roll-back. jobSequenceId:00000001"))));
+        verify(mockPlatformTransactionManager).rollback(mockTran);
     }
 
     /**
@@ -541,12 +541,10 @@ public class JobStatusChangerImplTest {
     public void testChangeToEndStatus03() {
         // テスト入力データ設定
         BLogicResult bLogicResult = new BLogicResult();
-        TransactionStatus mockTransactionStatus = mock(TransactionStatus.class);
+        TransactionStatus mockTran = mock(TransactionStatus.class);
 
-        when(
-                mockPlatformTransactionManager
-                        .getTransaction(any(DefaultTransactionDefinition.class)))
-                .thenReturn(mockTransactionStatus);
+        when(mockPlatformTransactionManager.getTransaction(any(
+                DefaultTransactionDefinition.class))).thenReturn(mockTran);
 
         when(mockSystemDao.selectJob(any(BatchJobManagementParam.class)))
                 .thenReturn(null);
@@ -554,12 +552,10 @@ public class JobStatusChangerImplTest {
         // テスト実行
         // 結果検証
         assertFalse(jobStatusChanger.changeToEndStatus(null, bLogicResult));
-        assertThat(
-                logger.getLoggingEvents(),
-                is(asList(
-                        error("[EAL025026] Job record Not Found. jobSequenceId:null"),
-                        warn("[WAL025013] An unexpected event has detected at the job status update processing. It will be attempt to roll-back. jobSequenceId:null"))));
-        verify(mockPlatformTransactionManager).rollback(mockTransactionStatus);
+        assertThat(logger.getLoggingEvents(), is(asList(error(
+                "[EAL025026] Job record Not Found. jobSequenceId:null"), warn(
+                        "[WAL025013] An unexpected event has detected at the job status update processing. It will be attempt to roll-back. jobSequenceId:null"))));
+        verify(mockPlatformTransactionManager).rollback(mockTran);
     }
 
     /**
@@ -578,17 +574,16 @@ public class JobStatusChangerImplTest {
     @Test
     public void testChangeToEndStatus04() {
         // テスト入力データ設定
-        TransactionStatus mockTransactionStatus = mock(TransactionStatus.class);
+        TransactionStatus mockTran = mock(TransactionStatus.class);
 
-        when(
-                mockPlatformTransactionManager
-                        .getTransaction(any(DefaultTransactionDefinition.class)))
-                .thenReturn(mockTransactionStatus);
+        when(mockPlatformTransactionManager.getTransaction(any(
+                DefaultTransactionDefinition.class))).thenReturn(mockTran);
         when(mockSystemDao.selectJob(any(BatchJobManagementParam.class)))
                 .thenReturn(new BatchJobData() {
                     {
-                        setJobSequenceId("0000000001");
-                        setCurAppStatus(JobStatusConstants.JOB_STATUS_EXECUTING);
+                        setJobSequenceId("00000001");
+                        setCurAppStatus(
+                                JobStatusConstants.JOB_STATUS_EXECUTING);
                     }
                 });
 
@@ -600,10 +595,9 @@ public class JobStatusChangerImplTest {
             // 結果検証
             assertTrue(e instanceof NullPointerException);
         }
-        assertThat(
-                logger.getLoggingEvents(),
-                is(asList(warn("[WAL025013] An unexpected event has detected at the job status update processing. It will be attempt to roll-back. jobSequenceId:00000001"))));
-        verify(mockPlatformTransactionManager).rollback(mockTransactionStatus);
+        assertThat(logger.getLoggingEvents(), is(asList(warn(
+                "[WAL025013] An unexpected event has detected at the job status update processing. It will be attempt to roll-back. jobSequenceId:00000001"))));
+        verify(mockPlatformTransactionManager).rollback(mockTran);
     }
 
     /**
@@ -623,31 +617,28 @@ public class JobStatusChangerImplTest {
     public void testChangeToEndStatus05() {
         // テスト入力データ設定
         BLogicResult bLogicResult = new BLogicResult();
-        TransactionStatus mockTransactionStatus = mock(TransactionStatus.class);
+        TransactionStatus mockTran = mock(TransactionStatus.class);
 
-        when(
-                mockPlatformTransactionManager
-                        .getTransaction(any(DefaultTransactionDefinition.class)))
-                .thenReturn(mockTransactionStatus);
+        when(mockPlatformTransactionManager.getTransaction(any(
+                DefaultTransactionDefinition.class))).thenReturn(mockTran);
 
         when(mockSystemDao.selectJob(any(BatchJobManagementParam.class)))
                 .thenReturn(new BatchJobData() {
                     {
-                        setJobSequenceId("0000000001");
-                        setCurAppStatus(JobStatusConstants.JOB_STATUS_PROCESSED);
+                        setJobSequenceId("00000001");
+                        setCurAppStatus(
+                                JobStatusConstants.JOB_STATUS_PROCESSED);
                     }
                 });
 
         // テスト実行
         // 結果検証
-        assertFalse(jobStatusChanger
-                .changeToEndStatus("00000001", bLogicResult));
-        assertThat(
-                logger.getLoggingEvents(),
-                is(asList(
-                        info("[IAL025004] ステータスが判定基準外(ジョブシーケンスコード:00000001 blogicの戻り値:null イベント:1 ジョブレコードのステータス値:2 判定:false)"),
-                        warn("[WAL025013] An unexpected event has detected at the job status update processing. It will be attempt to roll-back. jobSequenceId:00000001"))));
-        verify(mockPlatformTransactionManager).rollback(mockTransactionStatus);
+        assertFalse(jobStatusChanger.changeToEndStatus("00000001",
+                bLogicResult));
+        assertThat(logger.getLoggingEvents(), is(asList(info(
+                "[IAL025004] ステータスが判定基準外(ジョブシーケンスコード:00000001 blogicの戻り値:null イベント:1 ジョブレコードのステータス値:2 判定:false)"),
+                warn("[WAL025013] An unexpected event has detected at the job status update processing. It will be attempt to roll-back. jobSequenceId:00000001"))));
+        verify(mockPlatformTransactionManager).rollback(mockTran);
     }
 
     /**
@@ -667,32 +658,29 @@ public class JobStatusChangerImplTest {
     public void testChangeToEndStatus06() {
         // テスト入力データ設定
         BLogicResult bLogicResult = new BLogicResult();
-        TransactionStatus mockTransactionStatus = mock(TransactionStatus.class);
+        TransactionStatus mockTran = mock(TransactionStatus.class);
 
-        when(
-                mockPlatformTransactionManager
-                        .getTransaction(any(DefaultTransactionDefinition.class)))
-                .thenReturn(mockTransactionStatus);
+        when(mockPlatformTransactionManager.getTransaction(any(
+                DefaultTransactionDefinition.class))).thenReturn(mockTran);
 
         when(mockSystemDao.selectJob(any(BatchJobManagementParam.class)))
                 .thenReturn(new BatchJobData() {
                     {
-                        setJobSequenceId("0000000001");
-                        setCurAppStatus(JobStatusConstants.JOB_STATUS_EXECUTING);
+                        setJobSequenceId("00000001");
+                        setCurAppStatus(
+                                JobStatusConstants.JOB_STATUS_EXECUTING);
                     }
                 });
 
         // テスト実行
         // 結果検証
-        assertFalse(jobStatusChanger
-                .changeToEndStatus("00000001", bLogicResult));
-        assertThat(
-                logger.getLoggingEvents(),
-                is(asList(
-                        debug("[DAL025023] update status jobSequenceId:00000001 changeStatus:2"),
-                        error("[EAL025025] Job status update error.(JOB_SEQ_ID:00000001) blogicStatus:[-1])"),
-                        warn("[WAL025013] An unexpected event has detected at the job status update processing. It will be attempt to roll-back. jobSequenceId:00000001"))));
-        verify(mockPlatformTransactionManager).rollback(mockTransactionStatus);
+        assertFalse(jobStatusChanger.changeToEndStatus("00000001",
+                bLogicResult));
+        assertThat(logger.getLoggingEvents(), is(asList(debug(
+                "[DAL025023] update status jobSequenceId:00000001 changeStatus:2"),
+                error("[EAL025025] Job status update error.(JOB_SEQ_ID:00000001) blogicStatus:[-1])"),
+                warn("[WAL025013] An unexpected event has detected at the job status update processing. It will be attempt to roll-back. jobSequenceId:00000001"))));
+        verify(mockPlatformTransactionManager).rollback(mockTran);
     }
 
     /**
@@ -701,11 +689,11 @@ public class JobStatusChangerImplTest {
      * <pre>
      * 事前条件
      * ・有効なジョブシーケンスIDが渡されること
-     * ・TransactionStatusとしてnullが返却されること
+     * ・TransactionStatusを取得する際に例外が発生すること
      * 確認項目
      * ・trueが返却されること
      * [DAL025023]のログが出力されること
-     * ・PlatformTransactionManager#commit()が呼び出されること
+     * ・PlatformTransactionManager#commit()が呼び出されないこと
      * ・PlatformTransactionManager#rollback()が呼び出されないこと
      * </pre>
      */
@@ -713,31 +701,24 @@ public class JobStatusChangerImplTest {
     public void testChangeToEndStatus07() {
         // テスト入力データ設定
         BLogicResult bLogicResult = new BLogicResult();
+        Exception ex = new RuntimeException("test");
 
-        when(
-                mockPlatformTransactionManager
-                        .getTransaction(any(DefaultTransactionDefinition.class)))
-                .thenReturn(null);
-        when(mockSystemDao.selectJob(any(BatchJobManagementParam.class)))
-                .thenReturn(new BatchJobData() {
-                    {
-                        setJobSequenceId("0000000001");
-                        setCurAppStatus(JobStatusConstants.JOB_STATUS_EXECUTING);
-                    }
-                });
-        when(
-                mockSystemDao
-                        .updateJobTable(any(BatchJobManagementUpdateParam.class)))
-                .thenReturn(1);
+        when(mockPlatformTransactionManager.getTransaction(any(
+                DefaultTransactionDefinition.class))).thenThrow(ex);
 
         // テスト実行
         // 結果検証
-        assertTrue(jobStatusChanger.changeToEndStatus("00000001", bLogicResult));
-        assertThat(
-                logger.getLoggingEvents(),
-                is(asList(debug("[DAL025023] update status jobSequenceId:00000001 changeStatus:2"))));
-        verify(mockPlatformTransactionManager).commit(null);
-        verify(mockPlatformTransactionManager, never()).rollback(null);
+        try {
+            jobStatusChanger.changeToEndStatus("00000001", bLogicResult);
+            fail();
+        } catch (Exception e) {
+            assertSame(ex, e);
+            verify(mockPlatformTransactionManager, never()).commit(any(
+                    TransactionStatus.class));
+            verify(mockPlatformTransactionManager, never()).rollback(any(
+                    TransactionStatus.class));
+        }
+
     }
 
     /**
@@ -758,15 +739,13 @@ public class JobStatusChangerImplTest {
     public void testChangeToEndStatus08() {
         // テスト入力データ設定
         BLogicResult bLogicResult = new BLogicResult();
-        TransactionStatus mockTransactionStatus = mock(TransactionStatus.class);
-        RuntimeException runtimeException = new RuntimeException("Test exception.");
+        TransactionStatus mockTran = mock(TransactionStatus.class);
+        RuntimeException re = new RuntimeException("Test exception.");
 
-        when(
-                mockPlatformTransactionManager
-                        .getTransaction(any(DefaultTransactionDefinition.class)))
-                .thenReturn(mockTransactionStatus);
+        when(mockPlatformTransactionManager.getTransaction(any(
+                DefaultTransactionDefinition.class))).thenReturn(mockTran);
         when(mockSystemDao.selectJob(any(BatchJobManagementParam.class)))
-                .thenThrow(runtimeException);
+                .thenThrow(re);
 
         // テスト実行
         // 結果検証
@@ -775,14 +754,12 @@ public class JobStatusChangerImplTest {
                     bLogicResult));
             fail();
         } catch (Exception e) {
-            assertSame(runtimeException, e);
+            assertSame(re, e);
         }
-        assertThat(
-                logger.getLoggingEvents(),
-                is(asList(warn("[WAL025013] An unexpected event has detected at the job status update processing. It will be attempt to roll-back. jobSequenceId:00000001"))));
-        verify(mockPlatformTransactionManager, never()).commit(
-                mockTransactionStatus);
-        verify(mockPlatformTransactionManager).rollback(mockTransactionStatus);
+        assertThat(logger.getLoggingEvents(), is(asList(warn(
+                "[WAL025013] An unexpected event has detected at the job status update processing. It will be attempt to roll-back. jobSequenceId:00000001"))));
+        verify(mockPlatformTransactionManager, never()).commit(mockTran);
+        verify(mockPlatformTransactionManager).rollback(mockTran);
     }
 
     /**
@@ -803,24 +780,22 @@ public class JobStatusChangerImplTest {
     public void testChangeToEndStatus09() {
         // テスト入力データ設定
         BLogicResult bLogicResult = new BLogicResult();
-        TransactionStatus mockTransactionStatus = mock(TransactionStatus.class);
+        TransactionStatus mockTran = mock(TransactionStatus.class);
         RuntimeException runtimeException = new RuntimeException("Test exception.");
 
-        when(
-                mockPlatformTransactionManager
-                        .getTransaction(any(DefaultTransactionDefinition.class)))
-                .thenReturn(mockTransactionStatus);
+        when(mockPlatformTransactionManager.getTransaction(any(
+                DefaultTransactionDefinition.class))).thenReturn(mockTran);
         when(mockSystemDao.selectJob(any(BatchJobManagementParam.class)))
                 .thenReturn(new BatchJobData() {
                     {
                         setJobSequenceId("0000000001");
-                        setCurAppStatus(JobStatusConstants.JOB_STATUS_EXECUTING);
+                        setCurAppStatus(
+                                JobStatusConstants.JOB_STATUS_EXECUTING);
                     }
                 });
-        when(
-                mockSystemDao
-                        .updateJobTable(any(BatchJobManagementUpdateParam.class)))
-                .thenThrow(runtimeException);
+        when(mockSystemDao.updateJobTable(any(
+                BatchJobManagementUpdateParam.class))).thenThrow(
+                        runtimeException);
 
         // テスト実行
         // 結果検証
@@ -831,14 +806,11 @@ public class JobStatusChangerImplTest {
         } catch (Exception e) {
             assertSame(runtimeException, e);
         }
-        assertThat(
-                logger.getLoggingEvents(),
-                is(asList(
-                        debug("[DAL025023] update status jobSequenceId:00000001 changeStatus:2"),
-                        warn("[WAL025013] An unexpected event has detected at the job status update processing. It will be attempt to roll-back. jobSequenceId:00000001"))));
-        verify(mockPlatformTransactionManager, never()).commit(
-                mockTransactionStatus);
-        verify(mockPlatformTransactionManager).rollback(mockTransactionStatus);
+        assertThat(logger.getLoggingEvents(), is(asList(debug(
+                "[DAL025023] update status jobSequenceId:00000001 changeStatus:2"),
+                warn("[WAL025013] An unexpected event has detected at the job status update processing. It will be attempt to roll-back. jobSequenceId:00000001"))));
+        verify(mockPlatformTransactionManager, never()).commit(mockTran);
+        verify(mockPlatformTransactionManager).rollback(mockTran);
     }
 
 }
