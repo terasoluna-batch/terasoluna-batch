@@ -67,6 +67,7 @@ public class JobStatusChangerImpl implements JobStatusChanger {
 
     /**
      * {@inheritDoc}
+     * この実装では、引数のNULLチェックを行わないため呼出し側でチェックする必要がある。<br>
      */
     @Override
     public boolean changeToStartStatus(String jobSequenceId) {
@@ -97,10 +98,11 @@ public class JobStatusChangerImpl implements JobStatusChanger {
 
     /**
      * {@inheritDoc}
+     * この実装では、引数のNULLチェックを行わないため呼出し側でチェックする必要がある。<br>
      */
     @Override
     public boolean changeToEndStatus(String jobSequenceId,
-            BLogicResult bLogicResult) {
+            BLogicResult blogicResult) {
         TransactionStatus transactionStatus = null;
 
         try {
@@ -112,7 +114,7 @@ public class JobStatusChangerImpl implements JobStatusChanger {
                     EVENT_STATUS_NORMAL_TERMINATION)) {
                 return false;
             }
-            String appStatus = Integer.toString(bLogicResult.getBlogicStatus());
+            String appStatus = Integer.toString(blogicResult.getBlogicStatus());
             if (!updateBatchJobStatus(jobSequenceId, appStatus,
                     JOB_STATUS_PROCESSED)) {
                 return false;

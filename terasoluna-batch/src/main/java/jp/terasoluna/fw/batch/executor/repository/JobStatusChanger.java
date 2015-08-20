@@ -39,5 +39,5 @@ public interface JobStatusChanger {
      * @return 更新に成功したらtrue。<br>
      *         BatchJobDataが取得できないとき、ジョブステータスが想定外のとき、ジョブステータスの更新が正常に行えなかったときはfalse。
      */
-    boolean changeToEndStatus(String jobSequenceId, BLogicResult bLogicResult);
+    boolean changeToEndStatus(String jobSequenceId, BLogicResult blogicResult);
 }

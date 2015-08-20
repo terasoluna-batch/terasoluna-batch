@@ -465,7 +465,7 @@ public class JobStatusChangerImplTest {
     @Test
     public void testChangeToEndStatus01() {
         // テスト入力データ設定
-        BLogicResult bLogicResult = new BLogicResult();
+        BLogicResult blogicResult = new BLogicResult();
         TransactionStatus mockTran = mock(TransactionStatus.class);
 
         when(mockPlatformTransactionManager.getTransaction(any(
@@ -485,7 +485,7 @@ public class JobStatusChangerImplTest {
         // テスト実行
         // 結果検証
         assertTrue(jobStatusChanger.changeToEndStatus("00000001",
-                bLogicResult));
+                blogicResult));
         assertThat(logger.getLoggingEvents(), is(asList(debug(
                 "[DAL025023] update status jobSequenceId:00000001 changeStatus:2"))));
         verify(mockPlatformTransactionManager).commit(mockTran);
@@ -507,7 +507,7 @@ public class JobStatusChangerImplTest {
     @Test
     public void testChangeToEndStatus02() {
         // テスト入力データ設定
-        BLogicResult bLogicResult = new BLogicResult();
+        BLogicResult blogicResult = new BLogicResult();
         TransactionStatus mockTran = mock(TransactionStatus.class);
 
         when(mockPlatformTransactionManager.getTransaction(any(
@@ -518,7 +518,7 @@ public class JobStatusChangerImplTest {
         // テスト実行
         // 結果検証
         assertFalse(jobStatusChanger.changeToEndStatus("00000001",
-                bLogicResult));
+                blogicResult));
         assertThat(logger.getLoggingEvents(), is(asList(error(
                 "[EAL025026] Job record Not Found. jobSequenceId:00000001"),
                 warn("[WAL025013] An unexpected event has detected at the job status update processing. It will be attempt to roll-back. jobSequenceId:00000001"))));
@@ -540,7 +540,7 @@ public class JobStatusChangerImplTest {
     @Test
     public void testChangeToEndStatus03() {
         // テスト入力データ設定
-        BLogicResult bLogicResult = new BLogicResult();
+        BLogicResult blogicResult = new BLogicResult();
         TransactionStatus mockTran = mock(TransactionStatus.class);
 
         when(mockPlatformTransactionManager.getTransaction(any(
@@ -551,7 +551,7 @@ public class JobStatusChangerImplTest {
 
         // テスト実行
         // 結果検証
-        assertFalse(jobStatusChanger.changeToEndStatus(null, bLogicResult));
+        assertFalse(jobStatusChanger.changeToEndStatus(null, blogicResult));
         assertThat(logger.getLoggingEvents(), is(asList(error(
                 "[EAL025026] Job record Not Found. jobSequenceId:null"), warn(
                         "[WAL025013] An unexpected event has detected at the job status update processing. It will be attempt to roll-back. jobSequenceId:null"))));
@@ -564,7 +564,7 @@ public class JobStatusChangerImplTest {
      * <pre>
      * 事前条件
      * ・有効なジョブシーケンスIDが渡されること
-     * ・bLogicResultとしてnullが渡されること
+     * ・blogicResultとしてnullが渡されること
      * 確認項目
      * ・NullPointerExceptionがスローされること
      * ・[WAL025013]のログが出力されること
@@ -616,7 +616,7 @@ public class JobStatusChangerImplTest {
     @Test
     public void testChangeToEndStatus05() {
         // テスト入力データ設定
-        BLogicResult bLogicResult = new BLogicResult();
+        BLogicResult blogicResult = new BLogicResult();
         TransactionStatus mockTran = mock(TransactionStatus.class);
 
         when(mockPlatformTransactionManager.getTransaction(any(
@@ -634,7 +634,7 @@ public class JobStatusChangerImplTest {
         // テスト実行
         // 結果検証
         assertFalse(jobStatusChanger.changeToEndStatus("00000001",
-                bLogicResult));
+                blogicResult));
         assertThat(logger.getLoggingEvents(), is(asList(info(
                 "[IAL025004] ステータスが判定基準外(ジョブシーケンスコード:00000001 blogicの戻り値:null イベント:1 ジョブレコードのステータス値:2 判定:false)"),
                 warn("[WAL025013] An unexpected event has detected at the job status update processing. It will be attempt to roll-back. jobSequenceId:00000001"))));
@@ -657,7 +657,7 @@ public class JobStatusChangerImplTest {
     @Test
     public void testChangeToEndStatus06() {
         // テスト入力データ設定
-        BLogicResult bLogicResult = new BLogicResult();
+        BLogicResult blogicResult = new BLogicResult();
         TransactionStatus mockTran = mock(TransactionStatus.class);
 
         when(mockPlatformTransactionManager.getTransaction(any(
@@ -675,7 +675,7 @@ public class JobStatusChangerImplTest {
         // テスト実行
         // 結果検証
         assertFalse(jobStatusChanger.changeToEndStatus("00000001",
-                bLogicResult));
+                blogicResult));
         assertThat(logger.getLoggingEvents(), is(asList(debug(
                 "[DAL025023] update status jobSequenceId:00000001 changeStatus:2"),
                 error("[EAL025025] Job status update error.(JOB_SEQ_ID:00000001) blogicStatus:[-1])"),
@@ -700,7 +700,7 @@ public class JobStatusChangerImplTest {
     @Test
     public void testChangeToEndStatus07() {
         // テスト入力データ設定
-        BLogicResult bLogicResult = new BLogicResult();
+        BLogicResult blogicResult = new BLogicResult();
         Exception ex = new RuntimeException("test");
 
         when(mockPlatformTransactionManager.getTransaction(any(
@@ -709,7 +709,7 @@ public class JobStatusChangerImplTest {
         // テスト実行
         // 結果検証
         try {
-            jobStatusChanger.changeToEndStatus("00000001", bLogicResult);
+            jobStatusChanger.changeToEndStatus("00000001", blogicResult);
             fail();
         } catch (Exception e) {
             assertSame(ex, e);
@@ -738,7 +738,7 @@ public class JobStatusChangerImplTest {
     @Test
     public void testChangeToEndStatus08() {
         // テスト入力データ設定
-        BLogicResult bLogicResult = new BLogicResult();
+        BLogicResult blogicResult = new BLogicResult();
         TransactionStatus mockTran = mock(TransactionStatus.class);
         RuntimeException re = new RuntimeException("Test exception.");
 
@@ -751,7 +751,7 @@ public class JobStatusChangerImplTest {
         // 結果検証
         try {
             assertFalse(jobStatusChanger.changeToEndStatus("00000001",
-                    bLogicResult));
+                    blogicResult));
             fail();
         } catch (Exception e) {
             assertSame(re, e);
@@ -779,7 +779,7 @@ public class JobStatusChangerImplTest {
     @Test
     public void testChangeToEndStatus09() {
         // テスト入力データ設定
-        BLogicResult bLogicResult = new BLogicResult();
+        BLogicResult blogicResult = new BLogicResult();
         TransactionStatus mockTran = mock(TransactionStatus.class);
         RuntimeException runtimeException = new RuntimeException("Test exception.");
 
@@ -801,7 +801,7 @@ public class JobStatusChangerImplTest {
         // 結果検証
         try {
             assertFalse(jobStatusChanger.changeToEndStatus("00000001",
-                    bLogicResult));
+                    blogicResult));
             fail();
         } catch (Exception e) {
             assertSame(runtimeException, e);
