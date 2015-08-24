@@ -29,7 +29,6 @@ public class GenericsUtil_CallableStub01 implements Callable<Integer> {
      * @see java.util.concurrent.Callable#call()
      */
     public Integer call() throws Exception {
-        // TODO Auto-generated method stub
         return null;
     }
 }

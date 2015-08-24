@@ -31,7 +31,6 @@ public class GenericsUtil_FutureTaskStub01<V> extends FutureTask<V>{
      */
     public GenericsUtil_FutureTaskStub01(Callable<V> callable) {
         super(callable);
-        // TODO Auto-generated constructor stub
     }
 
 }

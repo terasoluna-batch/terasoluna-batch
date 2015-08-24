@@ -348,14 +348,14 @@ public class FileDAOUtilityTest {
      * 観点：G <br>
      * <br>
      * 入力値：(引数) columnString:"1"<br>
-     * (引数) fileEncoding:"XXX"<br>
+     * (引数) fileEncoding:"ZZZ"<br>
      * ※存在しないエンコーディング<br>
      * (引数) columnBytes:3<br>
      * (引数) paddingChar:' '(半角空白文字)<br>
      * (引数) paddingType:PaddingType.LEFT<br>
      * <br>
      * 期待値：(状態変化) -:以下の設定を持つFileExceptionが発生する。<br>
-     * ・メッセージ："Specified Encoding : XXX is not supported"<br>
+     * ・メッセージ："Specified Encoding : ZZZ is not supported"<br>
      * ・原因例外：UnsupportedEncodingException<br>
      * <br>
      * 異常ケース<br>
@@ -367,7 +367,7 @@ public class FileDAOUtilityTest {
     public void testPadding09() throws Exception {
         // 前処理(引数)
         String columnString = "1";
-        String fileEncoding = "XXX";
+        String fileEncoding = "ZZZ";
         int columnBytes = 3;
         char paddingChar = ' ';
         PaddingType paddingType = PaddingType.LEFT;
@@ -379,7 +379,7 @@ public class FileDAOUtilityTest {
             fail("FileException例外が発生しませんでした。");
         } catch (FileException e) {
             // 判定
-            assertEquals("Specified Encoding : XXX is not supported", e
+            assertEquals("Specified Encoding : ZZZ is not supported", e
                     .getMessage());
             assertTrue(e.getCause() instanceof UnsupportedEncodingException);
         }
@@ -392,7 +392,7 @@ public class FileDAOUtilityTest {
      * 観点：C, D, E <br>
      * <br>
      * 入力値：(引数) columnString:"1"<br>
-     * (引数) fileEncoding:"XXX"<br>
+     * (引数) fileEncoding:"ZZZ"<br>
      * ※存在しないエンコーディング<br>
      * (引数) columnBytes:3<br>
      * (引数) paddingChar:'　'(全角空白文字)<br>
@@ -409,7 +409,7 @@ public class FileDAOUtilityTest {
     public void testPadding10() throws Exception {
         // 前処理(引数)
         String columnString = "1";
-        String fileEncoding = "XXX";
+        String fileEncoding = "ZZZ";
         int columnBytes = 3;
         char paddingChar = '　';
         PaddingType paddingType = PaddingType.NONE;
@@ -1233,13 +1233,13 @@ public class FileDAOUtilityTest {
      * 観点：G <br>
      * <br>
      * 入力値：(引数) columnString:"aaa"<br>
-     * (引数) fileEncoding:"XXX"<br>
+     * (引数) fileEncoding:"ZZZ"<br>
      * ※存在しないエンコーディング<br>
      * (引数) trimChar:'a'<br>
      * (引数) trimType:TrimType.LEFT<br>
      * <br>
      * 期待値：(状態変化) -:以下の設定を持つFileExceptionが発生する。<br>
-     * ・メッセージ："Specified Encoding : XXX is not supported"<br>
+     * ・メッセージ："Specified Encoding : ZZZ is not supported"<br>
      * ・原因例外：UnsupportedEncodingException<br>
      * <br>
      * 異常ケース<br>
@@ -1251,7 +1251,7 @@ public class FileDAOUtilityTest {
     public void testTrim09() throws Exception {
         // 前処理(引数)
         String columnString = "aaa";
-        String fileEncoding = "XXX";
+        String fileEncoding = "ZZZ";
         char trimChar = 'a';
         TrimType trimType = TrimType.LEFT;
 
@@ -1261,7 +1261,7 @@ public class FileDAOUtilityTest {
             fail("FileExceptionが発生しませんでした。");
         } catch (FileException e) {
             // 判定
-            assertEquals("Specified Encoding : XXX is not supported", e
+            assertEquals("Specified Encoding : ZZZ is not supported", e
                     .getMessage());
             assertTrue(e.getCause() instanceof UnsupportedEncodingException);
         }
@@ -1274,7 +1274,7 @@ public class FileDAOUtilityTest {
      * 観点：C, D, E <br>
      * <br>
      * 入力値：(引数) columnString:"aaa"<br>
-     * (引数) fileEncoding:"XXX"<br>
+     * (引数) fileEncoding:"ZZZ"<br>
      * ※存在しないエンコーディング<br>
      * (引数) trimChar:'あ'<br>
      * (引数) trimType:TrimType.NONE<br>
@@ -1290,7 +1290,7 @@ public class FileDAOUtilityTest {
     public void testTrim10() throws Exception {
         // 前処理(引数)
         String columnString = "aaa";
-        String fileEncoding = "XXX";
+        String fileEncoding = "ZZZ";
         char trimChar = 'あ';
         TrimType trimType = TrimType.NONE;
 
@@ -2091,7 +2091,7 @@ public class FileDAOUtilityTest {
      * (異常系) <br>
      * 観点：G <br>
      * <br>
-     * 入力値：(引数) fileEncoding:"XXX"<br>
+     * 入力値：(引数) fileEncoding:"ZZZ"<br>
      * (引数) checkChar:','<br>
      * (状態) encodingCache:要素を持たないConcurrentHashMapインスタンス<br>
      * <br>
@@ -2100,7 +2100,7 @@ public class FileDAOUtilityTest {
      * value：要素を持たないConcurrentHashMapインスタンス<br>
      * (状態変化) Map#put():1回呼ばれる<br>
      * (状態変化) -:以下の情報を持つFileExceptionが発生する。<br>
-     * ・メッセージ："Specified Encoding : XXX is not supported"<br>
+     * ・メッセージ："Specified Encoding : ZZZ is not supported"<br>
      * ・原因例外：UnsupportedEncodingException<br>
      * <br>
      * 異常ケース<br>
@@ -2112,7 +2112,7 @@ public class FileDAOUtilityTest {
     @Test
     public void testIsHalfWidthChar06() throws Exception {
         // 前処理(引数)
-        String fileEncoding = "XXX";
+        String fileEncoding = "ZZZ";
         char checkChar = ',';
 
         // 前処理(状態)
@@ -2129,7 +2129,7 @@ public class FileDAOUtilityTest {
         } catch (FileException e) {
             // 判定(例外)
             assertTrue(e instanceof FileException);
-            assertEquals("Specified Encoding : XXX is not supported", e
+            assertEquals("Specified Encoding : ZZZ is not supported", e
                     .getMessage());
             assertTrue(e.getCause() instanceof UnsupportedEncodingException);
 

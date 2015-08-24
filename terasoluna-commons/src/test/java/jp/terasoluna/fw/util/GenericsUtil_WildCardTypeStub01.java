@@ -28,12 +28,10 @@ public class GenericsUtil_WildCardTypeStub01
         implements WildcardType {
 
     public Type[] getLowerBounds() {
-        // TODO Auto-generated method stub
         return null;
     }
 
     public Type[] getUpperBounds() {
-        // TODO Auto-generated method stub
         return null;
     }
 

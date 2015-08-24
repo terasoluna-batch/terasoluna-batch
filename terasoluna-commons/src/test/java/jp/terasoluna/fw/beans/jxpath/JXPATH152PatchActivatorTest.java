@@ -161,7 +161,7 @@ public class JXPATH152PatchActivatorTest extends TestCase {
      * @throws Exception このメソッドで発生した例外
      */
     public void testActivate02() throws Exception {
-//      TODO Java7環境下ではAccessController.doPrivileged()に渡しているAccessControlContextのDomainCombiner#combine()が呼び出されず、本テストの動作確認が不可能であるため、コメントアウトしている。
+//      Java7環境下ではAccessController.doPrivileged()に渡しているAccessControlContextのDomainCombiner#combine()が呼び出されず、本テストの動作確認が不可能であるため、コメントアウトしている。
 //        // アクセス権設定
 //        final ProtectionDomain testTargetProtectionDomain = JXPATH152PatchActivator.class.getProtectionDomain();
 //        DomainCombiner domainCombiner = new DomainCombiner() {

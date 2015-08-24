@@ -35,7 +35,6 @@ public class GenericsUtil_Stub07
     }
 
     public String call() throws Exception {
-        // TODO Auto-generated method stub
         return null;
     }
 

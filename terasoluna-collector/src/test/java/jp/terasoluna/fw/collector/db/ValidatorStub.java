@@ -7,12 +7,10 @@ public class ValidatorStub implements Validator {
 
     @SuppressWarnings("unchecked")
     public boolean supports(Class clazz) {
-        // TODO Auto-generated method stub
         return true;
     }
 
     public void validate(Object target, Errors errors) {
-        // TODO Auto-generated method stub
 
     }
 

@@ -15,7 +15,6 @@ public class PlatformTransactionManagerStub4 implements
 
     public TransactionStatus getTransaction(TransactionDefinition definition)
             throws TransactionException {
-        // TODO Auto-generated method stub
         return null;
     }
 

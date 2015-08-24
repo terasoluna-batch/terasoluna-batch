@@ -28,7 +28,6 @@ public class GenericsUtil_Stub08<P, Q, R>
     implements GenericsUtil_Stub05<R, P, Q> {
 
     public String method(R s, P t, Q u) {
-        // TODO Auto-generated method stub
         return null;
     }
 

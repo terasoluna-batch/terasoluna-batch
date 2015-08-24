@@ -31,7 +31,6 @@ public class B000006 implements BLogic {
      * @see jp.terasoluna.fw.batch.blogic.BLogic#execute(jp.terasoluna.fw.batch .light.blogic.vo.BLogicParam)
      */
     public int execute(BLogicParam param) {
-        // TODO Auto-generated method stub
         return 0;
     }
 

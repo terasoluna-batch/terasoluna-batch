@@ -32,7 +32,6 @@ public class B000002BLogic implements BLogic {
 	 * .light.blogic.vo.BLogicParam)
 	 */
 	public int execute(BLogicParam param) {
-		// TODO Auto-generated method stub
 		return 1;
 	}
 

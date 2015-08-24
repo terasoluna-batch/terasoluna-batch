@@ -149,7 +149,6 @@ public class BatchJobDataTest extends TestCase {
     public void testSetAndGetErrAppStatus() {
         BatchJobData data = new BatchJobData();
         data.setErrAppStatus("a");
-        // TODO 正しい？
         assertEquals("a", data.getBLogicAppStatus());
     }
 
