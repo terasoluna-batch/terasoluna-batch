@@ -19,7 +19,6 @@ package jp.terasoluna.fw.batch.executor.controller;
 import jp.terasoluna.fw.batch.exception.handler.ExceptionStatusHandlerImpl;
 import jp.terasoluna.fw.batch.executor.worker.JobExecutorTemplate;
 
-import org.apache.log4j.Level;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -46,7 +45,6 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.*;
-import static uk.org.lidalia.slf4jtest.LoggingEvent.error;
 import static uk.org.lidalia.slf4jtest.LoggingEvent.debug;
 import static uk.org.lidalia.slf4jtest.LoggingEvent.warn;
 
@@ -498,7 +496,7 @@ public class AsyncJobLauncherImplTest {
      * ・{@code JobExecutorTemplate#executeWorker()}で例外がスローされること
      * 確認項目
      * ・{@code JobExecutorTemplate#executeWorker()}により、
-            * 　{@code RuntimeException}がスローされた場合、セマフォ解放が行われていること。
+     * 　{@code RuntimeException}がスローされた場合、セマフォ解放が行われていること。
      * ・{@code ThreadPoolTaskExecutor}により、{@code JobExecutorTemplate#executeWorker()}が呼び出されること。
      * ・ExceptionStatusHandlerImplでのEAL025053ログが出力されること。
      * </pre>
