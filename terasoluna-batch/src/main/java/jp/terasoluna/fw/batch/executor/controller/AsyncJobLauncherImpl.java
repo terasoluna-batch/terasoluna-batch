@@ -1,8 +1,11 @@
 package jp.terasoluna.fw.batch.executor.controller;
 
 import jp.terasoluna.fw.batch.constants.LogId;
+import jp.terasoluna.fw.batch.exception.handler.ExceptionStatusHandler;
+import jp.terasoluna.fw.batch.exception.handler.ExceptionStatusHandlerImpl;
 import jp.terasoluna.fw.batch.executor.worker.JobExecutorTemplate;
 import jp.terasoluna.fw.logger.TLogger;
+
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.task.TaskRejectedException;
@@ -139,7 +142,10 @@ public class AsyncJobLauncherImpl
                 @Override
                 public void run() {
                     try {
-                        jobExecutorTemplate.executeWorker(jobSequenceId);
+                        jobExecutorTemplate.executeWorker(jobSequenceId);                    
+                    } catch (RuntimeException e) {
+                        ExceptionStatusHandler exceptionStatusHandler = new ExceptionStatusHandlerImpl();
+                        exceptionStatusHandler.handleException(e);
                     } finally {
                         taskPoolLimit.release();
                     }
