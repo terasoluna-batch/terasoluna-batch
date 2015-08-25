@@ -16,8 +16,11 @@
 
 package jp.terasoluna.fw.batch.executor.worker;
 
+import static java.util.Arrays.*;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
+import static org.hamcrest.core.Is.*;
+import static uk.org.lidalia.slf4jtest.LoggingEvent.*;
 
 import org.junit.After;
 import org.junit.Before;
@@ -106,6 +109,7 @@ public class BLogicExecutorImplTest {
                 blogicParam, exceptionHandler);
         // 結果検証
         assertEquals(0, result.getBlogicStatus());
+        assertNull(result.getBlogicThrowable());
 
     }
 
@@ -161,7 +165,36 @@ public class BLogicExecutorImplTest {
         // 結果検証
         assertEquals(-1, result.getBlogicStatus());
         assertEquals(re, result.getBlogicThrowable());
+        assertThat(logger.getLoggingEvents(), is(asList(error(re,
+                "[EAL025089] An exception occurred at BLogic execution. This error log should be logged by the exception-handler, but the handler is not set."))));
+    }
 
+    /**
+     * execute()のテスト 【異常系】
+     * 
+     * <pre>
+     * 事前条件
+     * ・例外ハンドラにNULLを指定し、それ以外は適切な引数を指定すること
+     * ・BLogicでErrorが発生すること
+     * 確認項目
+     * ・例外ハンドラ起動せず、発生したErrorとデフォルトの終了値になること
+     * </pre>
+     *
+     * @throws Exception 予期しない例外
+     */
+    @Test
+    public void testExecute04() throws Exception {
+        // 事前準備
+        Error er = new Error("test");
+        when(blogic.execute(blogicParam)).thenThrow(er);
+        // テスト実施
+        BLogicResult result = target.execute(applicationContext, blogic,
+                blogicParam, null);
+        // 結果検証
+        assertEquals(-1, result.getBlogicStatus());
+        assertEquals(er, result.getBlogicThrowable());
+        assertThat(logger.getLoggingEvents(), is(asList(error(er,
+                "[EAL025089] An exception occurred at BLogic execution. This error log should be logged by the exception-handler, but the handler is not set."))));
     }
 
 }

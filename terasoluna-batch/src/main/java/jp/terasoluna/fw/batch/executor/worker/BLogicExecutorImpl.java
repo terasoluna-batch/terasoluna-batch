@@ -20,21 +20,34 @@ import org.springframework.context.ApplicationContext;
 
 import jp.terasoluna.fw.batch.blogic.BLogic;
 import jp.terasoluna.fw.batch.blogic.vo.BLogicParam;
+import jp.terasoluna.fw.batch.constants.LogId;
 import jp.terasoluna.fw.batch.exception.handler.ExceptionHandler;
 import jp.terasoluna.fw.batch.executor.vo.BLogicResult;
+import jp.terasoluna.fw.logger.TLogger;
 
 /**
  * ビジネスロジックの実行を行い、その結果をハンドリングする。
  * @since 3.6
  */
 public class BLogicExecutorImpl implements BLogicExecutor {
-
+    
+    /**
+     * ロガー。
+     */
+    private static final TLogger LOGGER = TLogger
+            .getLogger(BLogicExecutorImpl.class);
+    
+    
     /**
      * {@inheritDoc}
      * <p>
      * この実装では、引数のNULLチェックを行わないため呼出し側でチェックする必要がある。<br>
-     * ビジネスロジックで例外が発生した場合は、例外ハンドラが指定されていれば例外処理を委譲する。 指定されていなければ何も行わない。<br>
-     * この時、返却値{@code BLogicResult}には発生した例外と例外ハンドリング後のステータスが設定される。
+     * ビジネスロジックで例外が発生した場合は、以下を行う。
+     * <ul>
+     * <li>例外ハンドラが指定されていれば例外処理を委譲し、その結果を返却値{@code BLogicResult}のステータスに設定する。<br>
+     *     指定されていなければ発生した例外のログ出力のみを行う。ステータスは設定しない。</li>
+     * <li>返却値{@code BLogicResult}に発生した例外を設定する。</li>
+     * </ul>
      * </p>
      */
     @Override
@@ -52,6 +65,8 @@ public class BLogicExecutorImpl implements BLogicExecutor {
             if (exceptionHandler != null) {
                 result.setBlogicStatus(exceptionHandler
                         .handleThrowableException(th));
+            } else {
+                LOGGER.error(LogId.EAL025089, th);
             }
         }
         return result;
