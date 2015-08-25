@@ -29,7 +29,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertSame;
 
 /**
- * {@code ThreadGroupManagementAspect}よるジョインポイントの対象となるモッククラス。
+ * {@code ThreadGroupManagementAspect}によるジョインポイントの対象となるモッククラス。
  */
 public class MockBLogicExecutor implements BLogicExecutor {
 

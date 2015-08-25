@@ -32,11 +32,21 @@ import java.util.concurrent.atomic.AtomicInteger;
  * {@code ThreadGroupApplicationContextHolder}ではワーカスレッド上で参照される
  * 業務コンテキストの一意識別キーとしてスレッドグループ名を使用するため、
  * 本クラスを併用せずに{@code ThreadGroupApplicationContextHolder}を使用した場合、
- * 意図せぬ動作をすることがある。
- *
+ * 意図しない動作となる。
+ * <p>
  * なお、スレッドグループとスレッド名のプリフィックスの内側に付与される
  * 番号は本クラスで管理するが、スレッド名の末尾に付与される番号は
  * {@code CustomizableThreadCreator}で管理される。
+ * <p>
+ * 加えて本クラスによるスレッドの新規生成処理は同期化・上限を考慮していないため、以下の制限を持つ。
+ * <ol>
+ * <li>異なるスレッドから本クラスによるスレッドの新規生成を行った場合、同名のスレッドが生成される恐れがある。</li>
+ * <li>スレッドグループは新規スレッド生成毎に生成され、共有・破棄は行われないためメモリ上に蓄積する。</li>
+ * </ol>
+ * 以上より、本クラスのインジェクション対象である{@code ThreadPoolTaskExecutor}による
+ * ワーカスレッド起動処理がメインスレッドのみで行われており、
+ * {@code ThreadPoolTaskExecutor}のコアプールサイズと最大プールサイズが同数である
+ * （ワーカスレッドが際限なく新規作成されない）動作環境である限りでは問題なく動作する。
  *
  * @see jp.terasoluna.fw.batch.executor.ThreadGroupApplicationContextHolder
  * @see org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor

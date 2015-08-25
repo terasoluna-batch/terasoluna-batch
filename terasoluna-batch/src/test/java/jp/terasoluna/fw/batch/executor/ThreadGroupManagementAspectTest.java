@@ -37,8 +37,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
 
-import static java.util.Arrays.asList;
-import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.doReturn;
@@ -212,7 +210,7 @@ public class ThreadGroupManagementAspectTest {
      * 事前条件
      * ・Bean定義ファイルにテスト対象クラスがアドバイスとして宣言された{@code BLogicExecutor}が存在すること。
      * 確認項目
-     * ・{@code BLogicExecutor}実行時に{@code SeparateGroupThreadFactory}がアドバイスが作用していること。
+     * ・{@code BLogicExecutor}実行時に{@code ThreadGroupManagementAspect}によるアドバイスが作用していること。
      *
      * @throws Throwable 予期しない例外
      */
