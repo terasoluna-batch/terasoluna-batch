@@ -155,9 +155,8 @@ public class EndFileStopperTest {
             // テスト実施
             endFileStopper.afterPropertiesSet();
             fail();
-        } catch (Exception e) {
-            // 結果検証
-            assertTrue(e instanceof IllegalStateException);
+        } catch (IllegalStateException e) {
+            assertEquals(e.getMessage(), "[EAL025056] [Assertion failed] - Property of executor.endMonitoringFile must be defined.");
         } finally {
             // テストデータ戻し
             endFileStopper.endMonitoringFileName = tempEndMonitoringFileName;

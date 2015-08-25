@@ -16,12 +16,11 @@
 
 package jp.terasoluna.fw.batch.blogic;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-import jp.terasoluna.fw.batch.executor.controller.EndFileStopper;
+import static java.util.Arrays.*;
+import static org.hamcrest.core.Is.*;
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
+import static uk.org.lidalia.slf4jtest.LoggingEvent.*;
 
 import org.junit.After;
 import org.junit.Before;
@@ -32,12 +31,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.spy;
-import static org.mockito.Mockito.doReturn;
-import static uk.org.lidalia.slf4jtest.LoggingEvent.error;
-import static java.util.Arrays.asList;
-import static org.hamcrest.core.Is.is;
 
 /**
  * BLogicResolverのテストケースクラス
