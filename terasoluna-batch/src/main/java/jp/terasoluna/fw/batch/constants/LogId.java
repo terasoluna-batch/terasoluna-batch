@@ -399,9 +399,9 @@ public final class LogId {
      */
     public static final String WAL025012 = "WAL025012";
     /**
-     * <strong>WAL025013  = An unexpected event has detected at the job status update processing. It will be attempt to roll-back. jobSequenceId:{0}</strong>
+     * <strong>WAL025013 = An unexpected event has detected at the job status update processing. It will be attempt to roll-back. jobSequenceId:{0}</strong>
      */
-    public static final String WAL025013$32$ = "WAL025013 ";
+    public static final String WAL025013 = "WAL025013";
     /**
      * <strong>EAL025001 = At the end of the transaction error.</strong>
      */
