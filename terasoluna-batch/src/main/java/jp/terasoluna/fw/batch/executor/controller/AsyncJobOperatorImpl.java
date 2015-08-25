@@ -40,7 +40,10 @@ public class AsyncJobOperatorImpl implements JobOperator {
      */
     private static final TLogger LOGGER = TLogger
             .getLogger(AsyncJobOperatorImpl.class);
-
+    
+    /**
+     * ジョブのポーリング間隔。<br>
+     */
     @Value("${polling.interval:1000}")
     protected long jobIntervalTime;
 

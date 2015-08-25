@@ -71,7 +71,6 @@ public class AsyncJobOperatorImplTest {
                     exceptionStatusHandler);
             fail();
         } catch (IllegalArgumentException e) {
-            e.printStackTrace();
             assertEquals(
                     "[EAL025074] [Assertion failed] - AsyncJobOperatorImpl constructor needs BatchJobDataRepository",
                     e.getMessage());
@@ -98,7 +97,6 @@ public class AsyncJobOperatorImplTest {
                     asyncBatchStopper, exceptionStatusHandler);
             fail();
         } catch (IllegalArgumentException e) {
-            e.printStackTrace();
             assertEquals(
                     "[EAL025075] [Assertion failed] - AsyncJobOperatorImpl constructor needs AsyncJobLauncher",
                     e.getMessage());
@@ -125,7 +123,6 @@ public class AsyncJobOperatorImplTest {
                     null, exceptionStatusHandler);
             fail();
         } catch (IllegalArgumentException e) {
-            e.printStackTrace();
             assertEquals(
                     "[EAL025076] [Assertion failed] - AsyncJobOperatorImpl constructor needs AsyncBatchStopper",
                     e.getMessage());
@@ -152,7 +149,6 @@ public class AsyncJobOperatorImplTest {
                     asyncBatchStopper, null);
             fail();
         } catch (IllegalArgumentException e) {
-            e.printStackTrace();
             assertEquals(
                     "[EAL025077] [Assertion failed] - AsyncJobOperatorImpl constructor needs ExceptionStatusHandler",
                     e.getMessage());
@@ -373,7 +369,7 @@ public class AsyncJobOperatorImplTest {
      * @throws Exception 予期しない例外
      */
     @Test
-    public void testPollingSleep() throws Exception {
+    public void testPollingSleep01() throws Exception {
         AsyncJobOperatorImpl asyncJobOperator = new AsyncJobOperatorImpl(
                 batchJobDataRepository, asyncJobLauncher, asyncBatchStopper,
                 exceptionStatusHandler);
@@ -382,4 +378,34 @@ public class AsyncJobOperatorImplTest {
         // テスト実行
         asyncJobOperator.pollingSleep();
     }
+    
+    /**
+     * {@code testPollingSleep}のテスト 【正常系】
+     * <pre>
+     * 事前条件
+     * ・とくになし
+     * 確認項目
+     * ・ポーリングループ時のスリープで割り込みが発生した場合InterruptedExceptionが発生すること。
+     * </pre>
+     *
+     * @throws Exception 予期しない例外
+     */
+    @Test
+    public void testPollingSleep02() throws Exception {
+        AsyncJobOperatorImpl asyncJobOperator = new AsyncJobOperatorImpl(
+                batchJobDataRepository, asyncJobLauncher, asyncBatchStopper,
+                exceptionStatusHandler);
+        asyncJobOperator.jobIntervalTime = 1L;
+
+        // スリープの呼び出し前から割り込み状態にする。
+        Thread.currentThread().interrupt();
+
+        try {
+            // テスト実行
+            asyncJobOperator.pollingSleep();
+            fail();
+        } catch (InterruptedException e) {
+        }
+    }
+    
 }
