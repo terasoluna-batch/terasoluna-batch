@@ -66,7 +66,7 @@ public class BLogicExecutorImpl implements BLogicExecutor {
                 result.setBlogicStatus(exceptionHandler
                         .handleThrowableException(th));
             } else {
-                LOGGER.error(LogId.EAL025089, th);
+                LOGGER.error(LogId.EAL025090, th);
             }
         }
         return result;
