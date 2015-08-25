@@ -299,7 +299,7 @@ public final class LogId {
      */
     public static final String IAL025003 = "IAL025003";
     /**
-     * <strong>IAL025004 = ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãŒåˆ¤å®šåŸºæº–å¤–(ã‚¸ãƒ§ãƒ–ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã‚³ãƒ¼ãƒ‰:{0} blogicã®æˆ»ã‚Šå€¤:{1} ã‚¤ãƒ™ãƒ³ãƒˆ:{2} ã‚¸ãƒ§ãƒ–ãƒ¬ã‚³ãƒ¼ãƒ‰ã®ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹å€¤:{3} åˆ¤å®š:{4})</strong>
+     * <strong>IAL025004 = ƒXƒe[ƒ^ƒX‚ª”»’èŠî€ŠO(ƒWƒ‡ƒuƒV[ƒPƒ“ƒXƒR[ƒh:{0} blogic‚Ì–ß‚è’l:{1} ƒCƒxƒ“ƒg:{2} ƒWƒ‡ƒuƒŒƒR[ƒh‚ÌƒXƒe[ƒ^ƒX’l:{3} ”»’è:{4})</strong>
      */
     public static final String IAL025004 = "IAL025004";
     /**
@@ -739,7 +739,11 @@ public final class LogId {
      */
     public static final String EAL025088 = "EAL025088";
     /**
-     * <strong>[Assertion failed] - {0} constructor requires {1}</strong>
+     * <strong>EAL025089 = [Assertion failed] - {0} constructor requires {1}</strong>
      */
     public static final String EAL025089 = "EAL025089";
+    /**
+     * <strong>EAL025090 = An exception occurred at BLogic execution. This error log should be logged by the exception-handler, but the handler is not set.</strong>
+     */
+    public static final String EAL025090 = "EAL025090";
 }
