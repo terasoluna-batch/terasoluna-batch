@@ -25,55 +25,54 @@ import org.springframework.context.ApplicationContext;
  * @since 3.6
  */
 public class BLogicExceptionHandlerResolverImpl implements
-                                               BLogicExceptionHandlerResolver {
+                                                BLogicExceptionHandlerResolver {
 
     /**
      * 例外ハンドラのBean名に付与する接尾語.
      */
-    protected static final String DEFAULT_BLOGIC_EXCEPTION_HANDLER_BEAN_NAME_SUFFIX = "ExceptionHandler";
+    protected static final String EXCEPTION_HANDLER_BEAN_NAME_SUFFIX = "ExceptionHandler";
 
     /**
      * デフォルトの例外ハンドラのBean名.
      */
-    protected static final String DEFAULT_BLOGIC_EXCEPTION_HANDLER_BEAN_NAME = "defaultExceptionHandler";
+    protected static final String DEFAULT_EXCEPTION_HANDLER_BEAN_NAME = "defaultExceptionHandler";
 
     /**
      * {@inheritDoc}
+     * <p>
+     * 本実装では、以下の順序でハンドラを解決する。
+     * <ol>
+     * <li>ジョブ業務コードに対応する例外ハンドラを取得しようと試みる</li>
+     * <li>解決できなかった場合にはデフォルトの例外ハンドラを取得しようと試みる</li>
+     * <li>それでも解決できなかった場合はNULLを返却する</li>
+     * </ol>
+     * </p>
      */
     @Override
     public ExceptionHandler resolveExceptionHandler(ApplicationContext ctx,
             String jobAppCd) {
-        String exceptionHandlerBeanName = getExceptionHandlerBeanName(jobAppCd);
-        if (ctx.containsBean(exceptionHandlerBeanName)) {
-            return ctx
-                    .getBean(exceptionHandlerBeanName, ExceptionHandler.class);
-        } else if (ctx.containsBean(Introspector
-                .decapitalize(exceptionHandlerBeanName))) {
-            return ctx.getBean(Introspector
-                    .decapitalize(exceptionHandlerBeanName),
-                    ExceptionHandler.class);
+
+        if (jobAppCd == null || jobAppCd.length() == 0) {
+            return null;
         }
-        if (ctx.containsBean(DEFAULT_BLOGIC_EXCEPTION_HANDLER_BEAN_NAME)) {
-            return ctx.getBean(DEFAULT_BLOGIC_EXCEPTION_HANDLER_BEAN_NAME,
+        
+        if (ctx == null) {
+            return null;
+        }
+
+        String handlerName = jobAppCd + EXCEPTION_HANDLER_BEAN_NAME_SUFFIX;
+        String decapitalizedName = Introspector.decapitalize(handlerName);
+
+        if (ctx.containsBean(handlerName)) {
+            return ctx.getBean(handlerName, ExceptionHandler.class);
+        }
+        if (ctx.containsBean(decapitalizedName)) {
+            return ctx.getBean(decapitalizedName, ExceptionHandler.class);
+        }
+        if (ctx.containsBean(DEFAULT_EXCEPTION_HANDLER_BEAN_NAME)) {
+            return ctx.getBean(DEFAULT_EXCEPTION_HANDLER_BEAN_NAME,
                     ExceptionHandler.class);
         }
         return null;
     }
-
-    /**
-     * 実行するExceptionHandlerのBean名を取得する。<br>
-     * @param jobAppCd ジョブアプリケーションコード
-     * @return ExceptionHandlerのBean名
-     */
-    protected String getExceptionHandlerBeanName(String jobAppCd) {
-        StringBuilder str = new StringBuilder();
-
-        if (jobAppCd != null && jobAppCd.length() != 0) {
-            str.append(jobAppCd);
-            str.append(DEFAULT_BLOGIC_EXCEPTION_HANDLER_BEAN_NAME_SUFFIX);
-        }
-
-        return str.toString();
-    }
-
 }

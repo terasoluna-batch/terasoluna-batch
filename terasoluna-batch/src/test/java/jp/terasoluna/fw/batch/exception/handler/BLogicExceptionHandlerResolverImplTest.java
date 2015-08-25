@@ -17,24 +17,41 @@
 package jp.terasoluna.fw.batch.exception.handler;
 
 import static org.junit.Assert.*;
+import static org.mockito.Matchers.*;
+import static org.mockito.Mockito.*;
 
+import org.junit.After;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * BLogicExceptionHandlerResolverのテストケースクラス
  */
 public class BLogicExceptionHandlerResolverImplTest {
 
-    BLogicExceptionHandlerResolver bLogicExceptionHandlerResolver = new BLogicExceptionHandlerResolverImpl();
+    private BLogicExceptionHandlerResolver target = new BLogicExceptionHandlerResolverImpl();
+
+    private ApplicationContext ctx = mock(ApplicationContext.class);
+
+    private ExceptionHandler exHandler = mock(ExceptionHandler.class);
+    
+    private String suffix = "ExceptionHandler";
+    private String defaultName = "defaultExceptionHandler";
+    
+    /**
+     * テスト後処理：mockのresetを行う
+     */
+    @After
+    public void tearDown() {
+        reset(ctx);
+    }
 
     /**
      * resolveExceptionHandlerテスト 【正常系】
      * 
      * <pre>
      * 事前条件
-     * ・beansDef/B000013.xmlにExceptionHandler(B000013)の定義が存在する
+     * ・ExceptionHandlerの定義が存在する
      * 確認項目
      * ・ExceptionHandlerのインスタンスが生成されること
      * </pre>
@@ -42,14 +59,16 @@ public class BLogicExceptionHandlerResolverImplTest {
     @Test
     public void testResolveExceptionHandler01() {
         // テスト準備
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("beansDef/B000013.xml");
+        String jobAppCd = "B01";
+        String handlerName = jobAppCd + suffix;
+        
+        when(ctx.containsBean(handlerName)).thenReturn(true);
+        when(ctx.getBean(handlerName, ExceptionHandler.class)).thenReturn(exHandler);
+
         // テスト実施
-        ExceptionHandler exceptionHandler = bLogicExceptionHandlerResolver
-                .resolveExceptionHandler(applicationContext, "B000013");
+        ExceptionHandler result = target.resolveExceptionHandler(ctx, jobAppCd);
         // 結果検証
-        assertTrue(exceptionHandler instanceof ExceptionHandler);
-        assertTrue(exceptionHandler.toString().startsWith(
-                "jp.terasoluna.fw.batch.executor.B000013ExceptionHandlerImpl"));
+        assertSame(exHandler, result);
     }
 
     /**
@@ -57,7 +76,7 @@ public class BLogicExceptionHandlerResolverImplTest {
      * 
      * <pre>
      * 事前条件
-     * ・beansDef/B000014.xmlにExceptionHandler(B000014)の定義(先頭小文字)が存在する
+     * ・ExceptionHandlerの定義(先頭小文字)が存在する
      * 確認項目
      * ・ExceptionHandlerのインスタンスが生成されること
      * </pre>
@@ -65,14 +84,17 @@ public class BLogicExceptionHandlerResolverImplTest {
     @Test
     public void testResolveExceptionHandler02() {
         // テスト準備
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("beansDef/B000014.xml");
+        String jobAppCd = "B01";
+        String handlerName = jobAppCd + suffix;
+        
+        when(ctx.containsBean(handlerName)).thenReturn(false);
+        when(ctx.containsBean("b01" + suffix)).thenReturn(true);
+        when(ctx.getBean("b01" + suffix, ExceptionHandler.class)).thenReturn(exHandler);
+
         // テスト実施
-        ExceptionHandler exceptionHandler = bLogicExceptionHandlerResolver
-                .resolveExceptionHandler(applicationContext, "B000014");
+        ExceptionHandler result = target.resolveExceptionHandler(ctx, jobAppCd);
         // 結果検証
-        assertTrue(exceptionHandler instanceof ExceptionHandler);
-        assertTrue(exceptionHandler.toString().startsWith(
-                "jp.terasoluna.fw.batch.executor.B000014ExceptionHandlerImpl"));
+        assertSame(exHandler, result);
     }
 
     /**
@@ -80,7 +102,7 @@ public class BLogicExceptionHandlerResolverImplTest {
      * 
      * <pre>
      * 事前条件
-     * ・beansDef/B000013.xmlにExceptionHandler(DEFINE_NOT_EXIST)の定義が存在しない
+     * ・ExceptionHandlerの定義が存在しない。DefaultExceptionHandlerの定義は存在する。
      * 確認項目
      * ・DefaultExceptionHandlerのインスタンスが生成されること
      * </pre>
@@ -88,11 +110,35 @@ public class BLogicExceptionHandlerResolverImplTest {
     @Test
     public void testResolveExceptionHandler03() {
         // テスト準備
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("beansDef/B000013.xml");
+        when(ctx.containsBean(anyString())).thenReturn(false);
+        when(ctx.containsBean(defaultName)).thenReturn(true);
+        ExceptionHandler defaultHandler = new DefaultExceptionHandler();
+        when(ctx.getBean(defaultName, ExceptionHandler.class)).thenReturn(defaultHandler);
+        
         // テスト実施
+        ExceptionHandler result = target.resolveExceptionHandler(ctx, "DEFINE_NOT_EXIST");
         // 結果検証
-        assertTrue(bLogicExceptionHandlerResolver.resolveExceptionHandler(
-                applicationContext, "DEFINE_NOT_EXIST") instanceof DefaultExceptionHandler);
+        assertSame(defaultHandler, result);
+    }
+
+    /**
+     * resolveExceptionHandlerテスト 【異常系】
+     * 
+     * <pre>
+     * 事前条件
+     * ・ExceptionHandler/DefaultExceptionHandlerの定義がいずれも存在しない
+     * 確認項目
+     * ・nullが返却されること
+     * </pre>
+     */
+    @Test
+    public void testResolveExceptionHandler04() {
+     // テスト準備
+        when(ctx.containsBean(anyString())).thenReturn(false);
+        // テスト実施
+        ExceptionHandler result = target.resolveExceptionHandler(ctx, "DEFINE_NOT_EXIST");
+        // 結果検証
+        assertNull(result);
     }
 
     /**
@@ -102,80 +148,48 @@ public class BLogicExceptionHandlerResolverImplTest {
      * 事前条件
      * ・ApplicationContextとしてnullが渡されること
      * 確認項目
-     * ・NullPointerExceptionがスローされること
-     * </pre>
-     */
-    @Test
-    public void testResolveExceptionHandler04() {
-        try {
-            // テスト実施
-            bLogicExceptionHandlerResolver.resolveExceptionHandler(null,
-                    "DEFINE_NOT_EXIST");
-        } catch (Exception e) {
-            // 結果検証
-            assertTrue(e instanceof NullPointerException);
-        }
-    }
-
-    /**
-     * resolveExceptionHandlerテスト 【異常系】
-     * 
-     * <pre>
-     * 事前条件
-     * ・beansDef/B000015.xmlにExceptionHandlerの定義が存在しない
-     * ・beansDef/B000015.xmlにDefaultExceptionHandlerの定義が存在しない
-     * 確認項目
      * ・nullが返却されること
      * </pre>
      */
     @Test
     public void testResolveExceptionHandler05() {
-        // テスト準備
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("beansDef/B000015.xml");
-        // テスト実施
-        // 結果検証
-        assertNull(bLogicExceptionHandlerResolver.resolveExceptionHandler(
-                applicationContext, null));
+        ExceptionHandler result = target.resolveExceptionHandler(null, "DEFINE_NOT_EXIST");
+        assertNull(result);
     }
-
+    
     /**
-     * getExceptionHandlerBeanNameテスト 【正常系】
+     * resolveExceptionHandlerテスト 【異常系】
      * 
      * <pre>
      * 事前条件
-     * ・引数にJobAppCdが渡されること
+     * ・ジョブ業務コードにnullが渡されること
      * 確認項目
-     * ・JobAppCd + "ExceptionHandler" が返却されること
+     * ・nullが返却されること
      * </pre>
      */
     @Test
-    public void testGetExceptionHandlerBeanName01() {
+    public void testResolveExceptionHandler06() {
         // テスト実施
+        ExceptionHandler result = target.resolveExceptionHandler(ctx, null);
         // 結果検証
-        assertEquals(
-                "B0000001" + "ExceptionHandler",
-                ((BLogicExceptionHandlerResolverImpl) bLogicExceptionHandlerResolver)
-                        .getExceptionHandlerBeanName("B0000001"));
+        assertNull(result);
     }
-
+    
     /**
-     * getExceptionHandlerBeanNameテスト 【異常系】
+     * resolveExceptionHandlerテスト 【異常系】
      * 
      * <pre>
      * 事前条件
-     * ・引数にnullが渡されること
+     * ・ジョブ業務コードに空文字が渡されること
      * 確認項目
-     * ・空文字が返却されること
+     * ・nullが返却されること
      * </pre>
      */
     @Test
-    public void testGetExceptionHandlerBeanName02() {
+    public void testResolveExceptionHandler07() {
         // テスト実施
+        ExceptionHandler result = target.resolveExceptionHandler(ctx, "");
         // 結果検証
-        assertEquals(
-                "",
-                ((BLogicExceptionHandlerResolverImpl) bLogicExceptionHandlerResolver)
-                        .getExceptionHandlerBeanName(null));
+        assertNull(result);
     }
-
 }
