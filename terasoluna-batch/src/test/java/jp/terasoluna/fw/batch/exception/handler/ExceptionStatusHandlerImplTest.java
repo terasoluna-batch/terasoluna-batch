@@ -17,13 +17,30 @@
 package jp.terasoluna.fw.batch.exception.handler;
 
 import static org.junit.Assert.*;
-
+import org.junit.After;
 import org.junit.Test;
 
+import uk.org.lidalia.slf4jtest.TestLogger;
+import uk.org.lidalia.slf4jtest.TestLoggerFactory;
+import static uk.org.lidalia.slf4jtest.LoggingEvent.debug;
+import static java.util.Arrays.asList;
+import static org.hamcrest.core.Is.is;
+
 /**
- * ExceptionStatusHandlerのテストケースクラス
+ * ExceptionStatusHandlerImplのテストケースクラス
  */
-public class ExceptionStatusHandlerTest {
+public class ExceptionStatusHandlerImplTest {
+
+    private TestLogger logger = TestLoggerFactory
+            .getTestLogger(ExceptionStatusHandlerImpl.class);
+
+    /**
+     * テスト後処理：ロガーのクリアを行う。
+     */
+    @After
+    public void tearDown() {
+        logger.clear();
+    }
 
     /**
      * testHandleExceptionテスト 【正常系】
@@ -43,6 +60,8 @@ public class ExceptionStatusHandlerTest {
         // 結果検証
         assertEquals(255, exceptionStatusHandler
                 .handleException(new Exception("test exception.")));
+        assertThat(logger.getLoggingEvents(),
+                is(asList(debug("[EAL025053] An exception occurred."))));
     }
 
 }

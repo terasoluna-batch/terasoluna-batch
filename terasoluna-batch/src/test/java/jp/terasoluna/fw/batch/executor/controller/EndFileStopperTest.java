@@ -27,10 +27,18 @@ import java.nio.file.Paths;
 
 import javax.annotation.Resource;
 
+import org.junit.After;
 import org.junit.Test;
+import static org.junit.Assert.assertThat;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import uk.org.lidalia.slf4jtest.TestLogger;
+import uk.org.lidalia.slf4jtest.TestLoggerFactory;
+import static uk.org.lidalia.slf4jtest.LoggingEvent.debug;
+import static java.util.Arrays.asList;
+import static org.hamcrest.core.Is.is;
 
 /**
  * EndFileStopperのテストケースクラス
@@ -42,6 +50,17 @@ public class EndFileStopperTest {
     @Resource
     protected AsyncBatchStopper asyncBatchStopper;
 
+    private TestLogger logger = TestLoggerFactory
+            .getTestLogger(EndFileStopper.class);
+
+    /**
+     * テスト後処理：ロガーのクリアを行う。
+     */
+    @After
+    public void tearDown() {
+        logger.clear();
+    }
+
     /**
      * canStopテスト 【正常系】
      * 
@@ -50,6 +69,7 @@ public class EndFileStopperTest {
      * ・終了ファイルが存在する
      * 確認項目
      * ・trueが返却されること
+     * ・[DAL025060]のログが出力されること
      * </pre>
      * @throws IOException I/O 例外
      */
@@ -66,6 +86,9 @@ public class EndFileStopperTest {
             // テストデータ削除
             Files.deleteIfExists(Paths.get("/tmp/batch_terminate_file"));
         }
+        assertThat(
+                logger.getLoggingEvents(),
+                is(asList(debug("[DAL025060] End file path:/tmp/batch_terminate_file, exists:true"))));
     }
 
     /**
@@ -83,6 +106,9 @@ public class EndFileStopperTest {
         // テスト実施
         // 結果検証
         assertFalse(asyncBatchStopper.canStop());
+        assertThat(
+                logger.getLoggingEvents(),
+                is(asList(debug("[DAL025060] End file path:/tmp/batch_terminate_file, exists:false"))));
     }
 
     /**
@@ -94,6 +120,7 @@ public class EndFileStopperTest {
      * 確認項目
      * ・"/tmp/batch_terminate_file"が返却されること
      * ・例外がスローされないこと
+     * ・[DAL025060]のログが出力されること
      * </pre>
      */
     @Test
@@ -128,9 +155,8 @@ public class EndFileStopperTest {
             // テスト実施
             endFileStopper.afterPropertiesSet();
             fail();
-        } catch (Exception e) {
-            // 結果検証
-            assertTrue(e instanceof IllegalStateException);
+        } catch (IllegalStateException e) {
+            assertEquals(e.getMessage(), "[EAL025056] [Assertion failed] - Property of executor.endMonitoringFile must be defined.");
         } finally {
             // テストデータ戻し
             endFileStopper.endMonitoringFileName = tempEndMonitoringFileName;
