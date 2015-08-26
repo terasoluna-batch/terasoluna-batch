@@ -20,19 +20,17 @@ import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Test;
 
+import uk.org.lidalia.slf4jext.Level;
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
-import static uk.org.lidalia.slf4jtest.LoggingEvent.debug;
-import static java.util.Arrays.asList;
-import static org.hamcrest.core.Is.is;
 
 /**
  * ExceptionStatusHandlerImplのテストケースクラス
  */
 public class ExceptionStatusHandlerImplTest {
 
-    private TestLogger logger = TestLoggerFactory
-            .getTestLogger(ExceptionStatusHandlerImpl.class);
+    private TestLogger logger = TestLoggerFactory.getTestLogger(
+            ExceptionStatusHandlerImpl.class);
 
     /**
      * テスト後処理：ロガーのクリアを行う。
@@ -58,10 +56,11 @@ public class ExceptionStatusHandlerImplTest {
 
         // テスト実施
         // 結果検証
-        assertEquals(255, exceptionStatusHandler
-                .handleException(new Exception("test exception.")));
-        assertThat(logger.getLoggingEvents(),
-                is(asList(debug("[EAL025053] An exception occurred."))));
+        assertEquals(255, exceptionStatusHandler.handleException(
+                new Exception("test exception.")));
+        assertTrue(logger.getLoggingEvents().get(0).getLevel().equals(
+                Level.ERROR) && logger.getLoggingEvents().get(0).getMessage()
+                        .equals("[EAL025053] An exception occurred."));
     }
 
 }
