@@ -18,27 +18,23 @@ package jp.terasoluna.fw.util;
 
 
 /**
- * TODO コメント
- * 
- * TODO 関連するクラス（@see）
+ * ConvertUtilテスト用のスタブクラス
  */
 public class ConvertUtil_Stub02 {
 
     protected String A = null;
 
     /**
-     * TODO コメント
-     * 
-     * @return a を返す。
+     * ゲッター
+     * @throws RuntimeException例外
      */
     public String getA() {
         throw new RuntimeException();
     }
 
     /**
-     * TODO コメント
-     * 
-     * @param a TODO コメント
+     * セッター
+     * @param Aを設定する。
      */
     public void setA(String a) {
         this.A = a;

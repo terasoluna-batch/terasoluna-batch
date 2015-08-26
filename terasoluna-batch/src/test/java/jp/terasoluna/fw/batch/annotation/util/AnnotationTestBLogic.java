@@ -8,7 +8,6 @@ import jp.terasoluna.fw.batch.blogic.vo.BLogicParam;
 public class AnnotationTestBLogic implements BLogic {
 
     public int execute(BLogicParam param) {
-        // TODO Auto-generated method stub
         return 0;
     }
 

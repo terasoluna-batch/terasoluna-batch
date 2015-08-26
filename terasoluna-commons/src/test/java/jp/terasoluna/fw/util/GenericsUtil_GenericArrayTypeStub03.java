@@ -31,7 +31,6 @@ public class GenericsUtil_GenericArrayTypeStub03
      * @see java.lang.reflect.GenericArrayType#getGenericComponentType()
      */
     public Type getGenericComponentType() {
-        // TODO Auto-generated method stub
         return null;
     }
 

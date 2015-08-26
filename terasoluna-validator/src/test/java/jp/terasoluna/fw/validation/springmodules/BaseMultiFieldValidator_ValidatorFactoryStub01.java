@@ -43,12 +43,10 @@ public class BaseMultiFieldValidator_ValidatorFactoryStub01 implements
     }
 
     public boolean hasRulesForBean(String beanName, Locale locale) {
-        // TODO 自動生成されたメソッド・スタブ
         return false;
     }
 
     public ValidatorResources getValidatorResources() {
-        // TODO 自動生成されたメソッド・スタブ
         return null;
     }
 

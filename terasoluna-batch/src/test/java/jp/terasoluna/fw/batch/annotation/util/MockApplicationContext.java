@@ -284,57 +284,46 @@ public class MockApplicationContext extends
     }
 
     public void addBeanPostProcessor(BeanPostProcessor beanPostProcessor) {
-        // TODO Auto-generated method stub
 
     }
 
     public void addPropertyEditorRegistrar(PropertyEditorRegistrar registrar) {
-        // TODO Auto-generated method stub
 
     }
 
     public void copyConfigurationFrom(ConfigurableBeanFactory otherFactory) {
-        // TODO Auto-generated method stub
 
     }
 
     public void copyRegisteredEditorsTo(PropertyEditorRegistry registry) {
-        // TODO Auto-generated method stub
 
     }
 
     public void destroyBean(String beanName, Object beanInstance) {
-        // TODO Auto-generated method stub
 
     }
 
     public void destroyScopedBean(String beanName) {
-        // TODO Auto-generated method stub
 
     }
 
     public void destroySingletons() {
-        // TODO Auto-generated method stub
 
     }
 
     public ClassLoader getBeanClassLoader() {
-        // TODO Auto-generated method stub
         return null;
     }
 
     public int getBeanPostProcessorCount() {
-        // TODO Auto-generated method stub
         return 0;
     }
 
     public String[] getDependenciesForBean(String beanName) {
-        // TODO Auto-generated method stub
         return null;
     }
 
     public String[] getDependentBeans(String beanName) {
-        // TODO Auto-generated method stub
         return null;
     }
 
@@ -348,117 +337,95 @@ public class MockApplicationContext extends
     }
 
     public String[] getRegisteredScopeNames() {
-        // TODO Auto-generated method stub
         return null;
     }
 
     public ClassLoader getTempClassLoader() {
-        // TODO Auto-generated method stub
         return null;
     }
 
     public TypeConverter getTypeConverter() {
-        // TODO Auto-generated method stub
         return null;
     }
 
     public boolean isCacheBeanMetadata() {
-        // TODO Auto-generated method stub
         return false;
     }
 
     public boolean isCurrentlyInCreation(String beanName) {
-        // TODO Auto-generated method stub
         return false;
     }
 
     public boolean isFactoryBean(String name)
                                              throws NoSuchBeanDefinitionException {
-        // TODO Auto-generated method stub
         return false;
     }
 
     public void registerAlias(String beanName, String alias)
                                                             throws BeanDefinitionStoreException {
-        // TODO Auto-generated method stub
 
     }
 
     public void registerCustomEditor(Class requiredType,
             Class propertyEditorClass) {
-        // TODO Auto-generated method stub
 
     }
 
     public void registerCustomEditor(Class requiredType,
             PropertyEditor propertyEditor) {
-        // TODO Auto-generated method stub
 
     }
 
     public void registerDependentBean(String beanName, String dependentBeanName) {
-        // TODO Auto-generated method stub
 
     }
 
     public void registerScope(String scopeName, Scope scope) {
-        // TODO Auto-generated method stub
 
     }
 
     public void resolveAliases(StringValueResolver valueResolver) {
-        // TODO Auto-generated method stub
 
     }
 
     public void setBeanClassLoader(ClassLoader beanClassLoader) {
-        // TODO Auto-generated method stub
 
     }
 
     public void setCacheBeanMetadata(boolean cacheBeanMetadata) {
-        // TODO Auto-generated method stub
 
     }
 
     public void setParentBeanFactory(BeanFactory parentBeanFactory)
                                                                    throws IllegalStateException {
-        // TODO Auto-generated method stub
 
     }
 
     public void setTempClassLoader(ClassLoader tempClassLoader) {
-        // TODO Auto-generated method stub
 
     }
 
     public void setTypeConverter(TypeConverter typeConverter) {
-        // TODO Auto-generated method stub
 
     }
 
     public boolean containsSingleton(String beanName) {
-        // TODO Auto-generated method stub
         return false;
     }
 
     public Object getSingleton(String beanName) {
-        // TODO Auto-generated method stub
         return null;
     }
 
     public int getSingletonCount() {
-        // TODO Auto-generated method stub
         return 0;
     }
 
     public String[] getSingletonNames() {
-        // TODO Auto-generated method stub
         return null;
     }
 
     public void registerSingleton(String beanName, Object singletonObject) {
-        // TODO Auto-generated method stub
 
     }
 
@@ -466,7 +433,6 @@ public class MockApplicationContext extends
     protected void loadBeanDefinitions(DefaultListableBeanFactory beanFactory)
                                                                               throws IOException,
                                                                               BeansException {
-        // TODO Auto-generated method stub
 
     }
 

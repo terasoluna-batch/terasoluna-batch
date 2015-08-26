@@ -31,7 +31,6 @@ public class GenericsUtil_CallableStub02 implements
      * @see java.util.concurrent.Callable#call()
      */
     public Integer call() throws Exception {
-        // TODO Auto-generated method stub
         return null;
     }
 
@@ -39,7 +38,6 @@ public class GenericsUtil_CallableStub02 implements
      * @see java.lang.Comparable#compareTo(java.lang.Object)
      */
     public int compareTo(String o) {
-        // TODO Auto-generated method stub
         return 0;
     }
 
@@ -47,7 +45,6 @@ public class GenericsUtil_CallableStub02 implements
      * @see java.util.Comparator#compare(java.lang.Object, java.lang.Object)
      */
     public int compare(String o1, String o2) {
-        // TODO Auto-generated method stub
         return 0;
     }
 

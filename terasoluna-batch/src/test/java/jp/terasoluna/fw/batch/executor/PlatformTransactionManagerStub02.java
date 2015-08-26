@@ -11,44 +11,35 @@ public class PlatformTransactionManagerStub02 implements PlatformTransactionMana
         return new TransactionStatus() {
 
             public void rollbackToSavepoint(Object savepoint) throws TransactionException {
-                // TODO Auto-generated method stub
             }
 
             public void releaseSavepoint(Object savepoint) throws TransactionException {
-                // TODO Auto-generated method stub
             }
 
             public Object createSavepoint() throws TransactionException {
-                // TODO Auto-generated method stub
                 return null;
             }
 
             public void setRollbackOnly() {
-                // TODO Auto-generated method stub
             }
 
             public boolean isRollbackOnly() {
-                // TODO Auto-generated method stub
                 return false;
             }
 
             public boolean isNewTransaction() {
-                // TODO Auto-generated method stub
                 return false;
             }
 
             public boolean isCompleted() {
-                // TODO Auto-generated method stub
                 return false;
             }
 
             public boolean hasSavepoint() {
-                // TODO Auto-generated method stub
                 return false;
             }
 
             public void flush() {
-                // TODO Auto-generated method stub
             }
         };
     }
@@ -63,6 +54,5 @@ public class PlatformTransactionManagerStub02 implements PlatformTransactionMana
     }
 
     public void rollback(TransactionStatus status) throws TransactionException {
-        // TODO Auto-generated method stub
     }
 }
