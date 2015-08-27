@@ -299,7 +299,7 @@ public final class LogId {
      */
     public static final String IAL025003 = "IAL025003";
     /**
-     * <strong>IAL025004 = �X�e�[�^�X�������O(�W���u�V�[�P���X�R�[�h:{0} blogic�̖߂�l:{1} �C�x���g:{2} �W���u���R�[�h�̃X�e�[�^�X�l:{3} ����:{4})</strong>
+     * <strong>IAL025004 = ステータスが判定基準外(ジョブシーケンスコード:{0} blogicの戻り値:{1} イベント:{2} ジョブレコードのステータス値:{3} 判定:{4})</strong>
      */
     public static final String IAL025004 = "IAL025004";
     /**
