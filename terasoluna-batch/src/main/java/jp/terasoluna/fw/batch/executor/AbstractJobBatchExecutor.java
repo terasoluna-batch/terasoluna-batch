@@ -260,6 +260,8 @@ public abstract class AbstractJobBatchExecutor extends AbstractBatchExecutor {
             return result;
         }
 
+        // finallyブロックでの例外・ジョブステータス更新失敗時の中断判定
+        boolean errorOccuresInFinally = false;
         try {
             // ジョブレコード取得
             BatchJobData jobRecord = null;
@@ -311,22 +313,22 @@ public abstract class AbstractJobBatchExecutor extends AbstractBatchExecutor {
                 // 処理済み →ジョブステータス設定（終了）
                 st = endBatchStatus(jobSequenceId, result,
                         systemDao, sysTransactionManager);
-            } catch (DataAccessException e) {
+            } catch (DataAccessException | TransactionException e) {
                 LOGGER.error(LogId.EAL025025, e, jobSequenceId, result
                         .getBlogicStatus());
-                return result;
-            } catch (TransactionException e) {
-                LOGGER.error(LogId.EAL025025, e, jobSequenceId, result
-                        .getBlogicStatus());
-                return result;
+                errorOccuresInFinally = true;
             }
             if (!st) {
                 if (LOGGER.isErrorEnabled()) {
                     LOGGER.error(LogId.EAL025025, jobSequenceId, result
                             .getBlogicStatus());
                 }
-                return result;
+                errorOccuresInFinally = true;
             }
+        }
+
+        if (errorOccuresInFinally) {
+            return result;
         }
 
         if (LOGGER.isInfoEnabled()) {
