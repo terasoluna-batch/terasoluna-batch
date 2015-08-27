@@ -12,8 +12,10 @@ import jp.terasoluna.fw.file.dao.FileException;
 import jp.terasoluna.utlib.UTUtil;
 import junit.framework.TestCase;
 
-import org.easymock.classextension.EasyMock;
 import org.junit.Test;
+
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 /**
  * @author btkamaguchit
@@ -33,8 +35,7 @@ public class LineFeed0LineReaderTest extends TestCase {
         int totalBytes = 10;
 
         // テスト実施
-        LineFeed0LineReader target = new LineFeed0LineReader(reader, encoding,
-                totalBytes);
+        LineFeed0LineReader target = new LineFeed0LineReader(reader, encoding, totalBytes);
 
         // 判定
         assertNotNull(reader);
@@ -126,8 +127,7 @@ public class LineFeed0LineReaderTest extends TestCase {
         String encoding = "UTF-8";
         int totalBytes = 4;
 
-        LineFeed0LineReader target = new LineFeed0LineReader(reader, encoding,
-                totalBytes);
+        LineFeed0LineReader target = new LineFeed0LineReader(reader, encoding, totalBytes);
 
         // テスト実施
         // 判定
@@ -152,8 +152,7 @@ public class LineFeed0LineReaderTest extends TestCase {
         String encoding = "UTF-8";
         int totalBytes = 4;
 
-        LineFeed0LineReader target = new LineFeed0LineReader(reader, encoding,
-                totalBytes);
+        LineFeed0LineReader target = new LineFeed0LineReader(reader, encoding, totalBytes);
 
         // テスト実施
         // 判定
@@ -178,8 +177,7 @@ public class LineFeed0LineReaderTest extends TestCase {
         String encoding = "UTF-8";
         int totalBytes = 4;
 
-        LineFeed0LineReader target = new LineFeed0LineReader(reader, encoding,
-                totalBytes);
+        LineFeed0LineReader target = new LineFeed0LineReader(reader, encoding, totalBytes);
 
         // テスト実施
         // 判定
@@ -204,8 +202,7 @@ public class LineFeed0LineReaderTest extends TestCase {
         String encoding = "UTF-8";
         int totalBytes = 4;
 
-        LineFeed0LineReader target = new LineFeed0LineReader(reader, encoding,
-                totalBytes);
+        LineFeed0LineReader target = new LineFeed0LineReader(reader, encoding, totalBytes);
 
         // テスト実施
         // 判定
@@ -229,8 +226,7 @@ public class LineFeed0LineReaderTest extends TestCase {
         String encoding = "Shift-JIS";
         int totalBytes = 4;
 
-        LineFeed0LineReader target = new LineFeed0LineReader(reader, encoding,
-                totalBytes);
+        LineFeed0LineReader target = new LineFeed0LineReader(reader, encoding, totalBytes);
 
         // テスト実施
         // 判定
@@ -255,8 +251,7 @@ public class LineFeed0LineReaderTest extends TestCase {
         String encoding = "Shift-JIS";
         int totalBytes = 4;
 
-        LineFeed0LineReader target = new LineFeed0LineReader(reader, encoding,
-                totalBytes);
+        LineFeed0LineReader target = new LineFeed0LineReader(reader, encoding, totalBytes);
 
         // テスト実施
         // 判定
@@ -280,8 +275,7 @@ public class LineFeed0LineReaderTest extends TestCase {
         String encoding = "EUC-JP";
         int totalBytes = 4;
 
-        LineFeed0LineReader target = new LineFeed0LineReader(reader, encoding,
-                totalBytes);
+        LineFeed0LineReader target = new LineFeed0LineReader(reader, encoding, totalBytes);
 
         // テスト実施
         // 判定
@@ -306,8 +300,7 @@ public class LineFeed0LineReaderTest extends TestCase {
         String encoding = "EUC-JP";
         int totalBytes = 4;
 
-        LineFeed0LineReader target = new LineFeed0LineReader(reader, encoding,
-                totalBytes);
+        LineFeed0LineReader target = new LineFeed0LineReader(reader, encoding, totalBytes);
 
         // テスト実施
         // 判定
@@ -331,8 +324,7 @@ public class LineFeed0LineReaderTest extends TestCase {
         String encoding = "";
         int totalBytes = 10;
 
-        LineFeed0LineReader target = new LineFeed0LineReader(reader, encoding,
-                totalBytes);
+        LineFeed0LineReader target = new LineFeed0LineReader(reader, encoding, totalBytes);
         // テスト実施
         try {
             target.readLine();
@@ -357,13 +349,10 @@ public class LineFeed0LineReaderTest extends TestCase {
         int totalBytes = 10;
 
         // Mock作成
-        Reader reader = EasyMock.createMock(Reader.class);
-        EasyMock.expect(reader.read()).andReturn(null).andThrow(
-                new IOException());
-        EasyMock.replay(reader);
+        Reader reader = mock(Reader.class);
+        when(reader.read()).thenThrow(new IOException());
 
-        LineFeed0LineReader target = new LineFeed0LineReader(reader, encoding,
-                totalBytes);
+        LineFeed0LineReader target = new LineFeed0LineReader(reader, encoding, totalBytes);
         // テスト実施
         try {
             target.readLine();

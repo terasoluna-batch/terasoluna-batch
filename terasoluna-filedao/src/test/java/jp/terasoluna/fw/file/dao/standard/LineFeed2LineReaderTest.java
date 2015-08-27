@@ -18,7 +18,8 @@ import jp.terasoluna.fw.file.dao.FileException;
 import jp.terasoluna.utlib.UTUtil;
 import junit.framework.TestCase;
 
-import org.easymock.classextension.EasyMock;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.LineFeed2LineReader} クラスのテスト。
@@ -97,8 +98,7 @@ public class LineFeed2LineReaderTest extends TestCase {
         // なし
 
         // テスト実施
-        LineFeed2LineReader result = new LineFeed2LineReader(reader,
-                lineFeedChar);
+        LineFeed2LineReader result = new LineFeed2LineReader(reader, lineFeedChar);
 
         // 返却値の確認
         // なし
@@ -260,15 +260,12 @@ public class LineFeed2LineReaderTest extends TestCase {
      */
     public void testReadLine01() throws Exception {
         // Mock作成
-        Reader reader = EasyMock.createMock(Reader.class);
-        EasyMock.expect(reader.read()).andReturn(null).andThrow(
-                new IOException());
-        EasyMock.replay(reader);
+        Reader reader = mock(Reader.class);
+        when(reader.read()).thenThrow(new IOException());
 
         // テスト対象のインスタンス化
         String lineFeedChar = "\r\n";
-        LineFeed2LineReader lineFeed2LineReader = new LineFeed2LineReader(
-                reader, lineFeedChar);
+        LineFeed2LineReader lineFeed2LineReader = new LineFeed2LineReader(reader, lineFeedChar);
 
         // 引数の設定
         // なし
@@ -316,8 +313,7 @@ public class LineFeed2LineReaderTest extends TestCase {
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         BufferedReader reader = new BufferedReader(inputStreamReader);
         String lineFeedChar = "\r\n";
-        LineFeed2LineReader lineFeed2LineReader = new LineFeed2LineReader(
-                reader, lineFeedChar);
+        LineFeed2LineReader lineFeed2LineReader = new LineFeed2LineReader(reader, lineFeedChar);
 
         // 引数の設定
         // なし
@@ -360,8 +356,7 @@ public class LineFeed2LineReaderTest extends TestCase {
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         BufferedReader reader = new BufferedReader(inputStreamReader);
         String lineFeedChar = "\r\n";
-        LineFeed2LineReader lineFeed2LineReader = new LineFeed2LineReader(
-                reader, lineFeedChar);
+        LineFeed2LineReader lineFeed2LineReader = new LineFeed2LineReader(reader, lineFeedChar);
 
         // 引数の設定
         // なし
@@ -404,8 +399,7 @@ public class LineFeed2LineReaderTest extends TestCase {
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         BufferedReader reader = new BufferedReader(inputStreamReader);
         String lineFeedChar = "\r\n";
-        LineFeed2LineReader lineFeed2LineReader = new LineFeed2LineReader(
-                reader, lineFeedChar);
+        LineFeed2LineReader lineFeed2LineReader = new LineFeed2LineReader(reader, lineFeedChar);
 
         // 引数の設定
         // なし
@@ -443,15 +437,12 @@ public class LineFeed2LineReaderTest extends TestCase {
      */
     public void testReadLine05() throws Exception {
         // Mock作成
-        Reader reader = EasyMock.createMock(Reader.class);
-        EasyMock.expect(reader.read()).andReturn(null).andThrow(
-                new IOException());
-        EasyMock.replay(reader);
+        Reader reader = mock(Reader.class);
+        when(reader.read()).thenThrow(new IOException());
 
         // テスト対象のインスタンス化
         String lineFeedChar = "\r\n";
-        LineFeed2LineReader lineFeed2LineReader = new LineFeed2LineReader(
-                reader, lineFeedChar);
+        LineFeed2LineReader lineFeed2LineReader = new LineFeed2LineReader(reader, lineFeedChar);
 
         // 引数の設定
         // なし
@@ -499,8 +490,7 @@ public class LineFeed2LineReaderTest extends TestCase {
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         BufferedReader reader = new BufferedReader(inputStreamReader);
         String lineFeedChar = "\r\n";
-        LineFeed2LineReader lineFeed2LineReader = new LineFeed2LineReader(
-                reader, lineFeedChar);
+        LineFeed2LineReader lineFeed2LineReader = new LineFeed2LineReader(reader, lineFeedChar);
 
         // 引数の設定
         // なし
@@ -543,8 +533,7 @@ public class LineFeed2LineReaderTest extends TestCase {
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         BufferedReader reader = new BufferedReader(inputStreamReader);
         String lineFeedChar = "\r\n";
-        LineFeed2LineReader lineFeed2LineReader = new LineFeed2LineReader(
-                reader, lineFeedChar);
+        LineFeed2LineReader lineFeed2LineReader = new LineFeed2LineReader(reader, lineFeedChar);
 
         // 引数の設定
         // なし
@@ -587,8 +576,7 @@ public class LineFeed2LineReaderTest extends TestCase {
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         BufferedReader reader = new BufferedReader(inputStreamReader);
         String lineFeedChar = "\r\n";
-        LineFeed2LineReader lineFeed2LineReader = new LineFeed2LineReader(
-                reader, lineFeedChar);
+        LineFeed2LineReader lineFeed2LineReader = new LineFeed2LineReader(reader, lineFeedChar);
 
         // 引数の設定
         // なし
