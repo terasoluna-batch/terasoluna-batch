@@ -746,4 +746,8 @@ public final class LogId {
      * <strong>EAL025090 = An exception occurred at BLogic execution. This error log should be logged by the exception-handler, but the handler is not set.</strong>
      */
     public static final String EAL025090 = "EAL025090";
+    /**
+     * <strong>EAL025091 = [Assertion failed] - AsyncJobLauncherImpl constructor needs ExceptionStatusHandler.</strong>
+     */
+    public static final String EAL025091 = "EAL025091";
 }
