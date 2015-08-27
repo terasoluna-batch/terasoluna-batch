@@ -19,12 +19,17 @@ package jp.terasoluna.fw.batch.executor.repository;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.util.Assert;
+
 import jp.terasoluna.fw.batch.constants.JobStatusConstants;
+import jp.terasoluna.fw.batch.constants.LogId;
+import jp.terasoluna.fw.batch.executor.controller.AsyncJobOperatorImpl;
 import jp.terasoluna.fw.batch.executor.dao.SystemDao;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobListParam;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobListResult;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobManagementParam;
+import jp.terasoluna.fw.logger.TLogger;
 
 /**
  * ジョブパラメータ解決の実装クラス。<br>
@@ -33,13 +38,19 @@ import jp.terasoluna.fw.batch.executor.vo.BatchJobManagementParam;
  */
 public class BatchJobDataRepositoryImpl implements BatchJobDataRepository {
 
+    /**
+     * ロガー。<br>
+     */
+    private static final TLogger LOGGER = TLogger.getLogger(
+            AsyncJobOperatorImpl.class);
+
     protected SystemDao systemDao;
 
     /**
      * コンストラクタ。
      */
     public BatchJobDataRepositoryImpl(SystemDao systemDao) {
-        super();
+        Assert.notNull(systemDao, LOGGER.getLogMessage(LogId.EAL025069));
         this.systemDao = systemDao;
     }
 
@@ -78,8 +89,8 @@ public class BatchJobDataRepositoryImpl implements BatchJobDataRepository {
         BatchJobManagementParam batchJobManagementParam = new BatchJobManagementParam();
         batchJobManagementParam.setJobSequenceId(jobSequenceId);
 
-        BatchJobData batchJobData = systemDao
-                .selectJob(batchJobManagementParam);
+        BatchJobData batchJobData = systemDao.selectJob(
+                batchJobManagementParam);
 
         // 念のためトリムする
         if (batchJobData.getJobAppCd() != null) {

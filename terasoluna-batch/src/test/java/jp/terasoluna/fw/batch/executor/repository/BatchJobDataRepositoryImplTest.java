@@ -18,9 +18,11 @@ package jp.terasoluna.fw.batch.executor.repository;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 
+import jp.terasoluna.fw.batch.executor.controller.AsyncJobOperatorImpl;
 import jp.terasoluna.fw.batch.executor.dao.SystemDao;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobListParam;
@@ -216,4 +218,30 @@ public class BatchJobDataRepositoryImplTest {
         // 結果検証
         assertNull(batchJobData.getJobSequenceId());
     }
+
+    /**
+     * コンストラクタのテスト 【異常系】
+     * <pre>
+     * 事前条件
+     * ・とくになし
+     * 確認項目
+     * ・{@code systemDao}がnullであるとき、アサーションエラーとして
+            * 　{@code IllegalArgumentException}がスローされること。
+     * </pre>
+     *
+     * @throws Exception 予期しない例外
+     */
+    @Test
+    public void testBatchJobDataRepositoryImpl01() throws Exception {
+        try {
+            // テスト実行
+            new BatchJobDataRepositoryImpl(null);
+            fail();
+        } catch (IllegalArgumentException e) {
+            assertEquals(
+                    "[EAL025069] [Assertion failed] - BatchJobDataRepositoryImpl constructor needs SystemDao",
+                    e.getMessage());
+        }
+    }
+
 }
