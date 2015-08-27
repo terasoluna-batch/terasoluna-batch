@@ -20,6 +20,7 @@ import jp.terasoluna.fw.collector.AbstractCollector;
 import jp.terasoluna.fw.collector.LogId;
 import jp.terasoluna.fw.collector.exception.CollectorExceptionHandler;
 import jp.terasoluna.fw.collector.vo.DataValueObject;
+import jp.terasoluna.fw.exception.ExceptionConfig;
 import jp.terasoluna.fw.exception.SystemException;
 import jp.terasoluna.fw.logger.TLogger;
 
@@ -196,7 +197,8 @@ public class DaoCollector<P> extends AbstractCollector<P> {
                             || DaoCollectorPrePostProcessStatus.THROW
                                     .equals(expStatus)) {
                         // 例外をスロー
-                        throw th;
+                        handleException(th);
+                        return -1;
                     } else if (DaoCollectorPrePostProcessStatus.END
                                     .equals(expStatus)) {
                         // 例外をスローせずに終了
@@ -210,29 +212,38 @@ public class DaoCollector<P> extends AbstractCollector<P> {
                 // ステータスがリトライなら再度SQLを実行する
             } while (expStatus != null
                     && DaoCollectorPrePostProcessStatus.RETRY.equals(expStatus));
-        } catch (Throwable e) {
-            // シャットダウン中は発生した例外をキューに詰めない
-            if (!isFinish()) {
-                // 発生した例外をキューにつめる
-                try {
-                    addQueue(new DataValueObject(e));
-                } catch (InterruptedException ie) {
-                    LOGGER.warn(LogId.WAL041003, e);
-                    LOGGER.warn(LogId.WAL041003, ie);
-                }
-
-                if (LOGGER.isDebugEnabled()) {
-                    LOGGER.debug(LogId.DAL041002, e.getClass().getName(),
-                            Thread.currentThread().getName());
-                }
-            }
-
+        } catch (Exception e) {
+            handleException(e);
             return -1;
         } finally {
             setFinish();
         }
 
         return 0;
+    }
+
+    /**
+     * コレクタの行処理と割り込みでThrowableがスローされた場合の
+     * エンキューを行う。
+     *
+     * @param th Throwable
+     */
+    protected void handleException(Throwable th) {
+        // シャットダウン中は発生した例外をキューに詰めない
+        if (!isFinish()) {
+            // 発生した例外をキューにつめる
+            try {
+                addQueue(new DataValueObject(th));
+            } catch (InterruptedException ie) {
+                LOGGER.warn(LogId.WAL041003, th);
+                LOGGER.warn(LogId.WAL041003, ie);
+            }
+
+            if (LOGGER.isDebugEnabled()) {
+                LOGGER.debug(LogId.DAL041002, th.getClass().getName(),
+                        Thread.currentThread().getName());
+            }
+        }
     }
 
     /**

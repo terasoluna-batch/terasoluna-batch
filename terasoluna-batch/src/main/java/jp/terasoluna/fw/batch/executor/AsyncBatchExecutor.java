@@ -32,6 +32,7 @@ import jp.terasoluna.fw.logger.TLogger;
 import jp.terasoluna.fw.util.PropertyUtil;
 
 import org.apache.commons.logging.Log;
+import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.core.task.TaskRejectedException;
@@ -368,7 +369,7 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
      */
     public static int executorMain(String[] args) {
         int status = PROCESS_END_STATUS_FAILURE;
-        Throwable throwable = null;
+        Exception exception = null;
         String jobAppCd = null;
         String batchTaskExecutorName = null;
         String batchTaskServantName = null;
@@ -420,7 +421,7 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
                 try {
                     batchTaskExecutorObj = ctx.getBean(batchTaskExecutorName,
                             ThreadPoolTaskExecutor.class);
-                } catch (Throwable e) {
+                } catch (BeansException e) {
                     LOGGER.error(LogId.EAL025029, e, batchTaskExecutorName);
                 }
                 if (batchTaskExecutorObj instanceof ThreadPoolTaskExecutor) {
@@ -503,9 +504,9 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
                 }
                 // 常駐用にループ
             } while (true);
-        } catch (Throwable e) {
+        } catch (Exception e) {
             // 一旦保存しておく
-            throwable = e;
+            exception = e;
         } finally {
             LOGGER.debug(LogId.DAL025028);
 
@@ -534,13 +535,13 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
             closeRootApplicationContext(ctx);
         }
 
-        if (throwable != null) {
-            if (throwable instanceof DataAccessException) {
-                throw new RetryableExecuteException(throwable);
-            } else if (throwable instanceof TransactionException) {
-                throw new RetryableExecuteException(throwable);
+        if (exception != null) {
+            if (exception instanceof DataAccessException) {
+                throw new RetryableExecuteException(exception);
+            } else if (exception instanceof TransactionException) {
+                throw new RetryableExecuteException(exception);
             }
-            Throwable cause = throwable.getCause();
+            Throwable cause = exception.getCause();
             if (cause != null && cause instanceof DataAccessException) {
                 // 原因例外がDataAccessExceptionの場合はステータス開始・変更時の
                 // DBフェイルオーバーを考慮し、リトライ例外としてメインメソッドにスローする。
@@ -597,7 +598,7 @@ public class AsyncBatchExecutor extends AbstractJobBatchExecutor {
             try {
                 job = (BatchServant) ctx.getBean(batchTaskServantName,
                         BatchServant.class);
-            } catch (Throwable e) {
+            } catch (BeansException e) {
                 LOGGER.error(LogId.EAL025030, e, batchTaskServantName);
                 return status;
             }

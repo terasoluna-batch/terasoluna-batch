@@ -39,6 +39,7 @@ import jp.terasoluna.fw.batch.util.MessageUtil;
 import jp.terasoluna.fw.logger.TLogger;
 import jp.terasoluna.fw.util.PropertyUtil;
 
+import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -419,7 +420,7 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
             try {
                 messageAccessor = defaultApplicationContext
                         .getBean(value, MessageAccessor.class);
-            } catch (Throwable e) {
+            } catch (BeansException e) {
                 if (LOGGER.isWarnEnabled()) {
                     LOGGER.warn(LogId.WAL025001, value, getThreadMessage());
                 }
@@ -670,7 +671,7 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
             try {
                 blogic = (BLogic) context.getBean(findBlogicBeanName,
                         BLogic.class);
-            } catch (Throwable e) {
+            } catch (BeansException e) {
                 LOGGER.error(LogId.EAL025009, blogicBeanName);
                 return result;
             }
@@ -696,7 +697,7 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
             try {
                 exceptionHandler = (ExceptionHandler) context.getBean(
                         findExceptionHandlerBeanName, ExceptionHandler.class);
-            } catch (Throwable e) {
+            } catch (BeansException e) {
                 LOGGER.trace(LogId.TAL025002, e, exceptionHandlerBeanName);
                 // 例外ハンドラは見つからなくても続行
             }
@@ -710,7 +711,7 @@ public abstract class AbstractBatchExecutor implements BatchExecutor {
                     exceptionHandler = (ExceptionHandler) context.getBean(
                             getDefaultExceptionHandlerBeanName(),
                             ExceptionHandler.class);
-                } catch (Throwable e) {
+                } catch (BeansException e) {
                     LOGGER.trace(LogId.TAL025002, e, exceptionHandlerBeanName);
                     // 例外ハンドラは見つからなくても続行
                 }

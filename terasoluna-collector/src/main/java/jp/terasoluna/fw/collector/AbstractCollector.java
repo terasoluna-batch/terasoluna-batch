@@ -150,7 +150,7 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
                         try {
                             // 別スレッドで実行
                             this.fo = ex.submit(callable);
-                        } catch (Throwable e) {
+                        } catch (Exception e) {
                             SystemException exception = new SystemException(e);
                             exception
                                     .setMessage("The thread cannot be started.");
@@ -704,7 +704,7 @@ public abstract class AbstractCollector<P> implements Collector<P>, Closeable,
             if (this.validator != null) {
                 try {
                     vs = validate(dataValueObject);
-                } catch (Throwable e) {
+                } catch (Exception e) {
                     // 取得したデータに発生した例外を設定し1件キューにつめる
                     if (dataValueObject == null) {
                         this.queue.put(new DataValueObject(e));

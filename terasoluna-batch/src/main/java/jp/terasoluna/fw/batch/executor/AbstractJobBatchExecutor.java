@@ -27,6 +27,7 @@ import jp.terasoluna.fw.batch.util.JobUtil;
 import jp.terasoluna.fw.logger.TLogger;
 import jp.terasoluna.fw.util.PropertyUtil;
 
+import org.springframework.beans.BeansException;
 import org.springframework.dao.DataAccessException;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionException;
@@ -172,7 +173,7 @@ public abstract class AbstractJobBatchExecutor extends AbstractBatchExecutor {
                 try {
                     systemDao = defaultApplicationContext.getBean(
                             systemDaoKey, SystemDao.class);
-                } catch (Throwable e) {
+                } catch (BeansException e) {
                     LOGGER.error(LogId.EAL025051, e, systemDaoKey);
                 }
             }
@@ -186,7 +187,7 @@ public abstract class AbstractJobBatchExecutor extends AbstractBatchExecutor {
                     sysTransactionManager = defaultApplicationContext
                             .getBean(transactionManagerKey,
                                     PlatformTransactionManager.class);
-                } catch (Throwable e) {
+                } catch (BeansException e) {
                     LOGGER.error(LogId.EAL025019, e, transactionManagerKey);
                 }
             }
