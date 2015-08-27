@@ -16,12 +16,7 @@
 
 package jp.terasoluna.fw.batch.util;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Writer;
+import java.io.*;
 import java.net.URL;
 import java.nio.channels.Channel;
 import java.util.Random;
@@ -107,7 +102,7 @@ public class FastFileUtilityTest extends TestCase {
     /**
      * testCopyFile03()<br>
      * <br>
-     * 事前状態：クラスパス/testdata 配下にtest03.txtが存在し、読み取り権限がないこと<br>
+     * 事前状態：null文字（\u0000）を含むファイル名を指定する。<br>
      * <br>
      * テスト概要：ファイルが読み込まれず、FileExceptionがスローされることを確認する。<br>
      * <br>
@@ -118,11 +113,8 @@ public class FastFileUtilityTest extends TestCase {
      * @throws Exception
      */
     public void testCopyFile03() throws Exception {
-
-        URL srcUrl = this.getClass().getResource("/testdata/test03.txt");
-        String srcFile = srcUrl.getPath();
-        String newFile = srcFile.replaceAll("03", "03A");
-
+        File srcFile = new File("dummy\u0000.txt");
+        File newFile = new File("newFile");
         try {
             FastFileUtility.copyFile(srcFile, newFile);
             fail();
