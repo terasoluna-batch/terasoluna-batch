@@ -41,13 +41,14 @@ import java.util.concurrent.TimeUnit;
  * @see java.util.concurrent.ThreadPoolExecutor
  * @since 3.6
  */
-public class AsyncJobLauncherImpl implements AsyncJobLauncher, InitializingBean {
+public class AsyncJobLauncherImpl implements AsyncJobLauncher,
+                                  InitializingBean {
 
     /**
      * ロガー。
      */
-    private static final TLogger LOGGER = TLogger
-            .getLogger(AsyncJobLauncherImpl.class);
+    private static final TLogger LOGGER = TLogger.getLogger(
+            AsyncJobLauncherImpl.class);
 
     /**
      * {@code ThreadPoolTaskExecutor}のデリゲータ。
@@ -58,6 +59,11 @@ public class AsyncJobLauncherImpl implements AsyncJobLauncher, InitializingBean 
      * ジョブ実行のテンプレート機能。
      */
     protected JobExecutorTemplate jobExecutorTemplate;
+
+    /**
+     * フレームワーク機能内部で発生した例外によるハンドリング機能。
+     */
+    protected ExceptionStatusHandler exceptionStatusHandler;
 
     /**
      * 非同期バッチ待ち状態解決の公平性。デフォルト：{@code true}
@@ -79,17 +85,22 @@ public class AsyncJobLauncherImpl implements AsyncJobLauncher, InitializingBean 
      * コンストラクタ。<br>
      * @param threadPoolTaskExecutorDelegate {@code ThreadPoolTaskExecutor}のデリゲータ
      * @param jobExecutorTemplate ジョブの前処理と主処理を定義するテンプレート
+     * @param exceptionStatusHandler フレームワーク内部の例外を処理するハンドラ
      */
     public AsyncJobLauncherImpl(
             ThreadPoolTaskExecutorDelegate threadPoolTaskExecutorDelegate,
-            JobExecutorTemplate jobExecutorTemplate) {
-        Assert.notNull(threadPoolTaskExecutorDelegate, LOGGER
-                .getLogMessage(LogId.EAL025055));
-        Assert.notNull(jobExecutorTemplate, LOGGER
-                .getLogMessage(LogId.EAL025057));
+            JobExecutorTemplate jobExecutorTemplate,
+            ExceptionStatusHandler exceptionStatusHandler) {
+        Assert.notNull(threadPoolTaskExecutorDelegate, LOGGER.getLogMessage(
+                LogId.EAL025055));
+        Assert.notNull(jobExecutorTemplate, LOGGER.getLogMessage(
+                LogId.EAL025057));
+        Assert.notNull(exceptionStatusHandler, LOGGER.getLogMessage(
+                LogId.EAL025091));
 
         this.threadPoolTaskExecutorDelegate = threadPoolTaskExecutorDelegate;
         this.jobExecutorTemplate = jobExecutorTemplate;
+        this.exceptionStatusHandler = exceptionStatusHandler;
     }
 
     /**
@@ -112,8 +123,8 @@ public class AsyncJobLauncherImpl implements AsyncJobLauncher, InitializingBean 
             taskPoolLimit.acquire();
             boolean beforeExecuteStatus = false;
             try {
-                beforeExecuteStatus = jobExecutorTemplate
-                        .beforeExecute(jobSequenceId);
+                beforeExecuteStatus = jobExecutorTemplate.beforeExecute(
+                        jobSequenceId);
             } catch (RuntimeException e) {
                 taskPoolLimit.release();
                 throw e;
@@ -129,7 +140,6 @@ public class AsyncJobLauncherImpl implements AsyncJobLauncher, InitializingBean 
                     try {
                         jobExecutorTemplate.executeWorker(jobSequenceId);
                     } catch (RuntimeException e) {
-                        ExceptionStatusHandler exceptionStatusHandler = new ExceptionStatusHandlerImpl();
                         exceptionStatusHandler.handleException(e);
                     } finally {
                         taskPoolLimit.release();
@@ -161,8 +171,8 @@ public class AsyncJobLauncherImpl implements AsyncJobLauncher, InitializingBean 
             }
             try {
                 LOGGER.debug(LogId.DAL025031, executeCount);
-                TimeUnit.MILLISECONDS
-                        .sleep(executorJobTerminateWaitIntervalTime);
+                TimeUnit.MILLISECONDS.sleep(
+                        executorJobTerminateWaitIntervalTime);
             } catch (InterruptedException e) {
                 // Do nothing.
             }
