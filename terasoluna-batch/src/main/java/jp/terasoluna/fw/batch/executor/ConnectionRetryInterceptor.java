@@ -30,6 +30,31 @@ import org.springframework.dao.DataAccessException;
 
 /**
  * コネクションのリトライを行なうインターセプター<br>
+ * データベースに接続する際に、retryInterval(デフォルト20000ミリ秒)の間待機しながら、最大maxRetryCount(デフォルト0回)回リトライを行なう。
+ * なお、リトライ処理時間がretryReset(デフォルト600000ミリ秒)経過した場合、リトライ回数はリセットされる。<br />
+ * 本機能を利用するにはBean定義が必要となる。
+ * 以下は{@code ConnectionRetryInterceptor}のBean定義の設定例である。
+ * <code><pre>
+ *  &lt;bean id=&quot;connectionRetryInterceptor&quot; class=&quot;jp.terasoluna.fw.batch.executor.ConnectionRetryInterceptor&quot; /&gt;
+ *  &lt;aop:config&gt;
+ *      &lt;aop:pointcut id=&quot;connectionRetrｋyPointcut&quot;
+ *        expression=&quot;execution(* jp.terasoluna.fw.batch.executor.repository.BatchStatusChanger.*(..)) ||
+ *                    execution(* jp.terasoluna.fw.batch.executor.repository.BatchJobDataResolver.*(..))&quot;/&gt;
+ *      &lt;aop:advisor advice-ref=&quot;connectionRetryInterceptor&quot; pointcut-ref=&quot;connectionRetryPointcut&quot;/&gt;
+ *  &lt;/aop:config&gt;
+ * </pre></code>
+ * リトライ対象となる例外。その他の例外が発生した場合は、その例外がスローされる。
+ * <ol>
+ * <li>DataAccessException</li>
+ * <li>TransactionException</li>
+ * <li>RetryableExecuteException</li>
+ * </ol>
+ * リトライ正常終了時は例外をスローすることなく処理を終了する(リトライを示すINFOログは出力される)。リトライ回数を超えたときは、最後に発生した例外をスローする。
+ * また、RetryableExecuteExceptionについては、原因となる例外がスローされる。
+ * なお、retryResetを短めに設定すると(たとえば、retryReset > retryIntervalのような場合)、リトライ回数がリセットされるため例外がスローされる間無限ループになりうる点には注意が必要である。
+ * @see DataAccessException
+ * @see TransactionException
+ * @see RetryableExecuteException
  * @since 3.6
  */
 public class ConnectionRetryInterceptor implements MethodInterceptor {
@@ -50,17 +75,19 @@ public class ConnectionRetryInterceptor implements MethodInterceptor {
     private volatile long retryInterval;
 
     /**
-     * リトライ回数をリセットする、前回からの発生間隔のデフォルト値
+     * リトライ回数をリセットする、前回からの発生間隔(ミリ秒)
      */
     @Value("${batchTaskExecutor.dbAbnormalRetryReset:600000}")
     private volatile long retryReset;
 
     /**
-     * @{inheritDoc
+     * 対象となる例外が発生したときにデータベース接続のリトライを実施する
+     * リトライは、retryIntervalの間待機したのちに、最大maxRetryCount回行なう。
+     * 前回のリトライからretryResetミリ秒経過している場合は、リトライ実施回数カウンタをリセットする。
      */
     public Object invoke(MethodInvocation invocation) throws Throwable {
         int retryCount = 0;
-        Exception cause = null;
+        Throwable cause = null;
         Object returnObject = null;
         long lastExceptionTime = System.currentTimeMillis();
         while (true) {
@@ -70,15 +97,13 @@ public class ConnectionRetryInterceptor implements MethodInterceptor {
                 break;
             } catch (DataAccessException | TransactionException | RetryableExecuteException e) {
                 if (System.currentTimeMillis() - lastExceptionTime > retryReset) {
-                    // 互換性を考慮し、ログは出力しない。
                     retryCount = 0;
                 }
                 lastExceptionTime = System.currentTimeMillis();
 
                 if (e instanceof RetryableExecuteException) {
                     // リトライオーバー時のスロー対象にする。
-                    // 互換性を考慮し、ログは出力しない。
-                    cause = ((RetryableExecuteException) e.getCause());
+                    cause = e.getCause();
                 } else {
                     cause = e;
                 }
@@ -92,7 +117,6 @@ public class ConnectionRetryInterceptor implements MethodInterceptor {
                 retryCount++;
                 LOGGER.info(LogId.IAL025017, retryCount, maxRetryCount,
                         retryReset, retryInterval);
-                // 互換性を考慮し、トレースログはそのまま出力する。
                 if (LOGGER.isTraceEnabled()) {
                     LOGGER.trace(LogId.TAL025010, BatchUtil.getMemoryInfo());
                 }
