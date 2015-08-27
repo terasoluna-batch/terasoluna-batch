@@ -375,7 +375,7 @@ public class AsyncJobLauncherImplTest {
         doReturn(true).when(jobExecutorTemplate).beforeExecute(anyString());
         doNothing().when(jobExecutorTemplate).executeWorker(anyString());
         Semaphore semaphore = new Semaphore(10);
-        doAnswer(new Answer() {
+        doAnswer(new Answer<Object>() {
             @Override
             public Object answer(
                     InvocationOnMock invocationOnMock) throws Throwable {
@@ -451,6 +451,7 @@ public class AsyncJobLauncherImplTest {
     @Test
     public void testExecuteJob07() throws Exception {
         final ThreadPoolTaskExecutor threadPoolTaskExecutor = new ThreadPoolTaskExecutor() {
+            private static final long serialVersionUID = 1L;
             {
                 setCorePoolSize(3);
                 setMaxPoolSize(3);
@@ -459,7 +460,7 @@ public class AsyncJobLauncherImplTest {
         };
         doReturn(true).when(jobExecutorTemplate).beforeExecute(anyString());
         // ThreadPoolTaskExecutorDelegateImplのエミュレーション。
-        doAnswer(new Answer() {
+        doAnswer(new Answer<Object>() {
             @Override
             public Object answer(InvocationOnMock invocation) throws Throwable {
                 threadPoolTaskExecutor.execute(invocation.getArgumentAt(0,
@@ -552,7 +553,7 @@ public class AsyncJobLauncherImplTest {
         doThrow(runtimeException).when(jobExecutorTemplate).executeWorker(
                 "0000000001");
         Semaphore semaphore = new Semaphore(10);
-        doAnswer(new Answer() {
+        doAnswer(new Answer<Object>() {
             @Override
             public Object answer(
                     InvocationOnMock invocationOnMock) throws Throwable {
@@ -804,7 +805,7 @@ class AnswerWithLock implements Answer<Object> {
      * @param queue 実行メッセージの格納キュー
      * @param runningLatch 開始メッセージのインキューまで進行停止
      */
-    AnswerWithLock(Queue queue, CountDownLatch runningLatch) {
+    AnswerWithLock(Queue<String> queue, CountDownLatch runningLatch) {
         this.queue = queue;
         this.runningLatch = runningLatch;
     }
