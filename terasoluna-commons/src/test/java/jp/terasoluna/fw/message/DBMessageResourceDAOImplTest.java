@@ -21,27 +21,30 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
-import jp.terasoluna.utlib.LogUTUtil;
 import jp.terasoluna.utlib.MockDataSource;
 import jp.terasoluna.utlib.UTUtil;
 import junit.framework.TestCase;
+import uk.org.lidalia.slf4jtest.TestLogger;
+import uk.org.lidalia.slf4jtest.TestLoggerFactory;
+import static uk.org.lidalia.slf4jtest.LoggingEvent.error;
+import static java.util.Arrays.asList;
+import static org.hamcrest.core.Is.*;
+import static org.junit.Assert.*;
 
 /**
- * {@link jp.terasoluna.fw.message.DBMessageResourceDAOImpl}
- * クラスのブラックボックステスト。
+ * {@link jp.terasoluna.fw.message.DBMessageResourceDAOImpl} クラスのブラックボックステスト。
  * <p>
- * <h4>【クラスの概要】</h4>
- * DBからメッセージリソースを取得するDBMessageResourceDAOの実装クラス
+ * <h4>【クラスの概要】</h4> DBからメッセージリソースを取得するDBMessageResourceDAOの実装クラス
  * <p>
- * 
  * @see jp.terasoluna.fw.message.DBMessageResourceDAOImpl
  */
 public class DBMessageResourceDAOImplTest extends TestCase {
 
+    private TestLogger logger = TestLoggerFactory.getTestLogger(
+            DBMessageResourceDAOImpl.class);
 
     /**
      * 初期化処理を行う。
-     * 
      * @throws Exception このメソッドで発生した例外
      * @see junit.framework.TestCase#setUp()
      */
@@ -52,7 +55,6 @@ public class DBMessageResourceDAOImplTest extends TestCase {
 
     /**
      * 終了処理を行う。
-     * 
      * @throws Exception このメソッドで発生した例外
      * @see junit.framework.TestCase#tearDown()
      */
@@ -63,7 +65,6 @@ public class DBMessageResourceDAOImplTest extends TestCase {
 
     /**
      * コンストラクタ。
-     * 
      * @param name このテストケースの名前。
      */
     public DBMessageResourceDAOImplTest(String name) {
@@ -71,23 +72,17 @@ public class DBMessageResourceDAOImplTest extends TestCase {
     }
 
     /**
-     * testSetTableName01()
-     * <br><br>
-     * 
-     * (正常系)
+     * testSetTableName01() <br>
      * <br>
-     * 観点：A
-     * <br><br>
+     * (正常系) <br>
+     * 観点：A <br>
+     * <br>
      * 入力値：(引数) tableName:"test01"<br>
-     *         (状態) this.tableName:"MESSAGES"<br>
-     *         
+     * (状態) this.tableName:"MESSAGES"<br>
      * <br>
      * 期待値：(状態変化) this.tableName:引数で設定した値<br>
-     *         
      * <br>
-     * tableName属性のsetterメソッドのテスト。
-     * <br>
-     * 
+     * tableName属性のsetterメソッドのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testSetTableName01() throws Exception {
@@ -103,23 +98,17 @@ public class DBMessageResourceDAOImplTest extends TestCase {
     }
 
     /**
-     * testSetCodeColumn01()
-     * <br><br>
-     * 
-     * (正常系)
+     * testSetCodeColumn01() <br>
      * <br>
-     * 観点：A
-     * <br><br>
+     * (正常系) <br>
+     * 観点：A <br>
+     * <br>
      * 入力値：(引数) codeColumn:"test01"<br>
-     *         (状態) this.codeColumn:"CODE"<br>
-     *         
+     * (状態) this.codeColumn:"CODE"<br>
      * <br>
      * 期待値：(状態変化) this.codeColumn:引数で設定した値<br>
-     *         
      * <br>
-     * codeColumn属性のsetterメソッドのテスト。
-     * <br>
-     * 
+     * codeColumn属性のsetterメソッドのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testSetCodeColumn01() throws Exception {
@@ -135,23 +124,17 @@ public class DBMessageResourceDAOImplTest extends TestCase {
     }
 
     /**
-     * testSetLaunguageColumn01()
-     * <br><br>
-     * 
-     * (正常系)
+     * testSetLaunguageColumn01() <br>
      * <br>
-     * 観点：A
-     * <br><br>
+     * (正常系) <br>
+     * 観点：A <br>
+     * <br>
      * 入力値：(引数) languageColumn:"test01"<br>
-     *         (状態) this.languageColumn:null<br>
-     *         
+     * (状態) this.languageColumn:null<br>
      * <br>
      * 期待値：(状態変化) this.languageColumn:引数で設定した値<br>
-     *         
      * <br>
-     * languageColumn属性のsetterメソッドのテスト。
-     * <br>
-     * 
+     * languageColumn属性のsetterメソッドのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testSetLaunguageColumn01() throws Exception {
@@ -163,28 +146,22 @@ public class DBMessageResourceDAOImplTest extends TestCase {
         daoImpl.setLanguageColumn("test01");
 
         // 判定
-        assertEquals("test01", UTUtil
-                .getPrivateField(daoImpl, "languageColumn"));
+        assertEquals("test01", UTUtil.getPrivateField(daoImpl,
+                "languageColumn"));
     }
 
     /**
-     * testSetCountryColumn01()
-     * <br><br>
-     * 
-     * (正常系)
+     * testSetCountryColumn01() <br>
      * <br>
-     * 観点：A
-     * <br><br>
+     * (正常系) <br>
+     * 観点：A <br>
+     * <br>
      * 入力値：(引数) countryColumn:"test01"<br>
-     *         (状態) this.countryColumn:null<br>
-     *         
+     * (状態) this.countryColumn:null<br>
      * <br>
      * 期待値：(状態変化) this.countryColumn:引数で設定した値<br>
-     *         
      * <br>
-     * countryColumn属性のsetterメソッドのテスト。
-     * <br>
-     * 
+     * countryColumn属性のsetterメソッドのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testSetCountryColumn01() throws Exception {
@@ -196,28 +173,22 @@ public class DBMessageResourceDAOImplTest extends TestCase {
         daoImpl.setCountryColumn("test01");
 
         // 判定
-        assertEquals("test01", UTUtil
-                .getPrivateField(daoImpl, "countryColumn"));
+        assertEquals("test01", UTUtil.getPrivateField(daoImpl,
+                "countryColumn"));
     }
 
     /**
-     * testSetVariantColumn01()
-     * <br><br>
-     * 
-     * (正常系)
+     * testSetVariantColumn01() <br>
      * <br>
-     * 観点：A
-     * <br><br>
+     * (正常系) <br>
+     * 観点：A <br>
+     * <br>
      * 入力値：(引数) variantColumn:"test01"<br>
-     *         (状態) this.variantColumn:null<br>
-     *         
+     * (状態) this.variantColumn:null<br>
      * <br>
      * 期待値：(状態変化) this.variantColumn:引数で設定した値<br>
-     *         
      * <br>
-     * variantColumn属性のsetterメソッドのテスト。
-     * <br>
-     * 
+     * variantColumn属性のsetterメソッドのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testSetVariantColumn01() throws Exception {
@@ -229,28 +200,22 @@ public class DBMessageResourceDAOImplTest extends TestCase {
         daoImpl.setVariantColumn("test01");
 
         // 判定
-        assertEquals("test01", UTUtil
-                .getPrivateField(daoImpl, "variantColumn"));
+        assertEquals("test01", UTUtil.getPrivateField(daoImpl,
+                "variantColumn"));
     }
 
     /**
-     * testSetMessageColumn01()
-     * <br><br>
-     * 
-     * (正常系)
+     * testSetMessageColumn01() <br>
      * <br>
-     * 観点：A
-     * <br><br>
+     * (正常系) <br>
+     * 観点：A <br>
+     * <br>
      * 入力値：(引数) messageColumn:"test01"<br>
-     *         (状態) this.messageColumn:"MESSAGE"<br>
-     *         
+     * (状態) this.messageColumn:"MESSAGE"<br>
      * <br>
      * 期待値：(状態変化) this.messageColumn:引数で設定した値<br>
-     *         
      * <br>
-     * messageColumn属性のsetterメソッドのテスト。
-     * <br>
-     * 
+     * messageColumn属性のsetterメソッドのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testSetMessageColumn01() throws Exception {
@@ -262,28 +227,22 @@ public class DBMessageResourceDAOImplTest extends TestCase {
         daoImpl.setMessageColumn("test01");
 
         // 判定
-        assertEquals("test01", UTUtil
-                .getPrivateField(daoImpl, "messageColumn"));
+        assertEquals("test01", UTUtil.getPrivateField(daoImpl,
+                "messageColumn"));
     }
 
     /**
-     * testSetFindMessageSql01()
-     * <br><br>
-     * 
-     * (正常系)
+     * testSetFindMessageSql01() <br>
      * <br>
-     * 観点：A
-     * <br><br>
+     * (正常系) <br>
+     * 観点：A <br>
+     * <br>
      * 入力値：(引数) findMessageSql:"test01"<br>
-     *         (状態) this.findMessageSql:null<br>
-     *         
+     * (状態) this.findMessageSql:null<br>
      * <br>
      * 期待値：(状態変化) this.findMessageSql:引数で設定した値<br>
-     *         
      * <br>
-     * findMessageSql属性のsetterメソッドのテスト。
-     * <br>
-     * 
+     * findMessageSql属性のsetterメソッドのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testSetFindMessageSql01() throws Exception {
@@ -295,60 +254,51 @@ public class DBMessageResourceDAOImplTest extends TestCase {
         daoImpl.setFindMessageSql("test01");
 
         // 判定
-        assertEquals("test01", UTUtil
-                .getPrivateField(daoImpl, "findMessageSql"));
+        assertEquals("test01", UTUtil.getPrivateField(daoImpl,
+                "findMessageSql"));
     }
 
     /**
-     * testInitDao01()
-     * <br><br>
-     * 
-     * (正常系)
+     * testInitDao01() <br>
      * <br>
-     * 観点：A
-     * <br><br>
+     * (正常系) <br>
+     * 観点：A <br>
+     * <br>
      * 入力値：(状態) getDataSource():not null<br>
-     *         (状態) makeSql():"SELECT FOO FROM BAR"<br>
-     *         (状態) dBMessageQuery:null<br>
-     *         (状態) codeColumn:"CODE"<br>
-     *         (状態) languageColumn:"LANGUAGE"<br>
-     *         (状態) countryColumn:"COUNTRY"<br>
-     *         (状態) variantColumn:"VARIANT"<br>
-     *         (状態) messageColumn:"MESSAGE"<br>
-     *         
+     * (状態) makeSql():"SELECT FOO FROM BAR"<br>
+     * (状態) dBMessageQuery:null<br>
+     * (状態) codeColumn:"CODE"<br>
+     * (状態) languageColumn:"LANGUAGE"<br>
+     * (状態) countryColumn:"COUNTRY"<br>
+     * (状態) variantColumn:"VARIANT"<br>
+     * (状態) messageColumn:"MESSAGE"<br>
      * <br>
-     * 期待値：(状態変化) DBMessageQuery:DBMessageQueryオブジェクトが生成される。
+     * 期待値：(状態変化) DBMessageQuery:DBMessageQueryオブジェクトが生成される。 <br>
      * <br>
-     *         
-     * <br>
-     * DBMessageQueryが呼び出され、this.dBMessageQueryに格納されることを確認する。
-     * <br>
-     * 
+     * DBMessageQueryが呼び出され、this.dBMessageQueryに格納されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testInitDao01() throws Exception {
         // 前処理
         DataSource dataSource = new MockDataSource();
-        DBMessageResourceDAOImpl_JdbcTemplateStub01 jdbc
-            = new DBMessageResourceDAOImpl_JdbcTemplateStub01();
-        DBMessageResourceDAOImpl_DBMessageResourceDAOImplStub01 dbmr
-                = new DBMessageResourceDAOImpl_DBMessageResourceDAOImplStub01();
+        DBMessageResourceDAOImpl_JdbcTemplateStub01 jdbc = new DBMessageResourceDAOImpl_JdbcTemplateStub01();
+        DBMessageResourceDAOImpl_DBMessageResourceDAOImplStub01 dbmr = new DBMessageResourceDAOImpl_DBMessageResourceDAOImplStub01();
         jdbc.ds = dataSource;
         UTUtil.setPrivateField(dbmr, "jdbcTemplate", jdbc);
-        
+
         dbmr.dBMessageQuery = null;
         dbmr.codeColumn = "CODE";
         dbmr.languageColumn = "LANGUAGE";
         dbmr.countryColumn = "COUNTRY";
         dbmr.variantColumn = "VARIANT";
         dbmr.messageColumn = "MESSAGE";
-        
+
         // テスト実施
         dbmr.initDao();
 
         // 判定
         DBMessageQuery query = dbmr.dBMessageQuery;
-        
+
         assertEquals("CODE", query.rsCodeColumn);
         assertEquals("LANGUAGE", query.rsLanguageColumn);
         assertEquals("COUNTRY", query.rsCountryColumn);
@@ -358,118 +308,100 @@ public class DBMessageResourceDAOImplTest extends TestCase {
     }
 
     /**
-     * testInitDao02()
-     * <br><br>
-     * 
-     * (異常系)
+     * testInitDao02() <br>
      * <br>
-     * 観点：G
-     * <br><br>
+     * (異常系) <br>
+     * 観点：G <br>
+     * <br>
      * 入力値：(状態) getDataSource():null<br>
-     *         (状態) makeSql():"SELECT FOO FROM BAR"<br>
-     *         (状態) dBMessageQuery:null<br>
-     *         (状態) codeColumn:"CODE"<br>
-     *         (状態) languageColumn:null<br>
-     *         (状態) countryColumn:null<br>
-     *         (状態) variantColumn:null<br>
-     *         (状態) messageColumn:"MESSAGE"<br>
-     *         
+     * (状態) makeSql():"SELECT FOO FROM BAR"<br>
+     * (状態) dBMessageQuery:null<br>
+     * (状態) codeColumn:"CODE"<br>
+     * (状態) languageColumn:null<br>
+     * (状態) countryColumn:null<br>
+     * (状態) variantColumn:null<br>
+     * (状態) messageColumn:"MESSAGE"<br>
      * <br>
      * 期待値：(状態変化) DBMessageQuery:ー<br>
-     *         (状態変化) 例外:illgalArgumentExceptionが発生することを確認する。
-     *         <br>
-     *                    ＜メッセージ＞<br>
-     *                    Missing dataSource in spring configuration file.<br>
-     *         (状態変化) ログ:【エラーログ】<br>
-     *                    ＜メッセージ＞<br>
-     *                    Missing dataSource in spring configuration file.<br>
-     *         
+     * (状態変化) 例外:illgalArgumentExceptionが発生することを確認する。 <br>
+     * ＜メッセージ＞<br>
+     * Missing dataSource in spring configuration file.<br>
+     * (状態変化) ログ:【エラーログ】<br>
+     * ＜メッセージ＞<br>
+     * Missing dataSource in spring configuration file.<br>
      * <br>
-     * DBMessageQueryが呼び出されず、例外が発生することを確認する。
-     * <br>
-     * 
+     * DBMessageQueryが呼び出されず、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testInitDao02() throws Exception {
         // 前処理
-        DBMessageResourceDAOImpl_JdbcTemplateStub01 jdbc
-            = new DBMessageResourceDAOImpl_JdbcTemplateStub01();
-        DBMessageResourceDAOImpl_DBMessageResourceDAOImplStub01 dbmr
-                = new DBMessageResourceDAOImpl_DBMessageResourceDAOImplStub01();
+        DBMessageResourceDAOImpl_JdbcTemplateStub01 jdbc = new DBMessageResourceDAOImpl_JdbcTemplateStub01();
+        DBMessageResourceDAOImpl_DBMessageResourceDAOImplStub01 dbmr = new DBMessageResourceDAOImpl_DBMessageResourceDAOImplStub01();
         jdbc.ds = null;
-        
+
         dbmr.dBMessageQuery = null;
-       
+
         dbmr.codeColumn = "CODE";
         dbmr.languageColumn = "LANGUAGE";
         dbmr.countryColumn = "COUNTRY";
         dbmr.variantColumn = "VARIANT";
         dbmr.messageColumn = "MESSAGE";
-        
+
         // テスト実施
         try {
             dbmr.initDao();
             fail();
         } catch (IllegalArgumentException e) {
             // 判定
-            assertEquals(
-                    "Missing dataSource in spring configuration file.",
-                    e.getMessage());
-            assertTrue(LogUTUtil.checkError(
-                    "Missing dataSource in spring configuration file."));
+            assertEquals("Missing dataSource in spring configuration file.", e
+                    .getMessage());
+            assertThat(logger.getLoggingEvents(), is(asList(error(
+                    "Missing dataSource in spring configuration file."))));
         }
     }
 
     /**
-     * testInitDao03()
-     * <br><br>
-     * 
-     * (正常系)
+     * testInitDao03() <br>
      * <br>
-     * 観点：A
-     * <br><br>
+     * (正常系) <br>
+     * 観点：A <br>
+     * <br>
      * 入力値：(状態) getDataSource():not null<br>
-     *         (状態) makeSql():"SELECT FOO FROM BAR"<br>
-     *         (状態) dBMessageQuery:null<br>
-     *         (状態) codeColumn:"CODE"<br>
-     *         (状態) languageColumn:null<br>
-     *         (状態) countryColumn:null<br>
-     *         (状態) variantColumn:null<br>
-     *         (状態) messageColumn:"MESSAGE"<br>
-     *         
+     * (状態) makeSql():"SELECT FOO FROM BAR"<br>
+     * (状態) dBMessageQuery:null<br>
+     * (状態) codeColumn:"CODE"<br>
+     * (状態) languageColumn:null<br>
+     * (状態) countryColumn:null<br>
+     * (状態) variantColumn:null<br>
+     * (状態) messageColumn:"MESSAGE"<br>
      * <br>
-     * 期待値：(状態変化) DBMessageQuery:DBMessageQueryオブジェクトが生成される。
-     * <br>       
+     * 期待値：(状態変化) DBMessageQuery:DBMessageQueryオブジェクトが生成される。 <br>
      * <br>
-     * DBMessageQueryが呼び出され、this.dBMessageQueryに格納されることを確認する。
-     * <br>
-     * 
+     * DBMessageQueryが呼び出され、this.dBMessageQueryに格納されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testInitDao03() throws Exception {
         // 前処理
         DataSource dataSource = new MockDataSource();
-        DBMessageResourceDAOImpl_JdbcTemplateStub01 jdbc
-            = new DBMessageResourceDAOImpl_JdbcTemplateStub01();
-        DBMessageResourceDAOImpl_DBMessageResourceDAOImplStub01 dbmr
-                = new DBMessageResourceDAOImpl_DBMessageResourceDAOImplStub01();
+        DBMessageResourceDAOImpl_JdbcTemplateStub01 jdbc = new DBMessageResourceDAOImpl_JdbcTemplateStub01();
+        DBMessageResourceDAOImpl_DBMessageResourceDAOImplStub01 dbmr = new DBMessageResourceDAOImpl_DBMessageResourceDAOImplStub01();
         jdbc.ds = dataSource;
         UTUtil.setPrivateField(dbmr, "jdbcTemplate", jdbc);
-        
+
         dbmr.dBMessageQuery = null;
         dbmr.codeColumn = "CODE";
         dbmr.languageColumn = null;
         dbmr.countryColumn = null;
         dbmr.variantColumn = null;
         dbmr.messageColumn = "MESSAGE";
-        
+
         // テスト実施
         dbmr.initDao();
 
         // 判定
         // 判定
         DBMessageQuery query = dbmr.dBMessageQuery;
-        
+
         assertEquals("CODE", query.rsCodeColumn);
         assertNull(query.rsLanguageColumn);
         assertNull(query.rsCountryColumn);
@@ -492,13 +424,10 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * (状態) tableName:"MESSAGES"<br>
      * (状態) findMessageSql:null<br>
      * <br>
-     * 期待値：(戻り値) sql:"SELECT CODE,LANGUAGE,COUNTRY,VARIANT,MESSAGE FROM
-     * MESSAGES"<br>
+     * 期待値：(戻り値) sql:"SELECT CODE,LANGUAGE,COUNTRY,VARIANT,MESSAGE FROM MESSAGES"<br>
      * <br>
      * 引数としてあたえられた文字列からＳＱＬ文を作成し、Stringで返却する。<br>
-     * 
-     * @throws Exception
-     *             このメソッドで発生した例外
+     * @throws Exception このメソッドで発生した例外
      */
     public void testMakeSql01() throws Exception {
         // 前処理
@@ -510,13 +439,14 @@ public class DBMessageResourceDAOImplTest extends TestCase {
         dbmr.messageColumn = "MESSAGE";
         dbmr.tableName = "MESSAGES";
         dbmr.findMessageSql = null;
-        
+
         // テスト実施
         String sql = dbmr.makeSql();
 
         // 判定
         assertEquals(
-            "SELECT CODE,LANGUAGE,COUNTRY,VARIANT,MESSAGE FROM MESSAGES", sql);
+                "SELECT CODE,LANGUAGE,COUNTRY,VARIANT,MESSAGE FROM MESSAGES",
+                sql);
     }
 
     /**
@@ -541,14 +471,11 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * "codeColumn is illegalAurgument"<br>
      * <br>
      * コードカラムが空文字のため、呼び出し先メソッドにて停止する。 <br>
-     * 
-     * @throws Exception
-     *             このメソッドで発生した例外
+     * @throws Exception このメソッドで発生した例外
      */
     public void testMakeSql02() throws Exception {
         // 前処理
-        DBMessageResourceDAOImpl dbmr 
-                = new DBMessageResourceDAOImpl();
+        DBMessageResourceDAOImpl dbmr = new DBMessageResourceDAOImpl();
         dbmr.codeColumn = "";
         dbmr.languageColumn = "LANGUAGE";
         dbmr.countryColumn = "COUNTRY";
@@ -556,18 +483,19 @@ public class DBMessageResourceDAOImplTest extends TestCase {
         dbmr.messageColumn = "MESSAGE";
         dbmr.tableName = "MESSAGES";
         dbmr.findMessageSql = null;
-        
+
         // テスト実施
         try {
+            logger.clear();
             dbmr.makeSql();
             fail();
         } catch (IllegalArgumentException e) {
 
             // 判定
-            assertEquals(
-                    "illegalArgument: codeColumn is null or empty.", e.getMessage());
-            assertTrue(LogUTUtil
-                    .checkError("illegalArgument: codeColumn is null or empty."));
+            assertEquals("illegalArgument: codeColumn is null or empty.", e
+                    .getMessage());
+            assertThat(logger.getLoggingEvents(), is(asList(error(
+                    "illegalArgument: codeColumn is null or empty."))));
         }
     }
 
@@ -593,14 +521,11 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * "codeColumn is illegalArgument"<br>
      * <br>
      * コードカラムがnullのため、呼び出し先メソッドにて停止する。 <br>
-     * 
-     * @throws Exception
-     *             このメソッドで発生した例外
+     * @throws Exception このメソッドで発生した例外
      */
     public void testMakeSql03() throws Exception {
         // 前処理
-        DBMessageResourceDAOImpl dbmr 
-                = new DBMessageResourceDAOImpl();
+        DBMessageResourceDAOImpl dbmr = new DBMessageResourceDAOImpl();
         dbmr.codeColumn = null;
         dbmr.languageColumn = "LANGUAGE";
         dbmr.countryColumn = "COUNTRY";
@@ -608,18 +533,19 @@ public class DBMessageResourceDAOImplTest extends TestCase {
         dbmr.messageColumn = "MESSAGE";
         dbmr.tableName = "MESSAGES";
         dbmr.findMessageSql = null;
-        
+
         // テスト実施
         try {
+            logger.clear();
             dbmr.makeSql();
             fail();
         } catch (IllegalArgumentException e) {
 
             // 判定
-            assertEquals(
-                    "illegalArgument: codeColumn is null or empty.", e.getMessage());
-            assertTrue(LogUTUtil
-                    .checkError("illegalArgument: codeColumn is null or empty."));
+            assertEquals("illegalArgument: codeColumn is null or empty.", e
+                    .getMessage());
+            assertThat(logger.getLoggingEvents(), is(asList(error(
+                    "illegalArgument: codeColumn is null or empty."))));
         }
     }
 
@@ -645,14 +571,11 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * "languageColumn is illegalArgument"<br>
      * <br>
      * 言語カラムが空文字のため、呼び出し先メソッドにて停止する。 <br>
-     * 
-     * @throws Exception
-     *             このメソッドで発生した例外
+     * @throws Exception このメソッドで発生した例外
      */
     public void testMakeSql04() throws Exception {
         // 前処理
-        DBMessageResourceDAOImpl dbmr 
-                = new DBMessageResourceDAOImpl();
+        DBMessageResourceDAOImpl dbmr = new DBMessageResourceDAOImpl();
         dbmr.codeColumn = "CODE";
         dbmr.languageColumn = "";
         dbmr.countryColumn = null;
@@ -660,18 +583,19 @@ public class DBMessageResourceDAOImplTest extends TestCase {
         dbmr.messageColumn = null;
         dbmr.tableName = "MESSAGES";
         dbmr.findMessageSql = null;
-        
+
         // テスト実施
         try {
+            logger.clear();
             dbmr.makeSql();
             fail();
         } catch (IllegalArgumentException e) {
 
             // 判定
-            assertEquals(
-                    "illegalArgument: languageColumn is empty.", e.getMessage());
-            assertTrue(LogUTUtil
-                    .checkError("illegalArgument: languageColumn is empty."));
+            assertEquals("illegalArgument: languageColumn is empty.", e
+                    .getMessage());
+            assertThat(logger.getLoggingEvents(), is(asList(error(
+                    "illegalArgument: languageColumn is empty."))));
         }
     }
 
@@ -697,14 +621,11 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * "countryColumn is illegalArgument"<br>
      * <br>
      * 国カラムが空文字のため、呼び出し先メソッドにて停止する。 <br>
-     * 
-     * @throws Exception
-     *             このメソッドで発生した例外
+     * @throws Exception このメソッドで発生した例外
      */
     public void testMakeSql05() throws Exception {
         // 前処理
-        DBMessageResourceDAOImpl dbmr 
-                = new DBMessageResourceDAOImpl();
+        DBMessageResourceDAOImpl dbmr = new DBMessageResourceDAOImpl();
         dbmr.codeColumn = "CODE";
         dbmr.languageColumn = null;
         dbmr.countryColumn = "";
@@ -712,18 +633,19 @@ public class DBMessageResourceDAOImplTest extends TestCase {
         dbmr.messageColumn = null;
         dbmr.tableName = "MESSAGES";
         dbmr.findMessageSql = null;
-        
+
         // テスト実施
         try {
+            logger.clear();
             dbmr.makeSql();
             fail();
         } catch (IllegalArgumentException e) {
 
             // 判定
-            assertEquals(
-                    "illegalArgument: countryColumn is empty.", e.getMessage());
-            assertTrue(LogUTUtil
-                    .checkError("illegalArgument: countryColumn is empty."));
+            assertEquals("illegalArgument: countryColumn is empty.", e
+                    .getMessage());
+            assertThat(logger.getLoggingEvents(), is(asList(error(
+                    "illegalArgument: countryColumn is empty."))));
         }
     }
 
@@ -749,14 +671,11 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * "variantColumn is illegalArgument"<br>
      * <br>
      * バリアントカラムが空文字のため、呼び出し先メソッドにて停止する。 <br>
-     * 
-     * @throws Exception
-     *             このメソッドで発生した例外
+     * @throws Exception このメソッドで発生した例外
      */
     public void testMakeSql06() throws Exception {
         // 前処理
-        DBMessageResourceDAOImpl dbmr 
-                = new DBMessageResourceDAOImpl();
+        DBMessageResourceDAOImpl dbmr = new DBMessageResourceDAOImpl();
         dbmr.codeColumn = "CODE";
         dbmr.languageColumn = null;
         dbmr.countryColumn = null;
@@ -764,18 +683,19 @@ public class DBMessageResourceDAOImplTest extends TestCase {
         dbmr.messageColumn = null;
         dbmr.tableName = "MESSAGES";
         dbmr.findMessageSql = null;
-        
+
         // テスト実施
         try {
+            logger.clear();
             dbmr.makeSql();
             fail();
         } catch (IllegalArgumentException e) {
 
             // 判定
-            assertEquals(
-                    "illegalArgument: variantColumn is empty.", e.getMessage());
-            assertTrue(LogUTUtil
-                    .checkError("illegalArgument: variantColumn is empty."));
+            assertEquals("illegalArgument: variantColumn is empty.", e
+                    .getMessage());
+            assertThat(logger.getLoggingEvents(), is(asList(error(
+                    "illegalArgument: variantColumn is empty."))));
         }
     }
 
@@ -801,14 +721,11 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * "messageColumn is illegalArgument"<br>
      * <br>
      * メッセージカラムが空文字のため、呼び出し先メソッドにて停止する。 <br>
-     * 
-     * @throws Exception
-     *             このメソッドで発生した例外
+     * @throws Exception このメソッドで発生した例外
      */
     public void testMakeSql07() throws Exception {
         // 前処理
-        DBMessageResourceDAOImpl dbmr 
-                = new DBMessageResourceDAOImpl();
+        DBMessageResourceDAOImpl dbmr = new DBMessageResourceDAOImpl();
         dbmr.codeColumn = "CODE";
         dbmr.languageColumn = null;
         dbmr.countryColumn = null;
@@ -816,18 +733,19 @@ public class DBMessageResourceDAOImplTest extends TestCase {
         dbmr.messageColumn = "";
         dbmr.tableName = "MESSAGES";
         dbmr.findMessageSql = null;
-        
+
         // テスト実施
         try {
+            logger.clear();
             dbmr.makeSql();
             fail();
         } catch (IllegalArgumentException e) {
 
             // 判定
-            assertEquals(
-                    "illegalArgument: messageColumn is null or empty.", e.getMessage());
-            assertTrue(LogUTUtil
-                    .checkError("illegalArgument: messageColumn is null or empty."));
+            assertEquals("illegalArgument: messageColumn is null or empty.", e
+                    .getMessage());
+            assertThat(logger.getLoggingEvents(), is(asList(error(
+                    "illegalArgument: messageColumn is null or empty."))));
         }
     }
 
@@ -853,14 +771,11 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * "MessageColumn is illegalArgument"<br>
      * <br>
      * メッセージカラムがnullのため、呼び出し先メソッドにて停止する。 <br>
-     * 
-     * @throws Exception
-     *             このメソッドで発生した例外
+     * @throws Exception このメソッドで発生した例外
      */
     public void testMakeSql08() throws Exception {
         // 前処理
-        DBMessageResourceDAOImpl dbmr 
-                = new DBMessageResourceDAOImpl();
+        DBMessageResourceDAOImpl dbmr = new DBMessageResourceDAOImpl();
         dbmr.codeColumn = "CODE";
         dbmr.languageColumn = null;
         dbmr.countryColumn = null;
@@ -868,21 +783,22 @@ public class DBMessageResourceDAOImplTest extends TestCase {
         dbmr.messageColumn = null;
         dbmr.tableName = "MESSAGES";
         dbmr.findMessageSql = null;
-        
+
         // テスト実施
         try {
+            logger.clear();
             dbmr.makeSql();
             fail();
         } catch (IllegalArgumentException e) {
 
             // 判定
-            assertEquals(
-                    "illegalArgument: messageColumn is null or empty.", e.getMessage());
-            assertTrue(LogUTUtil
-                    .checkError("illegalArgument: messageColumn is null or empty."));
+            assertEquals("illegalArgument: messageColumn is null or empty.", e
+                    .getMessage());
+            assertThat(logger.getLoggingEvents(), is(asList(error(
+                    "illegalArgument: messageColumn is null or empty."))));
         }
     }
-    
+
     /**
      * testMakeSql09() <br>
      * <br>
@@ -905,14 +821,11 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * "tableName is illegalArgument"<br>
      * <br>
      * テーブル名が空文字のため、呼び出し先メソッドにて停止する。 <br>
-     * 
-     * @throws Exception
-     *             このメソッドで発生した例外
+     * @throws Exception このメソッドで発生した例外
      */
     public void testMakeSql09() throws Exception {
         // 前処理
-        DBMessageResourceDAOImpl dbmr 
-                = new DBMessageResourceDAOImpl();
+        DBMessageResourceDAOImpl dbmr = new DBMessageResourceDAOImpl();
         dbmr.codeColumn = "CODE";
         dbmr.languageColumn = null;
         dbmr.countryColumn = null;
@@ -920,18 +833,19 @@ public class DBMessageResourceDAOImplTest extends TestCase {
         dbmr.messageColumn = "MESSAGE";
         dbmr.tableName = "";
         dbmr.findMessageSql = null;
-        
+
         // テスト実施
         try {
+            logger.clear();
             dbmr.makeSql();
             fail();
         } catch (IllegalArgumentException e) {
 
             // 判定
-            assertEquals(
-                    "illegalArgument: tableName is null or empty.", e.getMessage());
-            assertTrue(LogUTUtil
-                    .checkError("illegalArgument: tableName is null or empty."));
+            assertEquals("illegalArgument: tableName is null or empty.", e
+                    .getMessage());
+            assertThat(logger.getLoggingEvents(), is(asList(error(
+                    "illegalArgument: tableName is null or empty."))));
         }
     }
 
@@ -957,14 +871,11 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * "tableName is illegalArgument"<br>
      * <br>
      * テーブル名がnullのため、呼び出し先メソッドにて停止する。 <br>
-     * 
-     * @throws Exception
-     *             このメソッドで発生した例外
+     * @throws Exception このメソッドで発生した例外
      */
     public void testMakeSql10() throws Exception {
         // 前処理
-        DBMessageResourceDAOImpl dbmr 
-                = new DBMessageResourceDAOImpl();
+        DBMessageResourceDAOImpl dbmr = new DBMessageResourceDAOImpl();
         dbmr.codeColumn = "CODE";
         dbmr.languageColumn = null;
         dbmr.countryColumn = null;
@@ -972,18 +883,19 @@ public class DBMessageResourceDAOImplTest extends TestCase {
         dbmr.messageColumn = "MESSAGE";
         dbmr.tableName = null;
         dbmr.findMessageSql = null;
-        
+
         // テスト実施
         try {
+            logger.clear();
             dbmr.makeSql();
             fail();
         } catch (IllegalArgumentException e) {
 
             // 判定
-            assertEquals(
-                    "illegalArgument: tableName is null or empty.", e.getMessage());
-            assertTrue(LogUTUtil
-                    .checkError("illegalArgument: tableName is null or empty."));
+            assertEquals("illegalArgument: tableName is null or empty.", e
+                    .getMessage());
+            assertThat(logger.getLoggingEvents(), is(asList(error(
+                    "illegalArgument: tableName is null or empty."))));
         }
     }
 
@@ -999,23 +911,18 @@ public class DBMessageResourceDAOImplTest extends TestCase {
      * (状態) variantColumn:null<br>
      * (状態) messageColumn:"MESSAGE"<br>
      * (状態) tableName:"MESSAGES"<br>
-     * (状態) findMessageSql:"SELECT CODE,LANGUAGE,COUNTRY,VARIANT,MESSAGE FROM
-     * MESSAGES"<br>
+     * (状態) findMessageSql:"SELECT CODE,LANGUAGE,COUNTRY,VARIANT,MESSAGE FROM MESSAGES"<br>
      * <br>
-     * 期待値：(戻り値) sql:"SELECT CODE,LANGUAGE,COUNTRY,VARIANT,MESSAGE FROM
-     * MESSAGES"<br>
+     * 期待値：(戻り値) sql:"SELECT CODE,LANGUAGE,COUNTRY,VARIANT,MESSAGE FROM MESSAGES"<br>
      * <br>
      * 引数としてあたえられたSQL文を、Stringで返却する。<br>
      * SQL文生成ロジックは使用しない。 <br>
-     * 
-     * @throws Exception
-     *             このメソッドで発生した例外
+     * @throws Exception このメソッドで発生した例外
      */
     public void testMakeSql11() throws Exception {
         // 前処理
-        DBMessageResourceDAOImpl dbmr 
-                = new DBMessageResourceDAOImpl();
-        String sql ="SELECT CODE,LANGUAGE,COUNTRY,VARIANT,MESSAGE FROM MESSAGES";
+        DBMessageResourceDAOImpl dbmr = new DBMessageResourceDAOImpl();
+        String sql = "SELECT CODE,LANGUAGE,COUNTRY,VARIANT,MESSAGE FROM MESSAGES";
         dbmr.codeColumn = "CODE";
         dbmr.languageColumn = null;
         dbmr.countryColumn = null;
@@ -1023,51 +930,42 @@ public class DBMessageResourceDAOImplTest extends TestCase {
         dbmr.messageColumn = "MESSAGE";
         dbmr.tableName = "MESSAGES";
         dbmr.findMessageSql = sql;
-        
+
         // テスト実施
         String sqlReturn = dbmr.makeSql();
-        
+
         // 判定
         assertEquals(sql, sqlReturn);
     }
 
     /**
-     * testFindDBMessages01()
-     * <br><br>
-     * 
-     * (正常系)
+     * testFindDBMessages01() <br>
      * <br>
-     * 観点：E
-     * <br><br>
+     * (正常系) <br>
+     * 観点：E <br>
+     * <br>
      * 入力値：(状態) dBmessageQuery:not null<br>
-     *         
      * <br>
      * 期待値：(戻り値) dBMessageQuery.execute()の結果<br>
-     *         
      * <br>
-     * executeメソッドが呼び出され、戻り値返ってくることを確認する。
-     * <br>
-     * 
+     * executeメソッドが呼び出され、戻り値返ってくることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     @SuppressWarnings("unchecked")
     public void testFindDBMessages01() throws Exception {
         // 前処理
         DataSource ds = new MockDataSource();
-        DBMessageResourceDAOImpl_DBMessageQueryStub01 query
-                = new DBMessageResourceDAOImpl_DBMessageQueryStub01(ds,
-                "SELECT CODE,MESSAGE FROM MESSAGES", "CODE", "LANGUAGE",
-                "COUNTRY", "VARIANT", "MESSAGE");
+        DBMessageResourceDAOImpl_DBMessageQueryStub01 query = new DBMessageResourceDAOImpl_DBMessageQueryStub01(ds, "SELECT CODE,MESSAGE FROM MESSAGES", "CODE", "LANGUAGE", "COUNTRY", "VARIANT", "MESSAGE");
         DBMessageResourceDAOImpl dbmr = new DBMessageResourceDAOImpl();
         dbmr.dBMessageQuery = query;
-        
+
         List list = new ArrayList();
         list.add("success");
         query.list = list;
-        
+
         // テスト実施
         List listReturn = dbmr.findDBMessages();
-        
+
         // 判定
         assertSame(list, listReturn);
     }

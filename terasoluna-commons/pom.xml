@@ -164,5 +164,14 @@
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+        	<groupId>jp.terasoluna.fw</groupId>
+        	<artifactId>terasoluna-logger</artifactId>
+        </dependency>
+        <dependency>
+        	<groupId>uk.org.lidalia</groupId>
+        	<artifactId>slf4j-test</artifactId>
+        	<scope>test</scope>
+        </dependency>
     </dependencies>
 </project>
