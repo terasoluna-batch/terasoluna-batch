@@ -189,7 +189,7 @@ public class BLogicApplicationContextResolverImpl
             str = new StringBuilder(String.class.cast(exp.getValue(eval)));
         } catch (ParseException e) {
             throw new IllegalArgumentException(
-                    LOGGER.getLogMessage(LogId.EAL025090,
+                    LOGGER.getLogMessage(LogId.EAL025092,
                             "beanDefinition.business.classpath"), e);
         }
         return str.append(jobAppCd).append(PROPERTY_BEAN_FILENAME_SUFFIX)

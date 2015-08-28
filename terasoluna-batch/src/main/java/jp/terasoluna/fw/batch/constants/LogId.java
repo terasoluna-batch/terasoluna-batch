@@ -746,4 +746,8 @@ public final class LogId {
      * <strong>EAL025091 = [Assertion failed] - AsyncJobLauncherImpl constructor needs ExceptionStatusHandler.</strong>
      */
     public static final String EAL025091 = "EAL025091";
+    /**
+     * <strong>EAL025092 = invalid format in batch.properties, key: {0}</strong>
+     */
+    public static final String EAL025092 = "EAL025092";
 }
