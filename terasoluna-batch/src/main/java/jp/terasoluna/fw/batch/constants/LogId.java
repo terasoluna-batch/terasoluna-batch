@@ -603,7 +603,7 @@ public final class LogId {
      */
     public static final String EAL025054 = "EAL025054";
     /**
-     * <strong>EAL025055 = [Assertion failed] - AsyncJobLauncherImpl constructor needs ThreadPoolTaskExecutorDelegate</strong>
+     * <strong>EAL025055 = [Assertion failed] - AsyncJobLauncherImpl constructor needs ThreadPoolTaskExecutor</strong>
      */
     public static final String EAL025055 = "EAL025055";
     /**
