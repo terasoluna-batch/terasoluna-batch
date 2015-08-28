@@ -16,26 +16,34 @@
 
 package jp.terasoluna.fw.validation;
 
-import jp.terasoluna.utlib.LogUTUtil;
 import junit.framework.TestCase;
+
+import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsEqual.equalTo;
+import static org.hamcrest.core.IsInstanceOf.instanceOf;
+import static org.junit.Assert.assertThat;
 
 import org.apache.commons.validator.Field;
 import org.apache.commons.validator.ValidatorAction;
 import org.apache.commons.validator.ValidatorException;
 import org.apache.commons.validator.Var;
 
+import uk.org.lidalia.slf4jtest.TestLogger;
+import uk.org.lidalia.slf4jtest.TestLoggerFactory;
+import static uk.org.lidalia.slf4jtest.LoggingEvent.error;
+import static java.util.Arrays.asList;
+
 /**
- * {@link jp.terasoluna.fw.validation.FieldChecks}
- * クラスのブラックボックステスト。
- *
+ * {@link jp.terasoluna.fw.validation.FieldChecks} クラスのブラックボックステスト。
  * <p>
- * <h4>【クラスの概要】</h4>
- * TERASOLUNAの入力チェック機能で共通に使用される検証ルールクラス。
+ * <h4>【クラスの概要】</h4> TERASOLUNAの入力チェック機能で共通に使用される検証ルールクラス。
  * <p>
- *
  * @see jp.terasoluna.fw.validation.FieldChecks
  */
 public class FieldChecksTest09 extends TestCase {
+
+    private TestLogger logger = TestLoggerFactory.getTestLogger(
+            FieldChecks.class);
 
     /**
      * テスト用インスタンス。
@@ -53,9 +61,7 @@ public class FieldChecksTest09 extends TestCase {
     private FieldChecks_ValidationErrorsImpl01 errors = null;
 
     /**
-     * このテストケースを実行する為の
-     * GUI アプリケーションを起動する。
-     *
+     * このテストケースを実行する為の GUI アプリケーションを起動する。
      * @param args java コマンドに設定されたパラメータ
      */
     public static void main(String[] args) {
@@ -64,7 +70,6 @@ public class FieldChecksTest09 extends TestCase {
 
     /**
      * 初期化処理を行う。
-     *
      * @throws Exception このメソッドで発生した例外
      * @see junit.framework.TestCase#setUp()
      */
@@ -78,18 +83,17 @@ public class FieldChecksTest09 extends TestCase {
 
     /**
      * 終了処理を行う。
-     *
      * @throws Exception このメソッドで発生した例外
      * @see junit.framework.TestCase#tearDown()
      */
     @Override
     protected void tearDown() throws Exception {
+        logger.clear();
         super.tearDown();
     }
 
     /**
      * コンストラクタ。
-     *
      * @param name このテストケースの名前。
      */
     public FieldChecksTest09(String name) {
@@ -97,26 +101,20 @@ public class FieldChecksTest09 extends TestCase {
     }
 
     /**
-     * testValidateUrl01()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateUrl01() <br>
      * <br>
-     * 観点：C,F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C,F <br>
+     * <br>
      * 入力値：(引数) bean:null<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:not null<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:not null<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *         (状態変化) errors:呼び出されない<br>
-     *
+     * (状態変化) errors:呼び出されない<br>
      * <br>
-     * 引数のbeanがnullの場合、trueが返却されることを確認する。
-     * <br>
-     *
+     * 引数のbeanがnullの場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testValidateUrl01() throws Exception {
@@ -129,26 +127,20 @@ public class FieldChecksTest09 extends TestCase {
     }
 
     /**
-     * testValidateUrl02()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateUrl02() <br>
      * <br>
-     * 観点：C,F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C,F <br>
+     * <br>
      * 入力値：(引数) bean:""<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:not null<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:not null<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *         (状態変化) errors:呼び出されない<br>
-     *
+     * (状態変化) errors:呼び出されない<br>
      * <br>
-     * 引数のbeanが空文字の場合、trueが返却されることを確認する。
-     * <br>
-     *
+     * 引数のbeanが空文字の場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testValidateUrl02() throws Exception {
@@ -161,27 +153,21 @@ public class FieldChecksTest09 extends TestCase {
     }
 
     /**
-     * testValidateUrl03()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateUrl03() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) bean:abc://terasoluna.com/index.html#fragment<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:var:<br>
-     *                allowallschemes=true<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:var:<br>
+     * allowallschemes=true<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *         (状態変化) errors:呼び出されない<br>
-     *
+     * (状態変化) errors:呼び出されない<br>
      * <br>
-     * varのallowallschemesがtrueのとき、beanのスキーマ名が不正な場合でもtrueが取得できることを確認する。
-     * <br>
-     *
+     * varのallowallschemesがtrueのとき、beanのスキーマ名が不正な場合でもtrueが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testValidateUrl03() throws Exception {
@@ -194,35 +180,29 @@ public class FieldChecksTest09 extends TestCase {
         // テスト実施
         // 判定
         assertTrue(new FieldChecks().validateUrl(
-            "abc://terasoluna.com/index.html#fragment", va, field, errors));
+                "abc://terasoluna.com/index.html#fragment", va, field, errors));
 
         // addErrors確認
         assertEquals(0, errors.addErrorCount);
     }
 
     /**
-     * testValidateUrl04()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateUrl04() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) bean:abc://terasoluna.com/index.html<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:var:<br>
-     *                allowallschemes=null<br>
-     *                schemes=http,ftp<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:var:<br>
+     * allowallschemes=null<br>
+     * schemes=http,ftp<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:false<br>
-     *         (状態変化) errors:bean,field,vaを引数としてaddErrorsが呼び出される。<br>
-     *
+     * (状態変化) errors:bean,field,vaを引数としてaddErrorsが呼び出される。<br>
      * <br>
-     * varのallowallschemesがnullで、beanのスキーマ名がvarのschemesに指定されたスキーマと一致しない場合、エラーを追加してfalseが返却されることを確認する。
-     * <br>
-     *
+     * varのallowallschemesがnullで、beanのスキーマ名がvarのschemesに指定されたスキーマと一致しない場合、エラーを追加してfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testValidateUrl04() throws Exception {
@@ -235,7 +215,7 @@ public class FieldChecksTest09 extends TestCase {
         // テスト実施
         // 判定
         assertFalse(new FieldChecks().validateUrl(
-            "abc://terasoluna.com/index.html", va, field, errors));
+                "abc://terasoluna.com/index.html", va, field, errors));
 
         // addErrors確認
         assertEquals(1, errors.addErrorCount);
@@ -245,31 +225,22 @@ public class FieldChecksTest09 extends TestCase {
     }
 
     /**
-     * testValidateUrl05()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateUrl05() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) bean:abc://terasoluna.com/index.html<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:var:<br>
-     *                allowallschemes=""<br>
-     *                schemes=http,ftp<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:var:<br>
+     * allowallschemes=""<br>
+     * schemes=http,ftp<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:false<br>
-     *         (状態変化) errors:bean,field,vaを引数として
-     *                           addErrorsが呼び出される。<br>
-     *
+     * (状態変化) errors:bean,field,vaを引数として addErrorsが呼び出される。<br>
      * <br>
-     * varのallowallschemesが空文字で、
-     * beanのスキーマ名がvarのschemesに指定されたスキーマと一致しない場合、
-     * エラーを追加してfalseが返却されることを確認する。
-     * <br>
-     *
+     * varのallowallschemesが空文字で、 beanのスキーマ名がvarのschemesに指定されたスキーマと一致しない場合、 エラーを追加してfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testValidateUrl05() throws Exception {
@@ -278,7 +249,7 @@ public class FieldChecksTest09 extends TestCase {
         var1.setName("allowallschemes");
         var1.setValue("");
         field.addVar(var1);
-        
+
         Var var2 = new Var();
         var2.setName("schemes");
         var2.setValue("http,ftp");
@@ -287,7 +258,7 @@ public class FieldChecksTest09 extends TestCase {
         // テスト実施
         // 判定
         assertFalse(new FieldChecks().validateUrl(
-            "abc://terasoluna.com/index.html", va, field, errors));
+                "abc://terasoluna.com/index.html", va, field, errors));
 
         // addErrors確認
         assertEquals(1, errors.addErrorCount);
@@ -297,31 +268,22 @@ public class FieldChecksTest09 extends TestCase {
     }
 
     /**
-     * testValidateUrl06()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateUrl06() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) bean:abc://terasoluna.com/index.html<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:var:<br>
-     *                allowallschemes="test"<br>
-     *                schemes=http,ftp<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:var:<br>
+     * allowallschemes="test"<br>
+     * schemes=http,ftp<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:false<br>
-     *         (状態変化) errors:bean,field,vaを引数として
-     *                           addErrorsが呼び出される。<br>
-     *
+     * (状態変化) errors:bean,field,vaを引数として addErrorsが呼び出される。<br>
      * <br>
-     * varのallowallschemesがtrue以外の文字列で、
-     * beanのスキーマ名がvarのschemesに指定されたスキーマと一致しない場合、
-     * エラーを追加してfalseが返却されることを確認する。
-     * <br>
-     *
+     * varのallowallschemesがtrue以外の文字列で、 beanのスキーマ名がvarのschemesに指定されたスキーマと一致しない場合、 エラーを追加してfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testValidateUrl06() throws Exception {
@@ -330,7 +292,7 @@ public class FieldChecksTest09 extends TestCase {
         var1.setName("allowallschemes");
         var1.setValue("test");
         field.addVar(var1);
-        
+
         Var var2 = new Var();
         var2.setName("schemes");
         var2.setValue("http,ftp");
@@ -339,7 +301,7 @@ public class FieldChecksTest09 extends TestCase {
         // テスト実施
         // 判定
         assertFalse(new FieldChecks().validateUrl(
-            "abc://terasoluna.com/index.html", va, field, errors));
+                "abc://terasoluna.com/index.html", va, field, errors));
 
         // addErrors確認
         assertEquals(1, errors.addErrorCount);
@@ -349,30 +311,22 @@ public class FieldChecksTest09 extends TestCase {
     }
 
     /**
-     * testValidateUrl07()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateUrl07() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) bean:abc://terasoluna.com/index.html<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:var:<br>
-     *                allowallschemes="test"<br>
-     *                schemes=http,ftp,abc<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:var:<br>
+     * allowallschemes="test"<br>
+     * schemes=http,ftp,abc<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *         (状態変化) errors:呼び出されない<br>
-     *
+     * (状態変化) errors:呼び出されない<br>
      * <br>
-     * varのallowallschemesがtrue以外の文字列で、
-     * beanのスキーマ名がvarのschemesに指定されたスキーマと一致する場合、
-     * trueが返却されることを確認する。
-     * <br>
-     *
+     * varのallowallschemesがtrue以外の文字列で、 beanのスキーマ名がvarのschemesに指定されたスキーマと一致する場合、 trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testValidateUrl07() throws Exception {
@@ -381,7 +335,7 @@ public class FieldChecksTest09 extends TestCase {
         var1.setName("allowallschemes");
         var1.setValue("test");
         field.addVar(var1);
-        
+
         Var var2 = new Var();
         var2.setName("schemes");
         var2.setValue("http,ftp,abc");
@@ -390,35 +344,29 @@ public class FieldChecksTest09 extends TestCase {
         // テスト実施
         // 判定
         assertTrue(new FieldChecks().validateUrl(
-            "abc://terasoluna.com/index.html", va, field, errors));
+                "abc://terasoluna.com/index.html", va, field, errors));
 
         // addErrors確認
         assertEquals(0, errors.addErrorCount);
     }
 
     /**
-     * testValidateUrl08()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateUrl08() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) bean:abc://terasoluna.com//index.html<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:var:<br>
-     *                allowallschemes="true"<br>
-     *                allow2slashes="true"<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:var:<br>
+     * allowallschemes="true"<br>
+     * allow2slashes="true"<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *         (状態変化) errors:呼び出されない<br>
-     *
+     * (状態変化) errors:呼び出されない<br>
      * <br>
-     * varのallow2slashesがtrueのとき、beanのurlの区切りり文字に「//」が含まれていてもtrueが取得できることを確認する。
-     * <br>
-     *
+     * varのallow2slashesがtrueのとき、beanのurlの区切りり文字に「//」が含まれていてもtrueが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testValidateUrl08() throws Exception {
@@ -427,7 +375,7 @@ public class FieldChecksTest09 extends TestCase {
         var1.setName("allowallschemes");
         var1.setValue("true");
         field.addVar(var1);
-        
+
         Var var2 = new Var();
         var2.setName("allow2slashes");
         var2.setValue("true");
@@ -436,38 +384,29 @@ public class FieldChecksTest09 extends TestCase {
         // テスト実施
         // 判定
         assertTrue(new FieldChecks().validateUrl(
-            "abc://terasoluna.com//index.html", va, field, errors));
+                "abc://terasoluna.com//index.html", va, field, errors));
 
         // addErrors確認
         assertEquals(0, errors.addErrorCount);
     }
 
     /**
-     * testValidateUrl09()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateUrl09() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) bean:abc://terasoluna.com//index.html<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:var:<br>
-     *                allowallschemes="true"<br>
-     *                allow2slashes=null<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:var:<br>
+     * allowallschemes="true"<br>
+     * allow2slashes=null<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:false<br>
-     *         (状態変化) errors:bean,field,vaを引数として
-     *                           addErrorsが呼び出される。<br>
-     *
+     * (状態変化) errors:bean,field,vaを引数として addErrorsが呼び出される。<br>
      * <br>
-     * varのallow2slashesがnullで、
-     * beanのurlの区切りり文字に「//」が含まれている場合、
-     * エラーを追加してfalseが返却されることを確認する。
-     * <br>
-     *
+     * varのallow2slashesがnullで、 beanのurlの区切りり文字に「//」が含まれている場合、 エラーを追加してfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testValidateUrl09() throws Exception {
@@ -480,41 +419,33 @@ public class FieldChecksTest09 extends TestCase {
         // テスト実施
         // 判定
         assertFalse(new FieldChecks().validateUrl(
-            "abc://terasoluna.com//index.html", va, field, errors));
+                "abc://terasoluna.com//index.html", va, field, errors));
 
         // addErrors確認
         assertEquals(1, errors.addErrorCount);
-        assertEquals("abc://terasoluna.com//index.html", errors.beanList.get(0));
+        assertEquals("abc://terasoluna.com//index.html", errors.beanList.get(
+                0));
         assertSame(va, errors.vaList.get(0));
         assertSame(field, errors.fieldList.get(0));
     }
 
     /**
-     * testValidateUrl10()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateUrl10() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) bean:abc://terasoluna.com//index.html<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:var:<br>
-     *                allowallschemes="true"<br>
-     *                allow2slashes=""<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:var:<br>
+     * allowallschemes="true"<br>
+     * allow2slashes=""<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:false<br>
-     *         (状態変化) errors:bean,field,vaを引数として
-     *                           addErrorsが呼び出される。<br>
-     *
+     * (状態変化) errors:bean,field,vaを引数として addErrorsが呼び出される。<br>
      * <br>
-     * varのallow2slashesが空文字で、
-     * beanのurlの区切りり文字に「//」が含まれている場合、
-     * エラーを追加してfalseが返却されることを確認する。
-     * <br>
-     *
+     * varのallow2slashesが空文字で、 beanのurlの区切りり文字に「//」が含まれている場合、 エラーを追加してfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testValidateUrl10() throws Exception {
@@ -523,7 +454,7 @@ public class FieldChecksTest09 extends TestCase {
         var1.setName("allowallschemes");
         var1.setValue("true");
         field.addVar(var1);
-        
+
         Var var2 = new Var();
         var2.setName("allow2slashes");
         var2.setValue("");
@@ -532,41 +463,33 @@ public class FieldChecksTest09 extends TestCase {
         // テスト実施
         // 判定
         assertFalse(new FieldChecks().validateUrl(
-            "abc://terasoluna.com//index.html", va, field, errors));
+                "abc://terasoluna.com//index.html", va, field, errors));
 
         // addErrors確認
         assertEquals(1, errors.addErrorCount);
-        assertEquals("abc://terasoluna.com//index.html", errors.beanList.get(0));
+        assertEquals("abc://terasoluna.com//index.html", errors.beanList.get(
+                0));
         assertSame(va, errors.vaList.get(0));
         assertSame(field, errors.fieldList.get(0));
     }
 
     /**
-     * testValidateUrl11()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateUrl11() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) bean:abc://terasoluna.com//index.html<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:var:<br>
-     *                allowallschemes="true"<br>
-     *                allow2slashes="test"<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:var:<br>
+     * allowallschemes="true"<br>
+     * allow2slashes="test"<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:false<br>
-     *         (状態変化) errors:bean,field,vaを引数として
-     *                           addErrorsが呼び出される。<br>
-     *
+     * (状態変化) errors:bean,field,vaを引数として addErrorsが呼び出される。<br>
      * <br>
-     * varのallow2slashesがtrue以外の文字列で、
-     * beanのurlの区切りり文字に「//」が含まれている場合、
-     * エラーを追加してfalseが返却されることを確認する。
-     * <br>
-     *
+     * varのallow2slashesがtrue以外の文字列で、 beanのurlの区切りり文字に「//」が含まれている場合、 エラーを追加してfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testValidateUrl11() throws Exception {
@@ -575,7 +498,7 @@ public class FieldChecksTest09 extends TestCase {
         var1.setName("allowallschemes");
         var1.setValue("true");
         field.addVar(var1);
-        
+
         Var var2 = new Var();
         var2.setName("allow2slashes");
         var2.setValue("test");
@@ -584,40 +507,33 @@ public class FieldChecksTest09 extends TestCase {
         // テスト実施
         // 判定
         assertFalse(new FieldChecks().validateUrl(
-            "abc://terasoluna.com//index.html", va, field, errors));
+                "abc://terasoluna.com//index.html", va, field, errors));
 
         // addErrors確認
         assertEquals(1, errors.addErrorCount);
-        assertEquals("abc://terasoluna.com//index.html", errors.beanList.get(0));
+        assertEquals("abc://terasoluna.com//index.html", errors.beanList.get(
+                0));
         assertSame(va, errors.vaList.get(0));
         assertSame(field, errors.fieldList.get(0));
     }
 
     /**
-     * testValidateUrl12()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateUrl12() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) bean:abc://terasoluna.com/index.html#fragment<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:var:<br>
-     *                allowallschemes="true"<br>
-     *                nofragments="true"<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:var:<br>
+     * allowallschemes="true"<br>
+     * nofragments="true"<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:false<br>
-     *         (状態変化) errors:bean,field,vaを引数として
-     *                           addErrorsが呼び出される。<br>
-     *
+     * (状態変化) errors:bean,field,vaを引数として addErrorsが呼び出される。<br>
      * <br>
-     * varのnofragmentsがtrueで、beanのurlにフラグメントが存在する場合、
-     * エラーを追加してfalseが返却されることを確認する。
-     * <br>
-     *
+     * varのnofragmentsがtrueで、beanのurlにフラグメントが存在する場合、 エラーを追加してfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testValidateUrl12() throws Exception {
@@ -626,7 +542,7 @@ public class FieldChecksTest09 extends TestCase {
         var1.setName("allowallschemes");
         var1.setValue("true");
         field.addVar(var1);
-        
+
         Var var2 = new Var();
         var2.setName("nofragments");
         var2.setValue("true");
@@ -635,39 +551,33 @@ public class FieldChecksTest09 extends TestCase {
         // テスト実施
         // 判定
         assertFalse(new FieldChecks().validateUrl(
-            "abc://terasoluna.com/index.html#fragment", va, field, errors));
+                "abc://terasoluna.com/index.html#fragment", va, field, errors));
 
         // addErrors確認
         assertEquals(1, errors.addErrorCount);
-        assertEquals("abc://terasoluna.com/index.html#fragment",
-                errors.beanList.get(0));
+        assertEquals("abc://terasoluna.com/index.html#fragment", errors.beanList
+                .get(0));
         assertSame(va, errors.vaList.get(0));
         assertSame(field, errors.fieldList.get(0));
     }
 
     /**
-     * testValidateUrl13()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateUrl13() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) bean:abc://terasoluna.com/index.html#fragment<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:var:<br>
-     *                allowallschemes="true"<br>
-     *                nofragments=null<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:var:<br>
+     * allowallschemes="true"<br>
+     * nofragments=null<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *         (状態変化) errors:呼び出されない<br>
-     *
+     * (状態変化) errors:呼び出されない<br>
      * <br>
-     * varのnofragmentsがnullで、beanのurlにフラグメントが存在する場合、trueが返却されることを確認する。
-     * <br>
-     *
+     * varのnofragmentsがnullで、beanのurlにフラグメントが存在する場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testValidateUrl13() throws Exception {
@@ -680,35 +590,29 @@ public class FieldChecksTest09 extends TestCase {
         // テスト実施
         // 判定
         assertTrue(new FieldChecks().validateUrl(
-            "abc://terasoluna.com/index.html#fragment", va, field, errors));
+                "abc://terasoluna.com/index.html#fragment", va, field, errors));
 
         // addErrors確認
         assertEquals(0, errors.addErrorCount);
     }
 
     /**
-     * testValidateUrl14()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateUrl14() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) bean:abc://terasoluna.com/index.html#fragment<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:var:<br>
-     *                allowallschemes="true"<br>
-     *                nofragments=""<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:var:<br>
+     * allowallschemes="true"<br>
+     * nofragments=""<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *         (状態変化) errors:呼び出されない<br>
-     *
+     * (状態変化) errors:呼び出されない<br>
      * <br>
-     * varのnofragmentsが空文字で、beanのurlにフラグメントが存在する場合、trueが返却されることを確認する。
-     * <br>
-     *
+     * varのnofragmentsが空文字で、beanのurlにフラグメントが存在する場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testValidateUrl14() throws Exception {
@@ -717,7 +621,7 @@ public class FieldChecksTest09 extends TestCase {
         var1.setName("allowallschemes");
         var1.setValue("true");
         field.addVar(var1);
-        
+
         Var var2 = new Var();
         var2.setName("nofragments");
         var2.setValue("");
@@ -726,36 +630,29 @@ public class FieldChecksTest09 extends TestCase {
         // テスト実施
         // 判定
         assertTrue(new FieldChecks().validateUrl(
-            "abc://terasoluna.com/index.html#fragment", va, field, errors));
+                "abc://terasoluna.com/index.html#fragment", va, field, errors));
 
         // addErrors確認
         assertEquals(0, errors.addErrorCount);
     }
 
     /**
-     * testValidateUrl15()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateUrl15() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) bean:abc://terasoluna.com/index.html#fragment<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:var:<br>
-     *                allowallschemes="true"<br>
-     *                nofragments="test"<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:var:<br>
+     * allowallschemes="true"<br>
+     * nofragments="test"<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *         (状態変化) errors:呼び出されない<br>
-     *
+     * (状態変化) errors:呼び出されない<br>
      * <br>
-     * varのnofragmentsがtrue以外の文字列で、
-     * beanのurlにフラグメントが存在する場合、trueが返却されることを確認する。
-     * <br>
-     *
+     * varのnofragmentsがtrue以外の文字列で、 beanのurlにフラグメントが存在する場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testValidateUrl15() throws Exception {
@@ -764,7 +661,7 @@ public class FieldChecksTest09 extends TestCase {
         var1.setName("allowallschemes");
         var1.setValue("true");
         field.addVar(var1);
-        
+
         Var var2 = new Var();
         var2.setName("nofragments");
         var2.setValue("test");
@@ -773,65 +670,54 @@ public class FieldChecksTest09 extends TestCase {
         // テスト実施
         // 判定
         assertTrue(new FieldChecks().validateUrl(
-            "abc://terasoluna.com/index.html#fragment", va, field, errors));
+                "abc://terasoluna.com/index.html#fragment", va, field, errors));
 
         // addErrors確認
         assertEquals(0, errors.addErrorCount);
     }
 
     /**
-     * testValidateByteRange01()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateByteRange01() <br>
      * <br>
-     * 観点：C,F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C,F <br>
+     * <br>
      * 入力値：(引数) bean:null<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:not null<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:not null<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *         (状態変化) errors:呼び出されない<br>
-     *
+     * (状態変化) errors:呼び出されない<br>
      * <br>
-     * 引数のbeanがnullの場合、trueが返却されることを確認する。
-     * <br>
-     *
+     * 引数のbeanがnullの場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testValidateByteRange01() throws Exception {
         // テスト実施
         // 判定
-        assertTrue(new FieldChecks().validateByteRange(null, va, field, errors));
+        assertTrue(new FieldChecks().validateByteRange(null, va, field,
+                errors));
 
         // addErrors確認
         assertEquals(0, errors.addErrorCount);
     }
 
     /**
-     * testValidateByteRange02()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateByteRange02() <br>
      * <br>
-     * 観点：C,F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C,F <br>
+     * <br>
      * 入力値：(引数) bean:""<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:not null<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:not null<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *         (状態変化) errors:呼び出されない<br>
-     *
+     * (状態変化) errors:呼び出されない<br>
      * <br>
-     * 引数のbeanが空文字の場合、trueが返却されることを確認する。
-     * <br>
-     *
+     * 引数のbeanが空文字の場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testValidateByteRange02() throws Exception {
@@ -844,34 +730,24 @@ public class FieldChecksTest09 extends TestCase {
     }
 
     /**
-     * testValidateByteRange03()
-     * <br><br>
-     *
-     * (異常系)
+     * testValidateByteRange03() <br>
      * <br>
-     * 観点：F,G
-     * <br><br>
+     * (異常系) <br>
+     * 観点：F,G <br>
+     * <br>
      * 入力値：(引数) bean:"test"<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:var:<br>
-     *                minByteLength="test"<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:var:<br>
+     * minByteLength="test"<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(状態変化) 例外:ValidatorException<br>
-     *                    メッセージ："Mistake on validation definition file.
-     *                    - minByteLength is not number.
-     *                    You'll have to check it over. "<br>
-     *         (状態変化) ログ:ログレベル：エラー<br>
-     *                    メッセージ："Mistake on validation definition file.
-     *                    - minByteLength is not number.
-     *                    You'll have to check it over. ", new NumberFormatException()<br>
-     *
+     * メッセージ："Mistake on validation definition file. - minByteLength is not number. You'll have to check it over. "<br>
+     * (状態変化) ログ:ログレベル：エラー<br>
+     * メッセージ："Mistake on validation definition file. - minByteLength is not number. You'll have to check it over. ", new
+     * NumberFormatException()<br>
      * <br>
-     * varのmaxByteLengthの値が数値に変換できない場合、
-     * ValidatorExceptionが発生することを確認する。
-     * <br>
-     *
+     * varのmaxByteLengthの値が数値に変換できない場合、 ValidatorExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testValidateByteRange03() throws Exception {
@@ -887,43 +763,36 @@ public class FieldChecksTest09 extends TestCase {
             new FieldChecks().validateByteRange("test", va, field, errors);
             fail();
         } catch (ValidatorException e) {
-            String message = "Mistake on validation definition file. " +
-                    "- minByteLength is not number. " +
-                    "You'll have to check it over. ";
+            String message = "Mistake on validation definition file. "
+                    + "- minByteLength is not number. "
+                    + "You'll have to check it over. ";
             assertEquals(message, e.getMessage());
-            assertTrue(LogUTUtil.checkError(message, new NumberFormatException()));
+            assertThat(logger.getLoggingEvents().get(0).getMessage(), is(
+                    equalTo(message)));
+            assertThat(logger.getLoggingEvents().get(0).getThrowable().get(),
+                    instanceOf(NumberFormatException.class));
         }
     }
 
     /**
-     * testValidateByteRange04()
-     * <br><br>
-     *
-     * (異常系)
+     * testValidateByteRange04() <br>
      * <br>
-     * 観点：F,G
-     * <br><br>
+     * (異常系) <br>
+     * 観点：F,G <br>
+     * <br>
      * 入力値：(引数) bean:"test"<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:var:<br>
-     *                maxByteLength="test"<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:var:<br>
+     * maxByteLength="test"<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(状態変化) 例外:ValidatorException<br>
-     *                    メッセージ："Mistake on validation definition file.
-     *                    - maxByteLength is not number.
-     *                    You'll have to check it over. "<br>
-     *         (状態変化) ログ:ログレベル：エラー<br>
-     *                    メッセージ："Mistake on validation definition file.
-     *                    - maxByteLength is not number.
-     *                    You'll have to check it over. ", new NumberFormatException()<br>
-     *
+     * メッセージ："Mistake on validation definition file. - maxByteLength is not number. You'll have to check it over. "<br>
+     * (状態変化) ログ:ログレベル：エラー<br>
+     * メッセージ："Mistake on validation definition file. - maxByteLength is not number. You'll have to check it over. ", new
+     * NumberFormatException()<br>
      * <br>
-     * varのmaxByteLengthの値が数値に変換できない場合、
-     * ValidatorExceptionが発生することを確認する。
-     * <br>
-     *
+     * varのmaxByteLengthの値が数値に変換できない場合、 ValidatorExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testValidateByteRange04() throws Exception {
@@ -939,75 +808,65 @@ public class FieldChecksTest09 extends TestCase {
             new FieldChecks().validateByteRange("test", va, field, errors);
             fail();
         } catch (ValidatorException e) {
-            String message = "Mistake on validation definition file. " +
-                    "- maxByteLength is not number. " +
-                    "You'll have to check it over. ";
+            String message = "Mistake on validation definition file. "
+                    + "- maxByteLength is not number. "
+                    + "You'll have to check it over. ";
             assertEquals(message, e.getMessage());
-            assertTrue(LogUTUtil.checkError(message, new NumberFormatException()));
+            assertThat(logger.getLoggingEvents().get(0).getMessage(), is(
+                    equalTo(message)));
+            assertThat(logger.getLoggingEvents().get(0).getThrowable().get(),
+                    instanceOf(NumberFormatException.class));
         }
     }
 
     /**
-     * testValidateByteRange05()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateByteRange05() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) bean:"test"<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:not null<br>
-     *                minByteLength=null<br>
-     *                maxByteLength=null<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:not null<br>
+     * minByteLength=null<br>
+     * maxByteLength=null<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *         (状態変化) errors:呼び出されない<br>
-     *
+     * (状態変化) errors:呼び出されない<br>
      * <br>
-     * varのminByteLength、maxByteLengthがnullの場合、
-     * 範囲が0～Integer.MAX_LENGTHとしてチェックが行われることを確認する。<br>
-     * ※境界値テストは物理的に不可能なため省略する。
-     * <br>
-     *
+     * varのminByteLength、maxByteLengthがnullの場合、 範囲が0～Integer.MAX_LENGTHとしてチェックが行われることを確認する。<br>
+     * ※境界値テストは物理的に不可能なため省略する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testValidateByteRange05() throws Exception {
         // テスト実施
         // 判定
-        assertTrue(new FieldChecks().validateByteRange("test", va, field, errors));
+        assertTrue(new FieldChecks().validateByteRange("test", va, field,
+                errors));
 
         // addErrors確認
         assertEquals(0, errors.addErrorCount);
     }
 
     /**
-     * testValidateByteRange06()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateByteRange06() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) bean:"test"<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:not null<br>
-     *                minByteLength=""<br>
-     *                maxByteLength=""<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:not null<br>
+     * minByteLength=""<br>
+     * maxByteLength=""<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *         (状態変化) errors:呼び出されない<br>
-     *
+     * (状態変化) errors:呼び出されない<br>
      * <br>
-     * varのminByteLength、maxByteLengthが空文字の場合、
-     * 範囲が0～Integer.MAX_LENGTHとしてチェックが行われることを確認する。<br>
-     * ※境界値テストは物理的に不可能なため省略する。
-     * <br>
-     *
+     * varのminByteLength、maxByteLengthが空文字の場合、 範囲が0～Integer.MAX_LENGTHとしてチェックが行われることを確認する。<br>
+     * ※境界値テストは物理的に不可能なため省略する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testValidateByteRange06() throws Exception {
@@ -1016,7 +875,7 @@ public class FieldChecksTest09 extends TestCase {
         var1.setName("minByteLength");
         var1.setValue("");
         field.addVar(var1);
-        
+
         Var var2 = new Var();
         var2.setName("minByteLength");
         var2.setValue("");
@@ -1024,37 +883,31 @@ public class FieldChecksTest09 extends TestCase {
 
         // テスト実施
         // 判定
-        assertTrue(new FieldChecks().validateByteRange("test", va, field, errors));
+        assertTrue(new FieldChecks().validateByteRange("test", va, field,
+                errors));
 
         // addErrors確認
         assertEquals(0, errors.addErrorCount);
     }
 
     /**
-     * testValidateByteRange07()
-     * <br><br>
-     *
-     * (異常系)
+     * testValidateByteRange07() <br>
      * <br>
-     * 観点：F,G
-     * <br><br>
+     * (異常系) <br>
+     * 観点：F,G <br>
+     * <br>
      * 入力値：(引数) bean:"test"<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:var:<br>
-     *                encoding="test"<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:var:<br>
+     * encoding="test"<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(状態変化) 例外:ValidatorException<br>
-     *                    メッセージ："encoding[test] is not supported."<br>
-     *         (状態変化) ログ:ログレベル：エラー<br>
-     *                    メッセージ："encoding[test] is not supported."<br>
-     *
+     * メッセージ："encoding[test] is not supported."<br>
+     * (状態変化) ログ:ログレベル：エラー<br>
+     * メッセージ："encoding[test] is not supported."<br>
      * <br>
-     * varのencodingがサポートされないエンコーディングの場合、
-     * ValidatorExceptionが発生することを確認する。
-     * <br>
-     *
+     * varのencodingがサポートされないエンコーディングの場合、 ValidatorExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testValidateByteRange07() throws Exception {
@@ -1072,35 +925,28 @@ public class FieldChecksTest09 extends TestCase {
         } catch (ValidatorException e) {
             String message = "encoding[test] is not supported.";
             assertEquals(message, e.getMessage());
-            assertTrue(LogUTUtil.checkError(message));
+            assertThat(logger.getLoggingEvents(), is(asList(error(message))));
         }
     }
 
     /**
-     * testValidateByteRange08()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateByteRange08() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) bean:"あいう"<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:var:<br>
-     *                minByteLength="6"<br>
-     *                maxByteLength="6"<br>
-     *                encoding=null<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:var:<br>
+     * minByteLength="6"<br>
+     * maxByteLength="6"<br>
+     * encoding=null<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *         (状態変化) errors:呼び出されない<br>
-     *
+     * (状態変化) errors:呼び出されない<br>
      * <br>
-     * varのencodingがnullの場合、
-     * デフォルトのエンコーディングでエンコードが行われることを確認する。
-     * <br>
-     *
+     * varのencodingがnullの場合、 デフォルトのエンコーディングでエンコードが行われることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testValidateByteRange08() throws Exception {
@@ -1109,7 +955,7 @@ public class FieldChecksTest09 extends TestCase {
         var1.setName("minByteLength");
         var1.setValue("6");
         field.addVar(var1);
-        
+
         Var var2 = new Var();
         var2.setName("maxByteLength");
         var2.setValue("6");
@@ -1117,37 +963,31 @@ public class FieldChecksTest09 extends TestCase {
 
         // テスト実施
         // 判定
-        assertTrue(new FieldChecks().validateByteRange("あいう", va, field, errors));
+        assertTrue(new FieldChecks().validateByteRange("あいう", va, field,
+                errors));
 
         // addErrors確認
         assertEquals(0, errors.addErrorCount);
     }
 
     /**
-     * testValidateByteRange09()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateByteRange09() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) bean:"あいう"<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:var:<br>
-     *                minByteLength="6"<br>
-     *                maxByteLength="6"<br>
-     *                encoding=""<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:var:<br>
+     * minByteLength="6"<br>
+     * maxByteLength="6"<br>
+     * encoding=""<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *         (状態変化) errors:呼び出されない<br>
-     *
+     * (状態変化) errors:呼び出されない<br>
      * <br>
-     * varのencodingが空文字の場合、
-     * デフォルトのエンコーディングでエンコードが行われることを確認する。
-     * <br>
-     *
+     * varのencodingが空文字の場合、 デフォルトのエンコーディングでエンコードが行われることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testValidateByteRange09() throws Exception {
@@ -1156,12 +996,12 @@ public class FieldChecksTest09 extends TestCase {
         var1.setName("minByteLength");
         var1.setValue("6");
         field.addVar(var1);
-        
+
         Var var2 = new Var();
         var2.setName("maxByteLength");
         var2.setValue("6");
         field.addVar(var2);
-        
+
         Var var3 = new Var();
         var3.setName("encoding");
         var3.setValue("");
@@ -1169,37 +1009,31 @@ public class FieldChecksTest09 extends TestCase {
 
         // テスト実施
         // 判定
-        assertTrue(new FieldChecks().validateByteRange("あいう", va, field, errors));
+        assertTrue(new FieldChecks().validateByteRange("あいう", va, field,
+                errors));
 
         // addErrors確認
         assertEquals(0, errors.addErrorCount);
     }
 
     /**
-     * testValidateByteRange10()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateByteRange10() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) bean:"あいう"<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:var:<br>
-     *                minByteLength="7"<br>
-     *                maxByteLength="10"<br>
-     *                encoding="UTF-8"<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:var:<br>
+     * minByteLength="7"<br>
+     * maxByteLength="10"<br>
+     * encoding="UTF-8"<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *         (状態変化) errors:呼び出されない<br>
-     *
+     * (状態変化) errors:呼び出されない<br>
      * <br>
-     * beanの値が指定したエンコーディングで範囲内である場合、
-     * trueが取得できることを確認する。
-     * <br>
-     *
+     * beanの値が指定したエンコーディングで範囲内である場合、 trueが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testValidateByteRange10() throws Exception {
@@ -1208,12 +1042,12 @@ public class FieldChecksTest09 extends TestCase {
         var1.setName("minByteLength");
         var1.setValue("7");
         field.addVar(var1);
-        
+
         Var var2 = new Var();
         var2.setName("maxByteLength");
         var2.setValue("10");
         field.addVar(var2);
-        
+
         Var var3 = new Var();
         var3.setName("encoding");
         var3.setValue("UTF-8");
@@ -1221,39 +1055,31 @@ public class FieldChecksTest09 extends TestCase {
 
         // テスト実施
         // 判定
-        assertTrue(new FieldChecks().validateByteRange("あいう", va, field, errors));
+        assertTrue(new FieldChecks().validateByteRange("あいう", va, field,
+                errors));
 
         // addErrors確認
         assertEquals(0, errors.addErrorCount);
     }
 
     /**
-     * testValidateByteRange11()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateByteRange11() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) bean:"あいう"<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:var:<br>
-     *                minByteLength="7"<br>
-     *                maxByteLength="10"<br>
-     *                encoding="Windows-31J"<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:var:<br>
+     * minByteLength="7"<br>
+     * maxByteLength="10"<br>
+     * encoding="Windows-31J"<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:false<br>
-     *         (状態変化) errors:bean,field,vaを引数として
-     *                           addErrorsが呼び出される。<br>
-     *
+     * (状態変化) errors:bean,field,vaを引数として addErrorsが呼び出される。<br>
      * <br>
-     * beanの値をvarのencodingでエンコードしたバイト数が
-     * minByteLengthの値より小さい場合、
-     * エラーを追加してfalseが返却されることを確認する。
-     * <br>
-     *
+     * beanの値をvarのencodingでエンコードしたバイト数が minByteLengthの値より小さい場合、 エラーを追加してfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testValidateByteRange11() throws Exception {
@@ -1262,12 +1088,12 @@ public class FieldChecksTest09 extends TestCase {
         var1.setName("minByteLength");
         var1.setValue("7");
         field.addVar(var1);
-        
+
         Var var2 = new Var();
         var2.setName("maxByteLength");
         var2.setValue("10");
         field.addVar(var2);
-        
+
         Var var3 = new Var();
         var3.setName("encoding");
         var3.setValue("Windows-31J");
@@ -1275,7 +1101,8 @@ public class FieldChecksTest09 extends TestCase {
 
         // テスト実施
         // 判定
-        assertFalse(new FieldChecks().validateByteRange("あいう", va, field, errors));
+        assertFalse(new FieldChecks().validateByteRange("あいう", va, field,
+                errors));
 
         // addErrors確認
         assertEquals(1, errors.addErrorCount);
@@ -1285,32 +1112,23 @@ public class FieldChecksTest09 extends TestCase {
     }
 
     /**
-     * testValidateByteRange12()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateByteRange12() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) bean:"あいう"<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:var:<br>
-     *                minByteLength="5"<br>
-     *                maxByteLength="8"<br>
-     *                encoding="UTF-8"<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:var:<br>
+     * minByteLength="5"<br>
+     * maxByteLength="8"<br>
+     * encoding="UTF-8"<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:false<br>
-     *         (状態変化) errors:bean,field,vaを引数として
-     *                           addErrorsが呼び出される。<br>
-     *
+     * (状態変化) errors:bean,field,vaを引数として addErrorsが呼び出される。<br>
      * <br>
-     * beanの値をvarのencodingでエンコードしたバイト数が
-     * maxByteLengthの値より大きい場合、
-     * エラーを追加してfalseが返却されることを確認する。
-     * <br>
-     *
+     * beanの値をvarのencodingでエンコードしたバイト数が maxByteLengthの値より大きい場合、 エラーを追加してfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testValidateByteRange12() throws Exception {
@@ -1319,12 +1137,12 @@ public class FieldChecksTest09 extends TestCase {
         var1.setName("minByteLength");
         var1.setValue("5");
         field.addVar(var1);
-        
+
         Var var2 = new Var();
         var2.setName("maxByteLength");
         var2.setValue("8");
         field.addVar(var2);
-        
+
         Var var3 = new Var();
         var3.setName("encoding");
         var3.setValue("UTF-8");
@@ -1332,7 +1150,8 @@ public class FieldChecksTest09 extends TestCase {
 
         // テスト実施
         // 判定
-        assertFalse(new FieldChecks().validateByteRange("あいう", va, field, errors));
+        assertFalse(new FieldChecks().validateByteRange("あいう", va, field,
+                errors));
 
         // addErrors確認
         assertEquals(1, errors.addErrorCount);
