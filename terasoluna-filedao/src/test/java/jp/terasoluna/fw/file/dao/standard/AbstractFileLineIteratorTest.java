@@ -62,7 +62,6 @@ public class AbstractFileLineIteratorTest {
     /**
      * 初期化処理を行う。
      * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
      */
     @Before
     public void setUp() {
