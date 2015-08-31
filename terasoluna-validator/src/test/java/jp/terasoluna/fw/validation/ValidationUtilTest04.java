@@ -19,7 +19,7 @@ package jp.terasoluna.fw.validation;
 import java.util.ArrayList;
 import java.util.List;
 
-import jp.terasoluna.utlib.PropertyTestCase;
+import jp.terasoluna.fw.validation.PropertyTestCase;
 import jp.terasoluna.utlib.UTUtil;
 
 /**

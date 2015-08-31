@@ -19,7 +19,7 @@ package jp.terasoluna.fw.validation;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import jp.terasoluna.utlib.PropertyTestCase;
+import jp.terasoluna.fw.validation.PropertyTestCase;
 
 /**
  * {@link jp.terasoluna.fw.validation.ValidationUtil} クラスのブラックボックステスト。

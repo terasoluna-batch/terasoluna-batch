@@ -18,7 +18,7 @@ package jp.terasoluna.fw.util;
 
 import java.io.File;
 
-import jp.terasoluna.utlib.PropertyTestCase;
+import jp.terasoluna.fw.util.PropertyTestCase;
 import jp.terasoluna.utlib.UTUtil;
 
 /**

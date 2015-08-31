@@ -22,7 +22,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
-import jp.terasoluna.utlib.PropertyTestCase;
+import jp.terasoluna.fw.util.PropertyTestCase;
 
 /**
  * DateUtil ブラックボックステスト。<br>

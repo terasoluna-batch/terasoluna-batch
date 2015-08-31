@@ -18,7 +18,7 @@ package jp.terasoluna.fw.validation;
 
 import java.math.BigDecimal;
 
-import jp.terasoluna.utlib.PropertyTestCase;
+import jp.terasoluna.fw.validation.PropertyTestCase;
 import jp.terasoluna.utlib.UTUtil;
 
 /**

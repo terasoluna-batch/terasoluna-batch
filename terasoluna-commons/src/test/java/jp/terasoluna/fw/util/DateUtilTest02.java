@@ -16,7 +16,7 @@
 
 package jp.terasoluna.fw.util;
 
-import jp.terasoluna.utlib.PropertyTestCase;
+import jp.terasoluna.fw.util.PropertyTestCase;
 import jp.terasoluna.utlib.UTUtil;
 
 import java.util.Date;

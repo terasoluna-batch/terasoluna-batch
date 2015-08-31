@@ -1199,7 +1199,7 @@ public class FieldChecksTest08 extends TestCase {
             assertThat(logger.getLoggingEvents().get(0).getThrowable().get(),
                     instanceOf(PropertyAccessException.class));
             assertThat(logger.getLoggingEvents().get(0).getThrowable().get()
-                    .getCause(), instanceOf(IllegalArgumentException.class));
+                    .getCause(), instanceOf(RuntimeException.class));
         }
     }
 }
