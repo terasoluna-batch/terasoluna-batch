@@ -34,6 +34,9 @@ import static uk.org.lidalia.slf4jtest.LoggingEvent.warn;
 import static java.util.Arrays.asList;
 import static org.hamcrest.core.Is.*;
 import static org.junit.Assert.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * PropertyUtil ブラックボックステスト。<br>
@@ -67,16 +70,8 @@ public class PropertyUtilTest extends PropertyTestCase {
     private TestLogger logger = TestLoggerFactory.getTestLogger(
             PropertyUtil.class);
 
-    /**
-     * Constructor for PropertyUtilTest.
-     * @param arg0
-     */
-    public PropertyUtilTest(String arg0) {
-        super(arg0);
-    }
-
-    @Override
-    protected void setUpData() throws Exception {
+    @Before
+    public void setUpData() throws Exception {
         addProperty("system.name", "SAMPLE1");
         addProperty("fileutiltest.dir.base", "/tmp/test");
         addProperty("property.test001.id.0", "test");
@@ -102,8 +97,8 @@ public class PropertyUtilTest extends PropertyTestCase {
                 "select values01,values01,values01 from table_kamoTest where Key1 between ? and ?");
     }
 
-    @Override
-    protected void cleanUpData() throws Exception {
+    @After
+    public void cleanUpData() throws Exception {
         clearProperty();
     }
 
@@ -115,6 +110,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 期待値：PropertyUtilクラスのfilesフィールドにファイル名が含まれていること<br>
      * @throws Exception 例外
      */
+    @Test
     public void testAddPropertyFile01() throws Exception {
         // 入力値の設定
         String input = "system";
@@ -136,6 +132,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 期待値：PropertyUtilクラスのfilesフィールドにファイル名が含まれていること<br>
      * @throws Exception 例外
      */
+    @Test
     public void testAddPropertyFile02() throws Exception {
         // 入力値の設定
         String input = "system.properties";
@@ -157,6 +154,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 期待値：PropertyUtilクラスのfilesフィールドにファイル名が含まれていないこと<br>
      * @throws Exception 例外
      */
+    @Test
     public void testAddPropertyFile03() throws Exception {
         // 入力値の設定
         String input = "xxxxx";
@@ -178,6 +176,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 期待値：NullPointerException<br>
      * @throws Exception 例外
      */
+    @Test
     public void testAddPropertyFile04() throws Exception {
         // 入力値の設定
         String input = null;
@@ -199,6 +198,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 期待値：<br>
      * @throws Exception 例外
      */
+    @Test
     public void testAddPropertyFile05() throws Exception {
         // 入力値の設定
         String input = "";
@@ -220,6 +220,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 期待値：一度しか読み込まれないことを<br>
      * @throws Exception 例外
      */
+    @Test
     public void testAddPropertyFile06() throws Exception {
         // 入力値の設定
         String input = "system";
@@ -242,6 +243,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 期待値：キーのプロパティ値<br>
      * @throws Exception 例外
      */
+    @Test
     public void testGetPropertyString01() throws Exception {
         // 入力値の設定
         String input = "property.test001.id.0";
@@ -261,6 +263,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 期待値：Null値<br>
      * @throws Exception 例外
      */
+    @Test
     public void testGetPropertyString02() throws Exception {
         // 入力値の設定
         String input = "property.test001.id.1";
@@ -280,6 +283,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 期待値：NullPointerException<br>
      * @throws Exception 例外
      */
+    @Test
     public void testGetPropertyString03() throws Exception {
         // 入力値の設定
         String input = null;
@@ -301,6 +305,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 期待値：Null値<br>
      * @throws Exception 例外
      */
+    @Test
     public void testGetPropertyString04() throws Exception {
         // 入力値の設定
         String input = "";
@@ -320,6 +325,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 期待値：空文字<br>
      * @throws Exception 例外
      */
+    @Test
     public void testGetPropertyString05() throws Exception {
         // 入力値の設定
         String input = "property.test003.id.0";
@@ -339,6 +345,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 期待値：後に設定されたキーのプロパティ値<br>
      * @throws Exception 例外
      */
+    @Test
     public void testGetPropertyString06() throws Exception {
         // 入力値の設定
         String input = "property.test004.id.0";
@@ -358,6 +365,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 期待値：後に設定されたキーのプロパティ値<br>
      * @throws Exception 例外
      */
+    @Test
     public void testGetPropertyString07() throws Exception {
         // 入力値の設定
         String input = "@property.test0";
@@ -377,6 +385,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 期待値：後に設定されたキーのプロパティ値<br>
      * @throws Exception 例外
      */
+    @Test
     public void testGetPropertyString08() throws Exception {
         // 入力値の設定
         String input = "property.test100.id.0";
@@ -396,6 +405,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 期待値：<code>@</code>を外したプロパティ値<br>
      * @throws Exception 例外
      */
+    @Test
     public void testGetPropertyString09() throws Exception {
         // 入力値の設定
         String input = "property.test005";
@@ -416,6 +426,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * property.test007.id.0=@@test007とプロパティファイルに設定し、 @test007が得られることを確認する。
      * @throws Exception 例外
      */
+    @Test
     public void testGetPropertyString10() throws Exception {
         // 入力値の設定
         String input = "property.test007.id.0";
@@ -436,6 +447,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * property.test008.id.0=@@とプロパティファイルに設定し、 @が得られることを確認する。
      * @throws Exception 例外
      */
+    @Test
     public void testGetPropertyString11() throws Exception {
         // 入力値の設定
         String input = "property.test008.id.0";
@@ -456,6 +468,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * property.test009.id.0=@とプロパティファイルに設定し、 Nullが返って来ることを確認する。
      * @throws Exception 例外
      */
+    @Test
     public void testGetPropertyString12() throws Exception {
         // 入力値の設定
         String input = "property.test009.id.0";
@@ -476,6 +489,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 期待値：キーのプロパティ値<br>
      * @throws Exception 例外
      */
+    @Test
     public void testGetPropertyStringString01() throws Exception {
         // 入力値の設定
         String input1 = "property.test001.id.0";
@@ -497,6 +511,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 期待値：デフォルト値<br>
      * @throws Exception 例外
      */
+    @Test
     public void testGetPropertyStringString02() throws Exception {
         // 入力値の設定
         String input1 = "property.test001.id.1";
@@ -518,6 +533,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 期待値：NullPointerException<br>
      * @throws Exception 例外
      */
+    @Test
     public void testGetPropertyStringString03() throws Exception {
         // 入力値の設定
         String input1 = null;
@@ -541,6 +557,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 期待値：キーのプロパティ値<br>
      * @throws Exception 例外
      */
+    @Test
     public void testGetPropertyStringString04() throws Exception {
         // 入力値の設定
         String input1 = "property.test001.id.0";
@@ -562,6 +579,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 期待値：null(デフォルト)<br>
      * @throws Exception 例外
      */
+    @Test
     public void testGetPropertyStringString05() throws Exception {
         // 入力値の設定
         String input1 = "property.test001.id.1";
@@ -583,6 +601,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 期待値：デフォルト値<br>
      * @throws Exception 例外
      */
+    @Test
     public void testGetPropertyStringString06() throws Exception {
         // 入力値の設定
         String input1 = "";
@@ -604,6 +623,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 期待値：キーのプロパティ値<br>
      * @throws Exception 例外
      */
+    @Test
     public void testGetPropertyStringString07() throws Exception {
         // 入力値の設定
         String input1 = "property.test001.id.0";
@@ -625,6 +645,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 期待値：""(デフォルト)<br>
      * @throws Exception 例外
      */
+    @Test
     public void testGetPropertyStringString08() throws Exception {
         // 入力値の設定
         String input1 = "property.test001.id.1";
@@ -646,6 +667,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 期待値：空文字<br>
      * @throws Exception 例外
      */
+    @Test
     public void testGetPropertyStringString09() throws Exception {
         // 入力値の設定
         String input1 = "property.test003.id.0";
@@ -667,6 +689,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 期待値：キーのプロパティ値<br>
      * @throws Exception 例外
      */
+    @Test
     public void testGetPropertyStringString10() throws Exception {
         // 入力値の設定
         String input1 = "property.test004.id.0";
@@ -687,6 +710,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 期待値：すべてのキー<br>
      * @throws Exception 例外
      */
+    @Test
     public void testGetPropertyNames01() throws Exception {
         // テスト対象の実行
         Enumeration en = PropertyUtil.getPropertyNames();
@@ -731,6 +755,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 期待値：キーリスト(1件)<br>
      * @throws Exception 例外
      */
+    @Test
     public void testGetPropertyNamesString01() throws Exception {
         // 入力値の設定
         String input1 = "property.test001.id";
@@ -751,6 +776,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 期待値：キーリスト(0件)<br>
      * @throws Exception 例外
      */
+    @Test
     public void testGetPropertyNamesString02() throws Exception {
         // 入力値の設定
         String input1 = "property.test999.id";
@@ -770,6 +796,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 期待値：キーリスト(3件)<br>
      * @throws Exception 例外
      */
+    @Test
     public void testGetPropertyNamesString03() throws Exception {
         // 入力値の設定
         String input1 = "property.test002.id";
@@ -792,6 +819,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 期待値：NullPointerException<br>
      * @throws Exception 例外
      */
+    @Test
     public void testGetPropertyNamesString04() throws Exception {
         // 入力値の設定
         String input1 = null;
@@ -814,6 +842,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * @throws Exception 例外
      */
     @SuppressWarnings("unchecked")
+    @Test
     public void testGetPropertyNamesString05() throws Exception {
         // 入力値の設定
         String input1 = "";
@@ -841,6 +870,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 期待値：キーリスト(1件)<br>
      * @throws Exception 例外
      */
+    @Test
     public void testGetPropertyNamesString06() throws Exception {
         // 入力値の設定
         String input1 = "property.test004.id";
@@ -863,6 +893,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 説明：部分キー文字列に該当する値が１つの時、 指定されたプロパティファイルから値が取得されることを確認する。
      * @throws Exception 例外
      */
+    @Test
     public void testGetPropertiesValuesString01() throws Exception {
         // 入力値の設定
         // プロパティファイル名
@@ -886,6 +917,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 説明：部分キー文字列に該当する値が複数の時、 指定されたプロパティファイルから値セットが取得されることを確認する。
      * @throws Exception 例外
      */
+    @Test
     public void testGetPropertiesValuesString02() throws Exception {
         // 入力値の設定
         // プロパティファイル名
@@ -915,6 +947,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 説明：部分キー文字列がNullの時、nullが返却されることを確認する。
      * @throws Exception 例外
      */
+    @Test
     public void testGetPropertiesValuesString03() throws Exception {
         // 入力値の設定
         // プロパティファイル名
@@ -938,6 +971,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 説明：プロパティファイル名がNullの時、 Nullを戻り値として処理を終了することを確認する。
      * @throws Exception 例外
      */
+    @Test
     public void testGetPropertiesValuesString04() throws Exception {
         // 入力値の設定
         // プロパティファイル名
@@ -962,6 +996,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 説明：部分キー文字列に該当する値がない場合、 空の"Enumeration"が返却されることを確認する。
      * @throws Exception 例外
      */
+    @Test
     public void testGetPropertiesValuesString05() throws Exception {
         // 入力値の設定
         // プロパティファイル名
@@ -985,6 +1020,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 説明：プロパティファイル名が空文字の時、 Nullを戻り値として処理を終了することを確認する。
      * @throws Exception 例外
      */
+    @Test
     public void testGetPropertiesValuesString06() throws Exception {
         // 入力値の設定
         // プロパティファイル名
@@ -1009,6 +1045,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 説明：部分キー文字列が空文字の場合、 選択されたプロパティファイルの全て値が返却されることを確認する。
      * @throws Exception 例外
      */
+    @Test
     public void testGetPropertiesValuesString07() throws Exception {
         // 入力値の設定
         // プロパティファイル名
@@ -1034,6 +1071,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 説明：部分キー文字列に複数存在するキーを含めた時、 値セットが1つ取得されることを確認する。
      * @throws Exception 例外
      */
+    @Test
     public void testGetPropertiesValuesString08() throws Exception {
         // 入力値の設定
         // プロパティファイル名
@@ -1059,6 +1097,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * @throws Exception 例外
      */
     @SuppressWarnings("unchecked")
+    @Test
     public void testGetPropertyNamesPropertiesString01() throws Exception {
         // 入力値の設定
         String key1 = "SystemExceptionHandlerTest.key";
@@ -1090,6 +1129,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * @throws Exception 例外
      */
     @SuppressWarnings("unchecked")
+    @Test
     public void testGetPropertyNamesPropertiesString02() throws Exception {
         // 入力値の設定
         String key1 = "SystemExceptionHandlerTest.key";
@@ -1125,6 +1165,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * @throws Exception 例外
      */
     @SuppressWarnings("unchecked")
+    @Test
     public void testGetPropertyNamesPropertiesString03() throws Exception {
         // 入力値の設定
         String key1 = "SystemExceptionHandlerTest.key";
@@ -1166,6 +1207,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 説明：プロパティオブジェクトに対応する部分キープリフィックスがない場合、 空のEnumerationが返却されていることを確認する。
      * @throws Exception 例外
      */
+    @Test
     public void testGetPropertyNamesPropertiesString04() throws Exception {
         // 入力値の設定
         String key1 = "SystemExceptionHandlerTest.key";
@@ -1201,6 +1243,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 説明：プロパティオブジェクトがnullの場合、 nullを戻り値として処理を終了することを確認する。
      * @throws Exception 例外
      */
+    @Test
     public void testGetPropertyNamesPropertiesString05() throws Exception {
         // 入力値の設定
         Properties input = null;
@@ -1224,6 +1267,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 説明：部分キープリフィックスがnullの場合、 nullを戻り値として処理を終了することを確認する。
      * @throws Exception 例外
      */
+    @Test
     public void testGetPropertyNamesPropertiesString06() throws Exception {
         // 入力値の設定
         Properties input = new Properties();
@@ -1250,6 +1294,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 説明：プロパティオブジェクトが空の場合、 空のEnumerationが返却されていることを確認する。
      * @throws Exception 例外
      */
+    @Test
     public void testGetPropertyNamesPropertiesString07() throws Exception {
         // 入力値の設定
         Properties input = new Properties();
@@ -1274,6 +1319,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * @throws Exception 例外
      */
     @SuppressWarnings("unchecked")
+    @Test
     public void testGetPropertyNamesPropertiesString08() throws Exception {
         // 入力値の設定
         Properties input = new Properties();
@@ -1318,6 +1364,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * @throws Exception 例外
      */
     @SuppressWarnings("unchecked")
+    @Test
     public void testGetPropertyNamesPropertiesString09() throws Exception {
         // 入力値の設定
         String key1 = "SystemExceptionHandlerTest.key";
@@ -1364,6 +1411,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * @throws Exception 例外
      */
     @SuppressWarnings("unchecked")
+    @Test
     public void testGetPropertiesValues01() throws Exception {
         // 入力値の設定
         String key1 = "SystemExceptionHandlerTest.key";
@@ -1391,6 +1439,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * @throws Exception 例外
      */
     @SuppressWarnings("unchecked")
+    @Test
     public void testGetPropertiesValues02() throws Exception {
         // 入力値の設定
         String key1 = "property.test001.id.0";
@@ -1429,6 +1478,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * @throws Exception 例外
      */
     @SuppressWarnings("unchecked")
+    @Test
     public void testGetPropertiesValues03() throws Exception {
         // 入力値の設定
         String key1 = "property.test001.id.0";
@@ -1467,6 +1517,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * @throws Exception 例外
      */
     @SuppressWarnings("unchecked")
+    @Test
     public void testGetPropertiesValues04() throws Exception {
         // 入力値の設定
         Properties input = null;
@@ -1490,6 +1541,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * @throws Exception 例外
      */
     @SuppressWarnings("unchecked")
+    @Test
     public void testGetPropertiesValues05() throws Exception {
         // 入力値の設定
         Properties input = new Properties();
@@ -1516,6 +1568,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * @throws Exception 例外
      */
     @SuppressWarnings("unchecked")
+    @Test
     public void testGetPropertiesValues06() throws Exception {
         // 入力値の設定
         Properties input = new Properties();
@@ -1539,6 +1592,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * @throws Exception 例外
      */
     @SuppressWarnings("unchecked")
+    @Test
     public void testGetPropertiesValues07() throws Exception {
         // 入力値の設定
         Properties input = new Properties();
@@ -1566,6 +1620,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * @throws Exception 例外
      */
     @SuppressWarnings("unchecked")
+    @Test
     public void testGetPropertiesValues08() throws Exception {
         // 入力値の設定
         Properties input = new Properties();
@@ -1599,6 +1654,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * @throws Exception 例外
      */
     @SuppressWarnings("unchecked")
+    @Test
     public void testGetPropertiesValues09() throws Exception {
         // 入力値の設定
         Properties input = new Properties();
@@ -1628,6 +1684,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * @throws Exception 例外
      */
     @SuppressWarnings("unchecked")
+    @Test
     public void testLoadProperties01() throws Exception {
         // 入力値の設定
         String input = "test_message_01_en_US";
@@ -1650,6 +1707,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 説明：指定されたプロパティファイルの中身の個数分ロードされていることを確認する。
      * @throws Exception 例外
      */
+    @Test
     public void testLoadProperties02() throws Exception {
         // 入力値の設定
         String input = "test_message_01";
@@ -1680,6 +1738,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 説明：プロパティファイル名が存在しない場合Nullを戻り値として処理を終することを確認する。
      * @throws Exception 例外
      */
+    @Test
     public void testLoadProperties03() throws Exception {
         // 入力値の設定
         String input = null;
@@ -1701,6 +1760,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 説明：プロパティファイル名が存在しない場合Nullを戻り値として処理を終了することを確認する。
      * @throws Exception 例外
      */
+    @Test
     public void testLoadProperties04() throws Exception {
         // 入力値の設定
         String input = "";
@@ -1722,6 +1782,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 説明：指定されたプロパティファイルの中身が空の時、 空のプロパティオブジェクトが取り出されていることを確認する。
      * @throws Exception 例外
      */
+    @Test
     public void testLoadProperties05() throws Exception {
         // 入力値の設定
         String input = "test_message_10";
@@ -1743,6 +1804,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * ログ："*** Can not find property-file [test_me.properties] ***" 説明：存在しないファイル名が指定された時、 nullを戻り値として処理を終了することを確認する。
      * @throws Exception 例外
      */
+    @Test
     public void testLoadProperties06() throws Exception {
         // 入力値の設定
         String input = "test_me";
@@ -1769,6 +1831,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * @throws Exception 例外
      */
     @SuppressWarnings("unchecked")
+    @Test
     public void testLoadProperties07() throws Exception {
         // 入力値の設定
         String input = "test_message_01_en_US.properties";
@@ -1792,6 +1855,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * @throws Exception
      * @throws Exception 例外
      */
+    @Test
     public void testGetPropertiesPathStringString01() throws Exception {
         // テスト設定
         // getPropertiesPathの引数クラス要素
@@ -1820,6 +1884,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * @throws Exception
      * @throws Exception 例外
      */
+    @Test
     public void testGetPropertiesPathStringString02() throws Exception {
         // テスト設定
         // getPropertiesPathの引数クラス要素
@@ -1850,6 +1915,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * @throws Exception
      * @throws Exception 例外
      */
+    @Test
     public void testGetPropertiesPathStringString03() throws Exception {
         // テスト設定
         // getPropertiesPathの引数クラス要素
@@ -1878,6 +1944,7 @@ public class PropertyUtilTest extends PropertyTestCase {
      * @throws Exception
      * @throws Exception 例外
      */
+    @Test
     public void testGetPropertiesPathStringString04() throws Exception {
         // テスト設定
         // getPropertiesPathの引数クラス要素

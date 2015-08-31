@@ -26,6 +26,11 @@ import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
 import static uk.org.lidalia.slf4jtest.LoggingEvent.error;
 
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
 /**
  * DateUtil ブラックボックステスト。<br>
  * staticイニシャライザの動作をテスト対象としているため、 他のメソッドが実行されるDateUtilTest01とはテストケースを分割している。
@@ -34,16 +39,8 @@ public class DateUtilTest02 extends PropertyTestCase {
 
     private TestLogger logger = TestLoggerFactory.getTestLogger(DateUtil.class);
 
-    /**
-     * Constructor for DateUtilTest02.
-     * @param arg0 constructor argument
-     */
-    public DateUtilTest02(String arg0) {
-        super(arg0);
-    }
-
-    @Override
-    protected void setUpData() throws Exception {
+    @Before
+    public void setUpData() throws Exception {
         addProperty("wareki.gengo.0.name", "平成");
         addProperty("wareki.gengo.0.roman", "H");
         addProperty("wareki.gengo.0.startDate", "1989/01/08");
@@ -63,8 +60,8 @@ public class DateUtilTest02 extends PropertyTestCase {
         addProperty("wareki.gengo.5.startDate", "asdf");
     }
 
-    @Override
-    protected void cleanUpData() throws Exception {
+    @After
+    public void cleanUpData() throws Exception {
         clearProperty();
     }
 
@@ -101,6 +98,7 @@ public class DateUtilTest02 extends PropertyTestCase {
      * すべてのパターンを網羅するテスト <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testStatic01() throws Exception {
 
         // 結果確認

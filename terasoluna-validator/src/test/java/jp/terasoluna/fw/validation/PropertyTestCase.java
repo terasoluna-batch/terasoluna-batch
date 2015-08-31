@@ -23,56 +23,35 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-import junit.framework.TestCase;
+import org.junit.After;
+import org.junit.Before;
 
 /**
- * 
- * プロパティの読み込みを行うテストケースに使用するクラス。
- * このクラスを使用する場合、最初にプロパティをキャッシュし、最後に
- * 元に戻すので、PropertyUTUtilクラスを使用してプロパティを変更しても
+ * プロパティの読み込みを行うテストケースに使用するクラス。 このクラスを使用する場合、最初にプロパティをキャッシュし、最後に 元に戻すので、PropertyUTUtilクラスを使用してプロパティを変更しても
  * 他のテストケースに影響を与えないでテストを行うことができる。
- *
- *
  */
-public abstract class PropertyTestCase extends TestCase{
-    
+public abstract class PropertyTestCase {
+
     /**
      * PropertyUtilのフルパス名。
      */
-    private static final String PROPERTY_UTIL_NAME = 
-            "jp.terasoluna.fw.util.PropertyUtil";
-    
+    private static final String PROPERTY_UTIL_NAME = "jp.terasoluna.fw.util.PropertyUtil";
+
     /**
      * PropertyUtil内のプロパティを保持するMapのフィールド名。
      */
     private static final String PROPERTY_FIELD = "props";
-    
+
     /**
      * プロパティをキャッシュするために使用する。
      */
-    protected Map<String, String> cashMap =null;
-    
-    /**
-     * コンストラクタ。
-     * @param name このテストケースの名前。
-     */
-    public PropertyTestCase(String name) {
-        super(name);
-    }
-
-    /**
-     * コンストラクタ。
-     */
-    public PropertyTestCase() {
-        super();
-    }
+    protected Map<String, String> cashMap = null;
 
     /**
      * プロパティをキャッシュする。
      */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
+    @Before
+    public void setUp() throws Exception {
         // プロパティをキャッシュする。
         saveProps();
         setUpData();
@@ -81,31 +60,28 @@ public abstract class PropertyTestCase extends TestCase{
     /**
      * プロパティをテスト実行前に戻してから終了する。
      */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
+    @After
+    public void tearDown() throws Exception {
         cleanUpData();
         // プロパティをテスト開始前に戻す。
         loadProps();
     }
-    
+
     /**
      * 初期化メソッド。不要であれば空実装すること。
-     * 
      * @throws Exception 初期化時例外
      */
     protected abstract void setUpData() throws Exception;
 
     /**
      * 終了時メソッド。不要であれば空実装すること。
-     * 
      * @throws Exception 終了時例外
      */
     protected abstract void cleanUpData() throws Exception;
-    
+
     /**
      * 現在のプロパティをキャッシュする
-     */ 
+     */
     private void saveProps() {
         this.cashMap = new HashMap<String, String>();
         Map<String, String> m = getProps();
@@ -114,16 +90,16 @@ public abstract class PropertyTestCase extends TestCase{
             this.cashMap.put((String) e.getKey(), (String) e.getValue());
         }
     }
-    
+
     /**
      * キャッシュされているプロパティに戻す。
      */
     private void loadProps() {
-        Map<String, String> map= getProps();
+        Map<String, String> map = getProps();
         map.clear();
         map.putAll(this.cashMap);
     }
-    
+
     /**
      * 現在保持しているプロパティの値をMapで返す。
      * @return 現在保持しているプロパティ
@@ -135,9 +111,8 @@ public abstract class PropertyTestCase extends TestCase{
         Map<String, String> map = null;
         try {
             // Classオブジェクトからメソッド名を指定して実行する。
-            cls = 
-                Class.forName(PROPERTY_UTIL_NAME);
-        } catch(ClassNotFoundException e) {
+            cls = Class.forName(PROPERTY_UTIL_NAME);
+        } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
         try {
@@ -149,14 +124,14 @@ public abstract class PropertyTestCase extends TestCase{
         // privateをアクセス可能にする。
         field.setAccessible(true);
         try {
-            map =(Map<String, String>) field.get(cls);
+            map = (Map<String, String>) field.get(cls);
         } catch (IllegalAccessException e) {
             // フィールドにアクセスできない場合。
             e.printStackTrace();
         }
         return map;
     }
-    
+
     /**
      * プロパティを１つ追加する。
      * @param key 追加するキー。
@@ -166,7 +141,7 @@ public abstract class PropertyTestCase extends TestCase{
         Map<String, String> currentMap = getProps();
         currentMap.put(key, value);
     }
-    
+
     /**
      * プロパティをMapごと追加する。
      * @param m 追加するプロパティを持ったMap
@@ -178,7 +153,6 @@ public abstract class PropertyTestCase extends TestCase{
 
     /**
      * プロパティから該当するキー (およびそれに対応する値) を削除する。
-     * 
      * @param key 削除したいプロパティのキー、またはキーのプレフィックス
      */
     public void deleteProperty(String key) {
@@ -204,5 +178,5 @@ public abstract class PropertyTestCase extends TestCase{
         Map<String, String> currentMap = getProps();
         currentMap.clear();
     }
-    
+
 }
