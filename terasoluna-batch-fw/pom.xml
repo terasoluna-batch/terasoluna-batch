@@ -526,11 +526,6 @@ sp_cleanup.organize_imports=true
                 <version>${terasoluna.utlib.version}</version>
             </dependency>
 
-            <dependency>
-                <groupId>jp.terasoluna.utlib</groupId>
-                <artifactId>terasoluna-utlib-spring</artifactId>
-                <version>${terasoluna.utlib.spring.version}</version>
-            </dependency>
 
             <dependency>
                 <groupId>com.mockrunner</groupId>
@@ -663,11 +658,6 @@ sp_cleanup.organize_imports=true
         <dependency>
             <groupId>jp.terasoluna.utlib</groupId>
             <artifactId>terasoluna-utlib</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>jp.terasoluna.utlib</groupId>
-            <artifactId>terasoluna-utlib-spring</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
