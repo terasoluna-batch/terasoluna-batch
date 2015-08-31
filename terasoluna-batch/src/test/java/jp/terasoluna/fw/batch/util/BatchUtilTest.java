@@ -16,6 +16,8 @@
 
 package jp.terasoluna.fw.batch.util;
 
+import static org.junit.Assert.*;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -24,10 +26,11 @@ import java.util.Map;
 
 import jp.terasoluna.fw.batch.exception.IllegalClassTypeException;
 import jp.terasoluna.fw.logger.TLogger;
-import junit.framework.TestCase;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+
+import org.junit.Test;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.TransactionException;
@@ -40,7 +43,7 @@ import static org.mockito.Mockito.*;
  * 
  * 
  */
-public class BatchUtilTest extends TestCase {
+public class BatchUtilTest {
     // private Log log = LogFactory.getLog(BatchUtilTest.class);
     private Log log = TLogger.getLogger(BatchUtilTest.class);
 
@@ -48,6 +51,7 @@ public class BatchUtilTest extends TestCase {
      * testBatchUtil001
      * @throws Exception
      */
+    @Test
     public void testBatchUtil001() throws Exception {
         BatchUtil bu = new BatchUtil();
         assertNotNull(bu);
@@ -62,6 +66,7 @@ public class BatchUtilTest extends TestCase {
      * 結合された文字列が返却されること<br>
      * @throws Exception
      */
+    @Test
     public void testCat01() throws Exception {
 
         // テスト入力データ設定
@@ -83,6 +88,7 @@ public class BatchUtilTest extends TestCase {
      * nullが返却されること<br>
      * @throws Exception
      */
+    @Test
     public void testCat02() throws Exception {
 
         // テスト入力データ設定
@@ -104,6 +110,7 @@ public class BatchUtilTest extends TestCase {
      * 空文字が返却されること<br>
      * @throws Exception
      */
+    @Test
     public void testCat03() throws Exception {
 
         // テスト入力データ設定
@@ -125,6 +132,7 @@ public class BatchUtilTest extends TestCase {
      * nullを飛ばした結合文字列が返却されること<br>
      * @throws Exception
      */
+    @Test
     public void testCat04() throws Exception {
 
         // テスト入力データ設定
@@ -146,6 +154,7 @@ public class BatchUtilTest extends TestCase {
      * 入力文字列が埋め込まれたログ文字列が返却されること<br>
      * @throws Exception
      */
+    @Test
     public void testGetInfoLogStartMsg01() throws Exception {
 
         // テスト入力データ設定
@@ -167,6 +176,7 @@ public class BatchUtilTest extends TestCase {
      * 入力文字列が埋め込まれないログ文字列が返却されること<br>
      * @throws Exception
      */
+    @Test
     public void testGetInfoLogStartMsg02() throws Exception {
 
         // テスト入力データ設定
@@ -188,6 +198,7 @@ public class BatchUtilTest extends TestCase {
      * 入力文字列が埋め込まれないログ文字列が返却されること<br>
      * @throws Exception
      */
+    @Test
     public void testGetInfoLogStartMsg03() throws Exception {
 
         // テスト入力データ設定
@@ -209,6 +220,7 @@ public class BatchUtilTest extends TestCase {
      * 入力文字列が埋め込まれたログ文字列が返却されること<br>
      * @throws Exception
      */
+    @Test
     public void testGetInfoLogEndMsg01() throws Exception {
 
         // テスト入力データ設定
@@ -230,6 +242,7 @@ public class BatchUtilTest extends TestCase {
      * 入力文字列が埋め込まれないログ文字列が返却されること<br>
      * @throws Exception
      */
+    @Test
     public void testGetInfoLogEndMsg02() throws Exception {
 
         // テスト入力データ設定
@@ -251,6 +264,7 @@ public class BatchUtilTest extends TestCase {
      * 入力文字列が埋め込まれないログ文字列が返却されること<br>
      * @throws Exception
      */
+    @Test
     public void testGetInfoLogEndMsg03() throws Exception {
 
         // テスト入力データ設定
@@ -267,6 +281,7 @@ public class BatchUtilTest extends TestCase {
      * testGetTransactionDefinition01
      * @throws Exception
      */
+    @Test
     public void testGetTransactionDefinition01() throws Exception {
 
         // テスト実施
@@ -280,6 +295,7 @@ public class BatchUtilTest extends TestCase {
      * testGetTransactionDefinition02
      * @throws Exception
      */
+    @Test
     public void testGetTransactionDefinition02() throws Exception {
 
         // テスト実施
@@ -296,6 +312,7 @@ public class BatchUtilTest extends TestCase {
      * testChangeListToArray01
      * @throws Exception
      */
+    @Test
     public void testChangeListToArray01() throws Exception {
 
         // テスト入力データ設定
@@ -317,6 +334,7 @@ public class BatchUtilTest extends TestCase {
      * testChangeListToArray02
      * @throws Exception
      */
+    @Test
     public void testChangeListToArray02() throws Exception {
 
         // テスト入力データ設定
@@ -342,6 +360,7 @@ public class BatchUtilTest extends TestCase {
      * testChangeListToArray03
      * @throws Exception
      */
+    @Test
     public void testChangeListToArray03() throws Exception {
 
         // テスト入力データ設定
@@ -366,6 +385,7 @@ public class BatchUtilTest extends TestCase {
      * testGetProperties01
      * @throws Exception
      */
+    @Test
     public void testGetProperties01() throws Exception {
 
         // テスト実施
@@ -379,6 +399,7 @@ public class BatchUtilTest extends TestCase {
      * testStartTransaction01
      * @throws Exception
      */
+    @Test
     public void testStartTransaction01() throws Exception {
         // テスト入力データ設定
         PlatformTransactionManager tran = null;
@@ -394,6 +415,7 @@ public class BatchUtilTest extends TestCase {
      * testStartTransaction02
      * @throws Exception
      */
+    @Test
     public void testStartTransaction02() throws Exception {
         // テスト入力データ設定
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
@@ -409,6 +431,7 @@ public class BatchUtilTest extends TestCase {
      * testStartTransaction03
      * @throws Exception
      */
+    @Test
     public void testStartTransaction03() throws Exception {
         // テスト入力データ設定
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
@@ -424,6 +447,7 @@ public class BatchUtilTest extends TestCase {
      * testStartTransaction04
      * @throws Exception
      */
+    @Test
     public void testStartTransaction04() throws Exception {
         // テスト入力データ設定
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
@@ -442,6 +466,7 @@ public class BatchUtilTest extends TestCase {
      * testStartTransaction05
      * @throws Exception
      */
+    @Test
     public void testStartTransaction05() throws Exception {
         // テスト入力データ設定
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
@@ -460,6 +485,7 @@ public class BatchUtilTest extends TestCase {
      * testStartTransaction06
      * @throws Exception
      */
+    @Test
     public void testStartTransaction06() throws Exception {
         // テスト入力データ設定
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
@@ -476,6 +502,7 @@ public class BatchUtilTest extends TestCase {
      * testStartTransaction07
      * @throws Exception
      */
+    @Test
     public void testStartTransaction07() throws Exception {
         // テスト入力データ設定
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
@@ -488,6 +515,7 @@ public class BatchUtilTest extends TestCase {
         assertNotNull(result);
     }
 
+    @Test
     public void testStartTransaction08() throws Exception {
         // テスト入力データ設定
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
@@ -502,6 +530,7 @@ public class BatchUtilTest extends TestCase {
      * testStartTransactions01
      * @throws Exception
      */
+    @Test
     public void testStartTransactions01() throws Exception {
         // テスト入力データ設定
         TransactionDefinition def = BatchUtil.getTransactionDefinition();
@@ -521,6 +550,7 @@ public class BatchUtilTest extends TestCase {
      * testStartTransactions02
      * @throws Exception
      */
+    @Test
     public void testStartTransactions02() throws Exception {
         // テスト入力データ設定
         TransactionDefinition def = BatchUtil.getTransactionDefinition();
@@ -540,6 +570,7 @@ public class BatchUtilTest extends TestCase {
      * testStartTransactions03
      * @throws Exception
      */
+    @Test
     public void testStartTransactions03() throws Exception {
         // テスト入力データ設定
         TransactionDefinition def = BatchUtil.getTransactionDefinition();
@@ -575,6 +606,7 @@ public class BatchUtilTest extends TestCase {
      * testStartTransactions04
      * @throws Exception
      */
+    @Test
     public void testStartTransactions04() throws Exception {
         // テスト入力データ設定
         TransactionDefinition def = BatchUtil.getTransactionDefinition();
@@ -610,6 +642,7 @@ public class BatchUtilTest extends TestCase {
      * testStartTransactions05
      * @throws Exception
      */
+    @Test
     public void testStartTransactions05() throws Exception {
         // テスト入力データ設定
         TransactionDefinition def = BatchUtil.getTransactionDefinition();
@@ -645,6 +678,7 @@ public class BatchUtilTest extends TestCase {
      * testStartTransactions06
      * @throws Exception
      */
+    @Test
     public void testStartTransactions06() throws Exception {
         // テスト入力データ設定
         TransactionDefinition def = BatchUtil.getTransactionDefinition();
@@ -676,6 +710,7 @@ public class BatchUtilTest extends TestCase {
      * testCommitTransaction01
      * @throws Exception
      */
+    @Test
     public void testCommitTransaction01() throws Exception {
         // テスト入力データ設定
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
@@ -697,6 +732,7 @@ public class BatchUtilTest extends TestCase {
      * testCommitTransaction02
      * @throws Exception
      */
+    @Test
     public void testCommitTransaction02() throws Exception {
         // テスト入力データ設定
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
@@ -718,6 +754,7 @@ public class BatchUtilTest extends TestCase {
      * testCommitTransactions01
      * @throws Exception
      */
+    @Test
     public void testCommitTransactions01() throws Exception {
         // テスト入力データ設定
         Map<String, PlatformTransactionManager> tranMap = new HashMap<String, PlatformTransactionManager>();
@@ -741,6 +778,7 @@ public class BatchUtilTest extends TestCase {
      * testCommitTransactions02
      * @throws Exception
      */
+    @Test
     public void testCommitTransactions02() throws Exception {
         // テスト入力データ設定
         Map<String, PlatformTransactionManager> tranMap = new HashMap<String, PlatformTransactionManager>();
@@ -765,6 +803,7 @@ public class BatchUtilTest extends TestCase {
      * testCommitTransactions03
      * @throws Exception
      */
+    @Test
     public void testCommitTransaction03() throws Exception {
         // テスト入力データ設定
         Map<String, PlatformTransactionManager> tranMap = new HashMap<String, PlatformTransactionManager>();
@@ -808,6 +847,7 @@ public class BatchUtilTest extends TestCase {
      * testEndTransaction01
      * @throws Exception
      */
+    @Test
     public void testEndTransaction01() throws Exception {
         // テスト入力データ設定
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
@@ -829,6 +869,7 @@ public class BatchUtilTest extends TestCase {
      * testEndTransaction02
      * @throws Exception
      */
+    @Test
     public void testEndTransaction02() throws Exception {
         // テスト入力データ設定
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
@@ -850,6 +891,7 @@ public class BatchUtilTest extends TestCase {
      * testEndTransactions01
      * @throws Exception
      */
+    @Test
     public void testEndTransactions01() throws Exception {
         // テスト入力データ設定
         Map<String, PlatformTransactionManager> tranMap = new HashMap<String, PlatformTransactionManager>();
@@ -876,6 +918,7 @@ public class BatchUtilTest extends TestCase {
      * testEndTransactions02
      * @throws Exception
      */
+    @Test
     public void testEndTransactions02() throws Exception {
         // テスト入力データ設定
         Map<String, PlatformTransactionManager> tranMap = new HashMap<String, PlatformTransactionManager>();
@@ -905,6 +948,7 @@ public class BatchUtilTest extends TestCase {
      * testEndTransactions03
      * @throws Exception
      */
+    @Test
     public void testEndTransactions03() throws Exception {
         // テスト入力データ設定
         Map<String, PlatformTransactionManager> tranMap = new HashMap<String, PlatformTransactionManager>();
@@ -958,6 +1002,7 @@ public class BatchUtilTest extends TestCase {
      * testSetSavepoint01
      * @throws Exception
      */
+    @Test
     public void testSetSavepoint01() throws Exception {
         // テスト入力データ設定
 
@@ -979,6 +1024,7 @@ public class BatchUtilTest extends TestCase {
      * testSetSavepoint02
      * @throws Exception
      */
+    @Test
     public void testSetSavepoint02() throws Exception {
         // テスト入力データ設定
 
@@ -1000,6 +1046,7 @@ public class BatchUtilTest extends TestCase {
      * testReleaseSavepoint01
      * @throws Exception
      */
+    @Test
     public void testReleaseSavepoint01() throws Exception {
         // テスト入力データ設定
 
@@ -1020,6 +1067,7 @@ public class BatchUtilTest extends TestCase {
      * testReleaseSavepoint02
      * @throws Exception
      */
+    @Test
     public void testReleaseSavepoint02() throws Exception {
         // テスト入力データ設定
 
@@ -1040,6 +1088,7 @@ public class BatchUtilTest extends TestCase {
      * testRollbackSavepoint01
      * @throws Exception
      */
+    @Test
     public void testRollbackSavepoint01() throws Exception {
         // テスト入力データ設定
 
@@ -1060,6 +1109,7 @@ public class BatchUtilTest extends TestCase {
      * testRollbackSavepoint02
      * @throws Exception
      */
+    @Test
     public void testRollbackSavepoint02() throws Exception {
         // テスト入力データ設定
 
@@ -1080,6 +1130,7 @@ public class BatchUtilTest extends TestCase {
      * testRollbackTransaction01
      * @throws Exception
      */
+    @Test
     public void testRollbackTransaction01() throws Exception {
         // テスト入力データ設定
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
@@ -1101,6 +1152,7 @@ public class BatchUtilTest extends TestCase {
      * testRollbackTransaction02
      * @throws Exception
      */
+    @Test
     public void testRollbackTransaction02() throws Exception {
         // テスト入力データ設定
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
@@ -1122,6 +1174,7 @@ public class BatchUtilTest extends TestCase {
      * testCommitRestartTransaction01
      * @throws Exception
      */
+    @Test
     public void testCommitRestartTransaction01() throws Exception {
         // テスト入力データ設定
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
@@ -1145,6 +1198,7 @@ public class BatchUtilTest extends TestCase {
      * testCommitRestartTransaction02
      * @throws Exception
      */
+    @Test
     public void testCommitRestartTransaction02() throws Exception {
         // テスト入力データ設定
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
@@ -1168,6 +1222,7 @@ public class BatchUtilTest extends TestCase {
      * testCommitRestartTransaction03
      * @throws Exception
      */
+    @Test
     public void testCommitRestartTransaction03() throws Exception {
         // テスト入力データ設定
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
@@ -1192,6 +1247,7 @@ public class BatchUtilTest extends TestCase {
      * testCommitRestartTransaction04
      * @throws Exception
      */
+    @Test
     public void testCommitRestartTransaction04() throws Exception {
         // テスト入力データ設定
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
@@ -1216,6 +1272,7 @@ public class BatchUtilTest extends TestCase {
      * testRollbackRestartTransaction001
      * @throws Exception
      */
+    @Test
     public void testRollbackRestartTransaction001() throws Exception {
         // テスト入力データ設定
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
@@ -1239,6 +1296,7 @@ public class BatchUtilTest extends TestCase {
      * testRollbackRestartTransaction002
      * @throws Exception
      */
+    @Test
     public void testRollbackRestartTransaction002() throws Exception {
         // テスト入力データ設定
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
@@ -1262,6 +1320,7 @@ public class BatchUtilTest extends TestCase {
      * testRollbackRestartTransaction003
      * @throws Exception
      */
+    @Test
     public void testRollbackRestartTransaction003() throws Exception {
         // テスト入力データ設定
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
@@ -1286,6 +1345,7 @@ public class BatchUtilTest extends TestCase {
      * testRollbackRestartTransaction004
      * @throws Exception
      */
+    @Test
     public void testRollbackRestartTransaction004() throws Exception {
         // テスト入力データ設定
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
@@ -1310,6 +1370,7 @@ public class BatchUtilTest extends TestCase {
      * testGetMemoryInfo001
      * @throws Exception
      */
+    @Test
     public void testGetMemoryInfo001() throws Exception {
         String info = BatchUtil.getMemoryInfo();
 

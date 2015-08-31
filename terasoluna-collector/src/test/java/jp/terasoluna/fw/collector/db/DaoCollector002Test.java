@@ -11,7 +11,6 @@ import jp.terasoluna.fw.collector.CollectorTestUtil;
 import jp.terasoluna.fw.collector.dao.UserListQueryResultHandleDao;
 import jp.terasoluna.fw.ex.unit.testcase.DaoTestCase;
 import jp.terasoluna.fw.exception.SystemException;
-import junit.framework.AssertionFailedError;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -89,8 +88,8 @@ public class DaoCollector002Test extends DaoTestCase {
                     count_first++;
                 }
             } catch (Throwable e) {
-                if (e instanceof AssertionFailedError) {
-                    throw (AssertionFailedError) e;
+                if (e instanceof AssertionError) {
+                    throw (AssertionError) e;
                 }
                 if (e.getCause() instanceof DataAccessException
                         && e.getCause().getCause() instanceof SQLException) {

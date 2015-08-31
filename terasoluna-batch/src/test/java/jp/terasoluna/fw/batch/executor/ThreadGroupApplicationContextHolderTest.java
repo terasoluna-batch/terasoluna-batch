@@ -21,7 +21,6 @@ public class ThreadGroupApplicationContextHolderTest {
 
     /*
      * (non-Javadoc)
-     * @see junit.framework.TestCase#setUp()
      */
     @Before
     public void setUp() {

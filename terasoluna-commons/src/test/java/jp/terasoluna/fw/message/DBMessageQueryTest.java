@@ -21,9 +21,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.sql.DataSource;
 
 import org.junit.After;
@@ -31,7 +28,6 @@ import org.junit.Test;
 
 import jp.terasoluna.utlib.MockDataSource;
 import jp.terasoluna.utlib.UTUtil;
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
 import uk.org.lidalia.slf4jext.Level;
@@ -51,11 +47,7 @@ public class DBMessageQueryTest {
             DBMessageQuery.class);
 
     /**
-<<<<<<< 8e5ea229e8186a3608e9edcc92af89425cc77172
      * テスト後処理：ロガーのクリアを行う。
-=======
-     * 終了処理を行う。
->>>>>>> Change JUnit3 to JUnit4. #257
      */
     @After
     public void tearDown() {

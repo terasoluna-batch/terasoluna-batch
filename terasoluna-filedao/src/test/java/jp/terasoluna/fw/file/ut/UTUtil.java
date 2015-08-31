@@ -13,8 +13,8 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
-import junit.framework.Assert;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * ◎ JUnitでの単体テストをサポートするユーティリティクラス。
@@ -60,7 +60,7 @@ public class UTUtil {
 
         // Stringにキャストした上でassertEqualsする。
         String expectedDate = (String) expected;
-        Assert.assertEquals(expectedDate, actualDate);
+        assertEquals(expectedDate, actualDate);
     }
 
     /**
@@ -95,7 +95,7 @@ public class UTUtil {
 
         // Stringにキャストした上でassertEqualsする。
         String expectedTime = (String) expected;
-        Assert.assertEquals(expectedTime, actualTime);
+        assertEquals(expectedTime, actualTime);
     }
 
     /**
@@ -131,7 +131,7 @@ public class UTUtil {
 
         // Stringにキャストした上でassertEqualsする。
         String expectedDateTime = (String) expected;
-        Assert.assertEquals(expectedDateTime, actualDateTime);
+        assertEquals(expectedDateTime, actualDateTime);
     }
 
     /**
@@ -199,7 +199,7 @@ public class UTUtil {
         FileContent actualContent = new FileContent(actual);
 
         // assertにかける。
-        Assert.assertTrue(expectedContent.equals(actualContent));
+        assertTrue(expectedContent.equals(actualContent));
     }
 
     /**
