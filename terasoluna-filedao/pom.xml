@@ -123,12 +123,6 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- easymock -->
-        <dependency>
-            <groupId>org.easymock</groupId>
-            <artifactId>easymock</artifactId>
-            <scope>test</scope>
-        </dependency>
         <dependency>
             <groupId>jp.co.dgic</groupId>
             <artifactId>djunit</artifactId>

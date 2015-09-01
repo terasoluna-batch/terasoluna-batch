@@ -56,8 +56,6 @@
         <terasoluna.unit.version>2.3.1</terasoluna.unit.version>
         <!-- mockrunner -->
         <mockrunner.version>0.3.7</mockrunner.version>
-        <!-- easymock -->
-        <easymock.version>2.3</easymock.version>
         <!-- jakarta -->
         <oro.version>2.0.8</oro.version>
         <!-- postgresql -->
@@ -536,16 +534,6 @@ sp_cleanup.organize_imports=true
                 <groupId>com.mockrunner</groupId>
                 <artifactId>mockrunner</artifactId>
                 <version>${mockrunner.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.easymock</groupId>
-                <artifactId>easymock</artifactId>
-                <version>${easymock.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.easymock</groupId>
-                <artifactId>easymockclassextension</artifactId>
-                <version>${easymock.version}</version>
             </dependency>
 
             <!-- dJUnit -->
