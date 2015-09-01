@@ -437,9 +437,13 @@ public class AsyncJobLauncherImplTest {
     }
 
     /**
-     * executeJob()メソッドのテスト 【異常系】 <<<<<<< HEAD ======= >>>>>>> 6c7ac5527f58ee21f28daf4752a06ff4cb34468c <pre> 事前条件 ・特になし 確認項目 ・
-     * {@code JobExecutorTemplate#executeWorker()}により、 <<<<<<< HEAD {@code RuntimeException}がスローされた場合、セマフォ開放が行われていること。 =======
-     * {@code RuntimeException}がスローされた場合、セマフォ開放が行われていること。 >>>>>>> 6c7ac5527f58ee21f28daf4752a06ff4cb34468c </pre>
+     * executeJob()メソッドのテスト 【異常系】
+     * <pre>
+     * 事前条件
+     * ・特になし
+     * 確認項目
+     * ・{@code JobExecutorTemplate#executeWorker()}により、 {@code RuntimeException}がスローされた場合、セマフォ開放が行われていること。
+     * </pre>
      * @throws Exception 予期しない例外
      */
     @Test
