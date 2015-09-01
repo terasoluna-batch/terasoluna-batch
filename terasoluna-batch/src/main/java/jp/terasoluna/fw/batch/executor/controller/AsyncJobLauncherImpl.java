@@ -79,10 +79,9 @@ public class AsyncJobLauncherImpl implements AsyncJobLauncher,
 
     /**
      * コンストラクタ。<br>
-<<<<<<< 3911cebca28cb6f2673bd9a54f584aceef926bc1
-     * @param threadPoolTaskExecutorDelegate {@code ThreadPoolTaskExecutor}のデリゲータ
+     * @param threadPoolTaskExecutor {@code ThreadPoolTaskExecutor}のデリゲータ
      * @param jobExecutorTemplate ジョブの前処理と主処理を定義するテンプレート
-     * @param exceptionStatusHandler フレームワーク内部の例外を処理するハンドラ
+     * @param exceptionStatusHandler フレームワーク内部例外を処理するハンドラ
      */
     public AsyncJobLauncherImpl(ThreadPoolTaskExecutor threadPoolTaskExecutor,
             JobExecutorTemplate jobExecutorTemplate,

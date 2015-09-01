@@ -47,7 +47,6 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.*;
-import static uk.org.lidalia.slf4jtest.LoggingEvent.error;
 import static uk.org.lidalia.slf4jtest.LoggingEvent.debug;
 import static uk.org.lidalia.slf4jtest.LoggingEvent.warn;
 
@@ -184,10 +183,10 @@ public class AsyncJobLauncherImplTest {
     public void testAsyncJobLauncherImpl04() throws Exception {
 
         // テスト実行
-        AsyncJobLauncherImpl asyncJobLauncher = new AsyncJobLauncherImpl(
-                threadPoolTaskExecutor, jobExecutorTemplate, exceptionStatusHandler);
+        AsyncJobLauncherImpl asyncJobLauncher = new AsyncJobLauncherImpl(threadPoolTaskExecutor, jobExecutorTemplate, exceptionStatusHandler);
 
-        assertSame(threadPoolTaskExecutor, asyncJobLauncher.threadPoolTaskExecutor);
+        assertSame(threadPoolTaskExecutor,
+                asyncJobLauncher.threadPoolTaskExecutor);
         assertSame(jobExecutorTemplate, asyncJobLauncher.jobExecutorTemplate);
     }
 
@@ -205,8 +204,7 @@ public class AsyncJobLauncherImplTest {
      */
     @Test
     public void testSetFair() throws Exception {
-        AsyncJobLauncherImpl asyncJobLauncher = new AsyncJobLauncherImpl(
-                threadPoolTaskExecutor, jobExecutorTemplate, exceptionStatusHandler);
+        AsyncJobLauncherImpl asyncJobLauncher = new AsyncJobLauncherImpl(threadPoolTaskExecutor, jobExecutorTemplate, exceptionStatusHandler);
 
         // テスト実行
         asyncJobLauncher.setFair(false);
@@ -228,8 +226,7 @@ public class AsyncJobLauncherImplTest {
      */
     @Test
     public void testExecuteJob01() throws Exception {
-        AsyncJobLauncherImpl asyncJobLauncher = new AsyncJobLauncherImpl(
-                threadPoolTaskExecutor, jobExecutorTemplate, exceptionStatusHandler);
+        AsyncJobLauncherImpl asyncJobLauncher = new AsyncJobLauncherImpl(threadPoolTaskExecutor, jobExecutorTemplate, exceptionStatusHandler);
 
         try {
             // テスト実行
@@ -261,8 +258,7 @@ public class AsyncJobLauncherImplTest {
         doReturn(false).when(jobExecutorTemplate).beforeExecute(
                 stringArgumentCaptor.capture());
         Semaphore semaphore = new Semaphore(10);
-        AsyncJobLauncherImpl asyncJobLauncher = new AsyncJobLauncherImpl(
-                threadPoolTaskExecutor, jobExecutorTemplate, exceptionStatusHandler);
+        AsyncJobLauncherImpl asyncJobLauncher = new AsyncJobLauncherImpl(threadPoolTaskExecutor, jobExecutorTemplate, exceptionStatusHandler);
         asyncJobLauncher.taskPoolLimit = semaphore;
 
         // テスト実行
@@ -308,8 +304,7 @@ public class AsyncJobLauncherImplTest {
         doThrow(TaskRejectedException.class).when(threadPoolTaskExecutor)
                 .execute(any(Runnable.class));
 
-        AsyncJobLauncherImpl asyncJobLauncher = new AsyncJobLauncherImpl(
-                threadPoolTaskExecutor, jobExecutorTemplate, exceptionStatusHandler);
+        AsyncJobLauncherImpl asyncJobLauncher = new AsyncJobLauncherImpl(threadPoolTaskExecutor, jobExecutorTemplate, exceptionStatusHandler);
         asyncJobLauncher.taskPoolLimit = semaphore;
 
         // テスト実行
@@ -348,8 +343,7 @@ public class AsyncJobLauncherImplTest {
     public void testExecuteJob04() throws Exception {
         Semaphore semaphore = spy(new Semaphore(10));
         doThrow(InterruptedException.class).when(semaphore).acquire();
-        AsyncJobLauncherImpl asyncJobLauncher = new AsyncJobLauncherImpl(
-                threadPoolTaskExecutor, jobExecutorTemplate, exceptionStatusHandler);
+        AsyncJobLauncherImpl asyncJobLauncher = new AsyncJobLauncherImpl(threadPoolTaskExecutor, jobExecutorTemplate, exceptionStatusHandler);
         asyncJobLauncher.taskPoolLimit = semaphore;
 
         // テスト実行
@@ -393,8 +387,7 @@ public class AsyncJobLauncherImplTest {
                 return null;
             }
         }).when(threadPoolTaskExecutor).execute(any(Runnable.class));
-        AsyncJobLauncherImpl asyncJobLauncher = new AsyncJobLauncherImpl(
-                threadPoolTaskExecutor, jobExecutorTemplate, exceptionStatusHandler);
+        AsyncJobLauncherImpl asyncJobLauncher = new AsyncJobLauncherImpl(threadPoolTaskExecutor, jobExecutorTemplate, exceptionStatusHandler);
         asyncJobLauncher.taskPoolLimit = semaphore;
 
         // テスト実行
@@ -430,8 +423,7 @@ public class AsyncJobLauncherImplTest {
                 "0000000001");
         Semaphore semaphore = new Semaphore(10);
 
-        AsyncJobLauncherImpl asyncJobLauncher = new AsyncJobLauncherImpl(
-                threadPoolTaskExecutor, jobExecutorTemplate, exceptionStatusHandler);
+        AsyncJobLauncherImpl asyncJobLauncher = new AsyncJobLauncherImpl(threadPoolTaskExecutor, jobExecutorTemplate, exceptionStatusHandler);
         asyncJobLauncher.taskPoolLimit = semaphore;
 
         try {
@@ -445,24 +437,17 @@ public class AsyncJobLauncherImplTest {
     }
 
     /**
-     * executeJob()メソッドのテスト 【異常系】
-     * <pre>
-     * 事前条件
-     * ・特になし
-     * 確認項目
-     * ・{@code JobExecutorTemplate#executeWorker()}により、
-     * 　{@code RuntimeException}がスローされた場合、セマフォ開放が行われていること。
-     * </pre>
-     *
+     * executeJob()メソッドのテスト 【異常系】 <<<<<<< HEAD ======= >>>>>>> 6c7ac5527f58ee21f28daf4752a06ff4cb34468c <pre> 事前条件 ・特になし 確認項目 ・
+     * {@code JobExecutorTemplate#executeWorker()}により、 <<<<<<< HEAD {@code RuntimeException}がスローされた場合、セマフォ開放が行われていること。 =======
+     * {@code RuntimeException}がスローされた場合、セマフォ開放が行われていること。 >>>>>>> 6c7ac5527f58ee21f28daf4752a06ff4cb34468c </pre>
      * @throws Exception 予期しない例外
      */
     @Test
     public void testExecuteJob07() throws Exception {
-        final RuntimeException runtimeException = new RuntimeException(
-                "exception in jobExecutorTemplate#executeWorker()");
+        final RuntimeException runtimeException = new RuntimeException("exception in jobExecutorTemplate#executeWorker()");
         doReturn(true).when(jobExecutorTemplate).beforeExecute("0000000001");
-        doThrow(runtimeException).when(jobExecutorTemplate)
-                .executeWorker("0000000001");
+        doThrow(runtimeException).when(jobExecutorTemplate).executeWorker(
+                "0000000001");
         Semaphore semaphore = new Semaphore(10);
         doAnswer(new Answer<Object>() {
             @Override
@@ -472,8 +457,7 @@ public class AsyncJobLauncherImplTest {
                 return null;
             }
         }).when(threadPoolTaskExecutor).execute(any(Runnable.class));
-        AsyncJobLauncherImpl asyncJobLauncher = new AsyncJobLauncherImpl(
-                threadPoolTaskExecutor, jobExecutorTemplate, exceptionStatusHandler);
+        AsyncJobLauncherImpl asyncJobLauncher = new AsyncJobLauncherImpl(threadPoolTaskExecutor, jobExecutorTemplate, exceptionStatusHandler);
         asyncJobLauncher.taskPoolLimit = semaphore;
 
         // テスト実行
@@ -500,21 +484,27 @@ public class AsyncJobLauncherImplTest {
      * 
      * @throws Exception 予期しない例外
      */
+
     @Test
     public void testExecuteJob08() throws Exception {
-        ThreadPoolTaskExecutor threadPoolTaskExecutor = new ThreadPoolTaskExecutor() {{
-            setCorePoolSize(3);
-            setMaxPoolSize(3);
-            initialize();
-        }};
-        final ThreadPoolTaskExecutor mockThreadPoolTaskExecutor = spy(threadPoolTaskExecutor);
+        ThreadPoolTaskExecutor threadPoolTaskExecutor = new ThreadPoolTaskExecutor() {
+            private static final long serialVersionUID = 1L;
+
+            {
+                setCorePoolSize(3);
+                setMaxPoolSize(3);
+                initialize();
+            }
+        };
+        final ThreadPoolTaskExecutor mockThreadPoolTaskExecutor = spy(
+                threadPoolTaskExecutor);
         doReturn(true).when(jobExecutorTemplate).beforeExecute(anyString());
         // ThreadPoolTaskExecutorのエミュレーション。
         doAnswer(new Answer<Object>() {
             @Override
             public Object answer(InvocationOnMock invocation) throws Throwable {
-                mockThreadPoolTaskExecutor
-                        .execute(invocation.getArgumentAt(0, Runnable.class));
+                mockThreadPoolTaskExecutor.execute(invocation.getArgumentAt(0,
+                        Runnable.class));
                 return null;
             }
         }).when(mockThreadPoolTaskExecutor).execute(any(Runnable.class));
@@ -531,9 +521,7 @@ public class AsyncJobLauncherImplTest {
 
         doAnswer(answer1).doAnswer(answer2).doAnswer(answer3).doAnswer(answer4)
                 .when(jobExecutorTemplate).executeWorker(anyString());
-
-        AsyncJobLauncherImpl asyncJobLauncher = new AsyncJobLauncherImpl(
-                threadPoolTaskExecutor, jobExecutorTemplate, exceptionStatusHandler);
+        AsyncJobLauncherImpl asyncJobLauncher = new AsyncJobLauncherImpl(threadPoolTaskExecutor, jobExecutorTemplate, exceptionStatusHandler);
 
         asyncJobLauncher.taskPoolLimit = new Semaphore(3);
 
@@ -633,8 +621,7 @@ public class AsyncJobLauncherImplTest {
         assertTrue(exceptionStatusHandlerlogger.getLoggingEvents().get(0)
                 .getMessage().equals("[EAL025053] An exception occurred.")
                 && exceptionStatusHandlerlogger.getLoggingEvents().get(0)
-                        .getLevel().equals(
-                                Level.ERROR));
+                        .getLevel().equals(Level.ERROR));
     }
 
     /**
@@ -654,8 +641,7 @@ public class AsyncJobLauncherImplTest {
         doNothing().when(threadPoolTaskExecutor).shutdown();
         // 待ち合わせタスクは0
         doReturn(0).when(threadPoolTaskExecutor).getActiveCount();
-        AsyncJobLauncherImpl asyncJobLauncher = new AsyncJobLauncherImpl(
-                threadPoolTaskExecutor, jobExecutorTemplate, exceptionStatusHandler);
+        AsyncJobLauncherImpl asyncJobLauncher = new AsyncJobLauncherImpl(threadPoolTaskExecutor, jobExecutorTemplate, exceptionStatusHandler);
         asyncJobLauncher.executorJobTerminateWaitIntervalTime = 1L;
 
         // テスト実行
@@ -682,8 +668,7 @@ public class AsyncJobLauncherImplTest {
     public void testShutdown02() throws Exception {
         doNothing().when(threadPoolTaskExecutor).shutdown();
         doReturn(1).doReturn(0).when(threadPoolTaskExecutor).getActiveCount();
-        AsyncJobLauncherImpl asyncJobLauncher = new AsyncJobLauncherImpl(
-                threadPoolTaskExecutor, jobExecutorTemplate, exceptionStatusHandler);
+        AsyncJobLauncherImpl asyncJobLauncher = new AsyncJobLauncherImpl(threadPoolTaskExecutor, jobExecutorTemplate, exceptionStatusHandler);
         asyncJobLauncher.executorJobTerminateWaitIntervalTime = 1L;
 
         // テスト実行
@@ -712,8 +697,7 @@ public class AsyncJobLauncherImplTest {
     public void testShutdown03() throws Exception {
         doNothing().when(threadPoolTaskExecutor).shutdown();
         doReturn(1).doReturn(0).when(threadPoolTaskExecutor).getActiveCount();
-        AsyncJobLauncherImpl asyncJobLauncher = new AsyncJobLauncherImpl(
-                threadPoolTaskExecutor, jobExecutorTemplate, exceptionStatusHandler);
+        AsyncJobLauncherImpl asyncJobLauncher = new AsyncJobLauncherImpl(threadPoolTaskExecutor, jobExecutorTemplate, exceptionStatusHandler);
         asyncJobLauncher.executorJobTerminateWaitIntervalTime = 1000000L;
         Thread.currentThread().interrupt(); // スレッド割り込み
 
@@ -746,9 +730,7 @@ public class AsyncJobLauncherImplTest {
     @Test
     public void testAfterPropertiesSet01() throws Exception {
         doReturn(1).when(threadPoolTaskExecutor).getMaxPoolSize();
-
-        AsyncJobLauncherImpl asyncJobLauncher = new AsyncJobLauncherImpl(
-                threadPoolTaskExecutor, jobExecutorTemplate, exceptionStatusHandler);
+        AsyncJobLauncherImpl asyncJobLauncher = new AsyncJobLauncherImpl(threadPoolTaskExecutor, jobExecutorTemplate, exceptionStatusHandler);
         asyncJobLauncher.executorJobTerminateWaitIntervalTime = 1L;
         asyncJobLauncher.setFair(false);
 
@@ -778,9 +760,7 @@ public class AsyncJobLauncherImplTest {
     @Test
     public void testAfterPropertiesSet02() throws Exception {
         doReturn(2).when(threadPoolTaskExecutor).getMaxPoolSize();
-
-        AsyncJobLauncherImpl asyncJobLauncher = new AsyncJobLauncherImpl(
-                threadPoolTaskExecutor, jobExecutorTemplate, exceptionStatusHandler);
+        AsyncJobLauncherImpl asyncJobLauncher = new AsyncJobLauncherImpl(threadPoolTaskExecutor, jobExecutorTemplate, exceptionStatusHandler);
         asyncJobLauncher.executorJobTerminateWaitIntervalTime = 1L;
 
         // テスト実行
@@ -807,9 +787,7 @@ public class AsyncJobLauncherImplTest {
      */
     @Test
     public void testAfterPropertiesSet04() throws Exception {
-
-        AsyncJobLauncherImpl asyncJobLauncher = new AsyncJobLauncherImpl(
-                threadPoolTaskExecutor, jobExecutorTemplate, exceptionStatusHandler);
+        AsyncJobLauncherImpl asyncJobLauncher = new AsyncJobLauncherImpl(threadPoolTaskExecutor, jobExecutorTemplate, exceptionStatusHandler);
         asyncJobLauncher.executorJobTerminateWaitIntervalTime = -1; // @Valueのデフォルト値
 
         try {
