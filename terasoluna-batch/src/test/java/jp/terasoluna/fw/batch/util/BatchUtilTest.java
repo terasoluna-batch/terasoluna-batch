@@ -22,24 +22,26 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import jp.terasoluna.fw.batch.constants.LogId;
 import jp.terasoluna.fw.batch.exception.IllegalClassTypeException;
+import jp.terasoluna.fw.logger.TLogger;
 import junit.framework.TestCase;
 
 import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.TransactionException;
 import org.springframework.transaction.TransactionStatus;
+import static org.mockito.Mockito.*;
 
 /**
  * 
  * 
  */
-public abstract class BatchUtilTestBase extends TestCase {
+public class BatchUtilTest extends TestCase {
     // private Log log = LogFactory.getLog(BatchUtilTest.class);
-    private Log log = getLog();
-
-    abstract Log getLog();
+    private Log log = TLogger.getLogger(BatchUtilTest.class);
 
     /**
      * testBatchUtil001
@@ -1309,4 +1311,32 @@ public abstract class BatchUtilTestBase extends TestCase {
         assertNotNull(info);
         assertTrue(info.startsWith("Java memory info : "));
     }
+
+    /**
+     * ログ切り替えのテスト【正常系】
+     * <pre>
+     * 事前条件
+     * ・{@code TLogger}と{@code commons.logging.Log}を利用して{@code BatchUtil}のメソッドを呼び出すこと
+     * 確認項目
+     * ・各ロガーのメソッドがそれぞれ呼び出されていること
+     * </pre>
+     */
+    public void testSwitchLogger() {
+        // テスト入力データ設定
+        PlatformTransactionManager tran = new PlatformTransactionManagerStub();
+        TransactionDefinition def = BatchUtil.getTransactionDefinition();
+        Log mockCommonsLog = LogFactory.getLog(BatchUtilTest.class);
+        TLogger mockLog = (TLogger) spy(log);
+        mockCommonsLog = spy(mockCommonsLog);
+        
+        // テスト実施
+        TransactionStatus result = BatchUtil.startTransaction(tran, def, mockCommonsLog);
+        result = BatchUtil.startTransaction(tran, def, mockLog);
+
+        // 結果検証
+        verify(mockCommonsLog, times(3)).debug(any());
+        verify(mockLog, times(2)).debug(any(String.class), any());
+        verify(mockLog).debug(any(String.class), any(), any(), any(), any(), any());
+    }
+
 }
