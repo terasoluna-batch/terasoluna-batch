@@ -19,17 +19,23 @@ package jp.terasoluna.fw.validation;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.hamcrest.core.IsInstanceOf.instanceOf;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
 
 import org.apache.commons.validator.Field;
 import org.apache.commons.validator.ValidatorAction;
 import org.apache.commons.validator.ValidatorException;
 import org.apache.commons.validator.Var;
+import org.junit.After;
+import org.junit.Test;
 
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
@@ -41,46 +47,17 @@ import uk.org.lidalia.slf4jtest.TestLoggerFactory;
  * <p>
  * @see jp.terasoluna.fw.validation.FieldChecks
  */
-public class FieldChecksTest06 extends TestCase {
+public class FieldChecksTest06 {
 
     private TestLogger logger = TestLoggerFactory.getTestLogger(
             FieldChecks.class);
 
     /**
-     * このテストケースを実行する為の GUI アプリケーションを起動する。
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        junit.swingui.TestRunner.run(FieldChecksTest06.class);
-    }
-
-    /**
-     * 初期化処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
-     */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
-
-    /**
      * 終了処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
      */
-    @Override
-    protected void tearDown() throws Exception {
+    @After
+    public void tearDown() {
         logger.clear();
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * @param name このテストケースの名前。
-     */
-    public FieldChecksTest06(String name) {
-        super(name);
     }
 
     /**
@@ -100,6 +77,7 @@ public class FieldChecksTest06 extends TestCase {
      * 引数のbeanがnullの場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateAlphaNumericString01() throws Exception {
         // 前処理
         // bean : null
@@ -137,6 +115,7 @@ public class FieldChecksTest06 extends TestCase {
      * 引数のbeanが空文字の場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateAlphaNumericString02() throws Exception {
         // 前処理
         // bean : ""
@@ -174,6 +153,7 @@ public class FieldChecksTest06 extends TestCase {
      * 引数のbeanが半角英数文字のみで構成されている場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateAlphaNumericString03() throws Exception {
         // 前処理
         // bean : "a0A"
@@ -211,6 +191,7 @@ public class FieldChecksTest06 extends TestCase {
      * 引数のbeanに半角英数文字以外の文字が含まれている場合、エラーを追加してtrueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateAlphaNumericString04() throws Exception {
         // 前処理
         // bean : "Zg3%"
@@ -258,6 +239,7 @@ public class FieldChecksTest06 extends TestCase {
      * 引数のbeanがnullの場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateCapAlphaNumericString01() throws Exception {
         // 前処理
         // bean : null
@@ -295,6 +277,7 @@ public class FieldChecksTest06 extends TestCase {
      * 引数のbeanが空文字の場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateCapAlphaNumericString02() throws Exception {
         // 前処理
         // bean : ""
@@ -332,6 +315,7 @@ public class FieldChecksTest06 extends TestCase {
      * 引数のbeanが大文字の半角英数文字のみで構成されている場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateCapAlphaNumericString03() throws Exception {
         // 前処理
         // bean : "ABC0"
@@ -369,6 +353,7 @@ public class FieldChecksTest06 extends TestCase {
      * 引数のbeanに大文字の半角英数文字以外の文字が含まれている場合、エラーを追加してtrueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateCapAlphaNumericString04() throws Exception {
         // 前処理
         // bean : "Aa0"
@@ -416,6 +401,7 @@ public class FieldChecksTest06 extends TestCase {
      * 引数のbeanがnullの場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateNumber01() throws Exception {
         // 前処理
         // bean : null
@@ -452,6 +438,7 @@ public class FieldChecksTest06 extends TestCase {
      * 引数のbeanが空文字の場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateNumber02() throws Exception {
         // 前処理
         // bean : ""
@@ -488,6 +475,7 @@ public class FieldChecksTest06 extends TestCase {
      * 入力値が全角の場合、エラーを追加しfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateNumber03() throws Exception {
         // 前処理
         // bean : "５"
@@ -534,6 +522,7 @@ public class FieldChecksTest06 extends TestCase {
      * 入力値が数値に変換できない場合、エラーを追加しfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateNumber04() throws Exception {
         // 前処理
         // bean : "test"
@@ -584,6 +573,7 @@ public class FieldChecksTest06 extends TestCase {
      * varのintegerLengthが数値に変換できない場合、ValidatorExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateNumber05() throws Exception {
         // 前処理
         // bean : "5"
@@ -640,6 +630,7 @@ public class FieldChecksTest06 extends TestCase {
      * varのscaleが数値に変換できない場合、ValidatorExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateNumber06() throws Exception {
         // 前処理
         // bean : "5"
@@ -694,6 +685,7 @@ public class FieldChecksTest06 extends TestCase {
      * 入力された文字の整数部の桁数が、varのintegerLengthの値より小さく、小数部の桁数がvarのscaleの値より小さい場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateNumber07() throws Exception {
         // 前処理
         // bean : "100.05"
@@ -745,6 +737,7 @@ public class FieldChecksTest06 extends TestCase {
      * 小数部の桁数がvarのscaleの値と等しい場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateNumber08() throws Exception {
         // 前処理
         // bean : "100.05"
@@ -806,6 +799,7 @@ public class FieldChecksTest06 extends TestCase {
      * 小数部の桁数がvarのscaleの値より小さい場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateNumber09() throws Exception {
         // 前処理
         // bean : "100.05"
@@ -864,6 +858,7 @@ public class FieldChecksTest06 extends TestCase {
      * 入力された文字の整数部の桁数が、varのintegerLengthの値より大きい場合、エラーを追加してfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateNumber10() throws Exception {
         // 前処理
         // bean : "100.05"
@@ -917,6 +912,7 @@ public class FieldChecksTest06 extends TestCase {
      * 入力された文字の小数部の桁数が、varのscaleの値より大きい場合、エラーを追加してfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateNumber11() throws Exception {
         // 前処理
         // bean : "100.05"
@@ -971,6 +967,7 @@ public class FieldChecksTest06 extends TestCase {
      * varのisAccordedIntegerにtrueが指定されていて、入力された文字の整数部の桁数が、varのintegerLengthの値より小さい場合、エラーを追加してfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateNumber12() throws Exception {
         // 前処理
         // bean : "100.05"
@@ -1029,6 +1026,7 @@ public class FieldChecksTest06 extends TestCase {
      * varのisAccordedScaleにtrueが指定されていて、入力された文字の小数部の桁数が、varのscaleの値より小さい場合、エラーを追加してfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateNumber13() throws Exception {
         // 前処理
         // bean : "100.05"

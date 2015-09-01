@@ -16,13 +16,17 @@
 
 package jp.terasoluna.fw.validation.springmodules;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.fail;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
 
 import org.apache.commons.validator.Field;
 import org.apache.commons.validator.Form;
@@ -30,6 +34,7 @@ import org.apache.commons.validator.ValidatorException;
 import org.apache.commons.validator.ValidatorResources;
 import org.apache.commons.validator.ValidatorResult;
 import org.apache.commons.validator.ValidatorResults;
+import org.junit.Test;
 
 /**
  * {@link jp.terasoluna.fw.validation.springmodules.CommonsValidatorEx}
@@ -42,51 +47,7 @@ import org.apache.commons.validator.ValidatorResults;
  * 
  * @see jp.terasoluna.fw.validation.springmodules.CommonsValidatorEx
  */
-public class CommonsValidatorExTest extends TestCase {
-
-    /**
-     * このテストケースを実行する為の GUI アプリケーションを起動する。
-     * 
-     * @param args
-     *            java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        junit.swingui.TestRunner.run(CommonsValidatorExTest.class);
-    }
-
-    /**
-     * 初期化処理を行う。
-     * 
-     * @throws Exception
-     *             このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
-     */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
-
-    /**
-     * 終了処理を行う。
-     * 
-     * @throws Exception
-     *             このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * 
-     * @param name
-     *            このテストケースの名前。
-     */
-    public CommonsValidatorExTest(String name) {
-        super(name);
-    }
+public class CommonsValidatorExTest {
 
     /**
      * testGetValidatorException01() <br>
@@ -107,6 +68,7 @@ public class CommonsValidatorExTest extends TestCase {
      * @throws Exception
      *             このメソッドで発生した例外
      */
+    @Test
     public void testGetValidatorException01() throws Exception {
         // 前処理
         ValidatorResources resources = new ValidatorResources();
@@ -144,6 +106,7 @@ public class CommonsValidatorExTest extends TestCase {
      * @throws Exception
      *             このメソッドで発生した例外
      */
+    @Test
     public void testValidate01() throws Exception {
         // 前処理
         CommonsValidatorEx_ValidatorResourcesStub01 resources = 
@@ -204,6 +167,7 @@ public class CommonsValidatorExTest extends TestCase {
      * @throws Exception
      *             このメソッドで発生した例外
      */
+    @Test
     public void testValidate02() throws Exception {
         // 前処理
         CommonsValidatorEx_ValidatorResourcesStub01 resources = 
@@ -259,6 +223,7 @@ public class CommonsValidatorExTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testClear01() throws Exception {
         // 前処理
         ValidatorResources resources = new ValidatorResources();

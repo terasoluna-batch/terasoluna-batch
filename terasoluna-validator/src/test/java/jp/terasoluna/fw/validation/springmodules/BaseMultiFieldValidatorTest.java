@@ -16,8 +16,10 @@
 
 package jp.terasoluna.fw.validation.springmodules;
 
-import junit.framework.TestCase;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
 
+import org.junit.Test;
 import org.springframework.validation.Errors;
 
 /**
@@ -33,48 +35,7 @@ import org.springframework.validation.Errors;
  * @see jp.terasoluna.fw.validation.springmodules.
  * BaseMultiFieldValidator
  */
-public class BaseMultiFieldValidatorTest extends TestCase {
-
-    /**
-     * このテストケースを実行する為の
-     * GUI アプリケーションを起動する。
-     * 
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        junit.swingui.TestRunner.run(BaseMultiFieldValidatorTest.class);
-    }
-
-    /**
-     * 初期化処理を行う。
-     * 
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
-     */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
-
-    /**
-     * 終了処理を行う。
-     * 
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * 
-     * @param name このテストケースの名前。
-     */
-    public BaseMultiFieldValidatorTest(String name) {
-        super(name);
-    }
+public class BaseMultiFieldValidatorTest {
 
     /**
      * testValidate01()
@@ -104,6 +65,7 @@ public class BaseMultiFieldValidatorTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidate01() throws Exception {
         // 前処理 --------------------------------------------------------------
         BaseMultiFieldValidatorImpl01 validator = 
@@ -161,6 +123,7 @@ public class BaseMultiFieldValidatorTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidate02() throws Exception {
         // 前処理 --------------------------------------------------------------
         BaseMultiFieldValidatorImpl01 validator = 

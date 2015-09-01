@@ -20,19 +20,26 @@ import static java.util.Arrays.asList;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.hamcrest.core.IsInstanceOf.instanceOf;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 import static uk.org.lidalia.slf4jtest.LoggingEvent.error;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
 import jp.terasoluna.fw.util.PropertyAccessException;
-import junit.framework.TestCase;
 
 import org.apache.commons.validator.Field;
 import org.apache.commons.validator.ValidatorAction;
 import org.apache.commons.validator.ValidatorException;
 import org.apache.commons.validator.Var;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
@@ -44,7 +51,7 @@ import uk.org.lidalia.slf4jtest.TestLoggerFactory;
  * <p>
  * @see jp.terasoluna.fw.validation.FieldChecks
  */
-public class FieldChecksTest08 extends TestCase {
+public class FieldChecksTest08 {
 
     private TestLogger logger = TestLoggerFactory.getTestLogger(
             FieldChecks.class);
@@ -65,21 +72,10 @@ public class FieldChecksTest08 extends TestCase {
     private FieldChecks_ValidationErrorsImpl01 errors = null;
 
     /**
-     * このテストケースを実行する為の GUI アプリケーションを起動する。
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        junit.swingui.TestRunner.run(FieldChecksTest08.class);
-    }
-
-    /**
      * 初期化処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
      */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
+    @Before
+    public void setUp() {
         va = new ValidatorAction();
         field = new Field();
         errors = new FieldChecks_ValidationErrorsImpl01();
@@ -90,18 +86,9 @@ public class FieldChecksTest08 extends TestCase {
      * @throws Exception このメソッドで発生した例外
      * @see junit.framework.TestCase#tearDown()
      */
-    @Override
-    protected void tearDown() throws Exception {
+    @After
+    public void tearDown() {
         logger.clear();
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * @param name このテストケースの名前。
-     */
-    public FieldChecksTest08(String name) {
-        super(name);
     }
 
     /**
@@ -121,6 +108,7 @@ public class FieldChecksTest08 extends TestCase {
      * 引数のbeanがnullの場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateNumericString01() throws Exception {
         // テスト実施
         // 判定
@@ -148,6 +136,7 @@ public class FieldChecksTest08 extends TestCase {
      * 引数のbeanが空文字の場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateNumericString02() throws Exception {
         // テスト実施
         // 判定
@@ -175,6 +164,7 @@ public class FieldChecksTest08 extends TestCase {
      * 引数のbeanに数字以外の文字が含まれる場合、エラーを追加してfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateNumericString03() throws Exception {
         // テスト実施
         // 判定
@@ -205,6 +195,7 @@ public class FieldChecksTest08 extends TestCase {
      * 引数のbeanが数字のみで構成されている場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateNumericString04() throws Exception {
         // テスト実施
         // 判定
@@ -232,6 +223,7 @@ public class FieldChecksTest08 extends TestCase {
      * 引数のbeanがnullの場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateStringLength01() throws Exception {
         // テスト実施
         // 判定
@@ -259,6 +251,7 @@ public class FieldChecksTest08 extends TestCase {
      * 引数のbeanが空文字の場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateStringLength02() throws Exception {
         // テスト実施
         // 判定
@@ -291,6 +284,7 @@ public class FieldChecksTest08 extends TestCase {
      * varのstringLengthがnullの場合、ValidatorExceptionがスローされることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateStringLength03() throws Exception {
         // テスト実施
         // 判定
@@ -330,6 +324,7 @@ public class FieldChecksTest08 extends TestCase {
      * varのstringLengthが空文字の場合、 ValidatorExceptionがスローされることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateStringLength04() throws Exception {
         // 前処理
         Var var = new Var();
@@ -375,6 +370,7 @@ public class FieldChecksTest08 extends TestCase {
      * varのstringLengthが数値に変換できない場合、 ValidatorExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateStringLength05() throws Exception {
         // 前処理
         Var var = new Var();
@@ -417,6 +413,7 @@ public class FieldChecksTest08 extends TestCase {
      * 引数のbeanの桁数が、varのstringLengthの値より大きい場合、 エラーを追加してfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateStringLength06() throws Exception {
         // 前処理
         Var var = new Var();
@@ -454,6 +451,7 @@ public class FieldChecksTest08 extends TestCase {
      * 引数のbeanの桁数が、varのstringLengthの値より小さい場合、 エラーを追加してfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateStringLength07() throws Exception {
         // 前処理
         Var var = new Var();
@@ -491,6 +489,7 @@ public class FieldChecksTest08 extends TestCase {
      * 引数のbeanの桁数が、varのstringLengthの値と一致する場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateStringLength08() throws Exception {
         // 前処理
         Var var = new Var();
@@ -526,6 +525,7 @@ public class FieldChecksTest08 extends TestCase {
      * 引数のbeanがnullの場合、ValidatorExceptionがスローされることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateArrayRange01() throws Exception {
         // 前処理
         field.setProperty("field");
@@ -564,6 +564,7 @@ public class FieldChecksTest08 extends TestCase {
      * ※BeanUtil.getPropertyTypeがnullを返却する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateArrayRange02() throws Exception {
         // 前処理
         FieldChecks_JavaBeanStub01 bean = new FieldChecks_JavaBeanStub01();
@@ -603,6 +604,7 @@ public class FieldChecksTest08 extends TestCase {
      * ※BeanUtil.getPropertyTypeがPropertyAccessExceptionをスローする。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateArrayRange03() throws Exception {
         // 前処理
         FieldChecks_JavaBeanStub01 bean = new FieldChecks_JavaBeanStub01();
@@ -645,6 +647,7 @@ public class FieldChecksTest08 extends TestCase {
      * ※BeanUtil.getPropertyTypeがnullを返却する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateArrayRange04() throws Exception {
         // 前処理
         FieldChecks_JavaBeanStub01 bean = new FieldChecks_JavaBeanStub01();
@@ -686,6 +689,7 @@ public class FieldChecksTest08 extends TestCase {
      * varのminArrayLengthが数値に変換できない場合、ValidatorExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateArrayRange05() throws Exception {
         // 前処理
         FieldChecks_JavaBeanStub01 bean = new FieldChecks_JavaBeanStub01();
@@ -736,6 +740,7 @@ public class FieldChecksTest08 extends TestCase {
      * varのmaxArrayLengthが数値に変換できない場合、 ValidatorExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateArrayRange06() throws Exception {
         // 前処理
         FieldChecks_JavaBeanStub01 bean = new FieldChecks_JavaBeanStub01();
@@ -784,6 +789,7 @@ public class FieldChecksTest08 extends TestCase {
      * beanのチェック対象のフィールド値がnullの場合、 配列サイズ「0」としてチェックが行われることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateArrayRange07() throws Exception {
         // 前処理
         FieldChecks_JavaBeanStub01 bean = new FieldChecks_JavaBeanStub01();
@@ -829,6 +835,7 @@ public class FieldChecksTest08 extends TestCase {
      * beanのチェック対象のフィールドが配列・Collection型ではない場合、 ValidatorExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateArrayRange08() throws Exception {
         // 前処理
         FieldChecks_JavaBeanStub01 bean = new FieldChecks_JavaBeanStub01();
@@ -879,6 +886,7 @@ public class FieldChecksTest08 extends TestCase {
      * ※maxArrayLengthが省略された場合はInteger.MAX_LENGTHが最大値になるが 物理的に不可能なためテストは行わない。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateArrayRange09() throws Exception {
         // 前処理
         FieldChecks_JavaBeanStub01 bean = new FieldChecks_JavaBeanStub01();
@@ -920,6 +928,7 @@ public class FieldChecksTest08 extends TestCase {
      * ※maxArrayLengthが空文字の場合はInteger.MAX_LENGTHが最大値になるが 物理的に不可能なためテストは行わない。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateArrayRange10() throws Exception {
         // 前処理
         FieldChecks_JavaBeanStub01 bean = new FieldChecks_JavaBeanStub01();
@@ -963,6 +972,7 @@ public class FieldChecksTest08 extends TestCase {
      * beanのチェック対象の配列フィールドの要素数が、 varのminArrayLengthとmaxArrayLengthの範囲内のとき、 trueが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateArrayRange11() throws Exception {
         // 前処理
         FieldChecks_JavaBeanStub01 bean = new FieldChecks_JavaBeanStub01();
@@ -1013,6 +1023,7 @@ public class FieldChecksTest08 extends TestCase {
      * @throws Exception このメソッドで発生した例外
      */
     @SuppressWarnings("unchecked")
+    @Test
     public void testValidateArrayRange12() throws Exception {
         // 前処理
         FieldChecks_JavaBeanStub01 bean = new FieldChecks_JavaBeanStub01();
@@ -1068,6 +1079,7 @@ public class FieldChecksTest08 extends TestCase {
      * beanのチェック対象のプリミティブ配列型フィールドの要素数が、 varのminArrayLengthとmaxArrayLengthの範囲より大きい場合、 エラーを追加してfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateArrayRange13() throws Exception {
         // 前処理
         FieldChecks_JavaBeanStub01 bean = new FieldChecks_JavaBeanStub01();
@@ -1120,6 +1132,7 @@ public class FieldChecksTest08 extends TestCase {
      * beanのチェック対象の配列フィールドの要素数と、 varのminArrayLengthとmaxArrayLengthの値が等しいとき、 trueが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateArrayRange14() throws Exception {
         // 前処理
         FieldChecks_JavaBeanStub01 bean = new FieldChecks_JavaBeanStub01();
@@ -1170,6 +1183,7 @@ public class FieldChecksTest08 extends TestCase {
      * チェック対象のプロパティの取得時に例外が発生した場合、 ValidatorExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateArrayRange15() throws Exception {
         // 前処理
         FieldChecks_JavaBeanStub01 bean = new FieldChecks_JavaBeanStub01();

@@ -16,17 +16,22 @@
 
 package jp.terasoluna.fw.validation.springmodules;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+
 import java.util.HashMap;
 import java.util.Map;
 
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
 
 import org.apache.commons.collections.FastHashMap;
 import org.apache.commons.validator.Arg;
 import org.apache.commons.validator.Field;
 import org.apache.commons.validator.Msg;
 import org.apache.commons.validator.ValidatorAction;
+import org.junit.Test;
 import org.springframework.context.MessageSourceResolvable;
 import org.springframework.validation.Errors;
 
@@ -43,48 +48,7 @@ import org.springframework.validation.Errors;
  * 
  * @see jp.terasoluna.fw.validation.springmodules.SpringValidationErrors
  */
-public class SpringValidationErrorsTest extends TestCase {
-
-    /**
-     * このテストケースを実行する為の
-     * GUI アプリケーションを起動する。
-     * 
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        junit.swingui.TestRunner.run(SpringValidationErrorsTest.class);
-    }
-
-    /**
-     * 初期化処理を行う。
-     * 
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
-     */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
-
-    /**
-     * 終了処理を行う。
-     * 
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * 
-     * @param name このテストケースの名前。
-     */
-    public SpringValidationErrorsTest(String name) {
-        super(name);
-    }
+public class SpringValidationErrorsTest {
 
     /**
      * testSetErrors01()
@@ -106,6 +70,7 @@ public class SpringValidationErrorsTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSetErrors01() throws Exception {
         // 前処理
         SpringValidationErrors validation = new SpringValidationErrors();
@@ -140,6 +105,7 @@ public class SpringValidationErrorsTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetErrors01() throws Exception {
         // 前処理
         SpringValidationErrors validation = new SpringValidationErrors();
@@ -193,6 +159,7 @@ public class SpringValidationErrorsTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testAddErrors01() throws Exception {
         // 前処理
         // 引数bean

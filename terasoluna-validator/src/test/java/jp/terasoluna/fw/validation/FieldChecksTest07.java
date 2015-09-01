@@ -17,17 +17,23 @@
 package jp.terasoluna.fw.validation;
 
 import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
 
 import org.apache.commons.validator.Field;
 import org.apache.commons.validator.ValidatorAction;
 import org.apache.commons.validator.ValidatorException;
 import org.apache.commons.validator.Var;
+import org.junit.After;
+import org.junit.Test;
 
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
@@ -41,46 +47,17 @@ import static java.util.Arrays.asList;
  * <p>
  * @see jp.terasoluna.fw.validation.FieldChecks
  */
-public class FieldChecksTest07 extends TestCase {
+public class FieldChecksTest07 {
 
     private TestLogger logger = TestLoggerFactory.getTestLogger(
             FieldChecks.class);
 
     /**
-     * このテストケースを実行する為の GUI アプリケーションを起動する。
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        junit.swingui.TestRunner.run(FieldChecksTest07.class);
-    }
-
-    /**
-     * 初期化処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
-     */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
-
-    /**
      * 終了処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
      */
-    @Override
-    protected void tearDown() throws Exception {
+    @After
+    public void tearDown() {
         logger.clear();
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * @param name このテストケースの名前。
-     */
-    public FieldChecksTest07(String name) {
-        super(name);
     }
 
     /**
@@ -100,6 +77,7 @@ public class FieldChecksTest07 extends TestCase {
      * 引数のbeanがnullの場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateHankakuKanaString01() throws Exception {
         // 前処理
         // bean : null
@@ -137,6 +115,7 @@ public class FieldChecksTest07 extends TestCase {
      * 引数のbeanが空文字の場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateHankakuKanaString02() throws Exception {
         // 前処理
         // bean : ""
@@ -174,6 +153,7 @@ public class FieldChecksTest07 extends TestCase {
      * 引数のbeanが半角カナ文字のみで構成されている場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateHankakuKanaString03() throws Exception {
         // 前処理
         // bean : "ﾊﾝｶｸ"
@@ -211,6 +191,7 @@ public class FieldChecksTest07 extends TestCase {
      * 引数のbeanに半角カナ以外の文字が含まれている場合、エラーを追加してfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateHankakuKanaString04() throws Exception {
         // 前処理
         // bean : "ハンカク"
@@ -258,6 +239,7 @@ public class FieldChecksTest07 extends TestCase {
      * 引数のbeanがnullの場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateHankakuString01() throws Exception {
         // 前処理
         // bean : null
@@ -295,6 +277,7 @@ public class FieldChecksTest07 extends TestCase {
      * 引数のbeanが空文字の場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateHankakuString02() throws Exception {
         // 前処理
         // bean : ""
@@ -332,6 +315,7 @@ public class FieldChecksTest07 extends TestCase {
      * 引数のbeanが半角文字のみで構成されている場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateHankakuString03() throws Exception {
         // 前処理
         // bean : "1aｱ"
@@ -369,6 +353,7 @@ public class FieldChecksTest07 extends TestCase {
      * 引数のbeanに半角以外の文字が含まれている場合、エラーを追加してfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateHankakuString04() throws Exception {
         // 前処理
         // bean : "全角ア"
@@ -416,6 +401,7 @@ public class FieldChecksTest07 extends TestCase {
      * 引数のbeanがnullの場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateZenkakuString01() throws Exception {
         // 前処理
         // bean : null
@@ -453,6 +439,7 @@ public class FieldChecksTest07 extends TestCase {
      * 引数のbeanが空文字の場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateZenkakuString02() throws Exception {
         // 前処理
         // bean : ""
@@ -490,6 +477,7 @@ public class FieldChecksTest07 extends TestCase {
      * 引数のbeanが全角文字のみで構成されている場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateZenkakuString03() throws Exception {
         // 前処理
         // bean : "全角ア"
@@ -527,6 +515,7 @@ public class FieldChecksTest07 extends TestCase {
      * 引数のbeanに全角以外の文字が含まれている場合、エラーを追加してfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateZenkakuString04() throws Exception {
         // 前処理
         // bean : "1aｱ"
@@ -574,6 +563,7 @@ public class FieldChecksTest07 extends TestCase {
      * 引数のbeanがnullの場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateZenkakuKanaString01() throws Exception {
         // 前処理
         // bean : null
@@ -611,6 +601,7 @@ public class FieldChecksTest07 extends TestCase {
      * 引数のbeanが空文字の場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateZenkakuKanaString02() throws Exception {
         // 前処理
         // bean : ""
@@ -648,6 +639,7 @@ public class FieldChecksTest07 extends TestCase {
      * 引数のbeanが全角カナ文字のみで構成されている場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateZenkakuKanaString03() throws Exception {
         // 前処理
         // bean : "ゼンカク"
@@ -685,6 +677,7 @@ public class FieldChecksTest07 extends TestCase {
      * 引数のbeanに全角カナ以外の文字が含まれている場合、エラーを追加してfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateZenkakuKanaString04() throws Exception {
         // 前処理
         // bean : "1aあ"
@@ -732,6 +725,7 @@ public class FieldChecksTest07 extends TestCase {
      * 引数のbeanがnullの場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateProhibited01() throws Exception {
         // 前処理
         // bean : null
@@ -769,6 +763,7 @@ public class FieldChecksTest07 extends TestCase {
      * 引数のbeanが空文字の場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateProhibited02() throws Exception {
         // 前処理
         // bean : ""
@@ -809,6 +804,7 @@ public class FieldChecksTest07 extends TestCase {
      * varのcharsがnullの場合、ValidatorExceptionがスローされることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateProhibited03() throws Exception {
         // 前処理
         // bean : "test"
@@ -859,6 +855,7 @@ public class FieldChecksTest07 extends TestCase {
      * varのcharsがnullの場合、ValidatorExceptionがスローされることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateProhibited04() throws Exception {
         // 前処理
         // bean : "test"
@@ -907,6 +904,7 @@ public class FieldChecksTest07 extends TestCase {
      * beanにvarのcharsで指定された文字が含まれる場合、エラーを追加してfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateProhibited05() throws Exception {
         // 前処理
         // bean : "③②①"
@@ -961,6 +959,7 @@ public class FieldChecksTest07 extends TestCase {
      * beanにvarのcharsで指定された文字が含まれない場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateProhibited06() throws Exception {
         // 前処理
         // bean : "③②①"
@@ -1006,6 +1005,7 @@ public class FieldChecksTest07 extends TestCase {
      * beanにvarのcharsで指定された文字が含まれる場合、エラーを追加してfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateProhibited07() throws Exception {
         // 前処理
         // bean : "③② "
@@ -1060,6 +1060,7 @@ public class FieldChecksTest07 extends TestCase {
      * beanにvarのcharsで指定された文字が含まれる場合、エラーを追加してfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateProhibited08() throws Exception {
         // 前処理
         // bean : " "

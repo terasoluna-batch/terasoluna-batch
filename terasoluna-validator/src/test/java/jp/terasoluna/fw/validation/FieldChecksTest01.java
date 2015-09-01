@@ -16,12 +16,16 @@
 
 package jp.terasoluna.fw.validation;
 
-import java.lang.reflect.Method;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
 
-import junit.framework.TestCase;
+import java.lang.reflect.Method;
 
 import org.apache.commons.validator.Field;
 import org.apache.commons.validator.ValidatorAction;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * {@link jp.terasoluna.fw.validation.FieldChecks}
@@ -34,7 +38,7 @@ import org.apache.commons.validator.ValidatorAction;
  *
  * @see jp.terasoluna.fw.validation.FieldChecks
  */
-public class FieldChecksTest01 extends TestCase {
+public class FieldChecksTest01 {
 
     /**
      * テスト用インスタンス。
@@ -47,46 +51,12 @@ public class FieldChecksTest01 extends TestCase {
     private Field field = null;
 
     /**
-     * このテストケースを実行する為の
-     * GUI アプリケーションを起動する。
-     *
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        junit.swingui.TestRunner.run(FieldChecksTest01.class);
-    }
-
-    /**
      * 初期化処理を行う。
-     *
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
      */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
+    @Before
+    public void setUp() {
         va = new ValidatorAction();
         field = new Field();
-    }
-
-    /**
-     * 終了処理を行う。
-     *
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     *
-     * @param name このテストケースの名前。
-     */
-    public FieldChecksTest01(String name) {
-        super(name);
     }
 
     /**
@@ -111,6 +81,7 @@ public class FieldChecksTest01 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetParamClass01() throws Exception {
         // 前処理
         va.setMethodParams("");
@@ -146,6 +117,7 @@ public class FieldChecksTest01 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetParamClass02() throws Exception {
         // 前処理
         va.setMethodParams(
@@ -182,6 +154,7 @@ public class FieldChecksTest01 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetParamClass03() throws Exception {
         // 前処理
         va.setMethodParams("java.lang.String,bbb");
@@ -212,6 +185,7 @@ public class FieldChecksTest01 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetMethod01() throws Exception {
         // 前処理
         va.setName(null);
@@ -241,6 +215,7 @@ public class FieldChecksTest01 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetMethod02() throws Exception {
         // 前処理
         va.setName("");
@@ -276,6 +251,7 @@ public class FieldChecksTest01 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetMethod03() throws Exception {
         // 前処理
         va.setName("requiredArray");
@@ -320,6 +296,7 @@ public class FieldChecksTest01 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetMethod04() throws Exception {
         // 前処理
         va.setName("requiredArray");
@@ -360,6 +337,7 @@ public class FieldChecksTest01 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetMethod05() throws Exception {
         // 前処理
         va.setName("requiredXXXXX");
@@ -397,6 +375,7 @@ public class FieldChecksTest01 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractValue01() throws Exception {
         // テスト実施
         // 判定
@@ -422,6 +401,7 @@ public class FieldChecksTest01 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractValue02() throws Exception {
         // テスト実施
         // 判定
@@ -451,6 +431,7 @@ public class FieldChecksTest01 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractValue03() throws Exception {
         // 前処理
         FieldChecks_JavaBeanStub01 bean
@@ -485,6 +466,7 @@ public class FieldChecksTest01 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractValue04() throws Exception {
         // 前処理
         FieldChecks_JavaBeanStub01 bean
@@ -515,6 +497,7 @@ public class FieldChecksTest01 extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractValue05() throws Exception {
         // テスト実施
         // 判定
@@ -540,6 +523,7 @@ public class FieldChecksTest01 extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractValue06() throws Exception {
         // テスト実施
         // 判定
@@ -565,6 +549,7 @@ public class FieldChecksTest01 extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractValue07() throws Exception {
         // テスト実施
         // 判定
@@ -594,6 +579,7 @@ public class FieldChecksTest01 extends TestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testRejectValue01() throws Exception {
         // 前処理
         FieldChecks_JavaBeanStub01 bean = new FieldChecks_JavaBeanStub01();

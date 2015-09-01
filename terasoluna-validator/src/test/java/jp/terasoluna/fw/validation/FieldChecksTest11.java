@@ -20,7 +20,14 @@ import static java.util.Arrays.asList;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.hamcrest.core.IsInstanceOf.instanceOf;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 import static uk.org.lidalia.slf4jtest.LoggingEvent.error;
 
 import java.lang.reflect.InvocationTargetException;
@@ -31,6 +38,9 @@ import junit.framework.TestCase;
 import org.apache.commons.validator.Field;
 import org.apache.commons.validator.ValidatorAction;
 import org.apache.commons.validator.Var;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
@@ -42,27 +52,16 @@ import uk.org.lidalia.slf4jtest.TestLoggerFactory;
  * <p>
  * @see jp.terasoluna.fw.validation.FieldChecks
  */
-public class FieldChecksTest11 extends TestCase {
+public class FieldChecksTest11 {
 
     private TestLogger logger = TestLoggerFactory.getTestLogger(
             FieldChecks.class);
 
     /**
-     * このテストケースを実行する為の GUI アプリケーションを起動する。
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        junit.swingui.TestRunner.run(FieldChecksTest11.class);
-    }
-
-    /**
      * 初期化処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
      */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
+    @Before
+    public void setUp() {
         FieldChecks_MultiFieldValidatorImpl01.result = false;
         FieldChecks_MultiFieldValidatorImpl01.validateCalledCount = 0;
         FieldChecks_MultiFieldValidatorImpl01.value = null;
@@ -71,21 +70,10 @@ public class FieldChecksTest11 extends TestCase {
 
     /**
      * 終了処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
      */
-    @Override
-    protected void tearDown() throws Exception {
+    @After
+    public void tearDown() throws Exception {
         logger.clear();
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * @param name このテストケースの名前。
-     */
-    public FieldChecksTest11(String name) {
-        super(name);
     }
 
     /**
@@ -109,6 +97,7 @@ public class FieldChecksTest11 extends TestCase {
      * 引数beanがnullの場合にエラーログを出力して、TRUEが返却されることを確認するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMultiField01() throws Exception {
         // 前処理
         Object bean = null;
@@ -152,6 +141,7 @@ public class FieldChecksTest11 extends TestCase {
      * ※引数beanが空文字の場合にチェックが続行されることを確認するテストを包含する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMultiField02() throws Exception {
         // 前処理
         Object bean = "";
@@ -200,6 +190,7 @@ public class FieldChecksTest11 extends TestCase {
      * 引数fieldの、var-name：multiFieldValidatorに対応するvar-valueが空文字の場合に、 エラーログを出力して、IllegalArgumentExceptionがスローされることを確認するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMultiField03() throws Exception {
         // 前処理
         Object bean = "bean";
@@ -251,6 +242,7 @@ public class FieldChecksTest11 extends TestCase {
      * スローされることを確認するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMultiField04() throws Exception {
         // 前処理
         Object bean = "bean";
@@ -312,6 +304,7 @@ public class FieldChecksTest11 extends TestCase {
      * IllegalArgumentExceptionがスローされることを確認するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMultiField05() throws Exception {
         // 前処理
         Object bean = "bean";
@@ -369,6 +362,7 @@ public class FieldChecksTest11 extends TestCase {
      * ※引数beanが文字列の場合に、MultiFieldValidator#validateの 第一引数にその文字列が渡されることを確認するテストを包含する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMultiField06() throws Exception {
         // 前処理
         Object bean = "bean";
@@ -424,6 +418,7 @@ public class FieldChecksTest11 extends TestCase {
      * fieldのvar-name：fieldsに対応するvar-valueが空文字の場合、 MultiFieldValidator#validateの第二引数に空の配列が渡されることを確認するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMultiField07() throws Exception {
         // 前処理
         Object bean = "bean";
@@ -490,6 +485,7 @@ public class FieldChecksTest11 extends TestCase {
      * <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMultiField08() throws Exception {
         // 前処理
         FieldChecks_JavaBeanStub02 bean = new FieldChecks_JavaBeanStub02();
@@ -577,6 +573,7 @@ public class FieldChecksTest11 extends TestCase {
      * エラーログを出力してチェックが続行されることを確認するテストを包含する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMultiField09() throws Exception {
         // 前処理
         FieldChecks_JavaBeanStub02 bean = new FieldChecks_JavaBeanStub02();
@@ -663,6 +660,7 @@ public class FieldChecksTest11 extends TestCase {
      * エラーログを出力してチェックが続行されることを確認するテストを包含する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMultiField10() throws Exception {
         // 前処理
         FieldChecks_JavaBeanStub03 bean = new FieldChecks_JavaBeanStub03();

@@ -16,17 +16,23 @@
 
 package jp.terasoluna.fw.validation;
 
-import junit.framework.TestCase;
-
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.hamcrest.core.IsInstanceOf.instanceOf;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import org.apache.commons.validator.Field;
 import org.apache.commons.validator.ValidatorAction;
 import org.apache.commons.validator.ValidatorException;
 import org.apache.commons.validator.Var;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
@@ -40,7 +46,7 @@ import static java.util.Arrays.asList;
  * <p>
  * @see jp.terasoluna.fw.validation.FieldChecks
  */
-public class FieldChecksTest09 extends TestCase {
+public class FieldChecksTest09 {
 
     private TestLogger logger = TestLoggerFactory.getTestLogger(
             FieldChecks.class);
@@ -61,21 +67,10 @@ public class FieldChecksTest09 extends TestCase {
     private FieldChecks_ValidationErrorsImpl01 errors = null;
 
     /**
-     * このテストケースを実行する為の GUI アプリケーションを起動する。
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        junit.swingui.TestRunner.run(FieldChecksTest09.class);
-    }
-
-    /**
      * 初期化処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
      */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
+    @Before
+    public void setUp() {
         va = new ValidatorAction();
         field = new Field();
         errors = new FieldChecks_ValidationErrorsImpl01();
@@ -83,21 +78,10 @@ public class FieldChecksTest09 extends TestCase {
 
     /**
      * 終了処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
      */
-    @Override
-    protected void tearDown() throws Exception {
+    @After
+    public void tearDown() {
         logger.clear();
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * @param name このテストケースの名前。
-     */
-    public FieldChecksTest09(String name) {
-        super(name);
     }
 
     /**
@@ -117,6 +101,7 @@ public class FieldChecksTest09 extends TestCase {
      * 引数のbeanがnullの場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateUrl01() throws Exception {
         // テスト実施
         // 判定
@@ -143,6 +128,7 @@ public class FieldChecksTest09 extends TestCase {
      * 引数のbeanが空文字の場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateUrl02() throws Exception {
         // テスト実施
         // 判定
@@ -170,6 +156,7 @@ public class FieldChecksTest09 extends TestCase {
      * varのallowallschemesがtrueのとき、beanのスキーマ名が不正な場合でもtrueが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateUrl03() throws Exception {
         // 前処理
         Var var = new Var();
@@ -205,6 +192,7 @@ public class FieldChecksTest09 extends TestCase {
      * varのallowallschemesがnullで、beanのスキーマ名がvarのschemesに指定されたスキーマと一致しない場合、エラーを追加してfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateUrl04() throws Exception {
         // 前処理
         Var var = new Var();
@@ -243,6 +231,7 @@ public class FieldChecksTest09 extends TestCase {
      * varのallowallschemesが空文字で、 beanのスキーマ名がvarのschemesに指定されたスキーマと一致しない場合、 エラーを追加してfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateUrl05() throws Exception {
         // 前処理
         Var var1 = new Var();
@@ -286,6 +275,7 @@ public class FieldChecksTest09 extends TestCase {
      * varのallowallschemesがtrue以外の文字列で、 beanのスキーマ名がvarのschemesに指定されたスキーマと一致しない場合、 エラーを追加してfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateUrl06() throws Exception {
         // 前処理
         Var var1 = new Var();
@@ -329,6 +319,7 @@ public class FieldChecksTest09 extends TestCase {
      * varのallowallschemesがtrue以外の文字列で、 beanのスキーマ名がvarのschemesに指定されたスキーマと一致する場合、 trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateUrl07() throws Exception {
         // 前処理
         Var var1 = new Var();
@@ -369,6 +360,7 @@ public class FieldChecksTest09 extends TestCase {
      * varのallow2slashesがtrueのとき、beanのurlの区切りり文字に「//」が含まれていてもtrueが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateUrl08() throws Exception {
         // 前処理
         Var var1 = new Var();
@@ -409,6 +401,7 @@ public class FieldChecksTest09 extends TestCase {
      * varのallow2slashesがnullで、 beanのurlの区切りり文字に「//」が含まれている場合、 エラーを追加してfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateUrl09() throws Exception {
         // 前処理
         Var var = new Var();
@@ -448,6 +441,7 @@ public class FieldChecksTest09 extends TestCase {
      * varのallow2slashesが空文字で、 beanのurlの区切りり文字に「//」が含まれている場合、 エラーを追加してfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateUrl10() throws Exception {
         // 前処理
         Var var1 = new Var();
@@ -492,6 +486,7 @@ public class FieldChecksTest09 extends TestCase {
      * varのallow2slashesがtrue以外の文字列で、 beanのurlの区切りり文字に「//」が含まれている場合、 エラーを追加してfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateUrl11() throws Exception {
         // 前処理
         Var var1 = new Var();
@@ -536,6 +531,7 @@ public class FieldChecksTest09 extends TestCase {
      * varのnofragmentsがtrueで、beanのurlにフラグメントが存在する場合、 エラーを追加してfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateUrl12() throws Exception {
         // 前処理
         Var var1 = new Var();
@@ -580,6 +576,7 @@ public class FieldChecksTest09 extends TestCase {
      * varのnofragmentsがnullで、beanのurlにフラグメントが存在する場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateUrl13() throws Exception {
         // 前処理
         Var var = new Var();
@@ -615,6 +612,7 @@ public class FieldChecksTest09 extends TestCase {
      * varのnofragmentsが空文字で、beanのurlにフラグメントが存在する場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateUrl14() throws Exception {
         // 前処理
         Var var1 = new Var();
@@ -655,6 +653,7 @@ public class FieldChecksTest09 extends TestCase {
      * varのnofragmentsがtrue以外の文字列で、 beanのurlにフラグメントが存在する場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateUrl15() throws Exception {
         // 前処理
         Var var1 = new Var();
@@ -693,6 +692,7 @@ public class FieldChecksTest09 extends TestCase {
      * 引数のbeanがnullの場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateByteRange01() throws Exception {
         // テスト実施
         // 判定
@@ -720,6 +720,7 @@ public class FieldChecksTest09 extends TestCase {
      * 引数のbeanが空文字の場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateByteRange02() throws Exception {
         // テスト実施
         // 判定
@@ -750,6 +751,7 @@ public class FieldChecksTest09 extends TestCase {
      * varのmaxByteLengthの値が数値に変換できない場合、 ValidatorExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateByteRange03() throws Exception {
         // 前処理
         Var var = new Var();
@@ -795,6 +797,7 @@ public class FieldChecksTest09 extends TestCase {
      * varのmaxByteLengthの値が数値に変換できない場合、 ValidatorExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateByteRange04() throws Exception {
         // 前処理
         Var var = new Var();
@@ -839,6 +842,7 @@ public class FieldChecksTest09 extends TestCase {
      * ※境界値テストは物理的に不可能なため省略する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateByteRange05() throws Exception {
         // テスト実施
         // 判定
@@ -869,6 +873,7 @@ public class FieldChecksTest09 extends TestCase {
      * ※境界値テストは物理的に不可能なため省略する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateByteRange06() throws Exception {
         // 前処理
         Var var1 = new Var();
@@ -910,6 +915,7 @@ public class FieldChecksTest09 extends TestCase {
      * varのencodingがサポートされないエンコーディングの場合、 ValidatorExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateByteRange07() throws Exception {
         // 前処理
         Var var = new Var();
@@ -949,6 +955,7 @@ public class FieldChecksTest09 extends TestCase {
      * varのencodingがnullの場合、 デフォルトのエンコーディングでエンコードが行われることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateByteRange08() throws Exception {
         // 前処理
         Var var1 = new Var();
@@ -990,6 +997,7 @@ public class FieldChecksTest09 extends TestCase {
      * varのencodingが空文字の場合、 デフォルトのエンコーディングでエンコードが行われることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateByteRange09() throws Exception {
         // 前処理
         Var var1 = new Var();
@@ -1036,6 +1044,7 @@ public class FieldChecksTest09 extends TestCase {
      * beanの値が指定したエンコーディングで範囲内である場合、 trueが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateByteRange10() throws Exception {
         // 前処理
         Var var1 = new Var();
@@ -1082,6 +1091,7 @@ public class FieldChecksTest09 extends TestCase {
      * beanの値をvarのencodingでエンコードしたバイト数が minByteLengthの値より小さい場合、 エラーを追加してfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateByteRange11() throws Exception {
         // 前処理
         Var var1 = new Var();
@@ -1131,6 +1141,7 @@ public class FieldChecksTest09 extends TestCase {
      * beanの値をvarのencodingでエンコードしたバイト数が maxByteLengthの値より大きい場合、 エラーを追加してfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateByteRange12() throws Exception {
         // 前処理
         Var var1 = new Var();

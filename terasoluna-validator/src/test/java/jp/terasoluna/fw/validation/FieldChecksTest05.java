@@ -16,17 +16,23 @@
 
 package jp.terasoluna.fw.validation;
 
-import junit.framework.TestCase;
-
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.hamcrest.core.IsInstanceOf.instanceOf;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import org.apache.commons.validator.Field;
 import org.apache.commons.validator.ValidatorAction;
 import org.apache.commons.validator.ValidatorException;
 import org.apache.commons.validator.Var;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
@@ -38,7 +44,7 @@ import uk.org.lidalia.slf4jtest.TestLoggerFactory;
  * <p>
  * @see jp.terasoluna.fw.validation.FieldChecks
  */
-public class FieldChecksTest05 extends TestCase {
+public class FieldChecksTest05 {
 
     private TestLogger logger = TestLoggerFactory.getTestLogger(
             FieldChecks.class);
@@ -59,21 +65,10 @@ public class FieldChecksTest05 extends TestCase {
     private FieldChecks_ValidationErrorsImpl01 errors = null;
 
     /**
-     * このテストケースを実行する為の GUI アプリケーションを起動する。
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        junit.swingui.TestRunner.run(FieldChecksTest05.class);
-    }
-
-    /**
      * 初期化処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
      */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
+    @Before
+    public void setUp() {
         va = new ValidatorAction();
         field = new Field();
         errors = new FieldChecks_ValidationErrorsImpl01();
@@ -81,21 +76,10 @@ public class FieldChecksTest05 extends TestCase {
 
     /**
      * 終了処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
      */
-    @Override
-    protected void tearDown() throws Exception {
+    @After
+    public void tearDown() {
         logger.clear();
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * @param name このテストケースの名前。
-     */
-    public FieldChecksTest05(String name) {
-        super(name);
     }
 
     /**
@@ -115,6 +99,7 @@ public class FieldChecksTest05 extends TestCase {
      * 引数のbeanがnullの場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateFloatRange01() throws Exception {
         // テスト実施
         // 判定
@@ -142,6 +127,7 @@ public class FieldChecksTest05 extends TestCase {
      * 引数のbeanが空文字の場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateFloatRange02() throws Exception {
         // テスト実施
         // 判定
@@ -168,6 +154,7 @@ public class FieldChecksTest05 extends TestCase {
      * 引数のbeanがfloat型に変換できない場合、エラーを追加してfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateFloatRange03() throws Exception {
         // テスト実施
         // 判定
@@ -199,6 +186,7 @@ public class FieldChecksTest05 extends TestCase {
      * varのfloatRangeMinがnullの場合、範囲の最小値がFloat.MIN_VALUEであることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateFloatRange04() throws Exception {
         // テスト実施
         // 判定
@@ -227,6 +215,7 @@ public class FieldChecksTest05 extends TestCase {
      * varのfloatRangeMinが空文字の場合、範囲の最小値がFloat.MIN_VALUEであることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateFloatRange05() throws Exception {
         // 前処理
         Var var = new Var();
@@ -261,6 +250,7 @@ public class FieldChecksTest05 extends TestCase {
      * varのfloatRangeMaxがnullの場合、範囲の最大値がFloat.MAX_VALUEであることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateFloatRange06() throws Exception {
         // テスト実施
         // 判定
@@ -289,6 +279,7 @@ public class FieldChecksTest05 extends TestCase {
      * varのfloatRangeMaxが空文字の場合、範囲の最大値がFloat.MAX_VALUEであることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateFloatRange07() throws Exception {
         // 前処理
         Var var = new Var();
@@ -326,6 +317,7 @@ public class FieldChecksTest05 extends TestCase {
      * varのfloatRangeMinの値がfloat型に変換できない場合、ValidatorExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateFloatRange08() throws Exception {
         // 前処理
         Var var = new Var();
@@ -371,6 +363,7 @@ public class FieldChecksTest05 extends TestCase {
      * varのfloatRangeMaxの値がfloat型に変換できない場合、ValidatorExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateFloatRange09() throws Exception {
         // 前処理
         Var var = new Var();
@@ -414,6 +407,7 @@ public class FieldChecksTest05 extends TestCase {
      * beanの値が、floatRangeMinとfloatRangeMaxの範囲内の値の場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateFloatRange10() throws Exception {
         // 前処理
         Var var1 = new Var();
@@ -455,6 +449,7 @@ public class FieldChecksTest05 extends TestCase {
      * beanの値が、floatRangeMinの値より小さい場合、エラーを追加してfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateFloatRange11() throws Exception {
         // 前処理
         Var var1 = new Var();
@@ -498,6 +493,7 @@ public class FieldChecksTest05 extends TestCase {
      * beanの値が、floatRangeMaxの値より大きい場合、エラーを追加してfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateFloatRange12() throws Exception {
         // 前処理
         Var var1 = new Var();
@@ -541,6 +537,7 @@ public class FieldChecksTest05 extends TestCase {
      * beanの値と、floatRangeMax,floatRangeMinの値と等しい場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateFloatRange13() throws Exception {
         // 前処理
         Var var1 = new Var();
@@ -579,6 +576,7 @@ public class FieldChecksTest05 extends TestCase {
      * 引数のbeanがnullの場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMaxLength01() throws Exception {
         // テスト実施
         // 判定
@@ -605,6 +603,7 @@ public class FieldChecksTest05 extends TestCase {
      * varのmaxlengthがnullの場合、ValidatorExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMaxLength02() throws Exception {
         // テスト実施
         // 判定
@@ -635,6 +634,7 @@ public class FieldChecksTest05 extends TestCase {
      * varのmaxlengthがnullの場合、ValidatorExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMaxLength03() throws Exception {
         // テスト実施
         // 判定
@@ -673,6 +673,7 @@ public class FieldChecksTest05 extends TestCase {
      * varのmaxlengthが空文字の場合、ValidatorExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMaxLength04() throws Exception {
         // 前処理
         Var var = new Var();
@@ -717,6 +718,7 @@ public class FieldChecksTest05 extends TestCase {
      * varのmaxlengthが数値に変換できない場合、ValidatorExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMaxLength05() throws Exception {
         // 前処理
         Var var = new Var();
@@ -758,6 +760,7 @@ public class FieldChecksTest05 extends TestCase {
      * 入力された文字の桁数が、varのmaxlengthの値より小さい場合、trueが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMaxLength06() throws Exception {
         // 前処理
         Var var = new Var();
@@ -793,6 +796,7 @@ public class FieldChecksTest05 extends TestCase {
      * 入力された文字の桁数が、varのmaxlengthの値より大きい場合、エラーを追加してfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMaxLength07() throws Exception {
         // 前処理
         Var var = new Var();
@@ -831,6 +835,7 @@ public class FieldChecksTest05 extends TestCase {
      * 入力された文字の桁数が、varのmaxlengthの値と等しい場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMaxLength08() throws Exception {
         // 前処理
         Var var = new Var();
@@ -865,6 +870,7 @@ public class FieldChecksTest05 extends TestCase {
      * 引数のbeanがnullの場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMinLength01() throws Exception {
         // テスト実施
         // 判定
@@ -891,6 +897,7 @@ public class FieldChecksTest05 extends TestCase {
      * varのminlengthがnullの場合、ValidatorExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMinLength02() throws Exception {
         // テスト実施
         // 判定
@@ -921,6 +928,7 @@ public class FieldChecksTest05 extends TestCase {
      * varのminlengthがnullの場合、ValidatorExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMinLength03() throws Exception {
         // テスト実施
         // 判定
@@ -959,6 +967,7 @@ public class FieldChecksTest05 extends TestCase {
      * varのminlengthが空文字の場合、ValidatorExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMinLength04() throws Exception {
         // 前処理
         Var var = new Var();
@@ -1003,6 +1012,7 @@ public class FieldChecksTest05 extends TestCase {
      * varのminlengthが数値に変換できない場合、ValidatorExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMinLength05() throws Exception {
         // 前処理
         Var var = new Var();
@@ -1044,6 +1054,7 @@ public class FieldChecksTest05 extends TestCase {
      * 入力された文字の桁数が、varのminlengthの値より大きい場合、 trueが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMinLength06() throws Exception {
         // 前処理
         Var var = new Var();
@@ -1079,6 +1090,7 @@ public class FieldChecksTest05 extends TestCase {
      * 入力された文字の桁数が、varのminlengthの値より小さい場合、 エラーを追加してfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMinLength07() throws Exception {
         // 前処理
         Var var = new Var();
@@ -1117,6 +1129,7 @@ public class FieldChecksTest05 extends TestCase {
      * 入力された文字の桁数が、varのminlengthの値と等しい場合、 trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMinLength08() throws Exception {
         // 前処理
         Var var = new Var();

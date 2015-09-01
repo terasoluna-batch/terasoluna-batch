@@ -16,19 +16,26 @@
 
 package jp.terasoluna.fw.validation;
 
-import junit.framework.TestCase;
-
 import static java.util.Arrays.asList;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsInstanceOf.instanceOf;
 import static org.hamcrest.core.IsEqual.equalTo;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 import static uk.org.lidalia.slf4jtest.LoggingEvent.error;
 
 import org.apache.commons.validator.Field;
 import org.apache.commons.validator.ValidatorAction;
 import org.apache.commons.validator.ValidatorException;
 import org.apache.commons.validator.Var;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
 import uk.org.lidalia.slf4jext.Level;
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
@@ -40,7 +47,7 @@ import uk.org.lidalia.slf4jtest.TestLoggerFactory;
  * <p>
  * @see jp.terasoluna.fw.validation.FieldChecks
  */
-public class FieldChecksTest03 extends TestCase {
+public class FieldChecksTest03 {
 
     private TestLogger logger = TestLoggerFactory.getTestLogger(
             FieldChecks.class);
@@ -61,21 +68,10 @@ public class FieldChecksTest03 extends TestCase {
     private FieldChecks_ValidationErrorsImpl01 errors = null;
 
     /**
-     * このテストケースを実行する為の GUI アプリケーションを起動する。
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        junit.swingui.TestRunner.run(FieldChecksTest03.class);
-    }
-
-    /**
      * 初期化処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
      */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
+    @Before
+    public void setUp() {
         va = new ValidatorAction();
         field = new Field();
         errors = new FieldChecks_ValidationErrorsImpl01();
@@ -83,21 +79,10 @@ public class FieldChecksTest03 extends TestCase {
 
     /**
      * 終了処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
      */
-    @Override
-    protected void tearDown() throws Exception {
+    @After
+    public void tearDown() {
         logger.clear();
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * @param name このテストケースの名前。
-     */
-    public FieldChecksTest03(String name) {
-        super(name);
     }
 
     /**
@@ -117,6 +102,7 @@ public class FieldChecksTest03 extends TestCase {
      * 引数のbeanがnullの場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateLong01() throws Exception {
         // テスト実施
         // 判定
@@ -143,6 +129,7 @@ public class FieldChecksTest03 extends TestCase {
      * 引数のbeanが空文字の場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateLong02() throws Exception {
         // テスト実施
         // 判定
@@ -169,6 +156,7 @@ public class FieldChecksTest03 extends TestCase {
      * 引数のbeanの値が、longに変換できる場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateLong03() throws Exception {
         // テスト実施
         // 判定
@@ -196,6 +184,7 @@ public class FieldChecksTest03 extends TestCase {
      * 引数のbeanの値が、longに変換できない場合、エラーを追加して、 falseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateLong04() throws Exception {
         // テスト実施
         // 判定
@@ -225,6 +214,7 @@ public class FieldChecksTest03 extends TestCase {
      * 引数のbeanがnullの場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateFloat01() throws Exception {
         // テスト実施
         // 判定
@@ -251,6 +241,7 @@ public class FieldChecksTest03 extends TestCase {
      * 引数のbeanが空文字の場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateFloat02() throws Exception {
         // テスト実施
         // 判定
@@ -277,6 +268,7 @@ public class FieldChecksTest03 extends TestCase {
      * 引数のbeanの値が、floatに変換できる場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateFloat03() throws Exception {
         // テスト実施
         // 判定
@@ -304,6 +296,7 @@ public class FieldChecksTest03 extends TestCase {
      * 引数のbeanの値が、floatに変換できない場合、エラーを追加して、falseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateFloat04() throws Exception {
         // テスト実施
         // 判定
@@ -333,6 +326,7 @@ public class FieldChecksTest03 extends TestCase {
      * 引数のbeanがnullの場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateDouble01() throws Exception {
         // テスト実施
         // 判定
@@ -359,6 +353,7 @@ public class FieldChecksTest03 extends TestCase {
      * 引数のbeanが空文字の場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateDouble02() throws Exception {
         // テスト実施
         // 判定
@@ -385,6 +380,7 @@ public class FieldChecksTest03 extends TestCase {
      * 引数のbeanの値が、doubleに変換できる場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateDouble03() throws Exception {
         // テスト実施
         // 判定
@@ -412,6 +408,7 @@ public class FieldChecksTest03 extends TestCase {
      * 引数のbeanの値が、doubleに変換できない場合、エラーを追加して、falseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateDouble04() throws Exception {
         // テスト実施
         // 判定
@@ -441,6 +438,7 @@ public class FieldChecksTest03 extends TestCase {
      * 引数のbeanがnullの場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateDate01() throws Exception {
         // テスト実施
         // 判定
@@ -467,6 +465,7 @@ public class FieldChecksTest03 extends TestCase {
      * 引数のbeanが空文字の場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateDate02() throws Exception {
         // テスト実施
         // 判定
@@ -499,6 +498,7 @@ public class FieldChecksTest03 extends TestCase {
      * datePattern、datePatternStrictが両方ともnullの場合、 ValidatorExceptionがスローされることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateDate03() throws Exception {
         // テスト実施
         // 判定
@@ -539,6 +539,7 @@ public class FieldChecksTest03 extends TestCase {
      * datePattern、datePatternStrictが両方ともnullの場合、 ValidatorExceptionがスローされることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateDate04() throws Exception {
         // 前準備
         Var var1 = new Var();
@@ -591,6 +592,7 @@ public class FieldChecksTest03 extends TestCase {
      * datePatternに日付形式として解釈できない文字が含まれる場合、 ValidatorExceptionがスローされることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateDate05() throws Exception {
         // 前準備
         Var var1 = new Var();
@@ -643,6 +645,7 @@ public class FieldChecksTest03 extends TestCase {
      * datePatternStrictに日付形式として解釈できない文字が含まれる場合、 ValidatorExceptionがスローされることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateDate06() throws Exception {
         // 前準備
         Var var = new Var();
@@ -686,6 +689,7 @@ public class FieldChecksTest03 extends TestCase {
      * datePattern、datePatternStrictの両方に正しい日付形式が指定される場合、 datePatternの形式で入力値の解釈が行われることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateDate07() throws Exception {
         // 前準備
         Var var1 = new Var();
@@ -725,6 +729,7 @@ public class FieldChecksTest03 extends TestCase {
      * datePatternStrictに日付形式が指定されており、形式が完全に一致しない場合、エラーを追加してfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateDate08() throws Exception {
         // 前準備
         Var var = new Var();
@@ -762,6 +767,7 @@ public class FieldChecksTest03 extends TestCase {
      * 存在しない日付が入力された場合、エラーを追加してfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateDate09() throws Exception {
         // 前準備
         Var var = new Var();

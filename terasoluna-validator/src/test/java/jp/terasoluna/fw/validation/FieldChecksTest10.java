@@ -20,18 +20,25 @@ import static java.util.Arrays.asList;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.hamcrest.core.IsInstanceOf.instanceOf;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 import static uk.org.lidalia.slf4jtest.LoggingEvent.error;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import junit.framework.TestCase;
-
 import org.apache.commons.validator.Field;
 import org.apache.commons.validator.ValidatorAction;
 import org.apache.commons.validator.ValidatorException;
 import org.apache.commons.validator.Var;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
@@ -43,7 +50,7 @@ import uk.org.lidalia.slf4jtest.TestLoggerFactory;
  * <p>
  * @see jp.terasoluna.fw.validation.FieldChecks
  */
-public class FieldChecksTest10 extends TestCase {
+public class FieldChecksTest10 {
 
     private TestLogger logger = TestLoggerFactory.getTestLogger(
             FieldChecks.class);
@@ -64,21 +71,10 @@ public class FieldChecksTest10 extends TestCase {
     private FieldChecks_ValidationErrorsImpl01 errors = null;
 
     /**
-     * このテストケースを実行する為の GUI アプリケーションを起動する。
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        junit.swingui.TestRunner.run(FieldChecksTest10.class);
-    }
-
-    /**
      * 初期化処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
      */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
+    @Before
+    public void setUp() {
         va = new ValidatorAction();
         field = new Field();
         errors = new FieldChecks_ValidationErrorsImpl01();
@@ -86,21 +82,10 @@ public class FieldChecksTest10 extends TestCase {
 
     /**
      * 終了処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
      */
-    @Override
-    protected void tearDown() throws Exception {
+    @After
+    public void tearDown() {
         logger.clear();
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * @param name このテストケースの名前。
-     */
-    public FieldChecksTest10(String name) {
-        super(name);
     }
 
     /**
@@ -120,6 +105,7 @@ public class FieldChecksTest10 extends TestCase {
      * 引数のbeanがnullの場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateDateRange01() throws Exception {
         // テスト実施
         // 判定
@@ -147,6 +133,7 @@ public class FieldChecksTest10 extends TestCase {
      * 引数のbeanが空文字の場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateDateRange02() throws Exception {
         // テスト実施
         // 判定
@@ -177,6 +164,7 @@ public class FieldChecksTest10 extends TestCase {
      * varのdatePatternに不正なパターン文字が含まれる場合、 ValidatorExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateDateRange03() throws Exception {
         // 前処理
         Var var1 = new Var();
@@ -222,6 +210,7 @@ public class FieldChecksTest10 extends TestCase {
      * varのdatePatternStrictに不正なパターン文字が含まれる場合、 ValidatorExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateDateRange04() throws Exception {
         // 前処理
         Var var = new Var();
@@ -263,6 +252,7 @@ public class FieldChecksTest10 extends TestCase {
      * varのdatePattern、datePatternStrictがnullの場合、 ValidatorExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateDateRange05() throws Exception {
         // 前処理
         Var var1 = new Var();
@@ -310,6 +300,7 @@ public class FieldChecksTest10 extends TestCase {
      * varのdatePattern、datePatternStrictが空文字の場合、ValidatorExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateDateRange06() throws Exception {
         // 前処理
         Var var1 = new Var();
@@ -354,6 +345,7 @@ public class FieldChecksTest10 extends TestCase {
      * beanが日付に変換できない場合、エラーを追加してfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateDateRange07() throws Exception {
         // 前処理
         Var var = new Var();
@@ -392,6 +384,7 @@ public class FieldChecksTest10 extends TestCase {
      * startDateが日付に変換できない場合、ValidatorExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateDateRange08() throws Exception {
         // 前処理
         Var var1 = new Var();
@@ -438,6 +431,7 @@ public class FieldChecksTest10 extends TestCase {
      * endDateが日付に変換できない場合、ValidatorExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateDateRange09() throws Exception {
         // 前処理
         Var var1 = new Var();
@@ -483,6 +477,7 @@ public class FieldChecksTest10 extends TestCase {
      * beanの日付がstartDateの日付以前の場合、 エラーを追加してfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateDateRange10() throws Exception {
         // 前処理
         Var var1 = new Var();
@@ -530,6 +525,7 @@ public class FieldChecksTest10 extends TestCase {
      * beanの日付がendDateの日付以降の場合、エラーを追加してfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateDateRange11() throws Exception {
         // 前処理
         Var var1 = new Var();
@@ -577,6 +573,7 @@ public class FieldChecksTest10 extends TestCase {
      * beanの日付とstartDate,endDateの日付が等しい場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateDateRange12() throws Exception {
         // 前処理
         Var var1 = new Var();
@@ -621,6 +618,7 @@ public class FieldChecksTest10 extends TestCase {
      * beanの日付とdatePatternStrictのパターンの文字数が等しくない場合、 エラーを追加してfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateDateRange13() throws Exception {
         // 前処理
         Var var1 = new Var();
@@ -667,6 +665,7 @@ public class FieldChecksTest10 extends TestCase {
      * 引数のbeanがnullの場合、ValidatorExceptionがスローされることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateArraysIndex01() throws Exception {
         // テスト実施
         // 判定
@@ -698,6 +697,7 @@ public class FieldChecksTest10 extends TestCase {
      * vaからmethodParamsが取得できない場合、 ValidatorExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateArraysIndex02() throws Exception {
         // 前処理
         va.setMethodParams("");
@@ -734,6 +734,7 @@ public class FieldChecksTest10 extends TestCase {
      * vaからmethodParamsが取得できない場合、ValidatorExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateArraysIndex03() throws Exception {
         // 前処理
         va.setMethodParams("aaaaa");
@@ -771,6 +772,7 @@ public class FieldChecksTest10 extends TestCase {
      * vaに設定されたnameのメソッドが存在しない場合、ValidatorExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateArraysIndex04() throws Exception {
         // 前処理
         va.setMethodParams("java.lang.String");
@@ -811,6 +813,7 @@ public class FieldChecksTest10 extends TestCase {
      * varのプロパティで指定されたフィールドが配列型のフィールドで、 全てのフィールドについてvaのnameで指定されたチェック違反がない場合、 trueが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateArraysIndex05() throws Exception {
         // 前処理
         // JavaBean
@@ -866,6 +869,7 @@ public class FieldChecksTest10 extends TestCase {
      * varのプロパティで指定されたフィールドがCollection型のフィールドで、 vaのnameで指定されたチェックの違反が複数存在する場合、 その回数分errorsのaddErrorsが呼び出されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateArraysIndex06() throws Exception {
         // 前処理
         // JavaBean
@@ -946,6 +950,7 @@ public class FieldChecksTest10 extends TestCase {
      * varのプロパティで指定されたフィールドがプリミティブ配列型のフィールドで、 vaのnameで指定されたチェックの違反が複数存在する場合、 その回数分errorsのaddErrorsが呼び出されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateArraysIndex07() throws Exception {
         // 前処理
         // JavaBean
@@ -1013,6 +1018,7 @@ public class FieldChecksTest10 extends TestCase {
      * varのプロパティで指定されたフィールドが配列、Collection型ではない場合、 そのフィールドに対してのチェックが行われることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateArraysIndex08() throws Exception {
         // 前処理
         // JavaBean
@@ -1084,6 +1090,7 @@ public class FieldChecksTest10 extends TestCase {
      * varのプロパティで指定されたフィールドが配列型のフィールドで、 全てのフィールドについてvaのnameで指定されたチェック違反がない場合、 trueが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateArraysIndex09() throws Exception {
         // 前処理
         // JavaBean-beanArray[0]
@@ -1158,6 +1165,7 @@ public class FieldChecksTest10 extends TestCase {
      * varのプロパティで指定されたフィールドが配列型のフィールドで、 要素がない場合trueが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateArraysIndex10() throws Exception {
         // 前処理
         // JavaBean
@@ -1203,6 +1211,7 @@ public class FieldChecksTest10 extends TestCase {
      * 処理中にValidatorException、InvocationTargetException以外の例外が発生した場合、 ValidatorExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateArraysIndex11() throws Exception {
         // 前処理
         // JavaBean
@@ -1252,6 +1261,7 @@ public class FieldChecksTest10 extends TestCase {
      * 処理中にValidatorExceptionをラップしたInvocationTargetExceptionが発生した場合、 ラップしたValidatorExceptionがスローされることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateArraysIndex12() throws Exception {
         // 前処理
         // JavaBean
@@ -1305,6 +1315,7 @@ public class FieldChecksTest10 extends TestCase {
      * <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateArraysIndex13() throws Exception {
         // 前処理
         // JavaBean
@@ -1359,6 +1370,7 @@ public class FieldChecksTest10 extends TestCase {
      * 処理中にValidatorException、InvocationTargetException以外の例外が発生した場合、 ValidatorExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateArraysIndex14() throws Exception {
         // 前処理
         // JavaBean

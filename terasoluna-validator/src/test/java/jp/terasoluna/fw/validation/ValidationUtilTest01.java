@@ -35,7 +35,6 @@ public class ValidationUtilTest01 extends PropertyTestCase {
     /**
      * 初期化処理を行う。
      * @throws Exception このメソッドで発生した例外
-     * @see jp.terasoluna.utlib.spring.PropertyTestCase#setUpData()
      */
     @Before
     public void setUpData() throws Exception {
@@ -49,7 +48,6 @@ public class ValidationUtilTest01 extends PropertyTestCase {
     /**
      * 終了処理を行う。
      * @throws Exception このメソッドで発生した例外
-     * @see jp.terasoluna.utlib.spring.PropertyTestCase#cleanUpData()
      */
     @After
     public void cleanUpData() throws Exception {
