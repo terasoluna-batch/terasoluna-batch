@@ -16,16 +16,13 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * 非同期バッチ実行機能で多重度の最大値を{@code ThreadPoolTaskExecutor}の最大スレッドプールサイズとした非同期のジョブ起動を行う。<br>
- * 最大プールサイズ以上のジョブの実行が行われた場合、スレッドプールに空きができるまで待ち状態になる。 本機能を利用するにはスレッドプール{@code ThreadPoolTaskExecutorDelegate}およびジョブ実行テンプレート
+ * 最大プールサイズ以上のジョブの実行が行われた場合、スレッドプールに空きができるまで待ち状態になる。 本機能を利用するにはジョブ実行テンプレート
  * {@code JobExecutorTemplate}のBean定義が必要となる。 以下は{@code AsyncJobLauncher}のBean定義の設定例である。 <code><pre>
  *    &lt;task:executor id=&quot;threadPoolTaskExecutor&quot;
  *            pool-size=&quot;4&quot;          ←最大プールサイズ
  *            queue-capacity=&quot;4&quot; /&gt;  ←キューサイズの上限
- *    &lt;bean id=&quot;threadPoolTaskExecutorDelegate&quot; class=&quot;jp.terasoluna.fw.batch.executor.controller.ThreadPoolTaskExecutorDelegateImpl&quot;&gt;
- *            &lt;constructor-arg ref=&quot;threadPoolTaskExecutor&quot;/&gt;
- *    &lt;/bean&gt;
  *    &lt;bean id=&quot;asyncJobLauncher&quot; class=&quot;jp.terasoluna.fw.batch.executor.controller.AsyncJobLauncherImpl&quot;&gt;
- *            &lt;constructor-arg index=&quot;0&quot; ref=&quot;threadPoolTaskExecutorDelegate&quot;/&gt;
+ *            &lt;constructor-arg index=&quot;0&quot; ref=&quot;threadPoolTaskExecutor&quot;/&gt;
  *            &lt;constructor-arg index=&quot;1&quot; ref=&quot;jobExecutorTemplate&quot;/&gt;
  *    &lt;/bean&gt;
  * </pre></code> Bean定義を利用した多重度の設定では以下の制約に留意すること。
@@ -52,7 +49,7 @@ public class AsyncJobLauncherImpl implements AsyncJobLauncher,
     /**
      * {@code ThreadPoolTaskExecutor}のデリゲータ。
      */
-    protected ThreadPoolTaskExecutorDelegate threadPoolTaskExecutorDelegate;
+    protected ThreadPoolTaskExecutor threadPoolTaskExecutor;
 
     /**
      * ジョブ実行のテンプレート機能。
@@ -82,22 +79,21 @@ public class AsyncJobLauncherImpl implements AsyncJobLauncher,
 
     /**
      * コンストラクタ。<br>
-     * @param threadPoolTaskExecutorDelegate {@code ThreadPoolTaskExecutor}のデリゲータ
+     * @param threadPoolTaskExecutor {@code ThreadPoolTaskExecutor}のデリゲータ
      * @param jobExecutorTemplate ジョブの前処理と主処理を定義するテンプレート
-     * @param exceptionStatusHandler フレームワーク内部の例外を処理するハンドラ
+     * @param exceptionStatusHandler フレームワーク内部例外を処理するハンドラ
      */
-    public AsyncJobLauncherImpl(
-            ThreadPoolTaskExecutorDelegate threadPoolTaskExecutorDelegate,
+    public AsyncJobLauncherImpl(ThreadPoolTaskExecutor threadPoolTaskExecutor,
             JobExecutorTemplate jobExecutorTemplate,
             ExceptionStatusHandler exceptionStatusHandler) {
-        Assert.notNull(threadPoolTaskExecutorDelegate, LOGGER.getLogMessage(
+        Assert.notNull(threadPoolTaskExecutor, LOGGER.getLogMessage(
                 LogId.EAL025055));
         Assert.notNull(jobExecutorTemplate, LOGGER.getLogMessage(
                 LogId.EAL025057));
         Assert.notNull(exceptionStatusHandler, LOGGER.getLogMessage(
                 LogId.EAL025091));
 
-        this.threadPoolTaskExecutorDelegate = threadPoolTaskExecutorDelegate;
+        this.threadPoolTaskExecutor = threadPoolTaskExecutor;
         this.jobExecutorTemplate = jobExecutorTemplate;
         this.exceptionStatusHandler = exceptionStatusHandler;
     }
@@ -133,7 +129,7 @@ public class AsyncJobLauncherImpl implements AsyncJobLauncher,
                 LOGGER.warn(LogId.WAL025009, jobSequenceId);
                 return;
             }
-            threadPoolTaskExecutorDelegate.execute(new Runnable() {
+            threadPoolTaskExecutor.execute(new Runnable() {
                 @Override
                 public void run() {
                     try {
@@ -159,12 +155,10 @@ public class AsyncJobLauncherImpl implements AsyncJobLauncher,
      */
     @Override
     public void shutdown() {
-        ThreadPoolTaskExecutor taskExecutor = threadPoolTaskExecutorDelegate
-                .getThreadPoolTaskExecutor();
-        taskExecutor.setWaitForTasksToCompleteOnShutdown(true);
-        taskExecutor.shutdown();
+        threadPoolTaskExecutor.setWaitForTasksToCompleteOnShutdown(true);
+        threadPoolTaskExecutor.shutdown();
         while (true) {
-            int executeCount = taskExecutor.getActiveCount();
+            int executeCount = threadPoolTaskExecutor.getActiveCount();
             if (executeCount == 0) {
                 break;
             }
@@ -188,8 +182,7 @@ public class AsyncJobLauncherImpl implements AsyncJobLauncher,
         Assert.state(executorJobTerminateWaitIntervalTime > 0, LOGGER
                 .getLogMessage(LogId.EAL025058));
 
-        int maxPoolSize = threadPoolTaskExecutorDelegate
-                .getThreadPoolTaskExecutor().getMaxPoolSize();
+        int maxPoolSize = threadPoolTaskExecutor.getMaxPoolSize();
         LOGGER.debug(LogId.DAL025061, maxPoolSize, fair);
         taskPoolLimit = new Semaphore(maxPoolSize, fair);
     }
