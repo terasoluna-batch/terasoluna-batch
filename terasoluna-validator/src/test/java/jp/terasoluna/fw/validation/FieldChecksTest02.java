@@ -16,26 +16,39 @@
 
 package jp.terasoluna.fw.validation;
 
-import jp.terasoluna.utlib.LogUTUtil;
-import junit.framework.TestCase;
+import static java.util.Arrays.asList;
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+import static uk.org.lidalia.slf4jtest.LoggingEvent.error;
 
 import org.apache.commons.validator.Field;
 import org.apache.commons.validator.ValidatorAction;
 import org.apache.commons.validator.ValidatorException;
 import org.apache.commons.validator.Var;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import uk.org.lidalia.slf4jtest.TestLogger;
+import uk.org.lidalia.slf4jtest.TestLoggerFactory;
 
 /**
- * {@link jp.terasoluna.fw.validation.FieldChecks}
- * クラスのブラックボックステスト。
- *
+ * {@link jp.terasoluna.fw.validation.FieldChecks} クラスのブラックボックステスト。
  * <p>
- * <h4>【クラスの概要】</h4>
- * TERASOLUNAの入力チェック機能で共通に使用される検証ルールクラス。
+ * <h4>【クラスの概要】</h4> TERASOLUNAの入力チェック機能で共通に使用される検証ルールクラス。
  * <p>
- *
  * @see jp.terasoluna.fw.validation.FieldChecks
  */
-public class FieldChecksTest02 extends TestCase {
+public class FieldChecksTest02 {
+
+    private TestLogger logger = TestLoggerFactory.getTestLogger(
+            FieldChecks.class);
 
     /**
      * テスト用インスタンス。
@@ -53,24 +66,10 @@ public class FieldChecksTest02 extends TestCase {
     private FieldChecks_ValidationErrorsImpl01 errors = null;
 
     /**
-     * このテストケースを実行する為の
-     * GUI アプリケーションを起動する。
-     *
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        junit.swingui.TestRunner.run(FieldChecksTest02.class);
-    }
-
-    /**
      * 初期化処理を行う。
-     *
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
      */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
+    @Before
+    public void setUp() {
         va = new ValidatorAction();
         field = new Field();
         errors = new FieldChecks_ValidationErrorsImpl01();
@@ -78,52 +77,35 @@ public class FieldChecksTest02 extends TestCase {
 
     /**
      * 終了処理を行う。
-     *
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
      */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
+    @After
+    public void tearDown() {
+        logger.clear();
     }
 
     /**
-     * コンストラクタ。
-     *
-     * @param name このテストケースの名前。
-     */
-    public FieldChecksTest02(String name) {
-        super(name);
-    }
-
-    /**
-     * testValidateRequired01()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateRequired01() <br>
      * <br>
-     * 観点：C,F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C,F <br>
+     * <br>
      * 入力値：(引数) bean:null<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:not null<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:not null<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:false<br>
-     *         (状態変化) errors:bean,field,vaを引数として
-     *                           addErrorsが呼び出される。<br>
-     *
+     * (状態変化) errors:bean,field,vaを引数として addErrorsが呼び出される。<br>
      * <br>
-     * 引数のbeanがnullの場合、エラーを追加し、falseが返却されることを確認する。
-     * <br>
-     *
+     * 引数のbeanがnullの場合、エラーを追加し、falseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateRequired01() throws Exception {
         // テスト実施
         // 判定
-        assertFalse(new FieldChecks().validateRequired(null, va, field, errors));
+        assertFalse(new FieldChecks().validateRequired(null, va, field,
+                errors));
 
         // addErrors確認
         assertEquals(1, errors.addErrorCount);
@@ -134,30 +116,23 @@ public class FieldChecksTest02 extends TestCase {
     }
 
     /**
-     * testValidateRequired02()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateRequired02() <br>
      * <br>
-     * 観点：C,F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C,F <br>
+     * <br>
      * 入力値：(引数) bean:""<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:not null<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:not null<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:false<br>
-     *         (状態変化) errors:bean,field,vaを引数として
-     *                           addErrorsが呼び出される。<br>
-     *
+     * (状態変化) errors:bean,field,vaを引数として addErrorsが呼び出される。<br>
      * <br>
-     * 引数のbeanが空文字の場合、エラーを追加し、
-     * falseが返却されることを確認する。
-     * <br>
-     *
+     * 引数のbeanが空文字の場合、エラーを追加し、 falseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateRequired02() throws Exception {
         // テスト実施
         // 判定
@@ -172,30 +147,23 @@ public class FieldChecksTest02 extends TestCase {
     }
 
     /**
-     * testValidateRequired03()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateRequired03() <br>
      * <br>
-     * 観点：C,F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C,F <br>
+     * <br>
      * 入力値：(引数) bean:" "<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:not null<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:not null<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:false<br>
-     *         (状態変化) errors:bean,field,vaを引数として
-     *                           addErrorsが呼び出される。<br>
-     *
+     * (状態変化) errors:bean,field,vaを引数として addErrorsが呼び出される。<br>
      * <br>
-     * 引数のbeanが半角のスペースの場合、エラーを追加し、
-     * falseが返却されることを確認する。
-     * <br>
-     *
+     * 引数のbeanが半角のスペースの場合、エラーを追加し、 falseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateRequired03() throws Exception {
         // テスト実施
         // 判定
@@ -210,60 +178,51 @@ public class FieldChecksTest02 extends TestCase {
     }
 
     /**
-     * testValidateRequired04()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateRequired04() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) bean:"test"<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:not null<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:not null<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *         (状態変化) errors:呼び出されない<br>
-     *
+     * (状態変化) errors:呼び出されない<br>
      * <br>
-     * 引数のbeanがnull、空文字でない場合、trueが返却されることを確認する。
-     * <br>
-     *
+     * 引数のbeanがnull、空文字でない場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateRequired04() throws Exception {
         // テスト実施
         // 判定
-        assertTrue(new FieldChecks().validateRequired("test", va, field, errors));
+        assertTrue(new FieldChecks().validateRequired("test", va, field,
+                errors));
 
         // addErrors確認
         assertEquals(0, errors.addErrorCount);
     }
 
     /**
-     * testValidateMask01()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateMask01() <br>
      * <br>
-     * 観点：C,F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C,F <br>
+     * <br>
      * 入力値：(引数) bean:null<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:not null<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:not null<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *         (状態変化) errors:呼び出されない<br>
-     *
+     * (状態変化) errors:呼び出されない<br>
      * <br>
-     * 引数のbeanがnullの場合、trueが返却されることを確認する。
-     * <br>
-     *
+     * 引数のbeanがnullの場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMask01() throws Exception {
         // テスト実施
         // 判定
@@ -274,28 +233,23 @@ public class FieldChecksTest02 extends TestCase {
     }
 
     /**
-     * testValidateMask02()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateMask02() <br>
      * <br>
-     * 観点：C,F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C,F <br>
+     * <br>
      * 入力値：(引数) bean:""<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:not null<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:not null<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *         (状態変化) errors:呼び出されない<br>
-     *
+     * (状態変化) errors:呼び出されない<br>
      * <br>
-     * 引数のbeanが空文字の場合、trueが返却されることを確認する。
-     * <br>
-     *
+     * 引数のbeanが空文字の場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMask02() throws Exception {
         // テスト実施
         // 判定
@@ -306,69 +260,58 @@ public class FieldChecksTest02 extends TestCase {
     }
 
     /**
-     * testValidateMask03()
-     * <br><br>
-     *
-     * (異常系)
+     * testValidateMask03() <br>
      * <br>
-     * 観点：F,G
-     * <br><br>
+     * (異常系) <br>
+     * 観点：F,G <br>
+     * <br>
      * 入力値：(引数) bean:"ABC"<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:var:mask=null<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:var:mask=null<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(状態変化) 例外:ValidatorException<br>
-     *                    メッセージ："var[mask] must be specified."<br>
-     *         (状態変化) ログ:ログレベル：エラー<br>
-     *                    メッセージ："var[mask] must be specified."<br>
-     *
+     * メッセージ："var[mask] must be specified."<br>
+     * (状態変化) ログ:ログレベル：エラー<br>
+     * メッセージ："var[mask] must be specified."<br>
      * <br>
-     * fieldのvarからmaskが取得できない場合、
-     * ValidatorExceptionがスローされることを確認する。
-     * <br>
-     *
+     * fieldのvarからmaskが取得できない場合、 ValidatorExceptionがスローされることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMask03() throws Exception {
         // テスト実施
         // 判定
         try {
             new FieldChecks().validateMask("ABC", va, field, errors);
             fail();
-        } catch(ValidatorException e) {
+        } catch (ValidatorException e) {
             assertEquals("var[mask] must be specified.", e.getMessage());
-            assertTrue(LogUTUtil.checkError("var[mask] must be specified."));
+            assertThat(logger.getLoggingEvents(), is(asList(error(
+                    "var[mask] must be specified."))));
         }
     }
 
     /**
-     * testValidateMask04()
-     * <br><br>
-     *
-     * (異常系)
+     * testValidateMask04() <br>
      * <br>
-     * 観点：F,G
-     * <br><br>
+     * (異常系) <br>
+     * 観点：F,G <br>
+     * <br>
      * 入力値：(引数) bean:"ABC"<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:var:mask=""(空文字)<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:var:mask=""(空文字)<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(状態変化) 例外:ValidatorException<br>
-     *                    メッセージ："var[mask] must be specified."<br>
-     *         (状態変化) ログ:ログレベル：エラー<br>
-     *                    メッセージ："var[mask] must be specified."<br>
-     *
+     * メッセージ："var[mask] must be specified."<br>
+     * (状態変化) ログ:ログレベル：エラー<br>
+     * メッセージ："var[mask] must be specified."<br>
      * <br>
-     * fieldのvarからmaskが取得できない場合、
-     * ValidatorExceptionがスローされることを確認する。
-     * <br>
-     *
+     * fieldのvarからmaskが取得できない場合、 ValidatorExceptionがスローされることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMask04() throws Exception {
         // 前処理
         Var var = new Var();
@@ -381,36 +324,31 @@ public class FieldChecksTest02 extends TestCase {
         try {
             new FieldChecks().validateMask("ABC", va, field, errors);
             fail();
-        } catch(ValidatorException e) {
+        } catch (ValidatorException e) {
             assertEquals("var[mask] must be specified.", e.getMessage());
-            assertTrue(LogUTUtil.checkError("var[mask] must be specified."));
+            assertThat(logger.getLoggingEvents(), is(asList(error(
+                    "var[mask] must be specified."))));
         }
     }
 
     /**
-     * testValidateMask05()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateMask05() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) bean:"ABC"<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:var:mask=""^([0-9]|[a-z]|[A-Z])*$""<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:var:mask=""^([0-9]|[a-z]|[A-Z])*$""<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *         (状態変化) errors:呼び出されない<br>
-     *
+     * (状態変化) errors:呼び出されない<br>
      * <br>
-     * 引数のbeanの値が、指定された正規表現と一致する場合、
-     * trueが返却されることを確認する。
-     * <br>
-     *
+     * 引数のbeanの値が、指定された正規表現と一致する場合、 trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMask05() throws Exception {
         // 前処理
         Var var = new Var();
@@ -425,30 +363,23 @@ public class FieldChecksTest02 extends TestCase {
     }
 
     /**
-     * testValidateMask06()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateMask06() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) bean:"あいう"<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:var:mask=""^([0-9]|[a-z]|[A-Z])*$""<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:var:mask=""^([0-9]|[a-z]|[A-Z])*$""<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:false<br>
-     *         (状態変化) errors:bean,field,vaを引数として
-     *                           addErrorsが呼び出される。<br>
-     *
+     * (状態変化) errors:bean,field,vaを引数として addErrorsが呼び出される。<br>
      * <br>
-     * 引数のbeanの値が、指定された正規表現と一致しない場合、エラーを追加して、
-     * falseが返却されることを確認する。
-     * <br>
-     *
+     * 引数のbeanの値が、指定された正規表現と一致しない場合、エラーを追加して、 falseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMask06() throws Exception {
         // 前処理
         Var var = new Var();
@@ -466,28 +397,23 @@ public class FieldChecksTest02 extends TestCase {
     }
 
     /**
-     * testValidateByte01()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateByte01() <br>
      * <br>
-     * 観点：C,F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C,F <br>
+     * <br>
      * 入力値：(引数) bean:null<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:not null<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:not null<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *         (状態変化) errors:呼び出されない<br>
-     *
+     * (状態変化) errors:呼び出されない<br>
      * <br>
-     * 引数のbeanがnullの場合、trueが返却されることを確認する。
-     * <br>
-     *
+     * 引数のbeanがnullの場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateByte01() throws Exception {
         // テスト実施
         // 判定
@@ -498,28 +424,23 @@ public class FieldChecksTest02 extends TestCase {
     }
 
     /**
-     * testValidateByte02()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateByte02() <br>
      * <br>
-     * 観点：C,F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C,F <br>
+     * <br>
      * 入力値：(引数) bean:""<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:not null<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:not null<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *         (状態変化) errors:呼び出されない<br>
-     *
+     * (状態変化) errors:呼び出されない<br>
      * <br>
-     * 引数のbeanが空文字の場合、trueが返却されることを確認する。
-     * <br>
-     *
+     * 引数のbeanが空文字の場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateByte02() throws Exception {
         // テスト実施
         // 判定
@@ -530,28 +451,23 @@ public class FieldChecksTest02 extends TestCase {
     }
 
     /**
-     * testValidateByte03()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateByte03() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) bean:"0"<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:not null<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:not null<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *         (状態変化) errors:呼び出されない<br>
-     *
+     * (状態変化) errors:呼び出されない<br>
      * <br>
-     * 引数のbeanの値が、byteに変換できる場合、trueが返却されることを確認する。
-     * <br>
-     *
+     * 引数のbeanの値が、byteに変換できる場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateByte03() throws Exception {
         // テスト実施
         // 判定
@@ -562,28 +478,23 @@ public class FieldChecksTest02 extends TestCase {
     }
 
     /**
-     * testValidateByte04()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateByte04() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) bean:"あ"<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:not null<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:not null<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:false<br>
-     *         (状態変化) errors:bean,field,vaを引数としてaddErrorsが呼び出される。<br>
-     *
+     * (状態変化) errors:bean,field,vaを引数としてaddErrorsが呼び出される。<br>
      * <br>
-     * 引数のbeanの値が、byteに変換できない場合、エラーを追加して、falseが返却されることを確認する。
-     * <br>
-     *
+     * 引数のbeanの値が、byteに変換できない場合、エラーを追加して、falseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateByte04() throws Exception {
         // テスト実施
         // 判定
@@ -597,28 +508,23 @@ public class FieldChecksTest02 extends TestCase {
     }
 
     /**
-     * testValidateShort01()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateShort01() <br>
      * <br>
-     * 観点：C,F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C,F <br>
+     * <br>
      * 入力値：(引数) bean:null<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:not null<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:not null<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *         (状態変化) errors:呼び出されない<br>
-     *
+     * (状態変化) errors:呼び出されない<br>
      * <br>
-     * 引数のbeanがnullの場合、trueが返却されることを確認する。
-     * <br>
-     *
+     * 引数のbeanがnullの場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateShort01() throws Exception {
         // テスト実施
         // 判定
@@ -629,28 +535,23 @@ public class FieldChecksTest02 extends TestCase {
     }
 
     /**
-     * testValidateShort02()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateShort02() <br>
      * <br>
-     * 観点：C,F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C,F <br>
+     * <br>
      * 入力値：(引数) bean:""<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:not null<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:not null<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *         (状態変化) errors:呼び出されない<br>
-     *
+     * (状態変化) errors:呼び出されない<br>
      * <br>
-     * 引数のbeanが空文字の場合、trueが返却されることを確認する。
-     * <br>
-     *
+     * 引数のbeanが空文字の場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateShort02() throws Exception {
         // テスト実施
         // 判定
@@ -661,28 +562,23 @@ public class FieldChecksTest02 extends TestCase {
     }
 
     /**
-     * testValidateShort03()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateShort03() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) bean:"0"<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:not null<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:not null<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *         (状態変化) errors:呼び出されない<br>
-     *
+     * (状態変化) errors:呼び出されない<br>
      * <br>
-     * 引数のbeanの値が、shortに変換できる場合、trueが返却されることを確認する。
-     * <br>
-     *
+     * 引数のbeanの値が、shortに変換できる場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateShort03() throws Exception {
         // テスト実施
         // 判定
@@ -693,28 +589,23 @@ public class FieldChecksTest02 extends TestCase {
     }
 
     /**
-     * testValidateShort04()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateShort04() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) bean:"あ"<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:not null<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:not null<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:false<br>
-     *         (状態変化) errors:bean,field,vaを引数としてaddErrorsが呼び出される。<br>
-     *
+     * (状態変化) errors:bean,field,vaを引数としてaddErrorsが呼び出される。<br>
      * <br>
-     * 引数のbeanの値が、shortに変換できない場合、エラーを追加して、falseが返却されることを確認する。
-     * <br>
-     *
+     * 引数のbeanの値が、shortに変換できない場合、エラーを追加して、falseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateShort04() throws Exception {
         // テスト実施
         // 判定
@@ -728,28 +619,23 @@ public class FieldChecksTest02 extends TestCase {
     }
 
     /**
-     * testValidateInteger01()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateInteger01() <br>
      * <br>
-     * 観点：C,F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C,F <br>
+     * <br>
      * 入力値：(引数) bean:null<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:not null<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:not null<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *         (状態変化) errors:呼び出されない<br>
-     *
+     * (状態変化) errors:呼び出されない<br>
      * <br>
-     * 引数のbeanがnullの場合、trueが返却されることを確認する。
-     * <br>
-     *
+     * 引数のbeanがnullの場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateInteger01() throws Exception {
         // テスト実施
         // 判定
@@ -760,28 +646,23 @@ public class FieldChecksTest02 extends TestCase {
     }
 
     /**
-     * testValidateInteger02()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateInteger02() <br>
      * <br>
-     * 観点：C,F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C,F <br>
+     * <br>
      * 入力値：(引数) bean:""<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:not null<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:not null<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *         (状態変化) errors:呼び出されない<br>
-     *
+     * (状態変化) errors:呼び出されない<br>
      * <br>
-     * 引数のbeanが空文字の場合、trueが返却されることを確認する。
-     * <br>
-     *
+     * 引数のbeanが空文字の場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateInteger02() throws Exception {
         // テスト実施
         // 判定
@@ -792,63 +673,51 @@ public class FieldChecksTest02 extends TestCase {
     }
 
     /**
-     * testValidateInteger03()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateInteger03() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) bean:"-2147483648"<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:not null<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:not null<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *         (状態変化) errors:呼び出されない<br>
-     *
+     * (状態変化) errors:呼び出されない<br>
      * <br>
-     * 引数のbeanの値が、intに変換できる場合、trueが返却されることを確認する。
-     * <br>
-     *
+     * 引数のbeanの値が、intに変換できる場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateInteger03() throws Exception {
         // テスト実施
         // 判定
-        assertTrue(
-                new FieldChecks().validateInteger("-2147483648", va, field, errors));
+        assertTrue(new FieldChecks().validateInteger("-2147483648", va, field,
+                errors));
 
         // addErrors確認
         assertEquals(0, errors.addErrorCount);
     }
 
     /**
-     * testValidateInteger04()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateInteger04() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) bean:"あ"<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:not null<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:not null<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:false<br>
-     *         (状態変化) errors:bean,field,vaを引数として
-     *                           addErrorsが呼び出される。<br>
-     *
+     * (状態変化) errors:bean,field,vaを引数として addErrorsが呼び出される。<br>
      * <br>
-     * 引数のbeanの値が、intに変換できない場合、エラーを追加して、
-     * falseが返却されることを確認する。
-     * <br>
-     *
+     * 引数のbeanの値が、intに変換できない場合、エラーを追加して、 falseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateInteger04() throws Exception {
         // テスト実施
         // 判定

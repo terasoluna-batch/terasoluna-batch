@@ -246,11 +246,6 @@
             <artifactId>terasoluna-utlib</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>jp.terasoluna.utlib</groupId>
-            <artifactId>terasoluna-utlib-spring</artifactId>
-            <scope>test</scope>
-        </dependency>
 
         <dependency>
             <groupId>jcoverage</groupId>

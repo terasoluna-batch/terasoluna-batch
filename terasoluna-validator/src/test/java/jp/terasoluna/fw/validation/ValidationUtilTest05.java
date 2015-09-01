@@ -16,78 +16,51 @@
 
 package jp.terasoluna.fw.validation;
 
-import jp.terasoluna.utlib.PropertyTestCase;
+import jp.terasoluna.fw.validation.PropertyTestCase;
+import static org.junit.Assert.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * {@link jp.terasoluna.fw.validation.ValidationUtil} クラスのブラックボックステスト。
- *
  * <p>
- * <h4>【クラスの概要】</h4>
- * 検証ロジックのユーティリティクラス。
+ * <h4>【クラスの概要】</h4> 検証ロジックのユーティリティクラス。
  * <p>
- *
  * @see jp.terasoluna.fw.validation.ValidationUtil
  */
 public class ValidationUtilTest05 extends PropertyTestCase {
 
     /**
-     * このテストケースを実行する為の
-     * GUI アプリケーションを起動する。
-     *
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        junit.swingui.TestRunner.run(ValidationUtilTest05.class);
-    }
-
-    /**
      * 初期化処理を行う。
-     *
      * @throws Exception このメソッドで発生した例外
-     * @see jp.terasoluna.utlib.spring.PropertyTestCase#setUpData()
      */
-    @Override
-    protected void setUpData() throws Exception {
+    @Before
+    public void setUpData() throws Exception {
     }
 
     /**
      * 終了処理を行う。
-     *
      * @throws Exception このメソッドで発生した例外
-     * @see jp.terasoluna.utlib.spring.PropertyTestCase#cleanUpData()
      */
-    @Override
-    protected void cleanUpData() throws Exception {
+    @After
+    public void cleanUpData() throws Exception {
     }
 
     /**
-     * コンストラクタ。
-     *
-     * @param name このテストケースの名前。
-     */
-    public ValidationUtilTest05(String name) {
-        super(name);
-    }
-
-    /**
-     * testIsByteInRange01()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsByteInRange01() <br>
      * <br>
-     * 観点：C
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C <br>
+     * <br>
      * 入力値：(引数) value:null<br>
-     *
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *
      * <br>
-     * 引数valueがnullの場合
-     * <br>
-     *
+     * 引数valueがnullの場合 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsByteInRange01() throws Exception {
         // 前処理
         String value = null;
@@ -96,32 +69,27 @@ public class ValidationUtilTest05 extends PropertyTestCase {
         int max = 0;
 
         // テスト実施
-        boolean result = ValidationUtil.isByteInRange(
-                value, encoding, min, max);
+        boolean result = ValidationUtil.isByteInRange(value, encoding, min,
+                max);
 
         // 判定
         assertTrue(result);
     }
 
     /**
-     * testIsByteInRange02()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsByteInRange02() <br>
      * <br>
-     * 観点：C
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C <br>
+     * <br>
      * 入力値：(引数) value:""<br>
-     *
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *
      * <br>
-     * 引数valueが空白の場合
-     * <br>
-     *
+     * 引数valueが空白の場合 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsByteInRange02() throws Exception {
         // 前処理
         String value = "";
@@ -130,35 +98,30 @@ public class ValidationUtilTest05 extends PropertyTestCase {
         int max = 0;
 
         // テスト実施
-        boolean result = ValidationUtil.isByteInRange(
-                value, encoding, min, max);
+        boolean result = ValidationUtil.isByteInRange(value, encoding, min,
+                max);
 
         // 判定
         assertTrue(result);
     }
 
     /**
-     * testIsByteInRange03()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsByteInRange03() <br>
      * <br>
-     * 観点：C
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C <br>
+     * <br>
      * 入力値：(引数) value:"abc"<br>
-     *         (引数) encoding:null<br>
-     *         (引数) min:0<br>
-     *         (引数) max:10<br>
-     *
+     * (引数) encoding:null<br>
+     * (引数) min:0<br>
+     * (引数) max:10<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *
      * <br>
-     * 引数valueがNotNull、encodingがnullで、正常に長さがとれ、指定範囲内の場合
-     * <br>
-     *
+     * 引数valueがNotNull、encodingがnullで、正常に長さがとれ、指定範囲内の場合 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsByteInRange03() throws Exception {
         // 前処理
         String value = "abc";
@@ -167,35 +130,30 @@ public class ValidationUtilTest05 extends PropertyTestCase {
         int max = 10;
 
         // テスト実施
-        boolean result = ValidationUtil.isByteInRange(
-                value, encoding, min, max);
+        boolean result = ValidationUtil.isByteInRange(value, encoding, min,
+                max);
 
         // 判定
         assertTrue(result);
     }
 
     /**
-     * testIsByteInRange04()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsByteInRange04() <br>
      * <br>
-     * 観点：C
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C <br>
+     * <br>
      * 入力値：(引数) value:"abc"<br>
-     *         (引数) encoding:""<br>
-     *         (引数) min:5<br>
-     *         (引数) max:10<br>
-     *
+     * (引数) encoding:""<br>
+     * (引数) min:5<br>
+     * (引数) max:10<br>
      * <br>
      * 期待値：(戻り値) boolean:false<br>
-     *
      * <br>
-     * 引数valueがNotNull、encodingが空白で、正常に長さがとれ、指定範囲外の場合
-     * <br>
-     *
+     * 引数valueがNotNull、encodingが空白で、正常に長さがとれ、指定範囲外の場合 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsByteInRange04() throws Exception {
         // 前処理
         String value = "abc";
@@ -204,35 +162,30 @@ public class ValidationUtilTest05 extends PropertyTestCase {
         int max = 10;
 
         // テスト実施
-        boolean result = ValidationUtil.isByteInRange(
-                value, encoding, min, max);
+        boolean result = ValidationUtil.isByteInRange(value, encoding, min,
+                max);
 
         // 判定
         assertFalse(result);
     }
 
     /**
-     * testIsByteInRange05()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsByteInRange05() <br>
      * <br>
-     * 観点：C
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C <br>
+     * <br>
      * 入力値：(引数) value:"abc"<br>
-     *         (引数) encoding:"UTF-8"<br>
-     *         (引数) min:3<br>
-     *         (引数) max:3<br>
-     *
+     * (引数) encoding:"UTF-8"<br>
+     * (引数) min:3<br>
+     * (引数) max:3<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *
      * <br>
-     * 引数valueがNotNull、encodingがNotNullで、正常に長さがとれ、指定範囲内の場合
-     * <br>
-     *
+     * 引数valueがNotNull、encodingがNotNullで、正常に長さがとれ、指定範囲内の場合 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsByteInRange05() throws Exception {
         // 前処理
         String value = "abc";
@@ -241,33 +194,28 @@ public class ValidationUtilTest05 extends PropertyTestCase {
         int max = 3;
 
         // テスト実施
-        boolean result = ValidationUtil.isByteInRange(
-                value, encoding, min, max);
+        boolean result = ValidationUtil.isByteInRange(value, encoding, min,
+                max);
 
         // 判定
         assertTrue(result);
     }
 
     /**
-     * testIsByteInRange06()
-     * <br><br>
-     *
-     * (異常系)
+     * testIsByteInRange06() <br>
      * <br>
-     * 観点：G
-     * <br><br>
+     * (異常系) <br>
+     * 観点：G <br>
+     * <br>
      * 入力値：(引数) value:"abc"<br>
-     *         (引数) encoding:"aaa"<br>
-     *
+     * (引数) encoding:"aaa"<br>
      * <br>
      * 期待値：(状態変化) 例外:例外：IllegalArgumentException<br>
-     *
      * <br>
-     * 引数valueがNotNull、encodingが不正な文字列の場合
-     * <br>
-     *
+     * 引数valueがNotNull、encodingが不正な文字列の場合 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsByteInRange06() throws Exception {
         // 前処理
         String value = "abc";
@@ -277,35 +225,29 @@ public class ValidationUtilTest05 extends PropertyTestCase {
 
         // テスト実施
         try {
-            ValidationUtil.isByteInRange(
-                    value, encoding, min, max);
+            ValidationUtil.isByteInRange(value, encoding, min, max);
             fail("例外が発生しない。");
         } catch (IllegalArgumentException e) {
             // 判定
-            //例外が発生すればOK。
+            // 例外が発生すればOK。
             assertNotNull(e);
         }
     }
 
     /**
-     * testIsDateInRange01()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsDateInRange01() <br>
      * <br>
-     * 観点：C
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C <br>
+     * <br>
      * 入力値：(引数) value:null<br>
-     *
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *
      * <br>
-     * 引数valueがnullの場合
-     * <br>
-     *
+     * 引数valueがnullの場合 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsDateInRange01() throws Exception {
         // 前処理
         String value = null;
@@ -316,31 +258,26 @@ public class ValidationUtilTest05 extends PropertyTestCase {
 
         // テスト実施
         boolean result = ValidationUtil.isDateInRange(value, startDateStr,
-                endDateStr,datePattern, datePatternStrict);
+                endDateStr, datePattern, datePatternStrict);
 
         // 判定
         assertTrue(result);
     }
 
     /**
-     * testIsDateInRange02()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsDateInRange02() <br>
      * <br>
-     * 観点：C
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C <br>
+     * <br>
      * 入力値：(引数) value:""<br>
-     *
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *
      * <br>
-     * 引数valueが空白の場合
-     * <br>
-     *
+     * 引数valueが空白の場合 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsDateInRange02() throws Exception {
         // 前処理
         String value = "";
@@ -351,33 +288,28 @@ public class ValidationUtilTest05 extends PropertyTestCase {
 
         // テスト実施
         boolean result = ValidationUtil.isDateInRange(value, startDateStr,
-                endDateStr,datePattern, datePatternStrict);
+                endDateStr, datePattern, datePatternStrict);
 
         // 判定
         assertTrue(result);
     }
 
     /**
-     * testIsDateInRange03()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsDateInRange03() <br>
      * <br>
-     * 観点：C
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C <br>
+     * <br>
      * 入力値：(引数) value:"2005/11/1"<br>
-     *         (引数) datePattern:null<br>
-     *         (引数) datePatternStrict:"yyyy/MM/dd"<br>
-     *
+     * (引数) datePattern:null<br>
+     * (引数) datePatternStrict:"yyyy/MM/dd"<br>
      * <br>
      * 期待値：(戻り値) boolean:false<br>
-     *
      * <br>
-     * 引数valueが正常に日付に変換できない場合
-     * <br>
-     *
+     * 引数valueが正常に日付に変換できない場合 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsDateInRange03() throws Exception {
         // 前処理
         String value = "2005/11/1";
@@ -388,35 +320,30 @@ public class ValidationUtilTest05 extends PropertyTestCase {
 
         // テスト実施
         boolean result = ValidationUtil.isDateInRange(value, startDateStr,
-                endDateStr,datePattern, datePatternStrict);
+                endDateStr, datePattern, datePatternStrict);
 
         // 判定
         assertFalse(result);
     }
 
     /**
-     * testIsDateInRange04()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsDateInRange04() <br>
      * <br>
-     * 観点：C
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C <br>
+     * <br>
      * 入力値：(引数) value:"2005/11/01"<br>
-     *         (引数) startDateStr:null<br>
-     *         (引数) endDateStr:null<br>
-     *         (引数) datePattern:null<br>
-     *         (引数) datePatternStrict:"yyyy/MM/dd"<br>
-     *
+     * (引数) startDateStr:null<br>
+     * (引数) endDateStr:null<br>
+     * (引数) datePattern:null<br>
+     * (引数) datePatternStrict:"yyyy/MM/dd"<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *
      * <br>
-     * 引数startDateStr、endDateStrがnullの場合
-     * <br>
-     *
+     * 引数startDateStr、endDateStrがnullの場合 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsDateInRange04() throws Exception {
         // 前処理
         String value = "2005/11/01";
@@ -427,35 +354,30 @@ public class ValidationUtilTest05 extends PropertyTestCase {
 
         // テスト実施
         boolean result = ValidationUtil.isDateInRange(value, startDateStr,
-                endDateStr,datePattern, datePatternStrict);
+                endDateStr, datePattern, datePatternStrict);
 
         // 判定
         assertTrue(result);
     }
 
     /**
-     * testIsDateInRange05()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsDateInRange05() <br>
      * <br>
-     * 観点：C
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C <br>
+     * <br>
      * 入力値：(引数) value:"2005/11/1"<br>
-     *         (引数) startDateStr:""<br>
-     *         (引数) endDateStr:""<br>
-     *         (引数) datePattern:"yyyy/MM/dd"<br>
-     *         (引数) datePatternStrict:null<br>
-     *
+     * (引数) startDateStr:""<br>
+     * (引数) endDateStr:""<br>
+     * (引数) datePattern:"yyyy/MM/dd"<br>
+     * (引数) datePatternStrict:null<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *
      * <br>
-     * 引数startDateStr、endDateStrが空白の場合
-     * <br>
-     *
+     * 引数startDateStr、endDateStrが空白の場合 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsDateInRange05() throws Exception {
         // 前処理
         String value = "2005/11/1";
@@ -466,37 +388,32 @@ public class ValidationUtilTest05 extends PropertyTestCase {
 
         // テスト実施
         boolean result = ValidationUtil.isDateInRange(value, startDateStr,
-                endDateStr,datePattern, datePatternStrict);
+                endDateStr, datePattern, datePatternStrict);
 
         // 判定
         assertTrue(result);
     }
 
     /**
-     * testIsDateInRange06()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsDateInRange06() <br>
      * <br>
-     * 観点：C
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C <br>
+     * <br>
      * 入力値：(引数) value:"2005/11/01"<br>
-     *         (引数) startDateStr:"2005/12/1"<br>
-     *         (引数) endDateStr:null<br>
-     *         (引数) datePattern:null<br>
-     *         (引数) datePatternStrict:"yyyy/MM/dd"<br>
-     *
+     * (引数) startDateStr:"2005/12/1"<br>
+     * (引数) endDateStr:null<br>
+     * (引数) datePattern:null<br>
+     * (引数) datePatternStrict:"yyyy/MM/dd"<br>
      * <br>
      * 期待値：(戻り値) boolean:-<br>
-     *         (状態変化) 例外:IllegalArgumentException<br>
-     *                    メッセージ："startDate is unparseable[2005/12/1]"<br>
-     *
+     * (状態変化) 例外:IllegalArgumentException<br>
+     * メッセージ："startDate is unparseable[2005/12/1]"<br>
      * <br>
-     * 引数startDateStrがNotNullだが、日付に変換できない場合
-     * <br>
-     *
+     * 引数startDateStrがNotNullだが、日付に変換できない場合 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsDateInRange06() throws Exception {
         // 前処理
         String value = "2005/11/01";
@@ -507,8 +424,8 @@ public class ValidationUtilTest05 extends PropertyTestCase {
 
         // テスト実施
         try {
-            ValidationUtil.isDateInRange(value, startDateStr,
-                    endDateStr,datePattern, datePatternStrict);
+            ValidationUtil.isDateInRange(value, startDateStr, endDateStr,
+                    datePattern, datePatternStrict);
             fail();
         } catch (IllegalArgumentException e) {
             assertEquals("startDate is unparseable[2005/12/1]", e.getMessage());
@@ -516,28 +433,23 @@ public class ValidationUtilTest05 extends PropertyTestCase {
     }
 
     /**
-     * testIsDateInRange07()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsDateInRange07() <br>
      * <br>
-     * 観点：C
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C <br>
+     * <br>
      * 入力値：(引数) value:"2005/11/1"<br>
-     *         (引数) startDateStr:"2005/12/1"<br>
-     *         (引数) endDateStr:null<br>
-     *         (引数) datePattern:"yyyy/MM/dd"<br>
-     *         (引数) datePatternStrict:null<br>
-     *
+     * (引数) startDateStr:"2005/12/1"<br>
+     * (引数) endDateStr:null<br>
+     * (引数) datePattern:"yyyy/MM/dd"<br>
+     * (引数) datePatternStrict:null<br>
      * <br>
      * 期待値：(戻り値) boolean:false<br>
-     *
      * <br>
-     * 引数startDateStrが正常に日付に変換できだが、valueがstartDateStrより以前だった場合
-     * <br>
-     *
+     * 引数startDateStrが正常に日付に変換できだが、valueがstartDateStrより以前だった場合 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsDateInRange07() throws Exception {
         // 前処理
         String value = "2005/11/1";
@@ -548,37 +460,32 @@ public class ValidationUtilTest05 extends PropertyTestCase {
 
         // テスト実施
         boolean result = ValidationUtil.isDateInRange(value, startDateStr,
-                endDateStr,datePattern, datePatternStrict);
+                endDateStr, datePattern, datePatternStrict);
 
         // 判定
         assertFalse(result);
     }
 
     /**
-     * testIsDateInRange08()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsDateInRange08() <br>
      * <br>
-     * 観点：C
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C <br>
+     * <br>
      * 入力値：(引数) value:"2005/11/01"<br>
-     *         (引数) startDateStr:null<br>
-     *         (引数) endDateStr:"2005/10/1"<br>
-     *         (引数) datePattern:null<br>
-     *         (引数) datePatternStrict:"yyyy/MM/dd"<br>
-     *
+     * (引数) startDateStr:null<br>
+     * (引数) endDateStr:"2005/10/1"<br>
+     * (引数) datePattern:null<br>
+     * (引数) datePatternStrict:"yyyy/MM/dd"<br>
      * <br>
      * 期待値：(戻り値) boolean:-<br>
-     *         (状態変化) 例外:IllegalArgumentException<br>
-     *                    メッセージ："endDate is unparseable[2005/10/1]"<br>
-     *
+     * (状態変化) 例外:IllegalArgumentException<br>
+     * メッセージ："endDate is unparseable[2005/10/1]"<br>
      * <br>
-     * 引数endDateStrがNotNullだが、日付に変換できない場合
-     * <br>
-     *
+     * 引数endDateStrがNotNullだが、日付に変換できない場合 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsDateInRange08() throws Exception {
         // 前処理
         String value = "2005/11/01";
@@ -589,8 +496,8 @@ public class ValidationUtilTest05 extends PropertyTestCase {
 
         // テスト実施
         try {
-            ValidationUtil.isDateInRange(value, startDateStr,
-                    endDateStr,datePattern, datePatternStrict);
+            ValidationUtil.isDateInRange(value, startDateStr, endDateStr,
+                    datePattern, datePatternStrict);
             fail();
         } catch (IllegalArgumentException e) {
             assertEquals("endDate is unparseable[2005/10/1]", e.getMessage());
@@ -598,28 +505,23 @@ public class ValidationUtilTest05 extends PropertyTestCase {
     }
 
     /**
-     * testIsDateInRange09()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsDateInRange09() <br>
      * <br>
-     * 観点：C
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C <br>
+     * <br>
      * 入力値：(引数) value:"2005/11/1"<br>
-     *         (引数) startDateStr:null<br>
-     *         (引数) endDateStr:"2005/10/1"<br>
-     *         (引数) datePattern:"yyyy/MM/dd"<br>
-     *         (引数) datePatternStrict:null<br>
-     *
+     * (引数) startDateStr:null<br>
+     * (引数) endDateStr:"2005/10/1"<br>
+     * (引数) datePattern:"yyyy/MM/dd"<br>
+     * (引数) datePatternStrict:null<br>
      * <br>
      * 期待値：(戻り値) boolean:false<br>
-     *
      * <br>
-     * 引数endDateStrが正常に日付に変換できだが、valueがendDateStrより以後だった場合
-     * <br>
-     *
+     * 引数endDateStrが正常に日付に変換できだが、valueがendDateStrより以後だった場合 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsDateInRange09() throws Exception {
         // 前処理
         String value = "2005/11/1";
@@ -630,35 +532,30 @@ public class ValidationUtilTest05 extends PropertyTestCase {
 
         // テスト実施
         boolean result = ValidationUtil.isDateInRange(value, startDateStr,
-                endDateStr,datePattern, datePatternStrict);
+                endDateStr, datePattern, datePatternStrict);
 
         // 判定
         assertFalse(result);
     }
 
     /**
-     * testIsDateInRange10()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsDateInRange10() <br>
      * <br>
-     * 観点：C
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C <br>
+     * <br>
      * 入力値：(引数) value:"2005/11/1"<br>
-     *         (引数) startDateStr:"2005/10/1"<br>
-     *         (引数) endDateStr:"2005/12/1"<br>
-     *         (引数) datePattern:"yyyy/MM/dd"<br>
-     *         (引数) datePatternStrict:null<br>
-     *
+     * (引数) startDateStr:"2005/10/1"<br>
+     * (引数) endDateStr:"2005/12/1"<br>
+     * (引数) datePattern:"yyyy/MM/dd"<br>
+     * (引数) datePatternStrict:null<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *
      * <br>
-     * 引数value、startDateStr、endDateStrすべて正常に日付に変換でき、valueがstartDateStrとendDateStrの間の日付の場合
-     * <br>
-     *
+     * 引数value、startDateStr、endDateStrすべて正常に日付に変換でき、valueがstartDateStrとendDateStrの間の日付の場合 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsDateInRange10() throws Exception {
         // 前処理
         String value = "2005/11/1";
@@ -669,34 +566,29 @@ public class ValidationUtilTest05 extends PropertyTestCase {
 
         // テスト実施
         boolean result = ValidationUtil.isDateInRange(value, startDateStr,
-                endDateStr,datePattern, datePatternStrict);
+                endDateStr, datePattern, datePatternStrict);
 
         // 判定
         assertTrue(result);
     }
 
     /**
-     * testIsDateInRange11()
-     * <br><br>
-     *
-     * (異常系)
+     * testIsDateInRange11() <br>
      * <br>
-     * 観点：F,G
-     * <br><br>
+     * (異常系) <br>
+     * 観点：F,G <br>
+     * <br>
      * 入力値：(引数) value:"2005/11/1"<br>
-     *         (引数) datePattern:null<br>
-     *         (引数) datePatternStrict:null<br>
-     *
+     * (引数) datePattern:null<br>
+     * (引数) datePatternStrict:null<br>
      * <br>
      * 期待値：(状態変化) 例外:IllegalArgumentException<br>
-     *                    メッセージ："datePattern or datePatternStrict must be specified."<br>
-     *
+     * メッセージ："datePattern or datePatternStrict must be specified."<br>
      * <br>
-     * datePattern、datePatternStrictがnullの場合、IllegalArgumentExceptionが発生することを確認する。
-     * <br>
-     *
+     * datePattern、datePatternStrictがnullの場合、IllegalArgumentExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsDateInRange11() throws Exception {
         // 前処理
         String value = "2005/11/1";
@@ -707,8 +599,8 @@ public class ValidationUtilTest05 extends PropertyTestCase {
 
         // テスト実施
         try {
-            ValidationUtil.isDateInRange(value, startDateStr,
-                    endDateStr,datePattern, datePatternStrict);
+            ValidationUtil.isDateInRange(value, startDateStr, endDateStr,
+                    datePattern, datePatternStrict);
             fail();
         } catch (IllegalArgumentException e) {
             assertEquals("datePattern or datePatternStrict must be specified.",
@@ -717,27 +609,22 @@ public class ValidationUtilTest05 extends PropertyTestCase {
     }
 
     /**
-     * testIsDateInRange12()
-     * <br><br>
-     *
-     * (異常系)
+     * testIsDateInRange12() <br>
      * <br>
-     * 観点：F,G
-     * <br><br>
+     * (異常系) <br>
+     * 観点：F,G <br>
+     * <br>
      * 入力値：(引数) value:"2005/11/1"<br>
-     *         (引数) datePattern:""<br>
-     *         (引数) datePatternStrict:""<br>
-     *
+     * (引数) datePattern:""<br>
+     * (引数) datePatternStrict:""<br>
      * <br>
      * 期待値：(状態変化) 例外:IllegalArgumentException<br>
-     *                    メッセージ："datePattern or datePatternStrict must be specified."<br>
-     *
+     * メッセージ："datePattern or datePatternStrict must be specified."<br>
      * <br>
-     * datePattern、datePatternStrictが空文字の場合、IllegalArgumentExceptionが発生することを確認する。
-     * <br>
-     *
+     * datePattern、datePatternStrictが空文字の場合、IllegalArgumentExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsDateInRange12() throws Exception {
         // 前処理
         String value = "2005/11/1";
@@ -748,8 +635,8 @@ public class ValidationUtilTest05 extends PropertyTestCase {
 
         // テスト実施
         try {
-            ValidationUtil.isDateInRange(value, startDateStr,
-                    endDateStr,datePattern, datePatternStrict);
+            ValidationUtil.isDateInRange(value, startDateStr, endDateStr,
+                    datePattern, datePatternStrict);
             fail();
         } catch (IllegalArgumentException e) {
             assertEquals("datePattern or datePatternStrict must be specified.",
@@ -758,28 +645,23 @@ public class ValidationUtilTest05 extends PropertyTestCase {
     }
 
     /**
-     * testIsDateInRange13()
-     * <br><br>
-     *
-     * (異常系)
+     * testIsDateInRange13() <br>
      * <br>
-     * 観点：F,G
-     * <br><br>
+     * (異常系) <br>
+     * 観点：F,G <br>
+     * <br>
      * 入力値：(引数) value:"2005/11/1"<br>
-     *         (引数) datePattern:"abc"<br>
-     *         (引数) datePatternStrict:null<br>
-     *
+     * (引数) datePattern:"abc"<br>
+     * (引数) datePatternStrict:null<br>
      * <br>
      * 期待値：(状態変化) 例外:IllegalArgumentException<br>
-     *                    メッセージ：<br>
-     *                    "Illegal pattern character 'b'"<br>
-     *
+     * メッセージ：<br>
+     * "Illegal pattern character 'b'"<br>
      * <br>
-     * datePatternが不正な場合、IllegalArgumentExceptionが発生することを確認する。
-     * <br>
-     *
+     * datePatternが不正な場合、IllegalArgumentExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsDateInRange13() throws Exception {
         // 前処理
         String value = "2005/11/1";
@@ -790,38 +672,32 @@ public class ValidationUtilTest05 extends PropertyTestCase {
 
         // テスト実施
         try {
-            ValidationUtil.isDateInRange(value, startDateStr,
-                    endDateStr,datePattern, datePatternStrict);
+            ValidationUtil.isDateInRange(value, startDateStr, endDateStr,
+                    datePattern, datePatternStrict);
             fail();
         } catch (IllegalArgumentException e) {
-            assertEquals("Illegal pattern character 'b'",
-                    e.getMessage());
+            assertEquals("Illegal pattern character 'b'", e.getMessage());
         }
     }
 
     /**
-     * testIsDateInRange14()
-     * <br><br>
-     *
-     * (異常系)
+     * testIsDateInRange14() <br>
      * <br>
-     * 観点：F,G
-     * <br><br>
+     * (異常系) <br>
+     * 観点：F,G <br>
+     * <br>
      * 入力値：(引数) value:"2005/11/1"<br>
-     *         (引数) datePattern:null<br>
-     *         (引数) datePatternStrict:"abc"<br>
-     *
+     * (引数) datePattern:null<br>
+     * (引数) datePatternStrict:"abc"<br>
      * <br>
      * 期待値：(状態変化) 例外:IllegalArgumentException<br>
-     *                    メッセージ：<br>
-     *                    "Illegal pattern character 'b'"<br>
-     *
+     * メッセージ：<br>
+     * "Illegal pattern character 'b'"<br>
      * <br>
-     * datePatternStrictが不正な場合、IllegalArgumentExceptionが発生することを確認する。
-     * <br>
-     *
+     * datePatternStrictが不正な場合、IllegalArgumentExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsDateInRange14() throws Exception {
         // 前処理
         String value = "2005/11/1";
@@ -832,38 +708,32 @@ public class ValidationUtilTest05 extends PropertyTestCase {
 
         // テスト実施
         try {
-            ValidationUtil.isDateInRange(value, startDateStr,
-                    endDateStr,datePattern, datePatternStrict);
+            ValidationUtil.isDateInRange(value, startDateStr, endDateStr,
+                    datePattern, datePatternStrict);
             fail();
         } catch (IllegalArgumentException e) {
-            assertEquals("Illegal pattern character 'b'",
-                    e.getMessage());
+            assertEquals("Illegal pattern character 'b'", e.getMessage());
         }
     }
 
     /**
-     * testIsDateInRange15()
-     * <br><br>
-     *
-     * (異常系)
+     * testIsDateInRange15() <br>
      * <br>
-     * 観点：F,G
-     * <br><br>
+     * (異常系) <br>
+     * 観点：F,G <br>
+     * <br>
      * 入力値：(引数) value:"2005/11/1"<br>
-     *         (引数) startDateStr:"test"<br>
-     *         (引数) datePattern:"yyyy/MM/dd"<br>
-     *         (引数) datePatternStrict:null<br>
-     *
+     * (引数) startDateStr:"test"<br>
+     * (引数) datePattern:"yyyy/MM/dd"<br>
+     * (引数) datePatternStrict:null<br>
      * <br>
      * 期待値：(状態変化) 例外:IllegalArgumentException<br>
-     *                    メッセージ："startDate is unparseable[test]"<br>
-     *
+     * メッセージ："startDate is unparseable[test]"<br>
      * <br>
-     * startDateStrが日付に変換できない場合、IllegalArgumentExceptionが発生することを確認する。
-     * <br>
-     *
+     * startDateStrが日付に変換できない場合、IllegalArgumentExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsDateInRange15() throws Exception {
         // 前処理
         String value = "2005/11/1";
@@ -874,38 +744,32 @@ public class ValidationUtilTest05 extends PropertyTestCase {
 
         // テスト実施
         try {
-            ValidationUtil.isDateInRange(value, startDateStr,
-                    endDateStr,datePattern, datePatternStrict);
+            ValidationUtil.isDateInRange(value, startDateStr, endDateStr,
+                    datePattern, datePatternStrict);
             fail();
         } catch (IllegalArgumentException e) {
-            assertEquals("startDate is unparseable[test]",
-                    e.getMessage());
+            assertEquals("startDate is unparseable[test]", e.getMessage());
         }
     }
 
     /**
-     * testIsDateInRange16()
-     * <br><br>
-     *
-     * (異常系)
+     * testIsDateInRange16() <br>
      * <br>
-     * 観点：F,G
-     * <br><br>
+     * (異常系) <br>
+     * 観点：F,G <br>
+     * <br>
      * 入力値：(引数) value:"2005/11/1"<br>
-     *         (引数) endDateStr:"test"<br>
-     *         (引数) datePattern:"yyyy/MM/dd"<br>
-     *         (引数) datePatternStrict:null<br>
-     *
+     * (引数) endDateStr:"test"<br>
+     * (引数) datePattern:"yyyy/MM/dd"<br>
+     * (引数) datePatternStrict:null<br>
      * <br>
      * 期待値：(状態変化) 例外:IllegalArgumentException<br>
-     *                    メッセージ："endDate is unparseable[test]"<br>
-     *
+     * メッセージ："endDate is unparseable[test]"<br>
      * <br>
-     * endDateStrが日付に変換できない場合、IllegalArgumentExceptionが発生することを確認する。
-     * <br>
-     *
+     * endDateStrが日付に変換できない場合、IllegalArgumentExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsDateInRange16() throws Exception {
         // 前処理
         String value = "2005/11/1";
@@ -916,38 +780,32 @@ public class ValidationUtilTest05 extends PropertyTestCase {
 
         // テスト実施
         try {
-            ValidationUtil.isDateInRange(value, startDateStr,
-                    endDateStr,datePattern, datePatternStrict);
+            ValidationUtil.isDateInRange(value, startDateStr, endDateStr,
+                    datePattern, datePatternStrict);
             fail();
         } catch (IllegalArgumentException e) {
-            assertEquals("endDate is unparseable[test]",
-                    e.getMessage());
+            assertEquals("endDate is unparseable[test]", e.getMessage());
         }
     }
 
     /**
-     * testIsDateInRange17()
-     * <br><br>
-     *
-     * (異常系)
+     * testIsDateInRange17() <br>
      * <br>
-     * 観点：F,G
-     * <br><br>
+     * (異常系) <br>
+     * 観点：F,G <br>
+     * <br>
      * 入力値：(引数) value:"2005/11/1"<br>
-     *         (引数) startDateStr:"2005/11/1"<br>
-     *         (引数) endDateStr:"2005/11/1"<br>
-     *         (引数) datePattern:"yyyy/MM/dd"<br>
-     *         (引数) datePatternStrict:null<br>
-     *
+     * (引数) startDateStr:"2005/11/1"<br>
+     * (引数) endDateStr:"2005/11/1"<br>
+     * (引数) datePattern:"yyyy/MM/dd"<br>
+     * (引数) datePatternStrict:null<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *
      * <br>
-     * 入力値とstartDateStr、endDateStrの日付が等しい場合、trueが取得できることを確認する。
-     * <br>
-     *
+     * 入力値とstartDateStr、endDateStrの日付が等しい場合、trueが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsDateInRange17() throws Exception {
         // 前処理
         String value = "2005/11/1";
@@ -958,35 +816,30 @@ public class ValidationUtilTest05 extends PropertyTestCase {
 
         // テスト実施
         boolean result = ValidationUtil.isDateInRange(value, startDateStr,
-                    endDateStr,datePattern, datePatternStrict);
+                endDateStr, datePattern, datePatternStrict);
 
         // 判定
         assertTrue(result);
     }
 
     /**
-     * testIsDateInRange18()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsDateInRange18() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) value:"test"<br>
-     *         (引数) startDateStr:"2005/1/1"<br>
-     *         (引数) endDateStr:"2005/12/31"<br>
-     *         (引数) datePattern:"yyyy/MM/dd"<br>
-     *         (引数) datePatternStrict:null<br>
-     *
+     * (引数) startDateStr:"2005/1/1"<br>
+     * (引数) endDateStr:"2005/12/31"<br>
+     * (引数) datePattern:"yyyy/MM/dd"<br>
+     * (引数) datePatternStrict:null<br>
      * <br>
      * 期待値：(戻り値) boolean:false<br>
-     *
      * <br>
-     * 入力値が日付に変換できない場合、falseが取得できることを確認する。
-     * <br>
-     *
+     * 入力値が日付に変換できない場合、falseが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsDateInRange18() throws Exception {
         // 前処理
         String value = "test";
@@ -997,7 +850,7 @@ public class ValidationUtilTest05 extends PropertyTestCase {
 
         // テスト実施
         boolean result = ValidationUtil.isDateInRange(value, startDateStr,
-                    endDateStr,datePattern, datePatternStrict);
+                endDateStr, datePattern, datePatternStrict);
 
         // 判定
         assertFalse(result);

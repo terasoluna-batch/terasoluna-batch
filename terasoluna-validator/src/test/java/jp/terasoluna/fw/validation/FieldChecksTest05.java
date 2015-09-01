@@ -16,25 +16,38 @@
 
 package jp.terasoluna.fw.validation;
 
-import jp.terasoluna.utlib.LogUTUtil;
-import junit.framework.TestCase;
+import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsEqual.equalTo;
+import static org.hamcrest.core.IsInstanceOf.instanceOf;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import org.apache.commons.validator.Field;
 import org.apache.commons.validator.ValidatorAction;
 import org.apache.commons.validator.ValidatorException;
 import org.apache.commons.validator.Var;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import uk.org.lidalia.slf4jtest.TestLogger;
+import uk.org.lidalia.slf4jtest.TestLoggerFactory;
 
 /**
  * {@link jp.terasoluna.fw.validation.FieldChecks} クラスのブラックボックステスト。
- *
  * <p>
- * <h4>【クラスの概要】</h4>
- * TERASOLUNAの入力チェック機能で共通に使用される検証ルールクラス。
+ * <h4>【クラスの概要】</h4> TERASOLUNAの入力チェック機能で共通に使用される検証ルールクラス。
  * <p>
- *
  * @see jp.terasoluna.fw.validation.FieldChecks
  */
-public class FieldChecksTest05 extends TestCase {
+public class FieldChecksTest05 {
+
+    private TestLogger logger = TestLoggerFactory.getTestLogger(
+            FieldChecks.class);
 
     /**
      * テスト用インスタンス。
@@ -52,24 +65,10 @@ public class FieldChecksTest05 extends TestCase {
     private FieldChecks_ValidationErrorsImpl01 errors = null;
 
     /**
-     * このテストケースを実行する為の
-     * GUI アプリケーションを起動する。
-     *
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        junit.swingui.TestRunner.run(FieldChecksTest05.class);
-    }
-
-    /**
      * 初期化処理を行う。
-     *
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
      */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
+    @Before
+    public void setUp() {
         va = new ValidatorAction();
         field = new Field();
         errors = new FieldChecks_ValidationErrorsImpl01();
@@ -77,79 +76,58 @@ public class FieldChecksTest05 extends TestCase {
 
     /**
      * 終了処理を行う。
-     *
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
      */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
+    @After
+    public void tearDown() {
+        logger.clear();
     }
 
     /**
-     * コンストラクタ。
-     *
-     * @param name このテストケースの名前。
-     */
-    public FieldChecksTest05(String name) {
-        super(name);
-    }
-
-    /**
-     * testValidateFloatRange01()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateFloatRange01() <br>
      * <br>
-     * 観点：C,F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C,F <br>
+     * <br>
      * 入力値：(引数) bean:null<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:not null<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:not null<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *         (状態変化) errors:呼び出されない<br>
-     *
+     * (状態変化) errors:呼び出されない<br>
      * <br>
-     * 引数のbeanがnullの場合、trueが返却されることを確認する。
-     * <br>
-     *
+     * 引数のbeanがnullの場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateFloatRange01() throws Exception {
         // テスト実施
         // 判定
-        assertTrue(new FieldChecks().validateFloatRange(null, va, field, errors));
+        assertTrue(new FieldChecks().validateFloatRange(null, va, field,
+                errors));
 
         // addErrors確認
         assertEquals(0, errors.addErrorCount);
     }
 
     /**
-     * testValidateFloatRange02()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateFloatRange02() <br>
      * <br>
-     * 観点：C,F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C,F <br>
+     * <br>
      * 入力値：(引数) bean:""<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:not null<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:not null<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *         (状態変化) errors:呼び出されない<br>
-     *
+     * (状態変化) errors:呼び出されない<br>
      * <br>
-     * 引数のbeanが空文字の場合、trueが返却されることを確認する。
-     * <br>
-     *
+     * 引数のbeanが空文字の場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateFloatRange02() throws Exception {
         // テスト実施
         // 判定
@@ -160,32 +138,28 @@ public class FieldChecksTest05 extends TestCase {
     }
 
     /**
-     * testValidateFloatRange03()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateFloatRange03() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) bean:"test"<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:not null<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:not null<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:false<br>
-     *         (状態変化) errors:bean,field,vaを引数としてaddErrorsが呼び出される。<br>
-     *
+     * (状態変化) errors:bean,field,vaを引数としてaddErrorsが呼び出される。<br>
      * <br>
-     * 引数のbeanがfloat型に変換できない場合、エラーを追加してfalseが返却されることを確認する。
-     * <br>
-     *
+     * 引数のbeanがfloat型に変換できない場合、エラーを追加してfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateFloatRange03() throws Exception {
         // テスト実施
         // 判定
-        assertFalse(new FieldChecks().validateFloatRange("test", va, field, errors));
+        assertFalse(new FieldChecks().validateFloatRange("test", va, field,
+                errors));
 
         // addErrors確認
         assertEquals(1, errors.addErrorCount);
@@ -195,63 +169,53 @@ public class FieldChecksTest05 extends TestCase {
     }
 
     /**
-     * testValidateFloatRange04()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateFloatRange04() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) bean:"1.4E-45"<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:var:<br>
-     *                floatRangeMin=null<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:var:<br>
+     * floatRangeMin=null<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *         (状態変化) errors:呼び出されない<br>
-     *
+     * (状態変化) errors:呼び出されない<br>
      * <br>
-     * varのfloatRangeMinがnullの場合、範囲の最小値がFloat.MIN_VALUEであることを確認する。
-     * <br>
-     *
+     * varのfloatRangeMinがnullの場合、範囲の最小値がFloat.MIN_VALUEであることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateFloatRange04() throws Exception {
         // テスト実施
         // 判定
-        assertTrue(
-                new FieldChecks().validateFloatRange("1.4E-45", va, field, errors));
+        assertTrue(new FieldChecks().validateFloatRange("1.4E-45", va, field,
+                errors));
 
         // addErrors確認
         assertEquals(0, errors.addErrorCount);
     }
 
     /**
-     * testValidateFloatRange05()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateFloatRange05() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) bean:"1.4E-45"<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:var:<br>
-     *                floatRangeMin=""<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:var:<br>
+     * floatRangeMin=""<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *         (状態変化) errors:呼び出されない<br>
-     *
+     * (状態変化) errors:呼び出されない<br>
      * <br>
-     * varのfloatRangeMinが空文字の場合、範囲の最小値がFloat.MIN_VALUEであることを確認する。
-     * <br>
-     *
+     * varのfloatRangeMinが空文字の場合、範囲の最小値がFloat.MIN_VALUEであることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateFloatRange05() throws Exception {
         // 前処理
         Var var = new Var();
@@ -261,72 +225,61 @@ public class FieldChecksTest05 extends TestCase {
 
         // テスト実施
         // 判定
-        assertTrue(
-                new FieldChecks().validateFloatRange("1.4E-45", va, field, errors));
+        assertTrue(new FieldChecks().validateFloatRange("1.4E-45", va, field,
+                errors));
 
         // addErrors確認
         assertEquals(0, errors.addErrorCount);
     }
 
     /**
-     * testValidateFloatRange06()
-     * <br><br>
-     *
-     * (正常系) or (異常系)
+     * testValidateFloatRange06() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) or (異常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) bean:"3.4028235E38"<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:var:<br>
-     *                floatRangeMax=null<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:var:<br>
+     * floatRangeMax=null<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *         (状態変化) errors:呼び出されない<br>
-     *
+     * (状態変化) errors:呼び出されない<br>
      * <br>
-     * varのfloatRangeMaxがnullの場合、範囲の最大値がFloat.MAX_VALUEであることを確認する。
-     * <br>
-     *
+     * varのfloatRangeMaxがnullの場合、範囲の最大値がFloat.MAX_VALUEであることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateFloatRange06() throws Exception {
         // テスト実施
         // 判定
-        assertTrue(
-                new FieldChecks().validateFloatRange(
-                        "3.4028235E38", va, field, errors));
+        assertTrue(new FieldChecks().validateFloatRange("3.4028235E38", va,
+                field, errors));
 
         // addErrors確認
         assertEquals(0, errors.addErrorCount);
     }
 
     /**
-     * testValidateFloatRange07()
-     * <br><br>
-     *
-     * (正常系) or (異常系)
+     * testValidateFloatRange07() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) or (異常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) bean:"3.4028235E38"<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:var:<br>
-     *                floatRangeMax=""<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:var:<br>
+     * floatRangeMax=""<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *         (状態変化) errors:呼び出されない<br>
-     *
+     * (状態変化) errors:呼び出されない<br>
      * <br>
-     * varのfloatRangeMaxが空文字の場合、範囲の最大値がFloat.MAX_VALUEであることを確認する。
-     * <br>
-     *
+     * varのfloatRangeMaxが空文字の場合、範囲の最大値がFloat.MAX_VALUEであることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateFloatRange07() throws Exception {
         // 前処理
         Var var = new Var();
@@ -336,40 +289,35 @@ public class FieldChecksTest05 extends TestCase {
 
         // テスト実施
         // 判定
-        assertTrue(
-                new FieldChecks().validateFloatRange(
-                        "3.4028235E38", va, field, errors));
+        assertTrue(new FieldChecks().validateFloatRange("3.4028235E38", va,
+                field, errors));
 
         // addErrors確認
         assertEquals(0, errors.addErrorCount);
     }
 
     /**
-     * testValidateFloatRange08()
-     * <br><br>
-     *
-     * (正常系) or (異常系)
+     * testValidateFloatRange08() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) or (異常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) bean:"0.5E1"<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:var:<br>
-     *                floatRangeMin="test"<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:var:<br>
+     * floatRangeMin="test"<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(状態変化) 例外:ValidatorException<br>
-     *                    メッセージ："Mistake on validation definition file. - floatRangeMin is not number. You'll have to check it over. "<br>
-     *         (状態変化) ログ:ログレベル：エラー<br>
-     *                    メッセージ："Mistake on validation definition file. - floatRangeMin is not number. You'll have to check it over. ", new NumberFormatException()<br>
-     *
+     * メッセージ："Mistake on validation definition file. - floatRangeMin is not number. You'll have to check it over. "<br>
+     * (状態変化) ログ:ログレベル：エラー<br>
+     * メッセージ："Mistake on validation definition file. - floatRangeMin is not number. You'll have to check it over. ", new
+     * NumberFormatException()<br>
      * <br>
-     * varのfloatRangeMinの値がfloat型に変換できない場合、ValidatorExceptionが発生することを確認する。
-     * <br>
-     *
+     * varのfloatRangeMinの値がfloat型に変換できない場合、ValidatorExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateFloatRange08() throws Exception {
         // 前処理
         Var var = new Var();
@@ -383,40 +331,39 @@ public class FieldChecksTest05 extends TestCase {
             new FieldChecks().validateFloatRange("0.5E1", va, field, errors);
             fail();
         } catch (ValidatorException e) {
-            String message = "Mistake on validation definition file. " +
-                    "- floatRangeMin is not number. You'll have to check " +
-                    "it over. ";
+            String message = "Mistake on validation definition file. "
+                    + "- floatRangeMin is not number. You'll have to check "
+                    + "it over. ";
             assertEquals(message, e.getMessage());
-            assertTrue(LogUTUtil.checkError(message, new NumberFormatException()));
+            assertThat(logger.getLoggingEvents().get(0).getMessage(), is(
+                    equalTo(message)));
+            assertThat(logger.getLoggingEvents().get(0).getThrowable().get(),
+                    instanceOf(NumberFormatException.class));
         }
     }
 
     /**
-     * testValidateFloatRange09()
-     * <br><br>
-     *
-     * (正常系) or (異常系)
+     * testValidateFloatRange09() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) or (異常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) bean:"0.5E1"<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:var:<br>
-     *                floatRangeMax="test"<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:var:<br>
+     * floatRangeMax="test"<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(状態変化) 例外:ValidatorException<br>
-     *                    メッセージ："Mistake on validation definition file. - floatRangeMax is not number. You'll have to check it over. "<br>
-     *         (状態変化) ログ:ログレベル：エラー<br>
-     *                    メッセージ："Mistake on validation definition file. - floatRangeMax is not number. You'll have to check it over. ", new NumberFormatException()<br>
-     *
+     * メッセージ："Mistake on validation definition file. - floatRangeMax is not number. You'll have to check it over. "<br>
+     * (状態変化) ログ:ログレベル：エラー<br>
+     * メッセージ："Mistake on validation definition file. - floatRangeMax is not number. You'll have to check it over. ", new
+     * NumberFormatException()<br>
      * <br>
-     * varのfloatRangeMaxの値がfloat型に変換できない場合、ValidatorExceptionが発生することを確認する。
-     * <br>
-     *
+     * varのfloatRangeMaxの値がfloat型に変換できない場合、ValidatorExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateFloatRange09() throws Exception {
         // 前処理
         Var var = new Var();
@@ -430,46 +377,44 @@ public class FieldChecksTest05 extends TestCase {
             new FieldChecks().validateFloatRange("0.5E1", va, field, errors);
             fail();
         } catch (ValidatorException e) {
-            String message = "Mistake on validation definition file. " +
-                    "- floatRangeMax is not number. You'll have to check " +
-                    "it over. ";
+            String message = "Mistake on validation definition file. "
+                    + "- floatRangeMax is not number. You'll have to check "
+                    + "it over. ";
             assertEquals(message, e.getMessage());
-            assertTrue(LogUTUtil.checkError(message, new NumberFormatException()));
+            assertThat(logger.getLoggingEvents().get(0).getMessage(), is(
+                    equalTo(message)));
+            assertThat(logger.getLoggingEvents().get(0).getThrowable().get(),
+                    instanceOf(NumberFormatException.class));
         }
     }
 
     /**
-     * testValidateFloatRange10()
-     * <br><br>
-     *
-     * (正常系) or (異常系)
+     * testValidateFloatRange10() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) or (異常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) bean:"0.5E1"<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:var:<br>
-     *                floatRangeMin="0.1E1"<br>
-     *                floatRangeMax="0.1E2"<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:var:<br>
+     * floatRangeMin="0.1E1"<br>
+     * floatRangeMax="0.1E2"<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *         (状態変化) errors:呼び出されない<br>
-     *
+     * (状態変化) errors:呼び出されない<br>
      * <br>
-     * beanの値が、floatRangeMinとfloatRangeMaxの範囲内の値の場合、trueが返却されることを確認する。
-     * <br>
-     *
+     * beanの値が、floatRangeMinとfloatRangeMaxの範囲内の値の場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateFloatRange10() throws Exception {
         // 前処理
         Var var1 = new Var();
         var1.setName("floatRangeMin");
         var1.setValue("0.1E1");
         field.addVar(var1);
-        
+
         Var var2 = new Var();
         var2.setName("floatRangeMax");
         var2.setValue("0.1E2");
@@ -477,8 +422,8 @@ public class FieldChecksTest05 extends TestCase {
 
         // テスト実施
         // 判定
-        assertTrue(
-                new FieldChecks().validateFloatRange("0.5E1", va, field, errors));
+        assertTrue(new FieldChecks().validateFloatRange("0.5E1", va, field,
+                errors));
 
         // addErrors確認
         assertEquals(0, errors.addErrorCount);
@@ -486,37 +431,32 @@ public class FieldChecksTest05 extends TestCase {
     }
 
     /**
-     * testValidateFloatRange11()
-     * <br><br>
-     *
-     * (正常系) or (異常系)
+     * testValidateFloatRange11() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) or (異常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) bean:"0.5E1"<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:var:<br>
-     *                floatRangeMin="0.1E2"<br>
-     *                floatRangeMax="0.1E3"<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:var:<br>
+     * floatRangeMin="0.1E2"<br>
+     * floatRangeMax="0.1E3"<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:false<br>
-     *         (状態変化) errors:bean,field,vaを引数としてaddErrorsが呼び出される。<br>
-     *
+     * (状態変化) errors:bean,field,vaを引数としてaddErrorsが呼び出される。<br>
      * <br>
-     * beanの値が、floatRangeMinの値より小さい場合、エラーを追加してfalseが返却されることを確認する。
-     * <br>
-     *
+     * beanの値が、floatRangeMinの値より小さい場合、エラーを追加してfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateFloatRange11() throws Exception {
         // 前処理
         Var var1 = new Var();
         var1.setName("floatRangeMin");
         var1.setValue("0.1E2");
         field.addVar(var1);
-        
+
         Var var2 = new Var();
         var2.setName("floatRangeMax");
         var2.setValue("0.1E3");
@@ -524,8 +464,8 @@ public class FieldChecksTest05 extends TestCase {
 
         // テスト実施
         // 判定
-        assertFalse(
-                new FieldChecks().validateFloatRange("0.5E1", va, field, errors));
+        assertFalse(new FieldChecks().validateFloatRange("0.5E1", va, field,
+                errors));
 
         // addErrors確認
         assertEquals(1, errors.addErrorCount);
@@ -535,37 +475,32 @@ public class FieldChecksTest05 extends TestCase {
     }
 
     /**
-     * testValidateFloatRange12()
-     * <br><br>
-     *
-     * (正常系) or (異常系)
+     * testValidateFloatRange12() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) or (異常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) bean:"0.5E1"<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:var:<br>
-     *                floatRangeMin="0.1E1"<br>
-     *                floatRangeMax="0.4E1"<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:var:<br>
+     * floatRangeMin="0.1E1"<br>
+     * floatRangeMax="0.4E1"<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:false<br>
-     *         (状態変化) errors:bean,field,vaを引数としてaddErrorsが呼び出される。<br>
-     *
+     * (状態変化) errors:bean,field,vaを引数としてaddErrorsが呼び出される。<br>
      * <br>
-     * beanの値が、floatRangeMaxの値より大きい場合、エラーを追加してfalseが返却されることを確認する。
-     * <br>
-     *
+     * beanの値が、floatRangeMaxの値より大きい場合、エラーを追加してfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateFloatRange12() throws Exception {
         // 前処理
         Var var1 = new Var();
         var1.setName("floatRangeMin");
         var1.setValue("0.1E1");
         field.addVar(var1);
-        
+
         Var var2 = new Var();
         var2.setName("floatRangeMax");
         var2.setValue("0.4E1");
@@ -573,8 +508,8 @@ public class FieldChecksTest05 extends TestCase {
 
         // テスト実施
         // 判定
-        assertFalse(
-                new FieldChecks().validateFloatRange("0.5E1", va, field, errors));
+        assertFalse(new FieldChecks().validateFloatRange("0.5E1", va, field,
+                errors));
 
         // addErrors確認
         assertEquals(1, errors.addErrorCount);
@@ -584,37 +519,32 @@ public class FieldChecksTest05 extends TestCase {
     }
 
     /**
-     * testValidateFloatRange13()
-     * <br><br>
-     *
-     * (正常系) or (異常系)
+     * testValidateFloatRange13() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) or (異常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) bean:"0.5E1"<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:var:<br>
-     *                floatRangeMin="0.5E1"<br>
-     *                floatRangeMax="0.5E1"<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:var:<br>
+     * floatRangeMin="0.5E1"<br>
+     * floatRangeMax="0.5E1"<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *         (状態変化) errors:呼び出されない<br>
-     *
+     * (状態変化) errors:呼び出されない<br>
      * <br>
-     * beanの値と、floatRangeMax,floatRangeMinの値と等しい場合、trueが返却されることを確認する。
-     * <br>
-     *
+     * beanの値と、floatRangeMax,floatRangeMinの値と等しい場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateFloatRange13() throws Exception {
         // 前処理
         Var var1 = new Var();
         var1.setName("floatRangeMin");
         var1.setValue("0.5E1");
         field.addVar(var1);
-        
+
         Var var2 = new Var();
         var2.setName("floatRangeMax");
         var2.setValue("0.5E1");
@@ -622,102 +552,89 @@ public class FieldChecksTest05 extends TestCase {
 
         // テスト実施
         // 判定
-        assertTrue(
-                new FieldChecks().validateFloatRange("0.5E1", va, field, errors));
+        assertTrue(new FieldChecks().validateFloatRange("0.5E1", va, field,
+                errors));
 
         // addErrors確認
         assertEquals(0, errors.addErrorCount);
     }
 
     /**
-     * testValidateMaxLength01()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateMaxLength01() <br>
      * <br>
-     * 観点：C,F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C,F <br>
+     * <br>
      * 入力値：(引数) bean:null<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:not null<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:not null<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *         (状態変化) errors:呼び出されない<br>
-     *
+     * (状態変化) errors:呼び出されない<br>
      * <br>
-     * 引数のbeanがnullの場合、trueが返却されることを確認する。
-     * <br>
-     *
+     * 引数のbeanがnullの場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMaxLength01() throws Exception {
         // テスト実施
         // 判定
-        assertTrue(new FieldChecks().validateMaxLength(null, va, field, errors));
+        assertTrue(new FieldChecks().validateMaxLength(null, va, field,
+                errors));
 
         // addErrors確認
         assertEquals(0, errors.addErrorCount);
     }
 
     /**
-     * testValidateMaxLength02()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateMaxLength02() <br>
      * <br>
-     * 観点：C,F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C,F <br>
+     * <br>
      * 入力値：(引数) bean:""<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:not null<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:not null<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(状態変化) return: true<br>
-     *
      * <br>
-     * varのmaxlengthがnullの場合、ValidatorExceptionが発生することを確認する。
-     * <br>
-     *
+     * varのmaxlengthがnullの場合、ValidatorExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMaxLength02() throws Exception {
         // テスト実施
         // 判定
         assertTrue(new FieldChecks().validateMaxLength("", va, field, errors));
-        
+
         // addErrors確認
         assertEquals(0, errors.addErrorCount);
     }
 
     /**
-     * testValidateMaxLength03()
-     * <br><br>
-     *
-     * (異常系)
+     * testValidateMaxLength03() <br>
      * <br>
-     * 観点：F,G
-     * <br><br>
+     * (異常系) <br>
+     * 観点：F,G <br>
+     * <br>
      * 入力値：(引数) bean:"test"<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:var:<br>
-     *                maxlength=null<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:var:<br>
+     * maxlength=null<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(状態変化) 例外:ValidatorException<br>
-     *                    メッセージ："Mistake on validation definition file. - maxlength is not number. You'll have to check it over. "<br>
-     *         (状態変化) ログ:ログレベル：エラー<br>
-     *                    メッセージ："Mistake on validation definition file. - maxlength is not number. You'll have to check it over. ", new NumberFormatException()<br>
-     *
+     * メッセージ："Mistake on validation definition file. - maxlength is not number. You'll have to check it over. "<br>
+     * (状態変化) ログ:ログレベル：エラー<br>
+     * メッセージ："Mistake on validation definition file. - maxlength is not number. You'll have to check it over. ", new
+     * NumberFormatException()<br>
      * <br>
-     * varのmaxlengthがnullの場合、ValidatorExceptionが発生することを確認する。
-     * <br>
-     *
+     * varのmaxlengthがnullの場合、ValidatorExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMaxLength03() throws Exception {
         // テスト実施
         // 判定
@@ -725,39 +642,38 @@ public class FieldChecksTest05 extends TestCase {
             new FieldChecks().validateMaxLength("test", va, field, errors);
             fail();
         } catch (ValidatorException e) {
-            String message = "Mistake on validation definition file. " +
-                    "- maxlength is not number. You'll have to check it over. ";
+            String message = "Mistake on validation definition file. "
+                    + "- maxlength is not number. You'll have to check it over. ";
             assertEquals(message, e.getMessage());
-            assertTrue(LogUTUtil.checkError(message, new NumberFormatException()));
+            assertThat(logger.getLoggingEvents().get(0).getMessage(), is(
+                    equalTo(message)));
+            assertThat(logger.getLoggingEvents().get(0).getThrowable().get(),
+                    instanceOf(NumberFormatException.class));
         }
     }
 
     /**
-     * testValidateMaxLength04()
-     * <br><br>
-     *
-     * (異常系)
+     * testValidateMaxLength04() <br>
      * <br>
-     * 観点：F,G
-     * <br><br>
+     * (異常系) <br>
+     * 観点：F,G <br>
+     * <br>
      * 入力値：(引数) bean:"test"<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:var:<br>
-     *                maxlength=""<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:var:<br>
+     * maxlength=""<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(状態変化) 例外:ValidatorException<br>
-     *                    メッセージ："Mistake on validation definition file. - maxlength is not number. You'll have to check it over. "<br>
-     *         (状態変化) ログ:ログレベル：エラー<br>
-     *                    メッセージ："Mistake on validation definition file. - maxlength is not number. You'll have to check it over. ", new NumberFormatException()<br>
-     *
+     * メッセージ："Mistake on validation definition file. - maxlength is not number. You'll have to check it over. "<br>
+     * (状態変化) ログ:ログレベル：エラー<br>
+     * メッセージ："Mistake on validation definition file. - maxlength is not number. You'll have to check it over. ", new
+     * NumberFormatException()<br>
      * <br>
-     * varのmaxlengthが空文字の場合、ValidatorExceptionが発生することを確認する。
-     * <br>
-     *
+     * varのmaxlengthが空文字の場合、ValidatorExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMaxLength04() throws Exception {
         // 前処理
         Var var = new Var();
@@ -771,39 +687,38 @@ public class FieldChecksTest05 extends TestCase {
             new FieldChecks().validateMaxLength("test", va, field, errors);
             fail();
         } catch (ValidatorException e) {
-            String message = "Mistake on validation definition file. " +
-                    "- maxlength is not number. You'll have to check it over. ";
+            String message = "Mistake on validation definition file. "
+                    + "- maxlength is not number. You'll have to check it over. ";
             assertEquals(message, e.getMessage());
-            assertTrue(LogUTUtil.checkError(message, new NumberFormatException()));
+            assertThat(logger.getLoggingEvents().get(0).getMessage(), is(
+                    equalTo(message)));
+            assertThat(logger.getLoggingEvents().get(0).getThrowable().get(),
+                    instanceOf(NumberFormatException.class));
         }
     }
 
     /**
-     * testValidateMaxLength05()
-     * <br><br>
-     *
-     * (異常系)
+     * testValidateMaxLength05() <br>
      * <br>
-     * 観点：F,G
-     * <br><br>
+     * (異常系) <br>
+     * 観点：F,G <br>
+     * <br>
      * 入力値：(引数) bean:"test"<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:var:<br>
-     *                maxlength="abc"<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:var:<br>
+     * maxlength="abc"<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(状態変化) 例外:ValidatorException<br>
-     *                    メッセージ："Mistake on validation definition file. - maxlength is not number. You'll have to check it over. "<br>
-     *         (状態変化) ログ:ログレベル：エラー<br>
-     *                    メッセージ："Mistake on validation definition file. - maxlength is not number. You'll have to check it over. ", new NumberFormatException()<br>
-     *
+     * メッセージ："Mistake on validation definition file. - maxlength is not number. You'll have to check it over. "<br>
+     * (状態変化) ログ:ログレベル：エラー<br>
+     * メッセージ："Mistake on validation definition file. - maxlength is not number. You'll have to check it over. ", new
+     * NumberFormatException()<br>
      * <br>
-     * varのmaxlengthが数値に変換できない場合、ValidatorExceptionが発生することを確認する。
-     * <br>
-     *
+     * varのmaxlengthが数値に変換できない場合、ValidatorExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMaxLength05() throws Exception {
         // 前処理
         Var var = new Var();
@@ -817,37 +732,35 @@ public class FieldChecksTest05 extends TestCase {
             new FieldChecks().validateMaxLength("test", va, field, errors);
             fail();
         } catch (ValidatorException e) {
-            String message = "Mistake on validation definition file. " +
-                    "- maxlength is not number. You'll have to check it over. ";
+            String message = "Mistake on validation definition file. "
+                    + "- maxlength is not number. You'll have to check it over. ";
             assertEquals(message, e.getMessage());
-            assertTrue(LogUTUtil.checkError(message, new NumberFormatException()));
+            assertThat(logger.getLoggingEvents().get(0).getMessage(), is(
+                    equalTo(message)));
+            assertThat(logger.getLoggingEvents().get(0).getThrowable().get(),
+                    instanceOf(NumberFormatException.class));
         }
     }
 
     /**
-     * testValidateMaxLength06()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateMaxLength06() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) bean:"test"<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:var:<br>
-     *                maxlength="5"<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:var:<br>
+     * maxlength="5"<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *         (状態変化) errors:呼び出されない<br>
-     *
+     * (状態変化) errors:呼び出されない<br>
      * <br>
-     * 入力された文字の桁数が、varのmaxlengthの値より小さい場合、trueが取得できることを確認する。
-     * <br>
-     *
+     * 入力された文字の桁数が、varのmaxlengthの値より小さい場合、trueが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMaxLength06() throws Exception {
         // 前処理
         Var var = new Var();
@@ -857,7 +770,8 @@ public class FieldChecksTest05 extends TestCase {
 
         // テスト実施
         // 判定
-        assertTrue(new FieldChecks().validateMaxLength("test", va, field, errors));
+        assertTrue(new FieldChecks().validateMaxLength("test", va, field,
+                errors));
 
         // addErrors確認
         assertEquals(0, errors.addErrorCount);
@@ -865,29 +779,24 @@ public class FieldChecksTest05 extends TestCase {
     }
 
     /**
-     * testValidateMaxLength07()
-     * <br><br>
-     *
-     * (正常系) or (異常系)
+     * testValidateMaxLength07() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) or (異常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) bean:"test"<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:var:<br>
-     *                maxlength="3"<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:var:<br>
+     * maxlength="3"<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:false<br>
-     *         (状態変化) errors:bean,field,vaを引数としてaddErrorsが呼び出される。<br>
-     *
+     * (状態変化) errors:bean,field,vaを引数としてaddErrorsが呼び出される。<br>
      * <br>
-     * 入力された文字の桁数が、varのmaxlengthの値より大きい場合、エラーを追加してfalseが返却されることを確認する。
-     * <br>
-     *
+     * 入力された文字の桁数が、varのmaxlengthの値より大きい場合、エラーを追加してfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMaxLength07() throws Exception {
         // 前処理
         Var var = new Var();
@@ -897,7 +806,8 @@ public class FieldChecksTest05 extends TestCase {
 
         // テスト実施
         // 判定
-        assertFalse(new FieldChecks().validateMaxLength("test", va, field, errors));
+        assertFalse(new FieldChecks().validateMaxLength("test", va, field,
+                errors));
 
         // addErrors確認
         assertEquals(1, errors.addErrorCount);
@@ -908,29 +818,24 @@ public class FieldChecksTest05 extends TestCase {
     }
 
     /**
-     * testValidateMaxLength08()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateMaxLength08() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) bean:"test"<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:var:<br>
-     *                maxlength="4"<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:var:<br>
+     * maxlength="4"<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *         (状態変化) errors:呼び出されない<br>
-     *
+     * (状態変化) errors:呼び出されない<br>
      * <br>
-     * 入力された文字の桁数が、varのmaxlengthの値と等しい場合、trueが返却されることを確認する。
-     * <br>
-     *
+     * 入力された文字の桁数が、varのmaxlengthの値と等しい場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMaxLength08() throws Exception {
         // 前処理
         Var var = new Var();
@@ -940,7 +845,8 @@ public class FieldChecksTest05 extends TestCase {
 
         // テスト実施
         // 判定
-        assertTrue(new FieldChecks().validateMaxLength("test", va, field, errors));
+        assertTrue(new FieldChecks().validateMaxLength("test", va, field,
+                errors));
 
         // addErrors確認
         assertEquals(0, errors.addErrorCount);
@@ -948,98 +854,81 @@ public class FieldChecksTest05 extends TestCase {
     }
 
     /**
-     * testValidateMinLength01()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateMinLength01() <br>
      * <br>
-     * 観点：C,F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C,F <br>
+     * <br>
      * 入力値：(引数) bean:null<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:not null<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:not null<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *         (状態変化) errors:呼び出されない<br>
-     *
+     * (状態変化) errors:呼び出されない<br>
      * <br>
-     * 引数のbeanがnullの場合、trueが返却されることを確認する。
-     * <br>
-     *
+     * 引数のbeanがnullの場合、trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMinLength01() throws Exception {
         // テスト実施
         // 判定
-        assertTrue(new FieldChecks().validateMinLength(null, va, field, errors));
+        assertTrue(new FieldChecks().validateMinLength(null, va, field,
+                errors));
 
         // addErrors確認
         assertEquals(0, errors.addErrorCount);
     }
 
     /**
-     * testValidateMinLength02()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateMinLength02() <br>
      * <br>
-     * 観点：C,F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C,F <br>
+     * <br>
      * 入力値：(引数) bean:""<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:not null<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:not null<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(状態変化) return : true<br>
-     *
      * <br>
-     * varのminlengthがnullの場合、ValidatorExceptionが発生することを確認する。
-     * <br>
-     *
+     * varのminlengthがnullの場合、ValidatorExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMinLength02() throws Exception {
         // テスト実施
         // 判定
         assertTrue(new FieldChecks().validateMinLength("", va, field, errors));
-     
+
         // addErrors確認
         assertEquals(0, errors.addErrorCount);
     }
 
     /**
-     * testValidateMinLength03()
-     * <br><br>
-     *
-     * (異常系)
+     * testValidateMinLength03() <br>
      * <br>
-     * 観点：F,G
-     * <br><br>
+     * (異常系) <br>
+     * 観点：F,G <br>
+     * <br>
      * 入力値：(引数) bean:"test"<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:var:<br>
-     *                minlength=null<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:var:<br>
+     * minlength=null<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(状態変化) 例外:ValidatorException<br>
-     *                    メッセージ："Mistake on validation definition file.
-     *                    - minlength is not number.
-     *                    You'll have to check it over. "<br>
-     *         (状態変化) ログ:ログレベル：エラー<br>
-     *                    メッセージ："Mistake on validation definition file.
-     *                    - minlength is not number.
-     *                    You'll have to check it over. ", new NumberFormatException()<br>
-     *
+     * メッセージ："Mistake on validation definition file. - minlength is not number. You'll have to check it over. "<br>
+     * (状態変化) ログ:ログレベル：エラー<br>
+     * メッセージ："Mistake on validation definition file. - minlength is not number. You'll have to check it over. ", new
+     * NumberFormatException()<br>
      * <br>
-     * varのminlengthがnullの場合、ValidatorExceptionが発生することを確認する。
-     * <br>
-     *
+     * varのminlengthがnullの場合、ValidatorExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMinLength03() throws Exception {
         // テスト実施
         // 判定
@@ -1047,43 +936,38 @@ public class FieldChecksTest05 extends TestCase {
             new FieldChecks().validateMinLength("test", va, field, errors);
             fail();
         } catch (ValidatorException e) {
-            String message = "Mistake on validation definition file. " +
-                    "- minlength is not number. You'll have to check it over. ";
+            String message = "Mistake on validation definition file. "
+                    + "- minlength is not number. You'll have to check it over. ";
             assertEquals(message, e.getMessage());
-            assertTrue(LogUTUtil.checkError(message, new NumberFormatException()));
+            assertThat(logger.getLoggingEvents().get(0).getMessage(), is(
+                    equalTo(message)));
+            assertThat(logger.getLoggingEvents().get(0).getThrowable().get(),
+                    instanceOf(NumberFormatException.class));
         }
     }
 
     /**
-     * testValidateMinLength04()
-     * <br><br>
-     *
-     * (異常系)
+     * testValidateMinLength04() <br>
      * <br>
-     * 観点：F,G
-     * <br><br>
+     * (異常系) <br>
+     * 観点：F,G <br>
+     * <br>
      * 入力値：(引数) bean:"test"<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:var:<br>
-     *                minlength=""<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:var:<br>
+     * minlength=""<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(状態変化) 例外:ValidatorException<br>
-     *                    メッセージ："Mistake on validation definition file.
-     *                    - minlength is not number.
-     *                    You'll have to check it over. "<br>
-     *         (状態変化) ログ:ログレベル：エラー<br>
-     *                    メッセージ："Mistake on validation definition file.
-     *                    - minlength is not number.
-     *                    You'll have to check it over. ", new NumberFormatException()<br>
-     *
+     * メッセージ："Mistake on validation definition file. - minlength is not number. You'll have to check it over. "<br>
+     * (状態変化) ログ:ログレベル：エラー<br>
+     * メッセージ："Mistake on validation definition file. - minlength is not number. You'll have to check it over. ", new
+     * NumberFormatException()<br>
      * <br>
-     * varのminlengthが空文字の場合、ValidatorExceptionが発生することを確認する。
-     * <br>
-     *
+     * varのminlengthが空文字の場合、ValidatorExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMinLength04() throws Exception {
         // 前処理
         Var var = new Var();
@@ -1097,43 +981,38 @@ public class FieldChecksTest05 extends TestCase {
             new FieldChecks().validateMinLength("test", va, field, errors);
             fail();
         } catch (ValidatorException e) {
-            String message = "Mistake on validation definition file. " +
-                    "- minlength is not number. You'll have to check it over. ";
+            String message = "Mistake on validation definition file. "
+                    + "- minlength is not number. You'll have to check it over. ";
             assertEquals(message, e.getMessage());
-            assertTrue(LogUTUtil.checkError(message, new NumberFormatException()));
+            assertThat(logger.getLoggingEvents().get(0).getMessage(), is(
+                    equalTo(message)));
+            assertThat(logger.getLoggingEvents().get(0).getThrowable().get(),
+                    instanceOf(NumberFormatException.class));
         }
     }
 
     /**
-     * testValidateMinLength05()
-     * <br><br>
-     *
-     * (異常系)
+     * testValidateMinLength05() <br>
      * <br>
-     * 観点：F,G
-     * <br><br>
+     * (異常系) <br>
+     * 観点：F,G <br>
+     * <br>
      * 入力値：(引数) bean:"test"<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:var:<br>
-     *                minlength="abc"<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:var:<br>
+     * minlength="abc"<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(状態変化) 例外:ValidatorException<br>
-     *                    メッセージ："Mistake on validation definition file.
-     *                    - minlength is not number.
-     *                    You'll have to check it over. "<br>
-     *         (状態変化) ログ:ログレベル：エラー<br>
-     *                    メッセージ："Mistake on validation definition file.
-     *                    - minlength is not number.
-     *                    You'll have to check it over. ", new NumberFormatException()<br>
-     *
+     * メッセージ："Mistake on validation definition file. - minlength is not number. You'll have to check it over. "<br>
+     * (状態変化) ログ:ログレベル：エラー<br>
+     * メッセージ："Mistake on validation definition file. - minlength is not number. You'll have to check it over. ", new
+     * NumberFormatException()<br>
      * <br>
-     * varのminlengthが数値に変換できない場合、ValidatorExceptionが発生することを確認する。
-     * <br>
-     *
+     * varのminlengthが数値に変換できない場合、ValidatorExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMinLength05() throws Exception {
         // 前処理
         Var var = new Var();
@@ -1147,38 +1026,35 @@ public class FieldChecksTest05 extends TestCase {
             new FieldChecks().validateMinLength("test", va, field, errors);
             fail();
         } catch (ValidatorException e) {
-            String message = "Mistake on validation definition file. " +
-                    "- minlength is not number. You'll have to check it over. ";
+            String message = "Mistake on validation definition file. "
+                    + "- minlength is not number. You'll have to check it over. ";
             assertEquals(message, e.getMessage());
-            assertTrue(LogUTUtil.checkError(message, new NumberFormatException()));
+            assertThat(logger.getLoggingEvents().get(0).getMessage(), is(
+                    equalTo(message)));
+            assertThat(logger.getLoggingEvents().get(0).getThrowable().get(),
+                    instanceOf(NumberFormatException.class));
         }
     }
 
     /**
-     * testValidateMinLength06()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateMinLength06() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) bean:"test"<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:var:<br>
-     *                minlength="3"<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:var:<br>
+     * minlength="3"<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *         (状態変化) errors:呼び出されない<br>
-     *
+     * (状態変化) errors:呼び出されない<br>
      * <br>
-     * 入力された文字の桁数が、varのminlengthの値より大きい場合、
-     * trueが取得できることを確認する。
-     * <br>
-     *
+     * 入力された文字の桁数が、varのminlengthの値より大きい場合、 trueが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMinLength06() throws Exception {
         // 前処理
         Var var = new Var();
@@ -1188,7 +1064,8 @@ public class FieldChecksTest05 extends TestCase {
 
         // テスト実施
         // 判定
-        assertTrue(new FieldChecks().validateMinLength("test", va, field, errors));
+        assertTrue(new FieldChecks().validateMinLength("test", va, field,
+                errors));
 
         // addErrors確認
         assertEquals(0, errors.addErrorCount);
@@ -1196,31 +1073,24 @@ public class FieldChecksTest05 extends TestCase {
     }
 
     /**
-     * testValidateMinLength07()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateMinLength07() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) bean:"test"<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:var:<br>
-     *                minlength="5"<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:var:<br>
+     * minlength="5"<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:false<br>
-     *         (状態変化) errors:bean,field,vaを引数として
-     *                           addErrorsが呼び出される。<br>
-     *
+     * (状態変化) errors:bean,field,vaを引数として addErrorsが呼び出される。<br>
      * <br>
-     * 入力された文字の桁数が、varのminlengthの値より小さい場合、
-     * エラーを追加してfalseが返却されることを確認する。
-     * <br>
-     *
+     * 入力された文字の桁数が、varのminlengthの値より小さい場合、 エラーを追加してfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMinLength07() throws Exception {
         // 前処理
         Var var = new Var();
@@ -1230,7 +1100,8 @@ public class FieldChecksTest05 extends TestCase {
 
         // テスト実施
         // 判定
-        assertFalse(new FieldChecks().validateMinLength("test", va, field, errors));
+        assertFalse(new FieldChecks().validateMinLength("test", va, field,
+                errors));
 
         // addErrors確認
         assertEquals(1, errors.addErrorCount);
@@ -1241,30 +1112,24 @@ public class FieldChecksTest05 extends TestCase {
     }
 
     /**
-     * testValidateMinLength08()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateMinLength08() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) bean:"test"<br>
-     *         (引数) va:not null<br>
-     *         (引数) field:var:<br>
-     *                minlength="4"<br>
-     *         (引数) errors:not null<br>
-     *
+     * (引数) va:not null<br>
+     * (引数) field:var:<br>
+     * minlength="4"<br>
+     * (引数) errors:not null<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *         (状態変化) errors:呼び出されない<br>
-     *
+     * (状態変化) errors:呼び出されない<br>
      * <br>
-     * 入力された文字の桁数が、varのminlengthの値と等しい場合、
-     * trueが返却されることを確認する。
-     * <br>
-     *
+     * 入力された文字の桁数が、varのminlengthの値と等しい場合、 trueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testValidateMinLength08() throws Exception {
         // 前処理
         Var var = new Var();
@@ -1274,7 +1139,8 @@ public class FieldChecksTest05 extends TestCase {
 
         // テスト実施
         // 判定
-        assertTrue(new FieldChecks().validateMinLength("test", va, field, errors));
+        assertTrue(new FieldChecks().validateMinLength("test", va, field,
+                errors));
 
         // addErrors確認
         assertEquals(0, errors.addErrorCount);

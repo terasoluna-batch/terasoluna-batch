@@ -19,7 +19,11 @@ package jp.terasoluna.fw.validation;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import jp.terasoluna.utlib.PropertyTestCase;
+import jp.terasoluna.fw.validation.PropertyTestCase;
+import static org.junit.Assert.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * {@link jp.terasoluna.fw.validation.ValidationUtil} クラスのブラックボックステスト。
@@ -34,42 +38,21 @@ import jp.terasoluna.utlib.PropertyTestCase;
 public class ValidationUtilTest06 extends PropertyTestCase {
 
     /**
-     * このテストケースを実行する為の
-     * GUI アプリケーションを起動する。
-     *
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        junit.swingui.TestRunner.run(ValidationUtilTest06.class);
-    }
-
-    /**
      * 初期化処理を行う。
      *
      * @throws Exception このメソッドで発生した例外
-     * @see jp.terasoluna.utlib.spring.PropertyTestCase#setUpData()
      */
-    @Override
-    protected void setUpData() throws Exception {
+    @Before
+    public void setUpData() throws Exception {
     }
 
     /**
      * 終了処理を行う。
      *
      * @throws Exception このメソッドで発生した例外
-     * @see jp.terasoluna.utlib.spring.PropertyTestCase#cleanUpData()
      */
-    @Override
-    protected void cleanUpData() throws Exception {
-    }
-
-    /**
-     * コンストラクタ。
-     *
-     * @param name このテストケースの名前。
-     */
-    public ValidationUtilTest06(String name) {
-        super(name);
+    @After
+    public void cleanUpData() throws Exception {
     }
 
     /**
@@ -91,6 +74,7 @@ public class ValidationUtilTest06 extends PropertyTestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToDate01() throws Exception {
         // 前処理
         String value = null;
@@ -124,6 +108,7 @@ public class ValidationUtilTest06 extends PropertyTestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToDate02() throws Exception {
         // 前処理
         String value = "";
@@ -160,6 +145,7 @@ public class ValidationUtilTest06 extends PropertyTestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToDate03() throws Exception {
         // 前処理
         String value = "2005/11/1";
@@ -199,6 +185,7 @@ public class ValidationUtilTest06 extends PropertyTestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToDate04() throws Exception {
         // 前処理
         String value = "2005/11/1";
@@ -237,6 +224,7 @@ public class ValidationUtilTest06 extends PropertyTestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToDate05() throws Exception {
         // 前処理
         String value = "2005/11/1";
@@ -275,6 +263,7 @@ public class ValidationUtilTest06 extends PropertyTestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToDate06() throws Exception {
         // 前処理
         String value = "2005/11/1";
@@ -309,6 +298,7 @@ public class ValidationUtilTest06 extends PropertyTestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToDate07() throws Exception {
         // 前処理
         String value = "2005/11/24";
@@ -347,6 +337,7 @@ public class ValidationUtilTest06 extends PropertyTestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToDate08() throws Exception {
         // 前処理
         String value = "2005/11/24";
@@ -385,6 +376,7 @@ public class ValidationUtilTest06 extends PropertyTestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToDate09() throws Exception {
         // 前処理
         String value = "2005/11/24";
@@ -422,6 +414,7 @@ public class ValidationUtilTest06 extends PropertyTestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToDate10() throws Exception {
         // 前処理
         String value = "2005/11/24";
@@ -457,6 +450,7 @@ public class ValidationUtilTest06 extends PropertyTestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToDate11() throws Exception {
         // 前処理
         String value = "2005/2/29";
@@ -492,6 +486,7 @@ public class ValidationUtilTest06 extends PropertyTestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToDate12() throws Exception {
         // 前処理
         String value = "2005/02/29";
@@ -526,6 +521,7 @@ public class ValidationUtilTest06 extends PropertyTestCase {
      *
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToDate13() throws Exception {
         // 前処理
         String value = "test";

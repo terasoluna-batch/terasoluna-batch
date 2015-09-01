@@ -17,11 +17,14 @@
 package jp.terasoluna.fw.validation.springmodules;
 
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
+
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.fail;
 
 import org.apache.commons.validator.Validator;
 import org.apache.commons.validator.ValidatorException;
 import org.apache.commons.validator.ValidatorResources;
+import org.junit.Test;
 
 /**
  * {@link jp.terasoluna.fw.validation.springmodules.DefaultBeanValidatorEx}
@@ -34,51 +37,7 @@ import org.apache.commons.validator.ValidatorResources;
  * 
  * @see jp.terasoluna.fw.validation.springmodules.DefaultBeanValidatorEx
  */
-public class DefaultBeanValidatorExTest extends TestCase {
-
-    /**
-     * このテストケースを実行する為の GUI アプリケーションを起動する。
-     * 
-     * @param args
-     *            java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        junit.swingui.TestRunner.run(DefaultBeanValidatorExTest.class);
-    }
-
-    /**
-     * 初期化処理を行う。
-     * 
-     * @throws Exception
-     *             このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
-     */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
-
-    /**
-     * 終了処理を行う。
-     * 
-     * @throws Exception
-     *             このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * 
-     * @param name
-     *            このテストケースの名前。
-     */
-    public DefaultBeanValidatorExTest(String name) {
-        super(name);
-    }
+public class DefaultBeanValidatorExTest {
 
     /**
      * testCleanupValidator01() <br>
@@ -100,6 +59,7 @@ public class DefaultBeanValidatorExTest extends TestCase {
      * @throws Exception
      *             このメソッドで発生した例外
      */
+    @Test
     public void testCleanupValidator01() throws Exception {
         // 前処理
         ValidatorResources resources = new ValidatorResources();
@@ -137,6 +97,7 @@ public class DefaultBeanValidatorExTest extends TestCase {
      * @throws Exception
      *             このメソッドで発生した例外
      */
+    @Test
     public void testCleanupValidator02() throws Exception {
         // 前処理
         ValidatorResources resources = new ValidatorResources();
@@ -171,6 +132,7 @@ public class DefaultBeanValidatorExTest extends TestCase {
      * @throws Exception
      *             このメソッドで発生した例外
      */
+    @Test
     public void testCleanupValidator03() throws Exception {
         // 前処理
         ValidatorResources resources = new ValidatorResources();
