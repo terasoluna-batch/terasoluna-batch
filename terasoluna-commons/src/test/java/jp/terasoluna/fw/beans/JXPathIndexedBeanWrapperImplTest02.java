@@ -25,7 +25,6 @@ import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Test;
 
-
 /**
  * {@link jp.terasoluna.fw.beans.JXPathIndexedBeanWrapperImpl} クラスのブラックボックステスト。
  * <p>

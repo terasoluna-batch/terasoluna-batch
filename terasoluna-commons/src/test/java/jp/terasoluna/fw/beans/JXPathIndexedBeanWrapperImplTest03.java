@@ -32,7 +32,6 @@ import static org.junit.Assert.fail;
 import org.junit.After;
 import org.junit.Test;
 
-
 /**
  * {@link jp.terasoluna.fw.beans.JXPathIndexedBeanWrapperImpl} クラスのブラックボックステスト。
  * <p>
@@ -54,6 +53,7 @@ public class JXPathIndexedBeanWrapperImplTest03 {
     public void tearDown() {
         logger.clear();
     }
+
     /**
      * testToPropertyName01() <br>
      * <br>

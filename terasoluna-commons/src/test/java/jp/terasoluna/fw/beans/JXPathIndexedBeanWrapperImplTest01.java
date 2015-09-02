@@ -66,6 +66,7 @@ public class JXPathIndexedBeanWrapperImplTest01 {
     public void tearDown() {
         logger.clear();
     }
+
     /**
      * testJXPathIndexedBeanWrapperImpl01() <br>
      * <br>

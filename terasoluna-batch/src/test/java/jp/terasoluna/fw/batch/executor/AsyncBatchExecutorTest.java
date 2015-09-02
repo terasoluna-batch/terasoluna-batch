@@ -6,10 +6,6 @@ import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
 import java.net.URL;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -38,7 +34,6 @@ import org.springframework.transaction.PlatformTransactionManager;
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
 
-import static org.junit.Assert.*;
 import static uk.org.lidalia.slf4jtest.LoggingEvent.error;
 import static uk.org.lidalia.slf4jtest.LoggingEvent.info;
 
