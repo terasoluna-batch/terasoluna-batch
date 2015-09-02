@@ -34,6 +34,7 @@ import uk.org.lidalia.slf4jext.Level;
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
@@ -144,9 +145,9 @@ public class ConnectionRetryInterceptorTest {
         } catch (DataAccessException e) {
             assertSame(recoverableDataAccessException, e);
         }
-        assertTrue(logger.getLoggingEvents().get(0).getLevel().equals(
-                Level.ERROR) && logger.getLoggingEvents().get(0).getMessage()
-                        .equals("[EAL025031] AsyncBatchExecutor ABNORMAL END"));
+        assertEquals(logger.getLoggingEvents().get(0).getLevel(), Level.ERROR);
+        assertEquals(logger.getLoggingEvents().get(0).getMessage(),
+                "[EAL025031] AsyncBatchExecutor ABNORMAL END");
     }
 
     /**
@@ -179,9 +180,9 @@ public class ConnectionRetryInterceptorTest {
         } catch (TransactionException e) {
             assertSame(transactionException, e);
         }
-        assertTrue(logger.getLoggingEvents().get(0).getLevel().equals(
-                Level.ERROR) && logger.getLoggingEvents().get(0).getMessage()
-                        .equals("[EAL025031] AsyncBatchExecutor ABNORMAL END"));
+        assertEquals(logger.getLoggingEvents().get(0).getLevel(), Level.ERROR);
+        assertEquals(logger.getLoggingEvents().get(0).getMessage(),
+                "[EAL025031] AsyncBatchExecutor ABNORMAL END");
     }
 
     /**
@@ -192,7 +193,7 @@ public class ConnectionRetryInterceptorTest {
      * ・RetryableExecuteExceptionをスローすること
      * ・最大試行回数  0
      * 確認項目
-     * ・causeとして設定したRetryableExecuteExceptionがスローされること
+     * ・causeとして設定したIllegalArgumentExceptionがスローされること
      * ・EAL025031のログが出力されること
      * </pre>
      * 
@@ -202,7 +203,7 @@ public class ConnectionRetryInterceptorTest {
     public void testInvoke04() throws Throwable {
         // テスト準備
         MethodInvocation mockMethodInvocation = mock(MethodInvocation.class);
-        Exception cause = new Exception("test exception");
+        Exception cause = new IllegalArgumentException("test exception");
 
         // テスト実行
         // 検証
@@ -211,12 +212,12 @@ public class ConnectionRetryInterceptorTest {
                     new RetryableExecuteException(cause));
             connectionRetryInterceptor.invoke(mockMethodInvocation);
             fail();
-        } catch (Exception e) {
+        } catch (IllegalArgumentException e) {
             assertSame(cause, e);
         }
-        assertTrue(logger.getLoggingEvents().get(0).getLevel().equals(
-                Level.ERROR) && logger.getLoggingEvents().get(0).getMessage()
-                        .equals("[EAL025031] AsyncBatchExecutor ABNORMAL END"));
+        assertEquals(logger.getLoggingEvents().get(0).getLevel(), Level.ERROR);
+        assertEquals(logger.getLoggingEvents().get(0).getMessage(),
+                "[EAL025031] AsyncBatchExecutor ABNORMAL END");
     }
 
     /**
@@ -251,18 +252,18 @@ public class ConnectionRetryInterceptorTest {
         // 検証
         assertNull(connectionRetryInterceptor.invoke(mockMethodInvocation));
         verify(mockMethodInvocation, times(3)).proceed();
-        assertTrue(logger.getLoggingEvents().get(0).getLevel() == Level.INFO
-                && logger.getLoggingEvents().get(0).getMessage().equals(
-                        "[IAL025017] retry: 1 ms, retryMax : 3 ms, retryReset : 600,000 ms, retryInterval : 500"));
-        assertTrue(logger.getLoggingEvents().get(1).getLevel() == Level.TRACE
-                && logger.getLoggingEvents().get(1).getMessage().contains(
-                        "[TAL025010] Java memory info"));
-        assertTrue(logger.getLoggingEvents().get(2).getLevel() == Level.INFO
-                && logger.getLoggingEvents().get(2).getMessage().equals(
-                        "[IAL025017] retry: 2 ms, retryMax : 3 ms, retryReset : 600,000 ms, retryInterval : 500"));
-        assertTrue(logger.getLoggingEvents().get(3).getLevel() == Level.TRACE
-                && logger.getLoggingEvents().get(3).getMessage().contains(
-                        "[TAL025010] Java memory info"));
+        assertEquals(logger.getLoggingEvents().get(0).getLevel(), Level.INFO);
+        assertEquals(logger.getLoggingEvents().get(0).getMessage(),
+                "[IAL025017] retry: 1 ms, retryMax : 3 ms, retryReset : 600,000 ms, retryInterval : 500");
+        assertEquals(logger.getLoggingEvents().get(1).getLevel(), Level.TRACE);
+        assertTrue(logger.getLoggingEvents().get(1).getMessage().contains(
+                "[TAL025010] Java memory info"));
+        assertEquals(logger.getLoggingEvents().get(2).getLevel(), Level.INFO);
+        assertEquals(logger.getLoggingEvents().get(2).getMessage(),
+                "[IAL025017] retry: 2 ms, retryMax : 3 ms, retryReset : 600,000 ms, retryInterval : 500");
+        assertEquals(logger.getLoggingEvents().get(3).getLevel(), Level.TRACE);
+        assertTrue(logger.getLoggingEvents().get(3).getMessage().contains(
+                "[TAL025010] Java memory info"));
 
     }
 
@@ -298,18 +299,18 @@ public class ConnectionRetryInterceptorTest {
         // 検証
         assertNull(connectionRetryInterceptor.invoke(mockMethodInvocation));
         verify(mockMethodInvocation, times(3)).proceed();
-        assertTrue(logger.getLoggingEvents().get(0).getLevel() == Level.INFO
-                && logger.getLoggingEvents().get(0).getMessage().equals(
-                        "[IAL025017] retry: 1 ms, retryMax : 3 ms, retryReset : 600,000 ms, retryInterval : 500"));
-        assertTrue(logger.getLoggingEvents().get(1).getLevel() == Level.TRACE
-                && logger.getLoggingEvents().get(1).getMessage().contains(
-                        "[TAL025010] Java memory info"));
-        assertTrue(logger.getLoggingEvents().get(2).getLevel() == Level.INFO
-                && logger.getLoggingEvents().get(2).getMessage().equals(
-                        "[IAL025017] retry: 2 ms, retryMax : 3 ms, retryReset : 600,000 ms, retryInterval : 500"));
-        assertTrue(logger.getLoggingEvents().get(3).getLevel() == Level.TRACE
-                && logger.getLoggingEvents().get(3).getMessage().contains(
-                        "[TAL025010] Java memory info"));
+        assertEquals(logger.getLoggingEvents().get(0).getLevel(), Level.INFO);
+        assertEquals(logger.getLoggingEvents().get(0).getMessage(),
+                "[IAL025017] retry: 1 ms, retryMax : 3 ms, retryReset : 600,000 ms, retryInterval : 500");
+        assertEquals(logger.getLoggingEvents().get(1).getLevel(), Level.TRACE);
+        assertTrue(logger.getLoggingEvents().get(1).getMessage().contains(
+                "[TAL025010] Java memory info"));
+        assertEquals(logger.getLoggingEvents().get(2).getLevel(), Level.INFO);
+        assertEquals(logger.getLoggingEvents().get(2).getMessage(),
+                "[IAL025017] retry: 2 ms, retryMax : 3 ms, retryReset : 600,000 ms, retryInterval : 500");
+        assertEquals(logger.getLoggingEvents().get(3).getLevel(), Level.TRACE);
+        assertTrue(logger.getLoggingEvents().get(3).getMessage().contains(
+                "[TAL025010] Java memory info"));
 
     }
 
@@ -345,18 +346,18 @@ public class ConnectionRetryInterceptorTest {
         // 検証
         assertNull(connectionRetryInterceptor.invoke(mockMethodInvocation));
         verify(mockMethodInvocation, times(3)).proceed();
-        assertTrue(logger.getLoggingEvents().get(0).getLevel() == Level.INFO
-                && logger.getLoggingEvents().get(0).getMessage().equals(
-                        "[IAL025017] retry: 1 ms, retryMax : 3 ms, retryReset : 600,000 ms, retryInterval : 500"));
-        assertTrue(logger.getLoggingEvents().get(1).getLevel() == Level.TRACE
-                && logger.getLoggingEvents().get(1).getMessage().contains(
-                        "[TAL025010] Java memory info"));
-        assertTrue(logger.getLoggingEvents().get(2).getLevel() == Level.INFO
-                && logger.getLoggingEvents().get(2).getMessage().equals(
-                        "[IAL025017] retry: 2 ms, retryMax : 3 ms, retryReset : 600,000 ms, retryInterval : 500"));
-        assertTrue(logger.getLoggingEvents().get(3).getLevel() == Level.TRACE
-                && logger.getLoggingEvents().get(3).getMessage().contains(
-                        "[TAL025010] Java memory info"));
+        assertEquals(logger.getLoggingEvents().get(0).getLevel(), Level.INFO);
+        assertEquals(logger.getLoggingEvents().get(0).getMessage(),
+                "[IAL025017] retry: 1 ms, retryMax : 3 ms, retryReset : 600,000 ms, retryInterval : 500");
+        assertEquals(logger.getLoggingEvents().get(1).getLevel(), Level.TRACE);
+        assertTrue(logger.getLoggingEvents().get(1).getMessage().contains(
+                "[TAL025010] Java memory info"));
+        assertEquals(logger.getLoggingEvents().get(2).getLevel(), Level.INFO);
+        assertEquals(logger.getLoggingEvents().get(2).getMessage(),
+                "[IAL025017] retry: 2 ms, retryMax : 3 ms, retryReset : 600,000 ms, retryInterval : 500");
+        assertEquals(logger.getLoggingEvents().get(3).getLevel(), Level.TRACE);
+        assertTrue(logger.getLoggingEvents().get(3).getMessage().contains(
+                "[TAL025010] Java memory info"));
 
     }
 
@@ -394,31 +395,32 @@ public class ConnectionRetryInterceptorTest {
                                     new RecoverableDataAccessException(null))
                     .thenThrow(recoverableDataAccessException).thenReturn(null);
             connectionRetryInterceptor.invoke(mockMethodInvocation);
+            fail();
         } catch (DataAccessException e) {
             assertSame(recoverableDataAccessException, e);
         }
         verify(mockMethodInvocation, times(4)).proceed();
-        assertTrue(logger.getLoggingEvents().get(0).getLevel() == Level.INFO
-                && logger.getLoggingEvents().get(0).getMessage().equals(
-                        "[IAL025017] retry: 1 ms, retryMax : 3 ms, retryReset : 600,000 ms, retryInterval : 500"));
-        assertTrue(logger.getLoggingEvents().get(1).getLevel() == Level.TRACE
-                && logger.getLoggingEvents().get(1).getMessage().contains(
-                        "[TAL025010] Java memory info"));
-        assertTrue(logger.getLoggingEvents().get(2).getLevel() == Level.INFO
-                && logger.getLoggingEvents().get(2).getMessage().equals(
-                        "[IAL025017] retry: 2 ms, retryMax : 3 ms, retryReset : 600,000 ms, retryInterval : 500"));
-        assertTrue(logger.getLoggingEvents().get(3).getLevel() == Level.TRACE
-                && logger.getLoggingEvents().get(3).getMessage().contains(
-                        "[TAL025010] Java memory info"));
-        assertTrue(logger.getLoggingEvents().get(4).getLevel() == Level.INFO
-                && logger.getLoggingEvents().get(4).getMessage().equals(
-                        "[IAL025017] retry: 3 ms, retryMax : 3 ms, retryReset : 600,000 ms, retryInterval : 500"));
-        assertTrue(logger.getLoggingEvents().get(5).getLevel() == Level.TRACE
-                && logger.getLoggingEvents().get(5).getMessage().contains(
-                        "[TAL025010] Java memory info"));
-        assertTrue(logger.getLoggingEvents().get(6).getLevel().equals(
-                Level.ERROR) && logger.getLoggingEvents().get(6).getMessage()
-                        .equals("[EAL025031] AsyncBatchExecutor ABNORMAL END"));
+        assertEquals(logger.getLoggingEvents().get(0).getLevel(), Level.INFO);
+        assertEquals(logger.getLoggingEvents().get(0).getMessage(),
+                "[IAL025017] retry: 1 ms, retryMax : 3 ms, retryReset : 600,000 ms, retryInterval : 500");
+        assertEquals(logger.getLoggingEvents().get(1).getLevel(), Level.TRACE);
+        assertTrue(logger.getLoggingEvents().get(1).getMessage().contains(
+                "[TAL025010] Java memory info"));
+        assertEquals(logger.getLoggingEvents().get(2).getLevel(), Level.INFO);
+        assertEquals(logger.getLoggingEvents().get(2).getMessage(),
+                "[IAL025017] retry: 2 ms, retryMax : 3 ms, retryReset : 600,000 ms, retryInterval : 500");
+        assertEquals(logger.getLoggingEvents().get(3).getLevel(), Level.TRACE);
+        assertTrue(logger.getLoggingEvents().get(3).getMessage().contains(
+                "[TAL025010] Java memory info"));
+        assertEquals(logger.getLoggingEvents().get(4).getLevel(), Level.INFO);
+        assertEquals(logger.getLoggingEvents().get(4).getMessage(),
+                "[IAL025017] retry: 3 ms, retryMax : 3 ms, retryReset : 600,000 ms, retryInterval : 500");
+        assertEquals(logger.getLoggingEvents().get(5).getLevel(), Level.TRACE);
+        assertTrue(logger.getLoggingEvents().get(5).getMessage().contains(
+                "[TAL025010] Java memory info"));
+        assertEquals(logger.getLoggingEvents().get(6).getLevel(), Level.ERROR);
+        assertEquals(logger.getLoggingEvents().get(6).getMessage(),
+                "[EAL025031] AsyncBatchExecutor ABNORMAL END");
 
     }
 
@@ -456,31 +458,32 @@ public class ConnectionRetryInterceptorTest {
                     .thenThrow(new TransactionException("test exception 3"))
                     .thenThrow(transactionException).thenReturn(null);
             connectionRetryInterceptor.invoke(mockMethodInvocation);
+            fail();
         } catch (TransactionException e) {
             assertSame(transactionException, e);
         }
         verify(mockMethodInvocation, times(4)).proceed();
-        assertTrue(logger.getLoggingEvents().get(0).getLevel() == Level.INFO
-                && logger.getLoggingEvents().get(0).getMessage().equals(
-                        "[IAL025017] retry: 1 ms, retryMax : 3 ms, retryReset : 600,000 ms, retryInterval : 500"));
-        assertTrue(logger.getLoggingEvents().get(1).getLevel() == Level.TRACE
-                && logger.getLoggingEvents().get(1).getMessage().contains(
-                        "[TAL025010] Java memory info"));
-        assertTrue(logger.getLoggingEvents().get(2).getLevel() == Level.INFO
-                && logger.getLoggingEvents().get(2).getMessage().equals(
-                        "[IAL025017] retry: 2 ms, retryMax : 3 ms, retryReset : 600,000 ms, retryInterval : 500"));
-        assertTrue(logger.getLoggingEvents().get(3).getLevel() == Level.TRACE
-                && logger.getLoggingEvents().get(3).getMessage().contains(
-                        "[TAL025010] Java memory info"));
-        assertTrue(logger.getLoggingEvents().get(4).getLevel() == Level.INFO
-                && logger.getLoggingEvents().get(4).getMessage().equals(
-                        "[IAL025017] retry: 3 ms, retryMax : 3 ms, retryReset : 600,000 ms, retryInterval : 500"));
-        assertTrue(logger.getLoggingEvents().get(5).getLevel() == Level.TRACE
-                && logger.getLoggingEvents().get(5).getMessage().contains(
-                        "[TAL025010] Java memory info"));
-        assertTrue(logger.getLoggingEvents().get(6).getLevel().equals(
-                Level.ERROR) && logger.getLoggingEvents().get(6).getMessage()
-                        .equals("[EAL025031] AsyncBatchExecutor ABNORMAL END"));
+        assertEquals(logger.getLoggingEvents().get(0).getLevel(), Level.INFO);
+        assertEquals(logger.getLoggingEvents().get(0).getMessage(),
+                "[IAL025017] retry: 1 ms, retryMax : 3 ms, retryReset : 600,000 ms, retryInterval : 500");
+        assertEquals(logger.getLoggingEvents().get(1).getLevel(), Level.TRACE);
+        assertTrue(logger.getLoggingEvents().get(1).getMessage().contains(
+                "[TAL025010] Java memory info"));
+        assertEquals(logger.getLoggingEvents().get(2).getLevel(), Level.INFO);
+        assertEquals(logger.getLoggingEvents().get(2).getMessage(),
+                "[IAL025017] retry: 2 ms, retryMax : 3 ms, retryReset : 600,000 ms, retryInterval : 500");
+        assertEquals(logger.getLoggingEvents().get(3).getLevel(), Level.TRACE);
+        assertTrue(logger.getLoggingEvents().get(3).getMessage().contains(
+                "[TAL025010] Java memory info"));
+        assertEquals(logger.getLoggingEvents().get(4).getLevel(), Level.INFO);
+        assertEquals(logger.getLoggingEvents().get(4).getMessage(),
+                "[IAL025017] retry: 3 ms, retryMax : 3 ms, retryReset : 600,000 ms, retryInterval : 500");
+        assertEquals(logger.getLoggingEvents().get(5).getLevel(), Level.TRACE);
+        assertTrue(logger.getLoggingEvents().get(5).getMessage().contains(
+                "[TAL025010] Java memory info"));
+        assertEquals(logger.getLoggingEvents().get(6).getLevel(), Level.ERROR);
+        assertEquals(logger.getLoggingEvents().get(6).getMessage(),
+                "[EAL025031] AsyncBatchExecutor ABNORMAL END");
 
     }
 
@@ -492,7 +495,7 @@ public class ConnectionRetryInterceptorTest {
      * ・最大試行回数を超えること
      * ・最大試行回数 3、RetryableExecuteException例外スロー回数 4
      * 確認項目
-     * ・RetryableExecuteException例外がスローされること
+     * ・causeとして設定したIllegalArgumentExceptionがスローされること
      * ・リトライ処理(MethodInvocation#proceed()が4回呼び出されること)
      * ・リトライ失敗のログが出力されること
      * </pre>
@@ -503,7 +506,7 @@ public class ConnectionRetryInterceptorTest {
     public void testInvoke10() throws Throwable {
         // テスト準備
         MethodInvocation mockMethodInvocation = mock(MethodInvocation.class);
-        Exception cause = new Exception("test exception");
+        Exception cause = new IllegalArgumentException("test exception");
         ReflectionTestUtils.setField(connectionRetryInterceptor,
                 "retryInterval", 500);
         ReflectionTestUtils.setField(connectionRetryInterceptor,
@@ -519,31 +522,32 @@ public class ConnectionRetryInterceptorTest {
                     .thenThrow(new RetryableExecuteException(cause)).thenReturn(
                             null);
             connectionRetryInterceptor.invoke(mockMethodInvocation);
-        } catch (Exception e) {
+            fail();
+        } catch (IllegalArgumentException e) {
             assertSame(cause, e);
         }
         verify(mockMethodInvocation, times(4)).proceed();
-        assertTrue(logger.getLoggingEvents().get(0).getLevel() == Level.INFO
-                && logger.getLoggingEvents().get(0).getMessage().equals(
-                        "[IAL025017] retry: 1 ms, retryMax : 3 ms, retryReset : 600,000 ms, retryInterval : 500"));
-        assertTrue(logger.getLoggingEvents().get(1).getLevel() == Level.TRACE
-                && logger.getLoggingEvents().get(1).getMessage().contains(
-                        "[TAL025010] Java memory info"));
-        assertTrue(logger.getLoggingEvents().get(2).getLevel() == Level.INFO
-                && logger.getLoggingEvents().get(2).getMessage().equals(
-                        "[IAL025017] retry: 2 ms, retryMax : 3 ms, retryReset : 600,000 ms, retryInterval : 500"));
-        assertTrue(logger.getLoggingEvents().get(3).getLevel() == Level.TRACE
-                && logger.getLoggingEvents().get(3).getMessage().contains(
-                        "[TAL025010] Java memory info"));
-        assertTrue(logger.getLoggingEvents().get(4).getLevel() == Level.INFO
-                && logger.getLoggingEvents().get(4).getMessage().equals(
-                        "[IAL025017] retry: 3 ms, retryMax : 3 ms, retryReset : 600,000 ms, retryInterval : 500"));
-        assertTrue(logger.getLoggingEvents().get(5).getLevel() == Level.TRACE
-                && logger.getLoggingEvents().get(5).getMessage().contains(
-                        "[TAL025010] Java memory info"));
-        assertTrue(logger.getLoggingEvents().get(6).getLevel().equals(
-                Level.ERROR) && logger.getLoggingEvents().get(6).getMessage()
-                        .equals("[EAL025031] AsyncBatchExecutor ABNORMAL END"));
+        assertEquals(logger.getLoggingEvents().get(0).getLevel(), Level.INFO);
+        assertEquals(logger.getLoggingEvents().get(0).getMessage(),
+                "[IAL025017] retry: 1 ms, retryMax : 3 ms, retryReset : 600,000 ms, retryInterval : 500");
+        assertEquals(logger.getLoggingEvents().get(1).getLevel(), Level.TRACE);
+        assertTrue(logger.getLoggingEvents().get(1).getMessage().contains(
+                "[TAL025010] Java memory info"));
+        assertEquals(logger.getLoggingEvents().get(2).getLevel(), Level.INFO);
+        assertEquals(logger.getLoggingEvents().get(2).getMessage(),
+                "[IAL025017] retry: 2 ms, retryMax : 3 ms, retryReset : 600,000 ms, retryInterval : 500");
+        assertEquals(logger.getLoggingEvents().get(3).getLevel(), Level.TRACE);
+        assertTrue(logger.getLoggingEvents().get(3).getMessage().contains(
+                "[TAL025010] Java memory info"));
+        assertEquals(logger.getLoggingEvents().get(4).getLevel(), Level.INFO);
+        assertEquals(logger.getLoggingEvents().get(4).getMessage(),
+                "[IAL025017] retry: 3 ms, retryMax : 3 ms, retryReset : 600,000 ms, retryInterval : 500");
+        assertEquals(logger.getLoggingEvents().get(5).getLevel(), Level.TRACE);
+        assertTrue(logger.getLoggingEvents().get(5).getMessage().contains(
+                "[TAL025010] Java memory info"));
+        assertEquals(logger.getLoggingEvents().get(6).getLevel(), Level.ERROR);
+        assertEquals(logger.getLoggingEvents().get(6).getMessage(),
+                "[EAL025031] AsyncBatchExecutor ABNORMAL END");
 
     }
 
@@ -582,30 +586,30 @@ public class ConnectionRetryInterceptorTest {
                         null);
         assertNull(connectionRetryInterceptor.invoke(mockMethodInvocation));
         verify(mockMethodInvocation, times(5)).proceed();
-        assertTrue(logger.getLoggingEvents().get(0).getLevel() == Level.INFO
-                && logger.getLoggingEvents().get(0).getMessage().equals(
-                        "[IAL025017] retry: 1 ms, retryMax : 3 ms, retryReset : 300 ms, retryInterval : 500"));
-        assertTrue(logger.getLoggingEvents().get(1).getLevel() == Level.TRACE
-                && logger.getLoggingEvents().get(1).getMessage().contains(
-                        "[TAL025010] Java memory info"));
-        assertTrue(logger.getLoggingEvents().get(2).getLevel() == Level.INFO
-                && logger.getLoggingEvents().get(2).getMessage().equals(
-                        "[IAL025017] retry: 1 ms, retryMax : 3 ms, retryReset : 300 ms, retryInterval : 500"));
-        assertTrue(logger.getLoggingEvents().get(3).getLevel() == Level.TRACE
-                && logger.getLoggingEvents().get(3).getMessage().contains(
-                        "[TAL025010] Java memory info"));
-        assertTrue(logger.getLoggingEvents().get(4).getLevel() == Level.INFO
-                && logger.getLoggingEvents().get(4).getMessage().equals(
-                        "[IAL025017] retry: 1 ms, retryMax : 3 ms, retryReset : 300 ms, retryInterval : 500"));
-        assertTrue(logger.getLoggingEvents().get(5).getLevel() == Level.TRACE
-                && logger.getLoggingEvents().get(5).getMessage().contains(
-                        "[TAL025010] Java memory info"));
-        assertTrue(logger.getLoggingEvents().get(6).getLevel() == Level.INFO
-                && logger.getLoggingEvents().get(6).getMessage().equals(
-                        "[IAL025017] retry: 1 ms, retryMax : 3 ms, retryReset : 300 ms, retryInterval : 500"));
-        assertTrue(logger.getLoggingEvents().get(7).getLevel() == Level.TRACE
-                && logger.getLoggingEvents().get(7).getMessage().contains(
-                        "[TAL025010] Java memory info"));
+        assertEquals(logger.getLoggingEvents().get(0).getLevel(), Level.INFO);
+        assertEquals(logger.getLoggingEvents().get(0).getMessage(),
+                "[IAL025017] retry: 1 ms, retryMax : 3 ms, retryReset : 300 ms, retryInterval : 500");
+        assertEquals(logger.getLoggingEvents().get(1).getLevel(), Level.TRACE);
+        assertTrue(logger.getLoggingEvents().get(1).getMessage().contains(
+                "[TAL025010] Java memory info"));
+        assertEquals(logger.getLoggingEvents().get(2).getLevel(), Level.INFO);
+        assertEquals(logger.getLoggingEvents().get(2).getMessage(),
+                "[IAL025017] retry: 1 ms, retryMax : 3 ms, retryReset : 300 ms, retryInterval : 500");
+        assertEquals(logger.getLoggingEvents().get(3).getLevel(), Level.TRACE);
+        assertTrue(logger.getLoggingEvents().get(3).getMessage().contains(
+                "[TAL025010] Java memory info"));
+        assertEquals(logger.getLoggingEvents().get(4).getLevel(), Level.INFO);
+        assertEquals(logger.getLoggingEvents().get(4).getMessage(),
+                "[IAL025017] retry: 1 ms, retryMax : 3 ms, retryReset : 300 ms, retryInterval : 500");
+        assertEquals(logger.getLoggingEvents().get(5).getLevel(), Level.TRACE);
+        assertTrue(logger.getLoggingEvents().get(5).getMessage().contains(
+                "[TAL025010] Java memory info"));
+        assertEquals(logger.getLoggingEvents().get(6).getLevel(), Level.INFO);
+        assertEquals(logger.getLoggingEvents().get(6).getMessage(),
+                "[IAL025017] retry: 1 ms, retryMax : 3 ms, retryReset : 300 ms, retryInterval : 500");
+        assertEquals(logger.getLoggingEvents().get(7).getLevel(), Level.TRACE);
+        assertTrue(logger.getLoggingEvents().get(7).getMessage().contains(
+                "[TAL025010] Java memory info"));
 
     }
 
