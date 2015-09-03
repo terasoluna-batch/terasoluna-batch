@@ -299,7 +299,7 @@ public final class LogId {
      */
     public static final String IAL025003 = "IAL025003";
     /**
-     * <strong>IAL025004 = ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãŒåˆ¤å®šåŸºæº–å¤–(ã‚¸ãƒ§ãƒ–ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã‚³ãƒ¼ãƒ‰:{0} blogicã®æˆ»ã‚Šå€¤:{1} ã‚¤ãƒ™ãƒ³ãƒˆ:{2} ã‚¸ãƒ§ãƒ–ãƒ¬ã‚³ãƒ¼ãƒ‰ã®ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹å€¤:{3} åˆ¤å®š:{4})</strong>
+     * <strong>IAL025004 = ƒXƒe[ƒ^ƒX‚ª”»’èŠî€ŠO(ƒWƒ‡ƒuƒV[ƒPƒ“ƒXƒR[ƒh:{0} blogic‚Ì–ß‚è’l:{1} ƒCƒxƒ“ƒg:{2} ƒWƒ‡ƒuƒŒƒR[ƒh‚ÌƒXƒe[ƒ^ƒX’l:{3} ”»’è:{4})</strong>
      */
     public static final String IAL025004 = "IAL025004";
     /**
@@ -402,6 +402,10 @@ public final class LogId {
      * <strong>WAL025013 = An unexpected event has detected at the job status update processing. It will be attempt to roll-back. jobSequenceId:{0}</strong>
      */
     public static final String WAL025013 = "WAL025013";
+    /**
+     * <strong>WAL025014 = The BLogic execution continues without an ExceptionHandler.</strong>
+     */
+    public static final String WAL025014 = "WAL025014";
     /**
      * <strong>EAL025001 = At the end of the transaction error.</strong>
      */
@@ -655,7 +659,7 @@ public final class LogId {
      */
     public static final String EAL025067 = "EAL025067";
     /**
-     * <strong>EAL025068 = JobSequenceId:{0} execution was faild </strong>
+     * <strong>EAL025068 = JobSequenceId:{0} : The previous processing of the BLogic execution has failed.</strong>
      */
     public static final String EAL025068 = "EAL025068";
     /**
@@ -750,4 +754,8 @@ public final class LogId {
      * <strong>EAL025092 = invalid format in batch.properties, key: {0}</strong>
      */
     public static final String EAL025092 = "EAL025092";
+    /**
+     * <strong>EAL025093 = JobSequenceId:{0} : The BLogic execution has failed during processing.</strong>
+     */
+    public static final String EAL025093 = "EAL025093";
 }
