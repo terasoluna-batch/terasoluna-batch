@@ -25,14 +25,18 @@ import javax.sql.DataSource;
 
 import org.junit.After;
 import org.junit.Test;
-
-import jp.terasoluna.utlib.MockDataSource;
-import static org.mockito.Mockito.*;
 import org.springframework.test.util.ReflectionTestUtils;
+import jp.terasoluna.utlib.MockDataSource;
 
+import static org.mockito.Mockito.*;
 import uk.org.lidalia.slf4jext.Level;
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
+import static uk.org.lidalia.slf4jtest.LoggingEvent.warn;
+import static uk.org.lidalia.slf4jtest.LoggingEvent.debug;
+import static java.util.Arrays.asList;
+import static org.hamcrest.core.Is.*;
+import static org.junit.Assert.*;
 
 /**
  * {@link jp.terasoluna.fw.message.DBMessageQuery} クラスのブラックボックステスト。
@@ -338,6 +342,7 @@ public class DBMessageQueryTest {
         logger.clear();
 
         // テスト実施
+        logger.clear();
         DBMessage dbmReturn = (DBMessage) db.mapRow(rs, rowNum);
 
         // 判定
@@ -346,9 +351,7 @@ public class DBMessageQueryTest {
         assertEquals("", dbmReturn.getCountry());
         assertEquals("", dbmReturn.getVariant());
         assertEquals("", dbmReturn.getMessage());
-
-        assertTrue(logger.getLoggingEvents().get(0).getMessage().contains(
-                "MessageCode is null") && logger.getLoggingEvents().get(0)
-                        .getLevel() == Level.WARN);
+        assertThat(logger.getLoggingEvents(), is(asList(warn(
+                "MessageCode is null"), debug(",,,,"))));
     }
 }

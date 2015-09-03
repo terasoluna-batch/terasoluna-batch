@@ -40,10 +40,10 @@ import org.apache.commons.jxpath.JXPathInvalidSyntaxException;
 import uk.org.lidalia.slf4jext.Level;
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
+import org.springframework.test.util.ReflectionTestUtils;
 
 import org.junit.After;
 import org.junit.Test;
-import org.springframework.test.util.ReflectionTestUtils;
 
 /**
  * {@link jp.terasoluna.fw.beans.JXPathIndexedBeanWrapperImpl} クラスのブラックボックステスト。
@@ -576,7 +576,6 @@ public class JXPathIndexedBeanWrapperImplTest01 {
         // 前処理
         JXPathIndexedBeanWrapperImpl_JavaBeanStub01 bean = new JXPathIndexedBeanWrapperImpl_JavaBeanStub01();
         bean.setProperty5(new int[] {});
-
         JXPathIndexedBeanWrapperImpl bw = new JXPathIndexedBeanWrapperImpl(bean);
 
         // テスト実施

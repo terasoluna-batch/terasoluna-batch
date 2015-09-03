@@ -19,7 +19,6 @@ package jp.terasoluna.fw.beans.jxpath;
 import static org.junit.Assert.assertSame;
 
 import java.util.Locale;
-
 import java.lang.reflect.Field;
 import org.apache.commons.jxpath.DynamicPropertyHandler;
 import org.apache.commons.jxpath.MapDynamicPropertyHandler;

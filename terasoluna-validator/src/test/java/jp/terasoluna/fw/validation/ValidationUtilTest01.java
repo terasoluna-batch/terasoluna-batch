@@ -23,7 +23,6 @@ import org.junit.Before;
 import org.junit.Test;
 import java.lang.reflect.Field;
 
-
 /**
  * {@link jp.terasoluna.fw.validation.ValidationUtil} クラスのブラックボックステスト。
  * <p>

@@ -27,8 +27,9 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+import org.springframework.test.util.ReflectionTestUtils;
+
 import jp.terasoluna.utlib.MockDataSource;
-import jp.terasoluna.utlib.UTUtil;
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
 import static uk.org.lidalia.slf4jtest.LoggingEvent.error;
@@ -36,7 +37,6 @@ import static java.util.Arrays.asList;
 import static org.hamcrest.core.Is.*;
 import static org.junit.Assert.*;
 import org.junit.Test;
-import org.springframework.test.util.ReflectionTestUtils;
 
 /**
  * {@link jp.terasoluna.fw.message.DBMessageResourceDAOImpl} クラスのブラックボックステスト。

@@ -18,7 +18,6 @@ package jp.terasoluna.fw.util;
 
 import java.io.File;
 import java.lang.reflect.Method;
-
 import org.springframework.test.util.ReflectionTestUtils;
 
 import org.junit.After;
