@@ -23,7 +23,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import jp.terasoluna.fw.file.ut.VMOUTUtil;
-import jp.terasoluna.utlib.UTUtil;
+import org.springframework.test.util.ReflectionTestUtils;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.DateColumnFormatter} クラスのテスト。
@@ -78,13 +78,13 @@ public class DateColumnFormatterTest {
 
         // 引数の設定
         DateColumnFormatter_Stub01 stub = new DateColumnFormatter_Stub01();
-        UTUtil.setPrivateField(stub, "date", new Date(0));
+        ReflectionTestUtils.setField(stub, "date", new Date(0));
         Method method = stub.getClass().getMethod("getDate");
         String columnFormat = null;
 
         // 前提条件の設定
         Map<String, DateFormatLocal> map = new ConcurrentHashMap<String, DateFormatLocal>();
-        UTUtil.setPrivateField(columnFormatter, "map", map);
+        ReflectionTestUtils.setField(columnFormatter, "map", map);
 
         // テスト実施
         String testResult = columnFormatter.format(stub, method, columnFormat);
@@ -99,7 +99,7 @@ public class DateColumnFormatterTest {
         List arguments = VMOUTUtil.getArguments(Map.class, "put", 0);
         assertEquals("yyyyMMdd", arguments.get(0));
         assertTrue(arguments.get(1) instanceof DateFormatLocal);
-        Map getMap = (Map) UTUtil.getPrivateField(columnFormatter, "map");
+        Map getMap = (Map) ReflectionTestUtils.getField(columnFormatter, "map");
         assertEquals(1, getMap.size());
         assertEquals(1, VMOUTUtil.getCallCount(DateFormatLocal.class, "<init>"));
         assertEquals("yyyyMMdd", VMOUTUtil.getArgument(DateFormatLocal.class,
@@ -140,14 +140,14 @@ public class DateColumnFormatterTest {
 
         // 引数の設定
         DateColumnFormatter_Stub01 stub = new DateColumnFormatter_Stub01();
-        UTUtil.setPrivateField(stub, "date", new Date(0));
+        ReflectionTestUtils.setField(stub, "date", new Date(0));
         Method method = stub.getClass().getMethod("getDate");
         String columnFormat = "";
 
         // 前提条件の設定
         Map<String, DateFormatLocal> map = new ConcurrentHashMap<String, DateFormatLocal>();
         map.put("yyyyMMdd", new DateFormatLocal("yyyyMMdd"));
-        UTUtil.setPrivateField(columnFormatter, "map", map);
+        ReflectionTestUtils.setField(columnFormatter, "map", map);
 
         VMOUTUtil.initialize();
 
@@ -201,14 +201,14 @@ public class DateColumnFormatterTest {
 
         // 引数の設定
         DateColumnFormatter_Stub01 stub = new DateColumnFormatter_Stub01();
-        UTUtil.setPrivateField(stub, "date", new Date(0));
+        ReflectionTestUtils.setField(stub, "date", new Date(0));
         Method method = stub.getClass().getMethod("getDate");
         String columnFormat = "";
 
         // 前提条件の設定
         Map<String, DateFormatLocal> map = new ConcurrentHashMap<String, DateFormatLocal>();
         map.put("yyyy-MM-dd", new DateFormatLocal("yyyy-MM-dd"));
-        UTUtil.setPrivateField(columnFormatter, "map", map);
+        ReflectionTestUtils.setField(columnFormatter, "map", map);
 
         VMOUTUtil.initialize();
 
@@ -225,7 +225,7 @@ public class DateColumnFormatterTest {
         List arguments = VMOUTUtil.getArguments(Map.class, "put", 0);
         assertEquals("yyyyMMdd", arguments.get(0));
         assertTrue(arguments.get(1) instanceof DateFormatLocal);
-        Map getMap = (Map) UTUtil.getPrivateField(columnFormatter, "map");
+        Map getMap = (Map) ReflectionTestUtils.getField(columnFormatter, "map");
         assertEquals(2, getMap.size());
         assertEquals(1, VMOUTUtil.getCallCount(DateFormatLocal.class, "<init>"));
         assertEquals("yyyyMMdd", VMOUTUtil.getArgument(DateFormatLocal.class,
@@ -266,13 +266,13 @@ public class DateColumnFormatterTest {
 
         // 引数の設定
         DateColumnFormatter_Stub01 stub = new DateColumnFormatter_Stub01();
-        UTUtil.setPrivateField(stub, "date", new Date(0));
+        ReflectionTestUtils.setField(stub, "date", new Date(0));
         Method method = stub.getClass().getMethod("getDate");
         String columnFormat = "yyyy/MM/dd";
 
         // 前提条件の設定
         Map<String, DateFormatLocal> map = new ConcurrentHashMap<String, DateFormatLocal>();
-        UTUtil.setPrivateField(columnFormatter, "map", map);
+        ReflectionTestUtils.setField(columnFormatter, "map", map);
 
         // テスト実施
         String testResult = columnFormatter.format(stub, method, columnFormat);
@@ -288,7 +288,7 @@ public class DateColumnFormatterTest {
         List arguments = VMOUTUtil.getArguments(Map.class, "put", 0);
         assertEquals(columnFormat, arguments.get(0));
         assertTrue(arguments.get(1) instanceof DateFormatLocal);
-        Map getMap = (Map) UTUtil.getPrivateField(columnFormatter, "map");
+        Map getMap = (Map) ReflectionTestUtils.getField(columnFormatter, "map");
         assertEquals(1, getMap.size());
         assertEquals(1, VMOUTUtil.getCallCount(DateFormatLocal.class, "<init>"));
         assertEquals(columnFormat, VMOUTUtil.getArgument(DateFormatLocal.class,
@@ -329,14 +329,14 @@ public class DateColumnFormatterTest {
 
         // 引数の設定
         DateColumnFormatter_Stub01 stub = new DateColumnFormatter_Stub01();
-        UTUtil.setPrivateField(stub, "date", new Date(0));
+        ReflectionTestUtils.setField(stub, "date", new Date(0));
         Method method = stub.getClass().getMethod("getDate");
         String columnFormat = "yyyy/MM/dd";
 
         // 前提条件の設定
         Map<String, DateFormatLocal> map = new ConcurrentHashMap<String, DateFormatLocal>();
         map.put(columnFormat, new DateFormatLocal(columnFormat));
-        UTUtil.setPrivateField(columnFormatter, "map", map);
+        ReflectionTestUtils.setField(columnFormatter, "map", map);
 
         VMOUTUtil.initialize();
 
@@ -389,14 +389,14 @@ public class DateColumnFormatterTest {
 
         // 引数の設定
         DateColumnFormatter_Stub01 stub = new DateColumnFormatter_Stub01();
-        UTUtil.setPrivateField(stub, "date", new Date(0));
+        ReflectionTestUtils.setField(stub, "date", new Date(0));
         Method method = stub.getClass().getMethod("getDate");
         String columnFormat = "yyyy/MM/dd";
 
         // 前提条件の設定
         Map<String, DateFormatLocal> map = new ConcurrentHashMap<String, DateFormatLocal>();
         map.put("yyyy-MM-dd", new DateFormatLocal("yyyy-MM-dd"));
-        UTUtil.setPrivateField(columnFormatter, "map", map);
+        ReflectionTestUtils.setField(columnFormatter, "map", map);
 
         VMOUTUtil.initialize();
 
@@ -414,7 +414,7 @@ public class DateColumnFormatterTest {
         List arguments = VMOUTUtil.getArguments(Map.class, "put", 0);
         assertEquals(columnFormat, arguments.get(0));
         assertTrue(arguments.get(1) instanceof DateFormatLocal);
-        Map getMap = (Map) UTUtil.getPrivateField(columnFormatter, "map");
+        Map getMap = (Map) ReflectionTestUtils.getField(columnFormatter, "map");
         assertEquals(2, getMap.size());
         assertEquals(1, VMOUTUtil.getCallCount(DateFormatLocal.class, "<init>"));
         assertEquals(columnFormat, VMOUTUtil.getArgument(DateFormatLocal.class,
@@ -450,7 +450,7 @@ public class DateColumnFormatterTest {
 
         // 引数の設定
         DateColumnFormatter_Stub02 stub = new DateColumnFormatter_Stub02();
-        UTUtil.setPrivateField(stub, "date", new Date(0));
+        ReflectionTestUtils.setField(stub, "date", new Date(0));
         Method method = stub.getClass().getDeclaredMethod("getDate");
         String columnFormat = "yyyy/MM/dd";
 
@@ -497,7 +497,7 @@ public class DateColumnFormatterTest {
 
         // 引数の設定
         DateColumnFormatter_Stub03 stub = new DateColumnFormatter_Stub03();
-        UTUtil.setPrivateField(stub, "date", new Date(0));
+        ReflectionTestUtils.setField(stub, "date", new Date(0));
         Method method = stub.getClass().getMethod("getDate");
         String columnFormat = "yyyy/MM/dd";
 
@@ -543,7 +543,7 @@ public class DateColumnFormatterTest {
 
         // 引数の設定
         DateColumnFormatter_Stub04 stub = new DateColumnFormatter_Stub04();
-        UTUtil.setPrivateField(stub, "date", new Date(0));
+        ReflectionTestUtils.setField(stub, "date", new Date(0));
         Method method = stub.getClass().getMethod("getDate",
                 new Class[] { Date.class });
         String columnFormat = "yyyy/MM/dd";
@@ -590,13 +590,13 @@ public class DateColumnFormatterTest {
 
         // 引数の設定
         DateColumnFormatter_Stub01 stub = new DateColumnFormatter_Stub01();
-        UTUtil.setPrivateField(stub, "date", new Date(0));
+        ReflectionTestUtils.setField(stub, "date", new Date(0));
         Method method = stub.getClass().getMethod("getDate");
         String columnFormat = "AAA";
 
         // 前提条件の設定
         Map<String, DateFormatLocal> map = new ConcurrentHashMap<String, DateFormatLocal>();
-        UTUtil.setPrivateField(columnFormatter, "map", map);
+        ReflectionTestUtils.setField(columnFormatter, "map", map);
 
         // テスト実施
         try {
@@ -648,7 +648,7 @@ public class DateColumnFormatterTest {
 
         // 前提条件の設定
         Map<String, DateFormatLocal> map = new ConcurrentHashMap<String, DateFormatLocal>();
-        UTUtil.setPrivateField(columnFormatter, "map", map);
+        ReflectionTestUtils.setField(columnFormatter, "map", map);
 
         // テスト実施
         String testResult = columnFormatter.format(stub, method, columnFormat);
@@ -690,13 +690,13 @@ public class DateColumnFormatterTest {
 
         // 引数の設定
         DateColumnFormatter_Stub01 stub = new DateColumnFormatter_Stub01();
-        UTUtil.setPrivateField(stub, "date", new Date(0));
+        ReflectionTestUtils.setField(stub, "date", new Date(0));
         Method method = stub.getClass().getMethod("getDate");
         String columnFormat = "yyyy/MM/dd";
 
         // 前提条件の設定
         Map<String, DateFormatLocal> map = new ConcurrentHashMap<String, DateFormatLocal>();
-        UTUtil.setPrivateField(columnFormatter, "map", map);
+        ReflectionTestUtils.setField(columnFormatter, "map", map);
 
         // テスト実施
         try {

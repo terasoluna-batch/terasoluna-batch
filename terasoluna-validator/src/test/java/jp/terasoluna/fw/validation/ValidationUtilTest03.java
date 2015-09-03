@@ -17,11 +17,11 @@
 package jp.terasoluna.fw.validation;
 
 import jp.terasoluna.fw.validation.PropertyTestCase;
-import jp.terasoluna.utlib.UTUtil;
 import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import java.lang.reflect.Field;
 
 /**
  * {@link jp.terasoluna.fw.validation.ValidationUtil} クラスのブラックボックステスト。
@@ -38,11 +38,15 @@ public class ValidationUtilTest03 extends PropertyTestCase {
      */
     @Before
     public void setUpData() throws Exception {
-        UTUtil.setPrivateField(ValidationUtil.class, "hankakuKanaList",
+        Field field = ValidationUtil.class.getDeclaredField("hankakuKanaList");
+        field.setAccessible(true);
+        field.set(ValidationUtil.class,
                 "ｱｲｳｴｵｧｨｩｪｫｶｷｸｹｺｻｼｽｾｿﾀﾁﾂｯﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖｬｭｮﾗﾘﾙﾚﾛﾜｦﾝﾟﾞｰ･､｡｢｣");
-        UTUtil.setPrivateField(ValidationUtil.class, "zenkakuKanaList",
-                "アイウヴエオァィゥェォカキクケコヵヶガギグゲゴサシスセソ" + "ザジズゼゾタチツテトダヂヅデドナニヌネノハヒフヘホ"
-                        + "バビブベボパピプペポマミムメモヤユヨャュョラリルレロ" + "ワヮヰヱヲッンー");
+        field = ValidationUtil.class.getDeclaredField("zenkakuKanaList");
+        field.setAccessible(true);
+        field.set(ValidationUtil.class, "アイウヴエオァィゥェォカキクケコヵヶガギグゲゴサシスセソ"
+                + "ザジズゼゾタチツテトダヂヅデドナニヌネノハヒフヘホ" + "バビブベボパピプペポマミムメモヤユヨャュョラリルレロ"
+                + "ワヮヰヱヲッンー");
     }
 
     /**

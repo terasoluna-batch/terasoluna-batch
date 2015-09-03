@@ -20,7 +20,7 @@ import org.junit.Test;
 
 import jp.terasoluna.fw.file.dao.FileLineIterator;
 import jp.terasoluna.fw.file.ut.VMOUTUtil;
-import jp.terasoluna.utlib.UTUtil;
+import org.springframework.test.util.ReflectionTestUtils;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.FixedFileQueryDAO} クラスのテスト。
@@ -79,7 +79,7 @@ public class FixedFileQueryDAOTest {
         Map<String, ColumnParser> columnParser = new HashMap<String, ColumnParser>();
         ColumnParser parser = new FixedFileQueryDAO_ColumnParserStub01();
         columnParser.put("java.lang.String", parser);
-        UTUtil.setPrivateField(fileQueryDAO, "columnParserMap", columnParser);
+        ReflectionTestUtils.setField(fileQueryDAO, "columnParserMap", columnParser);
 
         // テスト実施
         FileLineIterator fileLineiterator = fileQueryDAO.execute(fileName,

@@ -17,7 +17,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import jp.terasoluna.fw.file.ut.VMOUTUtil;
-import jp.terasoluna.utlib.UTUtil;
+import org.springframework.test.util.ReflectionTestUtils;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.NullColumnFormatter} クラスのテスト。
@@ -66,7 +66,7 @@ public class NullColumnFormatterTest {
 
         // 引数の設定
         NullColumnFormatter_Stub01 stub = new NullColumnFormatter_Stub01();
-        UTUtil.setPrivateField(stub, "string", "aaa");
+        ReflectionTestUtils.setField(stub, "string", "aaa");
         Method method = stub.getClass().getDeclaredMethod("getString");
         String columnFormat = new String();
 
@@ -110,7 +110,7 @@ public class NullColumnFormatterTest {
 
         // 引数の設定
         NullColumnFormatter_Stub02 stub = new NullColumnFormatter_Stub02();
-        UTUtil.setPrivateField(stub, "string", "aaa");
+        ReflectionTestUtils.setField(stub, "string", "aaa");
         Method method = stub.getClass().getDeclaredMethod("getString");
         String columnFormat = new String();
 
@@ -157,7 +157,7 @@ public class NullColumnFormatterTest {
 
         // 引数の設定
         NullColumnFormatter_Stub03 stub = new NullColumnFormatter_Stub03();
-        UTUtil.setPrivateField(stub, "string", "aaa");
+        ReflectionTestUtils.setField(stub, "string", "aaa");
         Method method = stub.getClass().getMethod("getString");
         String columnFormat = new String();
 
@@ -204,7 +204,7 @@ public class NullColumnFormatterTest {
 
         // 引数の設定
         NullColumnFormatter_Stub04 stub = new NullColumnFormatter_Stub04();
-        UTUtil.setPrivateField(stub, "string", "aaa");
+        ReflectionTestUtils.setField(stub, "string", "aaa");
         Method method = stub.getClass().getDeclaredMethod("getString",
                 new Class[] { String.class });
         String columnFormat = new String();
@@ -335,7 +335,7 @@ public class NullColumnFormatterTest {
 
         // 引数の設定
         NullColumnFormatter_Stub01 stub = new NullColumnFormatter_Stub01();
-        UTUtil.setPrivateField(stub, "string", "aaa");
+        ReflectionTestUtils.setField(stub, "string", "aaa");
         String columnFormat = new String();
 
         // 前提条件なし
@@ -381,7 +381,7 @@ public class NullColumnFormatterTest {
 
         // 引数の設定
         NullColumnFormatter_Stub01 stub = new NullColumnFormatter_Stub01();
-        UTUtil.setPrivateField(stub, "string", "aaa");
+        ReflectionTestUtils.setField(stub, "string", "aaa");
         Method method = stub.getClass().getDeclaredMethod("getString");
         String columnFormat = null;
 

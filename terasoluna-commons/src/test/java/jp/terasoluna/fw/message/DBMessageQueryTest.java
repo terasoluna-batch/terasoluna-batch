@@ -27,8 +27,8 @@ import org.junit.After;
 import org.junit.Test;
 
 import jp.terasoluna.utlib.MockDataSource;
-import jp.terasoluna.utlib.UTUtil;
 import static org.mockito.Mockito.*;
+import org.springframework.test.util.ReflectionTestUtils;
 
 import uk.org.lidalia.slf4jext.Level;
 import uk.org.lidalia.slf4jtest.TestLogger;
@@ -87,12 +87,15 @@ public class DBMessageQueryTest {
         // テスト実施
 
         // 判定
-        assertEquals("CODE", UTUtil.getPrivateField(db, "rsCodeColumn"));
-        assertEquals("LANGUAGE", UTUtil.getPrivateField(db,
+        assertEquals("CODE", ReflectionTestUtils.getField(db, "rsCodeColumn"));
+        assertEquals("LANGUAGE", ReflectionTestUtils.getField(db,
                 "rsLanguageColumn"));
-        assertEquals("COUNTRY", UTUtil.getPrivateField(db, "rsCountryColumn"));
-        assertEquals("VARIANT", UTUtil.getPrivateField(db, "rsVariantColumn"));
-        assertEquals("MESSAGE", UTUtil.getPrivateField(db, "rsMessageColumn"));
+        assertEquals("COUNTRY", ReflectionTestUtils.getField(db,
+                "rsCountryColumn"));
+        assertEquals("VARIANT", ReflectionTestUtils.getField(db,
+                "rsVariantColumn"));
+        assertEquals("MESSAGE", ReflectionTestUtils.getField(db,
+                "rsMessageColumn"));
         assertTrue(db.isCompiled());
     }
 
@@ -129,11 +132,11 @@ public class DBMessageQueryTest {
         // テスト実施
 
         // 判定
-        assertEquals("", UTUtil.getPrivateField(db, "rsCodeColumn"));
-        assertEquals("", UTUtil.getPrivateField(db, "rsLanguageColumn"));
-        assertEquals("", UTUtil.getPrivateField(db, "rsCountryColumn"));
-        assertEquals("", UTUtil.getPrivateField(db, "rsVariantColumn"));
-        assertEquals("", UTUtil.getPrivateField(db, "rsMessageColumn"));
+        assertEquals("", ReflectionTestUtils.getField(db, "rsCodeColumn"));
+        assertEquals("", ReflectionTestUtils.getField(db, "rsLanguageColumn"));
+        assertEquals("", ReflectionTestUtils.getField(db, "rsCountryColumn"));
+        assertEquals("", ReflectionTestUtils.getField(db, "rsVariantColumn"));
+        assertEquals("", ReflectionTestUtils.getField(db, "rsMessageColumn"));
         assertTrue(db.isCompiled());
     }
 
@@ -170,11 +173,11 @@ public class DBMessageQueryTest {
         // テスト実施
 
         // 判定
-        assertNull(UTUtil.getPrivateField(db, "rsCodeColumn"));
-        assertNull(UTUtil.getPrivateField(db, "rsLanguageColumn"));
-        assertNull(UTUtil.getPrivateField(db, "rsCountryColumn"));
-        assertNull(UTUtil.getPrivateField(db, "rsVariantColumn"));
-        assertNull(UTUtil.getPrivateField(db, "rsMessageColumn"));
+        assertNull(ReflectionTestUtils.getField(db, "rsCodeColumn"));
+        assertNull(ReflectionTestUtils.getField(db, "rsLanguageColumn"));
+        assertNull(ReflectionTestUtils.getField(db, "rsCountryColumn"));
+        assertNull(ReflectionTestUtils.getField(db, "rsVariantColumn"));
+        assertNull(ReflectionTestUtils.getField(db, "rsMessageColumn"));
         assertTrue(db.isCompiled());
     }
 

@@ -18,8 +18,9 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 
+import org.springframework.test.util.ReflectionTestUtils;
+
 import jp.terasoluna.fw.file.dao.FileException;
-import jp.terasoluna.utlib.UTUtil;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -73,8 +74,8 @@ public class LineFeed2LineReaderTest {
         // なし
 
         // 状態変化の確認
-        assertSame(reader, UTUtil.getPrivateField(result, "reader"));
-        assertEquals(lineFeedChar, UTUtil.getPrivateField(result,
+        assertSame(reader, ReflectionTestUtils.getField(result, "reader"));
+        assertEquals(lineFeedChar, ReflectionTestUtils.getField(result,
                 "lineFeedChar"));
     }
 
@@ -256,7 +257,8 @@ public class LineFeed2LineReaderTest {
 
             // 状態変化の確認
             assertSame(FileException.class, e.getClass());
-            assertEquals("Reader control operation was failed.", e.getMessage());
+            assertEquals("Reader control operation was failed.", e
+                    .getMessage());
             assertSame(IOException.class, e.getCause().getClass());
         }
     }
@@ -437,7 +439,8 @@ public class LineFeed2LineReaderTest {
 
             // 状態変化の確認
             assertSame(FileException.class, e.getClass());
-            assertEquals("Reader control operation was failed.", e.getMessage());
+            assertEquals("Reader control operation was failed.", e
+                    .getMessage());
             assertSame(IOException.class, e.getCause().getClass());
         }
     }

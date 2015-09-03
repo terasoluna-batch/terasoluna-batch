@@ -51,6 +51,7 @@ import jp.terasoluna.utlib.UTUtil;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.test.util.ReflectionTestUtils;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.AbstractFileLineWriter} クラスのテスト。
@@ -71,7 +72,7 @@ public class AbstractFileLineWriterTest<T> {
         VMOUTUtil.initialize();
         // ファイルの初期化
         File file = new File(TEMP_FILE_NAME);
-//        file.delete();
+        // file.delete();
         while (!file.delete()) {
             System.gc();
         }
@@ -129,21 +130,22 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
         // テスト実施
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub01> result = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub01>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub01> result = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub01>(fileName, clazz, columnFormatterMap);
 
         // 判定(戻り値)
         assertNotNull(result);
 
-        assertSame(fileName, UTUtil.getPrivateField(result, "fileName"));
+        assertSame(fileName, ReflectionTestUtils.getField(result, "fileName"));
 
-        assertSame(clazz, UTUtil.getPrivateField(result, "clazz"));
+        assertSame(clazz, ReflectionTestUtils.getField(result, "clazz"));
 
-        assertEquals("\r", UTUtil.getPrivateField(result, "lineFeedChar"));
+        assertEquals("\r", ReflectionTestUtils.getField(result,
+                "lineFeedChar"));
 
-        assertEquals("UTF-8", UTUtil.getPrivateField(result, "fileEncoding"));
+        assertEquals("UTF-8", ReflectionTestUtils.getField(result,
+                "fileEncoding"));
 
-        assertSame(columnFormatterMap, UTUtil.getPrivateField(result,
+        assertSame(columnFormatterMap, ReflectionTestUtils.getField(result,
                 "columnFormatterMap"));
     }
 
@@ -188,8 +190,7 @@ public class AbstractFileLineWriterTest<T> {
 
         // テスト実施
         try {
-            new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub01>(
-                    fileName, clazz, columnFormatterMap);
+            new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub01>(fileName, clazz, columnFormatterMap);
             fail("FileExceptionが発生しませんでした。");
         } catch (FileException e) {
             // 判定(例外)
@@ -239,8 +240,7 @@ public class AbstractFileLineWriterTest<T> {
 
         // テスト実施
         try {
-            new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub02>(
-                    fileName, clazz, columnFormatterMap);
+            new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub02>(fileName, clazz, columnFormatterMap);
             fail("FileExceptionが発生しませんでした。");
         } catch (FileException e) {
             // 判定(例外)
@@ -248,8 +248,8 @@ public class AbstractFileLineWriterTest<T> {
 
             assertEquals("FileFormat annotation is not found.", e.getMessage());
 
-            assertTrue(IllegalStateException.class.isAssignableFrom(e
-                    .getCause().getClass()));
+            assertTrue(IllegalStateException.class.isAssignableFrom(e.getCause()
+                    .getClass()));
 
             assertEquals(fileName, e.getFileName());
         }
@@ -300,22 +300,19 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
         // テスト実施
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub03> result = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub03>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub03> result = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub03>(fileName, clazz, columnFormatterMap);
         // 判定(戻り値)
         assertNotNull(result);
 
-        assertSame(fileName, UTUtil.getPrivateField(result, "fileName"));
+        assertSame(fileName, ReflectionTestUtils.getField(result, "fileName"));
 
-        assertSame(clazz, UTUtil.getPrivateField(result, "clazz"));
+        assertSame(clazz, ReflectionTestUtils.getField(result, "clazz"));
 
-        assertEquals(System.getProperty("line.separator"), UTUtil
-                .getPrivateField(result, "lineFeedChar"));
+        assertEquals(System.getProperty("line.separator"), ReflectionTestUtils.getField(result, "lineFeedChar"));
 
-        assertEquals(System.getProperty("file.encoding"), UTUtil
-                .getPrivateField(result, "fileEncoding"));
+        assertEquals(System.getProperty("file.encoding"), ReflectionTestUtils.getField(result, "fileEncoding"));
 
-        assertSame(columnFormatterMap, UTUtil.getPrivateField(result,
+        assertSame(columnFormatterMap, ReflectionTestUtils.getField(result,
                 "columnFormatterMap"));
     }
 
@@ -362,8 +359,7 @@ public class AbstractFileLineWriterTest<T> {
         // テスト実施
         // テスト実施
         try {
-            new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub04>(
-                    fileName, clazz, columnFormatterMap);
+            new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub04>(fileName, clazz, columnFormatterMap);
             fail("FileExceptionが発生しませんでした。");
         } catch (FileException e) {
             // 判定(例外)
@@ -372,8 +368,8 @@ public class AbstractFileLineWriterTest<T> {
             assertEquals("Delimiter is the same as EncloseChar and is no use.",
                     e.getMessage());
 
-            assertTrue(IllegalStateException.class.isAssignableFrom(e
-                    .getCause().getClass()));
+            assertTrue(IllegalStateException.class.isAssignableFrom(e.getCause()
+                    .getClass()));
 
             assertEquals(fileName, e.getFileName());
         }
@@ -421,8 +417,7 @@ public class AbstractFileLineWriterTest<T> {
 
         // テスト実施
         try {
-            new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub01>(
-                    fileName, clazz, columnFormatterMap);
+            new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub01>(fileName, clazz, columnFormatterMap);
             fail("FileExceptionが発生しませんでした。");
         } catch (FileException e) {
             // 判定(例外)
@@ -470,8 +465,7 @@ public class AbstractFileLineWriterTest<T> {
 
         // テスト実施
         try {
-            new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub01>(
-                    fileName, clazz, columnFormatterMap);
+            new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub01>(fileName, clazz, columnFormatterMap);
             fail("FileExceptionが発生しませんでした。");
         } catch (FileException e) {
             // 判定(例外)
@@ -522,8 +516,7 @@ public class AbstractFileLineWriterTest<T> {
 
         // テスト実施
         try {
-            new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub01>(
-                    fileName, clazz, columnFormatterMap);
+            new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub01>(fileName, clazz, columnFormatterMap);
             fail("FileExceptionが発生しませんでした。");
         } catch (FileException e) {
             // 判定(例外)
@@ -574,8 +567,7 @@ public class AbstractFileLineWriterTest<T> {
 
         // テスト実施
         try {
-            new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub01>(
-                    fileName, clazz, columnFormatterMap);
+            new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub01>(fileName, clazz, columnFormatterMap);
             fail("FileExceptionが発生しませんでした。");
         } catch (FileException e) {
             // 判定(例外)
@@ -630,8 +622,7 @@ public class AbstractFileLineWriterTest<T> {
 
         // テスト実施
         try {
-            new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub05>(
-                    fileName, clazz, columnFormatterMap);
+            new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub05>(fileName, clazz, columnFormatterMap);
             fail("FileExceptionが発生しませんでした。");
         } catch (FileException e) {
             // 判定(例外)
@@ -640,8 +631,8 @@ public class AbstractFileLineWriterTest<T> {
             assertEquals("lineFeedChar length must be 1 or 2. but: 3", e
                     .getMessage());
 
-            assertTrue(IllegalStateException.class.isAssignableFrom(e
-                    .getCause().getClass()));
+            assertTrue(IllegalStateException.class.isAssignableFrom(e.getCause()
+                    .getClass()));
         }
     }
 
@@ -686,23 +677,20 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
         // テスト実施
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub08> result = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub08>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub08> result = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub08>(fileName, clazz, columnFormatterMap);
 
         // 判定(戻り値)
         assertNotNull(result);
 
-        assertSame(fileName, UTUtil.getPrivateField(result, "fileName"));
+        assertSame(fileName, ReflectionTestUtils.getField(result, "fileName"));
 
-        assertSame(clazz, UTUtil.getPrivateField(result, "clazz"));
+        assertSame(clazz, ReflectionTestUtils.getField(result, "clazz"));
 
-        assertEquals(System.getProperty("line.separator"), UTUtil
-                .getPrivateField(result, "lineFeedChar"));
+        assertEquals(System.getProperty("line.separator"), ReflectionTestUtils.getField(result, "lineFeedChar"));
 
-        assertEquals(System.getProperty("file.encoding"), UTUtil
-                .getPrivateField(result, "fileEncoding"));
+        assertEquals(System.getProperty("file.encoding"), ReflectionTestUtils.getField(result, "fileEncoding"));
 
-        assertSame(columnFormatterMap, UTUtil.getPrivateField(result,
+        assertSame(columnFormatterMap, ReflectionTestUtils.getField(result,
                 "columnFormatterMap"));
     }
 
@@ -750,23 +738,20 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
         // テスト実施
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub38> result = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub38>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub38> result = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub38>(fileName, clazz, columnFormatterMap);
 
         // 判定(戻り値)
         assertNotNull(result);
 
-        assertSame(fileName, UTUtil.getPrivateField(result, "fileName"));
+        assertSame(fileName, ReflectionTestUtils.getField(result, "fileName"));
 
-        assertSame(clazz, UTUtil.getPrivateField(result, "clazz"));
+        assertSame(clazz, ReflectionTestUtils.getField(result, "clazz"));
 
-        assertEquals(System.getProperty("line.separator"), UTUtil
-                .getPrivateField(result, "lineFeedChar"));
+        assertEquals(System.getProperty("line.separator"), ReflectionTestUtils.getField(result, "lineFeedChar"));
 
-        assertEquals(System.getProperty("file.encoding"), UTUtil
-                .getPrivateField(result, "fileEncoding"));
+        assertEquals(System.getProperty("file.encoding"), ReflectionTestUtils.getField(result, "fileEncoding"));
 
-        assertSame(columnFormatterMap, UTUtil.getPrivateField(result,
+        assertSame(columnFormatterMap, ReflectionTestUtils.getField(result,
                 "columnFormatterMap"));
     }
 
@@ -816,23 +801,20 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
         // テスト実施
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub39> result = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub39>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub39> result = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub39>(fileName, clazz, columnFormatterMap);
 
         // 判定(戻り値)
         assertNotNull(result);
 
-        assertSame(fileName, UTUtil.getPrivateField(result, "fileName"));
+        assertSame(fileName, ReflectionTestUtils.getField(result, "fileName"));
 
-        assertSame(clazz, UTUtil.getPrivateField(result, "clazz"));
+        assertSame(clazz, ReflectionTestUtils.getField(result, "clazz"));
 
-        assertEquals(System.getProperty("line.separator"), UTUtil
-                .getPrivateField(result, "lineFeedChar"));
+        assertEquals(System.getProperty("line.separator"), ReflectionTestUtils.getField(result, "lineFeedChar"));
 
-        assertEquals(System.getProperty("file.encoding"), UTUtil
-                .getPrivateField(result, "fileEncoding"));
+        assertEquals(System.getProperty("file.encoding"), ReflectionTestUtils.getField(result, "fileEncoding"));
 
-        assertSame(columnFormatterMap, UTUtil.getPrivateField(result,
+        assertSame(columnFormatterMap, ReflectionTestUtils.getField(result,
                 "columnFormatterMap"));
     }
 
@@ -899,19 +881,18 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
         // 前処理(試験対象)
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub01> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub01>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub01> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub01>(fileName, clazz, columnFormatterMap);
 
         BufferedWriter writer = null;
         BufferedReader postReader = null;
         try {
             // 前処理(フィールド)
-            UTUtil.setPrivateField(fileLineWriter, "calledInit", Boolean.TRUE);
+            ReflectionTestUtils.setField(fileLineWriter, "calledInit",
+                    Boolean.TRUE);
 
-            writer = new BufferedWriter(new OutputStreamWriter(
-                    new FileOutputStream(fileName, true), "UTF-8"));
+            writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(fileName, true), "UTF-8"));
 
-            UTUtil.setPrivateField(fileLineWriter, "writer", writer);
+            ReflectionTestUtils.setField(fileLineWriter, "writer", writer);
 
             // 前処理(メソッド)
             VMOUTUtil.setReturnValueAt(AbstractFileLineWriter_Stub01.class,
@@ -927,7 +908,8 @@ public class AbstractFileLineWriterTest<T> {
             fileLineWriter.init();
 
             // 判定(フィールド)
-            assertSame(writer, UTUtil.getPrivateField(fileLineWriter, "writer"));
+            assertSame(writer, ReflectionTestUtils.getField(fileLineWriter,
+                    "writer"));
 
             assertFalse(VMOUTUtil.isCalled(AbstractFileLineWriter.class,
                     "buildFields"));
@@ -943,8 +925,7 @@ public class AbstractFileLineWriterTest<T> {
             // 判定(ファイル)
             assertTrue(new File(fileName).exists());
 
-            postReader = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(fileName), "UTF-8"));
+            postReader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), "UTF-8"));
         } finally {
             if (writer != null) {
                 writer.close();
@@ -1013,13 +994,13 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
         // 前処理(試験対象)
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub01> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub01>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub01> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub01>(fileName, clazz, columnFormatterMap);
 
         // 前処理(フィールド)
-        UTUtil.setPrivateField(fileLineWriter, "calledInit", Boolean.FALSE);
+        ReflectionTestUtils.setField(fileLineWriter, "calledInit",
+                Boolean.FALSE);
 
-        UTUtil.setPrivateField(fileLineWriter, "writer", null);
+        ReflectionTestUtils.setField(fileLineWriter, "writer", null);
 
         BufferedReader postReader = null;
         try {
@@ -1027,23 +1008,22 @@ public class AbstractFileLineWriterTest<T> {
             fileLineWriter.init();
 
             // 判定(フィールド)
-            assertNotNull(UTUtil.getPrivateField(fileLineWriter, "writer"));
+            assertNotNull(ReflectionTestUtils.getField(fileLineWriter,
+                    "writer"));
             assertEquals(1, VMOUTUtil.getCallCount(BufferedWriter.class,
                     "<init>"));
             List bufferedWriterInitArguments = VMOUTUtil.getArguments(
                     BufferedWriter.class, "<init>", 0);
             assertEquals(1, bufferedWriterInitArguments.size());
-            assertTrue(OutputStreamWriter.class
-                    .isAssignableFrom(bufferedWriterInitArguments.get(0)
-                            .getClass()));
+            assertTrue(OutputStreamWriter.class.isAssignableFrom(
+                    bufferedWriterInitArguments.get(0).getClass()));
             assertEquals(1, VMOUTUtil.getCallCount(OutputStreamWriter.class,
                     "<init>"));
             List outputStreamWriterInitArguments = VMOUTUtil.getArguments(
                     OutputStreamWriter.class, "<init>", 0);
             assertEquals(2, outputStreamWriterInitArguments.size());
-            assertTrue(FileOutputStream.class
-                    .isAssignableFrom(outputStreamWriterInitArguments.get(0)
-                            .getClass()));
+            assertTrue(FileOutputStream.class.isAssignableFrom(
+                    outputStreamWriterInitArguments.get(0).getClass()));
             assertEquals("UTF-8", outputStreamWriterInitArguments.get(1));
             assertEquals(1, VMOUTUtil.getCallCount(FileOutputStream.class,
                     "<init>"));
@@ -1051,27 +1031,27 @@ public class AbstractFileLineWriterTest<T> {
                     FileOutputStream.class, "<init>", 0);
             assertEquals(2, fileOutputStreamInitArguments.size());
             assertEquals(fileName, fileOutputStreamInitArguments.get(0));
-            assertFalse(Boolean.class.cast(fileOutputStreamInitArguments.get(1)));
+            assertFalse(Boolean.class.cast(fileOutputStreamInitArguments.get(
+                    1)));
 
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "buildFields"));
+            assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
+                    "buildFields"));
 
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "buildStringConverters"));
+            assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
+                    "buildStringConverters"));
 
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "buildMethods"));
+            assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
+                    "buildMethods"));
 
             // 判定(ファイル)
             assertTrue(new File(fileName).exists());
 
-            postReader = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(fileName), "UTF-8"));
+            postReader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), "UTF-8"));
             assertFalse(postReader.ready());
 
         } finally {
-            Writer writer = (Writer) UTUtil.getPrivateField(fileLineWriter,
-                    "writer");
+            Writer writer = (Writer) ReflectionTestUtils.getField(
+                    fileLineWriter, "writer");
             if (writer != null) {
                 writer.close();
             }
@@ -1142,13 +1122,13 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
         // 前処理(試験対象)
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub06> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub06>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub06> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub06>(fileName, clazz, columnFormatterMap);
 
         // 前処理(フィールド)
-        UTUtil.setPrivateField(fileLineWriter, "calledInit", Boolean.FALSE);
+        ReflectionTestUtils.setField(fileLineWriter, "calledInit",
+                Boolean.FALSE);
 
-        UTUtil.setPrivateField(fileLineWriter, "writer", null);
+        ReflectionTestUtils.setField(fileLineWriter, "writer", null);
 
         BufferedReader postReader = null;
         try {
@@ -1156,23 +1136,22 @@ public class AbstractFileLineWriterTest<T> {
             fileLineWriter.init();
 
             // 判定(フィールド)
-            assertNotNull(UTUtil.getPrivateField(fileLineWriter, "writer"));
+            assertNotNull(ReflectionTestUtils.getField(fileLineWriter,
+                    "writer"));
             assertEquals(1, VMOUTUtil.getCallCount(BufferedWriter.class,
                     "<init>"));
             List bufferedWriterInitArguments = VMOUTUtil.getArguments(
                     BufferedWriter.class, "<init>", 0);
             assertEquals(1, bufferedWriterInitArguments.size());
-            assertTrue(OutputStreamWriter.class
-                    .isAssignableFrom(bufferedWriterInitArguments.get(0)
-                            .getClass()));
+            assertTrue(OutputStreamWriter.class.isAssignableFrom(
+                    bufferedWriterInitArguments.get(0).getClass()));
             assertEquals(1, VMOUTUtil.getCallCount(OutputStreamWriter.class,
                     "<init>"));
             List outputStreamWriterInitArguments = VMOUTUtil.getArguments(
                     OutputStreamWriter.class, "<init>", 0);
             assertEquals(2, outputStreamWriterInitArguments.size());
-            assertTrue(FileOutputStream.class
-                    .isAssignableFrom(outputStreamWriterInitArguments.get(0)
-                            .getClass()));
+            assertTrue(FileOutputStream.class.isAssignableFrom(
+                    outputStreamWriterInitArguments.get(0).getClass()));
             assertEquals("UTF-8", outputStreamWriterInitArguments.get(1));
             assertEquals(1, VMOUTUtil.getCallCount(FileOutputStream.class,
                     "<init>"));
@@ -1180,28 +1159,28 @@ public class AbstractFileLineWriterTest<T> {
                     FileOutputStream.class, "<init>", 0);
             assertEquals(2, fileOutputStreamInitArguments.size());
             assertEquals(fileName, fileOutputStreamInitArguments.get(0));
-            assertTrue(Boolean.class.cast(fileOutputStreamInitArguments.get(1)));
+            assertTrue(Boolean.class.cast(fileOutputStreamInitArguments.get(
+                    1)));
 
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "buildFields"));
+            assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
+                    "buildFields"));
 
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "buildStringConverters"));
+            assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
+                    "buildStringConverters"));
 
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "buildMethods"));
+            assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
+                    "buildMethods"));
 
             assertFalse(VMOUTUtil.isCalled(File.class, "delete"));
 
             // 判定(ファイル)
             assertTrue(new File(fileName).exists());
 
-            postReader = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(fileName), "UTF-8"));
+            postReader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), "UTF-8"));
 
         } finally {
-            Writer writer = (Writer) UTUtil.getPrivateField(fileLineWriter,
-                    "writer");
+            Writer writer = (Writer) ReflectionTestUtils.getField(
+                    fileLineWriter, "writer");
             if (writer != null) {
                 writer.close();
             }
@@ -1265,12 +1244,12 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
         // 前処理(試験対象)
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub07> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub07>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub07> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub07>(fileName, clazz, columnFormatterMap);
         // 前処理(フィールド)
-        UTUtil.setPrivateField(fileLineWriter, "calledInit", Boolean.FALSE);
+        ReflectionTestUtils.setField(fileLineWriter, "calledInit",
+                Boolean.FALSE);
 
-        UTUtil.setPrivateField(fileLineWriter, "writer", null);
+        ReflectionTestUtils.setField(fileLineWriter, "writer", null);
 
         BufferedReader postReader = null;
         try {
@@ -1285,25 +1264,24 @@ public class AbstractFileLineWriterTest<T> {
                     .getCause().getClass()));
             assertEquals(fileName, e.getFileName());
 
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "buildFields"));
+            assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
+                    "buildFields"));
 
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "buildStringConverters"));
+            assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
+                    "buildStringConverters"));
 
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "buildMethods"));
+            assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
+                    "buildMethods"));
 
             assertFalse(VMOUTUtil.isCalled(File.class, "delete"));
 
             // 判定(ファイル)
             assertTrue(new File(fileName).exists());
 
-            postReader = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(fileName), "UTF-8"));
+            postReader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), "UTF-8"));
 
         } finally {
-            Writer writer = (Writer) UTUtil.getPrivateField(fileLineWriter,
+            Writer writer = (Writer) ReflectionTestUtils.getField(fileLineWriter,
                     "writer");
             if (writer != null) {
                 writer.close();
@@ -1357,8 +1335,8 @@ public class AbstractFileLineWriterTest<T> {
         // 前処理(引数)
         URL url = this.getClass().getResource("File_Empty.txt");
 
-        String fileName = url.getPath().substring(0,
-                url.getPath().indexOf("File_Empty.txt"))
+        String fileName = url.getPath().substring(0, url.getPath().indexOf(
+                "File_Empty.txt"))
                 + "dummy/AbstractFileLineWriter_testInit05.txt";
 
         Class<AbstractFileLineWriter_Stub06> clazz = AbstractFileLineWriter_Stub06.class;
@@ -1368,12 +1346,12 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
         // 前処理(試験対象)
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub06> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub06>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub06> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub06>(fileName, clazz, columnFormatterMap);
         // 前処理(フィールド)
-        UTUtil.setPrivateField(fileLineWriter, "calledInit", Boolean.FALSE);
+        ReflectionTestUtils.setField(fileLineWriter, "calledInit",
+                Boolean.FALSE);
 
-        UTUtil.setPrivateField(fileLineWriter, "writer", null);
+        ReflectionTestUtils.setField(fileLineWriter, "writer", null);
 
         try {
             // テスト実施
@@ -1383,25 +1361,25 @@ public class AbstractFileLineWriterTest<T> {
             // 判定(例外)
             assertTrue(FileException.class.isAssignableFrom(e.getClass()));
             assertEquals("Failed in generation of writer.", e.getMessage());
-            assertTrue(FileNotFoundException.class.isAssignableFrom(e
-                    .getCause().getClass()));
+            assertTrue(FileNotFoundException.class.isAssignableFrom(e.getCause()
+                    .getClass()));
             assertEquals(fileName, e.getFileName());
 
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "buildFields"));
+            assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
+                    "buildFields"));
 
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "buildStringConverters"));
+            assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
+                    "buildStringConverters"));
 
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "buildMethods"));
+            assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
+                    "buildMethods"));
 
             assertFalse(VMOUTUtil.isCalled(File.class, "delete"));
 
             // 判定(ファイル)
             assertFalse(new File(fileName).exists());
         } finally {
-            Writer writer = (Writer) UTUtil.getPrivateField(fileLineWriter,
+            Writer writer = (Writer) ReflectionTestUtils.getField(fileLineWriter,
                     "writer");
             if (writer != null) {
                 writer.close();
@@ -1445,16 +1423,16 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub38> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub38>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub38> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub38>(fileName, clazz, columnFormatterMap);
 
-        UTUtil.setPrivateField(fileLineWriter, "fields", null);
+        ReflectionTestUtils.setField(fileLineWriter, "fields", null);
 
         // テスト実施
-        UTUtil.invokePrivate(fileLineWriter, "buildFields");
+        ReflectionTestUtils.invokeMethod(fileLineWriter, "buildFields", null);
+//        UTUtil.invokePrivate(fileLineWriter, "buildFields");
 
         // 判定(状態変化、フィールド)
-        Field[] resultFields = (Field[]) UTUtil.getPrivateField(fileLineWriter,
+        Field[] resultFields = (Field[]) ReflectionTestUtils.getField(fileLineWriter,
                 "fields");
         assertEquals(0, resultFields.length);
     }
@@ -1496,17 +1474,18 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub09> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub09>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub09> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub09>(fileName, clazz, columnFormatterMap);
 
         // 前処理(フィールド)
-        UTUtil.setPrivateField(fileLineWriter, "fields", null);
+        ReflectionTestUtils.setField(fileLineWriter, "fields", null);
 
         // テスト実施
-        UTUtil.invokePrivate(fileLineWriter, "buildFields");
+        Method method = AbstractFileLineWriter.class.getDeclaredMethod("buildFields");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineWriter);
 
         // 判定(状態変化、フィールド)
-        Field[] resultFields = (Field[]) UTUtil.getPrivateField(fileLineWriter,
+        Field[] resultFields = (Field[]) ReflectionTestUtils.getField(fileLineWriter,
                 "fields");
         assertEquals(0, resultFields.length);
     }
@@ -1524,16 +1503,17 @@ public class AbstractFileLineWriterTest<T> {
      * - 全項目：デフォルト値<br>
      * ・@OutputFileColumn設定ありのフィールドを持つ<br>
      * - フィールド：String column1<br>
-     * @OutputFileColumn設定<br> > columnIndex：0<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：0<br>
      *                         > その他項目：デフォルト値<br>
      *                         (状態) this.filelds:null<br>
      *                         (状態) this.columnFormatterMap:以下の要素を持つMap<String, ColumnFormatter>インスタンス<br>
      *                         ・"int"=IntColumnFormatter<br>
      *                         ・"java.lang.String"=NullColumnFormatter<br>
-     * <br>
+     *                         <br>
      *                         期待値：(状態変化) this.fields:以下の要素を持つField配列<br>
      *                         １．Fieldオブジェクト：column1<br>
-     * <br>
+     *                         <br>
      *                         正常ケース<br>
      *                         (親クラスなし、フィールド定義あり：1個)<br>
      *                         (@OutputFileColumn設定あり：1個)<br>
@@ -1552,17 +1532,18 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub10> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub10>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub10> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub10>(fileName, clazz, columnFormatterMap);
 
         // 前処理(フィールド)
-        UTUtil.setPrivateField(fileLineWriter, "fields", null);
+        ReflectionTestUtils.setField(fileLineWriter, "fields", null);
 
         // テスト実施
-        UTUtil.invokePrivate(fileLineWriter, "buildFields");
+        Method method = AbstractFileLineWriter.class.getDeclaredMethod("buildFields");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineWriter);
 
         // 判定(状態変化、フィールド)
-        Field[] resultFields = (Field[]) UTUtil.getPrivateField(fileLineWriter,
+        Field[] resultFields = (Field[]) ReflectionTestUtils.getField(fileLineWriter,
                 "fields");
         assertEquals(1, resultFields.length);
         Field resultFields1 = resultFields[0];
@@ -1609,17 +1590,18 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub11> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub11>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub11> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub11>(fileName, clazz, columnFormatterMap);
 
         // 前処理(フィールド)
-        UTUtil.setPrivateField(fileLineWriter, "fields", null);
+        ReflectionTestUtils.setField(fileLineWriter, "fields", null);
 
         // テスト実施
-        UTUtil.invokePrivate(fileLineWriter, "buildFields");
+        Method method = AbstractFileLineWriter.class.getDeclaredMethod("buildFields");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineWriter);
 
         // 判定(状態変化、フィールド)
-        Field[] resultFields = (Field[]) UTUtil.getPrivateField(fileLineWriter,
+        Field[] resultFields = (Field[]) ReflectionTestUtils.getField(fileLineWriter,
                 "fields");
         assertEquals(0, resultFields.length);
     }
@@ -1640,16 +1622,17 @@ public class AbstractFileLineWriterTest<T> {
      * - フィールド：String noMappingColumn2<br>
      * ・@OutputFileColumn設定ありのフィールドを持つ<br>
      * - フィールド：String column1<br>
-     * @OutputFileColumn設定<br> > columnIndex：0<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：0<br>
      *                         > その他項目：デフォルト値<br>
      *                         (状態) this.filelds:null<br>
      *                         (状態) this.columnFormatterMap:以下の要素を持つMap<String, ColumnFormatter>インスタンス<br>
      *                         ・"int"=IntColumnFormatter<br>
      *                         ・"java.lang.String"=NullColumnFormatter<br>
-     * <br>
+     *                         <br>
      *                         期待値：(状態変化) this.fields:以下の要素を持つField配列<br>
      *                         １．Fieldオブジェクト：column1<br>
-     * <br>
+     *                         <br>
      *                         正常ケース<br>
      *                         (親クラスなし、フィールド定義あり：3個)<br>
      *                         (@OutputFileColumn設定なし：2個)<br>
@@ -1669,17 +1652,18 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub12> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub12>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub12> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub12>(fileName, clazz, columnFormatterMap);
 
         // 前処理(フィールド)
-        UTUtil.setPrivateField(fileLineWriter, "fields", null);
+        ReflectionTestUtils.setField(fileLineWriter, "fields", null);
 
         // テスト実施
-        UTUtil.invokePrivate(fileLineWriter, "buildFields");
+        Method method = AbstractFileLineWriter.class.getDeclaredMethod("buildFields");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineWriter);
 
         // 判定(状態変化、フィールド)
-        Field[] resultFields = (Field[]) UTUtil.getPrivateField(fileLineWriter,
+        Field[] resultFields = (Field[]) ReflectionTestUtils.getField(fileLineWriter,
                 "fields");
         assertEquals(1, resultFields.length);
         Field resultFields1 = resultFields[0];
@@ -1700,24 +1684,27 @@ public class AbstractFileLineWriterTest<T> {
      * - 全項目：デフォルト値<br>
      * ・@OutputFileColumn設定ありのフィールドを持つ<br>
      * - フィールド：String column1<br>
-     * @OutputFileColumn設定<br> > columnIndex：0<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：0<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column2<br>
-     * @OutputFileColumn設定<br> > columnIndex：1<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：1<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column3<br>
-     * @OutputFileColumn設定<br> > columnIndex：2<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：2<br>
      *                         > その他項目：デフォルト値<br>
      *                         (状態) this.filelds:null<br>
      *                         (状態) this.columnFormatterMap:以下の要素を持つMap<String, ColumnFormatter>インスタンス<br>
      *                         ・"int"=IntColumnFormatter<br>
      *                         ・"java.lang.String"=NullColumnFormatter<br>
-     * <br>
+     *                         <br>
      *                         期待値：(状態変化) this.fields:以下の要素を持つField配列<br>
      *                         １．Fieldオブジェクト：column1<br>
      *                         ２．Fieldオブジェクト：column2<br>
      *                         ３．Fieldオブジェクト：column3<br>
-     * <br>
+     *                         <br>
      *                         正常ケース<br>
      *                         (親クラスなし、フィールド定義あり：3個)<br>
      *                         (@OutputFileColumn設定あり：3個)<br>
@@ -1736,17 +1723,18 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub13> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub13>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub13> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub13>(fileName, clazz, columnFormatterMap);
 
         // 前処理(フィールド)
-        UTUtil.setPrivateField(fileLineWriter, "fields", null);
+        ReflectionTestUtils.setField(fileLineWriter, "fields", null);
 
         // テスト実施
-        UTUtil.invokePrivate(fileLineWriter, "buildFields");
+        Method method = AbstractFileLineWriter.class.getDeclaredMethod("buildFields");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineWriter);
 
         // 判定(状態変化、フィールド)
-        Field[] resultFields = (Field[]) UTUtil.getPrivateField(fileLineWriter,
+        Field[] resultFields = (Field[]) ReflectionTestUtils.getField(fileLineWriter,
                 "fields");
         assertEquals(3, resultFields.length);
         Field resultFieldsArray1 = resultFields[0];
@@ -1773,24 +1761,27 @@ public class AbstractFileLineWriterTest<T> {
      * - 全項目：デフォルト値<br>
      * ・@OutputFileColumn設定ありのフィールドを持つ<br>
      * - フィールド：String column1<br>
-     * @OutputFileColumn設定<br> > columnIndex：0<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：0<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column2<br>
-     * @OutputFileColumn設定<br> > columnIndex：1<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：1<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column3<br>
-     * @OutputFileColumn設定<br> > columnIndex：1<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：1<br>
      *                         > その他項目：デフォルト値<br>
      *                         ※columnIndexが重複している。<br>
      *                         (状態) this.filelds:null<br>
      *                         (状態) this.columnFormatterMap:以下の要素を持つMap<String, ColumnFormatter>インスタンス<br>
      *                         ・"int"=IntColumnFormatter<br>
      *                         ・"java.lang.String"=NullColumnFormatter<br>
-     * <br>
+     *                         <br>
      *                         期待値：(状態変化) 例外:以下の設定を持つFileExceptionが発生する<br>
      *                         ･メッセージ："Column Index is duplicate : 1"<br>
      *                         ・fileName：this.fileNameと同じインスタンス。<br>
-     * <br>
+     *                         <br>
      *                         異常ケース<br>
      *                         (親クラスなし、フィールド定義あり：3個)<br>
      *                         (@OutputFileColumn設定あり：3個)<br>
@@ -1809,23 +1800,24 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub14> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub14>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub14> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub14>(fileName, clazz, columnFormatterMap);
 
         // 前処理(フィールド)
-        UTUtil.setPrivateField(fileLineWriter, "fields", null);
+        ReflectionTestUtils.setField(fileLineWriter, "fields", null);
 
         // テスト実施
         try {
-            UTUtil.invokePrivate(fileLineWriter, "buildFields");
+            Method method = AbstractFileLineWriter.class.getDeclaredMethod("buildFields");
+            method.setAccessible(true);
+            method.invoke(fileLineWriter);
             fail("FileExceptionが発生しませんでした。");
-        } catch (FileException e) {
+        } catch (InvocationTargetException e) {
             // 判定(例外)
-            assertTrue(FileException.class.isAssignableFrom(e.getClass()));
+            assertTrue(FileException.class.isAssignableFrom(e.getTargetException().getClass()));
 
-            assertEquals("Column Index is duplicate : 1", e.getMessage());
+            assertEquals("Column Index is duplicate : 1", e.getTargetException().getMessage());
 
-            assertEquals(fileName, e.getFileName());
+            assertEquals(fileName, ((FileException)e.getTargetException()).getFileName());
         }
     }
 
@@ -1842,25 +1834,28 @@ public class AbstractFileLineWriterTest<T> {
      * - 全項目：デフォルト値<br>
      * ・@OutputFileColumn設定ありのフィールドを持つ<br>
      * - フィールド：String column3<br>
-     * @OutputFileColumn設定<br> > columnIndex：2<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：2<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column2<br>
-     * @OutputFileColumn設定<br> > columnIndex：1<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：1<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column1<br>
-     * @OutputFileColumn設定<br> > columnIndex：0<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：0<br>
      *                         > その他項目：デフォルト値<br>
      *                         ※各フィールドの順番は逆順（順番ではない）のこと。<br>
      *                         (状態) this.filelds:null<br>
      *                         (状態) this.columnFormatterMap:以下の要素を持つMap<String, ColumnFormatter>インスタンス<br>
      *                         ・"int"=IntColumnFormatter<br>
      *                         ・"java.lang.String"=NullColumnFormatter<br>
-     * <br>
+     *                         <br>
      *                         期待値：(状態変化)this.fields:以下の要素を持つField配列<br>
      *                         １．Fieldオブジェクト：column1<br>
      *                         ２．Fieldオブジェクト：column2<br>
      *                         ３．Fieldオブジェクト：column3<br>
-     * <br>
+     *                         <br>
      *                         正常ケース<br>
      *                         (親クラスなし、フィールド定義あり：3個)<br>
      *                         (@OutputFileColumn設定あり：3個)<br>
@@ -1880,17 +1875,18 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub15> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub15>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub15> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub15>(fileName, clazz, columnFormatterMap);
 
         // 前処理(フィールド)
-        UTUtil.setPrivateField(fileLineWriter, "fields", null);
+        ReflectionTestUtils.setField(fileLineWriter, "fields", null);
 
         // テスト実施
-        UTUtil.invokePrivate(fileLineWriter, "buildFields");
+        Method method = AbstractFileLineWriter.class.getDeclaredMethod("buildFields");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineWriter);
 
         // 判定(状態変化、フィールド)
-        Field[] resultFields = (Field[]) UTUtil.getPrivateField(fileLineWriter,
+        Field[] resultFields = (Field[]) ReflectionTestUtils.getField(fileLineWriter,
                 "fields");
         assertEquals(3, resultFields.length);
         Field resultFieldsArray1 = resultFields[0];
@@ -1918,18 +1914,19 @@ public class AbstractFileLineWriterTest<T> {
      * - 全項目：デフォルト値<br>
      * ・@OutputFileColumn設定ありのフィールドを持つ<br>
      * - フィールド：String column1<br>
-     * @OutputFileColumn設定<br> > columnIndex：1<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：1<br>
      *                         > その他項目：デフォルト値<br>
      *                         (状態) this.filelds:null<br>
      *                         (状態) this.columnFormatterMap:以下の要素を持つMap<String, ColumnFormatter>インスタンス<br>
      *                         ・"int"=IntColumnFormatter<br>
      *                         ・"java.lang.String"=NullColumnFormatter<br>
-     * <br>
+     *                         <br>
      *                         期待値：(状態変化) 例外:以下の設定を持つFileExceptionが発生する<br>
      *                         ･メッセージ："Column Index in FileLineObject is bigger than the total number of the field."<br>
      *                         ・原因例外：IllegalStateException<br>
      *                         ・fileName：this.fileNameと同じインスタンス。<br>
-     * <br>
+     *                         <br>
      *                         異常ケース<br>
      *                         (親クラスなし、フィールド定義あり：1個)<br>
      *                         (@OutputFileColumn設定あり：1個)<br>
@@ -1948,26 +1945,27 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub16> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub16>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub16> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub16>(fileName, clazz, columnFormatterMap);
 
         // 前処理(フィールド)
-        UTUtil.setPrivateField(fileLineWriter, "fields", null);
+        ReflectionTestUtils.setField(fileLineWriter, "fields", null);
 
         // テスト実施
         try {
-            UTUtil.invokePrivate(fileLineWriter, "buildFields");
+            Method method = AbstractFileLineWriter.class.getDeclaredMethod("buildFields");
+            method.setAccessible(true);
+            method.invoke(fileLineWriter);
             fail("FileExceptionが発生しませんでした。");
-        } catch (FileException e) {
+        } catch (InvocationTargetException e) {
             // 判定(例外)
-            assertTrue(IllegalStateException.class.isAssignableFrom(e
-                    .getCause().getClass()));
+            assertTrue(IllegalStateException.class.isAssignableFrom(e.getTargetException().getCause()
+                    .getClass()));
             assertEquals("Column Index in FileLineObject is bigger than the "
-                    + "total number of the field.", e.getMessage());
-            assertEquals(fileName, e.getFileName());
+                    + "total number of the field.", e.getTargetException().getMessage());
+            assertEquals(fileName, ((FileException)e.getTargetException()).getFileName());
 
             // 判定(状態変化、フィールド)
-            Field[] resultFields = (Field[]) UTUtil.getPrivateField(
+            Field[] resultFields = (Field[]) ReflectionTestUtils.getField(
                     fileLineWriter, "fields");
             assertNull(resultFields);
         }
@@ -1986,18 +1984,19 @@ public class AbstractFileLineWriterTest<T> {
      * - 全項目：デフォルト値<br>
      * ・@OutputFileColumn設定ありのフィールドを持つ<br>
      * - フィールド：String column1<br>
-     * @OutputFileColumn設定<br> > columnIndex：-1<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：-1<br>
      *                         > その他項目：デフォルト値<br>
      *                         (状態) this.filelds:null<br>
      *                         (状態) this.columnFormatterMap:以下の要素を持つMap<String, ColumnFormatter>インスタンス<br>
      *                         ・"int"=IntColumnFormatter<br>
      *                         ・"java.lang.String"=NullColumnFormatter<br>
-     * <br>
+     *                         <br>
      *                         期待値：(状態変化) 例外:以下の設定を持つFileExceptionが発生する<br>
      *                         ･メッセージ："Column Index in FileLineObject is the minus number."<br>
      *                         ・原因例外：IllegalStateException<br>
      *                         ・fileName：this.fileNameと同じインスタンス。<br>
-     * <br>
+     *                         <br>
      *                         異常ケース<br>
      *                         (親クラスなし、フィールド定義あり：1個)<br>
      *                         (@OutputFileColumn設定あり：1個)<br>
@@ -2016,26 +2015,27 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub17> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub17>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub17> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub17>(fileName, clazz, columnFormatterMap);
 
         // 前処理(フィールド)
-        UTUtil.setPrivateField(fileLineWriter, "fields", null);
+        ReflectionTestUtils.setField(fileLineWriter, "fields", null);
 
         // テスト実施
         try {
-            UTUtil.invokePrivate(fileLineWriter, "buildFields");
+            Method method = AbstractFileLineWriter.class.getDeclaredMethod("buildFields");
+            method.setAccessible(true);
+            method.invoke(fileLineWriter);
             fail("FileExceptionが発生しませんでした。");
-        } catch (FileException e) {
+        } catch (InvocationTargetException e) {
             // 判定(例外)
-            assertTrue(IllegalStateException.class.isAssignableFrom(e
-                    .getCause().getClass()));
+            assertTrue(IllegalStateException.class.isAssignableFrom(e.getTargetException().getCause()
+                    .getClass()));
             assertEquals("Column Index in FileLineObject is the minus number.",
-                    e.getMessage());
-            assertEquals(fileName, e.getFileName());
+                    e.getTargetException().getMessage());
+            assertEquals(fileName, ((FileException)e.getTargetException()).getFileName());
 
             // 判定(状態変化、フィールド)
-            Field[] resultFields = (Field[]) UTUtil.getPrivateField(
+            Field[] resultFields = (Field[]) ReflectionTestUtils.getField(
                     fileLineWriter, "fields");
             assertNull(resultFields);
         }
@@ -2058,23 +2058,25 @@ public class AbstractFileLineWriterTest<T> {
      * - フィールド：String noMappingColumn3<br>
      * ・@OutputFileColumn設定ありのフィールドを持つ<br>
      * - フィールド：String column1<br>
-     * @OutputFileColumn設定<br> > columnIndex：1<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：1<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column2<br>
-     * @OutputFileColumn設定<br> > columnIndex：2<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：2<br>
      *                         > その他項目：デフォルト値<br>
-     * <br>
+     *                         <br>
      *                         ※columnIndexに欠番がある。<br>
      *                         (状態) this.filelds:null<br>
      *                         (状態) this.columnFormatterMap:以下の要素を持つMap<String, ColumnFormatter>インスタンス<br>
      *                         ・"int"=IntColumnFormatter<br>
      *                         ・"java.lang.String"=NullColumnFormatter<br>
-     * <br>
+     *                         <br>
      *                         期待値：(状態変化) 例外:以下の設定を持つFileExceptionが発生する<br>
      *                         ･メッセージ："columnIndex in FileLineObject is not sequential order."<br>
      *                         ・原因例外：IllegalStateException<br>
      *                         ・fileName：this.fileNameと同じインスタンス。<br>
-     * <br>
+     *                         <br>
      *                         異常ケース<br>
      *                         (親クラスなし、フィールド定義あり：5個)<br>
      *                         (@OutputFileColumn設定なし：3個)<br>
@@ -2093,24 +2095,25 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub18> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub18>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub18> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub18>(fileName, clazz, columnFormatterMap);
 
         // 前処理(フィールド)
-        UTUtil.setPrivateField(fileLineWriter, "fields", null);
+        ReflectionTestUtils.setField(fileLineWriter, "fields", null);
 
         // テスト実施
         try {
-            UTUtil.invokePrivate(fileLineWriter, "buildFields");
+            Method method = AbstractFileLineWriter.class.getDeclaredMethod("buildFields");
+            method.setAccessible(true);
+            method.invoke(fileLineWriter);
             fail("FileExceptionが発生しませんでした。");
-        } catch (FileException e) {
+        } catch (InvocationTargetException e) {
             // 判定(例外)
-            assertTrue(FileException.class.isAssignableFrom(e.getClass()));
+            assertTrue(FileException.class.isAssignableFrom(e.getTargetException().getClass()));
             assertEquals(
-                    "columnIndex in FileLineObject is not sequential order.", e
+                    "columnIndex in FileLineObject is not sequential order.", e.getTargetException()
                             .getMessage());
-            assertTrue(IllegalStateException.class.isAssignableFrom(e
-                    .getCause().getClass()));
+            assertTrue(IllegalStateException.class.isAssignableFrom(e.getTargetException().getCause()
+                    .getClass()));
         }
     }
 
@@ -2130,29 +2133,32 @@ public class AbstractFileLineWriterTest<T> {
      * - フィールド：String noMappingColumn2<br>
      * ・@OutputFileColumn設定ありのフィールドを持つ<br>
      * - フィールド：String column2<br>
-     * @OutputFileColumn設定<br> > columnIndex：1<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：1<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column3<br>
-     * @OutputFileColumn設定<br> > columnIndex：2<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：2<br>
      *                         > その他項目：デフォルト値<br>
-     * <br>
+     *                         <br>
      *                         以下親クラスの定義<br>
      *                         ・@OutputFileColumn設定ありのフィールドを持つ<br>
      *                         - フィールド：String column1<br>
-     * @OutputFileColumn設定<br> > columnIndex：0<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：0<br>
      *                         > その他項目：デフォルト値<br>
-     * <br>
+     *                         <br>
      *                         ※親クラスにフィールドの情報がある。<br>
      *                         (状態) this.filelds:null<br>
      *                         (状態) this.columnFormatterMap:以下の要素を持つMap<String, ColumnFormatter>インスタンス<br>
      *                         ・"int"=IntColumnFormatter<br>
      *                         ・"java.lang.String"=NullColumnFormatter<br>
-     * <br>
+     *                         <br>
      *                         期待値：(状態変化) this.fields:以下の要素を持つField配列<br>
      *                         １．Fieldオブジェクト：column1<br>
      *                         ２．Fieldオブジェクト：column2<br>
      *                         ３．Fieldオブジェクト：column3<br>
-     * <br>
+     *                         <br>
      *                         正常ケース<br>
      *                         (親クラスあり、フィールド定義あり：5個)<br>
      *                         (@OutputFileColumn設定なし：2個)<br>
@@ -2173,17 +2179,18 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub19> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub19>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub19> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub19>(fileName, clazz, columnFormatterMap);
 
         // 前処理(フィールド)
-        UTUtil.setPrivateField(fileLineWriter, "fields", null);
+        ReflectionTestUtils.setField(fileLineWriter, "fields", null);
 
         // テスト実施
-        UTUtil.invokePrivate(fileLineWriter, "buildFields");
+        Method method = AbstractFileLineWriter.class.getDeclaredMethod("buildFields");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineWriter);
 
         // 判定(状態変化、フィールド)
-        Field[] resultFields = (Field[]) UTUtil.getPrivateField(fileLineWriter,
+        Field[] resultFields = (Field[]) ReflectionTestUtils.getField(fileLineWriter,
                 "fields");
         assertEquals(3, resultFields.length);
         Field resultFields1 = resultFields[0];
@@ -2210,26 +2217,29 @@ public class AbstractFileLineWriterTest<T> {
      * - 全項目：デフォルト値<br>
      * ・@OutputFileColumn設定ありのフィールドを持つ<br>
      * - フィールド：String column1<br>
-     * @OutputFileColumn設定<br> > columnIndex：0<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：0<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column2<br>
-     * @OutputFileColumn設定<br> > columnIndex：1<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：1<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：long column3<br>
-     * @OutputFileColumn設定<br> > columnIndex：2<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：2<br>
      *                         > その他項目：デフォルト値<br>
      *                         ※サポートしないタイプのフィールドがある。<br>
      *                         (状態) this.filelds:null<br>
      *                         (状態) this.columnFormatterMap:以下の要素を持つMap<String, ColumnFormatter>インスタンス<br>
      *                         ・"int"=IntColumnFormatter<br>
      *                         ・"java.lang.String"=NullColumnFormatter<br>
-     * <br>
+     *                         <br>
      *                         期待値：(状態変化) this.fields:null<br>
      *                         (状態変化) 例外:以下の設定を持つFileExceptionが発生する<br>
      *                         ･メッセージ："There is a type which isn't supported in a mapping target field in FileLineObject."<br>
      *                         ・原因例外：IllegalStateException<br>
      *                         ・fileName：this.fileNameと同じインスタンス。<br>
-     * <br>
+     *                         <br>
      *                         異常ケース<br>
      *                         (親クラスなし、フィールド定義あり：3個)<br>
      *                         (@OutputFileColumn設定あり：3個)<br>
@@ -2248,26 +2258,27 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub40> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub40>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub40> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub40>(fileName, clazz, columnFormatterMap);
 
         // 前処理(フィールド)
-        UTUtil.setPrivateField(fileLineWriter, "fields", null);
+        ReflectionTestUtils.setField(fileLineWriter, "fields", null);
 
         // テスト実施
         try {
-            UTUtil.invokePrivate(fileLineWriter, "buildFields");
+            Method method = AbstractFileLineWriter.class.getDeclaredMethod("buildFields");
+            method.setAccessible(true);
+            method.invoke(fileLineWriter);
             fail("FileExceptionが発生しませんでした。");
-        } catch (FileException e) {
+        } catch (InvocationTargetException e) {
             // 判定(例外)
-            assertTrue(IllegalStateException.class.isAssignableFrom(e
-                    .getCause().getClass()));
+            assertTrue(IllegalStateException.class.isAssignableFrom(e.getTargetException().getCause()
+                    .getClass()));
             assertEquals("There is a type which isn't supported in a mapping "
-                    + "target field in FileLineObject.", e.getMessage());
-            assertEquals(fileName, e.getFileName());
+                    + "target field in FileLineObject.", e.getTargetException().getMessage());
+            assertEquals(fileName, ((FileException)e.getTargetException()).getFileName());
 
             // 判定(状態変化、フィールド)
-            Field[] resultFields = (Field[]) UTUtil.getPrivateField(
+            Field[] resultFields = (Field[]) ReflectionTestUtils.getField(
                     fileLineWriter, "fields");
             assertNull(resultFields);
         }
@@ -2307,33 +2318,40 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub08> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub08>(
-                fileName, clazz, columnFormatterMap);
-        UTUtil.invokePrivate(fileLineWriter, "buildFields");
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub08> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub08>(fileName, clazz, columnFormatterMap);
+        Method method = AbstractFileLineWriter.class.getDeclaredMethod("buildFields");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineWriter);
 
         // 前処理(フィールド)
         Map<Class, StringConverter> preStringConverterCacheMap = new HashMap<Class, StringConverter>();
-        UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                "stringConverterCacheMap", preStringConverterCacheMap);
+        Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+        field.setAccessible(true);
+        field.set(AbstractFileLineWriter.class, preStringConverterCacheMap);
 
         try {
             // テスト実施
-            UTUtil.invokePrivate(fileLineWriter, "buildStringConverters");
+            method = AbstractFileLineWriter.class.getDeclaredMethod("buildStringConverters");
+            method.setAccessible(true);
+            method.invoke(fileLineWriter);
 
             // 判定(状態変化、フィールド)
-            Map<Class, StringConverter> stringConverterCacheMap = (Map<Class, StringConverter>) UTUtil
-                    .getPrivateField(fileLineWriter, "stringConverterCacheMap");
+            field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            Map<Class, StringConverter> stringConverterCacheMap =
+                    (Map<Class, StringConverter>) field.get(fileLineWriter);        
             assertNotNull(stringConverterCacheMap);
             assertEquals(0, stringConverterCacheMap.size());
 
-            StringConverter[] stringConverters = (StringConverter[]) UTUtil
-                    .getPrivateField(fileLineWriter, "stringConverters");
+            field = AbstractFileLineWriter.class.getDeclaredField("stringConverters");
+            field.setAccessible(true);
+            StringConverter[] stringConverters = (StringConverter[]) field.get(fileLineWriter);        
             assertNotNull(stringConverters);
             assertEquals(0, stringConverters.length);
         } finally {
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());
         }
     }
 
@@ -2351,21 +2369,22 @@ public class AbstractFileLineWriterTest<T> {
      * - 全項目：デフォルト値<br>
      * ・@OutputFileColumn設定ありのフィールドを持つ<br>
      * - フィールド：String column1<br>
-     * @OutputFileColumn設定<br> > columnIndex：0<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：0<br>
      *                         > StringConverter.class：NullStringConverter.class<br>
      *                         > その他項目：デフォルト値<br>
      *                         (状態) this.stringConverterCacheMap:要素を持たないMapインスタンス<br>
-     * <br>
+     *                         <br>
      *                         期待値：(状態変化) this.stringConverterCacheMap:以下の要素を持つMapインスタンス<br>
      *                         ・key：NullStringConverter.class,<br>
      *                         value：NullStringConverterインスタンス<br>
      *                         (状態変化) this.stringConverters:以下の要素を持つStringConverter配列<br>
      *                         1．NullStringConverterインスタンス(キャッシュされたものと同じインスタンス)<br>
-     * <br>
+     *                         <br>
      *                         正常ケース<br>
      *                         (stringConverter設定ありフィールド：1個)<br>
-     *                         ファイル行オブジェクトクラスのフィールドにstringConverter設定がある場合、stringConverters配列が正しく生成されることと、そのインスタンスがキャッシュされることを確認する
-     *                         。 <br>
+     *                         ファイル行オブジェクトクラスのフィールドにstringConverter設定がある場合、stringConverters配列が正しく生成されることと、
+     *                         そのインスタンスがキャッシュされることを確認する 。 <br>
      * @throws Exception このメソッドで発生した例外
      */
 
@@ -2381,42 +2400,44 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub20> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub20>(
-                fileName, clazz, columnFormatterMap);
-        UTUtil.invokePrivate(fileLineWriter, "buildFields");
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub20> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub20>(fileName, clazz, columnFormatterMap);
+        Method method = AbstractFileLineWriter.class.getDeclaredMethod("buildFields");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineWriter);
 
         // 前処理(フィールド)
         Map<Class, StringConverter> preStringConverterCacheMap = new HashMap<Class, StringConverter>();
-        UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                "stringConverterCacheMap", preStringConverterCacheMap);
+        Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+        field.setAccessible(true);
+        field.set(AbstractFileLineWriter.class, preStringConverterCacheMap);
 
         try {
             // テスト実施
-            UTUtil.invokePrivate(fileLineWriter, "buildStringConverters");
+            method = AbstractFileLineWriter.class.getDeclaredMethod("buildStringConverters");
+            method.setAccessible(true);
+            method.invoke(fileLineWriter);
 
             // 判定(状態変化、フィールド)
-            Map<Class, StringConverter> stringConverterCacheMap = (Map<Class, StringConverter>) UTUtil
-                    .getPrivateField(fileLineWriter, "stringConverterCacheMap");
+            Map<Class, StringConverter> stringConverterCacheMap = (Map<Class, StringConverter>) ReflectionTestUtils.getField(fileLineWriter, "stringConverterCacheMap");
             assertNotNull(stringConverterCacheMap);
             assertEquals(1, stringConverterCacheMap.size());
-            assertTrue(stringConverterCacheMap
-                    .containsKey(NullStringConverter.class));
-            StringConverter nullStringConverter = stringConverterCacheMap
-                    .get(NullStringConverter.class);
+            assertTrue(stringConverterCacheMap.containsKey(
+                    NullStringConverter.class));
+            StringConverter nullStringConverter = stringConverterCacheMap.get(
+                    NullStringConverter.class);
             assertNotNull(nullStringConverter);
-            assertTrue(NullStringConverter.class
-                    .isAssignableFrom(nullStringConverter.getClass()));
+            assertTrue(NullStringConverter.class.isAssignableFrom(
+                    nullStringConverter.getClass()));
 
-            StringConverter[] stringConverters = (StringConverter[]) UTUtil
-                    .getPrivateField(fileLineWriter, "stringConverters");
+            StringConverter[] stringConverters = (StringConverter[]) ReflectionTestUtils.getField(fileLineWriter, "stringConverters");
             assertNotNull(stringConverters);
             assertEquals(1, stringConverters.length);
             StringConverter stringConverters1 = stringConverters[0];
             assertSame(nullStringConverter, stringConverters1);
         } finally {
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());
         }
     }
 
@@ -2434,19 +2455,22 @@ public class AbstractFileLineWriterTest<T> {
      * - 全項目：デフォルト値<br>
      * ・@OutputFileColumn設定ありのフィールドを持つ<br>
      * - フィールド：String column1<br>
-     * @OutputFileColumn設定<br> > columnIndex：0<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：0<br>
      *                         > StringConverter.class：NullStringConverter.class<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column2<br>
-     * @OutputFileColumn設定<br> > columnIndex：1<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：1<br>
      *                         > StringConverter.class：NullStringConverter.class<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column3<br>
-     * @OutputFileColumn設定<br> > columnIndex：2<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：2<br>
      *                         > StringConverter.class：NullStringConverter.class<br>
      *                         > その他項目：デフォルト値<br>
      *                         (状態) this.stringConverterCacheMap:要素を持たないMapインスタンス<br>
-     * <br>
+     *                         <br>
      *                         期待値：(状態変化) this.stringConverterCacheMap:以下の要素を持つMapインスタンス<br>
      *                         ・key：NullStringConverter.class,<br>
      *                         value：NullStringConverterインスタンス<br>
@@ -2454,7 +2478,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         1．NullStringConverterインスタンス(キャッシュされたものと同じインスタンス)<br>
      *                         2．NullStringConverterインスタンス(キャッシュされたものと同じインスタンス)<br>
      *                         3．NullStringConverterインスタンス(キャッシュされたものと同じインスタンス)<br>
-     * <br>
+     *                         <br>
      *                         正常ケース<br>
      *                         (stringConverter設定ありフィールド：3個、<br>
      *                         同じstringConverterを利用する。)<br>
@@ -2474,34 +2498,42 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub21> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub21>(
-                fileName, clazz, columnFormatterMap);
-        UTUtil.invokePrivate(fileLineWriter, "buildFields");
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub21> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub21>(fileName, clazz, columnFormatterMap);
+        Method method = AbstractFileLineWriter.class.getDeclaredMethod("buildFields");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineWriter);
 
         // 前処理(フィールド)
         Map<Class, StringConverter> preStringConverterCacheMap = new HashMap<Class, StringConverter>();
-        UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                "stringConverterCacheMap", preStringConverterCacheMap);
+        Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+        field.setAccessible(true);
+        field.set(AbstractFileLineWriter.class, preStringConverterCacheMap);
 
         try {
             // テスト実施
-            UTUtil.invokePrivate(fileLineWriter, "buildStringConverters");
+            method = AbstractFileLineWriter.class.getDeclaredMethod("buildStringConverters");
+            method.setAccessible(true);
+            method.invoke(fileLineWriter);
 
             // 判定(状態変化、フィールド)
-            Map<Class, StringConverter> stringConverterCacheMap = (Map<Class, StringConverter>) UTUtil
-                    .getPrivateField(fileLineWriter, "stringConverterCacheMap");
+            field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            Map<Class, StringConverter> stringConverterCacheMap =
+                    (Map<Class, StringConverter>) field.get(fileLineWriter);        
             assertNotNull(stringConverterCacheMap);
             assertEquals(1, stringConverterCacheMap.size());
-            assertTrue(stringConverterCacheMap
-                    .containsKey(NullStringConverter.class));
-            StringConverter nullStringConverter = stringConverterCacheMap
-                    .get(NullStringConverter.class);
+            assertTrue(stringConverterCacheMap.containsKey(
+                    NullStringConverter.class));
+            StringConverter nullStringConverter = stringConverterCacheMap.get(
+                    NullStringConverter.class);
             assertNotNull(nullStringConverter);
-            assertTrue(NullStringConverter.class
-                    .isAssignableFrom(nullStringConverter.getClass()));
+            assertTrue(NullStringConverter.class.isAssignableFrom(
+                    nullStringConverter.getClass()));
 
-            StringConverter[] stringConverters = (StringConverter[]) UTUtil
-                    .getPrivateField(fileLineWriter, "stringConverters");
+            field = AbstractFileLineWriter.class.getDeclaredField("stringConverters");
+            field.setAccessible(true);
+            StringConverter[] stringConverters = (StringConverter[]) field.get(fileLineWriter);        
+            
             assertNotNull(stringConverters);
             assertEquals(3, stringConverters.length);
             StringConverter stringConverters1 = stringConverters[0];
@@ -2514,9 +2546,9 @@ public class AbstractFileLineWriterTest<T> {
             assertNotNull(stringConverters3);
             assertSame(nullStringConverter, stringConverters3);
         } finally {
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());
         }
     }
 
@@ -2534,31 +2566,37 @@ public class AbstractFileLineWriterTest<T> {
      * - 全項目：デフォルト値<br>
      * ・@OutputFileColumn設定ありのフィールドを持つ<br>
      * - フィールド：String column1<br>
-     * @OutputFileColumn設定<br> > columnIndex：0<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：0<br>
      *                         > stringConverter：NullStringConverter.class<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column2<br>
-     * @OutputFileColumn設定<br> > columnIndex：1<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：1<br>
      *                         > stringConverter：SringConverterToLowerCase.class<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column3<br>
-     * @OutputFileColumn設定<br> > columnIndex：2<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：2<br>
      *                         > stringConverter：SringConverterToUpperCase.class<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column4<br>
-     * @OutputFileColumn設定<br> > columnIndex：3<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：3<br>
      *                         > stringConverter：NullStringConverter.class<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column5<br>
-     * @OutputFileColumn設定<br> > columnIndex：4<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：4<br>
      *                         > stringConverter：SringConverterToLowerCase.class<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column6<br>
-     * @OutputFileColumn設定<br> > columnIndex：5<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：5<br>
      *                         > stringConverter：SringConverterToUpperCase.class<br>
      *                         > その他項目：デフォルト値<br>
      *                         (状態) this.stringConverterCacheMap:要素を持たないMapインスタンス<br>
-     * <br>
+     *                         <br>
      *                         期待値：(状態変化) this.stringConverterCacheMap:以下の要素を持つMapインスタンス<br>
      *                         ・key：NullStringConverter.class,<br>
      *                         value：NullStringConverterインスタンス<br>
@@ -2573,7 +2611,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         4．NullStringConverterインスタンス(キャッシュされたものと同じインスタンス)<br>
      *                         5．SringConverterToLowerCaseインスタンス(キャッシュされたものと同じインスタンス)<br>
      *                         6．SringConverterToUpperCaseインスタンス(キャッシュされたものと同じインスタンス)<br>
-     * <br>
+     *                         <br>
      *                         正常ケース<br>
      *                         (stringConverter設定ありフィールド：5個、<br>
      *                         同じstringConverterを利用する。)<br>
@@ -2593,48 +2631,56 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub22> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub22>(
-                fileName, clazz, columnFormatterMap);
-        UTUtil.invokePrivate(fileLineWriter, "buildFields");
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub22> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub22>(fileName, clazz, columnFormatterMap);
+        Method method = AbstractFileLineWriter.class.getDeclaredMethod("buildFields");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineWriter);
 
         // 前処理(フィールド)
         Map<Class, StringConverter> preStringConverterCacheMap = new HashMap<Class, StringConverter>();
-        UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                "stringConverterCacheMap", preStringConverterCacheMap);
+        Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+        field.setAccessible(true);
+        field.set(AbstractFileLineWriter.class, preStringConverterCacheMap);
 
         try {
             // テスト実施
-            UTUtil.invokePrivate(fileLineWriter, "buildStringConverters");
+            method = AbstractFileLineWriter.class.getDeclaredMethod("buildStringConverters");
+            method.setAccessible(true);
+            method.invoke(fileLineWriter);
 
             // 判定(状態変化、フィールド)
-            Map<Class, StringConverter> stringConverterCacheMap = (Map<Class, StringConverter>) UTUtil
-                    .getPrivateField(fileLineWriter, "stringConverterCacheMap");
+            field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            Map<Class, StringConverter> stringConverterCacheMap =
+                    (Map<Class, StringConverter>) field.get(fileLineWriter);        
+
             assertNotNull(stringConverterCacheMap);
             assertEquals(3, stringConverterCacheMap.size());
-            assertTrue(stringConverterCacheMap
-                    .containsKey(NullStringConverter.class));
-            StringConverter nullStringConverter = stringConverterCacheMap
-                    .get(NullStringConverter.class);
+            assertTrue(stringConverterCacheMap.containsKey(
+                    NullStringConverter.class));
+            StringConverter nullStringConverter = stringConverterCacheMap.get(
+                    NullStringConverter.class);
             assertNotNull(nullStringConverter);
-            assertTrue(NullStringConverter.class
-                    .isAssignableFrom(nullStringConverter.getClass()));
-            assertTrue(stringConverterCacheMap
-                    .containsKey(NullStringConverter.class));
+            assertTrue(NullStringConverter.class.isAssignableFrom(
+                    nullStringConverter.getClass()));
+            assertTrue(stringConverterCacheMap.containsKey(
+                    NullStringConverter.class));
             StringConverter stringConverterToLowerCase = stringConverterCacheMap
                     .get(StringConverterToLowerCase.class);
             assertNotNull(stringConverterToLowerCase);
-            assertTrue(StringConverterToLowerCase.class
-                    .isAssignableFrom(stringConverterToLowerCase.getClass()));
-            assertTrue(stringConverterCacheMap
-                    .containsKey(StringConverterToUpperCase.class));
+            assertTrue(StringConverterToLowerCase.class.isAssignableFrom(
+                    stringConverterToLowerCase.getClass()));
+            assertTrue(stringConverterCacheMap.containsKey(
+                    StringConverterToUpperCase.class));
             StringConverter stringConverterToUpperCase = stringConverterCacheMap
                     .get(StringConverterToUpperCase.class);
             assertNotNull(stringConverterToUpperCase);
-            assertTrue(StringConverterToUpperCase.class
-                    .isAssignableFrom(stringConverterToUpperCase.getClass()));
+            assertTrue(StringConverterToUpperCase.class.isAssignableFrom(
+                    stringConverterToUpperCase.getClass()));
 
-            StringConverter[] stringConverters = (StringConverter[]) UTUtil
-                    .getPrivateField(fileLineWriter, "stringConverters");
+            field = AbstractFileLineWriter.class.getDeclaredField("stringConverters");
+            field.setAccessible(true);
+            StringConverter[] stringConverters = (StringConverter[]) field.get(fileLineWriter); 
             assertNotNull(stringConverters);
             assertEquals(6, stringConverters.length);
             StringConverter stringConverters1 = stringConverters[0];
@@ -2656,9 +2702,9 @@ public class AbstractFileLineWriterTest<T> {
             assertNotNull(stringConverters6);
             assertSame(stringConverterToUpperCase, stringConverters6);
         } finally {
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());
         }
     }
 
@@ -2676,11 +2722,12 @@ public class AbstractFileLineWriterTest<T> {
      * - 全項目：デフォルト値<br>
      * ・@OutputFileColumn設定ありのフィールドを持つ<br>
      * - フィールド：String column1<br>
-     * @OutputFileColumn設定<br> > columnIndex：0<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：0<br>
      *                         > stringConverter：デフォルトコンストラクタを持ってないStringConverterのクラスインスタンス<br>
      *                         > その他項目：デフォルト値<br>
      *                         (状態) this.stringConverterCacheMap:要素を持たないMapインスタンス<br>
-     * <br>
+     *                         <br>
      *                         期待値：(状態変化) -:以下の情報を持つFileLineException()が発生する<br>
      *                         ・メッセージ："Failed in an instantiate of a stringConverter."<br>
      *                         ・原因例外：InstantiationException<br>
@@ -2688,7 +2735,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         ・行数：-1<br>
      *                         ・カラム名：column1<br>
      *                         ・カラム番号：0<br>
-     * <br>
+     *                         <br>
      *                         異常ケース<br>
      *                         指定したStringConverterにデフォルトコンストラクタが存在しない場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
@@ -2705,34 +2752,38 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub23> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub23>(
-                fileName, clazz, columnFormatterMap);
-        UTUtil.invokePrivate(fileLineWriter, "buildFields");
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub23> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub23>(fileName, clazz, columnFormatterMap);
+        Method method = AbstractFileLineWriter.class.getDeclaredMethod("buildFields");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineWriter);
 
         // 前処理(フィールド)
         Map<Class, StringConverter> preStringConverterCacheMap = new HashMap<Class, StringConverter>();
-        UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                "stringConverterCacheMap", preStringConverterCacheMap);
+        Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+        field.setAccessible(true);
+        field.set(AbstractFileLineWriter.class, preStringConverterCacheMap);
 
         try {
             // テスト実施
-            UTUtil.invokePrivate(fileLineWriter, "buildStringConverters");
+            method = AbstractFileLineWriter.class.getDeclaredMethod("buildStringConverters");
+            method.setAccessible(true);
+            method.invoke(fileLineWriter);
             fail("FileLineExceptionが発生しませんでした。");
-        } catch (FileLineException e) {
+        } catch (InvocationTargetException e) {
             // 判定(例外)
-            assertTrue(FileLineException.class.isAssignableFrom(e.getClass()));
-            assertEquals("Failed in an instantiate of a stringConverter.", e
+            assertTrue(FileLineException.class.isAssignableFrom(e.getTargetException().getClass()));
+            assertEquals("Failed in an instantiate of a stringConverter.", e.getTargetException()
                     .getMessage());
-            assertTrue(InstantiationException.class.isAssignableFrom(e
+            assertTrue(InstantiationException.class.isAssignableFrom(e.getTargetException()
                     .getCause().getClass()));
-            assertEquals(fileName, e.getFileName());
-            assertEquals(-1, e.getLineNo());
-            assertEquals("column1", e.getColumnName());
-            assertEquals(0, e.getColumnIndex());
+            assertEquals(fileName, ((FileLineException)e.getTargetException()).getFileName());
+            assertEquals(-1, ((FileLineException)e.getTargetException()).getLineNo());
+            assertEquals("column1", ((FileLineException)e.getTargetException()).getColumnName());
+            assertEquals(0, ((FileLineException)e.getTargetException()).getColumnIndex());
         } finally {
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());
         }
     }
 
@@ -2750,11 +2801,12 @@ public class AbstractFileLineWriterTest<T> {
      * - 全項目：デフォルト値<br>
      * ・@OutputFileColumn設定ありのフィールドを持つ<br>
      * - フィールド：String column1<br>
-     * @OutputFileColumn設定<br> > columnIndex：0<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：0<br>
      *                         > stringConverter：デフォルトコンストラクタがprivateで宣言されているStringConverterのクラスインスタンス<br>
      *                         > その他項目：デフォルト値<br>
      *                         (状態) this.stringConverterCacheMap:要素を持たないMapインスタンス<br>
-     * <br>
+     *                         <br>
      *                         期待値：(状態変化) -:以下の情報を持つFileLineException()が発生する<br>
      *                         ・メッセージ："Failed in an instantiate of a stringConverter."<br>
      *                         ・原因例外：IllegalAccessException<br>
@@ -2762,7 +2814,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         ・行数：-1<br>
      *                         ・カラム名：column1<br>
      *                         ・カラム番号：0<br>
-     * <br>
+     *                         <br>
      *                         異常ケース<br>
      *                         指定したStringConverterのデフォルトコンストラクタがprivateで宣言されている場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
@@ -2778,34 +2830,38 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub24> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub24>(
-                fileName, clazz, columnFormatterMap);
-        UTUtil.invokePrivate(fileLineWriter, "buildFields");
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub24> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub24>(fileName, clazz, columnFormatterMap);
+        Method method = AbstractFileLineWriter.class.getDeclaredMethod("buildFields");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineWriter);
 
         // 前処理(フィールド)
         Map<Class, StringConverter> preStringConverterCacheMap = new HashMap<Class, StringConverter>();
-        UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                "stringConverterCacheMap", preStringConverterCacheMap);
+        Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+        field.setAccessible(true);
+        field.set(AbstractFileLineWriter.class, preStringConverterCacheMap);
 
         try {
             // テスト実施
-            UTUtil.invokePrivate(fileLineWriter, "buildStringConverters");
+            method = AbstractFileLineWriter.class.getDeclaredMethod("buildStringConverters");
+            method.setAccessible(true);
+            method.invoke(fileLineWriter);
             fail("FileLineExceptionが発生しませんでした。");
-        } catch (FileLineException e) {
+        } catch (InvocationTargetException e) {
             // 判定(例外)
-            assertTrue(FileLineException.class.isAssignableFrom(e.getClass()));
-            assertEquals("Failed in an instantiate of a stringConverter.", e
+            assertTrue(FileLineException.class.isAssignableFrom(e.getTargetException().getClass()));
+            assertEquals("Failed in an instantiate of a stringConverter.", e.getTargetException()
                     .getMessage());
-            assertTrue(IllegalAccessException.class.isAssignableFrom(e
+            assertTrue(IllegalAccessException.class.isAssignableFrom(e.getTargetException()
                     .getCause().getClass()));
-            assertEquals(fileName, e.getFileName());
-            assertEquals(-1, e.getLineNo());
-            assertEquals("column1", e.getColumnName());
-            assertEquals(0, e.getColumnIndex());
+            assertEquals(fileName, ((FileLineException)e.getTargetException()).getFileName());
+            assertEquals(-1, ((FileLineException)e.getTargetException()).getLineNo());
+            assertEquals("column1", ((FileLineException)e.getTargetException()).getColumnName());
+            assertEquals(0, ((FileLineException)e.getTargetException()).getColumnIndex());
         } finally {
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());
         }
     }
 
@@ -2823,16 +2879,19 @@ public class AbstractFileLineWriterTest<T> {
      * - 全項目：デフォルト値<br>
      * ・@OutputFileColumn設定ありのフィールドを持つ<br>
      * - フィールド：String column1<br>
-     * @OutputFileColumn設定<br> > columnIndex：0<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：0<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column2<br>
-     * @OutputFileColumn設定<br> > columnIndex：1<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：1<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column3<br>
-     * @OutputFileColumn設定<br> > columnIndex：2<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：2<br>
      *                         > その他項目：デフォルト値<br>
      *                         (状態) this.stringConverterCacheMap:要素を持たないMapインスタンス<br>
-     * <br>
+     *                         <br>
      *                         期待値：(状態変化) this.stringConverterCacheMap:以下の要素を持つMapインスタンス<br>
      *                         ・key：NullStringConverter.class,<br>
      *                         value：NullStringConverterインスタンス<br>
@@ -2840,7 +2899,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         1．NullStringConverterインスタンス(キャッシュされたものと同じインスタンス)<br>
      *                         2．NullStringConverterインスタンス(キャッシュされたものと同じインスタンス)<br>
      *                         3．NullStringConverterインスタンス(キャッシュされたものと同じインスタンス)<br>
-     * <br>
+     *                         <br>
      *                         正常ケース<br>
      *                         (stringConverter設定ないフィールド：3個)<br>
      *                         stringConverter設定がない場合、NullStringConverterで初期化されることを確認する。 <br>
@@ -2858,34 +2917,36 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub13> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub13>(
-                fileName, clazz, columnFormatterMap);
-        UTUtil.invokePrivate(fileLineWriter, "buildFields");
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub13> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub13>(fileName, clazz, columnFormatterMap);
+        Method method = AbstractFileLineWriter.class.getDeclaredMethod("buildFields");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineWriter);
 
         // 前処理(フィールド)
         Map<Class, StringConverter> preStringConverterCacheMap = new HashMap<Class, StringConverter>();
-        UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                "stringConverterCacheMap", preStringConverterCacheMap);
+        Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+        field.setAccessible(true);
+        field.set(AbstractFileLineWriter.class, preStringConverterCacheMap);
 
         try {
             // テスト実施
-            UTUtil.invokePrivate(fileLineWriter, "buildStringConverters");
+            method = AbstractFileLineWriter.class.getDeclaredMethod("buildStringConverters");
+            method.setAccessible(true);
+            method.invoke(fileLineWriter);
 
             // 判定(状態変化、フィールド)
-            Map<Class, StringConverter> stringConverterCacheMap = (Map<Class, StringConverter>) UTUtil
-                    .getPrivateField(fileLineWriter, "stringConverterCacheMap");
+            Map<Class, StringConverter> stringConverterCacheMap = (Map<Class, StringConverter>) ReflectionTestUtils.getField(fileLineWriter, "stringConverterCacheMap");
             assertNotNull(stringConverterCacheMap);
             assertEquals(1, stringConverterCacheMap.size());
-            assertTrue(stringConverterCacheMap
-                    .containsKey(NullStringConverter.class));
-            StringConverter nullStringConverter = stringConverterCacheMap
-                    .get(NullStringConverter.class);
+            assertTrue(stringConverterCacheMap.containsKey(
+                    NullStringConverter.class));
+            StringConverter nullStringConverter = stringConverterCacheMap.get(
+                    NullStringConverter.class);
             assertNotNull(nullStringConverter);
-            assertTrue(NullStringConverter.class
-                    .isAssignableFrom(nullStringConverter.getClass()));
+            assertTrue(NullStringConverter.class.isAssignableFrom(
+                    nullStringConverter.getClass()));
 
-            StringConverter[] stringConverters = (StringConverter[]) UTUtil
-                    .getPrivateField(fileLineWriter, "stringConverters");
+            StringConverter[] stringConverters = (StringConverter[]) ReflectionTestUtils.getField(fileLineWriter, "stringConverters");
             assertNotNull(stringConverters);
             assertEquals(3, stringConverters.length);
             StringConverter stringConverters1 = stringConverters[0];
@@ -2898,9 +2959,9 @@ public class AbstractFileLineWriterTest<T> {
             assertNotNull(stringConverters3);
             assertSame(nullStringConverter, stringConverters3);
         } finally {
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());
         }
     }
 
@@ -2935,24 +2996,28 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub08> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub08>(
-                fileName, clazz, columnFormatterMap);
-        UTUtil.invokePrivate(fileLineWriter, "buildFields");
-        UTUtil.invokePrivate(fileLineWriter, "buildStringConverters");
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub08> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub08>(fileName, clazz, columnFormatterMap);
+        Method method = AbstractFileLineWriter.class.getDeclaredMethod("buildFields");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineWriter);
+        method = AbstractFileLineWriter.class.getDeclaredMethod("buildStringConverters");
+        method.setAccessible(true);
+        result = method.invoke(fileLineWriter);
 
         try {
             // テスト実施
-            UTUtil.invokePrivate(fileLineWriter, "buildMethods");
-
+            method = AbstractFileLineWriter.class.getDeclaredMethod("buildMethods");
+            method.setAccessible(true);
+            result = method.invoke(fileLineWriter);
             // 判定(状態変化、フィールド)
-            Method[] methods = (Method[]) UTUtil.getPrivateField(
-                    fileLineWriter, "methods");
+            Method[] methods = (Method[]) ReflectionTestUtils.getField(fileLineWriter,
+                    "methods");
             assertNotNull(methods);
             assertEquals(0, methods.length);
         } finally {
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());
         }
     }
 
@@ -2970,15 +3035,16 @@ public class AbstractFileLineWriterTest<T> {
      * - 全項目：デフォルト値<br>
      * ・@OutputFileColumn設定ありのフィールドを持つ<br>
      * - フィールド：String column1<br>
-     * @OutputFileColumn設定<br> > columnIndex：0<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：0<br>
      *                         > その他項目：デフォルト値<br>
      *                         ・各フィールドのgetter/setterメソッドを持つ。<br>
-     * <br>
+     *                         <br>
      *                         期待値：(状態変化) this.methods:以下の要素を持つMethod配列インスタンス<br>
      *                         １．Methodオブジェクト<br>
      *                         - メソッド名：getColumn1<br>
      *                         - 引数：なし<br>
-     * <br>
+     *                         <br>
      *                         正常ケース<br>
      *                         (@OutputFileColumn設定ありフィールド：1個、<br>
      *                         フィールドに対するgetterメソッドあり)<br>
@@ -2996,27 +3062,32 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub10> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub10>(
-                fileName, clazz, columnFormatterMap);
-        UTUtil.invokePrivate(fileLineWriter, "buildFields");
-        UTUtil.invokePrivate(fileLineWriter, "buildStringConverters");
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub10> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub10>(fileName, clazz, columnFormatterMap);
+        Method method = AbstractFileLineWriter.class.getDeclaredMethod("buildFields");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineWriter);
+        method = AbstractFileLineWriter.class.getDeclaredMethod("buildStringConverters");
+        method.setAccessible(true);
+        result = method.invoke(fileLineWriter);
 
         try {
             // テスト実施
-            UTUtil.invokePrivate(fileLineWriter, "buildMethods");
+            method = AbstractFileLineWriter.class.getDeclaredMethod("buildMethods");
+            method.setAccessible(true);
+            method.invoke(fileLineWriter);
 
             // 判定(状態変化、フィールド)
-            Method[] methods = (Method[]) UTUtil.getPrivateField(
-                    fileLineWriter, "methods");
+            Method[] methods = (Method[]) ReflectionTestUtils.getField(fileLineWriter,
+                    "methods");
             assertNotNull(methods);
             assertEquals(1, methods.length);
             Method methods1 = methods[0];
             assertEquals("getColumn1", methods1.getName());
             assertEquals(0, methods1.getParameterTypes().length);
         } finally {
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());
         }
     }
 
@@ -3034,15 +3105,16 @@ public class AbstractFileLineWriterTest<T> {
      * - 全項目：デフォルト値<br>
      * ・@OutputFileColumn設定ありのフィールドを持つ<br>
      * - フィールド：String column1<br>
-     * @OutputFileColumn設定<br> > columnIndex：0<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：0<br>
      *                         > その他項目：デフォルト値<br>
      *                         ・各フィールドのgetter/setterメソッドを持たない。<br>
-     * <br>
+     *                         <br>
      *                         期待値：(状態変化) -:以下の設定を持つFileExceptionインスタンス<br>
      *                         ・メッセージ："The getter method of column doesn't exist."<br>
      *                         ・原因例外：NoSuchMethodException<br>
      *                         ・ファイル名：fileNameと同じインスタンス<br>
-     * <br>
+     *                         <br>
      *                         異常ケース<br>
      *                         (@OutputFileColumn設定ありフィールド：1個、<br>
      *                         フィールドに対するgetterメソッドなし)<br>
@@ -3060,28 +3132,33 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub25> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub25>(
-                fileName, clazz, columnFormatterMap);
-        UTUtil.invokePrivate(fileLineWriter, "buildFields");
-        UTUtil.invokePrivate(fileLineWriter, "buildStringConverters");
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub25> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub25>(fileName, clazz, columnFormatterMap);
+        Method method = AbstractFileLineWriter.class.getDeclaredMethod("buildFields");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineWriter);
+        method = AbstractFileLineWriter.class.getDeclaredMethod("buildStringConverters");
+        method.setAccessible(true);
+        result = method.invoke(fileLineWriter);
 
         try {
             // テスト実施
-            UTUtil.invokePrivate(fileLineWriter, "buildMethods");
+            method = AbstractFileLineWriter.class.getDeclaredMethod("buildMethods");
+            method.setAccessible(true);
+            method.invoke(fileLineWriter);
             fail("FileExceptionが発生しませんでした。");
-        } catch (FileException e) {
+        } catch (InvocationTargetException e) {
             // 判定(例外)
-            assertTrue(FileException.class.isAssignableFrom(e.getClass()));
-            assertEquals("The getter method of column doesn't exist.", e
+            assertTrue(FileException.class.isAssignableFrom(e.getTargetException().getClass()));
+            assertEquals("The getter method of column doesn't exist.", e.getTargetException()
                     .getMessage());
-            assertTrue(NoSuchMethodException.class.isAssignableFrom(e
-                    .getCause().getClass()));
-            assertEquals(fileName, e.getFileName());
+            assertTrue(NoSuchMethodException.class.isAssignableFrom(e.getTargetException().getCause()
+                    .getClass()));
+            assertEquals(fileName, ((FileException)e.getTargetException()).getFileName());
 
         } finally {
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());
         }
     }
 
@@ -3099,16 +3176,19 @@ public class AbstractFileLineWriterTest<T> {
      * - 全項目：デフォルト値<br>
      * ・@OutputFileColumn設定ありのフィールドを持つ<br>
      * - フィールド：String column1<br>
-     * @OutputFileColumn設定<br> > columnIndex：0<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：0<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column2<br>
-     * @OutputFileColumn設定<br> > columnIndex：1<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：1<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column3<br>
-     * @OutputFileColumn設定<br> > columnIndex：2<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：2<br>
      *                         > その他項目：デフォルト値<br>
      *                         ・各フィールドのgetter/setterメソッドを持つ。<br>
-     * <br>
+     *                         <br>
      *                         期待値：(状態変化) this.methods:以下の要素を持つMethod配列インスタンス<br>
      *                         1．Methodオブジェクト<br>
      *                         - メソッド名：getColumn1<br>
@@ -3119,7 +3199,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         3．Methodオブジェクト<br>
      *                         - メソッド名：getColumn3<br>
      *                         - 引数：なし<br>
-     * <br>
+     *                         <br>
      *                         正常ケース<br>
      *                         (@OutputFileColumn設定ありフィールド：3個、<br>
      *                         フィールドに対するgetterメソッドあり)<br>
@@ -3137,18 +3217,23 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub13> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub13>(
-                fileName, clazz, columnFormatterMap);
-        UTUtil.invokePrivate(fileLineWriter, "buildFields");
-        UTUtil.invokePrivate(fileLineWriter, "buildStringConverters");
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub13> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub13>(fileName, clazz, columnFormatterMap);
+        Method method = AbstractFileLineWriter.class.getDeclaredMethod("buildFields");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineWriter);
+        method = AbstractFileLineWriter.class.getDeclaredMethod("buildStringConverters");
+        method.setAccessible(true);
+        result = method.invoke(fileLineWriter);
 
         try {
             // テスト実施
-            UTUtil.invokePrivate(fileLineWriter, "buildMethods");
+            method = AbstractFileLineWriter.class.getDeclaredMethod("buildMethods");
+            method.setAccessible(true);
+            method.invoke(fileLineWriter);
 
             // 判定(状態変化、フィールド)
-            Method[] methods = (Method[]) UTUtil.getPrivateField(
-                    fileLineWriter, "methods");
+            Method[] methods = (Method[]) ReflectionTestUtils.getField(fileLineWriter,
+                    "methods");
             assertNotNull(methods);
             assertEquals(3, methods.length);
             Method methods1 = methods[0];
@@ -3161,9 +3246,9 @@ public class AbstractFileLineWriterTest<T> {
             assertEquals("getColumn3", methods3.getName());
             assertEquals(0, methods3.getParameterTypes().length);
         } finally {
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());
         }
     }
 
@@ -3184,21 +3269,24 @@ public class AbstractFileLineWriterTest<T> {
      * - フィールド：String noMappingColumn2<br>
      * ・@OutputFileColumn設定ありのフィールドを持つ<br>
      * - フィールド：String column2<br>
-     * @OutputFileColumn設定<br> > columnIndex：1<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：1<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column3<br>
-     * @OutputFileColumn設定<br> > columnIndex：2<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：2<br>
      *                         > その他項目：デフォルト値<br>
-     * <br>
+     *                         <br>
      *                         以下親クラスの定義<br>
      *                         ・@OutputFileColumn設定ありのフィールドを持つ<br>
      *                         - フィールド：String column1<br>
-     * @OutputFileColumn設定<br> > columnIndex：0<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：0<br>
      *                         > その他項目：デフォルト値<br>
      *                         ・各フィールドのgetter/setterメソッドを持つ。<br>
-     * <br>
+     *                         <br>
      *                         ※親クラスにフィールドの情報がある。<br>
-     * <br>
+     *                         <br>
      *                         期待値：(状態変化) this.methods:以下の要素を持つMethod配列インスタンス<br>
      *                         1．Methodオブジェクト<br>
      *                         - メソッド名：getColumn1<br>
@@ -3209,7 +3297,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         3．Methodオブジェクト<br>
      *                         - メソッド名：getColumn3<br>
      *                         - 引数：なし<br>
-     * <br>
+     *                         <br>
      *                         正常ケース<br>
      *                         (@OutputFileColumn設定ありフィールド：3個、<br>
      *                         フィールドに対するgetterメソッドあり、<br>
@@ -3228,18 +3316,23 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub19> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub19>(
-                fileName, clazz, columnFormatterMap);
-        UTUtil.invokePrivate(fileLineWriter, "buildFields");
-        UTUtil.invokePrivate(fileLineWriter, "buildStringConverters");
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub19> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub19>(fileName, clazz, columnFormatterMap);
+        Method method = AbstractFileLineWriter.class.getDeclaredMethod("buildFields");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineWriter);
+        method = AbstractFileLineWriter.class.getDeclaredMethod("buildStringConverters");
+        method.setAccessible(true);
+        result = method.invoke(fileLineWriter);
 
         try {
             // テスト実施
-            UTUtil.invokePrivate(fileLineWriter, "buildMethods");
+            method = AbstractFileLineWriter.class.getDeclaredMethod("buildMethods");
+            method.setAccessible(true);
+            method.invoke(fileLineWriter);
 
             // 判定(状態変化、フィールド)
-            Method[] methods = (Method[]) UTUtil.getPrivateField(
-                    fileLineWriter, "methods");
+            Method[] methods = (Method[]) ReflectionTestUtils.getField(fileLineWriter,
+                    "methods");
             assertNotNull(methods);
             assertEquals(3, methods.length);
             Method methods1 = methods[0];
@@ -3252,9 +3345,9 @@ public class AbstractFileLineWriterTest<T> {
             assertEquals("getColumn3", methods3.getName());
             assertEquals(0, methods3.getParameterTypes().length);
         } finally {
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());
         }
     }
 
@@ -3288,8 +3381,7 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub01> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub01>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub01> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub01>(fileName, clazz, columnFormatterMap);
         try {
             fileLineWriter.init();
 
@@ -3297,30 +3389,31 @@ public class AbstractFileLineWriterTest<T> {
             List<String> headerLine = new ArrayList<String>();
 
             // 前処理(フィールド)
-            UTUtil.setPrivateField(fileLineWriter, "writeTrailer",
+            ReflectionTestUtils.setField(fileLineWriter, "writeTrailer",
                     Boolean.FALSE);
 
-            UTUtil.setPrivateField(fileLineWriter, "writeData", Boolean.FALSE);
+            ReflectionTestUtils.setField(fileLineWriter, "writeData",
+                    Boolean.FALSE);
 
             // テスト実施
             fileLineWriter.printHeaderLine(headerLine);
 
             // 判定(状態変化、メソッド)
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "printList"));
+            assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
+                    "printList"));
             List printListArguments = VMOUTUtil.getArguments(
                     AbstractFileLineWriter.class, "printList", 0);
             assertSame(headerLine, printListArguments.get(0));
         } finally {
-            Writer writer = (Writer) UTUtil.getPrivateField(fileLineWriter,
+            Writer writer = (Writer) ReflectionTestUtils.getField(fileLineWriter,
                     "writer");
             if (writer != null) {
                 writer.close();
             }
 
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());        
         }
     }
 
@@ -3358,8 +3451,7 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub01> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub01>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub01> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub01>(fileName, clazz, columnFormatterMap);
         try {
             fileLineWriter.init();
 
@@ -3367,11 +3459,11 @@ public class AbstractFileLineWriterTest<T> {
             List<String> headerLine = new ArrayList<String>();
 
             // 前処理(フィールド)
-            UTUtil
-                    .setPrivateField(fileLineWriter, "writeTrailer",
-                            Boolean.TRUE);
+            ReflectionTestUtils.setField(fileLineWriter, "writeTrailer",
+                    Boolean.TRUE);
 
-            UTUtil.setPrivateField(fileLineWriter, "writeData", Boolean.FALSE);
+            ReflectionTestUtils.setField(fileLineWriter, "writeData",
+                    Boolean.FALSE);
 
             // テスト実施
             fileLineWriter.printHeaderLine(headerLine);
@@ -3381,23 +3473,23 @@ public class AbstractFileLineWriterTest<T> {
             assertTrue(FileException.class.isAssignableFrom(e.getClass()));
             assertEquals("Header part should be called before data part or "
                     + "trailer part.", e.getMessage());
-            assertTrue(IllegalStateException.class.isAssignableFrom(e
-                    .getCause().getClass()));
+            assertTrue(IllegalStateException.class.isAssignableFrom(e.getCause()
+                    .getClass()));
             assertEquals(fileName, e.getFileName());
 
             // 判定(状態変化、メソッド)
             assertFalse(VMOUTUtil.isCalled(AbstractFileLineWriter.class,
                     "printList"));
         } finally {
-            Writer writer = (Writer) UTUtil.getPrivateField(fileLineWriter,
+            Writer writer = (Writer) ReflectionTestUtils.getField(fileLineWriter,
                     "writer");
             if (writer != null) {
                 writer.close();
             }
 
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());        
         }
     }
 
@@ -3435,8 +3527,7 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub01> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub01>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub01> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub01>(fileName, clazz, columnFormatterMap);
         try {
             fileLineWriter.init();
 
@@ -3444,10 +3535,11 @@ public class AbstractFileLineWriterTest<T> {
             List<String> headerLine = new ArrayList<String>();
 
             // 前処理(フィールド)
-            UTUtil.setPrivateField(fileLineWriter, "writeTrailer",
+            ReflectionTestUtils.setField(fileLineWriter, "writeTrailer",
                     Boolean.FALSE);
 
-            UTUtil.setPrivateField(fileLineWriter, "writeData", Boolean.TRUE);
+            ReflectionTestUtils.setField(fileLineWriter, "writeData",
+                    Boolean.TRUE);
 
             // テスト実施
             fileLineWriter.printHeaderLine(headerLine);
@@ -3457,23 +3549,23 @@ public class AbstractFileLineWriterTest<T> {
             assertTrue(FileException.class.isAssignableFrom(e.getClass()));
             assertEquals("Header part should be called before data part or "
                     + "trailer part.", e.getMessage());
-            assertTrue(IllegalStateException.class.isAssignableFrom(e
-                    .getCause().getClass()));
+            assertTrue(IllegalStateException.class.isAssignableFrom(e.getCause()
+                    .getClass()));
             assertEquals(fileName, e.getFileName());
 
             // 判定(状態変化、メソッド)
             assertFalse(VMOUTUtil.isCalled(AbstractFileLineWriter.class,
                     "printList"));
         } finally {
-            Writer writer = (Writer) UTUtil.getPrivateField(fileLineWriter,
+            Writer writer = (Writer) ReflectionTestUtils.getField(fileLineWriter,
                     "writer");
             if (writer != null) {
                 writer.close();
             }
 
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());        
         }
     }
 
@@ -3492,7 +3584,8 @@ public class AbstractFileLineWriterTest<T> {
      * - 全項目：デフォルト値<br>
      * ・@OutputFileColumn設定ありのフィールドを持つ<br>
      * - フィールド：String column1<br>
-     * @OutputFileColumn設定<br> > columnIndex：0<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：0<br>
      *                         > その他項目：デフォルト値<br>
      *                         ・各フィールドのgetter/setterメソッドを持つ。<br>
      *                         (状態) this.writeTrailer:true<br>
@@ -3505,20 +3598,20 @@ public class AbstractFileLineWriterTest<T> {
      *                         (状態) #getEncloseChar():this.clazzのフィールド定義に従う。<br>
      *                         (状態) ファイル:クラスパスにthis.fileNameに対するファイルが存在する。<br>
      *                         ・内容はない(Obyte)<br>
-     * <br>
+     *                         <br>
      *                         期待値：(状態変化) this.currentLineCount:0<br>
      *                         (状態変化) #getColumn():呼ばれない<br>
      *                         (状態変化) #getWriter().write():呼ばれない<br>
      *                         (状態変化) #setWriteData():呼ばれない<br>
      *                         (状態変化) ファイル:クラスパスにthis.fileNameに対するファイルが存在する。<br>
      *                         ・内容はない(Obyte)<br>
-     * <br>
+     *                         <br>
      *                         ※変化なし<br>
      *                         (状態変化) 例外:以下の情報を持つFileExceptionが発生する<br>
      *                         ・メッセージ："Header part or data part should be called before TrailerPart"<br>
      *                         ・原因例外：IllegalStateException<br>
      *                         ・ファイル名：fileNameと同じインスタンス<br>
-     * <br>
+     *                         <br>
      *                         異常ケース<br>
      *                         トレイラ部の出力が既に完了されている場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
@@ -3537,8 +3630,7 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub10> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub10>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub10> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub10>(fileName, clazz, columnFormatterMap);
 
         Reader postReader = null;
         Writer writer = null;
@@ -3549,19 +3641,17 @@ public class AbstractFileLineWriterTest<T> {
             AbstractFileLineWriter_Stub10 t = new AbstractFileLineWriter_Stub10();
 
             // 前処理(フィールド)
-            UTUtil
-                    .setPrivateField(fileLineWriter, "writeTrailer",
-                            Boolean.TRUE);
+            ReflectionTestUtils.setField(fileLineWriter, "writeTrailer",
+                    Boolean.TRUE);
 
-            UTUtil.setPrivateField(fileLineWriter, "currentLineCount", 0);
+            ReflectionTestUtils.setField(fileLineWriter, "currentLineCount", 0);
 
             // 前処理(メソッド)
-            writer = (Writer) UTUtil.getPrivateField(fileLineWriter, "writer");
+            writer = (Writer) ReflectionTestUtils.getField(fileLineWriter, "writer");
             writer.close();
 
-            writer = new BufferedWriter(new OutputStreamWriter(
-                    (new FileOutputStream(fileName, true)), System
-                            .getProperty("file.encoding")));
+            writer = new BufferedWriter(new OutputStreamWriter((new FileOutputStream(fileName, true)), System
+                    .getProperty("file.encoding")));
 
             VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineWriter.class,
                     "getWriter", writer);
@@ -3578,12 +3668,12 @@ public class AbstractFileLineWriterTest<T> {
             assertTrue(FileException.class.isAssignableFrom(e.getClass()));
             assertEquals("Header part or data part should be called before "
                     + "TrailerPart", e.getMessage());
-            assertTrue(IllegalStateException.class.isAssignableFrom(e
-                    .getCause().getClass()));
+            assertTrue(IllegalStateException.class.isAssignableFrom(e.getCause()
+                    .getClass()));
             assertEquals(fileName, e.getFileName());
 
             // 判定(状態変化、フィールド)
-            assertEquals(0, UTUtil.getPrivateField(fileLineWriter,
+            assertEquals(0, ReflectionTestUtils.getField(fileLineWriter,
                     "currentLineCount"));
 
             // 判定(状態変化、メソッド)
@@ -3598,9 +3688,8 @@ public class AbstractFileLineWriterTest<T> {
             // 判定(ファイル)
             writer.flush();
 
-            postReader = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(fileName), System
-                            .getProperty("file.encoding")));
+            postReader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), System
+                    .getProperty("file.encoding")));
             assertFalse(postReader.ready());
         } finally {
             if (writer != null) {
@@ -3611,9 +3700,9 @@ public class AbstractFileLineWriterTest<T> {
                 postReader.close();
             }
 
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());        
         }
     }
 
@@ -3670,8 +3759,7 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub08> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub08>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub08> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub08>(fileName, clazz, columnFormatterMap);
 
         Reader postReader = null;
         Writer writer = null;
@@ -3682,18 +3770,17 @@ public class AbstractFileLineWriterTest<T> {
             AbstractFileLineWriter_Stub08 t = new AbstractFileLineWriter_Stub08();
 
             // 前処理(フィールド)
-            UTUtil.setPrivateField(fileLineWriter, "writeTrailer",
+            ReflectionTestUtils.setField(fileLineWriter, "writeTrailer",
                     Boolean.FALSE);
 
-            UTUtil.setPrivateField(fileLineWriter, "currentLineCount", 0);
+            ReflectionTestUtils.setField(fileLineWriter, "currentLineCount", 0);
 
             // 前処理(メソッド)
-            writer = (Writer) UTUtil.getPrivateField(fileLineWriter, "writer");
+            writer = (Writer) ReflectionTestUtils.getField(fileLineWriter, "writer");
             writer.close();
 
-            writer = new BufferedWriter(new OutputStreamWriter(
-                    (new FileOutputStream(fileName, true)), System
-                            .getProperty("file.encoding")));
+            writer = new BufferedWriter(new OutputStreamWriter((new FileOutputStream(fileName, true)), System
+                    .getProperty("file.encoding")));
 
             VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineWriter.class,
                     "getWriter", writer);
@@ -3705,7 +3792,7 @@ public class AbstractFileLineWriterTest<T> {
             fileLineWriter.printDataLine(t);
 
             // 判定(状態変化、フィールド)
-            assertEquals(1, UTUtil.getPrivateField(fileLineWriter,
+            assertEquals(1, ReflectionTestUtils.getField(fileLineWriter,
                     "currentLineCount"));
 
             // 判定(状態変化、メソッド)
@@ -3720,8 +3807,8 @@ public class AbstractFileLineWriterTest<T> {
             String expectationResultData = systemLineSeparator;
             assertEquals(expectationResultData, writeArguments.get(0));
 
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "setWriteData"));
+            assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
+                    "setWriteData"));
             List setWriteDataArguments = VMOUTUtil.getArguments(
                     AbstractFileLineWriter.class, "setWriteData", 0);
             assertEquals(1, setWriteDataArguments.size());
@@ -3729,9 +3816,8 @@ public class AbstractFileLineWriterTest<T> {
 
             // 判定(ファイル)
             writer.flush();
-            postReader = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(fileName), System
-                            .getProperty("file.encoding")));
+            postReader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), System
+                    .getProperty("file.encoding")));
             assertTrue(postReader.ready());
 
             String data = "";
@@ -3750,9 +3836,9 @@ public class AbstractFileLineWriterTest<T> {
                 postReader.close();
             }
 
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());        
         }
     }
 
@@ -3771,7 +3857,8 @@ public class AbstractFileLineWriterTest<T> {
      * - 全項目：デフォルト値<br>
      * ・@OutputFileColumn設定ありのフィールドを持つ<br>
      * - フィールド：String column1<br>
-     * @OutputFileColumn設定<br> > columnIndex：0<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：0<br>
      *                         > その他項目：デフォルト値<br>
      *                         ・各フィールドのgetter/setterメソッドを持つ。<br>
      *                         (状態) this.writeTrailer:false<br>
@@ -3785,7 +3872,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         (状態) #getEncloseChar():this.clazzのフィールド定義に従う。<br>
      *                         (状態) ファイル:クラスパスにthis.fileNameに対するファイルが存在する。<br>
      *                         ・内容はない(Obyte)<br>
-     * <br>
+     *                         <br>
      *                         期待値：(状態変化) this.currentLineCount:1<br>
      *                         (状態変化) #getColumn():1回呼ばれる<br>
      *                         引数を確認する。<br>
@@ -3795,7 +3882,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         引数を確認する。<br>
      *                         (状態変化) ファイル:クラスパスにthis.fileNameに対するファイルが存在する。<br>
      *                         ・内容："testPrintDataLine03_column1<行区切り文字>"<br>
-     * <br>
+     *                         <br>
      *                         正常ケース<br>
      *                         (出力対象フィールド：1個、区切り文字：デフォルト値、<br>
      *                         囲み文字：デフォルト値)<br>
@@ -3815,8 +3902,7 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub10> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub10>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub10> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub10>(fileName, clazz, columnFormatterMap);
 
         Reader postReader = null;
         Writer writer = null;
@@ -3827,18 +3913,17 @@ public class AbstractFileLineWriterTest<T> {
             AbstractFileLineWriter_Stub10 t = new AbstractFileLineWriter_Stub10();
 
             // 前処理(フィールド)
-            UTUtil.setPrivateField(fileLineWriter, "writeTrailer",
+            ReflectionTestUtils.setField(fileLineWriter, "writeTrailer",
                     Boolean.FALSE);
 
-            UTUtil.setPrivateField(fileLineWriter, "currentLineCount", 0);
+            ReflectionTestUtils.setField(fileLineWriter, "currentLineCount", 0);
 
             // 前処理(メソッド)
-            writer = (Writer) UTUtil.getPrivateField(fileLineWriter, "writer");
+            writer = (Writer) ReflectionTestUtils.getField(fileLineWriter, "writer");
             writer.close();
 
-            writer = new BufferedWriter(new OutputStreamWriter(
-                    (new FileOutputStream(fileName, true)), System
-                            .getProperty("file.encoding")));
+            writer = new BufferedWriter(new OutputStreamWriter((new FileOutputStream(fileName, true)), System
+                    .getProperty("file.encoding")));
 
             VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineWriter.class,
                     "getWriter", writer);
@@ -3852,12 +3937,12 @@ public class AbstractFileLineWriterTest<T> {
             fileLineWriter.printDataLine(t);
 
             // 判定(状態変化、フィールド)
-            assertEquals(1, UTUtil.getPrivateField(fileLineWriter,
+            assertEquals(1, ReflectionTestUtils.getField(fileLineWriter,
                     "currentLineCount"));
 
             // 判定(状態変化、メソッド)
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "getColumn"));
+            assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
+                    "getColumn"));
             List getColumnArtument = VMOUTUtil.getArguments(
                     AbstractFileLineWriter.class, "getColumn", 0);
             assertEquals(2, getColumnArtument.size());
@@ -3873,8 +3958,8 @@ public class AbstractFileLineWriterTest<T> {
                     + systemLineSeparator;
             assertEquals(expectationResultData, writeArguments.get(0));
 
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "setWriteData"));
+            assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
+                    "setWriteData"));
             List setWriteDataArguments = VMOUTUtil.getArguments(
                     AbstractFileLineWriter.class, "setWriteData", 0);
             assertEquals(1, setWriteDataArguments.size());
@@ -3882,9 +3967,8 @@ public class AbstractFileLineWriterTest<T> {
 
             // 判定(ファイル)
             writer.flush();
-            postReader = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(fileName), System
-                            .getProperty("file.encoding")));
+            postReader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), System
+                    .getProperty("file.encoding")));
             assertTrue(postReader.ready());
 
             String data = "";
@@ -3903,9 +3987,9 @@ public class AbstractFileLineWriterTest<T> {
                 postReader.close();
             }
 
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());        
         }
     }
 
@@ -3924,13 +4008,16 @@ public class AbstractFileLineWriterTest<T> {
      * - 全項目：デフォルト値<br>
      * ・@OutputFileColumn設定ありのフィールドを持つ<br>
      * - フィールド：String column1<br>
-     * @OutputFileColumn設定<br> > columnIndex：0<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：0<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column2<br>
-     * @OutputFileColumn設定<br> > columnIndex：1<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：1<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column3<br>
-     * @OutputFileColumn設定<br> > columnIndex：2<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：2<br>
      *                         > その他項目：デフォルト値<br>
      *                         ・各フィールドのgetter/setterメソッドを持つ。<br>
      *                         (状態) this.writeTrailer:false<br>
@@ -3946,7 +4033,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         (状態) #getEncloseChar():this.clazzのフィールド定義に従う。<br>
      *                         (状態) ファイル:クラスパスにthis.fileNameに対するファイルが存在する。<br>
      *                         ・内容はない(Obyte)<br>
-     * <br>
+     *                         <br>
      *                         期待値：(状態変化) this.currentLineCount:1<br>
      *                         (状態変化) #getColumn():3回呼ばれる<br>
      *                         引数を確認する。<br>
@@ -3955,9 +4042,10 @@ public class AbstractFileLineWriterTest<T> {
      *                         (状態変化) #setWriteData():1回呼ばれる<br>
      *                         引数を確認する。<br>
      *                         (状態変化) ファイル:クラスパスにthis.fileNameに対するファイルが存在する。<br>
-     *                         ・内容："testPrintDataLine04_column1<区切り文字>testPrintDataLine04_column2<区切り文字>testPrintDataLine04_column3<行区切り文字>"
-     * <br>
-     * <br>
+     *                         ・内容：
+     *                         "testPrintDataLine04_column1<区切り文字>testPrintDataLine04_column2<区切り文字>testPrintDataLine04_column3<行区切り文字>"
+     *                         <br>
+     *                         <br>
      *                         正常ケース<br>
      *                         (出力対象フィールド：3個、区切り文字：デフォルト値、<br>
      *                         囲み文字：デフォルト値)<br>
@@ -3977,8 +4065,7 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub13> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub13>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub13> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub13>(fileName, clazz, columnFormatterMap);
 
         Reader postReader = null;
         Writer writer = null;
@@ -3989,18 +4076,17 @@ public class AbstractFileLineWriterTest<T> {
             AbstractFileLineWriter_Stub13 t = new AbstractFileLineWriter_Stub13();
 
             // 前処理(フィールド)
-            UTUtil.setPrivateField(fileLineWriter, "writeTrailer",
+            ReflectionTestUtils.setField(fileLineWriter, "writeTrailer",
                     Boolean.FALSE);
 
-            UTUtil.setPrivateField(fileLineWriter, "currentLineCount", 0);
+            ReflectionTestUtils.setField(fileLineWriter, "currentLineCount", 0);
 
             // 前処理(メソッド)
-            writer = (Writer) UTUtil.getPrivateField(fileLineWriter, "writer");
+            writer = (Writer) ReflectionTestUtils.getField(fileLineWriter, "writer");
             writer.close();
 
-            writer = new BufferedWriter(new OutputStreamWriter(
-                    (new FileOutputStream(fileName, true)), System
-                            .getProperty("file.encoding")));
+            writer = new BufferedWriter(new OutputStreamWriter((new FileOutputStream(fileName, true)), System
+                    .getProperty("file.encoding")));
 
             VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineWriter.class,
                     "getWriter", writer);
@@ -4018,12 +4104,12 @@ public class AbstractFileLineWriterTest<T> {
             fileLineWriter.printDataLine(t);
 
             // 判定(状態変化、フィールド)
-            assertEquals(1, UTUtil.getPrivateField(fileLineWriter,
+            assertEquals(1, ReflectionTestUtils.getField(fileLineWriter,
                     "currentLineCount"));
 
             // 判定(状態変化、メソッド)
-            assertEquals(3, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "getColumn"));
+            assertEquals(3, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
+                    "getColumn"));
             List getColumnArtuments1 = VMOUTUtil.getArguments(
                     AbstractFileLineWriter.class, "getColumn", 0);
             assertEquals(2, getColumnArtuments1.size());
@@ -4050,8 +4136,8 @@ public class AbstractFileLineWriterTest<T> {
                     + systemLineSeparator;
             assertEquals(expectationResultData, writeArguments.get(0));
 
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "setWriteData"));
+            assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
+                    "setWriteData"));
             List setWriteDataArguments = VMOUTUtil.getArguments(
                     AbstractFileLineWriter.class, "setWriteData", 0);
             assertEquals(1, setWriteDataArguments.size());
@@ -4059,9 +4145,8 @@ public class AbstractFileLineWriterTest<T> {
 
             // 判定(ファイル)
             writer.flush();
-            postReader = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(fileName), System
-                            .getProperty("file.encoding")));
+            postReader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), System
+                    .getProperty("file.encoding")));
             assertTrue(postReader.ready());
 
             String data = "";
@@ -4080,9 +4165,9 @@ public class AbstractFileLineWriterTest<T> {
                 postReader.close();
             }
 
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());        
         }
     }
 
@@ -4101,7 +4186,8 @@ public class AbstractFileLineWriterTest<T> {
      * - 全項目：デフォルト値<br>
      * ・@OutputFileColumn設定ありのフィールドを持つ<br>
      * - フィールド：String column1<br>
-     * @OutputFileColumn設定<br> > columnIndex：0<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：0<br>
      *                         > その他項目：デフォルト値<br>
      *                         ・各フィールドのgetter/setterメソッドを持つ。<br>
      *                         (状態) this.writeTrailer:false<br>
@@ -4116,7 +4202,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         (状態) #getEncloseChar():this.clazzのフィールド定義に従う。<br>
      *                         (状態) ファイル:クラスパスにthis.fileNameに対するファイルが存在する。<br>
      *                         ・内容はない(Obyte)<br>
-     * <br>
+     *                         <br>
      *                         期待値：(状態変化) this.currentLineCount:0<br>
      *                         (状態変化) #getColumn():1回呼ばれる<br>
      *                         引数を確認する。<br>
@@ -4125,13 +4211,13 @@ public class AbstractFileLineWriterTest<T> {
      *                         (状態変化) #setWriteData():呼ばれない<br>
      *                         (状態変化) ファイル:クラスパスにthis.fileNameに対するファイルが存在する。<br>
      *                         ・内容はない(Obyte)<br>
-     * <br>
+     *                         <br>
      *                         ※変化なし<br>
      *                         (状態変化) 例外:以下の情報を持つFileExceptionが発生する<br>
      *                         ・メッセージ："Processing of writer was failed."<br>
      *                         ・原因例外：IOException<br>
      *                         ・ファイル名：fileNameと同じインスタンス<br>
-     * <br>
+     *                         <br>
      *                         異常ケース<br>
      *                         ファイル書き込み用のwriterが既にクローズされた場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
@@ -4148,8 +4234,7 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub10> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub10>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub10> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub10>(fileName, clazz, columnFormatterMap);
 
         Reader postReader = null;
         Writer writer = null;
@@ -4161,18 +4246,17 @@ public class AbstractFileLineWriterTest<T> {
             fileLineWriter.init();
 
             // 前処理(フィールド)
-            UTUtil.setPrivateField(fileLineWriter, "writeTrailer",
+            ReflectionTestUtils.setField(fileLineWriter, "writeTrailer",
                     Boolean.FALSE);
 
-            UTUtil.setPrivateField(fileLineWriter, "currentLineCount", 0);
+            ReflectionTestUtils.setField(fileLineWriter, "currentLineCount", 0);
 
             // 前処理(メソッド)
-            writer = (Writer) UTUtil.getPrivateField(fileLineWriter, "writer");
+            writer = (Writer) ReflectionTestUtils.getField(fileLineWriter, "writer");
             writer.close();
 
-            writer = new BufferedWriter(new OutputStreamWriter(
-                    (new FileOutputStream(fileName, true)), System
-                            .getProperty("file.encoding")));
+            writer = new BufferedWriter(new OutputStreamWriter((new FileOutputStream(fileName, true)), System
+                    .getProperty("file.encoding")));
             writer.close();
 
             VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineWriter.class,
@@ -4195,12 +4279,12 @@ public class AbstractFileLineWriterTest<T> {
             assertEquals(fileName, e.getFileName());
 
             // 判定(状態変化、フィールド)
-            assertEquals(0, UTUtil.getPrivateField(fileLineWriter,
+            assertEquals(0, ReflectionTestUtils.getField(fileLineWriter,
                     "currentLineCount"));
 
             // 判定(状態変化、メソッド)
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "getColumn"));
+            assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
+                    "getColumn"));
             List getColumnArtument = VMOUTUtil.getArguments(
                     AbstractFileLineWriter.class, "getColumn", 0);
             assertEquals(2, getColumnArtument.size());
@@ -4220,9 +4304,8 @@ public class AbstractFileLineWriterTest<T> {
                     "setWriteData"));
 
             // 判定(ファイル)
-            postReader = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(fileName), System
-                            .getProperty("file.encoding")));
+            postReader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), System
+                    .getProperty("file.encoding")));
             assertFalse(postReader.ready());
         } finally {
             if (writer != null) {
@@ -4233,9 +4316,9 @@ public class AbstractFileLineWriterTest<T> {
                 postReader.close();
             }
 
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());        
         }
     }
 
@@ -4293,8 +4376,7 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub26> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub26>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub26> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub26>(fileName, clazz, columnFormatterMap);
 
         Reader postReader = null;
         Writer writer = null;
@@ -4305,18 +4387,17 @@ public class AbstractFileLineWriterTest<T> {
             AbstractFileLineWriter_Stub26 t = new AbstractFileLineWriter_Stub26();
 
             // 前処理(フィールド)
-            UTUtil.setPrivateField(fileLineWriter, "writeTrailer",
+            ReflectionTestUtils.setField(fileLineWriter, "writeTrailer",
                     Boolean.FALSE);
 
-            UTUtil.setPrivateField(fileLineWriter, "currentLineCount", 0);
+            ReflectionTestUtils.setField(fileLineWriter, "currentLineCount", 0);
 
             // 前処理(メソッド)
-            writer = (Writer) UTUtil.getPrivateField(fileLineWriter, "writer");
+            writer = (Writer) ReflectionTestUtils.getField(fileLineWriter, "writer");
             writer.close();
 
-            writer = new BufferedWriter(new OutputStreamWriter(
-                    (new FileOutputStream(fileName, true)), System
-                            .getProperty("file.encoding")));
+            writer = new BufferedWriter(new OutputStreamWriter((new FileOutputStream(fileName, true)), System
+                    .getProperty("file.encoding")));
 
             VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineWriter.class,
                     "getWriter", writer);
@@ -4328,7 +4409,7 @@ public class AbstractFileLineWriterTest<T> {
             fileLineWriter.printDataLine(t);
 
             // 判定(状態変化、フィールド)
-            assertEquals(1, UTUtil.getPrivateField(fileLineWriter,
+            assertEquals(1, ReflectionTestUtils.getField(fileLineWriter,
                     "currentLineCount"));
 
             // 判定(状態変化、メソッド)
@@ -4343,8 +4424,8 @@ public class AbstractFileLineWriterTest<T> {
             String expectationResultData = systemLineSeparator;
             assertEquals(expectationResultData, writeArguments.get(0));
 
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "setWriteData"));
+            assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
+                    "setWriteData"));
             List setWriteDataArguments = VMOUTUtil.getArguments(
                     AbstractFileLineWriter.class, "setWriteData", 0);
             assertEquals(1, setWriteDataArguments.size());
@@ -4352,9 +4433,8 @@ public class AbstractFileLineWriterTest<T> {
 
             // 判定(ファイル)
             writer.flush();
-            postReader = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(fileName), System
-                            .getProperty("file.encoding")));
+            postReader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), System
+                    .getProperty("file.encoding")));
             assertTrue(postReader.ready());
 
             String data = "";
@@ -4373,9 +4453,9 @@ public class AbstractFileLineWriterTest<T> {
                 postReader.close();
             }
 
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());        
         }
     }
 
@@ -4395,7 +4475,8 @@ public class AbstractFileLineWriterTest<T> {
      * - その他：デフォルト値<br>
      * ・@OutputFileColumn設定ありのフィールドを持つ<br>
      * - フィールド：String column1<br>
-     * @OutputFileColumn設定<br> > columnIndex：0<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：0<br>
      *                         > その他項目：デフォルト値<br>
      *                         ・各フィールドのgetter/setterメソッドを持つ。<br>
      *                         (状態) this.writeTrailer:false<br>
@@ -4409,7 +4490,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         (状態) #getEncloseChar():this.clazzのフィールド定義に従う。<br>
      *                         (状態) ファイル:クラスパスにthis.fileNameに対するファイルが存在する。<br>
      *                         ・内容はない(Obyte)<br>
-     * <br>
+     *                         <br>
      *                         期待値：(状態変化) this.currentLineCount:1<br>
      *                         (状態変化) #getColumn():1回呼ばれる<br>
      *                         引数を確認する。<br>
@@ -4419,7 +4500,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         引数を確認する。<br>
      *                         (状態変化) ファイル:クラスパスにthis.fileNameに対するファイルが存在する。<br>
      *                         ・内容："\"testPrintDataLine07_column1\"<行区切り文字>"<br>
-     * <br>
+     *                         <br>
      *                         正常ケース<br>
      *                         (出力対象フィールド：1個、区切り文字：デフォルト値、<br>
      *                         囲み文字：デフォルト値以外)<br>
@@ -4439,8 +4520,7 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub27> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub27>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub27> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub27>(fileName, clazz, columnFormatterMap);
 
         Reader postReader = null;
         Writer writer = null;
@@ -4451,18 +4531,17 @@ public class AbstractFileLineWriterTest<T> {
             AbstractFileLineWriter_Stub27 t = new AbstractFileLineWriter_Stub27();
 
             // 前処理(フィールド)
-            UTUtil.setPrivateField(fileLineWriter, "writeTrailer",
+            ReflectionTestUtils.setField(fileLineWriter, "writeTrailer",
                     Boolean.FALSE);
 
-            UTUtil.setPrivateField(fileLineWriter, "currentLineCount", 0);
+            ReflectionTestUtils.setField(fileLineWriter, "currentLineCount", 0);
 
             // 前処理(メソッド)
-            writer = (Writer) UTUtil.getPrivateField(fileLineWriter, "writer");
+            writer = (Writer) ReflectionTestUtils.getField(fileLineWriter, "writer");
             writer.close();
 
-            writer = new BufferedWriter(new OutputStreamWriter(
-                    (new FileOutputStream(fileName, true)), System
-                            .getProperty("file.encoding")));
+            writer = new BufferedWriter(new OutputStreamWriter((new FileOutputStream(fileName, true)), System
+                    .getProperty("file.encoding")));
 
             VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineWriter.class,
                     "getWriter", writer);
@@ -4476,12 +4555,12 @@ public class AbstractFileLineWriterTest<T> {
             fileLineWriter.printDataLine(t);
 
             // 判定(状態変化、フィールド)
-            assertEquals(1, UTUtil.getPrivateField(fileLineWriter,
+            assertEquals(1, ReflectionTestUtils.getField(fileLineWriter,
                     "currentLineCount"));
 
             // 判定(状態変化、メソッド)
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "getColumn"));
+            assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
+                    "getColumn"));
             List getColumnArtument = VMOUTUtil.getArguments(
                     AbstractFileLineWriter.class, "getColumn", 0);
             assertEquals(2, getColumnArtument.size());
@@ -4497,8 +4576,8 @@ public class AbstractFileLineWriterTest<T> {
                     + systemLineSeparator;
             assertEquals(expectationResultData, writeArguments.get(0));
 
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "setWriteData"));
+            assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
+                    "setWriteData"));
             List setWriteDataArguments = VMOUTUtil.getArguments(
                     AbstractFileLineWriter.class, "setWriteData", 0);
             assertEquals(1, setWriteDataArguments.size());
@@ -4506,9 +4585,8 @@ public class AbstractFileLineWriterTest<T> {
 
             // 判定(ファイル)
             writer.flush();
-            postReader = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(fileName), System
-                            .getProperty("file.encoding")));
+            postReader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), System
+                    .getProperty("file.encoding")));
             assertTrue(postReader.ready());
 
             String data = "";
@@ -4527,9 +4605,9 @@ public class AbstractFileLineWriterTest<T> {
                 postReader.close();
             }
 
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());        
         }
     }
 
@@ -4549,13 +4627,16 @@ public class AbstractFileLineWriterTest<T> {
      * - その他：デフォルト値<br>
      * ・@OutputFileColumn設定ありのフィールドを持つ<br>
      * - フィールド：String column1<br>
-     * @OutputFileColumn設定<br> > columnIndex：0<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：0<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column2<br>
-     * @OutputFileColumn設定<br> > columnIndex：1<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：1<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column3<br>
-     * @OutputFileColumn設定<br> > columnIndex：2<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：2<br>
      *                         > その他項目：デフォルト値<br>
      *                         ・各フィールドのgetter/setterメソッドを持つ。<br>
      *                         (状態) this.writeTrailer:false<br>
@@ -4571,7 +4652,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         (状態) #getEncloseChar():this.clazzのフィールド定義に従う。<br>
      *                         (状態) ファイル:クラスパスにthis.fileNameに対するファイルが存在する。<br>
      *                         ・内容はない(Obyte)<br>
-     * <br>
+     *                         <br>
      *                         期待値：(状態変化) this.currentLineCount:1<br>
      *                         (状態変化) #getColumn():3回呼ばれる<br>
      *                         引数を確認する。<br>
@@ -4582,8 +4663,8 @@ public class AbstractFileLineWriterTest<T> {
      *                         (状態変化) ファイル:クラスパスにthis.fileNameに対するファイルが存在する。<br>
      *                         ・内容：
      *                         "\"testPrintDataLine08_column1\"<区切り文字>\"testPrintDataLine08_column2\"<区切り文字>\"testPrintDataLine08_column3\"<行区切り文字>"
-     * <br>
-     * <br>
+     *                         <br>
+     *                         <br>
      *                         正常ケース<br>
      *                         (出力対象フィールド：3個、区切り文字：デフォルト値、<br>
      *                         囲み文字：デフォルト値以外)<br>
@@ -4603,8 +4684,7 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub28> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub28>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub28> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub28>(fileName, clazz, columnFormatterMap);
 
         Reader postReader = null;
         Writer writer = null;
@@ -4615,18 +4695,17 @@ public class AbstractFileLineWriterTest<T> {
             AbstractFileLineWriter_Stub28 t = new AbstractFileLineWriter_Stub28();
 
             // 前処理(フィールド)
-            UTUtil.setPrivateField(fileLineWriter, "writeTrailer",
+            ReflectionTestUtils.setField(fileLineWriter, "writeTrailer",
                     Boolean.FALSE);
 
-            UTUtil.setPrivateField(fileLineWriter, "currentLineCount", 0);
+            ReflectionTestUtils.setField(fileLineWriter, "currentLineCount", 0);
 
             // 前処理(メソッド)
-            writer = (Writer) UTUtil.getPrivateField(fileLineWriter, "writer");
+            writer = (Writer) ReflectionTestUtils.getField(fileLineWriter, "writer");
             writer.close();
 
-            writer = new BufferedWriter(new OutputStreamWriter(
-                    (new FileOutputStream(fileName, true)), System
-                            .getProperty("file.encoding")));
+            writer = new BufferedWriter(new OutputStreamWriter((new FileOutputStream(fileName, true)), System
+                    .getProperty("file.encoding")));
 
             VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineWriter.class,
                     "getWriter", writer);
@@ -4644,12 +4723,12 @@ public class AbstractFileLineWriterTest<T> {
             fileLineWriter.printDataLine(t);
 
             // 判定(状態変化、フィールド)
-            assertEquals(1, UTUtil.getPrivateField(fileLineWriter,
+            assertEquals(1, ReflectionTestUtils.getField(fileLineWriter,
                     "currentLineCount"));
 
             // 判定(状態変化、メソッド)
-            assertEquals(3, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "getColumn"));
+            assertEquals(3, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
+                    "getColumn"));
             List getColumnArtuments1 = VMOUTUtil.getArguments(
                     AbstractFileLineWriter.class, "getColumn", 0);
             assertEquals(2, getColumnArtuments1.size());
@@ -4676,8 +4755,8 @@ public class AbstractFileLineWriterTest<T> {
                     + systemLineSeparator;
             assertEquals(expectationResultData, writeArguments.get(0));
 
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "setWriteData"));
+            assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
+                    "setWriteData"));
             List setWriteDataArguments = VMOUTUtil.getArguments(
                     AbstractFileLineWriter.class, "setWriteData", 0);
             assertEquals(1, setWriteDataArguments.size());
@@ -4685,9 +4764,8 @@ public class AbstractFileLineWriterTest<T> {
 
             // 判定(ファイル)
             writer.flush();
-            postReader = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(fileName), System
-                            .getProperty("file.encoding")));
+            postReader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), System
+                    .getProperty("file.encoding")));
             assertTrue(postReader.ready());
 
             String data = "";
@@ -4706,9 +4784,9 @@ public class AbstractFileLineWriterTest<T> {
                 postReader.close();
             }
 
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());        
         }
     }
 
@@ -4766,8 +4844,7 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub29> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub29>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub29> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub29>(fileName, clazz, columnFormatterMap);
 
         Reader postReader = null;
         Writer writer = null;
@@ -4778,18 +4855,17 @@ public class AbstractFileLineWriterTest<T> {
             AbstractFileLineWriter_Stub29 t = new AbstractFileLineWriter_Stub29();
 
             // 前処理(フィールド)
-            UTUtil.setPrivateField(fileLineWriter, "writeTrailer",
+            ReflectionTestUtils.setField(fileLineWriter, "writeTrailer",
                     Boolean.FALSE);
 
-            UTUtil.setPrivateField(fileLineWriter, "currentLineCount", 0);
+            ReflectionTestUtils.setField(fileLineWriter, "currentLineCount", 0);
 
             // 前処理(メソッド)
-            writer = (Writer) UTUtil.getPrivateField(fileLineWriter, "writer");
+            writer = (Writer) ReflectionTestUtils.getField(fileLineWriter, "writer");
             writer.close();
 
-            writer = new BufferedWriter(new OutputStreamWriter(
-                    (new FileOutputStream(fileName, true)), System
-                            .getProperty("file.encoding")));
+            writer = new BufferedWriter(new OutputStreamWriter((new FileOutputStream(fileName, true)), System
+                    .getProperty("file.encoding")));
 
             VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineWriter.class,
                     "getWriter", writer);
@@ -4801,7 +4877,7 @@ public class AbstractFileLineWriterTest<T> {
             fileLineWriter.printDataLine(t);
 
             // 判定(状態変化、フィールド)
-            assertEquals(1, UTUtil.getPrivateField(fileLineWriter,
+            assertEquals(1, ReflectionTestUtils.getField(fileLineWriter,
                     "currentLineCount"));
 
             // 判定(状態変化、メソッド)
@@ -4816,8 +4892,8 @@ public class AbstractFileLineWriterTest<T> {
             String expectationResultData = systemLineSeparator;
             assertEquals(expectationResultData, writeArguments.get(0));
 
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "setWriteData"));
+            assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
+                    "setWriteData"));
             List setWriteDataArguments = VMOUTUtil.getArguments(
                     AbstractFileLineWriter.class, "setWriteData", 0);
             assertEquals(1, setWriteDataArguments.size());
@@ -4825,9 +4901,8 @@ public class AbstractFileLineWriterTest<T> {
 
             // 判定(ファイル)
             writer.flush();
-            postReader = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(fileName), System
-                            .getProperty("file.encoding")));
+            postReader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), System
+                    .getProperty("file.encoding")));
             assertTrue(postReader.ready());
 
             String data = "";
@@ -4846,9 +4921,9 @@ public class AbstractFileLineWriterTest<T> {
                 postReader.close();
             }
 
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());        
         }
     }
 
@@ -4868,7 +4943,8 @@ public class AbstractFileLineWriterTest<T> {
      * - その他：デフォルト値<br>
      * ・@OutputFileColumn設定ありのフィールドを持つ<br>
      * - フィールド：String column1<br>
-     * @OutputFileColumn設定<br> > columnIndex：0<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：0<br>
      *                         > その他項目：デフォルト値<br>
      *                         ・各フィールドのgetter/setterメソッドを持つ。<br>
      *                         (状態) this.writeTrailer:false<br>
@@ -4882,7 +4958,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         (状態) #getEncloseChar():this.clazzのフィールド定義に従う。<br>
      *                         (状態) ファイル:クラスパスにthis.fileNameに対するファイルが存在する。<br>
      *                         ・内容はない(Obyte)<br>
-     * <br>
+     *                         <br>
      *                         期待値：(状態変化) this.currentLineCount:1<br>
      *                         (状態変化) #getColumn():1回呼ばれる<br>
      *                         引数を確認する。<br>
@@ -4892,7 +4968,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         引数を確認する。<br>
      *                         (状態変化) ファイル:クラスパスにthis.fileNameに対するファイルが存在する。<br>
      *                         ・内容："testPrintDataLine10_column1<行区切り文字>"<br>
-     * <br>
+     *                         <br>
      *                         正常ケース<br>
      *                         (出力対象フィールド：1個、囲み文字：デフォルト値、<br>
      *                         区切り文字：Character.MIN_VALUE)<br>
@@ -4911,8 +4987,7 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub30> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub30>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub30> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub30>(fileName, clazz, columnFormatterMap);
 
         Reader postReader = null;
         Writer writer = null;
@@ -4923,18 +4998,17 @@ public class AbstractFileLineWriterTest<T> {
             AbstractFileLineWriter_Stub30 t = new AbstractFileLineWriter_Stub30();
 
             // 前処理(フィールド)
-            UTUtil.setPrivateField(fileLineWriter, "writeTrailer",
+            ReflectionTestUtils.setField(fileLineWriter, "writeTrailer",
                     Boolean.FALSE);
 
-            UTUtil.setPrivateField(fileLineWriter, "currentLineCount", 0);
+            ReflectionTestUtils.setField(fileLineWriter, "currentLineCount", 0);
 
             // 前処理(メソッド)
-            writer = (Writer) UTUtil.getPrivateField(fileLineWriter, "writer");
+            writer = (Writer) ReflectionTestUtils.getField(fileLineWriter, "writer");
             writer.close();
 
-            writer = new BufferedWriter(new OutputStreamWriter(
-                    (new FileOutputStream(fileName, true)), System
-                            .getProperty("file.encoding")));
+            writer = new BufferedWriter(new OutputStreamWriter((new FileOutputStream(fileName, true)), System
+                    .getProperty("file.encoding")));
 
             VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineWriter.class,
                     "getWriter", writer);
@@ -4948,12 +5022,12 @@ public class AbstractFileLineWriterTest<T> {
             fileLineWriter.printDataLine(t);
 
             // 判定(状態変化、フィールド)
-            assertEquals(1, UTUtil.getPrivateField(fileLineWriter,
+            assertEquals(1, ReflectionTestUtils.getField(fileLineWriter,
                     "currentLineCount"));
 
             // 判定(状態変化、メソッド)
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "getColumn"));
+            assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
+                    "getColumn"));
             List getColumnArtument = VMOUTUtil.getArguments(
                     AbstractFileLineWriter.class, "getColumn", 0);
             assertEquals(2, getColumnArtument.size());
@@ -4969,8 +5043,8 @@ public class AbstractFileLineWriterTest<T> {
                     + systemLineSeparator;
             assertEquals(expectationResultData, writeArguments.get(0));
 
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "setWriteData"));
+            assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
+                    "setWriteData"));
             List setWriteDataArguments = VMOUTUtil.getArguments(
                     AbstractFileLineWriter.class, "setWriteData", 0);
             assertEquals(1, setWriteDataArguments.size());
@@ -4978,9 +5052,8 @@ public class AbstractFileLineWriterTest<T> {
 
             // 判定(ファイル)
             writer.flush();
-            postReader = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(fileName), System
-                            .getProperty("file.encoding")));
+            postReader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), System
+                    .getProperty("file.encoding")));
             assertTrue(postReader.ready());
 
             String data = "";
@@ -4999,9 +5072,9 @@ public class AbstractFileLineWriterTest<T> {
                 postReader.close();
             }
 
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());        
         }
     }
 
@@ -5021,13 +5094,16 @@ public class AbstractFileLineWriterTest<T> {
      * - その他：デフォルト値<br>
      * ・@OutputFileColumn設定ありのフィールドを持つ<br>
      * - フィールド：String column1<br>
-     * @OutputFileColumn設定<br> > columnIndex：0<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：0<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column2<br>
-     * @OutputFileColumn設定<br> > columnIndex：1<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：1<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column3<br>
-     * @OutputFileColumn設定<br> > columnIndex：2<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：2<br>
      *                         > その他項目：デフォルト値<br>
      *                         ・各フィールドのgetter/setterメソッドを持つ。<br>
      *                         (状態) this.writeTrailer:false<br>
@@ -5043,7 +5119,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         (状態) #getEncloseChar():this.clazzのフィールド定義に従う。<br>
      *                         (状態) ファイル:クラスパスにthis.fileNameに対するファイルが存在する。<br>
      *                         ・内容はない(Obyte)<br>
-     * <br>
+     *                         <br>
      *                         期待値：(状態変化) this.currentLineCount:1<br>
      *                         (状態変化) #getColumn():3回呼ばれる<br>
      *                         引数を確認する。<br>
@@ -5052,8 +5128,9 @@ public class AbstractFileLineWriterTest<T> {
      *                         (状態変化) #setWriteData():1回呼ばれる<br>
      *                         引数を確認する。<br>
      *                         (状態変化) ファイル:クラスパスにthis.fileNameに対するファイルが存在する。<br>
-     *                         ・内容："testPrintDataLine11_column1|testPrintDataLine11_column2|testPrintDataLine11_column3<行区切り文字>"<br>
-     * <br>
+     *                         ・内容："testPrintDataLine11_column1|testPrintDataLine11_column2|testPrintDataLine11_column3<行区切り文字>"
+     *                         <br>
+     *                         <br>
      *                         正常ケース<br>
      *                         (出力対象フィールド：3個、囲み文字：デフォルト値、<br>
      *                         区切り文字：Character.MIN_VALUE)<br>
@@ -5072,8 +5149,7 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub31> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub31>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub31> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub31>(fileName, clazz, columnFormatterMap);
 
         Reader postReader = null;
         Writer writer = null;
@@ -5084,18 +5160,17 @@ public class AbstractFileLineWriterTest<T> {
             AbstractFileLineWriter_Stub31 t = new AbstractFileLineWriter_Stub31();
 
             // 前処理(フィールド)
-            UTUtil.setPrivateField(fileLineWriter, "writeTrailer",
+            ReflectionTestUtils.setField(fileLineWriter, "writeTrailer",
                     Boolean.FALSE);
 
-            UTUtil.setPrivateField(fileLineWriter, "currentLineCount", 0);
+            ReflectionTestUtils.setField(fileLineWriter, "currentLineCount", 0);
 
             // 前処理(メソッド)
-            writer = (Writer) UTUtil.getPrivateField(fileLineWriter, "writer");
+            writer = (Writer) ReflectionTestUtils.getField(fileLineWriter, "writer");
             writer.close();
 
-            writer = new BufferedWriter(new OutputStreamWriter(
-                    (new FileOutputStream(fileName, true)), System
-                            .getProperty("file.encoding")));
+            writer = new BufferedWriter(new OutputStreamWriter((new FileOutputStream(fileName, true)), System
+                    .getProperty("file.encoding")));
 
             VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineWriter.class,
                     "getWriter", writer);
@@ -5113,12 +5188,12 @@ public class AbstractFileLineWriterTest<T> {
             fileLineWriter.printDataLine(t);
 
             // 判定(状態変化、フィールド)
-            assertEquals(1, UTUtil.getPrivateField(fileLineWriter,
+            assertEquals(1, ReflectionTestUtils.getField(fileLineWriter,
                     "currentLineCount"));
 
             // 判定(状態変化、メソッド)
-            assertEquals(3, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "getColumn"));
+            assertEquals(3, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
+                    "getColumn"));
             List getColumnArtuments1 = VMOUTUtil.getArguments(
                     AbstractFileLineWriter.class, "getColumn", 0);
             assertEquals(2, getColumnArtuments1.size());
@@ -5145,8 +5220,8 @@ public class AbstractFileLineWriterTest<T> {
                     + systemLineSeparator;
             assertEquals(expectationResultData, writeArguments.get(0));
 
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "setWriteData"));
+            assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
+                    "setWriteData"));
             List setWriteDataArguments = VMOUTUtil.getArguments(
                     AbstractFileLineWriter.class, "setWriteData", 0);
             assertEquals(1, setWriteDataArguments.size());
@@ -5154,9 +5229,8 @@ public class AbstractFileLineWriterTest<T> {
 
             // 判定(ファイル)
             writer.flush();
-            postReader = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(fileName), System
-                            .getProperty("file.encoding")));
+            postReader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), System
+                    .getProperty("file.encoding")));
             assertTrue(postReader.ready());
 
             String data = "";
@@ -5175,9 +5249,9 @@ public class AbstractFileLineWriterTest<T> {
                 postReader.close();
             }
 
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());        
         }
     }
 
@@ -5196,7 +5270,8 @@ public class AbstractFileLineWriterTest<T> {
      * - 全項目：デフォルト値<br>
      * ・@OutputFileColumn設定ありのフィールドを持つ<br>
      * - フィールド：String column1<br>
-     * @OutputFileColumn設定<br> > columnIndex：0<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：0<br>
      *                         > その他項目：デフォルト値<br>
      *                         ・各フィールドのgetter/setterメソッドを持つ。<br>
      *                         (状態) this.writeTrailer:false<br>
@@ -5210,7 +5285,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         (状態) #getEncloseChar():this.clazzのフィールド定義に従う。<br>
      *                         (状態) ファイル:クラスパスにthis.fileNameに対するファイルが存在する。<br>
      *                         ・内容はない(Obyte)<br>
-     * <br>
+     *                         <br>
      *                         期待値：(状態変化) this.currentLineCount:0<br>
      *                         (状態変化) #getColumn():1回呼ばれる<br>
      *                         引数を確認する。<br>
@@ -5219,10 +5294,10 @@ public class AbstractFileLineWriterTest<T> {
      *                         (状態変化) #setWriteData():呼ばれない<br>
      *                         (状態変化) ファイル:クラスパスにthis.fileNameに対するファイルが存在する。<br>
      *                         ・内容はない(Obyte)<br>
-     * <br>
+     *                         <br>
      *                         ※変化なし<br>
      *                         (状態変化) 例外:NullPointerExceptionが発生する<br>
-     * <br>
+     *                         <br>
      *                         異常ケース<br>
      *                         getWriter()の結果がnullの場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
@@ -5240,8 +5315,7 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub10> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub10>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub10> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub10>(fileName, clazz, columnFormatterMap);
 
         Reader postReader = null;
         Writer writer = null;
@@ -5253,13 +5327,13 @@ public class AbstractFileLineWriterTest<T> {
             fileLineWriter.init();
 
             // 前処理(フィールド)
-            UTUtil.setPrivateField(fileLineWriter, "writeTrailer",
+            ReflectionTestUtils.setField(fileLineWriter, "writeTrailer",
                     Boolean.FALSE);
 
-            UTUtil.setPrivateField(fileLineWriter, "currentLineCount", 0);
+            ReflectionTestUtils.setField(fileLineWriter, "currentLineCount", 0);
 
             // 前処理(メソッド)
-            writer = (Writer) UTUtil.getPrivateField(fileLineWriter, "writer");
+            writer = (Writer) ReflectionTestUtils.getField(fileLineWriter, "writer");
             writer.close();
 
             writer = null;
@@ -5277,16 +5351,16 @@ public class AbstractFileLineWriterTest<T> {
             fail("NullPointerExceptionが発生しませんでした。");
         } catch (NullPointerException e) {
             // 判定(例外)
-            assertTrue(NullPointerException.class
-                    .isAssignableFrom(e.getClass()));
+            assertTrue(NullPointerException.class.isAssignableFrom(e
+                    .getClass()));
 
             // 判定(状態変化、フィールド)
-            assertEquals(0, UTUtil.getPrivateField(fileLineWriter,
+            assertEquals(0, ReflectionTestUtils.getField(fileLineWriter,
                     "currentLineCount"));
 
             // 判定(状態変化、メソッド)
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "getColumn"));
+            assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
+                    "getColumn"));
             List getColumnArtument = VMOUTUtil.getArguments(
                     AbstractFileLineWriter.class, "getColumn", 0);
             assertEquals(2, getColumnArtument.size());
@@ -5306,9 +5380,8 @@ public class AbstractFileLineWriterTest<T> {
                     "setWriteData"));
 
             // 判定(ファイル)
-            postReader = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(fileName), System
-                            .getProperty("file.encoding")));
+            postReader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), System
+                    .getProperty("file.encoding")));
             assertFalse(postReader.ready());
         } finally {
             if (writer != null) {
@@ -5319,9 +5392,9 @@ public class AbstractFileLineWriterTest<T> {
                 postReader.close();
             }
 
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());        
         }
     }
 
@@ -5380,8 +5453,7 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub32> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub32>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub32> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub32>(fileName, clazz, columnFormatterMap);
 
         Reader postReader = null;
         Writer writer = null;
@@ -5392,18 +5464,17 @@ public class AbstractFileLineWriterTest<T> {
             AbstractFileLineWriter_Stub32 t = new AbstractFileLineWriter_Stub32();
 
             // 前処理(フィールド)
-            UTUtil.setPrivateField(fileLineWriter, "writeTrailer",
+            ReflectionTestUtils.setField(fileLineWriter, "writeTrailer",
                     Boolean.FALSE);
 
-            UTUtil.setPrivateField(fileLineWriter, "currentLineCount", 0);
+            ReflectionTestUtils.setField(fileLineWriter, "currentLineCount", 0);
 
             // 前処理(メソッド)
-            writer = (Writer) UTUtil.getPrivateField(fileLineWriter, "writer");
+            writer = (Writer) ReflectionTestUtils.getField(fileLineWriter, "writer");
             writer.close();
 
-            writer = new BufferedWriter(new OutputStreamWriter(
-                    (new FileOutputStream(fileName, true)), System
-                            .getProperty("file.encoding")));
+            writer = new BufferedWriter(new OutputStreamWriter((new FileOutputStream(fileName, true)), System
+                    .getProperty("file.encoding")));
 
             VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineWriter.class,
                     "getWriter", writer);
@@ -5415,7 +5486,7 @@ public class AbstractFileLineWriterTest<T> {
             fileLineWriter.printDataLine(t);
 
             // 判定(状態変化、フィールド)
-            assertEquals(1, UTUtil.getPrivateField(fileLineWriter,
+            assertEquals(1, ReflectionTestUtils.getField(fileLineWriter,
                     "currentLineCount"));
 
             // 判定(状態変化、メソッド)
@@ -5430,8 +5501,8 @@ public class AbstractFileLineWriterTest<T> {
             String expectationResultData = systemLineSeparator;
             assertEquals(expectationResultData, writeArguments.get(0));
 
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "setWriteData"));
+            assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
+                    "setWriteData"));
             List setWriteDataArguments = VMOUTUtil.getArguments(
                     AbstractFileLineWriter.class, "setWriteData", 0);
             assertEquals(1, setWriteDataArguments.size());
@@ -5439,9 +5510,8 @@ public class AbstractFileLineWriterTest<T> {
 
             // 判定(ファイル)
             writer.flush();
-            postReader = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(fileName), System
-                            .getProperty("file.encoding")));
+            postReader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), System
+                    .getProperty("file.encoding")));
             assertTrue(postReader.ready());
 
             String data = "";
@@ -5460,9 +5530,9 @@ public class AbstractFileLineWriterTest<T> {
                 postReader.close();
             }
 
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());        
         }
     }
 
@@ -5483,7 +5553,8 @@ public class AbstractFileLineWriterTest<T> {
      * - その他：デフォルト値<br>
      * ・@OutputFileColumn設定ありのフィールドを持つ<br>
      * - フィールド：String column1<br>
-     * @OutputFileColumn設定<br> > columnIndex：0<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：0<br>
      *                         > その他項目：デフォルト値<br>
      *                         ・各フィールドのgetter/setterメソッドを持つ。<br>
      *                         (状態) this.writeTrailer:false<br>
@@ -5497,7 +5568,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         (状態) #getEncloseChar():this.clazzのフィールド定義に従う。<br>
      *                         (状態) ファイル:クラスパスにthis.fileNameに対するファイルが存在する。<br>
      *                         ・内容はない(Obyte)<br>
-     * <br>
+     *                         <br>
      *                         期待値：(状態変化) this.currentLineCount:1<br>
      *                         (状態変化) #getColumn():1回呼ばれる<br>
      *                         引数を確認する。<br>
@@ -5507,7 +5578,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         引数を確認する。<br>
      *                         (状態変化) ファイル:クラスパスにthis.fileNameに対するファイルが存在する。<br>
      *                         ・内容："\"testPrintDataLine14_column1\"<行区切り文字>"<br>
-     * <br>
+     *                         <br>
      *                         正常ケース<br>
      *                         (出力対象フィールド：1個、区切り文字：デフォルト値、<br>
      *                         囲み文字：デフォルト値以外)<br>
@@ -5526,8 +5597,7 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub33> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub33>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub33> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub33>(fileName, clazz, columnFormatterMap);
 
         Reader postReader = null;
         Writer writer = null;
@@ -5538,18 +5608,17 @@ public class AbstractFileLineWriterTest<T> {
             AbstractFileLineWriter_Stub33 t = new AbstractFileLineWriter_Stub33();
 
             // 前処理(フィールド)
-            UTUtil.setPrivateField(fileLineWriter, "writeTrailer",
+            ReflectionTestUtils.setField(fileLineWriter, "writeTrailer",
                     Boolean.FALSE);
 
-            UTUtil.setPrivateField(fileLineWriter, "currentLineCount", 0);
+            ReflectionTestUtils.setField(fileLineWriter, "currentLineCount", 0);
 
             // 前処理(メソッド)
-            writer = (Writer) UTUtil.getPrivateField(fileLineWriter, "writer");
+            writer = (Writer) ReflectionTestUtils.getField(fileLineWriter, "writer");
             writer.close();
 
-            writer = new BufferedWriter(new OutputStreamWriter(
-                    (new FileOutputStream(fileName, true)), System
-                            .getProperty("file.encoding")));
+            writer = new BufferedWriter(new OutputStreamWriter((new FileOutputStream(fileName, true)), System
+                    .getProperty("file.encoding")));
 
             VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineWriter.class,
                     "getWriter", writer);
@@ -5563,12 +5632,12 @@ public class AbstractFileLineWriterTest<T> {
             fileLineWriter.printDataLine(t);
 
             // 判定(状態変化、フィールド)
-            assertEquals(1, UTUtil.getPrivateField(fileLineWriter,
+            assertEquals(1, ReflectionTestUtils.getField(fileLineWriter,
                     "currentLineCount"));
 
             // 判定(状態変化、メソッド)
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "getColumn"));
+            assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
+                    "getColumn"));
             List getColumnArtument = VMOUTUtil.getArguments(
                     AbstractFileLineWriter.class, "getColumn", 0);
             assertEquals(2, getColumnArtument.size());
@@ -5584,8 +5653,8 @@ public class AbstractFileLineWriterTest<T> {
                     + systemLineSeparator;
             assertEquals(expectationResultData, writeArguments.get(0));
 
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "setWriteData"));
+            assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
+                    "setWriteData"));
             List setWriteDataArguments = VMOUTUtil.getArguments(
                     AbstractFileLineWriter.class, "setWriteData", 0);
             assertEquals(1, setWriteDataArguments.size());
@@ -5593,9 +5662,8 @@ public class AbstractFileLineWriterTest<T> {
 
             // 判定(ファイル)
             writer.flush();
-            postReader = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(fileName), System
-                            .getProperty("file.encoding")));
+            postReader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), System
+                    .getProperty("file.encoding")));
             assertTrue(postReader.ready());
 
             String data = "";
@@ -5614,9 +5682,9 @@ public class AbstractFileLineWriterTest<T> {
                 postReader.close();
             }
 
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());        
         }
     }
 
@@ -5637,13 +5705,16 @@ public class AbstractFileLineWriterTest<T> {
      * - その他：デフォルト値<br>
      * ・@OutputFileColumn設定ありのフィールドを持つ<br>
      * - フィールド：String column1<br>
-     * @OutputFileColumn設定<br> > columnIndex：0<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：0<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column2<br>
-     * @OutputFileColumn設定<br> > columnIndex：1<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：1<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column3<br>
-     * @OutputFileColumn設定<br> > columnIndex：2<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：2<br>
      *                         > その他項目：デフォルト値<br>
      *                         ・各フィールドのgetter/setterメソッドを持つ。<br>
      *                         (状態) this.writeTrailer:false<br>
@@ -5659,7 +5730,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         (状態) #getEncloseChar():this.clazzのフィールド定義に従う。<br>
      *                         (状態) ファイル:クラスパスにthis.fileNameに対するファイルが存在する。<br>
      *                         ・内容はない(Obyte)<br>
-     * <br>
+     *                         <br>
      *                         期待値：(状態変化) this.currentLineCount:1<br>
      *                         (状態変化) #getColumn():3回呼ばれる<br>
      *                         引数を確認する。<br>
@@ -5668,9 +5739,10 @@ public class AbstractFileLineWriterTest<T> {
      *                         (状態変化) #setWriteData():1回呼ばれる<br>
      *                         引数を確認する。<br>
      *                         (状態変化) ファイル:クラスパスにthis.fileNameに対するファイルが存在する。<br>
-     *                         ・内容："\"testPrintDataLine15_column1\"\"testPrintDataLine15_column2\"\"testPrintDataLine15_column3\"<行区切り文字>"
-     * <br>
-     * <br>
+     *                         ・内容：
+     *                         "\"testPrintDataLine15_column1\"\"testPrintDataLine15_column2\"\"testPrintDataLine15_column3\"<行区切り文字>"
+     *                         <br>
+     *                         <br>
      *                         正常ケース<br>
      *                         (出力対象フィールド：3個、区切り文字：デフォルト値、<br>
      *                         囲み文字：デフォルト値以外)<br>
@@ -5690,8 +5762,7 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub34> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub34>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub34> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub34>(fileName, clazz, columnFormatterMap);
 
         Reader postReader = null;
         Writer writer = null;
@@ -5702,18 +5773,17 @@ public class AbstractFileLineWriterTest<T> {
             AbstractFileLineWriter_Stub34 t = new AbstractFileLineWriter_Stub34();
 
             // 前処理(フィールド)
-            UTUtil.setPrivateField(fileLineWriter, "writeTrailer",
+            ReflectionTestUtils.setField(fileLineWriter, "writeTrailer",
                     Boolean.FALSE);
 
-            UTUtil.setPrivateField(fileLineWriter, "currentLineCount", 0);
+            ReflectionTestUtils.setField(fileLineWriter, "currentLineCount", 0);
 
             // 前処理(メソッド)
-            writer = (Writer) UTUtil.getPrivateField(fileLineWriter, "writer");
+            writer = (Writer) ReflectionTestUtils.getField(fileLineWriter, "writer");
             writer.close();
 
-            writer = new BufferedWriter(new OutputStreamWriter(
-                    (new FileOutputStream(fileName, true)), System
-                            .getProperty("file.encoding")));
+            writer = new BufferedWriter(new OutputStreamWriter((new FileOutputStream(fileName, true)), System
+                    .getProperty("file.encoding")));
 
             VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineWriter.class,
                     "getWriter", writer);
@@ -5731,12 +5801,12 @@ public class AbstractFileLineWriterTest<T> {
             fileLineWriter.printDataLine(t);
 
             // 判定(状態変化、フィールド)
-            assertEquals(1, UTUtil.getPrivateField(fileLineWriter,
+            assertEquals(1, ReflectionTestUtils.getField(fileLineWriter,
                     "currentLineCount"));
 
             // 判定(状態変化、メソッド)
-            assertEquals(3, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "getColumn"));
+            assertEquals(3, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
+                    "getColumn"));
             List getColumnArtuments1 = VMOUTUtil.getArguments(
                     AbstractFileLineWriter.class, "getColumn", 0);
             assertEquals(2, getColumnArtuments1.size());
@@ -5764,8 +5834,8 @@ public class AbstractFileLineWriterTest<T> {
                     + systemLineSeparator;
             assertEquals(expectationResultData, writeArguments.get(0));
 
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "setWriteData"));
+            assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
+                    "setWriteData"));
             List setWriteDataArguments = VMOUTUtil.getArguments(
                     AbstractFileLineWriter.class, "setWriteData", 0);
             assertEquals(1, setWriteDataArguments.size());
@@ -5773,9 +5843,8 @@ public class AbstractFileLineWriterTest<T> {
 
             // 判定(ファイル)
             writer.flush();
-            postReader = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(fileName), System
-                            .getProperty("file.encoding")));
+            postReader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), System
+                    .getProperty("file.encoding")));
             assertTrue(postReader.ready());
 
             String data = "";
@@ -5794,9 +5863,9 @@ public class AbstractFileLineWriterTest<T> {
                 postReader.close();
             }
 
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());        
         }
     }
 
@@ -5853,8 +5922,7 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub08> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub08>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub08> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub08>(fileName, clazz, columnFormatterMap);
 
         Reader postReader = null;
         Writer writer = null;
@@ -5865,18 +5933,17 @@ public class AbstractFileLineWriterTest<T> {
             AbstractFileLineWriter_Stub08 t = new AbstractFileLineWriter_Stub08();
 
             // 前処理(フィールド)
-            UTUtil.setPrivateField(fileLineWriter, "writeTrailer",
+            ReflectionTestUtils.setField(fileLineWriter, "writeTrailer",
                     Boolean.FALSE);
 
-            UTUtil.setPrivateField(fileLineWriter, "currentLineCount", 0);
+            ReflectionTestUtils.setField(fileLineWriter, "currentLineCount", 0);
 
             // 前処理(メソッド)
-            writer = (Writer) UTUtil.getPrivateField(fileLineWriter, "writer");
+            writer = (Writer) ReflectionTestUtils.getField(fileLineWriter, "writer");
             writer.close();
 
-            writer = new BufferedWriter(new OutputStreamWriter(
-                    (new FileOutputStream(fileName, true)), System
-                            .getProperty("file.encoding")));
+            writer = new BufferedWriter(new OutputStreamWriter((new FileOutputStream(fileName, true)), System
+                    .getProperty("file.encoding")));
 
             VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineWriter.class,
                     "getWriter", writer);
@@ -5896,7 +5963,7 @@ public class AbstractFileLineWriterTest<T> {
             fileLineWriter.printDataLine(t);
 
             // 判定(状態変化、フィールド)
-            assertEquals(1, UTUtil.getPrivateField(fileLineWriter,
+            assertEquals(1, ReflectionTestUtils.getField(fileLineWriter,
                     "currentLineCount"));
 
             // 判定(状態変化、メソッド)
@@ -5911,8 +5978,8 @@ public class AbstractFileLineWriterTest<T> {
             String expectationResultData = systemLineSeparator;
             assertEquals(expectationResultData, writeArguments.get(0));
 
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "setWriteData"));
+            assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
+                    "setWriteData"));
             List setWriteDataArguments = VMOUTUtil.getArguments(
                     AbstractFileLineWriter.class, "setWriteData", 0);
             assertEquals(1, setWriteDataArguments.size());
@@ -5920,9 +5987,8 @@ public class AbstractFileLineWriterTest<T> {
 
             // 判定(ファイル)
             writer.flush();
-            postReader = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(fileName), System
-                            .getProperty("file.encoding")));
+            postReader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), System
+                    .getProperty("file.encoding")));
             assertTrue(postReader.ready());
 
             String data = "";
@@ -5941,9 +6007,9 @@ public class AbstractFileLineWriterTest<T> {
                 postReader.close();
             }
 
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());        
         }
     }
 
@@ -5962,7 +6028,8 @@ public class AbstractFileLineWriterTest<T> {
      * - 全項目：デフォルト値<br>
      * ・@OutputFileColumn設定ありのフィールドを持つ<br>
      * - フィールド：String column1<br>
-     * @OutputFileColumn設定<br> > columnIndex：0<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：0<br>
      *                         > その他項目：デフォルト値<br>
      *                         ・各フィールドのgetter/setterメソッドを持つ。<br>
      *                         (状態) this.writeTrailer:false<br>
@@ -5976,7 +6043,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         (状態) #getEncloseChar():Character.MIN_VALUEを返す<br>
      *                         (状態) ファイル:クラスパスにthis.fileNameに対するファイルが存在する。<br>
      *                         ・内容はない(Obyte)<br>
-     * <br>
+     *                         <br>
      *                         期待値：(状態変化) this.currentLineCount:1<br>
      *                         (状態変化) #getColumn():1回呼ばれる<br>
      *                         引数を確認する。<br>
@@ -5986,7 +6053,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         引数を確認する。<br>
      *                         (状態変化) ファイル:クラスパスにthis.fileNameに対するファイルが存在する。<br>
      *                         ・内容："testPrintDataLine17_column1<行区切り文字>"<br>
-     * <br>
+     *                         <br>
      *                         正常ケース<br>
      *                         (出力対象フィールド：1個、<br>
      *                         囲み文字：Character.MIN_VALUE、<br>
@@ -6007,8 +6074,7 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub10> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub10>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub10> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub10>(fileName, clazz, columnFormatterMap);
 
         Reader postReader = null;
         Writer writer = null;
@@ -6019,18 +6085,17 @@ public class AbstractFileLineWriterTest<T> {
             AbstractFileLineWriter_Stub10 t = new AbstractFileLineWriter_Stub10();
 
             // 前処理(フィールド)
-            UTUtil.setPrivateField(fileLineWriter, "writeTrailer",
+            ReflectionTestUtils.setField(fileLineWriter, "writeTrailer",
                     Boolean.FALSE);
 
-            UTUtil.setPrivateField(fileLineWriter, "currentLineCount", 0);
+            ReflectionTestUtils.setField(fileLineWriter, "currentLineCount", 0);
 
             // 前処理(メソッド)
-            writer = (Writer) UTUtil.getPrivateField(fileLineWriter, "writer");
+            writer = (Writer) ReflectionTestUtils.getField(fileLineWriter, "writer");
             writer.close();
 
-            writer = new BufferedWriter(new OutputStreamWriter(
-                    (new FileOutputStream(fileName, true)), System
-                            .getProperty("file.encoding")));
+            writer = new BufferedWriter(new OutputStreamWriter((new FileOutputStream(fileName, true)), System
+                    .getProperty("file.encoding")));
 
             VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineWriter.class,
                     "getWriter", writer);
@@ -6052,12 +6117,12 @@ public class AbstractFileLineWriterTest<T> {
             fileLineWriter.printDataLine(t);
 
             // 判定(状態変化、フィールド)
-            assertEquals(1, UTUtil.getPrivateField(fileLineWriter,
+            assertEquals(1, ReflectionTestUtils.getField(fileLineWriter,
                     "currentLineCount"));
 
             // 判定(状態変化、メソッド)
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "getColumn"));
+            assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
+                    "getColumn"));
             List getColumnArtument = VMOUTUtil.getArguments(
                     AbstractFileLineWriter.class, "getColumn", 0);
             assertEquals(2, getColumnArtument.size());
@@ -6073,8 +6138,8 @@ public class AbstractFileLineWriterTest<T> {
                     + systemLineSeparator;
             assertEquals(expectationResultData, writeArguments.get(0));
 
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "setWriteData"));
+            assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
+                    "setWriteData"));
             List setWriteDataArguments = VMOUTUtil.getArguments(
                     AbstractFileLineWriter.class, "setWriteData", 0);
             assertEquals(1, setWriteDataArguments.size());
@@ -6082,9 +6147,8 @@ public class AbstractFileLineWriterTest<T> {
 
             // 判定(ファイル)
             writer.flush();
-            postReader = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(fileName), System
-                            .getProperty("file.encoding")));
+            postReader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), System
+                    .getProperty("file.encoding")));
             assertTrue(postReader.ready());
 
             String data = "";
@@ -6103,9 +6167,9 @@ public class AbstractFileLineWriterTest<T> {
                 postReader.close();
             }
 
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());        
         }
     }
 
@@ -6124,13 +6188,16 @@ public class AbstractFileLineWriterTest<T> {
      * - 全項目：デフォルト値<br>
      * ・@OutputFileColumn設定ありのフィールドを持つ<br>
      * - フィールド：String column1<br>
-     * @OutputFileColumn設定<br> > columnIndex：0<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：0<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column2<br>
-     * @OutputFileColumn設定<br> > columnIndex：1<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：1<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column3<br>
-     * @OutputFileColumn設定<br> > columnIndex：2<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：2<br>
      *                         > その他項目：デフォルト値<br>
      *                         ・各フィールドのgetter/setterメソッドを持つ。<br>
      *                         (状態) this.writeTrailer:false<br>
@@ -6146,7 +6213,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         (状態) #getEncloseChar():Character.MIN_VALUEを返す<br>
      *                         (状態) ファイル:クラスパスにthis.fileNameに対するファイルが存在する。<br>
      *                         ・内容はない(Obyte)<br>
-     * <br>
+     *                         <br>
      *                         期待値：(状態変化) this.currentLineCount:1<br>
      *                         (状態変化) #getColumn():3回呼ばれる<br>
      *                         引数を確認する。<br>
@@ -6155,8 +6222,9 @@ public class AbstractFileLineWriterTest<T> {
      *                         (状態変化) #setWriteData():1回呼ばれる<br>
      *                         引数を確認する。<br>
      *                         (状態変化) ファイル:クラスパスにthis.fileNameに対するファイルが存在する。<br>
-     *                         ・内容："testPrintDataLine18_column1testPrintDataLine18_column2testPrintDataLine18_column3<行区切り文字>"<br>
-     * <br>
+     *                         ・内容："testPrintDataLine18_column1testPrintDataLine18_column2testPrintDataLine18_column3<行区切り文字>"
+     *                         <br>
+     *                         <br>
      *                         正常ケース<br>
      *                         (出力対象フィールド：3個、<br>
      *                         囲み文字：Character.MIN_VALUE、<br>
@@ -6177,8 +6245,7 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub13> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub13>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub13> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub13>(fileName, clazz, columnFormatterMap);
 
         Reader postReader = null;
         Writer writer = null;
@@ -6189,18 +6256,17 @@ public class AbstractFileLineWriterTest<T> {
             AbstractFileLineWriter_Stub13 t = new AbstractFileLineWriter_Stub13();
 
             // 前処理(フィールド)
-            UTUtil.setPrivateField(fileLineWriter, "writeTrailer",
+            ReflectionTestUtils.setField(fileLineWriter, "writeTrailer",
                     Boolean.FALSE);
 
-            UTUtil.setPrivateField(fileLineWriter, "currentLineCount", 0);
+            ReflectionTestUtils.setField(fileLineWriter, "currentLineCount", 0);
 
             // 前処理(メソッド)
-            writer = (Writer) UTUtil.getPrivateField(fileLineWriter, "writer");
+            writer = (Writer) ReflectionTestUtils.getField(fileLineWriter, "writer");
             writer.close();
 
-            writer = new BufferedWriter(new OutputStreamWriter(
-                    (new FileOutputStream(fileName, true)), System
-                            .getProperty("file.encoding")));
+            writer = new BufferedWriter(new OutputStreamWriter((new FileOutputStream(fileName, true)), System
+                    .getProperty("file.encoding")));
 
             VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineWriter.class,
                     "getWriter", writer);
@@ -6226,12 +6292,12 @@ public class AbstractFileLineWriterTest<T> {
             fileLineWriter.printDataLine(t);
 
             // 判定(状態変化、フィールド)
-            assertEquals(1, UTUtil.getPrivateField(fileLineWriter,
+            assertEquals(1, ReflectionTestUtils.getField(fileLineWriter,
                     "currentLineCount"));
 
             // 判定(状態変化、メソッド)
-            assertEquals(3, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "getColumn"));
+            assertEquals(3, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
+                    "getColumn"));
             List getColumnArtuments1 = VMOUTUtil.getArguments(
                     AbstractFileLineWriter.class, "getColumn", 0);
             assertEquals(2, getColumnArtuments1.size());
@@ -6276,8 +6342,8 @@ public class AbstractFileLineWriterTest<T> {
             assertEquals("writeArguments.get(0)", expectationResultData,
                     writeArguments.get(0));
 
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "setWriteData"));
+            assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
+                    "setWriteData"));
             List setWriteDataArguments = VMOUTUtil.getArguments(
                     AbstractFileLineWriter.class, "setWriteData", 0);
             assertEquals(1, setWriteDataArguments.size());
@@ -6285,9 +6351,8 @@ public class AbstractFileLineWriterTest<T> {
 
             // 判定(ファイル)
             writer.flush();
-            postReader = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(fileName), System
-                            .getProperty("file.encoding")));
+            postReader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), System
+                    .getProperty("file.encoding")));
             assertTrue(postReader.ready());
 
             String data = "";
@@ -6306,9 +6371,9 @@ public class AbstractFileLineWriterTest<T> {
                 postReader.close();
             }
 
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());        
         }
     }
 
@@ -6341,8 +6406,7 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub01> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub01>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub01> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub01>(fileName, clazz, columnFormatterMap);
         try {
             fileLineWriter.init();
 
@@ -6350,28 +6414,28 @@ public class AbstractFileLineWriterTest<T> {
             List<String> trailerLine = new ArrayList<String>();
 
             // 前処理(フィールド)
-            UTUtil.setPrivateField(fileLineWriter, "writeTrailer",
+            ReflectionTestUtils.setField(fileLineWriter, "writeTrailer",
                     Boolean.FALSE);
 
             // テスト実施
             fileLineWriter.printTrailerLine(trailerLine);
 
             // 判定(状態変化、メソッド)
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "printList"));
+            assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
+                    "printList"));
             List printListArguments = VMOUTUtil.getArguments(
                     AbstractFileLineWriter.class, "printList", 0);
             assertSame(trailerLine, printListArguments.get(0));
         } finally {
-            Writer writer = (Writer) UTUtil.getPrivateField(fileLineWriter,
+            Writer writer = (Writer) ReflectionTestUtils.getField(fileLineWriter,
                     "writer");
             if (writer != null) {
                 writer.close();
             }
 
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());        
         }
     }
 
@@ -6421,8 +6485,7 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub10> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub10>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub10> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub10>(fileName, clazz, columnFormatterMap);
 
         Reader postReader = null;
         Writer writer = null;
@@ -6434,25 +6497,28 @@ public class AbstractFileLineWriterTest<T> {
             stringList.add("testPrintList01_data1");
 
             // 前処理(フィールド)
-            UTUtil.setPrivateField(fileLineWriter, "lineFeedChar", System
+            ReflectionTestUtils.setField(fileLineWriter, "lineFeedChar", System
                     .getProperty("line.separator"));
 
-            UTUtil.setPrivateField(fileLineWriter, "currentLineCount", 0);
+            ReflectionTestUtils.setField(fileLineWriter, "currentLineCount", 0);
 
-            writer = (Writer) UTUtil.getPrivateField(fileLineWriter, "writer");
+            writer = (Writer) ReflectionTestUtils.getField(fileLineWriter, "writer");
             writer.close();
 
             // テスト実施
-            UTUtil.invokePrivate(fileLineWriter, "printList",
-                    new Class[] { List.class }, new Object[] { stringList });
+            Method method = AbstractFileLineWriter.class.getDeclaredMethod("printList", new Class[] {
+                    List.class });
+            method.setAccessible(true);
+            Object result = method.invoke(fileLineWriter, new Object[] { stringList });
+
             fail("FileExceptionが発生しませんでした。");
-        } catch (FileException e) {
+        } catch (InvocationTargetException e) {
             // 判定(例外)
-            assertTrue(FileException.class.isAssignableFrom(e.getClass()));
-            assertEquals("Processing of writer was failed.", e.getMessage());
-            assertTrue(IOException.class.isAssignableFrom(e.getCause()
+            assertTrue(FileException.class.isAssignableFrom(e.getTargetException().getClass()));
+            assertEquals("Processing of writer was failed.", e.getTargetException().getMessage());
+            assertTrue(IOException.class.isAssignableFrom(e.getTargetException().getCause()
                     .getClass()));
-            assertEquals(fileName, e.getFileName());
+            assertEquals(fileName, ((FileException)e.getTargetException()).getFileName());
 
             // 判定(状態変化、メソッド)
             assertEquals(1, VMOUTUtil.getCallCount(Writer.class, "write"));
@@ -6461,9 +6527,8 @@ public class AbstractFileLineWriterTest<T> {
             assertEquals("testPrintList01_data1", writeArguments.get(0));
 
             // 判定(ファイル)
-            postReader = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(fileName), System
-                            .getProperty("file.encoding")));
+            postReader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), System
+                    .getProperty("file.encoding")));
             assertFalse(postReader.ready());
         } finally {
             if (writer != null) {
@@ -6474,9 +6539,9 @@ public class AbstractFileLineWriterTest<T> {
                 postReader.close();
             }
 
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());        
         }
     }
 
@@ -6519,8 +6584,7 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub10> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub10>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub10> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub10>(fileName, clazz, columnFormatterMap);
 
         Reader postReader = null;
         Writer writer = null;
@@ -6531,25 +6595,26 @@ public class AbstractFileLineWriterTest<T> {
             List<String> stringList = new ArrayList<String>();
 
             // 前処理(フィールド)
-            UTUtil.setPrivateField(fileLineWriter, "lineFeedChar", System
+            ReflectionTestUtils.setField(fileLineWriter, "lineFeedChar", System
                     .getProperty("line.separator"));
 
-            UTUtil.setPrivateField(fileLineWriter, "currentLineCount", 0);
+            ReflectionTestUtils.setField(fileLineWriter, "currentLineCount", 0);
 
             // テスト実施
-            UTUtil.invokePrivate(fileLineWriter, "printList",
-                    new Class[] { List.class }, new Object[] { stringList });
+            Method method = AbstractFileLineWriter.class.getDeclaredMethod("printList", new Class[] {
+                    List.class });
+            method.setAccessible(true);
+            Object result = method.invoke(fileLineWriter, new Object[] { stringList });
 
             // 判定(状態変化、メソッド)
             assertFalse(VMOUTUtil.isCalled(Writer.class, "write"));
 
             // 判定(ファイル)
-            writer = (Writer) UTUtil.getPrivateField(fileLineWriter, "writer");
+            writer = (Writer) ReflectionTestUtils.getField(fileLineWriter, "writer");
             writer.flush();
 
-            postReader = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(fileName), System
-                            .getProperty("file.encoding")));
+            postReader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), System
+                    .getProperty("file.encoding")));
             assertFalse(postReader.ready());
         } finally {
             if (writer != null) {
@@ -6560,9 +6625,9 @@ public class AbstractFileLineWriterTest<T> {
                 postReader.close();
             }
 
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());        
         }
     }
 
@@ -6605,8 +6670,7 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub10> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub10>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub10> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub10>(fileName, clazz, columnFormatterMap);
 
         Reader postReader = null;
         Writer writer = null;
@@ -6618,34 +6682,35 @@ public class AbstractFileLineWriterTest<T> {
             stringList.add("testPrintList03_data1");
 
             // 前処理(フィールド)
-            UTUtil.setPrivateField(fileLineWriter, "lineFeedChar", System
+            ReflectionTestUtils.setField(fileLineWriter, "lineFeedChar", System
                     .getProperty("line.separator"));
 
-            UTUtil.setPrivateField(fileLineWriter, "currentLineCount", 0);
+            ReflectionTestUtils.setField(fileLineWriter, "currentLineCount", 0);
 
             // テスト実施
-            UTUtil.invokePrivate(fileLineWriter, "printList",
-                    new Class[] { List.class }, new Object[] { stringList });
+            Method method = AbstractFileLineWriter.class.getDeclaredMethod("printList", new Class[] {
+                    List.class });
+            method.setAccessible(true);
+            Object result = method.invoke(fileLineWriter, new Object[] { stringList });
 
             // 判定(状態変化、メソッド)
             assertEquals(2, VMOUTUtil.getCallCount(Writer.class, "write"));
-            List writeArguments1 = VMOUTUtil.getArguments(Writer.class,
-                    "write", 0);
+            List writeArguments1 = VMOUTUtil.getArguments(Writer.class, "write",
+                    0);
             assertEquals(1, writeArguments1.size());
             assertEquals("testPrintList03_data1", writeArguments1.get(0));
-            List writeArguments2 = VMOUTUtil.getArguments(Writer.class,
-                    "write", 1);
+            List writeArguments2 = VMOUTUtil.getArguments(Writer.class, "write",
+                    1);
             assertEquals(1, writeArguments2.size());
             String systemLineSeparator = System.getProperty("line.separator");
             assertEquals(systemLineSeparator, writeArguments2.get(0));
 
             // 判定(ファイル)
-            writer = (Writer) UTUtil.getPrivateField(fileLineWriter, "writer");
+            writer = (Writer) ReflectionTestUtils.getField(fileLineWriter, "writer");
             writer.flush();
 
-            postReader = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(fileName), System
-                            .getProperty("file.encoding")));
+            postReader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), System
+                    .getProperty("file.encoding")));
             assertTrue(postReader.ready());
 
             String expectationResultData = "testPrintList03_data1"
@@ -6666,9 +6731,9 @@ public class AbstractFileLineWriterTest<T> {
                 postReader.close();
             }
 
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());        
         }
     }
 
@@ -6713,8 +6778,7 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub10> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub10>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub10> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub10>(fileName, clazz, columnFormatterMap);
 
         Reader postReader = null;
         Writer writer = null;
@@ -6728,50 +6792,51 @@ public class AbstractFileLineWriterTest<T> {
             stringList.add("testPrintList04_data3");
 
             // 前処理(フィールド)
-            UTUtil.setPrivateField(fileLineWriter, "lineFeedChar", System
+            ReflectionTestUtils.setField(fileLineWriter, "lineFeedChar", System
                     .getProperty("line.separator"));
 
-            UTUtil.setPrivateField(fileLineWriter, "currentLineCount", 0);
+            ReflectionTestUtils.setField(fileLineWriter, "currentLineCount", 0);
 
             // テスト実施
-            UTUtil.invokePrivate(fileLineWriter, "printList",
-                    new Class[] { List.class }, new Object[] { stringList });
+            Method method = AbstractFileLineWriter.class.getDeclaredMethod("printList", new Class[] {
+                    List.class });
+            method.setAccessible(true);
+            Object result = method.invoke(fileLineWriter, new Object[] { stringList });
 
             // 判定(状態変化、メソッド)
             assertEquals(6, VMOUTUtil.getCallCount(Writer.class, "write"));
-            List writeArguments1 = VMOUTUtil.getArguments(Writer.class,
-                    "write", 0);
+            List writeArguments1 = VMOUTUtil.getArguments(Writer.class, "write",
+                    0);
             assertEquals(1, writeArguments1.size());
             assertEquals("testPrintList04_data1", writeArguments1.get(0));
-            List writeArguments2 = VMOUTUtil.getArguments(Writer.class,
-                    "write", 1);
+            List writeArguments2 = VMOUTUtil.getArguments(Writer.class, "write",
+                    1);
             assertEquals(1, writeArguments2.size());
             String systemLineSeparator = System.getProperty("line.separator");
             assertEquals(systemLineSeparator, writeArguments2.get(0));
-            List writeArguments3 = VMOUTUtil.getArguments(Writer.class,
-                    "write", 2);
+            List writeArguments3 = VMOUTUtil.getArguments(Writer.class, "write",
+                    2);
             assertEquals(1, writeArguments3.size());
             assertEquals("testPrintList04_data2", writeArguments3.get(0));
-            List writeArguments4 = VMOUTUtil.getArguments(Writer.class,
-                    "write", 3);
+            List writeArguments4 = VMOUTUtil.getArguments(Writer.class, "write",
+                    3);
             assertEquals(1, writeArguments4.size());
             assertEquals(systemLineSeparator, writeArguments4.get(0));
-            List writeArguments5 = VMOUTUtil.getArguments(Writer.class,
-                    "write", 4);
+            List writeArguments5 = VMOUTUtil.getArguments(Writer.class, "write",
+                    4);
             assertEquals(1, writeArguments5.size());
             assertEquals("testPrintList04_data3", writeArguments5.get(0));
-            List writeArguments6 = VMOUTUtil.getArguments(Writer.class,
-                    "write", 5);
+            List writeArguments6 = VMOUTUtil.getArguments(Writer.class, "write",
+                    5);
             assertEquals(1, writeArguments6.size());
             assertEquals(systemLineSeparator, writeArguments6.get(0));
 
             // 判定(ファイル)
-            writer = (Writer) UTUtil.getPrivateField(fileLineWriter, "writer");
+            writer = (Writer) ReflectionTestUtils.getField(fileLineWriter, "writer");
             writer.flush();
 
-            postReader = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(fileName), System
-                            .getProperty("file.encoding")));
+            postReader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), System
+                    .getProperty("file.encoding")));
             assertTrue(postReader.ready());
 
             String expectationResultData = "testPrintList04_data1"
@@ -6794,9 +6859,9 @@ public class AbstractFileLineWriterTest<T> {
                 postReader.close();
             }
 
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());        
         }
     }
 
@@ -6839,8 +6904,7 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub10> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub10>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub10> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub10>(fileName, clazz, columnFormatterMap);
 
         Reader postReader = null;
         Writer writer = null;
@@ -6851,30 +6915,32 @@ public class AbstractFileLineWriterTest<T> {
             List<String> stringList = null;
 
             // 前処理(フィールド)
-            UTUtil.setPrivateField(fileLineWriter, "lineFeedChar", System
+            ReflectionTestUtils.setField(fileLineWriter, "lineFeedChar", System
                     .getProperty("line.separator"));
 
-            UTUtil.setPrivateField(fileLineWriter, "currentLineCount", 0);
+            ReflectionTestUtils.setField(fileLineWriter, "currentLineCount", 0);
 
             // テスト実施
-            UTUtil.invokePrivate(fileLineWriter, "printList",
-                    new Class[] { List.class }, new Object[] { stringList });
+            Method method = AbstractFileLineWriter.class.getDeclaredMethod("printList", new Class[] {
+                    List.class });
+            method.setAccessible(true);
+            Object result = method.invoke(fileLineWriter, new Object[] { stringList });
             fail("NullPointerExceptionが発生しませんでした。");
-        } catch (NullPointerException e) {
+        } catch (InvocationTargetException e) {
             // 判定(例外)
-            assertTrue(NullPointerException.class
-                    .isAssignableFrom(e.getClass()));
+            assertTrue(e.getTargetException() instanceof NullPointerException);
+            assertTrue(NullPointerException.class.isAssignableFrom(e.getTargetException()
+                    .getClass()));
 
             // 判定(状態変化、メソッド)
             assertFalse(VMOUTUtil.isCalled(Writer.class, "write"));
 
             // 判定(ファイル)
-            writer = (Writer) UTUtil.getPrivateField(fileLineWriter, "writer");
+            writer = (Writer) ReflectionTestUtils.getField(fileLineWriter, "writer");
             writer.flush();
 
-            postReader = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(fileName), System
-                            .getProperty("file.encoding")));
+            postReader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), System
+                    .getProperty("file.encoding")));
             assertFalse(postReader.ready());
         } finally {
             if (writer != null) {
@@ -6885,9 +6951,9 @@ public class AbstractFileLineWriterTest<T> {
                 postReader.close();
             }
 
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());        
         }
     }
 
@@ -6934,8 +7000,7 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub10> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub10>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub10> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub10>(fileName, clazz, columnFormatterMap);
 
         Reader postReader = null;
         Writer writer = null;
@@ -6943,7 +7008,7 @@ public class AbstractFileLineWriterTest<T> {
             fileLineWriter.init();
 
             // 前処理(フィールド)
-            writer = (Writer) UTUtil.getPrivateField(fileLineWriter, "writer");
+            writer = (Writer) ReflectionTestUtils.getField(fileLineWriter, "writer");
             writer.close();
 
             // テスト実施
@@ -6963,9 +7028,8 @@ public class AbstractFileLineWriterTest<T> {
             assertFalse(VMOUTUtil.isCalled(Writer.class, "write"));
 
             // 判定(ファイル)
-            postReader = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(fileName), System
-                            .getProperty("file.encoding")));
+            postReader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), System
+                    .getProperty("file.encoding")));
             assertFalse(postReader.ready());
         } finally {
             if (writer != null) {
@@ -6976,9 +7040,9 @@ public class AbstractFileLineWriterTest<T> {
                 postReader.close();
             }
 
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());        
         }
     }
 
@@ -7020,8 +7084,7 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub10> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub10>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub10> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub10>(fileName, clazz, columnFormatterMap);
 
         Reader postReader = null;
         Writer writer = null;
@@ -7029,7 +7092,7 @@ public class AbstractFileLineWriterTest<T> {
             fileLineWriter.init();
 
             // 前処理(フィールド)
-            writer = (Writer) UTUtil.getPrivateField(fileLineWriter, "writer");
+            writer = (Writer) ReflectionTestUtils.getField(fileLineWriter, "writer");
             writer.write("testCloseFile02_data1");
 
             // テスト実施
@@ -7041,9 +7104,8 @@ public class AbstractFileLineWriterTest<T> {
             assertFalse(VMOUTUtil.isCalled(Writer.class, "write"));
 
             // 判定(ファイル)
-            postReader = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(fileName), System
-                            .getProperty("file.encoding")));
+            postReader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), System
+                    .getProperty("file.encoding")));
             assertTrue(postReader.ready());
 
             String expectationResultData = "testCloseFile02_data1";
@@ -7064,9 +7126,9 @@ public class AbstractFileLineWriterTest<T> {
                 postReader.close();
             }
 
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());        
         }
     }
 
@@ -7088,17 +7150,20 @@ public class AbstractFileLineWriterTest<T> {
      * - 全項目：デフォルト値<br>
      * ・@OutputFileColumn設定ありのフィールドを持つ<br>
      * - フィールド：String column1<br>
-     * @OutputFileColumn設定<br> > columnIndex：0<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：0<br>
      *                         > bytes：48<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column2<br>
-     * @OutputFileColumn設定<br> > columnIndex：1<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：1<br>
      *                         > bytes：48<br>
      *                         > stringConverter：以下の処理を持つStringConverterのクラスインスタンス<br>
      *                         - 入力されたデータに"_convert()"を追加した結果を返す。<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column3<br>
-     * @OutputFileColumn設定<br> > columnIndex：2<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：2<br>
      *                         > bytes：48<br>
      *                         > その他項目：デフォルト値<br>
      *                         ・各フィールドのgetter/setterメソッドを持つ。<br>
@@ -7115,15 +7180,15 @@ public class AbstractFileLineWriterTest<T> {
      *                         (状態) #isCheckByte():false<br>
      *                         (状態) FileDAOUtility#trim():正常終了<br>
      *                         入力されたデータに"_trim()"を追加した結果を返す。<br>
-     * <br>
+     *                         <br>
      *                         ※引数確認のため<br>
      *                         (状態) FileDAOUtility#padding():正常終了<br>
      *                         入力されたデータに"_padding()"を追加した結果を返す。<br>
-     * <br>
+     *                         <br>
      *                         ※引数確認のため<br>
      *                         (状態) ColumnFormatter#format():異常終了<br>
      *                         IllegalAccessExceptionが発生する。<br>
-     * <br>
+     *                         <br>
      *                         期待値：(状態変化) FileDAOUtility#trim():呼ばれない<br>
      *                         (状態変化) FileDAOUtility#padding():呼ばれない<br>
      *                         (状態変化) StringConverter#convert():呼ばれない<br>
@@ -7135,7 +7200,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         ・行数：1<br>
      *                         ・カラム名：column2<br>
      *                         ・カラム番号:1<br>
-     * <br>
+     *                         <br>
      *                         異常ケース<br>
      *                         ファイル行オブジェクトからデータを取得する処理でIlleageAccessExceptionが発生した場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
@@ -7155,8 +7220,7 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("java.math.BigDecimal",
                 new DecimalColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub35> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub35>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub35> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub35>(fileName, clazz, columnFormatterMap);
 
         // 前処理(引数)
         AbstractFileLineWriter_Stub35 t = new AbstractFileLineWriter_Stub35();
@@ -7165,13 +7229,12 @@ public class AbstractFileLineWriterTest<T> {
         t.setColumn3("testGetColumn01_data3");
 
         int index = 1;
-        IllegalAccessException illegalAccessException = new IllegalAccessException(
-                "testGetColumn01例外");
+        IllegalAccessException illegalAccessException = new IllegalAccessException("testGetColumn01例外");
         try {
             fileLineWriter.init();
 
             // 前処理(フィールド)
-            UTUtil.setPrivateField(fileLineWriter, "currentLineCount", 0);
+            ReflectionTestUtils.setField(fileLineWriter, "currentLineCount", 0);
 
             // 前処理(メソッド)
             VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineWriter.class,
@@ -7211,16 +7274,16 @@ public class AbstractFileLineWriterTest<T> {
             assertFalse(VMOUTUtil.isCalled(AbstractFileLineWriter.class,
                     "isCheckByte"));
         } finally {
-            Writer writer = (Writer) UTUtil.getPrivateField(fileLineWriter,
+            Writer writer = (Writer) ReflectionTestUtils.getField(fileLineWriter,
                     "writer");
 
             if (writer != null) {
                 writer.close();
             }
 
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());        
         }
     }
 
@@ -7242,17 +7305,20 @@ public class AbstractFileLineWriterTest<T> {
      * - 全項目：デフォルト値<br>
      * ・@OutputFileColumn設定ありのフィールドを持つ<br>
      * - フィールド：String column1<br>
-     * @OutputFileColumn設定<br> > columnIndex：0<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：0<br>
      *                         > bytes：48<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column2<br>
-     * @OutputFileColumn設定<br> > columnIndex：1<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：1<br>
      *                         > bytes：48<br>
      *                         > stringConverter：以下の処理を持つStringConverterのクラスインスタンス<br>
      *                         - 入力されたデータに"_convert()"を追加した結果を返す。<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column3<br>
-     * @OutputFileColumn設定<br> > columnIndex：2<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：2<br>
      *                         > bytes：48<br>
      *                         > その他項目：デフォルト値<br>
      *                         ・各フィールドのgetter/setterメソッドを持つ。<br>
@@ -7269,15 +7335,15 @@ public class AbstractFileLineWriterTest<T> {
      *                         (状態) #isCheckByte():false<br>
      *                         (状態) FileDAOUtility#trim():正常終了<br>
      *                         入力されたデータに"_trim()"を追加した結果を返す。<br>
-     * <br>
+     *                         <br>
      *                         ※引数確認のため<br>
      *                         (状態) FileDAOUtility#padding():正常終了<br>
      *                         入力されたデータに"_padding()"を追加した結果を返す。<br>
-     * <br>
+     *                         <br>
      *                         ※引数確認のため<br>
      *                         (状態) ColumnFormatter#format():異常終了<br>
      *                         llegalArgumentExceptionが発生する。<br>
-     * <br>
+     *                         <br>
      *                         期待値：(状態変化) FileDAOUtility#trim():呼ばれない<br>
      *                         (状態変化) FileDAOUtility#padding():呼ばれない<br>
      *                         (状態変化) StringConverter#convert():呼ばれない<br>
@@ -7289,7 +7355,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         ・行数：1<br>
      *                         ・カラム名：column2<br>
      *                         ・カラム番号:1<br>
-     * <br>
+     *                         <br>
      *                         異常ケース<br>
      *                         ファイル行オブジェクトからデータを取得する処理でillegalArgumentExceptionが発生した場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
@@ -7310,8 +7376,7 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("java.math.BigDecimal",
                 new DecimalColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub35> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub35>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub35> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub35>(fileName, clazz, columnFormatterMap);
 
         // 前処理(引数)
         AbstractFileLineWriter_Stub35 t = new AbstractFileLineWriter_Stub35();
@@ -7320,13 +7385,12 @@ public class AbstractFileLineWriterTest<T> {
         t.setColumn3("testGetColumn02_data3");
 
         int index = 1;
-        IllegalArgumentException illegalArgumentException = new IllegalArgumentException(
-                "testGetColumn02例外");
+        IllegalArgumentException illegalArgumentException = new IllegalArgumentException("testGetColumn02例外");
         try {
             fileLineWriter.init();
 
             // 前処理(フィールド)
-            UTUtil.setPrivateField(fileLineWriter, "currentLineCount", 0);
+            ReflectionTestUtils.setField(fileLineWriter, "currentLineCount", 0);
 
             // 前処理(メソッド)
             VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineWriter.class,
@@ -7366,16 +7430,16 @@ public class AbstractFileLineWriterTest<T> {
             assertFalse(VMOUTUtil.isCalled(AbstractFileLineWriter.class,
                     "isCheckByte"));
         } finally {
-            Writer writer = (Writer) UTUtil.getPrivateField(fileLineWriter,
+            Writer writer = (Writer) ReflectionTestUtils.getField(fileLineWriter,
                     "writer");
 
             if (writer != null) {
                 writer.close();
             }
-
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            
+            Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());        
         }
     }
 
@@ -7397,17 +7461,20 @@ public class AbstractFileLineWriterTest<T> {
      * - 全項目：デフォルト値<br>
      * ・@OutputFileColumn設定ありのフィールドを持つ<br>
      * - フィールド：String column1<br>
-     * @OutputFileColumn設定<br> > columnIndex：0<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：0<br>
      *                         > bytes：48<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column2<br>
-     * @OutputFileColumn設定<br> > columnIndex：1<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：1<br>
      *                         > bytes：48<br>
      *                         > stringConverter：以下の処理を持つStringConverterのクラスインスタンス<br>
      *                         - 入力されたデータに"_convert()"を追加した結果を返す。<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column3<br>
-     * @OutputFileColumn設定<br> > columnIndex：2<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：2<br>
      *                         > bytes：48<br>
      *                         > その他項目：デフォルト値<br>
      *                         ・各フィールドのgetter/setterメソッドを持つ。<br>
@@ -7424,15 +7491,15 @@ public class AbstractFileLineWriterTest<T> {
      *                         (状態) #isCheckByte():false<br>
      *                         (状態) FileDAOUtility#trim():正常終了<br>
      *                         入力されたデータに"_trim()"を追加した結果を返す。<br>
-     * <br>
+     *                         <br>
      *                         ※引数確認のため<br>
      *                         (状態) FileDAOUtility#padding():正常終了<br>
      *                         入力されたデータに"_padding()"を追加した結果を返す。<br>
-     * <br>
+     *                         <br>
      *                         ※引数確認のため<br>
      *                         (状態) ColumnFormatter#format():異常終了<br>
      *                         InvocationTargetExceptionが発生する。<br>
-     * <br>
+     *                         <br>
      *                         期待値：(状態変化) FileDAOUtility#trim():呼ばれない<br>
      *                         (状態変化) FileDAOUtility#padding():呼ばれない<br>
      *                         (状態変化) StringConverter#convert():呼ばれない<br>
@@ -7444,7 +7511,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         ・行数：1<br>
      *                         ・カラム名：column2<br>
      *                         ・カラム番号:1<br>
-     * <br>
+     *                         <br>
      *                         異常ケース<br>
      *                         ファイル行オブジェクトからデータを取得する処理でInvocationTargetExceptionが発生した場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
@@ -7464,8 +7531,7 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("java.math.BigDecimal",
                 new DecimalColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub35> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub35>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub35> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub35>(fileName, clazz, columnFormatterMap);
 
         // 前処理(引数)
         AbstractFileLineWriter_Stub35 t = new AbstractFileLineWriter_Stub35();
@@ -7474,13 +7540,12 @@ public class AbstractFileLineWriterTest<T> {
         t.setColumn3("testGetColumn03_data3");
 
         int index = 1;
-        InvocationTargetException invocationTargetException = new InvocationTargetException(
-                new Exception("testGetColumn03例外"));
+        InvocationTargetException invocationTargetException = new InvocationTargetException(new Exception("testGetColumn03例外"));
         try {
             fileLineWriter.init();
 
             // 前処理(フィールド)
-            UTUtil.setPrivateField(fileLineWriter, "currentLineCount", 0);
+            ReflectionTestUtils.setField(fileLineWriter, "currentLineCount", 0);
 
             // 前処理(メソッド)
             VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineWriter.class,
@@ -7520,16 +7585,16 @@ public class AbstractFileLineWriterTest<T> {
             assertFalse(VMOUTUtil.isCalled(AbstractFileLineWriter.class,
                     "isCheckByte"));
         } finally {
-            Writer writer = (Writer) UTUtil.getPrivateField(fileLineWriter,
+            Writer writer = (Writer) ReflectionTestUtils.getField(fileLineWriter,
                     "writer");
 
             if (writer != null) {
                 writer.close();
             }
 
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());        
         }
     }
 
@@ -7551,17 +7616,20 @@ public class AbstractFileLineWriterTest<T> {
      * - 全項目：デフォルト値<br>
      * ・@OutputFileColumn設定ありのフィールドを持つ<br>
      * - フィールド：String column1<br>
-     * @OutputFileColumn設定<br> > columnIndex：0<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：0<br>
      *                         > bytes：48<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column2<br>
-     * @OutputFileColumn設定<br> > columnIndex：1<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：1<br>
      *                         > bytes：48<br>
      *                         > stringConverter：以下の処理を持つStringConverterのクラスインスタンス<br>
      *                         - 入力されたデータに"_convert()"を追加した結果を返す。<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column3<br>
-     * @OutputFileColumn設定<br> > columnIndex：2<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：2<br>
      *                         > bytes：48<br>
      *                         > その他項目：デフォルト値<br>
      *                         ・各フィールドのgetter/setterメソッドを持つ。<br>
@@ -7578,15 +7646,15 @@ public class AbstractFileLineWriterTest<T> {
      *                         (状態) #isCheckByte():true<br>
      *                         (状態) FileDAOUtility#trim():正常終了<br>
      *                         入力されたデータに"_trim()"を追加した結果を返す。<br>
-     * <br>
+     *                         <br>
      *                         ※引数確認のため<br>
      *                         (状態) FileDAOUtility#padding():正常終了<br>
      *                         入力されたデータに"_padding()"を追加した結果を返す。<br>
-     * <br>
+     *                         <br>
      *                         ※引数確認のため<br>
      *                         (状態) ColumnFormatter#format():正常終了<br>
      *                         正しくフィールドの情報を返す。<br>
-     * <br>
+     *                         <br>
      *                         期待値：(状態変化) FileDAOUtility#trim():1回呼ばれる<br>
      *                         引数を確認する。<br>
      *                         (状態変化) FileDAOUtility#padding():1回呼ばれる<br>
@@ -7602,7 +7670,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         ・行数：1<br>
      *                         ・カラム名：column2<br>
      *                         ・カラム番号:1<br>
-     * <br>
+     *                         <br>
      *                         異常ケース<br>
      *                         (バイト数チェックあり)<br>
      *                         取得対象フィールド値のバイト数がアノテーションの設定値と異なる場合、例外が発生することを確認する。 <br>
@@ -7624,8 +7692,7 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("java.math.BigDecimal",
                 new DecimalColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub35> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub35>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub35> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub35>(fileName, clazz, columnFormatterMap);
 
         // 前処理(引数)
         AbstractFileLineWriter_Stub35 t = new AbstractFileLineWriter_Stub35();
@@ -7639,7 +7706,7 @@ public class AbstractFileLineWriterTest<T> {
             fileLineWriter.init();
 
             // 前処理(フィールド)
-            UTUtil.setPrivateField(fileLineWriter, "currentLineCount", 0);
+            ReflectionTestUtils.setField(fileLineWriter, "currentLineCount", 0);
 
             // 前処理(メソッド)
             VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineWriter.class,
@@ -7659,8 +7726,8 @@ public class AbstractFileLineWriterTest<T> {
             assertTrue(FileLineException.class.isAssignableFrom(e.getClass()));
             assertEquals("The data size is different from bytes value of the "
                     + "set value of the column .", e.getMessage());
-            assertTrue(IllegalStateException.class.isAssignableFrom(e
-                    .getCause().getClass()));
+            assertTrue(IllegalStateException.class.isAssignableFrom(e.getCause()
+                    .getClass()));
             assertEquals(fileName, e.getFileName());
             assertEquals("getLineNo", 1, e.getLineNo());
             assertEquals("column2", e.getColumnName());
@@ -7673,18 +7740,18 @@ public class AbstractFileLineWriterTest<T> {
                     "trim", 0);
             assertEquals(4, trimArguments.size());
             assertEquals("testGetColumn04_data2XX", trimArguments.get(0));
-            assertEquals(System.getProperty("file.encoding"), trimArguments
-                    .get(1));
+            assertEquals(System.getProperty("file.encoding"), trimArguments.get(
+                    1));
             assertEquals(' ', trimArguments.get(2));
             assertEquals(TrimType.NONE, trimArguments.get(3));
 
             assertEquals("FileDAOUtility", 1, VMOUTUtil.getCallCount(
                     FileDAOUtility.class, "padding"));
-            List paddingArguments = VMOUTUtil.getArguments(
-                    FileDAOUtility.class, "padding", 0);
+            List paddingArguments = VMOUTUtil.getArguments(FileDAOUtility.class,
+                    "padding", 0);
             assertEquals(5, paddingArguments.size());
-            assertEquals("testGetColumn04_data2XX_trim()", paddingArguments
-                    .get(0));
+            assertEquals("testGetColumn04_data2XX_trim()", paddingArguments.get(
+                    0));
             assertEquals(System.getProperty("file.encoding"), paddingArguments
                     .get(1));
             assertEquals(48, paddingArguments.get(2));
@@ -7694,13 +7761,10 @@ public class AbstractFileLineWriterTest<T> {
             // mavenから起動するとなぜかconvertが取得できないため、スキップする
             if (!("jp.co.dgic.testing.common.DJUnitClassLoader".equals(System
                     .getProperty("java.system.class.loader")))) {
-                assertEquals(
-                        "AbstractFileLineWriter_StringConverterStub03",
-                        1,
-                        VMOUTUtil
-                                .getCallCount(
-                                        AbstractFileLineWriter_StringConverterStub03.class,
-                                        "convert"));
+                assertEquals("AbstractFileLineWriter_StringConverterStub03", 1,
+                        VMOUTUtil.getCallCount(
+                                AbstractFileLineWriter_StringConverterStub03.class,
+                                "convert"));
                 List convertArguments = VMOUTUtil.getArguments(
                         AbstractFileLineWriter_StringConverterStub03.class,
                         "convert", 0);
@@ -7713,19 +7777,20 @@ public class AbstractFileLineWriterTest<T> {
                     AbstractFileLineWriter.class, "isCheckByte"));
             List isCheckByteArguments = VMOUTUtil.getArguments(
                     AbstractFileLineWriter.class, "isCheckByte", 0);
-            assertEquals("isCheckByteArguments", 1, isCheckByteArguments.size());
+            assertEquals("isCheckByteArguments", 1, isCheckByteArguments
+                    .size());
 
         } finally {
-            Writer writer = (Writer) UTUtil.getPrivateField(fileLineWriter,
+            Writer writer = (Writer) ReflectionTestUtils.getField(fileLineWriter,
                     "writer");
 
             if (writer != null) {
                 writer.close();
             }
 
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());        
         }
     }
 
@@ -7747,17 +7812,20 @@ public class AbstractFileLineWriterTest<T> {
      * - 全項目：デフォルト値<br>
      * ・@OutputFileColumn設定ありのフィールドを持つ<br>
      * - フィールド：String column1<br>
-     * @OutputFileColumn設定<br> > columnIndex：0<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：0<br>
      *                         > bytes：48<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column2<br>
-     * @OutputFileColumn設定<br> > columnIndex：1<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：1<br>
      *                         > bytes：48<br>
      *                         > stringConverter：以下の処理を持つStringConverterのクラスインスタンス<br>
      *                         - 入力されたデータに"_convert()"を追加した結果を返す。<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column3<br>
-     * @OutputFileColumn設定<br> > columnIndex：2<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：2<br>
      *                         > bytes：48<br>
      *                         > その他項目：デフォルト値<br>
      *                         ・各フィールドのgetter/setterメソッドを持つ。<br>
@@ -7774,17 +7842,17 @@ public class AbstractFileLineWriterTest<T> {
      *                         (状態) #isCheckByte():true<br>
      *                         (状態) FileDAOUtility#trim():正常終了<br>
      *                         入力されたデータに"_trim()"を追加した結果を返す。<br>
-     * <br>
+     *                         <br>
      *                         ※引数確認のため<br>
      *                         (状態) FileDAOUtility#padding():正常終了<br>
      *                         入力されたデータに"_padding()"を追加した結果を返す。<br>
-     * <br>
+     *                         <br>
      *                         ※引数確認のため<br>
      *                         (状態) ColumnFormatter#format():正常終了<br>
      *                         正しくフィールドの情報を返す。<br>
      *                         (状態) String#getBytes():異常終了<br>
      *                         UnsupportedEncodingExceptionが発生する。<br>
-     * <br>
+     *                         <br>
      *                         期待値：(状態変化) FileDAOUtility#trim():1回呼ばれる<br>
      *                         引数を確認する。<br>
      *                         (状態変化) FileDAOUtility#padding():1回呼ばれる<br>
@@ -7797,7 +7865,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         ・メッセージ："fileEncoding which isn't supported was set."<br>
      *                         ・原因例外：UnsupportedEncodingException<br>
      *                         ・ファイル名：this.fileNameと同じインスタンス<br>
-     * <br>
+     *                         <br>
      *                         異常ケース<br>
      *                         (バイト数チェックあり)<br>
      *                         取得対象フィールド値のバイト数チェックでUnsupportedEncodingExceptionが発生した場合、例外が発生することを確認する。 <br>
@@ -7819,8 +7887,7 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("java.math.BigDecimal",
                 new DecimalColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub35> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub35>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub35> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub35>(fileName, clazz, columnFormatterMap);
 
         // 前処理(引数)
         AbstractFileLineWriter_Stub35 t = new AbstractFileLineWriter_Stub35();
@@ -7830,14 +7897,13 @@ public class AbstractFileLineWriterTest<T> {
 
         int index = 1;
 
-        UnsupportedEncodingException unsupportedEncodingException = new UnsupportedEncodingException(
-                "testGetColumn05例外");
+        UnsupportedEncodingException unsupportedEncodingException = new UnsupportedEncodingException("testGetColumn05例外");
 
         try {
             fileLineWriter.init();
 
             // 前処理(フィールド)
-            UTUtil.setPrivateField(fileLineWriter, "currentLineCount", 0);
+            ReflectionTestUtils.setField(fileLineWriter, "currentLineCount", 0);
 
             // 前処理(メソッド)
             VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineWriter.class,
@@ -7864,24 +7930,24 @@ public class AbstractFileLineWriterTest<T> {
             assertEquals(fileName, e.getFileName());
 
             // 判定(状態変化、メソッド)
-            assertEquals(1, VMOUTUtil
-                    .getCallCount(FileDAOUtility.class, "trim"));
+            assertEquals(1, VMOUTUtil.getCallCount(FileDAOUtility.class,
+                    "trim"));
             List trimArguments = VMOUTUtil.getArguments(FileDAOUtility.class,
                     "trim", 0);
             assertEquals(4, trimArguments.size());
             assertEquals("testGetColumn05_data2", trimArguments.get(0));
-            assertEquals(System.getProperty("file.encoding"), trimArguments
-                    .get(1));
+            assertEquals(System.getProperty("file.encoding"), trimArguments.get(
+                    1));
             assertEquals(' ', trimArguments.get(2));
             assertEquals(TrimType.NONE, trimArguments.get(3));
 
             assertEquals(1, VMOUTUtil.getCallCount(FileDAOUtility.class,
                     "padding"));
-            List paddingArguments = VMOUTUtil.getArguments(
-                    FileDAOUtility.class, "padding", 0);
+            List paddingArguments = VMOUTUtil.getArguments(FileDAOUtility.class,
+                    "padding", 0);
             assertEquals(5, paddingArguments.size());
-            assertEquals("testGetColumn05_data2_trim()", paddingArguments
-                    .get(0));
+            assertEquals("testGetColumn05_data2_trim()", paddingArguments.get(
+                    0));
             assertEquals(System.getProperty("file.encoding"), paddingArguments
                     .get(1));
             assertEquals(48, paddingArguments.get(2));
@@ -7891,13 +7957,10 @@ public class AbstractFileLineWriterTest<T> {
             // mavenから起動するとなぜかconvertが取得できないため、スキップする
             if (!("jp.co.dgic.testing.common.DJUnitClassLoader".equals(System
                     .getProperty("java.system.class.loader")))) {
-                assertEquals(
-                        "AbstractFileLineWriter_StringConverterStub03",
-                        1,
-                        VMOUTUtil
-                                .getCallCount(
-                                        AbstractFileLineWriter_StringConverterStub03.class,
-                                        "convert"));
+                assertEquals("AbstractFileLineWriter_StringConverterStub03", 1,
+                        VMOUTUtil.getCallCount(
+                                AbstractFileLineWriter_StringConverterStub03.class,
+                                "convert"));
                 List convertArguments = VMOUTUtil.getArguments(
                         AbstractFileLineWriter_StringConverterStub03.class,
                         "convert", 0);
@@ -7906,23 +7969,23 @@ public class AbstractFileLineWriterTest<T> {
                         convertArguments.get(0));
             }
 
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "isCheckByte"));
+            assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
+                    "isCheckByte"));
             List isCheckByteArguments = VMOUTUtil.getArguments(
                     AbstractFileLineWriter.class, "isCheckByte", 0);
             assertEquals(1, isCheckByteArguments.size());
 
         } finally {
-            Writer writer = (Writer) UTUtil.getPrivateField(fileLineWriter,
+            Writer writer = (Writer) ReflectionTestUtils.getField(fileLineWriter,
                     "writer");
 
             if (writer != null) {
                 writer.close();
             }
 
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());        
         }
     }
 
@@ -7944,17 +8007,20 @@ public class AbstractFileLineWriterTest<T> {
      * - 全項目：デフォルト値<br>
      * ・@OutputFileColumn設定ありのフィールドを持つ<br>
      * - フィールド：String column1<br>
-     * @OutputFileColumn設定<br> > columnIndex：0<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：0<br>
      *                         > bytes：48<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column2<br>
-     * @OutputFileColumn設定<br> > columnIndex：1<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：1<br>
      *                         > bytes：48<br>
      *                         > stringConverter：以下の処理を持つStringConverterのクラスインスタンス<br>
      *                         - 入力されたデータに"_convert()"を追加した結果を返す。<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column3<br>
-     * @OutputFileColumn設定<br> > columnIndex：2<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：2<br>
      *                         > bytes：48<br>
      *                         > その他項目：デフォルト値<br>
      *                         ・各フィールドのgetter/setterメソッドを持つ。<br>
@@ -7972,15 +8038,15 @@ public class AbstractFileLineWriterTest<T> {
      *                         (状態) #isCheckByte():false<br>
      *                         (状態) FileDAOUtility#trim():正常終了<br>
      *                         入力されたデータに"_trim()"を追加した結果を返す。<br>
-     * <br>
+     *                         <br>
      *                         ※引数確認のため<br>
      *                         (状態) FileDAOUtility#padding():正常終了<br>
      *                         入力されたデータに"_padding()"を追加した結果を返す。<br>
-     * <br>
+     *                         <br>
      *                         ※引数確認のため<br>
      *                         (状態) ColumnFormatter#format():正常終了<br>
      *                         nullを返す。<br>
-     * <br>
+     *                         <br>
      *                         期待値：(戻り値) String:"_trim()_padding()_convert()"<br>
      *                         (状態変化) FileDAOUtility#trim():1回呼ばれる<br>
      *                         引数を確認する。<br>
@@ -7990,7 +8056,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         引数を確認する。<br>
      *                         (状態変化) #isCheckByte():1回呼ばれる<br>
      *                         引数を確認する。<br>
-     * <br>
+     *                         <br>
      *                         正常ケース<br>
      *                         (バイト数チェックなし)<br>
      *                         ColumnFormmater#format()の結果、フィールド値がnullの場合、空文字として処理されることを確認する。 <br>
@@ -8013,8 +8079,7 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("java.math.BigDecimal",
                 new DecimalColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub35> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub35>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub35> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub35>(fileName, clazz, columnFormatterMap);
 
         // 前処理(引数)
         AbstractFileLineWriter_Stub35 t = new AbstractFileLineWriter_Stub35();
@@ -8028,7 +8093,7 @@ public class AbstractFileLineWriterTest<T> {
             fileLineWriter.init();
 
             // 前処理(フィールド)
-            UTUtil.setPrivateField(fileLineWriter, "currentLineCount", 0);
+            ReflectionTestUtils.setField(fileLineWriter, "currentLineCount", 0);
 
             // 前処理(メソッド)
             VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineWriter.class,
@@ -8048,21 +8113,21 @@ public class AbstractFileLineWriterTest<T> {
             assertEquals("_trim()_padding()_convert()", result);
 
             // 判定(状態変化、メソッド)
-            assertEquals(1, VMOUTUtil
-                    .getCallCount(FileDAOUtility.class, "trim"));
+            assertEquals(1, VMOUTUtil.getCallCount(FileDAOUtility.class,
+                    "trim"));
             List trimArguments = VMOUTUtil.getArguments(FileDAOUtility.class,
                     "trim", 0);
             assertEquals(4, trimArguments.size());
             assertEquals("", trimArguments.get(0));
-            assertEquals(System.getProperty("file.encoding"), trimArguments
-                    .get(1));
+            assertEquals(System.getProperty("file.encoding"), trimArguments.get(
+                    1));
             assertEquals(' ', trimArguments.get(2));
             assertEquals(TrimType.NONE, trimArguments.get(3));
 
             assertEquals(1, VMOUTUtil.getCallCount(FileDAOUtility.class,
                     "padding"));
-            List paddingArguments = VMOUTUtil.getArguments(
-                    FileDAOUtility.class, "padding", 0);
+            List paddingArguments = VMOUTUtil.getArguments(FileDAOUtility.class,
+                    "padding", 0);
             assertEquals(5, paddingArguments.size());
             assertEquals("_trim()", paddingArguments.get(0));
             assertEquals(System.getProperty("file.encoding"), paddingArguments
@@ -8074,13 +8139,10 @@ public class AbstractFileLineWriterTest<T> {
             // mavenから起動するとなぜかconvertが取得できないため、スキップする
             if (!("jp.co.dgic.testing.common.DJUnitClassLoader".equals(System
                     .getProperty("java.system.class.loader")))) {
-                assertEquals(
-                        "AbstractFileLineWriter_StringConverterStub03",
-                        1,
-                        VMOUTUtil
-                                .getCallCount(
-                                        AbstractFileLineWriter_StringConverterStub03.class,
-                                        "convert"));
+                assertEquals("AbstractFileLineWriter_StringConverterStub03", 1,
+                        VMOUTUtil.getCallCount(
+                                AbstractFileLineWriter_StringConverterStub03.class,
+                                "convert"));
                 List convertArguments = VMOUTUtil.getArguments(
                         AbstractFileLineWriter_StringConverterStub03.class,
                         "convert", 0);
@@ -8088,23 +8150,23 @@ public class AbstractFileLineWriterTest<T> {
                 assertEquals("_trim()_padding()", convertArguments.get(0));
             }
 
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "isCheckByte"));
+            assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
+                    "isCheckByte"));
             List isCheckByteArguments = VMOUTUtil.getArguments(
                     AbstractFileLineWriter.class, "isCheckByte", 0);
             assertEquals(1, isCheckByteArguments.size());
 
         } finally {
-            Writer writer = (Writer) UTUtil.getPrivateField(fileLineWriter,
+            Writer writer = (Writer) ReflectionTestUtils.getField(fileLineWriter,
                     "writer");
 
             if (writer != null) {
                 writer.close();
             }
 
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());        
         }
     }
 
@@ -8126,17 +8188,20 @@ public class AbstractFileLineWriterTest<T> {
      * - 全項目：デフォルト値<br>
      * ・@OutputFileColumn設定ありのフィールドを持つ<br>
      * - フィールド：String column1<br>
-     * @OutputFileColumn設定<br> > columnIndex：0<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：0<br>
      *                         > bytes：48<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column2<br>
-     * @OutputFileColumn設定<br> > columnIndex：1<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：1<br>
      *                         > bytes：48<br>
      *                         > stringConverter：以下の処理を持つStringConverterのクラスインスタンス<br>
      *                         - 入力されたデータに"_convert()"を追加した結果を返す。<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column3<br>
-     * @OutputFileColumn設定<br> > columnIndex：2<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：2<br>
      *                         > bytes：48<br>
      *                         > その他項目：デフォルト値<br>
      *                         ・各フィールドのgetter/setterメソッドを持つ。<br>
@@ -8153,15 +8218,15 @@ public class AbstractFileLineWriterTest<T> {
      *                         (状態) #isCheckByte():false<br>
      *                         (状態) FileDAOUtility#trim():正常終了<br>
      *                         入力されたデータに"_trim()"を追加した結果を返す。<br>
-     * <br>
+     *                         <br>
      *                         ※引数確認のため<br>
      *                         (状態) FileDAOUtility#padding():正常終了<br>
      *                         入力されたデータに"_padding()"を追加した結果を返す。<br>
-     * <br>
+     *                         <br>
      *                         ※引数確認のため<br>
      *                         (状態) ColumnFormatter#format():正常終了<br>
      *                         正しくフィールドの情報を返す。<br>
-     * <br>
+     *                         <br>
      *                         期待値：(戻り値) String:"_trim()_padding()_convert()"<br>
      *                         (状態変化) FileDAOUtility#trim():1回呼ばれる<br>
      *                         引数を確認する。<br>
@@ -8171,7 +8236,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         引数を確認する。<br>
      *                         (状態変化) #isCheckByte():1回呼ばれる<br>
      *                         引数を確認する。<br>
-     * <br>
+     *                         <br>
      *                         正常ケース<br>
      *                         (バイト数チェックなし)<br>
      *                         ColumnFormmater#format()の結果、フィールド値が空文字の場合、そのまま処理されることを確認する。 <br>
@@ -8194,8 +8259,7 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("java.math.BigDecimal",
                 new DecimalColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub35> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub35>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub35> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub35>(fileName, clazz, columnFormatterMap);
 
         // 前処理(引数)
         AbstractFileLineWriter_Stub35 t = new AbstractFileLineWriter_Stub35();
@@ -8209,7 +8273,7 @@ public class AbstractFileLineWriterTest<T> {
             fileLineWriter.init();
 
             // 前処理(フィールド)
-            UTUtil.setPrivateField(fileLineWriter, "currentLineCount", 0);
+            ReflectionTestUtils.setField(fileLineWriter, "currentLineCount", 0);
 
             // 前処理(メソッド)
             VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineWriter.class,
@@ -8229,21 +8293,21 @@ public class AbstractFileLineWriterTest<T> {
             assertEquals("_trim()_padding()_convert()", result);
 
             // 判定(状態変化、メソッド)
-            assertEquals(1, VMOUTUtil
-                    .getCallCount(FileDAOUtility.class, "trim"));
+            assertEquals(1, VMOUTUtil.getCallCount(FileDAOUtility.class,
+                    "trim"));
             List trimArguments = VMOUTUtil.getArguments(FileDAOUtility.class,
                     "trim", 0);
             assertEquals(4, trimArguments.size());
             assertEquals("", trimArguments.get(0));
-            assertEquals(System.getProperty("file.encoding"), trimArguments
-                    .get(1));
+            assertEquals(System.getProperty("file.encoding"), trimArguments.get(
+                    1));
             assertEquals(' ', trimArguments.get(2));
             assertEquals(TrimType.NONE, trimArguments.get(3));
 
             assertEquals(1, VMOUTUtil.getCallCount(FileDAOUtility.class,
                     "padding"));
-            List paddingArguments = VMOUTUtil.getArguments(
-                    FileDAOUtility.class, "padding", 0);
+            List paddingArguments = VMOUTUtil.getArguments(FileDAOUtility.class,
+                    "padding", 0);
             assertEquals(5, paddingArguments.size());
             assertEquals("_trim()", paddingArguments.get(0));
             assertEquals(System.getProperty("file.encoding"), paddingArguments
@@ -8255,13 +8319,10 @@ public class AbstractFileLineWriterTest<T> {
             // mavenから起動するとなぜかconvertが取得できないため、スキップする
             if (!("jp.co.dgic.testing.common.DJUnitClassLoader".equals(System
                     .getProperty("java.system.class.loader")))) {
-                assertEquals(
-                        "AbstractFileLineWriter_StringConverterStub03",
-                        1,
-                        VMOUTUtil
-                                .getCallCount(
-                                        AbstractFileLineWriter_StringConverterStub03.class,
-                                        "convert"));
+                assertEquals("AbstractFileLineWriter_StringConverterStub03", 1,
+                        VMOUTUtil.getCallCount(
+                                AbstractFileLineWriter_StringConverterStub03.class,
+                                "convert"));
                 List convertArguments = VMOUTUtil.getArguments(
                         AbstractFileLineWriter_StringConverterStub03.class,
                         "convert", 0);
@@ -8269,23 +8330,23 @@ public class AbstractFileLineWriterTest<T> {
                 assertEquals("_trim()_padding()", convertArguments.get(0));
             }
 
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "isCheckByte"));
+            assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
+                    "isCheckByte"));
             List isCheckByteArguments = VMOUTUtil.getArguments(
                     AbstractFileLineWriter.class, "isCheckByte", 0);
             assertEquals(1, isCheckByteArguments.size());
 
         } finally {
-            Writer writer = (Writer) UTUtil.getPrivateField(fileLineWriter,
+            Writer writer = (Writer) ReflectionTestUtils.getField(fileLineWriter,
                     "writer");
 
             if (writer != null) {
                 writer.close();
             }
 
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());        
         }
     }
 
@@ -8307,17 +8368,20 @@ public class AbstractFileLineWriterTest<T> {
      * - 全項目：デフォルト値<br>
      * ・@OutputFileColumn設定ありのフィールドを持つ<br>
      * - フィールド：String column1<br>
-     * @OutputFileColumn設定<br> > columnIndex：0<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：0<br>
      *                         > bytes：48<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column2<br>
-     * @OutputFileColumn設定<br> > columnIndex：1<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：1<br>
      *                         > bytes：48<br>
      *                         > stringConverter：以下の処理を持つStringConverterのクラスインスタンス<br>
      *                         - 入力されたデータに"_convert()"を追加した結果を返す。<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column3<br>
-     * @OutputFileColumn設定<br> > columnIndex：2<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：2<br>
      *                         > bytes：48<br>
      *                         > その他項目：デフォルト値<br>
      *                         ・各フィールドのgetter/setterメソッドを持つ。<br>
@@ -8334,15 +8398,15 @@ public class AbstractFileLineWriterTest<T> {
      *                         (状態) #isCheckByte():false<br>
      *                         (状態) FileDAOUtility#trim():正常終了<br>
      *                         入力されたデータに"_trim()"を追加した結果を返す。<br>
-     * <br>
+     *                         <br>
      *                         ※引数確認のため<br>
      *                         (状態) FileDAOUtility#padding():正常終了<br>
      *                         入力されたデータに"_padding()"を追加した結果を返す。<br>
-     * <br>
+     *                         <br>
      *                         ※引数確認のため<br>
      *                         (状態) ColumnFormatter#format():正常終了<br>
      *                         正しくフィールドの情報を返す。<br>
-     * <br>
+     *                         <br>
      *                         期待値：(戻り値) String:"testGetColumn09_data2_trim()_padding()_convert()"<br>
      *                         (状態変化) FileDAOUtility#trim():1回呼ばれる<br>
      *                         引数を確認する。<br>
@@ -8352,7 +8416,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         引数を確認する。<br>
      *                         (状態変化) #isCheckByte():1回呼ばれる<br>
      *                         引数を確認する。<br>
-     * <br>
+     *                         <br>
      *                         正常ケース<br>
      *                         (バイト数チェックあり)<br>
      *                         取得対象フィールド値のバイト数がアノテーションの設定値と一致した場合、問題なく処理されることを確認する。 <br>
@@ -8374,8 +8438,7 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("java.math.BigDecimal",
                 new DecimalColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub35> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub35>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub35> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub35>(fileName, clazz, columnFormatterMap);
 
         // 前処理(引数)
         AbstractFileLineWriter_Stub35 t = new AbstractFileLineWriter_Stub35();
@@ -8389,7 +8452,7 @@ public class AbstractFileLineWriterTest<T> {
             fileLineWriter.init();
 
             // 前処理(フィールド)
-            UTUtil.setPrivateField(fileLineWriter, "currentLineCount", 0);
+            ReflectionTestUtils.setField(fileLineWriter, "currentLineCount", 0);
 
             // 前処理(メソッド)
             VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineWriter.class,
@@ -8410,24 +8473,24 @@ public class AbstractFileLineWriterTest<T> {
                     result);
 
             // 判定(状態変化、メソッド)
-            assertEquals(1, VMOUTUtil
-                    .getCallCount(FileDAOUtility.class, "trim"));
+            assertEquals(1, VMOUTUtil.getCallCount(FileDAOUtility.class,
+                    "trim"));
             List trimArguments = VMOUTUtil.getArguments(FileDAOUtility.class,
                     "trim", 0);
             assertEquals(4, trimArguments.size());
             assertEquals("testGetColumn09_data2", trimArguments.get(0));
-            assertEquals(System.getProperty("file.encoding"), trimArguments
-                    .get(1));
+            assertEquals(System.getProperty("file.encoding"), trimArguments.get(
+                    1));
             assertEquals(' ', trimArguments.get(2));
             assertEquals(TrimType.NONE, trimArguments.get(3));
 
             assertEquals(1, VMOUTUtil.getCallCount(FileDAOUtility.class,
                     "padding"));
-            List paddingArguments = VMOUTUtil.getArguments(
-                    FileDAOUtility.class, "padding", 0);
+            List paddingArguments = VMOUTUtil.getArguments(FileDAOUtility.class,
+                    "padding", 0);
             assertEquals(5, paddingArguments.size());
-            assertEquals("testGetColumn09_data2_trim()", paddingArguments
-                    .get(0));
+            assertEquals("testGetColumn09_data2_trim()", paddingArguments.get(
+                    0));
             assertEquals(System.getProperty("file.encoding"), paddingArguments
                     .get(1));
             assertEquals(48, paddingArguments.get(2));
@@ -8437,13 +8500,10 @@ public class AbstractFileLineWriterTest<T> {
             // mavenから起動するとなぜかconvertが取得できないため、スキップする
             if (!("jp.co.dgic.testing.common.DJUnitClassLoader".equals(System
                     .getProperty("java.system.class.loader")))) {
-                assertEquals(
-                        "AbstractFileLineWriter_StringConverterStub03",
-                        1,
-                        VMOUTUtil
-                                .getCallCount(
-                                        AbstractFileLineWriter_StringConverterStub03.class,
-                                        "convert"));
+                assertEquals("AbstractFileLineWriter_StringConverterStub03", 1,
+                        VMOUTUtil.getCallCount(
+                                AbstractFileLineWriter_StringConverterStub03.class,
+                                "convert"));
                 List convertArguments = VMOUTUtil.getArguments(
                         AbstractFileLineWriter_StringConverterStub03.class,
                         "convert", 0);
@@ -8452,23 +8512,23 @@ public class AbstractFileLineWriterTest<T> {
                         convertArguments.get(0));
             }
 
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "isCheckByte"));
+            assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
+                    "isCheckByte"));
             List isCheckByteArguments = VMOUTUtil.getArguments(
                     AbstractFileLineWriter.class, "isCheckByte", 0);
             assertEquals(1, isCheckByteArguments.size());
 
         } finally {
-            Writer writer = (Writer) UTUtil.getPrivateField(fileLineWriter,
+            Writer writer = (Writer) ReflectionTestUtils.getField(fileLineWriter,
                     "writer");
 
             if (writer != null) {
                 writer.close();
             }
 
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());        
         }
     }
 
@@ -8490,13 +8550,16 @@ public class AbstractFileLineWriterTest<T> {
      * - 全項目：デフォルト値<br>
      * ・@OutputFileColumn設定ありのフィールドを持つ<br>
      * - フィールド：String column1<br>
-     * @OutputFileColumn設定<br> > columnIndex：0<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：0<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column2<br>
-     * @OutputFileColumn設定<br> > columnIndex：1<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：1<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column3<br>
-     * @OutputFileColumn設定<br> > columnIndex：2<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：2<br>
      *                         > その他項目：デフォルト値<br>
      *                         ・各フィールドのgetter/setterメソッドを持つ。<br>
      *                         (状態) this.fields:this.clazzのフィールド定義に従う。<br>
@@ -8512,15 +8575,15 @@ public class AbstractFileLineWriterTest<T> {
      *                         (状態) #isCheckByte():true<br>
      *                         (状態) FileDAOUtility#trim():正常終了<br>
      *                         入力されたデータに"_trim()"を追加した結果を返す。<br>
-     * <br>
+     *                         <br>
      *                         ※引数確認のため<br>
      *                         (状態) FileDAOUtility#padding():正常終了<br>
      *                         入力されたデータに"_padding()"を追加した結果を返す。<br>
-     * <br>
+     *                         <br>
      *                         ※引数確認のため<br>
      *                         (状態) ColumnFormatter#format():正常終了<br>
      *                         正しくフィールドの情報を返す。<br>
-     * <br>
+     *                         <br>
      *                         期待値：(状態変化) FileDAOUtility#trim():1回呼ばれる<br>
      *                         引数を確認する。<br>
      *                         (状態変化) FileDAOUtility#padding():1回呼ばれる<br>
@@ -8536,7 +8599,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         ・行数：1<br>
      *                         ・カラム名：column2<br>
      *                         ・カラム番号:1<br>
-     * <br>
+     *                         <br>
      *                         異常ケース<br>
      *                         (バイト数チェックあり)<br>
      *                         対象フィールドに対してバイト数がマイナス値(デフォルト値など)で設定されていた場合、例外が発生することを確認する。 <br>
@@ -8557,8 +8620,7 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("java.math.BigDecimal",
                 new DecimalColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub13> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub13>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub13> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub13>(fileName, clazz, columnFormatterMap);
 
         // 前処理(引数)
         AbstractFileLineWriter_Stub13 t = new AbstractFileLineWriter_Stub13();
@@ -8572,7 +8634,7 @@ public class AbstractFileLineWriterTest<T> {
             fileLineWriter.init();
 
             // 前処理(フィールド)
-            UTUtil.setPrivateField(fileLineWriter, "currentLineCount", 0);
+            ReflectionTestUtils.setField(fileLineWriter, "currentLineCount", 0);
 
             // 前処理(メソッド)
             VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineWriter.class,
@@ -8590,35 +8652,34 @@ public class AbstractFileLineWriterTest<T> {
         } catch (FileLineException e) {
             // 判定(例外)
             assertTrue(FileLineException.class.isAssignableFrom(e.getClass()));
-            assertEquals(
-                    "bytes is not set or a number equal to or less than 0 "
-                            + "is set.", e.getMessage());
-            assertTrue(IllegalStateException.class.isAssignableFrom(e
-                    .getCause().getClass()));
+            assertEquals("bytes is not set or a number equal to or less than 0 "
+                    + "is set.", e.getMessage());
+            assertTrue(IllegalStateException.class.isAssignableFrom(e.getCause()
+                    .getClass()));
             assertEquals(fileName, e.getFileName());
             assertEquals(1, e.getLineNo());
             assertEquals("column2", e.getColumnName());
             assertEquals(1, e.getColumnIndex());
 
             // 判定(状態変化、メソッド)
-            assertEquals(1, VMOUTUtil
-                    .getCallCount(FileDAOUtility.class, "trim"));
+            assertEquals(1, VMOUTUtil.getCallCount(FileDAOUtility.class,
+                    "trim"));
             List trimArguments = VMOUTUtil.getArguments(FileDAOUtility.class,
                     "trim", 0);
             assertEquals(4, trimArguments.size());
             assertEquals("testGetColumn10_data2", trimArguments.get(0));
-            assertEquals(System.getProperty("file.encoding"), trimArguments
-                    .get(1));
+            assertEquals(System.getProperty("file.encoding"), trimArguments.get(
+                    1));
             assertEquals(' ', trimArguments.get(2));
             assertEquals(TrimType.NONE, trimArguments.get(3));
 
             assertEquals(1, VMOUTUtil.getCallCount(FileDAOUtility.class,
                     "padding"));
-            List paddingArguments = VMOUTUtil.getArguments(
-                    FileDAOUtility.class, "padding", 0);
+            List paddingArguments = VMOUTUtil.getArguments(FileDAOUtility.class,
+                    "padding", 0);
             assertEquals(5, paddingArguments.size());
-            assertEquals("testGetColumn10_data2_trim()", paddingArguments
-                    .get(0));
+            assertEquals("testGetColumn10_data2_trim()", paddingArguments.get(
+                    0));
             assertEquals(System.getProperty("file.encoding"), paddingArguments
                     .get(1));
             assertEquals(-1, paddingArguments.get(2));
@@ -8633,23 +8694,23 @@ public class AbstractFileLineWriterTest<T> {
             assertEquals("testGetColumn10_data2_trim()_padding()",
                     convertArguments.get(0));
 
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "isCheckByte"));
+            assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
+                    "isCheckByte"));
             List isCheckByteArguments = VMOUTUtil.getArguments(
                     AbstractFileLineWriter.class, "isCheckByte", 0);
             assertEquals(1, isCheckByteArguments.size());
 
         } finally {
-            Writer writer = (Writer) UTUtil.getPrivateField(fileLineWriter,
+            Writer writer = (Writer) ReflectionTestUtils.getField(fileLineWriter,
                     "writer");
 
             if (writer != null) {
                 writer.close();
             }
 
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());        
         }
     }
 
@@ -8671,14 +8732,17 @@ public class AbstractFileLineWriterTest<T> {
      * - 全項目：デフォルト値<br>
      * ・@OutputFileColumn設定ありのフィールドを持つ<br>
      * - フィールド：String column1<br>
-     * @OutputFileColumn設定<br> > columnIndex：0<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：0<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column2<br>
-     * @OutputFileColumn設定<br> > columnIndex：1<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：1<br>
      *                         > bytes：0<br>
      *                         > その他項目：デフォルト値<br>
      *                         - フィールド：String column3<br>
-     * @OutputFileColumn設定<br> > columnIndex：2<br>
+     * @OutputFileColumn設定<br>
+     *                         > columnIndex：2<br>
      *                         > その他項目：デフォルト値<br>
      *                         ・各フィールドのgetter/setterメソッドを持つ。<br>
      *                         (状態) this.fields:this.clazzのフィールド定義に従う。<br>
@@ -8694,15 +8758,15 @@ public class AbstractFileLineWriterTest<T> {
      *                         (状態) #isCheckByte():true<br>
      *                         (状態) FileDAOUtility#trim():正常終了<br>
      *                         入力されたデータに"_trim()"を追加した結果を返す。<br>
-     * <br>
+     *                         <br>
      *                         ※引数確認のため<br>
      *                         (状態) FileDAOUtility#padding():正常終了<br>
      *                         入力されたデータに"_padding()"を追加した結果を返す。<br>
-     * <br>
+     *                         <br>
      *                         ※引数確認のため<br>
      *                         (状態) ColumnFormatter#format():正常終了<br>
      *                         正しくフィールドの情報を返す。<br>
-     * <br>
+     *                         <br>
      *                         期待値：(状態変化) FileDAOUtility#trim():1回呼ばれる<br>
      *                         引数を確認する。<br>
      *                         (状態変化) FileDAOUtility#padding():1回呼ばれる<br>
@@ -8718,7 +8782,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         ・行数：1<br>
      *                         ・カラム名：column2<br>
      *                         ・カラム番号:1<br>
-     * <br>
+     *                         <br>
      *                         異常ケース<br>
      *                         (バイト数チェックあり)<br>
      *                         対象フィールドに対してバイト数が0で設定されていた場合、例外が発生することを確認する。 <br>
@@ -8739,8 +8803,7 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("java.math.BigDecimal",
                 new DecimalColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub36> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub36>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub36> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub36>(fileName, clazz, columnFormatterMap);
 
         // 前処理(引数)
         AbstractFileLineWriter_Stub36 t = new AbstractFileLineWriter_Stub36();
@@ -8754,7 +8817,7 @@ public class AbstractFileLineWriterTest<T> {
             fileLineWriter.init();
 
             // 前処理(フィールド)
-            UTUtil.setPrivateField(fileLineWriter, "currentLineCount", 0);
+            ReflectionTestUtils.setField(fileLineWriter, "currentLineCount", 0);
 
             // 前処理(メソッド)
             VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineWriter.class,
@@ -8772,35 +8835,34 @@ public class AbstractFileLineWriterTest<T> {
         } catch (FileLineException e) {
             // 判定(例外)
             assertTrue(FileLineException.class.isAssignableFrom(e.getClass()));
-            assertEquals(
-                    "bytes is not set or a number equal to or less than 0 "
-                            + "is set.", e.getMessage());
-            assertTrue(IllegalStateException.class.isAssignableFrom(e
-                    .getCause().getClass()));
+            assertEquals("bytes is not set or a number equal to or less than 0 "
+                    + "is set.", e.getMessage());
+            assertTrue(IllegalStateException.class.isAssignableFrom(e.getCause()
+                    .getClass()));
             assertEquals(fileName, e.getFileName());
             assertEquals(1, e.getLineNo());
             assertEquals("column2", e.getColumnName());
             assertEquals(1, e.getColumnIndex());
 
             // 判定(状態変化、メソッド)
-            assertEquals(1, VMOUTUtil
-                    .getCallCount(FileDAOUtility.class, "trim"));
+            assertEquals(1, VMOUTUtil.getCallCount(FileDAOUtility.class,
+                    "trim"));
             List trimArguments = VMOUTUtil.getArguments(FileDAOUtility.class,
                     "trim", 0);
             assertEquals(4, trimArguments.size());
             assertEquals("testGetColumn11_data2", trimArguments.get(0));
-            assertEquals(System.getProperty("file.encoding"), trimArguments
-                    .get(1));
+            assertEquals(System.getProperty("file.encoding"), trimArguments.get(
+                    1));
             assertEquals(' ', trimArguments.get(2));
             assertEquals(TrimType.NONE, trimArguments.get(3));
 
             assertEquals(1, VMOUTUtil.getCallCount(FileDAOUtility.class,
                     "padding"));
-            List paddingArguments = VMOUTUtil.getArguments(
-                    FileDAOUtility.class, "padding", 0);
+            List paddingArguments = VMOUTUtil.getArguments(FileDAOUtility.class,
+                    "padding", 0);
             assertEquals(5, paddingArguments.size());
-            assertEquals("testGetColumn11_data2_trim()", paddingArguments
-                    .get(0));
+            assertEquals("testGetColumn11_data2_trim()", paddingArguments.get(
+                    0));
             assertEquals(System.getProperty("file.encoding"), paddingArguments
                     .get(1));
             assertEquals(0, paddingArguments.get(2));
@@ -8815,22 +8877,22 @@ public class AbstractFileLineWriterTest<T> {
             assertEquals("testGetColumn11_data2_trim()_padding()",
                     convertArguments.get(0));
 
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "isCheckByte"));
+            assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
+                    "isCheckByte"));
             List isCheckByteArguments = VMOUTUtil.getArguments(
                     AbstractFileLineWriter.class, "isCheckByte", 0);
             assertEquals(1, isCheckByteArguments.size());
         } finally {
-            Writer writer = (Writer) UTUtil.getPrivateField(fileLineWriter,
+            Writer writer = (Writer) ReflectionTestUtils.getField(fileLineWriter,
                     "writer");
 
             if (writer != null) {
                 writer.close();
             }
 
-            UTUtil.setPrivateField(AbstractFileLineWriter.class,
-                    "stringConverterCacheMap",
-                    new HashMap<Class, StringConverter>());
+            Field field = AbstractFileLineWriter.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            field.set(AbstractFileLineWriter.class, new HashMap<Class, StringConverter>());        
         }
     }
 
@@ -8858,11 +8920,10 @@ public class AbstractFileLineWriterTest<T> {
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub01> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub01>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub01> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub01>(fileName, clazz, columnFormatterMap);
 
         // 前処理(フィールド)
-        UTUtil.setPrivateField(fileLineWriter, "fileName", fileName);
+        ReflectionTestUtils.setField(fileLineWriter, "fileName", fileName);
 
         // テスト実施
         String result = fileLineWriter.getFileName();
@@ -8895,13 +8956,13 @@ public class AbstractFileLineWriterTest<T> {
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub01> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub01>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub01> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub01>(fileName, clazz, columnFormatterMap);
         // 前処理(引数)
         String lineFeedChar = "testGetLineFeedChar01_lineFeedChar";
 
         // 前処理(フィールド)
-        UTUtil.setPrivateField(fileLineWriter, "lineFeedChar", lineFeedChar);
+        ReflectionTestUtils.setField(fileLineWriter, "lineFeedChar",
+                lineFeedChar);
 
         // テスト実施
         String result = fileLineWriter.getLineFeedChar();
@@ -8936,18 +8997,17 @@ public class AbstractFileLineWriterTest<T> {
         String fileName = "fileName";
         Class<AbstractFileLineWriter_Stub01> clazz = AbstractFileLineWriter_Stub01.class;
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub01> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub01>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub01> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub01>(fileName, clazz, columnFormatterMap);
 
         // 前処理(フィールド)
-        UTUtil.setPrivateField(fileLineWriter, "columnFormatterMap", null);
+        ReflectionTestUtils.setField(fileLineWriter, "columnFormatterMap",
+                null);
 
         // テスト実施
         fileLineWriter.setColumnFormatterMap(columnFormatterMap);
 
         // 判定(状態変化、フィールド)
-        Map<String, ColumnFormatter> resultMap = (Map<String, ColumnFormatter>) UTUtil
-                .getPrivateField(fileLineWriter, "columnFormatterMap");
+        Map<String, ColumnFormatter> resultMap = (Map<String, ColumnFormatter>) ReflectionTestUtils.getField(fileLineWriter, "columnFormatterMap");
         assertNotNull(resultMap);
         assertSame(columnFormatterMap, resultMap);
     }
@@ -8976,17 +9036,15 @@ public class AbstractFileLineWriterTest<T> {
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub01> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub01>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub01> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub01>(fileName, clazz, columnFormatterMap);
 
         // 前処理(フィールド)
         Writer writer = null;
         try {
-            writer = new BufferedWriter(new OutputStreamWriter(
-                    (new FileOutputStream(fileName, true)), System
-                            .getProperty("file.encoding")));
+            writer = new BufferedWriter(new OutputStreamWriter((new FileOutputStream(fileName, true)), System
+                    .getProperty("file.encoding")));
 
-            UTUtil.setPrivateField(fileLineWriter, "writer", writer);
+            ReflectionTestUtils.setField(fileLineWriter, "writer", writer);
             // テスト実施
             Writer result = fileLineWriter.getWriter();
 
@@ -9027,12 +9085,11 @@ public class AbstractFileLineWriterTest<T> {
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub01> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub01>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub01> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub01>(fileName, clazz, columnFormatterMap);
 
         // 前処理(フィールド)
         Field[] fields = new Field[] { null, null, null };
-        UTUtil.setPrivateField(fileLineWriter, "fields", fields);
+        ReflectionTestUtils.setField(fileLineWriter, "fields", fields);
 
         // テスト実施
         Field[] result = fileLineWriter.getFields();
@@ -9065,12 +9122,11 @@ public class AbstractFileLineWriterTest<T> {
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub01> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub01>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub01> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub01>(fileName, clazz, columnFormatterMap);
 
         // 前処理(フィールド)
         Method[] methods = new Method[] { null, null, null };
-        UTUtil.setPrivateField(fileLineWriter, "methods", methods);
+        ReflectionTestUtils.setField(fileLineWriter, "methods", methods);
 
         // テスト実施
         Method[] result = fileLineWriter.getMethods();
@@ -9104,17 +9160,17 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub01> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub01>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub01> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub01>(fileName, clazz, columnFormatterMap);
 
         // 前処理(フィールド)
-        UTUtil.setPrivateField(fileLineWriter, "writeData", Boolean.FALSE);
+        ReflectionTestUtils.setField(fileLineWriter, "writeData",
+                Boolean.FALSE);
 
         // テスト実施
         fileLineWriter.setWriteData(true);
 
         // 判定(状態変化、フィールド)
-        boolean resultBoolean = Boolean.class.cast(UTUtil.getPrivateField(
+        boolean resultBoolean = Boolean.class.cast(ReflectionTestUtils.getField(
                 fileLineWriter, "writeData"));
         assertNotNull(resultBoolean);
         assertTrue(resultBoolean);
@@ -9141,11 +9197,11 @@ public class AbstractFileLineWriterTest<T> {
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub01> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub01>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub01> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub01>(fileName, clazz, columnFormatterMap);
 
         // 前処理(フィールド)
-        UTUtil.setPrivateField(fileLineWriter, "writeTrailer", Boolean.FALSE);
+        ReflectionTestUtils.setField(fileLineWriter, "writeTrailer",
+                Boolean.FALSE);
 
         // テスト実施
         try {
@@ -9182,11 +9238,11 @@ public class AbstractFileLineWriterTest<T> {
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub01> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub01>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub01> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub01>(fileName, clazz, columnFormatterMap);
 
         // 前処理(フィールド)
-        UTUtil.setPrivateField(fileLineWriter, "writeTrailer", Boolean.TRUE);
+        ReflectionTestUtils.setField(fileLineWriter, "writeTrailer",
+                Boolean.TRUE);
 
         // テスト実施
         try {
@@ -9197,8 +9253,8 @@ public class AbstractFileLineWriterTest<T> {
             assertTrue(FileException.class.isAssignableFrom(e.getClass()));
             assertEquals("Header part or data part should be called before "
                     + "TrailerPart", e.getMessage());
-            assertTrue(IllegalStateException.class.isAssignableFrom(e
-                    .getCause().getClass()));
+            assertTrue(IllegalStateException.class.isAssignableFrom(e.getCause()
+                    .getClass()));
             assertEquals(fileName, e.getFileName());
         }
     }
@@ -9227,13 +9283,13 @@ public class AbstractFileLineWriterTest<T> {
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub13> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub13>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub13> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub13>(fileName, clazz, columnFormatterMap);
 
         // 前処理(引数)
-        Field column2 = AbstractFileLineWriter_Stub13.class.getDeclaredFields()[1];
-        OutputFileColumn outputFileColumn = column2
-                .getAnnotation(OutputFileColumn.class);
+        Field column2 = AbstractFileLineWriter_Stub13.class
+                .getDeclaredFields()[1];
+        OutputFileColumn outputFileColumn = column2.getAnnotation(
+                OutputFileColumn.class);
 
         // テスト実施
         boolean result = fileLineWriter.isCheckByte(outputFileColumn);
@@ -9265,13 +9321,13 @@ public class AbstractFileLineWriterTest<T> {
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("int", new IntColumnFormatter());
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub37> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub37>(
-                fileName, clazz, columnFormatterMap);
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub37> fileLineWriter = new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub37>(fileName, clazz, columnFormatterMap);
 
         // 前処理(引数)
-        Field column2 = AbstractFileLineWriter_Stub37.class.getDeclaredFields()[1];
-        OutputFileColumn outputFileColumn = column2
-                .getAnnotation(OutputFileColumn.class);
+        Field column2 = AbstractFileLineWriter_Stub37.class
+                .getDeclaredFields()[1];
+        OutputFileColumn outputFileColumn = column2.getAnnotation(
+                OutputFileColumn.class);
 
         // テスト実施
         boolean result = fileLineWriter.isCheckByte(outputFileColumn);
@@ -9299,8 +9355,7 @@ public class AbstractFileLineWriterTest<T> {
 
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
-        AbstractFileLineWriter<FileLineObject_Empty> fileLineWriter = new AbstractFileLineWriterImpl01<FileLineObject_Empty>(
-                fileName, FileLineObject_Empty.class, columnFormatterMap);
+        AbstractFileLineWriter<FileLineObject_Empty> fileLineWriter = new AbstractFileLineWriterImpl01<FileLineObject_Empty>(fileName, FileLineObject_Empty.class, columnFormatterMap);
 
         // テスト実施
         boolean result = fileLineWriter.isCheckByte(1);

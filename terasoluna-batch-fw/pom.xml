@@ -498,21 +498,6 @@ sp_cleanup.organize_imports=true
                 </exclusions>
             </dependency>
 
-            <dependency>
-                <groupId>junit-addons</groupId>
-                <artifactId>junit-addons</artifactId>
-                <version>${junit.addons.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>xerces</groupId>
-                        <artifactId>xercesImpl</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>xerces</groupId>
-                        <artifactId>xmlParserAPIs</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
 
             <dependency>
                 <groupId>jp.terasoluna.utlib</groupId>
@@ -627,11 +612,6 @@ sp_cleanup.organize_imports=true
     </dependencyManagement>
 
     <dependencies>
-        <dependency>
-            <groupId>junit-addons</groupId>
-            <artifactId>junit-addons</artifactId>
-            <scope>test</scope>
-        </dependency>
         <dependency>
             <groupId>jp.terasoluna.utlib</groupId>
             <artifactId>terasoluna-utlib</artifactId>

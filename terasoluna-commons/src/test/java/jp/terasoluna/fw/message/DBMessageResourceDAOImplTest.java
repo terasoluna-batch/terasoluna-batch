@@ -36,6 +36,7 @@ import static java.util.Arrays.asList;
 import static org.hamcrest.core.Is.*;
 import static org.junit.Assert.*;
 import org.junit.Test;
+import org.springframework.test.util.ReflectionTestUtils;
 
 /**
  * {@link jp.terasoluna.fw.message.DBMessageResourceDAOImpl} クラスのブラックボックステスト。
@@ -73,7 +74,8 @@ public class DBMessageResourceDAOImplTest {
         daoImpl.setTableName("test01");
 
         // 判定
-        assertEquals("test01", UTUtil.getPrivateField(daoImpl, "tableName"));
+        assertEquals("test01", ReflectionTestUtils.getField(daoImpl,
+                "tableName"));
     }
 
     /**
@@ -100,7 +102,8 @@ public class DBMessageResourceDAOImplTest {
         daoImpl.setCodeColumn("test01");
 
         // 判定
-        assertEquals("test01", UTUtil.getPrivateField(daoImpl, "codeColumn"));
+        assertEquals("test01", ReflectionTestUtils.getField(daoImpl,
+                "codeColumn"));
     }
 
     /**
@@ -127,7 +130,7 @@ public class DBMessageResourceDAOImplTest {
         daoImpl.setLanguageColumn("test01");
 
         // 判定
-        assertEquals("test01", UTUtil.getPrivateField(daoImpl,
+        assertEquals("test01", ReflectionTestUtils.getField(daoImpl,
                 "languageColumn"));
     }
 
@@ -155,7 +158,7 @@ public class DBMessageResourceDAOImplTest {
         daoImpl.setCountryColumn("test01");
 
         // 判定
-        assertEquals("test01", UTUtil.getPrivateField(daoImpl,
+        assertEquals("test01", ReflectionTestUtils.getField(daoImpl,
                 "countryColumn"));
     }
 
@@ -183,7 +186,7 @@ public class DBMessageResourceDAOImplTest {
         daoImpl.setVariantColumn("test01");
 
         // 判定
-        assertEquals("test01", UTUtil.getPrivateField(daoImpl,
+        assertEquals("test01", ReflectionTestUtils.getField(daoImpl,
                 "variantColumn"));
     }
 
@@ -211,7 +214,7 @@ public class DBMessageResourceDAOImplTest {
         daoImpl.setMessageColumn("test01");
 
         // 判定
-        assertEquals("test01", UTUtil.getPrivateField(daoImpl,
+        assertEquals("test01", ReflectionTestUtils.getField(daoImpl,
                 "messageColumn"));
     }
 
@@ -239,7 +242,7 @@ public class DBMessageResourceDAOImplTest {
         daoImpl.setFindMessageSql("test01");
 
         // 判定
-        assertEquals("test01", UTUtil.getPrivateField(daoImpl,
+        assertEquals("test01", ReflectionTestUtils.getField(daoImpl,
                 "findMessageSql"));
     }
 
@@ -270,7 +273,7 @@ public class DBMessageResourceDAOImplTest {
         DBMessageResourceDAOImpl_JdbcTemplateStub01 jdbc = new DBMessageResourceDAOImpl_JdbcTemplateStub01();
         DBMessageResourceDAOImpl_DBMessageResourceDAOImplStub01 dbmr = new DBMessageResourceDAOImpl_DBMessageResourceDAOImplStub01();
         jdbc.ds = dataSource;
-        UTUtil.setPrivateField(dbmr, "jdbcTemplate", jdbc);
+        ReflectionTestUtils.setField(dbmr, "jdbcTemplate", jdbc);
 
         dbmr.dBMessageQuery = null;
         dbmr.codeColumn = "CODE";
@@ -374,7 +377,7 @@ public class DBMessageResourceDAOImplTest {
         DBMessageResourceDAOImpl_JdbcTemplateStub01 jdbc = new DBMessageResourceDAOImpl_JdbcTemplateStub01();
         DBMessageResourceDAOImpl_DBMessageResourceDAOImplStub01 dbmr = new DBMessageResourceDAOImpl_DBMessageResourceDAOImplStub01();
         jdbc.ds = dataSource;
-        UTUtil.setPrivateField(dbmr, "jdbcTemplate", jdbc);
+        ReflectionTestUtils.setField(dbmr, "jdbcTemplate", jdbc);
 
         dbmr.dBMessageQuery = null;
         dbmr.codeColumn = "CODE";

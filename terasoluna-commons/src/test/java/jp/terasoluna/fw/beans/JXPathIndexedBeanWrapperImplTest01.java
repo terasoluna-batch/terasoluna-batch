@@ -32,8 +32,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import jp.terasoluna.utlib.UTUtil;
-
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.commons.beanutils.WrapDynaBean;
@@ -45,6 +43,7 @@ import uk.org.lidalia.slf4jtest.TestLoggerFactory;
 
 import org.junit.After;
 import org.junit.Test;
+import org.springframework.test.util.ReflectionTestUtils;
 
 /**
  * {@link jp.terasoluna.fw.beans.JXPathIndexedBeanWrapperImpl} クラスのブラックボックステスト。
@@ -89,7 +88,7 @@ public class JXPathIndexedBeanWrapperImplTest01 {
         JXPathIndexedBeanWrapperImpl bw = new JXPathIndexedBeanWrapperImpl(obj);
 
         // 判定
-        JXPathContext context = (JXPathContext) UTUtil.getPrivateField(bw,
+        JXPathContext context = (JXPathContext) ReflectionTestUtils.getField(bw,
                 "context");
         assertSame(obj, context.getContextBean());
     }

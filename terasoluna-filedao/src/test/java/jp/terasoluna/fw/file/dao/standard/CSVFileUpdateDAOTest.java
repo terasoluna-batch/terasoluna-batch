@@ -18,7 +18,7 @@ import org.junit.Test;
 
 import jp.terasoluna.fw.file.dao.FileLineWriter;
 import jp.terasoluna.fw.file.ut.VMOUTUtil;
-import jp.terasoluna.utlib.UTUtil;
+import org.springframework.test.util.ReflectionTestUtils;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.CSVFileUpdateDAO} クラスのテスト。
@@ -71,7 +71,7 @@ public class CSVFileUpdateDAOTest {
         // 前提条件の設定
         HashMap<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
-        UTUtil.setPrivateField(fileUpdateDAO, "columnFormatterMap",
+        ReflectionTestUtils.setField(fileUpdateDAO, "columnFormatterMap",
                 columnFormatterMap);
 
         // テスト実施

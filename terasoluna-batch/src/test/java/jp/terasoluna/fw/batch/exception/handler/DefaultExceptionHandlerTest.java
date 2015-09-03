@@ -2,15 +2,13 @@ package jp.terasoluna.fw.batch.exception.handler;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
-
 import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.Test;
 
 import jp.terasoluna.fw.batch.exception.BatchException;
-import jp.terasoluna.utlib.UTUtil;
+import org.springframework.test.util.ReflectionTestUtils;
 
 public class DefaultExceptionHandlerTest {
 
@@ -27,13 +25,7 @@ public class DefaultExceptionHandlerTest {
         handler.setExceptionToStatusMap(exceptionToStatusMap);
 
         Object result;
-        try {
-            result = UTUtil.getPrivateField(handler, "exceptionToStatusMap");
-        } catch (NoSuchFieldException e) {
-            e.printStackTrace();
-            fail();
-            return;
-        }
+        result = ReflectionTestUtils.getField(handler, "exceptionToStatusMap");
 
         assertNotNull(result);
         assertEquals(exceptionToStatusMap, result);

@@ -23,11 +23,11 @@ import jp.terasoluna.fw.file.annotation.NullStringConverter;
 import jp.terasoluna.fw.file.annotation.PaddingType;
 import jp.terasoluna.fw.file.dao.FileException;
 import jp.terasoluna.fw.file.ut.VMOUTUtil;
-import jp.terasoluna.utlib.UTUtil;
 
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.test.util.ReflectionTestUtils;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.VariableFileLineWriter} クラスのテスト。
@@ -125,9 +125,9 @@ public class VariableFileLineWriterTest {
             assertEquals(fileName, arguments.get(0));
             assertEquals(VariableFileLineWriter_Stub01.class, arguments.get(1));
             assertEquals(columnFormatterMap, arguments.get(2));
-            assertEquals(Character.MIN_VALUE, UTUtil.getPrivateField(result,
+            assertEquals(Character.MIN_VALUE, ReflectionTestUtils.getField(result,
                     "encloseChar"));
-            assertEquals(',', UTUtil.getPrivateField(result, "delimiter"));
+            assertEquals(',', ReflectionTestUtils.getField(result, "delimiter"));
         } finally {
             // テスト対象のクローズ処理
             if (result != null) {
@@ -256,8 +256,8 @@ public class VariableFileLineWriterTest {
             assertEquals(fileName, arguments.get(0));
             assertEquals(VariableFileLineWriter_Stub07.class, arguments.get(1));
             assertEquals(columnFormatterMap, arguments.get(2));
-            assertEquals('"', UTUtil.getPrivateField(result, "encloseChar"));
-            assertEquals('#', UTUtil.getPrivateField(result, "delimiter"));
+            assertEquals('"', ReflectionTestUtils.getField(result, "encloseChar"));
+            assertEquals('#', ReflectionTestUtils.getField(result, "delimiter"));
         } finally {
             // テスト対象のクローズ処理
             if (result != null) {
@@ -651,7 +651,7 @@ public class VariableFileLineWriterTest {
         // なし
 
         // 前提条件の設定
-        UTUtil.setPrivateField(lineWriter, "delimiter", ',');
+        ReflectionTestUtils.setField(lineWriter, "delimiter", ',');
 
         try {
             // テスト実施
@@ -697,7 +697,7 @@ public class VariableFileLineWriterTest {
         // なし
 
         // 前提条件の設定
-        UTUtil.setPrivateField(lineWriter, "encloseChar", '\u0000');
+        ReflectionTestUtils.setField(lineWriter, "encloseChar", '\u0000');
 
         try {
             // テスト実施
@@ -858,21 +858,22 @@ public class VariableFileLineWriterTest {
         // アノテーションにアクセスしていないことになる。
         char[] charArray = new char[] { 0, 0, 0, 0 };
         // 前提条件
-        UTUtil.setPrivateField(fileLineWriter, "lineFeedChar", "\r\n");
-        UTUtil.setPrivateField(fileLineWriter, "delimiter", '_');
-        UTUtil.setPrivateField(fileLineWriter, "outputFileColumns", null);
-        UTUtil.setPrivateField(fileLineWriter, "columnFormats", new String[] {
+        ReflectionTestUtils.setField(fileLineWriter, "lineFeedChar", "\r\n");
+        ReflectionTestUtils.setField(fileLineWriter, "delimiter", '_');
+        ReflectionTestUtils.setField(fileLineWriter, "outputFileColumns", null);
+        ReflectionTestUtils.setField(fileLineWriter, "columnFormats", new String[] {
                 "", "", "", "" });
-        UTUtil.setPrivateField(fileLineWriter, "columnBytes", new int[] { -1,
+        ReflectionTestUtils.setField(fileLineWriter, "columnBytes", new int[] { -1,
                 -1, -1, -1 });
-        // UTUtil.setPrivateField(fileLineWriter, "totalBytes", 0);
-        UTUtil.setPrivateField(fileLineWriter, "paddingTypes",
+        // ReflectionTestUtils.setField(fileLineWriter, "totalBytes", 0);
+        ReflectionTestUtils.setField(fileLineWriter, "paddingTypes",
                 new PaddingType[] { PaddingType.NONE, PaddingType.NONE,
                         PaddingType.NONE, PaddingType.NONE });
-        UTUtil.setPrivateField(fileLineWriter, "paddingChars", charArray);
-        UTUtil.setPrivateField(fileLineWriter, "trimChars", charArray);
-        UTUtil.setPrivateField(fileLineWriter, "columnEncloseChar", charArray);
-        UTUtil.setPrivateField(fileLineWriter, "stringConverters",
+        ReflectionTestUtils.setField(fileLineWriter, "paddingChars", charArray);
+        ReflectionTestUtils.setField(fileLineWriter, "trimChars", charArray);
+        ReflectionTestUtils.setField(fileLineWriter, "columnEncloseChar",
+                charArray);
+        ReflectionTestUtils.setField(fileLineWriter, "stringConverters",
                 new NullStringConverter[] { new NullStringConverter(),
                         new NullStringConverter(), new NullStringConverter(),
                         new NullStringConverter() });

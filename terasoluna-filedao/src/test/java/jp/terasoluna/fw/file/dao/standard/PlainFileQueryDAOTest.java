@@ -19,7 +19,7 @@ import org.junit.Test;
 
 import jp.terasoluna.fw.file.dao.FileLineIterator;
 import jp.terasoluna.fw.file.ut.VMOUTUtil;
-import jp.terasoluna.utlib.UTUtil;
+import org.springframework.test.util.ReflectionTestUtils;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.PlainFileQueryDAO} クラスのテスト。
@@ -52,7 +52,6 @@ public class PlainFileQueryDAOTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testExcecute01() throws Exception {
         // テスト対象のインスタンス化
         PlainFileQueryDAO plainFileQueryDAO = new PlainFileQueryDAO();
@@ -65,11 +64,11 @@ public class PlainFileQueryDAOTest {
         // 前提条件の設定
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
-        UTUtil.setPrivateField(plainFileQueryDAO, "columnParserMap",
+        ReflectionTestUtils.setField(plainFileQueryDAO, "columnParserMap",
                 columnParserMap);
 
         // テスト実施
-        FileLineIterator result = plainFileQueryDAO.execute(fileName, clazz);
+        FileLineIterator<PlainFileQueryDAO_Stub01> result = plainFileQueryDAO.execute(fileName, clazz);
 
         // 返却値の確認
         assertEquals(PlainFileLineIterator.class, result.getClass());
@@ -77,7 +76,7 @@ public class PlainFileQueryDAOTest {
         // 状態変化の確認
         assertEquals(1, VMOUTUtil.getCallCount(PlainFileLineIterator.class,
                 "<init>"));
-        List arguments = VMOUTUtil.getArguments(PlainFileLineIterator.class,
+        List<?> arguments = VMOUTUtil.getArguments(PlainFileLineIterator.class,
                 "<init>", 0);
         assertSame(fileName, arguments.get(0));
         assertSame(clazz, arguments.get(1));

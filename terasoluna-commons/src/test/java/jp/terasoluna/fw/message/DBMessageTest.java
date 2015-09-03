@@ -19,16 +19,13 @@ package jp.terasoluna.fw.message;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
-
-import jp.terasoluna.utlib.UTUtil;
+import org.springframework.test.util.ReflectionTestUtils;
 
 /**
  * {@link jp.terasoluna.fw.message.DBMessage} クラスのブラックボックステスト。
  * <p>
- * <h4>【クラスの概要】</h4>
- * メッセージリソースを保持するクラス。
+ * <h4>【クラスの概要】</h4> メッセージリソースを保持するクラス。
  * <p>
- * 
  * @see jp.terasoluna.fw.message.DBMessage
  * @version 2005/12/5
  */
@@ -53,24 +50,21 @@ public class DBMessageTest {
      * (状態変化) message:"mno"<br>
      * <br>
      * 引数として与えられた値になるかを確認。 <br>
-     * 
-     * @throws Exception
-     *             このメソッドで発生した例外
+     * @throws Exception このメソッドで発生した例外
      */
     @Test
-    public void testDBMessage01()
-            throws Exception {
+    public void testDBMessage01() throws Exception {
         // 前処理
         DBMessage db = new DBMessage("abc", "def", "ghi", "jkl", "mno");
 
         // テスト実施
 
         // 判定
-        assertEquals("abc", UTUtil.getPrivateField(db, "code"));
-        assertEquals("def", UTUtil.getPrivateField(db, "language"));
-        assertEquals("ghi", UTUtil.getPrivateField(db, "country"));
-        assertEquals("jkl", UTUtil.getPrivateField(db, "variant"));
-        assertEquals("mno", UTUtil.getPrivateField(db, "message"));
+        assertEquals("abc", ReflectionTestUtils.getField(db, "code"));
+        assertEquals("def", ReflectionTestUtils.getField(db, "language"));
+        assertEquals("ghi", ReflectionTestUtils.getField(db, "country"));
+        assertEquals("jkl", ReflectionTestUtils.getField(db, "variant"));
+        assertEquals("mno", ReflectionTestUtils.getField(db, "message"));
     }
 
     /**
@@ -84,16 +78,14 @@ public class DBMessageTest {
      * 期待値：(戻り値) String:"abc"<br>
      * <br>
      * 正常系1件のみテスト <br>
-     * 
-     * @throws Exception
-     *             このメソッドで発生した例外
+     * @throws Exception このメソッドで発生した例外
      */
     @Test
     public void testGetCode01() throws Exception {
         // 前処理
         DBMessage db = new DBMessage(null, null, null, null, null);
-        UTUtil.setPrivateField(db, "code", "abc");
-        
+        ReflectionTestUtils.setField(db, "code", "abc");
+
         // テスト実施
         String returnCode = db.getCode();
 
@@ -112,16 +104,14 @@ public class DBMessageTest {
      * 期待値：(戻り値) String:"abc"<br>
      * <br>
      * 正常系1件のみテスト <br>
-     * 
-     * @throws Exception
-     *             このメソッドで発生した例外
+     * @throws Exception このメソッドで発生した例外
      */
     @Test
     public void testGetLanguage01() throws Exception {
         // 前処理
         DBMessage db = new DBMessage(null, null, null, null, null);
-        UTUtil.setPrivateField(db, "language", "abc");
-        
+        ReflectionTestUtils.setField(db, "language", "abc");
+
         // テスト実施
         String returnLanguage = db.getLanguage();
 
@@ -140,16 +130,14 @@ public class DBMessageTest {
      * 期待値：(戻り値) String:"abc"<br>
      * <br>
      * 正常系1件のみテスト <br>
-     * 
-     * @throws Exception
-     *             このメソッドで発生した例外
+     * @throws Exception このメソッドで発生した例外
      */
     @Test
     public void testGetCountry01() throws Exception {
         // 前処理
         DBMessage db = new DBMessage(null, null, null, null, null);
-        UTUtil.setPrivateField(db, "country", "abc");
-        
+        ReflectionTestUtils.setField(db, "country", "abc");
+
         // テスト実施
         String returnCountry = db.getCountry();
         // 判定
@@ -167,16 +155,14 @@ public class DBMessageTest {
      * 期待値：(戻り値) String:"abc"<br>
      * <br>
      * 正常系1件のみテスト <br>
-     * 
-     * @throws Exception
-     *             このメソッドで発生した例外
+     * @throws Exception このメソッドで発生した例外
      */
     @Test
     public void testGetVariant01() throws Exception {
         // 前処理
         DBMessage db = new DBMessage(null, null, null, null, null);
-        UTUtil.setPrivateField(db, "variant", "abc");
-        
+        ReflectionTestUtils.setField(db, "variant", "abc");
+
         // テスト実施
         String returnVariant = db.getVariant();
 
@@ -195,19 +181,17 @@ public class DBMessageTest {
      * 期待値：(戻り値) String:"abc"<br>
      * <br>
      * 正常系1件のみテスト <br>
-     * 
-     * @throws Exception
-     *             このメソッドで発生した例外
+     * @throws Exception このメソッドで発生した例外
      */
     @Test
     public void testGetMessage01() throws Exception {
         // 前処理
         DBMessage db = new DBMessage(null, null, null, null, null);
-        UTUtil.setPrivateField(db, "message", "abc");
-        
+        ReflectionTestUtils.setField(db, "message", "abc");
+
         // テスト実施
         String returnMessage = db.getMessage();
-        
+
         // 判定
         assertEquals("abc", returnMessage);
     }

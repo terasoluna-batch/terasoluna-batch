@@ -17,8 +17,7 @@
 package jp.terasoluna.fw.util;
 
 import jp.terasoluna.fw.util.PropertyTestCase;
-import jp.terasoluna.utlib.UTUtil;
-
+import java.lang.reflect.Field;
 import java.util.Date;
 import java.util.Map;
 
@@ -103,14 +102,26 @@ public class DateUtilTest02 extends PropertyTestCase {
 
         // 結果確認
         // プライベートフィールドの件数が4件であることを確認する。
-        Map GENGO_NAME = (Map) UTUtil.getPrivateField(DateUtil.class,
-                "GENGO_NAME");
-        Map GENGO_ROMAN = (Map) UTUtil.getPrivateField(DateUtil.class,
-                "GENGO_ROMAN");
-        Date[] GENGO_BEGIN_DATES = (Date[]) UTUtil.getPrivateField(
-                DateUtil.class, "GENGO_BEGIN_DATES");
-        int[] GENGO_BEGIN_YEARS = (int[]) UTUtil.getPrivateField(DateUtil.class,
-                "GENGO_BEGIN_YEARS");
+        Field field = DateUtil.class.getDeclaredField("GENGO_NAME");
+        field.setAccessible(true);
+        @SuppressWarnings("unchecked")
+        Map<Date, String> GENGO_NAME = (Map<Date, String>) field.get(
+                DateUtil.class);
+
+        field = DateUtil.class.getDeclaredField("GENGO_ROMAN");
+        field.setAccessible(true);
+        @SuppressWarnings("unchecked")
+        Map<Date, String> GENGO_ROMAN = (Map<Date, String>) field.get(
+                DateUtil.class);
+
+        field = DateUtil.class.getDeclaredField("GENGO_BEGIN_DATES");
+        field.setAccessible(true);
+        Date[] GENGO_BEGIN_DATES = (Date[]) field.get(DateUtil.class);
+
+        field = DateUtil.class.getDeclaredField("GENGO_BEGIN_YEARS");
+        field.setAccessible(true);
+        int[] GENGO_BEGIN_YEARS = (int[]) field.get(DateUtil.class);
+
         assertEquals(4, GENGO_NAME.size());
         assertEquals(4, GENGO_ROMAN.size());
         assertEquals(4, GENGO_BEGIN_DATES.length);

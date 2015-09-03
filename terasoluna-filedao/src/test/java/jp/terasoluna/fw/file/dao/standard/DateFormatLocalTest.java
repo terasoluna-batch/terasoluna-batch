@@ -19,7 +19,7 @@ import java.text.SimpleDateFormat;
 
 import org.junit.Test;
 
-import jp.terasoluna.utlib.UTUtil;
+import org.springframework.test.util.ReflectionTestUtils;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.DateFormatLocal} クラスのテスト。
@@ -54,7 +54,8 @@ public class DateFormatLocalTest {
 
         // 判定
         assertNotNull(dateFormatLocal);
-        assertSame(pattern, UTUtil.getPrivateField(dateFormatLocal, "pattern"));
+        assertSame(pattern, ReflectionTestUtils.getField(dateFormatLocal,
+                "pattern"));
     }
 
     /**
@@ -76,7 +77,7 @@ public class DateFormatLocalTest {
         DateFormatLocal dateFormatLocal = new DateFormatLocal(null);
 
         // 前処理(状態)
-        UTUtil.setPrivateField(dateFormatLocal, "pattern", null);
+        ReflectionTestUtils.setField(dateFormatLocal, "pattern", null);
 
         try {
             // テスト実施
@@ -96,8 +97,8 @@ public class DateFormatLocalTest {
      * 入力値：(状態) pattern:"yyyy/MM/dd"<br>
      * <br>
      * 期待値：(戻り値) DateFormat:以下の要素を持つSimpleDateFormatインスタンス<br>
-     * 　pattern：　"yyyy/MM/dd"<br>
-     * 　setLenient：　FALSE<br>
+     * pattern： "yyyy/MM/dd"<br>
+     * setLenient： FALSE<br>
      * <br>
      * 前提条件がnullじゃない場合正常実施することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
@@ -109,7 +110,7 @@ public class DateFormatLocalTest {
 
         // 前処理(状態)
         String pattern = "yyyy/MM/dd";
-        UTUtil.setPrivateField(dateFormatLocal, "pattern", pattern);
+        ReflectionTestUtils.setField(dateFormatLocal, "pattern", pattern);
 
         // テスト実施
         DateFormat result = dateFormatLocal.initialValue();
