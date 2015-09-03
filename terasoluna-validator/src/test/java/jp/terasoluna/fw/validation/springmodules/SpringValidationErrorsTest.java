@@ -24,8 +24,6 @@ import static org.junit.Assert.assertTrue;
 import java.util.HashMap;
 import java.util.Map;
 
-import jp.terasoluna.utlib.UTUtil;
-
 import org.apache.commons.collections.FastHashMap;
 import org.apache.commons.validator.Arg;
 import org.apache.commons.validator.Field;
@@ -33,76 +31,60 @@ import org.apache.commons.validator.Msg;
 import org.apache.commons.validator.ValidatorAction;
 import org.junit.Test;
 import org.springframework.context.MessageSourceResolvable;
+import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.validation.Errors;
 
 /**
- * {@link jp.terasoluna.fw.validation.springmodules.SpringValidationErrors}
- * クラスのブラックボックステスト。
- * 
+ * {@link jp.terasoluna.fw.validation.springmodules.SpringValidationErrors} クラスのブラックボックステスト。
  * <p>
- * <h4>【クラスの概要】</h4>
- * Springフレームワークのorg.springframework.validation.Errorsインタフェースに
- * エラー情報を追加するためのクラス。<br>
+ * <h4>【クラスの概要】</h4> Springフレームワークのorg.springframework.validation.Errorsインタフェースに エラー情報を追加するためのクラス。<br>
  * ※addErrorの引数FieldとValidatorActionにnullは入らない。
  * <p>
- * 
  * @see jp.terasoluna.fw.validation.springmodules.SpringValidationErrors
  */
 public class SpringValidationErrorsTest {
 
     /**
-     * testSetErrors01()
-     * <br><br>
-     * 
-     * (正常系)
+     * testSetErrors01() <br>
      * <br>
-     * 観点：C
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C <br>
+     * <br>
      * 入力値：(引数) errors:Errorsインスタンス<br>
-     *         (状態) errors:null<br>
-     *         
+     * (状態) errors:null<br>
      * <br>
      * 期待値：(状態変化) errors:引数と同一のErrorsインスタンス<br>
-     *         
      * <br>
-     * 引数の値が属性に正常に設定されること
-     * <br>
-     * 
+     * 引数の値が属性に正常に設定されること <br>
      * @throws Exception このメソッドで発生した例外
      */
     @Test
     public void testSetErrors01() throws Exception {
         // 前処理
         SpringValidationErrors validation = new SpringValidationErrors();
-        UTUtil.setPrivateField(validation, "errors", null);
-        
+        ReflectionTestUtils.setField(validation, "errors", null);
+
         Errors errors = new ErrorsImpl01();
 
         // テスト実施
         validation.setErrors(errors);
 
         // 判定
-        assertSame(errors, UTUtil.getPrivateField(validation, "errors"));
+        assertSame(errors, ReflectionTestUtils.getField(validation, "errors"));
     }
 
     /**
-     * testGetErrors01()
-     * <br><br>
-     * 
-     * (正常系)
+     * testGetErrors01() <br>
      * <br>
-     * 観点：C
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C <br>
+     * <br>
      * 入力値：(引数) なし:－<br>
-     *         (状態) errors:Errorsインスタンス<br>
-     *         
+     * (状態) errors:Errorsインスタンス<br>
      * <br>
      * 期待値：(戻り値) Errors:Errorsインスタンス<br>
-     *         
      * <br>
-     * 属性に設定されている値を正常に取得すること。
-     * <br>
-     * 
+     * 属性に設定されている値を正常に取得すること。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     @Test
@@ -110,7 +92,7 @@ public class SpringValidationErrorsTest {
         // 前処理
         SpringValidationErrors validation = new SpringValidationErrors();
         Errors errors = new ErrorsImpl01();
-        UTUtil.setPrivateField(validation, "errors", errors);
+        ReflectionTestUtils.setField(validation, "errors", errors);
 
         // テスト実施
         Errors result = validation.getErrors();
@@ -120,43 +102,37 @@ public class SpringValidationErrorsTest {
     }
 
     /**
-     * testAddErrors01()
-     * <br><br>
-     * 
-     * (正常系)
+     * testAddErrors01() <br>
      * <br>
-     * 観点：C
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C <br>
+     * <br>
      * 入力値：(引数) bean:Object<br>
-     *         (引数) field:Fieldインスタンス<br>
-     *                field.getKey()="key"<br>
-     *                field.getMsg("name")="messageKey"<br>
-     *                field.getArg("name", 0)="arg0"<br>
-     *                field.getArg("name", 1)="arg1"<br>
-     *                field.getArg("name", 2)="arg2"<br>
-     *                field.getArg("name", 3)="arg3"<br>
-     *         (引数) va:ValidationActionインスタンス<br>
-     *                va.getName()="name"<br>
-     *         
+     * (引数) field:Fieldインスタンス<br>
+     * field.getKey()="key"<br>
+     * field.getMsg("name")="messageKey"<br>
+     * field.getArg("name", 0)="arg0"<br>
+     * field.getArg("name", 1)="arg1"<br>
+     * field.getArg("name", 2)="arg2"<br>
+     * field.getArg("name", 3)="arg3"<br>
+     * (引数) va:ValidationActionインスタンス<br>
+     * va.getName()="name"<br>
      * <br>
      * 期待値：(状態変化) rejectValue():呼び出し確認と引数の確認：<br>
-     *                    fieldCode="key"<br>
-     *                    errorCode="messageKey"<br>
-     *                    args={<br>
-     *                    MessageSourceResolvableインスタンス{<br>
-     *                    codes[0]={"arg0"}, arguments=null, defaultMessage="arg0"}, <br>
-     *                    MessageSourceResolvableインスタンス{<br>
-     *                    codes[1]={"arg1"}, arguments=null, defaultMessage="arg1"}, <br>
-     *                    MessageSourceResolvableインスタンス{<br>
-     *                    codes[2]={"arg2"}, arguments=null, defaultMessage="arg2"}, <br>
-     *                    MessageSourceResolvableインスタンス{<br>
-     *                    codes[3]={"arg3"}, arguments=null, defaultMessage="arg3"}, <br>
-     *                    }<br>
-     *         
+     * fieldCode="key"<br>
+     * errorCode="messageKey"<br>
+     * args={<br>
+     * MessageSourceResolvableインスタンス{<br>
+     * codes[0]={"arg0"}, arguments=null, defaultMessage="arg0"}, <br>
+     * MessageSourceResolvableインスタンス{<br>
+     * codes[1]={"arg1"}, arguments=null, defaultMessage="arg1"}, <br>
+     * MessageSourceResolvableインスタンス{<br>
+     * codes[2]={"arg2"}, arguments=null, defaultMessage="arg2"}, <br>
+     * MessageSourceResolvableインスタンス{<br>
+     * codes[3]={"arg3"}, arguments=null, defaultMessage="arg3"}, <br>
+     * }<br>
      * <br>
-     * 引数がnot nullの場合
-     * <br>
-     * 
+     * 引数がnot nullの場合 <br>
      * @throws Exception このメソッドで発生した例外
      */
     @Test
@@ -168,84 +144,82 @@ public class SpringValidationErrorsTest {
         Field field = new Field();
         // field.getKey() : "key"
         field.setKey("key");
-        
+
         // field.getMsg("name")の値を設定（errorCode取得のため）
         FastHashMap hMsgs = new FastHashMap();
         Msg msg = new Msg();
         msg.setKey("messageKey");
         hMsgs.put("name", msg);
-        UTUtil.setPrivateField(field, "hMsgs", hMsgs);
-        
+        ReflectionTestUtils.setField(field, "hMsgs", hMsgs);
+
         // （Object[] args取得のため）
         Map[] args = new HashMap[4];
-        
+
         // args[0]
         Arg arg = new Arg();
         arg.setKey("arg0");
         Map<String, Arg> hMap01 = new HashMap<String, Arg>();
         hMap01.put("name", arg);
         args[0] = hMap01;
-        
+
         // args[1]
         arg = new Arg();
         arg.setKey("arg1");
         Map<String, Arg> hMap02 = new HashMap<String, Arg>();
         hMap02.put("name", arg);
         args[1] = hMap02;
-        
+
         // args[2]
         arg = new Arg();
         arg.setKey("arg2");
         Map<String, Arg> hMap03 = new HashMap<String, Arg>();
         hMap03.put("name", arg);
         args[2] = hMap03;
-        
+
         // args[3]
         arg = new Arg();
         arg.setKey("arg3");
         Map<String, Arg> hMap04 = new HashMap<String, Arg>();
         hMap04.put("name", arg);
         args[3] = hMap04;
-        
-        UTUtil.setPrivateField(field, "args", args);
-        
+
+        ReflectionTestUtils.setField(field, "args", args);
+
         // 引数va
         ValidatorAction va = new ValidatorAction();
-        
+
         // va.getName : "name"
         va.setName("name");
-        
+
         // SpringValidationErrorsインスタンス生成
         SpringValidationErrors validation = new SpringValidationErrors();
-        
+
         // Errorsの設定 : ErrorsImpl01 - メソッドrejectValueと引数の呼出確認
         ErrorsImpl01 errors = new ErrorsImpl01();
-        UTUtil.setPrivateField(validation, "errors", errors);
-
+        ReflectionTestUtils.setField(validation, "errors", errors);
 
         // テスト実施
         validation.addError(bean, field, va);
 
-        
         // 判定
-        ErrorsImpl01 assertErrors =
-            (ErrorsImpl01) UTUtil.getPrivateField(validation, "errors");
+        ErrorsImpl01 assertErrors = (ErrorsImpl01) ReflectionTestUtils.getField(
+                validation, "errors");
         // rejectValue呼出確認
         assertTrue(assertErrors.isRejectValue);
-        
+
         // 引数field確認
         assertEquals("key", assertErrors.field);
-        
+
         // 引数errorCode確認
         assertEquals("messageKey", assertErrors.errorCode);
-        
+
         // assertSame(args, assertErrors.errorArgs);
         // 引数errorArgs確認
         Object[] objs = assertErrors.errorArgs;
         MessageSourceResolvable msr = null;
-        for(int i=0; i<objs.length; i++) {
+        for (int i = 0; i < objs.length; i++) {
             msr = (MessageSourceResolvable) objs[i];
-            
+
             String[] strs = msr.getCodes();
             // codes[0] : "arg" + i
             assertEquals("arg" + i, strs[0]);
@@ -254,7 +228,7 @@ public class SpringValidationErrorsTest {
             // defaultMessage : "arg" + i
             assertEquals("arg" + i, msr.getDefaultMessage());
         }
-        
+
         // 引数defaultMessage確認
         assertEquals("messageKey", assertErrors.defaultMessage);
     }

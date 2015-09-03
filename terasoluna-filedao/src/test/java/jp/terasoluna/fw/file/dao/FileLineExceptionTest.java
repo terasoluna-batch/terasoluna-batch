@@ -9,8 +9,9 @@ package jp.terasoluna.fw.file.dao;
 
 import java.util.List;
 
+import org.springframework.test.util.ReflectionTestUtils;
+
 import jp.terasoluna.fw.file.ut.VMOUTUtil;
-import jp.terasoluna.utlib.UTUtil;
 import junit.framework.TestCase;
 
 /**
@@ -96,9 +97,9 @@ public class FileLineExceptionTest extends TestCase {
         // なし
 
         // 状態変化の確認
-        assertNull(UTUtil.getPrivateField(fe, "columnName"));
-        assertEquals(-1, UTUtil.getPrivateField(fe, "columnIndex"));
-        assertEquals(-1, UTUtil.getPrivateField(fe, "lineNo"));
+        assertNull(ReflectionTestUtils.getField(fe, "columnName"));
+        assertEquals(-1, ReflectionTestUtils.getField(fe, "columnIndex"));
+        assertEquals(-1, ReflectionTestUtils.getField(fe, "lineNo"));
         assertSame(exception, fe.getCause());
 
         assertTrue(VMOUTUtil.isCalled(FileException.class, "<init>"));
@@ -146,9 +147,9 @@ public class FileLineExceptionTest extends TestCase {
         // なし
 
         // 状態変化の確認
-        assertNull(UTUtil.getPrivateField(fe, "columnName"));
-        assertEquals(-1, UTUtil.getPrivateField(fe, "columnIndex"));
-        assertEquals(-1, UTUtil.getPrivateField(fe, "lineNo"));
+        assertNull(ReflectionTestUtils.getField(fe, "columnName"));
+        assertEquals(-1, ReflectionTestUtils.getField(fe, "columnIndex"));
+        assertEquals(-1, ReflectionTestUtils.getField(fe, "lineNo"));
         assertEquals(message, fe.getMessage());
 
         assertTrue(VMOUTUtil.isCalled(FileException.class, "<init>"));
@@ -200,9 +201,9 @@ public class FileLineExceptionTest extends TestCase {
         // なし
 
         // 状態変化の確認
-        assertNull(UTUtil.getPrivateField(fe, "columnName"));
-        assertEquals(-1, UTUtil.getPrivateField(fe, "columnIndex"));
-        assertEquals(-1, UTUtil.getPrivateField(fe, "lineNo"));
+        assertNull(ReflectionTestUtils.getField(fe, "columnName"));
+        assertEquals(-1, ReflectionTestUtils.getField(fe, "columnIndex"));
+        assertEquals(-1, ReflectionTestUtils.getField(fe, "lineNo"));
         assertSame(message, fe.getMessage());
         assertSame(exception, fe.getCause());
 
@@ -259,11 +260,11 @@ public class FileLineExceptionTest extends TestCase {
         // なし
 
         // 状態変化の確認
-        assertNull(UTUtil.getPrivateField(fe, "columnName"));
-        assertEquals(-1, UTUtil.getPrivateField(fe, "columnIndex"));
-        assertEquals(1, UTUtil.getPrivateField(fe, "lineNo"));
+        assertNull(ReflectionTestUtils.getField(fe, "columnName"));
+        assertEquals(-1, ReflectionTestUtils.getField(fe, "columnIndex"));
+        assertEquals(1, ReflectionTestUtils.getField(fe, "lineNo"));
         assertSame(exception, fe.getCause());
-        assertSame(fileName, UTUtil.getPrivateField(fe, "fileName"));
+        assertSame(fileName, ReflectionTestUtils.getField(fe, "fileName"));
 
         assertTrue(VMOUTUtil.isCalled(FileException.class, "<init>"));
         assertEquals(1, VMOUTUtil.getCallCount(FileException.class, "<init>"));
@@ -319,9 +320,9 @@ public class FileLineExceptionTest extends TestCase {
 
         // 状態変化の確認
         assertSame(exception, fe.getCause());
-        assertSame(fileName, UTUtil.getPrivateField(fe, "fileName"));
+        assertSame(fileName, ReflectionTestUtils.getField(fe, "fileName"));
         assertSame(message, fe.getMessage());
-        assertEquals(1, UTUtil.getPrivateField(fe, "lineNo"));
+        assertEquals(1, ReflectionTestUtils.getField(fe, "lineNo"));
 
         assertTrue(VMOUTUtil.isCalled(FileException.class, "<init>"));
         assertEquals(1, VMOUTUtil.getCallCount(FileException.class, "<init>"));
@@ -384,10 +385,10 @@ public class FileLineExceptionTest extends TestCase {
 
         // 状態変化の確認
         assertSame(exception, fe.getCause());
-        assertEquals(fileName, UTUtil.getPrivateField(fe, "fileName"));
-        assertEquals(lineNo, UTUtil.getPrivateField(fe, "lineNo"));
-        assertEquals(columnName, UTUtil.getPrivateField(fe, "columnName"));
-        assertEquals(columnIndex, UTUtil.getPrivateField(fe, "columnIndex"));
+        assertEquals(fileName, ReflectionTestUtils.getField(fe, "fileName"));
+        assertEquals(lineNo, ReflectionTestUtils.getField(fe, "lineNo"));
+        assertEquals(columnName, ReflectionTestUtils.getField(fe, "columnName"));
+        assertEquals(columnIndex, ReflectionTestUtils.getField(fe, "columnIndex"));
 
         assertTrue(VMOUTUtil.isCalled(FileException.class, "<init>"));
         assertEquals(1, VMOUTUtil.getCallCount(FileException.class, "<init>"));
@@ -454,10 +455,10 @@ public class FileLineExceptionTest extends TestCase {
         // 状態変化の確認
         assertSame(message, fe.getMessage());
         assertSame(exception, fe.getCause());
-        assertEquals(fileName, UTUtil.getPrivateField(fe, "fileName"));
-        assertEquals(lineNo, UTUtil.getPrivateField(fe, "lineNo"));
-        assertEquals(columnName, UTUtil.getPrivateField(fe, "columnName"));
-        assertEquals(columnIndex, UTUtil.getPrivateField(fe, "columnIndex"));
+        assertEquals(fileName, ReflectionTestUtils.getField(fe, "fileName"));
+        assertEquals(lineNo, ReflectionTestUtils.getField(fe, "lineNo"));
+        assertEquals(columnName, ReflectionTestUtils.getField(fe, "columnName"));
+        assertEquals(columnIndex, ReflectionTestUtils.getField(fe, "columnIndex"));
 
         assertTrue(VMOUTUtil.isCalled(FileException.class, "<init>"));
         assertEquals(1, VMOUTUtil.getCallCount(FileException.class, "<init>"));
@@ -601,7 +602,7 @@ public class FileLineExceptionTest extends TestCase {
 
         // 前提条件の設定
         int columnIndex = 1;
-        UTUtil.setPrivateField(fe, "columnIndex", columnIndex);
+        ReflectionTestUtils.setField(fe, "columnIndex", columnIndex);
 
         // テスト実施
         int result = fe.getColumnIndex();

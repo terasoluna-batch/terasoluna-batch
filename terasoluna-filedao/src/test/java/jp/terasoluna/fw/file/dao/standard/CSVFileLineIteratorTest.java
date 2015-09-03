@@ -12,10 +12,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.test.util.ReflectionTestUtils;
+
 import jp.terasoluna.fw.file.annotation.NullStringConverter;
 import jp.terasoluna.fw.file.dao.FileException;
 import jp.terasoluna.fw.file.ut.VMOUTUtil;
-import jp.terasoluna.utlib.UTUtil;
 import junit.framework.TestCase;
 
 /**
@@ -73,10 +74,10 @@ public class CSVFileLineIteratorTest extends TestCase {
      * 観点：E <br>
      * <br>
      * 入力値：(引数) fileName:CSVFileLineIterator01.txt<br>
-     * 　データを持たないファイルのパス<br>
+     * データを持たないファイルのパス<br>
      * (引数) clazz:以下の設定を持つFileFormatアノテーションを持つスタブ<br>
      * CSVFileLineIterator_Stub02<br>
-     * 　アノテーションFileFormat：encloseChar(囲み文字)が初期値以外<br>
+     * アノテーションFileFormat：encloseChar(囲み文字)が初期値以外<br>
      * @FileFormat(encloseChar = '"')<br>
      *                         (引数) columnParserMap:以下の設定を持つHashMapのインスタンス<br>
      *                         要素1<br>
@@ -84,11 +85,11 @@ public class CSVFileLineIteratorTest extends TestCase {
      *                         value:ColumnParserインスタンス<br>
      *                         CSVFileLineIterator_ColumnParserStub01インスタンス<br>
      *                         空実装<br>
-     * <br>
+     *                         <br>
      *                         期待値：(状態変化) AbstractFileLineIteratorコンストラクタ:1回呼ばれ、引数がすべて渡っていること。<br>
      *                         (状態変化) encloseChar:初期値以外(設定したもの)<br>
      *                         (状態変化) AbstractFileLineIterator#init():2回呼ばれる。<br>
-     * <br>
+     *                         <br>
      *                         正常パターン<br>
      *                         コンストラクタの呼出が正常に行われることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
@@ -111,8 +112,7 @@ public class CSVFileLineIteratorTest extends TestCase {
         // 前提条件なし
 
         // テスト実施
-        CSVFileLineIterator csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub02>(
-                fileName, clazz, columnParserMap);
+        CSVFileLineIterator csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub02>(fileName, clazz, columnParserMap);
 
         // 返却値なし
 
@@ -136,10 +136,10 @@ public class CSVFileLineIteratorTest extends TestCase {
      * 観点：G <br>
      * <br>
      * 入力値：(引数) fileName:CSVFileLineIterator01.txt<br>
-     * 　データを持たないファイルのパス<br>
+     * データを持たないファイルのパス<br>
      * (引数) clazz:以下の設定を持つFileFormatアノテーションを持つスタブ<br>
      * CSVFileLineIterator_Stub03<br>
-     * 　アノテーションFileFormat：delimiter(区切り文字)が初期値以外<br>
+     * アノテーションFileFormat：delimiter(区切り文字)が初期値以外<br>
      * @FileFormat(delimiter = '"')<br>
      *                       (引数) columnParserMap:以下の設定を持つHashMapのインスタンス<br>
      *                       要素1<br>
@@ -147,12 +147,12 @@ public class CSVFileLineIteratorTest extends TestCase {
      *                       value:ColumnParserインスタンス<br>
      *                       CSVFileLineIterator_ColumnParserStub01インスタンス<br>
      *                       空実装<br>
-     * <br>
+     *                       <br>
      *                       期待値：(状態変化) AbstractFileLineIteratorコンストラクタ:1回呼ばれる。<br>
      *                       引数と同じインスタンスが渡される。<br>
      *                       (状態変化) AbstractFileLineIterator#init():呼ばれない。<br>
      *                       (状態変化) なし:"Delimiter can not change."のメッセージ、IllegalStateException、ファイル名を持つFileExceptionが発生する。<br>
-     * <br>
+     *                       <br>
      *                       例外。@FileFormatのdelimiterに初期値以外を設定した場合、例外が発生することを確認する。<br>
      *                       ファイル名が入力値のfileNameに一致することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
@@ -176,8 +176,7 @@ public class CSVFileLineIteratorTest extends TestCase {
 
         // テスト実施
         try {
-            new CSVFileLineIterator<CSVFileLineIterator_Stub03>(fileName,
-                    clazz, columnParserMap);
+            new CSVFileLineIterator<CSVFileLineIterator_Stub03>(fileName, clazz, columnParserMap);
             fail("FileExceptionがスローされませんでした。");
         } catch (FileException e) {
 
@@ -206,20 +205,21 @@ public class CSVFileLineIteratorTest extends TestCase {
      * 観点：E <br>
      * <br>
      * 入力値：(引数) fileName:CSVFileLineIterator01.txt<br>
-     * 　データを持たないファイルのパス<br>
+     * データを持たないファイルのパス<br>
      * (引数) clazz:以下の設定を持つFileFormatアノテーションを持つスタブ<br>
      * CSVFileLineIterator_Stub01<br>
-     * 　アノテーションFileFormat：初期値<br>
-     * @FileFormat()<br> (引数) columnParserMap:以下の設定を持つHashMapのインスタンス<br>
+     * アノテーションFileFormat：初期値<br>
+     * @FileFormat()<br>
+     *                   (引数) columnParserMap:以下の設定を持つHashMapのインスタンス<br>
      *                   要素1<br>
      *                   key:"java.lang.String"<br>
      *                   value:ColumnParserインスタンス<br>
      *                   CSVFileLineIterator_ColumnParserStub01インスタンス<br>
      *                   空実装<br>
-     * <br>
+     *                   <br>
      *                   期待値：(状態変化) AbstractFileLineIteratorコンストラクタ:1回呼ばれ、引数がすべて渡っていること。<br>
      *                   (状態変化) encloseChar:初期値が設定されていること。<br>
-     * <br>
+     *                   <br>
      *                   引数clazzに設定されたクラスが囲み文字、区切り文字がデフォルトのままの場合は、コンストラクタ呼び出しが正常に行われることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
@@ -241,8 +241,7 @@ public class CSVFileLineIteratorTest extends TestCase {
         // 前提条件なし
 
         // テスト実施
-        CSVFileLineIterator csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub01>(
-                fileName, clazz, columnParserMap);
+        CSVFileLineIterator csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub01>(fileName, clazz, columnParserMap);
 
         // 返却値なし
 
@@ -275,8 +274,7 @@ public class CSVFileLineIteratorTest extends TestCase {
 
         // テスト実施
         try {
-            new CSVFileLineIterator<FileLineObject_Empty>(fileName, clazz,
-                    columnParserMap);
+            new CSVFileLineIterator<FileLineObject_Empty>(fileName, clazz, columnParserMap);
             fail("FileExceptionがスローされませんでした。");
         } catch (FileException e) {
             // 返却値なし
@@ -316,14 +314,13 @@ public class CSVFileLineIteratorTest extends TestCase {
         columnParserMap.put("java.util.Date", columnParser);
         columnParserMap.put("java.math.BigDecimal", columnParser);
         columnParserMap.put("java.lang.int", columnParser);
-        CSVFileLineIterator csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub01>(
-                fileName, clazz, columnParserMap);
+        CSVFileLineIterator csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub01>(fileName, clazz, columnParserMap);
 
         // 引数の設定
         String fileLineString = null;
 
         // 前提条件
-        UTUtil.setPrivateField(csvFileLineIterator, "columnEncloseChar",
+        ReflectionTestUtils.setField(csvFileLineIterator, "columnEncloseChar",
                 new char[] {});
 
         // テスト実施
@@ -362,8 +359,7 @@ public class CSVFileLineIteratorTest extends TestCase {
         columnParserMap.put("java.util.Date", columnParser);
         columnParserMap.put("java.math.BigDecimal", columnParser);
         columnParserMap.put("java.lang.int", columnParser);
-        CSVFileLineIterator csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub01>(
-                fileName, clazz, columnParserMap);
+        CSVFileLineIterator csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub01>(fileName, clazz, columnParserMap);
 
         // 引数の設定
         String fileLineString = "aaa";
@@ -405,8 +401,7 @@ public class CSVFileLineIteratorTest extends TestCase {
         columnParserMap.put("java.util.Date", columnParser);
         columnParserMap.put("java.math.BigDecimal", columnParser);
         columnParserMap.put("java.lang.int", columnParser);
-        CSVFileLineIterator csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub01>(
-                fileName, clazz, columnParserMap);
+        CSVFileLineIterator csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub01>(fileName, clazz, columnParserMap);
 
         // 引数の設定
         String fileLineString = "aaa,bbb,ccc";
@@ -453,14 +448,13 @@ public class CSVFileLineIteratorTest extends TestCase {
         columnParserMap.put("java.util.Date", columnParser);
         columnParserMap.put("java.math.BigDecimal", columnParser);
         columnParserMap.put("java.lang.int", columnParser);
-        CSVFileLineIterator csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub02>(
-                fileName, clazz, columnParserMap);
+        CSVFileLineIterator csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub02>(fileName, clazz, columnParserMap);
 
         // 引数の設定
         String fileLineString = "\"aaa\"";
 
         // 前提条件
-        UTUtil.setPrivateField(csvFileLineIterator, "columnEncloseChar",
+        ReflectionTestUtils.setField(csvFileLineIterator, "columnEncloseChar",
                 new char[] { '\"', '\"' });
 
         // テスト実施
@@ -501,8 +495,7 @@ public class CSVFileLineIteratorTest extends TestCase {
         columnParserMap.put("java.util.Date", columnParser);
         columnParserMap.put("java.math.BigDecimal", columnParser);
         columnParserMap.put("java.lang.int", columnParser);
-        CSVFileLineIterator csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub04>(
-                fileName, clazz, columnParserMap);
+        CSVFileLineIterator csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub04>(fileName, clazz, columnParserMap);
 
         // 引数の設定
         String fileLineString = "\"aaa\"";
@@ -531,12 +524,12 @@ public class CSVFileLineIteratorTest extends TestCase {
      * <br>
      * @InputFileColumn(columnIndex = 1)<br>
      *                              private String column2 = null;<br>
-     * <br>
+     *                              <br>
      * @InputFileColumn(columnIndex = 2)<br>
      *                              private String column3 = null;<br>
-     * <br>
+     *                              <br>
      *                              期待値：(戻り値) String[]:{"aaa","bbb","ccc"}<br>
-     * <br>
+     *                              <br>
      *                              正常パターン。(囲み文字がある場合の処理。)<br>
      *                              囲み文字がエスケープされ、要素数3の配列を返却することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
@@ -553,8 +546,7 @@ public class CSVFileLineIteratorTest extends TestCase {
         columnParserMap.put("java.util.Date", columnParser);
         columnParserMap.put("java.math.BigDecimal", columnParser);
         columnParserMap.put("java.lang.int", columnParser);
-        CSVFileLineIterator csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub05>(
-                fileName, clazz, columnParserMap);
+        CSVFileLineIterator csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub05>(fileName, clazz, columnParserMap);
 
         // 引数の設定
         String fileLineString = "\"aaa\",\"bbb\",\"ccc\"";
@@ -591,12 +583,12 @@ public class CSVFileLineIteratorTest extends TestCase {
      * <br>
      * @InputFileColumn(columnIndex = 1)<br>
      *                              private String column2 = null;<br>
-     * <br>
+     *                              <br>
      * @InputFileColumn(columnIndex = 2)<br>
      *                              private String column3 = null;<br>
-     * <br>
+     *                              <br>
      *                              期待値：(戻り値) String[]:{"aa\ra","bb,b","cc\"c"}<br>
-     * <br>
+     *                              <br>
      *                              正常パターン。(囲み文字がある場合の処理。)<br>
      *                              要素数3の配列を返却することを確認する。<br>
      *                              区切り文字、囲み文字がそれぞれエスケープされることを確認する。行区切り文字はエスケープされないことを確認する。 <br>
@@ -614,8 +606,7 @@ public class CSVFileLineIteratorTest extends TestCase {
         columnParserMap.put("java.util.Date", columnParser);
         columnParserMap.put("java.math.BigDecimal", columnParser);
         columnParserMap.put("java.lang.int", columnParser);
-        CSVFileLineIterator csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub05>(
-                fileName, clazz, columnParserMap);
+        CSVFileLineIterator csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub05>(fileName, clazz, columnParserMap);
 
         // 引数の設定
         String fileLineString = "\"aa\ra\",\"bb,b\",\"cc\"\"c\"";
@@ -661,14 +652,13 @@ public class CSVFileLineIteratorTest extends TestCase {
         columnParserMap.put("java.util.Date", columnParser);
         columnParserMap.put("java.math.BigDecimal", columnParser);
         columnParserMap.put("java.lang.int", columnParser);
-        CSVFileLineIterator csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub02>(
-                fileName, clazz, columnParserMap);
+        CSVFileLineIterator csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub02>(fileName, clazz, columnParserMap);
 
         // 引数の設定
         String fileLineString = "aaa,bbb,ccc";
 
         // 前提条件
-        UTUtil.setPrivateField(csvFileLineIterator, "columnEncloseChar",
+        ReflectionTestUtils.setField(csvFileLineIterator, "columnEncloseChar",
                 new char[] { Character.MIN_VALUE, Character.MIN_VALUE,
                         Character.MIN_VALUE });
 
@@ -711,8 +701,7 @@ public class CSVFileLineIteratorTest extends TestCase {
         columnParserMap.put("java.util.Date", columnParser);
         columnParserMap.put("java.math.BigDecimal", columnParser);
         columnParserMap.put("java.lang.int", columnParser);
-        CSVFileLineIterator csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub01>(
-                fileName, clazz, columnParserMap);
+        CSVFileLineIterator csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub01>(fileName, clazz, columnParserMap);
 
         // 引数の設定
         String fileLineString = ",,,,";
@@ -759,8 +748,7 @@ public class CSVFileLineIteratorTest extends TestCase {
         columnParserMap.put("java.util.Date", columnParser);
         columnParserMap.put("java.math.BigDecimal", columnParser);
         columnParserMap.put("java.lang.int", columnParser);
-        CSVFileLineIterator csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub01>(
-                fileName, clazz, columnParserMap);
+        CSVFileLineIterator csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub01>(fileName, clazz, columnParserMap);
 
         // 引数の設定
         String fileLineString = "";
@@ -802,14 +790,13 @@ public class CSVFileLineIteratorTest extends TestCase {
         columnParserMap.put("java.util.Date", columnParser);
         columnParserMap.put("java.math.BigDecimal", columnParser);
         columnParserMap.put("java.lang.int", columnParser);
-        CSVFileLineIterator csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub02>(
-                fileName, clazz, columnParserMap);
+        CSVFileLineIterator csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub02>(fileName, clazz, columnParserMap);
 
         // 引数の設定
         String fileLineString = "\"aa\"bb\"";
 
         // 前提条件
-        UTUtil.setPrivateField(csvFileLineIterator, "columnEncloseChar",
+        ReflectionTestUtils.setField(csvFileLineIterator, "columnEncloseChar",
                 new char[] { '\"', '\"', '\"' });
 
         // テスト実施
@@ -848,8 +835,7 @@ public class CSVFileLineIteratorTest extends TestCase {
         columnParserMap.put("java.util.Date", columnParser);
         columnParserMap.put("java.math.BigDecimal", columnParser);
         columnParserMap.put("java.lang.int", columnParser);
-        CSVFileLineIterator csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub01>(
-                fileName, clazz, columnParserMap);
+        CSVFileLineIterator csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub01>(fileName, clazz, columnParserMap);
         VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineIterator.class,
                 "buildLineReader", null);
 
@@ -893,8 +879,7 @@ public class CSVFileLineIteratorTest extends TestCase {
         columnParserMap.put("java.util.Date", columnParser);
         columnParserMap.put("java.math.BigDecimal", columnParser);
         columnParserMap.put("java.lang.int", columnParser);
-        CSVFileLineIterator csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub02>(
-                fileName, clazz, columnParserMap);
+        CSVFileLineIterator csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub02>(fileName, clazz, columnParserMap);
 
         // 引数なし
 
@@ -921,8 +906,7 @@ public class CSVFileLineIteratorTest extends TestCase {
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        CSVFileLineIterator<CSVFileLine_Stub01> fileLineIterator = new CSVFileLineIterator<CSVFileLine_Stub01>(
-                fileName, CSVFileLine_Stub01.class, columnParserMap);
+        CSVFileLineIterator<CSVFileLine_Stub01> fileLineIterator = new CSVFileLineIterator<CSVFileLine_Stub01>(fileName, CSVFileLine_Stub01.class, columnParserMap);
 
         // テスト実施
         CSVFileLine_Stub01 result1 = fileLineIterator.next();
@@ -958,8 +942,7 @@ public class CSVFileLineIteratorTest extends TestCase {
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        CSVFileLineIterator<CSVFileLine_Stub02> fileLineIterator = new CSVFileLineIterator<CSVFileLine_Stub02>(
-                fileName, CSVFileLine_Stub02.class, columnParserMap);
+        CSVFileLineIterator<CSVFileLine_Stub02> fileLineIterator = new CSVFileLineIterator<CSVFileLine_Stub02>(fileName, CSVFileLine_Stub02.class, columnParserMap);
 
         // テスト実施
         CSVFileLine_Stub02 result1 = fileLineIterator.next();
@@ -996,33 +979,32 @@ public class CSVFileLineIteratorTest extends TestCase {
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
         // 様々な設定がされているファイル行オブジェクトを設定
-        CSVFileLineIterator<CSVFileLine_Stub03> fileLineIterator = new CSVFileLineIterator<CSVFileLine_Stub03>(
-                fileName, CSVFileLine_Stub03.class, columnParserMap);
+        CSVFileLineIterator<CSVFileLine_Stub03> fileLineIterator = new CSVFileLineIterator<CSVFileLine_Stub03>(fileName, CSVFileLine_Stub03.class, columnParserMap);
 
         // ファイル行オブジェクトに設定してあった値を全て上書き
         // 以下の設定が適用されれば、ファイル行オブジェクトの
         // アノテーションにアクセスしていないことになる。
         char[] charArray = new char[] { 0, 0, 0, 0 };
         // 前提条件
-        UTUtil.setPrivateField(fileLineIterator, "lineFeedChar", "\r\n");
-        UTUtil.setPrivateField(fileLineIterator, "delimiter", '_');
-        UTUtil.setPrivateField(fileLineIterator, "inputFileColumns", null);
-        UTUtil.setPrivateField(fileLineIterator, "columnFormats", new String[] {
-                "", "", "", "" });
-        UTUtil.setPrivateField(fileLineIterator, "columnBytes", new int[] { -1,
-                -1, -1, -1 });
-        UTUtil.setPrivateField(fileLineIterator, "totalBytes", 0);
-        UTUtil.setPrivateField(fileLineIterator, "trimChars", charArray);
-        UTUtil
-                .setPrivateField(fileLineIterator, "columnEncloseChar",
-                        charArray);
-        UTUtil.setPrivateField(fileLineIterator, "stringConverters",
+        ReflectionTestUtils.setField(fileLineIterator, "lineFeedChar", "\r\n");
+        ReflectionTestUtils.setField(fileLineIterator, "delimiter", '_');
+        ReflectionTestUtils.setField(fileLineIterator, "inputFileColumns",
+                null);
+        ReflectionTestUtils.setField(fileLineIterator, "columnFormats",
+                new String[] { "", "", "", "" });
+        ReflectionTestUtils.setField(fileLineIterator, "columnBytes",
+                new int[] { -1, -1, -1, -1 });
+        ReflectionTestUtils.setField(fileLineIterator, "totalBytes", 0);
+        ReflectionTestUtils.setField(fileLineIterator, "trimChars", charArray);
+        ReflectionTestUtils.setField(fileLineIterator, "columnEncloseChar",
+                charArray);
+        ReflectionTestUtils.setField(fileLineIterator, "stringConverters",
                 new NullStringConverter[] { new NullStringConverter(),
                         new NullStringConverter(), new NullStringConverter(),
                         new NullStringConverter() });
-        LineReader reader = (LineReader) UTUtil.getPrivateField(
+        LineReader reader = (LineReader) ReflectionTestUtils.getField(
                 fileLineIterator, "lineReader");
-        UTUtil.setPrivateField(reader, "lineFeedChar", "\r\n");
+        ReflectionTestUtils.setField(reader, "lineFeedChar", "\r\n");
 
         // テスト実施
         CSVFileLine_Stub03 result1 = fileLineIterator.next();

@@ -12,9 +12,10 @@ import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
 
+import org.springframework.test.util.ReflectionTestUtils;
+
 import jp.terasoluna.fw.file.dao.FileException;
 import jp.terasoluna.fw.file.ut.VMOUTUtil;
-import jp.terasoluna.utlib.UTUtil;
 import junit.framework.TestCase;
 
 import static org.mockito.Mockito.mock;
@@ -93,11 +94,11 @@ public class LineFeed1LineReaderTest extends TestCase {
         // 判定
         assertNotNull(lineFeed1LineReader);
 
-        Reader lineFeed1Reader = (Reader) UTUtil.getPrivateField(
+        Reader lineFeed1Reader = (Reader) ReflectionTestUtils.getField(
                 lineFeed1LineReader, "reader");
         assertSame(reader, lineFeed1Reader);
 
-        String lineFeed1LineFeedChar = (String) UTUtil.getPrivateField(
+        String lineFeed1LineFeedChar = (String) ReflectionTestUtils.getField(
                 lineFeed1LineReader, "lineFeedChar");
         assertSame(lineFeedChar, lineFeed1LineFeedChar);
     }
@@ -259,7 +260,7 @@ public class LineFeed1LineReaderTest extends TestCase {
         LineFeed1LineReader lineFeed1LineReader = new LineFeed1LineReader(bufReader, tempLineFeedChar);
 
         String lineFeedChar = "\r";
-        UTUtil.setPrivateField(lineFeed1LineReader, "lineFeedChar",
+        ReflectionTestUtils.setField(lineFeed1LineReader, "lineFeedChar",
                 lineFeedChar);
 
         // テスト実施

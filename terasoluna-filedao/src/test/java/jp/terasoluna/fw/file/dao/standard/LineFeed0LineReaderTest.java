@@ -9,10 +9,10 @@ import java.io.Reader;
 import java.io.StringReader;
 
 import jp.terasoluna.fw.file.dao.FileException;
-import jp.terasoluna.utlib.UTUtil;
 import junit.framework.TestCase;
 
 import org.junit.Test;
+import org.springframework.test.util.ReflectionTestUtils;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -39,9 +39,9 @@ public class LineFeed0LineReaderTest extends TestCase {
 
         // 判定
         assertNotNull(reader);
-        assertSame(reader, UTUtil.getPrivateField(target, "reader"));
-        assertEquals(encoding, UTUtil.getPrivateField(target, "fileEncoding"));
-        assertEquals(totalBytes, UTUtil.getPrivateField(target, "totalBytes"));
+        assertSame(reader, ReflectionTestUtils.getField(target, "reader"));
+        assertEquals(encoding, ReflectionTestUtils.getField(target, "fileEncoding"));
+        assertEquals(totalBytes, ReflectionTestUtils.getField(target, "totalBytes"));
     }
 
     /**

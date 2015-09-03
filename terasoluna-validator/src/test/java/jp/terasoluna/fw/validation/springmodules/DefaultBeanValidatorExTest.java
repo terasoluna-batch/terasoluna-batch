@@ -16,8 +16,6 @@
 
 package jp.terasoluna.fw.validation.springmodules;
 
-import jp.terasoluna.utlib.UTUtil;
-
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.fail;
 
@@ -25,16 +23,13 @@ import org.apache.commons.validator.Validator;
 import org.apache.commons.validator.ValidatorException;
 import org.apache.commons.validator.ValidatorResources;
 import org.junit.Test;
+import org.springframework.test.util.ReflectionTestUtils;
 
 /**
- * {@link jp.terasoluna.fw.validation.springmodules.DefaultBeanValidatorEx}
- * クラスのテスト。
- * 
+ * {@link jp.terasoluna.fw.validation.springmodules.DefaultBeanValidatorEx} クラスのテスト。
  * <p>
- * <h4>【クラスの概要】</h4>
- * Spring-ModulesのDefaultBeanValidator抽象クラス。
+ * <h4>【クラスの概要】</h4> Spring-ModulesのDefaultBeanValidator抽象クラス。
  * <p>
- * 
  * @see jp.terasoluna.fw.validation.springmodules.DefaultBeanValidatorEx
  */
 public class DefaultBeanValidatorExTest {
@@ -42,31 +37,25 @@ public class DefaultBeanValidatorExTest {
     /**
      * testCleanupValidator01() <br>
      * <br>
-     * 
      * (正常系) <br>
      * 観点：A,E <br>
      * <br>
      * 入力値：(引数) validator:CommonsValidatorExインスタンス<br>
      * (前提条件) validator.getValidatorException():ValidatorExceptionインスタンス<br>
-     * 
      * <br>
      * 期待値：(状態変化) 例外:ValidatorException（terasoluna-spring-validator)<br>
      * ・原因例外‐ValidatorException(commons)<br>
-     * 
      * <br>
      * 引数validatorにValidatorExceptionが設定されている場合、ランタイム例外にラップしてスローすることのテスト。 <br>
-     * 
-     * @throws Exception
-     *             このメソッドで発生した例外
+     * @throws Exception このメソッドで発生した例外
      */
     @Test
     public void testCleanupValidator01() throws Exception {
         // 前処理
         ValidatorResources resources = new ValidatorResources();
-        CommonsValidatorEx commonsValidatorEx = new CommonsValidatorEx(
-                resources, null);
+        CommonsValidatorEx commonsValidatorEx = new CommonsValidatorEx(resources, null);
         ValidatorException validatorException = new ValidatorException();
-        UTUtil.setPrivateField(commonsValidatorEx, "validatorException",
+        ReflectionTestUtils.setField(commonsValidatorEx, "validatorException",
                 validatorException);
 
         DefaultBeanValidatorEx defaultBeanValidatorEx = new DefaultBeanValidatorEx();
@@ -83,27 +72,23 @@ public class DefaultBeanValidatorExTest {
     /**
      * testCleanupValidator02() <br>
      * <br>
-     * 
      * (正常系) <br>
      * 観点：A,E <br>
      * <br>
      * 入力値：(引数) validator:CommonsValidatorExインスタンス<br>
      * (前提条件) validator.getValidatorException():null<br>
-     * 
      * <br>
      * 期待値： <br>
      * 引数validatorにValidatorExceptionが設定されていない場合、例外をスローせずに処理を終了することのテスト。 <br>
-     * 
-     * @throws Exception
-     *             このメソッドで発生した例外
+     * @throws Exception このメソッドで発生した例外
      */
     @Test
     public void testCleanupValidator02() throws Exception {
         // 前処理
         ValidatorResources resources = new ValidatorResources();
-        CommonsValidatorEx commonsValidatorEx = new CommonsValidatorEx(
-                resources, null);
-        UTUtil.setPrivateField(commonsValidatorEx, "validatorException", null);
+        CommonsValidatorEx commonsValidatorEx = new CommonsValidatorEx(resources, null);
+        ReflectionTestUtils.setField(commonsValidatorEx, "validatorException",
+                null);
 
         DefaultBeanValidatorEx defaultBeanValidatorEx = new DefaultBeanValidatorEx();
         try {
@@ -118,19 +103,14 @@ public class DefaultBeanValidatorExTest {
     /**
      * testCleanupValidator03() <br>
      * <br>
-     * 
      * (正常系) <br>
      * 観点：A,E <br>
      * <br>
      * 入力値：(引数) validator:CommonsValidatorEx以外のインスタンス<br>
-     * 
      * <br>
      * 期待値： <br>
-     * 引数validatorがvalidatorCommonsValidatorExインスタンスでない場合、外をスローせずに処理を終了することのテスト。
-     * <br>
-     * 
-     * @throws Exception
-     *             このメソッドで発生した例外
+     * 引数validatorがvalidatorCommonsValidatorExインスタンスでない場合、外をスローせずに処理を終了することのテスト。 <br>
+     * @throws Exception このメソッドで発生した例外
      */
     @Test
     public void testCleanupValidator03() throws Exception {

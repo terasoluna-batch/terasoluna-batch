@@ -17,6 +17,9 @@
 package jp.terasoluna.fw.util;
 
 import java.io.File;
+import java.lang.reflect.Method;
+
+import org.springframework.test.util.ReflectionTestUtils;
 
 import jp.terasoluna.fw.util.PropertyTestCase;
 import jp.terasoluna.utlib.UTUtil;
@@ -517,8 +520,10 @@ public class FileUtilTest extends PropertyTestCase {
     public void testRemoveSessionDirectory01() throws Exception {
         // 初期設定
         String input = "01234567abcdefgh";
-        UTUtil.invokePrivate(FileUtil.class, "makeSessionDirectory",
-                String.class, input);
+        Method method = FileUtil.class.getDeclaredMethod("makeSessionDirectory",
+                String.class);
+        method.setAccessible(true);
+        Object retObj = method.invoke(FileUtil.class, input);
         // テスト実行
         // 結果確認
         assertTrue(FileUtil.removeSessionDirectory(input));
@@ -536,8 +541,10 @@ public class FileUtilTest extends PropertyTestCase {
     public void testRemoveSessionDirectory02() throws Exception {
         // 初期設定
         String input = "01234567abcdefgh";
-        File dir = (File) UTUtil.invokePrivate(FileUtil.class,
-                "getSessionDirectory", String.class, input);
+        Method method = FileUtil.class.getDeclaredMethod("getSessionDirectory",
+                String.class);
+        method.setAccessible(true);
+        File dir = (File) method.invoke(FileUtil.class, input);
         dir.delete();
 
         // テスト実行

@@ -16,6 +16,7 @@
 
 package jp.terasoluna.fw.validation;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,11 +42,15 @@ public class ValidationUtilTest04 extends PropertyTestCase {
      */
     @Before
     public void setUpData() throws Exception {
-        UTUtil.setPrivateField(ValidationUtil.class, "hankakuKanaList",
+        Field field = ValidationUtil.class.getDeclaredField("hankakuKanaList");
+        field.setAccessible(true);
+        field.set(ValidationUtil.class,
                 "ｱｲｳｴｵｧｨｩｪｫｶｷｸｹｺｻｼｽｾｿﾀﾁﾂｯﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖｬｭｮﾗﾘﾙﾚﾛﾜｦﾝﾟﾞｰ･､｡｢｣");
-        UTUtil.setPrivateField(ValidationUtil.class, "zenkakuKanaList",
-                "アイウヴエオァィゥェォカキクケコヵヶガギグゲゴサシスセソ" + "ザジズゼゾタチツテトダヂヅデドナニヌネノハヒフヘホ"
-                        + "バビブベボパピプペポマミムメモヤユヨャュョラリルレロ" + "ワヮヰヱヲッンー");
+        field = ValidationUtil.class.getDeclaredField("zenkakuKanaList");
+        field.setAccessible(true);
+        field.set(ValidationUtil.class, "アイウヴエオァィゥェォカキクケコヵヶガギグゲゴサシスセソ"
+                + "ザジズゼゾタチツテトダヂヅデドナニヌネノハヒフヘホ" + "バビブベボパピプペポマミムメモヤユヨャュョラリルレロ"
+                + "ワヮヰヱヲッンー");
     }
 
     /**

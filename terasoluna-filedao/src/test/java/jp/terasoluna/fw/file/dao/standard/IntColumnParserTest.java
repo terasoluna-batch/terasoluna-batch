@@ -10,7 +10,8 @@ package jp.terasoluna.fw.file.dao.standard;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-import jp.terasoluna.utlib.UTUtil;
+import org.springframework.test.util.ReflectionTestUtils;
+
 import junit.framework.TestCase;
 
 /**
@@ -103,7 +104,7 @@ public class IntColumnParserTest extends TestCase {
         // なし
 
         // 状態変化の確認
-        Object result = UTUtil.getPrivateField(t, "a");
+        Object result = ReflectionTestUtils.getField(t, "a");
         assertEquals(1, result);
     }
 
@@ -393,7 +394,7 @@ public class IntColumnParserTest extends TestCase {
         // なし
 
         // 状態変化の確認
-        Object result = UTUtil.getPrivateField(t, "a");
+        Object result = ReflectionTestUtils.getField(t, "a");
         assertEquals(1, result);
     }
 }

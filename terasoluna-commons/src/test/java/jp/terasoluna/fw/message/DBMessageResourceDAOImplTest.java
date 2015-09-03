@@ -21,8 +21,9 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+import org.springframework.test.util.ReflectionTestUtils;
+
 import jp.terasoluna.utlib.MockDataSource;
-import jp.terasoluna.utlib.UTUtil;
 import junit.framework.TestCase;
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
@@ -94,7 +95,8 @@ public class DBMessageResourceDAOImplTest extends TestCase {
         daoImpl.setTableName("test01");
 
         // 判定
-        assertEquals("test01", UTUtil.getPrivateField(daoImpl, "tableName"));
+        assertEquals("test01", ReflectionTestUtils.getField(daoImpl,
+                "tableName"));
     }
 
     /**
@@ -120,7 +122,8 @@ public class DBMessageResourceDAOImplTest extends TestCase {
         daoImpl.setCodeColumn("test01");
 
         // 判定
-        assertEquals("test01", UTUtil.getPrivateField(daoImpl, "codeColumn"));
+        assertEquals("test01", ReflectionTestUtils.getField(daoImpl,
+                "codeColumn"));
     }
 
     /**
@@ -146,7 +149,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
         daoImpl.setLanguageColumn("test01");
 
         // 判定
-        assertEquals("test01", UTUtil.getPrivateField(daoImpl,
+        assertEquals("test01", ReflectionTestUtils.getField(daoImpl,
                 "languageColumn"));
     }
 
@@ -173,7 +176,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
         daoImpl.setCountryColumn("test01");
 
         // 判定
-        assertEquals("test01", UTUtil.getPrivateField(daoImpl,
+        assertEquals("test01", ReflectionTestUtils.getField(daoImpl,
                 "countryColumn"));
     }
 
@@ -200,7 +203,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
         daoImpl.setVariantColumn("test01");
 
         // 判定
-        assertEquals("test01", UTUtil.getPrivateField(daoImpl,
+        assertEquals("test01", ReflectionTestUtils.getField(daoImpl,
                 "variantColumn"));
     }
 
@@ -227,7 +230,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
         daoImpl.setMessageColumn("test01");
 
         // 判定
-        assertEquals("test01", UTUtil.getPrivateField(daoImpl,
+        assertEquals("test01", ReflectionTestUtils.getField(daoImpl,
                 "messageColumn"));
     }
 
@@ -254,7 +257,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
         daoImpl.setFindMessageSql("test01");
 
         // 判定
-        assertEquals("test01", UTUtil.getPrivateField(daoImpl,
+        assertEquals("test01", ReflectionTestUtils.getField(daoImpl,
                 "findMessageSql"));
     }
 
@@ -284,7 +287,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
         DBMessageResourceDAOImpl_JdbcTemplateStub01 jdbc = new DBMessageResourceDAOImpl_JdbcTemplateStub01();
         DBMessageResourceDAOImpl_DBMessageResourceDAOImplStub01 dbmr = new DBMessageResourceDAOImpl_DBMessageResourceDAOImplStub01();
         jdbc.ds = dataSource;
-        UTUtil.setPrivateField(dbmr, "jdbcTemplate", jdbc);
+        ReflectionTestUtils.setField(dbmr, "jdbcTemplate", jdbc);
 
         dbmr.dBMessageQuery = null;
         dbmr.codeColumn = "CODE";
@@ -386,7 +389,7 @@ public class DBMessageResourceDAOImplTest extends TestCase {
         DBMessageResourceDAOImpl_JdbcTemplateStub01 jdbc = new DBMessageResourceDAOImpl_JdbcTemplateStub01();
         DBMessageResourceDAOImpl_DBMessageResourceDAOImplStub01 dbmr = new DBMessageResourceDAOImpl_DBMessageResourceDAOImplStub01();
         jdbc.ds = dataSource;
-        UTUtil.setPrivateField(dbmr, "jdbcTemplate", jdbc);
+        ReflectionTestUtils.setField(dbmr, "jdbcTemplate", jdbc);
 
         dbmr.dBMessageQuery = null;
         dbmr.codeColumn = "CODE";

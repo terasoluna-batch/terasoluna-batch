@@ -23,7 +23,6 @@ import java.util.Properties;
 import javax.naming.Context;
 import javax.naming.NamingException;
 
-import jp.terasoluna.utlib.UTUtil;
 import junit.framework.TestCase;
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
@@ -32,6 +31,7 @@ import static uk.org.lidalia.slf4jtest.LoggingEvent.info;
 import static java.util.Arrays.asList;
 import static org.hamcrest.core.Is.*;
 import static org.junit.Assert.*;
+import org.springframework.test.util.ReflectionTestUtils;
 
 /**
  * {@link jp.terasoluna.fw.web.jndi.DefaultJndiSupport} クラスのブラックボックステスト。
@@ -128,9 +128,9 @@ public class DefaultJndiSupportTest extends TestCase {
 
         // 前処理
         DefaultJndiSupport support = new DefaultJndiSupport();
-        Map map = new HashMap();
+        Map<?, ?> map = new HashMap();
 
-        UTUtil.setPrivateField(support, "jndiEnvironmentMap", map);
+        ReflectionTestUtils.setField(support, "jndiEnvironmentMap", map);
 
         // テスト実施
         Object result = support.getJndiEnvironmentMap();
@@ -164,7 +164,8 @@ public class DefaultJndiSupportTest extends TestCase {
         support.setJndiEnvironmentMap(map);
 
         // 判定判定
-        Object result = UTUtil.getPrivateField(support, "jndiEnvironmentMap");
+        Object result = ReflectionTestUtils.getField(support,
+                "jndiEnvironmentMap");
         assertSame(map, result);
     }
 
@@ -185,13 +186,14 @@ public class DefaultJndiSupportTest extends TestCase {
 
         // 前処理
         DefaultJndiSupport support = new DefaultJndiSupport();
-        UTUtil.setPrivateField(support, "jndiEnvironmentMap", null);
+        ReflectionTestUtils.setField(support, "jndiEnvironmentMap", null);
 
         // テスト実施
         support.initialize();
 
         // 判定
-        Object result = UTUtil.getPrivateField(support, "jndiEnvironmentMap");
+        Object result = ReflectionTestUtils.getField(support,
+                "jndiEnvironmentMap");
         assertNull(result);
     }
 
@@ -231,14 +233,15 @@ public class DefaultJndiSupportTest extends TestCase {
         map.put("url", "url");
 
         DefaultJndiSupport support = new DefaultJndiSupport();
-        UTUtil.setPrivateField(support, "jndiEnvironmentMap", map);
+        ReflectionTestUtils.setField(support, "jndiEnvironmentMap", map);
 
         // テスト実施
         logger.clear();
         support.initialize();
 
         // 判定
-        Object result = UTUtil.getPrivateField(support, "jndiEnvironmentMap");
+        Object result = ReflectionTestUtils.getField(support,
+                "jndiEnvironmentMap");
         assertSame(map, result);
 
         assertThat(logger.getLoggingEvents(), is(asList(info(
@@ -293,13 +296,14 @@ public class DefaultJndiSupportTest extends TestCase {
         map.put("username", "");
 
         DefaultJndiSupport support = new DefaultJndiSupport();
-        UTUtil.setPrivateField(support, "jndiEnvironmentMap", map);
+        ReflectionTestUtils.setField(support, "jndiEnvironmentMap", map);
 
         // テスト実施
         support.initialize();
 
         // 判定
-        Object result = UTUtil.getPrivateField(support, "jndiEnvironmentMap");
+        Object result = ReflectionTestUtils.getField(support,
+                "jndiEnvironmentMap");
         assertSame(map, result);
 
         assertThat(logger.getLoggingEvents(), is(asList(info(
@@ -355,13 +359,14 @@ public class DefaultJndiSupportTest extends TestCase {
         map.put("username", "username");
 
         DefaultJndiSupport support = new DefaultJndiSupport();
-        UTUtil.setPrivateField(support, "jndiEnvironmentMap", map);
+        ReflectionTestUtils.setField(support, "jndiEnvironmentMap", map);
 
         // テスト実施
         support.initialize();
 
         // 判定
-        Object result = UTUtil.getPrivateField(support, "jndiEnvironmentMap");
+        Object result = ReflectionTestUtils.getField(support,
+                "jndiEnvironmentMap");
         assertSame(map, result);
 
         assertThat(logger.getLoggingEvents(), is(asList(info(
@@ -418,13 +423,14 @@ public class DefaultJndiSupportTest extends TestCase {
         map.put("password", "");
 
         DefaultJndiSupport support = new DefaultJndiSupport();
-        UTUtil.setPrivateField(support, "jndiEnvironmentMap", map);
+        ReflectionTestUtils.setField(support, "jndiEnvironmentMap", map);
 
         // テスト実施
         support.initialize();
 
         // 判定
-        Object result = UTUtil.getPrivateField(support, "jndiEnvironmentMap");
+        Object result = ReflectionTestUtils.getField(support,
+                "jndiEnvironmentMap");
         assertSame(map, result);
 
         assertThat(logger.getLoggingEvents(), is(asList(info(
@@ -481,13 +487,14 @@ public class DefaultJndiSupportTest extends TestCase {
         map.put("password", "password");
 
         DefaultJndiSupport support = new DefaultJndiSupport();
-        UTUtil.setPrivateField(support, "jndiEnvironmentMap", map);
+        ReflectionTestUtils.setField(support, "jndiEnvironmentMap", map);
 
         // テスト実施
         support.initialize();
 
         // 判定
-        Object result = UTUtil.getPrivateField(support, "jndiEnvironmentMap");
+        Object result = ReflectionTestUtils.getField(support,
+                "jndiEnvironmentMap");
         assertSame(map, result);
 
         assertThat(logger.getLoggingEvents(), is(asList(info(

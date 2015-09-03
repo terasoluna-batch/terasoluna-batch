@@ -13,8 +13,9 @@ import java.math.BigDecimal;
 import java.text.ParseException;
 import java.util.concurrent.ConcurrentHashMap;
 
+import org.springframework.test.util.ReflectionTestUtils;
+
 import jp.terasoluna.fw.file.ut.VMOUTUtil;
-import jp.terasoluna.utlib.UTUtil;
 import junit.framework.TestCase;
 
 /**
@@ -103,8 +104,8 @@ public class DecimalColumnParserTest extends TestCase {
         stub.setDecimal01(null);
 
         Method method = DecimalColumnParser_FileLineObjectStub01.class
-                .getDeclaredMethod("setDecimal01",
-                        new Class[] { BigDecimal.class });
+                .getDeclaredMethod("setDecimal01", new Class[] {
+                        BigDecimal.class });
         String columnFormat = null;
 
         // テスト実施
@@ -154,8 +155,8 @@ public class DecimalColumnParserTest extends TestCase {
         stub.setDecimal02(null);
 
         Method method = DecimalColumnParser_FileLineObjectStub01.class
-                .getDeclaredMethod("setDecimal02",
-                        new Class[] { BigDecimal.class });
+                .getDeclaredMethod("setDecimal02", new Class[] {
+                        BigDecimal.class });
         String columnFormat = "-\\###,###,###.##";
 
         // テスト実施
@@ -207,8 +208,8 @@ public class DecimalColumnParserTest extends TestCase {
         stub.setDecimal03(null);
 
         Method method = DecimalColumnParser_FileLineObjectStub01.class
-                .getDeclaredMethod("setDecimal03",
-                        new Class[] { BigDecimal.class });
+                .getDeclaredMethod("setDecimal03", new Class[] {
+                        BigDecimal.class });
         String columnFormat = "###,###,###.##";
 
         try {
@@ -256,11 +257,11 @@ public class DecimalColumnParserTest extends TestCase {
         String column = "-\\123,456.00";
         DecimalColumnParser_FileLineObjectStub01 stub = new DecimalColumnParser_FileLineObjectStub01();
 
-        UTUtil.setPrivateField(stub, "decimal04", null);
+        ReflectionTestUtils.setField(stub, "decimal04", null);
 
         Method method = DecimalColumnParser_FileLineObjectStub01.class
-                .getDeclaredMethod("setDecimal04",
-                        new Class[] { BigDecimal.class });
+                .getDeclaredMethod("setDecimal04", new Class[] {
+                        BigDecimal.class });
         String columnFormat = "\\###,###,###.##";
 
         try {
@@ -308,11 +309,11 @@ public class DecimalColumnParserTest extends TestCase {
         String column = "-\\123,456.00";
         DecimalColumnParser_FileLineObjectStub01 stub = new DecimalColumnParser_FileLineObjectStub01();
 
-        UTUtil.setPrivateField(stub, "decimal05", null);
+        ReflectionTestUtils.setField(stub, "decimal05", null);
 
         Method method = DecimalColumnParser_FileLineObjectStub01.class
-                .getDeclaredMethod("setDecimal05",
-                        new Class[] { BigDecimal.class });
+                .getDeclaredMethod("setDecimal05", new Class[] {
+                        BigDecimal.class });
         String columnFormat = "-\\###,###,###.##";
 
         try {
@@ -360,7 +361,7 @@ public class DecimalColumnParserTest extends TestCase {
         String column = "-\\123,456.00";
         DecimalColumnParser_FileLineObjectStub01 stub = new DecimalColumnParser_FileLineObjectStub01();
 
-        UTUtil.setPrivateField(stub, "decimal06", null);
+        ReflectionTestUtils.setField(stub, "decimal06", null);
 
         Method method = DecimalColumnParser_FileLineObjectStub01.class
                 .getDeclaredMethod("setDecimal06", new Class[] {
@@ -413,11 +414,11 @@ public class DecimalColumnParserTest extends TestCase {
         String column = null;
         DecimalColumnParser_FileLineObjectStub01 stub = new DecimalColumnParser_FileLineObjectStub01();
 
-        UTUtil.setPrivateField(stub, "decimal07", null);
+        ReflectionTestUtils.setField(stub, "decimal07", null);
 
         Method method = DecimalColumnParser_FileLineObjectStub01.class
-                .getDeclaredMethod("setDecimal07",
-                        new Class[] { BigDecimal.class });
+                .getDeclaredMethod("setDecimal07", new Class[] {
+                        BigDecimal.class });
         String columnFormat = "-\\###,###,###.##";
 
         try {
@@ -465,11 +466,11 @@ public class DecimalColumnParserTest extends TestCase {
         String column = "abcあいうアイウ愛有";
         DecimalColumnParser_FileLineObjectStub01 stub = new DecimalColumnParser_FileLineObjectStub01();
 
-        UTUtil.setPrivateField(stub, "decimal08", null);
+        ReflectionTestUtils.setField(stub, "decimal08", null);
 
         Method method = DecimalColumnParser_FileLineObjectStub01.class
-                .getDeclaredMethod("setDecimal08",
-                        new Class[] { BigDecimal.class });
+                .getDeclaredMethod("setDecimal08", new Class[] {
+                        BigDecimal.class });
         String columnFormat = "-\\###,###,###.##";
 
         try {
@@ -522,8 +523,8 @@ public class DecimalColumnParserTest extends TestCase {
         stub.setDecimal09(null);
 
         Method method = DecimalColumnParser_FileLineObjectStub01.class
-                .getDeclaredMethod("setDecimal09",
-                        new Class[] { BigDecimal.class });
+                .getDeclaredMethod("setDecimal09", new Class[] {
+                        BigDecimal.class });
         String columnFormat = "";
 
         // テスト実施
@@ -576,12 +577,12 @@ public class DecimalColumnParserTest extends TestCase {
         stub.setDecimal10(null);
 
         Method method = DecimalColumnParser_FileLineObjectStub01.class
-                .getDeclaredMethod("setDecimal10",
-                        new Class[] { BigDecimal.class });
+                .getDeclaredMethod("setDecimal10", new Class[] {
+                        BigDecimal.class });
         String columnFormat = "-\\###,###,###.##";
 
         ConcurrentHashMap<String, DecimalFormatLocal> dfMap = new ConcurrentHashMap<String, DecimalFormatLocal>();
-        UTUtil.setPrivateField(decimalColumnParser, "dfMap", dfMap);
+        ReflectionTestUtils.setField(decimalColumnParser, "dfMap", dfMap);
         dfMap.clear();
 
         // テスト実施
@@ -592,13 +593,14 @@ public class DecimalColumnParserTest extends TestCase {
         assertNotNull(result);
         assertEquals(BigDecimal.valueOf(12345600, 2), result);
 
-        assertSame(dfMap, UTUtil.getPrivateField(decimalColumnParser, "dfMap"));
+        assertSame(dfMap, ReflectionTestUtils.getField(decimalColumnParser,
+                "dfMap"));
         assertEquals(1, dfMap.size());
         assertTrue(dfMap.containsKey(columnFormat));
         DecimalFormatLocal dfMapValue = dfMap.get(columnFormat);
         assertNotNull(dfMapValue);
-        assertEquals(columnFormat, UTUtil
-                .getPrivateField(dfMapValue, "pattern"));
+        assertEquals(columnFormat, ReflectionTestUtils.getField(dfMapValue,
+                "pattern"));
 
         assertEquals(1, VMOUTUtil.getCallCount(DecimalFormatLocal.class,
                 "<init>"));
@@ -649,14 +651,14 @@ public class DecimalColumnParserTest extends TestCase {
         stub.setDecimal11(null);
 
         Method method = DecimalColumnParser_FileLineObjectStub01.class
-                .getDeclaredMethod("setDecimal11",
-                        new Class[] { BigDecimal.class });
+                .getDeclaredMethod("setDecimal11", new Class[] {
+                        BigDecimal.class });
         String columnFormat = "-\\###,###,###.##";
 
         ConcurrentHashMap<String, DecimalFormatLocal> dfMap = new ConcurrentHashMap<String, DecimalFormatLocal>();
         DecimalFormatLocal dfMapValue = new DecimalFormatLocal(columnFormat);
         dfMap.put(columnFormat, dfMapValue);
-        UTUtil.setPrivateField(decimalColumnParser, "dfMap", dfMap);
+        ReflectionTestUtils.setField(decimalColumnParser, "dfMap", dfMap);
 
         VMOUTUtil.initialize();
 
@@ -668,7 +670,8 @@ public class DecimalColumnParserTest extends TestCase {
         assertNotNull(result);
         assertEquals(BigDecimal.valueOf(12345600, 2), result);
 
-        assertSame(dfMap, UTUtil.getPrivateField(decimalColumnParser, "dfMap"));
+        assertSame(dfMap, ReflectionTestUtils.getField(decimalColumnParser,
+                "dfMap"));
         assertEquals(1, dfMap.size());
         assertTrue(dfMap.containsKey(columnFormat));
         DecimalFormatLocal formatLocal = dfMap.get(columnFormat);

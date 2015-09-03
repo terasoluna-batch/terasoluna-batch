@@ -26,7 +26,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import jp.terasoluna.utlib.UTUtil;
 import junit.framework.TestCase;
 
 import org.apache.commons.beanutils.BeanUtils;
@@ -37,6 +36,7 @@ import org.apache.commons.jxpath.JXPathInvalidSyntaxException;
 import uk.org.lidalia.slf4jext.Level;
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
+import org.springframework.test.util.ReflectionTestUtils;
 
 /**
  * {@link jp.terasoluna.fw.beans.JXPathIndexedBeanWrapperImpl} クラスのブラックボックステスト。
@@ -102,7 +102,7 @@ public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
         JXPathIndexedBeanWrapperImpl bw = new JXPathIndexedBeanWrapperImpl(obj);
 
         // 判定
-        JXPathContext context = (JXPathContext) UTUtil.getPrivateField(bw,
+        JXPathContext context = (JXPathContext) ReflectionTestUtils.getField(bw,
                 "context");
         assertSame(obj, context.getContextBean());
     }
@@ -542,7 +542,7 @@ public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
     public void testGetIndexedPropertyValuesJavaBean07_6() throws Exception {
         // 前処理
         JXPathIndexedBeanWrapperImpl_JavaBeanStub01 bean = new JXPathIndexedBeanWrapperImpl_JavaBeanStub01();
-        bean.setProperty4(new ArrayList());
+        bean.setProperty4(new ArrayList<Object>());
 
         JXPathIndexedBeanWrapperImpl bw = new JXPathIndexedBeanWrapperImpl(bean);
 
@@ -576,7 +576,6 @@ public class JXPathIndexedBeanWrapperImplTest01 extends TestCase {
         // 前処理
         JXPathIndexedBeanWrapperImpl_JavaBeanStub01 bean = new JXPathIndexedBeanWrapperImpl_JavaBeanStub01();
         bean.setProperty5(new int[] {});
-
         JXPathIndexedBeanWrapperImpl bw = new JXPathIndexedBeanWrapperImpl(bean);
 
         // テスト実施

@@ -159,6 +159,7 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <scope>test</scope>
+            <version>3.8.2</version>
         </dependency>
         <dependency>
             <groupId>jp.co.dgic</groupId>
@@ -168,6 +169,11 @@
         <dependency>
         	<groupId>uk.org.lidalia</groupId>
         	<artifactId>slf4j-test</artifactId>
+        	<scope>test</scope>
+        </dependency>
+        <dependency>
+        	<groupId>org.springframework</groupId>
+        	<artifactId>spring-test</artifactId>
         	<scope>test</scope>
         </dependency>
     </dependencies>

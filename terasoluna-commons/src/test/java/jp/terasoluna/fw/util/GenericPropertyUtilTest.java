@@ -34,6 +34,7 @@ import static uk.org.lidalia.slf4jtest.LoggingEvent.trace;
 import static java.util.Arrays.asList;
 import static org.hamcrest.core.Is.*;
 import static org.junit.Assert.*;
+import org.springframework.test.util.ReflectionTestUtils;
 
 /**
  * {@link jp.terasoluna.fw.GenericPropertyUtil} クラスのテスト。
@@ -73,7 +74,7 @@ public class GenericPropertyUtilTest extends TestCase {
     protected void tearDown() throws Exception {
         super.tearDown();
         BeanUtilsBean beanUtilsBean = BeanUtilsBean.getInstance();
-        UTUtil.setPrivateField(beanUtilsBean, "propertyUtilsBean",
+        ReflectionTestUtils.setField(beanUtilsBean, "propertyUtilsBean",
                 defaultPropertyUtilsBean);
         logger.clear();
     }
@@ -1019,7 +1020,7 @@ public class GenericPropertyUtilTest extends TestCase {
     public void testGetMethod06() throws Exception {
         // 前処理
         BeanUtilsBean beanUtilsBean = BeanUtilsBean.getInstance();
-        UTUtil.setPrivateField(beanUtilsBean, "propertyUtilsBean",
+        ReflectionTestUtils.setField(beanUtilsBean, "propertyUtilsBean",
                 new GenericPropertyUtil_PropertyUtilsBeanStub01());
         try {
 

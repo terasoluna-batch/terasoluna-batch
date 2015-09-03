@@ -21,12 +21,13 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 import static uk.org.lidalia.slf4jtest.LoggingEvent.info;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.jxpath.JXPathIntrospector;
 
-import jp.terasoluna.utlib.UTUtil;
 import junit.framework.TestCase;
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
@@ -47,15 +48,14 @@ import uk.org.lidalia.slf4jtest.TestLoggerFactory;
  * <p>
  * @see jp.terasoluna.fw.beans.jxpath.JXPATH152PatchActivator
  */
-@SuppressWarnings("unchecked")
 public class JXPATH152PatchActivatorTest extends TestCase {
 
-    private Map byClassBak = null;
-
-    private Map byInterfaceBak = null;
+    private Map<?, ?> byClassBak = null;
 
     private TestLogger logger = TestLoggerFactory.getTestLogger(
             JXPATH152PatchActivator.class);
+
+    private Map<?, ?> byInterfaceBak = null;
 
     /**
      * 初期化処理を行う。
@@ -72,10 +72,12 @@ public class JXPATH152PatchActivatorTest extends TestCase {
 
         // JXPATH152PatchActivatorのstaticイニシャライザ実行後の状態を保持
         // (tearDownでstaticイニシャライザ実行前の状態に戻してしまわないように)
-        byClassBak = (Map) UTUtil.getPrivateField(JXPathIntrospector.class,
-                "byClass");
-        byInterfaceBak = (Map) UTUtil.getPrivateField(JXPathIntrospector.class,
-                "byInterface");
+        Field field = JXPathIntrospector.class.getDeclaredField("byClass");
+        field.setAccessible(true);
+        byClassBak = (Map<?, ?>) field.get(JXPathIntrospector.class);
+        field = JXPathIntrospector.class.getDeclaredField("byInterface");
+        field.setAccessible(true);
+        byInterfaceBak = (Map<?, ?>) field.get(JXPathIntrospector.class);
     }
 
     /**
@@ -87,9 +89,12 @@ public class JXPATH152PatchActivatorTest extends TestCase {
     protected void tearDown() throws Exception {
         logger.clear();
         super.tearDown();
-        UTUtil.setPrivateField(JXPathIntrospector.class, "byClass", byClassBak);
-        UTUtil.setPrivateField(JXPathIntrospector.class, "byInterface",
-                byInterfaceBak);
+        Field field = JXPathIntrospector.class.getDeclaredField("byClass");
+        field.setAccessible(true);
+        field.set(JXPathIntrospector.class, byClassBak);
+        field = JXPathIntrospector.class.getDeclaredField("byInterface");
+        field.setAccessible(true);
+        field.set(JXPathIntrospector.class, byInterfaceBak);
     }
 
     /**
@@ -112,22 +117,30 @@ public class JXPATH152PatchActivatorTest extends TestCase {
      */
     public void testActivate01() throws Exception {
         // 前処理
-        UTUtil.setPrivateField(JXPathIntrospector.class, "byClass",
-                new HashMap());
-        UTUtil.setPrivateField(JXPathIntrospector.class, "byInterface",
-                new HashMap());
+        Field field = JXPathIntrospector.class.getDeclaredField("byClass");
+        field.setAccessible(true);
+        field.set(JXPathIntrospector.class, new HashMap<Object, Object>());
+        field = JXPathIntrospector.class.getDeclaredField("byInterface");
+        field.setAccessible(true);
+        field.set(JXPathIntrospector.class, new HashMap<Object, Object>());
 
         // テスト実施
-        UTUtil.invokePrivate(JXPATH152PatchActivator.class, "activate");
+        Method method = JXPATH152PatchActivator.class.getDeclaredMethod(
+                "activate");
+        method.setAccessible(true);
+        method.invoke(JXPATH152PatchActivator.class);
 
         // 判定
         assertThat(logger.getLoggingEvents(), is(asList(info(
                 "JXPATH-152 Patch activation succeeded."), info(
                         "JXPATH-152 Patch activation succeeded."))));
-        assertTrue(UTUtil.getPrivateField(JXPathIntrospector.class, "byClass")
+        field = JXPathIntrospector.class.getDeclaredField("byClass");
+        field.setAccessible(true);
+        assertTrue(((Map<?, ?>) field.get(JXPathIntrospector.class))
                 .getClass() == HashMapForJXPathIntrospector.class);
-        assertTrue(UTUtil.getPrivateField(JXPathIntrospector.class,
-                "byInterface")
+        field = JXPathIntrospector.class.getDeclaredField("byInterface");
+        field.setAccessible(true);
+        assertTrue(((Map<?, ?>) field.get(JXPathIntrospector.class))
                 .getClass() == HashMapForJXPathIntrospector.class);
     }
 

@@ -9,7 +9,8 @@ package jp.terasoluna.fw.file.dao.standard;
 
 import java.text.DecimalFormat;
 
-import jp.terasoluna.utlib.UTUtil;
+import org.springframework.test.util.ReflectionTestUtils;
+
 import junit.framework.TestCase;
 
 /**
@@ -80,7 +81,7 @@ public class DecimalFormatLocalTest extends TestCase {
 
         // 判定
         assertNotNull(decimalFormatLocal);
-        assertSame(pattern, UTUtil.getPrivateField(decimalFormatLocal,
+        assertSame(pattern, ReflectionTestUtils.getField(decimalFormatLocal,
                 "pattern"));
     }
 
@@ -102,7 +103,7 @@ public class DecimalFormatLocalTest extends TestCase {
         DecimalFormatLocal decimalFormatLocal = new DecimalFormatLocal(null);
 
         // 前処理(状態)
-        UTUtil.setPrivateField(decimalFormatLocal, "pattern", null);
+        ReflectionTestUtils.setField(decimalFormatLocal, "pattern", null);
 
         try {
             // テスト実施
@@ -132,7 +133,7 @@ public class DecimalFormatLocalTest extends TestCase {
         String pattern = "-\\#,##0.##";
 
         // 前処理(状態)
-        UTUtil.setPrivateField(decimalFormatLocal, "pattern", pattern);
+        ReflectionTestUtils.setField(decimalFormatLocal, "pattern", pattern);
 
         // テスト実施
         DecimalFormat result = decimalFormatLocal.initialValue();

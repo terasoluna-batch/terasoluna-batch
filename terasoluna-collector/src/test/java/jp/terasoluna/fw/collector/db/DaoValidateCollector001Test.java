@@ -11,9 +11,9 @@ import jp.terasoluna.fw.collector.util.MemoryInfo;
 import jp.terasoluna.fw.collector.validate.ValidationErrorHandler;
 import jp.terasoluna.fw.ex.unit.testcase.DaoTestCase;
 
-import jp.terasoluna.utlib.UTUtil;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.validation.Validator;
 
 /**
@@ -24,8 +24,8 @@ public class DaoValidateCollector001Test extends DaoTestCase {
     /**
      * Log.
      */
-    private static Log logger = LogFactory
-            .getLog(DaoValidateCollector001Test.class);
+    private static Log logger = LogFactory.getLog(
+            DaoValidateCollector001Test.class);
 
     private UserListQueryResultHandleDao userListQueryResultHandleDao = null;
 
@@ -34,7 +34,8 @@ public class DaoValidateCollector001Test extends DaoTestCase {
         configLocations.add("jp/terasoluna/fw/collector/db/dataSource.xml");
     }
 
-    public void setUserListQueryResultHandleDao(UserListQueryResultHandleDao userListQueryResultHandleDao) {
+    public void setUserListQueryResultHandleDao(
+            UserListQueryResultHandleDao userListQueryResultHandleDao) {
         this.userListQueryResultHandleDao = userListQueryResultHandleDao;
     }
 
@@ -70,8 +71,7 @@ public class DaoValidateCollector001Test extends DaoTestCase {
         Object bindParams = null;
         Validator validator = null;
 
-        DaoValidateCollector<UserBean> dbc = new DaoValidateCollector<UserBean>(
-                userListQueryResultHandleDao, methodName, bindParams, validator);
+        DaoValidateCollector<UserBean> dbc = new DaoValidateCollector<UserBean>(userListQueryResultHandleDao, methodName, bindParams, validator);
 
         assertNotNull(dbc);
         dbc.close();
@@ -86,9 +86,7 @@ public class DaoValidateCollector001Test extends DaoTestCase {
         Validator validator = null;
         ValidationErrorHandler validationErrorHandler = null;
 
-        DaoValidateCollector<UserBean> dbc = new DaoValidateCollector<UserBean>(
-                userListQueryResultHandleDao, methodName, bindParams, validator,
-                validationErrorHandler);
+        DaoValidateCollector<UserBean> dbc = new DaoValidateCollector<UserBean>(userListQueryResultHandleDao, methodName, bindParams, validator, validationErrorHandler);
 
         assertNotNull(dbc);
         dbc.close();
@@ -104,9 +102,7 @@ public class DaoValidateCollector001Test extends DaoTestCase {
         Validator validator = null;
         ValidationErrorHandler validationErrorHandler = null;
 
-        DaoValidateCollector<UserBean> dbc = new DaoValidateCollector<UserBean>(
-                userListQueryResultHandleDao, methodName, bindParams, relation1n, validator,
-                validationErrorHandler);
+        DaoValidateCollector<UserBean> dbc = new DaoValidateCollector<UserBean>(userListQueryResultHandleDao, methodName, bindParams, relation1n, validator, validationErrorHandler);
 
         assertNotNull(dbc);
         dbc.close();
@@ -122,9 +118,7 @@ public class DaoValidateCollector001Test extends DaoTestCase {
         Validator validator = null;
         ValidationErrorHandler validationErrorHandler = null;
 
-        DaoValidateCollector<UserBean> dbc = new DaoValidateCollector<UserBean>(
-                userListQueryResultHandleDao, methodName, bindParams, queueSize, validator,
-                validationErrorHandler);
+        DaoValidateCollector<UserBean> dbc = new DaoValidateCollector<UserBean>(userListQueryResultHandleDao, methodName, bindParams, queueSize, validator, validationErrorHandler);
 
         assertNotNull(dbc);
         dbc.close();
@@ -140,9 +134,7 @@ public class DaoValidateCollector001Test extends DaoTestCase {
         Validator validator = null;
         CollectorExceptionHandler exceptionHandler = null;
 
-        DaoValidateCollector<UserBean> dbc = new DaoValidateCollector<UserBean>(
-                userListQueryResultHandleDao, methodName, bindParams, queueSize,
-                exceptionHandler, validator);
+        DaoValidateCollector<UserBean> dbc = new DaoValidateCollector<UserBean>(userListQueryResultHandleDao, methodName, bindParams, queueSize, exceptionHandler, validator);
 
         assertNotNull(dbc);
         dbc.close();
@@ -159,9 +151,7 @@ public class DaoValidateCollector001Test extends DaoTestCase {
         ValidationErrorHandler validationErrorHandler = null;
         CollectorExceptionHandler exceptionHandler = null;
 
-        DaoValidateCollector<UserBean> dbc = new DaoValidateCollector<UserBean>(
-                userListQueryResultHandleDao, methodName, bindParams, queueSize,
-                exceptionHandler, validator, validationErrorHandler);
+        DaoValidateCollector<UserBean> dbc = new DaoValidateCollector<UserBean>(userListQueryResultHandleDao, methodName, bindParams, queueSize, exceptionHandler, validator, validationErrorHandler);
 
         assertNotNull(dbc);
         dbc.close();
@@ -178,9 +168,7 @@ public class DaoValidateCollector001Test extends DaoTestCase {
         Validator validator = null;
         CollectorExceptionHandler exceptionHandler = null;
 
-        DaoValidateCollector<UserBean> dbc = new DaoValidateCollector<UserBean>(
-                userListQueryResultHandleDao, methodName, bindParams, queueSize, relation1n,
-                exceptionHandler, null, validator);
+        DaoValidateCollector<UserBean> dbc = new DaoValidateCollector<UserBean>(userListQueryResultHandleDao, methodName, bindParams, queueSize, relation1n, exceptionHandler, null, validator);
 
         assertNotNull(dbc);
         dbc.close();
@@ -195,9 +183,7 @@ public class DaoValidateCollector001Test extends DaoTestCase {
         Validator validator = new ValidatorStub();
         ValidationErrorHandler validationErrorHandler = new ValidationErrorHandlerStub();
 
-        DaoValidateCollector<UserBean> dbc = new DaoValidateCollector<UserBean>(
-                userListQueryResultHandleDao, methodName, bindParams, validator,
-                validationErrorHandler);
+        DaoValidateCollector<UserBean> dbc = new DaoValidateCollector<UserBean>(userListQueryResultHandleDao, methodName, bindParams, validator, validationErrorHandler);
 
         assertNotNull(dbc);
         dbc.close();
@@ -212,9 +198,7 @@ public class DaoValidateCollector001Test extends DaoTestCase {
         Validator validator = new ValidatorStub();
         ValidationErrorHandler validationErrorHandler = null;
 
-        DaoValidateCollector<UserBean> dbc = new DaoValidateCollector<UserBean>(
-                userListQueryResultHandleDao, methodName, bindParams, validator,
-                validationErrorHandler);
+        DaoValidateCollector<UserBean> dbc = new DaoValidateCollector<UserBean>(userListQueryResultHandleDao, methodName, bindParams, validator, validationErrorHandler);
 
         assertNotNull(dbc);
         dbc.close();
@@ -243,12 +227,9 @@ public class DaoValidateCollector001Test extends DaoTestCase {
      * @throws Exception
      */
     public void testDaoValidateCollector013() throws Exception {
-        DaoCollectorConfig config = new DaoCollectorConfig(
-                userListQueryResultHandleDao,
-                null,
-                null);
+        DaoCollectorConfig config = new DaoCollectorConfig(userListQueryResultHandleDao, null, null);
         config.setExecuteByConstructor(true);
         DaoCollector<UserBean> dbc = new DaoValidateCollector<UserBean>(config);
-        assertTrue((Boolean) UTUtil.getPrivateField(dbc, "beginning"));
+        assertTrue((Boolean) ReflectionTestUtils.getField(dbc, "beginning"));
     }
 }

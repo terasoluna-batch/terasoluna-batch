@@ -23,11 +23,11 @@ import jp.terasoluna.fw.file.annotation.NullStringConverter;
 import jp.terasoluna.fw.file.annotation.PaddingType;
 import jp.terasoluna.fw.file.dao.FileException;
 import jp.terasoluna.fw.file.ut.VMOUTUtil;
-import jp.terasoluna.utlib.UTUtil;
 
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.test.util.ReflectionTestUtils;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.CSVFileLineWriter} クラスのテスト。
@@ -78,8 +78,8 @@ public class CSVFileLineWriterTest {
      * <br>
      * 入力値：(引数) fileName:"(パス)CSVFileLineWriter_testCSVFileLineWriter01.txt"<br>
      * (引数) clazz:CSVFileLineWriter_Stub05インスタンス<br>
-     * 　@FileFormatの設定<br>
-     * 　　delimiter='、'<br>
+     * @FileFormatの設定<br>
+     * delimiter='、'<br>
      * (引数) columnFormatterMap:以下の要素を持つMap<String, ColumnFormatter>インスタンス<br>
      * ・"java.lang.String"=NullColumnFormatter.java<br>
      * <br>
@@ -107,8 +107,7 @@ public class CSVFileLineWriterTest {
 
         try {
             // テスト実施
-            writer = new CSVFileLineWriter<CSVFileLineWriter_Stub05>(fileName,
-                    clazz, columnFormatterMap);
+            writer = new CSVFileLineWriter<CSVFileLineWriter_Stub05>(fileName, clazz, columnFormatterMap);
             fail("FileExceptionがスローされませんでした。");
         } catch (FileException e) {
             // 返却値の確認
@@ -134,8 +133,8 @@ public class CSVFileLineWriterTest {
      * <br>
      * 入力値：(引数) fileName:"(パス)CSVFileLineWriter_testCSVFileLineWriter02.txt"<br>
      * (引数) clazz:CSVFileLineWriter_Stub01<br>
-     * 　@FileFormatの設定<br>
-     * 　　delimiter以外=デフォルト値以外<br>
+     * @FileFormatの設定<br>
+     * delimiter以外=デフォルト値以外<br>
      * (引数) columnFormatterMap:以下の要素を持つMap<String, ColumnFormatter>インスタンス<br>
      * ・"java.lang.String"=NullColumnFormatter.java<br>
      * <br>
@@ -166,14 +165,14 @@ public class CSVFileLineWriterTest {
         CSVFileLineWriter<CSVFileLineWriter_Stub01> result = null;
         try {
             // テスト実施
-            result = new CSVFileLineWriter<CSVFileLineWriter_Stub01>(fileName,
-                    clazz, columnFormatterMap);
+            result = new CSVFileLineWriter<CSVFileLineWriter_Stub01>(fileName, clazz, columnFormatterMap);
 
             // 返却値の確認
             // なし
 
             // 状態変化の確認
-            assertEquals('\"', UTUtil.getPrivateField(result, "encloseChar"));
+            assertEquals('\"', ReflectionTestUtils.getField(result,
+                    "encloseChar"));
 
             int superCallCount = VMOUTUtil.getCallCount(
                     AbstractFileLineWriter.class, "<init>");
@@ -185,8 +184,8 @@ public class CSVFileLineWriterTest {
             assertEquals(CSVFileLineWriter_Stub01.class, arguments.get(1));
             assertEquals(columnFormatterMap, arguments.get(2));
 
-            assertEquals(2, VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "init"));
+            assertEquals(2, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
+                    "init"));
         } finally {
             // テスト対象のクローズ処理
             if (result != null) {
@@ -212,8 +211,7 @@ public class CSVFileLineWriterTest {
         CSVFileLineWriter<FileLineObject_Empty> writer = null;
         // テスト実施
         try {
-            new CSVFileLineWriter<FileLineObject_Empty>(fileName, clazz,
-                    columnFormatterMap);
+            new CSVFileLineWriter<FileLineObject_Empty>(fileName, clazz, columnFormatterMap);
             fail("FileExceptionがスローされませんでした。");
         } catch (FileException e) {
             // 返却値なし
@@ -236,10 +234,10 @@ public class CSVFileLineWriterTest {
      * 観点：E <br>
      * <br>
      * 入力値：(引数) t:CSVFileLineWriter_Stub06インスタンス<br>
-     * 　@FileFormat()<br>
-     * 　String変数column01<br>
-     * 　　アノテーション：@OutputFileColumn(columnIndex = 0)<br>
-     * 　　値："abcdef"<br>
+     * @FileFormat()<br>
+     * String変数column01<br>
+     * アノテーション：@OutputFileColumn(columnIndex = 0)<br>
+     * 値："abcdef"<br>
      * (引数) index:0<br>
      * <br>
      * 期待値：(戻り値) String:"abcdef"<br>
@@ -257,8 +255,7 @@ public class CSVFileLineWriterTest {
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        CSVFileLineWriter<CSVFileLineWriter_Stub06> lineWriter = new CSVFileLineWriter<CSVFileLineWriter_Stub06>(
-                fileName, CSVFileLineWriter_Stub06.class, columnFormatterMap);
+        CSVFileLineWriter<CSVFileLineWriter_Stub06> lineWriter = new CSVFileLineWriter<CSVFileLineWriter_Stub06>(fileName, CSVFileLineWriter_Stub06.class, columnFormatterMap);
 
         // 引数の設定
         CSVFileLineWriter_Stub06 stub = new CSVFileLineWriter_Stub06();
@@ -296,10 +293,10 @@ public class CSVFileLineWriterTest {
      * 観点：E <br>
      * <br>
      * 入力値：(引数) t:CSVFileLineWriter_Stub07インスタンス<br>
-     * 　@FileFormat(encloseChar='\"')<br>
-     * 　String変数column01<br>
-     * 　　アノテーション：@OutputFileColumn(columnIndex = 0)<br>
-     * 　　値："abcdef"<br>
+     * @FileFormat(encloseChar='\"')<br>
+     * String変数column01<br>
+     * アノテーション：@OutputFileColumn(columnIndex = 0)<br>
+     * 値："abcdef"<br>
      * (引数) index:0<br>
      * <br>
      * 期待値：(戻り値) String:"abcdef"<br>
@@ -316,8 +313,7 @@ public class CSVFileLineWriterTest {
 
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
-        CSVFileLineWriter<CSVFileLineWriter_Stub07> lineWriter = new CSVFileLineWriter<CSVFileLineWriter_Stub07>(
-                fileName, CSVFileLineWriter_Stub07.class, columnFormatterMap);
+        CSVFileLineWriter<CSVFileLineWriter_Stub07> lineWriter = new CSVFileLineWriter<CSVFileLineWriter_Stub07>(fileName, CSVFileLineWriter_Stub07.class, columnFormatterMap);
 
         // 引数の設定
         CSVFileLineWriter_Stub07 stub = new CSVFileLineWriter_Stub07();
@@ -355,10 +351,10 @@ public class CSVFileLineWriterTest {
      * 観点：E <br>
      * <br>
      * 入力値：(引数) t:CSVFileLineWriter_Stub07インスタンス<br>
-     * 　@FileFormat(encloseChar='\"')<br>
-     * 　String変数column01<br>
-     * 　　アノテーション：@OutputFileColumn(columnIndex = 0)<br>
-     * 　　値："ab\"cdef"<br>
+     * @FileFormat(encloseChar='\"')<br>
+     * String変数column01<br>
+     * アノテーション：@OutputFileColumn(columnIndex = 0)<br>
+     * 値："ab\"cdef"<br>
      * (引数) index:0<br>
      * <br>
      * 期待値：(戻り値) String:"ab""cdef"<br>
@@ -375,12 +371,11 @@ public class CSVFileLineWriterTest {
 
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
-        CSVFileLineWriter<CSVFileLineWriter_Stub07> lineWriter = new CSVFileLineWriter<CSVFileLineWriter_Stub07>(
-                fileName, CSVFileLineWriter_Stub07.class, columnFormatterMap);
+        CSVFileLineWriter<CSVFileLineWriter_Stub07> lineWriter = new CSVFileLineWriter<CSVFileLineWriter_Stub07>(fileName, CSVFileLineWriter_Stub07.class, columnFormatterMap);
 
         // 引数の設定
         CSVFileLineWriter_Stub07 stub = new CSVFileLineWriter_Stub07();
-        UTUtil.setPrivateField(stub, "column01", "ab\"cdef");
+        ReflectionTestUtils.setField(stub, "column01", "ab\"cdef");
 
         // 前提条件の設定
         // なし
@@ -414,10 +409,10 @@ public class CSVFileLineWriterTest {
      * 観点：G <br>
      * <br>
      * 入力値：(引数) t:CSVFileLineWriter_Stub06インスタンス<br>
-     * 　@FileFormat()<br>
-     * 　String変数column01<br>
-     * 　　アノテーション：@OutputFileColumn(columnIndex = 0)<br>
-     * 　　値："abcdef"<br>
+     * @FileFormat()<br>
+     * String変数column01<br>
+     * アノテーション：@OutputFileColumn(columnIndex = 0)<br>
+     * 値："abcdef"<br>
      * (引数) index:1<br>
      * <br>
      * 期待値：(状態変化) AbstractFileLineWriter#getColumn():引数が渡されて、1回呼び出されること<br>
@@ -435,12 +430,11 @@ public class CSVFileLineWriterTest {
 
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
-        CSVFileLineWriter<CSVFileLineWriter_Stub06> lineWriter = new CSVFileLineWriter<CSVFileLineWriter_Stub06>(
-                fileName, CSVFileLineWriter_Stub06.class, columnFormatterMap);
+        CSVFileLineWriter<CSVFileLineWriter_Stub06> lineWriter = new CSVFileLineWriter<CSVFileLineWriter_Stub06>(fileName, CSVFileLineWriter_Stub06.class, columnFormatterMap);
 
         // 引数の設定
         CSVFileLineWriter_Stub06 stub = new CSVFileLineWriter_Stub06();
-        UTUtil.setPrivateField(stub, "column01", "abcdef");
+        ReflectionTestUtils.setField(stub, "column01", "abcdef");
 
         // 前提条件の設定
         // なし
@@ -491,8 +485,7 @@ public class CSVFileLineWriterTest {
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        CSVFileLineWriter<CSVFileLineWriter_Stub04> lineWriter = new CSVFileLineWriter<CSVFileLineWriter_Stub04>(
-                fileName, CSVFileLineWriter_Stub04.class, columnFormatterMap);
+        CSVFileLineWriter<CSVFileLineWriter_Stub04> lineWriter = new CSVFileLineWriter<CSVFileLineWriter_Stub04>(fileName, CSVFileLineWriter_Stub04.class, columnFormatterMap);
 
         // 引数の設定
         // なし
@@ -537,8 +530,7 @@ public class CSVFileLineWriterTest {
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        CSVFileLineWriter<CSVFileLineWriter_Stub04> lineWriter = new CSVFileLineWriter<CSVFileLineWriter_Stub04>(
-                fileName, CSVFileLineWriter_Stub04.class, columnFormatterMap);
+        CSVFileLineWriter<CSVFileLineWriter_Stub04> lineWriter = new CSVFileLineWriter<CSVFileLineWriter_Stub04>(fileName, CSVFileLineWriter_Stub04.class, columnFormatterMap);
 
         // 引数の設定
         // なし
@@ -546,7 +538,6 @@ public class CSVFileLineWriterTest {
         // 前提条件の設定
         // デフォルトで以下になっているため、何もしない
         // this.encloseChar:\u0000'
-
         // テスト実施
         try {
             char result = lineWriter.getEncloseChar();
@@ -576,8 +567,7 @@ public class CSVFileLineWriterTest {
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        CSVFileLineWriter<CSVFileLine_Stub01> fileLineWriter = new CSVFileLineWriter<CSVFileLine_Stub01>(
-                fileName, CSVFileLine_Stub01.class, columnFormatterMap);
+        CSVFileLineWriter<CSVFileLine_Stub01> fileLineWriter = new CSVFileLineWriter<CSVFileLine_Stub01>(fileName, CSVFileLine_Stub01.class, columnFormatterMap);
 
         // 前処理(引数)
         CSVFileLine_Stub01 t1 = new CSVFileLine_Stub01();
@@ -607,9 +597,8 @@ public class CSVFileLineWriterTest {
         BufferedReader reader = null;
 
         try {
-            reader = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(fileName), System
-                            .getProperty("file.encoding")));
+            reader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), System
+                    .getProperty("file.encoding")));
             assertEquals("\"1\",22,333,|4444|", reader.readLine());
             assertEquals("\"5\",66,777,|8888|", reader.readLine());
             assertEquals("\"9\",AA,BBB,|CCCC|", reader.readLine());
@@ -632,8 +621,7 @@ public class CSVFileLineWriterTest {
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        CSVFileLineWriter<CSVFileLine_Stub02> fileLineWriter = new CSVFileLineWriter<CSVFileLine_Stub02>(
-                fileName, CSVFileLine_Stub02.class, columnFormatterMap);
+        CSVFileLineWriter<CSVFileLine_Stub02> fileLineWriter = new CSVFileLineWriter<CSVFileLine_Stub02>(fileName, CSVFileLine_Stub02.class, columnFormatterMap);
 
         // 前処理(引数)
         CSVFileLine_Stub02 t1 = new CSVFileLine_Stub02();
@@ -663,9 +651,8 @@ public class CSVFileLineWriterTest {
         BufferedReader reader = null;
 
         try {
-            reader = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(fileName), System
-                            .getProperty("file.encoding")));
+            reader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), System
+                    .getProperty("file.encoding")));
             assertEquals("\"1\",'22',\"333\",|4444|", reader.readLine());
             assertEquals("\"5\",'66',\"777\",|8888|", reader.readLine());
             assertEquals("\"9\",'AA',\"BBB\",|CCCC|", reader.readLine());
@@ -688,8 +675,7 @@ public class CSVFileLineWriterTest {
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
-        CSVFileLineWriter<CSVFileLine_Stub03> fileLineWriter = new CSVFileLineWriter<CSVFileLine_Stub03>(
-                fileName, CSVFileLine_Stub03.class, columnFormatterMap);
+        CSVFileLineWriter<CSVFileLine_Stub03> fileLineWriter = new CSVFileLineWriter<CSVFileLine_Stub03>(fileName, CSVFileLine_Stub03.class, columnFormatterMap);
 
         // 前処理(引数)
         CSVFileLine_Stub03 t1 = new CSVFileLine_Stub03();
@@ -704,21 +690,22 @@ public class CSVFileLineWriterTest {
         // アノテーションにアクセスしていないことになる。
         char[] charArray = new char[] { 0, 0, 0, 0 };
         // 前提条件
-        UTUtil.setPrivateField(fileLineWriter, "lineFeedChar", "\r\n");
-        UTUtil.setPrivateField(fileLineWriter, "delimiter", '_');
-        UTUtil.setPrivateField(fileLineWriter, "outputFileColumns", null);
-        UTUtil.setPrivateField(fileLineWriter, "columnFormats", new String[] {
-                "", "", "", "" });
-        UTUtil.setPrivateField(fileLineWriter, "columnBytes", new int[] { -1,
-                -1, -1, -1 });
-        // UTUtil.setPrivateField(fileLineWriter, "totalBytes", 0);
-        UTUtil.setPrivateField(fileLineWriter, "paddingTypes",
+        ReflectionTestUtils.setField(fileLineWriter, "lineFeedChar", "\r\n");
+        ReflectionTestUtils.setField(fileLineWriter, "delimiter", '_');
+        ReflectionTestUtils.setField(fileLineWriter, "outputFileColumns", null);
+        ReflectionTestUtils.setField(fileLineWriter, "columnFormats",
+                new String[] { "", "", "", "" });
+        ReflectionTestUtils.setField(fileLineWriter, "columnBytes", new int[] {
+                -1, -1, -1, -1 });
+        // ReflectionTestUtils.setField(fileLineWriter, "totalBytes", 0);
+        ReflectionTestUtils.setField(fileLineWriter, "paddingTypes",
                 new PaddingType[] { PaddingType.NONE, PaddingType.NONE,
                         PaddingType.NONE, PaddingType.NONE });
-        UTUtil.setPrivateField(fileLineWriter, "paddingChars", charArray);
-        UTUtil.setPrivateField(fileLineWriter, "trimChars", charArray);
-        UTUtil.setPrivateField(fileLineWriter, "columnEncloseChar", charArray);
-        UTUtil.setPrivateField(fileLineWriter, "stringConverters",
+        ReflectionTestUtils.setField(fileLineWriter, "paddingChars", charArray);
+        ReflectionTestUtils.setField(fileLineWriter, "trimChars", charArray);
+        ReflectionTestUtils.setField(fileLineWriter, "columnEncloseChar",
+                charArray);
+        ReflectionTestUtils.setField(fileLineWriter, "stringConverters",
                 new NullStringConverter[] { new NullStringConverter(),
                         new NullStringConverter(), new NullStringConverter(),
                         new NullStringConverter() });
@@ -731,9 +718,8 @@ public class CSVFileLineWriterTest {
         BufferedReader reader = null;
 
         try {
-            reader = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(fileName), System
-                            .getProperty("file.encoding")));
+            reader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), System
+                    .getProperty("file.encoding")));
             assertEquals("1_22_333_4444", reader.readLine());
         } finally {
             reader.close();
