@@ -53,8 +53,6 @@
         <!-- utlib -->
         <terasoluna.utlib.version>1.3.0</terasoluna.utlib.version>
         <terasoluna.unit.version>2.3.1</terasoluna.unit.version>
-        <!-- mockrunner -->
-        <mockrunner.version>0.3.7</mockrunner.version>
         <!-- jakarta -->
         <oro.version>2.0.8</oro.version>
         <!-- postgresql -->
@@ -523,13 +521,6 @@ sp_cleanup.organize_imports=true
                 <version>${terasoluna.utlib.version}</version>
             </dependency>
 
-
-            <dependency>
-                <groupId>com.mockrunner</groupId>
-                <artifactId>mockrunner</artifactId>
-                <version>${mockrunner.version}</version>
-            </dependency>
-
             <!-- dJUnit -->
             <dependency>
                 <groupId>jp.co.dgic</groupId>
@@ -648,9 +639,14 @@ sp_cleanup.organize_imports=true
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.mockrunner</groupId>
-            <artifactId>mockrunner</artifactId>
-            <scope>test</scope>
+        	<groupId>org.mockito</groupId>
+        	<artifactId>mockito-core</artifactId>
+        	<scope>test</scope>
+        </dependency>
+        <dependency>
+        	<groupId>uk.org.lidalia</groupId>
+        	<artifactId>slf4j-test</artifactId>
+        	<scope>test</scope>
         </dependency>
     </dependencies>
 
