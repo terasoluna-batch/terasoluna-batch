@@ -18,7 +18,6 @@ import org.springframework.test.util.ReflectionTestUtils;
 import jp.terasoluna.fw.file.annotation.NullStringConverter;
 import jp.terasoluna.fw.file.dao.FileException;
 import jp.terasoluna.fw.file.ut.VMOUTUtil;
-import jp.terasoluna.utlib.UTUtil;
 import junit.framework.TestCase;
 
 /**

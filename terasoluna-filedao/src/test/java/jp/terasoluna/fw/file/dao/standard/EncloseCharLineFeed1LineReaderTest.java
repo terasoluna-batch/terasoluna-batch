@@ -18,7 +18,6 @@ import java.lang.reflect.Method;
 import org.springframework.test.util.ReflectionTestUtils;
 
 import jp.terasoluna.fw.file.dao.FileException;
-import jp.terasoluna.utlib.UTUtil;
 import junit.framework.TestCase;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;

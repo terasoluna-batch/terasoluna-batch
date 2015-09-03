@@ -17,7 +17,6 @@
 package jp.terasoluna.fw.validation;
 
 import jp.terasoluna.fw.validation.PropertyTestCase;
-import jp.terasoluna.utlib.UTUtil;
 import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;

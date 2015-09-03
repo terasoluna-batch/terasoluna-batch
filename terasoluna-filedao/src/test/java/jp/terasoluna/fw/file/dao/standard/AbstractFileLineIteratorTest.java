@@ -38,7 +38,6 @@ import jp.terasoluna.fw.file.annotation.StringConverterToUpperCase;
 import jp.terasoluna.fw.file.dao.FileException;
 import jp.terasoluna.fw.file.dao.FileLineException;
 import jp.terasoluna.fw.file.ut.VMOUTUtil;
-import jp.terasoluna.utlib.UTUtil;
 import junit.framework.TestCase;
 
 /**

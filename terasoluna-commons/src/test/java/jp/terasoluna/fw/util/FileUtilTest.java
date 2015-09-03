@@ -22,7 +22,6 @@ import java.lang.reflect.Method;
 import org.springframework.test.util.ReflectionTestUtils;
 
 import jp.terasoluna.fw.util.PropertyTestCase;
-import jp.terasoluna.utlib.UTUtil;
 
 import org.junit.After;
 import org.junit.Before;

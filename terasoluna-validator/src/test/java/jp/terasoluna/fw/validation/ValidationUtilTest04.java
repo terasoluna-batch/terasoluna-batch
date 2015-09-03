@@ -21,7 +21,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import jp.terasoluna.fw.validation.PropertyTestCase;
-import jp.terasoluna.utlib.UTUtil;
 import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;

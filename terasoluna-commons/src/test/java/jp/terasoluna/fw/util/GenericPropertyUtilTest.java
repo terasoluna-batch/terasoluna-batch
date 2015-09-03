@@ -23,7 +23,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import jp.terasoluna.utlib.UTUtil;
 import junit.framework.TestCase;
 
 import org.apache.commons.beanutils.BeanUtilsBean;
