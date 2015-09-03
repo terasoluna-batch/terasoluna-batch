@@ -7,7 +7,8 @@
 
 package jp.terasoluna.fw.file.dao;
 
-import jp.terasoluna.utlib.UTUtil;
+import org.springframework.test.util.ReflectionTestUtils;
+
 import junit.framework.TestCase;
 
 /**
@@ -90,7 +91,7 @@ public class FileExceptionTest extends TestCase {
 
         // 状態変化の確認
         assertSame(e, fe.getCause());
-        assertNull(UTUtil.getPrivateField(fe, "fileName"));
+        assertNull(ReflectionTestUtils.getField(fe, "fileName"));
     }
 
     /**
@@ -130,7 +131,7 @@ public class FileExceptionTest extends TestCase {
         // なし
 
         // 状態変化の確認
-        assertSame(fileName, UTUtil.getPrivateField(fe, "fileName"));
+        assertSame(fileName, ReflectionTestUtils.getField(fe, "fileName"));
         assertSame(e, fe.getCause());
     }
 
@@ -168,8 +169,8 @@ public class FileExceptionTest extends TestCase {
         // なし
 
         // 状態変化の確認
-        assertSame(message, UTUtil.getPrivateField(fe, "detailMessage"));
-        assertNull(UTUtil.getPrivateField(fe, "fileName"));
+        assertSame(message, ReflectionTestUtils.getField(fe, "detailMessage"));
+        assertNull(ReflectionTestUtils.getField(fe, "fileName"));
     }
 
     /**
@@ -210,8 +211,8 @@ public class FileExceptionTest extends TestCase {
         // なし
 
         // 状態変化の確認
-        assertSame(message, UTUtil.getPrivateField(fe, "detailMessage"));
-        assertSame(fileName, UTUtil.getPrivateField(fe, "fileName"));
+        assertSame(message, ReflectionTestUtils.getField(fe, "detailMessage"));
+        assertSame(fileName, ReflectionTestUtils.getField(fe, "fileName"));
     }
 
     /**
@@ -253,9 +254,9 @@ public class FileExceptionTest extends TestCase {
         // なし
 
         // 状態変化の確認
-        assertSame(message, UTUtil.getPrivateField(fe, "detailMessage"));
-        assertNull(UTUtil.getPrivateField(fe, "fileName"));
-        assertSame(e, UTUtil.getPrivateField(fe, "cause"));
+        assertSame(message, ReflectionTestUtils.getField(fe, "detailMessage"));
+        assertNull(ReflectionTestUtils.getField(fe, "fileName"));
+        assertSame(e, ReflectionTestUtils.getField(fe, "cause"));
     }
 
     /**
@@ -301,9 +302,9 @@ public class FileExceptionTest extends TestCase {
         // なし
 
         // 状態変化の確認
-        assertSame(message, UTUtil.getPrivateField(fe, "detailMessage"));
-        assertSame(fileName, UTUtil.getPrivateField(fe, "fileName"));
-        assertSame(e, UTUtil.getPrivateField(fe, "cause"));
+        assertSame(message, ReflectionTestUtils.getField(fe, "detailMessage"));
+        assertSame(fileName, ReflectionTestUtils.getField(fe, "fileName"));
+        assertSame(e, ReflectionTestUtils.getField(fe, "cause"));
     }
 
     /**
@@ -330,7 +331,7 @@ public class FileExceptionTest extends TestCase {
 
         // 前提条件の設定
         String fileName = new String();
-        UTUtil.setPrivateField(fe, "fileName", fileName);
+        ReflectionTestUtils.setField(fe, "fileName", fileName);
 
         // テスト実施
         String result = fe.getFileName();

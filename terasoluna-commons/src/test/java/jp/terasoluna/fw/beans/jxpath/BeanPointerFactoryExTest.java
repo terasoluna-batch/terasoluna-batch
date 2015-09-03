@@ -18,30 +18,25 @@ package jp.terasoluna.fw.beans.jxpath;
 
 import java.util.Locale;
 
-import jp.terasoluna.utlib.UTUtil;
 import junit.framework.TestCase;
 
 import org.apache.commons.jxpath.ri.QName;
 import org.apache.commons.jxpath.ri.model.NodePointer;
 import org.apache.commons.jxpath.ri.model.beans.NullPointer;
+import org.springframework.test.util.ReflectionTestUtils;
 
 /**
  * {@link jp.terasoluna.fw.beans.jxpath.BeanPointerFactoryEx} クラスのブラックボックステスト。
- * 
  * <p>
- * <h4>【クラスの概要】</h4>
- * Beanポインタファクトリの拡張クラス。<br>
+ * <h4>【クラスの概要】</h4> Beanポインタファクトリの拡張クラス。<br>
  * 前提条件：
  * <p>
- * 
  * @see jp.terasoluna.fw.beans.jxpath.BeanPointerFactoryEx
  */
 public class BeanPointerFactoryExTest extends TestCase {
 
-
     /**
      * 初期化処理を行う。
-     * 
      * @throws Exception このメソッドで発生した例外
      * @see junit.framework.TestCase#setUp()
      */
@@ -52,7 +47,6 @@ public class BeanPointerFactoryExTest extends TestCase {
 
     /**
      * 終了処理を行う。
-     * 
      * @throws Exception このメソッドで発生した例外
      * @see junit.framework.TestCase#tearDown()
      */
@@ -63,7 +57,6 @@ public class BeanPointerFactoryExTest extends TestCase {
 
     /**
      * コンストラクタ。
-     * 
      * @param name このテストケースの名前。
      */
     public BeanPointerFactoryExTest(String name) {
@@ -71,153 +64,133 @@ public class BeanPointerFactoryExTest extends TestCase {
     }
 
     /**
-     * testGetOrder01()
-     * <br><br>
-     * 
-     * (正常系)
+     * testGetOrder01() <br>
      * <br>
-     * 観点：A
-     * <br><br>
-     * 入力値：
+     * (正常系) <br>
+     * 観点：A <br>
      * <br>
+     * 入力値： <br>
      * 期待値：(戻り値) -:850<br>
-     *         
      * <br>
-     * ソート順を取得するメソッド。固定値を返す。
-     * <br>
-     * 
+     * ソート順を取得するメソッド。固定値を返す。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testGetOrder01() throws Exception {
         // 前処理
-    	BeanPointerFactoryEx factory = new BeanPointerFactoryEx();
+        BeanPointerFactoryEx factory = new BeanPointerFactoryEx();
 
         // テスト実施
-    	assertEquals(850, factory.getOrder());
+        assertEquals(850, factory.getOrder());
     }
 
     /**
-     * testCreateNodePointerQname01()
-     * <br><br>
-     * 
-     * (正常系)
+     * testCreateNodePointerQname01() <br>
      * <br>
-     * 観点：A
-     * <br><br>
+     * (正常系) <br>
+     * 観点：A <br>
+     * <br>
      * 入力値：(引数) name:not null<br>
-     *         (引数) bean:new Object()<br>
-     *         (引数) locale:Locale("ja")<br>
-     *         
+     * (引数) bean:new Object()<br>
+     * (引数) locale:Locale("ja")<br>
      * <br>
      * 期待値：(戻り値) NodePointer:new BeanPointerEX {<br>
-     *                      locale=引数のlocale<br>
-     *                      name=引数のname<br>
-     *                      bean=引数のbean<br>
-     *                  }<br>
-     *         
+     * locale=引数のlocale<br>
+     * name=引数のname<br>
+     * bean=引数のbean<br>
+     * }<br>
      * <br>
-     * ノードポインタを取得するテスト。
-     * <br>
-     * 
+     * ノードポインタを取得するテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testCreateNodePointerQname01() throws Exception {
         // 前処理
-    	BeanPointerFactoryEx factory = new BeanPointerFactoryEx();
-    	QName qName = new QName("name");
-    	Object bean = new Object();
-    	Locale locale = new Locale("ja");
+        BeanPointerFactoryEx factory = new BeanPointerFactoryEx();
+        QName qName = new QName("name");
+        Object bean = new Object();
+        Locale locale = new Locale("ja");
 
         // テスト実施
-    	NodePointer result = factory.createNodePointer(qName, bean, locale);
+        NodePointer result = factory.createNodePointer(qName, bean, locale);
 
         // 判定
-    	assertSame(BeanPointerEx.class, result.getClass());
-    	assertSame(locale, result.getLocale());
-    	assertSame(qName, result.getName());
-    	assertSame(bean, UTUtil.getPrivateField(result, "bean"));
+        assertSame(BeanPointerEx.class, result.getClass());
+        assertSame(locale, result.getLocale());
+        assertSame(qName, result.getName());
+        assertSame(bean, ReflectionTestUtils.getField(result, "bean"));
     }
 
     /**
-     * testCreateNodePointerNodePointer01()
-     * <br><br>
-     * 
-     * (正常系)
+     * testCreateNodePointerNodePointer01() <br>
      * <br>
-     * 観点：C
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C <br>
+     * <br>
      * 入力値：(引数) parent:not null<br>
-     *         (引数) name:not null<br>
-     *         (引数) bean:null<br>
-     *         
+     * (引数) name:not null<br>
+     * (引数) bean:null<br>
      * <br>
      * 期待値：(戻り値) NodePointer:new NullPointer {<br>
-     *                      parent=引数のparent<br>
-     *                      name=引数のname<br>
-     *                  }<br>
-     *         
+     * parent=引数のparent<br>
+     * name=引数のname<br>
+     * }<br>
      * <br>
-     * ターゲットがnullの場合のテスト。
-     * <br>
-     * 
+     * ターゲットがnullの場合のテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testCreateNodePointerNodePointer01() throws Exception {
         // 前処理
-    	BeanPointerFactoryEx factory = new BeanPointerFactoryEx();
-    	QName qName = new QName("name");
-    	Locale locale = new Locale("ja");
-    	NodePointer nodePointer = NodePointer.newNodePointer(qName, null, locale);
+        BeanPointerFactoryEx factory = new BeanPointerFactoryEx();
+        QName qName = new QName("name");
+        Locale locale = new Locale("ja");
+        NodePointer nodePointer = NodePointer.newNodePointer(qName, null,
+                locale);
 
         // テスト実施
-    	NodePointer result = factory.createNodePointer(nodePointer, qName, null);
+        NodePointer result = factory.createNodePointer(nodePointer, qName,
+                null);
 
         // 判定
-    	assertSame(NullPointer.class, result.getClass());
-    	assertSame(nodePointer, result.getParent());
-    	assertSame(qName, result.getName());
+        assertSame(NullPointer.class, result.getClass());
+        assertSame(nodePointer, result.getParent());
+        assertSame(qName, result.getName());
     }
 
     /**
-     * testCreateNodePointerNodePointer02()
-     * <br><br>
-     * 
-     * (正常系)
+     * testCreateNodePointerNodePointer02() <br>
      * <br>
-     * 観点：A
-     * <br><br>
+     * (正常系) <br>
+     * 観点：A <br>
+     * <br>
      * 入力値：(引数) parent:not null<br>
-     *         (引数) name:not null<br>
-     *         (引数) bean:new Object()<br>
-     *         
+     * (引数) name:not null<br>
+     * (引数) bean:new Object()<br>
      * <br>
      * 期待値：(戻り値) NodePointer:new BeanPointerEX {<br>
-     *                      parent=引数のparent<br>
-     *                      name=引数のname<br>
-     *                      bean=引数のbean<br>
-     *                  }<br>
-     *         
+     * parent=引数のparent<br>
+     * name=引数のname<br>
+     * bean=引数のbean<br>
+     * }<br>
      * <br>
-     * ターゲットがnullではない場合のテスト。
-     * <br>
-     * 
+     * ターゲットがnullではない場合のテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testCreateNodePointerNodePointer02() throws Exception {
         // 前処理
-    	BeanPointerFactoryEx factory = new BeanPointerFactoryEx();
-    	QName qName = new QName("name");
-    	Object bean = new Object();
-    	Locale locale = new Locale("ja");
-    	NodePointer nodePointer = NodePointer.newNodePointer(qName, bean, locale);
+        BeanPointerFactoryEx factory = new BeanPointerFactoryEx();
+        QName qName = new QName("name");
+        Object bean = new Object();
+        Locale locale = new Locale("ja");
+        NodePointer nodePointer = NodePointer.newNodePointer(qName, bean,
+                locale);
 
         // テスト実施
-    	NodePointer result = factory.createNodePointer(nodePointer, qName, bean);
+        NodePointer result = factory.createNodePointer(nodePointer, qName,
+                bean);
 
         // 判定
-    	assertSame(BeanPointerEx.class, result.getClass());
-    	assertSame(nodePointer, result.getParent());
-    	assertSame(qName, result.getName());
-    	assertSame(bean, UTUtil.getPrivateField(result, "bean"));
+        assertSame(BeanPointerEx.class, result.getClass());
+        assertSame(nodePointer, result.getParent());
+        assertSame(qName, result.getName());
+        assertSame(bean, ReflectionTestUtils.getField(result, "bean"));
     }
 }

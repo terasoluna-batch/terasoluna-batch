@@ -21,7 +21,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import jp.terasoluna.utlib.UTUtil;
 import junit.framework.TestCase;
 
 import org.apache.commons.validator.Field;
@@ -30,6 +29,7 @@ import org.apache.commons.validator.ValidatorException;
 import org.apache.commons.validator.ValidatorResources;
 import org.apache.commons.validator.ValidatorResult;
 import org.apache.commons.validator.ValidatorResults;
+import org.springframework.test.util.ReflectionTestUtils;
 
 /**
  * {@link jp.terasoluna.fw.validation.springmodules.CommonsValidatorEx}
@@ -113,7 +113,7 @@ public class CommonsValidatorExTest extends TestCase {
         CommonsValidatorEx commonsValidatorEx = new CommonsValidatorEx(
                 resources, null);
         ValidatorException validatorException = new ValidatorException();
-        UTUtil.setPrivateField(commonsValidatorEx, "validatorException",
+        ReflectionTestUtils.setField(commonsValidatorEx, "validatorException",
                 validatorException);
 
         // テスト実施
@@ -160,14 +160,14 @@ public class CommonsValidatorExTest extends TestCase {
             new CommonsValidatorEx_FieldStub01();
         List<Field> lFields = new ArrayList<Field>();
         lFields.add(field);
-        UTUtil.setPrivateField(form, "lFields", lFields);
+        ReflectionTestUtils.setField(form, "lFields", lFields);
 
         ValidatorResults validatorResults = new ValidatorResults();
         Map<String, ValidatorResult> hResults
             = new HashMap<String, ValidatorResult>();
         ValidatorResult validatorResult = new ValidatorResult(field);
         hResults.put("test", validatorResult);
-        UTUtil.setPrivateField(validatorResults, "hResults", hResults);
+        ReflectionTestUtils.setField(validatorResults, "hResults", hResults);
         
         field.validateReturn = validatorResults;
         
@@ -179,7 +179,7 @@ public class CommonsValidatorExTest extends TestCase {
 
         // 判定
         // resultが、field.validate()の結果を含んでいるかを確認する。
-        Map resultHResults = (Map) UTUtil.getPrivateField(result, "hResults");
+        Map<?, ?> resultHResults = (Map<?, ?>) ReflectionTestUtils.getField(result, "hResults");
         assertEquals(1, resultHResults.size());
         assertSame(validatorResult, resultHResults.get("test"));
     }
@@ -221,7 +221,7 @@ public class CommonsValidatorExTest extends TestCase {
             new CommonsValidatorEx_FieldStub01();
         List<Field> lFields = new ArrayList<Field>();
         lFields.add(field);
-        UTUtil.setPrivateField(form, "lFields", lFields);
+        ReflectionTestUtils.setField(form, "lFields", lFields);
 
         field.validatorException = new ValidatorException();
         
@@ -265,13 +265,13 @@ public class CommonsValidatorExTest extends TestCase {
         CommonsValidatorEx commonsValidatorEx = new CommonsValidatorEx(
                 resources, null);
         ValidatorException validatorException = new ValidatorException();
-        UTUtil.setPrivateField(commonsValidatorEx, "validatorException",
+        ReflectionTestUtils.setField(commonsValidatorEx, "validatorException",
                 validatorException);
 
         // テスト実施
         commonsValidatorEx.clear();
-        ValidatorException result = (ValidatorException)UTUtil
-            .getPrivateField(commonsValidatorEx, "validatorException");
+        ValidatorException result = (ValidatorException) ReflectionTestUtils
+            .getField(commonsValidatorEx, "validatorException");
 
         // 判定
         assertNull(result);

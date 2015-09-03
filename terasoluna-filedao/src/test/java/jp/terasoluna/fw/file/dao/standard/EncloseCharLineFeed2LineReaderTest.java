@@ -13,6 +13,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.lang.reflect.Method;
+
+import org.springframework.test.util.ReflectionTestUtils;
 
 import jp.terasoluna.fw.file.dao.FileException;
 import jp.terasoluna.utlib.UTUtil;
@@ -110,15 +113,16 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
         // 返却値なし
 
         // 状態変化の確認
-        char delimiterCharacter = (Character) UTUtil.getPrivateField(testCalss,
-                "delimiterCharacter");
+        char delimiterCharacter = (Character) ReflectionTestUtils.getField(
+                testCalss, "delimiterCharacter");
         assertEquals(dChar, delimiterCharacter);
-        char[] encloseCharacter = (char[]) UTUtil.getPrivateField(testCalss,
-                "columnEncloseCharacter");
+        char[] encloseCharacter = (char[]) ReflectionTestUtils.getField(
+                testCalss, "columnEncloseCharacter");
         assertEquals(eChar, encloseCharacter);
-        Reader reader = (Reader) UTUtil.getPrivateField(testCalss, "reader");
+        Reader reader = (Reader) ReflectionTestUtils.getField(testCalss,
+                "reader");
         assertEquals(bufferedReader, reader);
-        String lineFeedChar = (String) UTUtil.getPrivateField(testCalss,
+        String lineFeedChar = (String) ReflectionTestUtils.getField(testCalss,
                 "lineFeedChar");
         assertEquals(parm, lineFeedChar);
     }
@@ -435,7 +439,8 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
             assertEquals(FileException.class, e.getClass());
             assertEquals(IOException.class.getName(), e.getCause().getClass()
                     .getName());
-            assertEquals("Reader control operation was failed.", e.getMessage());
+            assertEquals("Reader control operation was failed.", e
+                    .getMessage());
         }
     }
 
@@ -583,7 +588,7 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
      * <br>
      * 期待値：(戻り値) String:"\"aa,a\",\"aa\"\"a\",\"aa\r\na\""<br>
      * <br>
-     * 文字列の中に囲み文字、区切り文字、行区切り文字が含まれている場合。　（囲み文字のエスケープなど） <br>
+     * 文字列の中に囲み文字、区切り文字、行区切り文字が含まれている場合。 （囲み文字のエスケープなど） <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testReadLine05() throws Exception {
@@ -992,8 +997,10 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
         int index = 0;
 
         // テスト実施
-        Object result = UTUtil.invokePrivate(testCalss, "getEncloseCharcter",
-                int.class, index);
+        Method method = EncloseCharLineFeed2LineReader.class.getDeclaredMethod(
+                "getEncloseCharcter", new Class[] { int.class });
+        method.setAccessible(true);
+        Object result = method.invoke(testCalss, index);
 
         // 返却値なし
         assertNotNull(result);
@@ -1019,8 +1026,10 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
         int index = 1;
 
         // テスト実施
-        Object result = UTUtil.invokePrivate(testCalss, "getEncloseCharcter",
-                int.class, index);
+        Method method = EncloseCharLineFeed2LineReader.class.getDeclaredMethod(
+                "getEncloseCharcter", new Class[] { int.class });
+        method.setAccessible(true);
+        Object result = method.invoke(testCalss, index);
 
         // 返却値なし
         assertNotNull(result);
@@ -1046,8 +1055,10 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
         int index = 3;
 
         // テスト実施
-        Object result = UTUtil.invokePrivate(testCalss, "getEncloseCharcter",
-                int.class, index);
+        Method method = EncloseCharLineFeed2LineReader.class.getDeclaredMethod(
+                "getEncloseCharcter", new Class[] { int.class });
+        method.setAccessible(true);
+        Object result = method.invoke(testCalss, index);
 
         // 返却値なし
         assertNotNull(result);
@@ -1073,8 +1084,10 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
         int index = 4;
 
         // テスト実施
-        Object result = UTUtil.invokePrivate(testCalss, "getEncloseCharcter",
-                int.class, index);
+        Method method = EncloseCharLineFeed2LineReader.class.getDeclaredMethod(
+                "getEncloseCharcter", new Class[] { int.class });
+        method.setAccessible(true);
+        Object result = method.invoke(testCalss, index);
 
         // 返却値なし
         assertNotNull(result);
@@ -1100,8 +1113,10 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
         int index = 5;
 
         // テスト実施
-        Object result = UTUtil.invokePrivate(testCalss, "getEncloseCharcter",
-                int.class, index);
+        Method method = EncloseCharLineFeed2LineReader.class.getDeclaredMethod(
+                "getEncloseCharcter", new Class[] { int.class });
+        method.setAccessible(true);
+        Object result = method.invoke(testCalss, index);
 
         // 返却値なし
         assertNotNull(result);

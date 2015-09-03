@@ -16,21 +16,20 @@
 
 package jp.terasoluna.fw.exception;
 
-import jp.terasoluna.utlib.UTUtil;
+import org.springframework.test.util.ReflectionTestUtils;
+
 import junit.framework.TestCase;
 
 /**
  * SystemException ブラックボックステスト。<br>
- *
- *
  * @version 2004/04/21
  */
 
 public class SystemExceptionTest extends TestCase {
 
     /**
-      * テスト用SystemExceptionフィールド。
-      */
+     * テスト用SystemExceptionフィールド。
+     */
     private SystemException se1 = null;
 
     /**
@@ -52,13 +51,10 @@ public class SystemExceptionTest extends TestCase {
 
     /**
      * testSystemExceptionThrowable01()<br>
-     *
      * (正常系)<br>
      * 観点：A<br>
-     *
      * 入力値：cause = not null<br>
      * 期待値：cause = not null, errorCode = ""が設定される。<br>
-     * 
      * 概要：引数causeがNotNullで、メッセージがありの場合
      * @throws Exception 例外
      */
@@ -70,9 +66,10 @@ public class SystemExceptionTest extends TestCase {
         se1 = new SystemException(cause);
 
         // 出力値の確認。
-        String throwWord =
-            ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
-        String errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
+        String throwWord = ((Throwable) ReflectionTestUtils.getField(se1,
+                "cause")).getMessage();
+        String errorCode = (String) ReflectionTestUtils.getField(se1,
+                "errorCode");
         assertEquals("testException", throwWord);
         assertEquals("", errorCode);
 
@@ -80,13 +77,10 @@ public class SystemExceptionTest extends TestCase {
 
     /**
      * testSystemExceptionThrowable02()<br>
-     *
      * (正常系)<br>
      * 観点：C<br>
-     *
      * 入力値：cause = ""<br>
      * 期待値：cause = "", errorCode = ""が設定される。<br>
-     * 
      * 概要：引数causeがNotNullで、メッセージが空白の場合
      * @throws Exception 例外
      */
@@ -98,22 +92,20 @@ public class SystemExceptionTest extends TestCase {
         se1 = new SystemException(cause);
 
         // 出力値の確認。
-        String throwWord =
-            ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
-        String errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
+        String throwWord = ((Throwable) ReflectionTestUtils.getField(se1,
+                "cause")).getMessage();
+        String errorCode = (String) ReflectionTestUtils.getField(se1,
+                "errorCode");
         assertEquals("", throwWord);
         assertEquals("", errorCode);
     }
 
     /**
      * testSystemExceptionThrowable03()<br>
-     *
      * (正常系)<br>
      * 観点：C<br>
-     *
      * 入力値：cause = null<br>
      * 期待値：cause = null, errorCode = ""が設定される。<br>
-     * 
      * 概要：引数causeがnullの場合
      * @throws Exception 例外
      */
@@ -123,21 +115,20 @@ public class SystemExceptionTest extends TestCase {
         se1 = new SystemException(null);
 
         // 出力値の確認。
-        Throwable throWord = (Throwable) UTUtil.getPrivateField(se1, "cause");
-        String errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
+        Throwable throWord = (Throwable) ReflectionTestUtils.getField(se1,
+                "cause");
+        String errorCode = (String) ReflectionTestUtils.getField(se1,
+                "errorCode");
         assertNull(throWord);
         assertEquals("", errorCode);
     }
 
     /**
      * testSystemExceptionThrowableString01()<br>
-     *
      * (正常系)<br>
      * 観点：A<br>
-     *
      * 入力値：cause = not null, errorCode = not null<br>
      * 期待値：cause = not null, errorCode = not nullが設定される。<br>
-     * 
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeが"test01"の場合
      * @throws Exception 例外
      */
@@ -150,22 +141,19 @@ public class SystemExceptionTest extends TestCase {
         se1 = new SystemException(cause, errorCode);
 
         // 出力値の確認。
-        String throwWord =
-            ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
-        errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
+        String throwWord = ((Throwable) ReflectionTestUtils.getField(se1,
+                "cause")).getMessage();
+        errorCode = (String) ReflectionTestUtils.getField(se1, "errorCode");
         assertEquals("testException", throwWord);
         assertEquals("test01", errorCode);
     }
 
     /**
      * testSystemExceptionThrowableString02()<br>
-     *
      * (正常系)<br>
      * 観点：C<br>
-     *
      * 入力値：cause = not null, errorCode = ""<br>
      * 期待値：cause = not null, errorCode = ""が設定される。<br>
-     * 
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeが空白の場合
      * @throws Exception 例外
      */
@@ -177,21 +165,20 @@ public class SystemExceptionTest extends TestCase {
         se1 = new SystemException(cause, "");
 
         // 出力値の確認。
-        String throwWord =
-            ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
-        String errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
+        String throwWord = ((Throwable) ReflectionTestUtils.getField(se1,
+                "cause")).getMessage();
+        String errorCode = (String) ReflectionTestUtils.getField(se1,
+                "errorCode");
         assertEquals("testException", throwWord);
         assertEquals("", errorCode);
     }
+
     /**
      * testSystemExceptionThrowableString03<br>
-     *
      * (正常系)<br>
      * 観点：C<br>
-     *
      * 入力値：cause = not null, errorCode = null<br>
      * 期待値：cause = not null, errorCode = nullが設定される。<br>
-     * 
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeがnullの場合
      * @throws Exception 例外
      */
@@ -203,30 +190,26 @@ public class SystemExceptionTest extends TestCase {
         se1 = new SystemException(cause, null);
 
         // 出力値の確認。
-        String throwWord =
-            ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
-        String errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
+        String throwWord = ((Throwable) ReflectionTestUtils.getField(se1,
+                "cause")).getMessage();
+        String errorCode = (String) ReflectionTestUtils.getField(se1,
+                "errorCode");
         assertEquals("testException", throwWord);
         assertNull(errorCode);
     }
 
     /**
      * testSystemExceptionThrowableStringStringArray01<br>
-     *
      * (正常系)<br>
-     *
      * 観点：A<br>
-     *
      * 入力値：cause = not null, errorCode = not null, <br>
-     *        optionStrings = not null<br>
+     * optionStrings = not null<br>
      * 期待値：cause = not null, errorCode = not null, <br>
-     *        options = not nullが設定される。<br>
-     * 
+     * options = not nullが設定される。<br>
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeが"test01"、引数optionsが「{ "a" }」の場合
      * @throws Exception 例外
      */
-    public void testSystemExceptionThrowableStringStringArray01()
-        throws Exception {
+    public void testSystemExceptionThrowableStringStringArray01() throws Exception {
         // 入力値の設定。
         Throwable cause = new Throwable("testException");
         String errorCode = "test01";
@@ -236,10 +219,11 @@ public class SystemExceptionTest extends TestCase {
         se1 = new SystemException(cause, errorCode, optionStrings);
 
         // 出力値の確認。
-        String throwWord =
-            ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
-        errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
-        String[] options = (String[]) UTUtil.getPrivateField(se1, "options");
+        String throwWord = ((Throwable) ReflectionTestUtils.getField(se1,
+                "cause")).getMessage();
+        errorCode = (String) ReflectionTestUtils.getField(se1, "errorCode");
+        String[] options = (String[]) ReflectionTestUtils.getField(se1,
+                "options");
         assertEquals("testException", throwWord);
         assertEquals("test01", errorCode);
         assertEquals("a", options[0]);
@@ -247,21 +231,16 @@ public class SystemExceptionTest extends TestCase {
 
     /**
      * testSystemExceptionThrowableStringStringArray02()<br>
-     *
      * (正常系)<br>
-     *
      * 観点：A<br>
-     *
      * 入力値：cause = not null, errorCode = "", <br>
-     *        optionStrings = not null<br>
+     * optionStrings = not null<br>
      * 期待値：cause = not null, errorCode = "", <br>
-     *        options = not nullが設定される。<br>
-     * 
+     * options = not nullが設定される。<br>
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeが"test01"、引数optionsが「{ "a", "b" }」の場合
      * @throws Exception 例外
      */
-    public void testSystemExceptionThrowableStringStringArray02()
-        throws Exception {
+    public void testSystemExceptionThrowableStringStringArray02() throws Exception {
         // 入力値の設定。
         Throwable cause = new Throwable("testException");
         String[] optionStrings = { "a", "b" };
@@ -270,10 +249,12 @@ public class SystemExceptionTest extends TestCase {
         se1 = new SystemException(cause, "", optionStrings);
 
         // 出力値の確認。
-        String throwWord =
-            ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
-        String errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
-        String[] options = (String[]) UTUtil.getPrivateField(se1, "options");
+        String throwWord = ((Throwable) ReflectionTestUtils.getField(se1,
+                "cause")).getMessage();
+        String errorCode = (String) ReflectionTestUtils.getField(se1,
+                "errorCode");
+        String[] options = (String[]) ReflectionTestUtils.getField(se1,
+                "options");
         assertEquals("testException", throwWord);
         assertEquals("", errorCode);
         assertEquals("a", options[0]);
@@ -282,21 +263,16 @@ public class SystemExceptionTest extends TestCase {
 
     /**
      * testSystemExceptionThrowableStringStringArray03()<br>
-     *
      * (正常系)<br>
-     *
      * 観点：A<br>
-     *
      * 入力値：cause = not null, errorCode = null, <br>
-     *        optionStrings = not null<br>
+     * optionStrings = not null<br>
      * 期待値：cause = not null, errorCode = null, <br>
-     *        options = not nullが設定される。<br>
-     * 
+     * options = not nullが設定される。<br>
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeが"test01"、引数optionsが「{ "a", "b", "c" }」の場合
      * @throws Exception 例外
      */
-    public void testSystemExceptionThrowableStringStringArray03()
-        throws Exception {
+    public void testSystemExceptionThrowableStringStringArray03() throws Exception {
         // 入力値の設定。
         Throwable cause = new Throwable("testException");
         String[] optionStrings = { "a", "b", "c" };
@@ -305,10 +281,12 @@ public class SystemExceptionTest extends TestCase {
         se1 = new SystemException(cause, null, optionStrings);
 
         // 出力値の確認。
-        String throwWord =
-            ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
-        String errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
-        String[] options = (String[]) UTUtil.getPrivateField(se1, "options");
+        String throwWord = ((Throwable) ReflectionTestUtils.getField(se1,
+                "cause")).getMessage();
+        String errorCode = (String) ReflectionTestUtils.getField(se1,
+                "errorCode");
+        String[] options = (String[]) ReflectionTestUtils.getField(se1,
+                "options");
         assertEquals("testException", throwWord);
         assertNull(errorCode);
         assertEquals("a", options[0]);
@@ -318,21 +296,16 @@ public class SystemExceptionTest extends TestCase {
 
     /**
      * testSystemExceptionThrowableStringStringArray04<br>
-     *
      * (正常系)<br>
-     *
      * 観点：C<br>
-     *
      * 入力値：cause = not null, errorCode = "", <br>
-     *        optionStrings = null<br>
+     * optionStrings = null<br>
      * 期待値：cause = not null, errorCode = "", <br>
-     *        options = nullが設定される。<br>
-     * 
+     * options = nullが設定される。<br>
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeが"test01"、引数optionsがnullの場合
      * @throws Exception 例外
      */
-    public void testSystemExceptionThrowableStringStringArray04()
-        throws Exception {
+    public void testSystemExceptionThrowableStringStringArray04() throws Exception {
         // 入力値の設定。
         Throwable cause = new Throwable("testException");
         String[] optionStrings = null;
@@ -341,10 +314,12 @@ public class SystemExceptionTest extends TestCase {
         se1 = new SystemException(cause, "", optionStrings);
 
         // 出力値の確認。
-        String throwWord =
-            ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
-        String errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
-        String[] options = (String[]) UTUtil.getPrivateField(se1, "options");
+        String throwWord = ((Throwable) ReflectionTestUtils.getField(se1,
+                "cause")).getMessage();
+        String errorCode = (String) ReflectionTestUtils.getField(se1,
+                "errorCode");
+        String[] options = (String[]) ReflectionTestUtils.getField(se1,
+                "options");
         assertEquals("testException", throwWord);
         assertEquals("", errorCode);
         assertNull(options);
@@ -353,21 +328,16 @@ public class SystemExceptionTest extends TestCase {
 
     /**
      * testSystemExceptionThrowableStringStringArray05<br>
-     *
      * (正常系)<br>
-     *
      * 観点：C<br>
-     *
      * 入力値：cause = not null, errorCode = null, <br>
-     *        optionStrings = not null(配列要素に空白あり)<br>
+     * optionStrings = not null(配列要素に空白あり)<br>
      * 期待値：cause = not null, errorCode = null, <br>
-     *        options = not null(配列要素に空白あり)が設定される。<br>
-     * 
+     * options = not null(配列要素に空白あり)が設定される。<br>
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeが"test01"、引数optionsが「{ "", "", "" }」の場合
      * @throws Exception 例外
      */
-    public void testSystemExceptionThrowableStringStringArray05()
-        throws Exception {
+    public void testSystemExceptionThrowableStringStringArray05() throws Exception {
         // 入力値の設定。
         Throwable cause = new Throwable("testException");
         String[] optionStrings = { "", "", "" };
@@ -376,10 +346,12 @@ public class SystemExceptionTest extends TestCase {
         se1 = new SystemException(cause, null, optionStrings);
 
         // 出力値の確認。
-        String throwWord =
-            ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
-        String errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
-        String[] options = (String[]) UTUtil.getPrivateField(se1, "options");
+        String throwWord = ((Throwable) ReflectionTestUtils.getField(se1,
+                "cause")).getMessage();
+        String errorCode = (String) ReflectionTestUtils.getField(se1,
+                "errorCode");
+        String[] options = (String[]) ReflectionTestUtils.getField(se1,
+                "options");
         assertEquals("testException", throwWord);
         assertEquals(null, errorCode);
         assertEquals("", options[0]);
@@ -390,21 +362,16 @@ public class SystemExceptionTest extends TestCase {
 
     /**
      * testSystemExceptionThrowableStringStringArray06<br>
-     *
      * (正常系)<br>
-     *
      * 観点：C<br>
-     *
      * 入力値：cause = not null, errorCode = not null, <br>
-     *        optionStrings = not null(配列要素にnullあり)<br>
+     * optionStrings = not null(配列要素にnullあり)<br>
      * 期待値：cause = not null, errorCode = not null, <br>
-     *        options = not null(配列要素にnullあり)が設定される。<br>
-     * 
+     * options = not null(配列要素にnullあり)が設定される。<br>
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeが"test01"、引数optionsが「{ null, null, null }」の場合
      * @throws Exception 例外
      */
-    public void testSystemExceptionThrowableStringStringArray06()
-        throws Exception {
+    public void testSystemExceptionThrowableStringStringArray06() throws Exception {
         // 入力値の設定。
         Throwable cause = new Throwable("testException");
         String errorCode = "test01";
@@ -414,10 +381,11 @@ public class SystemExceptionTest extends TestCase {
         se1 = new SystemException(cause, errorCode, optionStrings);
 
         // 出力値の確認。
-        String throwWord =
-            ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
-        errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
-        String[] options = (String[]) UTUtil.getPrivateField(se1, "options");
+        String throwWord = ((Throwable) ReflectionTestUtils.getField(se1,
+                "cause")).getMessage();
+        errorCode = (String) ReflectionTestUtils.getField(se1, "errorCode");
+        String[] options = (String[]) ReflectionTestUtils.getField(se1,
+                "options");
         assertEquals("testException", throwWord);
         assertEquals("test01", errorCode);
         assertNull(options[0]);
@@ -428,21 +396,16 @@ public class SystemExceptionTest extends TestCase {
 
     /**
      * testSystemExceptionThrowableStringStringArray07<br>
-     *
      * (正常系)<br>
-     *
      * 観点：C<br>
-     *
      * 入力値：cause = not null, errorCode = not null, <br>
-     *        optionStrings = not null(配列要素に空白、nullあり)<br>
+     * optionStrings = not null(配列要素に空白、nullあり)<br>
      * 期待値：cause = not null, errorCode = not null, <br>
-     *        options = not null(配列要素に空白、nullあり)が設定される。<br>
-     * 
+     * options = not null(配列要素に空白、nullあり)が設定される。<br>
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeが"test01"、引数optionsが「{ "a", "", null }」の場合
      * @throws Exception 例外
      */
-    public void testSystemExceptionThrowableStringStringArray07()
-        throws Exception {
+    public void testSystemExceptionThrowableStringStringArray07() throws Exception {
         // 入力値の設定。
         Throwable cause = new Throwable("testException");
         String errorCode = "test01";
@@ -452,10 +415,11 @@ public class SystemExceptionTest extends TestCase {
         se1 = new SystemException(cause, errorCode, optionStrings);
 
         // 出力値の確認。
-        String throwWord =
-            ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
-        errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
-        String[] options = (String[]) UTUtil.getPrivateField(se1, "options");
+        String throwWord = ((Throwable) ReflectionTestUtils.getField(se1,
+                "cause")).getMessage();
+        errorCode = (String) ReflectionTestUtils.getField(se1, "errorCode");
+        String[] options = (String[]) ReflectionTestUtils.getField(se1,
+                "options");
         assertEquals("testException", throwWord);
         assertEquals("test01", errorCode);
         assertEquals("a", options[0]);
@@ -466,15 +430,11 @@ public class SystemExceptionTest extends TestCase {
 
     /**
      * testSystemExceptionThrowableStringString01()<br>
-     *
      * (正常系)<br>
-     *
      * 観点：A<br>
-     *
      * 入力値：cause = not null, errorCode = not null, s0 = not null<br>
      * 期待値：cause = not null, errorCode = not null, <br>
-     *        options = not nullが設定される。<br>
-     * 
+     * options = not nullが設定される。<br>
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeが"test01"、引数s0が"a"の場合
      * @throws Exception 例外
      */
@@ -488,10 +448,11 @@ public class SystemExceptionTest extends TestCase {
         se1 = new SystemException(cause, errorCode, s0);
 
         // 出力値の確認。
-        String throwWord =
-            ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
-        errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
-        String[] options = (String[]) UTUtil.getPrivateField(se1, "options");
+        String throwWord = ((Throwable) ReflectionTestUtils.getField(se1,
+                "cause")).getMessage();
+        errorCode = (String) ReflectionTestUtils.getField(se1, "errorCode");
+        String[] options = (String[]) ReflectionTestUtils.getField(se1,
+                "options");
         assertEquals("testException", throwWord);
         assertEquals("test01", errorCode);
         assertEquals("a", options[0]);
@@ -499,15 +460,11 @@ public class SystemExceptionTest extends TestCase {
 
     /**
      * testSystemExceptionThrowableStringString02()<br>
-     *
      * (正常系)<br>
-     *
      * 観点：C<br>
-     *
      * 入力値：cause = not null, errorCode = "", s0 = ""<br>
      * 期待値：cause = not null, errorCode = "", <br>
-     *        options = not null(配列要素に空白あり)が設定される。<br>
-     * 
+     * options = not null(配列要素に空白あり)が設定される。<br>
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeが""、引数s0が空白の場合
      * @throws Exception 例外
      */
@@ -519,10 +476,12 @@ public class SystemExceptionTest extends TestCase {
         se1 = new SystemException(cause, "", "");
 
         // 出力値の確認。
-        String throwWord =
-            ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
-        String errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
-        String[] options = (String[]) UTUtil.getPrivateField(se1, "options");
+        String throwWord = ((Throwable) ReflectionTestUtils.getField(se1,
+                "cause")).getMessage();
+        String errorCode = (String) ReflectionTestUtils.getField(se1,
+                "errorCode");
+        String[] options = (String[]) ReflectionTestUtils.getField(se1,
+                "options");
         assertEquals("testException", throwWord);
         assertEquals("", errorCode);
         assertEquals("", options[0]);
@@ -530,15 +489,11 @@ public class SystemExceptionTest extends TestCase {
 
     /**
      * testSystemExceptionThrowableStringString03()<br>
-     *
      * (正常系)<br>
-     *
      * 観点：C<br>
-     *
      * 入力値：cause = not null, errorCode = null, s0 = null<br>
      * 期待値：cause = not null, errorCode = null, <br>
-     *        options = not null(配列要素にnullあり)が設定される。<br>
-     * 
+     * options = not null(配列要素にnullあり)が設定される。<br>
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeがnull、引数s0がnullの場合
      * @throws Exception 例外
      */
@@ -551,10 +506,12 @@ public class SystemExceptionTest extends TestCase {
         se1 = new SystemException(cause, null, s0);
 
         // 出力値の確認。
-        String throwWord =
-            ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
-        String errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
-        String[] options = (String[]) UTUtil.getPrivateField(se1, "options");
+        String throwWord = ((Throwable) ReflectionTestUtils.getField(se1,
+                "cause")).getMessage();
+        String errorCode = (String) ReflectionTestUtils.getField(se1,
+                "errorCode");
+        String[] options = (String[]) ReflectionTestUtils.getField(se1,
+                "options");
         assertEquals("testException", throwWord);
         assertNull(errorCode);
         assertNull(options[0]);
@@ -562,21 +519,16 @@ public class SystemExceptionTest extends TestCase {
 
     /**
      * testSystemExceptionThrowableStringStringString01()<br>
-     *
      * (正常系)<br>
-     *
      * 観点：A<br>
-     *
      * 入力値：cause = not null, errorCode = not null,<br>
-     *        s0 = not null, s1 = not null<br>
+     * s0 = not null, s1 = not null<br>
      * 期待値：cause = not null, errorCode = not null, <br>
-     *        options = not nullが設定される。<br>
-     * 
+     * options = not nullが設定される。<br>
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeが"test01"、引数s0が"a"、引数s1が"b"の場合
      * @throws Exception 例外
      */
-    public void testSystemExceptionThrowableStringStringString01()
-        throws Exception {
+    public void testSystemExceptionThrowableStringStringString01() throws Exception {
         // 入力値の設定。
         Throwable cause = new Throwable("testException");
         String errorCode = "test01";
@@ -587,10 +539,11 @@ public class SystemExceptionTest extends TestCase {
         se1 = new SystemException(cause, errorCode, s0, s1);
 
         // 出力値の確認。
-        String throwWord =
-            ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
-        errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
-        String[] options = (String[]) UTUtil.getPrivateField(se1, "options");
+        String throwWord = ((Throwable) ReflectionTestUtils.getField(se1,
+                "cause")).getMessage();
+        errorCode = (String) ReflectionTestUtils.getField(se1, "errorCode");
+        String[] options = (String[]) ReflectionTestUtils.getField(se1,
+                "options");
         assertEquals("testException", throwWord);
         assertEquals("test01", errorCode);
         assertEquals("a", options[0]);
@@ -599,20 +552,15 @@ public class SystemExceptionTest extends TestCase {
 
     /**
      * testSystemExceptionThrowableStringStringString02()<br>
-     *
      * (正常系)<br>
-     *
      * 観点：C<br>
-     *
      * 入力値：cause = not null, errorCode = not null, s0 = "", s1 = ""<br>
      * 期待値：cause = not null, errorCode = not null, <br>
-     *        options = not null(配列要素に""あり)が設定される。<br>
-     * 
+     * options = not null(配列要素に""あり)が設定される。<br>
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeが"test01"、引数s0が空白、引数s1が空白の場合
      * @throws Exception 例外
      */
-    public void testSystemExceptionThrowableStringStringString02()
-        throws Exception {
+    public void testSystemExceptionThrowableStringStringString02() throws Exception {
         // 入力値の設定。
         Throwable cause = new Throwable("testException");
         String errorCode = "test01";
@@ -621,10 +569,11 @@ public class SystemExceptionTest extends TestCase {
         se1 = new SystemException(cause, errorCode, "", "");
 
         // 出力値の確認。
-        String throwWord =
-            ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
-        errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
-        String[] options = (String[]) UTUtil.getPrivateField(se1, "options");
+        String throwWord = ((Throwable) ReflectionTestUtils.getField(se1,
+                "cause")).getMessage();
+        errorCode = (String) ReflectionTestUtils.getField(se1, "errorCode");
+        String[] options = (String[]) ReflectionTestUtils.getField(se1,
+                "options");
         assertEquals("testException", throwWord);
         assertEquals("test01", errorCode);
         assertEquals("", options[0]);
@@ -633,20 +582,15 @@ public class SystemExceptionTest extends TestCase {
 
     /**
      * testSystemExceptionThrowableStringStringString03()<br>
-     *
      * (正常系)<br>
-     *
      * 観点：C<br>
-     *
      * 入力値：cause = not null, errorCode = "", s0 = null, s1 = null<br>
      * 期待値：cause = not null, errorCode = "", <br>
-     *        options = not null(配列要素にnullあり)が設定される。<br>
-     * 
+     * options = not null(配列要素にnullあり)が設定される。<br>
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeが空白、引数s0がnull、引数s1がnullの場合
      * @throws Exception 例外
      */
-    public void testSystemExceptionThrowableStringStringString03()
-        throws Exception {
+    public void testSystemExceptionThrowableStringStringString03() throws Exception {
         // 入力値の設定。
         Throwable cause = new Throwable("testException");
 
@@ -654,10 +598,12 @@ public class SystemExceptionTest extends TestCase {
         se1 = new SystemException(cause, "", null, null);
 
         // 出力値の確認。
-        String throwWord =
-            ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
-        String errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
-        String[] options = (String[]) UTUtil.getPrivateField(se1, "options");
+        String throwWord = ((Throwable) ReflectionTestUtils.getField(se1,
+                "cause")).getMessage();
+        String errorCode = (String) ReflectionTestUtils.getField(se1,
+                "errorCode");
+        String[] options = (String[]) ReflectionTestUtils.getField(se1,
+                "options");
         assertEquals("testException", throwWord);
         assertEquals("", errorCode);
         assertNull(options[0]);
@@ -666,20 +612,15 @@ public class SystemExceptionTest extends TestCase {
 
     /**
      * testSystemExceptionThrowableStringStringString04()<br>
-     *
      * (正常系)<br>
-     *
      * 観点：C<br>
-     *
      * 入力値：cause = not null, errorCode = null, s0 = "", s1 = not null<br>
      * 期待値：cause = not null, errorCode = null, <br>
-     *        options = not null(配列要素に空白あり)が設定される。<br>
-     * 
+     * options = not null(配列要素に空白あり)が設定される。<br>
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeがnull、引数s0が空白、引数s1が"a"の場合
      * @throws Exception 例外
      */
-    public void testSystemExceptionThrowableStringStringString04()
-        throws Exception {
+    public void testSystemExceptionThrowableStringStringString04() throws Exception {
         // 入力値の設定。
         Throwable cause = new Throwable("testException");
         String s1 = "a";
@@ -688,10 +629,12 @@ public class SystemExceptionTest extends TestCase {
         se1 = new SystemException(cause, null, "", s1);
 
         // 出力値の確認。
-        String throwWord =
-            ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
-        String errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
-        String[] options = (String[]) UTUtil.getPrivateField(se1, "options");
+        String throwWord = ((Throwable) ReflectionTestUtils.getField(se1,
+                "cause")).getMessage();
+        String errorCode = (String) ReflectionTestUtils.getField(se1,
+                "errorCode");
+        String[] options = (String[]) ReflectionTestUtils.getField(se1,
+                "options");
         assertEquals("testException", throwWord);
         assertNull(errorCode);
         assertEquals("", options[0]);
@@ -700,20 +643,15 @@ public class SystemExceptionTest extends TestCase {
 
     /**
      * testSystemExceptionThrowableStringStringString05()<br>
-     *
      * (正常系)<br>
-     *
      * 観点：C<br>
-     *
      * 入力値：cause = not null, errorCode = not null, s0 = null, s1 = not null<br>
      * 期待値：cause = not null, errorCode = not null, <br>
-     *        options = not null(配列要素にnullあり)が設定される。<br>
-     * 
+     * options = not null(配列要素にnullあり)が設定される。<br>
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeが"test01"、引数s0がnull、引数s1が"a"の場合
      * @throws Exception 例外
      */
-    public void testSystemExceptionThrowableStringStringString05()
-        throws Exception {
+    public void testSystemExceptionThrowableStringStringString05() throws Exception {
         // 入力値の設定。
         Throwable cause = new Throwable("testException");
         String errorCode = "test01";
@@ -723,10 +661,11 @@ public class SystemExceptionTest extends TestCase {
         se1 = new SystemException(cause, errorCode, null, s1);
 
         // 出力値の確認。
-        String throwWord =
-            ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
-        errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
-        String[] options = (String[]) UTUtil.getPrivateField(se1, "options");
+        String throwWord = ((Throwable) ReflectionTestUtils.getField(se1,
+                "cause")).getMessage();
+        errorCode = (String) ReflectionTestUtils.getField(se1, "errorCode");
+        String[] options = (String[]) ReflectionTestUtils.getField(se1,
+                "options");
         assertEquals("testException", throwWord);
         assertEquals("test01", errorCode);
         assertNull(options[0]);
@@ -735,21 +674,16 @@ public class SystemExceptionTest extends TestCase {
 
     /**
      * testSystemExceptionThrowableStringStringStringString01()<br>
-     *
      * (正常系)<br>
-     *
      * 観点：A<br>
-     *
      * 入力値：cause = not null, errorCode = not null, <br>
-     *        s0 = not null, s1 = not null, s2 = not null<br>
+     * s0 = not null, s1 = not null, s2 = not null<br>
      * 期待値：cause = not null, errorCode = not null, <br>
-     *        options = not nullが設定される。<br>
-     * 
+     * options = not nullが設定される。<br>
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeが"test01"、引数s0が"a"、引数s1が"b"、引数s2が"c"の場合
      * @throws Exception 例外
      */
-    public void testSystemExceptionThrowableStringStringStringString01()
-        throws Exception {
+    public void testSystemExceptionThrowableStringStringStringString01() throws Exception {
         // 入力値の設定。
         Throwable cause = new Throwable("testException");
         String errorCode = "test01";
@@ -761,10 +695,11 @@ public class SystemExceptionTest extends TestCase {
         se1 = new SystemException(cause, errorCode, s0, s1, s2);
 
         // 出力値の確認。
-        String throwWord =
-            ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
-        errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
-        String[] options = (String[]) UTUtil.getPrivateField(se1, "options");
+        String throwWord = ((Throwable) ReflectionTestUtils.getField(se1,
+                "cause")).getMessage();
+        errorCode = (String) ReflectionTestUtils.getField(se1, "errorCode");
+        String[] options = (String[]) ReflectionTestUtils.getField(se1,
+                "options");
         assertEquals("testException", throwWord);
         assertEquals("test01", errorCode);
         assertEquals("a", options[0]);
@@ -774,21 +709,16 @@ public class SystemExceptionTest extends TestCase {
 
     /**
      * testSystemExceptionThrowableStringStringStringString02()<br>
-     *
      * (正常系)<br>
-     *
      * 観点：C<br>
-     *
      * 入力値：cause = not null, errorCode = "", <br>
-     *        s0 = "", s1 = "", s2 = ""<br>
+     * s0 = "", s1 = "", s2 = ""<br>
      * 期待値：cause = not null, errorCode = "", <br>
-     *        options = not null(配列要素に空白あり)が設定される。<br>
-     * 
+     * options = not null(配列要素に空白あり)が設定される。<br>
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeが空白、引数s0が空白、引数s1が空白、引数s2が空白の場合
      * @throws Exception 例外
      */
-    public void testSystemExceptionThrowableStringStringStringString02()
-        throws Exception {
+    public void testSystemExceptionThrowableStringStringStringString02() throws Exception {
         // 入力値の設定。
         Throwable cause = new Throwable("testException");
 
@@ -796,10 +726,12 @@ public class SystemExceptionTest extends TestCase {
         se1 = new SystemException(cause, "", "", "", "");
 
         // 出力値の確認。
-        String throwWord =
-            ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
-        String errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
-        String[] options = (String[]) UTUtil.getPrivateField(se1, "options");
+        String throwWord = ((Throwable) ReflectionTestUtils.getField(se1,
+                "cause")).getMessage();
+        String errorCode = (String) ReflectionTestUtils.getField(se1,
+                "errorCode");
+        String[] options = (String[]) ReflectionTestUtils.getField(se1,
+                "options");
         assertEquals("testException", throwWord);
         assertEquals("", errorCode);
         assertEquals("", options[0]);
@@ -809,21 +741,16 @@ public class SystemExceptionTest extends TestCase {
 
     /**
      * testSystemExceptionThrowableStringStringStringString03()<br>
-     *
      * (正常系)<br>
-     *
      * 観点：C<br>
-     *
      * 入力値：cause = not null, errorCode = null, <br>
-     *        s0 = null, s1 = null, s2 = null<br>
+     * s0 = null, s1 = null, s2 = null<br>
      * 期待値：cause = not null, errorCode = null, <br>
-     *        options = not null(配列要素に空白あり)が設定される。<br>
-     * 
+     * options = not null(配列要素に空白あり)が設定される。<br>
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeがnull、引数s0がnull、引数s1がnull、引数s2がnullの場合
      * @throws Exception 例外
      */
-    public void testSystemExceptionThrowableStringStringStringString03()
-        throws Exception {
+    public void testSystemExceptionThrowableStringStringStringString03() throws Exception {
         // 入力値の設定。
         Throwable cause = new Throwable("testException");
 
@@ -831,10 +758,12 @@ public class SystemExceptionTest extends TestCase {
         se1 = new SystemException(cause, null, null, null, null);
 
         // 出力値の確認。
-        String throwWord =
-            ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
-        String errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
-        String[] options = (String[]) UTUtil.getPrivateField(se1, "options");
+        String throwWord = ((Throwable) ReflectionTestUtils.getField(se1,
+                "cause")).getMessage();
+        String errorCode = (String) ReflectionTestUtils.getField(se1,
+                "errorCode");
+        String[] options = (String[]) ReflectionTestUtils.getField(se1,
+                "options");
         assertEquals("testException", throwWord);
         assertNull(errorCode);
         assertNull(options[0]);
@@ -844,21 +773,16 @@ public class SystemExceptionTest extends TestCase {
 
     /**
      * testSystemExceptionThrowableStringStringStringString04()<br>
-     *
      * (正常系)<br>
-     *
      * 観点：C<br>
-     *
      * 入力値：cause = not null, errorCode = not null,<br>
-     *        s0 = not null, s1 = "", s2 = null<br>
+     * s0 = not null, s1 = "", s2 = null<br>
      * 期待値：cause = not null, errorCode = not null,<br>
-     *        options = not nullが設定される。<br>
-     * 
+     * options = not nullが設定される。<br>
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeが"test01"、引数s0が"a"、引数s1が空白、引数s2がnullの場合
      * @throws Exception 例外
      */
-    public void testSystemExceptionThrowableStringStringStringString04()
-        throws Exception {
+    public void testSystemExceptionThrowableStringStringStringString04() throws Exception {
         // 入力値の設定。
         Throwable cause = new Throwable("testException");
         String errorCode = "test01";
@@ -868,10 +792,11 @@ public class SystemExceptionTest extends TestCase {
         se1 = new SystemException(cause, errorCode, s0, "", null);
 
         // 出力値の確認。
-        String throwWord =
-            ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
-        errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
-        String[] options = (String[]) UTUtil.getPrivateField(se1, "options");
+        String throwWord = ((Throwable) ReflectionTestUtils.getField(se1,
+                "cause")).getMessage();
+        errorCode = (String) ReflectionTestUtils.getField(se1, "errorCode");
+        String[] options = (String[]) ReflectionTestUtils.getField(se1,
+                "options");
         assertEquals("testException", throwWord);
         assertEquals("test01", errorCode);
         assertEquals("a", options[0]);
@@ -881,21 +806,16 @@ public class SystemExceptionTest extends TestCase {
 
     /**
      * testSystemExceptionThrowableStringStringStringStringString01()<br>
-     *
      * (正常系)<br>
-     *
      * 観点：A<br>
-     *
      * 入力値：cause = not null, errorCode = null,<br>
-     *        s0 = not null, s1 = not null, s2 = not null, s3 = not null<br>
+     * s0 = not null, s1 = not null, s2 = not null, s3 = not null<br>
      * 期待値：cause = not null, errorCode = null, <br>
-     *        options = not nullが設定される。<br>
-     * 
+     * options = not nullが設定される。<br>
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeがnull、引数s0が"a"、引数s1が"b"、引数s2が"c"、引数s3が"d"の場合
      * @throws Exception 例外
      */
-    public void testSystemExceptionThrowableStringStringStringStringString01()
-        throws Exception {
+    public void testSystemExceptionThrowableStringStringStringStringString01() throws Exception {
         // 入力値の設定。
         Throwable cause = new Throwable("testException");
         String s0 = "a";
@@ -907,10 +827,12 @@ public class SystemExceptionTest extends TestCase {
         se1 = new SystemException(cause, null, s0, s1, s2, s3);
 
         // 出力値の確認。
-        String throwWord =
-            ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
-        String errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
-        String[] options = (String[]) UTUtil.getPrivateField(se1, "options");
+        String throwWord = ((Throwable) ReflectionTestUtils.getField(se1,
+                "cause")).getMessage();
+        String errorCode = (String) ReflectionTestUtils.getField(se1,
+                "errorCode");
+        String[] options = (String[]) ReflectionTestUtils.getField(se1,
+                "options");
         assertEquals("testException", throwWord);
         assertNull(errorCode);
         assertEquals("a", options[0]);
@@ -921,21 +843,16 @@ public class SystemExceptionTest extends TestCase {
 
     /**
      * testSystemExceptionThrowableStringStringStringStringString02()<br>
-     *
      * (正常系)<br>
-     *
      * 観点：C<br>
-     *
      * 入力値：cause = not null, errorCode = not null,<br>
-     *        s0 = "", s1 = "", s2 = "", s3 = ""<br>
+     * s0 = "", s1 = "", s2 = "", s3 = ""<br>
      * 期待値：cause = not null, errorCode = not null, <br>
-     *        options = not null(配列要素に空白あり)が設定される。<br>
-     * 
+     * options = not null(配列要素に空白あり)が設定される。<br>
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeが"test01"、引数s0が空白、引数s1が空白、引数s2が空白、引数s3が空白の場合
      * @throws Exception 例外
      */
-    public void testSystemExceptionThrowableStringStringStringStringString02()
-        throws Exception {
+    public void testSystemExceptionThrowableStringStringStringStringString02() throws Exception {
         // 入力値の設定。
         Throwable cause = new Throwable("testException");
         String errorCode = "test01";
@@ -944,10 +861,11 @@ public class SystemExceptionTest extends TestCase {
         se1 = new SystemException(cause, errorCode, "", "", "", "");
 
         // 出力値の確認。
-        String throwWord =
-            ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
-        errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
-        String[] options = (String[]) UTUtil.getPrivateField(se1, "options");
+        String throwWord = ((Throwable) ReflectionTestUtils.getField(se1,
+                "cause")).getMessage();
+        errorCode = (String) ReflectionTestUtils.getField(se1, "errorCode");
+        String[] options = (String[]) ReflectionTestUtils.getField(se1,
+                "options");
         assertEquals("testException", throwWord);
         assertEquals("test01", errorCode);
         assertEquals("", options[0]);
@@ -958,21 +876,16 @@ public class SystemExceptionTest extends TestCase {
 
     /**
      * testSystemExceptionThrowableStringStringStringStringString03()<br>
-     *
      * (正常系)<br>
-     *
      * 観点：C<br>
-     *
      * 入力値：cause = not null, errorCode = "", <br>
-     *        s0 = null, s1 = null, s2 = null, s3 = null<br>
+     * s0 = null, s1 = null, s2 = null, s3 = null<br>
      * 期待値：cause = not null, errorCode = "", <br>
-     *        options = not null(配列要素にnullあり)が設定される。<br>
-     * 
+     * options = not null(配列要素にnullあり)が設定される。<br>
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeが空白、引数s0がnull、引数s1がnull、引数s2がnull、引数s3がnullの場合
      * @throws Exception 例外
      */
-    public void testSystemExceptionThrowableStringStringStringStringString03()
-        throws Exception {
+    public void testSystemExceptionThrowableStringStringStringStringString03() throws Exception {
         // 入力値の設定。
         Throwable cause = new Throwable("testException");
 
@@ -980,10 +893,12 @@ public class SystemExceptionTest extends TestCase {
         se1 = new SystemException(cause, "", null, null, null, null);
 
         // 出力値の確認。
-        String throwWord =
-            ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
-        String errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
-        String[] options = (String[]) UTUtil.getPrivateField(se1, "options");
+        String throwWord = ((Throwable) ReflectionTestUtils.getField(se1,
+                "cause")).getMessage();
+        String errorCode = (String) ReflectionTestUtils.getField(se1,
+                "errorCode");
+        String[] options = (String[]) ReflectionTestUtils.getField(se1,
+                "options");
         assertEquals("testException", throwWord);
         assertEquals("", errorCode);
         assertNull(options[0]);
@@ -994,21 +909,16 @@ public class SystemExceptionTest extends TestCase {
 
     /**
      * testSystemExceptionThrowableStringStringStringStringString04()<br>
-     *
      * (正常系)<br>
-     *
      * 観点：C<br>
-     *
      * 入力値：cause = not null, errorCode = null,<br>
-     *        s0 = not null, s1 = not null, s2 = "", s3 = null<br>
+     * s0 = not null, s1 = not null, s2 = "", s3 = null<br>
      * 期待値：cause = not null, errorCode = null, <br>
-     *        options = not null(配列要素に空白、nullあり)が設定される。<br>
-     * 
+     * options = not null(配列要素に空白、nullあり)が設定される。<br>
      * 概要：引数causeがNotNullでメッセージがあり、引数errorCodeがnull、引数s0が"a"、引数s1が"b"、引数s2が空白、引数s3がnullの場合
      * @throws Exception 例外
      */
-    public void testSystemExceptionThrowableStringStringStringStringString04()
-        throws Exception {
+    public void testSystemExceptionThrowableStringStringStringStringString04() throws Exception {
         // 入力値の設定。
         Throwable cause = new Throwable("testException");
         String s0 = "a";
@@ -1018,10 +928,12 @@ public class SystemExceptionTest extends TestCase {
         se1 = new SystemException(cause, null, s0, s1, "", null);
 
         // 出力値の確認。
-        String throwWord =
-            ((Throwable) UTUtil.getPrivateField(se1, "cause")).getMessage();
-        String errorCode = (String) UTUtil.getPrivateField(se1, "errorCode");
-        String[] options = (String[]) UTUtil.getPrivateField(se1, "options");
+        String throwWord = ((Throwable) ReflectionTestUtils.getField(se1,
+                "cause")).getMessage();
+        String errorCode = (String) ReflectionTestUtils.getField(se1,
+                "errorCode");
+        String[] options = (String[]) ReflectionTestUtils.getField(se1,
+                "options");
         assertEquals("testException", throwWord);
         assertNull(errorCode);
         assertEquals("a", options[0]);
@@ -1032,14 +944,10 @@ public class SystemExceptionTest extends TestCase {
 
     /**
      * testGetErrorCode01()<br>
-     *
      * (正常系)<br>
      * 観点：A<br>
-     *
      * 入力値：cause = not null, errorCode = not null<br>
-     * 期待値：SystemExceptionのerrorCode属性が取得できているか確認する。
-     * 
-     * 概要：※正常系一件のみテスト
+     * 期待値：SystemExceptionのerrorCode属性が取得できているか確認する。 概要：※正常系一件のみテスト
      * @throws Exception 例外
      */
     public void testGetErrorCode01() throws Exception {
@@ -1048,7 +956,7 @@ public class SystemExceptionTest extends TestCase {
 
         // テスト対象コンストラクタの実行。
         se1 = new SystemException(cause);
-        UTUtil.setPrivateField(se1, "errorCode", "abc");
+        ReflectionTestUtils.setField(se1, "errorCode", "abc");
 
         // テスト対象メソッドの実行と出力値の確認。
         assertEquals("abc", se1.getErrorCode());
@@ -1056,14 +964,10 @@ public class SystemExceptionTest extends TestCase {
 
     /**
      * testGetOptions01()<br>
-     *
      * (正常系)<br>
      * 観点：A<br>
-     *
      * 入力値：options = not null<br>
-     * 期待値：SystemExceptionのoptions属性が取得できているか確認する。
-     * 
-     * 概要：※正常系一件のみテスト
+     * 期待値：SystemExceptionのoptions属性が取得できているか確認する。 概要：※正常系一件のみテスト
      * @throws Exception 例外
      */
     public void testGetOptions01() throws Exception {
@@ -1071,7 +975,7 @@ public class SystemExceptionTest extends TestCase {
         Throwable cause = new Throwable("testException");
         String[] options = { "a", "b" };
         se1 = new SystemException(cause);
-        UTUtil.setPrivateField(se1, "options", options);
+        ReflectionTestUtils.setField(se1, "options", options);
 
         // テスト対象メソッドの実行と出力値の確認。
         assertEquals("a", se1.getOptions()[0]);
@@ -1081,14 +985,10 @@ public class SystemExceptionTest extends TestCase {
 
     /**
      * testSetMessage01()<br>
-     *
      * (正常系)<br>
      * 観点：A<br>
-     *
      * 入力値：cause = not null, message = not null<br>
-     * 期待値：SystemExceptionのmessage属性が入力できているか確認する。
-     * 
-     * 概要：※正常系一件のみテスト
+     * 期待値：SystemExceptionのmessage属性が入力できているか確認する。 概要：※正常系一件のみテスト
      * @throws Exception 例外
      */
     public void testSetMessage01() throws Exception {
@@ -1101,19 +1001,15 @@ public class SystemExceptionTest extends TestCase {
         se1.setMessage(message);
 
         // 出力値の確認。
-        assertEquals("abc", UTUtil.getPrivateField(se1, "message"));
+        assertEquals("abc", ReflectionTestUtils.getField(se1, "message"));
     }
 
     /**
      * testGetMessage01()<br>
-     *
      * (正常系)<br>
      * 観点：A<br>
-     *
      * 入力値：cause = not null, message = not null<br>
-     * 期待値：SystemExceptionのmessage属性が取得できているか確認する。
-     * 
-     * 概要：messageの値がnot nullの場合、messageの値が取得できることを確認する。
+     * 期待値：SystemExceptionのmessage属性が取得できているか確認する。 概要：messageの値がnot nullの場合、messageの値が取得できることを確認する。
      * @throws Exception 例外
      */
     public void testGetMessage01() throws Exception {
@@ -1122,32 +1018,25 @@ public class SystemExceptionTest extends TestCase {
 
         // テスト対象コンストラクタの実行。
         se1 = new SystemException(cause);
-        UTUtil.setPrivateField(se1, "message", "abc");
+        ReflectionTestUtils.setField(se1, "message", "abc");
 
         // テスト対象メソッドの実行と出力値の確認。
         assertEquals("abc", se1.getMessage());
     }
 
     /**
-     * testGetMessage02()
-     * <br><br>
-     *
-     * (正常系)
+     * testGetMessage02() <br>
      * <br>
-     * 観点：A
-     * <br><br>
+     * (正常系) <br>
+     * 観点：A <br>
+     * <br>
      * 入力値：(状態) message:null<br>
-     *         (状態) errorCode:"def"<br>
-     *
+     * (状態) errorCode:"def"<br>
      * <br>
      * 期待値：(戻り値) message:"def"<br>
-     *
      * <br>
-     * messageの値がnullの場合、errorCodeの値が取得できることを確認する。
-     * <br>
-     * 
+     * messageの値がnullの場合、errorCodeの値が取得できることを確認する。 <br>
      * 概要：messageの値がnullの場合、errorCodeの値が取得できることを確認する。
-     *
      * @throws Exception このメソッドで発生した例外
      */
     public void testGetMessage02() throws Exception {
@@ -1156,8 +1045,8 @@ public class SystemExceptionTest extends TestCase {
 
         // テスト対象コンストラクタの実行。
         se1 = new SystemException(cause);
-        UTUtil.setPrivateField(se1, "message", null);
-        UTUtil.setPrivateField(se1, "errorCode", "def");
+        ReflectionTestUtils.setField(se1, "message", null);
+        ReflectionTestUtils.setField(se1, "errorCode", "def");
 
         // テスト対象メソッドの実行と出力値の確認。
         assertEquals("def", se1.getMessage());

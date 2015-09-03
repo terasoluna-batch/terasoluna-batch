@@ -15,15 +15,18 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.reflect.Field;
 import java.net.URL;
 import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.test.util.ReflectionTestUtils;
+
 import jp.terasoluna.fw.file.dao.FileException;
+import jp.terasoluna.fw.file.ut.FileContent;
 import jp.terasoluna.fw.file.ut.VMOUTUtil;
-import jp.terasoluna.utlib.UTUtil;
 import junit.framework.TestCase;
 
 /**
@@ -66,7 +69,9 @@ public class FileUtilityTest extends TestCase {
         super.tearDown();
 
         // FileUtilityのstaticフィールドをデフォルト値に初期化する。
-        UTUtil.setPrivateField(FileUtility.class, "checkFileExist", false);
+        Field field = FileUtility.class.getDeclaredField("checkFileExist");
+        field.setAccessible(true);
+        field.set(FileUtility.class, false);        
     }
 
     /**
@@ -118,7 +123,7 @@ public class FileUtilityTest extends TestCase {
         String newFile = directoryPath + "testCopyFile01_new.txt";
 
         // 前提条件の設定
-        UTUtil.setPrivateField(FileUtility.class, "checkFileExist", false);
+        ReflectionTestUtils.setField(FileUtility.class, "checkFileExist", false);
 
         // テスト対象ファイルを初期化する。
         File testSrcFile = new File(srcFile);
@@ -150,7 +155,9 @@ public class FileUtilityTest extends TestCase {
 
             // コピー先のファイル内容確認
             File getFile = new File(newFile);
-            UTUtil.assertEqualsFile(testSrcFile, getFile);
+            FileContent testFileContent = new FileContent(testSrcFile);
+            FileContent fileContent = new FileContent(getFile);
+            assertTrue(testFileContent.equals(fileContent));
         } finally {
             if (testSrcFileFileWriter != null) {
                 testSrcFileFileWriter.close();
@@ -206,7 +213,9 @@ public class FileUtilityTest extends TestCase {
         String newFile = directoryPath + "testCopyFile02_new.txt";
 
         // 前提条件の設定
-        UTUtil.setPrivateField(FileUtility.class, "checkFileExist", true);
+        Field field = FileUtility.class.getDeclaredField("checkFileExist");
+        field.setAccessible(true);
+        field.set(FileUtility.class, true);        
 
         // テスト対象ファイルを初期化する。
         File testSrcFile = new File(srcFile);
@@ -245,7 +254,9 @@ public class FileUtilityTest extends TestCase {
 
             // コピー先のファイル内容確認
             File getFile = new File(newFile);
-            UTUtil.assertEqualsFile(testSrcFile, getFile);
+            FileContent testFileContent = new FileContent(testSrcFile);
+            FileContent fileContent = new FileContent(getFile);
+            assertTrue(testFileContent.equals(fileContent));
         } finally {
             if (testSrcFileFileWriter != null) {
                 testSrcFileFileWriter.close();
@@ -303,7 +314,9 @@ public class FileUtilityTest extends TestCase {
         String newFile = directoryPath + "testCopyFile03_new.txt";
 
         // 前提条件の設定
-        UTUtil.setPrivateField(FileUtility.class, "checkFileExist", false);
+        Field field = FileUtility.class.getDeclaredField("checkFileExist");
+        field.setAccessible(true);
+        field.set(FileUtility.class, false);        
 
         // テスト対象ファイルを初期化する。
         File testSrcFile = new File(srcFile);
@@ -412,7 +425,9 @@ public class FileUtilityTest extends TestCase {
         String newFile = directoryPath + "testCopyFile04_new.txt";
 
         // 前提条件の設定
-        UTUtil.setPrivateField(FileUtility.class, "checkFileExist", false);
+        Field field = FileUtility.class.getDeclaredField("checkFileExist");
+        field.setAccessible(true);
+        field.set(FileUtility.class, false);        
 
         // テスト対象ファイルを初期化する。
         File testSrcFile = new File(srcFile);
@@ -531,8 +546,9 @@ public class FileUtilityTest extends TestCase {
         String newFile = directoryPath + "testCopyFile05_new.txt";
 
         // 前提条件の設定
-        UTUtil.setPrivateField(FileUtility.class, "checkFileExist",
-                Boolean.TRUE);
+        Field field = FileUtility.class.getDeclaredField("checkFileExist");
+        field.setAccessible(true);
+        field.set(FileUtility.class, true);        
 
         // テスト対象ファイルを初期化する。
         File testSrcFile = new File(srcFile);
@@ -645,8 +661,9 @@ public class FileUtilityTest extends TestCase {
         String newFile = directoryPath + "testCopyFile06_new.txt";
 
         // 前提条件の設定
-        UTUtil.setPrivateField(FileUtility.class, "checkFileExist",
-                Boolean.TRUE);
+        Field field = FileUtility.class.getDeclaredField("checkFileExist");
+        field.setAccessible(true);
+        field.set(FileUtility.class, true);        
 
         // テスト対象ファイルを初期化する。
         File testSrcFile = new File(srcFile);
@@ -758,8 +775,9 @@ public class FileUtilityTest extends TestCase {
         String newFile = directoryPath + "testCopyFile07_new.txt";
 
         // 前提条件の設定
-        UTUtil.setPrivateField(FileUtility.class, "checkFileExist",
-                Boolean.TRUE);
+        Field field = FileUtility.class.getDeclaredField("checkFileExist");
+        field.setAccessible(true);
+        field.set(FileUtility.class, true);        
 
         // テスト対象ファイルを初期化する。
         File testSrcFile = new File(srcFile);
@@ -803,7 +821,9 @@ public class FileUtilityTest extends TestCase {
 
             // コピー先のファイル内容確認
             File getFile = new File(newFile);
-            UTUtil.assertEqualsFile(testSrcFile, getFile);
+            FileContent testFileContent = new FileContent(testSrcFile);
+            FileContent fileContent = new FileContent(getFile);
+            assertTrue(testFileContent.equals(fileContent));
         } finally {
             if (testSrcFileFileWriter != null) {
                 testSrcFileFileWriter.close();
@@ -860,8 +880,9 @@ public class FileUtilityTest extends TestCase {
         String newFile = directoryPath + "testCopyFile08_new.txt";
 
         // 前提条件の設定
-        UTUtil.setPrivateField(FileUtility.class, "checkFileExist",
-                Boolean.TRUE);
+        Field field = FileUtility.class.getDeclaredField("checkFileExist");
+        field.setAccessible(true);
+        field.set(FileUtility.class, true);        
 
         // テスト対象ファイルを初期化する。
         File testNewFile = new File(newFile);
@@ -965,8 +986,9 @@ public class FileUtilityTest extends TestCase {
         String newFile = "testCopyFile09_new.txt";
 
         // 前提条件の設定
-        UTUtil.setPrivateField(FileUtility.class, "checkFileExist",
-                Boolean.TRUE);
+        Field field = FileUtility.class.getDeclaredField("checkFileExist");
+        field.setAccessible(true);
+        field.set(FileUtility.class, true);        
 
         // テスト対象ファイルを初期化する。
         File testSrcFile = new File(srcFile);
@@ -1077,8 +1099,9 @@ public class FileUtilityTest extends TestCase {
         String newFile = null;
 
         // 前提条件の設定
-        UTUtil.setPrivateField(FileUtility.class, "checkFileExist",
-                Boolean.TRUE);
+        Field field = FileUtility.class.getDeclaredField("checkFileExist");
+        field.setAccessible(true);
+        field.set(FileUtility.class, true);        
 
         // テスト対象ファイルを初期化する。
         File testSrcFile = new File(srcFile);
@@ -1159,8 +1182,9 @@ public class FileUtilityTest extends TestCase {
         String newFile = directoryPath + "testCopyFile10_new.txt";
 
         // 前提条件の設定
-        UTUtil.setPrivateField(FileUtility.class, "checkFileExist",
-                Boolean.TRUE);
+        Field field = FileUtility.class.getDeclaredField("checkFileExist");
+        field.setAccessible(true);
+        field.set(FileUtility.class, true);        
 
         // テスト対象ファイルを初期化する。
         File testSrcFile = new File(directoryPath + srcFile);
@@ -1277,7 +1301,7 @@ public class FileUtilityTest extends TestCase {
         String newFile = directoryPath + "testCopyFile12_new.txt";
 
         // 前提条件の設定
-        UTUtil.setPrivateField(FileUtility.class, "checkFileExist", true);
+        ReflectionTestUtils.setField(FileUtility.class, "checkFileExist", true);
 
         // テスト対象ファイルを初期化する。
         File testSrcFile = new File(srcFile);
@@ -1703,7 +1727,9 @@ public class FileUtilityTest extends TestCase {
         String newFile = directoryPath + "testMergeFile01_new.txt";
 
         // 前提条件の設定
-        UTUtil.setPrivateField(FileUtility.class, "checkFileExist", false);
+        Field field = FileUtility.class.getDeclaredField("checkFileExist");
+        field.setAccessible(true);
+        field.set(FileUtility.class, false);        
 
         // テスト対象ファイルを初期化する。
         File testNewFile = new File(newFile);
@@ -1778,7 +1804,9 @@ public class FileUtilityTest extends TestCase {
         String newFile = directoryPath + "testMergeFile02_new.txt";
 
         // 前提条件の設定
-        UTUtil.setPrivateField(FileUtility.class, "checkFileExist", true);
+        Field field = FileUtility.class.getDeclaredField("checkFileExist");
+        field.setAccessible(true);
+        field.set(FileUtility.class, true);        
 
         // テスト対象ファイルを初期化する。
         File testNewFile = new File(newFile);
@@ -1865,7 +1893,9 @@ public class FileUtilityTest extends TestCase {
         String newFile = directoryPath + "testMergeFile03_new.txt";
 
         // 前提条件の設定
-        UTUtil.setPrivateField(FileUtility.class, "checkFileExist", false);
+        Field field = FileUtility.class.getDeclaredField("checkFileExist");
+        field.setAccessible(true);
+        field.set(FileUtility.class, false);        
 
         // テスト対象ファイルを初期化する。
         File testNewFile = new File(newFile);
@@ -1970,7 +2000,9 @@ public class FileUtilityTest extends TestCase {
         String newFile = directoryPath + "testMergeFile04_new.txt";
 
         // 前提条件の設定
-        UTUtil.setPrivateField(FileUtility.class, "checkFileExist", true);
+        Field field = FileUtility.class.getDeclaredField("checkFileExist");
+        field.setAccessible(true);
+        field.set(FileUtility.class, true);        
 
         // テスト対象ファイルを初期化する。
         File testSrcFile1 = new File(srcFile1);
@@ -2005,8 +2037,11 @@ public class FileUtilityTest extends TestCase {
                     "checkAbsolutePath", 1, 0));
 
             // マージ先のファイル内容確認
-            File mergeFile = new File(newFile);
-            UTUtil.assertEqualsFile(testSrcFile1, mergeFile);
+            // コピー先のファイル内容確認
+            File getFile = new File(newFile);
+            FileContent testFileContent = new FileContent(testSrcFile1);
+            FileContent fileContent = new FileContent(getFile);
+            assertTrue(testFileContent.equals(fileContent));
         } finally {
             if (testSrcFile1FileWriter != null) {
                 testSrcFile1FileWriter.close();
@@ -2079,7 +2114,9 @@ public class FileUtilityTest extends TestCase {
         String newFile = directoryPath + "testMergeFile05_new.txt";
 
         // 前提条件の設定
-        UTUtil.setPrivateField(FileUtility.class, "checkFileExist", true);
+        Field field = FileUtility.class.getDeclaredField("checkFileExist");
+        field.setAccessible(true);
+        field.set(FileUtility.class, true);        
 
         // テスト対象ファイルを初期化する。
         File testSrcFile1 = new File(srcFile1);
@@ -2236,7 +2273,9 @@ public class FileUtilityTest extends TestCase {
         String newFile = directoryPath + "testMergeFile06_new.txt";
 
         // 前提条件の設定
-        UTUtil.setPrivateField(FileUtility.class, "checkFileExist", true);
+        Field field = FileUtility.class.getDeclaredField("checkFileExist");
+        field.setAccessible(true);
+        field.set(FileUtility.class, true);        
 
         // テスト対象ファイルを初期化する。
         File testSrcFile1 = new File(srcFile1);
@@ -2362,7 +2401,9 @@ public class FileUtilityTest extends TestCase {
         String newFile = directoryPath + "testMergeFile07_new.txt";
 
         // 前提条件の設定
-        UTUtil.setPrivateField(FileUtility.class, "checkFileExist", true);
+        Field field = FileUtility.class.getDeclaredField("checkFileExist");
+        field.setAccessible(true);
+        field.set(FileUtility.class, true);        
 
         // テスト対象ファイルを初期化する。
         File testSrcFile1 = new File(srcFile1);
@@ -2518,7 +2559,9 @@ public class FileUtilityTest extends TestCase {
         String newFile = directoryPath + "testMergeFile08_new.txt";
 
         // 前提条件の設定
-        UTUtil.setPrivateField(FileUtility.class, "checkFileExist", true);
+        Field field = FileUtility.class.getDeclaredField("checkFileExist");
+        field.setAccessible(true);
+        field.set(FileUtility.class, true);        
 
         // テスト対象ファイルを初期化する。
         File testSrcFile1 = new File(srcFile1);
@@ -2677,7 +2720,9 @@ public class FileUtilityTest extends TestCase {
         String newFile = directoryPath + "testMergeFile09_new.txt";
 
         // 前提条件の設定
-        UTUtil.setPrivateField(FileUtility.class, "checkFileExist", true);
+        Field field = FileUtility.class.getDeclaredField("checkFileExist");
+        field.setAccessible(true);
+        field.set(FileUtility.class, true);        
 
         // テスト対象ファイルを初期化する。
         File testSrcFile1 = new File(srcFile1);
@@ -2841,7 +2886,9 @@ public class FileUtilityTest extends TestCase {
         String newFile = directoryPath + "testMergeFile10_new.txt";
 
         // 前提条件の設定
-        UTUtil.setPrivateField(FileUtility.class, "checkFileExist", true);
+        Field field = FileUtility.class.getDeclaredField("checkFileExist");
+        field.setAccessible(true);
+        field.set(FileUtility.class, true);        
 
         // テスト対象ファイルを初期化する。
         File testSrcFile1 = new File(srcFile1);
@@ -2971,7 +3018,9 @@ public class FileUtilityTest extends TestCase {
         String newFile = directoryPath + "testMergeFile11_new.txt";
 
         // 前提条件の設定
-        UTUtil.setPrivateField(FileUtility.class, "checkFileExist", true);
+        Field field = FileUtility.class.getDeclaredField("checkFileExist");
+        field.setAccessible(true);
+        field.set(FileUtility.class, true);        
 
         File testNewFile = new File(newFile);
         testNewFile.delete();
@@ -3067,7 +3116,9 @@ public class FileUtilityTest extends TestCase {
         String newFile = null;
 
         // 前提条件の設定
-        UTUtil.setPrivateField(FileUtility.class, "checkFileExist", true);
+        Field field = FileUtility.class.getDeclaredField("checkFileExist");
+        field.setAccessible(true);
+        field.set(FileUtility.class, true);        
 
         // テスト対象ファイルを初期化する。
         File testSrcFile1 = new File(srcFile1);
@@ -3190,7 +3241,9 @@ public class FileUtilityTest extends TestCase {
         String newFile = "testMergeFile13_new.txt";
 
         // 前提条件の設定
-        UTUtil.setPrivateField(FileUtility.class, "checkFileExist", false);
+        Field field = FileUtility.class.getDeclaredField("checkFileExist");
+        field.setAccessible(true);
+        field.set(FileUtility.class, false);        
 
         // テスト対象ファイルを初期化する。
         File testSrcFile1 = new File(srcFile1);
@@ -3348,7 +3401,9 @@ public class FileUtilityTest extends TestCase {
         String newFile = directoryPath + "testMergeFile14_new.txt";
 
         // 前提条件の設定
-        UTUtil.setPrivateField(FileUtility.class, "checkFileExist", true);
+        Field field = FileUtility.class.getDeclaredField("checkFileExist");
+        field.setAccessible(true);
+        field.set(FileUtility.class, true);        
 
         // テスト対象ファイルを初期化する。
         File testSrcFile1 = new File(srcFile1);
@@ -3494,7 +3549,9 @@ public class FileUtilityTest extends TestCase {
         String newFile = directoryPath + "testMergeFile14_new.txt";
 
         // 前提条件の設定
-        UTUtil.setPrivateField(FileUtility.class, "checkFileExist", true);
+        Field field = FileUtility.class.getDeclaredField("checkFileExist");
+        field.setAccessible(true);
+        field.set(FileUtility.class, true);        
 
         // テスト対象ファイルを初期化する。
         File testSrcFile1 = new File(srcFile1);
@@ -3644,7 +3701,7 @@ public class FileUtilityTest extends TestCase {
         String newFile = directoryPath + "testMergeFile16_new.txt";
 
         // 前提条件の設定
-        UTUtil.setPrivateField(FileUtility.class, "checkFileExist", true);
+        ReflectionTestUtils.setField(FileUtility.class, "checkFileExist", true);
 
         // テスト対象ファイルを初期化する。
         File testNewFile = new File(newFile);
@@ -3759,7 +3816,9 @@ public class FileUtilityTest extends TestCase {
         String newFile = directoryPath + "testRenameFile01_new.txt";
 
         // 前提条件の設定
-        UTUtil.setPrivateField(FileUtility.class, "checkFileExist", false);
+        Field field = FileUtility.class.getDeclaredField("checkFileExist");
+        field.setAccessible(true);
+        field.set(FileUtility.class, false);        
 
         // テスト対象ファイルを初期化する。
         File testSrcFile = new File(srcFile);
@@ -3869,7 +3928,9 @@ public class FileUtilityTest extends TestCase {
         String newFile = directoryPath + "testRenameFile02_new.txt";
 
         // 前提条件の設定
-        UTUtil.setPrivateField(FileUtility.class, "checkFileExist", true);
+        Field field = FileUtility.class.getDeclaredField("checkFileExist");
+        field.setAccessible(true);
+        field.set(FileUtility.class, true);        
 
         // テスト対象ファイルを初期化する。
         File testSrcFile = new File(srcFile);
@@ -3989,7 +4050,9 @@ public class FileUtilityTest extends TestCase {
         String newFile = directoryPath + "testRenameFile03_new.txt";
 
         // 前提条件の設定
-        UTUtil.setPrivateField(FileUtility.class, "checkFileExist", false);
+        Field field = FileUtility.class.getDeclaredField("checkFileExist");
+        field.setAccessible(true);
+        field.set(FileUtility.class, false);        
 
         // テスト対象ファイルを初期化する。
         File testSrcFile = new File(srcFile);
@@ -4105,7 +4168,9 @@ public class FileUtilityTest extends TestCase {
         String newFile = directoryPath + "testRenameFile04_new.txt";
 
         // 前提条件の設定
-        UTUtil.setPrivateField(FileUtility.class, "checkFileExist", false);
+        Field field = FileUtility.class.getDeclaredField("checkFileExist");
+        field.setAccessible(true);
+        field.set(FileUtility.class, false);        
 
         // テスト対象ファイルを初期化する。
         File testSrcFile = new File(srcFile);
@@ -4246,7 +4311,7 @@ public class FileUtilityTest extends TestCase {
         String newFile = directoryPath + "testRenameFile05_new.txt";
 
         // 前提条件の設定
-        UTUtil.setPrivateField(FileUtility.class, "checkFileExist", true);
+        ReflectionTestUtils.setField(FileUtility.class, "checkFileExist", true);
 
         // テスト対象ファイルを初期化する。
         File testSrcFile = new File(srcFile);
@@ -4378,7 +4443,9 @@ public class FileUtilityTest extends TestCase {
         String newFile = directoryPath + "testRenameFile06_new.txt";
 
         // 前提条件の設定
-        UTUtil.setPrivateField(FileUtility.class, "checkFileExist", true);
+        Field field = FileUtility.class.getDeclaredField("checkFileExist");
+        field.setAccessible(true);
+        field.set(FileUtility.class, true);        
 
         // テスト対象ファイルを初期化する。
         File testNewFile = new File(newFile);
@@ -4486,7 +4553,9 @@ public class FileUtilityTest extends TestCase {
         String newFile = "testRenameFile07_new.txt";
 
         // 前提条件の設定
-        UTUtil.setPrivateField(FileUtility.class, "checkFileExist", true);
+        Field field = FileUtility.class.getDeclaredField("checkFileExist");
+        field.setAccessible(true);
+        field.set(FileUtility.class, true);        
 
         // テスト対象ファイルを初期化する。
         File testSrcFile = new File(srcFile);
@@ -4619,7 +4688,9 @@ public class FileUtilityTest extends TestCase {
         String newFile = null;
 
         // 前提条件の設定
-        UTUtil.setPrivateField(FileUtility.class, "checkFileExist", true);
+        Field field = FileUtility.class.getDeclaredField("checkFileExist");
+        field.setAccessible(true);
+        field.set(FileUtility.class, true);        
 
         // テスト対象ファイルを初期化する。
         File testSrcFile = new File(srcFile);
@@ -4729,7 +4800,9 @@ public class FileUtilityTest extends TestCase {
         String newFile = directoryPath + "testRenameFile09_new.txt";
 
         // 前提条件の設定
-        UTUtil.setPrivateField(FileUtility.class, "checkFileExist", true);
+        Field field = FileUtility.class.getDeclaredField("checkFileExist");
+        field.setAccessible(true);
+        field.set(FileUtility.class, true);        
 
         // テスト対象ファイルを初期化する。
         File testSrcFile = new File(directoryPath + srcFile);
@@ -4866,7 +4939,7 @@ public class FileUtilityTest extends TestCase {
         String newFile = directoryPath + "testRenameFile10_new.txt";
 
         // 前提条件の設定
-        UTUtil.setPrivateField(FileUtility.class, "checkFileExist", true);
+        ReflectionTestUtils.setField(FileUtility.class, "checkFileExist", true);
 
         // テスト対象ファイルを初期化する。
         File testSrcFile = new File(srcFile);
@@ -4980,7 +5053,9 @@ public class FileUtilityTest extends TestCase {
      */
     public void testIsCheckFileExist01() throws Exception {
         // 前提条件の設定
-        UTUtil.setPrivateField(FileUtility.class, "checkFileExist", false);
+        Field field = FileUtility.class.getDeclaredField("checkFileExist");
+        field.setAccessible(true);
+        field.set(FileUtility.class, false);        
 
         // テスト実施
         boolean result = FileUtility.isCheckFileExist();
@@ -5004,13 +5079,19 @@ public class FileUtilityTest extends TestCase {
      */
     public void testSetCheckFileExist01() throws Exception {
         // 前提条件の設定
-        UTUtil.setPrivateField(FileUtility.class, "checkFileExist", false);
+        Field field = FileUtility.class.getDeclaredField("checkFileExist");
+        field.setAccessible(true);
+        field.set(FileUtility.class, false);        
 
         // テスト実施
         FileUtility.setCheckFileExist(true);
 
         // 状態変化の確認
-        assertEquals(true, UTUtil.getPrivateField(FileUtility.class,
-                "checkFileExist"));
+//        field = FileUtility.class.getDeclaredField("checkFileExist");
+//        field.setAccessible(true);
+        Boolean result = (Boolean) field.get(FileUtility.class);
+        assertTrue(result);
+//        assertEquals(true, ReflectionTestUtils.getField(FileUtility.class,
+//                "checkFileExist"));
     }
 }

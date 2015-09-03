@@ -10,8 +10,9 @@ package jp.terasoluna.fw.file.dao.standard;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
+import org.springframework.test.util.ReflectionTestUtils;
+
 import jp.terasoluna.fw.file.ut.VMOUTUtil;
-import jp.terasoluna.utlib.UTUtil;
 import junit.framework.TestCase;
 
 /**
@@ -133,7 +134,7 @@ public class IntColumnFormatterTest extends TestCase {
         String columnFormat = new String();
 
         // 前提条件の設定
-        UTUtil.setPrivateField(t, "intValue", 0);
+        ReflectionTestUtils.setField(t, "intValue", 0);
 
         try {
             // テスト実施
@@ -178,7 +179,7 @@ public class IntColumnFormatterTest extends TestCase {
         String columnFormat = new String();
 
         // 前提条件の設定
-        UTUtil.setPrivateField(t, "intValue", 0);
+        ReflectionTestUtils.setField(t, "intValue", 0);
 
         try {
             // テスト実施
@@ -224,7 +225,7 @@ public class IntColumnFormatterTest extends TestCase {
         String columnFormat = new String();
 
         // 前提条件の設定
-        UTUtil.setPrivateField(t, "intValue", 0);
+        ReflectionTestUtils.setField(t, "intValue", 0);
 
         try {
             // テスト実施

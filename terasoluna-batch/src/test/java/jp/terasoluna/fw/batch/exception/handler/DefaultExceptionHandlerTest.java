@@ -3,8 +3,9 @@ package jp.terasoluna.fw.batch.exception.handler;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.test.util.ReflectionTestUtils;
+
 import jp.terasoluna.fw.batch.exception.BatchException;
-import jp.terasoluna.utlib.UTUtil;
 import junit.framework.TestCase;
 
 public class DefaultExceptionHandlerTest extends TestCase {
@@ -21,13 +22,7 @@ public class DefaultExceptionHandlerTest extends TestCase {
         handler.setExceptionToStatusMap(exceptionToStatusMap);
 
         Object result;
-        try {
-            result = UTUtil.getPrivateField(handler, "exceptionToStatusMap");
-        } catch (NoSuchFieldException e) {
-            e.printStackTrace();
-            fail();
-            return;
-        }
+        result = ReflectionTestUtils.getField(handler, "exceptionToStatusMap");
 
         assertNotNull(result);
         assertEquals(exceptionToStatusMap, result);

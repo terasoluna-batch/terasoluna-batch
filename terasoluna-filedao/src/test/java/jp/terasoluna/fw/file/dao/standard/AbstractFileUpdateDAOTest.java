@@ -10,7 +10,8 @@ package jp.terasoluna.fw.file.dao.standard;
 import java.util.HashMap;
 import java.util.Map;
 
-import jp.terasoluna.utlib.UTUtil;
+import org.springframework.test.util.ReflectionTestUtils;
+
 import junit.framework.TestCase;
 
 /**
@@ -90,7 +91,7 @@ public class AbstractFileUpdateDAOTest extends TestCase {
         // なし
 
         // 状態変化の確認
-        Object result = UTUtil.getPrivateField(abstractFileUpdateDAO,
+        Object result = ReflectionTestUtils.getField(abstractFileUpdateDAO,
                 "columnFormatterMap");
         assertSame(columnFormatterMap, result);
     }
@@ -117,7 +118,7 @@ public class AbstractFileUpdateDAOTest extends TestCase {
 
         // 前提条件の設定
         Map<String, ColumnFormatter> textGetterMap = new HashMap<String, ColumnFormatter>();
-        UTUtil.setPrivateField(abstractFileUpdateDAO, "columnFormatterMap",
+        ReflectionTestUtils.setField(abstractFileUpdateDAO, "columnFormatterMap",
                 textGetterMap);
 
         // テスト実施

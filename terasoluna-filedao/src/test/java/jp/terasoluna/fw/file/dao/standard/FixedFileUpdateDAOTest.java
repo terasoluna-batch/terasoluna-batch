@@ -12,9 +12,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.test.util.ReflectionTestUtils;
+
 import jp.terasoluna.fw.file.dao.FileLineWriter;
 import jp.terasoluna.fw.file.ut.VMOUTUtil;
-import jp.terasoluna.utlib.UTUtil;
 import junit.framework.TestCase;
 
 /**
@@ -98,7 +99,7 @@ public class FixedFileUpdateDAOTest extends TestCase {
         // 前提条件の設定
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
-        UTUtil.setPrivateField(fileUpdateDAO, "columnFormatterMap",
+        ReflectionTestUtils.setField(fileUpdateDAO, "columnFormatterMap",
                 columnFormatterMap);
 
         // テスト実施

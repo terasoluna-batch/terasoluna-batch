@@ -7,10 +7,13 @@
 
 package jp.terasoluna.fw.file.dao.standard;
 
+import java.lang.reflect.Method;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import org.springframework.test.util.ReflectionTestUtils;
 
 import jp.terasoluna.fw.file.annotation.NullStringConverter;
 import jp.terasoluna.fw.file.dao.FileException;
@@ -505,7 +508,7 @@ public class VariableFileLineIteratorTest extends TestCase {
         String fileLineString = "\"aaa\"";
 
         // 前提条件
-        UTUtil.setPrivateField(variableFileLineIterator, "columnEncloseChar",
+        ReflectionTestUtils.setField(variableFileLineIterator, "columnEncloseChar",
                 new char[] { '\"', '\"' });
 
         // テスト実施
@@ -551,7 +554,7 @@ public class VariableFileLineIteratorTest extends TestCase {
         String fileLineString = "\"aaa\",\"aaa\",\"aaa\"";
 
         // 前提条件
-        UTUtil.setPrivateField(variableFileLineIterator, "columnEncloseChar",
+        ReflectionTestUtils.setField(variableFileLineIterator, "columnEncloseChar",
                 new char[] { '\"', '\"', '\"' });
 
         // テスト実施
@@ -605,7 +608,7 @@ public class VariableFileLineIteratorTest extends TestCase {
         String fileLineString = "\"aa\ra\",\"aa,a\",\"aa\"\"a\"";
 
         // 前提条件
-        UTUtil.setPrivateField(variableFileLineIterator, "columnEncloseChar",
+        ReflectionTestUtils.setField(variableFileLineIterator, "columnEncloseChar",
                 new char[] { '\"', '\"', '\"', '\"', '\"', '\"', '\"', '\"' });
 
         // テスト実施
@@ -697,7 +700,7 @@ public class VariableFileLineIteratorTest extends TestCase {
         String fileLineString = "aaa,aaa,aaa";
 
         // 前提条件
-        UTUtil.setPrivateField(variableFileLineIterator, "columnEncloseChar",
+        ReflectionTestUtils.setField(variableFileLineIterator, "columnEncloseChar",
                 new char[] { Character.MIN_VALUE, Character.MIN_VALUE,
                         Character.MIN_VALUE });
 
@@ -982,7 +985,7 @@ public class VariableFileLineIteratorTest extends TestCase {
         String fileLineString = "\"aa\"bb\"";
 
         // 前提条件
-        UTUtil.setPrivateField(variableFileLineIterator, "columnEncloseChar",
+        ReflectionTestUtils.setField(variableFileLineIterator, "columnEncloseChar",
                 new char[] { '\"', '\"' });
 
         // テスト実施
@@ -1134,25 +1137,24 @@ public class VariableFileLineIteratorTest extends TestCase {
         // アノテーションにアクセスしていないことになる。
         char[] charArray = new char[] { 0, 0, 0, 0 };
         // 前提条件
-        UTUtil.setPrivateField(fileLineIterator, "lineFeedChar", "\r\n");
-        UTUtil.setPrivateField(fileLineIterator, "delimiter", '_');
-        UTUtil.setPrivateField(fileLineIterator, "inputFileColumns", null);
-        UTUtil.setPrivateField(fileLineIterator, "columnFormats", new String[] {
+        ReflectionTestUtils.setField(fileLineIterator, "lineFeedChar", "\r\n");
+        ReflectionTestUtils.setField(fileLineIterator, "delimiter", '_');
+        ReflectionTestUtils.setField(fileLineIterator, "inputFileColumns", null);
+        ReflectionTestUtils.setField(fileLineIterator, "columnFormats", new String[] {
                 "", "", "", "" });
-        UTUtil.setPrivateField(fileLineIterator, "columnBytes", new int[] { -1,
+        ReflectionTestUtils.setField(fileLineIterator, "columnBytes", new int[] { -1,
                 -1, -1, -1 });
-        UTUtil.setPrivateField(fileLineIterator, "totalBytes", 0);
-        UTUtil.setPrivateField(fileLineIterator, "trimChars", charArray);
-        UTUtil
-                .setPrivateField(fileLineIterator, "columnEncloseChar",
+        ReflectionTestUtils.setField(fileLineIterator, "totalBytes", 0);
+        ReflectionTestUtils.setField(fileLineIterator, "trimChars", charArray);
+        ReflectionTestUtils.setField(fileLineIterator, "columnEncloseChar",
                         charArray);
-        UTUtil.setPrivateField(fileLineIterator, "stringConverters",
+        ReflectionTestUtils.setField(fileLineIterator, "stringConverters",
                 new NullStringConverter[] { new NullStringConverter(),
                         new NullStringConverter(), new NullStringConverter(),
                         new NullStringConverter() });
-        LineReader reader = (LineReader) UTUtil.getPrivateField(
+        LineReader reader = (LineReader) ReflectionTestUtils.getField(
                 fileLineIterator, "lineReader");
-        UTUtil.setPrivateField(reader, "lineFeedChar", "\r\n");
+        ReflectionTestUtils.setField(reader, "lineFeedChar", "\r\n");
 
         // テスト実施
         CSVFileLine_Stub03 result1 = fileLineIterator.next();
@@ -1195,9 +1197,10 @@ public class VariableFileLineIteratorTest extends TestCase {
         int index = 0;
 
         // テスト実施
-        Object result = UTUtil.invokePrivate(fileLineIterator,
-                "getEncloseCharcter", char[].class, int.class,
-                columnEncloseChar, index);
+        Method method = VariableFileLineIterator.class.getDeclaredMethod("getEncloseCharcter", 
+                char[].class, int.class);
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineIterator, columnEncloseChar, index);
 
         assertNotNull(result);
         assertEquals(Character.class, result.getClass());
@@ -1223,9 +1226,10 @@ public class VariableFileLineIteratorTest extends TestCase {
         int index = 0;
 
         // テスト実施
-        Object result = UTUtil.invokePrivate(fileLineIterator,
-                "getEncloseCharcter", char[].class, int.class,
-                columnEncloseChar, index);
+        Method method = VariableFileLineIterator.class.getDeclaredMethod("getEncloseCharcter", 
+                char[].class, int.class);
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineIterator, columnEncloseChar, index);
 
         assertNotNull(result);
         assertEquals(Character.class, result.getClass());
@@ -1251,9 +1255,10 @@ public class VariableFileLineIteratorTest extends TestCase {
         int index = 1;
 
         // テスト実施
-        Object result = UTUtil.invokePrivate(fileLineIterator,
-                "getEncloseCharcter", char[].class, int.class,
-                columnEncloseChar, index);
+        Method method = VariableFileLineIterator.class.getDeclaredMethod("getEncloseCharcter", 
+                char[].class, int.class);
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineIterator, columnEncloseChar, index);
 
         assertNotNull(result);
         assertEquals(Character.class, result.getClass());
@@ -1279,9 +1284,10 @@ public class VariableFileLineIteratorTest extends TestCase {
         int index = 2;
 
         // テスト実施
-        Object result = UTUtil.invokePrivate(fileLineIterator,
-                "getEncloseCharcter", char[].class, int.class,
-                columnEncloseChar, index);
+        Method method = VariableFileLineIterator.class.getDeclaredMethod("getEncloseCharcter", 
+                char[].class, int.class);
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineIterator, columnEncloseChar, index);
 
         assertNotNull(result);
         assertEquals(Character.class, result.getClass());
@@ -1307,9 +1313,10 @@ public class VariableFileLineIteratorTest extends TestCase {
         int index = 3;
 
         // テスト実施
-        Object result = UTUtil.invokePrivate(fileLineIterator,
-                "getEncloseCharcter", char[].class, int.class,
-                columnEncloseChar, index);
+        Method method = VariableFileLineIterator.class.getDeclaredMethod("getEncloseCharcter", 
+                char[].class, int.class);
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineIterator, columnEncloseChar, index);
 
         assertNotNull(result);
         assertEquals(Character.class, result.getClass());
@@ -1335,9 +1342,10 @@ public class VariableFileLineIteratorTest extends TestCase {
         int index = 4;
 
         // テスト実施
-        Object result = UTUtil.invokePrivate(fileLineIterator,
-                "getEncloseCharcter", char[].class, int.class,
-                columnEncloseChar, index);
+        Method method = VariableFileLineIterator.class.getDeclaredMethod("getEncloseCharcter", 
+                char[].class, int.class);
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineIterator, columnEncloseChar, index);
 
         assertNotNull(result);
         assertEquals(Character.class, result.getClass());

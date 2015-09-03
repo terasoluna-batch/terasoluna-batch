@@ -16,25 +16,21 @@
 
 package jp.terasoluna.fw.validation;
 
+import java.lang.reflect.Field;
+
 import jp.terasoluna.utlib.PropertyTestCase;
-import jp.terasoluna.utlib.UTUtil;
 
 /**
  * {@link jp.terasoluna.fw.validation.ValidationUtil} クラスのブラックボックステスト。
- *
  * <p>
- * <h4>【クラスの概要】</h4>
- * 検証ロジックのユーティリティクラス。
+ * <h4>【クラスの概要】</h4> 検証ロジックのユーティリティクラス。
  * <p>
- *
  * @see jp.terasoluna.fw.validation.ValidationUtil
  */
 public class ValidationUtilTest03 extends PropertyTestCase {
 
     /**
-     * このテストケースを実行する為の
-     * GUI アプリケーションを起動する。
-     *
+     * このテストケースを実行する為の GUI アプリケーションを起動する。
      * @param args java コマンドに設定されたパラメータ
      */
     public static void main(String[] args) {
@@ -43,24 +39,24 @@ public class ValidationUtilTest03 extends PropertyTestCase {
 
     /**
      * 初期化処理を行う。
-     *
      * @throws Exception このメソッドで発生した例外
      * @see jp.terasoluna.utlib.spring.PropertyTestCase#setUpData()
      */
     @Override
     protected void setUpData() throws Exception {
-        UTUtil.setPrivateField(ValidationUtil.class, "hankakuKanaList",
-            "ｱｲｳｴｵｧｨｩｪｫｶｷｸｹｺｻｼｽｾｿﾀﾁﾂｯﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖｬｭｮﾗﾘﾙﾚﾛﾜｦﾝﾟﾞｰ･､｡｢｣");
-        UTUtil.setPrivateField(ValidationUtil.class, "zenkakuKanaList",
-            "アイウヴエオァィゥェォカキクケコヵヶガギグゲゴサシスセソ" +
-            "ザジズゼゾタチツテトダヂヅデドナニヌネノハヒフヘホ" +
-            "バビブベボパピプペポマミムメモヤユヨャュョラリルレロ" +
-            "ワヮヰヱヲッンー");
+        Field field = ValidationUtil.class.getDeclaredField("hankakuKanaList");
+        field.setAccessible(true);
+        field.set(ValidationUtil.class,
+                "ｱｲｳｴｵｧｨｩｪｫｶｷｸｹｺｻｼｽｾｿﾀﾁﾂｯﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖｬｭｮﾗﾘﾙﾚﾛﾜｦﾝﾟﾞｰ･､｡｢｣");
+        field = ValidationUtil.class.getDeclaredField("zenkakuKanaList");
+        field.setAccessible(true);
+        field.set(ValidationUtil.class, "アイウヴエオァィゥェォカキクケコヵヶガギグゲゴサシスセソ"
+                + "ザジズゼゾタチツテトダヂヅデドナニヌネノハヒフヘホ" + "バビブベボパピプペポマミムメモヤユヨャュョラリルレロ"
+                + "ワヮヰヱヲッンー");
     }
 
     /**
      * 終了処理を行う。
-     *
      * @throws Exception このメソッドで発生した例外
      * @see jp.terasoluna.utlib.spring.PropertyTestCase#cleanUpData()
      */
@@ -70,7 +66,6 @@ public class ValidationUtilTest03 extends PropertyTestCase {
 
     /**
      * コンストラクタ。
-     *
      * @param name このテストケースの名前。
      */
     public ValidationUtilTest03(String name) {
@@ -78,23 +73,17 @@ public class ValidationUtilTest03 extends PropertyTestCase {
     }
 
     /**
-     * testCheckNumberFigures01()
-     * <br><br>
-     *
-     * (正常系)
+     * testCheckNumberFigures01() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) length:3<br>
-     *         (引数) checkLength:0<br>
-     *
+     * (引数) checkLength:0<br>
      * <br>
      * 期待値：(戻り値) boolean:false<br>
-     *
      * <br>
-     * lengthがcheckLengthより大きい場合、falseが取得できることを確認する。
-     * <br>
-     *
+     * lengthがcheckLengthより大きい場合、falseが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testCheckNumberFigures01() throws Exception {
@@ -103,24 +92,18 @@ public class ValidationUtilTest03 extends PropertyTestCase {
     }
 
     /**
-     * testCheckNumberFigures02()
-     * <br><br>
-     *
-     * (正常系)
+     * testCheckNumberFigures02() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) length:0<br>
-     *         (引数) checkLength:3<br>
-     *         (引数) isAccorded:false<br>
-     *
+     * (引数) checkLength:3<br>
+     * (引数) isAccorded:false<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *
      * <br>
-     * isAccordedがfalseの場合、lengthがcheckLength以下であれば、trueが取得できることを確認する。
-     * <br>
-     *
+     * isAccordedがfalseの場合、lengthがcheckLength以下であれば、trueが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testCheckNumberFigures02() throws Exception {
@@ -129,24 +112,18 @@ public class ValidationUtilTest03 extends PropertyTestCase {
     }
 
     /**
-     * testCheckNumberFigures03()
-     * <br><br>
-     *
-     * (正常系)
+     * testCheckNumberFigures03() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) length:3<br>
-     *         (引数) checkLength:3<br>
-     *         (引数) isAccorded:false<br>
-     *
+     * (引数) checkLength:3<br>
+     * (引数) isAccorded:false<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *
      * <br>
-     * isAccordedがfalseの場合、lengthがcheckLength以下であれば、trueが取得できることを確認する。
-     * <br>
-     *
+     * isAccordedがfalseの場合、lengthがcheckLength以下であれば、trueが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testCheckNumberFigures03() throws Exception {
@@ -155,24 +132,18 @@ public class ValidationUtilTest03 extends PropertyTestCase {
     }
 
     /**
-     * testCheckNumberFigures04()
-     * <br><br>
-     *
-     * (正常系)
+     * testCheckNumberFigures04() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) length:3<br>
-     *         (引数) checkLength:3<br>
-     *         (引数) isAccorded:true<br>
-     *
+     * (引数) checkLength:3<br>
+     * (引数) isAccorded:true<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *
      * <br>
-     * isAccordedがtrueの場合、lengthがcheckLengthと等しければ、trueが取得できることを確認する。
-     * <br>
-     *
+     * isAccordedがtrueの場合、lengthがcheckLengthと等しければ、trueが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testCheckNumberFigures04() throws Exception {
@@ -181,24 +152,18 @@ public class ValidationUtilTest03 extends PropertyTestCase {
     }
 
     /**
-     * testCheckNumberFigures05()
-     * <br><br>
-     *
-     * (正常系)
+     * testCheckNumberFigures05() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) length:0<br>
-     *         (引数) checkLength:3<br>
-     *         (引数) isAccorded:true<br>
-     *
+     * (引数) checkLength:3<br>
+     * (引数) isAccorded:true<br>
      * <br>
      * 期待値：(戻り値) boolean:false<br>
-     *
      * <br>
-     * isAccordedがtrueの場合、lengthがcheckLengthと等しくなければ、falseが取得できることを確認する。
-     * <br>
-     *
+     * isAccordedがtrueの場合、lengthがcheckLengthと等しくなければ、falseが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testCheckNumberFigures05() throws Exception {
@@ -207,22 +172,16 @@ public class ValidationUtilTest03 extends PropertyTestCase {
     }
 
     /**
-     * testIsHankakuKanaString01()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsHankakuKanaString01() <br>
      * <br>
-     * 観点：C
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C <br>
+     * <br>
      * 入力値：(引数) value:null<br>
-     *
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *
      * <br>
-     * 引数valueがnullの場合、trueが取得できることを確認する。
-     * <br>
-     *
+     * 引数valueがnullの場合、trueが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testIsHankakuKanaString01() throws Exception {
@@ -231,22 +190,16 @@ public class ValidationUtilTest03 extends PropertyTestCase {
     }
 
     /**
-     * testIsHankakuKanaString02()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsHankakuKanaString02() <br>
      * <br>
-     * 観点：C
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C <br>
+     * <br>
      * 入力値：(引数) value:""<br>
-     *
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *
      * <br>
-     * 引数valueが空文字の場合、trueが取得できることを確認する。
-     * <br>
-     *
+     * 引数valueが空文字の場合、trueが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testIsHankakuKanaString02() throws Exception {
@@ -255,23 +208,17 @@ public class ValidationUtilTest03 extends PropertyTestCase {
     }
 
     /**
-     * testIsHankakuKanaString03()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsHankakuKanaString03() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) value:"ア"<br>
-     *         (状態) hankakuKanaList:ｱｲｳｴｵｧｨｩｪｫｶｷｸｹｺｻｼｽｾｿﾀﾁﾂｯﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖｬｭｮﾗﾘﾙﾚﾛﾜｦﾝﾟﾞｰ･､｡｢｣<br>
-     *
+     * (状態) hankakuKanaList:ｱｲｳｴｵｧｨｩｪｫｶｷｸｹｺｻｼｽｾｿﾀﾁﾂｯﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖｬｭｮﾗﾘﾙﾚﾛﾜｦﾝﾟﾞｰ･､｡｢｣<br>
      * <br>
      * 期待値：(戻り値) boolean:false<br>
-     *
      * <br>
-     * 引数valueが半角カナ文字でない場合、falseが取得できることを確認する。
-     * <br>
-     *
+     * 引数valueが半角カナ文字でない場合、falseが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testIsHankakuKanaString03() throws Exception {
@@ -280,23 +227,17 @@ public class ValidationUtilTest03 extends PropertyTestCase {
     }
 
     /**
-     * testIsHankakuKanaString04()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsHankakuKanaString04() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) value:"ｱ"<br>
-     *         (状態) hankakuKanaList:ｱｲｳｴｵｧｨｩｪｫｶｷｸｹｺｻｼｽｾｿﾀﾁﾂｯﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖｬｭｮﾗﾘﾙﾚﾛﾜｦﾝﾟﾞｰ･､｡｢｣<br>
-     *
+     * (状態) hankakuKanaList:ｱｲｳｴｵｧｨｩｪｫｶｷｸｹｺｻｼｽｾｿﾀﾁﾂｯﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖｬｭｮﾗﾘﾙﾚﾛﾜｦﾝﾟﾞｰ･､｡｢｣<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *
      * <br>
-     * 引数valueが半角カナ文字の場合、trueが取得できることを確認する。
-     * <br>
-     *
+     * 引数valueが半角カナ文字の場合、trueが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testIsHankakuKanaString04() throws Exception {
@@ -305,23 +246,17 @@ public class ValidationUtilTest03 extends PropertyTestCase {
     }
 
     /**
-     * testIsHankakuKanaString05()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsHankakuKanaString05() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) value:"ｱｲA"<br>
-     *         (状態) hankakuKanaList:ｱｲｳｴｵｧｨｩｪｫｶｷｸｹｺｻｼｽｾｿﾀﾁﾂｯﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖｬｭｮﾗﾘﾙﾚﾛﾜｦﾝﾟﾞｰ･､｡｢｣<br>
-     *
+     * (状態) hankakuKanaList:ｱｲｳｴｵｧｨｩｪｫｶｷｸｹｺｻｼｽｾｿﾀﾁﾂｯﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖｬｭｮﾗﾘﾙﾚﾛﾜｦﾝﾟﾞｰ･､｡｢｣<br>
      * <br>
      * 期待値：(戻り値) boolean:false<br>
-     *
      * <br>
-     * 引数valueが複数文字で半角カナ文字以外が含まれる場合、falseが取得できることを確認する。
-     * <br>
-     *
+     * 引数valueが複数文字で半角カナ文字以外が含まれる場合、falseが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testIsHankakuKanaString05() throws Exception {
@@ -330,23 +265,17 @@ public class ValidationUtilTest03 extends PropertyTestCase {
     }
 
     /**
-     * testIsHankakuKanaString06()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsHankakuKanaString06() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) value:"ｱｲｳ"<br>
-     *         (状態) hankakuKanaList:ｱｲｳｴｵｧｨｩｪｫｶｷｸｹｺｻｼｽｾｿﾀﾁﾂｯﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖｬｭｮﾗﾘﾙﾚﾛﾜｦﾝﾟﾞｰ･､｡｢｣<br>
-     *
+     * (状態) hankakuKanaList:ｱｲｳｴｵｧｨｩｪｫｶｷｸｹｺｻｼｽｾｿﾀﾁﾂｯﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖｬｭｮﾗﾘﾙﾚﾛﾜｦﾝﾟﾞｰ･､｡｢｣<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *
      * <br>
-     * 引数valueが複数文字で半角カナ文字のみで構成されている場合、trueが取得できることを確認する。
-     * <br>
-     *
+     * 引数valueが複数文字で半角カナ文字のみで構成されている場合、trueが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testIsHankakuKanaString06() throws Exception {
@@ -355,22 +284,16 @@ public class ValidationUtilTest03 extends PropertyTestCase {
     }
 
     /**
-     * testIsHankakuString01()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsHankakuString01() <br>
      * <br>
-     * 観点：C
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C <br>
+     * <br>
      * 入力値：(引数) value:null<br>
-     *
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *
      * <br>
-     * 引数valueがnullの場合、trueが取得できることを確認する。
-     * <br>
-     *
+     * 引数valueがnullの場合、trueが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testIsHankakuString01() throws Exception {
@@ -379,22 +302,16 @@ public class ValidationUtilTest03 extends PropertyTestCase {
     }
 
     /**
-     * testIsHankakuString02()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsHankakuString02() <br>
      * <br>
-     * 観点：C
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C <br>
+     * <br>
      * 入力値：(引数) value:""<br>
-     *
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *
      * <br>
-     * 引数valueが空文字の場合、trueが取得できることを確認する。
-     * <br>
-     *
+     * 引数valueが空文字の場合、trueが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testIsHankakuString02() throws Exception {
@@ -403,23 +320,17 @@ public class ValidationUtilTest03 extends PropertyTestCase {
     }
 
     /**
-     * testIsHankakuString03()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsHankakuString03() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) value:"あ"<br>
-     *         (状態) hankakuKanaList:ｱｲｳｴｵｧｨｩｪｫｶｷｸｹｺｻｼｽｾｿﾀﾁﾂｯﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖｬｭｮﾗﾘﾙﾚﾛﾜｦﾝﾟﾞｰ･､｡｢｣<br>
-     *
+     * (状態) hankakuKanaList:ｱｲｳｴｵｧｨｩｪｫｶｷｸｹｺｻｼｽｾｿﾀﾁﾂｯﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖｬｭｮﾗﾘﾙﾚﾛﾜｦﾝﾟﾞｰ･､｡｢｣<br>
      * <br>
      * 期待値：(戻り値) boolean:false<br>
-     *
      * <br>
-     * 引数valueが半角文字でない場合、falseが取得できることを確認する。
-     * <br>
-     *
+     * 引数valueが半角文字でない場合、falseが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testIsHankakuString03() throws Exception {
@@ -428,23 +339,17 @@ public class ValidationUtilTest03 extends PropertyTestCase {
     }
 
     /**
-     * testIsHankakuString04()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsHankakuString04() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) value:"a"<br>
-     *         (状態) hankakuKanaList:ｱｲｳｴｵｧｨｩｪｫｶｷｸｹｺｻｼｽｾｿﾀﾁﾂｯﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖｬｭｮﾗﾘﾙﾚﾛﾜｦﾝﾟﾞｰ･､｡｢｣<br>
-     *
+     * (状態) hankakuKanaList:ｱｲｳｴｵｧｨｩｪｫｶｷｸｹｺｻｼｽｾｿﾀﾁﾂｯﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖｬｭｮﾗﾘﾙﾚﾛﾜｦﾝﾟﾞｰ･､｡｢｣<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *
      * <br>
-     * 引数valueが半角文字の場合、trueが取得できることを確認する。
-     * <br>
-     *
+     * 引数valueが半角文字の場合、trueが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testIsHankakuString04() throws Exception {
@@ -453,23 +358,17 @@ public class ValidationUtilTest03 extends PropertyTestCase {
     }
 
     /**
-     * testIsHankakuString05()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsHankakuString05() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) value:"abあ"<br>
-     *         (状態) hankakuKanaList:ｱｲｳｴｵｧｨｩｪｫｶｷｸｹｺｻｼｽｾｿﾀﾁﾂｯﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖｬｭｮﾗﾘﾙﾚﾛﾜｦﾝﾟﾞｰ･､｡｢｣<br>
-     *
+     * (状態) hankakuKanaList:ｱｲｳｴｵｧｨｩｪｫｶｷｸｹｺｻｼｽｾｿﾀﾁﾂｯﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖｬｭｮﾗﾘﾙﾚﾛﾜｦﾝﾟﾞｰ･､｡｢｣<br>
      * <br>
      * 期待値：(戻り値) boolean:false<br>
-     *
      * <br>
-     * 引数valueが複数文字で半角文字以外が含まれる場合、falseが取得できることを確認する。
-     * <br>
-     *
+     * 引数valueが複数文字で半角文字以外が含まれる場合、falseが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testIsHankakuString05() throws Exception {
@@ -478,23 +377,17 @@ public class ValidationUtilTest03 extends PropertyTestCase {
     }
 
     /**
-     * testIsHankakuString06()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsHankakuString06() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) value:"1aｱ"<br>
-     *         (状態) hankakuKanaList:ｱｲｳｴｵｧｨｩｪｫｶｷｸｹｺｻｼｽｾｿﾀﾁﾂｯﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖｬｭｮﾗﾘﾙﾚﾛﾜｦﾝﾟﾞｰ･､｡｢｣<br>
-     *
+     * (状態) hankakuKanaList:ｱｲｳｴｵｧｨｩｪｫｶｷｸｹｺｻｼｽｾｿﾀﾁﾂｯﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖｬｭｮﾗﾘﾙﾚﾛﾜｦﾝﾟﾞｰ･､｡｢｣<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *
      * <br>
-     * 引数valueが複数文字で半角文字のみで構成されている場合、trueが取得できることを確認する。
-     * <br>
-     *
+     * 引数valueが複数文字で半角文字のみで構成されている場合、trueが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testIsHankakuString06() throws Exception {
@@ -503,22 +396,16 @@ public class ValidationUtilTest03 extends PropertyTestCase {
     }
 
     /**
-     * testIsZenkakuString01()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsZenkakuString01() <br>
      * <br>
-     * 観点：C
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C <br>
+     * <br>
      * 入力値：(引数) value:null<br>
-     *
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *
      * <br>
-     * 引数valueがnullの場合、trueが取得できることを確認する。
-     * <br>
-     *
+     * 引数valueがnullの場合、trueが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testIsZenkakuString01() throws Exception {
@@ -527,22 +414,16 @@ public class ValidationUtilTest03 extends PropertyTestCase {
     }
 
     /**
-     * testIsZenkakuString02()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsZenkakuString02() <br>
      * <br>
-     * 観点：C
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C <br>
+     * <br>
      * 入力値：(引数) value:""<br>
-     *
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *
      * <br>
-     * 引数valueが空文字の場合、trueが取得できることを確認する。
-     * <br>
-     *
+     * 引数valueが空文字の場合、trueが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testIsZenkakuString02() throws Exception {
@@ -551,23 +432,17 @@ public class ValidationUtilTest03 extends PropertyTestCase {
     }
 
     /**
-     * testIsZenkakuString03()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsZenkakuString03() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) value:"a"<br>
-     *         (状態) zenkakuKanaList:アイウヴエオァィゥェォカキクケコヵヶガギグゲゴサシスセソザジズゼゾタチツテトダヂヅデドナニヌネノハヒフヘホバビブベボパピプペポマミムメモヤユヨャュョラリルレロワヮヰヱヲッンー<br>
-     *
+     * (状態) zenkakuKanaList:アイウヴエオァィゥェォカキクケコヵヶガギグゲゴサシスセソザジズゼゾタチツテトダヂヅデドナニヌネノハヒフヘホバビブベボパピプペポマミムメモヤユヨャュョラリルレロワヮヰヱヲッンー<br>
      * <br>
      * 期待値：(戻り値) boolean:false<br>
-     *
      * <br>
-     * 引数valueが全角文字でない場合、falseが取得できることを確認する。
-     * <br>
-     *
+     * 引数valueが全角文字でない場合、falseが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testIsZenkakuString03() throws Exception {
@@ -576,23 +451,17 @@ public class ValidationUtilTest03 extends PropertyTestCase {
     }
 
     /**
-     * testIsZenkakuString04()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsZenkakuString04() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) value:"あ"<br>
-     *         (状態) zenkakuKanaList:アイウヴエオァィゥェォカキクケコヵヶガギグゲゴサシスセソザジズゼゾタチツテトダヂヅデドナニヌネノハヒフヘホバビブベボパピプペポマミムメモヤユヨャュョラリルレロワヮヰヱヲッンー<br>
-     *
+     * (状態) zenkakuKanaList:アイウヴエオァィゥェォカキクケコヵヶガギグゲゴサシスセソザジズゼゾタチツテトダヂヅデドナニヌネノハヒフヘホバビブベボパピプペポマミムメモヤユヨャュョラリルレロワヮヰヱヲッンー<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *
      * <br>
-     * 引数valueが全角文字の場合、trueが取得できることを確認する。
-     * <br>
-     *
+     * 引数valueが全角文字の場合、trueが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testIsZenkakuString04() throws Exception {
@@ -601,23 +470,17 @@ public class ValidationUtilTest03 extends PropertyTestCase {
     }
 
     /**
-     * testIsZenkakuString05()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsZenkakuString05() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) value:"Ａあｲ"<br>
-     *         (状態) zenkakuKanaList:アイウヴエオァィゥェォカキクケコヵヶガギグゲゴサシスセソザジズゼゾタチツテトダヂヅデドナニヌネノハヒフヘホバビブベボパピプペポマミムメモヤユヨャュョラリルレロワヮヰヱヲッンー<br>
-     *
+     * (状態) zenkakuKanaList:アイウヴエオァィゥェォカキクケコヵヶガギグゲゴサシスセソザジズゼゾタチツテトダヂヅデドナニヌネノハヒフヘホバビブベボパピプペポマミムメモヤユヨャュョラリルレロワヮヰヱヲッンー<br>
      * <br>
      * 期待値：(戻り値) boolean:false<br>
-     *
      * <br>
-     * 引数valueが複数文字で全角文字以外が含まれる場合、falseが取得できることを確認する。
-     * <br>
-     *
+     * 引数valueが複数文字で全角文字以外が含まれる場合、falseが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testIsZenkakuString05() throws Exception {
@@ -626,23 +489,17 @@ public class ValidationUtilTest03 extends PropertyTestCase {
     }
 
     /**
-     * testIsZenkakuString06()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsZenkakuString06() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) value:"Ａあ全角"<br>
-     *         (状態) zenkakuKanaList:アイウヴエオァィゥェォカキクケコヵヶガギグゲゴサシスセソザジズゼゾタチツテトダヂヅデドナニヌネノハヒフヘホバビブベボパピプペポマミムメモヤユヨャュョラリルレロワヮヰヱヲッンー<br>
-     *
+     * (状態) zenkakuKanaList:アイウヴエオァィゥェォカキクケコヵヶガギグゲゴサシスセソザジズゼゾタチツテトダヂヅデドナニヌネノハヒフヘホバビブベボパピプペポマミムメモヤユヨャュョラリルレロワヮヰヱヲッンー<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *
      * <br>
-     * 引数valueが複数文字で全角文字のみで構成されている場合、trueが取得できることを確認する。
-     * <br>
-     *
+     * 引数valueが複数文字で全角文字のみで構成されている場合、trueが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testIsZenkakuString06() throws Exception {
@@ -651,22 +508,16 @@ public class ValidationUtilTest03 extends PropertyTestCase {
     }
 
     /**
-     * testIsZenkakuKanaString01()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsZenkakuKanaString01() <br>
      * <br>
-     * 観点：C
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C <br>
+     * <br>
      * 入力値：(引数) value:null<br>
-     *
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *
      * <br>
-     * 引数valueがnullの場合、trueが取得できることを確認する。
-     * <br>
-     *
+     * 引数valueがnullの場合、trueが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testIsZenkakuKanaString01() throws Exception {
@@ -675,22 +526,16 @@ public class ValidationUtilTest03 extends PropertyTestCase {
     }
 
     /**
-     * testIsZenkakuKanaString02()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsZenkakuKanaString02() <br>
      * <br>
-     * 観点：C
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C <br>
+     * <br>
      * 入力値：(引数) value:""<br>
-     *
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *
      * <br>
-     * 引数valueが空文字の場合、trueが取得できることを確認する。
-     * <br>
-     *
+     * 引数valueが空文字の場合、trueが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testIsZenkakuKanaString02() throws Exception {
@@ -699,23 +544,17 @@ public class ValidationUtilTest03 extends PropertyTestCase {
     }
 
     /**
-     * testIsZenkakuKanaString03()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsZenkakuKanaString03() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) value:"A"<br>
-     *         (状態) isZenkakuKanaChar(char):アイウヴエオァィゥェォカキクケコヵヶガギグゲゴサシスセソザジズゼゾタチツテトダヂヅデドナニヌネノハヒフヘホバビブベボパピプペポマミムメモヤユヨャュョラリルレロワヮヰヱヲッンー<br>
-     *
+     * (状態) isZenkakuKanaChar(char):アイウヴエオァィゥェォカキクケコヵヶガギグゲゴサシスセソザジズゼゾタチツテトダヂヅデドナニヌネノハヒフヘホバビブベボパピプペポマミムメモヤユヨャュョラリルレロワヮヰヱヲッンー<br>
      * <br>
      * 期待値：(戻り値) boolean:false<br>
-     *
      * <br>
-     * 引数valueが全角カナ文字でない場合、falseが取得できることを確認する。
-     * <br>
-     *
+     * 引数valueが全角カナ文字でない場合、falseが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testIsZenkakuKanaString03() throws Exception {
@@ -724,23 +563,17 @@ public class ValidationUtilTest03 extends PropertyTestCase {
     }
 
     /**
-     * testIsZenkakuKanaString04()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsZenkakuKanaString04() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) value:"ア"<br>
-     *         (状態) isZenkakuKanaChar(char):アイウヴエオァィゥェォカキクケコヵヶガギグゲゴサシスセソザジズゼゾタチツテトダヂヅデドナニヌネノハヒフヘホバビブベボパピプペポマミムメモヤユヨャュョラリルレロワヮヰヱヲッンー<br>
-     *
+     * (状態) isZenkakuKanaChar(char):アイウヴエオァィゥェォカキクケコヵヶガギグゲゴサシスセソザジズゼゾタチツテトダヂヅデドナニヌネノハヒフヘホバビブベボパピプペポマミムメモヤユヨャュョラリルレロワヮヰヱヲッンー<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *
      * <br>
-     * 引数valueが全角カナ文字の場合、trueが取得できることを確認する。
-     * <br>
-     *
+     * 引数valueが全角カナ文字の場合、trueが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testIsZenkakuKanaString04() throws Exception {
@@ -749,23 +582,17 @@ public class ValidationUtilTest03 extends PropertyTestCase {
     }
 
     /**
-     * testIsZenkakuKanaString05()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsZenkakuKanaString05() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) value:"アイｳ"<br>
-     *         (状態) isZenkakuKanaChar(char):アイウヴエオァィゥェォカキクケコヵヶガギグゲゴサシスセソザジズゼゾタチツテトダヂヅデドナニヌネノハヒフヘホバビブベボパピプペポマミムメモヤユヨャュョラリルレロワヮヰヱヲッンー<br>
-     *
+     * (状態) isZenkakuKanaChar(char):アイウヴエオァィゥェォカキクケコヵヶガギグゲゴサシスセソザジズゼゾタチツテトダヂヅデドナニヌネノハヒフヘホバビブベボパピプペポマミムメモヤユヨャュョラリルレロワヮヰヱヲッンー<br>
      * <br>
      * 期待値：(戻り値) boolean:false<br>
-     *
      * <br>
-     * 引数valueが複数文字で全角カナ文字以外が含まれる場合、falseが取得できることを確認する。
-     * <br>
-     *
+     * 引数valueが複数文字で全角カナ文字以外が含まれる場合、falseが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testIsZenkakuKanaString05() throws Exception {
@@ -774,23 +601,17 @@ public class ValidationUtilTest03 extends PropertyTestCase {
     }
 
     /**
-     * testIsZenkakuKanaString06()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsZenkakuKanaString06() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) value:"アイウ"<br>
-     *         (状態) isZenkakuKanaChar(char):アイウヴエオァィゥェォカキクケコヵヶガギグゲゴサシスセソザジズゼゾタチツテトダヂヅデドナニヌネノハヒフヘホバビブベボパピプペポマミムメモヤユヨャュョラリルレロワヮヰヱヲッンー<br>
-     *
+     * (状態) isZenkakuKanaChar(char):アイウヴエオァィゥェォカキクケコヵヶガギグゲゴサシスセソザジズゼゾタチツテトダヂヅデドナニヌネノハヒフヘホバビブベボパピプペポマミムメモヤユヨャュョラリルレロワヮヰヱヲッンー<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *
      * <br>
-     * 引数valueが複数文字で全角カナ文字のみで構成されている場合、trueが取得できることを確認する。
-     * <br>
-     *
+     * 引数valueが複数文字で全角カナ文字のみで構成されている場合、trueが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testIsZenkakuKanaString06() throws Exception {

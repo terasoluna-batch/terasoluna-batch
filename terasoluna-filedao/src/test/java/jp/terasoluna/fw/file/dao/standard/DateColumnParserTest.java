@@ -15,8 +15,9 @@ import java.util.Date;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+import org.springframework.test.util.ReflectionTestUtils;
+
 import jp.terasoluna.fw.file.ut.VMOUTUtil;
-import jp.terasoluna.utlib.UTUtil;
 import junit.framework.TestCase;
 
 /**
@@ -106,7 +107,7 @@ public class DateColumnParserTest extends TestCase {
 
         // 前提条件の設定
         Map<String, DateFormatLocal> map = new ConcurrentHashMap<String, DateFormatLocal>();
-        UTUtil.setPrivateField(dateColumnParser, "map", map);
+        ReflectionTestUtils.setField(dateColumnParser, "map", map);
 
         // テスト実施
         dateColumnParser.parse(column, t, method, columnFormat);
@@ -115,7 +116,7 @@ public class DateColumnParserTest extends TestCase {
         // なし
 
         // 状態変化の確認
-        Object result = UTUtil.getPrivateField(t, "a");
+        Object result = ReflectionTestUtils.getField(t, "a");
         // 文字列からDate型に変換
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
         simpleDateFormat.setLenient(false);
@@ -171,7 +172,7 @@ public class DateColumnParserTest extends TestCase {
         Map<String, DateFormatLocal> map = new ConcurrentHashMap<String, DateFormatLocal>();
         DateFormatLocal cache = new DateFormatLocal("yyyyMMdd");
         map.put("yyyyMMdd", cache);
-        UTUtil.setPrivateField(dateColumnParser, "map", map);
+        ReflectionTestUtils.setField(dateColumnParser, "map", map);
 
         // テスト実施
         dateColumnParser.parse(column, t, method, columnFormat);
@@ -180,7 +181,7 @@ public class DateColumnParserTest extends TestCase {
         // なし
 
         // 状態変化の確認
-        Object result = UTUtil.getPrivateField(t, "a");
+        Object result = ReflectionTestUtils.getField(t, "a");
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
         simpleDateFormat.setLenient(false);
         Date expected = simpleDateFormat.parse(column);
@@ -234,7 +235,7 @@ public class DateColumnParserTest extends TestCase {
         Map<String, DateFormatLocal> map = new ConcurrentHashMap<String, DateFormatLocal>();
         DateFormatLocal cache = new DateFormatLocal("yyyy-MM-dd");
         map.put("yyyy-MM-dd", cache);
-        UTUtil.setPrivateField(dateColumnParser, "map", map);
+        ReflectionTestUtils.setField(dateColumnParser, "map", map);
 
         // テスト実施
         dateColumnParser.parse(column, t, method, columnFormat);
@@ -243,7 +244,7 @@ public class DateColumnParserTest extends TestCase {
         // なし
 
         // 状態変化の確認
-        Object result = UTUtil.getPrivateField(t, "a");
+        Object result = ReflectionTestUtils.getField(t, "a");
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
         simpleDateFormat.setLenient(false);
         Date expected = simpleDateFormat.parse(column);
@@ -295,7 +296,7 @@ public class DateColumnParserTest extends TestCase {
 
         // 前提条件の設定
         Map<String, DateFormatLocal> map = new ConcurrentHashMap<String, DateFormatLocal>();
-        UTUtil.setPrivateField(dateColumnParser, "map", map);
+        ReflectionTestUtils.setField(dateColumnParser, "map", map);
 
         // テスト実施
         dateColumnParser.parse(column, t, method, columnFormat);
@@ -304,7 +305,7 @@ public class DateColumnParserTest extends TestCase {
         // なし
 
         // 状態変化の確認
-        Object result = UTUtil.getPrivateField(t, "a");
+        Object result = ReflectionTestUtils.getField(t, "a");
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         simpleDateFormat.setLenient(false);
         Date expected = simpleDateFormat.parse(column);
@@ -358,7 +359,7 @@ public class DateColumnParserTest extends TestCase {
         Map<String, DateFormatLocal> map = new ConcurrentHashMap<String, DateFormatLocal>();
         DateFormatLocal cache = new DateFormatLocal(columnFormat);
         map.put(columnFormat, cache);
-        UTUtil.setPrivateField(dateColumnParser, "map", map);
+        ReflectionTestUtils.setField(dateColumnParser, "map", map);
 
         // テスト実施
         dateColumnParser.parse(column, t, method, columnFormat);
@@ -367,7 +368,7 @@ public class DateColumnParserTest extends TestCase {
         // なし
 
         // 状態変化の確認
-        Object result = UTUtil.getPrivateField(t, "a");
+        Object result = ReflectionTestUtils.getField(t, "a");
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         simpleDateFormat.setLenient(false);
         Date expected = simpleDateFormat.parse(column);
@@ -421,7 +422,7 @@ public class DateColumnParserTest extends TestCase {
         Map<String, DateFormatLocal> map = new ConcurrentHashMap<String, DateFormatLocal>();
         DateFormatLocal cache = new DateFormatLocal("yyyy/MM/dd");
         map.put("yyyy/MM/dd", cache);
-        UTUtil.setPrivateField(dateColumnParser, "map", map);
+        ReflectionTestUtils.setField(dateColumnParser, "map", map);
 
         // テスト実施
         dateColumnParser.parse(column, t, method, columnFormat);
@@ -430,7 +431,7 @@ public class DateColumnParserTest extends TestCase {
         // なし
 
         // 状態変化の確認
-        Object result = UTUtil.getPrivateField(t, "a");
+        Object result = ReflectionTestUtils.getField(t, "a");
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         simpleDateFormat.setLenient(false);
         Date expected = simpleDateFormat.parse(column);

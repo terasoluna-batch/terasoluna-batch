@@ -16,28 +16,23 @@
 
 package jp.terasoluna.fw.validation;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
 import jp.terasoluna.utlib.PropertyTestCase;
-import jp.terasoluna.utlib.UTUtil;
 
 /**
  * {@link jp.terasoluna.fw.validation.ValidationUtil} クラスのブラックボックステスト。
- *
  * <p>
- * <h4>【クラスの概要】</h4>
- * 検証ロジックのユーティリティクラス。
+ * <h4>【クラスの概要】</h4> 検証ロジックのユーティリティクラス。
  * <p>
- *
  * @see jp.terasoluna.fw.validation.ValidationUtil
  */
 public class ValidationUtilTest04 extends PropertyTestCase {
 
     /**
-     * このテストケースを実行する為の
-     * GUI アプリケーションを起動する。
-     *
+     * このテストケースを実行する為の GUI アプリケーションを起動する。
      * @param args java コマンドに設定されたパラメータ
      */
     public static void main(String[] args) {
@@ -46,24 +41,24 @@ public class ValidationUtilTest04 extends PropertyTestCase {
 
     /**
      * 初期化処理を行う。
-     *
      * @throws Exception このメソッドで発生した例外
      * @see jp.terasoluna.utlib.spring.PropertyTestCase#setUpData()
      */
     @Override
     protected void setUpData() throws Exception {
-        UTUtil.setPrivateField(ValidationUtil.class, "hankakuKanaList",
-            "ｱｲｳｴｵｧｨｩｪｫｶｷｸｹｺｻｼｽｾｿﾀﾁﾂｯﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖｬｭｮﾗﾘﾙﾚﾛﾜｦﾝﾟﾞｰ･､｡｢｣");
-        UTUtil.setPrivateField(ValidationUtil.class, "zenkakuKanaList",
-            "アイウヴエオァィゥェォカキクケコヵヶガギグゲゴサシスセソ" +
-            "ザジズゼゾタチツテトダヂヅデドナニヌネノハヒフヘホ" +
-            "バビブベボパピプペポマミムメモヤユヨャュョラリルレロ" +
-            "ワヮヰヱヲッンー");
+        Field field = ValidationUtil.class.getDeclaredField("hankakuKanaList");
+        field.setAccessible(true);
+        field.set(ValidationUtil.class,
+                "ｱｲｳｴｵｧｨｩｪｫｶｷｸｹｺｻｼｽｾｿﾀﾁﾂｯﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖｬｭｮﾗﾘﾙﾚﾛﾜｦﾝﾟﾞｰ･､｡｢｣");
+        field = ValidationUtil.class.getDeclaredField("zenkakuKanaList");
+        field.setAccessible(true);
+        field.set(ValidationUtil.class, "アイウヴエオァィゥェォカキクケコヵヶガギグゲゴサシスセソ"
+                + "ザジズゼゾタチツテトダヂヅデドナニヌネノハヒフヘホ" + "バビブベボパピプペポマミムメモヤユヨャュョラリルレロ"
+                + "ワヮヰヱヲッンー");
     }
 
     /**
      * 終了処理を行う。
-     *
      * @throws Exception このメソッドで発生した例外
      * @see jp.terasoluna.utlib.spring.PropertyTestCase#cleanUpData()
      */
@@ -73,7 +68,6 @@ public class ValidationUtilTest04 extends PropertyTestCase {
 
     /**
      * コンストラクタ。
-     *
      * @param name このテストケースの名前。
      */
     public ValidationUtilTest04(String name) {
@@ -81,22 +75,16 @@ public class ValidationUtilTest04 extends PropertyTestCase {
     }
 
     /**
-     * testHasNotProhibitedChar01()
-     * <br><br>
-     *
-     * (正常系)
+     * testHasNotProhibitedChar01() <br>
      * <br>
-     * 観点：C
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C <br>
+     * <br>
      * 入力値：(引数) value:null<br>
-     *
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *
      * <br>
-     * 引数valueがnullの場合、trueが取得できることを確認する。
-     * <br>
-     *
+     * 引数valueがnullの場合、trueが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testHasNotProhibitedChar01() throws Exception {
@@ -105,22 +93,16 @@ public class ValidationUtilTest04 extends PropertyTestCase {
     }
 
     /**
-     * testHasNotProhibitedChar02()
-     * <br><br>
-     *
-     * (正常系)
+     * testHasNotProhibitedChar02() <br>
      * <br>
-     * 観点：C
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C <br>
+     * <br>
      * 入力値：(引数) value:""<br>
-     *
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *
      * <br>
-     * 引数valueが空文字の場合、trueが取得できることを確認する。
-     * <br>
-     *
+     * 引数valueが空文字の場合、trueが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testHasNotProhibitedChar02() throws Exception {
@@ -129,23 +111,17 @@ public class ValidationUtilTest04 extends PropertyTestCase {
     }
 
     /**
-     * testHasNotProhibitedChar03()
-     * <br><br>
-     *
-     * (正常系)
+     * testHasNotProhibitedChar03() <br>
      * <br>
-     * 観点：C
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C <br>
+     * <br>
      * 入力値：(引数) value:"abc"<br>
-     *         (引数) prohibitedChars:null<br>
-     *
+     * (引数) prohibitedChars:null<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *
      * <br>
-     * 引数prohibitedCharsがnullの場合、trueが取得できることを確認する。
-     * <br>
-     *
+     * 引数prohibitedCharsがnullの場合、trueが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testHasNotProhibitedChar03() throws Exception {
@@ -154,23 +130,17 @@ public class ValidationUtilTest04 extends PropertyTestCase {
     }
 
     /**
-     * testHasNotProhibitedChar04()
-     * <br><br>
-     *
-     * (正常系)
+     * testHasNotProhibitedChar04() <br>
      * <br>
-     * 観点：C
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C <br>
+     * <br>
      * 入力値：(引数) value:"abc"<br>
-     *         (引数) prohibitedChars:""（空文字）<br>
-     *
+     * (引数) prohibitedChars:""（空文字）<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *
      * <br>
-     * 引数prohibitedCharsが空文字の場合、trueが取得できることを確認する。
-     * <br>
-     *
+     * 引数prohibitedCharsが空文字の場合、trueが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testHasNotProhibitedChar04() throws Exception {
@@ -179,23 +149,17 @@ public class ValidationUtilTest04 extends PropertyTestCase {
     }
 
     /**
-     * testHasNotProhibitedChar05()
-     * <br><br>
-     *
-     * (正常系)
+     * testHasNotProhibitedChar05() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) value:"a"<br>
-     *         (引数) prohibitedChars:"abc"<br>
-     *
+     * (引数) prohibitedChars:"abc"<br>
      * <br>
      * 期待値：(戻り値) boolean:false<br>
-     *
      * <br>
-     * 引数valueが1文字でそれが禁止文字の場合、falseが取得できることを確認する。
-     * <br>
-     *
+     * 引数valueが1文字でそれが禁止文字の場合、falseが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testHasNotProhibitedChar05() throws Exception {
@@ -204,23 +168,17 @@ public class ValidationUtilTest04 extends PropertyTestCase {
     }
 
     /**
-     * testHasNotProhibitedChar06()
-     * <br><br>
-     *
-     * (正常系)
+     * testHasNotProhibitedChar06() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) value:"d"<br>
-     *         (引数) prohibitedChars:"abc"<br>
-     *
+     * (引数) prohibitedChars:"abc"<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *
      * <br>
-     * 引数valueが1文字でそれが禁止文字でない場合、trueが取得できることを確認する。
-     * <br>
-     *
+     * 引数valueが1文字でそれが禁止文字でない場合、trueが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testHasNotProhibitedChar06() throws Exception {
@@ -229,23 +187,17 @@ public class ValidationUtilTest04 extends PropertyTestCase {
     }
 
     /**
-     * testHasNotProhibitedChar07()
-     * <br><br>
-     *
-     * (正常系)
+     * testHasNotProhibitedChar07() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) value:"abc"<br>
-     *         (引数) prohibitedChars:"cde"<br>
-     *
+     * (引数) prohibitedChars:"cde"<br>
      * <br>
      * 期待値：(戻り値) boolean:false<br>
-     *
      * <br>
-     * 引数valueが複数文字でそれが禁止文字を含む場合、falseが取得できることを確認する。
-     * <br>
-     *
+     * 引数valueが複数文字でそれが禁止文字を含む場合、falseが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testHasNotProhibitedChar07() throws Exception {
@@ -254,23 +206,17 @@ public class ValidationUtilTest04 extends PropertyTestCase {
     }
 
     /**
-     * testHasNotProhibitedChar08()
-     * <br><br>
-     *
-     * (正常系)
+     * testHasNotProhibitedChar08() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) value:"abc"<br>
-     *         (引数) prohibitedChars:"def"<br>
-     *
+     * (引数) prohibitedChars:"def"<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *
      * <br>
-     * 引数valueが複数文字でそれが禁止文字を含まない場合、trueが取得できることを確認する。
-     * <br>
-     *
+     * 引数valueが複数文字でそれが禁止文字を含まない場合、trueが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testHasNotProhibitedChar08() throws Exception {
@@ -279,23 +225,17 @@ public class ValidationUtilTest04 extends PropertyTestCase {
     }
 
     /**
-     * testHasNotProhibitedChar09()
-     * <br><br>
-     *
-     * (正常系)
+     * testHasNotProhibitedChar09() <br>
      * <br>
-     * 観点：C
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C <br>
+     * <br>
      * 入力値：(引数) value:"ab\""<br>
-     *         (引数) prohibitedChars:"cd\""<br>
-     *
+     * (引数) prohibitedChars:"cd\""<br>
      * <br>
      * 期待値：(戻り値) boolean:false<br>
-     *
      * <br>
-     * 引数valueにエスケープが必要な文字を含みそれが禁止文字の場合、falseが取得できることを確認する。
-     * <br>
-     *
+     * 引数valueにエスケープが必要な文字を含みそれが禁止文字の場合、falseが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testHasNotProhibitedChar09() throws Exception {
@@ -304,24 +244,17 @@ public class ValidationUtilTest04 extends PropertyTestCase {
     }
 
     /**
-     * testHasNotProhibitedChar10()
-     * <br><br>
-     *
-     * (正常系)
+     * testHasNotProhibitedChar10() <br>
      * <br>
-     * 観点：C
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C <br>
+     * <br>
      * 入力値：(引数) value:"ab\""<br>
-     *         (引数) prohibitedChars:"de\\"<br>
-     *
+     * (引数) prohibitedChars:"de\\"<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *
      * <br>
-     * 引数valueにエスケープが必要な文字を含みそれが禁止文字でない場合、
-     * trueが取得できることを確認する。
-     * <br>
-     *
+     * 引数valueにエスケープが必要な文字を含みそれが禁止文字でない場合、 trueが取得できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testHasNotProhibitedChar10() throws Exception {
@@ -330,24 +263,18 @@ public class ValidationUtilTest04 extends PropertyTestCase {
     }
 
     /**
-     * testIsArrayInRange01()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsArrayInRange01() <br>
      * <br>
-     * 観点：C
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C <br>
+     * <br>
      * 入力値：(引数) obj:null<br>
-     *         (引数) min:1<br>
-     *         (引数) max:5<br>
-     *
+     * (引数) min:1<br>
+     * (引数) max:5<br>
      * <br>
      * 期待値：(戻り値) boolean:false<br>
-     *
      * <br>
-     * 引数objがnullの場合でminが１以上の場合、falseが返却されることを確認する。
-     * <br>
-     *
+     * 引数objがnullの場合でminが１以上の場合、falseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testIsArrayInRange01() throws Exception {
@@ -364,25 +291,17 @@ public class ValidationUtilTest04 extends PropertyTestCase {
     }
 
     /**
-     * testIsArrayInRange02()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsArrayInRange02() <br>
      * <br>
-     * 観点：C
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C <br>
+     * <br>
      * 入力値：(引数) obj:""(String)<br>
-     *
      * <br>
      * 期待値：(戻り値) boolean:true<br>
      * 状態変化：(例外) IllegalArgumentException<br>
-     *                  メッセージ：java.lang.String is neither Array nor Collection.
-     *
-     * <br>
-     * 引数objが配列・Collection型ではない場合、
-     * IllegalArgumentExceptionが発生することを確認する。
-     * <br>
-     *
+     * メッセージ：java.lang.String is neither Array nor Collection. <br>
+     * 引数objが配列・Collection型ではない場合、 IllegalArgumentExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testIsArrayInRange02() throws Exception {
@@ -396,36 +315,30 @@ public class ValidationUtilTest04 extends PropertyTestCase {
             ValidationUtil.isArrayInRange(obj, min, max);
             fail();
         } catch (IllegalArgumentException e) {
-            assertEquals("java.lang.String is neither Array nor Collection.",
-                    e.getMessage());
+            assertEquals("java.lang.String is neither Array nor Collection.", e
+                    .getMessage());
         }
     }
 
     /**
-     * testIsArrayInRange03()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsArrayInRange03() <br>
      * <br>
-     * 観点：C
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C <br>
+     * <br>
      * 入力値：(引数) obj:{"a","b","c"}<br>
-     *                （配列）<br>
-     *         (引数) min:0<br>
-     *         (引数) max:10<br>
-     *
+     * （配列）<br>
+     * (引数) min:0<br>
+     * (引数) max:10<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *
      * <br>
-     * 引数objが配列で、範囲内の場合
-     * <br>
-     *
+     * 引数objが配列で、範囲内の場合 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testIsArrayInRange03() throws Exception {
         // 前処理
-        Object obj = new String[]{"a","b","c"};
+        Object obj = new String[] { "a", "b", "c" };
         int min = 0;
         int max = 10;
 
@@ -437,27 +350,21 @@ public class ValidationUtilTest04 extends PropertyTestCase {
     }
 
     /**
-     * testIsArrayInRange04()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsArrayInRange04() <br>
      * <br>
-     * 観点：C
-     * <br><br>
+     * (正常系) <br>
+     * 観点：C <br>
+     * <br>
      * 入力値：(引数) obj:ArrayList<br>
-     *                [1="a"]<br>
-     *                [2="b"]<br>
-     *                [3="c"]<br>
-     *         (引数) min:5<br>
-     *         (引数) max:10<br>
-     *
+     * [1="a"]<br>
+     * [2="b"]<br>
+     * [3="c"]<br>
+     * (引数) min:5<br>
+     * (引数) max:10<br>
      * <br>
      * 期待値：(戻り値) boolean:false<br>
-     *
      * <br>
-     * 引数objがコレクションで、範囲外の場合
-     * <br>
-     *
+     * 引数objがコレクションで、範囲外の場合 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testIsArrayInRange04() throws Exception {
@@ -477,33 +384,25 @@ public class ValidationUtilTest04 extends PropertyTestCase {
     }
 
     /**
-     * testIsArrayInRange05()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsArrayInRange05() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) obj:int[] {<br>
-     *                  1,2,3<br>
-     *                };<br>
-     *         (引数) min:0<br>
-     *         (引数) max:2<br>
-     *
+     * 1,2,3<br>
+     * };<br>
+     * (引数) min:0<br>
+     * (引数) max:2<br>
      * <br>
      * 期待値：(戻り値) boolean:false<br>
-     *
      * <br>
-     * 引数がプリミティブ配列型で、範囲外の場合
-     * <br>
-     *
+     * 引数がプリミティブ配列型で、範囲外の場合 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testIsArrayInRange05() throws Exception {
         // 前処理
-        int[] array = new int[]{
-            1, 2, 3
-        };
+        int[] array = new int[] { 1, 2, 3 };
 
         // テスト実施
         boolean result = ValidationUtil.isArrayInRange(array, 0, 2);
@@ -513,22 +412,16 @@ public class ValidationUtilTest04 extends PropertyTestCase {
     }
 
     /**
-     * testIsUrl01()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsUrl01() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) value:null<br>
-     *
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *
      * <br>
-     * 引数valueがnullの場合
-     * <br>
-     *
+     * 引数valueがnullの場合 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testIsUrl01() throws Exception {
@@ -548,22 +441,16 @@ public class ValidationUtilTest04 extends PropertyTestCase {
     }
 
     /**
-     * testIsUrl02()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsUrl02() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) value:""<br>
-     *
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *
      * <br>
-     * 引数valueが空白の場合
-     * <br>
-     *
+     * 引数valueが空白の場合 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testIsUrl02() throws Exception {
@@ -583,26 +470,20 @@ public class ValidationUtilTest04 extends PropertyTestCase {
     }
 
     /**
-     * testIsUrl03()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsUrl03() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) value:http://www.nttdata.co.jp/index.html<br>
-     *         (引数) allowallschemes:false<br>
-     *         (引数) allow2slashes:false<br>
-     *         (引数) nofragments:false<br>
-     *         (引数) schemesVar:null<br>
-     *
+     * (引数) allowallschemes:false<br>
+     * (引数) allow2slashes:false<br>
+     * (引数) nofragments:false<br>
+     * (引数) schemesVar:null<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *
      * <br>
-     * 引数valueが正常なURLで、オプションがfalse、schemesVarがnullの場合
-     * <br>
-     *
+     * 引数valueが正常なURLで、オプションがfalse、schemesVarがnullの場合 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testIsUrl03() throws Exception {
@@ -622,26 +503,20 @@ public class ValidationUtilTest04 extends PropertyTestCase {
     }
 
     /**
-     * testIsUrl04()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsUrl04() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) value:http://www.nttdata.co.jp<br>
-     *         (引数) allowallschemes:false<br>
-     *         (引数) allow2slashes:false<br>
-     *         (引数) nofragments:false<br>
-     *         (引数) schemesVar:null<br>
-     *
+     * (引数) allowallschemes:false<br>
+     * (引数) allow2slashes:false<br>
+     * (引数) nofragments:false<br>
+     * (引数) schemesVar:null<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *
      * <br>
-     * 引数valueが正常なURLで、オプションがfalse、schemesVarがnullの場合
-     * <br>
-     *
+     * 引数valueが正常なURLで、オプションがfalse、schemesVarがnullの場合 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testIsUrl04() throws Exception {
@@ -661,26 +536,20 @@ public class ValidationUtilTest04 extends PropertyTestCase {
     }
 
     /**
-     * testIsUrl05()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsUrl05() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) value:http://www.nttdata.co.jp/index.html<br>
-     *         (引数) allowallschemes:false<br>
-     *         (引数) allow2slashes:false<br>
-     *         (引数) nofragments:false<br>
-     *         (引数) schemesVar:""<br>
-     *
+     * (引数) allowallschemes:false<br>
+     * (引数) allow2slashes:false<br>
+     * (引数) nofragments:false<br>
+     * (引数) schemesVar:""<br>
      * <br>
      * 期待値：(戻り値) boolean:false<br>
-     *
      * <br>
-     * 引数valueがURLではない文字列で、オプションがfalse、schemesVarが空白の場合
-     * <br>
-     *
+     * 引数valueがURLではない文字列で、オプションがfalse、schemesVarが空白の場合 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testIsUrl05() throws Exception {
@@ -700,26 +569,20 @@ public class ValidationUtilTest04 extends PropertyTestCase {
     }
 
     /**
-     * testIsUrl06()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsUrl06() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) value:http://www.nttdata.co.jp/<br>
-     *         (引数) allowallschemes:true<br>
-     *         (引数) allow2slashes:true<br>
-     *         (引数) nofragments:true<br>
-     *         (引数) schemesVar:"http"<br>
-     *
+     * (引数) allowallschemes:true<br>
+     * (引数) allow2slashes:true<br>
+     * (引数) nofragments:true<br>
+     * (引数) schemesVar:"http"<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *
      * <br>
-     * 引数valueが正常なURLで、オプションがtrue、schemesVarがNotNullの場合
-     * <br>
-     *
+     * 引数valueが正常なURLで、オプションがtrue、schemesVarがNotNullの場合 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testIsUrl06() throws Exception {
@@ -739,26 +602,20 @@ public class ValidationUtilTest04 extends PropertyTestCase {
     }
 
     /**
-     * testIsUrl07()
-     * <br><br>
-     *
-     * (正常系)
+     * testIsUrl07() <br>
      * <br>
-     * 観点：F
-     * <br><br>
+     * (正常系) <br>
+     * 観点：F <br>
+     * <br>
      * 入力値：(引数) value:https://www.nttdata.co.jp/index.html<br>
-     *         (引数) allowallschemes:true<br>
-     *         (引数) allow2slashes:true<br>
-     *         (引数) nofragments:true<br>
-     *         (引数) schemesVar:"http,ftp,https"<br>
-     *
+     * (引数) allowallschemes:true<br>
+     * (引数) allow2slashes:true<br>
+     * (引数) nofragments:true<br>
+     * (引数) schemesVar:"http,ftp,https"<br>
      * <br>
      * 期待値：(戻り値) boolean:true<br>
-     *
      * <br>
-     * 引数valueが正常なURLで、オプションがtrue、schemesVarがNotNull(カンマ区切りの複数)の場合
-     * <br>
-     *
+     * 引数valueが正常なURLで、オプションがtrue、schemesVarがNotNull(カンマ区切りの複数)の場合 <br>
      * @throws Exception このメソッドで発生した例外
      */
     public void testIsUrl07() throws Exception {

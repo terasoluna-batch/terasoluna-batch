@@ -13,10 +13,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
+import org.springframework.test.util.ReflectionTestUtils;
+
 import jp.terasoluna.fw.file.dao.FileException;
 import jp.terasoluna.fw.file.dao.FileLineException;
 import jp.terasoluna.fw.file.ut.VMOUTUtil;
-import jp.terasoluna.utlib.UTUtil;
 import junit.framework.TestCase;
 
 /**
@@ -215,7 +216,7 @@ public class PlainFileLineIteratorTest extends TestCase {
         // 状態変化の確認
         assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
                 "readLine"));
-        assertEquals(1, UTUtil.getPrivateField(plainFileLineIterator,
+        assertEquals(1, ReflectionTestUtils.getField(plainFileLineIterator,
                 "currentLineCount"));
     }
 
@@ -282,7 +283,7 @@ public class PlainFileLineIteratorTest extends TestCase {
             // 状態変化の確認
             assertEquals(0, VMOUTUtil.getCallCount(
                     AbstractFileLineIterator.class, "readLine"));
-            assertEquals(0, UTUtil.getPrivateField(plainFileLineIterator,
+            assertEquals(0, ReflectionTestUtils.getField(plainFileLineIterator,
                     "currentLineCount"));
 
         }
@@ -328,7 +329,7 @@ public class PlainFileLineIteratorTest extends TestCase {
         // なし
 
         // 前提条件の設定
-        UTUtil.setPrivateField(plainFileLineIterator, "readTrailer", true);
+        ReflectionTestUtils.setField(plainFileLineIterator, "readTrailer", true);
 
         // テスト実施
         try {
@@ -348,7 +349,7 @@ public class PlainFileLineIteratorTest extends TestCase {
             // 状態変化の確認
             assertEquals(0, VMOUTUtil.getCallCount(
                     AbstractFileLineIterator.class, "readLine"));
-            assertEquals(0, UTUtil.getPrivateField(plainFileLineIterator,
+            assertEquals(0, ReflectionTestUtils.getField(plainFileLineIterator,
                     "currentLineCount"));
 
         }
@@ -411,7 +412,7 @@ public class PlainFileLineIteratorTest extends TestCase {
 
         PlainFileLineIterator fileLineIterator = new PlainFileLineIterator(
                 fileName, PlainFileLineIterator_Stub01.class, columnParserMap);
-        UTUtil.setPrivateField(fileLineIterator, "currentLineCount", 0);
+        ReflectionTestUtils.setField(fileLineIterator, "currentLineCount", 0);
 
         // 引数の設定
         int skipLines = 0;
@@ -429,7 +430,7 @@ public class PlainFileLineIteratorTest extends TestCase {
         // 状態変化の確認
         assertEquals(0, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
                 "readLine"));
-        assertEquals(0, UTUtil.getPrivateField(fileLineIterator,
+        assertEquals(0, ReflectionTestUtils.getField(fileLineIterator,
                 "currentLineCount"));
     }
 
@@ -464,7 +465,7 @@ public class PlainFileLineIteratorTest extends TestCase {
 
         PlainFileLineIterator fileLineIterator = new PlainFileLineIterator(
                 fileName, PlainFileLineIterator_Stub01.class, columnParserMap);
-        UTUtil.setPrivateField(fileLineIterator, "currentLineCount", 0);
+        ReflectionTestUtils.setField(fileLineIterator, "currentLineCount", 0);
 
         // 引数の設定
         int skipLines = 1;
@@ -482,7 +483,7 @@ public class PlainFileLineIteratorTest extends TestCase {
         // 状態変化の確認
         assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
                 "readLine"));
-        assertEquals(1, UTUtil.getPrivateField(fileLineIterator,
+        assertEquals(1, ReflectionTestUtils.getField(fileLineIterator,
                 "currentLineCount"));
     }
 
@@ -517,7 +518,7 @@ public class PlainFileLineIteratorTest extends TestCase {
 
         PlainFileLineIterator fileLineIterator = new PlainFileLineIterator(
                 fileName, PlainFileLineIterator_Stub01.class, columnParserMap);
-        UTUtil.setPrivateField(fileLineIterator, "currentLineCount", 0);
+        ReflectionTestUtils.setField(fileLineIterator, "currentLineCount", 0);
 
         // 引数の設定
         int skipLines = 3;
@@ -535,7 +536,7 @@ public class PlainFileLineIteratorTest extends TestCase {
         // 状態変化の確認
         assertEquals(3, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
                 "readLine"));
-        assertEquals(3, UTUtil.getPrivateField(fileLineIterator,
+        assertEquals(3, ReflectionTestUtils.getField(fileLineIterator,
                 "currentLineCount"));
     }
 
@@ -570,7 +571,7 @@ public class PlainFileLineIteratorTest extends TestCase {
 
         PlainFileLineIterator fileLineIterator = new PlainFileLineIterator(
                 fileName, PlainFileLineIterator_Stub01.class, columnParserMap);
-        UTUtil.setPrivateField(fileLineIterator, "currentLineCount", 0);
+        ReflectionTestUtils.setField(fileLineIterator, "currentLineCount", 0);
 
         // 引数の設定
         int skipLines = 1;
@@ -591,7 +592,7 @@ public class PlainFileLineIteratorTest extends TestCase {
             assertSame(exception, e);
 
             // 状態変化の確認
-            assertEquals(0, UTUtil.getPrivateField(fileLineIterator,
+            assertEquals(0, ReflectionTestUtils.getField(fileLineIterator,
                     "currentLineCount"));
         }
     }
@@ -633,7 +634,7 @@ public class PlainFileLineIteratorTest extends TestCase {
 
         PlainFileLineIterator fileLineIterator = new PlainFileLineIterator(
                 fileName, PlainFileLineIterator_Stub01.class, columnParserMap);
-        UTUtil.setPrivateField(fileLineIterator, "currentLineCount", 0);
+        ReflectionTestUtils.setField(fileLineIterator, "currentLineCount", 0);
 
         // 引数の設定
         int skipLines = 100;
@@ -657,7 +658,7 @@ public class PlainFileLineIteratorTest extends TestCase {
             // 状態変化の確認
             assertEquals(3, VMOUTUtil.getCallCount(
                     AbstractFileLineIterator.class, "readLine"));
-            assertEquals(3, UTUtil.getPrivateField(fileLineIterator,
+            assertEquals(3, ReflectionTestUtils.getField(fileLineIterator,
                     "currentLineCount"));
         }
     }
@@ -768,7 +769,7 @@ public class PlainFileLineIteratorTest extends TestCase {
         // なし
 
         // 前提条件の設定
-        UTUtil.setPrivateField(plainFileLineIterator, "currentLineCount", 5);
+        ReflectionTestUtils.setField(plainFileLineIterator, "currentLineCount", 5);
         // テスト対象のインスタンス化時に設定済み
 
         // テスト実施
@@ -820,7 +821,7 @@ public class PlainFileLineIteratorTest extends TestCase {
         assertEquals("トレイラデータ", trailer.get(0));
 
         // 状態変化の確認
-        assertTrue((Boolean) UTUtil.getPrivateField(plainFileLineIterator,
+        assertTrue((Boolean) ReflectionTestUtils.getField(plainFileLineIterator,
                 "readTrailer"));
     }
 }

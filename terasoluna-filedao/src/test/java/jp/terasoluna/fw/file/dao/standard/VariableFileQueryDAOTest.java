@@ -12,9 +12,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.test.util.ReflectionTestUtils;
+
 import jp.terasoluna.fw.file.dao.FileLineIterator;
 import jp.terasoluna.fw.file.ut.VMOUTUtil;
-import jp.terasoluna.utlib.UTUtil;
 import junit.framework.TestCase;
 
 /**
@@ -98,8 +99,7 @@ public class VariableFileQueryDAOTest extends TestCase {
         // 前提条件の設定
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
-        UTUtil
-                .setPrivateField(fileQueryDAO, "columnParserMap",
+        ReflectionTestUtils.setField(fileQueryDAO, "columnParserMap",
                         columnParserMap);
 
         // テスト実施
