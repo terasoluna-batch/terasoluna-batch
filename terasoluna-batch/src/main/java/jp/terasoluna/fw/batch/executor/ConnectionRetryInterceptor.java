@@ -24,9 +24,9 @@ import jp.terasoluna.fw.logger.TLogger;
 
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
-import org.apache.ibatis.transaction.TransactionException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.dao.DataAccessException;
+import org.springframework.transaction.TransactionException;
 
 /**
  * コネクションのリトライを行なうインターセプター<br>
@@ -46,14 +46,14 @@ import org.springframework.dao.DataAccessException;
  * 以下はリトライ対象となる例外である。
  * <ol>
  * <li>org.springframework.dao.DataAccessException</li>
- * <li>org.apache.ibatis.transaction.TransactionException</li>
+ * <li>org.springframework.transaction.TransactionException</li>
  * <li>RetryableExecuteException</li>
  * </ol>
  * リトライ正常終了時は例外をスローすることなく処理を終了する(リトライを示すINFOログは出力される)。リトライ回数を超えたときは、最後に発生した例外をスローする。
  * また、RetryableExecuteExceptionについては、原因となる例外がスローされる。
  * なお、retryResetを短めに設定すると(たとえば、retryReset > retryIntervalのような場合)、リトライ回数がリセットされるため例外がスローされる間無限ループになりうる点には注意が必要である。
  * @see org.springframework.dao.DataAccessException
- * @see org.apache.ibatis.transaction.TransactionException
+ * @see org.springframework.transaction.TransactionException
  * @see RetryableExecuteException
  * @since 3.6
  */
@@ -88,7 +88,7 @@ public class ConnectionRetryInterceptor implements MethodInterceptor {
      * 
      * @param invocation 処理対象となるメソッド
      * @return メソッド実行結果
-     * @throws Throwable リトライ対象以外の原因例外
+     * @throws リトライ処理から外部にスローされるThrowable
      */
     public Object invoke(MethodInvocation invocation) throws Throwable {
         int retryCount = 0;
