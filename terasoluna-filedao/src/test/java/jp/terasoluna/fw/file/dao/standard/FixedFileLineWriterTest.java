@@ -27,8 +27,6 @@ import jp.terasoluna.fw.file.annotation.OutputFileColumn;
 import jp.terasoluna.fw.file.annotation.PaddingType;
 import jp.terasoluna.fw.file.dao.FileException;
 import jp.terasoluna.fw.file.ut.VMOUTUtil;
-import jp.terasoluna.utlib.UTUtil;
-
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;

@@ -24,11 +24,8 @@ import jp.terasoluna.fw.file.annotation.PaddingType;
 import jp.terasoluna.fw.file.annotation.TrimType;
 import jp.terasoluna.fw.file.dao.FileException;
 import jp.terasoluna.fw.file.ut.VMOUTUtil;
-import jp.terasoluna.utlib.UTUtil;
-
 import org.junit.Before;
 import org.junit.Test;
-import org.springframework.test.util.ReflectionTestUtils;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.FileDAOUtility} クラスのテスト。

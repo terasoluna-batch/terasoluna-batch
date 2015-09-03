@@ -46,8 +46,6 @@ import jp.terasoluna.fw.file.annotation.TrimType;
 import jp.terasoluna.fw.file.dao.FileException;
 import jp.terasoluna.fw.file.dao.FileLineException;
 import jp.terasoluna.fw.file.ut.VMOUTUtil;
-import jp.terasoluna.utlib.UTUtil;
-
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
@@ -1429,7 +1427,6 @@ public class AbstractFileLineWriterTest<T> {
 
         // テスト実施
         ReflectionTestUtils.invokeMethod(fileLineWriter, "buildFields", null);
-//        UTUtil.invokePrivate(fileLineWriter, "buildFields");
 
         // 判定(状態変化、フィールド)
         Field[] resultFields = (Field[]) ReflectionTestUtils.getField(fileLineWriter,

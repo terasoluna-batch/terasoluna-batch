@@ -30,7 +30,6 @@ import java.util.StringTokenizer;
 import java.util.Vector;
 
 import jp.terasoluna.fw.util.PropertyTestCase;
-import jp.terasoluna.utlib.UTUtil;
 import uk.org.lidalia.slf4jext.Level;
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;

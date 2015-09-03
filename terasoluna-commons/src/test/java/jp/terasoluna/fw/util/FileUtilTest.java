@@ -20,6 +20,7 @@ import java.io.File;
 import java.lang.reflect.Method;
 import org.springframework.test.util.ReflectionTestUtils;
 
+import jp.terasoluna.fw.util.PropertyTestCase;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
