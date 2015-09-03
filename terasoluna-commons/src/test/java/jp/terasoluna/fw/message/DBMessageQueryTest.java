@@ -208,6 +208,7 @@ public class DBMessageQueryTest extends TestCase {
      * 観点：A,E <br>
      * <br>
      * 入力値：(引数) rs:|"code"="test01"|"language"="ja"|"country"="JP" |"variant"="kaisai"|"message"="テストメッセージ０１"|"hoge"="関係ないカラム"|
+<<<<<<< HEAD
      * <br>
      * という内容のResultSet<br>
      * (引数) rowNum:not null<br>
@@ -218,6 +219,18 @@ public class DBMessageQueryTest extends TestCase {
      * variant->"kansai"<br>
      * message->"テストメッセージ０１"<br>
      * <br>
+=======
+     * <br>
+     * という内容のResultSet<br>
+     * (引数) rowNum:not null<br>
+     * <br>
+     * 期待値：(戻り値) DBMessage Bean:code->"test01"<br>
+     * language->"ja"<br>
+     * country->"JP"<br>
+     * variant->"kansai"<br>
+     * message->"テストメッセージ０１"<br>
+     * <br>
+>>>>>>> 9e2585cc0f431d938fdb24bd9f2d84a23b1f5e2f
      * ResultSetのカラムの内容がStringであった場合、値の取得が出来るかの確認する。 また、要求していない"hoge"カラムがある場合、エラーにならずに無視するかを 確認する。<br>
      * 取得したString文字列をそのままDBMessageBeanに格納する。 "hoge"カラムは無視され、どこにも影響しない。 <br>
      * @throws Exception このメソッドで発生した例外

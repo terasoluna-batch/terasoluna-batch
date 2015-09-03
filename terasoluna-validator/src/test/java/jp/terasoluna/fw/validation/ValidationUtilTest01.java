@@ -23,6 +23,9 @@ import org.junit.Before;
 import org.junit.Test;
 import java.lang.reflect.Field;
 
+import org.springframework.test.util.ReflectionTestUtils;
+
+
 /**
  * {@link jp.terasoluna.fw.validation.ValidationUtil} クラスのブラックボックステスト。
  * <p>
