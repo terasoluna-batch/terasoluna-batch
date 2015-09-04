@@ -132,8 +132,7 @@ public class JXPATH152PatchActivatorTest {
 
         // 判定
         assertThat(logger.getLoggingEvents(), is(asList(info(
-                "JXPATH-152 Patch activation succeeded."), info(
-                        "JXPATH-152 Patch activation succeeded."))));
+                "JXPATH-152 Patch activation succeeded."))));
         field = JXPathIntrospector.class.getDeclaredField("byClass");
         field.setAccessible(true);
         assertTrue(((Map<?, ?>) field.get(JXPathIntrospector.class))

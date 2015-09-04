@@ -352,6 +352,6 @@ public class DBMessageQueryTest {
         assertEquals("", dbmReturn.getVariant());
         assertEquals("", dbmReturn.getMessage());
         assertThat(logger.getLoggingEvents(), is(asList(warn(
-                "MessageCode is null"), debug(",,,,"))));
+                "[MessageCode is null] "), debug("[,,,,] "))));
     }
 }

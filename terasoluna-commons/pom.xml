@@ -167,7 +167,6 @@
         <dependency>
         	<groupId>jp.terasoluna.fw</groupId>
         	<artifactId>terasoluna-logger</artifactId>
-        	<scope>test</scope>
         </dependency>
         <dependency>
         	<groupId>uk.org.lidalia</groupId>
