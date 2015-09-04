@@ -200,23 +200,11 @@ public class BatchUtil {
     public static TransactionStatus startTransaction(
             PlatformTransactionManager tran, TransactionDefinition def, Log log) {
         if (log != null && log.isDebugEnabled()) {
-            if (log instanceof TLogger) {
-                TLogger logger = (TLogger) log;
-                logger.debug(LogId.DAL025033, tran);
-                if (def != null) {
-                    logger.debug(LogId.DAL025034, def.getPropagationBehavior(),
-                            def.getIsolationLevel(), def.getTimeout(), def
-                                    .isReadOnly(), def.getName());
-                }
-            } else {
-                String msg033 = LOGGER.getLogMessage(LogId.DAL025033, tran);
-                log.debug(msg033);
-                if (def != null) {
-                    String msg034 = LOGGER.getLogMessage(LogId.DAL025034, def
-                            .getPropagationBehavior(), def.getIsolationLevel(),
-                            def.getTimeout(), def.isReadOnly(), def.getName());
-                    log.debug(msg034);
-                }
+            logDebug(log, LogId.DAL025033, tran);
+            if (def != null) {
+                logDebug(log, LogId.DAL025034, def.getPropagationBehavior(), def
+                        .getIsolationLevel(), def.getTimeout(), def
+                                .isReadOnly(), def.getName());
             }
         }
 
@@ -226,13 +214,7 @@ public class BatchUtil {
         }
 
         if (log != null && log.isDebugEnabled()) {
-            if (log instanceof TLogger) {
-                TLogger logger = (TLogger) log;
-                logger.debug(LogId.DAL025035, stat);
-            } else {
-                String msg035 = LOGGER.getLogMessage(LogId.DAL025035, stat);
-                log.debug(msg035);
-            }
+            logDebug(log, LogId.DAL025035, stat);
         }
         return stat;
     }
@@ -284,30 +266,14 @@ public class BatchUtil {
                 if (ptm != null) {
 
                     if (log != null && log.isDebugEnabled()) {
-                        if (log instanceof TLogger) {
-                            TLogger logger = (TLogger) log;
-                            logger.debug(LogId.DAL025033, key);
-                            if (tranDef != null) {
-                                logger.debug(LogId.DAL025034, tranDef
-                                        .getPropagationBehavior(), tranDef
-                                        .getIsolationLevel(), tranDef
-                                        .getTimeout(), tranDef.isReadOnly(),
-                                        tranDef.getName());
-                            }
-                        } else {
-                            String msg033 = LOGGER.getLogMessage(
-                                    LogId.DAL025033, key);
-                            log.debug(msg033);
-                            if (tranDef != null) {
-                                String msg034 = LOGGER.getLogMessage(
-                                        LogId.DAL025034, tranDef
-                                                .getPropagationBehavior(),
-                                        tranDef.getIsolationLevel(), tranDef
-                                                .getTimeout(), tranDef
-                                                .isReadOnly(), tranDef
-                                                .getName());
-                                log.debug(msg034);
-                            }
+                        logDebug(log, LogId.DAL025033, key);
+                        if (tranDef != null) {
+                            logDebug(log, LogId.DAL025034, tranDef
+                                    .getPropagationBehavior(), tranDef
+                                            .getIsolationLevel(), tranDef
+                                                    .getTimeout(), tranDef
+                                                            .isReadOnly(),
+                                    tranDef.getName());
                         }
                     }
 
@@ -317,14 +283,7 @@ public class BatchUtil {
                         trnStat = ptm.getTransaction(tranDef);
                     } catch (TransactionException e) {
                         if (log != null && log.isErrorEnabled()) {
-                            if (log instanceof TLogger) {
-                                TLogger logger = (TLogger) log;
-                                logger.error(LogId.EAL025048, e, key);
-                            } else {
-                                String message = LOGGER.getLogMessage(
-                                        LogId.EAL025048, key);
-                                log.error(message, e);
-                            }
+                            logError(log, LogId.EAL025048, e, key);
                         }
                         endTransactions(tranMap, statMap, log);
                         throw e;
@@ -336,14 +295,7 @@ public class BatchUtil {
                     }
 
                     if (log != null && log.isDebugEnabled()) {
-                        if (log instanceof TLogger) {
-                            TLogger logger = (TLogger) log;
-                            logger.debug(LogId.DAL025036, key, trnStat);
-                        } else {
-                            String msg036 = LOGGER.getLogMessage(
-                                    LogId.DAL025036, key, trnStat);
-                            log.debug(msg036);
-                        }
+                        logDebug(log, LogId.DAL025036, key, trnStat);
                     }
                 }
             }
@@ -371,26 +323,14 @@ public class BatchUtil {
     public static void commitTransaction(PlatformTransactionManager tran,
             TransactionStatus stat, Log log) {
         if (log != null && log.isDebugEnabled()) {
-            if (log instanceof TLogger) {
-                TLogger logger = (TLogger) log;
-                logger.debug(LogId.DAL025037, stat);
-            } else {
-                String msg037 = LOGGER.getLogMessage(LogId.DAL025037, stat);
-                log.debug(msg037);
-            }
+            logDebug(log, LogId.DAL025037, stat);
         }
 
         if (tran != null && stat != null) {
             tran.commit(stat);
         }
         if (log != null && log.isDebugEnabled()) {
-            if (log instanceof TLogger) {
-                TLogger logger = (TLogger) log;
-                logger.debug(LogId.DAL025038, stat);
-            } else {
-                String msg038 = LOGGER.getLogMessage(LogId.DAL025038, stat);
-                log.debug(msg038);
-            }
+            logDebug(log, LogId.DAL025038, stat);
         }
     }
 
@@ -441,18 +381,8 @@ public class BatchUtil {
             PlatformTransactionManager ptm = (PlatformTransactionManager) ptmObj;
 
             if (log != null && log.isDebugEnabled()) {
-                if (log instanceof TLogger) {
-                    TLogger logger = (TLogger) log;
-                    logger.debug(LogId.DAL025039, key, trnStat);
-                    logger.debug(LogId.DAL025038, trnStat);
-                } else {
-                    String msg039 = LOGGER.getLogMessage(
-                            LogId.DAL025039, key, trnStat);
-                    log.debug(msg039);
-                    String msg038 = LOGGER.getLogMessage(
-                            LogId.DAL025038, trnStat);
-                    log.debug(msg038);
-                }
+                logDebug(log, LogId.DAL025039, key, trnStat);
+                logDebug(log, LogId.DAL025038, trnStat);
             }
             // コミット
             ptm.commit(trnStat);
@@ -478,13 +408,7 @@ public class BatchUtil {
     public static void endTransaction(PlatformTransactionManager tran,
             TransactionStatus stat, Log log) {
         if (log != null && log.isDebugEnabled()) {
-            if (log instanceof TLogger) {
-                TLogger logger = (TLogger) log;
-                logger.debug(LogId.DAL025040, stat);
-            } else {
-                String message = LOGGER.getLogMessage(LogId.DAL025040, stat);
-                log.debug(message);
-            }
+            logDebug(log, LogId.DAL025040, stat);
         }
 
         if (tran != null && stat != null && !stat.isCompleted()) {
@@ -492,13 +416,7 @@ public class BatchUtil {
         }
 
         if (log != null && log.isDebugEnabled()) {
-            if (log instanceof TLogger) {
-                TLogger logger = (TLogger) log;
-                logger.debug(LogId.DAL025041, stat);
-            } else {
-                String message = LOGGER.getLogMessage(LogId.DAL025041, stat);
-                log.debug(message);
-            }
+            logDebug(log, LogId.DAL025041, stat);
         }
     }
 
@@ -558,18 +476,8 @@ public class BatchUtil {
             }
 
             if (log != null && log.isDebugEnabled()) {
-                if (log instanceof TLogger) {
-                    TLogger logger = (TLogger) log;
-                    logger.debug(LogId.DAL025042, key, trnStat);
-                    logger.debug(LogId.DAL025045, trnStat);
-                } else {
-                    String message42 = LOGGER.getLogMessage(
-                            LogId.DAL025042, key, trnStat);
-                    log.debug(message42);
-                    String message45 = LOGGER.getLogMessage(
-                            LogId.DAL025045, trnStat);
-                    log.debug(message45);
-                }
+                logDebug(log, LogId.DAL025042, key, trnStat);
+                logDebug(log, LogId.DAL025045, trnStat);
             }
 
             // ロールバック
@@ -577,28 +485,14 @@ public class BatchUtil {
                 ptm.rollback(trnStat);
             } catch (TransactionException e) {
                 if (log != null && log.isErrorEnabled()) {
-                    if (log instanceof TLogger) {
-                        TLogger logger = (TLogger) log;
-                        logger.error(LogId.EAL025045, e, key);
-                    } else {
-                        String message = LOGGER.getLogMessage(
-                               LogId.DAL025045, key);
-                        log.error(message, e);
-                    }
+                    logError(log, LogId.EAL025045, e, key);
                 }
                 isNormal = false;
                 // 例外が発生しても途中終了せず、他のトランザクション終了を試みる
             }
 
             if (log != null && log.isDebugEnabled()) {
-                if (log instanceof TLogger) {
-                    TLogger logger = (TLogger) log;
-                    logger.debug(LogId.DAL025041, trnStat);
-                } else {
-                    String message = LOGGER.getLogMessage(
-                            LogId.DAL025041, trnStat);
-                    log.debug(message);
-                }
+                logDebug(log, LogId.DAL025041, trnStat);
             }
         }
         return isNormal;
@@ -621,25 +515,13 @@ public class BatchUtil {
      */
     public static Object setSavepoint(TransactionStatus stat, Log log) {
         if (log != null && log.isDebugEnabled()) {
-            if (log instanceof TLogger) {
-                TLogger logger = (TLogger) log;
-                logger.debug(LogId.DAL025046, stat);
-            } else {
-                String message = LOGGER.getLogMessage(LogId.DAL025046, stat);
-                log.debug(message);
-            }
+            logDebug(log, LogId.DAL025046, stat);
         }
 
         Object savepoint = stat.createSavepoint();
 
         if (log != null && log.isDebugEnabled()) {
-            if (log instanceof TLogger) {
-                TLogger logger = (TLogger) log;
-                logger.debug(LogId.DAL025047, stat);
-            } else {
-                String message = LOGGER.getLogMessage(LogId.DAL025047, stat);
-                log.debug(message);
-            }
+            logDebug(log, LogId.DAL025047, stat);
         }
 
         return savepoint;
@@ -663,26 +545,13 @@ public class BatchUtil {
     public static void releaseSavepoint(TransactionStatus stat,
             Object savepoint, Log log) {
         if (log != null && log.isDebugEnabled()) {
-            if (log instanceof TLogger) {
-                TLogger logger = (TLogger) log;
-                logger.debug(LogId.DAL025048, stat);
-            } else {
-                String message = LOGGER.getLogMessage(LogId.DAL025048, stat);
-                log.debug(message);
-            }
+            logDebug(log, LogId.DAL025048, stat);
         }
 
         stat.releaseSavepoint(savepoint);
 
         if (log != null && log.isDebugEnabled()) {
-            if (log instanceof TLogger) {
-                TLogger logger = (TLogger) log;
-                logger.debug(LogId.DAL025049, savepoint);
-            } else {
-                String message = LOGGER.getLogMessage(LogId.DAL025049,
-                        savepoint);
-                log.debug(message);
-            }
+            logDebug(log, LogId.DAL025049, savepoint);
         }
     }
 
@@ -705,25 +574,13 @@ public class BatchUtil {
     public static void rollbackSavepoint(TransactionStatus stat,
             Object savepoint, Log log) {
         if (log != null && log.isDebugEnabled()) {
-            if (log instanceof TLogger) {
-                TLogger logger = (TLogger) log;
-                logger.debug(LogId.DAL025050, stat);
-            } else {
-                String message = LOGGER.getLogMessage(LogId.DAL025050, stat);
-                log.debug(message);
-            }
+            logDebug(log, LogId.DAL025050, stat);
         }
 
         stat.rollbackToSavepoint(savepoint);
 
         if (log != null && log.isDebugEnabled()) {
-            if (log instanceof TLogger) {
-                TLogger logger = (TLogger) log;
-                logger.debug(LogId.DAL025051, stat);
-            } else {
-                String message = LOGGER.getLogMessage(LogId.DAL025051, stat);
-                log.debug(message);
-            }
+            logDebug(log, LogId.DAL025051, stat);
         }
     }
 
@@ -746,25 +603,13 @@ public class BatchUtil {
     public static void rollbackTransaction(PlatformTransactionManager tran,
             TransactionStatus stat, Log log) {
         if (log != null && log.isDebugEnabled()) {
-            if (log instanceof TLogger) {
-                TLogger logger = (TLogger) log;
-                logger.debug(LogId.DAL025052, stat);
-            } else {
-                String message = LOGGER.getLogMessage(LogId.DAL025052, stat);
-                log.debug(message);
-            }
+            logDebug(log, LogId.DAL025052, stat);
         }
         if (tran != null && stat != null && !stat.isCompleted()) {
             tran.rollback(stat);
         }
         if (log != null && log.isDebugEnabled()) {
-            if (log instanceof TLogger) {
-                TLogger logger = (TLogger) log;
-                logger.debug(LogId.DAL025053, stat);
-            } else {
-                String message = LOGGER.getLogMessage(LogId.DAL025053, stat);
-                log.debug(message);
-            }
+            logDebug(log, LogId.DAL025053, stat);
         }
 
     }
@@ -960,5 +805,39 @@ public class BatchUtil {
         sb.append(f1.format(max));
 
         return sb.toString();
+    }
+
+    /**
+     * ログをデバッグレベル出力する。
+     * TLogger / commons.logging のどちらのロガーにも対応する
+     * @param log ロガー
+     * @param logId 出力するログID
+     * @param args ログの引数
+     */
+    private static void logDebug(Log log, String logId, Object... args) {
+        if (log instanceof TLogger) {
+            TLogger logger = (TLogger) log;
+            logger.debug(logId, args);
+        } else {
+            String msg = LOGGER.getLogMessage(logId, args);
+            log.debug(msg);
+        }
+    }
+
+    /**
+     * ログをエラーレベルで出力する
+     * TLogger / commons.logging のどちらのロガーにも対応する
+     * @param log ロガー
+     * @param logId 出力するログID
+     * @param args ログの引数
+     */
+    private static void logError(Log log, String logId, Object... args) {        
+        if (log instanceof TLogger) {
+            TLogger logger = (TLogger) log;
+            logger.error(logId, args);
+        } else {
+            String msg = LOGGER.getLogMessage(logId, args);
+            log.error(msg);
+        }
     }
 }
