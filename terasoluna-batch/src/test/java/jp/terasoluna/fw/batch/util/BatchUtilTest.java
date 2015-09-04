@@ -22,7 +22,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import jp.terasoluna.fw.batch.constants.LogId;
 import jp.terasoluna.fw.batch.exception.IllegalClassTypeException;
 import jp.terasoluna.fw.logger.TLogger;
 import junit.framework.TestCase;
@@ -33,6 +32,8 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.TransactionException;
 import org.springframework.transaction.TransactionStatus;
+import org.springframework.transaction.TransactionSystemException;
+
 import static org.mockito.Mockito.*;
 
 /**
@@ -490,8 +491,6 @@ public class BatchUtilTest extends TestCase {
     public void testStartTransaction08() throws Exception {
         // テスト入力データ設定
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
-        TransactionDefinition def = BatchUtil.getTransactionDefinition();
-
         // テスト実施
         TransactionStatus result = BatchUtil.startTransaction(tran, null, log);
 
@@ -503,17 +502,16 @@ public class BatchUtilTest extends TestCase {
      * testStartTransactions01
      * @throws Exception
      */
-    @SuppressWarnings("unchecked")
     public void testStartTransactions01() throws Exception {
         // テスト入力データ設定
         TransactionDefinition def = BatchUtil.getTransactionDefinition();
-        Map<String, PlatformTransactionManager> tranMap = new HashMap();
+        Map<String, PlatformTransactionManager> tranMap = new HashMap<String, PlatformTransactionManager>();
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
         tranMap.put("tran", tran);
 
         // テスト実施
-        Map<String, TransactionStatus> result = BatchUtil.startTransactions(
-                def, tranMap);
+        Map<String, TransactionStatus> result = BatchUtil.startTransactions(def,
+                tranMap);
 
         // 結果検証
         assertNotNull(result);
@@ -523,17 +521,16 @@ public class BatchUtilTest extends TestCase {
      * testStartTransactions02
      * @throws Exception
      */
-    @SuppressWarnings("unchecked")
     public void testStartTransactions02() throws Exception {
         // テスト入力データ設定
         TransactionDefinition def = BatchUtil.getTransactionDefinition();
-        Map<String, PlatformTransactionManager> tranMap = new HashMap();
+        Map<String, PlatformTransactionManager> tranMap = new HashMap<String, PlatformTransactionManager>();
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
         tranMap.put("tran", tran);
 
         // テスト実施
-        Map<String, TransactionStatus> result = BatchUtil.startTransactions(
-                def, tranMap, log);
+        Map<String, TransactionStatus> result = BatchUtil.startTransactions(def,
+                tranMap, log);
 
         // 結果検証
         assertNotNull(result);
@@ -662,7 +659,7 @@ public class BatchUtilTest extends TestCase {
         tranMap.put("tran4", tran4);
 
         // テスト実施
-        Map<?,?> statMap = BatchUtil.startTransactions(def, tranMap, log);
+        Map<?, ?> statMap = BatchUtil.startTransactions(def, tranMap, log);
         // 結果検証
         assertTrue(statMap instanceof LinkedHashMap);
         assertTrue(tran1.wasCalledGetTransaction());
@@ -793,14 +790,18 @@ public class BatchUtilTest extends TestCase {
 
         // テスト実施
         BatchUtil.commitTransactions(tranMap, statMap, log);
-        
+
         // 結果検証
         List<TransactionStatus> statusList = tran.getStatusList();
         // statMapのput順と逆順にコミットされていること。
-        assertEquals("stat4", ((TransactionStatusStub) statusList.get(0)).getName());
-        assertEquals("stat3", ((TransactionStatusStub) statusList.get(1)).getName());
-        assertEquals("stat2", ((TransactionStatusStub) statusList.get(2)).getName());
-        assertEquals("stat1", ((TransactionStatusStub) statusList.get(3)).getName());
+        assertEquals("stat4", ((TransactionStatusStub) statusList.get(0))
+                .getName());
+        assertEquals("stat3", ((TransactionStatusStub) statusList.get(1))
+                .getName());
+        assertEquals("stat2", ((TransactionStatusStub) statusList.get(2))
+                .getName());
+        assertEquals("stat1", ((TransactionStatusStub) statusList.get(3))
+                .getName());
     }
 
     /**
@@ -943,10 +944,14 @@ public class BatchUtilTest extends TestCase {
         assertTrue(result);
         List<TransactionStatus> statList = tran.getStatusList();
         // statMapのputと逆順でロールバックされていること。
-        assertEquals("stat4", ((TransactionStatusStub) statList.get(0)).getName());
-        assertEquals("stat3", ((TransactionStatusStub) statList.get(1)).getName());
-        assertEquals("stat2", ((TransactionStatusStub) statList.get(2)).getName());
-        assertEquals("stat1", ((TransactionStatusStub) statList.get(3)).getName());
+        assertEquals("stat4", ((TransactionStatusStub) statList.get(0))
+                .getName());
+        assertEquals("stat3", ((TransactionStatusStub) statList.get(1))
+                .getName());
+        assertEquals("stat2", ((TransactionStatusStub) statList.get(2))
+                .getName());
+        assertEquals("stat1", ((TransactionStatusStub) statList.get(3))
+                .getName());
     }
 
     /**
@@ -1314,29 +1319,74 @@ public class BatchUtilTest extends TestCase {
 
     /**
      * ログ切り替えのテスト【正常系】
+     * 
      * <pre>
      * 事前条件
      * ・{@code TLogger}と{@code commons.logging.Log}を利用して{@code BatchUtil}のメソッドを呼び出すこと
      * 確認項目
-     * ・各ロガーのメソッドがそれぞれ呼び出されていること
+     * ・各ロガーの{@code debug()}メソッドがそれぞれ呼び出されていること
      * </pre>
      */
-    public void testSwitchLogger() {
+    public void testSwitchLogger01() {
         // テスト入力データ設定
         PlatformTransactionManager tran = new PlatformTransactionManagerStub();
         TransactionDefinition def = BatchUtil.getTransactionDefinition();
         Log mockCommonsLog = LogFactory.getLog(BatchUtilTest.class);
         TLogger mockLog = (TLogger) spy(log);
         mockCommonsLog = spy(mockCommonsLog);
-        
+
         // テスト実施
-        TransactionStatus result = BatchUtil.startTransaction(tran, def, mockCommonsLog);
-        result = BatchUtil.startTransaction(tran, def, mockLog);
+        BatchUtil.startTransaction(tran, def, mockCommonsLog);
+        BatchUtil.startTransaction(tran, def, mockLog);
 
         // 結果検証
         verify(mockCommonsLog, times(3)).debug(any());
         verify(mockLog, times(2)).debug(any(String.class), any());
-        verify(mockLog).debug(any(String.class), any(), any(), any(), any(), any());
+        verify(mockLog).debug(any(String.class), any(), any(), any(), any(),
+                any());
     }
 
+    /**
+     * ログ切り替えのテスト【正常系】
+     * 
+     * <pre>
+     * 事前条件
+     * ・{@code TLogger}と{@code commons.logging.Log}を利用して{@code BatchUtil}のメソッドを呼び出すこと
+     * 確認項目
+     * ・各ロガーの{@code error()}メソッドがそれぞれ呼び出されていること
+     * </pre>
+     */
+    public void testSwitchLogger02() {
+        // テスト入力データ設定
+        TransactionDefinition def = BatchUtil.getTransactionDefinition();
+        Map<String, PlatformTransactionManager> tranMap = new HashMap<String, PlatformTransactionManager>();
+        PlatformTransactionManager tran = new PlatformTransactionManagerStub();
+        Log mockCommonsLog = LogFactory.getLog(BatchUtilTest.class);
+        TLogger mockLog = (TLogger) spy(log);
+        mockCommonsLog = spy(mockCommonsLog);
+
+        tran = spy(tran);
+        tranMap.put("tran", tran);
+        when(tran.getTransaction(def)).thenThrow(
+                new TransactionSystemException("test exception"));
+
+        // テスト実施
+        try {
+            BatchUtil.startTransactions(def, tranMap, mockLog);
+            fail();
+        } catch (TransactionException e) {
+            assertTrue(e instanceof TransactionException);
+        }
+        try {
+            BatchUtil.startTransactions(def, tranMap, mockCommonsLog);
+            fail();
+        } catch (TransactionException e) {
+            assertEquals("test exception", e.getMessage());
+        }
+
+        // 結果検証
+        verify(mockCommonsLog).error(any());
+        verify(mockLog).error(any(String.class), any(), any(String.class));
+
+    }
 }
