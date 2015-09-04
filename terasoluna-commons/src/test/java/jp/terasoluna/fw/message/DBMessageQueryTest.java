@@ -47,11 +47,7 @@ public class DBMessageQueryTest {
             DBMessageQuery.class);
 
     /**
-<<<<<<< HEAD
      * テスト後処理：ロガーのクリアを行う。
-=======
-     * 終了処理を行う。
->>>>>>> b1d3796d520062837245e51b60903d3f303f1718
      */
     @After
     public void tearDown() {
