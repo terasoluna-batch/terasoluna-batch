@@ -951,7 +951,6 @@ public class DBMessageResourceDAOImplTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testFindDBMessages01() throws Exception {
         // 前処理
         DataSource ds = new MockDataSource();
@@ -959,12 +958,12 @@ public class DBMessageResourceDAOImplTest {
         DBMessageResourceDAOImpl dbmr = new DBMessageResourceDAOImpl();
         dbmr.dBMessageQuery = query;
 
-        List list = new ArrayList();
+        List<String> list = new ArrayList<String>();
         list.add("success");
         query.list = list;
 
         // テスト実施
-        List listReturn = dbmr.findDBMessages();
+        List<?> listReturn = dbmr.findDBMessages();
 
         // 判定
         assertSame(list, listReturn);

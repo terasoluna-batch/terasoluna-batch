@@ -35,6 +35,7 @@ import org.apache.commons.validator.Field;
 import org.apache.commons.validator.ValidatorAction;
 import org.apache.commons.validator.ValidatorException;
 import org.apache.commons.validator.Var;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
