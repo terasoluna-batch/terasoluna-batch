@@ -7,6 +7,10 @@
 
 package jp.terasoluna.fw.file.dao.standard;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
+
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -16,10 +20,10 @@ import java.io.Reader;
 
 import jp.terasoluna.fw.file.dao.FileException;
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import org.junit.Test;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.EncloseCharLineFeed2LineReader} クラスのテスト。
@@ -29,43 +33,7 @@ import static org.mockito.Mockito.when;
  * @author 奥田哲司
  * @see jp.terasoluna.fw.file.dao.standard.EncloseCharLineFeed2LineReader
  */
-public class EncloseCharLineFeed2LineReaderTest extends TestCase {
-
-    /**
-     * このテストケースを実行する為の GUI アプリケーションを起動する。
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        // junit.swingui.TestRunner.run(EncloseCharLineFeed2LineReaderTest.class);
-    }
-
-    /**
-     * 初期化処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
-     */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
-
-    /**
-     * 終了処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * @param name このテストケースの名前。
-     */
-    public EncloseCharLineFeed2LineReaderTest(String name) {
-        super(name);
-    }
+public class EncloseCharLineFeed2LineReaderTest {
 
     /**
      * testEncloseCharLineFeed2LineReader01() <br>
@@ -90,6 +58,7 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
      * オブジェクトが生成できることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testEncloseCharLineFeed2LineReader01() throws Exception {
         // テスト対象のインスタンス化なし
 
@@ -140,6 +109,7 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
      * 区切り文字が'\u0000'だった場合、IllegalArgumentExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testEncloseCharLineFeed2LineReader02() throws Exception {
         // テスト対象のインスタンス化なし
 
@@ -185,6 +155,7 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
      * 囲み文字が'\u0000'だった場合、IllegalArgumentExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testEncloseCharLineFeed2LineReader03() throws Exception {
         // テスト対象のインスタンス化なし
 
@@ -229,6 +200,7 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
      * ファイルアクセス用の文字ストリームがnullだった場合、IllegalArgumentExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testEncloseCharLineFeed2LineReader04() throws Exception {
         // テスト対象のインスタンス化なし
 
@@ -270,6 +242,7 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
      * 行区切り文字がnullだった場合、IllegalArgumentExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testEncloseCharLineFeed2LineReader05() throws Exception {
         // テスト対象のインスタンス化なし
 
@@ -314,6 +287,7 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
      * 行区切り文字が2文字以外だった場合、IllegalArgumentExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testEncloseCharLineFeed2LineReader06() throws Exception {
         // テスト対象のインスタンス化なし
 
@@ -359,6 +333,7 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
      * 行区切り文字が2文字以外だった場合、IllegalArgumentExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testEncloseCharLineFeed2LineReader07() throws Exception {
         // テスト対象のインスタンス化なし
 
@@ -409,6 +384,7 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
      * Readerがデータの読み取りに失敗した場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testReadLine01() throws Exception {
         // Mock作成
         Reader reader = mock(Reader.class);
@@ -460,6 +436,7 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
      * 読み込んだデータがない（空文字）の場合、空文字が文字列として返却される。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testReadLine02() throws Exception {
         // テスト対象のインスタンス化
         char dChar = 'a';
@@ -502,6 +479,7 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
      * 囲み文字がない場合は、行区切り文字を除いた文字列が返却される <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testReadLine03() throws Exception {
         // テスト対象のインスタンス化
         char dChar = ',';
@@ -544,6 +522,7 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
      * 囲み文字がある場合は、最後の行区切り文字を除いた文字列が返却される <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testReadLine04() throws Exception {
         // テスト対象のインスタンス化
         char dChar = ',';
@@ -586,6 +565,7 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
      * 文字列の中に囲み文字、区切り文字、行区切り文字が含まれている場合。　（囲み文字のエスケープなど） <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testReadLine05() throws Exception {
         // テスト対象のインスタンス化
         char dChar = ',';
@@ -628,6 +608,7 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
      * 文字列が1行返却される。囲み文字(終了側)の後ろに文字列がつながる場合、区切り文字もしくは行区切り文字が来るまでの文字列は全て前のカラムに含まれる。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testReadLine06() throws Exception {
         // テスト対象のインスタンス化
         char dChar = ',';
@@ -670,6 +651,7 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
      * 文字列の中に行区切り文字のみ。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testReadLine07() throws Exception {
         // テスト対象のインスタンス化
         char dChar = ',';
@@ -710,6 +692,7 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
      * 行区切り文字を構成している文字列の１部＋行区切り文字を読み込んだ場合、構成文字のみ返却される <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testReadLine08() throws Exception {
         // テスト対象のインスタンス化
         char dChar = ',';
@@ -752,6 +735,7 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
      * 行区切り文字がないデータを読み込んだ場合、最終データまでの文字列が返却される <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testReadLine09() throws Exception {
         // テスト対象のインスタンス化
         char dChar = ',';
@@ -794,6 +778,7 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
      * 読み込んだデータの途中に行区切り文字が含まれている場合、そこまでの文字列が返却される。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testReadLine10() throws Exception {
         // テスト対象のインスタンス化
         char dChar = ',';
@@ -836,6 +821,7 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
      * 読み込んだデータの途中に\rが含まれている場合、文字列の一部に含まれる。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testReadLine11() throws Exception {
         // テスト対象のインスタンス化
         char dChar = ',';
@@ -879,6 +865,7 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
      * 行区切り文字を除いた文字列が返却される。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testReadLine12() throws Exception {
         // テスト対象のインスタンス化
         char dChar = ',';
@@ -908,6 +895,7 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
      * カラム毎の囲み文字設定有り
      * @throws Exception
      */
+    @Test
     public void testReadLine13() throws Exception {
         // テスト対象のインスタンス化
         char dChar = ',';
@@ -931,6 +919,7 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
      * カラム毎の囲み文字設定有り
      * @throws Exception
      */
+    @Test
     public void testReadLine14() throws Exception {
         // テスト対象のインスタンス化
         char dChar = ',';
@@ -954,6 +943,7 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
      * eColChar.length : 0
      * @throws Exception
      */
+    @Test
     public void testReadLine15() throws Exception {
         // テスト対象のインスタンス化
         char dChar = ',';
@@ -977,6 +967,7 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
      * testGetEncloseCharcter001.
      * @throws Exception
      */
+    @Test
     public void testGetEncloseCharcter001() throws Exception {
         // テスト対象のインスタンス化
         char dChar = ',';
@@ -1004,6 +995,7 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
      * testGetEncloseCharcter002.
      * @throws Exception
      */
+    @Test
     public void testGetEncloseCharcter002() throws Exception {
         // テスト対象のインスタンス化
         char dChar = ',';
@@ -1031,6 +1023,7 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
      * testGetEncloseCharcter003.
      * @throws Exception
      */
+    @Test
     public void testGetEncloseCharcter003() throws Exception {
         // テスト対象のインスタンス化
         char dChar = ',';
@@ -1058,6 +1051,7 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
      * testGetEncloseCharcter004.
      * @throws Exception
      */
+    @Test
     public void testGetEncloseCharcter004() throws Exception {
         // テスト対象のインスタンス化
         char dChar = ',';
@@ -1085,6 +1079,7 @@ public class EncloseCharLineFeed2LineReaderTest extends TestCase {
      * testGetEncloseCharcter005.
      * @throws Exception
      */
+    @Test
     public void testGetEncloseCharcter005() throws Exception {
         // テスト対象のインスタンス化
         char dChar = ',';

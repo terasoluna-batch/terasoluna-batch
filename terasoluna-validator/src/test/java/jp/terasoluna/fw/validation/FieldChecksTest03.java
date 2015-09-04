@@ -16,7 +16,6 @@
 
 package jp.terasoluna.fw.validation;
 
-import static java.util.Arrays.asList;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsInstanceOf.instanceOf;
 import static org.hamcrest.core.IsEqual.equalTo;
@@ -26,12 +25,11 @@ import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
-import static uk.org.lidalia.slf4jtest.LoggingEvent.error;
-
 import org.apache.commons.validator.Field;
 import org.apache.commons.validator.ValidatorAction;
 import org.apache.commons.validator.ValidatorException;
 import org.apache.commons.validator.Var;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

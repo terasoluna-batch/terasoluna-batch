@@ -16,16 +16,17 @@
 
 package jp.terasoluna.fw.beans.jxpath;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
-
-import junit.framework.TestCase;
 
 import org.apache.commons.jxpath.DynamicPropertyHandler;
 import org.apache.commons.jxpath.MapDynamicPropertyHandler;
 import org.apache.commons.jxpath.ri.QName;
 import org.apache.commons.jxpath.ri.model.NodePointer;
+import org.junit.Test;
 
 /**
  * {@link jp.terasoluna.fw.beans.jxpath.DynamicPropertyPointerEx} クラスのブラックボックステスト。
@@ -38,39 +39,7 @@ import org.apache.commons.jxpath.ri.model.NodePointer;
  * 
  * @see jp.terasoluna.fw.beans.jxpath.DynamicPropertyPointerEx
  */
-public class DynamicPropertyPointerExTest extends TestCase {
-
-
-    /**
-     * 初期化処理を行う。
-     * 
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
-     */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
-
-    /**
-     * 終了処理を行う。
-     * 
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * 
-     * @param name このテストケースの名前。
-     */
-    public DynamicPropertyPointerExTest(String name) {
-        super(name);
-    }
+public class DynamicPropertyPointerExTest {
 
     /**
      * testGetLength01()
@@ -91,6 +60,7 @@ public class DynamicPropertyPointerExTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testGetLength01() throws Exception {
         // 前処理
@@ -128,6 +98,7 @@ public class DynamicPropertyPointerExTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testGetLength02() throws Exception {
         // 前処理

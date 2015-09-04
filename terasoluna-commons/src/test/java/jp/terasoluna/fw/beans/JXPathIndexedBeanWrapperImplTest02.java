@@ -16,14 +16,14 @@
 
 package jp.terasoluna.fw.beans;
 
-import junit.framework.TestCase;
-import uk.org.lidalia.slf4jext.Level;
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
 import static uk.org.lidalia.slf4jtest.LoggingEvent.error;
 import static java.util.Arrays.asList;
 import static org.hamcrest.core.Is.*;
 import static org.junit.Assert.*;
+import org.junit.After;
+import org.junit.Test;
 
 /**
  * {@link jp.terasoluna.fw.beans.JXPathIndexedBeanWrapperImpl} クラスのブラックボックステスト。
@@ -42,38 +42,17 @@ import static org.junit.Assert.*;
  * <p>
  * @see jp.terasoluna.fw.beans.JXPathIndexedBeanWrapperImpl
  */
-public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
+public class JXPathIndexedBeanWrapperImplTest02 {
 
     private TestLogger logger = TestLoggerFactory.getTestLogger(
             JXPathIndexedBeanWrapperImpl.class);
 
     /**
-     * 初期化処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
-     */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
-
-    /**
      * 終了処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
      */
-    @Override
-    protected void tearDown() throws Exception {
+    @After
+    public void tearDown() {
         logger.clear();
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * @param name このテストケースの名前。
-     */
-    public JXPathIndexedBeanWrapperImplTest02(String name) {
-        super(name);
     }
 
     /**
@@ -93,6 +72,7 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * 引数のpropertyが空文字のテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToXPath01() throws Exception {
         // 前処理
         Object object = new Object();
@@ -130,6 +110,7 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * 引数のpropertyが"."のみのパターンのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToXPath02() throws Exception {
         // 前処理
         Object object = new Object();
@@ -170,6 +151,7 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * for文1回実行の場合。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToXPath03() throws Exception {
         // 前処理
         Object object = new Object();
@@ -212,6 +194,7 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * （引数のpropertyに"."を含む文字列のパターン） <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToXPath04() throws Exception {
         // 前処理
         Object object = new Object();
@@ -253,6 +236,7 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * for文1回実行の場合。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToXPath05() throws Exception {
         // 前処理
         Object object = new Object();
@@ -295,6 +279,7 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * （引数のpropertyに".."を含む文字列のパターン） <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToXPath06() throws Exception {
         // 前処理
         Object object = new Object();
@@ -337,6 +322,7 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * 引数のpropertyに".."（"."2回連続）を含む文字列のパターンのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testToXPath07() throws Exception {
         // 前処理
         Object object = new Object();
@@ -373,6 +359,7 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * 【extractIncremantIndex(String,int) 呼び出しのテスト】 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractIncrementIndexString01() throws Exception {
         // 前処理
         Object object = new Object();
@@ -406,6 +393,7 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * extractIndexが""を返すパターンのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractIncremantIndexStringint01() throws Exception {
         // 前処理
         Object object = new Object();
@@ -444,6 +432,7 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * extractIndexが"2"を返すパターンのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractIncremantIndexStringint02() throws Exception {
         // 前処理
         Object object = new Object();
@@ -482,6 +471,7 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * extractIndexが"2"を返すパターンのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractIncremantIndexStringint03() throws Exception {
         // 前処理
         Object object = new Object();
@@ -516,6 +506,7 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * 引数のpropertyが空文字のテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractIndex01() throws Exception {
         // 前処理
         Object object = new Object();
@@ -545,6 +536,7 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * 引数のpropertyに"["または"]"が入っていないパターンのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractIndex02() throws Exception {
         // 前処理
         Object object = new Object();
@@ -577,6 +569,7 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * 引数のpropertyが"["のパターンのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractIndex03() throws Exception {
         // 前処理
         Object object = new Object();
@@ -615,6 +608,7 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * 引数のpropertyが"]"のパターンのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractIndex04() throws Exception {
         // 前処理
         Object object = new Object();
@@ -653,6 +647,7 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * 引数のpropertyが"]["のパターンのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractIndex05() throws Exception {
         // 前処理
         Object object = new Object();
@@ -688,6 +683,7 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * 引数のpropertyが"[]"のパターンのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractIndex06() throws Exception {
         // 前処理
         Object object = new Object();
@@ -717,6 +713,7 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * 引数のpropertyに"[]"が二つ入っているパターンのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractIndex07() throws Exception {
         // 前処理
         Object object = new Object();
@@ -749,6 +746,7 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * 【メソッドの呼び出しと結果の整形のテスト】 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testEscapeMapProperty01() throws Exception {
         // 前処理
         Object object = new Object();
@@ -781,6 +779,7 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * 引数のpropertyが空文字のテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractMapPropertyName01() throws Exception {
         // 前処理
         Object object = new Object();
@@ -819,6 +818,7 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * 引数のpropertyに"("または")"が入っていないパターンのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractMapPropertyName02() throws Exception {
         // 前処理
         Object object = new Object();
@@ -855,6 +855,7 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * 引数のpropertyが"("のパターンのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractMapPropertyName03() throws Exception {
         // 前処理
         Object object = new Object();
@@ -884,6 +885,7 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * 引数のpropertyの"()"の前にだけ文字が入っているパターンのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractMapPropertyName04() throws Exception {
         // 前処理
         Object object = new Object();
@@ -916,6 +918,7 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * 引数のpropertyが空文字のテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractMapPropertyKey01() throws Exception {
         // 前処理
         Object object = new Object();
@@ -954,6 +957,7 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * 引数のpropertyに"("または")"が入っていないパターンのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractMapPropertyKey02() throws Exception {
         // 前処理
         Object object = new Object();
@@ -993,6 +997,7 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * 引数のpropertyが"("のパターンのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractMapPropertyKey03() throws Exception {
         // 前処理
         Object object = new Object();
@@ -1031,6 +1036,7 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * 引数のpropertyが")"のパターンのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractMapPropertyKey04() throws Exception {
         // 前処理
         Object object = new Object();
@@ -1069,6 +1075,7 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * 引数のpropertyが")("のパターンのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractMapPropertyKey05() throws Exception {
         // 前処理
         Object object = new Object();
@@ -1104,6 +1111,7 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * 引数のpropertyが"()"のパターンのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractMapPropertyKey06() throws Exception {
         // 前処理
         Object object = new Object();
@@ -1133,6 +1141,7 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * 引数のpropertyの"("と")"の前後に文字が入っているパターンのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testExtractMapPropertyKey07() throws Exception {
         // 前処理
         Object object = new Object();
@@ -1162,6 +1171,7 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * 引数のpropertyが空文字のテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsMapProperty01() throws Exception {
         // 前処理
         Object object = new Object();
@@ -1191,6 +1201,7 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * 引数のpropertyに"("または")"が入っていないパターンのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsMapProperty02() throws Exception {
         // 前処理
         Object object = new Object();
@@ -1220,6 +1231,7 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * 引数のpropertyが"("のパターンのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsMapProperty03() throws Exception {
         // 前処理
         Object object = new Object();
@@ -1249,6 +1261,7 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * 引数のpropertyが")"のパターンのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsMapProperty04() throws Exception {
         // 前処理
         Object object = new Object();
@@ -1278,6 +1291,7 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * 引数のpropertyが")("のパターンのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsMapProperty05() throws Exception {
         // 前処理
         Object object = new Object();
@@ -1307,6 +1321,7 @@ public class JXPathIndexedBeanWrapperImplTest02 extends TestCase {
      * 引数のpropertyが"()"のパターンのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsMapProperty06() throws Exception {
         // 前処理
         Object object = new Object();

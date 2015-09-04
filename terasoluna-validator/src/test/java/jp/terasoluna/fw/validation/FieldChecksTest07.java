@@ -61,10 +61,10 @@ public class FieldChecksTest07 {
     }
 
     /**
-     * testValidateHankakuKanaString01() <br>
-     * <br>
-     * (正常系) <br>
-     * 観点：A <br>
+     * testValidateHankakuKanaString01()
+     * <br><br>
+     *
+     * (正常系)
      * <br>
      * 入力値：(引数) bean:null<br>
      * (引数) va:not null<br>

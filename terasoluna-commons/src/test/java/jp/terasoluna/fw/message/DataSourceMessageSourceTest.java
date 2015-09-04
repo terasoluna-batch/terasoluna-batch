@@ -16,6 +16,12 @@
 
 package jp.terasoluna.fw.message;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,13 +30,15 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Properties;
 
-import junit.framework.TestCase;
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
 import static uk.org.lidalia.slf4jtest.LoggingEvent.error;
 import static java.util.Arrays.asList;
 import static org.hamcrest.core.Is.*;
 import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Test;
 
 /**
  * {@link jp.terasoluna.fw.message.DataSourceMessageSource} クラスのブラックボックステスト。
@@ -40,38 +48,17 @@ import static org.junit.Assert.*;
  * <p>
  * @see jp.terasoluna.fw.message.DataSourceMessageSource
  */
-public class DataSourceMessageSourceTest extends TestCase {
+public class DataSourceMessageSourceTest {
 
     private TestLogger logger = TestLoggerFactory.getTestLogger(
             DataSourceMessageSource.class);
 
     /**
-     * 初期化処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
-     */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
-
-    /**
      * 終了処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
      */
-    @Override
-    protected void tearDown() throws Exception {
+    @After
+    public void tearDown() {
         logger.clear();
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * @param name このテストケースの名前。
-     */
-    public DataSourceMessageSourceTest(String name) {
-        super(name);
     }
 
     /**
@@ -88,6 +75,7 @@ public class DataSourceMessageSourceTest extends TestCase {
      * Locale属性のsetterメソッドのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSetDefaultLocale01() throws Exception {
         // 前処理
         DataSourceMessageSource ds = new DataSourceMessageSource();
@@ -116,6 +104,7 @@ public class DataSourceMessageSourceTest extends TestCase {
      * DBMessageResourceDAO属性のsetterメソッドのテスト。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSetDbMessageResourceDAO01() throws Exception {
         // 前処理
         DataSourceMessageSource ds = new DataSourceMessageSource();
@@ -140,6 +129,7 @@ public class DataSourceMessageSourceTest extends TestCase {
      * afterPropertiesSetが実行されるとreadMessageFromDataSourceが実行されるのを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testAfterPropertiesSet01() throws Exception {
         // 前処理
         DataSourceMessageSource_DataSourceMessageSourceStub01 ds = new DataSourceMessageSource_DataSourceMessageSourceStub01();
@@ -163,6 +153,7 @@ public class DataSourceMessageSourceTest extends TestCase {
      * reloadDataSourceMessageが実行されるとreadMessageFromDataSourceが実行されるのを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testReloadDataSourceMessage01() throws Exception {
         // 前処理
         DataSourceMessageSource_DataSourceMessageSourceStub01 ds = new DataSourceMessageSource_DataSourceMessageSourceStub01();
@@ -189,6 +180,7 @@ public class DataSourceMessageSourceTest extends TestCase {
      * DBMessageのキャッシュが行なわれず、何もしないで終了する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testReadMessageFromDataSource01() throws Exception {
         // 前処理
@@ -230,6 +222,7 @@ public class DataSourceMessageSourceTest extends TestCase {
      * DBMessageオブジェクトから値を取り出し、マップにつめなおすことを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testReadMessageFromDataSource02() throws Exception {
         // 前処理
@@ -277,6 +270,7 @@ public class DataSourceMessageSourceTest extends TestCase {
      * DBMessageオブジェクトから値を取り出し、マップにつめなおすことを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testReadMessageFromDataSource03() throws Exception {
         // 前処理
@@ -329,6 +323,7 @@ public class DataSourceMessageSourceTest extends TestCase {
      * DBMessageオブジェクトから値を取り出し、マップにつめなおすことを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testReadMessageFromDataSource04() throws Exception {
         // 前処理
@@ -375,6 +370,7 @@ public class DataSourceMessageSourceTest extends TestCase {
      * メッセージコードもしくはメッセージ本体がないとマップに格納されないことを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testReadMessageFromDataSource05() throws Exception {
         // 前処理
@@ -419,6 +415,7 @@ public class DataSourceMessageSourceTest extends TestCase {
      * メッセージコードもしくはメッセージ本体がないとマップに格納されないことを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testReadMessageFromDataSource06() throws Exception {
         // 前処理
@@ -463,6 +460,7 @@ public class DataSourceMessageSourceTest extends TestCase {
      * メッセージコードもしくはメッセージ本体がないとマップに格納されないことを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testReadMessageFromDataSource07() throws Exception {
         // 前処理
@@ -508,6 +506,7 @@ public class DataSourceMessageSourceTest extends TestCase {
      * DBMessageオブジェクトを渡さないと、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testReadMessageFromDataSource08() throws Exception {
         // 前処理
@@ -552,6 +551,7 @@ public class DataSourceMessageSourceTest extends TestCase {
      * 取得したDBMessageオブジェクトから値を取り出し、テーブルに格納することを確認。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testMapMessage01() throws Exception {
         // 前処理
         DataSourceMessageSource_DataSourceMessageSourceStub03 ds = new DataSourceMessageSource_DataSourceMessageSourceStub03();
@@ -586,6 +586,7 @@ public class DataSourceMessageSourceTest extends TestCase {
      * 与えられた引数からLocaleが決定できない場合、デフォルトロケールを使う。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testCreateLocale01() throws Exception {
         // 前処理
         DataSourceMessageSource ds = new DataSourceMessageSource();
@@ -617,6 +618,7 @@ public class DataSourceMessageSourceTest extends TestCase {
      * Localeが指定できず、例外を出す。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testCreateLocale02() throws Exception {
         // 前処理
         DataSourceMessageSource ds = new DataSourceMessageSource();
@@ -653,6 +655,7 @@ public class DataSourceMessageSourceTest extends TestCase {
      * 与えられた引数から、Localeを決定する。与えられる引数は言語コードである。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testCreateLocale03() throws Exception {
         // 前処理
         DataSourceMessageSource ds = new DataSourceMessageSource();
@@ -683,6 +686,7 @@ public class DataSourceMessageSourceTest extends TestCase {
      * 与えられた引数から、Localeを決定する。与えられる引数は言語コードと国コードである。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testCreateLocale04() throws Exception {
         // 前処理
         DataSourceMessageSource ds = new DataSourceMessageSource();
@@ -714,6 +718,7 @@ public class DataSourceMessageSourceTest extends TestCase {
      * 与えられた引数から、Localeを決定する。与えられる引数は言語コードと 国コードとバリアントコードである。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testCreateLocale05() throws Exception {
         // 前処理
         DataSourceMessageSource ds = new DataSourceMessageSource();
@@ -746,6 +751,7 @@ public class DataSourceMessageSourceTest extends TestCase {
      * 引数をキーとしてマップから値を取り出し、その値を戻り値として返却すること を確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetMessages01() throws Exception {
         // 前処理
         DataSourceMessageSource ds = new DataSourceMessageSource();
@@ -777,6 +783,7 @@ public class DataSourceMessageSourceTest extends TestCase {
      * 引数をキーとしてマップから取り出した値がnullだった場合、新たに生成し、格納する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetMessages02() throws Exception {
         // 前処理
         DataSourceMessageSource ds = new DataSourceMessageSource();
@@ -810,6 +817,7 @@ public class DataSourceMessageSourceTest extends TestCase {
      * 与えられた引数よりメッセージを決定し、返却する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testResolveCodeWithoutArguments01() throws Exception {
         // 前処理
         DataSourceMessageSource_DataSourceMessageSourceStub04 ds = new DataSourceMessageSource_DataSourceMessageSourceStub04();
@@ -844,6 +852,7 @@ public class DataSourceMessageSourceTest extends TestCase {
      * 与えられた引数よりメッセージが決定できず、nullを返却する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testResolveCodeWithoutArguments02() throws Exception {
         // 前処理
         DataSourceMessageSource_DataSourceMessageSourceStub04 ds = new DataSourceMessageSource_DataSourceMessageSourceStub04();
@@ -878,6 +887,7 @@ public class DataSourceMessageSourceTest extends TestCase {
      * 指定された引数よりメッセージを決定し、返却する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testInternalResolveCodeWithoutArguments01() throws Exception {
         // 前処理
@@ -928,6 +938,7 @@ public class DataSourceMessageSourceTest extends TestCase {
      * 指定された引数でメッセージを決定できず、新たに作成した引数によりメッセージを決定し、 返却する。また、ロケールがnullでもエラーにならないことを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testInternalResolveCodeWithoutArguments02() throws Exception {
         // 前処理
@@ -984,6 +995,7 @@ public class DataSourceMessageSourceTest extends TestCase {
      * 指定された引数でメッセージを決定できず、新たに作成した引数により メッセージを決定し、返却する。また、ロケールがnullでもエラーにならないことを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testInternalResolveCodeWithoutArguments03() throws Exception {
         // 前処理
@@ -1040,6 +1052,7 @@ public class DataSourceMessageSourceTest extends TestCase {
      * 指定された引数及び新たに生成した引数より、メッセージが決定できない場合はnullを返却する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testInternalResolveCodeWithoutArguments04() throws Exception {
         // 前処理
@@ -1086,6 +1099,7 @@ public class DataSourceMessageSourceTest extends TestCase {
      * ロケールを取得できない場合、nullを返却する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testInternalResolveCodeWithoutArguments05() throws Exception {
         // 前処理
@@ -1126,6 +1140,7 @@ public class DataSourceMessageSourceTest extends TestCase {
      * 引数localeに言語コードしか存在しない場合、新たなlocaleのパターンを 生成しない。また、defaultLocaleに言語コードしか存在しない場合、1パターンのlocaleオブジェクトを生成し、リストに格納する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetAlternativeLocales01() throws Exception {
         // 前処理
         DataSourceMessageSource ds = new DataSourceMessageSource();
@@ -1158,6 +1173,7 @@ public class DataSourceMessageSourceTest extends TestCase {
      * 引数localeに国コードまで存在する場合、1パターンのLocaleオブジェクトを 生成する。また、defaultLocaleに国コードまで存在する場合、2パターンのlocaleオブジェクトを生成し、リストに格納する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetAlternativeLocales02() throws Exception {
         // 前処理
         DataSourceMessageSource ds = new DataSourceMessageSource();
@@ -1198,6 +1214,7 @@ public class DataSourceMessageSourceTest extends TestCase {
      * <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetAlternativeLocales03() throws Exception {
         // 前処理
         DataSourceMessageSource ds = new DataSourceMessageSource();
@@ -1238,6 +1255,7 @@ public class DataSourceMessageSourceTest extends TestCase {
      * 引数localeとdefaultLocaleが同値であった場合、引数localeから 新たなlocaleオブジェクトを生成し、リストに格納する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetAlternativeLocales04() throws Exception {
         // 前処理
         DataSourceMessageSource ds = new DataSourceMessageSource();
@@ -1270,6 +1288,7 @@ public class DataSourceMessageSourceTest extends TestCase {
      * defaultLocaleの設定が行われていない場合は、Listが0で返る。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetAlternativeLocales05() throws Exception {
         // 前処理
         DataSourceMessageSource ds = new DataSourceMessageSource();
@@ -1301,6 +1320,7 @@ public class DataSourceMessageSourceTest extends TestCase {
      * 指定された引数よりメッセージフォーマットを決定し、返却する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveCode01() throws Exception {
         // 前処理
@@ -1349,6 +1369,7 @@ public class DataSourceMessageSourceTest extends TestCase {
      * 指定された引数でメッセージフォーマットを決定できず、新たに作成した引数に よりメッセージフォーマットを決定し、返却する。 また、ロケールがnullでもエラーにならないことを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveCode02() throws Exception {
         // 前処理
@@ -1403,6 +1424,7 @@ public class DataSourceMessageSourceTest extends TestCase {
      * 指定された引数でメッセージフォーマットを決定できず、新たに作成した引数 によりメッセージフォーマットを決定し、返却する。 また、ロケールがnullでもエラーにならないことを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveCode03() throws Exception {
         // 前処理
@@ -1459,6 +1481,7 @@ public class DataSourceMessageSourceTest extends TestCase {
      * 指定された引数及び新たに生成した引数より、メッセージフォーマットが 決定できない場合はnullを返却する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveCode04() throws Exception {
         // 前処理
@@ -1505,6 +1528,7 @@ public class DataSourceMessageSourceTest extends TestCase {
      * ロケールを取得できない場合、nullを返却する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testResolveCode05() throws Exception {
         // 前処理
@@ -1545,6 +1569,7 @@ public class DataSourceMessageSourceTest extends TestCase {
      * 引数に対応する値がすでにキャッシュされたMapにあり、かつ取り出した値が nullでない場合。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testGetMessageFormat01() throws Exception {
         // 前処理
@@ -1580,6 +1605,7 @@ public class DataSourceMessageSourceTest extends TestCase {
      * 引数に対応する値がすでにキャッシュされたMapにあるが取り出した値がnull、 かつメッセージリソースに引数に対応する値があり、 メッセージフォーマットの生成に成功した場合。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testGetMessageFormat02() throws Exception {
         // 前処理
@@ -1616,6 +1642,7 @@ public class DataSourceMessageSourceTest extends TestCase {
      * 引数に対応する値がすでにキャッシュされたMapにあるが取り出した値がnull、 かつメッセージリソースに引数に対応する値がない場合。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testGetMessageFormat03() throws Exception {
         // 前処理
@@ -1652,6 +1679,7 @@ public class DataSourceMessageSourceTest extends TestCase {
      * 引数に対応する値がすでにキャッシュされたMapになく、かつメッセージリソース に引数に対応する値があり、メッセージフォーマットの生成に成功した場合。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetMessageFormat04() throws Exception {
         // 前処理
         DataSourceMessageSource_DataSourceMessageSourceStub18 ds = new DataSourceMessageSource_DataSourceMessageSourceStub18();

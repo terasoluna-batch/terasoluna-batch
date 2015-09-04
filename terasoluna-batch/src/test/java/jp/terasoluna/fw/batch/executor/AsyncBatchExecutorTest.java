@@ -1,5 +1,11 @@
 package jp.terasoluna.fw.batch.executor;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 import java.net.URL;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -28,7 +34,6 @@ import org.springframework.transaction.PlatformTransactionManager;
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
 
-import static org.junit.Assert.*;
 import static uk.org.lidalia.slf4jtest.LoggingEvent.error;
 import static uk.org.lidalia.slf4jtest.LoggingEvent.info;
 
@@ -41,10 +46,6 @@ public class AsyncBatchExecutorTest {
 
     private TestLogger ajbeLogger = TestLoggerFactory
             .getTestLogger(AbstractJobBatchExecutor.class);
-
-    public AsyncBatchExecutorTest() {
-        super();
-    }
 
     @Before
     public void setUp() throws Exception {
@@ -956,6 +957,7 @@ public class AsyncBatchExecutorTest {
         };
         MockApplicationContext ctx = new MockApplicationContext();
         ThreadPoolTaskExecutor taskExecutor = new ThreadPoolTaskExecutor() {
+            private static final long serialVersionUID = 1L;
             @Override
             public void execute(Runnable task) {
                 throw new TaskRejectedException("hoge");
@@ -1003,6 +1005,7 @@ public class AsyncBatchExecutorTest {
         };
         MockApplicationContext ctx = new MockApplicationContext();
         ThreadPoolTaskExecutor taskExecutor = new ThreadPoolTaskExecutor() {
+            private static final long serialVersionUID = 1L;
             @Override
             public void execute(Runnable task) {
             }

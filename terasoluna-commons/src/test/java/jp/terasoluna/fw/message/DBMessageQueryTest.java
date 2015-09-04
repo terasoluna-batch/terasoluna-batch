@@ -17,6 +17,9 @@
 package jp.terasoluna.fw.message;
 
 import java.sql.ResultSet;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 import javax.sql.DataSource;
 
@@ -25,8 +28,8 @@ import org.junit.Test;
 
 import jp.terasoluna.utlib.MockDataSource;
 import jp.terasoluna.utlib.UTUtil;
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
+
 import uk.org.lidalia.slf4jext.Level;
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
@@ -40,8 +43,8 @@ import uk.org.lidalia.slf4jtest.TestLoggerFactory;
  */
 public class DBMessageQueryTest {
 
-    private TestLogger logger = TestLoggerFactory
-            .getTestLogger(DBMessageQuery.class);
+    private TestLogger logger = TestLoggerFactory.getTestLogger(
+            DBMessageQuery.class);
 
     /**
      * テスト後処理：ロガーのクリアを行う。
@@ -85,7 +88,8 @@ public class DBMessageQueryTest {
 
         // 判定
         assertEquals("CODE", UTUtil.getPrivateField(db, "rsCodeColumn"));
-        assertEquals("LANGUAGE", UTUtil.getPrivateField(db, "rsLanguageColumn"));
+        assertEquals("LANGUAGE", UTUtil.getPrivateField(db,
+                "rsLanguageColumn"));
         assertEquals("COUNTRY", UTUtil.getPrivateField(db, "rsCountryColumn"));
         assertEquals("VARIANT", UTUtil.getPrivateField(db, "rsVariantColumn"));
         assertEquals("MESSAGE", UTUtil.getPrivateField(db, "rsMessageColumn"));
@@ -180,7 +184,8 @@ public class DBMessageQueryTest {
      * (正常系) <br>
      * 観点：A,E <br>
      * <br>
-     * 入力値：(引数) rs:|"code"="test01"|"language"="ja"|"country"="JP" |"variant"="kaisai"|"message"="テストメッセージ０１"|"hoge"="関係ないカラム"|<br>
+     * 入力値：(引数) rs:|"code"="test01"|"language"="ja"|"country"="JP" |"variant"="kaisai"|"message"="テストメッセージ０１"|"hoge"="関係ないカラム"|
+     * <br>
      * という内容のResultSet<br>
      * (引数) rowNum:not null<br>
      * <br>
@@ -340,7 +345,7 @@ public class DBMessageQueryTest {
         assertEquals("", dbmReturn.getMessage());
 
         assertTrue(logger.getLoggingEvents().get(0).getMessage().contains(
-                "MessageCode is null")
-                && logger.getLoggingEvents().get(0).getLevel() == Level.WARN);
+                "MessageCode is null") && logger.getLoggingEvents().get(0)
+                        .getLevel() == Level.WARN);
     }
 }

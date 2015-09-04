@@ -7,11 +7,19 @@
 
 package jp.terasoluna.fw.file.dao.standard;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
+import org.junit.Test;
+
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.DateFormatLocal} クラスのテスト。
@@ -21,43 +29,7 @@ import junit.framework.TestCase;
  * @author 姜 恩美
  * @see jp.terasoluna.fw.file.dao.standard.DateFormatLocal
  */
-public class DateFormatLocalTest extends TestCase {
-
-    /**
-     * このテストケースを実行する為の GUI アプリケーションを起動する。
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        // junit.swingui.TestRunner.run(DateFormatLocalTest.class);
-    }
-
-    /**
-     * 初期化処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
-     */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
-
-    /**
-     * 終了処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * @param name このテストケースの名前。
-     */
-    public DateFormatLocalTest(String name) {
-        super(name);
-    }
+public class DateFormatLocalTest {
 
     /**
      * testDateFormatLocalStringpattern01() <br>
@@ -72,6 +44,7 @@ public class DateFormatLocalTest extends TestCase {
      * 引数patternと同じ値が設定されることを確認する <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testDateFormatLocalStringpattern01() throws Exception {
         // 前処理(引数)
         String pattern = new String();
@@ -97,6 +70,7 @@ public class DateFormatLocalTest extends TestCase {
      * 前提条件がnullの場合NullPointerExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testDateFormatinitialValue01() throws Exception {
         // 前処理
         DateFormatLocal dateFormatLocal = new DateFormatLocal(null);
@@ -128,6 +102,7 @@ public class DateFormatLocalTest extends TestCase {
      * 前提条件がnullじゃない場合正常実施することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testDateFormatinitialValue02() throws Exception {
         // 前処理
         DateFormatLocal dateFormatLocal = new DateFormatLocal(null);

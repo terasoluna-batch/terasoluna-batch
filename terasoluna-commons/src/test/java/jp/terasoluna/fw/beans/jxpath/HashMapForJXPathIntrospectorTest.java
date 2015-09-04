@@ -16,9 +16,12 @@
 
 package jp.terasoluna.fw.beans.jxpath;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import java.util.HashMap;
 
-import junit.framework.TestCase;
+import org.junit.Test;
 
 /**
  * {@link jp.terasoluna.fw.beans.jxpath.HashMapForJXPathIntrospector} クラスのブラックボックステスト。
@@ -30,30 +33,7 @@ import junit.framework.TestCase;
  * 
  * @see jp.terasoluna.fw.beans.jxpath.HashMapForJXPathIntrospector
  */
-public class HashMapForJXPathIntrospectorTest extends TestCase {
-
-
-    /**
-     * 初期化処理を行う。
-     * 
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
-     */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
-
-    /**
-     * 終了処理を行う。
-     * 
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
+public class HashMapForJXPathIntrospectorTest {
 
     /**
      * testHashMapForJXPathIntrospector01()
@@ -83,6 +63,7 @@ public class HashMapForJXPathIntrospectorTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testHashMapForJXPathIntrospector01() throws Exception {
         // 前処理
         HashMap<String, String> srcMap = new HashMap<String, String>();
@@ -123,6 +104,7 @@ public class HashMapForJXPathIntrospectorTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGet01() throws Exception {
         // 前処理
         final HashMapForJXPathIntrospector<Object, String> map = new HashMapForJXPathIntrospector<Object, String>(new HashMap<Object, String>());
@@ -173,6 +155,7 @@ public class HashMapForJXPathIntrospectorTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGet02() throws Exception {
         // 前処理
         final HashMapForJXPathIntrospector<Object, String> map = new HashMapForJXPathIntrospector<Object, String>(new HashMap<Object, String>());
@@ -225,6 +208,7 @@ public class HashMapForJXPathIntrospectorTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testPut01() throws Exception {
         // 前処理
         final HashMapForJXPathIntrospector<Object, String> map = new HashMapForJXPathIntrospector<Object, String>(new HashMap<Object, String>());
@@ -274,6 +258,7 @@ public class HashMapForJXPathIntrospectorTest extends TestCase {
      * 
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testPut02() throws Exception {
         // 前処理
         final HashMapForJXPathIntrospector<Object, String> map = new HashMapForJXPathIntrospector<Object, String>(new HashMap<Object, String>());

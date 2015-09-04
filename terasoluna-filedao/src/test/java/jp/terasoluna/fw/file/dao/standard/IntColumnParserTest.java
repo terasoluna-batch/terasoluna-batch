@@ -7,11 +7,15 @@
 
 package jp.terasoluna.fw.file.dao.standard;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
+import org.junit.Test;
+
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.IntColumnParser} クラスのテスト。
@@ -22,43 +26,7 @@ import junit.framework.TestCase;
  * @author 奥田 哲司
  * @see jp.terasoluna.fw.file.dao.standard.IntColumnParser
  */
-public class IntColumnParserTest extends TestCase {
-
-    /**
-     * このテストケースを実行する為の GUI アプリケーションを起動する。
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        // junit.swingui.TestRunner.run(IntColumnParserTest.class);
-    }
-
-    /**
-     * 初期化処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
-     */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
-
-    /**
-     * 終了処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * @param name このテストケースの名前。
-     */
-    public IntColumnParserTest(String name) {
-        super(name);
-    }
+public class IntColumnParserTest {
 
     /**
      * testParse01() <br>
@@ -82,6 +50,7 @@ public class IntColumnParserTest extends TestCase {
      * ファイル行オブジェクトのint型属性に文字列を設定することができることを 確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse01() throws Exception {
         // テスト対象のインスタンス化
         IntColumnParser intColumnParser = new IntColumnParser();
@@ -128,6 +97,7 @@ public class IntColumnParserTest extends TestCase {
      * ファイル行オブジェクトのint型属性のsetterメソッドにアクセスできない場合、 IllegalAccessExceptionをスローすることを確認する <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse02() throws Exception {
         // テスト対象のインスタンス化
         IntColumnParser intColumnParser = new IntColumnParser();
@@ -176,6 +146,7 @@ public class IntColumnParserTest extends TestCase {
      * ファイル行オブジェクトのint型属性のsetterメソッドが例外をスローする場合、 setterメソッドがスローした例外をラップするInvocationTargetExceptionを スローすることを確認する <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse03() throws Exception {
         // テスト対象のインスタンス化
         IntColumnParser intColumnParser = new IntColumnParser();
@@ -224,6 +195,7 @@ public class IntColumnParserTest extends TestCase {
      * ファイル行オブジェクトのint型属性のsetterメソッドの引数が多数ある場合、 IllegalArgumentExceptionをスローすることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse04() throws Exception {
         // テスト対象のインスタンス化
         IntColumnParser intColumnParser = new IntColumnParser();
@@ -273,6 +245,7 @@ public class IntColumnParserTest extends TestCase {
      * 引数の文字列が整数以外(int型に変換できない)の場合、 NumberFormatExceptionをスローすることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse05() throws Exception {
         // テスト対象のインスタンス化
         IntColumnParser intColumnParser = new IntColumnParser();
@@ -322,6 +295,7 @@ public class IntColumnParserTest extends TestCase {
      * 引数の文字列がnullの場合、NumberFormatExceptionをスローすることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse06() throws Exception {
         // テスト対象のインスタンス化
         IntColumnParser intColumnParser = new IntColumnParser();
@@ -372,6 +346,7 @@ public class IntColumnParserTest extends TestCase {
      * 引数のフォーマット用文字列がnullの場合、ファイル行オブジェクトのint型属性に文字列を設定することができることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse07() throws Exception {
         // テスト対象のインスタンス化
         IntColumnParser intColumnParser = new IntColumnParser();

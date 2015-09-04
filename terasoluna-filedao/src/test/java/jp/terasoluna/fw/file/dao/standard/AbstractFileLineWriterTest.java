@@ -66,14 +66,6 @@ public class AbstractFileLineWriterTest<T> {
     private static final String TEMP_FILE_NAME = AbstractFileLineWriterTest.class
             .getResource("AbstractFileLineWriterTest_tmp.txt").getPath();
 
-    /**
-     * このテストケースを実行する為の GUI アプリケーションを起動する。
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        // junit.swingui.TestRunner.run(AbstractFileLineWriterTest.class);
-    }
-
     @Before
     public void setUp() throws Exception {
         VMOUTUtil.initialize();

@@ -38,7 +38,6 @@
         <!-- == Spring IO Platform == -->
         <io.spring.platform.version>1.1.1.RELEASE</io.spring.platform.version>
         <!-- junit -->
-        <junit3.version>3.8.2</junit3.version>
         <junit.addons.version>1.4</junit.addons.version>
         <!-- spring -->
         <spring.modules.validation.version>0.8</spring.modules.validation.version>

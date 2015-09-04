@@ -7,6 +7,13 @@
 
 package jp.terasoluna.fw.file.dao.standard;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -28,6 +35,9 @@ import java.util.NoSuchElementException;
 import java.util.Queue;
 import java.util.concurrent.ArrayBlockingQueue;
 
+import org.junit.Before;
+import org.junit.Test;
+
 import jp.terasoluna.fw.file.annotation.InputFileColumn;
 import jp.terasoluna.fw.file.annotation.NullStringConverter;
 import jp.terasoluna.fw.file.annotation.StringConverter;
@@ -37,7 +47,6 @@ import jp.terasoluna.fw.file.dao.FileException;
 import jp.terasoluna.fw.file.dao.FileLineException;
 import jp.terasoluna.fw.file.ut.VMOUTUtil;
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.AbstractFileLineIterator} クラスのテスト。
@@ -48,44 +57,15 @@ import junit.framework.TestCase;
  * @author 趙俸徹
  * @see jp.terasoluna.fw.file.dao.standard.AbstractFileLineIterator
  */
-public class AbstractFileLineIteratorTest extends TestCase {
-
-    /**
-     * このテストケースを実行する為の GUI アプリケーションを起動する。
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        // junit.swingui.TestRunner.run(AbstractFileLineIteratorTest.class
-        // .getClass());
-    }
+public class AbstractFileLineIteratorTest {
 
     /**
      * 初期化処理を行う。
      * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
      */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
+    @Before
+    public void setUp() {
         VMOUTUtil.initialize();
-    }
-
-    /**
-     * 終了処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * @param name このテストケースの名前。
-     */
-    public AbstractFileLineIteratorTest(String name) {
-        super(name);
     }
 
     /**
@@ -123,6 +103,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      *                       引数に設定された情報によりAbstractFileLineIteratorクラスが初期化されて生成されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testAbstractFileLineIteratorStringClassMap01() throws Exception {
         // テスト対象のインスタンス化
@@ -192,6 +173,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      *                       ファイル名が設定されていない(null)場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testAbstractFileLineIteratorStringClassMap02() throws Exception {
         // テスト対象のインスタンス化
@@ -252,6 +234,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      *                         引数clazzに渡されたクラスインスタンスに、@FileFormatの設定が存在しない場合は、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testAbstractFileLineIteratorStringClassMap03() throws Exception {
         // テスト対象のインスタンス化
         // コンストラクタなので不要
@@ -324,6 +307,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      *                       .lineFeddCharとthis.fileEncodingがシステムデフォルト値で初期化されて生成されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testAbstractFileLineIteratorStringClassMap04() throws Exception {
         // テスト対象のインスタンス化
         // コンストラクタなので不要
@@ -394,6 +378,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      *                       引数clazzに渡されたクラスインスタンスの@FileFormaに「delimiter」と「encloseChar」が同じ場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testAbstractFileLineIteratorStringClassMap05() throws Exception {
         // テスト対象のインスタンス化
         // コンストラクタなので不要
@@ -460,6 +445,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      *                       ファイル名が空文字の場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testAbstractFileLineIteratorStringClassMap06() throws Exception {
         // テスト対象のインスタンス化
@@ -520,6 +506,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * 引数clazzが「null」の場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testAbstractFileLineIteratorStringClassMap07() throws Exception {
         // テスト対象のインスタンス化
@@ -584,6 +571,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      *                       引数columnParserMapが「null」の場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testAbstractFileLineIteratorStringClassMap08() throws Exception {
         // テスト対象のインスタンス化
@@ -650,6 +638,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      *                       インスタンス化できないClassが引数Clazzに設定された場合に例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testAbstractFileLineIteratorStringClassMap09() throws Exception {
         // テスト対象のインスタンス化
         // コンストラクタなので不要
@@ -717,6 +706,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      *                       デフォルトコンストラクタの直接アクセスが出来ないClassが引数Clazzに設定された場合に例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testAbstractFileLineIteratorStringClassMap10() throws Exception {
         // テスト対象のインスタンス化
         // コンストラクタなので不要
@@ -781,6 +771,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      *                       引数columnParserMapはあるが、そのMapに要素が無い場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testAbstractFileLineIteratorStringClassMap11() throws Exception {
         // テスト対象のインスタンス化
@@ -840,6 +831,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * フィールドreaderから次の行のレコードの取得が可能な場合はtrueが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testHasNext01() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -894,6 +886,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * フィールドreaderから次の行のレコードの取得が不可能な場合はfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testHasNext02() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -946,6 +939,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * 結果クラスが設定されていない場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testHasNext03() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -1008,6 +1002,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * 結果クラスが設定されていない場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testHasNext04() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("File_Empty.txt");
@@ -1074,6 +1069,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * フィールドclazzにインスタンス化できないクラスが設定された場合、FileExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testNext01() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -1148,6 +1144,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * フィールドclazzのコンストラクタが直接実行できないように設定されている場合、FileExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testNext02() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -1235,6 +1232,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * ファイルから読み取ったカラムが空文字で、ファイル行オブジェクトclazzにフィールドがない場合は、ファイル行オブジェクトが取得されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testNext03() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -1333,6 +1331,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * ここでは、ファイルから読み取ったカラムが1つ存在し、ファイル行オブジェクトclazzに@InputFileColumn定義がないフィールドのみある場合を試験している。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testNext04() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -1468,6 +1467,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      *                        対象ファイルの内容が正しく設定されたファイル行オブジェクトが取得されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testNext05() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -1590,6 +1590,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      *                        フィールドclazzに@InputFileColumnにbytes定義があり入力されたファイルの情報がbytes設定にあってない場合、FileLineExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testNext06() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -1718,6 +1719,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      *                        。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testNext07() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -1828,6 +1830,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      *                        対象ファイルから取得したデータをフィールドの型にあわせてパーズする処理でllegalArgumentExceptionが発生した場合、FileLineExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testNext08() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -1946,6 +1949,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      *                        対象ファイルから取得したデータをフィールドの型にあわせてパーズする処理でIllegalAccessExceptionが発生した場合、FileLineExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testNext09() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -2065,6 +2069,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testNext10() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -2183,6 +2188,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      *                        対象ファイルから取得したデータをフィールドの型にあわせてパーズする処理でParsrExceptionが発生した場合、FileLineExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testNext11() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -2328,6 +2334,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      *                        対象ファイルにある複数行の情報が各1行に対してnext()メソッドを呼ぶ度に正しく設定されたファイル行オブジェクトが取得されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testNext12() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -2521,6 +2528,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      *                        対象ファイルの内容が空の場合（ファイルに読めるデータがない場合）に、FileLineExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testNext13() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -2652,6 +2660,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      *                        トレイラ部のデータ取得が行われた後にnext()が呼ばれた場合に、FileLineExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testNext14() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -2785,6 +2794,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      *                        ファイル行オブジェクトのマッピング対象フィールドの数と合わないデータを対象ファイルから読む場合に、FileLineExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testNext15() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -2918,6 +2928,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      *                        対象ファイルの読みに失敗した場合に、原因例外がそのままスローされることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testNext16() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -3068,6 +3079,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      *                        対象ファイルにある複数行の情報が各1行に対してnext()メソッドを呼ぶ度に正しく設定されたファイル行オブジェクトが取得される。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testNext17() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -3266,6 +3278,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      *                        対象ファイル⇒ファイル行オブジェクトのマッピング処理中のトリム処理で例外が発生した場合に、原因例外がそのままスローされることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testNext18() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -3396,6 +3409,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      *                        対象ファイル⇒ファイル行オブジェクトのマッピング処理中のパディング処理で例外が発生した場合に、原因例外がそのままスローされることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testNext19() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -3524,6 +3538,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      *                        対象ファイルに対して次の処理データがあるかのチェック処理で例外が発生した場合に、原因例外がそのままスローされることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testNext20() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -3652,6 +3667,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      *                        但し、バイト数チェックが走らないことを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testNext21() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -3778,6 +3794,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      *                        ※不正にクラスを書き換えなければ、コンストラクタで呼ばれる#buildLineReader()により、例外が起きる。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testNext22() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -3862,6 +3879,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * メソッドを実行するとアンサポート例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testRemove01() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -3922,6 +3940,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * 既にinit()が呼ばれた場合は、init()処理が行わないことを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testInit01() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -3991,6 +4010,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * 最初にInit()処理が呼ばれた場合は、init()処理が行われることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testInit02() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("File_Empty.txt");
@@ -4060,6 +4080,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * this.buildFields()処理で例外が発生した場合に、例外がそのまま投げられることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testInit03() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("File_Empty.txt");
@@ -4137,6 +4158,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * this.buildStringConverter()処理で例外が発生した場合に、例外がそのまま投げられることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testInit04() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("File_Empty.txt");
@@ -4215,6 +4237,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * this.buildMethods()処理で例外が発生した場合に、例外がそのまま投げられることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testInit05() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("File_Empty.txt");
@@ -4292,6 +4315,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * this.buildHeader()処理で例外が発生した場合に、例外がそのまま投げられることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testInit06() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("File_Empty.txt");
@@ -4369,6 +4393,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * this.buildTrailerQueue()処理で例外が発生した場合に、例外がそのまま投げられることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testInit07() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("File_Empty.txt");
@@ -4446,6 +4471,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * this.buildLineReader()処理で例外が発生した場合に、例外がそのまま投げられることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testInit08() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("File_Empty.txt");
@@ -4520,6 +4546,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * ファイル行オブジェクトのクラスの@FileFormatの設定に「囲み文字」と「区切り文字」と「2桁の行区切り文字」が設定されている場合に、正しく処理されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testBuildLineReader01() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -4592,6 +4619,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * ファイル行オブジェクトのクラスの@FileFormatの設定に「囲み文字」と「区切り文字」と「1桁の行区切り文字」が設定されている場合に、正しく処理されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testBuildLineReader02() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -4662,6 +4690,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * ファイル行オブジェクトのクラスの@FileFormatの設定に「区切り文字」と「2桁の行区切り文字」が設定されている場合に、正しく処理されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testBuildLineReader03() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -4727,6 +4756,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * ファイル行オブジェクトのクラスの@FileFormatの設定に「区切り文字」と「1桁の行区切り文字」が設定されている場合に、正しく処理されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testBuildLineReader04() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -4798,6 +4828,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * 存在しないファイルをfileNameに設定した場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testBuildLineReader05() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -4869,6 +4900,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * 存在しないエンコードをfileEncodeに設定した場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testBuildLineReader06() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -4940,6 +4972,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * ファイル行オブジェクトのクラスの@FileFormatの設定に「区切り文字」と「3桁以上の行区切り文字」が設定されている場合に、例外をスローする。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testBuildLineReader07() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -5015,6 +5048,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * ファイル行オブジェクトのクラスの@FileFormatの設定に「囲み文字」と「区切り文字」と「3桁以上の行区切り文字」が設定されている場合に、例外をスローする。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testBuildLineReader08() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -5072,6 +5106,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testBuildLineReader09() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("File_Empty.txt");
@@ -5124,6 +5159,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * フィールドclazzがフィールドを持ってない場合、正常終了することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testBuildFields01() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -5189,6 +5225,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * フィールドclazzが@InputFileColumn設定なしのフィールドのみ持つ場合、マッピング対象フィールドの情報が正しく設定されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testBuildFields02() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -5267,6 +5304,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      *                        。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testBuildFields03() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -5353,6 +5391,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      *                        。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testBuildFields04() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -5431,6 +5470,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      *                        フィールドclazzが複数の@InputFileColumn設定ありのフィールドのみ持ち、また各フィールドのcolumnIndex値が重複している場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testBuildFields05() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -5517,6 +5557,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      *                        フィールドclazzが複数の@InputFileColumn設定あり・なしのフィールドを持ち、また各フィールドのcolumnIndex値が順番ではない場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testBuildFields06() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -5611,6 +5652,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      *                        親クラスを含めたマッピング対象フィールドの情報が正しく設定されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testBuildFields07() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -5692,6 +5734,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      *                                           、マッピング対象フィールドの情報が正しく設定されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testBuildFields08() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -5772,6 +5815,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      *                        。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testBuildFields09() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -5855,6 +5899,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      *                        。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testBuildFields10() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -5939,6 +5984,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      *                        。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testBuildFields11() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -6011,6 +6057,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * フィールドclazzがフィールドを持ってない場合、StringConverter関連フィールドが正常に(StringConverter情報なし)初期化されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testBuildStringConverter01() throws Exception {
         // テスト対象のインスタンス化
@@ -6089,6 +6136,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * フィールドclazzが@InputFileColumn設定なしのフィールド（１つ）のみ持つ場合、StringConverter関連フィールドが正常に(StringConverter情報なし)初期化されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testBuildStringConverter02() throws Exception {
         // テスト対象のインスタンス化
@@ -6177,6 +6225,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      *                        認 す る 。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testBuildStringConverter03() throws Exception {
         // テスト対象のインスタンス化
@@ -6260,6 +6309,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * フィールドclazzが@InputFileColumn設定なしのフィールド（３つ）のみ持つ場合、StringConverter関連フィールドが正常に(StringConverter情報なし)初期化されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testBuildStringConverter04() throws Exception {
         // テスト対象のインスタンス化
@@ -6362,6 +6412,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      *                        n v e r t e r が 設 定 さ れ る 、 か つ 全 部 同 じ イ ン ス タ ン ス の こ と を 確 認 す る 。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testBuildStringConverter05() throws Exception {
         // テスト対象のインスタンス化
@@ -6465,6 +6516,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      *                        は １ つ の S t r i n g C o n v e r t e r が 設 定 さ れ る 、 か つ 全 部 同 じ イ ン ス タ ン ス の こ と を 確 認 す る 。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testBuildStringConverter06() throws Exception {
         // テスト対象のインスタンス化
@@ -6585,6 +6637,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      *                        、キャッシュには３つのStringConverterが設定される、かつ同一タイプは同じインスタンスを利用することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testBuildStringConverter07() throws Exception {
         // テスト対象のインスタンス化
@@ -6697,6 +6750,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      *                        フィールドclazzが@InputFileColumn設定ありのフィールドを持ち、設定されたstringConverterがインタフェースの場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testBuildStringConverter08() throws Exception {
         // テスト対象のインスタンス化
@@ -6805,6 +6859,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      *                        。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testBuildStringConverter09() throws Exception {
         // テスト対象のインスタンス化
@@ -6929,6 +6984,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      *                        Staticフィールドthis.stringConverterCacheMapにキャッシュがある場合、StringConverterのインスタンス生成なしでキャッシュを利用することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testBuildStringConverter10() throws Exception {
         // テスト対象のインスタンス化
@@ -7014,6 +7070,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * フィールドclazzがフィールドを持ってない場合、this.methodsにメソッド情報が生成されないことを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testBuildMethods01() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -7071,6 +7128,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * フィールドclazzが@InputFileColumn設定なしのフィールド（１つ）のみ持つ場合、this.methodsにメソッド情報が生成されないことを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testBuildMethods02() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -7135,6 +7193,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      *                        メ ソ ッ ド の 情 報 が 生 成 さ れ る こ と を 確 認 す る 。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testBuildMethods03() throws Exception {
         // テスト対象のインスタンス化
@@ -7204,6 +7263,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      *                        フィールドclazzが@InputFileColumn設定ありのフィールドを持つが、そのフィールドに対するセッタメソッドを持たない場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testBuildMethods04() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -7272,6 +7332,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * フィールドclazzが@InputFileColumn設定なしのフィールド（３つ）のみ持つ場合、this.methodsにメソッド情報が生成されないことを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testBuildMethods05() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -7341,6 +7402,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      *                        ３つ）を両方持ち、@設定ありフィールドのセッタメソッドが存在する場合、this.methodsに＠設定あるフィールドに対するメソッド情報のみ生成されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testBuildMethods06() throws Exception {
         // テスト対象のインスタンス化
@@ -7429,6 +7491,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      *                        ッ ド の 情 報 が 生 成 さ れ る こ と を 確 認 す る 。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testBuildMethods07() throws Exception {
         // テスト対象のインスタンス化
@@ -7517,6 +7580,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * ヘッダ部がない場合はthis.headerが空のことを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testBuildHeader01() throws Exception {
         // テスト対象のインスタンス化
@@ -7589,6 +7653,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * ヘッダ部が1行の場合、this.headerに1行の情報が格納されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testBuildHeader02() throws Exception {
         // テスト対象のインスタンス化
@@ -7664,6 +7729,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * ヘッダ部が3行の場合、this.headerに3行の情報が格納されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testBuildHeader03() throws Exception {
         // テスト対象のインスタンス化
@@ -7740,6 +7806,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * ヘッダ部の行数より対象データの行数が少ない場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testBuildHeader04() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -7813,6 +7880,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * ヘッダ部の行データ取得でFileExceptionが発生した場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testBuildHeader05() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -7883,6 +7951,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * 対象ファイルの処理対象行確認チェックでエラーが発生した場合、その例外がそのまま返されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testBuildHeader06() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -7948,6 +8017,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * トレイラ部がない場合、トレイラキューが生成されないことを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testBuildTrailerQueue01() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -8015,6 +8085,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * トレイラ部が1行ある場合、トレイラキューが生成され、その中にデータ部の1行データが格納されていることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testBuildTrailerQueue02() throws Exception {
         // テスト対象のインスタンス化
@@ -8088,6 +8159,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * トレイラ部が3行ある場合、トレイラキューが生成され、その中にデータ部の3行データが格納されていることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testBuildTrailerQueue03() throws Exception {
         // テスト対象のインスタンス化
@@ -8159,6 +8231,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * 次の処理対象行に対する存在チェック処理でエラーが発生した場合、その例外がそのまま返されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testBuildTrailerQueue04() throws Exception {
         // テスト対象のインスタンス化
@@ -8237,6 +8310,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * トレイラ部の行データ取得でFileExceptionが発生した場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testBuildTrailerQueue05() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -8310,6 +8384,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * トレイラ部の行数より対象データの行数が少ない場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testBuildTrailerQueue06() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -8365,6 +8440,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * クローズ処理が正しく実行されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testCloseFile01() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -8416,6 +8492,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * クロース処理でIOExceptionが発生した場合、FileExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testCloseFile02() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -8476,6 +8553,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * ヘッダ部の情報が正しく取得されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testGetHeader01() throws Exception {
         // テスト対象のインスタンス化
@@ -8548,6 +8626,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * また、データ行の情報が全部飛ばされることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testGetTrailer01() throws Exception {
         // テスト対象のインスタンス化
@@ -8629,6 +8708,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * データ行を全部読んでない場合(複数行)にトレイラ部を取得する場合、正しくthis.trailer情報が返されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testGetTrailer02() throws Exception {
         // テスト対象のインスタンス化
@@ -8718,6 +8798,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * データ行を全部読んでない場合(複数行)にトレイラ部を取得する場合、正しくthis.trailer情報が返されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testGetTrailer03() throws Exception {
         // テスト対象のインスタンス化
@@ -8801,6 +8882,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * 次の処理対象行に対する存在チェック処理でエラーが発生した場合、その例外がそのまま返されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testGetTrailer04() throws Exception {
         // テスト対象のインスタンス化
@@ -8889,6 +8971,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * トレイラ部が既に生成されている場合、キャッシュされているトレイラ部がそのまま返されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testGetTrailer05() throws Exception {
         // テスト対象のインスタンス化
@@ -8972,6 +9055,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * データ行を全部読んだ後にトレイラ部を取得する場合、正しくthis.trailer情報が返されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testGetTrailer06() throws Exception {
         // テスト対象のインスタンス化
@@ -9051,6 +9135,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * 次の処理対象行に対する存在チェック処理でエラーが発生した場合、その例外がそのまま返されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testGetTrailer07() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -9128,6 +9213,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * トレイラ部がない場合、データ部のデータ1行分が返されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testReadLine01() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -9198,6 +9284,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * トレイラ部が有るデータに対してreadLine()を1回以上実行した後にreadLine()を実行した場合、トレイラキューの内容が更新されキューの最初のデータがデータ部のデータとして返されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testReadLine02() throws Exception {
         // テスト対象のインスタンス化
@@ -9279,6 +9366,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * トレイラ部が有るデータに対してreadLine()を1回以上実行した後にreadLine()を実行した場合、トレイラキューの内容が更新されキューの最初のデータがデータ部のデータとして返されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testReadLine03() throws Exception {
         // テスト対象のインスタンス化
@@ -9354,6 +9442,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * データ部を全部読んだ後のreadLine()を実行した場合、nullを返すことを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testReadLine04() throws Exception {
         // テスト対象のインスタンス化
@@ -9434,6 +9523,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * ヘッダ部、トレイラ部は有るがデータ部がないデータに対してreadLine()を実行した場合、nullが返されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testReadLine05() throws Exception {
         // テスト対象のインスタンス化
@@ -9514,6 +9604,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * LineReaderから例外が発生した場合、その例外がFileExceptionにラップされてスローされることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testReadLine06() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -9573,6 +9664,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * Skip対象行がない場合、そのまま正常終了することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSkipint01() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -9625,6 +9717,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * Skip対象行が１行の場合、対象データを１行読むことを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSkipint02() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -9676,6 +9769,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * Skip対象行が３行の場合、対象データを３行読むことを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSkipint03() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -9728,6 +9822,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * 対象データを読む処理で例外が発生した場合、その例外がそのまま返されることを確認する。。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSkipint04() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -9792,6 +9887,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * Skip対象行の数が対象データの数を越える場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testSkipint05() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -9848,6 +9944,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * lineFeedCharのgetterメソッドが正しく値を取得することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testGetLineFeedChar01() throws Exception {
         // テスト対象のインスタンス化
@@ -9892,6 +9989,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * fileEncodingのgetterメソッドが正しく値を取得することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testGetFileEncoding01() throws Exception {
         // テスト対象のインスタンス化
@@ -9936,6 +10034,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * headerLineCountのgetterメソッドが正しく値を取得することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testGetHeaderLineCount01() throws Exception {
         // テスト対象のインスタンス化
@@ -9980,6 +10079,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * trailerLineCountのgetterメソッドが正しく値を取得することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testGetTrailerLineCount01() throws Exception {
         // テスト対象のインスタンス化
@@ -10024,6 +10124,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * currentLineCountのgetterメソッドが正しく値を取得することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testGetCurrentLineCount01() throws Exception {
         // テスト対象のインスタンス化
@@ -10068,6 +10169,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * fieldsのgetterメソッドが正しく値を取得することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testGetFields01() throws Exception {
         // テスト対象のインスタンス化
@@ -10113,6 +10215,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * fileNameのgetterメソッドが正しく値を取得することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     @SuppressWarnings("unchecked")
     public void testGetFileName01() throws Exception {
         // テスト対象のインスタンス化
@@ -10155,6 +10258,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsCheckByte01() throws Exception {
         // 前処理(試験対象)
         String fileName = this.getClass().getResource("File_Empty.txt")
@@ -10189,6 +10293,7 @@ public class AbstractFileLineIteratorTest extends TestCase {
      * <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testIsCheckByte02() throws Exception {
         // 前処理(試験対象)
         String fileName = this.getClass().getResource("File_Empty.txt")

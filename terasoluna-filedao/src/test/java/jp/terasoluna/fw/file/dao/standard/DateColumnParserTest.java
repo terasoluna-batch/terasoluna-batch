@@ -7,6 +7,11 @@
 
 package jp.terasoluna.fw.file.dao.standard;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.fail;
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.text.ParseException;
@@ -15,9 +20,11 @@ import java.util.Date;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+import org.junit.Before;
+import org.junit.Test;
+
 import jp.terasoluna.fw.file.ut.VMOUTUtil;
 import jp.terasoluna.utlib.UTUtil;
-import junit.framework.TestCase;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.DateColumnParser} クラスのテスト。
@@ -28,43 +35,14 @@ import junit.framework.TestCase;
  * @author 奥田 哲司
  * @see jp.terasoluna.fw.file.dao.standard.DateColumnParser
  */
-public class DateColumnParserTest extends TestCase {
-
-    /**
-     * このテストケースを実行する為の GUI アプリケーションを起動する。
-     * @param args java コマンドに設定されたパラメータ
-     */
-    public static void main(String[] args) {
-        // junit.swingui.TestRunner.run(DateColumnParserTest.class);
-    }
+public class DateColumnParserTest {
 
     /**
      * 初期化処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#setUp()
      */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
+    @Before
+    public void setUp() {
         VMOUTUtil.initialize();
-    }
-
-    /**
-     * 終了処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     * @see junit.framework.TestCase#tearDown()
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * コンストラクタ。
-     * @param name このテストケースの名前。
-     */
-    public DateColumnParserTest(String name) {
-        super(name);
     }
 
     /**
@@ -93,6 +71,7 @@ public class DateColumnParserTest extends TestCase {
      * ファイル行オブジェクトに、引数columnで設定した文字列を Date型にパースした値が設定できること。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse01() throws Exception {
         // テスト対象のインスタンス化
         DateColumnParser dateColumnParser = new DateColumnParser();
@@ -156,6 +135,7 @@ public class DateColumnParserTest extends TestCase {
      * ファイル行オブジェクトに、引数columnで設定した文字列を Date型にパースした値が設定できること。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse02() throws Exception {
         // テスト対象のインスタンス化
         DateColumnParser dateColumnParser = new DateColumnParser();
@@ -219,6 +199,7 @@ public class DateColumnParserTest extends TestCase {
      * ファイル行オブジェクトに、引数columnで設定した文字列をDate型に パースした値が設定できること。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse03() throws Exception {
         // テスト対象のインスタンス化
         DateColumnParser dateColumnParser = new DateColumnParser();
@@ -282,6 +263,7 @@ public class DateColumnParserTest extends TestCase {
      * ファイル行オブジェクトに、引数columnで設定した文字列をDate型に パースした値が設定できること。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse04() throws Exception {
         // テスト対象のインスタンス化
         DateColumnParser dateColumnParser = new DateColumnParser();
@@ -343,6 +325,7 @@ public class DateColumnParserTest extends TestCase {
      * ファイル行オブジェクトに、引数columnで設定した文字列をDate型に パースした値が設定できること。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse05() throws Exception {
         // テスト対象のインスタンス化
         DateColumnParser dateColumnParser = new DateColumnParser();
@@ -406,6 +389,7 @@ public class DateColumnParserTest extends TestCase {
      * ファイル行オブジェクトに、引数columnで設定した文字列をDate型に パースした値が設定できること。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse06() throws Exception {
         // テスト対象のインスタンス化
         DateColumnParser dateColumnParser = new DateColumnParser();
@@ -466,6 +450,7 @@ public class DateColumnParserTest extends TestCase {
      * フォーマット文字列にありえない値が設定された場合、ParseExceptionが 発生することを確認する <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse07() throws Exception {
         // テスト対象のインスタンス化
         DateColumnParser dateColumnParser = new DateColumnParser();
@@ -517,6 +502,7 @@ public class DateColumnParserTest extends TestCase {
      * ファイル行オブジェクトのDate型属性のsetterメソッドに アクセスできない場合、IllegalAccessExceptionをスローすることを確認する <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse08() throws Exception {
         // テスト対象のインスタンス化
         DateColumnParser dateColumnParser = new DateColumnParser();
@@ -567,6 +553,7 @@ public class DateColumnParserTest extends TestCase {
      * ファイル行オブジェクトのDate型属性のsetterメソッドが例外を スローする場合、setterメソッドがスローした例外をラップする InvocationTargetExceptionをスローすることを確認する <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse09() throws Exception {
         // テスト対象のインスタンス化
         DateColumnParser dateColumnParser = new DateColumnParser();
@@ -617,6 +604,7 @@ public class DateColumnParserTest extends TestCase {
      * ファイル行オブジェクトのDate型属性のsetterメソッドの引数が多数ある場合、 IllegalArgumentExceptionをスローすることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse10() throws Exception {
         // テスト対象のインスタンス化
         DateColumnParser dateColumnParser = new DateColumnParser();
@@ -667,6 +655,7 @@ public class DateColumnParserTest extends TestCase {
      * Date型の属性の値が想定されない日付の場合、 ParseExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse11() throws Exception {
         // テスト対象のインスタンス化
         DateColumnParser dateColumnParser = new DateColumnParser();
@@ -718,6 +707,7 @@ public class DateColumnParserTest extends TestCase {
      * 引数columnにnullが設定された場合は、NullPointerExceptionが 発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse12() throws Exception {
         // テスト対象のインスタンス化
         DateColumnParser dateColumnParser = new DateColumnParser();
@@ -768,6 +758,7 @@ public class DateColumnParserTest extends TestCase {
      * 引数のcolumnのフォーマットとフォーマット用の文字列が異なる場合は、 ParseExceptionが発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @Test
     public void testParse13() throws Exception {
         // テスト対象のインスタンス化
         DateColumnParser dateColumnParser = new DateColumnParser();
