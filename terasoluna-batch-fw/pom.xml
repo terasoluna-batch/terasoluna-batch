@@ -37,8 +37,6 @@
         <!-- Dependence library version -->
         <!-- == Spring IO Platform == -->
         <io.spring.platform.version>1.1.1.RELEASE</io.spring.platform.version>
-        <!-- junit -->
-        <junit.addons.version>1.4</junit.addons.version>
         <!-- spring -->
         <spring.modules.validation.version>0.8</spring.modules.validation.version>
         <spring.test3.version>3.2.13.RELEASE</spring.test3.version>
