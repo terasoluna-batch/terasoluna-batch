@@ -37,6 +37,7 @@ import java.util.concurrent.ArrayBlockingQueue;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.test.util.ReflectionTestUtils;
 
 import jp.terasoluna.fw.file.annotation.InputFileColumn;
 import jp.terasoluna.fw.file.annotation.NullStringConverter;
@@ -46,7 +47,6 @@ import jp.terasoluna.fw.file.annotation.StringConverterToUpperCase;
 import jp.terasoluna.fw.file.dao.FileException;
 import jp.terasoluna.fw.file.dao.FileLineException;
 import jp.terasoluna.fw.file.ut.VMOUTUtil;
-import jp.terasoluna.utlib.UTUtil;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.AbstractFileLineIterator} クラスのテスト。
@@ -128,19 +128,18 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 状態変化の確認
-        assertEquals(fileName, UTUtil.getPrivateField(fileLineIterator,
+        assertEquals(fileName, ReflectionTestUtils.getField(fileLineIterator,
                 "fileName"));
-        assertSame(AbstractFileLineIterator_Stub01.class, UTUtil
-                .getPrivateField(fileLineIterator, "clazz"));
-        assertEquals("\r", UTUtil.getPrivateField(fileLineIterator,
+        assertSame(AbstractFileLineIterator_Stub01.class, ReflectionTestUtils.getField(fileLineIterator, "clazz"));
+        assertEquals("\r", ReflectionTestUtils.getField(fileLineIterator,
                 "lineFeedChar"));
-        assertEquals("MS932", UTUtil.getPrivateField(fileLineIterator,
+        assertEquals("MS932", ReflectionTestUtils.getField(fileLineIterator,
                 "fileEncoding"));
-        assertEquals(1, UTUtil.getPrivateField(fileLineIterator,
+        assertEquals(1, ReflectionTestUtils.getField(fileLineIterator,
                 "headerLineCount"));
-        assertEquals(1, UTUtil.getPrivateField(fileLineIterator,
+        assertEquals(1, ReflectionTestUtils.getField(fileLineIterator,
                 "trailerLineCount"));
-        assertSame(columnParserMap, UTUtil.getPrivateField(fileLineIterator,
+        assertSame(columnParserMap, ReflectionTestUtils.getField(fileLineIterator,
                 "columnParserMap"));
     }
 
@@ -331,19 +330,17 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 状態変化の確認
-        assertEquals(fileName, UTUtil.getPrivateField(fileLineIterator,
+        assertEquals(fileName, ReflectionTestUtils.getField(fileLineIterator,
                 "fileName"));
-        assertSame(AbstractFileLineIterator_Stub03.class, UTUtil
-                .getPrivateField(fileLineIterator, "clazz"));
-        assertSame(System.getProperty("line.separator"), UTUtil
-                .getPrivateField(fileLineIterator, "lineFeedChar"));
-        assertSame(System.getProperty("file.encoding"), UTUtil.getPrivateField(
+        assertSame(AbstractFileLineIterator_Stub03.class, ReflectionTestUtils.getField(fileLineIterator, "clazz"));
+        assertSame(System.getProperty("line.separator"), ReflectionTestUtils.getField(fileLineIterator, "lineFeedChar"));
+        assertSame(System.getProperty("file.encoding"), ReflectionTestUtils.getField(
                 fileLineIterator, "fileEncoding"));
-        assertEquals(1, UTUtil.getPrivateField(fileLineIterator,
+        assertEquals(1, ReflectionTestUtils.getField(fileLineIterator,
                 "headerLineCount"));
-        assertEquals(1, UTUtil.getPrivateField(fileLineIterator,
+        assertEquals(1, ReflectionTestUtils.getField(fileLineIterator,
                 "trailerLineCount"));
-        assertSame(columnParserMap, UTUtil.getPrivateField(fileLineIterator,
+        assertSame(columnParserMap, ReflectionTestUtils.getField(fileLineIterator,
                 "columnParserMap"));
     }
 
@@ -1087,7 +1084,7 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 前提条件の設定
-        UTUtil.setPrivateField(fileLineIterator, "clazz",
+        ReflectionTestUtils.setField(fileLineIterator, "clazz",
                 AbstractFileLineIterator_Stub14.class);
         // テスト対象のインスタンス化時に設定している。
 
@@ -1162,7 +1159,7 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 前提条件の設定
-        UTUtil.setPrivateField(fileLineIterator, "clazz",
+        ReflectionTestUtils.setField(fileLineIterator, "clazz",
                 AbstractFileLineIterator_Stub15.class);
         // テスト対象のインスタンス化時に設定している。
 
@@ -1279,7 +1276,7 @@ public class AbstractFileLineIteratorTest {
             assertEquals("separateColumns", 1, VMOUTUtil.getCallCount(
                     fileLineIterator.getClass(), "separateColumns"));
         }
-        assertEquals("currentLineCount", 1, UTUtil.getPrivateField(
+        assertEquals("currentLineCount", 1, ReflectionTestUtils.getField(
                 fileLineIterator, "currentLineCount"));
     }
 
@@ -1386,7 +1383,7 @@ public class AbstractFileLineIteratorTest {
                         fileLineIterator.getClass(), "separateColumns"));
             }
 
-            assertEquals("currentLineCount", 1, UTUtil.getPrivateField(
+            assertEquals("currentLineCount", 1, ReflectionTestUtils.getField(
                     fileLineIterator, "currentLineCount"));
 
             assertSame(FileLineException.class, e.getClass());
@@ -1526,7 +1523,7 @@ public class AbstractFileLineIteratorTest {
                     fileLineIterator.getClass(), "separateColumns"));
         }
 
-        assertEquals("currentLineCount", 1, UTUtil.getPrivateField(
+        assertEquals("currentLineCount", 1, ReflectionTestUtils.getField(
                 fileLineIterator, "currentLineCount"));
     }
 
@@ -1647,7 +1644,7 @@ public class AbstractFileLineIteratorTest {
                         fileLineIterator.getClass(), "separateColumns"));
             }
 
-            assertEquals("currentLineCount", 1, UTUtil.getPrivateField(
+            assertEquals("currentLineCount", 1, ReflectionTestUtils.getField(
                     fileLineIterator, "currentLineCount"));
 
             assertSame(FileLineException.class, e.getClass());
@@ -1770,7 +1767,7 @@ public class AbstractFileLineIteratorTest {
                     fileLineIterator.getClass(), "separateColumns"));
         }
 
-        assertEquals("currentLineCount", 1, UTUtil.getPrivateField(
+        assertEquals("currentLineCount", 1, ReflectionTestUtils.getField(
                 fileLineIterator, "currentLineCount"));
     }
 
@@ -1880,7 +1877,7 @@ public class AbstractFileLineIteratorTest {
                         fileLineIterator.getClass(), "separateColumns"));
             }
 
-            assertEquals("currentLineCount", 1, UTUtil.getPrivateField(
+            assertEquals("currentLineCount", 1, ReflectionTestUtils.getField(
                     fileLineIterator, "currentLineCount"));
 
             assertSame(FileLineException.class, e.getClass());
@@ -1999,7 +1996,7 @@ public class AbstractFileLineIteratorTest {
                         fileLineIterator.getClass(), "separateColumns"));
             }
 
-            assertEquals("currentLineCount", 1, UTUtil.getPrivateField(
+            assertEquals("currentLineCount", 1, ReflectionTestUtils.getField(
                     fileLineIterator, "currentLineCount"));
 
             assertSame(FileLineException.class, e.getClass());
@@ -2119,7 +2116,7 @@ public class AbstractFileLineIteratorTest {
                         fileLineIterator.getClass(), "separateColumns"));
             }
 
-            assertEquals("currentLineCount", 1, UTUtil.getPrivateField(
+            assertEquals("currentLineCount", 1, ReflectionTestUtils.getField(
                     fileLineIterator, "currentLineCount"));
 
             assertSame(FileLineException.class, e.getClass());
@@ -2238,7 +2235,7 @@ public class AbstractFileLineIteratorTest {
                         fileLineIterator.getClass(), "separateColumns"));
             }
 
-            assertEquals("currentLineCount", 1, UTUtil.getPrivateField(
+            assertEquals("currentLineCount", 1, ReflectionTestUtils.getField(
                     fileLineIterator, "currentLineCount"));
 
             assertSame(FileLineException.class, e.getClass());
@@ -2393,7 +2390,7 @@ public class AbstractFileLineIteratorTest {
                     fileLineIterator.getClass(), "separateColumns"));
         }
 
-        assertEquals("currentLineCount", 1, UTUtil.getPrivateField(
+        assertEquals("currentLineCount", 1, ReflectionTestUtils.getField(
                 fileLineIterator, "currentLineCount"));
 
         // テスト実施（2回目）
@@ -2432,7 +2429,7 @@ public class AbstractFileLineIteratorTest {
                     fileLineIterator.getClass(), "separateColumns"));
         }
 
-        assertEquals("currentLineCount", 2, UTUtil.getPrivateField(
+        assertEquals("currentLineCount", 2, ReflectionTestUtils.getField(
                 fileLineIterator, "currentLineCount"));
 
         // テスト実施（3回目）
@@ -2469,7 +2466,7 @@ public class AbstractFileLineIteratorTest {
                     fileLineIterator.getClass(), "separateColumns"));
         }
 
-        assertEquals(3, UTUtil.getPrivateField(fileLineIterator,
+        assertEquals(3, ReflectionTestUtils.getField(fileLineIterator,
                 "currentLineCount"));
     }
 
@@ -2579,7 +2576,7 @@ public class AbstractFileLineIteratorTest {
                     AbstractFileLineIterator.class, "readLine"));
             assertEquals(0, VMOUTUtil.getCallCount(fileLineIterator.getClass(),
                     "separateColumns"));
-            assertEquals(0, UTUtil.getPrivateField(fileLineIterator,
+            assertEquals(0, ReflectionTestUtils.getField(fileLineIterator,
                     "currentLineCount"));
 
             assertEquals(FileLineException.class, e.getClass());
@@ -2680,7 +2677,7 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 前提条件の設定
-        UTUtil.setPrivateField(fileLineIterator, "readTrailer", true);
+        ReflectionTestUtils.setField(fileLineIterator, "readTrailer", true);
         // その他は、テスト対象のインスタンス化時に設定している。
 
         // テスト実施
@@ -2712,7 +2709,7 @@ public class AbstractFileLineIteratorTest {
                     AbstractFileLineIterator.class, "readLine"));
             assertEquals(0, VMOUTUtil.getCallCount(fileLineIterator.getClass(),
                     "separateColumns"));
-            assertEquals(0, UTUtil.getPrivateField(fileLineIterator,
+            assertEquals(0, ReflectionTestUtils.getField(fileLineIterator,
                     "currentLineCount"));
 
             assertEquals(FileLineException.class, e.getClass());
@@ -2851,7 +2848,7 @@ public class AbstractFileLineIteratorTest {
                         fileLineIterator.getClass(), "separateColumns"));
             }
 
-            assertEquals("currentLineCount", 1, UTUtil.getPrivateField(
+            assertEquals("currentLineCount", 1, ReflectionTestUtils.getField(
                     fileLineIterator, "currentLineCount"));
 
             assertEquals(FileLineException.class, e.getClass());
@@ -2982,7 +2979,7 @@ public class AbstractFileLineIteratorTest {
                     AbstractFileLineIterator.class, "readLine"));
             assertEquals(0, VMOUTUtil.getCallCount(fileLineIterator.getClass(),
                     "separateColumns"));
-            assertEquals(0, UTUtil.getPrivateField(fileLineIterator,
+            assertEquals(0, ReflectionTestUtils.getField(fileLineIterator,
                     "currentLineCount"));
 
             assertSame(exception, e);
@@ -3138,7 +3135,7 @@ public class AbstractFileLineIteratorTest {
                     fileLineIterator.getClass(), "separateColumns"));
         }
 
-        assertEquals("currentLineCount", 1, UTUtil.getPrivateField(
+        assertEquals("currentLineCount", 1, ReflectionTestUtils.getField(
                 fileLineIterator, "currentLineCount"));
 
         // テスト実施（2回目）
@@ -3174,7 +3171,7 @@ public class AbstractFileLineIteratorTest {
                     fileLineIterator.getClass(), "separateColumns"));
         }
 
-        assertEquals(2, UTUtil.getPrivateField(fileLineIterator,
+        assertEquals(2, ReflectionTestUtils.getField(fileLineIterator,
                 "currentLineCount"));
 
         // テスト実施（3回目）
@@ -3211,7 +3208,7 @@ public class AbstractFileLineIteratorTest {
                     fileLineIterator.getClass(), "separateColumns"));
         }
 
-        assertEquals(3, UTUtil.getPrivateField(fileLineIterator,
+        assertEquals(3, ReflectionTestUtils.getField(fileLineIterator,
                 "currentLineCount"));
     }
 
@@ -3338,7 +3335,7 @@ public class AbstractFileLineIteratorTest {
                         fileLineIterator.getClass(), "separateColumns"));
             }
 
-            assertEquals("currentLineCount", 1, UTUtil.getPrivateField(
+            assertEquals("currentLineCount", 1, ReflectionTestUtils.getField(
                     fileLineIterator, "currentLineCount"));
 
             assertSame(exception, e);
@@ -3469,7 +3466,7 @@ public class AbstractFileLineIteratorTest {
                         fileLineIterator.getClass(), "separateColumns"));
             }
 
-            assertEquals("currentLineCount", 1, UTUtil.getPrivateField(
+            assertEquals("currentLineCount", 1, ReflectionTestUtils.getField(
                     fileLineIterator, "currentLineCount"));
 
             assertSame(exception, e);
@@ -3592,7 +3589,7 @@ public class AbstractFileLineIteratorTest {
                     AbstractFileLineIterator.class, "readLine"));
             assertEquals(0, VMOUTUtil.getCallCount(fileLineIterator.getClass(),
                     "separateColumns"));
-            assertEquals(0, UTUtil.getPrivateField(fileLineIterator,
+            assertEquals(0, ReflectionTestUtils.getField(fileLineIterator,
                     "currentLineCount"));
 
             assertSame(exception, e);
@@ -3729,7 +3726,7 @@ public class AbstractFileLineIteratorTest {
         }
 
         assertEquals(0, VMOUTUtil.getCallCount(String.class, "getBytes"));
-        assertEquals("currentLineCount", 1, UTUtil.getPrivateField(
+        assertEquals("currentLineCount", 1, ReflectionTestUtils.getField(
                 fileLineIterator, "currentLineCount"));
     }
 
@@ -3815,7 +3812,7 @@ public class AbstractFileLineIteratorTest {
 
         // 前提条件の設定
         // テスト対象のインスタンス化時に設定している。
-        UTUtil.setPrivateField(fileLineIterator, "fileEncoding", "aaa");
+        ReflectionTestUtils.setField(fileLineIterator, "fileEncoding", "aaa");
 
         // テスト実施
         try {
@@ -3852,7 +3849,7 @@ public class AbstractFileLineIteratorTest {
                         fileLineIterator.getClass(), "separateColumns"));
             }
 
-            assertEquals("currentLineCount", 1, UTUtil.getPrivateField(
+            assertEquals("currentLineCount", 1, ReflectionTestUtils.getField(
                     fileLineIterator, "currentLineCount"));
 
             assertEquals(FileException.class, e.getClass());
@@ -3957,7 +3954,7 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 前提条件の設定
-        UTUtil.setPrivateField(fileLineIterator, "calledInit", true);
+        ReflectionTestUtils.setField(fileLineIterator, "calledInit", true);
 
         // テスト実施
         fileLineIterator.init();
@@ -3966,7 +3963,7 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 状態変化の確認
-        assertTrue((Boolean) UTUtil.getPrivateField(fileLineIterator,
+        assertTrue((Boolean) ReflectionTestUtils.getField(fileLineIterator,
                 "calledInit"));
         assertFalse(VMOUTUtil.isCalled(AbstractFileLineIterator.class,
                 "buildFields"));
@@ -4026,7 +4023,7 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 前提条件の設定
-        UTUtil.setPrivateField(fileLineIterator, "calledInit", false);
+        ReflectionTestUtils.setField(fileLineIterator, "calledInit", false);
 
         // テスト実施
         fileLineIterator.init();
@@ -4035,7 +4032,7 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 状態変化の確認
-        assertTrue((Boolean) UTUtil.getPrivateField(fileLineIterator,
+        assertTrue((Boolean) ReflectionTestUtils.getField(fileLineIterator,
                 "calledInit"));
         assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
                 "buildFields"));
@@ -4096,7 +4093,7 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 前提条件の設定
-        UTUtil.setPrivateField(fileLineIterator, "calledInit", false);
+        ReflectionTestUtils.setField(fileLineIterator, "calledInit", false);
         FileException exception = new FileException("buildFieldsのエラーです");
         VMOUTUtil.setExceptionAtAllTimes(AbstractFileLineIterator.class,
                 "buildFields", exception);
@@ -4110,7 +4107,7 @@ public class AbstractFileLineIteratorTest {
             // なし
 
             // 状態変化の確認
-            assertFalse((Boolean) UTUtil.getPrivateField(fileLineIterator,
+            assertFalse((Boolean) ReflectionTestUtils.getField(fileLineIterator,
                     "calledInit"));
             assertEquals(1, VMOUTUtil.getCallCount(
                     AbstractFileLineIterator.class, "buildFields"));
@@ -4174,7 +4171,7 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 前提条件の設定
-        UTUtil.setPrivateField(fileLineIterator, "calledInit", false);
+        ReflectionTestUtils.setField(fileLineIterator, "calledInit", false);
         FileLineException exception = new FileLineException(
                 "buildStringConvertersのエラーです");
         VMOUTUtil.setExceptionAtAllTimes(AbstractFileLineIterator.class,
@@ -4189,7 +4186,7 @@ public class AbstractFileLineIteratorTest {
             // なし
 
             // 状態変化の確認
-            assertFalse((Boolean) UTUtil.getPrivateField(fileLineIterator,
+            assertFalse((Boolean) ReflectionTestUtils.getField(fileLineIterator,
                     "calledInit"));
             assertEquals(1, VMOUTUtil.getCallCount(
                     AbstractFileLineIterator.class, "buildFields"));
@@ -4253,7 +4250,7 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 前提条件の設定
-        UTUtil.setPrivateField(fileLineIterator, "calledInit", false);
+        ReflectionTestUtils.setField(fileLineIterator, "calledInit", false);
         FileException exception = new FileException("buildMethodsのエラーです");
         VMOUTUtil.setExceptionAtAllTimes(AbstractFileLineIterator.class,
                 "buildMethods", exception);
@@ -4267,7 +4264,7 @@ public class AbstractFileLineIteratorTest {
             // なし
 
             // 状態変化の確認
-            assertFalse((Boolean) UTUtil.getPrivateField(fileLineIterator,
+            assertFalse((Boolean) ReflectionTestUtils.getField(fileLineIterator,
                     "calledInit"));
             assertEquals(1, VMOUTUtil.getCallCount(
                     AbstractFileLineIterator.class, "buildFields"));
@@ -4331,7 +4328,7 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 前提条件の設定
-        UTUtil.setPrivateField(fileLineIterator, "calledInit", false);
+        ReflectionTestUtils.setField(fileLineIterator, "calledInit", false);
         FileException exception = new FileException("buildHeadersのエラーです");
         VMOUTUtil.setExceptionAtAllTimes(AbstractFileLineIterator.class,
                 "buildHeader", exception);
@@ -4345,7 +4342,7 @@ public class AbstractFileLineIteratorTest {
             // なし
 
             // 状態変化の確認
-            assertFalse((Boolean) UTUtil.getPrivateField(fileLineIterator,
+            assertFalse((Boolean) ReflectionTestUtils.getField(fileLineIterator,
                     "calledInit"));
             assertEquals(1, VMOUTUtil.getCallCount(
                     AbstractFileLineIterator.class, "buildFields"));
@@ -4409,7 +4406,7 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 前提条件の設定
-        UTUtil.setPrivateField(fileLineIterator, "calledInit", false);
+        ReflectionTestUtils.setField(fileLineIterator, "calledInit", false);
         FileException exception = new FileException("buildTrailerQueueのエラーです");
         VMOUTUtil.setExceptionAtAllTimes(AbstractFileLineIterator.class,
                 "buildTrailerQueue", exception);
@@ -4423,7 +4420,7 @@ public class AbstractFileLineIteratorTest {
             // なし
 
             // 状態変化の確認
-            assertFalse((Boolean) UTUtil.getPrivateField(fileLineIterator,
+            assertFalse((Boolean) ReflectionTestUtils.getField(fileLineIterator,
                     "calledInit"));
             assertEquals(1, VMOUTUtil.getCallCount(
                     AbstractFileLineIterator.class, "buildFields"));
@@ -4487,7 +4484,7 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 前提条件の設定
-        UTUtil.setPrivateField(fileLineIterator, "calledInit", false);
+        ReflectionTestUtils.setField(fileLineIterator, "calledInit", false);
         FileException exception = new FileException("buildLineReaderのエラーです");
         VMOUTUtil.setExceptionAtAllTimes(AbstractFileLineIterator.class,
                 "buildLineReader", exception);
@@ -4501,7 +4498,7 @@ public class AbstractFileLineIteratorTest {
             // なし
 
             // 状態変化の確認
-            assertFalse((Boolean) UTUtil.getPrivateField(fileLineIterator,
+            assertFalse((Boolean) ReflectionTestUtils.getField(fileLineIterator,
                     "calledInit"));
             assertEquals(1, VMOUTUtil.getCallCount(
                     AbstractFileLineIterator.class, "buildFields"));
@@ -4563,31 +4560,34 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 前提条件の設定
-        UTUtil.setPrivateField(fileLineIterator, "enclosed", true);
-        UTUtil.setPrivateField(fileLineIterator, "columnEncloseChar",
+        ReflectionTestUtils.setField(fileLineIterator, "enclosed", true);
+        ReflectionTestUtils.setField(fileLineIterator, "columnEncloseChar",
                 new char[] {});
 
         // テスト実施
-        UTUtil.invokePrivate(fileLineIterator, "buildLineReader");
+        Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildLineReader");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
 
         // 状態変化の確認
-        Object reader = UTUtil.getPrivateField(fileLineIterator, "reader");
+        Object reader = ReflectionTestUtils.getField(fileLineIterator, "reader");
         assertEquals(BufferedReader.class, reader.getClass());
 
-        Object reader02 = UTUtil
-                .getPrivateField(fileLineIterator, "lineReader");
+        Field field = AbstractFileLineIterator.class.getDeclaredField("lineReader");
+        field.setAccessible(true);
+        Object reader02 = field.get(fileLineIterator);        
         assertEquals(EncloseCharLineFeed2LineReader.class, reader02.getClass());
-        assertEquals(',', UTUtil
-                .getPrivateField(reader02, "delimiterCharacter"));
-        assertEquals('\"', UTUtil.getPrivateField(reader02, "encloseCharacter"));
-        assertEquals("\r\n", UTUtil.getPrivateField(reader02, "lineFeedChar"));
-        assertSame(reader, UTUtil.getPrivateField(reader02, "reader"));
+         field = EncloseCharLineFeed2LineReader.class.getDeclaredField("delimiterCharacter");
+        field.setAccessible(true);
+        assertEquals(',', field.get(reader02));
+        assertEquals('\"', ReflectionTestUtils.getField(reader02, "encloseCharacter"));
+        assertEquals("\r\n", ReflectionTestUtils.getField(reader02, "lineFeedChar"));
+        assertSame(reader, ReflectionTestUtils.getField(reader02, "reader"));
 
-        String result = ((BufferedReader) reader).readLine();
-        assertEquals("AbstractFileLineIterator_buildLineReader01", result);
+        assertEquals("AbstractFileLineIterator_buildLineReader01", ((BufferedReader) reader).readLine());
 
         // 後処理
         ((BufferedReader) reader).close();
@@ -4636,31 +4636,30 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 前提条件の設定
-        UTUtil.setPrivateField(fileLineIterator, "enclosed", true);
-        UTUtil.setPrivateField(fileLineIterator, "columnEncloseChar",
+        ReflectionTestUtils.setField(fileLineIterator, "enclosed", true);
+        ReflectionTestUtils.setField(fileLineIterator, "columnEncloseChar",
                 new char[] {});
 
         // テスト実施
-        UTUtil.invokePrivate(fileLineIterator, "buildLineReader");
+        Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildLineReader");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
 
         // 状態変化の確認
-        Object reader = UTUtil.getPrivateField(fileLineIterator, "reader");
+        Object reader = ReflectionTestUtils.getField(fileLineIterator, "reader");
         assertEquals(BufferedReader.class, reader.getClass());
 
-        Object reader02 = UTUtil
-                .getPrivateField(fileLineIterator, "lineReader");
+        Object reader02 = ReflectionTestUtils.getField(fileLineIterator, "lineReader");
         assertEquals(EncloseCharLineFeed1LineReader.class, reader02.getClass());
-        assertEquals(',', UTUtil
-                .getPrivateField(reader02, "delimiterCharacter"));
-        assertEquals('\"', UTUtil.getPrivateField(reader02, "encloseCharacter"));
-        assertEquals("\r", UTUtil.getPrivateField(reader02, "lineFeedChar"));
-        assertSame(reader, UTUtil.getPrivateField(reader02, "reader"));
+        assertEquals(',', ReflectionTestUtils.getField(reader02, "delimiterCharacter"));
+        assertEquals('\"', ReflectionTestUtils.getField(reader02, "encloseCharacter"));
+        assertEquals("\r", ReflectionTestUtils.getField(reader02, "lineFeedChar"));
+        assertSame(reader, ReflectionTestUtils.getField(reader02, "reader"));
 
-        String result = ((BufferedReader) reader).readLine();
-        assertEquals("AbstractFileLineIterator_buildLineReader01", result);
+        assertEquals("AbstractFileLineIterator_buildLineReader01", ((BufferedReader) reader).readLine());
 
         // 後処理
         ((BufferedReader) reader).close();
@@ -4710,23 +4709,23 @@ public class AbstractFileLineIteratorTest {
         // テスト対象のインスタンス化時に設定済み
 
         // テスト実施
-        UTUtil.invokePrivate(fileLineIterator, "buildLineReader");
+        Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildLineReader");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
 
         // 状態変化の確認
-        Object reader = UTUtil.getPrivateField(fileLineIterator, "reader");
+        Object reader = ReflectionTestUtils.getField(fileLineIterator, "reader");
         assertEquals(BufferedReader.class, reader.getClass());
 
-        Object reader02 = UTUtil
-                .getPrivateField(fileLineIterator, "lineReader");
+        Object reader02 = ReflectionTestUtils.getField(fileLineIterator, "lineReader");
         assertEquals(LineFeed2LineReader.class, reader02.getClass());
-        assertEquals("\r\n", UTUtil.getPrivateField(reader02, "lineFeedChar"));
-        assertSame(reader, UTUtil.getPrivateField(reader02, "reader"));
+        assertEquals("\r\n", ReflectionTestUtils.getField(reader02, "lineFeedChar"));
+        assertSame(reader, ReflectionTestUtils.getField(reader02, "reader"));
 
-        String result = ((BufferedReader) reader).readLine();
-        assertEquals("AbstractFileLineIterator_buildLineReader01", result);
+        assertEquals("AbstractFileLineIterator_buildLineReader01", ((BufferedReader) reader).readLine());
 
         // 後処理
         ((BufferedReader) reader).close();
@@ -4776,23 +4775,23 @@ public class AbstractFileLineIteratorTest {
         // テスト対象のインスタンス化時に設定済み
 
         // テスト実施
-        UTUtil.invokePrivate(fileLineIterator, "buildLineReader");
+        Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildLineReader");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
 
         // 状態変化の確認
-        Object reader = UTUtil.getPrivateField(fileLineIterator, "reader");
+        Object reader = ReflectionTestUtils.getField(fileLineIterator, "reader");
         assertEquals(BufferedReader.class, reader.getClass());
 
-        Object reader02 = UTUtil
-                .getPrivateField(fileLineIterator, "lineReader");
+        Object reader02 = ReflectionTestUtils.getField(fileLineIterator, "lineReader");
         assertEquals(LineFeed1LineReader.class, reader02.getClass());
-        assertEquals("\r", UTUtil.getPrivateField(reader02, "lineFeedChar"));
-        assertSame(reader, UTUtil.getPrivateField(reader02, "reader"));
+        assertEquals("\r", ReflectionTestUtils.getField(reader02, "lineFeedChar"));
+        assertSame(reader, ReflectionTestUtils.getField(reader02, "reader"));
 
-        String result = ((BufferedReader) reader).readLine();
-        assertEquals("AbstractFileLineIterator_buildLineReader01", result);
+        assertEquals("AbstractFileLineIterator_buildLineReader01", ((BufferedReader) reader).readLine());
 
         // 後処理
         ((BufferedReader) reader).close();
@@ -4846,27 +4845,29 @@ public class AbstractFileLineIteratorTest {
 
         // 前提条件の設定
         String fileName_test = "AbstractFileLineIterator_buildLineReader_noExist.txt";
-        UTUtil.setPrivateField(fileLineIterator, "fileName", fileName_test);
-        UTUtil.setPrivateField(fileLineIterator, "lineReader", null);
-        UTUtil.setPrivateField(fileLineIterator, "reader", null);
+        ReflectionTestUtils.setField(fileLineIterator, "fileName", fileName_test);
+        ReflectionTestUtils.setField(fileLineIterator, "lineReader", null);
+        ReflectionTestUtils.setField(fileLineIterator, "reader", null);
         // その他は、テスト対象のインスタンス化時に設定済み
 
         // テスト実施
         try {
-            UTUtil.invokePrivate(fileLineIterator, "buildLineReader");
+            Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildLineReader");
+            method.setAccessible(true);
+            method.invoke(fileLineIterator);
             fail("FileExceptionがスローされませんでした。");
-        } catch (FileException e) {
+        } catch (InvocationTargetException e) {
             // 返却値の確認
             // なし
 
             // 状態変化の確認
-            assertNull(UTUtil.getPrivateField(fileLineIterator, "reader"));
-            assertNull(UTUtil.getPrivateField(fileLineIterator, "lineReader"));
+            assertNull(ReflectionTestUtils.getField(fileLineIterator, "reader"));
+            assertNull(ReflectionTestUtils.getField(fileLineIterator, "lineReader"));
 
-            assertSame(FileException.class, e.getClass());
-            assertEquals("Failed in generation of reader.", e.getMessage());
-            assertSame(FileNotFoundException.class, e.getCause().getClass());
-            assertSame(fileName_test, e.getFileName());
+            assertSame(FileException.class, e.getTargetException().getClass());
+            assertEquals("Failed in generation of reader.", e.getTargetException().getMessage());
+            assertSame(FileNotFoundException.class, e.getTargetException().getCause().getClass());
+            assertSame(fileName_test, ((FileException)e.getTargetException()).getFileName());
         }
     }
 
@@ -4917,28 +4918,30 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 前提条件の設定
-        UTUtil.setPrivateField(fileLineIterator, "fileEncoding", "aaa");
-        UTUtil.setPrivateField(fileLineIterator, "lineReader", null);
-        UTUtil.setPrivateField(fileLineIterator, "reader", null);
+        ReflectionTestUtils.setField(fileLineIterator, "fileEncoding", "aaa");
+        ReflectionTestUtils.setField(fileLineIterator, "lineReader", null);
+        ReflectionTestUtils.setField(fileLineIterator, "reader", null);
         // その他は、テスト対象のインスタンス化時に設定済み
 
         // テスト実施
         try {
-            UTUtil.invokePrivate(fileLineIterator, "buildLineReader");
+            Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildLineReader");
+            method.setAccessible(true);
+            method.invoke(fileLineIterator);
             fail("FileExceptionがスローされませんでした。");
-        } catch (FileException e) {
+        } catch (InvocationTargetException e) {
             // 返却値の確認
             // なし
 
             // 状態変化の確認
-            assertNull(UTUtil.getPrivateField(fileLineIterator, "reader"));
-            assertNull(UTUtil.getPrivateField(fileLineIterator, "lineReader"));
+            assertNull(ReflectionTestUtils.getField(fileLineIterator, "reader"));
+            assertNull(ReflectionTestUtils.getField(fileLineIterator, "lineReader"));
 
-            assertSame(FileException.class, e.getClass());
-            assertEquals("Failed in generation of reader.", e.getMessage());
-            assertSame(UnsupportedEncodingException.class, e.getCause()
+            assertSame(FileException.class, e.getTargetException().getClass());
+            assertEquals("Failed in generation of reader.", e.getTargetException().getMessage());
+            assertSame(UnsupportedEncodingException.class, e.getTargetException().getCause()
                     .getClass());
-            assertSame(fileName, e.getFileName());
+            assertSame(fileName, ((FileException)e.getTargetException()).getFileName());
         }
     }
 
@@ -4989,32 +4992,34 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 前提条件の設定
-        UTUtil.setPrivateField(fileLineIterator, "lineFeedChar", "\r\r\r");
-        UTUtil.setPrivateField(fileLineIterator, "lineReader", null);
-        UTUtil.setPrivateField(fileLineIterator, "reader", null);
+        ReflectionTestUtils.setField(fileLineIterator, "lineFeedChar", "\r\r\r");
+        ReflectionTestUtils.setField(fileLineIterator, "lineReader", null);
+        ReflectionTestUtils.setField(fileLineIterator, "reader", null);
         // その他は、テスト対象のインスタンス化時に設定済み
 
         // テスト実施
         try {
-            UTUtil.invokePrivate(fileLineIterator, "buildLineReader");
+            Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildLineReader");
+            method.setAccessible(true);
+            method.invoke(fileLineIterator);
             fail("FileExceptionがスローされませんでした。");
-        } catch (FileException e) {
+        } catch (InvocationTargetException e) {
             // 返却値の確認
             // なし
 
             // 状態変化の確認
-            Object reader = UTUtil.getPrivateField(fileLineIterator, "reader");
+            Object reader = ReflectionTestUtils.getField(fileLineIterator, "reader");
             assertEquals(BufferedReader.class, reader.getClass());
 
-            Object reader02 = UTUtil.getPrivateField(fileLineIterator,
+            Object reader02 = ReflectionTestUtils.getField(fileLineIterator,
                     "lineReader");
             assertNull(reader02);
 
-            assertSame(FileException.class, e.getClass());
-            assertEquals("lineFeedChar length must be 0 or 1 or 2. but: 3", e
+            assertSame(FileException.class, e.getTargetException().getClass());
+            assertEquals("lineFeedChar length must be 0 or 1 or 2. but: 3", e.getTargetException()
                     .getMessage());
-            assertSame(IllegalStateException.class, e.getCause().getClass());
-            assertSame(fileName, e.getFileName());
+            assertSame(IllegalStateException.class, e.getTargetException().getCause().getClass());
+            assertSame(fileName, ((FileException)e.getTargetException()).getFileName());
         }
     }
 
@@ -5065,32 +5070,34 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 前提条件の設定
-        UTUtil.setPrivateField(fileLineIterator, "lineFeedChar", "\r\r\r");
-        UTUtil.setPrivateField(fileLineIterator, "lineReader", null);
-        UTUtil.setPrivateField(fileLineIterator, "reader", null);
+        ReflectionTestUtils.setField(fileLineIterator, "lineFeedChar", "\r\r\r");
+        ReflectionTestUtils.setField(fileLineIterator, "lineReader", null);
+        ReflectionTestUtils.setField(fileLineIterator, "reader", null);
         // その他は、テスト対象のインスタンス化時に設定済み
 
         // テスト実施
         try {
-            UTUtil.invokePrivate(fileLineIterator, "buildLineReader");
+            Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildLineReader");
+            method.setAccessible(true);
+            method.invoke(fileLineIterator);
             fail("FileExceptionがスローされませんでした。");
-        } catch (FileException e) {
+        } catch (InvocationTargetException e) {
             // 返却値の確認
             // なし
 
             // 状態変化の確認
-            Object reader = UTUtil.getPrivateField(fileLineIterator, "reader");
+            Object reader = ReflectionTestUtils.getField(fileLineIterator, "reader");
             assertEquals(BufferedReader.class, reader.getClass());
 
-            Object reader02 = UTUtil.getPrivateField(fileLineIterator,
+            Object reader02 = ReflectionTestUtils.getField(fileLineIterator,
                     "lineReader");
             assertNull(reader02);
 
-            assertSame(FileException.class, e.getClass());
-            assertEquals("lineFeedChar length must be 0 or 1 or 2. but: 3", e
+            assertSame(FileException.class, e.getTargetException().getClass());
+            assertEquals("lineFeedChar length must be 0 or 1 or 2. but: 3", e.getTargetException()
                     .getMessage());
-            assertSame(IllegalStateException.class, e.getCause().getClass());
-            assertSame(fileName, e.getFileName());
+            assertSame(IllegalStateException.class, e.getTargetException().getCause().getClass());
+            assertSame(fileName, ((FileException)e.getTargetException()).getFileName());
         }
     }
 
@@ -5123,12 +5130,14 @@ public class AbstractFileLineIteratorTest {
                 "markSupported", false);
         try {
             // テスト実施
-            UTUtil.invokePrivate(fileLineIterator, "buildLineReader");
+            Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildLineReader");
+            method.setAccessible(true);
+            method.invoke(fileLineIterator);
             fail();
-        } catch (FileException e) {
+        } catch (InvocationTargetException e) {
             assertEquals(
                     "BufferedReader of this JVM dose not support mark method",
-                    e.getMessage());
+                    e.getTargetException().getMessage());
         }
     }
 
@@ -5176,17 +5185,19 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 前提条件の設定
-        UTUtil.setPrivateField(fileLineIterator, "fields", null);
+        ReflectionTestUtils.setField(fileLineIterator, "fields", null);
 
         // テスト実施
-        UTUtil.invokePrivate(fileLineIterator, "buildFields");
+        Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
 
         // 状態変化の確認
         assertEquals(0, VMOUTUtil.getCallCount(Field.class, "getAnnotation"));
-        Object result_fields = (Field[]) UTUtil.getPrivateField(
+        Object result_fields = (Field[]) ReflectionTestUtils.getField(
                 fileLineIterator, "fields");
         assertEquals(Field[].class, result_fields.getClass());
         Field[] fields = (Field[]) result_fields;
@@ -5242,17 +5253,19 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 前提条件の設定
-        UTUtil.setPrivateField(fileLineIterator, "fields", null);
+        ReflectionTestUtils.setField(fileLineIterator, "fields", null);
 
         // テスト実施
-        UTUtil.invokePrivate(fileLineIterator, "buildFields");
+        Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
 
         // 状態変化の確認
         assertEquals(3, VMOUTUtil.getCallCount(Field.class, "getAnnotation"));
-        Object result_fields = (Field[]) UTUtil.getPrivateField(
+        Object result_fields = (Field[]) ReflectionTestUtils.getField(
                 fileLineIterator, "fields");
         assertEquals(Field[].class, result_fields.getClass());
         Field[] fields = (Field[]) result_fields;
@@ -5321,17 +5334,19 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 前提条件の設定
-        UTUtil.setPrivateField(fileLineIterator, "fields", null);
+        ReflectionTestUtils.setField(fileLineIterator, "fields", null);
 
         // テスト実施
-        UTUtil.invokePrivate(fileLineIterator, "buildFields");
+        Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
 
         // 状態変化の確認
         assertEquals(6, VMOUTUtil.getCallCount(Field.class, "getAnnotation"));
-        Object result_fields = (Field[]) UTUtil.getPrivateField(
+        Object result_fields = (Field[]) ReflectionTestUtils.getField(
                 fileLineIterator, "fields");
         assertEquals(Field[].class, result_fields.getClass());
         Field[] fields = (Field[]) result_fields;
@@ -5408,17 +5423,19 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 前提条件の設定
-        UTUtil.setPrivateField(fileLineIterator, "fields", null);
+        ReflectionTestUtils.setField(fileLineIterator, "fields", null);
 
         // テスト実施
-        UTUtil.invokePrivate(fileLineIterator, "buildFields");
+        Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
 
         // 状態変化の確認
         assertEquals(9, VMOUTUtil.getCallCount(Field.class, "getAnnotation"));
-        Object result_fields = (Field[]) UTUtil.getPrivateField(
+        Object result_fields = (Field[]) ReflectionTestUtils.getField(
                 fileLineIterator, "fields");
         assertEquals(Field[].class, result_fields.getClass());
         Field[] fields = (Field[]) result_fields;
@@ -5487,28 +5504,30 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 前提条件の設定
-        UTUtil.setPrivateField(fileLineIterator, "fields", null);
+        ReflectionTestUtils.setField(fileLineIterator, "fields", null);
 
         // テスト実施
         try {
-            UTUtil.invokePrivate(fileLineIterator, "buildFields");
+            Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
+            method.setAccessible(true);
+            method.invoke(fileLineIterator);
             fail("FileExceptionがスローされませんでした");
-        } catch (FileException e) {
+        } catch (InvocationTargetException e) {
             // 返却値の確認
             // なし
 
             // 状態変化の確認
             assertEquals(3, VMOUTUtil
                     .getCallCount(Field.class, "getAnnotation"));
-            Object result_fields = (Field[]) UTUtil.getPrivateField(
+            Object result_fields = (Field[]) ReflectionTestUtils.getField(
                     fileLineIterator, "fields");
             assertNull(result_fields);
             assertEquals(2, VMOUTUtil.getCallCount(Class.class,
                     "getDeclaredFields"));
 
-            assertEquals(FileException.class, e.getClass());
-            assertEquals("Column Index is duplicate : 1", e.getMessage());
-            assertSame(fileName, e.getFileName());
+            assertEquals(FileException.class, e.getTargetException().getClass());
+            assertEquals("Column Index is duplicate : 1", e.getTargetException().getMessage());
+            assertSame(fileName, ((FileException)e.getTargetException()).getFileName());
         }
     }
 
@@ -5574,13 +5593,15 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 前提条件の設定
-        UTUtil.setPrivateField(fileLineIterator, "fields", null);
+        ReflectionTestUtils.setField(fileLineIterator, "fields", null);
 
         // テスト実施
         try {
-            UTUtil.invokePrivate(fileLineIterator, "buildFields");
+            Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
+            method.setAccessible(true);
+            method.invoke(fileLineIterator);
             fail("FileExceptionがスローされませんでした");
-        } catch (FileException e) {
+        } catch (InvocationTargetException e) {
             // 返却値の確認
             // なし
 
@@ -5590,12 +5611,12 @@ public class AbstractFileLineIteratorTest {
             assertEquals(2, VMOUTUtil.getCallCount(Class.class,
                     "getDeclaredFields"));
 
-            assertEquals(FileException.class, e.getClass());
+            assertEquals(FileException.class, e.getTargetException().getClass());
             assertEquals(
-                    "columnIndex in FileLineObject is not sequential order.", e
+                    "columnIndex in FileLineObject is not sequential order.", e.getTargetException()
                             .getMessage());
-            assertSame(fileName, e.getFileName());
-            assertSame(IllegalStateException.class, e.getCause().getClass());
+            assertSame(fileName, ((FileException)e.getTargetException()).getFileName());
+            assertSame(IllegalStateException.class, e.getTargetException().getCause().getClass());
         }
     }
 
@@ -5669,17 +5690,19 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 前提条件の設定
-        UTUtil.setPrivateField(fileLineIterator, "fields", null);
+        ReflectionTestUtils.setField(fileLineIterator, "fields", null);
 
         // テスト実施
-        UTUtil.invokePrivate(fileLineIterator, "buildFields");
+        Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
 
         // 状態変化の確認
         assertEquals(9, VMOUTUtil.getCallCount(Field.class, "getAnnotation"));
-        Object result_fields = (Field[]) UTUtil.getPrivateField(
+        Object result_fields = (Field[]) ReflectionTestUtils.getField(
                 fileLineIterator, "fields");
         assertEquals(Field[].class, result_fields.getClass());
         Field[] fields = (Field[]) result_fields;
@@ -5751,17 +5774,19 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 前提条件の設定
-        UTUtil.setPrivateField(fileLineIterator, "fields", null);
+        ReflectionTestUtils.setField(fileLineIterator, "fields", null);
 
         // テスト実施
-        UTUtil.invokePrivate(fileLineIterator, "buildFields");
+        Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
 
         // 状態変化の確認
         assertEquals(6, VMOUTUtil.getCallCount(Field.class, "getAnnotation"));
-        Object result_fields = (Field[]) UTUtil.getPrivateField(
+        Object result_fields = (Field[]) ReflectionTestUtils.getField(
                 fileLineIterator, "fields");
         assertEquals(Field[].class, result_fields.getClass());
         Field[] fields = (Field[]) result_fields;
@@ -5832,24 +5857,26 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 前提条件の設定
-        UTUtil.setPrivateField(fileLineIterator, "fields", null);
+        ReflectionTestUtils.setField(fileLineIterator, "fields", null);
 
         // テスト実施
         try {
-            UTUtil.invokePrivate(fileLineIterator, "buildFields");
+            Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
+            method.setAccessible(true);
+            method.invoke(fileLineIterator);
             fail("FileExceptionが発生していません。");
-        } catch (FileException e) {
+        } catch (InvocationTargetException e) {
             // 例外の確認
-            assertTrue(IllegalStateException.class.isAssignableFrom(e
+            assertTrue(IllegalStateException.class.isAssignableFrom(e.getTargetException()
                     .getCause().getClass()));
             assertEquals("Column Index in FileLineObject is bigger than the "
-                    + "total number of the field.", e.getMessage());
-            assertEquals(fileName, e.getFileName());
+                    + "total number of the field.", e.getTargetException().getMessage());
+            assertEquals(fileName, ((FileException)e.getTargetException()).getFileName());
 
             // 状態変化の確認
             assertEquals(1, VMOUTUtil
                     .getCallCount(Field.class, "getAnnotation"));
-            Object result_fields = UTUtil.getPrivateField(fileLineIterator,
+            Object result_fields = ReflectionTestUtils.getField(fileLineIterator,
                     "fields");
             assertNull(result_fields);
             assertEquals(2, VMOUTUtil.getCallCount(Class.class,
@@ -5916,24 +5943,26 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 前提条件の設定
-        UTUtil.setPrivateField(fileLineIterator, "fields", null);
+        ReflectionTestUtils.setField(fileLineIterator, "fields", null);
 
         // テスト実施
         try {
-            UTUtil.invokePrivate(fileLineIterator, "buildFields");
+            Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
+            method.setAccessible(true);
+            method.invoke(fileLineIterator);
             fail("FileExceptionが発生していません。");
-        } catch (FileException e) {
+        } catch (InvocationTargetException e) {
             // 例外の確認
-            assertTrue(IllegalStateException.class.isAssignableFrom(e
+            assertTrue(IllegalStateException.class.isAssignableFrom(e.getTargetException()
                     .getCause().getClass()));
             assertEquals("Column Index in FileLineObject is the minus number.",
-                    e.getMessage());
-            assertEquals(fileName, e.getFileName());
+                    e.getTargetException().getMessage());
+            assertEquals(fileName, ((FileException)e.getTargetException()).getFileName());
 
             // 状態変化の確認
             assertEquals(3, VMOUTUtil
                     .getCallCount(Field.class, "getAnnotation"));
-            Object result_fields = UTUtil.getPrivateField(fileLineIterator,
+            Object result_fields = ReflectionTestUtils.getField(fileLineIterator,
                     "fields");
             assertNull(result_fields);
             assertEquals(2, VMOUTUtil.getCallCount(Class.class,
@@ -6001,24 +6030,26 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 前提条件の設定
-        UTUtil.setPrivateField(fileLineIterator, "fields", null);
+        ReflectionTestUtils.setField(fileLineIterator, "fields", null);
 
         // テスト実施
         try {
-            UTUtil.invokePrivate(fileLineIterator, "buildFields");
+            Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
+            method.setAccessible(true);
+            method.invoke(fileLineIterator);
             fail("FileExceptionが発生していません。");
-        } catch (FileException e) {
+        } catch (InvocationTargetException e) {
             // 例外の確認
-            assertTrue(IllegalStateException.class.isAssignableFrom(e
+            assertTrue(IllegalStateException.class.isAssignableFrom(e.getTargetException()
                     .getCause().getClass()));
             assertEquals("There is a type which isn't supported in a mapping "
-                    + "target field in FileLineObject.", e.getMessage());
-            assertEquals(fileName, e.getFileName());
+                    + "target field in FileLineObject.", e.getTargetException().getMessage());
+            assertEquals(fileName, ((FileException)e.getTargetException()).getFileName());
 
             // 状態変化の確認
             assertEquals(2, VMOUTUtil
                     .getCallCount(Field.class, "getAnnotation"));
-            Object result_fields = UTUtil.getPrivateField(fileLineIterator,
+            Object result_fields = ReflectionTestUtils.getField(fileLineIterator,
                     "fields");
             assertNull(result_fields);
             assertEquals(2, VMOUTUtil.getCallCount(Class.class,
@@ -6076,15 +6107,20 @@ public class AbstractFileLineIteratorTest {
 
         // 前提条件の設定
         Map<Class, StringConverter> cache_stringConverterCacheMap = new HashMap<Class, StringConverter>();
-        UTUtil.setPrivateField(fileLineIterator, "stringConverterCacheMap",
+        ReflectionTestUtils.setField(fileLineIterator, "stringConverterCacheMap",
                 cache_stringConverterCacheMap);
 
-        UTUtil.invokePrivate(fileLineIterator, "buildFields");
+        Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineIterator);
+
         VMOUTUtil.initialize();
         // テスト対象のインスタンス化ですでに設定済み
 
         // テスト実施
-        UTUtil.invokePrivate(fileLineIterator, "buildStringConverters");
+        method = AbstractFileLineIterator.class.getDeclaredMethod("buildStringConverters");
+        method.setAccessible(true);
+        result = method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
@@ -6095,12 +6131,11 @@ public class AbstractFileLineIteratorTest {
         assertEquals(0, VMOUTUtil.getCallCount(Map.class, "containsKey"));
         assertEquals(0, VMOUTUtil.getCallCount(Map.class, "put"));
         assertEquals(0, VMOUTUtil.getCallCount(Map.class, "get"));
-        StringConverter[] stringConverters = (StringConverter[]) UTUtil
-                .getPrivateField(fileLineIterator, "stringConverters");
+        StringConverter[] stringConverters = (StringConverter[]) ReflectionTestUtils.getField(fileLineIterator, "stringConverters");
         assertEquals(0, stringConverters.length);
-        Map<Class, StringConverter> stringConverterCacheMap = (Map<Class, StringConverter>) UTUtil
-                .getPrivateField(fileLineIterator.getClass(),
-                        "stringConverterCacheMap");
+        Field field = AbstractFileLineIterator.class.getDeclaredField("stringConverterCacheMap");
+        field.setAccessible(true);
+        Map<Class, StringConverter> stringConverterCacheMap = (Map<Class, StringConverter>) field.get(fileLineIterator);        
         assertEquals(0, stringConverterCacheMap.size());
     }
 
@@ -6155,15 +6190,19 @@ public class AbstractFileLineIteratorTest {
 
         // 前提条件の設定
         Map<Class, StringConverter> cache_stringConverterCacheMap = new HashMap<Class, StringConverter>();
-        UTUtil.setPrivateField(fileLineIterator, "stringConverterCacheMap",
+        ReflectionTestUtils.setField(fileLineIterator, "stringConverterCacheMap",
                 cache_stringConverterCacheMap);
 
-        UTUtil.invokePrivate(fileLineIterator, "buildFields");
+        Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineIterator);
         VMOUTUtil.initialize();
         // テスト対象のインスタンス化ですでに設定済み
 
         // テスト実施
-        UTUtil.invokePrivate(fileLineIterator, "buildStringConverters");
+        method = AbstractFileLineIterator.class.getDeclaredMethod("buildStringConverters");
+        method.setAccessible(true);
+        result = method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
@@ -6174,12 +6213,11 @@ public class AbstractFileLineIteratorTest {
         assertEquals(0, VMOUTUtil.getCallCount(Map.class, "containsKey"));
         assertEquals(0, VMOUTUtil.getCallCount(Map.class, "put"));
         assertEquals(0, VMOUTUtil.getCallCount(Map.class, "get"));
-        StringConverter[] stringConverters = (StringConverter[]) UTUtil
-                .getPrivateField(fileLineIterator, "stringConverters");
+        StringConverter[] stringConverters = (StringConverter[]) ReflectionTestUtils.getField(fileLineIterator, "stringConverters");
         assertEquals(0, stringConverters.length);
-        Map<Class, StringConverter> stringConverterCacheMap = (Map<Class, StringConverter>) UTUtil
-                .getPrivateField(fileLineIterator.getClass(),
-                        "stringConverterCacheMap");
+        Field field = AbstractFileLineIterator.class.getDeclaredField("stringConverterCacheMap");
+        field.setAccessible(true);
+        Map<Class, StringConverter> stringConverterCacheMap = (Map<Class, StringConverter>) field.get(fileLineIterator);
         assertEquals(0, stringConverterCacheMap.size());
     }
 
@@ -6244,15 +6282,19 @@ public class AbstractFileLineIteratorTest {
 
         // 前提条件の設定
         Map<Class, StringConverter> cache_stringConverterCacheMap = new HashMap<Class, StringConverter>();
-        UTUtil.setPrivateField(fileLineIterator, "stringConverterCacheMap",
+        ReflectionTestUtils.setField(fileLineIterator, "stringConverterCacheMap",
                 cache_stringConverterCacheMap);
 
-        UTUtil.invokePrivate(fileLineIterator, "buildFields");
+        Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineIterator);
         VMOUTUtil.initialize();
         // テスト対象のインスタンス化ですでに設定済み
 
         // テスト実施
-        UTUtil.invokePrivate(fileLineIterator, "buildStringConverters");
+        method = AbstractFileLineIterator.class.getDeclaredMethod("buildStringConverters");
+        method.setAccessible(true);
+        result = method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
@@ -6262,14 +6304,13 @@ public class AbstractFileLineIteratorTest {
         assertEquals(1, VMOUTUtil.getCallCount(Map.class, "containsKey"));
         assertEquals(1, VMOUTUtil.getCallCount(Map.class, "put"));
         assertEquals(0, VMOUTUtil.getCallCount(Map.class, "get"));
-        StringConverter[] stringConverters = (StringConverter[]) UTUtil
-                .getPrivateField(fileLineIterator, "stringConverters");
+        StringConverter[] stringConverters = (StringConverter[]) ReflectionTestUtils.getField(fileLineIterator, "stringConverters");
         assertEquals(1, stringConverters.length);
         assertEquals(StringConverterToUpperCase.class, stringConverters[0]
                 .getClass());
-        Map<Class, StringConverter> stringConverterCacheMap = (Map<Class, StringConverter>) UTUtil
-                .getPrivateField(fileLineIterator.getClass(),
-                        "stringConverterCacheMap");
+        Field field = AbstractFileLineIterator.class.getDeclaredField("stringConverterCacheMap");
+        field.setAccessible(true);
+        Map<Class, StringConverter> stringConverterCacheMap = (Map<Class, StringConverter>) field.get(fileLineIterator);
         assertEquals(1, stringConverterCacheMap.size());
         assertSame(stringConverters[0], stringConverterCacheMap
                 .get(StringConverterToUpperCase.class));
@@ -6328,15 +6369,19 @@ public class AbstractFileLineIteratorTest {
 
         // 前提条件の設定
         Map<Class, StringConverter> cache_stringConverterCacheMap = new HashMap<Class, StringConverter>();
-        UTUtil.setPrivateField(fileLineIterator, "stringConverterCacheMap",
+        ReflectionTestUtils.setField(fileLineIterator, "stringConverterCacheMap",
                 cache_stringConverterCacheMap);
 
-        UTUtil.invokePrivate(fileLineIterator, "buildFields");
+        Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineIterator);
         VMOUTUtil.initialize();
         // テスト対象のインスタンス化ですでに設定済み
 
         // テスト実施
-        UTUtil.invokePrivate(fileLineIterator, "buildStringConverters");
+        method = AbstractFileLineIterator.class.getDeclaredMethod("buildStringConverters");
+        method.setAccessible(true);
+        result = method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
@@ -6347,12 +6392,11 @@ public class AbstractFileLineIteratorTest {
         assertEquals(0, VMOUTUtil.getCallCount(Map.class, "containsKey"));
         assertEquals(0, VMOUTUtil.getCallCount(Map.class, "put"));
         assertEquals(0, VMOUTUtil.getCallCount(Map.class, "get"));
-        StringConverter[] stringConverters = (StringConverter[]) UTUtil
-                .getPrivateField(fileLineIterator, "stringConverters");
+        StringConverter[] stringConverters = (StringConverter[]) ReflectionTestUtils.getField(fileLineIterator, "stringConverters");
         assertEquals(0, stringConverters.length);
-        Map<Class, StringConverter> stringConverterCacheMap = (Map<Class, StringConverter>) UTUtil
-                .getPrivateField(fileLineIterator.getClass(),
-                        "stringConverterCacheMap");
+        Field field = AbstractFileLineIterator.class.getDeclaredField("stringConverterCacheMap");
+        field.setAccessible(true);
+        Map<Class, StringConverter> stringConverterCacheMap = (Map<Class, StringConverter>) field.get(fileLineIterator);
         assertEquals(0, stringConverterCacheMap.size());
     }
 
@@ -6431,15 +6475,19 @@ public class AbstractFileLineIteratorTest {
 
         // 前提条件の設定
         Map<Class, StringConverter> cache_stringConverterCacheMap = new HashMap<Class, StringConverter>();
-        UTUtil.setPrivateField(fileLineIterator, "stringConverterCacheMap",
+        ReflectionTestUtils.setField(fileLineIterator, "stringConverterCacheMap",
                 cache_stringConverterCacheMap);
 
-        UTUtil.invokePrivate(fileLineIterator, "buildFields");
+        Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineIterator);
         VMOUTUtil.initialize();
         // テスト対象のインスタンス化ですでに設定済み
 
         // テスト実施
-        UTUtil.invokePrivate(fileLineIterator, "buildStringConverters");
+        method = AbstractFileLineIterator.class.getDeclaredMethod("buildStringConverters");
+        method.setAccessible(true);
+        result = method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
@@ -6449,16 +6497,15 @@ public class AbstractFileLineIteratorTest {
         assertEquals(3, VMOUTUtil.getCallCount(Map.class, "containsKey"));
         assertEquals(1, VMOUTUtil.getCallCount(Map.class, "put"));
         assertEquals(2, VMOUTUtil.getCallCount(Map.class, "get"));
-        StringConverter[] stringConverters = (StringConverter[]) UTUtil
-                .getPrivateField(fileLineIterator, "stringConverters");
+        StringConverter[] stringConverters = (StringConverter[]) ReflectionTestUtils.getField(fileLineIterator, "stringConverters");
         assertEquals(3, stringConverters.length);
         assertEquals(StringConverterToUpperCase.class, stringConverters[0]
                 .getClass());
         assertSame(stringConverters[0], stringConverters[1]);
         assertSame(stringConverters[0], stringConverters[2]);
-        Map<Class, StringConverter> stringConverterCacheMap = (Map<Class, StringConverter>) UTUtil
-                .getPrivateField(fileLineIterator.getClass(),
-                        "stringConverterCacheMap");
+        Field field = AbstractFileLineIterator.class.getDeclaredField("stringConverterCacheMap");
+        field.setAccessible(true);
+        Map<Class, StringConverter> stringConverterCacheMap = (Map<Class, StringConverter>) field.get(fileLineIterator);
         assertEquals(1, stringConverterCacheMap.size());
         assertSame(stringConverters[0], stringConverterCacheMap
                 .get(StringConverterToUpperCase.class));
@@ -6535,15 +6582,19 @@ public class AbstractFileLineIteratorTest {
 
         // 前提条件の設定
         Map<Class, StringConverter> cache_stringConverterCacheMap = new HashMap<Class, StringConverter>();
-        UTUtil.setPrivateField(fileLineIterator, "stringConverterCacheMap",
+        ReflectionTestUtils.setField(fileLineIterator, "stringConverterCacheMap",
                 cache_stringConverterCacheMap);
 
-        UTUtil.invokePrivate(fileLineIterator, "buildFields");
+        Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineIterator);
         VMOUTUtil.initialize();
         // テスト対象のインスタンス化ですでに設定済み
 
         // テスト実施
-        UTUtil.invokePrivate(fileLineIterator, "buildStringConverters");
+        method = AbstractFileLineIterator.class.getDeclaredMethod("buildStringConverters");
+        method.setAccessible(true);
+        result = method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
@@ -6553,15 +6604,14 @@ public class AbstractFileLineIteratorTest {
         assertEquals(2, VMOUTUtil.getCallCount(Map.class, "containsKey"));
         assertEquals(1, VMOUTUtil.getCallCount(Map.class, "put"));
         assertEquals(1, VMOUTUtil.getCallCount(Map.class, "get"));
-        StringConverter[] stringConverters = (StringConverter[]) UTUtil
-                .getPrivateField(fileLineIterator, "stringConverters");
+        StringConverter[] stringConverters = (StringConverter[]) ReflectionTestUtils.getField(fileLineIterator, "stringConverters");
         assertEquals(2, stringConverters.length);
         assertEquals(StringConverterToUpperCase.class, stringConverters[0]
                 .getClass());
         assertSame(stringConverters[0], stringConverters[1]);
-        Map<Class, StringConverter> stringConverterCacheMap = (Map<Class, StringConverter>) UTUtil
-                .getPrivateField(fileLineIterator.getClass(),
-                        "stringConverterCacheMap");
+        Field field = AbstractFileLineIterator.class.getDeclaredField("stringConverterCacheMap");
+        field.setAccessible(true);
+        Map<Class, StringConverter> stringConverterCacheMap = (Map<Class, StringConverter>) field.get(fileLineIterator);
         assertEquals(1, stringConverterCacheMap.size());
         assertSame(stringConverters[0], stringConverterCacheMap
                 .get(StringConverterToUpperCase.class));
@@ -6656,15 +6706,19 @@ public class AbstractFileLineIteratorTest {
 
         // 前提条件の設定
         Map<Class, StringConverter> cache_stringConverterCacheMap = new HashMap<Class, StringConverter>();
-        UTUtil.setPrivateField(fileLineIterator, "stringConverterCacheMap",
+        ReflectionTestUtils.setField(fileLineIterator, "stringConverterCacheMap",
                 cache_stringConverterCacheMap);
 
-        UTUtil.invokePrivate(fileLineIterator, "buildFields");
+        Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineIterator);
         VMOUTUtil.initialize();
         // テスト対象のインスタンス化ですでに設定済み
 
         // テスト実施
-        UTUtil.invokePrivate(fileLineIterator, "buildStringConverters");
+        method = AbstractFileLineIterator.class.getDeclaredMethod("buildStringConverters");
+        method.setAccessible(true);
+        result = method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
@@ -6674,8 +6728,7 @@ public class AbstractFileLineIteratorTest {
         assertEquals(5, VMOUTUtil.getCallCount(Map.class, "containsKey"));
         assertEquals(3, VMOUTUtil.getCallCount(Map.class, "put"));
         assertEquals(2, VMOUTUtil.getCallCount(Map.class, "get"));
-        StringConverter[] stringConverters = (StringConverter[]) UTUtil
-                .getPrivateField(fileLineIterator, "stringConverters");
+        StringConverter[] stringConverters = (StringConverter[]) ReflectionTestUtils.getField(fileLineIterator, "stringConverters");
         assertEquals(5, stringConverters.length);
         assertSame(NullStringConverter.class, stringConverters[0].getClass());
         assertSame(StringConverterToLowerCase.class, stringConverters[1]
@@ -6686,9 +6739,9 @@ public class AbstractFileLineIteratorTest {
         assertSame(StringConverterToLowerCase.class, stringConverters[4]
                 .getClass());
 
-        Map<Class, StringConverter> stringConverterCacheMap = (Map<Class, StringConverter>) UTUtil
-                .getPrivateField(fileLineIterator.getClass(),
-                        "stringConverterCacheMap");
+        Field field = AbstractFileLineIterator.class.getDeclaredField("stringConverterCacheMap");
+        field.setAccessible(true);
+        Map<Class, StringConverter> stringConverterCacheMap = (Map<Class, StringConverter>) field.get(fileLineIterator);
         assertEquals(3, stringConverterCacheMap.size());
         assertSame(stringConverters[0], stringConverterCacheMap
                 .get(NullStringConverter.class));
@@ -6769,18 +6822,22 @@ public class AbstractFileLineIteratorTest {
 
         // 前提条件の設定
         Map<Class, StringConverter> cache_stringConverterCacheMap = new HashMap<Class, StringConverter>();
-        UTUtil.setPrivateField(fileLineIterator, "stringConverterCacheMap",
+        ReflectionTestUtils.setField(fileLineIterator, "stringConverterCacheMap",
                 cache_stringConverterCacheMap);
 
-        UTUtil.invokePrivate(fileLineIterator, "buildFields");
+        Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineIterator);
         VMOUTUtil.initialize();
         // テスト対象のインスタンス化ですでに設定済み
 
         // テスト実施
         try {
-            UTUtil.invokePrivate(fileLineIterator, "buildStringConverters");
+            method = AbstractFileLineIterator.class.getDeclaredMethod("buildStringConverters");
+            method.setAccessible(true);
+            method.invoke(fileLineIterator);
             fail("FileLineExceptionがスローされませんでした。");
-        } catch (FileLineException e) {
+        } catch (InvocationTargetException e) {
             // 返却値の確認
             // なし
 
@@ -6789,26 +6846,25 @@ public class AbstractFileLineIteratorTest {
             assertEquals(2, VMOUTUtil.getCallCount(Map.class, "containsKey"));
             assertEquals(1, VMOUTUtil.getCallCount(Map.class, "put"));
             assertEquals(0, VMOUTUtil.getCallCount(Map.class, "get"));
-            StringConverter[] stringConverters = (StringConverter[]) UTUtil
-                    .getPrivateField(fileLineIterator, "stringConverters");
+            StringConverter[] stringConverters = (StringConverter[]) ReflectionTestUtils.getField(fileLineIterator, "stringConverters");
             assertNull(stringConverters);
 
-            Map<Class, StringConverter> stringConverterCacheMap = (Map<Class, StringConverter>) UTUtil
-                    .getPrivateField(fileLineIterator.getClass(),
-                            "stringConverterCacheMap");
+            Field field = AbstractFileLineIterator.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            Map<Class, StringConverter> stringConverterCacheMap = (Map<Class, StringConverter>) field.get(fileLineIterator);
             assertEquals(1, stringConverterCacheMap.size());
             Object cacheMap01 = stringConverterCacheMap
                     .get(NullStringConverter.class);
             assertSame(NullStringConverter.class, cacheMap01.getClass());
 
-            assertEquals(FileLineException.class, e.getClass());
-            assertEquals("Failed in an instantiate of a stringConverter.", e
+            assertEquals(FileLineException.class, e.getTargetException().getClass());
+            assertEquals("Failed in an instantiate of a stringConverter.", e.getTargetException()
                     .getMessage());
-            assertEquals(InstantiationException.class, e.getCause().getClass());
-            assertSame(fileName, e.getFileName());
-            assertEquals(-1, e.getLineNo());
-            assertEquals("column2", e.getColumnName());
-            assertEquals(1, e.getColumnIndex());
+            assertEquals(InstantiationException.class, e.getTargetException().getCause().getClass());
+            assertSame(fileName, ((FileLineException)e.getTargetException()).getFileName());
+            assertEquals(-1, ((FileLineException)e.getTargetException()).getLineNo());
+            assertEquals("column2", ((FileLineException)e.getTargetException()).getColumnName());
+            assertEquals(1, ((FileLineException)e.getTargetException()).getColumnIndex());
         }
     }
 
@@ -6878,18 +6934,22 @@ public class AbstractFileLineIteratorTest {
 
         // 前提条件の設定
         Map<Class, StringConverter> cache_stringConverterCacheMap = new HashMap<Class, StringConverter>();
-        UTUtil.setPrivateField(fileLineIterator, "stringConverterCacheMap",
+        ReflectionTestUtils.setField(fileLineIterator, "stringConverterCacheMap",
                 cache_stringConverterCacheMap);
 
-        UTUtil.invokePrivate(fileLineIterator, "buildFields");
+        Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineIterator);
         VMOUTUtil.initialize();
         // テスト対象のインスタンス化ですでに設定済み
 
         // テスト実施
         try {
-            UTUtil.invokePrivate(fileLineIterator, "buildStringConverters");
+            method = AbstractFileLineIterator.class.getDeclaredMethod("buildStringConverters");
+            method.setAccessible(true);
+            method.invoke(fileLineIterator);
             fail("FileLineExceptionがスローされませんでした。");
-        } catch (FileLineException e) {
+        } catch (InvocationTargetException e) {
             // 返却値の確認
             // なし
 
@@ -6899,26 +6959,25 @@ public class AbstractFileLineIteratorTest {
             assertEquals(2, VMOUTUtil.getCallCount(Map.class, "containsKey"));
             assertEquals(1, VMOUTUtil.getCallCount(Map.class, "put"));
             assertEquals(0, VMOUTUtil.getCallCount(Map.class, "get"));
-            StringConverter[] stringConverters = (StringConverter[]) UTUtil
-                    .getPrivateField(fileLineIterator, "stringConverters");
+            StringConverter[] stringConverters = (StringConverter[]) ReflectionTestUtils.getField(fileLineIterator, "stringConverters");
             assertNull(stringConverters);
 
-            Map<Class, StringConverter> stringConverterCacheMap = (Map<Class, StringConverter>) UTUtil
-                    .getPrivateField(fileLineIterator.getClass(),
-                            "stringConverterCacheMap");
+            Field field = AbstractFileLineIterator.class.getDeclaredField("stringConverterCacheMap");
+            field.setAccessible(true);
+            Map<Class, StringConverter> stringConverterCacheMap = (Map<Class, StringConverter>) field.get(fileLineIterator);
             assertEquals(1, stringConverterCacheMap.size());
             Object cacheMap01 = stringConverterCacheMap
                     .get(NullStringConverter.class);
             assertSame(NullStringConverter.class, cacheMap01.getClass());
 
-            assertEquals(FileLineException.class, e.getClass());
-            assertEquals("Failed in an instantiate of a stringConverter.", e
+            assertEquals(FileLineException.class, e.getTargetException().getClass());
+            assertEquals("Failed in an instantiate of a stringConverter.", e.getTargetException()
                     .getMessage());
-            assertEquals(IllegalAccessException.class, e.getCause().getClass());
-            assertSame(fileName, e.getFileName());
-            assertEquals(-1, e.getLineNo());
-            assertEquals("column2", e.getColumnName());
-            assertEquals(1, e.getColumnIndex());
+            assertEquals(IllegalAccessException.class, e.getTargetException().getCause().getClass());
+            assertSame(fileName, ((FileLineException)e.getTargetException()).getFileName());
+            assertEquals(-1, ((FileLineException)e.getTargetException()).getLineNo());
+            assertEquals("column2", ((FileLineException)e.getTargetException()).getColumnName());
+            assertEquals(1, ((FileLineException)e.getTargetException()).getColumnIndex());
         }
     }
 
@@ -7011,15 +7070,19 @@ public class AbstractFileLineIteratorTest {
                 cache02);
         cache_stringConverterCacheMap.put(StringConverterToUpperCase.class,
                 cache03);
-        UTUtil.setPrivateField(fileLineIterator, "stringConverterCacheMap",
+        ReflectionTestUtils.setField(fileLineIterator, "stringConverterCacheMap",
                 cache_stringConverterCacheMap);
 
-        UTUtil.invokePrivate(fileLineIterator, "buildFields");
+        Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineIterator);
         VMOUTUtil.initialize();
         // テスト対象のインスタンス化ですでに設定済み
 
         // テスト実施
-        UTUtil.invokePrivate(fileLineIterator, "buildStringConverters");
+        method = AbstractFileLineIterator.class.getDeclaredMethod("buildStringConverters");
+        method.setAccessible(true);
+        result = method.invoke(fileLineIterator);
         // 返却値の確認
         // なし
 
@@ -7028,16 +7091,15 @@ public class AbstractFileLineIteratorTest {
         assertEquals(3, VMOUTUtil.getCallCount(Map.class, "containsKey"));
         assertEquals(0, VMOUTUtil.getCallCount(Map.class, "put"));
         assertEquals(3, VMOUTUtil.getCallCount(Map.class, "get"));
-        StringConverter[] stringConverters = (StringConverter[]) UTUtil
-                .getPrivateField(fileLineIterator, "stringConverters");
+        StringConverter[] stringConverters = (StringConverter[]) ReflectionTestUtils.getField(fileLineIterator, "stringConverters");
         assertEquals(3, stringConverters.length);
         assertSame(cache01, stringConverters[0]);
         assertSame(cache02, stringConverters[1]);
         assertSame(cache03, stringConverters[2]);
 
-        Map<Class, StringConverter> stringConverterCacheMap = (Map<Class, StringConverter>) UTUtil
-                .getPrivateField(fileLineIterator.getClass(),
-                        "stringConverterCacheMap");
+        Field field = AbstractFileLineIterator.class.getDeclaredField("stringConverterCacheMap");
+        field.setAccessible(true);
+        Map<Class, StringConverter> stringConverterCacheMap = (Map<Class, StringConverter>) field.get(fileLineIterator);
         assertEquals(3, stringConverterCacheMap.size());
         assertSame(cache01, stringConverterCacheMap
                 .get(NullStringConverter.class));
@@ -7087,19 +7149,23 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 前提条件の設定
-        UTUtil.invokePrivate(fileLineIterator, "buildFields");
+        Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineIterator);
         VMOUTUtil.initialize();
         // テスト対象のインスタンス化で設定済み
 
         // テスト実施
-        UTUtil.invokePrivate(fileLineIterator, "buildMethods");
+        method = AbstractFileLineIterator.class.getDeclaredMethod("buildMethods");
+        method.setAccessible(true);
+        result = method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
 
         // 状態変化の確認
         assertEquals(0, VMOUTUtil.getCallCount(Class.class, "getMethod"));
-        Method[] methods = (Method[]) UTUtil.getPrivateField(fileLineIterator,
+        Method[] methods = (Method[]) ReflectionTestUtils.getField(fileLineIterator,
                 "methods");
         assertEquals(0, methods.length);
     }
@@ -7145,19 +7211,23 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 前提条件の設定
-        UTUtil.invokePrivate(fileLineIterator, "buildFields");
+        Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineIterator);
         VMOUTUtil.initialize();
         // テスト対象のインスタンス化で設定済み
 
         // テスト実施
-        UTUtil.invokePrivate(fileLineIterator, "buildMethods");
+        method = AbstractFileLineIterator.class.getDeclaredMethod("buildMethods");
+        method.setAccessible(true);
+        result = method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
 
         // 状態変化の確認
         assertEquals(0, VMOUTUtil.getCallCount(Class.class, "getMethod"));
-        Method[] methods = (Method[]) UTUtil.getPrivateField(fileLineIterator,
+        Method[] methods = (Method[]) ReflectionTestUtils.getField(fileLineIterator,
                 "methods");
         assertEquals(0, methods.length);
     }
@@ -7211,19 +7281,23 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 前提条件の設定
-        UTUtil.invokePrivate(fileLineIterator, "buildFields");
+        Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineIterator);
         VMOUTUtil.initialize();
         // テスト対象のインスタンス化で設定済み
 
         // テスト実施
-        UTUtil.invokePrivate(fileLineIterator, "buildMethods");
+        method = AbstractFileLineIterator.class.getDeclaredMethod("buildMethods");
+        method.setAccessible(true);
+        result = method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
 
         // 状態変化の確認
         assertEquals(1, VMOUTUtil.getCallCount(Class.class, "getMethod"));
-        Method[] methods = (Method[]) UTUtil.getPrivateField(fileLineIterator,
+        Method[] methods = (Method[]) ReflectionTestUtils.getField(fileLineIterator,
                 "methods");
         assertEquals(1, methods.length);
         assertEquals("setColumn1", methods[0].getName());
@@ -7280,29 +7354,33 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 前提条件の設定
-        UTUtil.invokePrivate(fileLineIterator, "buildFields");
+        Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineIterator);
         VMOUTUtil.initialize();
         // テスト対象のインスタンス化で設定済み
 
         // テスト実施
         try {
-            UTUtil.invokePrivate(fileLineIterator, "buildMethods");
+            method = AbstractFileLineIterator.class.getDeclaredMethod("buildMethods");
+            method.setAccessible(true);
+            method.invoke(fileLineIterator);
             fail("FileExceptionがスローされませんでした。");
-        } catch (FileException e) {
+        } catch (InvocationTargetException e) {
             // 返却値の確認
             // なし
 
             // 状態変化の確認
             assertEquals(1, VMOUTUtil.getCallCount(Class.class, "getMethod"));
-            Method[] methods = (Method[]) UTUtil.getPrivateField(
+            Method[] methods = (Method[]) ReflectionTestUtils.getField(
                     fileLineIterator, "methods");
             assertNull(methods);
 
-            assertSame(FileException.class, e.getClass());
-            assertEquals("The setter method of column doesn't exist.", e
+            assertSame(FileException.class, e.getTargetException().getClass());
+            assertEquals("The setter method of column doesn't exist.", e.getTargetException()
                     .getMessage());
-            assertSame(NoSuchMethodException.class, e.getCause().getClass());
-            assertSame(fileName, e.getFileName());
+            assertSame(NoSuchMethodException.class, e.getTargetException().getCause().getClass());
+            assertSame(fileName, ((FileException)e.getTargetException()).getFileName());
         }
     }
 
@@ -7349,19 +7427,23 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 前提条件の設定
-        UTUtil.invokePrivate(fileLineIterator, "buildFields");
+        Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineIterator);
         VMOUTUtil.initialize();
         // テスト対象のインスタンス化で設定済み
 
         // テスト実施
-        UTUtil.invokePrivate(fileLineIterator, "buildMethods");
+        method = AbstractFileLineIterator.class.getDeclaredMethod("buildMethods");
+        method.setAccessible(true);
+        result = method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
 
         // 状態変化の確認
         assertEquals(0, VMOUTUtil.getCallCount(Class.class, "getMethod"));
-        Method[] methods = (Method[]) UTUtil.getPrivateField(fileLineIterator,
+        Method[] methods = (Method[]) ReflectionTestUtils.getField(fileLineIterator,
                 "methods");
         assertEquals(0, methods.length);
     }
@@ -7420,19 +7502,23 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 前提条件の設定
-        UTUtil.invokePrivate(fileLineIterator, "buildFields");
+        Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineIterator);
         VMOUTUtil.initialize();
         // テスト対象のインスタンス化で設定済み
 
         // テスト実施
-        UTUtil.invokePrivate(fileLineIterator, "buildMethods");
+        method = AbstractFileLineIterator.class.getDeclaredMethod("buildMethods");
+        method.setAccessible(true);
+        result = method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
 
         // 状態変化の確認
         assertEquals(2, VMOUTUtil.getCallCount(Class.class, "getMethod"));
-        Method[] methods = (Method[]) UTUtil.getPrivateField(fileLineIterator,
+        Method[] methods = (Method[]) ReflectionTestUtils.getField(fileLineIterator,
                 "methods");
         assertEquals(2, methods.length);
         assertEquals("setColumn1", methods[0].getName());
@@ -7512,19 +7598,23 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 前提条件の設定
-        UTUtil.invokePrivate(fileLineIterator, "buildFields");
+        Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineIterator);
         VMOUTUtil.initialize();
         // テスト対象のインスタンス化で設定済み
 
         // テスト実施
-        UTUtil.invokePrivate(fileLineIterator, "buildMethods");
+        method = AbstractFileLineIterator.class.getDeclaredMethod("buildMethods");
+        method.setAccessible(true);
+        result = method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
 
         // 状態変化の確認
         assertEquals(4, VMOUTUtil.getCallCount(Class.class, "getMethod"));
-        Method[] methods = (Method[]) UTUtil.getPrivateField(fileLineIterator,
+        Method[] methods = (Method[]) ReflectionTestUtils.getField(fileLineIterator,
                 "methods");
         assertEquals(4, methods.length);
         assertEquals("setColumn1", methods[0].getName());
@@ -7593,7 +7683,9 @@ public class AbstractFileLineIteratorTest {
         AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub60> fileLineIterator = new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub60>(
                 fileName, AbstractFileLineIterator_Stub60.class,
                 columnParserMap);
-        UTUtil.invokePrivate(fileLineIterator, "buildLineReader");
+        Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildLineReader");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineIterator);
 
         // 引数の設定
         // なし
@@ -7602,19 +7694,21 @@ public class AbstractFileLineIteratorTest {
         // テスト対象のインスタンス化で設定済み
 
         // テスト実施
-        UTUtil.invokePrivate(fileLineIterator, "buildHeader");
+        method = AbstractFileLineIterator.class.getDeclaredMethod("buildHeader");
+        method.setAccessible(true);
+        result = method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
 
         // 状態変化の確認
-        Object header_object = UTUtil.getPrivateField(fileLineIterator,
+        Object header_object = ReflectionTestUtils.getField(fileLineIterator,
                 "header");
         assertEquals(ArrayList.class, header_object.getClass());
         List header = (List) header_object;
         assertEquals(0, header.size());
 
-        Object lineReader = UTUtil.getPrivateField(fileLineIterator,
+        Object lineReader = ReflectionTestUtils.getField(fileLineIterator,
                 "lineReader");
         assertEquals(0, VMOUTUtil.getCallCount(lineReader.getClass(),
                 "readLine"));
@@ -7666,7 +7760,9 @@ public class AbstractFileLineIteratorTest {
         AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub61> fileLineIterator = new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub61>(
                 fileName, AbstractFileLineIterator_Stub61.class,
                 columnParserMap);
-        UTUtil.invokePrivate(fileLineIterator, "buildLineReader");
+        Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildLineReader");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineIterator);
 
         // 引数の設定
         // なし
@@ -7675,20 +7771,22 @@ public class AbstractFileLineIteratorTest {
         // テスト対象のインスタンス化で設定済み
 
         // テスト実施
-        UTUtil.invokePrivate(fileLineIterator, "buildHeader");
+        method = AbstractFileLineIterator.class.getDeclaredMethod("buildHeader");
+        method.setAccessible(true);
+        result = method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
 
         // 状態変化の確認
-        Object header_object = UTUtil.getPrivateField(fileLineIterator,
+        Object header_object = ReflectionTestUtils.getField(fileLineIterator,
                 "header");
         assertEquals(ArrayList.class, header_object.getClass());
         List header = (List) header_object;
         assertEquals(1, header.size());
         assertEquals("1行目データ", header.get(0));
 
-        Object lineReader = UTUtil.getPrivateField(fileLineIterator,
+        Object lineReader = ReflectionTestUtils.getField(fileLineIterator,
                 "lineReader");
         assertEquals(1, VMOUTUtil.getCallCount(lineReader.getClass(),
                 "readLine"));
@@ -7742,7 +7840,9 @@ public class AbstractFileLineIteratorTest {
         AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub62> fileLineIterator = new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub62>(
                 fileName, AbstractFileLineIterator_Stub62.class,
                 columnParserMap);
-        UTUtil.invokePrivate(fileLineIterator, "buildLineReader");
+        Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildLineReader");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineIterator);
 
         // 引数の設定
         // なし
@@ -7751,13 +7851,15 @@ public class AbstractFileLineIteratorTest {
         // テスト対象のインスタンス化で設定済み
 
         // テスト実施
-        UTUtil.invokePrivate(fileLineIterator, "buildHeader");
+        method = AbstractFileLineIterator.class.getDeclaredMethod("buildHeader");
+        method.setAccessible(true);
+        result = method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
 
         // 状態変化の確認
-        Object header_object = UTUtil.getPrivateField(fileLineIterator,
+        Object header_object = ReflectionTestUtils.getField(fileLineIterator,
                 "header");
         assertEquals(ArrayList.class, header_object.getClass());
         List header = (List) header_object;
@@ -7766,7 +7868,7 @@ public class AbstractFileLineIteratorTest {
         assertEquals("2行目データ", header.get(1));
         assertEquals("3行目データ", header.get(2));
 
-        Object lineReader = UTUtil.getPrivateField(fileLineIterator,
+        Object lineReader = ReflectionTestUtils.getField(fileLineIterator,
                 "lineReader");
         assertEquals(3, VMOUTUtil.getCallCount(lineReader.getClass(),
                 "readLine"));
@@ -7818,7 +7920,9 @@ public class AbstractFileLineIteratorTest {
         AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub62> fileLineIterator = new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub62>(
                 fileName, AbstractFileLineIterator_Stub62.class,
                 columnParserMap);
-        UTUtil.invokePrivate(fileLineIterator, "buildLineReader");
+        Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildLineReader");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineIterator);
 
         // 引数の設定
         // なし
@@ -7828,20 +7932,22 @@ public class AbstractFileLineIteratorTest {
 
         // テスト実施
         try {
-            UTUtil.invokePrivate(fileLineIterator, "buildHeader");
+            method = AbstractFileLineIterator.class.getDeclaredMethod("buildHeader");
+            method.setAccessible(true);
+            method.invoke(fileLineIterator);
             fail("FileExceptionがスローされませんでした");
-        } catch (FileException e) {
+        } catch (InvocationTargetException e) {
             // 返却値の確認
             // なし
 
             // 状態変化の確認
-            assertEquals(FileException.class, e.getClass());
-            assertEquals("The data which can be acquired doesn't exist.", e
+            assertEquals(FileException.class, e.getTargetException().getClass());
+            assertEquals("The data which can be acquired doesn't exist.", e.getTargetException()
                     .getMessage());
-            assertEquals(NoSuchElementException.class, e.getCause().getClass());
-            assertSame(fileName, e.getFileName());
+            assertEquals(NoSuchElementException.class, e.getTargetException().getCause().getClass());
+            assertSame(fileName, ((FileException)e.getTargetException()).getFileName());
 
-            Object lineReader = UTUtil.getPrivateField(fileLineIterator,
+            Object lineReader = ReflectionTestUtils.getField(fileLineIterator,
                     "lineReader");
             assertEquals(2, VMOUTUtil.getCallCount(lineReader.getClass(),
                     "readLine"));
@@ -7892,13 +7998,15 @@ public class AbstractFileLineIteratorTest {
         AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub61> fileLineIterator = new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub61>(
                 fileName, AbstractFileLineIterator_Stub61.class,
                 columnParserMap);
-        UTUtil.invokePrivate(fileLineIterator, "buildLineReader");
+        Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildLineReader");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineIterator);
 
         // 引数の設定
         // なし
 
         // 前提条件の設定
-        Object lineReader = UTUtil.getPrivateField(fileLineIterator,
+        Object lineReader = ReflectionTestUtils.getField(fileLineIterator,
                 "lineReader");
         FileException exception = new FileException("readLineからの例外です");
         VMOUTUtil.setReturnValueAtAllTimes(lineReader.getClass(), "readLine",
@@ -7907,18 +8015,20 @@ public class AbstractFileLineIteratorTest {
 
         // テスト実施
         try {
-            UTUtil.invokePrivate(fileLineIterator, "buildHeader");
+            method = AbstractFileLineIterator.class.getDeclaredMethod("buildHeader");
+            method.setAccessible(true);
+            method.invoke(fileLineIterator);
             fail("FileExceptionがスローされませんでした");
-        } catch (FileException e) {
+        } catch (InvocationTargetException e) {
             // 返却値の確認
             // なし
 
             // 状態変化の確認
-            assertEquals(FileException.class, e.getClass());
-            assertEquals("Error occurred by reading processing of a File.", e
+            assertEquals(FileException.class, e.getTargetException().getClass());
+            assertEquals("Error occurred by reading processing of a File.", e.getTargetException()
                     .getMessage());
-            assertSame(exception, e.getCause());
-            assertEquals(fileName, e.getFileName());
+            assertSame(exception, e.getTargetException().getCause());
+            assertEquals(fileName, ((FileException)e.getTargetException()).getFileName());
         }
     }
 
@@ -7963,7 +8073,9 @@ public class AbstractFileLineIteratorTest {
         AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub61> fileLineIterator = new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub61>(
                 fileName, AbstractFileLineIterator_Stub61.class,
                 columnParserMap);
-        UTUtil.invokePrivate(fileLineIterator, "buildLineReader");
+        Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildLineReader");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineIterator);
 
         // 引数の設定
         // なし
@@ -7976,14 +8088,16 @@ public class AbstractFileLineIteratorTest {
 
         // テスト実施
         try {
-            UTUtil.invokePrivate(fileLineIterator, "buildHeader");
+            method = AbstractFileLineIterator.class.getDeclaredMethod("buildHeader");
+            method.setAccessible(true);
+            method.invoke(fileLineIterator);
             fail("FileExceptionがスローされませんでした");
-        } catch (FileException e) {
+        } catch (InvocationTargetException e) {
             // 返却値の確認
             // なし
 
             // 状態変化の確認
-            assertSame(exception, e);
+            assertSame(exception, e.getTargetException());
         }
     }
 
@@ -8029,7 +8143,9 @@ public class AbstractFileLineIteratorTest {
         AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub70> fileLineIterator = new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub70>(
                 fileName, AbstractFileLineIterator_Stub70.class,
                 columnParserMap);
-        UTUtil.invokePrivate(fileLineIterator, "buildLineReader");
+        Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildLineReader");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineIterator);
 
         // 引数の設定
         // なし
@@ -8038,17 +8154,19 @@ public class AbstractFileLineIteratorTest {
         // テスト対象のインスタンス化で設定済み
 
         // テスト実施
-        UTUtil.invokePrivate(fileLineIterator, "buildTrailerQueue");
+        method = AbstractFileLineIterator.class.getDeclaredMethod("buildTrailerQueue");
+        method.setAccessible(true);
+        result = method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
 
         // 状態変化の確認
-        Object trailerQueue_object = UTUtil.getPrivateField(fileLineIterator,
+        Object trailerQueue_object = ReflectionTestUtils.getField(fileLineIterator,
                 "trailerQueue");
         assertNull(trailerQueue_object);
 
-        Object lineReader = UTUtil.getPrivateField(fileLineIterator,
+        Object lineReader = ReflectionTestUtils.getField(fileLineIterator,
                 "lineReader");
         assertEquals(0, VMOUTUtil.getCallCount(lineReader.getClass(),
                 "readLine"));
@@ -8098,7 +8216,9 @@ public class AbstractFileLineIteratorTest {
         AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub71> fileLineIterator = new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub71>(
                 fileName, AbstractFileLineIterator_Stub71.class,
                 columnParserMap);
-        UTUtil.invokePrivate(fileLineIterator, "buildLineReader");
+        Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildLineReader");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineIterator);
 
         // 引数の設定
         // なし
@@ -8107,20 +8227,22 @@ public class AbstractFileLineIteratorTest {
         // テスト対象のインスタンス化で設定済み
 
         // テスト実施
-        UTUtil.invokePrivate(fileLineIterator, "buildTrailerQueue");
+        method = AbstractFileLineIterator.class.getDeclaredMethod("buildTrailerQueue");
+        method.setAccessible(true);
+        result = method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
 
         // 状態変化の確認
-        Object trailerQueue_object = UTUtil.getPrivateField(fileLineIterator,
+        Object trailerQueue_object = ReflectionTestUtils.getField(fileLineIterator,
                 "trailerQueue");
         assertEquals(ArrayBlockingQueue.class, trailerQueue_object.getClass());
         ArrayBlockingQueue trailerQueue = (ArrayBlockingQueue) trailerQueue_object;
         assertEquals(1, trailerQueue.size());
         assertEquals("3行目データ", trailerQueue.poll());
 
-        Object lineReader = UTUtil.getPrivateField(fileLineIterator,
+        Object lineReader = ReflectionTestUtils.getField(fileLineIterator,
                 "lineReader");
         assertEquals(1, VMOUTUtil.getCallCount(lineReader.getClass(),
                 "readLine"));
@@ -8172,7 +8294,9 @@ public class AbstractFileLineIteratorTest {
         AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub72> fileLineIterator = new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub72>(
                 fileName, AbstractFileLineIterator_Stub72.class,
                 columnParserMap);
-        UTUtil.invokePrivate(fileLineIterator, "buildLineReader");
+        Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildLineReader");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineIterator);
 
         // 引数の設定
         // なし
@@ -8181,13 +8305,15 @@ public class AbstractFileLineIteratorTest {
         // テスト対象のインスタンス化で設定済み
 
         // テスト実施
-        UTUtil.invokePrivate(fileLineIterator, "buildTrailerQueue");
+        method = AbstractFileLineIterator.class.getDeclaredMethod("buildTrailerQueue");
+        method.setAccessible(true);
+        result = method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
 
         // 状態変化の確認
-        Object trailerQueue_object = UTUtil.getPrivateField(fileLineIterator,
+        Object trailerQueue_object = ReflectionTestUtils.getField(fileLineIterator,
                 "trailerQueue");
         assertEquals(ArrayBlockingQueue.class, trailerQueue_object.getClass());
         ArrayBlockingQueue trailerQueue = (ArrayBlockingQueue) trailerQueue_object;
@@ -8196,7 +8322,7 @@ public class AbstractFileLineIteratorTest {
         assertEquals("4行目データ", trailerQueue.poll());
         assertEquals("5行目データ", trailerQueue.poll());
 
-        Object lineReader = UTUtil.getPrivateField(fileLineIterator,
+        Object lineReader = ReflectionTestUtils.getField(fileLineIterator,
                 "lineReader");
         assertEquals(3, VMOUTUtil.getCallCount(lineReader.getClass(),
                 "readLine"));
@@ -8244,7 +8370,9 @@ public class AbstractFileLineIteratorTest {
         AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub71> fileLineIterator = new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub71>(
                 fileName, AbstractFileLineIterator_Stub71.class,
                 columnParserMap);
-        UTUtil.invokePrivate(fileLineIterator, "buildLineReader");
+        Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildLineReader");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineIterator);
 
         // 引数の設定
         // なし
@@ -8257,26 +8385,28 @@ public class AbstractFileLineIteratorTest {
 
         // テスト実施
         try {
-            UTUtil.invokePrivate(fileLineIterator, "buildTrailerQueue");
+            method = AbstractFileLineIterator.class.getDeclaredMethod("buildTrailerQueue");
+            method.setAccessible(true);
+            method.invoke(fileLineIterator);
             fail("FileExceptionがスローされませんでした");
-        } catch (FileException e) {
+        } catch (InvocationTargetException e) {
             // 返却値の確認
             // なし
 
             // 状態変化の確認
-            Object trailerQueue_object = UTUtil.getPrivateField(
+            Object trailerQueue_object = ReflectionTestUtils.getField(
                     fileLineIterator, "trailerQueue");
             assertEquals(ArrayBlockingQueue.class, trailerQueue_object
                     .getClass());
             ArrayBlockingQueue trailerQueue = (ArrayBlockingQueue) trailerQueue_object;
             assertEquals(0, trailerQueue.size());
 
-            Object lineReader = UTUtil.getPrivateField(fileLineIterator,
+            Object lineReader = ReflectionTestUtils.getField(fileLineIterator,
                     "lineReader");
             assertEquals(0, VMOUTUtil.getCallCount(lineReader.getClass(),
                     "readLine"));
 
-            assertSame(exception, e);
+            assertSame(exception, e.getTargetException());
         }
     }
 
@@ -8322,7 +8452,9 @@ public class AbstractFileLineIteratorTest {
         AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub71> fileLineIterator = new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub71>(
                 fileName, AbstractFileLineIterator_Stub71.class,
                 columnParserMap);
-        UTUtil.invokePrivate(fileLineIterator, "buildLineReader");
+        Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildLineReader");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineIterator);
 
         // 引数の設定
         // なし
@@ -8330,25 +8462,27 @@ public class AbstractFileLineIteratorTest {
         // 前提条件の設定
         // テスト対象のインスタンス化で設定済み
         FileException exception = new FileException("readLineでのエラーです");
-        Object lineReader = UTUtil.getPrivateField(fileLineIterator,
+        Object lineReader = ReflectionTestUtils.getField(fileLineIterator,
                 "lineReader");
         VMOUTUtil.setReturnValueAtAllTimes(lineReader.getClass(), "readLine",
                 exception);
 
         // テスト実施
         try {
-            UTUtil.invokePrivate(fileLineIterator, "buildTrailerQueue");
+            method = AbstractFileLineIterator.class.getDeclaredMethod("buildTrailerQueue");
+            method.setAccessible(true);
+            method.invoke(fileLineIterator);
             fail("FileExceptionがスローされませんでした");
-        } catch (FileException e) {
+        } catch (InvocationTargetException e) {
             // 返却値の確認
             // なし
 
             // 状態変化の確認
-            assertEquals(FileException.class, e.getClass());
-            assertEquals("Error occurred by reading processing of a File.", e
+            assertEquals(FileException.class, e.getTargetException().getClass());
+            assertEquals("Error occurred by reading processing of a File.", e.getTargetException()
                     .getMessage());
-            assertSame(exception, e.getCause());
-            assertEquals(fileName, e.getFileName());
+            assertSame(exception, e.getTargetException().getCause());
+            assertEquals(fileName, ((FileException)e.getTargetException()).getFileName());
         }
     }
 
@@ -8396,7 +8530,9 @@ public class AbstractFileLineIteratorTest {
         AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub72> fileLineIterator = new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub72>(
                 fileName, AbstractFileLineIterator_Stub72.class,
                 columnParserMap);
-        UTUtil.invokePrivate(fileLineIterator, "buildLineReader");
+        Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildLineReader");
+        method.setAccessible(true);
+        Object result = method.invoke(fileLineIterator);
 
         // 引数の設定
         // なし
@@ -8406,18 +8542,20 @@ public class AbstractFileLineIteratorTest {
 
         // テスト実施
         try {
-            UTUtil.invokePrivate(fileLineIterator, "buildTrailerQueue");
+            method = AbstractFileLineIterator.class.getDeclaredMethod("buildTrailerQueue");
+            method.setAccessible(true);
+            method.invoke(fileLineIterator);
             fail("FileExceptionがスローされませんでした");
-        } catch (FileException e) {
+        } catch (InvocationTargetException e) {
             // 返却値の確認
             // なし
 
             // 状態変化の確認
-            assertEquals(FileException.class, e.getClass());
-            assertEquals("The data which can be acquired doesn't exist.", e
+            assertEquals(FileException.class, e.getTargetException().getClass());
+            assertEquals("The data which can be acquired doesn't exist.", e.getTargetException()
                     .getMessage());
-            assertEquals(NoSuchElementException.class, e.getCause().getClass());
-            assertEquals(fileName, e.getFileName());
+            assertEquals(NoSuchElementException.class, e.getTargetException().getCause().getClass());
+            assertEquals(fileName, ((FileException)e.getTargetException()).getFileName());
         }
     }
 
@@ -8574,7 +8712,7 @@ public class AbstractFileLineIteratorTest {
         header.add("ヘッダ行1");
         header.add("ヘッダ行2");
         header.add("ヘッダ行3");
-        UTUtil.setPrivateField(fileLineIterator, "header", header);
+        ReflectionTestUtils.setField(fileLineIterator, "header", header);
 
         // テスト実施
         List result = fileLineIterator.getHeader();
@@ -8656,14 +8794,14 @@ public class AbstractFileLineIteratorTest {
         assertEquals(0, result.size());
 
         // 状態変化の確認
-        Object trailer_object = UTUtil.getPrivateField(fileLineIterator,
+        Object trailer_object = ReflectionTestUtils.getField(fileLineIterator,
                 "trailer");
         assertSame(ArrayList.class, trailer_object.getClass());
         assertEquals(0, ((List) trailer_object).size());
-        assertTrue((Boolean) UTUtil.getPrivateField(fileLineIterator,
+        assertTrue((Boolean) ReflectionTestUtils.getField(fileLineIterator,
                 "readTrailer"));
 
-        Object lineReader = UTUtil.getPrivateField(fileLineIterator,
+        Object lineReader = ReflectionTestUtils.getField(fileLineIterator,
                 "lineReader");
         assertEquals(3, VMOUTUtil.getCallCount(lineReader.getClass(),
                 "readLine"));
@@ -8739,17 +8877,17 @@ public class AbstractFileLineIteratorTest {
         assertEquals("5行目データ", result.get(0));
 
         // 状態変化の確認
-        Object trailer_object = UTUtil.getPrivateField(fileLineIterator,
+        Object trailer_object = ReflectionTestUtils.getField(fileLineIterator,
                 "trailer");
         assertSame(ArrayList.class, trailer_object.getClass());
         List<String> trailer = (List<String>) trailer_object;
         assertEquals(1, trailer.size());
         assertEquals("5行目データ", trailer.get(0));
 
-        assertTrue((Boolean) UTUtil.getPrivateField(fileLineIterator,
+        assertTrue((Boolean) ReflectionTestUtils.getField(fileLineIterator,
                 "readTrailer"));
 
-        Object lineReader = UTUtil.getPrivateField(fileLineIterator,
+        Object lineReader = ReflectionTestUtils.getField(fileLineIterator,
                 "lineReader");
         assertEquals(3, VMOUTUtil.getCallCount(lineReader.getClass(),
                 "readLine"));
@@ -8831,7 +8969,7 @@ public class AbstractFileLineIteratorTest {
         assertEquals("5行目データ", result.get(2));
 
         // 状態変化の確認
-        Object trailer_object = UTUtil.getPrivateField(fileLineIterator,
+        Object trailer_object = ReflectionTestUtils.getField(fileLineIterator,
                 "trailer");
         assertSame(ArrayList.class, trailer_object.getClass());
         List<String> trailer = (List<String>) trailer_object;
@@ -8840,10 +8978,10 @@ public class AbstractFileLineIteratorTest {
         assertEquals("4行目データ", trailer.get(1));
         assertEquals("5行目データ", trailer.get(2));
 
-        assertTrue((Boolean) UTUtil.getPrivateField(fileLineIterator,
+        assertTrue((Boolean) ReflectionTestUtils.getField(fileLineIterator,
                 "readTrailer"));
 
-        Object lineReader = UTUtil.getPrivateField(fileLineIterator,
+        Object lineReader = ReflectionTestUtils.getField(fileLineIterator,
                 "lineReader");
         assertEquals(1, VMOUTUtil.getCallCount(lineReader.getClass(),
                 "readLine"));
@@ -8916,16 +9054,16 @@ public class AbstractFileLineIteratorTest {
             // なし
 
             // 状態変化の確認
-            Object trailer_object = UTUtil.getPrivateField(fileLineIterator,
+            Object trailer_object = ReflectionTestUtils.getField(fileLineIterator,
                     "trailer");
             assertSame(ArrayList.class, trailer_object.getClass());
             List<String> trailer = (List<String>) trailer_object;
             assertEquals(0, trailer.size());
 
-            assertFalse((Boolean) UTUtil.getPrivateField(fileLineIterator,
+            assertFalse((Boolean) ReflectionTestUtils.getField(fileLineIterator,
                     "readTrailer"));
 
-            Object lineReader = UTUtil.getPrivateField(fileLineIterator,
+            Object lineReader = ReflectionTestUtils.getField(fileLineIterator,
                     "lineReader");
             assertEquals(0, VMOUTUtil.getCallCount(lineReader.getClass(),
                     "readLine"));
@@ -9003,17 +9141,17 @@ public class AbstractFileLineIteratorTest {
         assertEquals("5行目データ", result.get(0));
 
         // 状態変化の確認
-        Object trailer_object = UTUtil.getPrivateField(fileLineIterator,
+        Object trailer_object = ReflectionTestUtils.getField(fileLineIterator,
                 "trailer");
         assertSame(ArrayList.class, trailer_object.getClass());
         List<String> trailer = (List<String>) trailer_object;
         assertEquals(1, trailer.size());
         assertEquals("5行目データ", trailer.get(0));
 
-        assertTrue((Boolean) UTUtil.getPrivateField(fileLineIterator,
+        assertTrue((Boolean) ReflectionTestUtils.getField(fileLineIterator,
                 "readTrailer"));
 
-        Object lineReader = UTUtil.getPrivateField(fileLineIterator,
+        Object lineReader = ReflectionTestUtils.getField(fileLineIterator,
                 "lineReader");
         assertEquals(0, VMOUTUtil.getCallCount(lineReader.getClass(),
                 "readLine"));
@@ -9086,17 +9224,17 @@ public class AbstractFileLineIteratorTest {
         assertEquals("5行目データ", result.get(0));
 
         // 状態変化の確認
-        Object trailer_object = UTUtil.getPrivateField(fileLineIterator,
+        Object trailer_object = ReflectionTestUtils.getField(fileLineIterator,
                 "trailer");
         assertSame(ArrayList.class, trailer_object.getClass());
         List<String> trailer = (List<String>) trailer_object;
         assertEquals(1, trailer.size());
         assertEquals("5行目データ", trailer.get(0));
 
-        assertTrue((Boolean) UTUtil.getPrivateField(fileLineIterator,
+        assertTrue((Boolean) ReflectionTestUtils.getField(fileLineIterator,
                 "readTrailer"));
 
-        Object lineReader = UTUtil.getPrivateField(fileLineIterator,
+        Object lineReader = ReflectionTestUtils.getField(fileLineIterator,
                 "lineReader");
         assertEquals(0, VMOUTUtil.getCallCount(lineReader.getClass(),
                 "readLine"));
@@ -9155,7 +9293,7 @@ public class AbstractFileLineIteratorTest {
         fileLineIterator.init();
         VMOUTUtil.initialize();
         FileException exception = new FileException("readLineでのエラーです");
-        Object lineReader = UTUtil.getPrivateField(fileLineIterator,
+        Object lineReader = ReflectionTestUtils.getField(fileLineIterator,
                 "lineReader");
         VMOUTUtil.setReturnValueAtAllTimes(lineReader.getClass(), "readLine",
                 exception);
@@ -9240,9 +9378,9 @@ public class AbstractFileLineIteratorTest {
         assertEquals("1行目データ", result);
 
         // 状態変化の確認
-        assertNull(UTUtil.getPrivateField(fileLineIterator, "trailerQueue"));
+        assertNull(ReflectionTestUtils.getField(fileLineIterator, "trailerQueue"));
 
-        Object lineReader = UTUtil.getPrivateField(fileLineIterator,
+        Object lineReader = ReflectionTestUtils.getField(fileLineIterator,
                 "lineReader");
         assertEquals(1, VMOUTUtil.getCallCount(lineReader.getClass(),
                 "readLine"));
@@ -9313,7 +9451,7 @@ public class AbstractFileLineIteratorTest {
         assertEquals("3行目データ", result);
 
         // 状態変化の確認
-        Object trailerQueue_object = UTUtil.getPrivateField(fileLineIterator,
+        Object trailerQueue_object = ReflectionTestUtils.getField(fileLineIterator,
                 "trailerQueue");
         assertEquals(ArrayBlockingQueue.class, trailerQueue_object.getClass());
         ArrayBlockingQueue trailerQueue = (ArrayBlockingQueue) trailerQueue_object;
@@ -9322,7 +9460,7 @@ public class AbstractFileLineIteratorTest {
 
         assertEquals(1, VMOUTUtil.getCallCount(Queue.class, "add"));
 
-        Object lineReader = UTUtil.getPrivateField(fileLineIterator,
+        Object lineReader = ReflectionTestUtils.getField(fileLineIterator,
                 "lineReader");
         assertEquals(1, VMOUTUtil.getCallCount(lineReader.getClass(),
                 "readLine"));
@@ -9395,7 +9533,7 @@ public class AbstractFileLineIteratorTest {
         assertEquals("3行目データ", result);
 
         // 状態変化の確認
-        Object trailerQueue_object = UTUtil.getPrivateField(fileLineIterator,
+        Object trailerQueue_object = ReflectionTestUtils.getField(fileLineIterator,
                 "trailerQueue");
         assertEquals(ArrayBlockingQueue.class, trailerQueue_object.getClass());
         ArrayBlockingQueue trailerQueue = (ArrayBlockingQueue) trailerQueue_object;
@@ -9406,7 +9544,7 @@ public class AbstractFileLineIteratorTest {
 
         assertEquals(1, VMOUTUtil.getCallCount(Queue.class, "add"));
 
-        Object lineReader = UTUtil.getPrivateField(fileLineIterator,
+        Object lineReader = ReflectionTestUtils.getField(fileLineIterator,
                 "lineReader");
         assertEquals(1, VMOUTUtil.getCallCount(lineReader.getClass(),
                 "readLine"));
@@ -9471,7 +9609,7 @@ public class AbstractFileLineIteratorTest {
         assertNull(result);
 
         // 状態変化の確認
-        Object trailerQueue_object = UTUtil.getPrivateField(fileLineIterator,
+        Object trailerQueue_object = ReflectionTestUtils.getField(fileLineIterator,
                 "trailerQueue");
         assertEquals(ArrayBlockingQueue.class, trailerQueue_object.getClass());
         ArrayBlockingQueue trailerQueue = (ArrayBlockingQueue) trailerQueue_object;
@@ -9480,7 +9618,7 @@ public class AbstractFileLineIteratorTest {
 
         assertEquals(0, VMOUTUtil.getCallCount(Queue.class, "add"));
 
-        Object lineReader = UTUtil.getPrivateField(fileLineIterator,
+        Object lineReader = ReflectionTestUtils.getField(fileLineIterator,
                 "lineReader");
         assertEquals(0, VMOUTUtil.getCallCount(lineReader.getClass(),
                 "readLine"));
@@ -9552,7 +9690,7 @@ public class AbstractFileLineIteratorTest {
         assertNull(result);
 
         // 状態変化の確認
-        Object trailerQueue_object = UTUtil.getPrivateField(fileLineIterator,
+        Object trailerQueue_object = ReflectionTestUtils.getField(fileLineIterator,
                 "trailerQueue");
         assertEquals(ArrayBlockingQueue.class, trailerQueue_object.getClass());
         ArrayBlockingQueue trailerQueue = (ArrayBlockingQueue) trailerQueue_object;
@@ -9564,7 +9702,7 @@ public class AbstractFileLineIteratorTest {
 
         assertEquals(0, VMOUTUtil.getCallCount(Queue.class, "add"));
 
-        Object lineReader = UTUtil.getPrivateField(fileLineIterator,
+        Object lineReader = ReflectionTestUtils.getField(fileLineIterator,
                 "lineReader");
         assertEquals(0, VMOUTUtil.getCallCount(lineReader.getClass(),
                 "readLine"));
@@ -9622,7 +9760,7 @@ public class AbstractFileLineIteratorTest {
 
         // 前提条件の設定
         fileLineIterator.init();
-        Object lineReader = UTUtil.getPrivateField(fileLineIterator,
+        Object lineReader = ReflectionTestUtils.getField(fileLineIterator,
                 "lineReader");
         FileException exception = new FileException("readLineからの例外です");
         VMOUTUtil.setExceptionAtAllTimes(lineReader.getClass(), "readLine",
@@ -9676,7 +9814,7 @@ public class AbstractFileLineIteratorTest {
         AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub80> fileLineIterator = new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub80>(
                 fileName, AbstractFileLineIterator_Stub80.class,
                 columnParserMap);
-        UTUtil.setPrivateField(fileLineIterator, "currentLineCount", 0);
+        ReflectionTestUtils.setField(fileLineIterator, "currentLineCount", 0);
 
         // 引数の設定
         int skipLines = 0;
@@ -9694,7 +9832,7 @@ public class AbstractFileLineIteratorTest {
         // 状態変化の確認
         assertEquals(0, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
                 "readLine"));
-        assertEquals(0, UTUtil.getPrivateField(fileLineIterator,
+        assertEquals(0, ReflectionTestUtils.getField(fileLineIterator,
                 "currentLineCount"));
     }
 
@@ -9729,7 +9867,7 @@ public class AbstractFileLineIteratorTest {
         AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub80> fileLineIterator = new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub80>(
                 fileName, AbstractFileLineIterator_Stub80.class,
                 columnParserMap);
-        UTUtil.setPrivateField(fileLineIterator, "currentLineCount", 0);
+        ReflectionTestUtils.setField(fileLineIterator, "currentLineCount", 0);
 
         // 引数の設定
         int skipLines = 1;
@@ -9747,7 +9885,7 @@ public class AbstractFileLineIteratorTest {
         // 状態変化の確認
         assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
                 "readLine"));
-        assertEquals(1, UTUtil.getPrivateField(fileLineIterator,
+        assertEquals(1, ReflectionTestUtils.getField(fileLineIterator,
                 "currentLineCount"));
     }
 
@@ -9781,7 +9919,7 @@ public class AbstractFileLineIteratorTest {
         AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub80> fileLineIterator = new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub80>(
                 fileName, AbstractFileLineIterator_Stub80.class,
                 columnParserMap);
-        UTUtil.setPrivateField(fileLineIterator, "currentLineCount", 0);
+        ReflectionTestUtils.setField(fileLineIterator, "currentLineCount", 0);
 
         // 引数の設定
         int skipLines = 3;
@@ -9799,7 +9937,7 @@ public class AbstractFileLineIteratorTest {
         // 状態変化の確認
         assertEquals(3, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
                 "readLine"));
-        assertEquals(3, UTUtil.getPrivateField(fileLineIterator,
+        assertEquals(3, ReflectionTestUtils.getField(fileLineIterator,
                 "currentLineCount"));
     }
 
@@ -9834,7 +9972,7 @@ public class AbstractFileLineIteratorTest {
         AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub80> fileLineIterator = new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub80>(
                 fileName, AbstractFileLineIterator_Stub80.class,
                 columnParserMap);
-        UTUtil.setPrivateField(fileLineIterator, "currentLineCount", 0);
+        ReflectionTestUtils.setField(fileLineIterator, "currentLineCount", 0);
 
         // 引数の設定
         int skipLines = 1;
@@ -9855,7 +9993,7 @@ public class AbstractFileLineIteratorTest {
             assertSame(exception, e);
 
             // 状態変化の確認
-            assertEquals(0, UTUtil.getPrivateField(fileLineIterator,
+            assertEquals(0, ReflectionTestUtils.getField(fileLineIterator,
                     "currentLineCount"));
         }
     }
@@ -9899,7 +10037,7 @@ public class AbstractFileLineIteratorTest {
         AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub80> fileLineIterator = new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub80>(
                 fileName, AbstractFileLineIterator_Stub80.class,
                 columnParserMap);
-        UTUtil.setPrivateField(fileLineIterator, "currentLineCount", 0);
+        ReflectionTestUtils.setField(fileLineIterator, "currentLineCount", 0);
 
         // 引数の設定
         int skipLines = 100;
@@ -9924,7 +10062,7 @@ public class AbstractFileLineIteratorTest {
             assertEquals(7, VMOUTUtil.getCallCount(
                     AbstractFileLineIterator.class, "readLine"));
 
-            assertEquals(7, UTUtil.getPrivateField(fileLineIterator,
+            assertEquals(7, ReflectionTestUtils.getField(fileLineIterator,
                     "currentLineCount"));
         }
     }
@@ -10142,7 +10280,7 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 前提条件の設定
-        UTUtil.setPrivateField(fileLineIterator, "currentLineCount", 1);
+        ReflectionTestUtils.setField(fileLineIterator, "currentLineCount", 1);
 
         // テスト実施
         int result = fileLineIterator.getCurrentLineCount();
@@ -10188,7 +10326,7 @@ public class AbstractFileLineIteratorTest {
 
         // 前提条件の設定
         Field[] fields = new Field[] {};
-        UTUtil.setPrivateField(fileLineIterator, "fields", fields);
+        ReflectionTestUtils.setField(fileLineIterator, "fields", fields);
 
         // テスト実施
         Field[] result = fileLineIterator.getFields();
@@ -10234,7 +10372,7 @@ public class AbstractFileLineIteratorTest {
 
         // 前提条件の設定
         String fileName_dummy = "ファイル名";
-        UTUtil.setPrivateField(fileLineIterator, "fileName", fileName_dummy);
+        ReflectionTestUtils.setField(fileLineIterator, "fileName", fileName_dummy);
 
         // テスト実施
         String result = fileLineIterator.getFileName();

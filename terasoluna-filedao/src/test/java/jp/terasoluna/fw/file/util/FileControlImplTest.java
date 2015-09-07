@@ -22,7 +22,7 @@ import org.junit.Test;
 
 import jp.terasoluna.fw.file.dao.FileException;
 import jp.terasoluna.fw.file.ut.VMOUTUtil;
-import jp.terasoluna.utlib.UTUtil;
+import org.springframework.test.util.ReflectionTestUtils;
 
 /**
  * {@link jp.terasoluna.fw.file.util.FileControlImpl} クラスのテスト。
@@ -44,8 +44,8 @@ public class FileControlImplTest {
         VMOUTUtil.setReturnValueAtAllTimes(FileUtility.class, "copyFile", null);
         VMOUTUtil.setReturnValueAtAllTimes(FileUtility.class, "deleteFile",
                 null);
-        VMOUTUtil
-                .setReturnValueAtAllTimes(FileUtility.class, "mergeFile", null);
+        VMOUTUtil.setReturnValueAtAllTimes(FileUtility.class, "mergeFile",
+                null);
         VMOUTUtil.setReturnValueAtAllTimes(FileUtility.class, "renameFile",
                 null);
         VMOUTUtil.setReturnValueAtAllTimes(FileUtility.class,
@@ -82,8 +82,8 @@ public class FileControlImplTest {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
-        String directoryPath = url.getPath().substring(0,
-                url.getPath().length() - classFileName.length());
+        String directoryPath = url.getPath().substring(0, url.getPath().length()
+                - classFileName.length());
 
         String srcFile = directoryPath + "testCopyFile01_src.txt";
         String newFile = directoryPath + "testCopyFile01_new.txt";
@@ -99,7 +99,7 @@ public class FileControlImplTest {
 
         // 前提条件の設定
         String basePath = "";
-        UTUtil.setPrivateField(fileControl, "basePath", basePath);
+        ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         try {
             // テスト実施
@@ -159,8 +159,8 @@ public class FileControlImplTest {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
-        String directoryPath = url.getPath().substring(0,
-                url.getPath().length() - classFileName.length());
+        String directoryPath = url.getPath().substring(0, url.getPath().length()
+                - classFileName.length());
 
         String srcFile = "testCopyFile02_src.txt";
         String newFile = "testCopyFile02_new.txt";
@@ -176,7 +176,7 @@ public class FileControlImplTest {
 
         // 前提条件の設定
         String basePath = directoryPath;
-        UTUtil.setPrivateField(fileControl, "basePath", basePath);
+        ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         try {
             // テスト実施
@@ -236,8 +236,8 @@ public class FileControlImplTest {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
-        String directoryPath = url.getPath().substring(0,
-                url.getPath().length() - classFileName.length());
+        String directoryPath = url.getPath().substring(0, url.getPath().length()
+                - classFileName.length());
 
         String srcFile = directoryPath + "testCopyFile03_src.txt";
         String newFile = directoryPath + "testCopyFile03_new.txt";
@@ -253,7 +253,7 @@ public class FileControlImplTest {
 
         // 前提条件の設定
         String basePath = directoryPath;
-        UTUtil.setPrivateField(fileControl, "basePath", basePath);
+        ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         try {
             // テスト実施
@@ -311,8 +311,8 @@ public class FileControlImplTest {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
-        String directoryPath = url.getPath().substring(0,
-                url.getPath().length() - classFileName.length());
+        String directoryPath = url.getPath().substring(0, url.getPath().length()
+                - classFileName.length());
 
         String srcFile = "testCopyFile04_src.txt";
         String newFile = "testCopyFile04_new.txt";
@@ -328,7 +328,7 @@ public class FileControlImplTest {
 
         // 前提条件の設定
         String basePath = "";
-        UTUtil.setPrivateField(fileControl, "basePath", basePath);
+        ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         try {
             // テスト実施
@@ -382,8 +382,8 @@ public class FileControlImplTest {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
-        String directoryPath = url.getPath().substring(0,
-                url.getPath().length() - classFileName.length());
+        String directoryPath = url.getPath().substring(0, url.getPath().length()
+                - classFileName.length());
 
         String srcFile = null;
         String newFile = directoryPath + "testCopyFile05_new.txt";
@@ -395,7 +395,7 @@ public class FileControlImplTest {
 
         // 前提条件の設定
         String basePath = "";
-        UTUtil.setPrivateField(fileControl, "basePath", basePath);
+        ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         try {
             // テスト実施
@@ -446,8 +446,8 @@ public class FileControlImplTest {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
-        String directoryPath = url.getPath().substring(0,
-                url.getPath().length() - classFileName.length());
+        String directoryPath = url.getPath().substring(0, url.getPath().length()
+                - classFileName.length());
 
         String srcFile = directoryPath + "testCopyFile06_src.txt";
         String newFile = null;
@@ -459,7 +459,7 @@ public class FileControlImplTest {
 
         // 前提条件の設定
         String basePath = "";
-        UTUtil.setPrivateField(fileControl, "basePath", basePath);
+        ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         try {
             // テスト実施
@@ -515,8 +515,8 @@ public class FileControlImplTest {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
-        String directoryPath = url.getPath().substring(0,
-                url.getPath().length() - classFileName.length());
+        String directoryPath = url.getPath().substring(0, url.getPath().length()
+                - classFileName.length());
 
         String srcFile = "testCopyFile07_src.txt";
         String newFile = directoryPath + "testCopyFile07_new.txt";
@@ -532,7 +532,7 @@ public class FileControlImplTest {
 
         // 前提条件の設定
         String basePath = directoryPath;
-        UTUtil.setPrivateField(fileControl, "basePath", basePath);
+        ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         try {
             // テスト実施
@@ -591,8 +591,8 @@ public class FileControlImplTest {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
-        String directoryPath = url.getPath().substring(0,
-                url.getPath().length() - classFileName.length());
+        String directoryPath = url.getPath().substring(0, url.getPath().length()
+                - classFileName.length());
 
         String srcFile = directoryPath + "testCopyFile08_src.txt";
         String newFile = "testCopyFile08_new.txt";
@@ -608,7 +608,7 @@ public class FileControlImplTest {
 
         // 前提条件の設定
         String basePath = directoryPath;
-        UTUtil.setPrivateField(fileControl, "basePath", basePath);
+        ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         try {
             // テスト実施
@@ -663,8 +663,8 @@ public class FileControlImplTest {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
-        String directoryPath = url.getPath().substring(0,
-                url.getPath().length() - classFileName.length());
+        String directoryPath = url.getPath().substring(0, url.getPath().length()
+                - classFileName.length());
 
         String srcFile = directoryPath + "testDeleteFile01_src.txt";
 
@@ -675,7 +675,7 @@ public class FileControlImplTest {
 
         // 前提条件の設定
         String basePath = "";
-        UTUtil.setPrivateField(fileControl, "basePath", basePath);
+        ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         try {
             // テスト実施
@@ -724,8 +724,8 @@ public class FileControlImplTest {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
-        String directoryPath = url.getPath().substring(0,
-                url.getPath().length() - classFileName.length());
+        String directoryPath = url.getPath().substring(0, url.getPath().length()
+                - classFileName.length());
 
         String srcFile = "testDeleteFile02_src.txt";
 
@@ -736,7 +736,7 @@ public class FileControlImplTest {
 
         // 前提条件の設定
         String basePath = directoryPath;
-        UTUtil.setPrivateField(fileControl, "basePath", basePath);
+        ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         try {
             // テスト実施
@@ -785,8 +785,8 @@ public class FileControlImplTest {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
-        String directoryPath = url.getPath().substring(0,
-                url.getPath().length() - classFileName.length());
+        String directoryPath = url.getPath().substring(0, url.getPath().length()
+                - classFileName.length());
 
         String srcFile = directoryPath + "testDeleteFile03_src.txt";
 
@@ -797,7 +797,7 @@ public class FileControlImplTest {
 
         // 前提条件の設定
         String basePath = directoryPath;
-        UTUtil.setPrivateField(fileControl, "basePath", basePath);
+        ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         try {
             // テスト実施
@@ -846,8 +846,8 @@ public class FileControlImplTest {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
-        String directoryPath = url.getPath().substring(0,
-                url.getPath().length() - classFileName.length());
+        String directoryPath = url.getPath().substring(0, url.getPath().length()
+                - classFileName.length());
 
         String srcFile = "testDeleteFile04_src.txt";
 
@@ -858,7 +858,7 @@ public class FileControlImplTest {
 
         // 前提条件の設定
         String basePath = "";
-        UTUtil.setPrivateField(fileControl, "basePath", basePath);
+        ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         try {
             // テスト実施
@@ -901,7 +901,7 @@ public class FileControlImplTest {
 
         // 前提条件の設定
         String basePath = "";
-        UTUtil.setPrivateField(fileControl, "basePath", basePath);
+        ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         try {
             // テスト実施
@@ -946,8 +946,8 @@ public class FileControlImplTest {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
-        String directoryPath = url.getPath().substring(0,
-                url.getPath().length() - classFileName.length());
+        String directoryPath = url.getPath().substring(0, url.getPath().length()
+                - classFileName.length());
 
         List<String> fileList = new ArrayList<String>();
 
@@ -960,7 +960,7 @@ public class FileControlImplTest {
 
         // 前提条件の設定
         String basePath = "";
-        UTUtil.setPrivateField(fileControl, "basePath", basePath);
+        ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         try {
             // テスト実施
@@ -1013,8 +1013,8 @@ public class FileControlImplTest {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
-        String directoryPath = url.getPath().substring(0,
-                url.getPath().length() - classFileName.length());
+        String directoryPath = url.getPath().substring(0, url.getPath().length()
+                - classFileName.length());
 
         List<String> fileList = new ArrayList<String>();
 
@@ -1034,7 +1034,7 @@ public class FileControlImplTest {
 
         // 前提条件の設定
         String basePath = "";
-        UTUtil.setPrivateField(fileControl, "basePath", basePath);
+        ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         try {
             // テスト実施
@@ -1051,8 +1051,8 @@ public class FileControlImplTest {
                     "mergeFile", 0, 1));
             assertEquals(2, VMOUTUtil.getCallCount(fileControl.getClass(),
                     "getAbsolutePath"));
-            assertEquals(srcFile1, VMOUTUtil.getArgument(
-                    fileControl.getClass(), "getAbsolutePath", 0, 0));
+            assertEquals(srcFile1, VMOUTUtil.getArgument(fileControl.getClass(),
+                    "getAbsolutePath", 0, 0));
             assertEquals(newFile, VMOUTUtil.getArgument(fileControl.getClass(),
                     "getAbsolutePath", 1, 0));
         } finally {
@@ -1094,8 +1094,8 @@ public class FileControlImplTest {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
-        String directoryPath = url.getPath().substring(0,
-                url.getPath().length() - classFileName.length());
+        String directoryPath = url.getPath().substring(0, url.getPath().length()
+                - classFileName.length());
 
         List<String> fileList = new ArrayList<String>();
 
@@ -1129,7 +1129,7 @@ public class FileControlImplTest {
 
         // 前提条件の設定
         String basePath = directoryPath;
-        UTUtil.setPrivateField(fileControl, "basePath", basePath);
+        ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         try {
             // テスト実施
@@ -1204,8 +1204,8 @@ public class FileControlImplTest {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
-        String directoryPath = url.getPath().substring(0,
-                url.getPath().length() - classFileName.length());
+        String directoryPath = url.getPath().substring(0, url.getPath().length()
+                - classFileName.length());
 
         List<String> fileList = new ArrayList<String>();
 
@@ -1239,7 +1239,7 @@ public class FileControlImplTest {
 
         // 前提条件の設定
         String basePath = directoryPath;
-        UTUtil.setPrivateField(fileControl, "basePath", basePath);
+        ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         try {
             // テスト実施
@@ -1311,8 +1311,8 @@ public class FileControlImplTest {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
-        String directoryPath = url.getPath().substring(0,
-                url.getPath().length() - classFileName.length());
+        String directoryPath = url.getPath().substring(0, url.getPath().length()
+                - classFileName.length());
 
         List<String> fileList = new ArrayList<String>();
 
@@ -1346,7 +1346,7 @@ public class FileControlImplTest {
 
         // 前提条件の設定
         String basePath = "";
-        UTUtil.setPrivateField(fileControl, "basePath", basePath);
+        ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         try {
             // テスト実施
@@ -1412,8 +1412,8 @@ public class FileControlImplTest {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
-        String directoryPath = url.getPath().substring(0,
-                url.getPath().length() - classFileName.length());
+        String directoryPath = url.getPath().substring(0, url.getPath().length()
+                - classFileName.length());
 
         List<String> fileList = null;
         String newFile = directoryPath + "testMergeFile06_new.txt";
@@ -1425,7 +1425,7 @@ public class FileControlImplTest {
 
         // 前提条件の設定
         String basePath = "";
-        UTUtil.setPrivateField(fileControl, "basePath", basePath);
+        ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         try {
             // テスト実施
@@ -1469,8 +1469,8 @@ public class FileControlImplTest {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
-        String directoryPath = url.getPath().substring(0,
-                url.getPath().length() - classFileName.length());
+        String directoryPath = url.getPath().substring(0, url.getPath().length()
+                - classFileName.length());
 
         List<String> fileList = new ArrayList<String>();
 
@@ -1486,7 +1486,7 @@ public class FileControlImplTest {
 
         // 前提条件の設定
         String basePath = "";
-        UTUtil.setPrivateField(fileControl, "basePath", basePath);
+        ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         try {
             // テスト実施
@@ -1498,8 +1498,8 @@ public class FileControlImplTest {
             // 状態変化の確認
             assertEquals(2, VMOUTUtil.getCallCount(fileControl.getClass(),
                     "getAbsolutePath"));
-            assertEquals(srcFile1, VMOUTUtil.getArgument(
-                    fileControl.getClass(), "getAbsolutePath", 0, 0));
+            assertEquals(srcFile1, VMOUTUtil.getArgument(fileControl.getClass(),
+                    "getAbsolutePath", 0, 0));
             assertEquals(newFile, VMOUTUtil.getArgument(fileControl.getClass(),
                     "getAbsolutePath", 1, 0));
             assertEquals(FileException.class, e.getClass());
@@ -1541,8 +1541,8 @@ public class FileControlImplTest {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
-        String directoryPath = url.getPath().substring(0,
-                url.getPath().length() - classFileName.length());
+        String directoryPath = url.getPath().substring(0, url.getPath().length()
+                - classFileName.length());
 
         List<String> fileList = new ArrayList<String>();
 
@@ -1572,7 +1572,7 @@ public class FileControlImplTest {
 
         // 前提条件の設定
         String basePath = "";
-        UTUtil.setPrivateField(fileControl, "basePath", basePath);
+        ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         try {
             // テスト実施
@@ -1637,8 +1637,8 @@ public class FileControlImplTest {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
-        String directoryPath = url.getPath().substring(0,
-                url.getPath().length() - classFileName.length());
+        String directoryPath = url.getPath().substring(0, url.getPath().length()
+                - classFileName.length());
 
         List<String> fileList = new ArrayList<String>();
 
@@ -1672,7 +1672,7 @@ public class FileControlImplTest {
 
         // 前提条件の設定
         String basePath = directoryPath;
-        UTUtil.setPrivateField(fileControl, "basePath", basePath);
+        ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         try {
             // テスト実施
@@ -1751,8 +1751,8 @@ public class FileControlImplTest {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
-        String directoryPath = url.getPath().substring(0,
-                url.getPath().length() - classFileName.length());
+        String directoryPath = url.getPath().substring(0, url.getPath().length()
+                - classFileName.length());
 
         List<String> fileList = new ArrayList<String>();
 
@@ -1786,7 +1786,7 @@ public class FileControlImplTest {
 
         // 前提条件の設定
         String basePath = directoryPath;
-        UTUtil.setPrivateField(fileControl, "basePath", basePath);
+        ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         try {
             // テスト実施
@@ -1864,8 +1864,8 @@ public class FileControlImplTest {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
-        String directoryPath = url.getPath().substring(0,
-                url.getPath().length() - classFileName.length());
+        String directoryPath = url.getPath().substring(0, url.getPath().length()
+                - classFileName.length());
 
         List<String> fileList = new ArrayList<String>();
 
@@ -1899,7 +1899,7 @@ public class FileControlImplTest {
 
         // 前提条件の設定
         String basePath = directoryPath;
-        UTUtil.setPrivateField(fileControl, "basePath", basePath);
+        ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         try {
             // テスト実施
@@ -1972,8 +1972,8 @@ public class FileControlImplTest {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
-        String directoryPath = url.getPath().substring(0,
-                url.getPath().length() - classFileName.length());
+        String directoryPath = url.getPath().substring(0, url.getPath().length()
+                - classFileName.length());
 
         String srcFile = directoryPath + "testRenameFile01_src.txt";
         String newFile = directoryPath + "testRenameFile01_new.txt";
@@ -1989,7 +1989,7 @@ public class FileControlImplTest {
 
         // 前提条件の設定
         String basePath = "";
-        UTUtil.setPrivateField(fileControl, "basePath", basePath);
+        ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         try {
             // テスト実施
@@ -2046,8 +2046,8 @@ public class FileControlImplTest {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
-        String directoryPath = url.getPath().substring(0,
-                url.getPath().length() - classFileName.length());
+        String directoryPath = url.getPath().substring(0, url.getPath().length()
+                - classFileName.length());
 
         String srcFile = "testRenameFile02_src.txt";
         String newFile = "testRenameFile02_new.txt";
@@ -2063,7 +2063,7 @@ public class FileControlImplTest {
 
         // 前提条件の設定
         String basePath = directoryPath;
-        UTUtil.setPrivateField(fileControl, "basePath", basePath);
+        ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         try {
             // テスト実施
@@ -2120,8 +2120,8 @@ public class FileControlImplTest {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
-        String directoryPath = url.getPath().substring(0,
-                url.getPath().length() - classFileName.length());
+        String directoryPath = url.getPath().substring(0, url.getPath().length()
+                - classFileName.length());
 
         String srcFile = directoryPath + "testRenameFile03_src.txt";
         String newFile = directoryPath + "testRenameFile03_new.txt";
@@ -2137,7 +2137,7 @@ public class FileControlImplTest {
 
         // 前提条件の設定
         String basePath = directoryPath;
-        UTUtil.setPrivateField(fileControl, "basePath", basePath);
+        ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         try {
             // テスト実施
@@ -2195,8 +2195,8 @@ public class FileControlImplTest {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
-        String directoryPath = url.getPath().substring(0,
-                url.getPath().length() - classFileName.length());
+        String directoryPath = url.getPath().substring(0, url.getPath().length()
+                - classFileName.length());
 
         String srcFile = "testRenameFile04_src.txt";
         String newFile = "testRenameFile04_new.txt";
@@ -2212,7 +2212,7 @@ public class FileControlImplTest {
 
         // 前提条件の設定
         String basePath = "";
-        UTUtil.setPrivateField(fileControl, "basePath", basePath);
+        ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         try {
             // テスト実施
@@ -2266,8 +2266,8 @@ public class FileControlImplTest {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
-        String directoryPath = url.getPath().substring(0,
-                url.getPath().length() - classFileName.length());
+        String directoryPath = url.getPath().substring(0, url.getPath().length()
+                - classFileName.length());
 
         String srcFile = null;
         String newFile = directoryPath + "testRenameFile05_new.txt";
@@ -2279,7 +2279,7 @@ public class FileControlImplTest {
 
         // 前提条件の設定
         String basePath = "";
-        UTUtil.setPrivateField(fileControl, "basePath", basePath);
+        ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         try {
             // テスト実施
@@ -2330,8 +2330,8 @@ public class FileControlImplTest {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
-        String directoryPath = url.getPath().substring(0,
-                url.getPath().length() - classFileName.length());
+        String directoryPath = url.getPath().substring(0, url.getPath().length()
+                - classFileName.length());
 
         String srcFile = directoryPath + "testRenameFile06_src.txt";
         String newFile = null;
@@ -2343,7 +2343,7 @@ public class FileControlImplTest {
 
         // 前提条件の設定
         String basePath = "";
-        UTUtil.setPrivateField(fileControl, "basePath", basePath);
+        ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         try {
             // テスト実施
@@ -2398,8 +2398,8 @@ public class FileControlImplTest {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
-        String directoryPath = url.getPath().substring(0,
-                url.getPath().length() - classFileName.length());
+        String directoryPath = url.getPath().substring(0, url.getPath().length()
+                - classFileName.length());
 
         String srcFile = "testRenameFile07_src.txt";
         String newFile = directoryPath + "testRenameFile07_new.txt";
@@ -2415,7 +2415,7 @@ public class FileControlImplTest {
 
         // 前提条件の設定
         String basePath = directoryPath;
-        UTUtil.setPrivateField(fileControl, "basePath", basePath);
+        ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         try {
             // テスト実施
@@ -2473,8 +2473,8 @@ public class FileControlImplTest {
         // 引数の設定
         String classFileName = this.getClass().getSimpleName() + ".class";
         URL url = this.getClass().getResource(classFileName);
-        String directoryPath = url.getPath().substring(0,
-                url.getPath().length() - classFileName.length());
+        String directoryPath = url.getPath().substring(0, url.getPath().length()
+                - classFileName.length());
 
         String srcFile = directoryPath + "testRenameFile08_src.txt";
         String newFile = "testRenameFile08_new.txt";
@@ -2490,7 +2490,7 @@ public class FileControlImplTest {
 
         // 前提条件の設定
         String basePath = directoryPath;
-        UTUtil.setPrivateField(fileControl, "basePath", basePath);
+        ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         try {
             // テスト実施
@@ -2544,7 +2544,7 @@ public class FileControlImplTest {
 
         // 前提条件の設定
         String basePath = "aaa";
-        UTUtil.setPrivateField(fileControl, "basePath", basePath);
+        ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         // テスト実施
         String getBasePath = fileControl.getBasePath();
@@ -2580,7 +2580,7 @@ public class FileControlImplTest {
         String basePath = "aaa";
 
         // 前提条件の設定
-        UTUtil.setPrivateField(fileControl, "basePath", "");
+        ReflectionTestUtils.setField(fileControl, "basePath", "");
 
         // テスト実施
         fileControl.setBasePath(basePath);
@@ -2588,7 +2588,8 @@ public class FileControlImplTest {
         // 返却値なし
 
         // 状態変化の確認
-        assertEquals(basePath, UTUtil.getPrivateField(fileControl, "basePath"));
+        assertEquals(basePath, ReflectionTestUtils.getField(fileControl,
+                "basePath"));
     }
 
     /**

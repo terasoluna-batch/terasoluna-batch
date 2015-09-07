@@ -28,8 +28,6 @@ import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 
-import jp.terasoluna.utlib.UTUtil;
-
 import org.apache.commons.validator.Field;
 import org.apache.commons.validator.ValidatorAction;
 import org.apache.commons.validator.ValidatorException;
@@ -39,6 +37,7 @@ import org.junit.Test;
 
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
+import org.springframework.test.util.ReflectionTestUtils;
 
 /**
  * {@link jp.terasoluna.fw.validation.FieldChecks} クラスのブラックボックステスト。
@@ -61,10 +60,10 @@ public class FieldChecksTest06 {
     }
 
     /**
-     * testValidateAlphaNumericString01()
-     * <br><br>
-     *
-     * (正常系)
+     * testValidateAlphaNumericString01() <br>
+     * <br>
+     * (正常系) <br>
+     * 観点：A <br>
      * <br>
      * 入力値：(引数) bean:null<br>
      * (引数) va:not null<br>
@@ -212,12 +211,13 @@ public class FieldChecksTest06 {
         // 呼出確認
         assertEquals(1, errors.addErrorCount);
         // 引数確認
-        ArrayList beanList = (ArrayList) UTUtil.getPrivateField(errors,
+        ArrayList<?> beanList = (ArrayList<?>) ReflectionTestUtils.getField(errors,
                 "beanList");
         assertSame(bean, beanList.get(0));
-        ArrayList vaList = (ArrayList) UTUtil.getPrivateField(errors, "vaList");
+        ArrayList<?> vaList = (ArrayList<?>) ReflectionTestUtils.getField(errors,
+                "vaList");
         assertSame(va, vaList.get(0));
-        ArrayList fieldList = (ArrayList) UTUtil.getPrivateField(errors,
+        ArrayList<?> fieldList = (ArrayList<?>) ReflectionTestUtils.getField(errors,
                 "fieldList");
         assertSame(field, fieldList.get(0));
     }
@@ -374,12 +374,13 @@ public class FieldChecksTest06 {
         // 呼出確認
         assertEquals(1, errors.addErrorCount);
         // 引数確認
-        ArrayList beanList = (ArrayList) UTUtil.getPrivateField(errors,
+        ArrayList<?> beanList = (ArrayList<?>) ReflectionTestUtils.getField(errors,
                 "beanList");
         assertSame(bean, beanList.get(0));
-        ArrayList vaList = (ArrayList) UTUtil.getPrivateField(errors, "vaList");
+        ArrayList<?> vaList = (ArrayList<?>) ReflectionTestUtils.getField(errors,
+                "vaList");
         assertSame(va, vaList.get(0));
-        ArrayList fieldList = (ArrayList) UTUtil.getPrivateField(errors,
+        ArrayList<?> fieldList = (ArrayList<?>) ReflectionTestUtils.getField(errors,
                 "fieldList");
         assertSame(field, fieldList.get(0));
     }
@@ -495,12 +496,13 @@ public class FieldChecksTest06 {
         // 呼出確認
         assertEquals(1, errors.addErrorCount);
         // 引数確認
-        ArrayList beanList = (ArrayList) UTUtil.getPrivateField(errors,
+        ArrayList<?> beanList = (ArrayList<?>) ReflectionTestUtils.getField(errors,
                 "beanList");
         assertSame(bean, beanList.get(0));
-        ArrayList vaList = (ArrayList) UTUtil.getPrivateField(errors, "vaList");
+        ArrayList<?> vaList = (ArrayList<?>) ReflectionTestUtils.getField(errors,
+                "vaList");
         assertSame(va, vaList.get(0));
-        ArrayList fieldList = (ArrayList) UTUtil.getPrivateField(errors,
+        ArrayList<?> fieldList = (ArrayList<?>) ReflectionTestUtils.getField(errors,
                 "fieldList");
         assertSame(field, fieldList.get(0));
     }
@@ -542,12 +544,13 @@ public class FieldChecksTest06 {
         // 呼出確認
         assertEquals(1, errors.addErrorCount);
         // 引数確認
-        ArrayList beanList = (ArrayList) UTUtil.getPrivateField(errors,
+        ArrayList<?> beanList = (ArrayList<?>) ReflectionTestUtils.getField(errors,
                 "beanList");
         assertSame(bean, beanList.get(0));
-        ArrayList vaList = (ArrayList) UTUtil.getPrivateField(errors, "vaList");
+        ArrayList<?> vaList = (ArrayList<?>) ReflectionTestUtils.getField(errors,
+                "vaList");
         assertSame(va, vaList.get(0));
-        ArrayList fieldList = (ArrayList) UTUtil.getPrivateField(errors,
+        ArrayList<?> fieldList = (ArrayList<?>) ReflectionTestUtils.getField(errors,
                 "fieldList");
         assertSame(field, fieldList.get(0));
     }
@@ -884,12 +887,13 @@ public class FieldChecksTest06 {
         // 呼出確認
         assertEquals(1, errors.addErrorCount);
         // 引数確認
-        ArrayList beanList = (ArrayList) UTUtil.getPrivateField(errors,
+        ArrayList<?> beanList = (ArrayList<?>) ReflectionTestUtils.getField(errors,
                 "beanList");
         assertSame(bean, beanList.get(0));
-        ArrayList vaList = (ArrayList) UTUtil.getPrivateField(errors, "vaList");
+        ArrayList<?> vaList = (ArrayList<?>) ReflectionTestUtils.getField(errors,
+                "vaList");
         assertSame(va, vaList.get(0));
-        ArrayList fieldList = (ArrayList) UTUtil.getPrivateField(errors,
+        ArrayList<?> fieldList = (ArrayList<?>) ReflectionTestUtils.getField(errors,
                 "fieldList");
         assertSame(field, fieldList.get(0));
     }
@@ -938,12 +942,13 @@ public class FieldChecksTest06 {
         // 呼出確認
         assertEquals(1, errors.addErrorCount);
         // 引数確認
-        ArrayList beanList = (ArrayList) UTUtil.getPrivateField(errors,
+        ArrayList<?> beanList = (ArrayList<?>) ReflectionTestUtils.getField(errors,
                 "beanList");
         assertSame(bean, beanList.get(0));
-        ArrayList vaList = (ArrayList) UTUtil.getPrivateField(errors, "vaList");
+        ArrayList<?> vaList = (ArrayList<?>) ReflectionTestUtils.getField(errors,
+                "vaList");
         assertSame(va, vaList.get(0));
-        ArrayList fieldList = (ArrayList) UTUtil.getPrivateField(errors,
+        ArrayList<?> fieldList = (ArrayList<?>) ReflectionTestUtils.getField(errors,
                 "fieldList");
         assertSame(field, fieldList.get(0));
     }
@@ -997,12 +1002,13 @@ public class FieldChecksTest06 {
         // 呼出確認
         assertEquals(1, errors.addErrorCount);
         // 引数確認
-        ArrayList beanList = (ArrayList) UTUtil.getPrivateField(errors,
+        ArrayList<?> beanList = (ArrayList<?>) ReflectionTestUtils.getField(errors,
                 "beanList");
         assertSame(bean, beanList.get(0));
-        ArrayList vaList = (ArrayList) UTUtil.getPrivateField(errors, "vaList");
+        ArrayList<?> vaList = (ArrayList<?>) ReflectionTestUtils.getField(errors,
+                "vaList");
         assertSame(va, vaList.get(0));
-        ArrayList fieldList = (ArrayList) UTUtil.getPrivateField(errors,
+        ArrayList<?> fieldList = (ArrayList<?>) ReflectionTestUtils.getField(errors,
                 "fieldList");
         assertSame(field, fieldList.get(0));
     }
@@ -1056,12 +1062,13 @@ public class FieldChecksTest06 {
         // 呼出確認
         assertEquals(1, errors.addErrorCount);
         // 引数確認
-        ArrayList beanList = (ArrayList) UTUtil.getPrivateField(errors,
+        ArrayList<?> beanList = (ArrayList<?>) ReflectionTestUtils.getField(errors,
                 "beanList");
         assertSame(bean, beanList.get(0));
-        ArrayList vaList = (ArrayList) UTUtil.getPrivateField(errors, "vaList");
+        ArrayList<?> vaList = (ArrayList<?>) ReflectionTestUtils.getField(errors,
+                "vaList");
         assertSame(va, vaList.get(0));
-        ArrayList fieldList = (ArrayList) UTUtil.getPrivateField(errors,
+        ArrayList<?> fieldList = (ArrayList<?>) ReflectionTestUtils.getField(errors,
                 "fieldList");
         assertSame(field, fieldList.get(0));
     }

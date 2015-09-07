@@ -17,7 +17,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import jp.terasoluna.fw.file.ut.VMOUTUtil;
-import jp.terasoluna.utlib.UTUtil;
+import org.springframework.test.util.ReflectionTestUtils;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.IntColumnFormatter} クラスのテスト。
@@ -111,7 +111,7 @@ public class IntColumnFormatterTest {
         String columnFormat = new String();
 
         // 前提条件の設定
-        UTUtil.setPrivateField(t, "intValue", 0);
+        ReflectionTestUtils.setField(t, "intValue", 0);
 
         try {
             // テスト実施
@@ -157,7 +157,7 @@ public class IntColumnFormatterTest {
         String columnFormat = new String();
 
         // 前提条件の設定
-        UTUtil.setPrivateField(t, "intValue", 0);
+        ReflectionTestUtils.setField(t, "intValue", 0);
 
         try {
             // テスト実施
@@ -204,7 +204,7 @@ public class IntColumnFormatterTest {
         String columnFormat = new String();
 
         // 前提条件の設定
-        UTUtil.setPrivateField(t, "intValue", 0);
+        ReflectionTestUtils.setField(t, "intValue", 0);
 
         try {
             // テスト実施

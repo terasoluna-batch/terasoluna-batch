@@ -9,17 +9,17 @@ import jp.terasoluna.fw.collector.util.MemoryInfo;
 import jp.terasoluna.fw.ex.unit.testcase.DaoTestCase;
 import jp.terasoluna.fw.file.dao.FileQueryDAO;
 
-import jp.terasoluna.utlib.UTUtil;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.validation.Validator;
 
 public class FileValidateCollector001Test extends DaoTestCase {
     /**
      * Log.
      */
-    private static Log logger = LogFactory
-            .getLog(FileValidateCollector001Test.class);
+    private static Log logger = LogFactory.getLog(
+            FileValidateCollector001Test.class);
 
     private FileQueryDAO csvFileQueryDAO = null;
 
@@ -86,9 +86,8 @@ public class FileValidateCollector001Test extends DaoTestCase {
         // CollectorExceptionHandler exceptionHandler = new CollectorExceptionHandlerStub();
         Validator validator = new ValidatorStub();
 
-        Collector<B000001Data> it = new FileValidateCollector<B000001Data>(
-                this.csvFileQueryDAO, url.getPath(), B000001Data.class,
-                validator);
+        Collector<B000001Data> it = new FileValidateCollector<B000001Data>(this.csvFileQueryDAO, url
+                .getPath(), B000001Data.class, validator);
 
         it.close();
     }
@@ -115,13 +114,13 @@ public class FileValidateCollector001Test extends DaoTestCase {
         // CollectorExceptionHandler exceptionHandler = new CollectorExceptionHandlerStub();
         Validator validator = new ValidatorStub();
 
-        FileCollectorConfig config = new FileCollectorConfig(
-                this.csvFileQueryDAO, url.getFile(), B000001Data.class);
+        FileCollectorConfig config = new FileCollectorConfig(this.csvFileQueryDAO, url
+                .getFile(), B000001Data.class);
         config.setExecuteByConstructor(true);
         Collector<B000001Data> it = null;
         try {
             it = new FileValidateCollector<B000001Data>(config);
-            assertTrue((Boolean) UTUtil.getPrivateField(it, "beginning"));
+            assertTrue((Boolean) ReflectionTestUtils.getField(it, "beginning"));
         } finally {
             it.close();
         }

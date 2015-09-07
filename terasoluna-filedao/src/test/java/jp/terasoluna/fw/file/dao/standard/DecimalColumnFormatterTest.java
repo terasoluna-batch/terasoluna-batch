@@ -23,7 +23,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import jp.terasoluna.fw.file.ut.VMOUTUtil;
-import jp.terasoluna.utlib.UTUtil;
+import org.springframework.test.util.ReflectionTestUtils;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.DecimalColumnFormatter} クラスのテスト。
@@ -431,7 +431,7 @@ public class DecimalColumnFormatterTest {
         String columnFormat = "\\##,###,###.00";
 
         ConcurrentHashMap<String, DecimalFormatLocal> dfMap = new ConcurrentHashMap<String, DecimalFormatLocal>();
-        UTUtil.setPrivateField(decimalColumnFormatter, "dfMap", dfMap);
+        ReflectionTestUtils.setField(decimalColumnFormatter, "dfMap", dfMap);
         dfMap.clear();
 
         // テスト実施
@@ -442,14 +442,13 @@ public class DecimalColumnFormatterTest {
         assertNotNull(result);
         assertEquals("\\1,000,000.00", result);
 
-        assertSame(dfMap, UTUtil.getPrivateField(decimalColumnFormatter,
+        assertSame(dfMap, ReflectionTestUtils.getField(decimalColumnFormatter,
                 "dfMap"));
         assertEquals(1, dfMap.size());
         assertTrue(dfMap.containsKey(columnFormat));
         DecimalFormatLocal dfMapValue = dfMap.get(columnFormat);
         assertNotNull(dfMapValue);
-        assertEquals(columnFormat, UTUtil
-                .getPrivateField(dfMapValue, "pattern"));
+        assertEquals(columnFormat, ReflectionTestUtils.getField(dfMapValue, "pattern"));
 
         assertEquals(1, VMOUTUtil.getCallCount(DecimalFormatLocal.class,
                 "<init>"));
@@ -505,7 +504,7 @@ public class DecimalColumnFormatterTest {
         ConcurrentHashMap<String, DecimalFormatLocal> dfMap = new ConcurrentHashMap<String, DecimalFormatLocal>();
         DecimalFormatLocal dfMapValue = new DecimalFormatLocal(columnFormat);
         dfMap.put(columnFormat, dfMapValue);
-        UTUtil.setPrivateField(decimalColumnFormatter, "dfMap", dfMap);
+        ReflectionTestUtils.setField(decimalColumnFormatter, "dfMap", dfMap);
 
         VMOUTUtil.initialize();
 
@@ -517,7 +516,7 @@ public class DecimalColumnFormatterTest {
         assertNotNull(result);
         assertEquals("\\1,000,000.00", result);
 
-        assertSame(dfMap, UTUtil.getPrivateField(decimalColumnFormatter,
+        assertSame(dfMap, ReflectionTestUtils.getField(decimalColumnFormatter,
                 "dfMap"));
         assertEquals(1, dfMap.size());
         assertTrue(dfMap.containsKey(columnFormat));

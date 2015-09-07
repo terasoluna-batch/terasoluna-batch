@@ -17,11 +17,11 @@
 package jp.terasoluna.fw.validation;
 
 import jp.terasoluna.fw.validation.PropertyTestCase;
-import jp.terasoluna.utlib.UTUtil;
 import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import java.lang.reflect.Field;
 
 /**
  * {@link jp.terasoluna.fw.validation.ValidationUtil} クラスのブラックボックステスト。
@@ -38,11 +38,15 @@ public class ValidationUtilTest01 extends PropertyTestCase {
      */
     @Before
     public void setUpData() throws Exception {
-        UTUtil.setPrivateField(ValidationUtil.class, "hankakuKanaList",
+        Field field = ValidationUtil.class.getDeclaredField("hankakuKanaList");
+        field.setAccessible(true);
+        field.set(ValidationUtil.class,
                 "ｱｲｳｴｵｧｨｩｪｫｶｷｸｹｺｻｼｽｾｿﾀﾁﾂｯﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖｬｭｮﾗﾘﾙﾚﾛﾜｦﾝﾟﾞｰ･､｡｢｣");
-        UTUtil.setPrivateField(ValidationUtil.class, "zenkakuKanaList",
-                "アイウヴエオァィゥェォカキクケコヵヶガギグゲゴサシスセソ" + "ザジズゼゾタチツテトダヂヅデドナニヌネノハヒフヘホ"
-                        + "バビブベボパピプペポマミムメモヤユヨャュョラリルレロ" + "ワヮヰヱヲッンー");
+        field = ValidationUtil.class.getDeclaredField("zenkakuKanaList");
+        field.setAccessible(true);
+        field.set(ValidationUtil.class, "アイウヴエオァィゥェォカキクケコヵヶガギグゲゴサシスセソ"
+                + "ザジズゼゾタチツテトダヂヅデドナニヌネノハヒフヘホ" + "バビブベボパピプペポマミムメモヤユヨャュョラリルレロ"
+                + "ワヮヰヱヲッンー");
     }
 
     /**
@@ -73,10 +77,11 @@ public class ValidationUtilTest01 extends PropertyTestCase {
         ValidationUtil.setHankakuKanaList();
 
         // 判定
+        Field field = ValidationUtil.class.getDeclaredField("hankakuKanaList");
+        field.setAccessible(true);
         assertEquals(
                 "ｱｲｳｴｵｧｨｩｪｫｶｷｸｹｺｻｼｽｾｿﾀﾁﾂｯﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖｬｭｮﾗﾘﾙﾚﾛﾜｦﾝﾟﾞｰ･､｡｢｣",
-                UTUtil.getPrivateField(ValidationUtil.class,
-                        "hankakuKanaList"));
+                field.get(ValidationUtil.class));
     }
 
     /**
@@ -102,8 +107,11 @@ public class ValidationUtilTest01 extends PropertyTestCase {
         ValidationUtil.setHankakuKanaList();
 
         // 判定
-        assertEquals("ｱ", UTUtil.getPrivateField(ValidationUtil.class,
-                "hankakuKanaList"));
+        Field field = ValidationUtil.class.getDeclaredField("hankakuKanaList");
+        field.setAccessible(true);
+        assertEquals(
+                "ｱ",
+                field.get(ValidationUtil.class));
     }
 
     /**
@@ -130,8 +138,11 @@ public class ValidationUtilTest01 extends PropertyTestCase {
         ValidationUtil.setHankakuKanaList();
 
         // 判定
-        assertEquals("", UTUtil.getPrivateField(ValidationUtil.class,
-                "hankakuKanaList"));
+        Field field = ValidationUtil.class.getDeclaredField("hankakuKanaList");
+        field.setAccessible(true);
+        assertEquals(
+                "",
+                field.get(ValidationUtil.class));
     }
 
     /**
@@ -154,10 +165,11 @@ public class ValidationUtilTest01 extends PropertyTestCase {
         ValidationUtil.setZenkakuKanaList();
 
         // 判定
+        Field field = ValidationUtil.class.getDeclaredField("zenkakuKanaList");
+        field.setAccessible(true);
         assertEquals(
                 "アイウヴエオァィゥェォカキクケコヵヶガギグゲゴサシスセソザジズゼゾタチツテトダヂヅデドナニヌネノハヒフヘホバビブベボパピプペポマミムメモヤユヨャュョラリルレロワヮヰヱヲッンー",
-                UTUtil.getPrivateField(ValidationUtil.class,
-                        "zenkakuKanaList"));
+                field.get(ValidationUtil.class));
     }
 
     /**
@@ -183,8 +195,11 @@ public class ValidationUtilTest01 extends PropertyTestCase {
         ValidationUtil.setZenkakuKanaList();
 
         // 判定
-        assertEquals("ア", UTUtil.getPrivateField(ValidationUtil.class,
-                "zenkakuKanaList"));
+        Field field = ValidationUtil.class.getDeclaredField("zenkakuKanaList");
+        field.setAccessible(true);
+        assertEquals(
+                "ア",
+                field.get(ValidationUtil.class));
     }
 
     /**
@@ -211,8 +226,11 @@ public class ValidationUtilTest01 extends PropertyTestCase {
         ValidationUtil.setZenkakuKanaList();
 
         // 判定
-        assertEquals("", UTUtil.getPrivateField(ValidationUtil.class,
-                "zenkakuKanaList"));
+        Field field = ValidationUtil.class.getDeclaredField("zenkakuKanaList");
+        field.setAccessible(true);
+        assertEquals(
+                "",
+                field.get(ValidationUtil.class));
     }
 
     /**

@@ -13,8 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.Test;
-
-import jp.terasoluna.utlib.UTUtil;
+import org.springframework.test.util.ReflectionTestUtils;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.AbstractFileQueryDAO} クラスのテスト。
@@ -58,7 +57,7 @@ public class AbstractFileQueryDAOTest {
         // なし
 
         // 状態変化の確認
-        Object result = UTUtil.getPrivateField(abstractFileQueryDAO,
+        Object result = ReflectionTestUtils.getField(abstractFileQueryDAO,
                 "columnParserMap");
         assertSame(columnParserMap, result);
     }
@@ -86,7 +85,7 @@ public class AbstractFileQueryDAOTest {
 
         // 前提条件の設定
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
-        UTUtil.setPrivateField(abstractFileQueryDAO, "columnParserMap",
+        ReflectionTestUtils.setField(abstractFileQueryDAO, "columnParserMap",
                 columnParserMap);
 
         // テスト実施

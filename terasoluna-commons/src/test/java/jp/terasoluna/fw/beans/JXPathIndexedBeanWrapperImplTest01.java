@@ -32,8 +32,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import jp.terasoluna.utlib.UTUtil;
-
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.commons.beanutils.WrapDynaBean;
@@ -42,6 +40,7 @@ import org.apache.commons.jxpath.JXPathInvalidSyntaxException;
 import uk.org.lidalia.slf4jext.Level;
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
+import org.springframework.test.util.ReflectionTestUtils;
 
 import org.junit.After;
 import org.junit.Test;
@@ -89,7 +88,7 @@ public class JXPathIndexedBeanWrapperImplTest01 {
         JXPathIndexedBeanWrapperImpl bw = new JXPathIndexedBeanWrapperImpl(obj);
 
         // 判定
-        JXPathContext context = (JXPathContext) UTUtil.getPrivateField(bw,
+        JXPathContext context = (JXPathContext) ReflectionTestUtils.getField(bw,
                 "context");
         assertSame(obj, context.getContextBean());
     }
@@ -577,7 +576,6 @@ public class JXPathIndexedBeanWrapperImplTest01 {
         // 前処理
         JXPathIndexedBeanWrapperImpl_JavaBeanStub01 bean = new JXPathIndexedBeanWrapperImpl_JavaBeanStub01();
         bean.setProperty5(new int[] {});
-
         JXPathIndexedBeanWrapperImpl bw = new JXPathIndexedBeanWrapperImpl(bean);
 
         // テスト実施

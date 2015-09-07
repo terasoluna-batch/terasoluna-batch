@@ -19,7 +19,7 @@ import org.junit.Test;
 
 import jp.terasoluna.fw.file.dao.FileLineIterator;
 import jp.terasoluna.fw.file.ut.VMOUTUtil;
-import jp.terasoluna.utlib.UTUtil;
+import org.springframework.test.util.ReflectionTestUtils;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.VariableFileQueryDAO} クラスのテスト。
@@ -61,7 +61,6 @@ public class VariableFileQueryDAOTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testExcecute01() throws Exception {
         // テスト対象のインスタンス化
         VariableFileQueryDAO fileQueryDAO = new VariableFileQueryDAO();
@@ -74,12 +73,11 @@ public class VariableFileQueryDAOTest {
         // 前提条件の設定
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
-        UTUtil
-                .setPrivateField(fileQueryDAO, "columnParserMap",
+        ReflectionTestUtils.setField(fileQueryDAO, "columnParserMap",
                         columnParserMap);
 
         // テスト実施
-        FileLineIterator fileLineIterator = fileQueryDAO.execute(fileName,
+        FileLineIterator<VariableFileQueryDAO_Stub01> fileLineIterator = fileQueryDAO.execute(fileName,
                 VariableFileQueryDAO_Stub01.class);
 
         // 返却値の確認
@@ -87,7 +85,7 @@ public class VariableFileQueryDAOTest {
                 .getClass());
 
         // 状態変化の確認
-        List arguments = VMOUTUtil.getArguments(VariableFileLineIterator.class,
+        List<?> arguments = VMOUTUtil.getArguments(VariableFileLineIterator.class,
                 "<init>", 0);
         assertEquals(fileName, arguments.get(0));
         assertEquals(clazz, arguments.get(1));

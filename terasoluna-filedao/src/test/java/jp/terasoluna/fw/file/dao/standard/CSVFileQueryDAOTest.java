@@ -20,7 +20,7 @@ import org.junit.Test;
 
 import jp.terasoluna.fw.file.dao.FileLineIterator;
 import jp.terasoluna.fw.file.ut.VMOUTUtil;
-import jp.terasoluna.utlib.UTUtil;
+import org.springframework.test.util.ReflectionTestUtils;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.CSVFileQueryDAO} クラスのテスト。
@@ -47,7 +47,7 @@ public class CSVFileQueryDAOTest {
      * 観点：E.F <br>
      * <br>
      * 入力値：(引数) fileName:CSVFleQueryDAO01.txt<br>
-     * 　データを持たないファイルのパス<br>
+     * データを持たないファイルのパス<br>
      * (引数) clazz:FileFormatアノテーションを持つスタブを使用<br>
      * CSVFileQueryDAO_Stub01<br>
      * (状態) FileQueryDAO.columnParserMap:以下の設定を持つHashMapのインスタンス<br>
@@ -81,7 +81,8 @@ public class CSVFileQueryDAOTest {
         Map<String, ColumnParser> columnParser = new HashMap<String, ColumnParser>();
         ColumnParser parser = new CSVFileQueryDAO_ColumnParserStub01();
         columnParser.put("java.lang.String", parser);
-        UTUtil.setPrivateField(fileQueryDAO, "columnParserMap", columnParser);
+        ReflectionTestUtils.setField(fileQueryDAO, "columnParserMap",
+                columnParser);
 
         // テスト実施
         FileLineIterator fileLineIterator = fileQueryDAO.execute(fileName,

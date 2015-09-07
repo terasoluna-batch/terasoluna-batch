@@ -19,7 +19,7 @@ import org.junit.Test;
 
 import jp.terasoluna.fw.file.dao.FileLineWriter;
 import jp.terasoluna.fw.file.ut.VMOUTUtil;
-import jp.terasoluna.utlib.UTUtil;
+import org.springframework.test.util.ReflectionTestUtils;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.VariableFileUpdateDAO} クラスのテスト。
@@ -47,9 +47,9 @@ public class VariableFileUpdateDAOTest {
      * 観点：E <br>
      * <br>
      * 入力値：(引数) fileName:VariableFileUpdateDAO_execute01.txt<br>
-     * 　データを持たないファイルのパス<br>
+     * データを持たないファイルのパス<br>
      * (引数) clazz:VariableFileUpdateDAO_Stub01<br>
-     * 　空実装<br>
+     * 空実装<br>
      * (状態) AbstractFileUpdateDAO.columnFormatterMap:以下の要素を持つMap<String, ColumnFormatter>インスタンス<br>
      * ・"java.lang.String"=NullColumnFormatterインスタンス<br>
      * <br>
@@ -62,7 +62,6 @@ public class VariableFileUpdateDAOTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testExecute01() throws Exception {
         // テスト対象のインスタンス化
         VariableFileUpdateDAO fileUpdateDAO = new VariableFileUpdateDAO();
@@ -75,17 +74,17 @@ public class VariableFileUpdateDAOTest {
         // 前提条件の設定
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
-        UTUtil.setPrivateField(fileUpdateDAO, "columnFormatterMap",
+        ReflectionTestUtils.setField(fileUpdateDAO, "columnFormatterMap",
                 columnFormatterMap);
 
         // テスト実施
-        FileLineWriter fileLineWriter = fileUpdateDAO.execute(fileName, clazz);
+        FileLineWriter<VariableFileUpdateDAO_Stub01> fileLineWriter = fileUpdateDAO.execute(fileName, clazz);
 
         // 返却値の確認
         assertEquals(VariableFileLineWriter.class, fileLineWriter.getClass());
 
         // 状態変化の確認
-        List arguments = VMOUTUtil.getArguments(VariableFileLineWriter.class,
+        List<?> arguments = VMOUTUtil.getArguments(VariableFileLineWriter.class,
                 "<init>", 0);
         assertEquals(fileName, arguments.get(0));
         assertEquals(clazz, arguments.get(1));

@@ -16,6 +16,10 @@
 
 package jp.terasoluna.fw.util;
 
+import java.io.File;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.HashSet;
@@ -26,7 +30,6 @@ import java.util.StringTokenizer;
 import java.util.Vector;
 
 import jp.terasoluna.fw.util.PropertyTestCase;
-import jp.terasoluna.utlib.UTUtil;
 import uk.org.lidalia.slf4jext.Level;
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
@@ -37,6 +40,7 @@ import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.test.util.ReflectionTestUtils;
 
 /**
  * PropertyUtil ブラックボックステスト。<br>
@@ -120,7 +124,9 @@ public class PropertyUtilTest extends PropertyTestCase {
 
         // 結果確認
         // PropertyUtilクラスのfilesフィールドにファイル名が含まれていること
-        Set st = (Set) UTUtil.getPrivateField(PropertyUtil.class, "files");
+        Field field = PropertyUtil.class.getDeclaredField("files");
+        field.setAccessible(true);
+        Set st = (Set) field.get(PropertyUtil.class);
         assertTrue(st.contains("system.properties"));
     }
 
@@ -142,7 +148,9 @@ public class PropertyUtilTest extends PropertyTestCase {
 
         // 結果確認
         // PropertyUtilクラスのfilesフィールドにファイル名が含まれていること
-        Set st = (Set) UTUtil.getPrivateField(PropertyUtil.class, "files");
+        Field field = PropertyUtil.class.getDeclaredField("files");
+        field.setAccessible(true);
+        Set st = (Set) field.get(PropertyUtil.class);
         assertTrue(st.contains("system.properties"));
     }
 
@@ -164,7 +172,9 @@ public class PropertyUtilTest extends PropertyTestCase {
 
         // 結果の確認
         // PropertyUtilクラスのfilesフィールドにファイル名が含まれていないこと
-        Set st = (Set) UTUtil.getPrivateField(PropertyUtil.class, "files");
+        Field field = PropertyUtil.class.getDeclaredField("files");
+        field.setAccessible(true);
+        Set st = (Set) field.get(PropertyUtil.class);
         assertFalse(st.contains("xxxxx.properties"));
     }
 
@@ -208,7 +218,9 @@ public class PropertyUtilTest extends PropertyTestCase {
 
         // 結果の確認
         // PropertyUtilクラスのfilesフィールドにファイル名が含まれていないこと
-        Set st = (Set) UTUtil.getPrivateField(PropertyUtil.class, "files");
+        Field field = PropertyUtil.class.getDeclaredField("files");
+        field.setAccessible(true);
+        Set st = (Set) field.get(PropertyUtil.class);
         assertFalse(st.contains(".properties"));
     }
 
@@ -230,7 +242,9 @@ public class PropertyUtilTest extends PropertyTestCase {
         PropertyUtil.addPropertyFile(input);
         // 結果確認
         // PropertyUtilクラスのfilesフィールドにファイル名が含まれていること
-        Set st = (Set) UTUtil.getPrivateField(PropertyUtil.class, "files");
+        Field field = PropertyUtil.class.getDeclaredField("files");
+        field.setAccessible(true);
+        Set st = (Set) field.get(PropertyUtil.class);
         assertTrue(st.contains("system.properties"));
         assertTrue(st.size() == 1);
     }
@@ -848,12 +862,15 @@ public class PropertyUtilTest extends PropertyTestCase {
         String input1 = "";
 
         // テスト対象の実行
-        Enumeration actualEnum = PropertyUtil.getPropertyNames(input1);
+        Enumeration<String> actualEnum = PropertyUtil.getPropertyNames(input1);
 
         // 結果確認
-        Map expectedProps = (Map) UTUtil.getPrivateField(PropertyUtil.class,
-                "props");
-        Enumeration expectedEnum = Collections.enumeration(expectedProps
+        Field field = PropertyUtil.class.getDeclaredField("props");
+        field.setAccessible(true);
+        Map<String, String> expectedProps = (Map<String, String>) field.get(
+                PropertyUtil.class);
+
+        Enumeration<String> expectedEnum = Collections.enumeration(expectedProps
                 .keySet());
         while (expectedEnum.hasMoreElements()) {
             String actualStr = (String) actualEnum.nextElement();
@@ -1864,8 +1881,10 @@ public class PropertyUtilTest extends PropertyTestCase {
         Object[] obj = new Object[] { "subDir/PropertyUtil.class", "hoge.txt" };
 
         // テスト実行
-        Object retObj = UTUtil.invokePrivate(PropertyUtil.class,
-                "getPropertiesPath", clz, obj);
+        Method method = PropertyUtil.class.getDeclaredMethod(
+                "getPropertiesPath", clz);
+        method.setAccessible(true);
+        Object retObj = method.invoke(PropertyUtil.class, obj);
 
         // テスト結果
         assertEquals("subDir" + System.getProperty("file.separator")
@@ -1894,12 +1913,15 @@ public class PropertyUtilTest extends PropertyTestCase {
 
         // テスト実行
         try {
-            UTUtil.invokePrivate(PropertyUtil.class, "getPropertiesPath", clz,
-                    obj);
+            Method method = PropertyUtil.class.getDeclaredMethod(
+                    "getPropertiesPath", clz);
+            method.setAccessible(true);
+            method.invoke(PropertyUtil.class, obj);
             fail();
+        } catch (InvocationTargetException e) {
+            assertTrue(e.getTargetException() instanceof NullPointerException);
         } catch (NullPointerException e) {
-            // テスト結果
-            return;
+            fail();
         }
     }
 
@@ -1924,8 +1946,10 @@ public class PropertyUtilTest extends PropertyTestCase {
         Object[] obj = new Object[] { "subDir/PropertyUtil.class", null };
 
         // テスト実行
-        Object retObj = UTUtil.invokePrivate(PropertyUtil.class,
-                "getPropertiesPath", clz, obj);
+        Method method = PropertyUtil.class.getDeclaredMethod(
+                "getPropertiesPath", clz);
+        method.setAccessible(true);
+        Object retObj = method.invoke(PropertyUtil.class, obj);
 
         // テスト結果
         assertEquals("subDir" + System.getProperty("file.separator") + "null",
@@ -1953,8 +1977,10 @@ public class PropertyUtilTest extends PropertyTestCase {
         Object[] obj = new Object[] { "", "" };
 
         // テスト実行
-        Object retObj = UTUtil.invokePrivate(PropertyUtil.class,
-                "getPropertiesPath", clz, obj);
+        Method method = PropertyUtil.class.getDeclaredMethod(
+                "getPropertiesPath", clz);
+        method.setAccessible(true);
+        Object retObj = method.invoke(PropertyUtil.class, obj);
 
         // テスト結果
         assertEquals("", retObj);

@@ -16,8 +16,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import org.junit.Test;
-
-import jp.terasoluna.utlib.UTUtil;
+import org.springframework.test.util.ReflectionTestUtils;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.NullColumnParser} クラスのテスト。
@@ -70,7 +69,7 @@ public class NullColumnParserTest {
         // なし
 
         // 状態変化の確認
-        Object result = UTUtil.getPrivateField(t, "a");
+        Object result = ReflectionTestUtils.getField(t, "a");
         assertSame(column, result);
     }
 
@@ -260,7 +259,7 @@ public class NullColumnParserTest {
         // なし
 
         // 状態変化の確認
-        Object result = UTUtil.getPrivateField(t, "a");
+        Object result = ReflectionTestUtils.getField(t, "a");
         assertNull(result);
     }
 
@@ -305,7 +304,7 @@ public class NullColumnParserTest {
         // なし
 
         // 状態変化の確認
-        Object result = UTUtil.getPrivateField(t, "a");
+        Object result = ReflectionTestUtils.getField(t, "a");
         assertSame(column, result);
     }
 }

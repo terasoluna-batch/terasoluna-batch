@@ -19,7 +19,7 @@ import org.junit.Test;
 
 import jp.terasoluna.fw.file.dao.FileLineWriter;
 import jp.terasoluna.fw.file.ut.VMOUTUtil;
-import jp.terasoluna.utlib.UTUtil;
+import org.springframework.test.util.ReflectionTestUtils;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.PlainFileUpdateDAO} クラスのテスト。
@@ -54,7 +54,6 @@ public class PlainFileUpdateDAOTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testExecute01() throws Exception {
         // テスト対象のインスタンス化
         PlainFileUpdateDAO fileUpdateDAO = new PlainFileUpdateDAO();
@@ -67,11 +66,11 @@ public class PlainFileUpdateDAOTest {
         // 前提条件の設定
         Map<String, ColumnFormatter> columnFormatterMap = new HashMap<String, ColumnFormatter>();
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
-        UTUtil.setPrivateField(fileUpdateDAO, "columnFormatterMap",
+        ReflectionTestUtils.setField(fileUpdateDAO, "columnFormatterMap",
                 columnFormatterMap);
 
         // テスト実施
-        FileLineWriter fileLineWriter = fileUpdateDAO.execute(fileName, clazz);
+        FileLineWriter<PlainFileUpdateDAO_Stub01> fileLineWriter = fileUpdateDAO.execute(fileName, clazz);
 
         // 返却値の確認
         assertEquals(PlainFileLineWriter.class, fileLineWriter.getClass());
@@ -79,7 +78,7 @@ public class PlainFileUpdateDAOTest {
         // 状態変化の確認
         assertEquals(1, VMOUTUtil.getCallCount(PlainFileLineWriter.class,
                 "<init>"));
-        List arguments = VMOUTUtil.getArguments(PlainFileLineWriter.class,
+        List<?> arguments = VMOUTUtil.getArguments(PlainFileLineWriter.class,
                 "<init>", 0);
         assertSame(fileName, arguments.get(0));
         assertSame(clazz, arguments.get(1));

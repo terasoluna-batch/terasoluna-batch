@@ -20,12 +20,12 @@ import java.util.Map;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.test.util.ReflectionTestUtils;
 
 import jp.terasoluna.fw.file.annotation.InputFileColumn;
 import jp.terasoluna.fw.file.annotation.NullStringConverter;
 import jp.terasoluna.fw.file.dao.FileException;
 import jp.terasoluna.fw.file.ut.VMOUTUtil;
-import jp.terasoluna.utlib.UTUtil;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.FixedFileLineIterator} クラスのテスト。
@@ -614,7 +614,7 @@ public class FixedFileLineIteratorTest {
         String fileLineString = "12345";
 
         // 前提条件の設定
-        UTUtil.setPrivateField(lineIterator, "fileEncoding", "aaa");
+        ReflectionTestUtils.setField(lineIterator, "fileEncoding", "aaa");
 
         // テスト実施
         try {
@@ -1029,25 +1029,24 @@ public class FixedFileLineIteratorTest {
         // アノテーションにアクセスしていないことになる。
         char[] charArray = new char[] { 0, 0, 0, 0 };
         // 前提条件
-        UTUtil.setPrivateField(fileLineIterator, "lineFeedChar", "\r\n");
-        UTUtil.setPrivateField(fileLineIterator, "inputFileColumns", null);
-        UTUtil.setPrivateField(fileLineIterator, "columnFormats", new String[] {
+        ReflectionTestUtils.setField(fileLineIterator, "lineFeedChar", "\r\n");
+        ReflectionTestUtils.setField(fileLineIterator, "inputFileColumns", null);
+        ReflectionTestUtils.setField(fileLineIterator, "columnFormats", new String[] {
                 "", "", "", "" });
-        UTUtil.setPrivateField(fileLineIterator, "columnBytes", new int[] { 4,
+        ReflectionTestUtils.setField(fileLineIterator, "columnBytes", new int[] { 4,
                 3, 4, 6 });
-        UTUtil.setPrivateField(fileLineIterator, "totalBytes", 17);
+        ReflectionTestUtils.setField(fileLineIterator, "totalBytes", 17);
 
-        UTUtil.setPrivateField(fileLineIterator, "trimChars", charArray);
-        UTUtil
-                .setPrivateField(fileLineIterator, "columnEncloseChar",
+        ReflectionTestUtils.setField(fileLineIterator, "trimChars", charArray);
+        ReflectionTestUtils.setField(fileLineIterator, "columnEncloseChar",
                         charArray);
-        UTUtil.setPrivateField(fileLineIterator, "stringConverters",
+        ReflectionTestUtils.setField(fileLineIterator, "stringConverters",
                 new NullStringConverter[] { new NullStringConverter(),
                         new NullStringConverter(), new NullStringConverter(),
                         new NullStringConverter() });
-        LineReader reader = (LineReader) UTUtil.getPrivateField(
+        LineReader reader = (LineReader) ReflectionTestUtils.getField(
                 fileLineIterator, "lineReader");
-        UTUtil.setPrivateField(reader, "lineFeedChar", "\r\n");
+        ReflectionTestUtils.setField(reader, "lineFeedChar", "\r\n");
 
         // テスト実施
         CSVFileLine_Stub04 result1 = fileLineIterator.next();

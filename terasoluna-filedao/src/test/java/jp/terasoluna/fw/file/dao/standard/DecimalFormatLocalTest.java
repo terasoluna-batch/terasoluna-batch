@@ -17,7 +17,7 @@ import java.text.DecimalFormat;
 
 import org.junit.Test;
 
-import jp.terasoluna.utlib.UTUtil;
+import org.springframework.test.util.ReflectionTestUtils;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.DecimalFormatLocal} クラスのテスト。
@@ -52,7 +52,7 @@ public class DecimalFormatLocalTest {
 
         // 判定
         assertNotNull(decimalFormatLocal);
-        assertSame(pattern, UTUtil.getPrivateField(decimalFormatLocal,
+        assertSame(pattern, ReflectionTestUtils.getField(decimalFormatLocal,
                 "pattern"));
     }
 
@@ -75,7 +75,7 @@ public class DecimalFormatLocalTest {
         DecimalFormatLocal decimalFormatLocal = new DecimalFormatLocal(null);
 
         // 前処理(状態)
-        UTUtil.setPrivateField(decimalFormatLocal, "pattern", null);
+        ReflectionTestUtils.setField(decimalFormatLocal, "pattern", null);
 
         try {
             // テスト実施
@@ -106,7 +106,7 @@ public class DecimalFormatLocalTest {
         String pattern = "-\\#,##0.##";
 
         // 前処理(状態)
-        UTUtil.setPrivateField(decimalFormatLocal, "pattern", pattern);
+        ReflectionTestUtils.setField(decimalFormatLocal, "pattern", pattern);
 
         // テスト実施
         DecimalFormat result = decimalFormatLocal.initialValue();

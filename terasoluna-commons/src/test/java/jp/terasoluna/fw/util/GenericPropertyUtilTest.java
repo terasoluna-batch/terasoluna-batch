@@ -27,8 +27,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import jp.terasoluna.utlib.UTUtil;
-
 import org.apache.commons.beanutils.BeanUtilsBean;
 import org.apache.commons.beanutils.PropertyUtilsBean;
 import uk.org.lidalia.slf4jtest.TestLogger;
@@ -40,6 +38,8 @@ import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import org.springframework.test.util.ReflectionTestUtils;
 
 /**
  * {@link jp.terasoluna.fw.GenericPropertyUtil} クラスのテスト。
@@ -74,7 +74,7 @@ public class GenericPropertyUtilTest {
     @After
     public void tearDown() throws Exception {
         BeanUtilsBean beanUtilsBean = BeanUtilsBean.getInstance();
-        UTUtil.setPrivateField(beanUtilsBean, "propertyUtilsBean",
+        ReflectionTestUtils.setField(beanUtilsBean, "propertyUtilsBean",
                 defaultPropertyUtilsBean);
         logger.clear();
     }
@@ -229,11 +229,10 @@ public class GenericPropertyUtilTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testResolveCollectionType06() throws Exception {
 
         // テスト実施
-        Class actual = GenericPropertyUtil.resolveCollectionType(
+        Class<?> actual = GenericPropertyUtil.resolveCollectionType(
                 new GenericPropertyUtil_Stub01(), "list1");
 
         // 判定
@@ -255,10 +254,9 @@ public class GenericPropertyUtilTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testResolveCollectionType07() throws Exception {
         // テスト実施
-        Class actual = GenericPropertyUtil.resolveCollectionType(
+        Class<?> actual = GenericPropertyUtil.resolveCollectionType(
                 new GenericPropertyUtil_Stub01(), "list2");
 
         // 判定
@@ -280,10 +278,9 @@ public class GenericPropertyUtilTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testResolveCollectionType08() throws Exception {
         // テスト実施
-        Class actual = GenericPropertyUtil.resolveCollectionType(
+        Class<?> actual = GenericPropertyUtil.resolveCollectionType(
                 new GenericPropertyUtil_Stub01(), "list3");
 
         // 判定
@@ -305,7 +302,6 @@ public class GenericPropertyUtilTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testResolveCollectionType09() throws Exception {
         try {
             // テスト実施
@@ -334,7 +330,6 @@ public class GenericPropertyUtilTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testResolveCollectionType10() throws Exception {
         try {
             // テスト実施
@@ -363,10 +358,9 @@ public class GenericPropertyUtilTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testResolveCollectionType11() throws Exception {
         // テスト実施
-        Class actual = GenericPropertyUtil.resolveCollectionType(
+        Class<?> actual = GenericPropertyUtil.resolveCollectionType(
                 new GenericPropertyUtil_Stub01(), "list5");
         // 判定
         assertEquals(Object.class, actual);
@@ -581,11 +575,10 @@ public class GenericPropertyUtilTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testResolveTypeObjectStringClassint07() throws Exception {
 
         // テスト実施
-        Class actual = GenericPropertyUtil.resolveType(
+        Class<?> actual = GenericPropertyUtil.resolveType(
                 new GenericPropertyUtil_Stub01(), "map1", Map.class, 0);
 
         // 判定
@@ -609,10 +602,9 @@ public class GenericPropertyUtilTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testResolveTypeObjectStringClassint08() throws Exception {
         // テスト実施
-        Class actual = GenericPropertyUtil.resolveType(
+        Class<?> actual = GenericPropertyUtil.resolveType(
                 new GenericPropertyUtil_Stub01(), "map1", Map.class, 0);
 
         // 判定
@@ -696,11 +688,10 @@ public class GenericPropertyUtilTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testResolveTypeObjectStringClassint11() throws Exception {
 
         // テスト実施
-        Class actual = GenericPropertyUtil.resolveType(
+        Class<?> actual = GenericPropertyUtil.resolveType(
                 new GenericPropertyUtil_Stub01(), "map2", Map.class, 0);
 
         // 判定
@@ -724,10 +715,9 @@ public class GenericPropertyUtilTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testResolveTypeObjectStringClassint12() throws Exception {
         // テスト実施
-        Class actual = GenericPropertyUtil.resolveType(
+        Class<?> actual = GenericPropertyUtil.resolveType(
                 new GenericPropertyUtil_Stub01(), "map2", Map.class, 1);
 
         // 判定
@@ -751,7 +741,6 @@ public class GenericPropertyUtilTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testResolveTypeObjectStringClassint13() throws Exception {
         try {
             // テスト実施
@@ -783,7 +772,6 @@ public class GenericPropertyUtilTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testResolveTypeObjectStringClassint14() throws Exception {
         try {
             // テスト実施
@@ -816,7 +804,6 @@ public class GenericPropertyUtilTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testResolveTypeObjectStringClassint15() throws Exception {
         try {
             // テスト実施
@@ -848,10 +835,9 @@ public class GenericPropertyUtilTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testResolveTypeObjectStringClassint16() throws Exception {
         // テスト実施
-        Class actual = GenericPropertyUtil.resolveType(
+        Class<?> actual = GenericPropertyUtil.resolveType(
                 new GenericPropertyUtil_Stub01(), "map3", Map.class, 0);
 
         // 判定
@@ -1045,7 +1031,7 @@ public class GenericPropertyUtilTest {
     public void testGetMethod06() throws Exception {
         // 前処理
         BeanUtilsBean beanUtilsBean = BeanUtilsBean.getInstance();
-        UTUtil.setPrivateField(beanUtilsBean, "propertyUtilsBean",
+        ReflectionTestUtils.setField(beanUtilsBean, "propertyUtilsBean",
                 new GenericPropertyUtil_PropertyUtilsBeanStub01());
         try {
 
@@ -1081,11 +1067,10 @@ public class GenericPropertyUtilTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testResolveTypeClassClassTypeint01() throws Exception {
         try {
             // テスト実施
-            GenericPropertyUtil.resolveType((Class) null, (Class) null, null,
+            GenericPropertyUtil.resolveType((Class<?>) null, (Class<?>) null, null,
                     0);
             // 判定
             fail("例外がスローされませんでした。");
@@ -1115,11 +1100,10 @@ public class GenericPropertyUtilTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testResolveTypeClassClassTypeint02() throws Exception {
         try {
             // テスト実施
-            GenericPropertyUtil.resolveType(List.class, (Class) null, null, 0);
+            GenericPropertyUtil.resolveType(List.class, (Class<?>) null, null, 0);
             // 判定
             fail("例外がスローされませんでした。");
         } catch (IllegalStateException e) {
@@ -1214,10 +1198,9 @@ public class GenericPropertyUtilTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testResolveTypeClassClassTypeint05() throws Exception {
         // テスト実施
-        Class actual = GenericPropertyUtil.resolveType(List.class,
+        Class<?> actual = GenericPropertyUtil.resolveType(List.class,
                 GenericPropertyUtil_ArrayListStub01.class, null, 0);
         // 判定
         assertEquals(String.class, actual);
@@ -1278,10 +1261,9 @@ public class GenericPropertyUtilTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testResolveTypeClassClassTypeint07() throws Exception {
         // テスト実施
-        Class actual = GenericPropertyUtil.resolveType(List.class,
+        Class<?> actual = GenericPropertyUtil.resolveType(List.class,
                 ArrayList.class, List.class, 0);
         // 判定
         assertEquals(Object.class, actual);
@@ -1310,7 +1292,6 @@ public class GenericPropertyUtilTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testResolveTypeClassClassTypeint08() throws Exception {
         // 前処理
         Method method = GenericPropertyUtil_Stub01.class.getMethod("getList1",
@@ -1318,7 +1299,7 @@ public class GenericPropertyUtilTest {
         Type type = method.getGenericReturnType();
 
         // テスト実施
-        Class actual = GenericPropertyUtil.resolveType(List.class, List.class,
+        Class<?> actual = GenericPropertyUtil.resolveType(List.class, List.class,
                 type, 0);
         // 判定
         assertEquals(String.class, actual);

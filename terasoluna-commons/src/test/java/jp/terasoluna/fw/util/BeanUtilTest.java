@@ -25,12 +25,11 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
 
-import jp.terasoluna.utlib.UTUtil;
-
 import org.apache.commons.beanutils.DynaBean;
 import org.apache.commons.beanutils.DynaProperty;
 import org.apache.commons.beanutils.NestedNullException;
 import org.junit.Test;
+import org.springframework.test.util.ReflectionTestUtils;
 
 /**
  * {@link jp.terasoluna.fw.util.BeanUtil} クラスの ブラックボックステスト。
@@ -39,7 +38,6 @@ import org.junit.Test;
  * <p>
  * @see jp.terasoluna.fw.util.BeanUtil
  */
-@SuppressWarnings("unused")
 public class BeanUtilTest {
 
     /**
@@ -188,7 +186,7 @@ public class BeanUtilTest {
         BeanUtil.setBeanProperty(bean, "param2", "PARAM2");
 
         // テスト結果確認
-        assertEquals("PARAM2", UTUtil.getPrivateField(bean, "param2"));
+        assertEquals("PARAM2", ReflectionTestUtils.getField(bean, "param2"));
     }
 
     /**
@@ -216,7 +214,7 @@ public class BeanUtilTest {
         BeanUtil.setBeanProperty(bean, "param2", null);
 
         // テスト結果確認
-        assertNull(UTUtil.getPrivateField(bean, "param2"));
+        assertNull(ReflectionTestUtils.getField(bean, "param2"));
     }
 
     /**
@@ -478,7 +476,8 @@ public class BeanUtilTest {
             fail();
         } catch (PropertyAccessException e) {
             // テスト結果確認
-            assertSame(InvocationTargetException.class, e.getCause().getClass());
+            assertSame(InvocationTargetException.class, e.getCause()
+                    .getClass());
         }
     }
 
@@ -631,7 +630,7 @@ public class BeanUtilTest {
     @Test
     public void testGetBeanPropertyType07() throws Exception {
         // テスト用JavaBean生成
-        Map map = new HashMap();
+        Map<?, ?> map = new HashMap();
 
         // テスト実行
         try {
@@ -691,8 +690,7 @@ public class BeanUtilTest {
     @Test
     public void testGetBeanPropertyType09() throws Exception {
         // 前処理
-        DynaProperty dynaProperty = new DynaProperty("testArray",
-                String[].class);
+        DynaProperty dynaProperty = new DynaProperty("testArray", String[].class);
         BeanUtil_DynaClassImpl01 dynaClass = new BeanUtil_DynaClassImpl01();
         dynaClass.setDynaProperty(dynaProperty);
         DynaBean bean = new BeanUtil_DynaBeanImpl01(dynaClass);

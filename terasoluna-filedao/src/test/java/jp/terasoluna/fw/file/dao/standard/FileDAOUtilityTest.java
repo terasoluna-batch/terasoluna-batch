@@ -14,6 +14,9 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.io.UnsupportedEncodingException;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -21,10 +24,9 @@ import jp.terasoluna.fw.file.annotation.PaddingType;
 import jp.terasoluna.fw.file.annotation.TrimType;
 import jp.terasoluna.fw.file.dao.FileException;
 import jp.terasoluna.fw.file.ut.VMOUTUtil;
-import jp.terasoluna.utlib.UTUtil;
-
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.test.util.ReflectionTestUtils;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.FileDAOUtility} クラスのテスト。
@@ -1790,14 +1792,17 @@ public class FileDAOUtilityTest {
         char checkChar = ',';
 
         // 前処理(状態)
-        Map<String, Map<Character, Boolean>> encodingCache = (Map<String, Map<Character, Boolean>>) UTUtil
-                .getPrivateField(FileDAOUtility.class, "encodingCache");
+        Field field = FileDAOUtility.class.getDeclaredField("encodingCache");
+        field.setAccessible(true);
+        Map<String, Map<Character, Boolean>> encodingCache =
+                (Map<String, Map<Character, Boolean>>) field.get(FileDAOUtility.class); 
         encodingCache.clear();
 
         // テスト実施
-        Object result = UTUtil.invokePrivate(FileDAOUtility.class,
-                "isHalfWidthChar", new Class[] { String.class, char.class },
-                new Object[] { fileEncoding, checkChar });
+        Method method = FileDAOUtility.class.getDeclaredMethod("isHalfWidthChar", new Class[] {
+                String.class, char.class });
+        method.setAccessible(true);
+        Object result = method.invoke(FileDAOUtility.class, new Object[] { fileEncoding, checkChar });
 
         // 判定
         assertTrue(Boolean.class.cast(result));
@@ -1855,8 +1860,10 @@ public class FileDAOUtilityTest {
         char checkChar = ',';
 
         // 前処理(状態)
-        Map<String, Map<Character, Boolean>> encodingCache = (Map<String, Map<Character, Boolean>>) UTUtil
-                .getPrivateField(FileDAOUtility.class, "encodingCache");
+        Field field = FileDAOUtility.class.getDeclaredField("encodingCache");
+        field.setAccessible(true);
+        Map<String, Map<Character, Boolean>> encodingCache =
+                (Map<String, Map<Character, Boolean>>) field.get(FileDAOUtility.class); 
         encodingCache.clear();
 
         Map<Character, Boolean> inputEncodingCache = new ConcurrentHashMap<Character, Boolean>();
@@ -1867,9 +1874,10 @@ public class FileDAOUtilityTest {
         VMOUTUtil.initialize();
 
         // テスト実施
-        Object result = UTUtil.invokePrivate(FileDAOUtility.class,
-                "isHalfWidthChar", new Class[] { String.class, char.class },
-                new Object[] { fileEncoding, checkChar });
+        Method method = FileDAOUtility.class.getDeclaredMethod("isHalfWidthChar", new Class[] {
+                String.class, char.class });
+        method.setAccessible(true);
+        Object result = method.invoke(FileDAOUtility.class, new Object[] { fileEncoding, checkChar });
 
         // 判定(戻り値)
         assertTrue(Boolean.class.cast(result));
@@ -1929,8 +1937,10 @@ public class FileDAOUtilityTest {
         char checkChar = ',';
 
         // 前処理(状態)
-        Map<String, Map<Character, Boolean>> encodingCache = (Map<String, Map<Character, Boolean>>) UTUtil
-                .getPrivateField(FileDAOUtility.class, "encodingCache");
+        Field field = FileDAOUtility.class.getDeclaredField("encodingCache");
+        field.setAccessible(true);
+        Map<String, Map<Character, Boolean>> encodingCache =
+                (Map<String, Map<Character, Boolean>>) field.get(FileDAOUtility.class); 
         encodingCache.clear();
 
         Map<Character, Boolean> inputEncodingCache = new ConcurrentHashMap<Character, Boolean>();
@@ -1940,9 +1950,10 @@ public class FileDAOUtilityTest {
 
         VMOUTUtil.initialize();
         // テスト実施
-        Object result = UTUtil.invokePrivate(FileDAOUtility.class,
-                "isHalfWidthChar", new Class[] { String.class, char.class },
-                new Object[] { fileEncoding, checkChar });
+        Method method = FileDAOUtility.class.getDeclaredMethod("isHalfWidthChar", new Class[] {
+                String.class, char.class });
+        method.setAccessible(true);
+        Object result = method.invoke(FileDAOUtility.class, new Object[] { fileEncoding, checkChar });
 
         // 判定(戻り値)
         assertTrue(Boolean.class.cast(result));
@@ -1994,8 +2005,10 @@ public class FileDAOUtilityTest {
         char checkChar = ',';
 
         // 前処理(状態)
-        Map<String, Map<Character, Boolean>> encodingCache = (Map<String, Map<Character, Boolean>>) UTUtil
-                .getPrivateField(FileDAOUtility.class, "encodingCache");
+        Field field = FileDAOUtility.class.getDeclaredField("encodingCache");
+        field.setAccessible(true);
+        Map<String, Map<Character, Boolean>> encodingCache =
+                (Map<String, Map<Character, Boolean>>) field.get(FileDAOUtility.class); 
         encodingCache.clear();
 
         Map<Character, Boolean> inputEncodingCache = new ConcurrentHashMap<Character, Boolean>();
@@ -2005,9 +2018,10 @@ public class FileDAOUtilityTest {
         VMOUTUtil.initialize();
 
         // テスト実施
-        Object result = UTUtil.invokePrivate(FileDAOUtility.class,
-                "isHalfWidthChar", new Class[] { String.class, char.class },
-                new Object[] { fileEncoding, checkChar });
+        Method method = FileDAOUtility.class.getDeclaredMethod("isHalfWidthChar", new Class[] {
+                String.class, char.class });
+        method.setAccessible(true);
+        Object result = method.invoke(FileDAOUtility.class, new Object[] { fileEncoding, checkChar });
 
         // 判定(戻り値)
         assertTrue(Boolean.class.cast(result));
@@ -2057,14 +2071,17 @@ public class FileDAOUtilityTest {
         char checkChar = '、';
 
         // 前処理(状態)
-        Map<String, Map<Character, Boolean>> encodingCache = (Map<String, Map<Character, Boolean>>) UTUtil
-                .getPrivateField(FileDAOUtility.class, "encodingCache");
+        Field field = FileDAOUtility.class.getDeclaredField("encodingCache");
+        field.setAccessible(true);
+        Map<String, Map<Character, Boolean>> encodingCache =
+                (Map<String, Map<Character, Boolean>>) field.get(FileDAOUtility.class); 
         encodingCache.clear();
 
         // テスト実施
-        Object result = UTUtil.invokePrivate(FileDAOUtility.class,
-                "isHalfWidthChar", new Class[] { String.class, char.class },
-                new Object[] { fileEncoding, checkChar });
+        Method method = FileDAOUtility.class.getDeclaredMethod("isHalfWidthChar", new Class[] {
+                String.class, char.class });
+        method.setAccessible(true);
+        Object result = method.invoke(FileDAOUtility.class, new Object[] { fileEncoding, checkChar });
 
         // 判定(戻り値)
         assertFalse(Boolean.class.cast(result));
@@ -2116,22 +2133,25 @@ public class FileDAOUtilityTest {
         char checkChar = ',';
 
         // 前処理(状態)
-        Map<String, Map<Character, Boolean>> encodingCache = (Map<String, Map<Character, Boolean>>) UTUtil
-                .getPrivateField(FileDAOUtility.class, "encodingCache");
+        Field field = FileDAOUtility.class.getDeclaredField("encodingCache");
+        field.setAccessible(true);
+        Map<String, Map<Character, Boolean>> encodingCache =
+                (Map<String, Map<Character, Boolean>>) field.get(FileDAOUtility.class); 
         encodingCache.clear();
 
         try {
             // テスト実施
-            UTUtil.invokePrivate(FileDAOUtility.class, "isHalfWidthChar",
-                    new Class[] { String.class, char.class }, new Object[] {
-                            fileEncoding, checkChar });
+            Method method = FileDAOUtility.class.getDeclaredMethod("isHalfWidthChar", new Class[] {
+                    String.class, char.class });
+            method.setAccessible(true);
+            Object result = method.invoke(FileDAOUtility.class, new Object[] { fileEncoding, checkChar });
             fail("FileExceptionが発生しませんでした。");
-        } catch (FileException e) {
+        } catch (InvocationTargetException e) {
             // 判定(例外)
-            assertTrue(e instanceof FileException);
-            assertEquals("Specified Encoding : XXX is not supported", e
+            assertTrue(e.getTargetException() instanceof FileException);
+            assertEquals("Specified Encoding : XXX is not supported", e.getTargetException()
                     .getMessage());
-            assertTrue(e.getCause() instanceof UnsupportedEncodingException);
+            assertTrue(e.getTargetException().getCause() instanceof UnsupportedEncodingException);
 
             // 判定(encodingCache)
             assertEquals(1, encodingCache.size());
@@ -2174,19 +2194,22 @@ public class FileDAOUtilityTest {
         char checkChar = ',';
 
         // 前処理(状態)
-        Map<String, Map<Character, Boolean>> encodingCache = (Map<String, Map<Character, Boolean>>) UTUtil
-                .getPrivateField(FileDAOUtility.class, "encodingCache");
+        Field field = FileDAOUtility.class.getDeclaredField("encodingCache");
+        field.setAccessible(true);
+        Map<String, Map<Character, Boolean>> encodingCache =
+                (Map<String, Map<Character, Boolean>>) field.get(FileDAOUtility.class); 
         encodingCache.clear();
 
         try {
             // テスト実施
-            UTUtil.invokePrivate(FileDAOUtility.class, "isHalfWidthChar",
-                    new Class[] { String.class, char.class }, new Object[] {
-                            fileEncoding, checkChar });
+            Method method = FileDAOUtility.class.getDeclaredMethod("isHalfWidthChar", new Class[] {
+                    String.class, char.class });
+            method.setAccessible(true);
+            Object result = method.invoke(FileDAOUtility.class, new Object[] { fileEncoding, checkChar });
             fail("NullPointerExceptionが発生しませんでした。");
-        } catch (NullPointerException e) {
+        } catch (InvocationTargetException e) {
             // 判定(例外)
-            assertTrue(e instanceof NullPointerException);
+            assertTrue(e.getTargetException() instanceof NullPointerException);
             assertEquals(0, encodingCache.size());
             assertFalse(VMOUTUtil.isCalled(Map.class, "put"));
         }
