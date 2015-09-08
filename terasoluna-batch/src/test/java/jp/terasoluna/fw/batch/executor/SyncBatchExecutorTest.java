@@ -3,14 +3,15 @@ package jp.terasoluna.fw.batch.executor;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
+import java.lang.reflect.Method;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import jp.terasoluna.fw.batch.executor.SecurityManagerEx.ExitException;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
-import jp.terasoluna.fw.ex.unit.util.ReflectionUtils;
-import jp.terasoluna.fw.ex.unit.util.SystemEnvUtils;
+import jp.terasoluna.fw.batch.unit.utils.SystemEnvUtils;
 
 public class SyncBatchExecutorTest {
 
@@ -42,6 +43,7 @@ public class SyncBatchExecutorTest {
      * ・終了コードが-1であること
      * ・IDがWAL025002のWARNログが出力されること
      * </pre>
+     * 
      * @throws Exception
      */
     @Test
@@ -65,6 +67,7 @@ public class SyncBatchExecutorTest {
      * 確認事項
      * ・終了コードが100であること
      * </pre>
+     * 
      * @throws Exception
      */
     @Test
@@ -87,6 +90,7 @@ public class SyncBatchExecutorTest {
      * 確認事項
      * ・終了コードが-1であること
      * </pre>
+     * 
      * @throws Exception
      */
     @Test
@@ -112,6 +116,7 @@ public class SyncBatchExecutorTest {
      * 確認事項
      * ・終了コードが100であること
      * </pre>
+     * 
      * @throws Exception
      */
     @Test
@@ -138,6 +143,7 @@ public class SyncBatchExecutorTest {
      * ・param1～20までID:DAL025044のログに出力されること
      * ・終了コードが100であること
      * </pre>
+     * 
      * @throws Exception
      */
     @Test
@@ -166,6 +172,7 @@ public class SyncBatchExecutorTest {
      * ・param1～20までID:DAL025044のログに出力されること
      * ・終了コードが100であること
      * </pre>
+     * 
      * @throws Exception
      */
     @Test
@@ -195,6 +202,7 @@ public class SyncBatchExecutorTest {
      * ・終了コードが100であること
      * ・ID:DAL025044のDEBUGログにjobSequenceId=seq01がふくまれること
      * </pre>
+     * 
      * @throws Exception
      */
     @Test
@@ -221,6 +229,7 @@ public class SyncBatchExecutorTest {
      * ・param1～20までID:DAL025044のログに出力されること
      * ・終了コードが100であること
      * </pre>
+     * 
      * @throws Exception
      */
     @Test
@@ -249,6 +258,7 @@ public class SyncBatchExecutorTest {
      * ・param1～20までID:DAL025044のログに出力されること
      * ・終了コードが100であること
      * </pre>
+     * 
      * @throws Exception
      */
     @Test
@@ -273,14 +283,17 @@ public class SyncBatchExecutorTest {
      * 確認項目：
      * ・get+第二引数+第三引数のメソッドの結果が返却されること
      * </pre>
+     * 
      * @throws Exception
      */
     @Test
     public void testGetParam01() throws Exception {
-        String getParam = ReflectionUtils.invoke(SyncBatchExecutor.class,
-                "getParam", new Class<?>[] { Object.class, String.class,
-                        int.class }, new Object[] { new GetParamBean(), "Foo",
-                        1 });
+        Method method = SyncBatchExecutor.class.getDeclaredMethod("getParam",
+                new Class[] { Object.class, String.class, int.class });
+        method.setAccessible(true);
+        String getParam = (String) method.invoke(SyncBatchExecutor.class,
+                new Object[] { new GetParamBean(), "Foo", 1 });
+
         assertEquals("foo1", getParam);
     }
 
@@ -294,6 +307,7 @@ public class SyncBatchExecutorTest {
      * ・nullが返却されること
      * ・スタックトレースにjava.lang.SecurityExceptionが出力されること
      * </pre>
+     * 
      * @throws Exception
      */
     // public void testGetParam02() throws Exception {
@@ -309,14 +323,16 @@ public class SyncBatchExecutorTest {
      * ・nullが返却されること
      * ・スタックトレースにjava.lang.NoSuchMethodExceptionが出力されること
      * </pre>
+     * 
      * @throws Exception
      */
     @Test
     public void testGetParam03() throws Exception {
-        String getParam = ReflectionUtils.invoke(SyncBatchExecutor.class,
-                "getParam", new Class<?>[] { Object.class, String.class,
-                        int.class }, new Object[] { new BatchJobData(),
-                        "HogeMethod", 1 });
+        Method method = SyncBatchExecutor.class.getDeclaredMethod("getParam",
+                new Class[] { Object.class, String.class, int.class });
+        method.setAccessible(true);
+        String getParam = (String) method.invoke(SyncBatchExecutor.class,
+                new Object[] { new BatchJobData(), "HogeMethod", 1 });
         assertEquals(null, getParam);
     }
 
@@ -330,6 +346,7 @@ public class SyncBatchExecutorTest {
      * ・nullが返却されること
      * ・スタックトレースにIllegalArgumentExceptionが出力されること
      * </pre>
+     * 
      * @throws Exception
      */
     // public void testGetParam04() throws Exception {
@@ -345,8 +362,10 @@ public class SyncBatchExecutorTest {
      * ・nullが返却されること
      * ・スタックトレースにIllegalAccessExceptionが出力されること
      * </pre>
+     * 
      * @throws Exception
      */
+
     // public void testGetParam05() throws Exception {
     // 発生不可能
     // }
@@ -360,14 +379,16 @@ public class SyncBatchExecutorTest {
      * ・nullが返却されること
      * ・スタックトレースにjava.lang.reflect.InvocationTargetExceptionが出力されること
      * </pre>
+     * 
      * @throws Exception
      */
     @Test
     public void testGetParam06() throws Exception {
-        String getParam = ReflectionUtils.invoke(SyncBatchExecutor.class,
-                "getParam", new Class<?>[] { Object.class, String.class,
-                        int.class }, new Object[] { new GetParamBean(), "Foo",
-                        6 });
+        Method method = SyncBatchExecutor.class.getDeclaredMethod("getParam",
+                new Class[] { Object.class, String.class, int.class });
+        method.setAccessible(true);
+        String getParam = (String) method.invoke(SyncBatchExecutor.class,
+                new Object[] { new GetParamBean(), "Foo", 6 });
         assertEquals(null, getParam);
     }
 
@@ -388,14 +409,17 @@ public class SyncBatchExecutorTest {
 
     /**
      * testSetParam01
+     * @throws Exception
      */
     @Test
-    public void testSetParam01() {
+    public void testSetParam01() throws Exception {
         SetParamBean bean = new SetParamBean();
-        ReflectionUtils
-                .invoke(SyncBatchExecutor.class, "setParam", new Class<?>[] {
-                        Object.class, String.class, int.class, String.class },
-                        new Object[] { bean, "Foo", 1, "hoge" });
+        Method method = SyncBatchExecutor.class.getDeclaredMethod("setParam",
+                new Class[] { Object.class, String.class, int.class,
+                        String.class });
+        method.setAccessible(true);
+        method.invoke(SyncBatchExecutor.class, new Object[] { bean, "Foo", 1,
+                "hoge" });
         assertEquals("hoge", bean.getFoo1());
     }
 
@@ -407,14 +431,17 @@ public class SyncBatchExecutorTest {
     /**
      * testSetParam03<br>
      * NoSuchMethodExceptionのスタックトレースが出力されること
+     * @throws Exception
      */
     @Test
-    public void testSetParam03() {
+    public void testSetParam03() throws Exception {
         SetParamBean bean = new SetParamBean();
-        ReflectionUtils
-                .invoke(SyncBatchExecutor.class, "setParam", new Class<?>[] {
-                        Object.class, String.class, int.class, String.class },
-                        new Object[] { bean, "Foo", 3, "hoge" });
+        Method method = SyncBatchExecutor.class.getDeclaredMethod("setParam",
+                new Class[] { Object.class, String.class, int.class,
+                        String.class });
+        method.setAccessible(true);
+        method.invoke(SyncBatchExecutor.class, new Object[] { bean, "Foo", 3,
+                "hoge" });
         assertEquals(null, bean.getFoo1());
     }
 
@@ -431,14 +458,17 @@ public class SyncBatchExecutorTest {
     /**
      * testSetParam06<br>
      * InvocationTargetExceptionのスタックトレースが出力されること
+     * @throws Exception
      */
     @Test
-    public void testSetParam06() {
+    public void testSetParam06() throws Exception {
         SetParamBean bean = new SetParamBean();
-        ReflectionUtils
-                .invoke(SyncBatchExecutor.class, "setParam", new Class<?>[] {
-                        Object.class, String.class, int.class, String.class },
-                        new Object[] { bean, "Foo", 5, "hoge" });
+        Method method = SyncBatchExecutor.class.getDeclaredMethod("setParam",
+                new Class[] { Object.class, String.class, int.class,
+                        String.class });
+        method.setAccessible(true);
+        method.invoke(SyncBatchExecutor.class, new Object[] { bean, "Foo", 5,
+                "hoge" });
         assertEquals(null, bean.getFoo1());
     }
 

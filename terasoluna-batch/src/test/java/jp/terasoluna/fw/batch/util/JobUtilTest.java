@@ -26,15 +26,16 @@ import jp.terasoluna.fw.batch.exception.BatchException;
 import jp.terasoluna.fw.batch.executor.dao.SystemDao;
 import jp.terasoluna.fw.batch.executor.vo.*;
 import jp.terasoluna.fw.batch.mock.MockSystemDao;
-import jp.terasoluna.fw.ex.unit.io.impl.CollectionSource;
+import jp.terasoluna.fw.batch.unit.utils.SystemEnvUtils;
 import jp.terasoluna.fw.ex.unit.testcase.DaoTestCase;
-import jp.terasoluna.fw.ex.unit.util.AssertUtils;
-import jp.terasoluna.fw.ex.unit.util.SystemEnvUtils;
 
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.dao.DataAccessException;
 
 import static org.mockito.Mockito.*;
+import static org.hamcrest.core.Is.is;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.junit.Assert.*;
 
 public class JobUtilTest extends DaoTestCase {
 
@@ -63,8 +64,6 @@ public class JobUtilTest extends DaoTestCase {
 
         List<BatchJobListResult> result = JobUtil.selectJobList(this.systemDao);
 
-        List<BatchJobListResult> except = new ArrayList<BatchJobListResult>();
-
         BatchJobListResult bean01 = new BatchJobListResult();
         bean01.setJobSequenceId("0000000001");
         BatchJobListResult bean02 = new BatchJobListResult();
@@ -74,14 +73,16 @@ public class JobUtilTest extends DaoTestCase {
         BatchJobListResult bean04 = new BatchJobListResult();
         bean04.setJobSequenceId("0000000004");
 
-        except.add(bean01);
-        except.add(bean02);
-        except.add(bean03);
-        except.add(bean04);
-
-        AssertUtils.assertInputEquals(
-                new CollectionSource<BatchJobListResult>(except),
-                new CollectionSource<BatchJobListResult>(result));
+        assertNotNull(result);
+        assertThat(result.size(), is(4));
+        assertThat(result.get(0).getJobSequenceId(), is(equalTo(bean01
+                .getJobSequenceId())));
+        assertThat(result.get(1).getJobSequenceId(), is(equalTo(bean02
+                .getJobSequenceId())));
+        assertThat(result.get(2).getJobSequenceId(), is(equalTo(bean03
+                .getJobSequenceId())));
+        assertThat(result.get(3).getJobSequenceId(), is(equalTo(bean04
+                .getJobSequenceId())));
 
     }
 

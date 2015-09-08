@@ -5,8 +5,9 @@ import static org.junit.Assert.assertEquals;
 import java.util.Arrays;
 
 import org.junit.Test;
-
-import jp.terasoluna.fw.ex.unit.util.AssertUtils;
+import static org.hamcrest.core.Is.is;
+import static java.util.Arrays.asList;
+import static org.junit.Assert.*;
 
 public class BatchJobListParamTest {
 
@@ -21,8 +22,7 @@ public class BatchJobListParamTest {
     public void testSetAndGetCurAppStatusList() {
         BatchJobListParam p = new BatchJobListParam();
         p.setCurAppStatusList(Arrays.asList("a", "b"));
-        AssertUtils.assertCollectionEquals(Arrays.asList("a", "b"),
-                p.getCurAppStatusList());
+        assertThat(p.getCurAppStatusList(), is(asList("a", "b")));
     }
 
     @Test
@@ -30,7 +30,8 @@ public class BatchJobListParamTest {
         BatchJobListParam p = new BatchJobListParam();
         p.setJobAppCd("cd");
         p.setCurAppStatusList(Arrays.asList("a", "b"));
-        assertEquals("BatchJobListParam[jobAppCd=cd,curAppStatusList=[a, b]]", p.toString());
+        assertEquals("BatchJobListParam[jobAppCd=cd,curAppStatusList=[a, b]]", p
+                .toString());
     }
 
 }

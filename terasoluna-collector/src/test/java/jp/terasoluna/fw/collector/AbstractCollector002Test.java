@@ -9,7 +9,6 @@ import jp.terasoluna.fw.collector.exception.CollectorExceptionHandlerStatus;
 import jp.terasoluna.fw.collector.validate.ValidateErrorStatus;
 import jp.terasoluna.fw.collector.vo.CollectorStatus;
 import jp.terasoluna.fw.collector.vo.DataValueObject;
-import jp.terasoluna.fw.ex.unit.util.ReflectionUtils;
 import jp.terasoluna.fw.exception.SystemException;
 
 import org.junit.After;
@@ -17,6 +16,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.springframework.test.util.ReflectionTestUtils;
 
 public class AbstractCollector002Test {
 
@@ -415,7 +415,7 @@ public class AbstractCollector002Test {
     	col.execute();
 
     	// AbstractCollectorの終了フラグfinishを確認
-    	boolean finish = (Boolean) ReflectionUtils.getField(col, AbstractCollector.class, "finish");
+    	boolean finish = (Boolean) ReflectionTestUtils.getField(col, "finish");
     	assertFalse(finish);
     	
     	// テスト実施
@@ -425,11 +425,11 @@ public class AbstractCollector002Test {
     	// finishQueueingFlagを確認。
     	// finishQueueingが実行されていればフラグはtrueになっているはず。
     	ArrayBlockingQueueEx<DataValueObject> arrayBlockingQueueEx = (ArrayBlockingQueueEx<DataValueObject>) col.getQueue();
-    	boolean finishQueueingFlag = (Boolean) ReflectionUtils.getField(arrayBlockingQueueEx, "finishQueueingFlag");
+    	boolean finishQueueingFlag = (Boolean) ReflectionTestUtils.getField(arrayBlockingQueueEx, "finishQueueingFlag");
     	assertTrue(finishQueueingFlag);
     	
     	// AbstractCollectorの終了フラグfinishを確認
-    	finish = (Boolean) ReflectionUtils.getField(col, AbstractCollector.class, "finish");
+    	finish = (Boolean) ReflectionTestUtils.getField(col, "finish");
     	assertTrue(finish);
     }
 
@@ -446,7 +446,7 @@ public class AbstractCollector002Test {
     	col.execute();
     	
     	// AbstractCollectorの終了フラグfinishを確認
-    	boolean finish = (Boolean) ReflectionUtils.getField(col, AbstractCollector.class, "finish");
+    	boolean finish = (Boolean) ReflectionTestUtils.getField(col, "finish");
     	assertFalse(finish);
     	
     	// テスト実施
@@ -455,7 +455,7 @@ public class AbstractCollector002Test {
     	assertEquals(CollectorStatus.END, col.getQueue().peek().getCollectorStatus());
     	
     	// AbstractCollectorの終了フラグfinishを確認
-    	finish = (Boolean) ReflectionUtils.getField(col, AbstractCollector.class, "finish");
+    	finish = (Boolean) ReflectionTestUtils.getField(col, "finish");
     	assertTrue(finish);    	
     }
 }

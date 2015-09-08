@@ -17,8 +17,8 @@ import jp.terasoluna.fw.batch.executor.concurrent.BatchServant;
 import jp.terasoluna.fw.batch.executor.concurrent.BatchThreadPoolTaskExecutor;
 import jp.terasoluna.fw.batch.executor.dao.SystemDao;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobListResult;
-import jp.terasoluna.fw.ex.unit.util.SystemEnvUtils;
-import jp.terasoluna.fw.ex.unit.util.TerasolunaPropertyUtils;
+import jp.terasoluna.fw.batch.unit.utils.SystemEnvUtils;
+import jp.terasoluna.fw.batch.unit.utils.TerasolunaPropertyUtils;
 
 import org.apache.commons.logging.Log;
 import org.junit.After;

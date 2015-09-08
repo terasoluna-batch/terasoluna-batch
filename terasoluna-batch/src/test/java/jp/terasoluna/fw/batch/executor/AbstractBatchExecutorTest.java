@@ -26,7 +26,7 @@ import jp.terasoluna.fw.batch.blogic.vo.BLogicParam;
 import jp.terasoluna.fw.batch.executor.dao.SystemDao;
 import jp.terasoluna.fw.batch.executor.vo.BLogicResult;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
-import jp.terasoluna.fw.ex.unit.util.TerasolunaPropertyUtils;
+import jp.terasoluna.fw.batch.unit.utils.TerasolunaPropertyUtils;
 
 import org.junit.After;
 import org.junit.Before;

@@ -22,8 +22,8 @@ import jp.terasoluna.fw.batch.executor.vo.BLogicResult;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobManagementParam;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobManagementUpdateParam;
+import jp.terasoluna.fw.batch.unit.utils.TerasolunaPropertyUtils;
 import jp.terasoluna.fw.ex.unit.testcase.DaoTestCase;
-import jp.terasoluna.fw.ex.unit.util.TerasolunaPropertyUtils;
 
 import org.springframework.dao.DataAccessException;
 import org.springframework.transaction.PlatformTransactionManager;

@@ -11,5 +11,6 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 
     <bean id="systemDao" class="jp.terasoluna.fw.batch.executor.NullFactoryBean" />
     <bean id="transactionManager"
-        class="jp.terasoluna.fw.ex.unit.mock.spring.MockTransactionManager" />
+        class="jp.terasoluna.fw.batch.unit.utils.MockTransactionManager" />
+
 </beans>
