@@ -176,7 +176,10 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <scope>test</scope>
+        	<groupId>org.assertj</groupId>
+        	<artifactId>assertj-core</artifactId>
+        	<version>${assertj.version}</version>
+        	<scope>test</scope>
         </dependency>
     </dependencies>
 </project>
