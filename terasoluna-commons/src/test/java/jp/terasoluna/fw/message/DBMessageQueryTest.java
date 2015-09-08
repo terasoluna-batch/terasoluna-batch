@@ -26,7 +26,6 @@ import javax.sql.DataSource;
 import org.junit.After;
 import org.junit.Test;
 import org.springframework.test.util.ReflectionTestUtils;
-import jp.terasoluna.utlib.MockDataSource;
 
 import static org.mockito.Mockito.*;
 import uk.org.lidalia.slf4jext.Level;
@@ -85,7 +84,7 @@ public class DBMessageQueryTest {
     @Test
     public void testDBMessageDataSource01() throws Exception {
         // 前処理
-        DataSource ds = new MockDataSource();
+        DataSource ds = mock(DataSource.class);
         DBMessageQuery db = new DBMessageQuery(ds, "SELECT CODE,MESSAGE FROM MESSAGES", "CODE", "LANGUAGE", "COUNTRY", "VARIANT", "MESSAGE");
 
         // テスト実施
@@ -130,7 +129,7 @@ public class DBMessageQueryTest {
     @Test
     public void testDBMessageDataSource02() throws Exception {
         // 前処理
-        DataSource ds = new MockDataSource();
+        DataSource ds = mock(DataSource.class);
         DBMessageQuery db = new DBMessageQuery(ds, "SELECT CODE,MESSAGE FROM MESSAGES", "", "", "", "", "");
 
         // テスト実施
@@ -171,7 +170,7 @@ public class DBMessageQueryTest {
     @Test
     public void testDBMessageDataSource03() throws Exception {
         // 前処理
-        DataSource ds = new MockDataSource();
+        DataSource ds = mock(DataSource.class);
         DBMessageQuery db = new DBMessageQuery(ds, "SELECT CODE,MESSAGE FROM MESSAGES", null, null, null, null, null);
 
         // テスト実施
@@ -209,7 +208,7 @@ public class DBMessageQueryTest {
     @Test
     public void testMapRow01() throws Exception {
         // 前処理
-        DataSource ds = new MockDataSource();
+        DataSource ds = mock(DataSource.class);
         DBMessageQuery db = new DBMessageQuery(ds, "SELECT CODE,MESSAGE FROM MESSAGES", "CODE", "LANGUAGE", "COUNTRY", "VARIANT", "MESSAGE");
         int rowNum = 0;
         db.rsCodeColumn = "code";
@@ -262,7 +261,7 @@ public class DBMessageQueryTest {
     @Test
     public void testMapRow02() throws Exception {
         // 前処理
-        DataSource ds = new MockDataSource();
+        DataSource ds = mock(DataSource.class);
         DBMessageQuery db = new DBMessageQuery(ds, "SELECT CODE,MESSAGE FROM MESSAGES", "CODE", "LANGUAGE", "COUNTRY", "VARIANT", "MESSAGE");
         int rowNum = 0;
         db.rsCodeColumn = "code";
@@ -319,7 +318,7 @@ public class DBMessageQueryTest {
     public void testMapRowResultSetint03() throws Exception {
         // 前処理
         logger.setEnabledLevels(Level.WARN);
-        DataSource ds = new MockDataSource();
+        DataSource ds = mock(DataSource.class);
         DBMessageQuery db = new DBMessageQuery(ds, "SELECT CODE,MESSAGE FROM MESSAGES", "CODE", "LANGUAGE", "COUNTRY", "VARIANT", "MESSAGE");
         int rowNum = 0;
         db.rsCodeColumn = "code";

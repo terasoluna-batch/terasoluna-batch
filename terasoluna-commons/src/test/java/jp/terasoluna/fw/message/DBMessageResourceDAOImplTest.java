@@ -29,7 +29,6 @@ import javax.sql.DataSource;
 
 import org.springframework.test.util.ReflectionTestUtils;
 
-import jp.terasoluna.utlib.MockDataSource;
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
 import static uk.org.lidalia.slf4jtest.LoggingEvent.error;
@@ -37,6 +36,7 @@ import static java.util.Arrays.asList;
 import static org.hamcrest.core.Is.*;
 import static org.junit.Assert.*;
 import org.junit.Test;
+import static org.mockito.Mockito.*;
 
 /**
  * {@link jp.terasoluna.fw.message.DBMessageResourceDAOImpl} クラスのブラックボックステスト。
@@ -269,7 +269,7 @@ public class DBMessageResourceDAOImplTest {
     @Test
     public void testInitDao01() throws Exception {
         // 前処理
-        DataSource dataSource = new MockDataSource();
+        DataSource dataSource = mock(DataSource.class);
         DBMessageResourceDAOImpl_JdbcTemplateStub01 jdbc = new DBMessageResourceDAOImpl_JdbcTemplateStub01();
         DBMessageResourceDAOImpl_DBMessageResourceDAOImplStub01 dbmr = new DBMessageResourceDAOImpl_DBMessageResourceDAOImplStub01();
         jdbc.ds = dataSource;
@@ -373,7 +373,7 @@ public class DBMessageResourceDAOImplTest {
     @Test
     public void testInitDao03() throws Exception {
         // 前処理
-        DataSource dataSource = new MockDataSource();
+        DataSource dataSource = mock(DataSource.class);
         DBMessageResourceDAOImpl_JdbcTemplateStub01 jdbc = new DBMessageResourceDAOImpl_JdbcTemplateStub01();
         DBMessageResourceDAOImpl_DBMessageResourceDAOImplStub01 dbmr = new DBMessageResourceDAOImpl_DBMessageResourceDAOImplStub01();
         jdbc.ds = dataSource;
@@ -956,7 +956,7 @@ public class DBMessageResourceDAOImplTest {
     @Test
     public void testFindDBMessages01() throws Exception {
         // 前処理
-        DataSource ds = new MockDataSource();
+        DataSource ds = mock(DataSource.class);
         DBMessageResourceDAOImpl_DBMessageQueryStub01 query = new DBMessageResourceDAOImpl_DBMessageQueryStub01(ds, "SELECT CODE,MESSAGE FROM MESSAGES", "CODE", "LANGUAGE", "COUNTRY", "VARIANT", "MESSAGE");
         DBMessageResourceDAOImpl dbmr = new DBMessageResourceDAOImpl();
         dbmr.dBMessageQuery = query;
