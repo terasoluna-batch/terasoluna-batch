@@ -23,6 +23,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import jp.terasoluna.fw.file.annotation.PaddingType;
 import jp.terasoluna.fw.file.annotation.TrimType;
 import jp.terasoluna.fw.file.dao.FileException;
+
 import org.junit.Test;
 
 /**

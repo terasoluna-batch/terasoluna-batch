@@ -6985,8 +6985,8 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 状態変化の確認
-       Method[] methods = (Method[]) ReflectionTestUtils.getField(fileLineIterator,
-               "methods");
+        Method[] methods = (Method[]) ReflectionTestUtils.getField(fileLineIterator,
+                "methods");
         assertEquals(0, methods.length);
     }
 

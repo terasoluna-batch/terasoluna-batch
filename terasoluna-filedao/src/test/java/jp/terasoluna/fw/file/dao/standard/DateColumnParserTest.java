@@ -210,7 +210,6 @@ public class DateColumnParserTest {
         Map<String, DateFormatLocal> map = new ConcurrentHashMap<String, DateFormatLocal>();
         DateFormatLocal cache = new DateFormatLocal("yyyy-MM-dd");
         map.put("yyyy-MM-dd", cache);
-
         map = Mockito.spy(map);
         ReflectionTestUtils.setField(dateColumnParser, "map", map);
 

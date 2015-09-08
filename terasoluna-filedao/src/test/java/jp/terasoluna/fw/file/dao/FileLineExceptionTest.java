@@ -7,10 +7,11 @@
 
 package jp.terasoluna.fw.file.dao;
 
+import static org.junit.Assert.*;
+
 import org.junit.Test;
 
 import org.springframework.test.util.ReflectionTestUtils;
-import junit.framework.TestCase;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.FileLineException} クラスのテスト。
@@ -20,7 +21,7 @@ import junit.framework.TestCase;
  * @author 奥田哲司
  * @see jp.terasoluna.fw.file.dao.FileLineException
  */
-public class FileLineExceptionTest extends TestCase {
+public class FileLineExceptionTest {
 
     /**
      * testFileLineExceptionException01() <br>
