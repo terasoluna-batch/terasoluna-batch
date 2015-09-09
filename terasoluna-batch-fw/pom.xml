@@ -625,6 +625,17 @@ sp_cleanup.organize_imports=true
                 <version>${slf4j-test.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>org.powermock</groupId>
+                <artifactId>powermock-api-mockito</artifactId>
+                <version>${powermock-mockito.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.powermock</groupId>
+                <artifactId>powermock-module-junit4</artifactId>
+                <version>${powermock-mockito.version}</version>
+            </dependency>
+
             <!-- 3rd party libraries -->
             <dependency>
                 <groupId>com.oracle</groupId>
@@ -636,16 +647,6 @@ sp_cleanup.organize_imports=true
                 <groupId>org.postgresql</groupId>
                 <artifactId>postgresql</artifactId>
                 <version>${postgresql.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.powermock</groupId>
-                <artifactId>powermock-api-mockito</artifactId>
-                <version>${powermock-mockito.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.powermock</groupId>
-                <artifactId>powermock-module-junit4</artifactId>
-                <version>${powermock-mockito.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

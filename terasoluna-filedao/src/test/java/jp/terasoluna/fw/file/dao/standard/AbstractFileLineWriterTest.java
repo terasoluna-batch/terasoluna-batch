@@ -856,8 +856,6 @@ public class AbstractFileLineWriterTest<T> {
      * (new FileOutputStream(fileName, true)),<br>
      * fileEncoding))<br>
      * <br>
-     * ※Writerの生成構造は複雑なため確認し難い。<br>
-     * 今回はDJUnitで呼出し時の引数を確認することにする。<br>
      * (状態) ファイル:クラスパスに以下のファイルが存在する。<br>
      * "File_1Line.txt"<br>
      * ・1行データあり<br>
@@ -894,9 +892,8 @@ public class AbstractFileLineWriterTest<T> {
         columnFormatterMap.put("java.lang.String", new NullColumnFormatter());
 
         // 前処理(試験対象)
-        AbstractFileLineWriter<AbstractFileLineWriter_Stub01> fileLineWriter = PowerMockito.spy(
-                new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub01>(
-                    fileName, clazz, columnFormatterMap));
+        AbstractFileLineWriter<AbstractFileLineWriter_Stub01> fileLineWriter = PowerMockito
+                .spy(new AbstractFileLineWriterImpl01<AbstractFileLineWriter_Stub01>(fileName, clazz, columnFormatterMap));
 
         BufferedWriter writer = null;
         BufferedReader postReader = null;
@@ -7003,17 +7000,21 @@ public class AbstractFileLineWriterTest<T> {
             ReflectionTestUtils.setField(fileLineWriter, "currentLineCount", 0);
 
             // 前処理(メソッド)
-            Mockito.doReturn(false).when(fileLineWriter).isCheckByte(Mockito.any(OutputFileColumn.class));
+            Mockito.doReturn(false).when(fileLineWriter).isCheckByte(Mockito
+                    .any(OutputFileColumn.class));
             PowerMockito.mockStatic(FileDAOUtility.class);
-            PowerMockito.doReturn("testGetColumn01_data2_trim()").when(FileDAOUtility.class, "trim",
-                    Mockito.anyString(), Mockito.anyString(), Mockito.anyChar(), Mockito.any(TrimType.class));
-            PowerMockito.doReturn("testGetColumn01_data2_trim()_padding()").when(
-                    FileDAOUtility.class, "padding", Mockito.anyString(), Mockito.anyString(), Mockito.anyInt(),
-                    Mockito.anyChar(), Mockito.any(PaddingType.class));
+            PowerMockito.doReturn("testGetColumn01_data2_trim()").when(
+                    FileDAOUtility.class, "trim", Mockito.anyString(), Mockito
+                            .anyString(), Mockito.anyChar(), Mockito.any(
+                                    TrimType.class));
+            PowerMockito.doReturn("testGetColumn01_data2_trim()_padding()")
+                    .when(FileDAOUtility.class, "padding", Mockito.anyString(),
+                            Mockito.anyString(), Mockito.anyInt(), Mockito
+                                    .anyChar(), Mockito.any(PaddingType.class));
 
             // アノテーションのデフォルトインスタンスの挙動は差し替え不可
             // VMOUTUtil.setExceptionAtAllTimes(NullColumnFormatter.class,
-            //          "format", illegalAccessException);
+            // "format", illegalAccessException);
 
             // テスト実施
             fileLineWriter.getColumn(t, index);
@@ -7030,12 +7031,15 @@ public class AbstractFileLineWriterTest<T> {
 
             // 判定(状態変化、メソッド)
             PowerMockito.verifyStatic(Mockito.never());
-            FileDAOUtility.trim(Mockito.anyString(), Mockito.anyString(), Mockito.anyChar(), Mockito.any(TrimType.class));
+            FileDAOUtility.trim(Mockito.anyString(), Mockito.anyString(),
+                    Mockito.anyChar(), Mockito.any(TrimType.class));
 
             PowerMockito.verifyStatic(Mockito.never());
-            FileDAOUtility.padding(Mockito.anyString(), Mockito.anyString(), Mockito.anyInt(), Mockito.anyChar(),
-                    Mockito.any(PaddingType.class));
-            Mockito.verify(fileLineWriter, Mockito.never()).isCheckByte(Mockito.anyInt());
+            FileDAOUtility.padding(Mockito.anyString(), Mockito.anyString(),
+                    Mockito.anyInt(), Mockito.anyChar(), Mockito.any(
+                            PaddingType.class));
+            Mockito.verify(fileLineWriter, Mockito.never()).isCheckByte(Mockito
+                    .anyInt());
         } finally {
             Writer writer = (Writer) ReflectionTestUtils.getField(
                     fileLineWriter, "writer");
@@ -7165,21 +7169,24 @@ public class AbstractFileLineWriterTest<T> {
             // 前処理(フィールド)
             ReflectionTestUtils.setField(fileLineWriter, "currentLineCount", 0);
 
-
             // 前処理(メソッド)
-            Mockito.doReturn(false).when(fileLineWriter).isCheckByte(Mockito.anyInt());
+            Mockito.doReturn(false).when(fileLineWriter).isCheckByte(Mockito
+                    .anyInt());
 
             PowerMockito.mockStatic(FileDAOUtility.class);
-            PowerMockito.doReturn("testGetColumn02_data2_trim()").when(FileDAOUtility.class, "trim",
-                    Mockito.anyString(), Mockito.anyString(), Mockito.anyChar(), Mockito.any(TrimType.class));
+            PowerMockito.doReturn("testGetColumn02_data2_trim()").when(
+                    FileDAOUtility.class, "trim", Mockito.anyString(), Mockito
+                            .anyString(), Mockito.anyChar(), Mockito.any(
+                                    TrimType.class));
 
-            PowerMockito.doReturn("testGetColumn02_data2_trim()_padding()").when(
-                    FileDAOUtility.class, "padding", Mockito.anyString(), Mockito.anyString(), Mockito.anyInt(),
-                    Mockito.anyChar(), Mockito.any(PaddingType.class));
+            PowerMockito.doReturn("testGetColumn02_data2_trim()_padding()")
+                    .when(FileDAOUtility.class, "padding", Mockito.anyString(),
+                            Mockito.anyString(), Mockito.anyInt(), Mockito
+                                    .anyChar(), Mockito.any(PaddingType.class));
 
             // writerをモック化すると、テスト対象外の箇所の挙動が変化して試験不能となる。
             // VMOUTUtil.setExceptionAtAllTimes(NullColumnFormatter.class,
-            //         "format", illegalArgumentException);
+            // "format", illegalArgumentException);
 
             // テスト実施
             fileLineWriter.getColumn(t, index);
@@ -7196,12 +7203,15 @@ public class AbstractFileLineWriterTest<T> {
 
             // 判定(状態変化、メソッド)
             PowerMockito.verifyStatic(Mockito.never());
-            FileDAOUtility.trim(Mockito.anyString(), Mockito.anyString(), Mockito.anyChar(), Mockito.any(TrimType.class));
+            FileDAOUtility.trim(Mockito.anyString(), Mockito.anyString(),
+                    Mockito.anyChar(), Mockito.any(TrimType.class));
 
             PowerMockito.verifyStatic(Mockito.never());
-            FileDAOUtility.padding(Mockito.anyString(), Mockito.anyString(), Mockito.anyInt(), Mockito.anyChar(),
-                    Mockito.any(PaddingType.class));
-            Mockito.verify(fileLineWriter, Mockito.never()).isCheckByte(Mockito.anyInt());
+            FileDAOUtility.padding(Mockito.anyString(), Mockito.anyString(),
+                    Mockito.anyInt(), Mockito.anyChar(), Mockito.any(
+                            PaddingType.class));
+            Mockito.verify(fileLineWriter, Mockito.never()).isCheckByte(Mockito
+                    .anyInt());
         } finally {
             Writer writer = (Writer) ReflectionTestUtils.getField(
                     fileLineWriter, "writer");
