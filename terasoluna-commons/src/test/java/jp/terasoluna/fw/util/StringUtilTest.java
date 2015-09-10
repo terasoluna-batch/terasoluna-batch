@@ -2648,6 +2648,30 @@ public class StringUtilTest {
     }
 
     /**
+     * testHankakuToZenkaku25。<br>
+     *
+     * （正常系）<br>
+     * 観点：A<br>
+     * <br>
+     * 入力値：半角半濁点文字ﾜﾟｦﾟﾟ<br>
+     * 期待値：全角半濁点文字ワ゜ヲ゜
+     *
+     * 説明：半角半濁点文字が全角半濁点文字に変換されることを確認する。
+     * @throws Exception 例外
+     */
+    @Test
+    public void testHankakuToZenkaku25() throws Exception {
+        //入力値の設定
+        String input = "ﾜﾟｦﾟ";
+
+        //テスト実行
+        String result = StringUtil.hankakuToZenkaku(input);
+
+        //結果確認
+        assertEquals("ワ゜ヲ゜", result);
+    }
+
+    /**
      * testZenkakuToHankaku01。<br>
      * 
      * （正常系）<br>
@@ -2944,6 +2968,29 @@ public class StringUtilTest {
 
         //結果確認
         assertEquals("入力値", result);
+    }
+
+    /**
+     * testZenkakuToHankakuu14。<br>
+     *
+     * （正常系）<br>
+     * 観点：A<br>
+     * <br>
+     * 入力値：ワ゜ヲ゜<br>
+     * 期待値：ﾜﾟｦﾟ<br>
+     *
+     * 説明：半角化不可能な文字列がそのまま全角文字列で出力されることを確認する。
+     * @throws Exception 例外 */
+    @Test
+    public void testZenkakuToHankaku14() throws Exception {
+        //入力値の設定
+        String input = "ワ゜ヲ゜";
+
+        //テスト実行
+        String result = StringUtil.zenkakuToHankaku(input);
+
+        //結果確認
+        assertEquals("ﾜﾟｦﾟ", result);
     }
 
     /**
