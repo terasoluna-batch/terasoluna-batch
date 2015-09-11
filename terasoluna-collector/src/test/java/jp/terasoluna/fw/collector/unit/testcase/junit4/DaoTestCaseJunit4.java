@@ -377,7 +377,7 @@ abstract public class DaoTestCaseJunit4 extends
     /**
      * @param sql
      * @throws DataAccessException
-     * @see jp.terasoluna.fw.ex.unit.util.JdbcTemplateUtils#execute(org.springframework.jdbc.core.JdbcTemplate, java.lang.String)
+     * fw.collector.unit. jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#execute(org.springframework.jdbc.core.JdbcTemplate, java.lang.String)
      */
     public void execute(String sql) throws DataAccessException {
         JdbcTemplateUtils.execute(getJdbcTemplate(), sql);
@@ -387,7 +387,7 @@ abstract public class DaoTestCaseJunit4 extends
      * @param sql
      * @return
      * @throws DataAccessException
-     * @see jp.terasoluna.fw.ex.unit.util.JdbcTemplateUtils#update(org.springframework.jdbc.core.JdbcTemplate, java.lang.String)
+     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#update(org.springframework.jdbc.core.JdbcTemplate, java.lang.String)
      */
     public int update(String sql) throws DataAccessException {
         return JdbcTemplateUtils.update(getJdbcTemplate(), sql);
@@ -398,7 +398,7 @@ abstract public class DaoTestCaseJunit4 extends
      * @param args
      * @return
      * @throws DataAccessException
-     * @see jp.terasoluna.fw.ex.unit.util.JdbcTemplateUtils#update(org.springframework.jdbc.core.JdbcTemplate, java.lang.String, java.lang.Object[])
+     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#update(org.springframework.jdbc.core.JdbcTemplate, java.lang.String, java.lang.Object[])
      */
     public int update(String sql, Object[] args) throws DataAccessException {
         return JdbcTemplateUtils.update(getJdbcTemplate(), sql, args);
@@ -408,7 +408,7 @@ abstract public class DaoTestCaseJunit4 extends
      * @param sqls
      * @return
      * @throws DataAccessException
-     * @see jp.terasoluna.fw.ex.unit.util.JdbcTemplateUtils#batchUpdate(org.springframework.jdbc.core.JdbcTemplate, java.lang.String[])
+     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#batchUpdate(org.springframework.jdbc.core.JdbcTemplate, java.lang.String[])
      */
     public int[] batchUpdate(String... sqls) throws DataAccessException {
         return JdbcTemplateUtils.batchUpdate(getJdbcTemplate(), sqls);
@@ -418,7 +418,7 @@ abstract public class DaoTestCaseJunit4 extends
      * @param sql
      * @return
      * @throws DataAccessException
-     * @see jp.terasoluna.fw.ex.unit.util.JdbcTemplateUtils#queryForLong(org.springframework.jdbc.core.JdbcTemplate, java.lang.String)
+     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#queryForLong(org.springframework.jdbc.core.JdbcTemplate, java.lang.String)
      */
     public long queryForLong(String sql) throws DataAccessException {
         return JdbcTemplateUtils.queryForLong(getJdbcTemplate(), sql);
@@ -429,7 +429,7 @@ abstract public class DaoTestCaseJunit4 extends
      * @param args
      * @return
      * @throws DataAccessException
-     * @see jp.terasoluna.fw.ex.unit.util.JdbcTemplateUtils#queryForLong(org.springframework.jdbc.core.JdbcTemplate, java.lang.String, java.lang.Object[])
+     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#queryForLong(org.springframework.jdbc.core.JdbcTemplate, java.lang.String, java.lang.Object[])
      */
     public long queryForLong(String sql, Object[] args)
                                                        throws DataAccessException {
@@ -440,7 +440,7 @@ abstract public class DaoTestCaseJunit4 extends
      * @param sql
      * @return
      * @throws DataAccessException
-     * @see jp.terasoluna.fw.ex.unit.util.JdbcTemplateUtils#queryForInt(org.springframework.jdbc.core.JdbcTemplate, java.lang.String)
+     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#queryForInt(org.springframework.jdbc.core.JdbcTemplate, java.lang.String)
      */
     public int queryForInt(String sql) throws DataAccessException {
         return JdbcTemplateUtils.queryForInt(getJdbcTemplate(), sql);
@@ -451,7 +451,7 @@ abstract public class DaoTestCaseJunit4 extends
      * @param args
      * @return
      * @throws DataAccessException
-     * @see jp.terasoluna.fw.ex.unit.util.JdbcTemplateUtils#queryForInt(org.springframework.jdbc.core.JdbcTemplate, java.lang.String, java.lang.Object[])
+     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#queryForInt(org.springframework.jdbc.core.JdbcTemplate, java.lang.String, java.lang.Object[])
      */
     public int queryForInt(String sql, Object[] args)
                                                      throws DataAccessException {
@@ -462,7 +462,7 @@ abstract public class DaoTestCaseJunit4 extends
      * @param sql
      * @return
      * @throws DataAccessException
-     * @see jp.terasoluna.fw.ex.unit.util.JdbcTemplateUtils#queryForString(org.springframework.jdbc.core.JdbcTemplate, java.lang.String)
+     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#queryForString(org.springframework.jdbc.core.JdbcTemplate, java.lang.String)
      */
     public String queryForString(String sql) throws DataAccessException {
         return JdbcTemplateUtils.queryForString(getJdbcTemplate(), sql);
@@ -473,7 +473,7 @@ abstract public class DaoTestCaseJunit4 extends
      * @param args
      * @return
      * @throws DataAccessException
-     * @see jp.terasoluna.fw.ex.unit.util.JdbcTemplateUtils#queryForString(org.springframework.jdbc.core.JdbcTemplate, java.lang.String, java.lang.Object[])
+     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#queryForString(org.springframework.jdbc.core.JdbcTemplate, java.lang.String, java.lang.Object[])
      */
     public String queryForString(String sql, Object[] args)
                                                            throws DataAccessException {
@@ -486,7 +486,7 @@ abstract public class DaoTestCaseJunit4 extends
      * @param requiredType
      * @return
      * @throws DataAccessException
-     * @see jp.terasoluna.fw.ex.unit.util.JdbcTemplateUtils#queryForObject(org.springframework.jdbc.core.JdbcTemplate, java.lang.String, java.lang.Class)
+     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#queryForObject(org.springframework.jdbc.core.JdbcTemplate, java.lang.String, java.lang.Class)
      */
     public <T> T queryForObject(String sql, Class<T> requiredType)
                                                                   throws DataAccessException {
@@ -501,7 +501,7 @@ abstract public class DaoTestCaseJunit4 extends
      * @param requiredType
      * @return
      * @throws DataAccessException
-     * @see jp.terasoluna.fw.ex.unit.util.JdbcTemplateUtils#queryForObject(org.springframework.jdbc.core.JdbcTemplate, java.lang.String, java.lang.Object[], java.lang.Class)
+     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#queryForObject(org.springframework.jdbc.core.JdbcTemplate, java.lang.String, java.lang.Object[], java.lang.Class)
      */
     public <T> T queryForObject(String sql, Object[] args, Class<T> requiredType)
                                                                                  throws DataAccessException {
@@ -513,7 +513,7 @@ abstract public class DaoTestCaseJunit4 extends
      * @param sql
      * @return
      * @throws DataAccessException
-     * @see jp.terasoluna.fw.ex.unit.util.JdbcTemplateUtils#queryForRowMap(org.springframework.jdbc.core.JdbcTemplate, java.lang.String)
+     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#queryForRowMap(org.springframework.jdbc.core.JdbcTemplate, java.lang.String)
      */
     public Map<String, ?> queryForRowMap(String sql) throws DataAccessException {
         return JdbcTemplateUtils.queryForRowMap(getJdbcTemplate(), sql);
@@ -524,7 +524,7 @@ abstract public class DaoTestCaseJunit4 extends
      * @param args
      * @return
      * @throws DataAccessException
-     * @see jp.terasoluna.fw.ex.unit.util.JdbcTemplateUtils#queryForRowMap(org.springframework.jdbc.core.JdbcTemplate, java.lang.String, java.lang.Object[])
+     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#queryForRowMap(org.springframework.jdbc.core.JdbcTemplate, java.lang.String, java.lang.Object[])
      */
     public Map<String, ?> queryForRowMap(String sql, Object[] args)
                                                                    throws DataAccessException {
@@ -537,7 +537,7 @@ abstract public class DaoTestCaseJunit4 extends
      * @param clazz
      * @return
      * @throws DataAccessException
-     * @see jp.terasoluna.fw.ex.unit.util.JdbcTemplateUtils#queryForRowObject(org.springframework.jdbc.core.JdbcTemplate, java.lang.String, java.lang.Class)
+     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#queryForRowObject(org.springframework.jdbc.core.JdbcTemplate, java.lang.String, java.lang.Class)
      */
     public <T> T queryForRowObject(String sql, Class<T> clazz)
                                                               throws DataAccessException {
@@ -552,7 +552,7 @@ abstract public class DaoTestCaseJunit4 extends
      * @param clazz
      * @return
      * @throws DataAccessException
-     * @see jp.terasoluna.fw.ex.unit.util.JdbcTemplateUtils#queryForRowObject(org.springframework.jdbc.core.JdbcTemplate, java.lang.String, java.lang.Object[], java.lang.Class)
+     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#queryForRowObject(org.springframework.jdbc.core.JdbcTemplate, java.lang.String, java.lang.Object[], java.lang.Class)
      */
     public <T> T queryForRowObject(String sql, Object[] args, Class<T> clazz)
                                                                              throws DataAccessException {
@@ -566,7 +566,7 @@ abstract public class DaoTestCaseJunit4 extends
      * @param elementType
      * @return
      * @throws DataAccessException
-     * @see jp.terasoluna.fw.ex.unit.util.JdbcTemplateUtils#queryForSingleColumnList(org.springframework.jdbc.core.JdbcTemplate, java.lang.String, java.lang.Class)
+     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#queryForSingleColumnList(org.springframework.jdbc.core.JdbcTemplate, java.lang.String, java.lang.Class)
      */
     public <T> List<T> queryForSingleColumnList(String sql, Class<T> elementType)
                                                                                  throws DataAccessException {
@@ -581,7 +581,7 @@ abstract public class DaoTestCaseJunit4 extends
      * @param elementType
      * @return
      * @throws DataAccessException
-     * @see jp.terasoluna.fw.ex.unit.util.JdbcTemplateUtils#queryForSingleColumnList(org.springframework.jdbc.core.JdbcTemplate, java.lang.String, java.lang.Object[], java.lang.Class)
+     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#queryForSingleColumnList(org.springframework.jdbc.core.JdbcTemplate, java.lang.String, java.lang.Object[], java.lang.Class)
      */
     public <T> List<T> queryForSingleColumnList(String sql, Object[] args,
             Class<T> elementType) throws DataAccessException {
@@ -593,7 +593,7 @@ abstract public class DaoTestCaseJunit4 extends
      * @param sql
      * @return
      * @throws DataAccessException
-     * @see jp.terasoluna.fw.ex.unit.util.JdbcTemplateUtils#queryForRowMapList(org.springframework.jdbc.core.JdbcTemplate, java.lang.String)
+     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#queryForRowMapList(org.springframework.jdbc.core.JdbcTemplate, java.lang.String)
      */
     public List<Map<String, ?>> queryForRowMapList(String sql)
                                                               throws DataAccessException {
@@ -605,7 +605,7 @@ abstract public class DaoTestCaseJunit4 extends
      * @param args
      * @return
      * @throws DataAccessException
-     * @see jp.terasoluna.fw.ex.unit.util.JdbcTemplateUtils#queryForRowMapList(org.springframework.jdbc.core.JdbcTemplate, java.lang.String, java.lang.Object[])
+     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#queryForRowMapList(org.springframework.jdbc.core.JdbcTemplate, java.lang.String, java.lang.Object[])
      */
     public List<Map<String, ?>> queryForRowMapList(String sql, Object[] args)
                                                                              throws DataAccessException {
@@ -617,7 +617,7 @@ abstract public class DaoTestCaseJunit4 extends
      * @param clazz
      * @return
      * @throws DataAccessException
-     * @see jp.terasoluna.fw.ex.unit.util.JdbcTemplateUtils#queryForRowMapList(org.springframework.jdbc.core.JdbcTemplate, java.lang.Class)
+     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#queryForRowMapList(org.springframework.jdbc.core.JdbcTemplate, java.lang.Class)
      */
     public List<Map<String, ?>> queryForRowMapList(Class<?> clazz)
                                                                   throws DataAccessException {
@@ -630,7 +630,7 @@ abstract public class DaoTestCaseJunit4 extends
      * @param clazz
      * @return
      * @throws DataAccessException
-     * @see jp.terasoluna.fw.ex.unit.util.JdbcTemplateUtils#queryForRowObjectList(org.springframework.jdbc.core.JdbcTemplate, java.lang.String, java.lang.Class)
+     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#queryForRowObjectList(org.springframework.jdbc.core.JdbcTemplate, java.lang.String, java.lang.Class)
      */
     public <T> List<T> queryForRowObjectList(String sql, Class<T> clazz)
                                                                         throws DataAccessException {
@@ -645,7 +645,7 @@ abstract public class DaoTestCaseJunit4 extends
      * @param clazz
      * @return
      * @throws DataAccessException
-     * @see jp.terasoluna.fw.ex.unit.util.JdbcTemplateUtils#queryForRowObjectList(org.springframework.jdbc.core.JdbcTemplate, java.lang.String, java.lang.Object[], java.lang.Class)
+     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#queryForRowObjectList(org.springframework.jdbc.core.JdbcTemplate, java.lang.String, java.lang.Object[], java.lang.Class)
      */
     public <T> List<T> queryForRowObjectList(String sql, Object[] args,
             Class<T> clazz) throws DataAccessException {
@@ -658,7 +658,7 @@ abstract public class DaoTestCaseJunit4 extends
      * @param clazz
      * @return
      * @throws DataAccessException
-     * @see jp.terasoluna.fw.ex.unit.util.JdbcTemplateUtils#queryForRowObjectList(org.springframework.jdbc.core.JdbcTemplate, java.lang.Class)
+     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#queryForRowObjectList(org.springframework.jdbc.core.JdbcTemplate, java.lang.Class)
      */
     public <T> List<T> queryForRowObjectList(Class<T> clazz)
                                                             throws DataAccessException {
@@ -670,7 +670,7 @@ abstract public class DaoTestCaseJunit4 extends
      * @param tableName
      * @param fieldNames
      * @return
-     * @see jp.terasoluna.fw.ex.unit.util.JdbcTemplateUtils#createSelectSql(java.lang.String, java.lang.String[])
+     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#createSelectSql(java.lang.String, java.lang.String[])
      */
     public String createSelectSql(String tableName, String[] fieldNames) {
         return JdbcTemplateUtils.createSelectSql(tableName, fieldNames);
@@ -680,7 +680,7 @@ abstract public class DaoTestCaseJunit4 extends
      * @param tableName
      * @param clazz
      * @return
-     * @see jp.terasoluna.fw.ex.unit.util.JdbcTemplateUtils#createSelectSql(java.lang.String, java.lang.Class)
+     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#createSelectSql(java.lang.String, java.lang.Class)
      */
     public String createSelectSql(String tableName, Class<?> clazz) {
         return JdbcTemplateUtils.createSelectSql(tableName, clazz);
@@ -689,7 +689,7 @@ abstract public class DaoTestCaseJunit4 extends
     /**
      * @param clazz
      * @return
-     * @see jp.terasoluna.fw.ex.unit.util.JdbcTemplateUtils#createSelectSql(java.lang.Class)
+     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#createSelectSql(java.lang.Class)
      */
     public String createSelectSql(Class<?> clazz) {
         return JdbcTemplateUtils.createSelectSql(clazz);
@@ -699,7 +699,7 @@ abstract public class DaoTestCaseJunit4 extends
      * @param tableName
      * @param fieldNames
      * @return
-     * @see jp.terasoluna.fw.ex.unit.util.JdbcTemplateUtils#createInsertSql(java.lang.String, java.lang.String[])
+     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#createInsertSql(java.lang.String, java.lang.String[])
      */
     public String createInsertSql(String tableName, String[] fieldNames) {
         return JdbcTemplateUtils.createInsertSql(tableName, fieldNames);
@@ -709,7 +709,7 @@ abstract public class DaoTestCaseJunit4 extends
      * @param tableName
      * @param clazz
      * @return
-     * @see jp.terasoluna.fw.ex.unit.util.JdbcTemplateUtils#createInsertSql(java.lang.String, java.lang.Class)
+     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#createInsertSql(java.lang.String, java.lang.Class)
      */
     public String createInsertSql(String tableName, Class<?> clazz) {
         return JdbcTemplateUtils.createInsertSql(tableName, clazz);
@@ -718,7 +718,7 @@ abstract public class DaoTestCaseJunit4 extends
     /**
      * @param clazz
      * @return
-     * @see jp.terasoluna.fw.ex.unit.util.JdbcTemplateUtils#createInsertSql(java.lang.Class)
+     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#createInsertSql(java.lang.Class)
      */
     public String createInsertSql(Class<?> clazz) {
         return JdbcTemplateUtils.createInsertSql(clazz);

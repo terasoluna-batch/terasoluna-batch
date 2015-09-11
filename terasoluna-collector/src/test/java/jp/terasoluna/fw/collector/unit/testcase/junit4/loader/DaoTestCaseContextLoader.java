@@ -34,7 +34,7 @@ public class DaoTestCaseContextLoader extends
 
     /*
      * (non-Javadoc)
-     * @see jp.terasoluna.fw.ex.unit.testcase.junit4.loader.AbstractTerasolunaUnitContextLoader#getDefaultConfigs()
+     * @see jp.terasoluna.fw.ex.batch.testcase.junit4.loader.AbstractTerasolunaUnitContextLoader#getDefaultConfigs()
      */
     @Override
     protected List<String> getDefaultConfigs() {
