@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package jp.terasoluna.fw.batch.unit.utils;
+package jp.terasoluna.fw.batch.unit.exception;
 
 @SuppressWarnings("serial")
 public class UTRuntimeException extends RuntimeException {

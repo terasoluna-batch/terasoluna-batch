@@ -3,21 +3,27 @@
  */
 package jp.terasoluna.fw.collector.db;
 
-import java.util.List;
-
 import jp.terasoluna.fw.collector.Collector;
 import jp.terasoluna.fw.collector.CollectorTestUtil;
 import jp.terasoluna.fw.collector.dao.UserListQueryResultHandleDao;
 import jp.terasoluna.fw.collector.util.MemoryInfo;
-import jp.terasoluna.fw.ex.unit.testcase.DaoTestCase;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
+import org.springframework.test.context.ContextConfiguration;
+import jp.terasoluna.fw.collector.unit.testcase.junit4.DaoTestCaseJunit4;
+import jp.terasoluna.fw.collector.unit.testcase.junit4.loader.DaoTestCaseContextLoader;
 
 /**
  * DaoCollectorTest
  */
-public class DaoCollector003Test extends DaoTestCase {
+@ContextConfiguration(locations = {
+        "classpath:jp/terasoluna/fw/collector/db/dataSource.xml" }, loader = DaoTestCaseContextLoader.class)
+public class DaoCollector003Test extends DaoTestCaseJunit4 {
 
     /**
      * Log.
@@ -28,18 +34,13 @@ public class DaoCollector003Test extends DaoTestCase {
 
     private int previousThreadCount = 0;
 
-    @Override
-    protected void addConfigLocations(List<String> configLocations) {
-        configLocations.add("jp/terasoluna/fw/collector/db/dataSource.xml");
-    }
-
-    public void setUserListQueryResultHandleDao(UserListQueryResultHandleDao userListQueryResultHandleDao) {
+    public void setUserListQueryResultHandleDao(
+            UserListQueryResultHandleDao userListQueryResultHandleDao) {
         this.userListQueryResultHandleDao = userListQueryResultHandleDao;
     }
 
-    @SuppressWarnings("deprecation")
-    @Override
-    protected void onSetUp() throws Exception {
+    @Before
+    public void onSetUp() throws Exception {
         if (logger.isInfoEnabled()) {
             logger.info(MemoryInfo.getMemoryInfo());
         }
@@ -47,12 +48,11 @@ public class DaoCollector003Test extends DaoTestCase {
         if (logger.isInfoEnabled()) {
             logger.info(MemoryInfo.getMemoryInfo());
         }
-        super.onSetUp();
         this.previousThreadCount = CollectorTestUtil.getCollectorThreadCount();
     }
 
-    @Override
-    protected void onTearDown() throws Exception {
+    @After
+    public void onTearDown() throws Exception {
         if (logger.isInfoEnabled()) {
             logger.info(MemoryInfo.getMemoryInfo());
         }
@@ -61,23 +61,21 @@ public class DaoCollector003Test extends DaoTestCase {
             logger.info(MemoryInfo.getMemoryInfo());
         }
         CollectorTestUtil.allInterrupt();
-        super.onTearDown();
     }
 
     /**
      * {@link jp.terasoluna.fw.collector.db.DaoCollector#(java.lang.Object, java.lang.String, java.lang.Object, int)}
      * のためのテスト・メソッド。
      */
-    public void testDaoCollectorObjectStringObjectInt001()
-                                                                        throws Exception {
+    @Test
+    public void testDaoCollectorObjectStringObjectInt001() throws Exception {
         if (this.userListQueryResultHandleDao == null) {
             fail("userListQueryResultHandleDaoがnullです。");
         }
 
         int count_first = 0;
 
-        Collector<UserBean> it = new DaoCollector<UserBean>(
-                this.userListQueryResultHandleDao, "collect", null, 1);
+        Collector<UserBean> it = new DaoCollector<UserBean>(this.userListQueryResultHandleDao, "collect", null, 1);
         try {
             while (it.hasNext()) {
                 it.next();
@@ -88,16 +86,15 @@ public class DaoCollector003Test extends DaoTestCase {
         }
 
         // コレクタスレッド数チェック
-        assertTrue(CollectorTestUtil
-                .lessThanCollectorThreadCount(0 + this.previousThreadCount));
+        assertTrue(CollectorTestUtil.lessThanCollectorThreadCount(0
+                + this.previousThreadCount));
 
         for (int i = 0; i < 2; i++) {
             int count = 0;
 
             long startTime = System.currentTimeMillis();
 
-            Collector<UserBean> it2 = new DaoCollector<UserBean>(
-                    this.userListQueryResultHandleDao, "collect", null, 1);
+            Collector<UserBean> it2 = new DaoCollector<UserBean>(this.userListQueryResultHandleDao, "collect", null, 1);
             try {
                 for (UserBean user : it2) {
                     if (logger.isInfoEnabled() && user == null) {
@@ -111,8 +108,8 @@ public class DaoCollector003Test extends DaoTestCase {
             }
 
             // コレクタスレッド数チェック
-            assertTrue(CollectorTestUtil
-                    .lessThanCollectorThreadCount(0 + this.previousThreadCount));
+            assertTrue(CollectorTestUtil.lessThanCollectorThreadCount(0
+                    + this.previousThreadCount));
 
             long endTime = System.currentTimeMillis();
 

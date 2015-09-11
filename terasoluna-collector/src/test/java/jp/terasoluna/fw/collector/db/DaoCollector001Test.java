@@ -3,21 +3,28 @@
  */
 package jp.terasoluna.fw.collector.db;
 
-import java.util.List;
-
 import jp.terasoluna.fw.collector.dao.UserListQueryResultHandleDao;
 import jp.terasoluna.fw.collector.exception.CollectorExceptionHandler;
 import jp.terasoluna.fw.collector.util.MemoryInfo;
-import jp.terasoluna.fw.ex.unit.testcase.DaoTestCase;
 import jp.terasoluna.fw.exception.SystemException;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
+import org.springframework.test.context.ContextConfiguration;
+import jp.terasoluna.fw.collector.unit.testcase.junit4.DaoTestCaseJunit4;
+import jp.terasoluna.fw.collector.unit.testcase.junit4.loader.DaoTestCaseContextLoader;
+
 /**
  * DaoCollectorTest
  */
-public class DaoCollector001Test extends DaoTestCase {
+@ContextConfiguration(locations = {
+        "classpath:jp/terasoluna/fw/collector/db/dataSource.xml" }, loader = DaoTestCaseContextLoader.class)
+public class DaoCollector001Test extends DaoTestCaseJunit4 {
 
     /**
      * Log.
@@ -26,18 +33,13 @@ public class DaoCollector001Test extends DaoTestCase {
 
     private UserListQueryResultHandleDao userListQueryResultHandleDao = null;
 
-    @Override
-    protected void addConfigLocations(List<String> configLocations) {
-        configLocations.add("jp/terasoluna/fw/collector/db/dataSource.xml");
-    }
-
-    public void setUserListQueryResultHandleDao(UserListQueryResultHandleDao userListQueryResultHandleDao) {
+    public void setUserListQueryResultHandleDao(
+            UserListQueryResultHandleDao userListQueryResultHandleDao) {
         this.userListQueryResultHandleDao = userListQueryResultHandleDao;
     }
 
-    @SuppressWarnings("deprecation")
-    @Override
-    protected void onSetUp() throws Exception {
+    @Before
+    public void onSetUp() throws Exception {
         if (logger.isInfoEnabled()) {
             logger.info(MemoryInfo.getMemoryInfo());
         }
@@ -45,11 +47,10 @@ public class DaoCollector001Test extends DaoTestCase {
         if (logger.isInfoEnabled()) {
             logger.info(MemoryInfo.getMemoryInfo());
         }
-        super.onSetUp();
     }
 
-    @Override
-    protected void onTearDown() throws Exception {
+    @After
+    public void onTearDown() throws Exception {
         if (logger.isInfoEnabled()) {
             logger.info(MemoryInfo.getMemoryInfo());
         }
@@ -57,13 +58,13 @@ public class DaoCollector001Test extends DaoTestCase {
         if (logger.isInfoEnabled()) {
             logger.info(MemoryInfo.getMemoryInfo());
         }
-        super.onTearDown();
     }
 
     /**
      * testDaoCollector001
      * @throws Exception
      */
+    @Test
     public void testDaoCollector001() throws Exception {
         DaoCollector<UserBean> dbc = new DaoCollector<UserBean>();
 
@@ -74,13 +75,13 @@ public class DaoCollector001Test extends DaoTestCase {
      * testDaoCollector002
      * @throws Exception
      */
+    @Test
     public void testDaoCollector002() throws Exception {
         String methodName = null;
         Object bindParams = null;
         CollectorExceptionHandler exceptionHandler = null;
 
-        DaoCollector<UserBean> dbc = new DaoCollector<UserBean>(
-                userListQueryResultHandleDao, methodName, bindParams, exceptionHandler);
+        DaoCollector<UserBean> dbc = new DaoCollector<UserBean>(userListQueryResultHandleDao, methodName, bindParams, exceptionHandler);
 
         assertNotNull(dbc);
         dbc.close();
@@ -90,13 +91,14 @@ public class DaoCollector001Test extends DaoTestCase {
      * testDaoCollector003
      * @throws Exception
      */
+    @Test
     public void testDaoCollector003() throws Exception {
         DaoCollectorConfig config = null;
 
         DaoCollector<UserBean> dbc = null;
         try {
             dbc = new DaoCollector<UserBean>(config);
-            fail("å¤±æ•—");
+            fail("å¤±æÉ÷");
         } catch (IllegalArgumentException e) {
             assertNotNull(e);
             assertEquals("The parameter is null.", e.getMessage());
@@ -111,13 +113,13 @@ public class DaoCollector001Test extends DaoTestCase {
      * testGetResultHandler001
      * @throws Exception
      */
+    @Test
     public void testGetResultHandler001() throws Exception {
         String methodName = null;
         Object bindParams = null;
         CollectorExceptionHandler exceptionHandler = null;
 
-        DaoCollector<UserBean> dbc = new DaoCollector<UserBean>(
-                userListQueryResultHandleDao, methodName, bindParams, exceptionHandler);
+        DaoCollector<UserBean> dbc = new DaoCollector<UserBean>(userListQueryResultHandleDao, methodName, bindParams, exceptionHandler);
 
         dbc.queueingResultHandlerClass = QueueingResultHandlerStub001.class;
 
@@ -131,19 +133,19 @@ public class DaoCollector001Test extends DaoTestCase {
      * testGetResultHandler002
      * @throws Exception
      */
+    @Test
     public void testGetResultHandler002() throws Exception {
         String methodName = null;
         Object bindParams = null;
         CollectorExceptionHandler exceptionHandler = null;
 
-        DaoCollector<UserBean> dbc = new DaoCollector<UserBean>(
-                userListQueryResultHandleDao, methodName, bindParams, exceptionHandler);
+        DaoCollector<UserBean> dbc = new DaoCollector<UserBean>(userListQueryResultHandleDao, methodName, bindParams, exceptionHandler);
 
         dbc.queueingResultHandlerClass = QueueingResultHandlerStub002.class;
 
         try {
             dbc.getResultHandler();
-            fail("å¤±æ•—");
+            fail("å¤±æÉ÷");
         } catch (SystemException e) {
             assertNotNull(e);
             assertEquals(SystemException.class, e.getClass());
@@ -158,19 +160,19 @@ public class DaoCollector001Test extends DaoTestCase {
      * testGetResultHandler003
      * @throws Exception
      */
+    @Test
     public void testGetResultHandler003() throws Exception {
         String methodName = null;
         Object bindParams = null;
         CollectorExceptionHandler exceptionHandler = null;
 
-        DaoCollector<UserBean> dbc = new DaoCollector<UserBean>(
-                userListQueryResultHandleDao, methodName, bindParams, exceptionHandler);
+        DaoCollector<UserBean> dbc = new DaoCollector<UserBean>(userListQueryResultHandleDao, methodName, bindParams, exceptionHandler);
 
         dbc.queueingResultHandlerClass = QueueingResultHandlerStub003.class;
 
         try {
             dbc.getResultHandler();
-            fail("å¤±æ•—");
+            fail("å¤±æÉ÷");
         } catch (SystemException e) {
             assertNotNull(e);
             assertEquals(SystemException.class, e.getClass());

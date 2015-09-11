@@ -14,13 +14,15 @@
  * limitations under the License.
  */
 
-package jp.terasoluna.fw.batch.unit.utils;
+package jp.terasoluna.fw.batch.unit.util;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
+
+import jp.terasoluna.fw.batch.unit.exception.UTRuntimeException;
 
 /**
  * システム環境変数のテスト用ユーティリティ

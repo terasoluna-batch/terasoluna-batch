@@ -11,7 +11,7 @@ import org.junit.Test;
 
 import jp.terasoluna.fw.batch.executor.SecurityManagerEx.ExitException;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
-import jp.terasoluna.fw.batch.unit.utils.SystemEnvUtils;
+import jp.terasoluna.fw.batch.unit.util.SystemEnvUtils;
 
 public class SyncBatchExecutorTest {
 

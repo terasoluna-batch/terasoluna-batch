@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package jp.terasoluna.fw.batch.unit.utils;
+package jp.terasoluna.fw.collector.unit.util;
 
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionDefinition;

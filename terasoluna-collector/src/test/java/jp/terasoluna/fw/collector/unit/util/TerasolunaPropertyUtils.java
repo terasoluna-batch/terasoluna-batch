@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package jp.terasoluna.fw.batch.unit.utils;
+package jp.terasoluna.fw.collector.unit.util;
 
 import java.lang.reflect.Field;
 import java.util.Map;
