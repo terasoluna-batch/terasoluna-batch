@@ -142,7 +142,7 @@ public class WorkerTemplateImpl implements JobExecutorTemplate {
             }
             return updated;
         } catch (Exception e) {
-            LOGGER.info(LogId.IAL025010, jobSequenceId, e);
+            LOGGER.info(LogId.IAL025010, e, jobSequenceId);
         }
         // ステータス更新に失敗ているのでfalseで終了
         return false;

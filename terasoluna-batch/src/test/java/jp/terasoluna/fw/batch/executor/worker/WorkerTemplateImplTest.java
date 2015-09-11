@@ -434,8 +434,9 @@ public class WorkerTemplateImplTest {
      */
     @Test
     public void testBeforeExecute03() throws Exception {
+        Exception ex = new MockDataAccessException("dummy exception");
         when(mockJobStatusChanger.changeToStartStatus(anyString())).thenThrow(
-                new MockDataAccessException("dummy exception"));
+                ex);
 
         WorkerTemplateImpl target = new WorkerTemplateImpl(mockBLogicResolver, 
                 mockBLogicExceptionHandlerResolver, 
@@ -452,7 +453,9 @@ public class WorkerTemplateImplTest {
         verify(mockJobStatusChanger).changeToStartStatus("0000001");
         assertThat(
                 logger.getLoggingEvents(),
-                is(asList(info("[IAL025010] Job status update error.(JOB_SEQ_ID:0000001)"))));
+                is(asList(info(
+                        ex,
+                        "[IAL025010] Job status update error.(JOB_SEQ_ID:0000001)"))));
     }
 
     /**
