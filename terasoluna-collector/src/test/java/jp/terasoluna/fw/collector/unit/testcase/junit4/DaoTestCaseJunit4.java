@@ -19,9 +19,7 @@ package jp.terasoluna.fw.collector.unit.testcase.junit4;
 import java.util.List;
 import java.util.Map;
 
-import jp.terasoluna.fw.collector.unit.testcase.TestCaseUtils;
 import jp.terasoluna.fw.collector.unit.testcase.junit4.listener.DaoTestCaseExecutionListener;
-import jp.terasoluna.fw.collector.unit.testcase.junit4.loader.DaoTestCaseContextLoader;
 import jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils;
 
 import org.junit.After;

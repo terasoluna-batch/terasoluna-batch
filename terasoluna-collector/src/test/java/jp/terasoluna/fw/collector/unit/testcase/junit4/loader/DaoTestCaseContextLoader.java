@@ -19,7 +19,7 @@ package jp.terasoluna.fw.collector.unit.testcase.junit4.loader;
 import java.util.List;
 
 import jp.terasoluna.fw.collector.unit.testcase.TestCaseUtils;
-import jp.terasoluna.fw.collector.unit.testcase.junit4.DaoTestCaseJunit4;
+
 /**
  * DaoTestCase用コンテキストローダ。
  * 
