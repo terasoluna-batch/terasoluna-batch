@@ -37,6 +37,8 @@ import org.junit.Test;
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
 import static uk.org.lidalia.slf4jtest.LoggingEvent.error;
+
+import java.nio.charset.Charset;
 import static java.util.Arrays.asList;
 
 /**
@@ -958,14 +960,16 @@ public class FieldChecksTest09 {
     @Test
     public void testValidateByteRange08() throws Exception {
         // 前処理
+        String stringLength = new Integer("あいう".getBytes(Charset
+                .defaultCharset().name()).length).toString();
         Var var1 = new Var();
         var1.setName("minByteLength");
-        var1.setValue("6");
+        var1.setValue(stringLength);
         field.addVar(var1);
 
         Var var2 = new Var();
         var2.setName("maxByteLength");
-        var2.setValue("6");
+        var2.setValue(stringLength);
         field.addVar(var2);
 
         // テスト実施
@@ -1000,14 +1004,16 @@ public class FieldChecksTest09 {
     @Test
     public void testValidateByteRange09() throws Exception {
         // 前処理
+        String stringLength = new Integer("あいう".getBytes(Charset
+                .defaultCharset().name()).length).toString();
         Var var1 = new Var();
         var1.setName("minByteLength");
-        var1.setValue("6");
+        var1.setValue(stringLength);
         field.addVar(var1);
 
         Var var2 = new Var();
         var2.setName("maxByteLength");
-        var2.setValue("6");
+        var2.setValue(stringLength);
         field.addVar(var2);
 
         Var var3 = new Var();
