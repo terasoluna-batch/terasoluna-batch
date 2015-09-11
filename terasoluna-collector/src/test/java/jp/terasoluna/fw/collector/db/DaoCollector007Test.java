@@ -269,6 +269,12 @@ public class DaoCollector007Test extends DaoTestCaseJunit4 {
         Exception ex = new Exception("postprocessExceptionテスト");
         // preprocess実行（パラメータが正常に渡ればDaoCollectorPreProcessStatus.THROWが戻り値になる）
         DaoCollectorPrePostProcessStatus status = dbc.postprocessException(ex);
+<<<<<<< HEAD
+=======
+
+        // preprocess実行後確認（statusがTHROWならOK）
+        assertEquals(DaoCollectorPrePostProcessStatus.THROW, status);
+>>>>>>> Removed terasoluna-unit (Changed DaoTestCase to DaoTestCaseJunit4). #260
 
         // preprocess実行後確認（statusがTHROWならOK）
         assertEquals(DaoCollectorPrePostProcessStatus.THROW, status);
@@ -292,6 +298,12 @@ public class DaoCollector007Test extends DaoTestCaseJunit4 {
 
         // preprocess実行（パラメータが正常に渡ればresultHandlerが設定される）
         dbc.postprocessComplete();
+<<<<<<< HEAD
+=======
+
+        // preprocess実行後確認（resultHandlerが設定されていること）
+        assertTrue(dbc.resultHandler instanceof QueueingResultHandlerImpl);
+>>>>>>> Removed terasoluna-unit (Changed DaoTestCase to DaoTestCaseJunit4). #260
 
         // preprocess実行後確認（resultHandlerが設定されていること）
         assertTrue(dbc.resultHandler instanceof QueueingResultHandlerImpl);

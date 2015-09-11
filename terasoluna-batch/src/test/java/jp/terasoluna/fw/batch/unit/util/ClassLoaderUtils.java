@@ -16,6 +16,8 @@ package jp.terasoluna.fw.batch.unit.util;
  * limitations under the License.
  */
 
+import static jp.terasoluna.fw.batch.unit.common.PropertyKeys.WEBAPP_PATH;
+
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Method;
@@ -100,6 +102,15 @@ public class ClassLoaderUtils {
 
         previousClassLoader = cl;
         setClassLoader(newCl);
+    }
+
+    public static void addContextRootToClassPath() {
+        // WEBAPディレクトリをクラスパスに追加します
+        String contextRoot = DefaultProperties.getValue(WEBAPP_PATH);
+        if (LOG.isInfoEnabled()) {
+            LOG.info("add " + contextRoot + " to classpath");
+        }
+        ClassLoaderUtils.addClassPath(contextRoot);
     }
 
     /**

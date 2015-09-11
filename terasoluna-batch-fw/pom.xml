@@ -52,6 +52,8 @@
         <oro.version>2.0.8</oro.version>
         <!-- assertj -->
         <assertj.version>2.2.0</assertj.version>
+        <!-- slf4j -->
+        <slf4j-test.version>1.1.0</slf4j-test.version>        
         <!-- postgresql -->
         <postgresql.version>9.3-1103-jdbc41</postgresql.version>
         <oracle.jdbc.version>11.2.0.4.0</oracle.jdbc.version>
@@ -74,7 +76,6 @@
         <maven-jxr-plugin.version>2.3</maven-jxr-plugin.version>
         <maven-surefire-report-plugin.version>2.18.1</maven-surefire-report-plugin.version>
         <taglist-maven-plugin.version>2.4</taglist-maven-plugin.version>
-        <slf4j-test.version>1.1.0</slf4j-test.version>
         <cobertura-maven-plugin.version>2.7</cobertura-maven-plugin.version>
         <assertj.version>2.2.0</assertj.version>
     </properties>

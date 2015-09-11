@@ -36,10 +36,6 @@ import org.springframework.dao.DataAccessException;
 import static org.mockito.Mockito.*;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.CoreMatchers.equalTo;
-<<<<<<< HEAD
-=======
-import static org.junit.Assert.*;
->>>>>>> Removed terasoluna-unit code(without DaoTestCase). #260
 
 import org.junit.Test;
 import static org.junit.Assert.*;
