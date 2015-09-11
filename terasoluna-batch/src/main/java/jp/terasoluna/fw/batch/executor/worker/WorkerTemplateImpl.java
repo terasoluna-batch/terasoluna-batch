@@ -27,12 +27,10 @@ import jp.terasoluna.fw.batch.blogic.vo.BLogicParamConverter;
 import jp.terasoluna.fw.batch.constants.LogId;
 import jp.terasoluna.fw.batch.exception.handler.BLogicExceptionHandlerResolver;
 import jp.terasoluna.fw.batch.exception.handler.ExceptionHandler;
-import jp.terasoluna.fw.batch.exception.handler.ExceptionStatusHandler;
 import jp.terasoluna.fw.batch.executor.repository.BatchJobDataRepository;
 import jp.terasoluna.fw.batch.executor.repository.JobStatusChanger;
 import jp.terasoluna.fw.batch.executor.vo.BLogicResult;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
-import jp.terasoluna.fw.batch.executor.vo.BatchJobManagementParam;
 import jp.terasoluna.fw.logger.TLogger;
 
 /**
@@ -40,7 +38,7 @@ import jp.terasoluna.fw.logger.TLogger;
  * <p>
  * 前処理となる{@code beforeExecute}は実行された結果、{@code false}が返却された場合、 もしくは、{@code Exception}がスローされた場合、主処理である{@code executeWorker}
  * は実行されない。<br>
- * また、{@code beforeExecute}はメインスレッドで実行され、主処理の{@code executeWorker}はメインスレッドとは別のwokerスレッドとして実行される。 即ち、{@code beforeExecute}と
+ * また、{@code beforeExecute}はメインスレッドで実行され、主処理の{@code executeWorker}はメインスレッドとは別のworkerスレッドとして実行される。 即ち、{@code beforeExecute}と
  * {@code executeWorker}は別のスレッドで実行されるため、注意すること。
  * </p>
  * @since 3.6
@@ -130,6 +128,8 @@ public class WorkerTemplateImpl implements JobExecutorTemplate {
      * <p>
      * ジョブシーケンスコードに該当するレコードのジョブステータスを「実行中：１」に変更する。 尚、このメソッドは、メインスレッド（ジョブの実行を制御するスレッド）で実行すること。
      * </p>
+     * @param jobSequenceId ジョブシーケンスコード
+     * @return 前処理の処理結果(falseならば主処理の実行を中断する)
      * @see jp.terasoluna.fw.batch.executor.worker.JobExecutorTemplate#beforeExecute(java.lang.String)
      */
     @Override
@@ -155,6 +155,7 @@ public class WorkerTemplateImpl implements JobExecutorTemplate {
      * BLogicExecutorにBLogicの実行を移譲する。BLogicの実行後、ジョブシーケンスコードに該当するレコードのジョブステータスを 「処理済み：2」に変更する。<br>
      * 尚、このメソッドは、メインスレッドとは別スレッド（ジョブ実行用のwokerスレッド）で実行される。そのため、{@code beforeExecute}とは、 別スレッドで処理されることに注意すること。
      * </p>
+     * @param jobSequenceId ジョブシーケンスコード
      * @see jp.terasoluna.fw.batch.executor.worker.JobExecutorTemplate#executeWorker(java.lang.String)
      */
     @Override
@@ -177,7 +178,7 @@ public class WorkerTemplateImpl implements JobExecutorTemplate {
                 bLogicExceptionHandler = bLogicExceptionHandlerResolver
                         .resolveExceptionHandler(bLogicContext, jobSequenceId);
             } catch (Exception e) {
-                // output log later.
+                // Do nothing
             }
             if (bLogicExceptionHandler == null) {
                 // ExceptionHandlerがない場合でも処理を継続する

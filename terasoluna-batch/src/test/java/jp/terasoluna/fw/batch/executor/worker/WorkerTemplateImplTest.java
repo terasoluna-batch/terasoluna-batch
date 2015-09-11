@@ -115,9 +115,15 @@ public class WorkerTemplateImplTest {
      * @throws Exception 予期しない例外
      */
     @Test
-    public void workerTmplateImplTest01() throws Exception {
+    public void testWorkerTmplateImpl01() throws Exception {
         try {
-            new WorkerTemplateImpl(null, mockBLogicExceptionHandlerResolver, mockBLogicApplicationContextResolver, mockBatchJobDataRepository, mockBLogicParamConverter, mockBLogicExecutor, mockJobStatusChanger);
+            // テスト実行
+            new WorkerTemplateImpl(null, mockBLogicExceptionHandlerResolver, 
+                    mockBLogicApplicationContextResolver, 
+                    mockBatchJobDataRepository, 
+                    mockBLogicParamConverter, 
+                    mockBLogicExecutor, 
+                    mockJobStatusChanger);
             fail();
         } catch (IllegalArgumentException e) {
             assertThat(
@@ -139,9 +145,16 @@ public class WorkerTemplateImplTest {
      * @throws Exception 予期しない例外
      */
     @Test
-    public void workerTmplateImplTest02() throws Exception {
+    public void testWorkerTmplateImpl02() throws Exception {
         try {
-            new WorkerTemplateImpl(mockBLogicResolver, null, mockBLogicApplicationContextResolver, mockBatchJobDataRepository, mockBLogicParamConverter, mockBLogicExecutor, mockJobStatusChanger);
+            // テスト実行
+            new WorkerTemplateImpl(mockBLogicResolver, 
+                    null, 
+                    mockBLogicApplicationContextResolver, 
+                    mockBatchJobDataRepository, 
+                    mockBLogicParamConverter, 
+                    mockBLogicExecutor, 
+                    mockJobStatusChanger);
             fail();
         } catch (IllegalArgumentException e) {
             assertThat(
@@ -163,9 +176,16 @@ public class WorkerTemplateImplTest {
      * @throws Exception 予期しない例外
      */
     @Test
-    public void workerTmplateImplTest03() throws Exception {
+    public void testWorkerTmplateImpl03() throws Exception {
         try {
-            new WorkerTemplateImpl(mockBLogicResolver, mockBLogicExceptionHandlerResolver, null, mockBatchJobDataRepository, mockBLogicParamConverter, mockBLogicExecutor, mockJobStatusChanger);
+            // テスト実行
+            new WorkerTemplateImpl(mockBLogicResolver, 
+                    mockBLogicExceptionHandlerResolver, 
+                    null, 
+                    mockBatchJobDataRepository, 
+                    mockBLogicParamConverter, 
+                    mockBLogicExecutor, 
+                    mockJobStatusChanger);
             fail();
         } catch (IllegalArgumentException e) {
             assertThat(
@@ -187,9 +207,16 @@ public class WorkerTemplateImplTest {
      * @throws Exception 予期しない例外
      */
     @Test
-    public void workerTmplateImplTest04() throws Exception {
+    public void testWorkerTmplateImpl04() throws Exception {
         try {
-            new WorkerTemplateImpl(mockBLogicResolver, mockBLogicExceptionHandlerResolver, mockBLogicApplicationContextResolver, null, mockBLogicParamConverter, mockBLogicExecutor, mockJobStatusChanger);
+            // テスト実行
+            new WorkerTemplateImpl(mockBLogicResolver, 
+                    mockBLogicExceptionHandlerResolver, 
+                    mockBLogicApplicationContextResolver, 
+                    null, 
+                    mockBLogicParamConverter, 
+                    mockBLogicExecutor, 
+                    mockJobStatusChanger);
             fail();
         } catch (IllegalArgumentException e) {
             assertThat(
@@ -211,9 +238,16 @@ public class WorkerTemplateImplTest {
      * @throws Exception 予期しない例外
      */
     @Test
-    public void workerTmplateImplTest05() throws Exception {
+    public void testWorkerTmplateImpl05() throws Exception {
         try {
-            new WorkerTemplateImpl(mockBLogicResolver, mockBLogicExceptionHandlerResolver, mockBLogicApplicationContextResolver, mockBatchJobDataRepository, null, mockBLogicExecutor, mockJobStatusChanger);
+            // テスト実行
+            new WorkerTemplateImpl(mockBLogicResolver, 
+                    mockBLogicExceptionHandlerResolver, 
+                    mockBLogicApplicationContextResolver, 
+                    mockBatchJobDataRepository, 
+                    null, 
+                    mockBLogicExecutor, 
+                    mockJobStatusChanger);
             fail();
         } catch (IllegalArgumentException e) {
             assertThat(
@@ -235,9 +269,16 @@ public class WorkerTemplateImplTest {
      * @throws Exception 予期しない例外
      */
     @Test
-    public void workerTmplateImplTest06() throws Exception {
+    public void testWorkerTmplateImpl06() throws Exception {
         try {
-            new WorkerTemplateImpl(mockBLogicResolver, mockBLogicExceptionHandlerResolver, mockBLogicApplicationContextResolver, mockBatchJobDataRepository, mockBLogicParamConverter, null, mockJobStatusChanger);
+            // テスト実行
+            new WorkerTemplateImpl(mockBLogicResolver, 
+                    mockBLogicExceptionHandlerResolver,
+                    mockBLogicApplicationContextResolver, 
+                    mockBatchJobDataRepository, 
+                    mockBLogicParamConverter, 
+                    null, 
+                    mockJobStatusChanger);
             fail();
         } catch (IllegalArgumentException e) {
             assertThat(
@@ -259,9 +300,16 @@ public class WorkerTemplateImplTest {
      * @throws Exception 予期しない例外
      */
     @Test
-    public void workerTmplateImplTest07() throws Exception {
+    public void testWorkerTmplateImpl07() throws Exception {
         try {
-            new WorkerTemplateImpl(mockBLogicResolver, mockBLogicExceptionHandlerResolver, mockBLogicApplicationContextResolver, mockBatchJobDataRepository, mockBLogicParamConverter, mockBLogicExecutor, null);
+            // テスト実行
+            new WorkerTemplateImpl(mockBLogicResolver,
+                    mockBLogicExceptionHandlerResolver,
+                    mockBLogicApplicationContextResolver, 
+                    mockBatchJobDataRepository, 
+                    mockBLogicParamConverter, 
+                    mockBLogicExecutor, 
+                    null);
             fail();
         } catch (IllegalArgumentException e) {
             assertThat(
@@ -283,8 +331,15 @@ public class WorkerTemplateImplTest {
      * @throws Exception 予期しない例外
      */
     @Test
-    public void workerTmplateImplTest08() throws Exception {
-        WorkerTemplateImpl target = new WorkerTemplateImpl(mockBLogicResolver, mockBLogicExceptionHandlerResolver, mockBLogicApplicationContextResolver, mockBatchJobDataRepository, mockBLogicParamConverter, mockBLogicExecutor, mockJobStatusChanger);
+    public void testWorkerTmplateImpl08() throws Exception {
+        // テスト実行
+        WorkerTemplateImpl target = new WorkerTemplateImpl(mockBLogicResolver, 
+                mockBLogicExceptionHandlerResolver, 
+                mockBLogicApplicationContextResolver, 
+                mockBatchJobDataRepository, 
+                mockBLogicParamConverter, 
+                mockBLogicExecutor, 
+                mockJobStatusChanger);
 
         assertThat(target.bLogicResolver, is(mockBLogicResolver));
         assertThat(target.bLogicExceptionHandlerResolver,
@@ -311,15 +366,23 @@ public class WorkerTemplateImplTest {
      * @throws Exception 予期しない例外
      */
     @Test
-    public void beforeExecuteTest01() throws Exception {
+    public void testBeforeExecute01() throws Exception {
         when(mockJobStatusChanger.changeToStartStatus(anyString())).thenReturn(
                 true);
 
-        WorkerTemplateImpl target = new WorkerTemplateImpl(mockBLogicResolver, mockBLogicExceptionHandlerResolver, mockBLogicApplicationContextResolver, mockBatchJobDataRepository, mockBLogicParamConverter, mockBLogicExecutor, mockJobStatusChanger);
+        WorkerTemplateImpl target = new WorkerTemplateImpl(mockBLogicResolver, 
+                mockBLogicExceptionHandlerResolver, 
+                mockBLogicApplicationContextResolver, 
+                mockBatchJobDataRepository, 
+                mockBLogicParamConverter, 
+                mockBLogicExecutor, 
+                mockJobStatusChanger);
+
+        // テスト実行
         boolean actual = target.beforeExecute("0000001");
 
-        assertEquals(true, actual);
-        verify(mockJobStatusChanger, times(1)).changeToStartStatus("0000001");
+        assertTrue(actual);
+        verify(mockJobStatusChanger).changeToStartStatus("0000001");
     }
 
     /**
@@ -335,15 +398,23 @@ public class WorkerTemplateImplTest {
      * @throws Exception 予期しない例外
      */
     @Test
-    public void beforeExecuteTest02() throws Exception {
+    public void testBeforeExecute02() throws Exception {
         when(mockJobStatusChanger.changeToStartStatus(anyString())).thenReturn(
                 false);
 
-        WorkerTemplateImpl target = new WorkerTemplateImpl(mockBLogicResolver, mockBLogicExceptionHandlerResolver, mockBLogicApplicationContextResolver, mockBatchJobDataRepository, mockBLogicParamConverter, mockBLogicExecutor, mockJobStatusChanger);
+        WorkerTemplateImpl target = new WorkerTemplateImpl(mockBLogicResolver, 
+                mockBLogicExceptionHandlerResolver, 
+                mockBLogicApplicationContextResolver, 
+                mockBatchJobDataRepository,
+                mockBLogicParamConverter, 
+                mockBLogicExecutor, 
+                mockJobStatusChanger);
+
+        // テスト実行
         boolean actual = target.beforeExecute("0000001");
 
-        assertEquals(false, actual);
-        verify(mockJobStatusChanger, times(1)).changeToStartStatus("0000001");
+        assertFalse(actual);
+        verify(mockJobStatusChanger).changeToStartStatus("0000001");
         assertThat(
                 logger.getLoggingEvents(),
                 is(asList(info("[IAL025010] Job status update error.(JOB_SEQ_ID:0000001)"))));
@@ -362,15 +433,23 @@ public class WorkerTemplateImplTest {
      * @throws Exception 予期しない例外
      */
     @Test
-    public void beforeExecuteTest03() throws Exception {
+    public void testBeforeExecute03() throws Exception {
         when(mockJobStatusChanger.changeToStartStatus(anyString())).thenThrow(
                 new MockDataAccessException("dummy exception"));
 
-        WorkerTemplateImpl target = new WorkerTemplateImpl(mockBLogicResolver, mockBLogicExceptionHandlerResolver, mockBLogicApplicationContextResolver, mockBatchJobDataRepository, mockBLogicParamConverter, mockBLogicExecutor, mockJobStatusChanger);
+        WorkerTemplateImpl target = new WorkerTemplateImpl(mockBLogicResolver, 
+                mockBLogicExceptionHandlerResolver, 
+                mockBLogicApplicationContextResolver, 
+                mockBatchJobDataRepository, 
+                mockBLogicParamConverter, 
+                mockBLogicExecutor, 
+                mockJobStatusChanger);
+
+        // テスト実行
         boolean actual = target.beforeExecute("0000001");
 
-        assertEquals(false, actual);
-        verify(mockJobStatusChanger, times(1)).changeToStartStatus("0000001");
+        assertFalse(actual);
+        verify(mockJobStatusChanger).changeToStartStatus("0000001");
         assertThat(
                 logger.getLoggingEvents(),
                 is(asList(info("[IAL025010] Job status update error.(JOB_SEQ_ID:0000001)"))));
@@ -390,7 +469,7 @@ public class WorkerTemplateImplTest {
      * @throws Exception 予期しない例外
      */
     @Test
-    public void executeWorker01() throws Exception {
+    public void testExecuteWorker01() throws Exception {
         Exception ex = new IllegalArgumentException();
         when(mockBatchJobDataRepository.resolveBatchJobData(anyString()))
                 .thenThrow(ex);
@@ -398,10 +477,17 @@ public class WorkerTemplateImplTest {
         ArgumentCaptor<BLogicResult> bLogicResultCaptor = ArgumentCaptor
                 .forClass(BLogicResult.class);
 
-        WorkerTemplateImpl target = spy(new WorkerTemplateImpl(mockBLogicResolver, mockBLogicExceptionHandlerResolver, mockBLogicApplicationContextResolver, mockBatchJobDataRepository, mockBLogicParamConverter, mockBLogicExecutor, mockJobStatusChanger));
+        WorkerTemplateImpl target = spy(new WorkerTemplateImpl(mockBLogicResolver, 
+                mockBLogicExceptionHandlerResolver, 
+                mockBLogicApplicationContextResolver, 
+                mockBatchJobDataRepository, 
+                mockBLogicParamConverter, 
+                mockBLogicExecutor, 
+                mockJobStatusChanger));
         doNothing().when(target).afterExecuteWoker(anyString(),
                 bLogicResultCaptor.capture());
 
+        // テスト実行
         target.executeWorker("0000001");
 
         verify(mockBLogicApplicationContextResolver, never())
@@ -414,9 +500,9 @@ public class WorkerTemplateImplTest {
                 .resolveExceptionHandler(any(ApplicationContext.class),
                         anyString());
 
-        verify(target, times(1)).afterExecuteWoker(eq("0000001"),
+        verify(target).afterExecuteWoker(eq("0000001"),
                 any(BLogicResult.class));
-        verify(mockBLogicApplicationContextResolver, times(1))
+        verify(mockBLogicApplicationContextResolver)
                 .closeApplicationContext(null);
 
         BLogicResult bLogicResult = bLogicResultCaptor.getValue();
@@ -448,7 +534,7 @@ public class WorkerTemplateImplTest {
      * @throws Exception 予期しない例外
      */
     @Test
-    public void executeWorker02() throws Exception {
+    public void testExecuteWorker02() throws Exception {
         Exception ex = new IllegalArgumentException();
         when(
                 mockBLogicApplicationContextResolver
@@ -458,25 +544,32 @@ public class WorkerTemplateImplTest {
         ArgumentCaptor<BLogicResult> bLogicResultCaptor = ArgumentCaptor
                 .forClass(BLogicResult.class);
 
-        WorkerTemplateImpl target = spy(new WorkerTemplateImpl(mockBLogicResolver, mockBLogicExceptionHandlerResolver, mockBLogicApplicationContextResolver, mockBatchJobDataRepository, mockBLogicParamConverter, mockBLogicExecutor, mockJobStatusChanger));
+        WorkerTemplateImpl target = spy(new WorkerTemplateImpl(mockBLogicResolver, 
+                mockBLogicExceptionHandlerResolver, 
+                mockBLogicApplicationContextResolver, 
+                mockBatchJobDataRepository, 
+                mockBLogicParamConverter, 
+                mockBLogicExecutor, 
+                mockJobStatusChanger));
         doNothing().when(target).afterExecuteWoker(anyString(),
                 bLogicResultCaptor.capture());
 
+        // テスト実行
         target.executeWorker("0000001");
 
-        verify(mockBatchJobDataRepository, times(1)).resolveBatchJobData(
+        verify(mockBatchJobDataRepository).resolveBatchJobData(
                 "0000001");
         verify(mockBLogicResolver, never()).resolveBLogic(
-                any(ApplicationContext.class), eq("0000001"));
+                any(ApplicationContext.class), anyString());
         verify(mockBLogicParamConverter, never()).convertBLogicParam(
                 any(BatchJobData.class));
         verify(mockBLogicExceptionHandlerResolver, never())
                 .resolveExceptionHandler(any(ApplicationContext.class),
                         anyString());
 
-        verify(target, times(1)).afterExecuteWoker(eq("0000001"),
+        verify(target).afterExecuteWoker(eq("0000001"),
                 any(BLogicResult.class));
-        verify(mockBLogicApplicationContextResolver, times(1))
+        verify(mockBLogicApplicationContextResolver)
                 .closeApplicationContext(null);
 
         BLogicResult bLogicResult = bLogicResultCaptor.getValue();
@@ -508,7 +601,7 @@ public class WorkerTemplateImplTest {
      * @throws Exception 予期しない例外
      */
     @Test
-    public void executeWorker03() throws Exception {
+    public void testExecuteWorker03() throws Exception {
         Exception ex = new IllegalArgumentException();
         when(
                 mockBLogicResolver.resolveBLogic(any(ApplicationContext.class),
@@ -517,15 +610,22 @@ public class WorkerTemplateImplTest {
         ArgumentCaptor<BLogicResult> bLogicResultCaptor = ArgumentCaptor
                 .forClass(BLogicResult.class);
 
-        WorkerTemplateImpl target = spy(new WorkerTemplateImpl(mockBLogicResolver, mockBLogicExceptionHandlerResolver, mockBLogicApplicationContextResolver, mockBatchJobDataRepository, mockBLogicParamConverter, mockBLogicExecutor, mockJobStatusChanger));
+        WorkerTemplateImpl target = spy(new WorkerTemplateImpl(mockBLogicResolver, 
+                mockBLogicExceptionHandlerResolver, 
+                mockBLogicApplicationContextResolver, 
+                mockBatchJobDataRepository, 
+                mockBLogicParamConverter, 
+                mockBLogicExecutor, 
+                mockJobStatusChanger));
         doNothing().when(target).afterExecuteWoker(anyString(),
                 bLogicResultCaptor.capture());
 
+        // テスト実行
         target.executeWorker("0000001");
 
-        verify(mockBatchJobDataRepository, times(1)).resolveBatchJobData(
+        verify(mockBatchJobDataRepository).resolveBatchJobData(
                 "0000001");
-        verify(mockBLogicApplicationContextResolver, times(1))
+        verify(mockBLogicApplicationContextResolver)
                 .resolveApplicationContext(any(BatchJobData.class));
         verify(mockBLogicParamConverter, never()).convertBLogicParam(
                 any(BatchJobData.class));
@@ -533,9 +633,9 @@ public class WorkerTemplateImplTest {
                 .resolveExceptionHandler(any(ApplicationContext.class),
                         anyString());
 
-        verify(target, times(1)).afterExecuteWoker(eq("0000001"),
+        verify(target).afterExecuteWoker(eq("0000001"),
                 any(BLogicResult.class));
-        verify(mockBLogicApplicationContextResolver, times(1))
+        verify(mockBLogicApplicationContextResolver)
                 .closeApplicationContext(null);
 
         BLogicResult bLogicResult = bLogicResultCaptor.getValue();
@@ -567,7 +667,7 @@ public class WorkerTemplateImplTest {
      * @throws Exception 予期しない例外
      */
     @Test
-    public void executeWorker04() throws Exception {
+    public void testExecuteWorker04() throws Exception {
         Exception ex = new IllegalArgumentException();
         when(
                 mockBLogicParamConverter
@@ -577,25 +677,32 @@ public class WorkerTemplateImplTest {
         ArgumentCaptor<BLogicResult> bLogicResultCaptor = ArgumentCaptor
                 .forClass(BLogicResult.class);
 
-        WorkerTemplateImpl target = spy(new WorkerTemplateImpl(mockBLogicResolver, mockBLogicExceptionHandlerResolver, mockBLogicApplicationContextResolver, mockBatchJobDataRepository, mockBLogicParamConverter, mockBLogicExecutor, mockJobStatusChanger));
+        WorkerTemplateImpl target = spy(new WorkerTemplateImpl(mockBLogicResolver, 
+                mockBLogicExceptionHandlerResolver, 
+                mockBLogicApplicationContextResolver, 
+                mockBatchJobDataRepository, 
+                mockBLogicParamConverter, 
+                mockBLogicExecutor, 
+                mockJobStatusChanger));
         doNothing().when(target).afterExecuteWoker(anyString(),
                 bLogicResultCaptor.capture());
 
+        // テスト実行
         target.executeWorker("0000001");
 
-        verify(mockBatchJobDataRepository, times(1)).resolveBatchJobData(
+        verify(mockBatchJobDataRepository).resolveBatchJobData(
                 "0000001");
-        verify(mockBLogicApplicationContextResolver, times(1))
+        verify(mockBLogicApplicationContextResolver)
                 .resolveApplicationContext(any(BatchJobData.class));
-        verify(mockBLogicResolver, times(1)).resolveBLogic(
+        verify(mockBLogicResolver).resolveBLogic(
                 any(ApplicationContext.class), eq("0000001"));
         verify(mockBLogicExceptionHandlerResolver, never())
                 .resolveExceptionHandler(any(ApplicationContext.class),
                         anyString());
 
-        verify(target, times(1)).afterExecuteWoker(eq("0000001"),
+        verify(target).afterExecuteWoker(eq("0000001"),
                 any(BLogicResult.class));
-        verify(mockBLogicApplicationContextResolver, times(1))
+        verify(mockBLogicApplicationContextResolver)
                 .closeApplicationContext(null);
 
         BLogicResult bLogicResult = bLogicResultCaptor.getValue();
@@ -628,7 +735,7 @@ public class WorkerTemplateImplTest {
      * @throws Exception 予期しない例外
      */
     @Test
-    public void executeWorker05() throws Exception {
+    public void testExecuteWorker05() throws Exception {
         BatchJobData batchJobData = new BatchJobData() {
             {
                 setJobAppCd("0000001");
@@ -642,15 +749,9 @@ public class WorkerTemplateImplTest {
                 mockBLogicApplicationContextResolver
                         .resolveApplicationContext(batchJobData)).thenReturn(
                 applicationContext);
-
-        final BLogic blogic = new BLogic() {
-
-            @Override
-            public int execute(BLogicParam param) {
-                return 0;
-            }
-
-        };
+        BLogic blogic = mock(BLogic.class);
+        doReturn(0).when(blogic).execute(any(BLogicParam.class));
+        
         when(mockBLogicResolver.resolveBLogic(applicationContext, "0000001"))
                 .thenReturn(blogic);
 
@@ -661,37 +762,36 @@ public class WorkerTemplateImplTest {
                 mockBLogicExceptionHandlerResolver.resolveExceptionHandler(
                         applicationContext, "0000001")).thenThrow(
                 new IllegalArgumentException());
+        BLogicResult result = new BLogicResult() {
+            {
+                setBlogicStatus(1);
+            }
+        };
         when(
                 mockBLogicExecutor.execute(applicationContext, blogic, param,
-                        null)).thenAnswer(new Answer<BLogicResult>() {
-
-            @Override
-            public BLogicResult answer(InvocationOnMock invocation) throws Throwable {
-                BLogicResult result = new BLogicResult() {
-                    {
-                        setBlogicStatus(1);
-                    }
-                };
-                return result;
-            }
-
-        });
+                        null)).thenReturn(result);
 
         ArgumentCaptor<BLogicResult> bLogicResultCaptor = ArgumentCaptor
                 .forClass(BLogicResult.class);
 
-        WorkerTemplateImpl target = spy(new WorkerTemplateImpl(mockBLogicResolver, mockBLogicExceptionHandlerResolver, mockBLogicApplicationContextResolver, mockBatchJobDataRepository, mockBLogicParamConverter, mockBLogicExecutor, mockJobStatusChanger));
+        WorkerTemplateImpl target = spy(new WorkerTemplateImpl(mockBLogicResolver, 
+                mockBLogicExceptionHandlerResolver, 
+                mockBLogicApplicationContextResolver, 
+                mockBatchJobDataRepository, 
+                mockBLogicParamConverter, 
+                mockBLogicExecutor, 
+                mockJobStatusChanger));
         doNothing().when(target).afterExecuteWoker(anyString(),
                 bLogicResultCaptor.capture());
 
+        // テスト実行
         target.executeWorker("0000001");
 
-        verify(mockBLogicExecutor, times(1)).execute(applicationContext,
+        verify(mockBLogicExecutor).execute(applicationContext,
                 blogic, param, null);
-        // ログ確認
-        verify(target, times(1)).afterExecuteWoker(eq("0000001"),
+        verify(target).afterExecuteWoker(eq("0000001"),
                 any(BLogicResult.class));
-        verify(mockBLogicApplicationContextResolver, times(1))
+        verify(mockBLogicApplicationContextResolver)
                 .closeApplicationContext(applicationContext);
 
         BLogicResult bLogicResult = bLogicResultCaptor.getValue();
@@ -717,36 +817,39 @@ public class WorkerTemplateImplTest {
      * @throws Exception 予期しない例外
      */
     @Test
-    public void executeWorker06() throws Exception {
+    public void testExecuteWorker06() throws Exception {
         Exception ex = new IllegalArgumentException();
         when(
                 mockBLogicExecutor.execute(any(ApplicationContext.class),
                         any(BLogic.class), any(BLogicParam.class),
                         any(ExceptionHandler.class))).thenThrow(ex);
+        ExceptionHandler exceptionHandler = mock(ExceptionHandler.class);
+        when(exceptionHandler.handleThrowableException(any(Throwable.class))).thenReturn(0);
+        
         when(
                 mockBLogicExceptionHandlerResolver.resolveExceptionHandler(
                         any(ApplicationContext.class), anyString()))
-                .thenReturn(new ExceptionHandler() {
-
-                    @Override
-                    public int handleThrowableException(Throwable e) {
-                        return 0;
-                    }
-                });
+                .thenReturn(exceptionHandler);
 
         ArgumentCaptor<BLogicResult> bLogicResultCaptor = ArgumentCaptor
                 .forClass(BLogicResult.class);
 
-        WorkerTemplateImpl target = spy(new WorkerTemplateImpl(mockBLogicResolver, mockBLogicExceptionHandlerResolver, mockBLogicApplicationContextResolver, mockBatchJobDataRepository, mockBLogicParamConverter, mockBLogicExecutor, mockJobStatusChanger));
+        WorkerTemplateImpl target = spy(new WorkerTemplateImpl(mockBLogicResolver, 
+                mockBLogicExceptionHandlerResolver, 
+                mockBLogicApplicationContextResolver, 
+                mockBatchJobDataRepository, 
+                mockBLogicParamConverter, 
+                mockBLogicExecutor, 
+                mockJobStatusChanger));
         doNothing().when(target).afterExecuteWoker(anyString(),
                 bLogicResultCaptor.capture());
 
+        // テスト実行
         target.executeWorker("0000001");
 
-        // ログ確認
-        verify(target, times(1)).afterExecuteWoker(eq("0000001"),
+        verify(target).afterExecuteWoker(eq("0000001"),
                 any(BLogicResult.class));
-        verify(mockBLogicApplicationContextResolver, times(1))
+        verify(mockBLogicApplicationContextResolver)
                 .closeApplicationContext(any(ApplicationContext.class));
 
         BLogicResult bLogicResult = bLogicResultCaptor.getValue();
@@ -761,7 +864,7 @@ public class WorkerTemplateImplTest {
     }
 
     /**
-     * {@code afterExecuteWoker}のテスト01 【正常系】<br>
+     * {@code afterExecuteWorker}のテスト01 【正常系】<br>
      * 
      * <pre>
      * 事前条件
@@ -773,7 +876,7 @@ public class WorkerTemplateImplTest {
      * @throws Exception 予期しない例外
      */
     @Test
-    public void afterExecuteWokerTest01() throws Exception {
+    public void testAfterExecuteWorker01() throws Exception {
         when(
                 mockJobStatusChanger.changeToEndStatus(anyString(),
                         any(BLogicResult.class))).thenReturn(true);
@@ -782,16 +885,23 @@ public class WorkerTemplateImplTest {
                 setBlogicStatus(1);
             }
         };
-        WorkerTemplateImpl target = new WorkerTemplateImpl(mockBLogicResolver, mockBLogicExceptionHandlerResolver, mockBLogicApplicationContextResolver, mockBatchJobDataRepository, mockBLogicParamConverter, mockBLogicExecutor, mockJobStatusChanger);
+        WorkerTemplateImpl target = new WorkerTemplateImpl(mockBLogicResolver, 
+                mockBLogicExceptionHandlerResolver, 
+                mockBLogicApplicationContextResolver, 
+                mockBatchJobDataRepository, 
+                mockBLogicParamConverter, 
+                mockBLogicExecutor, 
+                mockJobStatusChanger);
 
+        // テスト実行
         target.afterExecuteWoker("000001", bLogicResult);
 
-        verify(mockJobStatusChanger, times(1)).changeToEndStatus("000001",
+        verify(mockJobStatusChanger).changeToEndStatus("000001",
                 bLogicResult);
     }
 
     /**
-     * {@code afterExecuteWoker}のテスト02 【正常系】<br>
+     * {@code afterExecuteWorker}のテスト02 【正常系】<br>
      * 
      * <pre>
      * 事前条件
@@ -803,7 +913,7 @@ public class WorkerTemplateImplTest {
      * @throws Exception 予期しない例外
      */
     @Test
-    public void afterExecuteWokerTest02() throws Exception {
+    public void testAfterExecuteWorker02() throws Exception {
         when(
                 mockJobStatusChanger.changeToEndStatus(anyString(),
                         any(BLogicResult.class))).thenReturn(false);
@@ -812,12 +922,18 @@ public class WorkerTemplateImplTest {
                 setBlogicStatus(1);
             }
         };
-        WorkerTemplateImpl target = new WorkerTemplateImpl(mockBLogicResolver, mockBLogicExceptionHandlerResolver, mockBLogicApplicationContextResolver, mockBatchJobDataRepository, mockBLogicParamConverter, mockBLogicExecutor, mockJobStatusChanger);
+        WorkerTemplateImpl target = new WorkerTemplateImpl(mockBLogicResolver, 
+                mockBLogicExceptionHandlerResolver, 
+                mockBLogicApplicationContextResolver, 
+                mockBatchJobDataRepository, 
+                mockBLogicParamConverter, 
+                mockBLogicExecutor, 
+                mockJobStatusChanger);
 
         // テスト実行
         target.afterExecuteWoker("000001", bLogicResult);
 
-        verify(mockJobStatusChanger, times(1)).changeToEndStatus("000001",
+        verify(mockJobStatusChanger).changeToEndStatus("000001",
                 bLogicResult);
 
         assertThat(
@@ -826,7 +942,7 @@ public class WorkerTemplateImplTest {
     }
 
     /**
-     * {@code afterExecuteWoker}のテスト03 【異常系】<br>
+     * {@code afterExecuteWorker}のテスト03 【異常系】<br>
      * 
      * <pre>
      * 事前条件
@@ -838,7 +954,7 @@ public class WorkerTemplateImplTest {
      * @throws Exception 予期しない例外
      */
     @Test
-    public void afterExecuteWokerTest03() throws Exception {
+    public void testAfterExecuteWorker03() throws Exception {
         when(
                 mockJobStatusChanger.changeToEndStatus(anyString(),
                         any(BLogicResult.class))).thenThrow(
@@ -848,12 +964,18 @@ public class WorkerTemplateImplTest {
                 setBlogicStatus(1);
             }
         };
-        WorkerTemplateImpl target = new WorkerTemplateImpl(mockBLogicResolver, mockBLogicExceptionHandlerResolver, mockBLogicApplicationContextResolver, mockBatchJobDataRepository, mockBLogicParamConverter, mockBLogicExecutor, mockJobStatusChanger);
+        WorkerTemplateImpl target = new WorkerTemplateImpl(mockBLogicResolver, 
+                mockBLogicExceptionHandlerResolver, 
+                mockBLogicApplicationContextResolver, 
+                mockBatchJobDataRepository, 
+                mockBLogicParamConverter,
+                mockBLogicExecutor, 
+                mockJobStatusChanger);
 
         // テスト実行
         target.afterExecuteWoker("000001", bLogicResult);
 
-        verify(mockJobStatusChanger, times(1)).changeToEndStatus("000001",
+        verify(mockJobStatusChanger).changeToEndStatus("000001",
                 bLogicResult);
 
         assertThat(
@@ -862,7 +984,7 @@ public class WorkerTemplateImplTest {
     }
 
     /**
-     * {@code afterExecuteWoker}のテスト04 【正常系】<br>
+     * {@code afterExecuteWorker}のテスト04 【正常系】<br>
      * 
      * <pre>
      * 事前条件
@@ -874,17 +996,23 @@ public class WorkerTemplateImplTest {
      * @throws Exception 予期しない例外
      */
     @Test
-    public void afterExecuteWokerTest04() throws Exception {
+    public void testAfterExecuteWorker04() throws Exception {
         when(
                 mockJobStatusChanger.changeToEndStatus(anyString(),
                         any(BLogicResult.class))).thenReturn(false);
 
-        WorkerTemplateImpl target = new WorkerTemplateImpl(mockBLogicResolver, mockBLogicExceptionHandlerResolver, mockBLogicApplicationContextResolver, mockBatchJobDataRepository, mockBLogicParamConverter, mockBLogicExecutor, mockJobStatusChanger);
+        WorkerTemplateImpl target = new WorkerTemplateImpl(mockBLogicResolver, 
+                mockBLogicExceptionHandlerResolver, 
+                mockBLogicApplicationContextResolver, 
+                mockBatchJobDataRepository, 
+                mockBLogicParamConverter, 
+                mockBLogicExecutor, 
+                mockJobStatusChanger);
 
         // テスト実行
         target.afterExecuteWoker("000001", null);
 
-        verify(mockJobStatusChanger, times(1))
+        verify(mockJobStatusChanger)
                 .changeToEndStatus("000001", null);
 
         assertThat(
