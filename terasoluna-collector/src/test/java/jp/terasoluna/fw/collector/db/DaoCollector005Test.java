@@ -37,6 +37,7 @@ public class DaoCollector005Test extends DaoTestCase {
         this.userListQueryResultHandleDao = userListQueryResultHandleDao;
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     protected void onSetUp() throws Exception {
         if (logger.isInfoEnabled()) {
@@ -78,7 +79,7 @@ public class DaoCollector005Test extends DaoTestCase {
         Collector<UserBean> it = new DaoCollector<UserBean>(
                 this.userListQueryResultHandleDao, "collect", null, 1);
         try {
-            for (UserBean user : it) {
+            for (@SuppressWarnings("unused") UserBean user : it) {
                 count_first++;
 
                 if (count_first > 10) {

@@ -39,6 +39,7 @@ public class DaoValidateCollector004Test extends DaoTestCase {
         this.userListQueryResultHandleDao = userListQueryResultHandleDao;
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     protected void onSetUp() throws Exception {
         if (logger.isInfoEnabled()) {
@@ -81,7 +82,8 @@ public class DaoValidateCollector004Test extends DaoTestCase {
         Collector<UserBean> it = new DaoValidateCollector<UserBean>(
                 this.userListQueryResultHandleDao, "collect", null, 100, validator);
         try {
-            for (UserBean user : it) {
+            for (@SuppressWarnings("unused")
+            UserBean user : it) {
                 count_first++;
 
             }

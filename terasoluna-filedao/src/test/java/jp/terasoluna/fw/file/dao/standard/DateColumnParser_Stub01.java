@@ -32,11 +32,9 @@ import jp.terasoluna.fw.file.annotation.InputFileColumn;
 @FileFormat()
 public class DateColumnParser_Stub01 {
 
-    @SuppressWarnings("unused")
     @InputFileColumn(columnIndex = 0)
     private Date a;
 
-    @SuppressWarnings("unused")
     @InputFileColumn(columnIndex = 1)
     private Date b;
 

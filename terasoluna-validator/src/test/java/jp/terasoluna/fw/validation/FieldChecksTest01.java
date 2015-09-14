@@ -87,6 +87,7 @@ public class FieldChecksTest01 {
         va.setMethodParams("");
 
         // テスト実施
+        @SuppressWarnings("rawtypes")
         Class[] result = new FieldChecks().getParamClass(va);
 
         // 判定
@@ -124,6 +125,7 @@ public class FieldChecksTest01 {
                 "java.lang.String,java.lang.Integer,java.lang.Boolean");
 
         // テスト実施
+        @SuppressWarnings("rawtypes")
         Class[] result = new FieldChecks().getParamClass(va);
 
         // 判定
@@ -255,6 +257,7 @@ public class FieldChecksTest01 {
     public void testGetMethod03() throws Exception {
         // 前処理
         va.setName("requiredArray");
+        @SuppressWarnings("rawtypes")
         Class[] paramClass = {
             Object.class,
             ValidatorAction.class,
@@ -300,6 +303,7 @@ public class FieldChecksTest01 {
     public void testGetMethod04() throws Exception {
         // 前処理
         va.setName("requiredArray");
+        @SuppressWarnings("rawtypes")
         Class[] paramClass = {
             Object.class,
             ValidatorAction.class,
@@ -341,6 +345,7 @@ public class FieldChecksTest01 {
     public void testGetMethod05() throws Exception {
         // 前処理
         va.setName("requiredXXXXX");
+        @SuppressWarnings("rawtypes")
         Class[] paramClass = {
             Object.class,
             ValidatorAction.class,

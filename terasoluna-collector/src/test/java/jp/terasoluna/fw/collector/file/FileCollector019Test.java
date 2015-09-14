@@ -27,6 +27,7 @@ public class FileCollector019Test extends DaoTestCase {
         this.csvFileQueryDAO = csvFileQueryDAO;
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     protected void onSetUp() throws Exception {
         if (logger.isInfoEnabled()) {
@@ -63,14 +64,15 @@ public class FileCollector019Test extends DaoTestCase {
             fail("csvFileQueryDAOがnullです。");
         }
 
+        @SuppressWarnings("unused")
         int count_first = 0;
         // int exception_count = 0;
 
-        Collector<B000001Data> it = new FileCollector<B000001Data>(
-                this.csvFileQueryDAO, "NOT_FOUND.csv", B000001Data.class);
+        Collector<B000001Data> it = new FileCollector<B000001Data>(this.csvFileQueryDAO, "NOT_FOUND.csv", B000001Data.class);
 
         try {
-            for (B000001Data data : it) {
+            for (@SuppressWarnings("unused")
+            B000001Data data : it) {
                 count_first++;
 
             }
@@ -89,8 +91,8 @@ public class FileCollector019Test extends DaoTestCase {
             FileCollector.closeQuietly(it);
 
             // コレクタスレッド数チェック
-            assertTrue(CollectorTestUtil
-                    .lessThanCollectorThreadCount(0 + this.previousThreadCount));
+            assertTrue(CollectorTestUtil.lessThanCollectorThreadCount(0
+                    + this.previousThreadCount));
 
         }
 

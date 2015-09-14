@@ -98,10 +98,10 @@ public final class BeanUtil {
      * @return 属性のクラス。
      * @throws PropertyAccessException 値取得時に発生した例外をラップした例外
      */
-    public static Class getBeanPropertyType(Object bean, String property) 
+    public static Class<?> getBeanPropertyType(Object bean, String property) 
         throws PropertyAccessException {
         try {
-            Class type = null;
+            Class<?> type = null;
             if (bean instanceof DynaBean) {
                 DynaProperty descriptor = ((DynaBean) bean).getDynaClass()
                     .getDynaProperty(property);

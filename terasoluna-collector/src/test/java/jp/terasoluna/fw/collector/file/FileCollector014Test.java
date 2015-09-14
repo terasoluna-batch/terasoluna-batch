@@ -26,6 +26,7 @@ public class FileCollector014Test extends DaoTestCase {
         this.csvFileQueryDAO = csvFileQueryDAO;
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     protected void onSetUp() throws Exception {
         if (logger.isInfoEnabled()) {
@@ -85,7 +86,7 @@ public class FileCollector014Test extends DaoTestCase {
                 null);
 
         try {
-            for (B000001Data data : it) {
+            for (@SuppressWarnings("unused") B000001Data data : it) {
                 count_first++;
 
             }

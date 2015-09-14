@@ -45,7 +45,6 @@ import static uk.org.lidalia.slf4jtest.LoggingEvent.debug;
 
 /**
  * ThreadGroupManagementAspectのテストケース。
- *
  * @since 3.6
  */
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -55,8 +54,8 @@ public class ThreadGroupManagementAspectTest {
     @Autowired
     private BLogicExecutor blogicExecutor;
 
-    private static final TestLogger logger = TestLoggerFactory
-            .getTestLogger(MessageUtil.class);
+    private static final TestLogger logger = TestLoggerFactory.getTestLogger(
+            MessageUtil.class);
 
     /**
      * ログキャプチャのバッファクリア.
@@ -67,12 +66,7 @@ public class ThreadGroupManagementAspectTest {
     }
 
     /**
-     * コンストラクタのテスト 【正常系】
-     * 事前条件
-     * ・特になし
-     * 確認項目
-     * ・コンストラクタ引数の{@code MessageAccessor}がフィールド上に退避されていること。
-     *
+     * コンストラクタのテスト 【正常系】 事前条件 ・特になし 確認項目 ・コンストラクタ引数の{@code MessageAccessor}がフィールド上に退避されていること。
      * @throws Throwable 予期しない例外
      */
     @Test
@@ -86,13 +80,8 @@ public class ThreadGroupManagementAspectTest {
     }
 
     /**
-     * aroundExecuteのテスト 【正常系】
-     * 事前条件
-     * ・特になし
-     * 確認項目
-     * ・ジョインポイントのメソッドの引数が0個であるとき、{@code ThreadGroupApplicationContextHolder}に
-     * 　業務用ApplicationContextが設定されないこと。
-     *
+     * aroundExecuteのテスト 【正常系】 事前条件 ・特になし 確認項目 ・ジョインポイントのメソッドの引数が0個であるとき、{@code ThreadGroupApplicationContextHolder}に
+     * 業務用ApplicationContextが設定されないこと。
      * @throws Throwable 予期しない例外
      */
     @Test
@@ -101,11 +90,10 @@ public class ThreadGroupManagementAspectTest {
         final BLogicResult result = new BLogicResult();
         doReturn("test message").when(messageAccessor).getMessage("code", null);
 
-        ThreadGroupManagementAspect target = new ThreadGroupManagementAspect(
-                messageAccessor);
+        ThreadGroupManagementAspect target = new ThreadGroupManagementAspect(messageAccessor);
         ProceedingJoinPoint pjp = mock(ProceedingJoinPoint.class);
         doReturn(new Object[0]).when(pjp).getArgs();
-        doAnswer(new Answer() {
+        doAnswer(new Answer<Object>() {
             @Override
             public Object answer(InvocationOnMock invocation) throws Throwable {
                 assertEquals("test message", MessageUtil.getMessage("code"));
@@ -117,20 +105,15 @@ public class ThreadGroupManagementAspectTest {
 
         // テスト実行
         assertSame(result, target.aroundExecute(pjp));
-        assertEquals("Message not found. CODE:[code]",
-                MessageUtil.getMessage("code"));
-        assertTrue(logger.getLoggingEvents()
-                .contains(debug("[DAL025043] MessageAccessor is not found.")));
+        assertEquals("Message not found. CODE:[code]", MessageUtil.getMessage(
+                "code"));
+        assertTrue(logger.getLoggingEvents().contains(debug(
+                "[DAL025043] MessageAccessor is not found.")));
     }
 
     /**
-     * aroundExecuteのテスト 【正常系】
-     * 事前条件
-     * ・特になし
-     * 確認項目
-     * ・ジョインポイントのメソッドの引数が1個で、{@code ApplicationContext}ではないとき、
-     * 　業務用ApplicationContextが設定されないこと。
-     *
+     * aroundExecuteのテスト 【正常系】 事前条件 ・特になし 確認項目 ・ジョインポイントのメソッドの引数が1個で、{@code ApplicationContext}ではないとき、
+     * 業務用ApplicationContextが設定されないこと。
      * @throws Throwable 予期しない例外
      */
     @Test
@@ -139,11 +122,10 @@ public class ThreadGroupManagementAspectTest {
         final BLogicResult result = new BLogicResult();
         doReturn("test message").when(messageAccessor).getMessage("code", null);
 
-        ThreadGroupManagementAspect target = new ThreadGroupManagementAspect(
-                messageAccessor);
+        ThreadGroupManagementAspect target = new ThreadGroupManagementAspect(messageAccessor);
         ProceedingJoinPoint pjp = mock(ProceedingJoinPoint.class);
         doReturn(new Object[] { new Object() }).when(pjp).getArgs();
-        doAnswer(new Answer() {
+        doAnswer(new Answer<Object>() {
             @Override
             public Object answer(InvocationOnMock invocation) throws Throwable {
                 assertEquals("test message", MessageUtil.getMessage("code"));
@@ -155,22 +137,17 @@ public class ThreadGroupManagementAspectTest {
 
         // テスト実行
         assertSame(result, target.aroundExecute(pjp));
-        assertEquals("Message not found. CODE:[code]",
-                MessageUtil.getMessage("code"));
-        assertTrue(logger.getLoggingEvents()
-                .contains(debug("[DAL025043] MessageAccessor is not found.")));
+        assertEquals("Message not found. CODE:[code]", MessageUtil.getMessage(
+                "code"));
+        assertTrue(logger.getLoggingEvents().contains(debug(
+                "[DAL025043] MessageAccessor is not found.")));
     }
 
     /**
-     * aroundExecuteのテスト 【正常系】
-     * 事前条件
-     * ・特になし
-     * 確認項目
-     * ・ジョインポイントのメソッドの引数が1個で、{@code ApplicationContext}であるとき、
-     * 　{@code MessageUtil#getMessage()}で{@code MessageAccessor}が用いられ、
-     * 　{@code ThreadGroupApplicationContextHolder#getApplicationContext()}で
-     * 　同一の{@code ApplicationContext}が取得でき、テスト対象メソッド終了後にクリアされていること。
-     *
+     * aroundExecuteのテスト 【正常系】 事前条件 ・特になし 確認項目 ・ジョインポイントのメソッドの引数が1個で、{@code ApplicationContext}であるとき、
+     * {@code MessageUtil#getMessage()}で{@code MessageAccessor}が用いられ、
+     * {@code ThreadGroupApplicationContextHolder#getApplicationContext()}で 同一の{@code ApplicationContext}
+     * が取得でき、テスト対象メソッド終了後にクリアされていること。
      * @throws Throwable 予期しない例外
      */
     @Test
@@ -181,11 +158,10 @@ public class ThreadGroupManagementAspectTest {
                 ApplicationContext.class);
         doReturn("test message").when(messageAccessor).getMessage("code", null);
 
-        ThreadGroupManagementAspect target = new ThreadGroupManagementAspect(
-                messageAccessor);
+        ThreadGroupManagementAspect target = new ThreadGroupManagementAspect(messageAccessor);
         ProceedingJoinPoint pjp = mock(ProceedingJoinPoint.class);
         doReturn(new Object[] { businessContext }).when(pjp).getArgs();
-        doAnswer(new Answer() {
+        doAnswer(new Answer<Object>() {
             @Override
             public Object answer(InvocationOnMock invocation) throws Throwable {
                 assertEquals("test message", MessageUtil.getMessage("code"));
@@ -199,19 +175,15 @@ public class ThreadGroupManagementAspectTest {
         assertSame(result, target.aroundExecute(pjp));
         assertNull(ThreadGroupApplicationContextHolder
                 .getCurrentThreadGroupApplicationContext());
-        assertEquals("Message not found. CODE:[code]",
-                MessageUtil.getMessage("code"));
-        assertTrue(logger.getLoggingEvents()
-                .contains(debug("[DAL025043] MessageAccessor is not found.")));
+        assertEquals("Message not found. CODE:[code]", MessageUtil.getMessage(
+                "code"));
+        assertTrue(logger.getLoggingEvents().contains(debug(
+                "[DAL025043] MessageAccessor is not found.")));
     }
 
     /**
-     * aroundExecuteのテスト 【正常系】
-     * 事前条件
-     * ・Bean定義ファイルにテスト対象クラスがアドバイスとして宣言された{@code BLogicExecutor}が存在すること。
-     * 確認項目
-     * ・{@code BLogicExecutor}実行時に{@code ThreadGroupManagementAspect}によるアドバイスが作用していること。
-     *
+     * aroundExecuteのテスト 【正常系】 事前条件 ・Bean定義ファイルにテスト対象クラスがアドバイスとして宣言された{@code BLogicExecutor}が存在すること。 確認項目 ・
+     * {@code BLogicExecutor}実行時に{@code ThreadGroupManagementAspect}によるアドバイスが作用していること。
      * @throws Throwable 予期しない例外
      */
     @Test
@@ -221,48 +193,38 @@ public class ThreadGroupManagementAspectTest {
         ExceptionHandler exceptionHandler = mock(ExceptionHandler.class);
 
         // テスト実行
-        BLogicResult result = blogicExecutor
-                .execute(businessContext, blogic, new BLogicParam(),
-                        exceptionHandler);
+        BLogicResult result = blogicExecutor.execute(businessContext, blogic,
+                new BLogicParam(), exceptionHandler);
 
         // MockBLogicExecutorの実施確認
         assertEquals(100, result.getBlogicStatus());
 
         assertNull(ThreadGroupApplicationContextHolder
                 .getCurrentThreadGroupApplicationContext());
-        assertEquals("Message not found. CODE:[code]",
-                MessageUtil.getMessage("code"));
-        assertTrue(logger.getLoggingEvents()
-                .contains(debug("[DAL025043] MessageAccessor is not found.")));
+        assertEquals("Message not found. CODE:[code]", MessageUtil.getMessage(
+                "code"));
+        assertTrue(logger.getLoggingEvents().contains(debug(
+                "[DAL025043] MessageAccessor is not found.")));
         // アドバイス作用時のアサーションはMockBLogicExecutor内で実施。
     }
 
     /**
-     * aroundExecuteのテスト 【異常系】
-     * 事前条件
-     * ・特になし
-     * 確認項目
-     * ・ジョインポイントから例外がスローされた場合でも、{@code MessageUtil}からの
-     * 　{@code MessageAccessor}と、{@code ThreadGroupApplicationContextHolder}
-     * 　からの業務{@code ApplicationContext}のクリアが行われていること。
-     *
+     * aroundExecuteのテスト 【異常系】 事前条件 ・特になし 確認項目 ・ジョインポイントから例外がスローされた場合でも、{@code MessageUtil}からの {@code MessageAccessor}と、
+     * {@code ThreadGroupApplicationContextHolder} からの業務{@code ApplicationContext}のクリアが行われていること。
      * @throws Throwable 予期しない例外
      */
     @Test
     public void testAroundExecute05() throws Throwable {
         final MessageAccessor messageAccessor = mock(MessageAccessor.class);
-        final BLogicResult result = new BLogicResult();
         final ApplicationContext businessContext = mock(
                 ApplicationContext.class);
         doReturn("test message").when(messageAccessor).getMessage("code", null);
 
-        ThreadGroupManagementAspect target = new ThreadGroupManagementAspect(
-                messageAccessor);
+        ThreadGroupManagementAspect target = new ThreadGroupManagementAspect(messageAccessor);
         ProceedingJoinPoint pjp = mock(ProceedingJoinPoint.class);
         doReturn(new Object[] { businessContext }).when(pjp).getArgs();
-        final IllegalStateException e = new IllegalStateException(
-                "exception throwing test.");
-        doAnswer(new Answer() {
+        final IllegalStateException e = new IllegalStateException("exception throwing test.");
+        doAnswer(new Answer<Object>() {
             @Override
             public Object answer(InvocationOnMock invocation) throws Throwable {
                 assertEquals("test message", MessageUtil.getMessage("code"));
@@ -281,9 +243,9 @@ public class ThreadGroupManagementAspectTest {
         }
         assertNull(ThreadGroupApplicationContextHolder
                 .getCurrentThreadGroupApplicationContext());
-        assertEquals("Message not found. CODE:[code]",
-                MessageUtil.getMessage("code"));
-        assertTrue(logger.getLoggingEvents()
-                .contains(debug("[DAL025043] MessageAccessor is not found.")));
+        assertEquals("Message not found. CODE:[code]", MessageUtil.getMessage(
+                "code"));
+        assertTrue(logger.getLoggingEvents().contains(debug(
+                "[DAL025043] MessageAccessor is not found.")));
     }
 }

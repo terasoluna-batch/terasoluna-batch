@@ -132,6 +132,7 @@ public class DefaultJndiSupportTest {
 
         // 前処理
         DefaultJndiSupport support = new DefaultJndiSupport();
+        @SuppressWarnings("rawtypes")
         Map<?, ?> map = new HashMap();
 
         ReflectionTestUtils.setField(support, "jndiEnvironmentMap", map);

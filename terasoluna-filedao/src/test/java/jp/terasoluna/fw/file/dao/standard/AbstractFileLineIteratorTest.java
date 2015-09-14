@@ -95,19 +95,20 @@ public class AbstractFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testAbstractFileLineIteratorStringClassMap01() throws Exception {
         // テスト対象のインスタンス化
         // コンストラクタなので不要
 
         // 引数の設定
         String fileName = "AbstractFileLineIterator_＜init＞01";
+        @SuppressWarnings("rawtypes")
         Class<AbstractFileLineIterator_Stub01> clazz = AbstractFileLineIterator_Stub01.class;
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("int", new IntColumnParser());
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
         // テスト実施
+        @SuppressWarnings("rawtypes")
         AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub01> fileLineIterator = new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub01>(
                 fileName, clazz, columnParserMap);
 
@@ -159,8 +160,8 @@ public class AbstractFileLineIteratorTest {
      *                       ファイル名が設定されていない(null)場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @SuppressWarnings("rawtypes")
     @Test
-    @SuppressWarnings("unchecked")
     public void testAbstractFileLineIteratorStringClassMap02() throws Exception {
         // テスト対象のインスタンス化
         // コンストラクタなので不要
@@ -404,8 +405,8 @@ public class AbstractFileLineIteratorTest {
      *                       ファイル名が空文字の場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @SuppressWarnings("rawtypes")
     @Test
-    @SuppressWarnings("unchecked")
     public void testAbstractFileLineIteratorStringClassMap06() throws Exception {
         // テスト対象のインスタンス化
         // コンストラクタなので不要
@@ -458,8 +459,8 @@ public class AbstractFileLineIteratorTest {
      * 引数clazzが「null」の場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @SuppressWarnings("rawtypes")
     @Test
-    @SuppressWarnings("unchecked")
     public void testAbstractFileLineIteratorStringClassMap07() throws Exception {
         // テスト対象のインスタンス化
         // コンストラクタなので不要
@@ -516,8 +517,8 @@ public class AbstractFileLineIteratorTest {
      *                       引数columnParserMapが「null」の場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @SuppressWarnings("rawtypes")
     @Test
-    @SuppressWarnings("unchecked")
     public void testAbstractFileLineIteratorStringClassMap08() throws Exception {
         // テスト対象のインスタンス化
         // コンストラクタなので不要
@@ -695,8 +696,8 @@ public class AbstractFileLineIteratorTest {
      *                       引数columnParserMapはあるが、そのMapに要素が無い場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @SuppressWarnings("rawtypes")
     @Test
-    @SuppressWarnings("unchecked")
     public void testAbstractFileLineIteratorStringClassMap11() throws Exception {
         // テスト対象のインスタンス化
         // コンストラクタなので不要
@@ -4413,7 +4414,7 @@ public class AbstractFileLineIteratorTest {
         // テスト実施
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildLineReader");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
@@ -4489,7 +4490,7 @@ public class AbstractFileLineIteratorTest {
         // テスト実施
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildLineReader");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
@@ -4557,7 +4558,7 @@ public class AbstractFileLineIteratorTest {
         // テスト実施
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildLineReader");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
@@ -4623,7 +4624,7 @@ public class AbstractFileLineIteratorTest {
         // テスト実施
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildLineReader");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
@@ -5037,7 +5038,7 @@ public class AbstractFileLineIteratorTest {
         // テスト実施
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
@@ -5101,7 +5102,7 @@ public class AbstractFileLineIteratorTest {
         // テスト実施
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
@@ -5179,7 +5180,7 @@ public class AbstractFileLineIteratorTest {
         // テスト実施
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
@@ -5265,7 +5266,7 @@ public class AbstractFileLineIteratorTest {
         // テスト実施
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
@@ -5520,7 +5521,7 @@ public class AbstractFileLineIteratorTest {
         // テスト実施
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
@@ -5601,7 +5602,7 @@ public class AbstractFileLineIteratorTest {
         // テスト実施
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
@@ -5913,20 +5914,21 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 前提条件の設定
+        @SuppressWarnings("rawtypes")
         Map<Class, StringConverter> cache_stringConverterCacheMap = new HashMap<Class, StringConverter>();
         ReflectionTestUtils.setField(fileLineIterator, "stringConverterCacheMap",
                 cache_stringConverterCacheMap);
 
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         // テスト対象のインスタンス化ですでに設定済み
 
         // テスト実施
         method = AbstractFileLineIterator.class.getDeclaredMethod("buildStringConverters");
         method.setAccessible(true);
-        result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
@@ -5936,6 +5938,7 @@ public class AbstractFileLineIteratorTest {
         assertEquals(0, stringConverters.length);
         Field field = AbstractFileLineIterator.class.getDeclaredField("stringConverterCacheMap");
         field.setAccessible(true);
+        @SuppressWarnings("rawtypes")
         Map<Class, StringConverter> stringConverterCacheMap = (Map<Class, StringConverter>) field.get(fileLineIterator);        
         assertEquals(0, stringConverterCacheMap.size());
     }
@@ -5990,19 +5993,21 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 前提条件の設定
+        @SuppressWarnings("rawtypes")
         Map<Class, StringConverter> cache_stringConverterCacheMap = new HashMap<Class, StringConverter>();
         ReflectionTestUtils.setField(fileLineIterator, "stringConverterCacheMap",
                 cache_stringConverterCacheMap);
 
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
+
         // テスト対象のインスタンス化ですでに設定済み
 
         // テスト実施
         method = AbstractFileLineIterator.class.getDeclaredMethod("buildStringConverters");
         method.setAccessible(true);
-        result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
@@ -6012,6 +6017,7 @@ public class AbstractFileLineIteratorTest {
         assertEquals(0, stringConverters.length);
         Field field = AbstractFileLineIterator.class.getDeclaredField("stringConverterCacheMap");
         field.setAccessible(true);
+        @SuppressWarnings("rawtypes")
         Map<Class, StringConverter> stringConverterCacheMap = (Map<Class, StringConverter>) field.get(fileLineIterator);
         assertEquals(0, stringConverterCacheMap.size());
     }
@@ -6076,19 +6082,21 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 前提条件の設定
+        @SuppressWarnings("rawtypes")
         Map<Class, StringConverter> cache_stringConverterCacheMap = new HashMap<Class, StringConverter>();
         ReflectionTestUtils.setField(fileLineIterator, "stringConverterCacheMap",
                 cache_stringConverterCacheMap);
 
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
+
         // テスト対象のインスタンス化ですでに設定済み
 
         // テスト実施
         method = AbstractFileLineIterator.class.getDeclaredMethod("buildStringConverters");
         method.setAccessible(true);
-        result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
@@ -6100,6 +6108,7 @@ public class AbstractFileLineIteratorTest {
                 .getClass());
         Field field = AbstractFileLineIterator.class.getDeclaredField("stringConverterCacheMap");
         field.setAccessible(true);
+        @SuppressWarnings("rawtypes")
         Map<Class, StringConverter> stringConverterCacheMap = (Map<Class, StringConverter>) field.get(fileLineIterator);
         assertEquals(1, stringConverterCacheMap.size());
         assertSame(stringConverters[0], stringConverterCacheMap
@@ -6158,20 +6167,21 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 前提条件の設定
+        @SuppressWarnings("rawtypes")
         Map<Class, StringConverter> cache_stringConverterCacheMap = new HashMap<Class, StringConverter>();
         ReflectionTestUtils.setField(fileLineIterator, "stringConverterCacheMap",
                 cache_stringConverterCacheMap);
 
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         // テスト対象のインスタンス化ですでに設定済み
 
         // テスト実施
         method = AbstractFileLineIterator.class.getDeclaredMethod("buildStringConverters");
         method.setAccessible(true);
-        result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
@@ -6181,6 +6191,7 @@ public class AbstractFileLineIteratorTest {
         assertEquals(0, stringConverters.length);
         Field field = AbstractFileLineIterator.class.getDeclaredField("stringConverterCacheMap");
         field.setAccessible(true);
+        @SuppressWarnings("rawtypes")
         Map<Class, StringConverter> stringConverterCacheMap = (Map<Class, StringConverter>) field.get(fileLineIterator);
         assertEquals(0, stringConverterCacheMap.size());
     }
@@ -6259,20 +6270,21 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 前提条件の設定
+        @SuppressWarnings("rawtypes")
         Map<Class, StringConverter> cache_stringConverterCacheMap = new HashMap<Class, StringConverter>();
         ReflectionTestUtils.setField(fileLineIterator, "stringConverterCacheMap",
                 cache_stringConverterCacheMap);
 
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         // テスト対象のインスタンス化ですでに設定済み
 
         // テスト実施
         method = AbstractFileLineIterator.class.getDeclaredMethod("buildStringConverters");
         method.setAccessible(true);
-        result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
@@ -6286,6 +6298,7 @@ public class AbstractFileLineIteratorTest {
         assertSame(stringConverters[0], stringConverters[2]);
         Field field = AbstractFileLineIterator.class.getDeclaredField("stringConverterCacheMap");
         field.setAccessible(true);
+        @SuppressWarnings("rawtypes")
         Map<Class, StringConverter> stringConverterCacheMap = (Map<Class, StringConverter>) field.get(fileLineIterator);
         assertEquals(1, stringConverterCacheMap.size());
         assertSame(stringConverters[0], stringConverterCacheMap
@@ -6362,20 +6375,21 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 前提条件の設定
+        @SuppressWarnings("rawtypes")
         Map<Class, StringConverter> cache_stringConverterCacheMap = new HashMap<Class, StringConverter>();
         ReflectionTestUtils.setField(fileLineIterator, "stringConverterCacheMap",
                 cache_stringConverterCacheMap);
 
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         // テスト対象のインスタンス化ですでに設定済み
 
         // テスト実施
         method = AbstractFileLineIterator.class.getDeclaredMethod("buildStringConverters");
         method.setAccessible(true);
-        result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
@@ -6388,6 +6402,7 @@ public class AbstractFileLineIteratorTest {
         assertSame(stringConverters[0], stringConverters[1]);
         Field field = AbstractFileLineIterator.class.getDeclaredField("stringConverterCacheMap");
         field.setAccessible(true);
+        @SuppressWarnings("rawtypes")
         Map<Class, StringConverter> stringConverterCacheMap = (Map<Class, StringConverter>) field.get(fileLineIterator);
         assertEquals(1, stringConverterCacheMap.size());
         assertSame(stringConverters[0], stringConverterCacheMap
@@ -6482,20 +6497,21 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 前提条件の設定
+        @SuppressWarnings("rawtypes")
         Map<Class, StringConverter> cache_stringConverterCacheMap = new HashMap<Class, StringConverter>();
         ReflectionTestUtils.setField(fileLineIterator, "stringConverterCacheMap",
                 cache_stringConverterCacheMap);
 
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         // テスト対象のインスタンス化ですでに設定済み
 
         // テスト実施
         method = AbstractFileLineIterator.class.getDeclaredMethod("buildStringConverters");
         method.setAccessible(true);
-        result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
@@ -6514,6 +6530,7 @@ public class AbstractFileLineIteratorTest {
 
         Field field = AbstractFileLineIterator.class.getDeclaredField("stringConverterCacheMap");
         field.setAccessible(true);
+        @SuppressWarnings("rawtypes")
         Map<Class, StringConverter> stringConverterCacheMap = (Map<Class, StringConverter>) field.get(fileLineIterator);
         assertEquals(3, stringConverterCacheMap.size());
         assertSame(stringConverters[0], stringConverterCacheMap
@@ -6594,13 +6611,14 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 前提条件の設定
+        @SuppressWarnings("rawtypes")
         Map<Class, StringConverter> cache_stringConverterCacheMap = new HashMap<Class, StringConverter>();
         ReflectionTestUtils.setField(fileLineIterator, "stringConverterCacheMap",
                 cache_stringConverterCacheMap);
 
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         // テスト対象のインスタンス化ですでに設定済み
 
@@ -6620,6 +6638,7 @@ public class AbstractFileLineIteratorTest {
 
             Field field = AbstractFileLineIterator.class.getDeclaredField("stringConverterCacheMap");
             field.setAccessible(true);
+            @SuppressWarnings("rawtypes")
             Map<Class, StringConverter> stringConverterCacheMap = (Map<Class, StringConverter>) field.get(fileLineIterator);
             assertEquals(1, stringConverterCacheMap.size());
             Object cacheMap01 = stringConverterCacheMap
@@ -6702,13 +6721,14 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 前提条件の設定
+        @SuppressWarnings("rawtypes")
         Map<Class, StringConverter> cache_stringConverterCacheMap = new HashMap<Class, StringConverter>();
         ReflectionTestUtils.setField(fileLineIterator, "stringConverterCacheMap",
                 cache_stringConverterCacheMap);
 
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         // テスト対象のインスタンス化ですでに設定済み
 
@@ -6728,6 +6748,7 @@ public class AbstractFileLineIteratorTest {
 
             Field field = AbstractFileLineIterator.class.getDeclaredField("stringConverterCacheMap");
             field.setAccessible(true);
+            @SuppressWarnings("rawtypes")
             Map<Class, StringConverter> stringConverterCacheMap = (Map<Class, StringConverter>) field.get(fileLineIterator);
             assertEquals(1, stringConverterCacheMap.size());
             Object cacheMap01 = stringConverterCacheMap
@@ -6825,6 +6846,7 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 前提条件の設定
+        @SuppressWarnings("rawtypes")
         Map<Class, StringConverter> cache_stringConverterCacheMap = new HashMap<Class, StringConverter>();
         StringConverter cache01 = new NullStringConverter();
         StringConverter cache02 = new StringConverterToLowerCase();
@@ -6839,14 +6861,14 @@ public class AbstractFileLineIteratorTest {
 
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         // テスト対象のインスタンス化ですでに設定済み
 
         // テスト実施
         method = AbstractFileLineIterator.class.getDeclaredMethod("buildStringConverters");
         method.setAccessible(true);
-        result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
         // 返却値の確認
         // なし
 
@@ -6859,6 +6881,7 @@ public class AbstractFileLineIteratorTest {
 
         Field field = AbstractFileLineIterator.class.getDeclaredField("stringConverterCacheMap");
         field.setAccessible(true);
+        @SuppressWarnings("rawtypes")
         Map<Class, StringConverter> stringConverterCacheMap = (Map<Class, StringConverter>) field.get(fileLineIterator);
         assertEquals(3, stringConverterCacheMap.size());
         assertSame(cache01, stringConverterCacheMap
@@ -6911,14 +6934,14 @@ public class AbstractFileLineIteratorTest {
         // 前提条件の設定
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         // テスト対象のインスタンス化で設定済み
 
         // テスト実施
         method = AbstractFileLineIterator.class.getDeclaredMethod("buildMethods");
         method.setAccessible(true);
-        result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
@@ -6972,14 +6995,14 @@ public class AbstractFileLineIteratorTest {
         // 前提条件の設定
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         // テスト対象のインスタンス化で設定済み
 
         // テスト実施
         method = AbstractFileLineIterator.class.getDeclaredMethod("buildMethods");
         method.setAccessible(true);
-        result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
@@ -7022,7 +7045,6 @@ public class AbstractFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testBuildMethods03() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -7041,14 +7063,14 @@ public class AbstractFileLineIteratorTest {
         // 前提条件の設定
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         // テスト対象のインスタンス化で設定済み
 
         // テスト実施
         method = AbstractFileLineIterator.class.getDeclaredMethod("buildMethods");
         method.setAccessible(true);
-        result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
@@ -7058,6 +7080,7 @@ public class AbstractFileLineIteratorTest {
                 "methods");
         assertEquals(1, methods.length);
         assertEquals("setColumn1", methods[0].getName());
+        @SuppressWarnings("rawtypes")
         Class[] method01_param = methods[0].getParameterTypes();
         assertEquals(1, method01_param.length);
         assertSame(String.class, method01_param[0]);
@@ -7113,7 +7136,7 @@ public class AbstractFileLineIteratorTest {
         // 前提条件の設定
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         // テスト対象のインスタンス化で設定済み
 
@@ -7185,14 +7208,14 @@ public class AbstractFileLineIteratorTest {
         // 前提条件の設定
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         // テスト対象のインスタンス化で設定済み
 
         // テスト実施
         method = AbstractFileLineIterator.class.getDeclaredMethod("buildMethods");
         method.setAccessible(true);
-        result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
@@ -7240,7 +7263,6 @@ public class AbstractFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testBuildMethods06() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -7259,14 +7281,14 @@ public class AbstractFileLineIteratorTest {
         // 前提条件の設定
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         // テスト対象のインスタンス化で設定済み
 
         // テスト実施
         method = AbstractFileLineIterator.class.getDeclaredMethod("buildMethods");
         method.setAccessible(true);
-        result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
@@ -7276,10 +7298,12 @@ public class AbstractFileLineIteratorTest {
                 "methods");
         assertEquals(2, methods.length);
         assertEquals("setColumn1", methods[0].getName());
+        @SuppressWarnings("rawtypes")
         Class[] method01_param = methods[0].getParameterTypes();
         assertEquals(1, method01_param.length);
         assertSame(String.class, method01_param[0]);
         assertEquals("setColumn2", methods[1].getName());
+        @SuppressWarnings("rawtypes")
         Class[] method02_param = methods[1].getParameterTypes();
         assertEquals(1, method01_param.length);
         assertSame(String.class, method02_param[0]);
@@ -7332,7 +7356,6 @@ public class AbstractFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testBuildMethods07() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -7354,14 +7377,14 @@ public class AbstractFileLineIteratorTest {
         // 前提条件の設定
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         // テスト対象のインスタンス化で設定済み
 
         // テスト実施
         method = AbstractFileLineIterator.class.getDeclaredMethod("buildMethods");
         method.setAccessible(true);
-        result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
@@ -7371,21 +7394,25 @@ public class AbstractFileLineIteratorTest {
                 "methods");
         assertEquals(4, methods.length);
         assertEquals("setColumn1", methods[0].getName());
+        @SuppressWarnings("rawtypes")
         Class[] method01_param = methods[0].getParameterTypes();
         assertEquals(1, method01_param.length);
         assertSame(int.class, method01_param[0]);
 
         assertEquals("setColumn2", methods[1].getName());
+        @SuppressWarnings("rawtypes")
         Class[] method02_param = methods[1].getParameterTypes();
         assertEquals(1, method02_param.length);
         assertSame(String.class, method02_param[0]);
 
         assertEquals("setColumn3", methods[2].getName());
+        @SuppressWarnings("rawtypes")
         Class[] method03_param = methods[2].getParameterTypes();
         assertEquals(1, method03_param.length);
         assertSame(BigDecimal.class, method03_param[0]);
 
         assertEquals("setColumn4", methods[3].getName());
+        @SuppressWarnings("rawtypes")
         Class[] method04_param = methods[3].getParameterTypes();
         assertEquals(1, method04_param.length);
         assertSame(Date.class, method04_param[0]);
@@ -7424,7 +7451,6 @@ public class AbstractFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testBuildHeader01() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -7439,7 +7465,7 @@ public class AbstractFileLineIteratorTest {
                 columnParserMap));
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildLineReader");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         LineReader mockLineReader = Mockito.mock(LineReader.class);
         Mockito.doReturn("").when(mockLineReader).readLine();
@@ -7454,7 +7480,7 @@ public class AbstractFileLineIteratorTest {
         // テスト実施
         method = AbstractFileLineIterator.class.getDeclaredMethod("buildHeader");
         method.setAccessible(true);
-        result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
@@ -7463,11 +7489,9 @@ public class AbstractFileLineIteratorTest {
         Object header_object = ReflectionTestUtils.getField(fileLineIterator,
                 "header");
         assertEquals(ArrayList.class, header_object.getClass());
-        List header = (List) header_object;
+        List<?> header = (List<?>) header_object;
         assertEquals(0, header.size());
 
-        Object lineReader = ReflectionTestUtils.getField(fileLineIterator,
-                "lineReader");
         Mockito.verify(mockLineReader, Mockito.never()).readLine();
     }
 
@@ -7505,7 +7529,6 @@ public class AbstractFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testBuildHeader02() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -7519,7 +7542,7 @@ public class AbstractFileLineIteratorTest {
                 columnParserMap);
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildLineReader");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         LineReader mockLineReader = Mockito.mock(LineReader.class);
         Mockito.doReturn("1行目データ").when(mockLineReader).readLine();
@@ -7534,7 +7557,7 @@ public class AbstractFileLineIteratorTest {
         // テスト実施
         method = AbstractFileLineIterator.class.getDeclaredMethod("buildHeader");
         method.setAccessible(true);
-        result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
@@ -7543,12 +7566,10 @@ public class AbstractFileLineIteratorTest {
         Object header_object = ReflectionTestUtils.getField(fileLineIterator,
                 "header");
         assertEquals(ArrayList.class, header_object.getClass());
-        List header = (List) header_object;
+        List<?> header = (List<?>) header_object;
         assertEquals(1, header.size());
         assertEquals("1行目データ", header.get(0));
 
-        Object lineReader = ReflectionTestUtils.getField(fileLineIterator,
-                "lineReader");
         Mockito.verify(mockLineReader).readLine();
     }
 
@@ -7588,7 +7609,6 @@ public class AbstractFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testBuildHeader03() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -7602,7 +7622,7 @@ public class AbstractFileLineIteratorTest {
                 columnParserMap);
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildLineReader");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         LineReader mockLineReader = Mockito.mock(LineReader.class);
         Mockito.doReturn("1行目データ").doReturn("2行目データ").doReturn("3行目データ").when(mockLineReader).readLine();
@@ -7617,7 +7637,7 @@ public class AbstractFileLineIteratorTest {
         // テスト実施
         method = AbstractFileLineIterator.class.getDeclaredMethod("buildHeader");
         method.setAccessible(true);
-        result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
@@ -7626,14 +7646,12 @@ public class AbstractFileLineIteratorTest {
         Object header_object = ReflectionTestUtils.getField(fileLineIterator,
                 "header");
         assertEquals(ArrayList.class, header_object.getClass());
-        List header = (List) header_object;
+        List<?> header = (List<?>) header_object;
         assertEquals(3, header.size());
         assertEquals("1行目データ", header.get(0));
         assertEquals("2行目データ", header.get(1));
         assertEquals("3行目データ", header.get(2));
 
-        Object lineReader = ReflectionTestUtils.getField(fileLineIterator,
-                "lineReader");
         Mockito.verify(mockLineReader, Mockito.times(3)).readLine();
     }
 
@@ -7685,7 +7703,7 @@ public class AbstractFileLineIteratorTest {
                 columnParserMap);
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildLineReader");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         LineReader lineReader = (LineReader) ReflectionTestUtils.getField(fileLineIterator, "lineReader");
         lineReader = Mockito.spy(lineReader);
@@ -7766,7 +7784,7 @@ public class AbstractFileLineIteratorTest {
                 columnParserMap);
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildLineReader");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         // 引数の設定
         // なし
@@ -7844,7 +7862,7 @@ public class AbstractFileLineIteratorTest {
                 columnParserMap));
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildLineReader");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         // 引数の設定
         // なし
@@ -7913,7 +7931,7 @@ public class AbstractFileLineIteratorTest {
                 columnParserMap);
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildLineReader");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         LineReader lineReader = (LineReader) ReflectionTestUtils.getField(fileLineIterator,
                 "lineReader");
@@ -7929,7 +7947,7 @@ public class AbstractFileLineIteratorTest {
         // テスト実施
         method = AbstractFileLineIterator.class.getDeclaredMethod("buildTrailerQueue");
         method.setAccessible(true);
-        result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
@@ -7976,7 +7994,6 @@ public class AbstractFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testBuildTrailerQueue02() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -7990,7 +8007,7 @@ public class AbstractFileLineIteratorTest {
                 columnParserMap);
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildLineReader");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         LineReader lineReader = (LineReader) ReflectionTestUtils.getField(fileLineIterator,
                 "lineReader");
@@ -8007,7 +8024,7 @@ public class AbstractFileLineIteratorTest {
         // テスト実施
         method = AbstractFileLineIterator.class.getDeclaredMethod("buildTrailerQueue");
         method.setAccessible(true);
-        result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
@@ -8016,7 +8033,7 @@ public class AbstractFileLineIteratorTest {
         Object trailerQueue_object = ReflectionTestUtils.getField(fileLineIterator,
                 "trailerQueue");
         assertEquals(ArrayBlockingQueue.class, trailerQueue_object.getClass());
-        ArrayBlockingQueue trailerQueue = (ArrayBlockingQueue) trailerQueue_object;
+        ArrayBlockingQueue<?> trailerQueue = (ArrayBlockingQueue<?>) trailerQueue_object;
         assertEquals(1, trailerQueue.size());
         assertEquals("Line data 3", trailerQueue.poll());
 
@@ -8059,7 +8076,6 @@ public class AbstractFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testBuildTrailerQueue03() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -8073,7 +8089,7 @@ public class AbstractFileLineIteratorTest {
                 columnParserMap);
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildLineReader");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         LineReader lineReader = (LineReader) ReflectionTestUtils.getField(fileLineIterator,
                 "lineReader");
@@ -8089,7 +8105,7 @@ public class AbstractFileLineIteratorTest {
         // テスト実施
         method = AbstractFileLineIterator.class.getDeclaredMethod("buildTrailerQueue");
         method.setAccessible(true);
-        result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         // 返却値の確認
         // なし
@@ -8098,7 +8114,7 @@ public class AbstractFileLineIteratorTest {
         Object trailerQueue_object = ReflectionTestUtils.getField(fileLineIterator,
                 "trailerQueue");
         assertEquals(ArrayBlockingQueue.class, trailerQueue_object.getClass());
-        ArrayBlockingQueue trailerQueue = (ArrayBlockingQueue) trailerQueue_object;
+        ArrayBlockingQueue<?> trailerQueue = (ArrayBlockingQueue<?>) trailerQueue_object;
         assertEquals(3, trailerQueue.size());
         assertEquals("Line data 3", trailerQueue.poll());
         assertEquals("Line data 4", trailerQueue.poll());
@@ -8139,7 +8155,6 @@ public class AbstractFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testBuildTrailerQueue04() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -8154,7 +8169,7 @@ public class AbstractFileLineIteratorTest {
                 columnParserMap));
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildLineReader");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         LineReader lineReader = (LineReader) ReflectionTestUtils.getField(fileLineIterator,
                 "lineReader");
@@ -8184,7 +8199,7 @@ public class AbstractFileLineIteratorTest {
                     fileLineIterator, "trailerQueue");
             assertEquals(ArrayBlockingQueue.class, trailerQueue_object
                     .getClass());
-            ArrayBlockingQueue trailerQueue = (ArrayBlockingQueue) trailerQueue_object;
+            ArrayBlockingQueue<?> trailerQueue = (ArrayBlockingQueue<?>) trailerQueue_object;
             assertEquals(0, trailerQueue.size());
 
             lineReader = (LineReader) ReflectionTestUtils.getField(fileLineIterator,
@@ -8239,7 +8254,7 @@ public class AbstractFileLineIteratorTest {
                 columnParserMap);
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildLineReader");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         LineReader lineReader = (LineReader) ReflectionTestUtils.getField(fileLineIterator,
                 "lineReader");
@@ -8321,7 +8336,7 @@ public class AbstractFileLineIteratorTest {
                 columnParserMap);
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildLineReader");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineIterator);
+        method.invoke(fileLineIterator);
 
         // 引数の設定
         // なし
@@ -8488,7 +8503,6 @@ public class AbstractFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testGetHeader01() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("File_Empty.txt");
@@ -8511,7 +8525,7 @@ public class AbstractFileLineIteratorTest {
         ReflectionTestUtils.setField(fileLineIterator, "header", header);
 
         // テスト実施
-        List result = fileLineIterator.getHeader();
+        List<?> result = fileLineIterator.getHeader();
 
         // 返却値の確認
         assertEquals(ArrayList.class, result.getClass());
@@ -8561,7 +8575,6 @@ public class AbstractFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testGetTrailer01() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -8597,7 +8610,7 @@ public class AbstractFileLineIteratorTest {
         Object trailer_object = ReflectionTestUtils.getField(fileLineIterator,
                 "trailer");
         assertSame(ArrayList.class, trailer_object.getClass());
-        assertEquals(0, ((List) trailer_object).size());
+        assertEquals(0, ((List<?>) trailer_object).size());
         assertTrue((Boolean) ReflectionTestUtils.getField(fileLineIterator,
                 "readTrailer"));
 
@@ -9243,8 +9256,8 @@ public class AbstractFileLineIteratorTest {
      * トレイラ部が有るデータに対してreadLine()を1回以上実行した後にreadLine()を実行した場合、トレイラキューの内容が更新されキューの最初のデータがデータ部のデータとして返されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     @Test
-    @SuppressWarnings("unchecked")
     public void testReadLine02() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -9332,8 +9345,8 @@ public class AbstractFileLineIteratorTest {
      * トレイラ部が有るデータに対してreadLine()を1回以上実行した後にreadLine()を実行した場合、トレイラキューの内容が更新されキューの最初のデータがデータ部のデータとして返されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     @Test
-    @SuppressWarnings("unchecked")
     public void testReadLine03() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -9415,8 +9428,8 @@ public class AbstractFileLineIteratorTest {
      * データ部を全部読んだ後のreadLine()を実行した場合、nullを返すことを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     @Test
-    @SuppressWarnings("unchecked")
     public void testReadLine04() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -9503,8 +9516,8 @@ public class AbstractFileLineIteratorTest {
      * ヘッダ部、トレイラ部は有るがデータ部がないデータに対してreadLine()を実行した場合、nullが返されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     @Test
-    @SuppressWarnings("unchecked")
     public void testReadLine05() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -9934,7 +9947,6 @@ public class AbstractFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testGetLineFeedChar01() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -9943,6 +9955,7 @@ public class AbstractFileLineIteratorTest {
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
+        @SuppressWarnings("rawtypes")
         AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub01> fileLineIterator = new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub01>(
                 fileName, AbstractFileLineIterator_Stub01.class,
                 columnParserMap);
@@ -9979,7 +9992,6 @@ public class AbstractFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testGetFileEncoding01() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -9988,6 +10000,7 @@ public class AbstractFileLineIteratorTest {
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
+        @SuppressWarnings("rawtypes")
         AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub01> fileLineIterator = new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub01>(
                 fileName, AbstractFileLineIterator_Stub01.class,
                 columnParserMap);
@@ -10024,7 +10037,6 @@ public class AbstractFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testGetHeaderLineCount01() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -10033,6 +10045,7 @@ public class AbstractFileLineIteratorTest {
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
+        @SuppressWarnings("rawtypes")
         AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub01> fileLineIterator = new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub01>(
                 fileName, AbstractFileLineIterator_Stub01.class,
                 columnParserMap);
@@ -10069,7 +10082,6 @@ public class AbstractFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testGetTrailerLineCount01() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -10078,6 +10090,7 @@ public class AbstractFileLineIteratorTest {
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
+        @SuppressWarnings("rawtypes")
         AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub01> fileLineIterator = new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub01>(
                 fileName, AbstractFileLineIterator_Stub01.class,
                 columnParserMap);
@@ -10114,7 +10127,6 @@ public class AbstractFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testGetCurrentLineCount01() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -10123,6 +10135,7 @@ public class AbstractFileLineIteratorTest {
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
+        @SuppressWarnings("rawtypes")
         AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub01> fileLineIterator = new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub01>(
                 fileName, AbstractFileLineIterator_Stub01.class,
                 columnParserMap);
@@ -10159,7 +10172,6 @@ public class AbstractFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testGetFields01() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -10168,6 +10180,7 @@ public class AbstractFileLineIteratorTest {
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
+        @SuppressWarnings("rawtypes")
         AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub01> fileLineIterator = new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub01>(
                 fileName, AbstractFileLineIterator_Stub01.class,
                 columnParserMap);
@@ -10205,7 +10218,6 @@ public class AbstractFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testGetFileName01() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource(
@@ -10214,6 +10226,7 @@ public class AbstractFileLineIteratorTest {
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
+        @SuppressWarnings("rawtypes")
         AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub01> fileLineIterator = new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub01>(
                 fileName, AbstractFileLineIterator_Stub01.class,
                 columnParserMap);

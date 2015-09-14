@@ -23,6 +23,8 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
  */
 public class BatchThreadPoolTaskExecutor extends ThreadPoolTaskExecutor {
 
+    private static final long serialVersionUID = 8373866869704290676L;
+
     /**
      * コンストラクタ
      */

@@ -17,8 +17,8 @@ public class FileValidateCollector011Test extends DaoTestCase {
     /**
      * Log.
      */
-    private static Log logger = LogFactory
-            .getLog(FileValidateCollector011Test.class);
+    private static Log logger = LogFactory.getLog(
+            FileValidateCollector011Test.class);
 
     private FileQueryDAO csvFileQueryDAO = null;
 
@@ -28,18 +28,21 @@ public class FileValidateCollector011Test extends DaoTestCase {
         this.csvFileQueryDAO = csvFileQueryDAO;
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     protected void onSetUpBeforeTransaction() throws Exception {
         FileValidateCollector.setVerbose(true);
         super.onSetUpBeforeTransaction();
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     protected void onTearDownAfterTransaction() throws Exception {
         FileValidateCollector.setVerbose(false);
         super.onTearDownAfterTransaction();
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     protected void onSetUp() throws Exception {
         if (logger.isInfoEnabled()) {
@@ -91,14 +94,15 @@ public class FileValidateCollector011Test extends DaoTestCase {
 
         Validator validator = null;
 
-        Collector<B000001Data> it = new FileValidateCollector<B000001Data>(
-                this.csvFileQueryDAO, url.getPath(), B000001Data.class,
-                validator);
+        @SuppressWarnings("resource")
+        Collector<B000001Data> it = new FileValidateCollector<B000001Data>(this.csvFileQueryDAO, url
+                .getPath(), B000001Data.class, validator);
 
         try {
             // it = ac.execute();
 
-            for (B000001Data data : it) {
+            for (@SuppressWarnings("unused")
+            B000001Data data : it) {
                 // あえて途中で抜ける
                 break;
             }
@@ -108,8 +112,8 @@ public class FileValidateCollector011Test extends DaoTestCase {
         }
 
         // コレクタスレッド数チェック
-        assertTrue(CollectorTestUtil
-                .lessThanCollectorThreadCount(1 + this.previousThreadCount));
+        assertTrue(CollectorTestUtil.lessThanCollectorThreadCount(1
+                + this.previousThreadCount));
 
     }
 
@@ -134,14 +138,14 @@ public class FileValidateCollector011Test extends DaoTestCase {
         int count_first = 0;
         Validator validator = null;
 
-        Collector<B000001Data> it = new FileValidateCollector<B000001Data>(
-                this.csvFileQueryDAO, url.getPath(), B000001Data.class,
-                validator);
+        Collector<B000001Data> it = new FileValidateCollector<B000001Data>(this.csvFileQueryDAO, url
+                .getPath(), B000001Data.class, validator);
 
         try {
             // it = ac.execute();
 
-            for (B000001Data data : it) {
+            for (@SuppressWarnings("unused")
+            B000001Data data : it) {
                 count_first++;
 
             }
@@ -151,17 +155,16 @@ public class FileValidateCollector011Test extends DaoTestCase {
         }
 
         // コレクタスレッド数チェック
-        assertTrue(CollectorTestUtil
-                .lessThanCollectorThreadCount(0 + this.previousThreadCount));
+        assertTrue(CollectorTestUtil.lessThanCollectorThreadCount(0
+                + this.previousThreadCount));
 
         for (int i = 0; i < 7; i++) {
             int count = 0;
 
             long startTime = System.currentTimeMillis();
 
-            Collector<B000001Data> it2 = new FileValidateCollector<B000001Data>(
-                    this.csvFileQueryDAO, url.getPath(), B000001Data.class,
-                    validator);
+            Collector<B000001Data> it2 = new FileValidateCollector<B000001Data>(this.csvFileQueryDAO, url
+                    .getPath(), B000001Data.class, validator);
 
             try {
                 for (B000001Data data : it2) {
@@ -192,8 +195,8 @@ public class FileValidateCollector011Test extends DaoTestCase {
         }
 
         // コレクタスレッド数チェック
-        assertTrue(CollectorTestUtil
-                .lessThanCollectorThreadCount(0 + this.previousThreadCount));
+        assertTrue(CollectorTestUtil.lessThanCollectorThreadCount(0
+                + this.previousThreadCount));
 
     }
 

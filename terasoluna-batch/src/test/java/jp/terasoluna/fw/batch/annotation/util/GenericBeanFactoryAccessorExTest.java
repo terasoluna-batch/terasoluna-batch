@@ -151,7 +151,6 @@ public class GenericBeanFactoryAccessorExTest {
      * </p>
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testFindAnnotationOnBeanStringClassOfA002() {
         // パラメータ
         MockApplicationContext ac = new MockApplicationContext();
@@ -159,6 +158,7 @@ public class GenericBeanFactoryAccessorExTest {
 
         Object bean = null;
         AdvisedSupport advised = new AdvisedSupport();
+        @SuppressWarnings("rawtypes")
         Class[] proxiedInterfaces = AopProxyUtils
                 .completeProxiedInterfaces(advised);
         InvocationHandler handler = new InvocationHandler() {

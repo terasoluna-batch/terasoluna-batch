@@ -86,7 +86,8 @@ public abstract class PropertyTestCase {
     private void saveProps() {
         this.cashMap = new HashMap<String, String>();
         Map<String, String> m = getProps();
-        for (Map.Entry e : m.entrySet()) {
+        for (@SuppressWarnings("rawtypes")
+        Map.Entry e : m.entrySet()) {
             // 読み込んだものをすべてpropsに追加する。
             this.cashMap.put((String) e.getKey(), (String) e.getValue());
         }
@@ -107,7 +108,7 @@ public abstract class PropertyTestCase {
      */
     @SuppressWarnings("unchecked")
     public Map<String, String> getProps() {
-        Class cls = null;
+        Class<?> cls = null;
         Field field = null;
         Map<String, String> map = null;
         try {

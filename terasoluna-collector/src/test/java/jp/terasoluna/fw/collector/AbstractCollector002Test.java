@@ -51,7 +51,9 @@ public class AbstractCollector002Test {
         } catch (SystemException e) {
             assertNotNull(e);
             assertEquals(SystemException.class, e.getClass());
-            return;
+            return;            
+        } finally {
+            col.close();            
         }
 
         fail();
@@ -68,6 +70,7 @@ public class AbstractCollector002Test {
         // テスト
         boolean result = col.hasNext();
 
+        col.close();
         assertFalse(result);
     }
 
@@ -81,6 +84,7 @@ public class AbstractCollector002Test {
         // テスト
         boolean result = col.hasNext();
 
+        col.close();
         assertFalse(result);
     }
 
@@ -94,6 +98,7 @@ public class AbstractCollector002Test {
         // テスト
         boolean result = col.hasNext();
 
+        col.close();
         assertFalse(result);
     }
 
@@ -107,6 +112,7 @@ public class AbstractCollector002Test {
         // テスト
         boolean result = col.hasNext();
 
+        col.close();
         assertFalse(result);
     }
 
@@ -124,6 +130,8 @@ public class AbstractCollector002Test {
         } catch (NoSuchElementException e) {
             assertNotNull(e);
             assertNull(result);
+        } finally {
+            col.close();            
         }
     }
 
@@ -144,6 +152,8 @@ public class AbstractCollector002Test {
             assertEquals(Exception.class, e.getCause().getClass());
             assertEquals(null, e.getCause().getMessage());
             return;
+        } finally {
+            col.close();
         }
 
         fail();
@@ -166,6 +176,8 @@ public class AbstractCollector002Test {
             assertEquals(Exception.class, e.getCause().getClass());
             assertEquals("hoge", e.getCause().getMessage());
             return;
+        } finally {
+            col.close();
         }
 
         fail();
@@ -187,6 +199,8 @@ public class AbstractCollector002Test {
         } catch (NoSuchElementException e) {
             assertNotNull(e);
             assertNull(result);
+        } finally {
+            col.close();
         }
     }
 
@@ -205,6 +219,8 @@ public class AbstractCollector002Test {
             fail();
         } catch (Throwable throwable) {
             // NOP
+        } finally {
+            col.close();
         }
 
         assertNull(result);
@@ -272,6 +288,7 @@ public class AbstractCollector002Test {
         // テスト
         boolean result = col.hasNext();
 
+        col.close();
         assertTrue(result);
     }    
 
@@ -292,6 +309,7 @@ public class AbstractCollector002Test {
         // テスト
         boolean result = col.hasNext();
 
+        col.close();
         assertFalse(result);
     }
 
@@ -312,6 +330,7 @@ public class AbstractCollector002Test {
         // テスト
         boolean result = col.hasNext();
 
+        col.close();
         assertTrue(result);
     }
     
@@ -332,6 +351,7 @@ public class AbstractCollector002Test {
         // テスト
         boolean result = col.hasNext();
 
+        col.close();
         assertFalse(result);
     }
     
@@ -348,6 +368,8 @@ public class AbstractCollector002Test {
         // テスト
         assertEquals(CollectorExceptionHandlerStatus.END, col.handleException(end));
         assertEquals(CollectorExceptionHandlerStatus.END, end.getExceptionHandlerStatus());
+
+        col.close();
     }
     
     /**
@@ -365,6 +387,8 @@ public class AbstractCollector002Test {
     	
         // テスト
         assertEquals(skip.getExceptionHandlerStatus(), col.handleException(skip));
+
+        col.close();
     }
     
     /**
@@ -378,6 +402,8 @@ public class AbstractCollector002Test {
     	
         // テスト
         assertNull(col.handleException(skip));
+
+        col.close();
     }
     
     /**

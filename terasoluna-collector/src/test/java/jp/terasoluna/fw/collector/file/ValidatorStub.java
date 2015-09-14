@@ -17,8 +17,7 @@ public class ValidatorStub implements Validator {
 
     private int callValidate = 0;
 
-    @SuppressWarnings("unchecked")
-    public boolean supports(Class clazz) {
+    public boolean supports(Class<?> clazz) {
         callSupports++;
         return true;
     }

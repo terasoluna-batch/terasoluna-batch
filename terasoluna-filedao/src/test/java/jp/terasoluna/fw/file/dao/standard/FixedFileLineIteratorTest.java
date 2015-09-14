@@ -224,6 +224,7 @@ public class FixedFileLineIteratorTest {
      * アノテーションFileFormat：初期値<br>
      * 属性：<br>
      * @InputFileColumn(columnIndex = 1, bytes = 5)<br>
+<<<<<<< c1bf1e4b1b12b09b7419f6bef32ba788b3e22245
      *                              String column1;<br>
      * @InputFileColumn(columnIndex = 1, bytes = 3)<br>
      *                              String column2;<br>
@@ -240,6 +241,24 @@ public class FixedFileLineIteratorTest {
      *                              (状態変化) AbstractFileLineIterator#init():1回呼ばれる。<br>
      *                              <br>
      *                              正常にコンストラクタの処理が行われることを確認する。 <br>
+=======
+     * String column1;<br>
+     * @InputFileColumn(columnIndex = 1, bytes = 3)<br>
+     * String column2;<br>
+     * (引数) columnParserMap:以下の設定を持つHashMapのインスタンス<br>
+     * 要素1<br>
+     * key:"java.lang.String"<br>
+     * value:ColumnParserインスタンス<br>
+     * FixedFileLineWriter_ColumnParserStub01インスタンス<br>
+     * 空実装<br>
+     * (状態) totalDefineBytes:0<br>
+     * <br>
+     * 期待値：(状態変化) AbstractFileLineIteratorコンストラクタ:1回呼ばれる。<br>
+     * 引数と同じインスタンスが渡される。<br>
+     * (状態変化) AbstractFileLineIterator#init():1回呼ばれる。<br>
+     * <br>
+     * 正常にコンストラクタの処理が行われることを確認する。 <br>
+>>>>>>> Removed warnings. #302
      * @throws Exception このメソッドで発生した例外
      */
     @Test

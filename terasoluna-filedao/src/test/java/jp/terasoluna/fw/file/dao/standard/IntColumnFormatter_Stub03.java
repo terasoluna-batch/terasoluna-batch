@@ -10,7 +10,6 @@ import jp.terasoluna.fw.file.annotation.OutputFileColumn;
 @FileFormat()
 public class IntColumnFormatter_Stub03 {
 
-    @SuppressWarnings("unused")
     @InputFileColumn(columnIndex = 0)
     @OutputFileColumn(columnIndex = 0)
     private int intValue;

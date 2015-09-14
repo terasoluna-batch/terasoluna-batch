@@ -45,7 +45,7 @@ public class JXPathIndexedBeanWrapperImpl_JavaBeanStub01 {
     /**
      * テスト用プロパティ。
      */
-    private List property4 = null;
+    private List<?> property4 = null;
     
     /**
      * テスト用プロパティ。
@@ -60,12 +60,14 @@ public class JXPathIndexedBeanWrapperImpl_JavaBeanStub01 {
     /**
      * テスト用プロパティ。
      */
-    private Map map = new HashMap();
+    @SuppressWarnings("rawtypes")
+    private Map<?, ?> map = new HashMap();
     
     /**
      * テスト用プロパティ。
      */
-    private List list = new ArrayList();
+    @SuppressWarnings("rawtypes")
+    private List<?> list = new ArrayList();
     
     /**
     * テスト用プロパティ。
@@ -106,7 +108,7 @@ public class JXPathIndexedBeanWrapperImpl_JavaBeanStub01 {
      * mapを取得する。
      * @return map。
      */
-    public Map getMap() {
+    public Map<?, ?> getMap() {
         return map;
     }
 
@@ -114,7 +116,7 @@ public class JXPathIndexedBeanWrapperImpl_JavaBeanStub01 {
      * mapを設定する
      * @param map map。
      */
-    public void setMap(Map map) {
+    public void setMap(Map<?, ?> map) {
         this.map = map;
     }
 
@@ -138,7 +140,7 @@ public class JXPathIndexedBeanWrapperImpl_JavaBeanStub01 {
      * listを取得する。
      * @return list。
      */
-    public List getList() {
+    public List<?> getList() {
         return list;
     }
 
@@ -146,7 +148,7 @@ public class JXPathIndexedBeanWrapperImpl_JavaBeanStub01 {
      * listを設定する
      * @param list list。
      */
-    public void setList(List list) {
+    public void setList(List<?> list) {
         this.list = list;
     }
 
@@ -170,7 +172,7 @@ public class JXPathIndexedBeanWrapperImpl_JavaBeanStub01 {
      * property4を取得する。
      * @return property4。
      */
-    public List getProperty4() {
+    public List<?> getProperty4() {
         return property4;
     }
 
@@ -178,7 +180,7 @@ public class JXPathIndexedBeanWrapperImpl_JavaBeanStub01 {
      * property4を設定する
      * @param property4 property4。
      */
-    public void setProperty4(List property4) {
+    public void setProperty4(List<?> property4) {
         this.property4 = property4;
     }
 

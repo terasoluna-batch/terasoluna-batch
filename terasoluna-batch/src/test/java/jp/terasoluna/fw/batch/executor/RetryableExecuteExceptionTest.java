@@ -43,7 +43,7 @@ public class RetryableExecuteExceptionTest {
     @Test
     public void testRetryableExecuteException02() {
         try {
-            RetryableExecuteException executeException = new RetryableExecuteException(null);
+            new RetryableExecuteException(null);
             fail("アサーションエラーが発生しません。");
         } catch (IllegalArgumentException e) {
         }

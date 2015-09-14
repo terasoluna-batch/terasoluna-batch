@@ -27,5 +27,7 @@ import java.util.HashMap;
 public abstract class GenericsUtil_HashMapStub01<V, K>
     extends HashMap<K, V> {
 
+    private static final long serialVersionUID = 1L;
+
     // no method
 }

@@ -181,18 +181,17 @@ public class DataSourceMessageSourceTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testReadMessageFromDataSource01() throws Exception {
         // 前処理
         DataSourceMessageSource_DataSourceMessageSourceStub02 ds = new DataSourceMessageSource_DataSourceMessageSourceStub02();
         DataSourceMessageSource_DBMessageResoueceDAOStub01 dbmr = new DataSourceMessageSource_DBMessageResoueceDAOStub01();
         Properties prop = new Properties();
-        HashMap map = new HashMap();
+        Map<Locale, MessageFormat> map = new HashMap<Locale, MessageFormat>();
         ds.cachedMergedProperties.put(Locale.JAPAN, prop);
         ds.cachedMessageFormats.put("foo", map);
         ds.dbMessageResourceDAO = dbmr;
 
-        dbmr.list = new ArrayList();
+        dbmr.list = new ArrayList<DBMessage>();
 
         // テスト実施
         ds.readMessagesFromDataSource();
@@ -223,13 +222,12 @@ public class DataSourceMessageSourceTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testReadMessageFromDataSource02() throws Exception {
         // 前処理
         DataSourceMessageSource_DataSourceMessageSourceStub02 ds = new DataSourceMessageSource_DataSourceMessageSourceStub02();
         DataSourceMessageSource_DBMessageResoueceDAOStub01 dbmr = new DataSourceMessageSource_DBMessageResoueceDAOStub01();
         Properties prop = new Properties();
-        HashMap map = new HashMap();
+        Map<Locale, MessageFormat> map = new HashMap<Locale, MessageFormat>();
         ds.cachedMergedProperties.put(Locale.JAPAN, prop);
         ds.cachedMessageFormats.put("foo", map);
         ds.dbMessageResourceDAO = dbmr;
@@ -271,13 +269,12 @@ public class DataSourceMessageSourceTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testReadMessageFromDataSource03() throws Exception {
         // 前処理
         DataSourceMessageSource_DataSourceMessageSourceStub02 ds = new DataSourceMessageSource_DataSourceMessageSourceStub02();
         DataSourceMessageSource_DBMessageResoueceDAOStub01 dbmr = new DataSourceMessageSource_DBMessageResoueceDAOStub01();
         Properties prop = new Properties();
-        HashMap map = new HashMap();
+        Map<Locale, MessageFormat> map = new HashMap<Locale, MessageFormat>();
         ds.cachedMergedProperties.put(Locale.JAPAN, prop);
         ds.cachedMessageFormats.put("foo", map);
 
@@ -324,13 +321,12 @@ public class DataSourceMessageSourceTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testReadMessageFromDataSource04() throws Exception {
         // 前処理
         DataSourceMessageSource_DataSourceMessageSourceStub02 ds = new DataSourceMessageSource_DataSourceMessageSourceStub02();
         DataSourceMessageSource_DBMessageResoueceDAOStub01 dbmr = new DataSourceMessageSource_DBMessageResoueceDAOStub01();
         Properties prop = new Properties();
-        HashMap map = new HashMap();
+        Map<Locale, MessageFormat> map = new HashMap<Locale, MessageFormat>();
         ds.cachedMergedProperties.put(Locale.JAPAN, prop);
         ds.cachedMessageFormats.put("foo", map);
 
@@ -371,19 +367,18 @@ public class DataSourceMessageSourceTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testReadMessageFromDataSource05() throws Exception {
         // 前処理
         DataSourceMessageSource_DataSourceMessageSourceStub02 ds = new DataSourceMessageSource_DataSourceMessageSourceStub02();
         DataSourceMessageSource_DBMessageResoueceDAOStub01 dbmr = new DataSourceMessageSource_DBMessageResoueceDAOStub01();
         Properties prop = new Properties();
-        HashMap map = new HashMap();
+        Map<Locale, MessageFormat> map = new HashMap<Locale, MessageFormat>();
         ds.cachedMergedProperties.put(Locale.JAPAN, prop);
         ds.cachedMessageFormats.put("foo", map);
 
         ds.dbMessageResourceDAO = dbmr;
 
-        List list = new ArrayList();
+        List<DBMessage> list = new ArrayList<DBMessage>();
         DBMessage db1 = new DBMessage(null, null, null, null, null);
         list.add(db1);
         dbmr.list = list;
@@ -416,19 +411,18 @@ public class DataSourceMessageSourceTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testReadMessageFromDataSource06() throws Exception {
         // 前処理
         DataSourceMessageSource_DataSourceMessageSourceStub02 ds = new DataSourceMessageSource_DataSourceMessageSourceStub02();
         DataSourceMessageSource_DBMessageResoueceDAOStub01 dbmr = new DataSourceMessageSource_DBMessageResoueceDAOStub01();
         Properties prop = new Properties();
-        HashMap map = new HashMap();
+        Map<Locale, MessageFormat> map = new HashMap<Locale, MessageFormat>();
         ds.cachedMergedProperties.put(Locale.JAPAN, prop);
         ds.cachedMessageFormats.put("foo", map);
 
         ds.dbMessageResourceDAO = dbmr;
 
-        List list = new ArrayList();
+        List<DBMessage> list = new ArrayList<DBMessage>();
         DBMessage db1 = new DBMessage(null, "JP", "ja", "kaisai", "テストメッセージ０１");
         list.add(db1);
         dbmr.list = list;
@@ -461,18 +455,17 @@ public class DataSourceMessageSourceTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testReadMessageFromDataSource07() throws Exception {
         // 前処理
         DataSourceMessageSource_DataSourceMessageSourceStub02 ds = new DataSourceMessageSource_DataSourceMessageSourceStub02();
         DataSourceMessageSource_DBMessageResoueceDAOStub01 dbmr = new DataSourceMessageSource_DBMessageResoueceDAOStub01();
         Properties prop = new Properties();
-        HashMap map = new HashMap();
+        Map<Locale, MessageFormat> map = new HashMap<Locale, MessageFormat>();
         ds.cachedMergedProperties.put(Locale.JAPAN, prop);
         ds.cachedMessageFormats.put("foo", map);
 
         ds.dbMessageResourceDAO = dbmr;
-        List list = new ArrayList();
+        List<DBMessage> list = new ArrayList<DBMessage>();
         DBMessage db1 = new DBMessage("test01", "JP", "ja", "kaisai", null);
         list.add(db1);
 
@@ -513,11 +506,12 @@ public class DataSourceMessageSourceTest {
         DataSourceMessageSource_DataSourceMessageSourceStub02 ds = new DataSourceMessageSource_DataSourceMessageSourceStub02();
         DataSourceMessageSource_DBMessageResoueceDAOStub01 dbmr = new DataSourceMessageSource_DBMessageResoueceDAOStub01();
         Properties prop = new Properties();
-        HashMap map = new HashMap();
+        Map<Locale, MessageFormat> map = new HashMap<Locale, MessageFormat>();
         ds.cachedMergedProperties.put(Locale.JAPAN, prop);
         ds.cachedMessageFormats.put("foo", map);
 
         ds.dbMessageResourceDAO = dbmr;
+        @SuppressWarnings("rawtypes")
         List list = new ArrayList();
         Object db1 = new Object();
         list.add(db1);
@@ -888,7 +882,6 @@ public class DataSourceMessageSourceTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testInternalResolveCodeWithoutArguments01() throws Exception {
         // 前処理
         DataSourceMessageSource ds = new DataSourceMessageSource();
@@ -899,7 +892,7 @@ public class DataSourceMessageSourceTest {
         ds.defaultLocale = null;
 
         // cachedMergedProperties生成
-        Map map = new HashMap();
+        Map<Locale, Properties> map = new HashMap<Locale, Properties>();
         Properties props = new Properties();
         String msg = "テストメッセージ０１";
         props.put(code, msg);
@@ -939,7 +932,6 @@ public class DataSourceMessageSourceTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testInternalResolveCodeWithoutArguments02() throws Exception {
         // 前処理
         DataSourceMessageSource ds = new DataSourceMessageSource();
@@ -949,7 +941,7 @@ public class DataSourceMessageSourceTest {
         ds.defaultLocale = null;
 
         // cachedMergedProperties生成
-        Map map = new HashMap();
+        Map<Locale, Properties> map = new HashMap<Locale, Properties>();
         Properties props = new Properties();
         Locale msglocale = new Locale("ja", "", "");
         String msg = "テストメッセージ０１";
@@ -996,7 +988,6 @@ public class DataSourceMessageSourceTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testInternalResolveCodeWithoutArguments03() throws Exception {
         // 前処理
         DataSourceMessageSource ds = new DataSourceMessageSource();
@@ -1006,7 +997,7 @@ public class DataSourceMessageSourceTest {
         ds.defaultLocale = new Locale("en", "US", "");
 
         // cachedMergedProperties生成
-        Map map = new HashMap();
+        Map<Locale, Properties> map = new HashMap<Locale, Properties>();
         Properties props = new Properties();
         Locale msglocale = new Locale("en", "", "");
         String msg = "テストメッセージ０１";
@@ -1053,7 +1044,6 @@ public class DataSourceMessageSourceTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testInternalResolveCodeWithoutArguments04() throws Exception {
         // 前処理
         DataSourceMessageSource ds = new DataSourceMessageSource();
@@ -1063,7 +1053,7 @@ public class DataSourceMessageSourceTest {
         ds.defaultLocale = new Locale("en", "US", "");
 
         // cachedMergedProperties生成
-        Map map = new HashMap();
+        Map<Locale, Properties> map = new HashMap<Locale, Properties>();
         Properties props = new Properties();
         Locale msglocale = new Locale("ja", "JP", "kansai");
         String msg = "テストメッセージ０１やで";
@@ -1100,7 +1090,6 @@ public class DataSourceMessageSourceTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testInternalResolveCodeWithoutArguments05() throws Exception {
         // 前処理
         DataSourceMessageSource ds = new DataSourceMessageSource();
@@ -1110,7 +1099,7 @@ public class DataSourceMessageSourceTest {
         ds.defaultLocale = null;
 
         // cachedMergedProperties生成
-        Map map = new HashMap();
+        Map<Locale, Properties> map = new HashMap<Locale, Properties>();
         Properties props = new Properties();
         Locale msglocale = new Locale("ja", "JP", "kansai");
         String msg = "テストメッセージ０１やで";
@@ -1149,7 +1138,7 @@ public class DataSourceMessageSourceTest {
         ds.defaultLocale = defaultLocale;
 
         // テスト実施
-        List locales = ds.getAlternativeLocales(locale);
+        List<Locale> locales = ds.getAlternativeLocales(locale);
 
         // 判定
         assertEquals(1, locales.size());
@@ -1185,7 +1174,7 @@ public class DataSourceMessageSourceTest {
         Locale defaultLocale2 = new Locale("en", "", "");
 
         // テスト実施
-        List locales = ds.getAlternativeLocales(locale);
+        List<Locale> locales = ds.getAlternativeLocales(locale);
 
         // 判定
         assertEquals(3, locales.size());
@@ -1228,7 +1217,7 @@ public class DataSourceMessageSourceTest {
         Locale defaultLocale3 = new Locale("en", "", "");
 
         // テスト実施
-        List locales = ds.getAlternativeLocales(locale);
+        List<Locale> locales = ds.getAlternativeLocales(locale);
 
         // 判定
         assertEquals(5, locales.size());
@@ -1266,7 +1255,7 @@ public class DataSourceMessageSourceTest {
         Locale locale2 = new Locale("ja", "", "");
 
         // テスト実施
-        List locales = ds.getAlternativeLocales(locale);
+        List<Locale> locales = ds.getAlternativeLocales(locale);
 
         // 判定
         assertEquals(2, locales.size());
@@ -1296,7 +1285,7 @@ public class DataSourceMessageSourceTest {
         ds.defaultLocale = null;
 
         // テスト実施
-        List locales = ds.getAlternativeLocales(locale);
+        List<Locale> locales = ds.getAlternativeLocales(locale);
 
         // 判定
         assertEquals(0, locales.size());
@@ -1321,7 +1310,6 @@ public class DataSourceMessageSourceTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testResolveCode01() throws Exception {
         // 前処理
         DataSourceMessageSource ds = new DataSourceMessageSource();
@@ -1329,7 +1317,7 @@ public class DataSourceMessageSourceTest {
         Locale locale = new Locale("ja", "JP", "");
 
         // cachedMergedProperties生成
-        Map map = new HashMap();
+        Map<Locale, MessageFormat> map = new HashMap<Locale, MessageFormat>();
         Locale formatlocale = new Locale("ja", "JP", "");
         MessageFormat mFormat = new MessageFormat("");
         mFormat.setLocale(formatlocale);
@@ -1370,7 +1358,6 @@ public class DataSourceMessageSourceTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testResolveCode02() throws Exception {
         // 前処理
         DataSourceMessageSource ds = new DataSourceMessageSource();
@@ -1378,7 +1365,7 @@ public class DataSourceMessageSourceTest {
         Locale locale = new Locale("ja", "JP", "");
 
         // cachedMergedProperties生成
-        Map map = new HashMap();
+        Map<Locale, MessageFormat> map = new HashMap<Locale, MessageFormat>();
         Locale formatlocale = new Locale("ja", "", "");
         MessageFormat mFormat = new MessageFormat("");
         mFormat.setLocale(formatlocale);
@@ -1425,7 +1412,6 @@ public class DataSourceMessageSourceTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testResolveCode03() throws Exception {
         // 前処理
         DataSourceMessageSource ds = new DataSourceMessageSource();
@@ -1435,7 +1421,7 @@ public class DataSourceMessageSourceTest {
         ds.defaultLocale = defaultLocale;
 
         // cachedMergedProperties生成
-        Map map = new HashMap();
+        Map<Locale, MessageFormat> map = new HashMap<Locale, MessageFormat>();
         Locale formatlocale = new Locale("en", "", "");
         MessageFormat mFormat = new MessageFormat("");
         mFormat.setLocale(formatlocale);
@@ -1482,7 +1468,6 @@ public class DataSourceMessageSourceTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testResolveCode04() throws Exception {
         // 前処理
         DataSourceMessageSource ds = new DataSourceMessageSource();
@@ -1492,7 +1477,7 @@ public class DataSourceMessageSourceTest {
         ds.defaultLocale = defaultLocale;
 
         // cachedMergedProperties生成
-        Map map = new HashMap();
+        Map<Locale, MessageFormat> map = new HashMap<Locale, MessageFormat>();
         Locale formatlocale = new Locale("en", "US", "NY");
         MessageFormat mFormat = new MessageFormat("");
         mFormat.setLocale(formatlocale);
@@ -1529,7 +1514,6 @@ public class DataSourceMessageSourceTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testResolveCode05() throws Exception {
         // 前処理
         DataSourceMessageSource ds = new DataSourceMessageSource();
@@ -1538,7 +1522,7 @@ public class DataSourceMessageSourceTest {
         ds.defaultLocale = null;
 
         // cachedMergedProperties生成
-        Map map = new HashMap();
+        Map<Locale, MessageFormat> map = new HashMap<Locale, MessageFormat>();
         Locale formatlocale = new Locale("en", "US", "NY");
         MessageFormat mFormat = new MessageFormat("");
         mFormat.setLocale(formatlocale);
@@ -1570,14 +1554,13 @@ public class DataSourceMessageSourceTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testGetMessageFormat01() throws Exception {
         // 前処理
         DataSourceMessageSource ds = new DataSourceMessageSource();
         String code = "code01";
         Locale locale = new Locale("ja", "JP", "");
         MessageFormat mf = new MessageFormat("");
-        Map map = new HashMap();
+        Map<Locale, MessageFormat> map = new HashMap<Locale, MessageFormat>();
         map.put(locale, mf);
         ds.cachedMessageFormats.put(code, map);
 
@@ -1606,14 +1589,13 @@ public class DataSourceMessageSourceTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testGetMessageFormat02() throws Exception {
         // 前処理
         DataSourceMessageSource_DataSourceMessageSourceStub18 ds = new DataSourceMessageSource_DataSourceMessageSourceStub18();
         String code = "code01";
         Locale locale = new Locale("ja", "JP", "");
         MessageFormat mf = null;
-        Map map = new HashMap();
+        Map<Locale, MessageFormat> map = new HashMap<Locale, MessageFormat>();
         map.put(locale, mf);
         ds.cachedMessageFormats.put(code, map);
 
@@ -1643,14 +1625,13 @@ public class DataSourceMessageSourceTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testGetMessageFormat03() throws Exception {
         // 前処理
         DataSourceMessageSource_DataSourceMessageSourceStub19 ds = new DataSourceMessageSource_DataSourceMessageSourceStub19();
         String code = "code01";
         Locale locale = new Locale("ja", "JP", "");
         MessageFormat mf = null;
-        Map map = new HashMap();
+        Map<Locale, MessageFormat> map = new HashMap<Locale, MessageFormat>();
         map.put(locale, mf);
         ds.cachedMessageFormats.put(code, map);
 
@@ -1700,7 +1681,7 @@ public class DataSourceMessageSourceTest {
         assertSame(mf, result);
 
         assertEquals(1, ds.cachedMessageFormats.size());
-        Map hm = ds.cachedMessageFormats.get(code);
+        Map<Locale, MessageFormat> hm = ds.cachedMessageFormats.get(code);
         assertSame(mf, hm.get(locale));
         assertEquals(1, ds.cachedMessageFormats.size());
         assertTrue(ds.isRead_A1);

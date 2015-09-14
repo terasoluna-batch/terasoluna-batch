@@ -153,6 +153,7 @@ public class SpringValidationErrorsTest {
         ReflectionTestUtils.setField(field, "hMsgs", hMsgs);
 
         // （Object[] args取得のため）
+        @SuppressWarnings("rawtypes")
         Map[] args = new HashMap[4];
 
         // args[0]

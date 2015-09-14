@@ -31,7 +31,7 @@ public class ProxyUtil {
      * @param proxy プロキシオブジェクト。
      * @return 指定したプロキシのターゲットクラス。
      */
-    public static Class getTargetClass(Object proxy) {
+    public static Class<?> getTargetClass(Object proxy) {
         // Nullチェック
         if (proxy == null) {
             throw new IllegalArgumentException("Proxy object is null.");

@@ -27,12 +27,14 @@ public class FileCollector001Test extends DaoTestCase {
 
     private FileQueryDAO csvFileQueryDAO = null;
 
+    @SuppressWarnings("unused")
     private int previousThreadCount = 0;
 
     public void setCsvFileQueryDAO(FileQueryDAO csvFileQueryDAO) {
         this.csvFileQueryDAO = csvFileQueryDAO;
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     protected void onSetUp() throws Exception {
         if (logger.isInfoEnabled()) {
@@ -88,9 +90,8 @@ public class FileCollector001Test extends DaoTestCase {
         // int count_first = 0;
         CollectorExceptionHandler exceptionHandler = new CollectorExceptionHandlerStub();
 
-        Collector<B000001Data> it = new FileCollector<B000001Data>(
-                this.csvFileQueryDAO, url.getPath(), B000001Data.class,
-                exceptionHandler);
+        Collector<B000001Data> it = new FileCollector<B000001Data>(this.csvFileQueryDAO, url
+                .getPath(), B000001Data.class, exceptionHandler);
 
         it.close();
     }
@@ -99,9 +100,8 @@ public class FileCollector001Test extends DaoTestCase {
      * testFileCollector002
      * @throws Exception
      */
-    @SuppressWarnings("unchecked")
     public void testFileCollector002() throws Exception {
-        FileCollectorConfig config = null;
+        FileCollectorConfig<UserBean> config = null;
 
         @SuppressWarnings("unused")
         FileCollector<UserBean> dbc = null;
@@ -139,9 +139,9 @@ public class FileCollector001Test extends DaoTestCase {
         // int count_first = 0;
         CollectorExceptionHandler exceptionHandler = new CollectorExceptionHandlerStub();
 
-        FileCollector<B000001Data> it = new FileCollector<B000001Data>(
-                this.csvFileQueryDAO, url.getPath(), B000001Data.class,
-                exceptionHandler) {
+        @SuppressWarnings("resource")
+        FileCollector<B000001Data> it = new FileCollector<B000001Data>(this.csvFileQueryDAO, url
+                .getPath(), B000001Data.class, exceptionHandler) {
             int count = 0;
 
             @Override
@@ -151,15 +151,12 @@ public class FileCollector001Test extends DaoTestCase {
                         return false;
                     }
 
-                    public Object get() throws InterruptedException,
-                                       ExecutionException {
+                    public Object get() throws InterruptedException, ExecutionException {
                         return null;
                     }
 
-                    public Object get(long timeout, TimeUnit unit)
-                                                                  throws InterruptedException,
-                                                                  ExecutionException,
-                                                                  TimeoutException {
+                    public Object get(long timeout,
+                            TimeUnit unit) throws InterruptedException, ExecutionException, TimeoutException {
                         return null;
                     }
 
@@ -175,8 +172,8 @@ public class FileCollector001Test extends DaoTestCase {
             }
 
             @Override
-            protected void addQueue(DataValueObject dataValueObject)
-                                                                    throws InterruptedException {
+            protected void addQueue(
+                    DataValueObject dataValueObject) throws InterruptedException {
                 count++;
                 if (count == 1) {
                     throw new RuntimeException("hoge");
@@ -215,9 +212,9 @@ public class FileCollector001Test extends DaoTestCase {
         // int count_first = 0;
         CollectorExceptionHandler exceptionHandler = new CollectorExceptionHandlerStub();
 
-        FileCollector<B000001Data> it = new FileCollector<B000001Data>(
-                this.csvFileQueryDAO, url.getPath(), B000001Data.class,
-                exceptionHandler) {
+        @SuppressWarnings("resource")
+        FileCollector<B000001Data> it = new FileCollector<B000001Data>(this.csvFileQueryDAO, url
+                .getPath(), B000001Data.class, exceptionHandler) {
             int count = 0;
 
             @Override
@@ -227,15 +224,12 @@ public class FileCollector001Test extends DaoTestCase {
                         return false;
                     }
 
-                    public Object get() throws InterruptedException,
-                                       ExecutionException {
+                    public Object get() throws InterruptedException, ExecutionException {
                         return null;
                     }
 
-                    public Object get(long timeout, TimeUnit unit)
-                                                                  throws InterruptedException,
-                                                                  ExecutionException,
-                                                                  TimeoutException {
+                    public Object get(long timeout,
+                            TimeUnit unit) throws InterruptedException, ExecutionException, TimeoutException {
                         return null;
                     }
 
@@ -251,8 +245,8 @@ public class FileCollector001Test extends DaoTestCase {
             }
 
             @Override
-            protected void addQueue(DataValueObject dataValueObject)
-                                                                    throws InterruptedException {
+            protected void addQueue(
+                    DataValueObject dataValueObject) throws InterruptedException {
                 count++;
                 if (count == 1 || count == 2) {
                     throw new RuntimeException("hoge");
@@ -290,9 +284,9 @@ public class FileCollector001Test extends DaoTestCase {
         // int count_first = 0;
         CollectorExceptionHandler exceptionHandler = new CollectorExceptionHandlerStub();
 
-        FileCollector<B000001Data> it = new FileCollector<B000001Data>(
-                csvFileQueryDAO, url.getPath(), B000001Data.class,
-                exceptionHandler) {
+        @SuppressWarnings("resource")
+        FileCollector<B000001Data> it = new FileCollector<B000001Data>(csvFileQueryDAO, url
+                .getPath(), B000001Data.class, exceptionHandler) {
 
             @Override
             public Integer call() throws Exception {
@@ -301,15 +295,12 @@ public class FileCollector001Test extends DaoTestCase {
                         return false;
                     }
 
-                    public Object get() throws InterruptedException,
-                                       ExecutionException {
+                    public Object get() throws InterruptedException, ExecutionException {
                         return null;
                     }
 
-                    public Object get(long timeout, TimeUnit unit)
-                                                                  throws InterruptedException,
-                                                                  ExecutionException,
-                                                                  TimeoutException {
+                    public Object get(long timeout,
+                            TimeUnit unit) throws InterruptedException, ExecutionException, TimeoutException {
                         return null;
                     }
 
@@ -325,8 +316,8 @@ public class FileCollector001Test extends DaoTestCase {
             }
 
             @Override
-            protected void addQueue(DataValueObject dataValueObject)
-                                                                    throws InterruptedException {
+            protected void addQueue(
+                    DataValueObject dataValueObject) throws InterruptedException {
             }
         };
 

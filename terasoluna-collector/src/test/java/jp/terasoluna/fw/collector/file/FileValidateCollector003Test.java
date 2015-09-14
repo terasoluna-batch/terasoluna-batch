@@ -24,12 +24,14 @@ public class FileValidateCollector003Test extends DaoTestCase {
 
     private FileQueryDAO csvFileQueryDAO = null;
 
+    @SuppressWarnings("unused")
     private int previousThreadCount = 0;
 
     public void setCsvFileQueryDAO(FileQueryDAO csvFileQueryDAO) {
         this.csvFileQueryDAO = csvFileQueryDAO;
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     protected void onSetUp() throws Exception {
         if (logger.isInfoEnabled()) {

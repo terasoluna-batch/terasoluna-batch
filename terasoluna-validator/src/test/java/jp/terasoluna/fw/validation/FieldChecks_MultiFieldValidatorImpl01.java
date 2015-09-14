@@ -16,13 +16,11 @@
 
 package jp.terasoluna.fw.validation;
 
-
 /**
  * {@link FieldChecksExtend}をテストするための{@link MultiFieldValidator}実装クラス。
- * 
  */
 public class FieldChecks_MultiFieldValidatorImpl01 implements
-        MultiFieldValidator {
+                                                   MultiFieldValidator {
 
     /**
      * <code>validate</code>メソッドの結果とする値。
@@ -33,7 +31,7 @@ public class FieldChecks_MultiFieldValidatorImpl01 implements
      * <code>validate</code>メソッドがコールされたカウント。
      */
     protected static int validateCalledCount = 0;
-    
+
     /**
      * <code>validate</code>メソッドの第一引数の値。
      */
@@ -43,19 +41,14 @@ public class FieldChecks_MultiFieldValidatorImpl01 implements
      * <code>validate</code>メソッドの第二引数の値。
      */
     protected static Object[] fields = null;
-    
+
     /**
-     * 複数フィールドの相関入力チェックを実行する。
-     * <br>
-     * 検証対象の値は第一引数で渡される。検証に必要な他のフィールドの
-     * 値は第二引数に配列として渡される。検証エラーの場合は <code>false</code>
-     * を返却すること。
-     *
+     * 複数フィールドの相関入力チェックを実行する。 <br>
+     * 検証対象の値は第一引数で渡される。検証に必要な他のフィールドの 値は第二引数に配列として渡される。検証エラーの場合は <code>false</code> を返却すること。
      * @param value 検証対象の値
      * @param fields 検証に必要な他のフィールドの値配列
      * @return エラーがなければ <code>true</code>
      */
-    @SuppressWarnings("hiding")
     public boolean validate(Object value, Object[] fields) {
         FieldChecks_MultiFieldValidatorImpl01.validateCalledCount++;
         FieldChecks_MultiFieldValidatorImpl01.value = value;

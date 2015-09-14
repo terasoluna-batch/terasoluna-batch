@@ -51,6 +51,8 @@ public class AbstractCollector001Test {
             assertNotNull(e);
             assertEquals(SystemException.class, e.getClass());
             return;
+        } finally {
+            col.close();
         }
 
         fail();
@@ -66,6 +68,7 @@ public class AbstractCollector001Test {
 
         // テスト
         col.execute();
+        col.close();
     }
 
     /**
@@ -79,6 +82,7 @@ public class AbstractCollector001Test {
         boolean result = col.hasNext();
 
         assertFalse(result);
+        col.close();
     }
 
     /**
@@ -92,6 +96,7 @@ public class AbstractCollector001Test {
         boolean result = col.hasNext();
 
         assertFalse(result);
+        col.close();
     }
 
     @Test
@@ -106,6 +111,8 @@ public class AbstractCollector001Test {
         } catch (NoSuchElementException e) {
             assertNotNull(e);
             assertNull(result);
+        } finally {
+            col.close();
         }
     }
 
@@ -123,6 +130,8 @@ public class AbstractCollector001Test {
             assertEquals(Exception.class, e.getCause().getClass());
             assertEquals(null, e.getCause().getMessage());
             return;
+        } finally {
+            col.close();
         }
 
         fail();
@@ -141,7 +150,9 @@ public class AbstractCollector001Test {
             assertEquals(SystemException.class, e.getClass());
             assertEquals(Exception.class, e.getCause().getClass());
             assertEquals("hoge", e.getCause().getMessage());
-            return;
+            return;            
+        } finally {
+            col.close();
         }
 
         fail();
@@ -157,6 +168,7 @@ public class AbstractCollector001Test {
         // poll()時にInterruptedExceptionが発生しても、それ以前にpeek()でオブジェクトが得られている。
         assertNotNull(result);
         assertEquals("hoge", result.getHoge());
+        col.close();
     }
 
     @Test
@@ -173,6 +185,8 @@ public class AbstractCollector001Test {
             assertEquals(Exception.class, e.getCause().getClass());
             assertEquals(null, e.getCause().getMessage());
             return;
+        } finally {
+            col.close();
         }
 
         fail();
@@ -190,6 +204,8 @@ public class AbstractCollector001Test {
         } catch (NoSuchElementException e) {
             assertNotNull(e);
             assertNull(result);
+        } finally {
+            col.close();
         }
     }
 
@@ -201,6 +217,7 @@ public class AbstractCollector001Test {
         result = col.getNext();
 
         assertEquals(null, result);
+        col.close();
         return;
     }
 
@@ -212,6 +229,7 @@ public class AbstractCollector001Test {
         result = col.getPrevious();
 
         assertEquals(null, result);
+        col.close();
         return;
     }
 
@@ -223,6 +241,7 @@ public class AbstractCollector001Test {
         result = col.getCurrent();
 
         assertEquals(null, result);
+        col.close();
         return;
     }
 
@@ -235,6 +254,8 @@ public class AbstractCollector001Test {
             fail();
         } catch (UnsupportedOperationException e) {
             assertNotNull(e);
+        } finally {
+            col.close();
         }
     }
 
@@ -251,6 +272,8 @@ public class AbstractCollector001Test {
         assertNotNull(dvo);
         assertEquals(ValidationErrorException.class, dvo.getThrowable()
                 .getClass());
+        
+        col.close();
         return;
     }
 
@@ -267,6 +290,8 @@ public class AbstractCollector001Test {
         assertNotNull(dvo);
         assertEquals(ValidationErrorException.class, dvo.getThrowable()
                 .getClass());
+
+        col.close();
         return;
     }
 
@@ -283,6 +308,8 @@ public class AbstractCollector001Test {
                 .poll();
         assertNotNull(dvo2);
         assertEquals("hoge", dvo.getValue());
+
+        col.close();
         return;
     }
 
@@ -299,6 +326,8 @@ public class AbstractCollector001Test {
                 .poll();
         assertNotNull(dvo2);
         assertEquals(ValidateErrorStatus.END, dvo2.getValidateStatus());
+
+        col.close();
         return;
     }
 
@@ -308,8 +337,9 @@ public class AbstractCollector001Test {
 
         assertEquals(ValidateErrorStatus.SKIP, col.handleValidationError(null,
                 null));
-        return;
 
+        col.close();
+        return;
     }
 
     @Test
@@ -320,8 +350,9 @@ public class AbstractCollector001Test {
         col.execute();
         assertNotNull(col.getQueue());
         assertEquals(0, col.getQueue().size());
-        return;
 
+        col.close();
+        return;
     }
 
     @Test
@@ -330,8 +361,9 @@ public class AbstractCollector001Test {
 
         assertNotNull(col.getSleepWait());
         assertEquals(1, col.getSleepWait());
-        return;
 
+        col.close();
+        return;
     }
 
     @Test
@@ -340,8 +372,9 @@ public class AbstractCollector001Test {
 
         col.setSleepWait(10);
         assertEquals(10, col.getSleepWait());
-        return;
 
+        col.close();
+        return;
     }
 
     // @Test

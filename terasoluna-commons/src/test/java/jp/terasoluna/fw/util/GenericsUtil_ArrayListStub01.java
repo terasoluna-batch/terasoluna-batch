@@ -28,5 +28,7 @@ import java.util.Map;
 public abstract class GenericsUtil_ArrayListStub01
     extends ArrayList<Map<String, Object>> {
 
+    private static final long serialVersionUID = 1L;
+
     // no method
 }

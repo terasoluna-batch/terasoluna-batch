@@ -159,7 +159,8 @@ public class DaoCollector<P> extends AbstractCollector<P> {
             this.queueingResultHandlerClass = Queueing1NRelationResultHandlerImpl.class;
         }
         this.exceptionHandler = config.getExceptionHandler();
-        this.daoCollectorPrePostProcess = config.getDaoCollectorPrePostProcess();
+        this.daoCollectorPrePostProcess = config
+                .getDaoCollectorPrePostProcess();
 
         if (config.isExecuteByConstructor()) {
             // 実行開始
@@ -179,14 +180,16 @@ public class DaoCollector<P> extends AbstractCollector<P> {
                     // SQL実行前処理
                     preprocess();
 
-                    Class<?> queryResultHandleDaoClazz = this.queryResultHandleDao.getClass();
-                    Method collectMethod = queryResultHandleDaoClazz.getMethod(this.methodName,
-                            Object.class, ResultHandler.class);
+                    Class<?> queryResultHandleDaoClazz = this.queryResultHandleDao
+                            .getClass();
+                    Method collectMethod = queryResultHandleDaoClazz.getMethod(
+                            this.methodName, Object.class, ResultHandler.class);
 
                     try {
                         // QueryResultHandleDAO 実行
-                        collectMethod.invoke(this.queryResultHandleDao, this.bindParams, this.resultHandler);
-                    } catch (InvocationTargetException e){
+                        collectMethod.invoke(this.queryResultHandleDao,
+                                this.bindParams, this.resultHandler);
+                    } catch (InvocationTargetException e) {
                         throw e.getCause();
                     }
 
@@ -198,13 +201,13 @@ public class DaoCollector<P> extends AbstractCollector<P> {
 
                     // ステータス判定
                     if (expStatus == null
-                            || DaoCollectorPrePostProcessStatus.THROW
-                                    .equals(expStatus)) {
+                            || DaoCollectorPrePostProcessStatus.THROW.equals(
+                                    expStatus)) {
                         // 例外をスロー
                         handleException(th);
                         return -1;
-                    } else if (DaoCollectorPrePostProcessStatus.END
-                                    .equals(expStatus)) {
+                    } else if (DaoCollectorPrePostProcessStatus.END.equals(
+                            expStatus)) {
                         // 例外をスローせずに終了
                         break;
                     }
@@ -214,8 +217,8 @@ public class DaoCollector<P> extends AbstractCollector<P> {
                 }
 
                 // ステータスがリトライなら再度SQLを実行する
-            } while (expStatus != null
-                    && DaoCollectorPrePostProcessStatus.RETRY.equals(expStatus));
+            } while (expStatus != null && DaoCollectorPrePostProcessStatus.RETRY
+                    .equals(expStatus));
         } catch (Exception e) {
             handleException(e);
             return -1;
@@ -227,9 +230,7 @@ public class DaoCollector<P> extends AbstractCollector<P> {
     }
 
     /**
-     * コレクタの行処理と割り込みでThrowableがスローされた場合の
-     * エンキューを行う。
-     *
+     * コレクタの行処理と割り込みでThrowableがスローされた場合の エンキューを行う。
      * @param th Throwable
      */
     protected void handleException(Throwable th) {
@@ -244,8 +245,8 @@ public class DaoCollector<P> extends AbstractCollector<P> {
             }
 
             if (LOGGER.isDebugEnabled()) {
-                LOGGER.debug(LogId.DAL041002, th.getClass().getName(),
-                        Thread.currentThread().getName());
+                LOGGER.debug(LogId.DAL041002, th.getClass().getName(), Thread
+                        .currentThread().getName());
             }
         }
     }
@@ -264,7 +265,8 @@ public class DaoCollector<P> extends AbstractCollector<P> {
      * @param th Throwable
      * @return DaoCollectorPrePostProcessStatus
      */
-    protected DaoCollectorPrePostProcessStatus postprocessException(Throwable th) {
+    protected DaoCollectorPrePostProcessStatus postprocessException(
+            Throwable th) {
         DaoCollectorPrePostProcessStatus expStatus = null;
         if (this.daoCollectorPrePostProcess != null) {
             expStatus = this.daoCollectorPrePostProcess.postprocessException(
@@ -318,6 +320,7 @@ public class DaoCollector<P> extends AbstractCollector<P> {
             qac.resultHandler = getResultHandler();
             qac.resultHandler.setDaoCollector(this);
         }
+        
         return obj;
     }
 
@@ -326,8 +329,8 @@ public class DaoCollector<P> extends AbstractCollector<P> {
      * @see jp.terasoluna.fw.collector.AbstractCollector#addQueue(jp.terasoluna.fw.collector.vo.DataValueObject)
      */
     @Override
-    protected void addQueue(DataValueObject dataValueObject)
-                                                            throws InterruptedException {
+    protected void addQueue(
+            DataValueObject dataValueObject) throws InterruptedException {
         super.addQueue(dataValueObject);
     }
 }

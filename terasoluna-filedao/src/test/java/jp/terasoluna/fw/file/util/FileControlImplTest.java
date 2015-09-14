@@ -37,7 +37,7 @@ import org.powermock.modules.junit4.PowerMockRunner;
  * @see jp.terasoluna.fw.file.util.FileControlImpl
  */
 @RunWith(PowerMockRunner.class)
-@PrepareForTest({FileUtility.class, FileControlImpl.class})
+@PrepareForTest({ FileUtility.class, FileControlImpl.class })
 public class FileControlImplTest {
 
     /**
@@ -60,7 +60,6 @@ public class FileControlImplTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testCopyFile01() throws Exception {
         // テスト対象のインスタンス化
         FileControlImpl fileControl = PowerMockito.spy(new FileControlImpl());
@@ -88,15 +87,19 @@ public class FileControlImplTest {
         ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         PowerMockito.mockStatic(FileUtility.class);
-        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
         PowerMockito.doNothing().when(FileUtility.class, "copyFile",
-                fileUtilityStringArgumentCaptor.capture(), fileUtilityStringArgumentCaptor.capture());
+                fileUtilityStringArgumentCaptor.capture(),
+                fileUtilityStringArgumentCaptor.capture());
 
-        Method getAbsolutePathMethod = PowerMockito.method(FileControlImpl.class, "getAbsolutePath", String.class);
-        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        Method getAbsolutePathMethod = PowerMockito.method(
+                FileControlImpl.class, "getAbsolutePath", String.class);
+        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
 
-        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod).withArguments(
-                fileControlStringArgumentCaptor.capture());
+        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod)
+                .withArguments(fileControlStringArgumentCaptor.capture());
 
         try {
             // テスト実施
@@ -104,9 +107,10 @@ public class FileControlImplTest {
             // 返却値なし
 
             // 状態変化の確認
-            PowerMockito.verifyPrivate(fileControl, Mockito.times(2))
-                    .invoke(getAbsolutePathMethod).withArguments(Mockito.anyString());
-            List<String> fileControlStringArguments = fileControlStringArgumentCaptor.getAllValues();
+            PowerMockito.verifyPrivate(fileControl, Mockito.times(2)).invoke(
+                    getAbsolutePathMethod).withArguments(Mockito.anyString());
+            List<String> fileControlStringArguments = fileControlStringArgumentCaptor
+                    .getAllValues();
 
             assertEquals(2, fileControlStringArguments.size());
             assertEquals(srcFile, fileControlStringArguments.get(0));
@@ -115,7 +119,8 @@ public class FileControlImplTest {
             PowerMockito.verifyStatic();
             FileUtility.copyFile(Mockito.anyString(), Mockito.anyString());
 
-            List<String> fileUtilityStringArguments = fileUtilityStringArgumentCaptor.getAllValues();
+            List<String> fileUtilityStringArguments = fileUtilityStringArgumentCaptor
+                    .getAllValues();
             assertEquals(srcFile, fileUtilityStringArguments.get(0));
             assertEquals(newFile, fileUtilityStringArguments.get(1));
         } finally {
@@ -149,7 +154,6 @@ public class FileControlImplTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testCopyFile02() throws Exception {
         // テスト対象のインスタンス化
         FileControlImpl fileControl = PowerMockito.spy(new FileControlImpl());
@@ -177,15 +181,19 @@ public class FileControlImplTest {
         ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         PowerMockito.mockStatic(FileUtility.class);
-        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
         PowerMockito.doNothing().when(FileUtility.class, "copyFile",
-                fileUtilityStringArgumentCaptor.capture(), fileUtilityStringArgumentCaptor.capture());
+                fileUtilityStringArgumentCaptor.capture(),
+                fileUtilityStringArgumentCaptor.capture());
 
-        Method getAbsolutePathMethod = PowerMockito.method(FileControlImpl.class, "getAbsolutePath", String.class);
-        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        Method getAbsolutePathMethod = PowerMockito.method(
+                FileControlImpl.class, "getAbsolutePath", String.class);
+        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
 
-        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod).withArguments(
-                fileControlStringArgumentCaptor.capture());
+        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod)
+                .withArguments(fileControlStringArgumentCaptor.capture());
         try {
             // テスト実施
             fileControl.copyFile(srcFile, newFile);
@@ -193,9 +201,10 @@ public class FileControlImplTest {
             // 返却値なし
 
             // 状態変化の確認
-            PowerMockito.verifyPrivate(fileControl, Mockito.times(2))
-                    .invoke(getAbsolutePathMethod).withArguments(Mockito.anyString());
-            List<String> fileControlStringArguments = fileControlStringArgumentCaptor.getAllValues();
+            PowerMockito.verifyPrivate(fileControl, Mockito.times(2)).invoke(
+                    getAbsolutePathMethod).withArguments(Mockito.anyString());
+            List<String> fileControlStringArguments = fileControlStringArgumentCaptor
+                    .getAllValues();
 
             assertEquals(2, fileControlStringArguments.size());
             assertEquals(srcFile, fileControlStringArguments.get(0));
@@ -204,7 +213,8 @@ public class FileControlImplTest {
             PowerMockito.verifyStatic();
             FileUtility.copyFile(Mockito.anyString(), Mockito.anyString());
 
-            List<String> fileUtilityStringArguments = fileUtilityStringArgumentCaptor.getAllValues();
+            List<String> fileUtilityStringArguments = fileUtilityStringArgumentCaptor
+                    .getAllValues();
             assertEquals(basePath + srcFile, fileUtilityStringArguments.get(0));
             assertEquals(basePath + newFile, fileUtilityStringArguments.get(1));
         } finally {
@@ -238,7 +248,6 @@ public class FileControlImplTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testCopyFile03() throws Exception {
         // テスト対象のインスタンス化
         FileControlImpl fileControl = PowerMockito.spy(new FileControlImpl());
@@ -266,15 +275,19 @@ public class FileControlImplTest {
         ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         PowerMockito.mockStatic(FileUtility.class);
-        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
         PowerMockito.doNothing().when(FileUtility.class, "copyFile",
-                fileUtilityStringArgumentCaptor.capture(), fileUtilityStringArgumentCaptor.capture());
+                fileUtilityStringArgumentCaptor.capture(),
+                fileUtilityStringArgumentCaptor.capture());
 
-        Method getAbsolutePathMethod = PowerMockito.method(FileControlImpl.class, "getAbsolutePath", String.class);
-        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        Method getAbsolutePathMethod = PowerMockito.method(
+                FileControlImpl.class, "getAbsolutePath", String.class);
+        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
 
-        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod).withArguments(
-                fileControlStringArgumentCaptor.capture());
+        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod)
+                .withArguments(fileControlStringArgumentCaptor.capture());
 
         try {
             // テスト実施
@@ -283,9 +296,10 @@ public class FileControlImplTest {
             // 返却値なし
 
             // 状態変化の確認
-            PowerMockito.verifyPrivate(fileControl, Mockito.times(2))
-                    .invoke(getAbsolutePathMethod).withArguments(Mockito.anyString());
-            List<String> fileControlStringArguments = fileControlStringArgumentCaptor.getAllValues();
+            PowerMockito.verifyPrivate(fileControl, Mockito.times(2)).invoke(
+                    getAbsolutePathMethod).withArguments(Mockito.anyString());
+            List<String> fileControlStringArguments = fileControlStringArgumentCaptor
+                    .getAllValues();
 
             assertEquals(2, fileControlStringArguments.size());
             assertEquals(srcFile, fileControlStringArguments.get(0));
@@ -294,7 +308,8 @@ public class FileControlImplTest {
             PowerMockito.verifyStatic();
             FileUtility.copyFile(Mockito.anyString(), Mockito.anyString());
 
-            List<String> fileUtilityStringArguments = fileUtilityStringArgumentCaptor.getAllValues();
+            List<String> fileUtilityStringArguments = fileUtilityStringArgumentCaptor
+                    .getAllValues();
             assertEquals(srcFile, fileUtilityStringArguments.get(0));
             assertEquals(newFile, fileUtilityStringArguments.get(1));
         } finally {
@@ -326,7 +341,6 @@ public class FileControlImplTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testCopyFile04() throws Exception {
         // テスト対象のインスタンス化
         FileControlImpl fileControl = PowerMockito.spy(new FileControlImpl());
@@ -354,24 +368,29 @@ public class FileControlImplTest {
         ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         PowerMockito.mockStatic(FileUtility.class);
-        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
         PowerMockito.doNothing().when(FileUtility.class, "copyFile",
-                fileUtilityStringArgumentCaptor.capture(), fileUtilityStringArgumentCaptor.capture());
+                fileUtilityStringArgumentCaptor.capture(),
+                fileUtilityStringArgumentCaptor.capture());
 
-        Method getAbsolutePathMethod = PowerMockito.method(FileControlImpl.class, "getAbsolutePath", String.class);
-        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        Method getAbsolutePathMethod = PowerMockito.method(
+                FileControlImpl.class, "getAbsolutePath", String.class);
+        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
 
-        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod).withArguments(
-                fileControlStringArgumentCaptor.capture());
+        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod)
+                .withArguments(fileControlStringArgumentCaptor.capture());
 
         try {
             // テスト実施
             fileControl.copyFile(srcFile, newFile);
 
             // 状態変化の確認
-            PowerMockito.verifyPrivate(fileControl, Mockito.times(2))
-                    .invoke(getAbsolutePathMethod).withArguments(Mockito.anyString());
-            List<String> fileControlStringArguments = fileControlStringArgumentCaptor.getAllValues();
+            PowerMockito.verifyPrivate(fileControl, Mockito.times(2)).invoke(
+                    getAbsolutePathMethod).withArguments(Mockito.anyString());
+            List<String> fileControlStringArguments = fileControlStringArgumentCaptor
+                    .getAllValues();
 
             assertEquals(2, fileControlStringArguments.size());
             assertEquals(srcFile, fileControlStringArguments.get(0));
@@ -380,7 +399,8 @@ public class FileControlImplTest {
             PowerMockito.verifyStatic();
             FileUtility.copyFile(Mockito.anyString(), Mockito.anyString());
 
-            List<String> fileUtilityStringArguments = fileUtilityStringArgumentCaptor.getAllValues();
+            List<String> fileUtilityStringArguments = fileUtilityStringArgumentCaptor
+                    .getAllValues();
             assertEquals(srcFile, fileUtilityStringArguments.get(0));
             assertEquals(newFile, fileUtilityStringArguments.get(1));
         } finally {
@@ -434,15 +454,19 @@ public class FileControlImplTest {
         ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         PowerMockito.mockStatic(FileUtility.class);
-        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
         PowerMockito.doNothing().when(FileUtility.class, "copyFile",
-                fileUtilityStringArgumentCaptor.capture(), fileUtilityStringArgumentCaptor.capture());
+                fileUtilityStringArgumentCaptor.capture(),
+                fileUtilityStringArgumentCaptor.capture());
 
-        Method getAbsolutePathMethod = PowerMockito.method(FileControlImpl.class, "getAbsolutePath", String.class);
-        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        Method getAbsolutePathMethod = PowerMockito.method(
+                FileControlImpl.class, "getAbsolutePath", String.class);
+        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
 
-        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod).withArguments(
-                fileControlStringArgumentCaptor.capture());
+        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod)
+                .withArguments(fileControlStringArgumentCaptor.capture());
         try {
             // テスト実施
             fileControl.copyFile(srcFile, newFile);
@@ -450,9 +474,10 @@ public class FileControlImplTest {
         } catch (FileException e) {
             // 返却値なし
             // 状態変化の確認
-            PowerMockito.verifyPrivate(fileControl, Mockito.times(1))
-                    .invoke(getAbsolutePathMethod).withArguments(Mockito.anyString());
-            String fileControlStringArgument = fileControlStringArgumentCaptor.getValue();
+            PowerMockito.verifyPrivate(fileControl, Mockito.times(1)).invoke(
+                    getAbsolutePathMethod).withArguments(Mockito.anyString());
+            String fileControlStringArgument = fileControlStringArgumentCaptor
+                    .getValue();
             assertNull(fileControlStringArgument);
             assertEquals(FileException.class, e.getClass());
             assertEquals("File name is not set.", e.getMessage());
@@ -508,15 +533,19 @@ public class FileControlImplTest {
         ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         PowerMockito.mockStatic(FileUtility.class);
-        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
         PowerMockito.doNothing().when(FileUtility.class, "copyFile",
-                fileUtilityStringArgumentCaptor.capture(), fileUtilityStringArgumentCaptor.capture());
+                fileUtilityStringArgumentCaptor.capture(),
+                fileUtilityStringArgumentCaptor.capture());
 
-        Method getAbsolutePathMethod = PowerMockito.method(FileControlImpl.class, "getAbsolutePath", String.class);
-        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        Method getAbsolutePathMethod = PowerMockito.method(
+                FileControlImpl.class, "getAbsolutePath", String.class);
+        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
 
-        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod).withArguments(
-                fileControlStringArgumentCaptor.capture());
+        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod)
+                .withArguments(fileControlStringArgumentCaptor.capture());
 
         try {
             // テスト実施
@@ -526,9 +555,10 @@ public class FileControlImplTest {
             // 返却値なし
 
             // 状態変化の確認
-            PowerMockito.verifyPrivate(fileControl, Mockito.times(2))
-                    .invoke(getAbsolutePathMethod).withArguments(Mockito.anyString());
-            String fileControlStringArgument = fileControlStringArgumentCaptor.getValue();
+            PowerMockito.verifyPrivate(fileControl, Mockito.times(2)).invoke(
+                    getAbsolutePathMethod).withArguments(Mockito.anyString());
+            String fileControlStringArgument = fileControlStringArgumentCaptor
+                    .getValue();
             assertNull(fileControlStringArgument);
             assertEquals(FileException.class, e.getClass());
             assertEquals("File name is not set.", e.getMessage());
@@ -563,7 +593,6 @@ public class FileControlImplTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testCopyFile07() throws Exception {
         // テスト対象のインスタンス化
         FileControlImpl fileControl = PowerMockito.spy(new FileControlImpl());
@@ -591,15 +620,19 @@ public class FileControlImplTest {
         ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         PowerMockito.mockStatic(FileUtility.class);
-        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
         PowerMockito.doNothing().when(FileUtility.class, "copyFile",
-                fileUtilityStringArgumentCaptor.capture(), fileUtilityStringArgumentCaptor.capture());
+                fileUtilityStringArgumentCaptor.capture(),
+                fileUtilityStringArgumentCaptor.capture());
 
-        Method getAbsolutePathMethod = PowerMockito.method(FileControlImpl.class, "getAbsolutePath", String.class);
-        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        Method getAbsolutePathMethod = PowerMockito.method(
+                FileControlImpl.class, "getAbsolutePath", String.class);
+        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
 
-        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod).withArguments(
-                fileControlStringArgumentCaptor.capture());
+        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod)
+                .withArguments(fileControlStringArgumentCaptor.capture());
 
         try {
             // テスト実施
@@ -608,16 +641,18 @@ public class FileControlImplTest {
             // 返却値なし
 
             // 状態変化の確認
-            PowerMockito.verifyPrivate(fileControl, Mockito.times(2))
-                    .invoke(getAbsolutePathMethod).withArguments(Mockito.anyString());
-            List<String> argListGetAbsolutePath = fileControlStringArgumentCaptor.getAllValues();
+            PowerMockito.verifyPrivate(fileControl, Mockito.times(2)).invoke(
+                    getAbsolutePathMethod).withArguments(Mockito.anyString());
+            List<String> argListGetAbsolutePath = fileControlStringArgumentCaptor
+                    .getAllValues();
             assertEquals(srcFile, argListGetAbsolutePath.get(0));
             assertEquals(newFile, argListGetAbsolutePath.get(1));
 
             PowerMockito.verifyStatic();
             FileUtility.copyFile(Mockito.anyString(), Mockito.anyString());
 
-            List<String> argListCopyFile = fileUtilityStringArgumentCaptor.getAllValues();
+            List<String> argListCopyFile = fileUtilityStringArgumentCaptor
+                    .getAllValues();
             assertEquals(basePath + srcFile, argListCopyFile.get(0));
             assertEquals(newFile, argListCopyFile.get(1));
         } finally {
@@ -650,7 +685,6 @@ public class FileControlImplTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testCopyFile08() throws Exception {
         // テスト対象のインスタンス化
         FileControlImpl fileControl = PowerMockito.spy(new FileControlImpl());
@@ -678,15 +712,19 @@ public class FileControlImplTest {
         ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         PowerMockito.mockStatic(FileUtility.class);
-        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
         PowerMockito.doNothing().when(FileUtility.class, "copyFile",
-                fileUtilityStringArgumentCaptor.capture(), fileUtilityStringArgumentCaptor.capture());
+                fileUtilityStringArgumentCaptor.capture(),
+                fileUtilityStringArgumentCaptor.capture());
 
-        Method getAbsolutePathMethod = PowerMockito.method(FileControlImpl.class, "getAbsolutePath", String.class);
-        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        Method getAbsolutePathMethod = PowerMockito.method(
+                FileControlImpl.class, "getAbsolutePath", String.class);
+        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
 
-        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod).withArguments(
-                fileControlStringArgumentCaptor.capture());
+        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod)
+                .withArguments(fileControlStringArgumentCaptor.capture());
 
         try {
             // テスト実施
@@ -695,16 +733,18 @@ public class FileControlImplTest {
             // 返却値なし
 
             // 状態変化の確認
-            PowerMockito.verifyPrivate(fileControl, Mockito.times(2))
-                    .invoke(getAbsolutePathMethod).withArguments(Mockito.anyString());
-            List<String> argListGetAbsolutePath = fileControlStringArgumentCaptor.getAllValues();
+            PowerMockito.verifyPrivate(fileControl, Mockito.times(2)).invoke(
+                    getAbsolutePathMethod).withArguments(Mockito.anyString());
+            List<String> argListGetAbsolutePath = fileControlStringArgumentCaptor
+                    .getAllValues();
             assertEquals(srcFile, argListGetAbsolutePath.get(0));
             assertEquals(newFile, argListGetAbsolutePath.get(1));
 
             PowerMockito.verifyStatic();
             FileUtility.copyFile(Mockito.anyString(), Mockito.anyString());
 
-            List<String> argListCopyFile = fileUtilityStringArgumentCaptor.getAllValues();
+            List<String> argListCopyFile = fileUtilityStringArgumentCaptor
+                    .getAllValues();
             assertEquals(srcFile, argListCopyFile.get(0));
             assertEquals(basePath + newFile, argListCopyFile.get(1));
         } finally {
@@ -756,15 +796,18 @@ public class FileControlImplTest {
         ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         PowerMockito.mockStatic(FileUtility.class);
-        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
         PowerMockito.doNothing().when(FileUtility.class, "deleteFile",
                 fileUtilityStringArgumentCaptor.capture());
 
-        Method getAbsolutePathMethod = PowerMockito.method(FileControlImpl.class, "getAbsolutePath", String.class);
-        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        Method getAbsolutePathMethod = PowerMockito.method(
+                FileControlImpl.class, "getAbsolutePath", String.class);
+        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
 
-        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod).withArguments(
-                fileControlStringArgumentCaptor.capture());
+        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod)
+                .withArguments(fileControlStringArgumentCaptor.capture());
         try {
             // テスト実施
             fileControl.deleteFile(srcFile);
@@ -772,9 +815,10 @@ public class FileControlImplTest {
             // 返却値なし
 
             // 状態変化の確認
-            PowerMockito.verifyPrivate(fileControl)
-                    .invoke(getAbsolutePathMethod).withArguments(Mockito.anyString());
-            String argGetAbsolutePath = fileControlStringArgumentCaptor.getValue();
+            PowerMockito.verifyPrivate(fileControl).invoke(
+                    getAbsolutePathMethod).withArguments(Mockito.anyString());
+            String argGetAbsolutePath = fileControlStringArgumentCaptor
+                    .getValue();
             assertEquals(srcFile, argGetAbsolutePath);
 
             PowerMockito.verifyStatic();
@@ -829,15 +873,18 @@ public class FileControlImplTest {
         ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         PowerMockito.mockStatic(FileUtility.class);
-        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
         PowerMockito.doNothing().when(FileUtility.class, "deleteFile",
                 fileUtilityStringArgumentCaptor.capture());
 
-        Method getAbsolutePathMethod = PowerMockito.method(FileControlImpl.class, "getAbsolutePath", String.class);
-        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        Method getAbsolutePathMethod = PowerMockito.method(
+                FileControlImpl.class, "getAbsolutePath", String.class);
+        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
 
-        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod).withArguments(
-                fileControlStringArgumentCaptor.capture());
+        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod)
+                .withArguments(fileControlStringArgumentCaptor.capture());
 
         try {
             // テスト実施
@@ -846,9 +893,10 @@ public class FileControlImplTest {
             // 返却値なし
 
             // 状態変化の確認
-            PowerMockito.verifyPrivate(fileControl)
-                    .invoke(getAbsolutePathMethod).withArguments(Mockito.anyString());
-            String argGetAbsolutePath = fileControlStringArgumentCaptor.getValue();
+            PowerMockito.verifyPrivate(fileControl).invoke(
+                    getAbsolutePathMethod).withArguments(Mockito.anyString());
+            String argGetAbsolutePath = fileControlStringArgumentCaptor
+                    .getValue();
             assertEquals(srcFile, argGetAbsolutePath);
 
             PowerMockito.verifyStatic();
@@ -903,15 +951,18 @@ public class FileControlImplTest {
         ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         PowerMockito.mockStatic(FileUtility.class);
-        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
         PowerMockito.doNothing().when(FileUtility.class, "deleteFile",
                 fileUtilityStringArgumentCaptor.capture());
 
-        Method getAbsolutePathMethod = PowerMockito.method(FileControlImpl.class, "getAbsolutePath", String.class);
-        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        Method getAbsolutePathMethod = PowerMockito.method(
+                FileControlImpl.class, "getAbsolutePath", String.class);
+        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
 
-        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod).withArguments(
-                fileControlStringArgumentCaptor.capture());
+        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod)
+                .withArguments(fileControlStringArgumentCaptor.capture());
         try {
             // テスト実施
             fileControl.deleteFile(srcFile);
@@ -919,9 +970,10 @@ public class FileControlImplTest {
             // 返却値なし
 
             // 状態変化の確認
-            PowerMockito.verifyPrivate(fileControl)
-                    .invoke(getAbsolutePathMethod).withArguments(Mockito.anyString());
-            String argListGetAbsolutePath = fileControlStringArgumentCaptor.getValue();
+            PowerMockito.verifyPrivate(fileControl).invoke(
+                    getAbsolutePathMethod).withArguments(Mockito.anyString());
+            String argListGetAbsolutePath = fileControlStringArgumentCaptor
+                    .getValue();
             assertEquals(srcFile, argListGetAbsolutePath);
 
             PowerMockito.verifyStatic();
@@ -976,15 +1028,18 @@ public class FileControlImplTest {
         ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         PowerMockito.mockStatic(FileUtility.class);
-        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
         PowerMockito.doNothing().when(FileUtility.class, "deleteFile",
                 fileUtilityStringArgumentCaptor.capture());
 
-        Method getAbsolutePathMethod = PowerMockito.method(FileControlImpl.class, "getAbsolutePath", String.class);
-        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        Method getAbsolutePathMethod = PowerMockito.method(
+                FileControlImpl.class, "getAbsolutePath", String.class);
+        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
 
-        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod).withArguments(
-                fileControlStringArgumentCaptor.capture());
+        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod)
+                .withArguments(fileControlStringArgumentCaptor.capture());
         try {
             // テスト実施
             fileControl.deleteFile(srcFile);
@@ -1030,15 +1085,18 @@ public class FileControlImplTest {
         ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         PowerMockito.mockStatic(FileUtility.class);
-        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
         PowerMockito.doCallRealMethod().when(FileUtility.class, "deleteFile",
                 fileUtilityStringArgumentCaptor.capture());
 
-        Method getAbsolutePathMethod = PowerMockito.method(FileControlImpl.class, "getAbsolutePath", String.class);
-        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        Method getAbsolutePathMethod = PowerMockito.method(
+                FileControlImpl.class, "getAbsolutePath", String.class);
+        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
 
-        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod).withArguments(
-                fileControlStringArgumentCaptor.capture());
+        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod)
+                .withArguments(fileControlStringArgumentCaptor.capture());
         try {
             // テスト実施
             fileControl.deleteFile(srcFile);
@@ -1047,8 +1105,8 @@ public class FileControlImplTest {
             // 返却値なし
 
             // 状態変化の確認
-            PowerMockito.verifyPrivate(fileControl)
-                    .invoke(getAbsolutePathMethod).withArguments(Mockito.anyString());
+            PowerMockito.verifyPrivate(fileControl).invoke(
+                    getAbsolutePathMethod).withArguments(Mockito.anyString());
             PowerMockito.verifyStatic(Mockito.never());
             FileUtility.deleteFile(Mockito.anyString());
 
@@ -1076,6 +1134,7 @@ public class FileControlImplTest {
      * fileListの要素が空であるケース。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @SuppressWarnings("unchecked")
     @Test
     public void testMergeFile01() throws Exception {
         // テスト対象のインスタンス化
@@ -1101,17 +1160,23 @@ public class FileControlImplTest {
         ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         PowerMockito.mockStatic(FileUtility.class);
-        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
-        ArgumentCaptor<List> fileUtilityListArgumentCaptor = ArgumentCaptor.forClass(List.class);
+        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
+        @SuppressWarnings("rawtypes")
+        ArgumentCaptor<List> fileUtilityListArgumentCaptor = ArgumentCaptor
+                .forClass(List.class);
 
         PowerMockito.doNothing().when(FileUtility.class, "mergeFile",
-                fileUtilityListArgumentCaptor.capture(), fileUtilityStringArgumentCaptor.capture());
+                fileUtilityListArgumentCaptor.capture(),
+                fileUtilityStringArgumentCaptor.capture());
 
-        Method getAbsolutePathMethod = PowerMockito.method(FileControlImpl.class, "getAbsolutePath", String.class);
-        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        Method getAbsolutePathMethod = PowerMockito.method(
+                FileControlImpl.class, "getAbsolutePath", String.class);
+        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
 
-        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod).withArguments(
-                fileControlStringArgumentCaptor.capture());
+        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod)
+                .withArguments(fileControlStringArgumentCaptor.capture());
         try {
             // テスト実施
             fileControl.mergeFile(fileList, newFile);
@@ -1119,17 +1184,20 @@ public class FileControlImplTest {
             // 返却値なし
 
             // 状態変化の確認
-            PowerMockito.verifyPrivate(fileControl)
-                    .invoke(getAbsolutePathMethod).withArguments(Mockito.anyString());
-            String argGetAbsolutePath = fileControlStringArgumentCaptor.getValue();
+            PowerMockito.verifyPrivate(fileControl).invoke(
+                    getAbsolutePathMethod).withArguments(Mockito.anyString());
+            String argGetAbsolutePath = fileControlStringArgumentCaptor
+                    .getValue();
             assertEquals(newFile, argGetAbsolutePath);
 
             PowerMockito.verifyStatic();
             FileUtility.mergeFile(Mockito.anyList(), Mockito.anyString());
 
+            @SuppressWarnings("rawtypes")
             List argListMergeFile = fileUtilityListArgumentCaptor.getValue();
             assertEquals(fileList, argListMergeFile);
-            String argStringMergeFile = fileUtilityStringArgumentCaptor.getValue();
+            String argStringMergeFile = fileUtilityStringArgumentCaptor
+                    .getValue();
             assertEquals(newFile, argStringMergeFile);
         } finally {
             // テスト後、対象ファイルを初期化
@@ -1157,6 +1225,7 @@ public class FileControlImplTest {
      * fileListの要素が1つで、統合ファイルのパスが絶対パスであるケース。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @SuppressWarnings("unchecked")
     @Test
     public void testMergeFile02() throws Exception {
         // テスト対象のインスタンス化
@@ -1189,17 +1258,23 @@ public class FileControlImplTest {
         ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         PowerMockito.mockStatic(FileUtility.class);
-        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
-        ArgumentCaptor<List> fileUtilityListArgumentCaptor = ArgumentCaptor.forClass(List.class);
+        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
+        @SuppressWarnings("rawtypes")
+        ArgumentCaptor<List> fileUtilityListArgumentCaptor = ArgumentCaptor
+                .forClass(List.class);
 
         PowerMockito.doNothing().when(FileUtility.class, "mergeFile",
-                fileUtilityListArgumentCaptor.capture(), fileUtilityStringArgumentCaptor.capture());
+                fileUtilityListArgumentCaptor.capture(),
+                fileUtilityStringArgumentCaptor.capture());
 
-        Method getAbsolutePathMethod = PowerMockito.method(FileControlImpl.class, "getAbsolutePath", String.class);
-        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        Method getAbsolutePathMethod = PowerMockito.method(
+                FileControlImpl.class, "getAbsolutePath", String.class);
+        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
 
-        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod).withArguments(
-                fileControlStringArgumentCaptor.capture());
+        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod)
+                .withArguments(fileControlStringArgumentCaptor.capture());
 
         try {
             // テスト実施
@@ -1208,18 +1283,21 @@ public class FileControlImplTest {
             // 返却値なし
 
             // 状態変化の確認
-            PowerMockito.verifyPrivate(fileControl, Mockito.times(2))
-                    .invoke(getAbsolutePathMethod).withArguments(Mockito.anyString());
-            List<String> argGetAbsolutePathList = fileControlStringArgumentCaptor.getAllValues();
+            PowerMockito.verifyPrivate(fileControl, Mockito.times(2)).invoke(
+                    getAbsolutePathMethod).withArguments(Mockito.anyString());
+            List<String> argGetAbsolutePathList = fileControlStringArgumentCaptor
+                    .getAllValues();
             assertEquals(srcFile1, argGetAbsolutePathList.get(0));
             assertEquals(newFile, argGetAbsolutePathList.get(1));
 
             PowerMockito.verifyStatic();
             FileUtility.mergeFile(Mockito.anyList(), Mockito.anyString());
 
+            @SuppressWarnings("rawtypes")
             List argListMergeFile = fileUtilityListArgumentCaptor.getValue();
             assertEquals(fileList, argListMergeFile);
-            String argStringMergeFile = fileUtilityStringArgumentCaptor.getValue();
+            String argStringMergeFile = fileUtilityStringArgumentCaptor
+                    .getValue();
             assertEquals(newFile, argStringMergeFile);
         } finally {
             // テスト後、対象ファイルを初期化
@@ -1251,8 +1329,8 @@ public class FileControlImplTest {
      * fileListの要素が3つで、統合ファイルのパスが相対パスであるケース。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @Test
     @SuppressWarnings("unchecked")
+    @Test
     public void testMergeFile03() throws Exception {
         // テスト対象のインスタンス化
         FileControlImpl fileControl = PowerMockito.spy(new FileControlImpl());
@@ -1298,17 +1376,23 @@ public class FileControlImplTest {
         ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         PowerMockito.mockStatic(FileUtility.class);
-        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
-        ArgumentCaptor<List> fileUtilityListArgumentCaptor = ArgumentCaptor.forClass(List.class);
+        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
+        @SuppressWarnings("rawtypes")
+        ArgumentCaptor<List> fileUtilityListArgumentCaptor = ArgumentCaptor
+                .forClass(List.class);
 
         PowerMockito.doNothing().when(FileUtility.class, "mergeFile",
-                fileUtilityListArgumentCaptor.capture(), fileUtilityStringArgumentCaptor.capture());
+                fileUtilityListArgumentCaptor.capture(),
+                fileUtilityStringArgumentCaptor.capture());
 
-        Method getAbsolutePathMethod = PowerMockito.method(FileControlImpl.class, "getAbsolutePath", String.class);
-        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        Method getAbsolutePathMethod = PowerMockito.method(
+                FileControlImpl.class, "getAbsolutePath", String.class);
+        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
 
-        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod).withArguments(
-                fileControlStringArgumentCaptor.capture());
+        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod)
+                .withArguments(fileControlStringArgumentCaptor.capture());
 
         try {
             // テスト実施
@@ -1317,22 +1401,25 @@ public class FileControlImplTest {
             // 返却値なし
 
             // 状態変化の確認
-            PowerMockito.verifyPrivate(fileControl, Mockito.times(4))
-                    .invoke(getAbsolutePathMethod).withArguments(Mockito.anyString());
-            List<String> argGetAbsolutePathList = fileControlStringArgumentCaptor.getAllValues();
+            PowerMockito.verifyPrivate(fileControl, Mockito.times(4)).invoke(
+                    getAbsolutePathMethod).withArguments(Mockito.anyString());
+            List<String> argGetAbsolutePathList = fileControlStringArgumentCaptor
+                    .getAllValues();
             assertEquals(srcFile1, argGetAbsolutePathList.get(0));
             assertEquals(srcFile2, argGetAbsolutePathList.get(1));
             assertEquals(srcFile3, argGetAbsolutePathList.get(2));
-            assertEquals(newFile,  argGetAbsolutePathList.get(3));
+            assertEquals(newFile, argGetAbsolutePathList.get(3));
 
             PowerMockito.verifyStatic();
             FileUtility.mergeFile(Mockito.anyList(), Mockito.anyString());
 
+            @SuppressWarnings("rawtypes")
             List argListMergeFile = fileUtilityListArgumentCaptor.getValue();
             assertEquals(basePath + srcFile1, argListMergeFile.get(0));
             assertEquals(basePath + srcFile2, argListMergeFile.get(1));
             assertEquals(basePath + srcFile3, argListMergeFile.get(2));
-            String argStringMergeFile = fileUtilityStringArgumentCaptor.getValue();
+            String argStringMergeFile = fileUtilityStringArgumentCaptor
+                    .getValue();
             assertEquals(basePath + newFile, argStringMergeFile);
         } finally {
             // テスト後、対象ファイルを初期化
@@ -1368,6 +1455,7 @@ public class FileControlImplTest {
      * 引数のファイルパスが絶対パスであり、基準パスが設定されている場合は基準パスが付与されないこと。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @SuppressWarnings("unchecked")
     @Test
     public void testMergeFile04() throws Exception {
         // テスト対象のインスタンス化
@@ -1414,17 +1502,23 @@ public class FileControlImplTest {
         ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         PowerMockito.mockStatic(FileUtility.class);
-        ArgumentCaptor<List> fileUtilityListArgumentCaptor = ArgumentCaptor.forClass(List.class);
-        ArgumentCaptor<String> fileUtlityStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        @SuppressWarnings("rawtypes")
+        ArgumentCaptor<List> fileUtilityListArgumentCaptor = ArgumentCaptor
+                .forClass(List.class);
+        ArgumentCaptor<String> fileUtlityStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
 
         PowerMockito.doNothing().when(FileUtility.class, "mergeFile",
-                fileUtilityListArgumentCaptor.capture(), fileUtlityStringArgumentCaptor.capture());
+                fileUtilityListArgumentCaptor.capture(),
+                fileUtlityStringArgumentCaptor.capture());
 
-        Method getAbsolutePathMethod = PowerMockito.method(FileControlImpl.class, "getAbsolutePath", String.class);
-        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        Method getAbsolutePathMethod = PowerMockito.method(
+                FileControlImpl.class, "getAbsolutePath", String.class);
+        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
 
-        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod).withArguments(
-                fileControlStringArgumentCaptor.capture());
+        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod)
+                .withArguments(fileControlStringArgumentCaptor.capture());
 
         try {
             // テスト実施
@@ -1433,10 +1527,12 @@ public class FileControlImplTest {
             // 返却値なし
 
             // 状態変化の確認
-            PowerMockito.verifyPrivate(fileControl, Mockito.times(4))
-                    .invoke(getAbsolutePathMethod).withArguments(fileControlStringArgumentCaptor.capture());
-            List<String> argGetAbsolutePathList = fileControlStringArgumentCaptor.getAllValues();
-            assertEquals(fileList.get(0),   argGetAbsolutePathList.get(0));
+            PowerMockito.verifyPrivate(fileControl, Mockito.times(4)).invoke(
+                    getAbsolutePathMethod).withArguments(
+                            fileControlStringArgumentCaptor.capture());
+            List<String> argGetAbsolutePathList = fileControlStringArgumentCaptor
+                    .getAllValues();
+            assertEquals(fileList.get(0), argGetAbsolutePathList.get(0));
             assertEquals(fileList.get(1), argGetAbsolutePathList.get(1));
             assertEquals(fileList.get(2), argGetAbsolutePathList.get(2));
             assertEquals(newFile, argGetAbsolutePathList.get(3));
@@ -1444,12 +1540,14 @@ public class FileControlImplTest {
             PowerMockito.verifyStatic();
             FileUtility.mergeFile(Mockito.anyList(), Mockito.anyString());
 
+            @SuppressWarnings("rawtypes")
             List argListMergeFile = fileUtilityListArgumentCaptor.getValue();
-            assertEquals(fileList.get(0),   argListMergeFile.get(0));
-            assertEquals(fileList.get(1),   argListMergeFile.get(1));
-            assertEquals(fileList.get(2),   argListMergeFile.get(2));
-            String argStringMergeFile = fileUtlityStringArgumentCaptor.getValue();
-            assertEquals(newFile,           argStringMergeFile);
+            assertEquals(fileList.get(0), argListMergeFile.get(0));
+            assertEquals(fileList.get(1), argListMergeFile.get(1));
+            assertEquals(fileList.get(2), argListMergeFile.get(2));
+            String argStringMergeFile = fileUtlityStringArgumentCaptor
+                    .getValue();
+            assertEquals(newFile, argStringMergeFile);
         } finally {
             // テスト後、対象ファイルを初期化
             file = new File(srcFile1);
@@ -1484,6 +1582,7 @@ public class FileControlImplTest {
      * ファイルのパスが相対パスであり、基準パスが設定されていないケース。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @SuppressWarnings("unchecked")
     @Test
     public void testMergeFile05() throws Exception {
         // テスト対象のインスタンス化
@@ -1530,38 +1629,47 @@ public class FileControlImplTest {
         ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         PowerMockito.mockStatic(FileUtility.class);
-        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
-        ArgumentCaptor<List> fileUtilityListArgumentCaptor = ArgumentCaptor.forClass(List.class);
+        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
+        @SuppressWarnings("rawtypes")
+        ArgumentCaptor<List> fileUtilityListArgumentCaptor = ArgumentCaptor
+                .forClass(List.class);
 
         PowerMockito.doNothing().when(FileUtility.class, "mergeFile",
-                fileUtilityListArgumentCaptor.capture(), fileUtilityStringArgumentCaptor.capture());
+                fileUtilityListArgumentCaptor.capture(),
+                fileUtilityStringArgumentCaptor.capture());
 
-        Method getAbsolutePathMethod = PowerMockito.method(FileControlImpl.class, "getAbsolutePath", String.class);
-        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        Method getAbsolutePathMethod = PowerMockito.method(
+                FileControlImpl.class, "getAbsolutePath", String.class);
+        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
 
-        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod).withArguments(
-                fileControlStringArgumentCaptor.capture());
+        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod)
+                .withArguments(fileControlStringArgumentCaptor.capture());
         try {
             // テスト実施
             fileControl.mergeFile(fileList, newFile);
 
             // 状態変化の確認
-            PowerMockito.verifyPrivate(fileControl, Mockito.times(4))
-                    .invoke(getAbsolutePathMethod).withArguments(Mockito.anyString());
-            List<String> argGetAbsolutePathList = fileControlStringArgumentCaptor.getAllValues();
+            PowerMockito.verifyPrivate(fileControl, Mockito.times(4)).invoke(
+                    getAbsolutePathMethod).withArguments(Mockito.anyString());
+            List<String> argGetAbsolutePathList = fileControlStringArgumentCaptor
+                    .getAllValues();
             assertEquals(fileList.get(0), argGetAbsolutePathList.get(0));
             assertEquals(fileList.get(1), argGetAbsolutePathList.get(1));
             assertEquals(fileList.get(2), argGetAbsolutePathList.get(2));
-            assertEquals(newFile,         argGetAbsolutePathList.get(3));
+            assertEquals(newFile, argGetAbsolutePathList.get(3));
 
             PowerMockito.verifyStatic();
             FileUtility.mergeFile(Mockito.anyList(), Mockito.anyString());
 
+            @SuppressWarnings("rawtypes")
             List argListMergeFile = fileUtilityListArgumentCaptor.getValue();
             assertEquals(srcFile1, argListMergeFile.get(0));
             assertEquals(srcFile2, argListMergeFile.get(1));
             assertEquals(srcFile3, argListMergeFile.get(2));
-            String argStringMergeFile = fileUtilityStringArgumentCaptor.getValue();
+            String argStringMergeFile = fileUtilityStringArgumentCaptor
+                    .getValue();
             assertEquals(newFile, argStringMergeFile);
         } finally {
             // テスト後、対象ファイルを初期化
@@ -1677,11 +1785,13 @@ public class FileControlImplTest {
         String basePath = "";
         ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
-        Method getAbsolutePathMethod = PowerMockito.method(FileControlImpl.class, "getAbsolutePath", String.class);
-        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        Method getAbsolutePathMethod = PowerMockito.method(
+                FileControlImpl.class, "getAbsolutePath", String.class);
+        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
 
-        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod).withArguments(
-                fileControlStringArgumentCaptor.capture());
+        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod)
+                .withArguments(fileControlStringArgumentCaptor.capture());
         try {
             // テスト実施
             fileControl.mergeFile(fileList, newFile);
@@ -1690,11 +1800,12 @@ public class FileControlImplTest {
             // 返却値なし
 
             // 状態変化の確認
-            PowerMockito.verifyPrivate(fileControl, Mockito.times(2))
-                    .invoke(getAbsolutePathMethod).withArguments(Mockito.anyString());
-            List<String> argGetAbsolutePathList = fileControlStringArgumentCaptor.getAllValues();
+            PowerMockito.verifyPrivate(fileControl, Mockito.times(2)).invoke(
+                    getAbsolutePathMethod).withArguments(Mockito.anyString());
+            List<String> argGetAbsolutePathList = fileControlStringArgumentCaptor
+                    .getAllValues();
             assertEquals(srcFile1, argGetAbsolutePathList.get(0));
-            assertEquals(newFile,  argGetAbsolutePathList.get(1));
+            assertEquals(newFile, argGetAbsolutePathList.get(1));
 
             assertEquals(FileException.class, e.getClass());
             assertEquals("File name is not set.", e.getMessage());
@@ -1768,11 +1879,13 @@ public class FileControlImplTest {
         String basePath = "";
         ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
-        Method getAbsolutePathMethod = PowerMockito.method(FileControlImpl.class, "getAbsolutePath", String.class);
-        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        Method getAbsolutePathMethod = PowerMockito.method(
+                FileControlImpl.class, "getAbsolutePath", String.class);
+        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
 
-        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod).withArguments(
-                fileControlStringArgumentCaptor.capture());
+        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod)
+                .withArguments(fileControlStringArgumentCaptor.capture());
 
         try {
             // テスト実施
@@ -1782,9 +1895,10 @@ public class FileControlImplTest {
             // 返却値なし
 
             // 状態変化の確認
-            PowerMockito.verifyPrivate(fileControl, Mockito.times(2))
-                    .invoke(getAbsolutePathMethod).withArguments(Mockito.anyString());
-            List<String> argGetAbsolutePathList = fileControlStringArgumentCaptor.getAllValues();
+            PowerMockito.verifyPrivate(fileControl, Mockito.times(2)).invoke(
+                    getAbsolutePathMethod).withArguments(Mockito.anyString());
+            List<String> argGetAbsolutePathList = fileControlStringArgumentCaptor
+                    .getAllValues();
             assertEquals(srcFile1, argGetAbsolutePathList.get(0));
             assertEquals(srcFile2, argGetAbsolutePathList.get(1));
 
@@ -1825,8 +1939,8 @@ public class FileControlImplTest {
      * fileListのファイルパスに基準パスが付与されnewFileのファイルパスには基準パスが付与されないこと。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @Test
     @SuppressWarnings("unchecked")
+    @Test
     public void testMergeFile09() throws Exception {
         // テスト対象のインスタンス化
         FileControlImpl fileControl = PowerMockito.spy(new FileControlImpl());
@@ -1872,17 +1986,23 @@ public class FileControlImplTest {
         ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         PowerMockito.mockStatic(FileUtility.class);
-        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
-        ArgumentCaptor<List> fileUtilityListArgumentCaptor = ArgumentCaptor.forClass(List.class);
+        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
+        @SuppressWarnings("rawtypes")
+        ArgumentCaptor<List> fileUtilityListArgumentCaptor = ArgumentCaptor
+                .forClass(List.class);
 
         PowerMockito.doNothing().when(FileUtility.class, "mergeFile",
-                fileUtilityListArgumentCaptor.capture(), fileUtilityStringArgumentCaptor.capture());
+                fileUtilityListArgumentCaptor.capture(),
+                fileUtilityStringArgumentCaptor.capture());
 
-        Method getAbsolutePathMethod = PowerMockito.method(FileControlImpl.class, "getAbsolutePath", String.class);
-        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        Method getAbsolutePathMethod = PowerMockito.method(
+                FileControlImpl.class, "getAbsolutePath", String.class);
+        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
 
-        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod).withArguments(
-                fileControlStringArgumentCaptor.capture());
+        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod)
+                .withArguments(fileControlStringArgumentCaptor.capture());
         try {
             // テスト実施
             fileControl.mergeFile(fileList, newFile);
@@ -1890,22 +2010,25 @@ public class FileControlImplTest {
             // 返却値なし
 
             // 状態変化の確認
-            PowerMockito.verifyPrivate(fileControl, Mockito.times(4))
-                    .invoke(getAbsolutePathMethod).withArguments(Mockito.anyString());
-            List<String> argGetAbsolutePathList = fileControlStringArgumentCaptor.getAllValues();
+            PowerMockito.verifyPrivate(fileControl, Mockito.times(4)).invoke(
+                    getAbsolutePathMethod).withArguments(Mockito.anyString());
+            List<String> argGetAbsolutePathList = fileControlStringArgumentCaptor
+                    .getAllValues();
             assertEquals(fileList.get(0), argGetAbsolutePathList.get(0));
             assertEquals(fileList.get(1), argGetAbsolutePathList.get(1));
             assertEquals(fileList.get(2), argGetAbsolutePathList.get(2));
-            assertEquals(newFile,         argGetAbsolutePathList.get(3));
+            assertEquals(newFile, argGetAbsolutePathList.get(3));
 
             PowerMockito.verifyStatic();
             FileUtility.mergeFile(Mockito.anyList(), Mockito.anyString());
 
+            @SuppressWarnings("rawtypes")
             List argListMergeFile = fileUtilityListArgumentCaptor.getValue();
             assertEquals(basePath + srcFile1, argListMergeFile.get(0));
             assertEquals(basePath + srcFile2, argListMergeFile.get(1));
             assertEquals(basePath + srcFile3, argListMergeFile.get(2));
-            String argStringMergeFile = fileUtilityStringArgumentCaptor.getValue();
+            String argStringMergeFile = fileUtilityStringArgumentCaptor
+                    .getValue();
             assertEquals(newFile, argStringMergeFile);
         } finally {
             // テスト後、対象ファイルを初期化
@@ -1944,8 +2067,8 @@ public class FileControlImplTest {
      * fileListの要素2のファイルパスに基準パスが付与されその他の要素には付与されず、newFileのファイルパスには基準パスが付与されないこと。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @Test
     @SuppressWarnings("unchecked")
+    @Test
     public void testMergeFile10() throws Exception {
         // テスト対象のインスタンス化
         FileControlImpl fileControl = PowerMockito.spy(new FileControlImpl());
@@ -1991,17 +2114,23 @@ public class FileControlImplTest {
         ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         PowerMockito.mockStatic(FileUtility.class);
-        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
-        ArgumentCaptor<List> fileUtilityListArgumentCaptor = ArgumentCaptor.forClass(List.class);
+        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
+        @SuppressWarnings("rawtypes")
+        ArgumentCaptor<List> fileUtilityListArgumentCaptor = ArgumentCaptor
+                .forClass(List.class);
 
         PowerMockito.doNothing().when(FileUtility.class, "mergeFile",
-                fileUtilityListArgumentCaptor.capture(), fileUtilityStringArgumentCaptor.capture());
+                fileUtilityListArgumentCaptor.capture(),
+                fileUtilityStringArgumentCaptor.capture());
 
-        Method getAbsolutePathMethod = PowerMockito.method(FileControlImpl.class, "getAbsolutePath", String.class);
-        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        Method getAbsolutePathMethod = PowerMockito.method(
+                FileControlImpl.class, "getAbsolutePath", String.class);
+        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
 
-        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod).withArguments(
-                fileControlStringArgumentCaptor.capture());
+        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod)
+                .withArguments(fileControlStringArgumentCaptor.capture());
         try {
             // テスト実施
             fileControl.mergeFile(fileList, newFile);
@@ -2009,22 +2138,25 @@ public class FileControlImplTest {
             // 返却値なし
 
             // 状態変化の確認
-            PowerMockito.verifyPrivate(fileControl, Mockito.times(4))
-                    .invoke(getAbsolutePathMethod).withArguments(Mockito.anyString());
-            List<String> argGetAbsolutePathList = fileControlStringArgumentCaptor.getAllValues();
+            PowerMockito.verifyPrivate(fileControl, Mockito.times(4)).invoke(
+                    getAbsolutePathMethod).withArguments(Mockito.anyString());
+            List<String> argGetAbsolutePathList = fileControlStringArgumentCaptor
+                    .getAllValues();
             assertEquals(fileList.get(0), argGetAbsolutePathList.get(0));
             assertEquals(fileList.get(1), argGetAbsolutePathList.get(1));
             assertEquals(fileList.get(2), argGetAbsolutePathList.get(2));
-            assertEquals(newFile,         argGetAbsolutePathList.get(3));
+            assertEquals(newFile, argGetAbsolutePathList.get(3));
 
             PowerMockito.verifyStatic();
             FileUtility.mergeFile(Mockito.anyList(), Mockito.anyString());
 
+            @SuppressWarnings("rawtypes")
             List argListMergeFile = fileUtilityListArgumentCaptor.getValue();
             assertEquals(srcFile1, argListMergeFile.get(0));
             assertEquals(basePath + srcFile2, argListMergeFile.get(1));
             assertEquals(srcFile3, argListMergeFile.get(2));
-            String argStringMergeFile = fileUtilityStringArgumentCaptor.getValue();
+            String argStringMergeFile = fileUtilityStringArgumentCaptor
+                    .getValue();
             assertEquals(newFile, argStringMergeFile);
         } finally {
             // テスト後、対象ファイルを初期化
@@ -2062,8 +2194,8 @@ public class FileControlImplTest {
      * fileListのファイルパスに基準パスが付与されずnewFileのファイルパスには基準パスが付与されること。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @Test
     @SuppressWarnings("unchecked")
+    @Test
     public void testMergeFile11() throws Exception {
         // テスト対象のインスタンス化
         FileControlImpl fileControl = PowerMockito.spy(new FileControlImpl());
@@ -2109,17 +2241,23 @@ public class FileControlImplTest {
         ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         PowerMockito.mockStatic(FileUtility.class);
-        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
-        ArgumentCaptor<List> fileUtilityListArgumentCaptor = ArgumentCaptor.forClass(List.class);
+        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
+        @SuppressWarnings("rawtypes")
+        ArgumentCaptor<List> fileUtilityListArgumentCaptor = ArgumentCaptor
+                .forClass(List.class);
 
         PowerMockito.doNothing().when(FileUtility.class, "mergeFile",
-                fileUtilityListArgumentCaptor.capture(), fileUtilityStringArgumentCaptor.capture());
+                fileUtilityListArgumentCaptor.capture(),
+                fileUtilityStringArgumentCaptor.capture());
 
-        Method getAbsolutePathMethod = PowerMockito.method(FileControlImpl.class, "getAbsolutePath", String.class);
-        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        Method getAbsolutePathMethod = PowerMockito.method(
+                FileControlImpl.class, "getAbsolutePath", String.class);
+        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
 
-        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod).withArguments(
-                fileControlStringArgumentCaptor.capture());
+        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod)
+                .withArguments(fileControlStringArgumentCaptor.capture());
         try {
             // テスト実施
             fileControl.mergeFile(fileList, newFile);
@@ -2127,22 +2265,25 @@ public class FileControlImplTest {
             // 返却値なし
 
             // 状態変化の確認
-            PowerMockito.verifyPrivate(fileControl, Mockito.times(4))
-                    .invoke(getAbsolutePathMethod).withArguments(Mockito.anyString());
-            List<String> argGetAbsolutePathList = fileControlStringArgumentCaptor.getAllValues();
+            PowerMockito.verifyPrivate(fileControl, Mockito.times(4)).invoke(
+                    getAbsolutePathMethod).withArguments(Mockito.anyString());
+            List<String> argGetAbsolutePathList = fileControlStringArgumentCaptor
+                    .getAllValues();
             assertEquals(fileList.get(0), argGetAbsolutePathList.get(0));
             assertEquals(fileList.get(1), argGetAbsolutePathList.get(1));
             assertEquals(fileList.get(2), argGetAbsolutePathList.get(2));
-            assertEquals(newFile,         argGetAbsolutePathList.get(3));
+            assertEquals(newFile, argGetAbsolutePathList.get(3));
 
             PowerMockito.verifyStatic();
             FileUtility.mergeFile(Mockito.anyList(), Mockito.anyString());
 
+            @SuppressWarnings("rawtypes")
             List argListMergeFile = fileUtilityListArgumentCaptor.getValue();
             assertEquals(srcFile1, argListMergeFile.get(0));
             assertEquals(srcFile2, argListMergeFile.get(1));
             assertEquals(srcFile3, argListMergeFile.get(2));
-            String argStringMergeFile = fileUtilityStringArgumentCaptor.getValue();
+            String argStringMergeFile = fileUtilityStringArgumentCaptor
+                    .getValue();
             assertEquals(basePath + newFile, argStringMergeFile);
         } finally {
             // テスト後、対象ファイルを初期化
@@ -2204,16 +2345,20 @@ public class FileControlImplTest {
         ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         PowerMockito.mockStatic(FileUtility.class);
-        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
 
         PowerMockito.doNothing().when(FileUtility.class, "renameFile",
-                fileUtilityStringArgumentCaptor.capture(), fileUtilityStringArgumentCaptor.capture());
+                fileUtilityStringArgumentCaptor.capture(),
+                fileUtilityStringArgumentCaptor.capture());
 
-        Method getAbsolutePathMethod = PowerMockito.method(FileControlImpl.class, "getAbsolutePath", String.class);
-        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        Method getAbsolutePathMethod = PowerMockito.method(
+                FileControlImpl.class, "getAbsolutePath", String.class);
+        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
 
-        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod).withArguments(
-                fileControlStringArgumentCaptor.capture());
+        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod)
+                .withArguments(fileControlStringArgumentCaptor.capture());
 
         try {
             // テスト実施
@@ -2222,16 +2367,18 @@ public class FileControlImplTest {
             // 返却値なし
 
             // 状態変化の確認
-            PowerMockito.verifyPrivate(fileControl, Mockito.times(2))
-                    .invoke(getAbsolutePathMethod).withArguments(Mockito.anyString());
-            List<String> argGetAbsolutePathList = fileControlStringArgumentCaptor.getAllValues();
+            PowerMockito.verifyPrivate(fileControl, Mockito.times(2)).invoke(
+                    getAbsolutePathMethod).withArguments(Mockito.anyString());
+            List<String> argGetAbsolutePathList = fileControlStringArgumentCaptor
+                    .getAllValues();
             assertEquals(srcFile, argGetAbsolutePathList.get(0));
             assertEquals(newFile, argGetAbsolutePathList.get(1));
 
             PowerMockito.verifyStatic();
             FileUtility.renameFile(Mockito.anyString(), Mockito.anyString());
 
-            List<String> argListRenameFile = fileUtilityStringArgumentCaptor.getAllValues();
+            List<String> argListRenameFile = fileUtilityStringArgumentCaptor
+                    .getAllValues();
             assertEquals(srcFile, argListRenameFile.get(0));
             assertEquals(newFile, argListRenameFile.get(1));
         } finally {
@@ -2290,16 +2437,20 @@ public class FileControlImplTest {
         ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         PowerMockito.mockStatic(FileUtility.class);
-        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
 
         PowerMockito.doNothing().when(FileUtility.class, "renameFile",
-                fileUtilityStringArgumentCaptor.capture(), fileUtilityStringArgumentCaptor.capture());
+                fileUtilityStringArgumentCaptor.capture(),
+                fileUtilityStringArgumentCaptor.capture());
 
-        Method getAbsolutePathMethod = PowerMockito.method(FileControlImpl.class, "getAbsolutePath", String.class);
-        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        Method getAbsolutePathMethod = PowerMockito.method(
+                FileControlImpl.class, "getAbsolutePath", String.class);
+        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
 
-        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod).withArguments(
-                fileControlStringArgumentCaptor.capture());
+        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod)
+                .withArguments(fileControlStringArgumentCaptor.capture());
 
         try {
             // テスト実施
@@ -2308,16 +2459,18 @@ public class FileControlImplTest {
             // 返却値なし
 
             // 状態変化の確認
-            PowerMockito.verifyPrivate(fileControl, Mockito.times(2))
-                    .invoke(getAbsolutePathMethod).withArguments(Mockito.anyString());
-            List<String> argGetAbsolutePathList = fileControlStringArgumentCaptor.getAllValues();
+            PowerMockito.verifyPrivate(fileControl, Mockito.times(2)).invoke(
+                    getAbsolutePathMethod).withArguments(Mockito.anyString());
+            List<String> argGetAbsolutePathList = fileControlStringArgumentCaptor
+                    .getAllValues();
             assertEquals(srcFile, argGetAbsolutePathList.get(0));
             assertEquals(newFile, argGetAbsolutePathList.get(1));
 
             PowerMockito.verifyStatic();
             FileUtility.renameFile(Mockito.anyString(), Mockito.anyString());
 
-            List<String> argListRenameFile = fileUtilityStringArgumentCaptor.getAllValues();
+            List<String> argListRenameFile = fileUtilityStringArgumentCaptor
+                    .getAllValues();
             assertEquals(basePath + srcFile, argListRenameFile.get(0));
             assertEquals(basePath + newFile, argListRenameFile.get(1));
         } finally {
@@ -2376,16 +2529,20 @@ public class FileControlImplTest {
         ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         PowerMockito.mockStatic(FileUtility.class);
-        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
 
         PowerMockito.doNothing().when(FileUtility.class, "renameFile",
-                fileUtilityStringArgumentCaptor.capture(), fileUtilityStringArgumentCaptor.capture());
+                fileUtilityStringArgumentCaptor.capture(),
+                fileUtilityStringArgumentCaptor.capture());
 
-        Method getAbsolutePathMethod = PowerMockito.method(FileControlImpl.class, "getAbsolutePath", String.class);
-        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        Method getAbsolutePathMethod = PowerMockito.method(
+                FileControlImpl.class, "getAbsolutePath", String.class);
+        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
 
-        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod).withArguments(
-                fileControlStringArgumentCaptor.capture());
+        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod)
+                .withArguments(fileControlStringArgumentCaptor.capture());
         try {
             // テスト実施
             fileControl.renameFile(srcFile, newFile);
@@ -2393,16 +2550,18 @@ public class FileControlImplTest {
             // 返却値なし
 
             // 状態変化の確認
-            PowerMockito.verifyPrivate(fileControl, Mockito.times(2))
-                    .invoke(getAbsolutePathMethod).withArguments(Mockito.anyString());
-            List<String> argGetAbsolutePathList = fileControlStringArgumentCaptor.getAllValues();
+            PowerMockito.verifyPrivate(fileControl, Mockito.times(2)).invoke(
+                    getAbsolutePathMethod).withArguments(Mockito.anyString());
+            List<String> argGetAbsolutePathList = fileControlStringArgumentCaptor
+                    .getAllValues();
             assertEquals(srcFile, argGetAbsolutePathList.get(0));
             assertEquals(newFile, argGetAbsolutePathList.get(1));
 
             PowerMockito.verifyStatic();
             FileUtility.renameFile(Mockito.anyString(), Mockito.anyString());
 
-            List<String> argListRenameFile = fileUtilityStringArgumentCaptor.getAllValues();
+            List<String> argListRenameFile = fileUtilityStringArgumentCaptor
+                    .getAllValues();
             assertEquals(srcFile, argListRenameFile.get(0));
             assertEquals(newFile, argListRenameFile.get(1));
         } finally {
@@ -2462,31 +2621,37 @@ public class FileControlImplTest {
         ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         PowerMockito.mockStatic(FileUtility.class);
-        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
 
         PowerMockito.doNothing().when(FileUtility.class, "renameFile",
-                fileUtilityStringArgumentCaptor.capture(), fileUtilityStringArgumentCaptor.capture());
+                fileUtilityStringArgumentCaptor.capture(),
+                fileUtilityStringArgumentCaptor.capture());
 
-        Method getAbsolutePathMethod = PowerMockito.method(FileControlImpl.class, "getAbsolutePath", String.class);
-        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        Method getAbsolutePathMethod = PowerMockito.method(
+                FileControlImpl.class, "getAbsolutePath", String.class);
+        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
 
-        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod).withArguments(
-                fileControlStringArgumentCaptor.capture());
+        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod)
+                .withArguments(fileControlStringArgumentCaptor.capture());
         try {
             // テスト実施
             fileControl.renameFile(srcFile, newFile);
 
             // 状態変化の確認
-            PowerMockito.verifyPrivate(fileControl, Mockito.times(2))
-                    .invoke(getAbsolutePathMethod).withArguments(Mockito.anyString());
-            List<String> argGetAbsolutePathList = fileControlStringArgumentCaptor.getAllValues();
+            PowerMockito.verifyPrivate(fileControl, Mockito.times(2)).invoke(
+                    getAbsolutePathMethod).withArguments(Mockito.anyString());
+            List<String> argGetAbsolutePathList = fileControlStringArgumentCaptor
+                    .getAllValues();
             assertEquals(srcFile, argGetAbsolutePathList.get(0));
             assertEquals(newFile, argGetAbsolutePathList.get(1));
 
             PowerMockito.verifyStatic();
             FileUtility.renameFile(Mockito.anyString(), Mockito.anyString());
 
-            List<String> argListRenameFile = fileUtilityStringArgumentCaptor.getAllValues();
+            List<String> argListRenameFile = fileUtilityStringArgumentCaptor
+                    .getAllValues();
             assertEquals(srcFile, argListRenameFile.get(0));
             assertEquals(newFile, argListRenameFile.get(1));
         } finally {
@@ -2539,11 +2704,13 @@ public class FileControlImplTest {
         String basePath = "";
         ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
-        Method getAbsolutePathMethod = PowerMockito.method(FileControlImpl.class, "getAbsolutePath", String.class);
-        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        Method getAbsolutePathMethod = PowerMockito.method(
+                FileControlImpl.class, "getAbsolutePath", String.class);
+        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
 
-        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod).withArguments(
-                fileControlStringArgumentCaptor.capture());
+        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod)
+                .withArguments(fileControlStringArgumentCaptor.capture());
         try {
             // テスト実施
             fileControl.renameFile(srcFile, newFile);
@@ -2552,9 +2719,10 @@ public class FileControlImplTest {
             // 返却値なし
 
             // 状態変化の確認
-            PowerMockito.verifyPrivate(fileControl)
-                    .invoke(getAbsolutePathMethod).withArguments(Mockito.anyString());
-            String argGetAbsolutePath = fileControlStringArgumentCaptor.getValue();
+            PowerMockito.verifyPrivate(fileControl).invoke(
+                    getAbsolutePathMethod).withArguments(Mockito.anyString());
+            String argGetAbsolutePath = fileControlStringArgumentCaptor
+                    .getValue();
             assertEquals(srcFile, argGetAbsolutePath);
             assertEquals(FileException.class, e.getClass());
             assertEquals("File name is not set.", e.getMessage());
@@ -2608,13 +2776,16 @@ public class FileControlImplTest {
         ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         PowerMockito.mockStatic(FileUtility.class);
-        PowerMockito.doNothing().when(FileUtility.class, "renameFile", Mockito.anyString(), Mockito.anyString());
+        PowerMockito.doNothing().when(FileUtility.class, "renameFile", Mockito
+                .anyString(), Mockito.anyString());
 
-        Method getAbsolutePathMethod = PowerMockito.method(FileControlImpl.class, "getAbsolutePath", String.class);
-        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        Method getAbsolutePathMethod = PowerMockito.method(
+                FileControlImpl.class, "getAbsolutePath", String.class);
+        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
 
-        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod).withArguments(
-                fileControlStringArgumentCaptor.capture());
+        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod)
+                .withArguments(fileControlStringArgumentCaptor.capture());
         try {
             // テスト実施
             fileControl.renameFile(srcFile, newFile);
@@ -2623,9 +2794,10 @@ public class FileControlImplTest {
             // 返却値なし
 
             // 状態変化の確認
-            PowerMockito.verifyPrivate(fileControl, Mockito.times(2))
-                    .invoke(getAbsolutePathMethod).withArguments(Mockito.anyString());
-            List<String> argGetAbsolutePathList = fileControlStringArgumentCaptor.getAllValues();
+            PowerMockito.verifyPrivate(fileControl, Mockito.times(2)).invoke(
+                    getAbsolutePathMethod).withArguments(Mockito.anyString());
+            List<String> argGetAbsolutePathList = fileControlStringArgumentCaptor
+                    .getAllValues();
             assertEquals(srcFile, argGetAbsolutePathList.get(0));
             assertEquals(newFile, argGetAbsolutePathList.get(1));
 
@@ -2690,15 +2862,19 @@ public class FileControlImplTest {
         ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         PowerMockito.mockStatic(FileUtility.class);
-        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
         PowerMockito.doNothing().when(FileUtility.class, "renameFile",
-                fileUtilityStringArgumentCaptor.capture(), fileUtilityStringArgumentCaptor.capture());
+                fileUtilityStringArgumentCaptor.capture(),
+                fileUtilityStringArgumentCaptor.capture());
 
-        Method getAbsolutePathMethod = PowerMockito.method(FileControlImpl.class, "getAbsolutePath", String.class);
-        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        Method getAbsolutePathMethod = PowerMockito.method(
+                FileControlImpl.class, "getAbsolutePath", String.class);
+        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
 
-        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod).withArguments(
-                fileControlStringArgumentCaptor.capture());
+        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod)
+                .withArguments(fileControlStringArgumentCaptor.capture());
 
         try {
             // テスト実施
@@ -2707,16 +2883,18 @@ public class FileControlImplTest {
             // 返却値なし
 
             // 状態変化の確認
-            PowerMockito.verifyPrivate(fileControl, Mockito.times(2))
-                    .invoke(getAbsolutePathMethod).withArguments(Mockito.anyString());
-            List<String> argGetAbsolutePathList = fileControlStringArgumentCaptor.getAllValues();
+            PowerMockito.verifyPrivate(fileControl, Mockito.times(2)).invoke(
+                    getAbsolutePathMethod).withArguments(Mockito.anyString());
+            List<String> argGetAbsolutePathList = fileControlStringArgumentCaptor
+                    .getAllValues();
             assertEquals(srcFile, argGetAbsolutePathList.get(0));
             assertEquals(newFile, argGetAbsolutePathList.get(1));
 
             PowerMockito.verifyStatic();
             FileUtility.renameFile(Mockito.anyString(), Mockito.anyString());
 
-            List<String> argListRenameFile = fileUtilityStringArgumentCaptor.getAllValues();
+            List<String> argListRenameFile = fileUtilityStringArgumentCaptor
+                    .getAllValues();
             assertEquals(basePath + srcFile, argListRenameFile.get(0));
             assertEquals(newFile, argListRenameFile.get(1));
         } finally {
@@ -2776,15 +2954,19 @@ public class FileControlImplTest {
         ReflectionTestUtils.setField(fileControl, "basePath", basePath);
 
         PowerMockito.mockStatic(FileUtility.class);
-        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        ArgumentCaptor<String> fileUtilityStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
         PowerMockito.doNothing().when(FileUtility.class, "renameFile",
-                fileUtilityStringArgumentCaptor.capture(), fileUtilityStringArgumentCaptor.capture());
+                fileUtilityStringArgumentCaptor.capture(),
+                fileUtilityStringArgumentCaptor.capture());
 
-        Method getAbsolutePathMethod = PowerMockito.method(FileControlImpl.class, "getAbsolutePath", String.class);
-        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        Method getAbsolutePathMethod = PowerMockito.method(
+                FileControlImpl.class, "getAbsolutePath", String.class);
+        ArgumentCaptor<String> fileControlStringArgumentCaptor = ArgumentCaptor
+                .forClass(String.class);
 
-        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod).withArguments(
-                fileControlStringArgumentCaptor.capture());
+        PowerMockito.doCallRealMethod().when(fileControl, getAbsolutePathMethod)
+                .withArguments(fileControlStringArgumentCaptor.capture());
         try {
             // テスト実施
             fileControl.renameFile(srcFile, newFile);
@@ -2792,16 +2974,18 @@ public class FileControlImplTest {
             // 返却値なし
 
             // 状態変化の確認
-            PowerMockito.verifyPrivate(fileControl, Mockito.times(2))
-                    .invoke(getAbsolutePathMethod).withArguments(Mockito.anyString());
-            List<String> argGetAbsolutePathList = fileControlStringArgumentCaptor.getAllValues();
+            PowerMockito.verifyPrivate(fileControl, Mockito.times(2)).invoke(
+                    getAbsolutePathMethod).withArguments(Mockito.anyString());
+            List<String> argGetAbsolutePathList = fileControlStringArgumentCaptor
+                    .getAllValues();
             assertEquals(srcFile, argGetAbsolutePathList.get(0));
             assertEquals(newFile, argGetAbsolutePathList.get(1));
 
             PowerMockito.verifyStatic();
             FileUtility.renameFile(Mockito.anyString(), Mockito.anyString());
 
-            List<String> argListRenameFile = fileUtilityStringArgumentCaptor.getAllValues();
+            List<String> argListRenameFile = fileUtilityStringArgumentCaptor
+                    .getAllValues();
             assertEquals(srcFile, argListRenameFile.get(0));
             assertEquals(basePath + newFile, argListRenameFile.get(1));
         } finally {
@@ -2838,8 +3022,6 @@ public class FileControlImplTest {
         // 前提条件の設定
         String basePath = "aaa";
         ReflectionTestUtils.setField(fileControl, "basePath", basePath);
-
-
 
         // テスト実施
         String getBasePath = fileControl.getBasePath();
@@ -2911,8 +3093,10 @@ public class FileControlImplTest {
 
         // 前提条件なし
         PowerMockito.mockStatic(FileUtility.class);
-        ArgumentCaptor<Boolean> argSetCheckFileExist = ArgumentCaptor.forClass(Boolean.class);
-        PowerMockito.doNothing().when(FileUtility.class, "setCheckFileExist", argSetCheckFileExist.capture());
+        ArgumentCaptor<Boolean> argSetCheckFileExist = ArgumentCaptor.forClass(
+                Boolean.class);
+        PowerMockito.doNothing().when(FileUtility.class, "setCheckFileExist",
+                argSetCheckFileExist.capture());
 
         // テスト実施
         fileControl.setCheckFileExist(checkFileExist);
@@ -2950,8 +3134,10 @@ public class FileControlImplTest {
 
         // 前提条件なし
         PowerMockito.mockStatic(FileUtility.class);
-        ArgumentCaptor<Boolean> argSetCheckFileExist = ArgumentCaptor.forClass(Boolean.class);
-        PowerMockito.doNothing().when(FileUtility.class, "setCheckFileExist", argSetCheckFileExist.capture());
+        ArgumentCaptor<Boolean> argSetCheckFileExist = ArgumentCaptor.forClass(
+                Boolean.class);
+        PowerMockito.doNothing().when(FileUtility.class, "setCheckFileExist",
+                argSetCheckFileExist.capture());
 
         // テスト実施
         fileControl.setCheckFileExist(checkFileExist);

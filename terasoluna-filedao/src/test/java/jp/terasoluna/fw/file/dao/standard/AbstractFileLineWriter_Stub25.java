@@ -16,7 +16,9 @@ import jp.terasoluna.fw.file.annotation.OutputFileColumn;
  * <li>フィールド：String column1
  *     <code>@OutputFileColumn</code>設定<br>
  * > columnIndex：0<br>
- * > その他項目：デフォルト値</li> </ul> 各フィールドのgetter/setterメソッドを持たない。
+ * > その他項目：デフォルト値</li>
+ * </ul>
+ * 各フィールドのgetter/setterメソッドを持たない。
  * @author 趙俸徹
  */
 @FileFormat()
@@ -25,7 +27,6 @@ public class AbstractFileLineWriter_Stub25 {
     /**
      * column1
      */
-    @SuppressWarnings("unused")
     @OutputFileColumn(columnIndex = 0)
     private String column1 = null;
 

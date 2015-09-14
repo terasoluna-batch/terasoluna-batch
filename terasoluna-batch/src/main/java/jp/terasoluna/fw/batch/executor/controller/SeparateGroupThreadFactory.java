@@ -60,6 +60,8 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class SeparateGroupThreadFactory extends CustomizableThreadFactory {
 
+    private static final long serialVersionUID = -4731871983835467516L;
+
     /**
      * ロガー.
      */

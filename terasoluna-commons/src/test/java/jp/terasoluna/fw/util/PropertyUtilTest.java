@@ -126,7 +126,7 @@ public class PropertyUtilTest extends PropertyTestCase {
         // PropertyUtilクラスのfilesフィールドにファイル名が含まれていること
         Field field = PropertyUtil.class.getDeclaredField("files");
         field.setAccessible(true);
-        Set st = (Set) field.get(PropertyUtil.class);
+        Set<?> st = (Set<?>) field.get(PropertyUtil.class);
         assertTrue(st.contains("system.properties"));
     }
 
@@ -150,7 +150,7 @@ public class PropertyUtilTest extends PropertyTestCase {
         // PropertyUtilクラスのfilesフィールドにファイル名が含まれていること
         Field field = PropertyUtil.class.getDeclaredField("files");
         field.setAccessible(true);
-        Set st = (Set) field.get(PropertyUtil.class);
+        Set<?> st = (Set<?>) field.get(PropertyUtil.class);
         assertTrue(st.contains("system.properties"));
     }
 
@@ -174,7 +174,7 @@ public class PropertyUtilTest extends PropertyTestCase {
         // PropertyUtilクラスのfilesフィールドにファイル名が含まれていないこと
         Field field = PropertyUtil.class.getDeclaredField("files");
         field.setAccessible(true);
-        Set st = (Set) field.get(PropertyUtil.class);
+        Set<?> st = (Set<?>) field.get(PropertyUtil.class);
         assertFalse(st.contains("xxxxx.properties"));
     }
 
@@ -220,7 +220,7 @@ public class PropertyUtilTest extends PropertyTestCase {
         // PropertyUtilクラスのfilesフィールドにファイル名が含まれていないこと
         Field field = PropertyUtil.class.getDeclaredField("files");
         field.setAccessible(true);
-        Set st = (Set) field.get(PropertyUtil.class);
+        Set<?> st = (Set<?>) field.get(PropertyUtil.class);
         assertFalse(st.contains(".properties"));
     }
 
@@ -244,7 +244,7 @@ public class PropertyUtilTest extends PropertyTestCase {
         // PropertyUtilクラスのfilesフィールドにファイル名が含まれていること
         Field field = PropertyUtil.class.getDeclaredField("files");
         field.setAccessible(true);
-        Set st = (Set) field.get(PropertyUtil.class);
+        Set<?> st = (Set<?>) field.get(PropertyUtil.class);
         assertTrue(st.contains("system.properties"));
         assertTrue(st.size() == 1);
     }
@@ -727,7 +727,7 @@ public class PropertyUtilTest extends PropertyTestCase {
     @Test
     public void testGetPropertyNames01() throws Exception {
         // テスト対象の実行
-        Enumeration en = PropertyUtil.getPropertyNames();
+        Enumeration<String> en = PropertyUtil.getPropertyNames();
 
         // 結果の確認
         // Enumerationから要素を取り出し、Vector配列に追加する
@@ -775,7 +775,7 @@ public class PropertyUtilTest extends PropertyTestCase {
         String input1 = "property.test001.id";
 
         // テスト対象の実行
-        Enumeration enume = PropertyUtil.getPropertyNames(input1);
+        Enumeration<String> enume = PropertyUtil.getPropertyNames(input1);
 
         // 結果確認
         assertEquals("property.test001.id.0", enume.nextElement());
@@ -796,7 +796,7 @@ public class PropertyUtilTest extends PropertyTestCase {
         String input1 = "property.test999.id";
 
         // テスト対象の実行
-        Enumeration enume = PropertyUtil.getPropertyNames(input1);
+        Enumeration<String> enume = PropertyUtil.getPropertyNames(input1);
 
         // 結果確認
         assertFalse(enume.hasMoreElements());
@@ -816,7 +816,7 @@ public class PropertyUtilTest extends PropertyTestCase {
         String input1 = "property.test002.id";
 
         // テスト対象の実行
-        Enumeration enume = PropertyUtil.getPropertyNames(input1);
+        Enumeration<String> enume = PropertyUtil.getPropertyNames(input1);
 
         // 結果確認
         assertEquals("property.test002.id.0", enume.nextElement());
@@ -840,7 +840,7 @@ public class PropertyUtilTest extends PropertyTestCase {
 
         // テスト対象の実行
         try {
-            Enumeration enume = PropertyUtil.getPropertyNames(input1);
+            Enumeration<String> enume = PropertyUtil.getPropertyNames(input1);
             fail();
         } catch (NullPointerException e) {
             return;
@@ -893,7 +893,7 @@ public class PropertyUtilTest extends PropertyTestCase {
         String input1 = "property.test004.id";
 
         // テスト対象の実行
-        Enumeration enume = PropertyUtil.getPropertyNames(input1);
+        Enumeration<String> enume = PropertyUtil.getPropertyNames(input1);
 
         // 結果確認
         assertEquals("property.test004.id.0", enume.nextElement());
@@ -918,7 +918,7 @@ public class PropertyUtilTest extends PropertyTestCase {
         // 部分キー文字列
         String key = "file";
         // テスト対象の実行
-        Set result = PropertyUtil.getPropertiesValues(input, key);
+        Set<?> result = PropertyUtil.getPropertiesValues(input, key);
 
         // 結果確認
         assertTrue(result.contains("/tmp/test"));
@@ -942,7 +942,7 @@ public class PropertyUtilTest extends PropertyTestCase {
         // 部分キー文字列
         String key = "code";
         // テスト対象の実行
-        Set result = PropertyUtil.getPropertiesValues(input, key);
+        Set<?> result = PropertyUtil.getPropertiesValues(input, key);
 
         // 結果確認
         assertTrue(result.contains("select values01,values01,values01 "
@@ -972,7 +972,7 @@ public class PropertyUtilTest extends PropertyTestCase {
         // 部分キー文字列
         String key = null;
         // テスト対象の実行
-        Set result = PropertyUtil.getPropertiesValues(input, key);
+        Set<?> result = PropertyUtil.getPropertiesValues(input, key);
 
         // 結果確認
         assertNull(result);
@@ -997,7 +997,7 @@ public class PropertyUtilTest extends PropertyTestCase {
         String key = "file";
 
         // テスト対象の実行
-        Set result = PropertyUtil.getPropertiesValues(input, key);
+        Set<?> result = PropertyUtil.getPropertiesValues(input, key);
 
         // 結果確認
         assertNull(result);
@@ -1021,7 +1021,7 @@ public class PropertyUtilTest extends PropertyTestCase {
         // 部分キー文字列
         String key = "file";
         // テスト対象の実行
-        Set result = PropertyUtil.getPropertiesValues(input, key);
+        Set<?> result = PropertyUtil.getPropertiesValues(input, key);
 
         // 結果確認
         assertTrue(result.isEmpty());
@@ -1046,7 +1046,7 @@ public class PropertyUtilTest extends PropertyTestCase {
         String key = "file";
 
         // テスト対象の実行
-        Set result = PropertyUtil.getPropertiesValues(input, key);
+        Set<?> result = PropertyUtil.getPropertiesValues(input, key);
 
         // 結果確認
         assertNull(result);
@@ -1070,7 +1070,7 @@ public class PropertyUtilTest extends PropertyTestCase {
         // 部分キー文字列
         String key = "";
         // テスト対象の実行
-        Set result = PropertyUtil.getPropertiesValues(input, key);
+        Set<?> result = PropertyUtil.getPropertiesValues(input, key);
 
         // 結果確認
         assertTrue(result.contains("{0}デフォルトメッセージ"));
@@ -1096,7 +1096,7 @@ public class PropertyUtilTest extends PropertyTestCase {
         // 部分キー文字列
         String key = "property.test004";
         // テスト対象の実行
-        Set result = PropertyUtil.getPropertiesValues(input, key);
+        Set<?> result = PropertyUtil.getPropertiesValues(input, key);
 
         // 結果確認
         assertTrue(result.contains("testB"));
@@ -1113,7 +1113,6 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 説明：プロパティオブジェクトの中身が１つの時、 対応するキーが1つ取得されていることを確認する。
      * @throws Exception 例外
      */
-    @SuppressWarnings("unchecked")
     @Test
     public void testGetPropertyNamesPropertiesString01() throws Exception {
         // 入力値の設定
@@ -1126,10 +1125,11 @@ public class PropertyUtilTest extends PropertyTestCase {
         String keyprefix = "System";
 
         // テスト対象の実行
-        Enumeration result = PropertyUtil.getPropertyNames(input, keyprefix);
+        Enumeration<String> result = PropertyUtil.getPropertyNames(input,
+                keyprefix);
 
         // 結果確認
-        Set set = new HashSet();
+        Set<String> set = new HashSet<String>();
         set.add("SystemExceptionHandlerTest.key");
         assertTrue(set.contains(result.nextElement()));
         assertFalse(result.hasMoreElements());
@@ -1145,7 +1145,6 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 説明：プロパティオブジェクトの中身が複数の時、 対応するキーが1つ取得されていることを確認する。
      * @throws Exception 例外
      */
-    @SuppressWarnings("unchecked")
     @Test
     public void testGetPropertyNamesPropertiesString02() throws Exception {
         // 入力値の設定
@@ -1162,10 +1161,11 @@ public class PropertyUtilTest extends PropertyTestCase {
         String keyprefix = "System";
 
         // テスト対象の実行
-        Enumeration result = PropertyUtil.getPropertyNames(input, keyprefix);
+        Enumeration<String> result = PropertyUtil.getPropertyNames(input,
+                keyprefix);
 
         // 結果確認
-        Set set = new HashSet();
+        Set<String> set = new HashSet<String>();
         set.add("SystemExceptionHandlerTest.key");
         assertTrue(set.contains(result.nextElement()));
         assertFalse(result.hasMoreElements());
@@ -1181,7 +1181,6 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 説明：プロパティオブジェクトの中身が複数の時、 対応するキーが複数取得されていることを確認する。
      * @throws Exception 例外
      */
-    @SuppressWarnings("unchecked")
     @Test
     public void testGetPropertyNamesPropertiesString03() throws Exception {
         // 入力値の設定
@@ -1202,11 +1201,12 @@ public class PropertyUtilTest extends PropertyTestCase {
         String keyprefix = "property";
 
         // テスト対象の実行
-        Enumeration result = PropertyUtil.getPropertyNames(input, keyprefix);
+        Enumeration<String> result = PropertyUtil.getPropertyNames(input,
+                keyprefix);
 
         // 結果確認
         // 生成されたEnumurationに入ってることの確認
-        Set set = new HashSet();
+        Set<String> set = new HashSet<String>();
         set.add("property.test002.id.2");
         set.add("property.test004.id.0");
         assertTrue(set.contains(result.nextElement()));
@@ -1244,7 +1244,8 @@ public class PropertyUtilTest extends PropertyTestCase {
         String keyprefix = "a";
 
         // テスト対象の実行
-        Enumeration result = PropertyUtil.getPropertyNames(input, keyprefix);
+        Enumeration<String> result = PropertyUtil.getPropertyNames(input,
+                keyprefix);
 
         // 結果確認
         assertFalse(result.hasMoreElements());
@@ -1268,7 +1269,8 @@ public class PropertyUtilTest extends PropertyTestCase {
         String keyprefix = "properties";
 
         // テスト対象の実行
-        Enumeration result = PropertyUtil.getPropertyNames(input, keyprefix);
+        Enumeration<String> result = PropertyUtil.getPropertyNames(input,
+                keyprefix);
 
         // 結果確認
         assertNull(result);
@@ -1295,7 +1297,8 @@ public class PropertyUtilTest extends PropertyTestCase {
         String keyprefix = null;
 
         // テスト対象の実行
-        Enumeration result = PropertyUtil.getPropertyNames(input, keyprefix);
+        Enumeration<String> result = PropertyUtil.getPropertyNames(input,
+                keyprefix);
 
         // 結果確認
         assertNull(result);
@@ -1319,7 +1322,8 @@ public class PropertyUtilTest extends PropertyTestCase {
         String keyprefix = "properties";
 
         // テスト対象の実行
-        Enumeration result = PropertyUtil.getPropertyNames(input, keyprefix);
+        Enumeration<String> result = PropertyUtil.getPropertyNames(input,
+                keyprefix);
 
         // 結果確認
         assertFalse(result.hasMoreElements());
@@ -1335,7 +1339,6 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 説明：部分キープリフィックスが空文字の場合、 対応する全てのキー一覧が返却されることを確認する。
      * @throws Exception 例外
      */
-    @SuppressWarnings("unchecked")
     @Test
     public void testGetPropertyNamesPropertiesString08() throws Exception {
         // 入力値の設定
@@ -1357,10 +1360,11 @@ public class PropertyUtilTest extends PropertyTestCase {
         String keyprefix = "";
 
         // テスト対象の実行
-        Enumeration result = PropertyUtil.getPropertyNames(input, keyprefix);
+        Enumeration<String> result = PropertyUtil.getPropertyNames(input,
+                keyprefix);
 
         // 結果確認
-        Set set = new HashSet();
+        Set<String> set = new HashSet<String>();
         set.add("property.test002.id.2");
         set.add("property.test004.id.0");
         set.add("property.test001.id.0");
@@ -1380,7 +1384,6 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 説明：キーが複数存在するプロパティオブジェクトの場合 複数のうち1つ返却されることを確認する。
      * @throws Exception 例外
      */
-    @SuppressWarnings("unchecked")
     @Test
     public void testGetPropertyNamesPropertiesString09() throws Exception {
         // 入力値の設定
@@ -1405,11 +1408,12 @@ public class PropertyUtilTest extends PropertyTestCase {
         String keyprefix = "pro";
 
         // テスト対象の実行
-        Enumeration result = PropertyUtil.getPropertyNames(input, keyprefix);
+        Enumeration<String> result = PropertyUtil.getPropertyNames(input,
+                keyprefix);
 
         // 結果確認
         // 生成されたEnumurationに入ってることの確認
-        Set set = new HashSet();
+        Set<String> set = new HashSet<String>();
         set.add("property.test002.id.2");
         set.add("property.test004.id.0");
         assertTrue(set.contains(result.nextElement()));
@@ -1437,9 +1441,10 @@ public class PropertyUtilTest extends PropertyTestCase {
         Properties input = new Properties();
         input.setProperty(key1, value1);
 
+        @SuppressWarnings("rawtypes")
         Enumeration em = new StringTokenizer("SystemExceptionHandlerTest.key");
         // テスト対象の実行
-        Set result = PropertyUtil.getPropertiesValues(input, em);
+        Set<?> result = PropertyUtil.getPropertiesValues(input, em);
 
         // 結果確認
         assertTrue(result.contains("{0}message"));
@@ -1473,10 +1478,11 @@ public class PropertyUtilTest extends PropertyTestCase {
         input.setProperty(key2, value2);
         input.setProperty(key3, value3);
 
+        @SuppressWarnings("rawtypes")
         Enumeration em = new StringTokenizer("property.test001.id.0 property.test002.id.0 property.test002.id.1");
 
         // テスト対象の実行
-        Set result = PropertyUtil.getPropertiesValues(input, em);
+        Set<?> result = PropertyUtil.getPropertiesValues(input, em);
 
         // 結果確認
         assertTrue(result.contains("test0"));
@@ -1512,10 +1518,11 @@ public class PropertyUtilTest extends PropertyTestCase {
         input.setProperty(key2, value2);
         input.setProperty(key3, value3);
 
+        @SuppressWarnings("rawtypes")
         Enumeration em = new StringTokenizer("property.test001.id.0 property.test002.id.0 property.test003.id.0");
 
         // テスト対象の実行
-        Set result = PropertyUtil.getPropertiesValues(input, em);
+        Set<?> result = PropertyUtil.getPropertiesValues(input, em);
 
         // 結果確認
         assertTrue(result.contains("test0"));
@@ -1539,9 +1546,10 @@ public class PropertyUtilTest extends PropertyTestCase {
         // 入力値の設定
         Properties input = null;
 
+        @SuppressWarnings("rawtypes")
         Enumeration em = new StringTokenizer("property.test001.id.0");
         // テスト対象の実行
-        Set result = PropertyUtil.getPropertiesValues(input, em);
+        Set<?> result = PropertyUtil.getPropertiesValues(input, em);
 
         // 結果確認
         assertNull(result);
@@ -1566,9 +1574,10 @@ public class PropertyUtilTest extends PropertyTestCase {
         String value1 = "test";
         input.setProperty(key1, value1);
 
+        @SuppressWarnings("rawtypes")
         Enumeration em = null;
         // テスト対象の実行
-        Set result = PropertyUtil.getPropertiesValues(input, em);
+        Set<?> result = PropertyUtil.getPropertiesValues(input, em);
 
         // 結果確認
         assertNull(result);
@@ -1590,9 +1599,10 @@ public class PropertyUtilTest extends PropertyTestCase {
         // 入力値の設定
         Properties input = new Properties();
 
+        @SuppressWarnings("rawtypes")
         Enumeration em = new StringTokenizer("property.test001.id.0");
         // テスト対象の実行
-        Set result = PropertyUtil.getPropertiesValues(input, em);
+        Set<?> result = PropertyUtil.getPropertiesValues(input, em);
 
         // 結果確認
         assertTrue(result.contains(null));
@@ -1617,10 +1627,11 @@ public class PropertyUtilTest extends PropertyTestCase {
         String value1 = "test";
         input.setProperty(key1, value1);
 
+        @SuppressWarnings("rawtypes")
         Enumeration em = new StringTokenizer("");
 
         // テスト対象の実行
-        Set result = PropertyUtil.getPropertiesValues(input, em);
+        Set<?> result = PropertyUtil.getPropertiesValues(input, em);
 
         // 結果確認
         assertTrue(result.isEmpty());
@@ -1650,10 +1661,11 @@ public class PropertyUtilTest extends PropertyTestCase {
         input.setProperty(key1, value1);
         input.setProperty(key2, value2);
 
+        @SuppressWarnings("rawtypes")
         Enumeration em = new StringTokenizer("property.test004.id.0");
 
         // テスト対象の実行
-        Set result = PropertyUtil.getPropertiesValues(input, em);
+        Set<?> result = PropertyUtil.getPropertiesValues(input, em);
 
         // 結果確認
         assertTrue(result.contains("testB"));
@@ -1680,10 +1692,11 @@ public class PropertyUtilTest extends PropertyTestCase {
 
         input.setProperty(key1, value1);
 
+        @SuppressWarnings("rawtypes")
         Enumeration em = new StringTokenizer("property.test004.id.0");
 
         // テスト対象の実行
-        Set result = PropertyUtil.getPropertiesValues(input, em);
+        Set<?> result = PropertyUtil.getPropertiesValues(input, em);
 
         // 結果確認
         assertTrue(result.contains(null));
@@ -1700,7 +1713,6 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 説明：プロパティオブジェクトの中身が１つの時、 指定されたプロパティファイルがロードされていることを確認する。
      * @throws Exception 例外
      */
-    @SuppressWarnings("unchecked")
     @Test
     public void testLoadProperties01() throws Exception {
         // 入力値の設定
@@ -1847,7 +1859,6 @@ public class PropertyUtilTest extends PropertyTestCase {
      * 説明：引数のプロパティファイル名にすでに拡張子が含まれている場合、 指定されたプロパティファイルがロードされていることを確認する。
      * @throws Exception 例外
      */
-    @SuppressWarnings("unchecked")
     @Test
     public void testLoadProperties07() throws Exception {
         // 入力値の設定
@@ -1876,6 +1887,7 @@ public class PropertyUtilTest extends PropertyTestCase {
     public void testGetPropertiesPathStringString01() throws Exception {
         // テスト設定
         // getPropertiesPathの引数クラス要素
+        @SuppressWarnings("rawtypes")
         Class[] clz = new Class[] { String.class, String.class };
         // getPropertiesPathの引数オブジェクト要素
         Object[] obj = new Object[] { "subDir/PropertyUtil.class", "hoge.txt" };
@@ -1907,6 +1919,7 @@ public class PropertyUtilTest extends PropertyTestCase {
     public void testGetPropertiesPathStringString02() throws Exception {
         // テスト設定
         // getPropertiesPathの引数クラス要素
+        @SuppressWarnings("rawtypes")
         Class[] clz = new Class[] { String.class, String.class };
         // getPropertiesPathの引数オブジェクト要素
         Object[] obj = new Object[] { null, "hoge.txt" };
@@ -1941,6 +1954,7 @@ public class PropertyUtilTest extends PropertyTestCase {
     public void testGetPropertiesPathStringString03() throws Exception {
         // テスト設定
         // getPropertiesPathの引数クラス要素
+        @SuppressWarnings("rawtypes")
         Class[] clz = new Class[] { String.class, String.class };
         // getPropertiesPathの引数オブジェクト要素
         Object[] obj = new Object[] { "subDir/PropertyUtil.class", null };
@@ -1972,6 +1986,7 @@ public class PropertyUtilTest extends PropertyTestCase {
     public void testGetPropertiesPathStringString04() throws Exception {
         // テスト設定
         // getPropertiesPathの引数クラス要素
+        @SuppressWarnings("rawtypes")
         Class[] clz = new Class[] { String.class, String.class };
         // getPropertiesPathの引数オブジェクト要素
         Object[] obj = new Object[] { "", "" };

@@ -27,6 +27,7 @@ public class FileValidateCollector021Test extends DaoTestCase {
         this.csvFileQueryDAO = csvFileQueryDAO;
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     protected void onSetUp() throws Exception {
         if (logger.isInfoEnabled()) {
@@ -88,7 +89,8 @@ public class FileValidateCollector021Test extends DaoTestCase {
         try {
             // it = ac.execute();
 
-            for (B000001Data data : it) {
+            for (@SuppressWarnings("unused")
+            B000001Data data : it) {
                 count_first++;
 
             }

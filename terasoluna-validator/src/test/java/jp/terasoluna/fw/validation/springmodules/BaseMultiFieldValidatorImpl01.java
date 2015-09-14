@@ -20,20 +20,17 @@ import org.springframework.validation.Errors;
 
 /**
  * BaseMultiFieldValidatorクラスの実装クラス。
- *
  */
 public class BaseMultiFieldValidatorImpl01 extends BaseMultiFieldValidator {
-    
+
     protected Object obj = null;
+
     protected Errors errors = null;
 
     @Override
-    protected void validateMultiField(@SuppressWarnings("hiding") Object obj, 
-            @SuppressWarnings("hiding") Errors errors) {
+    protected void validateMultiField(Object obj, Errors errors) {
         this.obj = obj;
         this.errors = errors;
     }
-
-    
 
 }

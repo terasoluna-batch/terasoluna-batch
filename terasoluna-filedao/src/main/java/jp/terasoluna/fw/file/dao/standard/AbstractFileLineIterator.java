@@ -68,7 +68,7 @@ import org.apache.commons.lang3.StringUtils;
  * @param <T> ファイル行オブジェクト。
  */
 public abstract class AbstractFileLineIterator<T> implements
-                                                  FileLineIterator<T> {
+                                              FileLineIterator<T> {
 
     /**
      * 初期化処理をあらわす行番号。
@@ -178,7 +178,7 @@ public abstract class AbstractFileLineIterator<T> implements
     /**
      * ファイル行オブジェクトのストリングコンバータを格納するマップ。
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     private static Map<Class, StringConverter> stringConverterCacheMap = new HashMap<Class, StringConverter>();
 
     /**
@@ -239,32 +239,26 @@ public abstract class AbstractFileLineIterator<T> implements
             Map<String, ColumnParser> columnParserMap) {
         // ファイル名の必須チェックを行う。
         if (fileName == null || "".equals(fileName)) {
-            throw new FileException("fileName is required.",
-                    new IllegalArgumentException(), fileName);
+            throw new FileException("fileName is required.", new IllegalArgumentException(), fileName);
         }
 
         // ファイル行オブジェクトクラスの必須チェックを行う。
         if (clazz == null) {
-            throw new FileException("clazz is required.",
-                    new IllegalArgumentException(), fileName);
+            throw new FileException("clazz is required.", new IllegalArgumentException(), fileName);
         }
 
         // フォーマット処理リストの必須チェックを行う。
         if (columnParserMap == null || columnParserMap.isEmpty()) {
-            throw new FileException("columnFormaterMap is required.",
-                    new IllegalArgumentException(), fileName);
+            throw new FileException("columnFormaterMap is required.", new IllegalArgumentException(), fileName);
         }
 
         // ファイル行オブジェクトクラスがインスタンス化できるかをチェックする。
         try {
             clazz.newInstance();
         } catch (InstantiationException e) {
-            throw new FileException("Failed in instantiation of clazz.", e,
-                    fileName);
+            throw new FileException("Failed in instantiation of clazz.", e, fileName);
         } catch (IllegalAccessException e) {
-            throw new FileException(
-                    "clazz's nullary  constructor is not accessible", e,
-                    fileName);
+            throw new FileException("clazz's nullary  constructor is not accessible", e, fileName);
         }
 
         this.fileName = fileName;
@@ -276,26 +270,23 @@ public abstract class AbstractFileLineIterator<T> implements
 
         // ファイル行オブジェクトのClassにFileFormatアノテーションがあるかチェックする。
         if (fileFormat == null) {
-            throw new FileException("FileFormat annotation is not found.",
-                    new IllegalStateException(), fileName);
+            throw new FileException("FileFormat annotation is not found.", new IllegalStateException(), fileName);
         }
 
         // 区切り文字と囲み文字が同じ場合、例外をスローする。
         if (fileFormat.delimiter() == fileFormat.encloseChar()) {
-            throw new FileException(
-                    "Delimiter is the same as EncloseChar and is no use.",
-                    new IllegalStateException(), fileName);
+            throw new FileException("Delimiter is the same as EncloseChar and is no use.", new IllegalStateException(), fileName);
         }
 
         // 行区切り文字をチェックする。設定がない場合はシステムデフォルト値を利用する。
-        if (fileFormat.lineFeedChar() != null
-                && !"".equals(fileFormat.lineFeedChar())) {
+        if (fileFormat.lineFeedChar() != null && !"".equals(fileFormat
+                .lineFeedChar())) {
             this.lineFeedChar = fileFormat.lineFeedChar();
         }
 
         // ファイルエンコーディングをチェックする。設定がない場合はシステムデフォルト値を利用する。
-        if (fileFormat.fileEncoding() != null
-                && !"".equals(fileFormat.fileEncoding())) {
+        if (fileFormat.fileEncoding() != null && !"".equals(fileFormat
+                .fileEncoding())) {
             this.fileEncoding = fileFormat.fileEncoding();
         }
 
@@ -319,14 +310,12 @@ public abstract class AbstractFileLineIterator<T> implements
                 return true;
             }
         } catch (IOException e) {
-            throw new FileException("Processing of reader was failed.", e,
-                    fileName);
+            throw new FileException("Processing of reader was failed.", e, fileName);
         } finally {
             try {
                 reader.reset();
             } catch (IOException e) {
-                throw new FileException(
-                        "Processing of reader#reset was failed.", e, fileName);
+                throw new FileException("Processing of reader#reset was failed.", e, fileName);
             }
         }
 
@@ -344,10 +333,9 @@ public abstract class AbstractFileLineIterator<T> implements
      * また、InputFileColumnに設定されたバイト数と違う情報が来た場合も例外を発生する。<br>
      * それではない場合は以下の順番でデータを処理し格納する。<br>
      * <ul>
-     * 　　
-     * <li>トリム処理</li> 　　
-     * <li>パディング処理</li> 　　
-     * <li>文字列変換処理</li> 　　
+     * <li>トリム処理</li>
+     * <li>パディング処理</li>
+     * <li>文字列変換処理</li>
      * <li>型変換(マッピング)処理</li>
      * </ul>
      * @return ファイル行オブジェクト
@@ -356,16 +344,12 @@ public abstract class AbstractFileLineIterator<T> implements
      */
     public T next() {
         if (readTrailer) {
-            throw new FileLineException(
-                    "Data part should be called before trailer part.",
-                    new IllegalStateException(), fileName, currentLineCount);
+            throw new FileLineException("Data part should be called before trailer part.", new IllegalStateException(), fileName, currentLineCount);
         }
 
         if (!hasNext()) {
-            throw new FileLineException(
-                    "The data which can be acquired doesn't exist.",
-                    new NoSuchElementException(), fileName,
-                    currentLineCount + 1);
+            throw new FileLineException("The data which can be acquired doesn't exist.", new NoSuchElementException(), fileName, currentLineCount
+                    + 1);
         }
 
         T fileLineObject = null;
@@ -378,13 +362,9 @@ public abstract class AbstractFileLineIterator<T> implements
         try {
             fileLineObject = clazz.newInstance();
         } catch (InstantiationException e) {
-            throw new FileException(
-                    "Failed in an instantiate of a FileLineObject.", e,
-                    fileName);
+            throw new FileException("Failed in an instantiate of a FileLineObject.", e, fileName);
         } catch (IllegalAccessException e) {
-            throw new FileException(
-                    "Failed in an instantiate of a FileLineObject.", e,
-                    fileName);
+            throw new FileException("Failed in an instantiate of a FileLineObject.", e, fileName);
         }
 
         // CSVの区切り文字にしたがって入力データを分解する。
@@ -394,8 +374,7 @@ public abstract class AbstractFileLineIterator<T> implements
         // ファイルから読み取ったカラム数とファイル行オブジェクトのカラム数を比較する。
         if (fields.length != columns.length) {
             throw new FileLineException("Column Count is different from "
-                    + "FileLineObject's column counts",
-                    new IllegalStateException(), fileName, currentLineCount);
+                    + "FileLineObject's column counts", new IllegalStateException(), fileName, currentLineCount);
         }
 
         int columnIndex = -1;
@@ -412,18 +391,14 @@ public abstract class AbstractFileLineIterator<T> implements
             // カラムのバイト数チェック。
             if (isCheckByte(columnBytes[i])) {
                 try {
-                    if (columnString.getBytes(fileEncoding).length != columnBytes[i]) {
-                        throw new FileLineException(
-                                "Data size is different from a set point "
-                                        + "of a column.",
-                                new IllegalStateException(), fileName,
-                                currentLineCount, fields[i].getName(),
-                                columnIndex);
+                    if (columnString.getBytes(
+                            fileEncoding).length != columnBytes[i]) {
+                        throw new FileLineException("Data size is different from a set point "
+                                + "of a column.", new IllegalStateException(), fileName, currentLineCount, fields[i]
+                                        .getName(), columnIndex);
                     }
                 } catch (UnsupportedEncodingException e) {
-                    throw new FileException(
-                            "fileEncoding which isn't supported was set.", e,
-                            fileName);
+                    throw new FileException("fileEncoding which isn't supported was set.", e, fileName);
                 }
             }
 
@@ -446,21 +421,17 @@ public abstract class AbstractFileLineIterator<T> implements
                 columnParser.parse(columnString, fileLineObject, methods[i],
                         columnFormats[i]);
             } catch (IllegalArgumentException e) {
-                throw new FileLineException("Failed in coluomn data parsing.",
-                        e, fileName, currentLineCount, fields[i].getName(),
-                        columnIndex);
+                throw new FileLineException("Failed in coluomn data parsing.", e, fileName, currentLineCount, fields[i]
+                        .getName(), columnIndex);
             } catch (IllegalAccessException e) {
-                throw new FileLineException("Failed in coluomn data parsing.",
-                        e, fileName, currentLineCount, fields[i].getName(),
-                        columnIndex);
+                throw new FileLineException("Failed in coluomn data parsing.", e, fileName, currentLineCount, fields[i]
+                        .getName(), columnIndex);
             } catch (InvocationTargetException e) {
-                throw new FileLineException("Failed in coluomn data parsing.",
-                        e, fileName, currentLineCount, fields[i].getName(),
-                        columnIndex);
+                throw new FileLineException("Failed in coluomn data parsing.", e, fileName, currentLineCount, fields[i]
+                        .getName(), columnIndex);
             } catch (ParseException e) {
-                throw new FileLineException("Failed in coluomn data parsing.",
-                        e, fileName, currentLineCount, fields[i].getName(),
-                        columnIndex);
+                throw new FileLineException("Failed in coluomn data parsing.", e, fileName, currentLineCount, fields[i]
+                        .getName(), columnIndex);
             }
 
         }
@@ -502,17 +473,14 @@ public abstract class AbstractFileLineIterator<T> implements
             if (isCheckEncloseChar()) {
                 // カラムごとの囲み文字が設定されている場合、例外をスローする。
                 if (isEnclosed()) {
-                    throw new FileException(
-                            "columnEncloseChar can not change.",
-                            new IllegalStateException(), fileName);
+                    throw new FileException("columnEncloseChar can not change.", new IllegalStateException(), fileName);
                 }
             }
 
             if (isCheckColumnAnnotationCount()) {
                 // ファイル行オブジェクトにアノテーションが設定されていない場合、例外をスローする。
                 if (fields.length == 0) {
-                    throw new FileException("InputFileColumn is not found.",
-                            new IllegalStateException(), fileName);
+                    throw new FileException("InputFileColumn is not found.", new IllegalStateException(), fileName);
                 }
             }
 
@@ -539,18 +507,14 @@ public abstract class AbstractFileLineIterator<T> implements
     private void buildLineReader() {
         // 対象ファイルに対するReaderを取得する。
         try {
-            this.reader = new BufferedReader(new InputStreamReader(
-                    (new FileInputStream(fileName)), fileEncoding));
+            this.reader = new BufferedReader(new InputStreamReader((new FileInputStream(fileName)), fileEncoding));
             if (!reader.markSupported()) {
-                throw new FileException(
-                        "BufferedReader of this JVM dose not support mark method");
+                throw new FileException("BufferedReader of this JVM dose not support mark method");
             }
         } catch (UnsupportedEncodingException e) {
-            throw new FileException("Failed in generation of reader.", e,
-                    fileName);
+            throw new FileException("Failed in generation of reader.", e, fileName);
         } catch (FileNotFoundException e) {
-            throw new FileException("Failed in generation of reader.", e,
-                    fileName);
+            throw new FileException("Failed in generation of reader.", e, fileName);
         }
 
         // 行区切り文字と囲み文字の情報に基づいてLineReaderを生成する。
@@ -561,9 +525,7 @@ public abstract class AbstractFileLineIterator<T> implements
                 lineReader = new LineFeed2LineReader(reader, lineFeedChar);
             } else {
                 // 囲み文字あり
-                lineReader = new EncloseCharLineFeed2LineReader(getDelimiter(),
-                        getEncloseChar(), columnEncloseChar, reader,
-                        lineFeedChar);
+                lineReader = new EncloseCharLineFeed2LineReader(getDelimiter(), getEncloseChar(), columnEncloseChar, reader, lineFeedChar);
             }
         } else if (lineFeedChar.length() == 1) {
             // 行区切り文字が1文字
@@ -572,19 +534,15 @@ public abstract class AbstractFileLineIterator<T> implements
                 lineReader = new LineFeed1LineReader(reader, lineFeedChar);
             } else {
                 // 囲み文字あり
-                lineReader = new EncloseCharLineFeed1LineReader(getDelimiter(),
-                        getEncloseChar(), columnEncloseChar, reader,
-                        lineFeedChar);
+                lineReader = new EncloseCharLineFeed1LineReader(getDelimiter(), getEncloseChar(), columnEncloseChar, reader, lineFeedChar);
             }
         } else if (lineFeedChar.length() == 0) {
             // 行区切り文字が0文字
-            lineReader = new LineFeed0LineReader(reader, fileEncoding,
-                    totalBytes);
+            lineReader = new LineFeed0LineReader(reader, fileEncoding, totalBytes);
         } else {
-            throw new FileException(
-                    "lineFeedChar length must be 0 or 1 or 2. but: "
-                            + lineFeedChar.length(),
-                    new IllegalStateException(), fileName);
+            throw new FileException("lineFeedChar length must be 0 or 1 or 2. but: "
+                    + lineFeedChar
+                            .length(), new IllegalStateException(), fileName);
         }
     }
 
@@ -596,13 +554,12 @@ public abstract class AbstractFileLineIterator<T> implements
      * ファイル行オブジェクトの属性の設定に問題が無い場合は InputFileColumnアノテーション設定がある属性のみ整理し配列にする。<br>
      * @throws FileException カラムインデックスが重複した場合。
      */
-    @SuppressWarnings("unchecked")
     private void buildFields() {
         // フィールドオブジェクトを生成
         List<Field[]> allFields = new ArrayList<Field[]>();
 
         // フィールドオブジェクトを生成
-        Class tempClass = clazz;
+        Class<?> tempClass = clazz;
         Field[] declaredFieldArray = null;
         int allFieldCount = 0;
         while (tempClass != null) {
@@ -625,27 +582,22 @@ public abstract class AbstractFileLineIterator<T> implements
                 inputFileColumn = field.getAnnotation(InputFileColumn.class);
                 if (inputFileColumn != null) {
                     // マッピング可能な型のフィールドなのか確認する。
-                    if (columnParserMap.get(field.getType().getName()) == null) {
-                        throw new FileException(
-                                "There is a type which isn't supported in a "
-                                        + "mapping target field in FileLineObject.",
-                                new IllegalStateException(), fileName);
+                    if (columnParserMap.get(field.getType()
+                            .getName()) == null) {
+                        throw new FileException("There is a type which isn't supported in a "
+                                + "mapping target field in FileLineObject.", new IllegalStateException(), fileName);
                     }
 
                     columnIndex = inputFileColumn.columnIndex();
                     // カラムIndexがマイナス値なのか確認する。
                     if (columnIndex < 0) {
-                        throw new FileException(
-                                "Column Index in FileLineObject is the minus "
-                                        + "number.",
-                                new IllegalStateException(), fileName);
+                        throw new FileException("Column Index in FileLineObject is the minus "
+                                + "number.", new IllegalStateException(), fileName);
                     }
                     // カラムIndexがフィールド数を超えているかいるか確認する。
                     if (dataColumnFields.length <= columnIndex) {
-                        throw new FileException(
-                                "Column Index in FileLineObject is bigger than "
-                                        + "the total number of the field.",
-                                new IllegalStateException(), fileName);
+                        throw new FileException("Column Index in FileLineObject is bigger than "
+                                + "the total number of the field.", new IllegalStateException(), fileName);
                     }
                     // カラムIndexが重複してないのか確認する。
                     if (dataColumnFields[columnIndex] == null) {
@@ -664,9 +616,7 @@ public abstract class AbstractFileLineIterator<T> implements
 
         // columnIndexが連番で定義されているかをチェックする
         if (columnCount != (maxColumnIndex + 1)) {
-            throw new FileException(
-                    "columnIndex in FileLineObject is not sequential order.",
-                    new IllegalStateException(), fileName);
+            throw new FileException("columnIndex in FileLineObject is not sequential order.", new IllegalStateException(), fileName);
         }
 
         // フィールドをコピー(nullの部分削除)
@@ -697,8 +647,8 @@ public abstract class AbstractFileLineIterator<T> implements
         }
 
         for (int i = 0; i < fields.length; i++) {
-            inputFileColumns[i] = fields[i]
-                    .getAnnotation(InputFileColumn.class);
+            inputFileColumns[i] = fields[i].getAnnotation(
+                    InputFileColumn.class);
             columnIndexs[i] = inputFileColumns[i].columnIndex();
             columnFormats[i] = inputFileColumns[i].columnFormat();
             columnBytes[i] = inputFileColumns[i].bytes();
@@ -709,7 +659,8 @@ public abstract class AbstractFileLineIterator<T> implements
             trimChars[i] = inputFileColumns[i].trimChar();
 
             // 囲み文字設定。inputFileColumnsの設定で上書きをする。
-            if (inputFileColumns[i].columnEncloseChar() != Character.MIN_VALUE) {
+            if (inputFileColumns[i]
+                    .columnEncloseChar() != Character.MIN_VALUE) {
                 columnEncloseChar[i] = inputFileColumns[i].columnEncloseChar();
                 enclosed = true;
             }
@@ -743,8 +694,8 @@ public abstract class AbstractFileLineIterator<T> implements
                 // マップ内に取得した文字変換種別と一致するキーが存在するか判定する。
                 if (stringConverterCacheMap.containsKey(converterKind)) {
                     // マップからオブジェクトを取得し、文字変換種別の配列にセットする。
-                    dataColumnStringConverters[i] = stringConverterCacheMap
-                            .get(converterKind);
+                    dataColumnStringConverters[i] = stringConverterCacheMap.get(
+                            converterKind);
 
                 } else {
                     // インスタンスを生成し、文字変換種別の配列にセットする。
@@ -754,16 +705,12 @@ public abstract class AbstractFileLineIterator<T> implements
                 }
 
             } catch (InstantiationException e) {
-                throw new FileLineException(
-                        "Failed in an instantiate of a stringConverter.", e,
-                        fileName, INITIAL_LINE_NO, fields[i].getName(),
-                        inputFileColumn.columnIndex());
+                throw new FileLineException("Failed in an instantiate of a stringConverter.", e, fileName, INITIAL_LINE_NO, fields[i]
+                        .getName(), inputFileColumn.columnIndex());
 
             } catch (IllegalAccessException e) {
-                throw new FileLineException(
-                        "Failed in an instantiate of a stringConverter.", e,
-                        fileName, INITIAL_LINE_NO, fields[i].getName(),
-                        inputFileColumn.columnIndex());
+                throw new FileLineException("Failed in an instantiate of a stringConverter.", e, fileName, INITIAL_LINE_NO, fields[i]
+                        .getName(), inputFileColumn.columnIndex());
             }
         }
         this.stringConverters = dataColumnStringConverters;
@@ -796,13 +743,10 @@ public abstract class AbstractFileLineIterator<T> implements
             // setterのリフレクションオブジェクトを取得する。
             // fields[i].getType()で引数の型を指定している。
             try {
-                dataColumnSetMethods[i] = clazz.getMethod(
-                        setterName.toString(), new Class[] { fields[i]
-                                .getType() });
+                dataColumnSetMethods[i] = clazz.getMethod(setterName.toString(),
+                        new Class[] { fields[i].getType() });
             } catch (NoSuchMethodException e) {
-                throw new FileException(
-                        "The setter method of column doesn't exist.", e,
-                        fileName);
+                throw new FileException("The setter method of column doesn't exist.", e, fileName);
             }
         }
         this.methods = dataColumnSetMethods;
@@ -817,16 +761,12 @@ public abstract class AbstractFileLineIterator<T> implements
         if (0 < headerLineCount) {
             for (int i = 0; i < headerLineCount; i++) {
                 if (!hasNext()) {
-                    throw new FileException(
-                            "The data which can be acquired doesn't exist.",
-                            new NoSuchElementException(), fileName);
+                    throw new FileException("The data which can be acquired doesn't exist.", new NoSuchElementException(), fileName);
                 }
                 try {
                     header.add(lineReader.readLine());
                 } catch (FileException e) {
-                    throw new FileException(
-                            "Error occurred by reading processing of a File.",
-                            e, fileName);
+                    throw new FileException("Error occurred by reading processing of a File.", e, fileName);
                 }
             }
         }
@@ -848,16 +788,12 @@ public abstract class AbstractFileLineIterator<T> implements
             // トレイラキューのトレイラ行数分のデータを追加する。
             for (int i = 0; i < trailerLineCount; i++) {
                 if (!hasNext()) {
-                    throw new FileException(
-                            "The data which can be acquired doesn't exist.",
-                            new NoSuchElementException(), fileName);
+                    throw new FileException("The data which can be acquired doesn't exist.", new NoSuchElementException(), fileName);
                 }
                 try {
                     trailerQueue.add(lineReader.readLine());
                 } catch (FileException e) {
-                    throw new FileException(
-                            "Error occurred by reading processing of a File.",
-                            e, fileName);
+                    throw new FileException("Error occurred by reading processing of a File.", e, fileName);
                 }
             }
         }
@@ -871,8 +807,7 @@ public abstract class AbstractFileLineIterator<T> implements
         try {
             reader.close();
         } catch (IOException e) {
-            throw new FileException("Processing of reader was failed.", e,
-                    fileName);
+            throw new FileException("Processing of reader was failed.", e, fileName);
         }
     }
 
@@ -903,8 +838,7 @@ public abstract class AbstractFileLineIterator<T> implements
                 try {
                     currentData = lineReader.readLine();
                 } catch (FileException e) {
-                    throw new FileException(
-                            "Processing of lineReader was failed.", e, fileName);
+                    throw new FileException("Processing of lineReader was failed.", e, fileName);
                 }
                 if (0 < trailerLineCount) {
                     trailerQueue.poll();
@@ -946,8 +880,7 @@ public abstract class AbstractFileLineIterator<T> implements
         try {
             currentReadLineString = lineReader.readLine();
         } catch (FileException e) {
-            throw new FileException("Processing of lineReader was failed.", e,
-                    fileName);
+            throw new FileException("Processing of lineReader was failed.", e, fileName);
         }
 
         // トレイラキューが存在する場合は、結果としてキューの先頭データを返す。
@@ -968,10 +901,8 @@ public abstract class AbstractFileLineIterator<T> implements
     public void skip(int skipLines) {
         for (int i = 0; i < skipLines; i++) {
             if (!hasNext()) {
-                throw new FileLineException(
-                        "The data which can be acquired doesn't exist.",
-                        new NoSuchElementException(), fileName,
-                        currentLineCount + 1);
+                throw new FileLineException("The data which can be acquired doesn't exist.", new NoSuchElementException(), fileName, currentLineCount
+                        + 1);
             }
             readLine();
             currentLineCount++;

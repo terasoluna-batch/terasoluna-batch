@@ -457,7 +457,7 @@ public class StringUtil {
         sb.append("Map{");
         sb.append(LINE_SEP);
 
-        Iterator it = map.keySet().iterator();
+        Iterator<?> it = map.keySet().iterator();
         while (it.hasNext()) {
             Object key = it.next();
             // キーオブジェクト

@@ -79,24 +79,24 @@ public class JXPATH152PatchActivator {
     /**
      * パッチをアクティベートする。
      */
-    @SuppressWarnings("unchecked")
     private static void activate() {
         try {
             // もともと使用されているMapオブジェクトを取得
             Field byClassField = JXPathIntrospector.class.getDeclaredField(
                     "byClass");
             byClassField.setAccessible(true);
-            Map byClass = (Map) byClassField.get(null);
+            Map<?, ?> byClass = (Map<?, ?>) byClassField.get(null);
 
             Field byInterfaceField = JXPathIntrospector.class.getDeclaredField(
                     "byInterface");
             byInterfaceField.setAccessible(true);
-            Map byInterface = (Map) byInterfaceField.get(null);
+            Map<?, ?> byInterface = (Map<?, ?>) byInterfaceField.get(null);
 
             // Mapオブジェクトを差し替える
-            byClassField.set(null, new HashMapForJXPathIntrospector(byClass));
+            byClassField.set(null,
+                    new HashMapForJXPathIntrospector<Object, Object>(byClass));
             byInterfaceField.set(null,
-                    new HashMapForJXPathIntrospector(byInterface));
+                    new HashMapForJXPathIntrospector<Object, Object>(byInterface));
 
             log.info("JXPATH-152 Patch activation succeeded.");
         } catch (Exception e) {

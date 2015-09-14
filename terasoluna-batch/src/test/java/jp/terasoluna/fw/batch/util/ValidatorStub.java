@@ -5,7 +5,7 @@ import org.springframework.validation.Validator;
 
 public class ValidatorStub implements Validator {
 
-    public boolean supports(Class clazz) {
+    public boolean supports(Class<?> clazz) {
         return false;
     }
 

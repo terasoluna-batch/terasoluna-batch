@@ -26,5 +26,7 @@ package jp.terasoluna.fw.util;
 public abstract class GenericsUtil_HashMapStub02
     extends GenericsUtil_HashMapStub01<Integer, String> {
 
+    private static final long serialVersionUID = 1L;
+
     // no method
 }

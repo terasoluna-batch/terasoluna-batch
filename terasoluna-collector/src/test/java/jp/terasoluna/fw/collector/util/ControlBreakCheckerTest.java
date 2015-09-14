@@ -3712,8 +3712,8 @@ public class ControlBreakCheckerTest {
     @Test
     public void testEqualsObjects0026() {
 
-        Class value1 = null;
-        Class value2 = String.class;
+        Class<?> value1 = null;
+        Class<String> value2 = String.class;
 
         // テスト
         boolean result = ControlBreakChecker.equalsObjects(value1, value2, null);
@@ -3729,8 +3729,8 @@ public class ControlBreakCheckerTest {
     @Test
     public void testEqualsObjects0027() {
 
-        Class value1 = String.class;
-        Class value2 = null;
+        Class<String> value1 = String.class;
+        Class<?> value2 = null;
 
         // テスト
         boolean result = ControlBreakChecker.equalsObjects(value1, value2, null);
@@ -3746,8 +3746,8 @@ public class ControlBreakCheckerTest {
     @Test
     public void testEqualsObjects0028() {
 
-        Class value1 = String.class;
-        Class value2 = String.class;
+        Class<String> value1 = String.class;
+        Class<String> value2 = String.class;
 
         // テスト
         boolean result = ControlBreakChecker.equalsObjects(value1, value2, null);
@@ -3763,8 +3763,8 @@ public class ControlBreakCheckerTest {
     @Test
     public void testEqualsObjects0029() {
 
-        Class value1 = String.class;
-        Class value2 = Integer.class;
+        Class<String> value1 = String.class;
+        Class<Integer> value2 = Integer.class;
 
         // テスト
         boolean result = ControlBreakChecker.equalsObjects(value1, value2, null);
@@ -3821,6 +3821,7 @@ public class ControlBreakCheckerTest {
         Date value2 = new Date(cal.getTimeInMillis());
 
         // テスト
+        @SuppressWarnings("deprecation")
         boolean result = ControlBreakChecker.equalsObjects(value1, value2);
 
         // 検証

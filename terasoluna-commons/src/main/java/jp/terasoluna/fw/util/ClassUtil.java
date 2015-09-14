@@ -155,6 +155,7 @@ public final class ClassUtil {
                                  throws ClassLoadException {
 
         // 参照の生成
+        @SuppressWarnings("rawtypes")
         Constructor[] constructors = null;
 
         // クラスローダを取得する

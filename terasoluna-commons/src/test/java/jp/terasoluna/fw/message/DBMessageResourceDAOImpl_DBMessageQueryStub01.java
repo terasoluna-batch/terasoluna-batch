@@ -22,7 +22,7 @@ import java.util.List;
 import javax.sql.DataSource;
 
 public class DBMessageResourceDAOImpl_DBMessageQueryStub01 extends
-DBMessageQuery {
+                                                           DBMessageQuery {
     public DBMessageResourceDAOImpl_DBMessageQueryStub01(DataSource ds,
             String sql, String codeColumn, String languageColumn,
             String countryColumn, String variantColumn, String messageColumn) {
@@ -34,14 +34,14 @@ DBMessageQuery {
      * 呼び出し確認
      */
     protected boolean isRead = false;
-    
+
     /**
      * 返却値生成
      */
-    protected List list = new ArrayList();
-    
+    protected List<?> list = new ArrayList<Object>();
+
     @Override
-    public List execute() {
+    public List<?> execute() {
         return list;
     }
 }

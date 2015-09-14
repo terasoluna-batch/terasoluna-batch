@@ -71,7 +71,7 @@ public class PlainFileLineWriter extends AbstractFileLineWriter<String> {
      * @param columnFormatterMap テキスト取得ルール
      */
     @SuppressWarnings("unchecked")
-    public PlainFileLineWriter(String fileName, Class clazz,
+    public PlainFileLineWriter(String fileName, @SuppressWarnings("rawtypes") Class clazz,
             Map<String, ColumnFormatter> columnFormatterMap) {
         super(fileName, clazz, columnFormatterMap);
 

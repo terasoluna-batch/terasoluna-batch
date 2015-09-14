@@ -35,6 +35,7 @@ public class DaoCollector001Test extends DaoTestCase {
         this.userListQueryResultHandleDao = userListQueryResultHandleDao;
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     protected void onSetUp() throws Exception {
         if (logger.isInfoEnabled()) {
@@ -119,6 +120,7 @@ public class DaoCollector001Test extends DaoTestCase {
 
         QueueingResultHandler drh = dbc.getResultHandler();
 
+        dbc.close();
         assertNotNull(drh);
     }
 
@@ -146,6 +148,8 @@ public class DaoCollector001Test extends DaoTestCase {
             assertEquals(SystemException.class, e.getClass());
             assertNotNull(e.getCause());
             assertEquals(InstantiationException.class, e.getCause().getClass());
+        } finally {
+            dbc.close();
         }
     }
 
@@ -173,6 +177,8 @@ public class DaoCollector001Test extends DaoTestCase {
             assertEquals(SystemException.class, e.getClass());
             assertNotNull(e.getCause());
             assertEquals(IllegalAccessException.class, e.getCause().getClass());
+        } finally {
+            dbc.close();
         }
     }
 

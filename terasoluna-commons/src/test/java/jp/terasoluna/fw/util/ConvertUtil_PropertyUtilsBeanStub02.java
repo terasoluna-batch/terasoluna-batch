@@ -33,6 +33,7 @@ public class ConvertUtil_PropertyUtilsBeanStub02 extends PropertyUtilsBean {
      * 実行時にNoSuchMethodExceptionをスローする
      * @param bean Bean whose properties are to be extracted
      */
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     @Override
     public Map describe(Object bean) throws IllegalAccessException,
             InvocationTargetException, NoSuchMethodException {

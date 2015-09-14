@@ -62,11 +62,10 @@ public class FileCollectorConfigTest {
     public void testFileCollectorConfig001() {
         FileQueryDAO fileQueryDAO = null;
         String fileName = null;
-        Class clazz = null;
+        Class<?> clazz = null;
 
         // テスト
-        FileCollectorConfig config = new FileCollectorConfig(fileQueryDAO,
-                fileName, clazz);
+        FileCollectorConfig<?> config = new FileCollectorConfig<Object>(fileQueryDAO, fileName, (Class<Object>) clazz);
 
         assertNotNull(config);
     }
@@ -75,7 +74,6 @@ public class FileCollectorConfigTest {
      * {@link jp.terasoluna.fw.collector.file.FileCollectorConfig#FileCollectorConfig(jp.terasoluna.fw.file.dao.FileQueryDAO, java.lang.String, java.lang.Class)}
      * のためのテスト・メソッド。
      */
-    @SuppressWarnings("unchecked")
     @Test
     public void testFileCollectorConfig002() {
         FileQueryDAO fileQueryDAO = new FileQueryDAO() {
@@ -85,11 +83,10 @@ public class FileCollectorConfigTest {
             }
         };
         String fileName = "hoge";
-        Class clazz = B000001Data.class;
+        Class<B000001Data> clazz = B000001Data.class;
 
         // テスト
-        FileCollectorConfig config = new FileCollectorConfig(fileQueryDAO,
-                fileName, clazz);
+        FileCollectorConfig<B000001Data> config = new FileCollectorConfig<B000001Data>(fileQueryDAO, fileName, clazz);
 
         assertNotNull(config);
         assertEquals(fileQueryDAO, config.getFileQueryDAO());
@@ -100,7 +97,6 @@ public class FileCollectorConfigTest {
     /**
      * {@link jp.terasoluna.fw.collector.file.FileCollectorConfig#addQueueSize(int)} のためのテスト・メソッド。
      */
-    @SuppressWarnings("unchecked")
     @Test
     public void testAddQueueSize001() {
         FileQueryDAO fileQueryDAO = new FileQueryDAO() {
@@ -110,10 +106,9 @@ public class FileCollectorConfigTest {
             }
         };
         String fileName = "hoge";
-        Class clazz = B000001Data.class;
+        Class<B000001Data> clazz = B000001Data.class;
 
-        FileCollectorConfig config = new FileCollectorConfig(fileQueryDAO,
-                fileName, clazz);
+        FileCollectorConfig<B000001Data> config = new FileCollectorConfig<B000001Data>(fileQueryDAO, fileName, clazz);
 
         int queueSize = 987;
 
@@ -131,7 +126,6 @@ public class FileCollectorConfigTest {
      * {@link jp.terasoluna.fw.collector.file.FileCollectorConfig#addExceptionHandler(jp.terasoluna.fw.collector.exception.CollectorExceptionHandler)}
      * のためのテスト・メソッド。
      */
-    @SuppressWarnings("unchecked")
     @Test
     public void testAddExceptionHandler001() {
         FileQueryDAO fileQueryDAO = new FileQueryDAO() {
@@ -141,10 +135,9 @@ public class FileCollectorConfigTest {
             }
         };
         String fileName = "hoge";
-        Class clazz = B000001Data.class;
+        Class<B000001Data> clazz = B000001Data.class;
 
-        FileCollectorConfig config = new FileCollectorConfig(fileQueryDAO,
-                fileName, clazz);
+        FileCollectorConfig<B000001Data> config = new FileCollectorConfig<B000001Data>(fileQueryDAO, fileName, clazz);
 
         CollectorExceptionHandler exceptionHandler = new CollectorExceptionHandler() {
             public CollectorExceptionHandlerStatus handleException(
@@ -167,7 +160,6 @@ public class FileCollectorConfigTest {
      * {@link jp.terasoluna.fw.collector.file.FileCollectorConfig#addValidator(org.springframework.validation.Validator)}
      * のためのテスト・メソッド。
      */
-    @SuppressWarnings("unchecked")
     @Test
     public void testAddValidator001() {
         FileQueryDAO fileQueryDAO = new FileQueryDAO() {
@@ -177,13 +169,12 @@ public class FileCollectorConfigTest {
             }
         };
         String fileName = "hoge";
-        Class clazz = B000001Data.class;
+        Class<B000001Data> clazz = B000001Data.class;
 
-        FileCollectorConfig config = new FileCollectorConfig(fileQueryDAO,
-                fileName, clazz);
+        FileCollectorConfig<B000001Data> config = new FileCollectorConfig<B000001Data>(fileQueryDAO, fileName, clazz);
 
         Validator validator = new Validator() {
-            public boolean supports(Class clazz) {
+            public boolean supports(Class<?> clazz) {
                 return false;
             }
 
@@ -205,7 +196,6 @@ public class FileCollectorConfigTest {
      * {@link jp.terasoluna.fw.collector.file.FileCollectorConfig#addValidationErrorHandler(jp.terasoluna.fw.collector.validate.ValidationErrorHandler)}
      * のためのテスト・メソッド。
      */
-    @SuppressWarnings("unchecked")
     @Test
     public void testAddValidationErrorHandler001() {
         FileQueryDAO fileQueryDAO = new FileQueryDAO() {
@@ -215,10 +205,9 @@ public class FileCollectorConfigTest {
             }
         };
         String fileName = "hoge";
-        Class clazz = B000001Data.class;
+        Class<B000001Data> clazz = B000001Data.class;
 
-        FileCollectorConfig config = new FileCollectorConfig(fileQueryDAO,
-                fileName, clazz);
+        FileCollectorConfig<B000001Data> config = new FileCollectorConfig<B000001Data>(fileQueryDAO, fileName, clazz);
 
         ValidationErrorHandler validationErrorHandler = new ValidationErrorHandler() {
             public ValidateErrorStatus handleValidationError(
@@ -234,13 +223,13 @@ public class FileCollectorConfigTest {
         assertEquals(fileQueryDAO, config.getFileQueryDAO());
         assertEquals(fileName, config.getFileName());
         assertEquals(clazz, config.getClazz());
-        assertEquals(validationErrorHandler, config.getValidationErrorHandler());
+        assertEquals(validationErrorHandler, config
+                .getValidationErrorHandler());
     }
 
     /**
      * {@link jp.terasoluna.fw.collector.file.FileCollectorConfig#addExecuteByConstructor(boolean)} のためのテスト・メソッド。
      */
-    @SuppressWarnings("unchecked")
     @Test
     public void testAddExecuteByConstructor001() {
         FileQueryDAO fileQueryDAO = new FileQueryDAO() {
@@ -250,10 +239,9 @@ public class FileCollectorConfigTest {
             }
         };
         String fileName = "hoge";
-        Class clazz = B000001Data.class;
+        Class<B000001Data> clazz = B000001Data.class;
 
-        FileCollectorConfig config = new FileCollectorConfig(fileQueryDAO,
-                fileName, clazz);
+        FileCollectorConfig<B000001Data> config = new FileCollectorConfig<B000001Data>(fileQueryDAO, fileName, clazz);
 
         boolean executeByConstructor = true;
 
@@ -270,7 +258,6 @@ public class FileCollectorConfigTest {
     /**
      * {@link jp.terasoluna.fw.collector.file.FileCollectorConfig#getFileQueryDAO()} のためのテスト・メソッド。
      */
-    @SuppressWarnings("unchecked")
     @Test
     public void testGetFileQueryDAO001() {
         FileQueryDAO fileQueryDAO = new FileQueryDAO() {
@@ -280,10 +267,9 @@ public class FileCollectorConfigTest {
             }
         };
         String fileName = "hoge";
-        Class clazz = B000001Data.class;
+        Class<B000001Data> clazz = B000001Data.class;
 
-        FileCollectorConfig config = new FileCollectorConfig(fileQueryDAO,
-                fileName, clazz);
+        FileCollectorConfig<B000001Data> config = new FileCollectorConfig<B000001Data>(fileQueryDAO, fileName, clazz);
 
         // テスト
         FileQueryDAO result = config.getFileQueryDAO();
@@ -296,7 +282,6 @@ public class FileCollectorConfigTest {
      * {@link jp.terasoluna.fw.collector.file.FileCollectorConfig#setFileQueryDAO(jp.terasoluna.fw.file.dao.FileQueryDAO)}
      * のためのテスト・メソッド。
      */
-    @SuppressWarnings("unchecked")
     @Test
     public void testSetFileQueryDAO001() {
         FileQueryDAO fileQueryDAO = new FileQueryDAO() {
@@ -312,10 +297,9 @@ public class FileCollectorConfigTest {
             }
         };
         String fileName = "hoge";
-        Class clazz = B000001Data.class;
+        Class<B000001Data> clazz = B000001Data.class;
 
-        FileCollectorConfig config = new FileCollectorConfig(fileQueryDAO,
-                fileName, clazz);
+        FileCollectorConfig<B000001Data> config = new FileCollectorConfig<B000001Data>(fileQueryDAO, fileName, clazz);
 
         // テスト
         config.setFileQueryDAO(fileQueryDAO2);
@@ -327,7 +311,6 @@ public class FileCollectorConfigTest {
     /**
      * {@link jp.terasoluna.fw.collector.file.FileCollectorConfig#getFileName()} のためのテスト・メソッド。
      */
-    @SuppressWarnings("unchecked")
     @Test
     public void testGetFileName001() {
         FileQueryDAO fileQueryDAO = new FileQueryDAO() {
@@ -337,10 +320,9 @@ public class FileCollectorConfigTest {
             }
         };
         String fileName = "hoge";
-        Class clazz = B000001Data.class;
+        Class<B000001Data> clazz = B000001Data.class;
 
-        FileCollectorConfig config = new FileCollectorConfig(fileQueryDAO,
-                fileName, clazz);
+        FileCollectorConfig<B000001Data> config = new FileCollectorConfig<B000001Data>(fileQueryDAO, fileName, clazz);
 
         // テスト
         String result = config.getFileName();
@@ -352,7 +334,6 @@ public class FileCollectorConfigTest {
     /**
      * {@link jp.terasoluna.fw.collector.file.FileCollectorConfig#setFileName(java.lang.String)} のためのテスト・メソッド。
      */
-    @SuppressWarnings("unchecked")
     @Test
     public void testSetFileName001() {
         FileQueryDAO fileQueryDAO = new FileQueryDAO() {
@@ -364,10 +345,9 @@ public class FileCollectorConfigTest {
 
         String fileName = "hoge";
         String fileName2 = "hogehoge";
-        Class clazz = B000001Data.class;
+        Class<B000001Data> clazz = B000001Data.class;
 
-        FileCollectorConfig config = new FileCollectorConfig(fileQueryDAO,
-                fileName, clazz);
+        FileCollectorConfig<B000001Data> config = new FileCollectorConfig<B000001Data>(fileQueryDAO, fileName, clazz);
 
         // テスト
         config.setFileName(fileName2);
@@ -379,7 +359,6 @@ public class FileCollectorConfigTest {
     /**
      * {@link jp.terasoluna.fw.collector.file.FileCollectorConfig#getClazz()} のためのテスト・メソッド。
      */
-    @SuppressWarnings("unchecked")
     @Test
     public void testGetClazz001() {
         FileQueryDAO fileQueryDAO = new FileQueryDAO() {
@@ -389,13 +368,12 @@ public class FileCollectorConfigTest {
             }
         };
         String fileName = "hoge";
-        Class clazz = B000001Data.class;
+        Class<B000001Data> clazz = B000001Data.class;
 
-        FileCollectorConfig config = new FileCollectorConfig(fileQueryDAO,
-                fileName, clazz);
+        FileCollectorConfig<B000001Data> config = new FileCollectorConfig<B000001Data>(fileQueryDAO, fileName, clazz);
 
         // テスト
-        Class result = config.getClazz();
+        Class<B000001Data> result = config.getClazz();
 
         assertNotNull(result);
         assertEquals(clazz, result);
@@ -404,7 +382,6 @@ public class FileCollectorConfigTest {
     /**
      * {@link jp.terasoluna.fw.collector.file.FileCollectorConfig#setClazz(java.lang.Class)} のためのテスト・メソッド。
      */
-    @SuppressWarnings("unchecked")
     @Test
     public void testSetClazz001() {
         FileQueryDAO fileQueryDAO = new FileQueryDAO() {
@@ -415,11 +392,10 @@ public class FileCollectorConfigTest {
         };
 
         String fileName = "hoge";
-        Class clazz = B000001Data.class;
-        Class clazz2 = B000001Data.class;
+        Class<B000001Data> clazz = B000001Data.class;
+        Class<B000001Data> clazz2 = B000001Data.class;
 
-        FileCollectorConfig config = new FileCollectorConfig(fileQueryDAO,
-                fileName, clazz);
+        FileCollectorConfig<B000001Data> config = new FileCollectorConfig<B000001Data>(fileQueryDAO, fileName, clazz);
 
         // テスト
         config.setClazz(clazz2);

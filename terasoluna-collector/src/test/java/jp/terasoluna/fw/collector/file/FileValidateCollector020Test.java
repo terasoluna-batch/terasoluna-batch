@@ -16,8 +16,8 @@ public class FileValidateCollector020Test extends DaoTestCase {
     /**
      * Log.
      */
-    private static Log logger = LogFactory
-            .getLog(FileValidateCollector020Test.class);
+    private static Log logger = LogFactory.getLog(
+            FileValidateCollector020Test.class);
 
     private FileQueryDAO csvFileQueryDAO = null;
 
@@ -27,6 +27,7 @@ public class FileValidateCollector020Test extends DaoTestCase {
         this.csvFileQueryDAO = csvFileQueryDAO;
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     protected void onSetUp() throws Exception {
         if (logger.isInfoEnabled()) {
@@ -80,14 +81,14 @@ public class FileValidateCollector020Test extends DaoTestCase {
         ValidatorStub validator = new ValidatorStub();
         SkipValidationErrorHandler validatorErrorHandler = new SkipValidationErrorHandler();
 
-        Collector<B000001Data> it = new FileValidateCollector<B000001Data>(
-                this.csvFileQueryDAO, url.getPath(), B000001Data.class,
-                validator, validatorErrorHandler);
+        Collector<B000001Data> it = new FileValidateCollector<B000001Data>(this.csvFileQueryDAO, url
+                .getPath(), B000001Data.class, validator, validatorErrorHandler);
 
         try {
             // it = ac.execute();
 
-            for (B000001Data data : it) {
+            for (@SuppressWarnings("unused")
+            B000001Data data : it) {
                 count_first++;
 
             }
@@ -97,8 +98,8 @@ public class FileValidateCollector020Test extends DaoTestCase {
         }
 
         // コレクタスレッド数チェック
-        assertTrue(CollectorTestUtil
-                .lessThanCollectorThreadCount(0 + this.previousThreadCount));
+        assertTrue(CollectorTestUtil.lessThanCollectorThreadCount(0
+                + this.previousThreadCount));
 
         // Validator#supportsメソッドが呼ばれた回数
         assertEquals(1000, validator.getCallSupports());

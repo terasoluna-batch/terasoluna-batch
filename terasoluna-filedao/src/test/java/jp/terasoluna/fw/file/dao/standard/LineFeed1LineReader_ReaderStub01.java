@@ -1,6 +1,5 @@
 package jp.terasoluna.fw.file.dao.standard;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.Reader;
 

@@ -52,8 +52,7 @@ public class DaoCollectorConfigTest {
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.db.DaoCollectorConfig#DaoCollectorConfig(Object, String, Object)}
-     * のためのテスト・メソッド。
+     * {@link jp.terasoluna.fw.collector.db.DaoCollectorConfig#DaoCollectorConfig(Object, String, Object)} のためのテスト・メソッド。
      */
     @Test
     public void testDaoCollectorConfig001() {
@@ -62,15 +61,13 @@ public class DaoCollectorConfigTest {
         Object bindParams = null;
 
         // テスト
-        DaoCollectorConfig config = new DaoCollectorConfig(queryResultHandleDao,
-                methodName, bindParams);
+        DaoCollectorConfig config = new DaoCollectorConfig(queryResultHandleDao, methodName, bindParams);
 
         assertNotNull(config);
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.db.DaoCollectorConfig#DaoCollectorConfig(Object, String, Object)} 
-     * のためのテスト・メソッド。
+     * {@link jp.terasoluna.fw.collector.db.DaoCollectorConfig#DaoCollectorConfig(Object, String, Object)} のためのテスト・メソッド。
      */
     @Test
     public void testDaoCollectorConfig002() {
@@ -79,8 +76,7 @@ public class DaoCollectorConfigTest {
         Object bindParams = new Object();
 
         // テスト
-        DaoCollectorConfig config = new DaoCollectorConfig(queryResultHandleDao,
-                methodName, bindParams);
+        DaoCollectorConfig config = new DaoCollectorConfig(queryResultHandleDao, methodName, bindParams);
 
         assertNotNull(config);
         assertEquals(queryResultHandleDao, config.getQueryResultHandleDao());
@@ -97,8 +93,7 @@ public class DaoCollectorConfigTest {
         String methodName = "hoge";
         Object bindParams = new Object();
 
-        DaoCollectorConfig config = new DaoCollectorConfig(queryResultHandleDao,
-                methodName, bindParams);
+        DaoCollectorConfig config = new DaoCollectorConfig(queryResultHandleDao, methodName, bindParams);
 
         int queueSize = 123;
 
@@ -113,7 +108,7 @@ public class DaoCollectorConfigTest {
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.db.DaoCollectorConfig#addExceptionHandler(jp.terasoluna.fw.collector.exception.CollectorExceptionHandler)} 
+     * {@link jp.terasoluna.fw.collector.db.DaoCollectorConfig#addExceptionHandler(jp.terasoluna.fw.collector.exception.CollectorExceptionHandler)}
      * のためのテスト・メソッド。
      */
     @Test
@@ -122,8 +117,7 @@ public class DaoCollectorConfigTest {
         String methodName = "hoge";
         Object bindParams = new Object();
 
-        DaoCollectorConfig config = new DaoCollectorConfig(queryResultHandleDao,
-                methodName, bindParams);
+        DaoCollectorConfig config = new DaoCollectorConfig(queryResultHandleDao, methodName, bindParams);
 
         CollectorExceptionHandler exceptionHandler = new CollectorExceptionHandler() {
             public CollectorExceptionHandlerStatus handleException(
@@ -152,12 +146,10 @@ public class DaoCollectorConfigTest {
         String methodName = "hoge";
         Object bindParams = new Object();
 
-        DaoCollectorConfig config = new DaoCollectorConfig(queryResultHandleDao,
-                methodName, bindParams);
+        DaoCollectorConfig config = new DaoCollectorConfig(queryResultHandleDao, methodName, bindParams);
 
         Validator validator = new Validator() {
-            @SuppressWarnings("unchecked")
-            public boolean supports(Class clazz) {
+            public boolean supports(Class<?> clazz) {
                 return false;
             }
 
@@ -185,8 +177,7 @@ public class DaoCollectorConfigTest {
         String methodName = "hoge";
         Object bindParams = new Object();
 
-        DaoCollectorConfig config = new DaoCollectorConfig(queryResultHandleDao,
-                methodName, bindParams);
+        DaoCollectorConfig config = new DaoCollectorConfig(queryResultHandleDao, methodName, bindParams);
 
         ValidationErrorHandler validationErrorHandler = new ValidationErrorHandler() {
             public ValidateErrorStatus handleValidationError(
@@ -202,20 +193,21 @@ public class DaoCollectorConfigTest {
         assertEquals(queryResultHandleDao, config.getQueryResultHandleDao());
         assertEquals(methodName, config.getMethodName());
         assertEquals(bindParams, config.getBindParams());
-        assertEquals(validationErrorHandler, config.getValidationErrorHandler());
+        assertEquals(validationErrorHandler, config
+                .getValidationErrorHandler());
     }
 
     /**
      * {@link jp.terasoluna.fw.collector.db.DaoCollectorConfig#addRelation1n(boolean)} のためのテスト・メソッド。
      */
+    @SuppressWarnings("deprecation")
     @Test
     public void testAddRelation1n001() {
         Object queryResultHandleDao = new Object();
         String methodName = "hoge";
         Object bindParams = new Object();
 
-        DaoCollectorConfig config = new DaoCollectorConfig(queryResultHandleDao,
-                methodName, bindParams);
+        DaoCollectorConfig config = new DaoCollectorConfig(queryResultHandleDao, methodName, bindParams);
 
         boolean relation1n = true;
 
@@ -239,8 +231,7 @@ public class DaoCollectorConfigTest {
         String methodName = "hoge";
         Object bindParams = new Object();
 
-        DaoCollectorConfig config = new DaoCollectorConfig(queryResultHandleDao,
-                methodName, bindParams);
+        DaoCollectorConfig config = new DaoCollectorConfig(queryResultHandleDao, methodName, bindParams);
 
         DaoCollectorPrePostProcess daoCollectorPrePostProcess = new DaoCollectorPrePostProcess() {
             public <P> void postprocessComplete(DaoCollector<P> collector) {
@@ -267,8 +258,7 @@ public class DaoCollectorConfigTest {
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.db.DaoCollectorConfig#addExecuteByConstructor(boolean)}
-     * のためのテスト・メソッド。
+     * {@link jp.terasoluna.fw.collector.db.DaoCollectorConfig#addExecuteByConstructor(boolean)} のためのテスト・メソッド。
      */
     @Test
     public void testAddExecuteByConstructor001() {
@@ -276,8 +266,7 @@ public class DaoCollectorConfigTest {
         String methodName = "hoge";
         Object bindParams = new Object();
 
-        DaoCollectorConfig config = new DaoCollectorConfig(queryResultHandleDao,
-                methodName, bindParams);
+        DaoCollectorConfig config = new DaoCollectorConfig(queryResultHandleDao, methodName, bindParams);
 
         boolean executeByConstructor = true;
 
@@ -300,8 +289,7 @@ public class DaoCollectorConfigTest {
         String methodName = "hoge";
         Object bindParams = new Object();
 
-        DaoCollectorConfig config = new DaoCollectorConfig(queryResultHandleDao,
-                methodName, bindParams);
+        DaoCollectorConfig config = new DaoCollectorConfig(queryResultHandleDao, methodName, bindParams);
 
         // テスト
         Object result = config.getQueryResultHandleDao();
@@ -311,8 +299,7 @@ public class DaoCollectorConfigTest {
     }
 
     /**
-     * {@link jp.terasoluna.fw.collector.db.DaoCollectorConfig#setQueryResultHandleDao(Object)} 
-     * のためのテスト・メソッド。
+     * {@link jp.terasoluna.fw.collector.db.DaoCollectorConfig#setQueryResultHandleDao(Object)} のためのテスト・メソッド。
      */
     @Test
     public void testSetQueryResultHandleDAO001() {
@@ -321,8 +308,7 @@ public class DaoCollectorConfigTest {
         String methodName = "hoge";
         Object bindParams = new Object();
 
-        DaoCollectorConfig config = new DaoCollectorConfig(queryResultHandleDao,
-                methodName, bindParams);
+        DaoCollectorConfig config = new DaoCollectorConfig(queryResultHandleDao, methodName, bindParams);
 
         // テスト
         config.setQueryResultHandleDao(queryResultHandleDao2);
@@ -340,8 +326,7 @@ public class DaoCollectorConfigTest {
         String methodName = "hoge";
         Object bindParams = new Object();
 
-        DaoCollectorConfig config = new DaoCollectorConfig(queryResultHandleDao,
-                methodName, bindParams);
+        DaoCollectorConfig config = new DaoCollectorConfig(queryResultHandleDao, methodName, bindParams);
 
         // テスト
         String result = config.getMethodName();
@@ -361,8 +346,7 @@ public class DaoCollectorConfigTest {
         String methodName2 = "hoge";
         Object bindParams = new Object();
 
-        DaoCollectorConfig config = new DaoCollectorConfig(queryResultHandleDao,
-                methodName, bindParams);
+        DaoCollectorConfig config = new DaoCollectorConfig(queryResultHandleDao, methodName, bindParams);
 
         // テスト
         config.setMethodName(methodName2);
@@ -380,8 +364,7 @@ public class DaoCollectorConfigTest {
         String methodName = "hoge";
         Object bindParams = new Object();
 
-        DaoCollectorConfig config = new DaoCollectorConfig(queryResultHandleDao,
-                methodName, bindParams);
+        DaoCollectorConfig config = new DaoCollectorConfig(queryResultHandleDao, methodName, bindParams);
 
         // テスト
         Object result = config.getBindParams();
@@ -401,8 +384,7 @@ public class DaoCollectorConfigTest {
         Object bindParams = new Object();
         Object bindParams2 = new Object();
 
-        DaoCollectorConfig config = new DaoCollectorConfig(queryResultHandleDao,
-                methodName, bindParams);
+        DaoCollectorConfig config = new DaoCollectorConfig(queryResultHandleDao, methodName, bindParams);
 
         // テスト
         config.setBindParams(bindParams2);
@@ -422,8 +404,7 @@ public class DaoCollectorConfigTest {
         Object bindParams = new Object();
         boolean relation1n = true;
 
-        DaoCollectorConfig config = new DaoCollectorConfig(queryResultHandleDao,
-                methodName, bindParams);
+        DaoCollectorConfig config = new DaoCollectorConfig(queryResultHandleDao, methodName, bindParams);
         config.setRelation1n(relation1n);
 
         // テスト
@@ -445,8 +426,7 @@ public class DaoCollectorConfigTest {
         Object bindParams = new Object();
         boolean relation1n = true;
 
-        DaoCollectorConfig config = new DaoCollectorConfig(queryResultHandleDao,
-                methodName, bindParams);
+        DaoCollectorConfig config = new DaoCollectorConfig(queryResultHandleDao, methodName, bindParams);
 
         // テスト
         config.setRelation1n(relation1n);
@@ -464,8 +444,7 @@ public class DaoCollectorConfigTest {
         String methodName = "hoge";
         Object bindParams = new Object();
 
-        DaoCollectorConfig config = new DaoCollectorConfig(queryResultHandleDao,
-                methodName, bindParams);
+        DaoCollectorConfig config = new DaoCollectorConfig(queryResultHandleDao, methodName, bindParams);
         DaoCollectorPrePostProcess daoCollectorPrePostProcess = new DaoCollectorPrePostProcess() {
             public <P> void postprocessComplete(DaoCollector<P> collector) {
             }
@@ -499,8 +478,7 @@ public class DaoCollectorConfigTest {
         String methodName = "hoge";
         Object bindParams = new Object();
 
-        DaoCollectorConfig config = new DaoCollectorConfig(queryResultHandleDao,
-                methodName, bindParams);
+        DaoCollectorConfig config = new DaoCollectorConfig(queryResultHandleDao, methodName, bindParams);
 
         DaoCollectorPrePostProcess daoCollectorPrePostProcess = new DaoCollectorPrePostProcess() {
             public <P> void postprocessComplete(DaoCollector<P> collector) {
