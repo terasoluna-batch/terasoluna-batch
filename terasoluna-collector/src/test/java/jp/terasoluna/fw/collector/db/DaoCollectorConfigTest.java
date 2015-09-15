@@ -414,6 +414,7 @@ public class DaoCollectorConfigTest {
     /**
      * {@link jp.terasoluna.fw.collector.db.DaoCollectorConfig#isRelation1n()} のためのテスト・メソッド。
      */
+    @SuppressWarnings("deprecation")
     @Test
     public void testIsRelation1n001() {
         Object queryResultHandleDao = new Object();
@@ -435,6 +436,7 @@ public class DaoCollectorConfigTest {
     /**
      * {@link jp.terasoluna.fw.collector.db.DaoCollectorConfig#setRelation1n(boolean)} のためのテスト・メソッド。
      */
+    @SuppressWarnings("deprecation")
     @Test
     public void testSetRelation1n001() {
         Object queryResultHandleDao = new Object();

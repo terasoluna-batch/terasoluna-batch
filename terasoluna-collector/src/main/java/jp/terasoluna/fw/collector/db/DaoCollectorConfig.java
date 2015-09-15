@@ -188,7 +188,13 @@ public class DaoCollectorConfig extends AbstractCollectorConfig {
     /**
      * 1:Nマッピング使用フラグを設定する。
      * @param relation1n 1:Nマッピング使用フラグ
+     * 
+     * @deprecated
+     * 1:Nマッピングを行なう際は、MyBatis3のselectステートメントのresultOrdered属性をtrueにすることにより、
+     * {@code Queueing1NRelationResultHandlerImpl}、および{@code DaoCollectorConfig#setRelation1n()}の設定が不要となる。
+     * @see <a href="http://mybatis.github.io/mybatis-3/ja/sqlmap-xml.html">http://mybatis.github.io/mybatis-3/ja/sqlmap-xml.html</a>
      */
+    @Deprecated
     public void setRelation1n(boolean relation1n) {
         this.relation1n = relation1n;
     }
