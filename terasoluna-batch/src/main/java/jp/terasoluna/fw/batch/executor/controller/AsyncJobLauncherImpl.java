@@ -16,23 +16,31 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * 非同期バッチ実行機能で多重度の最大値を{@code ThreadPoolTaskExecutor}の最大スレッドプールサイズとした非同期のジョブ起動を行う。<br>
- * 最大プールサイズ以上のジョブの実行が行われた場合、スレッドプールに空きができるまで待ち状態になる。 本機能を利用するにはジョブ実行テンプレート
- * {@code JobExecutorTemplate}のBean定義が必要となる。 以下は{@code AsyncJobLauncher}のBean定義の設定例である。 <code><pre>
- *    &lt;task:executor id=&quot;threadPoolTaskExecutor&quot;
- *            pool-size=&quot;4&quot;          ←最大プールサイズ
- *            queue-capacity=&quot;4&quot; /&gt;  ←キューサイズの上限
- *    &lt;bean id=&quot;asyncJobLauncher&quot; class=&quot;jp.terasoluna.fw.batch.executor.controller.AsyncJobLauncherImpl&quot;&gt;
- *            &lt;constructor-arg index=&quot;0&quot; ref=&quot;threadPoolTaskExecutor&quot;/&gt;
- *            &lt;constructor-arg index=&quot;1&quot; ref=&quot;jobExecutorTemplate&quot;/&gt;
- *    &lt;/bean&gt;
- * </pre></code> Bean定義を利用した多重度の設定では以下の制約に留意すること。
+ * 最大プールサイズ以上のジョブの実行が行われた場合、スレッドプールに空きができるまで待ち状態になる。
+ * 本機能を利用するにはジョブ実行テンプレート{@code JobExecutorTemplate}のBean定義が必要となる。
+ * 以下は{@code AsyncJobLauncher}と、非同期ジョブの多重度を決定する{@code ThreadPoolTaskExecutor}のBean定義の設定例である。
+ * <code><pre>
+ * &lt;bean id=&quot;asyncJobLauncher&quot; class=&quot;jp.terasoluna.fw.batch.executor.controller.AsyncJobLauncherImpl&quot;&gt;
+ *     &lt;constructor-arg index=&quot;0&quot; ref=&quot;threadPoolTaskExecutor&quot;/&gt;
+ *     &lt;constructor-arg index=&quot;1&quot; ref=&quot;jobExecutorTemplate&quot;/&gt;
+ *     &lt;constructor-arg index=&quot;2&quot; ref=&quot;exceptionStatusHandler&quot;/&gt;
+ * &lt;/bean&gt;
+ * &lt;bean id=&quot;threadPoolTaskExecutor&quot; class=&quot;org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor&quot;&gt;
+ *     &lt;property name=&quot;threadFactory&quot; ref=&quot;separateGroupThreadFactory&quot;/&gt;
+ *     &lt;property name=&quot;corePoolSize&quot; value=&quot;4&quot;/&gt;   ←コアプールサイズ
+ *     &lt;property name=&quot;maxPoolSize&quot; value=&quot;4&quot;/&gt;    ←最大プールサイズ
+ *     &lt;property name=&quot;queueCapacity&quot; value=&quot;4&quot;/&gt;  ←キューサイズの上限
+ * &lt;/bean&gt;
+ * </pre></code> {@code ThreadPoolTaskExecutor}のBean定義を利用した多重度の設定では以下の制約に留意すること。
  * <ol>
- * <li>Bean定義のスレッドプール設定は{@code pool-size}によるハイフン区切り （&quot;1-3&quot;）で、コアプールサイズ-最大プールサイズがそれぞれ定義可能だが 本機能では同数を設定すること</li>
+ * <li>コアプールサイズ(corePoolSize)と最大プールサイズ(maxPoolSize)はそれぞれ定義可能だが 本機能では同数を設定すること</li>
  * <li>キューサイズの上限値は最大プールサイズ未満の値を設定しないこと （無設定時は{@code Integer.MAX_VALUE}が上限となる）</li>
  * </ol>
- * 最大プールサイズ及びキューサイズの詳細は{@code ThreadPoolExecutor}の APIドキュメントを参照のこと。 最大プールサイズ以上のジョブ実行が行われた場合はスレッドプールに
- * 空きが生じるまで待ち状態となるが、この待ち状態が公平性（先入れ-先出し） を保ったまま解決されるかを{@code setFair()}メソッドで設定することができる。 （公平性あり：{@code true}
- * がデフォルトであり、DIコンテナの起動後の変更は無効。）
+ * 最大プールサイズ及びキューサイズの詳細は{@code ThreadPoolExecutor}の APIドキュメントを参照のこと。
+ * 最大プールサイズ以上のジョブ実行が行われた場合はスレッドプールに空きが生じるまで待ち状態となるが、
+ * この待ち状態が公平性（先入れ-先出し） を保ったまま解決されるかを{@code fair}プロパティで設定することができる。
+ * （デフォルトは公平性あり：{@code true}であり、DIコンテナの起動後の変更は無効。）
+ *
  * @see org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor
  * @see java.util.concurrent.ThreadPoolExecutor
  * @since 3.6
