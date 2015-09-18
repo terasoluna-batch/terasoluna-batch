@@ -101,7 +101,9 @@ public class DaoCollectorConfig extends AbstractCollectorConfig {
      * 1:Nマッピング使用フラグを設定する
      * @param relation1n 1:Nマッピング使用フラグ
      * @return DaoCollectorConfig
+     * @deprecated
      */
+    @Deprecated
     public DaoCollectorConfig addRelation1n(boolean relation1n) {
         this.setRelation1n(relation1n);
         return this;
