@@ -576,7 +576,13 @@ public class StringUtil {
                     } else {
                         // ｶﾟｷﾟｸﾟｹﾟｺﾟｻﾟｼﾟｽﾟｾﾟｿﾟﾀﾟﾁﾟﾂﾟﾃﾟﾄﾟｳﾟ
                         getValue = getZenkakuKasatahaMoji(chars[i]);
-                        returnValue.append((String.valueOf(getValue) + "゜"));
+                        if (getValue == null && (new Character('ﾜ')).equals(chars[i])) {
+                            returnValue.append("ワ").append("゜");
+                        } else if ((new Character('ｦ')).equals(chars[i])) {
+                            returnValue.append("ヲ").append("゜");
+                        } else {
+                            returnValue.append(String.valueOf(getValue)).append("゜");
+                        }
                         i++;
                     }
                 } else {
