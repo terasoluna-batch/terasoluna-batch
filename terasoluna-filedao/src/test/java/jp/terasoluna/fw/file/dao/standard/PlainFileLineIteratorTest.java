@@ -175,7 +175,7 @@ public class PlainFileLineIteratorTest {
         String result = plainFileLineIterator.next();
 
         // 返却値の確認
-        assertEquals("1行目データ", result);
+        assertEquals("Line data 1", result);
 
         // 状態変化の確認
         Mockito.verify(plainFileLineIterator).readLine();
@@ -793,7 +793,7 @@ public class PlainFileLineIteratorTest {
 
         // 返却値の確認
         assertEquals(1, trailer.size());
-        assertEquals("トレイラデータ", trailer.get(0));
+        assertEquals("trailer data", trailer.get(0));
 
         // 状態変化の確認
         assertTrue((Boolean) ReflectionTestUtils.getField(plainFileLineIterator,

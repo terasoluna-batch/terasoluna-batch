@@ -8018,7 +8018,7 @@ public class AbstractFileLineIteratorTest {
         assertEquals(ArrayBlockingQueue.class, trailerQueue_object.getClass());
         ArrayBlockingQueue trailerQueue = (ArrayBlockingQueue) trailerQueue_object;
         assertEquals(1, trailerQueue.size());
-        assertEquals("3行目データ", trailerQueue.poll());
+        assertEquals("Line data 3", trailerQueue.poll());
 
         lineReader = (LineReader) ReflectionTestUtils.getField(fileLineIterator,
                 "lineReader");
@@ -8100,9 +8100,9 @@ public class AbstractFileLineIteratorTest {
         assertEquals(ArrayBlockingQueue.class, trailerQueue_object.getClass());
         ArrayBlockingQueue trailerQueue = (ArrayBlockingQueue) trailerQueue_object;
         assertEquals(3, trailerQueue.size());
-        assertEquals("3行目データ", trailerQueue.poll());
-        assertEquals("4行目データ", trailerQueue.poll());
-        assertEquals("5行目データ", trailerQueue.poll());
+        assertEquals("Line data 3", trailerQueue.poll());
+        assertEquals("Line data 4", trailerQueue.poll());
+        assertEquals("Line data 5", trailerQueue.poll());
 
         lineReader = (LineReader) ReflectionTestUtils.getField(fileLineIterator,
                 "lineReader");
@@ -8677,7 +8677,7 @@ public class AbstractFileLineIteratorTest {
         // 返却値の確認
         assertSame(ArrayList.class, result.getClass());
         assertEquals(1, result.size());
-        assertEquals("5行目データ", result.get(0));
+        assertEquals("Line data 5", result.get(0));
 
         // 状態変化の確認
         Object trailer_object = ReflectionTestUtils.getField(fileLineIterator,
@@ -8685,7 +8685,7 @@ public class AbstractFileLineIteratorTest {
         assertSame(ArrayList.class, trailer_object.getClass());
         List<String> trailer = (List<String>) trailer_object;
         assertEquals(1, trailer.size());
-        assertEquals("5行目データ", trailer.get(0));
+        assertEquals("Line data 5", trailer.get(0));
 
         assertTrue((Boolean) ReflectionTestUtils.getField(fileLineIterator,
                 "readTrailer"));
@@ -8770,9 +8770,9 @@ public class AbstractFileLineIteratorTest {
         // 返却値の確認
         assertSame(ArrayList.class, result.getClass());
         assertEquals(3, result.size());
-        assertEquals("3行目データ", result.get(0));
-        assertEquals("4行目データ", result.get(1));
-        assertEquals("5行目データ", result.get(2));
+        assertEquals("Line data 3", result.get(0));
+        assertEquals("Line data 4", result.get(1));
+        assertEquals("Line data 5", result.get(2));
 
         // 状態変化の確認
         Object trailer_object = ReflectionTestUtils.getField(fileLineIterator,
@@ -8780,9 +8780,9 @@ public class AbstractFileLineIteratorTest {
         assertSame(ArrayList.class, trailer_object.getClass());
         List<String> trailer = (List<String>) trailer_object;
         assertEquals(3, trailer.size());
-        assertEquals("3行目データ", trailer.get(0));
-        assertEquals("4行目データ", trailer.get(1));
-        assertEquals("5行目データ", trailer.get(2));
+        assertEquals("Line data 3", trailer.get(0));
+        assertEquals("Line data 4", trailer.get(1));
+        assertEquals("Line data 5", trailer.get(2));
 
         assertTrue((Boolean) ReflectionTestUtils.getField(fileLineIterator,
                 "readTrailer"));
@@ -8952,7 +8952,7 @@ public class AbstractFileLineIteratorTest {
         // 返却値の確認
         assertSame(ArrayList.class, result.getClass());
         assertEquals(1, result.size());
-        assertEquals("5行目データ", result.get(0));
+        assertEquals("Line data 5", result.get(0));
 
         // 状態変化の確認
         Object trailer_object = ReflectionTestUtils.getField(fileLineIterator,
@@ -8960,7 +8960,7 @@ public class AbstractFileLineIteratorTest {
         assertSame(ArrayList.class, trailer_object.getClass());
         List<String> trailer = (List<String>) trailer_object;
         assertEquals(1, trailer.size());
-        assertEquals("5行目データ", trailer.get(0));
+        assertEquals("Line data 5", trailer.get(0));
 
         assertTrue((Boolean) ReflectionTestUtils.getField(fileLineIterator,
                 "readTrailer"));
@@ -9038,7 +9038,7 @@ public class AbstractFileLineIteratorTest {
         // 返却値の確認
         assertSame(ArrayList.class, result.getClass());
         assertEquals(1, result.size());
-        assertEquals("5行目データ", result.get(0));
+        assertEquals("Line data 5", result.get(0));
 
         // 状態変化の確認
         Object trailer_object = ReflectionTestUtils.getField(fileLineIterator,
@@ -9046,7 +9046,7 @@ public class AbstractFileLineIteratorTest {
         assertSame(ArrayList.class, trailer_object.getClass());
         List<String> trailer = (List<String>) trailer_object;
         assertEquals(1, trailer.size());
-        assertEquals("5行目データ", trailer.get(0));
+        assertEquals("Line data 5", trailer.get(0));
 
         assertTrue((Boolean) ReflectionTestUtils.getField(fileLineIterator,
                 "readTrailer"));
@@ -9197,7 +9197,7 @@ public class AbstractFileLineIteratorTest {
         String result = fileLineIterator.readLine();
 
         // 返却値の確認
-        assertEquals("1行目データ", result);
+        assertEquals("Line data 1", result);
 
         // 状態変化の確認
         assertNull(ReflectionTestUtils.getField(fileLineIterator, "trailerQueue"));
@@ -9278,14 +9278,14 @@ public class AbstractFileLineIteratorTest {
         String result = fileLineIterator.readLine();
 
         // 返却値の確認
-        assertEquals("3行目データ", result);
+        assertEquals("Line data 3", result);
 
         // 状態変化の確認
         Object trailerQueue_object = ReflectionTestUtils.getField(fileLineIterator,
                 "trailerQueue");
         ArrayBlockingQueue trailerQueue = (ArrayBlockingQueue) trailerQueue_object;
         assertEquals(1, trailerQueue.size());
-        assertEquals("4行目データ", trailerQueue.poll());
+        assertEquals("Line data 4", trailerQueue.poll());
 
         Mockito.verify(trailerQueue).add(Mockito.anyObject());
 
@@ -9367,16 +9367,16 @@ public class AbstractFileLineIteratorTest {
         String result = fileLineIterator.readLine();
 
         // 返却値の確認
-        assertEquals("3行目データ", result);
+        assertEquals("Line data 3", result);
 
         // 状態変化の確認
         Object trailerQueue_object = ReflectionTestUtils.getField(fileLineIterator,
                 "trailerQueue");
         ArrayBlockingQueue trailerQueue = (ArrayBlockingQueue) trailerQueue_object;
         assertEquals(3, trailerQueue.size());
-        assertEquals("4行目データ", trailerQueue.poll());
-        assertEquals("5行目データ", trailerQueue.poll());
-        assertEquals("6行目データ", trailerQueue.poll());
+        assertEquals("Line data 4", trailerQueue.poll());
+        assertEquals("Line data 5", trailerQueue.poll());
+        assertEquals("Line data 6", trailerQueue.poll());
 
         Mockito.verify(trailerQueue).add(Mockito.anyObject());
 
@@ -9457,7 +9457,7 @@ public class AbstractFileLineIteratorTest {
                 "trailerQueue");
         ArrayBlockingQueue trailerQueue = (ArrayBlockingQueue) trailerQueue_object;
         assertEquals(1, trailerQueue.size());
-        assertEquals("7行目データ", trailerQueue.poll());
+        assertEquals("Line data 7", trailerQueue.poll());
 
         Mockito.verify(trailerQueue, Mockito.never()).add(Mockito.anyObject());
 
@@ -9544,10 +9544,10 @@ public class AbstractFileLineIteratorTest {
                 "trailerQueue");
         ArrayBlockingQueue trailerQueue = (ArrayBlockingQueue) trailerQueue_object;
         assertEquals(4, trailerQueue.size());
-        assertEquals("4行目データ", trailerQueue.poll());
-        assertEquals("5行目データ", trailerQueue.poll());
-        assertEquals("6行目データ", trailerQueue.poll());
-        assertEquals("7行目データ", trailerQueue.poll());
+        assertEquals("Line data 4", trailerQueue.poll());
+        assertEquals("Line data 5", trailerQueue.poll());
+        assertEquals("Line data 6", trailerQueue.poll());
+        assertEquals("Line data 7", trailerQueue.poll());
 
         Mockito.verify(trailerQueue, Mockito.never()).add(Mockito.anyObject());
 
