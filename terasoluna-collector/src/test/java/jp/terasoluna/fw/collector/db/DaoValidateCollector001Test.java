@@ -211,13 +211,12 @@ public class DaoValidateCollector001Test extends DaoTestCase {
      * testDaoValidateCollector012
      * @throws Exception
      */
+    @SuppressWarnings("resource")
     public void testDaoValidateCollector012() throws Exception {
         DaoCollectorConfig config = null;
 
-        @SuppressWarnings("unused")
-        DaoCollector<UserBean> dbc = null;
         try {
-            dbc = new DaoValidateCollector<UserBean>(config);
+            new DaoValidateCollector<UserBean>(config);
             fail("失敗");
         } catch (IllegalArgumentException e) {
             assertNotNull(e);

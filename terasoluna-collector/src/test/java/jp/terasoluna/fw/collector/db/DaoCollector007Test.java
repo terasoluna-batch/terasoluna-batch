@@ -31,9 +31,6 @@ public class DaoCollector007Test extends DaoTestCase {
 
     private UserListQueryResultHandleDao userListQueryResultHandleDao = null;
 
-    @SuppressWarnings("unused")
-    private int previousThreadCount = 0;
-
     @Override
     protected void addConfigLocations(List<String> configLocations) {
         configLocations.add("jp/terasoluna/fw/collector/db/dataSource.xml");

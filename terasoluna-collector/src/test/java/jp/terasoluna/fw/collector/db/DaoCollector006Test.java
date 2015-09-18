@@ -79,9 +79,9 @@ public class DaoCollector006Test extends DaoTestCase {
         Collector<UserBean> it = new DaoCollector<UserBean>(
                 this.userListQueryResultHandleDao, "collect", null, 1);
         try {
-            for (@SuppressWarnings("unused") UserBean user : it) {
+            while (it.hasNext()) {
+                it.next();
                 count_first++;
-
                 if (count_first > 10) {
                     break;
                 }

@@ -120,10 +120,8 @@ public class AbstractCollector001Test {
     public void testNext002() {
         AbstractCollectorStubNext2<AbstractCollectorTestBean> col = new AbstractCollectorStubNext2<AbstractCollectorTestBean>();
 
-        @SuppressWarnings("unused")
-        AbstractCollectorTestBean result = null;
         try {
-            result = col.next();
+            col.next();
         } catch (Exception e) {
             assertNotNull(e);
             assertEquals(SystemException.class, e.getClass());
@@ -141,10 +139,8 @@ public class AbstractCollector001Test {
     public void testNext003() {
         AbstractCollectorStubNext3<AbstractCollectorTestBean> col = new AbstractCollectorStubNext3<AbstractCollectorTestBean>();
 
-        @SuppressWarnings("unused")
-        AbstractCollectorTestBean result = null;
         try {
-            result = col.next();
+            col.next();
         } catch (Exception e) {
             assertNotNull(e);
             assertEquals(SystemException.class, e.getClass());
@@ -175,10 +171,8 @@ public class AbstractCollector001Test {
     public void testNext005() {
         AbstractCollectorStub9<AbstractCollectorTestBean> col = new AbstractCollectorStub9<AbstractCollectorTestBean>();
 
-        @SuppressWarnings("unused")
-        AbstractCollectorTestBean result = null;
         try {
-            result = col.next();
+            col.next();
         } catch (Exception e) {
             assertNotNull(e);
             assertEquals(SystemException.class, e.getClass());

@@ -88,10 +88,9 @@ public class FileValidateCollector015Test extends DaoTestCase {
                 .getPath(), B000001Data.class, 100, null, validator);
 
         try {
-            for (@SuppressWarnings("unused")
-            B000001Data data : it) {
+            while (it.hasNext()) {
+                it.next();
                 count_first++;
-
                 if (count_first > 10) {
                     break;
                 }

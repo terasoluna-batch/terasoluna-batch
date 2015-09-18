@@ -82,9 +82,9 @@ public class DaoValidateCollector005Test extends DaoTestCase {
         Collector<UserBean> it = new DaoValidateCollector<UserBean>(
                 this.userListQueryResultHandleDao, "collect", null, 1, validator);
         try {
-            for (@SuppressWarnings("unused") UserBean user : it) {
+            while (it.hasNext()) {
+                it.next();
                 count_first++;
-
                 if (count_first > 10) {
                     break;
                 }

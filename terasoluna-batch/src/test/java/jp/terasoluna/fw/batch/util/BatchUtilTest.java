@@ -345,9 +345,7 @@ public class BatchUtilTest {
         try {
 
             // テスト実施
-            @SuppressWarnings("unused")
-            String[] result = BatchUtil.changeListToArray(list, null);
-
+            BatchUtil.changeListToArray(list, null);
             // 結果検証
             fail();
         } catch (IllegalClassTypeException e) {
@@ -370,8 +368,7 @@ public class BatchUtilTest {
         list.add("test3");
         try {
             // テスト実施
-            @SuppressWarnings("unused")
-            String[] result = BatchUtil.changeListToArray(list, Integer.class);
+            BatchUtil.changeListToArray(list, Integer.class);
 
             // 結果検証
             fail();

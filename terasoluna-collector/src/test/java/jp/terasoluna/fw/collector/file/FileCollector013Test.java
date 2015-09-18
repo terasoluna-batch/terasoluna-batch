@@ -85,7 +85,8 @@ public class FileCollector013Test extends DaoTestCase {
                 this.csvFileQueryDAO, url.getPath(), B000001Data.class, 1, null);
 
         try {
-            for (@SuppressWarnings("unused") B000001Data data : it3) {
+            while (it3.hasNext()) {
+                it3.next();
                 count_first++;
             }
         } finally {
@@ -105,7 +106,8 @@ public class FileCollector013Test extends DaoTestCase {
                 this.csvFileQueryDAO, url.getPath(), B000001Data.class, 1, null);
 
         try {
-            for (@SuppressWarnings("unused") B000001Data data : it) {
+            while (it.hasNext()) {
+                it.next();
                 count_first++;
 
             }

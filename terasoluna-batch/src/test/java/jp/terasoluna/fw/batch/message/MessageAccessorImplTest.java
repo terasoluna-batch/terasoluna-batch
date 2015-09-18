@@ -104,9 +104,6 @@ public class MessageAccessorImplTest {
     @Test
     public void testGetMessage02() throws Exception {
 
-        @SuppressWarnings("unused")
-        String[] args = { "test1" };
-
         String result = messageAccessor.getMessage("errors.alphaNumericString",
                 null);
 

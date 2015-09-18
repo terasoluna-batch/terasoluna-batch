@@ -94,8 +94,8 @@ public class DaoCollectorFinalize001Test extends DaoTestCase {
             Collector<UserBean> col = new DaoCollector<UserBean>(
                     this.userListQueryResultHandleDao, "collect", null);
             try {
-                for (@SuppressWarnings("unused") UserBean user : col) {
-                    // あえて途中で抜ける
+                while (col.hasNext()) {
+                    col.next();
                     break;
                 }
             } catch (Throwable e) {

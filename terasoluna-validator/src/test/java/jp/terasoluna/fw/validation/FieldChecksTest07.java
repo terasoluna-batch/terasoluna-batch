@@ -826,9 +826,7 @@ public class FieldChecksTest07 {
 
         try {
             // テスト実施
-            @SuppressWarnings("unused")
-            boolean b = new FieldChecks().validateProhibited(bean, va, field,
-                    errors);
+            new FieldChecks().validateProhibited(bean, va, field, errors);
             fail();
         } catch (ValidatorException e) {
             // 判定
@@ -877,9 +875,7 @@ public class FieldChecksTest07 {
 
         try {
             // テスト実施
-            @SuppressWarnings("unused")
-            boolean b = new FieldChecks().validateProhibited(bean, va, field,
-                    errors);
+            new FieldChecks().validateProhibited(bean, va, field, errors);
             fail();
         } catch (ValidatorException e) {
             // 判定

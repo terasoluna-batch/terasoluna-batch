@@ -8,22 +8,27 @@ package jp.terasoluna.fw.file.dao.standard;
 
 import java.math.BigDecimal;
 
-@SuppressWarnings("unused")
 public class DecimalColumnParser_FileLineObjectStub01 {
     private BigDecimal decimal01 = null;
 
     private BigDecimal decimal02 = null;
 
+    @SuppressWarnings("unused")
     private BigDecimal decimal03 = null;
 
+    @SuppressWarnings("unused")
     private BigDecimal decimal04 = null;
 
+    @SuppressWarnings("unused")
     private BigDecimal decimal05 = null;
 
+    @SuppressWarnings("unused")
     private BigDecimal decimal06 = null;
 
+    @SuppressWarnings("unused")
     private BigDecimal decimal07 = null;
 
+    @SuppressWarnings("unused")
     private BigDecimal decimal08 = null;
 
     private BigDecimal decimal09 = null;
@@ -60,6 +65,7 @@ public class DecimalColumnParser_FileLineObjectStub01 {
      * privateで引数ありの異常のsetterメソッド
      * @param decimal04 設定する decimal04
      */
+    @SuppressWarnings("unused")
     private void setDecimal04(BigDecimal decimal04) {
         this.decimal04 = decimal04;
     }

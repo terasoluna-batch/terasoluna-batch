@@ -16,7 +16,12 @@
 
 package jp.terasoluna.fw.util;
 
-import java.io.File;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -29,18 +34,13 @@ import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.Vector;
 
-import jp.terasoluna.fw.util.PropertyTestCase;
-import uk.org.lidalia.slf4jext.Level;
-import uk.org.lidalia.slf4jtest.TestLogger;
-import uk.org.lidalia.slf4jtest.TestLoggerFactory;
-import static uk.org.lidalia.slf4jtest.LoggingEvent.warn;
-import static java.util.Arrays.asList;
-import static org.hamcrest.core.Is.*;
-import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.springframework.test.util.ReflectionTestUtils;
+
+import uk.org.lidalia.slf4jext.Level;
+import uk.org.lidalia.slf4jtest.TestLogger;
+import uk.org.lidalia.slf4jtest.TestLoggerFactory;
 
 /**
  * PropertyUtil ブラックボックステスト。<br>
@@ -68,7 +68,6 @@ import org.springframework.test.util.ReflectionTestUtils;
  *                 property.test008.id.0=@@<br>
  *                 property.test009.id.0=@<br>
  */
-@SuppressWarnings("unused")
 public class PropertyUtilTest extends PropertyTestCase {
 
     private TestLogger logger = TestLoggerFactory.getTestLogger(
@@ -304,7 +303,7 @@ public class PropertyUtilTest extends PropertyTestCase {
 
         // テスト対象の実行
         try {
-            String str = PropertyUtil.getProperty(input);
+            PropertyUtil.getProperty(input);
             fail();
         } catch (NullPointerException e) {
             return;
@@ -555,7 +554,7 @@ public class PropertyUtilTest extends PropertyTestCase {
 
         // テスト対象の実行
         try {
-            String str = PropertyUtil.getProperty(input1, input2);
+            PropertyUtil.getProperty(input1, input2);
             fail();
         } catch (NullPointerException e) {
             return;
@@ -840,7 +839,7 @@ public class PropertyUtilTest extends PropertyTestCase {
 
         // テスト対象の実行
         try {
-            Enumeration<String> enume = PropertyUtil.getPropertyNames(input1);
+            PropertyUtil.getPropertyNames(input1);
             fail();
         } catch (NullPointerException e) {
             return;

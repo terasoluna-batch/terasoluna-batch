@@ -53,10 +53,8 @@ public class AbstractTransactionBLogicTest {
         BLogicParam param = new BLogicParam();
 
         // テスト
-        @SuppressWarnings("unused")
-        int result = -1;
         try {
-            result = blogic.execute(param);
+            blogic.execute(param);
         } catch (Exception e) {
             assertNotNull(e);
             assertEquals(BatchException.class, e.getClass());

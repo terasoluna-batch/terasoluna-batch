@@ -23,8 +23,6 @@ import java.util.Map;
  * {@link GenericPropertyUtil}のテストのためのスタブクラス。
  */
 public class GenericPropertyUtil_Stub01 {
-    @SuppressWarnings("unused")
-    private List<String> list0;
 
     private List<String> list1;
 
@@ -35,9 +33,6 @@ public class GenericPropertyUtil_Stub01 {
     private List<?> list4;
 
     private List<?> list5;
-
-    @SuppressWarnings("unused")
-    private Map<String, Object> map0;
 
     private Map<String, Object> map1;
 

@@ -66,18 +66,13 @@ public class FileValidateCollector019Test extends DaoTestCase {
             fail("csvFileQueryDAOがnullです。");
         }
 
-        @SuppressWarnings("unused")
-        int count_first = 0;
-        // int exception_count = 0;
         Validator validator = null;
 
         Collector<B000001Data> it = new FileValidateCollector<B000001Data>(this.csvFileQueryDAO, "NOT_FOUND.csv", B000001Data.class, validator);
 
         try {
-            for (@SuppressWarnings("unused")
-            B000001Data data : it) {
-                count_first++;
-
+            while (it.hasNext()) {
+                it.next();
             }
         } catch (Exception e) {
             if (logger.isErrorEnabled()) {

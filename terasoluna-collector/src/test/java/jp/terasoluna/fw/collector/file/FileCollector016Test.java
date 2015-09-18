@@ -86,10 +86,8 @@ public class FileCollector016Test extends DaoTestCase {
             // it = ac.execute();
 
             while (it.hasNext()) {
-                @SuppressWarnings("unused")
-                B000001Data data = null;
                 try {
-                    data = it.next();
+                    it.next();
                 } catch (Exception e) {
                     e.printStackTrace();
                     exception_count++;

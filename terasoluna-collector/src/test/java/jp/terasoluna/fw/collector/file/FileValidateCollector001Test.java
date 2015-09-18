@@ -23,9 +23,6 @@ public class FileValidateCollector001Test extends DaoTestCase {
 
     private FileQueryDAO csvFileQueryDAO = null;
 
-    @SuppressWarnings("unused")
-    private int previousThreadCount = 0;
-
     public void setCsvFileQueryDAO(FileQueryDAO csvFileQueryDAO) {
         this.csvFileQueryDAO = csvFileQueryDAO;
     }
@@ -41,7 +38,6 @@ public class FileValidateCollector001Test extends DaoTestCase {
             logger.info(MemoryInfo.getMemoryInfo());
         }
         super.onSetUp();
-        this.previousThreadCount = CollectorTestUtil.getCollectorThreadCount();
     }
 
     @Override
@@ -114,8 +110,6 @@ public class FileValidateCollector001Test extends DaoTestCase {
 
         // int count_first = 0;
         // CollectorExceptionHandler exceptionHandler = new CollectorExceptionHandlerStub();
-        @SuppressWarnings("unused")
-        Validator validator = new ValidatorStub();
 
         FileCollectorConfig<B000001Data> config = new FileCollectorConfig<B000001Data>(this.csvFileQueryDAO, url
                 .getFile(), B000001Data.class);

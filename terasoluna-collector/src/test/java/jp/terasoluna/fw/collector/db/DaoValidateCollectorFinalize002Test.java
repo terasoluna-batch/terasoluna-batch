@@ -95,7 +95,8 @@ public class DaoValidateCollectorFinalize002Test extends DaoTestCase {
         Collector<UserBean> it = new DaoValidateCollector<UserBean>(
                 this.userListQueryResultHandleDao, "collect", null, validator);
         try {
-            for (@SuppressWarnings("unused") UserBean user : it) {
+            while (it.hasNext()) {
+                it.next();
                 // あえて途中で抜ける
                 break;
             }

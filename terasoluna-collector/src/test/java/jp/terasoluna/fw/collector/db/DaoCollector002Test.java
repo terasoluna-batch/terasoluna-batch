@@ -86,8 +86,8 @@ public class DaoCollector002Test extends DaoTestCase {
             retryFlg = false;
             Collector<UserBean> col = new DaoCollector<UserBean>(this.userListQueryResultHandleDao, "collect", null);
             try {
-                for (@SuppressWarnings("unused")
-                UserBean user : col) {
+                while (col.hasNext()) {
+                    col.next();
                     count_first++;
                 }
             } catch (Throwable e) {
@@ -132,8 +132,8 @@ public class DaoCollector002Test extends DaoTestCase {
 
             Collector<UserBean> col2 = new DaoCollector<UserBean>(this.userListQueryResultHandleDao, "collect", null);
             try {
-                for (@SuppressWarnings("unused")
-                UserBean user : col2) {
+                while (col2.hasNext()) {
+                    col2.next();
                     count++;
                 }
             } finally {
@@ -164,8 +164,8 @@ public class DaoCollector002Test extends DaoTestCase {
 
         Collector<UserBean> col = new DaoCollector<UserBean>(config);
         try {
-            for (@SuppressWarnings("unused")
-            UserBean user : col) {
+            while (col.hasNext()) {
+                col.next();
                 count_first++;
             }
         } finally {
@@ -181,8 +181,8 @@ public class DaoCollector002Test extends DaoTestCase {
 
             Collector<UserBean> col2 = new DaoCollector<UserBean>(this.userListQueryResultHandleDao, "collect", null);
             try {
-                for (@SuppressWarnings("unused")
-                UserBean user : col2) {
+                while (col2.hasNext()) {
+                    col2.next();
                     count++;
                 }
             } finally {
@@ -214,10 +214,7 @@ public class DaoCollector002Test extends DaoTestCase {
             for (OrderBean order : col) {
                 List<OrderDetailBean> orderDetailList = order
                         .getOrderDetailList();
-                for (@SuppressWarnings("unused")
-                OrderDetailBean orderDetail : orderDetailList) {
-                    count_detail++;
-                }
+                count_detail += orderDetailList.size();
                 count_first++;
             }
         } finally {
@@ -250,10 +247,7 @@ public class DaoCollector002Test extends DaoTestCase {
             for (OrderBean order : col) {
                 List<OrderDetailBean> orderDetailList = order
                         .getOrderDetailList();
-                for (@SuppressWarnings("unused")
-                OrderDetailBean orderDetail : orderDetailList) {
-                    count_detail++;
-                }
+                count_detail += orderDetailList.size();
                 count_first++;
             }
         } finally {
@@ -288,10 +282,7 @@ public class DaoCollector002Test extends DaoTestCase {
             for (OrderBean order : col) {
                 List<OrderDetailBean> orderDetailList = order
                         .getOrderDetailList();
-                for (@SuppressWarnings("unused")
-                OrderDetailBean orderDetail : orderDetailList) {
-                    count_detail++;
-                }
+                count_detail += orderDetailList.size();
                 count_first++;
             }
         } finally {
@@ -356,10 +347,8 @@ public class DaoCollector002Test extends DaoTestCase {
         Collector<Order2Bean> col = new DaoCollector<Order2Bean>(this.userListQueryResultHandleDao, "collectOrder2", null, true);
         try {
             for (Order2Bean order : col) {
-                @SuppressWarnings("unused")
-                Order2Bean prevOrder = col.getPrevious();
-                @SuppressWarnings("unused")
-                Order2Bean nextOrder = col.getNext();
+                col.getPrevious();
+                col.getNext();
                 OrderDetailBean orderDetail = order.getOrderDetail();
                 if (orderDetail != null) {
                     count_detail++;
@@ -396,10 +385,8 @@ public class DaoCollector002Test extends DaoTestCase {
         Collector<Order2Bean> col = new DaoCollector<Order2Bean>(this.userListQueryResultHandleDao, "collectOrder2", null, 1, true, null, prepost);
         try {
             for (Order2Bean order : col) {
-                @SuppressWarnings("unused")
-                Order2Bean prevOrder = col.getPrevious();
-                @SuppressWarnings("unused")
-                Order2Bean nextOrder = col.getNext();
+                col.getPrevious();
+                col.getNext();
                 OrderDetailBean orderDetail = order.getOrderDetail();
                 if (orderDetail != null) {
                     count_detail++;

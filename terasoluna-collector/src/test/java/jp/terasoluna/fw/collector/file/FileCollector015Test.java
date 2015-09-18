@@ -86,9 +86,9 @@ public class FileCollector015Test extends DaoTestCase {
                 null);
 
         try {
-            for (@SuppressWarnings("unused") B000001Data data : it) {
+            while (it.hasNext()) {
+                it.next();
                 count_first++;
-
                 if (count_first > 10) {
                     break;
                 }

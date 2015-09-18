@@ -25,9 +25,6 @@ public class FileValidateCollector004Test extends DaoTestCase {
 
     private FileQueryDAO csvFileQueryDAO = null;
 
-    @SuppressWarnings("unused")
-    private int previousThreadCount = 0;
-
     public void setCsvFileQueryDAO(FileQueryDAO csvFileQueryDAO) {
         this.csvFileQueryDAO = csvFileQueryDAO;
     }
@@ -43,7 +40,6 @@ public class FileValidateCollector004Test extends DaoTestCase {
             logger.info(MemoryInfo.getMemoryInfo());
         }
         super.onSetUp();
-        this.previousThreadCount = CollectorTestUtil.getCollectorThreadCount();
     }
 
     @Override
@@ -101,13 +97,12 @@ public class FileValidateCollector004Test extends DaoTestCase {
      * testFileValidateCollector005
      * @throws Exception
      */
+    @SuppressWarnings("resource")
     public void testFileValidateCollector005() throws Exception {
         FileCollectorConfig<UserBean> config = null;
 
-        @SuppressWarnings("unused")
-        FileValidateCollector<UserBean> dbc = null;
         try {
-            dbc = new FileValidateCollector<UserBean>(config);
+            new FileValidateCollector<UserBean>(config);
             fail("失敗");
         } catch (IllegalArgumentException e) {
             assertNotNull(e);

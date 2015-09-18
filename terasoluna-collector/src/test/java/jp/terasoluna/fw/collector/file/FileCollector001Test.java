@@ -27,9 +27,6 @@ public class FileCollector001Test extends DaoTestCase {
 
     private FileQueryDAO csvFileQueryDAO = null;
 
-    @SuppressWarnings("unused")
-    private int previousThreadCount = 0;
-
     public void setCsvFileQueryDAO(FileQueryDAO csvFileQueryDAO) {
         this.csvFileQueryDAO = csvFileQueryDAO;
     }
@@ -45,7 +42,6 @@ public class FileCollector001Test extends DaoTestCase {
             logger.info(MemoryInfo.getMemoryInfo());
         }
         super.onSetUp();
-        this.previousThreadCount = CollectorTestUtil.getCollectorThreadCount();
     }
 
     @Override
@@ -102,15 +98,17 @@ public class FileCollector001Test extends DaoTestCase {
      */
     public void testFileCollector002() throws Exception {
         FileCollectorConfig<UserBean> config = null;
-
-        @SuppressWarnings("unused")
-        FileCollector<UserBean> dbc = null;
+        FileCollector<UserBean> col = null;
         try {
-            dbc = new FileCollector<UserBean>(config);
+            col = new FileCollector<UserBean>(config);
             fail("失敗");
         } catch (IllegalArgumentException e) {
             assertNotNull(e);
             assertEquals("The parameter is null.", e.getMessage());
+        } finally {
+            if (col != null) {
+                col.close();
+            }
         }
     }
 

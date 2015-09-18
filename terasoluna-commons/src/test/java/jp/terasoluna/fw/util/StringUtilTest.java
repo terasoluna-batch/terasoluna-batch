@@ -36,7 +36,6 @@ import org.junit.Test;
  * ログ出力ディレクトリ(log4j.file.dir)<br>
  * ログファイル名(log4j.file.name)<br>
  */
-@SuppressWarnings("unused")
 public class StringUtilTest {
 
     /**
@@ -943,7 +942,7 @@ public class StringUtilTest {
 
         try {
             // テスト実行
-            String result = StringUtil.toHexString(byteArray, "/");
+            StringUtil.toHexString(byteArray, "/");
             fail();
         } catch (NullPointerException e) {
             return;
@@ -3117,7 +3116,7 @@ public class StringUtilTest {
 
         // テスト実行
         try {
-            int i = StringUtil.getByteLength(value, encoding);
+            StringUtil.getByteLength(value, encoding);
             fail();
         } catch (UnsupportedEncodingException e) {
             // 判定

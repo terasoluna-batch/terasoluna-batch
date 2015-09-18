@@ -89,10 +89,9 @@ public class FileValidateCollector021Test extends DaoTestCase {
         try {
             // it = ac.execute();
 
-            for (@SuppressWarnings("unused")
-            B000001Data data : it) {
+            while (it.hasNext()) {
+                it.next();
                 count_first++;
-
             }
         } finally {
             // クローズ

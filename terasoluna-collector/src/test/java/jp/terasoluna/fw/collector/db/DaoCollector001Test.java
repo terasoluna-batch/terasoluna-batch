@@ -93,7 +93,6 @@ public class DaoCollector001Test extends DaoTestCase {
     public void testDaoCollector003() throws Exception {
         DaoCollectorConfig config = null;
 
-        @SuppressWarnings("unused")
         DaoCollector<UserBean> dbc = null;
         try {
             dbc = new DaoCollector<UserBean>(config);
@@ -101,6 +100,10 @@ public class DaoCollector001Test extends DaoTestCase {
         } catch (IllegalArgumentException e) {
             assertNotNull(e);
             assertEquals("The parameter is null.", e.getMessage());
+        } finally {
+            if (dbc != null) {
+                dbc.close();
+            }
         }
     }
 
@@ -138,10 +141,8 @@ public class DaoCollector001Test extends DaoTestCase {
 
         dbc.queueingResultHandlerClass = QueueingResultHandlerStub002.class;
 
-        @SuppressWarnings("unused")
-        QueueingResultHandler drh = null;
         try {
-            drh = dbc.getResultHandler();
+            dbc.getResultHandler();
             fail("失敗");
         } catch (SystemException e) {
             assertNotNull(e);
@@ -167,10 +168,8 @@ public class DaoCollector001Test extends DaoTestCase {
 
         dbc.queueingResultHandlerClass = QueueingResultHandlerStub003.class;
 
-        @SuppressWarnings("unused")
-        QueueingResultHandler drh = null;
         try {
-            drh = dbc.getResultHandler();
+            dbc.getResultHandler();
             fail("失敗");
         } catch (SystemException e) {
             assertNotNull(e);
