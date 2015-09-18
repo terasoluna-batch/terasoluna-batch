@@ -18,6 +18,7 @@ package jp.terasoluna.fw.batch.exception.handler;
 
 import static org.junit.Assert.*;
 import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import uk.org.lidalia.slf4jtest.TestLogger;
@@ -33,6 +34,14 @@ public class ExceptionStatusHandlerImplTest {
 
     private TestLogger logger = TestLoggerFactory.getTestLogger(
             ExceptionStatusHandlerImpl.class);
+    
+    /**
+     * テスト前処理：ロガーのクリアを行う。
+     */
+    @Before
+    public void setUp() {
+        logger.clear();
+    }
 
     /**
      * テスト後処理：ロガーのクリアを行う。
