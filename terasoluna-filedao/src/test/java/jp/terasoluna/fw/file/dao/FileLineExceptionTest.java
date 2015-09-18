@@ -7,17 +7,10 @@
 
 package jp.terasoluna.fw.file.dao;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
-import java.util.List;
-
-import org.junit.Before;
 import org.junit.Test;
 
-import jp.terasoluna.fw.file.ut.VMOUTUtil;
 import org.springframework.test.util.ReflectionTestUtils;
 
 /**
@@ -29,14 +22,6 @@ import org.springframework.test.util.ReflectionTestUtils;
  * @see jp.terasoluna.fw.file.dao.FileLineException
  */
 public class FileLineExceptionTest {
-
-    /**
-     * 初期化処理を行う。
-     */
-    @Before
-    public void setUp() {
-        VMOUTUtil.initialize();
-    }
 
     /**
      * testFileLineExceptionException01() <br>
@@ -57,7 +42,6 @@ public class FileLineExceptionTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testFileLineExceptionException01() throws Exception {
         // テスト対象のインスタンス化
         // コンストラクタなので不要
@@ -79,13 +63,6 @@ public class FileLineExceptionTest {
         assertEquals(-1, ReflectionTestUtils.getField(fe, "columnIndex"));
         assertEquals(-1, ReflectionTestUtils.getField(fe, "lineNo"));
         assertSame(exception, fe.getCause());
-
-        assertTrue(VMOUTUtil.isCalled(FileException.class, "<init>"));
-        assertEquals(1, VMOUTUtil.getCallCount(FileException.class, "<init>"));
-        List arguments = VMOUTUtil.getArguments(FileException.class, "<init>",
-                0);
-        assertEquals(1, arguments.size());
-        assertSame(exception, arguments.get(0));
     }
 
     /**
@@ -108,13 +85,12 @@ public class FileLineExceptionTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testFileLineExceptionString01() throws Exception {
         // テスト対象のインスタンス化
         // コンストラクタなので不要
 
         // 引数の設定
-        String message = new String();
+        String message = "";
 
         // 前提条件の設定
         // なし
@@ -130,13 +106,6 @@ public class FileLineExceptionTest {
         assertEquals(-1, ReflectionTestUtils.getField(fe, "columnIndex"));
         assertEquals(-1, ReflectionTestUtils.getField(fe, "lineNo"));
         assertEquals(message, fe.getMessage());
-
-        assertTrue(VMOUTUtil.isCalled(FileException.class, "<init>"));
-        assertEquals(1, VMOUTUtil.getCallCount(FileException.class, "<init>"));
-        List arguments = VMOUTUtil.getArguments(FileException.class, "<init>",
-                0);
-        assertEquals(1, arguments.size());
-        assertSame(message, arguments.get(0));
     }
 
     /**
@@ -162,13 +131,12 @@ public class FileLineExceptionTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testFileLineExceptionStringException01() throws Exception {
         // テスト対象のインスタンス化
         // コンストラクタなので不要
 
         // 引数の設定
-        String message = new String();
+        String message = "";
         Exception exception = new Exception();
 
         // 前提条件の設定
@@ -186,14 +154,6 @@ public class FileLineExceptionTest {
         assertEquals(-1, ReflectionTestUtils.getField(fe, "lineNo"));
         assertSame(message, fe.getMessage());
         assertSame(exception, fe.getCause());
-
-        assertTrue(VMOUTUtil.isCalled(FileException.class, "<init>"));
-        assertEquals(1, VMOUTUtil.getCallCount(FileException.class, "<init>"));
-        List arguments = VMOUTUtil.getArguments(FileException.class, "<init>",
-                0);
-        assertEquals(2, arguments.size());
-        assertSame(message, arguments.get(0));
-        assertSame(exception, arguments.get(1));
     }
 
     /**
@@ -220,22 +180,20 @@ public class FileLineExceptionTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testFileLineExceptionExceptionStringint01() throws Exception {
         // テスト対象のインスタンス化
         // コンストラクタなので不要
 
         // 引数の設定
         Exception exception = new Exception();
-        String fileName = new String();
+        String fileName = "";
         int lineNo = 1;
 
         // 前提条件の設定
         // なし
 
         // テスト実施
-        FileLineException fe = new FileLineException(exception, fileName,
-                lineNo);
+        FileLineException fe = new FileLineException(exception, fileName, lineNo);
 
         // 返却値の確認
         // なし
@@ -246,14 +204,6 @@ public class FileLineExceptionTest {
         assertEquals(1, ReflectionTestUtils.getField(fe, "lineNo"));
         assertSame(exception, fe.getCause());
         assertSame(fileName, ReflectionTestUtils.getField(fe, "fileName"));
-
-        assertTrue(VMOUTUtil.isCalled(FileException.class, "<init>"));
-        assertEquals(1, VMOUTUtil.getCallCount(FileException.class, "<init>"));
-        List arguments = VMOUTUtil.getArguments(FileException.class, "<init>",
-                0);
-        assertEquals(2, arguments.size());
-        assertSame(exception, arguments.get(0));
-        assertSame(fileName, arguments.get(1));
     }
 
     /**
@@ -278,24 +228,21 @@ public class FileLineExceptionTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
-    public void testFileLineExceptionStringExceptionStringint01()
-                                                                 throws Exception {
+    public void testFileLineExceptionStringExceptionStringint01() throws Exception {
         // テスト対象のインスタンス化
         // コンストラクタなので不要
 
         // 引数の設定
-        String message = new String();
+        String message = "";
         Exception exception = new Exception();
-        String fileName = new String();
+        String fileName = "";
         int lineNo = 1;
 
         // 前提条件の設定
         // なし
 
         // テスト実施
-        FileLineException fe = new FileLineException(message, exception,
-                fileName, lineNo);
+        FileLineException fe = new FileLineException(message, exception, fileName, lineNo);
 
         // 返却値の確認
         // なし
@@ -305,15 +252,6 @@ public class FileLineExceptionTest {
         assertSame(fileName, ReflectionTestUtils.getField(fe, "fileName"));
         assertSame(message, fe.getMessage());
         assertEquals(1, ReflectionTestUtils.getField(fe, "lineNo"));
-
-        assertTrue(VMOUTUtil.isCalled(FileException.class, "<init>"));
-        assertEquals(1, VMOUTUtil.getCallCount(FileException.class, "<init>"));
-        List arguments = VMOUTUtil.getArguments(FileException.class, "<init>",
-                0);
-        assertEquals(3, arguments.size());
-        assertSame(message, arguments.get(0));
-        assertSame(exception, arguments.get(1));
-        assertSame(fileName, arguments.get(2));
     }
 
     /**
@@ -343,25 +281,22 @@ public class FileLineExceptionTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
-    public void testFileLineExceptionExceptionStringintStringint01()
-                                                                    throws Exception {
+    public void testFileLineExceptionExceptionStringintStringint01() throws Exception {
         // テスト対象のインスタンス化
         // コンストラクタなので不要
 
         // 引数の設定
         Exception exception = new Exception();
-        String fileName = new String();
+        String fileName = "";
         int lineNo = 1;
-        String columnName = new String();
+        String columnName = "";
         int columnIndex = 1;
 
         // 前提条件の設定
         // なし
 
         // テスト実施
-        FileLineException fe = new FileLineException(exception, fileName,
-                lineNo, columnName, columnIndex);
+        FileLineException fe = new FileLineException(exception, fileName, lineNo, columnName, columnIndex);
 
         // 返却値の確認
         // なし
@@ -370,16 +305,10 @@ public class FileLineExceptionTest {
         assertSame(exception, fe.getCause());
         assertEquals(fileName, ReflectionTestUtils.getField(fe, "fileName"));
         assertEquals(lineNo, ReflectionTestUtils.getField(fe, "lineNo"));
-        assertEquals(columnName, ReflectionTestUtils.getField(fe, "columnName"));
-        assertEquals(columnIndex, ReflectionTestUtils.getField(fe, "columnIndex"));
-
-        assertTrue(VMOUTUtil.isCalled(FileException.class, "<init>"));
-        assertEquals(1, VMOUTUtil.getCallCount(FileException.class, "<init>"));
-        List arguments = VMOUTUtil.getArguments(FileException.class, "<init>",
-                0);
-        assertEquals(2, arguments.size());
-        assertSame(exception, arguments.get(0));
-        assertSame(fileName, arguments.get(1));
+        assertEquals(columnName, ReflectionTestUtils.getField(fe,
+                "columnName"));
+        assertEquals(columnIndex, ReflectionTestUtils.getField(fe,
+                "columnIndex"));
     }
 
     /**
@@ -412,26 +341,23 @@ public class FileLineExceptionTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
-    public void testFileLineExceptionStringExceptionStringintStringint01()
-                                                                          throws Exception {
+    public void testFileLineExceptionStringExceptionStringintStringint01() throws Exception {
         // テスト対象のインスタンス化
         // コンストラクタなので不要
 
         // 引数の設定
-        String message = new String();
+        String message = "";
         Exception exception = new Exception();
-        String fileName = new String();
+        String fileName = "";
         int lineNo = 1;
-        String columnName = new String();
+        String columnName = "";
         int columnIndex = 1;
 
         // 前提条件の設定
         // なし
 
         // テスト実施
-        FileLineException fe = new FileLineException(message, exception,
-                fileName, lineNo, columnName, columnIndex);
+        FileLineException fe = new FileLineException(message, exception, fileName, lineNo, columnName, columnIndex);
 
         // 返却値の確認
         // なし
@@ -441,17 +367,10 @@ public class FileLineExceptionTest {
         assertSame(exception, fe.getCause());
         assertEquals(fileName, ReflectionTestUtils.getField(fe, "fileName"));
         assertEquals(lineNo, ReflectionTestUtils.getField(fe, "lineNo"));
-        assertEquals(columnName, ReflectionTestUtils.getField(fe, "columnName"));
-        assertEquals(columnIndex, ReflectionTestUtils.getField(fe, "columnIndex"));
-
-        assertTrue(VMOUTUtil.isCalled(FileException.class, "<init>"));
-        assertEquals(1, VMOUTUtil.getCallCount(FileException.class, "<init>"));
-        List arguments = VMOUTUtil.getArguments(FileException.class, "<init>",
-                0);
-        assertEquals(3, arguments.size());
-        assertSame(message, arguments.get(0));
-        assertSame(exception, arguments.get(1));
-        assertSame(fileName, arguments.get(2));
+        assertEquals(columnName, ReflectionTestUtils.getField(fe,
+                "columnName"));
+        assertEquals(columnIndex, ReflectionTestUtils.getField(fe,
+                "columnIndex"));
     }
 
     /**
@@ -479,14 +398,13 @@ public class FileLineExceptionTest {
     @Test
     public void testGetColumnName01() throws Exception {
         // テスト対象のインスタンス化
-        String message = new String();
+        String message = "";
         Exception exception = new Exception();
-        String fileName = new String();
+        String fileName = "";
         int lineNo = 1;
-        String columnName = new String();
+        String columnName = "";
         int columnIndex = 1;
-        FileLineException fe = new FileLineException(message, exception,
-                fileName, lineNo, columnName, columnIndex);
+        FileLineException fe = new FileLineException(message, exception, fileName, lineNo, columnName, columnIndex);
 
         // 引数の設定
         // なし
@@ -529,14 +447,13 @@ public class FileLineExceptionTest {
     @Test
     public void testGetLineNo01() throws Exception {
         // テスト対象のインスタンス化
-        String message = new String();
+        String message = "";
         Exception exception = new Exception();
-        String fileName = new String();
+        String fileName = "";
         int lineNo = 1;
-        String columnName = new String();
+        String columnName = "";
         int columnIndex = 1;
-        FileLineException fe = new FileLineException(message, exception,
-                fileName, lineNo, columnName, columnIndex);
+        FileLineException fe = new FileLineException(message, exception, fileName, lineNo, columnName, columnIndex);
 
         // 引数の設定
         // なし
@@ -579,7 +496,7 @@ public class FileLineExceptionTest {
     @Test
     public void testGetColumnIndex01() throws Exception {
         // テスト対象のインスタンス化
-        FileLineException fe = new FileLineException(new String());
+        FileLineException fe = new FileLineException("");
 
         // 引数の設定
         // なし

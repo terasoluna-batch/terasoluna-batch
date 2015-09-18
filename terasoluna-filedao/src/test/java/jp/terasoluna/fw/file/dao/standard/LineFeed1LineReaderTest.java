@@ -1,7 +1,7 @@
 /*
  * $Id: LineFeed1LineReaderTest.java 5354 2007-10-03 06:06:25Z anh $
  *
- * Copyright (c) 2006 NTT DATA Corporation
+ * Copyright (c) 2006-2015 NTT DATA Corporation
  *
  */
 
@@ -21,30 +21,20 @@ import java.io.StringReader;
 import org.springframework.test.util.ReflectionTestUtils;
 
 import jp.terasoluna.fw.file.dao.FileException;
-import jp.terasoluna.fw.file.ut.VMOUTUtil;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-import org.junit.Before;
 import org.junit.Test;
 
 /**
- * {@link jp..terasoluna.fw.file.dao.standard.LineFeed1LineReader} クラスのテスト。
+ * {@link jp.terasoluna.fw.file.dao.standard.LineFeed1LineReader} クラスのテスト。
  * <p>
  * <h4>【クラスの概要】</h4> 囲み文字なし、行区切り文字が1文字の場合のファイルから1行分の文字列を取得する処理を行う。
  * <p>
  * @author 奥田哲司
- * @see jp..terasoluna.fw.file.dao.standard.LineFeed1LineReader
+ * @see jp.terasoluna.fw.file.dao.standard.LineFeed1LineReader
  */
 public class LineFeed1LineReaderTest {
-
-    /**
-     * 初期化処理を行う。
-     */
-    @Before
-    public void setUp() {
-        VMOUTUtil.initialize();
-    }
 
     /**
      * testLineFeed1LineReader01() <br>
@@ -211,7 +201,8 @@ public class LineFeed1LineReaderTest {
         } catch (FileException e) {
             // 判定
             assertTrue(e instanceof FileException);
-            assertEquals("Reader control operation was failed.", e.getMessage());
+            assertEquals("Reader control operation was failed.", e
+                    .getMessage());
             assertTrue(e.getCause() instanceof IOException);
         }
     }

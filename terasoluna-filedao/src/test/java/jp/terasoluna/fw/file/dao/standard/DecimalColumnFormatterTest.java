@@ -1,14 +1,13 @@
 /*
  * $Id: DecimalColumnFormatterTest.java 5354 2007-10-03 06:06:25Z anh $
  *
- * Copyright (c) 2006 NTT DATA Corporation
+ * Copyright (c) 2006-2015 NTT DATA Corporation
  *
  */
 
 package jp.terasoluna.fw.file.dao.standard;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
@@ -19,11 +18,14 @@ import java.lang.reflect.Method;
 import java.math.BigDecimal;
 import java.util.concurrent.ConcurrentHashMap;
 
-import org.junit.Before;
 import org.junit.Test;
 
-import jp.terasoluna.fw.file.ut.VMOUTUtil;
 import org.springframework.test.util.ReflectionTestUtils;
+import org.junit.runner.RunWith;
+import org.mockito.Mockito;
+import org.powermock.api.mockito.PowerMockito;
+import org.powermock.core.classloader.annotations.PrepareForTest;
+import org.powermock.modules.junit4.PowerMockRunner;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.DecimalColumnFormatter} クラスのテスト。
@@ -33,15 +35,9 @@ import org.springframework.test.util.ReflectionTestUtils;
  * @author 奥田 哲司
  * @see jp.terasoluna.fw.file.dao.standard.DecimalColumnFormatter
  */
+@RunWith(PowerMockRunner.class)
+@PrepareForTest(DecimalColumnFormatter.class)
 public class DecimalColumnFormatterTest {
-
-    /**
-     * 初期化処理を行う。
-     */
-    @Before
-    public void setUp() {
-        VMOUTUtil.initialize();
-    }
 
     /**
      * testFormat01() <br>
@@ -273,8 +269,8 @@ public class DecimalColumnFormatterTest {
         DecimalColumnFormatter_FileLineObjectStub01 stub = new DecimalColumnFormatter_FileLineObjectStub01();
         stub.setDecimal05(new BigDecimal(1000000));
 
-        Method method = stub.getClass().getMethod("getDecimal05",
-                new Class[] { BigDecimal.class });
+        Method method = stub.getClass().getMethod("getDecimal05", new Class[] {
+                BigDecimal.class });
 
         String columnFormat = new String();
 
@@ -360,7 +356,8 @@ public class DecimalColumnFormatterTest {
      * 期待値：(戻り値) 文字列:"1000000"<br>
      * <br>
      * 正常ケース<br>
-     * フォーマット用の文字列が空文字の場合、かつフィールドのgetterメソッドが 正しく設定されている場合に、対象フィールドの情報が数字のみの文字列 (BigDecimal.toPlainString()の結果)として取得されることを確認する。 <br>
+     * フォーマット用の文字列が空文字の場合、かつフィールドのgetterメソッドが 正しく設定されている場合に、対象フィールドの情報が数字のみの文字列 (BigDecimal.toPlainString()の結果)として取得されることを確認する。
+     * <br>
      * @throws Exception このメソッドで発生した例外
      */
     @Test
@@ -434,6 +431,11 @@ public class DecimalColumnFormatterTest {
         ReflectionTestUtils.setField(decimalColumnFormatter, "dfMap", dfMap);
         dfMap.clear();
 
+        DecimalFormatLocal dfl = Mockito.spy(
+                new DecimalFormatLocal(columnFormat));
+        PowerMockito.whenNew(DecimalFormatLocal.class).withArguments(
+                columnFormat).thenReturn(dfl);
+
         // テスト実施
         String result = decimalColumnFormatter.format(stub, method,
                 columnFormat);
@@ -448,10 +450,10 @@ public class DecimalColumnFormatterTest {
         assertTrue(dfMap.containsKey(columnFormat));
         DecimalFormatLocal dfMapValue = dfMap.get(columnFormat);
         assertNotNull(dfMapValue);
-        assertEquals(columnFormat, ReflectionTestUtils.getField(dfMapValue, "pattern"));
-
-        assertEquals(1, VMOUTUtil.getCallCount(DecimalFormatLocal.class,
-                "<init>"));
+        assertEquals(columnFormat, ReflectionTestUtils.getField(dfMapValue,
+                "pattern"));
+        PowerMockito.verifyNew(DecimalFormatLocal.class).withArguments(
+                columnFormat);
     }
 
     /**
@@ -502,12 +504,13 @@ public class DecimalColumnFormatterTest {
         String columnFormat = "\\##,###,###.00";
 
         ConcurrentHashMap<String, DecimalFormatLocal> dfMap = new ConcurrentHashMap<String, DecimalFormatLocal>();
-        DecimalFormatLocal dfMapValue = new DecimalFormatLocal(columnFormat);
+        DecimalFormatLocal dfMapValue = Mockito.spy(
+                new DecimalFormatLocal(columnFormat));
         dfMap.put(columnFormat, dfMapValue);
         ReflectionTestUtils.setField(decimalColumnFormatter, "dfMap", dfMap);
 
-        VMOUTUtil.initialize();
-
+        PowerMockito.whenNew(DecimalFormatLocal.class).withArguments(
+                columnFormat).thenReturn(dfMapValue);
         // テスト実施
         String result = decimalColumnFormatter.format(stub, method,
                 columnFormat);
@@ -523,6 +526,7 @@ public class DecimalColumnFormatterTest {
         DecimalFormatLocal formatLocal = dfMap.get(columnFormat);
         assertSame(dfMapValue, formatLocal);
 
-        assertFalse(VMOUTUtil.isCalled(DecimalFormatLocal.class, "<init>"));
+        PowerMockito.verifyNew(DecimalFormatLocal.class, Mockito.never())
+                .withArguments(columnFormat);
     }
 }

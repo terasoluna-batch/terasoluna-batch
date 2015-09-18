@@ -1,14 +1,13 @@
 /*
  * $Id:$
  *
- * Copyright (c) 2006 NTT DATA Corporation
+ * Copyright (c) 2006-2015 NTT DATA Corporation
  *
  */
 
 package jp.terasoluna.fw.file.dao.standard;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertSame;
 import static org.junit.Assert.fail;
 
 import java.io.BufferedReader;
@@ -16,13 +15,11 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import jp.terasoluna.fw.file.annotation.NullStringConverter;
 import jp.terasoluna.fw.file.annotation.PaddingType;
 import jp.terasoluna.fw.file.dao.FileException;
-import jp.terasoluna.fw.file.ut.VMOUTUtil;
 
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -46,7 +43,6 @@ public class CSVFileLineWriterTest {
 
     @Before
     public void setUp() throws Exception {
-        VMOUTUtil.initialize();
         // ファイルの初期化
         File file = new File(TEMP_FILE_NAME);
         file.delete();
@@ -71,14 +67,14 @@ public class CSVFileLineWriterTest {
      * 入力値：(引数) fileName:"(パス)CSVFileLineWriter_testCSVFileLineWriter01.txt"<br>
      * (引数) clazz:CSVFileLineWriter_Stub05インスタンス<br>
      * @FileFormatの設定<br>
-     * delimiter='、'<br>
-     * (引数) columnFormatterMap:以下の要素を持つMap<String, ColumnFormatter>インスタンス<br>
-     * ・"java.lang.String"=NullColumnFormatter.java<br>
-     * <br>
-     * 期待値：(状態変化) 例外:"Delimiter can not change."のメッセージ、IllegalStateException、ファイル名を持つFileExceptionが発生する。<br>
-     * <br>
-     * 例外。@FileFormatのdelimiterに初期値以外を設定した場合、例外が発生することを確認する。<br>
-     * ファイル名が入力値のfileNameに一致することを確認する。 <br>
+     *                    delimiter='、'<br>
+     *                    (引数) columnFormatterMap:以下の要素を持つMap<String, ColumnFormatter>インスタンス<br>
+     *                    ・"java.lang.String"=NullColumnFormatter.java<br>
+     *                    <br>
+     *                    期待値：(状態変化) 例外:"Delimiter can not change."のメッセージ、IllegalStateException、ファイル名を持つFileExceptionが発生する。<br>
+     *                    <br>
+     *                    例外。@FileFormatのdelimiterに初期値以外を設定した場合、例外が発生することを確認する。<br>
+     *                    ファイル名が入力値のfileNameに一致することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
     @Test
@@ -126,19 +122,18 @@ public class CSVFileLineWriterTest {
      * 入力値：(引数) fileName:"(パス)CSVFileLineWriter_testCSVFileLineWriter02.txt"<br>
      * (引数) clazz:CSVFileLineWriter_Stub01<br>
      * @FileFormatの設定<br>
-     * delimiter以外=デフォルト値以外<br>
-     * (引数) columnFormatterMap:以下の要素を持つMap<String, ColumnFormatter>インスタンス<br>
-     * ・"java.lang.String"=NullColumnFormatter.java<br>
-     * <br>
-     * 期待値：(状態変化) this.encloseChar:引数clazzのアノテーションFileFormatのencloseChar()の値。<br>
-     * (状態変化) AbstractFileLineWriter#AbstractFileLineWriter():1回呼び出されること<br>
-     * 引数を確認すること<br>
-     * (状態変化) AbstractFileLineWriter#init():1回呼び出されること<br>
-     * <br>
+     *                    delimiter以外=デフォルト値以外<br>
+     *                    (引数) columnFormatterMap:以下の要素を持つMap<String, ColumnFormatter>インスタンス<br>
+     *                    ・"java.lang.String"=NullColumnFormatter.java<br>
+     *                    <br>
+     *                    期待値：(状態変化) this.encloseChar:引数clazzのアノテーションFileFormatのencloseChar()の値。<br>
+     *                    (状態変化) AbstractFileLineWriter#AbstractFileLineWriter():1回呼び出されること<br>
+     *                    引数を確認すること<br>
+     *                    (状態変化) AbstractFileLineWriter#init():1回呼び出されること<br>
+     *                    <br>
      * @FileFormatのdelimiter以外の設定をデフォルト値ではないデータで設定した場合、コンストラクタの呼び出しが正常に行われることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
     @Test
     public void testCSVFileLineWriter02() throws Exception {
         // テスト対象のインスタンス化
@@ -166,18 +161,12 @@ public class CSVFileLineWriterTest {
             assertEquals('\"', ReflectionTestUtils.getField(result,
                     "encloseChar"));
 
-            int superCallCount = VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "<init>");
-            assertEquals(1, superCallCount);
-            List arguments = VMOUTUtil.getArguments(
-                    AbstractFileLineWriter.class, "<init>", 0);
-            assertEquals(3, arguments.size());
-            assertEquals(fileName, arguments.get(0));
-            assertEquals(CSVFileLineWriter_Stub01.class, arguments.get(1));
-            assertEquals(columnFormatterMap, arguments.get(2));
-
-            assertEquals(2, VMOUTUtil.getCallCount(AbstractFileLineWriter.class,
-                    "init"));
+            assertEquals(fileName, ReflectionTestUtils.getField(result,
+                    "fileName"));
+            assertEquals(CSVFileLineWriter_Stub01.class, ReflectionTestUtils
+                    .getField(result, "clazz"));
+            assertEquals(columnFormatterMap, ReflectionTestUtils.getField(
+                    result, "columnFormatterMap"));
         } finally {
             // テスト対象のクローズ処理
             if (result != null) {
@@ -226,20 +215,29 @@ public class CSVFileLineWriterTest {
      * 観点：E <br>
      * <br>
      * 入力値：(引数) t:CSVFileLineWriter_Stub06インスタンス<br>
+     * <<<<<<< HEAD
      * @FileFormat()<br>
-     * String変数column01<br>
-     * アノテーション：@OutputFileColumn(columnIndex = 0)<br>
-     * 値："abcdef"<br>
-     * (引数) index:0<br>
-     * <br>
-     * 期待値：(戻り値) String:"abcdef"<br>
-     * (状態変化) AbstractFileLineWriter#getColumn():引数が渡されて、1回呼び出されること<br>
-     * <br>
-     * 引数tに設定されたクラス（囲み文字が設定されていない場合）のカラムインデックス1の属性値（囲み文字が含まれない）が取得できることを確認するテスト。 <br>
+     *                   String変数column01<br>
+     *                   アノテーション：@OutputFileColumn(columnIndex = 0)<br>
+     *                   値："abcdef"<br>
+     *                   (引数) index:0<br>
+     *                   <br>
+     *                   期待値：(戻り値) String:"abcdef"<br>
+     *                   <br>
+     *                   引数tに設定されたクラス（囲み文字が設定されていない場合）のカラムインデックス1の属性値（囲み文字が含まれない）が取得できることを確認するテスト。 <br>
+     *                   ======= @FileFormat()<br>
+     *                   String変数column01<br>
+     *                   アノテーション：@OutputFileColumn(columnIndex = 0)<br>
+     *                   値："abcdef"<br>
+     *                   (引数) index:0<br>
+     *                   <br>
+     *                   期待値：(戻り値) String:"abcdef"<br>
+     *                   <br>
+     *                   引数tに設定されたクラス（囲み文字が設定されていない場合）のカラムインデックス1の属性値（囲み文字が含まれない）が取得できることを確認するテスト。 <br>
+     *                   >>>>>>> f56a8eb4a4038d10edf8785e48b8d38c6b7ac97e
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testGetColumn01() throws Exception {
         // テスト対象のインスタンス化
         String fileName = TEMP_FILE_NAME;
@@ -262,16 +260,6 @@ public class CSVFileLineWriterTest {
 
             // 返却値の確認
             assertEquals("abcdef", result);
-
-            // 状態変化の確認
-            int superCallCount = VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "getColumn");
-            assertEquals(1, superCallCount);
-            List arguments = VMOUTUtil.getArguments(
-                    AbstractFileLineWriter.class, "getColumn", 0);
-            assertEquals(2, arguments.size());
-            assertSame(stub, arguments.get(0));
-            assertEquals(0, arguments.get(1));
         } finally {
             // テスト対象のクローズ処理
             lineWriter.closeFile();
@@ -285,20 +273,29 @@ public class CSVFileLineWriterTest {
      * 観点：E <br>
      * <br>
      * 入力値：(引数) t:CSVFileLineWriter_Stub07インスタンス<br>
+     * <<<<<<< HEAD
      * @FileFormat(encloseChar='\"')<br>
-     * String変数column01<br>
-     * アノテーション：@OutputFileColumn(columnIndex = 0)<br>
-     * 値："abcdef"<br>
-     * (引数) index:0<br>
-     * <br>
-     * 期待値：(戻り値) String:"abcdef"<br>
-     * (状態変化) AbstractFileLineWriter#getColumn():引数が渡されて、1回呼び出されること<br>
-     * <br>
-     * 引数tに設定されたクラス（囲み文字が設定されている場合）のカラムインデックス1の属性値（囲み文字が含まれない）が取得できることを確認するテスト。 <br>
+     *                                   String変数column01<br>
+     *                                   アノテーション：@OutputFileColumn(columnIndex = 0)<br>
+     *                                   値："abcdef"<br>
+     *                                   (引数) index:0<br>
+     *                                   <br>
+     *                                   期待値：(戻り値) String:"abcdef"<br>
+     *                                   <br>
+     *                                   引数tに設定されたクラス（囲み文字が設定されている場合）のカラムインデックス1の属性値（囲み文字が含まれない）が取得できることを確認するテスト。 <br>
+     *                                   ======= @FileFormat(encloseChar='\"')<br>
+     *                                   String変数column01<br>
+     *                                   アノテーション：@OutputFileColumn(columnIndex = 0)<br>
+     *                                   値："abcdef"<br>
+     *                                   (引数) index:0<br>
+     *                                   <br>
+     *                                   期待値：(戻り値) String:"abcdef"<br>
+     *                                   <br>
+     *                                   引数tに設定されたクラス（囲み文字が設定されている場合）のカラムインデックス1の属性値（囲み文字が含まれない）が取得できることを確認するテスト。 <br>
+     *                                   >>>>>>> f56a8eb4a4038d10edf8785e48b8d38c6b7ac97e
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testGetColumn02() throws Exception {
         // テスト対象のインスタンス化
         String fileName = TEMP_FILE_NAME;
@@ -320,16 +317,6 @@ public class CSVFileLineWriterTest {
 
             // 返却値の確認
             assertEquals("abcdef", result);
-
-            // 状態変化の確認
-            int superCallCount = VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "getColumn");
-            assertEquals(1, superCallCount);
-            List arguments = VMOUTUtil.getArguments(
-                    AbstractFileLineWriter.class, "getColumn", 0);
-            assertEquals(2, arguments.size());
-            assertSame(stub, arguments.get(0));
-            assertEquals(0, arguments.get(1));
         } finally {
             // テスト対象のクローズ処理
             lineWriter.closeFile();
@@ -343,20 +330,29 @@ public class CSVFileLineWriterTest {
      * 観点：E <br>
      * <br>
      * 入力値：(引数) t:CSVFileLineWriter_Stub07インスタンス<br>
+     * <<<<<<< HEAD
      * @FileFormat(encloseChar='\"')<br>
-     * String変数column01<br>
-     * アノテーション：@OutputFileColumn(columnIndex = 0)<br>
-     * 値："ab\"cdef"<br>
-     * (引数) index:0<br>
-     * <br>
-     * 期待値：(戻り値) String:"ab""cdef"<br>
-     * (状態変化) AbstractFileLineWriter#getColumn():引数が渡されて、1回呼び出されること<br>
-     * <br>
-     * 引数tに設定されたクラス（囲み文字が設定されている場合）のカラムインデックス1の属性値（囲み文字が含まれる）がエスケープ処理されて、取得できることを確認するテスト。 <br>
+     *                                   String変数column01<br>
+     *                                   アノテーション：@OutputFileColumn(columnIndex = 0)<br>
+     *                                   値："ab\"cdef"<br>
+     *                                   (引数) index:0<br>
+     *                                   <br>
+     *                                   期待値：(戻り値) String:"ab""cdef"<br>
+     *                                   <br>
+     *                                   引数tに設定されたクラス（囲み文字が設定されている場合）のカラムインデックス1の属性値（囲み文字が含まれる）がエスケープ処理されて、取得できることを確認するテスト。 <br>
+     *                                   ======= @FileFormat(encloseChar='\"')<br>
+     *                                   String変数column01<br>
+     *                                   アノテーション：@OutputFileColumn(columnIndex = 0)<br>
+     *                                   値："ab\"cdef"<br>
+     *                                   (引数) index:0<br>
+     *                                   <br>
+     *                                   期待値：(戻り値) String:"ab""cdef"<br>
+     *                                   <br>
+     *                                   引数tに設定されたクラス（囲み文字が設定されている場合）のカラムインデックス1の属性値（囲み文字が含まれる）がエスケープ処理されて、取得できることを確認するテスト。 <br>
+     *                                   >>>>>>> f56a8eb4a4038d10edf8785e48b8d38c6b7ac97e
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testGetColumn03() throws Exception {
         // テスト対象のインスタンス化
         String fileName = TEMP_FILE_NAME;
@@ -378,16 +374,6 @@ public class CSVFileLineWriterTest {
 
             // 返却値の確認
             assertEquals("ab\"\"cdef", result);
-
-            // 状態変化の確認
-            int superCallCount = VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "getColumn");
-            assertEquals(1, superCallCount);
-            List arguments = VMOUTUtil.getArguments(
-                    AbstractFileLineWriter.class, "getColumn", 0);
-            assertEquals(2, arguments.size());
-            assertSame(stub, arguments.get(0));
-            assertEquals(0, arguments.get(1));
         } finally {
             // テスト対象のクローズ処理
             lineWriter.closeFile();
@@ -401,21 +387,31 @@ public class CSVFileLineWriterTest {
      * 観点：G <br>
      * <br>
      * 入力値：(引数) t:CSVFileLineWriter_Stub06インスタンス<br>
+     * <<<<<<< HEAD
      * @FileFormat()<br>
-     * String変数column01<br>
-     * アノテーション：@OutputFileColumn(columnIndex = 0)<br>
-     * 値："abcdef"<br>
-     * (引数) index:1<br>
-     * <br>
-     * 期待値：(状態変化) AbstractFileLineWriter#getColumn():引数が渡されて、1回呼び出されること<br>
-     * (状態変化) 例外:ArrayIndexOutOfBoundsException<br>
-     * AbstractFileLineWriter#getColumn()で発生する<br>
-     * <br>
-     * 引数indexにカラムインデックスに存在しない値を渡すと、ArrayIndexOutOfBoundsExceptionが発生することを確認する。 <br>
+     *                   String変数column01<br>
+     *                   アノテーション：@OutputFileColumn(columnIndex = 0)<br>
+     *                   値："abcdef"<br>
+     *                   (引数) index:1<br>
+     *                   <br>
+     *                   (状態変化) 例外:ArrayIndexOutOfBoundsException<br>
+     *                   AbstractFileLineWriter#getColumn()で発生する<br>
+     *                   <br>
+     *                   引数indexにカラムインデックスに存在しない値を渡すと、ArrayIndexOutOfBoundsExceptionが発生することを確認する。 <br>
+     *                   ======= @FileFormat()<br>
+     *                   String変数column01<br>
+     *                   アノテーション：@OutputFileColumn(columnIndex = 0)<br>
+     *                   値："abcdef"<br>
+     *                   (引数) index:1<br>
+     *                   <br>
+     *                   (状態変化) 例外:ArrayIndexOutOfBoundsException<br>
+     *                   AbstractFileLineWriter#getColumn()で発生する<br>
+     *                   <br>
+     *                   引数indexにカラムインデックスに存在しない値を渡すと、ArrayIndexOutOfBoundsExceptionが発生することを確認する。 <br>
+     *                   >>>>>>> f56a8eb4a4038d10edf8785e48b8d38c6b7ac97e
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testGetColumn04() throws Exception {
         // テスト対象のインスタンス化
         String fileName = TEMP_FILE_NAME;
@@ -440,15 +436,6 @@ public class CSVFileLineWriterTest {
             // なし
 
             // 状態変化の確認
-            int superCallCount = VMOUTUtil.getCallCount(
-                    AbstractFileLineWriter.class, "getColumn");
-            assertEquals(1, superCallCount);
-            List arguments = VMOUTUtil.getArguments(
-                    AbstractFileLineWriter.class, "getColumn", 0);
-            assertEquals(2, arguments.size());
-            assertSame(stub, arguments.get(0));
-            assertEquals(1, arguments.get(1));
-
             assertEquals(ArrayIndexOutOfBoundsException.class, e.getClass());
         } finally {
             // テスト対象のクローズ処理

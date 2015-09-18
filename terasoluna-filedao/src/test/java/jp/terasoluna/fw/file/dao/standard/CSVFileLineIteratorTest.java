@@ -1,29 +1,26 @@
 /*
  * $Id: CSVFileLineIteratorTest.java 5654 2007-12-04 06:34:19Z pakucn $
  *
- * Copyright (c) 2006 NTT DATA Corporation
+ * Copyright (c) 2006-2015 NTT DATA Corporation
  *
  */
 
 package jp.terasoluna.fw.file.dao.standard;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.fail;
 
 import java.net.URL;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.springframework.test.util.ReflectionTestUtils;
 
 import jp.terasoluna.fw.file.annotation.NullStringConverter;
 import jp.terasoluna.fw.file.dao.FileException;
-import jp.terasoluna.fw.file.ut.VMOUTUtil;
+import org.mockito.Mockito;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.CSVFileLineIterator} クラスのテスト。
@@ -35,15 +32,6 @@ import jp.terasoluna.fw.file.ut.VMOUTUtil;
  * @see jp.terasoluna.fw.file.dao.standard.CSVFileLineIterator
  */
 public class CSVFileLineIteratorTest {
-
-    /**
-     * 初期化処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     */
-    @Before
-    public void setUp() {
-        VMOUTUtil.initialize();
-    }
 
     /**
      * testCSVFileLineIterator01() <br>
@@ -73,7 +61,6 @@ public class CSVFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testCSVFileLineIterator01() throws Exception {
         // テスト対象のインスタンス化なし
 
@@ -91,21 +78,19 @@ public class CSVFileLineIteratorTest {
         // 前提条件なし
 
         // テスト実施
-        CSVFileLineIterator csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub02>(fileName, clazz, columnParserMap);
+        CSVFileLineIterator<?> csvFileLineIterator = Mockito.spy(
+                new CSVFileLineIterator<CSVFileLineIterator_Stub02>(fileName, clazz, columnParserMap));
 
         // 返却値なし
 
         // 状態変化の確認
-        assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "<init>"));
-        List arguments = VMOUTUtil.getArguments(AbstractFileLineIterator.class,
-                "<init>", 0);
-        assertEquals(fileName, arguments.get(0));
-        assertEquals(clazz, arguments.get(1));
-        assertSame(columnParserMap, arguments.get(2));
+        assertEquals(fileName, ReflectionTestUtils.getField(csvFileLineIterator,
+                "fileName"));
+        assertEquals(clazz, ReflectionTestUtils.getField(csvFileLineIterator,
+                "clazz"));
+        assertSame(columnParserMap, ReflectionTestUtils.getField(
+                csvFileLineIterator, "columnParserMap"));
         assertEquals('"', csvFileLineIterator.getEncloseChar());
-        assertEquals(2, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "init"));
     }
 
     /**
@@ -137,7 +122,6 @@ public class CSVFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testCSVFileLineIterator02() throws Exception {
         // テスト対象のインスタンス化なし
 
@@ -163,15 +147,6 @@ public class CSVFileLineIteratorTest {
             // 返却値なし
 
             // 状態変化の確認
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "<init>"));
-            List arguments = VMOUTUtil.getArguments(
-                    AbstractFileLineIterator.class, "<init>", 0);
-            assertEquals(fileName, arguments.get(0));
-            assertEquals(clazz, arguments.get(1));
-            assertSame(columnParserMap, arguments.get(2));
-            assertFalse(VMOUTUtil.isCalled(VariableFileLineIterator.class,
-                    "init"));
             assertEquals("Delimiter can not change.", e.getMessage());
             assertEquals(fileName, e.getFileName());
             assertEquals(IllegalStateException.class, e.getCause().getClass());
@@ -204,7 +179,6 @@ public class CSVFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testCSVFileLineIterator03() throws Exception {
         // テスト対象のインスタンス化なし
 
@@ -222,21 +196,19 @@ public class CSVFileLineIteratorTest {
         // 前提条件なし
 
         // テスト実施
-        CSVFileLineIterator csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub01>(fileName, clazz, columnParserMap);
+        CSVFileLineIterator<?> csvFileLineIterator = Mockito.spy(
+                new CSVFileLineIterator<CSVFileLineIterator_Stub01>(fileName, clazz, columnParserMap));
 
         // 返却値なし
 
         // 状態変化の確認
-        assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "<init>"));
-        List arguments = VMOUTUtil.getArguments(AbstractFileLineIterator.class,
-                "<init>", 0);
-        assertEquals(fileName, arguments.get(0));
-        assertEquals(clazz, arguments.get(1));
-        assertSame(columnParserMap, arguments.get(2));
+        assertEquals(fileName, ReflectionTestUtils.getField(csvFileLineIterator,
+                "fileName"));
+        assertEquals(clazz, ReflectionTestUtils.getField(csvFileLineIterator,
+                "clazz"));
+        assertSame(columnParserMap, ReflectionTestUtils.getField(
+                csvFileLineIterator, "columnParserMap"));
         assertEquals(Character.MIN_VALUE, csvFileLineIterator.getEncloseChar());
-        assertEquals(2, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "init"));
     }
 
     /**
@@ -285,7 +257,6 @@ public class CSVFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testSeparateColumns01() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("File_Empty.txt");
@@ -297,7 +268,7 @@ public class CSVFileLineIteratorTest {
         columnParserMap.put("java.util.Date", columnParser);
         columnParserMap.put("java.math.BigDecimal", columnParser);
         columnParserMap.put("java.lang.int", columnParser);
-        CSVFileLineIterator csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub01>(fileName, clazz, columnParserMap);
+        CSVFileLineIterator<CSVFileLineIterator_Stub01> csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub01>(fileName, clazz, columnParserMap);
 
         // 引数の設定
         String fileLineString = null;
@@ -331,7 +302,6 @@ public class CSVFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testSeparateColumns02() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("File_Empty.txt");
@@ -343,7 +313,7 @@ public class CSVFileLineIteratorTest {
         columnParserMap.put("java.util.Date", columnParser);
         columnParserMap.put("java.math.BigDecimal", columnParser);
         columnParserMap.put("java.lang.int", columnParser);
-        CSVFileLineIterator csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub01>(fileName, clazz, columnParserMap);
+        CSVFileLineIterator<CSVFileLineIterator_Stub01> csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub01>(fileName, clazz, columnParserMap);
 
         // 引数の設定
         String fileLineString = "aaa";
@@ -374,7 +344,6 @@ public class CSVFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testSeparateColumns03() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("File_Empty.txt");
@@ -386,7 +355,7 @@ public class CSVFileLineIteratorTest {
         columnParserMap.put("java.util.Date", columnParser);
         columnParserMap.put("java.math.BigDecimal", columnParser);
         columnParserMap.put("java.lang.int", columnParser);
-        CSVFileLineIterator csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub01>(fileName, clazz, columnParserMap);
+        CSVFileLineIterator<CSVFileLineIterator_Stub01> csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub01>(fileName, clazz, columnParserMap);
 
         // 引数の設定
         String fileLineString = "aaa,bbb,ccc";
@@ -422,7 +391,6 @@ public class CSVFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testSeparateColumns04() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("File_Empty.txt");
@@ -434,7 +402,7 @@ public class CSVFileLineIteratorTest {
         columnParserMap.put("java.util.Date", columnParser);
         columnParserMap.put("java.math.BigDecimal", columnParser);
         columnParserMap.put("java.lang.int", columnParser);
-        CSVFileLineIterator csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub02>(fileName, clazz, columnParserMap);
+        CSVFileLineIterator<CSVFileLineIterator_Stub02> csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub02>(fileName, clazz, columnParserMap);
 
         // 引数の設定
         String fileLineString = "\"aaa\"";
@@ -470,7 +438,6 @@ public class CSVFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testSeparateColumns05() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("File_Empty.txt");
@@ -482,7 +449,7 @@ public class CSVFileLineIteratorTest {
         columnParserMap.put("java.util.Date", columnParser);
         columnParserMap.put("java.math.BigDecimal", columnParser);
         columnParserMap.put("java.lang.int", columnParser);
-        CSVFileLineIterator csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub04>(fileName, clazz, columnParserMap);
+        CSVFileLineIterator<CSVFileLineIterator_Stub04> csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub04>(fileName, clazz, columnParserMap);
 
         // 引数の設定
         String fileLineString = "\"aaa\"";
@@ -522,7 +489,6 @@ public class CSVFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testSeparateColumns06() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("File_Empty.txt");
@@ -534,7 +500,7 @@ public class CSVFileLineIteratorTest {
         columnParserMap.put("java.util.Date", columnParser);
         columnParserMap.put("java.math.BigDecimal", columnParser);
         columnParserMap.put("java.lang.int", columnParser);
-        CSVFileLineIterator csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub05>(fileName, clazz, columnParserMap);
+        CSVFileLineIterator<CSVFileLineIterator_Stub05> csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub05>(fileName, clazz, columnParserMap);
 
         // 引数の設定
         String fileLineString = "\"aaa\",\"bbb\",\"ccc\"";
@@ -583,7 +549,6 @@ public class CSVFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testSeparateColumns07() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("File_Empty.txt");
@@ -595,7 +560,7 @@ public class CSVFileLineIteratorTest {
         columnParserMap.put("java.util.Date", columnParser);
         columnParserMap.put("java.math.BigDecimal", columnParser);
         columnParserMap.put("java.lang.int", columnParser);
-        CSVFileLineIterator csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub05>(fileName, clazz, columnParserMap);
+        CSVFileLineIterator<CSVFileLineIterator_Stub05> csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub05>(fileName, clazz, columnParserMap);
 
         // 引数の設定
         String fileLineString = "\"aa\ra\",\"bb,b\",\"cc\"\"c\"";
@@ -630,7 +595,6 @@ public class CSVFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testSeparateColumns08() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("File_Empty.txt");
@@ -642,7 +606,7 @@ public class CSVFileLineIteratorTest {
         columnParserMap.put("java.util.Date", columnParser);
         columnParserMap.put("java.math.BigDecimal", columnParser);
         columnParserMap.put("java.lang.int", columnParser);
-        CSVFileLineIterator csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub02>(fileName, clazz, columnParserMap);
+        CSVFileLineIterator<CSVFileLineIterator_Stub02> csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub02>(fileName, clazz, columnParserMap);
 
         // 引数の設定
         String fileLineString = "aaa,bbb,ccc";
@@ -680,7 +644,6 @@ public class CSVFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testSeparateColumns09() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("File_Empty.txt");
@@ -692,7 +655,7 @@ public class CSVFileLineIteratorTest {
         columnParserMap.put("java.util.Date", columnParser);
         columnParserMap.put("java.math.BigDecimal", columnParser);
         columnParserMap.put("java.lang.int", columnParser);
-        CSVFileLineIterator csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub01>(fileName, clazz, columnParserMap);
+        CSVFileLineIterator<CSVFileLineIterator_Stub01> csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub01>(fileName, clazz, columnParserMap);
 
         // 引数の設定
         String fileLineString = ",,,,";
@@ -728,7 +691,6 @@ public class CSVFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testSeparateColumns10() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("File_Empty.txt");
@@ -740,7 +702,7 @@ public class CSVFileLineIteratorTest {
         columnParserMap.put("java.util.Date", columnParser);
         columnParserMap.put("java.math.BigDecimal", columnParser);
         columnParserMap.put("java.lang.int", columnParser);
-        CSVFileLineIterator csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub01>(fileName, clazz, columnParserMap);
+        CSVFileLineIterator<CSVFileLineIterator_Stub01> csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub01>(fileName, clazz, columnParserMap);
 
         // 引数の設定
         String fileLineString = "";
@@ -771,7 +733,6 @@ public class CSVFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testSeparateColumns11() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("File_Empty.txt");
@@ -783,7 +744,7 @@ public class CSVFileLineIteratorTest {
         columnParserMap.put("java.util.Date", columnParser);
         columnParserMap.put("java.math.BigDecimal", columnParser);
         columnParserMap.put("java.lang.int", columnParser);
-        CSVFileLineIterator csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub02>(fileName, clazz, columnParserMap);
+        CSVFileLineIterator<CSVFileLineIterator_Stub02> csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub02>(fileName, clazz, columnParserMap);
 
         // 引数の設定
         String fileLineString = "\"aa\"bb\"";
@@ -817,7 +778,6 @@ public class CSVFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testGetDelimiter01() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("File_Empty.txt");
@@ -829,9 +789,7 @@ public class CSVFileLineIteratorTest {
         columnParserMap.put("java.util.Date", columnParser);
         columnParserMap.put("java.math.BigDecimal", columnParser);
         columnParserMap.put("java.lang.int", columnParser);
-        CSVFileLineIterator csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub01>(fileName, clazz, columnParserMap);
-        VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineIterator.class,
-                "buildLineReader", null);
+        CSVFileLineIterator<CSVFileLineIterator_Stub01> csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub01>(fileName, clazz, columnParserMap);
 
         // 引数なし
 
@@ -862,7 +820,6 @@ public class CSVFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testGetEncloseChar01() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("File_Empty.txt");
@@ -874,7 +831,7 @@ public class CSVFileLineIteratorTest {
         columnParserMap.put("java.util.Date", columnParser);
         columnParserMap.put("java.math.BigDecimal", columnParser);
         columnParserMap.put("java.lang.int", columnParser);
-        CSVFileLineIterator csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub02>(fileName, clazz, columnParserMap);
+        CSVFileLineIterator<CSVFileLineIterator_Stub02> csvFileLineIterator = new CSVFileLineIterator<CSVFileLineIterator_Stub02>(fileName, clazz, columnParserMap);
 
         // 引数なし
 

@@ -1,7 +1,7 @@
 /*
  * $Id:$
  *
- * Copyright (c) 2006 NTT DATA Corporation
+ * Copyright (c) 2006-2015 NTT DATA Corporation
  *
  */
 
@@ -12,14 +12,11 @@ import static org.junit.Assert.assertSame;
 
 import java.io.File;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import jp.terasoluna.fw.file.dao.FileLineWriter;
-import jp.terasoluna.fw.file.ut.VMOUTUtil;
 import org.springframework.test.util.ReflectionTestUtils;
 
 /**
@@ -32,14 +29,6 @@ import org.springframework.test.util.ReflectionTestUtils;
  * @see jp.terasoluna.fw.file.dao.standard.FixedFileUpdateDAO
  */
 public class FixedFileUpdateDAOTest {
-
-    /**
-     * 初期化処理を行う。
-     */
-    @Before
-    public void setUp() {
-        VMOUTUtil.initialize();
-    }
 
     /**
      * testExecute01() <br>
@@ -63,7 +52,6 @@ public class FixedFileUpdateDAOTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testExecute01() throws Exception {
         // テスト対象のインスタンス化
         FixedFileUpdateDAO fileUpdateDAO = new FixedFileUpdateDAO();
@@ -87,13 +75,12 @@ public class FixedFileUpdateDAOTest {
                 .getClass().getName());
 
         // 状態変化の確認
-        assertEquals(1, VMOUTUtil.getCallCount(FixedFileLineWriter.class,
-                "<init>"));
-        List arguments = VMOUTUtil.getArguments(FixedFileLineWriter.class,
-                "<init>", 0);
-        assertSame(fileName, arguments.get(0));
-        assertSame(clazz, arguments.get(1));
-        assertSame(columnFormatterMap, arguments.get(2));
+        assertSame(fileName, ReflectionTestUtils.getField(fileLineWriter,
+                "fileName"));
+        assertSame(clazz, ReflectionTestUtils.getField(fileLineWriter,
+                "clazz"));
+        assertSame(columnFormatterMap, ReflectionTestUtils.getField(
+                fileLineWriter, "columnFormatterMap"));
 
         // 後処理
         fileLineWriter.closeFile();

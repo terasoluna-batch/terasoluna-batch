@@ -1,7 +1,7 @@
 /*
  * $Id:$
  *
- * Copyright (c) 2006 NTT DATA Corporation
+ * Copyright (c) 2006-2015 NTT DATA Corporation
  *
  */
 
@@ -35,18 +35,16 @@ import java.util.NoSuchElementException;
 import java.util.Queue;
 import java.util.concurrent.ArrayBlockingQueue;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.springframework.test.util.ReflectionTestUtils;
-
-import jp.terasoluna.fw.file.annotation.InputFileColumn;
-import jp.terasoluna.fw.file.annotation.NullStringConverter;
-import jp.terasoluna.fw.file.annotation.StringConverter;
-import jp.terasoluna.fw.file.annotation.StringConverterToLowerCase;
-import jp.terasoluna.fw.file.annotation.StringConverterToUpperCase;
+import jp.terasoluna.fw.file.annotation.*;
 import jp.terasoluna.fw.file.dao.FileException;
 import jp.terasoluna.fw.file.dao.FileLineException;
-import jp.terasoluna.fw.file.ut.VMOUTUtil;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mockito;
+import org.powermock.api.mockito.PowerMockito;
+import org.powermock.core.classloader.annotations.PrepareForTest;
+import org.powermock.modules.junit4.PowerMockRunner;
+import org.springframework.test.util.ReflectionTestUtils;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.AbstractFileLineIterator} クラスのテスト。
@@ -57,16 +55,9 @@ import jp.terasoluna.fw.file.ut.VMOUTUtil;
  * @author 趙俸徹
  * @see jp.terasoluna.fw.file.dao.standard.AbstractFileLineIterator
  */
+@RunWith(PowerMockRunner.class)
+@PrepareForTest({FileDAOUtility.class, AbstractFileLineIterator.class, BufferedReader.class})
 public class AbstractFileLineIteratorTest {
-
-    /**
-     * 初期化処理を行う。
-     * @throws Exception このメソッドで発生した例外
-     */
-    @Before
-    public void setUp() {
-        VMOUTUtil.initialize();
-    }
 
     /**
      * testAbstractFileLineIteratorStringClassMap01() <br>
@@ -115,10 +106,6 @@ public class AbstractFileLineIteratorTest {
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("int", new IntColumnParser());
         columnParserMap.put("java.lang.String", new NullColumnParser());
-
-        // 前提条件の設定
-        VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineIterator.class,
-                "init", null);
 
         // テスト実施
         AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub01> fileLineIterator = new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub01>(
@@ -185,10 +172,6 @@ public class AbstractFileLineIteratorTest {
         columnParserMap.put("int", new IntColumnParser());
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        // 前提条件の設定
-        VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineIterator.class,
-                "init", null);
-
         // テスト実施
         try {
             new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub01>(
@@ -199,9 +182,6 @@ public class AbstractFileLineIteratorTest {
             // なし
 
             // 状態変化の確認
-            assertEquals(0, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "buildLineReader"));
-
             assertSame(FileException.class, e.getClass());
             assertEquals("fileName is required.", e.getMessage());
             assertSame(IllegalArgumentException.class, e.getCause().getClass());
@@ -245,10 +225,6 @@ public class AbstractFileLineIteratorTest {
         columnParserMap.put("int", new IntColumnParser());
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        // 前提条件の設定
-        VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineIterator.class,
-                "init", null);
-
         // テスト実施
         try {
             new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub02>(
@@ -259,9 +235,6 @@ public class AbstractFileLineIteratorTest {
             // なし
 
             // 状態変化の確認
-            assertEquals(0, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "buildLineReader"));
-
             assertSame(FileException.class, e.getClass());
             assertEquals("FileFormat annotation is not found.", e.getMessage());
             assertSame(IllegalStateException.class, e.getCause().getClass());
@@ -317,10 +290,6 @@ public class AbstractFileLineIteratorTest {
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("int", new IntColumnParser());
         columnParserMap.put("java.lang.String", new NullColumnParser());
-
-        // 前提条件の設定
-        VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineIterator.class,
-                "init", null);
 
         // テスト実施
         AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub03> fileLineIterator = new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub03>(
@@ -387,10 +356,6 @@ public class AbstractFileLineIteratorTest {
         columnParserMap.put("int", new IntColumnParser());
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        // 前提条件の設定
-        VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineIterator.class,
-                "init", null);
-
         // テスト実施
         try {
             new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub04>(
@@ -401,9 +366,6 @@ public class AbstractFileLineIteratorTest {
             // なし
 
             // 状態変化の確認
-            assertEquals(0, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "buildLineReader"));
-
             assertSame(FileException.class, e.getClass());
             assertEquals("Delimiter is the same as EncloseChar and is no use.",
                     e.getMessage());
@@ -455,10 +417,6 @@ public class AbstractFileLineIteratorTest {
         columnParserMap.put("int", new IntColumnParser());
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        // 前提条件の設定
-        VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineIterator.class,
-                "init", null);
-
         // テスト実施
         try {
             new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub01>(
@@ -469,9 +427,6 @@ public class AbstractFileLineIteratorTest {
             // なし
 
             // 状態変化の確認
-            assertEquals(0, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "buildLineReader"));
-
             assertSame(FileException.class, e.getClass());
             assertEquals("fileName is required.", e.getMessage());
             assertSame(IllegalArgumentException.class, e.getCause().getClass());
@@ -516,10 +471,6 @@ public class AbstractFileLineIteratorTest {
         columnParserMap.put("int", new IntColumnParser());
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        // 前提条件の設定
-        VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineIterator.class,
-                "init", null);
-
         // テスト実施
         try {
             new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub01>(
@@ -530,9 +481,6 @@ public class AbstractFileLineIteratorTest {
             // なし
 
             // 状態変化の確認
-            assertEquals(0, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "buildLineReader"));
-
             assertSame(FileException.class, e.getClass());
             assertEquals("clazz is required.", e.getMessage());
             assertSame(IllegalArgumentException.class, e.getCause().getClass());
@@ -579,10 +527,6 @@ public class AbstractFileLineIteratorTest {
         Class<AbstractFileLineIterator_Stub01> clazz = AbstractFileLineIterator_Stub01.class;
         Map<String, ColumnParser> columnParserMap = null;
 
-        // 前提条件の設定
-        VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineIterator.class,
-                "init", null);
-
         // テスト実施
         try {
             new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub01>(
@@ -593,9 +537,6 @@ public class AbstractFileLineIteratorTest {
             // なし
 
             // 状態変化の確認
-            assertEquals(0, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "buildLineReader"));
-
             assertSame(FileException.class, e.getClass());
             assertEquals("columnFormaterMap is required.", e.getMessage());
             assertSame(IllegalArgumentException.class, e.getCause().getClass());
@@ -647,10 +588,6 @@ public class AbstractFileLineIteratorTest {
         columnParserMap.put("int", new IntColumnParser());
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        // 前提条件の設定
-        VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineIterator.class,
-                "init", null);
-
         // テスト実施
         try {
             new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub05>(
@@ -661,9 +598,6 @@ public class AbstractFileLineIteratorTest {
             // なし
 
             // 状態変化の確認
-            assertEquals(0, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "buildLineReader"));
-
             assertSame(FileException.class, e.getClass());
             assertEquals("Failed in instantiation of clazz.", e.getMessage());
             assertSame(InstantiationException.class, e.getCause().getClass());
@@ -715,10 +649,6 @@ public class AbstractFileLineIteratorTest {
         columnParserMap.put("int", new IntColumnParser());
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        // 前提条件の設定
-        VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineIterator.class,
-                "init", null);
-
         // テスト実施
         try {
             new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub06>(
@@ -729,9 +659,6 @@ public class AbstractFileLineIteratorTest {
             // なし
 
             // 状態変化の確認
-            assertEquals(0, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "buildLineReader"));
-
             assertSame(FileException.class, e.getClass());
             assertEquals("clazz's nullary  constructor is not accessible", e
                     .getMessage());
@@ -779,10 +706,6 @@ public class AbstractFileLineIteratorTest {
         Class<AbstractFileLineIterator_Stub01> clazz = AbstractFileLineIterator_Stub01.class;
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
 
-        // 前提条件の設定
-        VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineIterator.class,
-                "init", null);
-
         // テスト実施
         try {
             new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub01>(
@@ -793,9 +716,6 @@ public class AbstractFileLineIteratorTest {
             // なし
 
             // 状態変化の確認
-            assertEquals(0, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "buildLineReader"));
-
             assertSame(FileException.class, e.getClass());
             assertEquals("columnFormaterMap is required.", e.getMessage());
             assertSame(IllegalArgumentException.class, e.getCause().getClass());
@@ -848,6 +768,11 @@ public class AbstractFileLineIteratorTest {
         // 前提条件の設定
         // なし
 
+        BufferedReader mockReader = Mockito.mock(BufferedReader.class);
+        Mockito.doNothing().when(mockReader).mark(1);
+        Mockito.doReturn(0).when(mockReader).read();
+        ReflectionTestUtils.setField(fileLineIterator, "reader", mockReader);
+
         // テスト実施
         boolean result = fileLineIterator.hasNext();
 
@@ -855,7 +780,7 @@ public class AbstractFileLineIteratorTest {
         assertTrue(result);
 
         // 状態変化の確認
-        assertEquals(1, VMOUTUtil.getCallCount(BufferedReader.class, "read"));
+        Mockito.verify(mockReader).read();
     }
 
     /**
@@ -903,6 +828,12 @@ public class AbstractFileLineIteratorTest {
         // 前提条件の設定
         // なし
 
+        BufferedReader mockReader = Mockito.mock(BufferedReader.class);
+        Mockito.doNothing().when(mockReader).mark(1);
+        Mockito.doReturn(-1).when(mockReader).read();
+        Mockito.doNothing().when(mockReader).reset();
+        ReflectionTestUtils.setField(fileLineIterator, "reader", mockReader);
+
         // テスト実施
         boolean result = fileLineIterator.hasNext();
 
@@ -910,7 +841,7 @@ public class AbstractFileLineIteratorTest {
         assertFalse(result);
 
         // 状態変化の確認
-        assertEquals(1, VMOUTUtil.getCallCount(BufferedReader.class, "read"));
+        Mockito.verify(mockReader).read();
     }
 
     /**
@@ -953,10 +884,13 @@ public class AbstractFileLineIteratorTest {
         // 引数の設定
         // なし
 
+
         // 前提条件の設定
         IOException exception = new IOException();
-        VMOUTUtil.setExceptionAtAllTimes(BufferedReader.class, "read",
-                exception);
+        BufferedReader mockReader = Mockito.mock(BufferedReader.class);
+        Mockito.doNothing().when(mockReader).mark(1);
+        Mockito.doThrow(exception).when(mockReader).read();
+        ReflectionTestUtils.setField(fileLineIterator, "reader", mockReader);
 
         // テスト実施
         try {
@@ -967,8 +901,7 @@ public class AbstractFileLineIteratorTest {
             // なし
 
             // 状態変化の確認
-            assertEquals(1, VMOUTUtil
-                    .getCallCount(BufferedReader.class, "read"));
+            Mockito.verify(mockReader).read();
 
             assertSame(FileException.class, e.getClass());
             assertEquals("Processing of reader was failed.", e.getMessage());
@@ -1016,8 +949,11 @@ public class AbstractFileLineIteratorTest {
 
         // 前提条件の設定
         IOException exception = new IOException();
-        VMOUTUtil.setExceptionAtAllTimes(BufferedReader.class, "reset",
-                exception);
+        BufferedReader mockReader = Mockito.mock(BufferedReader.class);
+        Mockito.doNothing().when(mockReader).mark(1);
+        Mockito.doReturn(0).when(mockReader).read();
+        Mockito.doThrow(exception).when(mockReader).reset();
+        ReflectionTestUtils.setField(fileLineIterator, "reader", mockReader);
 
         // テスト実施
         try {
@@ -1076,9 +1012,9 @@ public class AbstractFileLineIteratorTest {
         columnParserMap.put("int", new IntColumnParser());
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub07> fileLineIterator = new AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub07>(
-                fileName, AbstractFileLineIterator_Stub07.class,
-                columnParserMap);
+        AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub07> fileLineIterator = Mockito.spy(
+                new AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub07>(
+                    fileName, AbstractFileLineIterator_Stub07.class, columnParserMap));
 
         // 引数の設定
         // なし
@@ -1097,12 +1033,9 @@ public class AbstractFileLineIteratorTest {
             // なし
 
             // 状態変化の確認
-            assertEquals(2, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "hasNext"));
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "readLine"));
-            assertEquals(0, VMOUTUtil.getCallCount(fileLineIterator.getClass(),
-                    "separateColumns"));
+            Mockito.verify(fileLineIterator, Mockito.times(2)).hasNext();
+            Mockito.verify(fileLineIterator).readLine();
+            Mockito.verify(fileLineIterator, Mockito.never()).separateColumns(Mockito.anyString());
 
             assertSame(FileException.class, e.getClass());
             assertEquals("Failed in an instantiate of a FileLineObject.", e
@@ -1151,9 +1084,10 @@ public class AbstractFileLineIteratorTest {
         columnParserMap.put("int", new IntColumnParser());
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub07> fileLineIterator = new AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub07>(
+        AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub07> fileLineIterator = Mockito.spy(
+                new AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub07>(
                 fileName, AbstractFileLineIterator_Stub07.class,
-                columnParserMap);
+                columnParserMap));
 
         // 引数の設定
         // なし
@@ -1172,12 +1106,9 @@ public class AbstractFileLineIteratorTest {
             // なし
 
             // 状態変化の確認
-            assertEquals(2, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "hasNext"));
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "readLine"));
-            assertEquals(0, VMOUTUtil.getCallCount(fileLineIterator.getClass(),
-                    "separateColumns"));
+            Mockito.verify(fileLineIterator, Mockito.times(2)).hasNext();
+            Mockito.verify(fileLineIterator).readLine();
+            Mockito.verify(fileLineIterator, Mockito.never()).separateColumns(Mockito.anyString());
 
             assertSame(FileException.class, e.getClass());
             assertEquals("Failed in an instantiate of a FileLineObject.", e
@@ -1236,18 +1167,23 @@ public class AbstractFileLineIteratorTest {
                 "AbstractFileLineIterator_next06.txt");
         String fileName = url.getPath();
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
-        columnParserMap.put("int", new IntColumnParser());
-        columnParserMap.put("java.lang.String", new NullColumnParser());
+        IntColumnParser intColumnParser = Mockito.spy(new IntColumnParser());
+        NullColumnParser nullColumnParser = Mockito.spy(new NullColumnParser());
+        columnParserMap.put("int", intColumnParser);
+        columnParserMap.put("java.lang.String", nullColumnParser);
 
-        AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub08> fileLineIterator = new AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub08>(
+        AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub08> fileLineIterator = Mockito.spy(
+                new AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub08>(
                 fileName, AbstractFileLineIterator_Stub08.class,
-                columnParserMap);
+                columnParserMap));
 
         // 引数の設定
         // なし
 
         // 前提条件の設定
         // テスト対象のインスタンス化時に設定している。
+
+        PowerMockito.mockStatic(FileDAOUtility.class, Mockito.CALLS_REAL_METHODS);
 
         // テスト実施
         Object result = fileLineIterator.next();
@@ -1256,26 +1192,18 @@ public class AbstractFileLineIteratorTest {
         assertSame(AbstractFileLineIterator_Stub08.class, result.getClass());
 
         // 状態変化の確認
-        assertEquals(0, VMOUTUtil.getCallCount(FileDAOUtility.class, "trim"));
-        assertEquals(0, VMOUTUtil.getCallCount(FileDAOUtility.class, "padding"));
-        assertEquals(0, VMOUTUtil.getCallCount(NullColumnParser.class, "parse"));
-        assertEquals(0, VMOUTUtil.getCallCount(DateColumnParser.class, "parse"));
-        assertEquals(0, VMOUTUtil.getCallCount(DecimalColumnParser.class,
-                "parse"));
-        assertEquals(0, VMOUTUtil.getCallCount(IntColumnParser.class, "parse"));
-        assertEquals(0, VMOUTUtil.getCallCount(NullStringConverter.class,
-                "convert"));
-        assertEquals(2, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "hasNext"));
-        assertEquals("readLine", 1, VMOUTUtil.getCallCount(
-                AbstractFileLineIterator.class, "readLine"));
-
-        // mavenから起動するとなぜかseparateColumnsが取得できないため、スキップする
-        if (!("jp.co.dgic.testing.common.DJUnitClassLoader".equals(System
-                .getProperty("java.system.class.loader")))) {
-            assertEquals("separateColumns", 1, VMOUTUtil.getCallCount(
-                    fileLineIterator.getClass(), "separateColumns"));
-        }
+        PowerMockito.verifyStatic(Mockito.never());
+        FileDAOUtility.trim(Mockito.anyString(), Mockito.anyString(), Mockito.anyChar(), Mockito.any(TrimType.class));
+        PowerMockito.verifyStatic(Mockito.never());
+        FileDAOUtility.padding(Mockito.anyString(), Mockito.anyString(), Mockito.anyInt(),
+                Mockito.anyChar(), Mockito.any(PaddingType.class));
+        Mockito.verify(nullColumnParser, Mockito.never()).parse(Mockito.anyString(),
+                Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+        Mockito.verify(intColumnParser, Mockito.never()).parse(Mockito.anyString(),
+                Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+        Mockito.verify(fileLineIterator, Mockito.times(2)).hasNext();
+        Mockito.verify(fileLineIterator).readLine();
+        Mockito.verify(fileLineIterator).separateColumns(Mockito.anyString());
         assertEquals("currentLineCount", 1, ReflectionTestUtils.getField(
                 fileLineIterator, "currentLineCount"));
     }
@@ -1335,18 +1263,22 @@ public class AbstractFileLineIteratorTest {
                 "AbstractFileLineIterator_next08.txt");
         String fileName = url.getPath();
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
-        columnParserMap.put("int", new IntColumnParser());
-        columnParserMap.put("java.lang.String", new NullColumnParser());
+        IntColumnParser intColumnParser = Mockito.spy(new IntColumnParser());
+        NullColumnParser nullColumnParser = Mockito.spy(new NullColumnParser());
+        columnParserMap.put("int", intColumnParser);
+        columnParserMap.put("java.lang.String", nullColumnParser);
 
-        AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub08> fileLineIterator = new AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub08>(
+        AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub08> fileLineIterator = Mockito.spy(
+                new AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub08>(
                 fileName, AbstractFileLineIterator_Stub08.class,
-                columnParserMap);
+                columnParserMap));
 
         // 引数の設定
         // なし
 
         // 前提条件の設定
         // テスト対象のインスタンス化時に設定している。
+        PowerMockito.mockStatic(FileDAOUtility.class, Mockito.CALLS_REAL_METHODS);
 
         // テスト実施
         try {
@@ -1357,31 +1289,17 @@ public class AbstractFileLineIteratorTest {
             // なし
 
             // 状態変化の確認
-            assertEquals(0, VMOUTUtil
-                    .getCallCount(FileDAOUtility.class, "trim"));
-            assertEquals(0, VMOUTUtil.getCallCount(FileDAOUtility.class,
-                    "padding"));
-            assertEquals(0, VMOUTUtil.getCallCount(NullColumnParser.class,
-                    "parse"));
-            assertEquals(0, VMOUTUtil.getCallCount(DateColumnParser.class,
-                    "parse"));
-            assertEquals(0, VMOUTUtil.getCallCount(DecimalColumnParser.class,
-                    "parse"));
-            assertEquals(0, VMOUTUtil.getCallCount(IntColumnParser.class,
-                    "parse"));
-            assertEquals(0, VMOUTUtil.getCallCount(NullStringConverter.class,
-                    "convert"));
-            assertEquals(2, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "hasNext"));
-            assertEquals("readLine", 1, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "readLine"));
-
-            // mavenから起動するとなぜかseparateColumnsが取得できないため、スキップする
-            if (!("jp.co.dgic.testing.common.DJUnitClassLoader".equals(System
-                    .getProperty("java.system.class.loader")))) {
-                assertEquals("separateColumns", 1, VMOUTUtil.getCallCount(
-                        fileLineIterator.getClass(), "separateColumns"));
-            }
+            PowerMockito.verifyStatic(Mockito.never());
+            FileDAOUtility.trim(Mockito.anyString(), Mockito.anyString(), Mockito.anyChar(),
+                    Mockito.any(TrimType.class));
+            PowerMockito.verifyStatic(Mockito.never());
+            FileDAOUtility.padding(Mockito.anyString(), Mockito.anyString(),
+                    Mockito.anyInt(), Mockito.anyChar(), Mockito.any(PaddingType.class));
+            Mockito.verify(nullColumnParser, Mockito.never()).parse(Mockito.anyString(), Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+            Mockito.verify(intColumnParser, Mockito.never()).parse(Mockito.anyString(), Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+            Mockito.verify(fileLineIterator, Mockito.times(2)).hasNext();
+            Mockito.verify(fileLineIterator).readLine();
+            Mockito.verify(fileLineIterator).separateColumns(Mockito.anyString());
 
             assertEquals("currentLineCount", 1, ReflectionTestUtils.getField(
                     fileLineIterator, "currentLineCount"));
@@ -1471,20 +1389,27 @@ public class AbstractFileLineIteratorTest {
                 "AbstractFileLineIterator_next09.txt");
         String fileName = url.getPath();
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
-        columnParserMap.put("java.lang.String", new NullColumnParser());
-        columnParserMap.put("java.util.Date", new DateColumnParser());
-        columnParserMap.put("java.math.BigDecimal", new DecimalColumnParser());
-        columnParserMap.put("int", new IntColumnParser());
+        NullColumnParser nullColumnParser = Mockito.spy(new NullColumnParser());
+        DateColumnParser dateColumnParser = Mockito.spy(new DateColumnParser());
+        DecimalColumnParser decimalColumnParser = Mockito.spy(new DecimalColumnParser());
+        IntColumnParser intColumnParser = Mockito.spy(new IntColumnParser());
+        columnParserMap.put("java.lang.String", nullColumnParser);
+        columnParserMap.put("java.util.Date", dateColumnParser);
+        columnParserMap.put("java.math.BigDecimal", decimalColumnParser);
+        columnParserMap.put("int", intColumnParser);
 
-        AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub09> fileLineIterator = new AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub09>(
+        AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub09> fileLineIterator = Mockito.spy(
+                new AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub09>(
                 fileName, AbstractFileLineIterator_Stub09.class,
-                columnParserMap);
+                columnParserMap));
 
         // 引数の設定
         // なし
 
         // 前提条件の設定
         // テスト対象のインスタンス化時に設定している。
+
+        PowerMockito.mockStatic(FileDAOUtility.class, Mockito.CALLS_REAL_METHODS);
 
         // テスト実施
         AbstractFileLineIterator_Stub09 result = fileLineIterator.next();
@@ -1499,29 +1424,22 @@ public class AbstractFileLineIteratorTest {
                 .toString());
 
         // 状態変化の確認
-        assertEquals(4, VMOUTUtil.getCallCount(FileDAOUtility.class, "trim"));
-        assertEquals(4, VMOUTUtil.getCallCount(FileDAOUtility.class, "padding"));
-        assertEquals("NullColumnParser", 1, VMOUTUtil.getCallCount(
-                NullColumnParser.class, "parse"));
-        assertEquals("DateColumnParser", 1, VMOUTUtil.getCallCount(
-                DateColumnParser.class, "parse"));
-        assertEquals("DecimalColumnParser", 1, VMOUTUtil.getCallCount(
-                DecimalColumnParser.class, "parse"));
-        assertEquals("", 1, VMOUTUtil.getCallCount(IntColumnParser.class,
-                "parse"));
-        assertEquals(4, VMOUTUtil.getCallCount(NullStringConverter.class,
-                "convert"));
-        assertEquals(2, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "hasNext"));
-        assertEquals("readLine", 1, VMOUTUtil.getCallCount(
-                AbstractFileLineIterator.class, "readLine"));
-
-        // mavenから起動するとなぜかseparateColumnsが取得できないため、スキップする
-        if (!("jp.co.dgic.testing.common.DJUnitClassLoader".equals(System
-                .getProperty("java.system.class.loader")))) {
-            assertEquals("separateColumns", 1, VMOUTUtil.getCallCount(
-                    fileLineIterator.getClass(), "separateColumns"));
-        }
+        PowerMockito.verifyStatic(Mockito.times(4));
+        FileDAOUtility.trim(Mockito.anyString(), Mockito.anyString(), Mockito.anyChar(), Mockito.any(TrimType.class));
+        PowerMockito.verifyStatic(Mockito.times(4));
+        FileDAOUtility.padding(Mockito.anyString(), Mockito.anyString(),
+                Mockito.anyInt(), Mockito.anyChar(), Mockito.any(PaddingType.class));
+        Mockito.verify(nullColumnParser).parse(Mockito.anyString(), Mockito.anyObject(),
+                Mockito.any(Method.class), Mockito.anyString());
+        Mockito.verify(dateColumnParser).parse(Mockito.anyString(), Mockito.anyObject(),
+                Mockito.any(Method.class), Mockito.anyString());
+        Mockito.verify(decimalColumnParser).parse(Mockito.anyString(), Mockito.anyObject(),
+                Mockito.any(Method.class), Mockito.anyString());
+        Mockito.verify(intColumnParser).parse(Mockito.anyString(), Mockito.anyObject(),
+                Mockito.any(Method.class), Mockito.anyString());
+        Mockito.verify(fileLineIterator, Mockito.times(2)).hasNext();
+        Mockito.verify(fileLineIterator).readLine();
+        Mockito.verify(fileLineIterator).separateColumns(Mockito.anyString());
 
         assertEquals("currentLineCount", 1, ReflectionTestUtils.getField(
                 fileLineIterator, "currentLineCount"));
@@ -1594,20 +1512,27 @@ public class AbstractFileLineIteratorTest {
                 "AbstractFileLineIterator_next12.txt");
         String fileName = url.getPath();
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
-        columnParserMap.put("java.lang.String", new NullColumnParser());
-        columnParserMap.put("java.util.Date", new DateColumnParser());
-        columnParserMap.put("java.math.BigDecimal", new DecimalColumnParser());
-        columnParserMap.put("int", new IntColumnParser());
+        NullColumnParser nullColumnParser = Mockito.spy(new NullColumnParser());
+        DateColumnParser dateColumnParser = Mockito.spy(new DateColumnParser());
+        DecimalColumnParser decimalColumnParser = Mockito.spy(new DecimalColumnParser());
+        IntColumnParser intColumnParser = Mockito.spy(new IntColumnParser());
+        columnParserMap.put("java.lang.String", nullColumnParser);
+        columnParserMap.put("java.util.Date", dateColumnParser);
+        columnParserMap.put("java.math.BigDecimal", decimalColumnParser);
+        columnParserMap.put("int", intColumnParser);
 
-        AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub10> fileLineIterator = new AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub10>(
+        AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub10> fileLineIterator = Mockito.spy(
+                new AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub10>(
                 fileName, AbstractFileLineIterator_Stub10.class,
-                columnParserMap);
+                columnParserMap));
 
         // 引数の設定
         // なし
 
         // 前提条件の設定
         // テスト対象のインスタンス化時に設定している。
+
+        PowerMockito.mockStatic(FileDAOUtility.class, Mockito.CALLS_REAL_METHODS);
 
         // テスト実施
         try {
@@ -1618,31 +1543,23 @@ public class AbstractFileLineIteratorTest {
             // なし
 
             // 状態変化の確認
-            assertEquals("FileDAOUtility:trim", 1, VMOUTUtil.getCallCount(
-                    FileDAOUtility.class, "trim"));
-            assertEquals("FileDAOUtility:padding", 1, VMOUTUtil.getCallCount(
-                    FileDAOUtility.class, "padding"));
-            assertEquals("NullColumnParser", 1, VMOUTUtil.getCallCount(
-                    NullColumnParser.class, "parse"));
-            assertEquals(0, VMOUTUtil.getCallCount(DateColumnParser.class,
-                    "parse"));
-            assertEquals(0, VMOUTUtil.getCallCount(DecimalColumnParser.class,
-                    "parse"));
-            assertEquals(0, VMOUTUtil.getCallCount(IntColumnParser.class,
-                    "parse"));
-            assertEquals("NullStringConverter", 1, VMOUTUtil.getCallCount(
-                    NullStringConverter.class, "convert"));
-            assertEquals(2, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "hasNext"));
-            assertEquals("readLine", 1, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "readLine"));
-
-            // mavenから起動するとなぜかseparateColumnsが取得できないため、スキップする
-            if (!("jp.co.dgic.testing.common.DJUnitClassLoader".equals(System
-                    .getProperty("java.system.class.loader")))) {
-                assertEquals("separateColumns", 1, VMOUTUtil.getCallCount(
-                        fileLineIterator.getClass(), "separateColumns"));
-            }
+            PowerMockito.verifyStatic();
+            FileDAOUtility.trim(Mockito.anyString(), Mockito.anyString(), Mockito.anyChar(), Mockito.any(TrimType.class));
+            PowerMockito.verifyStatic();
+            FileDAOUtility.padding(
+                    Mockito.anyString(), Mockito.anyString(), Mockito.anyInt(),
+                    Mockito.anyChar(), Mockito.any(PaddingType.class));
+            Mockito.verify(nullColumnParser).parse(Mockito.anyString(),
+                    Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+            Mockito.verify(dateColumnParser, Mockito.never()).parse(Mockito.anyString(),
+                    Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+            Mockito.verify(decimalColumnParser, Mockito.never()).parse(Mockito.anyString(),
+                    Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+            Mockito.verify(intColumnParser, Mockito.never()).parse(Mockito.anyString(),
+                    Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+            Mockito.verify(fileLineIterator, Mockito.times(2)).hasNext();
+            Mockito.verify(fileLineIterator).readLine();
+            Mockito.verify(fileLineIterator).separateColumns(Mockito.anyString());
 
             assertEquals("currentLineCount", 1, ReflectionTestUtils.getField(
                     fileLineIterator, "currentLineCount"));
@@ -1723,20 +1640,27 @@ public class AbstractFileLineIteratorTest {
                 "AbstractFileLineIterator_next13.txt");
         String fileName = url.getPath();
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
-        columnParserMap.put("java.lang.String", new NullColumnParser());
-        columnParserMap.put("java.util.Date", new DateColumnParser());
-        columnParserMap.put("java.math.BigDecimal", new DecimalColumnParser());
-        columnParserMap.put("int", new IntColumnParser());
+        NullColumnParser nullColumnParser = Mockito.spy(new NullColumnParser());
+        DateColumnParser dateColumnParser = Mockito.spy(new DateColumnParser());
+        DecimalColumnParser decimalColumnParser = Mockito.spy(new DecimalColumnParser());
+        IntColumnParser intColumnParser = Mockito.spy(new IntColumnParser());
+        columnParserMap.put("java.lang.String", nullColumnParser);
+        columnParserMap.put("java.util.Date", dateColumnParser);
+        columnParserMap.put("java.math.BigDecimal", decimalColumnParser);
+        columnParserMap.put("int", intColumnParser);
 
-        AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub10> fileLineIterator = new AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub10>(
+        AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub10> fileLineIterator = Mockito.spy(
+                new AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub10>(
                 fileName, AbstractFileLineIterator_Stub10.class,
-                columnParserMap);
+                columnParserMap));
 
         // 引数の設定
         // なし
 
         // 前提条件の設定
         // テスト対象のインスタンス化時に設定している。
+
+        PowerMockito.mockStatic(FileDAOUtility.class, Mockito.CALLS_REAL_METHODS);
 
         // テスト実施
         AbstractFileLineIterator_Stub10 result = fileLineIterator.next();
@@ -1746,26 +1670,24 @@ public class AbstractFileLineIteratorTest {
         assertEquals("12345", result.getColumn2());
 
         // 状態変化の確認
-        assertEquals(2, VMOUTUtil.getCallCount(FileDAOUtility.class, "trim"));
-        assertEquals(2, VMOUTUtil.getCallCount(FileDAOUtility.class, "padding"));
-        assertEquals(2, VMOUTUtil.getCallCount(NullColumnParser.class, "parse"));
-        assertEquals(0, VMOUTUtil.getCallCount(DateColumnParser.class, "parse"));
-        assertEquals(0, VMOUTUtil.getCallCount(DecimalColumnParser.class,
-                "parse"));
-        assertEquals(0, VMOUTUtil.getCallCount(IntColumnParser.class, "parse"));
-        assertEquals(2, VMOUTUtil.getCallCount(NullStringConverter.class,
-                "convert"));
-        assertEquals(2, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "hasNext"));
-        assertEquals("readLine", 1, VMOUTUtil.getCallCount(
-                AbstractFileLineIterator.class, "readLine"));
-
-        // mavenから起動するとなぜかseparateColumnsが取得できないため、スキップする
-        if (!("jp.co.dgic.testing.common.DJUnitClassLoader".equals(System
-                .getProperty("java.system.class.loader")))) {
-            assertEquals("separateColumns", 1, VMOUTUtil.getCallCount(
-                    fileLineIterator.getClass(), "separateColumns"));
-        }
+        PowerMockito.verifyStatic(Mockito.times(2));
+        FileDAOUtility.trim(Mockito.anyString(), Mockito.anyString(), Mockito.anyChar(), Mockito.any(TrimType.class));
+        PowerMockito.verifyStatic(Mockito.times(2));
+        FileDAOUtility.padding(Mockito.anyString(), Mockito.anyString(),
+                Mockito.anyInt(), Mockito.anyChar(), Mockito.any(PaddingType.class));
+        Mockito.verify(nullColumnParser, Mockito.times(2)).parse(Mockito.anyString(),
+                Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+        Mockito.verify(nullColumnParser, Mockito.times(2)).parse(Mockito.anyString(),
+                Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+        Mockito.verify(dateColumnParser, Mockito.never()).parse(Mockito.anyString(),
+                Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+        Mockito.verify(decimalColumnParser, Mockito.never()).parse(Mockito.anyString(),
+                Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+        Mockito.verify(intColumnParser, Mockito.never()).parse(Mockito.anyString(),
+                Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+        Mockito.verify(fileLineIterator, Mockito.times(2)).hasNext();
+        Mockito.verify(fileLineIterator).readLine();
+        Mockito.verify(fileLineIterator).separateColumns(Mockito.anyString());
 
         assertEquals("currentLineCount", 1, ReflectionTestUtils.getField(
                 fileLineIterator, "currentLineCount"));
@@ -1836,17 +1758,21 @@ public class AbstractFileLineIteratorTest {
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String",
                 new AbstractFileLineIterator_ColumnParserStub01());
-        columnParserMap.put("int", new IntColumnParser());
+        IntColumnParser intColumnParser = Mockito.spy(new IntColumnParser());
+        columnParserMap.put("int", intColumnParser);
 
-        AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub11> fileLineIterator = new AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub11>(
+        AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub11> fileLineIterator = Mockito.spy(
+                new AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub11>(
                 fileName, AbstractFileLineIterator_Stub11.class,
-                columnParserMap);
+                columnParserMap));
 
         // 引数の設定
         // なし
 
         // 前提条件の設定
         // テスト対象のインスタンス化時に設定している。
+
+        PowerMockito.mockStatic(FileDAOUtility.class, Mockito.CALLS_REAL_METHODS);
 
         // テスト実施
         try {
@@ -1857,25 +1783,16 @@ public class AbstractFileLineIteratorTest {
             // なし
 
             // 状態変化の確認
-            assertEquals(2, VMOUTUtil
-                    .getCallCount(FileDAOUtility.class, "trim"));
-            assertEquals(2, VMOUTUtil.getCallCount(FileDAOUtility.class,
-                    "padding"));
-            assertEquals("IntColumnParser", 1, VMOUTUtil.getCallCount(
-                    IntColumnParser.class, "parse"));
-            assertEquals(2, VMOUTUtil.getCallCount(NullStringConverter.class,
-                    "convert"));
-            assertEquals(2, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "hasNext"));
-            assertEquals("AbstractFileLineIterator", 1, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "readLine"));
-
-            // mavenから起動するとなぜかseparateColumnsが取得できないため、スキップする
-            if (!("jp.co.dgic.testing.common.DJUnitClassLoader".equals(System
-                    .getProperty("java.system.class.loader")))) {
-                assertEquals("separateColumns", 1, VMOUTUtil.getCallCount(
-                        fileLineIterator.getClass(), "separateColumns"));
-            }
+            PowerMockito.verifyStatic(Mockito.times(2));
+            FileDAOUtility.trim(Mockito.anyString(), Mockito.anyString(), Mockito.anyChar(), Mockito.any(TrimType.class));
+            PowerMockito.verifyStatic(Mockito.times(2));
+            FileDAOUtility.padding(Mockito.anyString(), Mockito.anyString(), Mockito.anyInt(),
+                    Mockito.anyChar(), Mockito.any(PaddingType.class));
+            Mockito.verify(intColumnParser).parse(Mockito.anyString(), Mockito.anyObject(),
+                    Mockito.any(Method.class), Mockito.anyString());
+            Mockito.verify(fileLineIterator, Mockito.times(2)).hasNext();
+            Mockito.verify(fileLineIterator).readLine();
+            Mockito.verify(fileLineIterator).separateColumns(Mockito.anyString());
 
             assertEquals("currentLineCount", 1, ReflectionTestUtils.getField(
                     fileLineIterator, "currentLineCount"));
@@ -1955,17 +1872,21 @@ public class AbstractFileLineIteratorTest {
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String",
                 new AbstractFileLineIterator_ColumnParserStub02());
-        columnParserMap.put("int", new IntColumnParser());
+        IntColumnParser intColumnParser = Mockito.spy(new IntColumnParser());
+        columnParserMap.put("int", intColumnParser);
 
-        AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub11> fileLineIterator = new AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub11>(
+        AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub11> fileLineIterator = Mockito.spy(
+                new AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub11>(
                 fileName, AbstractFileLineIterator_Stub11.class,
-                columnParserMap);
+                columnParserMap));
 
         // 引数の設定
         // なし
 
         // 前提条件の設定
         // テスト対象のインスタンス化時に設定している。
+
+        PowerMockito.mockStatic(FileDAOUtility.class, Mockito.CALLS_REAL_METHODS);
 
         // テスト実施
         try {
@@ -1976,25 +1897,17 @@ public class AbstractFileLineIteratorTest {
             // なし
 
             // 状態変化の確認
-            assertEquals(2, VMOUTUtil
-                    .getCallCount(FileDAOUtility.class, "trim"));
-            assertEquals(2, VMOUTUtil.getCallCount(FileDAOUtility.class,
-                    "padding"));
-            assertEquals("IntColumnParser", 1, VMOUTUtil.getCallCount(
-                    IntColumnParser.class, "parse"));
-            assertEquals(2, VMOUTUtil.getCallCount(NullStringConverter.class,
-                    "convert"));
-            assertEquals(2, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "hasNext"));
-            assertEquals("AbstractFileLineIterator", 1, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "readLine"));
-
-            // mavenから起動するとなぜかseparateColumnsが取得できないため、スキップする
-            if (!("jp.co.dgic.testing.common.DJUnitClassLoader".equals(System
-                    .getProperty("java.system.class.loader")))) {
-                assertEquals("separateColumns", 1, VMOUTUtil.getCallCount(
-                        fileLineIterator.getClass(), "separateColumns"));
-            }
+            PowerMockito.verifyStatic(Mockito.times(2));
+            FileDAOUtility.trim(Mockito.anyString(), Mockito.anyString(), Mockito.anyChar(),
+                    Mockito.any(TrimType.class));
+            PowerMockito.verifyStatic(Mockito.times(2));
+            FileDAOUtility.padding(Mockito.anyString(), Mockito.anyString(), Mockito.anyInt(),
+                    Mockito.anyChar(), Mockito.any(PaddingType.class));
+            Mockito.verify(intColumnParser).parse(Mockito.anyString(), Mockito.anyObject(),
+                    Mockito.any(Method.class), Mockito.anyString());
+            Mockito.verify(fileLineIterator, Mockito.times(2)).hasNext();
+            Mockito.verify(fileLineIterator).readLine();
+            Mockito.verify(fileLineIterator).separateColumns(Mockito.anyString());
 
             assertEquals("currentLineCount", 1, ReflectionTestUtils.getField(
                     fileLineIterator, "currentLineCount"));
@@ -2075,17 +1988,21 @@ public class AbstractFileLineIteratorTest {
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String",
                 new AbstractFileLineIterator_ColumnParserStub03());
-        columnParserMap.put("int", new IntColumnParser());
+        IntColumnParser intColumnParser = Mockito.spy(new IntColumnParser());
+        columnParserMap.put("int", intColumnParser);
 
-        AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub11> fileLineIterator = new AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub11>(
+        AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub11> fileLineIterator = Mockito.spy(
+                new AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub11>(
                 fileName, AbstractFileLineIterator_Stub11.class,
-                columnParserMap);
+                columnParserMap));
 
         // 引数の設定
         // なし
 
         // 前提条件の設定
         // テスト対象のインスタンス化時に設定している。
+
+        PowerMockito.mockStatic(FileDAOUtility.class, Mockito.CALLS_REAL_METHODS);
 
         // テスト実施
         try {
@@ -2096,25 +2013,17 @@ public class AbstractFileLineIteratorTest {
             // なし
 
             // 状態変化の確認
-            assertEquals(2, VMOUTUtil
-                    .getCallCount(FileDAOUtility.class, "trim"));
-            assertEquals(2, VMOUTUtil.getCallCount(FileDAOUtility.class,
-                    "padding"));
-            assertEquals("IntColumnParser", 1, VMOUTUtil.getCallCount(
-                    IntColumnParser.class, "parse"));
-            assertEquals(2, VMOUTUtil.getCallCount(NullStringConverter.class,
-                    "convert"));
-            assertEquals(2, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "hasNext"));
-            assertEquals("AbstractFileLineIterator", 1, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "readLine"));
-
-            // mavenから起動するとなぜかseparateColumnsが取得できないため、スキップする
-            if (!("jp.co.dgic.testing.common.DJUnitClassLoader".equals(System
-                    .getProperty("java.system.class.loader")))) {
-                assertEquals("separateColumns", 1, VMOUTUtil.getCallCount(
-                        fileLineIterator.getClass(), "separateColumns"));
-            }
+            PowerMockito.verifyStatic(Mockito.times(2));
+            FileDAOUtility.trim(Mockito.anyString(), Mockito.anyString(), Mockito.anyChar(),
+                    Mockito.any(TrimType.class));
+            PowerMockito.verifyStatic(Mockito.times(2));
+            FileDAOUtility.padding(Mockito.anyString(), Mockito.anyString(), Mockito.anyInt(),
+                    Mockito.anyChar(), Mockito.any(PaddingType.class));
+            Mockito.verify(intColumnParser).parse(Mockito.anyString(), Mockito.anyObject(),
+                    Mockito.any(Method.class), Mockito.anyString());
+            Mockito.verify(fileLineIterator, Mockito.times(2)).hasNext();
+            Mockito.verify(fileLineIterator).readLine();
+            Mockito.verify(fileLineIterator).separateColumns(Mockito.anyString());
 
             assertEquals("currentLineCount", 1, ReflectionTestUtils.getField(
                     fileLineIterator, "currentLineCount"));
@@ -2194,17 +2103,21 @@ public class AbstractFileLineIteratorTest {
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String",
                 new AbstractFileLineIterator_ColumnParserStub04());
-        columnParserMap.put("int", new IntColumnParser());
+        IntColumnParser intColumnParser = Mockito.spy(new IntColumnParser());
+        columnParserMap.put("int", intColumnParser);
 
-        AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub11> fileLineIterator = new AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub11>(
+        AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub11> fileLineIterator = Mockito.spy(
+                new AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub11>(
                 fileName, AbstractFileLineIterator_Stub11.class,
-                columnParserMap);
+                columnParserMap));
 
         // 引数の設定
         // なし
 
         // 前提条件の設定
         // テスト対象のインスタンス化時に設定している。
+
+        PowerMockito.mockStatic(FileDAOUtility.class, Mockito.CALLS_REAL_METHODS);
 
         // テスト実施
         try {
@@ -2215,25 +2128,18 @@ public class AbstractFileLineIteratorTest {
             // なし
 
             // 状態変化の確認
-            assertEquals(2, VMOUTUtil
-                    .getCallCount(FileDAOUtility.class, "trim"));
-            assertEquals(2, VMOUTUtil.getCallCount(FileDAOUtility.class,
-                    "padding"));
-            assertEquals("IntColumnParser", 1, VMOUTUtil.getCallCount(
-                    IntColumnParser.class, "parse"));
-            assertEquals(2, VMOUTUtil.getCallCount(NullStringConverter.class,
-                    "convert"));
-            assertEquals(2, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "hasNext"));
-            assertEquals("readLine", 1, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "readLine"));
+            PowerMockito.verifyStatic(Mockito.times(2));
+            FileDAOUtility.trim(Mockito.anyString(), Mockito.anyString(),
+                    Mockito.anyChar(), Mockito.any(TrimType.class));
 
-            // mavenから起動するとなぜかseparateColumnsが取得できないため、スキップする
-            if (!("jp.co.dgic.testing.common.DJUnitClassLoader".equals(System
-                    .getProperty("java.system.class.loader")))) {
-                assertEquals("separateColumns", 1, VMOUTUtil.getCallCount(
-                        fileLineIterator.getClass(), "separateColumns"));
-            }
+            PowerMockito.verifyStatic(Mockito.times(2));
+            FileDAOUtility.padding(Mockito.anyString(), Mockito.anyString(),
+                    Mockito.anyInt(), Mockito.anyChar(), Mockito.any(PaddingType.class));
+            Mockito.verify(intColumnParser).parse(Mockito.anyString(), Mockito.anyObject(),
+                    Mockito.any(Method.class), Mockito.anyString());
+            Mockito.verify(fileLineIterator, Mockito.times(2)).hasNext();
+            Mockito.verify(fileLineIterator).readLine();
+            Mockito.verify(fileLineIterator).separateColumns(Mockito.anyString());
 
             assertEquals("currentLineCount", 1, ReflectionTestUtils.getField(
                     fileLineIterator, "currentLineCount"));
@@ -2338,20 +2244,27 @@ public class AbstractFileLineIteratorTest {
                 "AbstractFileLineIterator_next19.txt");
         String fileName = url.getPath();
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
-        columnParserMap.put("java.lang.String", new NullColumnParser());
-        columnParserMap.put("java.util.Date", new DateColumnParser());
-        columnParserMap.put("java.math.BigDecimal", new DecimalColumnParser());
-        columnParserMap.put("int", new IntColumnParser());
+        NullColumnParser nullColumnParser = Mockito.spy(new NullColumnParser());
+        DateColumnParser dateColumnParser = Mockito.spy(new DateColumnParser());
+        DecimalColumnParser decimalColumnParser = Mockito.spy(new DecimalColumnParser());
+        IntColumnParser intColumnParser = Mockito.spy(new IntColumnParser());
+        columnParserMap.put("java.lang.String", nullColumnParser);
+        columnParserMap.put("java.util.Date", dateColumnParser);
+        columnParserMap.put("java.math.BigDecimal", decimalColumnParser);
+        columnParserMap.put("int", intColumnParser);
 
-        AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub09> fileLineIterator = new AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub09>(
+        AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub09> fileLineIterator = Mockito.spy(
+                new AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub09>(
                 fileName, AbstractFileLineIterator_Stub09.class,
-                columnParserMap);
+                columnParserMap));
 
         // 引数の設定
         // なし
 
         // 前提条件の設定
         // テスト対象のインスタンス化時に設定している。
+
+        PowerMockito.mockStatic(FileDAOUtility.class, Mockito.CALLS_REAL_METHODS);
 
         // テスト実施（1回目）
         AbstractFileLineIterator_Stub09 result = fileLineIterator.next();
@@ -2366,29 +2279,22 @@ public class AbstractFileLineIteratorTest {
                 .toString());
 
         // 状態変化の確認
-        assertEquals(4, VMOUTUtil.getCallCount(FileDAOUtility.class, "trim"));
-        assertEquals(4, VMOUTUtil.getCallCount(FileDAOUtility.class, "padding"));
-        assertEquals("NullColumnParser", 1, VMOUTUtil.getCallCount(
-                NullColumnParser.class, "parse"));
-        assertEquals("DateColumnParser", 1, VMOUTUtil.getCallCount(
-                DateColumnParser.class, "parse"));
-        assertEquals("DecimalColumnParser", 1, VMOUTUtil.getCallCount(
-                DecimalColumnParser.class, "parse"));
-        assertEquals("IntColumnParser", 1, VMOUTUtil.getCallCount(
-                IntColumnParser.class, "parse"));
-        assertEquals(4, VMOUTUtil.getCallCount(NullStringConverter.class,
-                "convert"));
-        assertEquals("AbstractFileLineIterator:hasNext", 2, VMOUTUtil
-                .getCallCount(AbstractFileLineIterator.class, "hasNext"));
-        assertEquals("readLine", 1, VMOUTUtil.getCallCount(
-                AbstractFileLineIterator.class, "readLine"));
-
-        // mavenから起動するとなぜかseparateColumnsが取得できないため、スキップする
-        if (!("jp.co.dgic.testing.common.DJUnitClassLoader".equals(System
-                .getProperty("java.system.class.loader")))) {
-            assertEquals("separateColumns", 1, VMOUTUtil.getCallCount(
-                    fileLineIterator.getClass(), "separateColumns"));
-        }
+        PowerMockito.verifyStatic(Mockito.times(4));
+        FileDAOUtility.trim(Mockito.anyString(), Mockito.anyString(), Mockito.anyChar(), Mockito.any(TrimType.class));
+        PowerMockito.verifyStatic(Mockito.times(4));
+        FileDAOUtility.padding(Mockito.anyString(), Mockito.anyString(), Mockito.anyInt(),
+                Mockito.anyChar(), Mockito.any(PaddingType.class));
+        Mockito.verify(nullColumnParser).parse(Mockito.anyString(), Mockito.anyObject(),
+                Mockito.any(Method.class), Mockito.anyString());
+        Mockito.verify(dateColumnParser).parse(Mockito.anyString(), Mockito.anyObject(),
+                Mockito.any(Method.class), Mockito.anyString());
+        Mockito.verify(decimalColumnParser).parse(Mockito.anyString(), Mockito.anyObject(),
+                Mockito.any(Method.class), Mockito.anyString());
+        Mockito.verify(intColumnParser).parse(Mockito.anyString(), Mockito.anyObject(),
+                Mockito.any(Method.class), Mockito.anyString());
+        Mockito.verify(fileLineIterator, Mockito.times(2)).hasNext();
+        Mockito.verify(fileLineIterator).readLine();
+        Mockito.verify(fileLineIterator).separateColumns(Mockito.anyString());
 
         assertEquals("currentLineCount", 1, ReflectionTestUtils.getField(
                 fileLineIterator, "currentLineCount"));
@@ -2405,29 +2311,22 @@ public class AbstractFileLineIteratorTest {
                 .toString());
 
         // 状態変化の確認（呼び出し回数は1回目＋今回になる）
-        assertEquals(8, VMOUTUtil.getCallCount(FileDAOUtility.class, "trim"));
-        assertEquals(8, VMOUTUtil.getCallCount(FileDAOUtility.class, "padding"));
-        assertEquals("NullColumnParser", 2, VMOUTUtil.getCallCount(
-                NullColumnParser.class, "parse"));
-        assertEquals("DateColumnParser", 2, VMOUTUtil.getCallCount(
-                DateColumnParser.class, "parse"));
-        assertEquals("DecimalColumnParser", 2, VMOUTUtil.getCallCount(
-                DecimalColumnParser.class, "parse"));
-        assertEquals("IntColumnParser", 2, VMOUTUtil.getCallCount(
-                IntColumnParser.class, "parse"));
-        assertEquals(8, VMOUTUtil.getCallCount(NullStringConverter.class,
-                "convert"));
-        assertEquals(4, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "hasNext"));
-        assertEquals("AbstractFileLineIterator", 2, VMOUTUtil.getCallCount(
-                AbstractFileLineIterator.class, "readLine"));
-
-        // mavenから起動するとなぜかseparateColumnsが取得できないため、スキップする
-        if (!("jp.co.dgic.testing.common.DJUnitClassLoader".equals(System
-                .getProperty("java.system.class.loader")))) {
-            assertEquals("separateColumns", 2, VMOUTUtil.getCallCount(
-                    fileLineIterator.getClass(), "separateColumns"));
-        }
+        PowerMockito.verifyStatic(Mockito.times(8));
+        FileDAOUtility.trim(Mockito.anyString(), Mockito.anyString(), Mockito.anyChar(), Mockito.any(TrimType.class));
+        PowerMockito.verifyStatic(Mockito.times(8));
+        FileDAOUtility.padding(Mockito.anyString(), Mockito.anyString(), Mockito.anyInt(),
+                Mockito.anyChar(), Mockito.any(PaddingType.class));
+        Mockito.verify(nullColumnParser, Mockito.times(2)).parse(Mockito.anyString(), Mockito.anyObject(),
+                Mockito.any(Method.class), Mockito.anyString());
+        Mockito.verify(dateColumnParser, Mockito.times(2)).parse(Mockito.anyString(), Mockito.anyObject(),
+                Mockito.any(Method.class), Mockito.anyString());
+        Mockito.verify(decimalColumnParser, Mockito.times(2)).parse(Mockito.anyString(), Mockito.anyObject(),
+                Mockito.any(Method.class), Mockito.anyString());
+        Mockito.verify(intColumnParser, Mockito.times(2)).parse(Mockito.anyString(), Mockito.anyObject(),
+                Mockito.any(Method.class), Mockito.anyString());
+        Mockito.verify(fileLineIterator, Mockito.times(4)).hasNext();
+        Mockito.verify(fileLineIterator, Mockito.times(2)).readLine();
+        Mockito.verify(fileLineIterator, Mockito.times(2)).separateColumns(Mockito.anyString());
 
         assertEquals("currentLineCount", 2, ReflectionTestUtils.getField(
                 fileLineIterator, "currentLineCount"));
@@ -2444,27 +2343,22 @@ public class AbstractFileLineIteratorTest {
                 .toString());
 
         // 状態変化の確認（呼び出し回数は1回目＋2回目＋今回になる）
-        assertEquals(12, VMOUTUtil.getCallCount(FileDAOUtility.class, "trim"));
-        assertEquals(12, VMOUTUtil
-                .getCallCount(FileDAOUtility.class, "padding"));
-        assertEquals(3, VMOUTUtil.getCallCount(NullColumnParser.class, "parse"));
-        assertEquals(3, VMOUTUtil.getCallCount(DateColumnParser.class, "parse"));
-        assertEquals(3, VMOUTUtil.getCallCount(DecimalColumnParser.class,
-                "parse"));
-        assertEquals(3, VMOUTUtil.getCallCount(IntColumnParser.class, "parse"));
-        assertEquals(12, VMOUTUtil.getCallCount(NullStringConverter.class,
-                "convert"));
-        assertEquals(6, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "hasNext"));
-        assertEquals(3, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "readLine"));
-
-        // mavenから起動するとなぜかseparateColumnsが取得できないため、スキップする
-        if (!("jp.co.dgic.testing.common.DJUnitClassLoader".equals(System
-                .getProperty("java.system.class.loader")))) {
-            assertEquals("separateColumns", 3, VMOUTUtil.getCallCount(
-                    fileLineIterator.getClass(), "separateColumns"));
-        }
+        PowerMockito.verifyStatic(Mockito.times(12));
+        FileDAOUtility.trim(Mockito.anyString(), Mockito.anyString(), Mockito.anyChar(), Mockito.any(TrimType.class));
+        PowerMockito.verifyStatic(Mockito.times(12));
+        FileDAOUtility.padding(Mockito.anyString(), Mockito.anyString(), Mockito.anyInt(),
+                Mockito.anyChar(), Mockito.any(PaddingType.class));
+        Mockito.verify(nullColumnParser, Mockito.times(3)).parse(Mockito.anyString(), Mockito.anyObject(),
+                Mockito.any(Method.class), Mockito.anyString());
+        Mockito.verify(dateColumnParser, Mockito.times(3)).parse(Mockito.anyString(), Mockito.anyObject(),
+                Mockito.any(Method.class), Mockito.anyString());
+        Mockito.verify(decimalColumnParser, Mockito.times(3)).parse(Mockito.anyString(), Mockito.anyObject(),
+                Mockito.any(Method.class), Mockito.anyString());
+        Mockito.verify(intColumnParser, Mockito.times(3)).parse(Mockito.anyString(), Mockito.anyObject(),
+                Mockito.any(Method.class), Mockito.anyString());
+        Mockito.verify(fileLineIterator, Mockito.times(6)).hasNext();
+        Mockito.verify(fileLineIterator, Mockito.times(3)).readLine();
+        Mockito.verify(fileLineIterator, Mockito.times(3)).separateColumns(Mockito.anyString());
 
         assertEquals(3, ReflectionTestUtils.getField(fileLineIterator,
                 "currentLineCount"));
@@ -2532,20 +2426,27 @@ public class AbstractFileLineIteratorTest {
                 "AbstractFileLineIterator_next20.txt");
         String fileName = url.getPath();
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
-        columnParserMap.put("java.lang.String", new NullColumnParser());
-        columnParserMap.put("java.util.Date", new DateColumnParser());
-        columnParserMap.put("java.math.BigDecimal", new DecimalColumnParser());
-        columnParserMap.put("int", new IntColumnParser());
+        NullColumnParser nullColumnParser = Mockito.spy(new NullColumnParser());
+        DateColumnParser dateColumnParser = Mockito.spy(new DateColumnParser());
+        DecimalColumnParser decimalColumnParser = Mockito.spy(new DecimalColumnParser());
+        IntColumnParser intColumnParser = Mockito.spy(new IntColumnParser());
+        columnParserMap.put("java.lang.String", nullColumnParser);
+        columnParserMap.put("java.util.Date", dateColumnParser);
+        columnParserMap.put("java.math.BigDecimal", decimalColumnParser);
+        columnParserMap.put("int", intColumnParser);
 
-        AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub12> fileLineIterator = new AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub12>(
+        AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub12> fileLineIterator = Mockito.spy(
+                new AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub12>(
                 fileName, AbstractFileLineIterator_Stub12.class,
-                columnParserMap);
+                columnParserMap));
 
         // 引数の設定
         // なし
 
         // 前提条件の設定
         // テスト対象のインスタンス化時に設定している。
+
+        PowerMockito.mockStatic(FileDAOUtility.class, Mockito.CALLS_REAL_METHODS);
 
         // テスト実施
         try {
@@ -2556,26 +2457,23 @@ public class AbstractFileLineIteratorTest {
             // なし
 
             // 状態変化の確認
-            assertEquals(0, VMOUTUtil
-                    .getCallCount(FileDAOUtility.class, "trim"));
-            assertEquals(0, VMOUTUtil.getCallCount(FileDAOUtility.class,
-                    "padding"));
-            assertEquals(0, VMOUTUtil.getCallCount(NullColumnParser.class,
-                    "parse"));
-            assertEquals(0, VMOUTUtil.getCallCount(DateColumnParser.class,
-                    "parse"));
-            assertEquals(0, VMOUTUtil.getCallCount(DecimalColumnParser.class,
-                    "parse"));
-            assertEquals(0, VMOUTUtil.getCallCount(IntColumnParser.class,
-                    "parse"));
-            assertEquals(0, VMOUTUtil.getCallCount(NullStringConverter.class,
-                    "convert"));
-            assertEquals("hasNext", 1, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "hasNext"));
-            assertEquals(0, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "readLine"));
-            assertEquals(0, VMOUTUtil.getCallCount(fileLineIterator.getClass(),
-                    "separateColumns"));
+            PowerMockito.verifyStatic(Mockito.never());
+            FileDAOUtility.trim(Mockito.anyString(), Mockito.anyString(), Mockito.anyChar(),
+                    Mockito.any(TrimType.class));
+            PowerMockito.verifyStatic(Mockito.never());
+            FileDAOUtility.padding(Mockito.anyString(), Mockito.anyString(), Mockito.anyInt(),
+                    Mockito.anyChar(), Mockito.any(PaddingType.class));
+            Mockito.verify(nullColumnParser, Mockito.never()).parse(Mockito.anyString(),
+                    Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+            Mockito.verify(dateColumnParser, Mockito.never()).parse(Mockito.anyString(),
+                    Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+            Mockito.verify(decimalColumnParser, Mockito.never()).parse(Mockito.anyString(),
+                    Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+            Mockito.verify(intColumnParser, Mockito.never()).parse(Mockito.anyString(),
+                    Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+            Mockito.verify(fileLineIterator).hasNext();
+            Mockito.verify(fileLineIterator, Mockito.never()).readLine();
+            Mockito.verify(fileLineIterator, Mockito.never()).separateColumns(Mockito.anyString());
             assertEquals(0, ReflectionTestUtils.getField(fileLineIterator,
                     "currentLineCount"));
 
@@ -2664,14 +2562,19 @@ public class AbstractFileLineIteratorTest {
                 "AbstractFileLineIterator_next09.txt");
         String fileName = url.getPath();
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
-        columnParserMap.put("java.lang.String", new NullColumnParser());
-        columnParserMap.put("java.util.Date", new DateColumnParser());
-        columnParserMap.put("java.math.BigDecimal", new DecimalColumnParser());
-        columnParserMap.put("int", new IntColumnParser());
+        NullColumnParser nullColumnParser = Mockito.spy(new NullColumnParser());
+        DateColumnParser dateColumnParser = Mockito.spy(new DateColumnParser());
+        DecimalColumnParser decimalColumnParser = Mockito.spy(new DecimalColumnParser());
+        IntColumnParser intColumnParser = Mockito.spy(new IntColumnParser());
+        columnParserMap.put("java.lang.String", nullColumnParser);
+        columnParserMap.put("java.util.Date", dateColumnParser);
+        columnParserMap.put("java.math.BigDecimal", decimalColumnParser);
+        columnParserMap.put("int", intColumnParser);
 
-        AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub09> fileLineIterator = new AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub09>(
+        AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub09> fileLineIterator = Mockito.spy(
+                new AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub09>(
                 fileName, AbstractFileLineIterator_Stub09.class,
-                columnParserMap);
+                columnParserMap));
 
         // 引数の設定
         // なし
@@ -2679,6 +2582,8 @@ public class AbstractFileLineIteratorTest {
         // 前提条件の設定
         ReflectionTestUtils.setField(fileLineIterator, "readTrailer", true);
         // その他は、テスト対象のインスタンス化時に設定している。
+
+        PowerMockito.mockStatic(FileDAOUtility.class, Mockito.CALLS_REAL_METHODS);
 
         // テスト実施
         try {
@@ -2689,26 +2594,23 @@ public class AbstractFileLineIteratorTest {
             // なし
 
             // 状態変化の確認
-            assertEquals(0, VMOUTUtil
-                    .getCallCount(FileDAOUtility.class, "trim"));
-            assertEquals(0, VMOUTUtil.getCallCount(FileDAOUtility.class,
-                    "padding"));
-            assertEquals(0, VMOUTUtil.getCallCount(NullColumnParser.class,
-                    "parse"));
-            assertEquals(0, VMOUTUtil.getCallCount(DateColumnParser.class,
-                    "parse"));
-            assertEquals(0, VMOUTUtil.getCallCount(DecimalColumnParser.class,
-                    "parse"));
-            assertEquals(0, VMOUTUtil.getCallCount(IntColumnParser.class,
-                    "parse"));
-            assertEquals(0, VMOUTUtil.getCallCount(NullStringConverter.class,
-                    "convert"));
-            assertEquals(0, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "hasNext"));
-            assertEquals(0, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "readLine"));
-            assertEquals(0, VMOUTUtil.getCallCount(fileLineIterator.getClass(),
-                    "separateColumns"));
+            PowerMockito.verifyStatic(Mockito.never());
+            FileDAOUtility.trim(Mockito.anyString(), Mockito.anyString(), Mockito.anyChar(),
+                    Mockito.any(TrimType.class));
+            PowerMockito.verifyStatic(Mockito.never());
+            FileDAOUtility.padding(Mockito.anyString(), Mockito.anyString(), Mockito.anyInt(),
+                    Mockito.anyChar(), Mockito.any(PaddingType.class));
+            Mockito.verify(nullColumnParser, Mockito.never()).parse(Mockito.anyString(),
+                    Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+            Mockito.verify(dateColumnParser, Mockito.never()).parse(Mockito.anyString(),
+                    Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+            Mockito.verify(decimalColumnParser, Mockito.never()).parse(Mockito.anyString(),
+                    Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+            Mockito.verify(intColumnParser, Mockito.never()).parse(Mockito.anyString(),
+                    Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+            Mockito.verify(fileLineIterator, Mockito.never()).hasNext();
+            Mockito.verify(fileLineIterator, Mockito.never()).readLine();
+            Mockito.verify(fileLineIterator, Mockito.never()).separateColumns(Mockito.anyString());
             assertEquals(0, ReflectionTestUtils.getField(fileLineIterator,
                     "currentLineCount"));
 
@@ -2798,20 +2700,27 @@ public class AbstractFileLineIteratorTest {
                 "AbstractFileLineIterator_next23.txt");
         String fileName = url.getPath();
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
-        columnParserMap.put("java.lang.String", new NullColumnParser());
-        columnParserMap.put("java.util.Date", new DateColumnParser());
-        columnParserMap.put("java.math.BigDecimal", new DecimalColumnParser());
-        columnParserMap.put("int", new IntColumnParser());
+        NullColumnParser nullColumnParser = Mockito.spy(new NullColumnParser());
+        DateColumnParser dateColumnParser = Mockito.spy(new DateColumnParser());
+        DecimalColumnParser decimalColumnParser = Mockito.spy(new DecimalColumnParser());
+        IntColumnParser intColumnParser = Mockito.spy(new IntColumnParser());
+        columnParserMap.put("java.lang.String", nullColumnParser);
+        columnParserMap.put("java.util.Date", dateColumnParser);
+        columnParserMap.put("java.math.BigDecimal", decimalColumnParser);
+        columnParserMap.put("int", intColumnParser);
 
-        AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub09> fileLineIterator = new AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub09>(
+        AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub09> fileLineIterator = Mockito.spy(
+                new AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub09>(
                 fileName, AbstractFileLineIterator_Stub09.class,
-                columnParserMap);
+                columnParserMap));
 
         // 引数の設定
         // なし
 
         // 前提条件の設定
         // テスト対象のインスタンス化時に設定している。
+
+        PowerMockito.mockStatic(FileDAOUtility.class, Mockito.CALLS_REAL_METHODS);
 
         // テスト実施
         try {
@@ -2822,31 +2731,23 @@ public class AbstractFileLineIteratorTest {
             // なし
 
             // 状態変化の確認
-            assertEquals(0, VMOUTUtil
-                    .getCallCount(FileDAOUtility.class, "trim"));
-            assertEquals(0, VMOUTUtil.getCallCount(FileDAOUtility.class,
-                    "padding"));
-            assertEquals(0, VMOUTUtil.getCallCount(NullColumnParser.class,
-                    "parse"));
-            assertEquals(0, VMOUTUtil.getCallCount(DateColumnParser.class,
-                    "parse"));
-            assertEquals(0, VMOUTUtil.getCallCount(DecimalColumnParser.class,
-                    "parse"));
-            assertEquals(0, VMOUTUtil.getCallCount(IntColumnParser.class,
-                    "parse"));
-            assertEquals(0, VMOUTUtil.getCallCount(NullStringConverter.class,
-                    "convert"));
-            assertEquals(2, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "hasNext"));
-            assertEquals("readLine", 1, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "readLine"));
-
-            // mavenから起動するとなぜかseparateColumnsが取得できないため、スキップする
-            if (!("jp.co.dgic.testing.common.DJUnitClassLoader".equals(System
-                    .getProperty("java.system.class.loader")))) {
-                assertEquals("separateColumns", 1, VMOUTUtil.getCallCount(
-                        fileLineIterator.getClass(), "separateColumns"));
-            }
+            PowerMockito.verifyStatic(Mockito.never());
+            FileDAOUtility.trim(Mockito.anyString(), Mockito.anyString(), Mockito.anyChar(),
+                    Mockito.any(TrimType.class));
+            PowerMockito.verifyStatic(Mockito.never());
+            FileDAOUtility.padding(Mockito.anyString(), Mockito.anyString(), Mockito.anyInt(),
+                    Mockito.anyChar(), Mockito.any(PaddingType.class));
+            Mockito.verify(nullColumnParser, Mockito.never()).parse(Mockito.anyString(),
+                    Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+            Mockito.verify(dateColumnParser, Mockito.never()).parse(Mockito.anyString(),
+                    Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+            Mockito.verify(decimalColumnParser, Mockito.never()).parse(Mockito.anyString(),
+                    Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+            Mockito.verify(intColumnParser, Mockito.never()).parse(Mockito.anyString(),
+                    Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+            Mockito.verify(fileLineIterator, Mockito.times(2)).hasNext();
+            Mockito.verify(fileLineIterator).readLine();
+            Mockito.verify(fileLineIterator).separateColumns(Mockito.anyString());
 
             assertEquals("currentLineCount", 1, ReflectionTestUtils.getField(
                     fileLineIterator, "currentLineCount"));
@@ -2932,23 +2833,30 @@ public class AbstractFileLineIteratorTest {
                 "AbstractFileLineIterator_next09.txt");
         String fileName = url.getPath();
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
-        columnParserMap.put("java.lang.String", new NullColumnParser());
-        columnParserMap.put("java.util.Date", new DateColumnParser());
-        columnParserMap.put("java.math.BigDecimal", new DecimalColumnParser());
-        columnParserMap.put("int", new IntColumnParser());
+        NullColumnParser nullColumnParser = Mockito.spy(new NullColumnParser());
+        DateColumnParser dateColumnParser = Mockito.spy(new DateColumnParser());
+        DecimalColumnParser decimalColumnParser = Mockito.spy(new DecimalColumnParser());
+        IntColumnParser intColumnParser = Mockito.spy(new IntColumnParser());
+        columnParserMap.put("java.lang.String", nullColumnParser);
+        columnParserMap.put("java.util.Date", dateColumnParser);
+        columnParserMap.put("java.math.BigDecimal", decimalColumnParser);
+        columnParserMap.put("int", intColumnParser);
 
-        AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub09> fileLineIterator = new AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub09>(
+        AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub09> fileLineIterator = Mockito.spy(
+                new AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub09>(
                 fileName, AbstractFileLineIterator_Stub09.class,
-                columnParserMap);
+                columnParserMap));
 
         // 引数の設定
         // なし
 
         // 前提条件の設定
         FileException exception = new FileException("readLineでのエラーです。");
-        VMOUTUtil.setExceptionAtAllTimes(AbstractFileLineIterator.class,
-                "readLine", exception);
+        Mockito.doThrow(exception).when(fileLineIterator).readLine();
+
         // その他は、テスト対象のインスタンス化時に設定している。
+
+        PowerMockito.mockStatic(FileDAOUtility.class, Mockito.CALLS_REAL_METHODS);
 
         // テスト実施
         try {
@@ -2959,26 +2867,23 @@ public class AbstractFileLineIteratorTest {
             // なし
 
             // 状態変化の確認
-            assertEquals(0, VMOUTUtil
-                    .getCallCount(FileDAOUtility.class, "trim"));
-            assertEquals(0, VMOUTUtil.getCallCount(FileDAOUtility.class,
-                    "padding"));
-            assertEquals(0, VMOUTUtil.getCallCount(NullColumnParser.class,
-                    "parse"));
-            assertEquals(0, VMOUTUtil.getCallCount(DateColumnParser.class,
-                    "parse"));
-            assertEquals(0, VMOUTUtil.getCallCount(DecimalColumnParser.class,
-                    "parse"));
-            assertEquals(0, VMOUTUtil.getCallCount(IntColumnParser.class,
-                    "parse"));
-            assertEquals(0, VMOUTUtil.getCallCount(NullStringConverter.class,
-                    "convert"));
-            assertEquals("hasNext", 1, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "hasNext"));
-            assertEquals("readLine", 1, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "readLine"));
-            assertEquals(0, VMOUTUtil.getCallCount(fileLineIterator.getClass(),
-                    "separateColumns"));
+            PowerMockito.verifyStatic(Mockito.never());
+            FileDAOUtility.trim(Mockito.anyString(), Mockito.anyString(), Mockito.anyChar(),
+                    Mockito.any(TrimType.class));
+            PowerMockito.verifyStatic(Mockito.never());
+            FileDAOUtility.padding(Mockito.anyString(), Mockito.anyString(), Mockito.anyInt(),
+                    Mockito.anyChar(), Mockito.any(PaddingType.class));
+            Mockito.verify(nullColumnParser, Mockito.never()).parse(Mockito.anyString(),
+                    Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+            Mockito.verify(dateColumnParser, Mockito.never()).parse(Mockito.anyString(),
+                    Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+            Mockito.verify(decimalColumnParser, Mockito.never()).parse(Mockito.anyString(),
+                    Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+            Mockito.verify(intColumnParser, Mockito.never()).parse(Mockito.anyString(),
+                    Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+            Mockito.verify(fileLineIterator).hasNext();
+            Mockito.verify(fileLineIterator).readLine();
+            Mockito.verify(fileLineIterator, Mockito.never()).separateColumns(Mockito.anyString());
             assertEquals(0, ReflectionTestUtils.getField(fileLineIterator,
                     "currentLineCount"));
 
@@ -3083,20 +2988,27 @@ public class AbstractFileLineIteratorTest {
                 "AbstractFileLineIterator_next19.txt");
         String fileName = url.getPath();
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
-        columnParserMap.put("java.lang.String", new NullColumnParser());
-        columnParserMap.put("java.util.Date", new DateColumnParser());
-        columnParserMap.put("java.math.BigDecimal", new DecimalColumnParser());
-        columnParserMap.put("int", new IntColumnParser());
+        NullColumnParser nullColumnParser = Mockito.spy(new NullColumnParser());
+        DateColumnParser dateColumnParser = Mockito.spy(new DateColumnParser());
+        DecimalColumnParser decimalColumnParser = Mockito.spy(new DecimalColumnParser());
+        IntColumnParser intColumnParser = Mockito.spy(new IntColumnParser());
+        columnParserMap.put("java.lang.String", nullColumnParser);
+        columnParserMap.put("java.util.Date", dateColumnParser);
+        columnParserMap.put("java.math.BigDecimal", decimalColumnParser);
+        columnParserMap.put("int", intColumnParser);
 
-        AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub13> fileLineIterator = new AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub13>(
+        AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub13> fileLineIterator = Mockito.spy(
+                new AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub13>(
                 fileName, AbstractFileLineIterator_Stub13.class,
-                columnParserMap);
+                columnParserMap));
 
         // 引数の設定
         // なし
 
         // 前提条件の設定
         // テスト対象のインスタンス化時に設定している。
+
+        PowerMockito.mockStatic(FileDAOUtility.class, Mockito.CALLS_REAL_METHODS);
 
         // テスト実施（1回目）
         AbstractFileLineIterator_Stub13 result = fileLineIterator.next();
@@ -3111,29 +3023,23 @@ public class AbstractFileLineIteratorTest {
                 .toString());
 
         // 状態変化の確認
-        assertEquals(4, VMOUTUtil.getCallCount(FileDAOUtility.class, "trim"));
-        assertEquals(4, VMOUTUtil.getCallCount(FileDAOUtility.class, "padding"));
-        assertEquals("NullColumnParser", 1, VMOUTUtil.getCallCount(
-                NullColumnParser.class, "parse"));
-        assertEquals("DateColumnParser", 1, VMOUTUtil.getCallCount(
-                DateColumnParser.class, "parse"));
-        assertEquals("DecimalColumnParser", 1, VMOUTUtil.getCallCount(
-                DecimalColumnParser.class, "parse"));
-        assertEquals("IntColumnParser", 1, VMOUTUtil.getCallCount(
-                IntColumnParser.class, "parse"));
-        assertEquals(4, VMOUTUtil.getCallCount(NullStringConverter.class,
-                "convert"));
-        assertEquals(2, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "hasNext"));
-        assertEquals("AbstractFileLineIterator", 1, VMOUTUtil.getCallCount(
-                AbstractFileLineIterator.class, "readLine"));
-
-        // mavenから起動するとなぜかseparateColumnsが取得できないため、スキップする
-        if (!("jp.co.dgic.testing.common.DJUnitClassLoader".equals(System
-                .getProperty("java.system.class.loader")))) {
-            assertEquals("separateColumns", 1, VMOUTUtil.getCallCount(
-                    fileLineIterator.getClass(), "separateColumns"));
-        }
+        PowerMockito.verifyStatic(Mockito.times(4));
+        FileDAOUtility.trim(Mockito.anyString(), Mockito.anyString(), Mockito.anyChar(),
+                Mockito.any(TrimType.class));
+        PowerMockito.verifyStatic(Mockito.times(4));
+        FileDAOUtility.padding(Mockito.anyString(), Mockito.anyString(), Mockito.anyInt(),
+                Mockito.anyChar(), Mockito.any(PaddingType.class));
+        Mockito.verify(nullColumnParser).parse(Mockito.anyString(),
+                Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+        Mockito.verify(dateColumnParser).parse(Mockito.anyString(),
+                Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+        Mockito.verify(decimalColumnParser).parse(Mockito.anyString(),
+                Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+        Mockito.verify(intColumnParser).parse(Mockito.anyString(),
+                Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+        Mockito.verify(fileLineIterator, Mockito.times(2)).hasNext();
+        Mockito.verify(fileLineIterator).readLine();
+        Mockito.verify(fileLineIterator).separateColumns(Mockito.anyString());
 
         assertEquals("currentLineCount", 1, ReflectionTestUtils.getField(
                 fileLineIterator, "currentLineCount"));
@@ -3150,26 +3056,23 @@ public class AbstractFileLineIteratorTest {
                 .toString());
 
         // 状態変化の確認（呼び出し回数は1回目＋今回になる）
-        assertEquals(8, VMOUTUtil.getCallCount(FileDAOUtility.class, "trim"));
-        assertEquals(8, VMOUTUtil.getCallCount(FileDAOUtility.class, "padding"));
-        assertEquals(2, VMOUTUtil.getCallCount(NullColumnParser.class, "parse"));
-        assertEquals(2, VMOUTUtil.getCallCount(DateColumnParser.class, "parse"));
-        assertEquals(2, VMOUTUtil.getCallCount(DecimalColumnParser.class,
-                "parse"));
-        assertEquals(2, VMOUTUtil.getCallCount(IntColumnParser.class, "parse"));
-        assertEquals(8, VMOUTUtil.getCallCount(NullStringConverter.class,
-                "convert"));
-        assertEquals(4, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "hasNext"));
-        assertEquals(2, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "readLine"));
-
-        // mavenから起動するとなぜかseparateColumnsが取得できないため、スキップする
-        if (!("jp.co.dgic.testing.common.DJUnitClassLoader".equals(System
-                .getProperty("java.system.class.loader")))) {
-            assertEquals("separateColumns", 2, VMOUTUtil.getCallCount(
-                    fileLineIterator.getClass(), "separateColumns"));
-        }
+        PowerMockito.verifyStatic(Mockito.times(8));
+        FileDAOUtility.trim(Mockito.anyString(), Mockito.anyString(), Mockito.anyChar(),
+                Mockito.any(TrimType.class));
+        PowerMockito.verifyStatic(Mockito.times(8));
+        FileDAOUtility.padding(Mockito.anyString(), Mockito.anyString(), Mockito.anyInt(),
+                Mockito.anyChar(), Mockito.any(PaddingType.class));
+        Mockito.verify(nullColumnParser, Mockito.times(2)).parse(Mockito.anyString(),
+                Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+        Mockito.verify(dateColumnParser, Mockito.times(2)).parse(Mockito.anyString(),
+                Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+        Mockito.verify(decimalColumnParser, Mockito.times(2)).parse(Mockito.anyString(),
+                Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+        Mockito.verify(intColumnParser, Mockito.times(2)).parse(Mockito.anyString(),
+                Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+        Mockito.verify(fileLineIterator, Mockito.times(4)).hasNext();
+        Mockito.verify(fileLineIterator, Mockito.times(2)).readLine();
+        Mockito.verify(fileLineIterator, Mockito.times(2)).separateColumns(Mockito.anyString());
 
         assertEquals(2, ReflectionTestUtils.getField(fileLineIterator,
                 "currentLineCount"));
@@ -3186,28 +3089,23 @@ public class AbstractFileLineIteratorTest {
                 .toString());
 
         // 状態変化の確認（呼び出し回数は1回目＋2回目＋今回になる）
-        assertEquals(12, VMOUTUtil.getCallCount(FileDAOUtility.class, "trim"));
-        assertEquals(12, VMOUTUtil
-                .getCallCount(FileDAOUtility.class, "padding"));
-        assertEquals(3, VMOUTUtil.getCallCount(NullColumnParser.class, "parse"));
-        assertEquals(3, VMOUTUtil.getCallCount(DateColumnParser.class, "parse"));
-        assertEquals(3, VMOUTUtil.getCallCount(DecimalColumnParser.class,
-                "parse"));
-        assertEquals(3, VMOUTUtil.getCallCount(IntColumnParser.class, "parse"));
-        assertEquals(12, VMOUTUtil.getCallCount(NullStringConverter.class,
-                "convert"));
-        assertEquals(6, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "hasNext"));
-        assertEquals(3, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "readLine"));
-
-        // mavenから起動するとなぜかseparateColumnsが取得できないため、スキップする
-        if (!("jp.co.dgic.testing.common.DJUnitClassLoader".equals(System
-                .getProperty("java.system.class.loader")))) {
-            assertEquals("separateColumns", 3, VMOUTUtil.getCallCount(
-                    fileLineIterator.getClass(), "separateColumns"));
-        }
-
+        PowerMockito.verifyStatic(Mockito.times(12));
+        FileDAOUtility.trim(Mockito.anyString(), Mockito.anyString(), Mockito.anyChar(),
+                Mockito.any(TrimType.class));
+        PowerMockito.verifyStatic(Mockito.times(12));
+        FileDAOUtility.padding(Mockito.anyString(), Mockito.anyString(), Mockito.anyInt(),
+                Mockito.anyChar(), Mockito.any(PaddingType.class));
+        Mockito.verify(nullColumnParser, Mockito.times(3)).parse(Mockito.anyString(),
+                Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+        Mockito.verify(dateColumnParser, Mockito.times(3)).parse(Mockito.anyString(),
+                Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+        Mockito.verify(decimalColumnParser, Mockito.times(3)).parse(Mockito.anyString(),
+                Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+        Mockito.verify(intColumnParser, Mockito.times(3)).parse(Mockito.anyString(),
+                Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+        Mockito.verify(fileLineIterator, Mockito.times(6)).hasNext();
+        Mockito.verify(fileLineIterator, Mockito.times(3)).readLine();
+        Mockito.verify(fileLineIterator, Mockito.times(3)).separateColumns(Mockito.anyString());
         assertEquals(3, ReflectionTestUtils.getField(fileLineIterator,
                 "currentLineCount"));
     }
@@ -3282,22 +3180,28 @@ public class AbstractFileLineIteratorTest {
                 "AbstractFileLineIterator_next09.txt");
         String fileName = url.getPath();
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
-        columnParserMap.put("java.lang.String", new NullColumnParser());
-        columnParserMap.put("java.util.Date", new DateColumnParser());
-        columnParserMap.put("java.math.BigDecimal", new DecimalColumnParser());
-        columnParserMap.put("int", new IntColumnParser());
+        NullColumnParser nullColumnParser = Mockito.spy(new NullColumnParser());
+        DateColumnParser dateColumnParser = Mockito.spy(new DateColumnParser());
+        DecimalColumnParser decimalColumnParser = Mockito.spy(new DecimalColumnParser());
+        IntColumnParser intColumnParser = Mockito.spy(new IntColumnParser());
+        columnParserMap.put("java.lang.String", nullColumnParser);
+        columnParserMap.put("java.util.Date", dateColumnParser);
+        columnParserMap.put("java.math.BigDecimal", decimalColumnParser);
+        columnParserMap.put("int", intColumnParser);
 
-        AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub09> fileLineIterator = new AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub09>(
+        AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub09> fileLineIterator = Mockito.spy(
+                new AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub09>(
                 fileName, AbstractFileLineIterator_Stub09.class,
-                columnParserMap);
+                columnParserMap));
 
         // 引数の設定
         // なし
 
         // 前提条件の設定
+        PowerMockito.mockStatic(FileDAOUtility.class, Mockito.CALLS_REAL_METHODS);
         FileException exception = new FileException("trimでのエラーです。");
-        VMOUTUtil.setExceptionAtAllTimes(FileDAOUtility.class, "trim",
-                exception);
+        PowerMockito.doThrow(exception).when(FileDAOUtility.class, "trim", Mockito.anyString(),
+                Mockito.anyString(), Mockito.anyChar(), Mockito.any(TrimType.class));
         // その他は、テスト対象のインスタンス化時に設定している。
 
         // テスト実施
@@ -3309,31 +3213,23 @@ public class AbstractFileLineIteratorTest {
             // なし
 
             // 状態変化の確認
-            assertEquals("FileDAOUtility", 1, VMOUTUtil.getCallCount(
-                    FileDAOUtility.class, "trim"));
-            assertEquals(0, VMOUTUtil.getCallCount(FileDAOUtility.class,
-                    "padding"));
-            assertEquals(0, VMOUTUtil.getCallCount(NullColumnParser.class,
-                    "parse"));
-            assertEquals(0, VMOUTUtil.getCallCount(DateColumnParser.class,
-                    "parse"));
-            assertEquals(0, VMOUTUtil.getCallCount(DecimalColumnParser.class,
-                    "parse"));
-            assertEquals(0, VMOUTUtil.getCallCount(IntColumnParser.class,
-                    "parse"));
-            assertEquals(0, VMOUTUtil.getCallCount(NullStringConverter.class,
-                    "convert"));
-            assertEquals(2, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "hasNext"));
-            assertEquals("readLine", 1, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "readLine"));
-
-            // mavenから起動するとなぜかseparateColumnsが取得できないため、スキップする
-            if (!("jp.co.dgic.testing.common.DJUnitClassLoader".equals(System
-                    .getProperty("java.system.class.loader")))) {
-                assertEquals("separateColumns", 1, VMOUTUtil.getCallCount(
-                        fileLineIterator.getClass(), "separateColumns"));
-            }
+            PowerMockito.verifyStatic();
+            FileDAOUtility.trim(Mockito.anyString(), Mockito.anyString(), Mockito.anyChar(),
+                    Mockito.any(TrimType.class));
+            PowerMockito.verifyStatic(Mockito.never());
+            FileDAOUtility.padding(Mockito.anyString(), Mockito.anyString(), Mockito.anyInt(),
+                    Mockito.anyChar(), Mockito.any(PaddingType.class));
+            Mockito.verify(nullColumnParser, Mockito.never()).parse(Mockito.anyString(),
+                    Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+            Mockito.verify(dateColumnParser, Mockito.never()).parse(Mockito.anyString(),
+                    Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+            Mockito.verify(decimalColumnParser, Mockito.never()).parse(Mockito.anyString(),
+                    Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+            Mockito.verify(intColumnParser, Mockito.never()).parse(Mockito.anyString(),
+                    Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+            Mockito.verify(fileLineIterator, Mockito.times(2)).hasNext();
+            Mockito.verify(fileLineIterator).readLine();
+            Mockito.verify(fileLineIterator).separateColumns(Mockito.anyString());
 
             assertEquals("currentLineCount", 1, ReflectionTestUtils.getField(
                     fileLineIterator, "currentLineCount"));
@@ -3413,22 +3309,29 @@ public class AbstractFileLineIteratorTest {
                 "AbstractFileLineIterator_next09.txt");
         String fileName = url.getPath();
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
-        columnParserMap.put("java.lang.String", new NullColumnParser());
-        columnParserMap.put("java.util.Date", new DateColumnParser());
-        columnParserMap.put("java.math.BigDecimal", new DecimalColumnParser());
-        columnParserMap.put("int", new IntColumnParser());
+        NullColumnParser nullColumnParser = Mockito.spy(new NullColumnParser());
+        DateColumnParser dateColumnParser = Mockito.spy(new DateColumnParser());
+        DecimalColumnParser decimalColumnParser = Mockito.spy(new DecimalColumnParser());
+        IntColumnParser intColumnParser = Mockito.spy(new IntColumnParser());
+        columnParserMap.put("java.lang.String", nullColumnParser);
+        columnParserMap.put("java.util.Date", dateColumnParser);
+        columnParserMap.put("java.math.BigDecimal", decimalColumnParser);
+        columnParserMap.put("int", intColumnParser);
 
-        AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub09> fileLineIterator = new AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub09>(
+        AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub09> fileLineIterator = Mockito.spy(
+                new AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub09>(
                 fileName, AbstractFileLineIterator_Stub09.class,
-                columnParserMap);
+                columnParserMap));
 
         // 引数の設定
         // なし
 
         // 前提条件の設定
+        PowerMockito.mockStatic(FileDAOUtility.class, Mockito.CALLS_REAL_METHODS);
         FileException exception = new FileException("paddingでのエラーです。");
-        VMOUTUtil.setExceptionAtAllTimes(FileDAOUtility.class, "padding",
-                exception);
+        PowerMockito.doThrow(exception).when(FileDAOUtility.class, "padding", Mockito.anyString(),
+                Mockito.anyString(), Mockito.anyInt(), Mockito.anyChar(), Mockito.any(PaddingType.class));
+
         // その他は、テスト対象のインスタンス化時に設定している。
 
         // テスト実施
@@ -3440,31 +3343,23 @@ public class AbstractFileLineIteratorTest {
             // なし
 
             // 状態変化の確認
-            assertEquals("FileDAOUtility:trim", 1, VMOUTUtil.getCallCount(
-                    FileDAOUtility.class, "trim"));
-            assertEquals("FileDAOUtility:padding", 1, VMOUTUtil.getCallCount(
-                    FileDAOUtility.class, "padding"));
-            assertEquals(0, VMOUTUtil.getCallCount(NullColumnParser.class,
-                    "parse"));
-            assertEquals(0, VMOUTUtil.getCallCount(DateColumnParser.class,
-                    "parse"));
-            assertEquals(0, VMOUTUtil.getCallCount(DecimalColumnParser.class,
-                    "parse"));
-            assertEquals(0, VMOUTUtil.getCallCount(IntColumnParser.class,
-                    "parse"));
-            assertEquals(0, VMOUTUtil.getCallCount(NullStringConverter.class,
-                    "convert"));
-            assertEquals(2, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "hasNext"));
-            assertEquals("readLine", 1, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "readLine"));
-
-            // mavenから起動するとなぜかseparateColumnsが取得できないため、スキップする
-            if (!("jp.co.dgic.testing.common.DJUnitClassLoader".equals(System
-                    .getProperty("java.system.class.loader")))) {
-                assertEquals("separateColumns", 1, VMOUTUtil.getCallCount(
-                        fileLineIterator.getClass(), "separateColumns"));
-            }
+            PowerMockito.verifyStatic();
+            FileDAOUtility.trim(Mockito.anyString(), Mockito.anyString(), Mockito.anyChar(),
+                    Mockito.any(TrimType.class));
+            PowerMockito.verifyStatic();
+            FileDAOUtility.padding(Mockito.anyString(), Mockito.anyString(), Mockito.anyInt(),
+                    Mockito.anyChar(), Mockito.any(PaddingType.class));
+            Mockito.verify(nullColumnParser, Mockito.never()).parse(Mockito.anyString(),
+                    Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+            Mockito.verify(dateColumnParser, Mockito.never()).parse(Mockito.anyString(),
+                    Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+            Mockito.verify(decimalColumnParser, Mockito.never()).parse(Mockito.anyString(),
+                    Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+            Mockito.verify(intColumnParser, Mockito.never()).parse(Mockito.anyString(),
+                    Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+            Mockito.verify(fileLineIterator, Mockito.times(2)).hasNext();
+            Mockito.verify(fileLineIterator).readLine();
+            Mockito.verify(fileLineIterator).separateColumns(Mockito.anyString());
 
             assertEquals("currentLineCount", 1, ReflectionTestUtils.getField(
                     fileLineIterator, "currentLineCount"));
@@ -3542,22 +3437,27 @@ public class AbstractFileLineIteratorTest {
                 "AbstractFileLineIterator_next09.txt");
         String fileName = url.getPath();
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
-        columnParserMap.put("java.lang.String", new NullColumnParser());
-        columnParserMap.put("java.util.Date", new DateColumnParser());
-        columnParserMap.put("java.math.BigDecimal", new DecimalColumnParser());
-        columnParserMap.put("int", new IntColumnParser());
+        NullColumnParser nullColumnParser = Mockito.spy(new NullColumnParser());
+        DateColumnParser dateColumnParser = Mockito.spy(new DateColumnParser());
+        DecimalColumnParser decimalColumnParser = Mockito.spy(new DecimalColumnParser());
+        IntColumnParser intColumnParser = Mockito.spy(new IntColumnParser());
+        columnParserMap.put("java.lang.String", nullColumnParser);
+        columnParserMap.put("java.util.Date", dateColumnParser);
+        columnParserMap.put("java.math.BigDecimal", decimalColumnParser);
+        columnParserMap.put("int", intColumnParser);
 
-        AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub09> fileLineIterator = new AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub09>(
+        AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub09> fileLineIterator = Mockito.spy(
+                new AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub09>(
                 fileName, AbstractFileLineIterator_Stub09.class,
-                columnParserMap);
+                columnParserMap));
 
         // 引数の設定
         // なし
 
         // 前提条件の設定
+        PowerMockito.mockStatic(FileDAOUtility.class, Mockito.CALLS_REAL_METHODS);
         FileException exception = new FileException("paddingでのエラーです。");
-        VMOUTUtil.setExceptionAtAllTimes(AbstractFileLineIterator.class,
-                "hasNext", exception);
+        Mockito.doThrow(exception).when(fileLineIterator).hasNext();
         // その他は、テスト対象のインスタンス化時に設定している。
 
         // テスト実施
@@ -3569,26 +3469,23 @@ public class AbstractFileLineIteratorTest {
             // なし
 
             // 状態変化の確認
-            assertEquals(0, VMOUTUtil
-                    .getCallCount(FileDAOUtility.class, "trim"));
-            assertEquals(0, VMOUTUtil.getCallCount(FileDAOUtility.class,
-                    "padding"));
-            assertEquals(0, VMOUTUtil.getCallCount(NullColumnParser.class,
-                    "parse"));
-            assertEquals(0, VMOUTUtil.getCallCount(DateColumnParser.class,
-                    "parse"));
-            assertEquals(0, VMOUTUtil.getCallCount(DecimalColumnParser.class,
-                    "parse"));
-            assertEquals(0, VMOUTUtil.getCallCount(IntColumnParser.class,
-                    "parse"));
-            assertEquals(0, VMOUTUtil.getCallCount(NullStringConverter.class,
-                    "convert"));
-            assertEquals("hasNext", 1, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "hasNext"));
-            assertEquals(0, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "readLine"));
-            assertEquals(0, VMOUTUtil.getCallCount(fileLineIterator.getClass(),
-                    "separateColumns"));
+            PowerMockito.verifyStatic(Mockito.never());
+            FileDAOUtility.trim(Mockito.anyString(), Mockito.anyString(), Mockito.anyChar(),
+                    Mockito.any(TrimType.class));
+            PowerMockito.verifyStatic(Mockito.never());
+            FileDAOUtility.padding(Mockito.anyString(), Mockito.anyString(), Mockito.anyInt(),
+                    Mockito.anyChar(), Mockito.any(PaddingType.class));
+            Mockito.verify(nullColumnParser, Mockito.never()).parse(Mockito.anyString(),
+                    Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+            Mockito.verify(dateColumnParser, Mockito.never()).parse(Mockito.anyString(),
+                    Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+            Mockito.verify(decimalColumnParser, Mockito.never()).parse(Mockito.anyString(),
+                    Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+            Mockito.verify(intColumnParser, Mockito.never()).parse(Mockito.anyString(),
+                    Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+            Mockito.verify(fileLineIterator).hasNext();
+            Mockito.verify(fileLineIterator, Mockito.never()).readLine();
+            Mockito.verify(fileLineIterator, Mockito.never()).separateColumns(Mockito.anyString());
             assertEquals(0, ReflectionTestUtils.getField(fileLineIterator,
                     "currentLineCount"));
 
@@ -3671,21 +3568,28 @@ public class AbstractFileLineIteratorTest {
                 "AbstractFileLineIterator_next09.txt");
         String fileName = url.getPath();
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
-        columnParserMap.put("java.lang.String", new NullColumnParser());
-        columnParserMap.put("java.util.Date", new DateColumnParser());
-        columnParserMap.put("java.math.BigDecimal", new DecimalColumnParser());
-        columnParserMap.put("int", new IntColumnParser());
+        NullColumnParser nullColumnParser = Mockito.spy(new NullColumnParser());
+        DateColumnParser dateColumnParser = Mockito.spy(new DateColumnParser());
+        DecimalColumnParser decimalColumnParser = Mockito.spy(new DecimalColumnParser());
+        IntColumnParser intColumnParser = Mockito.spy(new IntColumnParser());
+        columnParserMap.put("java.lang.String", nullColumnParser);
+        columnParserMap.put("java.util.Date", dateColumnParser);
+        columnParserMap.put("java.math.BigDecimal", decimalColumnParser);
+        columnParserMap.put("int", intColumnParser);
 
-        AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub09> fileLineIterator = new AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub09>(
+        AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub09> fileLineIterator = Mockito.spy(
+                new AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub09>(
                 fileName, AbstractFileLineIterator_Stub09.class,
-                columnParserMap);
+                columnParserMap));
 
         // 引数の設定
         // なし
 
         // 前提条件の設定
-        VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineIterator.class,
-                "isCheckByte", false);
+        PowerMockito.mockStatic(FileDAOUtility.class, Mockito.CALLS_REAL_METHODS);
+        Mockito.doReturn(false).when(fileLineIterator).isCheckByte(Mockito.anyInt());
+
+
         // その他は、テスト対象のインスタンス化時に設定している。
 
         // テスト実施
@@ -3701,31 +3605,23 @@ public class AbstractFileLineIteratorTest {
                 .toString());
 
         // 状態変化の確認
-        assertEquals(4, VMOUTUtil.getCallCount(FileDAOUtility.class, "trim"));
-        assertEquals(4, VMOUTUtil.getCallCount(FileDAOUtility.class, "padding"));
-        assertEquals("NullColumnParser", 1, VMOUTUtil.getCallCount(
-                NullColumnParser.class, "parse"));
-        assertEquals("DateColumnParser", 1, VMOUTUtil.getCallCount(
-                DateColumnParser.class, "parse"));
-        assertEquals("DecimalColumnParser", 1, VMOUTUtil.getCallCount(
-                DecimalColumnParser.class, "parse"));
-        assertEquals("IntColumnParser", 1, VMOUTUtil.getCallCount(
-                IntColumnParser.class, "parse"));
-        assertEquals(4, VMOUTUtil.getCallCount(NullStringConverter.class,
-                "convert"));
-        assertEquals(2, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "hasNext"));
-        assertEquals("AbstractFileLineIterator", 1, VMOUTUtil.getCallCount(
-                AbstractFileLineIterator.class, "readLine"));
+        PowerMockito.verifyStatic(Mockito.times(4));
+        FileDAOUtility.trim(Mockito.anyString(), Mockito.anyString(), Mockito.anyChar(),
+                Mockito.any(TrimType.class));
+        PowerMockito.verifyStatic(Mockito.times(4));
+        FileDAOUtility.padding(Mockito.anyString(), Mockito.anyString(), Mockito.anyInt(),
+                Mockito.anyChar(), Mockito.any(PaddingType.class));Mockito.verify(nullColumnParser).parse(Mockito.anyString(),
+                Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+        Mockito.verify(dateColumnParser).parse(Mockito.anyString(),
+                Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+        Mockito.verify(decimalColumnParser).parse(Mockito.anyString(),
+                Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+        Mockito.verify(intColumnParser).parse(Mockito.anyString(),
+                Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+        Mockito.verify(fileLineIterator, Mockito.times(2)).hasNext();
+        Mockito.verify(fileLineIterator).readLine();
+        Mockito.verify(fileLineIterator).separateColumns(Mockito.anyString());
 
-        // mavenから起動するとなぜかseparateColumnsが取得できないため、スキップする
-        if (!("jp.co.dgic.testing.common.DJUnitClassLoader".equals(System
-                .getProperty("java.system.class.loader")))) {
-            assertEquals("separateColumns", 1, VMOUTUtil.getCallCount(
-                    fileLineIterator.getClass(), "separateColumns"));
-        }
-
-        assertEquals(0, VMOUTUtil.getCallCount(String.class, "getBytes"));
         assertEquals("currentLineCount", 1, ReflectionTestUtils.getField(
                 fileLineIterator, "currentLineCount"));
     }
@@ -3798,20 +3694,26 @@ public class AbstractFileLineIteratorTest {
                 "AbstractFileLineIterator_next13.txt");
         String fileName = url.getPath();
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
-        columnParserMap.put("java.lang.String", new NullColumnParser());
-        columnParserMap.put("java.util.Date", new DateColumnParser());
-        columnParserMap.put("java.math.BigDecimal", new DecimalColumnParser());
-        columnParserMap.put("int", new IntColumnParser());
+        NullColumnParser nullColumnParser = Mockito.spy(new NullColumnParser());
+        DateColumnParser dateColumnParser = Mockito.spy(new DateColumnParser());
+        DecimalColumnParser decimalColumnParser = Mockito.spy(new DecimalColumnParser());
+        IntColumnParser intColumnParser = Mockito.spy(new IntColumnParser());
+        columnParserMap.put("java.lang.String", nullColumnParser);
+        columnParserMap.put("java.util.Date", dateColumnParser);
+        columnParserMap.put("java.math.BigDecimal", decimalColumnParser);
+        columnParserMap.put("int", intColumnParser);
 
-        AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub10> fileLineIterator = new AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub10>(
+        AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub10> fileLineIterator = Mockito.spy(
+                new AbstractFileLineIteratorImpl01<AbstractFileLineIterator_Stub10>(
                 fileName, AbstractFileLineIterator_Stub10.class,
-                columnParserMap);
+                columnParserMap));
 
         // 引数の設定
         // なし
 
         // 前提条件の設定
         // テスト対象のインスタンス化時に設定している。
+        PowerMockito.mockStatic(FileDAOUtility.class, Mockito.CALLS_REAL_METHODS);
         ReflectionTestUtils.setField(fileLineIterator, "fileEncoding", "aaa");
 
         // テスト実施
@@ -3823,31 +3725,23 @@ public class AbstractFileLineIteratorTest {
             // なし
 
             // 状態変化の確認
-            assertEquals("FileDAOUtility:trim", 1, VMOUTUtil.getCallCount(
-                    FileDAOUtility.class, "trim"));
-            assertEquals("FileDAOUtility:padding", 1, VMOUTUtil.getCallCount(
-                    FileDAOUtility.class, "padding"));
-            assertEquals("NullColumnParser", 1, VMOUTUtil.getCallCount(
-                    NullColumnParser.class, "parse"));
-            assertEquals(0, VMOUTUtil.getCallCount(DateColumnParser.class,
-                    "parse"));
-            assertEquals(0, VMOUTUtil.getCallCount(DecimalColumnParser.class,
-                    "parse"));
-            assertEquals(0, VMOUTUtil.getCallCount(IntColumnParser.class,
-                    "parse"));
-            assertEquals("NullStringConverter", 1, VMOUTUtil.getCallCount(
-                    NullStringConverter.class, "convert"));
-            assertEquals(2, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "hasNext"));
-            assertEquals("readLine", 1, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "readLine"));
-
-            // mavenから起動するとなぜかseparateColumnsが取得できないため、スキップする
-            if (!("jp.co.dgic.testing.common.DJUnitClassLoader".equals(System
-                    .getProperty("java.system.class.loader")))) {
-                assertEquals("separateColumns", 1, VMOUTUtil.getCallCount(
-                        fileLineIterator.getClass(), "separateColumns"));
-            }
+            PowerMockito.verifyStatic();
+            FileDAOUtility.trim(Mockito.anyString(), Mockito.anyString(), Mockito.anyChar(),
+                    Mockito.any(TrimType.class));
+            PowerMockito.verifyStatic();
+            FileDAOUtility.padding(Mockito.anyString(), Mockito.anyString(), Mockito.anyInt(),
+                    Mockito.anyChar(), Mockito.any(PaddingType.class));
+            Mockito.verify(nullColumnParser).parse(Mockito.anyString(),
+                    Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+            Mockito.verify(dateColumnParser, Mockito.never()).parse(Mockito.anyString(),
+                    Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+            Mockito.verify(decimalColumnParser, Mockito.never()).parse(Mockito.anyString(),
+                    Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+            Mockito.verify(intColumnParser, Mockito.never()).parse(Mockito.anyString(),
+                    Mockito.anyObject(), Mockito.any(Method.class), Mockito.anyString());
+            Mockito.verify(fileLineIterator, Mockito.times(2)).hasNext();
+            Mockito.verify(fileLineIterator).readLine();
+            Mockito.verify(fileLineIterator).separateColumns(Mockito.anyString());
 
             assertEquals("currentLineCount", 1, ReflectionTestUtils.getField(
                     fileLineIterator, "currentLineCount"));
@@ -3946,9 +3840,10 @@ public class AbstractFileLineIteratorTest {
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub07> fileLineIterator = new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub07>(
+        AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub07> fileLineIterator = PowerMockito.spy(
+                new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub07>(
                 fileName, AbstractFileLineIterator_Stub07.class,
-                columnParserMap);
+                columnParserMap));
 
         // 引数の設定
         // なし
@@ -3965,18 +3860,12 @@ public class AbstractFileLineIteratorTest {
         // 状態変化の確認
         assertTrue((Boolean) ReflectionTestUtils.getField(fileLineIterator,
                 "calledInit"));
-        assertFalse(VMOUTUtil.isCalled(AbstractFileLineIterator.class,
-                "buildFields"));
-        assertFalse(VMOUTUtil.isCalled(AbstractFileLineIterator.class,
-                "buildStringConverters"));
-        assertFalse(VMOUTUtil.isCalled(AbstractFileLineIterator.class,
-                "buildMethods"));
-        assertFalse(VMOUTUtil.isCalled(AbstractFileLineIterator.class,
-                "buildLineReader"));
-        assertFalse(VMOUTUtil.isCalled(AbstractFileLineIterator.class,
-                "buildHeader"));
-        assertFalse(VMOUTUtil.isCalled(AbstractFileLineIterator.class,
-                "buildTrailerQueue"));
+        PowerMockito.verifyPrivate(fileLineIterator, Mockito.never()).invoke("buildFields");
+        PowerMockito.verifyPrivate(fileLineIterator, Mockito.never()).invoke("buildStringConverters");
+        PowerMockito.verifyPrivate(fileLineIterator, Mockito.never()).invoke("buildMethods");
+        PowerMockito.verifyPrivate(fileLineIterator, Mockito.never()).invoke("buildLineReader");
+        PowerMockito.verifyPrivate(fileLineIterator, Mockito.never()).invoke("buildHeader");
+        PowerMockito.verifyPrivate(fileLineIterator, Mockito.never()).invoke("buildTrailerQueue");
     }
 
     /**
@@ -4015,9 +3904,10 @@ public class AbstractFileLineIteratorTest {
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub07> fileLineIterator = new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub07>(
+        AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub07> fileLineIterator = PowerMockito.spy(
+                new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub07>(
                 fileName, AbstractFileLineIterator_Stub07.class,
-                columnParserMap);
+                columnParserMap));
 
         // 引数の設定
         // なし
@@ -4034,18 +3924,12 @@ public class AbstractFileLineIteratorTest {
         // 状態変化の確認
         assertTrue((Boolean) ReflectionTestUtils.getField(fileLineIterator,
                 "calledInit"));
-        assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "buildFields"));
-        assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "buildStringConverters"));
-        assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "buildMethods"));
-        assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "buildLineReader"));
-        assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "buildHeader"));
-        assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "buildTrailerQueue"));
+        PowerMockito.verifyPrivate(fileLineIterator).invoke("buildFields");
+        PowerMockito.verifyPrivate(fileLineIterator).invoke("buildStringConverters");
+        PowerMockito.verifyPrivate(fileLineIterator).invoke("buildMethods");
+        PowerMockito.verifyPrivate(fileLineIterator).invoke("buildLineReader");
+        PowerMockito.verifyPrivate(fileLineIterator).invoke("buildHeader");
+        PowerMockito.verifyPrivate(fileLineIterator).invoke("buildTrailerQueue");
     }
 
     /**
@@ -4085,9 +3969,10 @@ public class AbstractFileLineIteratorTest {
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub07> fileLineIterator = new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub07>(
+        AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub07> fileLineIterator = PowerMockito.spy(
+                new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub07>(
                 fileName, AbstractFileLineIterator_Stub07.class,
-                columnParserMap);
+                columnParserMap));
 
         // 引数の設定
         // なし
@@ -4095,8 +3980,7 @@ public class AbstractFileLineIteratorTest {
         // 前提条件の設定
         ReflectionTestUtils.setField(fileLineIterator, "calledInit", false);
         FileException exception = new FileException("buildFieldsのエラーです");
-        VMOUTUtil.setExceptionAtAllTimes(AbstractFileLineIterator.class,
-                "buildFields", exception);
+        PowerMockito.doThrow(exception).when(fileLineIterator, "buildFields");
 
         // テスト実施
         try {
@@ -4109,18 +3993,12 @@ public class AbstractFileLineIteratorTest {
             // 状態変化の確認
             assertFalse((Boolean) ReflectionTestUtils.getField(fileLineIterator,
                     "calledInit"));
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "buildFields"));
-            assertFalse(VMOUTUtil.isCalled(AbstractFileLineIterator.class,
-                    "buildStringConverters"));
-            assertFalse(VMOUTUtil.isCalled(AbstractFileLineIterator.class,
-                    "buildMethods"));
-            assertFalse(VMOUTUtil.isCalled(AbstractFileLineIterator.class,
-                    "buildLineReader"));
-            assertFalse(VMOUTUtil.isCalled(AbstractFileLineIterator.class,
-                    "buildHeader"));
-            assertFalse(VMOUTUtil.isCalled(AbstractFileLineIterator.class,
-                    "buildTrailerQueue"));
+            PowerMockito.verifyPrivate(fileLineIterator).invoke("buildFields");
+            PowerMockito.verifyPrivate(fileLineIterator, Mockito.never()).invoke("buildStringConverters");
+            PowerMockito.verifyPrivate(fileLineIterator, Mockito.never()).invoke("buildMethods");
+            PowerMockito.verifyPrivate(fileLineIterator, Mockito.never()).invoke("buildLineReader");
+            PowerMockito.verifyPrivate(fileLineIterator, Mockito.never()).invoke("buildHeader");
+            PowerMockito.verifyPrivate(fileLineIterator, Mockito.never()).invoke("buildTrailerQueue");
 
             assertSame(exception, e);
         }
@@ -4163,9 +4041,10 @@ public class AbstractFileLineIteratorTest {
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub07> fileLineIterator = new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub07>(
+        AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub07> fileLineIterator = PowerMockito.spy(
+                new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub07>(
                 fileName, AbstractFileLineIterator_Stub07.class,
-                columnParserMap);
+                columnParserMap));
 
         // 引数の設定
         // なし
@@ -4174,8 +4053,7 @@ public class AbstractFileLineIteratorTest {
         ReflectionTestUtils.setField(fileLineIterator, "calledInit", false);
         FileLineException exception = new FileLineException(
                 "buildStringConvertersのエラーです");
-        VMOUTUtil.setExceptionAtAllTimes(AbstractFileLineIterator.class,
-                "buildStringConverters", exception);
+        PowerMockito.doThrow(exception).when(fileLineIterator, "buildStringConverters");
 
         // テスト実施
         try {
@@ -4188,18 +4066,12 @@ public class AbstractFileLineIteratorTest {
             // 状態変化の確認
             assertFalse((Boolean) ReflectionTestUtils.getField(fileLineIterator,
                     "calledInit"));
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "buildFields"));
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "buildStringConverters"));
-            assertFalse(VMOUTUtil.isCalled(AbstractFileLineIterator.class,
-                    "buildMethods"));
-            assertFalse(VMOUTUtil.isCalled(AbstractFileLineIterator.class,
-                    "buildLineReader"));
-            assertFalse(VMOUTUtil.isCalled(AbstractFileLineIterator.class,
-                    "buildHeader"));
-            assertFalse(VMOUTUtil.isCalled(AbstractFileLineIterator.class,
-                    "buildTrailerQueue"));
+            PowerMockito.verifyPrivate(fileLineIterator).invoke("buildFields");
+            PowerMockito.verifyPrivate(fileLineIterator).invoke("buildStringConverters");
+            PowerMockito.verifyPrivate(fileLineIterator, Mockito.never()).invoke("buildMethods");
+            PowerMockito.verifyPrivate(fileLineIterator, Mockito.never()).invoke("buildLineReader");
+            PowerMockito.verifyPrivate(fileLineIterator, Mockito.never()).invoke("buildHeader");
+            PowerMockito.verifyPrivate(fileLineIterator, Mockito.never()).invoke("buildTrailerQueue");
 
             assertSame(exception, e);
         }
@@ -4242,9 +4114,10 @@ public class AbstractFileLineIteratorTest {
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub07> fileLineIterator = new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub07>(
+        AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub07> fileLineIterator = PowerMockito.spy(
+                new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub07>(
                 fileName, AbstractFileLineIterator_Stub07.class,
-                columnParserMap);
+                columnParserMap));
 
         // 引数の設定
         // なし
@@ -4252,8 +4125,7 @@ public class AbstractFileLineIteratorTest {
         // 前提条件の設定
         ReflectionTestUtils.setField(fileLineIterator, "calledInit", false);
         FileException exception = new FileException("buildMethodsのエラーです");
-        VMOUTUtil.setExceptionAtAllTimes(AbstractFileLineIterator.class,
-                "buildMethods", exception);
+        PowerMockito.doThrow(exception).when(fileLineIterator, "buildMethods");
 
         // テスト実施
         try {
@@ -4266,18 +4138,12 @@ public class AbstractFileLineIteratorTest {
             // 状態変化の確認
             assertFalse((Boolean) ReflectionTestUtils.getField(fileLineIterator,
                     "calledInit"));
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "buildFields"));
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "buildStringConverters"));
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "buildMethods"));
-            assertFalse(VMOUTUtil.isCalled(AbstractFileLineIterator.class,
-                    "buildLineReader"));
-            assertFalse(VMOUTUtil.isCalled(AbstractFileLineIterator.class,
-                    "buildHeader"));
-            assertFalse(VMOUTUtil.isCalled(AbstractFileLineIterator.class,
-                    "buildTrailerQueue"));
+            PowerMockito.verifyPrivate(fileLineIterator).invoke("buildFields");
+            PowerMockito.verifyPrivate(fileLineIterator).invoke("buildStringConverters");
+            PowerMockito.verifyPrivate(fileLineIterator).invoke("buildMethods");
+            PowerMockito.verifyPrivate(fileLineIterator, Mockito.never()).invoke("buildLineReader");
+            PowerMockito.verifyPrivate(fileLineIterator, Mockito.never()).invoke("buildHeader");
+            PowerMockito.verifyPrivate(fileLineIterator, Mockito.never()).invoke("buildTrailerQueue");
 
             assertSame(exception, e);
         }
@@ -4320,9 +4186,10 @@ public class AbstractFileLineIteratorTest {
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub07> fileLineIterator = new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub07>(
+        AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub07> fileLineIterator = PowerMockito.spy(
+                new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub07>(
                 fileName, AbstractFileLineIterator_Stub07.class,
-                columnParserMap);
+                columnParserMap));
 
         // 引数の設定
         // なし
@@ -4330,8 +4197,7 @@ public class AbstractFileLineIteratorTest {
         // 前提条件の設定
         ReflectionTestUtils.setField(fileLineIterator, "calledInit", false);
         FileException exception = new FileException("buildHeadersのエラーです");
-        VMOUTUtil.setExceptionAtAllTimes(AbstractFileLineIterator.class,
-                "buildHeader", exception);
+        PowerMockito.doThrow(exception).when(fileLineIterator, "buildHeader");
 
         // テスト実施
         try {
@@ -4344,18 +4210,12 @@ public class AbstractFileLineIteratorTest {
             // 状態変化の確認
             assertFalse((Boolean) ReflectionTestUtils.getField(fileLineIterator,
                     "calledInit"));
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "buildFields"));
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "buildStringConverters"));
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "buildMethods"));
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "buildLineReader"));
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "buildHeader"));
-            assertFalse(VMOUTUtil.isCalled(AbstractFileLineIterator.class,
-                    "buildTrailerQueue"));
+            PowerMockito.verifyPrivate(fileLineIterator).invoke("buildFields");
+            PowerMockito.verifyPrivate(fileLineIterator).invoke("buildStringConverters");
+            PowerMockito.verifyPrivate(fileLineIterator).invoke("buildMethods");
+            PowerMockito.verifyPrivate(fileLineIterator).invoke("buildLineReader");
+            PowerMockito.verifyPrivate(fileLineIterator).invoke("buildHeader");
+            PowerMockito.verifyPrivate(fileLineIterator, Mockito.never()).invoke("buildTrailerQueue");
 
             assertSame(exception, e);
         }
@@ -4398,9 +4258,10 @@ public class AbstractFileLineIteratorTest {
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub07> fileLineIterator = new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub07>(
+        AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub07> fileLineIterator = PowerMockito.spy(
+                new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub07>(
                 fileName, AbstractFileLineIterator_Stub07.class,
-                columnParserMap);
+                columnParserMap));
 
         // 引数の設定
         // なし
@@ -4408,8 +4269,7 @@ public class AbstractFileLineIteratorTest {
         // 前提条件の設定
         ReflectionTestUtils.setField(fileLineIterator, "calledInit", false);
         FileException exception = new FileException("buildTrailerQueueのエラーです");
-        VMOUTUtil.setExceptionAtAllTimes(AbstractFileLineIterator.class,
-                "buildTrailerQueue", exception);
+        PowerMockito.doThrow(exception).when(fileLineIterator, "buildTrailerQueue");
 
         // テスト実施
         try {
@@ -4422,18 +4282,11 @@ public class AbstractFileLineIteratorTest {
             // 状態変化の確認
             assertFalse((Boolean) ReflectionTestUtils.getField(fileLineIterator,
                     "calledInit"));
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "buildFields"));
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "buildStringConverters"));
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "buildMethods"));
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "buildLineReader"));
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "buildHeader"));
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "buildTrailerQueue"));
+            PowerMockito.verifyPrivate(fileLineIterator).invoke("buildStringConverters");
+            PowerMockito.verifyPrivate(fileLineIterator).invoke("buildMethods");
+            PowerMockito.verifyPrivate(fileLineIterator).invoke("buildLineReader");
+            PowerMockito.verifyPrivate(fileLineIterator).invoke("buildHeader");
+            PowerMockito.verifyPrivate(fileLineIterator).invoke("buildTrailerQueue");
 
             assertSame(exception, e);
         }
@@ -4476,9 +4329,10 @@ public class AbstractFileLineIteratorTest {
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub07> fileLineIterator = new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub07>(
+        AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub07> fileLineIterator = PowerMockito.spy(
+                new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub07>(
                 fileName, AbstractFileLineIterator_Stub07.class,
-                columnParserMap);
+                columnParserMap));
 
         // 引数の設定
         // なし
@@ -4486,8 +4340,7 @@ public class AbstractFileLineIteratorTest {
         // 前提条件の設定
         ReflectionTestUtils.setField(fileLineIterator, "calledInit", false);
         FileException exception = new FileException("buildLineReaderのエラーです");
-        VMOUTUtil.setExceptionAtAllTimes(AbstractFileLineIterator.class,
-                "buildLineReader", exception);
+        PowerMockito.doThrow(exception).when(fileLineIterator, "buildLineReader");
 
         // テスト実施
         try {
@@ -4500,18 +4353,11 @@ public class AbstractFileLineIteratorTest {
             // 状態変化の確認
             assertFalse((Boolean) ReflectionTestUtils.getField(fileLineIterator,
                     "calledInit"));
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "buildFields"));
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "buildStringConverters"));
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "buildMethods"));
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "buildLineReader"));
-            assertFalse(VMOUTUtil.isCalled(AbstractFileLineIterator.class,
-                    "buildHeader"));
-            assertFalse(VMOUTUtil.isCalled(AbstractFileLineIterator.class,
-                    "buildTrailerQueue"));
+            PowerMockito.verifyPrivate(fileLineIterator).invoke("buildStringConverters");
+            PowerMockito.verifyPrivate(fileLineIterator).invoke("buildMethods");
+            PowerMockito.verifyPrivate(fileLineIterator).invoke("buildLineReader");
+            PowerMockito.verifyPrivate(fileLineIterator, Mockito.never()).invoke("buildHeader");
+            PowerMockito.verifyPrivate(fileLineIterator, Mockito.never()).invoke("buildTrailerQueue");
 
             assertSame(exception, e);
         }
@@ -5126,8 +4972,9 @@ public class AbstractFileLineIteratorTest {
                 columnParserMap);
 
         // markSupportedがfalseを返却するように設定
-        VMOUTUtil.setReturnValueAtAllTimes(BufferedReader.class,
-                "markSupported", false);
+        BufferedReader mockBufferedReader = Mockito.mock(BufferedReader.class);
+        Mockito.doReturn(false).when(mockBufferedReader).markSupported();
+        PowerMockito.whenNew(BufferedReader.class).withAnyArguments().thenReturn(mockBufferedReader);
         try {
             // テスト実施
             Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildLineReader");
@@ -5194,16 +5041,12 @@ public class AbstractFileLineIteratorTest {
 
         // 返却値の確認
         // なし
-
         // 状態変化の確認
-        assertEquals(0, VMOUTUtil.getCallCount(Field.class, "getAnnotation"));
         Object result_fields = (Field[]) ReflectionTestUtils.getField(
                 fileLineIterator, "fields");
         assertEquals(Field[].class, result_fields.getClass());
         Field[] fields = (Field[]) result_fields;
         assertEquals(0, fields.length);
-        assertEquals(2, VMOUTUtil
-                .getCallCount(Class.class, "getDeclaredFields"));
     }
 
     /**
@@ -5264,14 +5107,11 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 状態変化の確認
-        assertEquals(3, VMOUTUtil.getCallCount(Field.class, "getAnnotation"));
         Object result_fields = (Field[]) ReflectionTestUtils.getField(
                 fileLineIterator, "fields");
         assertEquals(Field[].class, result_fields.getClass());
         Field[] fields = (Field[]) result_fields;
         assertEquals(0, fields.length);
-        assertEquals(2, VMOUTUtil
-                .getCallCount(Class.class, "getDeclaredFields"));
     }
 
     /**
@@ -5345,7 +5185,6 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 状態変化の確認
-        assertEquals(6, VMOUTUtil.getCallCount(Field.class, "getAnnotation"));
         Object result_fields = (Field[]) ReflectionTestUtils.getField(
                 fileLineIterator, "fields");
         assertEquals(Field[].class, result_fields.getClass());
@@ -5354,8 +5193,6 @@ public class AbstractFileLineIteratorTest {
         assertEquals("column1", fields[0].getName());
         assertEquals("column2", fields[1].getName());
         assertEquals("column3", fields[2].getName());
-        assertEquals(2, VMOUTUtil
-                .getCallCount(Class.class, "getDeclaredFields"));
     }
 
     /**
@@ -5434,7 +5271,6 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 状態変化の確認
-        assertEquals(9, VMOUTUtil.getCallCount(Field.class, "getAnnotation"));
         Object result_fields = (Field[]) ReflectionTestUtils.getField(
                 fileLineIterator, "fields");
         assertEquals(Field[].class, result_fields.getClass());
@@ -5443,8 +5279,6 @@ public class AbstractFileLineIteratorTest {
         assertEquals("column1", fields[0].getName());
         assertEquals("column2", fields[1].getName());
         assertEquals("column3", fields[2].getName());
-        assertEquals(2, VMOUTUtil
-                .getCallCount(Class.class, "getDeclaredFields"));
     }
 
     /**
@@ -5517,13 +5351,9 @@ public class AbstractFileLineIteratorTest {
             // なし
 
             // 状態変化の確認
-            assertEquals(3, VMOUTUtil
-                    .getCallCount(Field.class, "getAnnotation"));
             Object result_fields = (Field[]) ReflectionTestUtils.getField(
                     fileLineIterator, "fields");
             assertNull(result_fields);
-            assertEquals(2, VMOUTUtil.getCallCount(Class.class,
-                    "getDeclaredFields"));
 
             assertEquals(FileException.class, e.getTargetException().getClass());
             assertEquals("Column Index is duplicate : 1", e.getTargetException().getMessage());
@@ -5606,11 +5436,6 @@ public class AbstractFileLineIteratorTest {
             // なし
 
             // 状態変化の確認
-            assertEquals(6, VMOUTUtil
-                    .getCallCount(Field.class, "getAnnotation"));
-            assertEquals(2, VMOUTUtil.getCallCount(Class.class,
-                    "getDeclaredFields"));
-
             assertEquals(FileException.class, e.getTargetException().getClass());
             assertEquals(
                     "columnIndex in FileLineObject is not sequential order.", e.getTargetException()
@@ -5701,7 +5526,6 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 状態変化の確認
-        assertEquals(9, VMOUTUtil.getCallCount(Field.class, "getAnnotation"));
         Object result_fields = (Field[]) ReflectionTestUtils.getField(
                 fileLineIterator, "fields");
         assertEquals(Field[].class, result_fields.getClass());
@@ -5710,8 +5534,6 @@ public class AbstractFileLineIteratorTest {
         assertEquals("column1", fields[0].getName());
         assertEquals("column2", fields[1].getName());
         assertEquals("column3", fields[2].getName());
-        assertEquals(3, VMOUTUtil
-                .getCallCount(Class.class, "getDeclaredFields"));
     }
 
     /**
@@ -5785,7 +5607,6 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 状態変化の確認
-        assertEquals(6, VMOUTUtil.getCallCount(Field.class, "getAnnotation"));
         Object result_fields = (Field[]) ReflectionTestUtils.getField(
                 fileLineIterator, "fields");
         assertEquals(Field[].class, result_fields.getClass());
@@ -5794,8 +5615,6 @@ public class AbstractFileLineIteratorTest {
         assertEquals("column1", fields[0].getName());
         assertEquals("column2", fields[1].getName());
         assertEquals("column3", fields[2].getName());
-        assertEquals(2, VMOUTUtil
-                .getCallCount(Class.class, "getDeclaredFields"));
     }
 
     /**
@@ -5874,13 +5693,9 @@ public class AbstractFileLineIteratorTest {
             assertEquals(fileName, ((FileException)e.getTargetException()).getFileName());
 
             // 状態変化の確認
-            assertEquals(1, VMOUTUtil
-                    .getCallCount(Field.class, "getAnnotation"));
             Object result_fields = ReflectionTestUtils.getField(fileLineIterator,
                     "fields");
             assertNull(result_fields);
-            assertEquals(2, VMOUTUtil.getCallCount(Class.class,
-                    "getDeclaredFields"));
         }
     }
 
@@ -5960,13 +5775,9 @@ public class AbstractFileLineIteratorTest {
             assertEquals(fileName, ((FileException)e.getTargetException()).getFileName());
 
             // 状態変化の確認
-            assertEquals(3, VMOUTUtil
-                    .getCallCount(Field.class, "getAnnotation"));
             Object result_fields = ReflectionTestUtils.getField(fileLineIterator,
                     "fields");
             assertNull(result_fields);
-            assertEquals(2, VMOUTUtil.getCallCount(Class.class,
-                    "getDeclaredFields"));
         }
     }
 
@@ -6047,13 +5858,9 @@ public class AbstractFileLineIteratorTest {
             assertEquals(fileName, ((FileException)e.getTargetException()).getFileName());
 
             // 状態変化の確認
-            assertEquals(2, VMOUTUtil
-                    .getCallCount(Field.class, "getAnnotation"));
             Object result_fields = ReflectionTestUtils.getField(fileLineIterator,
                     "fields");
             assertNull(result_fields);
-            assertEquals(2, VMOUTUtil.getCallCount(Class.class,
-                    "getDeclaredFields"));
         }
     }
 
@@ -6114,7 +5921,6 @@ public class AbstractFileLineIteratorTest {
         method.setAccessible(true);
         Object result = method.invoke(fileLineIterator);
 
-        VMOUTUtil.initialize();
         // テスト対象のインスタンス化ですでに設定済み
 
         // テスト実施
@@ -6126,11 +5932,6 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 状態変化の確認
-        assertEquals(0, VMOUTUtil.getCallCount(Field.class, "getAnnotation"));
-        assertEquals(0, VMOUTUtil.getCallCount(Class.class, "newInstance"));
-        assertEquals(0, VMOUTUtil.getCallCount(Map.class, "containsKey"));
-        assertEquals(0, VMOUTUtil.getCallCount(Map.class, "put"));
-        assertEquals(0, VMOUTUtil.getCallCount(Map.class, "get"));
         StringConverter[] stringConverters = (StringConverter[]) ReflectionTestUtils.getField(fileLineIterator, "stringConverters");
         assertEquals(0, stringConverters.length);
         Field field = AbstractFileLineIterator.class.getDeclaredField("stringConverterCacheMap");
@@ -6196,7 +5997,6 @@ public class AbstractFileLineIteratorTest {
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
         method.setAccessible(true);
         Object result = method.invoke(fileLineIterator);
-        VMOUTUtil.initialize();
         // テスト対象のインスタンス化ですでに設定済み
 
         // テスト実施
@@ -6208,11 +6008,6 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 状態変化の確認
-        assertEquals(0, VMOUTUtil.getCallCount(Field.class, "getAnnotation"));
-        assertEquals(0, VMOUTUtil.getCallCount(Class.class, "newInstance"));
-        assertEquals(0, VMOUTUtil.getCallCount(Map.class, "containsKey"));
-        assertEquals(0, VMOUTUtil.getCallCount(Map.class, "put"));
-        assertEquals(0, VMOUTUtil.getCallCount(Map.class, "get"));
         StringConverter[] stringConverters = (StringConverter[]) ReflectionTestUtils.getField(fileLineIterator, "stringConverters");
         assertEquals(0, stringConverters.length);
         Field field = AbstractFileLineIterator.class.getDeclaredField("stringConverterCacheMap");
@@ -6288,7 +6083,6 @@ public class AbstractFileLineIteratorTest {
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
         method.setAccessible(true);
         Object result = method.invoke(fileLineIterator);
-        VMOUTUtil.initialize();
         // テスト対象のインスタンス化ですでに設定済み
 
         // テスト実施
@@ -6300,10 +6094,6 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 状態変化の確認
-        assertEquals(1, VMOUTUtil.getCallCount(Class.class, "newInstance"));
-        assertEquals(1, VMOUTUtil.getCallCount(Map.class, "containsKey"));
-        assertEquals(1, VMOUTUtil.getCallCount(Map.class, "put"));
-        assertEquals(0, VMOUTUtil.getCallCount(Map.class, "get"));
         StringConverter[] stringConverters = (StringConverter[]) ReflectionTestUtils.getField(fileLineIterator, "stringConverters");
         assertEquals(1, stringConverters.length);
         assertEquals(StringConverterToUpperCase.class, stringConverters[0]
@@ -6375,7 +6165,7 @@ public class AbstractFileLineIteratorTest {
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
         method.setAccessible(true);
         Object result = method.invoke(fileLineIterator);
-        VMOUTUtil.initialize();
+
         // テスト対象のインスタンス化ですでに設定済み
 
         // テスト実施
@@ -6387,11 +6177,6 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 状態変化の確認
-        assertEquals(0, VMOUTUtil.getCallCount(Field.class, "getAnnotation"));
-        assertEquals(0, VMOUTUtil.getCallCount(Class.class, "newInstance"));
-        assertEquals(0, VMOUTUtil.getCallCount(Map.class, "containsKey"));
-        assertEquals(0, VMOUTUtil.getCallCount(Map.class, "put"));
-        assertEquals(0, VMOUTUtil.getCallCount(Map.class, "get"));
         StringConverter[] stringConverters = (StringConverter[]) ReflectionTestUtils.getField(fileLineIterator, "stringConverters");
         assertEquals(0, stringConverters.length);
         Field field = AbstractFileLineIterator.class.getDeclaredField("stringConverterCacheMap");
@@ -6481,7 +6266,7 @@ public class AbstractFileLineIteratorTest {
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
         method.setAccessible(true);
         Object result = method.invoke(fileLineIterator);
-        VMOUTUtil.initialize();
+
         // テスト対象のインスタンス化ですでに設定済み
 
         // テスト実施
@@ -6493,10 +6278,6 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 状態変化の確認
-        assertEquals(1, VMOUTUtil.getCallCount(Class.class, "newInstance"));
-        assertEquals(3, VMOUTUtil.getCallCount(Map.class, "containsKey"));
-        assertEquals(1, VMOUTUtil.getCallCount(Map.class, "put"));
-        assertEquals(2, VMOUTUtil.getCallCount(Map.class, "get"));
         StringConverter[] stringConverters = (StringConverter[]) ReflectionTestUtils.getField(fileLineIterator, "stringConverters");
         assertEquals(3, stringConverters.length);
         assertEquals(StringConverterToUpperCase.class, stringConverters[0]
@@ -6588,7 +6369,7 @@ public class AbstractFileLineIteratorTest {
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
         method.setAccessible(true);
         Object result = method.invoke(fileLineIterator);
-        VMOUTUtil.initialize();
+
         // テスト対象のインスタンス化ですでに設定済み
 
         // テスト実施
@@ -6600,10 +6381,6 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 状態変化の確認
-        assertEquals(1, VMOUTUtil.getCallCount(Class.class, "newInstance"));
-        assertEquals(2, VMOUTUtil.getCallCount(Map.class, "containsKey"));
-        assertEquals(1, VMOUTUtil.getCallCount(Map.class, "put"));
-        assertEquals(1, VMOUTUtil.getCallCount(Map.class, "get"));
         StringConverter[] stringConverters = (StringConverter[]) ReflectionTestUtils.getField(fileLineIterator, "stringConverters");
         assertEquals(2, stringConverters.length);
         assertEquals(StringConverterToUpperCase.class, stringConverters[0]
@@ -6712,7 +6489,7 @@ public class AbstractFileLineIteratorTest {
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
         method.setAccessible(true);
         Object result = method.invoke(fileLineIterator);
-        VMOUTUtil.initialize();
+
         // テスト対象のインスタンス化ですでに設定済み
 
         // テスト実施
@@ -6724,10 +6501,6 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 状態変化の確認
-        assertEquals(3, VMOUTUtil.getCallCount(Class.class, "newInstance"));
-        assertEquals(5, VMOUTUtil.getCallCount(Map.class, "containsKey"));
-        assertEquals(3, VMOUTUtil.getCallCount(Map.class, "put"));
-        assertEquals(2, VMOUTUtil.getCallCount(Map.class, "get"));
         StringConverter[] stringConverters = (StringConverter[]) ReflectionTestUtils.getField(fileLineIterator, "stringConverters");
         assertEquals(5, stringConverters.length);
         assertSame(NullStringConverter.class, stringConverters[0].getClass());
@@ -6828,7 +6601,7 @@ public class AbstractFileLineIteratorTest {
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
         method.setAccessible(true);
         Object result = method.invoke(fileLineIterator);
-        VMOUTUtil.initialize();
+
         // テスト対象のインスタンス化ですでに設定済み
 
         // テスト実施
@@ -6842,10 +6615,6 @@ public class AbstractFileLineIteratorTest {
             // なし
 
             // 状態変化の確認
-            assertEquals(2, VMOUTUtil.getCallCount(Class.class, "newInstance"));
-            assertEquals(2, VMOUTUtil.getCallCount(Map.class, "containsKey"));
-            assertEquals(1, VMOUTUtil.getCallCount(Map.class, "put"));
-            assertEquals(0, VMOUTUtil.getCallCount(Map.class, "get"));
             StringConverter[] stringConverters = (StringConverter[]) ReflectionTestUtils.getField(fileLineIterator, "stringConverters");
             assertNull(stringConverters);
 
@@ -6940,7 +6709,7 @@ public class AbstractFileLineIteratorTest {
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
         method.setAccessible(true);
         Object result = method.invoke(fileLineIterator);
-        VMOUTUtil.initialize();
+
         // テスト対象のインスタンス化ですでに設定済み
 
         // テスト実施
@@ -6954,11 +6723,6 @@ public class AbstractFileLineIteratorTest {
             // なし
 
             // 状態変化の確認
-
-            assertEquals(2, VMOUTUtil.getCallCount(Class.class, "newInstance"));
-            assertEquals(2, VMOUTUtil.getCallCount(Map.class, "containsKey"));
-            assertEquals(1, VMOUTUtil.getCallCount(Map.class, "put"));
-            assertEquals(0, VMOUTUtil.getCallCount(Map.class, "get"));
             StringConverter[] stringConverters = (StringConverter[]) ReflectionTestUtils.getField(fileLineIterator, "stringConverters");
             assertNull(stringConverters);
 
@@ -7076,7 +6840,7 @@ public class AbstractFileLineIteratorTest {
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
         method.setAccessible(true);
         Object result = method.invoke(fileLineIterator);
-        VMOUTUtil.initialize();
+
         // テスト対象のインスタンス化ですでに設定済み
 
         // テスト実施
@@ -7087,10 +6851,6 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 状態変化の確認
-        assertEquals(0, VMOUTUtil.getCallCount(Class.class, "newInstance"));
-        assertEquals(3, VMOUTUtil.getCallCount(Map.class, "containsKey"));
-        assertEquals(0, VMOUTUtil.getCallCount(Map.class, "put"));
-        assertEquals(3, VMOUTUtil.getCallCount(Map.class, "get"));
         StringConverter[] stringConverters = (StringConverter[]) ReflectionTestUtils.getField(fileLineIterator, "stringConverters");
         assertEquals(3, stringConverters.length);
         assertSame(cache01, stringConverters[0]);
@@ -7152,7 +6912,7 @@ public class AbstractFileLineIteratorTest {
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
         method.setAccessible(true);
         Object result = method.invoke(fileLineIterator);
-        VMOUTUtil.initialize();
+
         // テスト対象のインスタンス化で設定済み
 
         // テスト実施
@@ -7164,7 +6924,6 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 状態変化の確認
-        assertEquals(0, VMOUTUtil.getCallCount(Class.class, "getMethod"));
         Method[] methods = (Method[]) ReflectionTestUtils.getField(fileLineIterator,
                 "methods");
         assertEquals(0, methods.length);
@@ -7214,7 +6973,7 @@ public class AbstractFileLineIteratorTest {
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
         method.setAccessible(true);
         Object result = method.invoke(fileLineIterator);
-        VMOUTUtil.initialize();
+
         // テスト対象のインスタンス化で設定済み
 
         // テスト実施
@@ -7226,7 +6985,6 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 状態変化の確認
-        assertEquals(0, VMOUTUtil.getCallCount(Class.class, "getMethod"));
         Method[] methods = (Method[]) ReflectionTestUtils.getField(fileLineIterator,
                 "methods");
         assertEquals(0, methods.length);
@@ -7284,7 +7042,7 @@ public class AbstractFileLineIteratorTest {
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
         method.setAccessible(true);
         Object result = method.invoke(fileLineIterator);
-        VMOUTUtil.initialize();
+
         // テスト対象のインスタンス化で設定済み
 
         // テスト実施
@@ -7296,7 +7054,6 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 状態変化の確認
-        assertEquals(1, VMOUTUtil.getCallCount(Class.class, "getMethod"));
         Method[] methods = (Method[]) ReflectionTestUtils.getField(fileLineIterator,
                 "methods");
         assertEquals(1, methods.length);
@@ -7357,7 +7114,7 @@ public class AbstractFileLineIteratorTest {
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
         method.setAccessible(true);
         Object result = method.invoke(fileLineIterator);
-        VMOUTUtil.initialize();
+
         // テスト対象のインスタンス化で設定済み
 
         // テスト実施
@@ -7371,7 +7128,6 @@ public class AbstractFileLineIteratorTest {
             // なし
 
             // 状態変化の確認
-            assertEquals(1, VMOUTUtil.getCallCount(Class.class, "getMethod"));
             Method[] methods = (Method[]) ReflectionTestUtils.getField(
                     fileLineIterator, "methods");
             assertNull(methods);
@@ -7430,7 +7186,7 @@ public class AbstractFileLineIteratorTest {
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
         method.setAccessible(true);
         Object result = method.invoke(fileLineIterator);
-        VMOUTUtil.initialize();
+
         // テスト対象のインスタンス化で設定済み
 
         // テスト実施
@@ -7442,7 +7198,6 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 状態変化の確認
-        assertEquals(0, VMOUTUtil.getCallCount(Class.class, "getMethod"));
         Method[] methods = (Method[]) ReflectionTestUtils.getField(fileLineIterator,
                 "methods");
         assertEquals(0, methods.length);
@@ -7505,7 +7260,7 @@ public class AbstractFileLineIteratorTest {
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
         method.setAccessible(true);
         Object result = method.invoke(fileLineIterator);
-        VMOUTUtil.initialize();
+
         // テスト対象のインスタンス化で設定済み
 
         // テスト実施
@@ -7517,7 +7272,6 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 状態変化の確認
-        assertEquals(2, VMOUTUtil.getCallCount(Class.class, "getMethod"));
         Method[] methods = (Method[]) ReflectionTestUtils.getField(fileLineIterator,
                 "methods");
         assertEquals(2, methods.length);
@@ -7601,7 +7355,7 @@ public class AbstractFileLineIteratorTest {
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildFields");
         method.setAccessible(true);
         Object result = method.invoke(fileLineIterator);
-        VMOUTUtil.initialize();
+
         // テスト対象のインスタンス化で設定済み
 
         // テスト実施
@@ -7613,7 +7367,6 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 状態変化の確認
-        assertEquals(4, VMOUTUtil.getCallCount(Class.class, "getMethod"));
         Method[] methods = (Method[]) ReflectionTestUtils.getField(fileLineIterator,
                 "methods");
         assertEquals(4, methods.length);
@@ -7680,12 +7433,17 @@ public class AbstractFileLineIteratorTest {
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub60> fileLineIterator = new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub60>(
+        AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub60> fileLineIterator = PowerMockito.spy(
+                new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub60>(
                 fileName, AbstractFileLineIterator_Stub60.class,
-                columnParserMap);
+                columnParserMap));
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildLineReader");
         method.setAccessible(true);
         Object result = method.invoke(fileLineIterator);
+
+        LineReader mockLineReader = Mockito.mock(LineReader.class);
+        Mockito.doReturn("").when(mockLineReader).readLine();
+        ReflectionTestUtils.setField(fileLineIterator, "lineReader", mockLineReader);
 
         // 引数の設定
         // なし
@@ -7710,8 +7468,7 @@ public class AbstractFileLineIteratorTest {
 
         Object lineReader = ReflectionTestUtils.getField(fileLineIterator,
                 "lineReader");
-        assertEquals(0, VMOUTUtil.getCallCount(lineReader.getClass(),
-                "readLine"));
+        Mockito.verify(mockLineReader, Mockito.never()).readLine();
     }
 
     /**
@@ -7764,6 +7521,10 @@ public class AbstractFileLineIteratorTest {
         method.setAccessible(true);
         Object result = method.invoke(fileLineIterator);
 
+        LineReader mockLineReader = Mockito.mock(LineReader.class);
+        Mockito.doReturn("1行目データ").when(mockLineReader).readLine();
+        ReflectionTestUtils.setField(fileLineIterator, "lineReader", mockLineReader);
+
         // 引数の設定
         // なし
 
@@ -7788,8 +7549,7 @@ public class AbstractFileLineIteratorTest {
 
         Object lineReader = ReflectionTestUtils.getField(fileLineIterator,
                 "lineReader");
-        assertEquals(1, VMOUTUtil.getCallCount(lineReader.getClass(),
-                "readLine"));
+        Mockito.verify(mockLineReader).readLine();
     }
 
     /**
@@ -7844,6 +7604,10 @@ public class AbstractFileLineIteratorTest {
         method.setAccessible(true);
         Object result = method.invoke(fileLineIterator);
 
+        LineReader mockLineReader = Mockito.mock(LineReader.class);
+        Mockito.doReturn("1行目データ").doReturn("2行目データ").doReturn("3行目データ").when(mockLineReader).readLine();
+        ReflectionTestUtils.setField(fileLineIterator, "lineReader", mockLineReader);
+
         // 引数の設定
         // なし
 
@@ -7870,8 +7634,7 @@ public class AbstractFileLineIteratorTest {
 
         Object lineReader = ReflectionTestUtils.getField(fileLineIterator,
                 "lineReader");
-        assertEquals(3, VMOUTUtil.getCallCount(lineReader.getClass(),
-                "readLine"));
+        Mockito.verify(mockLineReader, Mockito.times(3)).readLine();
     }
 
     /**
@@ -7924,6 +7687,10 @@ public class AbstractFileLineIteratorTest {
         method.setAccessible(true);
         Object result = method.invoke(fileLineIterator);
 
+        LineReader lineReader = (LineReader) ReflectionTestUtils.getField(fileLineIterator, "lineReader");
+        lineReader = Mockito.spy(lineReader);
+        ReflectionTestUtils.setField(fileLineIterator, "lineReader", lineReader);
+
         // 引数の設定
         // なし
 
@@ -7947,10 +7714,9 @@ public class AbstractFileLineIteratorTest {
             assertEquals(NoSuchElementException.class, e.getTargetException().getCause().getClass());
             assertSame(fileName, ((FileException)e.getTargetException()).getFileName());
 
-            Object lineReader = ReflectionTestUtils.getField(fileLineIterator,
+            lineReader = (LineReader) ReflectionTestUtils.getField(fileLineIterator,
                     "lineReader");
-            assertEquals(2, VMOUTUtil.getCallCount(lineReader.getClass(),
-                    "readLine"));
+            Mockito.verify(lineReader, Mockito.times(2)).readLine();
         }
     }
 
@@ -8006,11 +7772,13 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 前提条件の設定
-        Object lineReader = ReflectionTestUtils.getField(fileLineIterator,
+        LineReader lineReader = (LineReader) ReflectionTestUtils.getField(fileLineIterator,
                 "lineReader");
         FileException exception = new FileException("readLineからの例外です");
-        VMOUTUtil.setReturnValueAtAllTimes(lineReader.getClass(), "readLine",
-                exception);
+        lineReader = Mockito.spy(lineReader);
+        Mockito.doThrow(exception).when(lineReader).readLine();
+        ReflectionTestUtils.setField(fileLineIterator, "lineReader", lineReader);
+
         // テスト対象のインスタンス化で設定済み
 
         // テスト実施
@@ -8070,9 +7838,10 @@ public class AbstractFileLineIteratorTest {
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub61> fileLineIterator = new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub61>(
+        AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub61> fileLineIterator = Mockito.spy(
+                new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub61>(
                 fileName, AbstractFileLineIterator_Stub61.class,
-                columnParserMap);
+                columnParserMap));
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildLineReader");
         method.setAccessible(true);
         Object result = method.invoke(fileLineIterator);
@@ -8082,8 +7851,7 @@ public class AbstractFileLineIteratorTest {
 
         // 前提条件の設定
         FileException exception = new FileException("readLineからの例外です");
-        VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineIterator.class,
-                "hasNext", exception);
+        Mockito.doThrow(exception).when(fileLineIterator).hasNext();
         // テスト対象のインスタンス化で設定済み
 
         // テスト実施
@@ -8147,6 +7915,11 @@ public class AbstractFileLineIteratorTest {
         method.setAccessible(true);
         Object result = method.invoke(fileLineIterator);
 
+        LineReader lineReader = (LineReader) ReflectionTestUtils.getField(fileLineIterator,
+                "lineReader");
+        lineReader = Mockito.spy(lineReader);
+        ReflectionTestUtils.setField(fileLineIterator, "lineReader", lineReader);
+
         // 引数の設定
         // なし
 
@@ -8166,10 +7939,9 @@ public class AbstractFileLineIteratorTest {
                 "trailerQueue");
         assertNull(trailerQueue_object);
 
-        Object lineReader = ReflectionTestUtils.getField(fileLineIterator,
-                "lineReader");
-        assertEquals(0, VMOUTUtil.getCallCount(lineReader.getClass(),
-                "readLine"));
+//        lineReader = (LineReader) ReflectionTestUtils.getField(fileLineIterator,
+//                "lineReader");
+        Mockito.verify(lineReader, Mockito.never()).readLine();
     }
 
     /**
@@ -8220,11 +7992,17 @@ public class AbstractFileLineIteratorTest {
         method.setAccessible(true);
         Object result = method.invoke(fileLineIterator);
 
+        LineReader lineReader = (LineReader) ReflectionTestUtils.getField(fileLineIterator,
+                "lineReader");
+        lineReader = Mockito.spy(lineReader);
+        ReflectionTestUtils.setField(fileLineIterator, "lineReader", lineReader);
+
         // 引数の設定
         // なし
 
         // 前提条件の設定
         // テスト対象のインスタンス化で設定済み
+
 
         // テスト実施
         method = AbstractFileLineIterator.class.getDeclaredMethod("buildTrailerQueue");
@@ -8240,12 +8018,11 @@ public class AbstractFileLineIteratorTest {
         assertEquals(ArrayBlockingQueue.class, trailerQueue_object.getClass());
         ArrayBlockingQueue trailerQueue = (ArrayBlockingQueue) trailerQueue_object;
         assertEquals(1, trailerQueue.size());
-        assertEquals("3行目データ", trailerQueue.poll());
+        assertEquals("Line data 3", trailerQueue.poll());
 
-        Object lineReader = ReflectionTestUtils.getField(fileLineIterator,
+        lineReader = (LineReader) ReflectionTestUtils.getField(fileLineIterator,
                 "lineReader");
-        assertEquals(1, VMOUTUtil.getCallCount(lineReader.getClass(),
-                "readLine"));
+        Mockito.verify(lineReader).readLine();
     }
 
     /**
@@ -8298,6 +8075,11 @@ public class AbstractFileLineIteratorTest {
         method.setAccessible(true);
         Object result = method.invoke(fileLineIterator);
 
+        LineReader lineReader = (LineReader) ReflectionTestUtils.getField(fileLineIterator,
+                "lineReader");
+        lineReader = Mockito.spy(lineReader);
+        ReflectionTestUtils.setField(fileLineIterator, "lineReader", lineReader);
+
         // 引数の設定
         // なし
 
@@ -8318,14 +8100,13 @@ public class AbstractFileLineIteratorTest {
         assertEquals(ArrayBlockingQueue.class, trailerQueue_object.getClass());
         ArrayBlockingQueue trailerQueue = (ArrayBlockingQueue) trailerQueue_object;
         assertEquals(3, trailerQueue.size());
-        assertEquals("3行目データ", trailerQueue.poll());
-        assertEquals("4行目データ", trailerQueue.poll());
-        assertEquals("5行目データ", trailerQueue.poll());
+        assertEquals("Line data 3", trailerQueue.poll());
+        assertEquals("Line data 4", trailerQueue.poll());
+        assertEquals("Line data 5", trailerQueue.poll());
 
-        Object lineReader = ReflectionTestUtils.getField(fileLineIterator,
+        lineReader = (LineReader) ReflectionTestUtils.getField(fileLineIterator,
                 "lineReader");
-        assertEquals(3, VMOUTUtil.getCallCount(lineReader.getClass(),
-                "readLine"));
+        Mockito.verify(lineReader, Mockito.times(3)).readLine();
     }
 
     /**
@@ -8367,12 +8148,18 @@ public class AbstractFileLineIteratorTest {
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub71> fileLineIterator = new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub71>(
+        AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub71> fileLineIterator = Mockito.spy(
+                new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub71>(
                 fileName, AbstractFileLineIterator_Stub71.class,
-                columnParserMap);
+                columnParserMap));
         Method method = AbstractFileLineIterator.class.getDeclaredMethod("buildLineReader");
         method.setAccessible(true);
         Object result = method.invoke(fileLineIterator);
+
+        LineReader lineReader = (LineReader) ReflectionTestUtils.getField(fileLineIterator,
+                "lineReader");
+        lineReader = Mockito.spy(lineReader);
+        ReflectionTestUtils.setField(fileLineIterator, "lineReader", lineReader);
 
         // 引数の設定
         // なし
@@ -8380,8 +8167,7 @@ public class AbstractFileLineIteratorTest {
         // 前提条件の設定
         // テスト対象のインスタンス化で設定済み
         FileException exception = new FileException("hasNextでのエラーです");
-        VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineIterator.class,
-                "hasNext", exception);
+        Mockito.doThrow(exception).when(fileLineIterator).hasNext();
 
         // テスト実施
         try {
@@ -8401,10 +8187,9 @@ public class AbstractFileLineIteratorTest {
             ArrayBlockingQueue trailerQueue = (ArrayBlockingQueue) trailerQueue_object;
             assertEquals(0, trailerQueue.size());
 
-            Object lineReader = ReflectionTestUtils.getField(fileLineIterator,
+            lineReader = (LineReader) ReflectionTestUtils.getField(fileLineIterator,
                     "lineReader");
-            assertEquals(0, VMOUTUtil.getCallCount(lineReader.getClass(),
-                    "readLine"));
+            Mockito.verify(lineReader, Mockito.never()).readLine();
 
             assertSame(exception, e.getTargetException());
         }
@@ -8456,16 +8241,20 @@ public class AbstractFileLineIteratorTest {
         method.setAccessible(true);
         Object result = method.invoke(fileLineIterator);
 
+        LineReader lineReader = (LineReader) ReflectionTestUtils.getField(fileLineIterator,
+                "lineReader");
+        lineReader = Mockito.spy(lineReader);
+
         // 引数の設定
         // なし
 
         // 前提条件の設定
         // テスト対象のインスタンス化で設定済み
         FileException exception = new FileException("readLineでのエラーです");
-        Object lineReader = ReflectionTestUtils.getField(fileLineIterator,
-                "lineReader");
-        VMOUTUtil.setReturnValueAtAllTimes(lineReader.getClass(), "readLine",
-                exception);
+//        lineReader = (LineReader) ReflectionTestUtils.getField(fileLineIterator,
+//                "lineReader");
+        Mockito.doThrow(exception).when(lineReader).readLine();
+        ReflectionTestUtils.setField(fileLineIterator, "lineReader", lineReader);
 
         // テスト実施
         try {
@@ -8592,6 +8381,10 @@ public class AbstractFileLineIteratorTest {
                 columnParserMap);
         fileLineIterator.init();
 
+        BufferedReader bufferedReader = (BufferedReader) ReflectionTestUtils.getField(fileLineIterator, "reader");
+        bufferedReader = Mockito.spy(bufferedReader);
+        ReflectionTestUtils.setField(fileLineIterator, "reader", bufferedReader);
+
         // 引数の設定
         // なし
 
@@ -8605,7 +8398,7 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 状態変化の確認
-        assertEquals(1, VMOUTUtil.getCallCount(BufferedReader.class, "close"));
+        Mockito.verify(bufferedReader).close();
     }
 
     /**
@@ -8644,14 +8437,17 @@ public class AbstractFileLineIteratorTest {
                 columnParserMap);
         fileLineIterator.init();
 
+        BufferedReader bufferedReader = (BufferedReader) ReflectionTestUtils.getField(fileLineIterator, "reader");
+        bufferedReader = Mockito.spy(bufferedReader);
+        ReflectionTestUtils.setField(fileLineIterator, "reader", bufferedReader);
+
         // 引数の設定
         // なし
 
         // 前提条件の設定
         // テスト対象のインスタンス化で設定済み
         IOException exception = new IOException();
-        VMOUTUtil.setExceptionAtAllTimes(BufferedReader.class, "close",
-                exception);
+        Mockito.doThrow(exception).when(bufferedReader).close();
 
         // テスト実施
         try {
@@ -8783,8 +8579,12 @@ public class AbstractFileLineIteratorTest {
 
         // 前提条件の設定
         fileLineIterator.init();
-        VMOUTUtil.initialize();
         // テスト対象のインスタンス化で設定済み
+
+        LineReader lineReader = (LineReader) ReflectionTestUtils.getField(fileLineIterator,
+                "lineReader");
+        lineReader = Mockito.spy(lineReader);
+        ReflectionTestUtils.setField(fileLineIterator, "lineReader", lineReader);
 
         // テスト実施
         List<String> result = fileLineIterator.getTrailer();
@@ -8801,10 +8601,9 @@ public class AbstractFileLineIteratorTest {
         assertTrue((Boolean) ReflectionTestUtils.getField(fileLineIterator,
                 "readTrailer"));
 
-        Object lineReader = ReflectionTestUtils.getField(fileLineIterator,
+        lineReader = (LineReader) ReflectionTestUtils.getField(fileLineIterator,
                 "lineReader");
-        assertEquals(3, VMOUTUtil.getCallCount(lineReader.getClass(),
-                "readLine"));
+        Mockito.verify(lineReader, Mockito.times(3)).readLine();
     }
 
     /**
@@ -8865,8 +8664,12 @@ public class AbstractFileLineIteratorTest {
 
         // 前提条件の設定
         fileLineIterator.init();
-        VMOUTUtil.initialize();
         // テスト対象のインスタンス化で設定済み
+
+        LineReader lineReader = (LineReader) ReflectionTestUtils.getField(fileLineIterator,
+                "lineReader");
+        lineReader = Mockito.spy(lineReader);
+        ReflectionTestUtils.setField(fileLineIterator, "lineReader", lineReader);
 
         // テスト実施
         List<String> result = fileLineIterator.getTrailer();
@@ -8874,7 +8677,7 @@ public class AbstractFileLineIteratorTest {
         // 返却値の確認
         assertSame(ArrayList.class, result.getClass());
         assertEquals(1, result.size());
-        assertEquals("5行目データ", result.get(0));
+        assertEquals("Line data 5", result.get(0));
 
         // 状態変化の確認
         Object trailer_object = ReflectionTestUtils.getField(fileLineIterator,
@@ -8882,15 +8685,14 @@ public class AbstractFileLineIteratorTest {
         assertSame(ArrayList.class, trailer_object.getClass());
         List<String> trailer = (List<String>) trailer_object;
         assertEquals(1, trailer.size());
-        assertEquals("5行目データ", trailer.get(0));
+        assertEquals("Line data 5", trailer.get(0));
 
         assertTrue((Boolean) ReflectionTestUtils.getField(fileLineIterator,
                 "readTrailer"));
 
-        Object lineReader = ReflectionTestUtils.getField(fileLineIterator,
+        lineReader = (LineReader) ReflectionTestUtils.getField(fileLineIterator,
                 "lineReader");
-        assertEquals(3, VMOUTUtil.getCallCount(lineReader.getClass(),
-                "readLine"));
+        Mockito.verify(lineReader, Mockito.times(3)).readLine();
     }
 
     /**
@@ -8955,8 +8757,12 @@ public class AbstractFileLineIteratorTest {
 
         // 前提条件の設定
         fileLineIterator.init();
-        VMOUTUtil.initialize();
         // テスト対象のインスタンス化で設定済み
+
+        LineReader lineReader = (LineReader) ReflectionTestUtils.getField(fileLineIterator,
+                "lineReader");
+        lineReader = Mockito.spy(lineReader);
+        ReflectionTestUtils.setField(fileLineIterator, "lineReader", lineReader);
 
         // テスト実施
         List<String> result = fileLineIterator.getTrailer();
@@ -8964,9 +8770,9 @@ public class AbstractFileLineIteratorTest {
         // 返却値の確認
         assertSame(ArrayList.class, result.getClass());
         assertEquals(3, result.size());
-        assertEquals("3行目データ", result.get(0));
-        assertEquals("4行目データ", result.get(1));
-        assertEquals("5行目データ", result.get(2));
+        assertEquals("Line data 3", result.get(0));
+        assertEquals("Line data 4", result.get(1));
+        assertEquals("Line data 5", result.get(2));
 
         // 状態変化の確認
         Object trailer_object = ReflectionTestUtils.getField(fileLineIterator,
@@ -8974,17 +8780,17 @@ public class AbstractFileLineIteratorTest {
         assertSame(ArrayList.class, trailer_object.getClass());
         List<String> trailer = (List<String>) trailer_object;
         assertEquals(3, trailer.size());
-        assertEquals("3行目データ", trailer.get(0));
-        assertEquals("4行目データ", trailer.get(1));
-        assertEquals("5行目データ", trailer.get(2));
+        assertEquals("Line data 3", trailer.get(0));
+        assertEquals("Line data 4", trailer.get(1));
+        assertEquals("Line data 5", trailer.get(2));
 
         assertTrue((Boolean) ReflectionTestUtils.getField(fileLineIterator,
                 "readTrailer"));
 
-        Object lineReader = ReflectionTestUtils.getField(fileLineIterator,
+        lineReader = (LineReader) ReflectionTestUtils.getField(fileLineIterator,
                 "lineReader");
-        assertEquals(1, VMOUTUtil.getCallCount(lineReader.getClass(),
-                "readLine"));
+        Mockito.verify(lineReader).readLine();
+
     }
 
     /**
@@ -9030,20 +8836,25 @@ public class AbstractFileLineIteratorTest {
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub81> fileLineIterator = new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub81>(
+        AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub81> fileLineIterator = Mockito.spy(
+                new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub81>(
                 fileName, AbstractFileLineIterator_Stub81.class,
-                columnParserMap);
+                columnParserMap));
 
         // 引数の設定
         // なし
 
         // 前提条件の設定
         fileLineIterator.init();
-        VMOUTUtil.initialize();
+
         FileException exception = new FileException("hasNextでのエラーです");
-        VMOUTUtil.setReturnValueAtAllTimes(AbstractFileLineIterator.class,
-                "hasNext", exception);
+        Mockito.doThrow(exception).when(fileLineIterator).hasNext();
         // テスト対象のインスタンス化で設定済み
+
+        LineReader lineReader = (LineReader) ReflectionTestUtils.getField(fileLineIterator,
+                "lineReader");
+        lineReader = Mockito.spy(lineReader);
+        ReflectionTestUtils.setField(fileLineIterator, "lineReader", lineReader);
 
         // テスト実施
         try {
@@ -9063,10 +8874,9 @@ public class AbstractFileLineIteratorTest {
             assertFalse((Boolean) ReflectionTestUtils.getField(fileLineIterator,
                     "readTrailer"));
 
-            Object lineReader = ReflectionTestUtils.getField(fileLineIterator,
+            lineReader = (LineReader) ReflectionTestUtils.getField(fileLineIterator,
                     "lineReader");
-            assertEquals(0, VMOUTUtil.getCallCount(lineReader.getClass(),
-                    "readLine"));
+            Mockito.verify(lineReader, Mockito.never()).readLine();
 
             assertSame(exception, e);
         }
@@ -9129,8 +8939,12 @@ public class AbstractFileLineIteratorTest {
         // 前提条件の設定
         fileLineIterator.init();
         fileLineIterator.getTrailer();
-        VMOUTUtil.initialize();
         // テスト対象のインスタンス化で設定済み
+
+        LineReader lineReader = (LineReader) ReflectionTestUtils.getField(fileLineIterator,
+                "lineReader");
+        lineReader = Mockito.spy(lineReader);
+        ReflectionTestUtils.setField(fileLineIterator, "lineReader", lineReader);
 
         // テスト実施
         List<String> result = fileLineIterator.getTrailer();
@@ -9138,7 +8952,7 @@ public class AbstractFileLineIteratorTest {
         // 返却値の確認
         assertSame(ArrayList.class, result.getClass());
         assertEquals(1, result.size());
-        assertEquals("5行目データ", result.get(0));
+        assertEquals("Line data 5", result.get(0));
 
         // 状態変化の確認
         Object trailer_object = ReflectionTestUtils.getField(fileLineIterator,
@@ -9146,15 +8960,14 @@ public class AbstractFileLineIteratorTest {
         assertSame(ArrayList.class, trailer_object.getClass());
         List<String> trailer = (List<String>) trailer_object;
         assertEquals(1, trailer.size());
-        assertEquals("5行目データ", trailer.get(0));
+        assertEquals("Line data 5", trailer.get(0));
 
         assertTrue((Boolean) ReflectionTestUtils.getField(fileLineIterator,
                 "readTrailer"));
 
-        Object lineReader = ReflectionTestUtils.getField(fileLineIterator,
+        lineReader = (LineReader) ReflectionTestUtils.getField(fileLineIterator,
                 "lineReader");
-        assertEquals(0, VMOUTUtil.getCallCount(lineReader.getClass(),
-                "readLine"));
+        Mockito.verify(lineReader, Mockito.never()).readLine();
     }
 
     /**
@@ -9212,8 +9025,12 @@ public class AbstractFileLineIteratorTest {
 
         // 前提条件の設定
         fileLineIterator.init();
-        VMOUTUtil.initialize();
         // テスト対象のインスタンス化で設定済み
+
+        LineReader lineReader = (LineReader) ReflectionTestUtils.getField(fileLineIterator,
+                "lineReader");
+        lineReader = Mockito.spy(lineReader);
+        ReflectionTestUtils.setField(fileLineIterator, "lineReader", lineReader);
 
         // テスト実施
         List<String> result = fileLineIterator.getTrailer();
@@ -9221,7 +9038,7 @@ public class AbstractFileLineIteratorTest {
         // 返却値の確認
         assertSame(ArrayList.class, result.getClass());
         assertEquals(1, result.size());
-        assertEquals("5行目データ", result.get(0));
+        assertEquals("Line data 5", result.get(0));
 
         // 状態変化の確認
         Object trailer_object = ReflectionTestUtils.getField(fileLineIterator,
@@ -9229,15 +9046,14 @@ public class AbstractFileLineIteratorTest {
         assertSame(ArrayList.class, trailer_object.getClass());
         List<String> trailer = (List<String>) trailer_object;
         assertEquals(1, trailer.size());
-        assertEquals("5行目データ", trailer.get(0));
+        assertEquals("Line data 5", trailer.get(0));
 
         assertTrue((Boolean) ReflectionTestUtils.getField(fileLineIterator,
                 "readTrailer"));
 
-        Object lineReader = ReflectionTestUtils.getField(fileLineIterator,
+        lineReader = (LineReader) ReflectionTestUtils.getField(fileLineIterator,
                 "lineReader");
-        assertEquals(0, VMOUTUtil.getCallCount(lineReader.getClass(),
-                "readLine"));
+        Mockito.verify(lineReader, Mockito.never()).readLine();
     }
 
     /**
@@ -9291,12 +9107,13 @@ public class AbstractFileLineIteratorTest {
 
         // 前提条件の設定
         fileLineIterator.init();
-        VMOUTUtil.initialize();
         FileException exception = new FileException("readLineでのエラーです");
-        Object lineReader = ReflectionTestUtils.getField(fileLineIterator,
+        LineReader lineReader = (LineReader) ReflectionTestUtils.getField(fileLineIterator,
                 "lineReader");
-        VMOUTUtil.setReturnValueAtAllTimes(lineReader.getClass(), "readLine",
-                exception);
+        lineReader = Mockito.spy(lineReader);
+        Mockito.doThrow(exception).when(lineReader).readLine();
+        ReflectionTestUtils.setField(fileLineIterator, "lineReader", lineReader);
+
         // テスト対象のインスタンス化で設定済み
 
         // テスト実施
@@ -9371,19 +9188,23 @@ public class AbstractFileLineIteratorTest {
         fileLineIterator.init();
         // テスト対象のインスタンス化で設定済み
 
+        LineReader lineReader = (LineReader) ReflectionTestUtils.getField(fileLineIterator,
+                "lineReader");
+        lineReader = Mockito.spy(lineReader);
+        ReflectionTestUtils.setField(fileLineIterator, "lineReader", lineReader);
+
         // テスト実施
         String result = fileLineIterator.readLine();
 
         // 返却値の確認
-        assertEquals("1行目データ", result);
+        assertEquals("Line data 1", result);
 
         // 状態変化の確認
         assertNull(ReflectionTestUtils.getField(fileLineIterator, "trailerQueue"));
 
-        Object lineReader = ReflectionTestUtils.getField(fileLineIterator,
+        lineReader = (LineReader) ReflectionTestUtils.getField(fileLineIterator,
                 "lineReader");
-        assertEquals(1, VMOUTUtil.getCallCount(lineReader.getClass(),
-                "readLine"));
+        Mockito.verify(lineReader).readLine();
     }
 
     /**
@@ -9441,29 +9262,36 @@ public class AbstractFileLineIteratorTest {
 
         // 前提条件の設定
         fileLineIterator.init();
-        VMOUTUtil.initialize();
+
         // テスト対象のインスタンス化で設定済み
+
+        LineReader lineReader = (LineReader) ReflectionTestUtils.getField(fileLineIterator,
+                "lineReader");
+        lineReader = Mockito.spy(lineReader);
+        ReflectionTestUtils.setField(fileLineIterator, "lineReader", lineReader);
+
+        Queue trailerQueueSpy = (Queue) ReflectionTestUtils.getField(fileLineIterator, "trailerQueue");
+        trailerQueueSpy = Mockito.spy(trailerQueueSpy);
+        ReflectionTestUtils.setField(fileLineIterator, "trailerQueue", trailerQueueSpy);
 
         // テスト実施
         String result = fileLineIterator.readLine();
 
         // 返却値の確認
-        assertEquals("3行目データ", result);
+        assertEquals("Line data 3", result);
 
         // 状態変化の確認
         Object trailerQueue_object = ReflectionTestUtils.getField(fileLineIterator,
                 "trailerQueue");
-        assertEquals(ArrayBlockingQueue.class, trailerQueue_object.getClass());
         ArrayBlockingQueue trailerQueue = (ArrayBlockingQueue) trailerQueue_object;
         assertEquals(1, trailerQueue.size());
-        assertEquals("4行目データ", trailerQueue.poll());
+        assertEquals("Line data 4", trailerQueue.poll());
 
-        assertEquals(1, VMOUTUtil.getCallCount(Queue.class, "add"));
+        Mockito.verify(trailerQueue).add(Mockito.anyObject());
 
-        Object lineReader = ReflectionTestUtils.getField(fileLineIterator,
+        lineReader = (LineReader) ReflectionTestUtils.getField(fileLineIterator,
                 "lineReader");
-        assertEquals(1, VMOUTUtil.getCallCount(lineReader.getClass(),
-                "readLine"));
+        Mockito.verify(lineReader).readLine();
     }
 
     /**
@@ -9523,31 +9351,38 @@ public class AbstractFileLineIteratorTest {
 
         // 前提条件の設定
         fileLineIterator.init();
-        VMOUTUtil.initialize();
+
         // テスト対象のインスタンス化で設定済み
+
+        LineReader lineReader = (LineReader) ReflectionTestUtils.getField(fileLineIterator,
+                "lineReader");
+        lineReader = Mockito.spy(lineReader);
+        ReflectionTestUtils.setField(fileLineIterator, "lineReader", lineReader);
+
+        Queue trailerQueueSpy = (Queue) ReflectionTestUtils.getField(fileLineIterator, "trailerQueue");
+        trailerQueueSpy = Mockito.spy(trailerQueueSpy);
+        ReflectionTestUtils.setField(fileLineIterator, "trailerQueue", trailerQueueSpy);
 
         // テスト実施
         String result = fileLineIterator.readLine();
 
         // 返却値の確認
-        assertEquals("3行目データ", result);
+        assertEquals("Line data 3", result);
 
         // 状態変化の確認
         Object trailerQueue_object = ReflectionTestUtils.getField(fileLineIterator,
                 "trailerQueue");
-        assertEquals(ArrayBlockingQueue.class, trailerQueue_object.getClass());
         ArrayBlockingQueue trailerQueue = (ArrayBlockingQueue) trailerQueue_object;
         assertEquals(3, trailerQueue.size());
-        assertEquals("4行目データ", trailerQueue.poll());
-        assertEquals("5行目データ", trailerQueue.poll());
-        assertEquals("6行目データ", trailerQueue.poll());
+        assertEquals("Line data 4", trailerQueue.poll());
+        assertEquals("Line data 5", trailerQueue.poll());
+        assertEquals("Line data 6", trailerQueue.poll());
 
-        assertEquals(1, VMOUTUtil.getCallCount(Queue.class, "add"));
+        Mockito.verify(trailerQueue).add(Mockito.anyObject());
 
-        Object lineReader = ReflectionTestUtils.getField(fileLineIterator,
+        lineReader = (LineReader) ReflectionTestUtils.getField(fileLineIterator,
                 "lineReader");
-        assertEquals(1, VMOUTUtil.getCallCount(lineReader.getClass(),
-                "readLine"));
+        Mockito.verify(lineReader).readLine();
     }
 
     /**
@@ -9599,8 +9434,17 @@ public class AbstractFileLineIteratorTest {
 
         // 前提条件の設定
         fileLineIterator.init();
-        VMOUTUtil.initialize();
+
         // テスト対象のインスタンス化で設定済み
+
+        LineReader lineReader = (LineReader) ReflectionTestUtils.getField(fileLineIterator,
+                "lineReader");
+        lineReader = Mockito.spy(lineReader);
+        ReflectionTestUtils.setField(fileLineIterator, "lineReader", lineReader);
+
+        Queue trailerQueueSpy = (Queue) ReflectionTestUtils.getField(fileLineIterator, "trailerQueue");
+        trailerQueueSpy = Mockito.spy(trailerQueueSpy);
+        ReflectionTestUtils.setField(fileLineIterator, "trailerQueue", trailerQueueSpy);
 
         // テスト実施
         String result = fileLineIterator.readLine();
@@ -9611,17 +9455,15 @@ public class AbstractFileLineIteratorTest {
         // 状態変化の確認
         Object trailerQueue_object = ReflectionTestUtils.getField(fileLineIterator,
                 "trailerQueue");
-        assertEquals(ArrayBlockingQueue.class, trailerQueue_object.getClass());
         ArrayBlockingQueue trailerQueue = (ArrayBlockingQueue) trailerQueue_object;
         assertEquals(1, trailerQueue.size());
-        assertEquals("7行目データ", trailerQueue.poll());
+        assertEquals("Line data 7", trailerQueue.poll());
 
-        assertEquals(0, VMOUTUtil.getCallCount(Queue.class, "add"));
+        Mockito.verify(trailerQueue, Mockito.never()).add(Mockito.anyObject());
 
-        Object lineReader = ReflectionTestUtils.getField(fileLineIterator,
+        lineReader = (LineReader) ReflectionTestUtils.getField(fileLineIterator,
                 "lineReader");
-        assertEquals(0, VMOUTUtil.getCallCount(lineReader.getClass(),
-                "readLine"));
+        Mockito.verify(lineReader, Mockito.never()).readLine();
     }
 
     /**
@@ -9680,8 +9522,16 @@ public class AbstractFileLineIteratorTest {
 
         // 前提条件の設定
         fileLineIterator.init();
-        VMOUTUtil.initialize();
         // テスト対象のインスタンス化で設定済み
+
+        LineReader lineReader = (LineReader) ReflectionTestUtils.getField(fileLineIterator,
+                "lineReader");
+        lineReader = Mockito.spy(lineReader);
+        ReflectionTestUtils.setField(fileLineIterator, "lineReader", lineReader);
+
+        Queue trailerQueueSpy = (Queue) ReflectionTestUtils.getField(fileLineIterator, "trailerQueue");
+        trailerQueueSpy = Mockito.spy(trailerQueueSpy);
+        ReflectionTestUtils.setField(fileLineIterator, "trailerQueue", trailerQueueSpy);
 
         // テスト実施
         String result = fileLineIterator.readLine();
@@ -9692,20 +9542,18 @@ public class AbstractFileLineIteratorTest {
         // 状態変化の確認
         Object trailerQueue_object = ReflectionTestUtils.getField(fileLineIterator,
                 "trailerQueue");
-        assertEquals(ArrayBlockingQueue.class, trailerQueue_object.getClass());
         ArrayBlockingQueue trailerQueue = (ArrayBlockingQueue) trailerQueue_object;
         assertEquals(4, trailerQueue.size());
-        assertEquals("4行目データ", trailerQueue.poll());
-        assertEquals("5行目データ", trailerQueue.poll());
-        assertEquals("6行目データ", trailerQueue.poll());
-        assertEquals("7行目データ", trailerQueue.poll());
+        assertEquals("Line data 4", trailerQueue.poll());
+        assertEquals("Line data 5", trailerQueue.poll());
+        assertEquals("Line data 6", trailerQueue.poll());
+        assertEquals("Line data 7", trailerQueue.poll());
 
-        assertEquals(0, VMOUTUtil.getCallCount(Queue.class, "add"));
+        Mockito.verify(trailerQueue, Mockito.never()).add(Mockito.anyObject());
 
-        Object lineReader = ReflectionTestUtils.getField(fileLineIterator,
+        lineReader = (LineReader) ReflectionTestUtils.getField(fileLineIterator,
                 "lineReader");
-        assertEquals(0, VMOUTUtil.getCallCount(lineReader.getClass(),
-                "readLine"));
+        Mockito.verify(lineReader, Mockito.never()).readLine();
     }
 
     /**
@@ -9760,11 +9608,14 @@ public class AbstractFileLineIteratorTest {
 
         // 前提条件の設定
         fileLineIterator.init();
-        Object lineReader = ReflectionTestUtils.getField(fileLineIterator,
+        LineReader lineReader = (LineReader) ReflectionTestUtils.getField(fileLineIterator,
                 "lineReader");
         FileException exception = new FileException("readLineからの例外です");
-        VMOUTUtil.setExceptionAtAllTimes(lineReader.getClass(), "readLine",
-                exception);
+        lineReader = Mockito.spy(lineReader);
+        Mockito.doThrow(exception).when(lineReader).readLine();
+
+        ReflectionTestUtils.setField(fileLineIterator, "lineReader", lineReader);
+
         // テスト対象のインスタンス化で設定済み
 
         // テスト実施
@@ -9811,9 +9662,10 @@ public class AbstractFileLineIteratorTest {
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub80> fileLineIterator = new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub80>(
+        AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub80> fileLineIterator = Mockito.spy(
+                new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub80>(
                 fileName, AbstractFileLineIterator_Stub80.class,
-                columnParserMap);
+                columnParserMap));
         ReflectionTestUtils.setField(fileLineIterator, "currentLineCount", 0);
 
         // 引数の設定
@@ -9830,8 +9682,7 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 状態変化の確認
-        assertEquals(0, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "readLine"));
+        Mockito.verify(fileLineIterator, Mockito.never()).readLine();
         assertEquals(0, ReflectionTestUtils.getField(fileLineIterator,
                 "currentLineCount"));
     }
@@ -9864,9 +9715,10 @@ public class AbstractFileLineIteratorTest {
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub80> fileLineIterator = new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub80>(
+        AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub80> fileLineIterator = Mockito.spy(
+                new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub80>(
                 fileName, AbstractFileLineIterator_Stub80.class,
-                columnParserMap);
+                columnParserMap));
         ReflectionTestUtils.setField(fileLineIterator, "currentLineCount", 0);
 
         // 引数の設定
@@ -9883,8 +9735,7 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 状態変化の確認
-        assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "readLine"));
+        Mockito.verify(fileLineIterator).readLine();
         assertEquals(1, ReflectionTestUtils.getField(fileLineIterator,
                 "currentLineCount"));
     }
@@ -9916,9 +9767,10 @@ public class AbstractFileLineIteratorTest {
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub80> fileLineIterator = new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub80>(
+        AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub80> fileLineIterator = Mockito.spy(
+                new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub80>(
                 fileName, AbstractFileLineIterator_Stub80.class,
-                columnParserMap);
+                columnParserMap));
         ReflectionTestUtils.setField(fileLineIterator, "currentLineCount", 0);
 
         // 引数の設定
@@ -9935,8 +9787,7 @@ public class AbstractFileLineIteratorTest {
         // なし
 
         // 状態変化の確認
-        assertEquals(3, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "readLine"));
+        Mockito.verify(fileLineIterator, Mockito.times(3)).readLine();
         assertEquals(3, ReflectionTestUtils.getField(fileLineIterator,
                 "currentLineCount"));
     }
@@ -9969,9 +9820,10 @@ public class AbstractFileLineIteratorTest {
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub80> fileLineIterator = new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub80>(
+        AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub80> fileLineIterator = Mockito.spy(
+                new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub80>(
                 fileName, AbstractFileLineIterator_Stub80.class,
-                columnParserMap);
+                columnParserMap));
         ReflectionTestUtils.setField(fileLineIterator, "currentLineCount", 0);
 
         // 引数の設定
@@ -9980,8 +9832,7 @@ public class AbstractFileLineIteratorTest {
         // 前提条件の設定
         fileLineIterator.init();
         FileException exception = new FileException("readLineからの例外です");
-        VMOUTUtil.setExceptionAtAllTimes(AbstractFileLineIterator.class,
-                "readLine", exception);
+        Mockito.doThrow(exception).when(fileLineIterator).readLine();
         // テスト対象のインスタンス化で設定済み
 
         // テスト実施
@@ -10034,9 +9885,10 @@ public class AbstractFileLineIteratorTest {
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub80> fileLineIterator = new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub80>(
+        AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub80> fileLineIterator = Mockito.spy(
+                new AbstractFileLineIteratorImpl02<AbstractFileLineIterator_Stub80>(
                 fileName, AbstractFileLineIterator_Stub80.class,
-                columnParserMap);
+                columnParserMap));
         ReflectionTestUtils.setField(fileLineIterator, "currentLineCount", 0);
 
         // 引数の設定
@@ -10059,8 +9911,7 @@ public class AbstractFileLineIteratorTest {
             assertEquals(8, e.getLineNo());
 
             // 状態変化の確認
-            assertEquals(7, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "readLine"));
+            Mockito.verify(fileLineIterator, Mockito.times(7)).readLine();
 
             assertEquals(7, ReflectionTestUtils.getField(fileLineIterator,
                     "currentLineCount"));

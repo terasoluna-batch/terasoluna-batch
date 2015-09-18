@@ -11,14 +11,11 @@ import static org.junit.Assert.assertEquals;
 
 import java.net.URL;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import jp.terasoluna.fw.file.dao.FileLineWriter;
-import jp.terasoluna.fw.file.ut.VMOUTUtil;
 import org.springframework.test.util.ReflectionTestUtils;
 
 /**
@@ -31,14 +28,6 @@ import org.springframework.test.util.ReflectionTestUtils;
  * @see jp.terasoluna.fw.file.dao.standard.VariableFileUpdateDAO
  */
 public class VariableFileUpdateDAOTest {
-
-    /**
-     * 初期化処理を行う。
-     */
-    @Before
-    public void setUp() {
-        VMOUTUtil.initialize();
-    }
 
     /**
      * testExecute01() <br>
@@ -78,17 +67,19 @@ public class VariableFileUpdateDAOTest {
                 columnFormatterMap);
 
         // テスト実施
-        FileLineWriter<VariableFileUpdateDAO_Stub01> fileLineWriter = fileUpdateDAO.execute(fileName, clazz);
+        FileLineWriter<VariableFileUpdateDAO_Stub01> fileLineWriter = fileUpdateDAO
+                .execute(fileName, clazz);
 
         // 返却値の確認
         assertEquals(VariableFileLineWriter.class, fileLineWriter.getClass());
 
         // 状態変化の確認
-        List<?> arguments = VMOUTUtil.getArguments(VariableFileLineWriter.class,
-                "<init>", 0);
-        assertEquals(fileName, arguments.get(0));
-        assertEquals(clazz, arguments.get(1));
-        assertEquals(columnFormatterMap, arguments.get(2));
+        assertEquals(fileName, ReflectionTestUtils.getField(fileLineWriter,
+                "fileName"));
+        assertEquals(clazz, ReflectionTestUtils.getField(fileLineWriter,
+                "clazz"));
+        assertEquals(columnFormatterMap, ReflectionTestUtils.getField(
+                fileLineWriter, "columnFormatterMap"));
     }
 
 }

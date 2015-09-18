@@ -1,7 +1,7 @@
 /*
  * $Id: FixedFileQueryDAOTest.java 5576 2007-11-15 13:13:32Z pakucn $
  *
- * Copyright (c) 2006 NTT DATA Corporation
+ * Copyright (c) 2006-2015 NTT DATA Corporation
  *
  */
 
@@ -12,14 +12,11 @@ import static org.junit.Assert.assertSame;
 
 import java.net.URL;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import jp.terasoluna.fw.file.dao.FileLineIterator;
-import jp.terasoluna.fw.file.ut.VMOUTUtil;
 import org.springframework.test.util.ReflectionTestUtils;
 
 /**
@@ -31,14 +28,6 @@ import org.springframework.test.util.ReflectionTestUtils;
  * @see jp.terasoluna.fw.file.dao.standard.FixedFileQueryDAO
  */
 public class FixedFileQueryDAOTest {
-
-    /**
-     * 初期化処理を行う。
-     */
-    @Before
-    public void setUp() {
-        VMOUTUtil.initialize();
-    }
 
     /**
      * testExecute01() <br>
@@ -65,7 +54,6 @@ public class FixedFileQueryDAOTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testExecute01() throws Exception {
         // テスト対象のインスタンス化
         FixedFileQueryDAO fileQueryDAO = new FixedFileQueryDAO();
@@ -79,22 +67,22 @@ public class FixedFileQueryDAOTest {
         Map<String, ColumnParser> columnParser = new HashMap<String, ColumnParser>();
         ColumnParser parser = new FixedFileQueryDAO_ColumnParserStub01();
         columnParser.put("java.lang.String", parser);
-        ReflectionTestUtils.setField(fileQueryDAO, "columnParserMap", columnParser);
+        ReflectionTestUtils.setField(fileQueryDAO, "columnParserMap",
+                columnParser);
 
         // テスト実施
-        FileLineIterator fileLineiterator = fileQueryDAO.execute(fileName,
-                clazz);
+        FileLineIterator<FixedFileQueryDAO_Stub01> fileLineiterator = fileQueryDAO
+                .execute(fileName, clazz);
 
         // 返却値の確認
         assertEquals(FixedFileLineIterator.class, fileLineiterator.getClass());
 
         // 状態変化の確認
-        assertEquals(1, VMOUTUtil.getCallCount(FixedFileLineIterator.class,
-                "<init>"));
-        List arguments = VMOUTUtil.getArguments(FixedFileLineIterator.class,
-                "<init>", 0);
-        assertEquals(fileName, arguments.get(0));
-        assertEquals(clazz, arguments.get(1));
-        assertSame(columnParser, arguments.get(2));
+        assertEquals(fileName, ReflectionTestUtils.getField(fileLineiterator,
+                "fileName"));
+        assertEquals(clazz, ReflectionTestUtils.getField(fileLineiterator,
+                "clazz"));
+        assertSame(columnParser, ReflectionTestUtils.getField(fileLineiterator,
+                "columnParserMap"));
     }
 }

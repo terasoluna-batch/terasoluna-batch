@@ -1,7 +1,7 @@
 /*
  * $Id:$
  *
- * Copyright (c) 2006 NTT DATA Corporation
+ * Copyright (c) 2006-2015 NTT DATA Corporation
  *
  */
 
@@ -11,15 +11,13 @@ import static org.junit.Assert.assertEquals;
 
 import java.net.URL;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import jp.terasoluna.fw.file.dao.FileLineIterator;
-import jp.terasoluna.fw.file.ut.VMOUTUtil;
 import org.springframework.test.util.ReflectionTestUtils;
+import static org.junit.Assert.assertSame;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.VariableFileQueryDAO} クラスのテスト。
@@ -32,23 +30,15 @@ import org.springframework.test.util.ReflectionTestUtils;
 public class VariableFileQueryDAOTest {
 
     /**
-     * 初期化処理を行う。
-     */
-    @Before
-    public void setUp() {
-        VMOUTUtil.initialize();
-    }
-
-    /**
      * testExcecute01() <br>
      * <br>
      * (正常系) <br>
      * 観点：E <br>
      * <br>
      * 入力値：(引数) fileName:VariableFileQueryDAO_execute01.txt<br>
-     * 　データを持たないファイルのパス<br>
+     * データを持たないファイルのパス<br>
      * (引数) clazz:VariableFileQueryDAO_Stub01<br>
-     * 　空実装<br>
+     * 空実装<br>
      * (状態) AbstractFileQueryDAO.columnParserMap:以下の要素を持つMap<String, ColumnParser>インスタンス<br>
      * ・"java.lang.String"=NullColumnParser.java<br>
      * <br>
@@ -74,23 +64,23 @@ public class VariableFileQueryDAOTest {
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
         ReflectionTestUtils.setField(fileQueryDAO, "columnParserMap",
-                        columnParserMap);
+                columnParserMap);
 
         // テスト実施
-        FileLineIterator<VariableFileQueryDAO_Stub01> fileLineIterator = fileQueryDAO.execute(fileName,
-                VariableFileQueryDAO_Stub01.class);
+        FileLineIterator<VariableFileQueryDAO_Stub01> fileLineIterator = fileQueryDAO
+                .execute(fileName, VariableFileQueryDAO_Stub01.class);
 
         // 返却値の確認
         assertEquals(VariableFileLineIterator.class, fileLineIterator
                 .getClass());
 
         // 状態変化の確認
-        List<?> arguments = VMOUTUtil.getArguments(VariableFileLineIterator.class,
-                "<init>", 0);
-        assertEquals(fileName, arguments.get(0));
-        assertEquals(clazz, arguments.get(1));
-        assertEquals(columnParserMap, arguments.get(2));
-
+        assertEquals(fileName, ReflectionTestUtils.getField(fileLineIterator,
+                "fileName"));
+        assertSame(clazz, ReflectionTestUtils.getField(fileLineIterator,
+                "clazz"));
+        assertSame(columnParserMap, ReflectionTestUtils.getField(
+                fileLineIterator, "columnParserMap"));
     }
 
 }

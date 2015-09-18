@@ -1,7 +1,7 @@
 /*
  * $Id:$
  *
- * Copyright (c) 2006 NTT DATA Corporation
+ * Copyright (c) 2006-2015 NTT DATA Corporation
  *
  */
 
@@ -11,14 +11,14 @@ import static org.junit.Assert.assertEquals;
 
 import java.io.File;
 import java.util.HashMap;
-import java.util.List;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import jp.terasoluna.fw.file.dao.FileLineWriter;
-import jp.terasoluna.fw.file.ut.VMOUTUtil;
 import org.springframework.test.util.ReflectionTestUtils;
+import org.mockito.Mockito;
+
+import static org.junit.Assert.assertSame;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.CSVFileUpdateDAO} クラスのテスト。
@@ -30,14 +30,6 @@ import org.springframework.test.util.ReflectionTestUtils;
  * @see jp.terasoluna.fw.file.dao.standard.CSVFileUpdateDAO
  */
 public class CSVFileUpdateDAOTest {
-
-    /**
-     * 初期化処理を行う。
-     */
-    @Before
-    public void setUp() {
-        VMOUTUtil.initialize();
-    }
 
     /**
      * testExecute01() <br>
@@ -59,10 +51,9 @@ public class CSVFileUpdateDAOTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testExecute01() throws Exception {
         // テスト対象のインスタンス化
-        CSVFileUpdateDAO fileUpdateDAO = new CSVFileUpdateDAO();
+        CSVFileUpdateDAO fileUpdateDAO = Mockito.spy(new CSVFileUpdateDAO());
 
         // 引数の設定
         String fileName = "aaa";
@@ -82,15 +73,13 @@ public class CSVFileUpdateDAOTest {
         assertEquals(CSVFileLineWriter.class, fileLineWriter.getClass());
 
         // 状態変化の確認
-        assertEquals(1, VMOUTUtil.getCallCount(CSVFileLineWriter.class,
-                "<init>"));
-        assertEquals(1, VMOUTUtil.getCallCount(AbstractFileUpdateDAO.class,
-                "getColumnFormatterMap"));
-        List arguments = VMOUTUtil.getArguments(CSVFileLineWriter.class,
-                "<init>", 0);
-        assertEquals(fileName, arguments.get(0));
-        assertEquals(clazz, arguments.get(1));
-        assertEquals(columnFormatterMap, arguments.get(2));
+        Mockito.verify(fileUpdateDAO).getColumnFormatterMap();
+        assertSame(fileName, ReflectionTestUtils.getField(fileLineWriter,
+                "fileName"));
+        assertSame(clazz, ReflectionTestUtils.getField(fileLineWriter,
+                "clazz"));
+        assertSame(columnFormatterMap, ReflectionTestUtils.getField(
+                fileLineWriter, "columnFormatterMap"));
 
         // クローズ処理
         fileLineWriter.closeFile();

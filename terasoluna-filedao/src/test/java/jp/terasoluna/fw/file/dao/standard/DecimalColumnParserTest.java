@@ -1,14 +1,13 @@
 /*
  * $Id: DecimalColumnParserTest.java 5354 2007-10-03 06:06:25Z anh $
  *
- * Copyright (c) 2006 NTT DATA Corporation
+ * Copyright (c) 2006-2015 NTT DATA Corporation
  *
  */
 
 package jp.terasoluna.fw.file.dao.standard;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
@@ -20,11 +19,13 @@ import java.math.BigDecimal;
 import java.text.ParseException;
 import java.util.concurrent.ConcurrentHashMap;
 
-import org.junit.Before;
-import org.junit.Test;
-
-import jp.terasoluna.fw.file.ut.VMOUTUtil;
 import org.springframework.test.util.ReflectionTestUtils;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mockito;
+import org.powermock.api.mockito.PowerMockito;
+import org.powermock.core.classloader.annotations.PrepareForTest;
+import org.powermock.modules.junit4.PowerMockRunner;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.DecimalColumnParser} クラスのテスト。
@@ -35,15 +36,9 @@ import org.springframework.test.util.ReflectionTestUtils;
  * @author 奥田 哲司
  * @see jp.terasoluna.fw.file.dao.standard.DecimalColumnParser
  */
+@RunWith(PowerMockRunner.class)
+@PrepareForTest(DecimalColumnParser.class)
 public class DecimalColumnParserTest {
-
-    /**
-     * 初期化処理を行う。
-     */
-    @Before
-    public void setUp() {
-        VMOUTUtil.initialize();
-    }
 
     /**
      * testParse01() <br>
@@ -574,6 +569,11 @@ public class DecimalColumnParserTest {
         ReflectionTestUtils.setField(decimalColumnParser, "dfMap", dfMap);
         dfMap.clear();
 
+        DecimalFormatLocal dfl = Mockito.spy(
+                new DecimalFormatLocal(columnFormat));
+        PowerMockito.whenNew(DecimalFormatLocal.class).withArguments(
+                columnFormat).thenReturn(dfl);
+
         // テスト実施
         decimalColumnParser.parse(column, stub, method, columnFormat);
 
@@ -591,8 +591,8 @@ public class DecimalColumnParserTest {
         assertEquals(columnFormat, ReflectionTestUtils.getField(dfMapValue,
                 "pattern"));
 
-        assertEquals(1, VMOUTUtil.getCallCount(DecimalFormatLocal.class,
-                "<init>"));
+        PowerMockito.verifyNew(DecimalFormatLocal.class).withArguments(
+                columnFormat);
     }
 
     /**
@@ -650,8 +650,6 @@ public class DecimalColumnParserTest {
         dfMap.put(columnFormat, dfMapValue);
         ReflectionTestUtils.setField(decimalColumnParser, "dfMap", dfMap);
 
-        VMOUTUtil.initialize();
-
         // テスト実施
         decimalColumnParser.parse(column, stub, method, columnFormat);
 
@@ -666,7 +664,5 @@ public class DecimalColumnParserTest {
         assertTrue(dfMap.containsKey(columnFormat));
         DecimalFormatLocal formatLocal = dfMap.get(columnFormat);
         assertSame(dfMapValue, formatLocal);
-
-        assertFalse(VMOUTUtil.isCalled(DecimalFormatLocal.class, "<init>"));
     }
 }

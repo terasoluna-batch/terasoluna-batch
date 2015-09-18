@@ -15,16 +15,13 @@ import static org.junit.Assert.fail;
 import java.lang.reflect.Method;
 import java.net.URL;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.springframework.test.util.ReflectionTestUtils;
 
 import jp.terasoluna.fw.file.annotation.NullStringConverter;
 import jp.terasoluna.fw.file.dao.FileException;
-import jp.terasoluna.fw.file.ut.VMOUTUtil;
 
 /**
  * {@link jp.terasoluna.fw.file.dao.standard.VariableFileLineIterator} クラスのテスト。
@@ -38,23 +35,15 @@ import jp.terasoluna.fw.file.ut.VMOUTUtil;
 public class VariableFileLineIteratorTest {
 
     /**
-     * 初期化処理を行う。
-     */
-    @Before
-    public void setUp() {
-        VMOUTUtil.initialize();
-    }
-
-    /**
      * testVariableFileLineIterator01() <br>
      * <br>
      * (正常系) <br>
      * 観点：E <br>
      * <br>
      * 入力値：(引数) fileName:File_Empty.txt<br>
-     * 　データを持たないファイルのパス<br>
+     * データを持たないファイルのパス<br>
      * (引数) clazz:VariableFileLineIterator_Stub02<br>
-     * 　delimiter、encloseCharが初期値以外<br>
+     * delimiter、encloseCharが初期値以外<br>
      * (引数) columnParserMap:以下の要素を持つMap<String, ColumnParser>インスタンス<br>
      * ・"java.lang.String"=NullColumnParser.java<br>
      * <br>
@@ -69,7 +58,6 @@ public class VariableFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testVariableFileLineIterator01() throws Exception {
         // テスト対象のインスタンス化
         // コンストラクタの試験なので不要
@@ -85,29 +73,22 @@ public class VariableFileLineIteratorTest {
         // なし
 
         // テスト実施
-        VariableFileLineIterator variableFileLineIterator = new VariableFileLineIterator<VariableFileLineIterator_Stub02>(
-                fileName, clazz, columnParserMap);
+        VariableFileLineIterator<VariableFileLineIterator_Stub02> variableFileLineIterator = new VariableFileLineIterator<VariableFileLineIterator_Stub02>(fileName, clazz, columnParserMap);
 
         // 返却値の確認
         // なし
 
         // 状態変化の確認
         // 判定
-        assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "<init>"));
-
-        List arguments = VMOUTUtil.getArguments(AbstractFileLineIterator.class,
-                "<init>", 0);
-        assertEquals(3, arguments.size());
-        assertEquals(fileName, arguments.get(0));
-        assertSame(clazz, arguments.get(1));
-        assertSame(columnParserMap, arguments.get(2));
+        assertEquals(fileName, ReflectionTestUtils.getField(
+                variableFileLineIterator, "fileName"));
+        assertSame(clazz, ReflectionTestUtils.getField(variableFileLineIterator,
+                "clazz"));
+        assertSame(columnParserMap, ReflectionTestUtils.getField(
+                variableFileLineIterator, "columnParserMap"));
 
         assertEquals('"', variableFileLineIterator.getEncloseChar());
         assertEquals('、', variableFileLineIterator.getDelimiter());
-
-        assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "init"));
     }
 
     /**
@@ -117,9 +98,9 @@ public class VariableFileLineIteratorTest {
      * 観点：G <br>
      * <br>
      * 入力値：(引数) fileName:File_Empty.txt<br>
-     * 　データを持たないファイルのパス<br>
+     * データを持たないファイルのパス<br>
      * (引数) clazz:VariableFileLineIterator_Stub03<br>
-     * 　delimiterが'\u0000'かつencloseCharが初期値（\u0000）以外<br>
+     * delimiterが'\u0000'かつencloseCharが初期値（\u0000）以外<br>
      * (引数) columnParserMap:以下の要素を持つMap<String, ColumnParser>インスタンス<br>
      * ・"java.lang.String"=NullColumnParser.java<br>
      * <br>
@@ -132,7 +113,6 @@ public class VariableFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testVariableFileLineIterator02() throws Exception {
         // テスト対象のインスタンス化
         // コンストラクタの試験なので不要
@@ -149,8 +129,7 @@ public class VariableFileLineIteratorTest {
 
         // テスト実施
         try {
-            new VariableFileLineIterator<VariableFileLineIterator_Stub03>(
-                    fileName, clazz, columnParserMap);
+            new VariableFileLineIterator<VariableFileLineIterator_Stub03>(fileName, clazz, columnParserMap);
             fail("FileExceptionがスローされませんでした");
         } catch (FileException e) {
             // 返却値の確認
@@ -158,16 +137,6 @@ public class VariableFileLineIteratorTest {
 
             // 状態変化の確認
             // 判定
-            assertEquals(1, VMOUTUtil.getCallCount(
-                    AbstractFileLineIterator.class, "<init>"));
-
-            List arguments = VMOUTUtil.getArguments(
-                    AbstractFileLineIterator.class, "<init>", 0);
-            assertEquals(3, arguments.size());
-            assertEquals(fileName, arguments.get(0));
-            assertSame(clazz, arguments.get(1));
-            assertSame(columnParserMap, arguments.get(2));
-
             assertEquals("Delimiter can not use '\\u0000'.", e.getMessage());
             assertEquals(fileName, e.getFileName());
             assertSame(IllegalStateException.class, e.getCause().getClass());
@@ -181,9 +150,9 @@ public class VariableFileLineIteratorTest {
      * 観点：E <br>
      * <br>
      * 入力値：(引数) fileName:File_Empty.txt<br>
-     * 　データを持たないファイルのパス<br>
+     * データを持たないファイルのパス<br>
      * (引数) clazz:VariableFileLineIterator_Stub01<br>
-     * 　delimiter、encloseCharが初期値<br>
+     * delimiter、encloseCharが初期値<br>
      * (引数) columnParserMap:以下の要素を持つMap<String, ColumnParser>インスタンス<br>
      * ・"java.lang.String"=NullColumnParser.java<br>
      * <br>
@@ -197,7 +166,6 @@ public class VariableFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testVariableFileLineIterator03() throws Exception {
         // テスト対象のインスタンス化
         // コンストラクタの試験なので不要
@@ -213,30 +181,23 @@ public class VariableFileLineIteratorTest {
         // なし
 
         // テスト実施
-        VariableFileLineIterator variableFileLineIterator = new VariableFileLineIterator<VariableFileLineIterator_Stub01>(
-                fileName, clazz, columnParserMap);
+        VariableFileLineIterator<VariableFileLineIterator_Stub01> variableFileLineIterator = new VariableFileLineIterator<VariableFileLineIterator_Stub01>(fileName, clazz, columnParserMap);
 
         // 返却値の確認
         // なし
 
         // 状態変化の確認
         // 判定
-        assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "<init>"));
-
-        List arguments = VMOUTUtil.getArguments(AbstractFileLineIterator.class,
-                "<init>", 0);
-        assertEquals(3, arguments.size());
-        assertEquals(fileName, arguments.get(0));
-        assertSame(clazz, arguments.get(1));
-        assertSame(columnParserMap, arguments.get(2));
+        assertEquals(fileName, ReflectionTestUtils.getField(
+                variableFileLineIterator, "fileName"));
+        assertSame(clazz, ReflectionTestUtils.getField(variableFileLineIterator,
+                "clazz"));
+        assertSame(columnParserMap, ReflectionTestUtils.getField(
+                variableFileLineIterator, "columnParserMap"));
 
         assertEquals(Character.MIN_VALUE, variableFileLineIterator
                 .getEncloseChar());
         assertEquals(',', variableFileLineIterator.getDelimiter());
-
-        assertEquals(1, VMOUTUtil.getCallCount(AbstractFileLineIterator.class,
-                "init"));
     }
 
     /**
@@ -254,13 +215,11 @@ public class VariableFileLineIteratorTest {
 
         // テスト実施
         try {
-            new VariableFileLineIterator<VariableFileLine_Stub01>(fileName,
-                    VariableFileLine_Stub01.class, columnParserMap);
+            new VariableFileLineIterator<VariableFileLine_Stub01>(fileName, VariableFileLine_Stub01.class, columnParserMap);
             fail();
         } catch (FileException e) {
-            assertEquals(
-                    "delimiter is the same as lineFeedChar and is no use.", e
-                            .getMessage());
+            assertEquals("delimiter is the same as lineFeedChar and is no use.",
+                    e.getMessage());
             assertEquals(fileName, e.getFileName());
             assertSame(IllegalStateException.class, e.getCause().getClass());
         }
@@ -281,13 +240,11 @@ public class VariableFileLineIteratorTest {
 
         // テスト実施
         try {
-            new VariableFileLineIterator<VariableFileLine_Stub02>(fileName,
-                    VariableFileLine_Stub02.class, columnParserMap);
+            new VariableFileLineIterator<VariableFileLine_Stub02>(fileName, VariableFileLine_Stub02.class, columnParserMap);
             fail();
         } catch (FileException e) {
-            assertEquals(
-                    "delimiter is the same as lineFeedChar and is no use.", e
-                            .getMessage());
+            assertEquals("delimiter is the same as lineFeedChar and is no use.",
+                    e.getMessage());
             assertEquals(fileName, e.getFileName());
             assertSame(IllegalStateException.class, e.getCause().getClass());
         }
@@ -310,8 +267,7 @@ public class VariableFileLineIteratorTest {
 
         // テスト実施
         try {
-            new VariableFileLineIterator<FileLineObject_Empty>(fileName, clazz,
-                    columnParserMap);
+            new VariableFileLineIterator<FileLineObject_Empty>(fileName, clazz, columnParserMap);
             fail("FileExceptionがスローされませんでした。");
         } catch (FileException e) {
             // 返却値なし
@@ -340,7 +296,6 @@ public class VariableFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testSeparateColumns01() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("File_Empty.txt");
@@ -348,8 +303,7 @@ public class VariableFileLineIteratorTest {
         Class<VariableFileLineIterator_Stub10> clazz = VariableFileLineIterator_Stub10.class;
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
-        VariableFileLineIterator variableFileLineIterator = new VariableFileLineIterator<VariableFileLineIterator_Stub10>(
-                fileName, clazz, columnParserMap);
+        VariableFileLineIterator<VariableFileLineIterator_Stub10> variableFileLineIterator = new VariableFileLineIterator<VariableFileLineIterator_Stub10>(fileName, clazz, columnParserMap);
 
         // 引数の設定
         String fileLineString = null;
@@ -358,8 +312,8 @@ public class VariableFileLineIteratorTest {
         // テスト対象のインスタンス化時に設定済み
 
         // テスト実施
-        String[] result = variableFileLineIterator
-                .separateColumns(fileLineString);
+        String[] result = variableFileLineIterator.separateColumns(
+                fileLineString);
 
         // 返却値の確認
         assertEquals(0, result.length);
@@ -385,7 +339,6 @@ public class VariableFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testSeparateColumns02() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("File_Empty.txt");
@@ -393,8 +346,7 @@ public class VariableFileLineIteratorTest {
         Class<VariableFileLineIterator_Stub10> clazz = VariableFileLineIterator_Stub10.class;
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
-        VariableFileLineIterator variableFileLineIterator = new VariableFileLineIterator<VariableFileLineIterator_Stub10>(
-                fileName, clazz, columnParserMap);
+        VariableFileLineIterator<VariableFileLineIterator_Stub10> variableFileLineIterator = new VariableFileLineIterator<VariableFileLineIterator_Stub10>(fileName, clazz, columnParserMap);
 
         // 引数の設定
         String fileLineString = "aaa";
@@ -403,8 +355,8 @@ public class VariableFileLineIteratorTest {
         // テスト対象のインスタンス化時に設定済み
 
         // テスト実施
-        String[] result = variableFileLineIterator
-                .separateColumns(fileLineString);
+        String[] result = variableFileLineIterator.separateColumns(
+                fileLineString);
 
         // 返却値の確認
         assertEquals(1, result.length);
@@ -431,7 +383,6 @@ public class VariableFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testSeparateColumns03() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("File_Empty.txt");
@@ -439,8 +390,7 @@ public class VariableFileLineIteratorTest {
         Class<VariableFileLineIterator_Stub10> clazz = VariableFileLineIterator_Stub10.class;
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
-        VariableFileLineIterator variableFileLineIterator = new VariableFileLineIterator<VariableFileLineIterator_Stub10>(
-                fileName, clazz, columnParserMap);
+        VariableFileLineIterator<VariableFileLineIterator_Stub10> variableFileLineIterator = new VariableFileLineIterator<VariableFileLineIterator_Stub10>(fileName, clazz, columnParserMap);
 
         // 引数の設定
         String fileLineString = "aaa,aaa,aaa";
@@ -449,8 +399,8 @@ public class VariableFileLineIteratorTest {
         // テスト対象のインスタンス化時に設定済み
 
         // テスト実施
-        String[] result = variableFileLineIterator
-                .separateColumns(fileLineString);
+        String[] result = variableFileLineIterator.separateColumns(
+                fileLineString);
 
         // 返却値の確認
         assertEquals(3, result.length);
@@ -479,7 +429,6 @@ public class VariableFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testSeparateColumns04() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("File_Empty.txt");
@@ -487,19 +436,18 @@ public class VariableFileLineIteratorTest {
         Class<VariableFileLineIterator_Stub11> clazz = VariableFileLineIterator_Stub11.class;
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
-        VariableFileLineIterator variableFileLineIterator = new VariableFileLineIterator<VariableFileLineIterator_Stub11>(
-                fileName, clazz, columnParserMap);
+        VariableFileLineIterator<VariableFileLineIterator_Stub11> variableFileLineIterator = new VariableFileLineIterator<VariableFileLineIterator_Stub11>(fileName, clazz, columnParserMap);
 
         // 引数の設定
         String fileLineString = "\"aaa\"";
 
         // 前提条件
-        ReflectionTestUtils.setField(variableFileLineIterator, "columnEncloseChar",
-                new char[] { '\"', '\"' });
+        ReflectionTestUtils.setField(variableFileLineIterator,
+                "columnEncloseChar", new char[] { '\"', '\"' });
 
         // テスト実施
-        String[] result = variableFileLineIterator
-                .separateColumns(fileLineString);
+        String[] result = variableFileLineIterator.separateColumns(
+                fileLineString);
 
         // 返却値の確認
         assertEquals(1, result.length);
@@ -526,7 +474,6 @@ public class VariableFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testSeparateColumns05() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("File_Empty.txt");
@@ -534,19 +481,18 @@ public class VariableFileLineIteratorTest {
         Class<VariableFileLineIterator_Stub11> clazz = VariableFileLineIterator_Stub11.class;
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
-        VariableFileLineIterator variableFileLineIterator = new VariableFileLineIterator<VariableFileLineIterator_Stub11>(
-                fileName, clazz, columnParserMap);
+        VariableFileLineIterator<VariableFileLineIterator_Stub11> variableFileLineIterator = new VariableFileLineIterator<VariableFileLineIterator_Stub11>(fileName, clazz, columnParserMap);
 
         // 引数の設定
         String fileLineString = "\"aaa\",\"aaa\",\"aaa\"";
 
         // 前提条件
-        ReflectionTestUtils.setField(variableFileLineIterator, "columnEncloseChar",
-                new char[] { '\"', '\"', '\"' });
+        ReflectionTestUtils.setField(variableFileLineIterator,
+                "columnEncloseChar", new char[] { '\"', '\"', '\"' });
 
         // テスト実施
-        String[] result = variableFileLineIterator
-                .separateColumns(fileLineString);
+        String[] result = variableFileLineIterator.separateColumns(
+                fileLineString);
 
         // 返却値の確認
         assertEquals(3, result.length);
@@ -581,7 +527,6 @@ public class VariableFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testSeparateColumns06() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("File_Empty.txt");
@@ -589,19 +534,19 @@ public class VariableFileLineIteratorTest {
         Class<VariableFileLineIterator_Stub12> clazz = VariableFileLineIterator_Stub12.class;
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
-        VariableFileLineIterator variableFileLineIterator = new VariableFileLineIterator<VariableFileLineIterator_Stub12>(
-                fileName, clazz, columnParserMap);
+        VariableFileLineIterator<VariableFileLineIterator_Stub12> variableFileLineIterator = new VariableFileLineIterator<VariableFileLineIterator_Stub12>(fileName, clazz, columnParserMap);
 
         // 引数の設定
         String fileLineString = "\"aa\ra\",\"aa,a\",\"aa\"\"a\"";
 
         // 前提条件
-        ReflectionTestUtils.setField(variableFileLineIterator, "columnEncloseChar",
-                new char[] { '\"', '\"', '\"', '\"', '\"', '\"', '\"', '\"' });
+        ReflectionTestUtils.setField(variableFileLineIterator,
+                "columnEncloseChar", new char[] { '\"', '\"', '\"', '\"', '\"',
+                        '\"', '\"', '\"' });
 
         // テスト実施
-        String[] result = variableFileLineIterator
-                .separateColumns(fileLineString);
+        String[] result = variableFileLineIterator.separateColumns(
+                fileLineString);
 
         // 返却値の確認
         assertEquals(3, result.length);
@@ -630,7 +575,6 @@ public class VariableFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testSeparateColumns07() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("File_Empty.txt");
@@ -638,8 +582,7 @@ public class VariableFileLineIteratorTest {
         Class<VariableFileLineIterator_Stub13> clazz = VariableFileLineIterator_Stub13.class;
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
-        VariableFileLineIterator variableFileLineIterator = new VariableFileLineIterator<VariableFileLineIterator_Stub13>(
-                fileName, clazz, columnParserMap);
+        VariableFileLineIterator<VariableFileLineIterator_Stub13> variableFileLineIterator = new VariableFileLineIterator<VariableFileLineIterator_Stub13>(fileName, clazz, columnParserMap);
 
         // 引数の設定
         String fileLineString = "";
@@ -648,8 +591,8 @@ public class VariableFileLineIteratorTest {
         // テスト対象のインスタンス化時に設定済み
 
         // テスト実施
-        String[] result = variableFileLineIterator
-                .separateColumns(fileLineString);
+        String[] result = variableFileLineIterator.separateColumns(
+                fileLineString);
 
         // 返却値の確認
         assertEquals(0, result.length);
@@ -675,7 +618,6 @@ public class VariableFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testSeparateColumns08() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("File_Empty.txt");
@@ -683,20 +625,19 @@ public class VariableFileLineIteratorTest {
         Class<VariableFileLineIterator_Stub11> clazz = VariableFileLineIterator_Stub11.class;
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
-        VariableFileLineIterator variableFileLineIterator = new VariableFileLineIterator<VariableFileLineIterator_Stub11>(
-                fileName, clazz, columnParserMap);
+        VariableFileLineIterator<VariableFileLineIterator_Stub11> variableFileLineIterator = new VariableFileLineIterator<VariableFileLineIterator_Stub11>(fileName, clazz, columnParserMap);
 
         // 引数の設定
         String fileLineString = "aaa,aaa,aaa";
 
         // 前提条件
-        ReflectionTestUtils.setField(variableFileLineIterator, "columnEncloseChar",
-                new char[] { Character.MIN_VALUE, Character.MIN_VALUE,
-                        Character.MIN_VALUE });
+        ReflectionTestUtils.setField(variableFileLineIterator,
+                "columnEncloseChar", new char[] { Character.MIN_VALUE,
+                        Character.MIN_VALUE, Character.MIN_VALUE });
 
         // テスト実施
-        String[] result = variableFileLineIterator
-                .separateColumns(fileLineString);
+        String[] result = variableFileLineIterator.separateColumns(
+                fileLineString);
 
         // 返却値の確認
         assertEquals(3, result.length);
@@ -725,7 +666,6 @@ public class VariableFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testSeparateColumns09() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("File_Empty.txt");
@@ -733,8 +673,7 @@ public class VariableFileLineIteratorTest {
         Class<VariableFileLineIterator_Stub10> clazz = VariableFileLineIterator_Stub10.class;
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
-        VariableFileLineIterator variableFileLineIterator = new VariableFileLineIterator<VariableFileLineIterator_Stub10>(
-                fileName, clazz, columnParserMap);
+        VariableFileLineIterator<VariableFileLineIterator_Stub10> variableFileLineIterator = new VariableFileLineIterator<VariableFileLineIterator_Stub10>(fileName, clazz, columnParserMap);
 
         // 引数の設定
         String fileLineString = ",,,,";
@@ -743,8 +682,8 @@ public class VariableFileLineIteratorTest {
         // テスト対象のインスタンス化時に設定済み
 
         // テスト実施
-        String[] result = variableFileLineIterator
-                .separateColumns(fileLineString);
+        String[] result = variableFileLineIterator.separateColumns(
+                fileLineString);
 
         // 返却値の確認
         assertEquals(5, result.length);
@@ -775,7 +714,6 @@ public class VariableFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testSeparateColumns10() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("File_Empty.txt");
@@ -783,8 +721,7 @@ public class VariableFileLineIteratorTest {
         Class<VariableFileLineIterator_Stub14> clazz = VariableFileLineIterator_Stub14.class;
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
-        VariableFileLineIterator variableFileLineIterator = new VariableFileLineIterator<VariableFileLineIterator_Stub14>(
-                fileName, clazz, columnParserMap);
+        VariableFileLineIterator<VariableFileLineIterator_Stub14> variableFileLineIterator = new VariableFileLineIterator<VariableFileLineIterator_Stub14>(fileName, clazz, columnParserMap);
 
         // 引数の設定
         String fileLineString = "aaa#aaa#aaa";
@@ -793,8 +730,8 @@ public class VariableFileLineIteratorTest {
         // テスト対象のインスタンス化時に設定済み
 
         // テスト実施
-        String[] result = variableFileLineIterator
-                .separateColumns(fileLineString);
+        String[] result = variableFileLineIterator.separateColumns(
+                fileLineString);
 
         // 返却値の確認
         assertEquals(3, result.length);
@@ -823,7 +760,6 @@ public class VariableFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testSeparateColumns11() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("File_Empty.txt");
@@ -831,8 +767,7 @@ public class VariableFileLineIteratorTest {
         Class<VariableFileLineIterator_Stub10> clazz = VariableFileLineIterator_Stub10.class;
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
-        VariableFileLineIterator variableFileLineIterator = new VariableFileLineIterator<VariableFileLineIterator_Stub10>(
-                fileName, clazz, columnParserMap);
+        VariableFileLineIterator<VariableFileLineIterator_Stub10> variableFileLineIterator = new VariableFileLineIterator<VariableFileLineIterator_Stub10>(fileName, clazz, columnParserMap);
 
         // 引数の設定
         String fileLineString = ",bbb,ccc";
@@ -841,8 +776,8 @@ public class VariableFileLineIteratorTest {
         // テスト対象のインスタンス化時に設定済み
 
         // テスト実施
-        String[] result = variableFileLineIterator
-                .separateColumns(fileLineString);
+        String[] result = variableFileLineIterator.separateColumns(
+                fileLineString);
 
         // 返却値の確認
         assertEquals(3, result.length);
@@ -871,7 +806,6 @@ public class VariableFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testSeparateColumns12() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("File_Empty.txt");
@@ -879,8 +813,7 @@ public class VariableFileLineIteratorTest {
         Class<VariableFileLineIterator_Stub10> clazz = VariableFileLineIterator_Stub10.class;
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
-        VariableFileLineIterator variableFileLineIterator = new VariableFileLineIterator<VariableFileLineIterator_Stub10>(
-                fileName, clazz, columnParserMap);
+        VariableFileLineIterator<VariableFileLineIterator_Stub10> variableFileLineIterator = new VariableFileLineIterator<VariableFileLineIterator_Stub10>(fileName, clazz, columnParserMap);
 
         // 引数の設定
         String fileLineString = "aaa,,ccc";
@@ -889,8 +822,8 @@ public class VariableFileLineIteratorTest {
         // テスト対象のインスタンス化時に設定済み
 
         // テスト実施
-        String[] result = variableFileLineIterator
-                .separateColumns(fileLineString);
+        String[] result = variableFileLineIterator.separateColumns(
+                fileLineString);
 
         // 返却値の確認
         assertEquals(3, result.length);
@@ -919,7 +852,6 @@ public class VariableFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testSeparateColumns13() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("File_Empty.txt");
@@ -927,8 +859,7 @@ public class VariableFileLineIteratorTest {
         Class<VariableFileLineIterator_Stub10> clazz = VariableFileLineIterator_Stub10.class;
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
-        VariableFileLineIterator variableFileLineIterator = new VariableFileLineIterator<VariableFileLineIterator_Stub10>(
-                fileName, clazz, columnParserMap);
+        VariableFileLineIterator<VariableFileLineIterator_Stub10> variableFileLineIterator = new VariableFileLineIterator<VariableFileLineIterator_Stub10>(fileName, clazz, columnParserMap);
 
         // 引数の設定
         String fileLineString = "aaa,bbb,";
@@ -937,8 +868,8 @@ public class VariableFileLineIteratorTest {
         // テスト対象のインスタンス化時に設定済み
 
         // テスト実施
-        String[] result = variableFileLineIterator
-                .separateColumns(fileLineString);
+        String[] result = variableFileLineIterator.separateColumns(
+                fileLineString);
 
         // 返却値の確認
         assertEquals(3, result.length);
@@ -966,7 +897,6 @@ public class VariableFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testSeparateColumns14() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("File_Empty.txt");
@@ -974,19 +904,18 @@ public class VariableFileLineIteratorTest {
         Class<VariableFileLineIterator_Stub11> clazz = VariableFileLineIterator_Stub11.class;
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
-        VariableFileLineIterator variableFileLineIterator = new VariableFileLineIterator<VariableFileLineIterator_Stub11>(
-                fileName, clazz, columnParserMap);
+        VariableFileLineIterator<VariableFileLineIterator_Stub11> variableFileLineIterator = new VariableFileLineIterator<VariableFileLineIterator_Stub11>(fileName, clazz, columnParserMap);
 
         // 引数の設定
         String fileLineString = "\"aa\"bb\"";
 
         // 前提条件
-        ReflectionTestUtils.setField(variableFileLineIterator, "columnEncloseChar",
-                new char[] { '\"', '\"' });
+        ReflectionTestUtils.setField(variableFileLineIterator,
+                "columnEncloseChar", new char[] { '\"', '\"' });
 
         // テスト実施
-        String[] result = variableFileLineIterator
-                .separateColumns(fileLineString);
+        String[] result = variableFileLineIterator.separateColumns(
+                fileLineString);
 
         // 返却値の確認
         assertEquals(1, result.length);
@@ -1012,7 +941,6 @@ public class VariableFileLineIteratorTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testGetEncloseChar01() throws Exception {
         // テスト対象のインスタンス化
         URL url = this.getClass().getResource("File_Empty.txt");
@@ -1020,8 +948,7 @@ public class VariableFileLineIteratorTest {
         Class<VariableFileLineIterator_Stub20> clazz = VariableFileLineIterator_Stub20.class;
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
-        VariableFileLineIterator variableFileLineIterator = new VariableFileLineIterator<VariableFileLineIterator_Stub20>(
-                fileName, clazz, columnParserMap);
+        VariableFileLineIterator<VariableFileLineIterator_Stub20> variableFileLineIterator = new VariableFileLineIterator<VariableFileLineIterator_Stub20>(fileName, clazz, columnParserMap);
 
         // 引数の設定
         // なし
@@ -1052,8 +979,7 @@ public class VariableFileLineIteratorTest {
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        VariableFileLineIterator<CSVFileLine_Stub01> fileLineIterator = new VariableFileLineIterator<CSVFileLine_Stub01>(
-                fileName, CSVFileLine_Stub01.class, columnParserMap);
+        VariableFileLineIterator<CSVFileLine_Stub01> fileLineIterator = new VariableFileLineIterator<CSVFileLine_Stub01>(fileName, CSVFileLine_Stub01.class, columnParserMap);
 
         // テスト実施
         CSVFileLine_Stub01 result1 = fileLineIterator.next();
@@ -1090,8 +1016,7 @@ public class VariableFileLineIteratorTest {
         Map<String, ColumnParser> columnParserMap = new HashMap<String, ColumnParser>();
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
-        VariableFileLineIterator<CSVFileLine_Stub02> fileLineIterator = new VariableFileLineIterator<CSVFileLine_Stub02>(
-                fileName, CSVFileLine_Stub02.class, columnParserMap);
+        VariableFileLineIterator<CSVFileLine_Stub02> fileLineIterator = new VariableFileLineIterator<CSVFileLine_Stub02>(fileName, CSVFileLine_Stub02.class, columnParserMap);
 
         // テスト実施
         CSVFileLine_Stub02 result1 = fileLineIterator.next();
@@ -1129,8 +1054,7 @@ public class VariableFileLineIteratorTest {
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
         // 様々な設定がされているファイル行オブジェクトを設定
-        VariableFileLineIterator<CSVFileLine_Stub03> fileLineIterator = new VariableFileLineIterator<CSVFileLine_Stub03>(
-                fileName, CSVFileLine_Stub03.class, columnParserMap);
+        VariableFileLineIterator<CSVFileLine_Stub03> fileLineIterator = new VariableFileLineIterator<CSVFileLine_Stub03>(fileName, CSVFileLine_Stub03.class, columnParserMap);
 
         // ファイル行オブジェクトに設定してあった値を全て上書き
         // 以下の設定が適用されれば、ファイル行オブジェクトの
@@ -1139,15 +1063,16 @@ public class VariableFileLineIteratorTest {
         // 前提条件
         ReflectionTestUtils.setField(fileLineIterator, "lineFeedChar", "\r\n");
         ReflectionTestUtils.setField(fileLineIterator, "delimiter", '_');
-        ReflectionTestUtils.setField(fileLineIterator, "inputFileColumns", null);
-        ReflectionTestUtils.setField(fileLineIterator, "columnFormats", new String[] {
-                "", "", "", "" });
-        ReflectionTestUtils.setField(fileLineIterator, "columnBytes", new int[] { -1,
-                -1, -1, -1 });
+        ReflectionTestUtils.setField(fileLineIterator, "inputFileColumns",
+                null);
+        ReflectionTestUtils.setField(fileLineIterator, "columnFormats",
+                new String[] { "", "", "", "" });
+        ReflectionTestUtils.setField(fileLineIterator, "columnBytes",
+                new int[] { -1, -1, -1, -1 });
         ReflectionTestUtils.setField(fileLineIterator, "totalBytes", 0);
         ReflectionTestUtils.setField(fileLineIterator, "trimChars", charArray);
         ReflectionTestUtils.setField(fileLineIterator, "columnEncloseChar",
-                        charArray);
+                charArray);
         ReflectionTestUtils.setField(fileLineIterator, "stringConverters",
                 new NullStringConverter[] { new NullStringConverter(),
                         new NullStringConverter(), new NullStringConverter(),
@@ -1191,17 +1116,17 @@ public class VariableFileLineIteratorTest {
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
         // 様々な設定がされているファイル行オブジェクトを設定
-        VariableFileLineIterator<CSVFileLine_Stub03> fileLineIterator = new VariableFileLineIterator<CSVFileLine_Stub03>(
-                fileName, CSVFileLine_Stub03.class, columnParserMap);
+        VariableFileLineIterator<CSVFileLine_Stub03> fileLineIterator = new VariableFileLineIterator<CSVFileLine_Stub03>(fileName, CSVFileLine_Stub03.class, columnParserMap);
 
         char[] columnEncloseChar = new char[] {};
         int index = 0;
 
         // テスト実施
-        Method method = VariableFileLineIterator.class.getDeclaredMethod("getEncloseCharcter", 
-                char[].class, int.class);
+        Method method = VariableFileLineIterator.class.getDeclaredMethod(
+                "getEncloseCharcter", char[].class, int.class);
         method.setAccessible(true);
-        Object result = method.invoke(fileLineIterator, columnEncloseChar, index);
+        Object result = method.invoke(fileLineIterator, columnEncloseChar,
+                index);
 
         assertNotNull(result);
         assertEquals(Character.class, result.getClass());
@@ -1221,17 +1146,17 @@ public class VariableFileLineIteratorTest {
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
         // 様々な設定がされているファイル行オブジェクトを設定
-        VariableFileLineIterator<CSVFileLine_Stub03> fileLineIterator = new VariableFileLineIterator<CSVFileLine_Stub03>(
-                fileName, CSVFileLine_Stub03.class, columnParserMap);
+        VariableFileLineIterator<CSVFileLine_Stub03> fileLineIterator = new VariableFileLineIterator<CSVFileLine_Stub03>(fileName, CSVFileLine_Stub03.class, columnParserMap);
 
         char[] columnEncloseChar = new char[] { 'A', 'B', 'C' };
         int index = 0;
 
         // テスト実施
-        Method method = VariableFileLineIterator.class.getDeclaredMethod("getEncloseCharcter", 
-                char[].class, int.class);
+        Method method = VariableFileLineIterator.class.getDeclaredMethod(
+                "getEncloseCharcter", char[].class, int.class);
         method.setAccessible(true);
-        Object result = method.invoke(fileLineIterator, columnEncloseChar, index);
+        Object result = method.invoke(fileLineIterator, columnEncloseChar,
+                index);
 
         assertNotNull(result);
         assertEquals(Character.class, result.getClass());
@@ -1251,17 +1176,17 @@ public class VariableFileLineIteratorTest {
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
         // 様々な設定がされているファイル行オブジェクトを設定
-        VariableFileLineIterator<CSVFileLine_Stub03> fileLineIterator = new VariableFileLineIterator<CSVFileLine_Stub03>(
-                fileName, CSVFileLine_Stub03.class, columnParserMap);
+        VariableFileLineIterator<CSVFileLine_Stub03> fileLineIterator = new VariableFileLineIterator<CSVFileLine_Stub03>(fileName, CSVFileLine_Stub03.class, columnParserMap);
 
         char[] columnEncloseChar = new char[] { 'A', 'B', 'C' };
         int index = 1;
 
         // テスト実施
-        Method method = VariableFileLineIterator.class.getDeclaredMethod("getEncloseCharcter", 
-                char[].class, int.class);
+        Method method = VariableFileLineIterator.class.getDeclaredMethod(
+                "getEncloseCharcter", char[].class, int.class);
         method.setAccessible(true);
-        Object result = method.invoke(fileLineIterator, columnEncloseChar, index);
+        Object result = method.invoke(fileLineIterator, columnEncloseChar,
+                index);
 
         assertNotNull(result);
         assertEquals(Character.class, result.getClass());
@@ -1281,17 +1206,17 @@ public class VariableFileLineIteratorTest {
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
         // 様々な設定がされているファイル行オブジェクトを設定
-        VariableFileLineIterator<CSVFileLine_Stub03> fileLineIterator = new VariableFileLineIterator<CSVFileLine_Stub03>(
-                fileName, CSVFileLine_Stub03.class, columnParserMap);
+        VariableFileLineIterator<CSVFileLine_Stub03> fileLineIterator = new VariableFileLineIterator<CSVFileLine_Stub03>(fileName, CSVFileLine_Stub03.class, columnParserMap);
 
         char[] columnEncloseChar = new char[] { 'A', 'B', 'C' };
         int index = 2;
 
         // テスト実施
-        Method method = VariableFileLineIterator.class.getDeclaredMethod("getEncloseCharcter", 
-                char[].class, int.class);
+        Method method = VariableFileLineIterator.class.getDeclaredMethod(
+                "getEncloseCharcter", char[].class, int.class);
         method.setAccessible(true);
-        Object result = method.invoke(fileLineIterator, columnEncloseChar, index);
+        Object result = method.invoke(fileLineIterator, columnEncloseChar,
+                index);
 
         assertNotNull(result);
         assertEquals(Character.class, result.getClass());
@@ -1311,17 +1236,17 @@ public class VariableFileLineIteratorTest {
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
         // 様々な設定がされているファイル行オブジェクトを設定
-        VariableFileLineIterator<CSVFileLine_Stub03> fileLineIterator = new VariableFileLineIterator<CSVFileLine_Stub03>(
-                fileName, CSVFileLine_Stub03.class, columnParserMap);
+        VariableFileLineIterator<CSVFileLine_Stub03> fileLineIterator = new VariableFileLineIterator<CSVFileLine_Stub03>(fileName, CSVFileLine_Stub03.class, columnParserMap);
 
         char[] columnEncloseChar = new char[] { 'A', 'B', 'C' };
         int index = 3;
 
         // テスト実施
-        Method method = VariableFileLineIterator.class.getDeclaredMethod("getEncloseCharcter", 
-                char[].class, int.class);
+        Method method = VariableFileLineIterator.class.getDeclaredMethod(
+                "getEncloseCharcter", char[].class, int.class);
         method.setAccessible(true);
-        Object result = method.invoke(fileLineIterator, columnEncloseChar, index);
+        Object result = method.invoke(fileLineIterator, columnEncloseChar,
+                index);
 
         assertNotNull(result);
         assertEquals(Character.class, result.getClass());
@@ -1341,17 +1266,17 @@ public class VariableFileLineIteratorTest {
         columnParserMap.put("java.lang.String", new NullColumnParser());
 
         // 様々な設定がされているファイル行オブジェクトを設定
-        VariableFileLineIterator<CSVFileLine_Stub03> fileLineIterator = new VariableFileLineIterator<CSVFileLine_Stub03>(
-                fileName, CSVFileLine_Stub03.class, columnParserMap);
+        VariableFileLineIterator<CSVFileLine_Stub03> fileLineIterator = new VariableFileLineIterator<CSVFileLine_Stub03>(fileName, CSVFileLine_Stub03.class, columnParserMap);
 
         char[] columnEncloseChar = new char[] { 'A', 'B', 'C' };
         int index = 4;
 
         // テスト実施
-        Method method = VariableFileLineIterator.class.getDeclaredMethod("getEncloseCharcter", 
-                char[].class, int.class);
+        Method method = VariableFileLineIterator.class.getDeclaredMethod(
+                "getEncloseCharcter", char[].class, int.class);
         method.setAccessible(true);
-        Object result = method.invoke(fileLineIterator, columnEncloseChar, index);
+        Object result = method.invoke(fileLineIterator, columnEncloseChar,
+                index);
 
         assertNotNull(result);
         assertEquals(Character.class, result.getClass());
