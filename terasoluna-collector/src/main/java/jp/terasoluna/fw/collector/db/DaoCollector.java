@@ -20,7 +20,6 @@ import jp.terasoluna.fw.collector.AbstractCollector;
 import jp.terasoluna.fw.collector.LogId;
 import jp.terasoluna.fw.collector.exception.CollectorExceptionHandler;
 import jp.terasoluna.fw.collector.vo.DataValueObject;
-import jp.terasoluna.fw.exception.ExceptionConfig;
 import jp.terasoluna.fw.exception.SystemException;
 import jp.terasoluna.fw.logger.TLogger;
 
@@ -82,7 +81,9 @@ public class DaoCollector<P> extends AbstractCollector<P> {
      * @param methodName 実行するDaoのメソッド名
      * @param bindParams SQLにバインドする値を格納したオブジェクト
      * @param relation1n 1:Nマッピング使用時はtrue
+     * @deprecated
      */
+    @Deprecated
     public DaoCollector(Object queryResultHandleDao, String methodName,
             Object bindParams, boolean relation1n) {
 
@@ -125,7 +126,9 @@ public class DaoCollector<P> extends AbstractCollector<P> {
      * @param relation1n 1:Nマッピング使用時はtrue
      * @param exceptionHandler 例外ハンドラ
      * @param daoCollectorPrePostProcess DaoCollector前後処理
+     * @deprecated
      */
+    @Deprecated
     public DaoCollector(Object queryResultHandleDao, String methodName,
             Object bindParams, int queueSize, boolean relation1n,
             CollectorExceptionHandler exceptionHandler,
@@ -140,6 +143,7 @@ public class DaoCollector<P> extends AbstractCollector<P> {
      * DaoCollectorコンストラクタ<br>
      * @param config DaoCollectorConfig DaoCollector設定項目
      */
+    @SuppressWarnings("deprecation")
     public DaoCollector(DaoCollectorConfig config) {
         if (config == null) {
             throw new IllegalArgumentException("The parameter is null.");
@@ -309,6 +313,7 @@ public class DaoCollector<P> extends AbstractCollector<P> {
     protected Object clone() throws CloneNotSupportedException {
         Object obj = super.clone();
         if (obj instanceof DaoCollector) {
+            @SuppressWarnings("resource")
             DaoCollector<P> qac = (DaoCollector<P>) obj;
             qac.resultHandler = getResultHandler();
             qac.resultHandler.setDaoCollector(this);

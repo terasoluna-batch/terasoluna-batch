@@ -65,7 +65,9 @@ public class DaoValidateCollector<P> extends DaoCollector<P> {
      * @param bindParams SQLにバインドする値を格納したオブジェクト
      * @param relation1n 1:Nマッピング使用時はtrue
      * @param validator Validator 入力チェックを行うバリデータ
+     * @deprecated
      */
+    @Deprecated
     public DaoValidateCollector(Object queryResultHandleDao,
             String methodName, Object bindParams, boolean relation1n,
             Validator validator) {
@@ -81,7 +83,9 @@ public class DaoValidateCollector<P> extends DaoCollector<P> {
      * @param relation1n 1:Nマッピング使用時はtrue
      * @param validator Validator 入力チェックを行うバリデータ
      * @param validationErrorHandler ValidationErrorHandler 入力チェックエラー時に行う処理
+     * @deprecated
      */
+    @Deprecated
     public DaoValidateCollector(Object queryResultHandleDao,
             String methodName, Object bindParams, boolean relation1n,
             Validator validator, ValidationErrorHandler validationErrorHandler) {
@@ -168,7 +172,9 @@ public class DaoValidateCollector<P> extends DaoCollector<P> {
      * @param exceptionHandler 例外ハンドラ
      * @param daoCollectorPrePostProcess DaoCollector前後処理
      * @param validator Validator 入力チェックを行うバリデータ
+     * @deprecated
      */
+    @Deprecated
     public DaoValidateCollector(Object queryResultHandleDao,
             String methodName, Object bindParams, int queueSize, boolean relation1n,
             CollectorExceptionHandler exceptionHandler,
@@ -192,7 +198,9 @@ public class DaoValidateCollector<P> extends DaoCollector<P> {
      * @param daoCollectorPrePostProcess DaoCollector前処理
      * @param validator Validator 入力チェックを行うバリデータ
      * @param validationErrorHandler ValidationErrorHandler 入力チェックエラー時に行う処理
+     * @deprecated
      */
+    @Deprecated
     public DaoValidateCollector(Object queryResultHandleDao,
             String methodName, Object bindParams, int queueSize, boolean relation1n,
             CollectorExceptionHandler exceptionHandler,
@@ -210,6 +218,7 @@ public class DaoValidateCollector<P> extends DaoCollector<P> {
      * DaoValidateCollectorコンストラクタ<br>
      * @param config DaoCollectorConfig DaoCollector設定項目
      */
+    @SuppressWarnings("deprecation")
     public DaoValidateCollector(DaoCollectorConfig config) {
         if (config == null) {
             throw new IllegalArgumentException("The parameter is null.");
