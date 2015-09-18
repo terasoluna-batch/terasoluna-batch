@@ -41,7 +41,7 @@ import java.util.List;
  * </P>
  * @param <T> ファイル行オブジェクト。
  */
-public interface FileLineIterator<T> extends Iterator<Object> {
+public interface FileLineIterator<T> extends Iterator<T> {
 
     /**
      * ファイルからデータが取得できるか確認する。
