@@ -18,8 +18,6 @@ package jp.terasoluna.fw.batch.unit.testcase.junit4.loader;
 
 import java.util.List;
 
-import jp.terasoluna.fw.batch.unit.util.ClassLoaderUtils;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.test.context.support.GenericXmlContextLoader;
@@ -63,7 +61,6 @@ public abstract class AbstractTerasolunaUnitContextLoader extends
      */
     @Override
     protected String[] modifyLocations(Class<?> clazz, String... locations) {
-        ClassLoaderUtils.addContextRootToClassPath();
         List<String> configLocations = getDefaultConfigs();
 
         for (String location : super.modifyLocations(clazz, locations)) {

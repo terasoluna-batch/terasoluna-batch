@@ -48,41 +48,13 @@ package jp.terasoluna.fw.batch.unit.common;
  */
 public enum PropertyKeys {
     /**
-     * WEBアプリケーションパス
+     * コンテキストファイルのパス
      */
-    WEBAPP_PATH,
+    CONTEXTFILE_DIR,
     /**
-     * WEB-INFパス
+     * アプリケーションコンテキスト定義ファイル名
      */
-    WEBINF_DIR,
-    /**
-     * META-INFパス
-     */
-    METAINF_DIR,
-    /**
-     *
-     */
-    CONTEXT_FILE,
-    /**
-     * アプリケーションコンテキスト定義ファイルパス
-     */
-    APPLICATIONCONTEXT_FILE,
-    /**
-     * モジュール定義ファイルパス
-     */
-    MODULECONTEXT_FILE,
-    /**
-     * モックDAO定義ファイルパス
-     */
-    MOCKDAOBEANS_FILE,
-    /**
-     * BLogicResultの成功を表す文字列
-     */
-    SUCCESS_STRING,
-    /**
-     * BLogicResultの失敗を表す文字列
-     */
-    FAILURE_STRING;
+    APPLICATIONCONTEXT_FILE;
 
     /**
      * プロパティのキー
