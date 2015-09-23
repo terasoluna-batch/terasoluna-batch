@@ -215,7 +215,6 @@ public class CSVFileLineWriterTest {
      * 観点：E <br>
      * <br>
      * 入力値：(引数) t:CSVFileLineWriter_Stub06インスタンス<br>
-     * <<<<<<< HEAD
      * @FileFormat()<br>
      *                   String変数column01<br>
      *                   アノテーション：@OutputFileColumn(columnIndex = 0)<br>
@@ -225,16 +224,6 @@ public class CSVFileLineWriterTest {
      *                   期待値：(戻り値) String:"abcdef"<br>
      *                   <br>
      *                   引数tに設定されたクラス（囲み文字が設定されていない場合）のカラムインデックス1の属性値（囲み文字が含まれない）が取得できることを確認するテスト。 <br>
-     *                   ======= @FileFormat()<br>
-     *                   String変数column01<br>
-     *                   アノテーション：@OutputFileColumn(columnIndex = 0)<br>
-     *                   値："abcdef"<br>
-     *                   (引数) index:0<br>
-     *                   <br>
-     *                   期待値：(戻り値) String:"abcdef"<br>
-     *                   <br>
-     *                   引数tに設定されたクラス（囲み文字が設定されていない場合）のカラムインデックス1の属性値（囲み文字が含まれない）が取得できることを確認するテスト。 <br>
-     *                   >>>>>>> f56a8eb4a4038d10edf8785e48b8d38c6b7ac97e
      * @throws Exception このメソッドで発生した例外
      */
     @Test
@@ -273,7 +262,6 @@ public class CSVFileLineWriterTest {
      * 観点：E <br>
      * <br>
      * 入力値：(引数) t:CSVFileLineWriter_Stub07インスタンス<br>
-     * <<<<<<< HEAD
      * @FileFormat(encloseChar='\"')<br>
      *                                   String変数column01<br>
      *                                   アノテーション：@OutputFileColumn(columnIndex = 0)<br>
@@ -283,16 +271,6 @@ public class CSVFileLineWriterTest {
      *                                   期待値：(戻り値) String:"abcdef"<br>
      *                                   <br>
      *                                   引数tに設定されたクラス（囲み文字が設定されている場合）のカラムインデックス1の属性値（囲み文字が含まれない）が取得できることを確認するテスト。 <br>
-     *                                   ======= @FileFormat(encloseChar='\"')<br>
-     *                                   String変数column01<br>
-     *                                   アノテーション：@OutputFileColumn(columnIndex = 0)<br>
-     *                                   値："abcdef"<br>
-     *                                   (引数) index:0<br>
-     *                                   <br>
-     *                                   期待値：(戻り値) String:"abcdef"<br>
-     *                                   <br>
-     *                                   引数tに設定されたクラス（囲み文字が設定されている場合）のカラムインデックス1の属性値（囲み文字が含まれない）が取得できることを確認するテスト。 <br>
-     *                                   >>>>>>> f56a8eb4a4038d10edf8785e48b8d38c6b7ac97e
      * @throws Exception このメソッドで発生した例外
      */
     @Test
@@ -330,7 +308,6 @@ public class CSVFileLineWriterTest {
      * 観点：E <br>
      * <br>
      * 入力値：(引数) t:CSVFileLineWriter_Stub07インスタンス<br>
-     * <<<<<<< HEAD
      * @FileFormat(encloseChar='\"')<br>
      *                                   String変数column01<br>
      *                                   アノテーション：@OutputFileColumn(columnIndex = 0)<br>
@@ -340,16 +317,6 @@ public class CSVFileLineWriterTest {
      *                                   期待値：(戻り値) String:"ab""cdef"<br>
      *                                   <br>
      *                                   引数tに設定されたクラス（囲み文字が設定されている場合）のカラムインデックス1の属性値（囲み文字が含まれる）がエスケープ処理されて、取得できることを確認するテスト。 <br>
-     *                                   ======= @FileFormat(encloseChar='\"')<br>
-     *                                   String変数column01<br>
-     *                                   アノテーション：@OutputFileColumn(columnIndex = 0)<br>
-     *                                   値："ab\"cdef"<br>
-     *                                   (引数) index:0<br>
-     *                                   <br>
-     *                                   期待値：(戻り値) String:"ab""cdef"<br>
-     *                                   <br>
-     *                                   引数tに設定されたクラス（囲み文字が設定されている場合）のカラムインデックス1の属性値（囲み文字が含まれる）がエスケープ処理されて、取得できることを確認するテスト。 <br>
-     *                                   >>>>>>> f56a8eb4a4038d10edf8785e48b8d38c6b7ac97e
      * @throws Exception このメソッドで発生した例外
      */
     @Test
@@ -387,7 +354,6 @@ public class CSVFileLineWriterTest {
      * 観点：G <br>
      * <br>
      * 入力値：(引数) t:CSVFileLineWriter_Stub06インスタンス<br>
-     * <<<<<<< HEAD
      * @FileFormat()<br>
      *                   String変数column01<br>
      *                   アノテーション：@OutputFileColumn(columnIndex = 0)<br>
@@ -398,17 +364,6 @@ public class CSVFileLineWriterTest {
      *                   AbstractFileLineWriter#getColumn()で発生する<br>
      *                   <br>
      *                   引数indexにカラムインデックスに存在しない値を渡すと、ArrayIndexOutOfBoundsExceptionが発生することを確認する。 <br>
-     *                   ======= @FileFormat()<br>
-     *                   String変数column01<br>
-     *                   アノテーション：@OutputFileColumn(columnIndex = 0)<br>
-     *                   値："abcdef"<br>
-     *                   (引数) index:1<br>
-     *                   <br>
-     *                   (状態変化) 例外:ArrayIndexOutOfBoundsException<br>
-     *                   AbstractFileLineWriter#getColumn()で発生する<br>
-     *                   <br>
-     *                   引数indexにカラムインデックスに存在しない値を渡すと、ArrayIndexOutOfBoundsExceptionが発生することを確認する。 <br>
-     *                   >>>>>>> f56a8eb4a4038d10edf8785e48b8d38c6b7ac97e
      * @throws Exception このメソッドで発生した例外
      */
     @Test
