@@ -34,6 +34,7 @@ import jp.terasoluna.fw.logger.TLogger;
  * @see jp.terasoluna.fw.message.DBMessageResourceDAO
  * @see jp.terasoluna.fw.message.DBMessageResourceDAOImpl
  */
+@SuppressWarnings("rawtypes")
 public class DBMessageQuery extends MappingSqlQuery {
 
     /**

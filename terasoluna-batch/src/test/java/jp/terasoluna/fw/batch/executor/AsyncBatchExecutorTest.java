@@ -866,7 +866,7 @@ public class AsyncBatchExecutorTest {
         AsyncBatchExecutor executor = new AsyncBatchExecutor();
         MockApplicationContext ctx = new MockApplicationContext() {
             @Override
-            public Object getBean(String key, Class arg1)
+            public Object getBean(String key, @SuppressWarnings("rawtypes") Class arg1)
                     throws BeansException {
                 return null;
             }

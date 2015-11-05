@@ -25,7 +25,6 @@ import org.springframework.validation.ObjectError;
 
 /**
  * Errors実装クラス
- * 
  */
 public class ErrorsImpl01 implements Errors {
 
@@ -33,47 +32,45 @@ public class ErrorsImpl01 implements Errors {
      * errorsリスト
      */
     private List<Object> errors = new ArrayList<Object>();
-    
+
     /**
      * rejectValue呼び出し確認フラグ
      */
     public boolean isRejectValue = false;
-    
+
     /**
      * rejectValueの引数fieldの呼出確認
      */
     public String field = null;
-    
+
     /**
      * rejectValueの引数errorCodeの呼出確認
      */
     public String errorCode = null;
-    
+
     /**
      * rejectValueの引数errorArgsの呼出確認
      */
     public Object[] errorArgs = null;
-    
+
     /**
      * rejectValueの引数defaultMessageの呼出確認
      */
     public String defaultMessage = null;
-    
+
     /**
      * 呼び出し確認実装
      */
-    public void rejectValue(@SuppressWarnings("hiding") String field, 
-            @SuppressWarnings("hiding") String errorCode, 
-            @SuppressWarnings("hiding") Object[] errorArgs,
-            @SuppressWarnings("hiding") String defaultMessage) {
+    public void rejectValue(String field, String errorCode, Object[] errorArgs,
+            String defaultMessage) {
         this.isRejectValue = true;
-        
+
         this.field = field;
         this.errorCode = errorCode;
         this.errorArgs = errorArgs;
         this.defaultMessage = defaultMessage;
     }
-    
+
     /**
      * errorsサイズを返す
      */
@@ -84,10 +81,11 @@ public class ErrorsImpl01 implements Errors {
     /**
      * errorsを返す
      */
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     public List getAllErrors() {
         return errors;
     }
-    
+
     public String getObjectName() {
         return null;
     }
@@ -105,17 +103,17 @@ public class ErrorsImpl01 implements Errors {
     public void popNestedPath() throws IllegalStateException {
     }
 
-    public void reject(@SuppressWarnings("hiding") String errorCode) {
+    public void reject(String errorCode) {
     }
 
-    public void reject(@SuppressWarnings("hiding") String errorCode, @SuppressWarnings("hiding") String defaultMessage) {
+    public void reject(String errorCode, String defaultMessage) {
     }
 
     public void reject(String errorCode, Object[] errorArgs,
             String defaultMessage) {
     }
 
-    public void rejectValue(String field, @SuppressWarnings("hiding") String errorCode) {
+    public void rejectValue(String field, String errorCode) {
     }
 
     public void rejectValue(String field, String errorCode,
@@ -137,6 +135,7 @@ public class ErrorsImpl01 implements Errors {
         return 0;
     }
 
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     public List getGlobalErrors() {
         return null;
     }
@@ -153,6 +152,7 @@ public class ErrorsImpl01 implements Errors {
         return 0;
     }
 
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     public List getFieldErrors(String field) {
         return null;
     }
@@ -175,11 +175,12 @@ public class ErrorsImpl01 implements Errors {
         return 0;
     }
 
-    public List getFieldErrors() {
+    public List<FieldError> getFieldErrors() {
 
         return null;
     }
 
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     public Class getFieldType(String field) {
 
         return null;

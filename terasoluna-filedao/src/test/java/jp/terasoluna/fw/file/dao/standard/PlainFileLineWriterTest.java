@@ -92,7 +92,6 @@ public class PlainFileLineWriterTest {
      * 親クラスのコンストラクタが呼ばれることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
     @Test
     public void testPlain01() throws Exception {
         // テスト対象のインスタンス化

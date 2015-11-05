@@ -18,12 +18,10 @@ package jp.terasoluna.fw.util;
 
 /**
  * {@link jp.terasoluna.fw.util.BeanUtilTest} クラスで使用する。
- * 
  * @see jp.terasoluna.fw.util.BeanUtilTest
  */
-@SuppressWarnings("unused")
 public class BeanUtil_BeanStub01 {
-    
+
     private String param2 = null;
 
     /**
@@ -34,7 +32,7 @@ public class BeanUtil_BeanStub01 {
     public String getParam1() throws Exception {
         throw new Exception();
     }
-    
+
     /**
      * Exceptionをスローする。
      * @param param1 パラメータ
@@ -43,16 +41,15 @@ public class BeanUtil_BeanStub01 {
     public void setParam1(String param1) throws Exception {
         throw new Exception();
     }
-    
+
     /**
      * param2を返却する。
-     * 
      * @return param2
      */
     public String getParam2() {
         return param2;
     }
-    
+
     /**
      * param2を設定する。
      * @param param2 パラメータ

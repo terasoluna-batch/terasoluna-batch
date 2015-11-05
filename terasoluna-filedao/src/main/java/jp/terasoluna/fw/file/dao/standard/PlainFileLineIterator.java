@@ -38,34 +38,33 @@ import jp.terasoluna.fw.file.dao.FileLineException;
  * <td><b>必須性</b></td>
  * </tr>
  * <tr>
- * <td> <code>行区切り文字</code></td>
- * <td> <code>lineFeedChar</code></td>
- * <td> <code>システムの行区切り文字</code></td>
- * <td> <code>オプション</code></td>
+ * <td><code>行区切り文字</code></td>
+ * <td><code>lineFeedChar</code></td>
+ * <td><code>システムの行区切り文字</code></td>
+ * <td><code>オプション</code></td>
  * </tr>
  * <tr>
- * <td> <code>ファイルエンコーディング</code></td>
- * <td> <code>fileEncodeing</code></td>
- * <td> <code>システムのファイルエンコーディング</code></td>
- * <td> <code>オプション</code></td>
+ * <td><code>ファイルエンコーディング</code></td>
+ * <td><code>fileEncodeing</code></td>
+ * <td><code>システムのファイルエンコーディング</code></td>
+ * <td><code>オプション</code></td>
  * </tr>
  * <tr>
- * <td> <code>ヘッダ行数</code></td>
- * <td> <code>headerLineCount</code></td>
- * <td> <code>0</code></td>
- * <td> <code>オプション</code></td>
+ * <td><code>ヘッダ行数</code></td>
+ * <td><code>headerLineCount</code></td>
+ * <td><code>0</code></td>
+ * <td><code>オプション</code></td>
  * </tr>
  * <tr>
- * <td> <code>トレイラ行数</code></td>
- * <td> <code>trailerLineCount</code></td>
- * <td> <code>0</code></td>
- * <td> <code>オプション</code></td>
+ * <td><code>トレイラ行数</code></td>
+ * <td><code>trailerLineCount</code></td>
+ * <td><code>0</code></td>
+ * <td><code>オプション</code></td>
  * </tr>
  * </table>
  * </div> <br>
  * <b>※注意事項</b><br>
  * <ul>
- * 　
  * <li>区切り文字と囲み文字の設定は無視する。</li>
  * </ul>
  */
@@ -98,7 +97,8 @@ public class PlainFileLineIterator extends AbstractFileLineIterator<Object> {
      * @param columnParserMap フォーマット処理リスト
      */
     @SuppressWarnings("unchecked")
-    public PlainFileLineIterator(String fileName, Class clazz,
+    public PlainFileLineIterator(String fileName,
+            @SuppressWarnings("rawtypes") Class clazz,
             Map<String, ColumnParser> columnParserMap) {
         super(fileName, clazz, columnParserMap);
 
@@ -117,8 +117,7 @@ public class PlainFileLineIterator extends AbstractFileLineIterator<Object> {
      */
     @Override
     public String[] separateColumns(String fileLineString) {
-        throw new UnsupportedOperationException(
-                "separateColumns(String) isn't supported.");
+        throw new UnsupportedOperationException("separateColumns(String) isn't supported.");
     }
 
     /**
@@ -131,16 +130,11 @@ public class PlainFileLineIterator extends AbstractFileLineIterator<Object> {
     @Override
     public String next() {
         if (readTrailer) {
-            throw new FileLineException(
-                    "Data part should be called before trailer part.",
-                    new IllegalStateException(), getFileName(),
-                    currentLineCount);
+            throw new FileLineException("Data part should be called before trailer part.", new IllegalStateException(), getFileName(), currentLineCount);
         }
         if (!hasNext()) {
-            throw new FileLineException(
-                    "The data which can be acquired doesn't exist.",
-                    new NoSuchElementException(), getFileName(),
-                    currentLineCount + 1, null, -1);
+            throw new FileLineException("The data which can be acquired doesn't exist.", new NoSuchElementException(), getFileName(), currentLineCount
+                    + 1, null, -1);
         }
         currentLineCount++;
         return readLine();
@@ -153,10 +147,8 @@ public class PlainFileLineIterator extends AbstractFileLineIterator<Object> {
     public void skip(int skipLines) {
         for (int i = 0; i < skipLines; i++) {
             if (!hasNext()) {
-                throw new FileLineException(
-                        "The data which can be acquired doesn't exist.",
-                        new NoSuchElementException(), getFileName(),
-                        currentLineCount + 1);
+                throw new FileLineException("The data which can be acquired doesn't exist.", new NoSuchElementException(), getFileName(), currentLineCount
+                        + 1);
             }
             readLine();
             currentLineCount++;

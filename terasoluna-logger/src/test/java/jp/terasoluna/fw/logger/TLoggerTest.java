@@ -188,12 +188,14 @@ public class TLoggerTest {
         assertEquals("java.lang.Exception: hoge", logReader.readLine());
     }
 
+    @SuppressWarnings("deprecation")
     @Test
     public void testError08() throws Exception {
         LOGGER.error(new StringBuilder("hoge"));
         assertEquals("[ERROR][TLoggerTest] hoge", logReader.readLine());
     }
 
+    @SuppressWarnings("deprecation")
     @Test
     public void testError09() throws Exception {
         LOGGER.error(new StringBuilder("hoge"), new Exception("hoge"));
@@ -226,6 +228,7 @@ public class TLoggerTest {
         assertEquals("java.lang.Exception: hoge", logReader.readLine());
     }
 
+    @SuppressWarnings("deprecation")
     @Test
     public void testFatal04() throws Exception {
         TLogger logger = TLogger.getLogger("FATAL_TEST");
@@ -233,6 +236,7 @@ public class TLoggerTest {
         assertEquals("[ERROR][FATAL_TEST] hoge", logReader.readLine());
     }
 
+    @SuppressWarnings("deprecation")
     @Test
     public void testFatal05() throws Exception {
         TLogger logger = TLogger.getLogger("FATAL_TEST");
@@ -280,6 +284,7 @@ public class TLoggerTest {
         assertEquals("java.lang.Exception: hoge", logReader.readLine());
     }
 
+    @SuppressWarnings("deprecation")
     @Test
     public void testWarn04() throws Exception {
         TLogger logger = TLogger.getLogger("WARN_TEST");
@@ -287,6 +292,7 @@ public class TLoggerTest {
         assertEquals("[WARN][WARN_TEST] hoge", logReader.readLine());
     }
 
+    @SuppressWarnings("deprecation")
     @Test
     public void testWarn05() throws Exception {
         TLogger logger = TLogger.getLogger("WARN_TEST");
@@ -333,6 +339,7 @@ public class TLoggerTest {
         assertEquals("java.lang.Exception: hoge", logReader.readLine());
     }
 
+    @SuppressWarnings("deprecation")
     @Test
     public void testInfo04() throws Exception {
         TLogger logger = TLogger.getLogger("INFO_TEST");
@@ -340,6 +347,7 @@ public class TLoggerTest {
         assertEquals("[INFO][INFO_TEST] hoge", logReader.readLine());
     }
 
+    @SuppressWarnings("deprecation")
     @Test
     public void testInfo05() throws Exception {
         TLogger logger = TLogger.getLogger("INFO_TEST");
@@ -387,6 +395,7 @@ public class TLoggerTest {
         assertEquals("java.lang.Exception: hoge", logReader.readLine());
     }
 
+    @SuppressWarnings("deprecation")
     @Test
     public void testDebug04() throws Exception {
         TLogger logger = TLogger.getLogger("DEBUG_TEST");
@@ -394,6 +403,7 @@ public class TLoggerTest {
         assertEquals("[DEBUG][DEBUG_TEST] hoge", logReader.readLine());
     }
 
+    @SuppressWarnings("deprecation")
     @Test
     public void testDebug05() throws Exception {
         TLogger logger = TLogger.getLogger("DEBUG_TEST");
@@ -441,6 +451,7 @@ public class TLoggerTest {
         assertEquals("java.lang.Exception: hoge", logReader.readLine());
     }
 
+    @SuppressWarnings("deprecation")
     @Test
     public void testTrace04() throws Exception {
         TLogger logger = TLogger.getLogger("TRACE_TEST");
@@ -448,6 +459,7 @@ public class TLoggerTest {
         assertEquals("[TRACE][TRACE_TEST] hoge", logReader.readLine());
     }
 
+    @SuppressWarnings("deprecation")
     @Test
     public void testTrace05() throws Exception {
         TLogger logger = TLogger.getLogger("TRACE_TEST");

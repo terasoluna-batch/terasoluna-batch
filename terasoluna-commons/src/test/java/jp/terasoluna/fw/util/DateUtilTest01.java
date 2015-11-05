@@ -52,7 +52,6 @@ import static org.junit.Assert.*;
  * wareki.gengo.5.roman = H<br>
  * wareki.gengo.5.startDate = asdf<br>
  */
-@SuppressWarnings("unused")
 public class DateUtilTest01 extends PropertyTestCase {
 
     /**
@@ -859,7 +858,7 @@ public class DateUtilTest01 extends PropertyTestCase {
 
         // テスト対象の実行
         try {
-            String str = DateUtil.dateToWarekiString(format, date);
+            DateUtil.dateToWarekiString(format, date);
             fail();
         } catch (IllegalArgumentException e) {
             return;
@@ -887,7 +886,7 @@ public class DateUtilTest01 extends PropertyTestCase {
 
         // テスト対象の実行
         try {
-            String str = DateUtil.dateToWarekiString(format, date);
+            DateUtil.dateToWarekiString(format, date);
             fail();
         } catch (IllegalArgumentException e) {
             return;
@@ -915,7 +914,7 @@ public class DateUtilTest01 extends PropertyTestCase {
 
         // テスト対象の実行
         try {
-            String str = DateUtil.dateToWarekiString(format, date);
+            DateUtil.dateToWarekiString(format, date);
             fail();
         } catch (IllegalArgumentException e) {
             return;
@@ -943,7 +942,7 @@ public class DateUtilTest01 extends PropertyTestCase {
 
         // テスト対象の実行
         try {
-            String str = DateUtil.dateToWarekiString(format, date);
+            DateUtil.dateToWarekiString(format, date);
             fail();
         } catch (NullPointerException e) {
             return;
@@ -969,7 +968,7 @@ public class DateUtilTest01 extends PropertyTestCase {
 
         // テスト対象の実行
         try {
-            String str = DateUtil.dateToWarekiString(format, date);
+            DateUtil.dateToWarekiString(format, date);
             fail();
         } catch (NullPointerException e) {
             return;
@@ -1151,7 +1150,7 @@ public class DateUtilTest01 extends PropertyTestCase {
 
         // テスト対象の実行
         try {
-            String str = DateUtil.getWarekiGengoName(date);
+            DateUtil.getWarekiGengoName(date);
             fail();
         } catch (IllegalArgumentException e) {
             assertEquals("Wareki Gengo Name not found for " + date, e
@@ -1176,7 +1175,7 @@ public class DateUtilTest01 extends PropertyTestCase {
 
         // テスト対象の実行
         try {
-            String str = DateUtil.getWarekiGengoName(date);
+            DateUtil.getWarekiGengoName(date);
             fail();
         } catch (NullPointerException e) {
             return;
@@ -1270,7 +1269,7 @@ public class DateUtilTest01 extends PropertyTestCase {
 
         // テスト対象の実行
         try {
-            String str = DateUtil.getWarekiGengoRoman(date);
+            DateUtil.getWarekiGengoRoman(date);
             fail();
         } catch (IllegalArgumentException e) {
             assertEquals("Wareki Gengo Roman not found for " + date, e
@@ -1295,7 +1294,7 @@ public class DateUtilTest01 extends PropertyTestCase {
 
         // テスト対象の実行
         try {
-            String str = DateUtil.getWarekiGengoRoman(date);
+            DateUtil.getWarekiGengoRoman(date);
             fail();
         } catch (NullPointerException e) {
             return;
@@ -1389,7 +1388,7 @@ public class DateUtilTest01 extends PropertyTestCase {
 
         // テスト対象の実行
         try {
-            int year = DateUtil.getWarekiYear(date);
+            DateUtil.getWarekiYear(date);
             fail();
         } catch (IllegalArgumentException e) {
             assertEquals("Wareki Gengo not found for " + date, e.getMessage());
@@ -1412,7 +1411,7 @@ public class DateUtilTest01 extends PropertyTestCase {
 
         try {
             // テスト対象の実行
-            int year = DateUtil.getWarekiYear(null);
+            DateUtil.getWarekiYear(null);
             fail();
         } catch (NullPointerException e) {
             return;

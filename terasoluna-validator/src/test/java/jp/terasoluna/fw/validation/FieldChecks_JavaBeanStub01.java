@@ -39,7 +39,7 @@ public class FieldChecks_JavaBeanStub01 {
     /**
      * テスト用List型プロパティ。
      */
-    private List list = new ArrayList();
+    private List<?> list = new ArrayList<Object>();
 
     /**
      * テスト用int配列プロパティ。
@@ -64,7 +64,7 @@ public class FieldChecks_JavaBeanStub01 {
     /**
      * テスト用Collection型プロパティ。
      */
-    private Collection field3 = null;
+    private Collection<?> field3 = null;
 
     /**
      * テスト用プリミティブ配列型プロパティ。
@@ -108,14 +108,14 @@ public class FieldChecks_JavaBeanStub01 {
     /**
      * @return list を戻します。
      */
-    public List getList() {
+    public List<?> getList() {
         return list;
     }
 
     /**
      * @param list 設定する list。
      */
-    public void setList(List list) {
+    public void setList(List<?> list) {
         this.list = list;
     }
 
@@ -179,14 +179,14 @@ public class FieldChecks_JavaBeanStub01 {
     /**
      * @return field3 を戻します。
      */
-    public Collection getField3() {
+    public Collection<?> getField3() {
         return field3;
     }
 
     /**
      * @param field3 設定する field3。
      */
-    public void setField3(Collection field3) {
+    public void setField3(Collection<?> field3) {
         this.field3 = field3;
     }
 

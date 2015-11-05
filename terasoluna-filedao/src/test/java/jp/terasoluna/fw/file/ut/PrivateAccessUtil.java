@@ -42,6 +42,7 @@ class PrivateAccessUtil {
      *     }
      * }
      * </pre>
+     * 
      * @param target 呼び出す対象のオブジェクト
      * @param methodName 呼び出したいメソッドの名前
      * @param argTypes 引数の型の配列
@@ -49,9 +50,9 @@ class PrivateAccessUtil {
      * @return メソッドの戻り値。呼び出し側でダウンキャストが必要。 int, boolean等の基本データ型は、Integer, Boolean等の ラッパークラスに格納されて値が戻される。
      * @throws Exception
      */
-    @SuppressWarnings("unchecked")
     public static Object invokePrivate(Object target, String methodName,
-            Class[] argTypes, Object[] args) throws Exception {
+            @SuppressWarnings("rawtypes") Class[] argTypes,
+            Object[] args) throws Exception {
 
         // パラメータ値のチェック
         if (target == null) {
@@ -66,7 +67,7 @@ class PrivateAccessUtil {
 
         // privateメソッド呼び出し処理。
         // スーパークラス全てについて呼び出しをトライする。
-        Class c = target.getClass();
+        Class<?> c = target.getClass();
         while (c != null) {
             try {
                 Method method = c.getDeclaredMethod(methodName, argTypes);
@@ -82,8 +83,8 @@ class PrivateAccessUtil {
             c = c.getSuperclass();
         }
         // 呼び出そうとしたメソッドが存在しなかった場合。
-        throw new NoSuchMethodException("Could not invoke "
-                + target.getClass().getName() + "." + methodName + "()");
+        throw new NoSuchMethodException("Could not invoke " + target.getClass()
+                .getName() + "." + methodName + "()");
     }
 
     /**
@@ -106,13 +107,14 @@ class PrivateAccessUtil {
      *     }
      * }
      * </pre>
+     * 
      * @param target 呼び出す対象のオブジェクト
      * @param methodName 呼び出したいメソッドの名前
      * @return メソッドの戻り値。呼び出し側でダウンキャストが必要。 int, boolean等の基本データ型は、Integer, Boolean等の ラッパークラスに格納されて値が戻される。
      * @throws Exception
      */
-    public static Object invokePrivate(Object target, String methodName)
-                                                                        throws Exception {
+    public static Object invokePrivate(Object target,
+            String methodName) throws Exception {
 
         return invokePrivate(target, methodName, new Class[] {},
                 new Object[] {});
@@ -138,6 +140,7 @@ class PrivateAccessUtil {
      *     }
      * }
      * </pre>
+     * 
      * @param target 呼び出す対象のオブジェクト
      * @param methodName 呼び出したいメソッドの名前
      * @param argType 引数の型
@@ -145,9 +148,8 @@ class PrivateAccessUtil {
      * @return メソッドの戻り値。呼び出し側でダウンキャストが必要。 int, boolean等の基本データ型は、Integer, Boolean等の ラッパークラスに格納されて値が戻される。
      * @throws Exception
      */
-    @SuppressWarnings("unchecked")
     public static Object invokePrivate(Object target, String methodName,
-            Class argType, Object arg) throws Exception {
+            Class<?> argType, Object arg) throws Exception {
 
         return invokePrivate(target, methodName, new Class[] { argType },
                 new Object[] { arg });
@@ -179,6 +181,7 @@ class PrivateAccessUtil {
      *     }
      * }
      * </pre>
+     * 
      * @param target 呼び出す対象のオブジェクト
      * @param methodName 呼び出したいメソッドの名前
      * @param argType1 第一引数の型
@@ -188,10 +191,9 @@ class PrivateAccessUtil {
      * @return メソッドの戻り値。呼び出し側でダウンキャストが必要。 int, boolean等の基本データ型は、Integer, Boolean等の ラッパークラスに格納されて値が戻される。
      * @throws Exception
      */
-    @SuppressWarnings("unchecked")
     public static Object invokePrivate(Object target, String methodName,
-            Class argType1, Class argType2, Object arg1, Object arg2)
-                                                                     throws Exception {
+            Class<?> argType1, Class<?> argType2, Object arg1,
+            Object arg2) throws Exception {
 
         return invokePrivate(target, methodName, new Class[] { argType1,
                 argType2 }, new Object[] { arg1, arg2 });
@@ -223,6 +225,7 @@ class PrivateAccessUtil {
      *     }
      * }
      * </pre>
+     * 
      * @param target 呼び出す対象のクラス
      * @param methodName 呼び出したいメソッドの名前
      * @param argTypes 引数の型の配列
@@ -230,9 +233,9 @@ class PrivateAccessUtil {
      * @return メソッドの戻り値。呼び出し側でダウンキャストが必要。 int, boolean等の基本データ型は、Integer, Boolean等の ラッパークラスに格納されて値が戻される。
      * @throws Exception
      */
-    @SuppressWarnings("unchecked")
-    public static Object invokePrivate(Class target, String methodName,
-            Class[] argTypes, Object[] args) throws Exception {
+    public static Object invokePrivate(Class<?> target, String methodName,
+            @SuppressWarnings("rawtypes") Class[] argTypes,
+            Object[] args) throws Exception {
 
         // パラメータ値のチェック
         if (target == null) {
@@ -247,7 +250,7 @@ class PrivateAccessUtil {
 
         // privateメソッド呼び出し処理。
         // スーパークラス全てについて呼び出しをトライする。
-        Class c = target;
+        Class<?> c = target;
         while (c != null) {
             try {
                 Method method = c.getDeclaredMethod(methodName, argTypes);
@@ -263,8 +266,8 @@ class PrivateAccessUtil {
             c = c.getSuperclass();
         }
         // 呼び出そうとしたメソッドが存在しなかった場合。
-        throw new NoSuchMethodException("Could not invoke "
-                + target.getClass().getName() + "." + methodName + "()");
+        throw new NoSuchMethodException("Could not invoke " + target.getClass()
+                .getName() + "." + methodName + "()");
     }
 
     /**
@@ -286,14 +289,14 @@ class PrivateAccessUtil {
      *     }
      * }
      * </pre>
+     * 
      * @param target 呼び出す対象のクラス
      * @param methodName 呼び出したいメソッドの名前
      * @return メソッドの戻り値。呼び出し側でダウンキャストが必要。 int, boolean等の基本データ型は、Integer, Boolean等の ラッパークラスに格納されて値が戻される。
      * @throws Exception
      */
-    @SuppressWarnings("unchecked")
-    public static Object invokePrivate(Class target, String methodName)
-                                                                       throws Exception {
+    public static Object invokePrivate(Class<?> target,
+            String methodName) throws Exception {
 
         return invokePrivate(target, methodName, new Class[] {},
                 new Object[] {});
@@ -318,6 +321,7 @@ class PrivateAccessUtil {
      *     }
      * }
      * </pre>
+     * 
      * @param target 呼び出す対象のクラス
      * @param methodName 呼び出したいメソッドの名前
      * @param argType 引数の型
@@ -325,9 +329,8 @@ class PrivateAccessUtil {
      * @return メソッドの戻り値。呼び出し側でダウンキャストが必要。 int, boolean等の基本データ型は、Integer, Boolean等の ラッパークラスに格納されて値が戻される。
      * @throws Exception
      */
-    @SuppressWarnings("unchecked")
-    public static Object invokePrivate(Class target, String methodName,
-            Class argType, Object arg) throws Exception {
+    public static Object invokePrivate(Class<?> target, String methodName,
+            Class<?> argType, Object arg) throws Exception {
 
         return invokePrivate(target, methodName, new Class[] { argType },
                 new Object[] { arg });
@@ -358,6 +361,7 @@ class PrivateAccessUtil {
      *     }
      * }
      * </pre>
+     * 
      * @param target 呼び出す対象のクラス
      * @param methodName 呼び出したいメソッドの名前
      * @param argType1 第一引数の型
@@ -367,10 +371,9 @@ class PrivateAccessUtil {
      * @return メソッドの戻り値。呼び出し側でダウンキャストが必要。 int, boolean等の基本データ型は、Integer, Boolean等の ラッパークラスに格納されて値が戻される。
      * @throws Exception
      */
-    @SuppressWarnings("unchecked")
-    public static Object invokePrivate(Class target, String methodName,
-            Class argType1, Class argType2, Object arg1, Object arg2)
-                                                                     throws Exception {
+    public static Object invokePrivate(Class<?> target, String methodName,
+            Class<?> argType1, Class<?> argType2, Object arg1,
+            Object arg2) throws Exception {
 
         return invokePrivate(target, methodName, new Class[] { argType1,
                 argType2 }, new Object[] { arg1, arg2 });

@@ -1,9 +1,9 @@
 package jp.terasoluna.fw.collector;
 
-import java.util.concurrent.atomic.AtomicInteger;
+//import java.util.concurrent.atomic.AtomicInteger;
 
 public class AbstractCollectorStub3<P> extends AbstractCollector<P> {
-    private static AtomicInteger foCount = new AtomicInteger(0);
+//    private static AtomicInteger foCount = new AtomicInteger(0);
 
     public AbstractCollectorStub3() {
 //        this.fo = new Future<P>() {

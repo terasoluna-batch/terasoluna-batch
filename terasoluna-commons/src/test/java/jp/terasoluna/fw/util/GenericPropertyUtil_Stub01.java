@@ -21,30 +21,31 @@ import java.util.Map;
 
 /**
  * {@link GenericPropertyUtil}のテストのためのスタブクラス。
- *
  */
 public class GenericPropertyUtil_Stub01 {
-    @SuppressWarnings("unused")
-    private List<String> list0;
+
     private List<String> list1;
+
     private List<Map<String, Object>> list2;
+
     private List<String[]> list3;
-    @SuppressWarnings("unchecked")
-    private List list4;
+
+    private List<?> list4;
+
     private List<?> list5;
 
-    @SuppressWarnings("unused")
-    private Map<String, Object> map0;
     private Map<String, Object> map1;
+
     private Map<String[], List<String>> map2;
+
     private Map<?, ?> map3;
 
     private int integer;
+
     private Object object;
 
     /**
      * list1を取得する。
-     *
      * @return list1
      */
     public List<String> getList1() {
@@ -53,7 +54,6 @@ public class GenericPropertyUtil_Stub01 {
 
     /**
      * list2を取得する。
-     *
      * @return list2
      */
     public List<Map<String, Object>> getList2() {
@@ -62,7 +62,6 @@ public class GenericPropertyUtil_Stub01 {
 
     /**
      * list3を取得する。
-     *
      * @return list3
      */
     public List<String[]> getList3() {
@@ -71,7 +70,6 @@ public class GenericPropertyUtil_Stub01 {
 
     /**
      * map1を取得する。
-     *
      * @return map1
      */
     public Map<String, Object> getMap1() {
@@ -80,7 +78,6 @@ public class GenericPropertyUtil_Stub01 {
 
     /**
      * map2を取得する。
-     *
      * @return map2
      */
     public Map<String[], List<String>> getMap2() {
@@ -89,7 +86,6 @@ public class GenericPropertyUtil_Stub01 {
 
     /**
      * map3を取得する。
-     *
      * @return map3
      */
     public Map<?, ?> getMap3() {
@@ -98,17 +94,14 @@ public class GenericPropertyUtil_Stub01 {
 
     /**
      * list4を取得する。
-     *
      * @return list4
      */
-    @SuppressWarnings("unchecked")
-    public List getList4() {
+    public List<?> getList4() {
         return this.list4;
     }
 
     /**
      * list5を取得する。
-     *
      * @return list5
      */
     public List<?> getList5() {
@@ -117,7 +110,6 @@ public class GenericPropertyUtil_Stub01 {
 
     /**
      * integerを取得する。
-     *
      * @return integer
      */
     public int getInteger() {
@@ -126,7 +118,6 @@ public class GenericPropertyUtil_Stub01 {
 
     /**
      * objectを取得する。
-     *
      * @return object
      */
     public Object getObject() {

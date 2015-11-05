@@ -65,7 +65,7 @@ public class ConvertUtil {
         } else if (obj.getClass().isArray()) {
             return (Object[]) obj;
         } else if (obj instanceof Collection) {
-            return ((Collection) obj).toArray();
+            return ((Collection<?>) obj).toArray();
         }
         return new Object[]{ obj };
     }
@@ -217,7 +217,7 @@ public class ConvertUtil {
         if (value == null) {
             return value;
         }
-        Class type = value.getClass().getComponentType();
+        Class<?> type = value.getClass().getComponentType();
         
         // valueが配列型ではない場合
         if (type == null) {
@@ -295,7 +295,7 @@ public class ConvertUtil {
             
             Map<String, Object> map = null;
             if (object instanceof Map) {
-                map = (Map) object;
+                map = (Map<String, Object>) object;
             } else {
                 try {
                     map = PropertyUtils.describe(object);

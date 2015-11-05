@@ -2,7 +2,7 @@ package jp.terasoluna.fw.batch.executor;
 
 import org.springframework.beans.factory.FactoryBean;
 
-public class NullFactoryBean implements FactoryBean {
+public class NullFactoryBean implements FactoryBean<Object> {
 
     public Object getObject() throws Exception {
         return null;

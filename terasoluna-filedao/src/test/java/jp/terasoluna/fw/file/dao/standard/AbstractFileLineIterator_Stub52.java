@@ -19,7 +19,6 @@ import jp.terasoluna.fw.file.annotation.InputFileColumn;
 @FileFormat()
 public class AbstractFileLineIterator_Stub52 {
 
-    @SuppressWarnings("unused")
     @InputFileColumn(columnIndex = 0)
     private String column1 = null;
 

@@ -41,6 +41,7 @@ public class UTUtil {
      * Map map = (Map) list.get(0);
      * UTUtil.assertEqualsDate(&quot;2003-01-01&quot;, map.get(&quot;C_REGIST_DATE&quot;));
      * </pre>
+     * 
      * @param expected 期待値
      * @param actual 実際の値
      */
@@ -76,6 +77,7 @@ public class UTUtil {
      * Map map = (Map) list.get(0);
      * UTUtil.assertEqualsDate(&quot;12:34:56&quot;, map.get(&quot;C_UPDATE_TIME&quot;));
      * </pre>
+     * 
      * @param expected 期待値
      * @param actual 実際の値
      */
@@ -112,6 +114,7 @@ public class UTUtil {
      * UTUtil.assertEqualsDateTime(&quot;2003-01-01 12:00:05&quot;,
      *     map.get(&quot;C_UPDATE_DATE&quot;));
      * </pre>
+     * 
      * @param expected 期待値
      * @param actual 実際の値
      */
@@ -146,6 +149,7 @@ public class UTUtil {
      * Map map = (Map) list.get(0);
      * UTUtil.assertEqualsToday(map.get(&quot;C_UPDATE_DATE&quot;));
      * </pre>
+     * 
      * @param actual 実際の値
      */
     public static void assertEqualsToday(Object actual) {
@@ -184,6 +188,7 @@ public class UTUtil {
      *     }
      * }
      * </pre>
+     * 
      * @param expected 期待値のファイル
      * @param actual 実際の値のファイル
      */
@@ -222,12 +227,12 @@ public class UTUtil {
      *     }
      * }
      * </pre>
+     * 
      * @param cls テストクラスのClassオブジェクト
      * @param filename ファイル名
      * @return 指定されたファイル名のFileオブジェクト。 ファイルが存在しない場合はnullを返す。
      */
-    @SuppressWarnings("unchecked")
-    public static File getFile(Class cls, String filename) {
+    public static File getFile(Class<?> cls, String filename) {
 
         // ファイル名がヌル、空文字列の場合はヌルを返す。
         if ((filename == null) || ("".equals(filename))) {
@@ -277,6 +282,7 @@ public class UTUtil {
      *     }
      * }
      * </pre>
+     * 
      * @param instance テストクラスのインスタンス
      * @param filename ファイル名
      * @return 指定されたファイル名のFileオブジェクト。 ファイルが存在しない場合はnullを返す。
@@ -311,6 +317,7 @@ public class UTUtil {
      *     }
      * }
      * </pre>
+     * 
      * @param target 呼び出す対象のオブジェクト
      * @param methodName 呼び出したいメソッドの名前
      * @param argTypes 引数の型の配列
@@ -318,9 +325,9 @@ public class UTUtil {
      * @return メソッドの戻り値。呼び出し側でダウンキャストが必要。 int, boolean等の基本データ型は、Integer, Boolean等の ラッパークラスに格納されて値が戻される。
      * @throws Exception
      */
-    @SuppressWarnings("unchecked")
     public static Object invokePrivate(Object target, String methodName,
-            Class[] argTypes, Object[] args) throws Exception {
+            @SuppressWarnings("rawtypes") Class[] argTypes,
+            Object[] args) throws Exception {
 
         return PrivateAccessUtil.invokePrivate(target, methodName, argTypes,
                 args);
@@ -346,13 +353,14 @@ public class UTUtil {
      *     }
      * }
      * </pre>
+     * 
      * @param target 呼び出す対象のオブジェクト
      * @param methodName 呼び出したいメソッドの名前
      * @return メソッドの戻り値。呼び出し側でダウンキャストが必要。 int, boolean等の基本データ型は、Integer, Boolean等の ラッパークラスに格納されて値が戻される。
      * @throws Exception
      */
-    public static Object invokePrivate(Object target, String methodName)
-                                                                        throws Exception {
+    public static Object invokePrivate(Object target,
+            String methodName) throws Exception {
 
         return invokePrivate(target, methodName, new Class[] {},
                 new Object[] {});
@@ -378,6 +386,7 @@ public class UTUtil {
      *     }
      * }
      * </pre>
+     * 
      * @param target 呼び出す対象のオブジェクト
      * @param methodName 呼び出したいメソッドの名前
      * @param argType 引数の型
@@ -385,9 +394,8 @@ public class UTUtil {
      * @return メソッドの戻り値。呼び出し側でダウンキャストが必要。 int, boolean等の基本データ型は、Integer, Boolean等の ラッパークラスに格納されて値が戻される。
      * @throws Exception
      */
-    @SuppressWarnings("unchecked")
     public static Object invokePrivate(Object target, String methodName,
-            Class argType, Object arg) throws Exception {
+            Class<?> argType, Object arg) throws Exception {
 
         return invokePrivate(target, methodName, new Class[] { argType },
                 new Object[] { arg });
@@ -419,6 +427,7 @@ public class UTUtil {
      *     }
      * }
      * </pre>
+     * 
      * @param target 呼び出す対象のオブジェクト
      * @param methodName 呼び出したいメソッドの名前
      * @param argType1 第一引数の型
@@ -428,10 +437,9 @@ public class UTUtil {
      * @return メソッドの戻り値。呼び出し側でダウンキャストが必要。 int, boolean等の基本データ型は、Integer, Boolean等の ラッパークラスに格納されて値が戻される。
      * @throws Exception
      */
-    @SuppressWarnings("unchecked")
     public static Object invokePrivate(Object target, String methodName,
-            Class argType1, Class argType2, Object arg1, Object arg2)
-                                                                     throws Exception {
+            Class<?> argType1, Class<?> argType2, Object arg1,
+            Object arg2) throws Exception {
 
         return invokePrivate(target, methodName, new Class[] { argType1,
                 argType2 }, new Object[] { arg1, arg2 });
@@ -463,6 +471,7 @@ public class UTUtil {
      *     }
      * }
      * </pre>
+     * 
      * @param target 呼び出す対象のクラス
      * @param methodName 呼び出したいメソッドの名前
      * @param argTypes 引数の型の配列
@@ -470,9 +479,9 @@ public class UTUtil {
      * @return メソッドの戻り値。呼び出し側でダウンキャストが必要。 int, boolean等の基本データ型は、Integer, Boolean等の ラッパークラスに格納されて値が戻される。
      * @throws Exception
      */
-    @SuppressWarnings("unchecked")
-    public static Object invokePrivate(Class target, String methodName,
-            Class[] argTypes, Object[] args) throws Exception {
+    public static Object invokePrivate(Class<?> target, String methodName,
+            @SuppressWarnings("rawtypes") Class[] argTypes,
+            Object[] args) throws Exception {
 
         return PrivateAccessUtil.invokePrivate(target, methodName, argTypes,
                 args);
@@ -497,14 +506,14 @@ public class UTUtil {
      *     }
      * }
      * </pre>
+     * 
      * @param target 呼び出す対象のクラス
      * @param methodName 呼び出したいメソッドの名前
      * @return メソッドの戻り値。呼び出し側でダウンキャストが必要。 int, boolean等の基本データ型は、Integer, Boolean等の ラッパークラスに格納されて値が戻される。
      * @throws Exception
      */
-    @SuppressWarnings("unchecked")
-    public static Object invokePrivate(Class target, String methodName)
-                                                                       throws Exception {
+    public static Object invokePrivate(Class<?> target,
+            String methodName) throws Exception {
 
         return invokePrivate(target, methodName, new Class[] {},
                 new Object[] {});
@@ -529,6 +538,7 @@ public class UTUtil {
      *     }
      * }
      * </pre>
+     * 
      * @param target 呼び出す対象のクラス
      * @param methodName 呼び出したいメソッドの名前
      * @param argType 引数の型
@@ -536,9 +546,8 @@ public class UTUtil {
      * @return メソッドの戻り値。呼び出し側でダウンキャストが必要。 int, boolean等の基本データ型は、Integer, Boolean等の ラッパークラスに格納されて値が戻される。
      * @throws Exception
      */
-    @SuppressWarnings("unchecked")
-    public static Object invokePrivate(Class target, String methodName,
-            Class argType, Object arg) throws Exception {
+    public static Object invokePrivate(Class<?> target, String methodName,
+            Class<?> argType, Object arg) throws Exception {
 
         return invokePrivate(target, methodName, new Class[] { argType },
                 new Object[] { arg });
@@ -569,6 +578,7 @@ public class UTUtil {
      *     }
      * }
      * </pre>
+     * 
      * @param target 呼び出す対象のクラス
      * @param methodName 呼び出したいメソッドの名前
      * @param argType1 第一引数の型
@@ -578,10 +588,9 @@ public class UTUtil {
      * @return メソッドの戻り値。呼び出し側でダウンキャストが必要。 int, boolean等の基本データ型は、Integer, Boolean等の ラッパークラスに格納されて値が戻される。
      * @throws Exception
      */
-    @SuppressWarnings("unchecked")
-    public static Object invokePrivate(Class target, String methodName,
-            Class argType1, Class argType2, Object arg1, Object arg2)
-                                                                     throws Exception {
+    public static Object invokePrivate(Class<?> target, String methodName,
+            Class<?> argType1, Class<?> argType2, Object arg1,
+            Object arg2) throws Exception {
 
         return invokePrivate(target, methodName, new Class[] { argType1,
                 argType2 }, new Object[] { arg1, arg2 });
@@ -594,9 +603,8 @@ public class UTUtil {
      * @return privateフィールドの値
      * @exception NoSuchFieldException
      */
-    @SuppressWarnings("unchecked")
-    public static Object getField(Object target, String fieldName)
-                                                                  throws NoSuchFieldException {
+    public static Object getField(Object target,
+            String fieldName) throws NoSuchFieldException {
 
         // パラメータ値のチェック
         if (target == null) {
@@ -608,7 +616,7 @@ public class UTUtil {
 
         // privateフィールド取得処理。
         // スーパークラス全てについて呼び出しをトライする。
-        for (Class c = target.getClass(); c != null; c = c.getSuperclass()) {
+        for (Class<?> c = target.getClass(); c != null; c = c.getSuperclass()) {
             try {
                 Field field = c.getDeclaredField(fieldName);
                 field.setAccessible(true);
@@ -619,8 +627,8 @@ public class UTUtil {
             }
         }
         // 取得しようとしたフィールドが存在しなかった場合
-        throw new NoSuchFieldException("Could get value for field "
-                + target.getClass().getName() + "." + fieldName);
+        throw new NoSuchFieldException("Could get value for field " + target
+                .getClass().getName() + "." + fieldName);
     }
 
     /**
@@ -630,9 +638,8 @@ public class UTUtil {
      * @return privateフィールドの値
      * @exception NoSuchFieldException
      */
-    @SuppressWarnings("unchecked")
-    public static Object getField(Class target, String fieldName)
-                                                                 throws NoSuchFieldException {
+    public static Object getField(Class<?> target,
+            String fieldName) throws NoSuchFieldException {
 
         // パラメータ値のチェック
         if (target == null) {
@@ -644,7 +651,7 @@ public class UTUtil {
 
         // privateフィールド取得処理。
         // スーパークラス全てについて呼び出しをトライする。
-        Class c = target;
+        Class<?> c = target;
         while (c != null) {
             try {
                 Field field = c.getDeclaredField(fieldName);
@@ -657,8 +664,8 @@ public class UTUtil {
             c = c.getSuperclass();
         }
         // 取得しようとしたフィールドが存在しなかった場合
-        throw new NoSuchFieldException("Could get value for field "
-                + target.getName() + "." + fieldName);
+        throw new NoSuchFieldException("Could get value for field " + target
+                .getName() + "." + fieldName);
     }
 
     /**
@@ -668,9 +675,8 @@ public class UTUtil {
      * @param value 設定する値。 int,boolean等の基本データ型は、Integer, Boolean等のラッパークラスに 格納して値を渡す必要あり。
      * @exception NoSuchFieldException
      */
-    @SuppressWarnings("unchecked")
-    public static void setField(Object target, String fieldName, Object value)
-                                                                              throws NoSuchFieldException {
+    public static void setField(Object target, String fieldName,
+            Object value) throws NoSuchFieldException {
 
         // パラメータ値のチェック
         if (target == null) {
@@ -682,7 +688,7 @@ public class UTUtil {
 
         // privateフィールド設定処理。
         // スーパークラス全てについて呼び出しをトライする。
-        for (Class c = target.getClass(); c != null; c = c.getSuperclass()) {
+        for (Class<?> c = target.getClass(); c != null; c = c.getSuperclass()) {
             try {
                 Field field = c.getDeclaredField(fieldName);
                 field.setAccessible(true);
@@ -694,8 +700,8 @@ public class UTUtil {
             }
         }
         // 設定しようとしたフィールドが存在しなかった場合
-        throw new NoSuchFieldException("Could set value for field "
-                + target.getClass().getName() + "." + fieldName);
+        throw new NoSuchFieldException("Could set value for field " + target
+                .getClass().getName() + "." + fieldName);
     }
 
     /**
@@ -705,9 +711,8 @@ public class UTUtil {
      * @param value 設定する値。 int,boolean等の基本データ型は、Integer, Boolean等のラッパークラスに 格納して値を渡す必要あり。
      * @exception NoSuchFieldException
      */
-    @SuppressWarnings("unchecked")
-    public static void setField(Class target, String fieldName, Object value)
-                                                                             throws NoSuchFieldException {
+    public static void setField(Class<?> target, String fieldName,
+            Object value) throws NoSuchFieldException {
 
         // パラメータ値のチェック
         if (target == null) {
@@ -717,7 +722,7 @@ public class UTUtil {
             throw new IllegalArgumentException();
         }
 
-        Class c = target;
+        Class<?> c = target;
         while (c != null) {
             try {
                 Field field = c.getDeclaredField(fieldName);

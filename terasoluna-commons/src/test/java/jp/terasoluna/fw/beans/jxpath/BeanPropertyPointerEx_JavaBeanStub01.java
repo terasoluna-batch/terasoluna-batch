@@ -31,7 +31,8 @@ public class BeanPropertyPointerEx_JavaBeanStub01 implements Serializable {
     private static final long serialVersionUID = 3092857648272149366L;
     
     private String property = "";
-    private List listProperty = new ArrayList();
+
+    private List<?> listProperty = new ArrayList<Object>();
 
     /**
      * propertyを取得する。
@@ -53,7 +54,7 @@ public class BeanPropertyPointerEx_JavaBeanStub01 implements Serializable {
      * listPropertyを取得する。
      * @return listProperty
      */
-    public List getListProperty() {
+    public List<?> getListProperty() {
         return listProperty;
     }
 
@@ -61,7 +62,7 @@ public class BeanPropertyPointerEx_JavaBeanStub01 implements Serializable {
      * listPropertyを設定する。
      * @param listProperty
      */
-    public void setListProperty(List listProperty) {
+    public void setListProperty(List<?> listProperty) {
         this.listProperty = listProperty;
     }
 }

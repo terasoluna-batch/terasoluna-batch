@@ -155,7 +155,7 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
     /**
      * ファイル行オブジェクトのストリングコンバータを格納するマップ。
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     private static Map<Class, StringConverter> stringConverterCacheMap = new HashMap<Class, StringConverter>();
 
     /**
@@ -206,18 +206,15 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
             Map<String, ColumnFormatter> columnFormatterMap) {
 
         if (fileName == null || "".equals(fileName)) {
-            throw new FileException("fileName is required.",
-                    new IllegalArgumentException(), fileName);
+            throw new FileException("fileName is required.", new IllegalArgumentException(), fileName);
         }
 
         if (clazz == null) {
-            throw new FileException("clazz is required.",
-                    new IllegalArgumentException(), fileName);
+            throw new FileException("clazz is required.", new IllegalArgumentException(), fileName);
         }
 
         if (columnFormatterMap == null || columnFormatterMap.isEmpty()) {
-            throw new FileException("columnFormatterMap is required.",
-                    new IllegalArgumentException(), fileName);
+            throw new FileException("columnFormatterMap is required.", new IllegalArgumentException(), fileName);
         }
 
         this.fileName = fileName;
@@ -231,34 +228,31 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
 
         // @FileFormatが無い場合、例外をスローする。
         if (fileFormat == null) {
-            throw new FileException("FileFormat annotation is not found.",
-                    new IllegalStateException(), fileName);
+            throw new FileException("FileFormat annotation is not found.", new IllegalStateException(), fileName);
         }
 
         // 区切り文字と囲み文字が同じ場合、例外をスローする。
         if (fileFormat.delimiter() == fileFormat.encloseChar()) {
-            throw new FileException(
-                    "Delimiter is the same as EncloseChar and is no use.",
-                    new IllegalStateException(), fileName);
+            throw new FileException("Delimiter is the same as EncloseChar and is no use.", new IllegalStateException(), fileName);
         }
 
         // 文字コードを初期化する。
-        if (fileFormat.fileEncoding() != null
-                && !"".equals(fileFormat.fileEncoding())) {
+        if (fileFormat.fileEncoding() != null && !"".equals(fileFormat
+                .fileEncoding())) {
             this.fileEncoding = fileFormat.fileEncoding();
         }
 
         // 行区切り文字をチェックする。設定がない場合はシステムデフォルト値を利用する。
-        if (fileFormat.lineFeedChar() != null
-                && !"".equals(fileFormat.lineFeedChar())) {
+        if (fileFormat.lineFeedChar() != null && !"".equals(fileFormat
+                .lineFeedChar())) {
             this.lineFeedChar = fileFormat.lineFeedChar();
         }
 
         // 行区切り文字が3文字以上の場合、例外をスローする。
         if (lineFeedChar.length() > 2) {
             throw new FileException("lineFeedChar length must be 1 or 2. but: "
-                    + lineFeedChar.length(), new IllegalStateException(),
-                    fileName);
+                    + lineFeedChar
+                            .length(), new IllegalStateException(), fileName);
         }
     }
 
@@ -285,17 +279,14 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
             if (isCheckEncloseChar()) {
                 // カラムごとの囲み文字が設定されている場合、例外をスローする。
                 if (enclosed) {
-                    throw new FileException(
-                            "columnEncloseChar can not change.",
-                            new IllegalStateException(), fileName);
+                    throw new FileException("columnEncloseChar can not change.", new IllegalStateException(), fileName);
                 }
             }
 
             if (isCheckColumnAnnotationCount()) {
                 // ファイル行オブジェクトにアノテーションが設定されていない場合、例外をスローする。
                 if (fields.length == 0) {
-                    throw new FileException("OutputFileColumn is not found.",
-                            new IllegalStateException(), fileName);
+                    throw new FileException("OutputFileColumn is not found.", new IllegalStateException(), fileName);
                 }
             }
 
@@ -305,15 +296,11 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
             // ファイルオープン
             try {
                 boolean append = !fileFormat.overWriteFlg();
-                writer = new BufferedWriter(new OutputStreamWriter(
-                        (new FileOutputStream(fileName, append)),
-                        fileEncoding));
+                writer = new BufferedWriter(new OutputStreamWriter((new FileOutputStream(fileName, append)), fileEncoding));
             } catch (UnsupportedEncodingException e) {
-                throw new FileException("Failed in generation of writer.", e,
-                        fileName);
+                throw new FileException("Failed in generation of writer.", e, fileName);
             } catch (FileNotFoundException e) {
-                throw new FileException("Failed in generation of writer.", e,
-                        fileName);
+                throw new FileException("Failed in generation of writer.", e, fileName);
             }
             calledInit = true;
         }
@@ -322,12 +309,11 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
     /**
      * ファイル行オブジェクトの属性のフィールドオブジェクトの配列を生成する。
      */
-    @SuppressWarnings("unchecked")
     private void buildFields() {
         List<Field[]> fieldList = new ArrayList<Field[]>();
 
         // フィールドオブジェクトを生成
-        Class tempClass = clazz;
+        Class<?> tempClass = clazz;
         Field[] declaredFieldArray = null;
         int allFieldCount = 0;
         while (tempClass != null) {
@@ -350,27 +336,22 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
                 outputFileColumn = field.getAnnotation(OutputFileColumn.class);
                 if (outputFileColumn != null) {
                     // マッピング可能な型のフィールドなのか確認する。
-                    if (columnFormatterMap.get(field.getType().getName()) == null) {
-                        throw new FileException(
-                                "There is a type which isn't supported in a "
-                                        + "mapping target field in FileLineObject.",
-                                new IllegalStateException(), fileName);
+                    if (columnFormatterMap.get(field.getType()
+                            .getName()) == null) {
+                        throw new FileException("There is a type which isn't supported in a "
+                                + "mapping target field in FileLineObject.", new IllegalStateException(), fileName);
                     }
 
                     columnIndex = outputFileColumn.columnIndex();
                     // カラムIndexがマイナス値なのか確認する。
                     if (columnIndex < 0) {
-                        throw new FileException(
-                                "Column Index in FileLineObject is the minus "
-                                        + "number.",
-                                new IllegalStateException(), fileName);
+                        throw new FileException("Column Index in FileLineObject is the minus "
+                                + "number.", new IllegalStateException(), fileName);
                     }
                     // カラムIndexがフィールド数を超えているかいるか確認する。
                     if (dataColumnFields.length <= columnIndex) {
-                        throw new FileException(
-                                "Column Index in FileLineObject is bigger than "
-                                        + "the total number of the field.",
-                                new IllegalStateException(), fileName);
+                        throw new FileException("Column Index in FileLineObject is bigger than "
+                                + "the total number of the field.", new IllegalStateException(), fileName);
                     }
                     // カラムIndexが重複してないのか確認する。
                     if (dataColumnFields[columnIndex] == null) {
@@ -388,9 +369,7 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
         }
         // columnIndexが連番で定義されているかをチェックする
         if (columnCount != (maxColumnIndex + 1)) {
-            throw new FileException(
-                    "columnIndex in FileLineObject is not sequential order.",
-                    new IllegalStateException(), fileName);
+            throw new FileException("columnIndex in FileLineObject is not sequential order.", new IllegalStateException(), fileName);
         }
 
         // フィールドをコピー(nullの部分削除)
@@ -421,8 +400,8 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
         }
 
         for (int i = 0; i < fields.length; i++) {
-            outputFileColumns[i] = fields[i]
-                    .getAnnotation(OutputFileColumn.class);
+            outputFileColumns[i] = fields[i].getAnnotation(
+                    OutputFileColumn.class);
             columnIndexs[i] = outputFileColumns[i].columnIndex();
             columnFormats[i] = outputFileColumns[i].columnFormat();
             columnBytes[i] = outputFileColumns[i].bytes();
@@ -431,7 +410,8 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
             trimTypes[i] = outputFileColumns[i].trimType();
             trimChars[i] = outputFileColumns[i].trimChar();
             // 囲み文字設定。inputFileColumnsの設定で上書きをする。
-            if (outputFileColumns[i].columnEncloseChar() != Character.MIN_VALUE) {
+            if (outputFileColumns[i]
+                    .columnEncloseChar() != Character.MIN_VALUE) {
                 columnEncloseChar[i] = outputFileColumns[i].columnEncloseChar();
                 enclosed = true;
             }
@@ -462,8 +442,8 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
                 // マップ内に取得した文字変換種別と一致するキーが存在するか判定する。
                 if (stringConverterCacheMap.containsKey(converterKind)) {
                     // マップからオブジェクトを取得し、文字変換種別の配列にセットする。
-                    dataColumnStringConverters[i] = stringConverterCacheMap
-                            .get(converterKind);
+                    dataColumnStringConverters[i] = stringConverterCacheMap.get(
+                            converterKind);
                 } else {
                     // インスタンスを生成し、文字変換種別の配列にセットする。
                     dataColumnStringConverters[i] = converterKind.newInstance();
@@ -472,16 +452,12 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
                 }
 
             } catch (InstantiationException e) {
-                throw new FileLineException(
-                        "Failed in an instantiate of a stringConverter.", e,
-                        fileName, INITIAL_LINE_NO, fields[i].getName(),
-                        outputFileColumn.columnIndex());
+                throw new FileLineException("Failed in an instantiate of a stringConverter.", e, fileName, INITIAL_LINE_NO, fields[i]
+                        .getName(), outputFileColumn.columnIndex());
 
             } catch (IllegalAccessException e) {
-                throw new FileLineException(
-                        "Failed in an instantiate of a stringConverter.", e,
-                        fileName, INITIAL_LINE_NO, fields[i].getName(),
-                        outputFileColumn.columnIndex());
+                throw new FileLineException("Failed in an instantiate of a stringConverter.", e, fileName, INITIAL_LINE_NO, fields[i]
+                        .getName(), outputFileColumn.columnIndex());
             }
         }
         this.stringConverters = dataColumnStringConverters;
@@ -514,12 +490,10 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
 
             // getterのリフレクションオブジェクトを取得する。
             try {
-                dataColumnGetMethods[i] = clazz
-                        .getMethod(getterName.toString());
+                dataColumnGetMethods[i] = clazz.getMethod(getterName
+                        .toString());
             } catch (NoSuchMethodException e) {
-                throw new FileException(
-                        "The getter method of column doesn't exist.", e,
-                        fileName);
+                throw new FileException("The getter method of column doesn't exist.", e, fileName);
             }
         }
         this.methods = dataColumnGetMethods;
@@ -532,8 +506,7 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
     public void printHeaderLine(List<String> headerLine) {
         if (writeData || writeTrailer) {
             throw new FileException("Header part should be called before "
-                    + "data part or trailer part.",
-                    new IllegalStateException(), fileName);
+                    + "data part or trailer part.", new IllegalStateException(), fileName);
         }
         printList(headerLine);
     }
@@ -579,8 +552,7 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
         try {
             getWriter().write(fileLineBuilder.toString());
         } catch (IOException e) {
-            throw new FileException("Processing of writer was failed.", e,
-                    fileName);
+            throw new FileException("Processing of writer was failed.", e, fileName);
         }
         currentLineCount++;
         setWriteData(true);
@@ -605,8 +577,7 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
                 getWriter().write(stringData);
                 getWriter().write(lineFeedChar);
             } catch (IOException e) {
-                throw new FileException("Processing of writer was failed.", e,
-                        fileName);
+                throw new FileException("Processing of writer was failed.", e, fileName);
             }
         }
     }
@@ -619,8 +590,7 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
             getWriter().flush();
             getWriter().close();
         } catch (IOException e) {
-            throw new FileException("Closing of writer was failed.", e,
-                    fileName);
+            throw new FileException("Closing of writer was failed.", e, fileName);
         }
     }
 
@@ -652,17 +622,14 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
             columnString = columnFormatter.format(t, methods[index],
                     columnFormats[index]);
         } catch (IllegalArgumentException e) {
-            throw new FileLineException("Failed in column data formatting.", e,
-                    fileName, currentLineCount + 1, fields[index].getName(),
-                    columnIndexs[index]);
+            throw new FileLineException("Failed in column data formatting.", e, fileName, currentLineCount
+                    + 1, fields[index].getName(), columnIndexs[index]);
         } catch (IllegalAccessException e) {
-            throw new FileLineException("Failed in column data formatting.", e,
-                    fileName, currentLineCount + 1, fields[index].getName(),
-                    columnIndexs[index]);
+            throw new FileLineException("Failed in column data formatting.", e, fileName, currentLineCount
+                    + 1, fields[index].getName(), columnIndexs[index]);
         } catch (InvocationTargetException e) {
-            throw new FileLineException("Failed in column data formatting.", e,
-                    fileName, currentLineCount + 1, fields[index].getName(),
-                    columnIndexs[index]);
+            throw new FileLineException("Failed in column data formatting.", e, fileName, currentLineCount
+                    + 1, fields[index].getName(), columnIndexs[index]);
         }
 
         if (columnString == null) {
@@ -687,24 +654,20 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
                 // 固定長出力時、Bytes値の設定が時の例外
                 if (columnBytes[index] <= 0) {
                     throw new FileLineException("bytes is not set "
-                            + "or a number equal to or less than 0 is set.",
-                            new IllegalStateException(), getFileName(),
-                            currentLineCount + 1, fields[index].getName(),
-                            columnIndexs[index]);
+                            + "or a number equal to or less than 0 is set.", new IllegalStateException(), getFileName(), currentLineCount
+                                    + 1, fields[index]
+                                            .getName(), columnIndexs[index]);
                 }
                 // 設定されたBytes値とデータのサイズが違う場合は例外発生
-                if (columnString.getBytes(fileEncoding).length != columnBytes[index]) {
-                    throw new FileLineException(
-                            "The data size is different from bytes value of "
-                                    + "the set value of the column .",
-                            new IllegalStateException(), fileName,
-                            currentLineCount + 1, fields[index].getName(),
-                            columnIndexs[index]);
+                if (columnString.getBytes(
+                        fileEncoding).length != columnBytes[index]) {
+                    throw new FileLineException("The data size is different from bytes value of "
+                            + "the set value of the column .", new IllegalStateException(), fileName, currentLineCount
+                                    + 1, fields[index]
+                                            .getName(), columnIndexs[index]);
                 }
             } catch (UnsupportedEncodingException e) {
-                throw new FileException(
-                        "fileEncoding which isn't supported was set.", e,
-                        fileName);
+                throw new FileException("fileEncoding which isn't supported was set.", e, fileName);
             }
         }
         return columnString;
@@ -782,8 +745,7 @@ public abstract class AbstractFileLineWriter<T> implements FileLineWriter<T> {
     protected void checkWriteTrailer() {
         if (writeTrailer) {
             throw new FileException("Header part or data part should be "
-                    + "called before TrailerPart", new IllegalStateException(),
-                    fileName);
+                    + "called before TrailerPart", new IllegalStateException(), fileName);
         }
     }
 

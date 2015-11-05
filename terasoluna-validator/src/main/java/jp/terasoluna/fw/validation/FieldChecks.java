@@ -1824,7 +1824,7 @@ public class FieldChecks {
         }
 
         try {
-            Class type =
+            Class<?> type =
                 BeanUtil.getBeanPropertyType(bean, field.getProperty());
             if (type == null) {
                 String message = "Cannot get property type[" +
@@ -2273,6 +2273,7 @@ public class FieldChecks {
             throw new ValidatorException("validation target bean is null.");
         }
 
+        @SuppressWarnings("rawtypes")
         Class[] paramClass = null;  // 検証メソッドの引数の型
         Method method = null;       // 検証メソッド
         try {
@@ -2356,6 +2357,7 @@ public class FieldChecks {
      * @param va Validatorにより用意されたValidatorAction
      * @return 引数クラス配列
      */
+    @SuppressWarnings("rawtypes")
     protected Class[] getParamClass(ValidatorAction va) {
 
         StringTokenizer st = new StringTokenizer(va.getMethodParams(), ",");
@@ -2380,7 +2382,7 @@ public class FieldChecks {
      * @return 検証メソッド
      */
     protected Method getMethod(
-            ValidatorAction va, Class[] paramClass) {
+            ValidatorAction va, @SuppressWarnings("rawtypes") Class[] paramClass) {
 
         String methodNameSource = va.getName();
         if (methodNameSource == null || "".equals(methodNameSource)) {

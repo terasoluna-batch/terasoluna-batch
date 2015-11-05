@@ -13,13 +13,19 @@ import jp.terasoluna.fw.batch.executor.vo.*;
 public class MockSystemDao implements SystemDao{
 
     public List<BatchJobListResult> selectJobList(BatchJobListParam batchJobListParam) {
-        return new ArrayList<BatchJobListResult>(){{
+        return new ArrayList<BatchJobListResult>(){
+            private static final long serialVersionUID = 1L;
+
+        {
             add(new BatchJobListResult());
         }};
     }
 
     public List<BatchJobListResult> selectJobList(RowBounds rowBounds, BatchJobListParam batchJobListParam) {
-        return new ArrayList<BatchJobListResult>(){{
+        return new ArrayList<BatchJobListResult>(){
+            private static final long serialVersionUID = 1L;
+
+        {
             add(new BatchJobListResult());
         }};
     }

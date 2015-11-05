@@ -26,18 +26,21 @@ public class FileCollector011Test extends DaoTestCase {
         this.csvFileQueryDAO = csvFileQueryDAO;
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     protected void onSetUpBeforeTransaction() throws Exception {
         FileCollector.setVerbose(false);
         super.onSetUpBeforeTransaction();
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     protected void onTearDownAfterTransaction() throws Exception {
         FileCollector.setVerbose(false);
         super.onTearDownAfterTransaction();
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     protected void onSetUp() throws Exception {
         if (logger.isInfoEnabled()) {
@@ -91,12 +94,14 @@ public class FileCollector011Test extends DaoTestCase {
                 this.csvFileQueryDAO, url.getPath(), B000001Data.class);
         config.addExecuteByConstructor(true);
 
+        @SuppressWarnings("resource")
         Collector<B000001Data> it = new FileCollector<B000001Data>(config);
 
         try {
             // it = ac.execute();
 
-            for (B000001Data data : it) {
+            while (it.hasNext()) {
+                it.next();
                 // あえて途中で抜ける
                 break;
             }
@@ -136,9 +141,9 @@ public class FileCollector011Test extends DaoTestCase {
         try {
             // it = ac.execute();
 
-            for (B000001Data data : it) {
+            while (it.hasNext()) {
+                it.next();
                 count_first++;
-
             }
         } finally {
             // クローズ

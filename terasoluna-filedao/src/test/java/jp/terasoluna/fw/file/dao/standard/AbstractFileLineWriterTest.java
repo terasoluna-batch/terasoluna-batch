@@ -977,7 +977,6 @@ public class AbstractFileLineWriterTest<T> {
      * また、書き込み対象ファイルの情報が削除されていることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
     @Test
     public void testInit02() throws Exception {
         // 前処理(引数)
@@ -1076,7 +1075,6 @@ public class AbstractFileLineWriterTest<T> {
      * また、書き込み対象ファイルの情報が削除されないことを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
     @Test
     public void testInit03() throws Exception {
         // 前処理(引数)
@@ -1354,7 +1352,8 @@ public class AbstractFileLineWriterTest<T> {
         ReflectionTestUtils.setField(fileLineWriter, "fields", null);
 
         // テスト実施
-        ReflectionTestUtils.invokeMethod(fileLineWriter, "buildFields", null);
+        ReflectionTestUtils.invokeMethod(fileLineWriter, "buildFields",
+                (Object[]) null);
 
         // 判定(状態変化、フィールド)
         Field[] resultFields = (Field[]) ReflectionTestUtils.getField(
@@ -1408,7 +1407,7 @@ public class AbstractFileLineWriterTest<T> {
         Method method = AbstractFileLineWriter.class.getDeclaredMethod(
                 "buildFields");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineWriter);
+        method.invoke(fileLineWriter);
 
         // 判定(状態変化、フィールド)
         Field[] resultFields = (Field[]) ReflectionTestUtils.getField(
@@ -1467,7 +1466,7 @@ public class AbstractFileLineWriterTest<T> {
         Method method = AbstractFileLineWriter.class.getDeclaredMethod(
                 "buildFields");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineWriter);
+        method.invoke(fileLineWriter);
 
         // 判定(状態変化、フィールド)
         Field[] resultFields = (Field[]) ReflectionTestUtils.getField(
@@ -1526,7 +1525,7 @@ public class AbstractFileLineWriterTest<T> {
         Method method = AbstractFileLineWriter.class.getDeclaredMethod(
                 "buildFields");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineWriter);
+        method.invoke(fileLineWriter);
 
         // 判定(状態変化、フィールド)
         Field[] resultFields = (Field[]) ReflectionTestUtils.getField(
@@ -1589,7 +1588,7 @@ public class AbstractFileLineWriterTest<T> {
         Method method = AbstractFileLineWriter.class.getDeclaredMethod(
                 "buildFields");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineWriter);
+        method.invoke(fileLineWriter);
 
         // 判定(状態変化、フィールド)
         Field[] resultFields = (Field[]) ReflectionTestUtils.getField(
@@ -1661,7 +1660,7 @@ public class AbstractFileLineWriterTest<T> {
         Method method = AbstractFileLineWriter.class.getDeclaredMethod(
                 "buildFields");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineWriter);
+        method.invoke(fileLineWriter);
 
         // 判定(状態変化、フィールド)
         Field[] resultFields = (Field[]) ReflectionTestUtils.getField(
@@ -1818,7 +1817,7 @@ public class AbstractFileLineWriterTest<T> {
         Method method = AbstractFileLineWriter.class.getDeclaredMethod(
                 "buildFields");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineWriter);
+        method.invoke(fileLineWriter);
 
         // 判定(状態変化、フィールド)
         Field[] resultFields = (Field[]) ReflectionTestUtils.getField(
@@ -2130,7 +2129,7 @@ public class AbstractFileLineWriterTest<T> {
         Method method = AbstractFileLineWriter.class.getDeclaredMethod(
                 "buildFields");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineWriter);
+        method.invoke(fileLineWriter);
 
         // 判定(状態変化、フィールド)
         Field[] resultFields = (Field[]) ReflectionTestUtils.getField(
@@ -2253,7 +2252,7 @@ public class AbstractFileLineWriterTest<T> {
      * @throws Exception このメソッドで発生した例外
      */
 
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     @Test
     public void testBuildStringConverters01() throws Exception {
         // 前処理(試験対象)
@@ -2268,7 +2267,7 @@ public class AbstractFileLineWriterTest<T> {
         Method method = AbstractFileLineWriter.class.getDeclaredMethod(
                 "buildFields");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineWriter);
+        method.invoke(fileLineWriter);
 
         // 前処理(フィールド)
         Map<Class, StringConverter> preStringConverterCacheMap = new HashMap<Class, StringConverter>();
@@ -2342,7 +2341,7 @@ public class AbstractFileLineWriterTest<T> {
      * @throws Exception このメソッドで発生した例外
      */
 
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     @Test
     public void testBuildStringConverters02() throws Exception {
         // 前処理(試験対象)
@@ -2358,7 +2357,7 @@ public class AbstractFileLineWriterTest<T> {
         Method method = AbstractFileLineWriter.class.getDeclaredMethod(
                 "buildFields");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineWriter);
+        method.invoke(fileLineWriter);
 
         // 前処理(フィールド)
         Map<Class, StringConverter> preStringConverterCacheMap = new HashMap<Class, StringConverter>();
@@ -2447,7 +2446,7 @@ public class AbstractFileLineWriterTest<T> {
      * @throws Exception このメソッドで発生した例外
      */
 
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     @Test
     public void testBuildStringConverters03() throws Exception {
         // 前処理(試験対象)
@@ -2463,7 +2462,7 @@ public class AbstractFileLineWriterTest<T> {
         Method method = AbstractFileLineWriter.class.getDeclaredMethod(
                 "buildFields");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineWriter);
+        method.invoke(fileLineWriter);
 
         // 前処理(フィールド)
         Map<Class, StringConverter> preStringConverterCacheMap = new HashMap<Class, StringConverter>();
@@ -2588,7 +2587,7 @@ public class AbstractFileLineWriterTest<T> {
      * @throws Exception このメソッドで発生した例外
      */
 
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     @Test
     public void testBuildStringConverters04() throws Exception {
         // 前処理(試験対象)
@@ -2604,7 +2603,7 @@ public class AbstractFileLineWriterTest<T> {
         Method method = AbstractFileLineWriter.class.getDeclaredMethod(
                 "buildFields");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineWriter);
+        method.invoke(fileLineWriter);
 
         // 前処理(フィールド)
         Map<Class, StringConverter> preStringConverterCacheMap = new HashMap<Class, StringConverter>();
@@ -2717,7 +2716,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         指定したStringConverterにデフォルトコンストラクタが存在しない場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     @Test
     public void testBuildStringConverters05() throws Exception {
         // 前処理(試験対象)
@@ -2733,7 +2732,7 @@ public class AbstractFileLineWriterTest<T> {
         Method method = AbstractFileLineWriter.class.getDeclaredMethod(
                 "buildFields");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineWriter);
+        method.invoke(fileLineWriter);
 
         // 前処理(フィールド)
         Map<Class, StringConverter> preStringConverterCacheMap = new HashMap<Class, StringConverter>();
@@ -2806,7 +2805,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         指定したStringConverterのデフォルトコンストラクタがprivateで宣言されている場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     @Test
     public void testBuildStringConverters06() throws Exception {
         // 前処理(試験対象)
@@ -2821,7 +2820,7 @@ public class AbstractFileLineWriterTest<T> {
         Method method = AbstractFileLineWriter.class.getDeclaredMethod(
                 "buildFields");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineWriter);
+        method.invoke(fileLineWriter);
 
         // 前処理(フィールド)
         Map<Class, StringConverter> preStringConverterCacheMap = new HashMap<Class, StringConverter>();
@@ -2903,7 +2902,7 @@ public class AbstractFileLineWriterTest<T> {
      * @throws Exception このメソッドで発生した例外
      */
 
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     @Test
     public void testBuildStringConverters07() throws Exception {
         // 前処理(試験対象)
@@ -2918,7 +2917,7 @@ public class AbstractFileLineWriterTest<T> {
         Method method = AbstractFileLineWriter.class.getDeclaredMethod(
                 "buildFields");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineWriter);
+        method.invoke(fileLineWriter);
 
         // 前処理(フィールド)
         Map<Class, StringConverter> preStringConverterCacheMap = new HashMap<Class, StringConverter>();
@@ -2989,7 +2988,7 @@ public class AbstractFileLineWriterTest<T> {
      * ファイル行オブジェクトクラスがフィールドを持たない場合、methods配列が空で初期化されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     @Test
     public void testBuildMethods01() throws Exception {
         // 前処理(試験対象)
@@ -3004,18 +3003,18 @@ public class AbstractFileLineWriterTest<T> {
         Method method = AbstractFileLineWriter.class.getDeclaredMethod(
                 "buildFields");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineWriter);
+        method.invoke(fileLineWriter);
         method = AbstractFileLineWriter.class.getDeclaredMethod(
                 "buildStringConverters");
         method.setAccessible(true);
-        result = method.invoke(fileLineWriter);
+        method.invoke(fileLineWriter);
 
         try {
             // テスト実施
             method = AbstractFileLineWriter.class.getDeclaredMethod(
                     "buildMethods");
             method.setAccessible(true);
-            result = method.invoke(fileLineWriter);
+            method.invoke(fileLineWriter);
             // 判定(状態変化、フィールド)
             Method[] methods = (Method[]) ReflectionTestUtils.getField(
                     fileLineWriter, "methods");
@@ -3060,7 +3059,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         ファイル行オブジェクトクラスが@OutputFileColumn設定ありフィールドを持つ場合、methods配列が正しく初期化されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     @Test
     public void testBuildMethods02() throws Exception {
         // 前処理(試験対象)
@@ -3075,11 +3074,11 @@ public class AbstractFileLineWriterTest<T> {
         Method method = AbstractFileLineWriter.class.getDeclaredMethod(
                 "buildFields");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineWriter);
+        method.invoke(fileLineWriter);
         method = AbstractFileLineWriter.class.getDeclaredMethod(
                 "buildStringConverters");
         method.setAccessible(true);
-        result = method.invoke(fileLineWriter);
+        method.invoke(fileLineWriter);
 
         try {
             // テスト実施
@@ -3135,7 +3134,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         フィールドに対するgetterメソッドがない場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     @Test
     public void testBuildMethods03() throws Exception {
         // 前処理(試験対象)
@@ -3150,11 +3149,11 @@ public class AbstractFileLineWriterTest<T> {
         Method method = AbstractFileLineWriter.class.getDeclaredMethod(
                 "buildFields");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineWriter);
+        method.invoke(fileLineWriter);
         method = AbstractFileLineWriter.class.getDeclaredMethod(
                 "buildStringConverters");
         method.setAccessible(true);
-        result = method.invoke(fileLineWriter);
+        method.invoke(fileLineWriter);
 
         try {
             // テスト実施
@@ -3227,7 +3226,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         ファイル行オブジェクトクラスが@OutputFileColumn設定ありフィールドを持つ場合、methods配列が正しく初期化されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     @Test
     public void testBuildMethods04() throws Exception {
         // 前処理(試験対象)
@@ -3242,11 +3241,11 @@ public class AbstractFileLineWriterTest<T> {
         Method method = AbstractFileLineWriter.class.getDeclaredMethod(
                 "buildFields");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineWriter);
+        method.invoke(fileLineWriter);
         method = AbstractFileLineWriter.class.getDeclaredMethod(
                 "buildStringConverters");
         method.setAccessible(true);
-        result = method.invoke(fileLineWriter);
+        method.invoke(fileLineWriter);
 
         try {
             // テスト実施
@@ -3331,7 +3330,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         ファイル行オブジェクトクラスが@OutputFileColumn設定ありフィールドを持つ場合、methods配列が正しく初期化されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     @Test
     public void testBuildMethods05() throws Exception {
         // 前処理(試験対象)
@@ -3346,11 +3345,11 @@ public class AbstractFileLineWriterTest<T> {
         Method method = AbstractFileLineWriter.class.getDeclaredMethod(
                 "buildFields");
         method.setAccessible(true);
-        Object result = method.invoke(fileLineWriter);
+        method.invoke(fileLineWriter);
         method = AbstractFileLineWriter.class.getDeclaredMethod(
                 "buildStringConverters");
         method.setAccessible(true);
-        result = method.invoke(fileLineWriter);
+        method.invoke(fileLineWriter);
 
         try {
             // テスト実施
@@ -3401,7 +3400,7 @@ public class AbstractFileLineWriterTest<T> {
      * データ部とトレイラ部の書き込み処理を行う前に実行された場合、対象Listの出力処理を行うことを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     @Test
     public void testPrintHeaderLine01() throws Exception {
         // 前処理(試験対象)
@@ -3476,7 +3475,7 @@ public class AbstractFileLineWriterTest<T> {
      * ヘッダ行を出力する前にトレイラ行が出力されていた場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     @Test
     public void testPrintHeaderLine02() throws Exception {
         // 前処理(試験対象)
@@ -3556,7 +3555,7 @@ public class AbstractFileLineWriterTest<T> {
      * ヘッダ行を出力する前にデータ行が出力されていた場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     @Test
     public void testPrintHeaderLine03() throws Exception {
         // 前処理(試験対象)
@@ -3660,7 +3659,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         トレイラ部の出力が既に完了されている場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     @Test
     public void testPrintDataLine01() throws Exception {
 
@@ -3792,7 +3791,7 @@ public class AbstractFileLineWriterTest<T> {
      * 出力対象のフィールドがない場合、行区切り文字のみファイルに出力されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     @Test
     public void testPrintDataLine02() throws Exception {
         // 前処理(ファイル)
@@ -3918,7 +3917,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         出力対象のフィールドが１つある場合、出力対象フィールドの情報が出力されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     @Test
     public void testPrintDataLine03() throws Exception {
         // 前処理(ファイル)
@@ -4072,7 +4071,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         出力対象のフィールドが3つある場合、全出力対象フィールドの情報とその間に区切り文字が出力されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     @Test
     public void testPrintDataLine04() throws Exception {
         // 前処理(ファイル)
@@ -4222,7 +4221,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         ファイル書き込み用のwriterが既にクローズされた場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     @Test
     public void testPrintDataLine05() throws Exception {
         // 前処理(ファイル)
@@ -4357,7 +4356,7 @@ public class AbstractFileLineWriterTest<T> {
      * 出力対象のフィールドがない場合、行区切り文字のみファイルに出力されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     @Test
     public void testPrintDataLine06() throws Exception {
         // 前処理(ファイル)
@@ -4485,7 +4484,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         出力対象のフィールドが１つある場合、囲み文字に囲まれた出力対象フィールドの情報が出力されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     @Test
     public void testPrintDataLine07() throws Exception {
         // 前処理(ファイル)
@@ -4632,7 +4631,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         出力対象のフィールドが3つある場合、囲み文字に囲まれた全出力対象フィールドの情報とその間に区切り文字が出力されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     @Test
     public void testPrintDataLine08() throws Exception {
         // 前処理(ファイル)
@@ -4772,7 +4771,7 @@ public class AbstractFileLineWriterTest<T> {
      * 出力対象のフィールドがない場合、行区切り文字のみファイルに出力されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     @Test
     public void testPrintDataLine09() throws Exception {
         // 前処理(ファイル)
@@ -4899,7 +4898,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         出力対象のフィールドが１つある場合、出力対象フィールドの情報が出力されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     @Test
     public void testPrintDataLine10() throws Exception {
         // 前処理(ファイル)
@@ -5043,7 +5042,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         出力対象のフィールドが3つある場合、全出力対象フィールドの情報とその間に区切り文字が出力されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     @Test
     public void testPrintDataLine11() throws Exception {
         // 前処理(ファイル)
@@ -5187,7 +5186,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         getWriter()の結果がnullの場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     @Test
     public void testPrintDataLine12() throws Exception {
         // 前処理(ファイル)
@@ -5320,7 +5319,7 @@ public class AbstractFileLineWriterTest<T> {
      * 出力対象のフィールドがない場合、行区切り文字のみファイルに出力されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     @Test
     public void testPrintDataLine13() throws Exception {
         // 前処理(ファイル)
@@ -5449,7 +5448,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         出力対象のフィールドが１つある場合、囲み文字に囲まれた出力対象フィールドの情報のみ出力されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     @Test
     public void testPrintDataLine14() throws Exception {
         // 前処理(ファイル)
@@ -5595,7 +5594,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         出力対象のフィールドが3つある場合、囲み文字に囲まれた全出力対象フィールドの情報が出力されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     @Test
     public void testPrintDataLine15() throws Exception {
         // 前処理(ファイル)
@@ -5734,7 +5733,7 @@ public class AbstractFileLineWriterTest<T> {
      * 出力対象のフィールドがない場合、行区切り文字のみファイルに出力されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     @Test
     public void testPrintDataLine16() throws Exception {
         // 前処理(ファイル)
@@ -5865,7 +5864,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         出力対象のフィールドが１つある場合、出力対象フィールドの情報が出力されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     @Test
     public void testPrintDataLine17() throws Exception {
         // 前処理(ファイル)
@@ -6015,7 +6014,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         出力対象のフィールドが3つある場合、全出力対象フィールドの情報が出力されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     @Test
     public void testPrintDataLine18() throws Exception {
         // 前処理(ファイル)
@@ -6134,7 +6133,7 @@ public class AbstractFileLineWriterTest<T> {
      * 対象データの出力処理が行われることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     @Test
     public void testPrintTrailerLine01() throws Exception {
         // 前処理(試験対象)
@@ -6212,7 +6211,7 @@ public class AbstractFileLineWriterTest<T> {
      * writerが既にクローズされている場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     @Test
     public void testPrintList01() throws Exception {
         // 前処理(ファイル)
@@ -6250,8 +6249,7 @@ public class AbstractFileLineWriterTest<T> {
             Method method = AbstractFileLineWriter.class.getDeclaredMethod(
                     "printList", new Class[] { List.class });
             method.setAccessible(true);
-            Object result = method.invoke(fileLineWriter, new Object[] {
-                    stringList });
+            method.invoke(fileLineWriter, new Object[] { stringList });
 
             fail("FileExceptionが発生しませんでした。");
         } catch (InvocationTargetException e) {
@@ -6319,7 +6317,7 @@ public class AbstractFileLineWriterTest<T> {
      * 出力対象データがない場合、何も出力されないことを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     @Test
     public void testPrintList02() throws Exception {
         // 前処理(ファイル)
@@ -6352,8 +6350,7 @@ public class AbstractFileLineWriterTest<T> {
             Method method = AbstractFileLineWriter.class.getDeclaredMethod(
                     "printList", new Class[] { List.class });
             method.setAccessible(true);
-            Object result = method.invoke(fileLineWriter, new Object[] {
-                    stringList });
+            method.invoke(fileLineWriter, new Object[] { stringList });
 
             // 判定(状態変化、メソッド)
             // writerをモック化するとテスト対象外の箇所で挙動が変わりテスト実施不可となる。
@@ -6410,7 +6407,7 @@ public class AbstractFileLineWriterTest<T> {
      * 出力対象データが１つある場合、そのデータと行区切り文字が出力されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     @Test
     public void testPrintList03() throws Exception {
         // 前処理(ファイル)
@@ -6444,8 +6441,7 @@ public class AbstractFileLineWriterTest<T> {
             Method method = AbstractFileLineWriter.class.getDeclaredMethod(
                     "printList", new Class[] { List.class });
             method.setAccessible(true);
-            Object result = method.invoke(fileLineWriter, new Object[] {
-                    stringList });
+            method.invoke(fileLineWriter, new Object[] { stringList });
 
             // 判定(状態変化、メソッド)
             // writerをモック化するとテスト対象外の箇所で挙動が変わりテスト実施不可となる。
@@ -6513,7 +6509,7 @@ public class AbstractFileLineWriterTest<T> {
      * 出力対象データが3つある場合、そのデータと行区切り文字が出力されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     @Test
     public void testPrintList04() throws Exception {
         // 前処理(ファイル)
@@ -6549,8 +6545,7 @@ public class AbstractFileLineWriterTest<T> {
             Method method = AbstractFileLineWriter.class.getDeclaredMethod(
                     "printList", new Class[] { List.class });
             method.setAccessible(true);
-            Object result = method.invoke(fileLineWriter, new Object[] {
-                    stringList });
+            method.invoke(fileLineWriter, new Object[] { stringList });
 
             // 判定(状態変化、メソッド)
             // writerをモック化するとテスト対象外の箇所で挙動が変わりテスト実施不可となる。
@@ -6632,7 +6627,7 @@ public class AbstractFileLineWriterTest<T> {
      * 引数がnullの場合は例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     @Test
     public void testPrintList05() throws Exception {
         // 前処理(ファイル)
@@ -6665,8 +6660,7 @@ public class AbstractFileLineWriterTest<T> {
             Method method = AbstractFileLineWriter.class.getDeclaredMethod(
                     "printList", new Class[] { List.class });
             method.setAccessible(true);
-            Object result = method.invoke(fileLineWriter, new Object[] {
-                    stringList });
+            method.invoke(fileLineWriter, new Object[] { stringList });
             fail("NullPointerExceptionが発生しませんでした。");
         } catch (InvocationTargetException e) {
             // 判定(例外)
@@ -6733,7 +6727,7 @@ public class AbstractFileLineWriterTest<T> {
      * writerが既にクローズされている場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     @Test
     public void testCloseFile01() throws Exception {
         // 前処理(ファイル)
@@ -6821,7 +6815,7 @@ public class AbstractFileLineWriterTest<T> {
      * writerに設定された全ての情報がファイルに出力されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     @Test
     public void testCloseFile02() throws Exception {
         // 前処理(ファイル)
@@ -6959,7 +6953,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         ファイル行オブジェクトからデータを取得する処理でIlleageAccessExceptionが発生した場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     @Test
     public void testGetColumn01() throws Exception {
         // 前処理(ファイル)
@@ -7129,7 +7123,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         ファイル行オブジェクトからデータを取得する処理でillegalArgumentExceptionが発生した場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     @Test
     public void testGetColumn02() throws Exception {
         // 前処理(ファイル)
@@ -7301,7 +7295,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         ファイル行オブジェクトからデータを取得する処理でInvocationTargetExceptionが発生した場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     @Test
     public void testGetColumn03() throws Exception {
         // 前処理(ファイル)
@@ -7475,7 +7469,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         取得対象フィールド値のバイト数がアノテーションの設定値と異なる場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     @Test
     public void testGetColumn04() throws Exception {
         // 前処理(ファイル)
@@ -7524,13 +7518,9 @@ public class AbstractFileLineWriterTest<T> {
         ArgumentCaptor<PaddingType> paddingPaddingTypeArgumentCaptor = ArgumentCaptor
                 .forClass(PaddingType.class);
 
-        // isCheckByte()
-        ArgumentCaptor<Integer> paddingIsCheckByteIntegerArgumentCaptor = ArgumentCaptor
-                .forClass(Integer.class);
+        ArgumentCaptor.forClass(Integer.class);
 
-        // StringConverter#convert()
-        ArgumentCaptor<String> convertArgumentCaptor = ArgumentCaptor.forClass(
-                String.class);
+        ArgumentCaptor.forClass(String.class);
 
         try {
             fileLineWriter.init();
@@ -7885,7 +7875,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         ColumnFormmater#format()の結果、フィールド値がnullの場合、空文字として処理されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     @Test
     public void testGetColumn06() throws Exception {
         // 前処理(ファイル)
@@ -8083,7 +8073,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         ColumnFormmater#format()の結果、フィールド値が空文字の場合、そのまま処理されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     @Test
     public void testGetColumn07() throws Exception {
         // 前処理(ファイル)
@@ -8280,7 +8270,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         取得対象フィールド値のバイト数がアノテーションの設定値と一致した場合、問題なく処理されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     @Test
     public void testGetColumn09() throws Exception {
         // 前処理(ファイル)
@@ -8480,7 +8470,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         対象フィールドに対してバイト数がマイナス値(デフォルト値など)で設定されていた場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     @Test
     public void testGetColumn10() throws Exception {
         // 前処理(ファイル)
@@ -8687,7 +8677,7 @@ public class AbstractFileLineWriterTest<T> {
      *                         対象フィールドに対してバイト数が0で設定されていた場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     @Test
     public void testGetColumn11() throws Exception {
         // 前処理(ファイル)

@@ -68,6 +68,8 @@ public class BatchJobDataRepositoryImpl implements BatchJobDataRepository {
         BatchJobListParam param = new BatchJobListParam();
         param.setJobAppCd(jobAppCd);
         param.setCurAppStatusList(new ArrayList<String>() {
+            private static final long serialVersionUID = 1L;
+
             {
                 add(JobStatusConstants.JOB_STATUS_UNEXECUTION);
             }

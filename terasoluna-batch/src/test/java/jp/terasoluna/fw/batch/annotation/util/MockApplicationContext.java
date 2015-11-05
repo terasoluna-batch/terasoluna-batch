@@ -49,18 +49,18 @@ import org.springframework.core.io.Resource;
 import org.springframework.util.StringValueResolver;
 
 public class MockApplicationContext extends
-                                   AbstractRefreshableApplicationContext
-                                                                        implements
-                                                                        ApplicationContext,
-                                                                        HierarchicalBeanFactory,
-                                                                        ConfigurableBeanFactory {
+                                    AbstractRefreshableApplicationContext
+                                    implements ApplicationContext,
+                                    HierarchicalBeanFactory,
+                                    ConfigurableBeanFactory {
 
     private Map<String, Boolean> containsBeanMap = new HashMap<String, Boolean>();
 
     private Map<String, Object> beanMap = new HashMap<String, Object>();
 
-    private Map beansOfTypeMap = new HashMap();
+    private Map<Object, Object> beansOfTypeMap = new HashMap<Object, Object>();
 
+    @SuppressWarnings("rawtypes")
     private Map<Class, String[]> beanNamesForType = new HashMap<Class, String[]>();
 
     private Map<String, Boolean> isSingletonMap = new HashMap<String, Boolean>();
@@ -77,8 +77,7 @@ public class MockApplicationContext extends
         refreshBeanFactory();
     }
 
-    public AutowireCapableBeanFactory getAutowireCapableBeanFactory()
-                                                                     throws IllegalStateException {
+    public AutowireCapableBeanFactory getAutowireCapableBeanFactory() throws IllegalStateException {
 
         return null;
     }
@@ -121,22 +120,26 @@ public class MockApplicationContext extends
         return null;
     }
 
-    public String[] getBeanNamesForType(Class key) {
+    public String[] getBeanNamesForType(Class<?> key) {
         return beanNamesForType.get(key);
     }
 
-    public String[] getBeanNamesForType(Class arg0, boolean arg1, boolean arg2) {
+    public String[] getBeanNamesForType(Class<?> arg0, boolean arg1,
+            boolean arg2) {
 
         return null;
     }
 
-    public Map getBeansOfType(Class arg0) throws BeansException {
+    @SuppressWarnings("unchecked")
+    public Map<Object, Object> getBeansOfType(
+            @SuppressWarnings("rawtypes") Class arg0) throws BeansException {
 
         return this.beansOfTypeMap;
     }
 
-    public Map getBeansOfType(Class arg0, boolean arg1, boolean arg2)
-                                                                     throws BeansException {
+    @SuppressWarnings("unchecked")
+    public Map<?, ?> getBeansOfType(@SuppressWarnings("rawtypes") Class arg0,
+            boolean arg1, boolean arg2) throws BeansException {
 
         return null;
     }
@@ -159,7 +162,9 @@ public class MockApplicationContext extends
         return beanMap.get(key);
     }
 
-    public Object getBean(String key, Class arg1) throws BeansException {
+    @SuppressWarnings("unchecked")
+    public Object getBean(String key,
+            @SuppressWarnings("rawtypes") Class arg1) throws BeansException {
         Object obj = beanMap.get(key);
         if (obj == null) {
             throw new NoSuchBeanDefinitionException(key);
@@ -170,23 +175,24 @@ public class MockApplicationContext extends
         return obj;
     }
 
-    public Object getBean(String key, Object[] arg1) throws BeansException {
+    public Object getBean(String key, Object... arg1) throws BeansException {
 
         return beanMap.get(key);
     }
 
-    public Class getType(String arg0) throws NoSuchBeanDefinitionException {
+    public Class<?> getType(String arg0) throws NoSuchBeanDefinitionException {
 
         return null;
     }
 
-    public boolean isPrototype(String arg0)
-                                           throws NoSuchBeanDefinitionException {
+    public boolean isPrototype(
+            String arg0) throws NoSuchBeanDefinitionException {
 
         return false;
     }
 
-    public boolean isSingleton(String key) throws NoSuchBeanDefinitionException {
+    public boolean isSingleton(
+            String key) throws NoSuchBeanDefinitionException {
         Boolean singleton = this.isSingletonMap.get(key);
         if (singleton != null) {
             return singleton;
@@ -194,8 +200,8 @@ public class MockApplicationContext extends
         return false;
     }
 
-    public boolean isTypeMatch(String arg0, Class arg1)
-                                                       throws NoSuchBeanDefinitionException {
+    public boolean isTypeMatch(String arg0,
+            Class<?> arg1) throws NoSuchBeanDefinitionException {
 
         return false;
     }
@@ -210,14 +216,14 @@ public class MockApplicationContext extends
         return this.parent;
     }
 
-    public String getMessage(MessageSourceResolvable arg0, Locale arg1)
-                                                                       throws NoSuchMessageException {
+    public String getMessage(MessageSourceResolvable arg0,
+            Locale arg1) throws NoSuchMessageException {
 
         return null;
     }
 
-    public String getMessage(String arg0, Object[] arg1, Locale arg2)
-                                                                     throws NoSuchMessageException {
+    public String getMessage(String arg0, Object[] arg1,
+            Locale arg2) throws NoSuchMessageException {
 
         return null;
     }
@@ -259,7 +265,7 @@ public class MockApplicationContext extends
         beansOfTypeMap.put(key, value);
     }
 
-    public void addBeanNamesForType(Class key, String[] value) {
+    public void addBeanNamesForType(Class<?> key, String[] value) {
         beanNamesForType.put(key, value);
     }
 
@@ -327,8 +333,8 @@ public class MockApplicationContext extends
         return null;
     }
 
-    public BeanDefinition getMergedBeanDefinition(String beanName)
-                                                                  throws NoSuchBeanDefinitionException {
+    public BeanDefinition getMergedBeanDefinition(
+            String beanName) throws NoSuchBeanDefinitionException {
         return this.rergedBeanDefinitionMap.get(beanName);
     }
 
@@ -356,27 +362,30 @@ public class MockApplicationContext extends
         return false;
     }
 
-    public boolean isFactoryBean(String name)
-                                             throws NoSuchBeanDefinitionException {
+    public boolean isFactoryBean(
+            String name) throws NoSuchBeanDefinitionException {
         return false;
     }
 
-    public void registerAlias(String beanName, String alias)
-                                                            throws BeanDefinitionStoreException {
+    public void registerAlias(String beanName,
+            String alias) throws BeanDefinitionStoreException {
 
     }
 
-    public void registerCustomEditor(Class requiredType,
-            Class propertyEditorClass) {
+    public void registerCustomEditor(
+            @SuppressWarnings("rawtypes") Class requiredType,
+            @SuppressWarnings("rawtypes") Class propertyEditorClass) {
 
     }
 
-    public void registerCustomEditor(Class requiredType,
+    public void registerCustomEditor(
+            @SuppressWarnings("rawtypes") Class requiredType,
             PropertyEditor propertyEditor) {
 
     }
 
-    public void registerDependentBean(String beanName, String dependentBeanName) {
+    public void registerDependentBean(String beanName,
+            String dependentBeanName) {
 
     }
 
@@ -396,8 +405,8 @@ public class MockApplicationContext extends
 
     }
 
-    public void setParentBeanFactory(BeanFactory parentBeanFactory)
-                                                                   throws IllegalStateException {
+    public void setParentBeanFactory(
+            BeanFactory parentBeanFactory) throws IllegalStateException {
 
     }
 
@@ -430,42 +439,41 @@ public class MockApplicationContext extends
     }
 
     @Override
-    protected void loadBeanDefinitions(DefaultListableBeanFactory beanFactory)
-                                                                              throws IOException,
-                                                                              BeansException {
+    protected void loadBeanDefinitions(
+            DefaultListableBeanFactory beanFactory) throws IOException, BeansException {
 
     }
 
-	public void addEmbeddedValueResolver(StringValueResolver valueResolver) {
+    public void addEmbeddedValueResolver(StringValueResolver valueResolver) {
 
-	}
+    }
 
-	public AccessControlContext getAccessControlContext() {
-		return null;
-	}
+    public AccessControlContext getAccessControlContext() {
+        return null;
+    }
 
-	public BeanExpressionResolver getBeanExpressionResolver() {
-		return null;
-	}
+    public BeanExpressionResolver getBeanExpressionResolver() {
+        return null;
+    }
 
-	public ConversionService getConversionService() {
-		return null;
-	}
+    public ConversionService getConversionService() {
+        return null;
+    }
 
-	public String resolveEmbeddedValue(String value) {
-		return null;
-	}
+    public String resolveEmbeddedValue(String value) {
+        return null;
+    }
 
-	public void setBeanExpressionResolver(BeanExpressionResolver resolver) {
+    public void setBeanExpressionResolver(BeanExpressionResolver resolver) {
 
-	}
+    }
 
-	public void setConversionService(ConversionService conversionService) {
+    public void setConversionService(ConversionService conversionService) {
 
-	}
+    }
 
-	public void setCurrentlyInCreation(String beanName, boolean inCreation) {
+    public void setCurrentlyInCreation(String beanName, boolean inCreation) {
 
-	}
+    }
 
 }

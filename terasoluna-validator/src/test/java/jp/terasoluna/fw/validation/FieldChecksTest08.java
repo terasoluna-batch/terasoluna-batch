@@ -1021,12 +1021,11 @@ public class FieldChecksTest08 {
      * beanのチェック対象のCollection型フィールドの要素数が、 varのminArrayLengthとmaxArrayLengthの範囲より少ない場合、 エラーを追加してfalseが返却されることを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
-    @SuppressWarnings("unchecked")
     @Test
     public void testValidateArrayRange12() throws Exception {
         // 前処理
         FieldChecks_JavaBeanStub01 bean = new FieldChecks_JavaBeanStub01();
-        Collection list = new ArrayList();
+        Collection<String> list = new ArrayList<String>();
         list.add("test1");
         list.add("test2");
         list.add("test3");

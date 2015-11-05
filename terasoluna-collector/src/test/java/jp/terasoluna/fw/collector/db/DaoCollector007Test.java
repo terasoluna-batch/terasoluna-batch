@@ -16,7 +16,6 @@ import jp.terasoluna.fw.ex.unit.testcase.DaoTestCase;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.junit.Test;
-import org.mockito.Mockito;
 import org.mockito.internal.util.reflection.Whitebox;
 
 /**
@@ -32,8 +31,6 @@ public class DaoCollector007Test extends DaoTestCase {
 
     private UserListQueryResultHandleDao userListQueryResultHandleDao = null;
 
-    private int previousThreadCount = 0;
-
     @Override
     protected void addConfigLocations(List<String> configLocations) {
         configLocations.add("jp/terasoluna/fw/collector/db/dataSource.xml");
@@ -43,6 +40,7 @@ public class DaoCollector007Test extends DaoTestCase {
         this.userListQueryResultHandleDao = userListQueryResultHandleDao;
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     protected void onSetUp() throws Exception {
         if (logger.isInfoEnabled()) {
@@ -85,10 +83,11 @@ public class DaoCollector007Test extends DaoTestCase {
     		dbc.call();
     	} catch (Exception e) {
     		fail();
+    	} finally {
+            dbc.close();
     	}
     	
     	assertTrue(dbcppp.getRetryFlag());
-    	
     }
     
     /**
@@ -112,6 +111,8 @@ public class DaoCollector007Test extends DaoTestCase {
     		returncode = dbc.call();
     	} catch (Exception e) {
     		fail();
+    	} finally {
+            dbc.close();
     	}
     	
     	// Call戻り値確認
@@ -144,6 +145,8 @@ public class DaoCollector007Test extends DaoTestCase {
     		returncode = dbc.call();
     	} catch (Exception e) {
     		fail();
+    	} finally {
+            dbc.close();
     	}
     	
     	// Call戻り値確認
@@ -176,6 +179,8 @@ public class DaoCollector007Test extends DaoTestCase {
     		returncode = dbc.call();
     	} catch (Exception e) {
     		fail();
+    	} finally {
+            dbc.close();
     	}
     	
     	// Call戻り値確認
@@ -208,6 +213,8 @@ public class DaoCollector007Test extends DaoTestCase {
     		returncode = dbc.call();
     	} catch (Exception e) {
     		fail();
+    	} finally {
+            dbc.close();
     	}
     	
     	// Call戻り値確認
@@ -250,6 +257,7 @@ public class DaoCollector007Test extends DaoTestCase {
     	
     	// preprocess実行後確認（resultHandlerが設定されていること）
     	assertTrue(dbc.resultHandler instanceof QueueingResultHandlerImpl);
+        dbc.close();
     }
 
     /**
@@ -272,6 +280,7 @@ public class DaoCollector007Test extends DaoTestCase {
     	// preprocess実行後確認（statusがTHROWならOK）
     	assertEquals(DaoCollectorPrePostProcessStatus.THROW, status);
 
+    	dbc.close();
     }
 
     /**
@@ -295,6 +304,7 @@ public class DaoCollector007Test extends DaoTestCase {
     	// preprocess実行後確認（resultHandlerが設定されていること）
     	assertTrue(dbc.resultHandler instanceof QueueingResultHandlerImpl);
 
+        dbc.close();
     }
 
 	/**
@@ -305,7 +315,7 @@ public class DaoCollector007Test extends DaoTestCase {
 	 */
 	@Test
 	public void testHandleException01() throws Exception {
-		DaoCollector daoCollector = new DaoCollector();
+		DaoCollector<?> daoCollector = new DaoCollector<Object>();
 		Whitebox.setInternalState(daoCollector, "finish", false);
 		BlockingQueue<DataValueObject> queue = new ArrayBlockingQueue<>(10);
 		Whitebox.setInternalState(daoCollector, "queue", queue);
@@ -326,9 +336,11 @@ public class DaoCollector007Test extends DaoTestCase {
 	 */
 	@Test
 	public void testHandleException02() throws Exception {
-		DaoCollector daoCollector = new DaoCollector();
-		BlockingQueue queue = new ArrayBlockingQueue(10) {
-			@Override
+		DaoCollector<?> daoCollector = new DaoCollector<Object>();
+        BlockingQueue<?> queue = new ArrayBlockingQueue<Object>(10) {
+            private static final long serialVersionUID = 1L;
+
+            @Override
 			public void put(Object o) throws InterruptedException {
 				throw new InterruptedException("interrupted.");
 			}

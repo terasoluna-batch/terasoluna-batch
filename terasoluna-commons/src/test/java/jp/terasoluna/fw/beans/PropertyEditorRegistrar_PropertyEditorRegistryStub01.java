@@ -22,24 +22,25 @@ import org.springframework.beans.PropertyEditorRegistry;
 
 /**
  * PropertyEditorRegistryのスタブ。
- *
  */
 public class PropertyEditorRegistrar_PropertyEditorRegistryStub01 implements
-        PropertyEditorRegistry {
+                                                                  PropertyEditorRegistry {
 
-    protected Class clazz = null;
+    protected Class<?> clazz = null;
+
     protected PropertyEditor editor = null;
-    
-    public void registerCustomEditor(Class argClazz, PropertyEditor argEditor) {
+
+    public void registerCustomEditor(Class<?> argClazz,
+            PropertyEditor argEditor) {
         this.clazz = argClazz;
         this.editor = argEditor;
     }
 
-    public void registerCustomEditor(Class arg0, String arg1,
+    public void registerCustomEditor(Class<?> arg0, String arg1,
             PropertyEditor arg2) {
     }
 
-    public PropertyEditor findCustomEditor(Class arg0, String arg1) {
+    public PropertyEditor findCustomEditor(Class<?> arg0, String arg1) {
         return null;
     }
 

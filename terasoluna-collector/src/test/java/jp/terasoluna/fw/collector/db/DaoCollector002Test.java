@@ -35,22 +35,26 @@ public class DaoCollector002Test extends DaoTestCase {
         configLocations.add("jp/terasoluna/fw/collector/db/dataSource.xml");
     }
 
-    public void setUserListQueryResultHandleDao(UserListQueryResultHandleDao userListQueryResultHandleDao) {
+    public void setUserListQueryResultHandleDao(
+            UserListQueryResultHandleDao userListQueryResultHandleDao) {
         this.userListQueryResultHandleDao = userListQueryResultHandleDao;
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     protected void onSetUpBeforeTransaction() throws Exception {
         DaoCollector.setVerbose(true);
         super.onSetUpBeforeTransaction();
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     protected void onTearDownAfterTransaction() throws Exception {
         DaoCollector.setVerbose(false);
         super.onTearDownAfterTransaction();
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     protected void onSetUp() throws Exception {
         System.gc();
@@ -69,8 +73,7 @@ public class DaoCollector002Test extends DaoTestCase {
      * {@link jp.terasoluna.fw.collector.db.DaoCollector#DaoCollector(java.lang.Object, java.lang.String, java.lang.Object)}
      * のためのテスト・メソッド。
      */
-    public void testDaoCollectorObjectStringObject001()
-                                                                     throws Exception {
+    public void testDaoCollectorObjectStringObject001() throws Exception {
         if (this.userListQueryResultHandleDao == null) {
             fail("userListQueryResultHandleDaoがnullです。");
         }
@@ -81,18 +84,18 @@ public class DaoCollector002Test extends DaoTestCase {
 
         do {
             retryFlg = false;
-            Collector<UserBean> col = new DaoCollector<UserBean>(
-                    this.userListQueryResultHandleDao, "collect", null);
+            Collector<UserBean> col = new DaoCollector<UserBean>(this.userListQueryResultHandleDao, "collect", null);
             try {
-                for (UserBean user : col) {
+                while (col.hasNext()) {
+                    col.next();
                     count_first++;
                 }
             } catch (Throwable e) {
                 if (e instanceof AssertionError) {
                     throw (AssertionError) e;
                 }
-                if (e.getCause() instanceof DataAccessException
-                        && e.getCause().getCause() instanceof SQLException) {
+                if (e.getCause() instanceof DataAccessException && e.getCause()
+                        .getCause() instanceof SQLException) {
                     SQLException sqle = (SQLException) e.getCause().getCause();
                     logger.info("SQLState:" + sqle.getSQLState());
                     logger.info("ErrorCode:" + sqle.getErrorCode());
@@ -115,8 +118,8 @@ public class DaoCollector002Test extends DaoTestCase {
         } while (retryFlg && retryCount > 0);
 
         // コレクタスレッド数チェック
-        assertTrue(CollectorTestUtil
-                .lessThanCollectorThreadCount(0 + this.previousThreadCount));
+        assertTrue(CollectorTestUtil.lessThanCollectorThreadCount(0
+                + this.previousThreadCount));
 
         if (retryFlg && retryCount == 0) {
             logger.info("リトライカウントオーバー");
@@ -127,12 +130,10 @@ public class DaoCollector002Test extends DaoTestCase {
         for (int i = 0; i < 2; i++) {
             int count = 0;
 
-            long startTime = System.currentTimeMillis();
-
-            Collector<UserBean> col2 = new DaoCollector<UserBean>(
-                    this.userListQueryResultHandleDao, "collect", null);
+            Collector<UserBean> col2 = new DaoCollector<UserBean>(this.userListQueryResultHandleDao, "collect", null);
             try {
-                for (UserBean user : col2) {
+                while (col2.hasNext()) {
+                    col2.next();
                     count++;
                 }
             } finally {
@@ -140,10 +141,9 @@ public class DaoCollector002Test extends DaoTestCase {
             }
 
             // コレクタスレッド数チェック
-            assertTrue(CollectorTestUtil
-                    .lessThanCollectorThreadCount(0 + this.previousThreadCount));
+            assertTrue(CollectorTestUtil.lessThanCollectorThreadCount(0
+                    + this.previousThreadCount));
 
-            long endTime = System.currentTimeMillis();
             assertEquals(count_first, count);
         }
     }
@@ -152,21 +152,20 @@ public class DaoCollector002Test extends DaoTestCase {
      * {@link jp.terasoluna.fw.collector.db.DaoCollector#DaoCollector(java.lang.Object, java.lang.String, java.lang.Object)}
      * のためのテスト・メソッド。
      */
-    public void testDaoCollectorObjectStringObject002()
-                                                                     throws Exception {
+    public void testDaoCollectorObjectStringObject002() throws Exception {
         if (this.userListQueryResultHandleDao == null) {
             fail("userListQueryResultHandleDaoがnullです。");
         }
 
         int count_first = 0;
 
-        DaoCollectorConfig config = new DaoCollectorConfig(
-                this.userListQueryResultHandleDao, "collect", null);
+        DaoCollectorConfig config = new DaoCollectorConfig(this.userListQueryResultHandleDao, "collect", null);
         config.addExecuteByConstructor(true);
 
         Collector<UserBean> col = new DaoCollector<UserBean>(config);
         try {
-            for (UserBean user : col) {
+            while (col.hasNext()) {
+                col.next();
                 count_first++;
             }
         } finally {
@@ -174,18 +173,16 @@ public class DaoCollector002Test extends DaoTestCase {
         }
 
         // コレクタスレッド数チェック
-        assertTrue(CollectorTestUtil
-                .lessThanCollectorThreadCount(0 + this.previousThreadCount));
+        assertTrue(CollectorTestUtil.lessThanCollectorThreadCount(0
+                + this.previousThreadCount));
 
         for (int i = 0; i < 2; i++) {
             int count = 0;
 
-            long startTime = System.currentTimeMillis();
-
-            Collector<UserBean> col2 = new DaoCollector<UserBean>(
-                    this.userListQueryResultHandleDao, "collect", null);
+            Collector<UserBean> col2 = new DaoCollector<UserBean>(this.userListQueryResultHandleDao, "collect", null);
             try {
-                for (UserBean user : col2) {
+                while (col2.hasNext()) {
+                    col2.next();
                     count++;
                 }
             } finally {
@@ -193,8 +190,8 @@ public class DaoCollector002Test extends DaoTestCase {
             }
 
             // コレクタスレッド数チェック
-            assertTrue(CollectorTestUtil
-                    .lessThanCollectorThreadCount(0 + this.previousThreadCount));
+            assertTrue(CollectorTestUtil.lessThanCollectorThreadCount(0
+                    + this.previousThreadCount));
 
             assertEquals(count_first, count);
         }
@@ -204,8 +201,7 @@ public class DaoCollector002Test extends DaoTestCase {
      * {@link jp.terasoluna.fw.collector.db.DaoCollector#DaoCollector(java.lang.Object, java.lang.String, java.lang.Object)}
      * のためのテスト・メソッド。
      */
-    public void testDaoCollectorObjectStringObject003()
-                                                                     throws Exception {
+    public void testDaoCollectorObjectStringObject003() throws Exception {
         if (this.userListQueryResultHandleDao == null) {
             fail("userListQueryResultHandleDaoがnullです。");
         }
@@ -213,15 +209,12 @@ public class DaoCollector002Test extends DaoTestCase {
         int count_first = 0;
         int count_detail = 0;
 
-        Collector<OrderBean> col = new DaoCollector<OrderBean>(
-                this.userListQueryResultHandleDao, "collectOrder", null);
+        Collector<OrderBean> col = new DaoCollector<OrderBean>(this.userListQueryResultHandleDao, "collectOrder", null);
         try {
             for (OrderBean order : col) {
                 List<OrderDetailBean> orderDetailList = order
                         .getOrderDetailList();
-                for (OrderDetailBean orderDetail : orderDetailList) {
-                    count_detail++;
-                }
+                count_detail += orderDetailList.size();
                 count_first++;
             }
         } finally {
@@ -229,8 +222,8 @@ public class DaoCollector002Test extends DaoTestCase {
         }
 
         // コレクタスレッド数チェック
-        assertTrue(CollectorTestUtil
-                .lessThanCollectorThreadCount(0 + this.previousThreadCount));
+        assertTrue(CollectorTestUtil.lessThanCollectorThreadCount(0
+                + this.previousThreadCount));
 
         assertEquals(4, count_first);
         assertEquals(12, count_detail);
@@ -240,8 +233,7 @@ public class DaoCollector002Test extends DaoTestCase {
      * {@link jp.terasoluna.fw.collector.db.DaoCollector#DaoCollector(java.lang.Object, java.lang.String, java.lang.Object)}
      * のためのテスト・メソッド。
      */
-    public void testDaoCollectorObjectStringObject004()
-                                                                     throws Exception {
+    public void testDaoCollectorObjectStringObject004() throws Exception {
         if (this.userListQueryResultHandleDao == null) {
             fail("userListQueryResultHandleDaoがnullです。");
         }
@@ -249,15 +241,13 @@ public class DaoCollector002Test extends DaoTestCase {
         int count_first = 0;
         int count_detail = 0;
 
-        Collector<OrderBean> col = new DaoCollector<OrderBean>(
-                this.userListQueryResultHandleDao, "collectOrder", null, true);
+        @SuppressWarnings("deprecation")
+        Collector<OrderBean> col = new DaoCollector<OrderBean>(this.userListQueryResultHandleDao, "collectOrder", null, true);
         try {
             for (OrderBean order : col) {
                 List<OrderDetailBean> orderDetailList = order
                         .getOrderDetailList();
-                for (OrderDetailBean orderDetail : orderDetailList) {
-                    count_detail++;
-                }
+                count_detail += orderDetailList.size();
                 count_first++;
             }
         } finally {
@@ -265,8 +255,8 @@ public class DaoCollector002Test extends DaoTestCase {
         }
 
         // コレクタスレッド数チェック
-        assertTrue(CollectorTestUtil
-                .lessThanCollectorThreadCount(0 + this.previousThreadCount));
+        assertTrue(CollectorTestUtil.lessThanCollectorThreadCount(0
+                + this.previousThreadCount));
 
         assertEquals(4, count_first);
         assertEquals(12, count_detail);
@@ -276,8 +266,7 @@ public class DaoCollector002Test extends DaoTestCase {
      * {@link jp.terasoluna.fw.collector.db.DaoCollector#DaoCollector(java.lang.Object, java.lang.String, java.lang.Object)}
      * のためのテスト・メソッド。
      */
-    public void testDaoCollectorObjectStringObject005()
-                                                                     throws Exception {
+    public void testDaoCollectorObjectStringObject005() throws Exception {
         if (this.userListQueryResultHandleDao == null) {
             fail("userListQueryResultHandleDaoがnullです。");
         }
@@ -287,16 +276,13 @@ public class DaoCollector002Test extends DaoTestCase {
 
         DaoCollectorPrePostProcess prepost = null;
 
-        Collector<OrderBean> col = new DaoCollector<OrderBean>(
-                this.userListQueryResultHandleDao, "collectOrder", null, 1, true, null,
-                prepost);
+        @SuppressWarnings("deprecation")
+        Collector<OrderBean> col = new DaoCollector<OrderBean>(this.userListQueryResultHandleDao, "collectOrder", null, 1, true, null, prepost);
         try {
             for (OrderBean order : col) {
                 List<OrderDetailBean> orderDetailList = order
-                    .getOrderDetailList();
-                for (OrderDetailBean orderDetail : orderDetailList) {
-                    count_detail++;
-                }
+                        .getOrderDetailList();
+                count_detail += orderDetailList.size();
                 count_first++;
             }
         } finally {
@@ -304,8 +290,8 @@ public class DaoCollector002Test extends DaoTestCase {
         }
 
         // コレクタスレッド数チェック
-        assertTrue(CollectorTestUtil
-                .lessThanCollectorThreadCount(0 + this.previousThreadCount));
+        assertTrue(CollectorTestUtil.lessThanCollectorThreadCount(0
+                + this.previousThreadCount));
 
         assertEquals(4, count_first);
         assertEquals(12, count_detail);
@@ -315,8 +301,7 @@ public class DaoCollector002Test extends DaoTestCase {
      * {@link jp.terasoluna.fw.collector.db.DaoCollector#DaoCollector(java.lang.Object, java.lang.String, java.lang.Object)}
      * のためのテスト・メソッド。
      */
-    public void testDaoCollectorObjectStringObject006()
-                                                                     throws Exception {
+    public void testDaoCollectorObjectStringObject006() throws Exception {
         if (this.userListQueryResultHandleDao == null) {
             fail("userListQueryResultHandleDaoがnullです。");
         }
@@ -324,8 +309,7 @@ public class DaoCollector002Test extends DaoTestCase {
         int count_first = 0;
         int count_detail = 0;
 
-        Collector<Order2Bean> col = new DaoCollector<Order2Bean>(
-                this.userListQueryResultHandleDao, "collectOrder2", null);
+        Collector<Order2Bean> col = new DaoCollector<Order2Bean>(this.userListQueryResultHandleDao, "collectOrder2", null);
         try {
             for (Order2Bean order : col) {
 
@@ -340,8 +324,8 @@ public class DaoCollector002Test extends DaoTestCase {
         }
 
         // コレクタスレッド数チェック
-        assertTrue(CollectorTestUtil
-                .lessThanCollectorThreadCount(0 + this.previousThreadCount));
+        assertTrue(CollectorTestUtil.lessThanCollectorThreadCount(0
+                + this.previousThreadCount));
 
         assertEquals(12, count_first);
         assertEquals(12, count_detail);
@@ -351,8 +335,7 @@ public class DaoCollector002Test extends DaoTestCase {
      * {@link jp.terasoluna.fw.collector.db.DaoCollector#DaoCollector(java.lang.Object, java.lang.String, java.lang.Object)}
      * のためのテスト・メソッド。
      */
-    public void testDaoCollectorObjectStringObject007()
-                                                                     throws Exception {
+    public void testDaoCollectorObjectStringObject007() throws Exception {
         if (this.userListQueryResultHandleDao == null) {
             fail("userListQueryResultHandleDaoがnullです。");
         }
@@ -360,14 +343,12 @@ public class DaoCollector002Test extends DaoTestCase {
         int count_first = 0;
         int count_detail = 0;
 
-        Collector<Order2Bean> col = new DaoCollector<Order2Bean>(
-                this.userListQueryResultHandleDao, "collectOrder2", null, true);
+        @SuppressWarnings("deprecation")
+        Collector<Order2Bean> col = new DaoCollector<Order2Bean>(this.userListQueryResultHandleDao, "collectOrder2", null, true);
         try {
             for (Order2Bean order : col) {
-                @SuppressWarnings("unused")
-                Order2Bean prevOrder = col.getPrevious();
-                @SuppressWarnings("unused")
-                Order2Bean nextOrder = col.getNext();
+                col.getPrevious();
+                col.getNext();
                 OrderDetailBean orderDetail = order.getOrderDetail();
                 if (orderDetail != null) {
                     count_detail++;
@@ -379,8 +360,8 @@ public class DaoCollector002Test extends DaoTestCase {
         }
 
         // コレクタスレッド数チェック
-        assertTrue(CollectorTestUtil
-                .lessThanCollectorThreadCount(0 + this.previousThreadCount));
+        assertTrue(CollectorTestUtil.lessThanCollectorThreadCount(0
+                + this.previousThreadCount));
 
         assertEquals(12, count_first);
         assertEquals(12, count_detail);
@@ -390,8 +371,7 @@ public class DaoCollector002Test extends DaoTestCase {
      * {@link jp.terasoluna.fw.collector.db.DaoCollector#DaoCollector(java.lang.Object, java.lang.String, java.lang.Object)}
      * のためのテスト・メソッド。
      */
-    public void testDaoCollectorObjectStringObject008()
-                                                                     throws Exception {
+    public void testDaoCollectorObjectStringObject008() throws Exception {
         if (this.userListQueryResultHandleDao == null) {
             fail("userListQueryResultHandleDaoがnullです。");
         }
@@ -401,18 +381,15 @@ public class DaoCollector002Test extends DaoTestCase {
 
         DaoCollectorPrePostProcessStub prepost = new DaoCollectorPrePostProcessStub();
 
-        Collector<Order2Bean> col = new DaoCollector<Order2Bean>(
-                this.userListQueryResultHandleDao, "collectOrder2", null, 1, true, null,
-                prepost);
+        @SuppressWarnings("deprecation")
+        Collector<Order2Bean> col = new DaoCollector<Order2Bean>(this.userListQueryResultHandleDao, "collectOrder2", null, 1, true, null, prepost);
         try {
             for (Order2Bean order : col) {
-                @SuppressWarnings("unused")
-                Order2Bean prevOrder = col.getPrevious();
-                @SuppressWarnings("unused")
-                Order2Bean nextOrder = col.getNext();
+                col.getPrevious();
+                col.getNext();
                 OrderDetailBean orderDetail = order.getOrderDetail();
                 if (orderDetail != null) {
-                        count_detail++;
+                    count_detail++;
                 }
                 count_first++;
             }
@@ -421,8 +398,8 @@ public class DaoCollector002Test extends DaoTestCase {
         }
 
         // コレクタスレッド数チェック
-        assertTrue(CollectorTestUtil
-                .lessThanCollectorThreadCount(0 + this.previousThreadCount));
+        assertTrue(CollectorTestUtil.lessThanCollectorThreadCount(0
+                + this.previousThreadCount));
 
         assertEquals(12, count_first);
         assertEquals(12, count_detail);

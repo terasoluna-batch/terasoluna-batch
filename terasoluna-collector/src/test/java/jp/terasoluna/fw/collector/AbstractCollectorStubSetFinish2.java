@@ -2,13 +2,11 @@ package jp.terasoluna.fw.collector;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.atomic.AtomicInteger;
-
 import jp.terasoluna.fw.collector.vo.DataValueObject;
 
 public class AbstractCollectorStubSetFinish2<P> extends AbstractCollector<P> {
     public AbstractCollectorStubSetFinish2() {
-    	super();
+        super();
     }
 
     public Integer call() throws Exception {

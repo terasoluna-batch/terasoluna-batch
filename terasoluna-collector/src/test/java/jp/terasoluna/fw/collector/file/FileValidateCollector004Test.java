@@ -20,17 +20,16 @@ public class FileValidateCollector004Test extends DaoTestCase {
     /**
      * Log.
      */
-    private static Log logger = LogFactory
-            .getLog(FileValidateCollector004Test.class);
+    private static Log logger = LogFactory.getLog(
+            FileValidateCollector004Test.class);
 
     private FileQueryDAO csvFileQueryDAO = null;
-
-    private int previousThreadCount = 0;
 
     public void setCsvFileQueryDAO(FileQueryDAO csvFileQueryDAO) {
         this.csvFileQueryDAO = csvFileQueryDAO;
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     protected void onSetUp() throws Exception {
         if (logger.isInfoEnabled()) {
@@ -41,7 +40,6 @@ public class FileValidateCollector004Test extends DaoTestCase {
             logger.info(MemoryInfo.getMemoryInfo());
         }
         super.onSetUp();
-        this.previousThreadCount = CollectorTestUtil.getCollectorThreadCount();
     }
 
     @Override
@@ -89,9 +87,8 @@ public class FileValidateCollector004Test extends DaoTestCase {
         Validator validator = new ValidatorStub();
         ValidationErrorHandler validationErrorHandler = null;
 
-        Collector<B000001Data> it = new FileValidateCollector<B000001Data>(
-                this.csvFileQueryDAO, url.getPath(), B000001Data.class,
-                exceptionHandler, validator, validationErrorHandler);
+        Collector<B000001Data> it = new FileValidateCollector<B000001Data>(this.csvFileQueryDAO, url
+                .getPath(), B000001Data.class, exceptionHandler, validator, validationErrorHandler);
 
         it.close();
     }
@@ -100,14 +97,12 @@ public class FileValidateCollector004Test extends DaoTestCase {
      * testFileValidateCollector005
      * @throws Exception
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("resource")
     public void testFileValidateCollector005() throws Exception {
-        FileCollectorConfig config = null;
+        FileCollectorConfig<UserBean> config = null;
 
-        @SuppressWarnings("unused")
-        FileValidateCollector<UserBean> dbc = null;
         try {
-            dbc = new FileValidateCollector<UserBean>(config);
+            new FileValidateCollector<UserBean>(config);
             fail("失敗");
         } catch (IllegalArgumentException e) {
             assertNotNull(e);
@@ -143,9 +138,8 @@ public class FileValidateCollector004Test extends DaoTestCase {
         ValidationErrorHandler validationErrorHandler = null;
         int queueSize = 123;
 
-        Collector<B000001Data> it = new FileValidateCollector<B000001Data>(
-                this.csvFileQueryDAO, url.getPath(), B000001Data.class,
-                queueSize, exceptionHandler, validator, validationErrorHandler);
+        Collector<B000001Data> it = new FileValidateCollector<B000001Data>(this.csvFileQueryDAO, url
+                .getPath(), B000001Data.class, queueSize, exceptionHandler, validator, validationErrorHandler);
 
         it.close();
     }

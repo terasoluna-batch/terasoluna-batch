@@ -22,14 +22,7 @@ package jp.terasoluna.fw.util;
  *
  */
 public class GenericPropertyUtil_Stub02 {
-    @SuppressWarnings("unused")
-    private String string1;
     private String string2;
-
-    @SuppressWarnings("unused")
-    private GenericPropertyUtil_Stub02 bean1;
-    @SuppressWarnings("unused")
-    private GenericPropertyUtil_Stub02 bean2;
 
     /**
      * string2を取得する。

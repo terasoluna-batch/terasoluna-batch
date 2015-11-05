@@ -27,5 +27,7 @@ import java.util.ArrayList;
 public abstract class GenericsUtil_ArrayListStub02
     extends ArrayList<String[]> {
 
+    private static final long serialVersionUID = 1L;
+
     // no method
 }

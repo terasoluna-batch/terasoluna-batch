@@ -106,8 +106,7 @@
         </dependency>
         <dependency>
             <groupId>oro</groupId>
-            <artifactId>oro</artifactId>
-            <version>${oro.version}</version>
+            <artifactId>oro</artifactId>   
         </dependency>
         <dependency>
             <groupId>org.aspectj</groupId>

@@ -23,12 +23,11 @@ public class FileValidateCollector002Test extends DaoTestCase {
 
     private FileQueryDAO csvFileQueryDAO = null;
 
-    private int previousThreadCount = 0;
-
     public void setCsvFileQueryDAO(FileQueryDAO csvFileQueryDAO) {
         this.csvFileQueryDAO = csvFileQueryDAO;
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     protected void onSetUp() throws Exception {
         if (logger.isInfoEnabled()) {
@@ -39,7 +38,6 @@ public class FileValidateCollector002Test extends DaoTestCase {
             logger.info(MemoryInfo.getMemoryInfo());
         }
         super.onSetUp();
-        this.previousThreadCount = CollectorTestUtil.getCollectorThreadCount();
     }
 
     @Override

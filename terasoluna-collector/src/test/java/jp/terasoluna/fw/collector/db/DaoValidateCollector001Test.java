@@ -39,6 +39,7 @@ public class DaoValidateCollector001Test extends DaoTestCase {
         this.userListQueryResultHandleDao = userListQueryResultHandleDao;
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     protected void onSetUp() throws Exception {
         if (logger.isInfoEnabled()) {
@@ -102,6 +103,7 @@ public class DaoValidateCollector001Test extends DaoTestCase {
         Validator validator = null;
         ValidationErrorHandler validationErrorHandler = null;
 
+        @SuppressWarnings("deprecation")
         DaoValidateCollector<UserBean> dbc = new DaoValidateCollector<UserBean>(userListQueryResultHandleDao, methodName, bindParams, relation1n, validator, validationErrorHandler);
 
         assertNotNull(dbc);
@@ -168,6 +170,7 @@ public class DaoValidateCollector001Test extends DaoTestCase {
         Validator validator = null;
         CollectorExceptionHandler exceptionHandler = null;
 
+        @SuppressWarnings("deprecation")
         DaoValidateCollector<UserBean> dbc = new DaoValidateCollector<UserBean>(userListQueryResultHandleDao, methodName, bindParams, queueSize, relation1n, exceptionHandler, null, validator);
 
         assertNotNull(dbc);
@@ -208,13 +211,12 @@ public class DaoValidateCollector001Test extends DaoTestCase {
      * testDaoValidateCollector012
      * @throws Exception
      */
+    @SuppressWarnings("resource")
     public void testDaoValidateCollector012() throws Exception {
         DaoCollectorConfig config = null;
 
-        @SuppressWarnings("unused")
-        DaoCollector<UserBean> dbc = null;
         try {
-            dbc = new DaoValidateCollector<UserBean>(config);
+            new DaoValidateCollector<UserBean>(config);
             fail("失敗");
         } catch (IllegalArgumentException e) {
             assertNotNull(e);

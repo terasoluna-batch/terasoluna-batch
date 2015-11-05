@@ -24,10 +24,9 @@ import org.apache.commons.validator.ValidatorResults;
 
 /**
  * Fieldのスタブクラス。
- * 
  */
 public class CommonsValidatorEx_FieldStub01 extends Field {
-    
+
     /**
      * シリアルバージョンID。
      */
@@ -47,8 +46,8 @@ public class CommonsValidatorEx_FieldStub01 extends Field {
      * オーバーライドしたvalidateメソッド。
      */
     @Override
-    public ValidatorResults validate(Map params, Map actions)
-        throws ValidatorException {
+    public ValidatorResults validate(@SuppressWarnings("rawtypes") Map params,
+            @SuppressWarnings("rawtypes") Map actions) throws ValidatorException {
         if (validatorException != null) {
             throw validatorException;
         }

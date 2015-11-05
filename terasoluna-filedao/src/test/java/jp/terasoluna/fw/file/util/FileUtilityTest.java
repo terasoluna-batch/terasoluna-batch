@@ -4946,6 +4946,7 @@ public class FileUtilityTest {
      * 変更先のファイルが存在するがロックされている場合、例外が発生することを確認する。 <br>
      * @throws Exception このメソッドで発生した例外
      */
+    @SuppressWarnings("resource")
     // This testcase is ignored, because of Windows environment dependency.\
     @Ignore
     @Test

@@ -35,17 +35,17 @@ public class FieldChecks_ValidationErrorsImpl01 implements ValidationErrors {
     /**
      * 第一引数の値リスト。
      */
-    public List beanList = new ArrayList();
+    public List<Object> beanList = new ArrayList<Object>();
 
     /**
      * 第二引数の値リスト。
      */
-    public List fieldList = new ArrayList();
+    public List<Field> fieldList = new ArrayList<Field>();
 
     /**
      * 第三引数の値リスト。
      */
-    public List vaList = new ArrayList();
+    public List<ValidatorAction> vaList = new ArrayList<ValidatorAction>();
 
     /**
      * スタブメソッド。呼び出し確認のため、呼ばれた回数と引数をキャッシュする。
@@ -53,7 +53,6 @@ public class FieldChecks_ValidationErrorsImpl01 implements ValidationErrors {
      * @param field フィールドインスタンス
      * @param va Validatorにより用意されたValidatorAction
      */
-    @SuppressWarnings("unchecked")
     public void addError(Object bean, Field field, ValidatorAction va) {
         addErrorCount++;
         beanList.add(bean);

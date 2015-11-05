@@ -20,7 +20,8 @@ import jp.terasoluna.fw.file.annotation.OutputFileColumn;
  * <ul>
  * <li>@InputFileColumn(columnIndex = 0) <br>
  * @OutputFileColumn(columnIndex = 0) <br>
- *                               a</li> <li>@InputFileColumn(columnIndex = 1) <br>
+ *                               a</li>
+ *                               <li>@InputFileColumn(columnIndex = 1) <br>
  * @OutputFileColumn(columnIndex = 1) <br>
  *                               b</li>
  *                               </ul>
@@ -29,12 +30,10 @@ import jp.terasoluna.fw.file.annotation.OutputFileColumn;
 @FileFormat()
 public class NullColumnParser_Stub01 {
 
-    @SuppressWarnings("unused")
     @InputFileColumn(columnIndex = 0)
     @OutputFileColumn(columnIndex = 0)
     private String a;
 
-    @SuppressWarnings("unused")
     @InputFileColumn(columnIndex = 1)
     @OutputFileColumn(columnIndex = 1)
     private String b;

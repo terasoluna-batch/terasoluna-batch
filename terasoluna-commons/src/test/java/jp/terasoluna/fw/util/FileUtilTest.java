@@ -16,15 +16,17 @@
 
 package jp.terasoluna.fw.util;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 import java.io.File;
 import java.lang.reflect.Method;
-import org.springframework.test.util.ReflectionTestUtils;
 
-import jp.terasoluna.fw.util.PropertyTestCase;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  * FileUtil ブラックボックステスト。<br>
@@ -35,7 +37,6 @@ import static org.junit.Assert.*;
  * ・プロパティファイル(test.properties)に、削除テスト用の ディレクトリのベース名を以下のように追加指定すること<br>
  * fileutiltest.dir.base=/tmp/test<br>
  */
-@SuppressWarnings("unused")
 public class FileUtilTest extends PropertyTestCase {
 
     /**
@@ -97,7 +98,7 @@ public class FileUtilTest extends PropertyTestCase {
 
         // テスト対象の実行
         try {
-            String result = FileUtil.getSessionDirectoryName(input);
+            FileUtil.getSessionDirectoryName(input);
             fail();
         } catch (NullPointerException e) {
             return;
@@ -159,7 +160,7 @@ public class FileUtilTest extends PropertyTestCase {
 
         // テスト対象の実行
         try {
-            File result = FileUtil.getSessionDirectory(input);
+            FileUtil.getSessionDirectory(input);
             fail();
         } catch (NullPointerException e) {
             return;
@@ -519,7 +520,7 @@ public class FileUtilTest extends PropertyTestCase {
         Method method = FileUtil.class.getDeclaredMethod("makeSessionDirectory",
                 String.class);
         method.setAccessible(true);
-        Object retObj = method.invoke(FileUtil.class, input);
+        method.invoke(FileUtil.class, input);
         // テスト実行
         // 結果確認
         assertTrue(FileUtil.removeSessionDirectory(input));

@@ -25,8 +25,8 @@ public class DaoValidateCollector002Test extends DaoTestCase {
     /**
      * Log.
      */
-    private static Log logger = LogFactory
-            .getLog(DaoValidateCollector002Test.class);
+    private static Log logger = LogFactory.getLog(
+            DaoValidateCollector002Test.class);
 
     private UserListQueryResultHandleDao userListQueryResultHandleDao = null;
 
@@ -37,22 +37,26 @@ public class DaoValidateCollector002Test extends DaoTestCase {
         configLocations.add("jp/terasoluna/fw/collector/db/dataSource.xml");
     }
 
-    public void setUserListQueryResultHandleDao(UserListQueryResultHandleDao userListQueryResultHandleDao) {
+    public void setUserListQueryResultHandleDao(
+            UserListQueryResultHandleDao userListQueryResultHandleDao) {
         this.userListQueryResultHandleDao = userListQueryResultHandleDao;
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     protected void onSetUpBeforeTransaction() throws Exception {
         DaoValidateCollector.setVerbose(true);
         super.onSetUpBeforeTransaction();
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     protected void onTearDownAfterTransaction() throws Exception {
         DaoValidateCollector.setVerbose(false);
         super.onTearDownAfterTransaction();
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     protected void onSetUp() throws Exception {
         System.gc();
@@ -68,8 +72,7 @@ public class DaoValidateCollector002Test extends DaoTestCase {
     }
 
     /**
-     * {@link DaoValidateCollector#finalize()}
-     * のためのテスト・メソッド。
+     * {@link DaoValidateCollector#finalize()} のためのテスト・メソッド。
      */
     public void testFinalize001() throws Exception {
         if (this.userListQueryResultHandleDao == null) {
@@ -78,11 +81,11 @@ public class DaoValidateCollector002Test extends DaoTestCase {
 
         Validator validator = null;
 
-        Collector<UserBean> it = new DaoValidateCollector<UserBean>(
-                this.userListQueryResultHandleDao, "collect", null, validator);
+        @SuppressWarnings("resource")
+        Collector<UserBean> it = new DaoValidateCollector<UserBean>(this.userListQueryResultHandleDao, "collect", null, validator);
         try {
-            for (UserBean user : it) {
-
+            while (it.hasNext()) {
+                it.next();
                 // あえて途中で抜ける
                 break;
             }
@@ -94,16 +97,15 @@ public class DaoValidateCollector002Test extends DaoTestCase {
         }
 
         // コレクタスレッド数チェック
-        assertTrue(CollectorTestUtil
-                .lessThanCollectorThreadCount(1 + this.previousThreadCount));
+        assertTrue(CollectorTestUtil.lessThanCollectorThreadCount(1
+                + this.previousThreadCount));
     }
 
     /**
      * {@link jp.terasoluna.fw.collector.db.DaoValidateCollector#DaoValidateCollector(Object, String, Object, org.springframework.validation.Validator)}
      * のためのテスト・メソッド。
      */
-    public void testDaoValidateCollectorObjectStringObjectValidator001()
-                                                                             throws Exception {
+    public void testDaoValidateCollectorObjectStringObjectValidator001() throws Exception {
         if (this.userListQueryResultHandleDao == null) {
             fail("userListQueryResultHandleDaoがnullです。");
         }
@@ -115,15 +117,15 @@ public class DaoValidateCollector002Test extends DaoTestCase {
 
         do {
             retryFlg = false;
-            Collector<UserBean> it = new DaoValidateCollector<UserBean>(
-                    this.userListQueryResultHandleDao, "collect", null, validator);
+            Collector<UserBean> it = new DaoValidateCollector<UserBean>(this.userListQueryResultHandleDao, "collect", null, validator);
             try {
-                for (UserBean user : it) {
+                while (it.hasNext()) {
+                    it.next();
                     count_first++;
                 }
             } catch (Throwable e) {
-                if (e.getCause() instanceof DataAccessException
-                        && e.getCause().getCause() instanceof SQLException) {
+                if (e.getCause() instanceof DataAccessException && e.getCause()
+                        .getCause() instanceof SQLException) {
                     SQLException sqle = (SQLException) e.getCause().getCause();
                     logger.info("SQLState:" + sqle.getSQLState());
                     logger.info("ErrorCode:" + sqle.getErrorCode());
@@ -144,8 +146,8 @@ public class DaoValidateCollector002Test extends DaoTestCase {
             }
 
             // コレクタスレッド数チェック
-            assertTrue(CollectorTestUtil
-                    .lessThanCollectorThreadCount(0 + this.previousThreadCount));
+            assertTrue(CollectorTestUtil.lessThanCollectorThreadCount(0
+                    + this.previousThreadCount));
 
         } while (retryFlg && retryCount > 0);
 
@@ -158,10 +160,10 @@ public class DaoValidateCollector002Test extends DaoTestCase {
         for (int i = 0; i < 2; i++) {
             int count = 0;
 
-            Collector<UserBean> it2 = new DaoValidateCollector<UserBean>(
-                    this.userListQueryResultHandleDao, "collect", null, validator);
+            Collector<UserBean> it2 = new DaoValidateCollector<UserBean>(this.userListQueryResultHandleDao, "collect", null, validator);
             try {
-                for (UserBean user : it2) {
+                while (it2.hasNext()) {
+                    it2.next();
                     count++;
                 }
             } finally {
@@ -169,8 +171,8 @@ public class DaoValidateCollector002Test extends DaoTestCase {
             }
 
             // コレクタスレッド数チェック
-            assertTrue(CollectorTestUtil
-                    .lessThanCollectorThreadCount(0 + this.previousThreadCount));
+            assertTrue(CollectorTestUtil.lessThanCollectorThreadCount(0
+                    + this.previousThreadCount));
             assertEquals(count_first, count);
         }
     }
@@ -179,8 +181,7 @@ public class DaoValidateCollector002Test extends DaoTestCase {
      * {@link jp.terasoluna.fw.collector.db.DaoValidateCollector#DaoValidateCollector(Object, String, Object, org.springframework.validation.Validator)}
      * のためのテスト・メソッド。
      */
-    public void testDaoValidateCollectorObjectStringObjectValidator002()
-                                                                             throws Exception {
+    public void testDaoValidateCollectorObjectStringObjectValidator002() throws Exception {
         if (this.userListQueryResultHandleDao == null) {
             fail("userListQueryResultHandleDaoがnullです。");
         }
@@ -188,8 +189,7 @@ public class DaoValidateCollector002Test extends DaoTestCase {
         int count_first = 0;
         Validator validator = null;
 
-        Collector<UserBean> it = new DaoValidateCollector<UserBean>(
-                this.userListQueryResultHandleDao, "collect", null, validator);
+        Collector<UserBean> it = new DaoValidateCollector<UserBean>(this.userListQueryResultHandleDao, "collect", null, validator);
         try {
             for (UserBean user : it) {
                 UserBean nextUser = null;
@@ -213,24 +213,24 @@ public class DaoValidateCollector002Test extends DaoTestCase {
         }
 
         // コレクタスレッド数チェック
-        assertTrue(CollectorTestUtil
-                .lessThanCollectorThreadCount(0 + this.previousThreadCount));
+        assertTrue(CollectorTestUtil.lessThanCollectorThreadCount(0
+                + this.previousThreadCount));
 
         for (int i = 0; i < 2; i++) {
             int count = 0;
 
-            Collector<UserBean> it2 = new DaoValidateCollector<UserBean>(
-                    this.userListQueryResultHandleDao, "collect", null, validator);
+            Collector<UserBean> it2 = new DaoValidateCollector<UserBean>(this.userListQueryResultHandleDao, "collect", null, validator);
             try {
-                for (UserBean user : it2) {
+                while (it2.hasNext()) {
+                    it2.next();
                     count++;
                 }
             } finally {
                 DaoValidateCollector.closeQuietly(it2);
             }
             // コレクタスレッド数チェック
-            assertTrue(CollectorTestUtil
-                    .lessThanCollectorThreadCount(0 + this.previousThreadCount));
+            assertTrue(CollectorTestUtil.lessThanCollectorThreadCount(0
+                    + this.previousThreadCount));
             assertEquals(count_first, count);
         }
     }
@@ -239,8 +239,7 @@ public class DaoValidateCollector002Test extends DaoTestCase {
      * {@link jp.terasoluna.fw.collector.db.DaoValidateCollector#DaoValidateCollector(Object, String, Object, org.springframework.validation.Validator)}
      * のためのテスト・メソッド。
      */
-    public void testDaoValidateCollectorObjectStringObjectValidator003()
-                                                                             throws Exception {
+    public void testDaoValidateCollectorObjectStringObjectValidator003() throws Exception {
         if (this.userListQueryResultHandleDao == null) {
             fail("userListQueryResultHandleDaoがnullです。");
         }
@@ -249,15 +248,12 @@ public class DaoValidateCollector002Test extends DaoTestCase {
         int count_detail = 0;
         Validator validator = null;
 
-        Collector<OrderBean> it = new DaoValidateCollector<OrderBean>(
-                this.userListQueryResultHandleDao, "collectOrder", null, validator);
+        Collector<OrderBean> it = new DaoValidateCollector<OrderBean>(this.userListQueryResultHandleDao, "collectOrder", null, validator);
         try {
             for (OrderBean order : it) {
                 List<OrderDetailBean> orderDetailList = order
                         .getOrderDetailList();
-                for (OrderDetailBean orderDetail : orderDetailList) {
-                    count_detail++;
-                }
+                count_detail += orderDetailList.size();
                 count_first++;
             }
         } finally {
@@ -265,8 +261,8 @@ public class DaoValidateCollector002Test extends DaoTestCase {
         }
 
         // コレクタスレッド数チェック
-        assertTrue(CollectorTestUtil
-                .lessThanCollectorThreadCount(0 + this.previousThreadCount));
+        assertTrue(CollectorTestUtil.lessThanCollectorThreadCount(0
+                + this.previousThreadCount));
 
         assertEquals(4, count_first);
         assertEquals(12, count_detail);
@@ -276,8 +272,7 @@ public class DaoValidateCollector002Test extends DaoTestCase {
      * {@link jp.terasoluna.fw.collector.db.DaoValidateCollector#DaoValidateCollector(Object, String, Object, boolean, org.springframework.validation.Validator)}
      * のためのテスト・メソッド。
      */
-    public void testDaoValidateCollectorObjectStringObjectBooleanValidator001()
-                                                                             throws Exception {
+    public void testDaoValidateCollectorObjectStringObjectBooleanValidator001() throws Exception {
         if (this.userListQueryResultHandleDao == null) {
             fail("userListQueryResultHandleDaoがnullです。");
         }
@@ -286,15 +281,13 @@ public class DaoValidateCollector002Test extends DaoTestCase {
         int count_detail = 0;
         Validator validator = null;
 
-        Collector<OrderBean> it = new DaoValidateCollector<OrderBean>(
-                this.userListQueryResultHandleDao, "collectOrder", null, true, validator);
+        @SuppressWarnings("deprecation")
+        Collector<OrderBean> it = new DaoValidateCollector<OrderBean>(this.userListQueryResultHandleDao, "collectOrder", null, true, validator);
         try {
             for (OrderBean order : it) {
                 List<OrderDetailBean> orderDetailList = order
                         .getOrderDetailList();
-                for (OrderDetailBean orderDetail : orderDetailList) {
-                    count_detail++;
-                }
+                count_detail += orderDetailList.size();
                 count_first++;
             }
         } finally {
@@ -302,8 +295,8 @@ public class DaoValidateCollector002Test extends DaoTestCase {
         }
 
         // コレクタスレッド数チェック
-        assertTrue(CollectorTestUtil
-                .lessThanCollectorThreadCount(0 + this.previousThreadCount));
+        assertTrue(CollectorTestUtil.lessThanCollectorThreadCount(0
+                + this.previousThreadCount));
 
         assertEquals(4, count_first);
         assertEquals(12, count_detail);
@@ -313,8 +306,7 @@ public class DaoValidateCollector002Test extends DaoTestCase {
      * {@link jp.terasoluna.fw.collector.db.DaoValidateCollector#DaoValidateCollector(Object, String, Object, int, boolean, jp.terasoluna.fw.collector.exception.CollectorExceptionHandler, DaoCollectorPrePostProcess, org.springframework.validation.Validator, jp.terasoluna.fw.collector.validate.ValidationErrorHandler)}
      * のためのテスト・メソッド。
      */
-    public void testDaoValidateCollectorObjectStringObjectIntBooleanCollectorExceptionHandlerDaoCollectorPrePostProcessValidatorValidationErrorHandler001()
-                                                                             throws Exception {
+    public void testDaoValidateCollectorObjectStringObjectIntBooleanCollectorExceptionHandlerDaoCollectorPrePostProcessValidatorValidationErrorHandler001() throws Exception {
         if (this.userListQueryResultHandleDao == null) {
             fail("userListQueryResultHandleDaoがnullです。");
         }
@@ -323,16 +315,13 @@ public class DaoValidateCollector002Test extends DaoTestCase {
         int count_detail = 0;
         Validator validator = null;
 
-        Collector<OrderBean> it = new DaoValidateCollector<OrderBean>(
-                this.userListQueryResultHandleDao, "collectOrder", null, 1, true, null,
-                null, validator, null);
+        @SuppressWarnings("deprecation")
+        Collector<OrderBean> it = new DaoValidateCollector<OrderBean>(this.userListQueryResultHandleDao, "collectOrder", null, 1, true, null, null, validator, null);
         try {
             for (OrderBean order : it) {
                 List<OrderDetailBean> orderDetailList = order
                         .getOrderDetailList();
-                for (OrderDetailBean orderDetail : orderDetailList) {
-                    count_detail++;
-                }
+                count_detail += orderDetailList.size();
                 count_first++;
             }
         } finally {
@@ -340,8 +329,8 @@ public class DaoValidateCollector002Test extends DaoTestCase {
         }
 
         // コレクタスレッド数チェック
-        assertTrue(CollectorTestUtil
-                .lessThanCollectorThreadCount(0 + this.previousThreadCount));
+        assertTrue(CollectorTestUtil.lessThanCollectorThreadCount(0
+                + this.previousThreadCount));
 
         assertEquals(4, count_first);
         assertEquals(12, count_detail);
@@ -351,8 +340,7 @@ public class DaoValidateCollector002Test extends DaoTestCase {
      * {@link jp.terasoluna.fw.collector.db.DaoValidateCollector#DaoValidateCollector(Object, String, Object, org.springframework.validation.Validator)}
      * のためのテスト・メソッド。
      */
-    public void testDaoValidateCollectorObjectStringObjectValidator004()
-                                                                             throws Exception {
+    public void testDaoValidateCollectorObjectStringObjectValidator004() throws Exception {
         if (this.userListQueryResultHandleDao == null) {
             fail("userListQueryResultHandleDaoがnullです。");
         }
@@ -361,8 +349,7 @@ public class DaoValidateCollector002Test extends DaoTestCase {
         int count_detail = 0;
         Validator validator = null;
 
-        Collector<Order2Bean> it = new DaoValidateCollector<Order2Bean>(
-                this.userListQueryResultHandleDao, "collectOrder2", null, validator);
+        Collector<Order2Bean> it = new DaoValidateCollector<Order2Bean>(this.userListQueryResultHandleDao, "collectOrder2", null, validator);
         try {
             for (Order2Bean order : it) {
                 OrderDetailBean orderDetail = order.getOrderDetail();
@@ -376,8 +363,8 @@ public class DaoValidateCollector002Test extends DaoTestCase {
         }
 
         // コレクタスレッド数チェック
-        assertTrue(CollectorTestUtil
-                .lessThanCollectorThreadCount(0 + this.previousThreadCount));
+        assertTrue(CollectorTestUtil.lessThanCollectorThreadCount(0
+                + this.previousThreadCount));
 
         assertEquals(12, count_first);
         assertEquals(12, count_detail);
@@ -387,8 +374,7 @@ public class DaoValidateCollector002Test extends DaoTestCase {
      * {@link jp.terasoluna.fw.collector.db.DaoValidateCollector#DaoValidateCollector(Object, String, Object, boolean, org.springframework.validation.Validator)}
      * のためのテスト・メソッド。
      */
-    public void testDaoValidateCollectorObjectStringObjectBooleanValidator002()
-                                                                             throws Exception {
+    public void testDaoValidateCollectorObjectStringObjectBooleanValidator002() throws Exception {
         if (this.userListQueryResultHandleDao == null) {
             fail("userListQueryResultHandleDaoがnullです。");
         }
@@ -397,14 +383,12 @@ public class DaoValidateCollector002Test extends DaoTestCase {
         int count_detail = 0;
         Validator validator = null;
 
-        Collector<Order2Bean> it = new DaoValidateCollector<Order2Bean>(
-                this.userListQueryResultHandleDao, "collectOrder2", null, true, validator);
+        @SuppressWarnings("deprecation")
+        Collector<Order2Bean> it = new DaoValidateCollector<Order2Bean>(this.userListQueryResultHandleDao, "collectOrder2", null, true, validator);
         try {
             for (Order2Bean order : it) {
-                @SuppressWarnings("unused")
-                Order2Bean prevOrder = it.getPrevious();
-                @SuppressWarnings("unused")
-                Order2Bean nextOrder = it.getNext();
+                it.getPrevious();
+                it.getNext();
                 OrderDetailBean orderDetail = order.getOrderDetail();
                 if (orderDetail != null) {
                     count_detail++;
@@ -416,8 +400,8 @@ public class DaoValidateCollector002Test extends DaoTestCase {
         }
 
         // コレクタスレッド数チェック
-        assertTrue(CollectorTestUtil
-                .lessThanCollectorThreadCount(0 + this.previousThreadCount));
+        assertTrue(CollectorTestUtil.lessThanCollectorThreadCount(0
+                + this.previousThreadCount));
 
         assertEquals(12, count_first);
         assertEquals(12, count_detail);
@@ -427,8 +411,7 @@ public class DaoValidateCollector002Test extends DaoTestCase {
      * {@link jp.terasoluna.fw.collector.db.DaoValidateCollector#DaoValidateCollector(Object, String, Object, int, boolean, jp.terasoluna.fw.collector.exception.CollectorExceptionHandler, jp.terasoluna.fw.collector.db.DaoCollectorPrePostProcess, org.springframework.validation.Validator,jp.terasoluna.fw.collector.validate.ValidationErrorHandler)}
      * のためのテスト・メソッド。
      */
-    public void testDaoValidateCollectorObjectStringObjectIntBooleanCollectorExceptionHandlerDaoCollectorPrePostProcessValidatorValidationErrorHandler002()
-                                                                             throws Exception {
+    public void testDaoValidateCollectorObjectStringObjectIntBooleanCollectorExceptionHandlerDaoCollectorPrePostProcessValidatorValidationErrorHandler002() throws Exception {
         if (this.userListQueryResultHandleDao == null) {
             fail("userListQueryResultHandleDaoがnullです。");
         }
@@ -437,15 +420,12 @@ public class DaoValidateCollector002Test extends DaoTestCase {
         int count_detail = 0;
         Validator validator = null;
 
-        Collector<Order2Bean> it = new DaoValidateCollector<Order2Bean>(
-                this.userListQueryResultHandleDao, "collectOrder2", null, 1, true, null,
-                null, validator, null);
+        @SuppressWarnings("deprecation")
+        Collector<Order2Bean> it = new DaoValidateCollector<Order2Bean>(this.userListQueryResultHandleDao, "collectOrder2", null, 1, true, null, null, validator, null);
         try {
             for (Order2Bean order : it) {
-                @SuppressWarnings("unused")
-                Order2Bean prevOrder = it.getPrevious();
-                @SuppressWarnings("unused")
-                Order2Bean nextOrder = it.getNext();
+                it.getPrevious();
+                it.getNext();
                 OrderDetailBean orderDetail = order.getOrderDetail();
                 if (orderDetail != null) {
                     count_detail++;
@@ -457,8 +437,8 @@ public class DaoValidateCollector002Test extends DaoTestCase {
         }
 
         // コレクタスレッド数チェック
-        assertTrue(CollectorTestUtil
-                .lessThanCollectorThreadCount(0 + this.previousThreadCount));
+        assertTrue(CollectorTestUtil.lessThanCollectorThreadCount(0
+                + this.previousThreadCount));
 
         assertEquals(12, count_first);
         assertEquals(12, count_detail);

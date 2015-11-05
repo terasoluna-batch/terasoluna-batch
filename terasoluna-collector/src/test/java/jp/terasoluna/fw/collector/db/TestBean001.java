@@ -1,6 +1,7 @@
 package jp.terasoluna.fw.collector.db;
 
 public class TestBean001 {
+    @SuppressWarnings("unused")
     private String hoge = null;
 
     public void setHoge(String hoge) {
@@ -8,10 +9,7 @@ public class TestBean001 {
     }
 
     public String getHoge() {
-        if (true) {
-            throw new RuntimeException();
-        }
-        return hoge;
+        throw new RuntimeException();
     }
 
 }

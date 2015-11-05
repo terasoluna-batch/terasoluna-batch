@@ -595,9 +595,7 @@ public class FieldChecksTest06 {
 
         try {
             // テスト実施
-            @SuppressWarnings("unused")
-            boolean b = new FieldChecks().validateNumber(bean, va, field,
-                    errors);
+            new FieldChecks().validateNumber(bean, va, field, errors);
             fail();
         } catch (ValidatorException e) {
             // 判定
@@ -652,9 +650,7 @@ public class FieldChecksTest06 {
 
         try {
             // テスト実施
-            @SuppressWarnings("unused")
-            boolean b = new FieldChecks().validateNumber(bean, va, field,
-                    errors);
+            new FieldChecks().validateNumber(bean, va, field, errors);
             fail();
         } catch (ValidatorException e) {
             // 判定

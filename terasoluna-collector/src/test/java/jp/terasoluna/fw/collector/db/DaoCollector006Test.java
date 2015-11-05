@@ -37,6 +37,7 @@ public class DaoCollector006Test extends DaoTestCase {
         this.userListQueryResultHandleDao = userListQueryResultHandleDao;
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     protected void onSetUp() throws Exception {
         if (logger.isInfoEnabled()) {
@@ -78,9 +79,9 @@ public class DaoCollector006Test extends DaoTestCase {
         Collector<UserBean> it = new DaoCollector<UserBean>(
                 this.userListQueryResultHandleDao, "collect", null, 1);
         try {
-            for (UserBean user : it) {
+            while (it.hasNext()) {
+                it.next();
                 count_first++;
-
                 if (count_first > 10) {
                     break;
                 }
@@ -98,6 +99,7 @@ public class DaoCollector006Test extends DaoTestCase {
 
             long startTime = System.currentTimeMillis();
 
+            @SuppressWarnings("resource")
             Collector<UserBean> it2 = new DaoCollector<UserBean>(
                     this.userListQueryResultHandleDao, "collect", null, 1);
             for (UserBean user : it2) {

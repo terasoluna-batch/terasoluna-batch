@@ -630,6 +630,7 @@ public class BeanUtilTest {
     @Test
     public void testGetBeanPropertyType07() throws Exception {
         // テスト用JavaBean生成
+        @SuppressWarnings("rawtypes")
         Map<?, ?> map = new HashMap();
 
         // テスト実行

@@ -50,7 +50,7 @@ import org.springframework.test.util.ReflectionTestUtils;
  * @see jp.terasoluna.fw.client.util.ConvertUtil
  */
 public class ConvertUtilTest {
-    
+
     /**
      * PropertyUtilsBean。
      */
@@ -77,11 +77,9 @@ public class ConvertUtilTest {
     }
 
     /**
-     * testToArray01()
-     * <br><br>
-     * 
-     * (正常系)
+     * testToArray01() <br>
      * <br>
+     * (正常系) <br>
      * 入力値：(引数) obj:null<br>
      * <br>
      * 期待値：(戻り値) Object[]:要素を持たないObject[] (要素数が0であることを確認)<br>
@@ -243,13 +241,12 @@ public class ConvertUtilTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testToArray07() throws Exception {
         // 前処理
         Object[] obj = new Object[3];
         obj[0] = "array";
         obj[1] = 1;
-        Map map = new HashMap();
+        Map<String, String> map = new HashMap<String, String>();
         map.put("foo", "something");
         obj[2] = map;
 
@@ -261,7 +258,7 @@ public class ConvertUtilTest {
         assertEquals("array", result[0]);
         assertEquals(1, result[1]);
         assertEquals(map, result[2]);
-        Map mapResult = (Map) result[2];
+        Map<?, ?> mapResult = (Map<?, ?>) result[2];
         assertEquals("something", mapResult.get("foo"));
     }
 
@@ -281,7 +278,7 @@ public class ConvertUtilTest {
     @Test
     public void testToArray08() throws Exception {
         // 前処理
-        Collection obj = new Vector();
+        Collection<?> obj = new Vector<Object>();
 
         // テスト実施
         Object[] result = ConvertUtil.toArray(obj);
@@ -306,10 +303,9 @@ public class ConvertUtilTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testToArray09() throws Exception {
         // 前処理
-        Collection obj = new Vector();
+        Collection<String> obj = new Vector<String>();
         obj.add("collection");
 
         // テスト実施
@@ -340,13 +336,12 @@ public class ConvertUtilTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testToArray10() throws Exception {
         // 前処理
-        Collection obj = new Vector();
+        Collection<Object> obj = new Vector<Object>();
         obj.add("collection");
         obj.add(1);
-        Map map = new HashMap();
+        Map<String, String> map = new HashMap<String, String>();
         map.put("foo", "something");
         obj.add(map);
 
@@ -357,7 +352,7 @@ public class ConvertUtilTest {
         assertEquals(3, result.length);
         assertEquals("collection", result[0]);
         assertEquals(1, result[1]);
-        Map mapResult = (Map) result[2];
+        Map<?, ?> mapResult = (Map<?, ?>) result[2];
         assertEquals("something", mapResult.get("foo"));
     }
 
@@ -509,7 +504,6 @@ public class ConvertUtilTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testToList06() throws Exception {
         // テスト実施
         try {
@@ -685,7 +679,7 @@ public class ConvertUtilTest {
     @Test
     public void testToList11() throws Exception {
         // 前処理
-        Collection obj = new Vector();
+        Collection<?> obj = new Vector<Object>();
 
         // テスト実施
         List<String> result = ConvertUtil.toList(obj, String.class);
@@ -712,10 +706,9 @@ public class ConvertUtilTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testToList12() throws Exception {
         // 前処理
-        Collection obj = new Vector();
+        Collection<String> obj = new Vector<String>();
         obj.add("foo");
 
         // テスト実施
@@ -747,10 +740,9 @@ public class ConvertUtilTest {
      * @throws Exception このメソッドで発生した例外
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void testToList13() throws Exception {
         // 前処理
-        Collection obj = new Vector();
+        Collection<String> obj = new Vector<String>();
         obj.add("foo");
         obj.add("bar");
         obj.add("baz");
@@ -879,10 +871,10 @@ public class ConvertUtilTest {
     @Test
     public void testConvertObjectClass03() throws Exception {
         // 前処理
-        List list = new ArrayList();
+        List<?> list = new ArrayList<Object>();
 
         // テスト実施
-        List result = ConvertUtil.convert(list, ArrayList.class);
+        List<?> result = ConvertUtil.convert(list, ArrayList.class);
 
         // 判定
         assertSame(list, result);
@@ -998,10 +990,10 @@ public class ConvertUtilTest {
     @Test
     public void testConvertIfNotNull03() throws Exception {
         // 前処理
-        List list = new ArrayList();
+        List<?> list = new ArrayList<Object>();
 
         // テスト実施
-        List result = ConvertUtil.convertIfNotNull(list, ArrayList.class);
+        List<?> result = ConvertUtil.convertIfNotNull(list, ArrayList.class);
 
         // 判定
         assertSame(list, result);
@@ -1171,10 +1163,10 @@ public class ConvertUtilTest {
     @Test
     public void testConvertObjectClassboolean05() throws Exception {
         // 前処理
-        List list = new ArrayList();
+        List<?> list = new ArrayList<Object>();
 
         // テスト実施
-        List result = ConvertUtil.convert(list, ArrayList.class, true);
+        List<?> result = ConvertUtil.convert(list, ArrayList.class, true);
 
         // 判定
         assertNotNull(result);
@@ -1451,7 +1443,7 @@ public class ConvertUtilTest {
         // 判定
         assertNotNull(result);
         assertTrue(result instanceof List);
-        List listResult = (List) result;
+        List<?> listResult = (List<?>) result;
         assertEquals(0, listResult.size());
     }
 
@@ -1481,7 +1473,7 @@ public class ConvertUtilTest {
         // 判定
         assertNotNull(result);
         assertTrue(result instanceof List);
-        List listResult = (List) result;
+        List<?> listResult = (List<?>) result;
         assertEquals(1, listResult.size());
         assertTrue((Boolean) listResult.get(0));
     }
@@ -1516,7 +1508,7 @@ public class ConvertUtilTest {
         // 判定
         assertNotNull(result);
         assertTrue(result instanceof List);
-        List listResult = (List) result;
+        List<?> listResult = (List<?>) result;
         assertEquals(3, listResult.size());
         assertTrue((Boolean) listResult.get(0));
         assertFalse((Boolean) listResult.get(1));
@@ -1547,7 +1539,7 @@ public class ConvertUtilTest {
         // 判定
         assertNotNull(result);
         assertTrue(result instanceof List);
-        List listResult = (List) result;
+        List<?> listResult = (List<?>) result;
         assertEquals(0, listResult.size());
     }
 
@@ -1577,7 +1569,7 @@ public class ConvertUtilTest {
         // 判定
         assertNotNull(result);
         assertTrue(result instanceof List);
-        List listResult = (List) result;
+        List<?> listResult = (List<?>) result;
         assertEquals(1, listResult.size());
         assertEquals("1", listResult.get(0));
     }
@@ -1612,7 +1604,7 @@ public class ConvertUtilTest {
         // 判定
         assertNotNull(result);
         assertTrue(result instanceof List);
-        List listResult = (List) result;
+        List<?> listResult = (List<?>) result;
         assertEquals(3, listResult.size());
         assertEquals("1", listResult.get(0));
         assertEquals("2", listResult.get(1));
@@ -1643,7 +1635,7 @@ public class ConvertUtilTest {
         // 判定
         assertNotNull(result);
         assertTrue(result instanceof List);
-        List listResult = (List) result;
+        List<?> listResult = (List<?>) result;
         assertEquals(0, listResult.size());
     }
 
@@ -1673,7 +1665,7 @@ public class ConvertUtilTest {
         // 判定
         assertNotNull(result);
         assertTrue(result instanceof List);
-        List listResult = (List) result;
+        List<?> listResult = (List<?>) result;
         assertEquals(1, listResult.size());
         assertEquals("A", listResult.get(0));
     }
@@ -1708,7 +1700,7 @@ public class ConvertUtilTest {
         // 判定
         assertNotNull(result);
         assertTrue(result instanceof List);
-        List listResult = (List) result;
+        List<?> listResult = (List<?>) result;
         assertEquals(3, listResult.size());
         assertEquals("A", listResult.get(0));
         assertEquals("B", listResult.get(1));
@@ -1739,7 +1731,7 @@ public class ConvertUtilTest {
         // 判定
         assertNotNull(result);
         assertTrue(result instanceof List);
-        List listResult = (List) result;
+        List<?> listResult = (List<?>) result;
         assertEquals(0, listResult.size());
     }
 
@@ -1769,7 +1761,7 @@ public class ConvertUtilTest {
         // 判定
         assertNotNull(result);
         assertTrue(result instanceof List);
-        List listResult = (List) result;
+        List<?> listResult = (List<?>) result;
         assertEquals(1, listResult.size());
         assertEquals("123.456", listResult.get(0));
     }
@@ -1804,7 +1796,7 @@ public class ConvertUtilTest {
         // 判定
         assertNotNull(result);
         assertTrue(result instanceof List);
-        List listResult = (List) result;
+        List<?> listResult = (List<?>) result;
         assertEquals(3, listResult.size());
         assertEquals("123.456", listResult.get(0));
         assertEquals("12.34", listResult.get(1));
@@ -1835,7 +1827,7 @@ public class ConvertUtilTest {
         // 判定
         assertNotNull(result);
         assertTrue(result instanceof List);
-        List listResult = (List) result;
+        List<?> listResult = (List<?>) result;
         assertEquals(0, listResult.size());
     }
 
@@ -1865,7 +1857,7 @@ public class ConvertUtilTest {
         // 判定
         assertNotNull(result);
         assertTrue(result instanceof List);
-        List listResult = (List) result;
+        List<?> listResult = (List<?>) result;
         assertEquals(1, listResult.size());
         assertEquals("12.3", listResult.get(0));
     }
@@ -1900,7 +1892,7 @@ public class ConvertUtilTest {
         // 判定
         assertNotNull(result);
         assertTrue(result instanceof List);
-        List listResult = (List) result;
+        List<?> listResult = (List<?>) result;
         assertEquals(3, listResult.size());
         assertEquals("12.3", listResult.get(0));
         assertEquals("1.2", listResult.get(1));
@@ -1931,7 +1923,7 @@ public class ConvertUtilTest {
         // 判定
         assertNotNull(result);
         assertTrue(result instanceof List);
-        List listResult = (List) result;
+        List<?> listResult = (List<?>) result;
         assertEquals(0, listResult.size());
     }
 
@@ -1961,7 +1953,7 @@ public class ConvertUtilTest {
         // 判定
         assertNotNull(result);
         assertTrue(result instanceof List);
-        List listResult = (List) result;
+        List<?> listResult = (List<?>) result;
         assertEquals(1, listResult.size());
         assertEquals("1", listResult.get(0));
     }
@@ -1996,7 +1988,7 @@ public class ConvertUtilTest {
         // 判定
         assertNotNull(result);
         assertTrue(result instanceof List);
-        List listResult = (List) result;
+        List<?> listResult = (List<?>) result;
         assertEquals(3, listResult.size());
         assertEquals("1", listResult.get(0));
         assertEquals("2", listResult.get(1));
@@ -2027,7 +2019,7 @@ public class ConvertUtilTest {
         // 判定
         assertNotNull(result);
         assertTrue(result instanceof List);
-        List listResult = (List) result;
+        List<?> listResult = (List<?>) result;
         assertEquals(0, listResult.size());
     }
 
@@ -2057,7 +2049,7 @@ public class ConvertUtilTest {
         // 判定
         assertNotNull(result);
         assertTrue(result instanceof List);
-        List listResult = (List) result;
+        List<?> listResult = (List<?>) result;
         assertEquals(1, listResult.size());
         assertEquals("1", listResult.get(0));
     }
@@ -2092,7 +2084,7 @@ public class ConvertUtilTest {
         // 判定
         assertNotNull(result);
         assertTrue(result instanceof List);
-        List listResult = (List) result;
+        List<?> listResult = (List<?>) result;
         assertEquals(3, listResult.size());
         assertEquals("1", listResult.get(0));
         assertEquals("2", listResult.get(1));
@@ -2123,7 +2115,7 @@ public class ConvertUtilTest {
         // 判定
         assertNotNull(result);
         assertTrue(result instanceof List);
-        List listResult = (List) result;
+        List<?> listResult = (List<?>) result;
         assertEquals(0, listResult.size());
 
     }
@@ -2154,7 +2146,7 @@ public class ConvertUtilTest {
         // 判定
         assertNotNull(result);
         assertTrue(result instanceof List);
-        List listResult = (List) result;
+        List<?> listResult = (List<?>) result;
         assertEquals(1, listResult.size());
     }
 
@@ -2188,7 +2180,7 @@ public class ConvertUtilTest {
         // 判定
         assertNotNull(result);
         assertTrue(result instanceof List);
-        List listResult = (List) result;
+        List<?> listResult = (List<?>) result;
         assertEquals(3, listResult.size());
         assertEquals("1", listResult.get(0));
         assertEquals("2", listResult.get(1));
@@ -2406,6 +2398,7 @@ public class ConvertUtilTest {
         Map<String, Object> row03 = new HashMap<String, Object>();
         row03.put("a", "value02");
 
+        @SuppressWarnings("rawtypes")
         Map[] obj = new Map[] { row, row02, row03 };
 
         // テスト実施

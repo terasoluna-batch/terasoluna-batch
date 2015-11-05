@@ -9,10 +9,7 @@ public class AbstractCollectorStubNext3CollectorExceptionHandler implements
 
     public CollectorExceptionHandlerStatus handleException(
             DataValueObject dataValueObject) {
-        if (true) {
-            throw new RuntimeException("hoge");
-        }
-        return null;
+        throw new RuntimeException("hoge");
     }
 
 }

@@ -64,6 +64,7 @@ public class PlatformTransactionManagerStub2 implements
 
     public void rollback(TransactionStatus status) throws TransactionException {
         throw new TransactionException("hoge") {
+            private static final long serialVersionUID = 1L;
         };
     }
 

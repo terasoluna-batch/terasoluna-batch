@@ -79,8 +79,9 @@ public class JobUtilTest extends DaoTestCase {
         except.add(bean03);
         except.add(bean04);
 
-        AssertUtils.assertInputEquals(new CollectionSource<BatchJobListResult>(
-                except), new CollectionSource<BatchJobListResult>(result));
+        AssertUtils.assertInputEquals(
+                new CollectionSource<BatchJobListResult>(except),
+                new CollectionSource<BatchJobListResult>(result));
 
     }
 
@@ -200,12 +201,13 @@ public class JobUtilTest extends DaoTestCase {
 
     public void testSelectJob03() throws Exception {
         SystemDao systemDao = mock(SystemDao.class);
-        when(systemDao.selectJob(any(BatchJobManagementParam.class)))
-                .thenThrow(new DataAccessException("DBステータス取得時例外確認用") {});
+        when(systemDao.selectJob(any(BatchJobManagementParam.class))).thenThrow(
+                new DataAccessException("DBステータス取得時例外確認用") {
+                    private static final long serialVersionUID = 1L;
+                });
 
         try {
-            JobUtil.selectJob("0000000001", true,
-                systemDao);
+            JobUtil.selectJob("0000000001", true, systemDao);
             fail();
         } catch (DataAccessException e) {
             assertEquals("DBステータス取得時例外確認用", e.getMessage());
@@ -238,10 +240,13 @@ public class JobUtilTest extends DaoTestCase {
         assertNull(result);
     }
 
+    @SuppressWarnings("deprecation")
     public void testGetCurrentTime03() throws Exception {
         SystemDao systemDao = mock(SystemDao.class);
         when(systemDao.readCurrentTime()).thenThrow(
-                new DataAccessException("DBステータス取得時例外確認用") {});
+                new DataAccessException("DBステータス取得時例外確認用") {
+                    private static final long serialVersionUID = 1L;
+                });
         try {
             JobUtil.getCurrentTime(systemDao);
             fail();
@@ -313,7 +318,8 @@ public class JobUtilTest extends DaoTestCase {
      */
     public void testUpdateJobStatus01() throws Exception {
 
-        boolean result = JobUtil.updateJobStatus("0000000002", "0", null, this.systemDao);
+        boolean result = JobUtil.updateJobStatus("0000000002", "0", null,
+                this.systemDao);
 
         assertEquals(true, result);
 
@@ -330,15 +336,18 @@ public class JobUtilTest extends DaoTestCase {
      */
     public void testUpdateJobStatus02() throws Exception {
         SystemDao mockDao = new SystemDao() {
-            public List<BatchJobListResult> selectJobList(BatchJobListParam batchJobListParam) {
+            public List<BatchJobListResult> selectJobList(
+                    BatchJobListParam batchJobListParam) {
                 return null;
             }
 
-            public List<BatchJobListResult> selectJobList(RowBounds rowBaounds, BatchJobListParam batchJobListParam) {
+            public List<BatchJobListResult> selectJobList(RowBounds rowBaounds,
+                    BatchJobListParam batchJobListParam) {
                 return null;
             }
 
-            public BatchJobData selectJob(BatchJobManagementParam batchJobManagementParam) {
+            public BatchJobData selectJob(
+                    BatchJobManagementParam batchJobManagementParam) {
                 return null;
             }
 
@@ -350,7 +359,8 @@ public class JobUtilTest extends DaoTestCase {
                 return null;
             }
 
-            public int updateJobTable(BatchJobManagementUpdateParam batchJobManagementUpdateParam) {
+            public int updateJobTable(
+                    BatchJobManagementUpdateParam batchJobManagementUpdateParam) {
                 throw new RuntimeException("例外発生時のメッセージ");
             }
         };
@@ -369,15 +379,18 @@ public class JobUtilTest extends DaoTestCase {
      */
     public void testUpdateJobStatus03() throws Exception {
         SystemDao mockDao = new SystemDao() {
-            public List<BatchJobListResult> selectJobList(BatchJobListParam batchJobListParam) {
+            public List<BatchJobListResult> selectJobList(
+                    BatchJobListParam batchJobListParam) {
                 return null;
             }
 
-            public List<BatchJobListResult> selectJobList(RowBounds rowBaounds, BatchJobListParam batchJobListParam) {
+            public List<BatchJobListResult> selectJobList(RowBounds rowBaounds,
+                    BatchJobListParam batchJobListParam) {
                 return null;
             }
 
-            public BatchJobData selectJob(BatchJobManagementParam batchJobManagementParam) {
+            public BatchJobData selectJob(
+                    BatchJobManagementParam batchJobManagementParam) {
                 return null;
             }
 
@@ -389,7 +402,8 @@ public class JobUtilTest extends DaoTestCase {
                 return null;
             }
 
-            public int updateJobTable(BatchJobManagementUpdateParam batchJobManagementUpdateParam) {
+            public int updateJobTable(
+                    BatchJobManagementUpdateParam batchJobManagementUpdateParam) {
                 return -1;
             }
         };
@@ -398,8 +412,11 @@ public class JobUtilTest extends DaoTestCase {
 
     public void testUpdateJobStatus04() throws Exception {
         SystemDao mockSystemDao = mock(SystemDao.class);
-        when(mockSystemDao.updateJobTable(any(BatchJobManagementUpdateParam.class)))
-                .thenThrow(new DataAccessException("DBステータス更新時例外確認用") {});
+        when(mockSystemDao.updateJobTable(any(
+                BatchJobManagementUpdateParam.class))).thenThrow(
+                        new DataAccessException("DBステータス更新時例外確認用") {
+                            private static final long serialVersionUID = 1L;
+                        });
         try {
             JobUtil.updateJobStatus("0000000002", "0", null, mockSystemDao);
             fail();
@@ -408,7 +425,7 @@ public class JobUtilTest extends DaoTestCase {
         }
     }
 
-	/**
+    /**
      * testJobUtil001
      * @throws Exception
      */

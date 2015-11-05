@@ -65,7 +65,8 @@ public class DynamicPropertyPointerExTest {
     public void testGetLength01() throws Exception {
         // 前処理
     	QName qName = new QName("name");
-    	Map map = new HashMap();
+    	@SuppressWarnings("rawtypes")
+        Map map = new HashMap();
     	map.put("key", null);
     	DynamicPropertyHandler handler = new MapDynamicPropertyHandler();
     	Locale locale = new Locale("ja");
@@ -103,7 +104,8 @@ public class DynamicPropertyPointerExTest {
     public void testGetLength02() throws Exception {
         // 前処理
     	QName qName = new QName("name");
-    	Map map = new HashMap();
+    	@SuppressWarnings("rawtypes")
+        Map map = new HashMap();
     	map.put("key", new String[]{"a", "b", "c"});
     	DynamicPropertyHandler handler = new MapDynamicPropertyHandler();
     	Locale locale = new Locale("ja");

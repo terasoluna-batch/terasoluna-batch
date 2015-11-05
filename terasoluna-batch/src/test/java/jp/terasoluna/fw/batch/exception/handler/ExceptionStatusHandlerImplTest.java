@@ -20,7 +20,6 @@ import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Test;
 
-import uk.org.lidalia.slf4jext.Level;
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
 import static uk.org.lidalia.slf4jtest.LoggingEvent.error;

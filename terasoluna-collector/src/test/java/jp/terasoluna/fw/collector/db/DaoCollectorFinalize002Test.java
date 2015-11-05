@@ -39,18 +39,21 @@ public class DaoCollectorFinalize002Test extends DaoTestCase {
         this.userListQueryResultHandleDao = userListQueryResultHandleDao;
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     protected void onSetUpBeforeTransaction() throws Exception {
         DaoCollector.setVerbose(true);
         super.onSetUpBeforeTransaction();
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     protected void onTearDownAfterTransaction() throws Exception {
         DaoCollector.setVerbose(false);
         super.onTearDownAfterTransaction();
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     protected void onSetUp() throws Exception {
         if (logger.isInfoEnabled()) {
@@ -90,7 +93,8 @@ public class DaoCollectorFinalize002Test extends DaoTestCase {
             Collector<UserBean> col = new DaoCollector<UserBean>(
                     this.userListQueryResultHandleDao, "collect", null);
             try {
-                for (UserBean user : col) {
+                while (col.hasNext()) {
+                    col.next();
                     // あえて途中で抜ける
                     break;
                 }

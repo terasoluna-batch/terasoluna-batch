@@ -89,7 +89,7 @@ public final class ExceptionUtil {
             sb.append(baos.toString());
             
             //throwableからClassオブジェクトを取り出す。
-            Class throwableClass = throwable.getClass();
+            Class<? extends Throwable> throwableClass = throwable.getClass();
             
             // ServletException ならば getRootCause を使う
             if (SERVLET_EXCEPTION_NAME.equals(throwableClass.getName())) {

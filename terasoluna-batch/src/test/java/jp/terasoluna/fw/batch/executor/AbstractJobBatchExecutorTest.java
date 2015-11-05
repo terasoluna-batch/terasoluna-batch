@@ -48,7 +48,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
         update("INSERT INTO job_control (job_seq_id, job_app_cd, job_arg_nm1, job_arg_nm2, job_arg_nm3, job_arg_nm4, job_arg_nm5, job_arg_nm6, job_arg_nm7, job_arg_nm8, job_arg_nm9, job_arg_nm10, job_arg_nm11, job_arg_nm12, job_arg_nm13, job_arg_nm14, job_arg_nm15, job_arg_nm16, job_arg_nm17, job_arg_nm18, job_arg_nm19, job_arg_nm20, blogic_app_status, cur_app_status, add_date_time, upd_date_time) VALUES ('0000000002', 'B000001', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL)");
         update("INSERT INTO job_control (job_seq_id, job_app_cd, job_arg_nm1, job_arg_nm2, job_arg_nm3, job_arg_nm4, job_arg_nm5, job_arg_nm6, job_arg_nm7, job_arg_nm8, job_arg_nm9, job_arg_nm10, job_arg_nm11, job_arg_nm12, job_arg_nm13, job_arg_nm14, job_arg_nm15, job_arg_nm16, job_arg_nm17, job_arg_nm18, job_arg_nm19, job_arg_nm20, blogic_app_status, cur_app_status, add_date_time, upd_date_time) VALUES ('0000000003', 'B000001', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2', NULL, NULL)");
         update("INSERT INTO job_control (job_seq_id, job_app_cd, job_arg_nm1, job_arg_nm2, job_arg_nm3, job_arg_nm4, job_arg_nm5, job_arg_nm6, job_arg_nm7, job_arg_nm8, job_arg_nm9, job_arg_nm10, job_arg_nm11, job_arg_nm12, job_arg_nm13, job_arg_nm14, job_arg_nm15, job_arg_nm16, job_arg_nm17, job_arg_nm18, job_arg_nm19, job_arg_nm20, blogic_app_status, cur_app_status, add_date_time, upd_date_time) VALUES ('0000000004', 'B000001', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', NULL, NULL)");
-		update("INSERT INTO job_control (job_seq_id, job_app_cd, job_arg_nm1, job_arg_nm2, job_arg_nm3, job_arg_nm4, job_arg_nm5, job_arg_nm6, job_arg_nm7, job_arg_nm8, job_arg_nm9, job_arg_nm10, job_arg_nm11, job_arg_nm12, job_arg_nm13, job_arg_nm14, job_arg_nm15, job_arg_nm16, job_arg_nm17, job_arg_nm18, job_arg_nm19, job_arg_nm20, blogic_app_status, cur_app_status, add_date_time, upd_date_time) VALUES ('0000000005', 'B000001', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL)");
+        update("INSERT INTO job_control (job_seq_id, job_app_cd, job_arg_nm1, job_arg_nm2, job_arg_nm3, job_arg_nm4, job_arg_nm5, job_arg_nm6, job_arg_nm7, job_arg_nm8, job_arg_nm9, job_arg_nm10, job_arg_nm11, job_arg_nm12, job_arg_nm13, job_arg_nm14, job_arg_nm15, job_arg_nm16, job_arg_nm17, job_arg_nm18, job_arg_nm19, job_arg_nm20, blogic_app_status, cur_app_status, add_date_time, upd_date_time) VALUES ('0000000005', 'B000001', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL)");
 
         systemDao = getBean("systemDao");
         transactionManager = getBean("adminTransactionManager");
@@ -57,6 +57,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
 
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     protected void onTearDownAfterTransaction() throws Exception {
 
@@ -203,8 +204,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * ジョブステータス更新メソッドのテスト<br>
      * <br>
      * テスト概要：<br>
-     * 起動時「0」でジョブ管理テーブルに登録されている ジョブシーケンスコード「0000000001」のジョブステータスが
-     * 未実施「0」の場合trueが返却されることを確認する。 <br>
+     * 起動時「0」でジョブ管理テーブルに登録されている ジョブシーケンスコード「0000000001」のジョブステータスが 未実施「0」の場合trueが返却されることを確認する。 <br>
      * <br>
      * 確認項目：<br>
      * trueが返却されること。<br>
@@ -230,8 +230,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * ジョブステータス更新メソッドのテスト<br>
      * <br>
      * テスト概要：<br>
-     * 起動時「0」でジョブ管理テーブルに登録されている ジョブシーケンスコード「0000000002」のジョブステータスが
-     * 実行中「1」の場合falseが返却されることを確認する。 <br>
+     * 起動時「0」でジョブ管理テーブルに登録されている ジョブシーケンスコード「0000000002」のジョブステータスが 実行中「1」の場合falseが返却されることを確認する。 <br>
      * <br>
      * 確認項目：<br>
      * falseが返却されること。<br>
@@ -257,8 +256,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * ジョブステータス更新メソッドのテスト<br>
      * <br>
      * テスト概要：<br>
-     * 起動時「0」でジョブ管理テーブルに登録されている ジョブシーケンスコード「0000000003」のジョブステータスが
-     * 処理済「2」の場合falseが返却されることを確認する。 <br>
+     * 起動時「0」でジョブ管理テーブルに登録されている ジョブシーケンスコード「0000000003」のジョブステータスが 処理済「2」の場合falseが返却されることを確認する。 <br>
      * <br>
      * 確認項目：<br>
      * falseが返却されること。<br>
@@ -284,8 +282,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * ジョブステータス更新メソッドのテスト<br>
      * <br>
      * テスト概要：<br>
-     * 正常終了時「1」でジョブ管理テーブルに登録されている ジョブシーケンスコード「0000000001」のジョブステータスが
-     * 未実施「0」の場合 falseが返却されることを確認する。 <br>
+     * 正常終了時「1」でジョブ管理テーブルに登録されている ジョブシーケンスコード「0000000001」のジョブステータスが 未実施「0」の場合 falseが返却されることを確認する。 <br>
      * <br>
      * 確認項目：<br>
      * falseが返却されること。<br>
@@ -296,7 +293,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
 
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
 
-        boolean result = exe.updateBatchStatus("0000000001", "1", "0",
+        exe.updateBatchStatus("0000000001", "1", "0",
                 systemDao, transactionManager);
 
         BatchJobData row = queryForRowObject(
@@ -311,8 +308,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * ジョブステータス更新メソッドのテスト<br>
      * <br>
      * テスト概要：<br>
-     * 正常終了時「1」でジョブ管理テーブルに登録されている ジョブシーケンスコード「0000000002」のジョブステータスが
-     * 実行中「1」の場合 trueが返却されることを確認する。 <br>
+     * 正常終了時「1」でジョブ管理テーブルに登録されている ジョブシーケンスコード「0000000002」のジョブステータスが 実行中「1」の場合 trueが返却されることを確認する。 <br>
      * <br>
      * 確認項目：<br>
      * trueが返却されること。<br>
@@ -338,8 +334,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * ジョブステータス更新メソッドのテスト<br>
      * <br>
      * テスト概要：<br>
-     * 正常終了時「1」でジョブ管理テーブルに登録されている ジョブシーケンスコード「0000000003」のジョブステータスが
-     * 処理済「2」の場合 falseが返却されることを確認する。 <br>
+     * 正常終了時「1」でジョブ管理テーブルに登録されている ジョブシーケンスコード「0000000003」のジョブステータスが 処理済「2」の場合 falseが返却されることを確認する。 <br>
      * <br>
      * 確認項目：<br>
      * falseが返却されること。<br>
@@ -365,20 +360,18 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * ジョブステータス更新メソッドのテスト<br>
      * <br>
      * テスト概要：<br>
-     * DBフェールオーバの発生を想定し、TransactionManager#getTransaction(tranDef)による
-     * トランザクション開始時にTransactionExceptionが発生した場合、呼出し元にスローされること。<br>
+     * DBフェールオーバの発生を想定し、TransactionManager#getTransaction(tranDef)による トランザクション開始時にTransactionExceptionが発生した場合、呼出し元にスローされること。<br>
      * <br>
      * 確認項目：<br>
      * TransactionExceptionがスローされること。
-     * 
      * @throws Exception
      */
     public void testUpdateBatchStatus07() throws Exception {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
         PlatformTransactionManager transactionManager = new PlatformTransactionManagerStub01();
         try {
-            exe.updateBatchStatus("0000000003", "1", "0",
-                systemDao, transactionManager);
+            exe.updateBatchStatus("0000000003", "1", "0", systemDao,
+                    transactionManager);
             fail();
         } catch (TransactionException e) {
             assertEquals("トランザクション開始確認", e.getMessage());
@@ -389,28 +382,30 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * ジョブステータス更新メソッドのテスト<br>
      * <br>
      * テスト概要：<br>
-     * DBフェールオーバの発生を想定し、JobUtil.updateJobStatus()による
-     * DB更新時にDataAccessExceptionが発生した場合、呼出し元にスローされること。<br>
+     * DBフェールオーバの発生を想定し、JobUtil.updateJobStatus()による DB更新時にDataAccessExceptionが発生した場合、呼出し元にスローされること。<br>
      * <br>
      * 確認項目：<br>
      * DataAccessExceptionがスローされること。
-     * 
      * @throws Exception
      */
     public void testUpdateBatchStatus08() throws Exception {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
         SystemDao systemDao = mock(SystemDao.class);
         when(systemDao.updateJobTable(any(BatchJobManagementUpdateParam.class)))
-                .thenThrow(new DataAccessException("DBステータス更新時例外確認用") {});
+                .thenThrow(new DataAccessException("DBステータス更新時例外確認用") {
+                    private static final long serialVersionUID = 1L;
+                });
         when(systemDao.selectJob(any(BatchJobManagementParam.class)))
-                .thenReturn(new BatchJobData(){{
-                    setJobSequenceId("0000000003");
-                    setCurAppStatus("1");
-                    setErrAppStatus("1");
-                }});
+                .thenReturn(new BatchJobData() {
+                    {
+                        setJobSequenceId("0000000003");
+                        setCurAppStatus("1");
+                        setErrAppStatus("1");
+                    }
+                });
         try {
-            exe.updateBatchStatus("0000000003", "1", "0",
-                systemDao, transactionManager);
+            exe.updateBatchStatus("0000000003", "1", "0", systemDao,
+                    transactionManager);
             fail();
         } catch (DataAccessException e) {
             assertEquals("DBステータス更新時例外確認用", e.getMessage());
@@ -421,23 +416,22 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * ジョブステータス更新メソッドのテスト<br>
      * <br>
      * テスト概要：<br>
-     * DBフェールオーバの発生を想定し、JobUtil.selectJob(jobSequenceId, true, systemDao)による
-     * DB参照時にDataAccessExceptionが発生した場合、呼出し元にスローされること。<br>
+     * DBフェールオーバの発生を想定し、JobUtil.selectJob(jobSequenceId, true, systemDao)による DB参照時にDataAccessExceptionが発生した場合、呼出し元にスローされること。<br>
      * <br>
      * 確認項目：<br>
      * DataAccessExceptionがスローされること。
-     * 
      * @throws Exception
      */
     public void testUpdateBatchStatus09() throws Exception {
         SystemDao systemDao = mock(SystemDao.class);
-        when(systemDao.selectJob(any(BatchJobManagementParam.class)))
-                .thenThrow(new DataAccessException("DBステータス参照時例外確認用") {
+        when(systemDao.selectJob(any(BatchJobManagementParam.class))).thenThrow(
+                new DataAccessException("DBステータス参照時例外確認用") {
+                    private static final long serialVersionUID = 1L;
                 });
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
         try {
-            exe.updateBatchStatus("0000000005", "1", "0",
-                    systemDao, transactionManager);
+            exe.updateBatchStatus("0000000005", "1", "0", systemDao,
+                    transactionManager);
             fail();
         } catch (DataAccessException e) {
             assertEquals("DBステータス参照時例外確認用", e.getMessage());
@@ -448,19 +442,18 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * ジョブステータス更新メソッドのテスト<br>
      * <br>
      * テスト概要：<br>
-     * DBフェールオーバの発生を想定し、transactionManager.commit(tranStatus)による
-     * トランザクションコミット失敗時にTransactionExceptionが発生した場合、呼出し元にスローされること。<br>
+     * DBフェールオーバの発生を想定し、transactionManager.commit(tranStatus)による トランザクションコミット失敗時にTransactionExceptionが発生した場合、呼出し元にスローされること。<br>
      * <br>
      * 確認項目：<br>
      * TransactionExceptionがスローされること。
-     * 
      * @throws Exception
      */
     public void testUpdateBatchStatus10() throws Exception {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
         PlatformTransactionManager transactionManager = new PlatformTransactionManagerStub02();
         try {
-            exe.updateBatchStatus("0000000005", "1", "0", systemDao, transactionManager);
+            exe.updateBatchStatus("0000000005", "1", "0", systemDao,
+                    transactionManager);
             fail();
         } catch (TransactionException e) {
             assertEquals("コミット確認用", e.getMessage());
@@ -471,13 +464,11 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * ジョブステータス更新メソッドのテスト<br>
      * <br>
      * テスト概要：<br>
-     * DBフェールオーバ以外の例外発生を想定し、transactionManagerがnullの場合による
-     * トランザクション開始時にNullPointerExceptionが発生した場合、
+     * DBフェールオーバ以外の例外発生を想定し、transactionManagerがnullの場合による トランザクション開始時にNullPointerExceptionが発生した場合、
      * BatchExceptionにラップされた状態で呼出し元にスローされること。<br>
      * <br>
      * 確認項目：<br>
      * BatchExceptionがスローされること。
-     *
      * @throws Exception
      */
     public void testUpdateBatchStatus11() throws Exception {
@@ -494,8 +485,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * ジョブステータス更新（ジョブ終了）メソッドのテスト<br>
      * <br>
      * テスト概要：<br>
-     * 正常終了時「1」でジョブ管理テーブルに登録されている ジョブシーケンスコード「0000000001」のジョブステータスが
-     * 未実施「0」の場合 falseが返却されることを確認する。 <br>
+     * 正常終了時「1」でジョブ管理テーブルに登録されている ジョブシーケンスコード「0000000001」のジョブステータスが 未実施「0」の場合 falseが返却されることを確認する。 <br>
      * <br>
      * 確認項目：<br>
      * falseが返却されること。<br>
@@ -505,7 +495,8 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
     public void testEndBatchStatus01() throws Exception {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
         BLogicResult blogicResult = new BLogicResult();
-        boolean result = exe.endBatchStatus("0000000001", blogicResult, systemDao, transactionManager);
+        boolean result = exe.endBatchStatus("0000000001", blogicResult,
+                systemDao, transactionManager);
 
         BatchJobData row = queryForRowObject(
                 "select * from job_control where job_seq_id = '0000000001'",
@@ -520,8 +511,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * ジョブステータス更新（ジョブ終了）メソッドのテスト<br>
      * <br>
      * テスト概要：<br>
-     * 正常終了時「1」でジョブ管理テーブルに登録されている ジョブシーケンスコード「0000000002」のジョブステータスが
-     * 実行中「1」の場合 trueが返却されることを確認する。 <br>
+     * 正常終了時「1」でジョブ管理テーブルに登録されている ジョブシーケンスコード「0000000002」のジョブステータスが 実行中「1」の場合 trueが返却されることを確認する。 <br>
      * <br>
      * 確認項目：<br>
      * trueが返却されること。<br>
@@ -547,8 +537,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * ジョブステータス更新（ジョブ終了）メソッドのテスト<br>
      * <br>
      * テスト概要：<br>
-     * 正常終了時「1」でジョブ管理テーブルに登録されている ジョブシーケンスコード「0000000003」のジョブステータスが
-     * 処理済「2」の場合 falseが返却されることを確認する。 <br>
+     * 正常終了時「1」でジョブ管理テーブルに登録されている ジョブシーケンスコード「0000000003」のジョブステータスが 処理済「2」の場合 falseが返却されることを確認する。 <br>
      * <br>
      * 確認項目：<br>
      * falseが返却されること。<br>
@@ -558,7 +547,8 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
     public void testEndBatchStatus03() throws Exception {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
         BLogicResult blogicResult = new BLogicResult();
-        boolean result = exe.endBatchStatus("0000000003", blogicResult, systemDao, transactionManager);
+        boolean result = exe.endBatchStatus("0000000003", blogicResult,
+                systemDao, transactionManager);
 
         BatchJobData row = queryForRowObject(
                 "select * from job_control where job_seq_id = '0000000003'",
@@ -573,8 +563,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * ジョブステータス更新（ジョブ開始）メソッドのテスト<br>
      * <br>
      * テスト概要：<br>
-     * 起動時「0」でジョブ管理テーブルに登録されている ジョブシーケンスコード「0000000001」のジョブステータスが
-     * 未実施「0」の場合 trueが返却されることを確認する。 <br>
+     * 起動時「0」でジョブ管理テーブルに登録されている ジョブシーケンスコード「0000000001」のジョブステータスが 未実施「0」の場合 trueが返却されることを確認する。 <br>
      * <br>
      * 確認項目：<br>
      * trueが返却されること。<br>
@@ -584,7 +573,8 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
     public void testStartBatchStatus01() throws Exception {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
 
-        boolean result = exe.startBatchStatus("0000000001", systemDao, transactionManager);
+        boolean result = exe.startBatchStatus("0000000001", systemDao,
+                transactionManager);
 
         BatchJobData row = queryForRowObject(
                 "select * from job_control where job_seq_id = '0000000001'",
@@ -599,8 +589,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * ジョブステータス更新（ジョブ開始）メソッドのテスト<br>
      * <br>
      * テスト概要：<br>
-     * 起動時「0」でジョブ管理テーブルに登録されている ジョブシーケンスコード「0000000002」のジョブステータスが
-     * 実行中「1」の場合falseが返却されることを確認する。 <br>
+     * 起動時「0」でジョブ管理テーブルに登録されている ジョブシーケンスコード「0000000002」のジョブステータスが 実行中「1」の場合falseが返却されることを確認する。 <br>
      * <br>
      * 確認項目：<br>
      * falseが返却されること。<br>
@@ -610,7 +599,8 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
     public void testStartBatchStatus02() throws Exception {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
 
-        boolean result = exe.startBatchStatus("0000000002", systemDao, transactionManager);
+        boolean result = exe.startBatchStatus("0000000002", systemDao,
+                transactionManager);
 
         BatchJobData row = queryForRowObject(
                 "select * from job_control where job_seq_id = '0000000002'",
@@ -625,8 +615,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * ジョブステータス更新（ジョブ開始）メソッドのテスト<br>
      * <br>
      * テスト概要：<br>
-     * 起動時「0」でジョブ管理テーブルに登録されている ジョブシーケンスコード「0000000003」のジョブステータスが
-     * 処理済「2」の場合 falseが返却されることを確認する。 <br>
+     * 起動時「0」でジョブ管理テーブルに登録されている ジョブシーケンスコード「0000000003」のジョブステータスが 処理済「2」の場合 falseが返却されることを確認する。 <br>
      * <br>
      * 確認項目：<br>
      * falseが返却されること。<br>
@@ -636,7 +625,8 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
     public void testStartBatchStatus03() throws Exception {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
 
-        boolean result = exe.startBatchStatus("0000000003", systemDao, transactionManager);
+        boolean result = exe.startBatchStatus("0000000003", systemDao,
+                transactionManager);
 
         BatchJobData row = queryForRowObject(
                 "select * from job_control where job_seq_id = '0000000003'",
@@ -651,8 +641,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * ジョブ実行メソッドのテスト<br>
      * <br>
      * テスト概要：<br>
-     * 起動時「0」でジョブ管理テーブルに登録されている ジョブシーケンスコード「0000000001」のジョブが
-     * 正常に実行されることを確認する。 <br>
+     * 起動時「0」でジョブ管理テーブルに登録されている ジョブシーケンスコード「0000000001」のジョブが 正常に実行されることを確認する。 <br>
      * <br>
      * 確認項目：<br>
      * ジョブ終了コードに0が返却されること。<br>
@@ -750,8 +739,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * テスト概要：getterメソッドのテストであるため、初期値が5000であることを確認する。
      * @throws Exception
      */
-    public void testGetExecutorJobTerminateWaitIntervalTime01()
-                                                               throws Exception {
+    public void testGetExecutorJobTerminateWaitIntervalTime01() throws Exception {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
 
         assertEquals(3000, exe.getExecutorJobTerminateWaitIntervalTime());
@@ -848,8 +836,8 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
 
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
 
-        TerasolunaPropertyUtils
-                .removeProperty("executor.jobTerminateWaitInterval");
+        TerasolunaPropertyUtils.removeProperty(
+                "executor.jobTerminateWaitInterval");
         exe.initParameter();
 
         assertEquals(5000, exe.executorJobTerminateWaitIntervalTime);
@@ -860,10 +848,10 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
 
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
 
-        TerasolunaPropertyUtils
-                .removeProperty("executor.jobTerminateWaitInterval");
-        TerasolunaPropertyUtils.addProperty(
-                "executor.jobTerminateWaitInterval", "8000");
+        TerasolunaPropertyUtils.removeProperty(
+                "executor.jobTerminateWaitInterval");
+        TerasolunaPropertyUtils.addProperty("executor.jobTerminateWaitInterval",
+                "8000");
         exe.initParameter();
 
         assertEquals(8000, exe.executorJobTerminateWaitIntervalTime);
@@ -874,10 +862,10 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
 
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
 
-        TerasolunaPropertyUtils
-                .removeProperty("executor.jobTerminateWaitInterval");
-        TerasolunaPropertyUtils.addProperty(
-                "executor.jobTerminateWaitInterval", "test");
+        TerasolunaPropertyUtils.removeProperty(
+                "executor.jobTerminateWaitInterval");
+        TerasolunaPropertyUtils.addProperty("executor.jobTerminateWaitInterval",
+                "test");
         exe.initParameter();
 
         assertEquals(5000, exe.executorJobTerminateWaitIntervalTime);
@@ -898,8 +886,8 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
 
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
         TerasolunaPropertyUtils.removeProperty("systemDataSource.systemDao");
-        TerasolunaPropertyUtils
-                .addProperty("systemDataSource.systemDao", "test");
+        TerasolunaPropertyUtils.addProperty("systemDataSource.systemDao",
+                "test");
         exe.systemDao = null;
         exe.initSystemDatasourceDao();
 
@@ -921,8 +909,8 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
     public void testInitSystemDatasourceDao07() throws Exception {
 
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
-        TerasolunaPropertyUtils
-                .removeProperty("systemDataSource.transactionManager");
+        TerasolunaPropertyUtils.removeProperty(
+                "systemDataSource.transactionManager");
         exe.sysTransactionManager = null;
         exe.initSystemDatasourceDao();
 
@@ -932,8 +920,8 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
     public void testInitSystemDatasourceDao08() throws Exception {
 
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
-        TerasolunaPropertyUtils
-                .removeProperty("systemDataSource.transactionManager");
+        TerasolunaPropertyUtils.removeProperty(
+                "systemDataSource.transactionManager");
         TerasolunaPropertyUtils.addProperty(
                 "systemDataSource.transactionManager", "test");
         exe.sysTransactionManager = null;
@@ -945,10 +933,10 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
     public void testInitSystemDatasourceDao09() throws Exception {
 
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
-        TerasolunaPropertyUtils
-                .removeProperty("systemDataSource.transactionManager");
-        TerasolunaPropertyUtils.addProperty("systemDataSource.transactionManager",
-                "systemDao");
+        TerasolunaPropertyUtils.removeProperty(
+                "systemDataSource.transactionManager");
+        TerasolunaPropertyUtils.addProperty(
+                "systemDataSource.transactionManager", "systemDao");
         exe.sysTransactionManager = null;
         exe.initSystemDatasourceDao();
 
@@ -972,8 +960,8 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
     public void testInitDefaultAppContext002() throws Exception {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
 
-        TerasolunaPropertyUtils
-                .removeProperty("beanDefinition.admin.classpath");
+        TerasolunaPropertyUtils.removeProperty(
+                "beanDefinition.admin.classpath");
         TerasolunaPropertyUtils.removeProperty("beanDefinition.admin.default");
 
         exe.initDefaultAppContext();
@@ -986,10 +974,10 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
     public void testInitDefaultAppContext003() throws Exception {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
 
-        TerasolunaPropertyUtils
-                .removeProperty("beanDefinition.admin.classpath");
-        TerasolunaPropertyUtils
-                .removeProperty("beanDefinition.admin.dataSource");
+        TerasolunaPropertyUtils.removeProperty(
+                "beanDefinition.admin.classpath");
+        TerasolunaPropertyUtils.removeProperty(
+                "beanDefinition.admin.dataSource");
 
         exe.initDefaultAppContext();
     }
@@ -1001,10 +989,10 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
     public void testInitDefaultAppContext004() throws Exception {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
 
-        TerasolunaPropertyUtils
-                .removeProperty("beanDefinition.admin.dataSource");
-        TerasolunaPropertyUtils
-                .removeProperty("beanDefinition.admin.dataSource");
+        TerasolunaPropertyUtils.removeProperty(
+                "beanDefinition.admin.dataSource");
+        TerasolunaPropertyUtils.removeProperty(
+                "beanDefinition.admin.dataSource");
 
         exe.initDefaultAppContext();
     }
@@ -1016,10 +1004,10 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
     public void testInitSystemDatasourceDao001() throws Exception {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
 
-        TerasolunaPropertyUtils
-                .removeProperty("beanDefinition.admin.dataSource");
-        TerasolunaPropertyUtils
-                .removeProperty("beanDefinition.admin.dataSource");
+        TerasolunaPropertyUtils.removeProperty(
+                "beanDefinition.admin.dataSource");
+        TerasolunaPropertyUtils.removeProperty(
+                "beanDefinition.admin.dataSource");
 
         exe.initDefaultAppContext();
         exe.initSystemDatasourceDao();

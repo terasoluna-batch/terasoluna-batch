@@ -8,7 +8,6 @@ import java.util.Map;
 
 import jp.terasoluna.fw.ex.unit.util.ReflectionUtils;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -16,8 +15,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class ThreadGroupApplicationContextHolderTest {
 
-    ApplicationContext ctx = new ClassPathXmlApplicationContext(
-            "classpath:beansDef/AdminContext.xml");
+    ApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:beansDef/AdminContext.xml");
 
     /*
      * (non-Javadoc)
@@ -112,8 +110,8 @@ public class ThreadGroupApplicationContextHolderTest {
      * @return
      */
     public ThreadGroup getThreadGroup() {
-        return ReflectionUtils.invoke(
-                ThreadGroupApplicationContextHolder.class, "getThreadGroup");
+        return ReflectionUtils.invoke(ThreadGroupApplicationContextHolder.class,
+                "getThreadGroup");
     }
 
     /**
@@ -144,8 +142,8 @@ public class ThreadGroupApplicationContextHolderTest {
      * @return
      */
     public String getThreadMessage() {
-        return ReflectionUtils.invoke(
-                ThreadGroupApplicationContextHolder.class, "getThreadMessage");
+        return ReflectionUtils.invoke(ThreadGroupApplicationContextHolder.class,
+                "getThreadMessage");
     }
 
     /**

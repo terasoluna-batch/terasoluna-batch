@@ -488,7 +488,7 @@ public class ValidationUtil {
         if (obj == null) {
             targetLength = 0;
         } else if (obj instanceof Collection) {
-            targetLength = ((Collection) obj).size();
+            targetLength = ((Collection<?>) obj).size();
         } else if (obj.getClass().isArray()) {
             targetLength = Array.getLength(obj);
         } else {

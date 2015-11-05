@@ -18,8 +18,8 @@ public class FileValidateCollector019Test extends DaoTestCase {
     /**
      * Log.
      */
-    private static Log logger = LogFactory
-            .getLog(FileValidateCollector019Test.class);
+    private static Log logger = LogFactory.getLog(
+            FileValidateCollector019Test.class);
 
     private FileQueryDAO csvFileQueryDAO = null;
 
@@ -29,6 +29,7 @@ public class FileValidateCollector019Test extends DaoTestCase {
         this.csvFileQueryDAO = csvFileQueryDAO;
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     protected void onSetUp() throws Exception {
         if (logger.isInfoEnabled()) {
@@ -65,18 +66,13 @@ public class FileValidateCollector019Test extends DaoTestCase {
             fail("csvFileQueryDAOがnullです。");
         }
 
-        int count_first = 0;
-        // int exception_count = 0;
         Validator validator = null;
 
-        Collector<B000001Data> it = new FileValidateCollector<B000001Data>(
-                this.csvFileQueryDAO, "NOT_FOUND.csv", B000001Data.class,
-                validator);
+        Collector<B000001Data> it = new FileValidateCollector<B000001Data>(this.csvFileQueryDAO, "NOT_FOUND.csv", B000001Data.class, validator);
 
         try {
-            for (B000001Data data : it) {
-                count_first++;
-
+            while (it.hasNext()) {
+                it.next();
             }
         } catch (Exception e) {
             if (logger.isErrorEnabled()) {
@@ -93,8 +89,8 @@ public class FileValidateCollector019Test extends DaoTestCase {
             FileValidateCollector.closeQuietly(it);
 
             // コレクタスレッド数チェック
-            assertTrue(CollectorTestUtil
-                    .lessThanCollectorThreadCount(0 + this.previousThreadCount));
+            assertTrue(CollectorTestUtil.lessThanCollectorThreadCount(0
+                    + this.previousThreadCount));
 
         }
 
