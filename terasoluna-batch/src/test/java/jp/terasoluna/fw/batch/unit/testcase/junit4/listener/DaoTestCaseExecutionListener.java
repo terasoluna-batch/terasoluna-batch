@@ -17,7 +17,6 @@ package jp.terasoluna.fw.batch.unit.testcase.junit4.listener;
  */
 
 import jp.terasoluna.fw.batch.unit.testcase.junit4.DaoTestCaseJunit4;
-import jp.terasoluna.fw.batch.unit.util.ClassLoaderUtils;
 
 import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 import org.springframework.test.context.TestContext;

@@ -33,14 +33,12 @@ public class FileCollector011Test extends DaoTestCaseJunit4 {
         this.csvFileQueryDAO = csvFileQueryDAO;
     }
 
-    @SuppressWarnings("deprecation")
     @Override
     protected void onSetUpBeforeTransaction() throws Exception {
         FileCollector.setVerbose(false);
         super.onSetUpBeforeTransaction();
     }
 
-    @SuppressWarnings("deprecation")
     @Override
     protected void onTearDownAfterTransaction() throws Exception {
         FileCollector.setVerbose(false);

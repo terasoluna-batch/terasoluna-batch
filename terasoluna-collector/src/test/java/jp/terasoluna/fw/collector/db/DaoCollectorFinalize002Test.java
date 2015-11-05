@@ -42,14 +42,12 @@ public class DaoCollectorFinalize002Test extends DaoTestCaseJunit4 {
         this.userListQueryResultHandleDao = userListQueryResultHandleDao;
     }
 
-    @SuppressWarnings("deprecation")
     @Override
     protected void onSetUpBeforeTransaction() throws Exception {
         DaoCollector.setVerbose(true);
         super.onSetUpBeforeTransaction();
     }
 
-    @SuppressWarnings("deprecation")
     @Override
     protected void onTearDownAfterTransaction() throws Exception {
         DaoCollector.setVerbose(false);

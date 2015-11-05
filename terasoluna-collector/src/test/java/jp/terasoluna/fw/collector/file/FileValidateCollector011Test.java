@@ -35,14 +35,12 @@ public class FileValidateCollector011Test extends DaoTestCaseJunit4 {
         this.csvFileQueryDAO = csvFileQueryDAO;
     }
 
-    @SuppressWarnings("deprecation")
     @Override
     protected void onSetUpBeforeTransaction() throws Exception {
         FileValidateCollector.setVerbose(true);
         super.onSetUpBeforeTransaction();
     }
 
-    @SuppressWarnings("deprecation")
     @Override
     protected void onTearDownAfterTransaction() throws Exception {
         FileValidateCollector.setVerbose(false);

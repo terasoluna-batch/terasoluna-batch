@@ -48,7 +48,6 @@ public class FileCollector001Test extends DaoTestCaseJunit4 {
         if (logger.isInfoEnabled()) {
             logger.info(MemoryInfo.getMemoryInfo());
         }
-        this.previousThreadCount = CollectorTestUtil.getCollectorThreadCount();
     }
 
     @After
@@ -98,7 +97,6 @@ public class FileCollector001Test extends DaoTestCaseJunit4 {
      * testFileCollector002
      * @throws Exception
      */
-    @SuppressWarnings("unchecked")
     @Test
     public void testFileCollector002() throws Exception {
         FileCollectorConfig<UserBean> config = null;

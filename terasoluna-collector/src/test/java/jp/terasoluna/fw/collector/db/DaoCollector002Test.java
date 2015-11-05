@@ -44,14 +44,12 @@ public class DaoCollector002Test extends DaoTestCaseJunit4 {
         this.userListQueryResultHandleDao = userListQueryResultHandleDao;
     }
 
-    @SuppressWarnings("deprecation")
     @Override
     protected void onSetUpBeforeTransaction() throws Exception {
         DaoCollector.setVerbose(true);
         super.onSetUpBeforeTransaction();
     }
 
-    @SuppressWarnings("deprecation")
     @Override
     protected void onTearDownAfterTransaction() throws Exception {
         DaoCollector.setVerbose(false);
@@ -246,6 +244,7 @@ public class DaoCollector002Test extends DaoTestCaseJunit4 {
         int count_first = 0;
         int count_detail = 0;
 
+        @SuppressWarnings("deprecation")
         Collector<OrderBean> col = new DaoCollector<OrderBean>(this.userListQueryResultHandleDao, "collectOrder", null, true);
         try {
             for (OrderBean order : col) {
@@ -281,6 +280,7 @@ public class DaoCollector002Test extends DaoTestCaseJunit4 {
 
         DaoCollectorPrePostProcess prepost = null;
 
+        @SuppressWarnings("deprecation")
         Collector<OrderBean> col = new DaoCollector<OrderBean>(this.userListQueryResultHandleDao, "collectOrder", null, 1, true, null, prepost);
         try {
             for (OrderBean order : col) {
@@ -349,6 +349,7 @@ public class DaoCollector002Test extends DaoTestCaseJunit4 {
         int count_first = 0;
         int count_detail = 0;
 
+        @SuppressWarnings("deprecation")
         Collector<Order2Bean> col = new DaoCollector<Order2Bean>(this.userListQueryResultHandleDao, "collectOrder2", null, true);
         try {
             for (Order2Bean order : col) {
@@ -387,6 +388,7 @@ public class DaoCollector002Test extends DaoTestCaseJunit4 {
 
         DaoCollectorPrePostProcessStub prepost = new DaoCollectorPrePostProcessStub();
 
+        @SuppressWarnings("deprecation")
         Collector<Order2Bean> col = new DaoCollector<Order2Bean>(this.userListQueryResultHandleDao, "collectOrder2", null, 1, true, null, prepost);
         try {
             for (Order2Bean order : col) {

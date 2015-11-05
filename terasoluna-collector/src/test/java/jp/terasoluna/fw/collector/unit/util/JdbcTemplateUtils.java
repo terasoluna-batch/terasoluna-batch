@@ -119,6 +119,7 @@ public class JdbcTemplateUtils {
      * @return 実行結果
      * @throws DataAccessException
      */
+    @SuppressWarnings("deprecation")
     public static long queryForLong(JdbcOperations jdbcTemplate, String sql)
                                                                             throws DataAccessException {
         Assert.notNull(jdbcTemplate);
@@ -142,6 +143,7 @@ public class JdbcTemplateUtils {
      * @return 実行結果
      * @throws DataAccessException
      */
+    @SuppressWarnings("deprecation")
     public static long queryForLong(JdbcOperations jdbcTemplate, String sql,
             Object[] args) throws DataAccessException {
         Assert.notNull(jdbcTemplate);
@@ -164,6 +166,7 @@ public class JdbcTemplateUtils {
      * @return 実行結果
      * @throws DataAccessException
      */
+    @SuppressWarnings("deprecation")
     public static int queryForInt(JdbcOperations jdbcTemplate, String sql)
                                                                           throws DataAccessException {
         Assert.notNull(jdbcTemplate);
@@ -187,6 +190,7 @@ public class JdbcTemplateUtils {
      * @return 実行結果
      * @throws DataAccessException
      */
+    @SuppressWarnings("deprecation")
     public static int queryForInt(JdbcOperations jdbcTemplate, String sql,
             Object[] args) throws DataAccessException {
         Assert.notNull(jdbcTemplate);
@@ -249,7 +253,6 @@ public class JdbcTemplateUtils {
      * @return 実行結果
      * @throws DataAccessException
      */
-    @SuppressWarnings("unchecked")
     public static <T> T queryForObject(JdbcOperations jdbcTemplate, String sql,
             Class<T> requiredType) throws DataAccessException {
         Assert.notNull(jdbcTemplate);
@@ -268,7 +271,6 @@ public class JdbcTemplateUtils {
      * @return 実行結果
      * @throws DataAccessException
      */
-    @SuppressWarnings("unchecked")
     public static <T> T queryForObject(JdbcOperations jdbcTemplate, String sql,
             Object[] args, Class<T> requiredType) throws DataAccessException {
         Assert.notNull(jdbcTemplate);
@@ -354,6 +356,7 @@ public class JdbcTemplateUtils {
     public static <T> T queryForRowObject(JdbcOperations jdbcTemplate,
             String sql, Class<T> clazz) throws DataAccessException {
         Assert.notNull(jdbcTemplate);
+        @SuppressWarnings("rawtypes")
         RowMapper rowMapper = new BeanPropertyRowMapper(clazz, false);
         return (T) jdbcTemplate.queryForObject(sql, rowMapper);
     }
@@ -390,6 +393,7 @@ public class JdbcTemplateUtils {
             String sql, Object[] args, Class<T> clazz)
                                                       throws DataAccessException {
         Assert.notNull(jdbcTemplate);
+        @SuppressWarnings("rawtypes")
         RowMapper rowMapper = new BeanPropertyRowMapper(clazz, false);
         return (T) jdbcTemplate.queryForObject(sql, args, rowMapper);
     }
@@ -413,7 +417,6 @@ public class JdbcTemplateUtils {
      * @return 実行結果
      * @throws DataAccessException
      */
-    @SuppressWarnings("unchecked")
     public static <T> List<T> queryForSingleColumnList(
             JdbcOperations jdbcTemplate, String sql, Class<T> elementType)
                                                                           throws DataAccessException {
@@ -442,7 +445,6 @@ public class JdbcTemplateUtils {
      * @return 実行結果
      * @throws DataAccessException
      */
-    @SuppressWarnings("unchecked")
     public static <T> List<T> queryForSingleColumnList(
             JdbcOperations jdbcTemplate, String sql, Object[] args,
             Class<T> elementType) throws DataAccessException {
@@ -578,6 +580,7 @@ public class JdbcTemplateUtils {
             JdbcOperations jdbcTemplate, String sql, Class<T> clazz)
                                                                     throws DataAccessException {
         Assert.notNull(jdbcTemplate);
+        @SuppressWarnings("rawtypes")
         RowMapper rowMapper = new BeanPropertyRowMapper(clazz, false);
         return jdbcTemplate.query(sql, rowMapper);
     }
@@ -613,6 +616,7 @@ public class JdbcTemplateUtils {
             JdbcOperations jdbcTemplate, String sql, Object[] args,
             Class<T> clazz) throws DataAccessException {
         Assert.notNull(jdbcTemplate);
+        @SuppressWarnings("rawtypes")
         RowMapper rowMapper = new BeanPropertyRowMapper(clazz, false);
         return jdbcTemplate.query(sql, args, rowMapper);
     }
@@ -649,6 +653,7 @@ public class JdbcTemplateUtils {
         Assert.notNull(clazz);
         String[] header = createFiledNames(clazz);
         String sql = createSelectSql(clazz.getSimpleName(), header);
+        @SuppressWarnings("rawtypes")
         RowMapper rowMapper = new BeanPropertyRowMapper(clazz, false);
         return jdbcTemplate.query(sql, rowMapper);
     }

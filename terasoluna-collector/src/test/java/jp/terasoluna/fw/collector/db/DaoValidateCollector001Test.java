@@ -218,13 +218,14 @@ public class DaoValidateCollector001Test extends DaoTestCaseJunit4 {
      * testDaoValidateCollector012
      * @throws Exception
      */
+    @SuppressWarnings("resource")
     @Test
     public void testDaoValidateCollector012() throws Exception {
         DaoCollectorConfig config = null;
 
         try {
             new DaoValidateCollector<UserBean>(config);
-            fail("å¤±æÉ÷");
+            fail("å¤±ï¿½ï¿½ï¿½");
         } catch (IllegalArgumentException e) {
             assertNotNull(e);
             assertEquals("The parameter is null.", e.getMessage());

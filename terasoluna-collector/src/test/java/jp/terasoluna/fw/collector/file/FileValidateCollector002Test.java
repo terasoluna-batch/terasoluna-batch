@@ -43,7 +43,6 @@ public class FileValidateCollector002Test extends DaoTestCaseJunit4 {
         if (logger.isInfoEnabled()) {
             logger.info(MemoryInfo.getMemoryInfo());
         }
-        this.previousThreadCount = CollectorTestUtil.getCollectorThreadCount();
     }
 
     @After

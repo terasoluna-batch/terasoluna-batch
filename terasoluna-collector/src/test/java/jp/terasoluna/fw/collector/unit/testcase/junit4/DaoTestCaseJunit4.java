@@ -229,6 +229,7 @@ abstract public class DaoTestCaseJunit4 extends
     /**
      * AUTOWIRE_AUTODETECT
      */
+    @SuppressWarnings("deprecation")
     protected static final int AUTOWIRE_AUTODETECT = AutowireCapableBeanFactory.AUTOWIRE_AUTODETECT;
 
     /**

@@ -46,14 +46,12 @@ public class DaoValidateCollector002Test extends DaoTestCaseJunit4 {
         this.userListQueryResultHandleDao = userListQueryResultHandleDao;
     }
 
-    @SuppressWarnings("deprecation")
     @Override
     protected void onSetUpBeforeTransaction() throws Exception {
         DaoValidateCollector.setVerbose(true);
         super.onSetUpBeforeTransaction();
     }
 
-    @SuppressWarnings("deprecation")
     @Override
     protected void onTearDownAfterTransaction() throws Exception {
         DaoValidateCollector.setVerbose(false);
@@ -83,6 +81,7 @@ public class DaoValidateCollector002Test extends DaoTestCaseJunit4 {
 
         Validator validator = null;
 
+        @SuppressWarnings("resource")
         Collector<UserBean> it = new DaoValidateCollector<UserBean>(this.userListQueryResultHandleDao, "collect", null, validator);
         try {
             while (it.hasNext()) {
@@ -286,6 +285,7 @@ public class DaoValidateCollector002Test extends DaoTestCaseJunit4 {
         int count_detail = 0;
         Validator validator = null;
 
+        @SuppressWarnings("deprecation")
         Collector<OrderBean> it = new DaoValidateCollector<OrderBean>(this.userListQueryResultHandleDao, "collectOrder", null, true, validator);
         try {
             for (OrderBean order : it) {
@@ -320,6 +320,7 @@ public class DaoValidateCollector002Test extends DaoTestCaseJunit4 {
         int count_detail = 0;
         Validator validator = null;
 
+        @SuppressWarnings("deprecation")
         Collector<OrderBean> it = new DaoValidateCollector<OrderBean>(this.userListQueryResultHandleDao, "collectOrder", null, 1, true, null, null, validator, null);
         try {
             for (OrderBean order : it) {
@@ -389,6 +390,7 @@ public class DaoValidateCollector002Test extends DaoTestCaseJunit4 {
         int count_detail = 0;
         Validator validator = null;
 
+        @SuppressWarnings("deprecation")
         Collector<Order2Bean> it = new DaoValidateCollector<Order2Bean>(this.userListQueryResultHandleDao, "collectOrder2", null, true, validator);
         try {
             for (Order2Bean order : it) {
@@ -426,6 +428,7 @@ public class DaoValidateCollector002Test extends DaoTestCaseJunit4 {
         int count_detail = 0;
         Validator validator = null;
 
+        @SuppressWarnings("deprecation")
         Collector<Order2Bean> it = new DaoValidateCollector<Order2Bean>(this.userListQueryResultHandleDao, "collectOrder2", null, 1, true, null, null, validator, null);
         try {
             for (Order2Bean order : it) {

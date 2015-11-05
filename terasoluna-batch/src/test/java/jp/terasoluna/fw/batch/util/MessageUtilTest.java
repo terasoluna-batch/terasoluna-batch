@@ -22,7 +22,6 @@ import static org.junit.Assert.assertTrue;
 
 import java.lang.reflect.Method;
 
-import jp.terasoluna.fw.batch.executor.ThreadGroupApplicationContextHolder;
 import jp.terasoluna.fw.batch.message.MessageAccessor;
 import jp.terasoluna.fw.util.PropertyUtil;
 

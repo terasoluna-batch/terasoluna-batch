@@ -87,6 +87,7 @@ public class ClassLoaderUtils {
 
         URLClassLoader newCl = null;
         if (cl instanceof URLClassLoader) {
+            @SuppressWarnings("resource")
             URLClassLoader ucl = (URLClassLoader) cl;
             newCl = new URLClassLoader(ucl.getURLs(), cl);
         } else {

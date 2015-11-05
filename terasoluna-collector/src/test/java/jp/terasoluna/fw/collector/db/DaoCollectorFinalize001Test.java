@@ -41,14 +41,12 @@ public class DaoCollectorFinalize001Test extends DaoTestCaseJunit4 {
         this.userListQueryResultHandleDao = userListQueryResultHandleDao;
     }
 
-    @SuppressWarnings("deprecation")
     @Override
     protected void onSetUpBeforeTransaction() throws Exception {
         DaoCollector.setVerbose(true);
         super.onSetUpBeforeTransaction();
     }
 
-    @SuppressWarnings("deprecation")
     @Override
     protected void onTearDownAfterTransaction() throws Exception {
         DaoCollector.setVerbose(false);
@@ -89,6 +87,7 @@ public class DaoCollectorFinalize001Test extends DaoTestCaseJunit4 {
         }
 
         {
+            @SuppressWarnings("resource")
             Collector<UserBean> col = new DaoCollector<UserBean>(this.userListQueryResultHandleDao, "collect", null);
             try {
                 while (col.hasNext()) {
