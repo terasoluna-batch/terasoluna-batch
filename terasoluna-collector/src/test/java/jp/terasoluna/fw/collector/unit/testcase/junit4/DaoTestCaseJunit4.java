@@ -1,27 +1,5 @@
 package jp.terasoluna.fw.collector.unit.testcase.junit4;
 
-/*
- * Copyright (c) 2012 NTT DATA Corporation
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-import java.util.List;
-import java.util.Map;
-
-import jp.terasoluna.fw.collector.unit.testcase.junit4.listener.DaoTestCaseExecutionListener;
-import jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils;
-
 import org.junit.After;
 import org.junit.Before;
 import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
@@ -36,6 +14,11 @@ import org.springframework.test.context.transaction.AfterTransaction;
 import org.springframework.test.context.transaction.BeforeTransaction;
 import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
 import org.springframework.util.Assert;
+
+import jp.terasoluna.fw.collector.unit.testcase.TestCaseUtils;
+import jp.terasoluna.fw.collector.unit.testcase.junit4.listener.DaoTestCaseExecutionListener;
+import jp.terasoluna.fw.collector.unit.testcase.junit4.loader.DaoTestCaseContextLoader;
+import jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils;
 
 /**
  * JUnit4用DAO実行試験支援テストケース。
@@ -252,30 +235,12 @@ abstract public class DaoTestCaseJunit4 extends
     }
 
     /**
-     * autowireモードを設定します。
-     * 
-     * @param autowireMode autowireモード
-     */
-    public void setAutowireMode(int autowireMode) {
-        this.autowireMode = autowireMode;
-    }
-
-    /**
      * 依存性チェックを行うかを返却します。
      * 
      * @return　依存性チェックを行うか
      */
     public boolean isDependencyCheck() {
         return dependencyCheck;
-    }
-
-    /**
-     * 依存性チェックを行うかを設定します。
-     * 
-     * @param dependencyCheck 依存性チェックを行うか
-     */
-    public void setDependencyCheck(boolean dependencyCheck) {
-        this.dependencyCheck = dependencyCheck;
     }
 
     /**
@@ -375,15 +340,6 @@ abstract public class DaoTestCaseJunit4 extends
 
     /**
      * @param sql
-     * @throws DataAccessException
-     * fw.collector.unit. jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#execute(org.springframework.jdbc.core.JdbcTemplate, java.lang.String)
-     */
-    public void execute(String sql) throws DataAccessException {
-        JdbcTemplateUtils.execute(getJdbcTemplate(), sql);
-    }
-
-    /**
-     * @param sql
      * @return
      * @throws DataAccessException
      * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#update(org.springframework.jdbc.core.JdbcTemplate, java.lang.String)
@@ -391,144 +347,7 @@ abstract public class DaoTestCaseJunit4 extends
     public int update(String sql) throws DataAccessException {
         return JdbcTemplateUtils.update(getJdbcTemplate(), sql);
     }
-
-    /**
-     * @param sql
-     * @param args
-     * @return
-     * @throws DataAccessException
-     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#update(org.springframework.jdbc.core.JdbcTemplate, java.lang.String, java.lang.Object[])
-     */
-    public int update(String sql, Object[] args) throws DataAccessException {
-        return JdbcTemplateUtils.update(getJdbcTemplate(), sql, args);
-    }
-
-    /**
-     * @param sqls
-     * @return
-     * @throws DataAccessException
-     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#batchUpdate(org.springframework.jdbc.core.JdbcTemplate, java.lang.String[])
-     */
-    public int[] batchUpdate(String... sqls) throws DataAccessException {
-        return JdbcTemplateUtils.batchUpdate(getJdbcTemplate(), sqls);
-    }
-
-    /**
-     * @param sql
-     * @return
-     * @throws DataAccessException
-     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#queryForLong(org.springframework.jdbc.core.JdbcTemplate, java.lang.String)
-     */
-    public long queryForLong(String sql) throws DataAccessException {
-        return JdbcTemplateUtils.queryForLong(getJdbcTemplate(), sql);
-    }
-
-    /**
-     * @param sql
-     * @param args
-     * @return
-     * @throws DataAccessException
-     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#queryForLong(org.springframework.jdbc.core.JdbcTemplate, java.lang.String, java.lang.Object[])
-     */
-    public long queryForLong(String sql, Object[] args)
-                                                       throws DataAccessException {
-        return JdbcTemplateUtils.queryForLong(getJdbcTemplate(), sql, args);
-    }
-
-    /**
-     * @param sql
-     * @return
-     * @throws DataAccessException
-     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#queryForInt(org.springframework.jdbc.core.JdbcTemplate, java.lang.String)
-     */
-    public int queryForInt(String sql) throws DataAccessException {
-        return JdbcTemplateUtils.queryForInt(getJdbcTemplate(), sql);
-    }
-
-    /**
-     * @param sql
-     * @param args
-     * @return
-     * @throws DataAccessException
-     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#queryForInt(org.springframework.jdbc.core.JdbcTemplate, java.lang.String, java.lang.Object[])
-     */
-    public int queryForInt(String sql, Object[] args)
-                                                     throws DataAccessException {
-        return JdbcTemplateUtils.queryForInt(getJdbcTemplate(), sql, args);
-    }
-
-    /**
-     * @param sql
-     * @return
-     * @throws DataAccessException
-     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#queryForString(org.springframework.jdbc.core.JdbcTemplate, java.lang.String)
-     */
-    public String queryForString(String sql) throws DataAccessException {
-        return JdbcTemplateUtils.queryForString(getJdbcTemplate(), sql);
-    }
-
-    /**
-     * @param sql
-     * @param args
-     * @return
-     * @throws DataAccessException
-     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#queryForString(org.springframework.jdbc.core.JdbcTemplate, java.lang.String, java.lang.Object[])
-     */
-    public String queryForString(String sql, Object[] args)
-                                                           throws DataAccessException {
-        return JdbcTemplateUtils.queryForString(getJdbcTemplate(), sql, args);
-    }
-
-    /**
-     * @param <T>
-     * @param sql
-     * @param requiredType
-     * @return
-     * @throws DataAccessException
-     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#queryForObject(org.springframework.jdbc.core.JdbcTemplate, java.lang.String, java.lang.Class)
-     */
-    public <T> T queryForObject(String sql, Class<T> requiredType)
-                                                                  throws DataAccessException {
-        return JdbcTemplateUtils.queryForObject(getJdbcTemplate(), sql,
-                requiredType);
-    }
-
-    /**
-     * @param <T>
-     * @param sql
-     * @param args
-     * @param requiredType
-     * @return
-     * @throws DataAccessException
-     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#queryForObject(org.springframework.jdbc.core.JdbcTemplate, java.lang.String, java.lang.Object[], java.lang.Class)
-     */
-    public <T> T queryForObject(String sql, Object[] args, Class<T> requiredType)
-                                                                                 throws DataAccessException {
-        return JdbcTemplateUtils.queryForObject(getJdbcTemplate(), sql, args,
-                requiredType);
-    }
-
-    /**
-     * @param sql
-     * @return
-     * @throws DataAccessException
-     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#queryForRowMap(org.springframework.jdbc.core.JdbcTemplate, java.lang.String)
-     */
-    public Map<String, ?> queryForRowMap(String sql) throws DataAccessException {
-        return JdbcTemplateUtils.queryForRowMap(getJdbcTemplate(), sql);
-    }
-
-    /**
-     * @param sql
-     * @param args
-     * @return
-     * @throws DataAccessException
-     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#queryForRowMap(org.springframework.jdbc.core.JdbcTemplate, java.lang.String, java.lang.Object[])
-     */
-    public Map<String, ?> queryForRowMap(String sql, Object[] args)
-                                                                   throws DataAccessException {
-        return JdbcTemplateUtils.queryForRowMap(getJdbcTemplate(), sql, args);
-    }
+    
 
     /**
      * @param <T>
@@ -557,169 +376,5 @@ abstract public class DaoTestCaseJunit4 extends
                                                                              throws DataAccessException {
         return JdbcTemplateUtils.queryForRowObject(getJdbcTemplate(), sql,
                 args, clazz);
-    }
-
-    /**
-     * @param <T>
-     * @param sql
-     * @param elementType
-     * @return
-     * @throws DataAccessException
-     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#queryForSingleColumnList(org.springframework.jdbc.core.JdbcTemplate, java.lang.String, java.lang.Class)
-     */
-    public <T> List<T> queryForSingleColumnList(String sql, Class<T> elementType)
-                                                                                 throws DataAccessException {
-        return JdbcTemplateUtils.queryForSingleColumnList(getJdbcTemplate(),
-                sql, elementType);
-    }
-
-    /**
-     * @param <T>
-     * @param sql
-     * @param args
-     * @param elementType
-     * @return
-     * @throws DataAccessException
-     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#queryForSingleColumnList(org.springframework.jdbc.core.JdbcTemplate, java.lang.String, java.lang.Object[], java.lang.Class)
-     */
-    public <T> List<T> queryForSingleColumnList(String sql, Object[] args,
-            Class<T> elementType) throws DataAccessException {
-        return JdbcTemplateUtils.queryForSingleColumnList(getJdbcTemplate(),
-                sql, args, elementType);
-    }
-
-    /**
-     * @param sql
-     * @return
-     * @throws DataAccessException
-     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#queryForRowMapList(org.springframework.jdbc.core.JdbcTemplate, java.lang.String)
-     */
-    public List<Map<String, ?>> queryForRowMapList(String sql)
-                                                              throws DataAccessException {
-        return JdbcTemplateUtils.queryForRowMapList(getJdbcTemplate(), sql);
-    }
-
-    /**
-     * @param sql
-     * @param args
-     * @return
-     * @throws DataAccessException
-     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#queryForRowMapList(org.springframework.jdbc.core.JdbcTemplate, java.lang.String, java.lang.Object[])
-     */
-    public List<Map<String, ?>> queryForRowMapList(String sql, Object[] args)
-                                                                             throws DataAccessException {
-        return JdbcTemplateUtils.queryForRowMapList(getJdbcTemplate(), sql,
-                args);
-    }
-
-    /**
-     * @param clazz
-     * @return
-     * @throws DataAccessException
-     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#queryForRowMapList(org.springframework.jdbc.core.JdbcTemplate, java.lang.Class)
-     */
-    public List<Map<String, ?>> queryForRowMapList(Class<?> clazz)
-                                                                  throws DataAccessException {
-        return JdbcTemplateUtils.queryForRowMapList(getJdbcTemplate(), clazz);
-    }
-
-    /**
-     * @param <T>
-     * @param sql
-     * @param clazz
-     * @return
-     * @throws DataAccessException
-     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#queryForRowObjectList(org.springframework.jdbc.core.JdbcTemplate, java.lang.String, java.lang.Class)
-     */
-    public <T> List<T> queryForRowObjectList(String sql, Class<T> clazz)
-                                                                        throws DataAccessException {
-        return JdbcTemplateUtils.queryForRowObjectList(getJdbcTemplate(), sql,
-                clazz);
-    }
-
-    /**
-     * @param <T>
-     * @param sql
-     * @param args
-     * @param clazz
-     * @return
-     * @throws DataAccessException
-     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#queryForRowObjectList(org.springframework.jdbc.core.JdbcTemplate, java.lang.String, java.lang.Object[], java.lang.Class)
-     */
-    public <T> List<T> queryForRowObjectList(String sql, Object[] args,
-            Class<T> clazz) throws DataAccessException {
-        return JdbcTemplateUtils.queryForRowObjectList(getJdbcTemplate(), sql,
-                args, clazz);
-    }
-
-    /**
-     * @param <T>
-     * @param clazz
-     * @return
-     * @throws DataAccessException
-     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#queryForRowObjectList(org.springframework.jdbc.core.JdbcTemplate, java.lang.Class)
-     */
-    public <T> List<T> queryForRowObjectList(Class<T> clazz)
-                                                            throws DataAccessException {
-        return JdbcTemplateUtils
-                .queryForRowObjectList(getJdbcTemplate(), clazz);
-    }
-
-    /**
-     * @param tableName
-     * @param fieldNames
-     * @return
-     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#createSelectSql(java.lang.String, java.lang.String[])
-     */
-    public String createSelectSql(String tableName, String[] fieldNames) {
-        return JdbcTemplateUtils.createSelectSql(tableName, fieldNames);
-    }
-
-    /**
-     * @param tableName
-     * @param clazz
-     * @return
-     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#createSelectSql(java.lang.String, java.lang.Class)
-     */
-    public String createSelectSql(String tableName, Class<?> clazz) {
-        return JdbcTemplateUtils.createSelectSql(tableName, clazz);
-    }
-
-    /**
-     * @param clazz
-     * @return
-     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#createSelectSql(java.lang.Class)
-     */
-    public String createSelectSql(Class<?> clazz) {
-        return JdbcTemplateUtils.createSelectSql(clazz);
-    }
-
-    /**
-     * @param tableName
-     * @param fieldNames
-     * @return
-     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#createInsertSql(java.lang.String, java.lang.String[])
-     */
-    public String createInsertSql(String tableName, String[] fieldNames) {
-        return JdbcTemplateUtils.createInsertSql(tableName, fieldNames);
-    }
-
-    /**
-     * @param tableName
-     * @param clazz
-     * @return
-     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#createInsertSql(java.lang.String, java.lang.Class)
-     */
-    public String createInsertSql(String tableName, Class<?> clazz) {
-        return JdbcTemplateUtils.createInsertSql(tableName, clazz);
-    }
-
-    /**
-     * @param clazz
-     * @return
-     * @see jp.terasoluna.fw.collector.unit.util.JdbcTemplateUtils#createInsertSql(java.lang.Class)
-     */
-    public String createInsertSql(Class<?> clazz) {
-        return JdbcTemplateUtils.createInsertSql(clazz);
     }
 }

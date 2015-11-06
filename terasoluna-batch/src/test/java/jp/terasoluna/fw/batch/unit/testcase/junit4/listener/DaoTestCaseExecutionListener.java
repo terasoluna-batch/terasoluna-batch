@@ -39,7 +39,6 @@ public class DaoTestCaseExecutionListener extends
      */
     @Override
     public void prepareTestInstance(TestContext testContext) throws Exception {
-//        ClassLoaderUtils.addContextRootToClassPath();
         beforeGetConfig();
         super.prepareTestInstance(testContext);
     }

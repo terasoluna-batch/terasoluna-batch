@@ -17,7 +17,6 @@ package jp.terasoluna.fw.collector.unit.testcase.junit4.listener;
  */
 
 import jp.terasoluna.fw.collector.unit.testcase.junit4.DaoTestCaseJunit4;
-import jp.terasoluna.fw.collector.unit.util.ClassLoaderUtils;
 
 import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 import org.springframework.test.context.TestContext;
@@ -40,7 +39,6 @@ public class DaoTestCaseExecutionListener extends
      */
     @Override
     public void prepareTestInstance(TestContext testContext) throws Exception {
-        ClassLoaderUtils.addContextRootToClassPath();
         beforeGetConfig();
         super.prepareTestInstance(testContext);
     }

@@ -32,34 +32,23 @@ import org.springframework.util.Assert;
  * UTライブラリで使用するデフォルトプロパティを管理するクラスです。
  * 
  * <pre>
- * デフォルトプロパティはterasoluna-unit.propertiesに設定されています。
- * terasoluna-unit-override.propertiesに記述することで、
- * ユーザー側でデフォルトプロパティを上書きできます。
+ * プロパティはterasoluna-unit.propertiesに設定されています。
+ * 環境にあわせて適宜変更してください。
  * </pre>
  */
 public class DefaultProperties {
     /**
-     * UTライブラリで使用するデフォルトプロパティファイル(システム固有値)
+     * UTライブラリで使用するプロパティファイル
      */
     private static final String DEFAULT_FILE_PATH = "terasoluna-unit.properties";
-    /**
-     * UTライブラリで使用するデフォルトプロパティファイル(上書き用)
-     */
-    private static final String OVERRIDE_FILE_PATH = "terasoluna-unit-override.properties";
 
     private static final ConcurrentMap<String, String> properties = new ConcurrentHashMap<String, String>();
 
     static {
         // プロパティファイルからキー・値を読み込みます。
         Properties defaults = new Properties();
-        Properties override = new Properties();
         loadProperties(defaults, DEFAULT_FILE_PATH);
-        loadProperties(override, OVERRIDE_FILE_PATH);
         for (Entry<?, ?> e : defaults.entrySet()) {
-            properties.put((String) e.getKey(), (String) e.getValue());
-        }
-        // 上書き
-        for (Entry<?, ?> e : override.entrySet()) {
             properties.put((String) e.getKey(), (String) e.getValue());
         }
     }
@@ -103,20 +92,20 @@ public class DefaultProperties {
     }
 
     /**
-     * デフォルト値を返却します。
+     * プロパティ値を返却します。
      * 
-     * @param key デフォルトプロパティのキー
-     * @return デフォルトパティの値
+     * @param key プロパティのキー
+     * @return プロパティの値
      */
     public static String getValue(String key) {
         return properties.get(key);
     }
 
     /**
-     * デフォルト値を返却します。
+     * プロパティ値を返却します。
      * 
-     * @param key デフォルトプロパティのキー({@link PropertyKeys}形式)
-     * @return デフォルトパティの値
+     * @param key プロパティのキー({@link PropertyKeys}形式)
+     * @return プロパティの値
      */
     public static String getValue(PropertyKeys key) {
         return getValue(key.getKey());
