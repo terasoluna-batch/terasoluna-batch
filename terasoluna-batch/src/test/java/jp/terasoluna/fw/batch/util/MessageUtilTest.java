@@ -19,14 +19,17 @@ package jp.terasoluna.fw.batch.util;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
+
+import java.lang.reflect.Method;
+
 import jp.terasoluna.fw.batch.message.MessageAccessor;
-import jp.terasoluna.fw.ex.unit.util.ReflectionUtils;
 import jp.terasoluna.fw.util.PropertyUtil;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.test.util.ReflectionTestUtils;
 
 /**
  * 事前条件<br>
@@ -177,11 +180,11 @@ public class MessageUtilTest {
         Thread th = Thread.currentThread();
         ThreadGroup g = th.getThreadGroup();
         try {
-            ReflectionUtils.setField(th, "group", null);
+            ReflectionTestUtils.setField(th, "group", null);
             String result = MessageUtil.getMessage("hoge");
             assertEquals("Message not found. CODE:[hoge]", result);
         } finally {
-            ReflectionUtils.setField(th, "group", g);
+            ReflectionTestUtils.setField(th, "group", g);
         }
     }
 
@@ -211,9 +214,10 @@ public class MessageUtilTest {
      */
     @Test
     public void testGetThreadGroup01() throws Exception {
-        // Thread.currentThread().setContextClassLoader(null);
-        ReflectionUtils.invoke(MessageUtil.class, "getThreadGroup");
-        // MessageUtil.getThreadGroup();
+        Method method = MessageUtil.class.getDeclaredMethod("getThreadGroup");
+        method.setAccessible(true);
+        Object threadGroup = (ThreadGroup) method.invoke(MessageUtil.class);
+        assertTrue(threadGroup instanceof ThreadGroup);
         assertTrue(true);
     }
 

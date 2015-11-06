@@ -1,18 +1,25 @@
 package jp.terasoluna.fw.collector.file;
 
 import java.net.URL;
-import java.util.List;
-
 import jp.terasoluna.fw.collector.Collector;
 import jp.terasoluna.fw.collector.CollectorTestUtil;
 import jp.terasoluna.fw.collector.util.MemoryInfo;
-import jp.terasoluna.fw.ex.unit.testcase.DaoTestCase;
 import jp.terasoluna.fw.file.dao.FileQueryDAO;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-public class FileCollector011Test extends DaoTestCase {
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
+import org.springframework.test.context.ContextConfiguration;
+import jp.terasoluna.fw.collector.unit.testcase.junit4.DaoTestCaseJunit4;
+import jp.terasoluna.fw.collector.unit.testcase.junit4.loader.DaoTestCaseContextLoader;
+
+@ContextConfiguration(locations = {
+        "classpath:jp/terasoluna/fw/collector/db/dataSource.xml" }, loader = DaoTestCaseContextLoader.class)
+public class FileCollector011Test extends DaoTestCaseJunit4 {
     /**
      * Log.
      */
@@ -26,23 +33,20 @@ public class FileCollector011Test extends DaoTestCase {
         this.csvFileQueryDAO = csvFileQueryDAO;
     }
 
-    @SuppressWarnings("deprecation")
     @Override
     protected void onSetUpBeforeTransaction() throws Exception {
         FileCollector.setVerbose(false);
         super.onSetUpBeforeTransaction();
     }
 
-    @SuppressWarnings("deprecation")
     @Override
     protected void onTearDownAfterTransaction() throws Exception {
         FileCollector.setVerbose(false);
         super.onTearDownAfterTransaction();
     }
 
-    @SuppressWarnings("deprecation")
-    @Override
-    protected void onSetUp() throws Exception {
+    @Before
+    public void onSetUp() throws Exception {
         if (logger.isInfoEnabled()) {
             logger.info(MemoryInfo.getMemoryInfo());
         }
@@ -50,12 +54,11 @@ public class FileCollector011Test extends DaoTestCase {
         if (logger.isInfoEnabled()) {
             logger.info(MemoryInfo.getMemoryInfo());
         }
-        super.onSetUp();
         this.previousThreadCount = CollectorTestUtil.getCollectorThreadCount();
     }
 
-    @Override
-    protected void onTearDown() throws Exception {
+    @After
+    public void onTearDown() throws Exception {
         if (logger.isInfoEnabled()) {
             logger.info(MemoryInfo.getMemoryInfo());
         }
@@ -64,14 +67,9 @@ public class FileCollector011Test extends DaoTestCase {
             logger.info(MemoryInfo.getMemoryInfo());
         }
         CollectorTestUtil.allInterrupt();
-        super.onTearDown();
     }
 
-    @Override
-    protected void addConfigLocations(List<String> configLocations) {
-        configLocations.add("jp/terasoluna/fw/collector/db/dataSource.xml");
-    }
-
+    @Test
     public void testFileCollectorFinalize001() throws Exception {
         if (this.csvFileQueryDAO == null) {
             fail("csvFileQueryDAOがnullです。");
@@ -90,8 +88,8 @@ public class FileCollector011Test extends DaoTestCase {
             fail("urlがnullです。");
         }
 
-        FileCollectorConfig<B000001Data> config = new FileCollectorConfig<B000001Data>(
-                this.csvFileQueryDAO, url.getPath(), B000001Data.class);
+        FileCollectorConfig<B000001Data> config = new FileCollectorConfig<B000001Data>(this.csvFileQueryDAO, url
+                .getPath(), B000001Data.class);
         config.addExecuteByConstructor(true);
 
         @SuppressWarnings("resource")
@@ -111,10 +109,11 @@ public class FileCollector011Test extends DaoTestCase {
         }
 
         // コレクタスレッド数チェック
-        assertTrue(CollectorTestUtil
-                .lessThanCollectorThreadCount(1 + this.previousThreadCount));
+        assertTrue(CollectorTestUtil.lessThanCollectorThreadCount(1
+                + this.previousThreadCount));
     }
 
+    @Test
     public void testFileCollector011() throws Exception {
         if (this.csvFileQueryDAO == null) {
             fail("csvFileQueryDAOがnullです。");
@@ -135,8 +134,8 @@ public class FileCollector011Test extends DaoTestCase {
 
         int count_first = 0;
 
-        Collector<B000001Data> it = new FileCollector<B000001Data>(
-                this.csvFileQueryDAO, url.getPath(), B000001Data.class);
+        Collector<B000001Data> it = new FileCollector<B000001Data>(this.csvFileQueryDAO, url
+                .getPath(), B000001Data.class);
 
         try {
             // it = ac.execute();
@@ -151,21 +150,21 @@ public class FileCollector011Test extends DaoTestCase {
         }
 
         // コレクタスレッド数チェック
-        assertTrue(CollectorTestUtil
-                .lessThanCollectorThreadCount(0 + this.previousThreadCount));
+        assertTrue(CollectorTestUtil.lessThanCollectorThreadCount(0
+                + this.previousThreadCount));
 
         for (int i = 0; i < 7; i++) {
             int count = 0;
 
             long startTime = System.currentTimeMillis();
 
-            Collector<B000001Data> it2 = new FileCollector<B000001Data>(
-                    this.csvFileQueryDAO, url.getPath(), B000001Data.class);
+            Collector<B000001Data> it2 = new FileCollector<B000001Data>(this.csvFileQueryDAO, url
+                    .getPath(), B000001Data.class);
 
             try {
                 for (B000001Data data : it2) {
                     if (logger.isInfoEnabled() && data == null) {
-                            logger.info("UserBean is null.##############");
+                        logger.info("UserBean is null.##############");
                     }
 
                     count++;
@@ -176,8 +175,8 @@ public class FileCollector011Test extends DaoTestCase {
             }
 
             // コレクタスレッド数チェック
-            assertTrue(CollectorTestUtil
-                    .lessThanCollectorThreadCount(0 + this.previousThreadCount));
+            assertTrue(CollectorTestUtil.lessThanCollectorThreadCount(0
+                    + this.previousThreadCount));
 
             long endTime = System.currentTimeMillis();
 

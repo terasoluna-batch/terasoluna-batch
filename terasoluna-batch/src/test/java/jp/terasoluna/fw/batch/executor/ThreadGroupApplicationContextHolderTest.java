@@ -3,15 +3,17 @@ package jp.terasoluna.fw.batch.executor;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.fail;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.Map;
-
-import jp.terasoluna.fw.ex.unit.util.ReflectionUtils;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.test.util.ReflectionTestUtils;
 
 public class ThreadGroupApplicationContextHolderTest {
 
@@ -21,10 +23,11 @@ public class ThreadGroupApplicationContextHolderTest {
      * (non-Javadoc)
      */
     @Before
-    public void setUp() {
+    public void setUp() throws Exception {
         // いったんクリア
-        ((Map<?, ?>) ReflectionUtils.getField(
-                ThreadGroupApplicationContextHolder.class, "tga")).clear();
+        Field field = ThreadGroupApplicationContextHolder.class.getDeclaredField("tga");
+        field.setAccessible(true);
+        ((Map<?, ?>) field.get(ThreadGroupApplicationContextHolder.class)).clear();
     }
 
     /**
@@ -98,20 +101,28 @@ public class ThreadGroupApplicationContextHolderTest {
         Thread th = Thread.currentThread();
         ThreadGroup g = th.getThreadGroup();
         try {
-            ReflectionUtils.setField(th, "group", null);
+            ReflectionTestUtils.setField(th, "group", null);
             ThreadGroupApplicationContextHolder.removeApplicationContext();
         } finally {
-            ReflectionUtils.setField(th, "group", g);
+            ReflectionTestUtils.setField(th, "group", g);
         }
     }
 
     /**
      * getThreadGroup
      * @return
+     * @throws Exception 
      */
     public ThreadGroup getThreadGroup() {
-        return ReflectionUtils.invoke(ThreadGroupApplicationContextHolder.class,
-                "getThreadGroup");
+        Method method;
+        try {
+            method = ThreadGroupApplicationContextHolder.class.getDeclaredMethod("getThreadGroup");
+            method.setAccessible(true);
+            return (ThreadGroup) method.invoke(ThreadGroupApplicationContextHolder.class);
+        } catch (Exception e) {
+            fail();
+        }
+        return null;
     }
 
     /**
@@ -130,10 +141,10 @@ public class ThreadGroupApplicationContextHolderTest {
         Thread th = Thread.currentThread();
         ThreadGroup g = th.getThreadGroup();
         try {
-            ReflectionUtils.setField(th, "group", null);
+            ReflectionTestUtils.setField(th, "group", null);
             assertEquals(null, getThreadGroup());
         } finally {
-            ReflectionUtils.setField(th, "group", g);
+            ReflectionTestUtils.setField(th, "group", g);
         }
     }
 
@@ -142,8 +153,15 @@ public class ThreadGroupApplicationContextHolderTest {
      * @return
      */
     public String getThreadMessage() {
-        return ReflectionUtils.invoke(ThreadGroupApplicationContextHolder.class,
-                "getThreadMessage");
+        Method method;
+        try {
+            method = ThreadGroupApplicationContextHolder.class.getDeclaredMethod("getThreadMessage");
+            method.setAccessible(true);
+            return (String) method.invoke(ThreadGroupApplicationContextHolder.class);
+        } catch (Exception e) {
+            fail();
+        }
+        return null;
     }
 
     /**
@@ -166,12 +184,12 @@ public class ThreadGroupApplicationContextHolderTest {
         Thread th = Thread.currentThread();
         ThreadGroup g = th.getThreadGroup();
         try {
-            ReflectionUtils.setField(th, "group", null);
+            ReflectionTestUtils.setField(th, "group", null);
             String expected = String.format(" t:[%s]", g.getName(), th
                     .getName());
             assertEquals(expected, getThreadMessage());
         } finally {
-            ReflectionUtils.setField(th, "group", g);
+            ReflectionTestUtils.setField(th, "group", g);
         }
     }
 }

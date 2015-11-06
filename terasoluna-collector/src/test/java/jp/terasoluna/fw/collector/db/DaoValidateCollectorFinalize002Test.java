@@ -3,60 +3,60 @@
  */
 package jp.terasoluna.fw.collector.db;
 
-import java.util.List;
-
 import jp.terasoluna.fw.collector.Collector;
 import jp.terasoluna.fw.collector.CollectorTestUtil;
 import jp.terasoluna.fw.collector.dao.UserListQueryResultHandleDao;
 import jp.terasoluna.fw.collector.util.MemoryInfo;
-import jp.terasoluna.fw.ex.unit.testcase.DaoTestCase;
 import jp.terasoluna.fw.exception.SystemException;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.validation.Validator;
 
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
+import org.springframework.test.context.ContextConfiguration;
+import jp.terasoluna.fw.collector.unit.testcase.junit4.DaoTestCaseJunit4;
+import jp.terasoluna.fw.collector.unit.testcase.junit4.loader.DaoTestCaseContextLoader;
+
 /**
  * DaoValidateCollectorTest
  */
-public class DaoValidateCollectorFinalize002Test extends DaoTestCase {
+@ContextConfiguration(locations = {
+        "classpath:jp/terasoluna/fw/collector/db/dataSource.xml" }, loader = DaoTestCaseContextLoader.class)
+public class DaoValidateCollectorFinalize002Test extends DaoTestCaseJunit4 {
 
     /**
      * Log.
      */
-    private static Log logger = LogFactory
-            .getLog(DaoValidateCollectorFinalize002Test.class);
+    private static Log logger = LogFactory.getLog(
+            DaoValidateCollectorFinalize002Test.class);
 
     private UserListQueryResultHandleDao userListQueryResultHandleDao = null;
 
     private int previousThreadCount = 0;
 
-    @Override
-    protected void addConfigLocations(List<String> configLocations) {
-        configLocations.add("jp/terasoluna/fw/collector/db/dataSource.xml");
-    }
-
-    public void setUserListQueryResultHandleDao(UserListQueryResultHandleDao userListQueryResultHandleDao) {
+    public void setUserListQueryResultHandleDao(
+            UserListQueryResultHandleDao userListQueryResultHandleDao) {
         this.userListQueryResultHandleDao = userListQueryResultHandleDao;
     }
 
-    @SuppressWarnings("deprecation")
     @Override
     protected void onSetUpBeforeTransaction() throws Exception {
         DaoValidateCollector.setVerbose(true);
         super.onSetUpBeforeTransaction();
     }
 
-    @SuppressWarnings("deprecation")
     @Override
     protected void onTearDownAfterTransaction() throws Exception {
         DaoValidateCollector.setVerbose(false);
         super.onTearDownAfterTransaction();
     }
 
-    @SuppressWarnings("deprecation")
-    @Override
-    protected void onSetUp() throws Exception {
+    @Before
+    public void onSetUp() throws Exception {
         if (logger.isInfoEnabled()) {
             logger.info(MemoryInfo.getMemoryInfo());
         }
@@ -64,12 +64,11 @@ public class DaoValidateCollectorFinalize002Test extends DaoTestCase {
         if (logger.isInfoEnabled()) {
             logger.info(MemoryInfo.getMemoryInfo());
         }
-        super.onSetUp();
         this.previousThreadCount = CollectorTestUtil.getCollectorThreadCount();
     }
 
-    @Override
-    protected void onTearDown() throws Exception {
+    @After
+    public void onTearDown() throws Exception {
         if (logger.isInfoEnabled()) {
             logger.info(MemoryInfo.getMemoryInfo());
         }
@@ -78,13 +77,12 @@ public class DaoValidateCollectorFinalize002Test extends DaoTestCase {
             logger.info(MemoryInfo.getMemoryInfo());
         }
         CollectorTestUtil.allInterrupt();
-        super.onTearDown();
     }
 
     /**
-     * {@link DaoValidateCollector#finalize()}
-     * のためのテスト・メソッド。
+     * {@link DaoValidateCollector#finalize()} のためのテスト・メソッド。
      */
+    @Test
     public void testFinalize001() throws Exception {
         if (this.userListQueryResultHandleDao == null) {
             fail("userListQueryResultHandleDaoがnullです。");
@@ -92,8 +90,7 @@ public class DaoValidateCollectorFinalize002Test extends DaoTestCase {
 
         Validator validator = null;
 
-        Collector<UserBean> it = new DaoValidateCollector<UserBean>(
-                this.userListQueryResultHandleDao, "collect", null, validator);
+        Collector<UserBean> it = new DaoValidateCollector<UserBean>(this.userListQueryResultHandleDao, "collect", null, validator);
         try {
             while (it.hasNext()) {
                 it.next();
@@ -108,8 +105,8 @@ public class DaoValidateCollectorFinalize002Test extends DaoTestCase {
         }
 
         // コレクタスレッド数チェック
-        assertTrue(CollectorTestUtil
-                .lessThanCollectorThreadCount(0 + this.previousThreadCount));
+        assertTrue(CollectorTestUtil.lessThanCollectorThreadCount(0
+                + this.previousThreadCount));
     }
 
 }

@@ -16,7 +16,12 @@
 
 package jp.terasoluna.fw.batch.executor.concurrent;
 
-import jp.terasoluna.fw.ex.unit.testcase.DaoTestCase;
+import org.junit.Test;
+import static org.junit.Assert.*;
+import org.springframework.test.context.ContextConfiguration;
+
+import jp.terasoluna.fw.batch.unit.testcase.junit4.DaoTestCaseJunit4;
+import jp.terasoluna.fw.batch.unit.testcase.junit4.loader.DaoTestCaseContextLoader;
 
 /**
  * 事前条件<br>
@@ -27,9 +32,9 @@ import jp.terasoluna.fw.ex.unit.testcase.DaoTestCase;
  * ・Bean定義ファイルに設定されたビジネスロジックが存在すること<br>
  * 
  */
-public class BatchServantImplTest extends DaoTestCase {
+@ContextConfiguration(loader = DaoTestCaseContextLoader.class)
+public class BatchServantImplTest extends DaoTestCaseJunit4 {
 
-	
 	@Override
 	protected void onSetUpBeforeTransaction() throws Exception {
 		deleteFromTable("job_control");
@@ -52,6 +57,7 @@ public class BatchServantImplTest extends DaoTestCase {
 	 * 
 	 * @throws Exception
 	 */
+	@Test
 	public void testRun01() throws Exception {
 
 		BatchServantImpl exe = new BatchServantImpl();
@@ -77,6 +83,7 @@ public class BatchServantImplTest extends DaoTestCase {
 	 * 
 	 * @throws Exception
 	 */
+	@Test
 	public void testRun02() throws Exception {
 
 		BatchServantImpl exe = new BatchServantImpl();
@@ -100,7 +107,9 @@ public class BatchServantImplTest extends DaoTestCase {
 	 * <br>
 	 * 
 	 * @throws Exception
-	 */	public void testRun03() throws Exception {
+	 */
+    @Test
+	public void testRun03() throws Exception {
 
 		BatchServantImpl exe = new BatchServantImpl();
 		exe.setJobSequenceId("0000000002");

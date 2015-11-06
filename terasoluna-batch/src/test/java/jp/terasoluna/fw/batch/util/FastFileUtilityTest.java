@@ -30,10 +30,9 @@ import java.net.URL;
 import java.nio.channels.Channel;
 import java.util.Random;
 
+import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
-import jp.terasoluna.fw.ex.unit.util.AssertUtils;
-import jp.terasoluna.fw.ex.unit.util.ReflectionUtils;
 import jp.terasoluna.fw.file.dao.FileException;
 
 /**
@@ -46,7 +45,7 @@ public class FastFileUtilityTest {
     @Test
     public void testConstructor() {
         // カバレッジを満たすためだけの項目
-        ReflectionUtils.newInstance(FastFileUtility.class);
+        new FastFileUtility();
         assertTrue(true);
     }
 
@@ -80,7 +79,7 @@ public class FastFileUtilityTest {
         File expected = new File(srcFile);
         File actual = new File(newFile);
 
-        AssertUtils.assertFileEquals(expected, actual);
+        Assertions.assertThat(actual).hasSameContentAs(expected);
     }
 
     /**
@@ -226,7 +225,7 @@ public class FastFileUtilityTest {
         File expected = new File(srcFile);
         File actual = new File(newFile);
 
-        AssertUtils.assertFileEquals(expected, actual);
+        Assertions.assertThat(actual).hasSameContentAs(expected);
 
     }
 

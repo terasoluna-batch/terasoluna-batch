@@ -1,7 +1,6 @@
 package jp.terasoluna.fw.collector.file;
 
 import java.net.URL;
-import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
@@ -13,13 +12,22 @@ import jp.terasoluna.fw.collector.db.UserBean;
 import jp.terasoluna.fw.collector.exception.CollectorExceptionHandler;
 import jp.terasoluna.fw.collector.util.MemoryInfo;
 import jp.terasoluna.fw.collector.vo.DataValueObject;
-import jp.terasoluna.fw.ex.unit.testcase.DaoTestCase;
 import jp.terasoluna.fw.file.dao.FileQueryDAO;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-public class FileCollector001Test extends DaoTestCase {
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
+import org.springframework.test.context.ContextConfiguration;
+import jp.terasoluna.fw.collector.unit.testcase.junit4.DaoTestCaseJunit4;
+import jp.terasoluna.fw.collector.unit.testcase.junit4.loader.DaoTestCaseContextLoader;
+
+@ContextConfiguration(locations = {
+        "classpath:jp/terasoluna/fw/collector/db/dataSource.xml" }, loader = DaoTestCaseContextLoader.class)
+public class FileCollector001Test extends DaoTestCaseJunit4 {
     /**
      * Log.
      */
@@ -31,9 +39,8 @@ public class FileCollector001Test extends DaoTestCase {
         this.csvFileQueryDAO = csvFileQueryDAO;
     }
 
-    @SuppressWarnings("deprecation")
-    @Override
-    protected void onSetUp() throws Exception {
+    @Before
+    public void onSetUp() throws Exception {
         if (logger.isInfoEnabled()) {
             logger.info(MemoryInfo.getMemoryInfo());
         }
@@ -41,11 +48,10 @@ public class FileCollector001Test extends DaoTestCase {
         if (logger.isInfoEnabled()) {
             logger.info(MemoryInfo.getMemoryInfo());
         }
-        super.onSetUp();
     }
 
-    @Override
-    protected void onTearDown() throws Exception {
+    @After
+    public void onTearDown() throws Exception {
         if (logger.isInfoEnabled()) {
             logger.info(MemoryInfo.getMemoryInfo());
         }
@@ -54,17 +60,12 @@ public class FileCollector001Test extends DaoTestCase {
             logger.info(MemoryInfo.getMemoryInfo());
         }
         CollectorTestUtil.allInterrupt();
-        super.onTearDown();
-    }
-
-    @Override
-    protected void addConfigLocations(List<String> configLocations) {
-        configLocations.add("jp/terasoluna/fw/collector/db/dataSource.xml");
     }
 
     /**
      * @throws Exception
      */
+    @Test
     public void testFileCollector001() throws Exception {
         if (this.csvFileQueryDAO == null) {
             fail("csvFileQueryDAOがnullです。");
@@ -96,6 +97,7 @@ public class FileCollector001Test extends DaoTestCase {
      * testFileCollector002
      * @throws Exception
      */
+    @Test
     public void testFileCollector002() throws Exception {
         FileCollectorConfig<UserBean> config = null;
         FileCollector<UserBean> col = null;
@@ -116,6 +118,7 @@ public class FileCollector001Test extends DaoTestCase {
      * testCall001
      * @throws Exception
      */
+    @Test
     public void testCall001() throws Exception {
         if (this.csvFileQueryDAO == null) {
             fail("csvFileQueryDAOがnullです。");
@@ -189,6 +192,7 @@ public class FileCollector001Test extends DaoTestCase {
      * testCall002
      * @throws Exception
      */
+    @Test
     public void testCall002() throws Exception {
         if (this.csvFileQueryDAO == null) {
             fail("csvFileQueryDAOがnullです。");
@@ -262,6 +266,7 @@ public class FileCollector001Test extends DaoTestCase {
      * testCall003
      * @throws Exception
      */
+    @Test
     public void testCall003() throws Exception {
         FileQueryDAO csvFileQueryDAO = new FileQueryDAOStub();
         ;

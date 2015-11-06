@@ -17,8 +17,8 @@ import jp.terasoluna.fw.batch.executor.concurrent.BatchServant;
 import jp.terasoluna.fw.batch.executor.concurrent.BatchThreadPoolTaskExecutor;
 import jp.terasoluna.fw.batch.executor.dao.SystemDao;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobListResult;
-import jp.terasoluna.fw.ex.unit.util.SystemEnvUtils;
-import jp.terasoluna.fw.ex.unit.util.TerasolunaPropertyUtils;
+import jp.terasoluna.fw.batch.unit.util.SystemEnvUtils;
+import jp.terasoluna.fw.batch.unit.util.TerasolunaPropertyUtils;
 
 import org.apache.commons.logging.Log;
 import org.junit.After;
@@ -86,6 +86,7 @@ public class AsyncBatchExecutorTest {
             AsyncBatchExecutor.main(new String[] { "foo" });
             fail("例外は発生しません");
         } catch (ExitException e) {
+            System.out.println(ajbeLogger.getLoggingEvents());
             assertTrue(ajbeLogger.getLoggingEvents()
                     .contains(error("[EAL025052] System DAO is null.")));
             assertTrue(abeLogger.getLoggingEvents()

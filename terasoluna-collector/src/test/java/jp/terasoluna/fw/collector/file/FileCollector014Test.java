@@ -1,18 +1,25 @@
 package jp.terasoluna.fw.collector.file;
 
 import java.net.URL;
-import java.util.List;
-
 import jp.terasoluna.fw.collector.Collector;
 import jp.terasoluna.fw.collector.CollectorTestUtil;
 import jp.terasoluna.fw.collector.util.MemoryInfo;
-import jp.terasoluna.fw.ex.unit.testcase.DaoTestCase;
 import jp.terasoluna.fw.file.dao.FileQueryDAO;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-public class FileCollector014Test extends DaoTestCase {
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
+import org.springframework.test.context.ContextConfiguration;
+import jp.terasoluna.fw.collector.unit.testcase.junit4.DaoTestCaseJunit4;
+import jp.terasoluna.fw.collector.unit.testcase.junit4.loader.DaoTestCaseContextLoader;
+
+@ContextConfiguration(locations = {
+        "classpath:jp/terasoluna/fw/collector/db/dataSource.xml" }, loader = DaoTestCaseContextLoader.class)
+public class FileCollector014Test extends DaoTestCaseJunit4 {
     /**
      * Log.
      */
@@ -26,9 +33,8 @@ public class FileCollector014Test extends DaoTestCase {
         this.csvFileQueryDAO = csvFileQueryDAO;
     }
 
-    @SuppressWarnings("deprecation")
-    @Override
-    protected void onSetUp() throws Exception {
+    @Before
+    public void onSetUp() throws Exception {
         if (logger.isInfoEnabled()) {
             logger.info(MemoryInfo.getMemoryInfo());
         }
@@ -36,12 +42,11 @@ public class FileCollector014Test extends DaoTestCase {
         if (logger.isInfoEnabled()) {
             logger.info(MemoryInfo.getMemoryInfo());
         }
-        super.onSetUp();
         this.previousThreadCount = CollectorTestUtil.getCollectorThreadCount();
     }
 
-    @Override
-    protected void onTearDown() throws Exception {
+    @After
+    public void onTearDown() throws Exception {
         if (logger.isInfoEnabled()) {
             logger.info(MemoryInfo.getMemoryInfo());
         }
@@ -50,14 +55,9 @@ public class FileCollector014Test extends DaoTestCase {
             logger.info(MemoryInfo.getMemoryInfo());
         }
         CollectorTestUtil.allInterrupt();
-        super.onTearDown();
     }
 
-    @Override
-    protected void addConfigLocations(List<String> configLocations) {
-        configLocations.add("jp/terasoluna/fw/collector/db/dataSource.xml");
-    }
-
+    @Test
     public void testFileCollector014() throws Exception {
         if (this.csvFileQueryDAO == null) {
             fail("csvFileQueryDAOがnullです。");
@@ -81,9 +81,8 @@ public class FileCollector014Test extends DaoTestCase {
 
         int count_first = 0;
 
-        Collector<B000001Data> it = new FileCollector<B000001Data>(
-                this.csvFileQueryDAO, url.getPath(), B000001Data.class, 100,
-                null);
+        Collector<B000001Data> it = new FileCollector<B000001Data>(this.csvFileQueryDAO, url
+                .getPath(), B000001Data.class, 100, null);
 
         try {
             while (it.hasNext()) {
@@ -96,17 +95,16 @@ public class FileCollector014Test extends DaoTestCase {
         }
 
         // コレクタスレッド数チェック
-        assertTrue(CollectorTestUtil
-                .lessThanCollectorThreadCount(0 + this.previousThreadCount));
+        assertTrue(CollectorTestUtil.lessThanCollectorThreadCount(0
+                + this.previousThreadCount));
 
         for (int i = 0; i < 7; i++) {
             int count = 0;
 
             long startTime = System.currentTimeMillis();
 
-            Collector<B000001Data> it2 = new FileCollector<B000001Data>(
-                    this.csvFileQueryDAO, url.getPath(), B000001Data.class,
-                    100, null);
+            Collector<B000001Data> it2 = new FileCollector<B000001Data>(this.csvFileQueryDAO, url
+                    .getPath(), B000001Data.class, 100, null);
 
             try {
                 for (B000001Data data : it2) {
@@ -137,8 +135,8 @@ public class FileCollector014Test extends DaoTestCase {
         }
 
         // コレクタスレッド数チェック
-        assertTrue(CollectorTestUtil
-                .lessThanCollectorThreadCount(0 + this.previousThreadCount));
+        assertTrue(CollectorTestUtil.lessThanCollectorThreadCount(0
+                + this.previousThreadCount));
 
     }
 

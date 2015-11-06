@@ -9,7 +9,6 @@ import java.util.List;
 import jp.terasoluna.fw.collector.Collector;
 import jp.terasoluna.fw.collector.CollectorTestUtil;
 import jp.terasoluna.fw.collector.dao.UserListQueryResultHandleDao;
-import jp.terasoluna.fw.ex.unit.testcase.DaoTestCase;
 import jp.terasoluna.fw.exception.SystemException;
 
 import org.apache.commons.logging.Log;
@@ -17,10 +16,20 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.dao.DataAccessException;
 import org.springframework.validation.Validator;
 
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
+import org.springframework.test.context.ContextConfiguration;
+import jp.terasoluna.fw.collector.unit.testcase.junit4.DaoTestCaseJunit4;
+import jp.terasoluna.fw.collector.unit.testcase.junit4.loader.DaoTestCaseContextLoader;
+
 /**
  * DaoValidateCollectorTest
  */
-public class DaoValidateCollector002Test extends DaoTestCase {
+@ContextConfiguration(locations = {
+        "classpath:jp/terasoluna/fw/collector/db/dataSource.xml" }, loader = DaoTestCaseContextLoader.class)
+public class DaoValidateCollector002Test extends DaoTestCaseJunit4 {
 
     /**
      * Log.
@@ -32,48 +41,39 @@ public class DaoValidateCollector002Test extends DaoTestCase {
 
     private int previousThreadCount = 0;
 
-    @Override
-    protected void addConfigLocations(List<String> configLocations) {
-        configLocations.add("jp/terasoluna/fw/collector/db/dataSource.xml");
-    }
-
     public void setUserListQueryResultHandleDao(
             UserListQueryResultHandleDao userListQueryResultHandleDao) {
         this.userListQueryResultHandleDao = userListQueryResultHandleDao;
     }
 
-    @SuppressWarnings("deprecation")
     @Override
     protected void onSetUpBeforeTransaction() throws Exception {
         DaoValidateCollector.setVerbose(true);
         super.onSetUpBeforeTransaction();
     }
 
-    @SuppressWarnings("deprecation")
     @Override
     protected void onTearDownAfterTransaction() throws Exception {
         DaoValidateCollector.setVerbose(false);
         super.onTearDownAfterTransaction();
     }
 
-    @SuppressWarnings("deprecation")
-    @Override
-    protected void onSetUp() throws Exception {
+    @Before
+    public void onSetUp() throws Exception {
         System.gc();
-        super.onSetUp();
         this.previousThreadCount = CollectorTestUtil.getCollectorThreadCount();
     }
 
-    @Override
-    protected void onTearDown() throws Exception {
+    @After
+    public void onTearDown() throws Exception {
         System.gc();
         CollectorTestUtil.allInterrupt();
-        super.onTearDown();
     }
 
     /**
      * {@link DaoValidateCollector#finalize()} のためのテスト・メソッド。
      */
+    @Test
     public void testFinalize001() throws Exception {
         if (this.userListQueryResultHandleDao == null) {
             fail("userListQueryResultHandleDaoがnullです。");
@@ -105,6 +105,7 @@ public class DaoValidateCollector002Test extends DaoTestCase {
      * {@link jp.terasoluna.fw.collector.db.DaoValidateCollector#DaoValidateCollector(Object, String, Object, org.springframework.validation.Validator)}
      * のためのテスト・メソッド。
      */
+    @Test
     public void testDaoValidateCollectorObjectStringObjectValidator001() throws Exception {
         if (this.userListQueryResultHandleDao == null) {
             fail("userListQueryResultHandleDaoがnullです。");
@@ -181,6 +182,7 @@ public class DaoValidateCollector002Test extends DaoTestCase {
      * {@link jp.terasoluna.fw.collector.db.DaoValidateCollector#DaoValidateCollector(Object, String, Object, org.springframework.validation.Validator)}
      * のためのテスト・メソッド。
      */
+    @Test
     public void testDaoValidateCollectorObjectStringObjectValidator002() throws Exception {
         if (this.userListQueryResultHandleDao == null) {
             fail("userListQueryResultHandleDaoがnullです。");
@@ -239,6 +241,7 @@ public class DaoValidateCollector002Test extends DaoTestCase {
      * {@link jp.terasoluna.fw.collector.db.DaoValidateCollector#DaoValidateCollector(Object, String, Object, org.springframework.validation.Validator)}
      * のためのテスト・メソッド。
      */
+    @Test
     public void testDaoValidateCollectorObjectStringObjectValidator003() throws Exception {
         if (this.userListQueryResultHandleDao == null) {
             fail("userListQueryResultHandleDaoがnullです。");
@@ -272,6 +275,7 @@ public class DaoValidateCollector002Test extends DaoTestCase {
      * {@link jp.terasoluna.fw.collector.db.DaoValidateCollector#DaoValidateCollector(Object, String, Object, boolean, org.springframework.validation.Validator)}
      * のためのテスト・メソッド。
      */
+    @Test
     public void testDaoValidateCollectorObjectStringObjectBooleanValidator001() throws Exception {
         if (this.userListQueryResultHandleDao == null) {
             fail("userListQueryResultHandleDaoがnullです。");
@@ -306,6 +310,7 @@ public class DaoValidateCollector002Test extends DaoTestCase {
      * {@link jp.terasoluna.fw.collector.db.DaoValidateCollector#DaoValidateCollector(Object, String, Object, int, boolean, jp.terasoluna.fw.collector.exception.CollectorExceptionHandler, DaoCollectorPrePostProcess, org.springframework.validation.Validator, jp.terasoluna.fw.collector.validate.ValidationErrorHandler)}
      * のためのテスト・メソッド。
      */
+    @Test
     public void testDaoValidateCollectorObjectStringObjectIntBooleanCollectorExceptionHandlerDaoCollectorPrePostProcessValidatorValidationErrorHandler001() throws Exception {
         if (this.userListQueryResultHandleDao == null) {
             fail("userListQueryResultHandleDaoがnullです。");
@@ -340,6 +345,7 @@ public class DaoValidateCollector002Test extends DaoTestCase {
      * {@link jp.terasoluna.fw.collector.db.DaoValidateCollector#DaoValidateCollector(Object, String, Object, org.springframework.validation.Validator)}
      * のためのテスト・メソッド。
      */
+    @Test
     public void testDaoValidateCollectorObjectStringObjectValidator004() throws Exception {
         if (this.userListQueryResultHandleDao == null) {
             fail("userListQueryResultHandleDaoがnullです。");
@@ -374,6 +380,7 @@ public class DaoValidateCollector002Test extends DaoTestCase {
      * {@link jp.terasoluna.fw.collector.db.DaoValidateCollector#DaoValidateCollector(Object, String, Object, boolean, org.springframework.validation.Validator)}
      * のためのテスト・メソッド。
      */
+    @Test
     public void testDaoValidateCollectorObjectStringObjectBooleanValidator002() throws Exception {
         if (this.userListQueryResultHandleDao == null) {
             fail("userListQueryResultHandleDaoがnullです。");
@@ -411,6 +418,7 @@ public class DaoValidateCollector002Test extends DaoTestCase {
      * {@link jp.terasoluna.fw.collector.db.DaoValidateCollector#DaoValidateCollector(Object, String, Object, int, boolean, jp.terasoluna.fw.collector.exception.CollectorExceptionHandler, jp.terasoluna.fw.collector.db.DaoCollectorPrePostProcess, org.springframework.validation.Validator,jp.terasoluna.fw.collector.validate.ValidationErrorHandler)}
      * のためのテスト・メソッド。
      */
+    @Test
     public void testDaoValidateCollectorObjectStringObjectIntBooleanCollectorExceptionHandlerDaoCollectorPrePostProcessValidatorValidationErrorHandler002() throws Exception {
         if (this.userListQueryResultHandleDao == null) {
             fail("userListQueryResultHandleDaoがnullです。");

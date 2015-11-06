@@ -22,8 +22,8 @@ import jp.terasoluna.fw.batch.executor.vo.BLogicResult;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobManagementParam;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobManagementUpdateParam;
-import jp.terasoluna.fw.ex.unit.testcase.DaoTestCase;
-import jp.terasoluna.fw.ex.unit.util.TerasolunaPropertyUtils;
+import jp.terasoluna.fw.batch.unit.util.TerasolunaPropertyUtils;
+import jp.terasoluna.fw.batch.unit.testcase.junit4.DaoTestCaseJunit4;
 
 import org.springframework.dao.DataAccessException;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -31,7 +31,15 @@ import org.springframework.transaction.TransactionException;
 
 import static org.mockito.Mockito.*;
 
-public class AbstractJobBatchExecutorTest extends DaoTestCase {
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
+import org.springframework.test.context.ContextConfiguration;
+import jp.terasoluna.fw.batch.unit.testcase.junit4.loader.DaoTestCaseContextLoader;
+
+@ContextConfiguration(loader = DaoTestCaseContextLoader.class)
+public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
 
     /**
      * 利用するDAOクラス
@@ -40,8 +48,8 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
 
     private PlatformTransactionManager transactionManager = null;
 
-    @Override
-    protected void onSetUpInTransaction() throws Exception {
+    @Before
+    public void onSetUpIn() throws Exception {
         deleteFromTable("job_control");
 
         update("INSERT INTO job_control (job_seq_id, job_app_cd, job_arg_nm1, job_arg_nm2, job_arg_nm3, job_arg_nm4, job_arg_nm5, job_arg_nm6, job_arg_nm7, job_arg_nm8, job_arg_nm9, job_arg_nm10, job_arg_nm11, job_arg_nm12, job_arg_nm13, job_arg_nm14, job_arg_nm15, job_arg_nm16, job_arg_nm17, job_arg_nm18, job_arg_nm19, job_arg_nm20, blogic_app_status, cur_app_status, add_date_time, upd_date_time) VALUES ('0000000001', 'B000001', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', NULL, NULL)");
@@ -52,15 +60,11 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
 
         systemDao = getBean("systemDao");
         transactionManager = getBean("adminTransactionManager");
-
         TerasolunaPropertyUtils.saveProperties();
-
     }
 
-    @SuppressWarnings("deprecation")
-    @Override
-    protected void onTearDownAfterTransaction() throws Exception {
-
+    @After
+    public void onTearDown() throws Exception {
         TerasolunaPropertyUtils.restoreProperties();
         super.onTearDownAfterTransaction();
     }
@@ -74,6 +78,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * <br>
      * @throws Exception
      */
+    @Test
     public void testJudgmentStatus01() throws Exception {
 
         BatchJobData param = new BatchJobData();
@@ -96,6 +101,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * <br>
      * @throws Exception
      */
+    @Test
     public void testJudgmentStatus02() throws Exception {
 
         BatchJobData param = new BatchJobData();
@@ -118,6 +124,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * <br>
      * @throws Exception
      */
+    @Test
     public void testJudgmentStatus03() throws Exception {
 
         BatchJobData param = new BatchJobData();
@@ -140,6 +147,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * <br>
      * @throws Exception
      */
+    @Test
     public void testJudgmentStatus04() throws Exception {
 
         BatchJobData param = new BatchJobData();
@@ -163,6 +171,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * <br>
      * @throws Exception
      */
+    @Test
     public void testJudgmentStatus05() throws Exception {
 
         BatchJobData param = new BatchJobData();
@@ -186,6 +195,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * <br>
      * @throws Exception
      */
+    @Test
     public void testJudgmentStatus06() throws Exception {
 
         BatchJobData param = new BatchJobData();
@@ -211,6 +221,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * DBのステータスが更新されていること。
      * @throws Exception
      */
+    @Test
     public void testUpdateBatchStatus01() throws Exception {
 
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
@@ -237,6 +248,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * DBのステータスが更新されていること。
      * @throws Exception
      */
+    @Test
     public void testUpdateBatchStatus02() throws Exception {
 
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
@@ -263,6 +275,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * DBのステータスが更新されていること。
      * @throws Exception
      */
+    @Test
     public void testUpdateBatchStatus03() throws Exception {
 
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
@@ -289,12 +302,13 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * DBのステータスが更新されていること。
      * @throws Exception
      */
+    @Test
     public void testUpdateBatchStatus04() throws Exception {
 
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
 
-        exe.updateBatchStatus("0000000001", "1", "0",
-                systemDao, transactionManager);
+        exe.updateBatchStatus("0000000001", "1", "0", systemDao,
+                transactionManager);
 
         BatchJobData row = queryForRowObject(
                 "select * from job_control where job_seq_id = '0000000001'",
@@ -315,6 +329,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * DBのステータスが更新されていること。
      * @throws Exception
      */
+    @Test
     public void testUpdateBatchStatus05() throws Exception {
 
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
@@ -341,6 +356,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * DBのステータスが更新されていること。
      * @throws Exception
      */
+    @Test
     public void testUpdateBatchStatus06() throws Exception {
 
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
@@ -366,6 +382,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * TransactionExceptionがスローされること。
      * @throws Exception
      */
+    @Test
     public void testUpdateBatchStatus07() throws Exception {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
         PlatformTransactionManager transactionManager = new PlatformTransactionManagerStub01();
@@ -388,6 +405,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * DataAccessExceptionがスローされること。
      * @throws Exception
      */
+    @Test
     public void testUpdateBatchStatus08() throws Exception {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
         SystemDao systemDao = mock(SystemDao.class);
@@ -422,6 +440,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * DataAccessExceptionがスローされること。
      * @throws Exception
      */
+    @Test
     public void testUpdateBatchStatus09() throws Exception {
         SystemDao systemDao = mock(SystemDao.class);
         when(systemDao.selectJob(any(BatchJobManagementParam.class))).thenThrow(
@@ -448,6 +467,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * TransactionExceptionがスローされること。
      * @throws Exception
      */
+    @Test
     public void testUpdateBatchStatus10() throws Exception {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
         PlatformTransactionManager transactionManager = new PlatformTransactionManagerStub02();
@@ -471,6 +491,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * BatchExceptionがスローされること。
      * @throws Exception
      */
+    @Test
     public void testUpdateBatchStatus11() throws Exception {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
         try {
@@ -492,6 +513,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * DBのステータスが更新されていないこと。
      * @throws Exception
      */
+    @Test
     public void testEndBatchStatus01() throws Exception {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
         BLogicResult blogicResult = new BLogicResult();
@@ -518,6 +540,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * DBのステータスが更新されていること。
      * @throws Exception
      */
+    @Test
     public void testEndBatchStatus02() throws Exception {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
         BLogicResult blogicResult = new BLogicResult();
@@ -544,6 +567,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * DBのステータスが更新されていないこと。
      * @throws Exception
      */
+    @Test
     public void testEndBatchStatus03() throws Exception {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
         BLogicResult blogicResult = new BLogicResult();
@@ -570,6 +594,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * DBのステータスが更新されていること。
      * @throws Exception
      */
+    @Test
     public void testStartBatchStatus01() throws Exception {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
 
@@ -596,6 +621,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * DBのステータスが更新されていないこと。
      * @throws Exception
      */
+    @Test
     public void testStartBatchStatus02() throws Exception {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
 
@@ -622,6 +648,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * DBのステータスが更新されていないこと。
      * @throws Exception
      */
+    @Test
     public void testStartBatchStatus03() throws Exception {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
 
@@ -648,6 +675,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * DBのステータスが更新されていること。
      * @throws Exception
      */
+    @Test
     public void testExecuteBatch01() throws Exception {
 
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
@@ -659,6 +687,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
         assertEquals(0, result.getBlogicStatus());
     }
 
+    @Test
     public void testExecuteBatch02() throws Exception {
 
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
@@ -670,6 +699,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
         assertEquals(-1, result.getBlogicStatus());
     }
 
+    @Test
     public void testExecuteBatch03() throws Exception {
 
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
@@ -681,6 +711,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
         assertEquals(-1, result.getBlogicStatus());
     }
 
+    @Test
     public void testExecuteBatch04() throws Exception {
 
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
@@ -693,6 +724,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
         assertEquals(0, result.getBlogicStatus());
     }
 
+    @Test
     public void testExecuteBatch05() throws Exception {
 
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
@@ -712,6 +744,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * テスト概要： getterメソッドのテストであるため、初期値が正確に返されることを確認する。
      * @throws Exception
      */
+    @Test
     public void testGetJobIntervalTime01() throws Exception {
 
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
@@ -725,6 +758,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * テスト概要：getterメソッドのテストであるため、初期値がnullであることを確認する。
      * @throws Exception
      */
+    @Test
     public void testGetExecutorEndMonitoringFile01() throws Exception {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
 
@@ -739,6 +773,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * テスト概要：getterメソッドのテストであるため、初期値が5000であることを確認する。
      * @throws Exception
      */
+    @Test
     public void testGetExecutorJobTerminateWaitIntervalTime01() throws Exception {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
 
@@ -751,6 +786,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * テスト概要：setterメソッドのテストであるため、初期値がfalseであることを確認する。
      * @throws Exception
      */
+    @Test
     public void testSetChangeStartStatus01() throws Exception {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
 
@@ -764,6 +800,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * テスト概要：setterメソッドのテストであるため、引数にtrueを与え、trueが返却されることを確認する。
      * @throws Exception
      */
+    @Test
     public void testSetChangeStartStatus02() throws Exception {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
 
@@ -772,6 +809,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
         assertTrue(exe.changeStartStatus);
     }
 
+    @Test
     public void testInitParameter01() {
 
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
@@ -783,6 +821,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
 
     }
 
+    @Test
     public void testInitParameter02() {
 
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
@@ -795,6 +834,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
 
     }
 
+    @Test
     public void testInitParameter03() {
 
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
@@ -807,6 +847,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
 
     }
 
+    @Test
     public void testInitParameter04() {
 
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
@@ -818,6 +859,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
 
     }
 
+    @Test
     public void testInitParameter05() {
 
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
@@ -832,6 +874,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
 
     }
 
+    @Test
     public void testInitParameter06() {
 
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
@@ -844,6 +887,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
 
     }
 
+    @Test
     public void testInitParameter07() {
 
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
@@ -858,6 +902,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
 
     }
 
+    @Test
     public void testInitParameter08() {
 
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
@@ -872,6 +917,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
 
     }
 
+    @Test
     public void testInitSystemDatasourceDao01() throws Exception {
 
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
@@ -882,6 +928,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
         assertNull(exe.systemDao);
     }
 
+    @Test
     public void testInitSystemDatasourceDao02() throws Exception {
 
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
@@ -894,6 +941,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
         assertNull(exe.systemDao);
     }
 
+    @Test
     public void testInitSystemDatasourceDao03() throws Exception {
 
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
@@ -906,6 +954,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
         assertNull(exe.systemDao);
     }
 
+    @Test
     public void testInitSystemDatasourceDao07() throws Exception {
 
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
@@ -917,6 +966,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
         assertNull(exe.sysTransactionManager);
     }
 
+    @Test
     public void testInitSystemDatasourceDao08() throws Exception {
 
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
@@ -930,6 +980,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
         assertNull(exe.sysTransactionManager);
     }
 
+    @Test
     public void testInitSystemDatasourceDao09() throws Exception {
 
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
@@ -947,6 +998,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * testInitDefaultAppContext001
      * @throws Exception
      */
+    @Test
     public void testInitDefaultAppContext001() throws Exception {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
 
@@ -957,6 +1009,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * testInitDefaultAppContext002
      * @throws Exception
      */
+    @Test
     public void testInitDefaultAppContext002() throws Exception {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
 
@@ -971,6 +1024,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * testInitDefaultAppContext003
      * @throws Exception
      */
+    @Test
     public void testInitDefaultAppContext003() throws Exception {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
 
@@ -986,6 +1040,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * testInitDefaultAppContext004
      * @throws Exception
      */
+    @Test
     public void testInitDefaultAppContext004() throws Exception {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
 
@@ -1001,6 +1056,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCase {
      * testInitSystemDatasourceDao001
      * @throws Exception
      */
+    @Test
     public void testInitSystemDatasourceDao001() throws Exception {
         AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
 

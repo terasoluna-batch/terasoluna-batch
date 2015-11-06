@@ -1,16 +1,16 @@
 package jp.terasoluna.fw.message;
 
 import static org.junit.Assert.*;
-import static jp.terasoluna.fw.ex.unit.util.AssertUtils.*;
 
 import java.net.URL;
-import java.util.Arrays;
-
 import jp.terasoluna.fw.message.execption.MessageRuntimeException;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.hamcrest.core.Is.is;
+import static java.util.Arrays.asList;
 
 public class MessageManagerTest {
     private ClassLoader currentClassLoader;
@@ -49,10 +49,9 @@ public class MessageManagerTest {
     @Test
     public void testConstructor01() {
         // 設定のないプロパティファイル
-        MessageManager manager = new MessageManager(
-                "jp/terasoluna/fw/message/terasoluna-logger01.properties");
+        MessageManager manager = new MessageManager("jp/terasoluna/fw/message/terasoluna-logger01.properties");
         assertEquals("[%s] ", manager.messageIdFormat);
-        assertCollectionEmpty(manager.basenames);
+        assertTrue(manager.basenames.isEmpty());
         assertFalse(manager.throwIfResourceNotFound);
     }
 
@@ -72,12 +71,10 @@ public class MessageManagerTest {
     @Test
     public void testConstructor02() {
         // message.id.formatとmessage.basenameが設定されている、throw.if.resource.not.foundがtrue
-        MessageManager manager = new MessageManager(
-                "jp/terasoluna/fw/message/terasoluna-logger02.properties");
+        MessageManager manager = new MessageManager("jp/terasoluna/fw/message/terasoluna-logger02.properties");
         assertEquals("|%s| ", manager.messageIdFormat);
-        assertCollectionEquals(
-                Arrays.asList("jp/terasoluna/fw/message/log-messages2"),
-                manager.basenames);
+        assertThat(manager.basenames, is(asList(
+                "jp/terasoluna/fw/message/log-messages2")));
         assertTrue(manager.throwIfResourceNotFound);
     }
 
@@ -97,12 +94,11 @@ public class MessageManagerTest {
     @Test
     public void testConstructor03() {
         // message.basenameが複数設定されている、throw.if.resource.not.foundがfalse
-        MessageManager manager = new MessageManager(
-                "jp/terasoluna/fw/message/terasoluna-logger03.properties");
+        MessageManager manager = new MessageManager("jp/terasoluna/fw/message/terasoluna-logger03.properties");
         assertEquals("[%s] ", manager.messageIdFormat);
-        assertCollectionEquals(Arrays.asList(
+        assertThat(manager.basenames, is(asList(
                 "jp/terasoluna/fw/message/log-messages3-1",
-                "jp/terasoluna/fw/message/log-messages3-2"), manager.basenames);
+                "jp/terasoluna/fw/message/log-messages3-2")));
         assertFalse(manager.throwIfResourceNotFound);
     }
 
@@ -123,20 +119,19 @@ public class MessageManagerTest {
     public void testConstructor04() {
         // 該当するプロパティファイルがクラスローダ上に複数存在する
         MockClassLoader cl = new MockClassLoader();
-        cl.addMapping("META-INF/terasoluna-logger.properties",
-                getResource("terasoluna-logger01.properties"),
-                getResource("terasoluna-logger02.properties"),
-                getResource("terasoluna-logger03.properties"));
+        cl.addMapping("META-INF/terasoluna-logger.properties", getResource(
+                "terasoluna-logger01.properties"), getResource(
+                        "terasoluna-logger02.properties"), getResource(
+                                "terasoluna-logger03.properties"));
         // クラスローダの差し替え
         Thread.currentThread().setContextClassLoader(cl);
 
-        MessageManager manager = new MessageManager(
-                "META-INF/terasoluna-logger.properties");
+        MessageManager manager = new MessageManager("META-INF/terasoluna-logger.properties");
         assertEquals("[%s] ", manager.messageIdFormat);
-        assertCollectionEquals(Arrays.asList(
+        assertThat(manager.basenames, is(asList(
                 "jp/terasoluna/fw/message/log-messages2",
                 "jp/terasoluna/fw/message/log-messages3-1",
-                "jp/terasoluna/fw/message/log-messages3-2"), manager.basenames);
+                "jp/terasoluna/fw/message/log-messages3-2")));
         assertFalse(manager.throwIfResourceNotFound);
     }
 
@@ -156,20 +151,19 @@ public class MessageManagerTest {
     @Test
     public void testConstructor05() {
         MockClassLoader cl = new MockClassLoader();
-        cl.addMapping("META-INF/terasoluna-logger.properties",
-                getResource("terasoluna-logger02.properties"),
-                getResource("terasoluna-logger01.properties"),
-                getResource("terasoluna-logger03.properties"));
+        cl.addMapping("META-INF/terasoluna-logger.properties", getResource(
+                "terasoluna-logger02.properties"), getResource(
+                        "terasoluna-logger01.properties"), getResource(
+                                "terasoluna-logger03.properties"));
         // クラスローダの差し替え
         Thread.currentThread().setContextClassLoader(cl);
 
-        MessageManager manager = new MessageManager(
-                "META-INF/terasoluna-logger.properties");
+        MessageManager manager = new MessageManager("META-INF/terasoluna-logger.properties");
         assertEquals("|%s| ", manager.messageIdFormat);
-        assertCollectionEquals(Arrays.asList(
+        assertThat(manager.basenames, is(asList(
                 "jp/terasoluna/fw/message/log-messages2",
                 "jp/terasoluna/fw/message/log-messages3-1",
-                "jp/terasoluna/fw/message/log-messages3-2"), manager.basenames);
+                "jp/terasoluna/fw/message/log-messages3-2")));
         assertTrue(manager.throwIfResourceNotFound);
     }
 
@@ -177,11 +171,7 @@ public class MessageManagerTest {
      * コンストラクタの試験【06:異常系】
      * 
      * <pre>
-     * 事前条件：
-     * ・不正なクラスローダを設定する
-     * 
-     * 確認項目：
-     * ・コンストラクタの呼び出しによる、MessageRuntimeExceptionの発生を確認
+     * 事前条件： ・不正なクラスローダを設定する 確認項目： ・コンストラクタの呼び出しによる、MessageRuntimeExceptionの発生を確認
      */
     @Test
     public void testConstructor06() {
@@ -198,17 +188,15 @@ public class MessageManagerTest {
 
     @Test
     public void testConstructor07() throws Exception {
-        MessageManager manager = new MessageManager(
-                "jp/terasoluna/fw/message/terasoluna-logger05.properties");
-        assertEquals(SampleMessageFormatter01.class,
-                manager.messageFormatter.getClass());
+        MessageManager manager = new MessageManager("jp/terasoluna/fw/message/terasoluna-logger05.properties");
+        assertEquals(SampleMessageFormatter01.class, manager.messageFormatter
+                .getClass());
     }
 
     @Test
     public void testConstructor08() throws Exception {
         try {
-            new MessageManager(
-                    "jp/terasoluna/fw/message/terasoluna-logger06.properties");
+            new MessageManager("jp/terasoluna/fw/message/terasoluna-logger06.properties");
         } catch (Exception e) {
             e.printStackTrace();
             assertEquals(MessageRuntimeException.class, e.getClass());
@@ -235,8 +223,7 @@ public class MessageManagerTest {
      */
     @Test
     public void testGetMessage01() {
-        MessageManager manager = new MessageManager(
-                "META-INF/terasoluna-logger.properties");
+        MessageManager manager = new MessageManager("META-INF/terasoluna-logger.properties");
         assertNull(manager.getMessagePattern("hoge", null));
         assertNull(manager.getMessagePattern(null, null));
     }
@@ -255,8 +242,7 @@ public class MessageManagerTest {
      */
     @Test
     public void testGetMessage02() {
-        MessageManager manager = new MessageManager(
-                "jp/terasoluna/fw/message/terasoluna-logger02.properties");
+        MessageManager manager = new MessageManager("jp/terasoluna/fw/message/terasoluna-logger02.properties");
         try {
             manager.getMessagePattern("hoge", null);
             fail("例外が発生しませんでした");
@@ -280,10 +266,9 @@ public class MessageManagerTest {
      */
     @Test
     public void testGetMessage03() {
-        MessageManager manager = new MessageManager(
-                "jp/terasoluna/fw/message/terasoluna-logger04.properties");
-        assertEquals("[message01] メッセージ01",
-                manager.getMessage(true, "message01"));
+        MessageManager manager = new MessageManager("jp/terasoluna/fw/message/terasoluna-logger04.properties");
+        assertEquals("[message01] メッセージ01", manager.getMessage(true,
+                "message01"));
 
     }
 
@@ -319,8 +304,7 @@ public class MessageManagerTest {
      */
     @Test
     public void testGetMessage05() {
-        MessageManager manager = new MessageManager(
-                "jp/terasoluna/fw/message/terasoluna-logger04.properties");
+        MessageManager manager = new MessageManager("jp/terasoluna/fw/message/terasoluna-logger04.properties");
 
         try {
             manager.getMessage(true, "message02");
@@ -348,8 +332,7 @@ public class MessageManagerTest {
      */
     @Test
     public void testGetStringOrNull01() {
-        MessageManager manager = new MessageManager(
-                "jp/terasoluna/fw/message/terasoluna-logger02.properties");
+        MessageManager manager = new MessageManager("jp/terasoluna/fw/message/terasoluna-logger02.properties");
         assertNull(manager.getStringOrNull(null, null));
     }
 
@@ -367,8 +350,7 @@ public class MessageManagerTest {
      */
     @Test
     public void testGetStringOrNull02() {
-        MessageManager manager = new MessageManager(
-                "jp/terasoluna/fw/message/terasoluna-logger02.properties");
+        MessageManager manager = new MessageManager("jp/terasoluna/fw/message/terasoluna-logger02.properties");
         try {
             manager.getMessagePattern(null, null);
             fail("例外が発生しませんでした");
@@ -394,15 +376,14 @@ public class MessageManagerTest {
      */
     @Test
     public void testGetResourceBundle() {
-        MessageManager manager = new MessageManager(
-                "jp/terasoluna/fw/message/terasoluna-logger02.properties");
+        MessageManager manager = new MessageManager("jp/terasoluna/fw/message/terasoluna-logger02.properties");
         try {
             manager.getResourceBundle("META-INF/hoge.properties", null);
             fail("例外が発生しませんでした");
         } catch (Exception e) {
             e.printStackTrace();
-            assertEquals("resource[META-INF/hoge.properties] is not found",
-                    e.getMessage());
+            assertEquals("resource[META-INF/hoge.properties] is not found", e
+                    .getMessage());
             assertEquals(MessageRuntimeException.class, e.getClass());
         }
     }
@@ -433,7 +414,7 @@ public class MessageManagerTest {
     @Test
     public void testGetClassLoader02() {
         Thread.currentThread().setContextClassLoader(null);
-        assertSame(MessageManager.class.getClassLoader(),
-                MessageManager.getClassLoader());
+        assertSame(MessageManager.class.getClassLoader(), MessageManager
+                .getClassLoader());
     }
 }

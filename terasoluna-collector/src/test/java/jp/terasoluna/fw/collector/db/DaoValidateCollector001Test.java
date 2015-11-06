@@ -3,23 +3,29 @@
  */
 package jp.terasoluna.fw.collector.db;
 
-import java.util.List;
-
 import jp.terasoluna.fw.collector.dao.UserListQueryResultHandleDao;
 import jp.terasoluna.fw.collector.exception.CollectorExceptionHandler;
 import jp.terasoluna.fw.collector.util.MemoryInfo;
 import jp.terasoluna.fw.collector.validate.ValidationErrorHandler;
-import jp.terasoluna.fw.ex.unit.testcase.DaoTestCase;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.validation.Validator;
 
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
+import org.springframework.test.context.ContextConfiguration;
+import jp.terasoluna.fw.collector.unit.testcase.junit4.DaoTestCaseJunit4;
+import jp.terasoluna.fw.collector.unit.testcase.junit4.loader.DaoTestCaseContextLoader;
+
 /**
  * DaoValidateCollectorTest
  */
-public class DaoValidateCollector001Test extends DaoTestCase {
+@ContextConfiguration(locations = {
+"classpath:jp/terasoluna/fw/collector/db/dataSource.xml" }, loader = DaoTestCaseContextLoader.class)
+public class DaoValidateCollector001Test extends DaoTestCaseJunit4 {
 
     /**
      * Log.
@@ -29,19 +35,13 @@ public class DaoValidateCollector001Test extends DaoTestCase {
 
     private UserListQueryResultHandleDao userListQueryResultHandleDao = null;
 
-    @Override
-    protected void addConfigLocations(List<String> configLocations) {
-        configLocations.add("jp/terasoluna/fw/collector/db/dataSource.xml");
-    }
-
     public void setUserListQueryResultHandleDao(
             UserListQueryResultHandleDao userListQueryResultHandleDao) {
         this.userListQueryResultHandleDao = userListQueryResultHandleDao;
     }
 
-    @SuppressWarnings("deprecation")
-    @Override
-    protected void onSetUp() throws Exception {
+    @Before
+    public void onSetUp() throws Exception {
         if (logger.isInfoEnabled()) {
             logger.info(MemoryInfo.getMemoryInfo());
         }
@@ -49,11 +49,10 @@ public class DaoValidateCollector001Test extends DaoTestCase {
         if (logger.isInfoEnabled()) {
             logger.info(MemoryInfo.getMemoryInfo());
         }
-        super.onSetUp();
     }
 
-    @Override
-    protected void onTearDown() throws Exception {
+    @After
+    public void onTearDown() throws Exception {
         if (logger.isInfoEnabled()) {
             logger.info(MemoryInfo.getMemoryInfo());
         }
@@ -61,12 +60,12 @@ public class DaoValidateCollector001Test extends DaoTestCase {
         if (logger.isInfoEnabled()) {
             logger.info(MemoryInfo.getMemoryInfo());
         }
-        super.onTearDown();
     }
 
     /**
      * @throws Exception
      */
+    @Test
     public void testDaoValidateCollector001() throws Exception {
         String methodName = null;
         Object bindParams = null;
@@ -81,6 +80,7 @@ public class DaoValidateCollector001Test extends DaoTestCase {
     /**
      * @throws Exception
      */
+    @Test
     public void testDaoValidateCollector002() throws Exception {
         String methodName = null;
         Object bindParams = null;
@@ -96,6 +96,7 @@ public class DaoValidateCollector001Test extends DaoTestCase {
     /**
      * @throws Exception
      */
+    @Test
     public void testDaoValidateCollector003() throws Exception {
         String methodName = null;
         Object bindParams = null;
@@ -113,6 +114,7 @@ public class DaoValidateCollector001Test extends DaoTestCase {
     /**
      * @throws Exception
      */
+    @Test
     public void testDaoValidateCollector004() throws Exception {
         String methodName = null;
         Object bindParams = null;
@@ -129,6 +131,7 @@ public class DaoValidateCollector001Test extends DaoTestCase {
     /**
      * @throws Exception
      */
+    @Test
     public void testDaoValidateCollector005() throws Exception {
         String methodName = null;
         Object bindParams = null;
@@ -145,6 +148,7 @@ public class DaoValidateCollector001Test extends DaoTestCase {
     /**
      * @throws Exception
      */
+    @Test
     public void testDaoValidateCollector006() throws Exception {
         String methodName = null;
         Object bindParams = null;
@@ -162,6 +166,7 @@ public class DaoValidateCollector001Test extends DaoTestCase {
     /**
      * @throws Exception
      */
+    @Test
     public void testDaoValidateCollector007() throws Exception {
         String methodName = null;
         Object bindParams = null;
@@ -180,6 +185,7 @@ public class DaoValidateCollector001Test extends DaoTestCase {
     /**
      * @throws Exception
      */
+    @Test
     public void testDaoValidateCollector010() throws Exception {
         String methodName = null;
         Object bindParams = null;
@@ -195,6 +201,7 @@ public class DaoValidateCollector001Test extends DaoTestCase {
     /**
      * @throws Exception
      */
+    @Test
     public void testDaoValidateCollector011() throws Exception {
         String methodName = null;
         Object bindParams = null;
@@ -212,12 +219,13 @@ public class DaoValidateCollector001Test extends DaoTestCase {
      * @throws Exception
      */
     @SuppressWarnings("resource")
+    @Test
     public void testDaoValidateCollector012() throws Exception {
         DaoCollectorConfig config = null;
 
         try {
             new DaoValidateCollector<UserBean>(config);
-            fail("失敗");
+            fail("失���");
         } catch (IllegalArgumentException e) {
             assertNotNull(e);
             assertEquals("The parameter is null.", e.getMessage());
@@ -228,6 +236,7 @@ public class DaoValidateCollector001Test extends DaoTestCase {
      * testDaoValidateCollector012
      * @throws Exception
      */
+    @Test
     public void testDaoValidateCollector013() throws Exception {
         DaoCollectorConfig config = new DaoCollectorConfig(userListQueryResultHandleDao, null, null);
         config.setExecuteByConstructor(true);

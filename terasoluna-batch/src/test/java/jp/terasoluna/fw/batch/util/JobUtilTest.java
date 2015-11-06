@@ -26,17 +26,23 @@ import jp.terasoluna.fw.batch.exception.BatchException;
 import jp.terasoluna.fw.batch.executor.dao.SystemDao;
 import jp.terasoluna.fw.batch.executor.vo.*;
 import jp.terasoluna.fw.batch.mock.MockSystemDao;
-import jp.terasoluna.fw.ex.unit.io.impl.CollectionSource;
-import jp.terasoluna.fw.ex.unit.testcase.DaoTestCase;
-import jp.terasoluna.fw.ex.unit.util.AssertUtils;
-import jp.terasoluna.fw.ex.unit.util.SystemEnvUtils;
+import jp.terasoluna.fw.batch.unit.util.SystemEnvUtils;
+import jp.terasoluna.fw.batch.unit.testcase.junit4.DaoTestCaseJunit4;
+import jp.terasoluna.fw.batch.unit.testcase.junit4.loader.DaoTestCaseContextLoader;
 
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.dao.DataAccessException;
 
 import static org.mockito.Mockito.*;
+import static org.hamcrest.core.Is.is;
+import static org.hamcrest.CoreMatchers.equalTo;
 
-public class JobUtilTest extends DaoTestCase {
+import org.junit.Test;
+import static org.junit.Assert.*;
+import org.springframework.test.context.ContextConfiguration;
+
+@ContextConfiguration(loader = DaoTestCaseContextLoader.class)
+public class JobUtilTest extends DaoTestCaseJunit4 {
 
     /**
      * 利用するDAOクラス
@@ -59,11 +65,10 @@ public class JobUtilTest extends DaoTestCase {
      * testSelectJobList01
      * @throws Exception
      */
+    @Test
     public void testSelectJobList01() throws Exception {
 
         List<BatchJobListResult> result = JobUtil.selectJobList(this.systemDao);
-
-        List<BatchJobListResult> except = new ArrayList<BatchJobListResult>();
 
         BatchJobListResult bean01 = new BatchJobListResult();
         bean01.setJobSequenceId("0000000001");
@@ -74,14 +79,16 @@ public class JobUtilTest extends DaoTestCase {
         BatchJobListResult bean04 = new BatchJobListResult();
         bean04.setJobSequenceId("0000000004");
 
-        except.add(bean01);
-        except.add(bean02);
-        except.add(bean03);
-        except.add(bean04);
-
-        AssertUtils.assertInputEquals(
-                new CollectionSource<BatchJobListResult>(except),
-                new CollectionSource<BatchJobListResult>(result));
+        assertNotNull(result);
+        assertThat(result.size(), is(4));
+        assertThat(result.get(0).getJobSequenceId(), is(equalTo(bean01
+                .getJobSequenceId())));
+        assertThat(result.get(1).getJobSequenceId(), is(equalTo(bean02
+                .getJobSequenceId())));
+        assertThat(result.get(2).getJobSequenceId(), is(equalTo(bean03
+                .getJobSequenceId())));
+        assertThat(result.get(3).getJobSequenceId(), is(equalTo(bean04
+                .getJobSequenceId())));
 
     }
 
@@ -89,6 +96,7 @@ public class JobUtilTest extends DaoTestCase {
      * testSelectJobList02
      * @throws Exception
      */
+    @Test
     public void testSelectJobList02() throws Exception {
 
         List<BatchJobListResult> list = JobUtil.selectJobList(this.systemDao, 0,
@@ -105,6 +113,7 @@ public class JobUtilTest extends DaoTestCase {
      * testSelectJobList03
      * @throws Exception
      */
+    @Test
     public void testSelectJobList03() throws Exception {
 
         List<BatchJobListResult> list = JobUtil.selectJobList("B000002",
@@ -123,6 +132,7 @@ public class JobUtilTest extends DaoTestCase {
      * testSelectJobList04
      * @throws Exception
      */
+    @Test
     public void testSelectJobList04() throws Exception {
 
         List<BatchJobListResult> list = JobUtil.selectJobList("B000002",
@@ -139,6 +149,7 @@ public class JobUtilTest extends DaoTestCase {
      * testSelectJobList05
      * @throws Exception
      */
+    @Test
     public void testSelectJobList05() throws Exception {
 
         List<String> curAppStatusList = new ArrayList<String>();
@@ -165,6 +176,7 @@ public class JobUtilTest extends DaoTestCase {
      * <br>
      * @throws Exception
      */
+    @Test
     public void testSelectJobList06() throws Exception {
         try {
             JobUtil.selectJobList("hoge", new MockSystemDao(), -1, -1);
@@ -179,6 +191,7 @@ public class JobUtilTest extends DaoTestCase {
      * testSelectJob01
      * @throws Exception
      */
+    @Test
     public void testSelectJob01() throws Exception {
 
         BatchJobData result = JobUtil.selectJob("0000000001", true,
@@ -193,12 +206,14 @@ public class JobUtilTest extends DaoTestCase {
      * testSelectJob02
      * @throws Exception
      */
+    @Test
     public void testSelectJob02() throws Exception {
         MockSystemDao mockSystemDao = new MockSystemDao();
         mockSystemDao.addResult(new RuntimeException("例外発生時のメッセージ"));
         assertNull(JobUtil.selectJob("hoge", true, mockSystemDao));
     }
 
+    @Test
     public void testSelectJob03() throws Exception {
         SystemDao systemDao = mock(SystemDao.class);
         when(systemDao.selectJob(any(BatchJobManagementParam.class))).thenThrow(
@@ -219,6 +234,7 @@ public class JobUtilTest extends DaoTestCase {
      * @throws Exception
      */
     @SuppressWarnings("deprecation")
+    @Test
     public void testGetCurrentTime01() throws Exception {
 
         Timestamp result = JobUtil.getCurrentTime(this.systemDao);
@@ -233,6 +249,7 @@ public class JobUtilTest extends DaoTestCase {
      * @throws Exception
      */
     @SuppressWarnings("deprecation")
+    @Test
     public void testGetCurrentTime02() throws Exception {
 
         Timestamp result = JobUtil.getCurrentTime(null);
@@ -241,6 +258,7 @@ public class JobUtilTest extends DaoTestCase {
     }
 
     @SuppressWarnings("deprecation")
+    @Test
     public void testGetCurrentTime03() throws Exception {
         SystemDao systemDao = mock(SystemDao.class);
         when(systemDao.readCurrentTime()).thenThrow(
@@ -260,6 +278,7 @@ public class JobUtilTest extends DaoTestCase {
      * @throws Exception
      */
     @SuppressWarnings("deprecation")
+    @Test
     public void testGetCurrentDate01() throws Exception {
 
         Date result = JobUtil.getCurrentDate(this.systemDao);
@@ -277,6 +296,7 @@ public class JobUtilTest extends DaoTestCase {
      * @throws Exception
      */
     @SuppressWarnings("deprecation")
+    @Test
     public void testGetCurrentDate02() throws Exception {
 
         Date result = JobUtil.getCurrentDate(null);
@@ -289,6 +309,7 @@ public class JobUtilTest extends DaoTestCase {
      * testGetenv01
      * @throws Exception
      */
+    @Test
     public void testGetenv01() throws Exception {
         String result = JobUtil.getenv("");
         assertEquals("", result);
@@ -302,6 +323,7 @@ public class JobUtilTest extends DaoTestCase {
      * SET JOB_APP_CD=B000001
      * @throws Exception
      */
+    @Test
     public void testGetenv02() throws Exception {
         try {
             SystemEnvUtils.setEnv("JOB_APP_CD", "B000001");
@@ -316,6 +338,7 @@ public class JobUtilTest extends DaoTestCase {
      * testUpdateJobStatus01
      * @throws Exception
      */
+    @Test
     public void testUpdateJobStatus01() throws Exception {
 
         boolean result = JobUtil.updateJobStatus("0000000002", "0", null,
@@ -334,6 +357,7 @@ public class JobUtilTest extends DaoTestCase {
      * 1. falseが返ること(実行メソッド内のSystemDao.updateJobTable()メソッドで更新失敗値の例外がスローされる)<br>
      * @throws Exception
      */
+    @Test
     public void testUpdateJobStatus02() throws Exception {
         SystemDao mockDao = new SystemDao() {
             public List<BatchJobListResult> selectJobList(
@@ -377,6 +401,7 @@ public class JobUtilTest extends DaoTestCase {
      * <br>
      * @throws Exception
      */
+    @Test
     public void testUpdateJobStatus03() throws Exception {
         SystemDao mockDao = new SystemDao() {
             public List<BatchJobListResult> selectJobList(
@@ -410,6 +435,7 @@ public class JobUtilTest extends DaoTestCase {
         assertFalse(JobUtil.updateJobStatus("hoge", "piyo", "foo", mockDao));
     }
 
+    @Test
     public void testUpdateJobStatus04() throws Exception {
         SystemDao mockSystemDao = mock(SystemDao.class);
         when(mockSystemDao.updateJobTable(any(
@@ -429,6 +455,7 @@ public class JobUtilTest extends DaoTestCase {
      * testJobUtil001
      * @throws Exception
      */
+    @Test
     public void testJobUtil001() throws Exception {
         JobUtil ju = new JobUtil();
         assertNotNull(ju);
