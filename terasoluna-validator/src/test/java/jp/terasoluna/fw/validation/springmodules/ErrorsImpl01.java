@@ -31,7 +31,7 @@ public class ErrorsImpl01 implements Errors {
     /**
      * errorsリスト
      */
-    private List<Object> errors = new ArrayList<Object>();
+    private List<ObjectError> errors = new ArrayList<ObjectError>();
 
     /**
      * rejectValue呼び出し確認フラグ
@@ -81,8 +81,7 @@ public class ErrorsImpl01 implements Errors {
     /**
      * errorsを返す
      */
-    @SuppressWarnings({ "unchecked", "rawtypes" })
-    public List getAllErrors() {
+    public List<ObjectError> getAllErrors() {
         return errors;
     }
 
@@ -135,8 +134,7 @@ public class ErrorsImpl01 implements Errors {
         return 0;
     }
 
-    @SuppressWarnings({ "unchecked", "rawtypes" })
-    public List getGlobalErrors() {
+    public List<ObjectError> getGlobalErrors() {
         return null;
     }
 
@@ -152,8 +150,7 @@ public class ErrorsImpl01 implements Errors {
         return 0;
     }
 
-    @SuppressWarnings({ "unchecked", "rawtypes" })
-    public List getFieldErrors(String field) {
+    public List<FieldError> getFieldErrors(String field) {
         return null;
     }
 
@@ -180,8 +177,7 @@ public class ErrorsImpl01 implements Errors {
         return null;
     }
 
-    @SuppressWarnings({ "unchecked", "rawtypes" })
-    public Class getFieldType(String field) {
+    public Class<?> getFieldType(String field) {
 
         return null;
     }
