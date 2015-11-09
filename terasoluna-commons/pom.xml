@@ -53,8 +53,8 @@
     <dependencies>
         <!-- terasoluna -->
         <dependency>
-        	<groupId>jp.terasoluna.fw</groupId>
-        	<artifactId>terasoluna-logger</artifactId>
+            <groupId>jp.terasoluna.fw</groupId>
+            <artifactId>terasoluna-logger</artifactId>
         </dependency>
 
         <!-- Spring -->
@@ -75,9 +75,9 @@
             <artifactId>spring-jdbc</artifactId>
         </dependency>
         <dependency>
-        	<groupId>org.springframework</groupId>
-        	<artifactId>spring-test</artifactId>
-        	<scope>test</scope>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <scope>test</scope>
         </dependency>
 
         <!-- Commons -->
@@ -98,13 +98,7 @@
             <artifactId>commons-logging</artifactId>
         </dependency>
 
-		<!-- guava -->
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-        </dependency>
-
-		<!-- hamcrest -->
+        <!-- hamcrest -->
         <dependency>
             <groupId>org.hamcrest</groupId>
             <artifactId>hamcrest-core</artifactId>
@@ -127,26 +121,26 @@
         
         <!-- mockito -->
         <dependency>
-        	<groupId>org.mockito</groupId>
-        	<artifactId>mockito-all</artifactId>
-        	<scope>test</scope>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <scope>test</scope>
         </dependency>
 
-		<!-- slf4j -->
+        <!-- slf4j -->
         <dependency>
-        	<groupId>uk.org.lidalia</groupId>
-        	<artifactId>slf4j-test</artifactId>
-        	<scope>test</scope>
+            <groupId>uk.org.lidalia</groupId>
+            <artifactId>slf4j-test</artifactId>
+            <scope>test</scope>
         </dependency>
         <dependency>
-        	<groupId>uk.org.lidalia</groupId>
-        	<artifactId>lidalia-slf4j-ext</artifactId>
-        	<scope>test</scope>
+            <groupId>uk.org.lidalia</groupId>
+            <artifactId>lidalia-slf4j-ext</artifactId>
+            <scope>test</scope>
         </dependency>
         <dependency>
-        	<groupId>org.slf4j</groupId>
-        	<artifactId>jcl-over-slf4j</artifactId>
-        	<scope>test</scope>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <scope>test</scope>
         </dependency>
                 
     </dependencies>

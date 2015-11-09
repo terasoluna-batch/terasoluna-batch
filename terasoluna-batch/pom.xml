@@ -88,13 +88,13 @@
             <artifactId>spring-tx</artifactId>
         </dependency>
 
-		<!-- aopalliance -->        
+        <!-- aopalliance -->
         <dependency>
             <groupId>aopalliance</groupId>
             <artifactId>aopalliance</artifactId>
         </dependency>
 
-		<!-- aspectj -->
+        <!-- aspectj -->
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
@@ -106,28 +106,19 @@
             <artifactId>commons-dbcp2</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>oro</groupId>
-            <artifactId>oro</artifactId>   
-        </dependency>
 
         <!-- dozer -->
         <dependency>
             <groupId>net.sf.dozer</groupId>
-            <artifactId>dozer-spring</artifactId>
+            <artifactId>dozer</artifactId>
         </dependency>
         <dependency>
             <groupId>net.sf.dozer</groupId>
-            <artifactId>dozer</artifactId>
+            <artifactId>dozer-spring</artifactId>
+            <scope>test</scope>
         </dependency>
 
-		<!-- guava -->
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-        </dependency>
-
-		<!-- hamcrest -->
+        <!-- hamcrest -->
         <dependency>
             <groupId>org.hamcrest</groupId>
             <artifactId>hamcrest-core</artifactId>
@@ -142,23 +133,23 @@
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis-spring</artifactId>
+            <scope>test</scope>
         </dependency>
 
-		<!-- oracle -->
+        <!-- oracle -->
         <dependency>
             <groupId>com.oracle</groupId>
             <artifactId>ojdbc6</artifactId>
             <scope>provided</scope>
         </dependency>
 
-		<!-- postgresql -->
+        <!-- postgresql -->
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <scope>provided</scope>
         </dependency>
 
-        <!-- テスト用ライブラリ -->
         <dependency>
              <groupId>junit</groupId>
              <artifactId>junit</artifactId>
@@ -167,7 +158,7 @@
 
         <dependency>
             <groupId>org.mockito</groupId>
-            <artifactId>mockito-all</artifactId>
+            <artifactId>mockito-core</artifactId>
             <scope>test</scope>
         </dependency>
 
@@ -205,9 +196,9 @@
         </dependency>
 
         <dependency>
-        	<groupId>org.assertj</groupId>
-        	<artifactId>assertj-core</artifactId>
-        	<scope>test</scope>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 </project>
