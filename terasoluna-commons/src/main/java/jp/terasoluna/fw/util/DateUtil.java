@@ -50,8 +50,10 @@ public class DateUtil {
      * 取得には必ずこのメソッドを利用し、必要に応じて特定マシンの日付を取得
      * するなどの措置がとれるようにしておく。</p>
      *
+     * @deprecated 本staticメソッドはJavaプロセス実行環境下でのシステム時刻を取得しているが、{@code java.util.Calendar}あるいはJoda-Timeの{@code org.joda.time.DateTime}などのAPIで容易に代替可能であるため非推奨とする。
      * @return システム時刻
      */
+    @Deprecated
     public static java.util.Date getSystemTime() {
         Calendar calendar = Calendar.getInstance();
         return calendar.getTime();
