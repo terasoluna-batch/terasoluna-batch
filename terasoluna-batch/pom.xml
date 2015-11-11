@@ -51,72 +51,78 @@
         </dependency>
         <dependency>
             <groupId>jp.terasoluna.fw</groupId>
-            <artifactId>terasoluna-validator</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>jp.terasoluna.fw</groupId>
             <artifactId>terasoluna-filedao</artifactId>
         </dependency>
         <dependency>
             <groupId>jp.terasoluna.fw</groupId>
             <artifactId>terasoluna-logger</artifactId>
         </dependency>
+
+        <!-- Spring -->
         <dependency>
-            <groupId>commons-beanutils</groupId>
-            <artifactId>commons-beanutils</artifactId>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-dbcp2</artifactId>
-            <scope>test</scope>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
         </dependency>
         <dependency>
-            <groupId>commons-collections</groupId>
-            <artifactId>commons-collections</artifactId>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
         </dependency>
         <dependency>
-            <groupId>commons-digester</groupId>
-            <artifactId>commons-digester</artifactId>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
         </dependency>
         <dependency>
-            <groupId>commons-validator</groupId>
-            <artifactId>commons-validator</artifactId>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-expression</artifactId>
         </dependency>
         <dependency>
-            <groupId>commons-jxpath</groupId>
-            <artifactId>commons-jxpath</artifactId>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
         </dependency>
+
+        <!-- aopalliance -->
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <scope>runtime</scope>
+            <groupId>aopalliance</groupId>
+            <artifactId>aopalliance</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>jcl-over-slf4j</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>uk.org.lidalia</groupId>
-            <artifactId>slf4j-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>oro</groupId>
-            <artifactId>oro</artifactId>   
-        </dependency>
+
+        <!-- aspectj -->
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
         </dependency>
 
-        <!-- Spring -->
+        <!-- commons -->
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-tx</artifactId>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-dbcp2</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- dozer -->
+        <dependency>
+            <groupId>net.sf.dozer</groupId>
+            <artifactId>dozer</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.dozer</groupId>
+            <artifactId>dozer-spring</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- hamcrest -->
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-core</artifactId>
+            <scope>test</scope>
         </dependency>
 
         <!-- mybatis -->
@@ -127,31 +133,23 @@
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis-spring</artifactId>
+            <scope>test</scope>
         </dependency>
 
-        <!-- dozer -->
-        <dependency>
-            <groupId>net.sf.dozer</groupId>
-            <artifactId>dozer-spring</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>net.sf.dozer</groupId>
-            <artifactId>dozer</artifactId>
-        </dependency>
-
+        <!-- oracle -->
         <dependency>
             <groupId>com.oracle</groupId>
             <artifactId>ojdbc6</artifactId>
-            <scope>provided</scope>
+            <scope>test</scope>
         </dependency>
 
+        <!-- postgresql -->
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <scope>provided</scope>
+            <scope>test</scope>
         </dependency>
 
-        <!-- テスト用ライブラリ -->
         <dependency>
              <groupId>junit</groupId>
              <artifactId>junit</artifactId>
@@ -161,6 +159,27 @@
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>uk.org.lidalia</groupId>
+            <artifactId>slf4j-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>uk.org.lidalia</groupId>
+            <artifactId>lidalia-slf4j-ext</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
             <scope>test</scope>
         </dependency>
 
@@ -177,9 +196,9 @@
         </dependency>
 
         <dependency>
-        	<groupId>org.assertj</groupId>
-        	<artifactId>assertj-core</artifactId>
-        	<scope>test</scope>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 </project>

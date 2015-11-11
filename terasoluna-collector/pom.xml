@@ -62,7 +62,6 @@
             <groupId>jp.terasoluna.fw</groupId>
             <artifactId>terasoluna-filedao</artifactId>
         </dependency>
-
         <dependency>
             <groupId>jp.terasoluna.fw</groupId>
             <artifactId>terasoluna-logger</artifactId>
@@ -74,30 +73,33 @@
             <artifactId>commons-dbcp2</artifactId>
             <scope>test</scope>
         </dependency>
-
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
         </dependency>
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+        </dependency>
 
         <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-core</artifactId>
+            <groupId>uk.org.lidalia</groupId>
+            <artifactId>slf4j-test</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
+            <groupId>uk.org.lidalia</groupId>
+            <artifactId>lidalia-slf4j-ext</artifactId>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>jcl-over-slf4j</artifactId>
+            <scope>test</scope>
         </dependency>
 
         <!-- Spring -->
@@ -112,18 +114,16 @@
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-jdbc</artifactId>
+            <artifactId>spring-tx</artifactId>
             <scope>test</scope>
+        </dependency>
+                <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-orm</artifactId>
-            <scope>test</scope>
-        </dependency>        
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-tx</artifactId>
-            <scope>test</scope>
+            <artifactId>spring-jdbc</artifactId>
         </dependency>
 
         <!-- mybatis -->
@@ -134,11 +134,19 @@
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis-spring</artifactId>
+            <scope>test</scope>
         </dependency>
+        <!-- oracle -->
         <dependency>
             <groupId>com.oracle</groupId>
             <artifactId>ojdbc6</artifactId>
-            <scope>provided</scope>
+            <scope>test</scope>
+        </dependency>
+        <!-- postgresql -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <scope>test</scope>
         </dependency>
 
         <!-- テスト用ライブラリ -->
