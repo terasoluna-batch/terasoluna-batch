@@ -1,8 +1,4 @@
--- Table: job_control
-
-DROP TABLE job_control;
-
-CREATE TABLE job_control
+CREATE TABLE IF NOT EXISTS job_control
 (
   job_seq_id VARCHAR2(10) NOT NULL,
   job_app_cd VARCHAR2(10),
@@ -33,4 +29,3 @@ CREATE TABLE job_control
   CONSTRAINT pk_job_control PRIMARY KEY (job_seq_id)
 );
 
-quit

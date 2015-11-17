@@ -2,11 +2,13 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
 	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
 	xsi:schemaLocation="
 http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
 http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
-http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
 
 	<!-- DBCPのデータソースを設定する。  -->
 	<context:property-placeholder location="mybatis/jdbcMain.properties" />
@@ -20,6 +22,13 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 		<property name="maxIdle" value="1" />
 		<property name="maxWaitMillis" value="5000" />
 	</bean>
+
+    <jdbc:initialize-database data-source="dataSource">
+        <jdbc:script location="classpath:testsql/create_*.sql" />
+        <jdbc:script location="classpath:testsql/insert_*.sql" />
+        <jdbc:script location="classpath:testsql/fruitshop_create*.sql" />
+        <jdbc:script location="classpath:testsql/fruitshop_insert*.sql" />
+    </jdbc:initialize-database>
 
 	<!-- トランザクションマネージャの定義 -->
 	<bean id="transactionManager"
