@@ -12,6 +12,13 @@
     <name>terasoluna-batch-fw</name>
     <description>TERASOLUNA Batch for Java</description>
     <url>http://terasoluna.jp/</url>
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>manual</distribution>
+        </license>
+    </licenses>
 
     <!-- Properties -->
     <properties>
@@ -268,7 +275,7 @@
                         <exclude>*.properties</exclude>
                     </excludes>
                     <archive>
-                        <addMavenDescriptor>false</addMavenDescriptor>
+                        <addMavenDescriptor>true</addMavenDescriptor>
                         <manifest>
                             <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                             <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
