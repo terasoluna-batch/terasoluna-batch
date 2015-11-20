@@ -16,6 +16,8 @@
 
 package jp.terasoluna.fw.batch.message;
 
+import org.springframework.context.MessageSourceResolvable;
+
 /**
  * メッセージを取得するインタフェース。<br>
  */
@@ -34,4 +36,11 @@ public interface MessageAccessor {
      */
     public String getMessage(String code, Object[] args);
 
+    /**
+     * メッセージを取得する。<br>
+     * {@link MessageSourceResolvable}を使用して解決したメッセージを取得します。
+     * @param resolvable メッセージを解決するための{@link MessageSourceResolvable}
+     * @return String メッセージ
+     */
+    public String getMessage(MessageSourceResolvable resolvable);
 }

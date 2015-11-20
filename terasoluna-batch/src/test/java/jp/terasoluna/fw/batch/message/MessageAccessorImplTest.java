@@ -22,8 +22,10 @@ import static org.junit.Assert.fail;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.MessageSourceResolvable;
 import org.springframework.context.NoSuchMessageException;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.DefaultMessageSourceResolvable;
 
 import jp.terasoluna.fw.batch.message.MessageAccessor;
 import jp.terasoluna.fw.util.PropertyUtil;
@@ -32,11 +34,12 @@ import jp.terasoluna.fw.util.PropertyUtil;
  * 事前条件<br>
  * <br>
  * ・src/test/resourcesフォルダ配下にAppricationResources.propertiesが存在すること。<br>
+ * ・src/test/resources/apppropsフォルダ配下にbatch.propertiesが存在すること。<br>
  * <br>
- * ・プロパティMessageAccessor.defaultの値が設定されていること。<br>
+ * ・batch.propertiesにプロパティmessageAccessor.defaultの値が設定されていること。<br>
  * <fieldset><legend>batch.properties設定例</legend> #メッセージソースアクセサのBean名<br>
- * MessageAccessor.default=msgAcc </fieldset> <br>
- * ・Bean定義ファイルにプロパティで設定されたの値のBean名が設定されていること。<br>
+ * messageAccessor.default=msgAcc </fieldset> <br>
+ * ・Bean定義ファイルにプロパティで設定された値のBean名が設定されていること。<br>
  * <fieldset><legend>AdminContext.xml設定例</legend> &lt;!-- メッセージアクセサ --&gt;<br>
  * &lt;bean id=&quot;msgAcc&quot; class=&quot;jp.terasoluna.fw.batch.message.MessageAccessorImpl&quot; /&gt; </fieldset> <br>
  * ・messages.propertiesファイルが存在すること<br>
@@ -132,7 +135,7 @@ public class MessageAccessorImplTest {
     }
 
     /**
-     * testGetMessage03()<br>
+     * testGetMessage04()<br>
      * <br>
      * テスト概要：メッセージキーに空文字を設定した場合、NoSuchMessageExceptionがスローされることを確認する<br>
      * <br>
@@ -152,7 +155,7 @@ public class MessageAccessorImplTest {
     }
 
     /**
-     * testGetMessage03()<br>
+     * testGetMessage05()<br>
      * <br>
      * テスト概要：メッセージキーにnullを設定した場合、NoSuchMessageExceptionがスローされることを確認する<br>
      * <br>
@@ -171,4 +174,23 @@ public class MessageAccessorImplTest {
         }
     }
 
+    /**
+     * testGetMessage06()<br>
+     * <br>
+     * テスト概要：MessageResolvableを使用してメッセージを解決できることを確認する<br>
+     * <br>
+     * 確認項目：プロパティに設定したメッセージが出力されていることを確認する<br>
+     * <br>
+     * @throws Exception
+     */
+    @Test
+    public void testGetMessage06() throws Exception {
+
+        MessageSourceResolvable resolvable =
+            new DefaultMessageSourceResolvable(new String[]{"errors.alphaNumericString"}, new Object[]{"テスト"});
+
+        String result = messageAccessor.getMessage(resolvable);
+        assertEquals("テストには半角英数字で入力してください.", result);
+
+    }
 }
