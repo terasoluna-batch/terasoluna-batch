@@ -194,7 +194,7 @@ public class WorkerTemplateImpl implements JobExecutorTemplate {
         } catch (Exception e) {
             LOGGER.error(LogId.EAL025068, e, jobSequenceId);
         } finally {
-            afterExecuteWoker(jobSequenceId, bLogicResult);
+            afterExecuteWorker(jobSequenceId, bLogicResult);
             bLogicApplicationContextResolver
                     .closeApplicationContext(bLogicContext);
         }
@@ -209,7 +209,7 @@ public class WorkerTemplateImpl implements JobExecutorTemplate {
      * @param jobSequenceId ジョブシーケンスコード
      * @param bLogicResult ビジネスロジック戻り値
      */
-    protected void afterExecuteWoker(String jobSequenceId,
+    protected void afterExecuteWorker(String jobSequenceId,
             BLogicResult bLogicResult) {
         Integer blogicStatus = bLogicResult == null ? null : bLogicResult
                 .getBlogicStatus();
