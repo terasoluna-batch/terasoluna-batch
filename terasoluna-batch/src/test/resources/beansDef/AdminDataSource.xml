@@ -24,8 +24,8 @@ http://www.springframework.org/schema/jdbc http://www.springframework.org/schema
     </bean>
 
     <jdbc:initialize-database data-source="adminDataSource">
-        <jdbc:script location="classpath:testsql/create_sequence_job_control.sql" />
-        <jdbc:script location="classpath:testsql/create_table_job_control.sql" />
+        <jdbc:script location="classpath:testsql/create_sequence_job_control.sql" encoding="UTF-8"/>
+        <jdbc:script location="classpath:testsql/create_table_job_control.sql" encoding="UTF-8"/>
     </jdbc:initialize-database>
 
     <!-- トランザクションマネージャの定義 -->
