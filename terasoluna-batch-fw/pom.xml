@@ -38,7 +38,7 @@
 
         <!-- Dependence library version -->
         <!-- == Spring IO Platform == -->
-        <io.spring.platform.version>1.1.1.RELEASE</io.spring.platform.version>
+        <io.spring.platform.version>1.1.3.RELEASE</io.spring.platform.version>
         <!-- spring -->
         <spring.modules.validation.version>0.8</spring.modules.validation.version>
         <!-- aspectj -->
@@ -103,7 +103,7 @@
         <repository>
             <id>terasoluna-snapshots</id>
             <name>Terasoluna Maven Snapshot Repository</name>
-            <url>http://terasoluna2-lib.rd.nttdata.co.jp:10080/maven/snapshots</url>
+            <url>http://repo.terasoluna.org/nexus/content/repositories/snapshots</url>
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
@@ -112,7 +112,7 @@
         <repository>
             <id>terasoluna-releases</id>
             <name>Terasoluna Maven Release Repository</name>
-            <url>http://terasoluna2-lib.rd.nttdata.co.jp:10080/maven/releases</url>
+            <url>http://repo.terasoluna.org/nexus/content/repositories/releases</url>
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
@@ -729,6 +729,7 @@ sp_cleanup.organize_imports=true
                 <artifactId>postgresql</artifactId>
                 <version>${postgresql.version}</version>
             </dependency>
+
         </dependencies>
     </dependencyManagement>
 </project>

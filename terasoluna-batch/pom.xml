@@ -143,17 +143,24 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- oracle -->
+        <!-- oracle 
         <dependency>
             <groupId>com.oracle</groupId>
             <artifactId>ojdbc6</artifactId>
             <scope>test</scope>
-        </dependency>
+        </dependency> -->
 
-        <!-- postgresql -->
+        <!-- postgresql 
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
+            <scope>test</scope>
+        </dependency> -->
+
+        <!-- h2 -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
             <scope>test</scope>
         </dependency>
 
