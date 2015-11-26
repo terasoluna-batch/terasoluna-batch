@@ -287,6 +287,10 @@ public final class LogId {
      */
     public static final String DAL025061 = "DAL025061";
     /**
+     * <strong>DAL025062 = Closing no-cache BLogic context.</strong>
+     */
+    public static final String DAL025062 = "DAL025062";
+    /**
      * <strong>IAL025001 = BATCH START jobSequenceId:[{0}]</strong>
      */
     public static final String IAL025001 = "IAL025001";
@@ -350,6 +354,10 @@ public final class LogId {
      * <strong>IAL025018 = System DAO is null.</strong>
      */
     public static final String IAL025018 = "IAL025018";
+    /**
+     * <strong>IAL025019 = BLogic context will be cached. jobAppCd[{0}]</strong>
+     */
+    public static final String IAL025019 = "IAL025019";
     /**
      * <strong>WAL025001 = MessageAccessor bean not found. beanName:[{0}]{1}</strong>
      */
@@ -750,4 +758,8 @@ public final class LogId {
      * <strong>EAL025092 = invalid format in batch.properties, key: {0}</strong>
      */
     public static final String EAL025092 = "EAL025092";
+    /**
+     * <strong>EAL025093 = Fail to obtain JobOperator.</strong>
+     */
+    public static final String EAL025093 = "EAL025093";
 }

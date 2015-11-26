@@ -36,34 +36,13 @@ import static org.mockito.Mockito.mock;
  */
 public class BLogicApplicationContextResolverImplTest {
 
-    private ApplicationContext parent = new ClassPathXmlApplicationContext(
-            "beansDef/AdminContext.xml", "beansDef/AdminDataSource.xml");
-
     private BLogicApplicationContextResolverImpl target;
+    private ApplicationContext parent;
 
     @Before
     public void setUp() {
         target = new BLogicApplicationContextResolverImpl();
-    }
-
-    /**
-     * setApplicationContext()のテスト 【正常系】
-     * <pre>
-     * 事前条件
-     * ・なし
-     * 確認項目
-     * ・親の{@code ApplicationContext}が設定されていること。
-     * </pre>
-     *
-     * @throws Exception 予期しない例外
-     */
-    @Test
-    public void testSetApplicationContext() throws Exception {
-
-        // テスト実行
-        target.setApplicationContext(parent);
-
-        assertSame(parent, target.parent);
+        parent = new ClassPathXmlApplicationContext("beansDef/commonContext.xml");
     }
 
     /**
@@ -82,7 +61,7 @@ public class BLogicApplicationContextResolverImplTest {
         BatchJobData batchJobData = new BatchJobData();
         batchJobData.setJobAppCd("B000001");
 
-        target.setApplicationContext(parent);
+        target.setParent(parent);
         target.classpath = "beansDef/";
 
         // テスト実行
@@ -115,7 +94,7 @@ public class BLogicApplicationContextResolverImplTest {
         BatchJobData batchJobData = new BatchJobData();
         batchJobData.setJobAppCd("not-defined");
 
-        target.setApplicationContext(parent);
+        target.setParent(parent);
         target.classpath = "beansDef/";
 
         // テスト実行
@@ -134,9 +113,8 @@ public class BLogicApplicationContextResolverImplTest {
      * 事前条件
      * ・なし
      * 確認項目
-     * ・フレームワークのDIコンテナ自身に親コンテナが無い場合、
-     * 　業務DIコンテナである{@code ApplicationContext}の親コンテナは
-     * 　フレームワークのDIコンテナと同一になること。
+     * 　業務DIコンテナである{@code ApplicationContext}の親コンテナが
+     * 　setParent()により指定されたものと同一になること。
      * </pre>
      *
      * @throws Exception 予期しない例外
@@ -146,13 +124,13 @@ public class BLogicApplicationContextResolverImplTest {
         BatchJobData batchJobData = new BatchJobData();
         batchJobData.setJobAppCd("B000001");
 
-        target.setApplicationContext(parent);
+        target.setParent(parent);
         target.classpath = "beansDef/";
 
         // テスト実行
         ApplicationContext ctx = target.resolveApplicationContext(batchJobData);
 
-        // 業務用DIコンテナの親コンテナが、フレームワークのDIコンテナと同一であること
+        // 業務用DIコンテナの親コンテナが、業務共通DIコンテナと同一であること
         assertSame(parent, ctx.getParent());
     }
 
@@ -162,9 +140,8 @@ public class BLogicApplicationContextResolverImplTest {
      * 事前条件
      * ・なし
      * 確認項目
-     * ・フレームワークのDIコンテナ自身に親コンテナを持つ場合、
-     * 　業務DIコンテナである{@code ApplicationContext}の親コンテナは
-     * 　フレームワークの親コンテナと同一になること。
+     * 　親コンテナを指定せず業務コンテキストの生成を行った場合、
+     * 業務コンテキストに親コンテキストが存在しないこと。
      * </pre>
      *
      * @throws Exception 予期しない例外
@@ -173,18 +150,14 @@ public class BLogicApplicationContextResolverImplTest {
     public void testResolveApplicationContext04() throws Exception {
         BatchJobData batchJobData = new BatchJobData();
         batchJobData.setJobAppCd("B000001");
-        // フレームワークのDIコンテナ（parentを親にもつ）
-        ApplicationContext fwChildCtx = new ClassPathXmlApplicationContext(
-                parent);
-        target.setApplicationContext(fwChildCtx);
+
         target.classpath = "beansDef/";
 
         // テスト実行
         ApplicationContext ctx = target.resolveApplicationContext(batchJobData);
 
-        // 業務用DIコンテナの親コンテナが、フレームワークのDIコンテナ(fwChildCtx)
-        // の親コンテナ(parent)と同一であること
-        assertSame(parent, ctx.getParent());
+        // 業務用DIコンテナの親コンテナが、業務共通DIコンテナと同一であること
+        assertNull(ctx.getParent());
     }
 
     /**

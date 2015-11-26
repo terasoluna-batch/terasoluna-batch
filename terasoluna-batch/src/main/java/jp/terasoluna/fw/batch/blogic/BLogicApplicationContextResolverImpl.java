@@ -34,7 +34,7 @@ import org.springframework.util.Assert;
 
 /**
  * 業務用DIコンテナの生成を行う。<br>
- * 本クラスでは業務用DIコンテナの親としてフレームワークのDIコンテナを指定する。<br>
+ * 本クラスでは業務用DIコンテナの親DIコンテナを指定することができる。<br>
  * <p>
  * 業務用DIコンテナのBean定義ファイルが格納されるクラスパス直下から
  * Bean定義ファイルの格納ディレクトリまでのパスとして{@code batch.properties}の
@@ -55,7 +55,7 @@ import org.springframework.util.Assert;
  * @since 3.6
  */
 public class BLogicApplicationContextResolverImpl
-        implements BLogicApplicationContextResolver, ApplicationContextAware {
+        implements BLogicApplicationContextResolver {
 
     /**
      * ロガー
@@ -64,7 +64,7 @@ public class BLogicApplicationContextResolverImpl
             .getLogger(BLogicApplicationContextResolverImpl.class);
 
     /**
-     * 業務用DIコンテナの親として使用されるフレームワークのDIコンテナ。<br>
+     * 業務用DIコンテナの親として使用されるDIコンテナ。<br>
      */
     protected ApplicationContext parent;
 
@@ -116,21 +116,8 @@ public class BLogicApplicationContextResolverImpl
             "${", "}");
 
     /**
-     * フレームワークのDIコンテナである{@code ApplicationCotext}を設定する。<br>
-     * {@code ApplicationContextAware}によりDIコンテナ生成時にコールバックされる。
-     *
-     * @param applicationContext フレームワークのDIコンテナとなるアプリケーションコンテキスト
-     */
-    @Override
-    public void setApplicationContext(ApplicationContext applicationContext) {
-        this.parent = applicationContext;
-    }
-
-    /**
      * 業務用DIコンテナとなるアプリケーションコンテキストを取得する。<br>
-     * フレームワークのDIコンテナは業務用DIコンテナの親となる。<br>
-     * また、フレームワークのDIコンテナ自身が親コンテナを持つ場合、
-     * この親コンテナを業務用DIコンテナの親とする。<br>
+     * 親コンテナが指定されている場合は、業務用DIコンテナの親としてコンテナが生成される。<br>
      *
      * @param batchJobData ジョブパラメータ
      * @return 業務用DIコンテナ
@@ -140,14 +127,10 @@ public class BLogicApplicationContextResolverImpl
     public ApplicationContext resolveApplicationContext(
             BatchJobData batchJobData) throws BeansException {
         String bLogicBeanDefinitionName = getBeanFileName(batchJobData);
-        ApplicationContext parentIfAvailable;
-        if (parent.getParent() != null) {
-            parentIfAvailable = parent.getParent();
-        } else {
-            parentIfAvailable = parent;
+        if (parent != null) {
+            return new ClassPathXmlApplicationContext(new String[]{ bLogicBeanDefinitionName }, parent);
         }
-        return new ClassPathXmlApplicationContext(
-                new String[] { bLogicBeanDefinitionName }, parentIfAvailable);
+        return new ClassPathXmlApplicationContext(bLogicBeanDefinitionName);
     }
 
     /**
@@ -210,5 +193,14 @@ public class BLogicApplicationContextResolverImpl
             aac.close();
             aac.destroy();
         }
+    }
+
+    /**
+     * 生成対象となる業務コンテキストの親DIコンテナを設定する。
+     *
+     * @param parent 親DIコンテナとなる{@code ApplicationContext}
+     */
+    public void setParent(ApplicationContext parent) {
+        this.parent = parent;
     }
 }

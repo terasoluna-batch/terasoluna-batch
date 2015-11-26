@@ -127,4 +127,6 @@ http://www.springframework.org/schema/util http://www.springframework.org/schema
           class="jp.terasoluna.fw.batch.executor.concurrent.BatchServantImpl">
     </bean>
 
+    <!-- モックのJobOperator -->
+    <bean id="jobOperator" class="jp.terasoluna.fw.batch.executor.controller.MockJobOperator"/>
 </beans>
