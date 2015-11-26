@@ -650,11 +650,11 @@ public class AbstractBatchExecutorTest {
     @Test
     public void testGetSystemDao01() throws Exception {
 
-        AbstractBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractBatchExecutor exe = new AbstractBatchExecutor() {};
 
         SystemDao result = exe.getSystemDao();
 
-        assertNotNull(result);
+        assertNull(result);
     }
 
     @Test
@@ -670,11 +670,11 @@ public class AbstractBatchExecutorTest {
     @Test
     public void testGetSysTransactionManager01() throws Exception {
 
-        AbstractBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractBatchExecutor exe = new AbstractBatchExecutor() {};
 
         PlatformTransactionManager result = exe.getSysTransactionManager();
 
-        assertNotNull(result);
+        assertNull(result);
     }
 
     @Test

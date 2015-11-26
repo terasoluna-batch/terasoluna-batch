@@ -287,6 +287,10 @@ public final class LogId {
      */
     public static final String DAL025061 = "DAL025061";
     /**
+     * <strong>DAL025062 = Closing no-cache BLogic context.</strong>
+     */
+    public static final String DAL025062 = "DAL025062";
+    /**
      * <strong>IAL025001 = BATCH START jobSequenceId:[{0}]</strong>
      */
     public static final String IAL025001 = "IAL025001";
@@ -299,7 +303,7 @@ public final class LogId {
      */
     public static final String IAL025003 = "IAL025003";
     /**
-     * <strong>IAL025004 = ƒXƒe[ƒ^ƒX‚ª”»’èŠî€ŠO(ƒWƒ‡ƒuƒV[ƒPƒ“ƒXƒR[ƒh:{0} blogic‚Ì–ß‚è’l:{1} ƒCƒxƒ“ƒg:{2} ƒWƒ‡ƒuƒŒƒR[ƒh‚ÌƒXƒe[ƒ^ƒX’l:{3} ”»’è:{4})</strong>
+     * <strong>IAL025004 = ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãŒåˆ¤å®šåŸºæº–å¤–(ã‚¸ãƒ§ãƒ–ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã‚³ãƒ¼ãƒ‰:{0} blogicã®æˆ»ã‚Šå€¤:{1} ã‚¤ãƒ™ãƒ³ãƒˆ:{2} ã‚¸ãƒ§ãƒ–ãƒ¬ã‚³ãƒ¼ãƒ‰ã®ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹å€¤:{3} åˆ¤å®š:{4})</strong>
      */
     public static final String IAL025004 = "IAL025004";
     /**
@@ -350,6 +354,10 @@ public final class LogId {
      * <strong>IAL025018 = System DAO is null.</strong>
      */
     public static final String IAL025018 = "IAL025018";
+    /**
+     * <strong>IAL025019 = BLogic context will be cached. jobAppCd[{0}]</strong>
+     */
+    public static final String IAL025019 = "IAL025019";
     /**
      * <strong>WAL025001 = MessageAccessor bean not found. beanName:[{0}]{1}</strong>
      */
@@ -758,4 +766,8 @@ public final class LogId {
      * <strong>EAL025093 = JobSequenceId:{0} : The BLogic execution has failed during processing.</strong>
      */
     public static final String EAL025093 = "EAL025093";
+    /**
+     * <strong>EAL025094 = Fail to obtain JobOperator.</strong>
+     */
+    public static final String EAL025094 = "EAL025094";
 }

@@ -34,7 +34,6 @@ import jp.terasoluna.fw.batch.executor.repository.BatchJobDataRepository;
 import jp.terasoluna.fw.batch.executor.repository.JobStatusChanger;
 import jp.terasoluna.fw.batch.executor.vo.BLogicResult;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
-import jp.terasoluna.fw.ex.unit.mock.spring.MockDataAccessException;
 
 import org.junit.After;
 import org.junit.Before;
@@ -43,6 +42,7 @@ import org.mockito.ArgumentCaptor;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import org.springframework.dao.DataAccessException;
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
 
@@ -432,7 +432,7 @@ public class WorkerTemplateImplTest {
      */
     @Test
     public void testBeforeExecute03() throws Exception {
-        Exception ex = new MockDataAccessException("dummy exception");
+        Exception ex = new DataAccessException("dummy exception") {};
         when(mockJobStatusChanger.changeToStartStatus(anyString())).thenThrow(
                 ex);
 
