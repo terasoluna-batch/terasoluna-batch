@@ -138,14 +138,16 @@ public class MessageManager {
                 String throwIfNotFound = null;
                 String messageFormatterFqcn = null;
                 // messageIdFormat,throwIfResourceNotFound,messageFormatterFqcnはクラスローダで優先度の高いもの
-                InputStream strm = cl.getResourceAsStream(configFile);
-                if (strm != null) {
-                    Properties p = new Properties();
-                    p.load(strm);
-                    format = p.getProperty(messageIdFormatKey);
-                    throwIfNotFound = p.getProperty(throwIfResourceNotFoundKey);
-                    messageFormatterFqcn = p
-                            .getProperty(messageFormatterFqcnKey);
+                try (InputStream strm = cl.getResourceAsStream(configFile)) {
+                    if (strm != null) {
+                        Properties p = new Properties();
+                        p.load(strm);
+                        format = p.getProperty(messageIdFormatKey);
+                        throwIfNotFound = p.getProperty(
+                                throwIfResourceNotFoundKey);
+                        messageFormatterFqcn = p.getProperty(
+                                messageFormatterFqcnKey);
+                    }
                 }
                 if (format != null) {
                     messageIdFormat = format;
