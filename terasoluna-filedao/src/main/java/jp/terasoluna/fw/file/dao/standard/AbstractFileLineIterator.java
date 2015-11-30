@@ -487,12 +487,24 @@ public abstract class AbstractFileLineIterator<T> implements
             buildStringConverters();
             buildMethods();
 
-            // ファイルからデータを読込むためのLineReaderを生成する。
-            buildLineReader();
+            try {
+                // ファイルからデータを読込むためのLineReaderを生成する。
+                buildLineReader();
 
-            // ヘッダ部とトレイラ部の取得するための基本情報を生成する。
-            buildHeader();
-            buildTrailerQueue();
+                // ヘッダ部とトレイラ部の取得するための基本情報を生成する。
+                buildHeader();
+                buildTrailerQueue();
+            } catch (FileException e) {
+                if (this.reader != null) {
+                    try {
+                        closeFile();
+                    } catch (FileException fe) {
+                        // リスローする例外を上書きしてしまうため、
+                        // クローズ時に発生するFileExceptionはハンドリングしない
+                    }
+                }
+                throw e;
+            }
 
             calledInit = true;
         }
