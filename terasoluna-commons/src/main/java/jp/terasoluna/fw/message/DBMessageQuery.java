@@ -21,8 +21,9 @@ import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.jdbc.object.MappingSqlQuery;
-import jp.terasoluna.fw.logger.TLogger;
 
 /**
  * メッセージリソースを取得するRDBMSオペレーションクラス。<br>
@@ -65,8 +66,7 @@ public class DBMessageQuery extends MappingSqlQuery {
     /**
      * ログクラス。
      */
-    // private static Log log = LogFactory.getLog(DBMessageQuery.class);
-    private static final TLogger log = TLogger.getLogger(DBMessageQuery.class);
+     private static Log log = LogFactory.getLog(DBMessageQuery.class);
 
     /**
      * コンストラクタ内で親クラスにSQL文を渡し、コンパイル処理をする。 コンパイル処理前にカラム名に不正な値が渡されていないかをチェックする。 必須カラム名（メッセージコード、メッセージ本体）はnullチェック及び空文字

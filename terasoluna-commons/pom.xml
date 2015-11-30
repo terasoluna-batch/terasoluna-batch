@@ -58,12 +58,6 @@
     </build>
 
     <dependencies>
-        <!-- terasoluna -->
-        <dependency>
-            <groupId>jp.terasoluna.fw</groupId>
-            <artifactId>terasoluna-logger</artifactId>
-        </dependency>
-
         <!-- Spring -->
         <dependency>
             <groupId>org.springframework</groupId>
