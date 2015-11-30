@@ -476,4 +476,9 @@ public class MockApplicationContext extends
 
     }
 
+    @Override
+    public Object getSingletonMutex() {
+        return null;
+    }
+
 }
