@@ -38,18 +38,11 @@
 
         <!-- Dependence library version -->
         <!-- == Spring IO Platform == -->
-        <io.spring.platform.version>1.1.3.RELEASE</io.spring.platform.version>
+        <io.spring.platform.version>2.0.0.RELEASE</io.spring.platform.version>
         <!-- spring -->
         <spring.modules.validation.version>0.8</spring.modules.validation.version>
-        <!-- aspectj -->
-        <aspectjweaver.version>1.8.6</aspectjweaver.version>
         <!-- commons -->
-        <commons.beanutils.version>1.9.2</commons.beanutils.version>
-        <commons.collections.version>3.2.1</commons.collections.version>
-        <commons.dbcp2.version>2.0.1</commons.dbcp2.version>
         <commons.jxpath.version>1.3</commons.jxpath.version>
-        <commons.lang3.version>3.3.2</commons.lang3.version>
-        <commons.logging.version>1.2</commons.logging.version>
         <commons.validator.version>1.3.1</commons.validator.version>
         <!-- mybatis -->
         <mybatis.version>3.2.8</mybatis.version>
@@ -61,8 +54,6 @@
         <oro.version>2.0.8</oro.version>
         <!-- assertj -->
         <assertj.version>2.2.0</assertj.version>
-        <!-- mockito -->
-        <mockito.core.version>1.10.19</mockito.core.version>
         <!-- powermock-mockito -->
         <powermock.core.version>1.6.2</powermock.core.version>
         <powermock-mockito.version>1.6.2</powermock-mockito.version>
@@ -591,13 +582,6 @@ sp_cleanup.organize_imports=true
                 <version>${terasoluna.logger.version}</version>
             </dependency>
 
-            <!-- aspectj -->
-            <dependency>
-                <groupId>org.aspectj</groupId>
-                <artifactId>aspectjweaver</artifactId>
-                <version>${aspectjweaver.version}</version>
-            </dependency>
-
             <!-- commons -->
             <dependency>
                 <groupId>commons-validator</groupId>
@@ -608,31 +592,6 @@ sp_cleanup.organize_imports=true
                 <groupId>commons-jxpath</groupId>
                 <artifactId>commons-jxpath</artifactId>
                 <version>${commons.jxpath.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>commons-logging</groupId>
-                <artifactId>commons-logging</artifactId>
-                <version>${commons.logging.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>commons-beanutils</groupId>
-                <artifactId>commons-beanutils</artifactId>
-                <version>${commons.beanutils.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>commons-collections</groupId>
-                <artifactId>commons-collections</artifactId>
-                <version>${commons.collections.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-dbcp2</artifactId>
-                <version>${commons.dbcp2.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-lang3</artifactId>
-                <version>${commons.lang3.version}</version>
             </dependency>
 
             <!-- dozer -->
@@ -674,12 +633,6 @@ sp_cleanup.organize_imports=true
             </dependency>
 
             <!-- test libraries -->
-            <!-- mockito -->
-            <dependency>
-                <groupId>org.mockito</groupId>
-                <artifactId>mockito-core</artifactId>
-                <version>${mockito.core.version}</version>
-            </dependency>
             <!-- powermock -->
             <dependency>
                 <groupId>org.powermock</groupId>
