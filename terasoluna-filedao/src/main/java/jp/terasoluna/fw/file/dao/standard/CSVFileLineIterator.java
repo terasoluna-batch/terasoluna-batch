@@ -148,6 +148,7 @@ public class CSVFileLineIterator<T> extends VariableFileLineIterator<T> {
 
         // 区切り文字が初期値以外の場合、例外をスローする。
         if (getDelimiter() != ',') {
+            closeFile();
             throw new FileException("Delimiter can not change.",
                     new IllegalStateException(), fileName);
         }
