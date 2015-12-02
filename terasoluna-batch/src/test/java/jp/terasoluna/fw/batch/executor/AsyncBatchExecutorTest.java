@@ -24,7 +24,9 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.beans.BeanInstantiationException;
+import org.springframework.beans.factory.BeanCreationException;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextException;
 import org.springframework.util.ReflectionUtils;
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
@@ -132,9 +134,9 @@ public class AsyncBatchExecutorTest {
         doReturn(mockJobOperator).when(mockContext)
                 .getBean("jobOperator", JobOperator.class);
 
-        AdminContextResolver mockResolver = mock(
-                AdminContextResolver.class);
-        doReturn(mockContext).when(mockResolver).resolveAdminContext();
+        ApplicationContextResolver mockResolver = mock(
+                ApplicationContextResolver.class);
+        doReturn(mockContext).when(mockResolver).resolveApplicationContext();
 
         AsyncBatchExecutor target = spy(new AsyncBatchExecutor());
         doReturn(mockResolver).when(target).findAdminContextResolver();
@@ -148,7 +150,7 @@ public class AsyncBatchExecutorTest {
      * 事前条件
      * ・特になし
      * 確認項目
-     * ・{@code findAdminContextResolver()}メソッドによるリゾルバのクラスロード
+     * ・{@code resolveApplicationContext()}メソッドによるリゾルバのクラスロード
      * 　失敗により{@code IllegalClassTypeException}をスローした場合、
      * 　{@code doMain()}の戻り値が{@code FAIL_TO_OBTAIN_JOB_OPERATOR_CODE}であること。
      *
@@ -156,11 +158,11 @@ public class AsyncBatchExecutorTest {
      */
     @Test
     public void testDoMain02() throws Exception {
-        AdminContextResolver mockResolver = mock(
-                AdminContextResolver.class);
+        ApplicationContextResolver mockResolver = mock(
+                ApplicationContextResolver.class);
         Exception expectThrown = new IllegalClassTypeException(
                 "class-load error.");
-        doThrow(expectThrown).when(mockResolver).resolveAdminContext();
+        doThrow(expectThrown).when(mockResolver).resolveApplicationContext();
 
         AsyncBatchExecutor target = spy(new AsyncBatchExecutor());
         doReturn(mockResolver).when(target).findAdminContextResolver();
@@ -173,11 +175,79 @@ public class AsyncBatchExecutorTest {
     }
 
     /**
+     * doMainのテスト 【異常系】
+     * 事前条件
+     * ・特になし
+     * 確認項目
+     * ・{@code ApplicationContext#getBean()}で例外をスローしたとき、
+     * 　コンテキストのクローズ処理が呼び出されること。
+     *
+     * @throws Exception 予期しない例外
+     */
+    @Test
+    public void testDoMain03() throws Exception {
+        ApplicationContextResolver mockResolver = mock(
+                ApplicationContextResolver.class);
+        ApplicationContext mockContext = mock(ApplicationContext.class);
+
+        Exception expectThrown = new BeanCreationException(
+                "class-load error.");
+        doThrow(expectThrown).when(mockContext).getBean(anyString(), eq(JobOperator.class));
+        doReturn(mockContext).when(mockResolver).resolveApplicationContext();
+
+        AsyncBatchExecutor target = spy(new AsyncBatchExecutor());
+        doReturn(mockResolver).when(target).findAdminContextResolver();
+
+        // テスト実行
+        assertEquals(AsyncBatchExecutor.FAIL_TO_OBTAIN_JOB_OPERATOR_CODE,
+                target.doMain(new String[] {}));
+        assertThat(logger.getLoggingEvents(), is(asList(error(expectThrown,
+                "[EAL025094] Fail to obtain JobOperator."))));
+
+        verify(mockResolver).closeApplicationContext(any(ApplicationContext.class));
+    }
+
+    /**
+     * doMainのテスト 【異常系】
+     * 事前条件
+     * ・特になし
+     * 確認項目
+     * ・{@code ApplicationContext#getBean()}で例外をスローし、コンテキストの
+     * 　クローズ時にも例外をスローした場合、エラーログが出力されること。
+     *
+     * @throws Exception 予期しない例外
+     */
+    @Test
+    public void testDoMain04() throws Exception {
+        ApplicationContextResolver mockResolver = mock(
+                ApplicationContextResolver.class);
+        ApplicationContext mockContext = mock(ApplicationContext.class);
+
+        Exception expectThrown = new BeanCreationException(
+                "class-load error.");
+        Exception closeThrown = new ApplicationContextException("close error.");
+
+        doThrow(expectThrown).when(mockContext).getBean(anyString(), eq(JobOperator.class));
+        doReturn(mockContext).when(mockResolver).resolveApplicationContext();
+        doThrow(closeThrown).when(mockResolver).closeApplicationContext(mockContext);
+
+        AsyncBatchExecutor target = spy(new AsyncBatchExecutor());
+        doReturn(mockResolver).when(target).findAdminContextResolver();
+
+        // テスト実行
+        assertEquals(AsyncBatchExecutor.FAIL_TO_OBTAIN_JOB_OPERATOR_CODE,
+                target.doMain(new String[] {}));
+        assertThat(logger.getLoggingEvents(), is(asList(
+                error(expectThrown, "[EAL025094] Fail to obtain JobOperator."),
+                error(closeThrown, "[EAL025096] ApplicationContext closing failed."))));
+    }
+
+    /**
      * findAdminContextResolverのテスト 【正常系】
      * 事前条件
      * ・特になし
      * 確認項目
-     * ・{@code PropertyUtil}経由で取得する{@code AdminApplicationContextResolver}
+     * ・{@code PropertyUtil}経由で取得する{@code ApplicationContextResolver}
      * 　の実装クラス名が取得できない場合、{@code DefaultAdminContextResolver}クラスの
      * 　インスタンスが返却されること。
      *
@@ -189,9 +259,9 @@ public class AsyncBatchExecutorTest {
         AsyncBatchExecutor target = new AsyncBatchExecutor();
 
         // テスト実行
-        AdminContextResolver resolver = target
+        ApplicationContextResolver resolver = target
                 .findAdminContextResolver();
-        assertThat(resolver, is(instanceOf(DefaultAdminContextResolver.class)));
+        assertThat(resolver, is(instanceOf(ApplicationContextResolver.class)));
     }
 
     /**

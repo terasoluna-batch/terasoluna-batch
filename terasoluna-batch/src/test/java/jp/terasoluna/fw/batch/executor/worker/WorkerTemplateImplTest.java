@@ -24,12 +24,12 @@ import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.*;
 import static uk.org.lidalia.slf4jtest.LoggingEvent.*;
 import jp.terasoluna.fw.batch.blogic.BLogic;
-import jp.terasoluna.fw.batch.blogic.BLogicApplicationContextResolver;
 import jp.terasoluna.fw.batch.blogic.BLogicResolver;
 import jp.terasoluna.fw.batch.blogic.vo.BLogicParam;
 import jp.terasoluna.fw.batch.blogic.vo.BLogicParamConverter;
 import jp.terasoluna.fw.batch.exception.handler.BLogicExceptionHandlerResolver;
 import jp.terasoluna.fw.batch.exception.handler.ExceptionHandler;
+import jp.terasoluna.fw.batch.executor.ApplicationContextResolver;
 import jp.terasoluna.fw.batch.executor.repository.BatchJobDataRepository;
 import jp.terasoluna.fw.batch.executor.repository.JobStatusChanger;
 import jp.terasoluna.fw.batch.executor.vo.BLogicResult;
@@ -59,7 +59,7 @@ public class WorkerTemplateImplTest {
 
     private BLogicExceptionHandlerResolver mockBLogicExceptionHandlerResolver;
 
-    private BLogicApplicationContextResolver mockBLogicApplicationContextResolver;
+    private ApplicationContextResolver mockBLogicApplicationContextResolver;
 
     private BatchJobDataRepository mockBatchJobDataRepository;
 
@@ -77,7 +77,7 @@ public class WorkerTemplateImplTest {
     public void setUp() throws Exception {
         this.mockBLogicResolver = mock(BLogicResolver.class);
         this.mockBLogicExceptionHandlerResolver = mock(BLogicExceptionHandlerResolver.class);
-        this.mockBLogicApplicationContextResolver = mock(BLogicApplicationContextResolver.class);
+        this.mockBLogicApplicationContextResolver = mock(ApplicationContextResolver.class);
         this.mockBatchJobDataRepository = mock(BatchJobDataRepository.class);
         this.mockBLogicParamConverter = mock(BLogicParamConverter.class);
         this.mockBLogicExecutor = mock(BLogicExecutor.class);

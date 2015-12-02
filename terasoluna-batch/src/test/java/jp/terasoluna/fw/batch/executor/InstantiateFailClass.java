@@ -16,19 +16,31 @@
 
 package jp.terasoluna.fw.batch.executor;
 
-import org.springframework.beans.BeansException;
+import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
 import org.springframework.context.ApplicationContext;
 
 /**
  * インスタンス化が不能なテスト用クラス
  */
-public class InstantiateFailClass implements AdminContextResolver {
+public class InstantiateFailClass implements ApplicationContextResolver {
     public InstantiateFailClass() {
         throw new IllegalStateException("not instantiate.");
     }
 
+
     @Override
-    public ApplicationContext resolveAdminContext() throws BeansException {
+    public ApplicationContext resolveApplicationContext() {
         return null;
+    }
+
+    @Override
+    public ApplicationContext resolveApplicationContext(
+            BatchJobData batchJobData) {
+        return null;
+    }
+
+    @Override
+    public void closeApplicationContext(ApplicationContext applicationContext) {
+
     }
 }

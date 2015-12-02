@@ -14,18 +14,18 @@
  * limitations under the License.
  */
 
-package jp.terasoluna.fw.batch.blogic;
+package jp.terasoluna.fw.batch.executor;
 
 import jp.terasoluna.fw.batch.constants.LogId;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
 import jp.terasoluna.fw.logger.TLogger;
+import org.springframework.beans.factory.BeanCreationException;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.Collection;
 import java.util.Map;
@@ -37,21 +37,23 @@ import java.util.Map;
  * <p>
  * 本機能ではSpring Cache Abstractionを用い、コンテナ内部でジョブ業務コードをキーとした
  * 業務コンテキストのキャッシュを行う。
+ * 本機能によるキャッシュの対象となるのは業務コンテキストのみであり、
+ * システム用アプリケーションコンテキストの生成はSpring のDIコンテナを利用しないため、
+ * キャッシュ対象とならない。
  *
- * このため、業務コンテキストのキャッシュを使用するためには、Bean定義ファイル内に
- * {@code <cache:annotation-driven/>}の指定と、{@code CacheManager}の
- * 定義・インジェクションが必要となる。
+ * 業務コンテキストのキャッシュを使用するためには、Bean定義ファイル内に
+ * {@code <cache:annotation-driven/>}の指定と、{@code CacheManager}の定義・インジェクションが必要となる。
  * </p>
  * <p>
  * Bean定義ファイルの記述例：
  * <code><pre>
- * &lt;!-- cache名前空間のXMLスキーマ定義を追加 -->
+ * &lt;!-- cache名前空間のXMLスキーマ定義を追加 --&gt;
  * &lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
- *           xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
- *           xmlns:cache=&quot;http://www.springframework.org/schema/cache&quot;
- *           xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
- *           http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd&quot;&gt;
- *   (略)
+ *    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+ *    xmlns:cache=&quot;http://www.springframework.org/schema/cache&quot;
+ *    xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+ *      http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd&quot;&gt;
+ *    (略)
  *   &lt;!-- Spring Cache Abstraction機能の使用宣言 --&gt;
  *   &lt;cache:annotation-driven /&gt;
  *
@@ -65,8 +67,7 @@ import java.util.Map;
  *       &lt;/set&gt;
  *     &lt;/property&gt;
  *   &lt;/bean&gt;
- *
- *   &lt;bean id=&quot;blogicContextResolver&quot; class=&quot;jp.terasoluna.fw.batch.blogic.CacheableBLogicContextResolverImpl&quot;&gt;
+ *   &lt;bean id=&quot;blogicContextResolver&quot; class=&quot;jp.terasoluna.fw.batch.executor.CacheableApplicationContextResolverImpl&quot;&gt;
  *     &lt;!-- 共通コンテキストを業務コンテキストの親とする場合、commonContextClassPathでBean定義ファイルのクラスパスを記述する。(複数指定時はカンマ区切り) --&gt;
  *     &lt;property name=&quot;commonContextClassPath&quot; value=&quot;beansDef/commonContext.xml,beansDef/dataSource.xml&quot;/&gt;
  *     &lt;!-- cacheManagerのsetter-injection --&gt;
@@ -91,20 +92,15 @@ import java.util.Map;
  * @see org.springframework.cache.CacheManager
  * @since 3.6
  */
-public class CacheableBLogicContextResolverImpl
-        extends BLogicApplicationContextResolverImpl
+public class CacheableApplicationContextResolverImpl
+        extends ApplicationContextResolverImpl
         implements InitializingBean, DisposableBean {
 
     /**
      * ロガー
      */
     private static final TLogger LOGGER = TLogger.getLogger(
-            CacheableBLogicContextResolverImpl.class);
-
-    /**
-     * 共通コンテキストとなるXMLBean定義ファイルのクラスパス
-     */
-    protected String[] commonContextClassPath;
+            CacheableApplicationContextResolverImpl.class);
 
     /**
      * 業務コンテキストキャッシュを管理するキャッシュマネージャー
@@ -115,15 +111,6 @@ public class CacheableBLogicContextResolverImpl
      * キャッシュ対象となる業務コンテキストのキャッシュキー
      */
     public static final String BLOGIC_CONTEXT_CACHE_KEY = "businessContext";
-
-    /**
-     * 共通コンテキストとなるXMLBean定義ファイルのクラスパスを指定する。
-     *
-     * @param commonContextClassPath 共通コンテキストとなるXMLBean定義ファイルのクラスパス
-     */
-    public void setCommonContextClassPath(String[] commonContextClassPath) {
-        this.commonContextClassPath = commonContextClassPath;
-    }
 
     /**
      * 業務コンテキストのキャッシュを保持するキャッシュマネージャを設定する。
@@ -142,44 +129,39 @@ public class CacheableBLogicContextResolverImpl
      * キャッシュが行われていない場合、親クラスによる業務コンテキスト取得メソッドが呼び出される。<br>
      * 本クラスのプロパティに{@code CacheManager}が指定されていない場合キャッシュは行われず、
      * メソッド呼び出しの都度業務コンテキストが生成される。
+     *
+     * @param batchJobData ジョブ実行時のパラメータ（ジョブ業務コード jobAppCdがキャッシュキーとなる）
      */
     @Override
     @Cacheable(value = BLOGIC_CONTEXT_CACHE_KEY, key = "#batchJobData.jobAppCd")
     public ApplicationContext resolveApplicationContext(
             BatchJobData batchJobData) {
-        if (isCacheEnabled()) {
-            LOGGER.info(LogId.IAL025019, batchJobData.getJobAppCd());
-        }
+        LOGGER.info(LogId.IAL025019, batchJobData.getJobAppCd());
         return super.resolveApplicationContext(batchJobData);
     }
 
     /**
      * {@inheritDoc}
      *
-     * キャッシュ機能を利用していない業務コンテキストの破棄を行う。
-     * キャッシュ機能利用時は本メソッドはスキップする。
+     * キャッシュ機能利用が前提となるため、本メソッドはスキップする。
      *
      * @param applicationContext 業務用Bean定義のアプリケーションコンテキスト
      */
     @Override
     public void closeApplicationContext(ApplicationContext applicationContext) {
-        if (isCacheEnabled()) {
-            return;
-        }
-        LOGGER.debug(LogId.DAL025062);
-        super.closeApplicationContext(applicationContext);
+        // キャッシュされた業務コンテキストをクローズしない。
     }
 
     /**
-     * 共有コンテキストのクラスパスがプロパティとして設定されている時、
-     * Bean初期化処理として業務コンテキストの親コンテキストを指定する。
+     * 初期化処理としてキャッシュ機能が使用不可能な状態であるとき、{@code BeanCreationException}をスローする。
      */
     @Override
     public void afterPropertiesSet() {
-        if (this.commonContextClassPath != null) {
-            this.parent = new ClassPathXmlApplicationContext(
-                    this.commonContextClassPath);
+        if (!isCacheEnabled()) {
+            // キャッシュ機能使用不可の場合
+            throw new BeanCreationException(LOGGER.getLogMessage(LogId.EAL025095, BLOGIC_CONTEXT_CACHE_KEY));
         }
+        super.afterPropertiesSet();
     }
 
     /**
@@ -191,9 +173,7 @@ public class CacheableBLogicContextResolverImpl
         destroyCachedContext();
         // 子コンテキストを破棄しても親コンテキストは破棄されないため、
         // 業務コンテキスト破棄の後で親である共通コンテキストの破棄を行う。
-        if (this.parent != null) {
-            super.closeApplicationContext(this.parent);
-        }
+        super.destroy();
     }
 
     /**

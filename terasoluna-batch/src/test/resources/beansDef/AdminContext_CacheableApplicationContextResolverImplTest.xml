@@ -8,21 +8,24 @@
             http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <context:property-placeholder location="classpath:/appprops/batch.properties" />
-    <!-- 内部でAOPをかけるため、Proxyを用いないとテストケースにinjectionできない。（実使用時はproxy-target-class="true"は不要） -->
-    <cache:annotation-driven proxy-target-class="true"/>
+    <!-- Spring Cache Abstraction機能の使用宣言 -->
+    <cache:annotation-driven proxy-target-class="true" />
 
     <bean id="cacheManager" class="org.springframework.cache.support.SimpleCacheManager">
         <property name="caches">
             <set>
                 <bean class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean">
+                    <!-- 業務コンテキストのキャッシュ名はbusinessContext固定 -->
                     <property name="name" value="businessContext"/>
                 </bean>
             </set>
         </property>
     </bean>
 
-    <bean id="blogicContextResolver" class="jp.terasoluna.fw.batch.blogic.CacheableBLogicContextResolverImpl">
+    <bean id="blogicContextResolver" class="jp.terasoluna.fw.batch.executor.CacheableApplicationContextResolverImpl">
+        <!-- 共通コンテキストを業務コンテキストの親とする場合、commonContextClassPathでBean定義ファイルのクラスパスを記述する。(複数指定時はカンマ区切り) -->
         <property name="commonContextClassPath" value="beansDef/commonContext.xml,beansDef/dataSource.xml"/>
+        <!-- cacheManagerのsetter-injection -->
         <property name="cacheManager" ref="cacheManager"/>
     </bean>
 </beans>

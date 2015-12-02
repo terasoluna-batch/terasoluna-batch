@@ -16,11 +16,11 @@
 
 package jp.terasoluna.fw.batch.executor.worker;
 
+import jp.terasoluna.fw.batch.executor.ApplicationContextResolver;
 import org.springframework.context.ApplicationContext;
 import org.springframework.util.Assert;
 
 import jp.terasoluna.fw.batch.blogic.BLogic;
-import jp.terasoluna.fw.batch.blogic.BLogicApplicationContextResolver;
 import jp.terasoluna.fw.batch.blogic.BLogicResolver;
 import jp.terasoluna.fw.batch.blogic.vo.BLogicParam;
 import jp.terasoluna.fw.batch.blogic.vo.BLogicParamConverter;
@@ -62,9 +62,9 @@ public class WorkerTemplateImpl implements JobExecutorTemplate {
     protected BLogicExceptionHandlerResolver bLogicExceptionHandlerResolver;
 
     /**
-     * ジョブ業務コードに対応するジョブ用DIコンテナを取得するためのBLogicApplicationContextResolverオブジェクト
+     * ジョブ業務コードに対応するジョブ用DIコンテナを取得するためのApplicationContextResolverオブジェクト
      */
-    protected BLogicApplicationContextResolver bLogicApplicationContextResolver;
+    protected ApplicationContextResolver bLogicApplicationContextResolver;
 
     /**
      * ジョブシーケンスコードに該当するBatchJobDataを取得するためのBatchJobDataRepositoryオブジェクト
@@ -98,7 +98,7 @@ public class WorkerTemplateImpl implements JobExecutorTemplate {
      */
     protected WorkerTemplateImpl(BLogicResolver bLogicResolver,
             BLogicExceptionHandlerResolver bLogicExceptionHandlerResolver,
-            BLogicApplicationContextResolver bLogicApplicationContextResolver,
+            ApplicationContextResolver bLogicApplicationContextResolver,
             BatchJobDataRepository batchJobDataRepository,
             BLogicParamConverter bLogicParamConverter,
             BLogicExecutor bLogicExecutor, JobStatusChanger jobStatusChanger) {

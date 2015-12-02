@@ -359,6 +359,10 @@ public final class LogId {
      */
     public static final String IAL025019 = "IAL025019";
     /**
+     * <strong>IAL025020 = Loading commonContext classpath: {0}</strong>
+     */
+    public static final String IAL025020 = "IAL025020";
+    /**
      * <strong>WAL025001 = MessageAccessor bean not found. beanName:[{0}]{1}</strong>
      */
     public static final String WAL025001 = "WAL025001";
@@ -770,4 +774,12 @@ public final class LogId {
      * <strong>EAL025094 = Fail to obtain JobOperator.</strong>
      */
     public static final String EAL025094 = "EAL025094";
+    /**
+     * <strong>EAL025095 = Can not create CacheableBLogicContextResolverImpl, because either cacheManager is not injected or Cache instance is not found by key:{0}.</strong>
+     */
+    public static final String EAL025095 = "EAL025095";
+    /**
+     * <strong>EAL025096 = ApplicationContext closing failed.</strong>
+     */
+    public static final String EAL025096 = "EAL025096";
 }

@@ -24,16 +24,18 @@ import jp.terasoluna.fw.logger.TLogger;
 import jp.terasoluna.fw.util.PropertyUtil;
 import org.springframework.beans.BeanInstantiationException;
 import org.springframework.beans.BeanUtils;
+import org.springframework.context.ApplicationContext;
 import org.springframework.util.ClassUtils;
 
 /**
  * 非同期型ジョブ起動機能のエントリポイント。<br>
  * TERASOLUNAフレームワークの非同期DIコンテナを作成し、{@code JobOperator}による非同期ジョブ機能の起動を行う。
+ *
  * バージョンアップ時の注意：本クラスはバージョン3.6から{@code AbstractJobBatchExecutor}を継承しない。<br>
  * 本クラス、および{@code AbstractJobBatchExecutor}の独自拡張を行っている場合は以下参照先にある
  * 代替機能についてそれぞれ拡張を行うこと。
  *
- * @see AdminContextResolver
+ * @see ApplicationContextResolver
  * @see JobOperator
  * @see jp.terasoluna.fw.batch.executor.controller.AsyncJobLauncher
  * @see jp.terasoluna.fw.batch.executor.worker.JobExecutorTemplate
@@ -43,8 +45,8 @@ public class AsyncBatchExecutor {
     /**
      * ログ.
      */
-    private static final TLogger LOGGER = TLogger
-            .getLogger(AsyncBatchExecutor.class);
+    private static final TLogger LOGGER = TLogger.getLogger(
+            AsyncBatchExecutor.class);
 
     /**
      * フレームワークの管理用ApplicationContextの解決を行うクラスのプロパティ名
@@ -59,7 +61,7 @@ public class AsyncBatchExecutor {
     /**
      * {@code JobOperator}の取得に失敗した場合のプロセス終了コード
      */
-    public static final int FAIL_TO_OBTAIN_JOB_OPERATOR_CODE = 99;
+    public static final int FAIL_TO_OBTAIN_JOB_OPERATOR_CODE = 255;
 
     /**
      * メインメソッド.<br>
@@ -79,33 +81,43 @@ public class AsyncBatchExecutor {
      * @return プロセス終了ステータスコード
      */
     int doMain(String[] args) {
-        JobOperator jobOperator = null;
+        ApplicationContextResolver resolver = null;
+        ApplicationContext context = null;
         try {
-            jobOperator = findAdminContextResolver().resolveAdminContext()
-                    .getBean(JOB_OPERATOR_BEAN_NAME, JobOperator.class);
+            resolver = findAdminContextResolver();
+            context = resolver.resolveApplicationContext();
+            JobOperator jobOperator = context.getBean(JOB_OPERATOR_BEAN_NAME,
+                    JobOperator.class);
+            return jobOperator.start(args);
         } catch (Exception e) {
             LOGGER.error(LogId.EAL025094, e);
             return FAIL_TO_OBTAIN_JOB_OPERATOR_CODE;
+        } finally {
+            if (context != null) {
+                try {
+                    resolver.closeApplicationContext(context);
+                } catch (Exception e)  {
+                    LOGGER.error(LogId.EAL025096, e);
+                }
+            }
         }
-        return jobOperator.start(args);
     }
 
     /**
-     * フレームワーク管理用{@code ApplicationContext}を解決する
-     * リゾルバクラスをロードし、このインスタンスを返却する。
+     * {@code ApplicationContext}を解決するリゾルバクラスをロードし、このインスタンスを返却する。
      *
-     * @return フレームワーク管理用{@code ApplicationContext}リゾルバ
+     * @return {@code ApplicationContext}リゾルバ
      */
-    AdminContextResolver findAdminContextResolver() {
-        String adminContextResolverClassName = PropertyUtil
-                .getProperty(ADMIN_CONTEXT_RESOLVER_NAME,
-                        DefaultAdminContextResolver.class.getName());
+    ApplicationContextResolver findAdminContextResolver() {
+        String adminContextResolverClassName = PropertyUtil.getProperty(
+                ADMIN_CONTEXT_RESOLVER_NAME,
+                ApplicationContextResolverImpl.class.getName());
         try {
-            Class<?> resolverClass = ClassUtils
-                    .forName(adminContextResolverClassName,
-                            AsyncBatchExecutor.class.getClassLoader());
+            Class<?> resolverClass = ClassUtils.forName(
+                    adminContextResolverClassName,
+                    AsyncBatchExecutor.class.getClassLoader());
             return BeanUtils.instantiateClass(resolverClass,
-                    AdminContextResolver.class);
+                    ApplicationContextResolver.class);
         } catch (ClassNotFoundException | BeanInstantiationException e) {
             throw new IllegalClassTypeException(e);
         }
