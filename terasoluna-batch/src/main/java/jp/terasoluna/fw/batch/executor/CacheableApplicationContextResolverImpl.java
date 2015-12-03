@@ -180,9 +180,6 @@ public class CacheableApplicationContextResolverImpl
      * キャッシュされた業務コンテキストの破棄とキャッシュ自身の破棄を行う。
      */
     protected void destroyCachedContext() {
-        if (!isCacheEnabled()) {
-            return;
-        }
         Cache cache = this.cacheManager.getCache(BLOGIC_CONTEXT_CACHE_KEY);
         Collection<?> cacheValues = Map.class.cast(cache.getNativeCache())
                 .values();

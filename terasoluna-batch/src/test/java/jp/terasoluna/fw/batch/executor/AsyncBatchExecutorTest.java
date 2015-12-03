@@ -247,9 +247,7 @@ public class AsyncBatchExecutorTest {
      * 事前条件
      * ・特になし
      * 確認項目
-     * ・{@code PropertyUtil}経由で取得する{@code ApplicationContextResolver}
-     * 　の実装クラス名が取得できない場合、{@code DefaultAdminContextResolver}クラスの
-     * 　インスタンスが返却されること。
+     * 　{@code ApplicationContextResolverImpl}インスタンスが返却されること。
      *
      * @throws Exception 予期しない例外
      */
@@ -261,58 +259,6 @@ public class AsyncBatchExecutorTest {
         // テスト実行
         ApplicationContextResolver resolver = target
                 .findAdminContextResolver();
-        assertThat(resolver, is(instanceOf(ApplicationContextResolver.class)));
-    }
-
-    /**
-     * findAdminContextResolverのテスト 【異常系】
-     * 事前条件
-     * ・特になし
-     * 確認項目
-     * ・リゾルバクラスとして存在しないFQCNをプロパティのキーとして指定したとき、
-     * {@code IllegalClassTypeException}がスローされること。
-     *
-     * @throws Exception 予期しない例外
-     */
-    @Test
-    public void testFindAdminContextResolver02() throws Exception {
-        TreeMap<String, String> map = new TreeMap<>();
-        map.put("adminContextResolver.class", "undefined");
-        propsField.set(null, map);
-        AsyncBatchExecutor target = new AsyncBatchExecutor();
-
-        // テスト実行
-        try {
-            target.findAdminContextResolver();
-            fail();
-        } catch (IllegalClassTypeException e) {
-            assertTrue(e.getCause() instanceof ClassNotFoundException);
-        }
-    }
-
-    /**
-     * findAdminContextResolverのテスト 【異常系】
-     * 事前条件
-     * ・特になし
-     * 確認項目
-     * ・リゾルバとしてインスタンス化できないクラスのFQCNをプロパティのキーとして指定したとき、
-     * {@code IllegalClassTypeException}がスローされること。
-     *
-     * @throws Exception 予期しない例外
-     */
-    @Test
-    public void testFindAdminContextResolver03() throws Exception {
-        TreeMap<String, String> map = new TreeMap<>();
-        map.put("adminContextResolver.class", "jp.terasoluna.fw.batch.executor.InstantiateFailClass");
-        propsField.set(null, map);
-        AsyncBatchExecutor target = new AsyncBatchExecutor();
-
-        // テスト実行
-        try {
-            target.findAdminContextResolver();
-            fail();
-        } catch (IllegalClassTypeException e) {
-            assertTrue(e.getCause() instanceof BeanInstantiationException);
-        }
+        assertThat(resolver, is(instanceOf(ApplicationContextResolverImpl.class)));
     }
 }

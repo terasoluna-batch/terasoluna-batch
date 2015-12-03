@@ -338,29 +338,6 @@ public class CacheableApplicationContextResolverImplTest {
      * testDestroyCachedContext01 【正常系】
      * <pre>
      * 事前条件
-     * ・事前にキャッシュ機能(CacheManager)が設定されていない。
-     * 確認項目
-     * ・何も行われないこと。(確認することも特にない。)
-     * </pre>
-     *
-     * @throws Exception 予期しない例外
-     */
-    @Test
-    public void testDestroyCachedContext01() throws Exception {
-        CacheableApplicationContextResolverImpl target = spy(
-                new CacheableApplicationContextResolverImpl());
-
-        // テスト実行
-        target.destroyCachedContext();
-
-        verify(target, never()).closeApplicationContext(
-                any(ApplicationContext.class));
-    }
-
-    /**
-     * testDestroyCachedContext02 【正常系】
-     * <pre>
-     * 事前条件
      * ・事前にキャッシュ機能(CacheManager)が設定されているが、キャッシュは空。
      * 確認項目
      * ・何も行われないこと。(キャッシュのクリアはよばれること。)
@@ -369,7 +346,7 @@ public class CacheableApplicationContextResolverImplTest {
      * @throws Exception 予期しない例外
      */
     @Test
-    public void testDestroyCachedContext02() throws Exception {
+    public void testDestroyCachedContext01() throws Exception {
         CacheableApplicationContextResolverImpl target = spy(
                 new CacheableApplicationContextResolverImpl());
         Cache cache = mock(Cache.class);
@@ -398,7 +375,7 @@ public class CacheableApplicationContextResolverImplTest {
     }
 
     /**
-     * testDestroyCachedContext03 【正常系】
+     * testDestroyCachedContext02 【正常系】
      * <pre>
      * 事前条件
      * ・事前にキャッシュ機能(CacheManager)が設定されており、
@@ -411,7 +388,7 @@ public class CacheableApplicationContextResolverImplTest {
      * @throws Exception 予期しない例外
      */
     @Test
-    public void testDestroyCachedContext03() throws Exception {
+    public void testDestroyCachedContext02() throws Exception {
         final ApplicationContext b000001 = new ClassPathXmlApplicationContext(
                 "beansDef/B000001.xml");
         final ApplicationContext b000002 = new ClassPathXmlApplicationContext(

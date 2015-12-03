@@ -104,22 +104,11 @@ public class AsyncBatchExecutor {
     }
 
     /**
-     * {@code ApplicationContext}を解決するリゾルバクラスをロードし、このインスタンスを返却する。
+     * {@code ApplicationContext}を解決するリゾルバを返却する。
      *
      * @return {@code ApplicationContext}リゾルバ
      */
-    ApplicationContextResolver findAdminContextResolver() {
-        String adminContextResolverClassName = PropertyUtil.getProperty(
-                ADMIN_CONTEXT_RESOLVER_NAME,
-                ApplicationContextResolverImpl.class.getName());
-        try {
-            Class<?> resolverClass = ClassUtils.forName(
-                    adminContextResolverClassName,
-                    AsyncBatchExecutor.class.getClassLoader());
-            return BeanUtils.instantiateClass(resolverClass,
-                    ApplicationContextResolver.class);
-        } catch (ClassNotFoundException | BeanInstantiationException e) {
-            throw new IllegalClassTypeException(e);
-        }
+    protected ApplicationContextResolver findAdminContextResolver() {
+        return new ApplicationContextResolverImpl();
     }
 }

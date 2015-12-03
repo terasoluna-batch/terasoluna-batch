@@ -196,7 +196,6 @@ public class ApplicationContextResolverImpl
      * @param classPathKey クラスパスを表すプロパティキー
      * @param fileNameKey  Bean定義ファイル名を表すプロパティキー
      * @return Bean定義ファイルを表すクラスパス
-     * @throws BeanInstantiationException クラスパスを表すプロパティが見つからない場合にスローする。
      */
     protected String concatBeanDefinitionFilePath(String classPathKey,
             String fileNameKey) {
