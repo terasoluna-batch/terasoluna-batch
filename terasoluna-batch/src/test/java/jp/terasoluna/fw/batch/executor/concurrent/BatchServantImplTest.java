@@ -90,7 +90,7 @@ public class BatchServantImplTest extends DaoTestCaseJunit4 {
 		exe.setJobSequenceId("0000000000");
 		exe.run();
 
-		assertEquals(-1, exe.getResult().getBlogicStatus());
+		assertEquals(255, exe.getResult().getBlogicStatus());
 	}
 
 

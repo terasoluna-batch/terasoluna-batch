@@ -678,7 +678,7 @@ public class JobStatusChangerImplTest {
                 blogicResult));
         assertThat(logger.getLoggingEvents(), is(asList(debug(
                 "[DAL025023] update status jobSequenceId:00000001 changeStatus:2"),
-                error("[EAL025025] Job status update error.(JOB_SEQ_ID:00000001) blogicStatus:[-1])"),
+                error("[EAL025025] Job status update error.(JOB_SEQ_ID:00000001) blogicStatus:[255])"),
                 warn("[WAL025013] An unexpected event has detected at the job status update processing. It will be attempt to roll-back. jobSequenceId:00000001"))));
         verify(mockPlatformTransactionManager).rollback(mockTran);
     }
