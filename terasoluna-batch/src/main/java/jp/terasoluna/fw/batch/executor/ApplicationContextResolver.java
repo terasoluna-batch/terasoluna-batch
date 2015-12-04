@@ -14,23 +14,30 @@
  * limitations under the License.
  */
 
-package jp.terasoluna.fw.batch.blogic;
+package jp.terasoluna.fw.batch.executor;
 
 import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
 import org.springframework.context.ApplicationContext;
 
 /**
- * 業務用Bean定義によるアプリケーションコンテキストの生成、クローズを解決するインタフェース。<br>
+ * {@code ApplicationContext}のインスタンス生成と破棄を行うリゾルバ。
  *
  * @since 3.6
  */
-public interface BLogicApplicationContextResolver {
+public interface ApplicationContextResolver {
 
     /**
-     * 業務用Bean定義のアプリケーションコンテキストを取得する。<br>
+     * {@code ApplicationContext}のインスタンス生成を行う。<br>
+     *
+     * @return {@code ApplicationContext}のインスタンス
+     */
+    ApplicationContext resolveApplicationContext();
+
+    /**
+     * {@code ApplicationContext}のインスタンス生成を行う。<br>
      *
      * @param batchJobData ジョブパラメータ
-     * @return 業務用Bean定義のアプリケーションコンテキスト
+     * @return {@code ApplicationContext}のインスタンス
      */
     ApplicationContext resolveApplicationContext(BatchJobData batchJobData);
 
@@ -40,5 +47,4 @@ public interface BLogicApplicationContextResolver {
      * @param applicationContext 業務用Bean定義のアプリケーションコンテキスト
      */
     void closeApplicationContext(ApplicationContext applicationContext);
-
 }

@@ -14,15 +14,17 @@
  * limitations under the License.
  */
 
-package jp.terasoluna.fw.batch.blogic;
+package jp.terasoluna.fw.batch.executor;
 
 import jp.terasoluna.fw.batch.constants.LogId;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
 import jp.terasoluna.fw.logger.TLogger;
-import org.springframework.beans.BeansException;
+import jp.terasoluna.fw.util.PropertyUtil;
+import org.springframework.beans.BeanInstantiationException;
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.expression.Expression;
@@ -34,13 +36,33 @@ import org.springframework.util.Assert;
 
 /**
  * 業務用DIコンテナの生成を行う。<br>
- * 本クラスでは業務用DIコンテナの親としてフレームワークのDIコンテナを指定する。<br>
+ * 本クラスで生成される業務用DIコンテナの親をsetterインジェクションを用い
+ * Bean定義ファイルパスとして指定することができる。<br>
+ * 親コンテナは本クラスの初期化時にロード・生成の後フィールドに保持されるため、
+ * ライフサイクルはシステム用アプリケーションコンテキスト内で
+ * 管理される本クラスのスコープ指定と同一となる。
  * <p>
  * 業務用DIコンテナのBean定義ファイルが格納されるクラスパス直下から
  * Bean定義ファイルの格納ディレクトリまでのパスとして{@code batch.properties}の
  * プロパティ{@code beanDefinition.business.classpath}の値を記述しておくこと。<br>
  * 指定がない場合、Bean定義ファイルパスはクラスパス直下にファイルが
  * 格納されているものとみなされる。
+ * </p>
+ * <p>
+ * ※システム用アプリケーションコンテキストのBean定義ファイル（AdminContext.xml）記述例：
+ * <code><pre>
+ * &lt;bean id=&quot;blogicContextResolver&quot; class=&quot;jp.terasoluna.fw.batch.executor.ApplicationContextResolverImpl&quot;&gt;
+ *   &lt;!-- 共通コンテキストを業務コンテキストの親とする場合、commonContextClassPathでBean定義ファイルのクラスパスを記述する。(複数指定時はカンマ区切り) --&gt;
+ *   &lt;property name=&quot;commonContextClassPath&quot; value=&quot;beansDef/commonContext.xml,beansDef/dataSource.xml&quot;/&gt;
+ * &lt;/bean&gt;
+ * </pre></code>
+ * ※プロパティファイル（batch.properties）の記述例：
+ * <code><pre>
+ * #
+ * # 業務用Bean定義ファイルを配置するクラスパス.
+ * #
+ * beanDefinition.business.classpath=beansDef/
+ * </pre></code>
  * </p>
  * <p>
  * 配置ディレクトリはプロパティファイル経由で指定するが、ディレクトリパスに対して
@@ -54,17 +76,18 @@ import org.springframework.util.Assert;
  *
  * @since 3.6
  */
-public class BLogicApplicationContextResolverImpl
-        implements BLogicApplicationContextResolver, ApplicationContextAware {
+public class ApplicationContextResolverImpl
+        implements ApplicationContextResolver, InitializingBean,
+                   DisposableBean {
 
     /**
      * ロガー
      */
     private static final TLogger LOGGER = TLogger
-            .getLogger(BLogicApplicationContextResolverImpl.class);
+            .getLogger(ApplicationContextResolverImpl.class);
 
     /**
-     * 業務用DIコンテナの親として使用されるフレームワークのDIコンテナ。<br>
+     * 業務用DIコンテナの親として使用されるDIコンテナ。<br>
      */
     protected ApplicationContext parent;
 
@@ -99,6 +122,21 @@ public class BLogicApplicationContextResolverImpl
     protected static final String REPLACE_STRING_JOB_APP_CD_LOWER_REPLACE = "\\$\\{jobAppCd.toLowerCase()\\}";
 
     /**
+     * 管理用Bean定義ファイルを配置するクラスパス.
+     */
+    protected static final String BEAN_DEFINITION_ADMIN_CLASSPATH = "beanDefinition.admin.classpath";
+
+    /**
+     * 管理用Bean定義（基本部）
+     */
+    protected static final String BEAN_DEFINITION_DEFAULT = "beanDefinition.admin.default";
+
+    /**
+     * 管理用Bean定義（データソース部）
+     */
+    protected static final String BEAN_DEFINITION_DATASOURCE = "beanDefinition.admin.dataSource";
+
+    /**
      * プロパティファイルからインジェクションされる業務用Bean定義ファイルのディレクトリパス。<br>
      */
     @Value("${beanDefinition.business.classpath:}")
@@ -116,38 +154,62 @@ public class BLogicApplicationContextResolverImpl
             "${", "}");
 
     /**
-     * フレームワークのDIコンテナである{@code ApplicationCotext}を設定する。<br>
-     * {@code ApplicationContextAware}によりDIコンテナ生成時にコールバックされる。
+     * 共通コンテキストとなるXMLBean定義ファイルのクラスパス
+     */
+    protected String[] commonContextClassPath;
+
+    /**
+     * プロパティからシステム用アプリケーションコンテキストを取得する。
      *
-     * @param applicationContext フレームワークのDIコンテナとなるアプリケーションコンテキスト
+     * @return システム用アプリケーションコンテキスト
      */
     @Override
-    public void setApplicationContext(ApplicationContext applicationContext) {
-        this.parent = applicationContext;
+    public ApplicationContext resolveApplicationContext() {
+        return new ClassPathXmlApplicationContext(
+                concatBeanDefinitionFilePath(BEAN_DEFINITION_ADMIN_CLASSPATH,
+                        BEAN_DEFINITION_DEFAULT),
+                concatBeanDefinitionFilePath(BEAN_DEFINITION_ADMIN_CLASSPATH,
+                        BEAN_DEFINITION_DATASOURCE));
     }
 
     /**
      * 業務用DIコンテナとなるアプリケーションコンテキストを取得する。<br>
-     * フレームワークのDIコンテナは業務用DIコンテナの親となる。<br>
-     * また、フレームワークのDIコンテナ自身が親コンテナを持つ場合、
-     * この親コンテナを業務用DIコンテナの親とする。<br>
+     * 親コンテナが指定されている場合は、業務用DIコンテナの親としてコンテナが生成される。<br>
      *
      * @param batchJobData ジョブパラメータ
      * @return 業務用DIコンテナ
-     * @throws BeansException DIコンテナの生成に失敗した例外
      */
     @Override
     public ApplicationContext resolveApplicationContext(
-            BatchJobData batchJobData) throws BeansException {
+            BatchJobData batchJobData) {
         String bLogicBeanDefinitionName = getBeanFileName(batchJobData);
-        ApplicationContext parentIfAvailable;
-        if (parent.getParent() != null) {
-            parentIfAvailable = parent.getParent();
-        } else {
-            parentIfAvailable = parent;
+        if (parent != null) {
+            return new ClassPathXmlApplicationContext(new String[]{ bLogicBeanDefinitionName }, parent);
         }
-        return new ClassPathXmlApplicationContext(
-                new String[] { bLogicBeanDefinitionName }, parentIfAvailable);
+        return new ClassPathXmlApplicationContext(bLogicBeanDefinitionName);
+    }
+
+    /**
+     * プロパティファイルのクラスパス、Bean定義ファイル名を表すキーから
+     * Bean定義ファイルのクラスパスとして連結し、取得する。
+     *
+     * @param classPathKey クラスパスを表すプロパティキー
+     * @param fileNameKey  Bean定義ファイル名を表すプロパティキー
+     * @return Bean定義ファイルを表すクラスパス
+     */
+    protected String concatBeanDefinitionFilePath(String classPathKey,
+            String fileNameKey) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(PropertyUtil.getProperty(classPathKey, ""))
+                .append(PropertyUtil.getProperty(fileNameKey, ""));
+        String beanDefinitionFileClasspath = sb.toString();
+        LOGGER.debug(LogId.DAL025020, beanDefinitionFileClasspath);
+
+        if ("".equals(beanDefinitionFileClasspath)) {
+            throw new BeanInstantiationException(ApplicationContext.class,
+                    LOGGER.getLogMessage(LogId.EAL025003));
+        }
+        return beanDefinitionFileClasspath;
     }
 
     /**
@@ -208,7 +270,38 @@ public class BLogicApplicationContextResolverImpl
             AbstractApplicationContext aac = AbstractApplicationContext.class
                     .cast(applicationContext);
             aac.close();
-            aac.destroy();
         }
+    }
+
+    /**
+     * 共有コンテキストのクラスパスがプロパティとして設定されている時、
+     * Bean初期化処理として業務コンテキストの親コンテキストを指定する。
+     */
+    @Override
+    public void afterPropertiesSet() {
+        if (this.commonContextClassPath == null || this.commonContextClassPath.length == 0) {
+            return;
+        }
+        this.parent = new ClassPathXmlApplicationContext(this.commonContextClassPath);
+    }
+
+    /**
+     * 共通コンテキストとなるXMLBean定義ファイルのクラスパスを指定する。
+     *
+     * @param commonContextClassPath 共通コンテキストとなるXMLBean定義ファイルのクラスパス
+     */
+    public void setCommonContextClassPath(String[] commonContextClassPath) {
+        this.commonContextClassPath = commonContextClassPath;
+    }
+
+    /**
+     * DIコンテナの破棄時、フィールドで保持されている共有コンテナの破棄を行う。
+     */
+    @Override
+    public void destroy() {
+        if (this.parent == null) {
+            return;
+        }
+        closeApplicationContext(this.parent);
     }
 }

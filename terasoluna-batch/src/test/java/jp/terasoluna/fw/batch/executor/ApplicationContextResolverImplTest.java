@@ -14,60 +14,127 @@
  * limitations under the License.
  */
 
-package jp.terasoluna.fw.batch.blogic;
+package jp.terasoluna.fw.batch.executor;
 
-import jp.terasoluna.fw.batch.executor.B000001BLogic;
 import jp.terasoluna.fw.batch.executor.vo.BatchJobData;
 import jp.terasoluna.fw.batch.message.MessageAccessor;
+import jp.terasoluna.fw.util.PropertyUtil;
+import org.junit.After;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.expression.spel.SpelEvaluationException;
+import org.springframework.util.ReflectionUtils;
 
+import java.lang.reflect.Field;
+import java.util.TreeMap;
+
+import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
+import static org.mockito.Matchers.isNull;
 import static org.mockito.Mockito.mock;
 
 /**
- * {@code BLogicApplicationContextResolverImpl}のテストケースクラス。
- *
- * @since 3.6
+ * {@code ApplicationContextResolverImpl}のテストケース。
  */
-public class BLogicApplicationContextResolverImplTest {
+public class ApplicationContextResolverImplTest {
 
-    private ApplicationContext parent = new ClassPathXmlApplicationContext(
-            "beansDef/AdminContext.xml", "beansDef/AdminDataSource.xml");
+    private Object originProps;
 
-    private BLogicApplicationContextResolverImpl target;
+    private static Field propsField;
 
-    @Before
-    public void setUp() {
-        target = new BLogicApplicationContextResolverImpl();
+    private ApplicationContextResolverImpl target;
+    private ApplicationContext parent;
+
+    /***
+     * テストケース全体の前処理。<br>
+     * テストケース終了後に復元対象となる{@code PropertyUtil}の内部フィールドである
+     * propsを退避する。
+     */
+    @BeforeClass
+    public static void setUpClass() {
+        propsField = ReflectionUtils.findField(PropertyUtil.class, "props");
+        propsField.setAccessible(true);
     }
 
     /**
-     * setApplicationContext()のテスト 【正常系】
-     * <pre>
+     * テスト前処理。<br>
+     * System.exit()でテストプロセスを止めないセキュリティマネージャを設定する。
+     *
+     * @throws Exception 予期しない例外
+     */
+    @Before
+    public void setUp() throws Exception {
+        // PropertyUtilの内部プロパティを退避
+        this.originProps = propsField.get(null);
+        this.target = new ApplicationContextResolverImpl();
+        this.parent = new ClassPathXmlApplicationContext("beansDef/commonContext.xml");
+    }
+
+    /**
+     * テスト後処理。<br>
+     * セキュリティマネージャを元に戻す。
+     *
+     * @throws Exception 予期しない例外
+     */
+    @After
+    public void tearDown() throws Exception {
+        // PropertyUtilの内部プロパティを復元
+        propsField.set(null, this.originProps);
+    }
+
+    /**
+     * resolveAdminContextのテスト 【正常系】
      * 事前条件
-     * ・なし
+     * ・特になし
      * 確認項目
-     * ・親の{@code ApplicationContext}が設定されていること。
-     * </pre>
+     * ・AdminContext.xml,AdminDataSource.xmlによる
+     * 　{@code ApplicationContext}が生成されること。
      *
      * @throws Exception 予期しない例外
      */
     @Test
-    public void testSetApplicationContext() throws Exception {
+    public void testResolveAdminContext01() throws Exception {
+        ApplicationContextResolver resolver = new ApplicationContextResolverImpl();
 
         // テスト実行
-        target.setApplicationContext(parent);
+        ApplicationContext context = resolver.resolveApplicationContext();
 
-        assertSame(parent, target.parent);
+        assertTrue(context.containsBean("jobOperator"));
+        assertTrue(context.containsBean("systemDao"));
+        assertNull(context.getParent());
     }
 
     /**
-     * resolveApplicationContext()のテスト 【正常系】
+     * resolveAdminContextのテスト 【異常系】
+     * 事前条件
+     * ・特になし
+     * 確認項目
+     * ・プロパティにBean定義ファイルのクラスパスが存在しないとき、
+     * 　BeansExceptionがスローされること。
+     *
+     * @throws Exception 予期しない例外
+     */
+    @Test
+    public void testResolveAdminContext02() throws Exception {
+        TreeMap<String, String> props = new TreeMap<>();
+        propsField.set(null, props);
+
+        ApplicationContextResolver resolver = new ApplicationContextResolverImpl();
+
+        // テスト実行
+        try {
+            resolver.resolveApplicationContext();
+        } catch (BeansException e) {
+            // Springが例外メッセージを返すため、メッセージの検証は行わない。
+        }
+    }
+
+    /**
+     * resolveApplicationContext(BatchJobData)のテスト 【正常系】
      * <pre>
      * 事前条件
      * ・なし
@@ -78,11 +145,11 @@ public class BLogicApplicationContextResolverImplTest {
      * @throws Exception 予期しない例外
      */
     @Test
-    public void testResolveApplicationContext01() throws Exception {
+    public void testResolveApplicationContextBatchJobData01() throws Exception {
         BatchJobData batchJobData = new BatchJobData();
         batchJobData.setJobAppCd("B000001");
 
-        target.setApplicationContext(parent);
+        target.parent = this.parent;
         target.classpath = "beansDef/";
 
         // テスト実行
@@ -98,8 +165,9 @@ public class BLogicApplicationContextResolverImplTest {
         assertNotNull(msg);
     }
 
+
     /**
-     * resolveApplicationContext()のテスト 【異常系】
+     * resolveApplicationContext(BatchJobData)のテスト 【異常系】
      * <pre>
      * 事前条件
      * ・なし
@@ -111,11 +179,11 @@ public class BLogicApplicationContextResolverImplTest {
      * @throws Exception 予期しない例外
      */
     @Test
-    public void testResolveApplicationContext02() throws Exception {
+    public void testResolveApplicationContextBatchJobData02() throws Exception {
         BatchJobData batchJobData = new BatchJobData();
         batchJobData.setJobAppCd("not-defined");
 
-        target.setApplicationContext(parent);
+        target.parent = this.parent;
         target.classpath = "beansDef/";
 
         // テスト実行
@@ -129,62 +197,56 @@ public class BLogicApplicationContextResolverImplTest {
     }
 
     /**
-     * resolveApplicationContext()のテスト 【正常系】
+     * resolveApplicationContext(BatchJobData)のテスト 【正常系】
      * <pre>
      * 事前条件
      * ・なし
      * 確認項目
-     * ・フレームワークのDIコンテナ自身に親コンテナが無い場合、
-     * 　業務DIコンテナである{@code ApplicationContext}の親コンテナは
-     * 　フレームワークのDIコンテナと同一になること。
+     * 　業務DIコンテナである{@code ApplicationContext}の親コンテナが
+     * 　setParent()により指定されたものと同一になること。
      * </pre>
      *
      * @throws Exception 予期しない例外
      */
     @Test
-    public void testResolveApplicationContext03() throws Exception {
+    public void testResolveApplicationContextBatchJobData03() throws Exception {
         BatchJobData batchJobData = new BatchJobData();
         batchJobData.setJobAppCd("B000001");
 
-        target.setApplicationContext(parent);
+        target.parent = this.parent;
         target.classpath = "beansDef/";
 
         // テスト実行
         ApplicationContext ctx = target.resolveApplicationContext(batchJobData);
 
-        // 業務用DIコンテナの親コンテナが、フレームワークのDIコンテナと同一であること
+        // 業務用DIコンテナの親コンテナが、業務共通DIコンテナと同一であること
         assertSame(parent, ctx.getParent());
     }
 
     /**
-     * resolveApplicationContext()のテスト 【正常系】
+     * resolveApplicationContext(BatchJobData)のテスト 【正常系】
      * <pre>
      * 事前条件
      * ・なし
      * 確認項目
-     * ・フレームワークのDIコンテナ自身に親コンテナを持つ場合、
-     * 　業務DIコンテナである{@code ApplicationContext}の親コンテナは
-     * 　フレームワークの親コンテナと同一になること。
+     * 　親コンテナを指定せず業務コンテキストの生成を行った場合、
+     * 業務コンテキストに親コンテキストが存在しないこと。
      * </pre>
      *
      * @throws Exception 予期しない例外
      */
     @Test
-    public void testResolveApplicationContext04() throws Exception {
+    public void testResolveApplicationContextBatchJobData04() throws Exception {
         BatchJobData batchJobData = new BatchJobData();
         batchJobData.setJobAppCd("B000001");
-        // フレームワークのDIコンテナ（parentを親にもつ）
-        ApplicationContext fwChildCtx = new ClassPathXmlApplicationContext(
-                parent);
-        target.setApplicationContext(fwChildCtx);
+
         target.classpath = "beansDef/";
 
         // テスト実行
         ApplicationContext ctx = target.resolveApplicationContext(batchJobData);
 
-        // 業務用DIコンテナの親コンテナが、フレームワークのDIコンテナ(fwChildCtx)
-        // の親コンテナ(parent)と同一であること
-        assertSame(parent, ctx.getParent());
+        // 業務用DIコンテナの親コンテナが、業務共通DIコンテナと同一であること
+        assertNull(ctx.getParent());
     }
 
     /**
@@ -328,7 +390,7 @@ public class BLogicApplicationContextResolverImplTest {
             fail();
         } catch (SpelEvaluationException e) {
             assertTrue(e.getMessage().contains(
-                    "EL1008E:(pos 0): Property or field 'noDefProperty' cannot be found on object of type 'jp.terasoluna.fw.batch.blogic.BLogicApplicationContextResolverImplTest"));
+                    "EL1008E:(pos 0): Property or field 'noDefProperty' cannot be found on object of type 'jp.terasoluna.fw.batch.executor.ApplicationContextResolverImplTest"));
         }
     }
 
@@ -484,5 +546,72 @@ public class BLogicApplicationContextResolverImplTest {
 
         // テスト実行
         target.closeApplicationContext(child);
+    }
+
+    /**
+     * afterPropertiesSet()のテスト 【正常系】
+     * <pre>
+     * 事前条件
+     * ・なし
+     * 確認項目
+     * ・commonContextClassPathがnullのとき、親コンテキストが生成されないこと。
+     * </pre>
+     *
+     * @throws Exception
+     */
+    @Test
+    public void testAfterPropertiesSet01() throws Exception {
+        ApplicationContextResolverImpl target = new ApplicationContextResolverImpl();
+
+        // テスト実行
+        target.afterPropertiesSet();
+
+        assertNull(target.parent);
+    }
+
+    /**
+     * afterPropertiesSet()のテスト 【正常系】
+     * <pre>
+     * 事前条件
+     * ・なし
+     * 確認項目
+     * ・commonContextClassPathが空の文字列配列のとき、親コンテキストが生成されないこと。
+     * </pre>
+     *
+     * @throws Exception
+     */
+    @Test
+    public void testAfterPropertiesSet02() throws Exception {
+        ApplicationContextResolverImpl target = new ApplicationContextResolverImpl();
+        target.setCommonContextClassPath(new String[0]);
+
+        // テスト実行
+        target.afterPropertiesSet();
+
+        assertNull(target.parent);
+    }
+
+    /**
+     * afterPropertiesSet()のテスト 【正常系】
+     * <pre>
+     * 事前条件
+     * ・なし
+     * 確認項目
+     * ・commonContextClassPathにコンテキストのクラスパスが指定されているとき、親コンテキストが生成されること。
+     * </pre>
+     *
+     * @throws Exception
+     */
+    @Test
+    public void testAfterPropertiesSet03() throws Exception {
+        ApplicationContextResolverImpl target = new ApplicationContextResolverImpl();
+        target.setCommonContextClassPath(new String[]{"beansDef/commonContext.xml", "beansDef/dataSource.xml"});
+
+        // テスト実行
+        target.afterPropertiesSet();
+
+        assertNotNull(target.parent);
+
+        assertNotNull(target.parent.getBean("defaultExceptionHandler"));
     }
 }

@@ -84,7 +84,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
         BatchJobData param = new BatchJobData();
         param.setJobAppCd("B000001");
         param.setCurAppStatus("0");
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor(){};
 
         String result = exe.judgmentStatus(param, "0000000001", "0", "0");
 
@@ -108,7 +108,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
         param.setJobAppCd("B000001");
         param.setCurAppStatus("1");
 
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
 
         String result = exe.judgmentStatus(param, "0000000001", "0", "0");
 
@@ -131,7 +131,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
         param.setJobAppCd("B000001");
         param.setCurAppStatus("2");
 
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
 
         String result = exe.judgmentStatus(param, "0000000001", "0", "0");
 
@@ -154,7 +154,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
         param.setJobAppCd("B000001");
         param.setCurAppStatus("0");
 
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
 
         String result = exe.judgmentStatus(param, "0000000001", "1", "0");
 
@@ -178,7 +178,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
         param.setJobAppCd("B000001");
         param.setCurAppStatus("1");
 
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
 
         String result = exe.judgmentStatus(param, "0000000001", "1", "0");
 
@@ -202,7 +202,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
         param.setJobAppCd("B000001");
         param.setCurAppStatus("2");
 
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
 
         String result = exe.judgmentStatus(param, "0000000001", "1", "0");
 
@@ -224,7 +224,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
     @Test
     public void testUpdateBatchStatus01() throws Exception {
 
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
 
         boolean result = exe.updateBatchStatus("0000000001", "0", null,
                 systemDao, transactionManager);
@@ -251,7 +251,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
     @Test
     public void testUpdateBatchStatus02() throws Exception {
 
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
 
         boolean result = exe.updateBatchStatus("0000000002", "0", null,
                 systemDao, transactionManager);
@@ -278,7 +278,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
     @Test
     public void testUpdateBatchStatus03() throws Exception {
 
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
 
         boolean result = exe.updateBatchStatus("0000000003", "0", null,
                 systemDao, transactionManager);
@@ -305,7 +305,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
     @Test
     public void testUpdateBatchStatus04() throws Exception {
 
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
 
         exe.updateBatchStatus("0000000001", "1", "0", systemDao,
                 transactionManager);
@@ -332,7 +332,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
     @Test
     public void testUpdateBatchStatus05() throws Exception {
 
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
 
         boolean result = exe.updateBatchStatus("0000000002", "1", "0",
                 systemDao, transactionManager);
@@ -359,7 +359,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
     @Test
     public void testUpdateBatchStatus06() throws Exception {
 
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
 
         boolean result = exe.updateBatchStatus("0000000003", "1", "0",
                 systemDao, transactionManager);
@@ -384,7 +384,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
      */
     @Test
     public void testUpdateBatchStatus07() throws Exception {
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
         PlatformTransactionManager transactionManager = new PlatformTransactionManagerStub01();
         try {
             exe.updateBatchStatus("0000000003", "1", "0", systemDao,
@@ -407,7 +407,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
      */
     @Test
     public void testUpdateBatchStatus08() throws Exception {
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
         SystemDao systemDao = mock(SystemDao.class);
         when(systemDao.updateJobTable(any(BatchJobManagementUpdateParam.class)))
                 .thenThrow(new DataAccessException("DBステータス更新時例外確認用") {
@@ -447,7 +447,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
                 new DataAccessException("DBステータス参照時例外確認用") {
                     private static final long serialVersionUID = 1L;
                 });
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
         try {
             exe.updateBatchStatus("0000000005", "1", "0", systemDao,
                     transactionManager);
@@ -469,7 +469,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
      */
     @Test
     public void testUpdateBatchStatus10() throws Exception {
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
         PlatformTransactionManager transactionManager = new PlatformTransactionManagerStub02();
         try {
             exe.updateBatchStatus("0000000005", "1", "0", systemDao,
@@ -493,7 +493,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
      */
     @Test
     public void testUpdateBatchStatus11() throws Exception {
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
         try {
             exe.updateBatchStatus("0000000005", "1", "0", systemDao, null);
             fail();
@@ -515,7 +515,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
      */
     @Test
     public void testEndBatchStatus01() throws Exception {
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
         BLogicResult blogicResult = new BLogicResult();
         boolean result = exe.endBatchStatus("0000000001", blogicResult,
                 systemDao, transactionManager);
@@ -542,7 +542,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
      */
     @Test
     public void testEndBatchStatus02() throws Exception {
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
         BLogicResult blogicResult = new BLogicResult();
         boolean result = exe.endBatchStatus("0000000002", blogicResult,
                 systemDao, transactionManager);
@@ -569,7 +569,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
      */
     @Test
     public void testEndBatchStatus03() throws Exception {
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
         BLogicResult blogicResult = new BLogicResult();
         boolean result = exe.endBatchStatus("0000000003", blogicResult,
                 systemDao, transactionManager);
@@ -596,7 +596,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
      */
     @Test
     public void testStartBatchStatus01() throws Exception {
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
 
         boolean result = exe.startBatchStatus("0000000001", systemDao,
                 transactionManager);
@@ -623,7 +623,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
      */
     @Test
     public void testStartBatchStatus02() throws Exception {
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
 
         boolean result = exe.startBatchStatus("0000000002", systemDao,
                 transactionManager);
@@ -650,7 +650,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
      */
     @Test
     public void testStartBatchStatus03() throws Exception {
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
 
         boolean result = exe.startBatchStatus("0000000003", systemDao,
                 transactionManager);
@@ -678,7 +678,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
     @Test
     public void testExecuteBatch01() throws Exception {
 
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
         exe.systemDao = systemDao;
         exe.sysTransactionManager = transactionManager;
         BLogicResult result = exe.executeBatch("0000000001");
@@ -690,7 +690,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
     @Test
     public void testExecuteBatch02() throws Exception {
 
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
         exe.systemDao = null;
         exe.sysTransactionManager = null;
         BLogicResult result = exe.executeBatch("0000000001");
@@ -702,7 +702,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
     @Test
     public void testExecuteBatch03() throws Exception {
 
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
         exe.systemDao = systemDao;
         exe.sysTransactionManager = transactionManager;
         BLogicResult result = exe.executeBatch("0000000000");
@@ -714,7 +714,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
     @Test
     public void testExecuteBatch04() throws Exception {
 
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
         exe.systemDao = systemDao;
         exe.sysTransactionManager = transactionManager;
         exe.changeStartStatus = true;
@@ -727,7 +727,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
     @Test
     public void testExecuteBatch05() throws Exception {
 
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
         exe.systemDao = systemDao;
         exe.sysTransactionManager = transactionManager;
         exe.changeStartStatus = true;
@@ -747,7 +747,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
     @Test
     public void testGetJobIntervalTime01() throws Exception {
 
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
 
         assertEquals(3000, exe.getJobIntervalTime());
     }
@@ -760,7 +760,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
      */
     @Test
     public void testGetExecutorEndMonitoringFile01() throws Exception {
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
 
         assertNotNull(exe.getExecutorEndMonitoringFile());
         assertEquals("/tmp/batch_terminate_file", exe
@@ -775,7 +775,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
      */
     @Test
     public void testGetExecutorJobTerminateWaitIntervalTime01() throws Exception {
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
 
         assertEquals(3000, exe.getExecutorJobTerminateWaitIntervalTime());
     }
@@ -788,7 +788,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
      */
     @Test
     public void testSetChangeStartStatus01() throws Exception {
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
 
         assertFalse(exe.changeStartStatus);
 
@@ -802,7 +802,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
      */
     @Test
     public void testSetChangeStartStatus02() throws Exception {
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
 
         exe.setChangeStartStatus(true);
 
@@ -812,7 +812,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
     @Test
     public void testInitParameter01() {
 
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
 
         TerasolunaPropertyUtils.removeProperty("polling.interval");
         exe.initParameter();
@@ -824,7 +824,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
     @Test
     public void testInitParameter02() {
 
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
 
         TerasolunaPropertyUtils.removeProperty("polling.interval");
         TerasolunaPropertyUtils.addProperty("polling.interval", "5000");
@@ -837,7 +837,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
     @Test
     public void testInitParameter03() {
 
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
 
         TerasolunaPropertyUtils.removeProperty("polling.interval");
         TerasolunaPropertyUtils.addProperty("polling.interval", "test");
@@ -850,7 +850,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
     @Test
     public void testInitParameter04() {
 
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
 
         TerasolunaPropertyUtils.removeProperty("executor.endMonitoringFile");
         exe.initParameter();
@@ -862,7 +862,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
     @Test
     public void testInitParameter05() {
 
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
 
         TerasolunaPropertyUtils.removeProperty("executor.endMonitoringFile");
         TerasolunaPropertyUtils.addProperty("executor.endMonitoringFile",
@@ -877,7 +877,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
     @Test
     public void testInitParameter06() {
 
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
 
         TerasolunaPropertyUtils.removeProperty(
                 "executor.jobTerminateWaitInterval");
@@ -890,7 +890,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
     @Test
     public void testInitParameter07() {
 
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
 
         TerasolunaPropertyUtils.removeProperty(
                 "executor.jobTerminateWaitInterval");
@@ -905,7 +905,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
     @Test
     public void testInitParameter08() {
 
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
 
         TerasolunaPropertyUtils.removeProperty(
                 "executor.jobTerminateWaitInterval");
@@ -920,7 +920,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
     @Test
     public void testInitSystemDatasourceDao01() throws Exception {
 
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
         TerasolunaPropertyUtils.removeProperty("systemDataSource.systemDao");
         exe.systemDao = null;
         exe.initSystemDatasourceDao();
@@ -931,7 +931,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
     @Test
     public void testInitSystemDatasourceDao02() throws Exception {
 
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
         TerasolunaPropertyUtils.removeProperty("systemDataSource.systemDao");
         TerasolunaPropertyUtils.addProperty("systemDataSource.systemDao",
                 "test");
@@ -944,7 +944,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
     @Test
     public void testInitSystemDatasourceDao03() throws Exception {
 
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
         TerasolunaPropertyUtils.removeProperty("systemDataSource.systemDao");
         TerasolunaPropertyUtils.addProperty("systemDataSource.systemDao",
                 "adminTransactionManager");
@@ -957,7 +957,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
     @Test
     public void testInitSystemDatasourceDao07() throws Exception {
 
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
         TerasolunaPropertyUtils.removeProperty(
                 "systemDataSource.transactionManager");
         exe.sysTransactionManager = null;
@@ -969,7 +969,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
     @Test
     public void testInitSystemDatasourceDao08() throws Exception {
 
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
         TerasolunaPropertyUtils.removeProperty(
                 "systemDataSource.transactionManager");
         TerasolunaPropertyUtils.addProperty(
@@ -983,7 +983,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
     @Test
     public void testInitSystemDatasourceDao09() throws Exception {
 
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
         TerasolunaPropertyUtils.removeProperty(
                 "systemDataSource.transactionManager");
         TerasolunaPropertyUtils.addProperty(
@@ -1000,7 +1000,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
      */
     @Test
     public void testInitDefaultAppContext001() throws Exception {
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
 
         exe.initDefaultAppContext();
     }
@@ -1011,7 +1011,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
      */
     @Test
     public void testInitDefaultAppContext002() throws Exception {
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
 
         TerasolunaPropertyUtils.removeProperty(
                 "beanDefinition.admin.classpath");
@@ -1026,7 +1026,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
      */
     @Test
     public void testInitDefaultAppContext003() throws Exception {
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
 
         TerasolunaPropertyUtils.removeProperty(
                 "beanDefinition.admin.classpath");
@@ -1042,7 +1042,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
      */
     @Test
     public void testInitDefaultAppContext004() throws Exception {
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
 
         TerasolunaPropertyUtils.removeProperty(
                 "beanDefinition.admin.dataSource");
@@ -1058,7 +1058,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
      */
     @Test
     public void testInitSystemDatasourceDao001() throws Exception {
-        AbstractJobBatchExecutor exe = new AsyncBatchExecutor();
+        AbstractJobBatchExecutor exe = new AbstractJobBatchExecutor() {};
 
         TerasolunaPropertyUtils.removeProperty(
                 "beanDefinition.admin.dataSource");
