@@ -40,7 +40,11 @@ import org.springframework.dao.DataAccessException;
  * <br>
  * 主にフレームワークのAbstractJobBatchExecutorから利用されるユーティリティ。<br>
  * @see jp.terasoluna.fw.batch.executor.AbstractJobBatchExecutor
+ *
+ * @deprecated バージョン3.5.0で一部メソッドが非推奨化されたが、バージョン3.6.0よりジョブ管理テーブルの操作は{@code BatchJobDataRepository}に移行しているため、クラス全体を非推奨APIとする。
+ * @see jp.terasoluna.fw.batch.executor.repository.BatchJobDataRepository
  */
+@Deprecated
 public class JobUtil {
 
     /**

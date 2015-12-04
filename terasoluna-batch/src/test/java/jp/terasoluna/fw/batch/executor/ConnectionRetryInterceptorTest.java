@@ -191,41 +191,6 @@ public class ConnectionRetryInterceptorTest {
      * 
      * <pre>
      * 事前条件
-     * ・RetryableExecuteExceptionをスローすること
-     * ・最大試行回数  0
-     * 確認項目
-     * ・causeとして設定したIllegalArgumentExceptionがスローされること
-     * ・EAL025031のログが出力されること
-     * </pre>
-     * 
-     * @throws Throwable 予期せぬ例外
-     */
-    @Test
-    public void testInvoke04() throws Throwable {
-        // テスト準備
-        MethodInvocation mockMethodInvocation = mock(MethodInvocation.class);
-        Exception cause = new IllegalArgumentException("test exception");
-
-        // テスト実行
-        // 検証
-        try {
-            when(mockMethodInvocation.proceed()).thenThrow(
-                    new RetryableExecuteException(cause));
-            connectionRetryInterceptor.invoke(mockMethodInvocation);
-            fail();
-        } catch (IllegalArgumentException e) {
-            assertSame(cause, e);
-        }
-        assertEquals(Level.ERROR, logger.getLoggingEvents().get(0).getLevel());
-        assertEquals("[EAL025031] AsyncBatchExecutor ABNORMAL END", logger
-                .getLoggingEvents().get(0).getMessage());
-    }
-
-    /**
-     * invoke()メソッドのテスト 【異常系】
-     * 
-     * <pre>
-     * 事前条件
      * ・最大試行回数内で処理が成功すること
      * ・最大試行回数 3、RecoverableDataAccessException例外スロー回数 2
      * 確認項目
@@ -297,55 +262,6 @@ public class ConnectionRetryInterceptorTest {
                 new TransactionSystemException("test exception")).thenThrow(
                         new TransactionSystemException("test exception"))
                 .thenReturn(null);
-
-        // テスト実行
-        // 検証
-        assertNull(connectionRetryInterceptor.invoke(mockMethodInvocation));
-        verify(mockMethodInvocation, times(3)).proceed();
-        assertEquals(Level.INFO, logger.getLoggingEvents().get(0).getLevel());
-        assertEquals(
-                "[IAL025017] retry: 1 ms, retryMax : 3 ms, retryReset : 600,000 ms, retryInterval : 500",
-                logger.getLoggingEvents().get(0).getMessage());
-        assertEquals(Level.TRACE, logger.getLoggingEvents().get(1).getLevel());
-        assertTrue(logger.getLoggingEvents().get(1).getMessage().contains(
-                "[TAL025010] Java memory info"));
-        assertEquals(Level.INFO, logger.getLoggingEvents().get(2).getLevel());
-        assertEquals(
-                "[IAL025017] retry: 2 ms, retryMax : 3 ms, retryReset : 600,000 ms, retryInterval : 500",
-                logger.getLoggingEvents().get(2).getMessage());
-        assertEquals(Level.TRACE, logger.getLoggingEvents().get(3).getLevel());
-        assertTrue(logger.getLoggingEvents().get(3).getMessage().contains(
-                "[TAL025010] Java memory info"));
-
-    }
-
-    /**
-     * invoke()メソッドのテスト 【異常系】
-     * 
-     * <pre>
-     * 事前条件
-     * ・最大試行回数内で処理が成功すること
-     * ・最大試行回数 3、RetryableExecuteException例外スロー回数 2
-     * 確認項目
-     * ・例外がスローされないこと
-     * ・リトライ処理(MethodInvocation#proceed()が3回呼び出されること)
-     * ・リトライ3回分、リトライのログが出力されること
-     * </pre>
-     * 
-     * @throws Throwable 予期せぬ例外
-     */
-    @Test
-    public void testInvoke07() throws Throwable {
-        // テスト準備
-        MethodInvocation mockMethodInvocation = mock(MethodInvocation.class);
-        Exception cause = new Exception("test exception");
-        ReflectionTestUtils.setField(connectionRetryInterceptor,
-                "retryInterval", 500);
-        ReflectionTestUtils.setField(connectionRetryInterceptor,
-                "maxRetryCount", 3);
-        when(mockMethodInvocation.proceed()).thenThrow(
-                new RetryableExecuteException(cause)).thenThrow(
-                        new RetryableExecuteException(cause)).thenReturn(null);
 
         // テスト実行
         // 検証
@@ -502,72 +418,6 @@ public class ConnectionRetryInterceptorTest {
 
     }
 
-    /**
-     * invoke()メソッドのテスト 【異常系】
-     * 
-     * <pre>
-     * 事前条件
-     * ・最大試行回数を超えること
-     * ・最大試行回数 3、RetryableExecuteException例外スロー回数 4
-     * 確認項目
-     * ・causeとして設定したIllegalArgumentExceptionがスローされること
-     * ・リトライ処理(MethodInvocation#proceed()が4回呼び出されること)
-     * ・リトライ失敗のログが出力されること
-     * </pre>
-     * 
-     * @throws Throwable 予期せぬ例外
-     */
-    @Test
-    public void testInvoke10() throws Throwable {
-        // テスト準備
-        MethodInvocation mockMethodInvocation = mock(MethodInvocation.class);
-        Exception cause = new IllegalArgumentException("test exception");
-        ReflectionTestUtils.setField(connectionRetryInterceptor,
-                "retryInterval", 500);
-        ReflectionTestUtils.setField(connectionRetryInterceptor,
-                "maxRetryCount", 3);
-
-        // テスト実行
-        // 検証
-        try {
-            when(mockMethodInvocation.proceed()).thenThrow(
-                    new RetryableExecuteException(cause)).thenThrow(
-                            new RetryableExecuteException(cause)).thenThrow(
-                                    new RetryableExecuteException(cause))
-                    .thenThrow(new RetryableExecuteException(cause)).thenReturn(
-                            null);
-            connectionRetryInterceptor.invoke(mockMethodInvocation);
-            fail();
-        } catch (IllegalArgumentException e) {
-            assertSame(cause, e);
-        }
-        verify(mockMethodInvocation, times(4)).proceed();
-        assertEquals(Level.INFO, logger.getLoggingEvents().get(0).getLevel());
-        assertEquals(
-                "[IAL025017] retry: 1 ms, retryMax : 3 ms, retryReset : 600,000 ms, retryInterval : 500",
-                logger.getLoggingEvents().get(0).getMessage());
-        assertEquals(Level.TRACE, logger.getLoggingEvents().get(1).getLevel());
-        assertTrue(logger.getLoggingEvents().get(1).getMessage().contains(
-                "[TAL025010] Java memory info"));
-        assertEquals(Level.INFO, logger.getLoggingEvents().get(2).getLevel());
-        assertEquals(
-                "[IAL025017] retry: 2 ms, retryMax : 3 ms, retryReset : 600,000 ms, retryInterval : 500",
-                logger.getLoggingEvents().get(2).getMessage());
-        assertEquals(Level.TRACE, logger.getLoggingEvents().get(3).getLevel());
-        assertTrue(logger.getLoggingEvents().get(3).getMessage().contains(
-                "[TAL025010] Java memory info"));
-        assertEquals(Level.INFO, logger.getLoggingEvents().get(4).getLevel());
-        assertEquals(
-                "[IAL025017] retry: 3 ms, retryMax : 3 ms, retryReset : 600,000 ms, retryInterval : 500",
-                logger.getLoggingEvents().get(4).getMessage());
-        assertEquals(Level.TRACE, logger.getLoggingEvents().get(5).getLevel());
-        assertTrue(logger.getLoggingEvents().get(5).getMessage().contains(
-                "[TAL025010] Java memory info"));
-        assertEquals(Level.ERROR, logger.getLoggingEvents().get(6).getLevel());
-        assertEquals("[EAL025031] AsyncBatchExecutor ABNORMAL END", logger
-                .getLoggingEvents().get(6).getMessage());
-
-    }
 
     /**
      * invoke()メソッドのテスト 【異常系】

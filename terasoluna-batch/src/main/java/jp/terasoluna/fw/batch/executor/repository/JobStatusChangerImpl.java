@@ -16,7 +16,6 @@
 
 package jp.terasoluna.fw.batch.executor.repository;
 
-import static jp.terasoluna.fw.batch.constants.EventConstants.*;
 import static jp.terasoluna.fw.batch.constants.JobStatusConstants.*;
 
 import org.springframework.transaction.PlatformTransactionManager;
@@ -47,6 +46,16 @@ public class JobStatusChangerImpl implements JobStatusChanger {
     protected SystemDao systemDao;
 
     protected PlatformTransactionManager adminTransactionManager;
+
+    /**
+     * ステータス変更契機：起動時.
+     */
+    public static final String EVENT_STATUS_START = "0";
+
+    /**
+     * ステータス変更契機：正常終了時.
+     */
+    public static final String EVENT_STATUS_NORMAL_TERMINATION = "1";
 
     /**
      * コンストラクタ。

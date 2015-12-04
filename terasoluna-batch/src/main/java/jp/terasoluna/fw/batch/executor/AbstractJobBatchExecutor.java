@@ -16,7 +16,6 @@
 
 package jp.terasoluna.fw.batch.executor;
 
-import jp.terasoluna.fw.batch.constants.EventConstants;
 import jp.terasoluna.fw.batch.constants.JobStatusConstants;
 import jp.terasoluna.fw.batch.constants.LogId;
 import jp.terasoluna.fw.batch.exception.BatchException;
@@ -41,7 +40,11 @@ import org.springframework.transaction.support.DefaultTransactionDefinition;
  * @see jp.terasoluna.fw.batch.executor.BatchExecutor
  * @see jp.terasoluna.fw.batch.executor.AbstractBatchExecutor
  * @see jp.terasoluna.fw.batch.executor.AsyncBatchExecutor
+ *
+ * @deprecated バージョン3.6.0より、非同期バッチ起動の実装は{@code AsyncJobOperatorImpl}に移行しているため、本クラスを非推奨APIとする。
+ * @see jp.terasoluna.fw.batch.executor.controller.AsyncJobOperatorImpl
  */
+@Deprecated
 public abstract class AbstractJobBatchExecutor extends AbstractBatchExecutor {
 
     /**
@@ -114,6 +117,16 @@ public abstract class AbstractJobBatchExecutor extends AbstractBatchExecutor {
      * 開始時のステータス変更を行うかどうか
      */
     protected boolean changeStartStatus = false;
+
+    /**
+     * ステータス変更契機：起動時.
+     */
+    public static final String EVENT_STATUS_START = "0";
+
+    /**
+     * ステータス変更契機：正常終了時.
+     */
+    public static final String EVENT_STATUS_NORMAL_TERMINATION = "1";
 
     /**
      * コンストラクタ
@@ -349,7 +362,7 @@ public abstract class AbstractJobBatchExecutor extends AbstractBatchExecutor {
     protected boolean startBatchStatus(String jobSequenceId, SystemDao systemDao,
                                        PlatformTransactionManager transactionManager) {
         return updateBatchStatus(jobSequenceId,
-                EventConstants.EVENT_STATUS_START, null, systemDao,transactionManager);
+                EVENT_STATUS_START, null, systemDao,transactionManager);
     }
 
     /**
@@ -367,7 +380,7 @@ public abstract class AbstractJobBatchExecutor extends AbstractBatchExecutor {
             blogicStatus = Integer.toString(result.getBlogicStatus());
         }
         return updateBatchStatus(jobSequenceId,
-                EventConstants.EVENT_STATUS_NORMAL_TERMINATION, blogicStatus,
+                EVENT_STATUS_NORMAL_TERMINATION, blogicStatus,
                 systemDao, transactionManager);
     }
 
@@ -453,7 +466,7 @@ public abstract class AbstractJobBatchExecutor extends AbstractBatchExecutor {
 
         String judge = null;
 
-        if (EventConstants.EVENT_STATUS_START.equals(eventCode)) {
+        if (EVENT_STATUS_START.equals(eventCode)) {
             if (JobStatusConstants.JOB_STATUS_UNEXECUTION.equals(job
                     .getCurAppStatus())) {
                 judge = JobStatusConstants.JOB_STATUS_EXECUTING;

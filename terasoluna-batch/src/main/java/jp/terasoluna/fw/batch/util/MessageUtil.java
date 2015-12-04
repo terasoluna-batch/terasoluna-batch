@@ -29,7 +29,11 @@ import jp.terasoluna.fw.logger.TLogger;
  * メッセージの管理を行いたい場合に利用する。<br>
  * 本クラスのクラス変数に保存されるMessageAccessorはスレッドグループ毎にインスタンスが保持される。
  * </p>
+ * @deprecated バージョン3.6.0より、本クラスによるメッセージ管理機能は非推奨である。業務ロジック内でメッセージ管理機能を使用する場合、commonContext.xmlに{@code MessageAccessorImpl}を定義の上、業務ロジッククラスで{@code MessageAccessor}をインジェクションすること。
+ * @see jp.terasoluna.fw.batch.message.MessageAccessor
+ * @see jp.terasoluna.fw.batch.message.MessageAccessorImpl
  */
+@Deprecated
 public class MessageUtil {
 
     /** ロガー. */
