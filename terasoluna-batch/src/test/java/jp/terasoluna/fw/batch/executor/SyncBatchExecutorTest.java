@@ -40,7 +40,7 @@ public class SyncBatchExecutorTest {
      * ・SyncBatchExecutorの起動引数にfooを渡す
      * ・beansDef/foo.xmlが存在しない
      * 確認事項
-     * ・終了コードが-1であること
+     * ・終了コードが255であること
      * ・IDがWAL025002のWARNログが出力されること
      * </pre>
      * 
@@ -52,7 +52,7 @@ public class SyncBatchExecutorTest {
             SyncBatchExecutor.main(new String[] { "foo" });
             fail("異常です");
         } catch (ExitException e) {
-            assertEquals(-1, e.state);
+            assertEquals(255, e.state);
         }
     }
 
@@ -88,7 +88,7 @@ public class SyncBatchExecutorTest {
      * ・SyncBatchExecutorの起動引数に何も渡さない
      * ・環境変数JOB_APP_CDが未設定
      * 確認事項
-     * ・終了コードが-1であること
+     * ・終了コードが255であること
      * </pre>
      * 
      * @throws Exception
@@ -100,7 +100,7 @@ public class SyncBatchExecutorTest {
             SyncBatchExecutor.main(new String[] {});
             fail("異常です");
         } catch (ExitException e) {
-            assertEquals(-1, e.state);
+            assertEquals(255, e.state);
         }
     }
 

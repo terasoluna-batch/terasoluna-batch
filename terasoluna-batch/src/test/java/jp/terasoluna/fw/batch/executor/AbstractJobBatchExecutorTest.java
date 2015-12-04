@@ -696,7 +696,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
         BLogicResult result = exe.executeBatch("0000000001");
 
         assertNotNull(result);
-        assertEquals(-1, result.getBlogicStatus());
+        assertEquals(255, result.getBlogicStatus());
     }
 
     @Test
@@ -708,7 +708,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
         BLogicResult result = exe.executeBatch("0000000000");
 
         assertNotNull(result);
-        assertEquals(-1, result.getBlogicStatus());
+        assertEquals(255, result.getBlogicStatus());
     }
 
     @Test
@@ -735,7 +735,7 @@ public class AbstractJobBatchExecutorTest extends DaoTestCaseJunit4 {
 
         assertNotNull(result);
         // 更新ステータス不整合のため、ビジネスロジックは未実施のまま返却される。
-        assertEquals(-1, result.getBlogicStatus());
+        assertEquals(255, result.getBlogicStatus());
     }
 
     /**

@@ -24,7 +24,7 @@ public class BLogicResult {
     /**
      * ビジネスロジックの戻り値
      */
-    protected int blogicStatus = -1;
+    protected int blogicStatus = 255;
 
     /**
      * ビジネスロジックで発生した例外

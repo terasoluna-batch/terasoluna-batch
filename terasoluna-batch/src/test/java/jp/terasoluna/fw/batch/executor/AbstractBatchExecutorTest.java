@@ -41,7 +41,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 public class AbstractBatchExecutorTest {
 
     /**
-     * blogicBeanNameがnullの場合、BLogicResultのリターンコードが-1が返却されることを確認する またログにJOB_APP_CD:[null]が出力されていることを確認する
+     * blogicBeanNameがnullの場合、BLogicResultのリターンコードが255が返却されることを確認する またログにJOB_APP_CD:[null]が出力されていることを確認する
      * @throws Exception
      */
     @Test
@@ -55,11 +55,11 @@ public class AbstractBatchExecutorTest {
         BLogicResult result = batchExecutor.executeBatch(param);
 
         // 結果検証
-        assertEquals(-1, result.getBlogicStatus());
+        assertEquals(255, result.getBlogicStatus());
     }
 
     /**
-     * blogicBeanNameが空文字の場合、BLogicResultのリターンコードが-1が返却されることを確認する またログにJOB_APP_CD:[]が出力されていることを確認する
+     * blogicBeanNameが空文字の場合、BLogicResultのリターンコードが255が返却されることを確認する またログにJOB_APP_CD:[]が出力されていることを確認する
      * @throws Exception
      */
     @Test
@@ -73,7 +73,7 @@ public class AbstractBatchExecutorTest {
         BLogicResult result = batchExecutor.executeBatch(param);
 
         // 結果検証
-        assertEquals(-1, result.getBlogicStatus());
+        assertEquals(255, result.getBlogicStatus());
     }
 
     /**
@@ -231,7 +231,7 @@ public class AbstractBatchExecutorTest {
         BLogicResult result = batchExecutor.executeBatch(param);
 
         // 結果検証
-        assertEquals(-1, result.getBlogicStatus());
+        assertEquals(255, result.getBlogicStatus());
     }
 
     /**
@@ -254,7 +254,7 @@ public class AbstractBatchExecutorTest {
         BLogicResult result = batchExecutor.executeBatch(param);
 
         // 結果検証
-        assertEquals(-1, result.getBlogicStatus());
+        assertEquals(255, result.getBlogicStatus());
     }
 
     /**
@@ -277,7 +277,7 @@ public class AbstractBatchExecutorTest {
         BLogicResult result = batchExecutor.executeBatch(param);
 
         // 結果検証
-        assertEquals(-1, result.getBlogicStatus());
+        assertEquals(255, result.getBlogicStatus());
     }
 
     /**
@@ -380,7 +380,7 @@ public class AbstractBatchExecutorTest {
         BLogicResult result = exe.executeBatchClass(batchClassName,
                 exceptionHandlerBeanName, param, context);
 
-        assertEquals(-1, result.getBlogicStatus());
+        assertEquals(255, result.getBlogicStatus());
 
     }
 
@@ -422,7 +422,7 @@ public class AbstractBatchExecutorTest {
         BLogicResult result = exe.executeBatchClass(batchClassName,
                 exceptionHandlerBeanName, param, context);
 
-        assertEquals(-1, result.getBlogicStatus());
+        assertEquals(255, result.getBlogicStatus());
 
     }
 
@@ -464,7 +464,7 @@ public class AbstractBatchExecutorTest {
         BLogicResult result = exe.executeBatchClass(batchClassName,
                 exceptionHandlerBeanName, param, context);
 
-        assertEquals(-1, result.getBlogicStatus());
+        assertEquals(255, result.getBlogicStatus());
 
     }
 
@@ -528,7 +528,7 @@ public class AbstractBatchExecutorTest {
         BLogicResult result = exe.executeBatchClass(batchClassName,
                 exceptionHandlerBeanName, param, context);
 
-        assertEquals(-1, result.getBlogicStatus());
+        assertEquals(255, result.getBlogicStatus());
 
     }
 
@@ -576,7 +576,7 @@ public class AbstractBatchExecutorTest {
                 exceptionHandlerBeanName, param, context);
 
         // JobComponentアノテーション無効化によりジョブが実行されない
-        assertEquals(-1, result.getBlogicStatus());
+        assertEquals(255, result.getBlogicStatus());
 
     }
 

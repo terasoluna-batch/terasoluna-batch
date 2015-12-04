@@ -507,7 +507,7 @@ public class WorkerTemplateImplTest {
                 .closeApplicationContext(null);
 
         BLogicResult bLogicResult = bLogicResultCaptor.getValue();
-        assertThat(bLogicResult.getBlogicStatus(), is(-1));
+        assertThat(bLogicResult.getBlogicStatus(), is(255));
         assertThat(bLogicResult.getBlogicThrowable(), nullValue());
 
         verify(mockBLogicExecutor, never()).execute(
@@ -574,7 +574,7 @@ public class WorkerTemplateImplTest {
                 .closeApplicationContext(null);
 
         BLogicResult bLogicResult = bLogicResultCaptor.getValue();
-        assertThat(bLogicResult.getBlogicStatus(), is(-1));
+        assertThat(bLogicResult.getBlogicStatus(), is(255));
         assertThat(bLogicResult.getBlogicThrowable(), nullValue());
 
         verify(mockBLogicExecutor, never()).execute(
@@ -640,7 +640,7 @@ public class WorkerTemplateImplTest {
                 .closeApplicationContext(null);
 
         BLogicResult bLogicResult = bLogicResultCaptor.getValue();
-        assertThat(bLogicResult.getBlogicStatus(), is(-1));
+        assertThat(bLogicResult.getBlogicStatus(), is(255));
         assertThat(bLogicResult.getBlogicThrowable(), nullValue());
 
         verify(mockBLogicExecutor, never()).execute(
@@ -707,7 +707,7 @@ public class WorkerTemplateImplTest {
                 .closeApplicationContext(null);
 
         BLogicResult bLogicResult = bLogicResultCaptor.getValue();
-        assertThat(bLogicResult.getBlogicStatus(), is(-1));
+        assertThat(bLogicResult.getBlogicStatus(), is(255));
         assertThat(bLogicResult.getBlogicThrowable(), nullValue());
 
         verify(mockBLogicExecutor, never()).execute(
@@ -854,7 +854,7 @@ public class WorkerTemplateImplTest {
                 .closeApplicationContext(any(ApplicationContext.class));
 
         BLogicResult bLogicResult = bLogicResultCaptor.getValue();
-        assertThat(bLogicResult.getBlogicStatus(), is(-1));
+        assertThat(bLogicResult.getBlogicStatus(), is(255));
         assertThat(bLogicResult.getBlogicThrowable(), nullValue());
 
         assertThat(
