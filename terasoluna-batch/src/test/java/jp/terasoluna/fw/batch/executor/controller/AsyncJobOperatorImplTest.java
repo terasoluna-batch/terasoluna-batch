@@ -370,6 +370,7 @@ public class AsyncJobOperatorImplTest {
      */
     @Test
     public void testPollingSleep01() throws Exception {
+        Thread.interrupted(); // あらかじめ割り込み状態をクリアしておく。
         AsyncJobOperatorImpl asyncJobOperator = new AsyncJobOperatorImpl(
                 batchJobDataRepository, asyncJobLauncher, asyncBatchStopper,
                 exceptionStatusHandler);

@@ -12,6 +12,7 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.util.Assert;
 
 import java.util.concurrent.Semaphore;
+import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -124,23 +125,14 @@ public class AsyncJobLauncherImpl implements AsyncJobLauncher,
         Assert.notNull(jobSequenceId);
         try {
             taskPoolLimit.acquire();
-            boolean beforeExecuteStatus = false;
-            try {
-                beforeExecuteStatus = jobExecutorTemplate.beforeExecute(
-                        jobSequenceId);
-            } catch (RuntimeException e) {
-                taskPoolLimit.release();
-                throw e;
-            }
-            if (!beforeExecuteStatus) {
-                taskPoolLimit.release();
-                LOGGER.warn(LogId.WAL025009, jobSequenceId);
-                return;
-            }
             threadPoolTaskExecutor.execute(new Runnable() {
                 @Override
                 public void run() {
                     try {
+                        if (!jobExecutorTemplate.beforeExecute(jobSequenceId)) {
+                            LOGGER.warn(LogId.WAL025009, jobSequenceId);
+                            return;
+                        }
                         jobExecutorTemplate.executeWorker(jobSequenceId);
                     } catch (RuntimeException e) {
                         exceptionStatusHandler.handleException(e);
@@ -163,21 +155,30 @@ public class AsyncJobLauncherImpl implements AsyncJobLauncher,
      */
     @Override
     public void shutdown() {
-        threadPoolTaskExecutor.setWaitForTasksToCompleteOnShutdown(true);
-        threadPoolTaskExecutor.shutdown();
-        while (true) {
-            int executeCount = threadPoolTaskExecutor.getActiveCount();
-            if (executeCount == 0) {
-                break;
-            }
-            try {
-                LOGGER.debug(LogId.DAL025031, executeCount);
-                TimeUnit.MILLISECONDS.sleep(
-                        executorJobTerminateWaitIntervalTime);
-            } catch (InterruptedException e) {
-                // Do nothing.
-            }
+        ThreadPoolExecutor threadPoolExecutor =
+                threadPoolTaskExecutor.getThreadPoolExecutor();
+        threadPoolExecutor.shutdown();
+        while (!terminated(threadPoolExecutor)) {
+            LOGGER.info(LogId.IAL025021);
         }
+    }
+
+    /**
+     * スレッドプールのシャットダウン完了を指定時間以内に完了したらtrueを返却する。
+     * 完了待ち状態で割り込みが発生した場合、falseを返却する。
+     *
+     * @param threadPoolExecutor スレッドプール
+     * @return シャットダウンが指定時間以内に完了したらtrue
+     */
+    protected boolean terminated(ThreadPoolExecutor threadPoolExecutor) {
+        try {
+            return threadPoolExecutor.awaitTermination(
+                    executorJobTerminateWaitIntervalTime,
+                    TimeUnit.MILLISECONDS);
+        } catch (InterruptedException e) {
+            // シャットダウン完了待ち受け中の割り込みは何もしない
+        }
+        return false;
     }
 
     /**
