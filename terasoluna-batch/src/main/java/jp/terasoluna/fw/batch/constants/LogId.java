@@ -163,10 +163,6 @@ public final class LogId {
      */
     public static final String DAL025030 = "DAL025030";
     /**
-     * <strong>DAL025031 = AsyncBatchExecutor WAIT ENDS activeCount:[{0}]</strong>
-     */
-    public static final String DAL025031 = "DAL025031";
-    /**
      * <strong>DAL025032 = activeCount:[{0}] corePoolSize:[{1}] maxPoolSize:[{2}] poolSize:[{3}] activeCount:[{4}] taskCount:[{5}] queueSize:[{6}] remainingCapacity:[{7}]</strong>
      */
     public static final String DAL025032 = "DAL025032";
@@ -362,6 +358,10 @@ public final class LogId {
      * <strong>IAL025020 = Loading commonContext classpath: {0}</strong>
      */
     public static final String IAL025020 = "IAL025020";
+    /**
+     * <strong>IAL025021 = Waiting to shutdown all tasks in ThreadPoolTaskExecutor.</strong>
+     */
+    public static final String IAL025021 = "IAL025021";
     /**
      * <strong>WAL025001 = MessageAccessor bean not found. beanName:[{0}]{1}</strong>
      */
