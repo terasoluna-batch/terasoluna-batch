@@ -151,9 +151,9 @@ public class WorkerTemplateImpl implements JobExecutorTemplate {
     /**
      * ジョブシーケンスコードに該当するジョブの主処理を行う<br>
      * <p>
-     * ジョブシーケンスコードに該当するBLogic、BLogicParam、例外ハンドラのそれぞれのインスタンスを取得し、
+     * ジョブシーケンスコードに該当するBatchJobDataを取得後、ジョブ業務コード（jobAppCd）からBLogic、BLogicParam、例外ハンドラのそれぞれのインスタンスを取得し、
      * BLogicExecutorにBLogicの実行を移譲する。BLogicの実行後、ジョブシーケンスコードに該当するレコードのジョブステータスを 「処理済み：2」に変更する。<br>
-     * 尚、このメソッドは、メインスレッドとは別スレッド（ジョブ実行用のwokerスレッド）で実行される。そのため、{@code beforeExecute}とは、 別スレッドで処理されることに注意すること。
+     * 尚、このメソッドは、メインスレッドとは別スレッド（ジョブ実行用のworkerスレッド）で実行される。そのため、{@code beforeExecute}とは、 別スレッドで処理されることに注意すること。
      * </p>
      * @param jobSequenceId ジョブシーケンスコード
      * @see jp.terasoluna.fw.batch.executor.worker.JobExecutorTemplate#executeWorker(java.lang.String)
@@ -171,12 +171,12 @@ public class WorkerTemplateImpl implements JobExecutorTemplate {
                     .resolveBatchJobData(jobSequenceId);
             bLogicContext = bLogicApplicationContextResolver
                     .resolveApplicationContext(batchJobData);
-            bLogic = bLogicResolver.resolveBLogic(bLogicContext, jobSequenceId);
+            bLogic = bLogicResolver.resolveBLogic(bLogicContext, batchJobData.getJobAppCd());
             bLogicParam = bLogicParamConverter.convertBLogicParam(batchJobData);
 
             try {
                 bLogicExceptionHandler = bLogicExceptionHandlerResolver
-                        .resolveExceptionHandler(bLogicContext, jobSequenceId);
+                        .resolveExceptionHandler(bLogicContext, batchJobData.getJobAppCd());
             } catch (Exception e) {
                 // Do nothing
             }
