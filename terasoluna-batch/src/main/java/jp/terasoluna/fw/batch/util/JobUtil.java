@@ -230,7 +230,6 @@ public class JobUtil {
      * @param systemDao フレームワーク用のシステムDAO
      * @return Timestamp カレント時刻
      */
-    @Deprecated
     public static Timestamp getCurrentTime(SystemDao systemDao) {
         Timestamp result = null;
         try {
@@ -249,7 +248,6 @@ public class JobUtil {
      * @param systemDao フレームワーク用システムDAO
      * @return Date カレント日付
      */
-    @Deprecated
     public static Date getCurrentDate(SystemDao systemDao) {
         Date result = null;
         try {
