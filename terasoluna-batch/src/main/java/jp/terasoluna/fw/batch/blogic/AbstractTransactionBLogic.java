@@ -26,6 +26,7 @@ import jp.terasoluna.fw.batch.util.BatchUtil;
 import jp.terasoluna.fw.logger.TLogger;
 
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ApplicationObjectSupport;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionStatus;
 
@@ -40,9 +41,10 @@ import org.springframework.transaction.TransactionStatus;
  * <li>ビジネスロジック終了後、コミットされ、トランザクションが終了される。</li>
  * </ol>
  * @see jp.terasoluna.fw.batch.blogic.BLogic
- * @see jp.terasoluna.fw.batch.blogic.AbstractBLogic
  */
-public abstract class AbstractTransactionBLogic extends AbstractBLogic {
+public abstract class AbstractTransactionBLogic extends ApplicationObjectSupport
+        implements
+        BLogic  {
 
     /**
      * プロセス終了コード（異常）

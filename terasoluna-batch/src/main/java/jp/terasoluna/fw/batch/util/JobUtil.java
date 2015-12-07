@@ -40,7 +40,11 @@ import org.springframework.dao.DataAccessException;
  * <br>
  * 主にフレームワークのAbstractJobBatchExecutorから利用されるユーティリティ。<br>
  * @see jp.terasoluna.fw.batch.executor.AbstractJobBatchExecutor
+ *
+ * @deprecated バージョン3.5.0で一部メソッドが非推奨化されたが、バージョン3.6.0よりジョブ管理テーブルの操作は{@code BatchJobDataRepository}に移行しているため、クラス全体を非推奨APIとする。
+ * @see jp.terasoluna.fw.batch.executor.repository.BatchJobDataRepository
  */
+@Deprecated
 public class JobUtil {
 
     /**
@@ -226,7 +230,6 @@ public class JobUtil {
      * @param systemDao フレームワーク用のシステムDAO
      * @return Timestamp カレント時刻
      */
-    @Deprecated
     public static Timestamp getCurrentTime(SystemDao systemDao) {
         Timestamp result = null;
         try {
@@ -245,7 +248,6 @@ public class JobUtil {
      * @param systemDao フレームワーク用システムDAO
      * @return Date カレント日付
      */
-    @Deprecated
     public static Date getCurrentDate(SystemDao systemDao) {
         Date result = null;
         try {

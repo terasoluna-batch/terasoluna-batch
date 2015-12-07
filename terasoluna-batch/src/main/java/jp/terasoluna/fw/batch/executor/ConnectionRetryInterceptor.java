@@ -47,14 +47,11 @@ import org.springframework.transaction.TransactionException;
  * <ol>
  * <li>org.springframework.dao.DataAccessException</li>
  * <li>org.springframework.transaction.TransactionException</li>
- * <li>RetryableExecuteException</li>
  * </ol>
  * リトライ正常終了時は例外をスローすることなく処理を終了する(リトライを示すINFOログは出力される)。リトライ回数を超えたときは、最後に発生した例外をスローする。
- * また、RetryableExecuteExceptionについては、原因となる例外がスローされる。
  * なお、retryResetを短めに設定すると(たとえば、retryReset > retryIntervalのような場合)、リトライ回数がリセットされるため例外がスローされる間無限ループになりうる点には注意が必要である。
  * @see org.springframework.dao.DataAccessException
  * @see org.springframework.transaction.TransactionException
- * @see RetryableExecuteException
  * @since 3.6
  */
 public class ConnectionRetryInterceptor implements MethodInterceptor {
@@ -88,7 +85,7 @@ public class ConnectionRetryInterceptor implements MethodInterceptor {
      * 
      * @param invocation 処理対象となるメソッド
      * @return メソッド実行結果
-     * @throws リトライ処理から外部にスローされるThrowable
+     * @throws Throwable リトライ処理から外部にスローされるThrowable
      */
     public Object invoke(MethodInvocation invocation) throws Throwable {
         int retryCount = 0;
@@ -100,18 +97,13 @@ public class ConnectionRetryInterceptor implements MethodInterceptor {
                 cause = null;
                 returnObject = invocation.proceed();
                 break;
-            } catch (DataAccessException | TransactionException | RetryableExecuteException e) {
+            } catch (DataAccessException | TransactionException e) {
                 if (System.currentTimeMillis() - lastExceptionTime > retryReset) {
                     retryCount = 0;
                 }
                 lastExceptionTime = System.currentTimeMillis();
 
-                if (e instanceof RetryableExecuteException) {
-                    // リトライオーバー時のスロー対象にする。
-                    cause = e.getCause();
-                } else {
-                    cause = e;
-                }
+                cause = e;
 
                 if (retryCount >= maxRetryCount) {
                     LOGGER.error(LogId.EAL025031, cause);
