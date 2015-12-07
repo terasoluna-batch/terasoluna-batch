@@ -363,6 +363,10 @@ public final class LogId {
      */
     public static final String IAL025021 = "IAL025021";
     /**
+     * <strong>IAL025022 = Skipped job execution, because target job was not found. jobSequenceId[{0}]</strong>
+     */
+    public static final String IAL025022 = "IAL025022";
+    /**
      * <strong>WAL025001 = MessageAccessor bean not found. beanName:[{0}]{1}</strong>
      */
     public static final String WAL025001 = "WAL025001";
@@ -394,10 +398,6 @@ public final class LogId {
      * <strong>WAL025008 = MessageAccessor is null.{0}</strong>
      */
     public static final String WAL025008 = "WAL025008";
-    /**
-     * <strong>WAL025009 = Async job aborted in preprocessing because updating current application status was failed. jobSequenceId:[{0}]</strong>
-     */
-    public static final String WAL025009 = "WAL025009";
     /**
      * <strong>WAL025010 = ExceptionHandler won't be used in BLogic {0}, Bean Definition Files {1}</strong>
      */
