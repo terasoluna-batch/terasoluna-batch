@@ -113,6 +113,10 @@
             <artifactId>commons-dbcp2</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+        </dependency>
 
         <!-- dozer -->
         <dependency>
@@ -189,11 +193,6 @@
         <dependency>
             <groupId>uk.org.lidalia</groupId>
             <artifactId>lidalia-slf4j-ext</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>jcl-over-slf4j</artifactId>
             <scope>test</scope>
         </dependency>
 
