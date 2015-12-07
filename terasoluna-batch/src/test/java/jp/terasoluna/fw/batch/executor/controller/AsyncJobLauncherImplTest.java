@@ -293,9 +293,9 @@ public class AsyncJobLauncherImplTest {
         // セマフォのサイズが元の値に戻っていること。
         assertEquals(10, semaphore.availablePermits());
 
-        // ログに警告ログが出力されていること。
+        // ログにINFOログが出力されていること。
         assertThat(logger.getLoggingEvents(), is(asList(
-                warn("[WAL025009] Async job aborted in preprocessing because updating current application status was failed. jobSequenceId:[0000000001]"))));
+                warn("[IAL025022] Skipped job execution, because target job was not found. jobSequenceId[0000000001]"))));
     }
 
     /**
