@@ -17,6 +17,8 @@
 
 package jp.terasoluna.fw.batch.executor;
 
+import org.springframework.context.MessageSourceResolvable;
+
 import jp.terasoluna.fw.batch.message.MessageAccessor;
 
 /**
@@ -30,5 +32,12 @@ public class MockMessageAccessor implements MessageAccessor {
     @Override
     public String getMessage(String code, Object[] args) {
         return "mocked message.";
+    }
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String getMessage(MessageSourceResolvable resolvable) {
+        return "mocked message by MessageSourceResolvable.";
     }
 }

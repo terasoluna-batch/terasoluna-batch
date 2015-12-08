@@ -16,27 +16,33 @@
 
 package jp.terasoluna.fw.batch.message;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
+
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.MessageSourceResolvable;
 import org.springframework.context.NoSuchMessageException;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.validation.BindException;
+import org.springframework.validation.Errors;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.ValidationUtils;
 
-import jp.terasoluna.fw.batch.message.MessageAccessor;
 import jp.terasoluna.fw.util.PropertyUtil;
 
 /**
  * 事前条件<br>
  * <br>
  * ・src/test/resourcesフォルダ配下にAppricationResources.propertiesが存在すること。<br>
+ * ・src/test/resources/apppropsフォルダ配下にbatch.propertiesが存在すること。<br>
  * <br>
- * ・プロパティMessageAccessor.defaultの値が設定されていること。<br>
+ * ・batch.propertiesにプロパティmessageAccessor.defaultの値が設定されていること。<br>
  * <fieldset><legend>batch.properties設定例</legend> #メッセージソースアクセサのBean名<br>
- * MessageAccessor.default=msgAcc </fieldset> <br>
- * ・Bean定義ファイルにプロパティで設定されたの値のBean名が設定されていること。<br>
+ * messageAccessor.default=msgAcc </fieldset> <br>
+ * ・Bean定義ファイルにプロパティで設定された値のBean名が設定されていること。<br>
  * <fieldset><legend>AdminContext.xml設定例</legend> &lt;!-- メッセージアクセサ --&gt;<br>
  * &lt;bean id=&quot;msgAcc&quot; class=&quot;jp.terasoluna.fw.batch.message.MessageAccessorImpl&quot; /&gt; </fieldset> <br>
  * ・messages.propertiesファイルが存在すること<br>
@@ -62,7 +68,8 @@ public class MessageAccessorImplTest {
     public void setUp() {
 
         // メッセージソースアクセサのBean名取得
-        context = new ClassPathXmlApplicationContext("beansDef/AdminContext.xml");
+        context = new ClassPathXmlApplicationContext(
+                "beansDef/AdminContext.xml");
         value = PropertyUtil.getProperty("messageAccessor.default");
         messageAccessor = (MessageAccessor) context.getBean(value,
                 MessageAccessor.class);
@@ -132,7 +139,7 @@ public class MessageAccessorImplTest {
     }
 
     /**
-     * testGetMessage03()<br>
+     * testGetMessage04()<br>
      * <br>
      * テスト概要：メッセージキーに空文字を設定した場合、NoSuchMessageExceptionがスローされることを確認する<br>
      * <br>
@@ -152,7 +159,7 @@ public class MessageAccessorImplTest {
     }
 
     /**
-     * testGetMessage03()<br>
+     * testGetMessage05()<br>
      * <br>
      * テスト概要：メッセージキーにnullを設定した場合、NoSuchMessageExceptionがスローされることを確認する<br>
      * <br>
@@ -171,4 +178,133 @@ public class MessageAccessorImplTest {
         }
     }
 
+    /**
+     * testGetMessage06()<br>
+     * <br>
+     * テスト概要：MessageResolvableにnullを設定した場合、NullPointerExceptionがスローされることを確認する<br>
+     * <br>
+     * 確認項目：NullPointerExceptionがスローされていることを確認する<br>
+     * <br>
+     * @throws Exception
+     */
+    @Test
+    public void testGetMessage06() throws Exception {
+
+        MessageSourceResolvable resolvable = null;
+
+        try {
+            messageAccessor.getMessage(resolvable);
+            fail("NullPointerExceptionが発生しませんでした。");
+        } catch (NullPointerException e) {
+            // 何もしない
+        }
+    }
+
+    /**
+     * testGetMessage07()<br>
+     * <br>
+     * テスト概要：MessageResolvableを使用してメッセージを解決できることを確認する<br>
+     * コードが見つからない場合はデフォルトメッセージとなる<br>
+     * <br>
+     * 確認項目：デフォルトメッセージが出力されていることを確認する<br>
+     * <br>
+     * @throws Exception
+     */
+    @Test
+    public void testGetMessage07() throws Exception {
+
+        // ダミーBeanの項目にnullを設定する
+        ValidationTargetDummyBean validationTargetDummy = new ValidationTargetDummyBean();
+        validationTargetDummy.setHoge(null);
+
+        // ValidationUtilsを使用してnullを設定した項目の入力チェックを行い、
+        // FieldErrorオブジェクトを作成する
+        Errors errors = new BindException(validationTargetDummy, "dummy");
+        ValidationUtils.rejectIfEmpty(errors, "hoge", "errors.noKey",
+                new Object[] { "テスト" }, "デフォルトメッセージです");
+        List<FieldError> fieldErrors = errors.getFieldErrors();
+        assertEquals(1, fieldErrors.size());
+
+        // MessageAccessorを使用して出力されるメッセージが妥当であることを確認する
+        String result = messageAccessor.getMessage(fieldErrors.get(0));
+        assertEquals("デフォルトメッセージです", result);
+
+    }
+
+    /**
+     * testGetMessage08()<br>
+     * <br>
+     * テスト概要：MessageResolvableを使用してメッセージを解決できることを確認する<br>
+     * <br>
+     * 確認項目：プロパティに設定したメッセージが出力されていることを確認する<br>
+     * <br>
+     * @throws Exception
+     */
+    @Test
+    public void testGetMessage08() throws Exception {
+
+        // ダミーBeanの項目にnullを設定する
+        ValidationTargetDummyBean validationTargetDummy = new ValidationTargetDummyBean();
+        validationTargetDummy.setHoge(null);
+
+        // ValidationUtilsを使用してnullを設定した項目の入力チェックを行い、
+        // FieldErrorオブジェクトを作成する
+        Errors errors = new BindException(validationTargetDummy, "dummy");
+        ValidationUtils.rejectIfEmpty(errors, "hoge", "errors.required",
+                new Object[] { "テスト" }, "デフォルトメッセージです");
+        List<FieldError> fieldErrors = errors.getFieldErrors();
+        assertEquals(1, fieldErrors.size());
+
+        // MessageAccessorを使用して出力されるメッセージが妥当であることを確認する
+        String result = messageAccessor.getMessage(fieldErrors.get(0));
+        assertEquals("テストは入力必須項目です.", result);
+
+    }
+
+    /**
+     * testGetMessage09()<br>
+     * <br>
+     * テスト概要：デフォルトメッセージが設定されていないMessageResolvableを使用してメッセージが見つからない場合、 NoSuchMessageExceptionがスローされる<br>
+     * <br>
+     * 確認項目:NoSuchMessageExceptionがスローされていることを確認する<br>
+     * <br>
+     * @throws Exception
+     */
+    @Test
+    public void testGetMessage09() throws Exception {
+
+        // ダミーBeanの項目にnullを設定する
+        ValidationTargetDummyBean validationTargetDummy = new ValidationTargetDummyBean();
+        validationTargetDummy.setHoge(null);
+
+        // ValidationUtilsを使用してnullを設定した項目の入力チェックを行い、
+        // デフォルトメッセージを設定していないFieldErrorオブジェクトを作成する
+        Errors errors = new BindException(validationTargetDummy, "dummy");
+        ValidationUtils.rejectIfEmpty(errors, "hoge", "errors.noKey",
+                new Object[] { "テスト" });
+        List<FieldError> fieldErrors = errors.getFieldErrors();
+        assertEquals(1, fieldErrors.size());
+
+        try {
+            messageAccessor.getMessage(fieldErrors.get(0));
+            fail("NoSuchMessageExceptionが発生しませんでした。");
+        } catch (NoSuchMessageException e) {
+            // 何もしない
+        }
+
+    }
+
+    // MessageResolvableを使用したMessageAccessorImplのテストにおいて
+    // ValidationUtilsを使用するためのダミーBean
+    class ValidationTargetDummyBean {
+        private String hoge;
+
+        public String getHoge() {
+            return hoge;
+        }
+
+        public void setHoge(String hoge) {
+            this.hoge = hoge;
+        }
+    }
 }

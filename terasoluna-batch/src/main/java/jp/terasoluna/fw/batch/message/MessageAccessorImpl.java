@@ -16,6 +16,7 @@
 
 package jp.terasoluna.fw.batch.message;
 
+import org.springframework.context.MessageSourceResolvable;
 import org.springframework.context.support.ApplicationObjectSupport;
 
 /**
@@ -25,14 +26,20 @@ public class MessageAccessorImpl extends ApplicationObjectSupport implements
                                                                  MessageAccessor {
 
     /**
-     * メッセージを取得する。
-     * @param code メッセージコード
-     * @param args 置換文字列
-     * @return String メッセージ
+     * {@inheritDoc}
      */
     public String getMessage(String code, Object[] args) {
 
         return getMessageSourceAccessor().getMessage(code, args);
+
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public String getMessage(MessageSourceResolvable resolvable) {
+
+        return getMessageSourceAccessor().getMessage(resolvable);
 
     }
 
