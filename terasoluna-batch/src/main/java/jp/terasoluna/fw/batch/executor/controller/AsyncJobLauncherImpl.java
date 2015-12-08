@@ -129,10 +129,6 @@ public class AsyncJobLauncherImpl implements AsyncJobLauncher,
                 @Override
                 public void run() {
                     try {
-                        if (!jobExecutorTemplate.beforeExecute(jobSequenceId)) {
-                            LOGGER.warn(LogId.IAL025022, jobSequenceId);
-                            return;
-                        }
                         jobExecutorTemplate.executeWorker(jobSequenceId);
                     } catch (RuntimeException e) {
                         exceptionStatusHandler.handleException(e);

@@ -108,7 +108,7 @@ public class WorkerTemplateImplTest {
      * ・特になし
      * 確認事項
      * ・{@code WorkerTemplateImpl}の{@code bLogicResolver}に{@code null}を渡した場合、{@code IllegalArgumentException}をスローする
-     * <\pre>
+     * </pre>
      * 
      * @throws Exception 予期しない例外
      */
@@ -138,7 +138,7 @@ public class WorkerTemplateImplTest {
      * ・特になし
      * 確認事項
      * ・{@code WorkerTemplateImpl}の{@code bLogicExceptionHandlerResolver}に{@code null}を渡した場合、{@code IllegalArgumentException}をスローする
-     * <\pre>
+     * </pre>
      * 
      * @throws Exception 予期しない例外
      */
@@ -169,7 +169,7 @@ public class WorkerTemplateImplTest {
      * ・特になし
      * 確認事項
      * ・{@code WorkerTemplateImpl}の{@code bLogicApplicationContextResolver}に{@code null}を渡した場合、{@code IllegalArgumentException}をスローする
-     * <\pre>
+     * </pre>
      * 
      * @throws Exception 予期しない例外
      */
@@ -200,7 +200,7 @@ public class WorkerTemplateImplTest {
      * ・特になし
      * 確認事項
      * ・{@code WorkerTemplateImpl}の{@code batchJobDataRepository}に{@code null}を渡した場合、{@code IllegalArgumentException}をスローする
-     * <\pre>
+     * </pre>
      * 
      * @throws Exception 予期しない例外
      */
@@ -231,7 +231,7 @@ public class WorkerTemplateImplTest {
      * ・特になし
      * 確認事項
      * ・{@code WorkerTemplateImpl}の{@code bLogicParamConverter}に{@code null}を渡した場合、{@code IllegalArgumentException}をスローする
-     * <\pre>
+     * </pre>
      * 
      * @throws Exception 予期しない例外
      */
@@ -262,7 +262,7 @@ public class WorkerTemplateImplTest {
      * ・特になし
      * 確認事項
      * ・{@code WorkerTemplateImpl}の{@code bLogicExecutor}に{@code null}を渡した場合、{@code IllegalArgumentException}をスローする
-     * <\pre>
+     * </pre>
      * 
      * @throws Exception 予期しない例外
      */
@@ -293,7 +293,7 @@ public class WorkerTemplateImplTest {
      * ・特になし
      * 確認事項
      * ・{@code WorkerTemplateImpl}の{@code jobStatusChanger}に{@code null}を渡した場合、{@code IllegalArgumentException}をスローする
-     * <\pre>
+     * </pre>
      * 
      * @throws Exception 予期しない例外
      */
@@ -324,7 +324,7 @@ public class WorkerTemplateImplTest {
      * ・特になし
      * 確認事項
      * ・{@code WorkerTemplateImpl}の{@code bLogicResolver}、{@code bLogicExceptionHandlerResolver}、{@code bLogicApplicationContextResolver}、{@code batchJobDataRepository}、{@code bLogicParamConverter}、{@code bLogicExecutor}、{@code jobStatusChanger}が正しく設定されていること
-     * <\pre>
+     * </pre>
      * 
      * @throws Exception 予期しない例外
      */
@@ -359,7 +359,7 @@ public class WorkerTemplateImplTest {
      * ・特になし
      * 確認事項
      * ・ジョブシーケンスコードに該当するレコードを更新できた場合、{@code true}を返却すること
-     * <\pre>
+     * </pre>
      * 
      * @throws Exception 予期しない例外
      */
@@ -391,7 +391,7 @@ public class WorkerTemplateImplTest {
      * ・特になし
      * 確認事項
      * ・ジョブシーケンスコードに該当するレコードを更新できなかった(既にジョブステータスコードが「実行中：1」)場合、{@code false}を返却すること
-     * <\pre>
+     * </pre>
      * 
      * @throws Exception 予期しない例外
      */
@@ -426,7 +426,7 @@ public class WorkerTemplateImplTest {
      * ・特になし
      * 確認事項
      * ・ジョブシーケンスコードに該当するレコードを更新時に例外がスローされた場合、{@code false}を返却すること
-     * <\pre>
+     * </pre>
      * 
      * @throws Exception 予期しない例外
      */
@@ -465,7 +465,7 @@ public class WorkerTemplateImplTest {
      * 確認事項
      * ・{@code BatchJobDataRepository}にて{@code BatchJobData}を取得する際に例外が発生した場合、
      *  {@code afterExecuteWorker}及び{@code BLogicApplicationContextResolver}の{closeApplicationContext}が呼ばれ、終了すること
-     * <\pre>
+     * </pre>
      * 
      * @throws Exception 予期しない例外
      */
@@ -487,6 +487,7 @@ public class WorkerTemplateImplTest {
                 mockJobStatusChanger));
         doNothing().when(target).afterExecuteWorker(anyString(),
                 bLogicResultCaptor.capture());
+        doReturn(true).when(target).beforeExecute(anyString());
 
         // テスト実行
         target.executeWorker("0000001");
@@ -530,7 +531,7 @@ public class WorkerTemplateImplTest {
      * 確認事項
      * ・{@code BLogicApplicationContextResolver}にてジョブ用の{@code ApplicationContext}を取得する際に例外が発生した場合、
      *  {@code afterExecuteWorker}及び{@code BLogicApplicationContextResolver}の{closeApplicationContext}が呼ばれ、終了すること
-     * <\pre>
+     * </pre>
      * 
      * @throws Exception 予期しない例外
      */
@@ -554,6 +555,7 @@ public class WorkerTemplateImplTest {
                 mockJobStatusChanger));
         doNothing().when(target).afterExecuteWorker(anyString(),
                 bLogicResultCaptor.capture());
+        doReturn(true).when(target).beforeExecute(anyString());
 
         // テスト実行
         target.executeWorker("0000001");
@@ -597,7 +599,7 @@ public class WorkerTemplateImplTest {
      * 確認事項
      * ・{@code BLogicResolver}にて{@code BLogic}のBeanを取得する際に例外が発生した場合、
      *  {@code afterExecuteWorker}及び{@code BLogicApplicationContextResolver}の{closeApplicationContext}が呼ばれ、終了すること
-     * <\pre>
+     * </pre>
      * 
      * @throws Exception 予期しない例外
      */
@@ -620,6 +622,7 @@ public class WorkerTemplateImplTest {
                 mockJobStatusChanger));
         doNothing().when(target).afterExecuteWorker(anyString(),
                 bLogicResultCaptor.capture());
+        doReturn(true).when(target).beforeExecute(anyString());
 
         BatchJobData batchJobData = new BatchJobData();
         batchJobData.setJobAppCd("0000001");
@@ -668,7 +671,7 @@ public class WorkerTemplateImplTest {
      * 確認事項
      * ・{@code BLogicParamConverter}にて{@code BLogicParam}を取得する際に例外が発生した場合、
      *  {@code afterExecuteWorker}及び{@code BLogicApplicationContextResolver}の{closeApplicationContext}が呼ばれ、終了すること
-     * <\pre>
+     * </pre>
      * 
      * @throws Exception 予期しない例外
      */
@@ -692,6 +695,7 @@ public class WorkerTemplateImplTest {
                 mockJobStatusChanger));
         doNothing().when(target).afterExecuteWorker(anyString(),
                 bLogicResultCaptor.capture());
+        doReturn(true).when(target).beforeExecute(anyString());
 
 
         BatchJobData batchJobData = new BatchJobData();
@@ -742,7 +746,7 @@ public class WorkerTemplateImplTest {
      * ・{@code BLogicExceptionHandlerResolver}にて{@code BLogicExceptionHandler}を取得する際に例外が発生した場合、
      *  後続の処理である、{@code BLogicExecutor}の{@code execute}、{@code afterExecuteWorker}及び
      *  {@code BLogicApplicationContextResolver}の{closeApplicationContext}が呼ばれ、終了すること
-     * <\pre>
+     * </pre>
      * 
      * @throws Exception 予期しない例外
      */
@@ -795,6 +799,7 @@ public class WorkerTemplateImplTest {
                 mockJobStatusChanger));
         doNothing().when(target).afterExecuteWorker(anyString(),
                 bLogicResultCaptor.capture());
+        doReturn(true).when(target).beforeExecute(anyString());
 
         // テスト実行
         target.executeWorker("0000001");
@@ -824,7 +829,7 @@ public class WorkerTemplateImplTest {
      * 確認事項
      * ・{@code BLogicExecutor}の{@code execute}で例外がスローされた場合、ログを出力し、
      *  {@code afterExecuteWorker}及び{@code BLogicApplicationContextResolver}の{closeApplicationContext}が呼ばれ、終了すること
-     * <\pre>
+     * </pre>
      * 
      * @throws Exception 予期しない例外
      */
@@ -855,6 +860,7 @@ public class WorkerTemplateImplTest {
                 mockJobStatusChanger));
         doNothing().when(target).afterExecuteWorker(anyString(),
                 bLogicResultCaptor.capture());
+        doReturn(true).when(target).beforeExecute(anyString());
 
         BatchJobData batchJobData = new BatchJobData();
         batchJobData.setJobAppCd("0000001");
@@ -881,6 +887,59 @@ public class WorkerTemplateImplTest {
     }
 
     /**
+     * {@code executeWorker}のテスト07 【正常系】<br>
+     *
+     * <pre>
+     * 事前条件
+     * ・特になし
+     * 確認事項
+     *  {@code beforeExecute()}がfalseを返却した際、INFOログを出力し後続を処理せず終了すること。
+     * </pre>
+     *
+     * @throws Exception 予期しない例外
+     */
+    @Test
+    public void testExecuteWorker07() throws Exception {
+        Exception ex = new IllegalArgumentException();
+        when(
+                mockBLogicExecutor.execute(any(ApplicationContext.class),
+                        any(BLogic.class), any(BLogicParam.class),
+                        any(ExceptionHandler.class))).thenThrow(ex);
+        ExceptionHandler exceptionHandler = mock(ExceptionHandler.class);
+        when(exceptionHandler.handleThrowableException(any(Throwable.class))).thenReturn(0);
+
+        when(
+                mockBLogicExceptionHandlerResolver.resolveExceptionHandler(
+                        any(ApplicationContext.class), anyString()))
+                .thenReturn(exceptionHandler);
+
+        ArgumentCaptor<BLogicResult> bLogicResultCaptor = ArgumentCaptor
+                .forClass(BLogicResult.class);
+
+        WorkerTemplateImpl target = spy(new WorkerTemplateImpl(mockBLogicResolver,
+                mockBLogicExceptionHandlerResolver,
+                mockBLogicApplicationContextResolver,
+                mockBatchJobDataRepository,
+                mockBLogicParamConverter,
+                mockBLogicExecutor,
+                mockJobStatusChanger));
+        doNothing().when(target).afterExecuteWorker(anyString(),
+                bLogicResultCaptor.capture());
+        doReturn(false).when(target).beforeExecute(anyString());
+
+        // テスト実行
+        target.executeWorker("0000001");
+
+        verify(target, never()).afterExecuteWorker(eq("0000001"),
+                any(BLogicResult.class));
+        verify(mockBLogicApplicationContextResolver, never())
+                .closeApplicationContext(any(ApplicationContext.class));
+
+        assertThat(logger.getLoggingEvents(), is(asList(info(
+                "[IAL025022] Skipped job execution, because target job was not found. jobSequenceId[0000001]"))));
+    }
+
+    /**
      * {@code afterExecuteWorker}のテスト01 【正常系】<br>
      * 
      * <pre>
@@ -888,7 +947,7 @@ public class WorkerTemplateImplTest {
      * ・特になし
      * 確認事項
      * ・{@code JobStatusChanger}の戻り値が{@code true}の場合、何もログが吐かれずに終了すること
-     * <\pre>
+     * </pre>
      * 
      * @throws Exception 予期しない例外
      */
@@ -925,7 +984,7 @@ public class WorkerTemplateImplTest {
      * ・特になし
      * 確認事項
      * ・{@code JobStatusChanger}の戻り値が{@code false}の場合、ログが吐かれて終わること
-     * <\pre>
+     * </pre>
      * 
      * @throws Exception 予期しない例外
      */
@@ -966,7 +1025,7 @@ public class WorkerTemplateImplTest {
      * ・特になし
      * 確認事項
      * ・{@code JobStatusChanger}から例外がスローされた場合、ログが吐かれて終わること
-     * <\pre>
+     * </pre>
      * 
      * @throws Exception 予期しない例外
      */
@@ -1008,7 +1067,7 @@ public class WorkerTemplateImplTest {
      * ・特になし
      * 確認事項
      * ・引数の{@code BLogicResult}が{@code null}の場合、ログに{@code null}の情報が吐かれて終わること
-     * <\pre>
+     * </pre>
      * 
      * @throws Exception 予期しない例外
      */
