@@ -195,10 +195,8 @@ public class MessageAccessorImplTest {
         try {
             messageAccessor.getMessage(resolvable);
             fail("NullPointerExceptionが発生しませんでした。");
-        } catch (Exception e) {
-            // NullPointerExceptionであること
-            assertTrue("NullPointerExceptionではない例外が発生しました。" + e.getMessage(),
-                    e instanceof NullPointerException);
+        } catch (NullPointerException e) {
+            // 何もしない
         }
     }
 
@@ -218,7 +216,6 @@ public class MessageAccessorImplTest {
         // ダミーBeanの項目にnullを設定する
         ValidationTargetDummyBean validationTargetDummy = new ValidationTargetDummyBean();
         validationTargetDummy.setHoge(null);
-        assertEquals(validationTargetDummy.getHoge(), null);
 
         // ValidationUtilsを使用してnullを設定した項目の入力チェックを行い、
         // FieldErrorオブジェクトを作成する
@@ -249,7 +246,6 @@ public class MessageAccessorImplTest {
         // ダミーBeanの項目にnullを設定する
         ValidationTargetDummyBean validationTargetDummy = new ValidationTargetDummyBean();
         validationTargetDummy.setHoge(null);
-        assertEquals(validationTargetDummy.getHoge(), null);
 
         // ValidationUtilsを使用してnullを設定した項目の入力チェックを行い、
         // FieldErrorオブジェクトを作成する
@@ -280,7 +276,6 @@ public class MessageAccessorImplTest {
         // ダミーBeanの項目にnullを設定する
         ValidationTargetDummyBean validationTargetDummy = new ValidationTargetDummyBean();
         validationTargetDummy.setHoge(null);
-        assertEquals(validationTargetDummy.getHoge(), null);
 
         // ValidationUtilsを使用してnullを設定した項目の入力チェックを行い、
         // デフォルトメッセージを設定していないFieldErrorオブジェクトを作成する
@@ -293,10 +288,8 @@ public class MessageAccessorImplTest {
         try {
             messageAccessor.getMessage(fieldErrors.get(0));
             fail("NoSuchMessageExceptionが発生しませんでした。");
-        } catch (Exception e) {
-            // NoSuchMessageExceptionであること
-            assertTrue("NoSuchMessageExceptionではない例外が発生しました。" + e.getMessage(),
-                    e instanceof NoSuchMessageException);
+        } catch (NoSuchMessageException e) {
+            // 何もしない
         }
 
     }
