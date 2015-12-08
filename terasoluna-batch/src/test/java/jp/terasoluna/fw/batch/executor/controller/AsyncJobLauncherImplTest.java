@@ -23,7 +23,6 @@ import jp.terasoluna.fw.batch.executor.worker.JobExecutorTemplate;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.ArgumentCaptor;
 import org.mockito.Mockito;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
@@ -251,59 +250,6 @@ public class AsyncJobLauncherImplTest {
      * 事前条件
      * ・特になし
      * 確認項目
-     * ・前処理が{@code false}を返却した場合、主処理が実行されないこと。
-     * </pre>
-     *
-     * @throws Exception 予期しない例外
-     */
-    @Test
-    public void testExecuteJob02() throws Exception {
-        ArgumentCaptor<String> stringArgumentCaptor = ArgumentCaptor.forClass(
-                String.class);
-        doReturn(false).when(jobExecutorTemplate)
-                .beforeExecute(stringArgumentCaptor.capture());
-        Semaphore semaphore = new Semaphore(10);
-        AsyncJobLauncherImpl asyncJobLauncher = new AsyncJobLauncherImpl(
-                threadPoolTaskExecutor, jobExecutorTemplate,
-                exceptionStatusHandler);
-        asyncJobLauncher.taskPoolLimit = semaphore;
-
-        // ThreadPoolTaskExecutor#execute()呼び出し時、同一スレッドで疑似的にRunnable#run()を実行する。
-        doAnswer(new Answer() {
-            @Override
-            public Object answer(InvocationOnMock invocationOnMock)
-                    throws Throwable {
-                Runnable runnable = invocationOnMock.getArgumentAt(0,
-                        Runnable.class);
-                runnable.run();
-                return null;
-            }
-        }).when(threadPoolTaskExecutor)
-                .execute(any(Runnable.class));
-
-        // テスト実行
-        asyncJobLauncher.executeJob("0000000001");
-
-        // 前処理引数にテスト実行時の引数が渡されていること。
-        assertEquals("0000000001", stringArgumentCaptor.getValue());
-
-        // JobExecutorTemplateの主処理が呼び出されていないこと。
-        verify(jobExecutorTemplate, never()).executeWorker("0000000001");
-
-        // セマフォのサイズが元の値に戻っていること。
-        assertEquals(10, semaphore.availablePermits());
-
-        // ログにINFOログが出力されていること。
-        assertThat(logger.getLoggingEvents(), is(asList(
-                warn("[IAL025022] Skipped job execution, because target job was not found. jobSequenceId[0000000001]"))));
-    }
-
-    /**
-     * executeJob()メソッドのテスト 【異常系】
-     * <pre>
-     * 事前条件
-     * ・特になし
-     * 確認項目
      * ・{@code TaskRejectedException}を捕捉した場合、エラーログが出力されること。
      * </pre>
      *
@@ -362,9 +308,6 @@ public class AsyncJobLauncherImplTest {
         // テスト実行
         asyncJobLauncher.executeJob("0000000001");
 
-        // 前処理が呼び出されていないこと。
-        verify(jobExecutorTemplate, never()).beforeExecute(anyString());
-
         // エラーログ（EAL025054）とTaskRejectedExceptionの例外メッセージが出力されていること。
         assertTrue(logger.getLoggingEvents()
                 .get(0)
@@ -388,7 +331,6 @@ public class AsyncJobLauncherImplTest {
      */
     @Test
     public void testExecuteJob05() throws Exception {
-        doReturn(true).when(jobExecutorTemplate).beforeExecute(anyString());
         doNothing().when(jobExecutorTemplate).executeWorker(anyString());
         Semaphore semaphore = new Semaphore(10);
         doAnswer(new Answer<Object>() {
@@ -409,58 +351,11 @@ public class AsyncJobLauncherImplTest {
         // テスト実行
         asyncJobLauncher.executeJob("0000000001");
 
-        // JobExecutorTemplate#beforeExecute()が呼び出されていること。
-        verify(jobExecutorTemplate).beforeExecute("0000000001");
-
         // JobExecutorTemplate#executeWorker()が呼び出されていること。
         verify(jobExecutorTemplate).executeWorker("0000000001");
 
         // セマフォのサイズが元の値に戻っていること。
         assertEquals(10, semaphore.availablePermits());
-    }
-
-    /**
-     * executeJob()メソッドのテスト 【異常系】
-     * <pre>
-     * 事前条件
-     * ・特になし
-     * 確認項目
-     * ・{@code JobExecutorTemplate#beforeExecute()}により、
-     * 　{@code RuntimeException}がスローされた場合、セマフォ開放が行われていること。
-     * </pre>
-     *
-     * @throws Exception 予期しない例外
-     */
-    @Test
-    public void testExecuteJob06() throws Exception {
-        RuntimeException runtimeException = new RuntimeException(
-                "exception in beforeExecute()");
-        doThrow(runtimeException).when(jobExecutorTemplate)
-                .beforeExecute("0000000001");
-        Semaphore semaphore = new Semaphore(10);
-        doAnswer(new Answer<Object>() {
-            @Override
-            public Object answer(InvocationOnMock invocationOnMock)
-                    throws Throwable {
-                Runnable runnable = invocationOnMock.getArgumentAt(0,
-                        Runnable.class);
-                runnable.run();
-                return null;
-            }
-        }).when(threadPoolTaskExecutor).execute(any(Runnable.class));
-
-        AsyncJobLauncherImpl asyncJobLauncher = new AsyncJobLauncherImpl(
-                threadPoolTaskExecutor, jobExecutorTemplate,
-                exceptionStatusHandler);
-        asyncJobLauncher.taskPoolLimit = semaphore;
-
-        // テスト実行
-        asyncJobLauncher.executeJob("0000000001");
-
-        // ExceptionStatusHandlerが呼び出され、RuntimeExceptionが渡されていること。
-        verify(exceptionStatusHandler).handleException(runtimeException);
-
-        assertEquals(10, asyncJobLauncher.taskPoolLimit.availablePermits());
     }
 
     /**
@@ -478,7 +373,6 @@ public class AsyncJobLauncherImplTest {
     public void testExecuteJob07() throws Exception {
         final RuntimeException runtimeException = new RuntimeException(
                 "exception in jobExecutorTemplate#executeWorker()");
-        doReturn(true).when(jobExecutorTemplate).beforeExecute("0000000001");
         doThrow(runtimeException).when(jobExecutorTemplate)
                 .executeWorker("0000000001");
         Semaphore semaphore = new Semaphore(10);
@@ -532,7 +426,6 @@ public class AsyncJobLauncherImplTest {
         };
         final ThreadPoolTaskExecutor mockThreadPoolTaskExecutor = spy(
                 threadPoolTaskExecutor);
-        doReturn(true).when(jobExecutorTemplate).beforeExecute(anyString());
         // ThreadPoolTaskExecutorのエミュレーション。
         doAnswer(new Answer<Object>() {
             @Override
@@ -628,7 +521,6 @@ public class AsyncJobLauncherImplTest {
     public void testExecuteJob09() throws Exception {
         final RuntimeException runtimeException = new RuntimeException(
                 "exception in jobExecutorTemplate#executeWorker()");
-        doReturn(true).when(jobExecutorTemplate).beforeExecute("0000000001");
         doThrow(runtimeException).when(jobExecutorTemplate)
                 .executeWorker("0000000001");
         Semaphore semaphore = new Semaphore(10);
@@ -649,9 +541,6 @@ public class AsyncJobLauncherImplTest {
 
         // テスト実行
         asyncJobLauncher.executeJob("0000000001");
-
-        // JobExecutorTemplate#beforeExecute()が呼び出されていること。
-        verify(jobExecutorTemplate).beforeExecute("0000000001");
 
         // JobExecutorTemplate#executeWorker()が呼び出されていること。
         verify(jobExecutorTemplate).executeWorker("0000000001");

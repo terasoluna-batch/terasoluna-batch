@@ -17,17 +17,9 @@
 package jp.terasoluna.fw.batch.executor.worker;
 
 /**
- * ジョブシーケンスコードで決定されるジョブの前処理と主処理を定義するインタフェース。<br>
+ * ジョブシーケンスコードで決定されるジョブを定義するインタフェース。<br>
  */
 public interface JobExecutorTemplate {
-
-    /**
-     * ジョブの前処理を行う。<br>
-     *
-     * @param jobSequenceId ジョブシーケンスコード
-     * @return 前処理の処理結果(falseならば主処理の実行を中断する)
-     */
-    boolean beforeExecute(String jobSequenceId);
 
     /**
      * ジョブの主処理を行う。<br>
