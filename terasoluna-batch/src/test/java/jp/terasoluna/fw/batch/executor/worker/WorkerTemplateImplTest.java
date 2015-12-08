@@ -595,7 +595,7 @@ public class WorkerTemplateImplTest {
      * 事前条件
      * ・特になし
      * 確認事項
-     * ・{@code BLogicResover}にて{@code BLogic}のBeanを取得する際に例外が発生した場合、
+     * ・{@code BLogicResolver}にて{@code BLogic}のBeanを取得する際に例外が発生した場合、
      *  {@code afterExecuteWorker}及び{@code BLogicApplicationContextResolver}の{closeApplicationContext}が呼ばれ、終了すること
      * <\pre>
      * 
@@ -621,11 +621,16 @@ public class WorkerTemplateImplTest {
         doNothing().when(target).afterExecuteWorker(anyString(),
                 bLogicResultCaptor.capture());
 
+        BatchJobData batchJobData = new BatchJobData();
+        batchJobData.setJobAppCd("0000001");
+        doReturn(batchJobData).when(mockBatchJobDataRepository)
+                .resolveBatchJobData("seq0000001");
+
         // テスト実行
-        target.executeWorker("0000001");
+        target.executeWorker("seq0000001");
 
         verify(mockBatchJobDataRepository).resolveBatchJobData(
-                "0000001");
+                "seq0000001");
         verify(mockBLogicApplicationContextResolver)
                 .resolveApplicationContext(any(BatchJobData.class));
         verify(mockBLogicParamConverter, never()).convertBLogicParam(
@@ -634,7 +639,7 @@ public class WorkerTemplateImplTest {
                 .resolveExceptionHandler(any(ApplicationContext.class),
                         anyString());
 
-        verify(target).afterExecuteWorker(eq("0000001"),
+        verify(target).afterExecuteWorker(eq("seq0000001"),
                 any(BLogicResult.class));
         verify(mockBLogicApplicationContextResolver)
                 .closeApplicationContext(null);
@@ -651,7 +656,7 @@ public class WorkerTemplateImplTest {
                 logger.getLoggingEvents(),
                 is(asList(error(
                         ex,
-                        "[EAL025068] JobSequenceId:0000001 : The previous processing of the BLogic execution has failed."))));
+                        "[EAL025068] JobSequenceId:seq0000001 : The previous processing of the BLogic execution has failed."))));
     }
 
     /**
@@ -688,11 +693,17 @@ public class WorkerTemplateImplTest {
         doNothing().when(target).afterExecuteWorker(anyString(),
                 bLogicResultCaptor.capture());
 
+
+        BatchJobData batchJobData = new BatchJobData();
+        batchJobData.setJobAppCd("0000001");
+        doReturn(batchJobData).when(mockBatchJobDataRepository)
+                .resolveBatchJobData("seq0000001");
+
         // テスト実行
-        target.executeWorker("0000001");
+        target.executeWorker("seq0000001");
 
         verify(mockBatchJobDataRepository).resolveBatchJobData(
-                "0000001");
+                "seq0000001");
         verify(mockBLogicApplicationContextResolver)
                 .resolveApplicationContext(any(BatchJobData.class));
         verify(mockBLogicResolver).resolveBLogic(
@@ -701,7 +712,7 @@ public class WorkerTemplateImplTest {
                 .resolveExceptionHandler(any(ApplicationContext.class),
                         anyString());
 
-        verify(target).afterExecuteWorker(eq("0000001"),
+        verify(target).afterExecuteWorker(eq("seq0000001"),
                 any(BLogicResult.class));
         verify(mockBLogicApplicationContextResolver)
                 .closeApplicationContext(null);
@@ -718,7 +729,7 @@ public class WorkerTemplateImplTest {
                 logger.getLoggingEvents(),
                 is(asList(error(
                         ex,
-                        "[EAL025068] JobSequenceId:0000001 : The previous processing of the BLogic execution has failed."))));
+                        "[EAL025068] JobSequenceId:seq0000001 : The previous processing of the BLogic execution has failed."))));
     }
 
     /**
@@ -845,10 +856,15 @@ public class WorkerTemplateImplTest {
         doNothing().when(target).afterExecuteWorker(anyString(),
                 bLogicResultCaptor.capture());
 
-        // テスト実行
-        target.executeWorker("0000001");
+        BatchJobData batchJobData = new BatchJobData();
+        batchJobData.setJobAppCd("0000001");
+        doReturn(batchJobData).when(mockBatchJobDataRepository)
+                .resolveBatchJobData("seq0000001");
 
-        verify(target).afterExecuteWorker(eq("0000001"),
+        // テスト実行
+        target.executeWorker("seq0000001");
+
+        verify(target).afterExecuteWorker(eq("seq0000001"),
                 any(BLogicResult.class));
         verify(mockBLogicApplicationContextResolver)
                 .closeApplicationContext(any(ApplicationContext.class));
@@ -861,7 +877,7 @@ public class WorkerTemplateImplTest {
                 logger.getLoggingEvents(),
                 is(asList(error(
                         ex,
-                        "[EAL025093] JobSequenceId:0000001 : The BLogic execution has failed during processing."))));
+                        "[EAL025093] JobSequenceId:seq0000001 : The BLogic execution has failed during processing."))));
     }
 
     /**
