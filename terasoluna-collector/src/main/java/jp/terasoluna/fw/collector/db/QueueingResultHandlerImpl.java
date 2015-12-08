@@ -27,7 +27,7 @@ import org.apache.ibatis.session.ResultContext;
 /**
  * QueueingResultHandlerの実装クラス<br>
  */
-public class QueueingResultHandlerImpl implements QueueingResultHandler {
+public class QueueingResultHandlerImpl<T> implements QueueingResultHandler<T> {
 
     /**
      * Log.
@@ -41,10 +41,10 @@ public class QueueingResultHandlerImpl implements QueueingResultHandler {
     /**
      * 前回handleResultメソッドに渡されたオブジェクト
      */
-    protected Object prevRow = null;
+    protected T prevRow = null;
 
     /** DaoCollector */
-    protected DaoCollector<?> daoCollector = null;
+    protected DaoCollector<T> daoCollector = null;
 
     /** データカウント */
     protected AtomicLong dataCount = new AtomicLong(0);
@@ -53,7 +53,7 @@ public class QueueingResultHandlerImpl implements QueueingResultHandler {
      * (non-Javadoc)
      * @see org.apache.ibatis.session.ResultHandler#handleResult(org.apache.ibatis.session.ResultContext)
      */
-    public void handleResult(ResultContext context) {
+    public void handleResult(ResultContext<? extends T> context) {
         delayCollect();
         if (Thread.currentThread().isInterrupted()) {
             // 割り込みが発生したらキューをスキップする
@@ -97,7 +97,7 @@ public class QueueingResultHandlerImpl implements QueueingResultHandler {
      * DaoCollectorを設定する。<br>
      * @param daoCollector DaoCollector&lt;?&gt;
      */
-    public void setDaoCollector(DaoCollector<?> daoCollector) {
+    public void setDaoCollector(DaoCollector<T> daoCollector) {
         this.daoCollector = daoCollector;
     }
 

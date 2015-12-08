@@ -2,17 +2,17 @@ package jp.terasoluna.fw.collector.db;
 
 import org.apache.ibatis.session.ResultContext;
 
-public class DummyResultContext implements ResultContext {
+public class DummyResultContext implements ResultContext<HogeBean> {
 
-    private Object object = null;
+    private HogeBean object = null;
     private int count = 0;
     private boolean stopped = false;
 
-    public void setResultObject(Object object) {
+    public void setResultObject(HogeBean object) {
         this.object = object;
     }
 
-    public Object getResultObject() {
+    public HogeBean getResultObject() {
         return object;
     }
 

@@ -129,10 +129,8 @@ import org.apache.commons.beanutils.PropertyUtils;
  * @see <a href="http://mybatis.github.io/mybatis-3/ja/sqlmap-xml.html">http://mybatis.github.io/mybatis-3/ja/sqlmap-xml.html</a>
  */
 @Deprecated
-public class Queueing1NRelationResultHandlerImpl extends
-        QueueingResultHandlerImpl
-                                                                           implements
-        QueueingResultHandler {
+public class Queueing1NRelationResultHandlerImpl<T> extends
+        QueueingResultHandlerImpl<T> {
 
     /**
      * Log.

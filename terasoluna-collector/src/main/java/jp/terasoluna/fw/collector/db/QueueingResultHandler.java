@@ -22,7 +22,7 @@ import org.apache.ibatis.session.ResultHandler;
  * QueueingResultHandlerインタフェース<br>
  * ResultHandlerの拡張インタフェース。
  */
-public interface QueueingResultHandler extends ResultHandler {
+public interface QueueingResultHandler<T> extends ResultHandler<T> {
 
     /**
      * 前回handleResultメソッドに渡された<code>Row</code>データをキューに格納する。
@@ -33,5 +33,5 @@ public interface QueueingResultHandler extends ResultHandler {
      * DaoCollectorを設定する。<br>
      * @param daoCollector daoCollector&lt;?&gt;
      */
-    void setDaoCollector(DaoCollector<?> daoCollector);
+    void setDaoCollector(DaoCollector<T> daoCollector);
 }
