@@ -25,7 +25,6 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import jp.terasoluna.fw.batch.exception.BatchException;
 import jp.terasoluna.fw.batch.message.MessageAccessor;
 import jp.terasoluna.fw.batch.util.MessageUtil;
 import jp.terasoluna.fw.util.PropertyUtil;

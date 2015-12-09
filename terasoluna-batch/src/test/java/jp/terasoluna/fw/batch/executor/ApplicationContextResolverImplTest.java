@@ -32,9 +32,7 @@ import org.springframework.util.ReflectionUtils;
 import java.lang.reflect.Field;
 import java.util.TreeMap;
 
-import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
-import static org.mockito.Matchers.isNull;
 import static org.mockito.Mockito.mock;
 
 /**

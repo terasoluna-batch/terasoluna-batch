@@ -17,15 +17,10 @@
 package jp.terasoluna.fw.batch.executor;
 
 import jp.terasoluna.fw.batch.constants.LogId;
-import jp.terasoluna.fw.batch.exception.IllegalClassTypeException;
 import jp.terasoluna.fw.batch.executor.controller.JobOperator;
 
 import jp.terasoluna.fw.logger.TLogger;
-import jp.terasoluna.fw.util.PropertyUtil;
-import org.springframework.beans.BeanInstantiationException;
-import org.springframework.beans.BeanUtils;
 import org.springframework.context.ApplicationContext;
-import org.springframework.util.ClassUtils;
 
 /**
  * 非同期型ジョブ起動機能のエントリポイント。<br>
@@ -47,11 +42,6 @@ public class AsyncBatchExecutor {
      */
     private static final TLogger LOGGER = TLogger.getLogger(
             AsyncBatchExecutor.class);
-
-    /**
-     * フレームワークの管理用ApplicationContextの解決を行うクラスのプロパティ名
-     */
-    private static final String ADMIN_CONTEXT_RESOLVER_NAME = "adminContextResolver.class";
 
     /**
      * {@code JobOperator}のBean名
