@@ -89,7 +89,7 @@
         UPDATE
         JOB_CONTROL
         <set>
-            UPD_DATE_TIME = #{updDateTime},
+            UPD_DATE_TIME = CURRENT_TIMESTAMP,
             <if test="blogicAppStatus != null and blogicAppStatus != ''">
                 BLOGIC_APP_STATUS = #{blogicAppStatus},
             </if>
