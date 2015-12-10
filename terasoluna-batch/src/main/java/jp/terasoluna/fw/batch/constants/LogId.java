@@ -667,10 +667,6 @@ public final class LogId {
      */
     public static final String EAL025066 = "EAL025066";
     /**
-     * <strong>EAL025067 = [Assertion failed] - AsyncJobWorkerImpl constructor needs ExceptionStatusHandler</strong>
-     */
-    public static final String EAL025067 = "EAL025067";
-    /**
      * <strong>EAL025068 = JobSequenceId:{0} : The previous processing of the BLogic execution has failed.</strong>
      */
     public static final String EAL025068 = "EAL025068";
