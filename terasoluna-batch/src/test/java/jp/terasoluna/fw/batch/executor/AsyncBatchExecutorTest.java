@@ -40,6 +40,7 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 import static uk.org.lidalia.slf4jtest.LoggingEvent.error;
+import static uk.org.lidalia.slf4jtest.LoggingEvent.info;
 
 /**
  * {@code AsyncBatchExecutor}のテストケース。
@@ -143,6 +144,10 @@ public class AsyncBatchExecutorTest {
 
         // テスト実行
         assertEquals(28194, target.doMain(args));
+
+        assertThat(logger.getLoggingEvents(), is(asList(
+                info("[IAL025005] AsyncBatchExecutor START"),
+                info("[IAL025013] AsyncBatchExecutor END"))));
     }
 
     /**
@@ -170,8 +175,9 @@ public class AsyncBatchExecutorTest {
         // テスト実行
         assertEquals(AsyncBatchExecutor.FAIL_TO_OBTAIN_JOB_OPERATOR_CODE,
                 target.doMain(new String[] {}));
-        assertThat(logger.getLoggingEvents(), is(asList(error(expectThrown,
-                "[EAL025094] Fail to obtain JobOperator."))));
+        assertThat(logger.getLoggingEvents(), is(asList(
+                info("[IAL025005] AsyncBatchExecutor START"),
+                error(expectThrown, "[EAL025094] Fail to obtain JobOperator."))));
     }
 
     /**
@@ -201,8 +207,9 @@ public class AsyncBatchExecutorTest {
         // テスト実行
         assertEquals(AsyncBatchExecutor.FAIL_TO_OBTAIN_JOB_OPERATOR_CODE,
                 target.doMain(new String[] {}));
-        assertThat(logger.getLoggingEvents(), is(asList(error(expectThrown,
-                "[EAL025094] Fail to obtain JobOperator."))));
+        assertThat(logger.getLoggingEvents(), is(asList(
+                info("[IAL025005] AsyncBatchExecutor START"),
+                error(expectThrown, "[EAL025094] Fail to obtain JobOperator."))));
 
         verify(mockResolver).closeApplicationContext(any(ApplicationContext.class));
     }
@@ -238,6 +245,7 @@ public class AsyncBatchExecutorTest {
         assertEquals(AsyncBatchExecutor.FAIL_TO_OBTAIN_JOB_OPERATOR_CODE,
                 target.doMain(new String[] {}));
         assertThat(logger.getLoggingEvents(), is(asList(
+                info("[IAL025005] AsyncBatchExecutor START"),
                 error(expectThrown, "[EAL025094] Fail to obtain JobOperator."),
                 error(closeThrown, "[EAL025096] ApplicationContext closing failed."))));
     }
